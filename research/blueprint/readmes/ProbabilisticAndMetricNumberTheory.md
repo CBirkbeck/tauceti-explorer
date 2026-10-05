@@ -8,19 +8,7 @@ normalization and quantifiers belong to each theorem. A heuristic model is not a
 joint law, a dense orbit is not an equidistributed orbit, and mean convergence is not a
 pointwise ergodic theorem.
 
-The companion packet is **partial**. Its 76 nodes give a finite weighted prime-truncation
-API, quantitative first/second-moment comparisons and finite Boolean divisibility-pattern
-laws, centered mixed products and higher moments with explicit errors, and finite
-unweighted even/odd Gaussian moment comparisons, and deterministic prime-cutoff removal
-with finite moment transfer to omega, full residue-class joint laws and sharp finite
-comparison bounds, and the repeated-prime-factor first-moment, tail and finite
-distribution comparison, arithmetic law dictionary and conditional weak-limit transfer,
-and a uniform exponential bound yielding every fixed repeated-factor moment.
-None is labelled implemented. These
-results address bounded parts of PM.0 and PM.1; they neither close either stage nor prove Turan–Kubilius,
-Hardy–Ramanujan or Erdos–Kac. The full six-stage coverage ledger is in the JSON.
-
-PM.3 now decomposes Koukoulopoulos–Maynard's proof of the Duffin–Schaeffer conjecture in 34 nodes, with Catlin's conjecture and Khinchin's theorem as consequences; see the last part of this document.
+The companion packet is **complete as a planning pass**, with 258 unchecked nodes. All six stages are planned; none is closed. Its exact gaps and supplier requests are listed in the final coverage ledger. The finite arithmetic, Weyl/torus and Koukoulopoulos–Maynard contracts below are retained, while the continuation adds the missing additive, distributional, discrepancy, Hausdorff, Gauss and multiplicative-function targets. No theorem is claimed implemented.
 
 Suggested home: `TauCeti/NumberTheory/ArithmeticProbability/FiniteDivisibility.lean`.
 The PM.1 comparison lemmas can follow in `FiniteGaussianMoments.lean`, and the
@@ -33,8 +21,7 @@ Suggested namespace: `TauCeti.Probability.Arithmetic`.
 ## Existing library, not duplicate carriers
 
 The baseline is Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti
-`f790474821cf4256814db967cb154e7af3d0c369`. The packet lists 116 declarations whose
-statements were read at these commits. Generic finite coprime-product and subset-expansion
+`f790474821cf4256814db967cb154e7af3d0c369`. The packet lists 173 baseline declarations. New statements were read at these commits; earlier receipts remain attributed to their historical passes. Generic finite coprime-product and subset-expansion
 identities are reused, not scheduled as arithmetic-probability nodes.
 
 Mathlib already supplies `ArithmeticFunction`, with value zero at zero; `cardDistinctFactors`
@@ -1700,34 +1687,11 @@ or Erdos–Kac. The existing weak-limit equivalence is still conditional on a
 limit for one of the laws. All stronger growing-prime and growing-moment
 requirements remain in the coverage ledger.
 
-## Remaining roadmap work and ownership
+## Ownership and remaining inputs
 
-PM.0 still needs general additive/strongly additive interfaces, general prime-power
-representation, stronger growing-prime comparison
-beyond the finite full-residue laws, and the converse criterion using counting limits
-at CDF continuity points. The finite counting/CDF/characteristic-function identities,
-arithmetic Levy criterion and conditional omega-to-Omega weak-limit equivalence are
-now decomposed, as are all fixed repeated-factor moments from Exercise 46(ii).
-Use the existing empirical, moment and characteristic-function carriers.
+The current continuation and its coverage ledger at the end of this document supersede earlier unplanned-stage placeholders. The inherited finite arithmetic estimates do not close the growing-prime or limit-law inputs. Existing Mathlib measures and arithmetic/continued-fraction carriers remain the foundation; cross-roadmap analytic inputs are requested from their current owners.
 
-PM.1 still needs decomposition of the read Granville–Soundararajan Erdos–Kac proof,
-including the precise Gaussian moment range, Mertens normalization and source-specific
-asymptotic estimates for the now-explicit cutoff and moment-transfer bounds.
-The full Turan–Kubilius and Hardy–Ramanujan proof sources remain to be acquired.
-The generic iid CLT is not a theorem
-about these arithmetic indicators. PM.2 needs Weyl/discrepancy/digit proofs and a precise
-ES.0 differencing input. PM.3 now has the Duffin–Schaeffer theorem, Catlin's conjecture and Khinchin's theorem
-(Koukoulopoulos–Maynard); what remains is listed at the end of its section. Mathlib's
-Borel–Cantelli and Gallagher theorems are suppliers, not new targets.
-
-PM.4 needs primary Gauss-map and continued-fraction sources, pointwise ergodic input and
-integrability. GN.4 remains the homogeneous-dynamics supplier; the audited mean ergodic
-and L1 convergence results do not supply pointwise digit statistics. PM.5 must reconcile
-short-interval and correlation ownership with AN.3, AN.5 and AC.5, keep exact averaging
-and exceptional-set hypotheses, and keep general Chowla/Sarnak claims conjectural.
-No uninspected supplier has been inserted as a supposedly resolved theorem dependency.
-
-## Verification and suggested code
+## Historical finite arithmetic verification
 
 The `.lean` companion is a suggested signature skeleton, not the roadmap and not an
 exhaustive file plan. This Markdown and the JSON mathematical contracts are definitive;
@@ -1783,9 +1747,9 @@ PM.1–PM.5 coverage. Its inherited-source claims are provenance from those earl
 checkpoints; the new source reading is the stated Tao passage and the pinned
 baseline declarations. No new source finding or completed stage is asserted.
 
-## Current checkpoint verification
+## Historical repeated-factor checkpoint verification
 
-The current inventory is 76 unchecked nodes: one construction, 55 lemmas, one
+The historical inventory is 76 unchecked nodes: one construction, 55 lemmas, one
 comparison and nineteen theorems. There are seven construction API entries,
 39 packet test contracts (five construction tests and 34 lemma/theorem tests),
 111 suggested examples, eight unchanged planets, 116 baseline declarations,
@@ -1823,7 +1787,7 @@ with a fresh consulted-input/link guard before publication.
 
 The reviewed audit found PM.2 unbuilt. Neither library has a notion of an equidistributed sequence; Mathlib has only the density of an irrational rotation's orbit (`AddCircle.denseRange_zsmul_iff`) and its ergodicity (`AddCircle.ergodic_add_left`). This section decomposes the asymptotic core from Tao, *Higher order Fourier analysis*, §1.1.1, read in full in the author's copy (the 2010 blog notes are the same text, and were compared passage by passage). Everything reuses existing carriers. The definition is convergence of Tau Ceti's `empiricalMeasure` in Mathlib's `ProbabilityMeasure` topology; the torus is Mathlib's `UnitAddTorus` with its characters `mFourier`; and van der Corput's inequality is `ExponentialSumsAndCircleMethod:ES.0/q-vdc-lag-bound` at r = 1, which is not replanned.
 
-Sequences are indexed by ℕ and averaged over 0, …, n, as `empiricalMeasure` does, whereas the source averages over 1, …, N. Equidistribution ignores any finite shift, and the API proves that (`asympEquidistributed_comp_add_iff`). The source's ℤ-indexed statements are left for a later pass.
+Sequences are indexed by ℕ and averaged over 0, …, n, as `empiricalMeasure` does, whereas the source averages over 1, …, N. Equidistribution ignores any finite shift, and the API proves that (`asympEquidistributed_comp_add_iff`). The subsequent integer-indexed section supplies the two-sided indexing convention.
 
 Reading the section turned up four misprints, recorded as `ProbabilisticAndMetricNumberTheory/E5`–`E8`. None is in the author's maintained errata list or the blog's corrected comments, and all four affect nothing:
 
@@ -2503,7 +2467,7 @@ For α, β ∈ UnitAddTorus d there are a subtorus datum S and α = α′ + α�
 
 - Tao §1.1.1 (asymptotic theory) is now decomposed in full except Exercises 1.1.1–1.1.3 beyond their Portmanteau directions, the recurrence Exercise 1.1.8 and the multidimensional Definition 1.1.10 and Exercises 1.1.9–1.1.15.
 - Exercise 1.1.22 (every compact connected subgroup of T^d is the carrier of a subtorus datum) is not planned; the subtorus node takes the SL_d(Z) description as its definition.
-- Discrepancy (Erdős–Turán, Koksma) and the normal-number consequences (Borel's theorem, linking Mathlib's digit expansions and Tau Ceti's Bernoulli-shift ergodicity) still need a source read and nodes; the audit records both as absent.
+- Discrepancy and Borel normality now have nodes in the continuation below, with exact source-proof and native digit/circle bridge gaps.
 - Single-scale (quantitative) equidistribution, §1.1.2 of the same source, is not planned; ES and AC consumers should say whether they need it.
 
 ## PM.3: the Duffin–Schaeffer theorem (Koukoulopoulos–Maynard)
@@ -3433,7 +3397,7 @@ The Annals page lists no erratum.
 - Lemmas 5.2 and 5.3 are imported from Pollington–Vaughan (1990), which was not read (gap).
 - Mertens' theorems, with Rosser–Schoenfeld's effective error, are requested from AnalyticNumberTheory:AN.2.
 - Lemma 7.2 is used only in an elementary special case, which is proved in its node; Koukoulopoulos's book is not needed.
-- Corollary 3 (the Hausdorff dimension of 𝒜, via Beresnevich–Velani) and other Hausdorff-measure versions are not planned.
+- Corollary3, general-gauge mass transference and Hausdorff versions now have nodes below; their native measure-extension and original higher-dimensional proof inputs remain explicit.
 - Section 15's counterexample to the Model Problem, which shows why the φ(v)/v weights matter, is recorded in acceptance notes only.
 
 ### Verification of the Duffin–Schaeffer checkpoint
@@ -3442,3 +3406,1534 @@ The Annals page lists no erratum.
   - Standalone, on Lean 4.34.0-rc2 against Mathlib 082e2d3, it elaborates with no errors and only proof-placeholder warnings.
   - The whole suggested file also imports Tau Ceti modules, and no pinned Tau Ceti build exists on this machine, so the full file was not elaborated.
 - The official blueprint checker passes, as do the intake file check and the repository unit tests.
+
+## Continuation across all six stages
+
+All declarations in this continuation remain unchecked. The purpose of the dependency graph is to distinguish the arithmetic and analytic work from native infrastructure. A planned stage has its targets and key inputs stated, with every unresolved input exposed; it is not a claim of mathematical or Lean closure. Historical source-reading and compilation receipts in the preceding sections describe their own earlier passes.
+
+The finite integer laws sample1 throughN. Geometric prime models use exponent zero as a possible value and success parameter1−1/p. Discrepancy samples use N points and the strict cut x_j<t. Normal digits use the native canonical expansion, overlapping windows and positions0 throughN−1. Gauss digits are indexed from zero, so digit n means the (n+1)st continued-fraction denominator. Rational termination is totalized only for the real digit observable; denominator comparison theorems require irrational input. Hausdorff measures use the native diameter convention, with a separate comparison to the source’s radius convention.
+
+The short-interval paper includes both integer endpoints and normalizes by h, so a constant-one sample has mean(h+1)/h. The logarithmic correlation interval is x/w<n≤x, weighted by1/n and divided by log w. Positive slopes with integer shifts use native zero extension outside positive inputs. The correlation has no complex conjugate. Steinhaus covariance, by contrast, requires conjugation; the Rademacher model is supported on squarefree inputs, whereas the Steinhaus model is completely multiplicative.
+
+### PM.0 — additive arithmetic and distribution interfaces
+
+The generic carrier is the native zero hom ArithmeticFunction. Additivity requires f(1)=0 and the coprime product law; strong additivity adds constancy on positive prime powers. Native omega satisfies the strong law and native Omega fails it. Prime-power representation then recovers the general additive value from factorization. The probability law is the existing native ProbabilityMeasure, and concentration is a real supremum of strict-window mass. A zero-radius window has zero mass even at an atom; two equally weighted atoms distance one apart have concentration1/2 at radius1/2. These endpoint tests prevent a silent radius/length change.
+
+The quantitative Kubilius target compares full small-prime exponents with independent native geometric laws. Its exponential total-variation error is a separate growing-prime theorem. Exact complete-period CRT identities and finite atom estimates do not prove it when the full prime product exceeds the sample size. The original small-prime proof and product-law realization are gaps. The real CDF criterion permits atoms and tests only continuity points. A moment-determinate Gaussian alone is not a theorem that arithmetic moments converge.
+
+#### Additive arithmetic functions
+
+`ProbabilisticAndMetricNumberTheory:PM.0/additive-predicate` (definition). For f:ArithmeticFunction R with R an additive commutative monoid, IsAdditive f means f(1)=0 and f(mn)=f(m)+f(n) for positive coprime m,n. Native f(0)=0 is retained; multiplication is on inputs, not Dirichlet convolution.
+
+The proof plan is: Introduce the displayed predicate on the native carrier. The positive-input guards avoid imposing a false law at zero. The API is used by prime-power representation and the quadratic mean bound.
+
+Direct prerequisites: `mathlib:ArithmeticFunction`.
+
+The API laws are `IsAdditive.map_one`: If f is additive, f(1)=0.; `IsAdditive.map_mul`: Additivity on positive coprime products, retaining both positivity hypotheses.; `IsAdditive.add`: The pointwise sum of additive arithmetic functions is additive..
+
+Tests: additive_zero: The native zero arithmetic function is additive.; additive_omega: The real cast of native omega is additive.; additive_Omega: The real cast of native Omega is additive.; additive_unit_rejected: The convolution unit takes value 1 at input 1 and is not additive..
+
+Consumers: ProbabilisticAndMetricNumberTheory:PM.0/additive-prime-powers — Expands arbitrary additive functions from their coprime prime-power factors.; ProbabilisticAndMetricNumberTheory:PM.1/turan-kubilius — Defines the hypothesis of the source quadratic mean inequality..
+
+Source: ElsholtzTao2011, Appendix A, Lemma A.2, physical pp.38–39.
+
+#### IsAdditive.map_one
+
+`ProbabilisticAndMetricNumberTheory:PM.0/additive-predicate-api-1` (lemma). If f is additive, f(1)=0.
+
+The proof plan is: Unfold the defining formula or use the indicated native compatibility theorem. Prove the stated API law in the native carrier; retain the parent definition’s discriminating tests.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.0/additive-predicate`.
+
+Source: ElsholtzTao2011, Appendix A, Lemma A.2, physical pp.38–39.
+
+#### IsAdditive.map_mul
+
+`ProbabilisticAndMetricNumberTheory:PM.0/additive-predicate-api-2` (lemma). Additivity on positive coprime products, retaining both positivity hypotheses.
+
+The proof plan is: Unfold the defining formula or use the indicated native compatibility theorem. Prove the stated API law in the native carrier; retain the parent definition’s discriminating tests.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.0/additive-predicate`.
+
+Source: ElsholtzTao2011, Appendix A, Lemma A.2, physical pp.38–39.
+
+#### IsAdditive.add
+
+`ProbabilisticAndMetricNumberTheory:PM.0/additive-predicate-api-3` (lemma). The pointwise sum of additive arithmetic functions is additive.
+
+The proof plan is: Unfold the defining formula or use the indicated native compatibility theorem. Prove the stated API law in the native carrier; retain the parent definition’s discriminating tests.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.0/additive-predicate`.
+
+Source: ElsholtzTao2011, Appendix A, Lemma A.2, physical pp.38–39.
+
+#### Strongly additive arithmetic functions
+
+`ProbabilisticAndMetricNumberTheory:PM.0/strongly-additive-predicate` (definition). For f:ArithmeticFunction R, IsStronglyAdditive f means IsAdditive f and f(p^k)=f(p) for every natural prime p and k≥1. It is different from complete additivity f(mn)=f(m)+f(n) on all positive inputs.
+
+The proof plan is: Add the explicit prime-power clause to IsAdditive; no change of arithmetic-function carrier. This clause is needed to replace the prime-power representation by the distinct-prime sum.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.0/additive-predicate`.
+
+The API laws are `IsStronglyAdditive.isAdditive`: A strongly additive function is additive.; `IsStronglyAdditive.prime_pow`: For p prime and k>0, f(p^k)=f(p).; `IsStronglyAdditive.add`: Pointwise addition preserves strong additivity..
+
+Tests: strong_zero: Zero is strongly additive.; strong_omega: Native omega, cast to real arithmetic functions, is strongly additive.; strong_Omega_rejected: Native Omega is not strongly additive: Omega(4)=2 but Omega(2)=1..
+
+Consumers: ProbabilisticAndMetricNumberTheory:PM.0/strongly-additive-primes — Removes exponents from the prime-power representation.; ProbabilisticAndMetricNumberTheory:PM.1 — Distinguishes omega from Omega in the normal-order argument..
+
+Source: ElsholtzTao2011, Appendix A, paragraph before Lemma A.3, physical p.39.
+
+#### IsStronglyAdditive.isAdditive
+
+`ProbabilisticAndMetricNumberTheory:PM.0/strongly-additive-predicate-api-1` (lemma). A strongly additive function is additive.
+
+The proof plan is: Unfold the defining formula or use the indicated native compatibility theorem. Prove the stated API law in the native carrier; retain the parent definition’s discriminating tests.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.0/strongly-additive-predicate`.
+
+Source: ElsholtzTao2011, Appendix A, paragraph before Lemma A.3, physical p.39.
+
+#### IsStronglyAdditive.prime_pow
+
+`ProbabilisticAndMetricNumberTheory:PM.0/strongly-additive-predicate-api-2` (lemma). For p prime and k>0, f(p^k)=f(p).
+
+The proof plan is: Unfold the defining formula or use the indicated native compatibility theorem. Prove the stated API law in the native carrier; retain the parent definition’s discriminating tests.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.0/strongly-additive-predicate`.
+
+Source: ElsholtzTao2011, Appendix A, paragraph before Lemma A.3, physical p.39.
+
+#### IsStronglyAdditive.add
+
+`ProbabilisticAndMetricNumberTheory:PM.0/strongly-additive-predicate-api-3` (lemma). Pointwise addition preserves strong additivity.
+
+The proof plan is: Unfold the defining formula or use the indicated native compatibility theorem. Prove the stated API law in the native carrier; retain the parent definition’s discriminating tests.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.0/strongly-additive-predicate`.
+
+Source: ElsholtzTao2011, Appendix A, paragraph before Lemma A.3, physical p.39.
+
+#### Prime-power representation of additive functions
+
+`ProbabilisticAndMetricNumberTheory:PM.0/additive-prime-powers` (lemma). For additive f:ArithmeticFunction R and n>0, f(n)=Σ_{p∈n.primeFactors}f(p^(n.factorization p)); this is the empty sum at n=1.
+
+The proof plan is: Factor n as the product of its positive prime powers. Distinct prime powers are pairwise coprime. Induct on that finite product using IsAdditive.map_mul and f(1)=0. No independent random model is used.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.0/additive-predicate`, `mathlib:ArithmeticFunction`, `ProbabilisticAndMetricNumberTheory:PM.0/additive-predicate-api-2`.
+
+Source: ML-PM79, ArithmeticFunction.Defs and Nat.factorization; elementary specialization of native factorization.
+
+#### Distinct-prime representation
+
+`ProbabilisticAndMetricNumberTheory:PM.0/strongly-additive-primes` (lemma). For strongly additive f and n>0, f(n)=Σ_{p∈n.primeFactors}f(p).
+
+The proof plan is: Use the prime-power representation and positivity of every factorization exponent on primeFactors. Apply IsStronglyAdditive.prime_pow term by term.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.0/strongly-additive-predicate`, `ProbabilisticAndMetricNumberTheory:PM.0/additive-prime-powers`, `ProbabilisticAndMetricNumberTheory:PM.0/strongly-additive-predicate-api-2`.
+
+Source: ElsholtzTao2011, Appendix A, strongly additive convention.
+
+#### Concentration function of a real law
+
+`ProbabilisticAndMetricNumberTheory:PM.0/real-concentration` (definition). For ν:ProbabilityMeasure ℝ and δ∈ℝ, Q(ν,δ)=sup_{u∈ℝ}ν.real((u−δ,u+δ)). The intervals are strict and δ is the radius, not the length. For δ≤0 the value is zero.
+
+The proof plan is: Use native real measure on Ioo and real sSup. All terms lie in [0,1], so the supremum is bounded. Consumers pass native pushforward laws of measurable real observations. Do not apply the real theorem directly to complex observations.
+
+Direct prerequisites: `mathlib:MeasureTheory.ProbabilityMeasure`.
+
+The API laws are `concentration_bounds`: For every real radius, 0≤Q≤1.; `concentration_mono`: Increasing the radius cannot decrease Q.; `concentration_translate`: Translation of a real law leaves Q unchanged.; `concentration_scale`: For a≠0, Q(law(aX),δ)=Q(law(X),δ/|a|)..
+
+Tests: concentration_zero_radius: A dirac law has zero concentration at zero radius because the interval is strict.; concentration_dirac_positive: A dirac law has concentration one at every positive radius.; concentration_two_atoms_boundary: For equal atoms at 0 and 1, radius 1/2 has Q=1/2; closed intervals would wrongly give 1..
+
+Consumers: ProbabilisticAndMetricNumberTheory:PM.0/kolmogorov-rogozin — The deficit sum 1−Q of each independent real summand controls the sum.; PAPER-BARY-SOROKER-KOUKOULOPOULOS-KOZMA2023/61,/62 — Supplies the generic real concentration interface; polynomial complex root projections remain the paper owner’s responsibility..
+
+Source: BSKK2023, Lemma 7.2, physical p.36, concentration convention.
+
+#### concentration_bounds
+
+`ProbabilisticAndMetricNumberTheory:PM.0/real-concentration-api-1` (lemma). For every real radius, 0≤Q≤1.
+
+The proof plan is: Unfold the defining formula or use the indicated native compatibility theorem. Prove the stated API law in the native carrier; retain the parent definition’s discriminating tests.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.0/real-concentration`.
+
+Source: BSKK2023, Lemma 7.2, physical p.36, concentration convention.
+
+#### concentration_mono
+
+`ProbabilisticAndMetricNumberTheory:PM.0/real-concentration-api-2` (lemma). Increasing the radius cannot decrease Q.
+
+The proof plan is: Unfold the defining formula or use the indicated native compatibility theorem. Prove the stated API law in the native carrier; retain the parent definition’s discriminating tests.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.0/real-concentration`.
+
+Source: BSKK2023, Lemma 7.2, physical p.36, concentration convention.
+
+#### concentration_translate
+
+`ProbabilisticAndMetricNumberTheory:PM.0/real-concentration-api-3` (lemma). Translation of a real law leaves Q unchanged.
+
+The proof plan is: Unfold the defining formula or use the indicated native compatibility theorem. Prove the stated API law in the native carrier; retain the parent definition’s discriminating tests.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.0/real-concentration`.
+
+Source: BSKK2023, Lemma 7.2, physical p.36, concentration convention.
+
+#### concentration_scale
+
+`ProbabilisticAndMetricNumberTheory:PM.0/real-concentration-api-4` (lemma). For a≠0, Q(law(aX),δ)=Q(law(X),δ/|a|).
+
+The proof plan is: Unfold the defining formula or use the indicated native compatibility theorem. Prove the stated API law in the native carrier; retain the parent definition’s discriminating tests.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.0/real-concentration`.
+
+Source: BSKK2023, Lemma 7.2, physical p.36, concentration convention.
+
+#### Kolmogorov–Rogozin inequality
+
+`ProbabilisticAndMetricNumberTheory:PM.0/kolmogorov-rogozin` (theorem). There is an absolute C>0 such that for every finite independent family of a.e. measurable real random variables X_j on a probability space, every δ>0, and D=Σ_j(1−Q(law X_j,δ))>0, Q(law(Σ_j X_j),δ)≤C/sqrt(D). Radii are equal; the D=0 case is the separate trivial bound Q≤1.
+
+The proof plan is: Match equal-radius real Kolmogorov–Rogozin, with native iIndepFun and native pushforwards. The original proof of the independent-sum concentration estimate in the cited references remains an explicit gap.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.0/real-concentration`.
+
+Source: BSKK2023, Lemma 7.2, physical p.36; references [19,33,34].
+
+#### CDF continuity-point criterion
+
+`ProbabilisticAndMetricNumberTheory:PM.0/cdf-weak-criterion` (theorem). For ν_m,ν:ProbabilityMeasure ℝ, ν_m converges weakly to ν if and only if cdf(ν_m,x)→cdf(ν,x) at every continuity point x of the limiting native CDF. Atoms of ν are allowed; no convergence is demanded at their jumps.
+
+The proof plan is: Forward: apply the native null-frontier Portmanteau theorem to Iic at a continuity point. Reverse: subtract CDF limits on half-open intervals with continuity endpoints; these form a measurable pi-system and arbitrarily small neighborhoods. Apply the native pi-system theorem. The density of continuity points follows from countability of atoms; confirm the exact native atom/countability lemmas before implementing this bridge.
+
+Direct prerequisites: `mathlib:MeasureTheory.ProbabilityMeasure`, `mathlib:ProbabilityTheory.cdf_eq_real`, `mathlib:IsPiSystem.tendsto_probabilityMeasure_of_tendsto_of_mem`.
+
+Source: ML-PM79, CDF.cdf_eq_real and Portmanteau.IsPiSystem.tendsto_probabilityMeasure_of_tendsto_of_mem.
+
+#### Kubilius small-prime valuation comparison
+
+`ProbabilisticAndMetricNumberTheory:PM.0/kubilius-small-prime-model` (theorem). For each positive integer N sample J_N uniformly from {1,…,N}. Let β_N>0 tend to infinity and P_N={p prime:p≤N^(1/β_N)}. The joint valuation vector (J_N.factorization p)_(p∈P_N) is compared with independent geometric exponents G_p having P(G_p=k)=(1−1/p)p^(−k), k≥0. There are C,δ>0 (independent of N) such that, eventually, their total variation distance is at most C exp(−δβ_N). Total variation is one-half the sum of absolute atom-probability differences. Positive support is essential; a coordinate is an exponent, not merely a divisibility bit.
+
+The proof plan is: Use the native factorization map on the finite positive integer sample and the native finite product of geometricMeasure with success parameter 1−1/p. The bound (1.1) is quoted there from Kubilius [10], not proved by the finite CRT comparison: acquire and decompose the fundamental-lemma/small-prime estimate before closure. The displayed signature uses fully specified native model atom laws, without claiming a private carrier or a supplied independence theorem proves the arithmetic comparison.
+
+Direct prerequisites: `mathlib:ProbabilityTheory.geometricMeasure`, `mathlib:ProbabilityTheory.geometricMeasure_real_singleton`, `mathlib:Nat.primesLE`, `ProbabilisticAndMetricNumberTheory:PM.0/complete-period-joint-law`.
+
+Source: Kubilius2021, Classical uniform result (1.1), physical p.2, and exact atom convention (1.6), p.3.
+
+### PM.1 — normal order and Gaussian arithmetic laws
+
+Turán–Kubilius uses A_N=Σf(p^k)/p^k and B_N²=Σ|f(p^k)|²/p^k, with coefficient30 from the acquired Elsholtz–Tao statement. Its uniform quadratic-mean proof is not supplied by a finite independence computation. Hardy–Ramanujan uses deviations on the log log N scale. Erdős–Kac uses the square-root scale and the native standard Gaussian CDF, for both omega and Omega. The preserved repeated-factor estimates transfer the two functions only after genuine convergence is established.
+
+The source proof chooses a moment-order-dependent prime cutoff and controls growing Gaussian moments, collisions, large-prime removal and Mertens normalization separately. Its fixed even-moment bounds are useful without being a completed asymptotic theorem. The Koymans–Pagano application conditions on positive squarefree integers whose prime factors are1 or2 modulo4. Its mean is half log log N, its exceptional window is at least(log log N)^(2/3), and its error is relative to the restricted family. Ordinary Erdős–Kac by itself does not give that conditional quantitative bound.
+
+#### Turán–Kubilius quadratic mean inequality
+
+`ProbabilisticAndMetricNumberTheory:PM.1/turan-kubilius` (theorem). For real additive f and N≥2, put A_N=Σ_{p prime,k≥1,p^k≤N}f(p^k)/p^k and B_N²=Σ_{p prime,k≥1,p^k≤N}|f(p^k)|²/p^k. Then Σ_{1≤n≤N}|f(n)−A_N|²≤30 N B_N². This is precisely Elsholtz–Tao Lemma A.2; a different centering with (1−1/p) is not substituted.
+
+The proof plan is: The displayed finite prime-power expressions use the native prime set and factorization convention. The cited quadratic-mean proof [60, p.20] is unread; its uniform covariance estimates are a recorded gap, not an application of finite-head independence.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.0/additive-predicate`, `ProbabilisticAndMetricNumberTheory:PM.0/additive-prime-powers`, `mathlib:Nat.primesLE`, `AnalyticNumberTheory:AN.2`.
+
+Source: ElsholtzTao2011, Appendix A, Lemma A.2, physical p.38.
+
+#### Hardy–Ramanujan normal order
+
+`ProbabilisticAndMetricNumberTheory:PM.1/hardy-ramanujan` (theorem). For every ε>0, both fractions #{1≤n≤N: |ω(n)−log log N|>ε log log N}/N and #{1≤n≤N: |Ω(n)−log log N|>ε log log N}/N tend to zero. These are normal-order laws, with ω and Ω the native distinct and repeated factor counts.
+
+The proof plan is: Apply the exact source mean-square estimate to omega, compare its source A_N and B_N² to log log N using the requested reciprocal-prime asymptotic. Use the quadratic Markov bound. Transfer to Omega using the inherited uniform O(1) mean of Omega−omega and a linear Markov estimate.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.1/turan-kubilius`, `ProbabilisticAndMetricNumberTheory:PM.0/excess-mean-bound`, `AnalyticNumberTheory:AN.2`.
+
+Source: ElsholtzTao2011, Appendix A, discussion after Lemma A.2, physical pp.38–39.
+
+#### Erdős–Kac Gaussian law
+
+`ProbabilisticAndMetricNumberTheory:PM.1/erdos-kac` (theorem). For every real x, the fractions of positive n≤N with (ω(n)−log log N)/sqrt(log log N)≤x tend to cdf(gaussianReal(0,1),x); the same statement holds for Ω. The scale is sqrt(log log N), and Gaussian variance is 1.
+
+The proof plan is: Choose a moment-order-dependent prime cutoff, normalize the inherited pairing and collision bounds and show their errors tend to zero for each fixed order. Use reciprocal-prime asymptotics and a Gaussian moment-convergence theorem, not moment determinacy alone. These analytic limit inputs remain recorded gaps. Apply the continuity-point CDF bridge (the Gaussian CDF is continuous) and the inherited omega/Omega transfer.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.1/finite-even-gaussian-bound`, `ProbabilisticAndMetricNumberTheory:PM.1/finite-odd-moment-bound`, `ProbabilisticAndMetricNumberTheory:PM.1/cutoff-moment-transfer`, `ProbabilisticAndMetricNumberTheory:PM.0/excess-distribution-transfer`, `ProbabilisticAndMetricNumberTheory:PM.0/cdf-weak-criterion`, `AnalyticNumberTheory:AN.2`.
+
+Source: GS-SIEVING, Author copy physical pp.2–4: (5), Theorem 1 and its deduction; new target combines the preserved fixed-moment nodes.
+
+#### Restricted squarefree prime-factor window
+
+`ProbabilisticAndMetricNumberTheory:PM.1/restricted-squarefree-window` (theorem). For D(N)={d∈ℕ:0<d<N, d squarefree, and every prime divisor is 1 or 2 modulo 4}, there are absolute C,N₀>0 such that for N≥N₀ the number of d∈D(N) with |ω(d)−(1/2)log log N|≥(log log N)^(2/3) is at most C|D(N)|/(log log N)^(1/100). Routed item PAPER-KOYMANS-PAGANO/175. The printed union of cardinalities is read as the sum, following the independently confirmed extraction E29.
+
+The proof plan is: Use the already routed family convention and sum the disjoint integer r-slices; the extraction’s E29 supplies the corrected summation symbol. A quantitative concentration estimate conditional on this restricted family is a separate missing input. The ordinary Erdős–Kac theorem has center log log N and supplies neither the half-center nor this relative polynomial tail.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.1/erdos-kac`.
+
+Source: KoymansPagano2022, Theorem 7.2(a), (7.2), physical p.60; family physical p.2.
+
+### PM.2 — discrepancy and canonical normal digits
+
+The inherited character criterion, Weyl polynomial argument, integer indexing and abelian rational/Ratner decomposition remain in their original carriers. The extension supplies finite star discrepancy and its permutation/perturbation API. Erdős–Turán is a one-dimensional consequence with an explicitly nonsharp constant3. Koksma multiplies discrepancy by the native finite total variation on[0,1]; it is not the multidimensional Hardy–Krause theorem. The sampler’s original majorant and integration-by-parts proof inputs remain gaps.
+
+Normality means every canonical length-k digit block has frequency b^(−k), including overlapping blocks and the empty block. A dense orbit does not supply these frequencies. The proof uses the native expanding-circle ergodicity theorem, the missing pointwise Birkhoff extension and a half-open positional-cylinder comparison. Countability of lengths, words and bases gives simultaneous almost-everywhere normality. The endpoint correction is essential for all-point digit identities, even though the exceptional endpoints are null.
+
+#### Star discrepancy
+
+`ProbabilisticAndMetricNumberTheory:PM.2/star-discrepancy` (definition). For x:Fin N→ℝ, D*(x)=sup_{0≤t≤1}|#{j:x_j<t}/N−t| when N>0; define D*(empty)=0. Arithmetic samples must lie in [0,1). The cut is strict and the normalization is N.
+
+The proof plan is: Use Finset.univ.filter and native real sSup over t∈Icc 0 1; guard the empty sample. Use this same normalization in Koksma and the one-dimensional Erdős–Turán estimate.
+
+Direct prerequisites: `mathlib:MeasureTheory.ProbabilityMeasure`.
+
+The API laws are `starDiscrepancy_bounds`: 0≤D*≤1 for every finite real sample.; `starDiscrepancy_perm`: Reordering the finite sample preserves star discrepancy.; `starDiscrepancy_perturb`: If both samples lie in [0,1) and corresponding points differ by at most ε≥0, their star discrepancies differ by at most ε..
+
+Tests: discrepancy_empty: The guarded empty sample has discrepancy zero.; discrepancy_at_zero: A single point at zero has discrepancy one.; discrepancy_midpoint: A single point at one half has discrepancy one half..
+
+Consumers: ProbabilisticAndMetricNumberTheory:PM.2/erdos-turan — Measures the finite count error bounded by Fourier sums.; ProbabilisticAndMetricNumberTheory:PM.2/koksma — Multiplies the variation in the quadrature error bound..
+
+Source: StrauchPorubsky2018, §1.9 and §1.11.2, physical pp.73–74,95.
+
+#### starDiscrepancy_bounds
+
+`ProbabilisticAndMetricNumberTheory:PM.2/star-discrepancy-api-1` (lemma). 0≤D*≤1 for every finite real sample.
+
+The proof plan is: Unfold the defining formula or use the indicated native compatibility theorem. Prove the stated API law in the native carrier; retain the parent definition’s discriminating tests.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.2/star-discrepancy`.
+
+Source: StrauchPorubsky2018, §1.9 and §1.11.2, physical pp.73–74,95.
+
+#### starDiscrepancy_perm
+
+`ProbabilisticAndMetricNumberTheory:PM.2/star-discrepancy-api-2` (lemma). Reordering the finite sample preserves star discrepancy.
+
+The proof plan is: Unfold the defining formula or use the indicated native compatibility theorem. Prove the stated API law in the native carrier; retain the parent definition’s discriminating tests.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.2/star-discrepancy`.
+
+Source: StrauchPorubsky2018, §1.9 and §1.11.2, physical pp.73–74,95.
+
+#### starDiscrepancy_perturb
+
+`ProbabilisticAndMetricNumberTheory:PM.2/star-discrepancy-api-3` (lemma). If both samples lie in [0,1) and corresponding points differ by at most ε≥0, their star discrepancies differ by at most ε.
+
+The proof plan is: For each t, compare the two empirical counts using the inclusions {x_j<t−ε}⊆{y_j<t}⊆{x_j<t+ε}. Clip t±ε to [0,1], using the support assumptions, then take the two suprema.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.2/star-discrepancy`.
+
+Source: StrauchPorubsky2018, §1.9 and §1.11.2, physical pp.73–74,95.
+
+#### Erdős–Turán discrepancy inequality
+
+`ProbabilisticAndMetricNumberTheory:PM.2/erdos-turan` (theorem). For N,H≥1 and x_j∈[0,1), D*(x)≤3/(H+1)+3Σ_{h=1}^H |N⁻¹Σ_j exp(2πihx_j)|/h. This is the s=1 consequence of the exact extremal-discrepancy constant (3/2)^s in Strauch–Porubský Theorem 1.11.2.1, pairing ±h; no sharp constant is claimed.
+
+The proof plan is: Use interval trigonometric majorants/minorants of degree H to bound count minus length. Pair positive and negative Fourier frequencies, apply D*≤D, and retain the stated factor 3. The referenced Vaaler/Grabner finite-majorant proof is not read; record this input as a gap.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.2/star-discrepancy`.
+
+Source: StrauchPorubsky2018, Theorem 1.11.2.1, physical p.95; D*≤D comparison.
+
+#### Koksma quadrature inequality
+
+`ProbabilisticAndMetricNumberTheory:PM.2/koksma` (theorem). For N≥1, x_j∈[0,1), and f:ℝ→ℝ with native BoundedVariationOn f [0,1], |N⁻¹Σ_j f(x_j)−∫_[0,1] f dvolume|≤(eVariationOn f [0,1]).toReal D*(x). Variation is finite by hypothesis. Values at sampled discontinuities are retained.
+
+The proof plan is: First prove the integration-by-parts bound for a monotone f against empirical distribution minus Lebesgue distribution. Decompose bounded variation into two monotone functions and add their variations. Match native diameter/variation conventions. The referenced full Koksma proof and the exact native Stieltjes bridge still need source acquisition and declaration matching.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.2/star-discrepancy`, `mathlib:BoundedVariationOn`, `mathlib:eVariationOn`.
+
+Source: StrauchPorubsky2018, Theorem 1.9.0.3, physical p.74.
+
+#### Normality in a base
+
+`ProbabilisticAndMetricNumberTheory:PM.2/normal-base` (definition). For b≥2 and x∈[0,1), IsNormalBase b x means that every block w:Fin k→Fin b, including overlapping blocks, has frequency b^(−k) in the canonical native Real.digits x b sequence. Count starting positions 0≤j<N; digits beyond N may occur in the final k−1 windows. The empty block has frequency one.
+
+The proof plan is: State the predicate using canonical native digits and finite windows, not a second digit-expansion carrier. Cylinder indicators for the expanding circle map give the simultaneous countable block-frequency theorem.
+
+Direct prerequisites: `mathlib:Real.digits`.
+
+The API laws are `IsNormalBase.block`: For a normal x each specified block has the stated overlapping frequency.; `IsNormalBase.digit`: Each single digit has frequency 1/b.; `IsNormalBase.empty_block`: The empty block is counted at all N positions, giving limiting frequency one..
+
+Tests: normal_zero_rejected: Zero is not normal in base 2.; normal_half_rejected: One half has terminating canonical binary digits and is not normal.; normal_base_one_rejected: Base one is excluded even though its single digit sequence satisfies a spurious frequency-one formula..
+
+Consumers: ProbabilisticAndMetricNumberTheory:PM.2/borel-normal — Gives the precise Lebesgue almost-everywhere conclusion, beyond density of a circle orbit..
+
+Source: Smyth2020, Lesson 5 pointwise frequency discussion, physical pp.28–29; block version via cylinder observables.
+
+#### IsNormalBase.block
+
+`ProbabilisticAndMetricNumberTheory:PM.2/normal-base-api-1` (lemma). For a normal x each specified block has the stated overlapping frequency.
+
+The proof plan is: Unfold the defining formula or use the indicated native compatibility theorem. Prove the stated API law in the native carrier; retain the parent definition’s discriminating tests.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.2/normal-base`.
+
+Source: Smyth2020, Lesson 5 pointwise frequency discussion, physical pp.28–29; block version via cylinder observables.
+
+#### IsNormalBase.digit
+
+`ProbabilisticAndMetricNumberTheory:PM.2/normal-base-api-2` (lemma). Each single digit has frequency 1/b.
+
+The proof plan is: Unfold the defining formula or use the indicated native compatibility theorem. Prove the stated API law in the native carrier; retain the parent definition’s discriminating tests.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.2/normal-base`.
+
+Source: Smyth2020, Lesson 5 pointwise frequency discussion, physical pp.28–29; block version via cylinder observables.
+
+#### IsNormalBase.empty_block
+
+`ProbabilisticAndMetricNumberTheory:PM.2/normal-base-api-3` (lemma). The empty block is counted at all N positions, giving limiting frequency one.
+
+The proof plan is: Unfold the defining formula or use the indicated native compatibility theorem. Prove the stated API law in the native carrier; retain the parent definition’s discriminating tests.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.2/normal-base`.
+
+Source: Smyth2020, Lesson 5 pointwise frequency discussion, physical pp.28–29; block version via cylinder observables.
+
+#### Digit cylinders and expanding circle orbits
+
+`ProbabilisticAndMetricNumberTheory:PM.2/digit-cylinder-bridge` (lemma). For b≥2, except the countable b-adic endpoint set, the length-k canonical digit block beginning at j equals w if and only if the jth iterate of x↦fract(bx) lies in the half-open base-b cylinder determined by w. Each cylinder has Lebesgue measure b^(−k). The same count is the corresponding Birkhoff indicator sum.
+
+The proof plan is: Evaluate the floor-based native digits on the half-open interval and identify the affine cylinder endpoint by its finite positional sum. Iterate the digit shift and sum indicators. The floor/circle/cylinder comparison needs a fresh detailed native proof; do not identify dense orbits with digit frequencies.
+
+Direct prerequisites: `mathlib:Real.digits`.
+
+Source: Smyth2020, Lesson 1 digits/dynamics and Lesson 5, physical pp.5–7,28–29; native digit refinement.
+
+#### Borel normal number theorem
+
+`ProbabilisticAndMetricNumberTheory:PM.2/borel-normal` (theorem). For each b≥2, IsNormalBase b x holds for volume-almost every x∈[0,1);
+
+The proof plan is: Use native AddCircle.ergodic_nsmul for multiplication by b, with its positive-period volume hypothesis. Apply the pointwise ergodic theorem to each cylinder indicator and transport to native digits by the bridge. Take a countable union of null sets over lengths, words and bases. A mean/L1 theorem does not establish the needed pointwise frequencies.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.2/normal-base`, `ProbabilisticAndMetricNumberTheory:PM.2/digit-cylinder-bridge`, `ProbabilisticAndMetricNumberTheory:PM.4/birkhoff-pointwise-ergodic`, `mathlib:AddCircle.ergodic_nsmul`.
+
+Source: Smyth2020, Lesson 5 pointwise frequency theorem, physical pp.28–29, applied to base-b cylinders.
+
+#### Simultaneous normality in every base
+
+`ProbabilisticAndMetricNumberTheory:PM.2/borel-normal-all-bases` (theorem). For volume-almost every x∈[0,1), for every natural b≥2, the canonical native digits make x normal in base b simultaneously.
+
+The proof plan is: Intersect the full-measure sets from the fixed-base theorem over natural b≥2. Introduce the native nonzero-base instance from b≥2; no uncountable intersection is used.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.2/borel-normal`.
+
+Source: Smyth2020, Lesson 5 pointwise frequency theorem, physical pp.28–29; countable intersection refinement.
+
+### PM.3 — Hausdorff transference and metric approximation
+
+The existing Koukoulopoulos–Maynard GCD-graph proof and its corrected overlap statement remain intact. The new dimension-function predicate constrains a native nonnegative-real function; native mkMetric already supplies the Hausdorff measure. The gauge normalization lemma compares radius and diameter covers rather than asserting an equality of constants. The source mass transference theorem is for Euclidean space with shrinking radii and a monotone gauge/volume ratio.
+
+The proof separates finite disjoint covering, the labelled Cantor levels with properties(P0)–(P5), compatible probability extension, selected-ball mass, elementary geometry and the arbitrary small-ball bound. The floor-plus-one sublevel counts retain their volume-comparison constants. The arbitrary-ball constant must be independent of η, or the final infinite Hausdorff-measure argument fails. The native tree/measure-extension interface remains a gap, not a hidden Prop-valued assumption. Power transference yields Jarník–Besicovitch and the dimension corollary, while higher-dimensional Pollington–Vaughan retains its stronger coordinatewise coprimality and unread original proof. General quasi-independence gives positive limsup mass; a separate zero-one or local argument is needed for full mass.
+
+#### Dimension functions
+
+`ProbabilisticAndMetricNumberTheory:PM.3/dimension-gauge` (definition). IsDimensionGauge f for f:ℝ≥0→ℝ≥0 means f(0)=0, f(r)>0 for r>0, f is monotone, and f is continuous. This extends the source’s positive-radius convention continuously at zero. Its Hausdorff measure is the existing Measure.mkMetric diameter-gauge construction, with the ENNReal extension retaining f on every finite radius; no new measure carrier is introduced.
+
+The proof plan is: Bundle only the precise hypotheses on the existing scalar function, retaining positivity and the zero limit. The diameter/radius comparison is a separate lemma; its constants are not an equality of normalizations.
+
+Direct prerequisites: `mathlib:MeasureTheory.Measure.mkMetric`.
+
+The API laws are `IsDimensionGauge.zero`: A dimension gauge vanishes at zero.; `IsDimensionGauge.positive`: Every positive radius has positive gauge value.; `IsDimensionGauge.tendsto_zero`: The gauge tends to zero as the radius tends to zero..
+
+Tests: gauge_linear: The identity gauge is a dimension function.; gauge_square: The square gauge is a dimension function.; gauge_constant_rejected: A positive constant gauge violates the zero-limit convention.; gauge_zero_rejected: The zero function violates positive-radius positivity..
+
+Consumers: ProbabilisticAndMetricNumberTheory:PM.3/mass-transference-general — Controls expanded ball radii and the Hausdorff gauge in the full source theorem..
+
+Source: BeresnevichVelani, §2.1, printed p.974.
+
+#### IsDimensionGauge.zero
+
+`ProbabilisticAndMetricNumberTheory:PM.3/dimension-gauge-api-1` (lemma). A dimension gauge vanishes at zero.
+
+The proof plan is: Unfold the defining formula or use the indicated native compatibility theorem. Prove the stated API law in the native carrier; retain the parent definition’s discriminating tests.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.3/dimension-gauge`.
+
+Source: BeresnevichVelani, §2.1, printed p.974.
+
+#### IsDimensionGauge.positive
+
+`ProbabilisticAndMetricNumberTheory:PM.3/dimension-gauge-api-2` (lemma). Every positive radius has positive gauge value.
+
+The proof plan is: Unfold the defining formula or use the indicated native compatibility theorem. Prove the stated API law in the native carrier; retain the parent definition’s discriminating tests.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.3/dimension-gauge`.
+
+Source: BeresnevichVelani, §2.1, printed p.974.
+
+#### IsDimensionGauge.tendsto_zero
+
+`ProbabilisticAndMetricNumberTheory:PM.3/dimension-gauge-api-3` (lemma). The gauge tends to zero as the radius tends to zero.
+
+The proof plan is: Unfold the defining formula or use the indicated native compatibility theorem. Prove the stated API law in the native carrier; retain the parent definition’s discriminating tests.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.3/dimension-gauge`.
+
+Source: BeresnevichVelani, §2.1, printed p.974.
+
+#### Radius versus diameter Hausdorff conventions
+
+`ProbabilisticAndMetricNumberTheory:PM.3/gauge-normalization` (lemma). For a dimension gauge f with f(r)/r^k monotone near zero, compare the source’s ball-radius H^f to native diameter mkMetric(f). When f(r)/r^k tends to infinity, f(2r)≤2^k f(r) near zero, so the two constructions have the same null sets and full/infinite-measure conclusions on open balls. If the ratio has finite limit, treat zero or a constant multiple of k-dimensional measure separately. No exact scalar normalization equality is asserted.
+
+The proof plan is: Replace a radius cover by a diameter cover and conversely, tracking the factor two in scale. Apply native mkMetric_mono_smul to compare gauges once a bounded doubling ratio is established. Handle the zero/finite-ratio cases separately. The exact gauge-extension and comparison signatures are omitted until their ENNReal boundary convention is fixed.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.3/dimension-gauge`, `mathlib:MeasureTheory.Measure.mkMetric`, `mathlib:MeasureTheory.Measure.mkMetric_apply`.
+
+Source: BeresnevichVelani, §2.1, Remark 3 and proof of Theorem 2, pp.974,977,979–980.
+
+#### Disjoint finite covering for mass transference
+
+`ProbabilisticAndMetricNumberTheory:PM.3/mass-transference-cover` (lemma). Under Theorem 2’s expanded-ball full-measure hypothesis, each positive-radius ball B and each index cutoff G admit a finite family of expanded balls of indices at least G, disjoint and inside B, whose union has at least κ times the k-dimensional measure of B. Here κ>0 depends only on dimension and the fixed ball-volume comparison constants, not on B or G.
+
+The proof plan is: Restrict sufficiently small expanded balls to half B and use the native 5r covering lemma. Use volume doubling/comparison and continuity of the disjoint series to select a finite initial subfamily with at least half the obtained mass. The source-specific expanding-radius signature awaits the dimension-gauge bridge; record the omitted signature explicitly.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.3/dimension-gauge`.
+
+Source: BeresnevichVelani, Lemma 5 and its proof, printed pp.978–979.
+
+#### Separated nested Cantor levels
+
+`ProbabilisticAndMetricNumberTheory:PM.3/mass-transference-cantor` (construction). For k≥1, η>1, a bounded positive-radius root B₀, and the full expanded-ball limsup hypothesis with f(r)/r^k→∞, construct finite labelled closed-ball levels K(n), finite local sublevels K(n,B,i) and increasing source index cutoffs, with K(1)={B₀}. (P1) All triples3L of children of B are disjoint, contained in B and contained in L^f. (P2) Expanded L^f are disjoint inside each sublevel and contained in B. (P3) Each sublevel has Σ_L V^k(L^f)≥c₃V^k(B). (P4) Every next-sublevel M satisfies f(r_M)≤f(r_L)/2 for every previous-sublevel L. (P5) l_B₀=floor(c₂η/(c₃H^k(B₀)))+1; for later B, l_B=floor(f(r_B)/(c₃r_B^k))+1≥2. Here V^k(B)=r_B^k and c₁,c₂ are the source Hausdorff/volume comparison constants, c₃=κc₁²/(2c₂²10^k). The compact intersection Kη lies in B₀∩limsup B_i.
+
+The proof plan is: Use Lemma 5 for the first sublevel and estimate volume of previously selected quadruple balls by a small gauge/volume ratio. Apply the 5r lemma to the remaining half-parent region, then Lemma 5 after a larger cutoff to enforce half-mass, triple separation and increasing source indices. Induct over the finite sublevels and levels. The source-specific finite-tree carrier and native projective-measure interface are not fixed; omit their signatures explicitly.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.3/mass-transference-cover`, `ProbabilisticAndMetricNumberTheory:PM.3/dimension-gauge`.
+
+The API laws are `MassTransferenceCantor.nested`: Every level lies inside its parent level.; `MassTransferenceCantor.limsup`: Every point of Kη belongs to infinitely many original balls with unbounded indices.; `MassTransferenceCantor.separated`: Distinct child triples are disjoint; the stronger expanded-ball disjointness holds within each sublevel..
+
+Tests: cantor_parent: No child crosses the boundary of its parent.; cantor_indices: A construction repeating a fixed finite collection of balls is rejected by the increasing-cutoff requirement.; cantor_multi_sublevel: For nonroot parents the source choice gives at least two sublevels, preventing an incorrect single-child measure model..
+
+Consumers: ProbabilisticAndMetricNumberTheory:PM.3/mass-transference-measure — Supports the compatible normalized f-mass weights used to construct a probability measure..
+
+Source: BeresnevichVelani, §§5.1–5.2, printed pp.980–986.
+
+#### MassTransferenceCantor.nested
+
+`ProbabilisticAndMetricNumberTheory:PM.3/mass-transference-cantor-api-1` (lemma). Every level lies inside its parent level.
+
+The proof plan is: Unfold the defining formula or use the indicated native compatibility theorem. Prove the stated API law in the native carrier; retain the parent definition’s discriminating tests.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.3/mass-transference-cantor`.
+
+Source: BeresnevichVelani, §§5.1–5.2, printed pp.980–986.
+
+#### MassTransferenceCantor.limsup
+
+`ProbabilisticAndMetricNumberTheory:PM.3/mass-transference-cantor-api-2` (lemma). Every point of Kη belongs to infinitely many original balls with unbounded indices.
+
+The proof plan is: Unfold the defining formula or use the indicated native compatibility theorem. Prove the stated API law in the native carrier; retain the parent definition’s discriminating tests.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.3/mass-transference-cantor`.
+
+Source: BeresnevichVelani, §§5.1–5.2, printed pp.980–986.
+
+#### MassTransferenceCantor.separated
+
+`ProbabilisticAndMetricNumberTheory:PM.3/mass-transference-cantor-api-3` (lemma). Distinct child triples are disjoint; the stronger expanded-ball disjointness holds within each sublevel.
+
+The proof plan is: Unfold the defining formula or use the indicated native compatibility theorem. Prove the stated API law in the native carrier; retain the parent definition’s discriminating tests.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.3/mass-transference-cantor`.
+
+Source: BeresnevichVelani, §§5.1–5.2, printed pp.980–986.
+
+#### Compatible Cantor probability measure
+
+`ProbabilisticAndMetricNumberTheory:PM.3/mass-transference-measure` (construction). On the source Cantor levels attach weight 1 to B₀ and weight μ(L)=f(r_L) μ(B)/Σ_{M child of B}f(r_M) to each child L of B. Extend these compatible finite masses to a Borel probability supported on Kη.
+
+The proof plan is: Normalize each finite child mass; positive denominator follows from (P3) and (P5). The external extension [3, Proposition 1.7] remains an explicit input. The disjoint compatible finite distributions define the native Borel probability on the nested compact intersection once the external extension theorem is matched. The measure-extension signature is omitted pending the native finite-tree interface.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.3/mass-transference-cantor`, `mathlib:MeasureTheory.Measure.le_hausdorffMeasure`.
+
+The API laws are `MassTransferenceMeasure.root`: The root mass is one.; `MassTransferenceMeasure.children`: The sum of finite child masses equals the parent mass.; `MassTransferenceMeasure.ball_bound`: For A of radius below the construction cutoff, μ(A)≤C_k f(r_A)/η with C_k independent of η and A..
+
+Tests: mass_positive: Every selected positive-radius ball has positive normalized mass.; mass_sum: For two children of equal gauge size the masses are each half the parent mass.; mass_eta_uniform: The constant C_k cannot grow with η; otherwise infinite Hausdorff measure does not follow..
+
+Consumers: ProbabilisticAndMetricNumberTheory:PM.3/mass-transference-general — Native mass-distribution domination supplies arbitrarily large Hausdorff lower bounds as η grows..
+
+Source: BeresnevichVelani, §§5.3–5.5, printed pp.986–990.
+
+#### MassTransferenceMeasure.root
+
+`ProbabilisticAndMetricNumberTheory:PM.3/mass-transference-measure-api-1` (lemma). The root mass is one.
+
+The proof plan is: Unfold the defining formula or use the indicated native compatibility theorem. Prove the stated API law in the native carrier; retain the parent definition’s discriminating tests.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.3/mass-transference-measure`.
+
+Source: BeresnevichVelani, §§5.3–5.5, printed pp.986–990.
+
+#### MassTransferenceMeasure.children
+
+`ProbabilisticAndMetricNumberTheory:PM.3/mass-transference-measure-api-2` (lemma). The sum of finite child masses equals the parent mass.
+
+The proof plan is: Unfold the defining formula or use the indicated native compatibility theorem. Prove the stated API law in the native carrier; retain the parent definition’s discriminating tests.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.3/mass-transference-measure`.
+
+Source: BeresnevichVelani, §§5.3–5.5, printed pp.986–990.
+
+#### MassTransferenceMeasure.ball_bound
+
+`ProbabilisticAndMetricNumberTheory:PM.3/mass-transference-measure-api-3` (lemma). For A of radius below the construction cutoff, μ(A)≤C_k f(r_A)/η with C_k independent of η and A.
+
+The proof plan is: Apply the separate arbitrary-ball bound, retaining its dimension-only constant and construction-dependent cutoff. The finite-tree/native-measure interface remains an explicit gap.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.3/mass-transference-measure`, `ProbabilisticAndMetricNumberTheory:PM.3/mass-transference-ball-bound`.
+
+Source: BeresnevichVelani, §§5.3–5.5, printed pp.986–990.
+
+#### Bounds on selected level-ball masses
+
+`ProbabilisticAndMetricNumberTheory:PM.3/mass-transference-level-mass` (lemma). For every selected level ball L below the root, μ(L)≤f(r_L)/η. Use exactly the root and nonroot floor-plus-one sublevel counts from the Cantor construction; the comparison H^k(B)≤c₂r_B^k is retained.
+
+The proof plan is: At the root each sublevel has f-mass at least c₃r_B₀^k≥(c₃/c₂)H^k(B₀), so the prescribed root count makes the denominator at least η. At a later parent the denominator is at least c₃l_Br_B^k≥f(r_B); substitute the inductive parent bound into the exact child-mass recursion. The finite-tree signature is omitted until its native interface is fixed.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.3/mass-transference-measure`, `ProbabilisticAndMetricNumberTheory:PM.3/mass-transference-cantor`.
+
+Source: BeresnevichVelani, §5.4, printed p.987.
+
+#### Ball intersection geometry
+
+`ProbabilisticAndMetricNumberTheory:PM.3/mass-transference-ball-geometry` (lemma). For closed Euclidean balls A,M and c≥3, if A meets M and A has a point outside the concentric c-fold dilate of M, then r_M≤r_A and cM is contained in the concentric 5-fold dilate of A. In the proof the final triangle inequality is non-strict; the point outside cM makes the first inequality strict.
+
+The proof plan is: Combine center distances from a point in A∩M with the distance of the point of A outside cM to get (c−1)r_M<2r_A. For y∈cM, d(y,center A)≤r_A+(c+1)r_M≤5r_A by the sharper preceding inequality when c≥3.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.3/mass-transference-cantor`.
+
+Source: BeresnevichVelani, Lemma 7, printed p.988, with corrected proof inequality.
+
+#### Arbitrary small-ball mass bound
+
+`ProbabilisticAndMetricNumberTheory:PM.3/mass-transference-ball-bound` (lemma). There are constants C_k>0 and r₀>0, where C_k depends only on the dimension and covering constants and r₀ may depend on the construction, such that every ball A with 0<r_A<r₀ satisfies μ(A)≤C_k f(r_A)/η for the Cantor probability. C_k is independent of η.
+
+The proof plan is: Use the deepest parent for which A meets at least two children; all its relevant children have radius at most r_A by triple separation and Lemma 7. For sublevels with a single hit, use their f-mass halving property to sum a geometric series bounded by 2f(r_A). For sublevels with multiple hits, use expanded disjointness inside 5A and monotonic f(r)/r^k to bound the sum by a dimension constant times l_B f(r_A); the denominator lower bound c₃l_BH^k(B) and the parent mass bound finish the estimate. The native finite-tree/small-radius interface is not yet fixed, so its signature is omitted.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.3/mass-transference-level-mass`, `ProbabilisticAndMetricNumberTheory:PM.3/mass-transference-ball-geometry`, `ProbabilisticAndMetricNumberTheory:PM.3/mass-transference-cantor`, `ProbabilisticAndMetricNumberTheory:PM.3/mass-transference-measure`.
+
+Source: BeresnevichVelani, §5.5, printed pp.988–990.
+
+#### Mass transference principle
+
+`ProbabilisticAndMetricNumberTheory:PM.3/mass-transference-general` (theorem). BV Theorem 2: for k≥1, balls B_i⊂ℝ^k of radii tending to zero, a dimension function f with f(r)/r^k monotone, and expanded balls B_i^f of radius f(r_i)^(1/k), assume limsup B_i^f has full Lebesgue measure in every ball. Then H^f(B∩limsup B_i)=H^f(B) for every ball B. Use native mkMetric through the explicit normalization comparison; no claim about a general metric space without §6.1’s local compactness/doubling hypotheses.
+
+The proof plan is: If f(r)/r^k has finite zero/positive limit, use the comparison of Hausdorff measures and the covering/full-measure argument. For the infinite ratio, apply the Cantor construction and arbitrary-ball bound, then native mass distribution to get H^f≥cη for all η. The general gauge/tree interface and external measure-extension input are explicit gaps; omit the unavailable general signature.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.3/dimension-gauge`, `ProbabilisticAndMetricNumberTheory:PM.3/gauge-normalization`, `ProbabilisticAndMetricNumberTheory:PM.3/mass-transference-cover`, `ProbabilisticAndMetricNumberTheory:PM.3/mass-transference-ball-bound`, `mathlib:MeasureTheory.Measure.le_hausdorffMeasure`.
+
+Source: BeresnevichVelani, Theorem 2 and §5, printed pp.977–990.
+
+#### Power-gauge mass transference on the line
+
+`ProbabilisticAndMetricNumberTheory:PM.3/mass-transference-power` (theorem). For 0<s<1, centers c_i∈ℝ, positive radii r_i→0, and E=limsup closedBall(c_i,r_i), assume every nonempty open ball meets limsup closedBall(c_i,r_i^s) in full Lebesgue measure. Then every positive-radius ball meets E in infinite native s-dimensional Hausdorff measure.
+
+The proof plan is: Apply the general mass transference principle with the power dimension function; its ratio r^(s−1) tends to infinity. Use the radius/diameter normalization bridge; it changes finite factors and preserves infinity.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.3/mass-transference-general`, `mathlib:MeasureTheory.Measure.hausdorffMeasure`.
+
+Source: BeresnevichVelani, Theorem 2 specialized to k=1, f(r)=r^s.
+
+#### Jarník–Besicovitch dimension theorem
+
+`ProbabilisticAndMetricNumberTheory:PM.3/jarnik-besicovitch` (theorem). For v>2, let W_v consist of x∈[0,1] with |x−a/q|<q^(−v) for infinitely many coprime integers a and positive q. Then native dimH(W_v)=2/v and its critical (2/v)-Hausdorff measure is infinite. The source writes ψ(q)=q^(−τ), τ=v−1, so the exponent is 2/(1+τ), not 2/(2+τ).
+
+The proof plan is: Use Dirichlet’s theorem for the expanded radius q^(−2), and the critical power mass-transference statement for the lower bound and infinity. For s>2/v the rational-ball cover has summable q·q^(−vs) cost, giving zero Hausdorff measure and the upper dimension bound. Strict versus closed approximation radii require a constant-radius comparison; the native rational-approximation/dimH signature bridge remains explicit.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.3/mass-transference-power`, `ProbabilisticAndMetricNumberTheory:PM.3/duffin-schaeffer-sets`, `mathlib:MeasureTheory.Measure.hausdorffMeasure`.
+
+Source: BeresnevichVelani, §3.2, printed pp.977–978.
+
+#### Hausdorff Duffin–Schaeffer theorem
+
+`ProbabilisticAndMetricNumberTheory:PM.3/hausdorff-duffin-schaeffer` (theorem). For the one-dimensional reduced approximation limsup and dimension function f with f(r)/r monotone, convergence of Σ_q φ(q) f(ψ(q)/q) gives zero H^f-measure; divergence gives H^f equal to that of [0,1]. No monotonicity of ψ is imposed. The divergence follows by native Lebesgue Duffin–Schaeffer for θ(q)=q f(ψ(q)/q), followed by mass transference.
+
+The proof plan is: Treat nonshrinking radii separately, enumerate reduced rational balls without retaining zero-radius empty approximants, and use the series transformation for θ. Apply the preserved Lebesgue theorem and MTP locally. A direct covering/tsum argument supplies the convergence half. The general gauge comparison, strict-radius and enumeration bridges are explicit gaps; omit the general gauge signature until they are fixed.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.3/mass-transference-general`, `ProbabilisticAndMetricNumberTheory:PM.3/duffin-schaeffer-theorem`, `ProbabilisticAndMetricNumberTheory:PM.3/duffin-schaeffer-convergence`.
+
+Source: BeresnevichVelani, Theorem 1 and §3.1, printed pp.973,977.
+
+#### Second moment for limsup events
+
+`ProbabilisticAndMetricNumberTheory:PM.3/quasi-independent-borel-cantelli` (theorem). For measurable events E_n in a probability space, suppose Σμ(E_n)=∞ and there is C≥1 such that for every M there are arbitrarily large N≥M with Σ_{M≤i,j≤N}μ(E_i∩E_j)≤C(Σ_{M≤i≤N}μ(E_i))². Then μ(limsup E_n)≥1/C. Full measure needs an additional zero-one or local-full-measure input; it does not follow from this positive bound alone.
+
+The proof plan is: Apply the preserved finite second-moment union bound to each tail interval with nonzero total mass. Take continuity from below for unions and from above for the decreasing tail unions under a probability measure.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.3/second-moment-union-bound`.
+
+Source: BeresnevichVelani, §2.2 and Lemmas 4–6, printed pp.976,979; refinement of the preserved second-moment argument.
+
+#### Higher-dimensional Duffin–Schaeffer theorem
+
+`ProbabilisticAndMetricNumberTheory:PM.3/higher-dimensional-duffin-schaeffer` (theorem). For k≥2 and ψ:ℕ→[0,∞), let S_k(ψ) consist of x∈[0,1]^k such that for infinitely many q≥1 there are a_i∈ℤ with gcd(a_i,q)=1 separately for every coordinate and max_i|x_i−a_i/q|<ψ(q)/q. Its Lebesgue measure is zero if Σ_q(φ(q)ψ(q)/q)^k converges and one if the sum diverges. The coordinatewise coprimality is stronger than gcd(a₁,…,a_k,q)=1.
+
+The proof plan is: The convergence direction is a covering/Borel–Cantelli estimate with the explicit coordinatewise totient count. Read the original Pollington–Vaughan higher-dimensional divergence proof, with its pair-overlap estimates and zero-one/local-full-measure step; it is a separate input, not a consequence of the one-dimensional theorem. The finite-coordinate reduced-approximation/native-volume bridge and the original proof are not yet obtained; omit the full signature until that interface is specified.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.3/quasi-independent-borel-cantelli`.
+
+Source: BeresnevichVelani, Introduction, printed pp.971–972: simultaneous definition and Pollington–Vaughan theorem.
+
+#### Hausdorff dimension of reduced approximation
+
+`ProbabilisticAndMetricNumberTheory:PM.3/duffin-schaeffer-dimension` (theorem). KM Corollary3: for 0≤ψ(q)≤1/2, let A be the preserved closed reduced-rational limsup. Put s=inf{b≥0:Σ_{q≥1}φ(q)(ψ(q)/q)^b converges}, with inf(empty)=∞. Then native dimH(A)=min(s,1). The bound ψ≤1/2 belongs to this exact source statement.
+
+The proof plan is: For any b>s the direct rational cover has summable b-gauge cost and hence zero Hausdorff measure. For 0<b<min(s,1) the Hausdorff Duffin–Schaeffer divergence theorem gives infinite b-measure. Supremum/infimum comparisons in native dimH yield equality, with the ambient line bound. The signature expands the existing dsLimsup formula only to permit a Mathlib-only elaboration check; no second approximation-set definition is introduced.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.3/hausdorff-duffin-schaeffer`, `ProbabilisticAndMetricNumberTheory:PM.3/duffin-schaeffer-sets`, `mathlib:dimH`.
+
+Source: KM-2020, Published Corollary3, printed p.255, freshly read.
+
+### PM.4 — pointwise Gauss metric laws
+
+The native mean/L1 ergodic statements do not give almost-everywhere averages. The generic pointwise extension uses Sarig’s coloring/limsup argument, invariant-set integrals and conditional-expectation identification. Measurable representative and martingale interfaces remain named gaps. Native Ergodic is reused. Mixing and exactness are specified as predicates on the native probability-space data, and their tests distinguish a trivial point, a two-atom identity and an ergodic periodic swap.
+
+The Gauss map is the total native fractional part of inverse. Its invariant density is1/((1+x)log2) on(0,1], bounded above by1/log2. Inverse branches use absolute Jacobians. Uniform finite-word distortion feeds Rényi’s cylinder comparison and exactness; exactness gives mixing, and mixing gives ergodicity through a separate declaration. Digit and finite-word frequencies are cylinder measures; no digit independence is asserted.
+
+Khinchin’s constant is the exponential of the log-digit integral with factor1+1/(a(a+2)). The native convergent denominators are indexed by q₀=1. Their orbit-log comparison has bounded error log2 for irrational inputs; Birkhoff and the positive integral π²/(12log2) then yield Lévy’s growth law. Gauss–Kuzmin concerns the marginal distribution from Lebesgue initial data and needs a transfer-operator spectral estimate. Qualitative mixing does not supply its exponential rate. GN.4 retains homogeneous spaces and group flows; no lattice or quotient is defined here.
+
+#### Pointwise Birkhoff theorem
+
+`ProbabilisticAndMetricNumberTheory:PM.4/birkhoff-pointwise` (theorem). For a measure-preserving map T of a probability space and integrable f:Ω→ℝ, native birkhoffAverage ℝ T f N converges almost everywhere to the native conditional expectation of f on MeasurableSpace.invariants T. This is pointwise convergence of a representative, not just mean/L1 convergence.
+
+The proof plan is: For nonnegative f, the coloring/truncated-limsup estimate and the complementary liminf estimate force equality of limsup and liminf almost everywhere. The limit is invariant and integrable; its integrals over every invariant measurable set equal those of f, identifying native conditional expectation. Split signed f into positive/negative parts. The coloring and identification nodes below are direct prerequisites; no existing mean-ergodic result is claimed as the pointwise proof.
+
+Direct prerequisites: `mathlib:birkhoffAverage`, `mathlib:MeasurableSpace.invariants`, `ProbabilisticAndMetricNumberTheory:PM.4/birkhoff-coloring`, `ProbabilisticAndMetricNumberTheory:PM.4/birkhoff-identification`.
+
+Source: Sarig2023, Theorems 2.2–2.3 and their complete proof, physical pp.45–49.
+
+#### Coloring estimate for Birkhoff limsup
+
+`ProbabilisticAndMetricNumberTheory:PM.4/birkhoff-coloring` (lemma). For a nonnegative integrable real observable on a probability-preserving system, the integrable truncation g_M=min(limsup_N A_N f,M) has integral at most ∫f. Apply the statement with its source measurable invariant limsup representative; positive limsup may be infinite before this bound.
+
+The proof plan is: For ε>0 choose finite orbit blocks with average above g_M−ε on a set whose measure tends to one as the permitted block length grows. Color disjoint blocks along a long orbit; boundary and bad-set contributions are bounded by M times their frequency. Integrate using preservation. First let the long orbit length tend to infinity, then remove the bad set and ε. A precise measurable extended-limsup representative and the finite coloring lemma signatures remain to be split.
+
+Direct prerequisites: `mathlib:birkhoffAverage`.
+
+Source: Sarig2023, Theorem 2.2 proof, physical pp.45–47.
+
+#### Invariant limit and conditional expectation
+
+`ProbabilisticAndMetricNumberTheory:PM.4/birkhoff-identification` (lemma). If the almost-everywhere Birkhoff limit g of an integrable f is integrable and invariant, the coloring/liminf argument gives ∫_A g=∫_A f for every native invariant measurable set A; hence g equals native condExp(invariants T,μ,f) almost everywhere.
+
+The proof plan is: Restrict the probability-preserving system to an invariant set, normalizing when its mass is positive; zero-mass sets are immediate. Use the signed coloring argument to identify the restricted integrals and the native uniqueness criterion for conditional expectation. The exact native conditional-expectation uniqueness/restriction lemmas are still to be matched; omit a bundled limit signature rather than a Prop-valued stand-in.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.4/birkhoff-coloring`, `mathlib:MeasurableSpace.invariants`.
+
+Source: Sarig2023, Theorem 2.3, physical pp.48–49.
+
+#### Ergodic pointwise averages
+
+`ProbabilisticAndMetricNumberTheory:PM.4/birkhoff-pointwise-ergodic` (theorem). For native Ergodic T μ on a probability space and integrable real f, A_N f(x)→∫f dμ for μ-almost every x.
+
+The proof plan is: Identify the pointwise limit as conditional expectation on the invariant sigma-algebra. Ergodicity makes this invariant function almost surely constant; its integral is the integral of f.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.4/birkhoff-pointwise`, `mathlib:Ergodic`.
+
+Source: Sarig2023, Theorem 2.2, ergodic conclusion, physical pp.45–47.
+
+#### Gauss map
+
+`ProbabilisticAndMetricNumberTheory:PM.4/gauss-map` (definition). Define T:ℝ→ℝ by T(x)=Int.fract(x⁻¹), using native total inversion so T(0)=0. Its measure-theoretic domain is [0,1]; all metric digit theorems exclude rationals, and T preserves irrational points in (0,1).
+
+The proof plan is: Use the native floor/fractional-part operation rather than a second continued-fraction algorithm. Match the inverse branches x↦1/(a+x) for integers a≥1 on the irrational domain; rational boundary values are handled separately.
+
+Direct prerequisites: `mathlib:GenContFract.of`.
+
+The API laws are `gaussMap_zero`: T(0)=0.; `gaussMap_range`: Every real input maps into [0,1).; `gaussMap_measurable`: The total Gauss map is Borel measurable..
+
+Tests: gauss_half: T(1/2)=0, showing rational termination.; gauss_two_thirds: T(2/3)=1/2.; gauss_zero: The endpoint convention is T(0)=0..
+
+Consumers: ProbabilisticAndMetricNumberTheory:PM.4/gauss-measure — Preserves the specific absolutely continuous Gauss probability.; ProbabilisticAndMetricNumberTheory:PM.4/gauss-digit — Its iterates define the digit observations for metric laws..
+
+Source: SarigTransfer, §2.3 and Appendix A.2, physical pp.11,32.
+
+#### gaussMap_zero
+
+`ProbabilisticAndMetricNumberTheory:PM.4/gauss-map-api-1` (lemma). T(0)=0.
+
+The proof plan is: Unfold the defining formula or use the indicated native compatibility theorem. Prove the stated API law in the native carrier; retain the parent definition’s discriminating tests.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.4/gauss-map`.
+
+Source: SarigTransfer, §2.3 and Appendix A.2, physical pp.11,32.
+
+#### gaussMap_range
+
+`ProbabilisticAndMetricNumberTheory:PM.4/gauss-map-api-2` (lemma). Every real input maps into [0,1).
+
+The proof plan is: Unfold the defining formula or use the indicated native compatibility theorem. Prove the stated API law in the native carrier; retain the parent definition’s discriminating tests.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.4/gauss-map`.
+
+Source: SarigTransfer, §2.3 and Appendix A.2, physical pp.11,32.
+
+#### gaussMap_measurable
+
+`ProbabilisticAndMetricNumberTheory:PM.4/gauss-map-api-3` (lemma). The total Gauss map is Borel measurable.
+
+The proof plan is: Unfold the defining formula or use the indicated native compatibility theorem. Prove the stated API law in the native carrier; retain the parent definition’s discriminating tests.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.4/gauss-map`.
+
+Source: SarigTransfer, §2.3 and Appendix A.2, physical pp.11,32.
+
+#### Gauss probability measure
+
+`ProbabilisticAndMetricNumberTheory:PM.4/gauss-measure` (construction). Use native μ_G=(volume restricted to (0,1]).withDensity(ofReal(1/((1+x)log 2))). It is a Borel probability measure equivalent to the restricted Lebesgue measure; on its support the density lies between 1/(2 log 2) and 1/log 2. Outside the support density values do not affect μ_G.
+
+The proof plan is: Integrate the density explicitly by log(1+x); the mass of (0,1] is one. Use positive finite density on the support to prove mutual absolute continuity. The erroneous printed upper bound 2 log 2 is not used.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.4/gauss-map`, `mathlib:MeasureTheory.ProbabilityMeasure`.
+
+The API laws are `gaussMeasure_univ`: The measure has total mass one.; `gaussMeasure_interval`: For 0≤a≤b≤1, μ_G((a,b])=(log(1+b)−log(1+a))/log 2.; `gaussMeasure_equivalent`: Gauss and restricted Lebesgue measure have the same null sets..
+
+Tests: gauss_mass: μ_G((0,1])=1.; gauss_first_digit: μ_G((1/2,1])=log(4/3)/log 2, the frequency of digit 1.; gauss_no_atoms: The totalized endpoint has no mass..
+
+Consumers: ProbabilisticAndMetricNumberTheory:PM.4/gauss-invariant — The invariant probability for Gauss ergodic averages.; ProbabilisticAndMetricNumberTheory:PM.4/gauss-density-log-integral — Sets the logarithmic observable integrals and exact constants..
+
+Source: SarigTransfer, Appendix A.2, physical pp.32–33, density with corrected upper bound.
+
+#### gaussMeasure_univ
+
+`ProbabilisticAndMetricNumberTheory:PM.4/gauss-measure-api-1` (lemma). The measure has total mass one.
+
+The proof plan is: Unfold the defining formula or use the indicated native compatibility theorem. Prove the stated API law in the native carrier; retain the parent definition’s discriminating tests.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.4/gauss-measure`.
+
+Source: SarigTransfer, Appendix A.2, physical pp.32–33, density with corrected upper bound.
+
+#### gaussMeasure_interval
+
+`ProbabilisticAndMetricNumberTheory:PM.4/gauss-measure-api-2` (lemma). For 0≤a≤b≤1, μ_G((a,b])=(log(1+b)−log(1+a))/log 2.
+
+The proof plan is: Unfold the defining formula or use the indicated native compatibility theorem. Prove the stated API law in the native carrier; retain the parent definition’s discriminating tests.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.4/gauss-measure`.
+
+Source: SarigTransfer, Appendix A.2, physical pp.32–33, density with corrected upper bound.
+
+#### gaussMeasure_equivalent
+
+`ProbabilisticAndMetricNumberTheory:PM.4/gauss-measure-api-3` (lemma). Gauss and restricted Lebesgue measure have the same null sets.
+
+The proof plan is: Unfold the defining formula or use the indicated native compatibility theorem. Prove the stated API law in the native carrier; retain the parent definition’s discriminating tests.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.4/gauss-measure`.
+
+Source: SarigTransfer, Appendix A.2, physical pp.32–33, density with corrected upper bound.
+
+#### Gauss digit observations
+
+`ProbabilisticAndMetricNumberTheory:PM.4/gauss-digit` (definition). For real x define a_{n+1}(x)=gaussDigit(x,n)=Nat.floor((T^[n]x)⁻¹), n indexed from zero. On irrational x∈(0,1), all digits are positive and this agrees with the n-indexed native GenContFract.of x partial denominator stream. At rational termination the observable is zero, without inventing an infinite native continued fraction.
+
+The proof plan is: Use the single floor observable on native iterates. At n=0 it is the first fractional continued-fraction digit. For irrational inputs the native computation stream is nonterminating and its next inverse-fractional-part step matches T.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.4/gauss-map`, `mathlib:GenContFract.of`.
+
+The API laws are `gaussDigit_zero`: The first digit is floor(x⁻¹).; `gaussDigit_shift`: Digit n at T(x) equals digit n+1 at x.; `gaussDigit_native`: On irrational x in (0,1), native partial denominator n is some real cast of gaussDigit(x,n)..
+
+Tests: digit_half_first: The first digit of 1/2 is 2.; digit_half_terminated: The next digit of 1/2 is zero under totalization.; digit_two_thirds: The digits of 2/3 start 1,2,0..
+
+Consumers: ProbabilisticAndMetricNumberTheory:PM.4/gauss-digit-frequency — Pins the off-by-one convention in empirical frequencies.; ProbabilisticAndMetricNumberTheory:PM.4/khinchin-geometric-mean — Uses log of the positive digit observable, not its nonintegrable arithmetic mean..
+
+Source: SarigTransfer, §2.3, physical p.11, corrected iterate/digit index; native partial denominator bridge.
+
+#### gaussDigit_zero
+
+`ProbabilisticAndMetricNumberTheory:PM.4/gauss-digit-api-1` (lemma). The first digit is floor(x⁻¹).
+
+The proof plan is: Unfold the defining formula or use the indicated native compatibility theorem. Prove the stated API law in the native carrier; retain the parent definition’s discriminating tests.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.4/gauss-digit`.
+
+Source: SarigTransfer, §2.3, physical p.11, corrected iterate/digit index; native partial denominator bridge.
+
+#### gaussDigit_shift
+
+`ProbabilisticAndMetricNumberTheory:PM.4/gauss-digit-api-2` (lemma). Digit n at T(x) equals digit n+1 at x.
+
+The proof plan is: Unfold the defining formula or use the indicated native compatibility theorem. Prove the stated API law in the native carrier; retain the parent definition’s discriminating tests.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.4/gauss-digit`.
+
+Source: SarigTransfer, §2.3, physical p.11, corrected iterate/digit index; native partial denominator bridge.
+
+#### gaussDigit_native
+
+`ProbabilisticAndMetricNumberTheory:PM.4/gauss-digit-api-3` (lemma). On irrational x in (0,1), native partial denominator n is some real cast of gaussDigit(x,n).
+
+The proof plan is: Induct on n through native GenContFract.of and IntFractPair.stream, using irrational nontermination and positivity of each inverse fractional part. Match the first fractional denominator to digit zero and the next stream step to the iterate of the total Gauss map. The native bridge remains an explicit gap.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.4/gauss-digit`, `mathlib:GenContFract.of`, `mathlib:Irrational`.
+
+Source: SarigTransfer, §2.3, physical p.11, corrected iterate/digit index; native partial denominator bridge.
+
+#### Strong mixing of probability-preserving maps
+
+`ProbabilisticAndMetricNumberTheory:PM.4/strong-mixing` (definition). IsStrongMixing T μ for native μ:ProbabilityMeasure Ω means MeasurePreserving T μ μ and, for all measurable A,B, μ.real(A∩(T^[n])⁻¹B)→μ.real(A)μ.real(B). This is a general probability-system predicate; Gauss is an application.
+
+The proof plan is: Define the precise mixing limit using native iterates, preimages and real measure. General consumers include Gauss mixing here and homogeneous dynamics at GN.4. Ergodicity is imported as the native notion, not redefined.
+
+Direct prerequisites: `mathlib:MeasureTheory.ProbabilityMeasure`, `mathlib:Ergodic`.
+
+The API laws are `IsStrongMixing.measurePreserving`: Mixing includes measure preservation.; `IsStrongMixing.ergodic`: A strongly mixing probability system is native Ergodic.; `IsStrongMixing.correlation`: Exports the defining measurable-set correlation limit..
+
+Tests: mix_dirac: Identity on a one-point dirac probability is mixing.; mix_identity_rejected: Identity on a fair two-atom measure is not mixing: take A=B={0}.; mix_periodic_rejected: The swap x↦1−x on that fair two-atom space is ergodic but not mixing..
+
+Consumers: ProbabilisticAndMetricNumberTheory:PM.4/gauss-mixing — States the Gauss-system correlation limit.; GeometryOfNumbersAndQuadraticArithmetic:GN.4 — Offers one generic map-level predicate; group flows and quotient measures remain that supplier’s objects..
+
+Source: SarigTransfer, Appendix A.2, physical p.32.
+
+#### IsStrongMixing.measurePreserving
+
+`ProbabilisticAndMetricNumberTheory:PM.4/strong-mixing-api-1` (lemma). Mixing includes measure preservation.
+
+The proof plan is: Unfold the defining formula or use the indicated native compatibility theorem. Prove the stated API law in the native carrier; retain the parent definition’s discriminating tests.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.4/strong-mixing`.
+
+Source: SarigTransfer, Appendix A.2, physical p.32.
+
+#### IsStrongMixing.ergodic
+
+`ProbabilisticAndMetricNumberTheory:PM.4/strong-mixing-api-2` (lemma). A strongly mixing probability system is native Ergodic.
+
+The proof plan is: For a measurable strictly invariant A, the iterated preimage is A; apply mixing with B=A to obtain μ(A)=μ(A)². Since 0≤μ(A)≤1, the mass is zero or one; with the measure-preserving projection this is native Ergodic.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.4/strong-mixing`, `mathlib:Ergodic`.
+
+Source: SarigTransfer, Appendix A.2, physical p.32.
+
+#### IsStrongMixing.correlation
+
+`ProbabilisticAndMetricNumberTheory:PM.4/strong-mixing-api-3` (lemma). Exports the defining measurable-set correlation limit.
+
+The proof plan is: Unfold the defining formula or use the indicated native compatibility theorem. Prove the stated API law in the native carrier; retain the parent definition’s discriminating tests.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.4/strong-mixing`.
+
+Source: SarigTransfer, Appendix A.2, physical p.32.
+
+#### Exact probability systems
+
+`ProbabilisticAndMetricNumberTheory:PM.4/exact-system` (definition). IsExact T μ means T preserves the native probability μ and every set measurable for the tail sigma-algebra inf_n comap(T^[n],mΩ) is μ-null or μ-conull. This is exactness for a noninvertible system, stronger than ergodicity.
+
+The proof plan is: Use native MeasurableSpace.comap and its indexed infimum, not a private sigma-algebra carrier. Keep the explicit tail zero-one condition; invariance of a single set is not exactness.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.4/strong-mixing`.
+
+The API laws are `IsExact.measurePreserving`: Exactness includes measure preservation.; `IsExact.tail_zero_one`: Exports the native tail-sigma zero-one law.; `IsExact.strongMixing`: An exact probability system is strongly mixing, by reverse martingale convergence..
+
+Tests: exact_dirac: Identity on a dirac probability is exact.; exact_identity_rejected: Identity on a fair two-atom measure is not exact.; exact_swap_rejected: An invertible two-point swap is not exact even though it is ergodic..
+
+Consumers: ProbabilisticAndMetricNumberTheory:PM.4/gauss-exact — Provides the tail condition of Rényi’s proof.; ProbabilisticAndMetricNumberTheory:PM.4/gauss-mixing — Turns Gauss exactness into the measurable-set correlation limit..
+
+Source: SarigTransfer, Appendix A.2, physical p.32.
+
+#### IsExact.measurePreserving
+
+`ProbabilisticAndMetricNumberTheory:PM.4/exact-system-api-1` (lemma). Exactness includes measure preservation.
+
+The proof plan is: Unfold the defining formula or use the indicated native compatibility theorem. Prove the stated API law in the native carrier; retain the parent definition’s discriminating tests.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.4/exact-system`.
+
+Source: SarigTransfer, Appendix A.2, physical p.32.
+
+#### IsExact.tail_zero_one
+
+`ProbabilisticAndMetricNumberTheory:PM.4/exact-system-api-2` (lemma). Exports the native tail-sigma zero-one law.
+
+The proof plan is: Unfold the defining formula or use the indicated native compatibility theorem. Prove the stated API law in the native carrier; retain the parent definition’s discriminating tests.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.4/exact-system`.
+
+Source: SarigTransfer, Appendix A.2, physical p.32.
+
+#### IsExact.strongMixing
+
+`ProbabilisticAndMetricNumberTheory:PM.4/exact-system-api-3` (lemma). An exact probability system is strongly mixing, by reverse martingale convergence.
+
+The proof plan is: For each bounded observable, apply reverse-martingale conditional-expectation convergence to the decreasing sigma-algebras comap(T^[n]). Tail triviality identifies the limit as the constant expectation. Measure preservation converts these conditional expectations into the measurable-set mixing correlation. The native reverse-martingale theorem, its exact filtration/completion hypotheses and the conditional-expectation/pushforward identity are recorded as a gap; this API is not an unfolding lemma.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.4/exact-system`, `ProbabilisticAndMetricNumberTheory:PM.4/strong-mixing`.
+
+Source: SarigTransfer, Appendix A.2, physical p.32.
+
+#### Gauss inverse branches and Jacobians
+
+`ProbabilisticAndMetricNumberTheory:PM.4/gauss-branch-jacobian` (lemma). For integer a≥1, v_a(x)=1/(a+x) maps (0,1) to its ath Gauss cylinder and T(v_a(x))=x. The derivative needed for measure transport is a separate lemma.
+
+The proof plan is: Use a< a+x<a+1 on (0,1), so floor(a+x)=a, and evaluate the total inverse/fractional-part formula.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.4/gauss-map`.
+
+Source: SarigTransfer, §2.3 and Appendix A.2, physical pp.12,32.
+
+#### Invariant density telescope
+
+`ProbabilisticAndMetricNumberTheory:PM.4/gauss-density-telescope` (lemma). For x∈[0,1], Σ_{a≥1}1/((a+x)(a+x+1))=1/(1+x). Therefore the Lebesgue transfer operator sends h(x)=1/((1+x)log 2) to h(x).
+
+The proof plan is: Write each summand as 1/(a+x)−1/(a+x+1) and telescope finite partial sums. Let the final reciprocal tend to zero; then substitute the density into the inverse-branch Jacobian formula.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.4/gauss-branch-jacobian`, `ProbabilisticAndMetricNumberTheory:PM.4/gauss-measure`.
+
+Source: SarigTransfer, §2.3 transfer formula, physical p.12; worker’s exact telescoping verification.
+
+#### Gauss measure invariance
+
+`ProbabilisticAndMetricNumberTheory:PM.4/gauss-invariant` (theorem). The native total Gauss map is MeasurePreserving for μ_G. The statement is equality of pushforward and μ_G on the Borel real line, with support and endpoints explicitly handled.
+
+The proof plan is: Partition the irrational support into countably many branches and use nonnegative/absolutely integrable change of variables. Use the density telescope, then native measure extensionality; all omitted rational boundaries have zero measure.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.4/gauss-map`, `ProbabilisticAndMetricNumberTheory:PM.4/gauss-measure`, `ProbabilisticAndMetricNumberTheory:PM.4/gauss-branch-jacobian`, `ProbabilisticAndMetricNumberTheory:PM.4/gauss-density-telescope`, `ProbabilisticAndMetricNumberTheory:PM.4/gauss-branch-derivative`.
+
+Source: SarigTransfer, Transfer duality Proposition 1.1 and §2.3, physical pp.6,12.
+
+#### Uniform distortion of continued-fraction cylinders
+
+`ProbabilisticAndMetricNumberTheory:PM.4/gauss-single-branch-distortion` (lemma). For a≥1 and x,y∈[0,1], the logarithms of the absolute derivatives of v_a(x)=1/(a+x) differ by at most 2|x−y|. This does not assert Lip(v_a′)≤1.
+
+The proof plan is: Use the native continuant recurrences to obtain the Möbius denominator and determinant ±1. Since 0≤q_(n−1)/q_n≤1, compare denominator factors between q_n and 2q_n; differentiate log|v′| to get the bound 2.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.4/gauss-digit`, `mathlib:GenContFract.of`, `mathlib:GenContFract.dens`, `ProbabilisticAndMetricNumberTheory:PM.4/gauss-branch-jacobian`.
+
+Source: SarigTransfer, Exercise 2.5(c),(d), physical pp.12–13, corrected derivative hint; native matrix recurrence bridge.
+
+#### Uniform finite-word cylinder distortion
+
+`ProbabilisticAndMetricNumberTheory:PM.4/gauss-cylinder-distortion` (lemma). For every positive-digit finite word w=(a₁,…,a_n), n≥1, put v_w=v_a₁∘…∘v_a_n. Its absolute derivative is (q_n+x q_(n−1))⁻², with the word continuants q₀=1,q₋₁=0. For all x,y∈[0,1], 1/4≤|v_w′(x)|/|v_w′(y)|≤4, and |log|v_w′(x)|−log|v_w′(y)||≤2|x−y|.
+
+The proof plan is: Induct on the finite word using the existing continuant/matrix recurrence and determinant ±1. Use q_(n−1)≤q_n to compare denominators between q_n and 2q_n, then differentiate their logarithm. The finite-word/native stream and differentiable branch interface has not been fixed; the general-word signature is explicitly omitted.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.4/gauss-single-branch-distortion`, `mathlib:GenContFract.of`, `mathlib:GenContFract.dens`, `ProbabilisticAndMetricNumberTheory:PM.4/gauss-branch-derivative`.
+
+Source: SarigTransfer, Exercise 2.5(c),(d), physical pp.12–13.
+
+#### Rényi cylinder comparison
+
+`ProbabilisticAndMetricNumberTheory:PM.4/gauss-renyi` (lemma). There is C≥1 independent of n and the digit word a such that for every Gauss cylinder [a] of depth n and every measurable B⊂[0,1], C⁻¹m([a])m(B)≤m([a]∩(T^[n])⁻¹B)≤C m([a])m(B), where m is restricted Lebesgue measure.
+
+The proof plan is: Integrate the absolute derivative of the cylinder inverse branch over B. Compare it to its integral over [0,1] using the uniform distortion bound. Extend from intervals to Borel sets by native measure extensionality. The general finite-word cylinder/continuant bridge must be made explicit; its signature is omitted until that native comparison is fixed.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.4/gauss-cylinder-distortion`, `ProbabilisticAndMetricNumberTheory:PM.4/gauss-branch-jacobian`.
+
+Source: SarigTransfer, Appendix A.2, physical p.32.
+
+#### Rényi exactness theorem for the Gauss map
+
+`ProbabilisticAndMetricNumberTheory:PM.4/gauss-exact` (theorem). The Gauss map with μ_G is exact in the native tail-sigma sense. Any tail measurable B with positive mass has full mass.
+
+The proof plan is: Write a tail set as T^(-n)B_n and apply Rényi’s lower bound in every depth-n cylinder. Use the correct density bounds to obtain a uniform positive lower bound m(B∩[a])/m([a])≥m(B)/(2C). The cylinders generate the Borel sigma-algebra; increasing conditional expectations converge to 1_B, forcing its positivity almost everywhere. Match this native martingale/generation input rather than inventing it.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.4/exact-system`, `ProbabilisticAndMetricNumberTheory:PM.4/gauss-invariant`, `ProbabilisticAndMetricNumberTheory:PM.4/gauss-renyi`.
+
+Source: SarigTransfer, Appendix A.2, physical pp.32–33, corrected density estimate.
+
+#### Gauss mixing theorem
+
+`ProbabilisticAndMetricNumberTheory:PM.4/gauss-mixing` (theorem). For μ_G, all Borel A,B satisfy μ_G(A∩T^(-n)B)→μ_G(A)μ_G(B).
+
+The proof plan is: Apply the general exact-to-mixing theorem through native reverse conditional expectations. Export the precise measurable-set mixing predicate, with the Gauss probability instance.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.4/gauss-exact`, `ProbabilisticAndMetricNumberTheory:PM.4/exact-system-api-3`.
+
+Source: SarigTransfer, Appendix A.2: exactness implies mixing, physical p.32.
+
+#### Gauss ergodicity theorem
+
+`ProbabilisticAndMetricNumberTheory:PM.4/gauss-ergodic` (theorem). The total Gauss map is native Ergodic for the Gauss probability measure.
+
+The proof plan is: Apply the generic mixing-to-ergodicity API with the existing Gauss probability instance.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.4/gauss-mixing`, `ProbabilisticAndMetricNumberTheory:PM.4/strong-mixing-api-2`.
+
+Source: SarigTransfer, Appendix A.2, physical pp.32–33.
+
+#### Gauss digit frequency law
+
+`ProbabilisticAndMetricNumberTheory:PM.4/gauss-digit-frequency` (theorem). For Lebesgue-almost every irrational x∈(0,1), simultaneously for every a≥1, #{0≤j<N:gaussDigit(x,j)=a}/N tends to log((a+1)^2/(a(a+2)))/log 2.
+
+The proof plan is: Identify a single-digit cylinder with (1/(a+1),1/a), up to zero-mass endpoints, and apply ergodic pointwise averages to its indicator. Evaluate its Gauss measure by the interval formula and take a countable common null set over digits. Transport almost-everywhere statements through the positive density to restricted Lebesgue measure.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.4/gauss-digit`, `ProbabilisticAndMetricNumberTheory:PM.4/gauss-ergodic`, `ProbabilisticAndMetricNumberTheory:PM.4/birkhoff-pointwise-ergodic`, `ProbabilisticAndMetricNumberTheory:PM.4/gauss-measure-api-2`, `ProbabilisticAndMetricNumberTheory:PM.4/gauss-measure-api-3`.
+
+Source: Smyth2020, Lesson 9 §1.2, physical pp.45–46.
+
+#### Finite continued-fraction block frequencies
+
+`ProbabilisticAndMetricNumberTheory:PM.4/gauss-word-frequency` (theorem). For each positive-digit word w:Fin k→ℕ with k≥1, let C_w={y∈(0,1):∀i<k,gaussDigit(y,i)=w_i}. For Lebesgue-almost every x∈(0,1), simultaneously for every such w, the frequency of starts j<N with ∀i<k,gaussDigit(x,j+i)=w_i tends to μ_G(C_w). The digits are not asserted independent.
+
+The proof plan is: Apply pointwise ergodicity to the measurable finite intersection defining C_w and use the digit-shift API. Take the countable common null set over finite words and transport via Gauss/Lebesgue equivalence.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.4/gauss-digit`, `ProbabilisticAndMetricNumberTheory:PM.4/gauss-ergodic`, `ProbabilisticAndMetricNumberTheory:PM.4/birkhoff-pointwise-ergodic`, `ProbabilisticAndMetricNumberTheory:PM.4/gauss-measure-api-3`.
+
+Source: Smyth2020, Lesson 5 cylinder indicators and Lesson 9, physical pp.28–29,45–46.
+
+#### Khinchin’s constant
+
+`ProbabilisticAndMetricNumberTheory:PM.4/khinchin-constant` (definition). Define K=exp(Σ_{a≥1}log(a)·log(1+1/(a(a+2)))/log 2). The positive series converges by comparison with log(a)/a². This is the exponential of the Gauss integral of log of the first digit; it is not an independence product. The printed factor a(a+1) in the school notes is corrected.
+
+The proof plan is: Define the scalar using native tsum and real exp, prove summability separately by comparison. Identify the series with the integral of log of the digit observable by the countable cylinder partition.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.4/gauss-measure`, `ProbabilisticAndMetricNumberTheory:PM.4/gauss-digit`.
+
+The API laws are `khinchin_series_summable`: The logarithmic series defining K is summable.; `khinchinConstant_pos`: K is positive.; `khinchinConstant_log_integral`: log K equals the Gauss integral of log of the first digit..
+
+Tests: khinchin_first_term: The digit-1 logarithmic term is zero.; khinchin_second_term: The digit-2 logarithmic term is log(9/8), distinguishing a(a+2) from the printed a(a+1).; khinchin_not_unit: The constant exceeds one, unlike the all-digit-1 exceptional orbit..
+
+Consumers: ProbabilisticAndMetricNumberTheory:PM.4/khinchin-geometric-mean — The pointwise logarithmic average exponentiates to K..
+
+Source: Smyth2020, Theorem 21, physical p.46, corrected using the preceding digit-frequency formula.
+
+#### khinchin_series_summable
+
+`ProbabilisticAndMetricNumberTheory:PM.4/khinchin-constant-api-1` (lemma). The logarithmic series defining K is summable.
+
+The proof plan is: Use log(1+u)≤u for u≥0 to dominate the summand by log(k+1)/((k+1)(k+3)log 2). Compare log(k+1)/(k+1)² with a summable power tail; the finitely many endpoint terms are immediate.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.4/khinchin-constant`.
+
+Source: Smyth2020, Theorem 21, physical p.46, corrected using the preceding digit-frequency formula.
+
+#### khinchinConstant_pos
+
+`ProbabilisticAndMetricNumberTheory:PM.4/khinchin-constant-api-2` (lemma). K is positive.
+
+The proof plan is: Unfold the defining formula or use the indicated native compatibility theorem. Prove the stated API law in the native carrier; retain the parent definition’s discriminating tests.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.4/khinchin-constant`.
+
+Source: Smyth2020, Theorem 21, physical p.46, corrected using the preceding digit-frequency formula.
+
+#### khinchinConstant_log_integral
+
+`ProbabilisticAndMetricNumberTheory:PM.4/khinchin-constant-api-3` (lemma). log K equals the Gauss integral of log of the first digit.
+
+The proof plan is: Partition (0,1) by the first-digit cylinders and compute their masses by the Gauss interval formula. Use the summability API and integral over the measurable countable partition to identify the tsum, then log(exp(t))=t.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.4/khinchin-constant`, `ProbabilisticAndMetricNumberTheory:PM.4/khinchin-constant-api-1`, `ProbabilisticAndMetricNumberTheory:PM.4/gauss-measure-api-2`, `ProbabilisticAndMetricNumberTheory:PM.4/gauss-digit`.
+
+Source: Smyth2020, Theorem 21, physical p.46, corrected using the preceding digit-frequency formula.
+
+#### Integrability of Gauss logarithmic observables
+
+`ProbabilisticAndMetricNumberTheory:PM.4/gauss-log-integrability` (lemma). The real functions x↦log(gaussDigit(x,0)) and x↦−log x are integrable for μ_G.
+
+The proof plan is: For log of the digit, sum the positive cylinder integral weights and compare with the summable logarithmic series. For −log x use the bounded positive Gauss density and the classical integral of |log x| on (0,1). The divergent digit mean can be established separately by truncation.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.4/gauss-measure`, `ProbabilisticAndMetricNumberTheory:PM.4/gauss-digit`, `ProbabilisticAndMetricNumberTheory:PM.4/khinchin-constant`.
+
+Source: Smyth2020, Lesson 9 §1.2 and exercises 2.3–2.4, physical pp.46,48–49.
+
+#### Khinchin geometric mean theorem
+
+`ProbabilisticAndMetricNumberTheory:PM.4/khinchin-geometric-mean` (theorem). For Lebesgue-almost every x∈(0,1), (∏_{0≤j<N}gaussDigit(x,j))^(1/N) tends to K. The exponent is real, N→∞, and irrational positive-digit inputs hold outside one null set.
+
+The proof plan is: Apply the pointwise ergodic theorem to the integrable logarithmic first-digit observable. Use the digit-shift identity and positivity to turn the log average into the logarithm of the geometric mean; exponentiate and transport measure.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.4/khinchin-constant-api-3`, `ProbabilisticAndMetricNumberTheory:PM.4/gauss-log-integrability`, `ProbabilisticAndMetricNumberTheory:PM.4/birkhoff-pointwise-ergodic`, `ProbabilisticAndMetricNumberTheory:PM.4/gauss-ergodic`, `ProbabilisticAndMetricNumberTheory:PM.4/gauss-digit-api-2`, `ProbabilisticAndMetricNumberTheory:PM.4/gauss-measure-api-3`.
+
+Source: Smyth2020, Theorem 21 and exercise 2.3(c), physical pp.46,48, corrected constant.
+
+#### Convergent denominators and orbit logarithms
+
+`ProbabilisticAndMetricNumberTheory:PM.4/gauss-denominator-log-bridge` (lemma). For irrational x∈(0,1) and N≥0, |log((GenContFract.of x).dens N)+Σ_{j<N}log(T^[j]x)|≤log 2. Use the exact identity ∏_{j<N}(T^[j]x)⁻¹=q_N+q_(N−1)T^[N]x, with q_(−1)=0, q_0=1. Rational terminated streams are excluded.
+
+The proof plan is: Induct on the native continuant recurrence to obtain the exact product identity. Use 0≤q_(N−1)≤q_N and 0<T^[N]x<1 to trap the product between q_N and 2q_N; take logs.
+
+Direct prerequisites: `mathlib:GenContFract.of`, `mathlib:GenContFract.dens`, `ProbabilisticAndMetricNumberTheory:PM.4/gauss-map`, `ProbabilisticAndMetricNumberTheory:PM.4/gauss-digit`.
+
+Source: Smyth2020, Lesson 7 continuants and Lesson 9 exercise 2.4, physical pp.34–37,48–49; sharper bounded-error refinement.
+
+#### Gauss logarithmic integral
+
+`ProbabilisticAndMetricNumberTheory:PM.4/gauss-density-log-integral` (lemma). The Gauss integral ∫−log x dμ_G is π²/(12 log 2). The value is positive; the corresponding integral of log x is its negative.
+
+The proof plan is: Expand 1/(1+x) on (0,1) with controlled truncation and integrate −x^n log x=1/(n+1)². Use the native ζ(2) evaluation and even/odd splitting to identify the alternating sum π²/12. The exact native integral-series interchange declarations remain to be matched.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.4/gauss-measure`, `ProbabilisticAndMetricNumberTheory:PM.4/gauss-log-integrability`.
+
+Source: Smyth2020, Lesson 9 exercise 2.4(c) with corrected sign, physical p.49; elementary integral/series evaluation.
+
+#### Lévy denominator growth theorem
+
+`ProbabilisticAndMetricNumberTheory:PM.4/levy-denominator` (theorem). For Lebesgue-almost every x∈(0,1), log((GenContFract.of x).dens N)/N tends to π²/(12 log 2). The native denominator index is fixed by q_0=1, not shifted to the first fractional digit.
+
+The proof plan is: Apply the pointwise ergodic theorem to −log x and use the explicit integral. Divide the bounded log-denominator error by N; it tends to zero.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.4/gauss-denominator-log-bridge`, `ProbabilisticAndMetricNumberTheory:PM.4/gauss-density-log-integral`, `ProbabilisticAndMetricNumberTheory:PM.4/gauss-log-integrability`, `ProbabilisticAndMetricNumberTheory:PM.4/birkhoff-pointwise-ergodic`, `ProbabilisticAndMetricNumberTheory:PM.4/gauss-ergodic`, `ProbabilisticAndMetricNumberTheory:PM.4/gauss-measure-api-3`.
+
+Source: Smyth2020, Lesson 9 §1.2 and exercise 2.4, physical pp.46,48–49.
+
+#### Gauss–Kuzmin exponential convergence
+
+`ProbabilisticAndMetricNumberTheory:PM.4/gauss-kuzmin` (theorem). There are absolute C>0 and 0<ρ<1 such that for every a≥1 and n≥0, the Lebesgue probability that gaussDigit(x,n)=a differs from log((a+1)^2/(a(a+2)))/log 2 by at most Cρ^n. This is convergence of the nth marginal law from Lebesgue initial data; pointwise ergodic frequency alone gives no exponential rate.
+
+The proof plan is: Use the Lebesgue transfer operator Lf(x)=Σ_{a≥1} f(1/(a+x))/(a+x)² and its fixed density. Prove the Lipschitz Doeblin–Fortet estimate and compact embedding; apply the separately recorded Hennion spectral input and simplicity from Gauss mixing. Integrate L^n1−h over the digit cylinder. Its L1 norm gives a constant uniform in a; the iterate index follows the corrected first-digit convention.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.4/gauss-invariant`, `ProbabilisticAndMetricNumberTheory:PM.4/gauss-mixing`, `ProbabilisticAndMetricNumberTheory:PM.4/gauss-cylinder-distortion`.
+
+Source: SarigTransfer, §2.3 Gauss–Kuzmin theorem and Doeblin–Fortet proof, physical pp.11–13.
+
+#### Absolute Gauss inverse-branch derivative
+
+`ProbabilisticAndMetricNumberTheory:PM.4/gauss-branch-derivative` (lemma). For a≥1 and x∈[0,1], v_a(x)=1/(a+x) has real derivative −1/(a+x)² and absolute derivative 1/(a+x)².
+
+The proof plan is: Differentiate the reciprocal away from its zero denominator, using a+x≥1. The determinant sign is removed only when forming the unsigned measure Jacobian.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.4/gauss-branch-jacobian`.
+
+Source: SarigTransfer, §2.3 transfer formula and Appendix A.2, physical pp.12,32.
+
+### PM.5 — local multiplicative laws and separate random models
+
+The short-interval theorem concerns bounded real multiplicative functions. Its exceptional set counts integer starting points; the intermediate good-integer estimate integrates real starting points and keeps every prime-range inequality. The full analytic proof and the source modulated-sum input remain gaps. AN.3 owns quantitative Dirichlet-polynomial estimates, AN.5 owns pretentious/Halász interfaces, and ES.0 is requested for the specific circle-method input.
+
+The logarithmic two-point theorem retains nonproportional affine forms, the growing window and harmonic normalization. The Elliott condition is uniform over |t|≤Ax for every fixed character and A; fixed-t divergence is insufficient. The ordinary fixed-shift Liouville bound has a fixed positive savingδ(h), not an o(N) conclusion. The Rademacher and Steinhaus constructions use existing arithmetic carriers outcome by outcome; their prime-power tests and separately stated covariance laws distinguish the two models. The native product-law/independent-integral bridge is still a gap. Neither expected random cancellation nor a two-point logarithmic theorem proves the general Chowla/Sarnak conjectures.
+
+#### Inclusive short-interval means
+
+`ProbabilisticAndMetricNumberTheory:PM.5/short-interval-mean` (definition). For real arithmetic f, natural x,h, shortMean(f,x,h)=h⁻¹Σ_{x≤n≤x+h}f(n). The source includes both endpoints but normalizes by h, giving h+1 terms. Native total division gives shortMean(f,x,0)=0. Its long dyadic mean is the same expression shortMean(f,X,X).
+
+The proof plan is: Use native Finset.Icc with exactly the source normalization; do not replace the denominator by h+1. The exceptional set is a finite set of integer x∈[X,2X] for Theorem 1; the source’s intermediate L2 estimate integrates real starting points separately.
+
+Direct prerequisites: `mathlib:ArithmeticFunction`, `mathlib:ArithmeticFunction.IsMultiplicative`.
+
+The API laws are `shortMean_zero`: The totalized zero-length mean is zero.; `shortMean_add`: The mean is linear for pointwise addition of arithmetic functions.; `shortMean_bound`: If |f(n)|≤1 on the interval and h>0, |shortMean|≤(h+1)/h..
+
+Tests: short_zero: The zero arithmetic function has zero means.; short_one_length: A length-one interval includes f(x) and f(x+1), with denominator one.; short_constant: For x,h>0 and f(n)=1 on positive inputs, the mean is (h+1)/h, not one..
+
+Consumers: ProbabilisticAndMetricNumberTheory:PM.5/matomaki-radziwill — Pins the main theorem’s local and dyadic comparison with exact finite endpoints..
+
+Source: MatomakiRadziwill, Theorem 1, physical p.1; collated published pp.1015–1017,1020–1021.
+
+#### shortMean_zero
+
+`ProbabilisticAndMetricNumberTheory:PM.5/short-interval-mean-api-1` (lemma). The totalized zero-length mean is zero.
+
+The proof plan is: Unfold the defining formula or use the indicated native compatibility theorem. Prove the stated API law in the native carrier; retain the parent definition’s discriminating tests.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.5/short-interval-mean`.
+
+Source: MatomakiRadziwill, Theorem 1, physical p.1; collated published pp.1015–1017,1020–1021.
+
+#### shortMean_add
+
+`ProbabilisticAndMetricNumberTheory:PM.5/short-interval-mean-api-2` (lemma). The mean is linear for pointwise addition of arithmetic functions.
+
+The proof plan is: Unfold the defining formula or use the indicated native compatibility theorem. Prove the stated API law in the native carrier; retain the parent definition’s discriminating tests.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.5/short-interval-mean`.
+
+Source: MatomakiRadziwill, Theorem 1, physical p.1; collated published pp.1015–1017,1020–1021.
+
+#### shortMean_bound
+
+`ProbabilisticAndMetricNumberTheory:PM.5/short-interval-mean-api-3` (lemma). If |f(n)|≤1 on the interval and h>0, |shortMean|≤(h+1)/h.
+
+The proof plan is: Unfold the defining formula or use the indicated native compatibility theorem. Prove the stated API law in the native carrier; retain the parent definition’s discriminating tests.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.5/short-interval-mean`.
+
+Source: MatomakiRadziwill, Theorem 1, physical p.1; collated published pp.1015–1017,1020–1021.
+
+#### Matomäki–Radziwiłł short-interval theorem
+
+`ProbabilisticAndMetricNumberTheory:PM.5/matomaki-radziwill` (theorem). There are absolute C,C′>1 such that for every real multiplicative f with |f(n)|≤1 on positive integers, natural 2≤h≤X and δ>0, all but at most C X[(log h)^(1/3)/(δ² h^(δ/25))+1/(δ²(log X)^(1/50))] integer x∈[X,2X] satisfy |shortMean(f,x,h)−shortMean(f,X,X)|≤δ+C′log log h/log h. C,C′ are independent of f,h,X,δ. Complex-valued functions are not covered by this source theorem.
+
+The proof plan is: Use Theorem 3’s mean-square comparison on the source set with one prime factor in each specified prime interval. Control the excluded source integers and the local excluded mass using the same theorem with f=1, then apply Markov with δ. The analytic and good-integer/sieve estimates of Sections 3–9 are precise remaining inputs; no proved conclusion is derived from a random model.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.5/short-interval-mean`, `mathlib:ArithmeticFunction.IsMultiplicative`, `AnalyticNumberTheory:AN.5`, `AnalyticNumberTheory:AN.3`.
+
+Source: MatomakiRadziwill, Theorem 1, physical p.1; collated published pp.1015–1017,1020–1021.
+
+#### Good-integer mean-square input
+
+`ProbabilisticAndMetricNumberTheory:PM.5/short-interval-good-set` (lemma). MR Theorem 3: for η∈(0,1/6), increasing prime intervals [P_j,Q_j], Q₁≤exp(sqrt(log X)), and every j≥2, (log log Q_j)/(log P_(j−1)−1)≤η/(4j²) and (η/j²)log P_j≥8log Q_(j−1)+16log j. Let J be the largest j with Q_j≤exp(sqrt(log X)), and S_X={n∈[X,2X]: each interval [P_j,Q_j],1≤j≤J, contains a prime divisor of n}. If [P₁,Q₁]⊂[1,h], then for X≥X₀(η), ∫_X^(2X)|h⁻¹Σ_{x≤n≤x+h,n∈S_X}f(n)−X⁻¹Σ_{X≤n≤2X,n∈S_X}f(n)|²dx ≤ C_η X[(log h)^(1/3)/P₁^(1/6−η)+(log X)^(−1/50)]. The start x is real and both finite sums retain the inclusive endpoints. Formula (4) is one admissible choice, not the complete hypothesis.
+
+The proof plan is: Use the source restricted Dirichlet polynomial integral and its decomposition by prime intervals. Keep the exact good-set interface, real-starting-point endpoint convention and all interval inequalities from (4). Its full Sections 3–9 proof is unread; omit that foreign supplier-dependent signature.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.5/short-interval-mean`.
+
+Source: MatomakiRadziwill, Theorem 3 and (4), physical pp.6–7; collated published pp.1015–1017,1020–1021.
+
+#### Logarithmic two-point averages
+
+`ProbabilisticAndMetricNumberTheory:PM.5/log-correlation` (definition). For complex native arithmetic f,g, positive natural slopes a₁,a₂, integer shifts b₁,b₂ and real x,w, logCorrelation is [Σ_{floor(x/w)<n≤floor(x)} f((a₁n+b₁).toNat)g((a₂n+b₂).toNat)/n]/log w. The range is x/w<n≤x when x≥w≥1. Native zero-extension makes negative/zero linear forms contribute zero; those finitely many initial terms do not affect limits with log w→∞. No complex conjugation is inserted.
+
+The proof plan is: Use the exact half-open interval, harmonic weight and logarithmic normalization. Integer shifts use the native zero-extended arithmetic carrier; positive slopes guarantee eventual positive arguments.
+
+Direct prerequisites: `mathlib:ArithmeticFunction`, `mathlib:ArithmeticFunction.liouville`.
+
+The API laws are `logCorrelation_swap`: Swapping the observations and both linear forms leaves the product average unchanged.; `logCorrelation_add_left`: The average is linear in the first observation for pointwise arithmetic-function addition.; `logCorrelation_one_window`: When w=1 the summation interval is empty and the totalized average is zero..
+
+Tests: log_weight_small: For Liouville at forms n,n+1, x=w=2, the value is 1/(2 log 2).; log_weight_sign: At x=w=4 the n,n+1 numerator is −1/12, distinguishing harmonic from uniform averaging.; log_degenerate_forms: At x=w=4 identical Liouville forms give numerator 13/12, demonstrating the determinant exclusion..
+
+Consumers: ProbabilisticAndMetricNumberTheory:PM.5/logarithmic-chowla — The two-point Liouville conclusion has this exact window and harmonic weight.; ProbabilisticAndMetricNumberTheory:PM.5/logarithmic-elliott — The corrected uniform nonpretentiousness condition controls the same complex product average..
+
+Source: TaoLogChowla, Theorems 1.2–1.3 and Corollary 1.5, physical pp.1–6; collated published Theorem 2 (p.3), Theorem 3 (p.5) and Corollary 5 (p.6).
+
+#### logCorrelation_swap
+
+`ProbabilisticAndMetricNumberTheory:PM.5/log-correlation-api-1` (lemma). Swapping the observations and both linear forms leaves the product average unchanged.
+
+The proof plan is: Unfold the defining formula or use the indicated native compatibility theorem. Prove the stated API law in the native carrier; retain the parent definition’s discriminating tests.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.5/log-correlation`.
+
+Source: TaoLogChowla, Theorems 1.2–1.3 and Corollary 1.5, physical pp.1–6; collated published Theorem 2 (p.3), Theorem 3 (p.5) and Corollary 5 (p.6).
+
+#### logCorrelation_add_left
+
+`ProbabilisticAndMetricNumberTheory:PM.5/log-correlation-api-2` (lemma). The average is linear in the first observation for pointwise arithmetic-function addition.
+
+The proof plan is: Unfold the defining formula or use the indicated native compatibility theorem. Prove the stated API law in the native carrier; retain the parent definition’s discriminating tests.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.5/log-correlation`.
+
+Source: TaoLogChowla, Theorems 1.2–1.3 and Corollary 1.5, physical pp.1–6; collated published Theorem 2 (p.3), Theorem 3 (p.5) and Corollary 5 (p.6).
+
+#### logCorrelation_one_window
+
+`ProbabilisticAndMetricNumberTheory:PM.5/log-correlation-api-3` (lemma). When w=1 the summation interval is empty and the totalized average is zero.
+
+The proof plan is: Unfold the defining formula or use the indicated native compatibility theorem. Prove the stated API law in the native carrier; retain the parent definition’s discriminating tests.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.5/log-correlation`.
+
+Source: TaoLogChowla, Theorems 1.2–1.3 and Corollary 1.5, physical pp.1–6; collated published Theorem 2 (p.3), Theorem 3 (p.5) and Corollary 5 (p.6).
+
+#### Logarithmic two-point Chowla theorem
+
+`ProbabilisticAndMetricNumberTheory:PM.5/logarithmic-chowla` (theorem). For fixed positive slopes a₁,a₂ and integer shifts b₁,b₂ with a₁b₂−a₂b₁≠0, and 1≤w(x)≤x eventually with w(x)→∞, logCorrelation(λ,λ,a₁,a₂,b₁,b₂,x,w(x))→0 as x→∞. This is source Theorem 1.2 with harmonic weighting, not ordinary two-point cancellation on every prefix.
+
+The proof plan is: Apply the corrected logarithmic Elliott theorem to Liouville, with the source’s uniform twisted-character nonpretentiousness supplied analytically. Bound the finitely many nonpositive linear-form terms by an absolute constant and divide by log w. The entropy-decrement/modulated-short-sum proof and uniform character input remain named gaps, not consequences of iid signs.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.5/log-correlation`, `mathlib:ArithmeticFunction.liouville`, `mathlib:ArithmeticFunction.liouville_apply_mul`, `AnalyticNumberTheory:AN.5`, `AnalyticNumberTheory:AN.3`, `ExponentialSumsAndCircleMethod:ES.0`.
+
+Source: TaoLogChowla, Theorem 1.2, physical p.2 and Corollary 1.5, pp.5–6; collated published Theorem 2 (p.3), Theorem 3 (p.5) and Corollary 5 (p.6).
+
+#### Corrected logarithmic Elliott theorem
+
+`ProbabilisticAndMetricNumberTheory:PM.5/logarithmic-elliott` (theorem). For native complex multiplicative f,g bounded by 1, fixed positive slopes and distinct nonproportional linear forms, assume: for every fixed Dirichlet character χ and A≥1, inf_{|t|≤Ax}Σ_{p≤x}(1−Re(f(p)conj(χ(p))p^(−it)))/p→∞. Then for every eventually 1≤w(x)≤x with w→∞, the normalized logarithmic two-point correlation tends to zero. This is Corollary 1.5; divergence for each fixed t alone is explicitly insufficient.
+
+The proof plan is: Use Theorem 1.3’s finite ε,A uniform nonpretentiousness estimate, with characters of bounded period and the entire |t|≤Ax range. For each ε choose its threshold and apply the stated uniform divergence condition, then let ε tend to zero. The AN.5-owned distance/character API and complete entropy-decrement proof have not been supplied; omit the foreign condition signature explicitly.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.5/log-correlation`, `mathlib:ArithmeticFunction.IsMultiplicative`, `AnalyticNumberTheory:AN.5`, `ExponentialSumsAndCircleMethod:ES.0`.
+
+Source: TaoLogChowla, Corollary 1.5 and Remark 1.6, physical pp.5–6; collated published Theorem 2 (p.3), Theorem 3 (p.5) and Corollary 5 (p.6).
+
+#### Nontrivial ordinary Liouville correlation bound
+
+`ProbabilisticAndMetricNumberTheory:PM.5/liouville-two-point-nontrivial` (theorem). For each fixed integer h≥1 there are δ(h)>0 and X₀(h) such that for X≥X₀, |Σ_{1≤n≤X}λ(n)λ(n+h)|≤(1−δ(h))X. MR Corollary 2 proves a bound separated from 1; it is not o(X) and is not an ordinary Chowla theorem.
+
+The proof plan is: Use the source short-interval/sign-change argument with complete multiplicativity of Liouville. Read the complete corollary proof and its dependence on h before promoting a quantitative δ(h).
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.5/matomaki-radziwill`, `mathlib:ArithmeticFunction.liouville`, `mathlib:ArithmeticFunction.liouville_apply_mul`.
+
+Source: MatomakiRadziwill, Corollary 2, physical pp.2–3; collated published pp.1015–1017,1020–1021.
+
+#### Rademacher random multiplicative model
+
+`ProbabilisticAndMetricNumberTheory:PM.5/rademacher-model` (construction). Given a measurable family ξ_p of independent fair signs on a native probability space, construct for each outcome the native real arithmetic function R(n)=∏_{p|n}ξ_p when n is squarefree and R(n)=0 otherwise, including n=0. R(1)=1. This is the standard squarefree-supported Möbius model, not a completely multiplicative sign model.
+
+The proof plan is: Construct the zero hom by the displayed squarefree guard and finite prime-factor product; randomness is in the supplied independent family. Coprime multiplicativity follows from the native squarefree-product and prime-factor union laws; no deterministic arithmetic cancellation is inferred.
+
+Direct prerequisites: `mathlib:ArithmeticFunction`.
+
+The API laws are `rademacherModel_squarefree`: On squarefree n the value is the product of its prime signs.; `rademacherModel_nonsquarefree`: On nonsquarefree n the value is zero.; `rademacherModel_multiplicative`: For every outcome the native arithmetic function is multiplicative..
+
+Tests: rademacher_one: The empty product at one is one.; rademacher_four: The value at four is zero, unlike a completely multiplicative sign model.; rademacher_six: The value at six is ξ₂ξ₃..
+
+Consumers: ProbabilisticAndMetricNumberTheory:PM.5/random-model-orthogonality — Native expectation computes exact finite-model covariance.; ProbabilisticAndMetricNumberTheory:PM.5 — A model for conjecture heuristics only; neither Chowla nor Sarnak follows without an arithmetic comparison..
+
+Source: Harper, Introduction, printed p.2277.
+
+#### rademacherModel_squarefree
+
+`ProbabilisticAndMetricNumberTheory:PM.5/rademacher-model-api-1` (lemma). On squarefree n the value is the product of its prime signs.
+
+The proof plan is: Unfold the defining formula or use the indicated native compatibility theorem. Prove the stated API law in the native carrier; retain the parent definition’s discriminating tests.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.5/rademacher-model`.
+
+Source: Harper, Introduction, printed p.2277.
+
+#### rademacherModel_nonsquarefree
+
+`ProbabilisticAndMetricNumberTheory:PM.5/rademacher-model-api-2` (lemma). On nonsquarefree n the value is zero.
+
+The proof plan is: Unfold the defining formula or use the indicated native compatibility theorem. Prove the stated API law in the native carrier; retain the parent definition’s discriminating tests.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.5/rademacher-model`.
+
+Source: Harper, Introduction, printed p.2277.
+
+#### rademacherModel_multiplicative
+
+`ProbabilisticAndMetricNumberTheory:PM.5/rademacher-model-api-3` (lemma). For every outcome the native arithmetic function is multiplicative.
+
+The proof plan is: Unfold the defining formula or use the indicated native compatibility theorem. Prove the stated API law in the native carrier; retain the parent definition’s discriminating tests.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.5/rademacher-model`.
+
+Source: Harper, Introduction, printed p.2277.
+
+#### Steinhaus completely multiplicative model
+
+`ProbabilisticAndMetricNumberTheory:PM.5/steinhaus-model` (construction). Given independent uniform unit-circle prime observations ζ_p, construct S(n)=∏_{p|n}ζ_p^(v_p(n)) for n>0 and S(0)=0 in the native complex arithmetic-function carrier. Unlike the Rademacher squarefree model, S(p²)=ζ_p² and every positive input has unit modulus.
+
+The proof plan is: Use the native factorization exponents and the explicit zero extension. Factorization addition gives complete multiplicativity on positive inputs; zero cases follow from the native guard.
+
+Direct prerequisites: `mathlib:ArithmeticFunction`.
+
+The API laws are `steinhausModel_mul`: The model is completely multiplicative for every outcome.; `steinhausModel_prime_pow`: For prime p and k>0, the value at p^k is ζ_p^k.; `steinhausModel_norm`: Unit modulus of prime observations gives unit modulus at every positive input..
+
+Tests: steinhaus_zero: The native zero extension gives S(0)=0.; steinhaus_one: The empty positive-input product gives S(1)=1.; steinhaus_four: S(4)=ζ₂² rather than zero..
+
+Consumers: ProbabilisticAndMetricNumberTheory:PM.5/random-model-orthogonality — Distinct integer products give distinct prime exponent vectors; Haar phase integration detects equality..
+
+Source: Harper, Introduction, printed p.2277.
+
+#### steinhausModel_mul
+
+`ProbabilisticAndMetricNumberTheory:PM.5/steinhaus-model-api-1` (lemma). The model is completely multiplicative for every outcome.
+
+The proof plan is: Unfold the defining formula or use the indicated native compatibility theorem. Prove the stated API law in the native carrier; retain the parent definition’s discriminating tests.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.5/steinhaus-model`.
+
+Source: Harper, Introduction, printed p.2277.
+
+#### steinhausModel_prime_pow
+
+`ProbabilisticAndMetricNumberTheory:PM.5/steinhaus-model-api-2` (lemma). For prime p and k>0, the value at p^k is ζ_p^k.
+
+The proof plan is: Unfold the defining formula or use the indicated native compatibility theorem. Prove the stated API law in the native carrier; retain the parent definition’s discriminating tests.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.5/steinhaus-model`.
+
+Source: Harper, Introduction, printed p.2277.
+
+#### steinhausModel_norm
+
+`ProbabilisticAndMetricNumberTheory:PM.5/steinhaus-model-api-3` (lemma). Unit modulus of prime observations gives unit modulus at every positive input.
+
+The proof plan is: Unfold the defining formula or use the indicated native compatibility theorem. Prove the stated API law in the native carrier; retain the parent definition’s discriminating tests.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.5/steinhaus-model`.
+
+Source: Harper, Introduction, printed p.2277.
+
+#### Rademacher covariance
+
+`ProbabilisticAndMetricNumberTheory:PM.5/rademacher-covariance` (lemma). For independent fair signs on the primes and positive m,n, E[R(m)R(n)]=1 if m=n is squarefree, and zero otherwise.
+
+The proof plan is: If either input is not squarefree its value vanishes. For squarefree inputs factor the expectation prime by prime; an odd exponent has zero fair-sign mean, while an even exponent contributes one. The exact native independent fair-sign product-law conditions are not yet matched; omit the law-bearing signature.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.5/rademacher-model`.
+
+Source: Harper, Printed p.2278, finite moment counting.
+
+#### Steinhaus covariance
+
+`ProbabilisticAndMetricNumberTheory:PM.5/steinhaus-covariance` (lemma). For independent unit-circle Haar phases at primes and positive m,n, E[S(m)conj(S(n))]=1 if m=n and zero otherwise.
+
+The proof plan is: Factor the finite expectation over the prime support of mn, with conjugation on the second factor. Haar phase integration annihilates every nonzero exponent difference; unique factorization identifies the diagonal. The exact native independent Haar-phase product-law conditions are not yet matched; omit the law-bearing signature.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.5/steinhaus-model`.
+
+Source: Harper, Printed p.2278, finite moment counting.
+
+#### Finite random-model second moments
+
+`ProbabilisticAndMetricNumberTheory:PM.5/random-model-orthogonality` (lemma). For N≥1 the Rademacher partial sum over 1≤n≤N has second moment equal to #{n≤N:squarefree n}; the Steinhaus partial sum has absolute-square second moment N. These identities are model expectations and imply no deterministic Möbius/Liouville cancellation.
+
+The proof plan is: Expand the finite sum square and use linearity of expectation. Insert the separate covariance formulas and sum the surviving diagonal terms. The exact native law-bearing signatures are omitted until the corresponding product probability interfaces are fixed.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.5/rademacher-covariance`, `ProbabilisticAndMetricNumberTheory:PM.5/steinhaus-covariance`.
+
+Source: Harper, Printed p.2278, finite diagonal counting.
+
+### Conjecture register
+
+**Chowla conjecture (conjecture).** For distinct nonnegative shifts a₁<⋯<a_t, exponents k_i∈{1,2} not all even, N⁻¹Σ_{1≤n≤N}∏_i μ(n+a_i)^(k_i)→0. The Liouville formulation for pairwise nonproportional positive-slope affine forms is N⁻¹Σ_n∏_i λ(a_i n+b_i)→0. These ordinary averages are conjectural; the separate two-point logarithmic theorem does not prove them. Source: Sarnak, Conjecture 1, p.3; TaoLogChowla, Published Conjecture 1, p.2.
+
+**Sarnak conjecture (conjecture).** For every compact metric X, continuous T:X→X of zero topological entropy, continuous f:X→ℂ and x∈X, N⁻¹Σ_{1≤n≤N} μ(n)f(T^[n]x)→0. The zero-entropy condition, all points x and ordinary average are essential. The Möbius–nilsequence theorem owned by AC.5 is a proved special case, not the whole conjecture. Source: Sarnak, Definitions of deterministic flow and orthogonality and Conjecture 4, p.4.
+
+### Current coverage and remaining obligations
+
+**ProbabilisticAndMetricNumberTheory:PM.0 — planned.**
+
+- Original Kolmogorov–Rogozin proof not read: BSKK Lemma 7.2 cites references [19,33,34]. Its equal-radius real inequality is the exact target; acquire the original concentration-function proof and split its symmetrization/combinatorial estimate before claiming lemma-level closure. A complex root projection needs a separate real comparison and is outside this generic theorem.
+- Classical Kubilius quantitative proof and native product law: Chen–Jaramillo–Yang (1.1) supplies the exact classical target but cites Kubilius [10]; acquire its full small-prime/fundamental-lemma proof or a complete proof of this bound. Match the native finite product of geometricMeasure and its atom factorization. The existing exact finite-period and finite-head error estimates do not imply this growing-prime comparison, since the prime product need not be small relative to N.
+- Finite versus growing arithmetic limit-law input: Complete the source’s growing/fixed-order prime cutoff and Mertens normalization estimates using the retained arithmetic moment nodes, then apply a genuine moment-convergence theorem with uniform integrability/tightness and the native Gaussian moment determinacy. The latter alone does not imply convergence. Match density of CDF continuity points via countability of atoms. The inherited finite Gaussian upper bounds are not asserted to be asymptotic moment formulas.
+
+**ProbabilisticAndMetricNumberTheory:PM.1 — planned.**
+
+- Turán–Kubilius proof input: Acquire the proof cited as Elsholtz–Tao [60, p.20]. The centering A_N and coefficient 30 above are read; independent Bernoulli moments for a fixed finite prime set do not prove this uniform full prime-power mean-square bound.
+- Restricted-family quantitative concentration: Read the source for Theorem 7.2(a)’s quantitative Erdős–Kac input on D(N), or prove a restricted-family second-moment bound with center (1/2)log log N and O(|D(N)|log log N) variance. The latter would give a stronger (log log N)^(-1/3) tail. Neither estimate has been established here; ordinary Turán–Kubilius on all integers is insufficient after conditioning on this thin family.
+- Gaussian moment convergence and source cutoff estimates: Promote precise fixed-order cutoff/normalization asymptotics and prove convergence to the Gaussian from all fixed moments with tightness/uniform integrability. Native Gaussian moment formulas and moment determinacy alone are insufficient. Do not state a uniform growing-moment range without reading Granville–Soundararajan’s exact source theorem.
+- Finite versus growing arithmetic limit-law input: Complete the source’s growing/fixed-order prime cutoff and Mertens normalization estimates using the retained arithmetic moment nodes, then apply a genuine moment-convergence theorem with uniform integrability/tightness and the native Gaussian moment determinacy. The latter alone does not imply convergence. Match density of CDF continuity points via countability of atoms. The inherited finite Gaussian upper bounds are not asserted to be asymptotic moment formulas.
+- Supplier AnalyticNumberTheory:AN.2: Reciprocal-prime Mertens asymptotic Σ_{p≤z}1/p=log log z+O(1), including the bounded prime-power remainder needed to compare the source Turán–Kubilius A_N,B_N²; supply exact scope/effectivity. Import existing summation APIs instead of rebuilding AN.0.
+
+**ProbabilisticAndMetricNumberTheory:PM.2 — planned.**
+
+- Discrepancy proof inputs: Read the original or a complete freely accessible proof of the Vaaler/Grabner interval majorants and Koksma integration-by-parts formula; the author sampler supplies exact statements and constants, not those proofs. Native BoundedVariationOn/eVariationOn are used directly, and no Hardy–Krause variation or multidimensional Koksma–Hlawka theorem is silently substituted.
+- Native digit/circle cylinder bridge: Check the complete positional-cylinder/floor proof and half-open endpoint transport for Real.digits at the pin. The native expanding-circle ergodicity theorem is available, but its pointwise-frequency bridge is not. A Bernoulli-shift isomorphism is an alternative proof only once its canonical digit/endpoints comparison is established.
+- Retained torus refinements: Retained asymptotic torus statements include integer indexing and the abelian rational/Ratner decomposition. Exercise1.1.22’s compact-connected-subgroup realization and the higher-dimensional criterion exercises still need refinement beyond the SL_d(Z) subtorus presentation. Quantitative single-scale equidistribution has not been decomposed; obtain an exact requested rate and source passage from ES/AC consumers before claiming it.
+
+**ProbabilisticAndMetricNumberTheory:PM.3 — planned.**
+
+- Pollington–Vaughan inputs of the Duffin–Schaeffer proof not read: Koukoulopoulos–Maynard Lemma 5.2 (the conjecture when ψ takes only values 0 or ⩾ 1/2) and Lemma 5.3 (the overlap estimate for λ(𝒜_q ∩ 𝒜_r)) are cited to Pollington–Vaughan, Mathematika 37 (1990), Theorem 2 and pp. 195–196, which were not read. The overlap estimate is recorded with its indicator corrected (E10). An open source for both proofs must be read before these two nodes are decomposed; the source notes that related proofs appear in Harman's book Metric Number Theory (Theorems 2.5, 2.6 and 3.6), which is not freely available.
+- Mass-transference native interfaces: Fix the source’s finite separated-ball tree using native Finset/Metric.closedBall and the compatible finite-mass extension to a native Borel probability. Read or replace Falconer [3, Proposition 1.7] cited in BV §5.3; the source asserts this extension without proving it. Match the full arbitrary-gauge radius/diameter comparison with Measure.mkMetric, the reduced-rational ball enumeration and strict/closed-radius transport. No private Prop-valued fields stand in for these missing conditions in the suggested file.
+- Higher-dimensional Pollington–Vaughan theorem: Acquire the original k≥2 divergence proof and match its coordinatewise coprimality, sup-norm cubes, ambient volume normalization and overlap/zero-one lemmas. BV supplies the precise target but only cites the proof. The preserved one-dimensional Pollington–Vaughan overlap gap remains separately recorded.
+- Supplier AnalyticNumberTheory:AN.2: Mertens' theorems: Σ_{p≤x} 1/p = log log x + B + O(1/log x), with an effective error such as Rosser–Schoenfeld Theorem 5 (|error| ⩽ 1/(log x)² for x ⩾ 286), and its consequences Σ_{w≤p<z} 1/p = log(log z/log w) + O(1/log w) and ∏_{p≤x}(1 + 1/p) ≍ log x. Koukoulopoulos–Maynard use them in the proof of Theorem 1 ((5.8)), Lemma 7.3 and Lemma 8.4. Mathlib 082e2d3 has Chebyshev's bounds but no Mertens theorem.
+
+**ProbabilisticAndMetricNumberTheory:PM.4 — planned.**
+
+- Pointwise ergodic proof and native representative: Complete the finite measurable coloring lemma, extended-real limsup truncation and conditional-expectation identification in the exact native invariants sigma-algebra. The full source proof was read; this pass records its logic and interfaces, not a checked implementation. Tau Ceti’s audited L1/mean Birkhoff results remain imports and do not supply this pointwise theorem. No existing roadmap stage was found to own the generic pointwise extension.
+- Gauss martingale and native cylinder inputs: Match the forward cylinder conditional-expectation convergence, Borel-generation proof, and reverse-martingale exact-to-mixing theorem at the pin. Read their actual native hypotheses before citing declarations; the source proofs invoke them. Native Gauss digits must be matched to the existing nonterminating continued-fraction stream, not reconstructed in a second carrier.
+- Gauss–Kuzmin analytic closure: Finish native Lipschitz Banach-space/transfer-operator norm estimates, prove compact embedding, and read Hennion’s Appendix A.3 proof (physical pp.35–38). This input and the spectral-gap/simplicity argument are not supplied by qualitative mixing or pointwise averages. No abstract spectral-gap Prop parameter replaces these conditions in the suggested file.
+- Native continued-fraction orbit and integral bridges: Prove the floor-stream/digit shift identification on irrational (0,1), match exact native nontermination, positive-continuant and adjacent-denominator comparison lemmas, and identify finite-word inverse branches with native convergents. Match the integral/series interchange and ζ(2) evaluation used in the Gauss logarithmic integral. Definitions alone are not treated as those proof inputs.
+- Homogeneous dynamics is GN.4-owned: use its quotient/flow contracts for the roadmap’s overview applications. The real Gauss metric statements here do not depend on those unrelated group-flow theorems.
+
+**ProbabilisticAndMetricNumberTheory:PM.5 — planned.**
+
+- Short-interval analytic proof: Read MR Sections 3–9 in full: source prime-interval parameters (4), the mean-square Dirichlet-polynomial estimate (5), the factorization by prime blocks, Halász/sieve bounds, and the exceptional-set conversion. The source theorem statement and Theorem 3 were read; no complete analytic decomposition is claimed. The intermediate integral over real x and final exceptional cardinality over integer x are distinct.
+- Logarithmic correlation proof inputs: Read Tao Sections 2–4 fully and route their finite Shannon entropy/conditional entropy/mutual-information APIs, entropy decrement with scale selection, concentration and circle-method estimate. Obtain the cited modulated short-Liouville sums of Matomäki–Radziwiłł–Tao. The original Elliott fixed-t condition is false; this plan requires the corrected uniform infimum condition. The general concentration theorem in PM.0 does not replace entropy decrement or the modulated-sum estimate.
+- Random-model law realization and covariance: Match native infinite product probability, independent fair signs and unit-circle Haar phase laws, and their finite integral-factorization statements. The outcome-wise arithmetic constructions and their discriminating prime-power tests are concrete; no transfer from their expected cancellation to deterministic Möbius/Liouville is available.
+- Supplier AnalyticNumberTheory:AN.5: Supply the existing-owner pretentious-distance and Halász interfaces with quantitative conductor/height ranges. For Tao Corollary 1.5 specifically, require uniform divergence over |t|≤Ax for every fixed character χ and A≥1; fixed-t divergence is insufficient. Also supply the Halász input to MR’s restricted Dirichlet-polynomial argument.
+- Supplier AnalyticNumberTheory:AN.3: Supply source-scoped Dirichlet-polynomial mean-value bounds and any required quantitative zero-free-region/nonpretentiousness estimate for Liouville against characters with the |t|≤Ax height range. Ordinary short-interval prime-counting estimates or a qualitative fixed-modulus PNT are insufficient for these uniform twisted bounds.
+- Supplier ExponentialSumsAndCircleMethod:ES.0: Supply the source-scoped modulated short-sum/circle-method Fourier estimates used in Tao’s entropy-decrement proof; they must include their averaging variables and scale ranges. Existing finite character-sum identities alone do not give the needed Liouville minor-arc cancellation.
+- General Chowla and Sarnak remain conjectures in the register; the theorem nodes assert only the explicitly stated proved short-interval/logarithmic results.
+
+### Source observations and versions
+
+The following observations await independent review. Their exact version, correction search and mathematical check appear in the packet; inherited findings retain their original receipts. No author was contacted.
+
+- **ProbabilisticAndMetricNumberTheory/E15** (SarigTransfer, misprint, affects nothing): Proposition 1.1, physical p.6 / printed p.4, uniqueness proof in acquired author notes. Replace the second h₁ by h₂. The surrounding argument compares two densities h₁ and h₂. Repeating h₁ gives zero independently of h₂ and cannot establish their equality. Known: new.
+- **ProbabilisticAndMetricNumberTheory/E16** (SarigTransfer, misprint, affects the proof): §2.3, physical p.11 / printed p.9, first continued-fraction iterate display. Write T^(n−1)(x)=1/(aₙ+⋯), or retain Tⁿ with first denominator a_(n+1). The text starts x=[0;a₁,a₂,…] and T deletes the first digit. At n=1 the next digit is a₂, as also used in the following cylinder formula. Known: new.
+- **ProbabilisticAndMetricNumberTheory/E17** (SarigTransfer, error, affects the proof): Exercise 2.5(b), physical p.12 / printed p.10, uniform contraction in acquired author notes. Use ≤ for all x,y, or require x≠y for a strict version. Set x=y. Both sides vanish, so the printed strict inequality says 0<0. The non-strict contraction is the proof input. Known: new.
+- **ProbabilisticAndMetricNumberTheory/E18** (SarigTransfer, error, affects the proof): Exercise 2.5(c), physical p.13 / printed p.11, derivative hint in acquired author notes. For one-digit branches use Lip(log|v′ₐ|)≤2; for all words use the continuant denominator to bound relative derivative distortion. For a=1, v(x)=1/(1+x); the derivative secant between 0 and 1/4 has absolute slope 36/25>1. The logarithmic derivative slope is at most 2 on [0,1]. The hinted derivative bound is false, while the intended relative distortion remains valid. Known: new.
+- **ProbabilisticAndMetricNumberTheory/E19** (SarigTransfer, misprint, affects the proof): Appendix A.2, physical p.32 / printed p.30, Rényi cylinder change of variables. Integrate |v′ₐ| for the unsigned Lebesgue Jacobian. An odd-length inverse branch has negative derivative. Its integral over a positive-measure cylinder would be negative, unlike the positive measure being computed. Known: new.
+- **ProbabilisticAndMetricNumberTheory/E20** (SarigTransfer, error, affects the proof): Appendix A.2, physical p.33 / printed p.31, Gauss density comparison. Replace the upper density bound by 1/log 2. Thus m(Bₙ)≥(log 2)μ_G(Bₙ)≥m(B)/2 for a tail preimage Bₙ. The density tends to 1/log 2 at zero. Since log 2<7/10, 2(log 2)²<98/100<1, so the printed upper bound is smaller than the supremum and fails on an interval of positive measure. The corrected comparison still proves exactness. Known: new.
+- **ProbabilisticAndMetricNumberTheory/E21** (Smyth2020, misprint, affects nothing): Proposition 15 proof, physical p.34 / printed Lesson 7 p.31. Use pₖ=aₖp_(k−1)+p_(k−2), and the corresponding q recurrence. The native matrix recurrence and the proposition’s preceding recurrence are correct; the induction line swaps the coefficients. For [0;1,2], p₂=2·p₁+p₀=2. Known: new.
+- **ProbabilisticAndMetricNumberTheory/E22** (Smyth2020, error, affects a stated result): Theorem 17, physical p.35 / printed Lesson 7 p.32, acquired final author notes. Require that A is invariant as a set (or invariant modulo null sets); equality of measure under preimages alone is automatic for every measurable A. The Gauss measure is invariant. The interval A=(1/2,1) has ν(A)=log(4/3)/log 2 strictly between zero and one, while ν(T^(−n)A)=ν(A) for every n. The theorem as printed confuses invariance of a set with preservation of its mass. Known: new.
+- **ProbabilisticAndMetricNumberTheory/E23** (Smyth2020, misprint, affects a stated result): Lesson 9 second bullet, physical p.46 / printed p.43, approximation-error logarithm. The limit of N⁻¹ log|x−p_N/q_N| is −π²/(6 log 2). Approximation errors eventually lie between zero and one, so their logarithms are negative. Theorem 30 later prints the negative exponent. Known: Theorem 30, physical p.53 / printed Lesson 10 p.50, in the same acquired final notes.
+- **ProbabilisticAndMetricNumberTheory/E24** (Smyth2020, error, affects a stated result): Theorem 21, physical p.46 / printed Lesson 9 p.43, Khinchin product. Use 1+1/(k(k+2)) inside the product defining K. The preceding first-digit formula gives mass log((k+1)²/(k(k+2)))/log 2. Exponentiating the log-digit integral gives precisely the corrected factor. Every k≥2 term in the printed product is strictly larger, so it cannot give the claimed Khinchin constant. Known: new.
+- **ProbabilisticAndMetricNumberTheory/E25** (Smyth2020, misprint, affects the proof): Exercise 2.4(c), physical p.49 / printed Lesson 9 p.46. The integral of log x is negative; use f(x)=−log x for the positive value π²/(12 log 2). log x<0 throughout (0,1). Integrating against the positive Gauss density gives a strictly negative integral, whereas denominator growth uses its negative. Known: new.
+- **ProbabilisticAndMetricNumberTheory/E26** (Smyth2020, error, affects the proof): Exercise 2.4(d),(f), physical p.49 / printed Lesson 9 p.46. Restrict the Fibonacci denominator bounds to irrational inputs, or indices before native rational termination. At x=1/2 the native continued fraction terminates; subsequent native denominators stay 2 while Fibonacci numbers grow without bound. The metric conclusions already discard this null rational set. Known: new.
+- **ProbabilisticAndMetricNumberTheory/E27** (Smyth2020, misprint, affects a stated result): Conjecture 24, physical p.48 / printed Lesson 9 p.45. Use Q(Zⁿ) for the Oppenheim lattice-value density statement. The preceding bullet correctly says integer vectors. For real vectors any indefinite real quadratic form already takes every real value by homogeneity, independent of irrationality. Known: Correct integer-vector formulation in the preceding bullet on the same page.
+- **ProbabilisticAndMetricNumberTheory/E28** (Smyth2020, misprint, affects a stated result): Theorem 20 final line, physical p.45 / printed Lesson 9 p.42. Use x∈X\N_f in the general probability-space theorem. The theorem’s domain is an arbitrary measurable X. The preceding limit-existence conclusion uses X correctly; [0,1) was retained from the special-case theorem above. Known: new.
+- **ProbabilisticAndMetricNumberTheory/E29** (BeresnevichVelani, misprint, affects the proof): Published p.988, Lemma 7 proof, middle triangle inequality. Use ≤ at the last triangle bound and < at c r_M<d(x_M,z), since z lies outside the closed ball cM. Closed balls permit equality in the triangle bound. On the line take A=closedBall(0,1), M=closedBall(3/2,1/2), c=3 and z=−1. Then A meets M at 1 and z∉cM, but d(x_M,x_A)+d(x_A,z)=5/2=2r_A+r_M. The corrected inequalities retain the lemma. Known: new.
+- **ProbabilisticAndMetricNumberTheory/E30** (BeresnevichVelani, misprint, affects nothing): Published §§6.1–6.2, pp.991–992, theorem numbering. Disambiguate the general-space MTP on p.991 from the distinct simultaneous-approximation consequence numbered Theorem 3 on p.992. The two displayed theorems have different hypotheses and conclusions but the same number. Our citations always include section and page. Known: new.
+- **ProbabilisticAndMetricNumberTheory/E31** (MatomakiRadziwill, misprint, affects nothing): Published p.1021, prose following Theorem 4; also arXiv v4 physical p.7. Read “while Theorem 2” in the weaker C(ε) comparison. The paragraph explicitly compares Theorem 4 with Theorem 2, gives the stronger bound from Theorem 4, and then accidentally attributes the weaker bound to Theorem 4 again. Known: new.
+- **ProbabilisticAndMetricNumberTheory/E32** (TaoLogChowla, misprint, affects nothing): Published Theorem 2, p.3; also arXiv v4 Theorem 1.2 physical p.2. Use x→∞. n is the bound summation variable; x is the free cutoff and ω depends on x. The hypothesis and the next displayed specialization both use x→∞. Known: new.
+- **ProbabilisticAndMetricNumberTheory/E33** (Smyth2020, error, affects a stated result): Lesson 1 boxed digit/orbit equivalence, physical p.7 / printed p.4. Use half-open fundamental intervals for the canonical terminating expansion, or remove the countable endpoints. Earlier I₀ is the closed interval [0,1/3]. For x=1/9 and n=1, T₃x=1/3 belongs to I₀ while the second canonical digit is 1. The all-point equivalence fails at endpoints; the almost-everywhere consequence remains valid. Known: new.
+- **ProbabilisticAndMetricNumberTheory/E34** (Smyth2020, misprint, affects the proof): Lesson 5 mixing interpretation, physical p.29 / printed p.26, two consecutive bounds. Use εν(A) for the bound before dividing by ν(A), with ν(A)>0. Dividing the printed bound by ν(A) gives ε ν(B)/ν(A), which need not be ≤ε. Choosing a smaller tolerance proves the intended conditional-probability statement. Known: new.
+- **ProbabilisticAndMetricNumberTheory/E35** (MatomakiRadziwill, misprint, affects nothing): Published p.1017, displayed (1). Use X→∞. The average in that display uses the free cutoff X and has no free x. The surrounding text already discusses large X. Known: new.
+- **ProbabilisticAndMetricNumberTheory/E36** (Sarnak, misprint, affects nothing): Lecture 1, physical p.3, realization in the full shift. Use ξ(n)=π₁(T^(n−1)ξ) for n≥1, or choose the sampling convention T^(n−1). The source indexes ξ from one and defines Tx(n)=x(n+1). At n=1, π₁(Tξ)=ξ(2), not ξ(1). The conjecture is unaffected by a fixed index shift. Known: new.
+- **ProbabilisticAndMetricNumberTheory/E37** (Kubilius2021, error, affects a stated result): arXiv v1, Remark1.2, physical p.4. Require 0<s<1 for the claim of a positive asymptotic distance from uniform; s=0 is exactly uniform. At s=0, Z_(n,0)=n and the truncated Pareto mass is1/n at every point, so total variation distance is identically zero. The main approximation theorem is not altered by correcting the example. Known: new.
+
+### Current verification boundary
+
+The packet and suggested file are plans. The current compilation covers only the Mathlib-only continuation. The preserved incoming prefix imports pinned Tau Ceti modules whose compiled interfaces are absent in the existing build, so the whole file was not elaborated. No library build, Lake update or cache download was started. Precise omitted-signature comments name unresolved native finite-tree, product-law and analytic interfaces. The handoff records the final checker and compilation receipts; earlier numerical/proof-probe counts above remain historical.
+
+Current validation: the pinned-index checker and source-issue/version validator report zero errors; the packet checker has zero warnings. The 708-line Mathlib-only continuation has 104 named signatures and 50 examples and elaborates with 140 expected proof-placeholder warnings only. All 2,944 reached Mathlib sources match the pin. The 139 exact rational cases check finite arithmetic and source corrections; they do not establish the limit theorems. Whole-file elaboration remains unavailable as explained above.
