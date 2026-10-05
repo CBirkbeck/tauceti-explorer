@@ -133,6 +133,11 @@ theorem Frame.polynomial_delta (d : ℕ) (c : k) (i : Fin d) :
     (Frame.polynomial (k := k) d c).delta i = MvPolynomial.pderiv i := sorry
 theorem Frame.one_delta (F : Frame k R d lam) (i : Fin d) :
     F.one.delta i = F.delta i := sorry
+theorem Frame.ext (F G : Frame k R d lam)
+    (h : ∀ i, F.delta i = G.delta i) : F = G := sorry
+-- test: Frame.test_variable_parameter
+example : ¬ ∃ F : Frame ℚ (MvPolynomial (Fin 1) ℚ) 1 (MvPolynomial.X 0),
+    F.delta 0 = MvPolynomial.pderiv 0 := sorry
 -- Frame tests: zero directions, actual polynomial differentiation, reject identity.
 -- test: Frame.test_zero
 example (a : R) : (Frame.zero (k := k) (R := R) 1 lam).delta 0 a = 0 := sorry
@@ -664,10 +669,25 @@ API signature omitted: LambdaBundle.connection — Recover D with its λ-Leibniz
 API signature omitted: LambdaBundle.integrable — The defined exterior curvature is zero.
 API signature omitted: LambdaBundle.ext — For the same underlying E, equal additive D gives equal bundle structures.
 API signature omitted: LambdaBundle.restrict — Restriction to a slice/open subsite retains the same parameter and integrability.
-test omitted: LambdaBundle.test_affine_unit — On A¹_k, (O,d) is a nonzero rank-one flat connection; at λ=0 θ=dx gives an integrable rank-one Higgs object.
+test omitted: LambdaBundle.test_affine_unit — For a field k, on A¹_k the ordinary differential (O,d) is a nonzero rank-one flat connection; at λ=0 the field θ=dx is an integrable rank-one Higgs object.
 test omitted: LambdaBundle.test_parameter_unit — D=λd for constant λ is flat, with λ=1 giving d and λ=0 giving the zero Higgs field.
 test omitted: LambdaBundle.test_noncommuting — On A²_Q, E12dx+E21dy does not define a LambdaBundle at λ=0.
 test omitted: LambdaBundle.test_zero_module — The zero sheaf with its unique operator is admitted, with local rank zero.
+
+Independent review checkpoint: additional reserved-key sample criteria.
+These reuse the named supplying nodes; the global carriers are still omitted.
+API signature omitted: LambdaBundle.test_criterion_nilpotence — On A¹_Q the Higgs line θ=dx is integrable and satisfies θ^[N](1)=1⊗dx^⊗N≠0 for each N>0. Integrability is not ordered tensor nilpotence.
+API signature omitted: LambdaBundle.rescale_equiv — For invertible λ with dλ=0, λ⁻¹D is an ordinary integrable connection. Scaling by λ and λ⁻¹ are inverse functors; supplied by H.0/intrinsic-rescale.
+API signature omitted: LambdaBundle.tensor_leibniz — Same-λ tensor uses D_E⊗1+1⊗D_F and has scalar correction λ(e⊗f)⊗da, with one λ; supplied by H.0/intrinsic-tensor.
+API signature omitted: LambdaBundle.dual_eval — (D∨φ)(e)=λd(φ(e))−φ(D(e)); for dλ=0 the dual is integrable, supplied by H.0/intrinsic-dual and H.0/dual-curvature.
+API signature omitted: LambdaBundle.pullback_apply — For a differential-site morphism with compatible exterior map, D_Y(b⊗e)=λ_Y e⊗d_Yb+b df(D_Xe), and integrability is preserved; supplied by H.0/intrinsic-pullback.
+API signature omitted: GriffithsFiltration.gradedHiggs_linear — For a flat ordinary bundle with the bounded Griffiths filtration of H.0/griffiths-filtration, θ_p([e])=[∇e] is O-linear and its exterior square is zero; supplied by H.0/graded-higgs and H.0/graded-higgs-integrable.
+test omitted: LambdaBundle.test_integrable_not_nilpotent — On A¹_Q the Higgs line θ=dx is integrable, but θ^[N](1)=1⊗dx^⊗N≠0 for every N>0.
+test omitted: LambdaBundle.test_rescale_two — On Q[x], λ=2 and D=2d give a flat bundle; λ⁻¹D=d and evaluates x to dx.
+test omitted: LambdaBundle.test_same_parameter_tensor — On Q[x], tensoring the two unit λ=2 flat lines gives the unit λ=2 line, whose operator on x is 2dx, not 4dx.
+test omitted: LambdaBundle.test_dual_pullback — The Higgs line dx over Q[x] has dual field −dx. Along x=y², the original pulls back to 2y dy and its dual pulls back to −2y dy; both are integrable Higgs lines.
+test omitted: LambdaBundle.test_graded_higgs — On Q[x], ∇=d+E21dx on O² with F¹=Oe₁, F⁰=O² and zero F² gives θ([e₁])=[e₂]dx, θ([e₂])=0. The graded Higgs field is integrable and has ordered bound 2.
+test omitted: LambdaBundle.test_locally_varying_rank — On the discrete space N with constant ring Q, zero differential calculus and λ=0, the sheaf with stalk Q^n at n and zero Higgs operator is finite locally free and integrable. It has no finite cover by free constant-rank charts because its ranks are unbounded.
 
 node: HodgeStructuresPartII:H.0/connection-morphism
 signature omitted: LambdaBundle.Hom
