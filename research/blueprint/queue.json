@@ -10834,7 +10834,8 @@
    "avoidAccountOf": "DESIGN-AbelianSchemesAndArithmeticModuliPartII",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-AbelianSchemesAndArithmeticModuliPartII.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3483"
   },
   {
    "id": "DESIGN-MordellLawrenceVenkateshPartII",
@@ -14161,8 +14162,9 @@
    "avoidAccountOf": "DESIGN-InductionRestrictionPartII",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-InductionRestrictionPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3550"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3550",
+   "finishedAt": "2026-10-05T00:34:35Z"
   },
   {
    "id": "DESIGN-ArithmeticStatisticsPartII",
