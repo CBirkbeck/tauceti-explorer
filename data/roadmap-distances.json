@@ -10,7 +10,7 @@
  },
  "bases": {
   "judged": 203,
-  "measured": 6,
+  "measured": 7,
   "built": 7,
   "children": 1
  },
@@ -78,7 +78,7 @@
    "tauceti:Completed/IntegralLattices": 0.0,
    "tauceti:Completed/OrthogonalL2Bases": 0.0
   },
-  "declarationsVsDistance": -0.163
+  "declarationsVsDistance": -0.139
  },
  "roadmaps": {
   "AInfCohomology": {
@@ -165,6 +165,34 @@
     }
    ]
   },
+  "AbelianSchemesAndArithmeticModuliPartII": {
+   "classification": 10,
+   "structure": {
+    "layers": 17,
+    "missingOwn": 17.0,
+    "missingLayers": 180.5,
+    "missingTargets": 875.0,
+    "depth": 45,
+    "suppliers": 47,
+    "declarationLevel": {
+     "source": "blueprint",
+     "reviewed": true,
+     "declarations": 115,
+     "missingDeclarations": 115,
+     "depth": 17,
+     "layersCovered": 17,
+     "layers": 17,
+     "sourcePages": 170
+    }
+   },
+   "measurement": 6.32,
+   "judgements": 0,
+   "distance": 6.32,
+   "low": 5.16,
+   "high": 7.47,
+   "basis": "measured",
+   "usedBy": []
+  },
   "AbelianVarietiesIsogenousToNoJacobian": {
    "classification": 10,
    "structure": {
@@ -249,7 +277,7 @@
    "usedBy": [
     {
      "galaxy": "arithmeticgeometry",
-     "roadmaps": 3
+     "roadmaps": 4
     },
     {
      "galaxy": "functionfields",
@@ -460,7 +488,7 @@
    "usedBy": [
     {
      "galaxy": "arithmeticgeometry",
-     "roadmaps": 11
+     "roadmaps": 12
     },
     {
      "galaxy": "langlands",
@@ -1440,7 +1468,7 @@
    "usedBy": [
     {
      "galaxy": "arithmeticgeometry",
-     "roadmaps": 6
+     "roadmaps": 7
     },
     {
      "galaxy": "automorphic",
@@ -2432,7 +2460,7 @@
    "usedBy": [
     {
      "galaxy": "arithmeticgeometry",
-     "roadmaps": 7
+     "roadmaps": 8
     },
     {
      "galaxy": "langlands",
@@ -2677,7 +2705,7 @@
     },
     {
      "galaxy": "arithmeticgeometry",
-     "roadmaps": 2
+     "roadmaps": 3
     }
    ]
   },
@@ -3602,11 +3630,11 @@
    "basis": "judged",
    "usedBy": [
     {
-     "galaxy": "analytic",
-     "roadmaps": 1
+     "galaxy": "arithmeticgeometry",
+     "roadmaps": 2
     },
     {
-     "galaxy": "arithmeticgeometry",
+     "galaxy": "analytic",
      "roadmaps": 1
     }
    ]
@@ -3810,7 +3838,17 @@
     "missingLayers": 146.5,
     "missingTargets": 682.7,
     "depth": 41,
-    "suppliers": 29
+    "suppliers": 29,
+    "declarationLevel": {
+     "source": "blueprint",
+     "reviewed": true,
+     "declarations": 78,
+     "missingDeclarations": 78,
+     "depth": 14,
+     "layersCovered": 6,
+     "layers": 6,
+     "sourcePages": 94
+    }
    },
    "measurement": 6.01,
    "judgements": 7,
@@ -4595,7 +4633,7 @@
    "usedBy": [
     {
      "galaxy": "arithmeticgeometry",
-     "roadmaps": 5
+     "roadmaps": 6
     },
     {
      "galaxy": "ktheory",
@@ -5260,7 +5298,12 @@
    "low": 0.0,
    "high": 0.0,
    "basis": "built",
-   "usedBy": []
+   "usedBy": [
+    {
+     "galaxy": "arithmeticgeometry",
+     "roadmaps": 1
+    }
+   ]
   },
   "tauceti:Completed/IntegralLattices": {
    "classification": 0,
@@ -5586,7 +5629,7 @@
     },
     {
      "galaxy": "arithmeticgeometry",
-     "roadmaps": 2
+     "roadmaps": 3
     },
     {
      "galaxy": "langlands",
@@ -6686,6 +6729,10 @@
     {
      "galaxy": "algebraicnt",
      "roadmaps": 1
+    },
+    {
+     "galaxy": "arithmeticgeometry",
+     "roadmaps": 1
     }
    ]
   },
@@ -6851,7 +6898,7 @@
    "supplies": [
     {
      "galaxy": "arithmeticgeometry",
-     "links": 38,
+     "links": 41,
      "examples": [
       {
        "supplier": "AlgebraicModuliForArithmeticGeometry",
@@ -6859,11 +6906,11 @@
       },
       {
        "supplier": "AlgebraicModuliForArithmeticGeometry",
-       "consumer": "AbelianVarietiesIsogenousToNoJacobian"
+       "consumer": "AbelianSchemesAndArithmeticModuliPartII"
       },
       {
        "supplier": "AlgebraicModuliForArithmeticGeometry",
-       "consumer": "ArakelovGeometryAndAbelianHeights"
+       "consumer": "AbelianVarietiesIsogenousToNoJacobian"
       }
      ]
     },
@@ -7136,6 +7183,24 @@
      ]
     },
     {
+     "galaxy": "arithmeticgeometry",
+     "links": 13,
+     "examples": [
+      {
+       "supplier": "ArithmeticGaloisDuality",
+       "consumer": "AnabelianGeometryAndNonabelianChabauty"
+      },
+      {
+       "supplier": "ArithmeticGaloisDuality",
+       "consumer": "HeightsRationalPointsAndObstructions"
+      },
+      {
+       "supplier": "GeometryOfNumbersAndQuadraticArithmetic",
+       "consumer": "AbelianSchemesAndArithmeticModuliPartII"
+      }
+     ]
+    },
+    {
      "galaxy": "langlands",
      "links": 11,
      "examples": [
@@ -7150,24 +7215,6 @@
       {
        "supplier": "ArithmeticGaloisDuality",
        "consumer": "GlobalGaloisDeformations"
-      }
-     ]
-    },
-    {
-     "galaxy": "arithmeticgeometry",
-     "links": 10,
-     "examples": [
-      {
-       "supplier": "ArithmeticGaloisDuality",
-       "consumer": "AnabelianGeometryAndNonabelianChabauty"
-      },
-      {
-       "supplier": "ArithmeticGaloisDuality",
-       "consumer": "HeightsRationalPointsAndObstructions"
-      },
-      {
-       "supplier": "GeometryOfNumbersAndQuadraticArithmetic",
-       "consumer": "AbelianVarietiesIsogenousToNoJacobian"
       }
      ]
     },
@@ -7535,8 +7582,8 @@
    "upstreamOnly": false
   },
   "arithmeticgeometry": {
-   "distance": 5.6,
-   "roadmaps": 21,
+   "distance": 5.63,
+   "roadmaps": 22,
    "supplies": [
     {
      "galaxy": "iwasawa",
@@ -7840,8 +7887,12 @@
     },
     {
      "galaxy": "arithmeticgeometry",
-     "links": 10,
+     "links": 11,
      "examples": [
+      {
+       "supplier": "AdelicAlgebraicGroups",
+       "consumer": "AbelianSchemesAndArithmeticModuliPartII"
+      },
       {
        "supplier": "AdelicAlgebraicGroups",
        "consumer": "AbelianVarietiesIsogenousToNoJacobian"
@@ -7849,10 +7900,6 @@
       {
        "supplier": "AdelicAlgebraicGroups",
        "consumer": "ShimuraData"
-      },
-      {
-       "supplier": "AdelicAlgebraicGroups",
-       "consumer": "ShimuraVarieties"
       }
      ]
     },
@@ -9609,22 +9656,26 @@
    "roadmaps": 1,
    "supplies": [
     {
+     "galaxy": "arithmeticgeometry",
+     "links": 2,
+     "examples": [
+      {
+       "supplier": "LogicAndDefinabilityInNumberTheory",
+       "consumer": "AbelianSchemesAndArithmeticModuliPartII"
+      },
+      {
+       "supplier": "LogicAndDefinabilityInNumberTheory",
+       "consumer": "AbelianVarietiesIsogenousToNoJacobian"
+      }
+     ]
+    },
+    {
      "galaxy": "analytic",
      "links": 1,
      "examples": [
       {
        "supplier": "LogicAndDefinabilityInNumberTheory",
        "consumer": "AnalyticNumberTheory"
-      }
-     ]
-    },
-    {
-     "galaxy": "arithmeticgeometry",
-     "links": 1,
-     "examples": [
-      {
-       "supplier": "LogicAndDefinabilityInNumberTheory",
-       "consumer": "AbelianVarietiesIsogenousToNoJacobian"
       }
      ]
     }
@@ -9727,7 +9778,7 @@
     },
     {
      "galaxy": "arithmeticgeometry",
-     "links": 14,
+     "links": 15,
      "examples": [
       {
        "supplier": "AdicSpacesPartII",
@@ -9978,7 +10029,7 @@
     },
     {
      "galaxy": "arithmeticgeometry",
-     "links": 4,
+     "links": 5,
      "examples": [
       {
        "supplier": "ReductiveGroupsPartII",
