@@ -12,6 +12,9 @@ import Mathlib.Analysis.SpecialFunctions.Complex.Circle
 import Mathlib.NumberTheory.Padics.PadicIntegers
 import Mathlib.NumberTheory.Zsqrtd.GaussianInt
 import Mathlib.Tactic.Linarith
+import Mathlib.LinearAlgebra.Projection
+import Mathlib.LinearAlgebra.Charpoly.Basic
+import Mathlib.Algebra.Algebra.Subalgebra.Lattice
 
 /-!
 # Suggested Lean forms: modular symbols (ModularSymbolsPadicLFunctions, L0–L4)
@@ -192,25 +195,39 @@ theorem Gamma0_le_Sigma0 (γ : SL(2, ℤ)) (hγ : γ ∈ CongruenceSubgroup.Gamm
 
 /-- The slash action `(φ | δ)(D) = φ(δ D) | δ` on maps `Δ₀ → V`, for `V` with a right action of
 `Σ₀(N)` given by `act`. -/
-def slash (act : Sigma0 N → V →ₗ[R] V) (δ : Sigma0 N) (φ : Delta0 →ₗ[ℤ] V) : Delta0 →ₗ[ℤ] V :=
+def slash (act : (Sigma0 N)ᵐᵒᵖ →* Module.End R V) (δ : Sigma0 N)
+    (φ : Delta0 →ₗ[ℤ] V) : Delta0 →ₗ[ℤ] V :=
   sorry
 
 /-- **`L0/hecke-operators`** (Pollack–Stevens §2.1). For `ℓ ∤ N`,
 `φ | T_ℓ = φ | !![ℓ, 0; 0, 1] + ∑_{a < ℓ} φ | !![1, a; 0, ℓ]`; for `q ∣ N`,
 `φ | U_q = ∑_{a < q} φ | !![1, a; 0, q]`. They preserve `Γ₀(N)`-modular symbols. -/
-def heckeT (act : Sigma0 N → V →ₗ[R] V) (ℓ : ℕ) (φ : Delta0 →ₗ[ℤ] V) : Delta0 →ₗ[ℤ] V := sorry
+def heckeT (act : (Sigma0 N)ᵐᵒᵖ →* Module.End R V) (ℓ : ℕ)
+    (φ : Delta0 →ₗ[ℤ] V) : Delta0 →ₗ[ℤ] V := sorry
 
-def heckeU (act : Sigma0 N → V →ₗ[R] V) (q : ℕ) (φ : Delta0 →ₗ[ℤ] V) : Delta0 →ₗ[ℤ] V := sorry
+def heckeU (act : (Sigma0 N)ᵐᵒᵖ →* Module.End R V) (q : ℕ)
+    (φ : Delta0 →ₗ[ℤ] V) : Delta0 →ₗ[ℤ] V := sorry
 
 /-- API: the Hecke operators preserve `Γ₀(N)`-modular symbols, for a right `Σ₀(N)`-action `act`
 restricting on `Γ₀(N)` to the representation `ρ` (via `ρ(γ) = act(γ⁻¹)`). -/
-theorem heckeT_mem_symbols (act : Sigma0 N → V →ₗ[R] V) (ρ : Representation R (CongruenceSubgroup.Gamma0 N) V)
+theorem heckeT_mem_symbols (act : (Sigma0 N)ᵐᵒᵖ →* Module.End R V)
+    (ρ : Representation R (CongruenceSubgroup.Gamma0 N) V)
+    (hact : ∀ (γ : CongruenceSubgroup.Gamma0 N) (v : V),
+      act (MulOpposite.op ⟨(γ.val : Matrix (Fin 2) (Fin 2) ℤ),
+        Gamma0_le_Sigma0 N γ.val γ.property⟩) v = ρ γ⁻¹ v)
     (ℓ : ℕ) (hℓ : ℓ.Prime) (hℓN : ¬ ℓ ∣ N) {φ : Delta0 →ₗ[ℤ] V}
     (hφ : φ ∈ symbols (CongruenceSubgroup.Gamma0 N) ρ) :
     heckeT N act ℓ φ ∈ symbols (CongruenceSubgroup.Gamma0 N) ρ := sorry
 
-/-- API: `T_ℓ` and `T_m` commute. -/
-theorem heckeT_comm (act : Sigma0 N → V →ₗ[R] V) (ℓ m : ℕ) (φ : Delta0 →ₗ[ℤ] V) :
+/-- API: good-prime Hecke operators commute on equivariant symbols. The coefficient
+action is a genuine right monoid action, with the stated restriction to `ρ`. -/
+theorem heckeT_comm (act : (Sigma0 N)ᵐᵒᵖ →* Module.End R V)
+    (ρ : Representation R (CongruenceSubgroup.Gamma0 N) V)
+    (hact : ∀ (γ : CongruenceSubgroup.Gamma0 N) (v : V),
+      act (MulOpposite.op ⟨(γ.val : Matrix (Fin 2) (Fin 2) ℤ),
+        Gamma0_le_Sigma0 N γ.val γ.property⟩) v = ρ γ⁻¹ v)
+    (ℓ m : ℕ) (hℓ : ℓ.Prime) (hm : m.Prime) (hℓN : ¬ ℓ ∣ N) (hmN : ¬ m ∣ N)
+    (φ : Delta0 →ₗ[ℤ] V) (hφ : φ ∈ symbols (CongruenceSubgroup.Gamma0 N) ρ) :
     heckeT N act ℓ (heckeT N act m φ) = heckeT N act m (heckeT N act ℓ φ) := sorry
 
 end Hecke
@@ -656,3 +673,141 @@ example (n : ℕ) (h : n % 2 = 1) : 1 + (n - 1) / 2 = (n + 1) / 2 := by omega
 example (n : ℕ) : 1 + n / 2 = n / 2 + 1 := by omega
 
 end TauCeti.ModularSymbol.SupersingularTest
+
+namespace TauCeti.ModularSymbol
+
+/-!
+## Rational Drinfeld–Manin splitting (L0)
+
+Nakamura, Invent. Math. 234 (2023), §3.2, p. 220. His weight is `k + 2` here.
+The connected Betti model uses `Γ(N)`, `N ≥ 3`. The full arithmetic curve has several
+geometric components. Its local systems and Betti–étale comparison are requested from
+ModularCurvesPartII R14.3; their Galois signatures cannot yet be stated here.
+
+The following Hecke maps are prototypes of the actions already planned by L0. They
+use the usual double-coset normalization on cohomology, transferred to `vkRep` through
+the coefficient-system dictionary. That dictionary is an explicit gap in the packet.
+The generic projection and characteristic-polynomial theory are imported from Mathlib.
+-/
+
+abbrev RationalH1 (N k : ℕ) :=
+  groupCohomology (Rep.of (vkRep ℚ k (CongruenceSubgroup.Gamma N))) 1
+
+abbrev RationalH1par (N k : ℕ) :=
+  H1par (CongruenceSubgroup.Gamma N) (vkRep ℚ k (CongruenceSubgroup.Gamma N))
+
+/-- Good primes indexing Nakamura's `T_ℓ` and scalar `S_ℓ`. -/
+abbrev GoodPrime (N : ℕ) := {ℓ : ℕ // ℓ.Prime ∧ Nat.Coprime ℓ N}
+
+/-- Prototype of L0's usual cohomological `T_ℓ` action at full level. -/
+def h1Hecke (N k : ℕ) (ℓ : GoodPrime N) : Module.End ℚ (RationalH1 N k) := sorry
+
+/-- Prototype of L0's scalar double-coset `S_ℓ` action at full level. -/
+def h1ScalarHecke (N k : ℕ) (ℓ : GoodPrime N) : Module.End ℚ (RationalH1 N k) := sorry
+
+theorem h1Hecke_commute (N k : ℕ) (ℓ m : GoodPrime N) :
+    Commute (h1Hecke N k ℓ) (h1Hecke N k m) := sorry
+
+theorem h1ScalarHecke_commute (N k : ℕ) (ℓ m : GoodPrime N) :
+    Commute (h1ScalarHecke N k ℓ) (h1ScalarHecke N k m) := sorry
+
+theorem h1Hecke_scalarHecke_commute (N k : ℕ) (ℓ m : GoodPrime N) :
+    Commute (h1Hecke N k ℓ) (h1ScalarHecke N k m) := sorry
+
+/-- The good Hecke algebra is the native subalgebra generated by these operators. -/
+def h1HeckeAlgebra (N k : ℕ) : Subalgebra ℚ (Module.End ℚ (RationalH1 N k)) :=
+  Algebra.adjoin ℚ (Set.range (h1Hecke N k) ∪ Set.range (h1ScalarHecke N k))
+
+/-- **`L0/rational-hecke-separation`**. A good Hecke-algebra element has coprime
+annihilators on the parabolic subspace and the boundary quotient. The range condition
+is the precise assertion that `Q(A)` annihilates the quotient. The higher-weight
+source proof is recorded as a gap; this is a proposed theorem, not an assumption
+silently bundled into a representation. -/
+theorem rational_hecke_separation (N k : ℕ) (hN : 3 ≤ N) :
+    ∃ (A : h1HeckeAlgebra N k) (P Q : Polynomial ℚ), IsCoprime P Q ∧
+      (∀ x : RationalH1par N k,
+        (Polynomial.aeval (A.val : Module.End ℚ (RationalH1 N k)) P) x.val = 0) ∧
+      LinearMap.range (Polynomial.aeval (A.val : Module.End ℚ (RationalH1 N k)) Q) ≤
+        RationalH1par N k := sorry
+
+/-- **`L0/drinfeld-manin-splitting`**. The unique rational good-Hecke-equivariant
+retraction onto parabolic cohomology. Existence is obtained from the separating
+annihilators by a Bézout polynomial projection, using Mathlib's `projectionOnto`. -/
+def drinfeldManin (N k : ℕ) (hN : 3 ≤ N) :
+    RationalH1 N k →ₗ[ℚ] RationalH1par N k := sorry
+
+theorem drinfeldManin_subtype (N k : ℕ) (hN : 3 ≤ N) (x : RationalH1par N k) :
+    drinfeldManin N k hN x.val = x := sorry
+
+theorem drinfeldManin_hecke (N k : ℕ) (hN : 3 ≤ N) (ℓ : GoodPrime N)
+    (x : RationalH1 N k) :
+    (drinfeldManin N k hN (h1Hecke N k ℓ x)).val =
+      h1Hecke N k ℓ (drinfeldManin N k hN x).val := sorry
+
+theorem drinfeldManin_scalarHecke (N k : ℕ) (hN : 3 ≤ N) (ℓ : GoodPrime N)
+    (x : RationalH1 N k) :
+    (drinfeldManin N k hN (h1ScalarHecke N k ℓ x)).val =
+      h1ScalarHecke N k ℓ (drinfeldManin N k hN x).val := sorry
+
+theorem drinfeldManin_unique (N k : ℕ) (hN : 3 ≤ N)
+    (s : RationalH1 N k →ₗ[ℚ] RationalH1par N k)
+    (hs : ∀ x : RationalH1par N k, s x.val = x)
+    (hT : ∀ (ℓ : GoodPrime N) (x : RationalH1 N k),
+      (s (h1Hecke N k ℓ x)).val = h1Hecke N k ℓ (s x).val)
+    (hS : ∀ (ℓ : GoodPrime N) (x : RationalH1 N k),
+      (s (h1ScalarHecke N k ℓ x)).val = h1ScalarHecke N k ℓ (s x).val) :
+    s = drinfeldManin N k hN := sorry
+
+theorem drinfeldManin_idempotent (N k : ℕ) (hN : 3 ≤ N) (x : RationalH1 N k) :
+    drinfeldManin N k hN (drinfeldManin N k hN x).val = drinfeldManin N k hN x := sorry
+
+/-- Involutions and realization actions commute with the splitting after their
+commutation with the usual Hecke operators and preservation of the parabolic
+subspace have been proved. This statement retains both concrete hypotheses. -/
+theorem drinfeldManin_natural (N k : ℕ) (hN : 3 ≤ N)
+    (F : Module.End ℚ (RationalH1 N k))
+    (hF : ∀ x : RationalH1par N k, F x.val ∈ RationalH1par N k)
+    (hT : ∀ ℓ : GoodPrime N, Commute F (h1Hecke N k ℓ))
+    (hS : ∀ ℓ : GoodPrime N, Commute F (h1ScalarHecke N k ℓ))
+    (x : RationalH1 N k) :
+    (drinfeldManin N k hN (F x)).val = F (drinfeldManin N k hN x).val := sorry
+
+namespace DrinfeldManinTest
+
+/-- X(3) has genus zero. Its weight-two parabolic cohomology is zero, so the
+splitting is zero; the ordinary H¹ still has three boundary dimensions. -/
+theorem genus_zero : drinfeldManin 3 0 (by decide) = 0 := sorry
+example : drinfeldManin 3 0 (by decide) = 0 := sorry
+
+/-- X(6) has genus one. This excludes the zero map as a proposed splitting. -/
+theorem identity_parabolic :
+    Module.finrank ℚ (RationalH1par 6 0) = 2 ∧
+      ∀ x : RationalH1par 6 0, drinfeldManin 6 0 (by decide) x.val = x := sorry
+example : Module.finrank ℚ (RationalH1par 6 0) = 2 ∧
+    ∀ x : RationalH1par 6 0, drinfeldManin 6 0 (by decide) x.val = x := sorry
+
+/-- A small instance of the Bézout projection used in the construction:
+T(x,y) = (y,2y), parabolic subspace y = 0, projector 1 - T/2.
+The first coordinate is x - y/2, not x. -/
+theorem rational_model :
+    let T : Module.End ℚ (ℚ × ℚ) :=
+      (LinearMap.snd ℚ ℚ ℚ).prod ((2 : ℚ) • LinearMap.snd ℚ ℚ ℚ)
+    let e : Module.End ℚ (ℚ × ℚ) := LinearMap.id - (1 / 2 : ℚ) • T
+    e (0, 1) = (-1 / 2, 0) ∧ e (1, 0) = (1, 0) ∧
+      (∀ v, e (T v) = 0) ∧ Commute e T ∧ e * e = e := sorry
+example :
+    let T : Module.End ℚ (ℚ × ℚ) :=
+      (LinearMap.snd ℚ ℚ ℚ).prod ((2 : ℚ) • LinearMap.snd ℚ ℚ ℚ)
+    let e : Module.End ℚ (ℚ × ℚ) := LinearMap.id - (1 / 2 : ℚ) • T
+    e (0, 1) = (-1 / 2, 0) ∧ e (1, 0) = (1, 0) ∧
+      (∀ v, e (T v) = 0) ∧ Commute e T ∧ e * e = e := sorry
+
+/-- The same spectral separation does not give an integral Hecke-equivariant
+retraction. Such a retraction would give 1 + 2s(0,1) = 0 in ℤ. -/
+theorem integral_obstruction (s : (ℤ × ℤ) →ₗ[ℤ] ℤ) (hs : s (1, 0) = 1) :
+    ¬ ∀ v : ℤ × ℤ, s (v.2, 2 * v.2) = 0 := sorry
+example (s : (ℤ × ℤ) →ₗ[ℤ] ℤ) (hs : s (1, 0) = 1) :
+    ¬ ∀ v : ℤ × ℤ, s (v.2, 2 * v.2) = 0 := sorry
+
+end DrinfeldManinTest
+end TauCeti.ModularSymbol
