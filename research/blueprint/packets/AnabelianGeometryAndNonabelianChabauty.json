@@ -1175,7 +1175,8 @@
         "Fresh Codex codex-J6LwjP reading on 2026-10-02: printed pp. 5–10 in full, from Proposition 1 and continuous cocycle/gauge definitions through Propositions 2–3 and subgroup exactness. Earlier pp. 2–4 and later sections were not freshly read. Same arXiv v1 PDF SHA-256 independently verified.",
         "Codex codex-rtOQ9t, 2026-10-02, actual H¹ inflation continuation: freshly read the complete continuous-cocycle and gauge-orbit definitions on printed p.6 and Proposition1 statement on p.5. Parsed Proposition1 proof was displayed through its end; no new torsor-classification closure or whole-paper reading is claimed. The independently downloaded exact v1 PDF has the retained SHA256. Inflation and same-N reflection are deductions, not a printed numbered Kim result.",
         "Codex codex-a71f92, 2026-10-02: exact v1 PDF independently hash-checked; complete selected parsed printed pp.5–7 definitions and Proposition1 proof read. No fresh complete Proposition2 proof, whole-paper read, published collation or Serre reading. Joint continuity and fibre equivalence are authored deductions.",
-        "Codex codex-7e92bd, 2026-10-02: exact v1 PDF SHA256 verified; parsed continuous cocycle/gauge definitions and complete Proposition 1 proof on printed pp.5–7, with only the beginning of Proposition 2 read. No whole-paper claim."
+        "Codex codex-7e92bd, 2026-10-02: exact v1 PDF SHA256 verified; parsed continuous cocycle/gauge definitions and complete Proposition 1 proof on printed pp.5–7, with only the beginning of Proposition 2 read. No whole-paper claim.",
+        "Fresh independent review codex-1O5j0u, 2026-10-05: the cochain boundary formula on printed p.5, and Proposition 2's central splitting, dsi obstruction and freeness arguments on printed pp.8–9 were read in the exact arXiv v1 PDF. The positive-defect versus printed inverse-defect convention is now recorded explicitly."
       ]
     },
     {
@@ -1213,7 +1214,8 @@
         "Personally read the finite-cover convention and Lemma 2.1 with proof (pp. 821–822); §2.3, definition, Lemma 2.7 and Proposition 2.8 with their printed proofs (pp. 826–828); Appendix A.3, Lemmas A.14–A.15, Proposition A.16 and Definition A.17/Corollary A.18 with proofs (pp. 861–866); Definition 6.1 and M₀,n example (p. 845).",
         "Schmidt 1996 Proposition 15, Artin–Mazur Theorems 4.3/11.1, Friedlander Theorem 11.5, Isaksen model-category leaves and cited SGA Künneth proofs were not separately acquired/read; their exact roles are requests/gaps. Reconstruction proofs in §4–§6 were not read.",
         "Fresh codex-a71f92 reading: §2.3 and Lemma 2.7(a–b), printed pp.826–827. Proposition 15's parsed proof was acquired separately; the direct characteristic-zero cohomological route replaces the smooth-curve node's raw dependency, without changing the raw-homotopy proof obligations.",
-        "Fresh codex-rtOQ9t: §2.3 definition and Lemma 2.7(b) complete printed proof, pp.826–827. The three finitary product assemblies are deductions with open IG.0/SF.2 proof leaves; no fresh closure of SGA or Artin–Mazur is claimed."
+        "Fresh codex-rtOQ9t: §2.3 definition and Lemma 2.7(b) complete printed proof, pp.826–827. The three finitary product assemblies are deductions with open IG.0/SF.2 proof leaves; no fresh closure of SGA or Artin–Mazur is claimed.",
+        "Fresh independent review codex-1O5j0u, 2026-10-05: Appendix A.3, printed pp.861–866, including the constructions and proofs of A.14–A.16 and the statement/proof of A.18, was read. This checks the classifying-morphism argument in raw-homotopy-comparison, not Isaksen's cited fibrancy/detection theorems or the Artin–Mazur cohomological comparison."
       ]
     },
     {
@@ -1298,7 +1300,8 @@
       "readSections": [
         "03RQ Lemma 59.69.1 and 0AMB Lemma 59.69.2 statements and complete printed proofs; 03RR Lemma 59.69.3 statement and complete proof; 03PL Lemma 59.28.1 statement and root-adjoining proof.",
         "03P8 Theorem 59.24.1, 03RM Theorem 59.68.5, 0BA0 Lemma 44.6.7 and 03RP Proposition 39.9.11 with their printed proofs read. Their transitive Picard representability, Tsen/Brauer, abelian multiplication, line-bundle pullback-degree and curve/function-field leaves remain the SF.2/SF.3 suppliers' obligations.",
-        "03SB Lemma 59.83.2 and surrounding constant-coefficient/curve-vanishing context read, not a claim to have discharged every auxiliary proof in the entire torsion-sheaf vanishing theorem."
+        "03SB Lemma 59.83.2 and surrounding constant-coefficient/curve-vanishing context read, not a claim to have discharged every auxiliary proof in the entire torsion-sheaf vanishing theorem.",
+        "Fresh independent review codex-1O5j0u, 2026-10-05: 03RM and its surrounding Section 59.68 (03RH), including the proofs of the fundamental exact sequence, higher-direct-image vanishing, Leray vanishing and divisor-sheaf vanishing, were read. Tsen's input (59.67.12), stalk/cohomology comparison, Leray and colimit suppliers remain separate transitive proof leaves."
       ]
     },
     {
@@ -1309,7 +1312,7 @@
       "url": "https://stacks.math.columbia.edu/tag/09YQ",
       "readSections": [
         "03Q4 §59.51 through Theorem 59.51.3 and Lemma 59.51.5, including the printed proofs; 09YQ Theorem 59.51.3 statement; 03RV Lemma 59.64.4 statement and printed finite-étale representability/descent proof; 07RR Lemma 32.8.15 statement and proof.",
-        "01ZM Lemma 32.10.1 could not be retrieved in repeated web attempts. Generic finite-presentation morphism/property descent, finite-group-structure descent and the inverse-site cohomology lemma 21.16.6 remain an explicit supplier request; no complete transitive limit proof claimed."
+        "01ZM Lemma 32.10.1 is now accessible: fresh independent review codex-1O5j0u, 2026-10-05 read its full statement and all three printed proofs. The hypotheses are a directed qcqs scheme system with affine transition maps. It descends finite-presentation objects, morphisms and eventual equality. Generic morphism-property descent, finite-group-structure descent and inverse-site cohomology Lemma 21.16.6 remain explicit supplier requests; its cited affine algebra/limit/gluing proofs have not been read to transitive closure."
       ]
     },
     {
@@ -2371,13 +2374,14 @@
       ],
       "title": "Central extensions: the action of H¹(G, Z) and the connecting map to H²",
       "kind": "theorem",
-      "statement": "Let Z ≤ B be a closed G-stable subgroup contained in the centre of B, and C := B/Z. (a) The abelian group H¹(G, Z) (NC.3/abelian-comparison) acts on H¹(G, B) by [z]·[c] := [g ↦ z(g)c(g)], and the fibres of H¹(G, B) → H¹(G, C) are exactly the orbits of this action. (b) Suppose the projection B → C has a continuous (set-theoretic) section s. Then there is a connecting map δ² : H¹(G, C) → H²(G, Z), Tau Ceti's explicit continuous H² (ContCohomology.H2 of Z written additively), sending the class of c̄ to the class of the 2-cocycle (g, h) ↦ c(g)·(g•c(h))·c(gh)⁻¹ for the continuous lift c = s ∘ c̄; and the image of H¹(G, B) → H¹(G, C) is δ²⁻¹(0). (c) If, for every c ∈ Z¹(G, B), the group C twisted by the image of c (NC.3/twisting) has only the trivial G-invariant element, then the action in (a) is free, so each nonempty fibre is a principal homogeneous space of H¹(G, Z).",
+      "statement": "Let Z ≤ B be a closed G-stable subgroup contained in the centre of B, and C := B/Z. (a) The abelian group H¹(G, Z) (NC.3/abelian-comparison) acts on H¹(G, B) by [z]·[c] := [g ↦ z(g)c(g)], and the fibres of H¹(G, B) → H¹(G, C) are exactly the orbits of this action. (b) Suppose the projection B → C has a continuous (set-theoretic) section s. Then there is a connecting map δ² : H¹(G, C) → H²(G, Z), Tau Ceti's explicit continuous H² (ContCohomology.H2 of Z written additively), sending the class of c̄ to the class of the 2-cocycle (g, h) ↦ c(g)·(g•c(h))·c(gh)⁻¹ for the continuous lift c = s ∘ c̄; and the image of H¹(G, B) → H¹(G, C) is δ²⁻¹(0). (c) If, for every c ∈ Z¹(G, B), the group C twisted by the image of c (NC.3/twisting) has only the trivial G-invariant element, then the action in (a) is free, so each nonempty fibre is a principal homogeneous space of H¹(G, Z). The convention in (b) is the positive defect matching Tau Ceti's additive d¹. Kim arXiv v1, printed p.5, defines dc(g,h)=c(gh)(g•c(h))⁻¹c(g)⁻¹, its inverse. Thus δ² here is the negative of Kim's printed connecting class under the additive identification of the central coefficient; their zero loci agree.",
       "hypotheses": [
-        "G is a topological group and B a topological group with an action of G by group automorphisms (MulDistribMulAction G U) such that the action map G × U → U is continuous (ContinuousSMul G U). Z closed, G-stable and central in B. For (b), a continuous section of B → C (for unipotent algebraic groups an algebraic splitting of the extension exists, as in Kim's proof). For (c), the stated vanishing of twisted invariants."
+        "G is a topological group and B a topological group with an action of G by group automorphisms (MulDistribMulAction G B) such that the action map G × B → U is continuous (ContinuousSMul G B). Z closed, G-stable and central in B. For (b), a continuous section of B → C (for unipotent algebraic groups an algebraic splitting of the extension exists, as in Kim's proof). For (c), the stated vanishing of twisted invariants."
       ],
       "proofSteps": [
         "(a) z·c is a continuous cocycle because Z is central: z(gh)c(gh) = z(g)(g•z(h))c(g)(g•c(h)) = (z(g)c(g))·g•(z(h)c(h)). The action is compatible with twisted conjugation by B (central z commutes with u), so it descends to classes; it preserves the image in H¹(G, C). Conversely if [c₁], [c₂] have the same image, replace c₂ by u·c₂ so that the images in Z¹(G, C) agree (lift one element of C); then z := c₁⁻¹c₂ is Z-valued, continuous and, Z being central, a cocycle.",
         "(b) For the lift c = s ∘ c̄, the defect (g, h) ↦ c(g)(g•c(h))c(gh)⁻¹ lies in Z (its image in C is 1), is continuous, and satisfies the 2-cocycle identity in Z (a direct computation using centrality). Changing c̄ within its class or changing the lift by a Z-valued continuous 1-cochain changes the defect by a 2-coboundary of a continuous cochain, so δ² is well defined into Z²/B² with Tau Ceti's B² (coboundaries of continuous cochains). δ²[c̄] = 0 iff the lift can be corrected by a continuous Z-valued cochain to a cocycle, i.e. iff [c̄] lifts to H¹(G, B).",
+        "Sign comparison: the inverse of c(g)(g•c(h))c(gh)⁻¹ is c(gh)(g•c(h))⁻¹c(g)⁻¹, exactly Kim's printed boundary. In central additive coefficients, taking inverse negates the 2-cochain and its class. Tau Ceti's d¹a(g,h)=g•a(h)−a(gh)+a(g) fixes the positive convention. For a changed lift c′(g)=z(g)c(g), centrality gives D(c′)=D(c)+d¹z in additive notation. The independence and obstruction-exactness interfaces must use this convention; negation does not change whether the obstruction vanishes.",
         "(c) If z·c = u·c with u ∈ B, then projecting to C gives ū·c̄ = c̄, i.e. ū is invariant for the action twisted by c̄; by hypothesis ū = 1, so u ∈ Z and z(g) = u(g•u)⁻¹ is a coboundary of Z (Kim's argument).",
         "For the kernel of the native central-quotient projection, first identify it with the specified central subgroup and then import its restricted inner action and joint continuity, its native underlying kernel comparison and the native quotient comparison when f is surjective. The quotient comparison is a homeomorphism exactly when f is a quotient map. This supplies actual group/topology realizations in the kernel-of-map case; a descended quotient G-action, quotient H¹ comparison and arbitrary G-stable subgroup adapters remain required.",
         "In the kernel-of-coefficient-map case the descended quotient G-action and native pointed H¹ comparison are now specified, with joint continuity supplied by the open native quotient projection. The cohomology equivalence retains the quotient-map hypothesis. Its quotient projection kills the kernel-inclusion image, but does not establish the converse, arbitrary kernel-H¹ injectivity, a continuous section, geometric torsor classification or representability.",
@@ -2385,7 +2389,8 @@
       ],
       "acceptance": [
         "For the lower central series of a unipotent group U with H⁰(G, U^i/U^{i+1}) = 0, (c) applies at every step, which is how Kim shows H¹(G, U_{n+1}) ≅ H¹(G, U^{n+1}/U^{n+2}) × δ²⁻¹(0) (Kim 2005, Proposition 2).",
-        "Without the section hypothesis, H¹(G, C) → H²(G, Z) need not be definable with continuous cochains; (a) and (c) do not need it."
+        "Without the section hypothesis, H¹(G, C) → H²(G, Z) need not be definable with continuous cochains; (a) and (c) do not need it.",
+        "For the trivial-action central extension 0→C₃→C₉→C₃→0, use the lift s taking least residues. At (g,h)=(2,1), D=s(2)+s(1)−s(0)=3 in C₉, while the printed Kim boundary is −D=6. Identifying the central subgroup by a↦3a gives 1 and −1 in C₃. They are different. The current typed arithmetic test checks the lifts/defects only; a test of their actual H² classes requires the omitted central obstruction interface."
       ],
       "prerequisites": [
         "AnabelianGeometryAndNonabelianChabauty:NC.3/nonabelian-h1",
@@ -2414,9 +2419,15 @@
       "sources": [
         {
           "sourceId": "kim-siegel-2005",
+          "locator": "§1, continuous-cochain boundary formula immediately before the page break, printed p.5 (arXiv v1)",
+          "excerpt": "boundary maps",
+          "match": "The printed order c(gh)(g•c(h))⁻¹c(g)⁻¹ is the inverse of the positive defect used here; this is a convention comparison, not an error in the source."
+        },
+        {
+          "sourceId": "kim-siegel-2005",
           "locator": "§1, proof of Proposition 2, p. 8",
           "excerpt": "realizes the connecting homomorphism",
-          "match": "The connecting map H¹(G, U_n) → H²(G, U^{n+1}/U^{n+2}) built from an algebraic splitting and the coboundary of a lift."
+          "match": "Kim builds the obstruction from an algebraic splitting and his printed boundary d on the lift. The packet uses the inverse boundary, matching Tau Ceti's positive additive d¹. The H² classes differ by negation, and their zero loci agree."
         },
         {
           "sourceId": "kim-siegel-2005",
@@ -2439,7 +2450,14 @@
       "implementationStatus": "unchecked",
       "planet": {
         "name": "Central extensions and the connecting map to H²"
-      }
+      },
+      "tests": [
+        {
+          "name": "TauCeti.NonabelianCohomology.tests.central_defect_sign_C3_C9",
+          "kind": "computation",
+          "statement": "In the trivial-action C₉→C₃ extension, the least-residue section has positive defect 3 at (2,1), and the inverse convention has value 6; the values differ. These correspond to 1 and −1 in the central C₃. The native ZMod example proves this arithmetic discrimination, without claiming to construct the missing continuous H² class map."
+        }
+      ]
     },
     {
       "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/twisting",
@@ -24292,5 +24310,78 @@
       }
     },
     "fullCanonicalTauCetiCompiled": false
+  },
+  "independentReviewCheckpoint": {
+    "job": "REV-AnabelianGeometryAndNonabelianChabauty",
+    "session": "codex-1O5j0u",
+    "date": "2026-10-05",
+    "status": "partial",
+    "inputCommit": "ceae7664eb1264bc255acade6af444e36a29b0d0",
+    "baselineStatementAudit": {
+      "count": 160,
+      "mathlibNameChecks": 138,
+      "tauCetiSourceChecks": 22,
+      "scope": "All cited declarations' statements and surrounding hypotheses read at the packet pins; exact locators and important scope restrictions are in the independent review report. This is not an all-consumer proof audit. Mathlib name checks elaborate; Tau Ceti import cannot be checked because its existing LowDegree object is absent."
+    },
+    "selectedNodeAudit": {
+      "nodes": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-invariant-gauge",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-invariant-gauge-value",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-invariant-gauge-unit",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-invariant-gauge-product",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-invariant-gauge-equivariance",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-preimage-class-action",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-preimage-class-value",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-preimage-class-kernel",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/invariant-preimage-projection",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/invariant-preimage-projection-value",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/invariant-preimage-projection-kernel",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/invariant-preimage-projection-surjective",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-preimage-permutation-kernel",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-invariant-class-action",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-invariant-class-lift",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-invariant-class-value",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-invariant-lift-independence",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-invariant-gauge-inclusion",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-invariant-ambient-constant",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-invariant-fibre-orbit",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-orbit-image-equivalence",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-orbit-image-value",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-orbit-image-inverse-witness",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-orbit-image-inverse-projection",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-orbit-image-choice-independence",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-invariant-injectivity-characterisation",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-inclusion-neutral-range",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-orbit-neutral-fibre-equivalence",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-orbit-neutral-value",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-orbit-neutral-inverse-witness",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-orbit-neutral-basepoint",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-orbit-neutral-inverse",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-neutral-fibre-equivalence",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-neutral-fibre-value",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-neutral-fibre-inverse-value",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-neutral-fibre-basepoint",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-invariant-action",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-invariant-action-value",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-invariant-inclusion",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-invariant-fibre-orbit",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-orbit-fibre-equivalence",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-orbit-fibre-value",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-orbit-fibre-inverse-value",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-orbit-fibre-left-inverse",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-orbit-fibre-right-inverse",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-orbit-fibre-basepoint",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-orbit-fibre-choice-independent",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-invariant-injectivity-iff",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/equivariant-topological-torsors"
+      ],
+      "scope": "Fresh reading of statements, hypotheses, proof sketches, APIs/tests and actual suggested signatures for the late kernel invariant-action/orbit/repointed-fibre families, plus the native topological-torsor bundle. The report records the mathematical calculations and remaining precursor/closure limits. No final per-node verdict is asserted."
+    },
+    "corrections": [
+      "Pinned the central obstruction sign against Kim's printed p.5 boundary and Tau Ceti's positive additive differential; added the proved C₃/C₉ arithmetic discriminator without inventing an H² interface.",
+      "Replaced the obsolete 01ZM retrieval failure with a scoped statement/proof reading receipt; recorded fresh 03RH and Schmidt–Stix Appendix A.3 readings without closing their transitive supplier proofs.",
+      "Corrected the central-extension hypothesis spelling from the unbound coefficient U to its actual ambient group B."
+    ],
+    "remaining": "Finish every earlier node's consumer/source/API/test/closure check and the geometric supplier proof leaves, reconcile current coverage obligations, and finish ownership/planet/source-error screening before a global review object. The blueprint stage statuses and implementation statuses are unchanged."
   }
 }
