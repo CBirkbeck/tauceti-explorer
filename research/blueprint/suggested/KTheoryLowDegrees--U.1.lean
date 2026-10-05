@@ -59,6 +59,7 @@ import Mathlib.LinearAlgebra.Complex.FiniteDimensional
 import Mathlib.LinearAlgebra.Determinant
 import Mathlib.LinearAlgebra.GeneralLinearGroup.Basic
 import Mathlib.LinearAlgebra.InvariantBasisNumber
+import Mathlib.LinearAlgebra.FreeModule.Finite.Basic
 import Mathlib.LinearAlgebra.Matrix.Block
 import Mathlib.LinearAlgebra.Matrix.ElementaryRowOperations
 import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Defs
@@ -4828,8 +4829,8 @@ theorem division_ring_reduction (n : ℕ) (g : GL (Fin (n + 1)) D) :
 
 /-- `KTheoryLowDegrees:U.3/division-ring-elementary-normal`: `E_{n+1}(D)` is normal in
 `GL_{n+1}(D)`,
-with Dieudonné's conjugation formulas; every transvection of `Dⁿ` (Mathlib's
-`LinearEquiv.transvections`, matrices through `LinearMap.toMatrixRight'`) is elementary. -/
+with Dieudonné's conjugation formulas. Transvection conjugacy and membership are separate
+lemma nodes below. -/
 theorem division_ring_elementary_normal (n : ℕ) :
     (elementarySubgroup (Fin (n + 1)) D).Normal ∧
       (∀ (μ : Dˣ) {i j : Fin (n + 1)} (hij : i ≠ j) (c : D), i ≠ Fin.last n → j ≠ Fin.last n →
@@ -4837,9 +4838,24 @@ theorem division_ring_elementary_normal (n : ℕ) :
       (∀ (μ : Dˣ) {j : Fin (n + 1)} (hj : Fin.last n ≠ j) (c : D),
         lastDiag n μ * elementary hj c * (lastDiag n μ)⁻¹ = elementary hj ((μ : D) * c)) ∧
       (∀ (μ : Dˣ) {i : Fin (n + 1)} (hi : i ≠ Fin.last n) (c : D),
-        lastDiag n μ * elementary hi c * (lastDiag n μ)⁻¹ = elementary hi (c * ((μ⁻¹ : Dˣ) : D))) ∧
-      ∀ τ ∈ LinearEquiv.transvections D (Fin (n + 1) → D), ∃ g ∈ elementarySubgroup (Fin (n + 1)) D,
-        (g : Matrix (Fin (n + 1)) (Fin (n + 1)) D) = LinearMap.toMatrixRight' τ.toLinearMap := by
+        lastDiag n μ * elementary hi c * (lastDiag n μ)⁻¹ = elementary hi (c * ((μ⁻¹ : Dˣ) : D))) := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.3/division-ring-transvection-conjugacy`.
+Mathlib includes the identity in its transvection set; conjugacy requires `τ ≠ 1`. -/
+theorem division_ring_transvection_conjugacy (n : ℕ)
+    (τ : (Fin (n + 2) → D) ≃ₗ[D] (Fin (n + 2) → D))
+    (hτ : τ ∈ LinearEquiv.transvections D (Fin (n + 2) → D)) (hne : τ ≠ 1) :
+    ∃ g : GL (Fin (n + 2)) D,
+      (g * elementary (show (1 : Fin (n + 2)) ≠ 0 by omega) (1 : D) * g⁻¹ :
+        Matrix (Fin (n + 2)) (Fin (n + 2)) D) = LinearMap.toMatrixRight' τ.toLinearMap := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.3/division-ring-transvections-elementary`.
+The identity case is handled separately; rank one has no nonidentity transvections. -/
+theorem division_ring_transvections_elementary (n : ℕ) :
+    ∀ τ ∈ LinearEquiv.transvections D (Fin (n + 1) → D), ∃ g ∈ elementarySubgroup (Fin (n + 1)) D,
+      (g : Matrix (Fin (n + 1)) (Fin (n + 1)) D) = LinearMap.toMatrixRight' τ.toLinearMap := by
   sorry
 
 /-- The minor after clearing the first column with pivot row `i`: rows `k ≠ i` of
@@ -5752,7 +5768,7 @@ BMS (A.10)): for `a, b ∈ O_{F,S}` nonzero coprime, a finite set `S₀` of prim
 `b`, open subgroups `V_𝔭` and elements `x_𝔭` of `F_𝔭ˣ` at `𝔭 ∈ S₀ ∪ S_∞` (with `ord_𝔭 x_𝔭 = e_𝔭 ≥ 0`
 on `S₀`, and some `V_𝔭`, `𝔭 ∈ S_∞`, of finite index), infinitely many primes `𝔭₀ ∉ S₀ ∪ S` admit
 `c ≡ a (mod b)` with `c ∈ x_𝔭 V_𝔭` on `S₀ ∪ S_∞` and `cA = 𝔭₀ ∏ 𝔭^{e_𝔭}` (read on valuations). -/
-theorem dirichlet_theorem_arithmetic_type (a b : S.integer F) (ha : a ≠ 0) (hb : b ≠ 0)
+theorem dirichlet_theorem_arithmetic_type (hS : S.Finite) (a b : S.integer F) (ha : a ≠ 0) (hb : b ≠ 0)
     (hab : IsCoprime a b) (S₀ : Finset (HeightOneSpectrum (𝓞 F)))
     (hS₀ : ∀ 𝔭 ∈ S₀, 𝔭 ∉ S ∧ 𝔭.valuation F (b : F) = 1)
     (Vf : ∀ 𝔭 : HeightOneSpectrum (𝓞 F), Subgroup (𝔭.adicCompletion F)ˣ)
@@ -5777,7 +5793,7 @@ theorem dirichlet_theorem_arithmetic_type (a b : S.integer F) (ha : a ≠ 0) (hb
 /-- `KTheoryLowDegrees:U.4/dirichlet-theorem-number-field` (BMS (A.11)): for `a, b ∈ O_{F,S}`
 nonzero and `𝔞 ≠ 0` with `aA + bA = A = 𝔞 + bA`, infinitely many primes `𝔭₀` of `A` have `𝔭₀𝔞 = cA`
 for some `c ≡ a (mod b)` with prescribed signs at the real places. -/
-theorem dirichlet_theorem_number_field (a b : S.integer F) (ha : a ≠ 0) (hb : b ≠ 0)
+theorem dirichlet_theorem_number_field (hS : S.Finite) (a b : S.integer F) (ha : a ≠ 0) (hb : b ≠ 0)
     (𝔞 : Ideal (S.integer F)) (h𝔞 : 𝔞 ≠ ⊥) (hab : IsCoprime a b)
     (h𝔞b : 𝔞 ⊔ Ideal.span {b} = ⊤) (pos : {w : InfinitePlace F // w.IsReal} → Bool) :
     Set.Infinite {𝔭₀ : Ideal (S.integer F) | 𝔭₀.IsMaximal ∧ ∃ c : S.integer F,
@@ -5813,7 +5829,7 @@ def IsMaxRootsExponent (p n : ℕ) : Prop :=
 
 /-- `KTheoryLowDegrees:U.4/prime-choice` (BMS Theorem 3.2): every `(a, b) ∈ W_𝔮` is `𝔮`-equivalent
 to some `(a₁, b₁)` with `a₁A = 𝔭₁𝔭₂`, distinct primes prime to `p`, with `N𝔭ᵢ ≢ 1 (mod p^{n+1})`. -/
-theorem prime_choice (𝔮 : Ideal (S.integer F)) (h𝔮 : 𝔮 ≠ ⊥) (p : ℕ) [Fact p.Prime] (n : ℕ)
+theorem prime_choice (hS : S.Finite) (𝔮 : Ideal (S.integer F)) (h𝔮 : 𝔮 ≠ ⊥) (p : ℕ) [Fact p.Prime] (n : ℕ)
     (hn : IsMaxRootsExponent F p n) {x : S.integer F × S.integer F} (hx : x ∈ W 𝔮) :
     ∃ y ∈ W 𝔮, QEquiv 𝔮 x y ∧ ∃ 𝔭₁ 𝔭₂ : Ideal (S.integer F), 𝔭₁.IsMaximal ∧ 𝔭₂.IsMaximal ∧
       𝔭₁ ≠ 𝔭₂ ∧ Ideal.span {y.1} = 𝔭₁ * 𝔭₂ ∧ (p : S.integer F) ∉ 𝔭₁ ∧ (p : S.integer F) ∉ 𝔭₂ ∧
@@ -5825,7 +5841,7 @@ theorem prime_choice (𝔮 : Ideal (S.integer F)) (h𝔮 : 𝔮 ≠ ⊥) (p : �
 `O_{F,S}` is not totally imaginary, every `(a, b) ∈ W_𝔮` is `𝔮`-equivalent to `(a₁, c^{pⁿ} q)`
 with `q ∈ 𝔮`, `a₁ ≡ 1 (mod qA)`. (Proof inputs: local Hilbert symbols, requested; the tame formula
 and reciprocity (A.16), (A.21), gaps.) -/
-theorem power_reduction_non_totally_imaginary (hnti : S.Nonempty ∨ ∃ w : InfinitePlace F, w.IsReal)
+theorem power_reduction_non_totally_imaginary (hS : S.Finite) (hnti : S.Nonempty ∨ ∃ w : InfinitePlace F, w.IsReal)
     (𝔮 : Ideal (S.integer F)) (h𝔮 : 𝔮 ≠ ⊥) (p : ℕ) [Fact p.Prime] (n : ℕ)
     (hn : IsMaxRootsExponent F p n) {x : S.integer F × S.integer F} (hx : x ∈ W 𝔮) :
     ∃ q a₁ c : S.integer F, q ∈ 𝔮 ∧ a₁ - 1 ∈ Ideal.span {q} ∧ QEquiv 𝔮 x (a₁, c ^ (p ^ n) * q) := by
@@ -5842,7 +5858,7 @@ theorem power_reduction_totally_imaginary [IsTotallyComplex F] (𝔮 : Ideal (�
 
 /-- `KTheoryLowDegrees:U.4/power-reduction` (BMS Theorem 3.5): if `A = O_{F,S}` is not totally
 imaginary, or `j_p(𝔮) = 0`, every `(a, b) ∈ W_𝔮` is `𝔮`-equivalent to `(a₁, c^{pⁿ} q)`. -/
-theorem power_reduction (𝔮 : Ideal (S.integer F)) (h𝔮 : 𝔮 ≠ ⊥) (p : ℕ) [Fact p.Prime] (n : ℕ)
+theorem power_reduction (hS : S.Finite) (𝔮 : Ideal (S.integer F)) (h𝔮 : 𝔮 ≠ ⊥) (p : ℕ) [Fact p.Prime] (n : ℕ)
     (hn : IsMaxRootsExponent F p n)
     (hcase : S.Nonempty ∨ (∃ w : InfinitePlace F, w.IsReal) ∨
       jIndex F p n (𝔮.comap (algebraMap (𝓞 F) (S.integer F))) = 0)
@@ -5852,13 +5868,13 @@ theorem power_reduction (𝔮 : Ideal (S.integer F)) (h𝔮 : 𝔮 ≠ ⊥) (p :
 
 /-- `KTheoryLowDegrees:U.4/mennicke-group-locally-cyclic`: every finite subset of `C_𝔮` lies in a
 finite cyclic subgroup. -/
-theorem mennicke_group_locally_cyclic (𝔮 : Ideal (S.integer F)) (h𝔮 : 𝔮 ≠ ⊥)
+theorem mennicke_group_locally_cyclic (hS : S.Finite) (𝔮 : Ideal (S.integer F)) (h𝔮 : 𝔮 ≠ ⊥)
     (s : Finset (MennickeGroup 𝔮)) :
     ∃ H : Subgroup (MennickeGroup 𝔮), IsCyclic H ∧ Finite H ∧ (s : Set (MennickeGroup 𝔮)) ⊆ H := by
   sorry
 
 /-- `KTheoryLowDegrees:U.4/mennicke-group-exponent`: `C_𝔮` is cyclic of order dividing `#μ(F)`. -/
-theorem mennicke_group_exponent (𝔮 : Ideal (S.integer F)) (h𝔮 : 𝔮 ≠ ⊥) :
+theorem mennicke_group_exponent (hS : S.Finite) (𝔮 : Ideal (S.integer F)) (h𝔮 : 𝔮 ≠ ⊥) :
     Finite (MennickeGroup 𝔮) ∧ IsCyclic (MennickeGroup 𝔮) ∧
       Nat.card (MennickeGroup 𝔮) ∣ NumberField.Units.torsionOrder F := by
   sorry
@@ -5867,7 +5883,7 @@ theorem mennicke_group_exponent (𝔮 : Ideal (S.integer F)) (h𝔮 : 𝔮 ≠ �
 (`KTheoryLowDegrees:U.4/arithmetic-mennicke-symbols-trivial`,
 BMS Theorem 3.6): `C_𝔮 = 1` for every `𝔮 ≠ 0` if `O_{F,S}` is not totally imaginary, and for every
 `𝔮 ≠ 0` with all `j_p(𝔮) = 0` if it is; in particular `C_A = 1`. -/
-theorem arithmetic_mennicke_symbols_trivial :
+theorem arithmetic_mennicke_symbols_trivial (hS : S.Finite) :
     ((S.Nonempty ∨ ∃ w : InfinitePlace F, w.IsReal) →
       ∀ 𝔮 : Ideal (S.integer F), 𝔮 ≠ ⊥ → Subsingleton (MennickeGroup 𝔮)) ∧
       (∀ 𝔮 : Ideal (S.integer F), 𝔮 ≠ ⊥ →
@@ -6687,13 +6703,17 @@ theorem RelK1.equivProd_toK1 (x : RelK1 I) :
   sorry
 
 -- Tests for the separately recorded relative-SK1 definition.
+-- test RelSK1.bot_test (degenerate)
 example : RelSK1 (⊥ : Ideal R) = ⊥ := by sorry
 
+-- test RelSK1.radical_zmod_test (computation)
 example (p : ℕ) [Fact p.Prime] :
     RelSK1 (Ideal.span {(p : ZMod (p ^ 2))}) = ⊥ := by sorry
 
+-- test RelSK1.kernel_test (characterisation)
 example (x : RelK1 I) : x ∈ RelSK1 I ↔ RelK1.det I x = 1 := RelSK1.mem_iff x
 
+-- test RelSK1.circle_top_test (non-example)
 -- This conditional application uses the still-partial real-circle obstruction.
 example : ∃ x : RelK1 (⊤ : Ideal CircleRing),
     x ∈ RelSK1 (⊤ : Ideal CircleRing) ∧ x ≠ 1 := by sorry
@@ -9035,3 +9055,8 @@ homotopy comparison still needs an actual relative-plus/excision-defect argument
 argument between the double-ring and quotient sequences has nonisomorphic adjacent maps.
 Revision BP-KTheoryLowDegrees--U.1~2 synchronizes the reader with the corrected packet.
 Full-file elaboration at the exact pins remains unestablished. -/
+
+/-! Independent review REV-KTheoryLowDegrees--U.1~2: arithmetic-type signatures carry finite S;
+nonidentity transvection conjugacy is separate from elementary membership. This file remains a
+planning prototype. Full elaboration was blocked at the missing Exact.Functor import; no build
+was attempted. The readonly reader requires regeneration from the corrected packet. -/
