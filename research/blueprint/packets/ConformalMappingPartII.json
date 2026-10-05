@@ -15,7 +15,7 @@
     "ConformalMappingPartII:M0"
   ],
   "status": "complete",
-  "summary": "Pointed holomorphic coverings of punctured planes, their Schwarzian and hypergeometric inverse germs, explicit conformal radii, symmetric cusp geometry and disc-local value distribution. Every routed target is tracked, with corrected source statements, shared geometric inputs requested from their owners and unresolved proof interiors recorded separately. This is a complete planning pass over all 37 routed items, with every layer planned and none closed. Source corrections E2, E3, E8, E9, E15 and E16 are retained; all mathematical implementation statuses remain unchecked.",
+  "summary": "Pointed holomorphic coverings of punctured planes, their Schwarzian and hypergeometric inverse germs, explicit conformal radii, symmetric cusp geometry and disc-local value distribution. Every routed target is tracked, with corrected source statements, shared geometric inputs requested from their owners and unresolved proof interiors recorded separately. This is a complete planning pass over all 37 routed items, with every layer planned and none closed. Source corrections E2, E3, E8, E9, E15 and E16 are retained; all mathematical implementation statuses remain unchecked. Independent review tightens rational pole clearing, the native removable-germ criterion and exact source/proof-obligation boundaries; all layers remain planned, not closed.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -25,259 +25,280 @@
         "kind": "structure",
         "module": "TauCeti/Analysis/Complex/Conformal/Continuation/Basic.lean",
         "provides": "Continuous transport of analytic germs along a path; does not give ODE continuation existence.",
-        "checked": "Actual statement personally read at the pinned commit; declaration-index line 190."
+        "checked": "Independent reviewer personally read the actual declaration, namespace, ambient typeclass/variable hypotheses and relevant local context at the recorded pinned commit; confirmed the stated use, not just the name or index hit."
       },
       {
         "ref": "tauceti:TauCeti.UniversalCover",
         "kind": "structure",
         "module": "TauCeti/AlgebraicTopology/UniversalCover/Basic.lean",
         "provides": "Endpoint/path-homotopy-class topological universal-cover carrier.",
-        "checked": "Actual statement personally read at the pinned commit; declaration-index line 66."
+        "checked": "Independent reviewer personally read the actual declaration, namespace, ambient typeclass/variable hypotheses and relevant local context at the recorded pinned commit; confirmed the stated use, not just the name or index hit."
       },
       {
         "ref": "tauceti:TauCeti.UniversalCover.isCoveringMap",
         "kind": "theorem",
         "module": "TauCeti/AlgebraicTopology/UniversalCover/Covering.lean",
         "provides": "Projection is a covering for locally path-connected, path-connected, semilocally simply connected spaces.",
-        "checked": "Actual statement personally read at the pinned commit; declaration-index line 46."
+        "checked": "Independent reviewer personally read the actual declaration, namespace, ambient typeclass/variable hypotheses and relevant local context at the recorded pinned commit; confirmed the stated use, not just the name or index hit."
       },
       {
         "ref": "tauceti:TauCeti.UniversalCover.simplyConnectedSpace",
         "kind": "instance",
         "module": "TauCeti/AlgebraicTopology/UniversalCover/Covering.lean",
         "provides": "The same universal cover is simply connected under the stated local hypotheses.",
-        "checked": "Actual statement personally read at the pinned commit; declaration-index line 203."
+        "checked": "Independent reviewer personally read the actual declaration, namespace, ambient typeclass/variable hypotheses and relevant local context at the recorded pinned commit; confirmed the stated use, not just the name or index hit."
       },
       {
         "ref": "tauceti:TauCeti.riemannMapping",
         "kind": "theorem",
         "module": "TauCeti/Analysis/Complex/Conformal/RiemannMapping/Existence.lean",
         "provides": "Holomorphic disc bijection for a simply connected proper open domain, with nonzero derivative.",
-        "checked": "Actual statement personally read at the pinned commit; declaration-index line 69."
+        "checked": "Independent reviewer personally read the actual declaration, namespace, ambient typeclass/variable hypotheses and relevant local context at the recorded pinned commit; confirmed the stated use, not just the name or index hit."
       },
       {
         "ref": "tauceti:TauCeti.IsNormalizedRiemannMapOn",
         "kind": "structure",
         "module": "TauCeti/Analysis/Complex/Conformal/RiemannMapping/Normalization.lean",
         "provides": "Normalized domain-to-disc map with base point and positive real derivative; compare its inverse.",
-        "checked": "Actual statement personally read at the pinned commit; declaration-index line 122."
+        "checked": "Independent reviewer personally read the actual declaration, namespace, ambient typeclass/variable hypotheses and relevant local context at the recorded pinned commit; confirmed the stated use, not just the name or index hit."
       },
       {
         "ref": "mathlib:Complex.norm_deriv_le_one_of_mapsTo_ball",
         "kind": "theorem",
         "module": "Mathlib/Analysis/Complex/Schwarz.lean",
         "provides": "Derivative Schwarz bound for differentiable maps of a ball into the matching closed ball.",
-        "checked": "Actual statement personally read at the pinned commit; declaration-index line 261."
+        "checked": "Independent reviewer personally read the actual declaration, namespace, ambient typeclass/variable hypotheses and relevant local context at the recorded pinned commit; confirmed the stated use, not just the name or index hit."
       },
       {
         "ref": "mathlib:DiffContOnCl.circleAverage_re_herglotzRieszKernel_smul",
         "kind": "theorem",
         "module": "Mathlib/Analysis/Complex/Poisson.lean",
         "provides": "Poisson integral formula for complex-differentiable maps continuous on the closed disc.",
-        "checked": "Actual statement personally read at the pinned commit; declaration-index line 253."
+        "checked": "Independent reviewer personally read the actual declaration, namespace, ambient typeclass/variable hypotheses and relevant local context at the recorded pinned commit; confirmed the stated use, not just the name or index hit."
       },
       {
         "ref": "mathlib:hasDerivAt_circleAverage_herglotzRieszKernel_smul",
         "kind": "theorem",
         "module": "Mathlib/Analysis/Complex/Poisson.lean",
         "provides": "Derivative of the circle-averaged Herglotz kernel for circle-integrable boundary data.",
-        "checked": "Actual statement personally read at the pinned commit; declaration-index line 302."
+        "checked": "Independent reviewer personally read the actual declaration, namespace, ambient typeclass/variable hypotheses and relevant local context at the recorded pinned commit; confirmed the stated use, not just the name or index hit."
       },
       {
         "ref": "mathlib:MeromorphicOn.circleAverage_log_norm",
         "kind": "theorem",
         "module": "Mathlib/Analysis/Complex/JensenFormula.lean",
         "provides": "Closed-disc Jensen formula using the local divisor and meromorphic trailing coefficient; no global extension needed.",
-        "checked": "Actual statement personally read at the pinned commit; declaration-index line 308."
+        "checked": "Independent reviewer personally read the actual declaration, namespace, ambient typeclass/variable hypotheses and relevant local context at the recorded pinned commit; confirmed the stated use, not just the name or index hit."
       },
       {
         "ref": "mathlib:MeromorphicOn.divisor",
         "kind": "def",
         "module": "Mathlib/Analysis/Meromorphic/Divisor.lean",
         "provides": "Integer local meromorphic order on a set, totalized to zero for infinite order or invalid meromorphic input.",
-        "checked": "Actual statement personally read at the pinned commit; declaration-index line 41."
+        "checked": "Independent reviewer personally read the actual declaration, namespace, ambient typeclass/variable hypotheses and relevant local context at the recorded pinned commit; confirmed the stated use, not just the name or index hit."
       },
       {
         "ref": "mathlib:MeromorphicOn.divisor_restrict",
         "kind": "theorem",
         "module": "Mathlib/Analysis/Meromorphic/Divisor.lean",
         "provides": "Restriction agreement for an actual meromorphic function and a subset.",
-        "checked": "Actual statement personally read at the pinned commit; declaration-index line 431."
+        "checked": "Independent reviewer personally read the actual declaration, namespace, ambient typeclass/variable hypotheses and relevant local context at the recorded pinned commit; confirmed the stated use, not just the name or index hit."
       },
       {
         "ref": "mathlib:MeromorphicOn.divisor_fun_pow",
         "kind": "theorem",
         "module": "Mathlib/Analysis/Meromorphic/Divisor.lean",
         "provides": "Power multiplies the local divisor by its natural exponent under MeromorphicOn.",
-        "checked": "Actual statement personally read at the pinned commit; declaration-index line 406."
+        "checked": "Independent reviewer personally read the actual declaration, namespace, ambient typeclass/variable hypotheses and relevant local context at the recorded pinned commit; confirmed the stated use, not just the name or index hit."
       },
       {
         "ref": "mathlib:MeromorphicOn.divisor_fun_inv",
         "kind": "theorem",
         "module": "Mathlib/Analysis/Meromorphic/Divisor.lean",
         "provides": "Local divisor of inversion is the negative divisor.",
-        "checked": "Actual statement personally read at the pinned commit; declaration-index line 389."
+        "checked": "Independent reviewer personally read the actual declaration, namespace, ambient typeclass/variable hypotheses and relevant local context at the recorded pinned commit; confirmed the stated use, not just the name or index hit."
       },
       {
         "ref": "mathlib:MeromorphicOn.divisor_ball_support_finite",
         "kind": "lemma",
         "module": "Mathlib/Analysis/Meromorphic/Divisor.lean",
         "provides": "Finite divisor support on an open ball when meromorphic on its compact closed ball.",
-        "checked": "Actual statement personally read at the pinned commit; declaration-index line 112."
+        "checked": "Independent reviewer personally read the actual declaration, namespace, ambient typeclass/variable hypotheses and relevant local context at the recorded pinned commit; confirmed the stated use, not just the name or index hit."
       },
       {
         "ref": "mathlib:ValueDistribution.proximity",
         "kind": "def",
         "module": "Mathlib/Analysis/Complex/ValueDistribution/Proximity/Basic.lean",
         "provides": "Native circle average of positive log norm at the target infinity; usable on disc-local functions.",
-        "checked": "Actual statement personally read at the pinned commit; declaration-index line 50."
+        "checked": "Independent reviewer personally read the actual declaration, namespace, ambient typeclass/variable hypotheses and relevant local context at the recorded pinned commit; confirmed the stated use, not just the name or index hit."
       },
       {
         "ref": "mathlib:ValueDistribution.characteristic",
         "kind": "def",
         "module": "Mathlib/Analysis/Complex/ValueDistribution/CharacteristicFunction.lean",
         "provides": "Native global-divisor characteristic, used only under a global meromorphic comparison hypothesis.",
-        "checked": "Actual statement personally read at the pinned commit; declaration-index line 53."
+        "checked": "Independent reviewer personally read the actual declaration, namespace, ambient typeclass/variable hypotheses and relevant local context at the recorded pinned commit; confirmed the stated use, not just the name or index hit."
       },
       {
         "ref": "mathlib:ValueDistribution.logCounting",
         "kind": "def",
         "module": "Mathlib/Analysis/Complex/ValueDistribution/LogCounting/Basic.lean",
         "provides": "Global-divisor logarithmic pole count; not applicable via arbitrary zero extension of a disc divisor.",
-        "checked": "Actual statement personally read at the pinned commit; declaration-index line 354."
+        "checked": "Independent reviewer personally read the actual declaration, namespace, ambient typeclass/variable hypotheses and relevant local context at the recorded pinned commit; confirmed the stated use, not just the name or index hit."
       },
       {
         "ref": "mathlib:ValueDistribution.characteristic_sub_characteristic_inv_of_ne_zero",
         "kind": "lemma",
         "module": "Mathlib/Analysis/Complex/ValueDistribution/FirstMainTheorem.lean",
         "provides": "Global meromorphic first-main inversion identity; a localized proof is still required.",
-        "checked": "Actual statement personally read at the pinned commit; declaration-index line 66."
+        "checked": "Independent reviewer personally read the actual declaration, namespace, ambient typeclass/variable hypotheses and relevant local context at the recorded pinned commit; confirmed the stated use, not just the name or index hit."
       },
       {
         "ref": "mathlib:ordinaryHypergeometric",
         "kind": "def",
         "module": "Mathlib/Analysis/SpecialFunctions/OrdinaryHypergeometric.lean",
         "provides": "Native hypergeometric series sum, with junk value zero outside its convergence radius.",
-        "checked": "Actual statement personally read at the pinned commit; declaration-index line 81."
+        "checked": "Independent reviewer personally read the actual declaration, namespace, ambient typeclass/variable hypotheses and relevant local context at the recorded pinned commit; confirmed the stated use, not just the name or index hit."
       },
       {
         "ref": "mathlib:ordinaryHypergeometric_eq_tsum",
         "kind": "theorem",
         "module": "Mathlib/Analysis/SpecialFunctions/OrdinaryHypergeometric.lean",
         "provides": "Pochhammer/factorial coefficient series for the native hypergeometric function.",
-        "checked": "Actual statement personally read at the pinned commit; declaration-index line 105."
+        "checked": "Independent reviewer personally read the actual declaration, namespace, ambient typeclass/variable hypotheses and relevant local context at the recorded pinned commit; confirmed the stated use, not just the name or index hit."
       },
       {
         "ref": "mathlib:ordinaryHypergeometric_zero",
         "kind": "theorem",
         "module": "Mathlib/Analysis/SpecialFunctions/OrdinaryHypergeometric.lean",
         "provides": "Native hypergeometric value at zero equals one.",
-        "checked": "Actual statement personally read at the pinned commit; declaration-index line 116."
+        "checked": "Independent reviewer personally read the actual declaration, namespace, ambient typeclass/variable hypotheses and relevant local context at the recorded pinned commit; confirmed the stated use, not just the name or index hit."
       },
       {
         "ref": "mathlib:ordinaryHypergeometricSeries_radius_eq_one",
         "kind": "theorem",
         "module": "Mathlib/Analysis/SpecialFunctions/OrdinaryHypergeometric.lean",
         "provides": "Radius one when none of a,b,c is a nonpositive integer.",
-        "checked": "Actual statement personally read at the pinned commit; declaration-index line 200."
+        "checked": "Independent reviewer personally read the actual declaration, namespace, ambient typeclass/variable hypotheses and relevant local context at the recorded pinned commit; confirmed the stated use, not just the name or index hit."
       },
       {
         "ref": "mathlib:Complex.digamma",
         "kind": "def",
         "module": "Mathlib/Analysis/SpecialFunctions/Gamma/Digamma.lean",
         "provides": "Native Γ derivative quotient; not a new definition in this roadmap.",
-        "checked": "Actual statement personally read at the pinned commit; declaration-index line 48."
+        "checked": "Independent reviewer personally read the actual declaration, namespace, ambient typeclass/variable hypotheses and relevant local context at the recorded pinned commit; confirmed the stated use, not just the name or index hit."
       },
       {
         "ref": "mathlib:Complex.digamma_one",
         "kind": "theorem",
         "module": "Mathlib/Analysis/SpecialFunctions/Gamma/Digamma.lean",
         "provides": "ψ(1) is minus Euler’s constant, fixing E2.",
-        "checked": "Actual statement personally read at the pinned commit; declaration-index line 56."
+        "checked": "Independent reviewer personally read the actual declaration, namespace, ambient typeclass/variable hypotheses and relevant local context at the recorded pinned commit; confirmed the stated use, not just the name or index hit."
       },
       {
         "ref": "mathlib:Complex.digamma_one_sub",
         "kind": "theorem",
         "module": "Mathlib/Analysis/SpecialFunctions/Gamma/Digamma.lean",
         "provides": "Reflection relation away from integer poles.",
-        "checked": "Actual statement personally read at the pinned commit; declaration-index line 94."
+        "checked": "Independent reviewer personally read the actual declaration, namespace, ambient typeclass/variable hypotheses and relevant local context at the recorded pinned commit; confirmed the stated use, not just the name or index hit."
       },
       {
         "ref": "mathlib:Complex.digamma_apply_add_nat",
         "kind": "theorem",
         "module": "Mathlib/Analysis/SpecialFunctions/Gamma/Digamma.lean",
         "provides": "Finite reciprocal-sum recurrence with all arguments away from poles.",
-        "checked": "Actual statement personally read at the pinned commit; declaration-index line 72."
+        "checked": "Independent reviewer personally read the actual declaration, namespace, ambient typeclass/variable hypotheses and relevant local context at the recorded pinned commit; confirmed the stated use, not just the name or index hit."
       },
       {
         "ref": "mathlib:Real.Gamma",
         "kind": "def",
         "module": "Mathlib/Analysis/SpecialFunctions/Gamma/Basic.lean",
         "provides": "Native real Gamma function, totalized to zero at nonpositive integer poles.",
-        "checked": "Actual statement personally read at the pinned commit; declaration-index line 402."
+        "checked": "Independent reviewer personally read the actual declaration, namespace, ambient typeclass/variable hypotheses and relevant local context at the recorded pinned commit; confirmed the stated use, not just the name or index hit."
       },
       {
         "ref": "mathlib:Real.Gamma_pos_of_pos",
         "kind": "theorem",
         "module": "Mathlib/Analysis/SpecialFunctions/Gamma/Basic.lean",
         "provides": "Strict positivity for positive real Gamma arguments.",
-        "checked": "Actual statement personally read at the pinned commit; declaration-index line 443."
+        "checked": "Independent reviewer personally read the actual declaration, namespace, ambient typeclass/variable hypotheses and relevant local context at the recorded pinned commit; confirmed the stated use, not just the name or index hit."
       },
       {
         "ref": "mathlib:Real.Gamma_mul_Gamma_one_sub",
         "kind": "theorem",
         "module": "Mathlib/Analysis/SpecialFunctions/Gamma/Beta.lean",
         "provides": "Real reflection formula.",
-        "checked": "Actual statement personally read at the pinned commit; declaration-index line 491."
+        "checked": "Independent reviewer personally read the actual declaration, namespace, ambient typeclass/variable hypotheses and relevant local context at the recorded pinned commit; confirmed the stated use, not just the name or index hit."
       },
       {
         "ref": "mathlib:Real.Gamma_mul_Gamma_add_half",
         "kind": "theorem",
         "module": "Mathlib/Analysis/SpecialFunctions/Gamma/Beta.lean",
         "provides": "Real duplication formula.",
-        "checked": "Actual statement personally read at the pinned commit; declaration-index line 597."
+        "checked": "Independent reviewer personally read the actual declaration, namespace, ambient typeclass/variable hypotheses and relevant local context at the recorded pinned commit; confirmed the stated use, not just the name or index hit."
       },
       {
         "ref": "mathlib:Real.BohrMollerup.tendsto_log_gamma",
         "kind": "theorem",
         "module": "Mathlib/Analysis/SpecialFunctions/Gamma/BohrMollerup.lean",
         "provides": "Positive-real log Gamma as the limit of finite logarithmic products; Taylor coefficients remain new.",
-        "checked": "Actual statement personally read at the pinned commit; declaration-index line 293."
+        "checked": "Independent reviewer personally read the actual declaration, namespace, ambient typeclass/variable hypotheses and relevant local context at the recorded pinned commit; confirmed the stated use, not just the name or index hit."
       },
       {
         "ref": "tauceti:TauCeti.unitDiscMoebius",
         "kind": "def",
         "module": "TauCeti/Analysis/Complex/Conformal/Moebius.lean",
         "provides": "Existing bundled unphased Möbius factor on Complex.UnitDisc; reused for every interior factor.",
-        "checked": "Actual statement personally read at the pinned commit; declaration-index line 37."
+        "checked": "Independent reviewer personally read the actual declaration, namespace, ambient typeclass/variable hypotheses and relevant local context at the recorded pinned commit; confirmed the stated use, not just the name or index hit."
       },
       {
         "ref": "tauceti:TauCeti.coe_unitDiscMoebius",
         "kind": "lemma",
         "module": "TauCeti/Analysis/Complex/Conformal/Moebius.lean",
         "provides": "Exact scalar formula for the existing unit-disc factor, with starRingEnd complex conjugation.",
-        "checked": "Actual statement personally read at the pinned commit; declaration-index line 47."
+        "checked": "Independent reviewer personally read the actual declaration, namespace, ambient typeclass/variable hypotheses and relevant local context at the recorded pinned commit; confirmed the stated use, not just the name or index hit."
       },
       {
         "ref": "mathlib:Complex.Gamma",
         "kind": "def",
         "module": "Mathlib/Analysis/SpecialFunctions/Gamma/Basic.lean",
         "provides": "Native complex Gamma obtained from its integral and shifted recurrence.",
-        "checked": "Actual statement personally read at the pinned commit; declaration-index line 287."
+        "checked": "Independent reviewer personally read the actual declaration, namespace, ambient typeclass/variable hypotheses and relevant local context at the recorded pinned commit; confirmed the stated use, not just the name or index hit."
       },
       {
         "ref": "mathlib:Complex.Gamma_ne_zero_of_re_pos",
         "kind": "theorem",
         "module": "Mathlib/Analysis/SpecialFunctions/Gamma/Beta.lean",
         "provides": "Complex Gamma is nonzero for positive real part, including the unit disc around 1.",
-        "checked": "Actual statement personally read at the pinned commit; declaration-index line 454."
+        "checked": "Independent reviewer personally read the actual declaration, namespace, ambient typeclass/variable hypotheses and relevant local context at the recorded pinned commit; confirmed the stated use, not just the name or index hit."
       },
       {
         "ref": "mathlib:Complex.Gamma_ofReal",
         "kind": "theorem",
         "module": "Mathlib/Analysis/SpecialFunctions/Gamma/Basic.lean",
         "provides": "The complex Gamma of a real input equals the native real Gamma under complex coercion.",
-        "checked": "Actual statement personally read at the pinned commit; declaration-index line 419."
+        "checked": "Independent reviewer personally read the actual declaration, namespace, ambient typeclass/variable hypotheses and relevant local context at the recorded pinned commit; confirmed the stated use, not just the name or index hit."
+      },
+      {
+        "ref": "mathlib:MeromorphicAt",
+        "kind": "def",
+        "module": "Mathlib/Analysis/Meromorphic/Basic.lean",
+        "provides": "Native punctured meromorphic germ; its scalar centre value is irrelevant.",
+        "checked": "Independent reviewer personally read the actual declaration, namespace, ambient typeclass/variable hypotheses and relevant local context at the recorded pinned commit; confirmed the stated use, not just the name or index hit."
+      },
+      {
+        "ref": "mathlib:MeromorphicAt.meromorphicOrderAt_nonneg_iff",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Meromorphic/Order.lean",
+        "provides": "Nonnegative order is equivalent to existence of an analytic extension agreeing on the punctured germ, not equality at the centre.",
+        "checked": "Independent reviewer personally read the actual declaration, namespace, ambient typeclass/variable hypotheses and relevant local context at the recorded pinned commit; confirmed the stated use, not just the name or index hit."
+      },
+      {
+        "ref": "mathlib:MeromorphicAt.analyticAt",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Meromorphic/Order.lean",
+        "provides": "A native meromorphic function continuous at the point is analytic there.",
+        "checked": "Independent reviewer personally read the actual declaration, namespace, ambient typeclass/variable hypotheses and relevant local context at the recorded pinned commit; confirmed the stated use, not just the name or index hit."
       }
     ]
   },
@@ -294,9 +315,11 @@
         "Proof of Corollary 2.0.5, p.636",
         "Lemma 2.3.1 and Remark 2.3.3, pp.639–641",
         "Entire §5, pp.667–678",
-        "§6.1 and the proof in §6.2, pp.679–684"
+        "§6.1 and the proof in §6.2, pp.679–684",
+        "§1.1.8, p.634",
+        "Lemma 4.2.2 and proof, p.655"
       ],
-      "accessed": "2026-10-04"
+      "accessed": "2026-10-05"
     }
   ],
   "nodes": [
@@ -565,7 +588,7 @@
       ],
       "title": "Simultaneous algebraic pole clearing",
       "kind": "theorem",
-      "statement": "Let L have coefficients in ℚ̄(x), let α be an algebraic singular point with the meromorphic-basis condition, and let p∈ℚ̄(x) be nonconstant and regular at α. There is a nonzero q∈ℚ̄[t] such that q(p(x)) times every local solution is holomorphic at α. One can clear finitely many such singularities simultaneously. A rational polynomial requires a Galois-saturated set of algebraic images.",
+      "statement": "Let L have coefficients in ℚ̄(x), let α be an algebraic singular point with the meromorphic-basis condition, and let p∈ℚ̄(x) be nonconstant and regular at α. There is a nonzero q∈ℚ̄[t] such that q(p(x)) times every local solution is holomorphic at α. One can clear finitely many such singularities simultaneously. A nonzero rational polynomial also suffices for any finite set of algebraic images: use sufficiently high powers of their minimal polynomials, thereby adjoining the finite conjugate closure; the original image set need not be Galois-saturated.",
       "hypotheses": [],
       "prerequisites": [
         "ConformalMappingPartII:O0/meromorphic-basis-monodromy"
@@ -573,11 +596,13 @@
       "proofSteps": [
         "Choose the maximum pole order from the meromorphic basis.",
         "Use a sufficiently high power of t−p(α); its composition has positive vanishing order because p is nonconstant.",
-        "Multiply the finitely many required factors; impose conjugate saturation only when rational coefficients are requested."
+        "Multiply the finitely many required factors; impose conjugate saturation only when rational coefficients are requested.",
+        "For rational coefficients, replace each linear image factor by its rational minimal polynomial and raise it to a sufficiently high power; characteristic zero makes each algebraic root simple, and extra conjugate roots cause no difficulty."
       ],
       "acceptance": [
         "For h=x⁻¹ at α=0 and p=x², q=t clears the pole.",
-        "No nonzero polynomial clears e^(1/x)."
+        "No nonzero polynomial clears e^(1/x).",
+        "For the unsaturated singleton image √2, q(t)=(t²−2)^m has rational coefficients and a zero of order m at √2, so sufficiently large m clears any finite pole order."
       ],
       "library": {
         "module": "TauCeti/Analysis/Complex/Conformal/PartII/O0",
@@ -2649,8 +2674,8 @@
       "sources": [
         {
           "sourceId": "CDT25",
-          "locator": "Published p.673; [AS92",
-          "match": "The source passage supplies the stated construction or proof; the exact unresolved interior is recorded in gaps rather than assumed."
+          "locator": "Published p.673; proof of Theorem 5.1.4, reference [AS92, 6.1.33].",
+          "match": "CDT invokes the referenced log-Gamma Taylor expansion to obtain the radius series; it does not prove this complex branch expansion. The locally uniform product and sum-interchange proof remains the explicit log-Gamma gap."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3317,7 +3342,7 @@
       ],
       "title": "Pole-counting positivity at a regular centre",
       "kind": "lemma",
-      "statement": "For f meromorphic on 𝔻 and regular at 0, N_D(r,f)≥0 whenever 0<r<1.",
+      "statement": "For f meromorphic on 𝔻 whose meromorphic germ at 0 has no pole (meromorphicOrderAt f 0≥0, including infinite order), N_D(r,f)≥0 whenever 0<r<1. A totalized scalar value at 0 is not a regularity hypothesis.",
       "hypotheses": [],
       "prerequisites": [
         "ConformalMappingPartII:V0/disc-counting"
@@ -3336,7 +3361,7 @@
         {
           "sourceId": "CDT25",
           "locator": "Published p.679; Lemma 6.1.2.",
-          "match": "The source passage supplies the stated construction or proof; the exact unresolved interior is recorded in gaps rather than assumed."
+          "match": "The sphere-valued source regularity condition corresponds to a nonnegative native meromorphic germ order, not a merely finite scalar point value."
         }
       ],
       "implementationStatus": "unchecked"
@@ -3349,18 +3374,23 @@
       ],
       "title": "Vanishing of the local pole count",
       "kind": "lemma",
-      "statement": "For f meromorphic on 𝔻 and regular at 0, N_D(r,f)=0 iff f is holomorphic on the open disc |z|<r. A pole on |z|=r has zero weight and is permitted; no closed-disc holomorphicity is inferred.",
+      "statement": "For f meromorphic on 𝔻 with no pole in its meromorphic germ at 0, N_D(r,f)=0 iff every germ at |z|<r has nonnegative meromorphic order, equivalently admits a holomorphic removable extension. For a scalar representative also continuous on this open disc, this is equivalent to pointwise holomorphicity of f there. Without that continuity guard, arbitrary isolated point values need not agree with the extensions. A pole on |z|=r has zero weight and is permitted; no closed-disc conclusion is inferred.",
       "hypotheses": [],
       "prerequisites": [
         "ConformalMappingPartII:V0/counting-nonnegative",
-        "mathlib:MeromorphicOn.divisor"
+        "mathlib:MeromorphicOn.divisor",
+        "mathlib:MeromorphicAt",
+        "mathlib:MeromorphicAt.meromorphicOrderAt_nonneg_iff",
+        "mathlib:MeromorphicAt.analyticAt"
       ],
       "proofSteps": [
-        "Vanishing of a sum of nonnegative weights eliminates exactly the interior pole orders.",
-        "Use the local meromorphic-order criterion for removable singularities."
+        "Vanishing of the nonnegative weighted pole sum eliminates exactly negative meromorphic orders in the open radius-r disc.",
+        "Apply the pinned native nonnegative-order iff analytic-extension theorem to each punctured germ.",
+        "If the scalar representative is continuous on the open disc, apply the native meromorphic-plus-continuous analytic theorem pointwise. Do not infer continuity from its totalized values."
       ],
       "acceptance": [
-        "1/(z−a) with |a|=r is the boundary counterexample."
+        "1/(z−a) with |a|=r is the boundary counterexample.",
+        "The scalar function f(0)=2 and f(z)=1 for z≠0 has meromorphic order zero everywhere and N_D=0, but is discontinuous and not holomorphic at 0. Its removable representative is the constant one function."
       ],
       "library": {
         "module": "TauCeti/Analysis/Complex/Conformal/PartII/V0",
@@ -3370,7 +3400,7 @@
         {
           "sourceId": "CDT25",
           "locator": "Published p.679; Lemma 6.1.2.",
-          "match": "The source passage supplies the stated construction or proof; the exact unresolved interior is recorded in gaps rather than assumed."
+          "match": "The source concerns an analytic sphere-valued map. The native punctured-germ adaptation gives an analytic extension; equality with the chosen scalar representative additionally uses continuity."
         }
       ],
       "implementationStatus": "unchecked"
@@ -3405,8 +3435,8 @@
       "sources": [
         {
           "sourceId": "CDT25",
-          "locator": "Published p.680; Proof.",
-          "match": "The source passage supplies the stated construction or proof; the exact unresolved interior is recorded in gaps rather than assumed."
+          "locator": "Published pp.679–680; §6.1.1 and the Poisson–Jensen discussion preceding (6.1.4).",
+          "match": "Circle logarithms are implicit in these means and Jensen; the exact local a.e. integrability adapter is not proved by Lemma 6.1.2 and remains in the recorded local-divisor gap."
         }
       ],
       "implementationStatus": "unchecked"
@@ -3441,8 +3471,8 @@
       "sources": [
         {
           "sourceId": "CDT25",
-          "locator": "Published p.680; Proof.",
-          "match": "The source passage supplies the stated construction or proof; the exact unresolved interior is recorded in gaps rather than assumed."
+          "locator": "Published p.680; proof of the first main theorem, Poisson–Jensen discussion and (6.1.4).",
+          "match": "The local Jensen identity is a native closed-disc adaptation of the invoked Poisson–Jensen formula. Its trailing-coefficient and centre-pole conventions are checked against the pinned native theorem, not inferred from Lemma 6.1.2."
         }
       ],
       "implementationStatus": "unchecked"
@@ -3479,8 +3509,8 @@
       "sources": [
         {
           "sourceId": "CDT25",
-          "locator": "Published p.679; Lemma 6.1.2.",
-          "match": "The source passage supplies the stated construction or proof; the exact unresolved interior is recorded in gaps rather than assumed."
+          "locator": "Published p.680; equation (6.1.4).",
+          "match": "The inversion identity is stated in (6.1.4); the planned disc-local adaptation retains the native nonzero trailing coefficient and allows a centre pole."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3551,8 +3581,8 @@
       "sources": [
         {
           "sourceId": "CDT25",
-          "locator": "Published p.679; Lemma 6.1.2.",
-          "match": "The source passage supplies the stated construction or proof; the exact unresolved interior is recorded in gaps rather than assumed."
+          "locator": "Published p.679; equation (6.1.3), with proof on p.680.",
+          "match": "Equation (6.1.3), not Lemma 6.1.2, supplies translation plus inversion. The scalar formulation excludes a zero germ of f−a and uses the native trailing coefficient."
         }
       ],
       "implementationStatus": "unchecked"
@@ -3586,8 +3616,8 @@
       "sources": [
         {
           "sourceId": "CDT25",
-          "locator": "Published p.680; Lemma 6.1.7.",
-          "match": "The source passage supplies the stated construction or proof; the exact unresolved interior is recorded in gaps rather than assumed."
+          "locator": "Published p.682; last equality of equation (6.2.3), together with §6.1.1 on p.679.",
+          "match": "The source uses the power law in (6.2.3). Section 6.1.6 is the logarithmic-derivative discussion, not a power-law equation. The general local-divisor version is the elementary native divisor-power and positive-log scaling adapter."
         }
       ],
       "implementationStatus": "unchecked"
@@ -3738,7 +3768,7 @@
         {
           "sourceId": "CDT25",
           "locator": "Published p.677; Lemma 5.2.16.",
-          "match": "The source passage supplies the stated construction or proof; the exact unresolved interior is recorded in gaps rather than assumed."
+          "match": "The source passage supplies the stated construction or proof; the exact unresolved interior is recorded in gaps rather than assumed. The exact formula has reciprocal dependence on a²+c². The later diameter estimate in the proof of Lemma 5.2.18 drops that reciprocal; source issue E17 records the page-image-confirmed misprint. The planned inequality here is already correct."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4107,8 +4137,8 @@
       "sources": [
         {
           "sourceId": "CDT25",
-          "locator": "Published p.683; Corollary 6.2.9.",
-          "match": "The source passage supplies the stated construction or proof; the exact unresolved interior is recorded in gaps rather than assumed."
+          "locator": "Published p.683; proof of Corollary 6.2.9.",
+          "match": "CDT invokes radial monotonicity to remove the small-radius factor. The explicit choice ρ=max(r,1/4) and its two-case inequalities are a planning adapter checked independently, not a verbatim source theorem."
         }
       ],
       "implementationStatus": "unchecked"
@@ -4337,7 +4367,7 @@
       "sources": [
         {
           "sourceId": "CDT25",
-          "locator": "Published p.682; (6.2.4)",
+          "locator": "Published p.682; equation (6.2.7).",
           "match": "The source passage supplies the stated construction or proof; the exact unresolved interior is recorded in gaps rather than assumed."
         }
       ],
@@ -4374,7 +4404,7 @@
       "sources": [
         {
           "sourceId": "CDT25",
-          "locator": "Published p.682; (6.2.7)",
+          "locator": "Published p.682; equation (6.2.3).",
           "match": "The source passage supplies the stated construction or proof; the exact unresolved interior is recorded in gaps rather than assumed."
         }
       ],
@@ -4411,7 +4441,7 @@
       "sources": [
         {
           "sourceId": "CDT25",
-          "locator": "Published p.684; Corollary 6.2.9.",
+          "locator": "Published p.684; equation (6.2.15).",
           "match": "The source passage supplies the stated construction or proof; the exact unresolved interior is recorded in gaps rather than assumed."
         }
       ],
@@ -4448,7 +4478,7 @@
       "sources": [
         {
           "sourceId": "CDT25",
-          "locator": "Published p.684; Lemma 5.2.18.",
+          "locator": "Published p.684; equations (6.2.16) and the following N/(N−1) absorption.",
           "match": "The source passage supplies the stated construction or proof; the exact unresolved interior is recorded in gaps rather than assumed."
         }
       ],
@@ -4482,8 +4512,8 @@
       "sources": [
         {
           "sourceId": "CDT25",
-          "locator": "Published p.678; [Tsu52",
-          "match": "The source passage supplies the stated construction or proof; the exact unresolved interior is recorded in gaps rather than assumed."
+          "locator": "Published p.678; preceding Lemma 5.2.18, reference [Tsu52, Theorem 11].",
+          "match": "CDT cites a fixed-puncture asymptotic here, not this effective all-radius bound. The effective constants and small-radius bridge remain a recorded proof obligation in the fixed-level gap, with no claim that the original Tsuji/Kraus–Roth proofs were read."
         }
       ],
       "implementationStatus": "unchecked"
@@ -4974,7 +5004,7 @@
         "ConformalMappingPartII:G0/horoball-diameter",
         "ConformalMappingPartII:G0/exceptional-set-exclusion"
       ],
-      "detail": "Extract explicit denominator bounds and an effective large-N threshold from the corrected branch expansion, verify the exact transformed horoball equation and strict inner-disc exclusion for the full Φ group. Do not assert a new source misprint from lost reciprocal glyphs in PDF text extraction."
+      "detail": "Extract explicit denominator bounds and an effective large-N threshold from the corrected branch expansion, verify the exact transformed horoball equation and strict inner-disc exclusion for the full Φ group. The actual published p.678 page image has now been inspected: the missing reciprocal in the later diameter bound is recorded as source issue E17. The exact Lemma 5.2.16 formula and the planned reciprocal inequality are correct; effective geometric constants remain an open obligation."
     },
     {
       "title": "Local divisor/order comparison and circle integrability",
@@ -4984,7 +5014,7 @@
         "ConformalMappingPartII:V0/local-jensen",
         "ConformalMappingPartII:M0/etale-pole-count"
       ],
-      "detail": "The pinned local divisor and closed-disc Jensen statements were read. Finish the finite support of the closed-ball pole part, local-order/removable-singularity criterion, a.e. boundary log integrability and divisor comparison of F_N′/F_N using the exact native trailing-coefficient conventions. No zero extension across accumulating unit-circle poles is permitted."
+      "detail": "The pinned local divisor and closed-disc Jensen statements were read. Finish the finite support of the closed-ball pole part, local-order/removable-singularity criterion, a.e. boundary log integrability and divisor comparison of F_N′/F_N using the exact native trailing-coefficient conventions. No zero extension across accumulating unit-circle poles is permitted. The native nonnegative-order/analytic-extension and meromorphic-plus-continuous theorems already exist and are cited directly. Remaining adapters must distinguish removable punctured germs from chosen scalar point values; zero pole count alone must not imply pointwise holomorphicity."
     },
     {
       "title": "Subharmonic monotonicity adapter",
@@ -5016,9 +5046,15 @@
         "Inherited extraction search: arXiv 2109.09040 versions v1 (19 Sep 2021) to v4 (16 Sep 2024)",
         "Inherited extraction search: J. Amer. Math. Soc. 38 (2025), 627–702: the publisher's offprint of 4 April 2025 on the first author's page; no erratum",
         "Inherited extraction search: Crossref metadata for 10.1090/jams/1053: no update or correction relation (checked 2026-09-22)",
-        "Inherited extraction search: the first author's research page (math.uchicago.edu/~fcale/research.html): no corrigendum listed for this paper"
+        "Inherited extraction search: the first author's research page (math.uchicago.edu/~fcale/research.html): no corrigendum listed for this paper",
+        "2026-10-05 independent bounded checks: current first-author research-page target entry and linked published PDF; Crossref DOI metadata; arXiv version listing (ends at v4); title/author erratum and corrigendum queries. No applicable correction found; absence and novelty are not asserted."
       ],
-      "source": "CDT25"
+      "source": "CDT25",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The constant term is 2ψ(1)=−2γ. The printed positive sign is inconsistent with that identity; a bounded constant in the cusp height is unchanged.",
+        "by": "REV-DESIGN-ConformalMappingPartII"
+      }
     },
     {
       "id": "ConformalMappingPartII/E3",
@@ -5034,9 +5070,15 @@
         "Inherited extraction search: arXiv 2109.09040 versions v1 (19 Sep 2021) to v4 (16 Sep 2024)",
         "Inherited extraction search: J. Amer. Math. Soc. 38 (2025), 627–702: the publisher's offprint of 4 April 2025 on the first author's page; no erratum",
         "Inherited extraction search: Crossref metadata for 10.1090/jams/1053: no update or correction relation (checked 2026-09-22)",
-        "Inherited extraction search: the first author's research page (math.uchicago.edu/~fcale/research.html): no corrigendum listed for this paper"
+        "Inherited extraction search: the first author's research page (math.uchicago.edu/~fcale/research.html): no corrigendum listed for this paper",
+        "2026-10-05 independent bounded checks: current first-author research-page target entry and linked published PDF; Crossref DOI metadata; arXiv version listing (ends at v4); title/author erratum and corrigendum queries. No applicable correction found; absence and novelty are not asserted."
       ],
-      "source": "CDT25"
+      "source": "CDT25",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "For the required coefficient ψ(k+1)−ψ(k+a), the positive reciprocal-series difference decreases in both k and a; the printed unshifted expression has the wrong a-monotonicity.",
+        "by": "REV-DESIGN-ConformalMappingPartII"
+      }
     },
     {
       "id": "ConformalMappingPartII/E8",
@@ -5052,9 +5094,15 @@
         "Inherited extraction search: arXiv 2109.09040 versions v1 (19 Sep 2021) to v4 (16 Sep 2024)",
         "Inherited extraction search: J. Amer. Math. Soc. 38 (2025), 627–702: the publisher's offprint of 4 April 2025 on the first author's page; no erratum",
         "Inherited extraction search: Crossref metadata for 10.1090/jams/1053: no update or correction relation (checked 2026-09-22)",
-        "Inherited extraction search: the first author's research page (math.uchicago.edu/~fcale/research.html): no corrigendum listed for this paper"
+        "Inherited extraction search: the first author's research page (math.uchicago.edu/~fcale/research.html): no corrigendum listed for this paper",
+        "2026-10-05 independent bounded checks: current first-author research-page target entry and linked published PDF; Crossref DOI metadata; arXiv version listing (ends at v4); title/author erratum and corrigendum queries. No applicable correction found; absence and novelty are not asserted."
       ],
-      "source": "CDT25"
+      "source": "CDT25",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The logarithmic-derivative theorem requires r<R. The displayed choice (1−r)/2 fails for r>1/3; (1+r)/2 works throughout 0<r<1.",
+        "by": "REV-DESIGN-ConformalMappingPartII"
+      }
     },
     {
       "id": "ConformalMappingPartII/E9",
@@ -5070,9 +5118,15 @@
         "Inherited extraction search: arXiv 2109.09040 versions v1 (19 Sep 2021) to v4 (16 Sep 2024)",
         "Inherited extraction search: J. Amer. Math. Soc. 38 (2025), 627–702: the publisher's offprint of 4 April 2025 on the first author's page; no erratum",
         "Inherited extraction search: Crossref metadata for 10.1090/jams/1053: no update or correction relation (checked 2026-09-22)",
-        "Inherited extraction search: the first author's research page (math.uchicago.edu/~fcale/research.html): no corrigendum listed for this paper"
+        "Inherited extraction search: the first author's research page (math.uchicago.edu/~fcale/research.html): no corrigendum listed for this paper",
+        "2026-10-05 independent bounded checks: current first-author research-page target entry and linked published PDF; Crossref DOI metadata; arXiv version listing (ends at v4); title/author erratum and corrigendum queries. No applicable correction found; absence and novelty are not asserted."
       ],
-      "source": "CDT25"
+      "source": "CDT25",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Large values satisfy |1−F_N^N|>exp(MN), so they cannot be in S(M,N). The involution puts them in its rotation. Shimizu must be applied to the discrete full power-map group, which contains the primitive translation.",
+        "by": "REV-DESIGN-ConformalMappingPartII"
+      }
     },
     {
       "id": "ConformalMappingPartII/E15",
@@ -5088,10 +5142,16 @@
         "Inherited extraction search: 2026-10-01: actual published JAMS author offprint, unchanged SHA-256 867026fbcc5592728173e5c4d6a87f58d57a55b0d0d8b0109b9774e84290ee1e; affected published loci and page images checked.",
         "Inherited extraction search: 2026-10-01: arXiv version listing still ends at v4, 16 September 2024. The earlier red-team comparison of selected v4 passages is historical; this fix does not claim a new v4 PDF reading.",
         "Inherited extraction search: 2026-10-01: first author’s research page and its current linked published PDF; no applicable correction was found.",
-        "Inherited extraction search: 2026-10-01: Crossref DOI 10.1090/jams/1053 metadata has no update-to entry and an empty relation object; bounded title/author correction/erratum search found none applicable. These checks do not establish absence of a correction."
+        "Inherited extraction search: 2026-10-01: Crossref DOI 10.1090/jams/1053 metadata has no update-to entry and an empty relation object; bounded title/author correction/erratum search found none applicable. These checks do not establish absence of a correction.",
+        "2026-10-05 independent bounded checks: current first-author research-page target entry and linked published PDF; Crossref DOI metadata; arXiv version listing (ends at v4); title/author erratum and corrigendum queries. No applicable correction found; absence and novelty are not asserted."
       ],
-      "evidenceReview": "Confirmed RT-PAPER-CALEGARI-DIMITROV-TANG-25/6; the new source record awaits independent fix review.",
-      "source": "CDT25"
+      "evidenceReview": "The earlier extraction finding is independently confirmed by REV-DESIGN-ConformalMappingPartII; the verdict below is this review.",
+      "source": "CDT25",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "A constant unimodular function i is reconstructed as 1 by a phase-free exponential of log norms. Multiplication by G(0)/|G(0)| repairs complex equality without changing any norm estimate.",
+        "by": "REV-DESIGN-ConformalMappingPartII"
+      }
     },
     {
       "id": "ConformalMappingPartII/E16",
@@ -5107,10 +5167,38 @@
         "Inherited extraction search: 2026-10-01: actual published JAMS author offprint, unchanged SHA-256 867026fbcc5592728173e5c4d6a87f58d57a55b0d0d8b0109b9774e84290ee1e; affected published loci and page images checked.",
         "Inherited extraction search: 2026-10-01: arXiv version listing still ends at v4, 16 September 2024. The earlier red-team comparison of selected v4 passages is historical; this fix does not claim a new v4 PDF reading.",
         "Inherited extraction search: 2026-10-01: first author’s research page and its current linked published PDF; no applicable correction was found.",
-        "Inherited extraction search: 2026-10-01: Crossref DOI 10.1090/jams/1053 metadata has no update-to entry and an empty relation object; bounded title/author correction/erratum search found none applicable. These checks do not establish absence of a correction."
+        "Inherited extraction search: 2026-10-01: Crossref DOI 10.1090/jams/1053 metadata has no update-to entry and an empty relation object; bounded title/author correction/erratum search found none applicable. These checks do not establish absence of a correction.",
+        "2026-10-05 independent bounded checks: current first-author research-page target entry and linked published PDF; Crossref DOI metadata; arXiv version listing (ends at v4); title/author erratum and corrigendum queries. No applicable correction found; absence and novelty are not asserted."
       ],
-      "evidenceReview": "Confirmed RT-PAPER-CALEGARI-DIMITROV-TANG-25/6; the new source record awaits independent fix review.",
-      "source": "CDT25"
+      "evidenceReview": "The earlier extraction finding is independently confirmed by REV-DESIGN-ConformalMappingPartII; the verdict below is this review.",
+      "source": "CDT25",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The constant functions g=h=1 make the norm version read 1≤0. The logarithmic version reads 0≤0 and agrees with the lemma statement.",
+        "by": "REV-DESIGN-ConformalMappingPartII"
+      }
+    },
+    {
+      "id": "ConformalMappingPartII/E17",
+      "source": "CDT25",
+      "kind": "misprint",
+      "locator": "Published JAMS 38 (2025), p.678, proof of Lemma 5.2.18, displayed transformed-horoball diameter estimate; personally inspected page image on 2026-10-05.",
+      "printed": "E(γ,D) ≤ 2 D⁻¹ (a²+c²)",
+      "correction": "Use E(γ,D) ≤ 2/[D(a²+c²)], with reciprocal dependence on a²+c².",
+      "reason": "Lemma 5.2.16 gives E=2/(1+D(a²+c²)). The Shimizu specialization h(|a|+|c|)≥1 implies a²+c²≥1/(2h²), hence E≤4h²/D. With h=O(N), D comparable to N²M and M=N/(1−r), this gives E=O((1−r)/N). The printed multiplicative factor does not yield that bound from the lower bound on a²+c². The reciprocal is visibly absent in the actual published page image, not merely in text extraction.",
+      "affects": "nothing",
+      "known": "No applicable correction found in the bounded primary checks; novelty not asserted.",
+      "searched": [
+        "2026-10-05: first-author research.html target entry links the current published UDC.pdf; its separate erratum entry concerns another paper.",
+        "2026-10-05: current published PDF SHA-256 867026fbcc5592728173e5c4d6a87f58d57a55b0d0d8b0109b9774e84290ee1e; pp.677–678 and the p.678 page image checked.",
+        "2026-10-05: arXiv 2109.09040 version listing ends at v4 (2024-09-16); selected v4 web-extracted proof text compared, not a whole-preprint or v4 page-image reading.",
+        "2026-10-05: Crossref DOI 10.1090/jams/1053 has empty relation and no update-to entry; bounded title/author correction queries found no applicable result. These checks do not establish absence of a correction."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The exact diameter formula and Cauchy–Schwarz require the inverse factor. The intended upper bound and exclusion conclusion remain valid after restoring it. Actual published glyphs were checked.",
+        "by": "REV-DESIGN-ConformalMappingPartII"
+      }
     }
   ],
   "restructure": [
@@ -5424,8 +5512,9 @@
     {
       "kind": "published",
       "url": "https://www.math.uchicago.edu/~fcale/papers/UDC.pdf",
-      "read": "2026-10-04",
-      "sha256": "867026fbcc5592728173e5c4d6a87f58d57a55b0d0d8b0109b9774e84290ee1e"
+      "read": "2026-10-05",
+      "sha256": "867026fbcc5592728173e5c4d6a87f58d57a55b0d0d8b0109b9774e84290ee1e",
+      "scope": "Selected published passages listed in sources.readSections were read on 2026-10-04–05; p.678 and p.679 page images independently inspected. No whole-paper claim."
     }
   ],
   "upstreamDiscovery": [
@@ -5822,12 +5911,10 @@
       "exitCode": 0,
       "errors": 0,
       "warnings": 61,
-      "warningKind": "declaration uses admission only",
-      "source": "Published.lean",
-      "sourceSha256": "18eb373d0d3c9911a468b9b95e4766192b5bc2b2599f33385803880b60068252",
-      "stdoutSha256": "ba6f4b79632694563559ee45649a94e9e77bc89ee17c4719f8c2d9cd58a50b4d",
-      "stderrSha256": "cee5cd4ad69bc8e5f138a1ad17094a1df1ce2e9619da989f2fc42791655abe6f",
-      "availableGiB": 35,
+      "warningKind": "61 declarations use admissions; no other warnings",
+      "source": "research/blueprint/suggested/ConformalMappingPartII.lean",
+      "sourceSha256": "b4cbe77399314f633fb14560c38dd2ede7a97a68f513c6239c0c65a7bab405c7",
+      "availableGiB": 33,
       "leanVersion": "Lean (version 4.34.0-rc2, x86_64-unknown-linux-gnu, commit 6a10ac8c22beadecabdbb0919c2b50214762f91d, Release)",
       "mathlibCommit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
       "taucetiSourceCommit": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -5854,7 +5941,520 @@
       "nativeNodes": 10,
       "omittedNodes": 88,
       "omittedNativeAPIItems": 1,
-      "mathematicalProofsChecked": false
+      "mathematicalProofsChecked": false,
+      "logSha256": "eff790cd58e60db3514d9a0530949ea1b350c72c82b99b1206d70eb9c3176e22",
+      "availableGiBBefore": 33,
+      "elapsedSeconds": 6.48,
+      "maxRssKiB": 3146944,
+      "exitStatus": 0,
+      "admissionWarnings": 61,
+      "axiomAudits": 0,
+      "sorryAxReferences": 0,
+      "auxiliaryReviewRegression": {
+        "namespace": "ConformalReview",
+        "definitions": 1,
+        "provedLemmas": 7,
+        "admissions": 0,
+        "scope": "Counterexample to inferring pointwise analyticity of a chosen scalar representative from zero local pole count. Roadmap signatures remain admitted."
+      }
     }
+  },
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-DESIGN-ConformalMappingPartII",
+    "date": "2026-10-05",
+    "notes": "Accepted as a complete target-level planning pass after the recorded in-place corrections. All 98 nodes and 40 exact pinned baseline declarations were checked; all 10 stages remain planned, none closed, with 15 gaps and 8 supplier requests. The native signature prototype compiles with 61 admission warnings. It is not a proof certificate. A separate admission-free native regression confirms why zero pole count alone does not imply pointwise holomorphicity. Seven source misprints have independent confirmed verdicts. The admission-free regression is published only in the authorized suggested Lean file; it adds one auxiliary definition and seven proved regression lemmas, not roadmap nodes.",
+    "checked": [
+      {
+        "nodeId": "ConformalMappingPartII:O0/linear-equation",
+        "verdict": "verified",
+        "note": "Complex analytic coefficients and all n initial jets are specified; a real-time ODE theorem is not substituted."
+      },
+      {
+        "nodeId": "ConformalMappingPartII:O0/initial-value-basis",
+        "verdict": "verified",
+        "note": "Existence and uniqueness concern a holomorphic germ; the complex convergence interior is an explicit gap."
+      },
+      {
+        "nodeId": "ConformalMappingPartII:O0/path-continuation",
+        "verdict": "verified",
+        "note": "Continuation uses the existing analytic-continuation predicate and paths inside the coefficient domain."
+      },
+      {
+        "nodeId": "ConformalMappingPartII:O0/global-solution-dimension",
+        "verdict": "verified",
+        "note": "Monodromy and the initial-jet isomorphism give global dimension n; analytic existence remains a prerequisite."
+      },
+      {
+        "nodeId": "ConformalMappingPartII:O0/meromorphic-basis-monodromy",
+        "verdict": "verified",
+        "note": "The source-specific meromorphic-basis condition is stronger than identity monodromy and includes finite poles."
+      },
+      {
+        "nodeId": "ConformalMappingPartII:O0/simultaneous-pole-clearing",
+        "verdict": "corrected",
+        "note": "Rational minimal-polynomial powers clear an unsaturated finite algebraic image set; conjugate saturation is not required of the input."
+      },
+      {
+        "nodeId": "ConformalMappingPartII:U0/cayley-coordinate",
+        "verdict": "verified",
+        "note": "Cayley and inverse denominators are guarded in the interior; the cusp is a limit, not a boundary evaluation."
+      },
+      {
+        "nodeId": "ConformalMappingPartII:U0/cover-complex-structure",
+        "verdict": "verified",
+        "note": "The analytic atlas is placed on the existing topological universal-cover carrier, not a competing cover."
+      },
+      {
+        "nodeId": "ConformalMappingPartII:U0/hyperbolic-uniformization-input",
+        "verdict": "verified",
+        "note": "Surface uniformization and omission of two plane points are explicit; planar RMT alone is not claimed sufficient."
+      },
+      {
+        "nodeId": "ConformalMappingPartII:U0/pointed-cover-uniqueness",
+        "verdict": "verified",
+        "note": "Based lifting fixes the otherwise ambiguous disc automorphism; equality of derivatives is only in norm."
+      },
+      {
+        "nodeId": "ConformalMappingPartII:U0/conformal-radius",
+        "verdict": "verified",
+        "note": "Conformal radius is cover-independent and positive; disconnected domains are reduced to the pointed component."
+      },
+      {
+        "nodeId": "ConformalMappingPartII:U0/radius-schwarz",
+        "verdict": "verified",
+        "note": "Schwarz extremality applies to the based lift, with equality exactly for rotations."
+      },
+      {
+        "nodeId": "ConformalMappingPartII:U0/radius-monotone",
+        "verdict": "verified",
+        "note": "Inclusion followed by the pointed cover gives the stated radius inequality in the correct direction."
+      },
+      {
+        "nodeId": "ConformalMappingPartII:U0/roots-cover",
+        "verdict": "verified",
+        "note": "Positive derivative and root-one cusp orientation are separate recorded compatibility obligations."
+      },
+      {
+        "nodeId": "ConformalMappingPartII:U0/cover-etale",
+        "verdict": "verified",
+        "note": "The holomorphic covering is locally biholomorphic; no critical-point assertion is made for an arbitrary map."
+      },
+      {
+        "nodeId": "ConformalMappingPartII:U0/rotation-equivariance",
+        "verdict": "verified",
+        "note": "Root rotation follows from pointed uniqueness and gives projective order N, not order 2N."
+      },
+      {
+        "nodeId": "ConformalMappingPartII:U0/power-descent",
+        "verdict": "verified",
+        "note": "Equivariance makes root descent single-valued; ramification away from the chosen branch is not discarded."
+      },
+      {
+        "nodeId": "ConformalMappingPartII:U0/descent-derivative",
+        "verdict": "verified",
+        "note": "The leading Taylor coefficient gives the Nth-power derivative, including its phase."
+      },
+      {
+        "nodeId": "ConformalMappingPartII:S0/schwarzian",
+        "verdict": "verified",
+        "note": "The native totalized Schwarzian expression is used only with local univalence for its identities."
+      },
+      {
+        "nodeId": "ConformalMappingPartII:S0/schwarzian-chain",
+        "verdict": "verified",
+        "note": "The chain signature includes both nonzero derivatives and the derivative-square factor."
+      },
+      {
+        "nodeId": "ConformalMappingPartII:S0/moebius-invariance",
+        "verdict": "verified",
+        "note": "Projective postcomposition has zero Schwarzian away from its denominator; branch independence uses that fact."
+      },
+      {
+        "nodeId": "ConformalMappingPartII:S0/quotient-ode",
+        "verdict": "verified",
+        "note": "A compatible local square root is required; the equation coefficient is half the Schwarzian."
+      },
+      {
+        "nodeId": "ConformalMappingPartII:S0/hempel-rational",
+        "verdict": "verified",
+        "note": "Finite distinct punctures and an unpunctured infinity match the companion coordinate; analytic rationality is a recorded Hempel gap."
+      },
+      {
+        "nodeId": "ConformalMappingPartII:S0/accessory-constraints",
+        "verdict": "verified",
+        "note": "Expansion at infinity gives exactly the three cancellations through inverse degree three."
+      },
+      {
+        "nodeId": "ConformalMappingPartII:S0/symmetric-accessory",
+        "verdict": "verified",
+        "note": "Rotational symmetry and infinity constraints give the stated accessory constants, with the zero puncture distinguished."
+      },
+      {
+        "nodeId": "ConformalMappingPartII:S0/roots-schwarzian",
+        "verdict": "verified",
+        "note": "Changing X=1/x supplies its squared derivative; exponents and the factor 1/2 were checked."
+      },
+      {
+        "nodeId": "ConformalMappingPartII:S0/roots-inverse-ode",
+        "verdict": "verified",
+        "note": "The inverse equation is normalized to the actual inverse germ, not an arbitrary solution quotient."
+      },
+      {
+        "nodeId": "ConformalMappingPartII:L0/blaschke-factor",
+        "verdict": "verified",
+        "note": "Boundary Blaschke factors are removable constants −a; native interior compatibility remains explicitly uncompiled."
+      },
+      {
+        "nodeId": "ConformalMappingPartII:L0/finite-blaschke-product",
+        "verdict": "verified",
+        "note": "Empty product and boundary-only factors are handled; strict disc image needs an interior factor of positive multiplicity."
+      },
+      {
+        "nodeId": "ConformalMappingPartII:L0/blaschke-zero-removal",
+        "verdict": "verified",
+        "note": "Interior zeros are removed with multiplicity; boundary zeros can remain in the quotient."
+      },
+      {
+        "nodeId": "ConformalMappingPartII:L0/herglotz-log",
+        "verdict": "verified",
+        "note": "Herglotz requires a zero-free neighbourhood of the closed circle and normalized analytic logarithm."
+      },
+      {
+        "nodeId": "ConformalMappingPartII:L0/herglotz-derivative",
+        "verdict": "verified",
+        "note": "Differentiation gives the kernel 2w/(w−z)²; normalization changes no logarithmic derivative."
+      },
+      {
+        "nodeId": "ConformalMappingPartII:L0/quotient-phase",
+        "verdict": "verified",
+        "note": "The missing phase is explicit and independently tested by a constant imaginary function."
+      },
+      {
+        "nodeId": "ConformalMappingPartII:L0/radial-smoothing",
+        "verdict": "verified",
+        "note": "Slightly larger circles avoid zeros before taking the limit; boundary-log convergence remains an analytic obligation."
+      },
+      {
+        "nodeId": "ConformalMappingPartII:L0/quotient-representation",
+        "verdict": "verified",
+        "note": "Both suprema are logarithmic, the multiplier is normalized at zero, and the zero function is separated."
+      },
+      {
+        "nodeId": "ConformalMappingPartII:L0/quotient-lower-bound",
+        "verdict": "verified",
+        "note": "The lower bound uses almost-everywhere logarithmic identities, so isolated boundary zeros are not illegal pointwise divisions."
+      },
+      {
+        "nodeId": "ConformalMappingPartII:H0/gauss-equation",
+        "verdict": "verified",
+        "note": "Native hypergeometric parameters exclude poles and the analytic equation is restricted to its convergence disc."
+      },
+      {
+        "nodeId": "ConformalMappingPartII:H0/transformed-equation",
+        "verdict": "verified",
+        "note": "The branch-compatible substitution gives the descended equation with its 1−1/N coefficient."
+      },
+      {
+        "nodeId": "ConformalMappingPartII:H0/special-solutions",
+        "verdict": "verified",
+        "note": "The two special solutions have distinct leading exponents; compatible roots, not global principal-root identities, are used."
+      },
+      {
+        "nodeId": "ConformalMappingPartII:H0/inverse-ratio-germ",
+        "verdict": "verified",
+        "note": "The denominator has value one at zero; the executable inverse ratio has value zero and derivative one."
+      },
+      {
+        "nodeId": "ConformalMappingPartII:H0/inverse-germ-match",
+        "verdict": "verified",
+        "note": "A real radius prefactor requires positive-derivative orientation; the unoriented formula keeps its complex phase."
+      },
+      {
+        "nodeId": "ConformalMappingPartII:H0/zero-balanced-continuation",
+        "verdict": "verified",
+        "note": "The zero-balanced formula is analytic continuation, not native out-of-radius junk values; positive parameters avoid poles."
+      },
+      {
+        "nodeId": "ConformalMappingPartII:H0/digamma-difference-bound",
+        "verdict": "verified",
+        "note": "The corrected shifted digamma coefficient is positive and decreases in k and a over the required interval."
+      },
+      {
+        "nodeId": "ConformalMappingPartII:H0/pochhammer-remainder",
+        "verdict": "verified",
+        "note": "Parameter derivative control is explicitly required for the 1/N gain, with uniform domination left as a gap."
+      },
+      {
+        "nodeId": "ConformalMappingPartII:R0/gamma-radius",
+        "verdict": "verified",
+        "note": "All Gamma arguments are positive for N≥2; the native arithmetic definition makes no uniformization claim at N=1."
+      },
+      {
+        "nodeId": "ConformalMappingPartII:R0/gamma-positive",
+        "verdict": "verified",
+        "note": "Native Gamma positivity supplies nonzero denominator factors under the same integer guard."
+      },
+      {
+        "nodeId": "ConformalMappingPartII:R0/gamma-alternative",
+        "verdict": "verified",
+        "note": "Duplication and recurrence give the alternative Gamma quotient with matching exponents."
+      },
+      {
+        "nodeId": "ConformalMappingPartII:R0/cusp-ratio-limit",
+        "verdict": "verified",
+        "note": "The cusp limit is taken on the compatible real branch; the boundary inverse has norm one."
+      },
+      {
+        "nodeId": "ConformalMappingPartII:R0/conformal-radius-formula",
+        "verdict": "verified",
+        "note": "The explicit radius matches both Gamma expressions and the N=2,3 special values, subject to the geometric orientation gap."
+      },
+      {
+        "nodeId": "ConformalMappingPartII:R0/log-gamma-taylor",
+        "verdict": "corrected",
+        "note": "The complex local log-Gamma branch needs a locally uniform product argument; the source only invokes the Taylor formula."
+      },
+      {
+        "nodeId": "ConformalMappingPartII:R0/log-radius-series",
+        "verdict": "verified",
+        "note": "Even zeta terms cancel and odd coefficients are positive; the series converges for every N≥2."
+      },
+      {
+        "nodeId": "ConformalMappingPartII:R0/positive-radius-expansion",
+        "verdict": "verified",
+        "note": "The positive exponential cross terms give a strictly positive remainder with an effective N⁻⁶ bound still to prove."
+      },
+      {
+        "nodeId": "ConformalMappingPartII:F0/ideal-polygon",
+        "verdict": "verified",
+        "note": "The ideal polygon has 2N boundary vertices and paired geodesic sides; reflection identification is not replaced by an area check."
+      },
+      {
+        "nodeId": "ConformalMappingPartII:F0/primitive-cusp-width",
+        "verdict": "verified",
+        "note": "Cusp width means the primitive positive full-stabilizer generator, not an arbitrary parabolic element."
+      },
+      {
+        "nodeId": "ConformalMappingPartII:F0/free-deck-presentation",
+        "verdict": "verified",
+        "note": "The free rank-N deck presentation excludes the nontrivial elliptic rotation from the torsion-free deck group."
+      },
+      {
+        "nodeId": "ConformalMappingPartII:F0/power-stabilizer-group",
+        "verdict": "verified",
+        "note": "The paper-specific group uses native projective subgroup closure and does not duplicate generic triangle-group infrastructure."
+      },
+      {
+        "nodeId": "ConformalMappingPartII:F0/largest-power-stabilizer",
+        "verdict": "verified",
+        "note": "Full power-map invariance is stronger than invariance under the deck subgroup; discreteness is required."
+      },
+      {
+        "nodeId": "ConformalMappingPartII:F0/quadrilateral-domain",
+        "verdict": "verified",
+        "note": "The quadrilateral vertex order and hyperbolic area agree with the finite index quotient."
+      },
+      {
+        "nodeId": "ConformalMappingPartII:F0/half-rotation-involution",
+        "verdict": "verified",
+        "note": "The half-rotation has projective order 2N and its square is the order-N rotation; omitted roots guard the reciprocal."
+      },
+      {
+        "nodeId": "ConformalMappingPartII:F0/index-two-supergroup",
+        "verdict": "verified",
+        "note": "The index-two orientation-preserving group is distinguished from the full reflection group and geometric triangle angles."
+      },
+      {
+        "nodeId": "ConformalMappingPartII:V0/disc-counting",
+        "verdict": "verified",
+        "note": "The local divisor stays on the closed ball; a separate centre term repairs totalized logarithm at zero."
+      },
+      {
+        "nodeId": "ConformalMappingPartII:V0/disc-characteristic",
+        "verdict": "verified",
+        "note": "Native proximity is reused exactly; no global meromorphic extension or general nonnegativity at a centre pole is asserted."
+      },
+      {
+        "nodeId": "ConformalMappingPartII:V0/counting-nonnegative",
+        "verdict": "corrected",
+        "note": "Nonnegative pole count needs a regular meromorphic germ, not a finite totalized scalar point value."
+      },
+      {
+        "nodeId": "ConformalMappingPartII:V0/zero-counting-criterion",
+        "verdict": "corrected",
+        "note": "Vanishing pole count detects removable germs; continuity is needed for pointwise holomorphicity, as an admission-free native counterexample proves."
+      },
+      {
+        "nodeId": "ConformalMappingPartII:V0/local-log-integrability",
+        "verdict": "corrected",
+        "note": "Circle-log integrability is an explicit native adapter; its citation now identifies the Jensen discussion rather than attributing it to pole-count positivity."
+      },
+      {
+        "nodeId": "ConformalMappingPartII:V0/local-jensen",
+        "verdict": "corrected",
+        "note": "The native closed-disc Jensen theorem governs the centre trailing coefficient; its corrected source citation is the Poisson–Jensen discussion."
+      },
+      {
+        "nodeId": "ConformalMappingPartII:V0/local-first-main-inversion",
+        "verdict": "corrected",
+        "note": "Local inversion permits a centre pole and requires its nonzero trailing coefficient; the source excerpt restores its lost not-equal glyph."
+      },
+      {
+        "nodeId": "ConformalMappingPartII:V0/translation-proximity",
+        "verdict": "verified",
+        "note": "The positive-log triangle bound is valid at zeros under totalized log conventions."
+      },
+      {
+        "nodeId": "ConformalMappingPartII:V0/local-first-main-translation",
+        "verdict": "corrected",
+        "note": "The translated theorem excludes f identically equal to a and uses the trailing coefficient of f−a."
+      },
+      {
+        "nodeId": "ConformalMappingPartII:V0/power-law",
+        "verdict": "corrected",
+        "note": "Power scaling is used in equation (6.2.3), not Section 6.1.6; native divisor powers and positive-log scaling prove the general local adapter, including exponent zero."
+      },
+      {
+        "nodeId": "ConformalMappingPartII:V0/holomorphic-proximity-monotone",
+        "verdict": "verified",
+        "note": "Subharmonic radial monotonicity is an explicit local adapter, not assumed from an unguarded scalar mean."
+      },
+      {
+        "nodeId": "ConformalMappingPartII:G0/uniform-ratio-asymptotic",
+        "verdict": "verified",
+        "note": "The uniform inverse-ratio expansion uses the corrected Euler sign and compatible logarithm branch."
+      },
+      {
+        "nodeId": "ConformalMappingPartII:G0/cusp-height",
+        "verdict": "verified",
+        "note": "An effective large-N threshold and quadrilateral restriction are stated; cusp asymptotics alone do not supply all constants."
+      },
+      {
+        "nodeId": "ConformalMappingPartII:G0/horoball-diameter",
+        "verdict": "corrected",
+        "note": "The exact horoball diameter has inverse quadratic dependence; the later printed missing reciprocal is separately recorded as E17."
+      },
+      {
+        "nodeId": "ConformalMappingPartII:G0/shimizu-specialization",
+        "verdict": "verified",
+        "note": "Quantitative Shimizu belongs to the shared Fuchsian supplier; specialization uses the full discrete power group and its c=0 branch."
+      },
+      {
+        "nodeId": "ConformalMappingPartII:G0/exceptional-cusp-set",
+        "verdict": "verified",
+        "note": "Large values lie in the rotated exceptional set, not in the original small-value set."
+      },
+      {
+        "nodeId": "ConformalMappingPartII:G0/exceptional-set-exclusion",
+        "verdict": "verified",
+        "note": "The reciprocal diameter bound plus Shimizu yields effective strict inner-disc exclusion after increasing the large-N threshold."
+      },
+      {
+        "nodeId": "ConformalMappingPartII:G0/large-n-maximum-growth",
+        "verdict": "verified",
+        "note": "The maximum estimate is large-N only; no unjustified all-level conclusion is drawn."
+      },
+      {
+        "nodeId": "ConformalMappingPartII:M0/inverse-square-kernel-mean",
+        "verdict": "verified",
+        "note": "The normalized inverse-square kernel mean is 1/(R²−r²), with the correct outer-circle radius."
+      },
+      {
+        "nodeId": "ConformalMappingPartII:M0/boundary-log-l1",
+        "verdict": "verified",
+        "note": "Normalized zero-free logarithm has mean zero, so its absolute mean is twice its positive mean."
+      },
+      {
+        "nodeId": "ConformalMappingPartII:M0/entropy-log-mean",
+        "verdict": "verified",
+        "note": "The entropy correction is retained; a nearby upstream log-2 inequality is not treated as the sharper baseline result."
+      },
+      {
+        "nodeId": "ConformalMappingPartII:M0/normalized-log-derivative",
+        "verdict": "verified",
+        "note": "The zero-free normalized derivative estimate keeps r<R and its absolute constants; strict source inequality is safely weakened."
+      },
+      {
+        "nodeId": "ConformalMappingPartII:M0/small-radius-transfer",
+        "verdict": "corrected",
+        "note": "The independently checked choice max(r,1/4) satisfies the two-case radius and gap inequalities; it is not quoted as a source theorem."
+      },
+      {
+        "nodeId": "ConformalMappingPartII:M0/power-log-derivative",
+        "verdict": "verified",
+        "note": "The omitted-value function is zero-free with value one at zero, and the outer radius remains (1+r)/2."
+      },
+      {
+        "nodeId": "ConformalMappingPartII:M0/inverse-cover-derivative",
+        "verdict": "verified",
+        "note": "Nonvanishing covering derivative makes its reciprocal ratio holomorphic; local inversion, not global meromorphicity, supplies the estimate."
+      },
+      {
+        "nodeId": "ConformalMappingPartII:M0/pivot-map",
+        "verdict": "verified",
+        "note": "The native pivot is totalized only arithmetically; analytic use excludes the roots of unity."
+      },
+      {
+        "nodeId": "ConformalMappingPartII:M0/pivot-partial-fractions",
+        "verdict": "verified",
+        "note": "Finite distinct roots give the logarithmic polynomial derivative and the 1/N partial-fraction factor."
+      },
+      {
+        "nodeId": "ConformalMappingPartII:M0/pivot-chain-identity",
+        "verdict": "corrected",
+        "note": "The corrected chain-equation locator matches the cancelled signs and guarded denominators, including value zero at the centre."
+      },
+      {
+        "nodeId": "ConformalMappingPartII:M0/pivot-characteristic-lower",
+        "verdict": "corrected",
+        "note": "The lower bound now cites and excerpts the correct equation; local inversion and power scaling give the N coefficient."
+      },
+      {
+        "nodeId": "ConformalMappingPartII:M0/pivot-characteristic-upper",
+        "verdict": "corrected",
+        "note": "The upper bound comes from the holomorphic chain factors and corrected equation locator."
+      },
+      {
+        "nodeId": "ConformalMappingPartII:M0/large-n-mean",
+        "verdict": "corrected",
+        "note": "Combining the two pivot bounds and large-N maximum estimate absorbs N/(N−1); the source locator now matches that step."
+      },
+      {
+        "nodeId": "ConformalMappingPartII:M0/fixed-level-mean-input",
+        "verdict": "corrected",
+        "note": "An effective all-radius fixed-level constant is stronger than the quoted asymptotic and remains explicitly unproved."
+      },
+      {
+        "nodeId": "ConformalMappingPartII:M0/finite-level-completion",
+        "verdict": "verified",
+        "note": "A finite maximum of effective constants completes small levels without silently making an ineffective bound uniform."
+      },
+      {
+        "nodeId": "ConformalMappingPartII:M0/three-map-equivalence",
+        "verdict": "verified",
+        "note": "Translation and inversion give an absolute additive difference for the three functions; the centre coefficient has norm one."
+      },
+      {
+        "nodeId": "ConformalMappingPartII:M0/uniform-mean-growth",
+        "verdict": "verified",
+        "note": "Uniform mean growth is only a planned conclusion after the effective finite-level gap and all supplier obligations."
+      },
+      {
+        "nodeId": "ConformalMappingPartII:M0/omitted-linear-log-derivative",
+        "verdict": "verified",
+        "note": "The corrected outer radius applies to 1−F_N as well as 1−F_N^N; one is an omitted value."
+      },
+      {
+        "nodeId": "ConformalMappingPartII:M0/etale-pole-count",
+        "verdict": "verified",
+        "note": "Etaleness gives simple zeros and matching local pole divisors; the reciprocal derivative ratio has no poles."
+      },
+      {
+        "nodeId": "ConformalMappingPartII:U0/projective-deck-realization",
+        "verdict": "verified",
+        "note": "Analytic deck transformations act on the existing cover and are conjugated to the native projective group, with free discrete action."
+      }
+    ]
   }
 }

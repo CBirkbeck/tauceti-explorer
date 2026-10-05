@@ -1,3 +1,6 @@
+import Mathlib.Analysis.Complex.Basic
+import Mathlib.Analysis.SpecialFunctions.Log.Basic
+import Mathlib.Analysis.Meromorphic.Order
 import Mathlib.Analysis.Calculus.IteratedDeriv.Lemmas
 import Mathlib.Analysis.Complex.ValueDistribution.CharacteristicFunction
 import Mathlib.Analysis.Complex.ValueDistribution.LogCounting.Basic
@@ -9,8 +12,10 @@ import Mathlib.Analysis.SpecialFunctions.OrdinaryHypergeometric
 /-!
 This file is not the roadmap and is not exhaustive. The roadmap document is
 definitive. These statements suggest Lean forms so that contributors and
-reviewers converge on names and signatures. Every proof below is admitted;
-successful elaboration certifies types, not mathematical correctness.
+reviewers converge on names and signatures. The roadmap signatures below are
+admitted; their elaboration certifies types, not mathematical correctness.
+The separate ConformalReview regression at the end has no admissions and checks
+only the punctured-germ versus scalar-point-value distinction, not the roadmap.
 
 The native prototypes use the recorded Mathlib pin. The exact Tau Ceti source
 pin has no matching compiled build here. Each omitted declaration, API and test
@@ -285,7 +290,7 @@ Test TauCeti.ConformalPartII.MeromorphicBasisMonodromy.essentialSingularity (non
 /- Omitted ConformalMappingPartII:O0/simultaneous-pole-clearing
 The complex analytic ODE and germ/basis interfaces are unresolved; their full mathematical statements are recorded without fabricated carriers.
 Declaration: Simultaneous algebraic pole clearing
-Statement: Let L have coefficients in ℚ̄(x), let α be an algebraic singular point with the meromorphic-basis condition, and let p∈ℚ̄(x) be nonconstant and regular at α. There is a nonzero q∈ℚ̄[t] such that q(p(x)) times every local solution is holomorphic at α. One can clear finitely many such singularities simultaneously. A rational polynomial requires a Galois-saturated set of algebraic images.
+Statement: Let L have coefficients in ℚ̄(x), let α be an algebraic singular point with the meromorphic-basis condition, and let p∈ℚ̄(x) be nonconstant and regular at α. There is a nonzero q∈ℚ̄[t] such that q(p(x)) times every local solution is holomorphic at α. One can clear finitely many such singularities simultaneously. A nonzero rational polynomial also suffices for any finite set of algebraic images: use sufficiently high powers of their minimal polynomials, thereby adjoining the finite conjugate closure; the original image set need not be Galois-saturated.
 -/
 
 /- Native ConformalMappingPartII:U0/cayley-coordinate
@@ -650,13 +655,13 @@ For f meromorphic on 𝔻 and 0<r<1 define T_D(r,f)=ValueDistribution.proximity 
 /- Omitted ConformalMappingPartII:V0/counting-nonnegative
 The actual localized divisor, boundary integration and trailing-coefficient proof interfaces remain open; native scalar definitions alone do not establish them.
 Declaration: Pole-counting positivity at a regular centre
-Statement: For f meromorphic on 𝔻 and regular at 0, N_D(r,f)≥0 whenever 0<r<1.
+Statement: For f meromorphic on 𝔻 whose meromorphic germ at 0 has no pole (meromorphicOrderAt f 0≥0, including infinite order), N_D(r,f)≥0 whenever 0<r<1. A totalized scalar value at 0 is not a regularity hypothesis.
 -/
 
 /- Omitted ConformalMappingPartII:V0/zero-counting-criterion
 The actual localized divisor, boundary integration and trailing-coefficient proof interfaces remain open; native scalar definitions alone do not establish them.
 Declaration: Vanishing of the local pole count
-Statement: For f meromorphic on 𝔻 and regular at 0, N_D(r,f)=0 iff f is holomorphic on the open disc |z|<r. A pole on |z|=r has zero weight and is permitted; no closed-disc holomorphicity is inferred.
+Statement: For f meromorphic on 𝔻 with no pole in its meromorphic germ at 0, N_D(r,f)=0 iff every germ at |z|<r has nonnegative meromorphic order, equivalently admits a holomorphic removable extension. For a scalar representative also continuous on this open disc, this is equivalent to pointwise holomorphicity of f there. Without that continuity guard, arbitrary isolated point values need not agree with the extensions. A pole on |z|=r has zero weight and is permitted; no closed-disc conclusion is inferred.
 -/
 
 /- Omitted ConformalMappingPartII:V0/local-log-integrability
@@ -867,3 +872,53 @@ The exact Tau Ceti cover carrier needs its complex charts, hyperbolic uniformiza
 Declaration: Projective realization of analytic deck transformations
 Statement: For a connected hyperbolic plane domain Ω and a pointed holomorphic universal cover F:𝔻→Ω, its existing topological deck transformations are holomorphic disc automorphisms. Conjugation through C identifies their action with a discrete subgroup of PSL₂(ℝ), acting freely on ℍ, and the analytic quotient is Ω. For a finite punctured plane this is its Fuchsian covering group.
 -/
+
+/- Independent review regression: zero local pole count alone does not imply
+pointwise analyticity of an arbitrary meromorphic scalar representative. -/
+open Filter Set Metric
+open scoped Topology
+noncomputable section
+namespace ConformalReview
+def spike (z : ℂ) : ℂ := if z = 0 then 2 else 1
+
+lemma spike_germ (x : ℂ) : spike =ᶠ[𝓝[≠] x] (fun _ ↦ (1 : ℂ)) := by
+  by_cases hx : x = 0
+  · subst x
+    filter_upwards [self_mem_nhdsWithin] with z hz
+    have hz' : z ≠ 0 := by simpa using hz
+    simp [spike, hz']
+  · have h0 : ({0}ᶜ : Set ℂ) ∈ 𝓝 x := isOpen_compl_singleton.mem_nhds (by simpa)
+    filter_upwards [nhdsWithin_le_nhds h0] with z hz
+    have hz' : z ≠ 0 := by simpa using hz
+    simp [spike, hz']
+
+lemma spike_meromorphic : Meromorphic spike := by
+  intro x
+  exact (MeromorphicAt.const (1 : ℂ) x).congr (spike_germ x).symm
+
+lemma spike_order (x : ℂ) : meromorphicOrderAt spike x = 0 := by
+  rw [meromorphicOrderAt_congr (spike_germ x), meromorphicOrderAt_const]
+  simp
+
+lemma spike_divisor (U : Set ℂ) : MeromorphicOn.divisor spike U = 0 := by
+  ext z
+  simp [MeromorphicOn.divisor_def, spike_order]
+
+lemma spike_counting (r : ℝ) :
+    (let D : ℂ → ℝ := fun z ↦
+      ((max 0 (-MeromorphicOn.divisor spike (closedBall 0 r) z) : ℤ) : ℝ)
+     (∑ᶠ z, D z * Real.log (r * ‖z‖⁻¹)) + D 0 * Real.log r) = 0 := by
+  simp [spike_divisor]
+
+lemma spike_not_continuous : ¬ ContinuousAt spike 0 := by
+  intro hc
+  have h1 : Tendsto spike (𝓝[≠] (0 : ℂ)) (𝓝 (1 : ℂ)) :=
+    tendsto_const_nhds.congr' (spike_germ 0).symm
+  have h2 : Tendsto spike (𝓝[≠] (0 : ℂ)) (𝓝 (2 : ℂ)) := by
+    simpa [spike] using hc.continuousWithinAt.tendsto
+  have bad := tendsto_nhds_unique h1 h2
+  norm_num at bad
+
+lemma spike_not_analytic : ¬ AnalyticAt ℂ spike 0 :=
+  fun h ↦ spike_not_continuous h.continuousAt
+end ConformalReview
