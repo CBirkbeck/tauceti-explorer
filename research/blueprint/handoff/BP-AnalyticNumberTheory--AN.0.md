@@ -73,11 +73,11 @@ file. All nodes remain `implementationStatus: unchecked`.
 
 ## Corrections and boundaries
 
-Inherited source discrepancies E1–E13 retain original attribution. E14 records the
+Inherited source discrepancies E1–E13 retain original attribution. E16 records the
 invalid exponential-type majorant in Kedlaya Lemma8.3's proof. Retaining exponential
 theta decay gives gamma-size growth and preserves the order-one conclusion. The
 current author PDF and parallel HTML contain the failed step; a bounded author-domain
-correction search found none. E15 records the LerchIII preprint PDE plus sign,
+correction search found none. E17 records the LerchIII preprint PDE plus sign,
 **already corrected to minus in the publisher's equation(2.5)**; it affects no
 published result. No global novelty or independent-review verdict is asserted.
 

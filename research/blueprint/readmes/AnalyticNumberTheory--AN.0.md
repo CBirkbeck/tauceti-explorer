@@ -5791,7 +5791,7 @@ Analytic Number Theory stage specification
 
 ## Source discrepancies
 
-The inherited thirteen entries are retained with their original provenance. E14 concerns the proof, with a corrected gamma majorant; it does not refute the order-one conclusion. E15 is an already-corrected preprint misprint and does not affect the published result. The source-version records distinguish the preprint and final publisher file. No global novelty claim is made.
+The inherited thirteen entries are retained with their original provenance. E16 concerns the proof, with a corrected gamma majorant; it does not refute the order-one conclusion. E17 is an already-corrected preprint misprint and does not affect the published result. The source-version records distinguish the preprint and final publisher file. No global novelty claim is made.
 
 ### AnalyticNumberTheory/E1
 
@@ -6053,7 +6053,7 @@ The inherited thirteen entries are retained with their original provenance. E14 
 
 **searched:** 27 September 2026: the author's 21 December 2025 PDF and parallel HTML at https://kskedlaya.org/ant/chap-zeroes.html, https://kskedlaya.org/ant/part-2-4.html and https://kskedlaya.org/ant/chap-artin.html; the displayed problems persist in the matching passages. Author preface https://kskedlaya.org/ant/frontmatter-4.html and bounded domain searches for Kedlaya analytic-number-theory errata, the Frobenius wording and Theorem10.11 explicit constants; no author correction identified. The repository source-issue index had no AnalyticNumberTheory/Kedlaya entry. 'new' means newly recorded here, not exhaustive global novelty.
 
-### AnalyticNumberTheory/E14
+### AnalyticNumberTheory/E16
 
 **source:** kedlaya-ant-2025
 
@@ -6073,7 +6073,7 @@ The inherited thirteen entries are retained with their original provenance. E14 
 
 **searched:** Current author HTML https://kskedlaya.org/ant/chap-zeroes.html, Lemma8.3, 2026-10-05: the same failed bound remains. Author PDF ant-ptx.pdf and web search for Lemma8.3 corrections on the author domain, 2026-10-05.
 
-### AnalyticNumberTheory/E15
+### AnalyticNumberTheory/E17
 
 **source:** lerch-III
 

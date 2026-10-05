@@ -12742,7 +12742,7 @@
       ]
     },
     {
-      "id": "AnalyticNumberTheory/E14",
+      "id": "AnalyticNumberTheory/E16",
       "source": "kedlaya-ant-2025",
       "kind": "error",
       "locator": "Lemma8.3 proof, printed p47/PDFp63, author PDF sha7a934fce; parallel current HTML chap-zeroes",
@@ -12757,7 +12757,7 @@
       ]
     },
     {
-      "id": "AnalyticNumberTheory/E15",
+      "id": "AnalyticNumberTheory/E17",
       "source": "lerch-III",
       "kind": "misprint",
       "locator": "Preprint arXiv1506.06161v1 Theorem2.3 (2.5),p13; corrected in published RMS3:2(2016),p13 (2.5)",
