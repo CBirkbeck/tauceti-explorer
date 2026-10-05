@@ -10270,7 +10270,8 @@
    "avoidAccountOf": "DESIGN-JacobianChallengePartII",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-JacobianChallengePartII.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3554"
   },
   {
    "id": "DESIGN-StableReductionPartII",
@@ -12860,8 +12861,9 @@
    "avoidAccountOf": "DESIGN-AbelianVarietiesIsogenousToNoJacobian",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-AbelianVarietiesIsogenousToNoJacobian.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5049"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5049",
+   "finishedAt": "2026-10-05T00:15:46Z"
   },
   {
    "id": "DESIGN-ComplexMultiplicationAndExplicitReciprocityPartII",
