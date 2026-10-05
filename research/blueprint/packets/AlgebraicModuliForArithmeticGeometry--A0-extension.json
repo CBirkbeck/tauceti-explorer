@@ -1971,6 +1971,41 @@
         "module": "Mathlib/CategoryTheory/Sites/Over.lean",
         "provides": "The explicit evaluation of the sieve equivalence between a slice and its underlying object.",
         "checked": "Full statement and relevant proof/instance read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; native application compiled."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.tilde.adjunction",
+        "kind": "def",
+        "module": "Mathlib/AlgebraicGeometry/Modules/Tilde.lean",
+        "provides": "The functor tilde.functor R on all R-modules is left adjoint to moduleSpecΓFunctor on all sheaves of modules on Spec R, not only the quasi-coherent full subcategory.",
+        "checked": "Statement and ambient binders read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05; working file compared byte-for-byte with git show at that commit."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.moduleSpecΓFunctor",
+        "kind": "def",
+        "module": "Mathlib/AlgebraicGeometry/Modules/Tilde.lean",
+        "provides": "Global sections of a sheaf module on Spec R, with its R-module structure transported through Scheme.ΓSpecIso R.",
+        "checked": "Statement and ambient binders read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05; working file compared byte-for-byte with git show at that commit."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme.Modules.pseudofunctor_associativity",
+        "kind": "lemma",
+        "module": "Mathlib/AlgebraicGeometry/Modules/Sheaf.lean",
+        "provides": "The associativity equation for scheme-module pullbackComp, with functor associators and the source category equality transport explicit.",
+        "checked": "Statement and ambient binders read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05; working file compared byte-for-byte with git show at that commit."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme.Modules.pseudofunctor_left_unitality",
+        "kind": "lemma",
+        "module": "Mathlib/AlgebraicGeometry/Modules/Sheaf.lean",
+        "provides": "The left unit equation for pullbackComp and pullbackId, with the functor left unitor explicit.",
+        "checked": "Statement and ambient binders read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05; working file compared byte-for-byte with git show at that commit."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme.Modules.pseudofunctor_right_unitality",
+        "kind": "lemma",
+        "module": "Mathlib/AlgebraicGeometry/Modules/Sheaf.lean",
+        "provides": "The right unit equation for pullbackComp and pullbackId, with the functor right unitor explicit.",
+        "checked": "Statement and ambient binders read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05; working file compared byte-for-byte with git show at that commit."
       }
     ]
   },
@@ -6596,11 +6631,14 @@
         "mathlib:AlgebraicGeometry.tildeEquiv",
         "mathlib:AlgebraicGeometry.Scheme.Modules.pullback",
         "mathlib:AlgebraicGeometry.Scheme.Modules.pullbackComp",
-        "mathlib:CommRingCat.moduleCatExtendScalarsPseudofunctor"
+        "mathlib:CommRingCat.moduleCatExtendScalarsPseudofunctor",
+        "mathlib:AlgebraicGeometry.tilde.adjunction",
+        "mathlib:AlgebraicGeometry.moduleSpecΓFunctor",
+        "mathlib:AlgebraicGeometry.Scheme.Modules.pullbackPushforwardAdjunction"
       ],
       "proofSteps": [
-        "Use the mapping property of tilde and the pullback adjunction to identify maps from either displayed object into any sheaf module.",
-        "The tensor/restriction adjunction identifies these two Hom sets; Yoneda gives the comparison.",
+        "Use the actual tilde.adjunction on all sheaf modules and the actual scheme-module pullbackPushforwardAdjunction to compare maps from both displayed objects to an arbitrary sheaf module on Spec A. tildeEquiv alone concerns quasi-coherent targets and does not justify this all-module Hom calculation.",
+        "Identify global sections of pushforward along Spec A→Spec R with restriction of the A-module of global sections, through moduleSpecΓFunctor and ΓSpecIso naturality. Apply the tensor/restriction adjunction and Yoneda to obtain the comparison. The native global-section transport and its naturality are an explicit recorded gap until their comparison has been checked.",
         "Check naturality and the composition comparison on pure tensors, using the existing extension-of-scalars pseudofunctor."
       ],
       "acceptance": [
@@ -6650,7 +6688,7 @@
         {
           "name": "AffinePullbackTests.nonflat",
           "kind": "non-example",
-          "statement": "The comparison also holds for Z→Z/2Z without a flatness hypothesis; it identifies pullback with right-exact tensor extension, not an exact functor."
+          "statement": "For Z→Z/2Z, the comparison exists without flatness. Multiplication by 2 on tilde(Z) is a monomorphism, whereas its pullback is the zero endomorphism of the nonzero sheaf tilde(Z/2Z) and is not a monomorphism. Thus tensor pullback is right exact and cannot be treated as exact."
         }
       ],
       "uses": [
@@ -6680,11 +6718,14 @@
         "AlgebraicModuliForArithmeticGeometry:R09.3/quasicoherent-pullback",
         "mathlib:AlgebraicGeometry.Scheme.Modules.pullbackId",
         "mathlib:AlgebraicGeometry.Scheme.Modules.pullbackComp",
-        "mathlib:CategoryTheory.Pseudofunctor"
+        "mathlib:CategoryTheory.Pseudofunctor",
+        "mathlib:AlgebraicGeometry.Scheme.Modules.pseudofunctor_associativity",
+        "mathlib:AlgebraicGeometry.Scheme.Modules.pseudofunctor_left_unitality",
+        "mathlib:AlgebraicGeometry.Scheme.Modules.pseudofunctor_right_unitality"
       ],
       "proofSteps": [
         "Restrict pullback using the quasi-coherence lemma.",
-        "Restrict the baseline natural isomorphisms and their coherence; full-subcategory faithfulness reflects their equations."
+        "Restrict the baseline pullbackId and pullbackComp natural isomorphisms. Import the existing Scheme.Modules.pseudofunctor_associativity, pseudofunctor_left_unitality and pseudofunctor_right_unitality equations; the faithful full-subcategory inclusions reflect these equations. The Cat-valued pullback structure is the left-adjoint side of the already existing Adj(Cat)-valued scheme-module pseudofunctor, not a new generic coherence construction."
       ],
       "acceptance": [
         "The statement covers arbitrary modules and keeps all morphisms, with the specified pullback coherence."
@@ -6856,7 +6897,7 @@
       "kind": "theorem",
       "statement": "For a faithfully flat commutative ring map R→A, the native canonical functor ModuleCat R→affine ModuleCat DescentData for the singleton f.op is an equivalence. Under the tensor-overlap comparison its inverse is M={n∈N | 1⊗n=θ(n⊗1)}. The comparison A⊗R M→N is a↦(m↦a m) and is an isomorphism of the actual descent data, not merely of modules.",
       "hypotheses": [
-        "Schemes and quasi-coherent modules in specified universes; no Noetherian, finite-generation or finite-presentation hypotheses."
+        "Commutative rings R,A in one fixed universe, a specified ring map f:R→A with f faithfully flat, and arbitrary R- and A-modules with all module morphisms. No Noetherian, finite-generation or finite-presentation hypotheses."
       ],
       "prerequisites": [
         "AlgebraicModuliForArithmeticGeometry:R09.3/module-descent-coaction",
@@ -6987,7 +7028,7 @@
       "proofSteps": [
         "Cover S by affine opens Vj and choose a finite standard affine fpqc refinement of each induced cover.",
         "Use affine descent fullness to produce a map on every Vj.",
-        "On Vj∩Vj′ use a common fpqc refinement and faithfulness to prove agreement, without assuming this intersection affine.",
+        "For the finite standard refinements Wj,k→Vj and Wj′,k′→Vj′, use the common fpqc cover {Wj,k×S Wj′,k′→Vj∩Vj′}. The original compatibility is over Ui×S Ui′. Faithfulness proves agreement of the resulting maps on the possibly nonaffine Vj∩Vj′; neither this intersection nor each common-refinement member is assumed affine.",
         "Glue sheaf-module maps on the open cover; uniqueness follows from faithfulness."
       ],
       "acceptance": [
@@ -7002,7 +7043,7 @@
           "sourceId": "SP023T",
           "locator": "Proposition35.5.2, fullness proof",
           "excerpt": "refining",
-          "match": "The common refinement is performed on potentially nonaffine intersections."
+          "match": "The common refinement is performed on potentially nonaffine intersections. The undefined base U and the V_k/V_k′ member labels in the displayed common refinement are the source misprints recorded as E11; the corrected bases and actual affine refinement members are used here."
         }
       ],
       "implementationStatus": "unchecked"
@@ -7766,8 +7807,8 @@
         "SchemeAndStackFoundations:SF.1"
       ],
       "proofSteps": [
-        "Refine each Xi by scheme étale charts, producing an fpqc refinement by schemes.",
-        "For every scheme U→X in the small étale site, apply the scheme theorem to the fpqc cover {U×X Xi→U}.",
+        "Choose scheme étale charts Tij→Xi. The composite family {Tij→X} is an fpqc refinement of {Xi→X}; preserve the pulled original datum and the comparison to its restrictions.",
+        "For every scheme U→X in the small étale site, the representable diagonal of X makes U×X Tij a scheme. Apply the scheme descent theorem to the fpqc cover {U×X Tij→U}. Do not apply a theorem about scheme covers directly to U×X Xi before replacing Xi by its scheme charts.",
         "Full faithfulness makes the descended modules functorial in the input datum and supplies the comparisons for chart maps.",
         "Faithfulness verifies their unit and composition equations; glue them as a sheaf on the ringed étale site.",
         "Compare both composites with identity on objects and morphisms by the same chartwise full faithfulness."
@@ -41128,6 +41169,17 @@
         "AlgebraicModuliForArithmeticGeometry:R09.4/compatible-limit-family",
         "AlgebraicModuliForArithmeticGeometry:R09.4/z-hat-not-algebraic-fp"
       ]
+    },
+    {
+      "title": "Native quasi-coherent pullback comparisons and signature fixtures",
+      "detail": "The scheme QCoh route still needs the structure-sheaf pullback unit isomorphism and the compatibility between restricting to presentation opens and pulling back on slices. The displayed pullback adjunction supplies preservation of colimits, but does not alone state these two comparisons. For the affine tensor comparison, verify that moduleSpecΓFunctor sends scheme-module pushforward to native restrictScalars, with ΓSpecIso naturality and composition transports. The three existing scheme-module coherence equations are now explicit prerequisites, so generic pseudofunctor coherence is not new mathematics. The suggested affine naturality equation and infinite-free/noninvertible-sheaf fixtures are now stated natively but remain uncompiled; identity/localization/composition fixtures, the chosen-overlap adapters and the scheme small-étale/Zariski comparison must still be transcribed and checked. Scheme-chart refinement for space descent uses U×X Tij, whose scheme representability comes from the supplier diagonal interface.",
+      "neededBy": [
+        "AlgebraicModuliForArithmeticGeometry:R09.3/quasicoherent-pullback",
+        "AlgebraicModuliForArithmeticGeometry:R09.3/affine-pullback-tensor",
+        "AlgebraicModuliForArithmeticGeometry:R09.3/quasicoherent-pseudofunctor",
+        "AlgebraicModuliForArithmeticGeometry:R09.3/space-quasicoherent-modules",
+        "AlgebraicModuliForArithmeticGeometry:R09.3/space-fpqc-quasicoherent-descent"
+      ]
     }
   ],
   "sourceIssues": [
@@ -41353,6 +41405,26 @@
         "reason": "The domain of Γ_a and the endpoints of ξ_a make the required dimension of a unambiguous. This slip changes neither the compatible-family definition as intended nor its 2-arrow coherence equation. This is bounded preprint evidence, pending completion of the independent packet review.",
         "by": "REV-AlgebraicModuliForArithmeticGeometry--A0-extension"
       }
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry/E11",
+      "source": "SP023T",
+      "kind": "misprint",
+      "locator": "Stacks Tag 023T, Proposition 35.5.2, fullness paragraph and displayed common refinement; live HTML and descent.tex read 2026-10-05",
+      "printed": "U_i \\times_U U_j; \\{V_k \\times_S V_{k'} \\to V_{jj'}\\}",
+      "correction": "The original maps are compared on Ui×S Ui′. Write Wj,k for the actual affine member U_(i_j(k),k) of the refinement over Vj; the common refinement is {Wj,k×S Wj′,k′→Vj∩Vj′}, indexed by k∈Kj and k′∈Kj′.",
+      "reason": "S is the base scheme; U is not defined as a base. The source defines affine opens indexed by Kj inside the original Ui; Vk is not one of those definitions and k need not even index an affine base open. The corrected fibre products map to both actual refinements and cover the intersection by fpqc base change and composition. The packet already used the correct geometric idea; its proof now names the members explicitly.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Comments on Stacks Tag 023T, including the 2023 restriction-domain correction (which concerns a different formula).",
+        "Current stacks/stacks-project master descent.tex at proposition-fpqc-descent-quasi-coherent; both slips remain in that text."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked both formulas in the live HTML and the public TeX source; their correction follows from the explicitly defined refinement objects. This is a bounded check for existing corrections, not an exhaustive novelty claim.",
+        "by": "REV-AlgebraicModuliForArithmeticGeometry--A0-extension"
+      }
     }
   ],
   "keyDefinitions": [
@@ -41425,6 +41497,20 @@
       "read": "2026-10-05",
       "sha256": "c2a803a6a63837670f8d5eb1b2fa19606b74ab59c81335c6df9b631fa9b21eed",
       "accessNote": "E10 quotes only this preprint. AMS publication download returned HTML, and SNS publisher/accepted PDF attempts returned HTTP 403; the version of record was not read."
+    },
+    {
+      "kind": "published",
+      "url": "https://stacks.math.columbia.edu/tag/023T",
+      "citation": "The Stacks Project, Proposition 35.5.2; live public reference text",
+      "read": "2026-10-05",
+      "sha256": "ca9e9d7885ae6176696fac333dbb27776f82c57818c2be11b4cb674135ec6508"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://raw.githubusercontent.com/stacks/stacks-project/master/descent.tex",
+      "citation": "The Stacks Project public TeX source, proposition-fpqc-descent-quasi-coherent",
+      "read": "2026-10-05",
+      "sha256": "49483b3bcb36427a607a8227f4ea67730fcddf1eeccb8e992ca61915ace3b31d"
     }
   ],
   "routedItems": [
