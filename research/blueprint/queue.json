@@ -21729,8 +21729,8 @@
    ],
    "avoidAccountOf": "BP-AlgebraicModuliForArithmeticGeometry--A0-extension",
    "prompt": "research/blueprint/prompts/REV-AlgebraicModuliForArithmeticGeometry--A0-extension.md",
-   "state": "pending",
-   "note": "released on GitHub issue #346"
+   "state": "external",
+   "note": "claimed on GitHub issue #346"
   },
   {
    "id": "BP-AlgebraicModuliForArithmeticGeometry--R09.7a",
@@ -26446,9 +26446,9 @@
     "REV-RS-18"
    ],
    "prompt": "research/blueprint/prompts/BP-KTheoryLowDegrees--U.1.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [],
-   "note": "claimed on GitHub issue #764"
+   "note": "released on GitHub issue #764"
   },
   {
    "id": "REV-KTheoryLowDegrees--U.1",
