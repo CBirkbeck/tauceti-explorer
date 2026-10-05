@@ -880,6 +880,104 @@
         "module": "Mathlib/LinearAlgebra/Matrix/Charpoly/Coeff.lean",
         "provides": "The reverse of the matrix characteristic polynomial equals charpolyRev.",
         "checked": "Codex codex-45ZB12: complete statement and ambient hypotheses read at pinned082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:differentiableAt_riemannZeta",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/LSeries/RiemannZeta.lean",
+        "provides": "Complex differentiability of riemannZeta away from 1; continuity of its logarithmic derivative requires analytic differentiation and nonvanishing.",
+        "checked": "Full statement and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex codex-LO9Eha, 2026-10-05."
+      },
+      {
+        "ref": "mathlib:DirichletCharacter.differentiableAt_LFunction",
+        "kind": "lemma",
+        "module": "Mathlib/NumberTheory/LSeries/DirichletContinuation.lean",
+        "provides": "Canonical Dirichlet continuation is differentiable at s when s≠1 or χ≠1; applies at 1 to nonprincipal characters.",
+        "checked": "Full statement and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex codex-LO9Eha, 2026-10-05."
+      },
+      {
+        "ref": "mathlib:DirichletCharacter.sum_char_inv_mul_char_eq",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/DirichletCharacter/Orthogonality.lean",
+        "provides": "For nonzero modulus and a unit a, the finite complex character sum of χ(a⁻¹)χ(b) is φ(q) if a=b and zero otherwise, including nonunits b.",
+        "checked": "Full statement and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex codex-LO9Eha, 2026-10-05."
+      },
+      {
+        "ref": "mathlib:DirichletCharacter.LSeries_twist_vonMangoldt_eq",
+        "kind": "lemma",
+        "module": "Mathlib/NumberTheory/LSeries/Dirichlet.lean",
+        "provides": "On Re s>1, the χΛ LSeries is minus the logarithmic derivative of the χ LSeries; canonical-continuation comparison must be applied separately.",
+        "checked": "Full statement and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex codex-LO9Eha, 2026-10-05."
+      },
+      {
+        "ref": "mathlib:DirichletCharacter.LSeriesSummable_twist_vonMangoldt",
+        "kind": "lemma",
+        "module": "Mathlib/NumberTheory/LSeries/Dirichlet.lean",
+        "provides": "The χΛ Dirichlet series is absolutely summable on Re s>1, uniformly usable for every fixed finite character sum.",
+        "checked": "Full statement and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex codex-LO9Eha, 2026-10-05."
+      },
+      {
+        "ref": "mathlib:DirichletCharacter.deriv_LFunction_eq_deriv_LSeries",
+        "kind": "lemma",
+        "module": "Mathlib/NumberTheory/LSeries/DirichletContinuation.lean",
+        "provides": "The derivative of the canonical Dirichlet continuation agrees with that of its LSeries on Re s>1.",
+        "checked": "Full statement and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex codex-LO9Eha, 2026-10-05."
+      },
+      {
+        "ref": "mathlib:DirichletCharacter.LFunctionTrivChar_eq_mul_riemannZeta",
+        "kind": "lemma",
+        "module": "Mathlib/NumberTheory/LSeries/DirichletContinuation.lean",
+        "provides": "For nonzero q and s≠1, principal L is zeta times one missing Euler factor for every prime divisor of q; the identity does not assign the meromorphic pole its junk value.",
+        "checked": "Full statement and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex codex-LO9Eha, 2026-10-05."
+      },
+      {
+        "ref": "mathlib:Chebyshev.isBigO_psi_sub_theta_sqrt",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/Chebyshev.lean",
+        "provides": "At +∞, the inclusive ψ−θ is O(sqrt x), stronger than the crude logarithmic prime-power removal needed for rational prime-count transfer.",
+        "checked": "Full statement and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex codex-LO9Eha, 2026-10-05."
+      },
+      {
+        "ref": "mathlib:ArithmeticFunction.IsMultiplicative",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/ArithmeticFunction/Defs.lean",
+        "provides": "For a zero-extended arithmetic function, f(1)=1 and multiplication on coprime natural arguments; this is not complete multiplicativity.",
+        "checked": "Full statement and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex codex-LO9Eha, 2026-10-05."
+      },
+      {
+        "ref": "mathlib:LSeries.eq_of_LSeries_eventually_eq",
+        "kind": "lemma",
+        "module": "Mathlib/NumberTheory/LSeries/Injectivity.lean",
+        "provides": "Two somewhere-absolutely-convergent coefficient series agreeing eventually on large real arguments have equal coefficients at every nonzero natural; normalized zero extension is needed for equality at0.",
+        "checked": "Full statement and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex codex-LO9Eha, 2026-10-05."
+      },
+      {
+        "ref": "mathlib:ArithmeticFunction.zeta",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/ArithmeticFunction/Zeta.lean",
+        "provides": "Natural-valued arithmetic function0 at0 and1 at positive naturals, distinct from the convolution unit supported at1.",
+        "checked": "Full statement and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex codex-LO9Eha, 2026-10-05."
+      },
+      {
+        "ref": "mathlib:LSeriesSummable",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/LSeries/Basic.lean",
+        "provides": "Absolute summability of the complex LSeries terms, whose zero-index term is0; mandatory before using a totalized LSeries value.",
+        "checked": "Full statement and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex codex-LO9Eha, 2026-10-05."
+      },
+      {
+        "ref": "mathlib:Nat.mem_smoothNumbersUpTo",
+        "kind": "lemma",
+        "module": "Mathlib/NumberTheory/SmoothNumbers.lean",
+        "provides": "n∈smoothNumbersUpTo N k iff n≤N and n∈smoothNumbers k; positivity is in the latter carrier, so 0 is excluded.",
+        "checked": "Full statement and ambient hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex codex-LO9Eha,2026-10-05."
+      },
+      {
+        "ref": "mathlib:Nat.equivProdNatFactoredNumbers",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/SmoothNumbers.lean",
+        "provides": "For a prime p not in a finite set s, a bijection ℕ×factoredNumbers s≃factoredNumbers(insert p s), with forward map (e,m)↦p^e*m; supports finite-prime geometric factorization without an infinite-prime convergence assumption.",
+        "checked": "Full statement and ambient hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex codex-LO9Eha,2026-10-05."
       }
     ]
   },
@@ -912,7 +1010,8 @@
         "2026-09-29 (cc-39fac3): §§3.3–3.4 (Lemma 3.6, Theorems 3.7–3.11), Exercises 3.6.1–3.6.5 and Chapter 22 re-read on the text layer; same sha256.",
         "Codex codex-45ZB12: fresh full reading of §5.1 pp.33–35 and §§8.1–8.4 pp.47–52; printed pp.47,49 viewed. Scoped payload audit112–145 plus220 and added product/strip lemmas; omitted exercise/original external proofs remain explicit gaps.",
         "Codex codex-45ZB12: fresh full Chapters9.1–9.6 pp.53–58, §§10.1–10.3 pp.59–61; payload audit146–158. Original Davenport§§15/16/19 phase and conductor-uniform proofs remain unread.",
-        "Codex codex-45ZB12: complete Theorem2.4 proofp12, §§3.3–3.4 pp19–20 and selected §§3.5–3.6 pp21–22; Chapter22 §§22.1–22.5 pp127–129, withp127 viewed as an image. The Hecke/all-prime and full integral Brauer extensions remain separately imported gaps."
+        "Codex codex-45ZB12: complete Theorem2.4 proofp12, §§3.3–3.4 pp19–20 and selected §§3.5–3.6 pp21–22; Chapter22 §§22.1–22.5 pp127–129, withp127 viewed as an image. The Hecke/all-prime and full integral Brauer extensions remain separately imported gaps.",
+        "Codex codex-LO9Eha: §§4.2–4.3 pp.23–25, §10.1 p.59, §§10.4–10.5 pp.61–63 and complete Theorem7.7 proofp45 freshly read for payloads176–181; Newman §6.1 only its target statement checked. Original Davenport conductor/Siegel proofs remain unread."
       ]
     },
     {
@@ -927,7 +1026,8 @@
         "Fresh page-image read: scan pp.57–59, thesis pp.(4.23)–(4.25).",
         "Scan pp.53–56 inspected as unreliable OCR only; their detailed character/admissibility construction remains inherited-review provenance, not a fresh complete reading.",
         "Inherited local/global analytic records retain reviewed locators; complete rereading and decomposition belongs to AL.0/AL.1.",
-        "2026-09-29 (cc-39fac3): physical pp. 15–27 and 40–59 read on page images for AL.1; §4.5 (pp. 53–59) used for the Hecke comparison."
+        "2026-09-29 (cc-39fac3): physical pp. 15–27 and 40–59 read on page images for AL.1; §4.5 (pp. 53–59) used for the Hecke comparison.",
+        "Codex codex-LO9Eha: scan pp.54–59 selected §4.5 character, restricted Euler-product and FE comparison text; scan p.58 additionally viewed as an image. This supplies a selected comparison receipt, not complete local/global proofs or a completed gamma/measure adapter."
       ]
     },
     {
@@ -1549,7 +1649,8 @@
       "sha256": "f0e172b6d6a89bfda96c5b4f264641509742030a7567cc9f0ae9815dccde7d06",
       "accessed": "2026-10-05",
       "readSections": [
-        "§1 pp1–4, §2 Lemmas2.2–2.5 and start of Lemma2.6. Full Shiu and mean-square proofs remain gaps."
+        "§1 pp1–4, §2 Lemmas2.2–2.5 and start of Lemma2.6. Full Shiu and mean-square proofs remain gaps.",
+        "Codex codex-LO9Eha: §1 first coefficient/class displaysp1, Theorem1.1p2, and full selected §2 pp.7–12 through the end of Theorem1.1 proof. Original Shiu proof, distributional Fourier adapter and classical pretentious refinement unread; these are explicit gaps."
       ]
     },
     {
@@ -1561,7 +1662,8 @@
       "sha256": "94906dfdc14c8b88a2010334cf0aac31055653b220fa84856d1285ac246efac4",
       "accessed": "2026-10-05",
       "readSections": [
-        "pp1–4, mean-value statement and weighted unit-disc norm proof."
+        "pp1–4, mean-value statement and weighted unit-disc norm proof.",
+        "Codex codex-LO9Eha: pp.2–4 reread fully, including the stated Halász refinement and product-norm proof; closed-unit-disc scalar extension supplied by an explicit elementary algebraic derivation. Original mean-value theorem proofs remain unread."
       ]
     },
     {
@@ -1573,7 +1675,8 @@
       "sha256": "f7641a11188d783d8e941883467d541d71429b98d6760e7d20bf85cf53e80bac",
       "accessed": "2026-10-05",
       "readSections": [
-        "Introduction pp411–415, text-layer read; mathematics on p414 additionally checked on page image. Full §§2–3 proofs remain gaps."
+        "Introduction pp411–415, text-layer read; mathematics on p414 additionally checked on page image. Full §§2–3 proofs remain gaps.",
+        "Codex codex-LO9Eha: fresh introduction pp.411–415 and selected §2 pp.423–426; printed414 and426 viewed as images; complete selected Lemma2.5 proof read. Original Dickman/de Bruijn fixed-u proof and the rest of §§2–3 unread."
       ]
     },
     {
@@ -10811,18 +10914,22 @@
       ],
       "title": "Dedekind completed-functional-equation comparison",
       "kind": "lemma",
-      "statement": "For the canonical continued Dedekind function, Λ_K(s)=|D_K|^(s/2)Γ_R(s)^r₁Γ_C(s)^r₂ζ_K^cont(s) satisfies Λ_K(1−s)=Λ_K(s) as a meromorphic identity, with its gamma convention imported from AL.1.",
+      "statement": "For a number field K with absolute discriminant D_K, r₁ real places and r₂ conjugate pairs of complex places, let Γ_R(s)=π^(−s/2)Γ(s/2) and Γ_C(s)=2(2π)^(−s)Γ(s), the pinned Complex.Gammaℝ and Complex.Gammaℂ. The canonical continuation supplied by Tate has Λ_K(s)=|D_K|^(s/2)Γ_R(s)^r₁Γ_C(s)^r₂ζ_K^cont(s), and Λ_K(1−s)=Λ_K(s) as meromorphic functions. No equality of totalized values at poles is asserted.",
       "hypotheses": [],
       "proofSteps": [
-        "Specialize the Tate global functional equation to the trivial character and the standard local test functions.",
-        "Use the convergence-half-plane comparison to fix every measure and different factor."
+        "Import AL.1 global Tate functional equation, archimedean local factors and unramified finite factors, using the standard trace additive character and its self-dual measure.",
+        "At finite places the inverse different supplies |D_K|^(s/2); the conductor of the trivial character is the unit ideal. Compare Tate’s local constants with the displayed pinned gamma convention; s-independent constants cancel from the functional equation.",
+        "Use the Dedekind convergence-half-plane comparison to identify the continuation. The measure/different adapter is recorded as an open gap, rather than supplied by the global integral equation alone."
       ],
       "prerequisites": [
         "AnalyticNumberTheory:AN.4/dedekind-zeta-continuation-and-residue",
-        "AutomorphicLFunctionsAndLocalFactors:AL.1/tate-global-functional-equation"
+        "AutomorphicLFunctionsAndLocalFactors:AL.1/tate-global-functional-equation",
+        "AutomorphicLFunctionsAndLocalFactors:AL.1/archimedean-local-theory",
+        "AutomorphicLFunctionsAndLocalFactors:AL.1/unramified-local-theory"
       ],
       "acceptance": [
-        "Check every endpoint and the stated dependence of constants; no conjectural input is implicit."
+        "K=Q recovers the pinned completed Riemann functional equation away from its poles.",
+        "An imaginary quadratic field has one Γ_C factor and no Γ_R factors; its discriminant power is |D_K|^(s/2)."
       ],
       "uses": [
         {
@@ -10838,9 +10945,9 @@
       "sources": [
         {
           "sourceId": "tate-thesis-1950",
-          "locator": "Tate §4.5 normalization, inherited supplier proof",
-          "excerpt": "functional equation",
-          "match": "Exact target or stated specialization; unresolved proof inputs are named in the gap ledger."
+          "locator": "§4.5, scan pp.56–59, especially (4.24) on scan p.58; local factors tabulated in §2.5",
+          "excerpt": "Analytic Continuation and Functional Equation",
+          "match": "The global/local equation and inverse-different power yield the trivial-character specialization. Scan p.58 was viewed; exact gamma/measure conversion remains an explicit adapter."
         }
       ],
       "implementationStatus": "unchecked"
@@ -10853,17 +10960,21 @@
       ],
       "title": "Negative even zeros of the continuation",
       "kind": "lemma",
-      "statement": "For every number field K and n≥1, ζ_K^cont(−2n)=0. The totalized pinned LSeries is not the object being evaluated.",
+      "statement": "For a number field K and every integer n≥1, the canonical holomorphic Dedekind continuation at −2n has a zero of exact order r₁+r₂, where r₁ and r₂ are its real-place and complex-pair counts. In particular ζ_K^cont(−2n)=0, since r₁+r₂≥1. This evaluates the continuation, not the pinned totalized ideal LSeries.",
       "hypotheses": [],
       "proofSteps": [
-        "The completed functional equation identifies the left-side completed value with the finite value at1+2n.",
-        "At−2n at least one archimedean gamma factor has a pole; use the meromorphic orders to force a zero of the uncompleted continuation."
+        "At 1+2n the ideal series converges to a strictly positive real number: its terms are nonnegative and the unit ideal contributes 1. Gamma factors and the discriminant factor there are finite and nonzero.",
+        "Reflect via the completed meromorphic functional equation. Each Γ_R and Γ_C factor has a simple pole at −2n, with nonzero residue; the product has order −(r₁+r₂).",
+        "Add meromorphic orders to get order r₁+r₂ for ζ_K^cont, using r₁+2r₂=[K:Q]≥1. Pinned gamma junk values at the poles cannot substitute for this germ calculation."
       ],
       "prerequisites": [
-        "AnalyticNumberTheory:AN.4/dedekind-completed-functional-equation"
+        "AnalyticNumberTheory:AN.4/dedekind-completed-functional-equation",
+        "AnalyticNumberTheory:AN.4/dedekind-zeta-continuation-and-residue",
+        "AutomorphicLFunctionsAndLocalFactors:AL.1/archimedean-local-theory"
       ],
       "acceptance": [
-        "Check every endpoint and the stated dependence of constants; no conjectural input is implicit."
+        "For Q the order is 1, agreeing with the already implemented negative-even Riemann zeros.",
+        "For a real quadratic field the order is 2, whereas for an imaginary quadratic field it is 1."
       ],
       "uses": [
         {
@@ -10879,9 +10990,9 @@
       "sources": [
         {
           "sourceId": "tate-thesis-1950",
-          "locator": "§4.5 Dedekind specialization",
+          "locator": "§4.5 equation on scan p.58, with §2.5 archimedean factors; derived negative-even specialization",
           "excerpt": "functional equation",
-          "match": "Exact target or stated specialization; unresolved proof inputs are named in the gap ledger."
+          "match": "Order calculation from the reflected nonzero right-side value; exact zero multiplicity is a derived comparison, not a printed Tate theorem."
         }
       ],
       "implementationStatus": "unchecked"
@@ -10894,18 +11005,21 @@
       ],
       "title": "Imprimitive Hecke deleted factors",
       "kind": "lemma",
-      "statement": "For a finite-order Hecke character induced from primitive χ₀, its continued L-function equals L^cont(s,χ₀)∏_{p|f, p∤f₀}(1−χ₀(p)(Np)^−s), with exactly the finite primes deleted by the chosen modulus.",
+      "statement": "Let χ be the ray ideal character modulo a modulus m induced from a primitive finite-order Hecke character χ₀ of conductor f₀ dividing m. If m_fin is the finite part, then L_m^cont(s,χ)=L^cont(s,χ₀)∏_{p|m_fin, p∤f₀_fin}(1−χ₀(p)exp(−s log Np)). Each prime occurs once even if its exponent in m grows; real-place conditions enter the conductor dictionary but do not delete finite Euler factors. Equality is meromorphic.",
       "hypotheses": [],
       "proofSteps": [
-        "Compare the Euler products on Re s>1, using the canonical conductor dictionary.",
-        "Continue the finite-factor identity meromorphically."
+        "Import the GlobalNumberFields ray-character/conductor dictionary and the primitive half-plane Hecke Euler-product comparison.",
+        "In the absolutely convergent half-plane Re s>1, remove exactly the Euler factors for finite primes dividing m but not f₀. Finite multiplicative regrouping retains one factor per prime.",
+        "Apply uniqueness of meromorphic continuation, keeping the possible trivial-character pole at 1 and removable zeros of the finite correction."
       ],
       "prerequisites": [
         "AnalyticNumberTheory:AN.4/hecke-primitive-functional-equation",
-        "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-9-hecke-and-ray-class-characters"
+        "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-9-hecke-and-ray-class-characters",
+        "AnalyticNumberTheory:AN.4/hecke-L-function-euler-product-comparison"
       ],
       "acceptance": [
-        "Check every endpoint and the stated dependence of constants; no conjectural input is implicit."
+        "For K=Q and primitive trivial character, agree with Mathlib’s principal-character finite Euler correction.",
+        "Changing a finite modulus p to p² deletes the same single factor; an added real place creates no new finite prime factor."
       ],
       "uses": [
         {
@@ -10921,9 +11035,9 @@
       "sources": [
         {
           "sourceId": "tate-thesis-1950",
-          "locator": "§4.5 Euler factors and conductor",
-          "excerpt": "Hecke",
-          "match": "Exact target or stated specialization; unresolved proof inputs are named in the gap ledger."
+          "locator": "§4.5, scan p.57, Euler product over finite primes outside S",
+          "excerpt": "Euler product",
+          "match": "The displayed product is restricted to primes outside S. Reinstating the primitive factors and deleting the additional modulus primes yields this finite comparison."
         }
       ],
       "implementationStatus": "unchecked"
@@ -10939,17 +11053,19 @@
       "statement": "As x→∞, Chebyshev.psi(x)∼x. The corresponding θ and π asymptotics are supplied by the separate transfer comparison.",
       "hypotheses": [],
       "proofSteps": [
-        "Use the pinned nonvanishing on Re s=1 and the actual logarithmic-derivative boundary regularization at1.",
-        "Apply the generic ADS Wiener–Ikehara and prime-number transfer package to Λ."
+        "Use the rational-mangoldt-boundary lemma and the pinned Λ summability/series identity to satisfy every ADS9 input, including a separately named continuous G and residue κ=1.",
+        "Apply the generic Wiener–Ikehara theorem to the nonnegative Λ coefficient. Compare its inclusive natural-floor summatory function with pinned Chebyshev.psi; no signed coefficient is submitted to the positive Tauberian theorem."
       ],
       "prerequisites": [
         "mathlib:Chebyshev.psi",
         "mathlib:riemannZeta_ne_zero_of_one_le_re",
         "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-9-wienerikehara",
-        "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-10-generic-prime-number-theorem-transfer"
+        "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-10-generic-prime-number-theorem-transfer",
+        "AnalyticNumberTheory:AN.2/rational-mangoldt-boundary"
       ],
       "acceptance": [
-        "Check every endpoint and the stated dependence of constants; no conjectural input is implicit."
+        "The exact boundary coefficient is Λ, not the prime-only log weight.",
+        "No RH assumption or quantitative remainder is used."
       ],
       "uses": [
         {
@@ -10965,9 +11081,9 @@
       "sources": [
         {
           "sourceId": "kedlaya-ant-2025",
-          "locator": "Kedlaya Chapter4 and Chapter7",
-          "excerpt": "prime number theorem",
-          "match": "Exact target or stated specialization; unresolved proof inputs are named in the gap ledger."
+          "locator": "Chapter6 §6.1 Theorem6.1 (Newman route), with §7.1 ψ equivalence; chosen ADS9 route uses the separately specified boundary adapter",
+          "excerpt": "Prime number theorem",
+          "match": "The mathematical target is the source’s PNT. Its Newman proof is not mislabelled a Wiener–Ikehara proof; this packet imports that generic theorem instead."
         }
       ],
       "implementationStatus": "unchecked",
@@ -10986,16 +11102,20 @@
       "statement": "For fixed q≥1 and a coprime to q, θ(x;a,q)∼x/φ(q) and π(x;a,q)∼Li(x)/φ(q) as x→∞. The modulus is fixed; constants in qualitative convergence can depend on q.",
       "hypotheses": [],
       "proofSteps": [
-        "Use finite-character orthogonality and pinned line-one Dirichlet nonvanishing, retaining the principal-character deleted factors.",
-        "Apply the ADS boundary/transfer contract to the nonnegative progression Λ coefficient, then convert to prime sums."
+        "Use progression-mangoldt-boundary for nonnegative b(n)=Λ(n)1_{n≡a modq}, including the principal Euler correction and residue 1/φ(q).",
+        "Apply ADS9 to get the progression ψ asymptotic. Dominate the discarded higher prime powers by the pinned all-prime ψ−θ estimate, then use the existing ADS Abel/prime-count transfer.",
+        "Keep q fixed throughout the limit; this theorem alone supplies no growing-modulus statement."
       ],
       "prerequisites": [
         "AnalyticNumberTheory:AN.2/theta-ap",
         "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-9-wienerikehara",
-        "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-10-generic-prime-number-theorem-transfer"
+        "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-10-generic-prime-number-theorem-transfer",
+        "AnalyticNumberTheory:AN.2/progression-mangoldt-boundary",
+        "mathlib:Chebyshev.isBigO_psi_sub_theta_sqrt"
       ],
       "acceptance": [
-        "Check every endpoint and the stated dependence of constants; no conjectural input is implicit."
+        "q=1 recovers ordinary PNT; q=4,a=1 or3 gives density 1/2.",
+        "The gcd hypothesis is essential: for q=4,a=2 the progression contains only the prime2."
       ],
       "uses": [
         {
@@ -11011,9 +11131,9 @@
       "sources": [
         {
           "sourceId": "kedlaya-ant-2025",
-          "locator": "Chapter10, fixed-modulus consequence after Theorem10.2",
-          "excerpt": "fixed N",
-          "match": "Exact target or stated specialization; unresolved proof inputs are named in the gap ledger."
+          "locator": "§10.1 p.59, paragraph following Theorem10.2; §4.3 finite Fourier extraction",
+          "excerpt": "For a fixed N",
+          "match": "Exact fixed-modulus scope; the ADS route uses the new progression boundary rather than relying on the unverified conductor-uniform error theorem."
         }
       ],
       "implementationStatus": "unchecked",
@@ -11032,18 +11152,22 @@
       "statement": "There are absolute effective c,C>0 such that |ψ(x)−x|≤C x exp(−c√log x) for all sufficiently large x; ψ is the inclusive pinned function.",
       "hypotheses": [],
       "proofSteps": [
-        "Use the truncated explicit formula and the zero-free region with conjugation to control both height signs.",
-        "Bound the low-height zeros in a compact strip by β≤β₀<1, and the high-zero reciprocal sum by O(log²T).",
-        "Choose T=exp(a√log x) and absorb logarithms; add the endpoint half-weight correction O(log x)."
+        "Use the truncated ψ₀ formula with analytic multiplicities, conjugation of Riemann zeros and the high positive-height zero-free region. For |Imρ|≥t₀ this gives β≤1−c/log|Imρ|.",
+        "The low-height critical zeros form a finite multiset. Pinned line-one nonvanishing and nonzero xi endpoints give a positive margin δ from β=1 and nonzero ρ; sum their finitely many |1/ρ| separately, never dividing by Imρ=0.",
+        "For high zeros the dyadic zero-weight bound gives O(log²T); hence their sum is O(x exp(−c log x/log T) log²T).",
+        "Choose T=exp(a sqrt(log x)) for one fixed a>0. The Perron endpoint/nearest-prime-power term is at most log x; absorb this, the finite low-zero O(x^(1−δ)) and powers of log x into a weaker exp(−c′sqrt(log x)) bound. Effectivity of the compact margin/constants remains an explicit gap."
       ],
       "prerequisites": [
-        "AnalyticNumberTheory:AN.2/rational-prime-number-theorem",
         "AnalyticNumberTheory:AN.3/von-mangoldt-explicit-formula-and-pnt-error",
         "AnalyticNumberTheory:AN.2/classical-zero-free-region",
-        "AnalyticNumberTheory:AN.3/zero-weight-sum"
+        "AnalyticNumberTheory:AN.3/zero-weight-sum",
+        "mathlib:riemannZeta_ne_zero_of_one_le_re",
+        "AnalyticNumberTheory:AN.2/xi-entire-and-endpoints",
+        "AnalyticNumberTheory:AN.2/xi-zero-critical-strip"
       ],
       "acceptance": [
-        "Check every endpoint and the stated dependence of constants; no conjectural input is implicit."
+        "Inclusive ψ and half-weight ψ₀ differ by at most (1/2)log x, already absorbed.",
+        "Real zeros, if treated before excluding them, are in the finite low-height sum and never divided by ordinate0."
       ],
       "uses": [
         {
@@ -11059,9 +11183,9 @@
       "sources": [
         {
           "sourceId": "kedlaya-ant-2025",
-          "locator": "Chapter7 Theorem7.7, with corrected low-zero treatment",
+          "locator": "§7.2 Theorem7.7 and its proof, printed p.45; ψ endpoint convention §7.1 p.43",
           "excerpt": "Error bound in the prime number theorem",
-          "match": "Exact target or stated specialization; unresolved proof inputs are named in the gap ledger."
+          "match": "The full proof was reread. Repair its reciprocal-ordinate shortcut by treating a finite low-zero set separately; exact effective constants remain unestablished."
         }
       ],
       "implementationStatus": "unchecked"
@@ -11083,10 +11207,12 @@
       "prerequisites": [
         "AnalyticNumberTheory:AN.2/rational-prime-number-theorem",
         "mathlib:Chebyshev.theta",
-        "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-10-generic-prime-number-theorem-transfer"
+        "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-10-generic-prime-number-theorem-transfer",
+        "mathlib:Chebyshev.isBigO_psi_sub_theta_sqrt"
       ],
       "acceptance": [
-        "Check every endpoint and the stated dependence of constants; no conjectural input is implicit."
+        "Use Mathlib’s stronger O(sqrt x) inclusive ψ−θ theorem rather than planning it again.",
+        "Li uses lower endpoint2; changing that endpoint changes only a constant and not the asymptotic."
       ],
       "uses": [
         {
@@ -11102,9 +11228,9 @@
       "sources": [
         {
           "sourceId": "kedlaya-ant-2025",
-          "locator": "Chapter4 prime-count transfer; existing ADS contract",
-          "excerpt": "prime number theorem",
-          "match": "Exact target or stated specialization; unresolved proof inputs are named in the gap ledger."
+          "locator": "§1.3 partial summation, §1.4 PNT equivalences and Exercise1.6.7; §7.1 p.43",
+          "excerpt": "partial summation",
+          "match": "The conversion is owned by ADS6/10, while rational higher-prime-power removal is already pinned Mathlib."
         }
       ],
       "implementationStatus": "unchecked"
@@ -11120,15 +11246,20 @@
       "statement": "There is an effective absolute c>0 such that a primitive nonprincipal Dirichlet L-function of conductor q≥2 has no zero in Re s≥1−c/log(q(|Im s|+2)), except possibly one simple real zero of a real character.",
       "hypotheses": [],
       "proofSteps": [
-        "Apply the finite-order product and gamma estimates to the primitive completed Dirichlet function.",
-        "Use the conductor-uniform 3-4-1 inequality; separate the real-character exceptional case."
+        "Read the conductor-uniform primitive completion growth, logarithmic derivative and 3–4–1 argument in the original Davenport source; its proof remains an open gap here.",
+        "Kedlaya Theorem10.6 prints max(1,|t|)log q in the denominator; this cannot supply the stronger logarithmic-height statement by specialization. Import its corrected intended statement only after the original proof is checked.",
+        "Separate real and nonreal primitive nonprincipal characters, counting multiplicities in the exceptional region. Do not infer the whole conductor region from the single-real-zero uniqueness node."
       ],
       "prerequisites": [
         "AnalyticNumberTheory:AN.2/order-one-hadamard",
-        "AnalyticNumberTheory:AN.2/exceptional-zero-unique"
+        "AnalyticNumberTheory:AN.2/exceptional-zero-unique",
+        "mathlib:DirichletCharacter.IsPrimitive.completedLFunction_one_sub",
+        "mathlib:DirichletCharacter.differentiable_completedLFunction",
+        "AnalyticNumberTheory:AN.3/primitive-character-unit-height-zero-count"
       ],
       "acceptance": [
-        "Check every endpoint and the stated dependence of constants; no conjectural input is implicit."
+        "At t=0 the allowed exception is a single simple real zero of a real nonprincipal character.",
+        "The modulus is the primitive conductor, with q=1/principal characters excluded."
       ],
       "uses": [
         {
@@ -11144,9 +11275,9 @@
       "sources": [
         {
           "sourceId": "kedlaya-ant-2025",
-          "locator": "Chapter10 Theorem10.6, corrected log(q(|t|+2)) denominator",
-          "excerpt": "zero-free region",
-          "match": "Exact target or stated specialization; unresolved proof inputs are named in the gap ledger."
+          "locator": "§10.4 Theorem10.6 and Remark10.8, pp.61–62; cited Davenport §14 unread",
+          "excerpt": "absolute constant",
+          "match": "The printed denominator is weaker than the planned standard theorem. Its stronger logarithmic-height form is explicitly unverified here, not claimed as a literal match."
         }
       ],
       "implementationStatus": "unchecked"
@@ -11162,16 +11293,23 @@
       "statement": "For every A,B>0, uniformly for q≤(log x)^B and gcd(a,q)=1, π(x;a,q)=Li(x)/φ(q)+O_{A,B}(x(log x)^−A) as x→∞. The constant and threshold may be ineffective.",
       "hypotheses": [],
       "proofSteps": [
-        "Use the conductor-uniform explicit formula and exceptional-zero decomposition.",
-        "Apply Siegel’s ineffective lower separation to absorb the exceptional contribution in the logarithmic modulus range."
+        "Use the conductor-uniform character estimate including its exceptional contribution, reduce imprimitive characters with their finite Euler corrections, and apply exact finite orthogonality to the progression Λ coefficient.",
+        "Derive an ineffective separation 1−β≥c_ε q^(−ε) for primitive real characters from Siegel’s L(1,χ) lower bound together with a conductor-controlled derivative estimate near1. The L-value lower bound alone is not a zero-separation theorem; this adapter remains a gap.",
+        "For q≤(log x)^B choose ε<1/B (for example 1/(2(B+1))). Then x^β/x≤exp(−c_ε (log x)^(1−Bε)), which absorbs any fixed power of log x. Character averaging cannot increase the uniform coefficient bound.",
+        "Dominate higher prime powers by pinned ψ−θ, then apply the generic ADS Abel transfer. The constants and threshold may be ineffective and depend on A,B before quantifying over q,a,x."
       ],
       "prerequisites": [
         "AnalyticNumberTheory:AN.2/dirichlet-conductor-zero-free-region",
         "AnalyticNumberTheory:AN.2/siegel-quadratic-lvalue",
-        "AnalyticNumberTheory:AN.2/character-weighted-pnt"
+        "AnalyticNumberTheory:AN.2/character-weighted-pnt",
+        "mathlib:DirichletCharacter.sum_char_inv_mul_char_eq",
+        "mathlib:DirichletCharacter.LFunctionTrivChar_eq_mul_riemannZeta",
+        "mathlib:Chebyshev.isBigO_psi_sub_theta_sqrt",
+        "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-6-abel-and-perron-summation"
       ],
       "acceptance": [
-        "Check every endpoint and the stated dependence of constants; no conjectural input is implicit."
+        "For B=1 one may take ε=1/4; the exceptional relative term is ≤exp(−c(log x)^(3/4)).",
+        "The assertion is restricted to reduced classes and logarithmic modulus growth; it is not an effective uniform theorem for every modulus."
       ],
       "uses": [
         {
@@ -11187,9 +11325,9 @@
       "sources": [
         {
           "sourceId": "kedlaya-ant-2025",
-          "locator": "Chapter10 Theorem10.11, corrected coprimality and ineffectivity",
-          "excerpt": "Siegel",
-          "match": "Exact target or stated specialization; unresolved proof inputs are named in the gap ledger."
+          "locator": "§10.5 Theorem10.9 pp.62–63 and Theorem10.11 p.63; corrected coprimality, range and ineffectivity",
+          "excerpt": "Siegel–Walfisz",
+          "match": "The source omits the logarithmic range/reduced-class hypotheses and prints explicit constants. The packet keeps the standard precise theorem, with its original separation/proof still an explicit gap."
         }
       ],
       "implementationStatus": "unchecked"
@@ -11205,7 +11343,8 @@
       "statement": "For complex-valued f,g on positive integers and x≥1, D(f,g;x)=sqrt(Σ_{p≤x}(1−Re(f(p)conj(g(p))))/p), used under |f(p)|,|g(p)|≤1. This is a distance on prime data, not a metric on all multiplicative functions: D(f,f;x) can be positive if |f(p)|<1.",
       "hypotheses": [],
       "proofSteps": [
-        "Construct the displayed object on the specified domain using the existing carriers; prove the listed API before its analytic applications."
+        "Take the finite prime set p≤floor x and the real square root of the displayed sum. Under unit-disc prime values each summand is nonnegative.",
+        "All evaluation, symmetry, prime-data and cutoff API statements follow from finite sums and the real square-root laws; use the separately promoted square-nonnegative lemma when it is a prerequisite."
       ],
       "prerequisites": [],
       "acceptance": [
@@ -11228,9 +11367,9 @@
       "sources": [
         {
           "sourceId": "pretentious-gs",
-          "locator": "pp2–4, M(x,T) and weighted unit-disc norm",
+          "locator": "pp.2–4: M(x,T) on p.2 and weighted unit-disc product norm on pp.3–4",
           "excerpt": "a distance",
-          "match": "Exact target or stated specialization; unresolved proof inputs are named in the gap ledger."
+          "match": "The finite-prime version uses weights1/p and conjugates the second argument. Nonunit prime values give a nonzero diagonal; no metric diagonal axiom is imported."
         }
       ],
       "implementationStatus": "unchecked",
@@ -11298,15 +11437,18 @@
       "statement": "For |f_j(p)|,|g_j(p)|≤1, D(f₁f₂,g₁g₂;x)≤D(f₁,g₁;x)+D(f₂,g₂;x). If all g_j have unit modulus on the primes, this gives the usual triangle inequality for prime data.",
       "hypotheses": [],
       "proofSteps": [
-        "Use sqrt(1−Re(zw))≤sqrt(1−Re z)+sqrt(1−Re w) on the closed unit disc.",
-        "Apply the finite weighted Cauchy–Schwarz inequality to the prime sum."
+        "Apply unit-disc-product-distance to z=f₁(p)conj(g₁(p)), w=f₂(p)conj(g₂(p)) for each prime p≤x.",
+        "Multiply by sqrt(1/p), sum the squares, and apply finite Cauchy–Schwarz to obtain the weighted Euclidean product triangle.",
+        "For D(f,h)≤D(f,g)+D(g,h), the intermediate g must have |g(p)|=1 so f(p)conj(g(p))g(p)conj(h(p))=f(p)conj(h(p)). Do not impose a zero diagonal on arbitrary unit-disc functions."
       ],
       "prerequisites": [
         "AnalyticNumberTheory:AN.5/pretentious-distance",
-        "AnalyticNumberTheory:AN.5/pretentious-square-nonnegative"
+        "AnalyticNumberTheory:AN.5/pretentious-square-nonnegative",
+        "AnalyticNumberTheory:AN.5/unit-disc-product-distance"
       ],
       "acceptance": [
-        "Check every endpoint and the stated dependence of constants; no conjectural input is implicit."
+        "The scalar extension includes z=0 or w=0.",
+        "An intermediate unit-modulus prime function yields the usual three-function triangle; a unit-disc diagonal need not vanish."
       ],
       "uses": [
         {
@@ -11322,9 +11464,9 @@
       "sources": [
         {
           "sourceId": "pretentious-gs",
-          "locator": "pp3–4, norm product triangle argument",
+          "locator": "pp.3–4, inequality(5) and the unit-disc weight example",
           "excerpt": "triangle inequality",
-          "match": "Exact target or stated specialization; unresolved proof inputs are named in the gap ledger."
+          "match": "Finite cutoff removes all infinite-sum convergence issues. The missing scalar extension is now a separate lemma."
         }
       ],
       "implementationStatus": "unchecked"
@@ -11337,12 +11479,18 @@
       ],
       "title": "Logarithmic-derivative coefficient class",
       "kind": "definition",
-      "statement": "For κ>0, C(κ) consists of multiplicative arithmetic functions f with f(1)=1 for which F(s)=Σf(n)n^−s, an Euler-compatible logF series and −F′/F(s)=ΣΛ_f(n)n^−s converge absolutely on Re s>1, and |Λ_f(n)|≤κΛ(n). The logarithm is the branch fixed by the Euler expansion and tends to0 as real s→∞.",
+      "statement": "For κ>0, C(κ) is a predicate on the pinned ArithmeticFunction C, with its fixed value f(0)=0 and ordinary coprime multiplicativity f(1)=1. Membership is witnessed by an ArithmeticFunction C coefficient b=Λ_f with |b(n)|≤κΛ(n) for every n, including0,1. For every Re s>1 the three series F(s)=LSeries f s, LSeries b s and H(s)=LSeries (n↦b(n)/log n) s are absolutely convergent, F(s)=exp(H(s)), and −F′(s)/F(s)=LSeries b s. Division at n=0,1 is totalized to0, since b(0)=b(1)=0. This exponential identity fixes the Euler logarithm branch; it is not an arbitrary Prop field or an unrelated logarithm. Coefficient uniqueness follows from the logarithmic derivative and pinned LSeries uniqueness, including the normalized zero coefficient.",
       "hypotheses": [],
       "proofSteps": [
-        "Construct the displayed object on the specified domain using the existing carriers; prove the listed API before its analytic applications."
+        "Use the existing arithmetic-function carrier and coprime-multiplicative predicate. Require a concrete zero-extended b and the stated inequalities and three summability/analytic identities on the genuine convergence half-plane.",
+        "Use choice to expose b through the data API; apply LSeries.eq_of_LSeries_eventually_eq to prove witness uniqueness at positive n and zero extension at0. The logarithmic series has coefficients b(n)/log n; no new generic Dirichlet-series theory is planned.",
+        "Derive nonvanishing from F=exp(H), monotonicity in κ from the coefficient bound, and extensionality from the underlying arithmetic functions. The unit, Möbius, norm-twist and growth rejection tests compare exact coefficients."
       ],
-      "prerequisites": [],
+      "prerequisites": [
+        "mathlib:ArithmeticFunction.IsMultiplicative",
+        "mathlib:LSeries.eq_of_LSeries_eventually_eq",
+        "mathlib:LSeriesSummable"
+      ],
       "acceptance": [
         "f(n)=1 belongs to C(1), with Λ_f=Λ.",
         "μ belongs to C(1), with Λ_f=−Λ.",
@@ -11363,9 +11511,9 @@
       "sources": [
         {
           "sourceId": "halasz-ghs",
-          "locator": "§1 pp1–2, definition of C(κ)",
-          "excerpt": "class C",
-          "match": "Exact target or stated specialization; unresolved proof inputs are named in the gap ledger."
+          "locator": "§1 p.1, first three displayed series and definition of C(κ)",
+          "excerpt": "absolutely convergent",
+          "match": "Exact coefficient/branch predicate on existing ArithmeticFunction and LSeries, including zero extension for an injective coefficient API. This is the source’s coprime-multiplicative class, not a class of completely multiplicative functions."
         }
       ],
       "implementationStatus": "unchecked",
@@ -11373,7 +11521,7 @@
         {
           "name": "halasz_coefficient_class.log_coeff",
           "role": "data",
-          "statement": "The coefficients Λ_f are uniquely determined by their absolutely convergent Dirichlet series."
+          "statement": "Given h:f∈C(κ), expose the uniquely determined zero-extended arithmetic function Λ_f together with its summability and logarithmic-derivative identity. Any two membership witnesses choose the same Λ_f."
         },
         {
           "name": "halasz_coefficient_class.majorant",
@@ -11389,6 +11537,16 @@
           "name": "halasz_coefficient_class.mono",
           "role": "functoriality",
           "statement": "If κ≤κ′, C(κ)⊆C(κ′)."
+        },
+        {
+          "name": "halasz_coefficient_class.log_coeff_unique",
+          "role": "extensionality",
+          "statement": "If a zero-extended b has an absolutely convergent LSeries on Re s>1 equal there to −F′/F, it equals the exposed Λ_f. The zero coefficient is fixed; LSeries itself ignores it."
+        },
+        {
+          "name": "halasz_coefficient_class.constructor",
+          "role": "constructor",
+          "statement": "Coprime-multiplicative f and a coefficient b with the stated majorant, three summability conditions, exponential identity and logarithmic-derivative identity produce membership in C(κ), for κ>0."
         }
       ],
       "tests": [
@@ -11425,17 +11583,20 @@
       "statement": "For fixed κ>0, f∈C(κ) and sufficiently large x, |Σ_{n≤x}f(n)|≤C_κ x/log x ·∫_{1/log x}^1 max_{|t|≤(log x)^κ}|F(1+σ+it)/(1+σ+it)| dσ/σ + C_κ x(log log x)^κ/log x. The constant is uniform in f.",
       "hypotheses": [],
       "proofSteps": [
-        "Split the Euler product into primes≤y and>y.",
-        "Use the exact double-integral identity and finite-height Perron truncation.",
-        "Apply the logarithmic-coefficient Dirichlet-polynomial mean-square bound and Cauchy–Schwarz; take y=(log x)^(2κ+2)."
+        "Use the small/large-prime convolution split, the exact double-integral identity Lemma2.2, Shiu upper bound Lemma2.3, errors Lemmas2.4–2.5 and Proposition2.1. The original Shiu proof and the real-κ divisor majorant are unresolved suppliers.",
+        "Take T=(log x)^(κ+1), y=T²=(log x)^(2κ+2), η=1/log y; for sufficiently large x these satisfy the Proposition2.1 range1≤T≤x^(9/10),10≤y≤sqrt x.",
+        "Apply the separate single-Λ weighted mean-square lemma to the two large-prime polynomials, then Cauchy–Schwarz and Chebyshev weighted summation(2.6). The ordinary unweighted mean-square node cannot replace this step.",
+        "After integrating α, set σ=β+1/log x. Restrict the t maximum from T to(log x)^κ using |F(1+σ+it)|≤ζ(1+σ)^κ and its denominator; the tail contributes O_κ(x/log x). Enlarge the σ interval to1 and combine O_κ(x(log log x)^κ/log x) errors."
       ],
       "prerequisites": [
         "AnalyticNumberTheory:AN.5/halasz-coefficient-class",
         "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-6-abel-and-perron-summation",
-        "SieveMethodsAndPrimePatterns:SV.4"
+        "SieveMethodsAndPrimePatterns:SV.1",
+        "AnalyticNumberTheory:AN.5/mangoldt-polynomial-mean-square"
       ],
       "acceptance": [
-        "Check every endpoint and the stated dependence of constants; no conjectural input is implicit."
+        "Constants and the sufficiently-large-x threshold depend only on κ, before quantifying over f∈C(κ).",
+        "The maximum is of |F(s)/s|, not |F(s)|; the final t range is (log x)^κ, while the proof uses the larger auxiliary T."
       ],
       "uses": [
         {
@@ -11451,9 +11612,9 @@
       "sources": [
         {
           "sourceId": "halasz-ghs",
-          "locator": "Theorem1.1 and §2",
-          "excerpt": "Halasz",
-          "match": "Exact target or stated specialization; unresolved proof inputs are named in the gap ledger."
+          "locator": "Theorem1.1 p.2; §2 pp.7–12, Lemmas2.2–2.6, Proposition2.1 and final proof",
+          "excerpt": "Theorem 1.1",
+          "match": "The complete selected proof was reread. Its short-interval and prime-weighted mean-square inputs are made explicit; no bounded-gap theorem is used."
         }
       ],
       "implementationStatus": "unchecked",
@@ -11479,7 +11640,8 @@
         "AnalyticNumberTheory:AN.5/pretentious-distance"
       ],
       "acceptance": [
-        "Check every endpoint and the stated dependence of constants; no conjectural input is implicit."
+        "For f(n)=n^(it₀), |t₀|≤2T, the twist minimum M is0, so the bound allows a nonzero mean.",
+        "For f identically0 on primes the distance diagonal is not assumed to vanish; no completely-multiplicative hypothesis is imposed on general f."
       ],
       "uses": [
         {
@@ -11495,9 +11657,9 @@
       "sources": [
         {
           "sourceId": "pretentious-gs",
-          "locator": "p2, displayed Halász bound",
-          "excerpt": "M(x,T)",
-          "match": "Exact target or stated specialization; unresolved proof inputs are named in the gap ledger."
+          "locator": "p.2, displayed definition of M(x,T) and following mean-value bound",
+          "excerpt": "M(x, T)",
+          "match": "The source states this refinement and credits Montgomery–Tenenbaum; its original proof remains unread. Preserve |t|≤2T and the T^(−1/2) remainder."
         }
       ],
       "implementationStatus": "unchecked"
@@ -11513,16 +11675,20 @@
       "statement": "For x≥1,y≥2, Ψ(x,y)=#{1≤n≤floor x:every prime factor of n is≤y}. Express the set using Nat.smoothNumbers(floor y+1); the pinned carrier uses prime factors strictly below its cutoff.",
       "hypotheses": [],
       "proofSteps": [
-        "Construct the displayed object on the specified domain using the existing carriers; prove the listed API before its analytic applications."
+        "Define Ψ for all real x,y using Nat.smoothNumbersUpTo(floor x)(floor y+1), then restrict analytic statements to x≥1,y≥2. Nonnegative floor converts the strict natural-prime cutoff to p≤y on this domain.",
+        "Use the pinned membership lemma for positivity and x cutoff; monotonicity follows from floor monotonicity and finite-set inclusion. If y≥x≥2 every positive n≤floor x has all prime divisors≤n≤y.",
+        "Check the two finite examples and exclusion of0 against the native finite set; the value at x<1 is0 because floor x=0."
       ],
       "prerequisites": [
         "mathlib:Nat.smoothNumbers",
-        "mathlib:Nat.smoothNumbersUpTo"
+        "mathlib:Nat.smoothNumbersUpTo",
+        "mathlib:Nat.mem_smoothNumbersUpTo"
       ],
       "acceptance": [
         "Ψ(8,2)=4, counting1,2,4,8.",
         "Ψ(6,3)=5, counting1,2,3,4,6; the prime3 is included.",
-        "0 is never counted."
+        "0 is never counted.",
+        "Ψ(0,2)=0; the real extension has no nonpositive integers."
       ],
       "uses": [
         {
@@ -11538,9 +11704,9 @@
       "sources": [
         {
           "sourceId": "smooth-ht",
-          "locator": "Introduction pp412–415",
+          "locator": "Introduction p.412 and §1 p.414 formula(1.3)",
           "excerpt": "smooth integers",
-          "match": "Exact target or stated specialization; unresolved proof inputs are named in the gap ledger."
+          "match": "The source uses inclusive prime cutoff; the +1 natural cutoff is an adapter to pinned Mathlib, whose carrier is already built."
         }
       ],
       "implementationStatus": "unchecked",
@@ -11584,6 +11750,11 @@
           "name": "smooth_count.zero",
           "kind": "computation",
           "statement": "0 is never counted."
+        },
+        {
+          "name": "smooth_count.empty",
+          "kind": "computation",
+          "statement": "Ψ(0,2)=0."
         }
       ]
     },
@@ -11598,13 +11769,17 @@
       "statement": "ρ:R→R is0 for u<0, equals1 for0≤u≤1, is continuous on[0,∞), and satisfies uρ′(u)=−ρ(u−1) on u>1. Construct it recursively on intervals[k,k+1] by integration; the value at0 is1, so no continuity across negative u is claimed.",
       "hypotheses": [],
       "proofSteps": [
-        "Construct the displayed object on the specified domain using the existing carriers; prove the listed API before its analytic applications."
+        "Set ρ=0 on negative arguments and ρ=1 on[0,1]. Inductively define ρ(u)=ρ(k)−∫_k^u ρ(t−1)/t dt for k≥1 and k≤u≤k+1. The integrand is continuous on each step; endpoint agreement glues a continuous function on[0,∞).",
+        "The fundamental theorem of calculus gives HasDerivAt ρ(−ρ(u−1)/u) u for u>1. Continuity is not differentiability at1: the left derivative is0 and the right derivative is−1. Telescoping the steps yields the global integral recursion.",
+        "Two continuous integral-recursion solutions with the same initial data agree by induction on consecutive unit intervals. No uniqueness outside[0,∞) follows unless the negative convention is imposed.",
+        "For all real u prove uρ(u)=∫_{u−1}^uρ(v)dv: check u≤1 directly, and for u>1 differentiate both sides and match at1. This identity supplies the first-zero contradiction; positivity implies strict decrease for u>1 and antitonicity on[0,∞). Hildebrand–Tenenbaum Lemma2.5 has this complete elementary proof."
       ],
       "prerequisites": [],
       "acceptance": [
         "ρ(0)=ρ(1)=1.",
         "ρ(2)=1−log2.",
-        "ρ(−1)=0; extending1 to negative u would violate the convention."
+        "ρ(−1)=0; extending1 to negative u would violate the convention.",
+        "The delay derivative holds at integers≥2, but not at1."
       ],
       "uses": [
         {
@@ -11620,9 +11795,9 @@
       "sources": [
         {
           "sourceId": "smooth-ht",
-          "locator": "pp414–415 and §2",
-          "excerpt": "Dickman function",
-          "match": "Exact target or stated specialization; unresolved proof inputs are named in the gap ledger."
+          "locator": "p.414 equation(1.5); §2 Lemma2.5 and complete proof p.426",
+          "excerpt": "smooth integers",
+          "match": "Both formula pages were viewed as images. The source proves the integral identity, positivity and decrease; the consecutive-interval construction/uniqueness argument is made explicit here. The more precise asymptotics in the remainder of §2 were not audited."
         }
       ],
       "implementationStatus": "unchecked",
@@ -11649,6 +11824,26 @@
           "name": "dickman_function.positive",
           "role": "projection",
           "statement": "ρ(u)>0 for every finite u≥0, and ρ is nonincreasing on[0,∞)."
+        },
+        {
+          "name": "dickman_function.negative",
+          "role": "simp",
+          "statement": "ρ(u)=0 for u<0; no continuity across0 is asserted."
+        },
+        {
+          "name": "dickman_function.continuous",
+          "role": "projection",
+          "statement": "ContinuousOn ρ[0,∞)."
+        },
+        {
+          "name": "dickman_function.delay",
+          "role": "characterisation",
+          "statement": "For u>1, HasDerivAt ρ(−ρ(u−1)/u) u; do not claim differentiability at1."
+        },
+        {
+          "name": "dickman_function.interval_identity",
+          "role": "characterisation",
+          "statement": "For every real u, uρ(u)=∫_{u−1}^uρ(v)dv, with the fixed negative extension."
         }
       ],
       "tests": [
@@ -11680,16 +11875,20 @@
       "statement": "For each fixed u>0, Ψ(x,x^(1/u))/x→ρ(u) as x→∞. This statement is not uniform for u tending to infinity.",
       "hypotheses": [],
       "proofSteps": [
-        "Use the largest-prime-factor decomposition of Ψ and partial summation of rational prime counts.",
-        "Identify the limiting recursion with the unique Dickman delay solution; prove uniformity on each bounded u interval before passing to a fixed u."
+        "For0<u≤1 eventually y=x^(1/u)≥x, so Ψ=floor x and the limit is1.",
+        "For u>1 use the separate largest-prime decomposition and quantitative partial summation of rational prime counts, then identify its normalized limit recursively on consecutive bounded u intervals.",
+        "The moving prime-sum/Riemann-integral error, short terminal range and compact-u uniformity needed for induction must be supplied as explicit analytic lemmas before applying uniqueness of the Dickman integral solution. The survey states the fixed-u target; its original Dickman/de Bruijn proof has not been read in this run."
       ],
       "prerequisites": [
         "AnalyticNumberTheory:AN.5/smooth-count",
         "AnalyticNumberTheory:AN.5/dickman-function",
-        "AnalyticNumberTheory:AN.2/chebyshev-prime-count-transfer"
+        "AnalyticNumberTheory:AN.2/chebyshev-prime-count-transfer",
+        "AnalyticNumberTheory:AN.5/smooth-largest-prime-decomposition"
       ],
       "acceptance": [
-        "Check every endpoint and the stated dependence of constants; no conjectural input is implicit."
+        "The specialization u=1 has exact Ψ(x,x)=floor x for x≥2.",
+        "At u=2 the limit is1−log2.",
+        "Constants may depend on a fixed compact u range; this yields no growing-u uniformity."
       ],
       "uses": [
         {
@@ -11705,9 +11904,9 @@
       "sources": [
         {
           "sourceId": "smooth-ht",
-          "locator": "p414 Dickman formula; §§2–3",
-          "excerpt": "fixed u",
-          "match": "Exact target or stated specialization; unresolved proof inputs are named in the gap ledger."
+          "locator": "p.414 equations(1.5)–(1.6)",
+          "excerpt": "smooth integers",
+          "match": "Exact fixed-u statement checked on the page image. This is a survey statement receipt, not a fresh original-proof receipt; the moving-prime limit is a gap."
         }
       ],
       "implementationStatus": "unchecked"
@@ -11723,14 +11922,17 @@
       "statement": "For x≥1,y≥2 and σ>0, Ψ(x,y)≤x^σ∏_{p≤y}(1−p^−σ)^−1. The finite-prime Euler product is finite and each geometric series converges.",
       "hypotheses": [],
       "proofSteps": [
-        "For each counted n, 1≤(x/n)^σ.",
-        "Enlarge the positive n sum to all y-smooth positive integers and factor over the finitely many primes."
+        "For each counted positive n≤x and σ>0,1≤(x/n)^σ. Bound the finite count by x^σ times its finite n^(−σ) sum.",
+        "Enlarge to the summable nonnegative series over all positive y-smooth integers, using the separately named finite-prime Euler-series lemma.",
+        "Apply the geometric factorization. For x=1, Ψ=1 and all Euler factors exceed1, so the bound includes the endpoint."
       ],
       "prerequisites": [
-        "AnalyticNumberTheory:AN.5/smooth-count"
+        "AnalyticNumberTheory:AN.5/smooth-count",
+        "AnalyticNumberTheory:AN.5/smooth-finite-euler-series"
       ],
       "acceptance": [
-        "Check every endpoint and the stated dependence of constants; no conjectural input is implicit."
+        "The bound is valid for every σ>0, includingσ≤1; only finitely many primes occur.",
+        "For x=1 the count is1; σ=0 is excluded because the geometric factors are not summable."
       ],
       "uses": [
         {
@@ -11746,9 +11948,9 @@
       "sources": [
         {
           "sourceId": "smooth-ht",
-          "locator": "p414 Rankin method",
-          "excerpt": "Rankin",
-          "match": "Exact target or stated specialization; unresolved proof inputs are named in the gap ledger."
+          "locator": "p.414 equation(1.3), page image",
+          "excerpt": "smooth integers",
+          "match": "The displayed Rankin inequality is exactly the target for σ>0; extending its printed x>1 to x=1 uses the elementary endpoint check."
         }
       ],
       "implementationStatus": "unchecked"
@@ -13792,14 +13994,290 @@
       ],
       "implementationStatus": "unchecked",
       "addedBy": "REV-AnalyticNumberTheory--AN.0"
+    },
+    {
+      "id": "AnalyticNumberTheory:AN.2/rational-mangoldt-boundary",
+      "parentStageId": "AnalyticNumberTheory:AN.2",
+      "realises": [
+        "AnalyticNumberTheory:AN.2"
+      ],
+      "title": "Regularized rational Mangoldt boundary",
+      "kind": "lemma",
+      "statement": "There exists G:C→C continuous on {s:Re s≥1} such that, for Re s>1, G(s)=−ζ′(s)/ζ(s)−1/(s−1). Together with the pinned absolutely convergent Λ LSeries identity, this is the exact residue-1 Wiener–Ikehara boundary input. G(1) is the analytic extension’s value, not the junk-valued subtraction.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Near 1 use the existing regular completed-zeta formula and gamma nonvanishing to obtain an analytic pole-cleared h(s)=(s−1)ζ(s) with h(1)=1.",
+        "On a sufficiently small neighbourhood h is nonzero and −ζ′/ζ−1/(s−1)=−h′/h off 1. Define G(1)=−h′(1)/h(1).",
+        "Away from 1 on the closed half-plane, use analytic zeta and pinned nonvanishing to get continuity. Glue with the neighbourhood expression; cite the pinned Λ summability and logarithmic-derivative identity."
+      ],
+      "prerequisites": [
+        "mathlib:differentiableAt_riemannZeta",
+        "mathlib:riemannZeta_ne_zero_of_one_le_re",
+        "mathlib:completedRiemannZeta_eq",
+        "mathlib:differentiable_completedZeta₀",
+        "mathlib:riemannZeta_residue_one",
+        "mathlib:ArithmeticFunction.LSeriesSummable_vonMangoldt",
+        "mathlib:ArithmeticFunction.LSeries_vonMangoldt_eq_deriv_riemannZeta_div",
+        "AnalyticNumberTheory:AN.2/zeta-pole-log-derivative"
+      ],
+      "acceptance": [
+        "Continuity is required at 1, not just convergence from real arguments.",
+        "The logarithmic pole coefficient is 1 even when the residue of the uncompleted function changes."
+      ],
+      "uses": [
+        {
+          "where": "AnalyticNumberTheory:AN.2",
+          "how": "Regularized rational Mangoldt boundary"
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/AnalyticNumberTheory/AN2",
+        "namespace": "TauCeti.AnalyticNumberTheory",
+        "declaration": "TauCeti.AnalyticNumberTheory.rational_mangoldt_boundary"
+      },
+      "sources": [
+        {
+          "sourceId": "kedlaya-ant-2025",
+          "locator": "§6.1 Theorem6.1 and §7.1; derived Wiener–Ikehara boundary adapter",
+          "excerpt": "prime number theorem",
+          "match": "The source motivates the PNT; the boundary is derived from pinned continuation/nonvanishing, not attributed to a nonexistent printed Wiener–Ikehara lemma."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "addedBy": "REV-AnalyticNumberTheory--AN.0"
+    },
+    {
+      "id": "AnalyticNumberTheory:AN.2/progression-mangoldt-boundary",
+      "parentStageId": "AnalyticNumberTheory:AN.2",
+      "realises": [
+        "AnalyticNumberTheory:AN.2"
+      ],
+      "title": "Regularized progression Mangoldt boundary",
+      "kind": "lemma",
+      "statement": "For fixed q≥1 and a unit residue a modulo q, put b(n)=Λ(n)1_{n≡a modq}≥0 with b(0)=0. Its LSeries converges absolutely for Re s>1 and equals F(s)=φ(q)^−1∑_χ χ(a)^−1(−L′(s,χ)/L(s,χ)), where χ ranges over all characters modulo q, including the principal and imprimitive ones. There exists G continuous on Re s≥1 with G(s)=F(s)−φ(q)^−1/(s−1) for Re s>1.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Use pinned finite-character orthogonality for the unit a and all n, so nonunits n contribute zero. The inverse is on a; apply χΛ summability and the LSeries-to-continuation derivative comparison.",
+        "For χ nonprincipal the canonical L is holomorphic and nonzero on the whole line Re s=1, so its logarithmic derivative is continuous there.",
+        "For χ principal write L=ζ times the finite deleted Euler factors. Each factor is nonzero on Re s≥1 because |p^(−s)|≤p^−1<1. Add their holomorphic logarithmic derivatives to the rational boundary adapter, then average with χ(a)^−1. The principal character contributes exactly 1/φ(q) to the logarithmic pole."
+      ],
+      "prerequisites": [
+        "AnalyticNumberTheory:AN.2/rational-mangoldt-boundary",
+        "mathlib:DirichletCharacter.sum_char_inv_mul_char_eq",
+        "mathlib:DirichletCharacter.LSeries_twist_vonMangoldt_eq",
+        "mathlib:DirichletCharacter.LSeriesSummable_twist_vonMangoldt",
+        "mathlib:DirichletCharacter.deriv_LFunction_eq_deriv_LSeries",
+        "mathlib:DirichletCharacter.differentiableAt_LFunction",
+        "mathlib:DirichletCharacter.LFunctionTrivChar_eq_mul_riemannZeta",
+        "mathlib:DirichletCharacter.LFunction_ne_zero_of_one_le_re"
+      ],
+      "acceptance": [
+        "For q=1 the sum has one character and gives the rational boundary.",
+        "For q=4,a=1 or3 the residue is 1/2; evaluating the principal L at its junk value at1 is unnecessary."
+      ],
+      "uses": [
+        {
+          "where": "AnalyticNumberTheory:AN.2",
+          "how": "Regularized progression Mangoldt boundary"
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/AnalyticNumberTheory/AN2",
+        "namespace": "TauCeti.AnalyticNumberTheory",
+        "declaration": "TauCeti.AnalyticNumberTheory.progression_mangoldt_boundary"
+      },
+      "sources": [
+        {
+          "sourceId": "kedlaya-ant-2025",
+          "locator": "§4.3 finite Fourier extraction, pp.25–26; §10.1 p.59; derived fixed-modulus boundary adapter",
+          "excerpt": "discrete Fourier analysis",
+          "match": "Orthogonality and the fixed-modulus PNT route are printed. The continuous boundary package is separately derived from pinned declarations, preserving the nonnegative progression coefficient."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "addedBy": "REV-AnalyticNumberTheory--AN.0"
+    },
+    {
+      "id": "AnalyticNumberTheory:AN.5/unit-disc-product-distance",
+      "parentStageId": "AnalyticNumberTheory:AN.5",
+      "realises": [
+        "AnalyticNumberTheory:AN.5"
+      ],
+      "title": "Unit-disc product distance inequality",
+      "kind": "lemma",
+      "statement": "For complex z,w with |z|,|w|≤1, sqrt(1−Re(zw))≤sqrt(1−Re z)+sqrt(1−Re w).",
+      "hypotheses": [],
+      "proofSteps": [
+        "Put a=1−Re z and b=1−Re w, so a,b≥0 and (Im z)²≤2a, (Im w)²≤2b by the unit-disc assumptions.",
+        "Then 1−Re(zw)=a+b−ab+(Im z)(Im w)≤a+b+2sqrt(ab)=(sqrt a+sqrt b)². Both sides are nonnegative, so take square roots. This proves the extension from the unit circle without assuming it."
+      ],
+      "prerequisites": [],
+      "acceptance": [
+        "z=w=−1 gives left side0, while z=w=0 gives left side1."
+      ],
+      "uses": [
+        {
+          "where": "AnalyticNumberTheory:AN.5",
+          "how": "Unit-disc product distance inequality"
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/AnalyticNumberTheory/AN5",
+        "namespace": "TauCeti.AnalyticNumberTheory",
+        "declaration": "TauCeti.AnalyticNumberTheory.unit_disc_product_distance"
+      },
+      "sources": [
+        {
+          "sourceId": "pretentious-gs",
+          "locator": "p.4 first paragraph, extension of the η product inequality to the closed unit disc",
+          "excerpt": "all pairs",
+          "match": "The source states the extension; the explicit algebraic proof here supplies it in under a page."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "addedBy": "REV-AnalyticNumberTheory--AN.0"
+    },
+    {
+      "id": "AnalyticNumberTheory:AN.5/mangoldt-polynomial-mean-square",
+      "parentStageId": "AnalyticNumberTheory:AN.5",
+      "realises": [
+        "AnalyticNumberTheory:AN.5"
+      ],
+      "title": "Prime-weighted Dirichlet-polynomial mean bound",
+      "kind": "lemma",
+      "statement": "There is an absolute C>0 such that for T≥1, x≥1 and any complex coefficients a(n), the integral from −T to T of |∑_{T²≤n≤x}a(n)Λ(n)exp(−it log n)|² is at most C∑_{T²≤n≤x}n|a(n)|²Λ(n). The finite sums use inclusive real cutoffs. If x<T² they are empty.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Use the nonnegative even majorant Φ(t)=(sin(t)/t)²/(sin1)², continuously extended at0, whose Fourier transform has fixed compact support; enlarge the integration interval and expand the finite square.",
+        "The off-diagonal kernel is supported where |log(n/m)|≪1/T. Use 2|a(m)a(n)|≤|a(m)|²+|a(n)|² and symmetry.",
+        "The sum of Λ(n) in the supported window around m is ≪m/T when m≥T², from the short-interval upper-bound sieve plus higher-prime-power removal. Multiplying by T yields the claimed single-Λ diagonal. That precise supplier and the Fourier normalization remain gaps."
+      ],
+      "prerequisites": [
+        "SieveMethodsAndPrimePatterns:SV.1",
+        "mathlib:Chebyshev.psi_le_const_mul_self"
+      ],
+      "acceptance": [
+        "For T=1,x=2 the only nonzero summand is n=2, and an absolute C≥log2 suffices.",
+        "The right side has one Λ(n), not Λ(n)²; the unweighted mean-square theorem alone does not supply this sharper estimate."
+      ],
+      "uses": [
+        {
+          "where": "AnalyticNumberTheory:AN.5",
+          "how": "Prime-weighted Dirichlet-polynomial mean bound"
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/AnalyticNumberTheory/AN5",
+        "namespace": "TauCeti.AnalyticNumberTheory",
+        "declaration": "TauCeti.AnalyticNumberTheory.mangoldt_polynomial_mean_square"
+      },
+      "sources": [
+        {
+          "sourceId": "halasz-ghs",
+          "locator": "§2.3 Lemma2.6 and its complete proof, p.11",
+          "excerpt": "Brun–Titchmarsh theorem",
+          "match": "The complete selected source proof was read. It invokes an interval prime-weight bound rather than the ordinary Montgomery–Vaughan mean-square inequality."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "addedBy": "REV-AnalyticNumberTheory--AN.0"
+    },
+    {
+      "id": "AnalyticNumberTheory:AN.5/smooth-largest-prime-decomposition",
+      "parentStageId": "AnalyticNumberTheory:AN.5",
+      "realises": [
+        "AnalyticNumberTheory:AN.5"
+      ],
+      "title": "Largest-prime-factor smooth decomposition",
+      "kind": "lemma",
+      "statement": "For x≥1,y≥2, Ψ(x,y)+∑_{y<p≤x, p prime}Ψ(x/p,p)=floor x. Each positive non-y-smooth integer has a unique largest prime divisor p>y, and dividing by one copy of p leaves a p-smooth integer. Repeated largest primes are permitted.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Partition the finite set of positive n≤floor x into y-smooth integers and those whose largest prime factor is p>y. The latter p satisfies p≤x.",
+        "For each p use n↦n/p and m↦p*m to identify its fibre with positive p-smooth m≤floor(x/p). Repeated p in m is allowed; a p-rough or strict-p-smooth fibre would be wrong.",
+        "Sum disjoint fibre cardinalities and account for1 in the smooth fibre."
+      ],
+      "prerequisites": [
+        "AnalyticNumberTheory:AN.5/smooth-count",
+        "mathlib:Nat.mem_smoothNumbersUpTo"
+      ],
+      "acceptance": [
+        "For x=6,y=2, Ψ=3 and the p=3,5 fibres have sizes2,1; their sum is6."
+      ],
+      "uses": [
+        {
+          "where": "AnalyticNumberTheory:AN.5",
+          "how": "Largest-prime-factor smooth decomposition"
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/AnalyticNumberTheory/AN5",
+        "namespace": "TauCeti.AnalyticNumberTheory",
+        "declaration": "TauCeti.AnalyticNumberTheory.smooth_largest_prime_decomposition"
+      },
+      "sources": [
+        {
+          "sourceId": "smooth-ht",
+          "locator": "p.414 fixed-u formula(1.6); elementary largest-prime partition used for its limiting recursion",
+          "excerpt": "smooth integers",
+          "match": "This is a derived finite combinatorial adapter, not a theorem claimed verbatim from the survey."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "addedBy": "REV-AnalyticNumberTheory--AN.0"
+    },
+    {
+      "id": "AnalyticNumberTheory:AN.5/smooth-finite-euler-series",
+      "parentStageId": "AnalyticNumberTheory:AN.5",
+      "realises": [
+        "AnalyticNumberTheory:AN.5"
+      ],
+      "title": "Finite-prime smooth Dirichlet series",
+      "kind": "lemma",
+      "statement": "For y≥2 and σ>0, the nonnegative real series ∑_{n≥1, n y-smooth}n^(−σ) is summable and equals ∏_{p≤y}(1−p^(−σ))^(−1). This is a finite-prime identity valid for every positive σ, even σ≤1.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Use Nat.equivProdNatFactoredNumbers inductively on the finite set of primes≤y to index smooth positive integers by their independent nonnegative prime exponents.",
+        "Each p≥2 has0<p^(−σ)<1. Its geometric series is summable; finite products/Tonelli and rpow multiplication factor the sum. The zero integer is excluded by the existing carrier.",
+        "Identify the finite prime set with primes strictly below floor y+1. No infinite-prime Euler product on Re s>1 is substituted for this stronger finite-prime statement."
+      ],
+      "prerequisites": [
+        "AnalyticNumberTheory:AN.5/smooth-count",
+        "mathlib:Nat.equivProdNatFactoredNumbers"
+      ],
+      "acceptance": [
+        "For y=2, the series over1,2,4,… is(1−2^(−σ))⁻¹ for every σ>0."
+      ],
+      "uses": [
+        {
+          "where": "AnalyticNumberTheory:AN.5",
+          "how": "Finite-prime smooth Dirichlet series"
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/AnalyticNumberTheory/AN5",
+        "namespace": "TauCeti.AnalyticNumberTheory",
+        "declaration": "TauCeti.AnalyticNumberTheory.smooth_finite_euler_series"
+      },
+      "sources": [
+        {
+          "sourceId": "smooth-ht",
+          "locator": "p.414 equation(1.3), finite-prime geometric factorization",
+          "excerpt": "smooth integers",
+          "match": "The displayed Rankin proof uses this equality; the exact reindexing carrier is pinned Mathlib. Further Tonelli/geometric/rpow library consumers still need full audit."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "addedBy": "REV-AnalyticNumberTheory--AN.0"
     }
   ],
   "requests": [
     {
       "supplier": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-6-abel-and-perron-summation",
-      "need": "Truncated arithmetic Perron for the actual von Mangoldt LSeries, with uniform error, off-endpoint and half-weight endpoint forms; finite-height kernel value at1 is arctan(T/c)/π, not1/2.",
+      "need": "Truncated arithmetic Perron for the actual von Mangoldt LSeries, with uniform error, off-endpoint and half-weight endpoint forms; finite-height kernel value at1 is arctan(T/c)/π, not1/2. For Siegel–Walfisz, also use the Layer6 quantitative Abel identity converting coprime-progression θ estimates to π with the Li main term and an explicit lower-endpoint term, retaining uniform constants for q≤(log x)^B; a fixed-modulus asymptotic alone is insufficient.",
       "neededBy": [
-        "AnalyticNumberTheory:AN.3/von-mangoldt-explicit-formula-and-pnt-error"
+        "AnalyticNumberTheory:AN.3/von-mangoldt-explicit-formula-and-pnt-error",
+        "AnalyticNumberTheory:AN.2/siegel-walfisz"
       ]
     },
     {
@@ -13933,7 +14411,7 @@
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-9-wienerikehara",
-      "need": "Wiener–Ikehara for the actual nonnegative norm/natural coefficient LSeries with its pole removed and continuous line-one boundary.",
+      "need": "For a nonnegative real sequence b with b(0)=0, require LSeriesHasSum b s (F s) on Re s>1 and a separately named G continuous on Re s≥1 with G=F−κ/(s−1) on Re s>1, κ≥0. Conclude the inclusive floor summatory sum divided by x tends to κ; no continuity of junk-valued subtraction at1 is assumed.",
       "neededBy": [
         "AnalyticNumberTheory:AN.2/rational-prime-number-theorem",
         "AnalyticNumberTheory:AN.2/fixed-progression-prime-number-theorem"
@@ -13949,8 +14427,8 @@
       ]
     },
     {
-      "supplier": "SieveMethodsAndPrimePatterns:SV.4",
-      "need": "Shiu’s bound for nonnegative multiplicative functions: for fixed κ,ε>0, x^ε≤z≤x, q≤z^(1−ε), reduced a modq, Σ_{x−z≤n≤x,n≡a modq}|f(n)|≪_{κ,ε} z/(φ(q)log x) exp(Σ_{p≤x,p∤q}|f(p)|/p), for f∈C(κ). Supply the exact range used by GHS Lemma2.3.",
+      "supplier": "SieveMethodsAndPrimePatterns:SV.1",
+      "need": "Shiu’s bound for nonnegative multiplicative functions: for fixed κ,ε>0, x^ε≤z≤x, q≤z^(1−ε), reduced a modq, Σ_{x−z≤n≤x,n≡a modq}|f(n)|≪_{κ,ε} z/(φ(q)log x) exp(Σ_{p≤x,p∤q}|f(p)|/p), for f∈C(κ). Supply the exact range used by GHS Lemma2.3. This is an exact requested extension of SV.1 upper-bound sieve applications; its current packet has no Shiu node. SV.4 plans Maynard bounded gaps and cannot be its supplier.",
       "neededBy": [
         "AnalyticNumberTheory:AN.5/halasz-integral-bound"
       ]
@@ -14037,7 +14515,8 @@
       "supplier": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-6-abel-and-perron-summation",
       "need": "Specialize the existing absolute-convergence/Perron and Abel infrastructure to the quadratic Hecke logarithmic-derivative coefficients and the smoothing1−N𝔞/Y. The kernel isY^s/(s(s+1)); zero-height contour shifts and quantitative residues are AN.3/4 proof gaps, not an asserted generic supplier output.",
       "neededBy": [
-        "AnalyticNumberTheory:AN.4/most-quadratic-many-split-primes"
+        "AnalyticNumberTheory:AN.4/most-quadratic-many-split-primes",
+        "AnalyticNumberTheory:AN.2/siegel-walfisz"
       ]
     },
     {
@@ -14066,6 +14545,13 @@
       "need": "Use characterConductorExp and the unramified criterion: local conductor exponent0 iff the Galois character is trivial on inertia, compatible with CFT11 globalArtinMap_local and arithmetic Frobenius. This fixes both full local factors in the linear Artin/Hecke comparison.",
       "neededBy": [
         "AnalyticNumberTheory:AN.4/artin-linear-hecke-comparison"
+      ]
+    },
+    {
+      "supplier": "SieveMethodsAndPrimePatterns:SV.1",
+      "need": "For T≥1 and m≥T², bound the Mangoldt-weighted window ∑_{n≥1, |log(n/m)|≤c₀/T}Λ(n)≤C(c₀)m/T for each fixed c₀>0. State and prove the prime-power contribution separately; the prime-only Brun–Titchmarsh count is not the complete Λ window. This supplies GHS Lemma2.6, after the Fourier kernel’s support constant is fixed.",
+      "neededBy": [
+        "AnalyticNumberTheory:AN.5/mangoldt-polynomial-mean-square"
       ]
     }
   ],
@@ -14270,7 +14756,7 @@
         "AnalyticNumberTheory:AN.2/fixed-progression-prime-number-theorem",
         "AnalyticNumberTheory:AN.2/rational-pnt-error"
       ],
-      "detail": "Read the exact pinned LSeries derivative and boundary regularization, fixed-q character orthogonality, conjugation, finite low-height zero separation, and the optimized-height logarithm absorption. No finite zero-check is inferred from numerical evidence. The requested ADS results are generic suppliers, not duplicate planned theorems."
+      "detail": "The rational and progression boundary adapters are separate lemma nodes, using freshly read pinned Λ summability/logarithmic derivative, character orthogonality, canonical-continuation derivatives and the principal finite-factor formula. Rational ψ−θ=O(sqrt x) is already pinned. The pole-cleared analytic-germ/continuous-boundary construction and canonical norm-to-natural interface still need exact formal adapters. The PNT remainder no longer requires the qualitative PNT as an input. Low zeros are treated as a finite multiplicity sum, not divided by ordinate0; effectivity of their compact separation and the explicit optimized-height constants remains unproved. No numerical zero check is assumed."
     },
     {
       "title": "Conductor-uniform region and Siegel–Walfisz proof",
@@ -14278,25 +14764,27 @@
         "AnalyticNumberTheory:AN.2/dirichlet-conductor-zero-free-region",
         "AnalyticNumberTheory:AN.2/siegel-walfisz"
       ],
-      "detail": "Read the original sources cited in Chapter10; that chapter states that many proofs are omitted. Break completed-function growth, conductor-uniform zero count and exceptional-term absorption into lemmas. Bombieri–Vinogradov belongs to SV.3, not to this node."
+      "detail": "The original Davenport §14/21 proofs remain unread. Theorem10.6 as printed has max(1,|t|)log q, not the planned log(q(|t|+2)); do not attribute the stronger region to that printed statement. Complete primitive completed-growth/log-derivative and 3–4–1 estimates uniformly in the conductor. For Siegel–Walfisz, add the quantitative L(1,χ)-to-zero separation adapter using a conductor-controlled derivative near1, then the logarithmic modulus absorption and imprimitive corrections. Siegel’s L-value bound alone is insufficient. The finite orthogonality and prime-power removal suppliers are pinned; Bombieri–Vinogradov remains owned by SV.3."
     },
     {
       "title": "Halász proof decomposition",
       "neededBy": [
-        "AnalyticNumberTheory:AN.5/pretentious-product-triangle",
         "AnalyticNumberTheory:AN.5/halasz-coefficient-class",
         "AnalyticNumberTheory:AN.5/halasz-integral-bound",
-        "AnalyticNumberTheory:AN.5/halasz-classical"
+        "AnalyticNumberTheory:AN.5/halasz-classical",
+        "AnalyticNumberTheory:AN.5/mangoldt-polynomial-mean-square"
       ],
-      "detail": "Fresh GHS reading covers Theorem1.1, §2 Lemmas2.2–2.5 and the start of Lemma2.6. Complete Lemma2.6, Proposition2.1 and the final Cauchy–Schwarz argument; split Shiu’s short-interval supplier (SV.4), Euler-factor splitting and finite-height errors into lemmas. The classical D-based theorem needs its original Halász/Montgomery–Tenenbaum proof, not just the quoted source statement."
+      "detail": "GHS §2 pp.7–12 (Lemmas2.2–2.6, Proposition2.1, final Theorem1.1 proof) was freshly read in full at the exact v1 PDF. Split the multiple-convolution identity, small/large Euler-factor split, real-κ divisor majorant and integrated Perron/Shiu errors into lemma nodes before full lemma-level closure. The separate single-Λ weighted mean-square node now names its Fourier/weighted-window gap. Shiu and the Mangoldt window are precise open SV.1 requests, not imports from Maynard SV.4. SV.1’s current packet contains no exact Shiu or Brun–Titchmarsh node. The explicit C(κ) predicate/API/tests now have native signatures, but their coefficient/analytic proofs remain planned. The classical D-based theorem still needs the original Halász/Montgomery–Tenenbaum proof, which GS only quotes. The unit-disc product extension now has an explicit elementary proof and separate lemma."
     },
     {
       "title": "Dickman construction and limiting recursion",
       "neededBy": [
         "AnalyticNumberTheory:AN.5/dickman-function",
-        "AnalyticNumberTheory:AN.5/dickman-fixed-u"
+        "AnalyticNumberTheory:AN.5/dickman-fixed-u",
+        "AnalyticNumberTheory:AN.5/smooth-largest-prime-decomposition",
+        "AnalyticNumberTheory:AN.5/smooth-finite-euler-series"
       ],
-      "detail": "The smooth survey’s formula displays require page-image verification because its text layer drops mathematics. Read the complete §2 recursive positivity/uniqueness proof and §3 fixed-u proof, then split the integral recursion, compact-u error and prime-sum limit into lemmas. The exact fixed-u target is recorded and does not inherit a growing-u range."
+      "detail": "Fresh codex-LO9Eha reading viewed formula pages414,426 and read the complete selected Lemma2.5 proof. Consecutive-interval construction, delay, negative convention, continuity and integral identity are now explicit APIs; their formal construction/gluing and finite-prime Euler reindexing still need complete baseline consumer audits. The survey states fixed-u Dickman but does not certify its original proof. Reacquire and read Dickman/de Bruijn or a complete modern proof, then split the moving largest-prime sum into quantitative prime partial summation, terminal-range control and compact-u limit lemmas. Later §2 saddle-point results and §3 are unread; no growing-u range is inferred."
     },
     {
       "title": "Divisor-average source and harmonic constant",
@@ -14547,10 +15035,9 @@
         "AnalyticNumberTheory:AN.4/partial-ideal-zeta",
         "AnalyticNumberTheory:AN.2/exceptional-squareclasses",
         "AnalyticNumberTheory:AN.4/artin-local-polynomial",
-        "AnalyticNumberTheory:AN.4/artin-euler-series",
-        "AnalyticNumberTheory:AN.5/halasz-coefficient-class"
+        "AnalyticNumberTheory:AN.4/artin-euler-series"
       ],
-      "detail": "The five definition blocks and their API/tests are named and specified in the suggested file comments, but executable signatures are left out under PROTOCOL§13 until the canonical narrow/ordinary class ideal coefficient, quadratic-field character, inertia/Frobenius Artin representation and Euler-compatible logarithmic coefficient interfaces are supplied. Do not invent replacement Prop fields, a second ideal LSeries carrier, or degree-one completely multiplicative Artin coefficients. All remaining named theorem forms depending on these unavailable carriers are specified by the reader and require the same follow-up. The 17 definitions with concrete carriers have native signatures and all their API/tests; this is an explicit incompleteness, not an elaboration claim."
+      "detail": "Four definition blocks and their API/tests remain mathematical comments without executable signatures: partial ideal zeta on the canonical class carrier, exceptional squareclasses with their canonical quadratic character, and the local/global Artin constructions on the actual inertia/Frobenius representation data. Do not substitute unrelated Prop fields or a degree-one Artin series. C(κ) now has an explicit native predicate on ArithmeticFunction and LSeries, concrete coefficient witnesses, every API/test and its native integral mean-bound signature; its proofs remain admitted. Eighteen definitions have native forms, whose whole-file semantic consistency still needs final review."
     },
     {
       "title": "CM parity and conductor adapter proof",
@@ -14570,6 +15057,15 @@
         "AnalyticNumberTheory:AN.5/gamma-prime-product-tail"
       ],
       "detail": "The published SS proofs pp.705–706 and708–709 were read and their finite calculations retained. At lemma level supply the squarefree expansion a=1∗g, the uniformly summable |g(d)|/sqrt d majorant and the exact Euler-product identity C=Σg(d)/d; verify the pinned generic Euler-product API against these nonstandard summability bounds. For γ_n supply the local binomial bound and the HasProd/positive-log summability adapter passing the telescoping bound from all finite subproducts to every retained infinite subset. These missing declarations are not replaced by an unjustified generic Wintner request to ADS layer6."
+    },
+    {
+      "title": "Dedekind gamma and modulus adapters",
+      "neededBy": [
+        "AnalyticNumberTheory:AN.4/dedekind-completed-functional-equation",
+        "AnalyticNumberTheory:AN.4/dedekind-negative-even-zero",
+        "AnalyticNumberTheory:AN.4/imprimitive-hecke-factors"
+      ],
+      "detail": "The selected Tate §4.5 equations and AL.1 global/archimedean/unramified node contracts were read. Complete the standard trace-character/self-dual measure, inverse-different/discriminant and pinned Γ_C normalization adapter; the global integral FE alone is not an uncompleted Dedekind FE. Prove meromorphic gamma orders and positive Dedekind values on Re s>1 to obtain exact negative-even zero order r₁+r₂. Import the ray-modulus/conductor dictionary, compare finite deleted Euler factors in the convergence half-plane and use meromorphic uniqueness, without equating totalized pole values. Tate’s entire source proof remains the AL owner’s work."
     }
   ],
   "sourceIssues": [
@@ -15513,12 +16009,12 @@
   "links": [],
   "validationNotes": [
     "Every node is an unchecked plan. No implementation or proof completion is claimed.",
-    "The suggested file was elaborated with lean-check in the existing shared build at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174. The latest codex-45ZB12 check has0 errors and248 admitted-proof warnings. This is Mathlib-only elaboration; no Tau Ceti module compilation, new project, build/cache operation or language server is claimed.",
-    "Historical elaboration receipts retain their individual scopes. Current signatures and mathematical comments were reconciled in the codex-45ZB12 continuation; elaboration checks types, not proof correctness or complete source closure.",
+    "The suggested file was elaborated with lean-check in the existing shared build at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174. The latest codex-LO9Eha check has0 errors and270 warnings, all admitted-proof warnings. This is Mathlib-only elaboration; no Tau Ceti module compilation, new project, build/cache operation or language server is claimed. Only explanatory header and mathematical-specification comments changed after that check.",
+    "Historical elaboration receipts retain their individual scopes. Current signatures and mathematical comments were reconciled in the codex-LO9Eha continuation; elaboration checks types, not proof correctness or complete source closure.",
     "The current checker resolves tauceti atlas-stage prerequisites, so the prior upstreamPrerequisites workaround was removed.",
     "AN.3 remains whole. The proposed SV.2→AN.3 reverse edge is withheld until the old AN.3→SV.2 edge can be removed atomically by the maintainer.",
     "The generic Landau, Perron, Wiener–Ikehara and prime-transfer packages remain owned by ADS; Tate continuation/functional equations remain imported from AL.1.",
-    "The repeated-prime Beurling test and nonnegative Dickman monotonicity remain inherited corrections. Five canonical-carrier definition signatures remain explicit PROTOCOL§13 omissions, with their mathematical specifications and API/test names in comments. Full native API/test and reader consistency still require independent review.",
+    "The repeated-prime Beurling test and nonnegative Dickman monotonicity remain inherited corrections. Four canonical-carrier definition signatures remain explicit PROTOCOL§13 omissions, with their mathematical specifications and API/test names in comments. C(κ) now has a concrete ArithmeticFunction/LSeries predicate and complete native API/test signatures; Dickman continuity, negative extension, delay and interval identity are explicit. Full native API/test and reader consistency still require independent review.",
     "Native forms additionally state the Mertens estimates, divisor average, proved moments, fixed-m medium-prime count, Halász bound, conductor region, order-one factorization and Dirichlet polynomial mean square using concrete carriers. Local-uniform factorization and other remaining named-target interfaces still require refinement."
   ],
   "targetLedger": {
