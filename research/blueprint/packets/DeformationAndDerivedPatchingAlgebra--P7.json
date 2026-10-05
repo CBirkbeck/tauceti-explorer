@@ -13,7 +13,7 @@
     "DeformationAndDerivedPatchingAlgebra:R03.5"
   ],
   "status": "complete",
-  "summary": "Completed the planning pass under the 300-node budget with all 478 inherited declaration objects preserved and no new nodes. Completion is a review milestone, not mathematical closure: P7, R03.3 and R03.4 remain partial; P8, P9, R03.1, R03.2 and R03.5 remain not_read. Consolidated current follow-up obligations supersede historical prototype frontiers. The general finite-module Hilbert–Samuel multiplicity key, all 15 gaps, both supplier requests, source-version records and source issue E1 remain. Existing native proof and admitted-projection receipts are authenticated from PR #6086; the full Tau-importing suggested file remains uncompiled. All implementation statuses are unchecked.",
+  "summary": "Completed the planning pass under the 300-node budget with all 478 inherited declaration objects preserved and no new nodes. Completion is a review milestone, not mathematical closure: P7, R03.3 and R03.4 remain partial; P8, P9, R03.1, R03.2 and R03.5 remain not_read. Consolidated current follow-up obligations supersede historical prototype frontiers. The general finite-module Hilbert–Samuel multiplicity key, all 15 gaps, both supplier requests, source-version records and source issue E3 remain. Existing native proof and admitted-projection receipts are authenticated from PR #6086; the full Tau-importing suggested file remains uncompiled. All implementation statuses are unchecked.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -1897,7 +1897,7 @@
       {
         "ref": "mathlib:ENat.toNat_natCast",
         "provides": "Native toNat of a finite natural cast is exactly the original number.",
-        "module": "Mathlib.Data.ENat.Basic",
+        "module": "Mathlib/Data/ENat/Basic.lean",
         "sourceFile": "Mathlib/Data/ENat/Basic.lean",
         "sourceLine": 121,
         "sourceSha256": "bafb690a7dfcf08866c2f499a1349d0d0ec3d45b7f3d6c5027e4af62238f1377",
@@ -1906,7 +1906,7 @@
       {
         "ref": "mathlib:ENat.natCast_ne_top",
         "provides": "Every native natural cast in extended naturals is different from infinity.",
-        "module": "Mathlib.Data.ENat.Basic",
+        "module": "Mathlib/Data/ENat/Basic.lean",
         "sourceFile": "Mathlib/Data/ENat/Basic.lean",
         "sourceLine": 180,
         "sourceSha256": "bafb690a7dfcf08866c2f499a1349d0d0ec3d45b7f3d6c5027e4af62238f1377",
@@ -1915,7 +1915,7 @@
       {
         "ref": "mathlib:ENat.natCast_toNat_eq_self",
         "provides": "The natural-value cast recovers exactly an extended natural value precisely when it is not infinity.",
-        "module": "Mathlib.Data.ENat.Monoid",
+        "module": "Mathlib/Data/ENat/Monoid.lean",
         "sourceFile": "Mathlib/Data/ENat/Monoid.lean",
         "sourceLine": 71,
         "sourceSha256": "fa7c2cbada9314448a3089c9aa2b60a8497b22fd093bced0b77d9ae97f916448",
@@ -1924,7 +1924,7 @@
       {
         "ref": "mathlib:Nat.choose_eq_zero_iff",
         "provides": "The native binomial vanishes exactly when the upper argument is smaller than the lower argument.",
-        "module": "Mathlib.Data.Nat.Choose.Basic",
+        "module": "Mathlib/Data/Nat/Choose/Basic.lean",
         "sourceFile": "Mathlib/Data/Nat/Choose/Basic.lean",
         "sourceLine": 122,
         "sourceSha256": "3abe93f2b0d22bf844405a917c97a6677a02d39df76429280df4b5ad0dfc6b0d",
@@ -1933,7 +1933,7 @@
       {
         "ref": "mathlib:Nat.choose_le_choose",
         "provides": "Native binomial counts are monotone in the upper natural argument.",
-        "module": "Mathlib.Data.Nat.Choose.Basic",
+        "module": "Mathlib/Data/Nat/Choose/Basic.lean",
         "sourceFile": "Mathlib/Data/Nat/Choose/Basic.lean",
         "sourceLine": 351,
         "sourceSha256": "3abe93f2b0d22bf844405a917c97a6677a02d39df76429280df4b5ad0dfc6b0d",
@@ -1942,7 +1942,7 @@
       {
         "ref": "mathlib:Nat.cast_choose_two",
         "provides": "The existing binomial coefficient cast into a division ring with nonzero 2 equals a(a−1)/2; apply it in ℚ, not the coefficient field.",
-        "module": "Mathlib.Data.Nat.Choose.Cast",
+        "module": "Mathlib/Data/Nat/Choose/Cast.lean",
         "sourceFile": "Mathlib/Data/Nat/Choose/Cast.lean",
         "sourceLine": 44,
         "sourceSha256": "bb2345595880ff28fff3cdd8219bcb5bf28659eb4d39de65d3bd1df1476c15bc",
@@ -1951,7 +1951,7 @@
       {
         "ref": "mathlib:Set.Ici_infinite",
         "provides": "A closed upper interval in a preorder with no maximum is infinite; use the natural interval N≥K.",
-        "module": "Mathlib.Order.Interval.Set.Infinite",
+        "module": "Mathlib/Order/Interval/Set/Infinite.lean",
         "sourceFile": "Mathlib/Order/Interval/Set/Infinite.lean",
         "sourceLine": 87,
         "sourceSha256": "d1759a3a33fb9da555f80af7fbfe36f15f43269217d263048f1d392e192fd873",
@@ -1960,7 +1960,7 @@
       {
         "ref": "mathlib:Set.infinite_image_iff",
         "provides": "The image of a set under a map injective on it is infinite exactly when the set is infinite; Infinite.image is the provided protected alias.",
-        "module": "Mathlib.Data.Set.Finite.Basic",
+        "module": "Mathlib/Data/Set/Finite/Basic.lean",
         "sourceFile": "Mathlib/Data/Set/Finite/Basic.lean",
         "sourceLine": 884,
         "sourceSha256": "46117578ac47cd272b20cc9b739c9c4025e52c45ef14e6357654d7f9a581f3c9",
@@ -1969,7 +1969,7 @@
       {
         "ref": "mathlib:Nat.cast_injective",
         "provides": "The natural cast into an AddMonoidWithOne with CharZero is injective; apply only to ℚ, not the arbitrary equation coefficient field.",
-        "module": "Mathlib.Algebra.CharZero.Defs",
+        "module": "Mathlib/Algebra/CharZero/Defs.lean",
         "sourceFile": "Mathlib/Algebra/CharZero/Defs.lean",
         "sourceLine": 63,
         "sourceSha256": "4e00adaead9e395b42d432698efe1fa4f7d6d61732b1fedc941eee5fae65a74c",
@@ -1978,7 +1978,7 @@
       {
         "ref": "mathlib:Polynomial.natDegree_linear",
         "provides": "The native linear polynomial C(a)X+C(b) has natural degree one when a≠0.",
-        "module": "Mathlib.Algebra.Polynomial.Degree.SmallDegree",
+        "module": "Mathlib/Algebra/Polynomial/Degree/SmallDegree.lean",
         "sourceFile": "Mathlib/Algebra/Polynomial/Degree/SmallDegree.lean",
         "sourceLine": 80,
         "sourceSha256": "46ade3e5c8c6334c08cc2e6a1ffa22f5325f1758be9ce268b4de423b512596f7",
@@ -1987,7 +1987,7 @@
       {
         "ref": "mathlib:Polynomial.leadingCoeff_linear",
         "provides": "The native linear polynomial has leading coefficient a when a≠0.",
-        "module": "Mathlib.Algebra.Polynomial.Degree.SmallDegree",
+        "module": "Mathlib/Algebra/Polynomial/Degree/SmallDegree.lean",
         "sourceFile": "Mathlib/Algebra/Polynomial/Degree/SmallDegree.lean",
         "sourceLine": 84,
         "sourceSha256": "46ade3e5c8c6334c08cc2e6a1ffa22f5325f1758be9ce268b4de423b512596f7",
@@ -1996,7 +1996,7 @@
       {
         "ref": "mathlib:Polynomial.natDegree_quadratic",
         "provides": "The native quadratic polynomial C(a)X²+C(b)X+C(c) has natural degree two when a≠0.",
-        "module": "Mathlib.Algebra.Polynomial.Degree.SmallDegree",
+        "module": "Mathlib/Algebra/Polynomial/Degree/SmallDegree.lean",
         "sourceFile": "Mathlib/Algebra/Polynomial/Degree/SmallDegree.lean",
         "sourceLine": 109,
         "sourceSha256": "46ade3e5c8c6334c08cc2e6a1ffa22f5325f1758be9ce268b4de423b512596f7",
@@ -2005,7 +2005,7 @@
       {
         "ref": "mathlib:Polynomial.leadingCoeff_quadratic",
         "provides": "The native quadratic polynomial has leading coefficient a when a≠0.",
-        "module": "Mathlib.Algebra.Polynomial.Degree.SmallDegree",
+        "module": "Mathlib/Algebra/Polynomial/Degree/SmallDegree.lean",
         "sourceFile": "Mathlib/Algebra/Polynomial/Degree/SmallDegree.lean",
         "sourceLine": 113,
         "sourceSha256": "46ade3e5c8c6334c08cc2e6a1ffa22f5325f1758be9ce268b4de423b512596f7",
@@ -4815,17 +4815,17 @@
       "tests": [
         {
           "name": "isCatenary_test_field",
-          "kind": "example",
+          "kind": "characterisation",
           "statement": "A field is catenary: its only prime is 0."
         },
         {
           "name": "isCatenary_test_int",
-          "kind": "example",
+          "kind": "characterisation",
           "statement": "ℤ is catenary: every chain of primes has length at most one."
         },
         {
           "name": "isCatenary_test_mvPolynomial_two",
-          "kind": "example",
+          "kind": "characterisation",
           "statement": "k[x, y] = MvPolynomial (Fin 2) k is catenary, although it has non-saturated chains 0 ⊂ (x, y) of length 1 besides saturated ones of length 2."
         },
         {
@@ -4991,7 +4991,8 @@
         "module": "TauCeti/RingTheory/RegularLocalRing/MaximalDepth",
         "namespace": "Module"
       },
-      "implementationStatus": "unchecked"
+      "implementationStatus": "unchecked",
+      "declaration": "RingTheory.Sequence.isRegular_of_generators_maximalIdeal"
     },
     {
       "id": "DeformationAndDerivedPatchingAlgebra:R03.3/free-of-maximal-depth-regular-local",
@@ -30756,7 +30757,7 @@
         "Complete the general reserved multiplicity API: positivity/integrality, powers of ideals, dimension-normalized additivity, associativity, completion invariance and the intrinsic/ambient distinction. The zero module has multiplicity zero without being assigned dimension zero.",
         "Retain native finite-jet and all-index plane-curve cumulative/graded length, postulation and polynomial prototypes. The full multiplicative tangent-cone comparison is an admitted plan. Prove its full principal kernel and generator compatibility with exact finite-order/no-zero-divisors hypotheses, then curve dimension and the comparison with general intrinsic multiplicity. Keep zero/unit equations, positive characteristic, nonreduced equations and arbitrary-coefficient boundaries.",
         "Decompose regular-local associated-graded polynomial structure and domain/multiplicity-one consequences; prove the Nagata converse under formal unmixedness, and the parameter-ideal bound with its Cohen–Macaulay equality criterion. Preserve smooth/node/cusp/triple-point tests as applications of the general key, not substitutes for it.",
-        "Account for every issue #551 routed source within its accepted ownership boundary. Preserve source issue E1 and its read-version scope; no fresh primary-paper reading or source closure is claimed by this budget completion."
+        "Account for every issue #551 routed source within its accepted ownership boundary. Preserve source issue E3 and its read-version scope; no fresh primary-paper reading or source closure is claimed by this budget completion."
       ]
     },
     {
@@ -30964,7 +30965,12 @@
         "GitHub official stacks/stacks-project issue searches for 0AZU and for ideal of definition plus zero, including closed issues, returned zero matches on 2026-10-03.",
         "Official repository issue search for multiplicity plus zero returned zero matches; bounded web searches for the remark and zero-module corrections found no correction. This is a bounded novelty search.",
         "The atlas source-issues register and blueprint errata searched for 0AZU or 43.15.6: no existing entry."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The online version read on 2026-10-05 still has the five-condition equivalence in Remark 43.15.6. For A=Q, I=0, M=0, condition (5) holds with length zero, while I+Ann(M)=A is not an ideal of definition in Definition 10.59.1. Proper I and nonzero finite M exclude the boundary by local Nakayama. This confirms the stated-result exception; the bounded novelty search was not independently repeated.",
+        "by": "REV-DeformationAndDerivedPatchingAlgebra--P7"
+      }
     }
   ],
   "validationBoundary": "The original five baseline entries and baselineCoverage are preserved verbatim. The new declarations were inspected at the exact pin, with source blobs recorded. KW passages were parsed-only after failed screenshots. No Lean compilation or closed stage is asserted. Initial CI exposed that the checker treats any tauceti: prefix as a baseline declaration before testing stage IDs. The algebraic endpoint now has only baseline/local-node prerequisites, matching its five signatures. The local-field and framed-lifting extensions remain explicit requests, gaps and remainingExtensions; no upstream stage is falsely listed as a proved baseline theorem. The handoff's initial uploaded packet hash refers to the pre-CI version; the amended packet is validated by the new submission run. Continuation of 28 September 2026 (cc-39fac3): the suggested file was compiled at the pins with the v4.34.0-rc2 lean against the prebuilt Mathlib 082e2d3 oleans. Before this continuation it had one error, an elab_as_elim motive failure in the prime-filtration induction wrapper, fixed by passing (motive := motive). After the fix and the R03.3 additions it has 0 errors and only placeholder-proof warnings; the R03.4 intermediate-field signatures elaborate. Continuation by Codex — codex-a71f92, 2026-10-02: fresh selected source passages and sixteen additional pinned declaration statements inspected. The general polynomial theorem is not inferred from the pinned rational-series hilbertPoly API. New signatures not compiled; prior compilation receipts are historical only. All new nodes remain unchecked and all stages remain partial/not_read. Codex — codex-J6LwjP read all applicable DDPA AUDIT-17 entries, the accepted RS-08 keeps/links/owner decisions, the original roadmap and integrated P7 node. New baseline statements were read at the pin. This is a mathematical continuation, not an independent review of the earlier checkpoint or a new confirmation of the paper errata. Current codex-J6LwjP receipt: the entire suggested file elaborates with Lean v4.34.0-rc2 against existing Mathlib 082e2d3 oleans, 0 errors and 112 placeholder-proof warnings. No Tau Ceti module is imported or built. Prior no-compilation statements describe earlier checkpoints only. All mathematical implementations remain unchecked; none of the eight stages is closed. Codex — codex-a71f92 cumulative continuation: native quotient and Bernoulli statements freshly inspected at the pin. Only the cumulative-existence consumer is refined; 43 of 44 inherited nodes are unchanged. New signatures are uncompiled because the available source trees have no existing pinned build; the earlier compilation receipt is historical. All new nodes remain unchecked. Current codex-J6LwjP curve-jet integration preserves all 96 inherited node objects and the reserved key definition. New signatures elaborate but are admitted under section 13. Rerun finite exact arithmetic does not certify any formal-series theorem, tangent cone, dimension, multiplicity or source closure. Codex — codex-rtOQ9t: actual native proofs of the three new API lemmas and the unchanged planeCurve_jet_length signature, with six actual examples, checked separately without admissions. Canonical bodies remain admitted under section 13. Previous receipts retain their authorship and historical scope; no new routed-paper closure or independent review is claimed.",
@@ -32946,6 +32952,42 @@
       "url": "https://stacks.math.columbia.edu/tag/00K4",
       "read": "2026-10-03",
       "sha256": "e3d86d2fc7e6a9df48e73e4e8d12629cdb08f9e0fb9d15e35472d7bc21629932"
+    },
+    {
+      "url": "https://stacks.math.columbia.edu/tag/0AZU",
+      "sha256": "fa26c4ba52a27c097c6bfc6ac9f8f2c2053ceacabd044bd3426d8ae8d8440e14",
+      "read": "2026-10-05",
+      "kind": "published"
+    },
+    {
+      "url": "https://stacks.math.columbia.edu/tag/00K4",
+      "sha256": "e3d86d2fc7e6a9df48e73e4e8d12629cdb08f9e0fb9d15e35472d7bc21629932",
+      "read": "2026-10-05",
+      "kind": "published"
+    },
+    {
+      "url": "https://stacks.math.columbia.edu/tag/00NI",
+      "sha256": "ab6c56499a53b360ca9481d60c93fd12a7eed7cbbf49ff84449a0df6e3a556ee",
+      "read": "2026-10-05",
+      "kind": "published"
+    },
+    {
+      "url": "https://stacks.math.columbia.edu/tag/00NQ",
+      "sha256": "28e8c01c12a52b05820c32d5a1dfc3f5f8d4e79776d2507b5588bcee0f4ffeac",
+      "read": "2026-10-05",
+      "kind": "published"
+    },
+    {
+      "url": "https://stacks.math.columbia.edu/tag/0ECF",
+      "sha256": "dd3b0e4f3b308515a5165b83b32d91307a91002f4995f99e4ce8bf753b758e61",
+      "read": "2026-10-05",
+      "kind": "published"
+    },
+    {
+      "url": "https://www.math.ucla.edu/~shekhar/papers/proofs.pdf",
+      "sha256": "53f45f8be3b3c7de19f42417920d34a809e908412826490ebed90f07c8e86ed4",
+      "read": "2026-10-05",
+      "kind": "author copy"
     }
   ],
   "gradedAnnihilatorContinuation": {
@@ -33022,5 +33064,77 @@
     },
     "remaining": "This native proof checkpoint establishes the old finite expansion, direct-sum equivalence, ring homogeneous decomposition, GradedAlgebra registration and projection laws on the ordinary Rees quotient, with no admitted native proof. The canonical suggested file remains an unchecked signature plan. Actual graded modules, their decompositions and actions, finite generation, general Hilbert–Serre, support/degree comparison, associativity of multiplicity and the full reserved Hilbert–Samuel target remain open; retain every older remaining item and gap.",
     "priorArt": "Fresh PR metadata for Mathlib #33220 (head 70572cd62395e933e8f6476bcedcee366a5b5e82) and #9819 (head 413e5b872a7c758e0eb91f99cb96d6a61c81f0a2) still shows open, unmerged general graded-module/Hilbert–Serre leads, not adopted code. Pinned TauCeti WordFiltration/AssociatedGraded lines 1–175 were read: their ascending word quotients do not supply this descending ideal-adic Rees-quotient adapter. No global absence certificate is asserted."
+  },
+  "reviewCheckpoint": {
+    "status": "partial",
+    "reviewer": "independent-review-REV-DeformationAndDerivedPatchingAlgebra--P7",
+    "session": "codex-6GrZZA",
+    "date": "2026-10-05",
+    "notes": "Independent review checkpoint, not an acceptance or needs_changes verdict. All 449 Mathlib baseline names resolve at the pin. The 11 Tau citations were read in their three pinned source modules; full consumer closure and the remaining Mathlib statement/use audit are unfinished. Source issue E3 is confirmed. Thirteen baseline module paths were normalized, the missing regular-local regular-sequence signature was supplied, four anonymous catenary examples were linked to their packet names, and three invalid catenary test-kind values were corrected. The handoff gives the exact resume boundary.",
+    "baselineNamesResolved": 449,
+    "tauSourceStatementsRead": 11,
+    "normalizedBaselineModules": [
+      "mathlib:ENat.toNat_natCast",
+      "mathlib:ENat.natCast_ne_top",
+      "mathlib:ENat.natCast_toNat_eq_self",
+      "mathlib:Nat.choose_eq_zero_iff",
+      "mathlib:Nat.choose_le_choose",
+      "mathlib:Nat.cast_choose_two",
+      "mathlib:Set.Ici_infinite",
+      "mathlib:Set.infinite_image_iff",
+      "mathlib:Nat.cast_injective",
+      "mathlib:Polynomial.natDegree_linear",
+      "mathlib:Polynomial.leadingCoeff_linear",
+      "mathlib:Polynomial.natDegree_quadratic",
+      "mathlib:Polynomial.leadingCoeff_quadratic"
+    ],
+    "fullSuggestedCompiled": false,
+    "fullSuggestedBoundary": "lean-check stopped at the unavailable TauCeti.RingTheory.GradedAlgebra.Homogeneous.Quotient compiled object. No full-file elaboration is certified.",
+    "remaining": [
+      "Read every remaining node source locator and excerpt; the initial source inspection and baseline-name screen do not verify all 478 nodes.",
+      "Check all 460 baseline statements against their actual consumers, cross-roadmap suppliers, every proof step, API item and unit test.",
+      "Finish the suggested-file correspondence, key-definition sample API and ownership audits; add a final review object only after the independent review is complete.",
+      "The current reader/historical planning handoff call the retained source issue E1; the actual packet id is E3. Those documents are outside this review issue's edit allowlist. Reconcile the cross-reference through an authorized document follow-up."
+    ],
+    "mathlibModulePresenceScreen": {
+      "declarations": 449,
+      "modules": 146,
+      "unmatchedDeclarationTokens": 0,
+      "recordedFileHashesChecked": 13,
+      "fileHashMismatches": 0,
+      "note": "Presence/module screen only; a declaration may exist without supplying a consumer statement."
+    },
+    "sourceFitInspected": [
+      "mathlib:Algebra.IsIntegral.inv_mem",
+      "mathlib:Algebra.IsIntegral.tower_top",
+      "mathlib:Algebra.finite_iff_isIntegral_and_finiteType",
+      "mathlib:IsAlgClosed.lift",
+      "mathlib:IsArtinianRing.isMaximal_of_isPrime",
+      "mathlib:IsArtinianRing.of_finite",
+      "mathlib:IsDiscreteValuationRing.exists_irreducible",
+      "mathlib:IsDiscreteValuationRing.iff_pid_with_one_nonzero_prime",
+      "mathlib:IsDiscreteValuationRing.irreducible_iff_uniformizer",
+      "mathlib:IsDiscreteValuationRing.length_quotient_pow_maximalIdeal",
+      "mathlib:IsIntegralClosure.finite",
+      "mathlib:IsLocalHom.of_surjective",
+      "mathlib:Module.Finite.exists_fin'",
+      "mathlib:Module.length_ne_top_iff",
+      "mathlib:Ring.krullDimLE_iff",
+      "mathlib:Ring.krullDimLE_zero_iff",
+      "mathlib:RingHom.IsIntegral.isLocalHom",
+      "mathlib:RingHom.isLocalHom_comp",
+      "mathlib:integralClosure.isIntegral",
+      "mathlib:isArtinian_of_tower",
+      "mathlib:isFiniteLength_iff_isNoetherian_isArtinian",
+      "mathlib:nilpotent_iff_mem_prime"
+    ],
+    "suggestedPrefixCheck": {
+      "boundary": "Take the prefix before the positivity-continuation comment, removing the two TauCeti imports; no declaration is substituted. The prefix includes the newly added regular-local signature.",
+      "lines": 1123,
+      "exitCode": 0,
+      "errors": 0,
+      "admittedProofWarnings": 113,
+      "note": "An isolated Mathlib-only prefix check; it does not elaborate the full suggested file or certify admitted mathematics."
+    }
   }
 }
