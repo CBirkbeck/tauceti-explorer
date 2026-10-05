@@ -1,0 +1,647 @@
+{
+  "roadmapId": "EllipticRegulators",
+  "protocol": "blueprint-v1",
+  "part": "ER.2",
+  "status": "complete",
+  "scope": [
+    "EllipticRegulators:ER.2"
+  ],
+  "summary": "Elliptic specialisation of the imported Deligne target and curve regulator: an explicit early-supplier contract, archimedean orbit coordinates and rank, the Chern-character/cup-product normalisation, and the oriented rational period coordinate. The five accepted ER.2 nodes are reused by id. General Deligne theory belongs to the early part of MotivicEtaleKTheory M.8 and the general curve current and its comparison belong to Polylogarithms P.5.",
+  "baseline": {
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "declarations": [
+      {
+        "ref": "mathlib:Module.End.eigenspace",
+        "kind": "abbrev",
+        "module": "Mathlib/LinearAlgebra/Eigenspace/Basic.lean",
+        "provides": "The existing submodule for c*x = -x; use this rather than a private invariant-space predicate.",
+        "checked": "Declaration and statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, Mathlib/LinearAlgebra/Eigenspace/Basic.lean:424, 2026-10-05."
+      },
+      {
+        "ref": "mathlib:Module.End.mem_eigenspace_iff",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Eigenspace/Basic.lean",
+        "provides": "x lies in the μ-eigenspace iff f x = μ • x; tests and period-coordinate equations use μ = -1.",
+        "checked": "Declaration and statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, Mathlib/LinearAlgebra/Eigenspace/Basic.lean:468, 2026-10-05."
+      },
+      {
+        "ref": "mathlib:NumberField.ComplexEmbedding.conjugate",
+        "kind": "abbrev",
+        "module": "Mathlib/NumberTheory/NumberField/InfinitePlace/Embeddings.lean",
+        "provides": "Complex conjugation of embeddings is star on ring homomorphisms.",
+        "checked": "Declaration and statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, Mathlib/NumberTheory/NumberField/InfinitePlace/Embeddings.lean:192, 2026-10-05."
+      },
+      {
+        "ref": "mathlib:NumberField.ComplexEmbedding.isReal_iff",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/NumberField/InfinitePlace/Embeddings.lean",
+        "provides": "An embedding is real exactly when conjugation fixes it.",
+        "checked": "Declaration and statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, Mathlib/NumberTheory/NumberField/InfinitePlace/Embeddings.lean:213, 2026-10-05."
+      },
+      {
+        "ref": "mathlib:NumberField.InfinitePlace.nrRealPlaces",
+        "kind": "abbrev",
+        "module": "Mathlib/NumberTheory/NumberField/InfinitePlace/Basic.lean",
+        "provides": "The cardinality of real infinite places.",
+        "checked": "Declaration and statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, Mathlib/NumberTheory/NumberField/InfinitePlace/Basic.lean:437, 2026-10-05."
+      },
+      {
+        "ref": "mathlib:NumberField.InfinitePlace.nrComplexPlaces",
+        "kind": "abbrev",
+        "module": "Mathlib/NumberTheory/NumberField/InfinitePlace/Basic.lean",
+        "provides": "The cardinality of complex places, each representing two embeddings.",
+        "checked": "Declaration and statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, Mathlib/NumberTheory/NumberField/InfinitePlace/Basic.lean:441, 2026-10-05."
+      },
+      {
+        "ref": "mathlib:NumberField.InfinitePlace.card_add_two_mul_card_eq_rank",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/NumberField/InfinitePlace/Basic.lean",
+        "provides": "r₁+2r₂ = finrank ℚ F for a number field F; this arithmetic identity is imported, not replanned.",
+        "checked": "Declaration and statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, Mathlib/NumberTheory/NumberField/InfinitePlace/Basic.lean:474, 2026-10-05."
+      },
+      {
+        "ref": "mathlib:Complex.imCLM",
+        "kind": "def",
+        "module": "Mathlib/Analysis/Complex/Basic.lean",
+        "provides": "The real continuous linear imaginary-part map; on the imaginary axis it agrees with division by i followed by the real part.",
+        "checked": "Declaration and statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, Mathlib/Analysis/Complex/Basic.lean:172, 2026-10-05."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "Brunault.These.2005",
+      "title": "Valeur en 2 de fonctions L de courbes elliptiques",
+      "authors": "François Brunault",
+      "edition": "Doctoral thesis, 2005; arXiv:math/0602186v1. PDF and printed page numbers agree.",
+      "url": "https://arxiv.org/pdf/math/0602186v1",
+      "sha256": "8fd73faba5db08328c2884d9f35b79bc528145428766444f3eb8097f3b494fb7",
+      "accessed": "2026-10-05",
+      "readSections": [
+        "§1.1 pp.19–20: Lemma 15, Definition 16, Proposition 17 and remarks.",
+        "§1.2 p.26: Proposition 26 and normalised differential.",
+        "§§2.5–2.6 pp.63–70: Lemmas 61–62, Definition 63, Proposition 67 and proof of Theorem 68. Page images 64–66 and 68 checked for conjugation and signs."
+      ]
+    },
+    {
+      "id": "Schneider.1988",
+      "title": "Introduction to the Beilinson conjectures",
+      "authors": "Peter Schneider",
+      "edition": "Beilinson’s Conjectures on Special Values of L-Functions, Perspectives in Mathematics 4, Academic Press, 1988, pp.1–35; scanned published chapter, PDF page equals printed page.",
+      "url": "https://ncatlab.org/nlab/files/SchneiderBeilinsonConjectures.pdf",
+      "sha256": "9693e4a34e8aa8d6c92899b2ba2ce9735615de4758d536d8dc25d9b20f9ea88b",
+      "accessed": "2026-10-05",
+      "readSections": [
+        "§2 pp.7–10: Deligne complex, de Rham conjugation and exact sequence.",
+        "§3 pp.11–13: absolute cohomology comparison.",
+        "§4 pp.24–30: higher Chern classes, product sign and Chern character; image p.28 inspected."
+      ]
+    },
+    {
+      "id": "Nekovar.AuthorCopy",
+      "title": "Beilinson’s conjectures",
+      "authors": "Jan Nekovář",
+      "edition": "Author copy, 33 PDF pages with local pagination, of the article published in Motives, Proc. Sympos. Pure Math.55 Part1, AMS1994, pp.537–570. This is not the publisher’s version of record.",
+      "url": "https://math.stanford.edu/~conrad/BSDseminar/refs/BeilinsonintroII.pdf",
+      "sha256": "3b6ba59cb8338b59fd8206318b2a91c3588ca09545522d6fb33717287924eacd",
+      "accessed": "2026-10-05",
+      "readSections": [
+        "§§7.1–7.5 pp.21–24: Deligne complexes, projection π₁, cup product (7.3.2), regulator of units and elliptic pairing. Image p.24 checked; use the corrected formulas recorded in sourceIssues."
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "EllipticRegulators:ER.2/elliptic-deligne-specialisation-contract",
+      "parentStageId": "EllipticRegulators:ER.2",
+      "realises": [
+        "EllipticRegulators:ER.2"
+      ],
+      "kind": "comparison",
+      "title": "Elliptic specialisation of the Deligne exact sequence",
+      "statement": "Specialise the early M.8 Deligne-complex comparison to every smooth projective Eσ/C. With R(p)=(2πi)^p R and R(2)_D=[R(2)→O→Ω¹] in degrees 0,1,2, its cone long exact sequence yields 0→F²H¹_dR(Eσ)→H¹(Eσ(C),R(1))→H²_D(Eσ,R(2))→0. F²H¹_dR(Eσ)=0, so the last arrow is an isomorphism. On the disjoint union of all embeddings, total de Rham conjugation is coefficient conjugation composed with geometric c*. It acts on R(1)-valued classes as -c*, hence its fixed part is the geometric (-1)-eigenspace. Under the accepted target node’s wedge pairing, fixed classes are precisely the functionals taking the real differential space (fixed by ω↦c*conj(ω)) into R(1). The complex, hypercohomology, cone comparison and products are imported, not constructed in ER.2.",
+      "hypotheses": [
+        "E/F is an elliptic curve over a number field; Eσ is smooth and projective.",
+        "C5 supplies the geometric Betti–de Rham comparison, Hodge filtration and Poincaré pairing; the early M.8 interface supplies the Deligne comparison and its conjugation compatibility.",
+        "c* acts geometrically and leaves the coefficient line R(1) alone; total conjugation includes complex conjugation of coefficients."
+      ],
+      "proofSteps": [
+        "Use Schneider §2 and Nekovář (7.2.2) for the imported Deligne cone and exact sequence in the range i=2<2p=4; this is an instance, not a new construction of the complex.",
+        "C5’s curve Hodge decomposition has H¹=H^{1,0}⊕H^{0,1}, hence F²=0. The comparison therefore gives the accepted target node’s isomorphism.",
+        "Coefficient conjugation is -1 on R(1), so total conjugation is -c*. Taking invariants commutes with the finite direct sum; real invariants are exact by averaging.",
+        "Use Brunault (2.104) with complex dimension one: geometric c reverses the surface orientation, and the fixed differential condition makes the wedge functional imaginary-valued."
+      ],
+      "prerequisites": [
+        "EllipticRegulators:ER.2/the-deligne-cohomology-target",
+        "ComplexComparisonPartII:C5"
+      ],
+      "sources": [
+        {
+          "sourceId": "Schneider.1988",
+          "locator": "§2 pp.7–9, Deligne complex and exact sequence (*)",
+          "match": "Supplies the Tate convention and proper-variety cone exact sequence."
+        },
+        {
+          "sourceId": "Brunault.These.2005",
+          "locator": "§2.5 Lemmas 61–62, pp.64–66, (2.97), (2.100), (2.104)",
+          "match": "For an elliptic curve the comparison is an isomorphism, and the geometric minus part is the real target."
+        }
+      ],
+      "acceptance": [
+        "The exact sequence uses H¹(R(1)), not H¹(R(2)); E/Q gives a real line.",
+        "A geometric plus eigenclass with nonzero value on the real cycle is not a real Deligne class in this convention.",
+        "The generic early M.8 export is an explicit supplier gap, not an implementation claim."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/EllipticRegulators/Deligne",
+        "namespace": "TauCeti.EllipticRegulators"
+      }
+    },
+    {
+      "id": "EllipticRegulators:ER.2/archimedean-orbit-equivalence",
+      "parentStageId": "EllipticRegulators:ER.2",
+      "realises": [
+        "EllipticRegulators:ER.2"
+      ],
+      "kind": "construction",
+      "title": "Archimedean orbit equivalence",
+      "statement": "Refine the accepted target node by constructing its orbit-coordinate equivalence. Untwist ν=2πi a and use ER.1 period bases. At a real place v choose γ₊·γ₂=1, c*γ₊=γ₊ and c*γ₂=ε_v γ₊−γ₂ (ε_v=0 or1). On periods (a,b), geometric c* is Cε(a,b)=(a,εa−b), and the minus eigenspace is {(0,b)}. At a complex place choose one embedding σ, identify the conjugate H¹ with H¹(Eσ,R) by geometric transport c*, and write the pair as (u,v). Conjugation is the swap S(u,v)=(v,u), whose minus eigenspace is {(u,-u)}. Evaluation at b on each real orbit and projection to u on each complex orbit give a real linear equivalence orbitEquiv from the target’s untwisted period model to (I_real→R)×(I_complex→R²). The cohomological equivalence is the composite with the accepted ER.1 period comparisons; choices are part of the interface and are not claimed canonical.",
+      "hypotheses": [
+        "E/F is elliptic, all embeddings and c are those of ER.1.",
+        "I_real indexes all real places; I_complex contains one representative of every conjugate pair.",
+        "ER.1 supplies integral symplectic bases and real/conjugate transport; geometric transport has been applied before treating complex-pair conjugation as a swap."
+      ],
+      "proofSteps": [
+        "Import the accepted target, its Tate untwisting and the ER.1 period isomorphisms; do not define another cohomology theory.",
+        "At a real place compute Cε on the dual lattice from cγ₂=εγ₊−γ₂. Module.End.mem_eigenspace_iff gives a=-a, hence a=0; b is unrestricted.",
+        "At a complex pair use the geometric pullback to identify the second summand with the first. The (-1)-eigencondition is v=-u, with u unrestricted in the real rank-two H¹.",
+        "Construct inverse coordinates by b↦(0,b) and u↦(u,-u); prove both inverse and linearity laws componentwise. Changing a complex representative replaces u by -c*u in intrinsic cohomology."
+      ],
+      "prerequisites": [
+        "EllipticRegulators:ER.2/the-deligne-cohomology-target",
+        "EllipticRegulators:ER.1/periods-and-the-comparison-isomorphism",
+        "EllipticRegulators:ER.1/all-embeddings-and-the-conjugation-action",
+        "mathlib:Module.End.eigenspace",
+        "mathlib:Module.End.mem_eigenspace_iff",
+        "mathlib:NumberField.ComplexEmbedding.conjugate",
+        "mathlib:NumberField.ComplexEmbedding.isReal_iff"
+      ],
+      "sources": [
+        {
+          "sourceId": "Brunault.These.2005",
+          "locator": "§2.5 Lemma61, p.64, (2.94); Proposition26, p.26",
+          "match": "The target is the geometric minus part; the explicit orbit formula is derived from this and the imported ER.1 lattice action."
+        }
+      ],
+      "acceptance": [
+        "The equivalence retains two real coordinates for a complex place.",
+        "The real-place formula works for both ε=0 and ε=1.",
+        "A choice of a representative is recorded; switching it gives -c* on the intrinsic complex-place coordinate."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/EllipticRegulators/Deligne",
+        "namespace": "TauCeti.EllipticRegulators"
+      },
+      "planet": {
+        "name": "Archimedean orbit equivalence"
+      },
+      "uses": [
+        {
+          "where": "ER.2 target dimension and ER.6 determinant of the regulator",
+          "how": "Supplies independent coordinates, one at every real place and two at every complex place; identifies the determinant-line dimension."
+        },
+        {
+          "where": "Brunault Proposition67; ER.2 symbol regulator over F",
+          "how": "Projects the regulator over all embeddings to archimedean orbits without dropping a conjugate component or confusing the two conjugations."
+        }
+      ],
+      "api": [
+        {
+          "name": "Archimedean.orbitEquiv",
+          "role": "equivalence",
+          "statement": "The real linear equivalence described above, implemented on ER.1 period coordinates and transported to the accepted Deligne target."
+        },
+        {
+          "name": "Archimedean.orbitEquiv_real",
+          "role": "projection",
+          "statement": "Its real-place component on x is (x_real(v)).2, the untwisted γ₂ period."
+        },
+        {
+          "name": "Archimedean.orbitEquiv_complex",
+          "role": "projection",
+          "statement": "Its complex-place component is the first transported rank-two period vector."
+        },
+        {
+          "name": "Archimedean.orbitEquiv_symm",
+          "role": "constructor",
+          "statement": "The inverse sends (b,u) to the family ((0,b(v)),(u(w),-u(w)))."
+        },
+        {
+          "name": "Archimedean.orbitEquiv_ext",
+          "role": "extensionality",
+          "statement": "Two target elements are equal iff all their orbit coordinates are equal."
+        },
+        {
+          "name": "Archimedean.real_mem_iff",
+          "role": "compatibility",
+          "statement": "For Mathlib’s eigenspace of Cε at -1, (a,b) belongs iff a=0."
+        },
+        {
+          "name": "Archimedean.pair_mem_iff",
+          "role": "compatibility",
+          "statement": "For Mathlib’s eigenspace of S at -1, (u,v) belongs iff v=-u."
+        }
+      ],
+      "tests": [
+        {
+          "name": "Archimedean.rectangular_real",
+          "kind": "computation",
+          "statement": "With one real orbit, ε=0 and no complex orbits, (0,1) has coordinate1 and (1,0) is not in the minus eigenspace."
+        },
+        {
+          "name": "Archimedean.tilted_real",
+          "kind": "computation",
+          "statement": "With ε=1, the eigenline is still (0,b); the vector (1,0) fails, despite the non-diagonal conjugation matrix."
+        },
+        {
+          "name": "Archimedean.complex_pair",
+          "kind": "computation",
+          "statement": "With one complex orbit and no real orbits, ((1,2),(-1,-2)) has coordinate(1,2), and ((1,0),(-1,0)) and ((0,1),(0,-1)) are independent."
+        },
+        {
+          "name": "Archimedean.empty_orbits",
+          "kind": "degenerate",
+          "statement": "With both index sets empty the orbit model is the zero vector space and the inverse of its sole element is zero."
+        },
+        {
+          "name": "Archimedean.invariant_pair_fails",
+          "kind": "non-example",
+          "statement": "((1,2),(1,2)) is a swap-invariant vector but is not in the minus eigenspace."
+        }
+      ]
+    },
+    {
+      "id": "EllipticRegulators:ER.2/archimedean-rank-from-orbits",
+      "parentStageId": "EllipticRegulators:ER.2",
+      "realises": [
+        "EllipticRegulators:ER.2"
+      ],
+      "kind": "theorem",
+      "title": "Archimedean dimension from conjugation orbits",
+      "statement": "For an elliptic curve E/F over a number field, dim_R H²_D(E_R,R(2)) = |I_real|+2|I_complex| = r₁+2r₂ = [F:Q]. Before real invariants, ⊕σ H²_D(Eσ,R(2)) has real dimension2[F:Q]. The regulator of a class defined over F is a family satisfying c_σ*ν_barσ=-ν_σ in the R(1)-valued presentation, so the orbit equivalence, rather than the unrestricted product, is its coordinate space.",
+      "hypotheses": [
+        "E/F is elliptic, smooth and projective, with the target and choices of the orbit equivalence.",
+        "Naturality and real conjugation of the generic regulator are part of the early M.8 supplier contract; ER.1 supplies the geometric conjugate transport."
+      ],
+      "proofSteps": [
+        "Use orbitEquiv and invariance of finrank under a linear equivalence. The finite product has rank |I_real|+2|I_complex|.",
+        "The two sets index Mathlib’s real and complex infinite places. Apply NumberField.InfinitePlace.card_add_two_mul_card_eq_rank; this arithmetic theorem is not a new node.",
+        "Before imposing conjugation there are [F:Q] components of real dimension2. For a class over F, total-conjugation naturality fixes the regulator; untwisting its R(1) coefficients turns this into geometric anti-invariance."
+      ],
+      "prerequisites": [
+        "EllipticRegulators:ER.2/archimedean-orbit-equivalence",
+        "EllipticRegulators:ER.2/elliptic-deligne-specialisation-contract",
+        "mathlib:NumberField.InfinitePlace.nrRealPlaces",
+        "mathlib:NumberField.InfinitePlace.nrComplexPlaces",
+        "mathlib:NumberField.InfinitePlace.card_add_two_mul_card_eq_rank"
+      ],
+      "sources": [
+        {
+          "sourceId": "Brunault.These.2005",
+          "locator": "§2.5 Lemmas61–62, pp.64–66; §2.6 Proposition66, p.67",
+          "match": "The real target is a minus eigenspace and the regulator of a rational class lands there; the number-field count follows from ER.1 and the pinned place-count theorem."
+        }
+      ],
+      "acceptance": [
+        "For E/Q the rank is1. For E/Q(i) it is2, not1. For E/Q(√2) it is2, contributed by two real places.",
+        "The complex-pair test is geometric: the two embeddings are paired, not two independent regulator targets.",
+        "No regulator injectivity, surjectivity or Beilinson conjecture is asserted."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/EllipticRegulators/Deligne",
+        "namespace": "TauCeti.EllipticRegulators"
+      },
+      "planet": {
+        "name": "Archimedean dimension formula"
+      }
+    },
+    {
+      "id": "EllipticRegulators:ER.2/chern-character-symbol-comparison",
+      "parentStageId": "EllipticRegulators:ER.2",
+      "realises": [
+        "EllipticRegulators:ER.2"
+      ],
+      "kind": "comparison",
+      "title": "Chern character, symbol cup product and Brunault normalisation",
+      "statement": "Specialise the imported higher Chern and curve-regulator comparisons to E/F. In Schneider’s higher-K convention ch_{2,2}=-c_{2,2} and c_{2,2}({f,g})=-c_{1,1}(f)∪c_{1,1}(g), hence the rational Deligne regulator of a symbol is the positive cup product. On U=Eσ minus the divisors, its representative is log|f| π₁(dlog g)−log|g| π₁(dlog f), with π₁(α)=(α-conj α)/2, thus iη(f,g)=η_B(f,g). If γ∈K₂(E)_Q and its function-field image is ξ=Σq_j{f_j,g_j}, rational coefficients q_j, then at each embedding the accepted wedge identification sends r_D(γ) to ω↦Σq_j∫η_B(f_j,g_j)∧ω =2r_E(ξ)(ω). P.5 supplies Steinberg descent and the closed-current comparison, and E.3 supplies restriction/lift independence; no generic Chern class, Deligne product or curve-current theorem is replanned here. For a symbol combination with only unit-modulus tame symbols the η-period class still exists, but it is not asserted to have a K₂(E) lift.",
+      "hypotheses": [
+        "E/F is elliptic over a number field, γ is a rational K₂ class and ξ is its restriction expressed by finitely many nonzero rational-function symbols at each embedding.",
+        "Use M.8’s Chern-character regulator with Schneider’s sign convention; use P.5/weight-two-regulator-form, P.5/unramified-weight-two-class and P.5/regulator-induces-beilinson for the general curve comparison.",
+        "Actual rational unramifiedness in E.3 is required for a K₂(E)_Q lift. Vanishing of log|tame| suffices only for the real-current class."
+      ],
+      "proofSteps": [
+        "Read Schneider §4 p.28: ch_{i,j}=(-1)^{j-1} c_{i,j}/(j-1)! for i≥1, and the Chern product coefficient at weights1,1 is -1. The two signs cancel for the symbol. This is a comparison of imported maps.",
+        "Nekovář (7.3.2) and (7.4.1) give the cup representative with π₁=(α-conj α)/2. Since dlog f is holomorphic on U, π₁(dlog f)=i darg f, giving iη without an extra2π factor.",
+        "Import P.5’s Steinberg and closed-current results. E.3’s rational restriction identifies γ with its unramified symbol image. The representative extends as a closed current on E; equivalently use Brunault (2.123) and Stokes with logarithmic growth to compare it with the smooth Deligne class.",
+        "Use the accepted elliptic η-pairing node: integration by parts, with boundary estimate O(r log²r), gives ∫η_B∧ω=2∫log|f|ω∧bar∂log|g|. This establishes the accepted normalisation-factor node directly in the Schneider convention.",
+        "Assemble every embedding, invoke total-conjugation naturality, and use the accepted torsion node to remove ambiguity of integral lifts. No L-value formula is used to set the constant."
+      ],
+      "prerequisites": [
+        "EllipticRegulators:ER.2/elliptic-deligne-specialisation-contract",
+        "EllipticRegulators:ER.2/the-eta-form-and-its-differential-identity",
+        "EllipticRegulators:ER.2/the-regulator-on-symbols",
+        "EllipticRegulators:ER.2/the-normalisation-factor",
+        "EllipticRegulators:ER.2/torsion-ambiguity-has-zero-regulator",
+        "EllipticKTheory:E.3/what-the-sequence-does-not-identify",
+        "Polylogarithms:P.5/weight-two-regulator-form",
+        "Polylogarithms:P.5/unramified-weight-two-class",
+        "Polylogarithms:P.5/regulator-induces-beilinson"
+      ],
+      "sources": [
+        {
+          "sourceId": "Schneider.1988",
+          "locator": "§4 p.28, higher Chern product formula and definition of ch_{i,j}",
+          "match": "At j=2 the Chern-character coefficient is -1; the product coefficient for two weight-one classes is also -1."
+        },
+        {
+          "sourceId": "Nekovar.AuthorCopy",
+          "locator": "§7.3 p.23, (7.3.2); §7.4 p.23, (7.4.1)",
+          "match": "The projection in the cup product is imaginary-valued, so the representative is iη; p.24 misprints are recorded separately."
+        },
+        {
+          "sourceId": "Brunault.These.2005",
+          "locator": "Proposition67 pp.67–69, (2.122)–(2.123); proof of Theorem68 p.70",
+          "match": "Identifies the Beilinson regulator with the η_B wedge pairing; the elliptic integration-by-parts formula gives 2r_E."
+        }
+      ],
+      "acceptance": [
+        "Positive unit cup product; η_B=iη; untwisted wedge pairing r_D=2r_E. All three constants/signs are checked separately.",
+        "For a local symbol {z,c}, c≠0, ∮η=-2π log|c| and tame=c^{-1}; it need not define a compact-curve cohomology class if |c|≠1.",
+        "For |c|=1 but c not a root of unity, its local real residue is zero while its rational tame class need not vanish: real-current descent is weaker than rational K₂ descent.",
+        "For a torsion change of lift, both r_D and the associated real scalar are unchanged.",
+        "The author-copy pairing factor 1/(2πi) changes the evaluated scalar, not the Deligne class or the factor2 in the wedge convention."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/EllipticRegulators/Deligne",
+        "namespace": "TauCeti.EllipticRegulators"
+      }
+    },
+    {
+      "id": "EllipticRegulators:ER.2/oriented-period-coordinate-comparison",
+      "parentStageId": "EllipticRegulators:ER.2",
+      "realises": [
+        "EllipticRegulators:ER.2"
+      ],
+      "kind": "comparison",
+      "title": "Oriented real coordinate and transverse regulator period",
+      "statement": "Refine the accepted E/Q coordinate with its homological formula. Let γ₊ generate the conjugation-fixed homology line with the chosen orientation of E⁰(R), choose γ₂ with γ₊·γ₂=+1 and ω₀ with ∫γ₊ω₀=1. For ν∈H¹(E(C),R(1))⁻, write ν=2πi a with a real and a(γ₊)=0. In the accepted wedge identification W(ν)(ω)=∫ν∧ω, the Riemann bilinear formula gives W(ν)(ω₀)=-ν(γ₂). Therefore ellipticDeligneTarget_toReal(ν)=W(ν)(ω₀)/i=-2π a(γ₂). If ν=r_D(γ)=[iη(ξ)], the scalar is -∮γ₂η(ξ)=2 Im(r_E(ξ)(ω₀)). It is independent of γ₂↦γ₂+nγ₊. Reversing the chosen real orientation sends (γ₊,γ₂,ω₀) to (-γ₊,-γ₂,-ω₀) and negates the scalar. Nekovář’s explicitly scaled pairing J=(1/(2πi))W has value J(ν)(ω₀)=r_E(ξ)(ω₀)/(πi)=ellipticDeligneTarget_toReal(ν)/(2π).",
+      "hypotheses": [
+        "E/Q is elliptic; γ₊ is the primitive real-cycle generator, with ω₀ and the symplectic basis supplied by ER.1. Both one-component and two-component E(R) are allowed.",
+        "ν is a geometric minus eigenclass. For the regulator-period formula γ∈K₂(E)_Q and ξ is its E.3 restriction image, so η(ξ) defines a closed current on the compact curve.",
+        "γ₊·γ₂=+1 and W integrates ν∧ω, in that order. J is the author copy’s scaled pairing, not Brunault’s W."
+      ],
+      "proofSteps": [
+        "Use the accepted ER.1 symplectic period comparison to write ∫ν∧ω₀=ν(γ₊)ω₀(γ₂)−ν(γ₂)ω₀(γ₊). Since cγ₊=γ₊ and c*ν=-ν, ν(γ₊)=0, giving the minus sign.",
+        "Apply the accepted toReal coordinate (division by i). Tate untwisting ν=2πi a gives -2π a(γ₂), showing exactly where2π occurs.",
+        "The Chern-symbol comparison gives ν=[iη(ξ)]; the accepted symbol period formula gives r_E=-i∮γ₂η/2. Both yield -∮γ₂η as the scalar.",
+        "A shear of γ₂ adds a multiple of a zero period. Simultaneous reversal of both basis cycles preserves their intersection and replaces ω₀ by -ω₀, changing the coordinate sign.",
+        "Apply Nekovář’s pairing factor1/(2πi) to W=2r_E. Obtain J=r_E/(πi)=toReal/(2π), rather than changing the underlying regulator."
+      ],
+      "prerequisites": [
+        "EllipticRegulators:ER.2/chern-character-symbol-comparison",
+        "EllipticRegulators:ER.2/the-deligne-cohomology-target",
+        "EllipticRegulators:ER.2/the-regulator-on-symbols",
+        "EllipticRegulators:ER.1/complex-uniformisation",
+        "EllipticRegulators:ER.1/periods-and-the-comparison-isomorphism",
+        "mathlib:Complex.imCLM"
+      ],
+      "sources": [
+        {
+          "sourceId": "Brunault.These.2005",
+          "locator": "Proposition26 p.26; Lemma62 pp.65–66; Definition16 p.19",
+          "match": "Pins the differential normalization; wedge pairing and symbol integral determine the scalar and orientation sign."
+        },
+        {
+          "sourceId": "Nekovar.AuthorCopy",
+          "locator": "§7.5 p.24, displayed pairing before (7.5.1)",
+          "match": "An additional factor belongs to this source’s pairing, yielding J=W/(2πi); use the corrected symbol integrand."
+        }
+      ],
+      "acceptance": [
+        "With untwisted a(γ₂)=1, the coordinate is -2π, while with η(γ₂)=1 the regulator coordinate is -1 and r_E(ω₀)=-i/2.",
+        "For either ε=0 or1, a(γ₊)=0 and the same transverse-period formula applies.",
+        "Shearing γ₂ leaves the scalar unchanged; reversing the real orientation negates it.",
+        "A geometric plus eigenclass with a(γ₊)≠0 fails the transverse-only formula; the minus hypothesis is essential.",
+        "The compact current’s zero puncture periods ensure that changing representative cycles around deleted divisors does not alter the formula."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/EllipticRegulators/Deligne",
+        "namespace": "TauCeti.EllipticRegulators"
+      }
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "EllipticRegulators:ER.2",
+      "status": "planned",
+      "remaining": [
+        "Instantiate the generic Deligne cone, comparison, products and Chern-character regulator from an acyclic early M.8 export; its stage split and declarations are not yet supplied.",
+        "Replace the period-model Lean prototypes by actual cohomological signatures when the imported C5/ER.1 and early M.8 types are available; no cohomology implementation is claimed."
+      ],
+      "targets": [
+        {
+          "target": "Real Deligne complex and hypercohomology",
+          "suppliedBy": "Early M.8 supplier contract; gap recorded; no ER.2 ownership"
+        },
+        {
+          "target": "Elliptic target, all embeddings, conjugation and dimension",
+          "suppliedBy": [
+            "EllipticRegulators:ER.2/the-deligne-cohomology-target",
+            "EllipticRegulators:ER.2/elliptic-deligne-specialisation-contract",
+            "EllipticRegulators:ER.2/archimedean-orbit-equivalence",
+            "EllipticRegulators:ER.2/archimedean-rank-from-orbits"
+          ]
+        },
+        {
+          "target": "η, Steinberg and zeros/poles; independence of cuts and punctured cycles",
+          "suppliedBy": [
+            "Polylogarithms:P.5/weight-two-regulator-form",
+            "Polylogarithms:P.5/unramified-weight-two-class",
+            "EllipticRegulators:ER.2/the-eta-form-and-its-differential-identity",
+            "EllipticRegulators:ER.2/the-regulator-on-symbols"
+          ]
+        },
+        {
+          "target": "Universal comparison, 2π and orientation",
+          "suppliedBy": [
+            "EllipticRegulators:ER.2/the-normalisation-factor",
+            "EllipticRegulators:ER.2/chern-character-symbol-comparison",
+            "EllipticRegulators:ER.2/oriented-period-coordinate-comparison"
+          ]
+        },
+        {
+          "target": "Restriction image and torsion ambiguity",
+          "suppliedBy": [
+            "EllipticRegulators:ER.2/torsion-ambiguity-has-zero-regulator",
+            "EllipticKTheory:E.3/what-the-sequence-does-not-identify"
+          ]
+        }
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "title": "Acyclic early M.8 Deligne and Chern export",
+      "neededBy": [
+        "EllipticRegulators:ER.2/elliptic-deligne-specialisation-contract",
+        "EllipticRegulators:ER.2/archimedean-rank-from-orbits",
+        "EllipticRegulators:ER.2/chern-character-symbol-comparison"
+      ],
+      "detail": "No suitable early Deligne node or stage id exists in the current M.8 packet/reservations. M.8 still requires late BorelRegulators:R.7 and PadicHodgeRegulators:D.2. The requested generic complex/regulator belongs there, but listing all of M.8 as an ER.2 prerequisite would import the late comparison loop. The exact mathematical contract is supplied above and verified in Schneider/Nekovář/Brunault; the owner must expose it before these cohomological comparison claims can be closed. The elliptic source/sign comparison is established at the planning level; this is the remaining supplier gap, not an uncomputed normalization constant."
+    }
+  ],
+  "requests": [
+    {
+      "supplier": "MotivicEtaleKTheory:M.8",
+      "need": "EARLY archimedean interface only: for smooth varieties over R/C construct the real Deligne complex, logarithmic/nonproper variant, hypercohomology, Tate lines, exact cone comparison and products; construct the higher-K Chern-character regulator with ch_{i,j}=(-1)^{j-1}c_{i,j}/(j-1)! for i≥1, unit log regulator, pullback/open restriction, conjugation and norm/product compatibility. At a proper curve export the i=2,p=2 comparison and the unit cup representative. This must precede the late R.7/D.2/Selmer/Iwasawa work and take no ER.2 input.",
+      "neededBy": [
+        "EllipticRegulators:ER.2/elliptic-deligne-specialisation-contract",
+        "EllipticRegulators:ER.2/archimedean-rank-from-orbits",
+        "EllipticRegulators:ER.2/chern-character-symbol-comparison"
+      ],
+      "dependencyPolicy": "Request addressed to the current owner, not an edge from the whole unsplit M.8 stage. Until the early export has an actual stage/node id, the missing prerequisite is recorded as a gap, as in the accepted base packet; no nonexistent id or cyclic M.8 prerequisite is inserted."
+    },
+    {
+      "supplier": "ComplexComparisonPartII:C5",
+      "need": "For each smooth projective elliptic Eσ, H¹ Betti–de Rham comparison, H^{1,0}⊕H^{0,1} decomposition with F²=0, real-conjugation compatibility and the oriented Poincaré/period pairing. The accepted ER.1 period nodes supply the specialised lattice data.",
+      "neededBy": [
+        "EllipticRegulators:ER.2/elliptic-deligne-specialisation-contract"
+      ]
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "EllipticRegulators/E24",
+      "kind": "misprint",
+      "affects": "nothing",
+      "locator": "Nekovar.AuthorCopy, §7.5 p.24, the paragraph and calculation before (7.5.1); findings apply only to this author copy, not the inaccessible publisher version.",
+      "printed": "H¹(U(C), R(2))",
+      "correction": "Use H¹(U(C),R(1)) in the sentence describing the symbol regulator image.",
+      "reason": "The immediately preceding isomorphism is H²_D(U,R(2)) ≅ H¹(U(C),R(1)); the cup representative uses π₁, whose coefficient line is R(1).",
+      "known": "new; no published correction located in the searches listed; not a claim about the version of record.",
+      "searched": [
+        "Nekovář author publications page https://webusers.imj-prg.fr/~jan.nekovar/pu/ and indexed entry [5], searched 2026-10-05; direct page/PDF access failed.",
+        "Public web searches for Nekovar/Nekovář Beilinson erratum, correction and exact (7.5.1), 2026-10-05; no correction located.",
+        "AMS Motives vol.55.1 contents https://www.ams.org/books/pspum/055.1/pspum055.1-endmatter.pdf identifies the published pp.537–570; a publisher PDF access attempt did not retrieve the chapter. The findings are confined to the hashed Stanford author copy.",
+        "Brunault thesis Definition63, (2.107), Remark64 and Proposition67, pp.66–70, cross-checked against the author copy’s earlier (7.3.2)."
+      ]
+    },
+    {
+      "id": "EllipticRegulators/E25",
+      "kind": "misprint",
+      "affects": "nothing",
+      "locator": "Nekovar.AuthorCopy, §7.5 p.24, the paragraph and calculation before (7.5.1); findings apply only to this author copy, not the inaccessible publisher version.",
+      "printed": "ψ = log|f| darg(g) − log|g| darg(f)",
+      "correction": "The R(1)-valued cup representative is ψ=i(log|f| darg(g)−log|g| darg(f)) with standard real darg.",
+      "reason": "From (7.3.2), π₁(dlog g)=(dlog g−conj(dlog g))/2=i darg(g). The missing i is also visible by comparing Brunault (2.107), which explicitly cites (7.3.2).",
+      "known": "new; no published correction located in the searches listed; not a claim about the version of record.",
+      "searched": [
+        "Nekovář author publications page https://webusers.imj-prg.fr/~jan.nekovar/pu/ and indexed entry [5], searched 2026-10-05; direct page/PDF access failed.",
+        "Public web searches for Nekovar/Nekovář Beilinson erratum, correction and exact (7.5.1), 2026-10-05; no correction located.",
+        "AMS Motives vol.55.1 contents https://www.ams.org/books/pspum/055.1/pspum055.1-endmatter.pdf identifies the published pp.537–570; a publisher PDF access attempt did not retrieve the chapter. The findings are confined to the hashed Stanford author copy.",
+        "Brunault thesis Definition63, (2.107), Remark64 and Proposition67, pp.66–70, cross-checked against the author copy’s earlier (7.3.2)."
+      ]
+    },
+    {
+      "id": "EllipticRegulators/E26",
+      "kind": "misprint",
+      "affects": "nothing",
+      "locator": "Nekovar.AuthorCopy, §7.5 p.24, (7.5.1) and preceding calculation; findings apply only to this author copy, not the inaccessible publisher version.",
+      "printed": "(1/(2πi)) ∫_{E(C)} log|g| dlog(conj g) ∧ ω",
+      "correction": "Replace g in the conjugated differential by f: log|g| conj(dlog f)∧ω, equivalently after integration by parts -log|f| conj(dlog g)∧ω or 2log|f| ω∧bar∂log|g|. The pairing equals r_E({f,g})(ω)/(πi).",
+      "reason": "The printed expression depends only on g, so cannot be an alternating two-function regulator. Expanding (7.3.2) and integrating d(log|f|log|g|ω) gives the corrected expression and factor. The conjugation bar is present in the page image but absent in extracted text; the same wrong variable appears immediately before (7.5.1).",
+      "known": "new; no published correction located in the searches listed; not a claim about the version of record.",
+      "searched": [
+        "Nekovář author publications page https://webusers.imj-prg.fr/~jan.nekovar/pu/ and indexed entry [5], searched 2026-10-05; direct page/PDF access failed.",
+        "Public web searches for Nekovar/Nekovář Beilinson erratum, correction and exact (7.5.1), 2026-10-05; no correction located.",
+        "AMS Motives vol.55.1 contents https://www.ams.org/books/pspum/055.1/pspum055.1-endmatter.pdf identifies the published pp.537–570; a publisher PDF access attempt did not retrieve the chapter. The findings are confined to the hashed Stanford author copy.",
+        "Brunault thesis Definition63, (2.107), Remark64 and Proposition67, pp.66–70, cross-checked against the author copy’s earlier (7.3.2)."
+      ]
+    }
+  ],
+  "reusedNodes": [
+    {
+      "id": "EllipticRegulators:ER.2/the-deligne-cohomology-target",
+      "provides": "Deligne target, wedge duality, dimension, chosen real coordinate and its definition/API/tests."
+    },
+    {
+      "id": "EllipticRegulators:ER.2/the-eta-form-and-its-differential-identity",
+      "provides": "Elliptic η_B=iη and integration-by-parts pairing, importing the general curve η from P.5."
+    },
+    {
+      "id": "EllipticRegulators:ER.2/the-regulator-on-symbols",
+      "provides": "Brunault symbol regulator, absolute convergence, relations and symplectic period formula."
+    },
+    {
+      "id": "EllipticRegulators:ER.2/the-normalisation-factor",
+      "provides": "Factor2 relative to the universal regulator; the present comparison resolves the Schneider sign convention."
+    },
+    {
+      "id": "EllipticRegulators:ER.2/torsion-ambiguity-has-zero-regulator",
+      "provides": "E.3 rational restriction and zero real regulator for torsion ambiguity of integral lifts."
+    }
+  ],
+  "restructure": [
+    {
+      "action": "rescope",
+      "roadmaps": [
+        "MotivicEtaleKTheory",
+        "Polylogarithms",
+        "EllipticRegulators"
+      ],
+      "detail": "RT-AREA-ktheory-2/7 and /24: generic Deligne theory and Chern classes have one early owner; P.5 owns the general curve formula/current/comparison; ER.2 owns the elliptic embedding, dimension, period-coordinate and torsion specialisations. The whole current M.8 stage has late prerequisites, so adding it to ER.2 is unsafe.",
+      "proposal": "Split an early archimedean foundation from M.8, depending only on generic K-theory/Chern classes, analytic sheaf/derived constructions and Betti–de Rham theory. It constructs the smooth-variety real Deligne complex, products and universal regulator, with no ER, D.2, R.7, Selmer or Iwasawa input. Add early-foundation→P.5 and early-foundation→ER.2, and P.5→ER.2; retain these as named-node dependencies until the stage split is accepted. M.8 late comparison may consume ER.4–ER.7 but must not expect ER.2 to supply generic Deligne theory. ER.4 trace should import early M.8 norm compatibility. Do not edit M.8 or ER.4 from this one-stage job."
+    }
+  ],
+  "sourceVersions": [
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/math/0602186v1",
+      "read": "2026-10-05",
+      "sha256": "8fd73faba5db08328c2884d9f35b79bc528145428766444f3eb8097f3b494fb7"
+    },
+    {
+      "kind": "published",
+      "url": "https://ncatlab.org/nlab/files/SchneiderBeilinsonConjectures.pdf",
+      "read": "2026-10-05",
+      "sha256": "9693e4a34e8aa8d6c92899b2ba2ce9735615de4758d536d8dc25d9b20f9ea88b"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://math.stanford.edu/~conrad/BSDseminar/refs/BeilinsonintroII.pdf",
+      "read": "2026-10-05",
+      "sha256": "3b6ba59cb8338b59fd8206318b2a91c3588ca09545522d6fb33717287924eacd",
+      "note": "Publisher chapter not retrieved. Source issues E24–E26 concern only this copy."
+    }
+  ],
+  "checks": {
+    "libraryAudit": "data/library-coverage.json, EllipticRegulators:ER.2, accepted AUDIT-28: not built; generic Deligne/K₂ regulator absent, analytic ingredients partial.",
+    "librarySearch": "Read cited Mathlib declarations at the pin; searched pinned TauCeti for Deligne cohomology and symbol-regulator implementations. The nearby Hodge Deligne splitting and existing number-field/Mordell–Weil regulators do not supply this target.",
+    "upstreamDesignSearch": "Public Mathlib GitHub/Zulip searches for Deligne cohomology on 2026-10-05 found no implementation or active design to adopt; retain the generic supplier contract.",
+    "links": "Screened research/blueprint/links/*.json for ER.2: no entries. Read all touching atlas stage edges; current direct inputs ER.1, E.5 and P.2 are refined by accepted E.3/P.5 node dependencies.",
+    "upstreamModels": [
+      "content/tau-ceti/HodgeStructures/README.md",
+      "content/tau-ceti/Completed/ContourIntegration/README.md"
+    ]
+  },
+  "suggestedFile": {
+    "path": "research/blueprint/suggested/EllipticRegulators--ER.2.lean",
+    "scope": "Mathlib period-coordinate instances of orbitEquiv, dimension and normalization computations. Actual cohomological and K₂ signatures cannot be typed at the baseline: omitted conditions are identified individually in comments, not replaced by empty predicates or assumed-comparison fields."
+  }
+}
