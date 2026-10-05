@@ -109,8 +109,9 @@ import TauCeti.RingTheory.Idempotents.Connected.Components
 /-!
 # Suggested Lean forms for `KTheoryLowDegrees--U.1` (stages Z.1, Z.2, U.1–U.6)
 
-This file is not the roadmap and is not exhaustive. The roadmap document
-`research/blueprint/readmes/KTheoryLowDegrees--U.1.md` is definitive. The statements below suggest
+This file is not the roadmap and is not exhaustive. The reviewed packet
+`research/blueprint/packets/KTheoryLowDegrees--U.1.json` specifies the contracts. The reader
+document requires regeneration after this independent review. The statements below suggest
 Lean forms so that contributors and reviewers converge on names and signatures; they claim no
 implementation, and `implementationStatus` stays `"unchecked"` for every node.
 
@@ -916,6 +917,20 @@ theorem class_induction_sub (x : RingK0 R) :
       ∃ (P : FP R) (n : ℕ), x = (SplitK0.of P : RingK0 R) - n • of R R := by
   sorry
 
+/- Atomic signatures added by REV-KTheoryLowDegrees--U.1.
+The preceding bundled theorem remains an aggregate helper for existing projections. -/
+
+/-- `KTheoryLowDegrees:Z.1/ring-k0-class-difference`. -/
+theorem class_difference (x : RingK0 R) :
+    ∃ P Q : FP R, x = (SplitK0.of P : RingK0 R) - (SplitK0.of Q : RingK0 R) := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.1/ring-k0-free-cofinality`. -/
+theorem free_cofinality (x : RingK0 R) :
+    ∃ (P : FP R) (n : ℕ), x = (SplitK0.of P : RingK0 R) - n • of R R := by
+  sorry
+
+
 end Exact
 
 end RingK0
@@ -1000,6 +1015,23 @@ theorem stably_free_class (P : Type u) [AddCommGroup P] [Module R P] [Module.Fin
       (of R P ∈ AddSubgroup.zmultiples (of R R) ↔ Module.IsStablyFree R P) := by
   sorry
 
+/- Atomic signatures added by REV-KTheoryLowDegrees--U.1.
+The preceding bundled theorem remains an aggregate helper for existing projections. -/
+
+/-- `KTheoryLowDegrees:Z.1/stably-free-class`. -/
+theorem stably_free_class_iff (P : Type u) [AddCommGroup P] [Module R P] [Module.Finite R P]
+    [Module.Projective R P] :
+    ∀ n : ℕ, of R P = n • of R R ↔
+      ∃ k : ℕ, Nonempty ((P × (Fin k → R)) ≃ₗ[R] (Fin (n + k) → R)) := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.1/stably-free-free-class`. -/
+theorem stably_free_free_class (P : Type u) [AddCommGroup P] [Module R P] [Module.Finite R P]
+    [Module.Projective R P] :
+    of R P ∈ AddSubgroup.zmultiples (of R R) ↔ Module.IsStablyFree R P := by
+  sorry
+
+
 /-- The free class `ℤ →+ RingK0 R`, `m ↦ m • [R]` (a real definition). -/
 def freeClass : ℤ →+ RingK0 R :=
   zmultiplesHom _ (of R R)
@@ -1013,6 +1045,22 @@ theorem free_class_ibn :
         ∀ (P : Type u) [AddCommGroup P] [Module R P] [Module.Finite R P]
           [Module.Projective R P], Module.IsStablyFree R P)) := by
   sorry
+
+/- Atomic signatures added by REV-KTheoryLowDegrees--U.1.
+The preceding bundled theorem remains an aggregate helper for existing projections. -/
+
+/-- `KTheoryLowDegrees:Z.1/free-class-ibn`. -/
+theorem free_class_injective_iff :
+    Function.Injective (freeClass R) ↔ InvariantBasisNumber R := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.1/free-class-bijective`. -/
+theorem free_class_bijective_iff :
+    InvariantBasisNumber R → (Function.Bijective (freeClass R) ↔
+        ∀ (P : Type u) [AddCommGroup P] [Module R P] [Module.Finite R P]
+          [Module.Projective R P], Module.IsStablyFree R P) := by
+  sorry
+
 
 end Stable
 
@@ -1187,6 +1235,30 @@ theorem extendScalars_finite_projective :
         Nonempty (ExtendScalars f (idempotentModule e) ≃ₗ[S] idempotentModule (e.map f)) := by
   sorry
 
+/- Atomic signatures added by REV-KTheoryLowDegrees--U.1.
+The preceding bundled theorem remains an aggregate helper for existing projections. -/
+
+/-- `KTheoryLowDegrees:Z.1/extend-scalars-finite-projective`. -/
+theorem extendScalars_free_matrix :
+    ∃ ε : ∀ n : ℕ, ExtendScalars f (Fin n → R) ≃ₗ[S] (Fin n → S),
+      (∀ (n : ℕ) (i : Fin n), ε n (tmul f 1 (Pi.single i 1)) = Pi.single i 1) ∧
+        ∀ (m n : ℕ) (A : Matrix (Fin m) (Fin n) R) (s : S) (v : Fin m → R),
+          ε n (tmul f s (v ᵥ* A)) = ε m (tmul f s v) ᵥ* A.map f := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.1/extend-scalars-projective`. -/
+theorem extendScalars_projective :
+    ∀ (P : Type u) [AddCommGroup P] [Module R P] [Module.Finite R P] [Module.Projective R P],
+        Module.Finite S (ExtendScalars f P) ∧ Module.Projective S (ExtendScalars f P) := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.1/extend-scalars-idempotent`. -/
+theorem extendScalars_idempotent :
+    ∀ {n : ℕ} (e : Matrix (Fin n) (Fin n) R), IsIdempotentElem e →
+        Nonempty (ExtendScalars f (idempotentModule e) ≃ₗ[S] idempotentModule (e.map f)) := by
+  sorry
+
+
 instance instFinite (P : Type u) [AddCommGroup P] [Module R P] [Module.Finite R P]
     [Module.Projective R P] : Module.Finite S (ExtendScalars f P) :=
   ((extendScalars_finite_projective f).2.1 P).1
@@ -1195,7 +1267,7 @@ instance instProjective (P : Type u) [AddCommGroup P] [Module R P] [Module.Finit
     [Module.Projective R P] : Module.Projective S (ExtendScalars f P) :=
   ((extendScalars_finite_projective f).2.1 P).2
 
-/-- (d) The restriction `FP R ⥤ FP S` of extension of scalars (a real definition through
+/-- `KTheoryLowDegrees:Z.1/extend-scalars-projective-functor`: the restriction `FP R ⥤ FP S` of extension of scalars (a real definition through
 `ObjectProperty.lift`). -/
 def finiteProjectiveFunctor : RingK0.FP R ⥤ RingK0.FP S :=
   (finiteProjectiveModules S).lift ((finiteProjectiveModules R).ι ⋙ functor f) fun X =>
@@ -2325,6 +2397,26 @@ theorem local_matrix_lift (hm : m ≠ ⊤) (hunit : ∀ x ∉ m, IsUnit x) :
         IsUnit (A.map (Ideal.Quotient.mk m)) → IsUnit A := by
   sorry
 
+/- Atomic signatures added by REV-KTheoryLowDegrees--U.1.
+The preceding bundled theorem remains an aggregate helper for existing projections. -/
+
+/-- `KTheoryLowDegrees:Z.2/local-matrix-lift`. -/
+theorem local_residue_division (hm : m ≠ ⊤) (hunit : ∀ x ∉ m, IsUnit x) :
+    Nontrivial (R ⧸ m) ∧ ∀ x : R ⧸ m, x ≠ 0 → IsUnit x := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.2/local-ideal-jacobson`. -/
+theorem local_ideal_jacobson (hm : m ≠ ⊤) (hunit : ∀ x ∉ m, IsUnit x) :
+    m ≤ Ideal.jacobson ⊥ ∧ ∀ x ∈ m, IsUnit (1 + x) := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.2/local-invertible-matrix-lift`. -/
+theorem local_invertible_matrix_lift (hm : m ≠ ⊤) (hunit : ∀ x ∉ m, IsUnit x) :
+    ∀ (n : ℕ) (A : Matrix (Fin n) (Fin n) R),
+        IsUnit (A.map (Ideal.Quotient.mk m)) → IsUnit A := by
+  sorry
+
+
 /-- `KTheoryLowDegrees:Z.2/local-projective-free`: over a local ring every finitely generated
 projective left module is free, of rank `finrank_{R ⧸ m} (ExtendScalars (R → R ⧸ m) P)`. -/
 theorem local_projective_free (hm : m ≠ ⊤) (hunit : ∀ x ∉ m, IsUnit x) (P : Type u)
@@ -2432,6 +2524,33 @@ theorem rank_localization {A : Type u} [CommRing A] :
         (map (algebraMap A (Localization.AtPrime p.asIdeal))).ker := by
   sorry
 
+/- Atomic signatures added by REV-KTheoryLowDegrees--U.1.
+The preceding bundled theorem remains an aggregate helper for existing projections. -/
+
+/-- `KTheoryLowDegrees:Z.2/rank-localization`. -/
+theorem rank_localization_restrict {A : Type u} [CommRing A] :
+    ∀ (S : Submonoid A) (x : RingK0 A),
+      rank (Localization S) (map (algebraMap A (Localization S)) x) =
+        (rank A x).comap ⟨PrimeSpectrum.comap (algebraMap A (Localization S)),
+          PrimeSpectrum.continuous_comap _⟩ := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.2/rank-at-prime-local-equivalence`. -/
+theorem rank_at_prime_local_equivalence {A : Type u} [CommRing A] :
+    ∀ (p : PrimeSpectrum A) (x : RingK0 A),
+        rank A x p = localEquiv (IsLocalRing.maximalIdeal (Localization.AtPrime p.asIdeal))
+          (IsLocalRing.maximalIdeal.isMaximal _).ne_top
+          (fun _ hx => IsLocalRing.notMem_maximalIdeal.mp hx)
+          (map (algebraMap A (Localization.AtPrime p.asIdeal)) x) := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.2/rank-kernel-stalkwise`. -/
+theorem rank_kernel_stalkwise {A : Type u} [CommRing A] :
+    (rank A).ker = ⨅ p : PrimeSpectrum A,
+        (map (algebraMap A (Localization.AtPrime p.asIdeal))).ker := by
+  sorry
+
+
 /-! ### `KTheoryLowDegrees:Z.2/pi-ring-modules`, `Z.2/k0-pi`, `Z.2/k0-field-product` -/
 
 section Pi
@@ -2459,6 +2578,7 @@ theorem pi_ring_modules_finite_projective (i : ι) :
 omit [Fintype ι] [DecidableEq ι] in
 /-- `KTheoryLowDegrees:Z.2/pi-ring-modules` (b): `ExtendScalars πⱼ ((πᵢ)_* M)` is `M` for `j = i`
 and `0` for `j ≠ i`. -/
+-- `KTheoryLowDegrees:Z.2/pi-ring-cross-extension`
 theorem pi_ring_modules_extendScalars (i : ι) (M : Type u) [AddCommGroup M] [Module (A i) M] :
     Nonempty (ExtendScalars (Pi.evalRingHom A i)
         ((ModuleCat.restrictScalars (Pi.evalRingHom A i)).obj (ModuleCat.of (A i) M)) ≃ₗ[A i] M) ∧
@@ -2469,6 +2589,7 @@ theorem pi_ring_modules_extendScalars (i : ι) (M : Type u) [AddCommGroup M] [Mo
 omit [Fintype ι] [DecidableEq ι] in
 /-- `KTheoryLowDegrees:Z.2/pi-ring-modules` (c): `P ≅ ∏ᵢ (πᵢ)_* (ExtendScalars πᵢ P)` (`ι` finite).
 -/
+-- `KTheoryLowDegrees:Z.2/pi-ring-module-decomposition`
 theorem pi_ring_modules_decompose [Finite ι] (P : Type u) [AddCommGroup P] [Module (∀ i, A i) P] :
     Nonempty (P ≃ₗ[∀ i, A i] ∀ i, (ModuleCat.restrictScalars (Pi.evalRingHom A i)).obj
       (ModuleCat.of (A i) (ExtendScalars (Pi.evalRingHom A i) P))) := by
@@ -3589,6 +3710,25 @@ theorem rank_two_failure :
           (Matrix.SpecialLinearGroup.toGL (n := Fin 2) (R := ZMod 3)).range := by
   sorry
 
+/- Atomic signatures added by REV-KTheoryLowDegrees--U.1.
+The preceding bundled theorem remains an aggregate helper for existing projections. -/
+
+/-- `KTheoryLowDegrees:U.1/rank-two-failure`. -/
+theorem rank_two_failure_two :
+    Nat.card (elementarySubgroup (Fin 2) (ZMod 2)) = 6 ∧
+        Nat.card (commutator (elementarySubgroup (Fin 2) (ZMod 2))) = 3 ∧
+        ⁅(⊤ : Subgroup (GL (Fin 2) (ZMod 2))), ⊤⁆ ≠ elementarySubgroup (Fin 2) (ZMod 2) := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.1/rank-two-failure-three`. -/
+theorem rank_two_failure_three :
+    Nat.card (elementarySubgroup (Fin 2) (ZMod 3)) = 24 ∧
+      Nat.card (commutator (elementarySubgroup (Fin 2) (ZMod 3))) = 8 ∧
+      ⁅(⊤ : Subgroup (GL (Fin 2) (ZMod 3))), ⊤⁆ =
+          (Matrix.SpecialLinearGroup.toGL (n := Fin 2) (R := ZMod 3)).range := by
+  sorry
+
+
 end WhiteheadLemma
 
 end TauCeti.KTheory
@@ -3973,6 +4113,45 @@ theorem automorphism_class_independence :
         (θ : (P × Q) ≃ₗ[Aᵐᵒᵖ] (Fin n → A)) (α β : P ≃ₗ[Aᵐᵒᵖ] P),
         presentationClass θ (α * β) = presentationClass θ α * presentationClass θ β ∧
           presentationClass θ 1 = 1 := by
+  sorry
+
+/- Atomic signatures added by REV-KTheoryLowDegrees--U.1.
+The preceding bundled theorem remains an aggregate helper for existing projections. -/
+
+/-- `KTheoryLowDegrees:U.2/automorphism-class-independence`. -/
+theorem automorphism_presentation_exists :
+    ∃ (Q : Type u) (_ : AddCommGroup Q) (_ : Module Aᵐᵒᵖ Q) (n : ℕ),
+      Nonempty ((P × Q) ≃ₗ[Aᵐᵒᵖ] (Fin n → A)) := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.2/automorphism-class-complement-independent`. -/
+theorem automorphism_complement_independent :
+    ∀ (Q Q' : Type u) [AddCommGroup Q] [Module Aᵐᵒᵖ Q] [AddCommGroup Q'] [Module Aᵐᵒᵖ Q']
+        (n n' : ℕ) (θ : (P × Q) ≃ₗ[Aᵐᵒᵖ] (Fin n → A)) (θ' : (P × Q') ≃ₗ[Aᵐᵒᵖ] (Fin n' → A))
+        (α : P ≃ₗ[Aᵐᵒᵖ] P), presentationClass θ α = presentationClass θ' α := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.2/automorphism-class-presentation-multiplicative`. -/
+theorem automorphism_presentation_multiplicative :
+    ∀ (Q : Type u) [AddCommGroup Q] [Module Aᵐᵒᵖ Q] (n : ℕ)
+        (θ : (P × Q) ≃ₗ[Aᵐᵒᵖ] (Fin n → A)) (α β : P ≃ₗ[Aᵐᵒᵖ] P),
+        presentationClass θ (α * β) = presentationClass θ α * presentationClass θ β ∧
+          presentationClass θ 1 = 1 := by
+  sorry
+
+
+/-- `KTheoryLowDegrees:U.2/automorphism-class-basis-independent`. -/
+theorem automorphism_basis_independent {Q : Type u} [AddCommGroup Q] [Module Aᵐᵒᵖ Q]
+    {n : ℕ} (θ θ' : (P × Q) ≃ₗ[Aᵐᵒᵖ] (Fin n → A)) (α : P ≃ₗ[Aᵐᵒᵖ] P) :
+    presentationClass θ α = presentationClass θ' α := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.2/automorphism-class-free-stabilization`.
+The two presentations account for rebracketing and adjoining A^m. -/
+theorem automorphism_free_stabilization {Q : Type u} [AddCommGroup Q] [Module Aᵐᵒᵖ Q]
+    {n m : ℕ} (θ : (P × Q) ≃ₗ[Aᵐᵒᵖ] (Fin n → A))
+    (θ' : (P × (Q × (Fin m → A))) ≃ₗ[Aᵐᵒᵖ] (Fin (n+m) → A))
+    (α : P ≃ₗ[Aᵐᵒᵖ] P) : presentationClass θ α = presentationClass θ' α := by
   sorry
 
 /-- **The K₁ class of an automorphism** (`KTheoryLowDegrees:U.2/automorphism-class`), for `P`
@@ -5305,6 +5484,18 @@ theorem q_equivalence_to_base_point {a b : A} (h : (a, b) ∈ W 𝔮) :
         QEquiv 𝔮 (a, b) (1, 0)) := by
   sorry
 
+/-- `KTheoryLowDegrees:U.4/q-equivalence-to-base-point`, the first atomic part. -/
+theorem q_equivalence_one_sub {a b : A} (h : (a, b) ∈ W 𝔮) :
+    QEquiv 𝔮 (a, b) (a, b * (1 - a)) := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.4/q-equivalence-near-unit`, the second atomic part. -/
+theorem q_equivalence_near_unit {a b : A} (h : (a, b) ∈ W 𝔮)
+    (hu : (∃ u : Aˣ, a - u ∈ Ideal.span {b}) ∨
+      (∃ u : Aˣ, b - u ∈ Ideal.span {a})) :
+    QEquiv 𝔮 (a, b) (1, 0) := by
+  sorry
+
 /-- `KTheoryLowDegrees:U.4/q-equivalence-smaller-ideal` (BMS Lemma 2.3): for `A` Dedekind and
 nonzero `𝔮' ≤ 𝔮`, every element of `W_𝔮` is `𝔮`-equivalent to one of `W_{𝔮'}`. -/
 theorem q_equivalence_smaller_ideal [IsDedekindDomain A] {𝔮' : Ideal A} (h : 𝔮' ≤ 𝔮)
@@ -5338,24 +5529,89 @@ theorem mennicke_symbol_residue_map [IsDedekindDomain A] (h𝔮 : 𝔮 ≠ ⊥) 
     (∀ x : W 𝔮, ((∃ u : Aˣ, x.1.1 - u ∈ Ideal.span {x.1.2}) ∨
       (∃ u : Aˣ, x.1.2 - u ∈ Ideal.span {x.1.1})) → s x = 1) ∧
     (∀ 𝔮' : Ideal A, 𝔮' ≤ 𝔮 → 𝔮' ≠ ⊥ → ∀ x : W 𝔮, ∃ y ∈ W 𝔮', ∃ hy : y ∈ W 𝔮, s x = s ⟨y, hy⟩) ∧
-    (∀ a q : A, q ∈ 𝔮 → a - 1 ∈ 𝔮 →
+    (∀ a q : A, q ∈ 𝔮 → a - 1 ∈ Ideal.span {q} →
       ∃ ψ : (A ⧸ Ideal.span {a})ˣ → C,
         (∀ (b : A) (u : (A ⧸ Ideal.span {a})ˣ), (u : A ⧸ Ideal.span {a}) = Ideal.Quotient.mk _ b →
-          ∀ h : (a, b * q) ∈ W 𝔮, ψ u = s ⟨_, h⟩) ∧
+          ∃ h : (a, b * q) ∈ W 𝔮, ψ u = s ⟨_, h⟩) ∧
         ∀ u : Aˣ, ψ (Units.map (Ideal.Quotient.mk (Ideal.span {a})).toMonoidHom u) = 1) ∧
-    ∀ {k : ℕ} (x : Fin k → W 𝔮), ∃ a q c : A, q ∈ 𝔮 ∧ a - 1 ∈ 𝔮 ∧ IsCoprime c a ∧
+    ∀ {k : ℕ} (x : Fin k → W 𝔮), ∃ a q c : A, q ∈ 𝔮 ∧ a - 1 ∈ Ideal.span {q} ∧ IsCoprime c a ∧
       ∀ (t : A) (i : Fin k), ∃ (b : A) (h : (a + t * c * q, b * q) ∈ W 𝔮), s (x i) = s ⟨_, h⟩ := by
   sorry
+
+/- Atomic signatures added by REV-KTheoryLowDegrees--U.1.
+The preceding bundled theorem remains an aggregate helper for existing projections. -/
+
+/-- `KTheoryLowDegrees:U.4/mennicke-symbol-residue-map`. -/
+theorem mennicke_symbol_near_unit [IsDedekindDomain A] (h𝔮 : 𝔮 ≠ ⊥) (s : W 𝔮 → C)
+    (h0 : ∀ h : ((1 : A), (0 : A)) ∈ W 𝔮, s ⟨_, h⟩ = 1)
+    (hq : ∀ x y : W 𝔮, QEquiv 𝔮 x.1 y.1 → s x = s y) :
+    ∀ x : W 𝔮, ((∃ u : Aˣ, x.1.1 - u ∈ Ideal.span {x.1.2}) ∨
+      (∃ u : Aˣ, x.1.2 - u ∈ Ideal.span {x.1.1})) → s x = 1 := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.4/mennicke-symbol-smaller-ideal`. -/
+theorem mennicke_symbol_smaller_ideal [IsDedekindDomain A] (h𝔮 : 𝔮 ≠ ⊥) (s : W 𝔮 → C)
+    (h0 : ∀ h : ((1 : A), (0 : A)) ∈ W 𝔮, s ⟨_, h⟩ = 1)
+    (hq : ∀ x y : W 𝔮, QEquiv 𝔮 x.1 y.1 → s x = s y) :
+    ∀ 𝔮' : Ideal A, 𝔮' ≤ 𝔮 → 𝔮' ≠ ⊥ → ∀ x : W 𝔮, ∃ y ∈ W 𝔮', ∃ hy : y ∈ W 𝔮, s x = s ⟨y, hy⟩ := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.4/mennicke-symbol-residue-function`. -/
+theorem mennicke_symbol_residue_function [IsDedekindDomain A] (h𝔮 : 𝔮 ≠ ⊥) (s : W 𝔮 → C)
+    (h0 : ∀ h : ((1 : A), (0 : A)) ∈ W 𝔮, s ⟨_, h⟩ = 1)
+    (hq : ∀ x y : W 𝔮, QEquiv 𝔮 x.1 y.1 → s x = s y) :
+    ∀ a q : A, q ∈ 𝔮 → a - 1 ∈ Ideal.span {q} →
+      ∃ ψ : (A ⧸ Ideal.span {a})ˣ → C,
+        (∀ (b : A) (u : (A ⧸ Ideal.span {a})ˣ), (u : A ⧸ Ideal.span {a}) = Ideal.Quotient.mk _ b →
+          ∃ h : (a, b * q) ∈ W 𝔮, ψ u = s ⟨_, h⟩) ∧
+        ∀ u : Aˣ, ψ (Units.map (Ideal.Quotient.mk (Ideal.span {a})).toMonoidHom u) = 1 := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.4/mennicke-symbol-common-residue-image`. -/
+theorem mennicke_symbol_common_residue_image [IsDedekindDomain A] (h𝔮 : 𝔮 ≠ ⊥) (s : W 𝔮 → C)
+    (h0 : ∀ h : ((1 : A), (0 : A)) ∈ W 𝔮, s ⟨_, h⟩ = 1)
+    (hq : ∀ x y : W 𝔮, QEquiv 𝔮 x.1 y.1 → s x = s y) :
+    ∀ {k : ℕ} (x : Fin k → W 𝔮), ∃ a q c : A,
+      q ∈ 𝔮 ∧ a - 1 ∈ Ideal.span {q} ∧ IsCoprime c a ∧
+        ∀ (t : A) (i : Fin k), ∃ (b : A) (h : (a + t * c * q, b * q) ∈ W 𝔮),
+          s (x i) = s ⟨_, h⟩ := by
+  sorry
+
 
 /-- `KTheoryLowDegrees:U.4/mennicke-symbol-residue-homomorphism` (BMS Lemma 2.9): for a Mennicke
 symbol the maps (2.8) are homomorphisms, and the image of `W_𝔮` is abelian. -/
 theorem mennicke_symbol_residue_homomorphism [IsDedekindDomain A] (h𝔮 : 𝔮 ≠ ⊥)
     (s : MennickeSymbol A 𝔮 C) :
-    (∀ a q : A, q ∈ 𝔮 → a - 1 ∈ 𝔮 →
+    (∀ a q : A, q ∈ 𝔮 → a - 1 ∈ Ideal.span {q} →
       ∃ ψ : (A ⧸ Ideal.span {a})ˣ →* C,
         ∀ (b : A) (u : (A ⧸ Ideal.span {a})ˣ), (u : A ⧸ Ideal.span {a}) = Ideal.Quotient.mk _ b →
-          ∀ h : (a, b * q) ∈ W 𝔮, ψ u = s.toFun ⟨_, h⟩) ∧
+          ∃ h : (a, b * q) ∈ W 𝔮, ψ u = s.toFun ⟨_, h⟩) ∧
       ∀ x y : W 𝔮, Commute (s.toFun x) (s.toFun y) := by
+  sorry
+
+/- Atomic signatures added by REV-KTheoryLowDegrees--U.1.
+The preceding bundled theorem remains an aggregate helper for existing projections. -/
+
+/-- `KTheoryLowDegrees:U.4/mennicke-symbol-residue-homomorphism`. -/
+theorem mennicke_residue_hom [IsDedekindDomain A] (h𝔮 : 𝔮 ≠ ⊥)
+    (s : MennickeSymbol A 𝔮 C) :
+    ∀ a q : A, q ∈ 𝔮 → a - 1 ∈ Ideal.span {q} →
+      ∃ ψ : (A ⧸ Ideal.span {a})ˣ →* C,
+        ∀ (b : A) (u : (A ⧸ Ideal.span {a})ˣ), (u : A ⧸ Ideal.span {a}) = Ideal.Quotient.mk _ b →
+          ∃ h : (a, b * q) ∈ W 𝔮, ψ u = s.toFun ⟨_, h⟩ := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.4/mennicke-symbol-image-abelian`. -/
+theorem mennicke_image_abelian [IsDedekindDomain A] (h𝔮 : 𝔮 ≠ ⊥)
+    (s : MennickeSymbol A 𝔮 C) :
+    ∀ x y : W 𝔮, Commute (s.toFun x) (s.toFun y) := by
+  sorry
+
+
+-- Review regression: the ambient-ideal hypothesis does not ensure a residue pair exists.
+example : (3 : ℤ) - 1 ∈ Ideal.span {(2 : ℤ)} ∧
+    (6 : ℤ) ∈ Ideal.span {(2 : ℤ)} ∧
+    ¬ ((3 : ℤ), (1 : ℤ) * 6) ∈ W (Ideal.span {(2 : ℤ)}) := by
   sorry
 
 end MennickeSymbol
@@ -5576,12 +5832,12 @@ theorem prime_choice (𝔮 : Ideal (S.integer F)) (h𝔮 : 𝔮 ≠ ⊥) (p : �
 
 /-- `KTheoryLowDegrees:U.4/power-reduction-non-totally-imaginary` (BMS Theorem 3.5, Case 1): if
 `O_{F,S}` is not totally imaginary, every `(a, b) ∈ W_𝔮` is `𝔮`-equivalent to `(a₁, c^{pⁿ} q)`
-with `q ∈ 𝔮`, `a₁ ≡ 1 (mod 𝔮)`. (Proof inputs: local Hilbert symbols, requested; the tame formula
+with `q ∈ 𝔮`, `a₁ ≡ 1 (mod qA)`. (Proof inputs: local Hilbert symbols, requested; the tame formula
 and reciprocity (A.16), (A.21), gaps.) -/
 theorem power_reduction_non_totally_imaginary (hnti : S.Nonempty ∨ ∃ w : InfinitePlace F, w.IsReal)
     (𝔮 : Ideal (S.integer F)) (h𝔮 : 𝔮 ≠ ⊥) (p : ℕ) [Fact p.Prime] (n : ℕ)
     (hn : IsMaxRootsExponent F p n) {x : S.integer F × S.integer F} (hx : x ∈ W 𝔮) :
-    ∃ q a₁ c : S.integer F, q ∈ 𝔮 ∧ a₁ - 1 ∈ 𝔮 ∧ QEquiv 𝔮 x (a₁, c ^ (p ^ n) * q) := by
+    ∃ q a₁ c : S.integer F, q ∈ 𝔮 ∧ a₁ - 1 ∈ Ideal.span {q} ∧ QEquiv 𝔮 x (a₁, c ^ (p ^ n) * q) := by
   sorry
 
 /-- `KTheoryLowDegrees:U.4/power-reduction-totally-imaginary` (BMS Theorem 3.5, Cases 2–3): for `F`
@@ -5590,7 +5846,7 @@ wild local computation (A.17), a gap.) -/
 theorem power_reduction_totally_imaginary [IsTotallyComplex F] (𝔮 : Ideal (𝓞 F)) (h𝔮 : 𝔮 ≠ ⊥)
     (p : ℕ) [Fact p.Prime] (n : ℕ) (hn : IsMaxRootsExponent F p n) (hj : jIndex F p n 𝔮 = 0)
     {x : 𝓞 F × 𝓞 F} (hx : x ∈ W 𝔮) :
-    ∃ q a₁ c : 𝓞 F, q ∈ 𝔮 ∧ a₁ - 1 ∈ 𝔮 ∧ QEquiv 𝔮 x (a₁, c ^ (p ^ n) * q) := by
+    ∃ q a₁ c : 𝓞 F, q ∈ 𝔮 ∧ a₁ - 1 ∈ Ideal.span {q} ∧ QEquiv 𝔮 x (a₁, c ^ (p ^ n) * q) := by
   sorry
 
 /-- `KTheoryLowDegrees:U.4/power-reduction` (BMS Theorem 3.5): if `A = O_{F,S}` is not totally
@@ -5600,7 +5856,7 @@ theorem power_reduction (𝔮 : Ideal (S.integer F)) (h𝔮 : 𝔮 ≠ ⊥) (p :
     (hcase : S.Nonempty ∨ (∃ w : InfinitePlace F, w.IsReal) ∨
       jIndex F p n (𝔮.comap (algebraMap (𝓞 F) (S.integer F))) = 0)
     {x : S.integer F × S.integer F} (hx : x ∈ W 𝔮) :
-    ∃ q a₁ c : S.integer F, q ∈ 𝔮 ∧ a₁ - 1 ∈ 𝔮 ∧ QEquiv 𝔮 x (a₁, c ^ (p ^ n) * q) := by
+    ∃ q a₁ c : S.integer F, q ∈ 𝔮 ∧ a₁ - 1 ∈ Ideal.span {q} ∧ QEquiv 𝔮 x (a₁, c ^ (p ^ n) * q) := by
   sorry
 
 /-- `KTheoryLowDegrees:U.4/mennicke-group-locally-cyclic`: every finite subset of `C_𝔮` lies in a
@@ -5786,6 +6042,39 @@ theorem k1_S_integers_residue_and_local (hS : S.Finite) (v : HeightOneSpectrum (
         ((K1.det (v.adicCompletionIntegers F)
             (K1.map (sIntegerToAdicCompletionIntegers F S v hv) x) : v.adicCompletionIntegers F)) =
           sIntegerToAdicCompletionIntegers F S v hv (K1.det (S.integer F) x : S.integer F)) ∧
+      Function.Injective (K1.map (sIntegerToAdicCompletionIntegers F S v hv)) := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.4/K1-S-integers-residue-and-local`, the residue-field
+specialisation. The preceding conjunction is retained as an aggregate helper. -/
+theorem k1_S_integers_residue (hS : S.Finite) (v : HeightOneSpectrum (𝓞 F)) (hv : v ∉ S)
+    (𝔭 : Ideal (S.integer F)) [𝔭.IsMaximal]
+    (h𝔭 : 𝔭 = (IsDedekindDomain.integerHeightOneSpectrumEquiv F S ⟨v, hv⟩).asIdeal) :
+    (∀ x : K1 (S.integer F),
+      (K1.det (S.integer F ⧸ 𝔭) (K1.map (Ideal.Quotient.mk 𝔭) x) : S.integer F ⧸ 𝔭) =
+        Ideal.Quotient.mk 𝔭 (K1.det (S.integer F) x : S.integer F)) ∧
+      IsCyclic (S.integer F ⧸ 𝔭)ˣ ∧
+      Nat.card (S.integer F ⧸ 𝔭)ˣ = Nat.card (S.integer F ⧸ 𝔭) - 1 := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.4/K1-S-integers-local`. -/
+theorem k1_S_integers_local (hS : S.Finite) (v : HeightOneSpectrum (𝓞 F)) (hv : v ∉ S)
+    (𝔭 : Ideal (S.integer F)) [𝔭.IsMaximal]
+    (h𝔭 : 𝔭 = (IsDedekindDomain.integerHeightOneSpectrumEquiv F S ⟨v, hv⟩).asIdeal) :
+    (∀ x : K1 (S.integer F),
+      (K1.det (Localization.AtPrime 𝔭) (K1.map (algebraMap (S.integer F) _) x) :
+          Localization.AtPrime 𝔭) =
+        algebraMap (S.integer F) _ (K1.det (S.integer F) x : S.integer F)) ∧
+      Function.Injective (K1.map (algebraMap (S.integer F) (Localization.AtPrime 𝔭))) := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.4/K1-S-integers-completion`. -/
+theorem k1_S_integers_completion (hS : S.Finite)
+    (v : HeightOneSpectrum (𝓞 F)) (hv : v ∉ S) :
+    (∀ x : K1 (S.integer F),
+      (K1.det (v.adicCompletionIntegers F)
+          (K1.map (sIntegerToAdicCompletionIntegers F S v hv) x) : v.adicCompletionIntegers F) =
+        sIntegerToAdicCompletionIntegers F S v hv (K1.det (S.integer F) x : S.integer F)) ∧
       Function.Injective (K1.map (sIntegerToAdicCompletionIntegers F S v hv)) := by
   sorry
 
@@ -6171,6 +6460,27 @@ theorem relative_whitehead_lemma (I : Ideal A) [I.IsTwoSided] :
       ⁅stableCongruenceSubgroup I, stableCongruenceSubgroup I⁆ ≤ stableRelElementary I := by
   sorry
 
+/- Atomic signatures added by REV-KTheoryLowDegrees--U.1.
+The preceding bundled theorem remains an aggregate helper for existing projections. -/
+
+/-- `KTheoryLowDegrees:U.5/relative-whitehead-lemma`. -/
+theorem relative_whitehead_diagonal (I : Ideal A) [I.IsTwoSided] :
+    ∀ (n : ℕ) (g : GL (Fin n) A), g ∈ congruenceSubgroup (Fin n) I →
+      blockSum (g, g⁻¹) ∈ relElementary (Fin (n + n)) I := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.5/relative-elementary-stable-normal`. -/
+theorem relative_elementary_stable_normal (I : Ideal A) [I.IsTwoSided] :
+    stableRelElementary I ≤ stableCongruenceSubgroup I ∧
+      (stableRelElementary I).Normal := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.5/relative-commutator-containment`. -/
+theorem relative_commutator_containment (I : Ideal A) [I.IsTwoSided] :
+    ⁅stableCongruenceSubgroup I, stableCongruenceSubgroup I⁆ ≤ stableRelElementary I := by
+  sorry
+
+
 /-- `E(A, I)` is normal in `GL(A)` (instance form of `relative_whitehead_lemma` (b)). -/
 instance stableRelElementary_normal (I : Ideal A) [I.IsTwoSided] :
     (stableRelElementary I).Normal :=
@@ -6343,11 +6653,21 @@ def RelK1.ofUnit (I : Ideal R) : unitsOneMod I →* RelK1 I where
 theorem RelK1.det_ofUnit : (RelK1.det I).comp (RelK1.ofUnit I) = MonoidHom.id _ := by
   sorry
 
-/-- `SK₁(A, I) := ker det` (a real definition). -/
+/-- `KTheoryLowDegrees:U.5/relative-SK1`: `SK₁(A, I) := ker det` (a real definition). -/
 def RelSK1 (I : Ideal R) : Subgroup (RelK1 I) :=
   (RelK1.det I).ker
 
-/-- `SK₁(A, I) ≃* (SL(A) ⊓ GL(I)) ⧸ E(A, I)`. -/
+@[simp] theorem RelSK1.mem_iff (x : RelK1 I) :
+    x ∈ RelSK1 I ↔ RelK1.det I x = 1 := Iff.rfl
+
+/-- The relative-to-absolute map restricts to the determinant kernels. -/
+def RelSK1.toK1 (I : Ideal R) : RelSK1 I →* SK1 R where
+  toFun x := ⟨RelK1.toK1 I x, by sorry⟩
+  map_one' := by sorry
+  map_mul' := by sorry
+
+/-- `KTheoryLowDegrees:U.5/relative-SK1-quotient`:
+`SK₁(A, I) ≃* (SL(A) ⊓ GL(I)) ⧸ E(A, I)`. -/
 theorem RelSK1.equiv :
     Nonempty (RelSK1 I ≃* ↥(StableGL.specialLinear R ⊓ stableCongruenceSubgroup I) ⧸
       (stableRelElementary I).subgroupOf (StableGL.specialLinear R ⊓ stableCongruenceSubgroup I))
@@ -6355,7 +6675,8 @@ theorem RelSK1.equiv :
   sorry
 
 variable (I) in
-/-- `K₁(A, I) ≃* GL₁(I) × SK₁(A, I)`, `x ↦ (det x, x · [det x]⁻¹)` (a real definition up to
+/-- `KTheoryLowDegrees:U.5/relative-K1-units-split`:
+`K₁(A, I) ≃* GL₁(I) × SK₁(A, I)`, `x ↦ (det x, x · [det x]⁻¹)` (a real definition up to
 proofs). -/
 def RelK1.equivProd : RelK1 I ≃* unitsOneMod I × RelSK1 I where
   toFun x := (RelK1.det I x, ⟨x * RelK1.ofUnit I (RelK1.det I x)⁻¹, by sorry⟩)
@@ -6367,6 +6688,24 @@ def RelK1.equivProd : RelK1 I ≃* unitsOneMod I × RelSK1 I where
 /-- Compatibility with U.3: `det ∘ ι = (GL₁(I) ≤ Aˣ) ∘ det`. -/
 theorem RelK1.det_toK1 (x : RelK1 I) : (RelK1.det I x : Rˣ) = K1.det R (RelK1.toK1 I x) := by
   sorry
+
+/-- The relative splitting agrees with the absolute splitting on both factors. -/
+theorem RelK1.equivProd_toK1 (x : RelK1 I) :
+    K1.unitsProdEquiv R (RelK1.toK1 I x) =
+      (((RelK1.equivProd I x).1 : Rˣ), RelSK1.toK1 I (RelK1.equivProd I x).2) := by
+  sorry
+
+-- Tests for the separately recorded relative-SK1 definition.
+example : RelSK1 (⊥ : Ideal R) = ⊥ := by sorry
+
+example (p : ℕ) [Fact p.Prime] :
+    RelSK1 (Ideal.span {(p : ZMod (p ^ 2))}) = ⊥ := by sorry
+
+example (x : RelK1 I) : x ∈ RelSK1 I ↔ RelK1.det I x = 1 := RelSK1.mem_iff x
+
+-- This conditional application uses the still-partial real-circle obstruction.
+example : ∃ x : RelK1 (⊤ : Ideal CircleRing),
+    x ∈ RelSK1 (⊤ : Ideal CircleRing) ∧ x ≠ 1 := by sorry
 
 -- test TauCeti.RelativeK1.RelK1.det_top (degenerate)
 example (x : RelK1 (⊤ : Ideal R)) : (RelK1.det ⊤ x : Rˣ) = K1.det R (RelK1.toK1 ⊤ x) :=
@@ -7101,6 +7440,44 @@ theorem projection_formula {S : Type u} [CommRing S] [Algebra A S]
         Additive.toMul (K1.smulK0 A A
           (SplitK0.of ⟨(ModuleCat.restrictScalars (algebraMap A S)).obj (ModuleCat.of S S), hf'⟩)
           (Additive.ofMul z)) := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.5/projection-formula`: the first projection formula.
+The preceding conjunction is retained as an aggregate helper. -/
+theorem projection_formula_base_k0 {S : Type u} [CommRing S] [Algebra A S]
+    (hf : finiteProjectiveModules Aᵐᵒᵖ (rightRes (algebraMap A S) (ModuleCat.of Sᵐᵒᵖ S)))
+    (hf' : finiteProjectiveModules A
+      ((ModuleCat.restrictScalars (algebraMap A S)).obj (ModuleCat.of S S)))
+    (x : RingK0 A) (y : K1 S) :
+    K1.transfer (algebraMap A S) hf (Additive.toMul (K1.smulK0 S S
+      (RingK0.map (algebraMap A S) x) (Additive.ofMul y))) =
+      Additive.toMul (K1.smulK0 A A x
+        (Additive.ofMul (K1.transfer (algebraMap A S) hf y))) := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.5/projection-formula-transfer-k0`. -/
+theorem projection_formula_transfer_k0 {S : Type u} [CommRing S] [Algebra A S]
+    (hf : finiteProjectiveModules Aᵐᵒᵖ (rightRes (algebraMap A S) (ModuleCat.of Sᵐᵒᵖ S)))
+    (hf' : finiteProjectiveModules A
+      ((ModuleCat.restrictScalars (algebraMap A S)).obj (ModuleCat.of S S)))
+    (y : RingK0 S) (z : K1 A) :
+    K1.transfer (algebraMap A S) hf (Additive.toMul (K1.smulK0 S S y
+      (Additive.ofMul (K1.map (algebraMap A S) z)))) =
+      Additive.toMul (K1.smulK0 A A (RingK0.transfer (algebraMap A S) hf' y)
+        (Additive.ofMul z)) := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.5/transfer-base-change-composite`: transfer after base change is
+multiplication by the class of the extension ring, on the base K₁. -/
+theorem transfer_base_change_composite {S : Type u} [CommRing S] [Algebra A S]
+    (hf : finiteProjectiveModules Aᵐᵒᵖ (rightRes (algebraMap A S) (ModuleCat.of Sᵐᵒᵖ S)))
+    (hf' : finiteProjectiveModules A
+      ((ModuleCat.restrictScalars (algebraMap A S)).obj (ModuleCat.of S S)))
+    (z : K1 A) :
+    K1.transfer (algebraMap A S) hf (K1.map (algebraMap A S) z) =
+      Additive.toMul (K1.smulK0 A A
+        (SplitK0.of ⟨(ModuleCat.restrictScalars (algebraMap A S)).obj
+          (ModuleCat.of S S), hf'⟩) (Additive.ofMul z)) := by
   sorry
 
 end K0Action
@@ -8312,6 +8689,14 @@ example {n : ℕ} {g : Level (n+2) I} (f : StandardForm g) :
 example {n : ℕ} (k : Level (n+1) I →* C) (t : I) (f : StandardForm (middle (n := n) t))
     (hl : f.left = 1) (hr : f.right = 1) : standardFormValue k f = 1 := by sorry
 
+-- test standardFormValue_determinant_two_test: excludes the constant-1 value.
+example (k : Level 2 (⊤ : Ideal ℚ) →* ℚˣ)
+    (hk : ∀ g, k g = Matrix.GeneralLinearGroup.det g.val)
+    {g : Level 3 (⊤ : Ideal ℚ)} (f : StandardForm g)
+    (hl : (f.left.val : Matrix (Fin 2) (Fin 2) ℚ) = !![2,0;0,1])
+    (hr : f.right = 1) : (standardFormValue k f : ℚ) = 2 := by
+  sorry
+
 theorem standardFormValue_independent {n : ℕ} (hn : 1 ≤ n) (k : Level (n+1) I →* C)
     (hk : ExtensionConditions k) {g : Level (n+2) I} (f h : StandardForm g) :
     standardFormValue k f = standardFormValue k h := by sorry
@@ -8354,6 +8739,17 @@ example {n : ℕ} (k : Level (n+1) I →* C) (hk : ExtensionConditions k)
     (ht : ∀ J : Ideal A, ∀ a : Fin (n+1) → A, RelativeColumn J n a →
       ∃ u : Level (n+1) J, (u.val : Matrix (Fin (n+1)) (Fin (n+1)) A) *ᵥ a = Pi.single 0 1) (t : I) :
     extendedValue k hsr hn ht (middle t) = 1 := by sorry
+-- test extendedValue_determinant_two_test: a supplied standard form evaluates to 2.
+example (k : Level 2 (⊤ : Ideal ℚ) →* ℚˣ)
+    (hk : ∀ g, k g = Matrix.GeneralLinearGroup.det g.val)
+    (hconditions : ExtensionConditions k) (hstable : HasStableRange ℚ 2)
+    (htrans : ∀ J : Ideal ℚ, ∀ a : Fin 2 → ℚ, RelativeColumn J 1 a →
+      ∃ u : Level 2 J, (u.val : Matrix (Fin 2) (Fin 2) ℚ) *ᵥ a = Pi.single 0 1)
+    (g : Level 3 (⊤ : Ideal ℚ)) (f : StandardForm g)
+    (hl : (f.left.val : Matrix (Fin 2) (Fin 2) ℚ) = !![2,0;0,1])
+    (hr : f.right = 1) : (extendedValue k hstable (by decide) htrans g : ℚ) = 2 := by
+  sorry
+
 -- test extendedValue_trivial_test
 example {n : ℕ} (hsr : HasStableRange A (n+1)) (hn : 1 ≤ n)
     (ht : ∀ J : Ideal A, ∀ a : Fin (n+1) → A, RelativeColumn J n a →
@@ -8638,3 +9034,11 @@ theorem GE_le_stabilizer_of_swap
     GE (n+2) A ≤ conjugationStabilizer (extendedValue k hsr hn ht) := by sorry
 end ReflectionNormalizer
 end TauCeti.MennickeExtension
+
+/- Independent review REV-KTheoryLowDegrees--U.1 (2026-10-05): the new principal-level
+congruences and atomic signatures above have been inspected, but this complete file cannot
+be elaborated in the supplied shared build: import loading fails before declarations are
+checked. No historical fragment check certifies the current complete file. The relative
+homotopy comparison still needs an actual relative-plus/excision-defect argument; a five-lemma
+argument between the double-ring and quotient sequences has nonisomorphic adjacent maps.
+The reader document contains superseded statements and must be regenerated before promotion. -/
