@@ -1,3 +1,39 @@
+# REV-AnalyticNumberTheory--AN.0 — continuation checkpoint
+
+Issue [#527](https://github.com/CBirkbeck/tauceti-explorer/issues/527), Codex — `codex-ws2Gd5`, 2026-10-05. Claim [5992528918](https://github.com/CBirkbeck/tauceti-explorer/issues/527#issuecomment-5992528918) was confirmed by [bot comment 5992531573](https://github.com/CBirkbeck/tauceti-explorer/issues/527#issuecomment-5992531573). Branch: `codex-ws2Gd5/review-analytic-number-theory-527`. Review input: `8270021f197b68362ac29ddae9755b434d27059f`.
+
+This is a checkpoint, **not a completed independent review**. The packet has no top-level `review` object. Its inherited planning status does not certify review completion. Submit this one job, then stop; intake releases the issue after merging the checkpoint. The previous handoff is preserved below as historical evidence, including its unresolved worklist. The [review report](../reviews/REV-AnalyticNumberTheory--AN.0.md) has this session's exact corrections, source hashes, reading scope and validation receipt.
+
+## Saved in this continuation
+
+- Scoped statement/dependency/source audit of zero-based input nodes35–65. Thirteen statements corrected or made precise; no node additions/deletions. This is not a final per-node verification ledger. Earlier payload receipts remain the previous session's evidence.
+- Explicit CM extension, degree, primitive character, real-place odd parity and conductor/discriminant assumptions in nodes43,45–47. Check Q=D_F N(f_η)=D_E/D_F. The real quadratic χ_8 counterexample prevents applying the odd logarithmic equation outside this domain.
+- Correct trivial-character pole handling for primitive convexity, positive norm/count ranges, and holomorphy/continued-residue dependencies.
+- General partial-ideal coefficient definition to make the existing ℚ test valid, with ordinary/narrow choices and n=0 versus LSeries conventions explicit. No new ideal-class or norm carrier.
+- DIT primitive Eisenstein normalization, half-unit factor ω_D, real norm-one quotient and measures. Boundary continuation precedes critical-line core integration.
+- Separated AS.1 initial Eisenstein convergence, AS.2 continuation/cusp estimates, GN.3 quadratic geometry and the accepted extraction's proposed FuchsianOrbifolds Part II core-surface owner. No nonexistent stage or unavailable theorem is claimed.
+- Conditional positive exceptional-zero example, matching the native predicate's general c parameter. Now 224 nodes, 89 API items, 76 tests, 26 planets, 54 baseline declarations, 44 gaps, 30 requests, six ownership proposals. No gaps closed on the basis of extraction acceptance alone.
+- Fresh primary-source receipts for DIT selected §§1–2/5–7, TZ §§2A–2C through Lemma2.4 and Tsimerman pp.381–384. Convexity is TZ **Lemma2.3**, not Lemma2.4 or equation(2-8). Cited original Hecke/Siegel/Rademacher/Brauer–Siegel proofs remain unread.
+- Entire executable native section manually read; later comments only selectively read. Final `lean-check`: exit0,159 `sorry` warnings,0 errors. The six omitted carrier definitions remain comments. Packet checker:0 errors,0 warnings.
+
+Scratch is deleted after opening the PR. Everything necessary to reproduce source acquisition is in the report and packet. No Lean/background process is needed to resume. Do not use the departing worker's source texts as an implicit proof receipt.
+
+## Resume after a fresh claim
+
+1. Read the current issue, protocols, latest report and historical handoff below. Preserve both sessions' corrections. Resume remaining sequential payload/source reading at node66, while returning to all unverified supplier/proof obligations at nodes0–65. A reading receipt is not a final verdict. This continuation did not finish the full baseline-consumer matching.
+2. Resolve CM adapters using actual GlobalNumberFields9/10, ClassFieldTheory11/13 and AL.1 contracts. Do not infer holomorphy from a zero-free disk or from fixed-field residue limits. Read Rademacher's original convexity proof and the bounded-degree Brauer–Siegel uniformity proof before closing the corresponding gaps. Nodes37–40 still have vague Artin-family inputs and a difficult Brauer-pole regularization obligation.
+3. Resolve the DIT geometric dictionary. AS.1 does not construct C_A,z_A,F_A; AS.2's broad stage does not automatically supply the exact differentiated cusp estimates. GN.3 needs a fine quadratic arithmetic interface. The proposed FuchsianOrbifolds Part II has no current atlas stage, so core surfaces and multiplicity-preserving projection remain unresolved. Match genus-character prime-discriminant/subset and coprime-norm hypotheses at the pin; the helper declarations were read but no unconditional arbitrary-character factorization was certified.
+4. The reader document is not an issue deliverable. It now needs authorized synchronization of CM/parity/conductor hypotheses, pole handling, partial-series domain and zero coefficient, period normalization/measure, supplier requests and exceptional-zero positive test. Do not claim acceptance while it diverges. Only the issue's packet, suggested file, review report and own handoff were edited here.
+5. Complete reader, mathematical native comments, definition/API/test, planet, current ownership/closure and all named red-team-route checks. In particular preserve the arithmetic-scheme Chebotarev and AC.4 routing issues, growing-modulus W(N), maximal divisor order and classical zero-free requirements. The previous worklist below remains live.
+6. Finish the numerical primary proofs and source-issue adjudication, including the unresolved E1 finite certification and Lerch source. Neither this continuation nor the previous checkpoint certifies the original numerical estimates.
+7. Only after every node and citation has a defensible verdict should a top-level independent-review verdict be written. Re-run the packet checker with the pinned declaration index and `lean-check` where executable statements change. Follow the shared-machine memory/timeout rules. Submit via intake; never merge or close manually.
+
+No maintainer decision is needed for the scoped corrections saved here. The unresolved work is the independent review and the explicitly missing supplier/reader interfaces.
+
+## Historical handoff — Codex `codex-7e92bd`
+
+The following is preserved from the input checkpoint; its first-person reading and compile receipts belong to that earlier session.
+
 # REV-AnalyticNumberTheory--AN.0 — runner-transition checkpoint
 
 Issue [#527](https://github.com/CBirkbeck/tauceti-explorer/issues/527), Codex — `codex-7e92bd`, 2026-10-05. The claim was confirmed by bot comment [5991903555](https://github.com/CBirkbeck/tauceti-explorer/issues/527#issuecomment-5991903555), responding to claim comment 5991901337.
