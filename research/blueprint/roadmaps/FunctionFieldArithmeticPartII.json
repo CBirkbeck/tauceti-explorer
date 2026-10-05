@@ -74,7 +74,7 @@
     {
       "key": "GC.2",
       "title": "Adelic root Picard groupoids",
-      "description": "Modified local-unit fibre products and the idele double-quotient groupoid, with stabilizers and degree retained. Exact declarations, hypotheses, API and acceptance tests are in the companion packet and reader.",
+      "description": "Modified local-unit fibre products, the full signed root-divisor right-action groupoid A_F×/O_{√R}× and its further idele double quotient to the root Picard groupoid, with all stabilizers and the valuation/line-bundle sign convention retained. The root-divisor groupoid is not an effective symmetric-power space. Exact declarations, hypotheses, API and acceptance tests are in the companion packet and reader.",
       "requires": [
         "FunctionFieldArithmetic:FA.2",
         "FunctionFieldArithmeticPartII:GC.0",
