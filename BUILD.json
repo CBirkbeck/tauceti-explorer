@@ -1,8 +1,8 @@
 {
   "roadmaps": 229,
-  "stages": 3481,
+  "stages": 3477,
   "originalStages": 2098,
-  "sourceRefinements": 1383,
+  "sourceRefinements": 1379,
   "reviewedDecompositions": [
     {
       "roadmap": "AInfCohomology",
@@ -106,13 +106,6 @@
       "roadmap": "CrystallineCohomology",
       "status": "partial",
       "nodes": 7,
-      "review": "accepted",
-      "deferredLinks": 0
-    },
-    {
-      "roadmap": "DeformationAndDerivedPatchingAlgebra",
-      "status": "partial",
-      "nodes": 17,
       "review": "accepted",
       "deferredLinks": 0
     },
@@ -341,14 +334,14 @@
   "editedRoadmapSummaries": 181,
   "curatedStagePresentations": 339,
   "administrativeStages": 101,
-  "mathematicalStars": 3380,
+  "mathematicalStars": 3376,
   "plainTextPlanetLabels": 398,
   "hiddenPlanets": 600,
   "mappedStageStatuses": 350,
   "libraryAuditStatuses": 32,
   "bibliographicSources": 46,
   "roadmapEdges": 1843,
-  "stageEdges": 9373,
+  "stageEdges": 9358,
   "reviewedLinkPackets": 25,
   "promotedBlueprints": [
     {
@@ -422,6 +415,12 @@
       "roadmap": "ConformalMappingPartII",
       "nodes": 98,
       "reviewer": "independent-review-REV-DESIGN-ConformalMappingPartII"
+    },
+    {
+      "file": "DeformationAndDerivedPatchingAlgebra--P7",
+      "roadmap": "DeformationAndDerivedPatchingAlgebra",
+      "nodes": 478,
+      "reviewer": "independent-review-REV-DeformationAndDerivedPatchingAlgebra--P7"
     },
     {
       "file": "DeformationAndDerivedPatchingAlgebra--R03.6",
@@ -611,8 +610,8 @@
     }
   ],
   "sourceDocuments": 296,
-  "htmlBytes": 32121702,
-  "htmlSha256": "5b0f3feff05a0fcfede1f2b14163a25111d33bf655b0988d7215c3d2514fc3f0",
+  "htmlBytes": 31963831,
+  "htmlSha256": "781e8b75f9f502d5412d3669bee0e431cd7b99de7373bd2249b4e2cee1aaf63c",
   "networkDependencies": 0,
   "localProgressOverridesIncluded": false,
   "assets": {
@@ -643,7 +642,7 @@
     "data/roadmap-summaries.json": "c8bdd0a9105f5d3c4a858c8b635990729f8e94497dee784a71fae659b8c05b9f",
     "data/roadmap-classification.json": "2641dbc97eb2566c715162d011b46890d1635629181ef8126ac7aed9e24a3b13",
     "data/classification-estimates.json": "625d35fe6121bf099dc5de9e6a9111793596f9b664e3fbd439841434bb4a57d6",
-    "data/roadmap-distances.json": "a461d2d06803a27eee053102acaf1810fa413a8fc4374a8c58130f79f1feb28c",
+    "data/roadmap-distances.json": "91bc62a081b13e511181df0139694a26ad0ad2b802b4772af3b4c7b7ca4d9a83",
     "data/galaxy-layout.json": "92f736cdbedc11ea25886ab1b3da97c6e1364c28c6170267d456a29ecb7f702a",
     "data/bibliography.json": "bef230a41fad22d6b790c7564061c4d05c2ae5b78cab53d005eb404afab2b122",
     "NOTICE": "a285b95d5adbf5c2bcc82db36e2a77b797f84a2c5cbb30292efd0bae17cc4f34",
@@ -725,6 +724,8 @@
     "data/blueprints/ComputationalNumberTheory.md": "e5035ba10d69d7378b539b90b7b384401ba32998c9a3f50693e7865f20f1f129",
     "data/blueprints/ConformalMappingPartII.json": "14d52fe162118fb2d04f31304a43d60f8b882ac4d85332d633d0d258ee1744a3",
     "data/blueprints/ConformalMappingPartII.md": "83d804e8e91cac36717619b4ff44202e1f35e55e6e9ea63756d4bb0304b7c560",
+    "data/blueprints/DeformationAndDerivedPatchingAlgebra--P7.json": "fabd206d0592b346e037a51ce1151fa017131caeef17a2faa4aff8e5887ac653",
+    "data/blueprints/DeformationAndDerivedPatchingAlgebra--P7.md": "4275581db5d9c335a2d7cf4bd9854d04a95f0d496348f0240476920a2b48a541",
     "data/blueprints/DeformationAndDerivedPatchingAlgebra--R03.6.json": "7d5095850eca12bc0d5930af24e45a800c675c46a491d99a38bf1eed5f5930be",
     "data/blueprints/DeformationAndDerivedPatchingAlgebra--R03.6.md": "5cb32739e0e0e2d6b2a7497f810abcee961f72e8c8cbb434012ef9811e3649c4",
     "data/blueprints/DirichletPadicLFunctions--L0.json": "f2445a2a9748de37d37916a1138dffa2d71c1c77e7cef8e643898bf87fd990f5",

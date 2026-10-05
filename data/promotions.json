@@ -395,6 +395,17 @@
     "data/blueprints/roadmaps/ConformalMappingPartII.json"
    ]
   },
+  "research/blueprint/packets/DeformationAndDerivedPatchingAlgebra--P7.json": {
+   "promotedAt": "2026-10-05T14:43:43Z",
+   "review": "258c5fdf030ba23b",
+   "reviewDate": "2026-10-05",
+   "reviewer": "independent-review-REV-DeformationAndDerivedPatchingAlgebra--P7",
+   "sha256": "fabd206d0592b346e037a51ce1151fa017131caeef17a2faa4aff8e5887ac653",
+   "to": [
+    "data/blueprints/DeformationAndDerivedPatchingAlgebra--P7.json",
+    "data/blueprints/DeformationAndDerivedPatchingAlgebra--P7.md"
+   ]
+  },
   "research/blueprint/packets/DeformationAndDerivedPatchingAlgebra--R03.6.json": {
    "promotedAt": "2026-09-28T13:45:03Z",
    "review": "918a718d825d5efb",
