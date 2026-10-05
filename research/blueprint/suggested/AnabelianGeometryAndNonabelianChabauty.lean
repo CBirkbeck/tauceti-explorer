@@ -6133,3 +6133,62 @@ end TauCeti.NonabelianCohomology
   }
 }
 END TWISTED KERNEL ORBIT RECOVERY PAYLOAD -/
+
+/-! Independent review: concrete descent values and the normality boundary.
+These tests pin the maps, rather than only the existence of an equivalence. -/
+namespace TauCeti.NonabelianCohomology
+section CanonicalDescentTests
+local notation "S3" => Equiv.Perm (Fin 3)
+local instance : TopologicalSpace S3 := ⊥
+local instance : DiscreteTopology S3 := ⟨rfl⟩
+local instance : MulDistribMulAction S3 S3 where
+  smul _ x := x
+  one_smul _ := rfl
+  mul_smul _ _ _ := rfl
+  smul_one _ := rfl
+  smul_mul _ _ _ := rfl
+
+-- The actual identity homomorphism is a cocycle for this trivial action.
+private def identityCocycleS3 : Z1 S3 S3 :=
+  ⟨id, continuous_id, by intro g h; rfl⟩
+
+private theorem identityCocycleS3_trivial :
+    ∀ n ∈ (⊥ : Subgroup S3), identityCocycleS3 n = 1 := by
+  intro n hn
+  have hn1 : n = 1 := hn
+  exact hn1
+
+-- test: TauCeti.NonabelianCohomology.Z1.descend.test_identity_S3_values
+example :
+    (Z1.descend (⊥ : Subgroup S3) identityCocycleS3 identityCocycleS3_trivial
+      (QuotientGroup.mk (Equiv.swap (0 : Fin 3) 1))).val = Equiv.swap (0 : Fin 3) 1 ∧
+    Equiv.swap (0 : Fin 3) 1 ≠ 1 := by sorry
+
+-- test: TauCeti.NonabelianCohomology.Z1.inflate.test_identity_S3_values
+example :
+    Z1.inflate (⊥ : Subgroup S3)
+      (Z1.descend (⊥ : Subgroup S3) identityCocycleS3 identityCocycleS3_trivial)
+      (Equiv.swap (0 : Fin 3) 1) = Equiv.swap (0 : Fin 3) 1 ∧
+    Equiv.swap (0 : Fin 3) 1 ≠ 1 := by sorry
+
+-- test: TauCeti.NonabelianCohomology.Z1.descendEquiv.test_identity_S3_values
+example :
+    let d := Z1.descendEquiv (⊥ : Subgroup S3)
+      ⟨identityCocycleS3, identityCocycleS3_trivial⟩
+    (d (QuotientGroup.mk (Equiv.swap (0 : Fin 3) 1))).val = Equiv.swap (0 : Fin 3) 1 ∧
+    (d (QuotientGroup.mk (Equiv.swap (1 : Fin 3) 2))).val = Equiv.swap (1 : Fin 3) 2 := by sorry
+
+end CanonicalDescentTests
+
+-- test: TauCeti.NonabelianCohomology.Z1.mul_left_eq_of_trivial.test_requires_normal
+-- Native arithmetic, independent of the proposed subgroup/descent implementations.
+example :
+    let U := Equiv.Perm (Fin 3)
+    let G := ConjAct U
+    let τ : U := Equiv.swap 0 1
+    let c : G → U := fun h => τ * (h • τ)⁻¹
+    let n := ConjAct.toConjAct τ
+    let g := ConjAct.toConjAct (Equiv.swap (1 : Fin 3) 2)
+    c n = 1 ∧ c (g * n) = c g ∧ c (n * g) ≠ c g := by decide
+
+end TauCeti.NonabelianCohomology

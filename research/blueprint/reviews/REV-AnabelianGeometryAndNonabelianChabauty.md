@@ -1,6 +1,224 @@
 # Independent review checkpoint: Anabelian geometry and nonabelian Chabauty
 
 Issue [#526](https://github.com/CBirkbeck/tauceti-explorer/issues/526), job
+`REV-AnabelianGeometryAndNonabelianChabauty`; Codex `codex-i1BjcC`, 2026-10-05.
+Input explorer revision `b4ea721503c52188587f85a4ebc5541d02f6e151`.
+This reviewer did not author the blueprint. The preceding review checkpoints
+[#6170](https://github.com/CBirkbeck/tauceti-explorer/pull/6170),
+[#6175](https://github.com/CBirkbeck/tauceti-explorer/pull/6175) and
+[#6180](https://github.com/CBirkbeck/tauceti-explorer/pull/6180) remain historical
+evidence attributed to their respective reviewers.
+
+**This is a checkpoint, not a completed independent review.** Fresh scope is
+50 nodes at zero-based packet positions 51–100, inclusive: discrete descent,
+quotient cocycles, same-N inflation/restriction, quotient-action continuity and
+finite-quotient colimits. Each was checked against its statement, hypotheses,
+proof steps, direct prerequisites, source attribution and actual suggested
+signature. All construction APIs and tests in this scope were examined.
+The table gives scoped findings, not final per-node acceptance of transitive
+closure. No packet `review` object or global verdict is supplied. The previous
+checkpoint is preserved in `independentReviewCheckpoints`.
+
+The packet still has 363 nodes, 160 baseline declarations, 17 requests,
+10 gaps and 11 planets. Definition/construction API entries: 320; their tests:
+253. Across every node kind: 340 API entries and 269 tests. No nodes, requests
+or suppliers were added. NC.0/NC.3 remain partial; five other stages remain
+not_read, and every implementation is unchecked. The packet's `complete`
+status continues to mean its budget-complete planning pass.
+
+## Changes and test strength
+
+- Added concrete nonidentity S₃ values for `Z1.descend`, `Z1.inflate` and
+  `Z1.descendEquiv`. For discrete G=U=S₃ with trivial action, N={1}, and the
+  identity homomorphism cocycle, the actual forward map returns (01) at [(01)]
+  and (12) at [(12)]. Inverse laws and proof irrelevance alone could accept a
+  permuted equivalence; conjugating the descent by (12) fails the new forward
+  evaluation. These three statements still use `sorry`, as prototype tests.
+- Added a native `by decide` normality counterexample. Let G=ConjAct(S₃),
+  U=S₃, τ=(01), n=τ, g=(12), and c(h)=τ(h•τ)⁻¹. Then c(n)=1 and
+  c(gn)=c(g), but c(ng)≠c(g). Mathematically the one-fibre is the nonnormal
+  centralizer of τ, and ⟨τ⟩ is killed. The elaborated example proves precisely
+  the three displayed arithmetic assertions; it does not construct a proposed
+  cocycle or certify a new subgroup API. The cocycle law follows independently
+  by expanding this coboundary with the native conjugation action.
+- Added `NC.3/nonabelian-h1` as a direct prerequisite of finite-quotient class
+  surjectivity, where its proof chooses a representative of the orbit carrier.
+- Corrected the residual unbound codomain U in the central-extension action
+  hypothesis to B: the joint action is G×B→B. The previous positive-defect
+  sign correction is retained. The central H² interface remains omitted.
+
+No reader, supplier packet, atlas data or author handoff was edited. A later
+reader reconciliation should reflect the strengthened concrete tests and the
+G×B→B spelling; this issue does not authorize editing that reader. Historical
+encoded payloads were preserved without decoding or executing them.
+
+## Source and baseline evidence for this scope
+
+Freshly read the exact [Kim arXiv v1 PDF](https://arxiv.org/pdf/math/0409456v1):
+the continuous cochain/cocycle/gauge definitions, complete Proposition 1 proof,
+and selected central-extension passages on printed pp.5–9. The ordered gauge
+convention agrees with the reviewed discrete families. This is not a new
+whole-paper reading or published-version collation. Exact SHA-256:
+`00efa6e96091d564f7afa2ad9fb917a34cc0a55b7e258164383519b4e93ba941`.
+
+Freshly read Definition 1.3.14 and the complete Proposition 1.3.15 proof on
+printed pp.11–12 of [Poonen's author-hosted PDF](https://math.mit.edu/~poonen/papers/Qpoints.pdf).
+The direct-limit passage concerns its Hilbert 90 proof. It motivates the
+passage from finite to infinite Galois extensions; it does not state the
+packet's general compact/discrete nonabelian colimit theorem. The packet
+correctly labels those statements as authored deductions, whose arguments
+were independently checked below. Exact SHA-256:
+`42e92ce4599420f6b72139e78cb9f5230e4bf81258c202e7cee4716887353579`.
+No new Serre reading or source-error certification is claimed.
+
+The selected consumers cite 47 distinct Mathlib prerequisites. Their statements
+and hypotheses were freshly inspected at
+`082e2d37e8b0463410cdb532e111cd43d5a66174`, using the previous report's full
+160-entry locator table to disambiguate names. The most consequential boundaries
+are: the compact-group clopen-neighbourhood theorem requires neither T₂ nor
+profinite hypotheses; quotient group/action formulas retain normality;
+`Subgroup.continuousSMul` restricts the acting group; q×id is handled by the
+**open** quotient-map product theorem; and the Types colimit criterion requires
+surjectivity plus eventual equality. The generated colimit counterparts of
+native limit lemmas were checked in the `to_dual` source declarations and in
+the elaborated prototype. Tau Ceti remains pinned at
+`f790474821cf4256814db967cb154e7af3d0c369`; no fresh all-160 consumer audit is
+claimed by this session.
+
+The reviewed library coverage for all seven NC layers was read, together with
+the upstream AlgebraicTopology and JacobianChallenge roadmap comparators.
+The native fixed-point action, quotient topology, orbit relation and filtered
+colimit infrastructure are reused; the audit does not supply nonabelian H¹.
+The scoped deduction family introduces no duplicate implementation or foreign
+supplier. Full ownership, key-definition, planet and geometric-supplier closure
+still require the unfinished global screen.
+
+## Scoped per-node findings
+
+All IDs below have prefix `AnabelianGeometryAndNonabelianChabauty:NC.3/`.
+Every row includes examination of actual Lean signature and declared direct
+inputs; “Checked” does not certify unreviewed precursor proofs. The shared
+source attribution is Kim's degree-one convention and/or Poonen's direct-limit
+motivation, followed by the packet's authored mathematical deductions. Scope
+0–50 and 101–313 remains unfinished; the preceding checkpoint screened
+314–362 separately.
+
+| Position | Node suffix | Scoped finding | Independent calculation / hypothesis or API boundary |
+| --- | --- | --- | --- |
+| 51 | `cocycle-map-one` | Checked | Cancel the ordered cocycle equation at (1,1); no commutativity of U is used. |
+| 52 | `cocycle-map-inverse` | Checked | Apply the equation at (g⁻¹,g), using c(1)=1 and the automorphism action; multiplication order is retained. |
+| 53 | `cocycle-one-fibre` | Checked | The one-fibre is a subgroup by the preceding identities; it is not declared normal. With conjugation, a coboundary has a centralizer as one-fibre. |
+| 54 | `cocycle-one-fibre-clopen` | Checked | Continuity of c pulls back the clopen singleton {1} in discrete U; no compactness or Hausdorff hypothesis is needed here. |
+| 55 | `discrete-normal-killing` | Checked | Use the pinned compact-topological-group clopen-neighbourhood theorem inside the one-fibre. Openness gives a finite quotient; total disconnectedness and finite U are unnecessary. |
+| 56 | `cocycle-right-cosets` | Checked | c(gn)=c(g) follows from c(n)=1 and g•1=1, without normality. |
+| 57 | `cocycle-left-cosets` | Strengthened test | Rewrite ng=g(g⁻¹ng) and use normality plus right-coset constancy. The added S₃ arithmetic counterexample fails left constancy for a nonnormal killed subgroup. |
+| 58 | `cocycle-values-fixed` | Checked | Compare c(ng)=n•c(g) with the preceding left-constancy equality; this proves fixedness by the same N. |
+| 59 | `cocycle-values-invariants` | Checked | Package that pointwise equality in native FixedPoints.subgroup; its membership lemma has the required restricted action. |
+| 60 | `gauge-witness-fixed` | Checked | Evaluate the gauge formula at n∈N with c(n)=d(n)=1 and cancel to obtain n•x=x. No refinement of N occurs. |
+| 61 | `finite-family-normal-killing` | Checked | A finite intersection of clopen one-fibres contains 1. Apply the same neighbourhood theorem; the empty family is harmless. |
+| 62 | `quotient-cocycle-descent` | Strengthened test | Quotient-lift the underlying function, not a homomorphism. Right constancy gives well-definedness, fixed values give Uᴺ, and the native quotient action gives the ordered cocycle law. The added identity-S₃ value pins the map. |
+| 63 | `quotient-cocycle-unique` | Checked | Quotient induction and the underlying-value condition force the descended cocycle, including the Uᴺ subtype equality. |
+| 64 | `quotient-cocycle-inflation` | Strengthened test | Compose the quotient projection and inclusion Uᴺ→U; native action coercion yields the cocycle law. c(1)=1 makes the inflation trivial on N. Added nonidentity S₃ evaluation. |
+| 65 | `inflate-descended-cocycle` | Checked | Extensionality reduces inflation after descent to the defining quotient-lift value, with no gauge quotient involved. |
+| 66 | `descend-inflated-cocycle` | Checked | Descend uniqueness or quotient induction gives the other literal inverse, not only equality of H¹ classes. |
+| 67 | `quotient-cocycle-equivalence` | Corrected test coverage | The equivalence is formed from the two literal inverses. Inverse/proof-irrelevance tests alone permit a permuted equivalence; the added forward identity-S₃ evaluations rule out conjugating its output by (12). |
+| 68 | `quotient-cocycle-gauge` | Checked | A gauge witness between N-trivial cocycles lies in Uᴺ by node 60; quotient induction gives the converse using that same fixed witness. |
+| 69 | `h1-orbit-criterion` | Checked | Native orbitRel and mem_orbit give the existential ordered gauge formula. The inverse gauge action resolves the orientation of the relation. |
+| 70 | `quotient-inflation-equivariance` | Checked | Evaluate the actual inflation under x∈Uᴺ, and use native quotient/fixed-point action coercions. Both actual gauge actions require their joint continuity hypotheses. |
+| 71 | `quotient-inflation-gauge-reflection` | Checked | An ambient U-witness is already N-fixed by evaluation on N; equivariance proves the reverse direction. This is same-stage reflection. |
+| 72 | `quotient-cocycle-inflation-one` | Checked | Pointwise evaluation sends the literal one cocycle to one. |
+| 73 | `h1-inflation` | Checked | Orbit quotient lifting uses equivariance and the existing nonabelian carrier. Its definition and tests specify actual class inflation and its neutral value. |
+| 74 | `h1-inflation-injective` | Checked | Representatives of two equal inflated classes have an ambient witness; node 71 reflects it at the same N. No eventual refinement substitutes for injectivity. |
+| 75 | `cocycle-restriction` | Checked | Restrict the continuous function along the native subgroup inclusion, retaining the ambient coefficient U and its restricted action. |
+| 76 | `cocycle-restriction-equivariance` | Checked | Restriction commutes pointwise with the ordered gauge action. Subgroup.continuousSMul restricts the acting group, not an arbitrary coefficient subgroup. |
+| 77 | `h1-neutral-criterion` | Checked | The orbit criterion at the one cocycle identifies exactly the coboundaries x(g•x)⁻¹; both directions have the correct gauge orientation. |
+| 78 | `h1-gauge-class` | Checked | The representative and its gauge translate have the same native orbit class; this is not quotient equality for arbitrary unrelated cocycles. |
+| 79 | `cocycle-inverse-gauge-normalization` | Checked | For c(n)=x(n•x)⁻¹, translate by x⁻¹. The expression x⁻¹ c(n)(n•x⁻¹)⁻¹ is 1. Normality of N is not needed for this normalization. |
+| 80 | `h1-restriction` | Checked | Lift the actual restriction through full-U gauge orbits, not Uᴺ-orbits. Its class formula and pointedness APIs describe the concrete map. |
+| 81 | `cocycle-restriction-inflation` | Checked | Inflated cocycles are literally one on N because [(n)]=1. Native quotient membership supplies this equality. |
+| 82 | `h1-restriction-inflation` | Checked | Apply the class formula for restriction to node 81; every inflated class restricts to the neutral class. |
+| 83 | `h1-inflation-restriction-image` | Checked | For the converse, choose a representative of a neutral-restriction class, normalize by x⁻¹, descend it to Uᴺ, and use gauge-class invariance. The image is the neutral fibre, not all H¹. |
+| 84 | `h1-inflation-unique-preimage` | Checked | Image existence is node 83, and uniqueness uses same-N injectivity. The preimage is a class rather than a unique cocycle. |
+| 85 | `quotient-fixed-action-continuity` | Checked | The projection q×id is an open quotient map. Ambient joint action continuity and the induced range topology give the quotient action on Uᴺ; closedness of N is unnecessary. |
+| 86 | `h1-inflation-one` | Checked | The representative one-cocycle formula proves inflation preserves the neutral class. |
+| 87 | `h1-inflation-neutral-equivalence` | Checked | The reverse implication follows from injectivity and node 86. It does not assert that a nonneutral target class lifts. |
+| 88 | `quotient-cocycle-inflation-injective` | Checked | Equality after inflation can be tested on quotient representatives; Uᴺ→U is injective. No gauge witnesses or topological-group coefficient assumption are needed. |
+| 89 | `cocycle-transition` | Checked | For M≤N, pull back G/N cocycles along G/M→G/N and include Uᴺ in Uᴹ. The invariant inclusion goes in the correct direction; APIs/tests retain concrete evaluation and inverse-stage compatibility. |
+| 90 | `cocycle-transition-inflation` | Checked | Ambient inflation of that concrete transition has the same value at every g; extensionality supplies equality. |
+| 91 | `h1-transition` | Checked | Transition of H¹ classes uses actual cocycle transition and its gauge compatibility, with quotient joint continuity. APIs/tests pin representative and neutral formulas. |
+| 92 | `h1-transition-inflation` | Checked | Lift the cocycle transition/inflation equality to actual classes. |
+| 93 | `h1-transition-identity` | Checked | Both sides have equal ambient inflations; same-stage H¹ inflation injectivity proves the identity law. |
+| 94 | `h1-transition-composition` | Checked | For L≤M≤N, both composites have equal ambient inflations in stage L; injectivity there proves composition. |
+| 95 | `h1-quotient-diagram` | Checked | Use OrderDual(OpenNormalSubgroup G) with inclusions reversed. Concrete transitions and the preceding laws supply the functor; its object/map tests fix the direction. |
+| 96 | `h1-inflation-cocone` | Checked | Legs are the actual H¹ inflation functions. Node 92 proves cocone naturality; APIs/tests identify every leg. |
+| 97 | `h1-finite-quotient-surjectivity` | Corrected direct prerequisite | Choose a cocycle representative of a class, kill it on an open normal subgroup, descend it and inflate back. Added nonabelian-h1 as the direct carrier/representative dependency. |
+| 98 | `h1-quotient-index-filtered` | Checked | The dual of the native inf-semilattice is filtered: N∩M is a common refinement, the top subgroup ensures nonemptiness, and the thin category has unique parallel arrows. |
+| 99 | `h1-inflation-colimit` | Checked | Native Types.FilteredColimit.isColimitOf needs class surjectivity and eventual equality. Refine two stages to N∩M, compare ambient inflations, and use injectivity there. This proves the actual cocone universal property. |
+| 100 | `h1-finite-quotient-equivalence` | Checked | The native generated colimit duals of the cited limit lemmas identify the chosen categorical colimit with that actual cocone point. The leg formula fixes the equivalence as inflation; discrete/compact assumptions remain explicit. |
+
+### Freshly inspected prerequisites
+
+The previous report's locator table below contains the exact modules and
+statement lines. This pass reread these 47 consumer prerequisites, including
+namespace context rather than accepting the first basename match:
+
+`CategoryTheory.IsFiltered`, `CategoryTheory.Iso.toEquiv`, `CategoryTheory.Limits.IsLimit.conePointUniqueUpToIso`, `CategoryTheory.Limits.IsLimit.conePointUniqueUpToIso_inv_comp`, `CategoryTheory.Limits.Types.FilteredColimit.isColimitOf`, `CategoryTheory.Limits.limit.isLimit`, `ConjAct`, `ConjAct.toConjAct`, `ConjAct.toConjAct_smul`, `Continuous.comp`, `Continuous.smul`, `ContinuousSMul`, `Equiv.apply_symm_apply`, `Equiv.injective`, `Equiv.ofBijective`, `Equiv.symm_apply_apply`, `FixedPoints.mem_subgroup`, `FixedPoints.subgroup`, `IsClopen.preimage`, `IsOpenQuotientMap.continuous_comp_iff`, `IsOpenQuotientMap.id`, `IsOpenQuotientMap.prodMap`, `IsTopologicalGroup.exist_openNormalSubgroup_sub_clopen_nhds_of_one`, `MulAction.coe_quotient_smul_fixedPoints`, `MulAction.mem_orbit_iff`, `MulAction.orbitRel_apply`, `OpenNormalSubgroup.instSemilatticeInfOpenNormalSubgroup`, `QuotientGroup.continuous_mk`, `QuotientGroup.eq_one_iff`, `QuotientGroup.induction_on`, `QuotientGroup.isOpenQuotientMap_mk`, `QuotientGroup.isQuotientMap_mk`, `QuotientGroup.leftRel_apply`, `QuotientGroup.mk_mul`, `Subgroup`, `Subgroup.Normal.conj_mem'`, `Subgroup.continuousSMul`, `Subgroup.quotient_finite_of_isOpen`, `Topology.IsQuotientMap.continuous_iff`, `coe_smul_fixedPoints_of_normal`, `continuous_fst`, `continuous_induced_rng`, `continuous_snd`, `continuous_subtype_val`, `inv_smul_smul`, `isClopen_discrete`, `isClopen_iInter_of_finite`.
+
+## Validation and its limits
+
+- `python3 scripts/check_blueprint.py` on the packet: 0 errors, 0 warnings.
+- Native S₃ arithmetic and the relevant baseline name checks elaborate with
+  exit 0 in a fresh scratch file, without admissions.
+- Full suggested file attempted using `lean-check`: import failure because
+  `TauCeti.RepresentationTheory.Homological.ContCohomology.LowDegree.olean`
+  is absent in the shared pinned build. No library was built or updated.
+- Mathlib projection elaborates with exit 0 and **693 warnings, all `sorry`**;
+  no errors or other warnings. Three added concrete-map tests contribute three
+  warnings. The identity cocycle/helper and native normality arithmetic use no
+  admissions. Available memory before elaboration was 95 GiB.
+
+To reproduce the projection in authorized on-disk scratch: remove exactly
+lines matching `^import TauCeti\..*`; remove the exact `section Abelian` through
+`end Abelian` block inclusive; retain `section AbelianTwistingTest`; then check
+memory and run `lean-check` once, under WORKERS.md's shared-machine rules.
+This checks suggested signatures outside the additive comparisons. It does not
+prove the admitted APIs or test assertions, or compile the full suggested file.
+Suggested SHA-256:
+`ea15ef060b3deffef127327fe1f1431e6400f22ae2c20d5fc238b111435c92cf`.
+Projection SHA-256:
+`20475e3ff9c7cd0f9c85f76ca2c873310836cddf0bc95e20d456f04874183afc`.
+
+## Resume point
+
+Continue this unfinished review, not a new blueprint. First complete nodes
+0–50, supplying the actual continuous cocycle, native fixed-point action and
+orbit-carrier precursors; then 101–313 (coefficient/source changes, twisting,
+kernel adapters, stabilizers, central/additive comparisons and geometry).
+Retain this 50-row calculation and the preceding 49-node screen, but verify
+transitive proof closure before giving any final per-node verdict. The final
+review must still resolve the geometric proof leaves, IG/SF ownership and
+coverage/gap chains, every planet and the reserved étale K(π,1) key. The raw
+homotopy candidate is not an accepted registered foundation. All-degree
+additive/native comparison remains owned by ProfiniteCohomology Layer 10.
+
+Keep the positive central defect and continuous B² convention. The connecting
+H² map, lift-independence and exactness/freeness interfaces remain omissions;
+this pass does not repair them. `sourceIssues` is empty with an unfinished
+source-error screen, not a certified absence of source errors. Honest partial
+and not_read stages alone do not reject a budget-complete planning pass.
+No scratch file is needed to resume; all durable evidence is in these four
+deliverables and public pinned sources. Scratch is deleted after submission.
+
+---
+
+## Historical checkpoint by codex-1O5j0u (preserved verbatim)
+
+The following reports concern their own input revisions and prior counts;
+the current scope, hashes and counts are given above.
+
+# Independent review checkpoint: Anabelian geometry and nonabelian Chabauty
+
+Issue [#526](https://github.com/CBirkbeck/tauceti-explorer/issues/526), job
 `REV-AnabelianGeometryAndNonabelianChabauty`. Current reviewer: Codex
 `codex-1O5j0u`, 2026-10-05. Input explorer revision:
 `ceae7664eb1264bc255acade6af444e36a29b0d0`, incorporating review checkpoints
