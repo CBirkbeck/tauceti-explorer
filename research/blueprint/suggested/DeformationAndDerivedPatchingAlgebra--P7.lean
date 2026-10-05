@@ -342,6 +342,20 @@ def IsCatenary (R : Type*) [CommRing R] : Prop :=
       (∀ i : Fin s.length, s (Fin.castSucc i) ⋖ s i.succ) →
       (∀ i : Fin t.length, t (Fin.castSucc i) ⋖ t i.succ) → s.length = t.length
 
+/-- API: extract the finite bound for chains with prescribed endpoints. -/
+theorem IsCatenary.chainLengthBound {R : Type*} [CommRing R] (h : IsCatenary R)
+    (p q : PrimeSpectrum R) (hpq : p ≤ q) :
+    ∃ n : ℕ, ∀ s : LTSeries (PrimeSpectrum R),
+      s.head = p → s.last = q → s.length ≤ n := by sorry
+
+/-- API: saturated chains with the same endpoints have equal length. -/
+theorem IsCatenary.saturated_length_eq {R : Type*} [CommRing R] (h : IsCatenary R)
+    (p q : PrimeSpectrum R) (hpq : p ≤ q) (s t : LTSeries (PrimeSpectrum R))
+    (hs₀ : s.head = p) (hs₁ : s.last = q) (ht₀ : t.head = p) (ht₁ : t.last = q)
+    (hs : ∀ i : Fin s.length, s (Fin.castSucc i) ⋖ s i.succ)
+    (ht : ∀ i : Fin t.length, t (Fin.castSucc i) ⋖ t i.succ) :
+    s.length = t.length := by sorry
+
 /-- API: catenarity is invariant under ring isomorphisms. -/
 theorem IsCatenary.of_ringEquiv {R S : Type*} [CommRing R] [CommRing S] (e : R ≃+* S)
     (h : IsCatenary R) : IsCatenary S := sorry
@@ -754,7 +768,7 @@ end HilbertSamuelTest
 The reader's Section 7 is definitive. These forms elaborate with placeholder proofs. The definitions
 use actual pinned carriers. Ordinary residual tensor on projective representatives
 is not presented as an already implemented generic derived tensor functor.
-Omitted signatures: disk rank equations and a locally finite disk-family isomorphism;
+Omitted signatures: disk rank equations; the locally finite disk-family isomorphism is supplied below;
 the generic derived-object forms of residualPerfectness and residualNakayama;
 the Tor-amplitude predicate, derived tensor/RHom, filtered-colimit factorization,
 and completed infinite-rank minimality. Their exact obligations remain packet gaps.
@@ -943,13 +957,27 @@ theorem bounded (C : Complex R) (a b : ℤ)
       M.IsStrictlyGE a ∧ M.IsStrictlyLE b ∧
       IsMinimal M ∧ Nonempty (HomotopyEquiv C M) := by sorry
 
--- disk_part: omitted as a locally finite family until that carrier is constructed.
--- For each individual disk the existing cone already has a contraction.
-theorem disk_part (i : ℤ) :
+/-- Auxiliary contraction of one identity disk; distinct from the family decomposition. -/
+theorem identity_disk_contractible (i : ℤ) :
     Nonempty (Homotopy
       (𝟙 (CochainComplex.mappingCone
         (𝟙 ((HomologicalComplex.single (ModuleCat.{u} R) (.up ℤ) (i + 1)).obj
           (ModuleCat.of R R))))) 0) := by sorry
+
+/-- The discarded disks form the actual coproduct of finite multiplicities at
+each integer degree. Only disks indexed by `j = n - 1` or `j = n` meet degree `n`.
+The theorem supplies the minimal part, the decomposition and the family contraction. -/
+theorem disk_part (C : Complex R) (b : ℤ)
+    (hF : ∀ i, Module.Finite R (C.X i) ∧ Module.Free R (C.X i))
+    (hb : C.IsStrictlyLE b) :
+    ∃ (M : Complex R) (r : ℤ → ℕ),
+      (∀ i, Module.Finite R (M.X i) ∧ Module.Free R (M.X i)) ∧
+      M.IsStrictlyLE b ∧ IsMinimal M ∧ (∀ i, b ≤ i → r i = 0) ∧
+      let D : Complex R := ∐ (fun s : (Σ i : ℤ, Fin (r i)) =>
+        CochainComplex.mappingCone
+          (𝟙 ((HomologicalComplex.single (ModuleCat.{u} R) (.up ℤ) (s.1 + 1)).obj
+            (ModuleCat.of R R))))
+      Nonempty (C ≅ M ⊞ D) ∧ Nonempty (Homotopy (𝟙 D) 0) := by sorry
 
 theorem quasiIso {C M : Complex R} (e : HomotopyEquiv C M) :
     QuasiIso e.hom := by sorry
@@ -979,6 +1007,12 @@ example (C : Complex R) (a b : ℤ)
 -- minimal_rep_already_minimal
 example (C : Complex R) (h : IsMinimal C) :
     IsMinimal C ∧ Nonempty (HomotopyEquiv C C) := by sorry
+-- minimal_rep_identity_disk: cancellation removes both nonzero terms.
+example (i : ℤ) : IsMinimal (0 : Complex R) ∧
+    Nonempty (HomotopyEquiv
+      (CochainComplex.mappingCone
+        (𝟙 ((HomologicalComplex.single (ModuleCat.{u} R) (.up ℤ) (i + 1)).obj
+          (ModuleCat.of R R)))) (0 : Complex R)) := by sorry
 
 /-- P7/minimal-residual-ranks: the actual residual homology is the residual term.
 The rank-number transport is specified in the reader, not yet elaborated here. -/
