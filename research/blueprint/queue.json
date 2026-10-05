@@ -11614,8 +11614,8 @@
    "avoidAccountOf": "DESIGN-HodgeStructuresPartII",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-HodgeStructuresPartII.md",
-   "state": "pending",
-   "note": "released on GitHub issue #3548"
+   "state": "external",
+   "note": "claimed on GitHub issue #3548"
   },
   {
    "id": "DESIGN-MotivicStructuresInModuliOfCurves",
@@ -30373,8 +30373,9 @@
    ],
    "avoidAccountOf": "BP-AnalyticNumberTheory--AN.8",
    "prompt": "research/blueprint/prompts/REV-AnalyticNumberTheory--AN.8.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #528"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #528",
+   "finishedAt": "2026-10-05T11:29:06Z"
   },
   {
    "id": "BP-ArithmeticDynamics",
