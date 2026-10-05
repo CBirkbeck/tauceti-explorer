@@ -23721,7 +23721,8 @@
    ],
    "avoidAccountOf": "BP-DirichletPadicLFunctions--L0",
    "prompt": "research/blueprint/prompts/REV-DirichletPadicLFunctions--L0.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5873"
   },
   {
    "id": "BP-DirichletPadicLFunctions--L1",
