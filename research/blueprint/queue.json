@@ -12754,7 +12754,8 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-ErdosProgressionPowers.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1693"
   },
   {
    "id": "REV-DESIGN-ErdosProgressionPowers",
@@ -31428,8 +31429,9 @@
    ],
    "avoidAccountOf": "BP-QSeriesPartitionsAndMockModularForms",
    "prompt": "research/blueprint/prompts/REV-QSeriesPartitionsAndMockModularForms.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #549"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #549",
+   "finishedAt": "2026-10-05T07:03:02Z"
   },
   {
    "id": "ASM-DeformationAndDerivedPatchingAlgebra",
