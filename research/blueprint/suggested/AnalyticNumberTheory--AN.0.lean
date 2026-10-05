@@ -8,6 +8,7 @@ import Mathlib.NumberTheory.SmoothNumbers
 import Mathlib.NumberTheory.PrimeCounting
 import Mathlib.Analysis.Analytic.Order
 import Mathlib.Analysis.SpecialFunctions.Pow.Real
+import Mathlib.Analysis.SpecialFunctions.Pow.Asymptotics
 import Mathlib.Analysis.SpecialFunctions.Pow.Complex
 import Mathlib.Analysis.SpecialFunctions.Gamma.Basic
 import Mathlib.Analysis.SpecialFunctions.Log.Deriv
@@ -43,46 +44,23 @@ This file is not the roadmap and is not exhaustive. The roadmap document is
 definitive. These statements suggest Lean forms so contributors and reviewers
 converge on names and signatures. No implementation is claimed.
 
-Review checkpoint codex-7e92bd (2026-10-05): the full file elaborates in an
-existing build using Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, with
-158 warnings, all `declaration uses sorry`, and no errors. This file imports
-Mathlib only; it does not compile Tau Ceti modules. The mathematical review is
-incomplete. At that checkpoint the native-signature gap recorded six definition
-blocks whose canonical imported carriers could not yet be stated. Their mathematical specifications and all
-API/test names are retained below, rather than introducing substitute Prop fields.
-Continuation codex-ws2Gd5: added a conditional positive exceptional-zero test
-and corrected the mathematical CM/period specifications; the executable section
-was independently read. That continuation’s elaboration had 159 admitted-proof warnings.
-Continuation codex-KI4dsy adds medium-prime endpoint and size APIs, the promoted
-cardinality signature, and concrete Mertens, Euler-tail and Möbius/totient forms.
-The Euler tail uses HasProd, so a divergent totalized product cannot satisfy it.
-Exercise5.4(c) in the preliminary Koukoulopoulos source has the reversed
-integrand; use κ=∫(1_[0,1](u)−exp(−u))/u du=γ as recorded in source issue E19.
-Continuation codex-BdrTzT adds native Landau/support count and prime-divisor
-weight signatures, finite representation examples and exact half-cardinality guards.
-The full independent mathematical review is still unfinished.
-Continuation codex-btapUd supplies the Weil test predicate with pinned BV/one-sided-limit
-APIs and every API/test signature, and strict-cutoff squarefree counting forms.
-Four canonical-carrier definitions remain omitted after the codex-LO9Eha continuation.
-Continuation codex-45ZB12 expands the Hadamard/xi and explicit-formula signatures,
-uses multiplicities and an inclusive positive Riemann–von Mangoldt count, and adds
-finite Artin-factor and prescribed-root disc signatures. Canonical Artin carriers
-remain explicit omissions. Compilation checks signatures with admitted proofs;
-it supplies no mathematical certification. The packet/report give the exact
-fresh source, baseline and incomplete-review scopes.
-Continuation codex-LO9Eha states the concrete Halász coefficient class and witness
-API, its integral bound and prime-weighted mean square, regularized PNT boundaries,
-and Dickman delay/continuity plus finite-prime smooth-number adapters. The shared
-pinned Mathlib check had 270 admitted-proof warnings and no errors. Four imported
-definition carriers and the independent mathematical review remain unfinished.
-Continuation codex-ywaJcp separates the initial Lerch series, its principal
-integral extension, and the regularized complex Hurwitz pole. It adds joint
-holomorphy, derivative majorants, nonreal-shift tests, the harmonic/hyperbola
-lemmas, and Beurling finite-product/counting signatures. The canonical Lerch
-cover and monodromy interfaces remain mathematical specifications. Published
+Independent review Codex codex-Yr3nnW (2026-10-05) is complete with verdict
+needs_changes. The executable file elaborates at Mathlib
+082e2d37e8b0463410cdb532e111cd43d5a66174 with 304 warnings, all
+`declaration uses sorry`, and no errors. This file imports Mathlib only.
+Elaboration checks signatures with admitted proofs; it certifies neither the
+mathematical proofs nor the comment-only canonical interfaces below.
+
+Four definition carriers, their 18 API items and 14 tests remain mathematical
+specifications: partial ideal zeta, exceptional squareclasses, and local/global
+Artin constructions. Further cover, higher-genus and Tauberian signatures are
+also explicit omissions. The final report records their exact proof boundaries.
+
+Three cutoff lemmas and the maximal-order divisor upper bound repair the
+leading-log-2 outline; no matching lower bound is asserted. The preliminary
+Koukoulopoulos Exercise5.4(c) has its integrand reversed: use
+κ=∫(1_[0,1](u)−exp(−u))/u du=γ, as source issue E19 records. Published LerchIII
 Theorem6.1(2) must exclude order zero; E26 records the surviving n=0 term.
-Other statements requiring those carriers or unacquired higher-genus/covering
-interfaces are listed mathematically at the end. They are not executable signatures.
 -/
 
 noncomputable section
@@ -131,6 +109,33 @@ lemma absorb_divisor_bound_constant (ε δ C : ℝ) (n : ℕ) (hn : 0 < n)
 theorem eventual_divisor_subpower_bound (δ : ℝ) (hδ : 0 < δ) :
     ∃ N : ℕ, 1 ≤ N ∧ ∀ n : ℕ, N ≤ n →
       (n.divisors.card : ℝ) ≤ (n : ℝ) ^ δ := by sorry
+
+/-- AN.5/divisor-small-prime-log-bound: the inclusive small-prime part. -/
+lemma divisor_small_prime_log_bound (n : ℕ) (hn : 2 ≤ n)
+    (y : ℝ) (hy : 2 ≤ y) :
+    (∑ p ∈ n.primeFactors.filter (fun p : ℕ => (p : ℝ) ≤ y),
+      Real.log ((n.factorization p : ℝ) + 1)) ≤
+        y * Real.log (1 + Real.log n / Real.log 2) := by sorry
+
+/-- AN.5/divisor-large-prime-log-bound: the strict large-prime part. -/
+lemma divisor_large_prime_log_bound (n : ℕ) (hn : 2 ≤ n)
+    (y : ℝ) (hy : 1 < y) :
+    (∑ p ∈ n.primeFactors.filter (fun p : ℕ => y < (p : ℝ)),
+      Real.log ((n.factorization p : ℝ) + 1)) ≤
+        Real.log 2 * Real.log n / Real.log y := by sorry
+
+/-- AN.5/divisor-small-prime-loss: a fixed positive exponent beats logarithms. -/
+lemma divisor_small_prime_loss (δ η : ℝ) (hδ : 0 < δ) (hδ1 : δ < 1)
+    (hη : 0 < η) :
+    ∃ L₀ : ℝ, Real.exp 1 ≤ L₀ ∧ ∀ L : ℝ, L₀ ≤ L →
+      L ^ (1 - δ) * Real.log (1 + L / Real.log 2) ≤
+        η * L / Real.log L := by sorry
+
+/-- AN.5/divisor-maximal-order: only the maximal-order upper bound. -/
+theorem divisor_maximal_order (ε : ℝ) (hε : 0 < ε) :
+    ∃ K : ℕ, Real.exp 1 < (K : ℝ) ∧ ∀ n : ℕ, K ≤ n →
+      (n.divisors.card : ℝ) ≤ Real.exp
+        ((Real.log 2 + ε) * Real.log n / Real.log (Real.log n)) := by sorry
 
 /-- AN.2/classical-zero-free-region, retaining the inherited id but only the
 high positive-height conclusion justified by the source's proof. -/
@@ -1791,7 +1796,7 @@ AnalyticNumberTheory:AN.5/inverse-totient-count
 For real x≥1, #{d∈ℕ_{>0}:φ(d)≤x}=O(x), with an absolute constant.
 
 AnalyticNumberTheory:AN.5/divisor-maximal-order
-For every ε>0 there is K_ε>e such that for every integer k≥K_ε, τ(k)≤exp((log 2+ε)log k/log log k).
+For every real ε>0 there is a natural K>e such that for every natural n≥K, τ(n)≤exp((log 2+ε)log n/log log n). This is the upper bound; no matching lower-order limit is asserted here.
 
 AnalyticNumberTheory:AN.3/davenport-mobius-cancellation
 For every A>0 there is C_A such that for y≥2, sup_{α∈ℝ}|Σ_{1≤r≤y}μ(r)e^{ir α}|≤C_A y(log y)^{−A}. Original proof input [22] or [39,Thm 13.10] still requires full source extraction.
