@@ -10317,8 +10317,8 @@
    "avoidAccountOf": "DESIGN-StableReductionPartII",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-StableReductionPartII.md",
-   "state": "pending",
-   "note": "released on GitHub issue #3619"
+   "state": "external",
+   "note": "claimed on GitHub issue #3619"
   },
   {
    "id": "DESIGN-HeightsRationalPointsAndObstructionsPartII",
@@ -27078,12 +27078,12 @@
     "REV-RS-08"
    ],
    "prompt": "research/blueprint/prompts/BP-ModularSymbolsPadicLFunctions.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [
     "BP-LocallyAnalyticDistributions",
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "claimed on GitHub issue #777"
+   "note": "released on GitHub issue #777"
   },
   {
    "id": "REV-ModularSymbolsPadicLFunctions",
