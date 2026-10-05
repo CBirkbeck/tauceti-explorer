@@ -10317,8 +10317,8 @@
    "avoidAccountOf": "DESIGN-StableReductionPartII",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-StableReductionPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3619"
+   "state": "pending",
+   "note": "released on GitHub issue #3619"
   },
   {
    "id": "DESIGN-HeightsRationalPointsAndObstructionsPartII",
@@ -23037,11 +23037,11 @@
     "REV-RS-16"
    ],
    "prompt": "research/blueprint/prompts/BP-ColemanPowerSeries.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "released on GitHub issue #699"
+   "note": "claimed on GitHub issue #699"
   },
   {
    "id": "REV-ColemanPowerSeries",
@@ -30265,8 +30265,8 @@
    ],
    "avoidAccountOf": "BP-AnabelianGeometryAndNonabelianChabauty",
    "prompt": "research/blueprint/prompts/REV-AnabelianGeometryAndNonabelianChabauty.md",
-   "state": "pending",
-   "note": "released on GitHub issue #526"
+   "state": "external",
+   "note": "claimed on GitHub issue #526"
   },
   {
    "id": "BP-AnalyticNumberTheory--AN.0",
