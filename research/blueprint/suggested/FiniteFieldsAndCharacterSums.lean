@@ -1,3 +1,6 @@
+import Mathlib.Algebra.Polynomial.SpecificDegree
+import Mathlib.Tactic.NormNum
+import Mathlib.Tactic.Ring
 import Mathlib.Algebra.LinearRecurrence
 import Mathlib.Algebra.MvPolynomial.PDeriv
 import Mathlib.Algebra.Polynomial.Module.AEval
@@ -60,6 +63,7 @@ import Mathlib.RingTheory.Binomial
 import Mathlib.RingTheory.Henselian
 import Mathlib.RingTheory.KrullDimension.Basic
 import Mathlib.RingTheory.LaurentSeries
+import Mathlib.RingTheory.LocalRing.ResidueField.Instances
 import Mathlib.RingTheory.MvPolynomial.Homogeneous
 import Mathlib.RingTheory.Norm.Basic
 import Mathlib.RingTheory.Norm.Defs
@@ -111,7 +115,7 @@ Suggested Lean for FiniteFieldsAndCharacterSums, layer FF.0 (finite-field constr
 
 This file is not the roadmap and is not exhaustive: the roadmap document is definitive. The
 statements below suggest Lean forms so that contributors and reviewers converge on names and
-signatures. Every proof is `sorry`; nothing here is claimed to be formalised.
+signatures. The roadmap proofs are `sorry`; the independent regression section at the end is the stated exception. No roadmap target is claimed to be formalised.
 
 Everything is prototyped against Mathlib only. The Tau Ceti declarations the packet cites
 (`TauCeti.eq_frobeniusFixedSubfield_of_natCard`, the Frobenius-orbit lemmas of
@@ -248,12 +252,14 @@ theorem check_iff (c : RabinCertificate f) :
 theorem irreducible_of_check (c : RabinCertificate f) (h : c.check = true) : Irreducible f := by
   sorry
 
-/-- The canonical certificate of an irreducible polynomial: Bézout cofactors from the extended
-Euclidean algorithm. -/
+/-- The canonical certificate of an irreducible polynomial: normalize the extended-Euclid
+cofactors by the inverse leading coefficient of the raw gcd. For coprime inputs the gcd is a
+nonzero constant, but need not literally be `1` (see the independent F₅ regression below). -/
 noncomputable def ofIrreducible (f : F[X]) : RabinCertificate f where
   bezout s :=
-    (EuclideanDomain.gcdA (frobResidue f (f.natDegree / s) - X) f,
-      EuclideanDomain.gcdB (frobResidue f (f.natDegree / s) - X) f)
+    let a := frobResidue f (f.natDegree / s) - X
+    let c := C (EuclideanDomain.gcd a f).leadingCoeff⁻¹
+    (c * EuclideanDomain.gcdA a f, c * EuclideanDomain.gcdB a f)
 
 theorem check_ofIrreducible (hf : f.Monic) (hirr : Irreducible f) : (ofIrreducible f).check = true := by
   sorry
@@ -268,6 +274,12 @@ end RabinCertificate
 /-- Unit test `TauCeti.FiniteFieldSums.test_rabinCertificate_F2_quadratic`: `X ^ 2 + X + 1` over
 `𝔽₂` with cofactors `(1, 0)` at `s = 2` is accepted (`X ^ 2 - X ≡ 1` modulo `f`). -/
 example : (⟨fun _ => (1, 0)⟩ : RabinCertificate (X ^ 2 + X + 1 : (ZMod 2)[X])).check = true := by
+  sorry
+
+/-- Unit test `TauCeti.FiniteFieldSums.test_rabinCertificate_F5_normalization`: unlike F₂,
+the raw gcd for `X² - 2` is the nontrivial unit `3`, so the constructor must normalize it. -/
+example [Fact (Nat.Prime 5)] :
+    (RabinCertificate.ofIrreducible (X ^ 2 - C (2 : ZMod 5) : (ZMod 5)[X])).check = true := by
   sorry
 
 /-- Unit test `TauCeti.FiniteFieldSums.test_rabinCertificate_constant`: the constant polynomial
@@ -764,7 +776,7 @@ Suggested Lean for FiniteFieldsAndCharacterSums, layer FF.1 (characters and elem
 
 This file is not the roadmap and is not exhaustive: the roadmap document is definitive. The
 statements below suggest Lean forms so that contributors and reviewers converge on names and
-signatures. Every proof is `sorry`; nothing here is claimed to be formalised.
+signatures. The roadmap proofs are `sorry`; the independent regression section at the end is the stated exception. No roadmap target is claimed to be formalised.
 
 Prototyped against Mathlib only. Tau Ceti's column orthogonality
 `CommGroup.sum_monoidHom_apply_eq_ite` (TauCeti/GroupTheory/FiniteAbelian/CharacterOrthogonality)
@@ -1368,7 +1380,7 @@ theorem zeta_sub_one_pow_eq_neg_mul_unit {p : ℕ} [Fact p.Prime] {ζ : L} (hζ 
 variable {p : ℕ} [Fact p.Prime] [Algebra (ZMod p) (𝓞 L ⧸ P)] {ζp : 𝓞 L} (hζp : IsPrimitiveRoot ζp p)
 
 /-- The base case: `g(ω⁻¹) ≡ -(ζ_p - 1) (mod P²)` in Mathlib's sign. -/
-theorem gaussSum_teichmuller_inv_congr :
+theorem gaussSum_teichmuller_inv_congr (hq : 2 < Fintype.card (𝓞 L ⧸ P)) :
     gaussSum (teichmuller P hμ)⁻¹ (traceAddChar (𝓞 L ⧸ P) p ζp hζp.pow_eq_one) + (ζp - 1) ∈ P ^ 2 := by
   sorry
 
@@ -1380,7 +1392,8 @@ theorem stickelberger_congruence (a : ℕ) (ha : a < Fintype.card (𝓞 L ⧸ P)
   sorry
 
 /-- The valuation of a Teichmüller Gauss sum is the digit sum (Katre, Proposition 2). -/
-theorem count_gaussSum_teichmuller_eq_digitSum (a : ℕ) (ha : a < Fintype.card (𝓞 L ⧸ P) - 1) :
+theorem count_gaussSum_teichmuller_eq_digitSum
+    (hπ : ¬ Ideal.span {ζp - 1} ≤ P ^ 2) (a : ℕ) (ha : a < Fintype.card (𝓞 L ⧸ P) - 1) :
     Multiset.count P (UniqueFactorizationMonoid.normalizedFactors
       (Ideal.span {gaussSum ((teichmuller P hμ)⁻¹ ^ a)
         (traceAddChar (𝓞 L ⧸ P) p ζp hζp.pow_eq_one)})) = (Nat.digits p a).sum := by
@@ -1388,7 +1401,8 @@ theorem count_gaussSum_teichmuller_eq_digitSum (a : ℕ) (ha : a < Fintype.card 
 
 /-- The prime factorisation of Teichmüller Gauss sums at the conjugates of `P`
 (Katre, Proposition 3′, for `m = q - 1`). -/
-theorem count_comap_gaussSum_teichmuller (σ : L ≃+* L) (a : ℕ)
+theorem count_comap_gaussSum_teichmuller
+    (hπ : ¬ Ideal.span {ζp - 1} ≤ P ^ 2) (σ : L ≃+* L) (a : ℕ)
     (hσ : ∀ ζ : 𝓞 L, ζ ^ (Fintype.card (𝓞 L ⧸ P) - 1) = 1 →
       NumberField.RingOfIntegers.mapRingEquiv σ ζ = ζ ^ a)
     (hσp : NumberField.RingOfIntegers.mapRingEquiv σ ζp = ζp) (k : ℕ)
@@ -1434,13 +1448,13 @@ theorem multiJacobiSum_ringHomComp {R' : Type*} [CommRing R'] {r : ℕ} (χ : Fi
   sorry
 
 /-- Products of Gauss sums with nontrivial product character. -/
-theorem prod_gaussSum_eq_gaussSum_mul_multiJacobiSum [IsDomain R] {r : ℕ}
+theorem prod_gaussSum_eq_gaussSum_mul_multiJacobiSum [IsDomain F] [IsDomain R] {r : ℕ}
     (χ : Fin r → MulChar F R) (hχ : ∏ i, χ i ≠ 1) {ψ : AddChar F R} (hψ : ψ.IsPrimitive) :
     ∏ i, gaussSum (χ i) ψ = gaussSum (∏ i, χ i) ψ * multiJacobiSum χ := by
   sorry
 
 /-- Products of Gauss sums with trivial product character. -/
-theorem prod_gaussSum_eq_neg_card_mul_multiJacobiSum [IsDomain R] {r : ℕ}
+theorem prod_gaussSum_eq_neg_card_mul_multiJacobiSum [IsDomain F] [IsDomain R] {r : ℕ}
     (χ : Fin r → MulChar F R) (hχ : ∏ i, χ i = 1) (hne : ∃ i, χ i ≠ 1) {ψ : AddChar F R}
     (hψ : ψ.IsPrimitive) :
     ∏ i, gaussSum (χ i) ψ = -(Fintype.card F : R) * multiJacobiSum χ := by
@@ -1457,7 +1471,7 @@ example (χ : MulChar F R) : multiJacobiSum ![χ] = 1 :=
 
 /-- Unit test `TauCeti.FiniteFieldSums.test_multiJacobiSum_trivial_three`: three trivial characters
 give `q² - 3q + 3`. -/
-example : multiJacobiSum ![(1 : MulChar F R), 1, 1] =
+example [IsDomain F] : multiJacobiSum ![(1 : MulChar F R), 1, 1] =
     (Fintype.card F : R) ^ 2 - 3 * Fintype.card F + 3 := by
   sorry
 
@@ -2092,7 +2106,7 @@ theorem monicLSeries_constantCoeff : PowerSeries.constantCoeff (monicLSeries Λ)
 theorem monicLSeries_coeff_one : PowerSeries.coeff 1 (monicLSeries Λ) = ∑ a : F, Λ (X + C a) := by
   sorry
 
-theorem monicLSeries_isPolynomial (N : ℕ)
+theorem monicLSeries_isPolynomial (N : ℕ) (hN : 0 < N)
     (h : ∀ n, N ≤ n → PowerSeries.coeff n (monicLSeries Λ) = 0) :
     ∃ P : ℂ[X], P.natDegree < N ∧ (P : PowerSeries ℂ) = monicLSeries Λ := by sorry
 
@@ -2127,8 +2141,8 @@ example (n : ℕ) (hn : 1 ≤ n) :
       (Fintype.card F : ℂ) ^ n - (Fintype.card F : ℂ) ^ (n - 1) := by
   sorry
 
-/-- Unit test `monicLSeries_test_card`: the only monic polynomial of degree `0` is `1`. -/
-example : monicOfDegree F 0 = {1} := by sorry
+/-- Unit test `monicLSeries_test_constantCoeff`: arbitrary constant coefficient `Λ 1`. -/
+example : PowerSeries.constantCoeff (monicLSeries Λ) = Λ 1 := by sorry
 
 end MonicLSeries
 
@@ -2253,7 +2267,7 @@ theorem additiveLFunction_coeff_one :
 /-- The logarithmic derivative in terms of companion sums over a family `E ν` of extensions of
 degree `ν`. -/
 theorem additiveLFunction_logDeriv (E : ℕ → Type*) [∀ ν, Field (E ν)] [∀ ν, Fintype (E ν)]
-    [∀ ν, Algebra F (E ν)] (hE : ∀ ν, Module.finrank F (E ν) = ν) :
+    [∀ ν, Algebra F (E ν)] (hE : ∀ ν, 0 < ν → Module.finrank F (E ν) = ν) :
     PowerSeries.X * PowerSeries.derivative ℂ (additiveLFunction ψ f) =
       additiveLFunction ψ f *
         PowerSeries.mk (fun ν => if ν = 0 then 0 else additiveCompanionSum ψ f (E ν)) := by
@@ -2270,7 +2284,7 @@ theorem multiplicativeLFunction_coeff_one :
     PowerSeries.coeff 1 (multiplicativeLFunction χ g) = ∑ x : F, χ (g.eval x) := by sorry
 
 theorem multiplicativeLFunction_logDeriv (E : ℕ → Type*) [∀ ν, Field (E ν)]
-    [∀ ν, Fintype (E ν)] [∀ ν, Algebra F (E ν)] (hE : ∀ ν, Module.finrank F (E ν) = ν) :
+    [∀ ν, Fintype (E ν)] [∀ ν, Algebra F (E ν)] (hE : ∀ ν, 0 < ν → Module.finrank F (E ν) = ν) :
     PowerSeries.X * PowerSeries.derivative ℂ (multiplicativeLFunction χ g) =
       multiplicativeLFunction χ g *
         PowerSeries.mk (fun ν => if ν = 0 then 0 else multiplicativeCompanionSum χ g (E ν)) := by
@@ -2440,7 +2454,8 @@ def kummerRotate (d : ℕ) (ξ : F) (hξ : ξ ^ d = 1) :
     stepanovRing (X ^ d) g ≃ₐ[F[X]] stepanovRing (X ^ d) g := sorry
 
 /-- The Artin–Schreier automorphism `Y ↦ Y + a` for `P = Y^q - Y`, `a^q = a`. -/
-def artinSchreierShift (q : ℕ) (a : F) (ha : a ^ q = a) :
+def artinSchreierShift (q : ℕ) (hpower : ∃ k, q = ringChar F ^ k)
+    (a : F) (ha : a ^ q = a) :
     stepanovRing (X ^ q - X) g ≃ₐ[F[X]] stepanovRing (X ^ q - X) g := sorry
 
 end stepanovRing
@@ -2463,18 +2478,22 @@ variable {P g : F[X]}
 /-- The pole degree at infinity, `deg(Σ g_i Y^i) = max (n deg g_i + i m)`. -/
 def poleDegree (f : stepanovRing P g) : WithBot ℕ := sorry
 
-theorem poleDegree_X :
+theorem poleDegree_X (hP : P.Monic) (hn : 1 ≤ P.natDegree)
+    (hm : 1 ≤ g.natDegree) (hcop : Nat.Coprime P.natDegree g.natDegree) :
     poleDegree (algebraMap F[X] (stepanovRing P g) X) = (P.natDegree : WithBot ℕ) := by sorry
 
-theorem poleDegree_Y :
+theorem poleDegree_Y (hP : P.Monic) (hn : 1 ≤ P.natDegree)
+    (hm : 1 ≤ g.natDegree) (hcop : Nat.Coprime P.natDegree g.natDegree) :
     poleDegree (AdjoinRoot.root (P.map (C : F →+* F[X]) - C g)) = (g.natDegree : WithBot ℕ) := by
   sorry
 
-theorem poleDegree_C (a : F[X]) (ha : a ≠ 0) :
+theorem poleDegree_C (hP : P.Monic) (hn : 1 ≤ P.natDegree)
+    (hm : 1 ≤ g.natDegree) (hcop : Nat.Coprime P.natDegree g.natDegree) (a : F[X]) (ha : a ≠ 0) :
     poleDegree (algebraMap F[X] (stepanovRing P g) a) =
       ((P.natDegree * a.natDegree : ℕ) : WithBot ℕ) := by sorry
 
-theorem poleDegree_add_le (f₁ f₂ : stepanovRing P g) :
+theorem poleDegree_add_le (hP : P.Monic) (hn : 1 ≤ P.natDegree)
+    (hm : 1 ≤ g.natDegree) (hcop : Nat.Coprime P.natDegree g.natDegree) (f₁ f₂ : stepanovRing P g) :
     poleDegree (f₁ + f₂) ≤ max (poleDegree f₁) (poleDegree f₂) := by sorry
 
 /-- FF.2/pole-degree-mul (Kowalski Proposition 4.20(1), Proposition 5.6(1)). -/
@@ -2482,13 +2501,16 @@ theorem poleDegree_mul (hP : P.Monic) (hcop : Nat.Coprime P.natDegree g.natDegre
     (hn : 1 ≤ P.natDegree) (hm : 1 ≤ g.natDegree) (f₁ f₂ : stepanovRing P g) :
     poleDegree (f₁ * f₂) = poleDegree f₁ + poleDegree f₂ := by sorry
 
-theorem poleDegree_eq_bot_iff (f : stepanovRing P g) : poleDegree f = ⊥ ↔ f = 0 := by sorry
+theorem poleDegree_eq_bot_iff (hP : P.Monic) (hn : 1 ≤ P.natDegree)
+    (hm : 1 ≤ g.natDegree) (hcop : Nat.Coprime P.natDegree g.natDegree) (f : stepanovRing P g) : poleDegree f = ⊥ ↔ f = 0 := by sorry
 
 /-- Unit test `poleDegree_test_one`: `deg 1 = 0`. -/
-example : poleDegree (1 : stepanovRing P g) = 0 := by sorry
+example (hP : P.Monic) (hn : 1 ≤ P.natDegree)
+    (hm : 1 ≤ g.natDegree) (hcop : Nat.Coprime P.natDegree g.natDegree) : poleDegree (1 : stepanovRing P g) = 0 := by sorry
 
 /-- Unit test `poleDegree_test_Y_pow`: `deg Y^n = n m`. -/
-example (hP : P.Monic) (hcop : Nat.Coprime P.natDegree g.natDegree) :
+example (hP : P.Monic) (hcop : Nat.Coprime P.natDegree g.natDegree)
+    (hn : 1 ≤ P.natDegree) (hm : 1 ≤ g.natDegree) :
     poleDegree ((AdjoinRoot.root (P.map (C : F →+* F[X]) - C g)) ^ P.natDegree) =
       ((P.natDegree * g.natDegree : ℕ) : WithBot ℕ) := by sorry
 
@@ -2507,11 +2529,12 @@ theorem coprime_semigroup_representation {n m : ℕ} (hcop : Nat.Coprime n m) (h
     ((n - 1) * (m - 1) ≤ k → ∃ δ i : ℕ, i < n ∧ k = n * δ + i * m) := by
   sorry
 
-/-- The Riemann–Roch space `H(k) = {f : deg f ≤ k}`. -/
+/-- The coordinate-ring pole-degree space `H(k) = {f : deg f ≤ k}`. It identifies with the
+full Riemann–Roch space only under the regular-away-from-infinity/normality comparison. -/
 def riemannRochSpace (P g : F[X]) (k : ℕ) : Submodule F (stepanovRing P g) := sorry
 
 /-- FF.2/riemann-roch-space-dimension (Kowalski Lemma 4.24, corrected Lemma 5.7). -/
-theorem finrank_riemannRochSpace (P g : F[X]) (hP : P.Monic)
+theorem finrank_riemannRochSpace (P g : F[X]) (hP : P.Monic) (hn : 1 ≤ P.natDegree)
     (hcop : Nat.Coprime P.natDegree g.natDegree) (hm : 1 ≤ g.natDegree) (k : ℕ)
     (hk : (P.natDegree - 1) * (g.natDegree - 1) ≤ k) :
     Module.finrank F (riemannRochSpace P g k) + ((P.natDegree - 1) * (g.natDegree - 1)) / 2 =
@@ -2525,11 +2548,12 @@ section StepanovNorm
 
 variable {P g : F[X]}
 
-theorem stepanovNorm_mul (f₁ f₂ : stepanovRing P g) :
+theorem stepanovNorm_mul (hP : P.Monic) (hn : 1 ≤ P.natDegree)
+    (f₁ f₂ : stepanovRing P g) :
     stepanovNorm (f₁ * f₂) = stepanovNorm f₁ * stepanovNorm f₂ := by sorry
 
 theorem natDegree_stepanovNorm (hP : P.Monic) (hcop : Nat.Coprime P.natDegree g.natDegree)
-    {f : stepanovRing P g} (hf : f ≠ 0) :
+    (hn : 1 ≤ P.natDegree) (hm : 1 ≤ g.natDegree) {f : stepanovRing P g} (hf : f ≠ 0) :
     ((stepanovNorm f).natDegree : WithBot ℕ) = poleDegree f := by sorry
 
 theorem stepanovNorm_eq_prod_kummer (d : ℕ) (hd : d ∣ Fintype.card F - 1)
@@ -2539,10 +2563,14 @@ theorem stepanovNorm_eq_prod_kummer (d : ℕ) (hd : d ∣ Fintype.card F - 1)
         (if h : ξ ^ d = 1 then stepanovRing.kummerRotate g d ξ h f else 1) := by
   sorry
 
-theorem stepanovNorm_eq_prod_artinSchreier (q : ℕ) (f : stepanovRing (X ^ q - X) g) :
+theorem stepanovNorm_eq_prod_artinSchreier (q : ℕ)
+    (hq : ∃ k, 1 ≤ k ∧ q = ringChar F ^ k)
+    (hcard : (Finset.univ.filter fun a : F => a ^ q = a).card = q)
+    (f : stepanovRing (X ^ q - X) g) :
     algebraMap F[X] _ (stepanovNorm f) =
       ∏ a ∈ (Finset.univ.filter fun a : F => a ^ q = a),
-        (if h : a ^ q = a then stepanovRing.artinSchreierShift g q a h f else 1) := by
+        (if h : a ^ q = a then stepanovRing.artinSchreierShift g q
+          (by obtain ⟨k, _, hk⟩ := hq; exact ⟨k, hk⟩) a h f else 1) := by
   sorry
 
 /-- Unit test `stepanovNorm_test_X`: `N(X) = X^n`. -/
@@ -2579,7 +2607,7 @@ theorem stepanov_zero_count {P g : F[X]} (hinst : IsStepanovInstance P g) (M : �
 /-- FF.2/auxiliary-function-uniqueness (Kowalski Lemma 4.28): `s` is a basis of `H(κ)` with
 strictly increasing pole degrees and `|F| = Q`. -/
 theorem auxiliaryFunction_uniqueness {P g : F[X]} (hP : P.Monic)
-    (hcop : Nat.Coprime P.natDegree g.natDegree) {N : ℕ} (M k κ : ℕ)
+    (hn : 1 ≤ P.natDegree) (hm : 1 ≤ g.natDegree) (hcop : Nat.Coprime P.natDegree g.natDegree) {N : ℕ} (M k κ : ℕ)
     (hM : ∃ a, M = ringChar F ^ a) (hMQ : M ∣ Fintype.card F) (hkM : k * M < Fintype.card F)
     (s : Fin N → stepanovRing P g) (hs : StrictMono fun j => poleDegree (s j))
     (hspan : Submodule.span F (Set.range s) = riemannRochSpace P g κ) :
@@ -2590,7 +2618,7 @@ theorem auxiliaryFunction_uniqueness {P g : F[X]} (hP : P.Monic)
       Module.finrank F (riemannRochSpace P g k) * Module.finrank F (riemannRochSpace P g κ) := by
   sorry
 
-/-- FF.2/auxiliary-function-vanishing (Kowalski Lemma 4.29). -/
+/-- FF.2/auxiliary-function-vanishing (Kowalski Lemma 4.27). -/
 theorem auxiliaryFunction_vanishing {P g : F[X]} {N : ℕ} (M : ℕ) (hM : ∃ a, M = ringChar F ^ a)
     (hMQ : M ∣ Fintype.card F) (s f : Fin N → stepanovRing P g) (h : ∑ j, f j ^ M * s j = 0) :
     (∀ φ : stepanovRing P g →ₐ[F] F, φ (∑ j, f j ^ M * s j ^ Fintype.card F) = 0) ∧
@@ -2599,7 +2627,7 @@ theorem auxiliaryFunction_vanishing {P g : F[X]} {N : ℕ} (M : ℕ) (hM : ∃ a
 
 /-- FF.2/auxiliary-function-existence (Kowalski (4.31)), with `k₀ = (n - 1)(m - 1)`, `γ = k₀ / 2`. -/
 theorem auxiliaryFunction_existence {P g : F[X]} (hP : P.Monic)
-    (hcop : Nat.Coprime P.natDegree g.natDegree) (hm : 1 ≤ g.natDegree) {N : ℕ} (M k κ : ℕ)
+    (hn : 1 ≤ P.natDegree) (hcop : Nat.Coprime P.natDegree g.natDegree) (hm : 1 ≤ g.natDegree) {N : ℕ} (M k κ : ℕ)
     (hM : ∃ a, M = ringChar F ^ a) (hMQ : M ∣ Fintype.card F) (hkM : k * M < Fintype.card F)
     (hk : (P.natDegree - 1) * (g.natDegree - 1) ≤ k)
     (hκ : (P.natDegree - 1) * (g.natDegree - 1) ≤ κ)
@@ -2614,7 +2642,7 @@ theorem auxiliaryFunction_existence {P g : F[X]} (hP : P.Monic)
         ((k * M + Fintype.card F * κ : ℕ) : WithBot ℕ) := by
   sorry
 
-/-- FF.2/stepanov-upper-bound (Kowalski Theorem 4.30, §5.2): for `|F| = Q` an even power of `p`
+/-- FF.2/stepanov-upper-bound (Kowalski Theorem 4.17, §5.2): for `|F| = Q` an even power of `p`
 above `Q₀ = max((γ + 1)⁴, (2k₀)²)`, `#C(F) ≤ Q + (2γ + 1)√Q`. -/
 theorem stepanov_upper_bound {P g : F[X]} (hinst : IsStepanovInstance P g)
     (hlt : ∀ q : ℕ, P = X ^ q - X → g.natDegree < q)
@@ -2647,7 +2675,7 @@ theorem stepanov_bound_artinSchreier_curve (f : F[X]) (hd : 1 ≤ f.natDegree)
 /-- FF.2/upper-to-lower-bound-kummer (Kowalski Lemma 4.18). -/
 theorem upper_to_lower_bound_kummer (d : ℕ) (hd : d ∣ Fintype.card F - 1) (g : F[X]) (A : ℝ)
     (hA : ∀ ε : F, ε ≠ 0 →
-      |(Fintype.card {xy : F × F // xy.2 ^ d = (C ε * g).eval xy.1} : ℝ) - Fintype.card F| ≤ A) :
+      (Fintype.card {xy : F × F // xy.2 ^ d = (C ε * g).eval xy.1} : ℝ) - Fintype.card F ≤ A) :
     (Fintype.card F : ℝ) - (d - 1) * A ≤ Fintype.card {xy : F × F // xy.2 ^ d = g.eval xy.1} := by
   sorry
 
@@ -2655,8 +2683,8 @@ theorem upper_to_lower_bound_kummer (d : ℕ) (hd : d ∣ Fintype.card F - 1) (g
 theorem upper_to_lower_bound_artinSchreier (q : ℕ) (hq : ∃ k, 1 ≤ k ∧ q = ringChar F ^ k)
     (hcard : (Finset.univ.filter fun a : F => a ^ q = a).card = q) (g : F[X]) (A : ℝ)
     (hA : ∀ α : F,
-      |(Fintype.card {xy : F × F // xy.2 ^ q - xy.2 = (g + C α).eval xy.1} : ℝ) -
-        Fintype.card F| ≤ A) :
+      (Fintype.card {xy : F × F // xy.2 ^ q - xy.2 = (g + C α).eval xy.1} : ℝ) -
+        Fintype.card F ≤ A) :
     (Fintype.card F : ℝ) - (q - 1) * A ≤
       Fintype.card {xy : F × F // xy.2 ^ q - xy.2 = g.eval xy.1} := by
   sorry
@@ -2970,8 +2998,10 @@ example : ∀ ψ : AddChar (ZMod 3) ℚ, ψ = 1 := by sorry
 example (χ : MulChar F ℂ) (hχ : χ ≠ 1) :
     kummerSheaf χ (Units.mk0 (RatFunc.X : RatFunc F) RatFunc.X_ne_zero) ≠ 1 := by sorry
 
-/-- The trace function of a rank-one lisse sheaf on an open subset of `A¹_F`: the value of the
-character at a geometric Frobenius at the place `X - x` (FKMS Definition 3.5). -/
+/-- Partial rank-one evaluation API: evaluate at one fixed chosen geometric Frobenius lift
+at `X - x`. This is intrinsic only where the character is unramified. The identities below use
+the same choice for all characters; this is not zero extension or middle extension off a lisse
+open. The full sheaf trace-function API of FKMS Definition 3.5 remains upstream-dependent. -/
 def traceFunctionRankOne {E : Type*} [Field E]
     (ρ : Field.absoluteGaloisGroup (RatFunc F) →* Eˣ) (x : F) : E := sorry
 
@@ -3738,7 +3768,7 @@ def equalDegreeFactorization (f : F[X]) (k n : ℕ) : PMF (Finset F[X]) :=
 
 /-- **Las Vegas correctness of EDF** (Shoup §20.4.2): every outcome is a factorization of `f` into
 monic factors, and an outcome with `deg f / k` factors is the set of irreducible factors of `f`. -/
-theorem equalDegreeFactorization_support {f : F[X]} {k n : ℕ} (hf : f.Monic) (hsq : Squarefree f)
+theorem equalDegreeFactorization_support {f : F[X]} {k n : ℕ} (hf : f.Monic) (hfdeg : 0 < f.natDegree) (hkpos : 0 < k) (hsq : Squarefree f)
     (hdeg : ∀ h ∈ UniqueFactorizationMonoid.normalizedFactors f, h.natDegree = k)
     {H : Finset F[X]} (hH : H ∈ (equalDegreeFactorization f k n).support) :
     H.prod id = f ∧ (∀ h ∈ H, h.Monic) ∧
@@ -3747,14 +3777,14 @@ theorem equalDegreeFactorization_support {f : F[X]} {k n : ℕ} (hf : f.Monic) (
 /-- **Failure probability of EDF**: after `n` rounds the factorization is incomplete with probability
 at most `C(r, 2) ρ ^ n`, where `r = deg f / k` and `ρ ≤ 5/9` is the pair-separation failure
 probability. -/
-theorem equalDegreeFactorization_failure_le {f : F[X]} {k : ℕ} (hf : f.Monic)
+theorem equalDegreeFactorization_failure_le {f : F[X]} {k : ℕ} (hf : f.Monic) (hfdeg : 0 < f.natDegree) (hkpos : 0 < k)
     (hsq : Squarefree f)
     (hdeg : ∀ h ∈ UniqueFactorizationMonoid.normalizedFactors f, h.natDegree = k) (n : ℕ) :
     (equalDegreeFactorization f k n).toOuterMeasure {H | H.card < f.natDegree / k} ≤
       ((f.natDegree / k).choose 2 : ENNReal) * (5 / 9 : ENNReal) ^ n := sorry
 
 /-- **Expected number of rounds of EDF, `q` even** (Shoup, proof of Theorem 20.7): `E[L] ≤ 2 log₂ r + 2`. -/
-theorem tsum_equalDegreeFactorization_unfinished_le {f : F[X]} {k : ℕ} (hf : f.Monic)
+theorem tsum_equalDegreeFactorization_unfinished_le {f : F[X]} {k : ℕ} (hf : f.Monic) (hfdeg : 0 < f.natDegree) (hkpos : 0 < k)
     (hsq : Squarefree f) (hF : ringChar F = 2)
     (hdeg : ∀ h ∈ UniqueFactorizationMonoid.normalizedFactors f, h.natDegree = k) :
     ∑' n, (equalDegreeFactorization f k n).toOuterMeasure {H | H.card < f.natDegree / k} ≤
@@ -3778,6 +3808,7 @@ example {f : F[X]} (k : ℕ) (a : F[X]) (ha : f ∣ (edfSplittingPolynomial F k)
 
 /-- Unit test `equalDegreeFactorization_card_le`: every outcome has at most `deg f / k` elements. -/
 example {f : F[X]} {k n : ℕ} (hf : f.Monic) (hsq : Squarefree f)
+    (hfdeg : 0 < f.natDegree) (hkpos : 0 < k)
     (hdeg : ∀ h ∈ UniqueFactorizationMonoid.normalizedFactors f, h.natDegree = k)
     {H : Finset F[X]} (hH : H ∈ (equalDegreeFactorization f k n).support) :
     H.card ≤ f.natDegree / k := sorry
@@ -3889,7 +3920,7 @@ def berlekampSplit {f : F[X]} (hf : f.Monic) {ι : Type*} [Fintype ι] [Decidabl
 
 /-- **Las Vegas correctness of Algorithm B2**: every outcome multiplies to `f`, and an outcome with
 `r` factors is the set of irreducible factors. -/
-theorem berlekampSplit_support {f : F[X]} (hf : f.Monic) (hsq : Squarefree f) {ι : Type*}
+theorem berlekampSplit_support {f : F[X]} (hf : f.Monic) (hsq : Squarefree f) (hfdeg : 0 < f.natDegree) {ι : Type*}
     [Fintype ι] [DecidableEq ι] (β : Module.Basis ι F (berlekampSubalgebra f)) {n : ℕ}
     {H : Finset F[X]} (hH : H ∈ (berlekampSplit hf β n).support) :
     H.prod id = f ∧ (H.card = Fintype.card ι → H.val = UniqueFactorizationMonoid.normalizedFactors f) :=
@@ -3897,7 +3928,7 @@ theorem berlekampSplit_support {f : F[X]} (hf : f.Monic) (hsq : Squarefree f) {�
 
 /-- **Failure probability of Algorithm B2** (Shoup §20.5: a pair is separated with probability at
 least `1/2` for even `q` and at least `4/9` for odd `q`). -/
-theorem berlekampSplit_failure_le {f : F[X]} (hf : f.Monic) (hsq : Squarefree f) {ι : Type*}
+theorem berlekampSplit_failure_le {f : F[X]} (hf : f.Monic) (hsq : Squarefree f) (hfdeg : 0 < f.natDegree) {ι : Type*}
     [Fintype ι] [DecidableEq ι] (β : Module.Basis ι F (berlekampSubalgebra f)) (n : ℕ) :
     (berlekampSplit hf β n).toOuterMeasure {H | H.card < Fintype.card ι} ≤
       ((Fintype.card ι).choose 2 : ENNReal) * (5 / 9 : ENNReal) ^ n := sorry
@@ -3911,7 +3942,8 @@ example {f : F[X]} (hf : f.Monic) (hirr : Irreducible f)
     berlekampSplit hf β n = PMF.pure {f} := sorry
 
 /-- Unit test `berlekampSplit_support_card_le`: the number of factors never exceeds `dim B`. -/
-example {f : F[X]} (hf : f.Monic) (hsq : Squarefree f) {ι : Type*} [Fintype ι] [DecidableEq ι]
+example {f : F[X]} (hf : f.Monic) (hsq : Squarefree f) (hfdeg : 0 < f.natDegree)
+    {ι : Type*} [Fintype ι] [DecidableEq ι]
     (β : Module.Basis ι F (berlekampSubalgebra f)) (n : ℕ) (H : Finset F[X])
     (hH : H ∈ (berlekampSplit hf β n).support) : H.card ≤ Fintype.card ι := sorry
 
@@ -4005,7 +4037,8 @@ structure FactorizationCertificate (F : Type*) [Field F] where
 `gᵢ`, and each Rabin certificate checks. -/
 def FactorizationCertificate.check (c : FactorizationCertificate F) (f : F[X]) : Bool := by
   classical
-  exact decide (C c.leadingCoeff * (c.factors.map fun t => t.1 ^ t.2.1).prod = f) &&
+  exact decide (c.leadingCoeff ≠ 0) &&
+    decide (C c.leadingCoeff * (c.factors.map fun t => t.1 ^ t.2.1).prod = f) &&
     decide (∀ t ∈ c.factors, 0 < t.2.1) && decide (c.factors.map Sigma.fst).Nodup &&
     c.factors.all fun t => t.2.2.check
 
@@ -4038,6 +4071,9 @@ example (w : RabinCertificate (X ^ 2 + X : (ZMod 2)[X])) :
 
 /-- Unit test `factorizationCertificate_constant`: a nonzero constant has the empty certificate. -/
 example : (FactorizationCertificate.mk (3 : ZMod 5) []).check (C 3) = true := sorry
+
+/-- Unit test `factorizationCertificate_zero_rejected`: reject every proposed factorization of zero. -/
+example (c : FactorizationCertificate F) : c.check 0 = false := sorry
 
 /-- **Certified factorization by Cantor–Zassenhaus**: the distribution of certificates obtained by
 running `cantorZassenhaus` and generating a Rabin certificate for each factor. -/
@@ -4086,7 +4122,7 @@ coprime in `R[X]`, with Bézout coefficients `u g + v h = 1`, `deg v < deg g`. -
 theorem exists_bezout_of_isCoprime_map (hI : I ≤ (⊥ : Ideal R).jacobson) {g h : R[X]}
     (hg : g.Monic)
     (hcop : IsCoprime (g.map (Ideal.Quotient.mk I)) (h.map (Ideal.Quotient.mk I))) :
-    ∃ u v : R[X], u * g + v * h = 1 ∧ v.natDegree < g.natDegree := sorry
+    ∃ u v : R[X], u * g + v * h = 1 ∧ (v = 0 ∨ v.natDegree < g.natDegree) := sorry
 
 /-- **Uniqueness of monic lifts** (Milne, Lemma 7.35): two factorizations `g h = g' h'` into monic
 polynomials with the same coprime reductions coincide. -/
@@ -4182,7 +4218,7 @@ theorem henselLift_spec {R : Type*} [CommRing R] (I : Ideal R) {f g₀ h₀ s t 
         Ideal.map C (I ^ (m + 1)) := sorry
 
 theorem henselLift_divByMonic {R : Type*} [CommRing R] (I : Ideal R) {f g₀ h₀ s t : R[X]}
-    (hf : f.Monic) (hg₀ : g₀.Monic) (hfac : f - g₀ * h₀ ∈ Ideal.map C I)
+    (hf : f.Monic) (hg₀ : g₀.Monic) (hdeg : g₀.natDegree ≤ f.natDegree) (hfac : f - g₀ * h₀ ∈ Ideal.map C I)
     (hst : s * g₀ + t * h₀ - 1 ∈ Ideal.map C I) (m : ℕ) :
     (f /ₘ (henselLift f g₀ h₀ s t m).1).Monic ∧
       f - (henselLift f g₀ h₀ s t m).1 * (f /ₘ (henselLift f g₀ h₀ s t m).1) ∈
@@ -4646,7 +4682,7 @@ section FF4File
 
 This file is not the roadmap and is not exhaustive: the roadmap document is definitive. The
 statements below suggest Lean forms so that contributors and reviewers converge on names and
-signatures. Every proof is `sorry`; nothing here claims an implementation.
+signatures. The roadmap proofs are `sorry`; the independent regression section at the end is the stated exception. Nothing here claims a roadmap implementation.
 
 Tau Ceti is not built in the environment of this file. Codes are `Submodule F (ι → F)`, which is
 exactly Tau Ceti's `TauCeti.LinearCode F ι`; the algebraic geometry codes use local `TC…` stand-ins
@@ -4678,7 +4714,7 @@ theorem irreducible_map (hf : IsBasicIrreducible f) :
 theorem natDegree_map (hf : IsBasicIrreducible f) :
     (f.map (IsLocalRing.residue R)).natDegree = f.natDegree := sorry
 
-theorem irreducible (hf : IsBasicIrreducible f) : Irreducible f := sorry
+theorem irreducible [Finite R] (hf : IsBasicIrreducible f) : Irreducible f := sorry
 
 theorem map_ringEquiv {S : Type*} [CommRing S] [IsLocalRing S] (e : R ≃+* S)
     (hf : IsBasicIrreducible f) : IsBasicIrreducible (f.map (e : R →+* S)) := sorry
@@ -5266,7 +5302,8 @@ theorem dvd_X_pow_sub_one_iff_polyOrder_dvd (f : F[X]) (e : ℕ) :
 theorem polyOrder_pos_iff [Finite F] {f : F[X]} (hf : f ≠ 0) : 0 < polyOrder f ↔ f.coeff 0 ≠ 0 :=
   sorry
 
-theorem polyOrder_dvd_card_pow_sub_one [Fintype F] {f : F[X]} (hf : Irreducible f) :
+theorem polyOrder_dvd_card_pow_sub_one [Fintype F] {f : F[X]} (hf : Irreducible f)
+    (h0 : f.coeff 0 ≠ 0) :
     polyOrder f ∣ Fintype.card F ^ f.natDegree - 1 := sorry
 
 theorem polyOrder_eq_orderOf {L : Type*} [Field L] [Algebra F L] {f : F[X]} (hf : Irreducible f)
@@ -5819,7 +5856,10 @@ These declarations are stated over Tau Ceti's function-field library (`TauCeti.P
 `TauCeti.weilDifferentialFiltration`, `TauCeti.repartitionDualComponent`), which is not built in
 the environment of this file. The `TC…` declarations below are local stand-ins with the same roles,
 to be replaced by those Tau Ceti declarations: they are the only place where this file needs Tau
-Ceti. -/
+Ceti. The AG prototypes below do not certify the actual Tau Ceti type interfaces. Their
+function-field hypotheses are expanded from the pinned IsFunctionField definition, never
+replaced by a Prop-valued placeholder. The constants hypothesis is explicit where Riemann–Roch
+is used. Replace every TC role by the cited supplier before implementing or closing this section. -/
 
 section AGCodes
 
@@ -5837,7 +5877,10 @@ variable {k F : Type*} [Field k] [Field F] [Algebra k F]
 noncomputable def TCPlace.degree : TCPlace k F → ℕ := sorry
 
 /-- Stand-in for `TauCeti.Place.integers`. -/
-noncomputable def TCPlace.integers : TCPlace k F → Subalgebra k F := sorry
+noncomputable def TCPlace.integers : TCPlace k F → ValuationSubring F := sorry
+
+/-- Stand-in for the constants algebra structure supplied by a place trivial on k. -/
+noncomputable instance (P : TCPlace k F) : Algebra k P.integers := sorry
 
 /-- Stand-in for `TauCeti.Divisor.degree`. -/
 noncomputable def TCDivisor.degree : TCDivisor k F → ℤ := sorry
@@ -5870,25 +5913,28 @@ theorem evalAtRational_algebraMap (P : TCPlace k F) (h : P.degree = 1) (c : k) :
     evalAtRational P h (algebraMap k P.integers c) = c := sorry
 
 theorem evalAtRational_eq_zero_iff (P : TCPlace k F) (h : P.degree = 1) (f : P.integers) :
-    evalAtRational P h f = 0 ↔ f ∈ RingHom.ker (evalAtRational P h).toRingHom := Iff.rfl
+    evalAtRational P h f = 0 ↔ f ∈ IsLocalRing.maximalIdeal P.integers := sorry
 
-theorem evalAtRational_apply_ker (P : TCPlace k F) (h : P.degree = 1) :
-    RingHom.ker (evalAtRational P h).toRingHom ≠ ⊤ := sorry
+theorem evalAtRational_apply_ker (P : TCPlace k F) (h : P.degree = 1) (f : P.integers) :
+    RingHom.ker (evalAtRational P h).toRingHom = IsLocalRing.maximalIdeal P.integers ∧
+      algebraMap k (IsLocalRing.ResidueField P.integers) (evalAtRational P h f) =
+        IsLocalRing.residue P.integers f := sorry
 
 /-- Unit test `evalAtRational_algebraMap`. -/
 example (P : TCPlace k F) (h : P.degree = 1) (c : k) :
     evalAtRational P h (algebraMap k P.integers c) = c := evalAtRational_algebraMap P h c
 
-/-- Unit test `evalAtRational_ker`: the kernel is a proper ideal (the maximal ideal). -/
-example (P : TCPlace k F) (h : P.degree = 1) : RingHom.ker (evalAtRational P h).toRingHom ≠ ⊤ :=
-  evalAtRational_apply_ker P h
+/-- Unit test `evalAtRational_ker`: evaluation vanishes exactly in the maximal ideal. -/
+example (P : TCPlace k F) (h : P.degree = 1) (f : P.integers) :
+    evalAtRational P h f = 0 ↔ f ∈ IsLocalRing.maximalIdeal P.integers :=
+  evalAtRational_eq_zero_iff P h f
 
 /-- Unit test `evalAtRational_X_ratFunc`: in `k(x)` the value of `x` at the place of `x - a` is
 `a` (stated with a stand-in place `P` whose valuation ring contains `x`). -/
 example (P : TCPlace k (RatFunc k)) (h : P.degree = 1) (a : k)
     (hx : algebraMap k[X] (RatFunc k) X ∈ P.integers)
-    (hP : ∀ f : P.integers, evalAtRational P h f = 0 ↔ (f : RatFunc k) ∈
-      Set.range (fun g : RatFunc k => (algebraMap k[X] (RatFunc k) (X - C a)) * g)) :
+    (hP : ∀ f : P.integers, evalAtRational P h f = 0 ↔ ∃ g : P.integers,
+      (f : RatFunc k) = (algebraMap k[X] (RatFunc k) (X - C a)) * (g : RatFunc k)) :
     evalAtRational P h ⟨algebraMap k[X] (RatFunc k) X, hx⟩ = a := sorry
 
 /-- Unit test `evalAtRational_not_defined_at_pole`: `1/(x - a)` is not in the valuation ring of the
@@ -5913,40 +5959,54 @@ noncomputable def agEvaluationCode (P : Fin n → TCPlace k F) (hP : ∀ i, (P i
 noncomputable def placesDivisor (P : Fin n → TCPlace k F) : TCDivisor k F :=
   ∑ i, Finsupp.single (P i) 1
 
-theorem ker_agEvaluationMap (P : Fin n → TCPlace k F) (hP : ∀ i, (P i).degree = 1)
-    (G : TCDivisor k F) (hG : ∀ i, G (P i) = 0) :
+theorem ker_agEvaluationMap (hF : ∃ x : F, Transcendental k x ∧
+      FiniteDimensional (IntermediateField.adjoin k {x}) F)
+    (hconst : ∀ x : F, IsAlgebraic k x → ∃ c : k, algebraMap k F c = x) (P : Fin n → TCPlace k F) (hP : ∀ i, (P i).degree = 1)
+    (hinj : Function.Injective P) (G : TCDivisor k F) (hG : ∀ i, G (P i) = 0) :
     Submodule.map (tcRiemannRochSpace G).subtype (LinearMap.ker (agEvaluationMap P hP G hG)) =
       tcRiemannRochSpace (G - placesDivisor P) := sorry
 
-theorem agEvaluationCode_mono (P : Fin n → TCPlace k F) (hP : ∀ i, (P i).degree = 1)
+theorem agEvaluationCode_mono (hF : ∃ x : F, Transcendental k x ∧
+      FiniteDimensional (IntermediateField.adjoin k {x}) F)
+    (hconst : ∀ x : F, IsAlgebraic k x → ∃ c : k, algebraMap k F c = x) (P : Fin n → TCPlace k F) (hP : ∀ i, (P i).degree = 1)
     {G G' : TCDivisor k F} (hG : ∀ i, G (P i) = 0) (hG' : ∀ i, G' (P i) = 0) (hle : G ≤ G') :
     agEvaluationCode P hP G hG ≤ agEvaluationCode P hP G' hG' := sorry
 
 /-- **Dimension of AG codes.** -/
-theorem finrank_agEvaluationCode (P : Fin n → TCPlace k F) (hP : ∀ i, (P i).degree = 1)
+theorem finrank_agEvaluationCode (hF : ∃ x : F, Transcendental k x ∧
+      FiniteDimensional (IntermediateField.adjoin k {x}) F)
+    (hconst : ∀ x : F, IsAlgebraic k x → ∃ c : k, algebraMap k F c = x) (P : Fin n → TCPlace k F) (hP : ∀ i, (P i).degree = 1)
     (hinj : Function.Injective P) (G : TCDivisor k F) (hG : ∀ i, G (P i) = 0) :
     (Module.finrank k (agEvaluationCode P hP G hG) : ℤ) =
       Module.finrank k (tcRiemannRochSpace G) -
         Module.finrank k (tcRiemannRochSpace (G - placesDivisor P)) := sorry
 
-theorem finrank_agEvaluationCode_ge (P : Fin n → TCPlace k F) (hP : ∀ i, (P i).degree = 1)
+theorem finrank_agEvaluationCode_ge (hF : ∃ x : F, Transcendental k x ∧
+      FiniteDimensional (IntermediateField.adjoin k {x}) F)
+    (hconst : ∀ x : F, IsAlgebraic k x → ∃ c : k, algebraMap k F c = x) (P : Fin n → TCPlace k F) (hP : ∀ i, (P i).degree = 1)
     (hinj : Function.Injective P) (G : TCDivisor k F) (hG : ∀ i, G (P i) = 0)
     (hdeg : G.degree < n) :
     G.degree + 1 - tcGenus k F ≤ (Module.finrank k (agEvaluationCode P hP G hG) : ℤ) := sorry
 
-theorem finrank_agEvaluationCode_eq (P : Fin n → TCPlace k F) (hP : ∀ i, (P i).degree = 1)
+theorem finrank_agEvaluationCode_eq (hF : ∃ x : F, Transcendental k x ∧
+      FiniteDimensional (IntermediateField.adjoin k {x}) F)
+    (hconst : ∀ x : F, IsAlgebraic k x → ∃ c : k, algebraMap k F c = x) (P : Fin n → TCPlace k F) (hP : ∀ i, (P i).degree = 1)
     (hinj : Function.Injective P) (G : TCDivisor k F) (hG : ∀ i, G (P i) = 0)
     (hdeg : G.degree < n) (hdeg' : 2 * (tcGenus k F : ℤ) - 2 < G.degree) :
     (Module.finrank k (agEvaluationCode P hP G hG) : ℤ) = G.degree + 1 - tcGenus k F := sorry
 
 /-- **The Goppa bound.** -/
-theorem le_hammingNorm_of_mem_agEvaluationCode [DecidableEq k] (P : Fin n → TCPlace k F)
+theorem le_hammingNorm_of_mem_agEvaluationCode [DecidableEq k] (hF : ∃ x : F, Transcendental k x ∧
+      FiniteDimensional (IntermediateField.adjoin k {x}) F)
+    (hconst : ∀ x : F, IsAlgebraic k x → ∃ c : k, algebraMap k F c = x) (P : Fin n → TCPlace k F)
     (hP : ∀ i, (P i).degree = 1) (hinj : Function.Injective P) (G : TCDivisor k F)
     (hG : ∀ i, G (P i) = 0) {c : Fin n → k} (hc : c ∈ agEvaluationCode P hP G hG) (hc0 : c ≠ 0) :
     (n : ℤ) - G.degree ≤ hammingNorm c := sorry
 
 /-- The Singleton defect of an AG code is at most the genus. -/
-theorem agEvaluationCode_singleton_defect [DecidableEq k] (P : Fin n → TCPlace k F)
+theorem agEvaluationCode_singleton_defect [DecidableEq k] (hF : ∃ x : F, Transcendental k x ∧
+      FiniteDimensional (IntermediateField.adjoin k {x}) F)
+    (hconst : ∀ x : F, IsAlgebraic k x → ∃ c : k, algebraMap k F c = x) (P : Fin n → TCPlace k F)
     (hP : ∀ i, (P i).degree = 1) (hinj : Function.Injective P) (G : TCDivisor k F)
     (hG : ∀ i, G (P i) = 0) (hdeg : G.degree < n) {c : Fin n → k}
     (hc : c ∈ agEvaluationCode P hP G hG) (hc0 : c ≠ 0) :
@@ -5964,67 +6024,96 @@ noncomputable def agResidueCode (P : Fin n → TCPlace k F) (G : TCDivisor k F) 
     Submodule k (Fin n → k) :=
   LinearMap.range (agResidueMap P G)
 
-theorem ker_agResidueMap (P : Fin n → TCPlace k F) (hP : ∀ i, (P i).degree = 1) (G : TCDivisor k F)
+theorem ker_agResidueMap (hF : ∃ x : F, Transcendental k x ∧
+      FiniteDimensional (IntermediateField.adjoin k {x}) F)
+    (hconst : ∀ x : F, IsAlgebraic k x → ∃ c : k, algebraMap k F c = x) (P : Fin n → TCPlace k F) (hP : ∀ i, (P i).degree = 1)
+    (hinj : Function.Injective P) (G : TCDivisor k F)
     (hG : ∀ i, G (P i) = 0) :
     Submodule.map (tcWeilDifferentialFiltration (G - placesDivisor P)).subtype
       (LinearMap.ker (agResidueMap P G)) = tcWeilDifferentialFiltration G := sorry
 
-theorem agResidueCode_antitone (P : Fin n → TCPlace k F) {G G' : TCDivisor k F} (hle : G ≤ G') :
+theorem agResidueCode_antitone (hF : ∃ x : F, Transcendental k x ∧
+      FiniteDimensional (IntermediateField.adjoin k {x}) F)
+    (hconst : ∀ x : F, IsAlgebraic k x → ∃ c : k, algebraMap k F c = x) (P : Fin n → TCPlace k F) {G G' : TCDivisor k F} (hle : G ≤ G') :
     agResidueCode P G' ≤ agResidueCode P G := sorry
 
 /-- **Duality of evaluation and residue codes.** -/
-theorem agResidueCode_eq_codeDual [DecidableEq k] (P : Fin n → TCPlace k F)
+theorem agResidueCode_eq_codeDual [DecidableEq k] (hF : ∃ x : F, Transcendental k x ∧
+      FiniteDimensional (IntermediateField.adjoin k {x}) F)
+    (hconst : ∀ x : F, IsAlgebraic k x → ∃ c : k, algebraMap k F c = x) (P : Fin n → TCPlace k F)
     (hP : ∀ i, (P i).degree = 1) (hinj : Function.Injective P) (G : TCDivisor k F)
     (hG : ∀ i, G (P i) = 0) :
     agResidueCode P G = codeDual (agEvaluationCode P hP G hG) := sorry
 
 /-- Parameters of residue codes. -/
-theorem finrank_agResidueCode (P : Fin n → TCPlace k F) (hP : ∀ i, (P i).degree = 1)
+theorem finrank_agResidueCode (hF : ∃ x : F, Transcendental k x ∧
+      FiniteDimensional (IntermediateField.adjoin k {x}) F)
+    (hconst : ∀ x : F, IsAlgebraic k x → ∃ c : k, algebraMap k F c = x) (P : Fin n → TCPlace k F) (hP : ∀ i, (P i).degree = 1)
     (hinj : Function.Injective P) (G : TCDivisor k F) (hG : ∀ i, G (P i) = 0)
     (hdeg : G.degree < n) (hdeg' : 2 * (tcGenus k F : ℤ) - 2 < G.degree) :
     (Module.finrank k (agResidueCode P G) : ℤ) = n + tcGenus k F - 1 - G.degree := sorry
 
-theorem le_hammingNorm_of_mem_agResidueCode [DecidableEq k] (P : Fin n → TCPlace k F)
+theorem le_hammingNorm_of_mem_agResidueCode [DecidableEq k] (hF : ∃ x : F, Transcendental k x ∧
+      FiniteDimensional (IntermediateField.adjoin k {x}) F)
+    (hconst : ∀ x : F, IsAlgebraic k x → ∃ c : k, algebraMap k F c = x) (P : Fin n → TCPlace k F)
     (hP : ∀ i, (P i).degree = 1) (hinj : Function.Injective P) (G : TCDivisor k F)
     (hG : ∀ i, G (P i) = 0) (hdeg' : 2 * (tcGenus k F : ℤ) - 2 < G.degree) {c : Fin n → k}
     (hc : c ∈ agResidueCode P G) (hc0 : c ≠ 0) :
     G.degree - (2 * tcGenus k F - 2) ≤ hammingNorm c := sorry
 
 /-- Unit test `agEvaluationCode_eq_bot_of_degree_neg`. -/
-example (P : Fin n → TCPlace k F) (hP : ∀ i, (P i).degree = 1) (G : TCDivisor k F)
+example (hF : ∃ x : F, Transcendental k x ∧
+      FiniteDimensional (IntermediateField.adjoin k {x}) F)
+    (hconst : ∀ x : F, IsAlgebraic k x → ∃ c : k, algebraMap k F c = x) (P : Fin n → TCPlace k F) (hP : ∀ i, (P i).degree = 1) (G : TCDivisor k F)
     (hG : ∀ i, G (P i) = 0) (hdeg : G.degree < 0) : agEvaluationCode P hP G hG = ⊥ := sorry
+
+/-- Stand-in for the already existing TauCeti.Place.adicOfIrreducible at X−C a. -/
+noncomputable def tcRatFuncFinitePlace (a : k) : TCPlace k (RatFunc k) := sorry
+
+/-- Stand-in for the already existing TauCeti.Place.infty k. -/
+noncomputable def tcRatFuncInftyPlace (k : Type*) [Field k] : TCPlace k (RatFunc k) := sorry
 
 /-- Unit test `agEvaluationCode_ratFunc`: over `k(x)` with `G = (k₀ - 1)P∞` the AG code is the
 Reed–Solomon code (statement with stand-in places `Q i` of `X - α i` and `Q∞`). -/
 example [DecidableEq k] (α : Fin n → k) (hα : Function.Injective α) (k₀ : ℕ) (hk : 1 ≤ k₀)
     (Q : Fin n → TCPlace k (RatFunc k)) (hQ : ∀ i, (Q i).degree = 1) (Qinf : TCPlace k (RatFunc k))
+    (hfinite : ∀ i, Q i = tcRatFuncFinitePlace (α i)) (hinfty : Qinf = tcRatFuncInftyPlace k)
     (hG : ∀ i, ((k₀ - 1 : ℤ) • Finsupp.single Qinf 1 : TCDivisor k (RatFunc k)) (Q i) = 0) :
     agEvaluationCode Q hQ ((k₀ - 1 : ℤ) • Finsupp.single Qinf 1) hG = reedSolomon α k₀ := sorry
 
 /-- Unit test `agEvaluationCode_zero_divisor`: `G = 0` gives the repetition code. -/
-example (P : Fin n → TCPlace k F) (hP : ∀ i, (P i).degree = 1) (hG : ∀ i, (0 : TCDivisor k F) (P i) = 0) :
+example (hF : ∃ x : F, Transcendental k x ∧
+      FiniteDimensional (IntermediateField.adjoin k {x}) F)
+    (hconst : ∀ x : F, IsAlgebraic k x → ∃ c : k, algebraMap k F c = x) (P : Fin n → TCPlace k F) (hP : ∀ i, (P i).degree = 1) (hG : ∀ i, (0 : TCDivisor k F) (P i) = 0) :
     agEvaluationCode P hP 0 hG = Submodule.span k {fun _ => (1 : k)} := sorry
 
-/-- Unit test `agEvaluationCode_needs_disjoint_support`: with a pole at `P₁` a function of `L(G)`
-has no value at `P₁` (stated as: some `f ∈ L(G)` is outside the valuation ring of `P₁`). -/
-example (P : Fin n → TCPlace k F) (i : Fin n) (G : TCDivisor k F) (_hGi : 0 < G (P i))
-    (hpole : ∃ f ∈ tcRiemannRochSpace G, f ∉ (P i).integers) :
-    ∃ f ∈ tcRiemannRochSpace G, f ∉ (P i).integers := hpole
+/-- Unit test `agEvaluationCode_needs_disjoint_support`: 1/X has a pole at the actual
+finite place X=0, although it lies in L(P₀). This is a concrete non-example. -/
+example (P : TCPlace k (RatFunc k)) (hP : P = tcRatFuncFinitePlace (0 : k)) :
+    (algebraMap k[X] (RatFunc k) X)⁻¹ ∈ tcRiemannRochSpace (Finsupp.single P 1) ∧
+      (algebraMap k[X] (RatFunc k) X)⁻¹ ∉ P.integers := sorry
 
 /-- Unit test `agResidueCode_eq_dual`. -/
-example [DecidableEq k] (P : Fin n → TCPlace k F) (hP : ∀ i, (P i).degree = 1)
+example [DecidableEq k] (hF : ∃ x : F, Transcendental k x ∧
+      FiniteDimensional (IntermediateField.adjoin k {x}) F)
+    (hconst : ∀ x : F, IsAlgebraic k x → ∃ c : k, algebraMap k F c = x) (P : Fin n → TCPlace k F) (hP : ∀ i, (P i).degree = 1)
     (hinj : Function.Injective P) (G : TCDivisor k F) (hG : ∀ i, G (P i) = 0) :
     agResidueCode P G = codeDual (agEvaluationCode P hP G hG) :=
-  agResidueCode_eq_codeDual P hP hinj G hG
+  agResidueCode_eq_codeDual hF hconst P hP hinj G hG
 
 /-- Unit test `agResidueCode_eq_bot_of_large_degree`. -/
-example (P : Fin n → TCPlace k F) (G : TCDivisor k F)
+example (hF : ∃ x : F, Transcendental k x ∧
+      FiniteDimensional (IntermediateField.adjoin k {x}) F)
+    (hconst : ∀ x : F, IsAlgebraic k x → ∃ c : k, algebraMap k F c = x) (P : Fin n → TCPlace k F)
+    (hP : ∀ i, (P i).degree = 1) (hinj : Function.Injective P) (G : TCDivisor k F)
     (hdeg : (n : ℤ) + 2 * tcGenus k F - 2 < G.degree) : agResidueCode P G = ⊥ := sorry
 
 /-- Unit test `agResidueCode_ratFunc`: full-length Reed–Solomon duality from residue codes. -/
 example [Fintype k] [DecidableEq k] (α : k → k) (hα : Function.Bijective α) (k₀ : ℕ) (hk : 1 ≤ k₀)
     (hk' : k₀ ≤ Fintype.card k) (Q : Fin (Fintype.card k) → TCPlace k (RatFunc k))
-    (Qinf : TCPlace k (RatFunc k)) :
+    (Qinf : TCPlace k (RatFunc k))
+    (hfinite : ∀ i, Q i = tcRatFuncFinitePlace (α ((Fintype.equivFin k).symm i)))
+    (hinfty : Qinf = tcRatFuncInftyPlace k) :
     agResidueCode Q ((k₀ - 1 : ℤ) • Finsupp.single Qinf 1) =
       codeDual (reedSolomon (fun i : Fin (Fintype.card k) => α ((Fintype.equivFin k).symm i)) k₀) :=
   sorry
@@ -6080,7 +6169,8 @@ theorem coe_smul (g : GL (Fin 2) F) (z : FiniteUpperHalfPlane F E) :
     ((g • z).1 : E) = (algebraMap F E (g 0 0) * z.1 + algebraMap F E (g 0 1)) /
       (algebraMap F E (g 1 0) * z.1 + algebraMap F E (g 1 1)) := sorry
 
-theorem im_smul (s : E) (g : GL (Fin 2) F) (z : FiniteUpperHalfPlane F E) :
+theorem im_smul (s : E) (hs : s ∉ Set.range (algebraMap F E))
+    (h2 : Module.finrank F E = 2) (g : GL (Fin 2) F) (z : FiniteUpperHalfPlane F E) :
     im s (g • z) = (g : Matrix (Fin 2) (Fin 2) F).det * im s z /
       Algebra.norm F (algebraMap F E (g 1 0) * z.1 + algebraMap F E (g 1 1)) := sorry
 
@@ -6139,7 +6229,8 @@ example (hq : ringChar F ≠ 2) :
 noncomputable def terrasDistance (s : E) (z w : FiniteUpperHalfPlane F E) : F :=
   Algebra.norm F (z.1 - w.1) / (im s z * im s w)
 
-theorem terrasDistance_comm (s : E) (z w : FiniteUpperHalfPlane F E) :
+theorem terrasDistance_comm (s : E) (hs : s ∉ Set.range (algebraMap F E))
+    (h2 : Module.finrank F E = 2) (z w : FiniteUpperHalfPlane F E) :
     terrasDistance s z w = terrasDistance s w z := sorry
 
 theorem terrasDistance_eq_zero_iff (s : E) (hs : s ∉ Set.range (algebraMap F E))
@@ -6151,12 +6242,14 @@ theorem terrasDistance_s (s : FiniteUpperHalfPlane F E) (δ : F) (hδ : s.1 ^ 2 
     terrasDistance s.1 s (mk s.1 s.2 x y) = (x ^ 2 - δ * ((y : F) - 1) ^ 2) / y := sorry
 
 /-- **Invariance of Terras's distance.** -/
-theorem terrasDistance_smul (s : E) (g : GL (Fin 2) F) (z w : FiniteUpperHalfPlane F E) :
+theorem terrasDistance_smul (s : E) (hs : s ∉ Set.range (algebraMap F E))
+    (h2 : Module.finrank F E = 2) (g : GL (Fin 2) F) (z w : FiniteUpperHalfPlane F E) :
     terrasDistance s (g • z) (g • w) = terrasDistance s z w := sorry
 
 /-- **Two-point homogeneity.** -/
 theorem terrasDistance_eq_iff_exists_smul (s : E) (hs : s ∉ Set.range (algebraMap F E))
-    (h2 : Module.finrank F E = 2) (z w z' w' : FiniteUpperHalfPlane F E) :
+    (h2 : Module.finrank F E = 2) (hq : ringChar F ≠ 2)
+    (hsq : s ^ 2 ∈ Set.range (algebraMap F E)) (z w z' w' : FiniteUpperHalfPlane F E) :
     terrasDistance s z w = terrasDistance s z' w' ↔ ∃ g : GL (Fin 2) F, g • z = z' ∧ g • w = w' :=
   sorry
 
@@ -6165,12 +6258,14 @@ example (s : E) (z : FiniteUpperHalfPlane F E) : terrasDistance s z z = 0 := sor
 
 /-- Unit test `terrasDistance_s_neg_s`. -/
 example (s : FiniteUpperHalfPlane F E) (δ : F) (hδ : s.1 ^ 2 = algebraMap F E δ)
+    (h2 : Module.finrank F E = 2) (hq : ringChar F ≠ 2)
     (hns : -s.1 ∉ Set.range (algebraMap F E)) :
     terrasDistance s.1 s ⟨-s.1, hns⟩ = 4 * δ := sorry
 
 /-- Unit test `terrasDistance_comm`. -/
-example (s : E) (z w : FiniteUpperHalfPlane F E) : terrasDistance s z w = terrasDistance s w z :=
-  terrasDistance_comm s z w
+example (s : E) (hs : s ∉ Set.range (algebraMap F E))
+    (h2 : Module.finrank F E = 2) (z w : FiniteUpperHalfPlane F E) :
+    terrasDistance s z w = terrasDistance s w z := terrasDistance_comm s hs h2 z w
 
 /-- Unit test `terrasDistance_not_metric`: over `F₃` with `δ = -1`, `d(s, -s) = 2`. -/
 example [Fact (Nat.Prime 3)] [Algebra (ZMod 3) (GaloisField 3 2)]
@@ -6182,10 +6277,12 @@ example [Fact (Nat.Prime 3)] [Algebra (ZMod 3) (GaloisField 3 2)]
 noncomputable def terrasGraph (s : E) (a : F) : SimpleGraph (FiniteUpperHalfPlane F E) :=
   SimpleGraph.fromRel fun z w => terrasDistance s z w = a
 
-theorem terrasGraph_adj (s : E) (a : F) (z w : FiniteUpperHalfPlane F E) :
+theorem terrasGraph_adj (s : E) (hs : s ∉ Set.range (algebraMap F E))
+    (h2 : Module.finrank F E = 2) (a : F) (z w : FiniteUpperHalfPlane F E) :
     (terrasGraph s a).Adj z w ↔ z ≠ w ∧ terrasDistance s z w = a := sorry
 
-theorem terrasGraph_adj_smul (s : E) (a : F) (g : GL (Fin 2) F) (z w : FiniteUpperHalfPlane F E) :
+theorem terrasGraph_adj_smul (s : E) (hs : s ∉ Set.range (algebraMap F E))
+    (h2 : Module.finrank F E = 2) (a : F) (g : GL (Fin 2) F) (z w : FiniteUpperHalfPlane F E) :
     (terrasGraph s a).Adj (g • z) (g • w) ↔ (terrasGraph s a).Adj z w := sorry
 
 /-- **The Terras graphs are `(q + 1)`-regular.** -/
@@ -6200,7 +6297,7 @@ example (s : FiniteUpperHalfPlane F E) (hs2 : Module.finrank F E = 2) :
 
 /-- Unit test `terrasGraph_four_delta_matching`. -/
 example (s : FiniteUpperHalfPlane F E) (δ : F) (hδ : s.1 ^ 2 = algebraMap F E δ)
-    (h2 : Module.finrank F E = 2) (z : FiniteUpperHalfPlane F E) :
+    (h2 : Module.finrank F E = 2) (hq : ringChar F ≠ 2) (z : FiniteUpperHalfPlane F E) :
     Nat.card {w // (terrasGraph s.1 (4 * δ)).Adj z w} = 1 := sorry
 
 /-- Unit test `terrasGraph_adj_s`. -/
@@ -6211,13 +6308,14 @@ example (s : FiniteUpperHalfPlane F E) (δ : F) (hδ : s.1 ^ 2 = algebraMap F E 
 
 /-- Unit test `terrasGraph_not_complete`. -/
 example (s : FiniteUpperHalfPlane F E) (δ : F) (hδ : s.1 ^ 2 = algebraMap F E δ)
-    (h2 : Module.finrank F E = 2) (hq : 5 ≤ Fintype.card F) (a : F) (ha0 : a ≠ 0)
+    (h2 : Module.finrank F E = 2) (hodd : ringChar F ≠ 2) (hq : 5 ≤ Fintype.card F) (a : F) (ha0 : a ≠ 0)
     (ha : a ≠ 4 * δ) : terrasGraph s.1 a ≠ ⊤ := sorry
 
 open Classical in
 /-- Commutation and self-adjointness of the Terras adjacency operators (Gelfand pair). -/
 theorem terrasGraph_adjacency_commute [DecidableEq (FiniteUpperHalfPlane F E)] [Fintype (FiniteUpperHalfPlane F E)]
-    (s : FiniteUpperHalfPlane F E) (h2 : Module.finrank F E = 2) (a b : F) :
+    (s : FiniteUpperHalfPlane F E) (h2 : Module.finrank F E = 2)
+    (hq : ringChar F ≠ 2) (hsq : s.1 ^ 2 ∈ Set.range (algebraMap F E)) (a b : F) :
     (terrasGraph s.1 a).adjMatrix ℂ * (terrasGraph s.1 b).adjMatrix ℂ =
       (terrasGraph s.1 b).adjMatrix ℂ * (terrasGraph s.1 a).adjMatrix ℂ := sorry
 
@@ -6225,7 +6323,8 @@ open Classical in
 /-- **The Terras graphs are Ramanujan** (Katz, Li). -/
 theorem terrasGraph_ramanujan [DecidableEq (FiniteUpperHalfPlane F E)] [Fintype (FiniteUpperHalfPlane F E)]
     (s : FiniteUpperHalfPlane F E) (δ : F) (hδ : s.1 ^ 2 = algebraMap F E δ)
-    (h2 : Module.finrank F E = 2) (a : F) (ha0 : a ≠ 0) (ha : a ≠ 4 * δ) (μ : ℂ)
+    (h2 : Module.finrank F E = 2) (hq : ringChar F ≠ 2)
+    (a : F) (ha0 : a ≠ 0) (ha : a ≠ 4 * δ) (μ : ℂ)
     (hμ : Module.End.HasEigenvalue (Matrix.toLin' ((terrasGraph s.1 a).adjMatrix ℂ)) μ)
     (hμ1 : μ ≠ Fintype.card F + 1) : ‖μ‖ ≤ 2 * Real.sqrt (Fintype.card F) := sorry
 
@@ -6328,7 +6427,7 @@ section FF5File
 
 This file is not the roadmap and is not exhaustive: the roadmap document is definitive. The
 statements below suggest Lean forms so that contributors and reviewers converge on names and
-signatures. Every proof is `sorry`; nothing here claims an implementation.
+signatures. The roadmap proofs are `sorry`; the independent regression section at the end is the stated exception. Nothing here claims a roadmap implementation.
 
 The Weil-type estimates imported from FF.2 appear here only in their instantiated forms, with
 explicit constants; the section does not depend on the FF.4 section.
@@ -6519,19 +6618,20 @@ theorem shamirShares_add (x : Fin n → F) (s s' : F) (c c' : Fin (t - 1) → F)
 /-- Share vectors are Reed–Solomon codewords: evaluations of a polynomial of degree `< t`
 (membership in `reedSolomon x t` of section `FF4`). -/
 theorem shamirShares_mem_reedSolomon (x : Fin n → F) (s : F) (c : Fin (t - 1) → F) (ht : 1 ≤ t) :
-    ∃ P : F[X], P.degree < t ∧ ∀ i, shamirShares (t := t) x s c i = P.eval (x i) := sorry
+    shamirShares (t := t) x s c ∈ reedSolomon x t := sorry
 
 theorem shamirShares_mul (x : Fin n → F) (s s' : F) (c c' : Fin (t - 1) → F) (ht : 1 ≤ t) :
     ∃ P : F[X], P.natDegree ≤ 2 * t - 2 ∧ P.eval 0 = s * s' ∧
       ∀ i, shamirShares (t := t) x s c i * shamirShares (t := t) x s' c' i = P.eval (x i) := sorry
 
 /-- **Reconstruction** from any `t` shares. -/
-theorem shamir_reconstruct (x : Fin n → F) (hx : Function.Injective x) (s : F)
+theorem shamir_reconstruct (x : Fin n → F) (hx : Function.Injective x) (ht : 1 ≤ t) (s : F)
     (c : Fin (t - 1) → F) (S : Finset (Fin n)) (hS : S.card = t) :
     s = ∑ i ∈ S, shamirShares (t := t) x s c i * ∏ j ∈ S.erase i, x j / (x j - x i) := sorry
 
 /-- **Perfect privacy** against `t - 1` players. -/
 theorem shamir_card_fiber (x : Fin n → F) (hx : Function.Injective x) (hx0 : ∀ i, x i ≠ 0)
+    (ht : 1 ≤ t)
     (S : Finset (Fin n)) (hS : S.card ≤ t - 1) (s : F) (v : S → F) :
     Nat.card {c : Fin (t - 1) → F // ∀ i : S, shamirShares (t := t) x s c i = v i} =
       Fintype.card F ^ (t - 1 - S.card) := sorry
@@ -6546,7 +6646,7 @@ example (x : Fin n → F) (s : F) (c : Fin (1 - 1) → F) : shamirShares (t := 1
 
 /-- Unit test `shamirShares_mem_reedSolomon`. -/
 example (x : Fin n → F) (s : F) (c : Fin (t - 1) → F) (ht : 1 ≤ t) :
-    ∃ P : F[X], P.degree < t ∧ ∀ i, shamirShares (t := t) x s c i = P.eval (x i) :=
+    shamirShares (t := t) x s c ∈ reedSolomon x t :=
   shamirShares_mem_reedSolomon x s c ht
 
 /-- Unit test `shamirShares_zero_label_leaks`: a player labelled `0` would receive the secret. -/
@@ -6561,3 +6661,133 @@ end FF5
 end TauCeti.FiniteFieldSums
 
 end FF5File
+
+/-! Independent review regressions by Codex — codex-a71f92 (REV-FiniteFieldsAndCharacterSums).
+These auxiliary proofs check the unit-normalized Bézout identity, the value-domain guard,
+and the excluded two-element Gauss-sum case. They do not close any roadmap target. -/
+
+open Polynomial
+namespace FiniteFieldsReview
+
+abbrev F5 := ZMod 5
+instance : Fact (Nat.Prime 5) := ⟨by decide⟩
+
+theorem irreducible_F5 : Irreducible (X ^ 2 - C (2 : F5)) := by
+  apply Polynomial.irreducible_of_degree_le_three_of_not_isRoot
+  · rw [Polynomial.natDegree_X_pow_sub_C]
+    decide
+  · intro x
+    simpa only [Polynomial.IsRoot, eval_sub, eval_pow, eval_X, eval_C] using
+      (show ∀ x : F5, x ^ 2 - 2 ≠ 0 by decide) x
+
+theorem q_power_residue_F5 :
+    (X ^ 5 : F5[X]) %ₘ (X ^ 2 - C 2) = C 4 * X := by
+  have hf : (X ^ 2 - C (2 : F5)).Monic := monic_X_pow_sub_C _ (by decide)
+  have hd : (X ^ 2 - C (2 : F5)) ∣ X ^ 5 - C 4 * X := by
+    refine ⟨X ^ 3 + C 2 * X, ?_⟩
+    simp only [map_ofNat]
+    ring
+  rw [Polynomial.modByMonic_eq_of_dvd_sub hf hd]
+  apply Polynomial.modByMonic_eq_self_iff hf |>.mpr
+  rw [degree_C_mul_X (by decide : (4 : F5) ≠ 0), degree_X_pow_sub_C (by decide)]
+  decide
+
+theorem raw_gcd_F5 :
+    EuclideanDomain.gcd (C (3 : F5) * X) (X ^ 2 - C (2 : F5)) = C (3 : F5) := by
+  have hn : (C (3 : F5) * X) * C (leadingCoeff (C (3 : F5) * X))⁻¹ = X := by
+    simp only [leadingCoeff_mul, leadingCoeff_C, leadingCoeff_X, mul_one]
+    rw [mul_assoc, mul_comm X, ← mul_assoc, ← C_mul]
+    rw [mul_inv_cancel₀ (by decide : (3 : F5) ≠ 0), C_1, one_mul]
+  have hm : (X ^ 2 - C (2 : F5)) % (C (3 : F5) * X) = C (3 : F5) := by
+    rw [Polynomial.mod_def, hn, Polynomial.modByMonic_X]
+    norm_num
+    rw [← C_neg]
+    exact congrArg C (by decide : -(2 : F5) = 3)
+  rw [EuclideanDomain.gcd_val, hm]
+  apply EuclideanDomain.gcd_eq_left.mpr
+  exact (Polynomial.isUnit_C.mpr (IsUnit.mk0 (3 : F5) (by decide))).dvd
+
+theorem raw_bezout_F5_not_one :
+    (C (3 : F5) * X) * EuclideanDomain.gcdA (C (3 : F5) * X) (X ^ 2 - C (2 : F5)) +
+      (X ^ 2 - C (2 : F5)) *
+        EuclideanDomain.gcdB (C (3 : F5) * X) (X ^ 2 - C (2 : F5)) ≠ 1 := by
+  rw [← EuclideanDomain.gcd_eq_gcd_ab, raw_gcd_F5]
+  intro h
+  have := congrArg (fun p : F5[X] => p.coeff 0) h
+  simp only [coeff_C_zero, coeff_one_zero] at this
+  exact (by decide : (3 : F5) ≠ 1) this
+
+theorem normalized_bezout_F5 :
+    let a : F5[X] := C 3 * X
+    let b : F5[X] := X ^ 2 - C 2
+    let c : F5[X] := C (EuclideanDomain.gcd a b).leadingCoeff⁻¹
+    (c * EuclideanDomain.gcdA a b) * a +
+      (c * EuclideanDomain.gcdB a b) * b = 1 := by
+  dsimp only
+  rw [raw_gcd_F5, leadingCoeff_C]
+  calc
+    _ = C (3 : F5)⁻¹ *
+        ((C (3 : F5) * X) * EuclideanDomain.gcdA (C (3 : F5) * X) (X ^ 2 - C (2 : F5)) +
+          (X ^ 2 - C (2 : F5)) *
+            EuclideanDomain.gcdB (C (3 : F5) * X) (X ^ 2 - C (2 : F5))) := by ring
+    _ = C (3 : F5)⁻¹ * EuclideanDomain.gcd (C (3 : F5) * X) (X ^ 2 - C (2 : F5)) := by
+      rw [EuclideanDomain.gcd_eq_gcd_ab]
+    _ = 1 := by
+      rw [raw_gcd_F5, ← C_mul, inv_mul_cancel₀ (by decide : (3 : F5) ≠ 0), C_1]
+
+end FiniteFieldsReview
+
+namespace FiniteFieldsReview
+
+/-- The trace character for the two-element field with the root `-1`. -/
+def binaryTraceChar : AddChar (ZMod 2) ℤ where
+  toFun x := if x = 0 then 1 else -1
+  map_zero_eq_one' := rfl
+  map_add_eq_mul' := by decide
+
+theorem binaryTraceChar_ne_one : binaryTraceChar ≠ 1 := by
+  intro h
+  have he := DFunLike.congr_fun h (1 : ZMod 2)
+  change (-1 : ℤ) = 1 at he
+  exact (by decide : (-1 : ℤ) ≠ 1) he
+
+theorem binary_gaussSum : gaussSum (1 : MulChar (ZMod 2) ℤ) binaryTraceChar = -1 :=
+  gaussSum_one_left binaryTraceChar_ne_one
+
+/-- The proposed first-order congruence is false when `q = 2`. -/
+theorem binary_gauss_base_congruence_fails :
+    ¬ (4 : ℤ) ∣ gaussSum (1 : MulChar (ZMod 2) ℤ) binaryTraceChar + (-1 - 1) := by
+  rw [binary_gaussSum]
+  decide
+
+end FiniteFieldsReview
+
+/-! Independent review: the domain guard is necessary. These auxiliary proofs do not close any roadmap target. -/
+namespace FiniteFieldsReview
+
+/-- A nontrivial additive character with a non-domain value ring. -/
+def nonDomainChar : AddChar (ZMod 2) (ZMod 8) where
+  toFun x := if x = 0 then 1 else 3
+  map_zero_eq_one' := rfl
+  map_add_eq_mul' := by decide
+
+theorem nonDomainChar_ne_one : nonDomainChar ≠ 1 := by
+  intro h
+  have he := DFunLike.congr_fun h (1 : ZMod 2)
+  change (3 : ZMod 8) = 1 at he
+  exact (by decide : (3 : ZMod 8) ≠ 1) he
+
+theorem nonDomainChar_sum : (∑ x : ZMod 2, nonDomainChar x) = 4 := by
+  decide
+
+theorem nonDomainChar_sum_ne_zero : (∑ x : ZMod 2, nonDomainChar x) ≠ 0 := by
+  rw [nonDomainChar_sum]
+  decide
+
+/-- Unit test `test_nonDomainChar_sum`: nontriviality alone does not give orthogonality
+in a ring with zero divisors. Both assertions below are proved without admissions. -/
+example : (∑ x : ZMod 2, nonDomainChar x) = 4 ∧
+    (∑ x : ZMod 2, nonDomainChar x) ≠ 0 :=
+  ⟨nonDomainChar_sum, nonDomainChar_sum_ne_zero⟩
+
+end FiniteFieldsReview
