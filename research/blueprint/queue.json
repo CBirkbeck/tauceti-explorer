@@ -18995,9 +18995,10 @@
     "REV-RS-04"
    ],
    "prompt": "research/blueprint/prompts/BP-BorelRegulators.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #74"
+   "note": "deliverables arrived from an external worker on issue #74",
+   "finishedAt": "2026-10-05T22:12:39Z"
   },
   {
    "id": "REV-BorelRegulators",
@@ -35305,8 +35306,9 @@
    ],
    "followUpOf": "BP-ProbabilisticAndMetricNumberTheory",
    "prompt": "research/blueprint/prompts/BP-ProbabilisticAndMetricNumberTheory--PM.4.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6358"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6358",
+   "finishedAt": "2026-10-05T22:12:41Z"
   },
   {
    "id": "REV-ProbabilisticAndMetricNumberTheory--PM.4",
