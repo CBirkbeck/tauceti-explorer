@@ -26447,9 +26447,9 @@
     "REV-RS-18"
    ],
    "prompt": "research/blueprint/prompts/BP-KTheoryLowDegrees--U.1.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [],
-   "note": "claimed on GitHub issue #764"
+   "note": "released on GitHub issue #764"
   },
   {
    "id": "REV-KTheoryLowDegrees--U.1",
@@ -30324,8 +30324,8 @@
    ],
    "avoidAccountOf": "BP-AnalyticNumberTheory--AN.0",
    "prompt": "research/blueprint/prompts/REV-AnalyticNumberTheory--AN.0.md",
-   "state": "pending",
-   "note": "released on GitHub issue #527"
+   "state": "external",
+   "note": "claimed on GitHub issue #527"
   },
   {
    "id": "BP-AnalyticNumberTheory--AN.8",
