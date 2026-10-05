@@ -23013,7 +23013,8 @@
    ],
    "avoidAccountOf": "BP-ColemanIntegration",
    "prompt": "research/blueprint/prompts/REV-ColemanIntegration.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #373"
   },
   {
    "id": "BP-ColemanPowerSeries",
@@ -23039,11 +23040,11 @@
     "REV-RS-16"
    ],
    "prompt": "research/blueprint/prompts/BP-ColemanPowerSeries.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "released on GitHub issue #699"
+   "note": "claimed on GitHub issue #699"
   },
   {
    "id": "REV-ColemanPowerSeries",
@@ -26398,9 +26399,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-KTheoryFiniteLocalFields.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [],
-   "note": "claimed on GitHub issue #763"
+   "note": "released on GitHub issue #763"
   },
   {
    "id": "REV-KTheoryFiniteLocalFields",
@@ -30327,8 +30328,8 @@
    ],
    "avoidAccountOf": "BP-AnalyticNumberTheory--AN.0",
    "prompt": "research/blueprint/prompts/REV-AnalyticNumberTheory--AN.0.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #527"
+   "state": "pending",
+   "note": "released on GitHub issue #527"
   },
   {
    "id": "BP-AnalyticNumberTheory--AN.8",
