@@ -4027,7 +4027,8 @@
       ],
       "prerequisites": [
         "AlgebraicModuliForArithmeticGeometry:key/gerbes",
-        "AlgebraicModuliForArithmeticGeometry:R09.4/abelian-banding"
+        "AlgebraicModuliForArithmeticGeometry:R09.4/abelian-banding",
+        "mathlib:CategoryTheory.Limits.IsTerminal"
       ],
       "proofSteps": [
         "Use the actual fibre at the terminal object for the data.",
@@ -4058,7 +4059,7 @@
         {
           "name": "Neutralization.isNeutral",
           "role": "characterisation",
-          "statement": "F is neutral iff its groupoid of neutralizations is nonempty."
+          "statement": "For a specified terminal object S, with its terminal-object witness retained, F is neutral iff F(S) is nonempty, equivalently iff its groupoid of neutralizations is nonempty. A section over an arbitrary nonterminal site object asserts only neutrality on its slice."
         },
         {
           "name": "Neutralization.pullback",
@@ -4107,7 +4108,8 @@
       "kind": "theorem",
       "statement": "For x∈F(S), the functor y↦Isom(x|U,y) is a band-preserving equivalence F≃BA; its quasi-inverse twists x by the A-torsor, with descent.",
       "hypotheses": [
-        "A specified site (C,J), with fixed object and morphism universes; all stacks have groupoid fibres."
+        "A specified site (C,J), with fixed object and morphism universes; all stacks have groupoid fibres.",
+        "The site has a chosen terminal object S; the neutralization x is an object of F(S)."
       ],
       "prerequisites": [
         "AlgebraicModuliForArithmeticGeometry:R09.4/neutralization",
@@ -4147,7 +4149,8 @@
       "kind": "theorem",
       "statement": "For an A-gerbe with a neutralization x, its groupoid of band-preserving self-equivalences is equivalent to the groupoid of A-torsors on the base. A torsor P acts on BA by Q↦Q⊗A P. An equivariant isomorphism P≅P′ corresponds to an invertible modification. Composition corresponds to contracted product, and the identity to the trivial torsor.",
       "hypotheses": [
-        "A specified site (C,J), with fixed object and morphism universes; all stacks have groupoid fibres."
+        "A specified site (C,J), with fixed object and morphism universes; all stacks have groupoid fibres.",
+        "The site has a chosen terminal object S; the neutralization x is an object of F(S)."
       ],
       "prerequisites": [
         "AlgebraicModuliForArithmeticGeometry:R09.4/neutralization-equivalence",
@@ -7166,11 +7169,12 @@
       "proofSteps": [
         "A double-quotient object over T is a G2-torsor P→T and a G2-equivariant G1-torsor Q→P with its map to N.",
         "Descend Q along P→T to a G1-torsor P′→T using its G2-equivariant structure.",
-        "Identify Q≃P×T P′, with a (G1×G2)-equivariant map to N.",
+        "Identify Q≃P×_T P′ and retain the original (G1×G2)-equivariant map from this product to N. A G2-equivariant map to a nontrivial G2-space need not descend to P′→N.",
         "This description is symmetric in G1,G2 and includes isomorphisms, yielding the natural equivalences."
       ],
       "acceptance": [
-        "The conclusion is invariant under equivalence over the fixed site and retains all stated hypotheses."
+        "The conclusion is invariant under equivalence over the fixed site and retains all stated hypotheses.",
+        "For G1 trivial and G2=N=C2 with translation over a point, Q=P=C2 and P′ is the point: the identity Q→N does not factor through P′. This guards the map-descent step without changing the quotient-exchange conclusion."
       ],
       "library": {
         "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
@@ -7181,7 +7185,7 @@
           "sourceId": "GWZ20",
           "locator": "Lemma4.7 and proof, p.540",
           "excerpt": "commuting",
-          "match": "The corrected test-scheme bases are T throughout, not the paper’s occasional S in the proof."
+          "match": "Retains the commuting-action theorem and the correct product-map proof. The test-scheme bases are T (E3); the equivariant map to N stays on P×_T P′ rather than descending to P′ (E9)."
         }
       ],
       "implementationStatus": "unchecked"
@@ -41104,7 +41108,13 @@
         "Current author-hosted Stacks.pdf §31 and p.4 provenance",
         "Milne corrected ChapterIV (2015) §2",
         "Breen94 Proposition2.14 and surrounding hypercohomology comparison"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in the exact author-hosted PDF with SHA256 716bf95c7a200194d5fd1f2af48372253fde5ea65487b5d362bcccb5e0b7426a: Theorem 31.7 p.125 explicitly leaves its torsor effectivity argument unresolved, and p.126 leaves the inverse identity as an exercise. This is an incomplete exposition, not a false H² classification theorem. Alternative-source closure has not been independently checked in this checkpoint.",
+        "by": "REV-AlgebraicModuliForArithmeticGeometry--A0-extension"
+      },
+      "source": "OG07"
     },
     {
       "id": "AlgebraicModuliForArithmeticGeometry/E2",
@@ -41123,7 +41133,12 @@
       "affectedNodes": [
         "AlgebraicModuliForArithmeticGeometry:R09.4/canonical-factorization-unique"
       ],
-      "source": "BV19P"
+      "source": "BV19P",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in the published PDF with SHA256 64fca3767f3c6cbd02fbf84f1fb456c7fda30c7bc95ddc8c8c84cd3bd8629111, printed p.540. Condition (4) is factorization minimality. The final two factorization paragraphs have the labels (1)⇒(3) and (3)⇒(1), although their arguments concern (4). The preprint was not reread here.",
+        "by": "REV-AlgebraicModuliForArithmeticGeometry--A0-extension"
+      }
     },
     {
       "id": "AlgebraicModuliForArithmeticGeometry/E3",
@@ -41137,7 +41152,12 @@
       "known": "No separate correction checked; the issue concerns the test-scheme letters only.",
       "searched": [
         "Published Springer PDF Lemma4.7 proof, p.540"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in the version-of-record PDF with SHA256 f2231145778b0a3fb57ce241ce0014fc4299f0de536d3e19daf4206d146c3e07, Lemma 4.7 p.540. The test object is T and P→T; the descended G1-torsor P′, both torsors in the triple, and their fibre product are over T. This verdict concerns the base-letter slips; E9 separately records the map-descent issue.",
+        "by": "REV-AlgebraicModuliForArithmeticGeometry--A0-extension"
+      }
     },
     {
       "id": "AlgebraicModuliForArithmeticGeometry/E4",
@@ -41152,7 +41172,12 @@
       "searched": [
         "Current tag04W8 theorem and proof strategy",
         "The referenced tag023T scheme fpqc theorem"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in tag 04W8 HTML with SHA256 73b3474abccacb2ecd47229ff2322316368c60fa5f90112cb351a1f1b2fe315a. Step 4 calls the pulled-back fpqc family fppf and introduces an undefined U_i. It must use U×_X X_i and scheme fpqc descent. Spec(k(t))→Spec(k) is flat, surjective and quasi-compact but not locally of finite presentation, so the distinction matters.",
+        "by": "REV-AlgebraicModuliForArithmeticGeometry--A0-extension"
+      }
     },
     {
       "id": "AlgebraicModuliForArithmeticGeometry/E5",
@@ -41170,7 +41195,12 @@
       ],
       "affectedNodes": [
         "AlgebraicModuliForArithmeticGeometry:R09.3/affine-module-descent-equivalence"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in tag 023N HTML with SHA256 b8d9a77257d45cfdf1068727990ce4b697f54f311b97b80511c9ed85a5f37cbd. The expansion indexed by j and the subsequent contracted sum require y_j, whereas the intervening membership assertion prints y_i. The neighbouring sums determine the correction.",
+        "by": "REV-AlgebraicModuliForArithmeticGeometry--A0-extension"
+      }
     },
     {
       "id": "AlgebraicModuliForArithmeticGeometry/E6",
@@ -41187,7 +41217,12 @@
       ],
       "affectedNodes": [
         "AlgebraicModuliForArithmeticGeometry:R09.4/relative-pullback"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in tag 06NY HTML with SHA256 784df742e6d6c147f90645bfef73a6ad9fa60cb34e9b2d3006401857ed88a32e, Lemma 8.11.5. The diagram makes F′ the Y′ projection and G′ the X projection. Their identities in the second lifting paragraph are interchanged; the object triples and the final lifted morphism give the corrected assignments.",
+        "by": "REV-AlgebraicModuliForArithmeticGeometry--A0-extension"
+      }
     },
     {
       "id": "AlgebraicModuliForArithmeticGeometry/E7",
@@ -41205,7 +41240,12 @@
       ],
       "affectedNodes": [
         "AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-full-faithful"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in the exact Olsson/Geraschenko PDF, p.122. The full-faithfulness paragraph of the proof of Lemma 31.3 invokes Lemma 31.3 itself to show that an equivariant map of same-band torsors is an isomorphism. Local torsor trivialization supplies the independent argument.",
+        "by": "REV-AlgebraicModuliForArithmeticGeometry--A0-extension"
+      }
     },
     {
       "id": "AlgebraicModuliForArithmeticGeometry/E8",
@@ -41223,7 +41263,36 @@
       "affectedNodes": [
         "AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-essential-surjective",
         "AlgebraicModuliForArithmeticGeometry:R09.4/object-descent/global-preimage"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in the same exact PDF, p.123. The essential-surjectivity paragraph fixes U and a cover V→U but places the descended z in G1(S). The object must lie in G1(U); the source and target descent data are over U.",
+        "by": "REV-AlgebraicModuliForArithmeticGeometry--A0-extension"
+      }
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry/E9",
+      "source": "GWZ20",
+      "kind": "error",
+      "locator": "Version of record, Lemma 4.7 proof, printed p.540 (PDF36); SHA256 f2231145778b0a3fb57ce241ce0014fc4299f0de536d3e19daf4206d146c3e07",
+      "printed": "we have a Γ₁-equivariant morphism P′ → N",
+      "correction": "Descend the Γ1-torsor Q→P to P′→T, then identify Q with P×_T P′. Keep the original (Γ2×Γ1)-equivariant map P×_T P′→N. That map generally does not descend to P′→N when Γ2 acts nontrivially on N.",
+      "reason": "Take S=T=Spec(k), Γ1 trivial, Γ2 the constant group C2, N=Γ2 with translation, and P=Q=Γ2 with the identity map to N. Descent gives P′=T. The identity Q→N takes different values on the two points of each Γ2-orbit and cannot factor through Q→P′. The product-map description in the next paragraph is the correct one and proves the quotient-exchange result.",
+      "affects": "the proof",
+      "known": "No separate correction found in the bounded DOI/title searches of Springer and arXiv on 2026-10-05. This is scoped to the exact published text read; no exhaustive novelty claim.",
+      "searched": [
+        "Publisher-hosted version-of-record PDF, full Lemma 4.7 proof, p.540",
+        "Springer DOI/title search for correction or erratum on 2026-10-05",
+        "arXiv title search and abstract listing on 2026-10-05; other PDF versions not reread"
+      ],
+      "affectedNodes": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/commuting-quotient-exchange"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The constant C2 translation torsor gives an explicit counterexample to descending the equivariant map to N. Descent of Q as a Γ1-torsor is valid; the original map remains on P×_T P′. The packet already uses this valid product-map proof route, so the theorem statement needs no change.",
+        "by": "REV-AlgebraicModuliForArithmeticGeometry--A0-extension"
+      }
     }
   ],
   "keyDefinitions": [
