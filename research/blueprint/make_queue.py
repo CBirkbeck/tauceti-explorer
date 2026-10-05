@@ -1661,6 +1661,7 @@ def main():
         existing = []
     states = {j["id"]: j.get("state") for j in existing}
     previous_outputs = {j["id"]: j.get("outputs", []) for j in existing}
+    previous_jobs = {j["id"]: j for j in existing}
 
     # Key definitions (PROTOCOL.md section 19): a survey of each area that
     # research/blueprint/keydefs/areas.json enables, in parts for a large area, each with its review.
@@ -1799,17 +1800,24 @@ def main():
             sent_back = bool(promotable) and states.get(review) == "done" and any(
                 review_of(path).get("reviewer") == f"independent-review-{review}" and review_of(path).get("status") == "needs_changes"
                 for path in promotable)
-            if states.get(current) != "done" or not (missing or sent_back):
+            following = f"FIX-{rt}~{k + 1}"
+            if states.get(current) != "done" or not (missing or sent_back or following in states):
                 break
             k += 1
             earlier_report, report = report, f"research/blueprint/redteam/{rt}.fixes-{k}.md"
+            # A round an earlier run made is kept as it was made, though its files may now carry a later
+            # round's verdict: the rounds after it are then still found, and a later send-back still counts.
+            made = previous_jobs.get(following) if following in states and not (missing or sent_back) else None
+            if made:
+                sent_back = made.get("after") == [review]
             why = (f"This is round {k} of the fix. The review of round {k - 1} sent it back: make the corrections research/blueprint/reviews/{review}.md asks for.\n"
                    if sent_back else
                    f"This is round {k} of the fix. Round {k - 1} ({earlier_report}) could not edit the finished blueprints listed below and described "
                    "their changes for the maintainer instead: apply those changes now, and any confirmed finding it left undone.\n")
             after = [review] if sent_back else [current]
-            current_outputs = [report] + [o for o in current_outputs if o != earlier_report] + missing
-            current = f"FIX-{rt}~{k}"
+            current_outputs = (list(made["outputs"]) if made and made.get("outputs")
+                               else [report] + [o for o in current_outputs if o != earlier_report] + missing)
+            current = following
 
     def redteam(rt, target, kind, name, roadmap_ids, template, fields, independent, order):
         result, report = f"research/blueprint/redteam/{rt}.result.json", f"research/blueprint/redteam/{rt}.md"
