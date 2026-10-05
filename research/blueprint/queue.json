@@ -31570,8 +31570,9 @@
    ],
    "avoidAccountOf": "BP-K3BlochGroups--V.2",
    "prompt": "research/blueprint/prompts/REV-K3BlochGroups--V.2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6397"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6397",
+   "finishedAt": "2026-10-05T23:15:50Z"
   },
   {
    "id": "BP-K3BlochGroups--V.3",
@@ -31616,7 +31617,8 @@
    ],
    "avoidAccountOf": "BP-K3BlochGroups--V.3",
    "prompt": "research/blueprint/prompts/REV-K3BlochGroups--V.3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6398"
   },
   {
    "id": "BP-K3BlochGroups--V.4",
