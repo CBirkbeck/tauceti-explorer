@@ -147,16 +147,17 @@ theorem banding_iso_independent (U : C) {x y : F.obj (.mk (op U))}
     Aut.autMulEquivOfIso e = Aut.autMulEquivOfIso e' := by
   sorry
 
-/-- Packet: R09.4/neutralization. Terminality is a hypothesis, and an
-object is retained as data rather than encoded by a neutrality axiom. -/
+/-- Packet: R09.4/neutralization. An object over S is section data;
+global neutrality below requires S to be terminal in the chosen site. -/
 structure Neutralization (F : LocallyDiscrete Cᵒᵖ ⥤ᵖ Cat.{v', u'}) (S : C) where
   obj : F.obj (.mk (op S))
 
-def IsNeutral (F : LocallyDiscrete Cᵒᵖ ⥤ᵖ Cat.{v', u'}) (S : C) : Prop :=
+def IsNeutral (F : LocallyDiscrete Cᵒᵖ ⥤ᵖ Cat.{v', u'}) (S : C)
+    (_hS : Limits.IsTerminal S) : Prop :=
   Nonempty (Neutralization F S)
 
-theorem Neutralization.isNeutral (S : C) :
-    IsNeutral F S ↔ Nonempty (F.obj (.mk (op S))) := by
+theorem Neutralization.isNeutral (S : C) (hS : Limits.IsTerminal S) :
+    IsNeutral F S hS ↔ Nonempty (F.obj (.mk (op S))) := by
   sorry
 
 def Neutralization.pullback {S V : C} (f : V ⟶ S)
