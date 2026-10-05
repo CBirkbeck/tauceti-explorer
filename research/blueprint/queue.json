@@ -13680,8 +13680,9 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-MultiquadraticPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3416"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3416",
+   "finishedAt": "2026-10-05T21:07:07Z"
   },
   {
    "id": "REV-DESIGN-MultiquadraticPartII",
@@ -18994,9 +18995,9 @@
     "REV-RS-04"
    ],
    "prompt": "research/blueprint/prompts/BP-BorelRegulators.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [],
-   "note": "stale claim released"
+   "note": "claimed on GitHub issue #74"
   },
   {
    "id": "REV-BorelRegulators",
@@ -34996,8 +34997,9 @@
    ],
    "followUpOf": "BP-FiniteFieldsAndCharacterSums",
    "prompt": "research/blueprint/prompts/BP-FiniteFieldsAndCharacterSums--FF.4.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6351"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6351",
+   "finishedAt": "2026-10-05T21:07:08Z"
   },
   {
    "id": "REV-FiniteFieldsAndCharacterSums--FF.4",
@@ -35298,7 +35300,8 @@
    ],
    "followUpOf": "BP-ProbabilisticAndMetricNumberTheory",
    "prompt": "research/blueprint/prompts/BP-ProbabilisticAndMetricNumberTheory--PM.4.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6358"
   },
   {
    "id": "REV-ProbabilisticAndMetricNumberTheory--PM.4",
