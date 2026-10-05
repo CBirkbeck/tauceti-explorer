@@ -33356,8 +33356,9 @@
    ],
    "followUpOf": "BP-DirichletPadicLFunctions--L3",
    "prompt": "research/blueprint/prompts/BP-DirichletPadicLFunctions--L3-2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6340"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6340",
+   "finishedAt": "2026-10-05T22:09:11Z"
   },
   {
    "id": "REV-DirichletPadicLFunctions--L3-2",
@@ -35742,7 +35743,8 @@
     "BP-KTheoryLowDegrees--U.1~2"
    ],
    "prompt": "research/blueprint/prompts/REV-KTheoryLowDegrees--U.1~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6455"
   },
   {
    "kind": "blueprint",
