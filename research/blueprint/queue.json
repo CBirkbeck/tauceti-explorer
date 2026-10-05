@@ -25801,9 +25801,10 @@
     "REV-RS-04"
    ],
    "prompt": "research/blueprint/prompts/BP-HeegnerPointEulerSystems--HE.0.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #751"
+   "note": "deliverables arrived from an external worker on issue #751",
+   "finishedAt": "2026-10-05T09:52:17Z"
   },
   {
    "id": "REV-HeegnerPointEulerSystems--HE.0",
@@ -59796,8 +59797,8 @@
    "avoidAccountOf": "DESIGN-EllipticLegendreCharacterInterfaces",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-EllipticLegendreCharacterInterfaces.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1721"
+   "state": "pending",
+   "note": "released on GitHub issue #1721"
   },
   {
    "id": "DESIGN-EffectiveBoundsCompactModels",
