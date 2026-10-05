@@ -1,8 +1,8 @@
 {
   "roadmaps": 229,
-  "stages": 3477,
+  "stages": 3488,
   "originalStages": 2098,
-  "sourceRefinements": 1379,
+  "sourceRefinements": 1390,
   "reviewedDecompositions": [
     {
       "roadmap": "AInfCohomology",
@@ -334,14 +334,14 @@
   "editedRoadmapSummaries": 181,
   "curatedStagePresentations": 339,
   "administrativeStages": 101,
-  "mathematicalStars": 3376,
+  "mathematicalStars": 3387,
   "plainTextPlanetLabels": 398,
   "hiddenPlanets": 600,
   "mappedStageStatuses": 350,
   "libraryAuditStatuses": 32,
   "bibliographicSources": 46,
-  "roadmapEdges": 1843,
-  "stageEdges": 9358,
+  "roadmapEdges": 1844,
+  "stageEdges": 9374,
   "reviewedLinkPackets": 25,
   "promotedBlueprints": [
     {
@@ -367,6 +367,12 @@
       "roadmap": "AdicSpacesPartII",
       "nodes": 537,
       "reviewer": "independent-review-REV-FIX-RT-AREA-padic-1~2"
+    },
+    {
+      "file": "AnabelianGeometryAndNonabelianChabauty",
+      "roadmap": "AnabelianGeometryAndNonabelianChabauty",
+      "nodes": 363,
+      "reviewer": "independent-review-REV-AnabelianGeometryAndNonabelianChabauty"
     },
     {
       "file": "ArithmeticKTheory--N.1",
@@ -610,8 +616,8 @@
     }
   ],
   "sourceDocuments": 296,
-  "htmlBytes": 31963831,
-  "htmlSha256": "781e8b75f9f502d5412d3669bee0e431cd7b99de7373bd2249b4e2cee1aaf63c",
+  "htmlBytes": 32025321,
+  "htmlSha256": "da206f3b5b1714156a486cf1881072ccf8c6ee73e6bd93cc85360ed04cbd547b",
   "networkDependencies": 0,
   "localProgressOverridesIncluded": false,
   "assets": {
@@ -642,7 +648,7 @@
     "data/roadmap-summaries.json": "c8bdd0a9105f5d3c4a858c8b635990729f8e94497dee784a71fae659b8c05b9f",
     "data/roadmap-classification.json": "2641dbc97eb2566c715162d011b46890d1635629181ef8126ac7aed9e24a3b13",
     "data/classification-estimates.json": "625d35fe6121bf099dc5de9e6a9111793596f9b664e3fbd439841434bb4a57d6",
-    "data/roadmap-distances.json": "91bc62a081b13e511181df0139694a26ad0ad2b802b4772af3b4c7b7ca4d9a83",
+    "data/roadmap-distances.json": "6869d44f913e2b33c01f344b267485103098464b3e728f7bef9d9c5fa6656862",
     "data/galaxy-layout.json": "92f736cdbedc11ea25886ab1b3da97c6e1364c28c6170267d456a29ecb7f702a",
     "data/bibliography.json": "bef230a41fad22d6b790c7564061c4d05c2ae5b78cab53d005eb404afab2b122",
     "NOTICE": "a285b95d5adbf5c2bcc82db36e2a77b797f84a2c5cbb30292efd0bae17cc4f34",
@@ -708,6 +714,8 @@
     "data/blueprints/AdicEtaleGeometry.md": "d580cd34ef211625d8012c497854b46ee450aa7ac374676e1bf668406e0d86cc",
     "data/blueprints/AdicSpacesPartII.json": "e45a2b12a1dba869acdbe200a2e6034876ace6c72b51a1fa40114c27c12ea6c4",
     "data/blueprints/AdicSpacesPartII.md": "8a1f3c92f73b34c23b252cf127b24ebd4567784d77c9e64b9a4a67f83091d442",
+    "data/blueprints/AnabelianGeometryAndNonabelianChabauty.json": "b352c47493d33e2d8334c6617d2f64d4ae43c0fc2a50031fb692f0f81231b868",
+    "data/blueprints/AnabelianGeometryAndNonabelianChabauty.md": "3ad5c0ff93d99a8b77fc00fc69720fdd0656fa43ca400863591beaf868a886b1",
     "data/blueprints/ArithmeticKTheory--N.1.json": "7a7063a34016e59e2e0b88f4dfcff26acba90e8159feb9613cf33f3c06e71683",
     "data/blueprints/ArithmeticKTheory--N.1.md": "edda1f3cc5d29b969cb72bd343840816730703bcb47bd5448350acac97295a9f",
     "data/blueprints/ArithmeticKTheory--N.7.json": "c2e15013d0254a01323d4e90056fce843ce340c3531a49ddfd0cec77b57a942d",
