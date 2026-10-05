@@ -360,6 +360,17 @@
     "data/blueprints/ClassicalSerreModularity--R33.5.md"
    ]
   },
+  "research/blueprint/packets/ComputationalNumberTheory.json": {
+   "promotedAt": "2026-10-05T01:53:35Z",
+   "review": "5efee3fa44a58f2b",
+   "reviewDate": "2026-10-05",
+   "reviewer": "independent-review-REV-ComputationalNumberTheory",
+   "sha256": "fd533475b2e0a67edfad753092d8da33c4ace30b85a34202da6ceac517506a73",
+   "to": [
+    "data/blueprints/ComputationalNumberTheory.json",
+    "data/blueprints/ComputationalNumberTheory.md"
+   ]
+  },
   "research/blueprint/packets/ConformalMappingPartII.json": {
    "promotedAt": "2026-10-05T00:41:27Z",
    "review": "1b52c82111c436bc",
