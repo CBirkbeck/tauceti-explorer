@@ -21264,7 +21264,8 @@
    ],
    "avoidAccountOf": "BP-SchemeAndStackFoundations",
    "prompt": "research/blueprint/prompts/REV-SchemeAndStackFoundations.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #317"
   },
   {
    "id": "BP-AInfCohomology--AI.0",
@@ -30562,8 +30563,9 @@
    ],
    "avoidAccountOf": "BP-ComputationalNumberTheory",
    "prompt": "research/blueprint/prompts/REV-ComputationalNumberTheory.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #533"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #533",
+   "finishedAt": "2026-10-05T01:53:23Z"
   },
   {
    "id": "BP-DiophantineApproximationAndTranscendence",
