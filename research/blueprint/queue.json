@@ -30627,8 +30627,9 @@
    ],
    "avoidAccountOf": "BP-DiophantineApproximationAndTranscendence",
    "prompt": "research/blueprint/prompts/REV-DiophantineApproximationAndTranscendence.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #534"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #534",
+   "finishedAt": "2026-10-05T05:00:53Z"
   },
   {
    "id": "BP-EffectiveDiophantineMethods",
@@ -31426,7 +31427,8 @@
    ],
    "avoidAccountOf": "BP-QSeriesPartitionsAndMockModularForms",
    "prompt": "research/blueprint/prompts/REV-QSeriesPartitionsAndMockModularForms.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #549"
   },
   {
    "id": "ASM-DeformationAndDerivedPatchingAlgebra",
