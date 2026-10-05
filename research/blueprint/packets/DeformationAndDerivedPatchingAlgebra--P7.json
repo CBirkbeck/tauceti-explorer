@@ -3386,6 +3386,54 @@
         "checked": "Declaration statement, namespace and relevant ambient assumptions read at the exact Mathlib pin on 2026-10-05 by Codex — codex-81tv4x; consumer use recorded in the independent review checkpoint.",
         "sourceFile": "Mathlib/Algebra/Category/ModuleCat/Projective.lean",
         "sourceSha256": "7f6555e360106839ee41cc1201308c5dfc7c3411b4f1a115c8c75e4aa765de4b"
+      },
+      {
+        "ref": "mathlib:fwdDiff_iter_eq_sum_shift",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Group/ForwardDiff.lean",
+        "provides": "For an additive commutative monoid and abelian-group-valued f, the dth forward difference at y is the binomial signed sum of f(y+k·h). Specialize h=1, y=t−d and reverse the finite range.",
+        "checked": "Statement and ambient assumptions read at the exact Mathlib pin on 2026-10-05 by codex-w6DEfO.",
+        "sourceSha256": "9823a33fddd322eba9bb427831f175e18efb812bccc97e845a7b7ae1b0421676"
+      },
+      {
+        "ref": "mathlib:Polynomial.fwdDiff_iter_degree_eq_factorial",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Group/ForwardDiff.lean",
+        "provides": "Over any commutative ring, the natDegree-th forward difference of polynomial evaluation is the constant leading coefficient times the factorial, including the zero polynomial.",
+        "checked": "Statement and ambient assumptions read at the exact Mathlib pin on 2026-10-05 by codex-w6DEfO.",
+        "sourceSha256": "9823a33fddd322eba9bb427831f175e18efb812bccc97e845a7b7ae1b0421676"
+      },
+      {
+        "ref": "mathlib:Polynomial.fwdDiff_iter_eq_zero_of_degree_lt",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Group/ForwardDiff.lean",
+        "provides": "Over any commutative ring, the dth forward difference of polynomial evaluation is zero when natDegree P<d.",
+        "checked": "Statement and ambient assumptions read at the exact Mathlib pin on 2026-10-05 by codex-w6DEfO.",
+        "sourceSha256": "9823a33fddd322eba9bb427831f175e18efb812bccc97e845a7b7ae1b0421676"
+      },
+      {
+        "ref": "mathlib:Nat.choose_symm",
+        "kind": "theorem",
+        "module": "Mathlib/Data/Nat/Choose/Basic.lean",
+        "provides": "If k≤n, choose(n,n−k)=choose(n,k).",
+        "checked": "Statement and ambient assumptions read at the exact Mathlib pin on 2026-10-05 by codex-w6DEfO.",
+        "sourceSha256": "3abe93f2b0d22bf844405a917c97a6677a02d39df76429280df4b5ad0dfc6b0d"
+      },
+      {
+        "ref": "mathlib:Module.supportDim_le_of_injective",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/KrullDimension/Module.lean",
+        "provides": "An injective R-linear map gives supportDim(source)≤supportDim(target), without Noetherian or finite-module assumptions.",
+        "checked": "Statement and ambient assumptions read at the exact Mathlib pin on 2026-10-05 by codex-w6DEfO.",
+        "sourceSha256": "c3981253356b7afc328e1095904e6a5b84d7b6867b9673136639d9cfe765100e"
+      },
+      {
+        "ref": "mathlib:Module.supportDim_le_of_surjective",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/KrullDimension/Module.lean",
+        "provides": "A surjective R-linear map gives supportDim(target)≤supportDim(source), without Noetherian or finite-module assumptions.",
+        "checked": "Statement and ambient assumptions read at the exact Mathlib pin on 2026-10-05 by codex-w6DEfO.",
+        "sourceSha256": "c3981253356b7afc328e1095904e6a5b84d7b6867b9673136639d9cfe765100e"
       }
     ]
   },
@@ -4613,6 +4661,29 @@
       "readSections": [
         "Whole currently displayed Stacks Section10.58, all ten numbered statements/proofs and all five comments. Linked proofs/history and full routed papers not newly recursively audited. Generic homogeneous generation and zero-generator branch are authored deductions motivated by the length-valued induction, retaining its nonzero kernel correction."
       ]
+    },
+    {
+      "id": "HS-DIFF-PIN-20261005",
+      "title": "Forward difference operators and Newton series",
+      "authors": "Giulio Caflisch, David Loeffler, Yu Shao, Weijie Jiang, BeiBei Xiong",
+      "edition": "Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Group/ForwardDiff.lean",
+      "sha256": "9823a33fddd322eba9bb427831f175e18efb812bccc97e845a7b7ae1b0421676",
+      "readSections": [
+        "fwdDiff; fwdDiff_iter_eq_sum_shift; Polynomial.fwdDiff_iter_degree_eq_factorial; Polynomial.fwdDiff_iter_eq_zero_of_degree_lt"
+      ],
+      "accessDate": "2026-10-05"
+    },
+    {
+      "id": "STACKS-DIM-00KQ",
+      "title": "Dimension: Proposition 10.60.9",
+      "authors": "The Stacks Project Authors",
+      "edition": "Public HTML read 2026-10-05",
+      "url": "https://stacks.math.columbia.edu/tag/00KQ",
+      "readSections": [
+        "Proposition 10.60.9, statement and full proof"
+      ],
+      "accessDate": "2026-10-05"
     }
   ],
   "nodes": [
@@ -5599,6 +5670,11 @@
           "name": "TauCeti.HilbertSamuel.polynomial_congr",
           "role": "compatibility",
           "statement": "An A-linear equivalence M≃N gives P(q,M)=P(q,N), by the quotient comparison and uniqueness."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.polynomial_degree_eq_bot",
+          "role": "simp",
+          "statement": "For a zero module, the cumulative polynomial has degree −∞. This is polynomial degree, not natDegree(0)=0."
         }
       ],
       "tests": [
@@ -5620,7 +5696,7 @@
         {
           "name": "HilbertSamuelTest.polynomial_zero",
           "kind": "degenerate",
-          "statement": "For a zero module P=0 and polynomial degree = −∞."
+          "statement": "For a zero module P=0, polynomial degree = −∞, and Module.supportDim A M=−∞. No dimension-zero convention is imposed."
         }
       ],
       "uses": [
@@ -5685,6 +5761,12 @@
           "locator": "Lemmas 10.59.4, 10.59.7 and Definition 10.59.8",
           "excerpt": "independent of",
           "match": "The cumulative n+1 convention is read from section 10.59; graded and cumulative polynomials are not identified."
+        },
+        {
+          "sourceId": "STACKS-DIM-00KQ",
+          "locator": "Proposition 10.60.9, complete circular-inequality proof",
+          "excerpt": "The following are equivalent",
+          "match": "The ring case identifies dimension, cumulative degree and the minimal number of ideal-of-definition generators. Its prime-avoidance, chain and generator-bound subarguments remain the recorded degree-dimension gap at lemma granularity."
         }
       ],
       "library": {
@@ -5707,21 +5789,34 @@
         "P is a rational polynomial, d a natural number bounding its natural degree, and t a rational number."
       ],
       "proofSteps": [
-        "Induct on the number of backward differences ΔP(T)=P(T)−P(T−1); Pascal's identity gives the binomial expression.",
-        "For positive polynomial degree, Δ lowers degree by one and multiplies the leading coefficient by that degree, by binomial expansion. A constant has zero first difference; the zero polynomial remains zero.",
-        "After d steps obtain d! coeff(P,d). This proof is polynomial algebra only; it does not assume that module lengths themselves are exact-sequence additive at every adic level."
+        "Use the pinned fwdDiff_iter_eq_sum_shift with h=1, f=P.eval and y=t−d. Reverse range(d+1) by the involutive index change k↦d−k and Nat.choose_symm to obtain exactly the backward binomial sum in the statement; integer scalar multiplication becomes rational multiplication. This is an adapter of an existing operator, not a new finite-difference calculus.",
+        "If d=natDegree P, evaluate Polynomial.fwdDiff_iter_degree_eq_factorial at t−d and use Polynomial.coeff_natDegree. Reorder the two rational factors. The zero polynomial at d=0 is included.",
+        "If natDegree P<d, use Polynomial.fwdDiff_iter_eq_zero_of_degree_lt and Polynomial.coeff_eq_zero_of_natDegree_lt. Both sides vanish. Thus the only new work is the change of origin and finite-index reflection; no degree-lowering induction is re-planned."
       ],
       "acceptance": [
         "For P=(T+1)(T+2)/2 and d=2 the difference equals 1, not 1/2.",
         "For P=T+1 and d=2 it equals 0."
       ],
-      "prerequisites": [],
+      "prerequisites": [
+        "mathlib:fwdDiff_iter_eq_sum_shift",
+        "mathlib:Polynomial.fwdDiff_iter_degree_eq_factorial",
+        "mathlib:Polynomial.fwdDiff_iter_eq_zero_of_degree_lt",
+        "mathlib:Nat.choose_symm",
+        "mathlib:Polynomial.coeff_natDegree",
+        "mathlib:Polynomial.coeff_eq_zero_of_natDegree_lt"
+      ],
       "sources": [
         {
           "sourceId": "STACKS-MULT",
           "locator": "Lemma 43.15.4 and its complete finite-difference proof; explicit extension to degree ≤d",
           "excerpt": "leading coefficient",
           "match": "General local algebra, not a ring-only or curve-only special case. Section 43.15 uses n rather than n+1; translation preserves the top coefficient."
+        },
+        {
+          "sourceId": "HS-DIFF-PIN-20261005",
+          "locator": "fwdDiff_iter_eq_sum_shift and the polynomial forward-difference section",
+          "excerpt": "Polynomial.fwdDiff_iter_degree_eq_factorial",
+          "match": "The complete pinned signatures supply the polynomial finite differences. The proposed backward formula is their translated and reindexed specialization; it does not rebuild their proof."
         }
       ],
       "library": {
@@ -5907,6 +6002,11 @@
           "name": "TauCeti.HilbertSamuel.multiplicityInDegree_associativity",
           "role": "compatibility",
           "statement": "For dim M≤d, the finite sum over top-dimensional support primes gives the indexed value; see the standalone associativity node."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.multiplicityInDegree_congr",
+          "role": "compatibility",
+          "statement": "For any A-linear equivalence M≃N, every natural d and fixed ideal of definition q, e(q;M,d)=e(q;N,d). This follows from the polynomial-congruence API, without a dimension bound on the raw coefficient extractor."
         }
       ],
       "tests": [
@@ -5929,6 +6029,11 @@
           "name": "HilbertSamuelTest.inDegree_factorial",
           "kind": "computation",
           "statement": "For A=k[[x,y]], P=(T+1)(T+2)/2 and the d=2 value is 1, not 1/2; the plane-polynomial computation is a required open example."
+        },
+        {
+          "name": "HilbertSamuelTest.inDegree_below_support",
+          "kind": "non-example",
+          "statement": "For A=k[[x,y]]/(x⁴), q=m, the cumulative polynomial is 4T−2; intrinsic multiplicity is 4, whereas e(q;A,0)=−2. Index zero is below the one-dimensional support, so the raw extractor must retain negative rational values."
         }
       ],
       "uses": [
@@ -5971,7 +6076,9 @@
       "prerequisites": [
         "DeformationAndDerivedPatchingAlgebra:key/hilbert-samuel-multiplicity",
         "DeformationAndDerivedPatchingAlgebra:R03.3/degree-indexed-multiplicity",
-        "DeformationAndDerivedPatchingAlgebra:R03.3/hilbert-samuel-degree"
+        "DeformationAndDerivedPatchingAlgebra:R03.3/hilbert-samuel-degree",
+        "mathlib:Polynomial.coeff_natDegree",
+        "mathlib:Polynomial.coeff_eq_zero_of_natDegree_lt"
       ],
       "sources": [
         {
@@ -6097,6 +6204,7 @@
         "M is a finite A-module; no field, DVR, equidimensionality, completeness, freeness or nonzero hypothesis unless explicitly stated."
       ],
       "proofSteps": [
+        "Use Module.supportDim_le_of_injective on M′→M and Module.supportDim_le_of_surjective on M→M″ to propagate the same upper bound d to both end terms. This support bound is already in Mathlib and is not inferred from unproved polynomial additivity.",
         "The Artin–Rees leading-coefficient gap supplies the correctly filtered quotient exact sequence: kernel M'/(M'∩q^(n+1)M), not generally M'/q^(n+1)M'.",
         "Use Stacks 10.59.3 to replace the intersection filtration by a shifted q-adic filtration of a finite-colength submodule N⊆M'. The finite-colength comparison 10.59.9 preserves top coefficients in positive dimension.",
         "Stacks 10.59.10 shows the discrepancy has strictly smaller degree; when M' has finite length, Artin–Rees makes its intersection with q^nM vanish eventually and the discrepancy becomes exactly length M'. Thus the dimension-zero case is genuine length additivity, not an omitted case.",
@@ -6109,7 +6217,9 @@
         "DeformationAndDerivedPatchingAlgebra:R03.3/degree-indexed-multiplicity",
         "DeformationAndDerivedPatchingAlgebra:R03.3/hilbert-samuel-degree",
         "DeformationAndDerivedPatchingAlgebra:R03.3/finite-adic-quotient-length",
-        "mathlib:Module.length_eq_add_of_exact"
+        "mathlib:Module.length_eq_add_of_exact",
+        "mathlib:Module.supportDim_le_of_injective",
+        "mathlib:Module.supportDim_le_of_surjective"
       ],
       "sources": [
         {
@@ -31122,6 +31232,28 @@
         "reason": "The online version read on 2026-10-05 still has the five-condition equivalence in Remark 43.15.6. For A=Q, I=0, M=0, condition (5) holds with length zero, while I+Ann(M)=A is not an ideal of definition in Definition 10.59.1. Proper I and nonzero finite M exclude the boundary by local Nakayama. This confirms the stated-result exception; the bounded novelty search was not independently repeated.",
         "by": "REV-DeformationAndDerivedPatchingAlgebra--P7"
       }
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra/E4",
+      "source": "STACKS-MULT",
+      "kind": "misprint",
+      "locator": "Public HTML read 2026-10-05, Lemma 43.15.4 (0AZY), proof: second line in the displayed induction calculation for Δ^(r+1)(P).",
+      "printed": "\\sum \\nolimits _{n = -r, \\ldots , 0} (-1)^ i {r \\choose i} (P(t - i) - P(t - i - 1))",
+      "correction": "Keep the unchanged summand and replace the binder and range by i = 0, …, r. The preceding line already sums over this range. Merely renaming n to i leaves the wrong negative range.",
+      "reason": "The printed binder ranges over n but its summand uses the free variable i. Applying the definition Δ(P)(t−i)=P(t−i)−P(t−i−1) to the previous line does not change its index range. At r=1 the corrected line is P(t)−2P(t−1)+P(t−2), exactly Δ²(P). The lemma statement and intended argument remain valid.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Official 0AZY page: zero comments; official 0AZU section: the two comments concern the multiplicity definition, read 2026-10-05.",
+        "Official tag history at https://stacks.math.columbia.edu/tag/0AZY/history, read 2026-10-05: assignment and original creation only, no listed subsequent correction.",
+        "Official stacks/stacks-project GitHub issue search, including closed issues: 0AZY in title/body and \"finite difference\" in title/body each returned zero results on 2026-10-05.",
+        "Bounded web searches restricted to the official Stacks site and official GitHub repository for 0AZY and typo returned no correction on 2026-10-05. Novelty is scoped to these searches."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Compared both displayed lines at tag 0AZY and expanded the r=1 case. The correction is purely the index binder/range, with no change to the mathematical statement. This scoped verdict is recorded by a partial checkpoint and counts for final verification only when the independent review job finishes.",
+        "by": "REV-DeformationAndDerivedPatchingAlgebra--P7"
+      }
     }
   ],
   "validationBoundary": "The original five baseline entries and baselineCoverage are preserved verbatim. The new declarations were inspected at the exact pin, with source blobs recorded. KW passages were parsed-only after failed screenshots. No Lean compilation or closed stage is asserted. Initial CI exposed that the checker treats any tauceti: prefix as a baseline declaration before testing stage IDs. The algebraic endpoint now has only baseline/local-node prerequisites, matching its five signatures. The local-field and framed-lifting extensions remain explicit requests, gaps and remainingExtensions; no upstream stage is falsely listed as a proved baseline theorem. The handoff's initial uploaded packet hash refers to the pre-CI version; the amended packet is validated by the new submission run. Continuation of 28 September 2026 (cc-39fac3): the suggested file was compiled at the pins with the v4.34.0-rc2 lean against the prebuilt Mathlib 082e2d3 oleans. Before this continuation it had one error, an elab_as_elim motive failure in the prime-filtration induction wrapper, fixed by passing (motive := motive). After the fix and the R03.3 additions it has 0 errors and only placeholder-proof warnings; the R03.4 intermediate-field signatures elaborate. Continuation by Codex — codex-a71f92, 2026-10-02: fresh selected source passages and sixteen additional pinned declaration statements inspected. The general polynomial theorem is not inferred from the pinned rational-series hilbertPoly API. New signatures not compiled; prior compilation receipts are historical only. All new nodes remain unchecked and all stages remain partial/not_read. Codex — codex-J6LwjP read all applicable DDPA AUDIT-17 entries, the accepted RS-08 keeps/links/owner decisions, the original roadmap and integrated P7 node. New baseline statements were read at the pin. This is a mathematical continuation, not an independent review of the earlier checkpoint or a new confirmation of the paper errata. Current codex-J6LwjP receipt: the entire suggested file elaborates with Lean v4.34.0-rc2 against existing Mathlib 082e2d3 oleans, 0 errors and 112 placeholder-proof warnings. No Tau Ceti module is imported or built. Prior no-compilation statements describe earlier checkpoints only. All mathematical implementations remain unchecked; none of the eight stages is closed. Codex — codex-a71f92 cumulative continuation: native quotient and Bernoulli statements freshly inspected at the pin. Only the cumulative-existence consumer is refined; 43 of 44 inherited nodes are unchanged. New signatures are uncompiled because the available source trees have no existing pinned build; the earlier compilation receipt is historical. All new nodes remain unchecked. Current codex-J6LwjP curve-jet integration preserves all 96 inherited node objects and the reserved key definition. New signatures elaborate but are admitted under section 13. Rerun finite exact arithmetic does not certify any formal-series theorem, tangent cone, dimension, multiplicity or source closure. Codex — codex-rtOQ9t: actual native proofs of the three new API lemmas and the unchanged planeCurve_jet_length signature, with six actual examples, checked separately without admissions. Canonical bodies remain admitted under section 13. Previous receipts retain their authorship and historical scope; no new routed-paper closure or independent review is claimed.",
@@ -33258,6 +33390,102 @@
       "read": "2026-10-05",
       "sha256": "92f9f27af692f2f5ad03dcca454f4c473d77a9ebfb8789164038d2ba4db3800e",
       "reviewSession": "codex-81tv4x"
+    },
+    {
+      "kind": "published",
+      "url": "https://stacks.math.columbia.edu/tag/00K4",
+      "read": "2026-10-05",
+      "sha256": "e3d86d2fc7e6a9df48e73e4e8d12629cdb08f9e0fb9d15e35472d7bc21629932",
+      "reviewSession": "codex-w6DEfO",
+      "readBoundary": "Section 10.59: opening formulas, Definition 10.59.1, and Lemmas/Proposition 10.59.2–10 with their proofs; no recursive audit of every linked supplier."
+    },
+    {
+      "kind": "published",
+      "url": "https://stacks.math.columbia.edu/tag/00L8",
+      "read": "2026-10-05",
+      "sha256": "92a56c6a8b0afd5e4f775892d094d05557a7e0a10585323f8b0dce84f3b95984",
+      "reviewSession": "codex-w6DEfO",
+      "readBoundary": "Lemma 10.62.6, complete statement and proof."
+    },
+    {
+      "kind": "published",
+      "url": "https://stacks.math.columbia.edu/tag/0AZU",
+      "read": "2026-10-05",
+      "sha256": "fa26c4ba52a27c097c6bfc6ac9f8f2c2053ceacabd044bd3426d8ae8d8440e14",
+      "reviewSession": "codex-w6DEfO",
+      "readBoundary": "Section 43.15 opening formulas and Definition/Lemmas 43.15.1–4 with proofs; Theorem 43.15.5 was not audited."
+    },
+    {
+      "kind": "published",
+      "url": "https://stacks.math.columbia.edu/tag/00K1",
+      "read": "2026-10-05",
+      "sha256": "f421fbc2dc074fc0ae392c392f06c6223f60740703e9ccb28d6bd18c5d57afc3",
+      "reviewSession": "codex-w6DEfO",
+      "readBoundary": "Proposition 10.58.7, full statement and induction proof; K0-valued generality retained as a source boundary."
+    },
+    {
+      "kind": "published",
+      "url": "https://stacks.math.columbia.edu/tag/00JZ",
+      "read": "2026-10-05",
+      "sha256": "9e111a9d48c6a3bb8ede444e6f7e92c4b4bd0ec28898427bea06b1da4e6dccf8",
+      "reviewSession": "codex-w6DEfO",
+      "readBoundary": "Lemma 10.58.5, full statement and antidifference proof."
+    },
+    {
+      "kind": "published",
+      "url": "https://stacks.math.columbia.edu/tag/00KQ",
+      "read": "2026-10-05",
+      "sha256": "b78f985c922ea320bc89848fb965b0d67af935eb5466a9fb2b2cacf9d7e1c703",
+      "reviewSession": "codex-w6DEfO",
+      "readBoundary": "Proposition 10.60.9, full statement and circular-inequality proof; its external supporting lemmas not recursively audited."
+    },
+    {
+      "kind": "published",
+      "url": "https://stacks.math.columbia.edu/tag/00KI",
+      "read": "2026-10-05",
+      "sha256": "11131f871ce151887159ca97825b39945d59cef0ba856a0798c447c003f6e8ae",
+      "reviewSession": "codex-w6DEfO",
+      "readBoundary": "Lemma 10.60.6, statement and zero-dimensional base proof."
+    },
+    {
+      "kind": "published",
+      "url": "https://stacks.math.columbia.edu/tag/00L7",
+      "read": "2026-10-05",
+      "sha256": "ccbd894625ed1c6f12da7a6a01a2c73aca2bc20624737ba492afe56f07902208",
+      "reviewSession": "codex-w6DEfO",
+      "readBoundary": "Lemma 10.62.5, statement and localized prime-filtration proof; its support/localization suppliers not recursively audited."
+    },
+    {
+      "kind": "published",
+      "url": "https://stacks.math.columbia.edu/tag/00DV",
+      "read": "2026-10-05",
+      "sha256": "7e96c492672ea9871ba5319f95dcf762c53a1fd01683ec0a255dee23f64f0075",
+      "reviewSession": "codex-w6DEfO",
+      "readBoundary": "Lemma 10.20.1(1)–(2), determinant and unit argument; other numbered forms not reviewed for consumers."
+    },
+    {
+      "kind": "published",
+      "url": "https://stacks.math.columbia.edu/tag/00J0",
+      "read": "2026-10-05",
+      "sha256": "18165b061f5ce7acafb49b5ca9f1ac2adeda94f032d2abf157c691aa337b336e",
+      "reviewSession": "codex-w6DEfO",
+      "readBoundary": "Lemma 10.52.8, finite-module annihilation criterion and filtration proof."
+    },
+    {
+      "kind": "published",
+      "url": "https://stacks.math.columbia.edu/tag/0AZY",
+      "read": "2026-10-05",
+      "sha256": "fb2e128fff7d8a0e2580b833eb7c573b0b24805293c8657cb7e2d48a6c74d698",
+      "reviewSession": "codex-w6DEfO",
+      "readBoundary": "Lemma 43.15.4 complete statement and proof; scoped E4 binder/range misprint."
+    },
+    {
+      "kind": "published",
+      "url": "https://stacks.math.columbia.edu/tag/0AZY/history",
+      "read": "2026-10-05",
+      "sha256": "0d595311f012a09526a772d6cf3f14a0a08e068f5cda5409f4a1155d88cd7308",
+      "reviewSession": "codex-w6DEfO",
+      "readBoundary": "Complete public tag history; bounded search for an existing E4 correction."
     }
   ],
   "gradedAnnihilatorContinuation": {
@@ -33338,9 +33566,9 @@
   "reviewCheckpoint": {
     "status": "partial",
     "reviewer": "independent-review-REV-DeformationAndDerivedPatchingAlgebra--P7",
-    "session": "codex-81tv4x",
+    "session": "codex-w6DEfO",
     "date": "2026-10-05",
-    "notes": "Partial independent review continuation, with no final verdict. Sixteen more node statements, source passages and direct baseline uses were inspected, with component-level limits in the continuation record and report. Corrected the Nagata section locator; supplied catenarity projection APIs, chain-attainment/endpoint and regular-quotient prerequisites, the arbitrary-module residual criterion, the actual disk-family prototype and identity-disk test, and the module/category projective bridge. Prior checkpoint evidence and E3 verdict are preserved with session provenance. The remaining API/source/closure/ownership audit is unfinished; implementation statuses remain unchecked.",
+    "notes": "Partial independent review continuation, with no final verdict. The current session inspects the statements, sources and direct Mathlib uses of 23 Hilbert–Samuel, positivity and cumulative-summation nodes. Replaced the re-planned finite-difference proof with exact pinned native forward-difference prerequisites; supplied support bounds for common-dimension additivity, coefficient prerequisites for normalization, two construction APIs and a negative below-dimension test. Earlier sessions and source-issue verdicts remain attributed to their authors. Full API/supplier closure, the remaining nodes and ownership audit are unfinished; all implementation statuses remain unchecked. Added the proof-index misprint E4, with a scoped confirmation and bounded novelty search; no final review verdict is implied.",
     "baselineNamesResolved": 449,
     "tauSourceStatementsRead": 11,
     "normalizedBaselineModules": [
@@ -33359,14 +33587,14 @@
       "mathlib:Polynomial.leadingCoeff_quadratic"
     ],
     "fullSuggestedCompiled": false,
-    "fullSuggestedBoundary": "lean-check stopped at the unavailable TauCeti.RingTheory.GradedAlgebra.Homogeneous.Quotient compiled object. No full-file elaboration is certified.",
+    "fullSuggestedBoundary": "Full lean-check stopped at the missing compiled TauCeti.RingTheory.GradedAlgebra.Homogeneous.Quotient import. Shared Mathlib is at the exact pin, but the shared Tau source checkout is cf386627e9176a3827c1a5fe804989fd94a4d216, not the required f790474821cf4256814db967cb154e7af3d0c369. No libraries were built or updated. The separately checked Mathlib-only prefix ends before the native Rees-quotient section; it supplies no Tau-pin compilation receipt.",
     "remaining": [
-      "Complete source-locator, excerpt, proof-step and dependency review for the nodes outside the sixteen-node continuation and the earlier five-node opening strand; previous source reads alone are not node verdicts.",
-      "Finish all baseline consumer matches and the finer API/test checks, including the sixteen inspected nodes. The raw Hilbert–Samuel quotient/scalar and stabilization APIs were not audited through their downstream supplier proofs.",
+      "Complete source-locator, excerpt, proof-step and dependency review for all nodes, respecting the component boundaries of the initial five-node strand, preceding sixteen-node continuation and current 23-node continuation. These inspections and earlier source reads are not complete node acceptance verdicts.",
+      "Finish all baseline consumer matches and every API/test supplier chain, including the 23 current and sixteen preceding inspected nodes. Raw quotient/scalar and stabilization APIs, polynomial existence, support dimension, Artin–Rees and localization closure remain open.",
       "Keep the regular-local-domain prerequisite gap open. The integrated depth/Auslander–Buchsbaum supplier statement was checked, but its own complete source proof audit is outstanding.",
       "Verify unit-cancellation rank equations, degreewise disk assembly, numerical residual-rank transport and generic derived tensor/Nakayama interfaces; the successful prefix checks only admitted signatures.",
       "Finish cross-roadmap and key-definition ownership, maintained multiplicity sample API, all planets, requests and remaining suggested-file correspondence before writing a final review object.",
-      "Through an authorized document follow-up, reconcile the reader and historical planning handoff E1 reference with actual E3, and synchronize the revised catenarity/minimal-complex API and source locator. Those documents are outside this review allowlist."
+      "Through an authorized document follow-up, reconcile the reader and historical planning handoff E1 reference with actual E3, and synchronize both continuations’ API/native/source corrections and E4. Those documents are outside this review allowlist."
     ],
     "mathlibModulePresenceScreen": {
       "declarations": 449,
@@ -33388,6 +33616,8 @@
       "mathlib:CochainComplex.isKProjective_of_projective",
       "mathlib:CovBy",
       "mathlib:DerivedCategory.Q",
+      "mathlib:ENat.toNat_add",
+      "mathlib:ENat.toNat_pos",
       "mathlib:HomologicalComplex.coconeOfHasColimitEval",
       "mathlib:HomologicalComplex.isColimitCoconeOfHasColimitEval",
       "mathlib:Homotopy",
@@ -33398,6 +33628,7 @@
       "mathlib:Ideal.Quotient.isNoetherianRing",
       "mathlib:Ideal.krullDimLE_zero_quotient_iff_forall_minimalPrimes_isMaximal",
       "mathlib:Ideal.le_radical",
+      "mathlib:Ideal.pow_le_self",
       "mathlib:Ideal.radical_pow",
       "mathlib:IsAlgClosed.lift",
       "mathlib:IsArtinianRing.isMaximal_of_isPrime",
@@ -33412,6 +33643,9 @@
       "mathlib:IsLocalRing.le_maximalIdeal_of_isPrime",
       "mathlib:IsLocalRing.maximalIdeal",
       "mathlib:IsLocalRing.maximalIdeal.isMaximal",
+      "mathlib:IsLocalRing.maximalIdeal_le_jacobson",
+      "mathlib:IsNoetherianRing.exists_relSeries_isQuotientEquivQuotientPrime",
+      "mathlib:IsNoetherianRing.induction_on_isQuotientEquivQuotientPrime",
       "mathlib:IsNoetherianRing.isArtinianRing_of_krullDimLE_zero",
       "mathlib:IsRegularLocalRing",
       "mathlib:IsRegularLocalRing.of_spanFinrank_maximalIdeal_le",
@@ -33426,18 +33660,45 @@
       "mathlib:Module.IsTorsionBySet.module",
       "mathlib:Module.IsTorsionBySet.semilinearMap",
       "mathlib:Module.Projective",
+      "mathlib:Module.Quotient.mk_smul_mk",
       "mathlib:Module.free_of_flat_of_isLocalRing",
       "mathlib:Module.isTorsionBySet_iff_subset_annihilator",
       "mathlib:Module.isTorsionBySet_quotient_ideal_smul",
       "mathlib:Module.length",
+      "mathlib:Module.length_eq_add_of_exact",
+      "mathlib:Module.length_eq_of_surjective",
       "mathlib:Module.length_eq_zero",
+      "mathlib:Module.length_le_of_injective",
       "mathlib:Module.length_ne_top_iff",
+      "mathlib:Module.length_pos",
+      "mathlib:Module.supportDim",
+      "mathlib:Module.supportDim_eq_bot_iff_subsingleton",
+      "mathlib:Module.supportDim_eq_ringKrullDim_quotient_annihilator",
+      "mathlib:Module.supportDim_le_of_injective",
+      "mathlib:Module.supportDim_le_of_surjective",
+      "mathlib:Module.supportDim_le_ringKrullDim",
       "mathlib:ModuleCat.extendScalars",
       "mathlib:ModuleCat.hasColimitsOfShape",
       "mathlib:ModuleCat.projective_of_categoryTheory_projective",
+      "mathlib:Nat.choose_symm",
       "mathlib:Order.LTSeries.length_le_krullDim",
       "mathlib:Order.krullDim",
       "mathlib:Order.le_krullDim_iff",
+      "mathlib:Polynomial.as_sum_support_C_mul_X_pow",
+      "mathlib:Polynomial.bernoulli",
+      "mathlib:Polynomial.bernoulli_comp_one_add_X",
+      "mathlib:Polynomial.bernoulli_eval_zero",
+      "mathlib:Polynomial.coeff_eq_zero_of_natDegree_lt",
+      "mathlib:Polynomial.coeff_natDegree",
+      "mathlib:Polynomial.eq_C_of_natDegree_eq_zero",
+      "mathlib:Polynomial.eq_of_infinite_eval_eq",
+      "mathlib:Polynomial.eval_comp",
+      "mathlib:Polynomial.fwdDiff_iter_degree_eq_factorial",
+      "mathlib:Polynomial.fwdDiff_iter_eq_zero_of_degree_lt",
+      "mathlib:Polynomial.leadingCoeff_ne_zero",
+      "mathlib:Polynomial.natDegree_pos_iff_degree_pos",
+      "mathlib:Polynomial.sum_range_pow_eq_bernoulli_sub",
+      "mathlib:Polynomial.tendsto_atBot_of_leadingCoeff_nonpos",
       "mathlib:PrimeSpectrum.zeroLocus",
       "mathlib:RelSeries.cons",
       "mathlib:RelSeries.insertNth",
@@ -33449,11 +33710,21 @@
       "mathlib:RingTheory.Sequence.IsRegular",
       "mathlib:RingTheory.Sequence.IsRegular.nontrivial",
       "mathlib:RingTheory.Sequence.isRegular_cons_iff'",
+      "mathlib:Submodule.Quotient.nontrivial_iff",
       "mathlib:Submodule.annihilator_top",
+      "mathlib:Submodule.eq_bot_of_eq_ideal_smul_of_le_jacobson_annihilator",
+      "mathlib:Submodule.factorPowSucc",
+      "mathlib:Submodule.factor_surjective",
+      "mathlib:Submodule.ker_mapQ",
       "mathlib:Submodule.le_annihilator_iff",
+      "mathlib:Submodule.powSMulQuotInclusion",
+      "mathlib:Submodule.powSMulQuotInclusion_injective",
+      "mathlib:Submodule.powSMulQuotInclusion_mk",
+      "mathlib:Submodule.range_powSMulQuotInclusion",
       "mathlib:Submodule.smul_eq_map₂",
       "mathlib:TensorProduct.quotTensorEquivQuotSMul",
       "mathlib:TensorProduct.quotTensorEquivQuotSMul_comp_mk",
+      "mathlib:fwdDiff_iter_eq_sum_shift",
       "mathlib:integralClosure.isIntegral",
       "mathlib:isArtinian_of_tower",
       "mathlib:isFiniteLength_iff_isNoetherian_isArtinian",
@@ -33463,20 +33734,23 @@
       "mathlib:ringKrullDim_lt_top",
       "mathlib:ringKrullDim_quotient",
       "mathlib:ringKrullDim_quotient_le",
-      "mathlib:ringKrullDim_quotient_span_singleton_succ_eq_ringKrullDim_of_mem_nonZeroDivisors"
+      "mathlib:ringKrullDim_quotient_span_singleton_succ_eq_ringKrullDim_of_mem_nonZeroDivisors",
+      "mathlib:tendsto_natCast_atTop_atTop"
     ],
     "suggestedPrefixCheck": {
-      "boundary": "Take the suggested file before the comment beginning Positivity continuation by codex-rtOQ9t, removing only the two TauCeti import lines. The temporary extraction is written to the authorized suggested path, checked with lean-check, and the complete file is restored byte for byte. No source declaration is replaced.",
-      "lines": 1157,
+      "boundary": "Bytes before the comment beginning R03.3: adic graded ring through the native Rees quotient, removing only the two TauCeti import lines. Checked temporarily at the authorized suggested path with lean-check; complete bytes restored in a finally block. No substitute library declarations.",
+      "lines": 1432,
       "exitCode": 0,
       "errors": 0,
-      "admittedProofWarnings": 117,
+      "warnings": 158,
+      "admittedProofWarnings": 158,
       "restoredByteForByte": true,
-      "fullFileSha256": "3db9de4fac2e27af150a7910401cfbb8e645ff80b03dc9a68e1b6e9de8f474b3",
-      "prefixSha256": "faff3b8f67054ec34cc20aadfdd796a859070a5717777f9dd7fad3c6c3ef09a5",
-      "session": "codex-81tv4x",
+      "fullFileSha256": "f17e1c1ca040453dce0ab86b36f8035962d76c32292d52c323891235e34b1581",
+      "prefixSha256": "7dcd630bcd247f35d2c1633a5f60d76652bddc0479031df73ae637bd59c1bb59",
+      "session": "codex-w6DEfO",
       "date": "2026-10-05",
-      "note": "Mathlib-only admitted-prefix elaboration, including the catenarity projections, actual disk-family decomposition and identity-disk cancellation test. All warnings concern admitted proofs. No full-file or admitted-mathematics certification."
+      "note": "Mathlib-only admitted signatures, APIs and tests through the positivity and cumulative/Bernoulli strands. Shared Mathlib is at the exact pin. No full Tau-pin or mathematical proof certification.",
+      "otherWarnings": []
     },
     "priorSessionEvidence": {
       "session": "codex-6GrZZA",
@@ -33519,7 +33793,8 @@
     },
     "sessions": [
       "codex-6GrZZA",
-      "codex-81tv4x"
+      "codex-81tv4x",
+      "codex-w6DEfO"
     ],
     "baselineNameScreenBoundary": "The inherited 449-name presence diagnostic covers the original Mathlib references; the 13 new references were read directly at the exact pin, not added to that historical diagnostic.",
     "continuations": [
@@ -33710,6 +33985,422 @@
             }
           ],
           "sourceIssueE3": "Previous scoped confirmation preserved; source-error novelty and complete version collation not repeated in this continuation."
+        },
+        "suggestedPrefixCheck": {
+          "boundary": "Take the suggested file before the comment beginning Positivity continuation by codex-rtOQ9t, removing only the two TauCeti import lines. The temporary extraction is written to the authorized suggested path, checked with lean-check, and the complete file is restored byte for byte. No source declaration is replaced.",
+          "lines": 1157,
+          "exitCode": 0,
+          "errors": 0,
+          "admittedProofWarnings": 117,
+          "restoredByteForByte": true,
+          "fullFileSha256": "3db9de4fac2e27af150a7910401cfbb8e645ff80b03dc9a68e1b6e9de8f474b3",
+          "prefixSha256": "faff3b8f67054ec34cc20aadfdd796a859070a5717777f9dd7fad3c6c3ef09a5",
+          "session": "codex-81tv4x",
+          "date": "2026-10-05",
+          "note": "Mathlib-only admitted-prefix elaboration, including the catenarity projections, actual disk-family decomposition and identity-disk cancellation test. All warnings concern admitted proofs. No full-file or admitted-mathematics certification."
+        }
+      },
+      {
+        "session": "codex-w6DEfO",
+        "date": "2026-10-05",
+        "status": "partial",
+        "nodesInspected": [
+          "DeformationAndDerivedPatchingAlgebra:R03.3/eventual-hilbert-samuel-polynomial",
+          "DeformationAndDerivedPatchingAlgebra:R03.3/hilbert-samuel-polynomial",
+          "DeformationAndDerivedPatchingAlgebra:R03.3/hilbert-samuel-degree",
+          "DeformationAndDerivedPatchingAlgebra:R03.3/top-coefficient-finite-difference",
+          "DeformationAndDerivedPatchingAlgebra:key/hilbert-samuel-multiplicity",
+          "DeformationAndDerivedPatchingAlgebra:R03.3/degree-indexed-multiplicity",
+          "DeformationAndDerivedPatchingAlgebra:R03.3/intrinsic-ambient-normalization",
+          "DeformationAndDerivedPatchingAlgebra:R03.3/multiplicity-positive-integer",
+          "DeformationAndDerivedPatchingAlgebra:R03.3/multiplicity-powers",
+          "DeformationAndDerivedPatchingAlgebra:R03.3/dimension-normalized-additivity",
+          "DeformationAndDerivedPatchingAlgebra:R03.3/multiplicity-associativity",
+          "DeformationAndDerivedPatchingAlgebra:R03.3/positive-leading-coefficient-on-natural-tail",
+          "DeformationAndDerivedPatchingAlgebra:R03.3/positive-finite-adic-length",
+          "DeformationAndDerivedPatchingAlgebra:R03.3/nonzero-hilbert-samuel-polynomial",
+          "DeformationAndDerivedPatchingAlgebra:R03.3/positive-hilbert-samuel-leading-coefficient",
+          "DeformationAndDerivedPatchingAlgebra:R03.3/graded-hilbert-function",
+          "DeformationAndDerivedPatchingAlgebra:R03.3/adic-quotient-length-step",
+          "DeformationAndDerivedPatchingAlgebra:R03.3/cumulative-graded-length",
+          "DeformationAndDerivedPatchingAlgebra:R03.3/finite-graded-piece-length",
+          "DeformationAndDerivedPatchingAlgebra:R03.3/cumulative-natural-length",
+          "DeformationAndDerivedPatchingAlgebra:R03.3/summatory-polynomial",
+          "DeformationAndDerivedPatchingAlgebra:R03.3/summatory-polynomial-evaluation",
+          "DeformationAndDerivedPatchingAlgebra:R03.3/cumulative-polynomial-from-graded-tail"
+        ],
+        "directBaselineRefsInspected": [
+          "mathlib:ENat.toNat_add",
+          "mathlib:ENat.toNat_pos",
+          "mathlib:Ideal.le_radical",
+          "mathlib:Ideal.pow_le_self",
+          "mathlib:Ideal.radical_pow",
+          "mathlib:IsLocalRing.maximalIdeal_le_jacobson",
+          "mathlib:IsNoetherianRing.exists_relSeries_isQuotientEquivQuotientPrime",
+          "mathlib:IsNoetherianRing.induction_on_isQuotientEquivQuotientPrime",
+          "mathlib:Module.IsTorsionBySet.isScalarTower",
+          "mathlib:Module.Quotient.mk_smul_mk",
+          "mathlib:Module.isTorsionBySet_quotient_ideal_smul",
+          "mathlib:Module.length",
+          "mathlib:Module.length_eq_add_of_exact",
+          "mathlib:Module.length_eq_of_surjective",
+          "mathlib:Module.length_le_of_injective",
+          "mathlib:Module.length_pos",
+          "mathlib:Module.supportDim",
+          "mathlib:Module.supportDim_eq_bot_iff_subsingleton",
+          "mathlib:Module.supportDim_eq_ringKrullDim_quotient_annihilator",
+          "mathlib:Module.supportDim_le_of_injective",
+          "mathlib:Module.supportDim_le_of_surjective",
+          "mathlib:Module.supportDim_le_ringKrullDim",
+          "mathlib:Nat.choose_symm",
+          "mathlib:Polynomial.as_sum_support_C_mul_X_pow",
+          "mathlib:Polynomial.bernoulli",
+          "mathlib:Polynomial.bernoulli_comp_one_add_X",
+          "mathlib:Polynomial.bernoulli_eval_zero",
+          "mathlib:Polynomial.coeff_eq_zero_of_natDegree_lt",
+          "mathlib:Polynomial.coeff_natDegree",
+          "mathlib:Polynomial.eq_C_of_natDegree_eq_zero",
+          "mathlib:Polynomial.eq_of_infinite_eval_eq",
+          "mathlib:Polynomial.eval_comp",
+          "mathlib:Polynomial.fwdDiff_iter_degree_eq_factorial",
+          "mathlib:Polynomial.fwdDiff_iter_eq_zero_of_degree_lt",
+          "mathlib:Polynomial.leadingCoeff_ne_zero",
+          "mathlib:Polynomial.natDegree_pos_iff_degree_pos",
+          "mathlib:Polynomial.sum_range_pow_eq_bernoulli_sub",
+          "mathlib:Polynomial.tendsto_atBot_of_leadingCoeff_nonpos",
+          "mathlib:Submodule.Quotient.nontrivial_iff",
+          "mathlib:Submodule.eq_bot_of_eq_ideal_smul_of_le_jacobson_annihilator",
+          "mathlib:Submodule.factorPowSucc",
+          "mathlib:Submodule.factor_surjective",
+          "mathlib:Submodule.ker_mapQ",
+          "mathlib:Submodule.powSMulQuotInclusion",
+          "mathlib:Submodule.powSMulQuotInclusion_injective",
+          "mathlib:Submodule.powSMulQuotInclusion_mk",
+          "mathlib:Submodule.range_powSMulQuotInclusion",
+          "mathlib:fwdDiff_iter_eq_sum_shift",
+          "mathlib:tendsto_natCast_atTop_atTop"
+        ],
+        "newBaselineRefs": [
+          "mathlib:fwdDiff_iter_eq_sum_shift",
+          "mathlib:Polynomial.fwdDiff_iter_degree_eq_factorial",
+          "mathlib:Polynomial.fwdDiff_iter_eq_zero_of_degree_lt",
+          "mathlib:Nat.choose_symm",
+          "mathlib:Module.supportDim_le_of_injective",
+          "mathlib:Module.supportDim_le_of_surjective"
+        ],
+        "componentBoundary": "Source statements/proof routes and every direct Mathlib reference of these 23 nodes were inspected at the exact pin. This is not 23 final node verdicts: dependent API/test suppliers, recursive polynomial-existence and dimension/Artin–Rees/localization lemma closure remain open. No other node is certified by a source read or compiler prefix. The generated Finset.sum_range_reflect was read but is absent from the supplied static name index. It is not included as a baseline endpoint: reflection is routine finite-sum reindexing and is covered by the checked adapter signature.",
+        "nodeFindings": [
+          {
+            "nodes": [
+              "DeformationAndDerivedPatchingAlgebra:R03.3/eventual-hilbert-samuel-polynomial",
+              "DeformationAndDerivedPatchingAlgebra:R03.3/hilbert-samuel-polynomial",
+              "DeformationAndDerivedPatchingAlgebra:R03.3/hilbert-samuel-degree"
+            ],
+            "finding": "Cumulative n+1 convention, uniqueness and support dimension agree with the primary passages. Polynomial.hilbertPoly supplies no local-module existence theorem. No zero-module dimension is manufactured. Hilbert–Serre and dimension proof chains remain gaps."
+          },
+          {
+            "nodes": [
+              "DeformationAndDerivedPatchingAlgebra:R03.3/top-coefficient-finite-difference"
+            ],
+            "finding": "Corrected native reuse: Mathlib already has the full forward-difference binomial, factorial and vanishing identities. Only translation to y=t−d and range reflection remain."
+          },
+          {
+            "nodes": [
+              "DeformationAndDerivedPatchingAlgebra:key/hilbert-samuel-multiplicity",
+              "DeformationAndDerivedPatchingAlgebra:R03.3/degree-indexed-multiplicity",
+              "DeformationAndDerivedPatchingAlgebra:R03.3/intrinsic-ambient-normalization",
+              "DeformationAndDerivedPatchingAlgebra:R03.3/multiplicity-positive-integer",
+              "DeformationAndDerivedPatchingAlgebra:R03.3/multiplicity-powers",
+              "DeformationAndDerivedPatchingAlgebra:R03.3/dimension-normalized-additivity",
+              "DeformationAndDerivedPatchingAlgebra:R03.3/multiplicity-associativity"
+            ],
+            "finding": "Intrinsic and common-dimension rational normalizations agree with 43.15.1–3 after shifting the cumulative variable. Positivity/integrality and q-power proofs preserve degree zero and zero modules. Explicit support bounds and coefficient lemmas are added. General associativity still needs its recorded finite top-support/localization adapter."
+          },
+          {
+            "nodes": [
+              "DeformationAndDerivedPatchingAlgebra:R03.3/positive-leading-coefficient-on-natural-tail",
+              "DeformationAndDerivedPatchingAlgebra:R03.3/positive-finite-adic-length",
+              "DeformationAndDerivedPatchingAlgebra:R03.3/nonzero-hilbert-samuel-polynomial",
+              "DeformationAndDerivedPatchingAlgebra:R03.3/positive-hilbert-samuel-leading-coefficient"
+            ],
+            "finding": "Natural-tail sign, Nakayama, finite positive ENat quotient length and the nonzero polynomial proof avoid a degree-comparison cycle. Constants and infinity are separately handled."
+          },
+          {
+            "nodes": [
+              "DeformationAndDerivedPatchingAlgebra:R03.3/graded-hilbert-function",
+              "DeformationAndDerivedPatchingAlgebra:R03.3/adic-quotient-length-step",
+              "DeformationAndDerivedPatchingAlgebra:R03.3/cumulative-graded-length",
+              "DeformationAndDerivedPatchingAlgebra:R03.3/finite-graded-piece-length",
+              "DeformationAndDerivedPatchingAlgebra:R03.3/cumulative-natural-length",
+              "DeformationAndDerivedPatchingAlgebra:R03.3/summatory-polynomial",
+              "DeformationAndDerivedPatchingAlgebra:R03.3/summatory-polynomial-evaluation",
+              "DeformationAndDerivedPatchingAlgebra:R03.3/cumulative-polynomial-from-graded-tail"
+            ],
+            "finding": "Native power quotient inclusions and transition kernels provide extended-natural additivity; finiteness is checked before toNat. The negative Bernoulli convention gives summation over 0,…,n and S(P)(−1)=0. The initial rational correction survives, and a supplied graded-tail polynomial is not an existence proof."
+          }
+        ],
+        "sourceReadBoundary": [
+          {
+            "url": "https://stacks.math.columbia.edu/tag/00K4",
+            "read": "Section 10.59: opening formulas, Definition 10.59.1, and Lemmas/Proposition 10.59.2–10 with their proofs; no recursive audit of every linked supplier."
+          },
+          {
+            "url": "https://stacks.math.columbia.edu/tag/00L8",
+            "read": "Lemma 10.62.6, complete statement and proof."
+          },
+          {
+            "url": "https://stacks.math.columbia.edu/tag/0AZU",
+            "read": "Section 43.15 opening formulas and Definition/Lemmas 43.15.1–4 with proofs; Theorem 43.15.5 was not audited."
+          },
+          {
+            "url": "https://stacks.math.columbia.edu/tag/00K1",
+            "read": "Proposition 10.58.7, full statement and induction proof; K0-valued generality retained as a source boundary."
+          },
+          {
+            "url": "https://stacks.math.columbia.edu/tag/00JZ",
+            "read": "Lemma 10.58.5, full statement and antidifference proof."
+          },
+          {
+            "url": "https://stacks.math.columbia.edu/tag/00KQ",
+            "read": "Proposition 10.60.9, full statement and circular-inequality proof; its external supporting lemmas not recursively audited."
+          },
+          {
+            "url": "https://stacks.math.columbia.edu/tag/00KI",
+            "read": "Lemma 10.60.6, statement and zero-dimensional base proof."
+          },
+          {
+            "url": "https://stacks.math.columbia.edu/tag/00L7",
+            "read": "Lemma 10.62.5, statement and localized prime-filtration proof; its support/localization suppliers not recursively audited."
+          },
+          {
+            "url": "https://stacks.math.columbia.edu/tag/00DV",
+            "read": "Lemma 10.20.1(1)–(2), determinant and unit argument; other numbered forms not reviewed for consumers."
+          },
+          {
+            "url": "https://stacks.math.columbia.edu/tag/00J0",
+            "read": "Lemma 10.52.8, finite-module annihilation criterion and filtration proof."
+          }
+        ],
+        "sourceIssuesInspected": [
+          "DeformationAndDerivedPatchingAlgebra/E4"
+        ],
+        "sourceIssueBoundary": "E4 is new in this checkpoint, independently confirmed at its exact online locator. Its mathematical statement is unchanged. E3 and the previous sessions’ verdict and novelty-search provenance are preserved, not re-attributed to this session.",
+        "suggestedPrefixCheck": {
+          "boundary": "Bytes before the comment beginning R03.3: adic graded ring through the native Rees quotient, removing only the two TauCeti import lines. Checked temporarily at the authorized suggested path with lean-check; complete bytes restored in a finally block. No substitute library declarations.",
+          "lines": 1432,
+          "exitCode": 0,
+          "errors": 0,
+          "warnings": 158,
+          "admittedProofWarnings": 158,
+          "restoredByteForByte": true,
+          "fullFileSha256": "f17e1c1ca040453dce0ab86b36f8035962d76c32292d52c323891235e34b1581",
+          "prefixSha256": "7dcd630bcd247f35d2c1633a5f60d76652bddc0479031df73ae637bd59c1bb59",
+          "session": "codex-w6DEfO",
+          "date": "2026-10-05",
+          "note": "Mathlib-only admitted signatures, APIs and tests through the positivity and cumulative/Bernoulli strands. Shared Mathlib is at the exact pin. No full Tau-pin or mathematical proof certification.",
+          "otherWarnings": []
+        },
+        "fullSuggestedCheck": {
+          "exitCode": 1,
+          "boundary": "Full lean-check stopped at the missing compiled TauCeti.RingTheory.GradedAlgebra.Homogeneous.Quotient import. Shared Mathlib is at the exact pin, but the shared Tau source checkout is cf386627e9176a3827c1a5fe804989fd94a4d216, not the required f790474821cf4256814db967cb154e7af3d0c369. No libraries were built or updated. The separately checked Mathlib-only prefix ends before the native Rees-quotient section; it supplies no Tau-pin compilation receipt.",
+          "mathlibPin": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "requiredTauPin": "f790474821cf4256814db967cb154e7af3d0c369",
+          "availableTauHead": "cf386627e9176a3827c1a5fe804989fd94a4d216"
+        },
+        "baselineModuleReceipts": [
+          {
+            "module": "Mathlib/Algebra/Group/ForwardDiff.lean",
+            "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Group/ForwardDiff.lean",
+            "sha256": "9823a33fddd322eba9bb427831f175e18efb812bccc97e845a7b7ae1b0421676",
+            "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174"
+          },
+          {
+            "module": "Mathlib/Algebra/Module/Torsion/Basic.lean",
+            "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Module/Torsion/Basic.lean",
+            "sha256": "8f37bcb49df6fa072e4421324ac7513c597fbe45c08971df74b3172526307708",
+            "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174"
+          },
+          {
+            "module": "Mathlib/Algebra/Polynomial/Degree/Defs.lean",
+            "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Polynomial/Degree/Defs.lean",
+            "sha256": "d42eb484a3c896fb6de7d48403f6660c0aefc7aca797aefea963574fee122bd7",
+            "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174"
+          },
+          {
+            "module": "Mathlib/Algebra/Polynomial/Degree/Operations.lean",
+            "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Polynomial/Degree/Operations.lean",
+            "sha256": "a710c4645713c0edfbc29215f0501ef6907b1fe00c01371b6ae770982f710e8b",
+            "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174"
+          },
+          {
+            "module": "Mathlib/Algebra/Polynomial/Degree/Support.lean",
+            "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Polynomial/Degree/Support.lean",
+            "sha256": "907b677e6937cc1f77db55d5f775013128bf1f7d72a0c017f01543baafd9bf3b",
+            "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174"
+          },
+          {
+            "module": "Mathlib/Algebra/Polynomial/Eval/Defs.lean",
+            "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Polynomial/Eval/Defs.lean",
+            "sha256": "324a019feeb6134861ed550dcbdff5425ff062b8894024ef852643d5dc873a7b",
+            "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174"
+          },
+          {
+            "module": "Mathlib/Algebra/Polynomial/Roots.lean",
+            "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Polynomial/Roots.lean",
+            "sha256": "df0438048d5298d3dc6cc2f7ff032564991f19aed29142596d4a13e21e94685a",
+            "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174"
+          },
+          {
+            "module": "Mathlib/Analysis/Polynomial/Basic.lean",
+            "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Analysis/Polynomial/Basic.lean",
+            "sha256": "ee694c0b315b63087f6918133bccfb1797cf785fca574432fc861e15d7f41d7c",
+            "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174"
+          },
+          {
+            "module": "Mathlib/Data/ENat/Basic.lean",
+            "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Data/ENat/Basic.lean",
+            "sha256": "bafb690a7dfcf08866c2f499a1349d0d0ec3d45b7f3d6c5027e4af62238f1377",
+            "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174"
+          },
+          {
+            "module": "Mathlib/Data/Nat/Choose/Basic.lean",
+            "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Data/Nat/Choose/Basic.lean",
+            "sha256": "3abe93f2b0d22bf844405a917c97a6677a02d39df76429280df4b5ad0dfc6b0d",
+            "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174"
+          },
+          {
+            "module": "Mathlib/LinearAlgebra/Quotient/Basic.lean",
+            "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/LinearAlgebra/Quotient/Basic.lean",
+            "sha256": "564aad5ee0111df700cb30aca030018f26939ed1c307f19ee6d9ac02b6bc4312",
+            "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174"
+          },
+          {
+            "module": "Mathlib/NumberTheory/BernoulliPolynomials.lean",
+            "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/NumberTheory/BernoulliPolynomials.lean",
+            "sha256": "eef9e1ae845812a5174b897f4d3d0488674e6dce40abd38c49c6890f7e3cdf68",
+            "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174"
+          },
+          {
+            "module": "Mathlib/Order/Filter/AtTopBot/Archimedean.lean",
+            "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Order/Filter/AtTopBot/Archimedean.lean",
+            "sha256": "0ba4137bb8d0837d43b1140379163e3cdf89e88675c26807c51f5e801ad31df3",
+            "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174"
+          },
+          {
+            "module": "Mathlib/RingTheory/Ideal/AssociatedPrime/Finiteness.lean",
+            "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Ideal/AssociatedPrime/Finiteness.lean",
+            "sha256": "8c9621d07e6349678eb52eb4c24ddbf89c4d7d489a1d61ef0807ca66be19d41c",
+            "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174"
+          },
+          {
+            "module": "Mathlib/RingTheory/Ideal/Operations.lean",
+            "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Ideal/Operations.lean",
+            "sha256": "4859dadb42353660e6827c0c070962279d8fabdc8eea013eeed783b5cab59c22",
+            "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174"
+          },
+          {
+            "module": "Mathlib/RingTheory/Ideal/Quotient/PowTransition.lean",
+            "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Ideal/Quotient/PowTransition.lean",
+            "sha256": "2519525340f2b1170dfafc01d02a360235784f19a6f0f4de9cd8de8b585200f5",
+            "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174"
+          },
+          {
+            "module": "Mathlib/RingTheory/KrullDimension/Module.lean",
+            "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/KrullDimension/Module.lean",
+            "sha256": "c3981253356b7afc328e1095904e6a5b84d7b6867b9673136639d9cfe765100e",
+            "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174"
+          },
+          {
+            "module": "Mathlib/RingTheory/Length.lean",
+            "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Length.lean",
+            "sha256": "28058afb0a726d046c7ef25ef25f86707d64762129baf08106944bcde811b466",
+            "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174"
+          },
+          {
+            "module": "Mathlib/RingTheory/LocalRing/MaximalIdeal/Basic.lean",
+            "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/LocalRing/MaximalIdeal/Basic.lean",
+            "sha256": "8f5770a00a7ea607e9c897d289a7fa212a4ba61c54d3df2e9ba6f9d0ade241b7",
+            "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174"
+          },
+          {
+            "module": "Mathlib/RingTheory/Nakayama.lean",
+            "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Nakayama.lean",
+            "sha256": "3b51c6aadae3e2bcf21ffbceed13a83d051c247b58fe0726ead958fab0a53861",
+            "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174"
+          }
+        ],
+        "negativeCoefficientArithmetic": {
+          "ring": "k[[x,y]]/(x^4)",
+          "basis": "x^a y^b with 0≤a<4 and a+b≤n",
+          "tailFormula": "Σ_(a=0)^3(n−a+1)=4n−2 for n≥3",
+          "check": "Direct finite counts for n=3,…,15 agree; this is a sanity check, not a formal proof of the power-series quotient basis.",
+          "counts": [
+            {
+              "n": 3,
+              "monomialCount": 10,
+              "fourNMinusTwo": 10
+            },
+            {
+              "n": 4,
+              "monomialCount": 14,
+              "fourNMinusTwo": 14
+            },
+            {
+              "n": 5,
+              "monomialCount": 18,
+              "fourNMinusTwo": 18
+            },
+            {
+              "n": 6,
+              "monomialCount": 22,
+              "fourNMinusTwo": 22
+            },
+            {
+              "n": 7,
+              "monomialCount": 26,
+              "fourNMinusTwo": 26
+            },
+            {
+              "n": 8,
+              "monomialCount": 30,
+              "fourNMinusTwo": 30
+            },
+            {
+              "n": 9,
+              "monomialCount": 34,
+              "fourNMinusTwo": 34
+            },
+            {
+              "n": 10,
+              "monomialCount": 38,
+              "fourNMinusTwo": 38
+            },
+            {
+              "n": 11,
+              "monomialCount": 42,
+              "fourNMinusTwo": 42
+            },
+            {
+              "n": 12,
+              "monomialCount": 46,
+              "fourNMinusTwo": 46
+            },
+            {
+              "n": 13,
+              "monomialCount": 50,
+              "fourNMinusTwo": 50
+            },
+            {
+              "n": 14,
+              "monomialCount": 54,
+              "fourNMinusTwo": 54
+            },
+            {
+              "n": 15,
+              "monomialCount": 58,
+              "fourNMinusTwo": 58
+            }
+          ]
         }
       }
     ]
