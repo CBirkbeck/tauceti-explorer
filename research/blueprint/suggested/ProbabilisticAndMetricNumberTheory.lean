@@ -25,7 +25,7 @@ import Mathlib.Data.ZMod.QuotientRing
 /-
 Copyright (c) 2026 The Tau Ceti contributors. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: GPT-6 Astra Pro (astra-20260926-pm-83c1), Codex (codex-a71f92), Claude Code (cc-fb70e5), Claude Code (cc-39fac3)
+Authors: GPT-6 Astra Pro (astra-20260926-pm-83c1), Codex (codex-a71f92), Claude Code (cc-fb70e5), Claude Code (cc-39fac3), Codex (codex-5ebb6f), Codex (codex-7e92bd)
 -/
 import Mathlib.NumberTheory.ArithmeticFunction.Misc
 import Mathlib.Data.Nat.Factorization.Basic
@@ -1176,12 +1176,14 @@ variable {X : Type*} [TopologicalSpace X] [MeasurableSpace X] [OpensMeasurableSp
 def AsympEquidistributed (x : ℕ → X) (μ : ProbabilityMeasure X) : Prop :=
   Tendsto (TauCeti.Probability.empiricalMeasure x) atTop (𝓝 μ)
 
+-- ProbabilisticAndMetricNumberTheory:PM.2/asymptotic-equidistribution-review-api-1
 theorem asympEquidistributed_iff_integral_tendsto (x : ℕ → X) (μ : ProbabilityMeasure X) :
     AsympEquidistributed x μ ↔ ∀ f : X →ᵇ ℝ,
       Tendsto (fun n : ℕ => ((n + 1 : ℕ) : ℝ)⁻¹ * ∑ i ∈ Finset.range (n + 1), f (x i)) atTop
         (𝓝 (∫ y, f y ∂(μ : Measure X))) := by
   sorry
 
+-- ProbabilisticAndMetricNumberTheory:PM.2/asymptotic-equidistribution-review-api-2
 theorem asympEquidistributed_iff_integral_tendsto_complex (x : ℕ → X)
     (μ : ProbabilityMeasure X) :
     AsympEquidistributed x μ ↔ ∀ f : X →ᵇ ℂ,
@@ -1189,21 +1191,25 @@ theorem asympEquidistributed_iff_integral_tendsto_complex (x : ℕ → X)
         (𝓝 (∫ y, f y ∂(μ : Measure X))) := by
   sorry
 
+-- ProbabilisticAndMetricNumberTheory:PM.2/asymptotic-equidistribution-review-api-3
 theorem asympEquidistributed_comp_add_iff (x : ℕ → X) (μ : ProbabilityMeasure X) (m : ℕ) :
     AsympEquidistributed (fun n => x (n + m)) μ ↔ AsympEquidistributed x μ := by
   sorry
 
+-- ProbabilisticAndMetricNumberTheory:PM.2/asymptotic-equidistribution-review-api-4
 theorem AsympEquidistributed.congr_of_eventuallyEq {x y : ℕ → X} {μ : ProbabilityMeasure X}
     (h : AsympEquidistributed x μ) (hxy : x =ᶠ[atTop] y) : AsympEquidistributed y μ := by
   sorry
 
 /-- The source's appeal to the Riesz representation theorem, as Hausdorffness of the topology. -/
+-- ProbabilisticAndMetricNumberTheory:PM.2/asymptotic-equidistribution-review-api-5
 theorem AsympEquidistributed.unique [HasOuterApproxClosed X] [BorelSpace X] {x : ℕ → X}
     {μ ν : ProbabilityMeasure X} (hμ : AsympEquidistributed x μ)
     (hν : AsympEquidistributed x ν) : μ = ν := by
   sorry
 
 /-- Portmanteau: frequencies of visits to a set whose frontier is `μ`-null. -/
+-- ProbabilisticAndMetricNumberTheory:PM.2/asymptotic-equidistribution-review-api-6
 theorem AsympEquidistributed.tendsto_frequency [HasOuterApproxClosed X] {x : ℕ → X}
     {μ : ProbabilityMeasure X} (h : AsympEquidistributed x μ) {E : Set X}
     (hE : MeasurableSet E) (hbd : (μ : Measure X) (frontier E) = 0) :
@@ -1212,6 +1218,7 @@ theorem AsympEquidistributed.tendsto_frequency [HasOuterApproxClosed X] {x : ℕ
       atTop (𝓝 ((μ : Measure X) E).toReal) := by
   sorry
 
+-- ProbabilisticAndMetricNumberTheory:PM.2/asymptotic-equidistribution-review-api-7
 theorem AsympEquidistributed.eventually_frequency_ge [HasOuterApproxClosed X] {x : ℕ → X}
     {μ : ProbabilityMeasure X} (h : AsympEquidistributed x μ) {U : Set X} (hU : IsOpen U)
     (hμU : 0 < (μ : Measure X) U) :
@@ -1219,6 +1226,7 @@ theorem AsympEquidistributed.eventually_frequency_ge [HasOuterApproxClosed X] {x
       c ≤ (((Finset.range (n + 1)).filter (fun i => x i ∈ U)).card : ℝ) / (n + 1) := by
   sorry
 
+-- ProbabilisticAndMetricNumberTheory:PM.2/asymptotic-equidistribution-review-api-8
 theorem AsympEquidistributed.denseRange [HasOuterApproxClosed X] {x : ℕ → X}
     {μ : ProbabilityMeasure X} (h : AsympEquidistributed x μ)
     (hμ : ∀ U : Set X, IsOpen U → U.Nonempty → 0 < (μ : Measure X) U) : DenseRange x := by
@@ -1257,21 +1265,26 @@ def circleHaar : ProbabilityMeasure UnitAddCircle :=
 def torusHaar (d : Type*) [Fintype d] : ProbabilityMeasure (UnitAddTorus d) :=
   ⟨Measure.pi (fun _ : d => AddCircle.haarAddCircle), by sorry⟩
 
+-- ProbabilisticAndMetricNumberTheory:PM.2/torus-haar-probability-review-api-2
 theorem torusHaar_eq_volume : (torusHaar d : Measure (UnitAddTorus d)) = volume := by
   sorry
 
+-- ProbabilisticAndMetricNumberTheory:PM.2/torus-haar-probability-review-api-3
 theorem circleHaar_eq_volume : (circleHaar : Measure UnitAddCircle) = volume := by
   sorry
 
+-- ProbabilisticAndMetricNumberTheory:PM.2/torus-haar-probability-review-api-4
 instance isAddHaarMeasure_torusHaar :
     (torusHaar d : Measure (UnitAddTorus d)).IsAddHaarMeasure := by
   sorry
 
+-- ProbabilisticAndMetricNumberTheory:PM.2/torus-haar-probability-review-api-5
 theorem integral_mFourier_torusHaar (k : d → ℤ) :
     ∫ x, UnitAddTorus.mFourier k x ∂(torusHaar d : Measure (UnitAddTorus d)) =
       if k = 0 then 1 else 0 := by
   sorry
 
+-- ProbabilisticAndMetricNumberTheory:PM.2/torus-haar-probability-review-api-6
 theorem integral_fourier_circleHaar (n : ℤ) :
     ∫ y, fourier n y ∂(circleHaar : Measure UnitAddCircle) = if n = 0 then 1 else 0 := by
   sorry
@@ -1280,22 +1293,27 @@ theorem integral_fourier_circleHaar (n : ℤ) :
 def TorusIrrational (α : UnitAddTorus d) : Prop :=
   ∀ k : d → ℤ, k ≠ 0 → ∑ i, k i • α i ≠ 0
 
+-- ProbabilisticAndMetricNumberTheory:PM.2/torus-irrational-review-api-2
 theorem mFourier_eq_fourier_sum (k : d → ℤ) (α : UnitAddTorus d) :
     UnitAddTorus.mFourier k α = fourier 1 (∑ i, k i • α i) := by
   sorry
 
+-- ProbabilisticAndMetricNumberTheory:PM.2/torus-irrational-review-api-1
 theorem torusIrrational_iff_mFourier (α : UnitAddTorus d) :
     TorusIrrational α ↔ ∀ k : d → ℤ, k ≠ 0 → UnitAddTorus.mFourier k α ≠ 1 := by
   sorry
 
+-- ProbabilisticAndMetricNumberTheory:PM.2/torus-irrational-review-api-3
 theorem torusIrrational_unique_iff [Unique d] (α : UnitAddTorus d) :
     TorusIrrational α ↔ addOrderOf (α default) = 0 := by
   sorry
 
+-- ProbabilisticAndMetricNumberTheory:PM.2/torus-irrational-review-api-4
 theorem TorusIrrational.zsmul {α : UnitAddTorus d} (h : TorusIrrational α) {m : ℤ}
     (hm : m ≠ 0) : TorusIrrational (m • α) := by
   sorry
 
+-- ProbabilisticAndMetricNumberTheory:PM.2/torus-irrational-review-api-5
 theorem TorusIrrational.nsmul {α : UnitAddTorus d} (h : TorusIrrational α) {m : ℕ}
     (hm : m ≠ 0) : TorusIrrational (m • α) := by
   sorry
@@ -1394,9 +1412,9 @@ example : (torusHaar (Fin 1) : Measure (UnitAddTorus (Fin 1))).map (fun x => x 0
 /-- circleHaar.test_volume -/
 example : (circleHaar : Measure UnitAddCircle) = volume := by sorry
 
-/-- torusIrrational.test_mixed -/
+/-- torusIrrational.test_dependent_irrational_coordinates -/
 example : ¬ TorusIrrational
-    (![((Real.sqrt 2 : ℝ) : UnitAddCircle), ((1 / 2 : ℝ) : UnitAddCircle)] :
+    (![((Real.sqrt 2 : ℝ) : UnitAddCircle), ((Real.sqrt 2 : ℝ) : UnitAddCircle)] :
       UnitAddTorus (Fin 2)) := by
   sorry
 
@@ -1436,6 +1454,7 @@ def AsympEquidistributedInt (x : ℤ → X) (μ : ProbabilityMeasure X) : Prop :
 def TotallyAsympEquidistributedInt (x : ℤ → X) (μ : ProbabilityMeasure X) : Prop :=
   ∀ q : ℕ, 0 < q → ∀ r : ℤ, AsympEquidistributedInt (fun n => x (q * n + r)) μ
 
+-- ProbabilisticAndMetricNumberTheory:PM.2/asymptotic-equidistribution-int-review-api-2
 theorem AsympEquidistributedInt.natCast {x : ℤ → X} {μ : ProbabilityMeasure X}
     (h : AsympEquidistributedInt x μ) : AsympEquidistributed (fun n : ℕ => x n) μ := by
   sorry
@@ -1449,6 +1468,7 @@ theorem TotallyAsympEquidistributedInt.asympEquidistributedInt {x : ℤ → X}
     AsympEquidistributedInt x μ := by
   sorry
 
+-- ProbabilisticAndMetricNumberTheory:PM.2/asymptotic-equidistribution-int-review-api-5
 theorem TotallyAsympEquidistributedInt.totallyAsympEquidistributed_natCast {x : ℤ → X}
     {μ : ProbabilityMeasure X} (h : TotallyAsympEquidistributedInt x μ) :
     TotallyAsympEquidistributed (fun n : ℕ => x n) μ := by
@@ -1522,28 +1542,35 @@ def toHom : UnitAddTorus (Fin S.n) →+ UnitAddTorus d where
   map_zero' := by sorry
   map_add' := by sorry
 
+-- ProbabilisticAndMetricNumberTheory:PM.2/subtorus-review-api-2
 theorem continuous_toHom : Continuous S.toHom := by sorry
 
 def carrier : AddSubgroup (UnitAddTorus d) := S.toHom.range
 
+-- ProbabilisticAndMetricNumberTheory:PM.2/subtorus-review-api-4
 theorem isCompact_carrier : IsCompact (S.carrier : Set (UnitAddTorus d)) := by sorry
 
+-- ProbabilisticAndMetricNumberTheory:PM.2/subtorus-review-api-5
 theorem isConnected_carrier : IsConnected (S.carrier : Set (UnitAddTorus d)) := by sorry
 
 def haar : ProbabilityMeasure (UnitAddTorus d) :=
   ⟨Measure.map S.toHom (torusHaar (Fin S.n) : Measure (UnitAddTorus (Fin S.n))), by sorry⟩
 
+-- ProbabilisticAndMetricNumberTheory:PM.2/subtorus-review-api-7
 theorem haar_carrier : (S.haar : Measure (UnitAddTorus d)) S.carrier = 1 := by sorry
 
+-- ProbabilisticAndMetricNumberTheory:PM.2/subtorus-review-api-8
 theorem integral_mFourier_haar (k : d → ℤ) :
     ∫ y, UnitAddTorus.mFourier k y ∂(S.haar : Measure (UnitAddTorus d)) =
       if Matrix.vecMul k S.M = 0 then 1 else 0 := by
   sorry
 
+-- ProbabilisticAndMetricNumberTheory:PM.2/subtorus-review-api-9
 theorem mFourier_eq_one_iff (k : d → ℤ) :
     (∀ y ∈ S.carrier, UnitAddTorus.mFourier k y = 1) ↔ Matrix.vecMul k S.M = 0 := by
   sorry
 
+-- ProbabilisticAndMetricNumberTheory:PM.2/subtorus-review-api-10
 theorem haar_eq_of_carrier_eq {S' : Subtorus d} (h : S.carrier = S'.carrier) :
     S.haar = S'.haar := by
   sorry
@@ -1649,25 +1676,30 @@ def khinchinLimsup (ψ : ℕ → ℝ) : Set ℝ :=
   limsup (khinchinSet ψ) atTop
 
 /-- PM.3/duffin-schaeffer-sets, API: the union bound `λ(𝒜_q) ≤ 2φ(q)ψ(q)/q`. -/
+-- ProbabilisticAndMetricNumberTheory:PM.3/duffin-schaeffer-sets-review-api-3
 theorem volume_dsSet_le (ψ : ℕ → ℝ) (hψ : ∀ q, 0 ≤ ψ q) (q : ℕ) :
     volume (dsSet ψ q) ≤ ENNReal.ofReal (2 * q.totient * ψ q / q) := by
   sorry
 
 /-- PM.3/duffin-schaeffer-sets, API: `λ(𝒜_q) ≥ φ(q)ψ(q)/q` when `ψ(q) ≤ 1/2`. -/
+-- ProbabilisticAndMetricNumberTheory:PM.3/duffin-schaeffer-sets-review-api-4
 theorem le_volume_dsSet (ψ : ℕ → ℝ) (q : ℕ) (hq : 1 ≤ q) (h0 : 0 ≤ ψ q) (h1 : ψ q ≤ 1 / 2) :
     ENNReal.ofReal (q.totient * ψ q / q) ≤ volume (dsSet ψ q) := by
   sorry
 
 /-- PM.3/duffin-schaeffer-sets, API: monotone in `ψ`. -/
+-- ProbabilisticAndMetricNumberTheory:PM.3/duffin-schaeffer-sets-review-api-5
 theorem dsSet_mono {ψ ψ' : ℕ → ℝ} (h : ∀ q, ψ q ≤ ψ' q) (q : ℕ) : dsSet ψ q ⊆ dsSet ψ' q := by
   sorry
 
 /-- PM.3/duffin-schaeffer-sets, API: reduced fractions are among all fractions. -/
+-- ProbabilisticAndMetricNumberTheory:PM.3/duffin-schaeffer-sets-review-api-6
 theorem dsSet_subset_khinchinSet (ψ : ℕ → ℝ) (q : ℕ) : dsSet ψ q ⊆ khinchinSet ψ q := by
   sorry
 
 /-- PM.3/duffin-schaeffer-sets, API: Mathlib's open-ball well-approximable set on the circle,
 pulled back to `[0,1]`, lies in `𝒜`. -/
+-- ProbabilisticAndMetricNumberTheory:PM.3/duffin-schaeffer-sets-review-api-7
 theorem mem_dsLimsup_of_mem_addWellApproximable (ψ : ℕ → ℝ) {x : ℝ} (hx : x ∈ Set.Icc 0 1)
     (h : (x : UnitAddCircle) ∈ addWellApproximable UnitAddCircle (fun n => ψ n / n)) :
     x ∈ dsLimsup ψ := by
@@ -1675,6 +1707,7 @@ theorem mem_dsLimsup_of_mem_addWellApproximable (ψ : ℕ → ℝ) {x : ℝ} (hx
 
 /-- PM.3/duffin-schaeffer-sets, API: an irrational point of `𝒜` is `2ψ`-well-approximable on
 the circle. -/
+-- ProbabilisticAndMetricNumberTheory:PM.3/duffin-schaeffer-sets-review-api-8
 theorem mem_addWellApproximable_of_mem_dsLimsup (ψ : ℕ → ℝ) {x : ℝ} (hx : Irrational x)
     (h : x ∈ dsLimsup ψ) :
     (x : UnitAddCircle) ∈ addWellApproximable UnitAddCircle (fun n => 2 * ψ n / n) := by
@@ -1858,32 +1891,38 @@ def quality : ℝ :=
         (1 - (p : ℝ) ^ (-(31 / 30 : ℝ))) ^ 10)
 
 /-- PM.3/gcd-graph, API: Lemma 6.7(a), the subgraph relation is transitive. -/
+-- ProbabilisticAndMetricNumberTheory:PM.3/gcd-graph-review-api-4
 theorem IsSubgraph.trans {G₁ G₂ G₃ : GCDGraph} (h₁ : G₂.IsSubgraph G₁) (h₂ : G₃.IsSubgraph G₂) :
     G₃.IsSubgraph G₁ := by
   sorry
 
 /-- PM.3/gcd-graph, API: every GCD graph is a subgraph of itself. -/
+-- ProbabilisticAndMetricNumberTheory:PM.3/gcd-graph-review-api-5
 theorem IsSubgraph.refl : G.IsSubgraph G := by
   sorry
 
 /-- PM.3/gcd-graph, API: Lemma 6.7(b), `ℛ` is monotone along subgraphs. -/
+-- ProbabilisticAndMetricNumberTheory:PM.3/gcd-graph-review-api-6
 theorem R_subset_of_isSubgraph {G' : GCDGraph} (h : G.IsSubgraph G') : G'.R ⊆ G.R := by
   sorry
 
 /-- PM.3/gcd-graph, API: Lemma 6.7(c), a non-trivial graph has vertex sets of positive
 measure. -/
+-- ProbabilisticAndMetricNumberTheory:PM.3/gcd-graph-review-api-7
 theorem vertexMeasure_pos_of_isNontrivial (h : G.IsNontrivial) :
     0 < G.vertexMeasure G.V ∧ 0 < G.vertexMeasure G.W := by
   sorry
 
 /-- PM.3/gcd-graph-quality, API: Lemma 6.7(d), non-trivial iff positive density iff positive
 quality. -/
+-- ProbabilisticAndMetricNumberTheory:PM.3/gcd-graph-quality-review-api-8
 theorem isNontrivial_iff : (G.IsNontrivial ↔ 0 < G.edgeDensity) ∧
     (G.IsNontrivial ↔ 0 < G.quality) := by
   sorry
 
 /-- PM.3/gcd-graph-quality, API: the remark after Definition 6.6,
 `q(G) = μ(ℰ)¹⁰/(μ(𝒱)⁹ μ(𝒲)⁹) ∏ …` when both vertex sets have positive measure. -/
+-- ProbabilisticAndMetricNumberTheory:PM.3/gcd-graph-quality-review-api-9
 theorem quality_eq (hV : 0 < G.vertexMeasure G.V) (hW : 0 < G.vertexMeasure G.W) :
     G.quality = G.edgeMeasure G.E ^ 10 / (G.vertexMeasure G.V ^ 9 * G.vertexMeasure G.W ^ 9) *
       ∏ p ∈ G.P, (p : ℝ) ^ (Int.natAbs ((G.f p : ℤ) - G.g p)) /
@@ -1893,6 +1932,7 @@ theorem quality_eq (hV : 0 < G.vertexMeasure G.V) (hW : 0 < G.vertexMeasure G.W)
 
 /-- PM.3/gcd-graph-quality, API: `δ ≤ 1` when `μ` weights are at most the vertex measures,
 here for the edge sets inside `𝒱 × 𝒲`. -/
+-- ProbabilisticAndMetricNumberTheory:PM.3/gcd-graph-quality-review-api-10
 theorem edgeDensity_le_one : G.edgeDensity ≤ 1 := by
   sorry
 
@@ -1918,11 +1958,13 @@ def restrictPow (p k ℓ : ℕ) (hp : p.Prime) (hpP : p ∉ G.P) : GCDGraph wher
   factorization_W := by sorry
 
 /-- PM.3/gcd-graph-special-subgraph, API: `G_{p^k,p^ℓ} ⪯ G`. -/
+-- ProbabilisticAndMetricNumberTheory:PM.3/gcd-graph-special-subgraph-review-api-0
 theorem restrictPow_isSubgraph (p k ℓ : ℕ) (hp : p.Prime) (hpP : p ∉ G.P) :
     G.IsSubgraph (G.restrictPow p k ℓ hp hpP) := by
   sorry
 
 /-- PM.3/gcd-graph-special-subgraph, API: `p` joins the primes and leaves `ℛ`. -/
+-- ProbabilisticAndMetricNumberTheory:PM.3/gcd-graph-special-subgraph-review-api-1
 theorem R_restrictPow (p k ℓ : ℕ) (hp : p.Prime) (hpP : p ∉ G.P) :
     (G.restrictPow p k ℓ hp hpP).R ⊆ G.R.erase p := by
   sorry
@@ -2412,6 +2454,10 @@ example : ¬ IsNormalBase 2 (1/2) := by sorry
 
 -- test normal_base_one_rejected
 example (x : ℝ) : ¬ IsNormalBase 1 x := by sorry
+
+-- test normal_exists
+example {b : ℕ} [NeZero b] (hb : 2 ≤ b) :
+    ∃ x : ℝ, x ∈ Set.Ico (0:ℝ) 1 ∧ IsNormalBase b x := by sorry
 
 -- ProbabilisticAndMetricNumberTheory:PM.2/borel-normal
 theorem borel_normal {b : ℕ} [NeZero b] (hb : 2 ≤ b) :
