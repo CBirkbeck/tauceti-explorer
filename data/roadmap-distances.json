@@ -10,7 +10,7 @@
  },
  "bases": {
   "judged": 203,
-  "measured": 1,
+  "measured": 3,
   "built": 7,
   "children": 1
  },
@@ -70,15 +70,15 @@
   "splitHalfRoadmaps": 136,
   "distanceVsClassification": 0.862,
   "distanceVsMissingTargets": 0.959,
-  "distanceVsMissingLayers": 0.961,
-  "distanceVsDepth": 0.944,
+  "distanceVsMissingLayers": 0.962,
+  "distanceVsDepth": 0.945,
   "completedRoadmaps": {
    "tauceti:Completed/ContourIntegration": 0.0,
    "tauceti:Completed/EffectiveBounds": 0.0,
    "tauceti:Completed/IntegralLattices": 0.0,
    "tauceti:Completed/OrthogonalL2Bases": 0.0
   },
-  "declarationsVsDistance": -0.103
+  "declarationsVsDistance": -0.097
  },
  "roadmaps": {
   "AInfCohomology": {
@@ -165,6 +165,34 @@
     }
    ]
   },
+  "AbelianVarietiesIsogenousToNoJacobian": {
+   "classification": 10,
+   "structure": {
+    "layers": 12,
+    "missingOwn": 12.0,
+    "missingLayers": 278.5,
+    "missingTargets": 1337.4,
+    "depth": 54,
+    "suppliers": 59,
+    "declarationLevel": {
+     "source": "blueprint",
+     "reviewed": true,
+     "declarations": 95,
+     "missingDeclarations": 95,
+     "depth": 13,
+     "layersCovered": 12,
+     "layers": 12,
+     "sourcePages": 48
+    }
+   },
+   "measurement": 6.9,
+   "judgements": 0,
+   "distance": 6.9,
+   "low": 5.75,
+   "high": 8.06,
+   "basis": "measured",
+   "usedBy": []
+  },
   "AdditiveCombinatorics": {
    "classification": 7,
    "structure": {
@@ -221,7 +249,7 @@
    "usedBy": [
     {
      "galaxy": "arithmeticgeometry",
-     "roadmaps": 2
+     "roadmaps": 3
     },
     {
      "galaxy": "functionfields",
@@ -432,7 +460,7 @@
    "usedBy": [
     {
      "galaxy": "arithmeticgeometry",
-     "roadmaps": 9
+     "roadmaps": 10
     },
     {
      "galaxy": "langlands",
@@ -653,7 +681,7 @@
    "usedBy": [
     {
      "galaxy": "arithmeticgeometry",
-     "roadmaps": 5
+     "roadmaps": 6
     },
     {
      "galaxy": "etale",
@@ -846,6 +874,10 @@
     {
      "galaxy": "padic",
      "roadmaps": 2
+    },
+    {
+     "galaxy": "arithmeticgeometry",
+     "roadmaps": 1
     }
    ]
   },
@@ -1408,7 +1440,7 @@
    "usedBy": [
     {
      "galaxy": "arithmeticgeometry",
-     "roadmaps": 5
+     "roadmaps": 6
     },
     {
      "galaxy": "automorphic",
@@ -2528,6 +2560,34 @@
    "basis": "judged",
    "usedBy": []
   },
+  "GenericDoublePointInterpolation": {
+   "classification": 7,
+   "structure": {
+    "layers": 6,
+    "missingOwn": 6.0,
+    "missingLayers": 58.0,
+    "missingTargets": 333.4,
+    "depth": 17,
+    "suppliers": 14,
+    "declarationLevel": {
+     "source": "blueprint",
+     "reviewed": true,
+     "declarations": 77,
+     "missingDeclarations": 77,
+     "depth": 18,
+     "layersCovered": 6,
+     "layers": 6,
+     "sourcePages": 0
+    }
+   },
+   "measurement": 4.75,
+   "judgements": 0,
+   "distance": 4.75,
+   "low": 3.6,
+   "high": 5.91,
+   "basis": "measured",
+   "usedBy": []
+  },
   "GeometricSatakeAndFusion": {
    "classification": 10,
    "structure": {
@@ -2579,7 +2639,7 @@
     },
     {
      "galaxy": "arithmeticgeometry",
-     "roadmaps": 1
+     "roadmaps": 2
     }
    ]
   },
@@ -3449,6 +3509,10 @@
    "usedBy": [
     {
      "galaxy": "analytic",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "arithmeticgeometry",
      "roadmaps": 1
     }
    ]
@@ -6680,12 +6744,12 @@
  },
  "galaxies": {
   "algebraicgeometry": {
-   "distance": 3.13,
-   "roadmaps": 8,
+   "distance": 3.31,
+   "roadmaps": 9,
    "supplies": [
     {
      "galaxy": "arithmeticgeometry",
-     "links": 33,
+     "links": 35,
      "examples": [
       {
        "supplier": "AlgebraicModuliForArithmeticGeometry",
@@ -6693,11 +6757,11 @@
       },
       {
        "supplier": "AlgebraicModuliForArithmeticGeometry",
-       "consumer": "ArakelovGeometryAndAbelianHeights"
+       "consumer": "AbelianVarietiesIsogenousToNoJacobian"
       },
       {
        "supplier": "AlgebraicModuliForArithmeticGeometry",
-       "consumer": "ComplexMultiplicationAndExplicitReciprocity"
+       "consumer": "ArakelovGeometryAndAbelianHeights"
       }
      ]
     },
@@ -6989,7 +7053,7 @@
     },
     {
      "galaxy": "arithmeticgeometry",
-     "links": 9,
+     "links": 10,
      "examples": [
       {
        "supplier": "ArithmeticGaloisDuality",
@@ -7001,7 +7065,7 @@
       },
       {
        "supplier": "GeometryOfNumbersAndQuadraticArithmetic",
-       "consumer": "EffectiveDiophantineMethods"
+       "consumer": "AbelianVarietiesIsogenousToNoJacobian"
       }
      ]
     },
@@ -7369,8 +7433,8 @@
    "upstreamOnly": false
   },
   "arithmeticgeometry": {
-   "distance": 5.58,
-   "roadmaps": 19,
+   "distance": 5.64,
+   "roadmaps": 20,
    "supplies": [
     {
      "galaxy": "iwasawa",
@@ -7674,18 +7738,18 @@
     },
     {
      "galaxy": "arithmeticgeometry",
-     "links": 8,
+     "links": 10,
      "examples": [
+      {
+       "supplier": "AdelicAlgebraicGroups",
+       "consumer": "AbelianVarietiesIsogenousToNoJacobian"
+      },
       {
        "supplier": "AdelicAlgebraicGroups",
        "consumer": "ShimuraData"
       },
       {
        "supplier": "AdelicAlgebraicGroups",
-       "consumer": "ShimuraVarieties"
-      },
-      {
-       "supplier": "ArithmeticLocallySymmetricSpaces",
        "consumer": "ShimuraVarieties"
       }
      ]
@@ -9290,7 +9354,7 @@
     },
     {
      "galaxy": "arithmeticgeometry",
-     "links": 9,
+     "links": 10,
      "examples": [
       {
        "supplier": "ArithmeticGaloisRepresentations",
@@ -9298,11 +9362,11 @@
       },
       {
        "supplier": "ArithmeticGaloisRepresentations",
-       "consumer": "ComplexMultiplicationAndExplicitReciprocity"
+       "consumer": "AbelianVarietiesIsogenousToNoJacobian"
       },
       {
        "supplier": "ArithmeticGaloisRepresentations",
-       "consumer": "FaltingsFinitenessAndIsogenyTheorems"
+       "consumer": "ComplexMultiplicationAndExplicitReciprocity"
       }
      ]
     },
@@ -9449,6 +9513,16 @@
       {
        "supplier": "LogicAndDefinabilityInNumberTheory",
        "consumer": "AnalyticNumberTheory"
+      }
+     ]
+    },
+    {
+     "galaxy": "arithmeticgeometry",
+     "links": 1,
+     "examples": [
+      {
+       "supplier": "LogicAndDefinabilityInNumberTheory",
+       "consumer": "AbelianVarietiesIsogenousToNoJacobian"
       }
      ]
     }
