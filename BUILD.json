@@ -1,8 +1,8 @@
 {
   "roadmaps": 227,
-  "stages": 3335,
+  "stages": 3399,
   "originalStages": 2084,
-  "sourceRefinements": 1251,
+  "sourceRefinements": 1315,
   "reviewedDecompositions": [
     {
       "roadmap": "AInfCohomology",
@@ -341,14 +341,14 @@
   "editedRoadmapSummaries": 181,
   "curatedStagePresentations": 339,
   "administrativeStages": 101,
-  "mathematicalStars": 3234,
+  "mathematicalStars": 3298,
   "plainTextPlanetLabels": 398,
   "hiddenPlanets": 600,
   "mappedStageStatuses": 350,
   "libraryAuditStatuses": 35,
   "bibliographicSources": 46,
-  "roadmapEdges": 1821,
-  "stageEdges": 9199,
+  "roadmapEdges": 1823,
+  "stageEdges": 9251,
   "reviewedLinkPackets": 25,
   "promotedBlueprints": [
     {
@@ -460,6 +460,12 @@
       "reviewer": "independent-review-REV-FIX-RT-AREA-combinatorics~2"
     },
     {
+      "file": "FiniteFieldsAndCharacterSums",
+      "roadmap": "FiniteFieldsAndCharacterSums",
+      "nodes": 354,
+      "reviewer": "independent-review-REV-FiniteFieldsAndCharacterSums"
+    },
+    {
       "file": "GeneralAlgebraicKTheory--K.1",
       "roadmap": "GeneralAlgebraicKTheory",
       "nodes": 33,
@@ -550,6 +556,12 @@
       "reviewer": "independent-review-REV-FIX-RT-AREA-topology~3"
     },
     {
+      "file": "ProbabilisticAndMetricNumberTheory",
+      "roadmap": "ProbabilisticAndMetricNumberTheory",
+      "nodes": 300,
+      "reviewer": "independent-review-REV-ProbabilisticAndMetricNumberTheory"
+    },
+    {
       "file": "SchemeAndStackFoundations",
       "roadmap": "SchemeAndStackFoundations",
       "nodes": 303,
@@ -569,8 +581,8 @@
     }
   ],
   "sourceDocuments": 296,
-  "htmlBytes": 31514858,
-  "htmlSha256": "a66d4af137623eace84a31b6a760dd9273fd73f0181ae750508171065a2a6af3",
+  "htmlBytes": 31704830,
+  "htmlSha256": "1704d065487e85e9035d1e8377af131bfe177b07e7e775969c99cc210447cf92",
   "networkDependencies": 0,
   "localProgressOverridesIncluded": false,
   "assets": {
@@ -601,7 +613,7 @@
     "data/roadmap-summaries.json": "c8bdd0a9105f5d3c4a858c8b635990729f8e94497dee784a71fae659b8c05b9f",
     "data/roadmap-classification.json": "2641dbc97eb2566c715162d011b46890d1635629181ef8126ac7aed9e24a3b13",
     "data/classification-estimates.json": "625d35fe6121bf099dc5de9e6a9111793596f9b664e3fbd439841434bb4a57d6",
-    "data/roadmap-distances.json": "e7c7f57291c6cc69d25bbf42ded954864192acd228652fe4fd3f0b1da15209e9",
+    "data/roadmap-distances.json": "c8605cd7b0247868b79e30e6758b30bc33cd52ed53885936acae1024d40ab43c",
     "data/galaxy-layout.json": "5baeb3bc7c4b109ca1c927a5e307e87e74a9ae53025203186c33a6be188e6e7a",
     "data/bibliography.json": "bef230a41fad22d6b790c7564061c4d05c2ae5b78cab53d005eb404afab2b122",
     "NOTICE": "a285b95d5adbf5c2bcc82db36e2a77b797f84a2c5cbb30292efd0bae17cc4f34",
@@ -695,6 +707,8 @@
     "data/blueprints/EllipticKTheory.md": "c254d197a539eef155a823d0dfd3f179ba9b91982fa113dbc003b18d1de4903f",
     "data/blueprints/EllipticRegulators.json": "ea78b6592ec7aedf3d14e30e3a6437070ba764ba9ae7d49b352826efea48864f",
     "data/blueprints/EllipticRegulators.md": "45df41d0725c4f4bc7b0c43f9710b879367d2386a73a9fddfe4778881d7be759",
+    "data/blueprints/FiniteFieldsAndCharacterSums.json": "ea64ec0f7a0888da20c74fbcb2c0b0b7d58184f7a411ab147b9db3fcae4fb711",
+    "data/blueprints/FiniteFieldsAndCharacterSums.md": "280948019fed01a8fc773fc58a7eec61fd477cd2d5e59b93c83d430f4d9fda57",
     "data/blueprints/GeneralAlgebraicKTheory--K.1.json": "6d99ed94515665f97711483d11547ac5f74fdecc5ab4f73270602feea1ead6b4",
     "data/blueprints/GeneralAlgebraicKTheory--K.1.md": "0897b3b7abb9bdfd592bc3324b70acc5cc9905d85d84c923d90a8d3c033d29f0",
     "data/blueprints/GeneralAlgebraicKTheory--K.6.json": "14d13811cf26d920957a5b5791e6eec18d834bf2a991c96e4b781bdcf8a64370",
@@ -725,6 +739,8 @@
     "data/blueprints/NeronModelsAndSemistableAbelianVarieties.md": "7e174f3a26bad9ab37af9b71d1e741eb3fabd739d6d22a7d6903ea9f22e378d9",
     "data/blueprints/Polylogarithms.json": "c9068486dd97c07d99f56c54ed6af8d7bd29607a0f6069817ec95927f968bb86",
     "data/blueprints/Polylogarithms.md": "1d28e812ddc1cdf712e71814d4ba70a913d2107cd694003639dd5cc7ea08cf43",
+    "data/blueprints/ProbabilisticAndMetricNumberTheory.json": "c281a61e13ec7f433532aa0ecef0848a7951f3cb467e8a815b482b492f0412ab",
+    "data/blueprints/ProbabilisticAndMetricNumberTheory.md": "b7e90cc06297f3f3fd9baf7e5e8c452a935a601fc650bf168b2a5cae6932052b",
     "data/blueprints/SchemeAndStackFoundations.json": "0f55d115438cd23b2c0c1c2f478601a158f5e660a4f98e5afab64f185aed85ee",
     "data/blueprints/SchemeAndStackFoundations.md": "cb63bfd11a0822a766181443e2c4c49d6dd0a7e0f431035d5cb619af5e65f7c7",
     "data/blueprints/SemisimpleAlgebrasPartII.json": "a22b0e4cf4bb7405cfb80d792b3057900910ae92a18c3716175c0e1fe8299f05",

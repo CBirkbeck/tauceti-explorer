@@ -10317,8 +10317,8 @@
    "avoidAccountOf": "DESIGN-StableReductionPartII",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-StableReductionPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3619"
+   "state": "pending",
+   "note": "released on GitHub issue #3619"
   },
   {
    "id": "DESIGN-HeightsRationalPointsAndObstructionsPartII",
@@ -12754,7 +12754,8 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-ErdosProgressionPowers.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1693"
   },
   {
    "id": "REV-DESIGN-ErdosProgressionPowers",
@@ -13174,7 +13175,8 @@
    "avoidAccountOf": "DESIGN-FunctionFieldArithmeticPartII",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-FunctionFieldArithmeticPartII.md",
-   "state": "pending"
+   "state": "pending",
+   "note": "released on GitHub issue #3533"
   },
   {
    "id": "DESIGN-ProbabilisticAndMetricNumberTheoryPartII",
@@ -25789,8 +25791,9 @@
     "REV-RS-04"
    ],
    "prompt": "research/blueprint/prompts/BP-HeegnerPointEulerSystems--HE.0.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "external",
+   "suppliers": [],
+   "note": "claimed on GitHub issue #751"
   },
   {
    "id": "REV-HeegnerPointEulerSystems--HE.0",
@@ -30514,8 +30517,9 @@
    ],
    "avoidAccountOf": "BP-ClassicalArithmeticCompletion",
    "prompt": "research/blueprint/prompts/REV-ClassicalArithmeticCompletion.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #532"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #532",
+   "finishedAt": "2026-10-05T04:32:26Z"
   },
   {
    "id": "BP-ComputationalNumberTheory",
@@ -30625,8 +30629,9 @@
    ],
    "avoidAccountOf": "BP-DiophantineApproximationAndTranscendence",
    "prompt": "research/blueprint/prompts/REV-DiophantineApproximationAndTranscendence.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #534"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #534",
+   "finishedAt": "2026-10-05T05:00:53Z"
   },
   {
    "id": "BP-EffectiveDiophantineMethods",
@@ -30736,8 +30741,9 @@
    ],
    "avoidAccountOf": "BP-FiniteFieldsAndCharacterSums",
    "prompt": "research/blueprint/prompts/REV-FiniteFieldsAndCharacterSums.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #536"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #536",
+   "finishedAt": "2026-10-05T03:55:03Z"
   },
   {
    "id": "BP-GeometryOfNumbersAndQuadraticArithmetic",
@@ -31252,7 +31258,8 @@
    ],
    "avoidAccountOf": "BP-ArithmeticStatistics",
    "prompt": "research/blueprint/prompts/REV-ArithmeticStatistics.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #546"
   },
   {
    "id": "BP-ExponentialSumsAndCircleMethod",
@@ -31422,7 +31429,9 @@
    ],
    "avoidAccountOf": "BP-QSeriesPartitionsAndMockModularForms",
    "prompt": "research/blueprint/prompts/REV-QSeriesPartitionsAndMockModularForms.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #549",
+   "finishedAt": "2026-10-05T07:03:02Z"
   },
   {
    "id": "ASM-DeformationAndDerivedPatchingAlgebra",
