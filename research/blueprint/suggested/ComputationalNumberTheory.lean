@@ -900,6 +900,8 @@ example {p : ℕ} [Fact p.Prime] : (0:ℚ_[p])∈(padicMul (padicNormalize p 0 0
 example {p : ℕ} [Fact p.Prime] (a b : PadicApproximation p) : ((a.center*b.center:ℚ):ℚ_[p])∈(padicMul a b).denotation := by sorry
 -- TauCeti.Computational.test_padic_mul_unequal_precision
 example [Fact (Nat.Prime 3)] : (padicMul (padicNormalize 3 0 2) (padicNormalize 3 1 5)).precision=2 := by sorry
+-- TauCeti.Computational.test_padic_mul_negative_valuation
+example [Fact (Nat.Prime 3)] : let c := padicMul (padicNormalize 3 3 4) (padicNormalize 3 (1/3) 2); c.precision=3 ∧ c.center=1 := by sorry
 
 /- ComputationalNumberTheory:CN.4/padic-inverse -/
 def padicInverse {p : ℕ} [Fact p.Prime] (a : PadicApproximation p) : Option (PadicApproximation p) := if a.mantissa=0 then none else some (padicNormalize p a.center⁻¹ (a.precision-2*a.valuation))
@@ -1007,18 +1009,18 @@ example : (isolatePolynomialRoots (X^2:Polynomial ℚ) (by sorry)).length=1 := b
 example : (isolatePolynomialRoots (X^2+1:Polynomial ℚ) (by sorry)).length=2 := by sorry
 
 /- ComputationalNumberTheory:CN.4/dirichlet-l-value-enclosure -/
-def dirichletLBox (q : ℕ) [NeZero q] (χ : DirichletCharacter ℂ q)
+def dirichletLBox (q : ℕ) [NeZero q] (χ : DirichletCharacter ℂ q) (hχ : χ.IsPrimitive)
  (z : ℚ × ℚ) (hz : χ≠1 ∨ (z.1:ℂ)+(z.2:ℂ)*Complex.I≠1) (P : ℕ) :
  NonemptyInterval ℚ × NonemptyInterval ℚ := by sorry
-theorem dirichletLBox_sound (q : ℕ) [NeZero q] (χ : DirichletCharacter ℂ q) (z : ℚ × ℚ) (hz : χ≠1 ∨ (z.1:ℂ)+(z.2:ℂ)*Complex.I≠1) (P : ℕ) : DirichletCharacter.LFunction χ ((z.1:ℂ)+(z.2:ℂ)*Complex.I)∈complexBoxSet (dirichletLBox q χ z hz P) := by sorry
-theorem dirichletLBox_width (q : ℕ) [NeZero q] (χ : DirichletCharacter ℂ q) (z : ℚ × ℚ) (hz : χ≠1 ∨ (z.1:ℂ)+(z.2:ℂ)*Complex.I≠1) (P : ℕ) : (dirichletLBox q χ z hz P).1.snd-(dirichletLBox q χ z hz P).1.fst ≤ 1/(2:ℚ)^P ∧ (dirichletLBox q χ z hz P).2.snd-(dirichletLBox q χ z hz P).2.fst ≤ 1/(2:ℚ)^P := by sorry
-theorem dirichletLBox_nonvanishing (q : ℕ) [NeZero q] (χ : DirichletCharacter ℂ q) (z : ℚ × ℚ) (hz : χ≠1 ∨ (z.1:ℂ)+(z.2:ℂ)*Complex.I≠1) (P : ℕ) (h : (0:ℂ)∉complexBoxSet (dirichletLBox q χ z hz P)) : DirichletCharacter.LFunction χ ((z.1:ℂ)+(z.2:ℂ)*Complex.I)≠0 := by sorry
+theorem dirichletLBox_sound (q : ℕ) [NeZero q] (χ : DirichletCharacter ℂ q) (hχ : χ.IsPrimitive) (z : ℚ × ℚ) (hz : χ≠1 ∨ (z.1:ℂ)+(z.2:ℂ)*Complex.I≠1) (P : ℕ) : DirichletCharacter.LFunction χ ((z.1:ℂ)+(z.2:ℂ)*Complex.I)∈complexBoxSet (dirichletLBox q χ hχ z hz P) := by sorry
+theorem dirichletLBox_width (q : ℕ) [NeZero q] (χ : DirichletCharacter ℂ q) (hχ : χ.IsPrimitive) (z : ℚ × ℚ) (hz : χ≠1 ∨ (z.1:ℂ)+(z.2:ℂ)*Complex.I≠1) (P : ℕ) : (dirichletLBox q χ hχ z hz P).1.snd-(dirichletLBox q χ hχ z hz P).1.fst ≤ 1/(2:ℚ)^P ∧ (dirichletLBox q χ hχ z hz P).2.snd-(dirichletLBox q χ hχ z hz P).2.fst ≤ 1/(2:ℚ)^P := by sorry
+theorem dirichletLBox_nonvanishing (q : ℕ) [NeZero q] (χ : DirichletCharacter ℂ q) (hχ : χ.IsPrimitive) (z : ℚ × ℚ) (hz : χ≠1 ∨ (z.1:ℂ)+(z.2:ℂ)*Complex.I≠1) (P : ℕ) (h : (0:ℂ)∉complexBoxSet (dirichletLBox q χ hχ z hz P)) : DirichletCharacter.LFunction χ ((z.1:ℂ)+(z.2:ℂ)*Complex.I)≠0 := by sorry
 -- TauCeti.Computational.test_lbox_zeta_two
-example (P : ℕ) : riemannZeta 2∈complexBoxSet (dirichletLBox 1 1 (2,0) (by sorry) P) := by sorry
+example (P : ℕ) : riemannZeta 2∈complexBoxSet (dirichletLBox 1 1 (by sorry) (2,0) (by sorry) P) := by sorry
 -- TauCeti.Computational.test_lbox_pole
 example : ¬((1:DirichletCharacter ℂ 1)≠1 ∨ ((1:ℚ):ℂ)+((0:ℚ):ℂ)*Complex.I≠1) := by sorry
 -- TauCeti.Computational.test_lbox_critical_line
-example (q : ℕ) [NeZero q] (χ : DirichletCharacter ℂ q) (P : ℕ) : DirichletCharacter.LFunction χ (1/2)∈complexBoxSet (dirichletLBox q χ (1/2,0) (by sorry) P) := by sorry
+example (q : ℕ) [NeZero q] (χ : DirichletCharacter ℂ q) (hχ : χ.IsPrimitive) (P : ℕ) : DirichletCharacter.LFunction χ (1/2)∈complexBoxSet (dirichletLBox q χ hχ (1/2,0) (by sorry) P) := by sorry
 
 /- ComputationalNumberTheory:CN.4/platt-bounded-height-grh -/
 theorem platt_bounded_height (q : ℕ) [NeZero q] (χ : DirichletCharacter ℂ q)
@@ -1166,6 +1168,9 @@ example (P : ℕ) : (0:ℂ)∈complexBoxSet (cuspLBox 12 (by sorry) 0 (by sorry)
 example (f : CuspForm 𝒮ℒ 12) (hf : f∈integralCuspLattice 12) : let B:=cuspLBox 12 (by sorry) f hf (1,0) 8; B.1.snd-B.1.fst ≤ 1/256 ∧ B.2.snd-B.2.fst ≤ 1/256 := by sorry
 -- TauCeti.Computational.test_cuspL_no_zero_inference
 example : (0:ℂ)∈complexBoxSet (⟨(-1,1),by sorry⟩,⟨(-1,1),by sorry⟩) ∧ (1:ℂ)∈complexBoxSet (⟨(-1,1),by sorry⟩,⟨(-1,1),by sorry⟩) := by sorry
+
+-- TauCeti.Computational.test_cuspL_singleton_zero
+example : ∀ z ∈ complexBoxSet (NonemptyInterval.pure 0, NonemptyInterval.pure 0), z=(0:ℂ) := by sorry
 
 /- ComputationalNumberTheory:CN.3/modular-data-equality -/
 def modularDataEqual (B : ℕ) (a b : Fin (B+1) → AlgebraicRootCertificate) : Bool := by

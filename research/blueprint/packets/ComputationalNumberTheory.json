@@ -199,14 +199,14 @@
       },
       {
         "ref": "mathlib:CuspForm.differentiable_Λ",
-        "kind": "theorem",
+        "kind": "lemma",
         "module": "Mathlib/NumberTheory/ModularForms/LFunction.lean",
         "provides": "The completed L-function of a positive-weight cusp form on an arithmetic subgroup is entire.",
         "checked": "Full statement read at the pinned commit; hypotheses retained."
       },
       {
         "ref": "mathlib:CuspForm.differentiable_L",
-        "kind": "theorem",
+        "kind": "lemma",
         "module": "Mathlib/NumberTheory/ModularForms/LFunction.lean",
         "provides": "The uncompleted continuation is entire for a positive-weight cusp form.",
         "checked": "Full statement read at the pinned commit; hypotheses retained."
@@ -238,6 +238,20 @@
         "module": "Mathlib/RingTheory/AdjoinRoot.lean",
         "provides": "Canonical polynomial-to-root-quotient ring homomorphism.",
         "checked": "Full statement read at the pinned commit; hypotheses retained."
+      },
+      {
+        "ref": "mathlib:weakFEPair",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/ModularForms/LFunction.lean",
+        "provides": "Fully qualified ModularForm.weakFEPair: for an arithmetic subgroup Γ, integer k>0 and a ModularFormClass F Γ k, the native pair has g=translate f S and ε=I^k. Index spelling is weakFEPair.",
+        "checked": "Full declaration and ambient hypotheses independently read at pinned Mathlib 082e2d37; general-level Fricke comparison is a supplier refinement."
+      },
+      {
+        "ref": "mathlib:WeakFEPair.functional_equation",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/LSeries/AbstractFuncEq.lean",
+        "provides": "For a WeakFEPair E over a normed complex vector space, P.Λ(P.k−s)=P.ε • P.symm.Λ(s). The carrier includes k>0, ε≠0, local integrability, the inversion identity and rapid decay after subtracting constant terms.",
+        "checked": "Full WeakFEPair structure and theorem independently read at pinned Mathlib 082e2d37; this is continuation/functional equation, not an effective numerical tail bound."
       }
     ]
   },
@@ -249,11 +263,11 @@
       "edition": "Version 2",
       "url": "https://shoup.net/ntb/ntb-v2.pdf",
       "sha256": "8e1abc54f4510c3f274dfbed07ea602a6a439ee24b2c916e61abe829b402ec06",
-      "accessed": "2026-10-04",
+      "accessed": "2026-10-05",
       "readSections": [
-        "PDF pages 71, 72, 73, 90, 325, 326, 327, 328, 329, 330, 457, 458, 459, 566, 567, 568, 569, 570, 571, 572, 573, 574, 575, 576"
+        "Independent review: physical PDF pages 71, 72, 73, 90, 325, 326, 327, 328, 329, 330, 457, 458, 459, 533, 534, 566, 567, 568, 569, 570, 571, 572, 573, 574, 575, 576"
       ],
-      "acquisition": "Existing public-source cache; fresh page extraction 2026-10-04. Direct Shoup/Stein fetch rejected (406/403). Not a fresh HTTP download."
+      "acquisition": "Independent direct HTTP download on 2026-10-05; SHA-256 independently matches the inherited version; relevant pages read from fresh extraction, with displayed formula images where extraction loses superscripts."
     },
     {
       "id": "Stein",
@@ -262,11 +276,11 @@
       "edition": "Author PDF",
       "url": "https://wstein.org/books/modform/stein-modform.pdf",
       "sha256": "b50e81d48d2fb794948414fee625d1d3ca19c191a87430ca38c8713c8f466b75",
-      "accessed": "2026-10-04",
+      "accessed": "2026-10-05",
       "readSections": [
-        "PDF pages 33, 34, 35, 185, 186, 187"
+        "Independent review: physical PDF pages 32, 33, 34, 35, 36, 37, 38, 85, 185, 186, 187, 188, 189"
       ],
-      "acquisition": "Existing public-source cache; fresh page extraction 2026-10-04. Direct Shoup/Stein fetch rejected (406/403). Not a fresh HTTP download."
+      "acquisition": "Independent direct HTTP download on 2026-10-05; SHA-256 independently matches the inherited version; relevant pages read from fresh extraction, with displayed formula images where extraction loses superscripts."
     },
     {
       "id": "Arb",
@@ -275,11 +289,11 @@
       "edition": "arXiv:1611.02831v1",
       "url": "https://arxiv.org/pdf/1611.02831",
       "sha256": "44802d5cce02bf91a3d155870b8f315f2955866e283bfb48f6776a07f35f6ebf",
-      "accessed": "2026-10-04",
+      "accessed": "2026-10-05",
       "readSections": [
-        "PDF pages 1, 4, 5, 6, 7, 8"
+        "Independent review: physical PDF pages 1, 2, 3, 4, 5, 6, 7, 8, 9, 10"
       ],
-      "acquisition": "Existing public-source cache; fresh page extraction 2026-10-04. Not a fresh HTTP download."
+      "acquisition": "Independent direct HTTP download on 2026-10-05; SHA-256 independently matches the inherited version; relevant pages read from fresh extraction, with displayed formula images where extraction loses superscripts."
     },
     {
       "id": "CT",
@@ -288,11 +302,11 @@
       "edition": "Publ. Math. IHÉS 131 (2020), 261–323",
       "url": "https://pmihes.centre-mersenne.org/item/10.1007/s10240-020-00115-z.pdf",
       "sha256": "ea90fb0faabeaaa56be15f2c6f9c22450e7891c2181130fd79fe356cd83ba3de",
-      "accessed": "2026-10-04",
+      "accessed": "2026-10-05",
       "readSections": [
-        "PDF pages 21, 22, 23, 24, 35, 36, 37, 38, 39, 40, 41"
+        "Independent review: physical PDF pages 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 35, 36, 37, 38, 39, 40, 41"
       ],
-      "acquisition": "Existing public-source cache; fresh page extraction 2026-10-04. Not a fresh HTTP download."
+      "acquisition": "Independent direct HTTP download on 2026-10-05; SHA-256 independently matches the inherited version; relevant pages read from fresh extraction, with displayed formula images where extraction loses superscripts."
     },
     {
       "id": "BCG",
@@ -301,11 +315,11 @@
       "edition": "JAMS 38 (2025), 509–520",
       "url": "https://math.uchicago.edu/~fcale/papers/WeightZero.pdf",
       "sha256": "4d27afabbef371babf3a73dad19bc8ccee180636be27bd6ebee17f58f7150290",
-      "accessed": "2026-10-04",
+      "accessed": "2026-10-05",
       "readSections": [
-        "PDF pages 7, 10, 11"
+        "Independent review: physical PDF pages 5, 6, 7, 10, 11"
       ],
-      "acquisition": "Existing public-source cache; fresh page extraction 2026-10-04. Not a fresh HTTP download."
+      "acquisition": "Independent direct HTTP download on 2026-10-05; SHA-256 independently matches the inherited version; relevant pages read from fresh extraction, with displayed formula images where extraction loses superscripts."
     },
     {
       "id": "NumberRings",
@@ -314,11 +328,11 @@
       "edition": "MSRI 44 (2008), pp.209–266",
       "url": "https://library.slmath.org/books/Book44/files/08psh.pdf",
       "sha256": "040ebae8ee54439c0e10480d2302c46c1ad465616dfbe2b68e449507c3a1bf17",
-      "accessed": "2026-10-04",
+      "accessed": "2026-10-05",
       "readSections": [
-        "PDF pages 24, 25, 26, 27, 36, 37, 38, 39, 40, 41, 42, 43, 44"
+        "Independent review: physical PDF pages 3, 4, 5, 16, 17, 18, 24, 25, 26, 27, 36, 37, 38, 39, 40, 41, 42, 43, 44"
       ],
-      "acquisition": "Existing public-source cache; fresh page extraction 2026-10-04. Not a fresh HTTP download."
+      "acquisition": "Independent direct HTTP download on 2026-10-05; SHA-256 independently matches the inherited version; relevant pages read from fresh extraction, with displayed formula images where extraction loses superscripts."
     },
     {
       "id": "GMN",
@@ -327,11 +341,11 @@
       "edition": "arXiv:0807.2620v2",
       "url": "https://arxiv.org/pdf/0807.2620",
       "sha256": "62b8f28d1839dbaac425ac17088b08070bf531aee9ffedae0bc80a1cb109d8ad",
-      "accessed": "2026-10-04",
+      "accessed": "2026-10-05",
       "readSections": [
-        "PDF pp.1–15, including Corollary 1.20 proof and first-order types; only first-order targets claimed, no full higher-order proof reading."
+        "Independent review: physical PDF pages 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15"
       ],
-      "acquisition": "Fresh HTTP download 2026-10-04"
+      "acquisition": "Independent direct HTTP download on 2026-10-05; SHA-256 independently matches the inherited version; relevant pages read from fresh extraction, with displayed formula images where extraction loses superscripts."
     },
     {
       "id": "CarusoPublished",
@@ -340,11 +354,11 @@
       "edition": "Les cours du CIRM 5 (2017), no.1, II",
       "url": "https://www.numdam.org/item/10.5802/ccirm.25.pdf",
       "sha256": "c6124267c5457166cb08b0baf645dfff37a4bcf838f13cb27ad1182dfe6fd0d0",
-      "accessed": "2026-10-04",
+      "accessed": "2026-10-05",
       "readSections": [
-        "PDF pages 18, 19, 20"
+        "Independent review: physical PDF pages 18, 19, 20"
       ],
-      "acquisition": "Fresh HTTP download 2026-10-04"
+      "acquisition": "Independent direct HTTP download on 2026-10-05; SHA-256 independently matches the inherited version; relevant pages read from fresh extraction, with displayed formula images where extraction loses superscripts."
     },
     {
       "id": "BennettSiksek",
@@ -353,11 +367,11 @@
       "edition": "Annals of Mathematics 191 (2020), 355–392",
       "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v191-n2-p02-s.pdf",
       "sha256": "3920a7524a37870942fe3591ac858db23cb604f4331bccd2a6dc5f11a1671fbf",
-      "accessed": "2026-10-04",
+      "accessed": "2026-10-05",
       "readSections": [
-        "PDF pages 21, 22"
+        "Independent review: physical PDF pages 21, 22"
       ],
-      "acquisition": "Fresh HTTP 2026-10-04"
+      "acquisition": "Independent direct HTTP download on 2026-10-05; SHA-256 independently matches the inherited version; relevant pages read from fresh extraction, with displayed formula images where extraction loses superscripts."
     },
     {
       "id": "Thery",
@@ -366,11 +380,11 @@
       "edition": "arXiv:2203.16341",
       "url": "https://arxiv.org/pdf/2203.16341",
       "sha256": "f2cae5e07052046fddc01a9f94437e9df3bcbfcbba6fbea4d2a8578bf11bd0b7",
-      "accessed": "2026-10-04",
+      "accessed": "2026-10-05",
       "readSections": [
-        "PDF pages 9, 10"
+        "Independent review: physical PDF pages 9, 10"
       ],
-      "acquisition": "Fresh HTTP 2026-10-04"
+      "acquisition": "Independent direct HTTP download on 2026-10-05; SHA-256 independently matches the inherited version; relevant pages read from fresh extraction, with displayed formula images where extraction loses superscripts."
     },
     {
       "id": "Platt",
@@ -379,11 +393,11 @@
       "edition": "arXiv:1305.3087, 15-page preprint",
       "url": "https://arxiv.org/pdf/1305.3087",
       "sha256": "8fd109aa21345bc3feac4fde2faa7dfb51b4ef1fc9a430f643323612a39ef417",
-      "accessed": "2026-10-04",
+      "accessed": "2026-10-05",
       "readSections": [
-        "PDF pages 11, 14, 15"
+        "Independent review: physical PDF pages 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15"
       ],
-      "acquisition": "Fresh HTTP 2026-10-04"
+      "acquisition": "Independent direct HTTP download on 2026-10-05; SHA-256 independently matches the inherited version; relevant pages read from fresh extraction, with displayed formula images where extraction loses superscripts."
     },
     {
       "id": "PrattNotes",
@@ -392,11 +406,11 @@
       "edition": "Author lecture notes, 5 pages",
       "url": "https://users.encs.concordia.ca/~chvatal/notes/ppp.pdf",
       "sha256": "8eede94ec34bafd64d3fd6a882130b6cd30655800f28504e4d90919ab1f4fd85",
-      "accessed": "2026-10-04",
+      "accessed": "2026-10-05",
       "readSections": [
-        "PDF pages 1, 2, 3, 4, 5"
+        "Independent review: physical PDF pages 1, 2, 3, 4, 5"
       ],
-      "acquisition": "Fresh HTTP 2026-10-04"
+      "acquisition": "Independent direct HTTP download on 2026-10-05; SHA-256 independently matches the inherited version; relevant pages read from fresh extraction, with displayed formula images where extraction loses superscripts."
     },
     {
       "id": "CL",
@@ -405,11 +419,24 @@
       "edition": "arXiv:1409.7616, French 461-page preprint",
       "url": "https://arxiv.org/pdf/1409.7616",
       "sha256": "ee20dcf191d37290a74c79c4b15d9fbfe5c2b3673bd6c53283ff44d19762708d",
-      "accessed": "2026-10-04",
+      "accessed": "2026-10-05",
       "readSections": [
-        "PDF pages 308, 309, 310, 311, 312"
+        "Independent review: physical PDF pages 308, 309, 310, 311, 312"
       ],
-      "acquisition": "fresh public arXiv download, French version; not the published English edition"
+      "acquisition": "Independent direct HTTP download on 2026-10-05; SHA-256 independently matches the inherited version; relevant pages read from fresh extraction, with displayed formula images where extraction loses superscripts."
+    },
+    {
+      "id": "CG13",
+      "title": "Computing level one Hecke eigensystems (mod p)",
+      "authors": "Craig Citro and Alexandru Ghitza",
+      "edition": "arXiv:1102.3321v2, 29 March 2011; journal publication 2013 not independently collated",
+      "url": "https://arxiv.org/pdf/1102.3321v2",
+      "sha256": "bfa9d998d5399a97c7d877f01f81e3e23d7c75563034ab42c5fbecafb6347453",
+      "accessed": "2026-10-05",
+      "readSections": [
+        "Physical PDF pages 11–14: §§6–7 and appendix table C"
+      ],
+      "acquisition": "Independent direct HTTP download and extraction; appendix table also inspected as an image."
     }
   ],
   "nodes": [
@@ -866,7 +893,7 @@
       "sources": [
         {
           "sourceId": "Arb",
-          "locator": "§§5–5.3, pp.7–8",
+          "locator": "§§5–5.3, pp.7–9",
           "excerpt": "set inclusions",
           "match": "The presentation and decoding below are formalization designs: exact root identity is separate from an enclosing rectangle. This source motivates enclosures, not a proved algebraic root-isolation algorithm."
         }
@@ -949,7 +976,7 @@
       "sources": [
         {
           "sourceId": "Arb",
-          "locator": "§§5–5.3, pp.7–8",
+          "locator": "§§5–5.3, pp.7–9",
           "excerpt": "set inclusions",
           "match": "The presentation and decoding below are formalization designs: exact root identity is separate from an enclosing rectangle. This source motivates enclosures, not a proved algebraic root-isolation algorithm."
         }
@@ -1026,7 +1053,7 @@
       "sources": [
         {
           "sourceId": "Arb",
-          "locator": "§§5–5.3, pp.7–8",
+          "locator": "§§5–5.3, pp.7–9",
           "excerpt": "set inclusions",
           "match": "The presentation and decoding below are formalization designs: exact root identity is separate from an enclosing rectangle. This source motivates enclosures, not a proved algebraic root-isolation algorithm."
         }
@@ -1061,7 +1088,7 @@
       "sources": [
         {
           "sourceId": "Arb",
-          "locator": "§§5–5.3, pp.7–8",
+          "locator": "§§5–5.3, pp.7–9",
           "excerpt": "set inclusions",
           "match": "The presentation and decoding below are formalization designs: exact root identity is separate from an enclosing rectangle. This source motivates enclosures, not a proved algebraic root-isolation algorithm."
         }
@@ -1096,7 +1123,7 @@
       "sources": [
         {
           "sourceId": "Arb",
-          "locator": "§§5–5.3, pp.7–8",
+          "locator": "§§5–5.3, pp.7–9",
           "excerpt": "set inclusions",
           "match": "The presentation and decoding below are formalization designs: exact root identity is separate from an enclosing rectangle. This source motivates enclosures, not a proved algebraic root-isolation algorithm."
         }
@@ -1609,7 +1636,7 @@
       "sources": [
         {
           "sourceId": "Shoup",
-          "locator": "Theorem 10.2, pp.308–309",
+          "locator": "Theorem 10.3, prime-input case, p.309",
           "excerpt": "Miller–Rabin test",
           "match": "No false rejection for odd prime inputs."
         }
@@ -1712,8 +1739,8 @@
       "sources": [
         {
           "sourceId": "Shoup",
-          "locator": "§21.2, pp.548–549",
-          "excerpt": "deterministic primality test",
+          "locator": "§21.2, pp.549–550; Figure 21.1, p.550",
+          "excerpt": "Algorithm AKS",
           "match": "Uses Shoup’s exact parameter search, not a silently substituted AKS variant."
         }
       ],
@@ -1786,8 +1813,8 @@
       "sources": [
         {
           "sourceId": "Shoup",
-          "locator": "§21.2, pp.548–549",
-          "excerpt": "deterministic primality test",
+          "locator": "§21.2, pp.549–550; Figure 21.1, p.550",
+          "excerpt": "Algorithm AKS",
           "match": "The polynomial checks in the actual ring modulo n."
         }
       ],
@@ -1863,8 +1890,8 @@
       "sources": [
         {
           "sourceId": "Shoup",
-          "locator": "§21.2, pp.548–549",
-          "excerpt": "deterministic primality test",
+          "locator": "§21.2, pp.549–550; Figure 21.1, p.550",
+          "excerpt": "Algorithm AKS",
           "match": "All branches and the precise truncation parameter of the source algorithm."
         }
       ],
@@ -1945,7 +1972,7 @@
         {
           "sourceId": "Shoup",
           "locator": "§21.2 and Lemmas 21.6–21.11, pp.549–558",
-          "excerpt": "deterministic primality test",
+          "excerpt": "Algorithm AKS",
           "match": "Unconditional correctness, separately from the cost model."
         }
       ],
@@ -2665,7 +2692,7 @@
       "statement": "Let A be a finite-dimensional commutative algebra over ZMod p, p prime, and let p^k≥dim A. Then x is nilpotent iff x^(p^k)=0. Consequently the nilradical is the kernel of the kth iterate of the Frobenius algebra endomorphism, computable by linear algebra in any supplied basis.",
       "hypotheses": [],
       "proofSteps": [
-        "A nilpotent multiplication operator on the d-dimensional space has nilpotency exponent at most d. Thus x^d=0 and x^(p^k)=0. The reverse implication is the definition of nilpotence. The basis-to-matrix kernel computation is imported from CA.3."
+        "A nilpotent multiplication operator on the d-dimensional space has nilpotency exponent at most d. Thus x^d=0 and x^(p^k)=0. The reverse implication is the definition of nilpotence. The semantic kernel is native linear algebra. A certified finite-field kernel-basis algorithm and its basis-to-matrix comparison remain a supplier refinement; the inspected CA.3 integer Smith/Hermite interfaces do not by themselves supply it."
       ],
       "prerequisites": [
         "mathlib:FiniteField.frobeniusAlgHom",
@@ -2860,9 +2887,9 @@
       "sources": [
         {
           "sourceId": "NumberRings",
-          "locator": "§6 and §9, pp.224–225,233–235",
+          "locator": "§2, pp.212–213, Theorem 2.2; §7, p.226; §9, pp.233–235",
           "excerpt": "number rings",
-          "match": "Finite multiplication-stable lattices consist of integral elements."
+          "match": "The native finite multiplication-stable lattice is integral by its multiplication-matrix characteristic polynomial and Cayley–Hamilton. The quoted number-ring theorem supplies the integral-element context; the exact certificate adapter is a formalization design."
         }
       ],
       "acceptance": [
@@ -3594,10 +3621,10 @@
       ],
       "title": "Finite local expansion certificate",
       "kind": "definition",
-      "statement": "For a normed field L, chosen nonzero uniformizer π with ‖π‖<1, element x and digit count N, a LocalExpansionCertificate stores an integer initial exponent v, digits d₀,…,dₙ₋₁ of norm at most one, and a proved remainder bound ‖x−π^vΣd_iπ^i‖≤‖π‖^(v+N). Intrinsic local-field structure and residue representatives come from the owner. Without a fixed residue section these finite digits are not canonical; equality of decoded approximations is not asserted to imply equality of digits.",
+      "statement": "For a normed field L, chosen nonzero uniformizer π with ‖π‖<1, element x and digit count N, a LocalExpansionCertificate stores an integer initial exponent v, digits d₀,…,dₙ₋₁ of norm at most one, and a proved remainder bound ‖x−π^vΣd_iπ^i‖≤‖π‖^(v+N). Intrinsic local-field structure, uniformizer and reduction map come from the owner. A chosen residue section is a separate input; canonical Teichmüller representatives, when wanted, belong to LocalFields layer 1. Without a fixed residue section these finite digits are not canonical; equality of decoded approximations is not asserted to imply equality of digits.",
       "hypotheses": [],
       "proofSteps": [
-        "Store exact native field elements and the norm inequality. Constructing digits uses the imported residue lifting theorem. Comparing coordinate or quotient computations with x must preserve the chosen prime, embedding and uniformizer normalization."
+        "Store exact native field elements and the norm inequality. Digit construction requires a separately chosen section of the surjective residue reduction map, then a finite extraction/remainder argument recorded as a gap. Layer 0 supplies field and valuation structure, not an expansion theorem. Preserve the chosen prime, embedding and uniformizer normalization in comparisons."
       ],
       "prerequisites": [
         "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-0-local-fields-and-their-finite-extensions",
@@ -3609,7 +3636,7 @@
           "sourceId": "CarusoPublished",
           "locator": "§2.1.1, pp.17–19",
           "excerpt": "precision",
-          "match": "The finite p-adic remainder convention extends to a supplied discretely valued local field; field structure and residue lifts are imported."
+          "match": "The finite p-adic remainder convention extends to a supplied discretely valued local field; chosen residue lifts are additional data, not an existing layer-0 extraction theorem."
         }
       ],
       "acceptance": [
@@ -3940,7 +3967,7 @@
         {
           "sourceId": "Stein",
           "locator": "Theorem 9.18, pp.171–172, level-one case",
-          "excerpt": "Miller basis",
+          "excerpt": "Sturm",
           "match": "Congruence vanishing with the prime-ideal reduction condition."
         }
       ],
@@ -4046,8 +4073,8 @@
       "sources": [
         {
           "sourceId": "Stein",
-          "locator": "Chapter 2, Hecke action; Lemma 2.20",
-          "excerpt": "Miller basis",
+          "locator": "Proposition 2.31, p.24; Lemma 2.20, pp.20–21",
+          "excerpt": "modular function",
           "match": "The coefficient recurrence in an integral basis determines exact matrices."
         }
       ],
@@ -4128,8 +4155,8 @@
       "sources": [
         {
           "sourceId": "Stein",
-          "locator": "Lemma 2.20 and the Hecke coefficient recurrence",
-          "excerpt": "Miller basis",
+          "locator": "Proposition 2.31, p.24; Lemma 2.20, pp.20–21",
+          "excerpt": "modular function",
           "match": "Exact integer coordinates precede reduction modulo a prime."
         }
       ],
@@ -4517,9 +4544,15 @@
       "sources": [
         {
           "sourceId": "BCG",
-          "locator": "Remark 3.3, p.518, corrected source issue E7",
+          "locator": "Remark 3.3, p.518; ComputationalNumberTheory/E11",
           "excerpt": "companion form",
           "match": "Retains the valid primes and explicitly removes the failed 151 witnesses."
+        },
+        {
+          "sourceId": "CG13",
+          "locator": "§§6–7, pp.11–12 and appendix table C, p.14",
+          "excerpt": "companion forms",
+          "match": "The table lists the smaller weight of each ordinary companion pair: at p=151 it is 52, so the partner weight is 100; both fail the BCG gcd hypothesis. This checks the table binding, not complete simultaneous-eigensystem certificates."
         }
       ],
       "acceptance": [
@@ -4551,9 +4584,9 @@
       "sources": [
         {
           "sourceId": "Arb",
-          "locator": "§2, pp.2–4",
-          "excerpt": "enclosures",
-          "match": "Exact rational endpoint specialization of enclosing interval multiplication; no claim of midpoint-radius optimality."
+          "locator": "§3.1.2, p.5; §4, p.6; §5, p.7",
+          "excerpt": "Multiplication",
+          "match": "Arb supplies enclosure arithmetic and its inclusion requirement. The four-corner exact rational endpoint formula is an ordered-field adapter designed here; it is not quoted as Arb’s midpoint-radius formula."
         }
       ],
       "acceptance": [
@@ -4631,9 +4664,9 @@
       "sources": [
         {
           "sourceId": "Arb",
-          "locator": "§2, pp.2–4",
-          "excerpt": "enclosures",
-          "match": "Inclusion property needed for rigorous arithmetic."
+          "locator": "§3.1.2, p.5; §4, p.6; §5, p.7",
+          "excerpt": "Multiplication",
+          "match": "Arb supplies enclosure arithmetic and its inclusion requirement. The four-corner exact rational endpoint formula is an ordered-field adapter designed here; it is not quoted as Arb’s midpoint-radius formula."
         }
       ],
       "acceptance": [
@@ -4665,9 +4698,9 @@
       "sources": [
         {
           "sourceId": "Arb",
-          "locator": "§2, p.4",
-          "excerpt": "enclosures",
-          "match": "Division requires a nonzero denominator enclosure."
+          "locator": "§3.1, pp.4–6; §5, pp.7–8",
+          "excerpt": "error",
+          "match": "Directed enclosing arithmetic motivates the adapter. The exact reciprocal reverses endpoints and is defined only when the rational interval excludes zero; its ordered-field proof is a formalization design."
         }
       ],
       "acceptance": [
@@ -4745,9 +4778,9 @@
       "sources": [
         {
           "sourceId": "Arb",
-          "locator": "§2, p.4",
-          "excerpt": "enclosures",
-          "match": "Soundness of reciprocal arithmetic."
+          "locator": "§3.1, pp.4–6; §5, pp.7–8",
+          "excerpt": "error",
+          "match": "Directed enclosing arithmetic motivates the adapter. The exact reciprocal reverses endpoints and is defined only when the rational interval excludes zero; its ordered-field proof is a formalization design."
         }
       ],
       "acceptance": [
@@ -4779,9 +4812,9 @@
       "sources": [
         {
           "sourceId": "Arb",
-          "locator": "§2, pp.2–4",
-          "excerpt": "enclosures",
-          "match": "Round the exact rational enclosure outward to a chosen binary grid."
+          "locator": "§3.1, p.4; §5, p.7",
+          "excerpt": "rounding",
+          "match": "Directed rounding motivates this exact rational floor/ceiling grid adapter; its explicit width estimate is proved from ordered-field inequalities."
         }
       ],
       "acceptance": [
@@ -4859,9 +4892,9 @@
       "sources": [
         {
           "sourceId": "Arb",
-          "locator": "§2, pp.2–4",
-          "excerpt": "enclosures",
-          "match": "Quantified rounding error for the exact-grid adapter."
+          "locator": "§3.1, p.4; §5, p.7",
+          "excerpt": "rounding",
+          "match": "Directed rounding motivates this exact rational floor/ceiling grid adapter; its explicit width estimate is proved from ordered-field inequalities."
         }
       ],
       "acceptance": [
@@ -4893,8 +4926,8 @@
       "sources": [
         {
           "sourceId": "Arb",
-          "locator": "§3, pp.5–6",
-          "excerpt": "enclosures",
+          "locator": "§2.3, pp.3–4",
+          "excerpt": "integer",
           "match": "Exact recovery from a rigorous enclosure also requires integrality of the target."
         }
       ],
@@ -4969,8 +5002,8 @@
       "sources": [
         {
           "sourceId": "Arb",
-          "locator": "§3, pp.5–6",
-          "excerpt": "enclosures",
+          "locator": "§2.3, pp.3–4",
+          "excerpt": "integer",
           "match": "Separates numerical enclosure from the independent integrality input."
         }
       ],
@@ -5362,7 +5395,8 @@
       "acceptance": [
         "The operation on two precision-zero zero-centred balls contains zero.",
         "The exact operation on the centres lies in the output.",
-        "The declared precision includes different input precisions and zero centres."
+        "The declared precision includes different input precisions and zero centres.",
+        "At p=3, multiply 3+O(3^4) by 1/3+O(3^2): the normalized output has centre 1 and absolute precision min(1+2,4−1)=3."
       ],
       "implementationStatus": "unchecked",
       "library": {
@@ -5402,6 +5436,11 @@
           "name": "TauCeti.Computational.test_padic_mul_unequal_precision",
           "kind": "compatibility",
           "statement": "The declared precision includes different input precisions and zero centres."
+        },
+        {
+          "name": "TauCeti.Computational.test_padic_mul_negative_valuation",
+          "kind": "computation",
+          "statement": "At p=3, multiply 3+O(3^4) by 1/3+O(3^2): the normalized output has centre 1 and absolute precision min(1+2,4−1)=3."
         }
       ],
       "uses": [
@@ -6450,7 +6489,7 @@
       "sources": [
         {
           "sourceId": "CT",
-          "locator": "§2.3 reduction, pp.275–276; corrected source issue E3",
+          "locator": "§2.4.2, Equation (2.4.4), p.278 and reduction pp.280–281; Algorithm 2.4.5, p.283; ComputationalNumberTheory/E12",
           "excerpt": "quadratic form",
           "match": "The numerical adapter uses the corrected diagonal and witness lift, not a false equality of unit-sphere minima."
         }
@@ -6792,7 +6831,7 @@
       "sources": [
         {
           "sourceId": "Arb",
-          "locator": "§§5–5.3, pp.7–8",
+          "locator": "§§5–5.3, pp.7–9",
           "excerpt": "set inclusions",
           "match": "The presentation and decoding below are formalization designs: exact root identity is separate from an enclosing rectangle. This source motivates enclosures, not a proved algebraic root-isolation algorithm."
         }
@@ -6864,6 +6903,8 @@
       ],
       "prerequisites": [
         "mathlib:L",
+        "mathlib:weakFEPair",
+        "mathlib:WeakFEPair.functional_equation",
         "ComputationalNumberTheory:CN.4/complex-box-denotation",
         "ComputationalNumberTheory:CN.3/miller-basis",
         "ComputationalNumberTheory:CN.3/integral-cusp-lattice",
@@ -6880,7 +6921,8 @@
       "acceptance": [
         "A zero cusp form has an enclosure containing zero.",
         "At precision eight both widths are at most 1/256.",
-        "A rational rectangle containing zero also contains a nonzero number."
+        "The explicit rectangle [−1,1]×[−1,1] contains both zero and one, so membership of zero alone in this enclosure does not prove exact vanishing.",
+        "The singleton rectangle {0}×{0} contains only zero; a certified value in this exact rectangle is zero."
       ],
       "implementationStatus": "unchecked",
       "library": {
@@ -6919,7 +6961,12 @@
         {
           "name": "TauCeti.Computational.test_cuspL_no_zero_inference",
           "kind": "non-example",
-          "statement": "A rational rectangle containing zero also contains a nonzero number."
+          "statement": "The explicit rectangle [−1,1]×[−1,1] contains both zero and one, so membership of zero alone in this enclosure does not prove exact vanishing."
+        },
+        {
+          "name": "TauCeti.Computational.test_cuspL_singleton_zero",
+          "kind": "degenerate",
+          "statement": "The singleton rectangle {0}×{0} contains only zero; a certified value in this exact rectangle is zero."
         }
       ],
       "uses": [
@@ -7021,7 +7068,7 @@
   "requests": [
     {
       "supplier": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-0-local-fields-and-their-finite-extensions",
-      "need": "Reuse the complete discretely valued field, uniformizer, residue-field representatives and their lifting/expansion theorem. CN.2 supplies finite coordinate certificates and verifies the remainder; it does not construct a second local field or valuation.",
+      "need": "Reuse the complete discretely valued field, uniformizer, residue field and surjective reduction map from layer 0. A residue section is a separate choice; canonical Teichmüller lifts are a layer-1 refinement. CN.2 supplies finite coordinate certificates and must prove digit extraction and the remainder bound; it does not construct a second field or valuation.",
       "neededBy": [
         "ComputationalNumberTheory:CN.2/local-expansion-certificate"
       ]
@@ -7043,7 +7090,7 @@
     },
     {
       "supplier": "GeometryOfNumbersAndQuadraticArithmetic:GN.5",
-      "need": "Exact Fincke–Pohst enumeration with a completeness theorem: for symmetric positive-definite rational B and rational c≥0, return every integer vector x with xᵀBx≤c. An LLL short-vector output is insufficient. Expose the exact cutoff and allow an enlarged cover whose excess vectors are retained explicitly.",
+      "need": "Exact Fincke–Pohst enumeration with a completeness theorem: for symmetric positive-definite rational B and rational c≥0, return every integer vector x with xᵀBx≤c. An LLL short-vector output is insufficient. Expose the exact cutoff and allow an enlarged cover whose excess vectors are retained explicitly. The inspected GN.5 nodes supply LLL only; no exact enumeration theorem is exported at this base.",
       "neededBy": [
         "ComputationalNumberTheory:CN.4/effective-ellipsoid-cover"
       ]
@@ -7100,51 +7147,58 @@
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/EllipticCurves#layer-1-isogenies-the-dual-the-invariant-differential-and-formal-groups-aec-ii2-iii46-iv",
-      "need": "Import the isogeny/dual/differential comparison, intrinsic q+1−trace point count, existing Mordell–Weil and two-descent algorithms, and Selmer/local conditions. ED.3 supplies the new local-image and saturation service. CN.3 does not re-plan any of them; accepted RS-03 supplier edges remain intact.",
+      "need": "Import isogenies, their duals, invariant differentials and formal-group comparisons from EllipticCurves layer 1. CN.3 binds finite computed data to these intrinsic objects.",
       "neededBy": [
         "ComputationalNumberTheory:CN.3"
       ]
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1",
-      "need": "Import the isogeny/dual/differential comparison, intrinsic q+1−trace point count, existing Mordell–Weil and two-descent algorithms, and Selmer/local conditions. ED.3 supplies the new local-image and saturation service. CN.3 does not re-plan any of them; accepted RS-03 supplier edges remain intact.",
+      "need": "Import the intrinsic finite-field elliptic-curve group and Frobenius trace identity #E(F_q)=q+1−trace. FF.3 owns the finite field and finite Weierstrass point-count algorithm; comparison with the elliptic group requires nonsingularity.",
       "neededBy": [
         "ComputationalNumberTheory:CN.3"
       ]
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/EllipticCurves#layer-6-the-mordellweil-theorem-aec-viii",
-      "need": "Import the isogeny/dual/differential comparison, intrinsic q+1−trace point count, existing Mordell–Weil and two-descent algorithms, and Selmer/local conditions. ED.3 supplies the new local-image and saturation service. CN.3 does not re-plan any of them; accepted RS-03 supplier edges remain intact.",
+      "need": "Import finite generation, the existing Mordell–Weil and explicit two-descent foundations, torsion and height bounds from layer 6. Finite local-image and saturation refinements are requested from ED.3, whose decomposition remains pending.",
       "neededBy": [
         "ComputationalNumberTheory:CN.3"
       ]
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4",
-      "need": "Import the isogeny/dual/differential comparison, intrinsic q+1−trace point count, existing Mordell–Weil and two-descent algorithms, and Selmer/local conditions. ED.3 supplies the new local-image and saturation service. CN.3 does not re-plan any of them; accepted RS-03 supplier edges remain intact.",
+      "need": "Import cohomological Selmer groups with their local conditions and the Kummer exact sequence relating E(K)/mE(K), Selmer and Sha[m], with m≥2 and the stated base-field hypotheses. CN.3 must bind its finite outputs to those groups.",
       "neededBy": [
         "ComputationalNumberTheory:CN.3"
       ]
     },
     {
       "supplier": "EffectiveDiophantineMethods:ED.3",
-      "need": "Import the isogeny/dual/differential comparison, intrinsic q+1−trace point count, existing Mordell–Weil and two-descent algorithms, and Selmer/local conditions. ED.3 supplies the new local-image and saturation service. CN.3 does not re-plan any of them; accepted RS-03 supplier edges remain intact.",
+      "need": "Request finite local-image and saturation algorithms with soundness, completeness and termination. ED.3 is not_read at this base and exports no such declarations yet; this is a future supplier request, not a completed algorithm.",
       "neededBy": [
         "ComputationalNumberTheory:CN.3"
       ]
     },
     {
       "supplier": "AutomorphicLFunctionsAndLocalFactors:AL.1",
-      "need": "Evaluate the imported continuation. RankZeroOneBSD assembles exact vanishing below r and nonvanishing of the rth derivative; a box containing zero proves neither exact vanishing nor a rank lower bound. No extra BSD-to-CN.4 dependency is needed for this scope.",
+      "need": "AL.1 supplies Tate/Hecke analytic continuation and the functional equation, including completed-factor normalization and pole/residue conditions. Consume its analytic object for future numerical evaluation; native Dirichlet continuation is already imported separately. RankZeroOneBSD assembles exact rank certificates: [−1,1]×[−1,1] contains both zero and one, whereas a certified singleton {0} is exact zero.",
       "neededBy": [
         "ComputationalNumberTheory:CN.4"
       ]
     },
     {
       "supplier": "AnalyticNumberTheory:AN.4",
-      "need": "Evaluate the imported continuation. RankZeroOneBSD assembles exact vanishing below r and nonvanishing of the rth derivative; a box containing zero proves neither exact vanishing nor a rank lower bound. No extra BSD-to-CN.4 dependency is needed for this scope.",
+      "need": "AN.4 is a planned ideal-counting/Hecke-comparison stage, not a built numerical evaluator. Request the exact comparison of its number-field analytic L-functions with the AL.1 continuation, with normalization and pole hypotheses. Retain this as a future supplier input; the direct native Dirichlet evaluator does not need a duplicate continuation.",
       "neededBy": [
         "ComputationalNumberTheory:CN.4"
+      ]
+    },
+    {
+      "supplier": "ClassicalArithmeticCompletion:CA.3",
+      "need": "Supply an exact finite-field matrix kernel basis with soundness, spanning/completeness, termination and comparison with the native basis-to-matrix linear map. The inspected integer Smith/Hermite nodes are reusable for integer lattices but do not export this ZMod p kernel algorithm.",
+      "neededBy": [
+        "ComputationalNumberTheory:CN.2/finite-algebra-frobenius-nilradical"
       ]
     }
   ],
@@ -7199,7 +7253,7 @@
     },
     {
       "title": "Finite-dimensional nilpotence bound",
-      "detail": "Locate the exact pinned theorem or add the separate multiplication-operator nilpotence lemma proving x^dim(A)=0 for nilpotent x. The currently read Frobenius construction does not itself prove this dimension bound.",
+      "detail": "Locate the exact pinned theorem or add the separate multiplication-operator nilpotence lemma proving x^dim(A)=0 for nilpotent x. The currently read Frobenius construction does not itself prove this dimension bound. A certified kernel-basis algorithm over ZMod p and its comparison with the native linear-map kernel are also needed; the inspected CA.3 integer Smith/Hermite contracts are not that finite-field algorithm.",
       "neededBy": [
         "ComputationalNumberTheory:CN.2/finite-algebra-frobenius-nilradical"
       ]
@@ -7253,7 +7307,7 @@
     },
     {
       "title": "Finite local-expansion factory and presentation comparison",
-      "detail": "Instantiate the imported uniformizer/residue-section theorem on each certified completion and finite residue-field presentation, then implement digit extraction with its termination and remainder proof. Add change-of-uniformizer and embedding comparisons. The present certificate type alone is not an extraction algorithm and does not impose canonical digits without a section.",
+      "detail": "Choose a section of the residue reduction map on each certified completion; layer 0 supplies the field, valuation and uniformizer but no finite expansion theorem. Prove digit extraction, termination and the remainder estimate. Add change-of-uniformizer and embedding comparisons. Canonical Teichmüller lifts, if required, come from layer 1. The certificate type alone is not an extraction algorithm.",
       "neededBy": [
         "ComputationalNumberTheory:CN.2/local-expansion-certificate"
       ]
@@ -7313,7 +7367,7 @@
     },
     {
       "title": "Platt analytic and data certification",
-      "detail": "Read and split the complete Euler–Maclaurin/FFT evaluation, error bounds, sampling and upsampling, real completed-function normalization, Turing count and primitive-character enumeration. Recover and verify the actual full finite datasets or regenerate certificates. This pass read the result and selected sampling/error passages only; it does not claim the 400000-modulus computation or the two-million central checks have been formalized or replayed.",
+      "detail": "Split the independently read complete Euler–Maclaurin/FFT evaluation, error bounds, sampling and upsampling, real completed-function normalization, Turing count and primitive-character enumeration. Recover and verify the actual full finite datasets or regenerate certificates. The independent review read all 15 pages of the preprint; the author’s original pass read selected passages only. The accessible published author-copy URL returned HTTP 403 and was not read; it does not claim the 400000-modulus computation or the two-million central checks have been formalized or replayed.",
       "neededBy": [
         "ComputationalNumberTheory:CN.4/dirichlet-l-value-enclosure",
         "ComputationalNumberTheory:CN.4/platt-bounded-height-grh",
@@ -7353,6 +7407,20 @@
         "ComputationalNumberTheory:CN.3",
         "ComputationalNumberTheory:CN.4"
       ]
+    },
+    {
+      "title": "Exact ellipsoid enumeration supplier absent",
+      "detail": "The inspected GN.5 packet has eight LLL nodes but no Fincke–Pohst enumeration or completeness theorem. Supply the exact symmetric positive-definite rational enumeration algorithm, its termination and cutoff completeness before implementing effectiveEllipsoidCover. An LLL short vector is insufficient.",
+      "neededBy": [
+        "ComputationalNumberTheory:CN.4/effective-ellipsoid-cover"
+      ]
+    },
+    {
+      "title": "Elliptic local-image and saturation supplier pending",
+      "detail": "ED.3 is not_read at the reviewed base and exports no finite local-image or saturation declarations. Keep the exact supplier request and accepted forwarding links; do not claim these algorithmic refinements are already implemented by the foundational elliptic stages.",
+      "neededBy": [
+        "ComputationalNumberTheory:CN.3"
+      ]
     }
   ],
   "coverage": [
@@ -7378,14 +7446,14 @@
       "stageId": "ComputationalNumberTheory:CN.2",
       "status": "planned",
       "remaining": [
-        "Finite-dimensional nilpotence bound: Locate the exact pinned theorem or add the separate multiplication-operator nilpotence lemma proving x^dim(A)=0 for nilpotent x. The currently read Frobenius construction does not itself prove this dimension bound.",
+        "Finite-dimensional nilpotence bound: Locate the exact pinned theorem or add the separate multiplication-operator nilpotence lemma proving x^dim(A)=0 for nilpotent x. The currently read Frobenius construction does not itself prove this dimension bound. A certified finite-field kernel-basis algorithm and native matrix/kernel comparison remain supplier refinements.",
         "Remaining number-field certificate targets: The order/integral-basis, prime decomposition, relation quotient, torsion-aware unit/class stopping and local expansion targets are present. Refine finite class/unit discovery, exact log/regulator enclosures and analytic class-number stopping bounds; any GRH-based speedup belongs in its cost theorem and never weakens unconditional product/index checks.",
         "Multiplier criterion intrinsic lemmas: Split the p-primary saturation, finite-index bound, integrality of the multiplier ring, containment in (1/p)R, and the radical-extension/intersection step in Proposition 9.3. Check the source’s direction of the sentence about high radical powers against ideal nilpotence; the required implication is eventual containment in a sufficiently high p-power, not an unjustified reversed inclusion.",
         "Integral-basis algorithm termination and exact linear algebra: Promote strict p-index descent, discriminant-index square identity in these coordinates, certified prime coverage, quotient basis construction and termination to individual lemmas. The construction signature specifies a total output but its admitted prototype is not an executable implementation. The integer factorization cost remains separate.",
         "Prime-ideal discovery at index divisors: Refine the reduced quotient algebra decomposition into primitive idempotents, finite-field quotient maps, lifted prime ideals, ramification exponents and the product reconstruction. The ordinary Kummer–Dedekind theorem requires p prime to the power-basis index; the certificate deliberately does not infer that condition from a factorization of the defining polynomial.",
         "Effective class/unit discovery and analytic stopping: Split ideal factor-base enumeration, principal relation witnesses, HNF/SNF quotient order and unit extraction from the integer kernel. Decompose a rigorous residue/Euler-product tail bound for hR and directed regulator determinant enclosures. Discovery may be heuristic but returned completeness must be unconditional unless an explicit GRH assumption is attached. Existing rank-one upstream certificates do not supply this general-rank algorithm.",
         "Higher-order Newton and residual factorization targets: Finite φ-side and residual-polynomial data and the exponent-one Ore criterion are now explicit. Refine the square-free residual factor assembly and native ramification comparison. Repeated residual factors cannot be declared prime; use higher-order refinement or the separately specified maximal-order algorithm.",
-        "Finite local-expansion factory and presentation comparison: Instantiate the imported uniformizer/residue-section theorem on each certified completion and finite residue-field presentation, then implement digit extraction with its termination and remainder proof. Add change-of-uniformizer and embedding comparisons. The present certificate type alone is not an extraction algorithm and does not impose canonical digits without a section.",
+        "Finite local-expansion factory and presentation comparison: Choose a section of the residue reduction map on each certified completion; layer 0 supplies the field, valuation and uniformizer but no finite expansion theorem. Prove digit extraction, termination and the remainder estimate. Add change-of-uniformizer and embedding comparisons. Canonical Teichmüller lifts, if required, come from layer 1. The certificate type alone is not an extraction algorithm.",
         "First-order Newton factorization refinements: Prove admissible-development invariance and the product theorem; separate the polygon factorization theorem from residual factorization. Add the explicit square-free residual assembly and compare each factor’s e and residue degree with the native local-extension invariants. The integer presentation suffices for the current global number-field inputs; general finite local base fields use the same construction after the owner’s valuation-ring bridge. Repeated residual factors require further refinement or the independent maximal-order algorithm, never a first-order separability assertion."
       ]
     },
@@ -7397,7 +7465,8 @@
         "Full-level modular lattice congruence proof: The source proof and corrected signs have been read, but its integral polynomial-in-j lemma and the full modular integral basis must be split before the level-one congruence proof closes. General congruence subgroups also require the algebraic q-expansion principle, bounded denominators and cusp rationality from their owner.",
         "Remaining modular and curve targets: The integral lattices, matrix and finite-data adapters, BCG examples and exact owner imports are present. Refine general level/character and bad-prime matrices, integral Manin-presentation comparisons, norm-based congruence Sturm proofs and the complete simultaneous-eigensystem certificates. Native characteristic-zero Sturm equality is already available.",
         "BCG companion and corrected ordinary-list completion: The weight-82 common-eigenvector and corrected ordinary-list targets are present. Supply finite theta/Sturm certificates and lifts to characteristic-zero eigenforms for every listed common eigensystem. At p=151 the weights 52 and 100 fail the gcd condition. BCG’s cohomological normalization gives a_g(ℓ)=ℓ^81 a_f(ℓ) at p=107,k=26. Complete datasets have not been replayed here.",
-        "Supplier-stage and forwarding bindings: Requests for imported-only targets identify the owning stage and exact contract but do not by themselves add a drawn atlas edge. Preserve the existing accepted RS-03/RS-06/RS-07 links. The new MF.11 trace import and CN.4→CM.5 rounding supply need explicit maintainer graph binding if no node-level consumer edge draws them; this pass does not edit foreign packets or generated data."
+        "Supplier-stage and forwarding bindings: Requests for imported-only targets identify the owning stage and exact contract but do not by themselves add a drawn atlas edge. Preserve the existing accepted RS-03/RS-06/RS-07 links. The new MF.11 trace import and CN.4→CM.5 rounding supply need explicit maintainer graph binding if no node-level consumer edge draws them; this pass does not edit foreign packets or generated data.",
+        "Elliptic local-image and saturation supplier pending: ED.3 is not_read at the reviewed base and exports no finite local-image or saturation declarations. Keep the exact supplier request and accepted forwarding links; do not claim these algorithmic refinements are already implemented by the foundational elliptic stages."
       ]
     },
     {
@@ -7407,10 +7476,11 @@
         "Full validated-numerics target inventory: Real interval multiplication/inversion and rounding, complex boxes, p-adic propagation, polynomial roots, Dirichlet and cusp L evaluation, CT formulas/tails/Gram checks, and Platt targets are present. Refine terminating special-function enclosures, exact root counts, all analytic truncation constants and complete source datasets. CN.4 exports nonvanishing; exact rank assembly is owned by RankZeroOneBSD.",
         "CT analytic formula and evaluator refinements: Import the intrinsic F/G test functions, K∞, J_F and Fourier conventions from the proposed LevelOneAutomorphicFormsForClassicalGroups owner routed by PAPER-CHENEVIER-TAIBI-20; it has no atlas stage to cite yet. Split the comparison with the eight numerical right-hand sides, weighted alternating remainder, certified elementary and digamma/trigamma evaluators, argument reduction and precision-increasing termination. The numerical G formulas hold without GRH; their automorphic positivity application requires GRH. Only the French public CL Proposition 3.17 and comments pp.304–307 were read, not the English published Proposition 9.3.18.",
         "Polynomial root-isolation proof: Acquire and decompose an exact complex root-count method, rational rectangle subdivision, root separation and termination. The output contracts are explicit but no root-count algorithm or proof has yet been read in full. For real-valued analytic functions, sign-change enclosures additionally require continuity; uniqueness requires monotonicity or a derivative condition.",
-        "Platt analytic and data certification: Read and split the complete Euler–Maclaurin/FFT evaluation, error bounds, sampling and upsampling, real completed-function normalization, Turing count and primitive-character enumeration. Recover and verify the actual full finite datasets or regenerate certificates. This pass read the result and selected sampling/error passages only; it does not claim the 400000-modulus computation or the two-million central checks have been formalized or replayed.",
+        "Platt analytic and data certification: Split the independently read complete Euler–Maclaurin/FFT evaluation, error bounds, sampling and upsampling, real completed-function normalization, Turing count and primitive-character enumeration. Recover and verify the actual full finite datasets or regenerate certificates. The independent review read all 15 pages of the preprint; the author’s original pass read selected passages only. The accessible published author-copy URL returned HTTP 403 and was not read; it does not claim the 400000-modulus computation or the two-million central checks have been formalized or replayed.",
         "CT dataset admissibility and complete replay: Bind every row to exact infinity types, positive multiplicities and δ∈{0,1}; prove ε(U_iU_j) is real whenever δ_iδ_j=1. Apply the explicit multiplicity Gram lift with diagonal A/m_i and weights t_i/m_i. Verify every required list and distinguish the 12293 cover rows from the smaller exact cut. Inherited counts/sample evaluations are not a fresh full replay; δ=2 is never silently accepted.",
         "Effective modular L evaluation: Split the smoothed functional-equation identity, effective coefficient-growth constant, incomplete-gamma enclosure and truncation bound. General level requires the correct cusp width and Fricke image, with nebentypus, bad-prime and embedding conventions supplied by the owner. Exact lower derivatives and analytic rank are assembled in RankZeroOneBSD, not inferred from a box containing zero.",
-        "Supplier-stage and forwarding bindings: Requests for imported-only targets identify the owning stage and exact contract but do not by themselves add a drawn atlas edge. Preserve the existing accepted RS-03/RS-06/RS-07 links. The new MF.11 trace import and CN.4→CM.5 rounding supply need explicit maintainer graph binding if no node-level consumer edge draws them; this pass does not edit foreign packets or generated data."
+        "Supplier-stage and forwarding bindings: Requests for imported-only targets identify the owning stage and exact contract but do not by themselves add a drawn atlas edge. Preserve the existing accepted RS-03/RS-06/RS-07 links. The new MF.11 trace import and CN.4→CM.5 rounding supply need explicit maintainer graph binding if no node-level consumer edge draws them; this pass does not edit foreign packets or generated data.",
+        "Exact ellipsoid enumeration supplier absent: The inspected GN.5 packet has eight LLL nodes but no Fincke–Pohst enumeration or completeness theorem. Supply the exact symmetric positive-definite rational enumeration algorithm, its termination and cutoff completeness before implementing effectiveEllipsoidCover. An LLL short vector is insufficient."
       ]
     },
     {
@@ -7447,7 +7517,12 @@
         "Author PDF at https://wstein.org/books/modform/stein-modform.pdf, hash recorded; visual check of PDF p.185.",
         "Author HTML newforms.html retains the discriminant sign.",
         "Author directory and README; errata.html was not reachable. Targeted search for Lemmas 9.17–9.18 errata found no correction. No claim to have checked a different print edition."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Leading q^(−n) of j^n fixes the coefficient index; h=g−αj^n fixes the sign; the constant term is needed in induction.",
+        "by": "REV-ComputationalNumberTheory"
+      }
     },
     {
       "id": "ComputationalNumberTheory/E2",
@@ -7463,7 +7538,12 @@
         "Author PDF at https://wstein.org/books/modform/stein-modform.pdf, hash recorded; visual check of PDF p.185.",
         "Author HTML newforms.html retains the discriminant sign.",
         "Author directory and README; errata.html was not reachable. Targeted search for Lemmas 9.17–9.18 errata found no correction. No claim to have checked a different print edition."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Fresh integer q-product gives Δ=q−24q²+252q³+⋯; the printed plus sign is false.",
+        "by": "REV-ComputationalNumberTheory"
+      }
     },
     {
       "id": "ComputationalNumberTheory/E3",
@@ -7479,7 +7559,12 @@
         "Author PDF at https://wstein.org/books/modform/stein-modform.pdf, hash recorded; visual check of PDF p.185.",
         "Author HTML newforms.html retains the discriminant sign.",
         "Author directory and README; errata.html was not reachable. Targeted search for Lemmas 9.17–9.18 errata found no correction. No claim to have checked a different print edition."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The conclusion is a congruence modulo m. A nonzero multiple of the prime ideal supplies the counterexample to exact zero.",
+        "by": "REV-ComputationalNumberTheory"
+      }
     },
     {
       "id": "ComputationalNumberTheory/E4",
@@ -7494,7 +7579,12 @@
       "searched": [
         "Published MSRI 44 PDF https://library.slmath.org/books/Book44/files/08psh.pdf freshly fetched with the same hash and p.248 visually checked.",
         "Stevenhagen proceedings page and targeted author-site errata searches; no correction located. The separate lecture notes ant.pdf were not collated."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Roots of unity are torsion in the S-unit group; the free group is its quotient by μ(K).",
+        "by": "REV-ComputationalNumberTheory"
+      }
     },
     {
       "id": "ComputationalNumberTheory/E5",
@@ -7509,7 +7599,12 @@
       "searched": [
         "Published MSRI 44 PDF https://library.slmath.org/books/Book44/files/08psh.pdf freshly fetched with the same hash and p.248 visually checked.",
         "Stevenhagen proceedings page and targeted author-site errata searches; no correction located. The separate lecture notes ant.pdf were not collated."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The regulator sees the torsion quotient. Omitting torsion from the index doubles the index for Q although the empty regulator is 1.",
+        "by": "REV-ComputationalNumberTheory"
+      }
     },
     {
       "id": "ComputationalNumberTheory/E6",
@@ -7525,7 +7620,12 @@
         "Published CIRM DOI 10.5802/ccirm.25 PDF, visual PDF p.20.",
         "arXiv:1701.06794 and the freshly downloaded author course-padic.pdf, p.21, retain both slips.",
         "Author publication page and targeted errata search; no correction located."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Writing h=p^N u and h′=p^N′v gives hh′ divisible by p^(N+N′), not merely the centre valuations.",
+        "by": "REV-ComputationalNumberTheory"
+      }
     },
     {
       "id": "ComputationalNumberTheory/E7",
@@ -7541,7 +7641,12 @@
         "Published CIRM DOI 10.5802/ccirm.25 PDF, visual PDF p.20.",
         "arXiv:1701.06794 and the freshly downloaded author course-padic.pdf, p.21, retain both slips.",
         "Author publication page and targeted errata search; no correction located."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Factoring the second ball centre gives its own N′−v′; the printed N−v′ substitutes the wrong precision.",
+        "by": "REV-ComputationalNumberTheory"
+      }
     },
     {
       "id": "ComputationalNumberTheory/E8",
@@ -7556,7 +7661,12 @@
       "searched": [
         "arXiv:2203.16341 current PDF, p.9 visually checked.",
         "HAL record/preview and targeted title/author errata searches. The HAL preview was browser-blocked; no published version or correction located. These findings are scoped to the read preprint."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "A known factored divisor of N−1 cannot exceed N; Pocklington requires F₁²>N and N>1.",
+        "by": "REV-ComputationalNumberTheory"
+      }
     },
     {
       "id": "ComputationalNumberTheory/E9",
@@ -7571,7 +7681,12 @@
       "searched": [
         "arXiv:2203.16341 current PDF, p.9 visually checked.",
         "HAL record/preview and targeted title/author errata searches. The HAL preview was browser-blocked; no published version or correction located. These findings are scoped to the read preprint."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Fermat numbers are 2^(2^p)+1; the displayed minus sign changes the family.",
+        "by": "REV-ComputationalNumberTheory"
+      }
     },
     {
       "id": "ComputationalNumberTheory/E10",
@@ -7586,7 +7701,12 @@
       "searched": [
         "arXiv:2203.16341 current PDF, p.9 visually checked.",
         "HAL record/preview and targeted title/author errata searches. The HAL preview was browser-blocked; no published version or correction located. These findings are scoped to the read preprint."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The Proth input is p; the unbound n in its exponent must be p.",
+        "by": "REV-ComputationalNumberTheory"
+      }
     },
     {
       "id": "ComputationalNumberTheory/E11",
@@ -7605,7 +7725,12 @@
         "C. Citro, A. Ghitza, arXiv 1102.3321v2, appendix table"
       ],
       "originalId": "PAPER-BOXER-CALEGARI-GEE-25/E7",
-      "source": "BCG"
+      "source": "BCG",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Fresh CG13 appendix C[52] at p=151 gives partner weight 100; both gcds with 150 equal 3, contradicting the required gcd=1.",
+        "by": "REV-ComputationalNumberTheory"
+      }
     },
     {
       "id": "ComputationalNumberTheory/E12",
@@ -7624,7 +7749,12 @@
         "the authors' source code (levelone_src_data/gp/testfin.gp, CFnorminit) for the normalisation used"
       ],
       "originalId": "PAPER-CHENEVIER-TAIBI-20/E3",
-      "source": "CT"
+      "source": "CT",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Direct block-sum expansion of Eq.(2.4.4) gives diagonal A/m_i and repeated-block coefficients t_i/m_i; the claimed sqrt isometry/minimum equality is false.",
+        "by": "REV-ComputationalNumberTheory"
+      }
     },
     {
       "id": "ComputationalNumberTheory/E13",
@@ -7642,7 +7772,12 @@
         "O. Taïbi's publication list (no erratum)"
       ],
       "originalId": "PAPER-CHENEVIER-TAIBI-20/E4",
-      "source": "CT"
+      "source": "CT",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Fresh archive has 12293 distinct cover rows, 12106 negative stored decimal minima and 187 resistant rows. The enlarged enumeration cutoff is 1.001; these are not rigorously replayed signs.",
+        "by": "REV-ComputationalNumberTheory"
+      }
     },
     {
       "id": "ComputationalNumberTheory/E14",
@@ -7660,7 +7795,12 @@
         "O. Taïbi's publication list (no erratum)"
       ],
       "originalId": "PAPER-CHENEVIER-TAIBI-20/E5",
-      "source": "CT"
+      "source": "CT",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The archived U=(0,0,1,7,13,17,21,23,23) is among the 187 multiplicity-one resistant rows; the multiplicity-two file is an enlarged cover, not the same list.",
+        "by": "REV-ComputationalNumberTheory"
+      }
     },
     {
       "id": "ComputationalNumberTheory/E15",
@@ -7679,7 +7819,12 @@
         "the authors' data files db_w23_mult1, db_w23_mult2, list_of_resistant_w23_mult1 and the worksheets sheet_w23_mult2.gp and sheet_w23_grh.gp"
       ],
       "originalId": "PAPER-CHENEVIER-TAIBI-20/E6",
-      "source": "CT"
+      "source": "CT",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "That same exceptional U remains in V after the six regular exclusions. The asserted absence and resulting multiplicity-two exclusion are unsupported by this step.",
+        "by": "REV-ComputationalNumberTheory"
+      }
     },
     {
       "id": "ComputationalNumberTheory/E16",
@@ -7697,7 +7842,12 @@
         "O. Taïbi's publication list (no erratum)"
       ],
       "originalId": "PAPER-CHENEVIER-TAIBI-20/E7",
-      "source": "CT"
+      "source": "CT",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Fresh exact row dimension computation gives min 10 and max 38 on the 181 rows of V.",
+        "by": "REV-ComputationalNumberTheory"
+      }
     },
     {
       "id": "ComputationalNumberTheory/E17",
@@ -7715,7 +7865,12 @@
         "O. Taïbi's publication list (no erratum)"
       ],
       "originalId": "PAPER-CHENEVIER-TAIBI-20/E8",
-      "source": "CT"
+      "source": "CT",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The algorithm requires δ∈{0,1}; non-self-dual U uses δ=0 and m=2, so δ=m=2 is inadmissible.",
+        "by": "REV-ComputationalNumberTheory"
+      }
     },
     {
       "id": "ComputationalNumberTheory/E18",
@@ -7733,7 +7888,12 @@
         "O. Taïbi's publication list (no erratum)"
       ],
       "originalId": "PAPER-CHENEVIER-TAIBI-20/E10",
-      "source": "CT"
+      "source": "CT",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The archive readme and sheet input distinguish fifteen triples from sixteen representations: the relevant triple has multiplicity two.",
+        "by": "REV-ComputationalNumberTheory"
+      }
     },
     {
       "id": "ComputationalNumberTheory/E19",
@@ -7752,7 +7912,12 @@
         "Crossref chapter records of the book [CL19] (the book itself was not read)"
       ],
       "originalId": "PAPER-CHENEVIER-TAIBI-20/E11",
-      "source": "CT"
+      "source": "CT",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The freshly read CT §§2.4.3 and 4.3 give inconsistent pointers p.127 and p.277 to the same (3) tail estimate; §4.3 identifies p.277 and neighbouring pp.275–276. This confirms the internal citation correction. French Prop.3.17 was read as the numerical source; the English book was not collated.",
+        "by": "REV-ComputationalNumberTheory"
+      }
     },
     {
       "id": "ComputationalNumberTheory/E20",
@@ -7767,7 +7932,12 @@
       "searched": [
         "Fresh published SLMath PDF is byte-identical to the recorded copy; p.235 visually checked.",
         "Targeted author/report/errata search found the Leiden report and course notes, but no correction of this specific sentence. Later course notes were not collated as another edition."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "For R=Z, I_p=pZ, I_p²=p²Z does not contain pZ; sufficiently high powers are contained in pR.",
+        "by": "REV-ComputationalNumberTheory"
+      }
     },
     {
       "id": "ComputationalNumberTheory/E21",
@@ -7782,7 +7952,12 @@
       "searched": [
         "arXiv v1 p.7 visually checked.",
         "Author repository arb.tex at https://github.com/fredrik-johansson/arbpaper retains the same centre typo in the retrieved text (SHA-256 recorded in sourceVersions). No claim about an inaccessible journal PDF."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "At m=π/2,t=0 the printed sine-centre difference is 1 while the radius bound is 0; replace sin(t) by sin(m). Current author TeX still retains the typo.",
+        "by": "REV-ComputationalNumberTheory"
+      }
     },
     {
       "id": "ComputationalNumberTheory/E22",
@@ -7797,7 +7972,69 @@
       "searched": [
         "arXiv v1 p.8 visually checked.",
         "The author repository https://github.com/fredrik-johansson/arbpaper has the corrected ≤−1 branch; the downloaded arb.tex SHA-256 is recorded in sourceVersions."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The lower-half-plane tangent branch requires mid(Im z)≤−1. The fresh current author TeX already has ≤−1; the inspected preprint prints ≤1.",
+        "by": "REV-ComputationalNumberTheory"
+      }
+    },
+    {
+      "id": "ComputationalNumberTheory/E23",
+      "source": "Platt",
+      "kind": "misprint",
+      "locator": "Preprint arXiv:1305.3087, Lemma 4.1, p.6",
+      "printed": "(n,q)≠0",
+      "correction": "Require gcd(n,q)=1 in the input values indexed by n.",
+      "reason": "A gcd of positive n,q is never zero; the Fourier transform is on the unit group and has exactly φ(q) inputs. Nonunits cannot be included.",
+      "affects": "the proof",
+      "known": "new in this independent review; no located correction in the version read",
+      "searched": [
+        "Fresh preprint and arXiv metadata https://arxiv.org/abs/1305.3087; the Bristol published author-copy URL https://research-information.bris.ac.uk/files/67056136/platt_grh3.0.pdf returned HTTP 403, so no claim about its text."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "A gcd of positive n,q is never zero; the Fourier transform is on the unit group and has exactly φ(q) inputs. Nonunits cannot be included. The displayed PDF formula/text was visually inspected.",
+        "by": "REV-ComputationalNumberTheory"
+      }
+    },
+    {
+      "id": "ComputationalNumberTheory/E24",
+      "source": "Platt",
+      "kind": "error",
+      "locator": "Preprint arXiv:1305.3087, Lemma 4.2, p.7",
+      "printed": "s∉Z_{≤0}",
+      "correction": "For a finite-valued Hurwitz-zeta identity, also exclude s=1; otherwise state a meromorphic identity including its pole.",
+      "reason": "The printed condition admits s=1, where Hurwitz ζ(s,α) has a simple pole. The preceding paragraph explicitly excludes 1.",
+      "affects": "a stated result",
+      "known": "new in this independent review; no located correction in the version read",
+      "searched": [
+        "Fresh preprint and arXiv metadata https://arxiv.org/abs/1305.3087; the Bristol published author-copy URL https://research-information.bris.ac.uk/files/67056136/platt_grh3.0.pdf returned HTTP 403, so no claim about its text."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The printed condition admits s=1, where Hurwitz ζ(s,α) has a simple pole. The preceding paragraph explicitly excludes 1. The displayed PDF formula/text was visually inspected.",
+        "by": "REV-ComputationalNumberTheory"
+      }
+    },
+    {
+      "id": "ComputationalNumberTheory/E25",
+      "source": "Stein",
+      "kind": "misprint",
+      "locator": "Author PDF, introduction to Theorem 9.22, p.175; compare Definition 4.18 p.71",
+      "printed": "largest divisor c",
+      "correction": "The conductor is the smallest divisor c through which the character on units factors.",
+      "reason": "The principal character modulo 5 factors through both 1 and 5; its conductor is 1. The book’s own Definition 4.18 says smallest.",
+      "affects": "nothing",
+      "known": "new in this independent review; no located correction in the version read",
+      "searched": [
+        "Fresh author PDF, author book directory and README, and targeted author-site search for conductor errata; Definition 4.18 already supplies the correct definition."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The principal character modulo 5 factors through both 1 and 5; its conductor is 1. The book’s own Definition 4.18 says smallest. The displayed PDF formula/text was visually inspected.",
+        "by": "REV-ComputationalNumberTheory"
+      }
     }
   ],
   "sourceVersions": [
@@ -7805,65 +8042,107 @@
       "source": "Stein",
       "kind": "author copy",
       "url": "https://wstein.org/books/modform/stein-modform.pdf",
-      "read": "2026-10-04",
+      "read": "2026-10-05",
       "sha256": "b50e81d48d2fb794948414fee625d1d3ca19c191a87430ca38c8713c8f466b75"
     },
     {
       "source": "CT",
       "kind": "published",
       "url": "https://pmihes.centre-mersenne.org/item/10.1007/s10240-020-00115-z.pdf",
-      "read": "2026-10-04",
+      "read": "2026-10-05",
       "sha256": "ea90fb0faabeaaa56be15f2c6f9c22450e7891c2181130fd79fe356cd83ba3de"
     },
     {
       "source": "BCG",
       "kind": "published",
       "url": "https://math.uchicago.edu/~fcale/papers/WeightZero.pdf",
-      "read": "2026-10-04",
+      "read": "2026-10-05",
       "sha256": "4d27afabbef371babf3a73dad19bc8ccee180636be27bd6ebee17f58f7150290"
     },
     {
       "source": "NumberRings",
       "kind": "published",
       "url": "https://library.slmath.org/books/Book44/files/08psh.pdf",
-      "read": "2026-10-04",
+      "read": "2026-10-05",
       "sha256": "040ebae8ee54439c0e10480d2302c46c1ad465616dfbe2b68e449507c3a1bf17"
     },
     {
       "source": "CarusoPublished",
       "kind": "published",
       "url": "https://www.numdam.org/item/10.5802/ccirm.25.pdf",
-      "read": "2026-10-04",
+      "read": "2026-10-05",
       "sha256": "c6124267c5457166cb08b0baf645dfff37a4bcf838f13cb27ad1182dfe6fd0d0"
     },
     {
       "source": "Thery",
       "kind": "preprint",
       "url": "https://arxiv.org/pdf/2203.16341",
-      "read": "2026-10-04",
+      "read": "2026-10-05",
       "sha256": "f2cae5e07052046fddc01a9f94437e9df3bcbfcbba6fbea4d2a8578bf11bd0b7"
     },
     {
       "source": "Arb",
       "kind": "preprint",
       "url": "https://arxiv.org/pdf/1611.02831",
-      "read": "2026-10-04",
+      "read": "2026-10-05",
       "sha256": "44802d5cce02bf91a3d155870b8f315f2955866e283bfb48f6776a07f35f6ebf"
     },
     {
       "source": "CL",
       "kind": "preprint",
       "url": "https://arxiv.org/pdf/1409.7616",
-      "read": "2026-10-04",
+      "read": "2026-10-05",
       "sha256": "ee20dcf191d37290a74c79c4b15d9fbfe5c2b3673bd6c53283ff44d19762708d"
     },
     {
       "source": "Arb",
       "kind": "author copy",
       "url": "https://raw.githubusercontent.com/fredrik-johansson/arbpaper/master/arb.tex",
-      "read": "2026-10-04",
+      "read": "2026-10-05",
       "sha256": "d5798efce278dca2add2223e6fd1af6522fcbf3426d9eca426bf9e34d6d5dfc6",
       "note": "Sine centre typo retained; tangent threshold corrected."
+    },
+    {
+      "source": "Shoup",
+      "kind": "author copy",
+      "url": "https://shoup.net/ntb/ntb-v2.pdf",
+      "read": "2026-10-05",
+      "sha256": "8e1abc54f4510c3f274dfbed07ea602a6a439ee24b2c916e61abe829b402ec06"
+    },
+    {
+      "source": "BennettSiksek",
+      "kind": "published",
+      "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v191-n2-p02-s.pdf",
+      "read": "2026-10-05",
+      "sha256": "3920a7524a37870942fe3591ac858db23cb604f4331bccd2a6dc5f11a1671fbf"
+    },
+    {
+      "source": "Platt",
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1305.3087",
+      "read": "2026-10-05",
+      "sha256": "8fd109aa21345bc3feac4fde2faa7dfb51b4ef1fc9a430f643323612a39ef417"
+    },
+    {
+      "source": "PrattNotes",
+      "kind": "author copy",
+      "url": "https://users.encs.concordia.ca/~chvatal/notes/ppp.pdf",
+      "read": "2026-10-05",
+      "sha256": "8eede94ec34bafd64d3fd6a882130b6cd30655800f28504e4d90919ab1f4fd85"
+    },
+    {
+      "source": "GMN",
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/0807.2620",
+      "read": "2026-10-05",
+      "sha256": "62b8f28d1839dbaac425ac17088b08070bf531aee9ffedae0bc80a1cb109d8ad"
+    },
+    {
+      "source": "CG13",
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1102.3321v2",
+      "read": "2026-10-05",
+      "sha256": "bfa9d998d5399a97c7d877f01f81e3e23d7c75563034ab42c5fbecafb6347453"
     }
   ],
   "targetInventory": [
@@ -8218,7 +8497,7 @@
         "AutomorphicLFunctionsAndLocalFactors:AL.1",
         "AnalyticNumberTheory:AN.4"
       ],
-      "detail": "Evaluate the imported continuation. RankZeroOneBSD assembles exact vanishing below r and nonvanishing of the rth derivative; a box containing zero proves neither exact vanishing nor a rank lower bound. No extra BSD-to-CN.4 dependency is needed for this scope."
+      "detail": "Evaluate the imported continuation. RankZeroOneBSD assembles exact vanishing below r and nonvanishing of the rth derivative; the uncertain rectangle [−1,1]×[−1,1] containing zero proves neither exact vanishing nor a rank lower bound; an exact singleton {0} is a separate case. No extra BSD-to-CN.4 dependency is needed for this scope."
     }
   ],
   "upstreamNotes": [
@@ -8320,5 +8599,553 @@
   ],
   "planningLevel": "lemma",
   "granularityNote": "Publication detail.json assigns lemma level (recorded distance 4, threshold 5). This Protocol 0 breadth-first pass represents every target and names the remaining lemma refinements explicitly; it does not claim source decomposition or closure.",
-  "completionReason": "Every original stage target and all nine routed source items have a target declaration or an explicit native/owner import. This breadth-first pass stops below the 300-node budget under Protocol 0. All stages remain planned, with named proof refinements and supplier gaps; no stage is claimed closed."
+  "completionReason": "Every original stage target and all nine routed source items have a target declaration or an explicit native/owner import. This breadth-first pass stops below the 300-node budget under Protocol 0. All stages remain planned, with named proof refinements and supplier gaps; no stage is claimed closed.",
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-ComputationalNumberTheory",
+    "date": "2026-10-05",
+    "notes": "Independent complete review of all 108 nodes, all suggested signatures and tests, 33 pinned baseline declarations, 14 public sources, all 12 assigned red-team findings, supplier ownership and coverage. Corrected source locators, supplier overclaims and the universal zero-box assertion; added primitive-character Lean binders and two discriminating tests. Confirmed all 22 inherited source findings, added three version-specific findings, and retained 28 precise proof/supplier gaps. All six stages remain planned; acceptance is of a correct finished planning pass, not closed formalization. Suggested file elaborates at the pinned Mathlib baseline with admitted proof warnings only.",
+    "checked": [
+      {
+        "nodeId": "ComputationalNumberTheory:CN.0/ram-instruction",
+        "verdict": "verified",
+        "note": "Integer operands and address indirection are separated; arithmetic and branch syntax retain finite operation codes."
+      },
+      {
+        "nodeId": "ComputationalNumberTheory:CN.0/ram-operand-evaluation",
+        "verdict": "verified",
+        "note": "Operand evaluation keeps integer literals distinct from memory references and preserves the negative-address convention."
+      },
+      {
+        "nodeId": "ComputationalNumberTheory:CN.0/ram-step",
+        "verdict": "verified",
+        "note": "Division uses floor division, including negative inputs; the trace step preserves the source RAM convention."
+      },
+      {
+        "nodeId": "ComputationalNumberTheory:CN.0/ram-machine-model-and-bit-complexity",
+        "verdict": "verified",
+        "note": "The RAM model permits unbounded integer words; polynomial magnitude is separately required for a bit simulation."
+      },
+      {
+        "nodeId": "ComputationalNumberTheory:CN.0/costed-ram-trace",
+        "verdict": "verified",
+        "note": "The costed trace stores charges independently of semantics; it does not identify unit RAM cost with bit cost."
+      },
+      {
+        "nodeId": "ComputationalNumberTheory:CN.0/costed-trace-upper-bound",
+        "verdict": "verified",
+        "note": "Summing a uniform nonnegative step bound gives the stated trace upper bound, including an empty trace."
+      },
+      {
+        "nodeId": "ComputationalNumberTheory:CN.0/algebraic-root-certificate",
+        "verdict": "corrected",
+        "note": "Exact algebraic value, polynomial annihilation and rational isolation are distinct; finite verification remains a named gap."
+      },
+      {
+        "nodeId": "ComputationalNumberTheory:CN.0/rational-root-presentation",
+        "verdict": "corrected",
+        "note": "A rational singleton presentation has a nonzero linear polynomial and exactly the expected native algebraic root."
+      },
+      {
+        "nodeId": "ComputationalNumberTheory:CN.0/algebraic-add-certificate",
+        "verdict": "corrected",
+        "note": "Algebraic closure supplies a semantic sum; an effective resultant/isolation factory is not claimed as built."
+      },
+      {
+        "nodeId": "ComputationalNumberTheory:CN.0/algebraic-mul-certificate",
+        "verdict": "corrected",
+        "note": "Semantic products are algebraic; computable refinement and separation remain in the explicit arithmetic gap."
+      },
+      {
+        "nodeId": "ComputationalNumberTheory:CN.0/algebraic-inv-certificate",
+        "verdict": "corrected",
+        "note": "Inversion excludes the zero exact value; containing zero in a box is not the same predicate."
+      },
+      {
+        "nodeId": "ComputationalNumberTheory:CN.0/padic-approximation",
+        "verdict": "verified",
+        "note": "Canonical p-adic data include N, v≤N and a bounded mantissa; zero mantissa means a ball, not exact zero."
+      },
+      {
+        "nodeId": "ComputationalNumberTheory:CN.0/ram-polynomial-magnitude",
+        "verdict": "verified",
+        "note": "Polynomial word magnitude bounds input words and every intermediate word independently of instruction count."
+      },
+      {
+        "nodeId": "ComputationalNumberTheory:CN.1/pratt-certificate",
+        "verdict": "verified",
+        "note": "Pratt certificates have a finite recursive factor list and exact ZMod Lucas data, including prime 2."
+      },
+      {
+        "nodeId": "ComputationalNumberTheory:CN.1/pratt-certificate-checker",
+        "verdict": "verified",
+        "note": "The finite checker requires all factor data and gcd/power checks; probable primality is not a substitute."
+      },
+      {
+        "nodeId": "ComputationalNumberTheory:CN.1/pratt-certificate-sound",
+        "verdict": "verified",
+        "note": "Soundness uses the actual pinned Lucas criterion and the finite certificate induction, not Miller–Rabin acceptance."
+      },
+      {
+        "nodeId": "ComputationalNumberTheory:CN.1/pratt-certificate-complete",
+        "verdict": "verified",
+        "note": "Completeness uses reverse Lucas and descending prime factors of n−1; the base case handles 2."
+      },
+      {
+        "nodeId": "ComputationalNumberTheory:CN.1/strong-liar",
+        "verdict": "verified",
+        "note": "The strong-liar predicate retains the gcd guard and the odd-part/two-adic decomposition of n−1."
+      },
+      {
+        "nodeId": "ComputationalNumberTheory:CN.1/strong-liar-prime",
+        "verdict": "corrected",
+        "note": "The prime-input claim is Theorem 10.3's prime case, not the preceding Carmichael discussion in Theorem 10.2."
+      },
+      {
+        "nodeId": "ComputationalNumberTheory:CN.1/miller-rabin-probabilistic-primality",
+        "verdict": "verified",
+        "note": "Composite inputs and independently sampled residues are essential; the CRT/kernel counting inputs remain explicit gaps."
+      },
+      {
+        "nodeId": "ComputationalNumberTheory:CN.1/miller-rabin-independent-rounds",
+        "verdict": "verified",
+        "note": "Independent rounds multiply the one-round probability bound; correlated draws cannot justify this conclusion."
+      },
+      {
+        "nodeId": "ComputationalNumberTheory:CN.1/aks-parameter",
+        "verdict": "corrected",
+        "note": "The parameter search uses Shoup's gcd/order test and r=n branch, with the exact Figure 21.1 locator."
+      },
+      {
+        "nodeId": "ComputationalNumberTheory:CN.1/aks-polynomial-identities",
+        "verdict": "corrected",
+        "note": "Polynomial identities live over ZMod n modulo X^r−1 and use the actual truncation bound; ℓ=0 is vacuous."
+      },
+      {
+        "nodeId": "ComputationalNumberTheory:CN.1/aks-algorithm",
+        "verdict": "corrected",
+        "note": "Every source AKS branch is retained, including perfect powers and small factors; no alternate AKS variant is substituted."
+      },
+      {
+        "nodeId": "ComputationalNumberTheory:CN.1/aks-deterministic-primality",
+        "verdict": "corrected",
+        "note": "The primality conclusion matches Shoup; quotient-algebra cardinality lemmas and RAM costs remain explicitly unproved refinements."
+      },
+      {
+        "nodeId": "ComputationalNumberTheory:CN.1/pocklington-prime-divisor",
+        "verdict": "verified",
+        "note": "Pocklington forces the known factored divisor into q−1 for prime q dividing n; gcd hypotheses are retained."
+      },
+      {
+        "nodeId": "ComputationalNumberTheory:CN.1/pocklington-primality",
+        "verdict": "verified",
+        "note": "The stopping condition is F²>n with n>1, not the source's impossible F>n slip."
+      },
+      {
+        "nodeId": "ComputationalNumberTheory:CN.1/integer-factorization-certificate",
+        "verdict": "verified",
+        "note": "Integer factor data exclude input zero, preserve positive prime factors and allow the empty certificate at 1."
+      },
+      {
+        "nodeId": "ComputationalNumberTheory:CN.1/integer-factorization-sound",
+        "verdict": "verified",
+        "note": "The exact product and primality fields give soundness; no probabilistic discovery assumption weakens the product check."
+      },
+      {
+        "nodeId": "ComputationalNumberTheory:CN.1/integer-factorization-complete",
+        "verdict": "verified",
+        "note": "Native primeFactorsList gives existence for n≠0; discovering factors efficiently is a separate cost target."
+      },
+      {
+        "nodeId": "ComputationalNumberTheory:CN.1/pocklington-certificate",
+        "verdict": "verified",
+        "note": "Finite Pocklington data retain exponents, witnessed gcd conditions and the known factored divisor of n−1."
+      },
+      {
+        "nodeId": "ComputationalNumberTheory:CN.1/pocklington-certificate-sound",
+        "verdict": "verified",
+        "note": "The stored data discharge the two native-number-theoretic Pocklington targets; rejecting incomplete factors is necessary."
+      },
+      {
+        "nodeId": "ComputationalNumberTheory:CN.1/polynomial-factorization-over-finite-fields",
+        "verdict": "verified",
+        "note": "FF.3 owns finite-field factorization; the consumer reads a complete product/soundness contract with leading coefficient."
+      },
+      {
+        "nodeId": "ComputationalNumberTheory:CN.1/rational-polynomial-factor-certificate",
+        "verdict": "verified",
+        "note": "The rational certificate contains actual irreducibility proofs; it does not assume every irreducible polynomial has an irreducible reduction."
+      },
+      {
+        "nodeId": "ComputationalNumberTheory:CN.1/certified-rational-factorization",
+        "verdict": "verified",
+        "note": "A semantic factorization factory is sound through its certificate; modular lifting, recombination and termination stay explicit gaps."
+      },
+      {
+        "nodeId": "ComputationalNumberTheory:CN.2/multiplier-ring",
+        "verdict": "verified",
+        "note": "The multiplier ring uses the native field and lattice stabilizer; the zero lattice has the full stabilizer."
+      },
+      {
+        "nodeId": "ComputationalNumberTheory:CN.2/p-maximal-order",
+        "verdict": "verified",
+        "note": "p-maximality is an intrinsic absence of proper finite p-power-index overorders; it is not the monogenic Dedekind criterion."
+      },
+      {
+        "nodeId": "ComputationalNumberTheory:CN.2/finite-algebra-frobenius-nilradical",
+        "verdict": "corrected",
+        "note": "Frobenius is an algebra endomorphism over ZMod p; the nilpotence dimension bound and effective finite-field kernel are explicitly separate gaps."
+      },
+      {
+        "nodeId": "ComputationalNumberTheory:CN.2/units-complete-of-regulator-bound",
+        "verdict": "verified",
+        "note": "Regulator positivity requires full rank and torsion accounted for; the index is taken modulo roots of unity."
+      },
+      {
+        "nodeId": "ComputationalNumberTheory:CN.2/joint-class-unit-index-certificate",
+        "verdict": "verified",
+        "note": "The joint hR/index argument checks both relation completeness and torsion-aware unit index before a stopping inequality."
+      },
+      {
+        "nodeId": "ComputationalNumberTheory:CN.2/order-basis-certificate",
+        "verdict": "verified",
+        "note": "A supplied full rational basis, one in the lattice and integral multiplication constants are all needed for an order certificate."
+      },
+      {
+        "nodeId": "ComputationalNumberTheory:CN.2/order-basis-integrality",
+        "verdict": "corrected",
+        "note": "Integrality is obtained from the multiplication matrix's monic characteristic polynomial, not from the miscited discriminant pages."
+      },
+      {
+        "nodeId": "ComputationalNumberTheory:CN.2/p-radical-lattice",
+        "verdict": "verified",
+        "note": "The p-radical is the inverse image of the nilradical under R→R/pR; it is not a second valuation or number ring."
+      },
+      {
+        "nodeId": "ComputationalNumberTheory:CN.2/p-radical-maximality-criterion",
+        "verdict": "verified",
+        "note": "The multiplier criterion handles the local maximal-order obstruction even at nonmonogenic index divisors; intrinsic saturation inputs remain gaps."
+      },
+      {
+        "nodeId": "ComputationalNumberTheory:CN.2/integral-basis-certificate",
+        "verdict": "verified",
+        "note": "An integral basis certificate identifies the whole native ring of integers, not just an integral full-rank sublattice."
+      },
+      {
+        "nodeId": "ComputationalNumberTheory:CN.2/integral-basis-algorithm",
+        "verdict": "verified",
+        "note": "The finite p-maximality loop requires exact indices and strict decrease; discovery and termination remain explicitly decomposed refinements."
+      },
+      {
+        "nodeId": "ComputationalNumberTheory:CN.2/prime-ideal-factor-certificate",
+        "verdict": "verified",
+        "note": "Prime ideal factors must multiply to the original nonzero ideal with their ramification/residue data; index-divisor discovery is separate."
+      },
+      {
+        "nodeId": "ComputationalNumberTheory:CN.2/class-relation-lattice",
+        "verdict": "verified",
+        "note": "Relations are the kernel of the native ideal-class map on the selected finite factor base; the zero relation is included."
+      },
+      {
+        "nodeId": "ComputationalNumberTheory:CN.2/class-relation-quotient-cover",
+        "verdict": "verified",
+        "note": "The quotient covers the native class group only after factor-base generation; arbitrary finite relations do not prove the class number."
+      },
+      {
+        "nodeId": "ComputationalNumberTheory:CN.2/minkowski-factor-base-generation",
+        "verdict": "verified",
+        "note": "Minkowski bounds are used with the native positive class number and exact ideal norms, not a conjectural complexity shortcut."
+      },
+      {
+        "nodeId": "ComputationalNumberTheory:CN.2/certified-class-unit-completeness",
+        "verdict": "verified",
+        "note": "Class/unit completeness binds finite relation and regulator certificates to the native invariants and positive exact stopping bound."
+      },
+      {
+        "nodeId": "ComputationalNumberTheory:CN.2/phi-adic-expansion",
+        "verdict": "verified",
+        "note": "Monic positive-degree phi gives terminating Euclidean phi-adic division and uniquely bounded-degree coefficients."
+      },
+      {
+        "nodeId": "ComputationalNumberTheory:CN.2/phi-coefficient-valuation",
+        "verdict": "verified",
+        "note": "The coefficient valuation uses WithTop with valuation of zero equal to infinity; finite Newton ordinates are checked separately."
+      },
+      {
+        "nodeId": "ComputationalNumberTheory:CN.2/local-expansion-certificate",
+        "verdict": "corrected",
+        "note": "Layer 0 supplies field, valuation, reduction map and uniformizer; a residue section and finite extraction proof are separate inputs."
+      },
+      {
+        "nodeId": "ComputationalNumberTheory:CN.3/integral-q-expansion-lattice",
+        "verdict": "verified",
+        "note": "This is the integral Fourier-coefficient lattice inside complex modular forms, not the integral modular-symbol homology lattice."
+      },
+      {
+        "nodeId": "ComputationalNumberTheory:CN.3/integral-cusp-lattice",
+        "verdict": "verified",
+        "note": "Cuspidality is imposed in the native cusp space; the constant q-coefficient vanishes independently of integrality."
+      },
+      {
+        "nodeId": "ComputationalNumberTheory:CN.3/miller-basis",
+        "verdict": "verified",
+        "note": "The level-one Miller basis uses normalized E4, E6 and Delta with triangular integral coordinates; its constructive proof remains a refinement."
+      },
+      {
+        "nodeId": "ComputationalNumberTheory:CN.3/level-one-congruence-sturm",
+        "verdict": "corrected",
+        "note": "Congruence Sturm is modulo a prime ideal with denominator/integral-model hypotheses; characteristic-zero Sturm equality is a distinct import."
+      },
+      {
+        "nodeId": "ComputationalNumberTheory:CN.3/weight-26-coefficient-107",
+        "verdict": "verified",
+        "note": "A fresh integer q-product independently reproduces the weight-26 coefficient a_107 and its nonzero residue modulo 107."
+      },
+      {
+        "nodeId": "ComputationalNumberTheory:CN.3/weight-26-ordinary-107",
+        "verdict": "verified",
+        "note": "The native ordinary witness is the nonzero residue of the exact coefficient; no approximate complex coefficient is used."
+      },
+      {
+        "nodeId": "ComputationalNumberTheory:CN.3/level-one-prime-recurrence",
+        "verdict": "corrected",
+        "note": "The Hecke coefficient recurrence is Prop.2.31 with the integral basis from Lemma 2.20, including the n/ell divisibility branch."
+      },
+      {
+        "nodeId": "ComputationalNumberTheory:CN.3/integral-hecke-matrix",
+        "verdict": "corrected",
+        "note": "Exact Hecke matrices are computed before reducing modulo p; the integral-form lattice and symbol-side duality are not conflated."
+      },
+      {
+        "nodeId": "ComputationalNumberTheory:CN.3/weight-38-nonordinary-determinant",
+        "verdict": "verified",
+        "note": "Fresh exact E4/E6/Delta arithmetic reproduces T79=[[3,17],[25,10]] modulo 79 and determinant zero at weight 38."
+      },
+      {
+        "nodeId": "ComputationalNumberTheory:CN.3/nonordinary-level-one-pair",
+        "verdict": "verified",
+        "note": "A nonordinary pair stores a genuine simultaneous eigensystem/lift; a zero determinant for one operator alone is discovery evidence."
+      },
+      {
+        "nodeId": "ComputationalNumberTheory:CN.3/smallest-nonordinary-primes",
+        "verdict": "verified",
+        "note": "The 59/79 examples retain the required gcd filter; producing complete eigensystem certificates remains in the BCG gap."
+      },
+      {
+        "nodeId": "ComputationalNumberTheory:CN.3/nonordinary-list-below-200",
+        "verdict": "verified",
+        "note": "The below-200 list is a bounded claim with complete coefficient/eigensystem obligations, not an exhaustive statement for all primes."
+      },
+      {
+        "nodeId": "ComputationalNumberTheory:CN.3/weight-82-companion-system",
+        "verdict": "verified",
+        "note": "The companion relation uses ell^(k−1), hence the weight-82 companion twist 81; theta/Hasse/common-weight comparisons are requested from R15.3."
+      },
+      {
+        "nodeId": "ComputationalNumberTheory:CN.3/ordinary-companion-pair",
+        "verdict": "verified",
+        "note": "Ordinary companions retain the cohomological normalization and the BCG gcd condition; T2/T3 roots alone do not certify a common vector."
+      },
+      {
+        "nodeId": "ComputationalNumberTheory:CN.3/corrected-ordinary-companion-list",
+        "verdict": "corrected",
+        "note": "The CG13 appendix binds p=151 to weights 52 and 100; both gcds are 3 and the invalid example is removed."
+      },
+      {
+        "nodeId": "ComputationalNumberTheory:CN.4/rational-interval-product",
+        "verdict": "corrected",
+        "note": "The product enclosure uses the minimum and maximum of all four signed endpoint products; the source is explicitly motivational."
+      },
+      {
+        "nodeId": "ComputationalNumberTheory:CN.4/rational-interval-product-sound",
+        "verdict": "corrected",
+        "note": "Product soundness applies to independently selected real inputs, including mixed signs and degenerate zero intervals."
+      },
+      {
+        "nodeId": "ComputationalNumberTheory:CN.4/rational-interval-inverse",
+        "verdict": "corrected",
+        "note": "Reciprocal is partial: zero must be excluded and the endpoint order reverses, including intervals entirely below zero."
+      },
+      {
+        "nodeId": "ComputationalNumberTheory:CN.4/rational-interval-inverse-sound",
+        "verdict": "corrected",
+        "note": "Inverse soundness proves both nonzero exact input and reciprocal membership; no totalized inverse claims a pole value."
+      },
+      {
+        "nodeId": "ComputationalNumberTheory:CN.4/outward-dyadic-rounding",
+        "verdict": "corrected",
+        "note": "Outward rounding uses rational floor and ceiling on a binary grid; negative fractions retain the floor convention."
+      },
+      {
+        "nodeId": "ComputationalNumberTheory:CN.4/outward-rounding-width",
+        "verdict": "corrected",
+        "note": "The width adds at most two grid steps to the original width and does not assert exact equality in every case."
+      },
+      {
+        "nodeId": "ComputationalNumberTheory:CN.4/unique-integer-in-enclosure",
+        "verdict": "corrected",
+        "note": "Integer extraction compares ceil(lower) and floor(upper); a narrow interval containing no integer returns none."
+      },
+      {
+        "nodeId": "ComputationalNumberTheory:CN.4/integer-recovery-sound",
+        "verdict": "corrected",
+        "note": "Recovery additionally requires independent integrality of the exact target; the enclosure alone does not give integrality."
+      },
+      {
+        "nodeId": "ComputationalNumberTheory:CN.4/effective-gram-lower-bound",
+        "verdict": "verified",
+        "note": "Entrywise Gram upper bounds dominate only nonnegative coefficient vectors; negative-coordinate counterexamples block an unrestricted claim."
+      },
+      {
+        "nodeId": "ComputationalNumberTheory:CN.4/loewner-gram-lower-bound",
+        "verdict": "verified",
+        "note": "Loewner comparison requires positive-semidefinite matrix difference and then works for all vectors; it is a separate contract."
+      },
+      {
+        "nodeId": "ComputationalNumberTheory:CN.4/gram-negativity-certificate",
+        "verdict": "verified",
+        "note": "A negative Gram certificate stores a nonzero nonnegative rational vector and a strictly negative exact upper quadratic form."
+      },
+      {
+        "nodeId": "ComputationalNumberTheory:CN.4/gram-negativity-sound",
+        "verdict": "verified",
+        "note": "The native quadratic form is negative by interval soundness and the nonnegative vector condition; scale invariance uses positive scale."
+      },
+      {
+        "nodeId": "ComputationalNumberTheory:CN.4/padic-normalization",
+        "verdict": "verified",
+        "note": "Canonical normalization handles zero centres and truncation at valuation≥precision; absolute precision can be negative."
+      },
+      {
+        "nodeId": "ComputationalNumberTheory:CN.4/padic-add",
+        "verdict": "verified",
+        "note": "Addition normalizes at min(N,N′), preserving absolute accuracy and discarding unrecorded correlations."
+      },
+      {
+        "nodeId": "ComputationalNumberTheory:CN.4/padic-mul",
+        "verdict": "corrected",
+        "note": "Multiplication uses min(v+N′,N+v′); the added mixed-valuation control gives centre 1 and precision 3 for 3 times 1/3."
+      },
+      {
+        "nodeId": "ComputationalNumberTheory:CN.4/padic-inverse",
+        "verdict": "verified",
+        "note": "Inversion rejects zero-containing balls and has precision N−2v; this correctly loses digits for nonunit input."
+      },
+      {
+        "nodeId": "ComputationalNumberTheory:CN.4/complex-box-denotation",
+        "verdict": "verified",
+        "note": "Complex boxes describe independent real/imaginary closed rational intervals; singleton boxes are permitted by the carrier."
+      },
+      {
+        "nodeId": "ComputationalNumberTheory:CN.4/odlyzko-tail-kernel",
+        "verdict": "verified",
+        "note": "The Odlyzko kernel includes the weighted denominator and exponential decay; absolute and alternating tail arguments have different hypotheses."
+      },
+      {
+        "nodeId": "ComputationalNumberTheory:CN.4/odlyzko-geometric-tail",
+        "verdict": "verified",
+        "note": "The geometric bound applies with its stated b and x range and the correct first omitted term of the prototype series."
+      },
+      {
+        "nodeId": "ComputationalNumberTheory:CN.4/odlyzko-alternating-tail",
+        "verdict": "verified",
+        "note": "The alternating bound requires decreasing nonnegative terms; weighted tail comparison remains an explicit analytic refinement."
+      },
+      {
+        "nodeId": "ComputationalNumberTheory:CN.4/ct-explicit-formula-values",
+        "verdict": "verified",
+        "note": "The eight CT scalar formulas match the French CL proposition; numerical formula validity is distinct from GRH-dependent positivity."
+      },
+      {
+        "nodeId": "ComputationalNumberTheory:CN.4/ct-scalar-enclosure",
+        "verdict": "verified",
+        "note": "The enclosure target includes certified special functions and tails, with positive ell; a decimal evaluation is not its certificate."
+      },
+      {
+        "nodeId": "ComputationalNumberTheory:CN.4/certified-polynomial-root-isolation",
+        "verdict": "verified",
+        "note": "Root isolation returns distinct exact roots once, even at repeated polynomial roots; multiplicity counting needs separate data and termination proof."
+      },
+      {
+        "nodeId": "ComputationalNumberTheory:CN.4/dirichlet-l-value-enclosure",
+        "verdict": "corrected",
+        "note": "The Lean enclosure signature now requires primitive chi exactly as the packet does, and rejects the principal-character pole at 1."
+      },
+      {
+        "nodeId": "ComputationalNumberTheory:CN.4/platt-bounded-height-grh",
+        "verdict": "verified",
+        "note": "Platt's height depends on parity of the modulus, with primitive positive modulus≤400000 and zeros in the open critical strip."
+      },
+      {
+        "nodeId": "ComputationalNumberTheory:CN.4/platt-central-nonvanishing",
+        "verdict": "verified",
+        "note": "The central nonvanishing bound is a separate finite verification up to two million moduli; the actual full datasets were not replayed."
+      },
+      {
+        "nodeId": "ComputationalNumberTheory:CN.4/small-conductor-real-zero-exclusion",
+        "verdict": "verified",
+        "note": "Bennett–Siksek's explicit real-zero bound uses conductor 373743 rather than inheriting Platt's 400000 cutoff."
+      },
+      {
+        "nodeId": "ComputationalNumberTheory:CN.4/effective-ellipsoid-cover",
+        "verdict": "verified",
+        "note": "An exact symmetric positive-definite cover requires all integer vectors below the cutoff; GN.5's inspected LLL nodes do not supply this algorithm."
+      },
+      {
+        "nodeId": "ComputationalNumberTheory:CN.4/check-gram-negativity",
+        "verdict": "verified",
+        "note": "The checker uses exact rational upper endpoints and the nonnegative nonzero vector guard; zero vectors are rejected."
+      },
+      {
+        "nodeId": "ComputationalNumberTheory:CN.4/check-gram-dataset",
+        "verdict": "verified",
+        "note": "Dataset row verification composes by list concatenation and permutation; completeness of the required row list is a separate obligation."
+      },
+      {
+        "nodeId": "ComputationalNumberTheory:CN.4/multiplicity-gram-lift",
+        "verdict": "corrected",
+        "note": "Direct expansion gives diagonal A/m_i and repeated-block coefficients t_i/m_i; the source sqrt-isometry/minimum equality is not used."
+      },
+      {
+        "nodeId": "ComputationalNumberTheory:CN.1/pratt-encoding-size",
+        "verdict": "verified",
+        "note": "Pratt size is an explicitly chosen bit encoding cost, not the count of RAM proof lines in the source notes."
+      },
+      {
+        "nodeId": "ComputationalNumberTheory:CN.1/pratt-quadratic-size",
+        "verdict": "verified",
+        "note": "The quadratic bit bound requires the finite-tree encoding and charged verifier; the source's logarithmic proof-line bound is not silently substituted."
+      },
+      {
+        "nodeId": "ComputationalNumberTheory:CN.2/phi-newton-side",
+        "verdict": "verified",
+        "note": "A phi Newton side stores positive horizontal length, coprime e,h, negative slope and finite endpoints; zero coefficients have infinite valuation."
+      },
+      {
+        "nodeId": "ComputationalNumberTheory:CN.2/phi-residual-polynomial",
+        "verdict": "verified",
+        "note": "Residual coefficients are divided by the relevant power of p before reducing modulo p and phi; reducing first would erase them."
+      },
+      {
+        "nodeId": "ComputationalNumberTheory:CN.2/ore-residual-irreducibility",
+        "verdict": "verified",
+        "note": "First-order irreducibility requires residual irreducibility with multiplicity one; repeated residual factors need higher-order refinement."
+      },
+      {
+        "nodeId": "ComputationalNumberTheory:CN.0/algebraic-equality-check",
+        "verdict": "corrected",
+        "note": "Exact algebraic equality compares decoded native values; overlapping boxes do not establish equality and finite common-root verification remains a gap."
+      },
+      {
+        "nodeId": "ComputationalNumberTheory:CN.4/cusp-l-value-enclosure",
+        "verdict": "corrected",
+        "note": "Native continuation and functional equation are imported explicitly; the uncertain zero-containing box test is corrected and exact singleton zero is tested separately."
+      },
+      {
+        "nodeId": "ComputationalNumberTheory:CN.3/modular-data-equality",
+        "verdict": "verified",
+        "note": "Finite modular data are compared by exact algebraic coefficient equality, then bound to actual forms by the native Sturm parameters."
+      }
+    ]
+  }
 }
