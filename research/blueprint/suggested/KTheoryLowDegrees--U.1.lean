@@ -1,4 +1,5 @@
 import Mathlib.GroupTheory.Index
+import Mathlib.Logic.Equiv.Fin.Rotate
 import TauCeti.CategoryTheory.Exact.Functor
 import Mathlib.Algebra.MvPolynomial.Equiv
 import Mathlib.RingTheory.Polynomial.Eisenstein.Criterion
@@ -8379,4 +8380,261 @@ theorem extendedValue_two_sided (a b : Level (n+1) I)
       k a * extendedValue k hsr hn ht g * k b := by sorry
 
 end Evaluation
+end TauCeti.MennickeExtension
+
+/-! ## The multiplier subgroup and the conjugation stabilizer (BMS §9)
+
+The last-coordinate swap is still a hypothesis. This section does not assert
+multiplicativity of the next-rank value without that remaining §10 proof. -/
+namespace TauCeti.MennickeExtension
+open TauCeti.KTheory TauCeti.RelativeK1
+variable {A : Type u} [CommRing A] {I : Ideal A} {C : Type v} [Group C]
+
+section Multiplier
+variable {G : Type*} [Group G]
+/-- All left multipliers of a normalized function, on the native group. -/
+def multiplierSubgroup (f : G → C) (h1 : f 1 = 1) : Subgroup G where
+  carrier := {g | ∀ x, f (g * x) = f g * f x}
+  one_mem' := by simp [h1]
+  mul_mem' := by sorry
+  inv_mem' := by sorry
+
+theorem mem_multiplierSubgroup (f : G → C) (h1 : f 1 = 1) (g : G) :
+    g ∈ multiplierSubgroup f h1 ↔ ∀ x, f (g * x) = f g * f x := Iff.rfl
+
+def multiplierSubgroup_restrict (f : G → C) (h1 : f 1 = 1) :
+    multiplierSubgroup f h1 →* C where
+  toFun g := f g.val
+  map_one' := h1
+  map_mul' := by sorry
+
+theorem multiplierSubgroup_eq_top (f : G → C) (h1 : f 1 = 1) :
+    multiplierSubgroup f h1 = ⊤ ↔ ∀ g x, f (g * x) = f g * f x := by sorry
+
+-- test multiplierSubgroup_hom_test
+example (f : G →* C) : multiplierSubgroup f f.map_one = ⊤ := by sorry
+-- test multiplierSubgroup_trivial_test
+example : multiplierSubgroup (fun _ : G => (1 : C)) rfl = ⊤ := by sorry
+-- test multiplierSubgroup_square_test
+example : multiplierSubgroup (fun g : Equiv.Perm (Fin 3) => g ^ 2) (by simp) ≠ ⊤ := by sorry
+end Multiplier
+
+/-- Pointwise invariance under conjugation; this is not the normalizer of ker f. -/
+def conjugationStabilizer {r : ℕ} (f : Level r I → C) : Subgroup (GL (Fin r) A) where
+  carrier := {τ | ∀ g, f (conjugate τ g) = f g}
+  one_mem' := by sorry
+  mul_mem' := by sorry
+  inv_mem' := by sorry
+
+omit [Group C] in
+theorem mem_conjugationStabilizer {r : ℕ} (f : Level r I → C) (τ : GL (Fin r) A) :
+    τ ∈ conjugationStabilizer f ↔ ∀ g, f (conjugate τ g) = f g := Iff.rfl
+
+theorem conjugationStabilizer_comp {r : ℕ} {D : Type w} [Group D]
+    (f : Level r I → C) (φ : C →* D) :
+    conjugationStabilizer f ≤ conjugationStabilizer (φ ∘ f) := by sorry
+
+theorem conjugationStabilizer_comp_eq {r : ℕ} {D : Type w} [Group D]
+    (f : Level r I → C) (φ : C →* D) (hφ : Function.Injective φ) :
+    conjugationStabilizer (φ ∘ f) = conjugationStabilizer f := by sorry
+
+-- test conjugationStabilizer_trivial_test
+example {r : ℕ} : conjugationStabilizer (fun _ : Level r I => (1 : C)) = ⊤ := by sorry
+-- test conjugationStabilizer_bot_test
+example {r : ℕ} (f : Level r (⊥ : Ideal A) → C) : conjugationStabilizer f = ⊤ := by sorry
+-- test conjugationStabilizer_faithful_test
+example {r : ℕ} : conjugationStabilizer (fun g : Level r (⊤ : Ideal A) => g.val) =
+    Subgroup.center (GL (Fin r) A) := by sorry
+
+/-- Native subgroup join: elementary matrices and all diagonal units. -/
+def GE (r : ℕ) (A : Type u) [CommRing A] : Subgroup (GL (Fin r) A) :=
+  elementarySubgroup (Fin r) A ⊔ Subgroup.closure (Set.range (@diagUnit A _ (Fin r) _ _))
+
+theorem elementarySubgroup_le_GE {r : ℕ} : elementarySubgroup (Fin r) A ≤ GE r A := by sorry
+
+theorem diagUnit_mem_GE {r : ℕ} (d : Fin r → Aˣ) : diagUnit d ∈ GE r A := by sorry
+
+theorem GE_le_iff {r : ℕ} (K : Subgroup (GL (Fin r) A)) :
+    GE r A ≤ K ↔ elementarySubgroup (Fin r) A ≤ K ∧ ∀ d : Fin r → Aˣ, diagUnit d ∈ K := by sorry
+
+-- test GE_rank_one_test
+example : GE 1 A = ⊤ := by sorry
+-- test GE_diagonal_test
+example : (diagUnit ![-1,1] : GL (Fin 2) ℤ) ∈ GE 2 ℤ ∧
+    (diagUnit ![-1,1] : GL (Fin 2) ℤ) ∉ elementarySubgroup (Fin 2) ℤ := by sorry
+-- test GE_permutation_test
+example : (permGL (Equiv.swap 0 2) : GL (Fin 3) A) ∈ GE 3 A := by sorry
+
+/-- Lemma 9.1(b) uses native normalizers, without assuming f multiplicative. -/
+theorem stabilizer_normalizes_multiplier {r : ℕ} (f : Level r I → C) (h1 : f 1 = 1) :
+    conjugationStabilizer f ≤ Subgroup.normalizer
+      ((multiplierSubgroup f h1).map (Level r I).subtype : Set (GL (Fin r) A)) := by sorry
+
+/-- Lemma 9.2: the stable-range bound is indispensable. -/
+theorem typeL_normalized_eq_top {n : ℕ} (hn : 1 ≤ n) (hsr : HasStableRange A (n+1))
+    (K : Subgroup (Level (n+2) I))
+    (hL : ∀ a : Level (n+1) I, ∀ y : Fin (n+1) → I, leftBlock a y ∈ K)
+    (hE : ∀ τ ∈ elementarySubgroup (Fin (n+2)) A, ∀ g ∈ K, conjugate τ g ∈ K) :
+    K = ⊤ := by sorry
+
+section EvaluationNormalizer
+variable {n : ℕ} (k : Level (n+1) I →* C) (hk : ExtensionConditions k)
+  (hsr : HasStableRange A (n+1)) (hn : 1 ≤ n)
+  (ht : ∀ J : Ideal A, ∀ a : Fin (n+1) → A, RelativeColumn J n a →
+    ∃ u : Level (n+1) J, (u.val : Matrix (Fin (n+1)) (Fin (n+1)) A) *ᵥ a = Pi.single 0 1)
+include hk
+
+theorem typeL_mem_multiplier (a : Level (n+1) I) (y : Fin (n+1) → I) :
+    leftBlock a y ∈ multiplierSubgroup (extendedValue k hsr hn ht)
+      (extendedValue_one k hk hsr hn ht) := by sorry
+
+/-- Conditional Corollary 9.3; no assertion that GE invariance is proved. -/
+theorem multiplicative_of_GE_invariant
+    (hGE : GE (n+2) A ≤ conjugationStabilizer (extendedValue k hsr hn ht)) :
+    (∀ g h, extendedValue k hsr hn ht (g * h) =
+      extendedValue k hsr hn ht g * extendedValue k hsr hn ht h) ∧
+    (∀ e : Level (n+2) I, e.val ∈ relElementary (Fin (n+2)) I →
+      extendedValue k hsr hn ht e = 1) ∧
+    (∀ τ ∈ GE (n+2) A, ∀ g : Level (n+2) I,
+      extendedValue k hsr hn ht (conjugate τ g * g⁻¹) = 1) := by sorry
+
+theorem diagonal_mem_stabilizer (d : Fin (n+2) → Aˣ) :
+    diagUnit d ∈ conjugationStabilizer (extendedValue k hsr hn ht) := by sorry
+
+/-- Coordinate helper for the native block diagonal diag(1,v,1). -/
+def interiorGL (v : GL (Fin n) A) : GL (Fin (n+2)) A :=
+  ⟨(fun i j => if h : 0 < i.val ∧ i.val < n+1 ∧ 0 < j.val ∧ j.val < n+1
+      then (v : Matrix (Fin n) (Fin n) A) ⟨i.val-1, by omega⟩ ⟨j.val-1, by omega⟩
+      else if i = j then 1 else 0),
+    (fun i j => if h : 0 < i.val ∧ i.val < n+1 ∧ 0 < j.val ∧ j.val < n+1
+      then (v⁻¹ : Matrix (Fin n) (Fin n) A) ⟨i.val-1, by omega⟩ ⟨j.val-1, by omega⟩
+      else if i = j then 1 else 0), by sorry, by sorry⟩
+
+theorem interior_mem_stabilizer (v : GL (Fin n) A) (hv : v ∈ GE n A) :
+    interiorGL v ∈ conjugationStabilizer (extendedValue k hsr hn ht) := by sorry
+
+theorem firstRoot_mem_stabilizer (t : A) :
+    elementary (i := (0 : Fin (n+2))) (j := 1) (by intro h; have h' := congrArg Fin.val h; simp at h') t ∈
+      conjugationStabilizer (extendedValue k hsr hn ht) := by sorry
+
+theorem lastRoot_mem_stabilizer (t : A) :
+    elementary (i := ((Fin.last n).castSucc : Fin (n+2))) (j := Fin.last (n+1))
+      (by intro h; have := congrArg Fin.val h; simp at this) t ∈
+      conjugationStabilizer (extendedValue k hsr hn ht) := by sorry
+
+theorem upperBlock_mem_stabilizer (τ : GL (Fin (n+2)) A)
+    (u w : Aˣ) (v : GL (Fin n) A) (hv : v ∈ GE n A)
+    (h00 : (τ : Matrix (Fin (n+2)) (Fin (n+2)) A) 0 0 = u)
+    (hll : (τ : Matrix (Fin (n+2)) (Fin (n+2)) A) (Fin.last (n+1)) (Fin.last (n+1)) = w)
+    (hl : ∀ i : Fin (n+1), (τ : Matrix (Fin (n+2)) (Fin (n+2)) A) i.succ 0 = 0)
+    (hb : ∀ j : Fin (n+1), (τ : Matrix (Fin (n+2)) (Fin (n+2)) A) (Fin.last (n+1)) j.castSucc = 0)
+    (hv' : ∀ i j : Fin n, (τ : Matrix (Fin (n+2)) (Fin (n+2)) A)
+      i.succ.castSucc j.succ.castSucc = (v : Matrix (Fin n) (Fin n) A) i j) :
+    τ ∈ conjugationStabilizer (extendedValue k hsr hn ht) := by sorry
+end EvaluationNormalizer
+
+/-- Kernel-stable transpose descends only to the image, in the opposite group. -/
+noncomputable def transposeImage {r : ℕ} (k : Level r I →* C)
+    (hker : ∀ g, k g = 1 → k (transposeLevel g) = 1) : k.range ≃* k.rangeᵐᵒᵖ where
+  toFun x := MulOpposite.op ⟨k (transposeLevel (Classical.choose x.property)),
+    ⟨transposeLevel (Classical.choose x.property), rfl⟩⟩
+  invFun x := ⟨k (transposeLevel (Classical.choose (MulOpposite.unop x).property)),
+    ⟨transposeLevel (Classical.choose (MulOpposite.unop x).property), rfl⟩⟩
+  left_inv := by sorry
+  right_inv := by sorry
+  map_mul' := by sorry
+
+theorem transposeImage_apply {r : ℕ} (k : Level r I →* C)
+    (hker : ∀ g, k g = 1 → k (transposeLevel g) = 1) (g : Level r I) :
+    transposeImage k hker ⟨k g,⟨g,rfl⟩⟩ =
+      MulOpposite.op ⟨k (transposeLevel g),⟨transposeLevel g,rfl⟩⟩ := by sorry
+
+theorem transposeImage_involutive {r : ℕ} (k : Level r I →* C)
+    (hker : ∀ g, k g = 1 → k (transposeLevel g) = 1) (x : k.range) :
+    MulOpposite.unop (transposeImage k hker
+      (MulOpposite.unop (transposeImage k hker x))) = x := by sorry
+
+theorem transposeImage_natural {r : ℕ} {D : Type w} [Group D]
+    (k : Level r I →* C) (φ : C →* D) (hφ : Function.Injective φ)
+    (hker : ∀ g, k g = 1 → k (transposeLevel g) = 1)
+    (hker' : ∀ g, (φ.comp k) g = 1 → (φ.comp k) (transposeLevel g) = 1)
+    (g : Level r I) :
+    φ (MulOpposite.unop (transposeImage k hker ⟨k g,⟨g,rfl⟩⟩)).val =
+      (MulOpposite.unop (transposeImage (φ.comp k) hker' ⟨φ (k g),⟨g,rfl⟩⟩)).val := by sorry
+
+-- test transposeImage_one_test
+example {r : ℕ} (k : Level r I →* C)
+    (hker : ∀ g, k g = 1 → k (transposeLevel g) = 1) : transposeImage k hker 1 = 1 := by sorry
+-- test transposeImage_reversal_test
+example {r : ℕ} (k : Level r I →* C)
+    (hker : ∀ g, k g = 1 → k (transposeLevel g) = 1) (x y : k.range) :
+    MulOpposite.unop (transposeImage k hker (x*y)) =
+      MulOpposite.unop (transposeImage k hker y) * MulOpposite.unop (transposeImage k hker x) := by sorry
+-- test transposeImage_kernel_test
+example {r : ℕ} (k : Level r I →* C)
+    (hker : ∀ g, k g = 1 → k (transposeLevel g) = 1) (g h : Level r I) (hgh : k g = k h) :
+    k (transposeLevel g) = k (transposeLevel h) := by sorry
+
+/-- Endpoint reflection, not reversal of every coordinate. -/
+def reflectedTranspose {n : ℕ} (g : GL (Fin (n+2)) A) : GL (Fin (n+2)) A :=
+  let φ := (permGL (Equiv.swap 0 (Fin.last (n+1))) : GL (Fin (n+2)) A)
+  φ * ⟨(g : Matrix (Fin (n+2)) (Fin (n+2)) A)ᵀ,
+    (g⁻¹ : Matrix (Fin (n+2)) (Fin (n+2)) A)ᵀ, by sorry, by sorry⟩ * φ⁻¹
+
+theorem reflectedTranspose_mul {n : ℕ} (g h : GL (Fin (n+2)) A) :
+    reflectedTranspose (g*h) = reflectedTranspose h * reflectedTranspose g := by sorry
+
+theorem reflectedTranspose_involutive {n : ℕ} (g : GL (Fin (n+2)) A) :
+    reflectedTranspose (reflectedTranspose g) = g := by sorry
+
+theorem reflectedTranspose_level_iff {n : ℕ} (g : GL (Fin (n+2)) A) :
+    reflectedTranspose g ∈ Level (n+2) I ↔ g ∈ Level (n+2) I := by sorry
+
+/-- Subtype bookkeeping for the already specified reflected transpose. -/
+def reflectedLevel {n : ℕ} (g : Level (n+2) I) : Level (n+2) I :=
+  ⟨reflectedTranspose g.val, (reflectedTranspose_level_iff g.val).mpr g.property⟩
+
+-- test reflectedTranspose_middle_test
+example {n : ℕ} (t : I) : reflectedLevel (middle (n := n) t) = middle t := by sorry
+-- test reflectedTranspose_entry_test
+example (g : GL (Fin 4) A) :
+    (reflectedTranspose g : Matrix (Fin 4) (Fin 4) A) 1 2 =
+      (g : Matrix (Fin 4) (Fin 4) A) 2 1 := by sorry
+-- test reflectedTranspose_root_test
+example (t : A) : reflectedTranspose (elementary (i := (0 : Fin 4)) (j := 1) (by decide) t) =
+    elementary (i := (1 : Fin 4)) (j := 3) (by decide) t := by sorry
+
+theorem reflectedLevel_left {n : ℕ} (a : Level (n+1) I) (y : Fin (n+1) → I) :
+    reflectedLevel (leftBlock a y) =
+      rightBlock (conjugate (permGL (finRotate (n+1))) (transposeLevel a))
+        (y ∘ finRotate (n+1)) := by sorry
+
+theorem reflectedLevel_right {n : ℕ} (b : Level (n+1) I) (p : Fin (n+1) → I) :
+    reflectedLevel (rightBlock b p) =
+      leftBlock (conjugate (permGL (finRotate (n+1))⁻¹) (transposeLevel b))
+        (p ∘ (finRotate (n+1)).symm) := by sorry
+
+section ReflectionNormalizer
+variable {n : ℕ} (k : Level (n+1) I →* C) (hk : ExtensionConditions k)
+  (hsr : HasStableRange A (n+1)) (hn : 1 ≤ n)
+  (ht : ∀ J : Ideal A, ∀ a : Fin (n+1) → A, RelativeColumn J n a →
+    ∃ u : Level (n+1) J, (u.val : Matrix (Fin (n+1)) (Fin (n+1)) A) *ᵥ a = Pi.single 0 1)
+include hk
+
+theorem extendedValue_reflected (g : Level (n+2) I) :
+    ∃ h : extendedValue k hsr hn ht g ∈ k.range,
+      extendedValue k hsr hn ht (reflectedLevel g) =
+        (MulOpposite.unop (transposeImage k hk.transpose_kernel
+          ⟨extendedValue k hsr hn ht g,h⟩)).val := by sorry
+
+theorem stabilizer_reflected (τ : GL (Fin (n+2)) A)
+    (hτ : τ ∈ conjugationStabilizer (extendedValue k hsr hn ht)) :
+    reflectedTranspose τ ∈ conjugationStabilizer (extendedValue k hsr hn ht) := by sorry
+
+/-- Lemma 9.6: remaining §10 target is exactly the last-coordinate swap. -/
+theorem GE_le_stabilizer_of_swap
+    (hP : (permGL (Equiv.swap ((Fin.last n).castSucc) (Fin.last (n+1))) : GL (Fin (n+2)) A) ∈
+      conjugationStabilizer (extendedValue k hsr hn ht)) :
+    GE (n+2) A ≤ conjugationStabilizer (extendedValue k hsr hn ht) := by sorry
+end ReflectionNormalizer
 end TauCeti.MennickeExtension
