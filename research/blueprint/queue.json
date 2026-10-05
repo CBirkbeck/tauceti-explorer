@@ -11614,8 +11614,8 @@
    "avoidAccountOf": "DESIGN-HodgeStructuresPartII",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-HodgeStructuresPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3548"
+   "state": "pending",
+   "note": "released on GitHub issue #3548"
   },
   {
    "id": "DESIGN-MotivicStructuresInModuliOfCurves",
@@ -23783,7 +23783,8 @@
    ],
    "avoidAccountOf": "BP-DirichletPadicLFunctions--L1",
    "prompt": "research/blueprint/prompts/REV-DirichletPadicLFunctions--L1.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5874"
   },
   {
    "id": "BP-DirichletPadicLFunctions--L2",
@@ -30314,8 +30315,8 @@
    ],
    "avoidAccountOf": "BP-AnalyticNumberTheory--AN.0",
    "prompt": "research/blueprint/prompts/REV-AnalyticNumberTheory--AN.0.md",
-   "state": "pending",
-   "note": "released on GitHub issue #527"
+   "state": "external",
+   "note": "claimed on GitHub issue #527"
   },
   {
    "id": "BP-AnalyticNumberTheory--AN.8",
