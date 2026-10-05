@@ -10317,8 +10317,8 @@
    "avoidAccountOf": "DESIGN-StableReductionPartII",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-StableReductionPartII.md",
-   "state": "pending",
-   "note": "released on GitHub issue #3619"
+   "state": "external",
+   "note": "claimed on GitHub issue #3619"
   },
   {
    "id": "DESIGN-HeightsRationalPointsAndObstructionsPartII",
@@ -30264,8 +30264,8 @@
    ],
    "avoidAccountOf": "BP-AnabelianGeometryAndNonabelianChabauty",
    "prompt": "research/blueprint/prompts/REV-AnabelianGeometryAndNonabelianChabauty.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #526"
+   "state": "pending",
+   "note": "released on GitHub issue #526"
   },
   {
    "id": "BP-AnalyticNumberTheory--AN.0",
