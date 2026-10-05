@@ -21202,11 +21202,11 @@
     "REV-RS-16"
    ],
    "prompt": "research/blueprint/prompts/BP-LocallyAnalyticDistributions.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "released on GitHub issue #641"
+   "note": "claimed on GitHub issue #641"
   },
   {
    "id": "REV-LocallyAnalyticDistributions",
