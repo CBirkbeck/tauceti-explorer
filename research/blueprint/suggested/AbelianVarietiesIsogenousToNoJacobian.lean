@@ -141,7 +141,6 @@ example (z : ℂ) :
 end newtonSeries
 end TauCeti.NoJacobian
 
-
 /- Omitted AbelianVarietiesIsogenousToNoJacobian:MZ0/jacobian-locus
 The actual Siegel/PEL moduli, classical reduction or algebraic descent interfaces are open; no synthetic geometric carrier is used.
 Planned definition: For g≥2, define T_g⊆A_g as the image of the smooth genus-g curve moduli stack under the canonical principally polarized relative Jacobian morphism. Take its reduced Zariski closure inside A_g, not inside a Satake compactification. Isogenies in the avoidance problem need not preserve polarizations.
@@ -184,6 +183,7 @@ Test TauCeti.NoJacobian.jacobianHypersurface.levelForgetful (compatibility): Eve
 The actual Siegel/PEL moduli, classical reduction or algebraic descent interfaces are open; no synthetic geometric carrier is used.
 Planned definition: For g≥1, F_g is the set of symmetric τ=x+iy in H_g for which y is Minkowski reduced, every |x_ij|≤1/2, and |det(cτ+d)|≥1 for every block matrix in Sp_{2g}(Z). Pin the classical reduction inequalities, including the ordered diagonal, and retain boundary equalities.
 Prerequisites: ShimuraData:D5, AdelicAlgebraicGroups:AA.3, ShimuraVarieties:V0
+API TauCeti.NoJacobian.minkowskiDomain.mem_iff: For τ∈H_g, membership in F_g is equivalent to Minkowski reduction of Im τ, all |Re τ_ij|≤1/2, and all symplectic-block determinant inequalities |det(cτ+d)|≥1; these retain equality on the boundary.
 API TauCeti.NoJacobian.minkowskiDomain.orbitMeets: Every Sp_{2g}(Z)-orbit in H_g meets F_g.
 API TauCeti.NoJacobian.minkowskiDomain.realPart: τ∈F_g implies |Re τ_ij|≤1/2 for all i,j.
 API TauCeti.NoJacobian.minkowskiDomain.semialgebraic: F_g is semialgebraic after the source reduction to finitely many polynomial inequalities.
@@ -214,18 +214,17 @@ Prerequisites: AbelianVarietiesIsogenousToNoJacobian:MZ0/minkowski-domain, Modul
 /- Omitted AbelianVarietiesIsogenousToNoJacobian:E0/finite-subgroup-count
 The actual elliptic lattice/isogeny, subgroup count and quantitative arithmetic interfaces are required; no unverified imported theorem is restated as a native assertion.
 Planned theorem: For g≥1 there exists C_g>0 such that the number of finite subgroups Γ⊆(Q/Z)^{2g} of order at most m is ≤C_g m^{2g} for every integer m≥1. For g=1 the bound m² suffices.
-Prerequisites:
 -/
 
 /- Omitted AbelianVarietiesIsogenousToNoJacobian:E0/elliptic-many-classes
 The actual elliptic lattice/isogeny, subgroup count and quantitative arithmetic interfaces are required; no unverified imported theorem is restated as a native assertion.
-Planned theorem: The curves E_j, j = n1 + in2 with 1 ≤ n1, n2 ≤ N, represent at least C_0^{-1} N²/(log N)⁴ isogeny classes, C_0 > 0 absolute.
+Planned theorem: For every integer N≥2, the curves E_j, j = n1 + in2 with 1 ≤ n1, n2 ≤ N, represent at least C_0^{-1} N²/(log N)⁴ isogeny classes, C_0 > 0 absolute.
 Prerequisites: AbelianVarietiesIsogenousToNoJacobian:E0/finite-subgroup-count
 -/
 
 /- Omitted AbelianVarietiesIsogenousToNoJacobian:E1/iterated-elimination
 The modular polynomial and definable block/counting interfaces, with their guarded hypotheses, are not available in the checked native import cone.
-Planned construction: Given f ≠ 0 in C[y1, y2] there is c = c(f) such that for every m there is G_m ≠ 0 in C[x1, x2] of degree at most cψ(m)² with G_m(ξ1, ξ2) = 0 whenever Φ_m(ξ1, η1) = Φ_m(ξ2, η2) = f(η1, η2) = 0.
+Planned construction: Given f ≠ 0 in C[y1, y2] there is c = c(f) such that for every integer m≥1 there is G_m ≠ 0 in C[x1, x2] of degree at most cψ(m)² with G_m(ξ1, ξ2) = 0 whenever Φ_m(ξ1, η1) = Φ_m(ξ2, η2) = f(η1, η2) = 0.
 Prerequisites: mathlib:Polynomial.resultant, mathlib:Polynomial.resultant_eq_zero_iff, ModularCurvesPartII:R13.4
 API TauCeti.NoJacobian.eliminationPolynomial.nonzero: For f≠0 and m≥1 the chosen G_m is nonzero.
 API TauCeti.NoJacobian.eliminationPolynomial.vanishes: A common solution of the two modular equations and f=0 maps to G_m=0.
@@ -240,25 +239,24 @@ Test TauCeti.NoJacobian.eliminationPolynomial.zeroExcluded (non-example): f=0 is
 /- Omitted AbelianVarietiesIsogenousToNoJacobian:E1/psi-square-sum
 The modular polynomial and definable block/counting interfaces, with their guarded hypotheses, are not available in the checked native import cone.
 Planned lemma: For ψ(m)=m∏_{p|m}(1+1/p), ∑_{1≤m≤M}ψ(m)²≪M³ log M for integers M≥2. Also ∑_{m≤M}ψ(m)≤M² using ∑_{d≤M}d⌊M/d⌋, not the incorrectly printed ∑_{d≤M}d.
-Prerequisites:
 -/
 
 /- Omitted AbelianVarietiesIsogenousToNoJacobian:E1/small-isogeny-candidates
 The modular polynomial and definable block/counting interfaces, with their guarded hypotheses, are not available in the checked native import cone.
-Planned theorem: Given integers M ≥ 2 and N ≥ 1, there are only ≪_f N M³ log M pairs n = (n1, n2) with 1 ≤ n1, n2 ≤ N such that E_n (j = n1 + in2) is isogenous to its complex conjugate or to some E_c with c ∈ C via an isogeny of degree at most M.
+Planned theorem: Fix a nonzero polynomial f∈Q̄[y1,y2] and the real algebraic curve C={c∈C:f(c,c̄)=0}, with constants depending on f. Given integers M ≥ 2 and N ≥ 1, there are only ≪_f N M³ log M pairs n = (n1, n2) with 1 ≤ n1, n2 ≤ N such that E_n (j = n1 + in2) is isogenous to its complex conjugate or to some E_c with c ∈ C via an isogeny of degree at most M.
 Prerequisites: AbelianVarietiesIsogenousToNoJacobian:E1/iterated-elimination, AbelianVarietiesIsogenousToNoJacobian:E1/psi-square-sum, mathlib:MvPolynomial.schwartz_zippel_totalDegree, ModularCurvesPartII:R13.4
 -/
 
 /- Omitted AbelianVarietiesIsogenousToNoJacobian:E1/elliptic-large-field
 The modular polynomial and definable block/counting interfaces, with their guarded hypotheses, are not available in the checked native import cone.
-Planned theorem: If E_n is isogenous to Ẽ = E_c with c ∈ C and n outside the exceptions of Lemma 3.2 with M = [(log N)³], then there is an isogeny of degree m̃ ≪ D̃⁷, where D̃ ≥ 2 bounds the degree of a field of definition of Ẽ, and log N ≪ D̃²(log D̃)².
+Planned theorem: For N sufficiently large depending on the fixed f, with M=floor((log N)³)≥2, suppose E_n is isogenous to Ẽ=E_c with c∈C and n is outside the exceptions of Lemma 3.2 at this M. If Ẽ has a model over a number field of degree at most D̃≥2, then there is an isogeny of degree m̃≪D̃⁷ and log N≪D̃²(log D̃)². Constants depend only on the fixed curve.
 Prerequisites: AbelianVarietiesIsogenousToNoJacobian:E1/small-isogeny-candidates
 -/
 
 /- Omitted AbelianVarietiesIsogenousToNoJacobian:E1/elliptic-double-correspondence
 The modular polynomial and definable block/counting interfaces, with their guarded hypotheses, are not available in the checked native import cone.
 Planned construction: For τ,τ′∈H_1 and a non-modular absolutely irreducible C_f⊆C², put Z=F_1²∩(j×j)⁻¹(C_f). Let W_{τ,τ′}⊆R^8 be the pairs of real 2×2 fractional-linear matrices with both denominators nonzero and both outputs in Z. Its projection π sends a pair to those two periods; no determinant=m restriction is part of the ambient definable family.
-Prerequisites: AbelianVarietiesIsogenousToNoJacobian:E0/elliptic-matrix, AbelianVarietiesIsogenousToNoJacobian:MZ0/period-matrix-correspondence, AbelianVarietiesIsogenousToNoJacobian:MZ0/minkowski-domain, ModularCurvesPartII:R12.1
+Prerequisites: AbelianVarietiesIsogenousToNoJacobian:E0/elliptic-matrix, AbelianVarietiesIsogenousToNoJacobian:MZ0/period-matrix-correspondence, AbelianVarietiesIsogenousToNoJacobian:MZ0/minkowski-domain, ModularCurvesPartII:R12.1, LogicAndDefinabilityInNumberTheory:LD.6
 API TauCeti.NoJacobian.ellipticDoubleCorrespondence.mem_iff: Membership requires both nonzero denominators and f(j(output1),j(output2))=0 with both outputs in F_1.
 API TauCeti.NoJacobian.ellipticDoubleCorrespondence.projection: π(X,X′) is the ordered pair of fractional-linear images.
 API TauCeti.NoJacobian.ellipticDoubleCorrespondence.height: The integral matrices arising from degree m isogenies have all eight entries at most 2m^{3/2}.
@@ -283,13 +281,13 @@ Prerequisites: AbelianVarietiesIsogenousToNoJacobian:E1/elliptic-block-images, A
 /- Omitted AbelianVarietiesIsogenousToNoJacobian:E1/elliptic-modular-case
 The modular polynomial and definable block/counting interfaces, with their guarded hypotheses, are not available in the checked native import cone.
 Planned lemma: If the real algebraic curve becomes a modular correspondence Φ_m(j,j̄)=0, any E_n isogenous to a curve on it is isogenous to its own complex conjugate. The number of such n is ≪N(log N)^7; the fixed m changes the implied constant.
-Prerequisites: AbelianVarietiesIsogenousToNoJacobian:E1/small-isogeny-candidates
+Prerequisites: AbelianVarietiesIsogenousToNoJacobian:E1/small-isogeny-candidates, AbelianVarietiesIsogenousToNoJacobian:E1/elliptic-large-field
 -/
 
 /- Omitted AbelianVarietiesIsogenousToNoJacobian:E1/elliptic-avoidance
 The modular polynomial and definable block/counting interfaces, with their guarded hypotheses, are not available in the checked native import cone.
 Planned theorem: Given a real algebraic curve C in A_1(C) = R², there is C = C(C) such that for every integer N ≥ 2 there are at most C N(log N)^{10} pairs of integers 1 ≤ n1, n2 ≤ N for which E_j, j = n1 + in2, either has complex multiplication or is isogenous to some E_c with c ∈ C.
-Prerequisites: AbelianVarietiesIsogenousToNoJacobian:E1/elliptic-orbit-collapse, AbelianVarietiesIsogenousToNoJacobian:E1/elliptic-modular-case, AbelianVarietiesIsogenousToNoJacobian:E1/small-isogeny-candidates
+Prerequisites: AbelianVarietiesIsogenousToNoJacobian:E1/elliptic-orbit-collapse, AbelianVarietiesIsogenousToNoJacobian:E1/elliptic-modular-case, AbelianVarietiesIsogenousToNoJacobian:E1/small-isogeny-candidates, AbelianVarietiesIsogenousToNoJacobian:MZ0/coefficient-descent, AbelianVarietiesIsogenousToNoJacobian:E1/elliptic-large-field
 -/
 
 /- Omitted AbelianVarietiesIsogenousToNoJacobian:E1/one-parameter-obstruction
@@ -306,31 +304,31 @@ Prerequisites: AbelianVarietiesIsogenousToNoJacobian:E1/one-parameter-obstructio
 
 /- Omitted AbelianVarietiesIsogenousToNoJacobian:I0/rational-analytic-trace
 The actual abelian Hom/Rosati/lattice carriers and quantitative supplier refinements are open; only the independent native denominator theorem is typed.
-Planned comparison: For a polarized complex A of dimension g and endomorphisms v,w, the rational Rosati Gram entry tr_Q(ρ(v)ερ(w)^tε⁻¹) equals 2 Re tr_C(κ(v)yκ(w)̄^t y⁻¹). In particular ℓ(v)² is the rational expression and is twice the complex self-expression. D(A) is the determinant of the real rational Gram matrix, never of the complex Hermitian matrix.
+Planned comparison: For a principally polarized complex A of dimension g≥1, a symplectic integral homology basis with polarization matrix ε and period τ=x+iy∈H_g, and endomorphisms v,w, the rational Rosati Gram entry tr_Q(ρ(v)ερ(w)^tε⁻¹) equals 2 Re tr_C(κ(v)yκ(w)̄^t y⁻¹). In particular ℓ(v)² is the rational expression and is twice the complex self-expression. D(A) is the determinant of the real rational Gram matrix, never of the complex Hermitian matrix.
 Prerequisites: AbelianSchemesAndArithmeticModuli:A2/rosati-involution, AbelianSchemesAndArithmeticModuli:A6/rosati-positivity, AbelianSchemesAndArithmeticModuli:A6/characteristic-polynomial-on-tate-module, AbelianSchemesAndArithmeticModuli:A5
 -/
 
 /- Omitted AbelianVarietiesIsogenousToNoJacobian:I0/entry-c-bounds
 The actual abelian Hom/Rosati/lattice carriers and quantitative supplier refinements are open; only the independent native denominator theorem is typed.
-Planned lemma: Under the enlarged genus-g domain hypotheses, |c_ij|≤C(g,δ)ℓ(v)/√(y_i y_j) for the integer rational representation ρ(v)=(a,−b;−c,d).
+Planned lemma: Let g≥1, 0<δ≤1 and τ=x+iy∈H_g be a period of a principally polarized complex A in a symplectic integral basis. Put D_y=diag(y_1,…,y_g), y_i=y_ii, and require δD_y≤y≤δ⁻¹D_y, D_y≥δI and |x_ij|≤δ⁻¹. For v∈End(A) let ρ(v)=(a,−b;−c,d) be its signed integral representation and let ℓ be the rational Rosati length of I0/rational-analytic-trace. Then |c_ij|≤C(g,δ)ℓ(v)/√(y_i y_j).
 Prerequisites: AbelianVarietiesIsogenousToNoJacobian:I0/rational-analytic-trace, AbelianVarietiesIsogenousToNoJacobian:MZ0/block-product-domain
 -/
 
 /- Omitted AbelianVarietiesIsogenousToNoJacobian:I0/entry-a-bounds
 The actual abelian Hom/Rosati/lattice carriers and quantitative supplier refinements are open; only the independent native denominator theorem is typed.
-Planned lemma: Under the same hypotheses, |a_ij|≤C(g,δ)√(y_i/y_j)ℓ(v).
+Planned lemma: Let g≥1, 0<δ≤1 and τ=x+iy∈H_g be a period of a principally polarized complex A in a symplectic integral basis. Put D_y=diag(y_1,…,y_g), y_i=y_ii, and require δD_y≤y≤δ⁻¹D_y, D_y≥δI and |x_ij|≤δ⁻¹. For v∈End(A) let ρ(v)=(a,−b;−c,d) be its signed integral representation and let ℓ be the rational Rosati length of I0/rational-analytic-trace. Then |a_ij|≤C(g,δ)√(y_i/y_j)ℓ(v).
 Prerequisites: AbelianVarietiesIsogenousToNoJacobian:I0/entry-c-bounds, AbelianVarietiesIsogenousToNoJacobian:I0/rational-analytic-trace
 -/
 
 /- Omitted AbelianVarietiesIsogenousToNoJacobian:I0/entry-d-bounds
 The actual abelian Hom/Rosati/lattice carriers and quantitative supplier refinements are open; only the independent native denominator theorem is typed.
-Planned lemma: Under the same hypotheses, |d_ij|≤C(g,δ)√(y_j/y_i)ℓ(v).
+Planned lemma: Let g≥1, 0<δ≤1 and τ=x+iy∈H_g be a period of a principally polarized complex A in a symplectic integral basis. Put D_y=diag(y_1,…,y_g), y_i=y_ii, and require δD_y≤y≤δ⁻¹D_y, D_y≥δI and |x_ij|≤δ⁻¹. For v∈End(A) let ρ(v)=(a,−b;−c,d) be its signed integral representation and let ℓ be the rational Rosati length of I0/rational-analytic-trace. Then |d_ij|≤C(g,δ)√(y_j/y_i)ℓ(v).
 Prerequisites: AbelianVarietiesIsogenousToNoJacobian:I0/entry-c-bounds, AbelianVarietiesIsogenousToNoJacobian:I0/entry-a-bounds
 -/
 
 /- Omitted AbelianVarietiesIsogenousToNoJacobian:I0/entry-b-bounds
 The actual abelian Hom/Rosati/lattice carriers and quantitative supplier refinements are open; only the independent native denominator theorem is typed.
-Planned lemma: Under the same hypotheses, |b_ij|≤C(g,δ)√(y_i y_j)ℓ(v).
+Planned lemma: Let g≥1, 0<δ≤1 and τ=x+iy∈H_g be a period of a principally polarized complex A in a symplectic integral basis. Put D_y=diag(y_1,…,y_g), y_i=y_ii, and require δD_y≤y≤δ⁻¹D_y, D_y≥δI and |x_ij|≤δ⁻¹. For v∈End(A) let ρ(v)=(a,−b;−c,d) be its signed integral representation and let ℓ be the rational Rosati length of I0/rational-analytic-trace. Then |b_ij|≤C(g,δ)√(y_i y_j)ℓ(v).
 Prerequisites: AbelianVarietiesIsogenousToNoJacobian:I0/entry-d-bounds, AbelianVarietiesIsogenousToNoJacobian:I0/entry-a-bounds
 -/
 
@@ -361,7 +359,7 @@ Prerequisites: AbelianVarietiesIsogenousToNoJacobian:I0/short-independent-family
 
 /- Omitted AbelianVarietiesIsogenousToNoJacobian:I0/period-height
 The actual abelian Hom/Rosati/lattice carriers and quantitative supplier refinements are open; only the independent native denominator theorem is typed.
-Planned theorem: Given g ≥ 1 and 0 < δ ≤ 1 there is C = C(g, δ) such that if τ = x + iy for A, defined over a number field of degree at most D, satisfies y ≥ δy^{(0)} and y^{(0)} ≥ δι, then y_i ≤ C D max{1, h(A)} for i = 1, …, g.
+Planned theorem: Given g ≥ 1 and 0 < δ ≤ 1 there is C = C(g, δ) such that if τ = x + iy∈H_g represents principally polarized A in a symplectic integral basis, defined over a number field of degree at most D, satisfies y ≥ δy^{(0)} and y^{(0)} ≥ δι, then y_i ≤ C D max{1, h(A)} for i = 1, …, g.
 Prerequisites: AbelianVarietiesIsogenousToNoJacobian:MZ0/block-product-domain, ArakelovGeometryAndAbelianHeights:R35.3, AutomorphicBundles:B4, AutomorphicBundles:B5
 -/
 
@@ -373,7 +371,7 @@ Prerequisites: ArithmeticGaloisRepresentations:R01.6, AbelianSchemesAndArithmeti
 
 /- Omitted AbelianVarietiesIsogenousToNoJacobian:G0/p-to-adelic
 The actual arithmetic Galois and Mumford–Tate representations and quantitative specialization interfaces are open.
-Planned theorem: For an abelian variety over a number field, p-Galois genericity for a single prime p implies the Galois-generic property in Pink’s convention, using the precise adelic open-image theorem of Cadoret. No Mumford–Tate conjecture is assumed.
+Planned theorem: For a principally polarized abelian variety of positive dimension over a number field, p-Galois genericity for a single prime p implies the Galois-generic property in Pink’s convention, using the precise adelic open-image theorem of Cadoret. No Mumford–Tate conjecture is assumed.
 Prerequisites: ArithmeticGaloisRepresentations:R01.6, FaltingsFinitenessAndIsogenyTheorems:R28.4
 -/
 
@@ -385,7 +383,7 @@ Prerequisites: AbelianVarietiesIsogenousToNoJacobian:G0/p-to-adelic, ShimuraData
 
 /- Omitted AbelianVarietiesIsogenousToNoJacobian:G0/serre-open-image
 The actual arithmetic Galois and Mumford–Tate representations and quantitative specialization interfaces are open.
-Planned theorem: Let A be a dimension-g abelian variety over a number field, with geometric End(A)=Z. If g is odd or g∈{2,6}, A is p-Galois generic for every prime p. No corresponding inference is made for g=4.
+Planned theorem: Let A be a dimension-g principally polarized abelian variety over a number field, with geometric End(A)=Z. If g is odd or g∈{2,6}, A is p-Galois generic for every prime p. No corresponding inference is made for g=4.
 Prerequisites: ArithmeticGaloisRepresentations:R01.6, FaltingsFinitenessAndIsogenyTheorems:R28.4
 -/
 
@@ -397,7 +395,7 @@ Prerequisites: PELModuli:M2, PELModuli:M5, AbelianSchemesAndArithmeticModuli:A5,
 
 /- Omitted AbelianVarietiesIsogenousToNoJacobian:G0/endomorphism-specialization
 The actual arithmetic Galois and Mumford–Tate representations and quantitative specialization interfaces are open.
-Planned theorem: For a family whose generic endomorphism ring is Z, the number of integral n ∈ [1, N]^G whose fibre has End ≠ Z is ≪ N^{G−1}(log N)^µ with µ = µ(g) (Masser [23, main theorem]).
+Planned theorem: For the fixed arithmetic finite cover π:Ã⇢A_g and dominant generically finite parameter map Ψ:Ã⇢A^G used in the candidate setup, take the associated polarized family on a specified common regular finite-fibre domain, with generic geometric endomorphism ring Z. For every N≥2, the number of integral n∈[1,N]^G for which some regular projected fibre has geometric End≠Z is ≪N^{G−1}(log N)^µ, µ=µ(g), with constants depending on the fixed family. The fixed algebraic bad locus contributes O(N^{G−1}) separately. This is the source-scoped application of Masser [23], not an assertion for an arbitrary complex family.
 Prerequisites: PELModuli:M5, AbelianSchemesAndArithmeticModuli:A6/hom-is-free-of-finite-rank
 -/
 
@@ -415,7 +413,7 @@ Prerequisites: AbelianVarietiesIsogenousToNoJacobian:G0/frattini-specialization,
 
 /- Omitted AbelianVarietiesIsogenousToNoJacobian:MZ0/coefficient-descent
 The actual Siegel/PEL moduli, classical reduction or algebraic descent interfaces are open; no synthetic geometric carrier is used.
-Planned lemma: For a proper complex algebraic hypersurface H in a quasi-projective variety defined over Q̄, its Q̄-points are contained in a proper Q̄-defined algebraic hypersurface H′. On a finite affine/projective cover, expand defining equations against a finite Q̄-linearly independent coefficient basis; all resulting coefficient equations vanish at algebraic points.
+Planned lemma: For a proper complex algebraic hypersurface H in a geometrically integral quasi-projective variety X defined over Q̄, its Q̄-points are contained in a proper Q̄-defined algebraic hypersurface H′. On a finite affine/projective cover, expand defining equations against a finite Q̄-linearly independent coefficient basis; all resulting coefficient equations vanish at algebraic points.
 Prerequisites: AlgebraicModuliForArithmeticGeometry:R09.1, PELModuli:M5
 -/
 
@@ -439,8 +437,8 @@ Prerequisites: AbelianSchemesAndArithmeticModuli:A3, AbelianVarietiesIsogenousTo
 
 /- Omitted AbelianVarietiesIsogenousToNoJacobian:C0/small-isogeny-hypersurfaces
 The actual model fields, moduli rational maps, heights and quantitative isogeny interfaces are open.
-Planned lemma: For the fixed H⊂A_g, the union of points connected to H by an isogeny of degree at most M is contained in an algebraic hypersurface whose degree in the fixed parameter model is ≤C M^{2g}. The constant depends on the cover, parameter map, embedding and H, not on M,N.
-Prerequisites: AbelianVarietiesIsogenousToNoJacobian:C0/dual-small-isogeny-correspondence, AbelianVarietiesIsogenousToNoJacobian:E0/finite-subgroup-count, AlgebraicModuliForArithmeticGeometry:R09.1, PELModuli:M5
+Planned lemma: For the fixed algebraic hypersurface H⊂A_g and integer M≥1, the points A with geometric End(A)=Z connected to H by an isogeny of degree at most M are contained in an algebraic hypersurface whose degree in the fixed parameter model is ≤C M^{2g}. Nongeneric points are counted separately in G0/genericity-grid-count. The constant depends on the cover, parameter map, embedding and H, not on M,N. The projective correspondence-degree estimate is the explicit proof obligation in gap Isogeny correspondence degree refinement.
+Prerequisites: AbelianVarietiesIsogenousToNoJacobian:C0/dual-small-isogeny-correspondence, AbelianVarietiesIsogenousToNoJacobian:E0/finite-subgroup-count, AlgebraicModuliForArithmeticGeometry:R09.1, PELModuli:M5, AbelianVarietiesIsogenousToNoJacobian:G0/galois-to-hodge
 -/
 
 /- Omitted AbelianVarietiesIsogenousToNoJacobian:C0/candidate-count
@@ -539,22 +537,29 @@ Prerequisites: AbelianVarietiesIsogenousToNoJacobian:T0/fourier-order, Automorph
 
 /- Omitted AbelianVarietiesIsogenousToNoJacobian:T0/finite-level-order-bound
 The actual automorphic form, Fourier/theta, projective-degree and arithmetic descent interfaces are open.
-Planned theorem: A nonzero Λ-form ϕ of weight k satisfies ord(ϕ) ≤ κ_g n k/(4π).
+Planned theorem: Let g≥2, k≥0 be an integer and Λ◁Γ=Sp_{2g}(Z) have finite index n=[Γ:Λ]. A nonzero Λ-form ϕ of weight k satisfies ord(ϕ)≤κ_g n k/(4π), with Fourier order and κ_g as in the preceding nodes.
 Prerequisites: AbelianVarietiesIsogenousToNoJacobian:T0/norm-form, AbelianVarietiesIsogenousToNoJacobian:T0/order-superadditive, AbelianVarietiesIsogenousToNoJacobian:T0/igusa-order-bound
 -/
 
 /- Omitted AbelianVarietiesIsogenousToNoJacobian:T0/theta-constants
 The actual automorphic form, Fourier/theta, projective-degree and arithmetic descent interfaces are open.
-Planned definition: For symmetric τ∈H_g and real row characteristics m,m*, define θ_{m,m*}(τ)=∑_{h∈Z^g}exp(πi(h+m)τ(h+m)^t+2πi(h+m)m*^t). Define Γ(e,2e) by the source congruence conditions for positive even e. Use the theta family θ_{m,0}(eτ), with m∈e⁻¹Z^g/Z^g and canonical representatives. For the projective model require 8|e and e a square.
+Planned definition: For symmetric τ∈H_g and real row characteristics m,m*, define θ_{m,m*}(τ)=∑_{h∈Z^g}exp(πi(h+m)τ(h+m)^t+2πi(h+m)m*^t). For positive even integer e, define Γ(e,2e)={γ=(a,b;c,d)∈Sp_{2g}(Z):γ≡I mod e, diag(ab^t)≡diag(cd^t)≡0 mod 2e}. Equivalently use diag(a^tc),diag(b^td) in the second condition. The blocks here have the usual symplectic signs, independent of the signed endomorphism convention. Use the theta family θ_{m,0}(eτ), with m∈e⁻¹Z^g/Z^g and canonical representatives. For the projective model require 8|e and e a square.
 Prerequisites: ShimuraData:D5, AutomorphicBundles:B4, AutomorphicBundles:B5, AbelianSchemesAndArithmeticModuli:A5
 API TauCeti.NoJacobian.thetaConstant.series: The theta constant is the normally convergent series in the displayed row-vector convention.
 API TauCeti.NoJacobian.thetaConstant.shiftFirst: θ_{m+k,m*}=θ_{m,m*} for k∈Z^g by reindexing.
 API TauCeti.NoJacobian.thetaConstant.shiftSecond: θ_{m,m*+k}=exp(2πi m k^t)θ_{m,m*} for k∈Z^g.
 API TauCeti.NoJacobian.thetaConstant.squaredWeight: θ_{m,0}(eτ)² is a Γ(e,2e)-form of weight 1 with half-integral Fourier denominator d=e.
 API TauCeti.NoJacobian.thetaConstant.analyticCompatibility: Its holomorphy and slash law are statements in the imported Siegel/AutomorphicBundles types, not a private analytic carrier.
+API TauCeti.NoJacobian.thetaLevel.mem_iff: A symplectic integer matrix belongs to Γ(e,2e) iff it is I mod e and both diag(ab^t),diag(cd^t) vanish mod 2e.
+API TauCeti.NoJacobian.thetaLevel.subgroup: The congruence conditions define a subgroup of Sp_{2g}(Z); for positive even e it is normal and has finite index.
+API TauCeti.NoJacobian.thetaLevel.inclusions: Γ(2e)⊆Γ(e,2e)⊆Γ(e), with every level positive.
+API TauCeti.NoJacobian.thetaLevel.transposeCompatibility: The diagonal conditions are equivalent to diag(a^tc),diag(b^td)≡0 mod 2e, in the same principal-congruence subgroup.
 Test TauCeti.NoJacobian.thetaConstant.zeroCharacteristicImaginary (computation): θ_{0,0}(it I_g) is positive real for t>0.
 Test TauCeti.NoJacobian.thetaConstant.oddElliptic (degenerate): For g=1, θ_{1/2,1/2}(τ)=0 by the odd-characteristic cancellation.
 Test TauCeti.NoJacobian.thetaConstant.secondShiftPhase (non-example): For m=1/2 in genus one, shifting m* by 1 multiplies the value by −1 and is not ordinary periodicity.
+Test TauCeti.NoJacobian.thetaLevel.identity (degenerate): The identity belongs to Γ(e,2e) for every positive even e.
+Test TauCeti.NoJacobian.thetaLevel.principalDoubleLevel (compatibility): Every matrix congruent to I mod 2e satisfies both diagonal conditions and lies in Γ(e,2e).
+Test TauCeti.NoJacobian.thetaLevel.ellipticShear (non-example): For g=1 and positive even e, the shear (1,e;0,1) lies in Γ(e) but not Γ(e,2e), since diag(ab^t)=e is not zero mod 2e.
 -/
 
 /- Omitted AbelianVarietiesIsogenousToNoJacobian:T0/theta-linear-combinations
@@ -634,8 +639,8 @@ Prerequisites: AbelianVarietiesIsogenousToNoJacobian:A0/hypersurface-avoidance, 
 
 /- Omitted AbelianVarietiesIsogenousToNoJacobian:A0/many-classes
 The arithmetic avoidance, family and Jacobian/CM suppliers require their actual native interfaces; the source-correct statements remain in the definitive packet/reader.
-Planned theorem: The Ψ^{-1}(n), n ∈ [1, N]^G, represent at least C_0^{-1}N^{G−ε} isogeny classes for every ε > 0, C_0 = C_0(Ψ, ε) > 0 (by the isogeny estimates [26] and the subgroup count, as at the end of §2).
-Prerequisites: AbelianVarietiesIsogenousToNoJacobian:E0/finite-subgroup-count, AbelianVarietiesIsogenousToNoJacobian:C0/fibre-field-bound, ArakelovGeometryAndAbelianHeights:R35.3
+Planned theorem: For every ε>0 there are C_0=C_0(Ψ,ε)>0 and N_0 such that for every N≥N_0, the regular projected points from Ψ^{-1}(n), n∈[1,N]^G, represent at least C_0^{-1}N^{G−ε} isogeny classes. Work on a fixed common nonempty open where Ψ is regular with finite fibres and the forgetful map π is finite, so the parameter-to-moduli multiplicity is uniformly bounded. The bad algebraic domain is discarded separately, not counted with finite multiplicity.
+Prerequisites: AbelianVarietiesIsogenousToNoJacobian:E0/finite-subgroup-count, AbelianVarietiesIsogenousToNoJacobian:C0/fibre-field-bound, ArakelovGeometryAndAbelianHeights:R35.3, AbelianVarietiesIsogenousToNoJacobian:G0/genericity-grid-count, AbelianVarietiesIsogenousToNoJacobian:G0/galois-to-hodge
 -/
 
 /- Omitted AbelianVarietiesIsogenousToNoJacobian:A0/quadratic-approximation
@@ -647,7 +652,7 @@ Prerequisites: AbelianVarietiesIsogenousToNoJacobian:C1/counting-theorem, Abelia
 /- Omitted AbelianVarietiesIsogenousToNoJacobian:A0/avoid-finite-isogeny-classes
 The arithmetic avoidance, family and Jacobian/CM suppliers require their actual native interfaces; the source-correct statements remain in the definitive packet/reader.
 Planned lemma: Each nonempty Euclidean open contains bounded-degree Hodge-generic hypersurface-avoiding points outside any prescribed finite set of isogeny classes.
-Prerequisites: AbelianVarietiesIsogenousToNoJacobian:A0/quadratic-approximation, AbelianVarietiesIsogenousToNoJacobian:A0/many-classes
+Prerequisites: AbelianVarietiesIsogenousToNoJacobian:A0/quadratic-approximation, AbelianVarietiesIsogenousToNoJacobian:A0/many-classes, AbelianVarietiesIsogenousToNoJacobian:C1/counting-theorem
 -/
 
 /- Omitted AbelianVarietiesIsogenousToNoJacobian:A0/dense-independent-set
@@ -670,13 +675,13 @@ Prerequisites: AbelianVarietiesIsogenousToNoJacobian:A0/unirational-count, Abeli
 
 /- Omitted AbelianVarietiesIsogenousToNoJacobian:A0/bounded-cm-count
 The arithmetic avoidance, family and Jacobian/CM suppliers require their actual native interfaces; the source-correct statements remain in the definitive packet/reader.
-Planned theorem: For a fixed parameter family of bounded-degree points, the number of candidate n with a CM projected point is bounded independently of N, using the shared CM Galois-orbit lower bound and bounded-discriminant finiteness. For the 2012 orbit-bound route retain g≤6 unconditionally and GRH for larger g; the accepted averaged-Colmez/Tsimerman Part II supplies the unconditional all-g replacement once proved.
+Planned theorem: For a fixed arithmetic family of points whose model-field degrees have a common bound, the number of distinct CM projected moduli points in A_g is bounded independently of N, using the shared CM orbit lower bound and bounded-discriminant finiteness. A bound on parameter tuples follows only after restriction to a specified common open where Ψ is regular with finite fibres and π is finite; exceptional positive-dimensional fibres are excluded, not included in an O(1) count. For the 2012 orbit-bound route retain 1≤g≤6 unconditionally and GRH for larger g; the accepted averaged-Colmez/Tsimerman Part II supplies the unconditional all-g replacement once proved.
 Prerequisites: AbelianVarietiesIsogenousToNoJacobian:C0/fibre-field-bound, ComplexMultiplicationAndExplicitReciprocity:CM.0, ComplexMultiplicationAndExplicitReciprocity:CM.2
 -/
 
 /- Omitted AbelianVarietiesIsogenousToNoJacobian:A0/igusa-schottky
 The arithmetic avoidance, family and Jacobian/CM suppliers require their actual native interfaces; the source-correct statements remain in the definitive packet/reader.
-Planned theorem: F_g(τ) = 2^g U_g(τ) − V_g(τ)² with U_g = Σ θ_{mm*}(τ)^{16}, V_g = Σ θ_{mm*}(τ)^8 over m, m* ∈ 2^{-1}Z^g/Z^g is a Γ-form of weight 8; it vanishes identically on A_g for g ≤ 3, and for g = 4 its zero locus is the closure of the Jacobian locus (Grushevsky [16, Th. 3.8]).
+Planned theorem: F_g(τ) = 2^g U_g(τ) − V_g(τ)² with U_g = Σ θ_{mm*}(τ)^{16}, V_g = Σ θ_{mm*}(τ)^8 over m, m* ∈ 2^{-1}Z^g/Z^g is a Γ-form of weight 8; it vanishes identically on A_g for 1≤g≤3, and for g = 4 its zero locus is the closure of the Jacobian locus (Grushevsky [16, Th. 3.8]).
 Prerequisites: AbelianVarietiesIsogenousToNoJacobian:T0/theta-constants, AutomorphicBundles:B4, AbelianVarietiesIsogenousToNoJacobian:MZ0/compact-type-closure
 -/
 
@@ -753,7 +758,7 @@ Test TauCeti.NoJacobian.arithmeticComparisonCover.degreeOne (degenerate): Even a
 
 /- Omitted AbelianVarietiesIsogenousToNoJacobian:T1/rational-torsion-cyclotomic
 The arithmetic theta/fine-level comparison, cyclotomic/torsion descent and total degree estimate remain the unresolved E14 gate.
-Planned lemma: Let (A,λ)/K be principally polarized in characteristic zero. If all A[16](K̄) are K-rational, then μ_16⊆K: choose an exact-order-16 point and use perfection of the alternating Weil pairing to find a partner pairing to a primitive sixteenth root.
+Planned lemma: Let (A,λ)/K be principally polarized of dimension g≥1 in characteristic zero. If all A[16](K̄) are K-rational, then μ_16⊆K: choose an exact-order-16 point and use perfection of the alternating Weil pairing to find a partner pairing to a primitive sixteenth root.
 Prerequisites: AbelianSchemesAndArithmeticModuli:A3, ArithmeticGaloisRepresentations:R01.6, mathlib:NumberField.InfinitePlace.IsPrimitiveRoot.nrRealPlaces_eq_zero_of_two_lt
 -/
 
