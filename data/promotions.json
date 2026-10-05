@@ -383,6 +383,17 @@
     "data/blueprints/DeformationAndDerivedPatchingAlgebra--R03.6.md"
    ]
   },
+  "research/blueprint/packets/DirichletPadicLFunctions--L4.json": {
+   "promotedAt": "2026-10-05T01:02:34Z",
+   "review": "eb0b7ea9569e016e",
+   "reviewDate": "2026-10-05",
+   "reviewer": "independent-review-REV-DirichletPadicLFunctions--L4",
+   "sha256": "bcde7779be3dd8f1c55699ffb3f3c3df08884b454c2bb91a5d54e1f5a0d2a653",
+   "to": [
+    "data/blueprints/DirichletPadicLFunctions--L4.json",
+    "data/blueprints/DirichletPadicLFunctions--L4.md"
+   ]
+  },
   "research/blueprint/packets/EllipticCurveModularity.json": {
    "promotedAt": "2026-09-28T22:43:59Z",
    "review": "d9dc43eb371ca681",
