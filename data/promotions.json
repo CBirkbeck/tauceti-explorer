@@ -472,6 +472,18 @@
     "data/blueprints/EllipticRegulators.md"
    ]
   },
+  "research/blueprint/packets/ErdosProgressionPowers.json": {
+   "promotedAt": "2026-10-05T08:44:16Z",
+   "review": "cbd014e6fd71b75e",
+   "reviewDate": "2026-10-05",
+   "reviewer": "independent-review-REV-DESIGN-ErdosProgressionPowers",
+   "sha256": "59cb5889367c4d8bb5fe0ac4920d7f9042b10abd22b2d237ad6c4c77b2979c3c",
+   "to": [
+    "data/blueprints/ErdosProgressionPowers.json",
+    "data/blueprints/ErdosProgressionPowers.md",
+    "data/blueprints/roadmaps/ErdosProgressionPowers.json"
+   ]
+  },
   "research/blueprint/packets/FiniteFieldsAndCharacterSums.json": {
    "promotedAt": "2026-10-05T03:55:17Z",
    "review": "a2e81ea118045f4a",

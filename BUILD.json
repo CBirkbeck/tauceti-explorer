@@ -1,8 +1,8 @@
 {
-  "roadmaps": 227,
-  "stages": 3400,
-  "originalStages": 2084,
-  "sourceRefinements": 1316,
+  "roadmaps": 228,
+  "stages": 3444,
+  "originalStages": 2092,
+  "sourceRefinements": 1352,
   "reviewedDecompositions": [
     {
       "roadmap": "AInfCohomology",
@@ -320,7 +320,7 @@
       "deferredLinks": 0
     }
   ],
-  "terminalTargets": 2012,
+  "terminalTargets": 2020,
   "groups": 27,
   "retiredRoadmaps": [
     "FoundationsAndLibraryIntegration"
@@ -329,7 +329,7 @@
   "estimatedRoadmaps": 0,
   "distanceBases": {
     "judged": 203,
-    "measured": 7,
+    "measured": 8,
     "built": 7,
     "children": 1
   },
@@ -337,18 +337,18 @@
   "unmappedAreas": 0,
   "areasWithRoadmaps": 27,
   "additionalRegions": 0,
-  "mathematicalSummaries": 227,
+  "mathematicalSummaries": 228,
   "editedRoadmapSummaries": 181,
   "curatedStagePresentations": 339,
   "administrativeStages": 101,
-  "mathematicalStars": 3299,
+  "mathematicalStars": 3343,
   "plainTextPlanetLabels": 398,
   "hiddenPlanets": 600,
   "mappedStageStatuses": 350,
   "libraryAuditStatuses": 32,
   "bibliographicSources": 46,
-  "roadmapEdges": 1827,
-  "stageEdges": 9260,
+  "roadmapEdges": 1839,
+  "stageEdges": 9330,
   "reviewedLinkPackets": 25,
   "promotedBlueprints": [
     {
@@ -464,6 +464,12 @@
       "roadmap": "EllipticRegulators",
       "nodes": 75,
       "reviewer": "independent-review-REV-FIX-RT-AREA-combinatorics~2"
+    },
+    {
+      "file": "ErdosProgressionPowers",
+      "roadmap": "ErdosProgressionPowers",
+      "nodes": 49,
+      "reviewer": "independent-review-REV-DESIGN-ErdosProgressionPowers"
     },
     {
       "file": "FiniteFieldsAndCharacterSums",
@@ -587,8 +593,8 @@
     }
   ],
   "sourceDocuments": 296,
-  "htmlBytes": 31906017,
-  "htmlSha256": "36ce86be5e9d353e6988840c6bef737a97110f9477c17c4d9494c39d216e970b",
+  "htmlBytes": 31999684,
+  "htmlSha256": "30354e68a4d4929fdfd7ebc469f8c74aa3c09e5952a73bb957fe9e8f558171c0",
   "networkDependencies": 0,
   "localProgressOverridesIncluded": false,
   "assets": {
@@ -619,8 +625,8 @@
     "data/roadmap-summaries.json": "c8bdd0a9105f5d3c4a858c8b635990729f8e94497dee784a71fae659b8c05b9f",
     "data/roadmap-classification.json": "2641dbc97eb2566c715162d011b46890d1635629181ef8126ac7aed9e24a3b13",
     "data/classification-estimates.json": "625d35fe6121bf099dc5de9e6a9111793596f9b664e3fbd439841434bb4a57d6",
-    "data/roadmap-distances.json": "5b4cf6cf76657347158a031791a0235aac6aea33b20918341bfba9b7a561c07a",
-    "data/galaxy-layout.json": "5baeb3bc7c4b109ca1c927a5e307e87e74a9ae53025203186c33a6be188e6e7a",
+    "data/roadmap-distances.json": "0c8fb4dfcbb019354f67d178cc0ceab4165724640b2a3d0f6db6f9707192ef17",
+    "data/galaxy-layout.json": "e9dd75e168418902836341d7234492d1bedeeffd297630ce3f2d0f177f944384",
     "data/bibliography.json": "bef230a41fad22d6b790c7564061c4d05c2ae5b78cab53d005eb404afab2b122",
     "NOTICE": "a285b95d5adbf5c2bcc82db36e2a77b797f84a2c5cbb30292efd0bae17cc4f34",
     "LICENSE": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1",
@@ -715,6 +721,8 @@
     "data/blueprints/EllipticKTheory.md": "c254d197a539eef155a823d0dfd3f179ba9b91982fa113dbc003b18d1de4903f",
     "data/blueprints/EllipticRegulators.json": "ea78b6592ec7aedf3d14e30e3a6437070ba764ba9ae7d49b352826efea48864f",
     "data/blueprints/EllipticRegulators.md": "45df41d0725c4f4bc7b0c43f9710b879367d2386a73a9fddfe4778881d7be759",
+    "data/blueprints/ErdosProgressionPowers.json": "59cb5889367c4d8bb5fe0ac4920d7f9042b10abd22b2d237ad6c4c77b2979c3c",
+    "data/blueprints/ErdosProgressionPowers.md": "59f7e5945a0743b3d8cf5c7cc1aa85b7572673182a92ff5ca91ffc3c076689f5",
     "data/blueprints/FiniteFieldsAndCharacterSums.json": "ea64ec0f7a0888da20c74fbcb2c0b0b7d58184f7a411ab147b9db3fcae4fb711",
     "data/blueprints/FiniteFieldsAndCharacterSums.md": "280948019fed01a8fc773fc58a7eec61fd477cd2d5e59b93c83d430f4d9fda57",
     "data/blueprints/GeneralAlgebraicKTheory--K.1.json": "6d99ed94515665f97711483d11547ac5f74fdecc5ab4f73270602feea1ead6b4",
@@ -758,6 +766,7 @@
     "data/blueprints/roadmaps/AbelianSchemesAndArithmeticModuliPartII.json": "444741ba656f1e4ead75407906b20b9e1b9145585ad3c9d8b86053231e3641c0",
     "data/blueprints/roadmaps/AbelianVarietiesIsogenousToNoJacobian.json": "2bf1f5bf267748898edb5c660f847da5daca1f83422fc4f0bb5cdb5b842d0414",
     "data/blueprints/roadmaps/ConformalMappingPartII.json": "ddd4e3d4097c295f24ab7f018f6427105621a2335e2040955e49fd8f5137088b",
+    "data/blueprints/roadmaps/ErdosProgressionPowers.json": "98585384723f4c1baf2746a8b245f602916b416f80aed06b20836a2d8c250c24",
     "data/blueprints/roadmaps/GenericDoublePointInterpolation.json": "bea51793a161eba89a41cd1b9296431a0feec87374a8009e0ee3c9f008f0ddaf",
     "data/blueprints/roadmaps/InductionRestrictionPartII.json": "610f6d9d6d58360ee2e0f342c5a27188ba677510f9f294f621675be04172ed16",
     "data/blueprints/roadmaps/JacobianChallengePartII.json": "9125c2f7116f65188ada8a2d42c9c4220297bf09ac49d4de1235728506276698",
