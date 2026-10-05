@@ -1,8 +1,8 @@
 {
   "roadmaps": 229,
-  "stages": 3488,
+  "stages": 3498,
   "originalStages": 2098,
-  "sourceRefinements": 1390,
+  "sourceRefinements": 1400,
   "reviewedDecompositions": [
     {
       "roadmap": "AInfCohomology",
@@ -334,14 +334,14 @@
   "editedRoadmapSummaries": 181,
   "curatedStagePresentations": 339,
   "administrativeStages": 101,
-  "mathematicalStars": 3387,
+  "mathematicalStars": 3397,
   "plainTextPlanetLabels": 398,
   "hiddenPlanets": 600,
   "mappedStageStatuses": 350,
   "libraryAuditStatuses": 19,
   "bibliographicSources": 46,
-  "roadmapEdges": 1844,
-  "stageEdges": 9374,
+  "roadmapEdges": 1845,
+  "stageEdges": 9390,
   "reviewedLinkPackets": 25,
   "promotedBlueprints": [
     {
@@ -367,6 +367,12 @@
       "roadmap": "AdicSpacesPartII",
       "nodes": 537,
       "reviewer": "independent-review-REV-FIX-RT-AREA-padic-1~2"
+    },
+    {
+      "file": "AlgebraicModuliForArithmeticGeometry--A0-extension",
+      "roadmap": "AlgebraicModuliForArithmeticGeometry",
+      "nodes": 476,
+      "reviewer": "independent-review-REV-AlgebraicModuliForArithmeticGeometry--A0-extension"
     },
     {
       "file": "AnabelianGeometryAndNonabelianChabauty",
@@ -616,8 +622,8 @@
     }
   ],
   "sourceDocuments": 296,
-  "htmlBytes": 32014672,
-  "htmlSha256": "276209ee91784c590c42aa05b51d8d6a3e4d3b3b1ae252a07284b1b474d1c231",
+  "htmlBytes": 32095124,
+  "htmlSha256": "8947bf812319c7ff85cb8116e91fbb1a33fb620a602a4804c5bf7e9c83811491",
   "networkDependencies": 0,
   "localProgressOverridesIncluded": false,
   "assets": {
@@ -648,7 +654,7 @@
     "data/roadmap-summaries.json": "c8bdd0a9105f5d3c4a858c8b635990729f8e94497dee784a71fae659b8c05b9f",
     "data/roadmap-classification.json": "2641dbc97eb2566c715162d011b46890d1635629181ef8126ac7aed9e24a3b13",
     "data/classification-estimates.json": "625d35fe6121bf099dc5de9e6a9111793596f9b664e3fbd439841434bb4a57d6",
-    "data/roadmap-distances.json": "6869d44f913e2b33c01f344b267485103098464b3e728f7bef9d9c5fa6656862",
+    "data/roadmap-distances.json": "e9ef34fa71b02017015e23d045c9f980fbefdfdf9ca998c71f52226aef1e2b02",
     "data/galaxy-layout.json": "92f736cdbedc11ea25886ab1b3da97c6e1364c28c6170267d456a29ecb7f702a",
     "data/bibliography.json": "bef230a41fad22d6b790c7564061c4d05c2ae5b78cab53d005eb404afab2b122",
     "NOTICE": "a285b95d5adbf5c2bcc82db36e2a77b797f84a2c5cbb30292efd0bae17cc4f34",
@@ -714,6 +720,8 @@
     "data/blueprints/AdicEtaleGeometry.md": "d580cd34ef211625d8012c497854b46ee450aa7ac374676e1bf668406e0d86cc",
     "data/blueprints/AdicSpacesPartII.json": "e45a2b12a1dba869acdbe200a2e6034876ace6c72b51a1fa40114c27c12ea6c4",
     "data/blueprints/AdicSpacesPartII.md": "8a1f3c92f73b34c23b252cf127b24ebd4567784d77c9e64b9a4a67f83091d442",
+    "data/blueprints/AlgebraicModuliForArithmeticGeometry--A0-extension.json": "312f9e3e2b0e30340b328ed1d8f31513a84cebc0083e45416fe5f1c47bdc106b",
+    "data/blueprints/AlgebraicModuliForArithmeticGeometry--A0-extension.md": "db9bd77ccd3372293d1713997157d8a32d5157cb575fa00e3e68144e43ca8fce",
     "data/blueprints/AnabelianGeometryAndNonabelianChabauty.json": "b352c47493d33e2d8334c6617d2f64d4ae43c0fc2a50031fb692f0f81231b868",
     "data/blueprints/AnabelianGeometryAndNonabelianChabauty.md": "3ad5c0ff93d99a8b77fc00fc69720fdd0656fa43ca400863591beaf868a886b1",
     "data/blueprints/ArithmeticKTheory--N.1.json": "7a7063a34016e59e2e0b88f4dfcff26acba90e8159feb9613cf33f3c06e71683",
