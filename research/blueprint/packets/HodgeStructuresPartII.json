@@ -219,56 +219,112 @@
         "kind": "def",
         "module": "Mathlib/LinearAlgebra/Matrix/Trace.lean",
         "provides": "Finite diagonal sum, the determinant coordinate coefficient.",
-        "checked": "Complete statement and local typeclass hypotheses personally read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex codex-J6LwjP; exact declaration index checked."
+        "checked": "Complete statement and local typeclass hypotheses personally read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex codex-J6LwjP; exact declaration index checked.",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-BjAqvx",
+          "date": "2026-10-05",
+          "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "result": "Actual statement and ambient hypotheses read in the cited pinned module and compared with this provides entry and its inspected affine consumers. Fit is conditional on the listed inputs. This is a native algebraic interface check, not a global sheaf construction or proof of an admitted suggested statement."
+        }
       },
       {
         "ref": "mathlib:Matrix.trace_mul_comm",
         "kind": "theorem",
         "module": "Mathlib/LinearAlgebra/Matrix/Trace.lean",
         "provides": "Trace of AB equals trace of BA over commutative multiplication.",
-        "checked": "Complete statement and local typeclass hypotheses personally read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex codex-J6LwjP; exact declaration index checked."
+        "checked": "Complete statement and local typeclass hypotheses personally read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex codex-J6LwjP; exact declaration index checked.",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-BjAqvx",
+          "date": "2026-10-05",
+          "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "result": "Actual statement and ambient hypotheses read in the cited pinned module and compared with this provides entry and its inspected affine consumers. Fit is conditional on the listed inputs. This is a native algebraic interface check, not a global sheaf construction or proof of an admitted suggested statement."
+        }
       },
       {
         "ref": "mathlib:AddMonoidHom.map_trace",
         "kind": "theorem",
         "module": "Mathlib/LinearAlgebra/Matrix/Trace.lean",
         "provides": "An additive map commutes with the finite matrix trace, including a derivation.",
-        "checked": "Complete statement and local typeclass hypotheses personally read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex codex-J6LwjP; exact declaration index checked."
+        "checked": "Complete statement and local typeclass hypotheses personally read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex codex-J6LwjP; exact declaration index checked.",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-BjAqvx",
+          "date": "2026-10-05",
+          "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "result": "Actual statement and ambient hypotheses read in the cited pinned module and compared with this provides entry and its inspected affine consumers. Fit is conditional on the listed inputs. This is a native algebraic interface check, not a global sheaf construction or proof of an admitted suggested statement."
+        }
       },
       {
         "ref": "mathlib:Matrix.trace_transpose",
         "kind": "theorem",
         "module": "Mathlib/LinearAlgebra/Matrix/Trace.lean",
         "provides": "Transposition preserves trace.",
-        "checked": "Complete statement and local typeclass hypotheses personally read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex codex-J6LwjP; exact declaration index checked."
+        "checked": "Complete statement and local typeclass hypotheses personally read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex codex-J6LwjP; exact declaration index checked.",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-BjAqvx",
+          "date": "2026-10-05",
+          "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "result": "Actual statement and ambient hypotheses read in the cited pinned module and compared with this provides entry and its inspected affine consumers. Fit is conditional on the listed inputs. This is a native algebraic interface check, not a global sheaf construction or proof of an admitted suggested statement."
+        }
       },
       {
         "ref": "mathlib:Matrix.trace_neg",
         "kind": "theorem",
         "module": "Mathlib/LinearAlgebra/Matrix/Trace.lean",
         "provides": "Trace of a negative matrix is negative trace.",
-        "checked": "Complete statement and local typeclass hypotheses personally read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex codex-J6LwjP; exact declaration index checked."
+        "checked": "Complete statement and local typeclass hypotheses personally read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex codex-J6LwjP; exact declaration index checked.",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-BjAqvx",
+          "date": "2026-10-05",
+          "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "result": "Actual statement and ambient hypotheses read in the cited pinned module and compared with this provides entry and its inspected affine consumers. Fit is conditional on the listed inputs. This is a native algebraic interface check, not a global sheaf construction or proof of an admitted suggested statement."
+        }
       },
       {
         "ref": "mathlib:Matrix.trace_kronecker",
         "kind": "theorem",
         "module": "Mathlib/LinearAlgebra/Matrix/Kronecker.lean",
         "provides": "Trace of the Kronecker product is the product of traces.",
-        "checked": "Complete statement and local typeclass hypotheses personally read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex codex-J6LwjP; exact declaration index checked."
+        "checked": "Complete statement and local typeclass hypotheses personally read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex codex-J6LwjP; exact declaration index checked.",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-BjAqvx",
+          "date": "2026-10-05",
+          "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "result": "Actual statement and ambient hypotheses read in the cited pinned module and compared with this provides entry and its inspected affine consumers. Fit is conditional on the listed inputs. This is a native algebraic interface check, not a global sheaf construction or proof of an admitted suggested statement."
+        }
       },
       {
         "ref": "mathlib:Matrix.trace_one",
         "kind": "theorem",
         "module": "Mathlib/LinearAlgebra/Matrix/Trace.lean",
         "provides": "Trace of the identity is the finite rank cast into the ring.",
-        "checked": "Complete statement and local typeclass hypotheses personally read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex codex-J6LwjP; exact declaration index checked."
+        "checked": "Complete statement and local typeclass hypotheses personally read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex codex-J6LwjP; exact declaration index checked.",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-BjAqvx",
+          "date": "2026-10-05",
+          "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "result": "Actual statement and ambient hypotheses read in the cited pinned module and compared with this provides entry and its inspected affine consumers. Fit is conditional on the listed inputs. This is a native algebraic interface check, not a global sheaf construction or proof of an admitted suggested statement."
+        }
       },
       {
         "ref": "mathlib:Matrix.trace_units_conj",
         "kind": "theorem",
         "module": "Mathlib/LinearAlgebra/Matrix/Trace.lean",
         "provides": "Conjugation by a matrix unit preserves trace.",
-        "checked": "Complete statement and local typeclass hypotheses personally read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex codex-J6LwjP; exact declaration index checked."
+        "checked": "Complete statement and local typeclass hypotheses personally read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex codex-J6LwjP; exact declaration index checked.",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-BjAqvx",
+          "date": "2026-10-05",
+          "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "result": "Actual statement and ambient hypotheses read in the cited pinned module and compared with this provides entry and its inspected affine consumers. Fit is conditional on the listed inputs. This is a native algebraic interface check, not a global sheaf construction or proof of an admitted suggested statement."
+        }
       },
       {
         "ref": "mathlib:Matrix.trace_fin_zero",
@@ -289,28 +345,56 @@
         "kind": "theorem",
         "module": "Mathlib/LinearAlgebra/Matrix/Trace.lean",
         "provides": "Trace of a zero matrix is zero.",
-        "checked": "Complete statement and local typeclass hypotheses personally read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex codex-J6LwjP; exact declaration index checked."
+        "checked": "Complete statement and local typeclass hypotheses personally read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex codex-J6LwjP; exact declaration index checked.",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-BjAqvx",
+          "date": "2026-10-05",
+          "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "result": "Actual statement and ambient hypotheses read in the cited pinned module and compared with this provides entry and its inspected affine consumers. Fit is conditional on the listed inputs. This is a native algebraic interface check, not a global sheaf construction or proof of an admitted suggested statement."
+        }
       },
       {
         "ref": "mathlib:Matrix.trace_add",
         "kind": "theorem",
         "module": "Mathlib/LinearAlgebra/Matrix/Trace.lean",
         "provides": "Trace is additive.",
-        "checked": "Complete statement and local typeclass hypotheses personally read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex codex-J6LwjP; exact declaration index checked."
+        "checked": "Complete statement and local typeclass hypotheses personally read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex codex-J6LwjP; exact declaration index checked.",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-BjAqvx",
+          "date": "2026-10-05",
+          "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "result": "Actual statement and ambient hypotheses read in the cited pinned module and compared with this provides entry and its inspected affine consumers. Fit is conditional on the listed inputs. This is a native algebraic interface check, not a global sheaf construction or proof of an admitted suggested statement."
+        }
       },
       {
         "ref": "mathlib:Matrix.trace_sub",
         "kind": "theorem",
         "module": "Mathlib/LinearAlgebra/Matrix/Trace.lean",
         "provides": "Trace preserves subtraction.",
-        "checked": "Complete statement and local typeclass hypotheses personally read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex codex-J6LwjP; exact declaration index checked."
+        "checked": "Complete statement and local typeclass hypotheses personally read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex codex-J6LwjP; exact declaration index checked.",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-BjAqvx",
+          "date": "2026-10-05",
+          "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "result": "Actual statement and ambient hypotheses read in the cited pinned module and compared with this provides entry and its inspected affine consumers. Fit is conditional on the listed inputs. This is a native algebraic interface check, not a global sheaf construction or proof of an admitted suggested statement."
+        }
       },
       {
         "ref": "mathlib:Matrix.trace_smul",
         "kind": "theorem",
         "module": "Mathlib/LinearAlgebra/Matrix/Trace.lean",
         "provides": "Trace commutes with a distributive scalar action.",
-        "checked": "Complete statement and local typeclass hypotheses personally read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex codex-J6LwjP; exact declaration index checked."
+        "checked": "Complete statement and local typeclass hypotheses personally read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex codex-J6LwjP; exact declaration index checked.",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-BjAqvx",
+          "date": "2026-10-05",
+          "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "result": "Actual statement and ambient hypotheses read in the cited pinned module and compared with this provides entry and its inspected affine consumers. Fit is conditional on the listed inputs. This is a native algebraic interface check, not a global sheaf construction or proof of an admitted suggested statement."
+        }
       },
       {
         "ref": "mathlib:Matrix.detRowAlternating",
@@ -324,84 +408,168 @@
         "kind": "theorem",
         "module": "Mathlib/LinearAlgebra/Matrix/Determinant/Basic.lean",
         "provides": "Permutation determinant formula with integer permutation signs.",
-        "checked": "Full selected statement and ambient hypotheses personally read by Codex codex-a71f92 at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02; exact declaration index matched. The changed native signature file subsequently elaborated with admitted-declaration bodies; this does not prove the declarations."
+        "checked": "Full selected statement and ambient hypotheses personally read by Codex codex-a71f92 at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02; exact declaration index matched. The changed native signature file subsequently elaborated with admitted-declaration bodies; this does not prove the declarations.",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-BjAqvx",
+          "date": "2026-10-05",
+          "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "result": "Actual statement and ambient hypotheses read in the cited pinned module and compared with this provides entry and its inspected affine consumers. Fit is conditional on the listed inputs. This is a native algebraic interface check, not a global sheaf construction or proof of an admitted suggested statement."
+        }
       },
       {
         "ref": "mathlib:Matrix.det_updateRow_add",
         "kind": "theorem",
         "module": "Mathlib/LinearAlgebra/Matrix/Determinant/Basic.lean",
         "provides": "Additivity in a replaced row.",
-        "checked": "Full selected statement and ambient hypotheses personally read by Codex codex-a71f92 at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02; exact declaration index matched. The changed native signature file subsequently elaborated with admitted-declaration bodies; this does not prove the declarations."
+        "checked": "Full selected statement and ambient hypotheses personally read by Codex codex-a71f92 at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02; exact declaration index matched. The changed native signature file subsequently elaborated with admitted-declaration bodies; this does not prove the declarations.",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-BjAqvx",
+          "date": "2026-10-05",
+          "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "result": "Actual statement and ambient hypotheses read in the cited pinned module and compared with this provides entry and its inspected affine consumers. Fit is conditional on the listed inputs. This is a native algebraic interface check, not a global sheaf construction or proof of an admitted suggested statement."
+        }
       },
       {
         "ref": "mathlib:Matrix.det_updateRow_smul",
         "kind": "theorem",
         "module": "Mathlib/LinearAlgebra/Matrix/Determinant/Basic.lean",
         "provides": "Scalar linearity in a replaced row.",
-        "checked": "Full selected statement and ambient hypotheses personally read by Codex codex-a71f92 at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02; exact declaration index matched. The changed native signature file subsequently elaborated with admitted-declaration bodies; this does not prove the declarations."
+        "checked": "Full selected statement and ambient hypotheses personally read by Codex codex-a71f92 at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02; exact declaration index matched. The changed native signature file subsequently elaborated with admitted-declaration bodies; this does not prove the declarations.",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-BjAqvx",
+          "date": "2026-10-05",
+          "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "result": "Actual statement and ambient hypotheses read in the cited pinned module and compared with this provides entry and its inspected affine consumers. Fit is conditional on the listed inputs. This is a native algebraic interface check, not a global sheaf construction or proof of an admitted suggested statement."
+        }
       },
       {
         "ref": "mathlib:Matrix.det_updateRow_eq_zero",
         "kind": "theorem",
         "module": "Mathlib/LinearAlgebra/Matrix/Determinant/Basic.lean",
         "provides": "A duplicated row has zero determinant, including characteristic two.",
-        "checked": "Full selected statement and ambient hypotheses personally read by Codex codex-a71f92 at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02; exact declaration index matched. The changed native signature file subsequently elaborated with admitted-declaration bodies; this does not prove the declarations."
+        "checked": "Full selected statement and ambient hypotheses personally read by Codex codex-a71f92 at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02; exact declaration index matched. The changed native signature file subsequently elaborated with admitted-declaration bodies; this does not prove the declarations.",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-BjAqvx",
+          "date": "2026-10-05",
+          "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "result": "Actual statement and ambient hypotheses read in the cited pinned module and compared with this provides entry and its inspected affine consumers. Fit is conditional on the listed inputs. This is a native algebraic interface check, not a global sheaf construction or proof of an admitted suggested statement."
+        }
       },
       {
         "ref": "mathlib:Matrix.det_transpose",
         "kind": "theorem",
         "module": "Mathlib/LinearAlgebra/Matrix/Determinant/Basic.lean",
         "provides": "Transposition preserves determinant.",
-        "checked": "Full selected statement and ambient hypotheses personally read by Codex codex-a71f92 at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02; exact declaration index matched. The changed native signature file subsequently elaborated with admitted-declaration bodies; this does not prove the declarations."
+        "checked": "Full selected statement and ambient hypotheses personally read by Codex codex-a71f92 at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02; exact declaration index matched. The changed native signature file subsequently elaborated with admitted-declaration bodies; this does not prove the declarations.",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-BjAqvx",
+          "date": "2026-10-05",
+          "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "result": "Actual statement and ambient hypotheses read in the cited pinned module and compared with this provides entry and its inspected affine consumers. Fit is conditional on the listed inputs. This is a native algebraic interface check, not a global sheaf construction or proof of an admitted suggested statement."
+        }
       },
       {
         "ref": "mathlib:Matrix.det_mul",
         "kind": "theorem",
         "module": "Mathlib/LinearAlgebra/Matrix/Determinant/Basic.lean",
         "provides": "Determinant is multiplicative over a commutative ring.",
-        "checked": "Full selected statement and ambient hypotheses personally read by Codex codex-a71f92 at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02; exact declaration index matched. The changed native signature file subsequently elaborated with admitted-declaration bodies; this does not prove the declarations."
+        "checked": "Full selected statement and ambient hypotheses personally read by Codex codex-a71f92 at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02; exact declaration index matched. The changed native signature file subsequently elaborated with admitted-declaration bodies; this does not prove the declarations.",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-BjAqvx",
+          "date": "2026-10-05",
+          "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "result": "Actual statement and ambient hypotheses read in the cited pinned module and compared with this provides entry and its inspected affine consumers. Fit is conditional on the listed inputs. This is a native algebraic interface check, not a global sheaf construction or proof of an admitted suggested statement."
+        }
       },
       {
         "ref": "mathlib:Matrix.detMonoidHom",
         "kind": "def",
         "module": "Mathlib/LinearAlgebra/Matrix/Determinant/Basic.lean",
         "provides": "Native determinant monoid homomorphism; sends matrix units to scalar units.",
-        "checked": "Full selected statement and ambient hypotheses personally read by Codex codex-a71f92 at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02; exact declaration index matched. The changed native signature file subsequently elaborated with admitted-declaration bodies; this does not prove the declarations."
+        "checked": "Full selected statement and ambient hypotheses personally read by Codex codex-a71f92 at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02; exact declaration index matched. The changed native signature file subsequently elaborated with admitted-declaration bodies; this does not prove the declarations.",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-BjAqvx",
+          "date": "2026-10-05",
+          "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "result": "Actual statement and ambient hypotheses read in the cited pinned module and compared with this provides entry and its inspected affine consumers. Fit is conditional on the listed inputs. This is a native algebraic interface check, not a global sheaf construction or proof of an admitted suggested statement."
+        }
       },
       {
         "ref": "mathlib:Matrix.scalar",
         "kind": "def",
         "module": "Mathlib/Data/Matrix/Basic.lean",
         "provides": "Native scalar ring homomorphism, specialized to Fin 1 for line frames.",
-        "checked": "Full selected statement and ambient hypotheses personally read by Codex codex-a71f92 at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02; exact declaration index matched. The changed native signature file subsequently elaborated with admitted-declaration bodies; this does not prove the declarations."
+        "checked": "Full selected statement and ambient hypotheses personally read by Codex codex-a71f92 at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02; exact declaration index matched. The changed native signature file subsequently elaborated with admitted-declaration bodies; this does not prove the declarations.",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-BjAqvx",
+          "date": "2026-10-05",
+          "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "result": "Actual statement and ambient hypotheses read in the cited pinned module and compared with this provides entry and its inspected affine consumers. Fit is conditional on the listed inputs. This is a native algebraic interface check, not a global sheaf construction or proof of an admitted suggested statement."
+        }
       },
       {
         "ref": "mathlib:Units.map",
         "kind": "def",
         "module": "Mathlib/Algebra/Group/Units/Hom.lean",
         "provides": "Native induced homomorphism on units, with inverse data.",
-        "checked": "Full selected statement and ambient hypotheses personally read by Codex codex-a71f92 at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02; exact declaration index matched. The changed native signature file subsequently elaborated with admitted-declaration bodies; this does not prove the declarations."
+        "checked": "Full selected statement and ambient hypotheses personally read by Codex codex-a71f92 at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02; exact declaration index matched. The changed native signature file subsequently elaborated with admitted-declaration bodies; this does not prove the declarations.",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-BjAqvx",
+          "date": "2026-10-05",
+          "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "result": "Actual statement and ambient hypotheses read in the cited pinned module and compared with this provides entry and its inspected affine consumers. Fit is conditional on the listed inputs. This is a native algebraic interface check, not a global sheaf construction or proof of an admitted suggested statement."
+        }
       },
       {
         "ref": "mathlib:Units.coe_map",
         "kind": "theorem",
         "module": "Mathlib/Algebra/Group/Units/Hom.lean",
         "provides": "Value of a transported unit equals the image of the original value.",
-        "checked": "Full selected statement and ambient hypotheses personally read by Codex codex-a71f92 at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02; exact declaration index matched. The changed native signature file subsequently elaborated with admitted-declaration bodies; this does not prove the declarations."
+        "checked": "Full selected statement and ambient hypotheses personally read by Codex codex-a71f92 at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02; exact declaration index matched. The changed native signature file subsequently elaborated with admitted-declaration bodies; this does not prove the declarations.",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-BjAqvx",
+          "date": "2026-10-05",
+          "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "result": "Actual statement and ambient hypotheses read in the cited pinned module and compared with this provides entry and its inspected affine consumers. Fit is conditional on the listed inputs. This is a native algebraic interface check, not a global sheaf construction or proof of an admitted suggested statement."
+        }
       },
       {
         "ref": "mathlib:Derivation.map_intCast",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/Derivation/Basic.lean",
         "provides": "Integer constants, hence determinant permutation signs, have derivative zero.",
-        "checked": "Full selected statement and ambient hypotheses personally read by Codex codex-a71f92 at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02; exact declaration index matched. The changed native signature file subsequently elaborated with admitted-declaration bodies; this does not prove the declarations."
+        "checked": "Full selected statement and ambient hypotheses personally read by Codex codex-a71f92 at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02; exact declaration index matched. The changed native signature file subsequently elaborated with admitted-declaration bodies; this does not prove the declarations.",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-BjAqvx",
+          "date": "2026-10-05",
+          "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "result": "Actual statement and ambient hypotheses read in the cited pinned module and compared with this provides entry and its inspected affine consumers. Fit is conditional on the listed inputs. This is a native algebraic interface check, not a global sheaf construction or proof of an admitted suggested statement."
+        }
       },
       {
         "ref": "mathlib:Derivation.map_one_eq_zero",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/Derivation/Basic.lean",
         "provides": "Derivative of 1 is zero, including the rank-zero determinant.",
-        "checked": "Full selected statement and ambient hypotheses personally read by Codex codex-a71f92 at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02; exact declaration index matched. The changed native signature file subsequently elaborated with admitted-declaration bodies; this does not prove the declarations."
+        "checked": "Full selected statement and ambient hypotheses personally read by Codex codex-a71f92 at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02; exact declaration index matched. The changed native signature file subsequently elaborated with admitted-declaration bodies; this does not prove the declarations.",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-BjAqvx",
+          "date": "2026-10-05",
+          "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "result": "Actual statement and ambient hypotheses read in the cited pinned module and compared with this provides entry and its inspected affine consumers. Fit is conditional on the listed inputs. This is a native algebraic interface check, not a global sheaf construction or proof of an admitted suggested statement."
+        }
       },
       {
         "ref": "tauceti:Matrix.sum_det_updateRow_mul_row",
@@ -415,49 +583,98 @@
         "kind": "abbrev",
         "module": "Mathlib/LinearAlgebra/Dual/Defs.lean",
         "provides": "Native dual Hom_A(Q,A); no new dual carrier.",
-        "checked": "Full selected statement and ambient hypotheses read by Codex codex-rtOQ9t on 2026-10-02 at the packet exact pins; checked against the declaration index. Affine Mathlib-only signatures are elaborated independently; no Tau Ceti build is certified."
+        "checked": "Full selected statement and ambient hypotheses read by Codex codex-rtOQ9t on 2026-10-02 at the packet exact pins; checked against the declaration index. Affine Mathlib-only signatures are elaborated independently; no Tau Ceti build is certified.",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-BjAqvx",
+          "date": "2026-10-05",
+          "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "result": "Actual statement and ambient hypotheses read in the cited pinned module and compared with this provides entry and its inspected affine consumers. Fit is conditional on the listed inputs. This is a native algebraic interface check, not a global sheaf construction or proof of an admitted suggested statement."
+        }
       },
       {
         "ref": "mathlib:TensorProduct.map",
         "kind": "def",
         "module": "Mathlib/LinearAlgebra/TensorProduct/Map.lean",
         "provides": "Native tensor map for linear contraction.",
-        "checked": "Full selected statement and ambient hypotheses read by Codex codex-rtOQ9t on 2026-10-02 at the packet exact pins; checked against the declaration index. Affine Mathlib-only signatures are elaborated independently; no Tau Ceti build is certified."
+        "checked": "Full selected statement and ambient hypotheses read by Codex codex-rtOQ9t on 2026-10-02 at the packet exact pins; checked against the declaration index. Affine Mathlib-only signatures are elaborated independently; no Tau Ceti build is certified.",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-BjAqvx",
+          "date": "2026-10-05",
+          "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "result": "Actual statement and ambient hypotheses read in the cited pinned module and compared with this provides entry and its inspected affine consumers. Fit is conditional on the listed inputs. This is a native algebraic interface check, not a global sheaf construction or proof of an admitted suggested statement."
+        }
       },
       {
         "ref": "mathlib:TensorProduct.rid",
         "kind": "def",
         "module": "Mathlib/LinearAlgebra/TensorProduct/Associator.lean",
         "provides": "Right tensor unit equivalence E⊗A≅E.",
-        "checked": "Full selected statement and ambient hypotheses read by Codex codex-rtOQ9t on 2026-10-02 at the packet exact pins; checked against the declaration index. Affine Mathlib-only signatures are elaborated independently; no Tau Ceti build is certified."
+        "checked": "Full selected statement and ambient hypotheses read by Codex codex-rtOQ9t on 2026-10-02 at the packet exact pins; checked against the declaration index. Affine Mathlib-only signatures are elaborated independently; no Tau Ceti build is certified.",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-BjAqvx",
+          "date": "2026-10-05",
+          "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "result": "Actual statement and ambient hypotheses read in the cited pinned module and compared with this provides entry and its inspected affine consumers. Fit is conditional on the listed inputs. This is a native algebraic interface check, not a global sheaf construction or proof of an admitted suggested statement."
+        }
       },
       {
         "ref": "mathlib:TensorAlgebra.lift",
         "kind": "def",
         "module": "Mathlib/LinearAlgebra/TensorAlgebra/Basic.lean",
         "provides": "Universal associative A-algebra lift; target need not commute.",
-        "checked": "Full selected statement and ambient hypotheses read by Codex codex-rtOQ9t on 2026-10-02 at the packet exact pins; checked against the declaration index. Affine Mathlib-only signatures are elaborated independently; no Tau Ceti build is certified."
+        "checked": "Full selected statement and ambient hypotheses read by Codex codex-rtOQ9t on 2026-10-02 at the packet exact pins; checked against the declaration index. Affine Mathlib-only signatures are elaborated independently; no Tau Ceti build is certified.",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-BjAqvx",
+          "date": "2026-10-05",
+          "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "result": "Actual statement and ambient hypotheses read in the cited pinned module and compared with this provides entry and its inspected affine consumers. Fit is conditional on the listed inputs. This is a native algebraic interface check, not a global sheaf construction or proof of an admitted suggested statement."
+        }
       },
       {
         "ref": "mathlib:TensorAlgebra.SymRel",
         "kind": "inductive",
         "module": "Mathlib/LinearAlgebra/SymmetricAlgebra/Basic.lean",
         "provides": "Native relation imposing commutation of degree-one generators.",
-        "checked": "Full selected statement and ambient hypotheses read by Codex codex-rtOQ9t on 2026-10-02 at the packet exact pins; checked against the declaration index. Affine Mathlib-only signatures are elaborated independently; no Tau Ceti build is certified."
+        "checked": "Full selected statement and ambient hypotheses read by Codex codex-rtOQ9t on 2026-10-02 at the packet exact pins; checked against the declaration index. Affine Mathlib-only signatures are elaborated independently; no Tau Ceti build is certified.",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-BjAqvx",
+          "date": "2026-10-05",
+          "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "result": "Actual statement and ambient hypotheses read in the cited pinned module and compared with this provides entry and its inspected affine consumers. Fit is conditional on the listed inputs. This is a native algebraic interface check, not a global sheaf construction or proof of an admitted suggested statement."
+        }
       },
       {
         "ref": "mathlib:RingCon.ringConGen_le",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/Congruence/Basic.lean",
         "provides": "Generated congruence containment tested on the defining relation.",
-        "checked": "Full selected statement and ambient hypotheses read by Codex codex-rtOQ9t on 2026-10-02 at the packet exact pins; checked against the declaration index. Affine Mathlib-only signatures are elaborated independently; no Tau Ceti build is certified."
+        "checked": "Full selected statement and ambient hypotheses read by Codex codex-rtOQ9t on 2026-10-02 at the packet exact pins; checked against the declaration index. Affine Mathlib-only signatures are elaborated independently; no Tau Ceti build is certified.",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-BjAqvx",
+          "date": "2026-10-05",
+          "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "result": "Actual statement and ambient hypotheses read in the cited pinned module and compared with this provides entry and its inspected affine consumers. Fit is conditional on the listed inputs. This is a native algebraic interface check, not a global sheaf construction or proof of an admitted suggested statement."
+        }
       },
       {
         "ref": "mathlib:RingCon.liftₐ",
         "kind": "def",
         "module": "Mathlib/RingTheory/Congruence/Hom.lean",
         "provides": "Quotient algebra map into an associative semiring target.",
-        "checked": "Full selected statement and ambient hypotheses read by Codex codex-rtOQ9t on 2026-10-02 at the packet exact pins; checked against the declaration index. Affine Mathlib-only signatures are elaborated independently; no Tau Ceti build is certified."
+        "checked": "Full selected statement and ambient hypotheses read by Codex codex-rtOQ9t on 2026-10-02 at the packet exact pins; checked against the declaration index. Affine Mathlib-only signatures are elaborated independently; no Tau Ceti build is certified.",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-BjAqvx",
+          "date": "2026-10-05",
+          "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "result": "Actual statement and ambient hypotheses read in the cited pinned module and compared with this provides entry and its inspected affine consumers. Fit is conditional on the listed inputs. This is a native algebraic interface check, not a global sheaf construction or proof of an admitted suggested statement."
+        }
       },
       {
         "ref": "mathlib:RingCon.liftₐ_mk",
@@ -471,14 +688,28 @@
         "kind": "theorem",
         "module": "Mathlib/RingTheory/Congruence/Hom.lean",
         "provides": "Quotient map extensionality, associative target.",
-        "checked": "Full selected statement and ambient hypotheses read by Codex codex-rtOQ9t on 2026-10-02 at the packet exact pins; checked against the declaration index. Affine Mathlib-only signatures are elaborated independently; no Tau Ceti build is certified."
+        "checked": "Full selected statement and ambient hypotheses read by Codex codex-rtOQ9t on 2026-10-02 at the packet exact pins; checked against the declaration index. Affine Mathlib-only signatures are elaborated independently; no Tau Ceti build is certified.",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-BjAqvx",
+          "date": "2026-10-05",
+          "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "result": "Actual statement and ambient hypotheses read in the cited pinned module and compared with this provides entry and its inspected affine consumers. Fit is conditional on the listed inputs. This is a native algebraic interface check, not a global sheaf construction or proof of an admitted suggested statement."
+        }
       },
       {
         "ref": "mathlib:TensorAlgebra.hom_ext",
         "kind": "theorem",
         "module": "Mathlib/LinearAlgebra/TensorAlgebra/Basic.lean",
         "provides": "Equality of associative algebra maps from generator equality.",
-        "checked": "Full selected statement and ambient hypotheses read by Codex codex-rtOQ9t on 2026-10-02 at the packet exact pins; checked against the declaration index. Affine Mathlib-only signatures are elaborated independently; no Tau Ceti build is certified."
+        "checked": "Full selected statement and ambient hypotheses read by Codex codex-rtOQ9t on 2026-10-02 at the packet exact pins; checked against the declaration index. Affine Mathlib-only signatures are elaborated independently; no Tau Ceti build is certified.",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-BjAqvx",
+          "date": "2026-10-05",
+          "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "result": "Actual statement and ambient hypotheses read in the cited pinned module and compared with this provides entry and its inspected affine consumers. Fit is conditional on the listed inputs. This is a native algebraic interface check, not a global sheaf construction or proof of an admitted suggested statement."
+        }
       },
       {
         "ref": "mathlib:TensorAlgebra.lift_ι_apply",
@@ -492,14 +723,28 @@
         "kind": "abbrev",
         "module": "Mathlib/LinearAlgebra/SymmetricAlgebra/Basic.lean",
         "provides": "Actual tensor-to-symmetric quotient map.",
-        "checked": "Full selected statement and ambient hypotheses read by Codex codex-rtOQ9t on 2026-10-02 at the packet exact pins; checked against the declaration index. Affine Mathlib-only signatures are elaborated independently; no Tau Ceti build is certified."
+        "checked": "Full selected statement and ambient hypotheses read by Codex codex-rtOQ9t on 2026-10-02 at the packet exact pins; checked against the declaration index. Affine Mathlib-only signatures are elaborated independently; no Tau Ceti build is certified.",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-BjAqvx",
+          "date": "2026-10-05",
+          "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "result": "Actual statement and ambient hypotheses read in the cited pinned module and compared with this provides entry and its inspected affine consumers. Fit is conditional on the listed inputs. This is a native algebraic interface check, not a global sheaf construction or proof of an admitted suggested statement."
+        }
       },
       {
         "ref": "mathlib:SymmetricAlgebra.induction",
         "kind": "theorem",
         "module": "Mathlib/LinearAlgebra/SymmetricAlgebra/Basic.lean",
         "provides": "Induction on scalars, generators, sums and products.",
-        "checked": "Full selected statement and ambient hypotheses read by Codex codex-rtOQ9t on 2026-10-02 at the packet exact pins; checked against the declaration index. Affine Mathlib-only signatures are elaborated independently; no Tau Ceti build is certified."
+        "checked": "Full selected statement and ambient hypotheses read by Codex codex-rtOQ9t on 2026-10-02 at the packet exact pins; checked against the declaration index. Affine Mathlib-only signatures are elaborated independently; no Tau Ceti build is certified.",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-BjAqvx",
+          "date": "2026-10-05",
+          "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "result": "Actual statement and ambient hypotheses read in the cited pinned module and compared with this provides entry and its inspected affine consumers. Fit is conditional on the listed inputs. This is a native algebraic interface check, not a global sheaf construction or proof of an admitted suggested statement."
+        }
       },
       {
         "ref": "mathlib:SymmetricAlgebra.algebraMapInv",
@@ -513,7 +758,14 @@
         "kind": "theorem",
         "module": "Mathlib/RingTheory/Bialgebra/SymmetricAlgebra.lean",
         "provides": "Native symmetric counit is algebraMapInv.",
-        "checked": "Full selected statement and ambient hypotheses read by Codex codex-rtOQ9t on 2026-10-02 at the packet exact pins; checked against the declaration index. Affine Mathlib-only signatures are elaborated independently; no Tau Ceti build is certified."
+        "checked": "Full selected statement and ambient hypotheses read by Codex codex-rtOQ9t on 2026-10-02 at the packet exact pins; checked against the declaration index. Affine Mathlib-only signatures are elaborated independently; no Tau Ceti build is certified.",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-BjAqvx",
+          "date": "2026-10-05",
+          "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "result": "Actual statement and ambient hypotheses read in the cited pinned module and compared with this provides entry and its inspected affine consumers. Fit is conditional on the listed inputs. This is a native algebraic interface check, not a global sheaf construction or proof of an admitted suggested statement."
+        }
       },
       {
         "ref": "mathlib:Ideal.span_mul_span",
@@ -527,14 +779,28 @@
         "kind": "def",
         "module": "Mathlib/RingTheory/Ideal/Quotient/Operations.lean",
         "provides": "Algebra map from an ideal quotient into a possibly noncommutative target.",
-        "checked": "Full selected statement and ambient hypotheses read by Codex codex-rtOQ9t on 2026-10-02 at the packet exact pins; checked against the declaration index. Affine Mathlib-only signatures are elaborated independently; no Tau Ceti build is certified."
+        "checked": "Full selected statement and ambient hypotheses read by Codex codex-rtOQ9t on 2026-10-02 at the packet exact pins; checked against the declaration index. Affine Mathlib-only signatures are elaborated independently; no Tau Ceti build is certified.",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-BjAqvx",
+          "date": "2026-10-05",
+          "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "result": "Actual statement and ambient hypotheses read in the cited pinned module and compared with this provides entry and its inspected affine consumers. Fit is conditional on the listed inputs. This is a native algebraic interface check, not a global sheaf construction or proof of an admitted suggested statement."
+        }
       },
       {
         "ref": "mathlib:Ideal.Quotient.liftₐ_comp",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/Ideal/Quotient/Operations.lean",
         "provides": "Quotient representative/factorization formula.",
-        "checked": "Full selected statement and ambient hypotheses read by Codex codex-rtOQ9t on 2026-10-02 at the packet exact pins; checked against the declaration index. Affine Mathlib-only signatures are elaborated independently; no Tau Ceti build is certified."
+        "checked": "Full selected statement and ambient hypotheses read by Codex codex-rtOQ9t on 2026-10-02 at the packet exact pins; checked against the declaration index. Affine Mathlib-only signatures are elaborated independently; no Tau Ceti build is certified.",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-BjAqvx",
+          "date": "2026-10-05",
+          "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "result": "Actual statement and ambient hypotheses read in the cited pinned module and compared with this provides entry and its inspected affine consumers. Fit is conditional on the listed inputs. This is a native algebraic interface check, not a global sheaf construction or proof of an admitted suggested statement."
+        }
       },
       {
         "ref": "tauceti:TauCeti.HopfIdeal.mem_augmentation",
@@ -548,73 +814,157 @@
         "kind": "theorem",
         "module": "TauCeti/Algebra/HopfAlgebra/SymmetricAlgebra/Augmentation.lean",
         "provides": "Already built basis-free augmentation generation over every commutative ring; imported, never replanned.",
-        "checked": "Full selected statement and ambient hypotheses read by Codex codex-rtOQ9t on 2026-10-02 at the packet exact pins; checked against the declaration index. Affine Mathlib-only signatures are elaborated independently; no Tau Ceti build is certified."
+        "checked": "Full selected statement and ambient hypotheses read by Codex codex-rtOQ9t on 2026-10-02 at the packet exact pins; checked against the declaration index. Affine Mathlib-only signatures are elaborated independently; no Tau Ceti build is certified.",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-BjAqvx",
+          "date": "2026-10-05",
+          "commit": "f790474821cf4256814db967cb154e7af3d0c369",
+          "result": "Actual statement and ambient hypotheses read in the cited pinned module and compared with this provides entry and its inspected affine consumers. Fit is conditional on the listed inputs. This is a native algebraic interface check, not a global sheaf construction or proof of an admitted suggested statement."
+        }
       },
       {
         "ref": "mathlib:TensorProduct.map_add_right",
         "module": "Mathlib/LinearAlgebra/TensorProduct/Map.lean",
         "provides": "Tensor map is additive in the second map, with semilinear ambient hypotheses.",
-        "checked": "Full statement and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 and matched to its indexed declaration; used by the native proof or regression."
+        "checked": "Full statement and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 and matched to its indexed declaration; used by the native proof or regression.",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-BjAqvx",
+          "date": "2026-10-05",
+          "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "result": "Actual statement and ambient hypotheses read in the cited pinned module and compared with this provides entry and its inspected affine consumers. Fit is conditional on the listed inputs. This is a native algebraic interface check, not a global sheaf construction or proof of an admitted suggested statement."
+        }
       },
       {
         "ref": "mathlib:TensorProduct.map_smul_right",
         "module": "Mathlib/LinearAlgebra/TensorProduct/Map.lean",
         "provides": "Tensor map respects scalar multiplication in the second map.",
-        "checked": "Full statement and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 and matched to its indexed declaration; used by the native proof or regression."
+        "checked": "Full statement and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 and matched to its indexed declaration; used by the native proof or regression.",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-BjAqvx",
+          "date": "2026-10-05",
+          "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "result": "Actual statement and ambient hypotheses read in the cited pinned module and compared with this provides entry and its inspected affine consumers. Fit is conditional on the listed inputs. This is a native algebraic interface check, not a global sheaf construction or proof of an admitted suggested statement."
+        }
       },
       {
         "ref": "mathlib:SymmetricAlgebra.algebraMapInv_ι",
         "module": "Mathlib/LinearAlgebra/SymmetricAlgebra/Basic.lean",
         "provides": "The degree-zero augmentation kills each degree-one generator.",
-        "checked": "Full statement and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 and matched to its indexed declaration; used by the native proof or regression."
+        "checked": "Full statement and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 and matched to its indexed declaration; used by the native proof or regression.",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-BjAqvx",
+          "date": "2026-10-05",
+          "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "result": "Actual statement and ambient hypotheses read in the cited pinned module and compared with this provides entry and its inspected affine consumers. Fit is conditional on the listed inputs. This is a native algebraic interface check, not a global sheaf construction or proof of an admitted suggested statement."
+        }
       },
       {
         "ref": "mathlib:Ideal.Quotient.mk_surjective",
         "module": "Mathlib/RingTheory/Ideal/Quotient/Defs.lean",
         "provides": "Every ideal quotient class has a representative.",
-        "checked": "Full statement and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 and matched to its indexed declaration; used by the native proof or regression."
+        "checked": "Full statement and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 and matched to its indexed declaration; used by the native proof or regression.",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-BjAqvx",
+          "date": "2026-10-05",
+          "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "result": "Actual statement and ambient hypotheses read in the cited pinned module and compared with this provides entry and its inspected affine consumers. Fit is conditional on the listed inputs. This is a native algebraic interface check, not a global sheaf construction or proof of an admitted suggested statement."
+        }
       },
       {
         "ref": "mathlib:Ideal.Quotient.eq_zero_iff_mem",
         "module": "Mathlib/RingTheory/Ideal/Quotient/Defs.lean",
         "provides": "A quotient representative is zero exactly when it lies in the ideal.",
-        "checked": "Full statement and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 and matched to its indexed declaration; used by the native proof or regression."
+        "checked": "Full statement and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 and matched to its indexed declaration; used by the native proof or regression.",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-BjAqvx",
+          "date": "2026-10-05",
+          "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "result": "Actual statement and ambient hypotheses read in the cited pinned module and compared with this provides entry and its inspected affine consumers. Fit is conditional on the listed inputs. This is a native algebraic interface check, not a global sheaf construction or proof of an admitted suggested statement."
+        }
       },
       {
         "ref": "mathlib:Ideal.pow_mem_pow",
         "module": "Mathlib/RingTheory/Ideal/Operations.lean",
         "provides": "If x lies in I, its Nth power lies in I^N, including N=0.",
-        "checked": "Full statement and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 and matched to its indexed declaration; used by the native proof or regression."
+        "checked": "Full statement and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 and matched to its indexed declaration; used by the native proof or regression.",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-BjAqvx",
+          "date": "2026-10-05",
+          "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "result": "Actual statement and ambient hypotheses read in the cited pinned module and compared with this provides entry and its inspected affine consumers. Fit is conditional on the listed inputs. This is a native algebraic interface check, not a global sheaf construction or proof of an admitted suggested statement."
+        }
       },
       {
         "ref": "tauceti:TauCeti.HopfIdeal.augmentation_toIdeal",
         "module": "TauCeti/Algebra/HopfAlgebra/HopfIdeal/Augmentation.lean",
         "provides": "The underlying ideal of the Hopf augmentation is the kernel of Bialgebra.counitAlgHom.",
-        "checked": "Full statement and ambient hypotheses read at the exact pinned source commit; existing declaration, not a new roadmap node."
+        "checked": "Full statement and ambient hypotheses read at the exact pinned source commit; existing declaration, not a new roadmap node.",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-BjAqvx",
+          "date": "2026-10-05",
+          "commit": "f790474821cf4256814db967cb154e7af3d0c369",
+          "result": "Actual statement and ambient hypotheses read in the cited pinned module and compared with this provides entry and its inspected affine consumers. Fit is conditional on the listed inputs. This is a native algebraic interface check, not a global sheaf construction or proof of an admitted suggested statement."
+        }
       },
       {
         "ref": "mathlib:Submodule.span_pow",
         "module": "Mathlib/Algebra/Algebra/Operations.lean",
         "provides": "The Nth power of a scalar span equals the span of the Nth set power; use S as its own scalar algebra.",
-        "checked": "Full statement and ambient hypotheses read at the exact pinned source commit; existing declaration, not a new roadmap node."
+        "checked": "Full statement and ambient hypotheses read at the exact pinned source commit; existing declaration, not a new roadmap node.",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-BjAqvx",
+          "date": "2026-10-05",
+          "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "result": "Actual statement and ambient hypotheses read in the cited pinned module and compared with this provides entry and its inspected affine consumers. Fit is conditional on the listed inputs. This is a native algebraic interface check, not a global sheaf construction or proof of an admitted suggested statement."
+        }
       },
       {
         "ref": "mathlib:Set.mem_pow",
         "module": "Mathlib/Algebra/Group/Pointwise/Set/ListOfFn.lean",
         "provides": "Membership in a set power is witnessed by a Fin N-indexed word whose ordered product is the element, including N=0.",
-        "checked": "Full statement and ambient hypotheses read at the exact pinned source commit; existing declaration, not a new roadmap node."
+        "checked": "Full statement and ambient hypotheses read at the exact pinned source commit; existing declaration, not a new roadmap node.",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-BjAqvx",
+          "date": "2026-10-05",
+          "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "result": "Actual statement and ambient hypotheses read in the cited pinned module and compared with this provides entry and its inspected affine consumers. Fit is conditional on the listed inputs. This is a native algebraic interface check, not a global sheaf construction or proof of an admitted suggested statement."
+        }
       },
       {
         "ref": "mathlib:Ideal.span_le",
         "module": "Mathlib/RingTheory/Ideal/Span.lean",
         "provides": "An ideal span is contained in an ideal exactly when its generating set is contained there.",
-        "checked": "Full statement and ambient hypotheses read at the exact pinned source commit; existing declaration, not a new roadmap node."
+        "checked": "Full statement and ambient hypotheses read at the exact pinned source commit; existing declaration, not a new roadmap node.",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-BjAqvx",
+          "date": "2026-10-05",
+          "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "result": "Actual statement and ambient hypotheses read in the cited pinned module and compared with this provides entry and its inspected affine consumers. Fit is conditional on the listed inputs. This is a native algebraic interface check, not a global sheaf construction or proof of an admitted suggested statement."
+        }
       },
       {
         "ref": "mathlib:Matrix.toLin'",
         "module": "Mathlib/LinearAlgebra/Matrix/ToLin.lean",
-        "provides": "Native equivalence from matrices to linear maps on finite function modules, used only for concrete End(ℚ²) fixtures.",
-        "checked": "Full statement and ambient hypotheses read at the exact pinned source commit; existing declaration, not a new roadmap node."
+        "provides": "Native equivalence from matrices to linear maps on finite function modules over a commutative semiring, used for rational and characteristic-two endomorphism fixtures.",
+        "checked": "Full statement and ambient hypotheses read at the exact pinned source commit; existing declaration, not a new roadmap node.",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-BjAqvx",
+          "date": "2026-10-05",
+          "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "result": "Actual statement and ambient hypotheses read in the cited pinned module and compared with this provides entry and its inspected affine consumers. Fit is conditional on the listed inputs. This is a native algebraic interface check, not a global sheaf construction or proof of an admitted suggested statement."
+        }
       },
       {
         "ref": "mathlib:Module.Basis.sum_repr",
@@ -623,7 +973,14 @@
         "provides": "A vector in a finite basis is the finite sum of its coordinates times basis vectors.",
         "checked": "Actual complete statement and relevant proof/construction read at Mathlib082e2d3 on2026-10-02.",
         "sourceLine": 258,
-        "sourceSha256": "89865e3cbfcee915d186b3448eb18c070b0601e4e30c4d0d661bd4862b723d29"
+        "sourceSha256": "89865e3cbfcee915d186b3448eb18c070b0601e4e30c4d0d661bd4862b723d29",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-BjAqvx",
+          "date": "2026-10-05",
+          "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "result": "Actual statement and ambient hypotheses read in the cited pinned module and compared with this provides entry and its inspected affine consumers. Fit is conditional on the listed inputs. This is a native algebraic interface check, not a global sheaf construction or proof of an admitted suggested statement."
+        }
       },
       {
         "ref": "mathlib:Module.Basis.coord",
@@ -632,7 +989,14 @@
         "provides": "Existing linear dual coordinate of a chosen basis.",
         "checked": "Actual complete statement and relevant proof/construction read at Mathlib082e2d3 on2026-10-02.",
         "sourceLine": 663,
-        "sourceSha256": "89865e3cbfcee915d186b3448eb18c070b0601e4e30c4d0d661bd4862b723d29"
+        "sourceSha256": "89865e3cbfcee915d186b3448eb18c070b0601e4e30c4d0d661bd4862b723d29",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-BjAqvx",
+          "date": "2026-10-05",
+          "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "result": "Actual statement and ambient hypotheses read in the cited pinned module and compared with this provides entry and its inspected affine consumers. Fit is conditional on the listed inputs. This is a native algebraic interface check, not a global sheaf construction or proof of an admitted suggested statement."
+        }
       },
       {
         "ref": "mathlib:TensorProduct.induction_on",
@@ -641,7 +1005,14 @@
         "provides": "Existing zero/pure-tensor/add induction for the actual tensor product.",
         "checked": "Actual complete statement and relevant proof/construction read at Mathlib082e2d3 on2026-10-02.",
         "sourceLine": 119,
-        "sourceSha256": "e9ab5f95dc191e56ea1708a140e00efe2c7ee58eabffe7e76cd083d11e57dc65"
+        "sourceSha256": "e9ab5f95dc191e56ea1708a140e00efe2c7ee58eabffe7e76cd083d11e57dc65",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-BjAqvx",
+          "date": "2026-10-05",
+          "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "result": "Actual statement and ambient hypotheses read in the cited pinned module and compared with this provides entry and its inspected affine consumers. Fit is conditional on the listed inputs. This is a native algebraic interface check, not a global sheaf construction or proof of an admitted suggested statement."
+        }
       },
       {
         "ref": "mathlib:TensorProduct.assoc",
@@ -650,7 +1021,14 @@
         "provides": "Existing linear associator from (E tensor Q) tensor Q to E tensor (Q tensor Q).",
         "checked": "Actual complete statement and relevant proof/construction read at Mathlib082e2d3 on2026-10-02.",
         "sourceLine": 145,
-        "sourceSha256": "bbc08cbacb5c488ef9941baf193b2d5290794c13715ca62626828feb22d2519f"
+        "sourceSha256": "bbc08cbacb5c488ef9941baf193b2d5290794c13715ca62626828feb22d2519f",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-BjAqvx",
+          "date": "2026-10-05",
+          "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "result": "Actual statement and ambient hypotheses read in the cited pinned module and compared with this provides entry and its inspected affine consumers. Fit is conditional on the listed inputs. This is a native algebraic interface check, not a global sheaf construction or proof of an admitted suggested statement."
+        }
       },
       {
         "ref": "mathlib:TensorProduct.assoc_tmul",
@@ -659,7 +1037,14 @@
         "provides": "The actual associator sends (e tensor q) tensor r to e tensor (q tensor r).",
         "checked": "Actual complete statement and relevant proof/construction read at Mathlib082e2d3 on2026-10-02.",
         "sourceLine": 155,
-        "sourceSha256": "bbc08cbacb5c488ef9941baf193b2d5290794c13715ca62626828feb22d2519f"
+        "sourceSha256": "bbc08cbacb5c488ef9941baf193b2d5290794c13715ca62626828feb22d2519f",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-BjAqvx",
+          "date": "2026-10-05",
+          "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "result": "Actual statement and ambient hypotheses read in the cited pinned module and compared with this provides entry and its inspected affine consumers. Fit is conditional on the listed inputs. This is a native algebraic interface check, not a global sheaf construction or proof of an admitted suggested statement."
+        }
       },
       {
         "ref": "mathlib:TensorProduct.map_tmul",
@@ -668,7 +1053,14 @@
         "provides": "Native tensor map applies its two component maps to a pure tensor.",
         "checked": "Actual complete statement and relevant proof/construction read at Mathlib082e2d3 on2026-10-02.",
         "sourceLine": 59,
-        "sourceSha256": "7f2acca048b88c66c8107d89cc165d3aeb3e41165e503244cad7f3cebf0c0a06"
+        "sourceSha256": "7f2acca048b88c66c8107d89cc165d3aeb3e41165e503244cad7f3cebf0c0a06",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-BjAqvx",
+          "date": "2026-10-05",
+          "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "result": "Actual statement and ambient hypotheses read in the cited pinned module and compared with this provides entry and its inspected affine consumers. Fit is conditional on the listed inputs. This is a native algebraic interface check, not a global sheaf construction or proof of an admitted suggested statement."
+        }
       },
       {
         "ref": "mathlib:TensorProduct.tmul_sum",
@@ -677,7 +1069,14 @@
         "provides": "Tensoring a fixed first factor distributes over a finite sum in the second factor.",
         "checked": "Actual complete statement and relevant proof/construction read at Mathlib082e2d3 on2026-10-02.",
         "sourceLine": 399,
-        "sourceSha256": "e9ab5f95dc191e56ea1708a140e00efe2c7ee58eabffe7e76cd083d11e57dc65"
+        "sourceSha256": "e9ab5f95dc191e56ea1708a140e00efe2c7ee58eabffe7e76cd083d11e57dc65",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-BjAqvx",
+          "date": "2026-10-05",
+          "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "result": "Actual statement and ambient hypotheses read in the cited pinned module and compared with this provides entry and its inspected affine consumers. Fit is conditional on the listed inputs. This is a native algebraic interface check, not a global sheaf construction or proof of an admitted suggested statement."
+        }
       },
       {
         "ref": "mathlib:TensorProduct.sum_tmul",
@@ -686,7 +1085,14 @@
         "provides": "Tensoring a finite sum in the first factor distributes over a fixed second factor.",
         "checked": "Actual complete statement and relevant proof/construction read at Mathlib082e2d3 on2026-10-02.",
         "sourceLine": 392,
-        "sourceSha256": "e9ab5f95dc191e56ea1708a140e00efe2c7ee58eabffe7e76cd083d11e57dc65"
+        "sourceSha256": "e9ab5f95dc191e56ea1708a140e00efe2c7ee58eabffe7e76cd083d11e57dc65",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-BjAqvx",
+          "date": "2026-10-05",
+          "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "result": "Actual statement and ambient hypotheses read in the cited pinned module and compared with this provides entry and its inspected affine consumers. Fit is conditional on the listed inputs. This is a native algebraic interface check, not a global sheaf construction or proof of an admitted suggested statement."
+        }
       },
       {
         "ref": "mathlib:Basis.piTensorProduct",
@@ -695,7 +1101,14 @@
         "provides": "For a finite family of R-modules with chosen bases, the native PiTensorProduct has a basis indexed by tuples of factor-basis indices.",
         "checked": "Complete named statement and relevant construction/proof read at Mathlib082e2d3 on2026-10-02.",
         "sourceLine": 33,
-        "sourceSha256": "1931c0f5719316c399721fb0f4d9939406504a2740c3478f4b3683c5e0258433"
+        "sourceSha256": "1931c0f5719316c399721fb0f4d9939406504a2740c3478f4b3683c5e0258433",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-BjAqvx",
+          "date": "2026-10-05",
+          "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "result": "Actual statement and ambient hypotheses read in the cited pinned module and compared with this provides entry and its inspected affine consumers. Fit is conditional on the listed inputs. This is a native algebraic interface check, not a global sheaf construction or proof of an admitted suggested statement."
+        }
       },
       {
         "ref": "mathlib:Basis.piTensorProduct_repr_tprod_apply",
@@ -704,16 +1117,30 @@
         "provides": "The tuple coordinate of a pure native tensor is the product of scalar basis coordinates in each factor.",
         "checked": "Complete named statement and relevant construction/proof read at Mathlib082e2d3 on2026-10-02.",
         "sourceLine": 42,
-        "sourceSha256": "1931c0f5719316c399721fb0f4d9939406504a2740c3478f4b3683c5e0258433"
+        "sourceSha256": "1931c0f5719316c399721fb0f4d9939406504a2740c3478f4b3683c5e0258433",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-BjAqvx",
+          "date": "2026-10-05",
+          "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "result": "Actual statement and ambient hypotheses read in the cited pinned module and compared with this provides entry and its inspected affine consumers. Fit is conditional on the listed inputs. This is a native algebraic interface check, not a global sheaf construction or proof of an admitted suggested statement."
+        }
       },
       {
         "ref": "mathlib:Fin.append_left_eq_cons",
         "kind": "theorem",
         "module": "Mathlib/Data/Fin/Tuple/Basic.lean",
-        "provides": "Appending a singleton tuple on the left of an n-tuple agrees with Fin.cons of its sole value and that tuple.",
+        "provides": "For x₀:Fin1→α and x:Finn→α, Fin.append x₀ x = Fin.cons (x₀0) x ∘ Fin.cast (Nat.add_comm 1 n). The degree reindexing is necessary: 1+n and n+1 are not silently identified. This matches the ordered-step cast convention.",
         "checked": "Complete named statement and relevant construction/proof read at Mathlib082e2d3 on2026-10-02.",
         "sourceLine": 367,
-        "sourceSha256": "1ab288f8eadfa78f3254926e2b5e14fe0c2642776f2f37579d239b57e3e67947"
+        "sourceSha256": "1ab288f8eadfa78f3254926e2b5e14fe0c2642776f2f37579d239b57e3e67947",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-BjAqvx",
+          "date": "2026-10-05",
+          "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "result": "Actual statement and ambient hypotheses read in the cited pinned module and compared with this provides entry and its inspected affine consumers. Fit is conditional on the listed inputs. This is a native algebraic interface check, not a global sheaf construction or proof of an admitted suggested statement."
+        }
       },
       {
         "ref": "mathlib:Fin.prod_univ_succ",
@@ -722,7 +1149,14 @@
         "provides": "For a commutative monoid, a product over Fin(n+1) is its zeroth factor times the product of successor factors. Used only for base scalars here.",
         "checked": "Complete named statement and relevant construction/proof read at Mathlib082e2d3 on2026-10-02.",
         "sourceLine": 76,
-        "sourceSha256": "4fe78cba9cdeac4eb8badbdd6359b055031900906fb94f3e51aba6d81451dbd5"
+        "sourceSha256": "4fe78cba9cdeac4eb8badbdd6359b055031900906fb94f3e51aba6d81451dbd5",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-BjAqvx",
+          "date": "2026-10-05",
+          "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "result": "Actual statement and ambient hypotheses read in the cited pinned module and compared with this provides entry and its inspected affine consumers. Fit is conditional on the listed inputs. This is a native algebraic interface check, not a global sheaf construction or proof of an admitted suggested statement."
+        }
       },
       {
         "ref": "mathlib:Module.End.one_eq_id",
@@ -731,7 +1165,14 @@
         "provides": "The unit of the native composition endomorphism algebra is the identity linear map.",
         "checked": "Complete named statement and relevant construction/proof read at Mathlib082e2d3 on2026-10-02.",
         "sourceLine": 51,
-        "sourceSha256": "2ad29f87f6f306f5e39f5081607749a66b94b447bdba9dea0c354defcc54ddb4"
+        "sourceSha256": "2ad29f87f6f306f5e39f5081607749a66b94b447bdba9dea0c354defcc54ddb4",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-BjAqvx",
+          "date": "2026-10-05",
+          "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "result": "Actual statement and ambient hypotheses read in the cited pinned module and compared with this provides entry and its inspected affine consumers. Fit is conditional on the listed inputs. This is a native algebraic interface check, not a global sheaf construction or proof of an admitted suggested statement."
+        }
       },
       {
         "ref": "mathlib:PiTensorProduct.ext",
@@ -740,7 +1181,14 @@
         "provides": "Two linear maps out of a native PiTensorProduct are equal if they agree on every pure tuple.",
         "checked": "Complete named statement and relevant construction/proof read at Mathlib082e2d3 on2026-10-02.",
         "sourceLine": 364,
-        "sourceSha256": "767309347dba8e6aa8fb49e0ecdb34111539e06401957b9bc5ceede706eb6e35"
+        "sourceSha256": "767309347dba8e6aa8fb49e0ecdb34111539e06401957b9bc5ceede706eb6e35",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-BjAqvx",
+          "date": "2026-10-05",
+          "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "result": "Actual statement and ambient hypotheses read in the cited pinned module and compared with this provides entry and its inspected affine consumers. Fit is conditional on the listed inputs. This is a native algebraic interface check, not a global sheaf construction or proof of an admitted suggested statement."
+        }
       },
       {
         "ref": "mathlib:PiTensorProduct.induction_on",
@@ -749,7 +1197,14 @@
         "provides": "Prove a predicate on native finite-family tensors by additivity and scalar multiples of pure tuples.",
         "checked": "Complete named statement and relevant construction/proof read at Mathlib082e2d3 on2026-10-02.",
         "sourceLine": 356,
-        "sourceSha256": "767309347dba8e6aa8fb49e0ecdb34111539e06401957b9bc5ceede706eb6e35"
+        "sourceSha256": "767309347dba8e6aa8fb49e0ecdb34111539e06401957b9bc5ceede706eb6e35",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-BjAqvx",
+          "date": "2026-10-05",
+          "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "result": "Actual statement and ambient hypotheses read in the cited pinned module and compared with this provides entry and its inspected affine consumers. Fit is conditional on the listed inputs. This is a native algebraic interface check, not a global sheaf construction or proof of an admitted suggested statement."
+        }
       },
       {
         "ref": "mathlib:PiTensorProduct.subsingletonEquiv",
@@ -758,7 +1213,14 @@
         "provides": "For a subsingleton index type with a chosen element, the native PiTensorProduct is linearly equivalent to that one module factor.",
         "checked": "Complete named statement and relevant construction/proof read at Mathlib082e2d3 on2026-10-02.",
         "sourceLine": 806,
-        "sourceSha256": "767309347dba8e6aa8fb49e0ecdb34111539e06401957b9bc5ceede706eb6e35"
+        "sourceSha256": "767309347dba8e6aa8fb49e0ecdb34111539e06401957b9bc5ceede706eb6e35",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-BjAqvx",
+          "date": "2026-10-05",
+          "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "result": "Actual statement and ambient hypotheses read in the cited pinned module and compared with this provides entry and its inspected affine consumers. Fit is conditional on the listed inputs. This is a native algebraic interface check, not a global sheaf construction or proof of an admitted suggested statement."
+        }
       },
       {
         "ref": "mathlib:PiTensorProduct.subsingletonEquiv_symm_apply'",
@@ -767,7 +1229,14 @@
         "provides": "For the constant module family over a subsingleton index type, the inverse singleton equivalence sends an element to the constant pure tuple.",
         "checked": "Complete named statement and relevant construction/proof read at Mathlib082e2d3 on2026-10-02.",
         "sourceLine": 829,
-        "sourceSha256": "767309347dba8e6aa8fb49e0ecdb34111539e06401957b9bc5ceede706eb6e35"
+        "sourceSha256": "767309347dba8e6aa8fb49e0ecdb34111539e06401957b9bc5ceede706eb6e35",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-BjAqvx",
+          "date": "2026-10-05",
+          "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "result": "Actual statement and ambient hypotheses read in the cited pinned module and compared with this provides entry and its inspected affine consumers. Fit is conditional on the listed inputs. This is a native algebraic interface check, not a global sheaf construction or proof of an admitted suggested statement."
+        }
       },
       {
         "ref": "mathlib:TensorPower",
@@ -776,7 +1245,14 @@
         "provides": "For a commutative semiring R and R-module Q, TensorPower R n Q abbreviates the existing PiTensorProduct of n copies indexed by Fin n.",
         "checked": "Complete named statement and relevant construction/proof read at Mathlib082e2d3 on2026-10-02.",
         "sourceLine": 38,
-        "sourceSha256": "7bd55f018c4cf51ad2cb91c517783cfe97c367f992f41f65a8b62a617839164b"
+        "sourceSha256": "7bd55f018c4cf51ad2cb91c517783cfe97c367f992f41f65a8b62a617839164b",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-BjAqvx",
+          "date": "2026-10-05",
+          "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "result": "Actual statement and ambient hypotheses read in the cited pinned module and compared with this provides entry and its inspected affine consumers. Fit is conditional on the listed inputs. This is a native algebraic interface check, not a global sheaf construction or proof of an admitted suggested statement."
+        }
       },
       {
         "ref": "mathlib:TensorPower.algebraMap₀",
@@ -785,7 +1261,14 @@
         "provides": "The native linear equivalence R≅Q^⊗0; no assumption of freeness or nontriviality on Q.",
         "checked": "Complete named statement and relevant construction/proof read at Mathlib082e2d3 on2026-10-02.",
         "sourceLine": 202,
-        "sourceSha256": "7bd55f018c4cf51ad2cb91c517783cfe97c367f992f41f65a8b62a617839164b"
+        "sourceSha256": "7bd55f018c4cf51ad2cb91c517783cfe97c367f992f41f65a8b62a617839164b",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-BjAqvx",
+          "date": "2026-10-05",
+          "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "result": "Actual statement and ambient hypotheses read in the cited pinned module and compared with this provides entry and its inspected affine consumers. Fit is conditional on the listed inputs. This is a native algebraic interface check, not a global sheaf construction or proof of an admitted suggested statement."
+        }
       },
       {
         "ref": "mathlib:TensorPower.algebraMap₀_one",
@@ -794,7 +1277,14 @@
         "provides": "The degree-zero algebra-map equivalence sends1 to the graded tensor unit.",
         "checked": "Complete named statement and relevant construction/proof read at Mathlib082e2d3 on2026-10-02.",
         "sourceLine": 208,
-        "sourceSha256": "7bd55f018c4cf51ad2cb91c517783cfe97c367f992f41f65a8b62a617839164b"
+        "sourceSha256": "7bd55f018c4cf51ad2cb91c517783cfe97c367f992f41f65a8b62a617839164b",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-BjAqvx",
+          "date": "2026-10-05",
+          "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "result": "Actual statement and ambient hypotheses read in the cited pinned module and compared with this provides entry and its inspected affine consumers. Fit is conditional on the listed inputs. This is a native algebraic interface check, not a global sheaf construction or proof of an admitted suggested statement."
+        }
       },
       {
         "ref": "mathlib:TensorPower.cast",
@@ -803,7 +1293,14 @@
         "provides": "Reindex a native tensor power along a specified equality of degrees; a linear equivalence with no change to its module factors.",
         "checked": "Complete named statement and relevant construction/proof read at Mathlib082e2d3 on2026-10-02.",
         "sourceLine": 98,
-        "sourceSha256": "7bd55f018c4cf51ad2cb91c517783cfe97c367f992f41f65a8b62a617839164b"
+        "sourceSha256": "7bd55f018c4cf51ad2cb91c517783cfe97c367f992f41f65a8b62a617839164b",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-BjAqvx",
+          "date": "2026-10-05",
+          "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "result": "Actual statement and ambient hypotheses read in the cited pinned module and compared with this provides entry and its inspected affine consumers. Fit is conditional on the listed inputs. This is a native algebraic interface check, not a global sheaf construction or proof of an admitted suggested statement."
+        }
       },
       {
         "ref": "mathlib:TensorPower.cast_tprod",
@@ -812,7 +1309,14 @@
         "provides": "The degree cast sends a pure tuple to its native reindexed tuple along the inverse Fin congruence.",
         "checked": "Complete named statement and relevant construction/proof read at Mathlib082e2d3 on2026-10-02.",
         "sourceLine": 100,
-        "sourceSha256": "7bd55f018c4cf51ad2cb91c517783cfe97c367f992f41f65a8b62a617839164b"
+        "sourceSha256": "7bd55f018c4cf51ad2cb91c517783cfe97c367f992f41f65a8b62a617839164b",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-BjAqvx",
+          "date": "2026-10-05",
+          "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "result": "Actual statement and ambient hypotheses read in the cited pinned module and compared with this provides entry and its inspected affine consumers. Fit is conditional on the listed inputs. This is a native algebraic interface check, not a global sheaf construction or proof of an admitted suggested statement."
+        }
       },
       {
         "ref": "mathlib:TensorPower.gMul_def",
@@ -821,7 +1325,14 @@
         "provides": "The native graded multiplication is the linear tensor-power multiplication equivalence applied to a pure tensor of two tensor-power elements.",
         "checked": "Complete named statement and relevant construction/proof read at Mathlib082e2d3 on2026-10-02.",
         "sourceLine": 86,
-        "sourceSha256": "7bd55f018c4cf51ad2cb91c517783cfe97c367f992f41f65a8b62a617839164b"
+        "sourceSha256": "7bd55f018c4cf51ad2cb91c517783cfe97c367f992f41f65a8b62a617839164b",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-BjAqvx",
+          "date": "2026-10-05",
+          "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "result": "Actual statement and ambient hypotheses read in the cited pinned module and compared with this provides entry and its inspected affine consumers. Fit is conditional on the listed inputs. This is a native algebraic interface check, not a global sheaf construction or proof of an admitted suggested statement."
+        }
       },
       {
         "ref": "mathlib:TensorPower.gOne_def",
@@ -830,7 +1341,14 @@
         "provides": "The native degree-zero graded tensor unit is the pure empty tuple.",
         "checked": "Complete named statement and relevant construction/proof read at Mathlib082e2d3 on2026-10-02.",
         "sourceLine": 72,
-        "sourceSha256": "7bd55f018c4cf51ad2cb91c517783cfe97c367f992f41f65a8b62a617839164b"
+        "sourceSha256": "7bd55f018c4cf51ad2cb91c517783cfe97c367f992f41f65a8b62a617839164b",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-BjAqvx",
+          "date": "2026-10-05",
+          "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "result": "Actual statement and ambient hypotheses read in the cited pinned module and compared with this provides entry and its inspected affine consumers. Fit is conditional on the listed inputs. This is a native algebraic interface check, not a global sheaf construction or proof of an admitted suggested statement."
+        }
       },
       {
         "ref": "mathlib:TensorPower.mulEquiv",
@@ -839,7 +1357,14 @@
         "provides": "Native linear equivalence Q^⊗n⊗Q^⊗m≅Q^⊗(n+m), preserving the first block before the second block.",
         "checked": "Complete named statement and relevant construction/proof read at Mathlib082e2d3 on2026-10-02.",
         "sourceLine": 76,
-        "sourceSha256": "7bd55f018c4cf51ad2cb91c517783cfe97c367f992f41f65a8b62a617839164b"
+        "sourceSha256": "7bd55f018c4cf51ad2cb91c517783cfe97c367f992f41f65a8b62a617839164b",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-BjAqvx",
+          "date": "2026-10-05",
+          "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "result": "Actual statement and ambient hypotheses read in the cited pinned module and compared with this provides entry and its inspected affine consumers. Fit is conditional on the listed inputs. This is a native algebraic interface check, not a global sheaf construction or proof of an admitted suggested statement."
+        }
       },
       {
         "ref": "mathlib:TensorPower.multilinearMapToDual_apply_tprod",
@@ -848,7 +1373,14 @@
         "provides": "The native pairing of an n-tuple of duals with a pure n-tuple is the product of scalar evaluations in the commutative coefficient semiring.",
         "checked": "Complete named statement and relevant construction/proof read at Mathlib082e2d3 on2026-10-02.",
         "sourceLine": 53,
-        "sourceSha256": "8a4f7606191281e05d4d5a4072178880639cc91e7c2b83ce85d4c025b7e294bb"
+        "sourceSha256": "8a4f7606191281e05d4d5a4072178880639cc91e7c2b83ce85d4c025b7e294bb",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-BjAqvx",
+          "date": "2026-10-05",
+          "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "result": "Actual statement and ambient hypotheses read in the cited pinned module and compared with this provides entry and its inspected affine consumers. Fit is conditional on the listed inputs. This is a native algebraic interface check, not a global sheaf construction or proof of an admitted suggested statement."
+        }
       },
       {
         "ref": "mathlib:TensorPower.tprod_mul_tprod",
@@ -857,7 +1389,14 @@
         "provides": "Multiplying two pure tensor tuples gives the concatenated tuple with the first tuple before the second.",
         "checked": "Complete named statement and relevant construction/proof read at Mathlib082e2d3 on2026-10-02.",
         "sourceLine": 138,
-        "sourceSha256": "7bd55f018c4cf51ad2cb91c517783cfe97c367f992f41f65a8b62a617839164b"
+        "sourceSha256": "7bd55f018c4cf51ad2cb91c517783cfe97c367f992f41f65a8b62a617839164b",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-BjAqvx",
+          "date": "2026-10-05",
+          "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "result": "Actual statement and ambient hypotheses read in the cited pinned module and compared with this provides entry and its inspected affine consumers. Fit is conditional on the listed inputs. This is a native algebraic interface check, not a global sheaf construction or proof of an admitted suggested statement."
+        }
       },
       {
         "ref": "mathlib:TensorProduct.congr",
@@ -866,7 +1405,14 @@
         "provides": "A pair of compatible semilinear module equivalences gives the native semilinear tensor-product equivalence; specialize to identity scalar homomorphisms here.",
         "checked": "Complete named statement and relevant construction/proof read at Mathlib082e2d3 on2026-10-02.",
         "sourceLine": 260,
-        "sourceSha256": "7f2acca048b88c66c8107d89cc165d3aeb3e41165e503244cad7f3cebf0c0a06"
+        "sourceSha256": "7f2acca048b88c66c8107d89cc165d3aeb3e41165e503244cad7f3cebf0c0a06",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-BjAqvx",
+          "date": "2026-10-05",
+          "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "result": "Actual statement and ambient hypotheses read in the cited pinned module and compared with this provides entry and its inspected affine consumers. Fit is conditional on the listed inputs. This is a native algebraic interface check, not a global sheaf construction or proof of an admitted suggested statement."
+        }
       },
       {
         "ref": "mathlib:TensorProduct.congr_tmul",
@@ -875,7 +1421,14 @@
         "provides": "The tensor congruence sends a pure tensor to the pure tensor of the two equivalence images.",
         "checked": "Complete named statement and relevant construction/proof read at Mathlib082e2d3 on2026-10-02.",
         "sourceLine": 270,
-        "sourceSha256": "7f2acca048b88c66c8107d89cc165d3aeb3e41165e503244cad7f3cebf0c0a06"
+        "sourceSha256": "7f2acca048b88c66c8107d89cc165d3aeb3e41165e503244cad7f3cebf0c0a06",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-BjAqvx",
+          "date": "2026-10-05",
+          "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "result": "Actual statement and ambient hypotheses read in the cited pinned module and compared with this provides entry and its inspected affine consumers. Fit is conditional on the listed inputs. This is a native algebraic interface check, not a global sheaf construction or proof of an admitted suggested statement."
+        }
       },
       {
         "ref": "mathlib:TensorProduct.map_add_left",
@@ -884,7 +1437,14 @@
         "provides": "Tensor mapping distributes over addition of the first semilinear map, with the same fixed second map.",
         "checked": "Complete named statement and relevant construction/proof read at Mathlib082e2d3 on2026-10-02.",
         "sourceLine": 149,
-        "sourceSha256": "7f2acca048b88c66c8107d89cc165d3aeb3e41165e503244cad7f3cebf0c0a06"
+        "sourceSha256": "7f2acca048b88c66c8107d89cc165d3aeb3e41165e503244cad7f3cebf0c0a06",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-BjAqvx",
+          "date": "2026-10-05",
+          "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "result": "Actual statement and ambient hypotheses read in the cited pinned module and compared with this provides entry and its inspected affine consumers. Fit is conditional on the listed inputs. This is a native algebraic interface check, not a global sheaf construction or proof of an admitted suggested statement."
+        }
       },
       {
         "ref": "mathlib:TensorPower.multilinearMapToDual",
@@ -893,7 +1453,14 @@
         "provides": "For any commutative semiring R and R-module Q, the native multilinear map sends n dual functionals to a linear functional on Q^⊗n. On a pure tensor it is the commutative scalar product of evaluations. No finite basis on Q is required.",
         "checked": "Complete construction and evaluation theorem read at Mathlib082e2d3 on2026-10-02.",
         "sourceLine": 31,
-        "sourceSha256": "8a4f7606191281e05d4d5a4072178880639cc91e7c2b83ce85d4c025b7e294bb"
+        "sourceSha256": "8a4f7606191281e05d4d5a4072178880639cc91e7c2b83ce85d4c025b7e294bb",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-BjAqvx",
+          "date": "2026-10-05",
+          "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "result": "Actual statement and ambient hypotheses read in the cited pinned module and compared with this provides entry and its inspected affine consumers. Fit is conditional on the listed inputs. This is a native algebraic interface check, not a global sheaf construction or proof of an admitted suggested statement."
+        }
       },
       {
         "ref": "mathlib:PiTensorProduct.map",
@@ -902,7 +1469,14 @@
         "sourceLine": 482,
         "sourceSha256": "767309347dba8e6aa8fb49e0ecdb34111539e06401957b9bc5ceede706eb6e35",
         "provides": "Native linear map of finite-family tensor products, with arbitrary linear maps in every coefficient slot.",
-        "checked": "Complete selected statement, surrounding hypotheses and actual construction/proof freshly read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-02. Matched to the exact-pin declaration index and used in the native proof/signature or identity/composition audit."
+        "checked": "Complete selected statement, surrounding hypotheses and actual construction/proof freshly read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-02. Matched to the exact-pin declaration index and used in the native proof/signature or identity/composition audit.",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-BjAqvx",
+          "date": "2026-10-05",
+          "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "result": "Actual statement and ambient hypotheses read in the cited pinned module and compared with this provides entry and its inspected affine consumers. Fit is conditional on the listed inputs. This is a native algebraic interface check, not a global sheaf construction or proof of an admitted suggested statement."
+        }
       },
       {
         "ref": "mathlib:PiTensorProduct.map_tprod",
@@ -911,7 +1485,14 @@
         "sourceLine": 485,
         "sourceSha256": "767309347dba8e6aa8fb49e0ecdb34111539e06401957b9bc5ceede706eb6e35",
         "provides": "Evaluate the native tensor-family map on a pure coefficient word.",
-        "checked": "Complete selected statement, surrounding hypotheses and actual construction/proof freshly read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-02. Matched to the exact-pin declaration index and used in the native proof/signature or identity/composition audit."
+        "checked": "Complete selected statement, surrounding hypotheses and actual construction/proof freshly read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-02. Matched to the exact-pin declaration index and used in the native proof/signature or identity/composition audit.",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-BjAqvx",
+          "date": "2026-10-05",
+          "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "result": "Actual statement and ambient hypotheses read in the cited pinned module and compared with this provides entry and its inspected affine consumers. Fit is conditional on the listed inputs. This is a native algebraic interface check, not a global sheaf construction or proof of an admitted suggested statement."
+        }
       },
       {
         "ref": "mathlib:PiTensorProduct.map_comp",
@@ -938,7 +1519,14 @@
         "sourceLine": 600,
         "sourceSha256": "767309347dba8e6aa8fb49e0ecdb34111539e06401957b9bc5ceede706eb6e35",
         "provides": "The existing equivalence between tensor families induced by a family of linear equivalences; supplies zero reflection at every degree.",
-        "checked": "Complete selected statement, surrounding hypotheses and actual construction/proof freshly read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-02. Matched to the exact-pin declaration index and used in the native proof/signature or identity/composition audit."
+        "checked": "Complete selected statement, surrounding hypotheses and actual construction/proof freshly read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-02. Matched to the exact-pin declaration index and used in the native proof/signature or identity/composition audit.",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-BjAqvx",
+          "date": "2026-10-05",
+          "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "result": "Actual statement and ambient hypotheses read in the cited pinned module and compared with this provides entry and its inspected affine consumers. Fit is conditional on the listed inputs. This is a native algebraic interface check, not a global sheaf construction or proof of an admitted suggested statement."
+        }
       },
       {
         "ref": "mathlib:LinearMap.baseChange",
@@ -947,7 +1535,14 @@
         "sourceLine": 660,
         "sourceSha256": "2cc909974909b6b519388f8d7255361d25ad58d053a72c5983c526edbed9b249",
         "provides": "Actual S-linear extension S⊗_R E→S⊗_R F of an R-linear map, without flatness.",
-        "checked": "Complete selected declaration, surrounding typeclass hypotheses and construction/proof read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-02; exact name and line matched against the pinned declaration index. Used by the scalar-extension proof or its native boundary tests."
+        "checked": "Complete selected declaration, surrounding typeclass hypotheses and construction/proof read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-02; exact name and line matched against the pinned declaration index. Used by the scalar-extension proof or its native boundary tests.",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-BjAqvx",
+          "date": "2026-10-05",
+          "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "result": "Actual statement and ambient hypotheses read in the cited pinned module and compared with this provides entry and its inspected affine consumers. Fit is conditional on the listed inputs. This is a native algebraic interface check, not a global sheaf construction or proof of an admitted suggested statement."
+        }
       },
       {
         "ref": "mathlib:LinearMap.baseChange_tmul",
@@ -956,7 +1551,14 @@
         "sourceLine": 664,
         "sourceSha256": "2cc909974909b6b519388f8d7255361d25ad58d053a72c5983c526edbed9b249",
         "provides": "Base extension sends a⊗e to a⊗f(e).",
-        "checked": "Complete selected declaration, surrounding typeclass hypotheses and construction/proof read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-02; exact name and line matched against the pinned declaration index. Used by the scalar-extension proof or its native boundary tests."
+        "checked": "Complete selected declaration, surrounding typeclass hypotheses and construction/proof read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-02; exact name and line matched against the pinned declaration index. Used by the scalar-extension proof or its native boundary tests.",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-BjAqvx",
+          "date": "2026-10-05",
+          "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "result": "Actual statement and ambient hypotheses read in the cited pinned module and compared with this provides entry and its inspected affine consumers. Fit is conditional on the listed inputs. This is a native algebraic interface check, not a global sheaf construction or proof of an admitted suggested statement."
+        }
       },
       {
         "ref": "mathlib:LinearMap.baseChange_zero",
@@ -965,7 +1567,14 @@
         "sourceLine": 676,
         "sourceSha256": "2cc909974909b6b519388f8d7255361d25ad58d053a72c5983c526edbed9b249",
         "provides": "Scalar extension sends the zero linear map to zero.",
-        "checked": "Complete selected declaration, surrounding typeclass hypotheses and construction/proof read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-02; exact name and line matched against the pinned declaration index. Used by the scalar-extension proof or its native boundary tests."
+        "checked": "Complete selected declaration, surrounding typeclass hypotheses and construction/proof read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-02; exact name and line matched against the pinned declaration index. Used by the scalar-extension proof or its native boundary tests.",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-BjAqvx",
+          "date": "2026-10-05",
+          "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "result": "Actual statement and ambient hypotheses read in the cited pinned module and compared with this provides entry and its inspected affine consumers. Fit is conditional on the listed inputs. This is a native algebraic interface check, not a global sheaf construction or proof of an admitted suggested statement."
+        }
       },
       {
         "ref": "mathlib:LinearMap.baseChange_one",
@@ -974,7 +1583,14 @@
         "sourceLine": 704,
         "sourceSha256": "2cc909974909b6b519388f8d7255361d25ad58d053a72c5983c526edbed9b249",
         "provides": "The identity endomorphism extends to the identity, including the empty ordered word.",
-        "checked": "Complete selected declaration, surrounding typeclass hypotheses and construction/proof read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-02; exact name and line matched against the pinned declaration index. Used by the scalar-extension proof or its native boundary tests."
+        "checked": "Complete selected declaration, surrounding typeclass hypotheses and construction/proof read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-02; exact name and line matched against the pinned declaration index. Used by the scalar-extension proof or its native boundary tests.",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-BjAqvx",
+          "date": "2026-10-05",
+          "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "result": "Actual statement and ambient hypotheses read in the cited pinned module and compared with this provides entry and its inspected affine consumers. Fit is conditional on the listed inputs. This is a native algebraic interface check, not a global sheaf construction or proof of an admitted suggested statement."
+        }
       },
       {
         "ref": "mathlib:TensorProduct.AlgebraTensorModule.distribBaseChange",
@@ -983,7 +1599,14 @@
         "sourceLine": 441,
         "sourceSha256": "2cc909974909b6b519388f8d7255361d25ad58d053a72c5983c526edbed9b249",
         "provides": "Existing S-linear equivalence S⊗_R(E⊗_R Q)≃(S⊗_R E)⊗_S(S⊗_R Q); its construction imposes no flatness.",
-        "checked": "Complete selected declaration, surrounding typeclass hypotheses and construction/proof read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-02; exact name and line matched against the pinned declaration index. Used by the scalar-extension proof or its native boundary tests."
+        "checked": "Complete selected declaration, surrounding typeclass hypotheses and construction/proof read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-02; exact name and line matched against the pinned declaration index. Used by the scalar-extension proof or its native boundary tests.",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-BjAqvx",
+          "date": "2026-10-05",
+          "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "result": "Actual statement and ambient hypotheses read in the cited pinned module and compared with this provides entry and its inspected affine consumers. Fit is conditional on the listed inputs. This is a native algebraic interface check, not a global sheaf construction or proof of an admitted suggested statement."
+        }
       },
       {
         "ref": "mathlib:TensorProduct.AlgebraTensorModule.distribBaseChange_tmul",
@@ -992,7 +1615,14 @@
         "sourceLine": 462,
         "sourceSha256": "2cc909974909b6b519388f8d7255361d25ad58d053a72c5983c526edbed9b249",
         "provides": "Its pure tensor value is (a⊗e)⊗(1⊗q), retaining the order of factors.",
-        "checked": "Complete selected declaration, surrounding typeclass hypotheses and construction/proof read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-02; exact name and line matched against the pinned declaration index. Used by the scalar-extension proof or its native boundary tests."
+        "checked": "Complete selected declaration, surrounding typeclass hypotheses and construction/proof read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-02; exact name and line matched against the pinned declaration index. Used by the scalar-extension proof or its native boundary tests.",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-BjAqvx",
+          "date": "2026-10-05",
+          "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "result": "Actual statement and ambient hypotheses read in the cited pinned module and compared with this provides entry and its inspected affine consumers. Fit is conditional on the listed inputs. This is a native algebraic interface check, not a global sheaf construction or proof of an admitted suggested statement."
+        }
       },
       {
         "ref": "mathlib:TensorProduct.AlgebraTensorModule.ext",
@@ -1001,7 +1631,14 @@
         "sourceLine": 102,
         "sourceSha256": "2cc909974909b6b519388f8d7255361d25ad58d053a72c5983c526edbed9b249",
         "provides": "Equality of S-linear maps from a scalar-extended tensor is checked on all a⊗e.",
-        "checked": "Complete selected declaration, surrounding typeclass hypotheses and construction/proof read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-02; exact name and line matched against the pinned declaration index. Used by the scalar-extension proof or its native boundary tests."
+        "checked": "Complete selected declaration, surrounding typeclass hypotheses and construction/proof read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-02; exact name and line matched against the pinned declaration index. Used by the scalar-extension proof or its native boundary tests.",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-BjAqvx",
+          "date": "2026-10-05",
+          "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "result": "Actual statement and ambient hypotheses read in the cited pinned module and compared with this provides entry and its inspected affine consumers. Fit is conditional on the listed inputs. This is a native algebraic interface check, not a global sheaf construction or proof of an admitted suggested statement."
+        }
       },
       {
         "ref": "mathlib:TensorProduct.AlgebraTensorModule.rid",
@@ -1019,7 +1656,14 @@
         "sourceLine": 723,
         "sourceSha256": "2cc909974909b6b519388f8d7255361d25ad58d053a72c5983c526edbed9b249",
         "provides": "Actual R-algebra homomorphism on associative endomorphism rings; preserves multiplication in its original order and the identity.",
-        "checked": "Complete selected declaration, surrounding typeclass hypotheses and construction/proof read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-02; exact name and line matched against the pinned declaration index. Used by the scalar-extension proof or its native boundary tests."
+        "checked": "Complete selected declaration, surrounding typeclass hypotheses and construction/proof read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-02; exact name and line matched against the pinned declaration index. Used by the scalar-extension proof or its native boundary tests.",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-BjAqvx",
+          "date": "2026-10-05",
+          "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "result": "Actual statement and ambient hypotheses read in the cited pinned module and compared with this provides entry and its inspected affine consumers. Fit is conditional on the listed inputs. This is a native algebraic interface check, not a global sheaf construction or proof of an admitted suggested statement."
+        }
       },
       {
         "ref": "mathlib:Module.Basis.baseChange",
@@ -1028,7 +1672,14 @@
         "sourceLine": 64,
         "sourceSha256": "3754f71740ada3143aa2de27735a6f7a03e562278666e54d5be6c3d2275ef263",
         "provides": "A basis of Q extends to an S-basis of S⊗_R Q, with the same index type and no flatness premise.",
-        "checked": "Complete selected declaration, surrounding typeclass hypotheses and construction/proof read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-02; exact name and line matched against the pinned declaration index. Used by the scalar-extension proof or its native boundary tests."
+        "checked": "Complete selected declaration, surrounding typeclass hypotheses and construction/proof read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-02; exact name and line matched against the pinned declaration index. Used by the scalar-extension proof or its native boundary tests.",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-BjAqvx",
+          "date": "2026-10-05",
+          "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "result": "Actual statement and ambient hypotheses read in the cited pinned module and compared with this provides entry and its inspected affine consumers. Fit is conditional on the listed inputs. This is a native algebraic interface check, not a global sheaf construction or proof of an admitted suggested statement."
+        }
       },
       {
         "ref": "mathlib:Module.Basis.baseChange_repr_tmul",
@@ -1037,7 +1688,14 @@
         "sourceLine": 68,
         "sourceSha256": "3754f71740ada3143aa2de27735a6f7a03e562278666e54d5be6c3d2275ef263",
         "provides": "The extended coordinate of a⊗q is b.coord(i)(q) acting on a; enables the Higgs contraction comparison.",
-        "checked": "Complete selected declaration, surrounding typeclass hypotheses and construction/proof read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-02; exact name and line matched against the pinned declaration index. Used by the scalar-extension proof or its native boundary tests."
+        "checked": "Complete selected declaration, surrounding typeclass hypotheses and construction/proof read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-02; exact name and line matched against the pinned declaration index. Used by the scalar-extension proof or its native boundary tests.",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-BjAqvx",
+          "date": "2026-10-05",
+          "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "result": "Actual statement and ambient hypotheses read in the cited pinned module and compared with this provides entry and its inspected affine consumers. Fit is conditional on the listed inputs. This is a native algebraic interface check, not a global sheaf construction or proof of an admitted suggested statement."
+        }
       },
       {
         "ref": "mathlib:Module.FaithfullyFlat",
@@ -1046,7 +1704,14 @@
         "sourceLine": 63,
         "sourceSha256": "192d565083c2a68f0bd28a1cc258c7ad0f4322446e201b84297a98a6e18e6e8a",
         "provides": "Native faithfully flat module predicate, retaining both flatness and the proper-ideal condition; no substitute predicate.",
-        "checked": "Complete selected declaration, surrounding typeclass hypotheses and construction/proof read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-02; exact name and line matched against the pinned declaration index. Used by the scalar-extension proof or its native boundary tests."
+        "checked": "Complete selected declaration, surrounding typeclass hypotheses and construction/proof read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-02; exact name and line matched against the pinned declaration index. Used by the scalar-extension proof or its native boundary tests.",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-BjAqvx",
+          "date": "2026-10-05",
+          "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "result": "Actual statement and ambient hypotheses read in the cited pinned module and compared with this provides entry and its inspected affine consumers. Fit is conditional on the listed inputs. This is a native algebraic interface check, not a global sheaf construction or proof of an admitted suggested statement."
+        }
       },
       {
         "ref": "mathlib:Module.FaithfullyFlat.one_tmul_eq_zero_iff",
@@ -1055,7 +1720,14 @@
         "sourceLine": 482,
         "sourceSha256": "192d565083c2a68f0bd28a1cc258c7ad0f4322446e201b84297a98a6e18e6e8a",
         "provides": "For a faithfully flat R-algebra S, 1⊗e=0 exactly when e=0 for an arbitrary R-module E.",
-        "checked": "Complete selected declaration, surrounding typeclass hypotheses and construction/proof read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-02; exact name and line matched against the pinned declaration index. Used by the scalar-extension proof or its native boundary tests."
+        "checked": "Complete selected declaration, surrounding typeclass hypotheses and construction/proof read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-02; exact name and line matched against the pinned declaration index. Used by the scalar-extension proof or its native boundary tests.",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-BjAqvx",
+          "date": "2026-10-05",
+          "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "result": "Actual statement and ambient hypotheses read in the cited pinned module and compared with this provides entry and its inspected affine consumers. Fit is conditional on the listed inputs. This is a native algebraic interface check, not a global sheaf construction or proof of an admitted suggested statement."
+        }
       },
       {
         "ref": "mathlib:map_list_prod",
@@ -1064,21 +1736,42 @@
         "sourceLine": 475,
         "sourceSha256": "d94cdd202de4740f3c568f6cca706baf09d7c21a50f1bb4faf7187841288e5f5",
         "provides": "A monoid homomorphism carries an ordered list product to the product of its image list; neither monoid is required commutative.",
-        "checked": "Complete selected declaration, surrounding typeclass hypotheses and construction/proof read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-02; exact name and line matched against the pinned declaration index. Used by the scalar-extension proof or its native boundary tests."
+        "checked": "Complete selected declaration, surrounding typeclass hypotheses and construction/proof read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-02; exact name and line matched against the pinned declaration index. Used by the scalar-extension proof or its native boundary tests.",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-BjAqvx",
+          "date": "2026-10-05",
+          "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "result": "Actual statement and ambient hypotheses read in the cited pinned module and compared with this provides entry and its inspected affine consumers. Fit is conditional on the listed inputs. This is a native algebraic interface check, not a global sheaf construction or proof of an admitted suggested statement."
+        }
       },
       {
         "ref": "mathlib:TensorProduct.map_comp",
         "kind": "theorem",
         "module": "Mathlib/LinearAlgebra/TensorProduct/Map.lean",
         "provides": "Composition on each factor maps to composition on the native tensor; same-ring linear specialization is used.",
-        "checked": "Exact statement and proof read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-02 by Codex codex-J6LwjP."
+        "checked": "Exact statement and proof read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-02 by Codex codex-J6LwjP.",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-BjAqvx",
+          "date": "2026-10-05",
+          "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "result": "Actual statement and ambient hypotheses read in the cited pinned module and compared with this provides entry and its inspected affine consumers. Fit is conditional on the listed inputs. This is a native algebraic interface check, not a global sheaf construction or proof of an admitted suggested statement."
+        }
       },
       {
         "ref": "mathlib:TensorProduct.map_id",
         "kind": "theorem",
         "module": "Mathlib/LinearAlgebra/TensorProduct/Map.lean",
         "provides": "Tensor product of identity maps is the native identity.",
-        "checked": "Exact statement and proof read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-02 by Codex codex-J6LwjP."
+        "checked": "Exact statement and proof read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-02 by Codex codex-J6LwjP.",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-BjAqvx",
+          "date": "2026-10-05",
+          "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "result": "Actual statement and ambient hypotheses read in the cited pinned module and compared with this provides entry and its inspected affine consumers. Fit is conditional on the listed inputs. This is a native algebraic interface check, not a global sheaf construction or proof of an admitted suggested statement."
+        }
       },
       {
         "ref": "mathlib:TensorProduct.map_zero_right",
@@ -1094,7 +1787,14 @@
         "sourceLine": 113,
         "sourceSha256": "2cfbe7b77c608d1a8f3ccd5c49d7a5ca3c9528b3cf1415a67994a06fc228c9de",
         "provides": "The native flat-module predicate and its tensor-product closure instance (same file, lines 233–244); tensor powers are proved flat by induction through native unit/prepend equivalences, not assumed flat.",
-        "checked": "Complete selected statement, surrounding hypotheses and proof read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02; exact name/line checked in the pinned index. Generic flatness and tensor-product API are imported, not replanned."
+        "checked": "Complete selected statement, surrounding hypotheses and proof read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02; exact name/line checked in the pinned index. Generic flatness and tensor-product API are imported, not replanned.",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-BjAqvx",
+          "date": "2026-10-05",
+          "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "result": "Actual statement and ambient hypotheses read in the cited pinned module and compared with this provides entry and its inspected affine consumers. Fit is conditional on the listed inputs. This is a native algebraic interface check, not a global sheaf construction or proof of an admitted suggested statement."
+        }
       },
       {
         "ref": "mathlib:Module.Flat.of_linearEquiv",
@@ -1103,7 +1803,14 @@
         "sourceLine": 181,
         "sourceSha256": "2cfbe7b77c608d1a8f3ccd5c49d7a5ca3c9528b3cf1415a67994a06fc228c9de",
         "provides": "A module linearly equivalent to a flat module is flat. The equivalence is oriented N→M with M flat.",
-        "checked": "Complete selected statement, surrounding hypotheses and proof read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02; exact name/line checked in the pinned index. Generic flatness and tensor-product API are imported, not replanned."
+        "checked": "Complete selected statement, surrounding hypotheses and proof read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02; exact name/line checked in the pinned index. Generic flatness and tensor-product API are imported, not replanned.",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-BjAqvx",
+          "date": "2026-10-05",
+          "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "result": "Actual statement and ambient hypotheses read in the cited pinned module and compared with this provides entry and its inspected affine consumers. Fit is conditional on the listed inputs. This is a native algebraic interface check, not a global sheaf construction or proof of an admitted suggested statement."
+        }
       },
       {
         "ref": "mathlib:Module.Flat.of_projective",
@@ -1112,7 +1819,14 @@
         "sourceLine": 227,
         "sourceSha256": "2cfbe7b77c608d1a8f3ccd5c49d7a5ca3c9528b3cf1415a67994a06fc228c9de",
         "provides": "Every native projective module is flat, via the existing free-module retract criterion; no chosen finite basis is required.",
-        "checked": "Complete selected statement, surrounding hypotheses and proof read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02; exact name/line checked in the pinned index. Generic flatness and tensor-product API are imported, not replanned."
+        "checked": "Complete selected statement, surrounding hypotheses and proof read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02; exact name/line checked in the pinned index. Generic flatness and tensor-product API are imported, not replanned.",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-BjAqvx",
+          "date": "2026-10-05",
+          "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "result": "Actual statement and ambient hypotheses read in the cited pinned module and compared with this provides entry and its inspected affine consumers. Fit is conditional on the listed inputs. This is a native algebraic interface check, not a global sheaf construction or proof of an admitted suggested statement."
+        }
       },
       {
         "ref": "mathlib:TensorProduct.map_injective_of_flat_flat",
@@ -1121,7 +1835,14 @@
         "sourceLine": 477,
         "sourceSha256": "2cfbe7b77c608d1a8f3ccd5c49d7a5ca3c9528b3cf1415a67994a06fc228c9de",
         "provides": "For injective f:E→F and g:A→B, F flat and A flat imply the actual map f⊗g is injective; flatness of E or B is not required by this lemma.",
-        "checked": "Complete selected statement, surrounding hypotheses and proof read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02; exact name/line checked in the pinned index. Generic flatness and tensor-product API are imported, not replanned."
+        "checked": "Complete selected statement, surrounding hypotheses and proof read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02; exact name/line checked in the pinned index. Generic flatness and tensor-product API are imported, not replanned.",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-BjAqvx",
+          "date": "2026-10-05",
+          "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "result": "Actual statement and ambient hypotheses read in the cited pinned module and compared with this provides entry and its inspected affine consumers. Fit is conditional on the listed inputs. This is a native algebraic interface check, not a global sheaf construction or proof of an admitted suggested statement."
+        }
       },
       {
         "ref": "mathlib:LinearMap.baseChange_comp",
@@ -1130,7 +1851,14 @@
         "sourceLine": 689,
         "sourceSha256": "2cc909974909b6b519388f8d7255361d25ad58d053a72c5983c526edbed9b249",
         "provides": "The actual scalar-extension map preserves linear-map composition.",
-        "checked": "Complete declaration, ambient hypotheses and proof read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex codex-J6LwjP. Existing generic carriers/laws are imported, never replanned."
+        "checked": "Complete declaration, ambient hypotheses and proof read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex codex-J6LwjP. Existing generic carriers/laws are imported, never replanned.",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-BjAqvx",
+          "date": "2026-10-05",
+          "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "result": "Actual statement and ambient hypotheses read in the cited pinned module and compared with this provides entry and its inspected affine consumers. Fit is conditional on the listed inputs. This is a native algebraic interface check, not a global sheaf construction or proof of an admitted suggested statement."
+        }
       },
       {
         "ref": "mathlib:LinearMap.baseChange_id",
@@ -1139,7 +1867,14 @@
         "sourceLine": 686,
         "sourceSha256": "2cc909974909b6b519388f8d7255361d25ad58d053a72c5983c526edbed9b249",
         "provides": "The scalar extension of a native identity linear map is the native identity.",
-        "checked": "Complete declaration, ambient hypotheses and proof read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex codex-J6LwjP. Existing generic carriers/laws are imported, never replanned."
+        "checked": "Complete declaration, ambient hypotheses and proof read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex codex-J6LwjP. Existing generic carriers/laws are imported, never replanned.",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-BjAqvx",
+          "date": "2026-10-05",
+          "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "result": "Actual statement and ambient hypotheses read in the cited pinned module and compared with this provides entry and its inspected affine consumers. Fit is conditional on the listed inputs. This is a native algebraic interface check, not a global sheaf construction or proof of an admitted suggested statement."
+        }
       },
       {
         "ref": "mathlib:TensorProduct.toLinearMap_congr",
@@ -1148,7 +1883,14 @@
         "sourceLine": 266,
         "sourceSha256": "7f2acca048b88c66c8107d89cc165d3aeb3e41165e503244cad7f3cebf0c0a06",
         "provides": "The tensor equivalence has the actual tensor map of the two underlying linear maps.",
-        "checked": "Complete declaration, ambient hypotheses and proof read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex codex-J6LwjP. Existing generic carriers/laws are imported, never replanned."
+        "checked": "Complete declaration, ambient hypotheses and proof read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex codex-J6LwjP. Existing generic carriers/laws are imported, never replanned.",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-BjAqvx",
+          "date": "2026-10-05",
+          "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "result": "Actual statement and ambient hypotheses read in the cited pinned module and compared with this provides entry and its inspected affine consumers. Fit is conditional on the listed inputs. This is a native algebraic interface check, not a global sheaf construction or proof of an admitted suggested statement."
+        }
       },
       {
         "ref": "mathlib:Module.FaithfullyFlat.self",
@@ -2330,6 +3072,19 @@
         "line": 56,
         "provides": "Native covector tower coherence: iterated covector base change equals inverse dual congruence along native cancelBaseChange applied to direct base change.",
         "checked": "Codex — codex-7e92bd personally read the whole pinned Dual/BaseChange.lean and relevant Tower.lean statements on2026-10-04; BaselineReading.json binds exact index rows and source hashes."
+      },
+      {
+        "ref": "mathlib:LinearMap.mul'",
+        "module": "Mathlib/Algebra/Algebra/Bilinear.lean",
+        "provides": "The native linear multiplication A⊗_R A→A, constructed by TensorProduct.lift, under CommSemiring R, NonUnitalNonAssocSemiring A, Module R A, SMulCommClass R A A and IsScalarTower R A A. The symmetric algebra satisfies these hypotheses. Used for the concrete degree-two symmetric projection; no multiplication carrier is replanned.",
+        "checked": "Actual declaration, pure-tensor evaluation and ambient hypotheses read at the pinned Mathlib commit.",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-BjAqvx",
+          "date": "2026-10-05",
+          "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "result": "Actual statement and ambient hypotheses read in the cited pinned module and compared with this provides entry and its inspected affine consumers. Fit is conditional on the listed inputs. This is a native algebraic interface check, not a global sheaf construction or proof of an admitted suggested statement."
+        }
       }
     ]
   },
@@ -2348,7 +3103,16 @@
         "p.133 Proposition 4.10 and opening flow notation only"
       ],
       "readingExtent": "Selected passages only; not a full paper reading or verification of the referenced Simpson results.",
-      "continuationReading": "Same public bytes freshly retrieved on 2026-10-02 at the recorded SHA-256. EG: PDF pp.6,29–30 definitions/graded passage. LZ: PDF pp.5,7,20–22,24 selected definitions/API/transversality. Heuer: PDF pp.2,7,37 definitions; only those passages reread, not the correspondence proofs."
+      "continuationReading": "Same public bytes freshly retrieved on 2026-10-02 at the recorded SHA-256. EG: PDF pp.6,29–30 definitions/graded passage. LZ: PDF pp.5,7,20–22,24 selected definitions/API/transversality. Heuer: PDF pp.2,7,37 definitions; only those passages reread, not the correspondence proofs.",
+      "mirrors": [
+        "https://archive.ymsc.tsinghua.edu.cn/pacm_download/117/11915-ACTA-2020-0225-0001-a002.pdf"
+      ],
+      "independentCheck": {
+        "by": "REV-DESIGN-HodgeStructuresPartII",
+        "session": "codex-BjAqvx",
+        "date": "2026-10-05",
+        "result": "Retrieved the published Acta PDF from the Tsinghua Yau Mathematical Sciences Center archive; SHA-256 exactly matches this record. Read complete printed pp.108–109, including §2.1 and Lemma2.1 with proof. This resolves the earlier published-access boundary only for those passages; no full-paper collation or Simpson proof check."
+      }
     },
     {
       "id": "LZ17",
@@ -2373,7 +3137,17 @@
         "session": "codex-tUuT7s",
         "date": "2026-10-05",
         "extent": "Conventions and §2.1 setup, printed pp.5–8, full Theorem 2.1(i)–(v), equations (2.4)–(2.5), associated-graded Higgs paragraph and Remark 1.10. PDF hash matches the recorded hash. No correspondence proof checked."
-      }
+      },
+      "independentReadings": [
+        {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-BjAqvx",
+          "date": "2026-10-05",
+          "urlRead": "https://arxiv.org/pdf/1602.06282v3",
+          "extent": "Full printed pp.6–9 including Theorem2.1(i)–(v), equations(2.4)–(2.5), and pp.18–19 including Lemma2.15 and its printed proof. Imported correspondence references not recursively checked.",
+          "sha256Read": "8b11e55bffbfb1835a6da8975272670c9465601c08640e06f3a566a459a1da79"
+        }
+      ]
     },
     {
       "id": "Heuer25",
@@ -2394,7 +3168,17 @@
         "session": "codex-tUuT7s",
         "date": "2026-10-05",
         "extent": "Published Definition 1.2(2), printed p.262; full Definition 4.1, printed pp.297–298, including contraction, symmetric action, canonical section and twisting paragraph; Remark 4.2. PDF hash matches the recorded hash. No correspondence proof checked."
-      }
+      },
+      "independentReadings": [
+        {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-BjAqvx",
+          "date": "2026-10-05",
+          "urlRead": "https://link.springer.com/content/pdf/10.1007/s00222-025-01321-4.pdf",
+          "extent": "Definition1.2(2) p.262, Definition4.1/Remark4.2 pp.297–298, and Theorem4.8/Remark4.9 with displayed proof pp.300–302. Visual inspection of p.301 confirms the missing index.",
+          "sha256Read": "7608fff18ccbc47b96bd54cfe01f31f8ccd9953889834cc9f6c39787563175cd"
+        }
+      ]
     },
     {
       "id": "StacksConnection",
@@ -2432,7 +3216,17 @@
         "session": "codex-tUuT7s",
         "date": "2026-10-05",
         "extent": "Selected complete definition paragraphs in §2.1 pp.5–6 and §4.2 pp.23–24; full printed Lemma 4.9 statement/proof, not the cited Simpson results. Author PDF hash matches the recorded hash. Published Acta URL returned HTTP 403; no published-copy collation."
-      }
+      },
+      "independentReadings": [
+        {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-BjAqvx",
+          "date": "2026-10-05",
+          "urlRead": "https://www.mi.fu-berlin.de/users/esnault/preprints/helene/126_esn_gro.pdf",
+          "extent": "§1 p.2 Definition1.1/Remark1.2; selected §2.1 pp.5–6; §4.2 pp.23–24 parameter definition and complete Lemma4.9 printed proof. Simpson inputs not recursively checked.",
+          "sha256Read": "0bfa00b7dbae7a59c193d3523028df826741f15d3e88cb50526f8656a7fb8e35"
+        }
+      ]
     },
     {
       "id": "Heuer25-5ebb6f-square",
@@ -2445,7 +3239,17 @@
         "Definition1.2(2), complete printed Higgs definition.",
         "Definition4.1, complete printed construction including contraction, image algebra, canonical section and twisting paragraph."
       ],
-      "readingExtent": "Only the two printed definitions and their accompanying formulas; no correspondence proof or global nilpotence argument freshly read."
+      "readingExtent": "Only the two printed definitions and their accompanying formulas; no correspondence proof or global nilpotence argument freshly read.",
+      "independentReadings": [
+        {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-BjAqvx",
+          "date": "2026-10-05",
+          "urlRead": "https://link.springer.com/content/pdf/10.1007/s00222-025-01321-4.pdf",
+          "extent": "Relevant published PDF Definition4.1/Remark4.2 pp.297–298 read; this is a PDF counterpart check, not a fresh receipt for the earlier HTML hash.",
+          "sha256Read": "7608fff18ccbc47b96bd54cfe01f31f8ccd9953889834cc9f6c39787563175cd"
+        }
+      ]
     },
     {
       "id": "Heuer25-J6LwjP-iterate",
@@ -2457,7 +3261,17 @@
       "readSections": [
         "Complete Definitions1.2(2) and4.1, including contraction, image algebra, canonical section and twisting paragraph."
       ],
-      "readingExtent": "Fresh scoped reading of these definitions; no correspondence proof claimed."
+      "readingExtent": "Fresh scoped reading of these definitions; no correspondence proof claimed.",
+      "independentReadings": [
+        {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-BjAqvx",
+          "date": "2026-10-05",
+          "urlRead": "https://link.springer.com/content/pdf/10.1007/s00222-025-01321-4.pdf",
+          "extent": "Relevant published PDF Definition4.1/Remark4.2 pp.297–298 read; this is a PDF counterpart check, not a fresh receipt for the earlier HTML hash.",
+          "sha256Read": "7608fff18ccbc47b96bd54cfe01f31f8ccd9953889834cc9f6c39787563175cd"
+        }
+      ]
     },
     {
       "id": "LZ17-J6LwjP-iterate",
@@ -2483,7 +3297,17 @@
       "readSections": [
         "Definition1.2(1) and(2), full field/integrability and Higgs-morphism equations, plus introductory comparison scope."
       ],
-      "readingExtent": "arXiv v3 HTML,21January2025. Selected introduction/definition only; no correspondence proof or complete collation with the journal version."
+      "readingExtent": "arXiv v3 HTML,21January2025. Selected introduction/definition only; no correspondence proof or complete collation with the journal version.",
+      "independentReadings": [
+        {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-BjAqvx",
+          "date": "2026-10-05",
+          "urlRead": "https://arxiv.org/pdf/2307.01303v3",
+          "extent": "Definition1.2(1)–(2) in arXivv3 introduction read; PDF counterpart to the cited HTML. Field carrier is motivation only; general-ring naturality is an authored algebraic deduction.",
+          "sha256Read": "df8caac5ee92e8bcd5a4f9de8dcd5901d61d5f6f4f5c1c3c5bd6b65880e18943"
+        }
+      ]
     },
     {
       "id": "StacksTensor-5ebb6f",
@@ -2496,7 +3320,16 @@
       "readSections": [
         "Section17.16 opening tensor-presheaf/sheaf and universal-property paragraphs, associativity, complete selected Lemmas17.16.1–5 statements and printed proof text."
       ],
-      "readingExtent": "Live tag01CA HTML read2026-10-02. Selected section passages only; no global Higgs tensor-power construction or descent proof."
+      "readingExtent": "Live tag01CA HTML read2026-10-02. Selected section passages only; no global Higgs tensor-power construction or descent proof.",
+      "independentReadings": [
+        {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-BjAqvx",
+          "date": "2026-10-05",
+          "urlRead": "https://stacks.math.columbia.edu/tag/01CA",
+          "extent": "Complete displayed section17.16 opening universal-property/sheafification passages, Lemmas1–6 and comments read. Omitted proofs stay omitted; no Higgs sheaf construction supplied."
+        }
+      ]
     },
     {
       "id": "StacksFaithful-rtOQ9t",
@@ -2517,6 +3350,15 @@
             "Definition 10.39.1 and complete Lemma 10.39.5 statement/proof"
           ],
           "scope": "Flatness and preservation of module injections only. The Higgs-specific ordered-iterate reflection is an authored deduction, not a named Stacks theorem."
+        }
+      ],
+      "independentReadings": [
+        {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-BjAqvx",
+          "date": "2026-10-05",
+          "urlRead": "https://stacks.math.columbia.edu/tag/00H9",
+          "extent": "Selected flatness/injection statements and complete Lemma10.39.14 proof read; no complete chapter or crystalline comparison check."
         }
       ]
     },
@@ -2539,6 +3381,16 @@
             "arXiv 2307.01303v3, Definition 1.2(1)–(2) and the introductory Higgs/symmetric-action setup"
           ],
           "scope": "Field and horizontal-morphism conventions, including the Tate-twisted forms; no correspondence or full-paper reading claimed."
+        }
+      ],
+      "independentReadings": [
+        {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-BjAqvx",
+          "date": "2026-10-05",
+          "urlRead": "https://arxiv.org/pdf/2307.01303v3",
+          "extent": "Definition1.2(2), PDF counterpart to the cited HTML; field carrier motivates authored coefficient-map algebra.",
+          "sha256Read": "df8caac5ee92e8bcd5a4f9de8dcd5901d61d5f6f4f5c1c3c5bd6b65880e18943"
         }
       ]
     },
@@ -2565,7 +3417,17 @@
         "Definition 1.2(1)–(2) and selected introduction",
         "Complete Theorem 4.8(1)–(3), Remark 4.9 and its displayed proof, §4.2"
       ],
-      "readingExtent": "Scoped geometric motivation and actual local scalar-extension formula. Authored arbitrary-ring affine deductions are separated from the analytic correspondence, which is not discharged. No complete-paper or 149-item source collation is claimed."
+      "readingExtent": "Scoped geometric motivation and actual local scalar-extension formula. Authored arbitrary-ring affine deductions are separated from the analytic correspondence, which is not discharged. No complete-paper or 149-item source collation is claimed.",
+      "independentReadings": [
+        {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-BjAqvx",
+          "date": "2026-10-05",
+          "urlRead": "https://arxiv.org/pdf/2307.01303v3",
+          "extent": "Definition1.2 in the introduction; printed pp.27–28 Theorem4.8/Remark4.9 and displayed proof. The same missing index occurs there. No full version collation.",
+          "sha256Read": "df8caac5ee92e8bcd5a4f9de8dcd5901d61d5f6f4f5c1c3c5bd6b65880e18943"
+        }
+      ]
     },
     {
       "id": "Heuer25-codex-a71f92-arbitrary-coherence",
@@ -7239,7 +8101,7 @@
       "sources": [
         {
           "sourceId": "Heuer25",
-          "locator": "Definition 1.2(2), printed p.262; Definition 4.1 and Remark 4.2, printed p.297",
+          "locator": "Definition 1.2(2), printed p.262; Definition 4.1, printed pp.297–298, and Remark 4.2, printed p.298",
           "excerpt": "Higgs bundle",
           "match": "Source motivation for the existing twisted Higgs object. The displayed algebraic statement and proof below are explicit deductions, not a separately named source theorem or a proof of the p-adic correspondence."
         }
@@ -7328,7 +8190,7 @@
       "sources": [
         {
           "sourceId": "Heuer25",
-          "locator": "Definition 1.2(2), printed p.262; Definition 4.1 and Remark 4.2, printed p.297",
+          "locator": "Definition 1.2(2), printed p.262; Definition 4.1, printed pp.297–298, and Remark 4.2, printed p.298",
           "excerpt": "Higgs bundle",
           "match": "Source motivation for the existing twisted Higgs object. The displayed algebraic statement and proof below are explicit deductions, not a separately named source theorem or a proof of the p-adic correspondence."
         }
@@ -7418,7 +8280,7 @@
       "sources": [
         {
           "sourceId": "Heuer25",
-          "locator": "Definition 1.2(2), printed p.262; Definition 4.1 and Remark 4.2, printed p.297",
+          "locator": "Definition 1.2(2), printed p.262; Definition 4.1, printed pp.297–298, and Remark 4.2, printed p.298",
           "excerpt": "Higgs bundle",
           "match": "Source motivation for the existing twisted Higgs object. The displayed algebraic statement and proof below are explicit deductions, not a separately named source theorem or a proof of the p-adic correspondence."
         }
@@ -7463,7 +8325,7 @@
       "sources": [
         {
           "sourceId": "Heuer25",
-          "locator": "Definition 1.2(2), printed p.262; Definition 4.1 and Remark 4.2, printed p.297",
+          "locator": "Definition 1.2(2), printed p.262; Definition 4.1, printed pp.297–298, and Remark 4.2, printed p.298",
           "excerpt": "Higgs bundle",
           "match": "Source motivation for the existing twisted Higgs object. The displayed algebraic statement and proof below are explicit deductions, not a separately named source theorem or a proof of the p-adic correspondence."
         }
@@ -7512,7 +8374,7 @@
       "sources": [
         {
           "sourceId": "Heuer25",
-          "locator": "Definition 1.2(2), printed p.262; Definition 4.1 and Remark 4.2, printed p.297",
+          "locator": "Definition 1.2(2), printed p.262; Definition 4.1, printed pp.297–298, and Remark 4.2, printed p.298",
           "excerpt": "Higgs bundle",
           "match": "Source motivation for the existing twisted Higgs object. The displayed algebraic statement and proof below are explicit deductions, not a separately named source theorem or a proof of the p-adic correspondence."
         }
@@ -7614,7 +8476,7 @@
       "sources": [
         {
           "sourceId": "Heuer25",
-          "locator": "Definition 1.2(2), printed p.262; Definition 4.1 and Remark 4.2, printed p.297",
+          "locator": "Definition 1.2(2), printed p.262; Definition 4.1, printed pp.297–298, and Remark 4.2, printed p.298",
           "excerpt": "Higgs bundle",
           "match": "Source motivation for the existing twisted Higgs object. The displayed algebraic statement and proof below are explicit deductions, not a separately named source theorem or a proof of the p-adic correspondence."
         }
@@ -7674,7 +8536,7 @@
       "sources": [
         {
           "sourceId": "Heuer25",
-          "locator": "Definition 1.2(2), printed p.262; Definition 4.1 and Remark 4.2, printed p.297",
+          "locator": "Definition 1.2(2), printed p.262; Definition 4.1, printed pp.297–298, and Remark 4.2, printed p.298",
           "excerpt": "Higgs bundle",
           "match": "Source motivation for the existing twisted Higgs object. The displayed algebraic statement and proof below are explicit deductions, not a separately named source theorem or a proof of the p-adic correspondence."
         }
@@ -7777,7 +8639,7 @@
       "sources": [
         {
           "sourceId": "Heuer25",
-          "locator": "Definition 1.2(2), printed p.262; Definition 4.1 and Remark 4.2, printed p.297",
+          "locator": "Definition 1.2(2), printed p.262; Definition 4.1, printed pp.297–298, and Remark 4.2, printed p.298",
           "excerpt": "Higgs bundle",
           "match": "Source motivation for the existing twisted Higgs object. The displayed algebraic statement and proof below are explicit deductions, not a separately named source theorem or a proof of the p-adic correspondence."
         }
@@ -7849,12 +8711,16 @@
         "Multiplication by x and y on the displayed four-dimensional module gives commuting matrices A,B with A²=B²=0 and AB=BA≠0.",
         "The ordered degree-two tensor basis distinguishes q₀⊗q₁ and q₁⊗q₀, so their sum is nonzero. A dual tensor coefficient extracts xy from θ^[2](1).",
         "In the symmetric quotient the two basis words agree, and 2=0. All diagonal coefficients also vanish, hence the projected map is zero.",
-        "All words of length three contain x² or y²; the mixed degree-two word acts nontrivially. Apply augmentation-power-words to get the exact bounds. The analogous finite regression over F₃ uses x³=y³=0: projected degree three vanishes while ordered degree three does not, and the ordered bound is five."
+        "All words of length three contain x² or y²; the mixed degree-two word acts nontrivially. Apply augmentation-power-words to get the exact bounds. The analogous finite regression over F₃ uses x³=y³=0: projected degree three vanishes while ordered degree three does not, and the ordered bound is five.",
+        "The suggested signature now uses the native coordinate module (Fin2×Fin2→F₂) for the monomial basis (1,x,y,xy), constructs the actual field from the two shift matrices, and tests its commuting contractions, explicit ordered square at1, nonzero second iterate, vanishing third iterate and zero symmetric image. Native LinearMap.mul' composed with the two degree-one inclusions gives the symmetric projection. Its image is degree two in the existing full symmetric algebra. The raw tensor-word statement remains a separately named helper, not a replacement for this field assertion."
       ],
       "prerequisites": [
         "HodgeStructuresPartII:H.0/ordered-coordinate-vanishing",
         "HodgeStructuresPartII:H.0/augmentation-power-words",
-        "mathlib:SymmetricAlgebra.algHom"
+        "mathlib:SymmetricAlgebra.algHom",
+        "HodgeStructuresPartII:H.0/affine-ordered-square",
+        "HodgeStructuresPartII:H.0/affine-ordered-iterate",
+        "mathlib:LinearMap.mul'"
       ],
       "library": {
         "module": "TauCeti/Geometry/Hodge/Higgs/ParameterConnection",
@@ -7863,7 +8729,7 @@
       "sources": [
         {
           "sourceId": "Heuer25",
-          "locator": "Definition 1.2(2), printed p.262; Definition 4.1 and Remark 4.2, printed p.297",
+          "locator": "Definition 1.2(2), printed p.262; Definition 4.1, printed pp.297–298, and Remark 4.2, printed p.298",
           "excerpt": "Higgs bundle",
           "match": "Source motivation for the existing twisted Higgs object. The displayed algebraic statement and proof below are explicit deductions, not a separately named source theorem or a proof of the p-adic correspondence."
         }
@@ -8337,7 +9203,7 @@
       "tests": [
         {
           "name": "TwistedHiggsBundle.affineOrderedIterate.test_unit_boundary",
-          "kind": "boundary",
+          "kind": "degenerate",
           "statement": "For any θ, contraction of θ^[0] by the empty tensor pairing is id_E, including E=0."
         },
         {
@@ -8352,7 +9218,7 @@
         },
         {
           "name": "TwistedHiggsBundle.affineOrderedIterate.test_nonreduced_nilpotent",
-          "kind": "boundary",
+          "kind": "computation",
           "statement": "Over Z/4, θ=2 times the scalar unit field is nonzero but θ^[2]=0. This rules out unconditional rank-one or reduced-base shortcuts."
         },
         {
@@ -8366,9 +9232,9 @@
           "statement": "For any u:Q→P and n, I_n(theta)=0 implies I_n((id_E tensor u) composed with theta)=0 at the same n."
         },
         {
-          "name": "TwistedHiggsBundle.affineOrderedIterate.test_chart_identity",
+          "name": "TwistedHiggsBundle.affineOrderedIterate.test_scaled_chart",
           "kind": "compatibility",
-          "statement": "Take f=id_E,u=id_Q and psi=theta in the isomorphism transport theorem; the same-exponent equivalence holds for every n."
+          "statement": "Over ℚ, let E=Q=ℚ, θ(e)=e⊗1, ψ=2θ, f=3id_E and u=2id_Q. Both f and u are isomorphisms and ψ∘f=(f⊗u)∘θ, but ψ≠θ. For every n≥0 both ordered iterates are nonzero: contraction gives id at n=0, and multiplication by 1 and 2^n at positive degrees. This tests a nonidentity change of frame and coefficient scale rather than a tautological equality."
         },
         {
           "name": "TwistedHiggsBundle.affineOrderedIterate.test_bound_two_to_five",
@@ -9407,7 +10273,7 @@
         },
         {
           "name": "TwistedHiggsBundle.affineBaseChange.test_unit_all_orders",
-          "kind": "boundary",
+          "kind": "computation",
           "statement": "For every nontrivial R-algebra S, the scalar-extended unit field on E=Q=R has nonzero iterate at every n≥0. The empty product and positive degrees must all survive."
         },
         {
@@ -9422,7 +10288,7 @@
         },
         {
           "name": "TwistedHiggsBundle.affineBaseChange.test_torsion_coefficients",
-          "kind": "boundary",
+          "kind": "compatibility",
           "statement": "With E=ℤ, Q=ℤ/2 and the faithfully flat identity algebra S=ℤ, θ_S=0 iff θ=0. No coefficient freeness or flatness is assumed."
         },
         {
@@ -9432,7 +10298,7 @@
         },
         {
           "name": "TwistedHiggsBundle.affineBaseChange.test_degree_one_no_basis",
-          "kind": "boundary",
+          "kind": "compatibility",
           "statement": "For E=Q=ℤ/2 and S=ℤ, the degree-one source and receiving iterates vanish simultaneously for every θ, without bases or flatness of E,Q."
         },
         {
@@ -12354,7 +13220,7 @@
         },
         {
           "name": "TwistedHiggsBundle.affineFiniteDirectionField.test_torsion_module",
-          "kind": "example",
+          "kind": "computation",
           "statement": "Over R=ℤ with the torsion module E=ZMod 2, the one-direction identity field has zero exterior square. No freeness or flatness of E is required."
         },
         {
@@ -12369,7 +13235,7 @@
         },
         {
           "name": "TwistedHiggsBundle.affineFiniteDirectionField.test_basis_independent",
-          "kind": "invariance",
+          "kind": "compatibility",
           "statement": "Coordinate commutation is equivalent for any two finite coefficient bases, even if their index types differ."
         }
       ]
@@ -18562,7 +19428,7 @@
         },
         {
           "name": "Preconnection.transport.test_variable_frame_derivative",
-          "kind": "counterexample",
+          "kind": "non-example",
           "statement": "Over A=ℤ[x] on A² with D=2d and actual shear u(a,b)=(a+xb,b), the right-unitor-normalized transported operator at (0,1) equals (−2,0) and is nonzero. Dropping the derivative of the changing frame would incorrectly give zero."
         }
       ]
@@ -20607,7 +21473,7 @@
         },
         {
           "name": "scalarUnit.test_not_surjective",
-          "kind": "counterexample",
+          "kind": "non-example",
           "statement": "For ℤ→ℤ[x] and E=ℤ, η is not surjective: x⊗1 cannot equal 1⊗n, as coefficient one detects after the native right unitor."
         }
       ]
@@ -34938,7 +35804,24 @@
         "HodgeStructuresPartII:H.0/zero-fiber"
       ],
       "source": "EG20",
-      "independentCheckBoundary": "codex-tUuT7s read the same integrality/Ω_X slips in the author-hosted copy, §2.1 pp.5–6. The published URL returned HTTP 403. This checkpoint does not add a published-version confirmation verdict; finish that version-specific check before issuing the final review."
+      "independentCheckBoundary": "codex-tUuT7s read the same integrality/Ω_X slips in the author-hosted copy, §2.1 pp.5–6. The published URL returned HTTP 403. This checkpoint does not add a published-version confirmation verdict; finish that version-specific check before issuing the final review.",
+      "sourceVersions": [
+        {
+          "kind": "published",
+          "url": "https://archive.ymsc.tsinghua.edu.cn/pacm_download/117/11915-ACTA-2020-0225-0001-a002.pdf",
+          "read": "2026-10-05",
+          "sha256": "0d81a6d3e9be477c58a725096c41f06a8a9262422fe596363c3f04c26ab1cfab",
+          "readingExtent": "Complete printed pp.108–109; notation finding at p.108 only."
+        }
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-DESIGN-HodgeStructuresPartII",
+        "session": "codex-BjAqvx",
+        "date": "2026-10-05",
+        "reason": "At §2.1 published p.108 the fixed variety is Z, while the Higgs target uses Ω¹_X and both flatness equations are described as integrality. The displayed θ∧θ=0 and ∇²=0 justify integrability, and the sheaf is Ω¹_Z. Published bytes from the Tsinghua archive match the packet expected SHA-256 exactly. This is the inherited already-reported notation slip, not a new theorem error or a whole-packet review."
+      },
+      "independentCheckResolution": "codex-BjAqvx retrieved the published bytes with the expected hash on2026-10-05 and independently confirmed the p.108 notation finding. The preceding independentCheckBoundary remains the historical codex-tUuT7s retrieval receipt."
     },
     {
       "id": "HodgeStructuresPartII/ErtOQ9t07J5Delta",
@@ -34959,6 +35842,56 @@
         "verdict": "confirmed",
         "by": "REV-DESIGN-HodgeStructuresPartII",
         "reason": "The complete authors correction patch d90e73b0eb86c47faa4724d04a3f06a810a83d36 replaces Delta with i in precisely this proof reference. Current tag 07J5 and its two comments agree; the historical notation error is already corrected, not a defect in the current proof."
+      }
+    },
+    {
+      "id": "HodgeStructuresPartII/EHeuer25-Remark4-9-coefficient-index",
+      "source": "Heuer25",
+      "addedBy": "REV-DESIGN-HodgeStructuresPartII",
+      "locator": "Remark4.9, published printed p.301 (PDF page41); arXiv2307.01303v3 printed p.27.",
+      "kind": "misprint",
+      "printed": "θ_j(e)",
+      "correction": "In the displayed image of Σ_i e_i⊗ω_i, replace θ_j(e) by θ_j(e_i). Retain the printed coefficient order ω_i⊗ω_j.",
+      "reason": "The input has separate components e_i; the output must apply θ_j to each corresponding e_i. A single unbound e cannot define this linear map. The following scalar-extension formula and the tensor-with-zero-field construction give the intended interpretation. The defect is a missing index, not a false correspondence theorem.",
+      "affects": "nothing",
+      "known": "No correction found in the bounded search below; not among the13 findings in the existing PAPER-HEUER-25 extraction. No claim of a complete literature search.",
+      "searched": [
+        "Existing PAPER-HEUER-25.result.json sourceIssues E1–E13; inspected their locators and corrections, not a re-review of those findings.",
+        "Publisher HTML Remark4.9 and a Correction text search: https://link.springer.com/article/10.1007/s00222-025-01321-4",
+        "Published PDF p.301, including visual inspection; arXivv3 pp.27–28.",
+        "arXiv submission history https://arxiv.org/abs/2307.01303 lists v3 as the latest version when read.",
+        "Web queries on2026-10-05: Heuer 01321 erratum; 2307.01303 Remark4.9; A p-adic Simpson correspondence corrigendum. No matching correction found in returned results."
+      ],
+      "publicationStatus": "Version-of-record notation independently checked; no correction found in the explicitly bounded search.",
+      "sourceVersions": [
+        {
+          "kind": "published",
+          "url": "https://link.springer.com/content/pdf/10.1007/s00222-025-01321-4.pdf",
+          "read": "2026-10-05",
+          "sha256": "7608fff18ccbc47b96bd54cfe01f31f8ccd9953889834cc9f6c39787563175cd",
+          "readingExtent": "Definition1.2(2) p.262, Definition4.1/Remark4.2 pp.297–298, and Theorem4.8/Remark4.9 with displayed proof pp.300–302. Visual inspection of p.301 confirms the missing index."
+        },
+        {
+          "kind": "preprint",
+          "url": "https://arxiv.org/pdf/2307.01303v3",
+          "read": "2026-10-05",
+          "sha256": "df8caac5ee92e8bcd5a4f9de8dcd5901d61d5f6f4f5c1c3c5bd6b65880e18943",
+          "readingExtent": "Definition1.2 in the introduction; printed pp.27–28 Theorem4.8/Remark4.9 and displayed proof. The same missing index occurs there. No full version collation."
+        }
+      ],
+      "affectedNodes": [
+        "HodgeStructuresPartII:H.0/affine-base-change-natural",
+        "HodgeStructuresPartII:H.0/affine-base-change-coefficient-map",
+        "HodgeStructuresPartII:H.0/affine-ordered-iterate-base-change-natural",
+        "HodgeStructuresPartII:H.0/affine-base-change-zero-iff",
+        "HodgeStructuresPartII:H.0/affine-ordered-iterate-base-change-one-zero-iff"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-DESIGN-HodgeStructuresPartII",
+        "session": "codex-BjAqvx",
+        "date": "2026-10-05",
+        "reason": "Published p.301 was visually inspected and agrees with the extracted text and publisher HTML: θ_j(e) is printed after input Σ_i e_i⊗ω_i. The tensor-product operator acts on each component e_i, so θ_j(e_i) is required. arXivv3 has the same slip. These version-specific checks do not constitute whole-packet acceptance."
       }
     }
   ],
@@ -35373,6 +36306,12 @@
       ],
       "boundedSearch": "No matching Higgs/affineExteriorSquare/FiniteDirectionField declaration in the exact-pin TauCeti LinearAlgebra/Geometry and Mathlib exterior-power folders. Open Mathlib PR query for Higgs returned no matches; two indexed Zulip Higgs/commuting/exterior queries returned no results. These are bounded searches, not an exhaustive absence claim. Generated additive APIs are checked by elaboration although the declaration index records their multiplicative source declarations.",
       "ownership": "No parent Hodge or generic tensor/exterior/dual carrier is replanned. Same H.0 affine owner; existing E1/CR.1/DD.1/D3 contracts and all five requests are retained."
+    },
+    "independentReviewContinuation": {
+      "by": "REV-DESIGN-HodgeStructuresPartII",
+      "session": "codex-BjAqvx",
+      "date": "2026-10-05",
+      "read": "Reviewed parent Hodge L0–L3 target/evidence/duplicate rows and E1/D3 rows, with REV-AUDIT02/10/22 metadata. These are ownership boundaries, not a fresh audit of their Tau Ceti proofs. Full HodgeStructures and SchurWeyl upstream README documents read for conventions and target density. Native pinned algebra interfaces are reused; no new generic tensor, symmetric algebra, augmentation, quotient or multiplication carrier is planned. Broader source inventory and global supplier contracts remain uncompleted review work."
     }
   },
   "upstreamNotes": [],
@@ -38256,7 +39195,209 @@
     "newDistinctTests": 13,
     "planningPass": "complete at569nodes under current PROTOCOLsection0 NODE_BUDGET300;honest open stage coverage and remaining lists preserved",
     "implementation": "unchecked; actual three-step affine dual artifacts only; global/source closure remains open",
-    "publicReplay": "Actual public HTTP recovery and both immutable verifier reports required before submission."
+    "publicReplay": "Actual public HTTP recovery and both immutable verifier reports required before submission.",
+    "independentReviewCheckpoint": {
+      "job": "REV-DESIGN-HodgeStructuresPartII",
+      "session": "codex-BjAqvx",
+      "date": "2026-10-05",
+      "status": "partial checkpoint, not a final review verdict",
+      "inspectedNodeIndices": {
+        "first": 47,
+        "last": 111,
+        "count": 65
+      },
+      "inspectedNodes": [
+        "HodgeStructuresPartII:H.0/determinant-coordinate",
+        "HodgeStructuresPartII:H.0/determinant-matrix",
+        "HodgeStructuresPartII:H.0/determinant-curvature",
+        "HodgeStructuresPartII:H.0/determinant-flat",
+        "HodgeStructuresPartII:H.0/determinant-dual",
+        "HodgeStructuresPartII:H.0/determinant-tensor",
+        "HodgeStructuresPartII:H.0/gauge-curvature",
+        "HodgeStructuresPartII:H.0/determinant-gauge-curvature",
+        "HodgeStructuresPartII:H.0/determinant-derivation-rows",
+        "HodgeStructuresPartII:H.0/determinant-row-action",
+        "HodgeStructuresPartII:H.0/determinant-gauge-matrix",
+        "HodgeStructuresPartII:H.0/determinant-gauge",
+        "HodgeStructuresPartII:H.0/determinant-alternating-operator",
+        "HodgeStructuresPartII:H.0/affine-contractions",
+        "HodgeStructuresPartII:H.0/affine-symmetric-action",
+        "HodgeStructuresPartII:H.0/affine-symmetric-commuting",
+        "HodgeStructuresPartII:H.0/symmetric-action-word",
+        "HodgeStructuresPartII:H.0/symmetric-action-morphism",
+        "HodgeStructuresPartII:H.0/ordered-coordinate-vanishing",
+        "HodgeStructuresPartII:H.0/augmentation-power-generators",
+        "HodgeStructuresPartII:H.0/augmentation-power-words",
+        "HodgeStructuresPartII:H.0/ordered-augmentation-nilpotence",
+        "HodgeStructuresPartII:H.0/truncated-symmetric-action",
+        "HodgeStructuresPartII:H.0/symmetric-projection-counterexample",
+        "HodgeStructuresPartII:H.0/affine-contractions-reconstruction",
+        "HodgeStructuresPartII:H.0/affine-ordered-square",
+        "HodgeStructuresPartII:H.0/affine-ordered-square-contraction",
+        "HodgeStructuresPartII:H.0/affine-ordered-square-vanishing",
+        "HodgeStructuresPartII:H.0/affine-ordered-step",
+        "HodgeStructuresPartII:H.0/affine-ordered-iterate",
+        "HodgeStructuresPartII:H.0/affine-contractions-apply",
+        "HodgeStructuresPartII:H.0/affine-contractions-zero",
+        "HodgeStructuresPartII:H.0/affine-ordered-iterate-unit",
+        "HodgeStructuresPartII:H.0/affine-ordered-iterate-succ",
+        "HodgeStructuresPartII:H.0/affine-ordered-step-zero",
+        "HodgeStructuresPartII:H.0/affine-ordered-step-add",
+        "HodgeStructuresPartII:H.0/affine-ordered-step-contraction",
+        "HodgeStructuresPartII:H.0/affine-ordered-iterate-contraction",
+        "HodgeStructuresPartII:H.0/affine-tensor-power-coordinate",
+        "HodgeStructuresPartII:H.0/affine-ordered-iterate-vanishing",
+        "HodgeStructuresPartII:H.0/affine-ordered-iterate-zero-field",
+        "HodgeStructuresPartII:H.0/affine-ordered-step-natural",
+        "HodgeStructuresPartII:H.0/affine-ordered-iterate-natural",
+        "HodgeStructuresPartII:H.0/affine-ordered-iterate-mono",
+        "HodgeStructuresPartII:H.0/affine-ordered-iterate-surjective",
+        "HodgeStructuresPartII:H.0/affine-ordered-iterate-equiv",
+        "HodgeStructuresPartII:H.0/affine-ordered-iterate-one",
+        "HodgeStructuresPartII:H.0/affine-ordered-iterate-two",
+        "HodgeStructuresPartII:H.0/affine-base-change",
+        "HodgeStructuresPartII:H.0/affine-base-change-contraction",
+        "HodgeStructuresPartII:H.0/affine-base-change-word",
+        "HodgeStructuresPartII:H.0/affine-base-change-bound",
+        "HodgeStructuresPartII:H.0/affine-base-change-bound-faithful",
+        "HodgeStructuresPartII:H.0/affine-coefficient-map",
+        "HodgeStructuresPartII:H.0/affine-coefficient-map-comp",
+        "HodgeStructuresPartII:H.0/affine-coefficient-map-iterate",
+        "HodgeStructuresPartII:H.0/affine-coefficient-map-bound",
+        "HodgeStructuresPartII:H.0/affine-coefficient-map-bound-retract",
+        "HodgeStructuresPartII:H.0/affine-ordered-iterate-flat-subobject",
+        "HodgeStructuresPartII:H.0/affine-coefficient-map-bound-flat",
+        "HodgeStructuresPartII:H.0/affine-base-change-natural",
+        "HodgeStructuresPartII:H.0/affine-base-change-coefficient-map",
+        "HodgeStructuresPartII:H.0/affine-ordered-iterate-base-change-natural",
+        "HodgeStructuresPartII:H.0/affine-base-change-zero-iff",
+        "HodgeStructuresPartII:H.0/affine-ordered-iterate-base-change-one-zero-iff"
+      ],
+      "nextNodeIndex": 112,
+      "nextNode": "HodgeStructuresPartII:H.0/affine-tensor-power-base-change",
+      "newPinnedStatementReceipts": [
+        "mathlib:Matrix.trace",
+        "mathlib:Matrix.trace_mul_comm",
+        "mathlib:AddMonoidHom.map_trace",
+        "mathlib:Matrix.trace_transpose",
+        "mathlib:Matrix.trace_neg",
+        "mathlib:Matrix.trace_kronecker",
+        "mathlib:Matrix.trace_one",
+        "mathlib:Matrix.trace_units_conj",
+        "mathlib:Matrix.trace_zero",
+        "mathlib:Matrix.trace_add",
+        "mathlib:Matrix.trace_sub",
+        "mathlib:Matrix.trace_smul",
+        "mathlib:Matrix.det_apply'",
+        "mathlib:Matrix.det_updateRow_add",
+        "mathlib:Matrix.det_updateRow_smul",
+        "mathlib:Matrix.det_updateRow_eq_zero",
+        "mathlib:Matrix.det_transpose",
+        "mathlib:Matrix.det_mul",
+        "mathlib:Matrix.detMonoidHom",
+        "mathlib:Matrix.scalar",
+        "mathlib:Units.map",
+        "mathlib:Units.coe_map",
+        "mathlib:Derivation.map_intCast",
+        "mathlib:Derivation.map_one_eq_zero",
+        "mathlib:Module.Dual",
+        "mathlib:TensorProduct.map",
+        "mathlib:TensorProduct.rid",
+        "mathlib:TensorAlgebra.lift",
+        "mathlib:TensorAlgebra.SymRel",
+        "mathlib:RingCon.ringConGen_le",
+        "mathlib:RingCon.liftₐ",
+        "mathlib:RingCon.Quotient.hom_extₐ",
+        "mathlib:TensorAlgebra.hom_ext",
+        "mathlib:SymmetricAlgebra.algHom",
+        "mathlib:SymmetricAlgebra.induction",
+        "mathlib:SymmetricAlgebra.counitAlgHom_eq",
+        "mathlib:Ideal.Quotient.liftₐ",
+        "mathlib:Ideal.Quotient.liftₐ_comp",
+        "tauceti:TauCeti.SymmetricAlgebra.augmentation_toIdeal_eq_span_range_ι",
+        "mathlib:TensorProduct.map_add_right",
+        "mathlib:TensorProduct.map_smul_right",
+        "mathlib:SymmetricAlgebra.algebraMapInv_ι",
+        "mathlib:Ideal.Quotient.mk_surjective",
+        "mathlib:Ideal.Quotient.eq_zero_iff_mem",
+        "mathlib:Ideal.pow_mem_pow",
+        "tauceti:TauCeti.HopfIdeal.augmentation_toIdeal",
+        "mathlib:Submodule.span_pow",
+        "mathlib:Set.mem_pow",
+        "mathlib:Ideal.span_le",
+        "mathlib:Matrix.toLin'",
+        "mathlib:Module.Basis.sum_repr",
+        "mathlib:Module.Basis.coord",
+        "mathlib:TensorProduct.induction_on",
+        "mathlib:TensorProduct.assoc",
+        "mathlib:TensorProduct.assoc_tmul",
+        "mathlib:TensorProduct.map_tmul",
+        "mathlib:TensorProduct.tmul_sum",
+        "mathlib:TensorProduct.sum_tmul",
+        "mathlib:Basis.piTensorProduct",
+        "mathlib:Basis.piTensorProduct_repr_tprod_apply",
+        "mathlib:Fin.append_left_eq_cons",
+        "mathlib:Fin.prod_univ_succ",
+        "mathlib:Module.End.one_eq_id",
+        "mathlib:PiTensorProduct.ext",
+        "mathlib:PiTensorProduct.induction_on",
+        "mathlib:PiTensorProduct.subsingletonEquiv",
+        "mathlib:PiTensorProduct.subsingletonEquiv_symm_apply'",
+        "mathlib:TensorPower",
+        "mathlib:TensorPower.algebraMap₀",
+        "mathlib:TensorPower.algebraMap₀_one",
+        "mathlib:TensorPower.cast",
+        "mathlib:TensorPower.cast_tprod",
+        "mathlib:TensorPower.gMul_def",
+        "mathlib:TensorPower.gOne_def",
+        "mathlib:TensorPower.mulEquiv",
+        "mathlib:TensorPower.multilinearMapToDual_apply_tprod",
+        "mathlib:TensorPower.tprod_mul_tprod",
+        "mathlib:TensorProduct.congr",
+        "mathlib:TensorProduct.congr_tmul",
+        "mathlib:TensorProduct.map_add_left",
+        "mathlib:TensorPower.multilinearMapToDual",
+        "mathlib:PiTensorProduct.map",
+        "mathlib:PiTensorProduct.map_tprod",
+        "mathlib:PiTensorProduct.congr",
+        "mathlib:LinearMap.baseChange",
+        "mathlib:LinearMap.baseChange_tmul",
+        "mathlib:LinearMap.baseChange_zero",
+        "mathlib:LinearMap.baseChange_one",
+        "mathlib:TensorProduct.AlgebraTensorModule.distribBaseChange",
+        "mathlib:TensorProduct.AlgebraTensorModule.distribBaseChange_tmul",
+        "mathlib:TensorProduct.AlgebraTensorModule.ext",
+        "mathlib:Module.End.baseChangeHom",
+        "mathlib:Module.Basis.baseChange",
+        "mathlib:Module.Basis.baseChange_repr_tmul",
+        "mathlib:Module.FaithfullyFlat",
+        "mathlib:Module.FaithfullyFlat.one_tmul_eq_zero_iff",
+        "mathlib:map_list_prod",
+        "mathlib:TensorProduct.map_comp",
+        "mathlib:TensorProduct.map_id",
+        "mathlib:Module.Flat",
+        "mathlib:Module.Flat.of_linearEquiv",
+        "mathlib:Module.Flat.of_projective",
+        "mathlib:TensorProduct.map_injective_of_flat_flat",
+        "mathlib:LinearMap.baseChange_comp",
+        "mathlib:LinearMap.baseChange_id",
+        "mathlib:TensorProduct.toLinearMap_congr",
+        "mathlib:LinearMap.mul'"
+      ],
+      "boundary": "Conditional mathematical and suggested-signature checks of this prefix only. Earlier47-node inspection belongs to codex-tUuT7s. Later API suppliers, all457 later nodes, route inventory and exact global sheaf contracts remain unreviewed. Nine test-kind metadata corrections elsewhere do not enlarge the audited prefix. No top-level review object or implementation claim.",
+      "compilation": {
+        "command": "lean-check research/blueprint/suggested/HodgeStructuresPartII.lean",
+        "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+        "fileSha256": "96c8174ef8f9ebbe6511d8810f4d796910a9373e8e6e8c9bf712ce685f4acea1",
+        "exitStatus": 0,
+        "errors": 0,
+        "warnings": 948,
+        "warningKinds": [
+          "admitted-declaration warnings"
+        ],
+        "scope": "Suggested file imports only Mathlib. No Tau Ceti code was loaded; the two Tau Ceti baseline statements were read at the exact source pin. Admitted bodies are plans, not proofs."
+      }
+    }
   },
   "coefficientMapContinuation": {
     "agent": "Codex — codex-J6LwjP",
