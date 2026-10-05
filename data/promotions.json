@@ -472,6 +472,18 @@
     "data/blueprints/EllipticKTheory.md"
    ]
   },
+  "research/blueprint/packets/EllipticLegendreCharacterInterfaces.json": {
+   "promotedAt": "2026-10-05T10:18:48Z",
+   "review": "3ffc50b96fe6a653",
+   "reviewDate": "2026-10-05",
+   "reviewer": "independent-review-REV-DESIGN-EllipticLegendreCharacterInterfaces",
+   "sha256": "4a3591b375a27e47f3920fad9b1ae659c2337d904ed73428139460a71256a84b",
+   "to": [
+    "data/blueprints/EllipticLegendreCharacterInterfaces.json",
+    "data/blueprints/EllipticLegendreCharacterInterfaces.md",
+    "data/blueprints/roadmaps/EllipticLegendreCharacterInterfaces.json"
+   ]
+  },
   "research/blueprint/packets/EllipticRegulators.json": {
    "promotedAt": "2026-10-01T20:54:46Z",
    "review": "e1d26973bb20d433",

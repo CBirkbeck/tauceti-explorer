@@ -1,0 +1,100 @@
+{
+  "id": "EllipticLegendreCharacterInterfaces",
+  "title": "Elliptic curves, Part II: Legendre models, descent and character interfaces",
+  "area": "arithmeticgeometry",
+  "parent": "tauceti:TauCetiRoadmap/EllipticCurves",
+  "summary": "This Part II supplies equation-level Legendre models and all six labelled root-ordering parameters for rational curves with full two-torsion. It reads the existing descent map through the split cubic, derives good-prime unit and primitive-character conductor interfaces, and exports explicit two-primary torsion, corrected halving witnesses and trace identities over finite prime fields. Generic elliptic, character, conductor and twist-factor theories retain their existing owners.",
+  "readme": "# Elliptic curves, Part II: Legendre models, descent and character interfaces\n\nThis Part II extends the existing Tau Ceti EllipticCurves roadmap. It starts after the Weierstrass equations, point group, torsion, reduction, native quadratic twists and x−θ descent map supplied by its Layers 2–6. Its new library consists of concrete Legendre equations, labelled root-ordering parameters, rational good-prime unit and character-support interfaces, split-cubic readings of the existing descent, and explicit finite-field torsion and trace results.\n\nThe two domains are separated. Coefficient models are defined over commutative rings; torsion and descent use fields of characteristic not two and nonsingular parameters. Rational parameters use additive p-adic valuations and minimal local reduction. Finite-field exports use prime fields with explicit residue congruences. The six parameter labels are retained even when their values coincide at −1,2,1/2. Scaled models are twists, not automatically isomorphic to the unscaled model over the ground field.\n\nThe primitive character of a rational squareclass belongs to ClassicalArithmeticCompletion CA.1. Generic twist Euler factors belong to RankZeroOneBSD BSD.0. Actual elliptic-conductor support is imported from ArithmeticGaloisRepresentations R01.3; it is not identified with an algorithmic Ogg exponent without that comparison. The moduli-level six Möbius transformations belong to ModularCurves 9E; this roadmap does not reconstruct that moduli theory. The progression application imports the outputs without imposing its large-exponent hypotheses on these generic statements.\n\nThe target-level plan has 37 declaration-sized nodes. All six layers are planned, not closed. Exact supplier requests and explicit prototype gaps are retained, and every implementation status is unchecked. The detailed reader contains the definitions, proof outlines, APIs, tests and source locators.\n",
+  "prerequisites": [
+    "tauceti:TauCetiRoadmap/EllipticCurves",
+    "ClassicalArithmeticCompletion",
+    "ArithmeticGaloisRepresentations",
+    "RankZeroOneBSD"
+  ],
+  "stages": [
+    {
+      "key": "LG.0",
+      "title": "Legendre equations and root orderings",
+      "description": "The Legendre equation. For any commutative ring R and λ∈R, legendre λ is the existing WeierstrassCurve with coefficients a₁=a₃=a₆=0, a₂=−(1+λ), a₄=λ. Its equation is y²=x(x−1)(x−λ). This defines a model even at λ=0,1; no ellipticity is claimed there.\n\nThe scaled Legendre equation. For a commutative ring R and d,λ∈R, scaledLegendre d λ has coefficients (0,−d(1+λ),0,d²λ,0), hence equation y²=x(x−d)(x−dλ). For fields with 2≠0 it is the native quadraticTwistOf (legendre λ) with parameters (0,−d/4): its twisting discriminant is d, not 4d.\n\nSix labelled Legendre parameters. For a field K, legendreParameters λ is the Fin 6-indexed tuple (λ,1/λ,1−λ,1/(1−λ),λ/(λ−1),(λ−1)/λ). Labelled entries are retained, including repetitions. Mathematical parameter assertions require λ≠0,1; the tuple is a total rational-expression construction but its degenerate values are not valid parameters.\n\nLegendre discriminant and ellipticity. For every commutative ring, Δ(Lλ)=16λ²(1−λ)² and c₄(Lλ)=16(λ²−λ+1). Over a field with 2≠0, Lλ is elliptic iff λ≠0 and λ≠1; for these parameters its native j-invariant equals 256(λ²−λ+1)³/(λ²(1−λ)²). The identities form one simultaneous coefficient calculation.\n\nScaled Legendre discriminant. Δ(Ld,λ)=16d⁶λ²(1−λ)² and c₄(Ld,λ)=16d²(λ²−λ+1). For a field with 2≠0 and d≠0, Ld,λ is elliptic iff λ≠0,1; on elliptic models j(Ld,λ)=j(Lλ).\n\nRoot-ordering cross-ratios. Let e₀,e₁,e₂ be pairwise distinct in a field, and λ=(e₂−e₀)/(e₁−e₀). The cross-ratios obtained from root orders (012),(021),(102),(120),(210),(201) equal, respectively, the six entries of legendreParameters λ. Each lies outside {0,1}. Repetitions in values do not collapse the six root orderings.\n\nLegendre normalization of a split cubic. Let W over a field K with 2≠0 be in native IsCharNeTwoNF normal form, with cubic f=(X−e₀)(X−e₁)(X−e₂) and pairwise distinct roots. Set d=e₁−e₀, λ=(e₂−e₀)/d. Translation x_old=x_new+e₀,y_old=y_new gives a native VariableChange C with C•W=scaledLegendre d λ. Hence W is a quadratic twist of Lλ in the precise native coefficient sense, d≠0 and λ≠0,1. Reordering roots yields exactly the six parameters, with the corresponding twist scalar recomputed.\n\nNormalization from full rational two-torsion. If E/ℚ is an elliptic Weierstrass curve whose native rational point group has exactly four points killed by 2, there exist a native rational VariableChange C, d∈ℚ× and λ∈ℚ\\{0,1} such that C•E=scaledLegendre d λ. All associated parameters are precisely the labelled six root-ordering parameters, allowing coincidences.\n\nThe three labelled two-torsion points. For a field K with 2≠0,d≠0,λ≠0,1, scaledLegendreTwoTorsion d λ is the Fin 3-indexed tuple of native points (0,0),(d,0),(dλ,0) of Ld,λ, each supplied with its native nonsingularity proof. Their y-coordinate is zero; the point at infinity is not an entry.\n\nThe native scalar-twist identity. Over a field with 2≠0, scaledLegendre d λ=(legendre λ).quadraticTwistOf 0 (−d/4). The native twisting discriminant 0²−4(−d/4) is exactly d, so the twist is elliptic iff d≠0 and Lλ is elliptic.\n\nExhaustion of Legendre two-torsion. On Ld,λ over a field with 2≠0,d≠0,λ≠0,1, a native point P is killed by doubling iff P=O or P is one of (0,0),(d,0),(dλ,0). These four points are distinct; hence the doubling kernel has cardinality 4.",
+      "requires": []
+    },
+    {
+      "key": "LG.1",
+      "title": "Good reduction and character conductors",
+      "description": "Nonintegral Legendre parameters force nonintegral j. Let p be an odd rational prime and λ∈ℚ\\{0,1}. Write a=v_p(λ), b=v_p(1−λ). If a<0 then b=a and v_p(j(Lλ))=2a<0. If a>0 then b=0 and v_p(j(Lλ))=−2a<0. If b>0 then a=0 and v_p(j(Lλ))=−2b<0. Consequently v_p(j(Lλ))≥0 implies a=b=0.\n\nParameters at good odd primes. Let F/ℚ be elliptic with full rational two-torsion, semistable away from 2, and let λ be any associated Legendre parameter. If an odd prime p is of good reduction for the curve F, then v_p(λ)=v_p(1−λ)=0. The reduction hypothesis is applied to a minimal equation of F over ℚ_p, not to the arbitrary displayed scaled Legendre model.\n\nNonsingular reduction of the unit Legendre model. For λ∈ℚ\\{0,1} and an odd prime p with v_p(λ)=v_p(1−λ)=0, the coefficient model Lλ is integral over ℤ_p with unit discriminant. Its reduction is an elliptic Legendre model over 𝔽_p with parameter λ̄≠0,1; the curve has good reduction at p. This statement is about Lλ itself, not an arbitrary d-twist.\n\nOdd support of the attached primitive character. Let F,λ be as in good-prime-units, let ω∈{1,−1,2,−2}, and let χ be the CA.1 primitive character of the nonzero rational squareclass ωλ, of conductor N. Every odd prime dividing N is a bad prime of F. Equivalently the odd prime support of N is contained in the bad odd prime set of F.\n\nOdd character conductor divides the elliptic conductor. Under the preceding hypotheses, if M is the actual elliptic conductor of F and N is the primitive conductor of the CA.1 character of ωλ, then ordCompl[2](N) divides M. In particular at semistable odd primes it divides the squarefree odd part of M. The theorem permits N=1 and does not assert nontriviality of the odd conductor.",
+      "requires": [
+        "ArithmeticGaloisRepresentations:R01.3",
+        "ClassicalArithmeticCompletion:CA.1",
+        "EllipticLegendreCharacterInterfaces:LG.0",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv"
+      ]
+    },
+    {
+      "key": "LG.2",
+      "title": "Split-cubic readings of the native descent map",
+      "description": "The Legendre split-cubic CRT. For Ld,λ under the nonsingularity hypotheses, scaledLegendreCrt d λ is the canonical root-evaluation ring equivalence A=K[X]/(X(X−d)(X−dλ)) ≃ K×K×K, in root order (0,d,dλ). It is an adapter for the native Affine.A étale algebra, not a replacement algebra.\n\nRoot readings of native squareclasses. scaledLegendreSquareclassEquiv d λ is the induced multiplicative equivalence from native M=Aˣ/(Aˣ)² to (Kˣ/(Kˣ)²)³, obtained from scaledLegendreCrt. It transports μ values; it defines neither a new generic descent homomorphism nor a new kernel theorem.\n\nNative descent away from the roots. For an affine native point (x,y) on Ld,λ with x∉{0,d,dλ}, the split reading of μ(P) is ([x],[x−d],[x−dλ]), with all three representatives nonzero. The image of O is (1,1,1).\n\nNative descent at the three two-torsion points. The split readings at T₀,T_d,T_dλ on Ld,λ are respectively ([d²λ],[−d],[−dλ]), ([d],[d²(1−λ)],[d(1−λ)]), and ([dλ],[d(λ−1)],[d²λ(λ−1)]). All representatives are nonzero. The entry at a root is the derivative product of the other two differences, not zero.\n\nProduct of the split descent coordinates. For every native point P on Ld,λ, the product of the three split readings of μ(P) is 1. This is the native normM condition read through the split algebra; it holds at O and at the two-torsion roots as well.\n\nThe Legendre halving criterion. For a native affine point P=(x,y) on Ld,λ over K with 2≠0,d≠0,λ≠0,1, there exists Q∈Ld,λ(K) with 2Q=P iff x,x−d,x−dλ are all squares in K. Here IsSquare includes 0, but zero is not passed to a unit squareclass. The criterion also covers the three two-torsion points.\n\nEvaluation through the split-cubic CRT. The class of h(X) maps to (h(0),h(d),h(dλ)).\n\nUnit-class root readings. For a native A unit u, its image is the triple of squareclasses of the three CRT unit evaluations.",
+      "requires": [
+        "EllipticLegendreCharacterInterfaces:LG.0"
+      ]
+    },
+    {
+      "key": "LG.3",
+      "title": "Two-primary torsion over prime fields",
+      "description": "Two-by-four torsion over prime fields. Let p be prime, p≡3 mod4, and η∈𝔽_p\\{0,1,−1}. The native point group of L_{η²}:y²=x(x−1)(x−η²) contains a subgroup additively isomorphic to ZMod 2 × ZMod 4. In particular 8 divides the native pointCount.\n\nA half of the zero root on the minus-one model. Over a field K with 2≠0 and i²=−1, minusOneOrderFour i is the native point (i,1−i) on L_{−1}. Its double is (0,0), hence its order is exactly 4. Over 𝔽_p with p≡5 mod8 such i exists by the supplementary law at −1; this is the source application.\n\nNo order-eight point on the minus-one model. For p≡5 mod8 prime, L_{−1}(𝔽_p) has no point of exact order 8. Only (0,0) among the three nonzero two-torsion points is divisible by 2; each of its four halves has nonsquare first descent coordinate.\n\nExact two-adic order of the minus-one point count. For p prime with p≡5 mod8, v₂(pointCount(L_{−1}/𝔽_p))=3, equivalently 8 divides this positive integer and 16 does not divide it. The count is the full projective elliptic count, including O.\n\nDoubling the minus-one half. 2•minusOneOrderFour i is the native point (0,0) on L_{−1}.\n\nOrder of the minus-one half. addOrderOf(minusOneOrderFour i)=4.\n\nFirst descent class of the minus-one half. The first split coordinate of native μ at this point is the squareclass [i].",
+      "requires": [
+        "EllipticLegendreCharacterInterfaces:LG.0",
+        "EllipticLegendreCharacterInterfaces:LG.2"
+      ]
+    },
+    {
+      "key": "LG.4",
+      "title": "Explicit order-four points in the twist by two",
+      "description": "The corrected order-four witness. Over a field K with 2≠0, let t,v be nonzero, i²=−1 and 2t²+2v²=1, and put λ=2t². twistHalvingPoint t v i is the native point P=(2λ+4itv,8itv(t+iv)) on L_{2,λ}:y²=x(x−2)(x−2λ). The conditions imply λ≠0,1 and y(P)≠0. This algebraic construction is valid without any progression hypothesis; the source applies it at p≡5 mod8.\n\nDoubling the corrected witness. Under the corrected-witness hypotheses, native doubling of P is exactly (2λ,0). With r=2t,s=2iv the tangent slope is r+s and the doubled coordinates are (r²,0).\n\nExact order four of the corrected witness. Under the corrected-witness hypotheses, addOrderOf P=4. In particular it is neither O nor two-torsion, although its double is a two-torsion point.\n\nThe witness’s third native descent coordinate. Under the corrected-witness hypotheses, the third split reading of native μ(P) is the nonzero squareclass [4itv]. Indeed x(P)−2λ=4itv; y(P)≠0 implies x(P) avoids all three roots.",
+      "requires": [
+        "EllipticLegendreCharacterInterfaces:LG.0",
+        "EllipticLegendreCharacterInterfaces:LG.2"
+      ]
+    },
+    {
+      "key": "LG.5",
+      "title": "Trace and downstream interfaces",
+      "description": "Trace zero for a symmetric split cubic. For p prime with p≡3 mod4 and u∈𝔽_p×, the native Weierstrass curve with equation y²=x(x−u)(x+u) has pointCount p+1 and frobeniusTrace 0. It is scaledLegendre u (−1), hence is elliptic. No CM distribution or Hasse-bound input is required.\n\nLegendre specialization of the twist-factor interface. For p odd prime and d∈𝔽_p×,λ∉{0,1}, specialize the BSD.0 good-prime quadratic-twist comparison along the native identity Ld,λ=(Lλ).quadraticTwistOf 0 (−d/4): frobeniusTrace(Ld,λ)=quadraticChar(d)·frobeniusTrace(Lλ). The good Euler polynomial is 1−quadraticChar(d)a_p(Lλ)T+pT². In particular at p≡5 mod8 the d=2 trace is −a_p(Lλ). This node exports only the equation-specific identification; the generic Euler-factor theorem and rational bad-prime factors stay in BSD.0.",
+      "requires": [
+        "EllipticLegendreCharacterInterfaces:LG.0",
+        "RankZeroOneBSD:BSD.0"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "BS20",
+      "title": "A conjecture of Erdős, supersingular primes and short character sums",
+      "authors": "Michael A. Bennett and Samir Siksek",
+      "edition": "Annals of Mathematics 191 (2020), no. 2, 355–392; publisher version of record",
+      "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v191-n2-p02-s.pdf",
+      "sha256": "3920a7524a37870942fe3591ac858db23cb604f4331bccd2a6dc5f11a1671fbf",
+      "accessed": "2026-10-05",
+      "readSections": [
+        "Entire paper §§1–12 and references read during the immediately preceding design; §§5–6, pp.366–372 reread for this job; Lemmas 6.2,6.3,6.5 and local portion of Lemma 6.6 inspected in full."
+      ]
+    },
+    {
+      "id": "PINNED",
+      "title": "Pinned Mathlib and Tau Ceti source declarations",
+      "authors": "Mathlib and Tau Ceti contributors",
+      "edition": "Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; Tau Ceti f790474821cf4256814db967cb154e7af3d0c369",
+      "url": "https://github.com/TauCetiProject/TauCeti/tree/f790474821cf4256814db967cb154e7af3d0c369",
+      "accessed": "2026-10-05",
+      "readSections": [
+        "Weierstrass equations, normal forms and affine point group; Tau Ceti XSubT descent source, CRT, corrected representatives and kernel; two-torsion cardinality; point-count definitions; quadraticTwistOf coefficients and invariants."
+      ]
+    }
+  ],
+  "status": "draft",
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-DESIGN-EllipticLegendreCharacterInterfaces",
+    "date": "2026-10-05",
+    "notes": "Checked every layer description against the packet and the design brief: the seven routed extraction targets are covered, all six layers are ordered without cycles, and the Part II has EllipticCurves as parent and first prerequisite. CA.1, R01.3 and BSD.0 supplier statements were read; ModularCurves 9E retains the moduli action. Definitions, targets, sources and existing ownership boundaries require no mathematical correction. Native prototype limits remain explicit in the packet review."
+  }
+}
