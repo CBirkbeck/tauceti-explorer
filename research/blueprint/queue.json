@@ -31526,7 +31526,8 @@
    ],
    "avoidAccountOf": "BP-K3BlochGroups--V.1",
    "prompt": "research/blueprint/prompts/REV-K3BlochGroups--V.1.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6396"
   },
   {
    "id": "BP-K3BlochGroups--V.2",
@@ -31708,8 +31709,9 @@
    ],
    "avoidAccountOf": "BP-K3BlochGroups--V.5",
    "prompt": "research/blueprint/prompts/REV-K3BlochGroups--V.5.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6400"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6400",
+   "finishedAt": "2026-10-05T23:48:11Z"
   },
   {
    "id": "BP-K3BlochGroups--V.6",
@@ -34202,8 +34204,9 @@
    ],
    "followUpOf": "BP-HabiroRings",
    "prompt": "research/blueprint/prompts/BP-HabiroRings--HR.3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6499"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6499",
+   "finishedAt": "2026-10-05T23:48:14Z"
   },
   {
    "id": "REV-HabiroRings--HR.3",
@@ -35831,7 +35834,8 @@
     "BP-KTheoryLowDegrees--Z.3~2"
    ],
    "prompt": "research/blueprint/prompts/REV-KTheoryLowDegrees--Z.3~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6456"
   },
   {
    "kind": "blueprint",
