@@ -19018,7 +19018,8 @@
    ],
    "avoidAccountOf": "BP-BorelRegulators",
    "prompt": "research/blueprint/prompts/REV-BorelRegulators.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #141"
   },
   {
    "id": "REVIEW-EXT-12",
@@ -32325,8 +32326,9 @@
    ],
    "followUpOf": "BP-HabiroCyclotomicCompletions",
    "prompt": "research/blueprint/prompts/BP-HabiroCyclotomicCompletions--HC.4.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6470"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6470",
+   "finishedAt": "2026-10-05T22:24:46Z"
   },
   {
    "id": "REV-HabiroCyclotomicCompletions--HC.4",
@@ -34350,8 +34352,9 @@
    ],
    "followUpOf": "BP-HabiroNahmSeries",
    "prompt": "research/blueprint/prompts/BP-HabiroNahmSeries--HB.3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6506"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6506",
+   "finishedAt": "2026-10-05T22:24:48Z"
   },
   {
    "id": "REV-HabiroNahmSeries--HB.3",
