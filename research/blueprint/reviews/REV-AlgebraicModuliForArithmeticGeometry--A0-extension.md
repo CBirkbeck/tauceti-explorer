@@ -1,3 +1,81 @@
+# Review continuation: codex-2ahsNe
+
+Codex — codex-2ahsNe, 2026-10-05. Refs #346. Input commit `300bb4cef8937635f6ae26056f1e3b16f42b4eca`; branch `codex-2ahsNe-review-346`. [Claim](https://github.com/CBirkbeck/tauceti-explorer/issues/346#issuecomment-5995810022) confirmed by [bot reply](https://github.com/CBirkbeck/tauceti-explorer/issues/346#issuecomment-5995812680). The whole issue was read before claiming and again after confirmation. This session did none of the input planning.
+
+**Unfinished independent review checkpoint; no overall verdict.** No top-level packet `review` or final per-node disposition is supplied. The complete planning pass retains its four partial and four not_read coverage rows, partial gerbe contract and unchecked implementation statuses. Those honest planning boundaries are not a rejection. Historical reports below remain attributed to their sessions and are not recertified here.
+
+## Corrections
+
+Five existing node objects change, incoming zero-based indices 109, 112, 115, 116 and 120. No node or baseline citation is added or removed.
+
+- `band-center-sections` now exposes `mk` for the actual compatible family of units of native `CatCenter`, and `val_mk`, `val_one`, `val_mul`, `val_inv`. These specify the components and retain every base arrow and the pinned categorical multiplication convention. The suggested file includes their typed signatures.
+- Six original tests now have explicit suggested signatures on the existing `BandFixtures` and `ConnectedBandFixtures` carriers: C3 cardinality/evaluation bijectivity, terminal-fibre triviality, S3 cardinality/non-surjectivity, a specified C3 generator section, conjugation along any connecting isomorphism in the two-object C3 fibre, and exclusion of the actual S3 transposition. No second fixture carrier is created. Each body is `sorry`; these are planning tests, not proved computations. Their comparison with geometric classifying stacks remains open. The historical omission ledger acknowledges exactly these added signatures.
+- Test kinds on these nodes use `computation` and `characterisation` instead of inherited aliases. Tests themselves are retained.
+- `band-center-sheaf` drops the unnecessary SF.1 stage prerequisite. Its local central-section descent chain uses native Mathlib Hom descent and the stronger `band-center-prestack-sheaf` result. This does not implement generic slice-sheaf descent. The separate `band-center-glued-comparison` is now an explicit consumer of the existing SF.1 effective-descent request; that request remains unresolved.
+- `BandSheafTests.rootNonneutral` now states the actual boundary: algebraically closed k, n≥2 invertible in k, X=P¹_k with its small étale site. A global nth root of O(1) would require n times its degree to equal 1. For n=1 the fibre is nonempty, so the former unrestricted wording was false. The geometric Lean fixture and H² class/sign interpretation remain omitted. This is a correction to a packet test, not a newly found error in a published source.
+- One gap records the remaining geometric fixture, nonconstant/terminal-free test, fixed-band inversion, slice comparison and H² review obligations. Existing continuation signatures for some of these tests are present, but are not independently certified by this run.
+
+All 660 ids, 255 baseline entries, 72 source objects, 22 requests, eight coverage rows, key-definition rows, fourteen source findings and ten planets are preserved. The SF.1 request gains one consumer. Raw API/tests: 605/589→610/589; checker-normalized: 597/556→602/556. Gaps: 15→16. Source versions and all existing source-finding verdicts remain unchanged. No final planet or ownership verdict is claimed.
+
+## Fresh reading and source boundary
+
+Read the worker, blueprint, expansion and upstream rules, previous handoff/report, and the complete upstream JacobianChallenge and ReductiveGroups readers. Read the R09.3/R09.4 reviewed audit rows and AUDIT-01 metadata. Read SF.1's stage and inspected its supplier packet for the existing slice-sheaf request; the broad stage description does not supply the requested interface by itself. Consulted the gerbe key entry and reserved ownership records as leads, without completing the entire sample-API or coherent-duality audit. The other six stage-audit rows and all cross-atlas duplication checks remain pending.
+
+Read the full JSON objects for **46 nodes, indices 109–154 inclusive**: the intrinsic central-section carrier, reindexing, extensionality, evaluation and band comparisons, separatedness/locality, objectwise descent, cover-centre construction, arbitrary-base compatibility and simultaneous gluing. This is bounded independent reading of statements, hypotheses, proof routes and API/test text, not final verification of every secondary locator, recursive prerequisite or native suggested declaration. Root-gerbe indices 27–28 were consulted as contextual leads, not added to this frontier.
+
+Together with the historical 101-node frontier, 147 distinct nodes have bounded readings: **0–65, 67, 75–154**. The remaining **513** are **66, 68–74, 155–659**. Every one of the 660 still needs reconciliation and a final checked disposition before a verdict.
+
+Freshly read [Stacks Section 8.11, tag 06NY](https://stacks.math.columbia.edu/tag/06NY), including its gerbe definition, relative characterization and Lemmas 8.11.2–8.11.8 with proofs; the [standalone Lemma 8.11.8, tag 0CJY](https://stacks.math.columbia.edu/tag/0CJY); and [Definition 8.4.1, tag 026F](https://stacks.math.columbia.edu/tag/026F). The source's band construction assumes abelian automorphism sheaves and glues slice sheaves; it omits the final varying-base conclusion. The packet's central-section sheaf for an arbitrary prestack is an authored closure argument, explicitly labelled as such, not a theorem printed in this source. Its proof descends local automorphisms through fully faithful native Hom descent, proves naturality at every object, pulls back covering sieves, retains the pseudofunctor composition constraint, and glues all slice components. Evaluation onto inertia and identification with the imported slice-glued band are separate obligations.
+
+The twenty pinned Mathlib baseline statements listed below were freshly read with their ambient binders and hypotheses. In particular, `IsPrestack` does not assume groupoids; `sheafHom` lives on the slice; `isSheaf_comp_of_isSheaf` has an explicit limit-preservation hypothesis. No declaration is replaced by a name-only search. This does not certify the other 235 entries or every baseline leaf of indices 140–154.
+
+- `CategoryTheory.Pseudofunctor.IsPrestack`, `CategoryTheory.Pseudofunctor.sheafHom`, `CategoryTheory.Pseudofunctor.isPrestackFor'`, `CategoryTheory.Pseudofunctor.IsPrestackFor.fullyFaithful`.
+- `CategoryTheory.Pseudofunctor.toDescentData`, `CategoryTheory.Pseudofunctor.DescentData.hom_ext`, `CategoryTheory.Functor.FullyFaithful.map_injective`.
+- `CategoryTheory.Aut.autMulEquivOfIso`, `CategoryTheory.Functor.mapAut`, `CategoryTheory.Aut.unitsEndEquivAut`, `CategoryTheory.NatIso.ofComponents`.
+- `CategoryTheory.CatCenter`, `CategoryTheory.CatCenter.ext`, `CategoryTheory.CatCenter.naturality`, `CategoryTheory.CatCenter.mul_app`.
+- `CategoryTheory.GrothendieckTopology.pullback_stable`, `CategoryTheory.Presheaf.isSheaf_comp_of_isSheaf`, `CategoryTheory.isSheaf_iff_isSheaf_of_type`, `CategoryTheory.Presieve.IsSheaf.isSeparated`, `CategoryTheory.Presieve.IsSeparatedFor.ext`.
+
+Source downloads on 2026-10-05 are reconstructible by the URLs above and SHA256:
+
+| Tag | SHA256 |
+| --- | --- |
+| 06NY | `784df742e6d6c147f90645bfef73a6ad9fa60cb34e9b2d3006401857ed88a32e` |
+| 026F | `0024923a8e370df81c72261a9765c15c3e1d3bbb8b59a46ab41605f2f2ae60a0` |
+| 0CJY | `41dd0c0a1e20dfe2fd60212274a30f259ae0875225b1540b069adf3f89f27a9e` |
+
+Each following module was compared byte-for-byte with Mathlib commit `082e2d37e8b0463410cdb532e111cd43d5a66174`; paths below are relative to `Mathlib/CategoryTheory/`:
+
+| Module | SHA256 |
+| --- | --- |
+| Center/Basic.lean | `a94d5510ede4d946248e08dd97bbfee277f0f873b4175a9f0bf4a7881f76cc3f` |
+| Endomorphism.lean | `7c9eb33bb74caeacb6efe3bab7f7e57ad77c07b42489ba91952eebf866fcca4f` |
+| Functor/FullyFaithful.lean | `94c995fd165ad4c7a422bca4b64d422deb2207bc490967487bb20b16b2d3315e` |
+| NatIso.lean | `c2e8b0662cae553808f1973dfc6027272b8ec2697a105a487ce1b1044330d103` |
+| Sites/Descent/DescentData.lean | `2292153f538142a8c3879094fed08f38a619a6dd13af91ab1c2f29448fb5e13e` |
+| Sites/Descent/IsPrestack.lean | `470b75a20ab5cb1de6de12444a84d4b50352cbd1b6bba9224cd54779dd8b22b2` |
+| Sites/Grothendieck.lean | `7cfa1dbe1bc7ac44fabb7cef395478d7978e72e5282fa67310bf7248ff1d611d` |
+| Sites/IsSheafFor.lean | `b47fe14e505dce52cac9e86a823b4b0e4968c16a898da7447c37fd705cf73653` |
+| Sites/Sheaf.lean | `e186b91a924c25ec3bdf802a47a2f83aeacac23e085e93025c0c875c07f4b1de` |
+| Sites/SheafOfTypes.lean | `2b322b717166426aaa4390a7f5157e1fce28e636618c3d995e54f76fbec3d5f9` |
+
+## Validation and continuation
+
+Packet checker: zero errors and warnings. Intake file/private-path checks, historical preservation, source-finding schema, semantic edit scope and whitespace checks pass. The actual completion classifier returns false. There is no overall acceptance.
+
+An isolated **278-line Mathlib fragment** containing the native central-section block, added API and six new examples elaborates with **seventeen `sorry` warnings, zero errors and no other warnings**. SHA256: `3f3fa702514bc76780a636efdb21350c77ef5cd0066990b51f0c6ab2a54cc5d1`. It was temporarily written only to the authorized suggested-file path, with the complete text retained in memory and restored in `finally`. This validates signatures with admissions, not mathematical proofs or full-file elaboration.
+
+To reconstruct the fragment, import Mathlib's Sites.Descent.IsStack, Center.Basic, SingleObj, Products.Basic, Discrete.Basic, CodiscreteCategory, Bicategory.Functor.LocallyDiscrete, Data.ZMod.Basic, SetTheory.Cardinal.Finite and GroupTheory.Perm.Fin. Open CategoryTheory/Opposite/Bicategory and declare the four original outer universes. Take the intrinsic-band continuation namespace block through the point immediately before the packaging comment for `band-center-sheaf`, and close IntrinsicBandSections and TauCeti.AlgebraicGeometry. Take BandFixtures' header through immediately before `constantSection`, then its commutative component-construction block from `variable (I : Type fixture_u) (G : Type fixture_v) [CommGroup G]` through immediately before `component_eval_bijective`, and close BandFixtures. Take ConnectedBandFixtures' header through immediately before `connectedCenter` and close it. Append the final IntrinsicBandReviewTests namespace. Preserve the selected blocks verbatim. Existing fixture equivalences also contain admissions, so a successful elaboration cannot establish their computations.
+
+Available memory before the full-file attempt was 95 GB. The full file fails before elaboration because `TauCeti.CategoryTheory.Sites.SheafCohomology.LongExactSequence.olean` is missing. Shared Mathlib matches the exact pin, but shared Tau HEAD is `cf386627e9176a3827c1a5fe804989fd94a4d216`, not required `f790474821cf4256814db967cb154e7af3d0c369`. **No full-file or exact-Tau-pin compilation is claimed.** No builds, updates, cache fetches, language servers or background Lean processes were used.
+
+Resume by rechecking the five edited nodes, the added constructor/component signatures, concrete test fragment and SF.1 dependency separation. Complete the geometric comparisons, root-gerbe signature and fixed-band inversion. Then review indices 66, 68–74 and 155 onward, all remaining baseline/source/closure/API/test/planet checks, reserved gerbe sample contract and coherent-duality import. Earlier E12–E14 and other source findings remain attributable to their original bounded reports and require final reconciliation. H² quotient/sign/two-inverse identities and arbitrary affine/profinite-group supplier scope remain open.
+
+The reader is outside this issue's authorized paths. A separately authorized orchestrator edit must synchronize the five affected node/API/test passages and omission summary. No reader edit is made here. Scratch is discarded after opening the PR; the report and handoff carry all continuation information. This run submits one checkpoint and takes no second job.
+
+---
+
+# Historical checkpoints before codex-2ahsNe
+
 # Review continuation: codex-tBJmUU
 
 Codex — codex-tBJmUU, 2026-10-05. Refs #346. Input commit `47691b70c799f852c05c363ec26dd72468741503`. [Claim comment 5994904624](https://github.com/CBirkbeck/tauceti-explorer/issues/346#issuecomment-5994904624) was confirmed by [bot reply 5994907736](https://github.com/CBirkbeck/tauceti-explorer/issues/346#issuecomment-5994907736). The entire issue was read before claiming and again after confirmation. This session did none of the input planning.
