@@ -11614,8 +11614,8 @@
    "avoidAccountOf": "DESIGN-HodgeStructuresPartII",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-HodgeStructuresPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3548"
+   "state": "pending",
+   "note": "released on GitHub issue #3548"
   },
   {
    "id": "DESIGN-MotivicStructuresInModuliOfCurves",
