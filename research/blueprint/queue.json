@@ -21730,8 +21730,8 @@
    ],
    "avoidAccountOf": "BP-AlgebraicModuliForArithmeticGeometry--A0-extension",
    "prompt": "research/blueprint/prompts/REV-AlgebraicModuliForArithmeticGeometry--A0-extension.md",
-   "state": "pending",
-   "note": "released on GitHub issue #346"
+   "state": "external",
+   "note": "claimed on GitHub issue #346"
   },
   {
    "id": "BP-AlgebraicModuliForArithmeticGeometry--R09.7a",
@@ -30324,8 +30324,8 @@
    ],
    "avoidAccountOf": "BP-AnalyticNumberTheory--AN.0",
    "prompt": "research/blueprint/prompts/REV-AnalyticNumberTheory--AN.0.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #527"
+   "state": "pending",
+   "note": "released on GitHub issue #527"
   },
   {
    "id": "BP-AnalyticNumberTheory--AN.8",
