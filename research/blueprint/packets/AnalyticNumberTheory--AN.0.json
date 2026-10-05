@@ -1123,6 +1123,30 @@
       "readSections": [
         "Entire campaign brief and all eight in-scope stage descriptions. This specifies targets; it proves no analytic theorem."
       ]
+    },
+    {
+      "id": "dit-published-2016",
+      "title": "Geometric invariants for real quadratic fields",
+      "authors": "W. Duke, Ö. Imamoḡlu, Á. Tóth",
+      "edition": "Published journal PDF; selected reading only",
+      "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n3-p08-p.pdf",
+      "sha256": "a67de7157f76ee700bc2e6a0034a920adc390022d4ff528aa80084f829f35f61",
+      "accessed": "2026-10-05",
+      "readSections": [
+        "codex-ws2Gd5: selected introduction/preliminaries pp.949–952; §5 pp.961–964; §6 pp.967–969; §7 pp.970–972; sensitive displays on pp.970–971 inspected as images. Original cited proofs and §§8–10 were not read."
+      ]
+    },
+    {
+      "id": "thorner-zaman-2017",
+      "title": "An explicit bound for the least prime ideal in the Chebotarev density theorem",
+      "authors": "Jesse Thorner and Asif Zaman",
+      "edition": "Published journal PDF; selected reading only",
+      "url": "https://msp.org/ant/2017/11-5/ant-v11-n5-p04-p.pdf",
+      "sha256": "504512d24db46f933d52f277d2ad3a14da5ed66e0efcda0407c8aceadd008d4c",
+      "accessed": "2026-10-05",
+      "readSections": [
+        "codex-ws2Gd5: §§2A–2C, printed pp.1140–1142, through Lemma2.4; pp.1140 and 1142 inspected as images. Rademacher’s cited proof of Lemma2.3 was not read."
+      ]
     }
   ],
   "nodes": [
@@ -1892,7 +1916,7 @@
       ],
       "title": "Exceptional real zero",
       "kind": "definition",
-      "statement": "Fix the effective absolute c_star>0 furnished by Proposition 7.1. For a nontrivial primitive quadratic character chi of conductor N, an exceptional zero is a real zero beta of L(s,chi) with 1-c_star/log(N)<beta<1. Its conductor is called exceptional.",
+      "statement": "For c>0 define the c-exceptional predicate for a nontrivial primitive quadratic character χ of conductor N>1 by L(β,χ)=0 and 1−c/log N<β<1, with β real. The exceptional zero used in Proposition 7.1 is this predicate specialized to its effective absolute c_star>0; its conductor is called exceptional. The general parameter does not assert the existence of any zero.",
       "hypotheses": [
         "Parameters, ranges, character normalization and constant dependence are those in the displayed statement."
       ],
@@ -1967,6 +1991,11 @@
           "name": "ExceptionalRealZero.principal",
           "kind": "non-example",
           "statement": "The principal character and N=1 are outside the domain; log 1 is never used as a denominator."
+        },
+        {
+          "name": "ExceptionalRealZero.supplied_zero",
+          "kind": "example",
+          "statement": "Given c>0, N>1, a primitive nonprincipal quadratic χ, a real β with L(β,χ)=0 and 1−c/log N<β<1, the c-exceptional predicate holds. This is conditional and makes no existence assertion."
         }
       ]
     },
@@ -2798,7 +2827,7 @@
       ],
       "title": "Uniform bounded-norm ideal count",
       "kind": "theorem",
-      "statement": "For degree 2g fixed and epsilon>0, the number of integral ideals of norm n is O_{g,epsilon}(n^epsilon), so the number of norm <=X is O_{g,epsilon}(X^(1+epsilon)). Constants are uniform in E.",
+      "statement": "For every fixed g≥1 and ε>0 there is C(g,ε)>0 such that for every number field E of degree 2g and every integer n≥1, the number of nonzero integral ideals of norm n is at most C(g,ε)n^ε. Consequently, for every real X≥1 the number of such ideals of norm at most X is O_(g,ε)(X^(1+ε)). Both constants are uniform in E.",
       "hypotheses": [
         "Parameters, ranges, character normalization and constant dependence are those in the displayed statement."
       ],
@@ -3024,7 +3053,10 @@
         "Verify split, inert and ramified Euler factors of ζ_E/ζ_F on Re s>1.",
         "Extend the identity to the canonical continuations; the residue quotient is a separate node."
       ],
-      "prerequisites": [],
+      "prerequisites": [
+        "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-9-hecke-and-ray-class-characters",
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-11-the-global-class-formation-and-global-artin-reciprocity"
+      ],
       "acceptance": [
         "Check every endpoint and the stated dependence of constants; no conjectural input is implicit."
       ],
@@ -3105,9 +3137,10 @@
       ],
       "title": "Two-sided quadratic Hecke value bound",
       "kind": "theorem",
-      "statement": "For every fixed g and epsilon>0, D_E^(-epsilon) <<_(g,epsilon) L_f(1,eta_E/F) <<_(g,epsilon) D_E^epsilon. Constants may be ineffective. Use kappa_E/kappa_F, the degree bounds 2g and g, and D_F<=D_E^(1/2), choosing each residue exponent at most 2*epsilon/3.",
+      "statement": "Let E be a CM number field, F its maximal totally real subfield, [F:ℚ]=g≥1, and η=η_E/F the canonical nontrivial primitive quadratic Hecke character. Write D_K=|Disc(K)|, f_η for its finite conductor, and Q=D_F N(f_η)=D_E/D_F. For every fixed g and epsilon>0, D_E^(-epsilon) <<_(g,epsilon) L_f(1,eta_E/F) <<_(g,epsilon) D_E^epsilon. Constants may be ineffective. Use kappa_E/kappa_F, the degree bounds 2g and g, and D_F<=D_E^(1/2), choosing each residue exponent at most 2*epsilon/3.",
       "hypotheses": [
-        "Parameters, ranges, character normalization and constant dependence are those in the displayed statement."
+        "E/F is the CM quadratic extension specified in the statement; η is defined through global Artin reciprocity, rather than an arbitrary quadratic character.",
+        "g and ε are fixed before varying E; implied constants depend only on those stated parameters."
       ],
       "proofSteps": [
         "Apply the positive residue quotient and both residue bounds with exponent ≤2ε/3.",
@@ -3115,7 +3148,10 @@
       ],
       "prerequisites": [
         "AnalyticNumberTheory:AN.4/quadratic-residue-quotient",
-        "AnalyticNumberTheory:AN.4/bounded-degree-residue-bounds"
+        "AnalyticNumberTheory:AN.4/bounded-degree-residue-bounds",
+        "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-9-hecke-and-ray-class-characters",
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-11-the-global-class-formation-and-global-artin-reciprocity",
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-13-norm-theorems-and-class-fields"
       ],
       "acceptance": [
         "Check every endpoint and the stated dependence of constants; no conjectural input is implicit."
@@ -3151,7 +3187,7 @@
       ],
       "title": "Uniform finite-order Hecke convexity",
       "kind": "theorem",
-      "statement": "Let chi be a primitive finite-order Hecke character over a degree-n number field K, Q=D_K*N(f_chi), 0<r<=1/2, and -r<=sigma<=1+r. For s=sigma+it, |L_f(s,chi)| << |(1+s)/(1-s)|^delta(chi) * zeta_Q(1+r)^n * (Q*(3+|t|)^n/(2*pi)^n)^((1+r-sigma)/2), with an absolute implied constant. The pole factor is present only for the trivial character; zeta_Q means the Riemann zeta function.",
+      "statement": "Let chi be a primitive finite-order Hecke character over a degree-n number field K, Q=D_K*N(f_chi), 0<r<=1/2, and -r<=sigma<=1+r. For s=sigma+it with chi nontrivial or s≠1, |L_f(s,chi)| << |(1+s)/(1-s)|^delta(chi) * zeta_Q(1+r)^n * (Q*(3+|t|)^n/(2*pi)^n)^((1+r-sigma)/2), with an absolute implied constant. Define the pole factor to be |(1+s)/(1-s)| for the trivial character, and 1 for every nontrivial character (including at s=1); zeta_Q means the Riemann zeta function.",
       "hypotheses": [
         "Parameters, ranges, character normalization and constant dependence are those in the displayed statement."
       ],
@@ -3161,7 +3197,8 @@
       ],
       "prerequisites": [],
       "acceptance": [
-        "Check every endpoint and the stated dependence of constants; no conjectural input is implicit."
+        "Check every endpoint and the stated dependence of constants; no conjectural input is implicit.",
+        "The trivial character at s=1 is outside this finite-value inequality; do not interpret its meromorphic pole via totalized division. Nontrivial characters may be evaluated at s=1."
       ],
       "uses": [
         {
@@ -3179,6 +3216,11 @@
           "sourceId": "reviewed-paper-tsimerman-18",
           "locator": "Thorner-Zaman 2017, Lemma 2.3, printed p. 1142; credits Rademacher 1959",
           "match": "Literal title and precise corrected statement of accepted extraction PAPER-TSIMERMAN-18/primitive-hecke-convexity. The original external proof is not certified by its acceptance."
+        },
+        {
+          "sourceId": "thorner-zaman-2017",
+          "locator": "Lemma2.3 [Rademacher 1959], unnumbered bound, printed p.1142",
+          "match": "Fresh selected primary-source reading by codex-ws2Gd5. The CM specialization is a derived statement; the cited Rademacher proof is not certified."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3194,16 +3236,21 @@
       ],
       "title": "A fixed small circle gives a subpolynomial derivative",
       "kind": "theorem",
-      "statement": "For fixed g and every epsilon>0, |L_f prime(1,eta_E/F)| <<_(g,epsilon) D_E^epsilon. Set r=min(epsilon,1/4)>0. The closed circle |s-1|=r is in [-r,1+r] in real part, |t|<=r, and the convexity exponent is at most r. Hence its supremum is at most C_(g,r)*Q^r, and Cauchy gives |L_f prime(1)|<=C_(g,r)*Q^r/r. Holomorphy is required on the entire disk; a zero-free disk is unnecessary.",
+      "statement": "Let E be a CM number field, F its maximal totally real subfield, [F:ℚ]=g≥1, and η=η_E/F the canonical nontrivial primitive quadratic Hecke character. Write D_K=|Disc(K)|, f_η for its finite conductor, and Q=D_F N(f_η)=D_E/D_F. For fixed g and every epsilon>0, |L_f prime(1,eta_E/F)| <<_(g,epsilon) D_E^epsilon. Set r=min(epsilon,1/4)>0. The closed circle |s-1|=r is in [-r,1+r] in real part, |t|<=r, and the convexity exponent is at most r. Hence its supremum is at most C_(g,r)*Q^r, and Cauchy gives |L_f prime(1)|<=C_(g,r)*Q^r/r. Holomorphy is required on the entire disk; a zero-free disk is unnecessary.",
       "hypotheses": [
-        "Parameters, ranges, character normalization and constant dependence are those in the displayed statement."
+        "E/F is the CM quadratic extension specified in the statement; η is defined through global Artin reciprocity, rather than an arbitrary quadratic character.",
+        "g and ε are fixed before varying E; implied constants depend only on those stated parameters."
       ],
       "proofSteps": [
         "Choose r=min(ε,1/4), and apply the finite-order convexity bound on the complete circle |s−1|=r.",
         "Use Cauchy on the holomorphic disk, with bound Q^r/r; no zero-free disk is assumed."
       ],
       "prerequisites": [
-        "AnalyticNumberTheory:AN.4/primitive-hecke-convexity"
+        "AnalyticNumberTheory:AN.4/primitive-hecke-convexity",
+        "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-9-hecke-and-ray-class-characters",
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-11-the-global-class-formation-and-global-artin-reciprocity",
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-13-norm-theorems-and-class-fields",
+        "AutomorphicLFunctionsAndLocalFactors:AL.1/hecke-l-functional-equation"
       ],
       "acceptance": [
         "Check every endpoint and the stated dependence of constants; no conjectural input is implicit."
@@ -3239,9 +3286,10 @@
       ],
       "title": "Subpolynomial logarithmic derivative at one",
       "kind": "theorem",
-      "statement": "For every fixed g and epsilon>0, |L_f prime(1,eta)/L_f(1,eta)| <<_(g,epsilon) D_E^epsilon. Apply the derivative bound with epsilon/2 and the reciprocal value bound with epsilon/2. The latter, rather than Cauchy, is the possible ineffective input.",
+      "statement": "Let E be a CM number field, F its maximal totally real subfield, [F:ℚ]=g≥1, and η=η_E/F the canonical nontrivial primitive quadratic Hecke character. Write D_K=|Disc(K)|, f_η for its finite conductor, and Q=D_F N(f_η)=D_E/D_F. For every fixed g and epsilon>0, |L_f prime(1,eta)/L_f(1,eta)| <<_(g,epsilon) D_E^epsilon. Apply the derivative bound with epsilon/2 and the reciprocal value bound with epsilon/2. The latter, rather than Cauchy, is the possible ineffective input.",
       "hypotheses": [
-        "Parameters, ranges, character normalization and constant dependence are those in the displayed statement."
+        "E/F is the CM quadratic extension specified in the statement; η is defined through global Artin reciprocity, rather than an arbitrary quadratic character.",
+        "g and ε are fixed before varying E; implied constants depend only on those stated parameters."
       ],
       "proofSteps": [
         "Apply the derivative estimate with ε/2.",
@@ -3249,7 +3297,9 @@
       ],
       "prerequisites": [
         "AnalyticNumberTheory:AN.4/quadratic-hecke-cauchy-derivative",
-        "AnalyticNumberTheory:AN.4/quadratic-hecke-value-one"
+        "AnalyticNumberTheory:AN.4/quadratic-hecke-value-one",
+        "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-9-hecke-and-ray-class-characters",
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-11-the-global-class-formation-and-global-artin-reciprocity"
       ],
       "acceptance": [
         "Check every endpoint and the stated dependence of constants; no conjectural input is implicit."
@@ -3285,9 +3335,10 @@
       ],
       "title": "Logarithmic functional equation at zero and one",
       "kind": "theorem",
-      "statement": "For ell_j=L_f prime(j,eta)/L_f(j,eta), both denominators are nonzero and ell_0+ell_1=-log Q+g*(gamma+log(2*pi)), where gamma is Euler constant. Differentiate the completed functional equation; Gamma_R prime/Gamma_R at 1 and 2 sum to -gamma-log(2*pi). Nonvanishing at 0 follows from the functional equation and L_f(1)>0.",
+      "statement": "Let E be a CM number field, F its maximal totally real subfield, [F:ℚ]=g≥1, and η=η_E/F the canonical nontrivial primitive quadratic Hecke character. Write D_K=|Disc(K)|, f_η for its finite conductor, and Q=D_F N(f_η)=D_E/D_F. For ell_j=L_f prime(j,eta)/L_f(j,eta), both denominators are nonzero and ell_0+ell_1=-log Q+g*(gamma+log(2*pi)), where gamma is Euler constant. Differentiate the completed functional equation; Gamma_R prime/Gamma_R at 1 and 2 sum to -gamma-log(2*pi). Nonvanishing at 0 follows from the functional equation and L_f(1)>0. Each real local component of η is the sign character, so the conductor-normalized completion is Q^(s/2) Γ_R(s+1)^g L_f(s,η), with Γ_R(s)=π^(−s/2)Γ(s/2). This odd archimedean formula is not asserted for a real quadratic extension of a totally real field.",
       "hypotheses": [
-        "Parameters, ranges, character normalization and constant dependence are those in the displayed statement."
+        "E/F is the CM quadratic extension specified in the statement; η is defined through global Artin reciprocity, rather than an arbitrary quadratic character.",
+        "g and ε are fixed before varying E; implied constants depend only on those stated parameters."
       ],
       "proofSteps": [
         "Differentiate the quadratic completed functional equation and evaluate at 0 and 1 after proving both endpoint values nonzero.",
@@ -3295,10 +3346,16 @@
       ],
       "prerequisites": [
         "AnalyticNumberTheory:AN.4/quadratic-residue-quotient",
-        "AnalyticNumberTheory:AN.4/hecke-primitive-functional-equation"
+        "AnalyticNumberTheory:AN.4/hecke-primitive-functional-equation",
+        "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-9-hecke-and-ray-class-characters",
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-11-the-global-class-formation-and-global-artin-reciprocity",
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-13-norm-theorems-and-class-fields",
+        "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-10-archimedean-characters-infinity-types-and-cyclotomic-arithmetic"
       ],
       "acceptance": [
-        "Check every endpoint and the stated dependence of constants; no conjectural input is implicit."
+        "Check every endpoint and the stated dependence of constants; no conjectural input is implicit.",
+        "For E=ℚ(i), F=ℚ, Q=4: L_f(0,η)=1/2 and L_f(1,η)=π/4; the claimed sum becomes γ+log(π/2).",
+        "Exclude E=ℚ(√2), F=ℚ: its even primitive character χ_8 has L_f(0,χ_8)=0, so the displayed logarithmic quotient at 0 is undefined."
       ],
       "uses": [
         {
@@ -3316,6 +3373,11 @@
           "sourceId": "reviewed-paper-tsimerman-18",
           "locator": "Derived from Thorner-Zaman (2-3)-(2-6), odd gamma factors",
           "match": "Literal title and precise corrected statement of accepted extraction PAPER-TSIMERMAN-18/cm-hecke-log-functional-equation. The original external proof is not certified by its acceptance."
+        },
+        {
+          "sourceId": "thorner-zaman-2017",
+          "locator": "(2-3)–(2-7), printed pp.1140–1141; specialized using CM sign characters",
+          "match": "Fresh selected primary-source reading by codex-ws2Gd5. The CM specialization is a derived statement; the cited Rademacher proof is not certified."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3418,7 +3480,7 @@
       ],
       "title": "Quadratic Hecke value as residue quotient",
       "kind": "lemma",
-      "statement": "For a quadratic extension E/F, L_f(1,η)=κ_E/κ_F>0, where κ_K is the positive residue of the continued Dedekind function.",
+      "statement": "For a quadratic extension E/F, L_f(1,η)=κ_E/κ_F>0, where κ_K is the positive residue of the continued Dedekind function. Here η is the canonical nontrivial primitive quadratic Hecke character attached by global Artin reciprocity. Its holomorphy at 1, the continued zeta factorization, and the two simple positive residues give the quotient; general line-one nonvanishing is not needed for this argument.",
       "hypotheses": [],
       "proofSteps": [
         "Multiply the continued quadratic factorization by s−1 and take the limit at 1.",
@@ -3427,7 +3489,9 @@
       "prerequisites": [
         "AnalyticNumberTheory:AN.4/quadratic-zeta-factorization",
         "AnalyticNumberTheory:AN.4/dedekind-zeta-continuation-and-residue",
-        "AnalyticNumberTheory:AN.4/hecke-nonvanishing-on-line-one"
+        "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-9-hecke-and-ray-class-characters",
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-11-the-global-class-formation-and-global-artin-reciprocity",
+        "AutomorphicLFunctionsAndLocalFactors:AL.1/hecke-l-functional-equation"
       ],
       "acceptance": [
         "Check every endpoint and the stated dependence of constants; no conjectural input is implicit."
@@ -3460,20 +3524,24 @@
       ],
       "title": "Partial ideal zeta series",
       "kind": "definition",
-      "statement": "For A in the narrow ideal class group of a real quadratic field, or the ordinary ideal class group of an imaginary quadratic field, let a_A(n) count nonzero integral ideals of norm n in A. Put ζ_A(s)=LSeries a_A s on Re s>1. Index by ideals, not by generators; a_A(0)=0. The carrier remains the imported norm-indexed ideal arithmetic function.",
+      "statement": "For a number field K, choose its ordinary or narrow ideal class group, and a class A. Let a_A(n) count nonzero integral ideals of norm n in A, with a_A(0)=0. Define ζ_A(s)=LSeries a_A s on Re s>1, using the imported norm-indexed ideal arithmetic function and finite norm fibres. Quadratic period applications use narrow classes for real quadratic K and ordinary classes for imaginary quadratic K. Index ideals, not their generators. The finite class sum agrees with NumberField.dedekindZeta as an LSeries: the latter may have a different zeroth coefficient, which LSeries ignores.",
       "hypotheses": [],
       "proofSteps": [
         "Construct the displayed object on the specified domain using the existing carriers; prove the listed API before its analytic applications."
       ],
       "prerequisites": [
         "mathlib:NumberField.dedekindZeta",
-        "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-1-norm-fibres-and-mathlib-lseries"
+        "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-1-norm-fibres-and-mathlib-lseries",
+        "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-5-ideal-and-prime-estimates",
+        "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-2-moduli-and-ray-class-carriers"
       ],
       "acceptance": [
         "For K=Q, the unique partial series equals the Riemann series on Re s>1.",
         "a_A(1)=1 for the principal class and 0 otherwise.",
         "The unit ideal contributes once, even when the unit group is infinite.",
-        "The zero ideal contributes to no coefficient; no norm-zero negative power occurs."
+        "The zero ideal contributes to no coefficient; no norm-zero negative power occurs.",
+        "The ℚ test is in the domain of this general coefficient definition; a real/imaginary quadratic restriction applies only to the subsequent period identities.",
+        "Class-sum coefficient agreement is required for n≥1; do not infer equality of the zeroth coefficients from equality of LSeries."
       ],
       "uses": [
         {
@@ -3495,6 +3563,11 @@
           "sourceId": "reviewed-paper-duke-imamoglu-toth-16",
           "locator": "§7, p970",
           "match": "Exact target or stated specialization; unresolved proof inputs are named in the gap ledger."
+        },
+        {
+          "sourceId": "dit-published-2016",
+          "locator": "§7, p970",
+          "match": "Fresh selected primary-source check by codex-ws2Gd5 against the published passage. Statements quoted from outside sources (including Siegel and Hecke) are target checks, not verification of their original proofs; gamma and reciprocal-zeta bounds are the decomposed inputs of (6.7). The passage gives the quadratic specialization; the general number-field coefficient definition and ℚ test are a justified extension using imported norm fibres, finite class partition and domination, rather than a claim that the paper states that generality."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3585,6 +3658,11 @@
           "sourceId": "reviewed-paper-duke-imamoglu-toth-16",
           "locator": "§7, p970",
           "match": "Literal title and precise corrected statement of accepted extraction PAPER-DUKE-IMAMOGLU-TOTH-16/134. The original external proof is not certified by its acceptance."
+        },
+        {
+          "sourceId": "dit-published-2016",
+          "locator": "§7, p970",
+          "match": "Fresh selected primary-source check by codex-ws2Gd5 against the published passage. Statements quoted from outside sources (including Siegel and Hecke) are target checks, not verification of their original proofs; gamma and reciprocal-zeta bounds are the decomposed inputs of (6.7)."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3600,7 +3678,7 @@
       ],
       "title": "Hecke CM partial-zeta identity",
       "kind": "theorem",
-      "statement": "For fundamental D<0, π^(−s)Γ(s)ζ_A(s)=(2^s/ω_D)|D|^(−s/2)E*(z_A,s), initially Re(s)>1 then by continuation.",
+      "statement": "For fundamental D<0, π^(−s)Γ(s)ζ_A(s)=(2^s/ω_D)|D|^(−s/2)E*(z_A,s), initially Re(s)>1 then by continuation. Here K=ℚ(√D), A is an ordinary ideal class, z_A is its associated CM lattice point in the upper half-plane, and ω_D=|O_K^×|/2 (thus ω_−4=2 and ω_−3=3). Here E(z,s)=(1/2)∑_(gcd(c,d)=1) (Im z)^s/|cz+d|^(2s) on Re s>1, and E*(z,s)=π^(−s)Γ(s)ζ(2s)E(z,s).",
       "hypotheses": [
         "Parameters, ranges, character normalization and constant dependence are those in the displayed statement."
       ],
@@ -3611,10 +3689,13 @@
       "prerequisites": [
         "AnalyticNumberTheory:AN.4/partial-ideal-zeta",
         "AnalyticNumberTheory:AN.4/class-character-lseries-comparison",
-        "AutomorphicSpectralTheory:AS.1"
+        "AutomorphicSpectralTheory:AS.1",
+        "AutomorphicSpectralTheory:AS.2",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.3"
       ],
       "acceptance": [
-        "Check every endpoint and the stated dependence of constants; no conjectural input is implicit."
+        "Check every endpoint and the stated dependence of constants; no conjectural input is implicit.",
+        "For D=−4 use ω_D=2, not the full unit count 4; for D=−3 use ω_D=3. Match the primitive Eisenstein half-sum convention before comparing constants."
       ],
       "uses": [
         {
@@ -3632,6 +3713,11 @@
           "sourceId": "reviewed-paper-duke-imamoglu-toth-16",
           "locator": "(7.1)",
           "match": "Literal title and precise corrected statement of accepted extraction PAPER-DUKE-IMAMOGLU-TOTH-16/135. The original external proof is not certified by its acceptance."
+        },
+        {
+          "sourceId": "dit-published-2016",
+          "locator": "(7.1)",
+          "match": "Fresh selected primary-source check by codex-ws2Gd5 against the published passage. Statements quoted from outside sources (including Siegel and Hecke) are target checks, not verification of their original proofs; gamma and reciprocal-zeta bounds are the decomposed inputs of (6.7)."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3647,7 +3733,7 @@
       ],
       "title": "Hecke positive-sign real quadratic formula",
       "kind": "theorem",
-      "statement": "For positive fundamental D, π^(−s)Γ(s/2)²D^(s/2)(ζ_A+ζ_{JA})=2∫_{C_A}E*(z,s)ds, initially Re(s)>1 and then by continuation. The proof divides by the full norm-one unit action.",
+      "statement": "For fundamental D>1, π^(−s)Γ(s/2)²D^(s/2)(ζ_A+ζ_{JA})=2∫_{C_A}E*(z,s)ds, initially Re(s)>1 and then by continuation. The proof divides by the full norm-one unit action. Here K=ℚ(√D), A∈Cl^+(K), J is the narrow class of a principal ideal generated by an element of negative norm, and C_A is the oriented quadratic geodesic modulo the full norm-one unit group. With ε_D the least norm-one unit greater than 1, its arc length is 2 log ε_D. Here E(z,s)=(1/2)∑_(gcd(c,d)=1) (Im z)^s/|cz+d|^(2s) on Re s>1, and E*(z,s)=π^(−s)Γ(s)ζ(2s)E(z,s). The integration measure denoted ds in the displayed formula is hyperbolic arc length y^(−1)|dz|, not the complex variable s.",
       "hypotheses": [
         "Parameters, ranges, character normalization and constant dependence are those in the displayed statement."
       ],
@@ -3658,7 +3744,9 @@
       "prerequisites": [
         "AnalyticNumberTheory:AN.4/partial-ideal-zeta",
         "AnalyticNumberTheory:AN.4/class-character-lseries-comparison",
-        "AutomorphicSpectralTheory:AS.1"
+        "AutomorphicSpectralTheory:AS.1",
+        "AutomorphicSpectralTheory:AS.2",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.3"
       ],
       "acceptance": [
         "Check every endpoint and the stated dependence of constants; no conjectural input is implicit."
@@ -3679,6 +3767,11 @@
           "sourceId": "reviewed-paper-duke-imamoglu-toth-16",
           "locator": "(7.2), p.970 (Hecke; a cited result, 'He showed')",
           "match": "Literal title and precise corrected statement of accepted extraction PAPER-DUKE-IMAMOGLU-TOTH-16/136. The original external proof is not certified by its acceptance."
+        },
+        {
+          "sourceId": "dit-published-2016",
+          "locator": "(7.2), p.970 (Hecke; a cited result, 'He showed')",
+          "match": "Fresh selected primary-source check by codex-ws2Gd5 against the published passage. Statements quoted from outside sources (including Siegel and Hecke) are target checks, not verification of their original proofs; gamma and reciprocal-zeta bounds are the decomposed inputs of (6.7)."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3725,6 +3818,11 @@
           "sourceId": "reviewed-paper-duke-imamoglu-toth-16",
           "locator": "§7, 'Genus characters', p.971, the unnumbered sentence between (7.7) and (7.8)",
           "match": "Literal title and precise corrected statement of accepted extraction PAPER-DUKE-IMAMOGLU-TOTH-16/139. The original external proof is not certified by its acceptance."
+        },
+        {
+          "sourceId": "dit-published-2016",
+          "locator": "§7, 'Genus characters', p.971, the unnumbered sentence between (7.7) and (7.8)",
+          "match": "Fresh selected primary-source check by codex-ws2Gd5 against the published passage. Statements quoted from outside sources (including Siegel and Hecke) are target checks, not verification of their original proofs; gamma and reciprocal-zeta bounds are the decomposed inputs of (6.7)."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3751,7 +3849,9 @@
       "prerequisites": [
         "AnalyticNumberTheory:AN.4/real-odd-partial-zeta-period",
         "AnalyticNumberTheory:AN.4/genus-lseries-factorization",
-        "AutomorphicSpectralTheory:AS.1"
+        "AutomorphicSpectralTheory:AS.1",
+        "AutomorphicSpectralTheory:AS.2",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.3"
       ],
       "acceptance": [
         "Check every endpoint and the stated dependence of constants; no conjectural input is implicit."
@@ -3772,6 +3872,11 @@
           "sourceId": "reviewed-paper-duke-imamoglu-toth-16",
           "locator": "Theorem3 first branch",
           "match": "Literal title and precise corrected statement of accepted extraction PAPER-DUKE-IMAMOGLU-TOTH-16/140. The original external proof is not certified by its acceptance."
+        },
+        {
+          "sourceId": "dit-published-2016",
+          "locator": "Theorem3 first branch",
+          "match": "Fresh selected primary-source check by codex-ws2Gd5 against the published passage. Statements quoted from outside sources (including Siegel and Hecke) are target checks, not verification of their original proofs; gamma and reciprocal-zeta bounds are the decomposed inputs of (6.7)."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3798,7 +3903,9 @@
       "prerequisites": [
         "AnalyticNumberTheory:AN.4/real-even-partial-zeta-period",
         "AnalyticNumberTheory:AN.4/genus-lseries-factorization",
-        "AutomorphicSpectralTheory:AS.1"
+        "AutomorphicSpectralTheory:AS.1",
+        "AutomorphicSpectralTheory:AS.2",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.3"
       ],
       "acceptance": [
         "Check every endpoint and the stated dependence of constants; no conjectural input is implicit."
@@ -3819,6 +3926,11 @@
           "sourceId": "reviewed-paper-duke-imamoglu-toth-16",
           "locator": "Theorem 3, second case, p.964; for all s by (7.8), p.972",
           "match": "Literal title and precise corrected statement of accepted extraction PAPER-DUKE-IMAMOGLU-TOTH-16/141. The original external proof is not certified by its acceptance."
+        },
+        {
+          "sourceId": "dit-published-2016",
+          "locator": "Theorem 3, second case, p.964; for all s by (7.8), p.972",
+          "match": "Fresh selected primary-source check by codex-ws2Gd5 against the published passage. Statements quoted from outside sources (including Siegel and Hecke) are target checks, not verification of their original proofs; gamma and reciprocal-zeta bounds are the decomposed inputs of (6.7)."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3834,7 +3946,7 @@
       ],
       "title": "Theorem3 CM factors",
       "kind": "theorem",
-      "statement": "For coprime fundamental d,d′ of opposite sign, Λ(s,χ_d)Λ(s,χ_{d′})=(2√π/ω_D)Σ_Aχ(A)E*(z_A,s), as a meromorphic identity.",
+      "statement": "For coprime fundamental d,d′ of opposite sign, Λ(s,χ_d)Λ(s,χ_{d′})=(2√π/ω_D)Σ_Aχ(A)E*(z_A,s), as a meromorphic identity. Here D=dd′<0, the sum is over ordinary ideal classes of ℚ(√D), χ is the genus character, and ω_D=|O_K^×|/2 as in the CM partial-zeta comparison; use the same E* normalization.",
       "hypotheses": [
         "Parameters, ranges, character normalization and constant dependence are those in the displayed statement."
       ],
@@ -3845,7 +3957,9 @@
       "prerequisites": [
         "AnalyticNumberTheory:AN.4/cm-partial-zeta-period",
         "AnalyticNumberTheory:AN.4/genus-lseries-factorization",
-        "AutomorphicSpectralTheory:AS.1"
+        "AutomorphicSpectralTheory:AS.1",
+        "AutomorphicSpectralTheory:AS.2",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.3"
       ],
       "acceptance": [
         "Check every endpoint and the stated dependence of constants; no conjectural input is implicit."
@@ -3866,6 +3980,11 @@
           "sourceId": "reviewed-paper-duke-imamoglu-toth-16",
           "locator": "Theorem 3, third case, p.964 (Re(s) = 1/2); for all s by the display after 'By (7.6) we have when D < 0', p.971",
           "match": "Literal title and precise corrected statement of accepted extraction PAPER-DUKE-IMAMOGLU-TOTH-16/142. The original external proof is not certified by its acceptance."
+        },
+        {
+          "sourceId": "dit-published-2016",
+          "locator": "Theorem 3, third case, p.964 (Re(s) = 1/2); for all s by the display after 'By (7.6) we have when D < 0', p.971",
+          "match": "Fresh selected primary-source check by codex-ws2Gd5 against the published passage. Statements quoted from outside sources (including Siegel and Hecke) are target checks, not verification of their original proofs; gamma and reciprocal-zeta bounds are the decomposed inputs of (6.7)."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3881,7 +4000,7 @@
       ],
       "title": "Hecke negative-sign real quadratic formula",
       "kind": "theorem",
-      "statement": "For positive fundamental D, π^(−s)Γ((s+1)/2)²D^(s/2)(ζ_A−ζ_{JA})=2∫_{C_A}i∂_zE*(z,s)dz, initially Re(s)>1 and then by continuation. This is the odd archimedean branch, with an oriented differential rather than arc length.",
+      "statement": "For fundamental D>1, π^(−s)Γ((s+1)/2)²D^(s/2)(ζ_A−ζ_{JA})=2∫_{C_A}i∂_zE*(z,s)dz, initially Re(s)>1 and then by continuation. This is the odd archimedean branch, with an oriented differential rather than arc length. Here K=ℚ(√D), A∈Cl^+(K), J is the narrow class of a principal ideal generated by an element of negative norm, and C_A is the oriented quadratic geodesic modulo the full norm-one unit group. With ε_D the least norm-one unit greater than 1, its arc length is 2 log ε_D. Here E(z,s)=(1/2)∑_(gcd(c,d)=1) (Im z)^s/|cz+d|^(2s) on Re s>1, and E*(z,s)=π^(−s)Γ(s)ζ(2s)E(z,s). The orientation is the quadratic-class orientation used in DIT §7; reversing it changes the sign of the differential integral.",
       "hypotheses": [
         "Parameters, ranges, character normalization and constant dependence are those in the displayed statement."
       ],
@@ -3892,7 +4011,9 @@
       "prerequisites": [
         "AnalyticNumberTheory:AN.4/partial-ideal-zeta",
         "AnalyticNumberTheory:AN.4/class-character-lseries-comparison",
-        "AutomorphicSpectralTheory:AS.1"
+        "AutomorphicSpectralTheory:AS.1",
+        "AutomorphicSpectralTheory:AS.2",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.3"
       ],
       "acceptance": [
         "Check every endpoint and the stated dependence of constants; no conjectural input is implicit."
@@ -3913,6 +4034,11 @@
           "sourceId": "reviewed-paper-duke-imamoglu-toth-16",
           "locator": "(7.3)",
           "match": "Literal title and precise corrected statement of accepted extraction PAPER-DUKE-IMAMOGLU-TOTH-16/158. The original external proof is not certified by its acceptance."
+        },
+        {
+          "sourceId": "dit-published-2016",
+          "locator": "(7.3)",
+          "match": "Fresh selected primary-source check by codex-ws2Gd5 against the published passage. Statements quoted from outside sources (including Siegel and Hecke) are target checks, not verification of their original proofs; gamma and reciprocal-zeta bounds are the decomposed inputs of (6.7)."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3930,7 +4056,9 @@
       "kind": "theorem",
       "statement": "There is an absolute C > 0 such that, for every ε > 0, every fundamental D = d'd with genus character χ, and every s with Re(s) = 1/2: Weyl(E(·,s),χ) ≪_ε |s|^C |L(s,χ_{d'})L(s,χ_d)| |D|^{1/4+ε}. The paper prints the left side as 'Weyl(s,χ)'.",
       "hypotheses": [
-        "Parameters, ranges, character normalization and constant dependence are those in the displayed statement."
+        "d,d′ are coprime fundamental discriminants with fundamental product D≠1, and s=1/2+it for t∈ℝ.",
+        "Weyl is the three-branch class sum of DIT (5.12): twice the core-area integral for negative factors, the boundary arc-length integral over ∂F_A for positive factors (compared separately to C_A), and the CM point sum weighted by 1/ω_D for mixed signs. All branches retain the genus character and multiplicities.",
+        "The implied constant depends only on ε; the height exponent C is absolute."
       ],
       "proofSteps": [
         "Apply the appropriate one of the three genus-period identities.",
@@ -3942,7 +4070,9 @@
         "AnalyticNumberTheory:AN.4/mixed-genus-cm-period",
         "AutomorphicSpectralTheory:AS.1",
         "AnalyticNumberTheory:AN.3/critical-line-gamma-quotient",
-        "AnalyticNumberTheory:AN.3/reciprocal-zeta-line-one"
+        "AnalyticNumberTheory:AN.3/reciprocal-zeta-line-one",
+        "AutomorphicSpectralTheory:AS.2",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.3"
       ],
       "acceptance": [
         "Check every endpoint and the stated dependence of constants; no conjectural input is implicit."
@@ -3963,6 +4093,11 @@
           "sourceId": "reviewed-paper-duke-imamoglu-toth-16",
           "locator": "(6.7), proof of Proposition 2, p.969",
           "match": "Literal title and precise corrected statement of accepted extraction PAPER-DUKE-IMAMOGLU-TOTH-16/eisenstein-weyl-to-dirichlet-l-values. The original external proof is not certified by its acceptance."
+        },
+        {
+          "sourceId": "dit-published-2016",
+          "locator": "(6.7), proof of Proposition 2, p.969",
+          "match": "Fresh selected primary-source check by codex-ws2Gd5 against the published passage. Statements quoted from outside sources (including Siegel and Hecke) are target checks, not verification of their original proofs; gamma and reciprocal-zeta bounds are the decomposed inputs of (6.7)."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4006,6 +4141,11 @@
           "sourceId": "reviewed-paper-duke-imamoglu-toth-16",
           "locator": "Proof of Proposition 2, p.969 ('standard estimates for the gamma function quotient and for ζ(2s)')",
           "match": "Literal title and precise corrected statement of accepted extraction PAPER-DUKE-IMAMOGLU-TOTH-16/gamma-quotient-and-zeta-one-line-bounds. The original external proof is not certified by its acceptance."
+        },
+        {
+          "sourceId": "dit-published-2016",
+          "locator": "Proof of Proposition2, printed p.969, sentence preceding (6.7)",
+          "match": "Fresh selected primary-source check by codex-ws2Gd5 against the published passage. Statements quoted from outside sources (including Siegel and Hecke) are target checks, not verification of their original proofs; gamma and reciprocal-zeta bounds are the decomposed inputs of (6.7)."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4051,6 +4191,11 @@
           "sourceId": "reviewed-paper-duke-imamoglu-toth-16",
           "locator": "Proof of Proposition 2, p.969 ('standard estimates for the gamma function quotient and for ζ(2s)')",
           "match": "Literal title and precise corrected statement of accepted extraction PAPER-DUKE-IMAMOGLU-TOTH-16/gamma-quotient-and-zeta-one-line-bounds. The original external proof is not certified by its acceptance."
+        },
+        {
+          "sourceId": "dit-published-2016",
+          "locator": "Proof of Proposition2, printed p.969, sentence preceding (6.7)",
+          "match": "Fresh selected primary-source check by codex-ws2Gd5 against the published passage. Statements quoted from outside sources (including Siegel and Hecke) are target checks, not verification of their original proofs; gamma and reciprocal-zeta bounds are the decomposed inputs of (6.7)."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4094,6 +4239,11 @@
           "sourceId": "reviewed-paper-duke-imamoglu-toth-16",
           "locator": "§6, p.968 ('By Siegel's theorem'); proof of Proposition 1, p.968 ('Siegel's theorem (see [11])')",
           "match": "Literal title and precise corrected statement of accepted extraction PAPER-DUKE-IMAMOGLU-TOTH-16/siegel-theorem. The original external proof is not certified by its acceptance."
+        },
+        {
+          "sourceId": "dit-published-2016",
+          "locator": "§6, p.968 ('By Siegel's theorem'); proof of Proposition 1, p.968 ('Siegel's theorem (see [11])')",
+          "match": "Fresh selected primary-source check by codex-ws2Gd5 against the published passage. Statements quoted from outside sources (including Siegel and Hecke) are target checks, not verification of their original proofs; gamma and reciprocal-zeta bounds are the decomposed inputs of (6.7)."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4140,6 +4290,11 @@
           "sourceId": "reviewed-paper-duke-imamoglu-toth-16",
           "locator": "§6, pp967–968",
           "match": "Literal title and precise corrected statement of accepted extraction PAPER-DUKE-IMAMOGLU-TOTH-16/145. The original external proof is not certified by its acceptance."
+        },
+        {
+          "sourceId": "dit-published-2016",
+          "locator": "§6, pp967–968",
+          "match": "Fresh selected primary-source check by codex-ws2Gd5 against the published passage. Statements quoted from outside sources (including Siegel and Hecke) are target checks, not verification of their original proofs; gamma and reciprocal-zeta bounds are the decomposed inputs of (6.7)."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4186,6 +4341,11 @@
           "sourceId": "reviewed-paper-duke-imamoglu-toth-16",
           "locator": "§6, pp967–968",
           "match": "Literal title and precise corrected statement of accepted extraction PAPER-DUKE-IMAMOGLU-TOTH-16/145. The original external proof is not certified by its acceptance."
+        },
+        {
+          "sourceId": "dit-published-2016",
+          "locator": "§6, pp967–968",
+          "match": "Fresh selected primary-source check by codex-ws2Gd5 against the published passage. Statements quoted from outside sources (including Siegel and Hecke) are target checks, not verification of their original proofs; gamma and reciprocal-zeta bounds are the decomposed inputs of (6.7)."
         }
       ],
       "implementationStatus": "unchecked",
@@ -6252,7 +6412,7 @@
       ],
       "title": "Genus characters of Cl_K and the factorization of their L-series",
       "kind": "theorem",
-      "statement": "Standing data of Chap. IV (p. 267): K imaginary quadratic of discriminant D, ε = ε_D = (D/·), Cl_K its class group. A genus character is a character χ: Cl_K → {±1}. Such characters correspond bijectively to the unordered decompositions {D₁, D₂} of D as a product D = D₁·D₂ of two fundamental discriminants, one positive and one negative (D₁ = 1 is allowed and gives the trivial character). The character χ_{D₁·D₂} is characterized by χ(𝔞) = ε_{D₁}(N𝔞) = ε_{D₂}(N𝔞) for integral ideals 𝔞 prime to D, where ε_{D_i} is the Dirichlet character of ℚ(√D_i) (ε_1 = 1). ",
+      "statement": "Standing data of Chap. IV (p. 267): K imaginary quadratic of discriminant D, ε = ε_D = (D/·), Cl_K its class group. A genus character is a character χ: Cl_K → {±1}. Such characters correspond bijectively to the unordered decompositions {D₁, D₂} of D as a product D = D₁·D₂ of two fundamental discriminants, one positive and one negative (D₁ = 1 is allowed and gives the trivial character). The character χ_{D₁·D₂} is characterized by χ(𝔞) = ε_{D₁}(N𝔞) = ε_{D₂}(N𝔞) for integral ideals 𝔞 prime to D, where ε_{D_i} is the Dirichlet character of ℚ(√D_i) (ε_1 = 1).",
       "hypotheses": [
         "Parameters, ranges, character normalization and constant dependence are those in the displayed statement."
       ],
@@ -8492,7 +8652,7 @@
       ],
       "title": "Half-interval explicit formula and low-zero-safe bound",
       "kind": "theorem",
-      "statement": "For primitive nonprincipal chi of conductor q, sufficiently large integer k and 2<=T<=k, a truncated explicit formula on (k/2,k] has zero contributions -(k^rho-(k/2)^rho)/rho for nontrivial zeros |Im rho|<=T, with error O(k*log^2(qk)/T+log^2(qk)). ",
+      "statement": "For primitive nonprincipal chi of conductor q, sufficiently large integer k and 2<=T<=k, a truncated explicit formula on (k/2,k] has zero contributions -(k^rho-(k/2)^rho)/rho for nontrivial zeros |Im rho|<=T, with error O(k*log^2(qk)/T+log^2(qk)).",
       "hypotheses": [
         "Parameters, ranges, character normalization and constant dependence are those in the displayed statement."
       ],
@@ -11702,18 +11862,17 @@
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-1-norm-fibres-and-mathlib-lseries",
-      "need": "Finiteness of fixed-norm nonzero integral ideals, norm regrouping and absolute convergence of the restricted ideal-class coefficient sum on Re s>1.",
+      "need": "Finite norm fibres and norm regrouping for the restriction to an ordinary/narrow ideal class; zero coefficient set to 0. This layer alone is not the source of the Re s>1 absolute-convergence estimate.",
       "neededBy": [
         "AnalyticNumberTheory:AN.4/partial-ideal-zeta"
       ]
     },
     {
       "supplier": "AutomorphicSpectralTheory:AS.1",
-      "need": "The normalized weight-zero Eisenstein family E and E*, the real-quadratic compact geodesics/boundary cycles and the imaginary-quadratic CM-point evaluations appearing in DIT §7, including the full norm-one unit quotient and the invariant measures. If the quadratic geometric carrier has a finer owner, route that construction there before these comparisons.",
+      "need": "Specialize the induced Eisenstein family at level one to the weight-zero primitive half-sum E(z,s) of DIT (5.2), and compare E*=π^(−s)Γ(s)ζ(2s)E on Re s>1. AS.1 supplies initial convergence and constant terms; quadratic geometric carriers and meromorphic continuation are separate requests.",
       "neededBy": [
         "AnalyticNumberTheory:AN.4/cm-partial-zeta-period",
         "AnalyticNumberTheory:AN.4/real-even-partial-zeta-period",
-        "AnalyticNumberTheory:AN.4/genus-lseries-factorization",
         "AnalyticNumberTheory:AN.4/negative-genus-core-period",
         "AnalyticNumberTheory:AN.4/positive-genus-geodesic-period",
         "AnalyticNumberTheory:AN.4/mixed-genus-cm-period",
@@ -11811,6 +11970,62 @@
       "need": "Normal-order/distribution theorems for multiplicative and prime-factor functions, with their actual arithmetic probability spaces, centering and scaling; AN.5 only provides the mean-value inputs.",
       "neededBy": [
         "AnalyticNumberTheory:AN.5/halasz-classical"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-5-ideal-and-prime-estimates",
+      "need": "Total ideal-count bounds implying absolute convergence on Re s>1 for each class restriction by domination; combine with Layer1 norm regrouping.",
+      "neededBy": [
+        "AnalyticNumberTheory:AN.4/partial-ideal-zeta"
+      ]
+    },
+    {
+      "supplier": "AutomorphicSpectralTheory:AS.2",
+      "need": "Continue the normalized level-one E and E* meromorphically with their functional equation. For DIT critical-line Stokes additionally match the differentiated cusp asymptotics and boundary limit of (7.10); the broad stage description does not by itself certify this exact export.",
+      "neededBy": [
+        "AnalyticNumberTheory:AN.4/cm-partial-zeta-period",
+        "AnalyticNumberTheory:AN.4/real-even-partial-zeta-period",
+        "AnalyticNumberTheory:AN.4/negative-genus-core-period",
+        "AnalyticNumberTheory:AN.4/positive-genus-geodesic-period",
+        "AnalyticNumberTheory:AN.4/mixed-genus-cm-period",
+        "AnalyticNumberTheory:AN.4/real-odd-partial-zeta-period",
+        "AnalyticNumberTheory:AN.3/eisenstein-weyl-lvalue-bound"
+      ]
+    },
+    {
+      "supplier": "GeometryOfNumbersAndQuadraticArithmetic:GN.3",
+      "need": "Quadratic arithmetic quotient dictionary for ordinary/narrow classes, CM lattice points z_A, oriented real geodesics C_A modulo the full norm-one unit action, J and ε_D. Match stabilizer weights and arc length 2 log ε_D. This refinement is requested, not a statement already exported by the generic stage. Nielsen-core surfaces F_A have a separate proposed Fuchsian Part II owner.",
+      "neededBy": [
+        "AnalyticNumberTheory:AN.4/cm-partial-zeta-period",
+        "AnalyticNumberTheory:AN.4/real-even-partial-zeta-period",
+        "AnalyticNumberTheory:AN.4/negative-genus-core-period",
+        "AnalyticNumberTheory:AN.4/positive-genus-geodesic-period",
+        "AnalyticNumberTheory:AN.4/mixed-genus-cm-period",
+        "AnalyticNumberTheory:AN.4/real-odd-partial-zeta-period",
+        "AnalyticNumberTheory:AN.3/eisenstein-weyl-lvalue-bound"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-13-norm-theorems-and-class-fields",
+      "need": "Specialize the abelian conductor–discriminant formula to a quadratic extension: f_η is its relative discriminant and D_F N(f_η)=D_E/D_F. Use the canonical character from global reciprocity, not an imprimitive modulus.",
+      "neededBy": [
+        "AnalyticNumberTheory:AN.4/quadratic-hecke-value-one",
+        "AnalyticNumberTheory:AN.4/quadratic-hecke-cauchy-derivative",
+        "AnalyticNumberTheory:AN.4/quadratic-hecke-log-functional-equation"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-10-archimedean-characters-infinity-types-and-cyclotomic-arithmetic",
+      "need": "Match finite-order real local sign characters to the odd gamma branch for the canonical character of a CM quadratic extension; global Artin at a real place sends a negative element to conjugation.",
+      "neededBy": [
+        "AnalyticNumberTheory:AN.4/quadratic-hecke-log-functional-equation"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-2-moduli-and-ray-class-carriers",
+      "need": "Use ordinary/narrow ideal-class carriers and the finite partition of nonzero integral ideals into classes for the general partial ideal series. Do not create a second ideal-class group.",
+      "neededBy": [
+        "AnalyticNumberTheory:AN.4/partial-ideal-zeta"
       ]
     }
   ],
@@ -12181,7 +12396,7 @@
         "AnalyticNumberTheory:AN.3/eisenstein-weyl-lvalue-bound",
         "AnalyticNumberTheory:AN.4/gross-zagier-cm-eisenstein-comparison"
       ],
-      "detail": "Identify integral ideals in A with the CM lattice quotient, including the exact unit stabilizer.; Match E* and the gamma/discriminant normalization on Re s>1. Exact lattice quotient, measure and Eisenstein normalization proofs require original §7 reading. Their geometric objects are imported from the spectral owner. Unfold along the compact real quadratic geodesic and divide by the full norm-one unit action.; Sum the A and JA branches; match arc length and the even gamma factor. Exact lattice quotient, measure and Eisenstein normalization proofs require original §7 reading. Their geometric objects are imported from the spectral owner. Reuse the pinned genus character on the narrow class group and its coprime-ideal evaluation.; Compare Euler factors at split, inert and every ramified prime; continue only after the convergent identity. Exact lattice quotient, measure and Eisenstein normalization proofs require original §7 reading. Their geometric objects are imported from the spectral owner. Apply the odd compact-boundary Hecke identity and the genus Euler factorization.; Continue this identity to the critical line before applying Stokes; never start from the divergent Re s>1 core integral. Exact lattice quotient, measure and Eisenstein normalization proofs require original §7 reading. Their geometric objects are imported from the spectral owner. Sum the even compact-geodesic identity against χ and use genus factorization.; Identify geodesic and boundary arcs on the critical line with the imported oriented geometric conventions. Exact lattice quotient, measure and Eisenstein normalization proofs require original §7 reading. Their geometric objects are imported from the spectral owner. Sum the CM point partial-zeta identity against the genus character.; Match the two Dirichlet gamma factors and the unit factor 2√π/ω_D. Exact lattice quotient, measure and Eisenstein normalization proofs require original §7 reading. Their geometric objects are imported from the spectral owner. Unfold the oriented differential i∂_zE* dz over the full norm-one unit quotient.; Take the A−JA difference and retain Γ((s+1)/2)^2, rather than the even gamma factor. Exact lattice quotient, measure and Eisenstein normalization proofs require original §7 reading. Their geometric objects are imported from the spectral owner. Apply the appropriate one of the three genus-period identities.; Use the precise gamma quotient and reciprocal-zeta bounds; polynomial height factors and |D|^(1/4+ε) remain visible. Exact lattice quotient, measure and Eisenstein normalization proofs require original §7 reading. Their geometric objects are imported from the spectral owner. Read GZ item94 and §III.1 to match primitive/all-lattice Eisenstein sums. This is a distinct normalization adapter to the DIT E* comparison, not a second partial-zeta definition."
+      "detail": "codex-ws2Gd5 read published DIT §§5–7 selected passages, including all §7 statements and the Stokes argument, and checked pp.970–971 images. The displayed CM unit factor is now explicitly half the unit count; real formulas specify the full norm-one quotient. This verifies the selected source formulas, not Hecke’s cited original proof or a formal unfolding. Match the pinned genus-character finite-prime-discriminant hypotheses and coprime-ideal evaluation to arbitrary fundamental d,d′. AS.1 supplies initial Eisenstein convergence only; AS.2 continuation and differentiated cusp estimates need exact exports. GN.3 needs a precise quadratic-class geometric dictionary. Nielsen cores F_A and multiplicity-preserving projections require the proposed FuchsianOrbifolds Part II; no such resolvable atlas stage is present. The core integral is defined on the critical line after boundary continuation, never by the divergent Re s>1 area integral. Gross–Zagier’s separate normalization comparison remains unread."
     },
     {
       "title": "Gamma and inverse-zeta quantitative bounds",
@@ -12322,6 +12537,16 @@
         "AnalyticNumberTheory:AN.5/halasz-coefficient-class"
       ],
       "detail": "The six definition blocks and their API/tests are named and specified in the suggested file comments, but executable signatures are left out under PROTOCOL§13 until the canonical narrow/ordinary class ideal coefficient, quadratic-field character, two-sided BV/one-sided-limit Weil class, inertia/Frobenius Artin representation and Euler-compatible logarithmic coefficient interfaces are supplied. Do not invent replacement Prop fields, a second ideal LSeries carrier, or degree-one completely multiplicative Artin coefficients. All remaining named theorem forms depending on these unavailable carriers are specified by the reader and require the same follow-up. The 16 definitions with concrete carriers have native signatures and all their API/tests; this is an explicit incompleteness, not an elaboration claim."
+    },
+    {
+      "title": "CM parity and conductor adapter proof",
+      "neededBy": [
+        "AnalyticNumberTheory:AN.4/quadratic-hecke-value-one",
+        "AnalyticNumberTheory:AN.4/quadratic-hecke-cauchy-derivative",
+        "AnalyticNumberTheory:AN.4/quadratic-hecke-log-derivative-one",
+        "AnalyticNumberTheory:AN.4/quadratic-hecke-log-functional-equation"
+      ],
+      "detail": "The CM hypotheses and conductor identity are now explicit. Import global Artin reciprocity including the real-place sign, GNF finite-order primitive characters and infinity types, CFT conductor–discriminant, and AL.1 entire continuation for the nontrivial finite-order character. Match these exact carriers to the conductor-normalized AN completion; the upstream contracts are plans and do not make this adapter formalized. The Rademacher convexity proof and bounded-degree Brauer–Siegel original proof remain unread."
     }
   ],
   "sourceIssues": [
@@ -12733,7 +12958,22 @@
       ],
       "suggestedFileElaborates": true,
       "elaborationLimit": "Executable content only; six omitted carrier definitions remain mathematical comments, not checked Lean declarations."
-    }
+    },
+    "independentReviewContinuations": [
+      {
+        "job": "REV-AnalyticNumberTheory--AN.0",
+        "session": "codex-ws2Gd5",
+        "date": "2026-10-05",
+        "inputCommit": "8270021f197b68362ac29ddae9755b434d27059f",
+        "status": "partial; no final review verdict",
+        "payloadReading": "Fresh scoped payload reading at zero-based indices35–65; inherited inventory0–50,166,170 is retained as historical provenance, not current verification.",
+        "sourceReading": "Published DIT selected §§1–2/5–7 and TZ §§2A–2C through Lemma2.4; Tsimerman pp.381–384; exact receipts in review report.",
+        "nativeReading": "Entire executable section read; later mathematical comment blocks only partially read. Six carriers remain comments.",
+        "suggestedFileElaborates": true,
+        "readerLimitation": "Reader document is not an issue deliverable and was not fully independently read; corrections requiring synchronization are recorded in the report and handoff.",
+        "elaboration": "lean-check at the Mathlib pin; exit0,159 admitted-proof warnings,0 errors. Six omitted carrier definitions remain comments."
+      }
+    ]
   },
   "routedInputs": [
     {
@@ -14520,6 +14760,13 @@
       "source": "PAPER-KOYMANS-PAGANO/249",
       "need": "Zeros of L-functions Layer8.7 supplies effective Chebotarev with field degree/discriminant, interval and exceptional-zero dependence explicit. The KP owner must derive its box count from this theorem and its excellent-box arithmetic data.",
       "reason": "The Chebotarev roadmap explicitly excludes effective estimates and assigns them to Zeros of L-functions. This upstream roadmap is not represented by a resolvable stage in the supplied atlas snapshot; retain an upstream note and exact request, not a fabricated atlas id."
+    },
+    {
+      "id": "AN.4/quadratic-class-geometric-carriers",
+      "status": "proposal",
+      "source": "PAPER-DUKE-IMAMOGLU-TOTH-16 route:part-ii",
+      "need": "Use the extraction’s proposed FuchsianOrbifolds, Part II (Nielsen cores and quadratic-class surfaces) for F_A, finite-area core surfaces, oriented geodesic boundaries, and multiplicity-preserving projection to the modular orbifold. GN.3 owns the quadratic arithmetic class/geodesic/CM dictionary; AS.1/AS.2 own Eisenstein analysis. Exact stages and theorem exports are still required.",
+      "reason": "AS.1 does not construct quadratic geometry. The accepted extraction proposes this Part II, but the current atlas has no FuchsianOrbifoldsPartII stage; do not fabricate one or declare closure."
     }
   ],
   "upstreamNotes": [
