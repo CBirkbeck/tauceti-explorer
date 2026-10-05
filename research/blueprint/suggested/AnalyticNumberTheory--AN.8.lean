@@ -1,3 +1,6 @@
+/- Independent review REV-AnalyticNumberTheory--AN.8 (2026-10-05): needs_changes.
+Elaboration was attempted through lean-check and blocked at a missing prebuilt Tau Ceti import.
+New relation signatures and corrected tests remain unelaborated; omission blocks are review gaps. -/
 /-
 Copyright (c) 2026 Tau Ceti contributors. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
@@ -205,6 +208,19 @@ example : (e (1 / 2 : ℚ) * x 2 : BCHecke ℚ) ≠ x 2 * e (1 / 2 : ℚ) := by
 
 -- Test TauCeti.BostConnes.x_one
 example : (x 1 : BCHecke K) = 1 ∧ (x' 1 : BCHecke K) = 1 := by sorry
+
+-- Declaration TauCeti.BostConnes.BCHecke.x_prime_mul_x
+theorem x_prime_mul_x (n : ℕ+) : (x' n * x n : BCHecke K) = algebraMap K _ ((n : ℕ) : K) := by sorry
+-- Declaration TauCeti.BostConnes.BCHecke.x_mul
+theorem x_mul (n m : ℕ+) : (x (n*m) : BCHecke K) = x n * x m := by sorry
+-- Declaration TauCeti.BostConnes.BCHecke.x_prime_mul
+theorem x_prime_mul (n m : ℕ+) : (x' (n*m) : BCHecke K) = x' n * x' m := by sorry
+-- Declaration TauCeti.BostConnes.BCHecke.x_mul_x_prime_of_coprime
+theorem x_mul_x_prime_of_coprime (n m : ℕ+) (h : Nat.Coprime n m) : (x n * x' m : BCHecke K) = x' m * x n := by sorry
+-- Declaration TauCeti.BostConnes.BCHecke.e_mul_x
+theorem e_mul_x (γ : QmodZ) (n : ℕ+) : (e γ * x n : BCHecke K) = x n * e ((n : ℕ) • γ) := by sorry
+-- Declaration TauCeti.BostConnes.BCHecke.x_mul_e_mul_x_prime
+theorem x_mul_e_mul_x_prime (γ : QmodZ) (n : ℕ+) : (x n * e γ * x' n : BCHecke K) = ∑ᶠ (δ : QmodZ) (_ : (n : ℕ) • δ = γ), e δ := by sorry
 
 /-- AN.9/rational-presentation: the relations (a′)–(f′) and the double-coset basis
 `x n * e γ * x' m = [class of [1 γ/m; 0 n/m]]` for coprime `n, m`. -/
@@ -616,8 +632,9 @@ namespace LocalIntegral
 -- Declaration TauCeti.SeveralVariableZeta.LocalIntegral.integral
 def integral := @LocalIntegral
 -- Declaration TauCeti.SeveralVariableZeta.LocalIntegral.shellDensity
-def shellDensity {V : Type*} [MeasurableSpace V] (μ : MeasureTheory.Measure V)
-    (valuation : V → ℕ) (U : Set V) (k : ℕ) : ℝ≥0∞ := μ {x | x∈U ∧ valuation x=k}
+def shellDensity {V K : Type*} [MeasurableSpace V] [Zero K] (μ : MeasureTheory.Measure V)
+    (disc : V → K) (valuation : V → ℕ) (U : Set V) (k : ℕ) : ℝ≥0∞ :=
+  μ {x | x∈U ∧ disc x ≠ 0 ∧ valuation x=k}
 -- TauCeti.SeveralVariableZeta.LocalIntegral.test_zero_test_function
 example {V K : Type*} [MeasurableSpace V] [Zero K] (μ : MeasureTheory.Measure V)
   (d : V → K) (v : K → ℝ) (s : ℂ) : LocalIntegral μ d v 0 s = 0 := by sorry
@@ -655,12 +672,14 @@ theorem dual_le {ι : Type*} (disc aut : ι → ℕ) {σ : Type*} [DecidableEq �
   0 ≤ (dual disc aut signature traceDivisible a σ).re ∧
   (dual disc aut signature traceDivisible a σ).re ≤ (series disc aut signature a σ).re := by sorry
 -- TauCeti.SeveralVariableZeta.CubicShintani.test_split_weight
-example : ((6:ℂ)⁻¹ / (1:ℂ)^(2:ℂ)) = 1/6 := by sorry
+example : series (fun _ : Unit => 1) (fun _ => 6) (fun _ => false) false (2:ℂ) =
+  1/6 := by sorry
 -- TauCeti.SeveralVariableZeta.CubicShintani.test_zero_discriminant
 example (s : ℂ) : series (fun _ : Unit => 0) (fun _ => 1) (fun _ => false) false s = 0 := by sorry
 -- TauCeti.SeveralVariableZeta.CubicShintani.test_dual_subseries
 example (s : ℂ) : dual (fun _ : Unit => 1) (fun _ => 1) (fun _ => false)
-  (fun _ => false) false s = 0 := by sorry
+  (fun _ => false) false s = 0 ∧
+  series (fun _ : Unit => 1) (fun _ => 1) (fun _ => false) false s = 1 := by sorry
 end CubicShintani
 
 -- Declaration TauCeti.SeveralVariableZeta.ArchMatrix
@@ -862,8 +881,6 @@ example : first (1/2:ℚ)=0 := by sorry
 -- TauCeti.BostConnes.ArithmeticEisenstein.test_third
 example : first (1/3:ℚ)=(-1/6:ℚ) • BCHecke.e (1/3:ℚ)+(1/6:ℚ) • BCHecke.e (2/3:ℚ) := by sorry
 end ArithmeticEisenstein
--- Test TauCeti.BostConnes.isKMS_gibbsState
-example (β : ℝ) (hβ : 1<β) (u : AddAut QmodZ) : IsKMS β (gibbsState β hβ u) := by sorry
 end TauCeti.BostConnes
 
 /- Omitted signature interface: AnalyticNumberTheory:AN.9/kms-classification
@@ -947,19 +964,23 @@ Mathematical obligation: For a compact-open integral local condition U, the norm
 /- Omitted signature interface: AnalyticNumberTheory:AN.8/cubic-adelic-zeta
 Reason: The exact canonical carrier or full theorem hypotheses require the recorded source/supplier refinements. The reader states the mathematical obligation; no proposition hole substitutes for it.
 TauCeti.SeveralVariableZeta.CubicAdelic
-Mathematical obligation: With the ST binary-cubic representation and AA.2 quotient Haar measure, define Z(Φ,s)=∫GL2(F)\GL2(A_F) |det g|^(2s) Σx∈V(F),Disc x≠0 Φ(g·x) dg. Use the twisted action (g·f)(u,v)=det(g)^(−1)f((u,v)g), so Disc(g·f)=det(g)² Disc f. Fix local measures and the dual pairing before invoking Poisson. Its decomposition into signature-weighted ξF,α times local zeta factors is a separate comparison and original-source gap.
+Mathematical obligation: With the ST binary-cubic representation and AA.2 quotient Haar measure, define Z(Φ,s)=∫GL2(A_F)/GL2(F) |det g|^(2s) Σx∈V(F),Disc x≠0 Φ(g·x) dg. Use the twisted action (g·f)(u,v)=det(g)^(−1)f((u,v)g), so Disc(g·f)=det(g)² Disc f. Fix local measures and the dual pairing before invoking Poisson. Its decomposition into signature-weighted ξF,α times local zeta factors is a separate comparison and original-source gap. The theta sum is invariant under g↦gh for h∈GL2(F), by rational reindexing and the product formula. Transport AA.2 left-quotient measure by inversion; a left-quotient formulation instead uses Φ(g⁻¹·x) and |det g|^(−2s).
 TauCeti.SeveralVariableZeta.CubicAdelic.integral
-Mathematical obligation: The quotient integral with |det g|^(2s) and the nonzero-discriminant theta sum.
+Mathematical obligation: The right-quotient integral on GL2(A_F)/GL2(F), with |det g|^(2s) and the nonzero-discriminant theta sum Φ(g·x).
 TauCeti.SeveralVariableZeta.CubicAdelic.linear
 Mathematical obligation: Z(aΦ+bΨ,s)=aZ(Φ,s)+bZ(Ψ,s) when the summands are integrable.
 TauCeti.SeveralVariableZeta.CubicAdelic.unfolding
 Mathematical obligation: Decompose by signatures and arithmetic orbit weights with the pinned local zeta factors.
+TauCeti.SeveralVariableZeta.CubicAdelic.theta_right_invariant
+Mathematical obligation: For h∈GL2(F), thetaΦ(gh)=thetaΦ(g), and the full integrand is right invariant by the product formula.
 TauCeti.SeveralVariableZeta.CubicAdelic.test_zero
 Mathematical obligation: Z(0,s)=0.
 TauCeti.SeveralVariableZeta.CubicAdelic.test_scaling
 Mathematical obligation: The discriminant character is det² for the chosen twisted action; this fixes the exponent2s.
 TauCeti.SeveralVariableZeta.CubicAdelic.test_singular_locus
 Mathematical obligation: Degenerate binary cubics are excluded from the theta sum and return only as separately analyzed singular terms after Poisson.
+TauCeti.SeveralVariableZeta.CubicAdelic.test_quotient_side
+Mathematical obligation: Right rational translation leaves the theta integrand unchanged; inversion transports it to the left quotient with inverse action and determinant exponent −2s.
 -/
 
 /- Omitted signature interface: AnalyticNumberTheory:AN.8/cubic-absolute-convergence
@@ -1013,7 +1034,7 @@ Mathematical obligation: For every ε>0 and real σ>3/2, ξF,α(σ)≪[F:Q],σ,�
 /- Omitted signature interface: AnalyticNumberTheory:AN.8/cubic-reflected-bound
 Reason: The exact canonical carrier or full theorem hypotheses require the recorded source/supplier refinements. The reader states the mathematical obligation; no proposition hole substitutes for it.
 TauCeti.SeveralVariableZeta.cubic_reflected_bound
-Mathematical obligation: For σ<−1/2 and |t|≥1, the functional equation gives ξF,α(σ+it)≪ε,n,σ h2(F)D^(2−4σ+ε)(1+|t|)^(n(2−4σ)+ε), using the right-half-plane dual bound. Constants depend on the fixed real strip.
+Mathematical obligation: For σ<−1/2 and |t|≥1, the functional equation gives ξF,α(σ+it)≪ε,n,σ h2(F)D^(5/2−4σ+ε)(1+|t|)^(n(2−4σ)+ε), using the right-half-plane dual bound. Constants depend on the fixed real strip.
 -/
 
 /- Omitted signature interface: AnalyticNumberTheory:AN.8/cubic-pole-cleared-convexity
@@ -1037,7 +1058,7 @@ Mathematical obligation: For Res>1, ζΔ(s)=Γ(s)^(−1)∫0∞(H(t)−1)t^(s−
 /- Omitted signature interface: AnalyticNumberTheory:AN.9/heat-small-time-subtraction
 Reason: The exact canonical carrier or full theorem hypotheses require the recorded source/supplier refinements. The reader states the mathematical obligation; no proposition hole substitutes for it.
 TauCeti.SpectralZeta.heat_small_time_subtraction
-Mathematical obligation: For any prescribed continuation range, subtract a finite heat asymptotic expansion H(t)~Σk≥0 ak t^(k−1) at0. Integrating each subtracted monomial on(0,1) gives ak/(s+k−1); the remainder integral is holomorphic in the extended half-plane.
+Mathematical obligation: Write H(t)=Σj≥0 exp(−tλj), including its simple zero mode. The positive spectral Mellin integral uses H(t)−1. If H(t)=Σk=0..N ak t^(k−1)+O(t^N), then subtract Σk=0..N ak t^(k−1)−1. Its integral on (0,1) is Σk=0..N ak/(s+k−1)−1/s. The remainder integral is holomorphic for Re s>−N under locally uniform remainder bounds; thus the coefficient at s=0 is a1−1, not a1.
 -/
 
 /- Omitted signature interface: AnalyticNumberTheory:AN.9/spectral-regularity-zero
@@ -1255,3 +1276,7 @@ Reason: The exact canonical carrier or full theorem hypotheses require the recor
 TauCeti.BostConnes.bc_arithmetic_values_and_symmetry
 Mathematical obligation: For an extremal KMS∞ vector state, e(a) evaluates to the corresponding root of unity and every reduced normal-form monomial with(n,m)≠(1,1) evaluates to0. Its rational arithmetic values generate Qcycl. The induced cyclotomic character intertwines field automorphisms with unit symmetries on those values.
 -/
+
+/- Review-added omitted signature: TauCeti.SeveralVariableZeta.cubic_dual_simple_poles
+For each number field F and archimedean signature α, the dual ξhatF,α has a meromorphic continuation with no poles except possible simple poles at 1 and 5/6. In particular (s−1)ξhatF,α(s) is holomorphic near 1.
+Canonical number-field continuation carrier remains a supplier gap. -/
