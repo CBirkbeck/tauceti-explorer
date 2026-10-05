@@ -10,7 +10,7 @@
  },
  "bases": {
   "judged": 203,
-  "measured": 3,
+  "measured": 4,
   "built": 7,
   "children": 1
  },
@@ -68,8 +68,8 @@
   },
   "splitHalfShiftSpearman": 0.483,
   "splitHalfRoadmaps": 136,
-  "distanceVsClassification": 0.862,
-  "distanceVsMissingTargets": 0.959,
+  "distanceVsClassification": 0.864,
+  "distanceVsMissingTargets": 0.96,
   "distanceVsMissingLayers": 0.962,
   "distanceVsDepth": 0.945,
   "completedRoadmaps": {
@@ -78,7 +78,7 @@
    "tauceti:Completed/IntegralLattices": 0.0,
    "tauceti:Completed/OrthogonalL2Bases": 0.0
   },
-  "declarationsVsDistance": -0.097
+  "declarationsVsDistance": -0.132
  },
  "roadmaps": {
   "AInfCohomology": {
@@ -3114,6 +3114,34 @@
      "roadmaps": 1
     }
    ]
+  },
+  "InductionRestrictionPartII": {
+   "classification": 3,
+   "structure": {
+    "layers": 6,
+    "missingOwn": 6.0,
+    "missingLayers": 7.0,
+    "missingTargets": 28.4,
+    "depth": 6,
+    "suppliers": 1,
+    "declarationLevel": {
+     "source": "blueprint",
+     "reviewed": true,
+     "declarations": 109,
+     "missingDeclarations": 109,
+     "depth": 22,
+     "layersCovered": 6,
+     "layers": 6,
+     "sourcePages": 33
+    }
+   },
+   "measurement": 2.64,
+   "judgements": 0,
+   "distance": 2.64,
+   "low": 1.49,
+   "high": 3.8,
+   "basis": "measured",
+   "usedBy": []
   },
   "IntegralHeckeAndGaloisDeterminants": {
    "classification": 5,
@@ -6463,6 +6491,10 @@
      "roadmaps": 1
     },
     {
+     "galaxy": "grouptheory",
+     "roadmaps": 1
+    },
+    {
      "galaxy": "iwasawa",
      "roadmaps": 1
     }
@@ -8703,8 +8735,8 @@
    "upstreamOnly": false
   },
   "grouptheory": {
-   "distance": 2.38,
-   "roadmaps": 2,
+   "distance": 2.47,
+   "roadmaps": 3,
    "supplies": [
     {
      "galaxy": "iwasawa",
@@ -8810,7 +8842,7 @@
     }
    ],
    "frontierRoadmaps": 39,
-   "upstreamOnly": true
+   "upstreamOnly": false
   },
   "homological": {
    "distance": 2.67,
@@ -9949,6 +9981,16 @@
       {
        "supplier": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras",
        "consumer": "SemisimpleAlgebrasPartII"
+      }
+     ]
+    },
+    {
+     "galaxy": "grouptheory",
+     "links": 1,
+     "examples": [
+      {
+       "supplier": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction",
+       "consumer": "InductionRestrictionPartII"
       }
      ]
     },

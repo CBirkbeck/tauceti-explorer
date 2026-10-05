@@ -504,6 +504,18 @@
     "data/blueprints/HabiroRings.md"
    ]
   },
+  "research/blueprint/packets/InductionRestrictionPartII.json": {
+   "promotedAt": "2026-10-05T00:34:50Z",
+   "review": "0556afae03e4ed1a",
+   "reviewDate": "2026-10-05",
+   "reviewer": "independent-review-REV-DESIGN-InductionRestrictionPartII",
+   "sha256": "0db4b3e80ab6e85338b576ea40139b9cde93c466049c714d359abb50181af1a2",
+   "to": [
+    "data/blueprints/InductionRestrictionPartII.json",
+    "data/blueprints/InductionRestrictionPartII.md",
+    "data/blueprints/roadmaps/InductionRestrictionPartII.json"
+   ]
+  },
   "research/blueprint/packets/K2SymbolsBrauer--T.3.json": {
    "promotedAt": "2026-09-25T14:41:24Z",
    "review": "217c9c48d022eed3",
