@@ -1,8 +1,8 @@
 {
   "roadmaps": 227,
-  "stages": 3367,
+  "stages": 3399,
   "originalStages": 2084,
-  "sourceRefinements": 1283,
+  "sourceRefinements": 1315,
   "reviewedDecompositions": [
     {
       "roadmap": "AInfCohomology",
@@ -341,14 +341,14 @@
   "editedRoadmapSummaries": 181,
   "curatedStagePresentations": 339,
   "administrativeStages": 101,
-  "mathematicalStars": 3266,
+  "mathematicalStars": 3298,
   "plainTextPlanetLabels": 398,
   "hiddenPlanets": 600,
   "mappedStageStatuses": 350,
   "libraryAuditStatuses": 35,
   "bibliographicSources": 46,
-  "roadmapEdges": 1821,
-  "stageEdges": 9229,
+  "roadmapEdges": 1823,
+  "stageEdges": 9251,
   "reviewedLinkPackets": 25,
   "promotedBlueprints": [
     {
@@ -458,6 +458,12 @@
       "roadmap": "EllipticRegulators",
       "nodes": 75,
       "reviewer": "independent-review-REV-FIX-RT-AREA-combinatorics~2"
+    },
+    {
+      "file": "FiniteFieldsAndCharacterSums",
+      "roadmap": "FiniteFieldsAndCharacterSums",
+      "nodes": 354,
+      "reviewer": "independent-review-REV-FiniteFieldsAndCharacterSums"
     },
     {
       "file": "GeneralAlgebraicKTheory--K.1",
@@ -575,8 +581,8 @@
     }
   ],
   "sourceDocuments": 296,
-  "htmlBytes": 31598799,
-  "htmlSha256": "6141b3a769027b0e46485b417c3fcd8093dc0a27872d8da8cf256ed73df6e922",
+  "htmlBytes": 31704830,
+  "htmlSha256": "1704d065487e85e9035d1e8377af131bfe177b07e7e775969c99cc210447cf92",
   "networkDependencies": 0,
   "localProgressOverridesIncluded": false,
   "assets": {
@@ -607,7 +613,7 @@
     "data/roadmap-summaries.json": "c8bdd0a9105f5d3c4a858c8b635990729f8e94497dee784a71fae659b8c05b9f",
     "data/roadmap-classification.json": "2641dbc97eb2566c715162d011b46890d1635629181ef8126ac7aed9e24a3b13",
     "data/classification-estimates.json": "625d35fe6121bf099dc5de9e6a9111793596f9b664e3fbd439841434bb4a57d6",
-    "data/roadmap-distances.json": "62f75ab8672556d2c02d51a4b296ee3cb85630aed2a87eedfb3b343c593ea078",
+    "data/roadmap-distances.json": "c8605cd7b0247868b79e30e6758b30bc33cd52ed53885936acae1024d40ab43c",
     "data/galaxy-layout.json": "5baeb3bc7c4b109ca1c927a5e307e87e74a9ae53025203186c33a6be188e6e7a",
     "data/bibliography.json": "bef230a41fad22d6b790c7564061c4d05c2ae5b78cab53d005eb404afab2b122",
     "NOTICE": "a285b95d5adbf5c2bcc82db36e2a77b797f84a2c5cbb30292efd0bae17cc4f34",
@@ -701,6 +707,8 @@
     "data/blueprints/EllipticKTheory.md": "c254d197a539eef155a823d0dfd3f179ba9b91982fa113dbc003b18d1de4903f",
     "data/blueprints/EllipticRegulators.json": "ea78b6592ec7aedf3d14e30e3a6437070ba764ba9ae7d49b352826efea48864f",
     "data/blueprints/EllipticRegulators.md": "45df41d0725c4f4bc7b0c43f9710b879367d2386a73a9fddfe4778881d7be759",
+    "data/blueprints/FiniteFieldsAndCharacterSums.json": "ea64ec0f7a0888da20c74fbcb2c0b0b7d58184f7a411ab147b9db3fcae4fb711",
+    "data/blueprints/FiniteFieldsAndCharacterSums.md": "280948019fed01a8fc773fc58a7eec61fd477cd2d5e59b93c83d430f4d9fda57",
     "data/blueprints/GeneralAlgebraicKTheory--K.1.json": "6d99ed94515665f97711483d11547ac5f74fdecc5ab4f73270602feea1ead6b4",
     "data/blueprints/GeneralAlgebraicKTheory--K.1.md": "0897b3b7abb9bdfd592bc3324b70acc5cc9905d85d84c923d90a8d3c033d29f0",
     "data/blueprints/GeneralAlgebraicKTheory--K.6.json": "14d13811cf26d920957a5b5791e6eec18d834bf2a991c96e4b781bdcf8a64370",

@@ -461,6 +461,17 @@
     "data/blueprints/EllipticRegulators.md"
    ]
   },
+  "research/blueprint/packets/FiniteFieldsAndCharacterSums.json": {
+   "promotedAt": "2026-10-05T03:55:17Z",
+   "review": "a2e81ea118045f4a",
+   "reviewDate": "2026-10-05",
+   "reviewer": "independent-review-REV-FiniteFieldsAndCharacterSums",
+   "sha256": "ea64ec0f7a0888da20c74fbcb2c0b0b7d58184f7a411ab147b9db3fcae4fb711",
+   "to": [
+    "data/blueprints/FiniteFieldsAndCharacterSums.json",
+    "data/blueprints/FiniteFieldsAndCharacterSums.md"
+   ]
+  },
   "research/blueprint/packets/GeneralAlgebraicKTheory--K.1.json": {
    "promotedAt": "2026-09-28T15:17:43Z",
    "review": "da4dbd15147b37dc",
