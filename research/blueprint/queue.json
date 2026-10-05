@@ -23721,8 +23721,9 @@
    ],
    "avoidAccountOf": "BP-DirichletPadicLFunctions--L0",
    "prompt": "research/blueprint/prompts/REV-DirichletPadicLFunctions--L0.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5873"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5873",
+   "finishedAt": "2026-10-05T01:10:57Z"
   },
   {
    "id": "BP-DirichletPadicLFunctions--L1",
@@ -30778,7 +30779,8 @@
    ],
    "avoidAccountOf": "BP-GeometryOfNumbersAndQuadraticArithmetic",
    "prompt": "research/blueprint/prompts/REV-GeometryOfNumbersAndQuadraticArithmetic.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #537"
   },
   {
    "id": "BP-HeightsRationalPointsAndObstructions",
