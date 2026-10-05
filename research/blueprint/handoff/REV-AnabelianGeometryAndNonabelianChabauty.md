@@ -1,137 +1,102 @@
 # Handoff: REV-AnabelianGeometryAndNonabelianChabauty
 
-Issue [#526](https://github.com/CBirkbeck/tauceti-explorer/issues/526); checkpoint
-by Codex `codex-i1BjcC`, 2026-10-05. Input explorer revision
-`b4ea721503c52188587f85a4ebc5541d02f6e151`.
-Continue this same unfinished independent review. The reviewer did not author
-the blueprint. There is no final packet `review` object or acceptance verdict.
-Earlier independent checkpoints
+Issue [#526](https://github.com/CBirkbeck/tauceti-explorer/issues/526);
+independent-review checkpoint by Codex `codex-m9Qr3w`, 2026-10-05.
+Input explorer revision `e944b1df8e7f100d50bf3de50ef3e38ae054040d`.
+Continue this same review. This session did not author the blueprint; no final
+packet review object or acceptance verdict exists. Earlier checkpoints
 [#6170](https://github.com/CBirkbeck/tauceti-explorer/pull/6170),
-[#6175](https://github.com/CBirkbeck/tauceti-explorer/pull/6175) and
-[#6180](https://github.com/CBirkbeck/tauceti-explorer/pull/6180) are incorporated.
+[#6175](https://github.com/CBirkbeck/tauceti-explorer/pull/6175),
+[#6180](https://github.com/CBirkbeck/tauceti-explorer/pull/6180) and
+[#6184](https://github.com/CBirkbeck/tauceti-explorer/pull/6184) are preserved
+in the report and packet checkpoint history, with attribution.
 
-## Durable evidence from this pass
+## Completed scope and durable evidence
 
-The review report now starts with a **50-row scoped node audit**, positions
-51–100 inclusive (zero-based packet order), from `NC.3/cocycle-map-one` through
-`NC.3/h1-finite-quotient-equivalence`. Statements, hypotheses, proof sketches,
-direct prerequisites, sources and actual suggested signatures were examined,
-including all construction APIs/tests in this family. This verifies the
-mathematical calculations within that scope, not every precursor proof or
-whole-packet closure. The previous 49-node late-family screen (314–362) and
-160-entry pinned statement locator table remain in the historical report with
-their attribution. The new packet checkpoint preserves its predecessor in
-`independentReviewCheckpoints`.
+The report starts with an 80-row fresh scoped audit: zero-based node positions
+0–13, 26–36, 101–155. It checks cocycle/orbit foundations, subgroup/coset boundary
+and exactness, coefficient/source maps, twisting and coefficient naturality.
+Each row records a mathematical calculation, hypotheses, direct inputs,
+API/test and actual suggested-signature boundary. Native torsor supplier 362
+was also read. These are scoped checks; aggregate transitive closure and the
+whole review are unfinished. The preceding report has the 51–100 and 314–362
+screens and full 160-entry historical baseline locator table.
 
-The significant checks are ordered cocycle/gauge conventions, invariant targets,
-**same-N** gauge reflection and inflation injectivity, inverse-gauge
-normalization, the neutral restriction fibre, quotient-action joint continuity
-using an open product quotient map, reversed-inclusion transitions, and the
-native Types colimit universal property using a common intersection refinement.
-No blanket claim about the full 363-node plan is made.
+Corrections:
 
-Corrections/additions:
+- The factor-order test now uses an actual explicit identity Z¹ cocycle on
+  discrete S₃ at (01),(12); its ordered-versus-swapped arithmetic is proved
+  by decide. Direct same-type scalar notation initially chose Lean's native
+  multiplication action; the final expression explicitly uses the trivial
+  action's formula.
+- Twist.toOriginal now is pinned native MulEquiv.refl U, with its exact
+  underlying-value API. It is not asserted G-equivariant.
+- Added an actual twisted S₃ coboundary forward-map test that fails for left
+  multiplication by c instead of right multiplication. This test is admitted.
+- Normalized two connecting-cocycle test-kind labels.
 
-- Three new concrete identity-S₃ tests pin the actual descent, inflation and
-  forward descent equivalence to nonidentity values. Inverse laws alone could
-  accept an equivalence conjugating the output by (12). New statements still
-  use `sorry`; this is a planning prototype, not an implementation.
-- A native `by decide` example proves c(n)=1, c(gn)=c(g), c(ng)≠c(g) for a
-  conjugation coboundary in S₃. It discriminates right/left constancy and the
-  normality requirement. The report distinguishes these proved arithmetic
-  assertions from the mathematical centralizer/cocycle explanation.
-- Finite-quotient class surjectivity directly cites `NC.3/nonabelian-h1` for
-  its actual orbit carrier and representative choice.
-- The residual central-extension action codomain is corrected to G×B→B.
-  Keep the preceding positive-defect convention: Kim arXiv v1's printed
-  inverse defect gives the negative class, with the same zero locus.
-
-Fresh reading: exact Kim v1 printed pp.5–9 definitions, Proposition 1 proof and
-selected central-extension passages; Poonen Definition 1.3.14 and complete
-Proposition 1.3.15 proof, printed pp.11–12. The general compact/discrete
-colimit is an authored deduction, not the printed Hilbert 90 theorem. Source
-hashes and links are in the report. No whole-paper, Serre or published-version
-collation is claimed. All seven NC coverage entries and the upstream roadmap
-comparators were consulted. The selected consumers' **47 Mathlib prerequisite
-statements** were reread with their namespace/hypothesis context at
-`082e2d37e8b0463410cdb532e111cd43d5a66174`. Tau Ceti remains pinned at
-`f790474821cf4256814db967cb154e7af3d0c369`. This session does not claim a fresh
-all-160 consumer audit. Historical encoded payloads were preserved without
-being decoded or executed.
+57 selected baseline statements were freshly read with namespace/hypothesis
+context: 52 direct references of the 80 nodes plus 5 native torsor inputs. The
+report links all 57 at the exact pins. Mathlib source matches 082e2d3. Shared
+Tau Ceti HEAD differs from f790474; exact pinned LowDegree source was fetched
+and read instead. No all 160 fresh consumer audit is claimed.
+Kim Siegel arXiv v1 pp. 5–10 and Kim Albanese arXiv v4 pp. 4, 19, 25–26 were
+freshly read; hashes, public links and exact scope are in the report. Poonen's
+supplementary source timed out both directly and through the browser; its
+nodes 0/12/13 locators were not freshly checked. No Serre, whole-paper,
+published-version or complete source-error screen is claimed. All 7 layer
+records/audits and two upstream comparators were read. Encoded historical
+payloads were preserved without decoding or execution.
 
 Counts: 363 nodes, 160 baseline declarations, 17 requests, 10 gaps, 11 planets;
-320 definition/construction API entries and 253 tests; 340 API entries and
-269 tests across all node kinds. NC.0/NC.3 remain partial, other stages
-not_read, all implementations unchecked. Packet `complete` means its
-budget-complete planning pass, not review completion.
+321 definition/construction API items and 254 tests (341/270 across all kinds).
+NC.0/NC.3 remain partial; all other stages not_read. All implementations stay
+unchecked. Packet complete still means its budget-complete planning pass.
 
-## Checks and reproduction
+## Checks
 
-Packet checker: 0 errors, 0 warnings. The native S₃ arithmetic and relevant
-baseline name checks elaborate without admissions. Full suggested `lean-check`
-was attempted but stops at the unavailable
-`TauCeti.RepresentationTheory.Homological.ContCohomology.LowDegree.olean`.
-Do not build or update libraries to repair it.
+Packet checker: 0 errors, 0 warnings. Full suggested lean-check stops at missing
+Tau Ceti LowDegree.olean. No library built or updated. Mathlib projection exits
+0 with 693 warnings, all sorry; no other warnings or errors. The actual-cocycle
+factor-order example proves native arithmetic without admissions. 95 GiB was
+available; nothing remains running.
 
-The Mathlib projection exits 0 with **693 warnings, all `sorry`**, no errors or
-other warnings. Available memory was 95 GiB. Reproduce in authorized on-disk
-scratch by removing exactly `^import TauCeti\..*` lines and the exact block
-`section Abelian` through `end Abelian` inclusive. Keep
-`section AbelianTwistingTest`; check memory and run `lean-check` once under
-WORKERS.md. This validates signatures outside additive comparisons, not the
-admitted statements/proofs or the full suggested file.
+Reproduce projection in on-disk scratch: remove exactly import lines starting
+`import TauCeti.` and the exact `section Abelian` through `end Abelian` block.
+Retain `section AbelianTwistingTest`. Check memory and use lean-check once.
+This does not check additive comparisons, omitted geometry or admitted proofs.
+Suggested SHA-256: `4ab8a0985990c946ece7301c60780ba57d42fa25c2c063536b0a16e826c60b7b`.
+Projection SHA-256: `ce5afacf0a8d2b4f8d1df6b3c023aed77b1e2b85bb1da96cdee6f62a0412e350`.
 
-Suggested SHA-256:
-`ea15ef060b3deffef127327fe1f1431e6400f22ae2c20d5fc238b111435c92cf`.
-Projection SHA-256:
-`20475e3ff9c7cd0f9c85f76ca2c873310836cddf0bc95e20d456f04874183afc`.
-The report and public pinned sources contain all durable evidence. No scratch
-file is required to resume. Scratch is deleted after submission.
+## Precise resumption
 
-## Where to resume
+1. Complete positions 14–25, 37–50 (geometry) and 156–313 (representative transport,
+   twisted source, kernel adapters, stabilizers). Reuse the earlier 51–100 and
+   314–362 screens, preserving their attribution; check all transitive inputs.
+2. Settle central/additive omissions: action and continuous H² connecting map,
+   lift/class independence, exactness/freeness, exact additive class-map
+   comparison and finite-quotient compatibility. Keep positive defect D and
+   Tau Ceti continuous B². All-degree comparison belongs to ProfiniteCohomology
+   Layer 10. The shared Tau Ceti source revision is not the packet pin.
+3. Finish source/supplier leaves: Stacks 03SB/0F13 and limit/property/finite-group
+   descent, Tsen/stalk/Leray/colimit, Isaksen/Artin–Mazur, precise IG/SF contracts,
+   algebraic-torsor point existence, orbit homeomorphisms and descent/effectivity.
+   Requested exports are not established results. Poonen supplemental locators
+   of 0/12/13 need fresh source verification or attributed use of prior evidence.
+4. Finish ownership/planets/coverage and gap supersession. IG.0/IG.1/IG.6 imports
+   and partial SF.2 cannot be treated as complete proofs. Avoid NC.3→NC.0 cycles.
+   Keep M₀,n, generic NS and heights with their owners; raw-homotopy candidate
+   remains unaccepted and has no registered foundation stages.
+5. Check the unique reserved étale K(π,1) node, its full finite and p-primary
+   coefficient classes, canonical map in every degree and sample API. Full
+   profinite π cannot be replaced by pro-p using only constant-Fₚ tests. Keep
+   the geometric-unibranch raw comparison scope separate.
+6. Only after the global screen add the final review object and justified verdict
+   for every node. Empty sourceIssues has an unfinished screen. Honest open
+   stages alone do not reject a budget-complete pass.
 
-1. **Node/consumer matrix:** complete positions 0–50, then 101–313. The former
-   supply the cocycle, native fixed-point and orbit-carrier precursors of this
-   pass; the latter include coefficient/source changes, twisting, kernel
-   adapters, stabilizers, central/additive comparisons and geometry. Reuse
-   this scoped table and the historical late-family calculations, but check
-   transitive closure before issuing any final per-node verdict. Successful
-   projection elaboration and inherited source receipts are not mathematical
-   proof certificates.
-2. **Central/additive interfaces:** keep positive D and Tau Ceti's continuous
-   B². Connecting H², continuous-lift independence, exactness/freeness and
-   canonical additive-cocycle comparison remain explicit omissions. Native
-   sign/normality arithmetic does not construct them. Compatibility with Tau
-   Ceti's finite-quotient transitions/colimit and the all-degree comparison
-   remains to be settled. ProfiniteCohomology Layer 10 owns the latter.
-3. **Geometric leaves:** prior checkpoints read the complete Stacks 01ZM
-   statement/proofs, surrounding 03RH/03RM arguments and Schmidt–Stix
-   Appendix A.3. Their affine/limit/gluing, Tsen/stalk/Leray/colimit and
-   Isaksen/Artin–Mazur proof leaves still need closure. Finish 03SB/0F13
-   context/proofs and finite-presentation property/finite-group descent.
-   Descending a cover and eventual vanishing of its pulled-back class are
-   distinct; restriction to a separable closure need not be injective.
-   Algebraic torsor comparison needs point existence, compatible actions,
-   orbit homeomorphisms and effectivity.
-4. **Ownership/coverage/planets:** inspect current fine-grained IG/SF supplier
-   contracts and gap supersession chains. Requests are desired exports,
-   not established results. IG.0's geometric product/P¹ contracts need
-   confirmation; IG.0/IG.1/IG.6 have no completed relevant supply here, and
-   SF.2's accepted packet is partial. Avoid an NC.3→NC.0 stage cycle.
-   Keep M₀,n, generic NS and heights with their routed owners. The unaccepted
-   raw-homotopy candidate supplies no registered foundation stages. Complete
-   every planet and duplication screen.
-5. **Reserved key/final verdict:** preserve the single
-   `AnabelianGeometryAndNonabelianChabauty:key/etale-k-pi-1`, its exact
-   coefficient class and canonical map in every degree. Full finite and
-   p-primary classes use full profinite π; constant-Fₚ specialization alone
-   does not justify pro-p replacement. Raw equivalence retains separately
-   verified geometrically-unibranch scope; geometric Lean interfaces are
-   omitted. `sourceIssues` is empty with an unfinished screen. Honest
-   partial/not_read stages alone do not reject a budget-complete pass. Only
-   after the whole screen supply the required `review` object and a justified
-   verdict for every node.
-
-No reader, atlas data, supplier packet or author handoff was changed. Reader
-reconciliation should reflect the strengthened tests and residual B codomain
-correction when authorized. Continue only this review's deliverables/handoff.
+No reader, atlas data, supplier packet or author handoff was edited. Reader
+reconciliation should carry the stronger tests and underlying-identity API when
+that file is authorized. All needed evidence is in the deliverables and public
+sources; scratch is deleted after submission. Stop after this checkpoint;
+do not claim a second issue.

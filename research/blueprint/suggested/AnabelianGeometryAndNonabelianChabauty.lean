@@ -496,7 +496,11 @@ instance (c : Z1 G U) : Group (Twist c) := inferInstanceAs (Group U)
 instance (c : Z1 G U) : TopologicalSpace (Twist c) := inferInstanceAs (TopologicalSpace U)
 instance (c : Z1 G U) : IsTopologicalGroup (Twist c) := inferInstanceAs (IsTopologicalGroup U)
 
-def Twist.toOriginal (c : Z1 G U) : Twist c ≃* U := by sorry
+/-- The underlying identification is the native identity; twisting changes the action. -/
+def Twist.toOriginal (c : Z1 G U) : Twist c ≃* U := MulEquiv.refl U
+
+theorem Twist.toOriginal_apply (c : Z1 G U) (x : Twist c) :
+    Twist.toOriginal c x = (show U from x) := by sorry
 
 /-- The twisted action `g ⋆ u = c(g) · (g • u) · c(g)⁻¹`. -/
 instance (c : Z1 G U) : MulDistribMulAction G (Twist c) := sorry
@@ -672,9 +676,7 @@ example [TopologicalSpace (Multiplicative (ZMod 1))]
     [ContinuousSMul (Multiplicative (ZMod 1)) U] :
     Subsingleton (Z1 (Multiplicative (ZMod 1)) U) := by sorry
 
--- TauCeti.NonabelianCohomology.tests.factor_order
-example : ∃ c : Equiv.Perm (Fin 3) → Equiv.Perm (Fin 3),
-    (∀ g h, c (g * h) = c g * c h) ∧ ¬ ∀ g h, c (g * h) = c h * c g := by sorry
+-- The actual cocycle factor-order test appears in CanonicalDescentTests below.
 
 section FiniteCoreTests
 variable [TopologicalSpace (Multiplicative (ZMod 2))]
@@ -6177,6 +6179,25 @@ example :
       ⟨identityCocycleS3, identityCocycleS3_trivial⟩
     (d (QuotientGroup.mk (Equiv.swap (0 : Fin 3) 1))).val = Equiv.swap (0 : Fin 3) 1 ∧
     (d (QuotientGroup.mk (Equiv.swap (1 : Fin 3) 2))).val = Equiv.swap (1 : Fin 3) 2 := by sorry
+
+-- test: TauCeti.NonabelianCohomology.tests.factor_order
+-- Uses the actual continuous-cocycle subtype and its explicit identity representative.
+example :
+    let c := identityCocycleS3
+    let g : S3 := Equiv.swap 0 1
+    let h : S3 := Equiv.swap 1 2
+    c (g * h) = c g * c h ∧
+      c (g * h) ≠ c h * c g := by decide
+
+-- test: TauCeti.NonabelianCohomology.tests.twist_right_translation_S3
+-- A noncommuting value distinguishes right translation from a swapped forward map.
+example :
+    let c := identityCocycleS3
+    let x : Twist c := Equiv.swap 0 1
+    let d := Z1.coboundary (G := S3) x
+    let g : S3 := Equiv.swap 1 2
+    Z1.twistEquiv c d g = Equiv.swap 0 1 * g * (Equiv.swap 0 1)⁻¹ ∧
+      Z1.twistEquiv c d g ≠ c g * Twist.toOriginal c (d g) := by sorry
 
 end CanonicalDescentTests
 
