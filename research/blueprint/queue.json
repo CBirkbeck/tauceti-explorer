@@ -32852,7 +32852,8 @@
    ],
    "avoidAccountOf": "BP-FiniteFieldsAndCharacterSums--FF.1",
    "prompt": "research/blueprint/prompts/REV-FiniteFieldsAndCharacterSums--FF.1.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6305"
   },
   {
    "id": "BP-FiniteFieldsAndCharacterSums--FF.2",
@@ -32941,8 +32942,9 @@
    ],
    "avoidAccountOf": "BP-FiniteFieldsAndCharacterSums--FF.3",
    "prompt": "research/blueprint/prompts/REV-FiniteFieldsAndCharacterSums--FF.3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6308"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6308",
+   "finishedAt": "2026-10-05T19:01:10Z"
   },
   {
    "id": "BP-FiniteFieldsAndCharacterSums--FF.4",
