@@ -1,109 +1,143 @@
 # Handoff: REV-AnabelianGeometryAndNonabelianChabauty
 
-Issue #526; checkpoint by Codex `codex-rkkbhf`, 2026-10-05. This session did
-not author the blueprint. Continue the **same independent review**; no final
-packet `review` object has been written. The report lists every correction and
-its evidence. Input explorer revision was
-`3f2daf22c9620e59cdac2fc35a6203a4e0c45181`.
+Issue #526; current checkpoint by Codex `codex-CS32rR`, 2026-10-05. Continue the
+same unfinished independent review. Input explorer revision:
+`c5c5af2032b33bc80d5a0353e4abefe392b1d922`, including the earlier reviewer
+checkpoint [#6170](https://github.com/CBirkbeck/tauceti-explorer/pull/6170).
+Neither session authored the blueprint. There is no final packet `review`
+object and no acceptance verdict.
 
 ## Durable result
 
-The packet still has 362 nodes, 302 API items, 245 tests, 155 baseline entries,
-17 requests, 9 gaps and 11 planets. No new node or sourceIssue was added; stage
-statuses and implementation statuses are unchanged. Corrected the two baseline
-descriptions, Z1 membership/identity API, the §4 Kim source locator and one
-duplicate dependency. Added five typed API signatures, named two existing
-instances, and added three typed finite tests in the suggested file. The report
-gives the exact names. These are prototypes with `sorry`.
+Current counts: 363 nodes, 320 definition/construction API entries, 250 tests
+on those nodes, 160 baseline declarations, 17 requests, 10 gaps and 11 planets.
+Across all node kinds, there are 340 API entries and 264 tests. All stages retain
+their incoming partial/not_read statuses; all implementations are unchecked.
 
-The checker passed with zero errors/warnings. The full Lean file is uncompiled:
-the available build has no Tau Ceti continuous LowDegree object. Its source was
-read at the pin; a compatible source is not a compiled artifact. Do not build
-the libraries. A Mathlib-only projection elaborated with exit 0 and 658 warnings,
-all for `sorry`. To reproduce in your own on-disk scratch directory:
+This checkpoint adds the definition node
+`AnabelianGeometryAndNonabelianChabauty:NC.3/equivariant-topological-torsors`
+with 18 API entries and five typed tests. It reuses native
+`Torsor Uᵐᵒᵖ P` and `IsTopologicalTorsor P`; their nonemptiness and continuous
+scalar division are imported rather than planned again. It supplies continuous
+semilinear actions, orbit homeomorphisms, the actual equivariant `Torsor.Iso`,
+its isomorphism setoid, cocycle-model coordinates and point-change formulas.
+The classification theorem now has eight API items, including injectivity on
+isomorphism classes and the actual quotient equivalence. The new algebraic
+comparison gap prevents exporting this topological abstraction to algebraic
+or geometric torsors without descent/effectivity and structure comparisons.
 
-1. Read the suggested file as text.
-2. Delete lines matching `^import TauCeti\..*`.
-3. Delete the entire block from the line `section Abelian` through the line
-   `end Abelian` (inclusive).
-4. Write that projection to one scratch `.lean` file; run `free -g` and then
-   `lean-check` on it, obeying the shared-machine rules.
+The inherited invariants, continuity, abelian H¹ and four twisting tests now
+have actual typed examples. The S₃ examples retain the prescribed transposition
+cocycle and trivial original action. The omission ledger is reconciled only
+where actual declarations/examples exist. The reserved K(π,1) source locator is
+corrected, Achinger Definition 4.1 is added as direct provenance, and the scanned
+Schmidt 1996 degree diagram has been inspected. See the review report for the
+complete list of this and the prior checkpoint's corrections.
 
-Only the original suggested file is a deliverable. This projection omits the
-additive comparisons and cannot certify the full file. The historical base64
-recovery payloads are unchanged. Their hashes, canonical-prefix assumptions and
-execution receipts refer to the input revision, as the new opening note says.
-No payload was independently decoded or executed in this review. Do not borrow
-their proof or build claims.
+The packet checker and whitespace check pass. Full Lean remains uncompiled:
+the shared existing build lacks the pinned Tau Ceti LowDegree object. The final
+Mathlib-only projection elaborated with exit 0, 690 warnings, all for `sorry`,
+and no other warnings/errors. Do not build the libraries to repair this.
 
-## Continue in this order
+To reproduce the projection in your own on-disk scratch directory:
 
-1. Finish the baseline audit **with surrounding variables and each consumer**.
-   All 155 declaration heads were screened at the exact pins, but that screen
-   is not a completed hypotheses/conventions audit. Pins: Mathlib
-   `082e2d37e8b0463410cdb532e111cd43d5a66174`; Tau Ceti
-   `f790474821cf4256814db967cb154e7af3d0c369`. Read source at these git objects,
-   not whatever revision an available shared build happens to use. In particular
-   distinguish native all-degree continuous cohomology from a geometric
-   comparison map; closed-subgroup Shapiro from unrestricted nonabelian
-   coefficients; and subgroup restriction in the acting group from a
-   coefficient-subgroup action. The two corrected entries are confirmed in the
-   report; keep other incoming `checked` receipts separate from your verdicts.
-2. Independently check every source locator/excerpt. Many continuation source
-   IDs point to the same Kim v1 PDF. Their abstract statements are explicitly
-   authored deductions from ordered cocycle/gauge formulas, not numbered Kim
-   theorems. Verify both the quoted supporting formula and the deduction.
-   Sources acquired in this run matched the retained PDF hashes, but scratch
-   files are not carried forward. Reacquire via public URLs in the packet.
-   Freshly inspected passages are listed in the report; do not convert selected
-   reading into whole-paper certification. Still finish Stacks tags
-   03QQ, 03RQ, 0AMB, 03RR, 03PL, 03P8, 03RM, 0BA0, 03RP, 03SB,
-   03Q4/09YQ, 03RV, 07RR, 01ZM and 0F13; Achinger 2017 §4; and the full
-   selected Schmidt–Stix Appendix A proofs. Schmidt 1996 pp.243–244 has scanned
-   equations missing from parsed text; inspect the actual page before relying
-   on its diagram. Its direct cohomological replacement still has supplier
-   obligations. Poonen's selected twist passages also need completion.
-3. Finish one-node-at-a-time closure and prototype matching. The screen of
-   the later kernel/orbit families found no claimed unconditional kernel-H¹
-   injectivity: equality is modulo the actual invariant action. Check that
-   exactness hypotheses, topology, action instances, factor order and basepoint
-   agree in every typed form. Tests for continuation constructions often
-   repeat identities; assess whether each object really has three tests that
-   distinguish plausible wrong definitions, rather than trusting the count.
-   Do not infer a declaration from a name appearing in a comment.
-4. Finish inherited core APIs/tests. Current omissions include
-   `tests.invariants`, `tests.continuity`, `tests.h1_abelian` and several twisting
-   tests. Some omission-ledger entries are historical and already have live
-   declarations elsewhere (for example named action instances and later
-   promoted composition laws); reconcile the ledger with actual declarations.
-   The torsor-classification node is a theorem containing a new torsor
-   definition. Its prototype supplies a class map, surjectivity and the
-   fixed-point criterion, but no actual torsor-isomorphism relation or
-   classification injectivity. Decide which definition/API/test obligations
-   require corrections or a precise gap at the job's **target level**. Do not
-   demand lemma-level splitting merely because an older continuation did.
-5. Finish cross-roadmap checks against actual supplier statements and available
-   finer packet nodes. The 17 requests are precise contracts but remain requests.
-   IG.0's stage description gives the finite-étale fibre-functor dictionary;
-   product π₁ and P¹ computation are broader than its explicit description and
-   need an ownership/scope check. SF.2 owns sheaf cohomology/base change; SF.3
-   owns curves/Picard/Jacobians; IG.1 supplies arithmetic exact sequences;
-   the pending raw-homotopy candidate is not a registered supplier. Avoid
-   introducing an NC.3→NC.0 stage cycle for the degree-one geometric bridge.
-   Validate current external key-owner/reserved IDs rather than assuming a
-   reserved contract is proved. Keep generic heights and NS with their owners.
-6. Recheck the single reserved `key/etale-k-pi-1` node against its inventory
-   sample API. Its full finite and p-primary coefficient classes retain full
-   π₁, not maximal pro-p π₁. P¹ is the degree-two obstruction; geometric
-   raw-homotopy equivalence has narrower hypotheses. Geometric prototypes must
-   remain honest omissions until their actual π/sheaf/ε interfaces exist.
-7. Finish the sourceIssues screen (currently empty), planets, audit duplication
-   and stage coverage. No stage is marked planned or closed, so do not reject
-   the planning pass merely for precise partial/not-read stages. Only after all
-   node and baseline checks, write the global review object with the required
-   reviewer ID and 362 justified per-node verdicts (plus any justified additions),
-   and turn this checkpoint report into the completed review report.
+1. Read the suggested file as text and remove lines matching
+   `^import TauCeti\..*`.
+2. Remove the exact block from `section Abelian` through `end Abelian`, inclusive.
+   Keep `section AbelianTwistingTest`; it has no Tau Ceti dependency.
+3. Write the remaining text to a scratch `.lean` file, check `free -g`, and run
+   `lean-check` on it under the shared-machine rules.
 
-Do not change the roadmap reader, atlas data, supplier packets, global queues or
-historical author handoff: they are outside this review's deliverables. No
-acceptance, promotion or implementation claim has been made by this checkpoint.
+Projection SHA-256:
+`3c673ea43f7d115078d17426699c2a8db4f38aafa73e6a44596e9b8b44494a57`.
+Suggested file SHA-256:
+`7d153ef927b6b1637f5dba083e4b65566e041afb238b8fb5db4e889699e2cb15`.
+The removed additive comparisons remain unchecked. Compilation with `sorry`
+checks signatures, not mathematical truth or implementation.
+
+Historical base64 recovery payloads and author receipts are preserved. Their
+canonical-prefix hashes concern earlier input files and do not describe the
+current suggested file. Neither review session decoded or executed them. Do
+not borrow their proof or execution claims as independent evidence.
+
+## Resume the review
+
+1. **Baseline consumers.** Read all 160 citations at Mathlib
+   `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti
+   `f790474821cf4256814db967cb154e7af3d0c369`, including surrounding variables
+   and each citing node. Selected statements and many declaration heads have
+   been read; the complete consumer audit is unfinished. The five added native
+   torsor/homeomorphism entries were checked in full. The orbit map is the
+   actual composition of `MulOpposite.opHomeomorph` and `Homeomorph.smulConst`. Basename searches can find the
+   wrong namespace: manually distinguish `IsEmbedding.continuous_iff`,
+   `IsQuotientMap.continuous_iff`, `Subgroup.continuousSMul`,
+   `IsOpenQuotientMap.prodMap`, `Continuous.smul` and `Quotient.congr`.
+   Retain exact coefficient/topology hypotheses. Native all-degree continuous
+   cohomology is not yet the geometric/derived-discrete comparison; Shapiro is
+   additive with its specific closed-subgroup/profinite scope; native
+   degree-one finite-quotient colimits do not establish nonabelian agreement.
+2. **Sources and proof leaves.** Check every node's locator/excerpt and every
+   authored deduction. Many source IDs are repeated readings of Kim v1; they
+   are not separate numbered theorems. Fresh selected reading is listed in the
+   report. Reacquire exact public versions using packet URLs/hashes; nothing
+   depends on scratch files. Still finish Schmidt–Stix Appendix A,
+   the relevant Poonen twisting passages, Stacks 03SB and 03RM's surrounding
+   proofs, 0F13 Künneth, 01ZM finite-presentation descent and their generic
+   dependencies. The selected statements/proofs at 03QQ, 03RQ, 0AMB, 03RR,
+   03PL, 03P8, 0BA0, 03RP, 03RV, 09YQ and 07RR have been read, but their
+   transitive proof closure is not certified. Achinger 2017 §4 and Schmidt
+   1996 pp.243–244 no longer need to be reacquired merely to inspect their
+   previously unread definitions/diagram. Verify further hypotheses as needed.
+3. **One-node matching.** Check each of the 363 nodes against its actual
+   declarations, prerequisites, sources and mathematical proof sketch. Work at
+   the issue's target level: do not require lemma-level splitting just because
+   inherited continuations chose it. The new torsor definition addresses a
+   missing object/API, rather than imposing a split of every proof. Treat
+   comment ledgers as omissions, not signatures. Continuation tests often
+   repeat identities; verify that the claimed three tests distinguish plausible
+   wrong objects. The later kernel/orbit families still need a full fresh
+   audit; a previous proof-sketch screen is not a per-node verdict.
+4. **Core gaps.** The torsor classification's abstract relation and injectivity
+   are now stated. Its algebraic comparison remains open: construct the
+   point-space functor, prove existence of points in the source scope,
+   homeomorphic orbit maps, both action compatibilities and descent/effectivity
+   before using path torsors or Selmer varieties. The central H² connecting
+   map, independence of continuous lifts, obstruction exactness and freeness
+   still need actual additive packaging/signatures. Additive comparison
+   naturality and agreement with native finite-quotient diagrams remain open.
+   Do not list the supplied invariants/continuity/abelian/twisting tests as
+   missing again; check their mathematical strength and matching instead.
+5. **Suppliers and coverage.** The seven reviewed audit records and actual
+   supplier stage descriptions were read. SF.2's accepted packet is partial,
+   SF.3 is not_read, and IG.0/IG.1/IG.6 have no relevant completed fine-grained
+   nodes in their current packet. Stage requests are precise desired contracts,
+   not established exports. ProfiniteCohomology Layer 10 explicitly owns the
+   all-degree colimit and its native comparison. Check remaining finer owner
+   contracts without modifying supplier files. IG.0's product π₁ and P¹
+   fundamental-group scope still needs confirmation. Avoid an NC.3→NC.0 stage
+   cycle for the geometric degree-one dictionary. Keep generic NS with A2,
+   generic heights with their routed owner, and M₀,n with the reserved moduli
+   owner. The raw-homotopy candidate is unaccepted and has no registered supplier
+   stages; resolve its foundational ownership rather than inventing a parallel
+   theory here. Coverage/gap ledgers contain historical supersession chains;
+   reconcile current obligations before a final verdict.
+6. **Reserved key definition.** `key/etale-k-pi-1` occurs once and has the
+   inventory's sample API/tests. Its full finite and p-primary classes use
+   full profinite π₁; constant Fₚ is a specialization, not pro-p replacement.
+   Raw-homotopy equivalence retains the cited geometrically-unibranch scope.
+   The geometric π/sheaf/ε Lean interfaces remain honest omissions. Do not
+   replace missing conditions with arbitrary Prop fields or invent carriers.
+7. **Final screen and verdict.** Finish sourceIssues (currently empty), planets,
+   duplication, all API/tests and planned/closed-stage closure. No stage is
+   currently planned or closed. Honest partial/not_read stages alone are not
+   grounds for sending back a budget-complete pass. Only after all checks,
+   write the required global review object, reviewer
+   `independent-review-REV-AnabelianGeometryAndNonabelianChabauty`, and one
+   justified checked entry for every node, including the added node. Use
+   `unverifiable` and needs_changes for an unresolved contradiction; do not
+   manufacture verified entries from compilation or inherited receipts.
+
+The report asks the orchestrator about IG.0's precise extra contracts and the
+unaccepted raw-homotopy owner's foundations. No roadmap reader, atlas data,
+supplier packet, global queue or author handoff was changed. Continue only this
+review's deliverables and its handoff. No promotion or acceptance is claimed.

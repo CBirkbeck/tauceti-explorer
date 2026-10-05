@@ -12,7 +12,7 @@
     "AnabelianGeometryAndNonabelianChabauty:NC.6"
   ],
   "status": "complete",
-  "summary": "Budget-complete planning pass under PROTOCOL section 0; open stages, gaps and requests remain explicit. Native inner-twisted kernel invariant action and actual orbit equivalence to the original coefficient fibre over [f∘c]. Actual invariant-orbit equivalences to the kernel inclusion image and neutral coefficient fibre. Actual kernel quotient-invariant action and ambient-fibre orbit criterion. Gauge stabilizer and kernel uniqueness continuation: native twisted-invariant/stabilizer comparison, actual gauge-witness spaces, sufficient invariant/stabilizer-lift criteria for kernel H¹ injectivity and unique repointed-fibre classes. Abstract embedded-kernel continuation: 19 declaration-sized nodes, 15 promoted API leaves and 14 typed tests. Partial anabelian checkpoint with 276 declaration-sized nodes. This continuation adds an actual native subgroup-to-twisted-kernel multiplicative identification, its jointly continuous transported inner action, a genuine continuous gauge-H¹ equivalence, and exact native ambient inclusion range criteria. Its explicit hypothesis is S≤U with x∈S iff f(x)=1; mapped-target and original-fibre converses also require f surjective. All 258 inherited mathematical contracts, seven stage statuses, nine gaps, seventeen supplier requests and eleven planets are preserved. NC.0 and NC.3 remain partial, other stages not_read, every node unchecked. The general abstract embedded-kernel adapter, central H², geometry, representability, local conditions, additive comparison, étale K(pi,1), Chen and BDMTV obligations are not closed.",
+  "summary": "Budget-complete planning pass under PROTOCOL section 0, with NC.0 and NC.3 partial and the other five stages not_read. The packet contains 363 nodes, 11 planets, 17 supplier requests and 10 explicit gaps; every implementation remains unchecked. The NC.3 continuations cover discrete quotient descent, coefficient and source maps, inner twisting, native and embedded kernels, stabilizers and invariant-orbit descriptions of coefficient fibres. Independent review checkpoint codex-CS32rR adds the nonempty equivariant topological torsor definition, actual isomorphism relation and classification API/tests, and records the separate algebraic-descent comparison gap. Geometric étale K(pi,1) interfaces, central H², representability, local conditions, unipotent point topologies, additive comparisons, Chen/BDMTV source inventory and generic supplier proofs remain open. This summary describes the current plan; historical continuation receipts describe their earlier revisions and are not independent review verdicts.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -1119,6 +1119,46 @@
         "module": "Mathlib/Logic/Equiv/Basic.lean",
         "provides": "Restricts an actual equivalence to subtypes when the predicates correspond; both inverse identities are inherited.",
         "checked": "Complete statement and implementation read at exact pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, lines 258–268."
+      },
+      {
+        "ref": "mathlib:Homeomorph",
+        "kind": "structure",
+        "module": "Mathlib/Topology/Homeomorph/Defs.lean",
+        "sourceLine": 43,
+        "provides": "A native equivalence with continuous forward and inverse functions between two topological spaces.",
+        "checked": "Complete statement, body and surrounding topological-space hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; Codex codex-CS32rR, 2026-10-05. No additional finiteness or separation hypothesis."
+      },
+      {
+        "ref": "mathlib:Torsor",
+        "kind": "class",
+        "module": "Mathlib/Algebra/Torsor/Defs.lean",
+        "sourceLine": 70,
+        "provides": "Native nonempty free-transitive multiplicative action with scalar division. Used on Uᵐᵒᵖ to encode the right U-torsor, rather than redefining its group-action theory.",
+        "checked": "Complete statement, body and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; Codex codex-CS32rR, 2026-10-05."
+      },
+      {
+        "ref": "mathlib:IsTopologicalTorsor",
+        "kind": "class",
+        "module": "Mathlib/Topology/Algebra/Group/Torsor.lean",
+        "sourceLine": 35,
+        "provides": "Native jointly continuous scalar multiplication and scalar division on a genuine torsor. These give continuous orbit maps and inverses.",
+        "checked": "Complete statement, body and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; Codex codex-CS32rR, 2026-10-05."
+      },
+      {
+        "ref": "mathlib:Homeomorph.smulConst",
+        "kind": "def",
+        "module": "Mathlib/Topology/Algebra/Group/Torsor.lean",
+        "sourceLine": 100,
+        "provides": "The native torsor orbit map v↦v•p bundled as a homeomorphism; specialize the acting group to Uᵐᵒᵖ.",
+        "checked": "Complete statement, body and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; Codex codex-CS32rR, 2026-10-05."
+      },
+      {
+        "ref": "mathlib:MulOpposite.opHomeomorph",
+        "kind": "def",
+        "module": "Mathlib/Topology/Algebra/Constructions.lean",
+        "sourceLine": 50,
+        "provides": "The actual homeomorphism U≃Uᵐᵒᵖ whose forward function is MulOpposite.op; compose with the native torsor orbit homeomorphism.",
+        "checked": "Complete statement, body and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; Codex codex-CS32rR, 2026-10-05."
       }
     ]
   },
@@ -2529,7 +2569,7 @@
       ],
       "title": "Torsors under U with compatible G-action are classified by H¹(G, U)",
       "kind": "theorem",
-      "statement": "A (G, U)-torsor is a topological space P with a continuous right action of U that is free and transitive, such that for one (equivalently every) p ∈ P the orbit map U → P, u ↦ p·u, is a homeomorphism, together with a continuous left action of G satisfying g•(p·u) = (g•p)·(g•u). For p ∈ P let c_p(g) ∈ U be the unique element with g•p = p·c_p(g). Then c_p ∈ Z¹(G, U), c_{p·u} = u⁻¹·c_p under the twisted-conjugation action, so [P] := [c_p] ∈ H¹(G, U) is independent of p and of the isomorphism class of P; P ↦ [P] is a bijection from isomorphism classes of (G, U)-torsors to H¹(G, U), the trivial torsor U corresponds to the base point, and P has a G-fixed point iff [P] is the base point. The inverse sends [c] to U with the twisted G-action g ∗ u := c(g)·(g•u).",
+      "statement": "A (G, U)-torsor is a nonempty topological space P with a continuous right action of U that is free and transitive, such that for one (equivalently every) p ∈ P the orbit map U → P, u ↦ p·u, is a homeomorphism, together with a continuous left action of G satisfying g•(p·u) = (g•p)·(g•u). For p ∈ P let c_p(g) ∈ U be the unique element with g•p = p·c_p(g). Then c_p ∈ Z¹(G, U), c_{p·u} = u⁻¹·c_p under the twisted-conjugation action, so [P] := [c_p] ∈ H¹(G, U) is independent of p and of the isomorphism class of P; P ↦ [P] is a bijection from isomorphism classes of (G, U)-torsors to H¹(G, U), the trivial torsor U corresponds to the base point, and P has a G-fixed point iff [P] is the base point. The inverse sends [c] to U with the twisted G-action g ∗ u := c(g)·(g•u).",
       "hypotheses": [
         "G is a topological group and U a topological group with an action of G by group automorphisms (MulDistribMulAction G U) such that the action map G × U → U is continuous (ContinuousSMul G U). Torsors are topological, with the orbit maps homeomorphisms; isomorphisms of torsors are homeomorphisms compatible with both actions."
       ],
@@ -2540,20 +2580,18 @@
         "A G-fixed point p has c_p = 1; conversely, if c_p(g) = u·(g•u)⁻¹ for all g, then g•(p·u) = p·c_p(g)·(g•u) = p·u, so p·u is fixed."
       ],
       "acceptance": [
-        "Path torsors: for a rational point x of a curve and a base point b, the torsor of paths from b to x, with the Galois action, has class [P(x)] ∈ H¹(G_K, U); this is the map from rational points to H¹ used in NC.4 (Kim 2009, introduction).",
-        "Poonen's classification of torsors under a smooth algebraic group G over k by H¹(k, G) (§5.12.4) is the algebraic version with G = Gal(k_s/k) and U = G(k_s) discrete."
+        "After constructing the geometric-to-topological torsor comparison recorded as a gap, a path torsor from a base point b to a rational point x has class [P(x)] in H¹(G_K,U), the target used by NC.4. The abstract topological classification alone does not supply the comparison.",
+        "After the separate Galois-descent/effectivity comparison, Poonen's §5.12 algebraic torsor classification agrees with the point-space class map for G=Gal(k_s/k), U=H(k_s) discrete, in the smooth algebraic group scope. An arbitrary equivariant homeomorphism is not yet an algebraic torsor isomorphism."
       ],
       "prerequisites": [
         "AnabelianGeometryAndNonabelianChabauty:NC.3/nonabelian-h1",
-        "AnabelianGeometryAndNonabelianChabauty:NC.3/continuous-cocycles",
-        "mathlib:MulAction.toPerm",
-        "mathlib:Topology.IsQuotientMap"
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/equivariant-topological-torsors"
       ],
       "sources": [
         {
           "sourceId": "kim-siegel-2005",
-          "locator": "§1, Proposition 1, p. 5",
-          "match": "The classification of torsors by continuous H¹."
+          "locator": "§1, Proposition 1 and its proof, printed pp. 5–7 (arXiv v1)",
+          "match": "Kim proves this for filtered affine-algebra U_R-torsors. The node is an authored topological abstraction of the pointwise argument; the scheme/filtered-algebra comparison is recorded separately as a gap."
         },
         {
           "sourceId": "kim-siegel-2005",
@@ -2574,7 +2612,49 @@
       "implementationStatus": "unchecked",
       "planet": {
         "name": "Torsors and nonabelian H¹"
-      }
+      },
+      "api": [
+        {
+          "name": "TauCeti.NonabelianCohomology.Torsor.classOf",
+          "role": "constructor",
+          "statement": "The class [c_p] is independent of p."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.Torsor.classOf_eq_mk_cocycle",
+          "role": "compatibility",
+          "statement": "For every point p, classOf(P)=[c_p]."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.Torsor.classOf_ofCocycle",
+          "role": "simp",
+          "statement": "classOf(P_c)=[c]."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.Torsor.classOf_eq_classOf_iff",
+          "role": "characterisation",
+          "statement": "classOf(P)=classOf(Q) if and only if there exists an action-compatible homeomorphism P→Q."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.Torsor.classOf_surjective",
+          "role": "other",
+          "statement": "Every continuous H¹ class is the class of a topological torsor model."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.Torsor.classification",
+          "role": "equivalence",
+          "statement": "The actual quotient of torsors by existence of action-compatible homeomorphisms is equivalent to H¹(G,U)."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.Torsor.classification_mk",
+          "role": "simp",
+          "statement": "The equivalence sends the quotient class of P to classOf(P)."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.Torsor.classOf_eq_one_iff",
+          "role": "characterisation",
+          "statement": "classOf(P)=1 if and only if P has a G-fixed point."
+        }
+      ]
     },
     {
       "id": "AnabelianGeometryAndNonabelianChabauty:key/etale-k-pi-1",
@@ -2621,13 +2701,18 @@
       "sources": [
         {
           "sourceId": "schmidt-stix-2016",
-          "locator": "§2.3, pp. 826–827; cohomological criterion in Lemma 2.7(b)",
+          "locator": "§2.3, pp. 826–827; cohomological criterion in the proof of Lemma 2.7(b)",
           "match": "Full finite coefficients are related to the raw homotopy definition under the separate comparison hypotheses."
         },
         {
           "sourceId": "farb-kisin-wolfson-2024-v2",
           "locator": "§2.3.1, p. 16; Lemma 3.2.2, p. 24",
           "match": "The constant-Fₚ edge map and the specially justified maximal-pro-p inflation are different inputs."
+        },
+        {
+          "sourceId": "achinger-all-primes-2017",
+          "locator": "§4, Definition 4.1 (version-of-record HTML); Proposition 4.2 and Lemma 4.3",
+          "match": "Definition 4.1 gives the canonical all-degree comparison for all locally constant constructible abelian coefficients on a pointed connected coherent scheme, without an invertibility restriction. The packet parameterizes its coefficient class and extends the predicate to connected locally noetherian schemes; equivalence theorems retain their separate source hypotheses."
         }
       ],
       "library": {
@@ -20933,6 +21018,184 @@
         "name": "TauCeti.NonabelianCohomology.H1.twistedKernelInvariantAction_injective_iff"
       },
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/equivariant-topological-torsors",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "kind": "definition",
+      "title": "Equivariant topological torsors and their isomorphisms",
+      "statement": "For topological groups G and U with a jointly continuous G-action by automorphisms on U, a (G,U)-torsor is a NONEMPTY topological space P with a continuous right U-action, every orbit map u↦p·u a homeomorphism, and a jointly continuous left G-action satisfying g(p·u)=(gp)·(gu). An isomorphism P≅Q is a homeomorphism commuting with both actions. Existence of such an isomorphism defines an equivalence relation on torsors. A point p defines the actual continuous cocycle c_p by gp=p·c_p(g). A continuous cocycle c gives the torsor model U with right multiplication and g⋆u=c(g)·g(u), up to the harmless universe lift represented by its specified homeomorphism U≅P_c. Package the underlying right-action torsor as native Torsor Uᵐᵒᵖ P with IsTopologicalTorsor P; only the compatible continuous G-action and its semilinearity are new data.",
+      "hypotheses": [
+        "G and U are topological groups. The G-action on U is by group automorphisms and is jointly continuous.",
+        "The carrier P is nonempty; a free transitive action stated without nonemptiness would also admit the empty space. Orbit maps have continuous inverses, not merely continuous bijections."
+      ],
+      "proofSteps": [
+        "Reuse native Torsor Uᵐᵒᵖ P and IsTopologicalTorsor P, including native nonemptiness, free transitivity and continuous scalar division. Their orbit homeomorphism is Homeomorph.smulConst p; compose with MulOpposite.opHomeomorph to obtain U≃P. Conversely the original right-action/homeomorphic-orbit description gives the native continuous scalar division by choosing one point and using its global coordinates, so this is the same mathematical object. Add only the semilinear continuous G-action. Reflexivity, symmetry and composition of action-compatible homeomorphisms prove the isomorphism relation is a setoid.",
+        "The inverse of the orbit homeomorphism sends gp to c_p(g). Semilinearity and cancellation yield c_p(gh)=c_p(g)·g(c_p(h)); its continuity is composition with the continuous G-orbit map.",
+        "At p·u the cocycle is u⁻¹c_p(g)g(u), exactly inverse-gauge translation under the existing Z1 action. An isomorphism carries p to a point with the same cocycle.",
+        "In the model P_c, associativity of g⋆u=c(g)g(u) is the cocycle law. Joint continuity follows from the cocycle and original action. Right multiplication is semilinear, and left translation by a fixed point is a homeomorphism.",
+        "These are authored topological abstractions of the pointwise calculation in Kim Proposition 1. Its filtered affine-algebra hypotheses, scheme descent and representability are not consequences of this abstraction."
+      ],
+      "acceptance": [
+        "The empty space is excluded explicitly.",
+        "Do not quotient all torsor homeomorphisms: both the G-action and the U-action must be preserved.",
+        "The model of a nonneutral cocycle has no G-fixed point; a gauge change gives an isomorphic model."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/continuous-cocycles",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/nonabelian-h1",
+        "mathlib:Homeomorph",
+        "mathlib:Torsor",
+        "mathlib:IsTopologicalTorsor",
+        "mathlib:Homeomorph.smulConst",
+        "mathlib:MulOpposite.opHomeomorph"
+      ],
+      "uses": [
+        {
+          "where": "AnabelianGeometryAndNonabelianChabauty:NC.3/torsor-classification",
+          "how": "Supplies the nonempty carrier, semilinearity, point cocycle and actual isomorphism relation whose quotient is classified by H¹."
+        },
+        {
+          "where": "AnabelianGeometryAndNonabelianChabauty:NC.0 and NC.2 path-torsor targets",
+          "how": "Specifies the topological torsor interface; geometric/algebraic realization and their extra structures require separate comparisons."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.NonabelianCohomology.Torsor",
+          "role": "constructor",
+          "statement": "The semilinear G-action bundle over native Torsor Uᵐᵒᵖ P and IsTopologicalTorsor P; native torsor theory supplies nonemptiness and the homeomorphic orbit maps."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.Torsor.Iso",
+          "role": "constructor",
+          "statement": "An isomorphism P→Q is a homeomorphism respecting the right U-action and the left G-action."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.Torsor.Iso.ext",
+          "role": "extensionality",
+          "statement": "Two torsor isomorphisms are equal when their underlying functions agree at every point."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.Torsor.Iso.refl",
+          "role": "constructor",
+          "statement": "The identity homeomorphism is a torsor isomorphism P→P."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.Torsor.Iso.symm",
+          "role": "functoriality",
+          "statement": "A torsor isomorphism P→Q has an inverse torsor isomorphism Q→P."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.Torsor.Iso.trans",
+          "role": "functoriality",
+          "statement": "Composing torsor isomorphisms P→Q and Q→R gives an isomorphism P→R."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.Torsor.orbitHomeomorph",
+          "role": "constructor",
+          "statement": "For p∈P, the map u↦p·u is bundled as the native homeomorphism U≅P."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.Torsor.orbitHomeomorph_apply",
+          "role": "simp",
+          "statement": "The orbit homeomorphism at p evaluates at u to p·u."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.Torsor.ofCocycle",
+          "role": "constructor",
+          "statement": "For c∈Z¹(G,U), construct the semilinear torsor model with action g⋆u=c(g)g(u)."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.Torsor.ofCocycleHomeomorph",
+          "role": "compatibility",
+          "statement": "The model P_c has a specified native homeomorphism U≅P_c, so universes do not force a definitional equality of carriers."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.Torsor.ofCocycleHomeomorph_right",
+          "role": "simp",
+          "statement": "The model homeomorphism sends xy to the right translate by y of the image of x."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.Torsor.ofCocycleHomeomorph_left",
+          "role": "simp",
+          "statement": "The G-translate of the model image of x equals the model image of c(g)g(x)."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.Torsor.cocycle",
+          "role": "constructor",
+          "statement": "The unique continuous cocycle c_p with gp=p·c_p(g)."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.Torsor.cocycle_spec",
+          "role": "characterisation",
+          "statement": "gp=p·c_p(g) for every g."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.Torsor.cocycle_change_point",
+          "role": "relation",
+          "statement": "c_(p·u)=u⁻¹·c_p under the existing gauge action."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.Torsor.cocycle_map_iso",
+          "role": "compatibility",
+          "statement": "For an action-compatible homeomorphism e:P→Q, c_(e(p))=c_p."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.Torsor.cocycle_ofCocycle",
+          "role": "simp",
+          "statement": "The cocycle of the model at the image of 1 is exactly c."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.Torsor.isoSetoid",
+          "role": "characterisation",
+          "statement": "The setoid relation on actual torsors is existence of an action-compatible homeomorphism, using its identity, inverse and composition."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.NonabelianCohomology.tests.torsor_orbit_at_identity",
+          "kind": "degenerate",
+          "statement": "The orbit homeomorphism at p sends 1 to p."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.tests.torsor_coboundary_isomorphic",
+          "kind": "characterisation",
+          "statement": "For every u∈U, the model of the coboundary u·g(u)⁻¹ is isomorphic as a (G,U)-torsor to the model of the trivial cocycle."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.tests.torsor_gauge_isomorphic",
+          "kind": "compatibility",
+          "statement": "The models of u·c and c are isomorphic as equivariant topological torsors."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.tests.torsor_nonneutral_no_fixed_point",
+          "kind": "non-example",
+          "statement": "If [c]≠1, the model P_c has no G-fixed point; an interface forgetting the G-action would wrongly identify it with the trivial torsor."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.tests.torsor_inequivalent_not_isomorphic",
+          "kind": "non-example",
+          "statement": "If [c]≠[d], there is no action-compatible homeomorphism P_c→P_d, even though both underlying spaces are homeomorphic to U."
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "kim-siegel-2005",
+          "locator": "§1, Proposition 1 and its proof, printed pp. 5–7 (arXiv v1)",
+          "match": "The source proves a filtered affine-algebra torsor statement. Its pointwise cocycle, point-change and inverse construction motivate the authored topological abstraction here; no scheme-level classification is claimed."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/Torsor",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.Torsor"
+      },
+      "implementationStatus": "unchecked",
+      "addedBy": "REV-AnabelianGeometryAndNonabelianChabauty"
     }
   ],
   "requests": [
@@ -21136,7 +21399,8 @@
         "Gauge stabilizers are identified with actual twisted invariants, and the space of witnesses is the right stabilizer translate x Stab(c), with both continuity directions. Kernel H¹ injectivity is supplied under the explicit all-cocycle stabilizer-lift condition, in particular under trivial quotient invariants. The twisted and abstract embedded-kernel inclusions are injective when H⁰(G,Twist(f∘c))=1; surjective f then gives a unique class in each actual original fibre over [f∘c]. These are sufficient conditions, not unconditional injectivity or unique cocycle/gauge representatives. Classification of general kernel fibres by an invariant action, arbitrary stable/non-normal subgroup adapters, central H²/cochain independence, genuine additive comparison, unipotent-point topologies, geometric torsors, representability/local conditions and every reserved-key/Chen/BDMTV/RT-A2/A6 obligation remain required.",
         "An actual H⁰(G,V)-action on native H¹(G,K) is specified for surjective equivariant f and the actual subgroup K=ker(f), with its compatible jointly continuous G-action. It descends ordinary ambient gauges through E=f⁻¹(H⁰(G,V)); lift independence holds at class level. Two kernel classes have equal ambient H¹ images exactly when they lie in one orbit of this action. Explicit orbit-quotient equivalences to the image/neutral fibre, specialized twisted and abstract embedded-kernel action adapters, their original repointed-fibre comparisons and stabilizer characterizations remain to be constructed. Arbitrary stable/non-normal subgroup adapters, central H²/cochain independence, genuine additive comparison, unipotent point topologies, geometric torsors, representability/local conditions and every reserved-key/Chen/BDMTV/RT-A2/A6 obligation remain required.",
         "The actual quotient H¹(G,K)/H⁰(G,V) is now equivalent to the inclusion image; for continuous surjective equivariant f between topological groups with jointly continuous actions it is equivalent to the actual neutral coefficient fibre. Both inverse laws, range-witness independence and injectivity iff trivial invariant action are specified. The inverse selects an orbit, not a unique kernel class. Specialize and transport the action and quotient equivalences to the native inner-twisted, named and abstract embedded kernels, then to the original fibre over [f∘c]; construct their inclusion squares, representative compatibility and stabilizer descriptions. Arbitrary stable/non-normal subgroup adapters, central H²/cochain independence, genuine additive comparison, unipotent point topologies, geometric torsors, representability/local conditions and every reserved K(pi,1), Chen, BDMTV and RT-A2/A6 source/supplier obligation remain required.",
-        "The native inner-twisted kernel now has its actual H⁰(G,V_(f∘c))-action and orbit equivalence to the original coefficient fibre over [f∘c], with both inverse laws, base point, actual representative formula, lift-independent orbit values and injectivity iff trivial action. Transport this action and quotient classification through the existing named and abstract embedded-kernel equivalences, proving orbit-equivariance and inclusion/representative squares. Establish orbit stabilizer descriptions and representative-change compatibility. Arbitrary stable/non-normal subgroup adapters, central H²/cochain independence, genuine additive comparison, unipotent point topologies, geometric torsors, representability/local conditions, all-degree geometric K(pi,1), Chen, BDMTV and RT-A2/A6 source/supplier obligations remain required."
+        "The native inner-twisted kernel now has its actual H⁰(G,V_(f∘c))-action and orbit equivalence to the original coefficient fibre over [f∘c], with both inverse laws, base point, actual representative formula, lift-independent orbit values and injectivity iff trivial action. Transport this action and quotient classification through the existing named and abstract embedded-kernel equivalences, proving orbit-equivariance and inclusion/representative squares. Establish orbit stabilizer descriptions and representative-change compatibility. Arbitrary stable/non-normal subgroup adapters, central H²/cochain independence, genuine additive comparison, unipotent point topologies, geometric torsors, representability/local conditions, all-degree geometric K(pi,1), Chen, BDMTV and RT-A2/A6 source/supplier obligations remain required.",
+        "Independent review checkpoint codex-CS32rR supplies the nonempty equivariant topological torsor, action-compatible homeomorphism relation, quotient classification and inherited invariants/continuity/abelian/twisting tests. The algebraic/filtered-affine torsor comparison still needs the point-space functor, orbit-homeomorphism property, both action compatibilities and descent/effectivity before geometric use. The complete baseline-consumer, source, API/test and target-closure review remains unfinished; no review verdict or stage completion is asserted."
       ]
     },
     {
@@ -21205,7 +21469,7 @@
         "AnabelianGeometryAndNonabelianChabauty:NC.0/product-cover-effacement",
         "AnabelianGeometryAndNonabelianChabauty:NC.0/geometric-product"
       ],
-      "detail": "The characteristic-zero smooth-curve node now uses the freshly split direct cohomological route (connected prime-degree covers, actual degree-two killing and separable-closure descent), not raw-homotopy-comparison. Its SF.2/SF.3/IG.0 inputs remain precise open requests, including generic Kummer/cohomology and curve-degree/genus facts and the limit/property-descent proofs. Schmidt 1996 Proposition 15's parsed proof was read, but its scanned degree diagram was not visually inspected. Artin–Mazur 4.3/11.1 and raw comparison remain separate proof leaves, and products still use SGA 1 XIII 4.6 and SGA 4½ finitude 1.11. No delegated leaf is closed merely by the new assembly. The product proof now has three finitary nodes: positive families, class killing on an arbitrary product cover, and geometric binary closure. SGA geometric π₁ product/dictionary, canonical prime-field external products with the field-complex bridge, connected common refinements and geometric-condition stability remain open. Their exact supplier contracts have been refined; no leaf is certified closed."
+      "detail": "The characteristic-zero smooth-curve node now uses the freshly split direct cohomological route (connected prime-degree covers, actual degree-two killing and separable-closure descent), not raw-homotopy-comparison. Its SF.2/SF.3/IG.0 inputs remain precise open requests, including generic Kummer/cohomology and curve-degree/genus facts and the limit/property-descent proofs. Independent review codex-CS32rR visually inspected Schmidt 1996 Proposition 15 on printed pp. 243–244, including the degree-two diagram: its restriction map is multiplication by the cover degree. This confirms the cited calculation, while the generic supplier proofs below remain open. Artin–Mazur 4.3/11.1 and raw comparison remain separate proof leaves, and products still use SGA 1 XIII 4.6 and SGA 4½ finitude 1.11. No delegated leaf is closed merely by the new assembly. The product proof now has three finitary nodes: positive families, class killing on an arbitrary product cover, and geometric binary closure. SGA geometric π₁ product/dictionary, canonical prime-field external products with the field-complex bridge, connected common refinements and geometric-condition stability remain open. Their exact supplier contracts have been refined; no leaf is certified closed."
     },
     {
       "title": "Typed étale comparison carrier and suggested signatures",
@@ -21269,6 +21533,15 @@
       "kernelImageConverseContinuation": "The native twisted quotient and the surjective coefficient-map neutral fibres now equal the actual kernel-H¹ image, by lifting one gauge element and restricting its inverse-gauge normalized continuous cocycle. The original fibre is over [f∘c]. No kernel-H¹ injectivity or unique preimage follows. Arbitrary named G-stable subgroup adapters, central H² obstruction, geometric torsor classification, unipotent point topologies, genuine additive comparison, representability, local conditions and every inherited source/supplier obligation remain open.",
       "namedNativeKernelContinuation": "The actual named native subgroup S=ker(f) adapter is now specified with its continuous inner action, genuine H¹ equivalence and three inclusion-range criteria. General abstract embedded kernel A with explicit topological equivalence to the native kernel remains open; arbitrary G-stable/non-normal subgroups are not covered. Central H² obstruction and cochain independence, fibre orbit stabilizers/invariant conditions, geometric and unipotent-point topology/local conditions, and additive comparison remain required.",
       "abstractEmbeddedKernelContinuation": "The abstract embedded-kernel adapter is specified for a supplied topological embedding i:A→U with range(i)=ker(f), with two-way continuity, transported inner action, actual pointed H¹ comparison, inclusion comparison and all three image criteria. No ambient H¹ injectivity or unique kernel preimage is claimed. Arbitrary non-normal or merely G-stable subgroups, stabilizers/invariant hypotheses, central H²/cochain independence, genuine additive comparison, unipotent point topologies, representability, geometric torsors/local conditions and every reserved-key/Chen/BDMTV/RT-A2/A6 obligation remain open."
+    },
+    {
+      "title": "Algebraic torsors versus equivariant topological torsors",
+      "neededBy": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/torsor-classification",
+        "AnabelianGeometryAndNonabelianChabauty:NC.2",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "detail": "The topological classification uses nonempty point-space torsors with homeomorphic orbit maps. Kim arXiv v1 Proposition 1 instead classifies filtered affine-algebra U_R-torsors in his category C_R; Poonen §5.12 classifies algebraic torsors using Galois descent. Construct and verify the functor to point-space torsors, existence of the chosen points in the source scope, the orbit-homeomorphism property, compatibility with both actions, and effectivity/descent on isomorphisms before exporting this abstraction to geometric path torsors or representable Selmer varieties. Neither a bijection on points nor an arbitrary point-space homeomorphism is an algebraic isomorphism."
     }
   ],
   "sourceIssues": [],
