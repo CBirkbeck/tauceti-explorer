@@ -105,6 +105,8 @@ theorem clearingJacobian {K : Type*} [Field K] [Algebra ℚ K]
       (show Matrix (Fin n) (Fin n) K from fun i j => (M i j : K)) +
         Matrix.diagonal (fun i => (d : K) * y i ^ d / (1 - y i ^ d))
     J = -(Matrix.diagonal c * B * Matrix.diagonal (fun j => (y j)⁻¹)) ∧
+      Matrix.det J = (-1 : K) ^ n * (∏ i, c i) *
+        (∏ j, (y j)⁻¹) * Matrix.det B ∧
       (Matrix.det J ≠ 0 ↔ Matrix.det B ≠ 0) := by
   sorry
 
@@ -193,7 +195,8 @@ theorem coherentRootBoundary {K : Type*} [Field K]
     ∑ i, exteriorPower.ιMulti ℤ 2 ![Additive.ofMul (y i ^ d), Additive.ofMul (t i)] = 0 := by
   sorry
 
-/-- The diagonal signs in GSWZ (41) leave a genuine possible 2-torsion boundary. -/
+/-- The diagonal signs in GSWZ (41) leave a genuine possible 2-torsion boundary.
+    Read the inner product variable as z_i, correcting the printed z_j (E36). -/
 theorem signedBoundaryObstruction {K : Type*} [Field K]
     (M : Matrix (Fin n) (Fin n) ℤ) (hM : ∀ i j, M i j = M j i)
     (z t : Fin n → Kˣ) (ht : ∀ i, (t i : K) = 1 - (z i : K))
@@ -211,7 +214,9 @@ the integral class represented by sum[x_i] in E (coherentRootBoundary).
 Then the image of c_d equals d beta, so the rationalized F class c_d/d maps
 to beta. For every embedding tau:E→C, the Bloch-Wigner value of beta is
 sum_i D(tau(x_i)), equal to the value at tau restricted to F of c_d/d.
-All embeddings of F extend to E. Consequently, using the imported Borel
+All embeddings of F extend to E. If beta maps to zero over Qbar, each
+embedding E→C extends across Qbar/E, so every regulator value is zero.
+Consequently, using the imported Borel
 criterion, c_d/d=0 iff beta is torsion iff beta maps to zero over Qbar.
 At the preferred real embedding, L_CGZ(x)=pi²/6-L_std(x), with period pi²/2;
 L(0)=pi²/6, L(1)=0, L(infinity)=-pi²/6. The circle-valued map is applied
