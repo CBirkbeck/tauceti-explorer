@@ -260,6 +260,18 @@
     "data/links/tauceti_TauCetiRoadmap_ZigzagPreprojective.json"
    ]
   },
+  "research/blueprint/packets/AbelianSchemesAndArithmeticModuliPartII.json": {
+   "promotedAt": "2026-10-05T02:04:11Z",
+   "review": "ffcf41800a662895",
+   "reviewDate": "2026-10-05",
+   "reviewer": "independent-review-REV-DESIGN-AbelianSchemesAndArithmeticModuliPartII",
+   "sha256": "a4cfd32db464be2e7e935070c073d3add46ce52173be146bb7c2326b545ae87d",
+   "to": [
+    "data/blueprints/AbelianSchemesAndArithmeticModuliPartII.json",
+    "data/blueprints/AbelianSchemesAndArithmeticModuliPartII.md",
+    "data/blueprints/roadmaps/AbelianSchemesAndArithmeticModuliPartII.json"
+   ]
+  },
   "research/blueprint/packets/AbelianVarietiesIsogenousToNoJacobian.json": {
    "promotedAt": "2026-10-05T00:15:57Z",
    "review": "e4cc8a974c350ad3",
@@ -593,6 +605,17 @@
    "to": [
     "data/blueprints/K3BlochGroups.json",
     "data/blueprints/K3BlochGroups.md"
+   ]
+  },
+  "research/blueprint/packets/NeronModelsAndSemistableAbelianVarieties.json": {
+   "promotedAt": "2026-10-05T02:04:11Z",
+   "review": "f87636458b1a2046",
+   "reviewDate": "2026-10-05",
+   "reviewer": "independent-review-REV-NeronModelsAndSemistableAbelianVarieties",
+   "sha256": "ecfc3d666e01fb13072267aead918ad3926a2d766f5718558a3a7da9e7e56e5a",
+   "to": [
+    "data/blueprints/NeronModelsAndSemistableAbelianVarieties.json",
+    "data/blueprints/NeronModelsAndSemistableAbelianVarieties.md"
    ]
   },
   "research/blueprint/packets/Polylogarithms.json": {
