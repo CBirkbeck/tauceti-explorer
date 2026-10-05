@@ -31684,8 +31684,9 @@
    ],
    "followUpOf": "BP-K3BlochGroups",
    "prompt": "research/blueprint/prompts/BP-K3BlochGroups--V.5.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6385"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6385",
+   "finishedAt": "2026-10-05T23:28:43Z"
   },
   {
    "id": "REV-K3BlochGroups--V.5",
@@ -34195,7 +34196,8 @@
    ],
    "followUpOf": "BP-HabiroRings",
    "prompt": "research/blueprint/prompts/BP-HabiroRings--HR.3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6499"
   },
   {
    "id": "REV-HabiroRings--HR.3",
