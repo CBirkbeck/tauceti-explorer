@@ -1,0 +1,920 @@
+{
+  "roadmapId": "MultiquadraticPartII",
+  "protocol": "blueprint-v1",
+  "part": null,
+  "scope": [
+    "MultiquadraticPartII:RQ.0",
+    "MultiquadraticPartII:RQ.1",
+    "MultiquadraticPartII:RQ.2",
+    "MultiquadraticPartII:RQ.3"
+  ],
+  "status": "complete",
+  "summary": "Extend the built multiquadratic and narrow genus theory by an explicit real quadratic kernel statement, descent of real class characters, exact cardinalities of genus fibres, and the arithmetic sign criteria used in real quadratic period formulas. Compare the imported form character with the existing ideal character at positive fundamental discriminants, keeping general form carriers and character well-definedness with Geometry of Numbers.",
+  "baseline": {
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "declarations": [
+      {
+        "ref": "tauceti:NumberField.NarrowClassGroup",
+        "kind": "def",
+        "module": "TauCeti/NumberTheory/NumberField/NarrowClassGroup/Basic.lean",
+        "provides": "Fractional-ideal classes modulo principal ideals with totally positive generators.",
+        "checked": "Statement and relevant proof read at the recorded pinned commit on 2026-10-05."
+      },
+      {
+        "ref": "tauceti:NumberField.NarrowClassGroup.mkPrincipal",
+        "kind": "def",
+        "module": "TauCeti/NumberTheory/NumberField/NarrowClassGroup/Basic.lean",
+        "provides": "Homomorphism Kˣ→Cl⁺(K) given by the principal fractional ideal.",
+        "checked": "Statement and relevant proof read at the recorded pinned commit on 2026-10-05."
+      },
+      {
+        "ref": "tauceti:NumberField.NarrowClassGroup.toClassGroup",
+        "kind": "def",
+        "module": "TauCeti/NumberTheory/NumberField/NarrowClassGroup/Basic.lean",
+        "provides": "Forgetful homomorphism Cl⁺(K)→ClassGroup(𝓞 K).",
+        "checked": "Statement and relevant proof read at the recorded pinned commit on 2026-10-05."
+      },
+      {
+        "ref": "tauceti:NumberField.NarrowClassGroup.toClassGroup_ker",
+        "kind": "theorem",
+        "module": "TauCeti/NumberTheory/NumberField/NarrowClassGroup/Basic.lean",
+        "provides": "The forgetful kernel equals the range of mkPrincipal.",
+        "checked": "Statement and relevant proof read at the recorded pinned commit on 2026-10-05."
+      },
+      {
+        "ref": "tauceti:NumberField.NarrowClassGroup.toClassGroup_surjective",
+        "kind": "theorem",
+        "module": "TauCeti/NumberTheory/NumberField/NarrowClassGroup/Basic.lean",
+        "provides": "Forgetting positivity is surjective.",
+        "checked": "Statement and relevant proof read at the recorded pinned commit on 2026-10-05."
+      },
+      {
+        "ref": "tauceti:NumberField.NarrowClassGroup.mkPrincipal_sq",
+        "kind": "theorem",
+        "module": "TauCeti/NumberTheory/NumberField/NarrowClassGroup/Basic.lean",
+        "provides": "Every principal narrow class has square one, for any number field.",
+        "checked": "Statement and relevant proof read at the recorded pinned commit on 2026-10-05."
+      },
+      {
+        "ref": "tauceti:NumberField.mkPrincipal_eq_one_or_eq_mkPrincipal_gen",
+        "kind": "theorem",
+        "module": "TauCeti/NumberTheory/NumberField/Quadratic/Conjugation/NarrowClassGroup.lean",
+        "provides": "For θ²=d generating K, every principal narrow class is either one or the class of (θ).",
+        "checked": "Statement and relevant proof read at the recorded pinned commit on 2026-10-05."
+      },
+      {
+        "ref": "tauceti:NumberField.mkPrincipal_eq_mkPrincipal_gen_of_norm_neg",
+        "kind": "theorem",
+        "module": "TauCeti/NumberTheory/NumberField/Quadratic/Conjugation/NarrowClassGroup.lean",
+        "provides": "Every negative-norm generator has the class of (θ); no squarefree or positivity hypothesis required.",
+        "checked": "Statement and relevant proof read at the recorded pinned commit on 2026-10-05."
+      },
+      {
+        "ref": "tauceti:NumberField.NarrowClassGroup.toClassGroup_injective_iff_exists_norm_eq_neg_one",
+        "kind": "theorem",
+        "module": "TauCeti/NumberTheory/NumberField/Quadratic/Conjugation/NarrowClassGroup.lean",
+        "provides": "For θ²=d generating K and d>0, the forgetful map is injective iff an integral unit has rational norm −1.",
+        "checked": "Statement and relevant proof read at the recorded pinned commit on 2026-10-05."
+      },
+      {
+        "ref": "tauceti:NumberField.NarrowClassGroup.instFinite",
+        "kind": "instance",
+        "module": "TauCeti/NumberTheory/NumberField/NarrowClassGroup/Finite.lean",
+        "provides": "The narrow class group of any number field is finite.",
+        "checked": "Statement and relevant proof read at the recorded pinned commit on 2026-10-05."
+      },
+      {
+        "ref": "tauceti:NumberField.NarrowClassGroup.ElementaryTwoQuotient",
+        "kind": "abbrev",
+        "module": "TauCeti/NumberTheory/NumberField/NarrowClassGroup/ElementaryTwoQuotient.lean",
+        "provides": "The existing additive F₂-space Cl⁺(K)/Cl⁺(K)².",
+        "checked": "Statement and relevant proof read at the recorded pinned commit on 2026-10-05."
+      },
+      {
+        "ref": "tauceti:TauCeti.elementaryTwoQuotientMk",
+        "kind": "def",
+        "module": "TauCeti/Algebra/Group/ElementaryTwoQuotient/Basic.lean",
+        "provides": "Class map from a commutative group to its elementary-two quotient.",
+        "checked": "Statement and relevant proof read at the recorded pinned commit on 2026-10-05."
+      },
+      {
+        "ref": "tauceti:TauCeti.elementaryTwoQuotientMk_surjective",
+        "kind": "theorem",
+        "module": "TauCeti/Algebra/Group/ElementaryTwoQuotient/Basic.lean",
+        "provides": "Every element of G/G² has a representative in G.",
+        "checked": "Statement and relevant proof read at the recorded pinned commit on 2026-10-05."
+      },
+      {
+        "ref": "tauceti:TauCeti.elementaryTwoQuotientMk_eq_zero_iff",
+        "kind": "theorem",
+        "module": "TauCeti/Algebra/Group/ElementaryTwoQuotient/Basic.lean",
+        "provides": "q(g)=0 iff g is a square in the commutative group.",
+        "checked": "Statement and relevant proof read at the recorded pinned commit on 2026-10-05."
+      },
+      {
+        "ref": "tauceti:TauCeti.elementaryTwoQuotientEquivSquareQuotient",
+        "kind": "def",
+        "module": "TauCeti/Algebra/Group/ElementaryTwoQuotient/Basic.lean",
+        "provides": "Additive equivalence between the ModN model and the quotient by the additive form of the square subgroup.",
+        "checked": "Statement and relevant proof read at the recorded pinned commit on 2026-10-05."
+      },
+      {
+        "ref": "tauceti:NumberField.NarrowClassGroup.card_elementaryTwoQuotient_eq_two_pow_twoRank",
+        "kind": "theorem",
+        "module": "TauCeti/NumberTheory/NumberField/NarrowClassGroup/ElementaryTwoQuotient.lean",
+        "provides": "The narrow elementary-two quotient has cardinality 2 to the narrow two-rank.",
+        "checked": "Statement and relevant proof read at the recorded pinned commit on 2026-10-05."
+      },
+      {
+        "ref": "tauceti:TauCeti.Multiquadratic.narrowTwoRank_eq_ncard_ramifiedPrimes_sub_one",
+        "kind": "theorem",
+        "module": "TauCeti/NumberTheory/Multiquadratic/Quadratic/TwoRank.lean",
+        "provides": "For θ²=d generating K and Squarefree d, narrow two-rank equals the number of ramified rational primes minus one.",
+        "checked": "Statement and relevant proof read at the recorded pinned commit on 2026-10-05."
+      },
+      {
+        "ref": "tauceti:TauCeti.Multiquadratic.ncard_ramifiedPrimes_eq_card",
+        "kind": "theorem",
+        "module": "TauCeti/NumberTheory/Multiquadratic/Quadratic/Ramification.lean",
+        "provides": "A prime-discriminant factorization with at most one even factor counts the rational ramified primes.",
+        "checked": "Statement and relevant proof read at the recorded pinned commit on 2026-10-05."
+      },
+      {
+        "ref": "tauceti:TauCeti.Multiquadratic.genusCharFunNarrowClassGroupHom",
+        "kind": "def",
+        "module": "TauCeti/NumberTheory/Multiquadratic/Quadratic/GenusCharacter/NarrowClassGroup.lean",
+        "provides": "Under prime-discriminant factorization, squarefree radicand and quadratic-presentation hypotheses, t⊆s gives a homomorphism Cl⁺(K)→ℤˣ.",
+        "checked": "Statement and relevant proof read at the recorded pinned commit on 2026-10-05."
+      },
+      {
+        "ref": "tauceti:TauCeti.Multiquadratic.genusCharFunNarrowClassGroupHom_eq_prod_singleton",
+        "kind": "theorem",
+        "module": "TauCeti/NumberTheory/Multiquadratic/Quadratic/GenusCharacter/NarrowClassGroup.lean",
+        "provides": "Subset-indexed narrow genus character equals the product of its singleton-indexed characters.",
+        "checked": "Statement and relevant proof read at the recorded pinned commit on 2026-10-05."
+      },
+      {
+        "ref": "tauceti:TauCeti.Multiquadratic.genusCharFunNarrowClassGroupHom_mkPrincipal_gen",
+        "kind": "theorem",
+        "module": "TauCeti/NumberTheory/Multiquadratic/Quadratic/GenusCharacter/OrdinaryTwoRank.lean",
+        "provides": "For d>0, each singleton prime genus character at the class of (θ) is sign(P).",
+        "checked": "Statement and relevant proof read at the recorded pinned commit on 2026-10-05."
+      },
+      {
+        "ref": "tauceti:TauCeti.Multiquadratic.isSquare_mkPrincipal_gen_iff",
+        "kind": "theorem",
+        "module": "TauCeti/NumberTheory/Multiquadratic/Quadratic/GenusCharacter/OrdinaryTwoRank.lean",
+        "provides": "For a real quadratic presentation and prime-discriminant factorization, J is square iff every prime discriminant is positive.",
+        "checked": "Statement and relevant proof read at the recorded pinned commit on 2026-10-05."
+      },
+      {
+        "ref": "tauceti:TauCeti.Multiquadratic.isSquare_iff_forall_genusCharFunNarrowClassGroupHom_eq_one",
+        "kind": "theorem",
+        "module": "TauCeti/NumberTheory/Multiquadratic/Quadratic/GenusCharacter/PrincipalGenus.lean",
+        "provides": "A narrow class is square iff every singleton genus character equals one.",
+        "checked": "Statement and relevant proof read at the recorded pinned commit on 2026-10-05."
+      },
+      {
+        "ref": "tauceti:TauCeti.Multiquadratic.IsPrimeDiscriminant",
+        "kind": "def",
+        "module": "TauCeti/NumberTheory/Multiquadratic/Prime/Discriminants.lean",
+        "provides": "Prime discriminants are −4,8,−8 and p*=p for p≡1 modulo4, −p for odd p≡3 modulo4.",
+        "checked": "Statement and relevant proof read at the recorded pinned commit on 2026-10-05."
+      },
+      {
+        "ref": "tauceti:TauCeti.Multiquadratic.oddPrimeDiscriminant_def",
+        "kind": "theorem",
+        "module": "TauCeti/NumberTheory/Multiquadratic/Prime/Discriminant/Basic.lean",
+        "provides": "p* is p when p modulo4 equals1 and −p otherwise.",
+        "checked": "Statement and relevant proof read at the recorded pinned commit on 2026-10-05."
+      },
+      {
+        "ref": "tauceti:TauCeti.Multiquadratic.natCast_dvd_primeDiscriminant_iff",
+        "kind": "theorem",
+        "module": "TauCeti/NumberTheory/Multiquadratic/Prime/Discriminants.lean",
+        "provides": "A natural prime p divides a prime discriminant P iff it is the single underlying prime of P.",
+        "checked": "Statement and relevant proof read at the recorded pinned commit on 2026-10-05."
+      },
+      {
+        "ref": "tauceti:TauCeti.Multiquadratic.IsFundamentalDiscriminant",
+        "kind": "def",
+        "module": "TauCeti/NumberTheory/Multiquadratic/FundamentalDiscriminant/Basic.lean",
+        "provides": "D≡1 modulo4 squarefree, or D=4e with e squarefree and e≡2 or3 modulo4; includes D=1.",
+        "checked": "Statement and relevant proof read at the recorded pinned commit on 2026-10-05."
+      },
+      {
+        "ref": "tauceti:TauCeti.Multiquadratic.fundamentalDiscriminant",
+        "kind": "def",
+        "module": "TauCeti/NumberTheory/Multiquadratic/FundamentalDiscriminant/OfSquarefree.lean",
+        "provides": "For squarefree d, the field discriminant is d when d≡1 modulo4 and 4d otherwise.",
+        "checked": "Statement and relevant proof read at the recorded pinned commit on 2026-10-05."
+      },
+      {
+        "ref": "tauceti:TauCeti.Multiquadratic.isFundamentalDiscriminant_prod",
+        "kind": "theorem",
+        "module": "TauCeti/NumberTheory/Multiquadratic/FundamentalDiscriminant/Basic.lean",
+        "provides": "A finite product of distinct prime discriminants with at most one even factor is fundamental, including the empty product one.",
+        "checked": "Statement and relevant proof read at the recorded pinned commit on 2026-10-05."
+      },
+      {
+        "ref": "tauceti:TauCeti.Multiquadratic.prod_primeDiscriminant_mod_four_eq_one",
+        "kind": "theorem",
+        "module": "TauCeti/NumberTheory/Multiquadratic/FundamentalDiscriminant/Subfactorization.lean",
+        "provides": "A product of odd prime discriminants is1 modulo4.",
+        "checked": "Statement and relevant proof read at the recorded pinned commit on 2026-10-05."
+      },
+      {
+        "ref": "tauceti:TauCeti.Multiquadratic.genusCharFun",
+        "kind": "def",
+        "module": "TauCeti/NumberTheory/Multiquadratic/Quadratic/GenusCharacter/Basic.lean",
+        "provides": "Arithmetic character on integers: product over the chosen prime-discriminant factors.",
+        "checked": "Statement and relevant proof read at the recorded pinned commit on 2026-10-05."
+      },
+      {
+        "ref": "tauceti:TauCeti.Multiquadratic.genusCharFunCoprimeIdealSubmonoid",
+        "kind": "def",
+        "module": "TauCeti/NumberTheory/Multiquadratic/Quadratic/GenusCharacter/CoprimeIdeal.lean",
+        "provides": "Nonzero integral ideals with absolute norm coprime to the chosen factor product.",
+        "checked": "Statement and relevant proof read at the recorded pinned commit on 2026-10-05."
+      },
+      {
+        "ref": "tauceti:TauCeti.Multiquadratic.mem_genusCharFunCoprimeIdealSubmonoid_iff",
+        "kind": "theorem",
+        "module": "TauCeti/NumberTheory/Multiquadratic/Quadratic/GenusCharacter/CoprimeIdeal.lean",
+        "provides": "Membership is exactly coprimality of the absolute norm with the product of factors.",
+        "checked": "Statement and relevant proof read at the recorded pinned commit on 2026-10-05."
+      },
+      {
+        "ref": "tauceti:TauCeti.Multiquadratic.genusCharFunCoprimeIdealHom_apply",
+        "kind": "theorem",
+        "module": "TauCeti/NumberTheory/Multiquadratic/Quadratic/GenusCharacter/CoprimeIdeal.lean",
+        "provides": "The integer value of the ideal character equals the arithmetic character at its absolute norm.",
+        "checked": "Statement and relevant proof read at the recorded pinned commit on 2026-10-05."
+      },
+      {
+        "ref": "tauceti:TauCeti.Multiquadratic.genusCharFunNarrowClassGroupHom_mk0",
+        "kind": "theorem",
+        "module": "TauCeti/NumberTheory/Multiquadratic/Quadratic/GenusCharacter/NarrowClassGroup.lean",
+        "provides": "The descended class character evaluates on a coprime integral ideal as the ideal character.",
+        "checked": "Statement and relevant proof read at the recorded pinned commit on 2026-10-05."
+      },
+      {
+        "ref": "mathlib:QuotientGroup.quotientKerEquivOfSurjective",
+        "kind": "def",
+        "module": "Mathlib/GroupTheory/QuotientGroup/Basic.lean",
+        "provides": "First isomorphism theorem for a surjective group homomorphism.",
+        "checked": "Statement and relevant proof read at the recorded pinned commit on 2026-10-05."
+      },
+      {
+        "ref": "mathlib:QuotientGroup.lift",
+        "kind": "def",
+        "module": "Mathlib/GroupTheory/QuotientGroup/Defs.lean",
+        "provides": "A homomorphism killing a normal subgroup factors through the quotient.",
+        "checked": "Statement and relevant proof read at the recorded pinned commit on 2026-10-05."
+      },
+      {
+        "ref": "mathlib:MonoidHom.fiberEquivKerOfSurjective",
+        "kind": "def",
+        "module": "Mathlib/GroupTheory/Coset/Basic.lean",
+        "provides": "Each fibre of a surjective group homomorphism is equivalent to its kernel.",
+        "checked": "Statement and relevant proof read at the recorded pinned commit on 2026-10-05."
+      },
+      {
+        "ref": "mathlib:Subgroup.card_eq_card_quotient_mul_card_subgroup",
+        "kind": "theorem",
+        "module": "Mathlib/GroupTheory/Coset/Card.lean",
+        "provides": "Nat.card(G)=Nat.card(G/H)·Nat.card(H), including the finite case used here.",
+        "checked": "Statement and relevant proof read at the recorded pinned commit on 2026-10-05."
+      },
+      {
+        "ref": "mathlib:Nat.eq_sq_add_sq_iff",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/SumTwoSquares.lean",
+        "provides": "A natural integer is a sum of two squares iff every prime3 modulo4 has even p-adic valuation; handles zero separately.",
+        "checked": "Statement and relevant proof read at the recorded pinned commit on 2026-10-05."
+      },
+      {
+        "ref": "tauceti:NumberField.NarrowClassGroup.card_eq_card_classGroup_mul_card_ker",
+        "kind": "theorem",
+        "module": "TauCeti/NumberTheory/NumberField/NarrowClassGroup/Finite.lean",
+        "provides": "The narrow class number equals the ordinary class number times the cardinality of the forgetful kernel.",
+        "checked": "Statement and proof read at f790474 on 2026-10-05."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "DIT16",
+      "title": "Geometric invariants for real quadratic fields",
+      "authors": "W. Duke, Ö. Imamoḡlu and Á. Tóth",
+      "edition": "Annals of Mathematics 184 (2016), no. 3, 949–990; published version of record, DOI 10.4007/annals.2016.184.3.8",
+      "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n3-p08-p.pdf",
+      "sha256": "a67de7157f76ee700bc2e6a0034a920adc390022d4ff528aa80084f829f35f61",
+      "accessed": "2026-10-05",
+      "readSections": [
+        "§2 real quadratic fields and binary forms, pp.950–952; page952 image checked",
+        "§4 genera, (4.1)–(4.2) and principal-genus criterion, pp.959–960",
+        "§7 genus characters and descent, pp.970–972; page971 image checked",
+        "§9 character definition and fundamental form/ideal comparison, pp.977–978"
+      ]
+    },
+    {
+      "id": "TAUCETI-PIN",
+      "title": "Pinned narrow genus and arithmetic library",
+      "authors": "The Tau Ceti contributors",
+      "edition": "f790474821cf4256814db967cb154e7af3d0c369",
+      "url": "https://github.com/CBirkbeck/TauCeti/tree/f790474821cf4256814db967cb154e7af3d0c369/TauCeti",
+      "readSections": [
+        "NumberField/NarrowClassGroup Basic, Finite and ElementaryTwoQuotient; quadratic conjugation narrow class group",
+        "Multiquadratic prime discriminants and fundamental discriminants",
+        "GenusCharacter Basic, CoprimeIdeal, NarrowClassGroup, PrincipalGenus and OrdinaryTwoRank",
+        "Quadratic TwoRank and Ramification; Algebra/Group/ElementaryTwoQuotient/Basic"
+      ]
+    },
+    {
+      "id": "MATHLIB-PIN",
+      "title": "Pinned quotient and sum-of-two-squares library",
+      "authors": "The Mathlib community",
+      "edition": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "url": "https://github.com/leanprover-community/mathlib4/tree/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib",
+      "readSections": [
+        "GroupTheory/Coset/Basic and Card; QuotientGroup/Basic and Defs",
+        "NumberTheory/SumTwoSquares, Nat.eq_sq_add_sq_iff and its proof",
+        "LinearAlgebra/QuadraticForm/Basic, existing QuadraticForm carrier"
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "MultiquadraticPartII:RQ.0/ker-toClassGroup-eq-pair",
+      "parentStageId": "MultiquadraticPartII:RQ.0",
+      "realises": [
+        "MultiquadraticPartII:RQ.0"
+      ],
+      "title": "The exact real narrow defect",
+      "kind": "theorem",
+      "statement": "Under C, for every A∈Cl⁺(K), π(A)=1 iff A=1 or A=J. Thus the kernel, as a set, is {1,J}, allowing the two entries to coincide. The subgroup it generates is ⟨J⟩ and C/⟨J⟩≅Cl(K) by the existing first isomorphism theorem.",
+      "hypotheses": [
+        "K is a number field; θ∈𝓞 K; minpolyℤ(θ)=X²−d and ℚ[θ]=K; d is squarefree and positive; D=fundamentalDiscriminant(d)>1; C=Cl⁺(K), π the forgetful map and J=mkPrincipal(θ)."
+      ],
+      "proofSteps": [
+        "Use toClassGroup_ker to write every kernel element as mkPrincipal(x).",
+        "Apply mkPrincipal_eq_one_or_eq_mkPrincipal_gen. Conversely π kills both one and the principal class J.",
+        "Import mkPrincipal_sq, hence J²=1; use quotientKerEquivOfSurjective for the quotient formulation."
+      ],
+      "prerequisites": [
+        "tauceti:NumberField.NarrowClassGroup",
+        "tauceti:NumberField.NarrowClassGroup.mkPrincipal",
+        "tauceti:NumberField.NarrowClassGroup.toClassGroup",
+        "tauceti:NumberField.NarrowClassGroup.toClassGroup_ker",
+        "tauceti:NumberField.mkPrincipal_eq_one_or_eq_mkPrincipal_gen",
+        "tauceti:NumberField.NarrowClassGroup.toClassGroup_surjective",
+        "tauceti:NumberField.NarrowClassGroup.mkPrincipal_sq",
+        "mathlib:QuotientGroup.quotientKerEquivOfSurjective"
+      ],
+      "acceptance": [
+        "Do not assert the kernel has two distinct elements when J=1.",
+        "A norm−1 integral unit makes the kernel trivial by the imported injectivity criterion.",
+        "With no norm−1 unit, the two possible representatives are distinct and every wide fibre is {A,JA}."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Multiquadratic/Quadratic/RealSigns",
+        "namespace": "TauCeti.Multiquadratic.RealSigns",
+        "declaration": "ker_toClassGroup_eq_pair"
+      },
+      "sources": [
+        {
+          "sourceId": "DIT16",
+          "locator": "§2, pp.950–951, narrow and wide classes",
+          "match": "Exact set form of the quotient by the distinguished principal class."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Narrow defect"
+      }
+    },
+    {
+      "id": "MultiquadraticPartII:RQ.0/existsUnique-wideCharacter-iff",
+      "parentStageId": "MultiquadraticPartII:RQ.0",
+      "realises": [
+        "MultiquadraticPartII:RQ.0"
+      ],
+      "title": "Descent of an even real class character",
+      "kind": "theorem",
+      "statement": "Under C, for every homomorphism χ:C→ℤˣ, there exists exactly one ψ:ClassGroup(𝓞 K)→ℤˣ with ψ∘π=χ iff χ(J)=1.",
+      "hypotheses": [
+        "K is a number field; θ∈𝓞 K; minpolyℤ(θ)=X²−d and ℚ[θ]=K; d is squarefree and positive; D=fundamentalDiscriminant(d)>1; C=Cl⁺(K), π the forgetful map and J=mkPrincipal(θ).",
+        "χ is a multiplicative homomorphism; no assertion is made for an arbitrary function."
+      ],
+      "proofSteps": [
+        "Use the exact kernel theorem to see χ kills ker π exactly when χ(J)=1.",
+        "Apply QuotientGroup.lift and the surjective first-isomorphism equivalence to obtain ψ.",
+        "The equation on every π(A) proves uniqueness by surjectivity. The converse evaluates that equation at J."
+      ],
+      "prerequisites": [
+        "MultiquadraticPartII:RQ.0/ker-toClassGroup-eq-pair",
+        "mathlib:QuotientGroup.lift",
+        "mathlib:QuotientGroup.quotientKerEquivOfSurjective",
+        "tauceti:NumberField.NarrowClassGroup.toClassGroup_surjective"
+      ],
+      "acceptance": [
+        "The trivial character descends uniquely.",
+        "A character taking −1 on J cannot descend.",
+        "If J=1 every real class character descends; if J is a nontrivial square, every genus character descends but arbitrary complex characters need not."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Multiquadratic/Quadratic/RealSigns",
+        "namespace": "TauCeti.Multiquadratic.RealSigns",
+        "declaration": "existsUnique_wideCharacter_iff"
+      },
+      "sources": [
+        {
+          "sourceId": "DIT16",
+          "locator": "§7, p.971, paragraph after (7.7)",
+          "match": "The source descent statement with existence and uniqueness made explicit."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Even character descent"
+      }
+    },
+    {
+      "id": "MultiquadraticPartII:RQ.1/card-genusFiber-mul-twoPow",
+      "parentStageId": "MultiquadraticPartII:RQ.1",
+      "realises": [
+        "MultiquadraticPartII:RQ.1"
+      ],
+      "title": "The number of classes in each narrow genus",
+      "kind": "theorem",
+      "statement": "Under C and the factorization s from F, for every g∈NumberField.NarrowClassGroup.ElementaryTwoQuotient(K), put G_g={A∈C:q(A)=g} using the existing q. Then 2^(|s|−1)·Nat.card(G_g)=Nat.card(C). All fibres are nonempty, finite, and have equal cardinality. Here |s|=ω(D) is the ramified prime count; h⁺=Nat.card(C), never the ordinary class number.",
+      "hypotheses": [
+        "K is a number field; θ∈𝓞 K; minpolyℤ(θ)=X²−d and ℚ[θ]=K; d is squarefree and positive; D=fundamentalDiscriminant(d)>1; C=Cl⁺(K), π the forgetful map and J=mkPrincipal(θ).",
+        "Prime-discriminant factorization s as in F; the genus g is arbitrary."
+      ],
+      "proofSteps": [
+        "Use elementaryTwoQuotientEquivSquareQuotient to identify the existing additive quotient with the quotient by squares.",
+        "For the quotient homomorphism, fiberEquivKerOfSurjective identifies any fibre with the square subgroup. Apply the subgroup cardinality identity.",
+        "Replace the quotient cardinality by 2^twoRank and narrowTwoRank_eq_ncard_ramifiedPrimes_sub_one; ncard_ramifiedPrimes_eq_card replaces the ramification count by |s|.",
+        "The existing quotient surjectivity and narrow finiteness give nonempty finite fibres. The equation determines their common cardinality since the power of two is positive."
+      ],
+      "prerequisites": [
+        "tauceti:NumberField.NarrowClassGroup.ElementaryTwoQuotient",
+        "tauceti:TauCeti.elementaryTwoQuotientMk",
+        "tauceti:TauCeti.elementaryTwoQuotientMk_surjective",
+        "tauceti:TauCeti.elementaryTwoQuotientEquivSquareQuotient",
+        "tauceti:NumberField.NarrowClassGroup.instFinite",
+        "tauceti:NumberField.NarrowClassGroup.card_elementaryTwoQuotient_eq_two_pow_twoRank",
+        "tauceti:TauCeti.Multiquadratic.narrowTwoRank_eq_ncard_ramifiedPrimes_sub_one",
+        "tauceti:TauCeti.Multiquadratic.ncard_ramifiedPrimes_eq_card",
+        "mathlib:MonoidHom.fiberEquivKerOfSurjective",
+        "mathlib:Subgroup.card_eq_card_quotient_mul_card_subgroup"
+      ],
+      "acceptance": [
+        "For s={5} or s={8}, the only genus contains all narrow classes.",
+        "For D=12 or 28, s has two elements and each genus has h⁺/2 classes.",
+        "For D=60, s={−4,−3,5}; each of its four genera has h⁺/4 classes.",
+        "Replacing C/C² by C[2] is rejected: even for a cyclic group of order 8, a genus fibre has four elements whereas the 2-torsion subgroup has two."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Multiquadratic/Quadratic/RealSigns",
+        "namespace": "TauCeti.Multiquadratic.RealSigns",
+        "declaration": "card_genusFiber_mul_twoPow"
+      },
+      "sources": [
+        {
+          "sourceId": "DIT16",
+          "locator": "§4, p.959, (4.1)–(4.2)",
+          "match": "Integral form of the displayed cardinality, avoiding a negative natural exponent."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Genus cardinality"
+      }
+    },
+    {
+      "id": "MultiquadraticPartII:RQ.2/genusCharacter-J-eq-sign-prod",
+      "parentStageId": "MultiquadraticPartII:RQ.2",
+      "realises": [
+        "MultiquadraticPartII:RQ.2"
+      ],
+      "title": "The sign of a composite genus character",
+      "kind": "theorem",
+      "statement": "Under C and F, the integer value of χ_t(J) equals sign(δ). Since D=δδ′>0 and δ,δ′ are nonzero, it also equals sign(δ′). For t empty and t=s this value is 1.",
+      "hypotheses": [
+        "K is a number field; θ∈𝓞 K; minpolyℤ(θ)=X²−d and ℚ[θ]=K; d is squarefree and positive; D=fundamentalDiscriminant(d)>1; C=Cl⁺(K), π the forgetful map and J=mkPrincipal(θ).",
+        "s is a finite set of prime discriminants, at most one even, with product D; t⊆s; δ=∏t and δ′=∏(s∖t); χ_t is the existing narrow genus character valued in ℤˣ={±1}."
+      ],
+      "proofSteps": [
+        "Use genusCharFunNarrowClassGroupHom_eq_prod_singleton. Evaluate each singleton at J by the built genusCharFunNarrowClassGroupHom_mkPrincipal_gen.",
+        "The finite product of the nonzero factors’ signs is the sign of their product.",
+        "The complementary factors have positive product D, so their signs agree. Import isFundamentalDiscriminant_prod to include both the empty product and genuine complementary discriminants."
+      ],
+      "prerequisites": [
+        "tauceti:TauCeti.Multiquadratic.genusCharFunNarrowClassGroupHom",
+        "tauceti:TauCeti.Multiquadratic.genusCharFunNarrowClassGroupHom_eq_prod_singleton",
+        "tauceti:TauCeti.Multiquadratic.genusCharFunNarrowClassGroupHom_mkPrincipal_gen",
+        "tauceti:TauCeti.Multiquadratic.isFundamentalDiscriminant_prod"
+      ],
+      "acceptance": [
+        "D=12=(-4)(-3): each singleton character is −1 on J, while the empty and full characters are 1.",
+        "D=24=(-8)(-3) uses the negative dyadic factor −8; substituting8 changes the discriminant.",
+        "D=8 has the positive dyadic singleton and sign1.",
+        "D=136=8·17 has all these values1 even when the narrow defect is nontrivial.",
+        "No extension of sign(δ)=sign(δ′) is allowed when D<0."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Multiquadratic/Quadratic/RealSigns",
+        "namespace": "TauCeti.Multiquadratic.RealSigns",
+        "declaration": "genusCharacter_J_eq_sign_prod"
+      },
+      "sources": [
+        {
+          "sourceId": "DIT16",
+          "locator": "§7, p.971, genus-character paragraph before (7.8)",
+          "match": "Composite extension of the pinned singleton theorem; positive-discriminant qualification is recorded in sourceIssues."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Genus character signs"
+      }
+    },
+    {
+      "id": "MultiquadraticPartII:RQ.2/primeDiscriminants-positive-iff",
+      "parentStageId": "MultiquadraticPartII:RQ.2",
+      "realises": [
+        "MultiquadraticPartII:RQ.2"
+      ],
+      "title": "Positive prime discriminants and prime divisors",
+      "kind": "theorem",
+      "statement": "For D>0 and a finite set s of prime discriminants with at most one even member and product D, (∀P∈s,0<P) iff (∀p∈ℕ, p prime and p∣D imply p mod4≠3). The statement includes D=1 with s empty.",
+      "hypotheses": [
+        "D is positive; s consists of distinct prime discriminants; at most one is even; ∏s=D."
+      ],
+      "proofSteps": [
+        "An odd prime discriminant is p or −p according as p is 1 or3 modulo4. Each underlying prime divides D. Conversely any prime divisor of D divides one factor and is its underlying prime by natCast_dvd_primeDiscriminant_iff.",
+        "If no prime 3 modulo4 divides D, every odd member is positive. The sole possible even member cannot be −4 or −8 because the product of the other members is positive and D>0. Hence it is 8.",
+        "In the forward direction all odd members are positive, so their primes are 1 modulo4; the underlying prime of an even member is2. The empty case is vacuous."
+      ],
+      "prerequisites": [
+        "tauceti:TauCeti.Multiquadratic.IsPrimeDiscriminant",
+        "tauceti:TauCeti.Multiquadratic.oddPrimeDiscriminant_def",
+        "tauceti:TauCeti.Multiquadratic.natCast_dvd_primeDiscriminant_iff"
+      ],
+      "acceptance": [
+        "D=12 and24 fail because3 divides D.",
+        "D=5,8,40 and136 pass, including dyadic8.",
+        "The positivity hypothesis is essential: D=−4 has no prime 3 modulo4 divisor but its prime discriminant is negative."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Multiquadratic/Quadratic/RealSigns",
+        "namespace": "TauCeti.Multiquadratic.RealSigns",
+        "declaration": "primeDiscriminants_positive_iff"
+      },
+      "sources": [
+        {
+          "sourceId": "DIT16",
+          "locator": "§4, p.960, paragraph after (4.4)",
+          "match": "Arithmetic expansion of the source no-prime3-modulo4 condition using the prime-discriminant conventions."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Positive prime discriminants"
+      }
+    },
+    {
+      "id": "MultiquadraticPartII:RQ.2/fundamental-sumTwoSquares-iff",
+      "parentStageId": "MultiquadraticPartII:RQ.2",
+      "realises": [
+        "MultiquadraticPartII:RQ.2"
+      ],
+      "title": "The two-square criterion for a fundamental discriminant",
+      "kind": "theorem",
+      "statement": "For a positive fundamental discriminant D (including 1), (∃x,y∈ℤ,D=x²+y²) iff (∀p∈ℕ,p prime and p∣D imply p mod4≠3).",
+      "hypotheses": [
+        "D>0; IsFundamentalDiscriminant D."
+      ],
+      "proofSteps": [
+        "Apply Nat.eq_sq_add_sq_iff to D.natAbs and convert between integer squares and squares of natural absolute values.",
+        "By the defining fundamental-discriminant alternatives, every odd prime dividing D occurs to exponent exactly 1: D itself is squarefree, or D=4e with e squarefree.",
+        "A prime 3 modulo4 is odd, so its exponent cannot be even when present. If there is no such prime divisor, the Mathlib valuation condition is vacuous. No condition is imposed on the exponent of 2."
+      ],
+      "prerequisites": [
+        "tauceti:TauCeti.Multiquadratic.IsFundamentalDiscriminant",
+        "mathlib:Nat.eq_sq_add_sq_iff"
+      ],
+      "acceptance": [
+        "D=5=1²+2², D=8=2²+2², and D=136=6²+10².",
+        "D=12 is not a sum of two integer squares.",
+        "Dropping fundamentality breaks the no-divisor criterion:9=0²+3² despite the prime divisor3."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Multiquadratic/Quadratic/RealSigns",
+        "namespace": "TauCeti.Multiquadratic.RealSigns",
+        "declaration": "fundamental_sumTwoSquares_iff"
+      },
+      "sources": [
+        {
+          "sourceId": "DIT16",
+          "locator": "§4, p.960, paragraph after (4.4)",
+          "match": "Specialization of the full Mathlib two-squares theorem to fundamental discriminants."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Two-square discriminants"
+      }
+    },
+    {
+      "id": "MultiquadraticPartII:RQ.2/J-square-iff-sumTwoSquares",
+      "parentStageId": "MultiquadraticPartII:RQ.2",
+      "realises": [
+        "MultiquadraticPartII:RQ.2"
+      ],
+      "title": "The distinguished class in the principal genus",
+      "kind": "theorem",
+      "statement": "Under C and F, J∈C² iff no prime p≡3 modulo4 divides D, iff D=x²+y² with integer x,y. Equivalently every genus character χ_t has χ_t(J)=1; by RQ.0 every such character then descends uniquely to the wide class group.",
+      "hypotheses": [
+        "K is a number field; θ∈𝓞 K; minpolyℤ(θ)=X²−d and ℚ[θ]=K; d is squarefree and positive; D=fundamentalDiscriminant(d)>1; C=Cl⁺(K), π the forgetful map and J=mkPrincipal(θ).",
+        "s is a finite set of prime discriminants, at most one even, with product D; t⊆s; δ=∏t and δ′=∏(s∖t); χ_t is the existing narrow genus character valued in ℤˣ={±1}."
+      ],
+      "proofSteps": [
+        "Import isSquare_mkPrincipal_gen_iff; it already proves J square iff every prime discriminant is positive.",
+        "Apply primeDiscriminants_positive_iff and fundamental_sumTwoSquares_iff. The factor product is fundamental by isFundamentalDiscriminant_prod.",
+        "The built principal genus theorem tests the singleton characters, and the product decomposition tests all subset characters. Character descent uses RQ.0."
+      ],
+      "prerequisites": [
+        "MultiquadraticPartII:RQ.2/primeDiscriminants-positive-iff",
+        "MultiquadraticPartII:RQ.2/fundamental-sumTwoSquares-iff",
+        "MultiquadraticPartII:RQ.0/existsUnique-wideCharacter-iff",
+        "tauceti:TauCeti.Multiquadratic.isSquare_mkPrincipal_gen_iff",
+        "tauceti:TauCeti.Multiquadratic.isSquare_iff_forall_genusCharFunNarrowClassGroupHom_eq_one",
+        "tauceti:TauCeti.Multiquadratic.genusCharFunNarrowClassGroupHom_eq_prod_singleton",
+        "tauceti:TauCeti.Multiquadratic.isFundamentalDiscriminant_prod"
+      ],
+      "acceptance": [
+        "D=12 has J outside the principal genus; D=136 has J inside it.",
+        "The condition is not asserted equivalent to a norm−1 integral unit: that tests J=1, which is stronger.",
+        "All genera and all characters are narrow throughout. The condition does not turn the full prime-discriminant compositum into a totally real field."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Multiquadratic/Quadratic/RealSigns",
+        "namespace": "TauCeti.Multiquadratic.RealSigns",
+        "declaration": "J_square_iff_sumTwoSquares"
+      },
+      "sources": [
+        {
+          "sourceId": "DIT16",
+          "locator": "§4, p.960; §7, p.971",
+          "match": "The source principal-genus criterion, with its weaker-versus-trivial-class distinction explicit."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Principal genus signs"
+      }
+    },
+    {
+      "id": "MultiquadraticPartII:RQ.2/J-ne-one-of-prime-threeModFour",
+      "parentStageId": "MultiquadraticPartII:RQ.2",
+      "realises": [
+        "MultiquadraticPartII:RQ.2"
+      ],
+      "title": "A sufficient obstruction to a trivial narrow defect",
+      "kind": "theorem",
+      "statement": "Under C and F, if p is a natural prime, p∣D and p mod4=3, then J≠1. Consequently π is not injective, the kernel has two distinct elements, h⁺(D)=2h(D), and no unit of 𝓞 K has norm−1. The conclusions use the exact kernel and existing norm-unit and cardinality theorems.",
+      "hypotheses": [
+        "K is a number field; θ∈𝓞 K; minpolyℤ(θ)=X²−d and ℚ[θ]=K; d is squarefree and positive; D=fundamentalDiscriminant(d)>1; C=Cl⁺(K), π the forgetful map and J=mkPrincipal(θ).",
+        "s is a finite set of prime discriminants, at most one even, with product D; t⊆s; δ=∏t and δ′=∏(s∖t); χ_t is the existing narrow genus character valued in ℤˣ={±1}.",
+        "p prime; (p:ℤ) divides D; p modulo4 equals3."
+      ],
+      "proofSteps": [
+        "The principal-genus arithmetic theorem implies J is not square. Since 1 is a square, J≠1.",
+        "Use the exact pair kernel to see π is not injective; apply the imported norm−1 injectivity equivalence.",
+        "The exact kernel has cardinality 2. The existing narrow-class-number/ordinary-class-number/kernel formula gives h⁺=2h."
+      ],
+      "prerequisites": [
+        "MultiquadraticPartII:RQ.2/J-square-iff-sumTwoSquares",
+        "MultiquadraticPartII:RQ.0/ker-toClassGroup-eq-pair",
+        "tauceti:NumberField.NarrowClassGroup.toClassGroup_injective_iff_exists_norm_eq_neg_one",
+        "tauceti:NumberField.NarrowClassGroup.card_eq_card_classGroup_mul_card_ker"
+      ],
+      "acceptance": [
+        "For d=3,D=12, p=3 obstructs J=1.",
+        "For d=7,D=28, p=7 gives the same obstruction.",
+        "The converse is not part of this theorem; D=136 has no prime 3 modulo4 divisor while the negative Pell equation for34 has no integral solution. This last distinction is a source/library acceptance example, not a new Pell theorem here."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Multiquadratic/Quadratic/RealSigns",
+        "namespace": "TauCeti.Multiquadratic.RealSigns",
+        "declaration": "J_ne_one_of_prime_threeModFour"
+      },
+      "sources": [
+        {
+          "sourceId": "DIT16",
+          "locator": "§2, p.951, paragraph before minus continued fractions",
+          "match": "The routed sufficient-condition item derived through the stronger genus obstruction."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Narrow defect obstruction"
+      }
+    },
+    {
+      "id": "MultiquadraticPartII:RQ.3/formCharacter-eq-idealCharacter",
+      "parentStageId": "MultiquadraticPartII:RQ.3",
+      "realises": [
+        "MultiquadraticPartII:RQ.3"
+      ],
+      "title": "Agreement of fundamental form and ideal characters",
+      "kind": "theorem",
+      "statement": "Under C and F, let Q=[a,b,c] be an integral primitive binary form of discriminant D, associated to the narrow class A by the oriented norm-form dictionary of DIT16 §2. Let the supplied GN.2 character be χ_δ. Then χ_δ(Q)=(χ_t(A):ℤ). A declaration can equivalently take the supplier’s concrete positive represented integer m, coprimality with δ, and nonzero integral ideal B in A⁻¹ with absolute norm m as explicit witness arguments; it must not assume the comparison conclusion.",
+      "hypotheses": [
+        "K is a number field; θ∈𝓞 K; minpolyℤ(θ)=X²−d and ℚ[θ]=K; d is squarefree and positive; D=fundamentalDiscriminant(d)>1; C=Cl⁺(K), π the forgetful map and J=mkPrincipal(θ).",
+        "s is a finite set of prime discriminants, at most one even, with product D; t⊆s; δ=∏t and δ′=∏(s∖t); χ_t is the existing narrow genus character valued in ℤˣ={±1}.",
+        "Q has integer coefficients, gcd(a,b,c)=1, and b²−4ac=D.",
+        "Q represents the narrow class A in the convention w^σ<w, Q(x,y)=N(x−wy)/N(a), w=(-b+√D)/(2a) for a>0.",
+        "GN.2 supplies the same Kronecker normalization as genusCharFun(t,·); GN.3 supplies positive coprime represented-value and norm-ideal witnesses."
+      ],
+      "proofSteps": [
+        "Obtain m>0 represented by Q and coprime to δ from the GN.3 contract. Its associated B=(α)a⁻¹ is integral, nonzero, has absolute norm m, and class A⁻¹ because N(α)>0.",
+        "Use GN.2 represented-value evaluation to compute χ_δ(Q)=genusCharFun(t,m).",
+        "Use genusCharFunNarrowClassGroupHom_mk0 and genusCharFunCoprimeIdealHom_apply to compute χ_t(A⁻¹) by the same arithmetic value.",
+        "A homomorphism valued in ℤˣ has χ_t(A⁻¹)=χ_t(A), proving equality. Changes of basis and representative use the supplied invariance laws, not a new form theory."
+      ],
+      "prerequisites": [
+        "tauceti:TauCeti.Multiquadratic.genusCharFunNarrowClassGroupHom",
+        "tauceti:TauCeti.Multiquadratic.genusCharFun",
+        "tauceti:TauCeti.Multiquadratic.genusCharFunCoprimeIdealSubmonoid",
+        "tauceti:TauCeti.Multiquadratic.mem_genusCharFunCoprimeIdealSubmonoid_iff",
+        "tauceti:TauCeti.Multiquadratic.genusCharFunCoprimeIdealHom_apply",
+        "tauceti:TauCeti.Multiquadratic.genusCharFunNarrowClassGroupHom_mk0",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.2",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.3",
+        "MultiquadraticPartII:RQ.2/genusCharacter-J-eq-sign-prod"
+      ],
+      "acceptance": [
+        "The principal form [1,0,−3], D=12, represents 1 and has each form genus character 1. Its negative represents3 at (0,1); χ_{−4}(−Q)=−1 agrees with χ_{−4}(J).",
+        "For [1,1,−1], D=5, the only character (δ=1 or5) is trivial.",
+        "The dyadic zero case [2,0,−6], D=48=(−4)(−12), has χ_{−4}=0 because its content shares 2 with δ. D=48 is not fundamental, so it is outside the comparison even though the supplied general form character is defined.",
+        "Use [a,−b,c]↔A⁻¹, [−a,b,−c]↔JA, and −Q↔JA⁻¹; the last two have sign factor sign(δ), not an unconditional identical character."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Multiquadratic/Quadratic/RealSigns",
+        "namespace": "TauCeti.Multiquadratic.RealSigns",
+        "declaration": "formCharacter_eq_idealCharacter"
+      },
+      "sources": [
+        {
+          "sourceId": "DIT16",
+          "locator": "§2, p.952, norm-form paragraph and (2.3)–(2.5); §9, p.978, paragraph before Proposition5",
+          "match": "Exactly the fundamental form/ideal equality routed here; the general character and oriented carrier remain with their supplier roadmaps."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Form and ideal characters"
+      }
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "MultiquadraticPartII:RQ.0",
+      "status": "closed",
+      "remaining": [],
+      "note": "Every target is a target-level node or a verified baseline import; no gap, open supplier request or remaining refinement affects this stage. This is planning coverage, not an implementation claim."
+    },
+    {
+      "stageId": "MultiquadraticPartII:RQ.1",
+      "status": "closed",
+      "remaining": [],
+      "note": "Every target is a target-level node or a verified baseline import; no gap, open supplier request or remaining refinement affects this stage. This is planning coverage, not an implementation claim."
+    },
+    {
+      "stageId": "MultiquadraticPartII:RQ.2",
+      "status": "closed",
+      "remaining": [],
+      "note": "Every target is a target-level node or a verified baseline import; no gap, open supplier request or remaining refinement affects this stage. This is planning coverage, not an implementation claim."
+    },
+    {
+      "stageId": "MultiquadraticPartII:RQ.3",
+      "status": "planned",
+      "remaining": [
+        "Bind the canonical GN.2 binary form character and its represented-value, content-zero, parity and proper-equivalence declarations.",
+        "Bind the GN.3 oriented form/narrow-ideal dictionary and its positive coprime represented-value and norm-ideal witnesses; discharge the explicit witness arguments in the suggested comparison and test the canonical imprimitive zero branch."
+      ],
+      "note": "Every target is planned with exact supplier contracts and a reduced proof. The canonical supplier binding is the recorded gap, so this stage is not closed."
+    }
+  ],
+  "gaps": [
+    {
+      "title": "Concrete supplier signatures for the fundamental form comparison",
+      "neededBy": [
+        "MultiquadraticPartII:RQ.3/formCharacter-eq-idealCharacter"
+      ],
+      "detail": "The current GN.2/GN.3 packet has no node supplying the routed binary genus-character or oriented norm-form interfaces. The mathematical contracts are stated in requests and the proof is reduced to existing ideal evaluation. The suggested file gives a typed comparison with explicit form-evaluation and norm-witness hypotheses on the existing QuadraticForm carrier, but it cannot instantiate the absent canonical form character/dictionary at the pin. Bind those actual supplier declarations and discharge their hypotheses before declaring RQ.3 closed."
+    }
+  ],
+  "requests": [
+    {
+      "supplier": "GeometryOfNumbersAndQuadraticArithmetic:GN.2",
+      "need": "Export the character χ_δ on integral binary forms of discriminant δδ′, δ fundamental, including the shared content criterion gcd(a,b,c,δ)>1⇒χ=0, represented-value evaluation by the same prime-discriminant/Kronecker character, independence of the chosen coprime represented value, proper SL₂(ℤ)/PSL₂(ℤ) invariance and χ_δ(−Q)=sign(δ)χ_δ(Q). For the present comparison provide evaluation at positive represented m coprime to δ. Do not reintroduce a second character owner.",
+      "neededBy": [
+        "MultiquadraticPartII:RQ.3/formCharacter-eq-idealCharacter"
+      ]
+    },
+    {
+      "supplier": "GeometryOfNumbersAndQuadraticArithmetic:GN.3",
+      "need": "Export the actual oriented primitive integral-form/narrow-ideal dictionary for positive fundamental D, in the w^σ<w and Q=N(x−wy)/N(a) convention, including the coefficient actions (2.3)–(2.5). For every Q representing A and every genus factor δ, supply a positive represented integer m coprime to δ and a nonzero integral ideal B=(α)a⁻¹ with absNorm B=m and narrow class A⁻¹. Include the transition of fractional to integral representatives and proper basis changes; do not assert reduction or content algorithms in this consumer.",
+      "neededBy": [
+        "MultiquadraticPartII:RQ.3/formCharacter-eq-idealCharacter"
+      ]
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "MultiquadraticPartII/E1",
+      "source": "DIT16",
+      "kind": "misprint",
+      "locator": "Published §7, p.971, genus-character paragraph immediately before (7.8); publisher page image checked 2026-10-05. The author copy p.19 has the same unqualified sentence.",
+      "printed": "χ(J) = sign d = sign d′",
+      "correction": "Qualify this sentence by D=d′d>0. For D<0 the factor signs are opposite, and in an imaginary field the distinguished principal class is trivial, so χ(J)=1. The real quadratic formula used in this roadmap is valid.",
+      "reason": "The section explicitly treats both signatures immediately before and after this paragraph. Take D=−4=1·(−4): the two displayed factor signs are 1 and −1, so the asserted equality cannot hold without the real restriction. In an imaginary quadratic field every nonzero norm is positive, hence narrow and ordinary ideal equivalence coincide. This is a missing local qualifier, not a counterexample to (7.8), which already splits the real sign cases.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Publisher article page https://annals.math.princeton.edu/2016/184-3/p08 opened 2026-10-05: no correction linked.",
+        "W. Duke publication page https://www.math.ucla.edu/~wdduke/ opened 2026-10-05: corrections are listed for other papers; none attached to this article.",
+        "Author PDF https://www.math.ucla.edu/~wdduke/preprints/geometric.pdf, SHA256 f1f042adf06eafd410b43b819e076c24c9be8f928f0a8a7927f7569ef8b5cfcf: same sentence.",
+        "Title/author arXiv search and title plus erratum/sign/genus-character web search on 2026-10-05: no correction located.",
+        "Existing PAPER-DUKE-IMAMOGLU-TOTH-16 extraction sourceIssues E1–E34 screened: this local sign qualification is not recorded."
+      ]
+    }
+  ],
+  "sourceVersions": [
+    {
+      "kind": "published",
+      "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n3-p08-p.pdf",
+      "citation": "Annals of Mathematics 184 (2016), no. 3, 949–990; published version of record, DOI 10.4007/annals.2016.184.3.8",
+      "read": "2026-10-05",
+      "sha256": "a67de7157f76ee700bc2e6a0034a920adc390022d4ff528aa80084f829f35f61"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://www.math.ucla.edu/~wdduke/preprints/geometric.pdf",
+      "citation": "Author-hosted 29 July 2016 copy; p.19 genus-character paragraph checked for the local sign qualification.",
+      "read": "2026-10-05",
+      "sha256": "f1f042adf06eafd410b43b819e076c24c9be8f928f0a8a7927f7569ef8b5cfcf"
+    }
+  ],
+  "inspection": {
+    "author": "Codex",
+    "session": "codex-my8gSr",
+    "date": "2026-10-05",
+    "detailLevel": "target",
+    "audit": "Reviewed AUDIT04 library-coverage entries for all four upstream Multiquadratic stages read before planning; all built.",
+    "boundaries": "No definition or construction node is introduced: narrow groups, quotient, ideal character and prime factors are baseline; general form character/dictionary are requested from GN.2/GN.3.",
+    "sourcesRead": "Only the algebraic source passages needed by this route are claimed as read; analytic source issues are outside this packet."
+  },
+  "targetInventory": [
+    {
+      "stageId": "MultiquadraticPartII:RQ.0",
+      "targets": [
+        "MultiquadraticPartII:RQ.0/ker-toClassGroup-eq-pair",
+        "MultiquadraticPartII:RQ.0/existsUnique-wideCharacter-iff"
+      ],
+      "imports": "Existing declarations described in the stage and its reader; no baseline target is replanned."
+    },
+    {
+      "stageId": "MultiquadraticPartII:RQ.1",
+      "targets": [
+        "MultiquadraticPartII:RQ.1/card-genusFiber-mul-twoPow"
+      ],
+      "imports": "Existing declarations described in the stage and its reader; no baseline target is replanned."
+    },
+    {
+      "stageId": "MultiquadraticPartII:RQ.2",
+      "targets": [
+        "MultiquadraticPartII:RQ.2/genusCharacter-J-eq-sign-prod",
+        "MultiquadraticPartII:RQ.2/primeDiscriminants-positive-iff",
+        "MultiquadraticPartII:RQ.2/fundamental-sumTwoSquares-iff",
+        "MultiquadraticPartII:RQ.2/J-square-iff-sumTwoSquares",
+        "MultiquadraticPartII:RQ.2/J-ne-one-of-prime-threeModFour"
+      ],
+      "imports": "Existing declarations described in the stage and its reader; no baseline target is replanned."
+    },
+    {
+      "stageId": "MultiquadraticPartII:RQ.3",
+      "targets": [
+        "MultiquadraticPartII:RQ.3/formCharacter-eq-idealCharacter"
+      ],
+      "imports": "Existing declarations described in the stage and its reader; no baseline target is replanned."
+    }
+  ]
+}
