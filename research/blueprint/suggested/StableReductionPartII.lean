@@ -1,3 +1,10 @@
+import Mathlib.AlgebraicGeometry.Scheme
+import Mathlib.AlgebraicGeometry.Sites.Fpqc
+import Mathlib.CategoryTheory.Sites.Descent.IsStack
+import Mathlib.CategoryTheory.Limits.Shapes.Pullback.Pasting
+import Mathlib.CategoryTheory.Limits.Shapes.Pullback.Iso
+import Mathlib.AlgebraicGeometry.Morphisms.FormallyUnramified
+import Mathlib.AlgebraicGeometry.ZariskisMainTheorem
 import Mathlib.RingTheory.Finiteness.Projective
 import Mathlib.Algebra.Category.ModuleCat.Limits
 import Mathlib.Algebra.Category.ModuleCat.ChangeOfRings
@@ -61,6 +68,21 @@ The algebraic-stack, pointed-family, invertible-sheaf and relative-Picard
 interfaces must come from the suppliers before those signatures can be written.
 No arbitrary Prop field or axiom is used to impersonate any missing object.
 -/
+
+/- Built inputs for MC.0/MC.1. These checks confirm the native interfaces,
+not stable-curve moduli or their missing geometric signatures. The square-zero
+lifting criterion quantifies over every displayed affine lifting square.
+Proper plus locally quasi-finite is a scheme criterion, not stack properness. -/
+#check @AlgebraicGeometry.Scheme
+#check @CategoryTheory.Pseudofunctor.IsStack
+#check @CategoryTheory.Limits.pullbackLeftPullbackSndIso
+#check @CategoryTheory.Limits.pullbackLeftPullbackSndIso_hom_fst
+#check @CategoryTheory.Limits.pullbackLeftPullbackSndIso_hom_snd
+#check @CategoryTheory.Limits.pullback.hom_ext
+#check @CategoryTheory.Limits.pullback_fst_iso_of_right_iso
+#check @AlgebraicGeometry.Scheme.fppfTopology
+#check @AlgebraicGeometry.FormallyUnramified.of_hom_ext
+#check @AlgebraicGeometry.IsFinite.of_isProper_of_locallyQuasiFinite
 
 set_option synthInstance.maxHeartbeats 100000
 namespace TauCeti.ModuliCurves
@@ -1263,6 +1285,18 @@ test: UniversalCurve.collisionAllowed
   The mathematical discriminating example is recorded; its actual geometric Lean types are missing.
 test: UniversalCurve.smoothFiber
   The mathematical discriminating example is recorded; its actual geometric Lean types are missing.
+API: UniversalCurve.marking
+  For each ordered marking i, define σ_i:M̄_{g,n}→Z̄_{g,n} by (C/S;s₁,…,sₙ)↦(C/S;s₁,…,sₙ;Δ=s_i). The projection composed with σ_i is the identity; under S×_{M̄}Z̄≅C it is exactly s_i, with coherent arbitrary base change.
+  Actual stable-family/groupoid-stack and represented universal projection types are required; this mathematical contract is explicit, without a surrogate proposition.
+API: UniversalCurve.projectionNodal
+  The universal projection is representable proper flat finitely presented of pure relative dimension one, with geometrically connected genus-g nodal fibres; for a classifying family C/S its base change is precisely f:C→S. It is smooth at a geometric point exactly when that point of its fibre is smooth.
+  Actual stable-family/groupoid-stack and represented universal projection types are required; this mathematical contract is explicit, without a surrogate proposition.
+API: UniversalCurve.smoothRestriction
+  Base change of Z̄_{g,n} to the full smooth-family substack M_{g,n} is the universal smooth proper n-pointed curve. This differs from taking only the relative smooth locus of Z̄ over all of M̄: a singular stable curve retains its nodal point in the universal fibre.
+  Actual stable-family/groupoid-stack and represented universal projection types are required; this mathematical contract is explicit, without a surrogate proposition.
+test: UniversalCurve.nodalProjection
+  Let C/k be an irreducible rational curve with one ordinary node and one smooth marking over an algebraically closed field. Its arithmetic genus is one and it is pointed-stable. The base change of the universal projection to its classifying point is C→Spec k and is not smooth at the node; smoothness of the total universal stack over Z does not make this projection smooth.
+  Actual stable-family/groupoid-stack and represented universal projection types are required; this mathematical contract is explicit, without a surrogate proposition.
 node: StableReductionPartII:MC.1/tricanonical-cohomology
   Requires supplier types and the precise statement in the reader.
 node: StableReductionPartII:MC.1/tricanonical-hilbert
