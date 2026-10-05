@@ -23068,8 +23068,9 @@
    ],
    "avoidAccountOf": "BP-ColemanPowerSeries",
    "prompt": "research/blueprint/prompts/REV-ColemanPowerSeries.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #374"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #374",
+   "finishedAt": "2026-10-05T18:42:02Z"
   },
   {
    "id": "BP-CompletedCohomologyAndLocalGlobalCompatibility",
@@ -32940,7 +32941,8 @@
    ],
    "avoidAccountOf": "BP-FiniteFieldsAndCharacterSums--FF.3",
    "prompt": "research/blueprint/prompts/REV-FiniteFieldsAndCharacterSums--FF.3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6308"
   },
   {
    "id": "BP-FiniteFieldsAndCharacterSums--FF.4",
