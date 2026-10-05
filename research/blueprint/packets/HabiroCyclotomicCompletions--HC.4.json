@@ -1,0 +1,2354 @@
+{
+  "roadmapId": "HabiroCyclotomicCompletions",
+  "protocol": "blueprint-v1",
+  "part": "HC.4",
+  "scope": [
+    "HabiroCyclotomicCompletions:HC.4"
+  ],
+  "status": "complete",
+  "summary": "Extend the accepted classical rigidity plan by the filtered integral Taylor comparison of GSWZ §5.1. The naive completion is imported from HC.1–HC.2. Universal cyclotomic coefficient algebras, multiplicative Taylor coordinates, finite matrices, corrected determinant indexing and the integral image criterion are specified for torsion-free coefficient rings. Finite integral-extension separatedness repairs the coefficient-change boundary in the inherited rootwise rigidity proof.",
+  "baseline": {
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "declarations": [
+      {
+        "ref": "mathlib:AdjoinRoot",
+        "kind": "declaration",
+        "module": "Mathlib/RingTheory/AdjoinRoot.lean",
+        "provides": "The universal quotient R[q]/(f), not a chosen component of an embedded compositum.",
+        "checked": "Statement read in the source tree at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05."
+      },
+      {
+        "ref": "mathlib:AdjoinRoot.modByMonicHom",
+        "kind": "declaration",
+        "module": "Mathlib/RingTheory/AdjoinRoot.lean",
+        "provides": "The canonical reduced polynomial representative of a class modulo a monic f.",
+        "checked": "Statement read in the source tree at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05."
+      },
+      {
+        "ref": "mathlib:AdjoinRoot.powerBasisAux'",
+        "kind": "declaration",
+        "module": "Mathlib/RingTheory/AdjoinRoot.lean",
+        "provides": "For monic f, the basis 1,root f,... of the quotient, indexed by Fin f.natDegree.",
+        "checked": "Statement read in the source tree at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05."
+      },
+      {
+        "ref": "mathlib:AdjoinRoot.liftAlgHom",
+        "kind": "declaration",
+        "module": "Mathlib/RingTheory/AdjoinRoot.lean",
+        "provides": "Evaluation of the universal quotient at a root in an R-algebra.",
+        "checked": "Statement read in the source tree at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05."
+      },
+      {
+        "ref": "mathlib:Polynomial.cyclotomic.monic",
+        "kind": "declaration",
+        "module": "Mathlib/RingTheory/Polynomial/Cyclotomic/Basic.lean",
+        "provides": "Monicity of every cyclotomic polynomial.",
+        "checked": "Statement read in the source tree at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05."
+      },
+      {
+        "ref": "mathlib:Polynomial.natDegree_cyclotomic",
+        "kind": "declaration",
+        "module": "Mathlib/RingTheory/Polynomial/Cyclotomic/Basic.lean",
+        "provides": "Degree phi(m) over a nontrivial coefficient ring.",
+        "checked": "Statement read in the source tree at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05."
+      },
+      {
+        "ref": "mathlib:Polynomial.prod_cyclotomic_eq_X_pow_sub_one",
+        "kind": "declaration",
+        "module": "Mathlib/RingTheory/Polynomial/Cyclotomic/Basic.lean",
+        "provides": "Product of Phi_d over positive divisors of N equals q^N-1.",
+        "checked": "Statement read in the source tree at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05."
+      },
+      {
+        "ref": "mathlib:Polynomial.hasseDeriv",
+        "kind": "declaration",
+        "module": "Mathlib/Algebra/Polynomial/HasseDeriv.lean",
+        "provides": "Integral coefficient extraction for a Taylor expansion; no factorial division.",
+        "checked": "Statement read in the source tree at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05."
+      },
+      {
+        "ref": "mathlib:Polynomial.hasseDeriv_coeff",
+        "kind": "declaration",
+        "module": "Mathlib/Algebra/Polynomial/HasseDeriv.lean",
+        "provides": "Coefficient formula binomial(n+k,k) times coefficient(n+k).",
+        "checked": "Statement read in the source tree at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05."
+      },
+      {
+        "ref": "mathlib:Polynomial.resultant_prod_left",
+        "kind": "declaration",
+        "module": "Mathlib/RingTheory/Polynomial/Resultant/Basic.lean",
+        "provides": "Multiplicativity of the resultant in products with explicit degree bounds and nonzero leading coefficients.",
+        "checked": "Statement read in the source tree at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05."
+      },
+      {
+        "ref": "mathlib:Nat.sum_totient",
+        "kind": "declaration",
+        "module": "Mathlib/Data/Nat/Totient.lean",
+        "provides": "Sum phi(d) over divisors d of N equals N.",
+        "checked": "Statement read in the source tree at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05."
+      },
+      {
+        "ref": "mathlib:Matrix.BlockTriangular.det_fintype",
+        "kind": "declaration",
+        "module": "Mathlib/LinearAlgebra/Matrix/Block.lean",
+        "provides": "The determinant of a finite block triangular square matrix is the product of its diagonal block determinants.",
+        "checked": "Statement read in the source tree at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05."
+      },
+      {
+        "ref": "mathlib:Matrix.mul_adjugate",
+        "kind": "declaration",
+        "module": "Mathlib/LinearAlgebra/Matrix/Adjugate.lean",
+        "provides": "M adj(M) = det(M) times the identity.",
+        "checked": "Statement read in the source tree at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05."
+      },
+      {
+        "ref": "mathlib:Matrix.adjugate_mul",
+        "kind": "declaration",
+        "module": "Mathlib/LinearAlgebra/Matrix/Adjugate.lean",
+        "provides": "adj(M) M = det(M) times the identity.",
+        "checked": "Statement read in the source tree at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05."
+      },
+      {
+        "ref": "mathlib:IsHausdorff",
+        "kind": "declaration",
+        "module": "Mathlib/RingTheory/AdicCompletion/Basic.lean",
+        "provides": "Separation for the powers of an ideal acting on a module.",
+        "checked": "Statement read in the source tree at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05."
+      },
+      {
+        "ref": "mathlib:isHausdorff_iff",
+        "kind": "declaration",
+        "module": "Mathlib/RingTheory/AdicCompletion/Basic.lean",
+        "provides": "Intersection-of-powers characterization of adic separatedness.",
+        "checked": "Statement read in the source tree at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05."
+      },
+      {
+        "ref": "mathlib:Module.Finite.exists_fin",
+        "kind": "declaration",
+        "module": "Mathlib/RingTheory/Finiteness/Defs.lean",
+        "provides": "A finite module has a finite family spanning the whole module.",
+        "checked": "Statement read in the source tree at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05."
+      },
+      {
+        "ref": "mathlib:IsFractionRing.injective",
+        "kind": "declaration",
+        "module": "Mathlib/RingTheory/Localization/FractionRing.lean",
+        "provides": "The fraction-field algebra map of a domain is injective.",
+        "checked": "Statement read in the source tree at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05."
+      },
+      {
+        "ref": "mathlib:Module.Basis.exists_basis",
+        "kind": "declaration",
+        "module": "Mathlib/LinearAlgebra/Basis/VectorSpace.lean",
+        "provides": "A vector space has a basis; used on the finite span of integral-extension generators.",
+        "checked": "Statement read in the source tree at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05."
+      },
+      {
+        "ref": "mathlib:FiniteDimensional.span_of_finite",
+        "kind": "declaration",
+        "module": "Mathlib/LinearAlgebra/FiniteDimensional/Defs.lean",
+        "provides": "The span of a finite set over a division ring is finite dimensional.",
+        "checked": "Statement read in the source tree at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05."
+      },
+      {
+        "ref": "mathlib:Module.Finite.finite_basis",
+        "kind": "declaration",
+        "module": "Mathlib/RingTheory/Finiteness/Cardinality.lean",
+        "provides": "A basis of a finite module over a nontrivial ring has a finite index type.",
+        "checked": "Statement read in the source tree at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05."
+      },
+      {
+        "ref": "mathlib:IsLocalization.exist_integer_multiples",
+        "kind": "declaration",
+        "module": "Mathlib/RingTheory/Localization/Integer.lean",
+        "provides": "One localization denominator clears an entire finite family of fractions.",
+        "checked": "Statement read in the source tree at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05."
+      },
+      {
+        "ref": "mathlib:Polynomial.toMatrix_sylvesterMap",
+        "kind": "declaration",
+        "module": "Mathlib/RingTheory/Polynomial/Resultant/Basic.lean",
+        "provides": "The coefficient matrix of (a,b) mapped to g*a+f*b is the Sylvester matrix up to the specified reindexing.",
+        "checked": "Statement read in the source tree at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05."
+      },
+      {
+        "ref": "mathlib:PadicInt.unitCoeff_spec",
+        "kind": "declaration",
+        "module": "Mathlib/NumberTheory/Padics/PadicIntegers.lean",
+        "provides": "A nonzero p-adic integer is a unit times p raised to its valuation.",
+        "checked": "Statement read in the source tree at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05."
+      },
+      {
+        "ref": "mathlib:PadicInt.norm_int_lt_one_iff_dvd",
+        "kind": "declaration",
+        "module": "Mathlib/NumberTheory/Padics/PadicIntegers.lean",
+        "provides": "An integer has p-adic norm less than one exactly when p divides it.",
+        "checked": "Statement read in the source tree at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05."
+      },
+      {
+        "ref": "mathlib:PadicInt.norm_int_le_pow_iff_dvd",
+        "kind": "declaration",
+        "module": "Mathlib/NumberTheory/Padics/PadicIntegers.lean",
+        "provides": "Integer p-power divisibility agrees with the p-adic norm bound.",
+        "checked": "Statement read in the source tree at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05."
+      },
+      {
+        "ref": "mathlib:Padic.valuation_ratCast",
+        "kind": "declaration",
+        "module": "Mathlib/NumberTheory/Padics/PadicNumbers.lean",
+        "provides": "The valuation of a rational in Q_p is its rational p-adic valuation, with the zero convention explicit.",
+        "checked": "Statement read in the source tree at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05."
+      },
+      {
+        "ref": "mathlib:padicValRat.defn",
+        "kind": "declaration",
+        "module": "Mathlib/NumberTheory/Padics/PadicVal/Basic.lean",
+        "provides": "For a nonzero rational represented by numerator/denominator, the valuation is the difference of prime multiplicities.",
+        "checked": "Statement read in the source tree at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05."
+      },
+      {
+        "ref": "mathlib:Nat.factorization_le_iff_dvd",
+        "kind": "declaration",
+        "module": "Mathlib/Data/Nat/Factorization/Defs.lean",
+        "provides": "For nonzero naturals d,n, divisibility is coordinatewise comparison of prime exponents.",
+        "checked": "Statement read in the source tree at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05."
+      },
+      {
+        "ref": "mathlib:IsPrimitiveRoot.prod_one_sub_pow_eq_order",
+        "kind": "declaration",
+        "module": "Mathlib/RingTheory/RootsOfUnity/Lemmas.lean",
+        "provides": "In a domain, the product of 1-mu^k for 1<=k<n equals n for a primitive n-th root. The new lemma transfers this identity to universal coefficient quotients over arbitrary rings.",
+        "checked": "Statement read in the source tree at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05."
+      },
+      {
+        "ref": "mathlib:Polynomial.cyclotomic_eq_minpoly_rat",
+        "kind": "declaration",
+        "module": "Mathlib/RingTheory/Polynomial/Cyclotomic/Roots.lean",
+        "provides": "The rational cyclotomic polynomial is the minimal polynomial of a primitive root in a characteristic-zero field.",
+        "checked": "Statement read in the source tree at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05."
+      },
+      {
+        "ref": "mathlib:minpoly.dvd_iff",
+        "kind": "declaration",
+        "module": "Mathlib/FieldTheory/Minpoly/Field.lean",
+        "provides": "Over a field, vanishing of evaluation is equivalent to divisibility by the minimal polynomial.",
+        "checked": "Statement read in the source tree at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "GSWZ.v2",
+      "title": "The Habiro ring of a number field",
+      "authors": "Stavros Garoufalidis, Peter Scholze, Campbell Wheeler, Don Zagier",
+      "edition": "arXiv:2412.04241v2, 27 August 2025; 73 printed pages; a preprint, not a version of record.",
+      "url": "https://arxiv.org/abs/2412.04241v2",
+      "sha256": "308d1dd1c42bd979e5d5c31d9d95215a1808f604031b49c0ce2a1eb767273de9",
+      "accessed": "2026-10-05",
+      "readSections": [
+        "§1.3–1.4, pp. 4–8 (coordinate and coefficient conventions; distinction from the Frobenius-twisted ring)",
+        "§5.1 in full, pp. 59–64, equations (296)–(323), Propositions 5.1–5.2; rendered p. 62 checked against its text layer",
+        "§5.2, pp. 64–65 (consumer only); Examples 5.6–5.7, pp. 65–66, equations (334)–(341)"
+      ]
+    },
+    {
+      "id": "Habiro.2004",
+      "title": "Cyclotomic Completions of Polynomial Rings",
+      "authors": "Kazuo Habiro",
+      "edition": "Publ. RIMS 40 (2004), 1127–1146, version of record; printed page numbers.",
+      "url": "https://ems.press/journals/prims/articles/2364",
+      "sha256": "f56094672ada5ba71bbce69785be8c9d1377807c937b1011b1004f51dbf3071f",
+      "accessed": "2026-10-05",
+      "readSections": [
+        "Theorem 5.2 and proof, pp. 1138–1139; Theorem 6.2 and proof, pp. 1140–1141; §7.5, pp. 1145–1146; other classical statements imported from the independently reviewed parent packet."
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "HabiroCyclotomicCompletions:HC.4/universal-taylor-product",
+      "parentStageId": "HabiroCyclotomicCompletions:HC.4",
+      "realises": [
+        "HabiroCyclotomicCompletions:HC.4"
+      ],
+      "title": "The untwisted universal Taylor product",
+      "kind": "definition",
+      "statement": "Write A_m(R)=R[q]/(Phi_m(q))=R tensor_Z Z[zeta_m], with universal root z_m. Define TaylorProduct R = product over m>=1 of A_m(R)[[u]], where q=z_m(1-u). Coefficients C_{m,l} have exponent l-1. This is the tensor-product coefficient algebra, even when a chosen root already lies in R: it retains every cyclotomic component. Its reduced representative gives gamma_{m,l,j} in R for 0<=j<phi(m). For R=Z it is the usual product of Z[zeta_m][[u]]. No choice of an embedded compositum replaces A_m for arbitrary R.",
+      "hypotheses": [
+        "R is a commutative unital ring; positive precision N and positive root order m. Rank assertions assume R is nontrivial. Torsion-freeness over Z is imposed only on the injectivity and image statements that use it."
+      ],
+      "proofSteps": [
+        "Use the baseline AdjoinRoot quotient and its monic power basis; its rank is phi(m) by natDegree_cyclotomic.",
+        "Take the product of power-series R-algebras; define coordinates by coefficients followed by the canonical reduced representative.",
+        "For a chosen embedded root, liftAlgHom specializes A_m(R) to R[zeta]; the specialization can have a kernel, and is not the product definition."
+      ],
+      "prerequisites": [
+        "mathlib:AdjoinRoot",
+        "mathlib:AdjoinRoot.modByMonicHom",
+        "mathlib:AdjoinRoot.powerBasisAux'",
+        "mathlib:AdjoinRoot.liftAlgHom",
+        "mathlib:Polynomial.cyclotomic.monic",
+        "mathlib:Polynomial.natDegree_cyclotomic"
+      ],
+      "acceptance": [
+        "Write A_m(R)=R[q]/(Phi_m(q))=R tensor_Z Z[zeta_m], with universal root z_m. Define TaylorProduct R = product over m>=1 of A_m(R)[[u]], where q=z_m(1-u). Coefficients C_{m,l} have exponent l-1. This is the tensor-product coefficient algebra, even when a chosen root already lies in R: it retains every cyclotomic component. Its reduced representative gives gamma_{m,l,j} in R for 0<=j<phi(m). For R=Z it is the usual product of Z[zeta_m][[u]]. No choice of an embedded compositum replaces A_m for arbitrary R."
+      ],
+      "sources": [
+        {
+          "sourceId": "GSWZ.v2",
+          "locator": "§5.1, p. 59, (298)–(300), with §1.4, p. 7 (naive base changes)",
+          "match": "The stated passage supplies the construction or argument; the proof steps make its intermediate inputs explicit."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/RingTheory/Habiro/IntegralTaylor",
+        "namespace": "TauCeti.Habiro.HC4"
+      },
+      "api": [
+        {
+          "name": "TaylorProduct",
+          "role": "data",
+          "statement": "The product of the universal cyclotomic power-series algebras."
+        },
+        {
+          "name": "taylorCoeff",
+          "role": "projection",
+          "statement": "C_{m,l}(f)=coefficient(l-1) of f_m."
+        },
+        {
+          "name": "gamma",
+          "role": "projection",
+          "statement": "gamma_{m,l,j} is coefficient j of the monic reduced representative of C_{m,l}."
+        },
+        {
+          "name": "TaylorProduct.ext",
+          "role": "extensionality",
+          "statement": "Equality of every component coefficient implies equality of collections."
+        },
+        {
+          "name": "TaylorProduct.map",
+          "role": "functoriality",
+          "statement": "A ring map R->R′ acts coefficientwise and preserves the universal root."
+        },
+        {
+          "name": "TaylorProduct.map_gamma",
+          "role": "characterisation",
+          "statement": "The map induced by phi sends gamma_{m,l,j}(f) to phi(gamma_{m,l,j}(f))."
+        },
+        {
+          "name": "TaylorProduct.map_id",
+          "role": "simp",
+          "statement": "The identity coefficient map induces the identity on TaylorProduct."
+        },
+        {
+          "name": "TaylorProduct.map_comp",
+          "role": "functoriality",
+          "statement": "Coefficient maps compose in the same order as ring maps."
+        }
+      ],
+      "tests": [
+        {
+          "name": "taylorCoeff_zero",
+          "kind": "degenerate",
+          "statement": "All positive-index coefficients of the zero collection are zero."
+        },
+        {
+          "name": "gamma_one",
+          "kind": "computation",
+          "statement": "For the constant-one collection, gamma_{m,1,0}=1 and every other allowed coordinate is zero."
+        },
+        {
+          "name": "universal_split_nonexample",
+          "kind": "non-example",
+          "statement": "A_4(Q(i))=Q(i)[q]/(q^2+1) has rank 2 over Q(i); evaluation q->i kills the nonzero class q-i. A single embedded copy of Q(i) is the wrong coefficient algebra."
+        }
+      ],
+      "uses": [
+        {
+          "where": "GSWZ §5.1, (306)–(319); HabiroNumberFields:HB.6/ring-operations-and-the-classical-comparison",
+          "how": "Finite integral Taylor coordinates and congruence detection supply the untwisted lattice input; HB.6 applies its own Frobenius twist."
+        }
+      ]
+    },
+    {
+      "id": "HabiroCyclotomicCompletions:HC.4/factorial-kernel-filtration",
+      "parentStageId": "HabiroCyclotomicCompletions:HC.4",
+      "realises": [
+        "HabiroCyclotomicCompletions:HC.4"
+      ],
+      "title": "The factorial kernel filtration",
+      "kind": "definition",
+      "statement": "For H_R=R[q]^(positive orders), imported by factorial cofinality, define hFiltration R N=kernel(H_R->R[q]/(P_{N-1})), where P_n=product_{i=1}^n(1-q^i), N>=1. It equals P_{N-1}H_R and consists of normalized expansions with a_{n,k}=0 for n<N in the GSWZ indexing 1<=n,0<=k<n. Thus hFiltration R 1=H_R, the ideals decrease with N, and their intersection is zero.",
+      "hypotheses": [
+        "R is a commutative unital ring; positive precision N and positive root order m. Rank assertions assume R is nontrivial. Torsion-freeness over Z is imposed only on the injectivity and image statements that use it."
+      ],
+      "proofSteps": [
+        "Use HC.1 finite quotient kernels with the factorial cofinal system.",
+        "Translate HC.2 digits a_{n-1} into GSWZ a_n; the first N-1 digits vanish exactly when the projection vanishes.",
+        "Separatedness follows from extensionality on all factorial quotients."
+      ],
+      "prerequisites": [
+        "HabiroCyclotomicCompletions:HC.1/the-quotients-of-the-completion",
+        "HabiroCyclotomicCompletions:HC.1/cofinality-of-the-factorial-products",
+        "HabiroCyclotomicCompletions:HC.2/factorial-expansions"
+      ],
+      "acceptance": [
+        "For H_R=R[q]^(positive orders), imported by factorial cofinality, define hFiltration R N=kernel(H_R->R[q]/(P_{N-1})), where P_n=product_{i=1}^n(1-q^i), N>=1. It equals P_{N-1}H_R and consists of normalized expansions with a_{n,k}=0 for n<N in the GSWZ indexing 1<=n,0<=k<n. Thus hFiltration R 1=H_R, the ideals decrease with N, and their intersection is zero."
+      ],
+      "sources": [
+        {
+          "sourceId": "GSWZ.v2",
+          "locator": "§5.1, p. 60, (301)–(303)",
+          "match": "The stated passage supplies the construction or argument; the proof steps make its intermediate inputs explicit."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/RingTheory/Habiro/IntegralTaylor",
+        "namespace": "TauCeti.Habiro.HC4"
+      },
+      "api": [
+        {
+          "name": "hFiltration",
+          "role": "data",
+          "statement": "The kernel ideal at precision N, N>=1."
+        },
+        {
+          "name": "mem_hFiltration_iff",
+          "role": "characterisation",
+          "statement": "Membership iff projection modulo P_{N-1} is zero."
+        },
+        {
+          "name": "hFiltration_eq_principal",
+          "role": "characterisation",
+          "statement": "hFiltration R N=P_{N-1}H_R."
+        },
+        {
+          "name": "hFiltration_antitone",
+          "role": "structure",
+          "statement": "hFiltration R (N+1)<=hFiltration R N."
+        },
+        {
+          "name": "hFiltration_inter",
+          "role": "characterisation",
+          "statement": "The intersection for N>=1 is zero."
+        },
+        {
+          "name": "hFiltration_quotient_equiv",
+          "role": "equivalence",
+          "statement": "H_R/hFiltration R N is R-algebra isomorphic to R[q]/(P_{N-1})."
+        }
+      ],
+      "tests": [
+        {
+          "name": "hFiltration_one",
+          "kind": "degenerate",
+          "statement": "hFiltration R 1 is the whole ring and its quotient is zero."
+        },
+        {
+          "name": "hFiltration_two",
+          "kind": "compatibility",
+          "statement": "hFiltration R 2 is the kernel of evaluation at q=1, since P_1=1-q."
+        },
+        {
+          "name": "hFiltration_digit_boundary",
+          "kind": "non-example",
+          "statement": "The element P_{N-1} lies in hFiltration Z N but not in hFiltration Z (N+1)."
+        }
+      ],
+      "uses": [
+        {
+          "where": "GSWZ §5.1, (306)–(319); HabiroNumberFields:HB.6/ring-operations-and-the-classical-comparison",
+          "how": "Finite integral Taylor coordinates and congruence detection supply the untwisted lattice input; HB.6 applies its own Frobenius twist."
+        }
+      ]
+    },
+    {
+      "id": "HabiroCyclotomicCompletions:HC.4/weighted-taylor-filtration",
+      "parentStageId": "HabiroCyclotomicCompletions:HC.4",
+      "realises": [
+        "HabiroCyclotomicCompletions:HC.4"
+      ],
+      "title": "The weighted Taylor filtration",
+      "kind": "definition",
+      "statement": "Define pFiltration R N as the ideal of f in TaylorProduct R with C_{m,l}(f)=0 whenever m*l<N. Equivalently f_m is divisible by u^floor((N-1)/m). The quotient retains exactly the coordinates with m*l<N. The filtration decreases, starts at the whole product for N=1, and has zero intersection. Multiplication preserves each ideal because vanishing below a fixed power of u is a componentwise ideal condition.",
+      "hypotheses": [
+        "R is a commutative unital ring; positive precision N and positive root order m. Rank assertions assume R is nontrivial. Torsion-freeness over Z is imposed only on the injectivity and image statements that use it."
+      ],
+      "proofSteps": [
+        "Use the coefficientwise power-series ideal u^floor((N-1)/m).",
+        "A coefficient with exponent k is retained precisely when m*(k+1)<N; show floor((N-1)/m)=ceil(N/m)-1 for m>0.",
+        "Every fixed coordinate is eventually retained, giving separatedness."
+      ],
+      "prerequisites": [
+        "HabiroCyclotomicCompletions:HC.4/universal-taylor-product"
+      ],
+      "acceptance": [
+        "Define pFiltration R N as the ideal of f in TaylorProduct R with C_{m,l}(f)=0 whenever m*l<N. Equivalently f_m is divisible by u^floor((N-1)/m). The quotient retains exactly the coordinates with m*l<N. The filtration decreases, starts at the whole product for N=1, and has zero intersection. Multiplication preserves each ideal because vanishing below a fixed power of u is a componentwise ideal condition."
+      ],
+      "sources": [
+        {
+          "sourceId": "GSWZ.v2",
+          "locator": "§5.1, p. 60, (304)–(305)",
+          "match": "The stated passage supplies the construction or argument; the proof steps make its intermediate inputs explicit."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/RingTheory/Habiro/IntegralTaylor",
+        "namespace": "TauCeti.Habiro.HC4"
+      },
+      "api": [
+        {
+          "name": "pFiltration",
+          "role": "data",
+          "statement": "The weighted coefficient-vanishing ideal."
+        },
+        {
+          "name": "mem_pFiltration_iff",
+          "role": "characterisation",
+          "statement": "f lies in pFiltration R N iff every coefficient with weight m*l<N vanishes."
+        },
+        {
+          "name": "pFiltration_antitone",
+          "role": "structure",
+          "statement": "pFiltration R (N+1)<=pFiltration R N."
+        },
+        {
+          "name": "pFiltration_inter",
+          "role": "characterisation",
+          "statement": "The intersection for N>=1 is zero."
+        },
+        {
+          "name": "jetCoordinates",
+          "role": "projection",
+          "statement": "The finite vector of gamma coordinates with m*l<N, in the ordering fixed by taylorMatrix."
+        },
+        {
+          "name": "jetCoordinates_kernel",
+          "role": "characterisation",
+          "statement": "jetCoordinates N f=0 iff f belongs to pFiltration R N."
+        }
+      ],
+      "tests": [
+        {
+          "name": "pFiltration_one",
+          "kind": "degenerate",
+          "statement": "pFiltration R 1 is the whole product."
+        },
+        {
+          "name": "pFiltration_three",
+          "kind": "computation",
+          "statement": "pFiltration R 3 forces f_1 to have zero coefficients 0 and 1 and f_2 to have zero coefficient 0; orders >=3 are unrestricted."
+        },
+        {
+          "name": "pFiltration_shift_nonexample",
+          "kind": "non-example",
+          "statement": "A collection supported at order 2 with f_2=u lies in pFiltration Z 4 but not pFiltration Z 5. The coefficient has weight 4, not 2."
+        }
+      ],
+      "uses": [
+        {
+          "where": "GSWZ §5.1, (306)–(319); HabiroNumberFields:HB.6/ring-operations-and-the-classical-comparison",
+          "how": "Finite integral Taylor coordinates and congruence detection supply the untwisted lattice input; HB.6 applies its own Frobenius twist."
+        }
+      ]
+    },
+    {
+      "id": "HabiroCyclotomicCompletions:HC.4/factorial-kernel-characterisation",
+      "parentStageId": "HabiroCyclotomicCompletions:HC.4",
+      "realises": [
+        "HabiroCyclotomicCompletions:HC.4"
+      ],
+      "title": "Factorial projection kernels and separation",
+      "kind": "lemma",
+      "statement": "For N>=1, the kernel of H_R->R[q]/P_(N-1) is the principal ideal P_(N-1)H_R; equivalently its first N-1 normalized digits vanish. These kernels decrease, their intersection is zero, and the projection induces H_R/kernel ≅ R[q]/P_(N-1).",
+      "hypotheses": [
+        "R is a commutative unital ring; positive precision N and positive root order m. Rank assertions assume R is nontrivial. Torsion-freeness over Z is imposed only on the injectivity and image statements that use it."
+      ],
+      "proofSteps": [
+        "Apply the imported finite completion quotient theorem at P_(N-1).",
+        "The unique factorial digits show that the kernel consists precisely of the factorial tail, whose factor P_(N-1) may be taken out coefficientwise.",
+        "The compatible-family description proves the decreasing and zero-intersection assertions."
+      ],
+      "prerequisites": [
+        "HabiroCyclotomicCompletions:HC.4/factorial-kernel-filtration",
+        "HabiroCyclotomicCompletions:HC.1/the-quotients-of-the-completion",
+        "HabiroCyclotomicCompletions:HC.2/factorial-expansions"
+      ],
+      "acceptance": [
+        "At N=1 the kernel is the whole ring; at N=2 the polynomial kernel is evaluation at 1."
+      ],
+      "sources": [
+        {
+          "sourceId": "GSWZ.v2",
+          "locator": "§5.1, pp. 60–61, (301)–(303)",
+          "match": "The stated passage supplies the construction or argument; the proof steps make its intermediate inputs explicit."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/RingTheory/Habiro/IntegralTaylor",
+        "namespace": "TauCeti.Habiro.HC4"
+      }
+    },
+    {
+      "id": "HabiroCyclotomicCompletions:HC.4/weighted-jet-kernel",
+      "parentStageId": "HabiroCyclotomicCompletions:HC.4",
+      "realises": [
+        "HabiroCyclotomicCompletions:HC.4"
+      ],
+      "title": "Weighted jet kernels and separation",
+      "kind": "lemma",
+      "statement": "For N>=1, the kernel of the finite linear map jetCoordinates N is pFiltration R N; these ideals decrease and have zero intersection.",
+      "hypotheses": [
+        "R is a commutative unital ring; positive precision N and positive root order m. Rank assertions assume R is nontrivial. Torsion-freeness over Z is imposed only on the injectivity and image statements that use it."
+      ],
+      "proofSteps": [
+        "The monic cyclotomic basis makes vanishing of all gamma coordinates of one coefficient equivalent to vanishing of that coefficient.",
+        "Increasing N retains more coefficients. Every component coefficient is eventually retained."
+      ],
+      "prerequisites": [
+        "HabiroCyclotomicCompletions:HC.4/weighted-taylor-filtration",
+        "HabiroCyclotomicCompletions:HC.4/universal-taylor-product",
+        "mathlib:AdjoinRoot.powerBasisAux'"
+      ],
+      "acceptance": [
+        "At N=3 exactly the three coordinates gamma_(1,1,0),gamma_(2,1,0),gamma_(1,2,0) are retained."
+      ],
+      "sources": [
+        {
+          "sourceId": "GSWZ.v2",
+          "locator": "§5.1, p. 60, (304)–(305)",
+          "match": "The stated passage supplies the construction or argument; the proof steps make its intermediate inputs explicit."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/RingTheory/Habiro/IntegralTaylor",
+        "namespace": "TauCeti.Habiro.HC4"
+      }
+    },
+    {
+      "id": "HabiroCyclotomicCompletions:HC.4/factorial-graded-piece",
+      "parentStageId": "HabiroCyclotomicCompletions:HC.4",
+      "realises": [
+        "HabiroCyclotomicCompletions:HC.4"
+      ],
+      "title": "The factorial graded piece",
+      "kind": "comparison",
+      "statement": "For N>=1, the R-linear map [g] -> [P_{N-1}g] identifies R[q]/(1-q^N) with hFiltration R N / hFiltration R (N+1). Both sides are free of rank N. Quotients of nested ideals here are quotients of R-submodules. No claim that this is a unital ring isomorphism is made.",
+      "hypotheses": [
+        "R is a commutative unital ring; positive precision N and positive root order m. Rank assertions assume R is nontrivial. Torsion-freeness over Z is imposed only on the injectivity and image statements that use it."
+      ],
+      "proofSteps": [
+        "Use the imported unique factorial expansion: its Nth digit has degree <N.",
+        "Multiplication by the polynomial P_{N-1}, whose leading coefficient is a unit, identifies the leading digit modulo 1-q^N; cancellation proves the stated kernel."
+      ],
+      "prerequisites": [
+        "HabiroCyclotomicCompletions:HC.4/factorial-kernel-characterisation",
+        "HabiroCyclotomicCompletions:HC.2/factorial-expansions"
+      ],
+      "acceptance": [
+        "For N=1 the quotient is R, represented by constant first digits; for N=2 it has basis P_1,qP_1."
+      ],
+      "sources": [
+        {
+          "sourceId": "GSWZ.v2",
+          "locator": "§5.1, p. 61, (308)",
+          "match": "The stated passage supplies the construction or argument; the proof steps make its intermediate inputs explicit."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/RingTheory/Habiro/IntegralTaylor",
+        "namespace": "TauCeti.Habiro.HC4"
+      }
+    },
+    {
+      "id": "HabiroCyclotomicCompletions:HC.4/taylor-graded-piece",
+      "parentStageId": "HabiroCyclotomicCompletions:HC.4",
+      "realises": [
+        "HabiroCyclotomicCompletions:HC.4"
+      ],
+      "title": "The Taylor graded piece",
+      "kind": "comparison",
+      "statement": "For N>=1, coefficient extraction at l-1 in components m dividing N, l=N/m, gives an R-linear equivalence pFiltration R N / pFiltration R (N+1) with the finite product of A_m(R) over m|N. Finite products and finite direct sums agree. The rank is sum_{m|N}phi(m)=N.",
+      "hypotheses": [
+        "R is a commutative unital ring; positive precision N and positive root order m. Rank assertions assume R is nontrivial. Torsion-freeness over Z is imposed only on the injectivity and image statements that use it."
+      ],
+      "proofSteps": [
+        "Exactly the coordinates of weight N survive the submodule quotient.",
+        "Construct the inverse by putting each prescribed coefficient in u^(N/m-1) in its m component and zero elsewhere.",
+        "Use the monic cyclotomic bases and Nat.sum_totient."
+      ],
+      "prerequisites": [
+        "HabiroCyclotomicCompletions:HC.4/weighted-jet-kernel",
+        "mathlib:Nat.sum_totient",
+        "mathlib:AdjoinRoot.powerBasisAux'"
+      ],
+      "acceptance": [
+        "For N=4 the components m=1,2,4 have ranks 1,1,2."
+      ],
+      "sources": [
+        {
+          "sourceId": "GSWZ.v2",
+          "locator": "§5.1, p. 61, (308)–(309)",
+          "match": "The stated passage supplies the construction or argument; the proof steps make its intermediate inputs explicit."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/RingTheory/Habiro/IntegralTaylor",
+        "namespace": "TauCeti.Habiro.HC4"
+      }
+    },
+    {
+      "id": "HabiroCyclotomicCompletions:HC.4/finite-precision-bases",
+      "parentStageId": "HabiroCyclotomicCompletions:HC.4",
+      "realises": [
+        "HabiroCyclotomicCompletions:HC.4"
+      ],
+      "title": "Finite precision bases and ranks",
+      "kind": "lemma",
+      "statement": "H_R/hFiltration R N has the R-basis q^k P_{n-1} for 1<=n<N, 0<=k<n. TaylorProduct R/pFiltration R N has the R-basis z_m^j u^(l-1), supported at component m, for m*l<N and 0<=j<phi(m). Their common number of basis elements is d_N=N(N-1)/2, and both inverse systems recover their infinite objects. These are finite-level basis and base-change statements; an infinite product is not an algebraic tensor product in general.",
+      "hypotheses": [
+        "R is a commutative unital ring; positive precision N and positive root order m. Rank assertions assume R is nontrivial. Torsion-freeness over Z is imposed only on the injectivity and image statements that use it."
+      ],
+      "proofSteps": [
+        "Apply the two graded-piece results successively using the digit and coefficient splittings already constructed.",
+        "Count sum_{1<=n<N} n using Nat.sum_totient for the Taylor side.",
+        "Inverse-limit reconstruction follows by digit/coefficient extensionality; finite free modules allow ordinary coefficient base change at each N."
+      ],
+      "prerequisites": [
+        "HabiroCyclotomicCompletions:HC.4/factorial-graded-piece",
+        "HabiroCyclotomicCompletions:HC.4/taylor-graded-piece",
+        "HabiroCyclotomicCompletions:HC.2/factorial-expansions"
+      ],
+      "acceptance": [
+        "N=1 has dimension 0, N=3 has dimension 3, N=5 has dimension 10."
+      ],
+      "sources": [
+        {
+          "sourceId": "GSWZ.v2",
+          "locator": "§5.1, pp. 59–61, (297), (300), (303), (305)–(306)",
+          "match": "The stated passage supplies the construction or argument; the proof steps make its intermediate inputs explicit."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/RingTheory/Habiro/IntegralTaylor",
+        "namespace": "TauCeti.Habiro.HC4"
+      }
+    },
+    {
+      "id": "HabiroCyclotomicCompletions:HC.4/multiplicative-taylor-comparison",
+      "parentStageId": "HabiroCyclotomicCompletions:HC.4",
+      "realises": [
+        "HabiroCyclotomicCompletions:HC.4"
+      ],
+      "title": "The multiplicative Taylor comparison",
+      "kind": "construction",
+      "statement": "Define iota : H_R ->_R TaylorProduct R by expanding q=z_m(1-u) in the universal algebra A_m(R) for every positive m. Its coefficient of u^k on a polynomial g is (-z_m)^k times the kth Hasse derivative of g at z_m. It is the HC.3 Taylor map followed by x=-z_m u, a zero-constant-term linear change of variable. This is ordinary untwisted completion, and does not define GSWZ Definition 1.1.",
+      "hypotheses": [
+        "R is a commutative unital ring; positive precision N and positive root order m. Rank assertions assume R is nontrivial. Torsion-freeness over Z is imposed only on the injectivity and image statements that use it."
+      ],
+      "proofSteps": [
+        "Use HC.3/the-taylor-map with A_m(R), where Phi_m(z_m)=0 by the quotient relation.",
+        "Apply the variable scaling x=-z_m u; on polynomials it is evaluation at z_m(1-u), and coefficientwise multiplication shows the ring laws.",
+        "Take the product over m."
+      ],
+      "prerequisites": [
+        "HabiroCyclotomicCompletions:HC.4/universal-taylor-product",
+        "HabiroCyclotomicCompletions:HC.3/the-taylor-map",
+        "mathlib:Polynomial.hasseDeriv"
+      ],
+      "acceptance": [
+        "Define iota : H_R ->_R TaylorProduct R by expanding q=z_m(1-u) in the universal algebra A_m(R) for every positive m. Its coefficient of u^k on a polynomial g is (-z_m)^k times the kth Hasse derivative of g at z_m. It is the HC.3 Taylor map followed by x=-z_m u, a zero-constant-term linear change of variable. This is ordinary untwisted completion, and does not define GSWZ Definition 1.1."
+      ],
+      "sources": [
+        {
+          "sourceId": "GSWZ.v2",
+          "locator": "§5.1, p. 59, (298)",
+          "match": "The stated passage supplies the construction or argument; the proof steps make its intermediate inputs explicit."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/RingTheory/Habiro/IntegralTaylor",
+        "namespace": "TauCeti.Habiro.HC4"
+      },
+      "api": [
+        {
+          "name": "iota",
+          "role": "constructor",
+          "statement": "The R-algebra Taylor collection map."
+        },
+        {
+          "name": "iota_fromPoly",
+          "role": "simp",
+          "statement": "iota(g)_m=g(z_m(1-u))."
+        },
+        {
+          "name": "coeff_iota_fromPoly",
+          "role": "simp",
+          "statement": "coeff_k iota(g)_m=(-z_m)^k D_k g(z_m)."
+        },
+        {
+          "name": "iota_map",
+          "role": "functoriality",
+          "statement": "iota commutes with arbitrary coefficient ring maps."
+        }
+      ],
+      "tests": [
+        {
+          "name": "iota_one",
+          "kind": "degenerate",
+          "statement": "iota(1) is the constant-one collection."
+        },
+        {
+          "name": "iota_q",
+          "kind": "computation",
+          "statement": "iota(q)_m=z_m-z_m*u; its coefficients at u^0,u^1,u^2 are z_m,-z_m,0."
+        },
+        {
+          "name": "iota_additive_coordinate",
+          "kind": "compatibility",
+          "statement": "The coefficient at exponent k is (-z_m)^k times the HC.3 additive Taylor coefficient at exponent k; for m=1 this changes the sign in odd degrees."
+        }
+      ],
+      "uses": [
+        {
+          "where": "GSWZ §5.1, (306)–(319); HabiroNumberFields:HB.6/ring-operations-and-the-classical-comparison",
+          "how": "Finite integral Taylor coordinates and congruence detection supply the untwisted lattice input; HB.6 applies its own Frobenius twist."
+        }
+      ],
+      "planet": {
+        "name": "Integral Taylor comparison"
+      }
+    },
+    {
+      "id": "HabiroCyclotomicCompletions:HC.4/factorial-vanishing-order",
+      "parentStageId": "HabiroCyclotomicCompletions:HC.4",
+      "realises": [
+        "HabiroCyclotomicCompletions:HC.4"
+      ],
+      "title": "Vanishing orders of factorial products",
+      "kind": "lemma",
+      "statement": "For n>=0 and m>=1, in A_m(R)[u], P_n(z_m(1-u)) is divisible by u^floor(n/m). Consequently iota(hFiltration R N) is contained in pFiltration R N. Over a torsion-free R the leading coefficient calculated below is nonzero when n=m*l-1, but exact order is not asserted over arbitrary R.",
+      "hypotheses": [
+        "R is a commutative unital ring; positive precision N and positive root order m. Rank assertions assume R is nontrivial. Torsion-freeness over Z is imposed only on the injectivity and image statements that use it."
+      ],
+      "proofSteps": [
+        "Separate the factors with index divisible by m: each has zero constant term, since z_m^m=1.",
+        "There are floor(n/m) such factors; multiply their u divisibility.",
+        "Use the principal-kernel characterization and the algebra-map property of iota: multiplying the Taylor collection of P_(N-1) by another collection preserves these coefficient-vanishing ideals."
+      ],
+      "prerequisites": [
+        "HabiroCyclotomicCompletions:HC.4/multiplicative-taylor-comparison",
+        "HabiroCyclotomicCompletions:HC.4/factorial-kernel-characterisation",
+        "HabiroCyclotomicCompletions:HC.4/weighted-taylor-filtration",
+        "HabiroCyclotomicCompletions:HC.1/the-factorial-polynomials",
+        "mathlib:Polynomial.prod_cyclotomic_eq_X_pow_sub_one"
+      ],
+      "acceptance": [
+        "P_3 has order 3 at 1, order 1 at -1, and order 0 at i."
+      ],
+      "sources": [
+        {
+          "sourceId": "GSWZ.v2",
+          "locator": "§5.1, p. 60, before (304)",
+          "match": "The stated passage supplies the construction or argument; the proof steps make its intermediate inputs explicit."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/RingTheory/Habiro/IntegralTaylor",
+        "namespace": "TauCeti.Habiro.HC4"
+      }
+    },
+    {
+      "id": "HabiroCyclotomicCompletions:HC.4/leading-factor",
+      "parentStageId": "HabiroCyclotomicCompletions:HC.4",
+      "realises": [
+        "HabiroCyclotomicCompletions:HC.4"
+      ],
+      "title": "The integral leading factor",
+      "kind": "definition",
+      "statement": "For m,l>=1 define leadingFactor m l=m^(2*l-1)*(l-1)!, a positive integer D_{m,l}. Its exponent includes the l complete collections of nonmultiples of m in P_{ml-1} as well as the l-1 multiples of m. It is independent of the chosen primitive root.",
+      "hypotheses": [
+        "R is a commutative unital ring; positive precision N and positive root order m. Rank assertions assume R is nontrivial. Torsion-freeness over Z is imposed only on the injectivity and image statements that use it."
+      ],
+      "proofSteps": [
+        "Define the integer by the displayed formula; positivity follows from positive m and factorial positivity."
+      ],
+      "prerequisites": [],
+      "acceptance": [
+        "For m,l>=1 define leadingFactor m l=m^(2*l-1)*(l-1)!, a positive integer D_{m,l}. Its exponent includes the l complete collections of nonmultiples of m in P_{ml-1} as well as the l-1 multiples of m. It is independent of the chosen primitive root."
+      ],
+      "sources": [
+        {
+          "sourceId": "GSWZ.v2",
+          "locator": "§5.1, p. 61, (310)",
+          "match": "The stated passage supplies the construction or argument; the proof steps make its intermediate inputs explicit."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/RingTheory/Habiro/IntegralTaylor",
+        "namespace": "TauCeti.Habiro.HC4"
+      },
+      "api": [
+        {
+          "name": "leadingFactor",
+          "role": "data",
+          "statement": "m^(2*l-1)*(l-1)! as a natural number."
+        },
+        {
+          "name": "leadingFactor_pos",
+          "role": "characterisation",
+          "statement": "0<leadingFactor m l for m,l>0."
+        },
+        {
+          "name": "leadingFactor_succ",
+          "role": "relation",
+          "statement": "D_{m,l+1}=m^2*l*D_{m,l} for m,l>0."
+        }
+      ],
+      "tests": [
+        {
+          "name": "leadingFactor_order_one",
+          "kind": "computation",
+          "statement": "D_{1,4}=6."
+        },
+        {
+          "name": "leadingFactor_ell_one",
+          "kind": "degenerate",
+          "statement": "D_{m,1}=m for every positive m."
+        },
+        {
+          "name": "leadingFactor_two_two",
+          "kind": "non-example",
+          "statement": "D_{2,2}=8, not 2 or 4."
+        }
+      ],
+      "uses": [
+        {
+          "where": "GSWZ §5.1, (306)–(319); HabiroNumberFields:HB.6/ring-operations-and-the-classical-comparison",
+          "how": "Finite integral Taylor coordinates and congruence detection supply the untwisted lattice input; HB.6 applies its own Frobenius twist."
+        }
+      ],
+      "planet": {
+        "name": "Cyclotomic leading factor"
+      }
+    },
+    {
+      "id": "HabiroCyclotomicCompletions:HC.4/root-product-identity",
+      "parentStageId": "HabiroCyclotomicCompletions:HC.4",
+      "realises": [
+        "HabiroCyclotomicCompletions:HC.4"
+      ],
+      "title": "The primitive-root product identity",
+      "kind": "lemma",
+      "statement": "In A_m(Z) for m>=1, product_{r=1}^{m-1}(1-z_m^r)=m. The same identity holds after any coefficient change. For m=1 both sides are 1. It is proved in the universal integral cyclotomic quotient, not by cancellation over an arbitrary R.",
+      "hypotheses": [
+        "R is a commutative unital ring; positive precision N and positive root order m. Rank assertions assume R is nontrivial. Torsion-freeness over Z is imposed only on the injectivity and image statements that use it."
+      ],
+      "proofSteps": [
+        "The monic-remainder basis embeds A_m(Z) in A_m(Q). Polynomial.cyclotomic_eq_minpoly_rat and minpoly.dvd_iff embed A_m(Q) in a characteristic-zero cyclotomic field by evaluation at a primitive root.",
+        "Apply the existing domain identity IsPrimitiveRoot.prod_one_sub_pow_eq_order in that field, with n=m-1 in its successor indexing, and transfer back by the injective embedding.",
+        "Use the quotient universal property for arbitrary R."
+      ],
+      "prerequisites": [
+        "HabiroCyclotomicCompletions:HC.4/universal-taylor-product",
+        "mathlib:IsPrimitiveRoot.prod_one_sub_pow_eq_order",
+        "mathlib:Polynomial.cyclotomic_eq_minpoly_rat",
+        "mathlib:minpoly.dvd_iff"
+      ],
+      "acceptance": [
+        "For m=2, 1-z_2=2; for m=3, (1-z_3)(1-z_3^2)=3."
+      ],
+      "sources": [
+        {
+          "sourceId": "GSWZ.v2",
+          "locator": "§5.1, p. 61, calculation following (310)",
+          "match": "The stated passage supplies the construction or argument; the proof steps make its intermediate inputs explicit."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/RingTheory/Habiro/IntegralTaylor",
+        "namespace": "TauCeti.Habiro.HC4"
+      }
+    },
+    {
+      "id": "HabiroCyclotomicCompletions:HC.4/factorial-leading-coefficient",
+      "parentStageId": "HabiroCyclotomicCompletions:HC.4",
+      "realises": [
+        "HabiroCyclotomicCompletions:HC.4"
+      ],
+      "title": "Leading Taylor coefficient of a factorial product",
+      "kind": "lemma",
+      "statement": "For m,l>=1, the coefficients below exponent l-1 of P_{ml-1}(z_m(1-u)) vanish and its coefficient at l-1 equals D_{m,l}. Thus P_{ml-1}(z_m(1-u))=D_{m,l}u^(l-1) modulo u^l in A_m(R)[u].",
+      "hypotheses": [
+        "R is a commutative unital ring; positive precision N and positive root order m. Rank assertions assume R is nontrivial. Torsion-freeness over Z is imposed only on the injectivity and image statements that use it."
+      ],
+      "proofSteps": [
+        "For each multiple i=m*j, j=1,...,l-1, the factor 1-(1-u)^i starts with m*j*u.",
+        "For each nonzero residue r mod m there are l indices <=m*l-1; the product of their constant terms is (product_{r=1}^{m-1}(1-z_m^r))^l=m^l.",
+        "Multiply the two contributions: m^(l-1)*(l-1)! times m^l."
+      ],
+      "prerequisites": [
+        "HabiroCyclotomicCompletions:HC.4/factorial-vanishing-order",
+        "HabiroCyclotomicCompletions:HC.4/leading-factor",
+        "HabiroCyclotomicCompletions:HC.4/root-product-identity"
+      ],
+      "acceptance": [
+        "P_3 at q=-(1-u) has coefficient of u equal to 8; P_3 at q=1-u starts with 6u^3."
+      ],
+      "sources": [
+        {
+          "sourceId": "GSWZ.v2",
+          "locator": "§5.1, p. 61, (310)",
+          "match": "The stated passage supplies the construction or argument; the proof steps make its intermediate inputs explicit."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/RingTheory/Habiro/IntegralTaylor",
+        "namespace": "TauCeti.Habiro.HC4"
+      }
+    },
+    {
+      "id": "HabiroCyclotomicCompletions:HC.4/graded-taylor-map",
+      "parentStageId": "HabiroCyclotomicCompletions:HC.4",
+      "realises": [
+        "HabiroCyclotomicCompletions:HC.4"
+      ],
+      "title": "The graded Taylor map",
+      "kind": "lemma",
+      "statement": "Under the two graded-piece equivalences, gr_N(iota) sends [g] in R[q]/(1-q^N) to (D_{m,N/m}*g(z_m))_{m|N}. The order is N in both filtrations. No derivative of g enters this first surviving coefficient.",
+      "hypotheses": [
+        "R is a commutative unital ring; positive precision N and positive root order m. Rank assertions assume R is nontrivial. Torsion-freeness over Z is imposed only on the injectivity and image statements that use it."
+      ],
+      "proofSteps": [
+        "Multiply g(z_m(1-u)) by the leading coefficient of P_{N-1} at m|N.",
+        "Only g(z_m) contributes to exponent N/m-1; use factorial-leading-coefficient."
+      ],
+      "prerequisites": [
+        "HabiroCyclotomicCompletions:HC.4/factorial-graded-piece",
+        "HabiroCyclotomicCompletions:HC.4/taylor-graded-piece",
+        "HabiroCyclotomicCompletions:HC.4/factorial-leading-coefficient"
+      ],
+      "acceptance": [
+        "At N=2 the map on a+bq is (a+b,2(a-b)) in components m=1,2."
+      ],
+      "sources": [
+        {
+          "sourceId": "GSWZ.v2",
+          "locator": "§5.1, p. 61, (311)",
+          "match": "The stated passage supplies the construction or argument; the proof steps make its intermediate inputs explicit."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/RingTheory/Habiro/IntegralTaylor",
+        "namespace": "TauCeti.Habiro.HC4"
+      }
+    },
+    {
+      "id": "HabiroCyclotomicCompletions:HC.4/simultaneous-cyclotomic-remainders",
+      "parentStageId": "HabiroCyclotomicCompletions:HC.4",
+      "realises": [
+        "HabiroCyclotomicCompletions:HC.4"
+      ],
+      "title": "Simultaneous cyclotomic remainders are injective",
+      "kind": "lemma",
+      "statement": "For torsion-free R, the remainder map E_N:R[q]/(q^N-1)->product_{m|N} A_m(R) is injective. For a Q-algebra R it is an isomorphism. For arbitrary torsion-free R no integral Chinese-remainder surjectivity is claimed.",
+      "hypotheses": [
+        "R is torsion-free as an abelian group; no domain or Noetherian hypothesis."
+      ],
+      "proofSteps": [
+        "Over Q, distinct cyclotomic polynomials are coprime; their product is q^N-1, so CRT is an isomorphism.",
+        "Use monic reduced representatives to identify the integral map with a square integer matrix; it has nonzero determinant because its Q extension is an isomorphism.",
+        "Apply its adjugate to a kernel vector. A nonzero integer acts injectively on the underlying Z-module R, so the vector is zero."
+      ],
+      "prerequisites": [
+        "HabiroCyclotomicCompletions:HC.4/universal-taylor-product",
+        "mathlib:Polynomial.prod_cyclotomic_eq_X_pow_sub_one",
+        "HabiroCyclotomicCompletions:HC.5/the-rational-case",
+        "mathlib:Matrix.adjugate_mul"
+      ],
+      "acceptance": [
+        "At N=2, E_2(a+bq)=(a+b,a-b), whose integral cokernel has order 2."
+      ],
+      "sources": [
+        {
+          "sourceId": "GSWZ.v2",
+          "locator": "§5.1, p. 61, after (311)",
+          "match": "The stated passage supplies the construction or argument; the proof steps make its intermediate inputs explicit."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/RingTheory/Habiro/IntegralTaylor",
+        "namespace": "TauCeti.Habiro.HC4"
+      }
+    },
+    {
+      "id": "HabiroCyclotomicCompletions:HC.4/graded-taylor-injective",
+      "parentStageId": "HabiroCyclotomicCompletions:HC.4",
+      "realises": [
+        "HabiroCyclotomicCompletions:HC.4"
+      ],
+      "title": "Injectivity on associated graded pieces",
+      "kind": "lemma",
+      "statement": "For torsion-free R each gr_N(iota) is injective, and for a Q-algebra R it is an isomorphism.",
+      "hypotheses": [
+        "R is Z-torsion-free; for the bijective conclusion R is a Q-algebra."
+      ],
+      "proofSteps": [
+        "Simultaneous-cyclotomic-remainders is injective for torsion-free R.",
+        "Each multiplier D_{m,N/m} is a positive integer acting injectively on the free R-module A_m(R).",
+        "Over a Q-algebra the multipliers are units and the remainder map is an isomorphism."
+      ],
+      "prerequisites": [
+        "HabiroCyclotomicCompletions:HC.4/graded-taylor-map",
+        "HabiroCyclotomicCompletions:HC.4/simultaneous-cyclotomic-remainders",
+        "HabiroCyclotomicCompletions:HC.4/leading-factor"
+      ],
+      "acceptance": [
+        "At N=2 the graded determinant is 4, so over Z the graded map is not surjective."
+      ],
+      "sources": [
+        {
+          "sourceId": "GSWZ.v2",
+          "locator": "§5.1, p. 61, after (311)",
+          "match": "The stated passage supplies the construction or argument; the proof steps make its intermediate inputs explicit."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/RingTheory/Habiro/IntegralTaylor",
+        "namespace": "TauCeti.Habiro.HC4"
+      }
+    },
+    {
+      "id": "HabiroCyclotomicCompletions:HC.4/finite-taylor-map",
+      "parentStageId": "HabiroCyclotomicCompletions:HC.4",
+      "realises": [
+        "HabiroCyclotomicCompletions:HC.4"
+      ],
+      "title": "The finite Taylor comparison map",
+      "kind": "construction",
+      "statement": "For N>=1 define finiteIota R N:R[q]/(P_{N-1})->_R TaylorProduct R/pFiltration R N by the polynomial Taylor maps at q=z_m(1-u), truncated to m*l<N. Equivalently this is iota on H_R/hFiltration R N under the canonical finite quotient equivalence. It is natural under coefficient maps and compatible with forgetting precision.",
+      "hypotheses": [
+        "R is a commutative unital ring; positive precision N and positive root order m. Rank assertions assume R is nontrivial. Torsion-freeness over Z is imposed only on the injectivity and image statements that use it."
+      ],
+      "proofSteps": [
+        "The factorial vanishing-order lemma makes the polynomial substitution map kill P_{N-1} in every retained jet.",
+        "Descend to the quotient, or use the factorial-kernel quotient equivalence."
+      ],
+      "prerequisites": [
+        "HabiroCyclotomicCompletions:HC.4/factorial-vanishing-order",
+        "HabiroCyclotomicCompletions:HC.4/finite-precision-bases"
+      ],
+      "acceptance": [
+        "For N>=1 define finiteIota R N:R[q]/(P_{N-1})->_R TaylorProduct R/pFiltration R N by the polynomial Taylor maps at q=z_m(1-u), truncated to m*l<N. Equivalently this is iota on H_R/hFiltration R N under the canonical finite quotient equivalence. It is natural under coefficient maps and compatible with forgetting precision."
+      ],
+      "sources": [
+        {
+          "sourceId": "GSWZ.v2",
+          "locator": "§5.1, pp. 60–61, (306)",
+          "match": "The stated passage supplies the construction or argument; the proof steps make its intermediate inputs explicit."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/RingTheory/Habiro/IntegralTaylor",
+        "namespace": "TauCeti.Habiro.HC4"
+      },
+      "api": [
+        {
+          "name": "finiteIota",
+          "role": "constructor",
+          "statement": "The finite R-algebra map at precision N."
+        },
+        {
+          "name": "finiteIota_polynomial",
+          "role": "simp",
+          "statement": "On a polynomial class it is the class of its Taylor collection."
+        },
+        {
+          "name": "finiteIota_transition",
+          "role": "compatibility",
+          "statement": "Forgetting precision commutes with finiteIota."
+        },
+        {
+          "name": "finiteIota_baseChange",
+          "role": "functoriality",
+          "statement": "Finite coefficient extension carries finiteIota R N to finiteIota R′ N."
+        }
+      ],
+      "tests": [
+        {
+          "name": "finiteIota_one",
+          "kind": "degenerate",
+          "statement": "At precision 1 both source and target are zero."
+        },
+        {
+          "name": "finiteIota_two",
+          "kind": "computation",
+          "statement": "At precision 2 the map is evaluation at 1 and is the identity R->R."
+        },
+        {
+          "name": "finiteIota_three_nonsurjective",
+          "kind": "non-example",
+          "statement": "At precision 3 over Z the vector (1,0,0) in coordinates (gamma_1,1,0,gamma_2,1,0,gamma_1,2,0) is not in the image."
+        }
+      ],
+      "uses": [
+        {
+          "where": "GSWZ §5.1, (306)–(319); HabiroNumberFields:HB.6/ring-operations-and-the-classical-comparison",
+          "how": "Finite integral Taylor coordinates and congruence detection supply the untwisted lattice input; HB.6 applies its own Frobenius twist."
+        }
+      ]
+    },
+    {
+      "id": "HabiroCyclotomicCompletions:HC.4/finite-taylor-injective",
+      "parentStageId": "HabiroCyclotomicCompletions:HC.4",
+      "realises": [
+        "HabiroCyclotomicCompletions:HC.4"
+      ],
+      "title": "Finite Taylor injectivity and rational equivalence",
+      "kind": "theorem",
+      "statement": "For every N>=1 and Z-torsion-free R, finiteIota R N is injective. If R is a Q-algebra it is bijective. Its source and target are finite free R-modules of rank N(N-1)/2.",
+      "hypotheses": [
+        "R is Z-torsion-free. For the rational equivalence R is a Q-algebra."
+      ],
+      "proofSteps": [
+        "Induct on precision N using the zero quotient at N=1 and the two short exact sequences of successive filtrations.",
+        "A kernel class maps to zero at N-1 and then is killed in its top graded piece; use graded-taylor-injective.",
+        "Over a Q-algebra lift the lower precision preimage and correct its last coefficient using surjectivity on the graded piece."
+      ],
+      "prerequisites": [
+        "HabiroCyclotomicCompletions:HC.4/finite-taylor-map",
+        "HabiroCyclotomicCompletions:HC.4/graded-taylor-injective",
+        "HabiroCyclotomicCompletions:HC.4/finite-precision-bases"
+      ],
+      "acceptance": [
+        "N=3 over Z has image of index 4; after adjoining 1/2 it is bijective at this precision."
+      ],
+      "sources": [
+        {
+          "sourceId": "GSWZ.v2",
+          "locator": "§5.1, p. 61, after (306)",
+          "match": "The stated passage supplies the construction or argument; the proof steps make its intermediate inputs explicit."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/RingTheory/Habiro/IntegralTaylor",
+        "namespace": "TauCeti.Habiro.HC4"
+      }
+    },
+    {
+      "id": "HabiroCyclotomicCompletions:HC.4/global-taylor-injective",
+      "parentStageId": "HabiroCyclotomicCompletions:HC.4",
+      "realises": [
+        "HabiroCyclotomicCompletions:HC.4"
+      ],
+      "title": "Joint Taylor injectivity",
+      "kind": "theorem",
+      "statement": "For every Z-torsion-free R the joint map iota:H_R->TaylorProduct R is injective. Individual components need not be injective; for R=Q they are not when all root orders are used.",
+      "hypotheses": [
+        "R is Z-torsion-free."
+      ],
+      "proofSteps": [
+        "If iota(x)=0 then finite-taylor-injective implies every finite factorial projection of x is zero.",
+        "Use the intersection-of-kernels property of hFiltration."
+      ],
+      "prerequisites": [
+        "HabiroCyclotomicCompletions:HC.4/finite-taylor-injective",
+        "HabiroCyclotomicCompletions:HC.4/factorial-kernel-characterisation"
+      ],
+      "acceptance": [
+        "This applies to Z_p and Z[1/Delta], even though their order-adjacency graphs differ."
+      ],
+      "sources": [
+        {
+          "sourceId": "GSWZ.v2",
+          "locator": "§5.1, p. 61, (307)",
+          "match": "The stated passage supplies the construction or argument; the proof steps make its intermediate inputs explicit."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/RingTheory/Habiro/IntegralTaylor",
+        "namespace": "TauCeti.Habiro.HC4"
+      },
+      "planet": {
+        "name": "Joint Taylor injectivity"
+      }
+    },
+    {
+      "id": "HabiroCyclotomicCompletions:HC.4/rational-taylor-isomorphism",
+      "parentStageId": "HabiroCyclotomicCompletions:HC.4",
+      "realises": [
+        "HabiroCyclotomicCompletions:HC.4"
+      ],
+      "title": "Taylor reconstruction over a rational coefficient algebra",
+      "kind": "theorem",
+      "statement": "If R is a Q-algebra, iota:H_R->TaylorProduct R is an R-algebra isomorphism. It is the inverse limit of finiteIota R N and is characterized by reconstructing every finite jet. The assertion concerns H_(R), not H_Z tensor_Z R or H_R tensor_Z Q.",
+      "hypotheses": [
+        "R is a Q-algebra."
+      ],
+      "proofSteps": [
+        "The finite maps are bijective and compatible with truncation.",
+        "Their unique inverses also commute with truncation.",
+        "Use the inverse-limit reconstructions of the two coefficient objects to obtain the global inverse."
+      ],
+      "prerequisites": [
+        "HabiroCyclotomicCompletions:HC.4/finite-taylor-injective",
+        "HabiroCyclotomicCompletions:HC.4/finite-precision-bases",
+        "HabiroCyclotomicCompletions:HC.4/multiplicative-taylor-comparison"
+      ],
+      "acceptance": [
+        "For R=Q the constant odd-order projector is a nontrivial idempotent. This cannot be an element of the domain H_Z tensor Q."
+      ],
+      "sources": [
+        {
+          "sourceId": "GSWZ.v2",
+          "locator": "§5.1, p. 61, (307)",
+          "match": "The stated passage supplies the construction or argument; the proof steps make its intermediate inputs explicit."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/RingTheory/Habiro/IntegralTaylor",
+        "namespace": "TauCeti.Habiro.HC4"
+      }
+    },
+    {
+      "id": "HabiroCyclotomicCompletions:HC.4/taylor-matrix",
+      "parentStageId": "HabiroCyclotomicCompletions:HC.4",
+      "realises": [
+        "HabiroCyclotomicCompletions:HC.4"
+      ],
+      "title": "The integral finite Taylor matrix",
+      "kind": "construction",
+      "statement": "Define taylorMatrix N=M_N, a square integer matrix of size d_N=N(N-1)/2. Columns are (n,k) ordered by increasing n, then k, with 1<=n<N,0<=k<n. Rows are (m,l,j) ordered by increasing weight m*l, decreasing m within a weight, then increasing j, with m*l<N,0<=j<phi(m). Entry ((m,l,j),(n,k)) is coefficient j of the reduced cyclotomic representative of the coefficient u^(l-1) in z_m^k(1-u)^k P_{n-1}(z_m(1-u)). The matrix over R is entrywise integer casting. All row/column order choices are pinned.",
+      "hypotheses": [
+        "R is a commutative unital ring; positive precision N and positive root order m. Rank assertions assume R is nontrivial. Torsion-freeness over Z is imposed only on the injectivity and image statements that use it."
+      ],
+      "proofSteps": [
+        "Enumerate the finite bases from finite-precision-bases using the displayed order.",
+        "Compute each entry by integral Hasse coefficients and reduction modulo the monic Phi_m in Z[z_m].",
+        "For arbitrary R monic reduction commutes with coefficient change; the universal algebra keeps the basis rank phi(m)."
+      ],
+      "prerequisites": [
+        "HabiroCyclotomicCompletions:HC.4/finite-taylor-map",
+        "HabiroCyclotomicCompletions:HC.4/finite-precision-bases",
+        "mathlib:AdjoinRoot.modByMonicHom",
+        "mathlib:Polynomial.hasseDeriv_coeff"
+      ],
+      "acceptance": [
+        "Define taylorMatrix N=M_N, a square integer matrix of size d_N=N(N-1)/2. Columns are (n,k) ordered by increasing n, then k, with 1<=n<N,0<=k<n. Rows are (m,l,j) ordered by increasing weight m*l, decreasing m within a weight, then increasing j, with m*l<N,0<=j<phi(m). Entry ((m,l,j),(n,k)) is coefficient j of the reduced cyclotomic representative of the coefficient u^(l-1) in z_m^k(1-u)^k P_{n-1}(z_m(1-u)). The matrix over R is entrywise integer casting. All row/column order choices are pinned."
+      ],
+      "sources": [
+        {
+          "sourceId": "GSWZ.v2",
+          "locator": "§5.1, pp. 61–62, before (312) and (312)",
+          "match": "The stated passage supplies the construction or argument; the proof steps make its intermediate inputs explicit."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/RingTheory/Habiro/IntegralTaylor",
+        "namespace": "TauCeti.Habiro.HC4"
+      },
+      "api": [
+        {
+          "name": "taylorMatrix",
+          "role": "constructor",
+          "statement": "The integer matrix defined by finite Taylor coefficients."
+        },
+        {
+          "name": "taylorMatrix_entry",
+          "role": "characterisation",
+          "statement": "The coefficient-extraction and monic-remainder formula stated above."
+        },
+        {
+          "name": "taylorMatrix_mul_digits",
+          "role": "characterisation",
+          "statement": "M_N times the first N-1 normalized digit coordinate blocks equals jetCoordinates N of iota."
+        },
+        {
+          "name": "taylorMatrix_baseChange",
+          "role": "compatibility",
+          "statement": "The finite Taylor map over R is represented by the cast of this same integer matrix."
+        },
+        {
+          "name": "taylorMatrix_zero_above_weight",
+          "role": "simp",
+          "statement": "An entry is zero if the row weight is smaller than the column n."
+        }
+      ],
+      "tests": [
+        {
+          "name": "taylorMatrix_empty",
+          "kind": "degenerate",
+          "statement": "M_1 is the empty 0 by 0 matrix, with determinant 1."
+        },
+        {
+          "name": "taylorMatrix_three",
+          "kind": "computation",
+          "statement": "M_3 has rows (1,0,0), (1,2,-2), (0,1,1)."
+        },
+        {
+          "name": "taylorMatrix_five_kontsevich",
+          "kind": "computation",
+          "statement": "M_5 times (1,1,0,1,0,0,1,0,0,0) equals (1,3,1,5,-1,2,8,-3,11,5)."
+        },
+        {
+          "name": "taylorMatrix_sign_nonexample",
+          "kind": "non-example",
+          "statement": "At precision 3 the coefficient of u in q*(1-q) expanded at 1-u is 1, giving the last entry 1 rather than -1."
+        }
+      ],
+      "uses": [
+        {
+          "where": "GSWZ §5.1, (306)–(319); HabiroNumberFields:HB.6/ring-operations-and-the-classical-comparison",
+          "how": "Finite integral Taylor coordinates and congruence detection supply the untwisted lattice input; HB.6 applies its own Frobenius twist."
+        }
+      ],
+      "planet": {
+        "name": "Finite Taylor matrix"
+      }
+    },
+    {
+      "id": "HabiroCyclotomicCompletions:HC.4/finite-taylor-coordinate-matrix",
+      "parentStageId": "HabiroCyclotomicCompletions:HC.4",
+      "realises": [
+        "HabiroCyclotomicCompletions:HC.4"
+      ],
+      "title": "Taylor coefficients represent the finite comparison",
+      "kind": "lemma",
+      "statement": "In the digit and jet bases, finiteIota R N is represented by the integer matrix M_N cast to R. Equivalently M_N times digitCoordinates N h equals jetCoordinates N(iota h). Its entry vanishes when the row weight is smaller than the column index n.",
+      "hypotheses": [
+        "R is a commutative unital ring; positive precision N and positive root order m. Rank assertions assume R is nontrivial. Torsion-freeness over Z is imposed only on the injectivity and image statements that use it."
+      ],
+      "proofSteps": [
+        "Evaluate the image of each basis polynomial q^k P_(n-1) and extract the specified monic-remainder coordinate.",
+        "Coefficient extraction commutes with integer casting and the monic cyclotomic remainder.",
+        "Factorial vanishing gives the triangular zero entries. The normalized digit expansion gives the multiplication formula."
+      ],
+      "prerequisites": [
+        "HabiroCyclotomicCompletions:HC.4/taylor-matrix",
+        "HabiroCyclotomicCompletions:HC.4/finite-precision-bases",
+        "HabiroCyclotomicCompletions:HC.4/factorial-vanishing-order",
+        "HabiroCyclotomicCompletions:HC.2/factorial-expansions"
+      ],
+      "acceptance": [
+        "At N=3 this gives the three rows (1,0,0),(1,2,-2),(0,1,1); at N=5 it reproduces the displayed 10 by 10 matrix."
+      ],
+      "sources": [
+        {
+          "sourceId": "GSWZ.v2",
+          "locator": "§5.1, pp. 61–62, before (312) and (312)",
+          "match": "The stated passage supplies the construction or argument; the proof steps make its intermediate inputs explicit."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/RingTheory/Habiro/IntegralTaylor",
+        "namespace": "TauCeti.Habiro.HC4"
+      }
+    },
+    {
+      "id": "HabiroCyclotomicCompletions:HC.4/two-factor-remainder-determinant",
+      "parentStageId": "HabiroCyclotomicCompletions:HC.4",
+      "realises": [
+        "HabiroCyclotomicCompletions:HC.4"
+      ],
+      "title": "Determinant of a two-factor remainder map",
+      "kind": "lemma",
+      "statement": "For monic f,g in Z[q], the square integral map Z[q]/(fg)->Z[q]/(f) direct-sum Z[q]/(g), in monomial quotient bases, has absolute determinant equal to |Res(f,g)|. This does not require integral comaximality.",
+      "hypotheses": [
+        "R is a commutative unital ring; positive precision N and positive root order m. Rank assertions assume R is nontrivial. Torsion-freeness over Z is imposed only on the injectivity and image statements that use it."
+      ],
+      "proofSteps": [
+        "Change the source basis to 1,q,...,q^(deg f-1), f,qf,...,q^(deg g-1) by a unit triangular matrix.",
+        "The remainder matrix becomes block triangular: identity on the f quotient and multiplication by f on the g quotient.",
+        "Apply monic division by g to the target coefficient space of the Sylvester map (a,b)->g*a+f*b. The new basis 1,q,...,q^(deg g-1),g,qg,...,q^(deg f-1) is unit triangular. The coefficient matrix has multiplication by f modulo g and an identity diagonal block. Polynomial.toMatrix_sylvesterMap and the definition of resultant identify its determinant up to permutation sign. This avoids a separability or integral CRT assumption."
+      ],
+      "prerequisites": [
+        "mathlib:AdjoinRoot.modByMonicHom",
+        "mathlib:AdjoinRoot.powerBasisAux'",
+        "mathlib:Matrix.BlockTriangular.det_fintype",
+        "mathlib:Polynomial.toMatrix_sylvesterMap"
+      ],
+      "acceptance": [
+        "f=q-1,g=q+1: remainder matrix [[1,1],[1,-1]] has determinant -2."
+      ],
+      "sources": [
+        {
+          "sourceId": "GSWZ.v2",
+          "locator": "§5.1, p. 62, Proposition 5.1, (315)",
+          "match": "The stated passage supplies the construction or argument; the proof steps make its intermediate inputs explicit."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/RingTheory/Habiro/IntegralTaylor",
+        "namespace": "TauCeti.Habiro.HC4"
+      }
+    },
+    {
+      "id": "HabiroCyclotomicCompletions:HC.4/cyclotomic-remainder-determinant",
+      "parentStageId": "HabiroCyclotomicCompletions:HC.4",
+      "realises": [
+        "HabiroCyclotomicCompletions:HC.4"
+      ],
+      "title": "Determinant of simultaneous cyclotomic remainders",
+      "kind": "lemma",
+      "statement": "For E_N above, its absolute integral determinant D_2(N) is product over positive d<e dividing N of |Res(Phi_e,Phi_d)|. Equivalently, every pair e/d=p^a with a>=1 contributes p^phi(d), and all other pairs contribute 1. This is the positive integer form of GSWZ (315); it gives D_2(1..8)=1,2,3,8,5,72,7,128 without fractional exponents or square-root choices.",
+      "hypotheses": [
+        "R is a commutative unital ring; positive precision N and positive root order m. Rank assertions assume R is nontrivial. Torsion-freeness over Z is imposed only on the injectivity and image statements that use it."
+      ],
+      "proofSteps": [
+        "Apply two-factor-remainder-determinant successively to the ordered monic factors of q^N-1.",
+        "Use multiplicativity of resultants in products.",
+        "Use the imported cyclotomic resultant formula from HC.4; unequal d,e are required."
+      ],
+      "prerequisites": [
+        "HabiroCyclotomicCompletions:HC.4/two-factor-remainder-determinant",
+        "mathlib:Polynomial.resultant_prod_left",
+        "HabiroCyclotomicCompletions:HC.4/cyclotomic-comaximality-and-resultant",
+        "mathlib:Polynomial.prod_cyclotomic_eq_X_pow_sub_one"
+      ],
+      "acceptance": [
+        "D_2(4)=8 and D_2(6)=72."
+      ],
+      "sources": [
+        {
+          "sourceId": "GSWZ.v2",
+          "locator": "§5.1, p. 62, Proposition 5.1, (315)",
+          "match": "The stated passage supplies the construction or argument; the proof steps make its intermediate inputs explicit."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/RingTheory/Habiro/IntegralTaylor",
+        "namespace": "TauCeti.Habiro.HC4"
+      }
+    },
+    {
+      "id": "HabiroCyclotomicCompletions:HC.4/graded-taylor-determinant",
+      "parentStageId": "HabiroCyclotomicCompletions:HC.4",
+      "realises": [
+        "HabiroCyclotomicCompletions:HC.4"
+      ],
+      "title": "Determinant of a graded Taylor block",
+      "kind": "lemma",
+      "statement": "The absolute determinant of gr_N(iota) over Z is D_1(N)D_2(N), where D_1(N)=product_{m|N} D_{m,N/m}^phi(m), and D_2 is the simultaneous remainder determinant. Both factors are strictly positive.",
+      "hypotheses": [
+        "R is a commutative unital ring; positive precision N and positive root order m. Rank assertions assume R is nontrivial. Torsion-freeness over Z is imposed only on the injectivity and image statements that use it."
+      ],
+      "proofSteps": [
+        "Use graded-taylor-map: first simultaneous remainders, then scalar multiplication by D_{m,N/m} on phi(m) coordinates.",
+        "The scalar multiplication contributes D_1(N); cyclotomic-remainder-determinant contributes D_2(N)."
+      ],
+      "prerequisites": [
+        "HabiroCyclotomicCompletions:HC.4/graded-taylor-map",
+        "HabiroCyclotomicCompletions:HC.4/cyclotomic-remainder-determinant",
+        "HabiroCyclotomicCompletions:HC.4/leading-factor"
+      ],
+      "acceptance": [
+        "N=2 gives D_1=2,D_2=2 and block determinant 4; N=3 gives 18*3=54."
+      ],
+      "sources": [
+        {
+          "sourceId": "GSWZ.v2",
+          "locator": "§5.1, p. 62, (314)–(315)",
+          "match": "The stated passage supplies the construction or argument; the proof steps make its intermediate inputs explicit."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/RingTheory/Habiro/IntegralTaylor",
+        "namespace": "TauCeti.Habiro.HC4"
+      }
+    },
+    {
+      "id": "HabiroCyclotomicCompletions:HC.4/finite-taylor-determinant",
+      "parentStageId": "HabiroCyclotomicCompletions:HC.4",
+      "realises": [
+        "HabiroCyclotomicCompletions:HC.4"
+      ],
+      "title": "The finite Taylor determinant formula",
+      "kind": "theorem",
+      "statement": "For N>=1, define delta_N=|det(M_N)|. With precision conventions (301)–(306), delta_N=product_{1<=n<N} D_1(n)D_2(n), strictly positive. In particular delta_1=1, delta_2=1, delta_3=4, delta_4=216, delta_5=1327104, delta_6=99532800000. The upper bound is n<N, not n<=N as printed in (313); the preprint table is shifted by one relative to M_N.",
+      "hypotheses": [
+        "R is a commutative unital ring; positive precision N and positive root order m. Rank assertions assume R is nontrivial. Torsion-freeness over Z is imposed only on the injectivity and image statements that use it."
+      ],
+      "proofSteps": [
+        "The weight filtration makes M_N block lower triangular; its n-th diagonal block is gr_n(iota).",
+        "Use Matrix.BlockTriangular.det_fintype and graded-taylor-determinant; take absolute values.",
+        "Check the base empty determinant 1 and recurrence delta_(N+1)=delta_N*D_1(N)D_2(N)."
+      ],
+      "prerequisites": [
+        "HabiroCyclotomicCompletions:HC.4/finite-taylor-coordinate-matrix",
+        "HabiroCyclotomicCompletions:HC.4/graded-taylor-determinant",
+        "mathlib:Matrix.BlockTriangular.det_fintype"
+      ],
+      "acceptance": [
+        "The 3 by 3 M_3 has determinant 4; the displayed 10 by 10 M_5 has determinant 1327104."
+      ],
+      "sources": [
+        {
+          "sourceId": "GSWZ.v2",
+          "locator": "§5.1, p. 62, Proposition 5.1, (313) (corrected indexing)",
+          "match": "The stated passage supplies the construction or argument; the proof steps make its intermediate inputs explicit."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/RingTheory/Habiro/IntegralTaylor",
+        "namespace": "TauCeti.Habiro.HC4"
+      },
+      "planet": {
+        "name": "Finite Taylor determinant"
+      }
+    },
+    {
+      "id": "HabiroCyclotomicCompletions:HC.4/signed-adjugate",
+      "parentStageId": "HabiroCyclotomicCompletions:HC.4",
+      "realises": [
+        "HabiroCyclotomicCompletions:HC.4"
+      ],
+      "title": "The signed adjugate congruence matrix",
+      "kind": "construction",
+      "statement": "For N>=1 let delta_N=|det M_N| and starMatrix N=sign(det M_N)*adj(M_N), an integral square matrix. Thus M_N starMatrix N=starMatrix N M_N=delta_N I and over Q starMatrix N=delta_N M_N^(-1). The sign is necessary with the pinned row order (det M_3=4, but signs at higher precision need not be assumed). The empty matrix at N=1 is allowed.",
+      "hypotheses": [
+        "R is a commutative unital ring; positive precision N and positive root order m. Rank assertions assume R is nontrivial. Torsion-freeness over Z is imposed only on the injectivity and image statements that use it."
+      ],
+      "proofSteps": [
+        "Use nonvanishing of the determinant and the two baseline adjugate identities.",
+        "Multiply the adjugate by the integer sign of the determinant."
+      ],
+      "prerequisites": [
+        "HabiroCyclotomicCompletions:HC.4/finite-taylor-determinant",
+        "mathlib:Matrix.mul_adjugate",
+        "mathlib:Matrix.adjugate_mul"
+      ],
+      "acceptance": [
+        "For N>=1 let delta_N=|det M_N| and starMatrix N=sign(det M_N)*adj(M_N), an integral square matrix. Thus M_N starMatrix N=starMatrix N M_N=delta_N I and over Q starMatrix N=delta_N M_N^(-1). The sign is necessary with the pinned row order (det M_3=4, but signs at higher precision need not be assumed). The empty matrix at N=1 is allowed."
+      ],
+      "sources": [
+        {
+          "sourceId": "GSWZ.v2",
+          "locator": "§5.1, p. 63, Proposition 5.2, (319)",
+          "match": "The stated passage supplies the construction or argument; the proof steps make its intermediate inputs explicit."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/RingTheory/Habiro/IntegralTaylor",
+        "namespace": "TauCeti.Habiro.HC4"
+      },
+      "api": [
+        {
+          "name": "starMatrix",
+          "role": "constructor",
+          "statement": "The signed integral adjugate of M_N."
+        },
+        {
+          "name": "taylorMatrix_mul_starMatrix",
+          "role": "relation",
+          "statement": "M_N*starMatrix N=delta_N I."
+        },
+        {
+          "name": "starMatrix_mul_taylorMatrix",
+          "role": "relation",
+          "statement": "starMatrix N*M_N=delta_N I."
+        },
+        {
+          "name": "starMatrix_over_rat",
+          "role": "compatibility",
+          "statement": "After casting to Q, starMatrix N=delta_N*M_N inverse."
+        }
+      ],
+      "tests": [
+        {
+          "name": "starMatrix_empty",
+          "kind": "degenerate",
+          "statement": "The empty signed-adjugate identities hold at N=1 with delta_1=1."
+        },
+        {
+          "name": "starMatrix_three",
+          "kind": "computation",
+          "statement": "starMatrix 3 has rows (4,0,0),(-1,1,2),(1,-1,2)."
+        },
+        {
+          "name": "starMatrix_three_nonexample",
+          "kind": "non-example",
+          "statement": "starMatrix 3 applied to (1,0,0) equals (4,-1,1), which is not divisible by 4 coordinatewise."
+        }
+      ],
+      "uses": [
+        {
+          "where": "GSWZ §5.1, (306)–(319); HabiroNumberFields:HB.6/ring-operations-and-the-classical-comparison",
+          "how": "Finite integral Taylor coordinates and congruence detection supply the untwisted lattice input; HB.6 applies its own Frobenius twist."
+        }
+      ]
+    },
+    {
+      "id": "HabiroCyclotomicCompletions:HC.4/signed-adjugate-identities",
+      "parentStageId": "HabiroCyclotomicCompletions:HC.4",
+      "realises": [
+        "HabiroCyclotomicCompletions:HC.4"
+      ],
+      "title": "Signed adjugate identities",
+      "kind": "lemma",
+      "statement": "For N>=1, M_N starMatrix N=starMatrix N M_N=delta_N I. Both equalities are over Z and persist under every integer coefficient map.",
+      "hypotheses": [
+        "R is a commutative unital ring; positive precision N and positive root order m. Rank assertions assume R is nontrivial. Torsion-freeness over Z is imposed only on the injectivity and image statements that use it."
+      ],
+      "proofSteps": [
+        "Multiply the two baseline adjugate identities by sign(det M_N).",
+        "Use sign(det M_N)*det M_N=|det M_N| and apply coefficient maps."
+      ],
+      "prerequisites": [
+        "HabiroCyclotomicCompletions:HC.4/signed-adjugate",
+        "mathlib:Matrix.mul_adjugate",
+        "mathlib:Matrix.adjugate_mul"
+      ],
+      "acceptance": [
+        "At N=3, starMatrix has rows (4,0,0),(-1,1,2),(1,-1,2) and both products are 4I."
+      ],
+      "sources": [
+        {
+          "sourceId": "GSWZ.v2",
+          "locator": "§5.1, p. 63, after (319)",
+          "match": "The stated passage supplies the construction or argument; the proof steps make its intermediate inputs explicit."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/RingTheory/Habiro/IntegralTaylor",
+        "namespace": "TauCeti.Habiro.HC4"
+      }
+    },
+    {
+      "id": "HabiroCyclotomicCompletions:HC.4/finite-integral-image-criterion",
+      "parentStageId": "HabiroCyclotomicCompletions:HC.4",
+      "realises": [
+        "HabiroCyclotomicCompletions:HC.4"
+      ],
+      "title": "The finite integral image criterion",
+      "kind": "lemma",
+      "statement": "For Z-torsion-free R and a jet vector gamma in R^d_N, gamma is in the image of the cast M_N iff every coordinate of cast(starMatrix N)*gamma belongs to delta_N R. Divisibility means ideal membership, not congruence in a field. For a Q-algebra it is automatic.",
+      "hypotheses": [
+        "R is Z-torsion-free. Congruence modulo delta_N is membership in the ideal generated by that integer."
+      ],
+      "proofSteps": [
+        "Necessity follows from starMatrix N*M_N=delta_N I.",
+        "For sufficiency choose b with starMatrix N*gamma=delta_N b. Multiply by M_N, giving delta_N gamma=delta_N M_N b.",
+        "Cancel the nonzero integer delta_N using Z-torsion-freeness."
+      ],
+      "prerequisites": [
+        "HabiroCyclotomicCompletions:HC.4/signed-adjugate-identities",
+        "HabiroCyclotomicCompletions:HC.4/finite-taylor-injective"
+      ],
+      "acceptance": [
+        "For N=3 over Z, -gamma_1,1,0+gamma_2,1,0+2gamma_1,2,0 and gamma_1,1,0-gamma_2,1,0+2gamma_1,2,0 must both be divisible by 4."
+      ],
+      "sources": [
+        {
+          "sourceId": "GSWZ.v2",
+          "locator": "§5.1, p. 63, (317)–(319)",
+          "match": "The stated passage supplies the construction or argument; the proof steps make its intermediate inputs explicit."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/RingTheory/Habiro/IntegralTaylor",
+        "namespace": "TauCeti.Habiro.HC4"
+      }
+    },
+    {
+      "id": "HabiroCyclotomicCompletions:HC.4/global-integral-image-criterion",
+      "parentStageId": "HabiroCyclotomicCompletions:HC.4",
+      "realises": [
+        "HabiroCyclotomicCompletions:HC.4"
+      ],
+      "title": "Integral Taylor image congruences",
+      "kind": "theorem",
+      "statement": "For Z-torsion-free R and f in TaylorProduct R, f belongs to iota(H_R) iff for every N>=1 each entry of starMatrix N*jetCoordinates N f lies in delta_N R. This is GSWZ Proposition 5.2 with corrected precision indexing. No Frobenius twist is applied here.",
+      "hypotheses": [
+        "R is Z-torsion-free."
+      ],
+      "proofSteps": [
+        "Necessity is the finite-integral-image-criterion at each precision.",
+        "For sufficiency choose the unique preimage in R[q]/(P_{N-1}) at every N. Their compatibility follows from finite-taylor-injective, not from an arbitrary choice of lifts.",
+        "The compatible family defines an element of H_R by factorial cofinality; all its Taylor coefficients equal those of f by separatedness."
+      ],
+      "prerequisites": [
+        "HabiroCyclotomicCompletions:HC.4/finite-integral-image-criterion",
+        "HabiroCyclotomicCompletions:HC.4/finite-precision-bases",
+        "HabiroCyclotomicCompletions:HC.4/global-taylor-injective",
+        "HabiroCyclotomicCompletions:HC.4/weighted-jet-kernel"
+      ],
+      "acceptance": [
+        "Over Z_p this is a p-adic divisibility test; over Z[1/Delta], primes dividing Delta impose no constraint."
+      ],
+      "sources": [
+        {
+          "sourceId": "GSWZ.v2",
+          "locator": "§5.1, p. 63, Proposition 5.2, (319)",
+          "match": "The stated passage supplies the construction or argument; the proof steps make its intermediate inputs explicit."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/RingTheory/Habiro/IntegralTaylor",
+        "namespace": "TauCeti.Habiro.HC4"
+      },
+      "planet": {
+        "name": "Integral Taylor image criterion"
+      }
+    },
+    {
+      "id": "HabiroCyclotomicCompletions:HC.4/localized-scalar-divisibility",
+      "parentStageId": "HabiroCyclotomicCompletions:HC.4",
+      "realises": [
+        "HabiroCyclotomicCompletions:HC.4"
+      ],
+      "title": "Scalar divisibility in an integer localization",
+      "kind": "lemma",
+      "statement": "Let Delta be a nonzero integer, d a positive integer, and a in R=Z[1/Delta]. Then a belongs to dR iff, for every prime p not dividing Delta, its canonical image in Z_p belongs to dZ_p. The map R->Z_p is defined because Delta is a unit there. The zero scalar a is handled separately from finite valuation formulas.",
+      "hypotheses": [
+        "Delta is nonzero; d>=1; R=Z[1/Delta]."
+      ],
+      "proofSteps": [
+        "Write a=b/Delta^k using the localization fraction representation. For p not dividing Delta, the denominator is a p-adic unit by the integer norm criterion; extend the integer map by localization universality.",
+        "Use PadicInt.unitCoeff_spec to replace the nonzero integer d by p^v_p(d) up to a p-adic unit. Thus local divisibility is the inequality v_p(a)>=v_p(d).",
+        "Use Padic.valuation_ratCast and padicValRat.defn to compute v_p(a)=v_p(b) outside Delta. Nat.factorization_le_iff_dvd shows that the prime-to-Delta factor of d divides b exactly when all these inequalities hold. The remaining factors of d are units in R.",
+        "For a=0 both global and local divisibility hold directly."
+      ],
+      "prerequisites": [
+        "mathlib:PadicInt.unitCoeff_spec",
+        "mathlib:PadicInt.norm_int_lt_one_iff_dvd",
+        "mathlib:PadicInt.norm_int_le_pow_iff_dvd",
+        "mathlib:Padic.valuation_ratCast",
+        "mathlib:padicValRat.defn",
+        "mathlib:Nat.factorization_le_iff_dvd"
+      ],
+      "acceptance": [
+        "With Delta=2,d=12,a=1/4 the p=3 test fails. With Delta=2,d=4,a=1 every local test passes, since 4 is a unit in R."
+      ],
+      "sources": [
+        {
+          "sourceId": "GSWZ.v2",
+          "locator": "§5.1, p. 63, local condition (318) used in Proposition 5.2; §5.2, p. 65, (332)",
+          "match": "The stated passage supplies the construction or argument; the proof steps make its intermediate inputs explicit."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/RingTheory/Habiro/IntegralTaylor",
+        "namespace": "TauCeti.Habiro.HC4"
+      }
+    },
+    {
+      "id": "HabiroCyclotomicCompletions:HC.4/local-integrality-detection",
+      "parentStageId": "HabiroCyclotomicCompletions:HC.4",
+      "realises": [
+        "HabiroCyclotomicCompletions:HC.4"
+      ],
+      "title": "Detection of the integral image prime by prime",
+      "kind": "lemma",
+      "statement": "For R=Z[1/Delta], Delta a nonzero integer, a collection f belongs to iota(H_R) iff, for each prime p not dividing Delta, its coefficientwise image in TaylorProduct Z_p belongs to iota(H_(Z_p)). The assertion is about the same finite Taylor coordinates; it does not assert an interchange of infinite tensor products and completion.",
+      "hypotheses": [
+        "Delta is nonzero; R=Z[1/Delta]."
+      ],
+      "proofSteps": [
+        "Apply the global image criterion over R and Z_p.",
+        "For a coordinate a in Z[1/Delta], a belongs to delta_N R iff its p-adic valuation is at least v_p(delta_N) for every p not dividing Delta: write a with denominator a power of Delta and use prime factorization of its numerator.",
+        "This coefficientwise finite divisibility equivalence proves both directions."
+      ],
+      "prerequisites": [
+        "HabiroCyclotomicCompletions:HC.4/global-integral-image-criterion",
+        "HabiroCyclotomicCompletions:HC.4/localized-scalar-divisibility",
+        "HabiroCyclotomicCompletions:HC.4/multiplicative-taylor-comparison"
+      ],
+      "acceptance": [
+        "For Delta=2 the denominator 1/4 is allowed, whereas for Delta odd it fails the p=2 test."
+      ],
+      "sources": [
+        {
+          "sourceId": "GSWZ.v2",
+          "locator": "§5.1, p. 63, (318)–(319); §5.2, p. 65, (332)",
+          "match": "The stated passage supplies the construction or argument; the proof steps make its intermediate inputs explicit."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/RingTheory/Habiro/IntegralTaylor",
+        "namespace": "TauCeti.Habiro.HC4"
+      }
+    },
+    {
+      "id": "HabiroCyclotomicCompletions:HC.4/kontsevich-matrix-example",
+      "parentStageId": "HabiroCyclotomicCompletions:HC.4",
+      "realises": [
+        "HabiroCyclotomicCompletions:HC.4"
+      ],
+      "title": "The Kontsevich series and a failed perturbation",
+      "kind": "application",
+      "statement": "For F=sum_{n>=0}P_n in H_Z, the first ten Taylor coordinates at precision 5 are gamma=(1,3,1,5,-1,2,8,-3,11,5). M_5 inverse gamma=(1,1,0,1,0,0,1,0,0,0). If only the first coordinate is changed from 1 to 2, the resulting vector has inverse (2,3/4,1/4,65/72,-1/72,17/72,275/288,-7/144,1/32,17/72); hence no collection with these ten modified jets lies in iota(H_Z).",
+      "hypotheses": [
+        "R is a commutative unital ring; positive precision N and positive root order m. Rank assertions assume R is nontrivial. Torsion-freeness over Z is imposed only on the injectivity and image statements that use it."
+      ],
+      "proofSteps": [
+        "The imported factorial-series construction gives F with normalized digits all 1.",
+        "Use taylorMatrix_mul_digits to compute the ten coordinates; direct integral coefficient reduction yields (335).",
+        "Multiply the modified vector by the rational inverse of M_5; nonintegrality at the second coordinate already contradicts the finite image criterion."
+      ],
+      "prerequisites": [
+        "HabiroCyclotomicCompletions:HC.4/finite-taylor-coordinate-matrix",
+        "HabiroCyclotomicCompletions:HC.4/global-integral-image-criterion",
+        "HabiroCyclotomicCompletions:HC.2/factorial-series",
+        "HabiroCyclotomicCompletions:HC.2/factorial-expansions"
+      ],
+      "acceptance": [
+        "F_1=1+u+2u^2+5u^3 modulo u^4; F_2=3+11u modulo u^2; F_3=5-z_3 modulo u; F_4=8-3z_4 modulo u."
+      ],
+      "sources": [
+        {
+          "sourceId": "GSWZ.v2",
+          "locator": "§5.3, p. 66, Example 5.6, (334)–(337)",
+          "match": "The stated passage supplies the construction or argument; the proof steps make its intermediate inputs explicit."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/RingTheory/Habiro/IntegralTaylor",
+        "namespace": "TauCeti.Habiro.HC4"
+      }
+    },
+    {
+      "id": "HabiroCyclotomicCompletions:HC.4/odd-order-idempotent-example",
+      "parentStageId": "HabiroCyclotomicCompletions:HC.4",
+      "realises": [
+        "HabiroCyclotomicCompletions:HC.4"
+      ],
+      "title": "The odd-order idempotent after inverting two",
+      "kind": "application",
+      "statement": "Let e in TaylorProduct Q have constant component 1 at odd m and 0 at even m. The unique rational preimage under iota is an idempotent and belongs to H_(Z[1/2]), but not H_Z. Its first digits are 1, (-1+q)/4, (1-q+q^2)/8, (-5+2q+q^2+4q^3)/32. Its companion g(q)=e(q^2)-e(q) is the constant Taylor projector on orders congruent to 2 mod 4, with digits 0,(1-q)/4,(-1+q-q^2)/8,(1-2q+3q^2-4q^3)/32.",
+      "hypotheses": [
+        "R is a commutative unital ring; positive precision N and positive root order m. Rank assertions assume R is nontrivial. Torsion-freeness over Z is imposed only on the injectivity and image statements that use it."
+      ],
+      "proofSteps": [
+        "Use the imported HC.5 decomposition of Z[1/2][q]^positive orders into components indexed by their 2-adic order valuation. The factor with v_2(m)=0 gives e, and the factor with v_2(m)=1 gives g.",
+        "The rational Taylor reconstruction identifies these idempotents with their constant component collections.",
+        "Compute their first digits by M_5 inverse; over Z the precision-3 vector (1,0,0) fails the divisibility-by-4 test.",
+        "Substitution q->q^2 is supplied by HC.3 naturality and maps the odd-order indicator to the indicator of orders with v_2(m)<=1."
+      ],
+      "prerequisites": [
+        "HabiroCyclotomicCompletions:HC.4/rational-taylor-isomorphism",
+        "HabiroCyclotomicCompletions:HC.4/finite-integral-image-criterion",
+        "HabiroCyclotomicCompletions:HC.5/inverting-a-prime-and-the-rational-case",
+        "HabiroCyclotomicCompletions:HC.3/naturality-and-re-expansion"
+      ],
+      "acceptance": [
+        "e_1=1,e_2=0,e^2=e; g_1=0,g_2=1,g_4=0. Neither has an integral preimage over Z."
+      ],
+      "sources": [
+        {
+          "sourceId": "GSWZ.v2",
+          "locator": "§5.3, p. 66, Example 5.7, (338)–(341)",
+          "match": "The stated passage supplies the construction or argument; the proof steps make its intermediate inputs explicit."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/RingTheory/Habiro/IntegralTaylor",
+        "namespace": "TauCeti.Habiro.HC4"
+      }
+    },
+    {
+      "id": "HabiroCyclotomicCompletions:HC.4/finite-domain-module-embedding",
+      "parentStageId": "HabiroCyclotomicCompletions:HC.4",
+      "realises": [
+        "HabiroCyclotomicCompletions:HC.4"
+      ],
+      "title": "A finite domain extension embeds in a finite free module",
+      "kind": "lemma",
+      "statement": "Let R and B be domains, with an injective ring map R->B and B finite as an R-module. There exist r>=1 and an injective R-linear map B->R^r. No freeness, normality, or Noetherian hypothesis on B or R is imposed.",
+      "hypotheses": [
+        "R and B are domains; R->B is injective and B is a finite R-module."
+      ],
+      "proofSteps": [
+        "Choose finitely many R-module generators of B using Module.Finite.exists_fin. Embed Frac(R) into Frac(B) by injectivity and let V be their finite-dimensional Frac(R)-linear span.",
+        "Choose a basis of V. Each generator has finitely many fraction-field coordinates; choose one common nonzero d in R clearing all their denominators.",
+        "For b in B define its coordinates in that basis and multiply each coordinate by d. Since the generators have coordinates in R after this multiplication, every b does. This gives an R-linear map B->R^r.",
+        "The map is injective because the fraction-field embedding, basis-coordinate map and multiplication by d are injective. Nontriviality of B makes the dimension positive."
+      ],
+      "prerequisites": [
+        "mathlib:Module.Finite.exists_fin",
+        "mathlib:IsFractionRing.injective",
+        "mathlib:Module.Basis.exists_basis",
+        "mathlib:FiniteDimensional.span_of_finite",
+        "mathlib:Module.Finite.finite_basis",
+        "mathlib:IsLocalization.exist_integer_multiples"
+      ],
+      "acceptance": [
+        "R[zeta_m] is a finite domain extension in an algebraic closure of Frac(R); this lemma applies even when it is not free over R."
+      ],
+      "sources": [
+        {
+          "sourceId": "Habiro.2004",
+          "locator": "Habiro, proof of Theorem 5.2, p. 1138 (coefficient-extension reduction)",
+          "match": "The stated passage supplies the construction or argument; the proof steps make its intermediate inputs explicit."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/RingTheory/Habiro/IntegralTaylor",
+        "namespace": "TauCeti.Habiro.HC4"
+      }
+    },
+    {
+      "id": "HabiroCyclotomicCompletions:HC.4/finite-domain-separation-transfer",
+      "parentStageId": "HabiroCyclotomicCompletions:HC.4",
+      "realises": [
+        "HabiroCyclotomicCompletions:HC.4"
+      ],
+      "title": "Adic separation transfers to a finite domain extension",
+      "kind": "lemma",
+      "statement": "Under the preceding hypotheses, for c in R, if intersection_{k>=0} c^k R=0 then intersection_{k>=0} c^k B=0. In particular p-adic separatedness of R transfers to the actual embedded ring R[zeta_m] for every prime p. This closes the non-Noetherian transfer boundary of the imported Theorem 5.2 proof.",
+      "hypotheses": [
+        "R->B is an injective finite extension of domains; c-adic separatedness is assumed for R."
+      ],
+      "proofSteps": [
+        "Apply the injective R-linear map B->R^r. If b belongs to c^k B for every k, each coordinate of its image belongs to c^k R for every k.",
+        "R-separatedness kills each coordinate; injectivity kills b.",
+        "R[zeta_m] is generated by 1,zeta_m,...,zeta_m^(phi(m)-1) because the cyclotomic polynomial is monic."
+      ],
+      "prerequisites": [
+        "HabiroCyclotomicCompletions:HC.4/finite-domain-module-embedding",
+        "mathlib:IsHausdorff",
+        "mathlib:isHausdorff_iff",
+        "mathlib:Polynomial.cyclotomic.monic"
+      ],
+      "acceptance": [
+        "The inherited rootwise Taylor theorem needs no extra Noetherian hypothesis to transfer its prime-separation assumptions to R[zeta]. This lemma does not claim separation for an infinite union of cyclotomic extensions."
+      ],
+      "sources": [
+        {
+          "sourceId": "Habiro.2004",
+          "locator": "Habiro, proof of Theorem 5.2, p. 1138 (coefficient-extension reduction)",
+          "match": "The stated passage supplies the construction or argument; the proof steps make its intermediate inputs explicit."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/RingTheory/Habiro/IntegralTaylor",
+        "namespace": "TauCeti.Habiro.HC4"
+      }
+    }
+  ],
+  "requests": [],
+  "coverage": [
+    {
+      "stageId": "HabiroCyclotomicCompletions:HC.4",
+      "status": "closed",
+      "remaining": [],
+      "note": "All original HC.4 targets are imported from the accepted parent packet under the inheritedTargets table; this packet supplies the GSWZ §5.1 extension, Examples 5.6–5.7, finite local detection and the finite-domain separation-transfer input to rootwise rigidity. The broader individual-root Theorem 6.2 beyond the accepted irreducibility case is outside the chosen scope by the explicit restructure proposal, not asserted as proved."
+    }
+  ],
+  "gaps": [],
+  "sourceIssues": [
+    {
+      "id": "HabiroCyclotomicCompletions/E19",
+      "source": "GSWZ.v2",
+      "kind": "error",
+      "locator": "arXiv v2, Proposition 5.1, p. 62, (313), and its table",
+      "printed": "The source defines D(N) as the product of D1(n)D2(n) over n=1 to N.",
+      "correction": "With the precision N used in (301)–(306) and M_N, the upper bound is N-1. The table row labelled D(N) gives delta_(N+1).",
+      "reason": "M_3 in the first block of (312) is [[1,0,0],[1,2,-2],[0,1,1]] with determinant 4. The printed product through n=3 is 216. Direct coefficient calculations give det absolute values 1,4,216,1327104 at precisions 2,3,4,5.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "arXiv:2412.04241 version history (v2 remains latest on 2026-10-05)",
+        "Scholze papers page https://people.mpim-bonn.mpg.de/scholze/papers.html (lists a preprint, no erratum)",
+        "Wheeler author page https://www.ihes.fr/~wheeler/ and linked text128.pdf (same relevant formulas, earlier equation numbering)"
+      ]
+    },
+    {
+      "id": "HabiroCyclotomicCompletions/E20",
+      "source": "GSWZ.v2",
+      "kind": "error",
+      "locator": "arXiv v2, p. 61, parenthesis before (312)",
+      "printed": "HR ≅ HZ tensor_Z R and PR ≅ PZ tensor_Z R",
+      "correction": "These are valid at finite precision, or with completed coefficient extension. They are not valid for general R as uncompleted infinite algebraic tensor products.",
+      "reason": "For R=Q the naive H_Q has the odd-order nontrivial idempotent of Example 5.7, whereas H_Z tensor Q is a localization of the domain H_Z. On P, coefficients 1/(k+1) have no common denominator, so the product collection does not lie in P_Z tensor Q.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "arXiv:2412.04241 version history (v2 remains latest on 2026-10-05)",
+        "Scholze papers page https://people.mpim-bonn.mpg.de/scholze/papers.html (lists a preprint, no erratum)",
+        "Wheeler author page https://www.ihes.fr/~wheeler/ and linked text128.pdf (same relevant formulas, earlier equation numbering)"
+      ]
+    },
+    {
+      "id": "HabiroCyclotomicCompletions/E21",
+      "source": "GSWZ.v2",
+      "kind": "misprint",
+      "locator": "arXiv v2, p. 63, (317)",
+      "printed": "PR / PR^N",
+      "correction": "Replace the denominator by P_(R,N); P_R^N already denotes that quotient.",
+      "reason": "Only the quotient by the filtration ideal is the domain of the finite inverse in (306).",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "arXiv:2412.04241 version history (v2 remains latest on 2026-10-05)",
+        "Scholze papers page https://people.mpim-bonn.mpg.de/scholze/papers.html (lists a preprint, no erratum)",
+        "Wheeler author page https://www.ihes.fr/~wheeler/ and linked text128.pdf (same relevant formulas, earlier equation numbering)"
+      ]
+    },
+    {
+      "id": "HabiroCyclotomicCompletions/E22",
+      "source": "GSWZ.v2",
+      "kind": "misprint",
+      "locator": "arXiv v2, p. 64, (323)",
+      "printed": "The source gives a sum of gamma_(1,k,0) 2^k starting at k=0.",
+      "correction": "Use gamma_(1,k+1,0) with k>=0 in both expansions.",
+      "reason": "The convention (299) puts exponent k at l=k+1; gamma_(1,0,0) is not among the defined coordinates. The shift is forced already by the constant term.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "arXiv:2412.04241 version history (v2 remains latest on 2026-10-05)",
+        "Scholze papers page https://people.mpim-bonn.mpg.de/scholze/papers.html (lists a preprint, no erratum)",
+        "Wheeler author page https://www.ihes.fr/~wheeler/ and linked text128.pdf (same relevant formulas, earlier equation numbering)"
+      ]
+    },
+    {
+      "id": "HabiroCyclotomicCompletions/E23",
+      "source": "GSWZ.v2",
+      "kind": "misprint",
+      "locator": "arXiv v2, pp. 59–61, (299), prose after (301)/(304), and paragraph before (312)",
+      "printed": "The source places C_l(zeta_m) in Z[zeta_m], describes H_(R,N) as increasing, and specifies k<=0, n>0.",
+      "correction": "Use C_l in R[zeta_m]; the ideal filtrations decrease as N increases; the digit basis indices are 0<=k<n.",
+      "reason": "The definitions allow arbitrary R-coefficients. Vanishing more low coordinates gives smaller ideals. The basis has n coordinates in its nth block.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "arXiv:2412.04241 version history (v2 remains latest on 2026-10-05)",
+        "Scholze papers page https://people.mpim-bonn.mpg.de/scholze/papers.html (lists a preprint, no erratum)",
+        "Wheeler author page https://www.ihes.fr/~wheeler/ and linked text128.pdf (same relevant formulas, earlier equation numbering)"
+      ]
+    }
+  ],
+  "sourceVersions": [
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/2412.04241v2",
+      "read": "2026-10-05",
+      "sha256": "308d1dd1c42bd979e5d5c31d9d95215a1808f604031b49c0ce2a1eb767273de9"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://www.ihes.fr/~wheeler/files/text128.pdf",
+      "read": "2026-10-05",
+      "sha256": "6eba668440fbf6f4087101bf1639983db624b1781a35d088129943f3bfed31dd"
+    },
+    {
+      "kind": "published",
+      "url": "https://ems.press/content/serial-article-files/40881",
+      "read": "2026-10-05",
+      "sha256": "f56094672ada5ba71bbce69785be8c9d1377807c937b1011b1004f51dbf3071f"
+    }
+  ],
+  "inheritedTargets": [
+    {
+      "target": "Adjacency of cyclotomic orders and connectedness",
+      "providedBy": [
+        "HabiroCyclotomicCompletions:HC.4/adjacency-of-orders"
+      ]
+    },
+    {
+      "target": "Cyclotomic polynomials modulo a prime, and the prime in their ideal",
+      "providedBy": [
+        "HabiroCyclotomicCompletions:HC.4/cyclotomic-congruence-and-prime-ideal"
+      ]
+    },
+    {
+      "target": "Comaximality of cyclotomic polynomials, and their resultants",
+      "providedBy": [
+        "HabiroCyclotomicCompletions:HC.4/cyclotomic-comaximality-and-resultant"
+      ]
+    },
+    {
+      "target": "The radical relation between monic polynomials",
+      "providedBy": [
+        "HabiroCyclotomicCompletions:HC.4/radical-relation-on-monic-polynomials"
+      ]
+    },
+    {
+      "target": "One-step injectivity for monic completions",
+      "providedBy": [
+        "HabiroCyclotomicCompletions:HC.4/one-step-injectivity"
+      ]
+    },
+    {
+      "target": "Chain injectivity for monic completions",
+      "providedBy": [
+        "HabiroCyclotomicCompletions:HC.4/chain-injectivity-for-monic-completions"
+      ]
+    },
+    {
+      "target": "Adjacency is the radical relation between cyclotomic polynomials",
+      "providedBy": [
+        "HabiroCyclotomicCompletions:HC.4/adjacency-is-the-radical-relation"
+      ]
+    },
+    {
+      "target": "Injectivity of the restriction maps along a connected chain",
+      "providedBy": [
+        "HabiroCyclotomicCompletions:HC.4/injectivity-of-restriction"
+      ]
+    },
+    {
+      "target": "Adjacency of roots of unity and connectedness of the primitive roots",
+      "providedBy": [
+        "HabiroCyclotomicCompletions:HC.4/connectedness-of-primitive-roots"
+      ]
+    },
+    {
+      "target": "A single Taylor expansion determines the element",
+      "providedBy": [
+        "HabiroCyclotomicCompletions:HC.4/rootwise-taylor-injectivity"
+      ]
+    },
+    {
+      "target": "The completion at a connected set of orders is a domain (Habiro Corollary 5.1, corrected)",
+      "providedBy": [
+        "HabiroCyclotomicCompletions:HC.4/the-completion-is-a-domain"
+      ]
+    },
+    {
+      "target": "Evaluation uniqueness, with the precise infinite-set condition",
+      "providedBy": [
+        "HabiroCyclotomicCompletions:HC.4/evaluation-uniqueness-and-its-exact-hypothesis"
+      ]
+    },
+    {
+      "target": "Evaluation at individual roots determines the element",
+      "providedBy": [
+        "HabiroCyclotomicCompletions:HC.4/evaluation-at-individual-roots"
+      ]
+    },
+    {
+      "target": "The injective maps are not isomorphisms",
+      "providedBy": [
+        "HabiroCyclotomicCompletions:HC.4/non-surjectivity"
+      ]
+    },
+    {
+      "target": "The Taylor maps are not surjective",
+      "providedBy": [
+        "HabiroCyclotomicCompletions:HC.4/taylor-maps-are-not-surjective"
+      ]
+    }
+  ],
+  "restructure": [
+    {
+      "action": "rescope",
+      "roadmaps": [
+        "HabiroCyclotomicCompletions"
+      ],
+      "detail": "The atlas HC.4 description omits the accepted PLAN-HABIRO/RS-10 assignment of the naive filtered Taylor comparison and still has an ambiguous general evaluation-at-individual-roots boundary.",
+      "proposal": "Add GSWZ §5.1 to HC.4 with universal tensor-product cyclotomic coefficient algebras and corrected precision indexing. Keep Theorem 6.1 and the accepted irreducible-cyclotomic special case of Theorem 6.2. Do not enlarge the target to evaluation at arbitrary incomplete sets of conjugate roots over arbitrary subrings of Qbar: no atlas consumer requests it and the parent packet records an unresolved proof boundary. The finite-domain separation-transfer lemma supplies the non-Noetherian input to Theorem 5.2 without editing the parent packet."
+    },
+    {
+      "kind": "structure",
+      "action": "split",
+      "roadmaps": [
+        "HabiroCyclotomicCompletions"
+      ],
+      "title": "Separate classical rigidity from the finite integral comparison",
+      "detail": "The accepted parent HC.4 carries five classical-rigidity planets; the integral comparison adds six central objects and theorems. A combined stage would obscure the two proof chains and exceed six displayed planets.",
+      "proposal": "On assembly split HC.4 into Classical arithmetic rigidity (HC.4a) and Integral Taylor comparison (HC.4b). HC.4a contains the fifteen imported parent HC.4 nodes plus the two finite-domain transfer lemmas and retains its five planets. HC.4b contains the thirty-four integral-comparison nodes of this part and its six planets. Both use HC.1–HC.3; HC.4b imports the resultant lemma from HC.4a and the existing HC.5 rational/prime-inversion decomposition. Maintain the current HC.4 identifiers as declaration aliases and redirect HB.6 finite-matrix consumption to HC.4b. The finite-domain embedding and separation-transfer nodes in this part belong in HC.4a and are used by rootwise-taylor-injectivity; they carry no additional planet.",
+      "subLayers": [
+        {
+          "title": "Classical arithmetic rigidity",
+          "key": "HC.4a",
+          "nodes": [
+            "HabiroCyclotomicCompletions:HC.4/adjacency-of-orders",
+            "HabiroCyclotomicCompletions:HC.4/cyclotomic-congruence-and-prime-ideal",
+            "HabiroCyclotomicCompletions:HC.4/cyclotomic-comaximality-and-resultant",
+            "HabiroCyclotomicCompletions:HC.4/radical-relation-on-monic-polynomials",
+            "HabiroCyclotomicCompletions:HC.4/one-step-injectivity",
+            "HabiroCyclotomicCompletions:HC.4/chain-injectivity-for-monic-completions",
+            "HabiroCyclotomicCompletions:HC.4/adjacency-is-the-radical-relation",
+            "HabiroCyclotomicCompletions:HC.4/injectivity-of-restriction",
+            "HabiroCyclotomicCompletions:HC.4/connectedness-of-primitive-roots",
+            "HabiroCyclotomicCompletions:HC.4/rootwise-taylor-injectivity",
+            "HabiroCyclotomicCompletions:HC.4/the-completion-is-a-domain",
+            "HabiroCyclotomicCompletions:HC.4/evaluation-uniqueness-and-its-exact-hypothesis",
+            "HabiroCyclotomicCompletions:HC.4/evaluation-at-individual-roots",
+            "HabiroCyclotomicCompletions:HC.4/non-surjectivity",
+            "HabiroCyclotomicCompletions:HC.4/taylor-maps-are-not-surjective",
+            "HabiroCyclotomicCompletions:HC.4/finite-domain-module-embedding",
+            "HabiroCyclotomicCompletions:HC.4/finite-domain-separation-transfer"
+          ]
+        },
+        {
+          "title": "Integral Taylor comparison",
+          "key": "HC.4b",
+          "nodes": [
+            "HabiroCyclotomicCompletions:HC.4/universal-taylor-product",
+            "HabiroCyclotomicCompletions:HC.4/factorial-kernel-filtration",
+            "HabiroCyclotomicCompletions:HC.4/weighted-taylor-filtration",
+            "HabiroCyclotomicCompletions:HC.4/factorial-kernel-characterisation",
+            "HabiroCyclotomicCompletions:HC.4/weighted-jet-kernel",
+            "HabiroCyclotomicCompletions:HC.4/factorial-graded-piece",
+            "HabiroCyclotomicCompletions:HC.4/taylor-graded-piece",
+            "HabiroCyclotomicCompletions:HC.4/finite-precision-bases",
+            "HabiroCyclotomicCompletions:HC.4/multiplicative-taylor-comparison",
+            "HabiroCyclotomicCompletions:HC.4/factorial-vanishing-order",
+            "HabiroCyclotomicCompletions:HC.4/leading-factor",
+            "HabiroCyclotomicCompletions:HC.4/root-product-identity",
+            "HabiroCyclotomicCompletions:HC.4/factorial-leading-coefficient",
+            "HabiroCyclotomicCompletions:HC.4/graded-taylor-map",
+            "HabiroCyclotomicCompletions:HC.4/simultaneous-cyclotomic-remainders",
+            "HabiroCyclotomicCompletions:HC.4/graded-taylor-injective",
+            "HabiroCyclotomicCompletions:HC.4/finite-taylor-map",
+            "HabiroCyclotomicCompletions:HC.4/finite-taylor-injective",
+            "HabiroCyclotomicCompletions:HC.4/global-taylor-injective",
+            "HabiroCyclotomicCompletions:HC.4/rational-taylor-isomorphism",
+            "HabiroCyclotomicCompletions:HC.4/taylor-matrix",
+            "HabiroCyclotomicCompletions:HC.4/finite-taylor-coordinate-matrix",
+            "HabiroCyclotomicCompletions:HC.4/two-factor-remainder-determinant",
+            "HabiroCyclotomicCompletions:HC.4/cyclotomic-remainder-determinant",
+            "HabiroCyclotomicCompletions:HC.4/graded-taylor-determinant",
+            "HabiroCyclotomicCompletions:HC.4/finite-taylor-determinant",
+            "HabiroCyclotomicCompletions:HC.4/signed-adjugate",
+            "HabiroCyclotomicCompletions:HC.4/signed-adjugate-identities",
+            "HabiroCyclotomicCompletions:HC.4/finite-integral-image-criterion",
+            "HabiroCyclotomicCompletions:HC.4/global-integral-image-criterion",
+            "HabiroCyclotomicCompletions:HC.4/localized-scalar-divisibility",
+            "HabiroCyclotomicCompletions:HC.4/local-integrality-detection",
+            "HabiroCyclotomicCompletions:HC.4/kontsevich-matrix-example",
+            "HabiroCyclotomicCompletions:HC.4/odd-order-idempotent-example"
+          ]
+        }
+      ]
+    }
+  ]
+}
