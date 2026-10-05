@@ -27,148 +27,169 @@
         "ref": "mathlib:Int.gcd_def",
         "kind": "theorem",
         "module": "Mathlib/Data/Int/GCD.lean",
-        "provides": "Native arithmetic or analytic carrier, with its actual pinned statement read",
-        "checked": "Actual declaration statement read at the pinned source commit,2026-10-05; index used only to locate it."
+        "provides": "Positive integer gcd agrees with Nat.gcd of the two absolute values; supplies the signed-term convention.",
+        "checked": "Declaration and actual hypotheses independently read at the recorded pin,2026-10-05. The index only located the source."
       },
       {
         "ref": "mathlib:Int.gcd_greatest",
         "kind": "theorem",
         "module": "Mathlib/Data/Int/GCD.lean",
-        "provides": "Native arithmetic or analytic carrier, with its actual pinned statement read",
-        "checked": "Actual declaration statement read at the pinned source commit,2026-10-05; index used only to locate it."
+        "provides": "Characterizes a natural d as Int.gcd by both divisibilities and the greatest-common-divisor property; used with d=1, not as a bare cancellation theorem.",
+        "checked": "Declaration and actual hypotheses independently read at the recorded pin,2026-10-05. The index only located the source."
       },
       {
         "ref": "mathlib:Int.dvd_of_dvd_mul_left_of_gcd_one",
         "kind": "theorem",
         "module": "Mathlib/Data/Int/GCD.lean",
-        "provides": "Native arithmetic or analytic carrier, with its actual pinned statement read",
-        "checked": "Actual declaration statement read at the pinned source commit,2026-10-05; index used only to locate it."
+        "provides": "Cancels the left integer factor in a divisibility relation when its gcd with the divisor is1.",
+        "checked": "Declaration and actual hypotheses independently read at the recorded pin,2026-10-05. The index only located the source."
       },
       {
         "ref": "mathlib:padicValInt",
         "kind": "def",
         "module": "Mathlib/NumberTheory/Padics/PadicVal/Basic.lean",
-        "provides": "Native arithmetic or analytic carrier, with its actual pinned statement read",
-        "checked": "Actual declaration statement read at the pinned source commit,2026-10-05; index used only to locate it."
+        "provides": "Integer p-adic valuation is the natural valuation of natAbs; zero is totalized and all valued progression terms must be nonzero.",
+        "checked": "Declaration and actual hypotheses independently read at the recorded pin,2026-10-05. The index only located the source."
       },
       {
         "ref": "mathlib:padicValInt.mul",
         "kind": "theorem",
         "module": "Mathlib/NumberTheory/Padics/PadicVal/Basic.lean",
-        "provides": "Native arithmetic or analytic carrier, with its actual pinned statement read",
-        "checked": "Actual declaration statement read at the pinned source commit,2026-10-05; index used only to locate it."
+        "provides": "Valuation of an integer product is additive under Fact p.Prime and both nonzero-factor hypotheses.",
+        "checked": "Declaration and actual hypotheses independently read at the recorded pin,2026-10-05. The index only located the source."
       },
       {
         "ref": "mathlib:Nat.factorization",
         "kind": "def",
         "module": "Mathlib/Data/Nat/Factorization/Defs.lean",
-        "provides": "Native arithmetic or analytic carrier, with its actual pinned statement read",
-        "checked": "Actual declaration statement read at the pinned source commit,2026-10-05; index used only to locate it."
+        "provides": "Natural prime factorization as a finitely supported prime-exponent function; zero is totalized.",
+        "checked": "Declaration and actual hypotheses independently read at the recorded pin,2026-10-05. The index only located the source."
       },
       {
         "ref": "mathlib:Nat.prod_factorization_pow_eq_self",
         "kind": "theorem",
         "module": "Mathlib/Data/Nat/Factorization/Defs.lean",
-        "provides": "Native arithmetic or analytic carrier, with its actual pinned statement read",
-        "checked": "Actual declaration statement read at the pinned source commit,2026-10-05; index used only to locate it."
+        "provides": "Reconstructs a nonzero natural from the product of prime powers in its factorization; applied to nonzero absolute progression terms.",
+        "checked": "Declaration and actual hypotheses independently read at the recorded pin,2026-10-05. The index only located the source."
       },
       {
         "ref": "mathlib:WeierstrassCurve",
         "kind": "structure",
         "module": "Mathlib/AlgebraicGeometry/EllipticCurve/Weierstrass.lean",
-        "provides": "Actual pinned statement read; used as the native carrier or the indicated arithmetic operation, not as a missing geometric theorem.",
-        "checked": "Actual declaration statement read at the pinned source commit,2026-10-05; index used only to locate it."
+        "provides": "Five-coefficient Weierstrass model over a ring; ellipticity is a separate discriminant-unit condition.",
+        "checked": "Declaration and actual hypotheses independently read at the recorded pin,2026-10-05. The index only located the source."
       },
       {
         "ref": "mathlib:WeierstrassCurve.Δ",
         "kind": "def",
         "module": "Mathlib/AlgebraicGeometry/EllipticCurve/Weierstrass.lean",
-        "provides": "Actual pinned statement read; used as the native carrier or the indicated arithmetic operation, not as a missing geometric theorem.",
-        "checked": "Actual declaration statement read at the pinned source commit,2026-10-05; index used only to locate it."
+        "provides": "Native discriminant polynomial in the b-invariants; specialized to the two explicit progression equations.",
+        "checked": "Declaration and actual hypotheses independently read at the recorded pin,2026-10-05. The index only located the source."
       },
       {
         "ref": "mathlib:WeierstrassCurve.c₄",
         "kind": "def",
         "module": "Mathlib/AlgebraicGeometry/EllipticCurve/Weierstrass.lean",
-        "provides": "Actual pinned statement read; used as the native carrier or the indicated arithmetic operation, not as a missing geometric theorem.",
-        "checked": "Actual declaration statement read at the pinned source commit,2026-10-05; index used only to locate it."
+        "provides": "Native c4=b2^2-24*b4; its odd-prime unit test is separate from the formula.",
+        "checked": "Declaration and actual hypotheses independently read at the recorded pin,2026-10-05. The index only located the source."
       },
       {
         "ref": "tauceti:WeierstrassCurve.frobeniusTrace",
         "kind": "def",
         "module": "TauCeti/AlgebraicGeometry/EllipticCurve/PointCount.lean",
-        "provides": "Actual pinned statement read; used as the native carrier or the indicated arithmetic operation, not as a missing geometric theorem.",
-        "checked": "Actual declaration statement read at the pinned source commit,2026-10-05; index used only to locate it."
+        "provides": "Over a finite field, q+1 minus the projective all-points count (including a possible singular point); no IsElliptic hypothesis on this definition, but good-reduction trace comparisons require it.",
+        "checked": "Declaration and actual hypotheses independently read at the recorded pin,2026-10-05. The index only located the source."
       },
       {
         "ref": "mathlib:WeierstrassCurve.j",
         "kind": "def",
         "module": "Mathlib/AlgebraicGeometry/EllipticCurve/Weierstrass.lean",
-        "provides": "Actual pinned statement read; the declaration supplies only the specified native carrier or operation, not missing mathematics.",
-        "checked": "Actual declaration statement read at the pinned source commit,2026-10-05; index used only to locate it."
+        "provides": "With WeierstrassCurve.IsElliptic, j is the inverse discriminant unit times c4^3; the progression discriminant must be nonzero before using it.",
+        "checked": "Declaration and actual hypotheses independently read at the recorded pin,2026-10-05. The index only located the source."
       },
       {
         "ref": "mathlib:DirichletCharacter.conductor",
         "kind": "def",
         "module": "Mathlib/NumberTheory/DirichletCharacter/Basic.lean",
-        "provides": "Actual pinned statement read; the declaration supplies only the specified native carrier or operation, not missing mathematics.",
-        "checked": "Actual declaration statement read at the pinned source commit,2026-10-05; index used only to locate it."
+        "provides": "The actual least inducing modulus of a Dirichlet character, distinguished from an arbitrary ambient level.",
+        "checked": "Declaration and actual hypotheses independently read at the recorded pin,2026-10-05. The index only located the source."
       },
       {
         "ref": "mathlib:DirichletCharacter.IsPrimitive",
         "kind": "def",
         "module": "Mathlib/NumberTheory/DirichletCharacter/Basic.lean",
-        "provides": "Actual pinned statement read; the declaration supplies only the specified native carrier or operation, not missing mathematics.",
-        "checked": "Actual declaration statement read at the pinned source commit,2026-10-05; index used only to locate it."
+        "provides": "Primitivity states that the native conductor equals the ambient character modulus.",
+        "checked": "Declaration and actual hypotheses independently read at the recorded pin,2026-10-05. The index only located the source."
       },
       {
         "ref": "mathlib:ArithmeticFunction.vonMangoldt",
         "kind": "def",
         "module": "Mathlib/NumberTheory/ArithmeticFunction/VonMangoldt.lean",
-        "provides": "Actual pinned statement read; the declaration supplies only the specified native carrier or operation, not missing mathematics.",
-        "checked": "Actual declaration statement read at the pinned source commit,2026-10-05; index used only to locate it."
+        "provides": "Real von-Mangoldt arithmetic function: prime-power weights, with value zero away from prime powers.",
+        "checked": "Declaration and actual hypotheses independently read at the recorded pin,2026-10-05. The index only located the source."
       },
       {
         "ref": "mathlib:Nat.maxPrimeFac",
         "kind": "def",
         "module": "Mathlib/Data/Nat/MaxPrimeFac.lean",
-        "provides": "Actual pinned statement read; the declaration supplies only the specified native carrier or operation, not missing mathematics.",
-        "checked": "Actual declaration statement read at the pinned source commit,2026-10-05; index used only to locate it."
+        "provides": "Largest prime factor of a natural, totalized at0 and1; family conductors exceed1 before prime-factor inequalities are used.",
+        "checked": "Declaration and actual hypotheses independently read at the recorded pin,2026-10-05. The index only located the source."
       },
       {
         "ref": "mathlib:padicValNat_def",
         "kind": "theorem",
         "module": "Mathlib/NumberTheory/Padics/PadicVal/Defs.lean",
-        "provides": "Actual pinned statement read; the declaration supplies only the specified native carrier or operation, not missing mathematics.",
-        "checked": "Actual declaration statement read at the pinned source commit,2026-10-05; index used only to locate it."
+        "provides": "For prime p and nonzero n, padicValNat p n is the multiplicity exponent; supports the maximal-valuation deletion argument.",
+        "checked": "Declaration and actual hypotheses independently read at the recorded pin,2026-10-05. The index only located the source."
       },
       {
         "ref": "mathlib:DirichletCharacter.LFunction",
         "kind": "def",
         "module": "Mathlib/NumberTheory/LSeries/DirichletContinuation.lean",
-        "provides": "Actual pinned statement read; the declaration supplies only the specified native carrier or operation, not missing mathematics.",
-        "checked": "Actual declaration statement read at the pinned source commit,2026-10-05; index used only to locate it."
+        "provides": "Native meromorphic continuation of the complex Dirichlet L-function, not the naive LSeries; exclude the principal pole at1 from zero witnesses.",
+        "checked": "Declaration and actual hypotheses independently read at the recorded pin,2026-10-05. The index only located the source."
       },
       {
         "ref": "mathlib:Nat.factorial_le_pow",
         "kind": "lemma",
         "module": "Mathlib/Data/Nat/Factorial/Basic.lean",
-        "provides": "Actual pinned statement read; the declaration supplies only the specified native carrier or operation, not missing mathematics.",
-        "checked": "Actual declaration statement read at the pinned source commit,2026-10-05; index used only to locate it."
+        "provides": "The elementary factorial upper bound n!<=n^n; sufficient for the disjoint-block argument and, with the large-prime logarithmic lower bound, the0.44 smooth-factor estimate.",
+        "checked": "Declaration and actual hypotheses independently read at the recorded pin,2026-10-05. The index only located the source."
       },
       {
         "ref": "mathlib:Real.log_two_gt_d9",
         "kind": "theorem",
         "module": "Mathlib/Analysis/Complex/ExponentialBounds.lean",
-        "provides": "The actual pinned bounds 0.6931471803 < log 2 < 0.6931471808 certify 10^6 < 132*log(2)*10^5 < 10^7; both statements read in ExponentialBounds.lean.",
-        "checked": "Actual declaration statement read at the pinned source commit,2026-10-05; index used only to locate it."
+        "provides": "Pinned lower bound0.6931471803<log2; used in the exact Roth-threshold comparison.",
+        "checked": "Declaration and actual hypotheses independently read at the recorded pin,2026-10-05. The index only located the source."
       },
       {
         "ref": "mathlib:Real.log_two_lt_d9",
         "kind": "theorem",
         "module": "Mathlib/Analysis/Complex/ExponentialBounds.lean",
-        "provides": "The actual pinned bounds 0.6931471803 < log 2 < 0.6931471808 certify 10^6 < 132*log(2)*10^5 < 10^7; both statements read in ExponentialBounds.lean.",
-        "checked": "Actual declaration statement read at the pinned source commit,2026-10-05; index used only to locate it."
+        "provides": "Pinned upper bound log2<0.6931471808; used in the exact Roth-threshold comparison.",
+        "checked": "Declaration and actual hypotheses independently read at the recorded pin,2026-10-05. The index only located the source."
+      },
+      {
+        "ref": "mathlib:Stirling.stirlingSeq",
+        "kind": "def",
+        "module": "Mathlib/Analysis/SpecialFunctions/Stirling.lean",
+        "provides": "The native sequence m!/(sqrt(2*m)*(m/exp1)^m); its denominator is positive for m>=1.",
+        "checked": "Actual pinned declaration and context read by independent reviewer2026-10-05; not inferred from the declaration index."
+      },
+      {
+        "ref": "mathlib:Stirling.log_stirlingSeq_sdiff_le",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/SpecialFunctions/Stirling.lean",
+        "provides": "For every natural n, log(stirlingSeq n)-log(stirlingSeq(n+1))<=1/(12*n*(n+1)); use only n>=1 in the telescoping adapter.",
+        "checked": "Actual pinned declaration and context read by independent reviewer2026-10-05; not inferred from the declaration index."
+      },
+      {
+        "ref": "mathlib:Stirling.tendsto_stirlingSeq_sqrt_pi",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/SpecialFunctions/Stirling.lean",
+        "provides": "The native Stirling sequence tends atTop to sqrt(pi), allowing the finite telescoping estimate to pass to its positive limit.",
+        "checked": "Actual pinned declaration and context read by independent reviewer2026-10-05; not inferred from the declaration index."
       }
     ]
   },
@@ -181,7 +202,7 @@
       "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v191-n2-p02-s.pdf",
       "sha256": "3920a7524a37870942fe3591ac858db23cb604f4331bccd2a6dc5f11a1671fbf",
       "readSections": [
-        "Published §§1–12 and references, pp.355–392; full text re-read 2026-10-05. Images inspected at pp.357,361,371,384."
+        "Independent review2026-10-05: all38 physical pages, printed355–392, read in the authenticated publisher text; critical images inspected at printed357,361,367,369,371,374,377,380,383,384. Equations(16) and(21) visibly include absolute values."
       ]
     },
     {
@@ -192,7 +213,7 @@
       "url": "https://www.math.mcgill.ca/darmon/pub/Articles/Research/12.Granville/pub12.pdf",
       "sha256": "2a77462524aebdce6a34c540e99afb3913c2c6113b597af9792bed6c82376aca",
       "readSections": [
-        "§2.1, Corollary 2.1 and its complete printed proof, pp.520–521; selected §2 descent setup pp.519–520. Genus formula verified on the p.521 image. No full-paper reading or publisher collation is claimed."
+        "Independent review2026-10-05: physical7–9, printed519–521, complete text; images at520–521 confirm the elimination-index typo and genus calculation. No full-paper reading or publisher-PDF collation claimed."
       ]
     }
   ],
@@ -1232,9 +1253,9 @@
       ],
       "title": "Serre-weight and residual-conductor bridge",
       "kind": "lemma",
-      "statement": "Under H, E_a[ell] is irreducible of Serre weight 2, its prime-to-ell Artin conductor equals the deletion level M_a, and ell does not divide M_a.",
+      "statement": "Under H and a in A(k), E_a[ell] is irreducible of Serre weight 2, its prime-to-ell Artin conductor equals the deletion level M_a, and ell does not divide M_a.",
       "hypotheses": [
-        "Under H, E_a[ell] is irreducible of Serre weight 2, its prime-to-ell Artin conductor equals the deletion level M_a, and ell does not divide M_a."
+        "Under H and a in A(k), E_a[ell] is irreducible of Serre weight 2, its prime-to-ell Artin conductor equals the deletion level M_a, and ell does not divide M_a."
       ],
       "proofSteps": [
         "The level bound places ell above all level primes. At ell, use the good or finite-flat multiplicative case of coefficient-prime weight-two lowering, justified by the large-prime discriminant divisibility. Match every local conductor exponent with the deletion level. This is a real theorem, not an equality assigned by definition."
@@ -1274,9 +1295,9 @@
       ],
       "title": "Kraus threshold for progression levels",
       "kind": "lemma",
-      "statement": "Under H, mu(M_a) and mu(lcm(M_a,4)) are at most 2^8*log(k)*exp(1.000081*k), and the exact Kraus threshold H_K(M_a) is less than exp(10^k). Here mu is the Gamma0 index and the dimension in H_K is the trivial-character newspace dimension.",
+      "statement": "Under H and a in A(k), mu(M_a) and mu(lcm(M_a,4)) are at most 2^8*log(k)*exp(1.000081*k), and the exact Kraus threshold H_K(M_a) is less than exp(10^k). Here mu is the Gamma0 index and the dimension in H_K is the trivial-character newspace dimension.",
       "hypotheses": [
-        "Under H, mu(M_a) and mu(lcm(M_a,4)) are at most 2^8*log(k)*exp(1.000081*k), and the exact Kraus threshold H_K(M_a) is less than exp(10^k)"
+        "Under H and a in A(k), mu(M_a) and mu(lcm(M_a,4)) are at most 2^8*log(k)*exp(1.000081*k), and the exact Kraus threshold H_K(M_a) is less than exp(10^k)"
       ],
       "proofSteps": [
         "Use the primorial divisibility and the explicit totient ratio bound. Combine the resulting mu bounds with the upstream Martin newspace inequality and exact Kraus F,G,H definitions; compare their logarithms to 10^k. Do not use the full Gamma1 dimension."
@@ -1489,7 +1510,7 @@
       ],
       "title": "Case-I nonsquare and absolute projection",
       "kind": "theorem",
-      "statement": "Under H, every associated Legendre parameter lambda is a nonsquare modulo every prime k/2<p<=k with p = 3 mod 8. Under Hplus, a CaseI parameter lies outside all four squareclasses ±Q^2,±2Q^2. The primitive characters of lambda,-lambda,2lambda,-2lambda have mod8 projection mu1-mu2-mu3+mu4=4*(lambda/p) at p = 3 mod 8 and zero otherwise, away from support. One of the four therefore has absolute prime-weighted sum at least (1-3*0.002811)*k/8 and nontrivial odd conductor. Positivity of one unsigned character sum is not inferred from this signed projection.",
+      "statement": "Under H, every associated Legendre parameter lambda is a nonsquare modulo every prime k/2<p<=k with p = 3 mod 8. Under Hplus, a CaseI parameter lies outside all four squareclasses ±Q^2,±2Q^2. The primitive characters of lambda,-lambda,2lambda,-2lambda have mod8 projection mu1-mu2-mu3+mu4=4*(lambda/p) at p = 3 mod 8 and zero otherwise, away from support. One of the four therefore has absolute prime-weighted sum at least (1-3*0.002811)*k/8 and nontrivial odd conductor. The absolute values are printed in equation (21) and Proposition 6.1, equation (16).",
       "hypotheses": [
         "Under H, every associated Legendre parameter lambda is a nonsquare modulo every prime k/2<p<=k with p = 3 mod 8"
       ],
@@ -1509,7 +1530,7 @@
         {
           "sourceId": "BS20",
           "locator": "Lemma 6.4, p. 368; §6, Case I, equations (19)–(21), p. 369; Equation (21), p.369",
-          "match": "The short fragment identifies the read passage. The mathematical contract and proof steps explicitly distinguish the printed assertion, a local specialization or adapter, and any recorded correction."
+          "match": "The publisher page image at p.369 explicitly includes absolute-value bars in (21); p.367 does so in (16). This plan follows those printed statements. The alleged positive-sum gap E23 is rejected."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1878,13 +1899,15 @@
         "For n,d,k and a finite set S of primes<=k define T_pr={p prime:k^(7/16)<p<=k}, U_pr={p prime:(log k)^(1-10^-4)<p<=10^4*log k}, and J=range(k) minus the union of divisibility index sets I_p for p in S union T_pr union U_pr"
       ],
       "proofSteps": [
-        "Form finite prime sets with explicit real bounds, then take their divisibility-index union and relative complement. The construction is total; density and conductor consequences require Hplus and the certified numerical range."
+        "Form finite prime sets with explicit real bounds, then take their divisibility-index union and relative complement. The construction is total; density and conductor consequences require Hplus and the certified numerical range.",
+        "Only odd primes in the forbidden sets are excluded from N_a by the coefficient-support theorem. Its dyadic factor is bounded by8; 2<=k^(7/16) under Hplus. For the later thinSet application, 2 in S would force reciprocal mass>=1/2, contradicting<0.17."
       ],
       "acceptance": [
         "Retain every domain, sign, endpoint, conductor and effectivity restriction in the statement; use the native library or the cited owner for its prerequisites."
       ],
       "prerequisites": [
-        "ErdosProgressionPowers:EP.0/divisibility-indices"
+        "ErdosProgressionPowers:EP.0/divisibility-indices",
+        "ErdosProgressionPowers:EP.2/character-family"
       ],
       "sources": [
         {
@@ -1916,7 +1939,7 @@
         {
           "name": "TauCeti.ProgressionPowers.thin_prime_survivors_conductor",
           "role": "relation",
-          "statement": "Under Hplus, a triple in J has N_a avoiding S and U_pr and P(N_a)<=k^(7/16)."
+          "statement": "Under Hplus, a triple in J has conductor N_a avoiding every odd prime in S union U_pr and P(N_a)<=k^(7/16). If S has reciprocal mass<0.17, it cannot contain2, so the full avoidance conclusion follows. Under Hplus all primes of U_pr are odd."
         }
       ],
       "tests": [
@@ -2054,7 +2077,8 @@
         "Under Hplus, k>=exp(exp(10^7)) and sum over S of 1/p<0.17, the losses from T_pr,U_pr,S are at most k*log(16/7), k*log(1/(1-10^-4))+5*k*log10/loglogk+10^4*logk, and strictly less than 0.17*k+1.1*k/logk"
       ],
       "proofSteps": [
-        "Sum the one-residue-class bound over primes, keeping endpoints and the +1 loss. Import explicit reciprocal-prime and prime-count estimates. Apply maximal-valuation deletion. The large-prime part of(k-1)! has log at least(9/16)*k*logk-5*k; combine the imported explicit Stirling upper bound. Markov counting with log A_i>139*logk bounds the complement of J2. The numerical range is strengthened to the certified Roth threshold."
+        "Sum the one-residue-class bound over primes, keeping endpoints and the +1 loss. Import explicit reciprocal-prime and prime-count estimates. Apply maximal-valuation deletion. The large-prime part of(k-1)! has log at least(9/16)*k*logk-5*k; combine the local explicit Stirling upper adapter. Markov counting with log A_i>139*logk bounds the complement of J2. The numerical range is strengthened to the certified Roth threshold.",
+        "For the executed0.44 bound one may instead use the weaker native (k-1)!<=k^k: subtracting the large-prime contribution gives log(product A_i)<=(7/16)*k*logk+5*k<0.44*k*logk in the certified range. The sharper Stirling adapter remains a separately covered source item."
       ],
       "acceptance": [
         "Retain every domain, sign, endpoint, conductor and effectivity restriction in the statement; use the native library or the cited owner for its prerequisites."
@@ -2064,7 +2088,8 @@
         "ErdosProgressionPowers:EP.4/valuation-deletion",
         "ErdosProgressionPowers:EP.0/residue-class-count",
         "AnalyticNumberTheory:AN.2",
-        "AnalyticNumberTheory:AN.5"
+        "ErdosProgressionPowers:EP.4/stirling-upper-adapter",
+        "mathlib:Nat.factorial_le_pow"
       ],
       "sources": [
         {
@@ -2083,8 +2108,7 @@
         "PAPER-BENNETT-SIKSEK-20/105",
         "PAPER-BENNETT-SIKSEK-20/106",
         "PAPER-BENNETT-SIKSEK-20/107",
-        "PAPER-BENNETT-SIKSEK-20/108",
-        "PAPER-BENNETT-SIKSEK-20/141"
+        "PAPER-BENNETT-SIKSEK-20/108"
       ],
       "planet": {
         "name": "Sieve losses and coefficient density"
@@ -2104,7 +2128,8 @@
         "Under Hplus and k>=exp(exp(10^7)), for every finite S of primes<=k with reciprocal mass<0.17 choose one a in A(k) such that no p in S divides N_a, P(N_a)<=k^(7/16), no prime in((logk)^(1-10^-4),10^4logk] divides N_a, and N_a<k^418"
       ],
       "proofSteps": [
-        "Apply the imported quantitative Roth statement to J2 with density10^-5. Its loglog threshold is132*log2*10^5<10^7, not<10^6. Choose one three-term progression in J2. The odd-support and dyadic conductor bound yield N<=2^8*k^417<k^418, and membership in J enforces all avoidance properties."
+        "Apply the imported quantitative Roth statement to J2 with density10^-5. Its loglog threshold is132*log2*10^5<10^7, not<10^6. Choose one three-term progression in J2. The odd-support and dyadic conductor bound yield N<=2^8*k^417<k^418, and membership in J enforces all avoidance properties.",
+        "The reciprocal-mass hypothesis excludes2 from S, and the lower endpoint of U_pr exceeds2 in this range; therefore the odd-prime survivor API supplies full conductor avoidance here."
       ],
       "acceptance": [
         "Retain every domain, sign, endpoint, conductor and effectivity restriction in the statement; use the native library or the cited owner for its prerequisites."
@@ -2318,12 +2343,13 @@
       ],
       "title": "Bounded-height exceptional moduli",
       "kind": "definition",
-      "statement": "For k>=3 and fixed c>0 from the bounded-height Landau-Page theorem put T=exp(c*logk/(3*loglogk)). Q(k,c) consists of integers1<=q<=k^4 for which some native primitive complex Dirichlet character modulo q has a zero rho of its meromorphic LFunction with |Im rho|<=T and Re rho>1-3*loglogk/logk. The modulus is positive; LSeries, which is zero outside convergence, is not used.",
+      "statement": "For k>=3 and fixed c>0 from the bounded-height Landau-Page theorem put T=exp(c*logk/(3*loglogk)). Q(k,c) consists of integers1<=q<=k^4 for which some native primitive complex Dirichlet character modulo q has a zero rho of its meromorphic LFunction at a regular point (rho!=1 or chi is nonprincipal) with |Im rho|<=T and Re rho>1-3*loglogk/logk. The modulus is positive; LSeries, which is zero outside convergence, is not used.",
       "hypotheses": [
         "For k>=3 and fixed c>0 from the bounded-height Landau-Page theorem put T=exp(c*logk/(3*loglogk))"
       ],
       "proofSteps": [
-        "Take a subset of range(k^4+1) using the exact quantified character and complex-zero predicate. Use the native primitive-character and meromorphic continuation vocabulary. The analytic height restriction is essential."
+        "Take a subset of range(k^4+1) using the exact quantified character and complex-zero predicate. Use the native primitive-character and meromorphic continuation vocabulary. The analytic height restriction is essential.",
+        "Explicitly exclude the principal-character pole at rho=1. Mathlib totalizes the function there; an assigned value is not a meromorphic zero. The same guard belongs in the bounded-height Landau-Page input predicate."
       ],
       "acceptance": [
         "Retain every domain, sign, endpoint, conductor and effectivity restriction in the statement; use the native library or the cited owner for its prerequisites."
@@ -2352,7 +2378,7 @@
         {
           "name": "TauCeti.ProgressionPowers.exceptional_moduli_mem",
           "role": "characterisation",
-          "statement": "Membership is equivalent to the displayed positive-modulus bounds and the bounded-height zero witness."
+          "statement": "Membership is equivalent to the displayed positive-modulus bounds and the bounded-height zero witness. A zero witness satisfies rho!=1 or chi!=1, excluding the principal pole."
         },
         {
           "name": "TauCeti.ProgressionPowers.exceptional_moduli_finite",
@@ -2380,6 +2406,11 @@
           "name": "TauCeti.ProgressionPowers.exceptional_moduli_high_zero",
           "kind": "non-example",
           "statement": "A zero with |Im rho|>T alone cannot witness membership."
+        },
+        {
+          "name": "TauCeti.ProgressionPowers.exceptional_moduli_principal_pole",
+          "kind": "non-example",
+          "statement": "For every positive modulus, the pair chi=1,rho=1 never satisfies the zero-witness predicate, regardless of the totalized LFunction value."
         }
       ],
       "uses": [
@@ -2619,7 +2650,8 @@
         "Under Hplus and sufficiently large effective k choose one triple a=(i,j,h) in A(k) whose three indices avoid Bad and with N_a<=8*A_i*A_j*A_h<=k^4"
       ],
       "proofSteps": [
-        "Delete one maximal-valuation index per small prime, then delete Bad. Use the original disjoint consecutive blocks(0,1,2),(3,4,5),...; at most one block is lost per deleted index. Effectively more than2k/7 blocks survive. Their combined A-product divides(k-1)!<=k^k. One block has coefficient product<=k^(7/2); k>=64 implies8*k^(7/2)<=k^4. Choose that block, which already avoids Bad."
+        "Delete one maximal-valuation index per small prime, then delete Bad. Use the original disjoint consecutive blocks(0,1,2),(3,4,5),...; at most one block is lost per deleted index. Effectively more than2k/7 blocks survive. Their combined A-product divides(k-1)!<=k^k. One block has coefficient product<=k^(7/2); k>=64 implies8*k^(7/2)<=k^4. Choose that block, which already avoids Bad.",
+        "The effective prime-count estimate from AN.2 bounds the number of maximal-valuation deletions by pi(k)=o(k); combine it with the uniform Bad bound before counting disjoint blocks."
       ],
       "acceptance": [
         "Retain every domain, sign, endpoint, conductor and effectivity restriction in the statement; use the native library or the cited owner for its prerequisites."
@@ -2629,7 +2661,8 @@
         "ErdosProgressionPowers:EP.5/exceptional-indices-sparse",
         "ErdosProgressionPowers:EP.2/character-family",
         "ErdosProgressionPowers:EP.0/ap-triples",
-        "mathlib:Nat.factorial_le_pow"
+        "mathlib:Nat.factorial_le_pow",
+        "AnalyticNumberTheory:AN.2"
       ],
       "sources": [
         {
@@ -2835,7 +2868,8 @@
         "For every fixed k>=5 and integer ell>=2, the set of coprime integer(n,d,y) with y*d!=0 and product over i<k of(n+i*d)=y^ell is finite"
       ],
       "proofSteps": [
-        "Choose finite small-prime ell-powerfree coefficient classes, including signs. Eliminate n,d to get a diagonal complete intersection in P^(k-1); its projection to the ternary curve has degree ell^(k-3) and the displayed Riemann-Hurwitz computation gives2g-2=k*ell^(k-1)*(1-2/k-1/ell)>0. Import the smoothness, ramification and genus-to-Faltings interface from the geometry owner. Each rational projective point has only finitely many primitive integral lifts, then only finitely many y. Repeat over finitely many sign patterns. The source proof was read in the author-hosted scan, not independently collated with the publisher."
+        "Choose finite small-prime ell-powerfree coefficient classes, including signs. Eliminate n,d to get a diagonal complete intersection in P^(k-1); its projection to the ternary curve has degree ell^(k-3) and the displayed Riemann-Hurwitz computation gives2g-2=k*ell^(k-1)*(1-2/k-1/ell)>0. Import the smoothness, ramification and genus-to-Faltings interface from the geometry owner. Each rational projective point has only finitely many primitive integral lifts, then only finitely many y. Repeat over finitely many sign patterns. The source proof was read in the author-hosted scan, not independently collated with the publisher.",
+        "With the source indexing t_i=a+i*d for1<=i<=k, use lambda_j*z_j^ell=(j-1)*lambda_2*z_2^ell-(j-2)*lambda_1*z_1^ell for3<=j<=k. The printed (2.2) coefficients j and j-1 shift the term by d; this local misprint does not change the distinct-branch or genus argument."
       ],
       "acceptance": [
         "Retain every domain, sign, endpoint, conductor and effectivity restriction in the statement; use the native library or the cited owner for its prerequisites."
@@ -2850,7 +2884,7 @@
         {
           "sourceId": "DG95",
           "locator": "§2.1, Corollary 2.1 and its full proof, pp.520–521",
-          "match": "The short fragment identifies the read passage. The mathematical contract and proof steps explicitly distinguish the printed assertion, a local specialization or adapter, and any recorded correction."
+          "match": "The full positive-domain proof and genus formula were checked against text and images. The elimination formula (2.2) requires the index correction E24. Signed coefficient patterns and primitive lifts remain explicit adapter obligations."
         },
         {
           "sourceId": "BS20",
@@ -3121,6 +3155,51 @@
         "name": "Smooth-multiplier progression equation"
       },
       "leanName": "TauCeti.ProgressionPowers.smooth_multiplier"
+    },
+    {
+      "id": "ErdosProgressionPowers:EP.4/stirling-upper-adapter",
+      "parentStageId": "ErdosProgressionPowers:EP.4",
+      "realises": [
+        "ErdosProgressionPowers:EP.4"
+      ],
+      "title": "Explicit Stirling upper bound",
+      "kind": "theorem",
+      "statement": "For every natural m>=1, (m!:R)<=sqrt(2*pi*m)*(m/exp(1))^m*exp(1/(12*m)). This is the numerical adapter quoted in the source, derived from the pinned Stirling sequence rather than a second asymptotic theory.",
+      "hypotheses": [
+        "m is a positive natural number; all displayed divisions, square roots and exponentials are real."
+      ],
+      "proofSteps": [
+        "For integers M>m>=1, sum the pinned inequality log(stirlingSeq j)-log(stirlingSeq(j+1))<=1/(12*j*(j+1)) over m<=j<M. Both sides telescope, giving log(stirlingSeq m)-log(stirlingSeq M)<=1/(12*m)-1/(12*M).",
+        "Use the pinned limit stirlingSeq M -> sqrt(pi)>0 and continuity of log to pass to M -> infinity. Exponentiating gives stirlingSeq m<=sqrt(pi)*exp(1/(12*m)).",
+        "Unfold the existing stirlingSeq and multiply by its positive denominator sqrt(2*m)*(m/exp1)^m. Combine positive square roots to obtain the displayed bound."
+      ],
+      "acceptance": [
+        "Keep m>=1; the formula with the totalized zero denominator is not asserted at m=0.",
+        "Do not replace the upper bound by the native Stirling lower bound or by an asymptotic without a quantified cutoff."
+      ],
+      "prerequisites": [
+        "mathlib:Stirling.stirlingSeq",
+        "mathlib:Stirling.log_stirlingSeq_sdiff_le",
+        "mathlib:Stirling.tendsto_stirlingSeq_sqrt_pi"
+      ],
+      "sources": [
+        {
+          "sourceId": "BS20",
+          "locator": "Proof of Proposition9.1, printed p.384, first displayed factorial bound and reference[43]",
+          "match": "The printed finite-m upper bound is recovered from the actual pinned Robbins stepwise bound and Stirling limit; the original Robbins paper has not been independently read in this review."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/ProgressionPowers/EP4",
+        "namespace": "TauCeti.ProgressionPowers",
+        "name": "TauCeti.ProgressionPowers.stirling_upper_adapter"
+      },
+      "leanName": "TauCeti.ProgressionPowers.stirling_upper_adapter",
+      "catalogueItems": [
+        "PAPER-BENNETT-SIKSEK-20/141"
+      ],
+      "addedBy": "REV-DESIGN-ErdosProgressionPowers"
     }
   ],
   "requests": [
@@ -3131,7 +3210,7 @@
         "ErdosProgressionPowers:EP.1/first-curve"
       ],
       "status": "open",
-      "checked": "The exact supplier stage description or node was read at the fixed atlas base; this request claims ownership and scope, not a completed proof."
+      "checked": "The exact supplier stage or node was independently read at the immutable review base. Its payload is retained in SupplierRead.json; this is ownership/contract verification, not a claim of supplied proofs."
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
@@ -3141,7 +3220,7 @@
         "ErdosProgressionPowers:EP.1/second-local-invariants"
       ],
       "status": "open",
-      "checked": "The exact supplier stage description or node was read at the fixed atlas base; this request claims ownership and scope, not a completed proof."
+      "checked": "The exact supplier stage or node was independently read at the immutable review base. Its payload is retained in SupplierRead.json; this is ownership/contract verification, not a claim of supplied proofs."
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1",
@@ -3150,7 +3229,7 @@
         "ErdosProgressionPowers:EP.1/good-trace-comparison"
       ],
       "status": "open",
-      "checked": "The exact supplier stage description or node was read at the fixed atlas base; this request claims ownership and scope, not a completed proof."
+      "checked": "The exact supplier stage or node was independently read at the immutable review base. Its payload is retained in SupplierRead.json; this is ownership/contract verification, not a claim of supplied proofs."
     },
     {
       "supplier": "ArithmeticGaloisRepresentations:R01.3",
@@ -3161,7 +3240,7 @@
         "ErdosProgressionPowers:EP.1/coefficient-prime-bridge"
       ],
       "status": "open",
-      "checked": "The exact supplier stage description or node was read at the fixed atlas base; this request claims ownership and scope, not a completed proof."
+      "checked": "The exact supplier stage or node was independently read at the immutable review base. Its payload is retained in SupplierRead.json; this is ownership/contract verification, not a claim of supplied proofs."
     },
     {
       "supplier": "SerreWeightAndLevelOptimisation:R20.2",
@@ -3172,7 +3251,7 @@
         "ErdosProgressionPowers:EP.1/good-trace-comparison"
       ],
       "status": "open",
-      "checked": "The exact supplier stage description or node was read at the fixed atlas base; this request claims ownership and scope, not a completed proof."
+      "checked": "The exact supplier stage or node was independently read at the immutable review base. Its payload is retained in SupplierRead.json; this is ownership/contract verification, not a claim of supplied proofs."
     },
     {
       "supplier": "SerreWeightAndLevelOptimisation:R20.4",
@@ -3181,7 +3260,7 @@
         "ErdosProgressionPowers:EP.1/coefficient-prime-bridge"
       ],
       "status": "open",
-      "checked": "The exact supplier stage description or node was read at the fixed atlas base; this request claims ownership and scope, not a completed proof."
+      "checked": "The exact supplier stage or node was independently read at the immutable review base. Its payload is retained in SupplierRead.json; this is ownership/contract verification, not a claim of supplied proofs."
     },
     {
       "supplier": "EllipticModularityEffectiveComparisons:EC.3",
@@ -3190,7 +3269,7 @@
         "ErdosProgressionPowers:EP.1/comparison-curve"
       ],
       "status": "open",
-      "checked": "The exact supplier stage description or node was read at the fixed atlas base; this request claims ownership and scope, not a completed proof."
+      "checked": "The exact supplier stage or node was independently read at the immutable review base. Its payload is retained in SupplierRead.json; this is ownership/contract verification, not a claim of supplied proofs."
     },
     {
       "supplier": "EllipticModularityEffectiveComparisons:EC.4",
@@ -3200,7 +3279,7 @@
         "ErdosProgressionPowers:EP.1/second-reduced-level"
       ],
       "status": "open",
-      "checked": "The exact supplier stage description or node was read at the fixed atlas base; this request claims ownership and scope, not a completed proof."
+      "checked": "The exact supplier stage or node was independently read at the immutable review base. Its payload is retained in SupplierRead.json; this is ownership/contract verification, not a claim of supplied proofs."
     },
     {
       "supplier": "EllipticModularityEffectiveComparisons:EC.5",
@@ -3209,7 +3288,7 @@
         "ErdosProgressionPowers:EP.2/case-two-projection"
       ],
       "status": "open",
-      "checked": "The exact supplier stage description or node was read at the fixed atlas base; this request claims ownership and scope, not a completed proof."
+      "checked": "The exact supplier stage or node was independently read at the immutable review base. Its payload is retained in SupplierRead.json; this is ownership/contract verification, not a claim of supplied proofs."
     },
     {
       "supplier": "ComplexMultiplicationAndExplicitReciprocity:CM.3",
@@ -3218,7 +3297,7 @@
         "ErdosProgressionPowers:EP.2/frey-non-cm"
       ],
       "status": "open",
-      "checked": "The exact supplier stage description or node was read at the fixed atlas base; this request claims ownership and scope, not a completed proof."
+      "checked": "The exact supplier stage or node was independently read at the immutable review base. Its payload is retained in SupplierRead.json; this is ownership/contract verification, not a claim of supplied proofs."
     },
     {
       "supplier": "ComplexMultiplicationAndExplicitReciprocity:CM.4",
@@ -3227,11 +3306,11 @@
         "ErdosProgressionPowers:EP.2/case-two-projection"
       ],
       "status": "open",
-      "checked": "The exact supplier stage description or node was read at the fixed atlas base; this request claims ownership and scope, not a completed proof."
+      "checked": "The exact supplier stage or node was independently read at the immutable review base. Its payload is retained in SupplierRead.json; this is ownership/contract verification, not a claim of supplied proofs."
     },
     {
       "supplier": "AnalyticNumberTheory:AN.2",
-      "need": "Checked effective prime estimates used here: theta(x)<1.000081x at the stated large range; theta(x;8,3) and theta(x;8,5) errors<=0.002811x/4 at x>=10^10; explicit pi, reciprocal-prime and sum(log p)/p bounds for §§5,9; the primitive nonprincipal character PNT with denominator sqrt(log x)+log N; and a sufficient effective prime-power tail for the0.000045875k margin. Record all ranges and distinguish theta from psi.",
+      "need": "Checked effective prime estimates used here: theta(x)<1.000081x at the stated large range; theta(x;8,3) and theta(x;8,5) errors<=0.002811x/4 at x>=10^10; explicit pi, reciprocal-prime and sum(log p)/p bounds for §§5,9; the primitive nonprincipal character PNT with denominator sqrt(log x)+log N; and a sufficient effective prime-power tail for the0.000045875k margin. Record all ranges and distinguish theta from psi. Also provide an effective pi(k)=o(k) bound for the disjoint-block witness.",
       "neededBy": [
         "ErdosProgressionPowers:EP.1/first-reduced-level",
         "ErdosProgressionPowers:EP.1/second-reduced-level",
@@ -3241,10 +3320,11 @@
         "ErdosProgressionPowers:EP.2/character-family",
         "ErdosProgressionPowers:EP.3/harmonic-criterion",
         "ErdosProgressionPowers:EP.3/many-character-criterion",
-        "ErdosProgressionPowers:EP.4/survivor-density"
+        "ErdosProgressionPowers:EP.4/survivor-density",
+        "ErdosProgressionPowers:EP.5/addendum-witness"
       ],
       "status": "open",
-      "checked": "The exact supplier stage description or node was read at the fixed atlas base; this request claims ownership and scope, not a completed proof."
+      "checked": "The exact supplier stage or node was independently read at the immutable review base. Its payload is retained in SupplierRead.json; this is ownership/contract verification, not a claim of supplied proofs."
     },
     {
       "supplier": "AnalyticNumberTheory:AN.3",
@@ -3255,17 +3335,16 @@
         "ErdosProgressionPowers:EP.5/nonexceptional-half-sum"
       ],
       "status": "open",
-      "checked": "The exact supplier stage description or node was read at the fixed atlas base; this request claims ownership and scope, not a completed proof."
+      "checked": "The exact supplier stage or node was independently read at the immutable review base. Its payload is retained in SupplierRead.json; this is ownership/contract verification, not a claim of supplied proofs."
     },
     {
       "supplier": "AnalyticNumberTheory:AN.5",
-      "need": "Explicit totient-ratio bound for the Kraus mu application, and a proved Stirling bound m!<=sqrt(2*pi*m)*(m/e)^m*exp(1/(12m)) for m>=1. The existing eventual-divisor-subpower-bound node is reused directly and is not requested again.",
+      "need": "Explicit totient-ratio bound for the Kraus mu application, with its numerical validity range. The existing eventual-divisor-subpower-bound node is reused directly. The source Stirling upper bound is a local adapter to pinned Mathlib results, not an open generic request.",
       "neededBy": [
-        "ErdosProgressionPowers:EP.1/kraus-progression-threshold",
-        "ErdosProgressionPowers:EP.4/survivor-density"
+        "ErdosProgressionPowers:EP.1/kraus-progression-threshold"
       ],
       "status": "open",
-      "checked": "The exact supplier stage description or node was read at the fixed atlas base; this request claims ownership and scope, not a completed proof."
+      "checked": "The exact supplier stage or node was independently read at the immutable review base. Its payload is retained in SupplierRead.json; this is ownership/contract verification, not a claim of supplied proofs."
     },
     {
       "supplier": "ExponentialSumsAndCircleMethod:ES.0",
@@ -3274,7 +3353,7 @@
         "ErdosProgressionPowers:EP.3/many-character-criterion"
       ],
       "status": "open",
-      "checked": "The exact supplier stage description or node was read at the fixed atlas base; this request claims ownership and scope, not a completed proof."
+      "checked": "The exact supplier stage or node was independently read at the immutable review base. Its payload is retained in SupplierRead.json; this is ownership/contract verification, not a claim of supplied proofs."
     },
     {
       "supplier": "AdditiveCombinatorics:AC.2",
@@ -3283,7 +3362,7 @@
         "ErdosProgressionPowers:EP.4/thin-conductor-witness"
       ],
       "status": "open",
-      "checked": "The exact supplier stage description or node was read at the fixed atlas base; this request claims ownership and scope, not a completed proof."
+      "checked": "The exact supplier stage or node was independently read at the immutable review base. Its payload is retained in SupplierRead.json; this is ownership/contract verification, not a claim of supplied proofs."
     },
     {
       "supplier": "HeightsRationalPointsAndObstructions:RP.4",
@@ -3292,7 +3371,7 @@
         "ErdosProgressionPowers:EP.6/fixed-exponent-finiteness"
       ],
       "status": "open",
-      "checked": "The exact supplier stage description or node was read at the fixed atlas base; this request claims ownership and scope, not a completed proof."
+      "checked": "The exact supplier stage or node was independently read at the immutable review base. Its payload is retained in SupplierRead.json; this is ownership/contract verification, not a claim of supplied proofs."
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-7-the-different-and-the-hurwitz-genus-formula",
@@ -3301,7 +3380,7 @@
         "ErdosProgressionPowers:EP.6/fixed-exponent-finiteness"
       ],
       "status": "open",
-      "checked": "The exact supplier stage description or node was read at the fixed atlas base; this request claims ownership and scope, not a completed proof."
+      "checked": "The exact supplier stage or node was independently read at the immutable review base. Its payload is retained in SupplierRead.json; this is ownership/contract verification, not a claim of supplied proofs."
     },
     {
       "supplier": "SchemeAndStackFoundations:SF.3",
@@ -3310,7 +3389,7 @@
         "ErdosProgressionPowers:EP.6/fixed-exponent-finiteness"
       ],
       "status": "open",
-      "checked": "The exact supplier stage description or node was read at the fixed atlas base; this request claims ownership and scope, not a completed proof."
+      "checked": "The exact supplier stage or node was independently read at the immutable review base. Its payload is retained in SupplierRead.json; this is ownership/contract verification, not a claim of supplied proofs."
     },
     {
       "supplier": "ClassicalArithmeticCompletion:CA.4",
@@ -3319,7 +3398,7 @@
         "ErdosProgressionPowers:EP.7/erdos-threshold"
       ],
       "status": "open",
-      "checked": "The exact supplier stage description or node was read at the fixed atlas base; this request claims ownership and scope, not a completed proof."
+      "checked": "The exact supplier stage or node was independently read at the immutable review base. Its payload is retained in SupplierRead.json; this is ownership/contract verification, not a claim of supplied proofs."
     }
   ],
   "coverage": [
@@ -3472,7 +3551,12 @@
         "Existing independently reviewed atlas errata research/blueprint/errata/PAPER-BENNETT-SIKSEK-20.json was read. Its rejected findings E8,E12,E13 are not asserted as source mistakes here; its E18 rejects an extra small-zero gap. No current preprint/publisher collation beyond this published PDF is claimed."
       ],
       "existingRegister": "PAPER-BENNETT-SIKSEK-20/E1",
-      "provenance": "Existing independently reviewed register finding, re-read against the published passage. Its review is not copied as a verdict on this design packet."
+      "provenance": "Existing independently reviewed register finding, re-read against the published passage. Its review is not copied as a verdict on this design packet.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The native discriminant identity gives16(abc)^2, hence2^6 after substituting b=-2*t_j/g; the publisher image prints64 and2^8.",
+        "by": "REV-DESIGN-ErdosProgressionPowers"
+      }
     },
     {
       "id": "ErdosProgressionPowers/E2",
@@ -3489,7 +3573,12 @@
         "Existing independently reviewed atlas errata research/blueprint/errata/PAPER-BENNETT-SIKSEK-20.json was read. Its rejected findings E8,E12,E13 are not asserted as source mistakes here; its E18 rejects an extra small-zero gap. No current preprint/publisher collation beyond this published PDF is claimed."
       ],
       "existingRegister": "PAPER-BENNETT-SIKSEK-20/E2",
-      "provenance": "Existing independently reviewed register finding, re-read against the published passage. Its review is not copied as a verdict on this design packet."
+      "provenance": "Existing independently reviewed register finding, re-read against the published passage. Its review is not copied as a verdict on this design packet.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The exact rational exponential bounds in the independent finite controls certify the q=120 counterexample; a uniform subpower bound with a constant suffices.",
+        "by": "REV-DESIGN-ErdosProgressionPowers"
+      }
     },
     {
       "id": "ErdosProgressionPowers/E3",
@@ -3506,7 +3595,12 @@
         "Existing independently reviewed atlas errata research/blueprint/errata/PAPER-BENNETT-SIKSEK-20.json was read. Its rejected findings E8,E12,E13 are not asserted as source mistakes here; its E18 rejects an extra small-zero gap. No current preprint/publisher collation beyond this published PDF is claimed."
       ],
       "existingRegister": "PAPER-BENNETT-SIKSEK-20/E3",
-      "provenance": "Existing independently reviewed register finding, re-read against the published passage. Its review is not copied as a verdict on this design packet."
+      "provenance": "Existing independently reviewed register finding, re-read against the published passage. Its review is not copied as a verdict on this design packet.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The primitive characters of discriminants8 and-8 multiply to conductor4; ambient modulus8 is not4. The primitive-product/excluded-primes factorization repairs both proof branches.",
+        "by": "REV-DESIGN-ErdosProgressionPowers"
+      }
     },
     {
       "id": "ErdosProgressionPowers/E4",
@@ -3523,7 +3617,12 @@
         "Existing independently reviewed atlas errata research/blueprint/errata/PAPER-BENNETT-SIKSEK-20.json was read. Its rejected findings E8,E12,E13 are not asserted as source mistakes here; its E18 rejects an extra small-zero gap. No current preprint/publisher collation beyond this published PDF is claimed."
       ],
       "existingRegister": "PAPER-BENNETT-SIKSEK-20/E4",
-      "provenance": "Existing independently reviewed register finding, re-read against the published passage. Its review is not copied as a verdict on this design packet."
+      "provenance": "Existing independently reviewed register finding, re-read against the published passage. Its review is not copied as a verdict on this design packet.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The primitive signed progression(-3,-1,1,3) has square product9, but no negative term is a positive integer times a square. The plan correctly restricts the positive-coefficient factorization to odd exponents.",
+        "by": "REV-DESIGN-ErdosProgressionPowers"
+      }
     },
     {
       "id": "ErdosProgressionPowers/E5",
@@ -3540,7 +3639,12 @@
         "Existing independently reviewed atlas errata research/blueprint/errata/PAPER-BENNETT-SIKSEK-20.json was read. Its rejected findings E8,E12,E13 are not asserted as source mistakes here; its E18 rejects an extra small-zero gap. No current preprint/publisher collation beyond this published PDF is claimed."
       ],
       "existingRegister": "PAPER-BENNETT-SIKSEK-20/E5",
-      "provenance": "Existing independently reviewed register finding, re-read against the published passage. Its review is not copied as a verdict on this design packet."
+      "provenance": "Existing independently reviewed register finding, re-read against the published passage. Its review is not copied as a verdict on this design packet.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "A residue class can meet range(k) once with r arbitrarily larger than k. The k/r+1 count and the separate divisor-count error restore the uniform estimate.",
+        "by": "REV-DESIGN-ErdosProgressionPowers"
+      }
     },
     {
       "id": "ErdosProgressionPowers/E6",
@@ -3557,7 +3661,12 @@
         "Existing independently reviewed atlas errata research/blueprint/errata/PAPER-BENNETT-SIKSEK-20.json was read. Its rejected findings E8,E12,E13 are not asserted as source mistakes here; its E18 rejects an extra small-zero gap. No current preprint/publisher collation beyond this published PDF is claimed."
       ],
       "existingRegister": "PAPER-BENNETT-SIKSEK-20/E6",
-      "provenance": "Existing independently reviewed register finding, re-read against the published passage. Its review is not copied as a verdict on this design packet."
+      "provenance": "Existing independently reviewed register finding, re-read against the published passage. Its review is not copied as a verdict on this design packet.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Only odd-conductor divisibility into the coefficient product follows. Its squarefreeness supplies the three-gcd lower bound without equality of prime supports.",
+        "by": "REV-DESIGN-ErdosProgressionPowers"
+      }
     },
     {
       "id": "ErdosProgressionPowers/E7",
@@ -3574,7 +3683,12 @@
         "Existing independently reviewed atlas errata research/blueprint/errata/PAPER-BENNETT-SIKSEK-20.json was read. Its rejected findings E8,E12,E13 are not asserted as source mistakes here; its E18 rejects an extra small-zero gap. No current preprint/publisher collation beyond this published PDF is claimed."
       ],
       "existingRegister": "PAPER-BENNETT-SIKSEK-20/E7",
-      "provenance": "Existing independently reviewed register finding, re-read against the published passage. Its review is not copied as a verdict on this design packet."
+      "provenance": "Existing independently reviewed register finding, re-read against the published passage. Its review is not copied as a verdict on this design packet.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The exact rational comparison is1/68<0.1239^2;0.1239^4<1/68. The extra square printed on p.380 is false.",
+        "by": "REV-DESIGN-ErdosProgressionPowers"
+      }
     },
     {
       "id": "ErdosProgressionPowers/E9",
@@ -3591,7 +3705,12 @@
         "Existing independently reviewed atlas errata research/blueprint/errata/PAPER-BENNETT-SIKSEK-20.json was read. Its rejected findings E8,E12,E13 are not asserted as source mistakes here; its E18 rejects an extra small-zero gap. No current preprint/publisher collation beyond this published PDF is claimed."
       ],
       "existingRegister": "PAPER-BENNETT-SIKSEK-20/E9",
-      "provenance": "Existing independently reviewed register finding, re-read against the published passage. Its review is not copied as a verdict on this design packet."
+      "provenance": "Existing independently reviewed register finding, re-read against the published passage. Its review is not copied as a verdict on this design packet.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The denominator sqrt(logk)+logN yields decay exponent min(c1,1/2); the corrected effective o(k) is sufficient and does not disprove a stronger bound by other methods.",
+        "by": "REV-DESIGN-ErdosProgressionPowers"
+      }
     },
     {
       "id": "ErdosProgressionPowers/E10",
@@ -3608,7 +3727,12 @@
         "Existing independently reviewed atlas errata research/blueprint/errata/PAPER-BENNETT-SIKSEK-20.json was read. Its rejected findings E8,E12,E13 are not asserted as source mistakes here; its E18 rejects an extra small-zero gap. No current preprint/publisher collation beyond this published PDF is claimed."
       ],
       "existingRegister": "PAPER-BENNETT-SIKSEK-20/E10",
-      "provenance": "Existing independently reviewed register finding, re-read against the published passage. Its review is not copied as a verdict on this design packet."
+      "provenance": "Existing independently reviewed register finding, re-read against the published passage. Its review is not copied as a verdict on this design packet.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "At primitive conductor1 the printed log(N)^4 error vanishes, incorrectly forcing psi(X)=X. The application has nonprincipal conductor>1.",
+        "by": "REV-DESIGN-ErdosProgressionPowers"
+      }
     },
     {
       "id": "ErdosProgressionPowers/E11",
@@ -3625,7 +3749,12 @@
         "Existing independently reviewed atlas errata research/blueprint/errata/PAPER-BENNETT-SIKSEK-20.json was read. Its rejected findings E8,E12,E13 are not asserted as source mistakes here; its E18 rejects an extra small-zero gap. No current preprint/publisher collation beyond this published PDF is claimed."
       ],
       "existingRegister": "PAPER-BENNETT-SIKSEK-20/E11",
-      "provenance": "Existing independently reviewed register finding, re-read against the published passage. Its review is not copied as a verdict on this design packet."
+      "provenance": "Existing independently reviewed register finding, re-read against the published passage. Its review is not copied as a verdict on this design packet.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "A principal character has conductor1 even at nontrivial ambient modulus. The modulus correction is required; the empty principal block is allowed and is not an additional missing case.",
+        "by": "REV-DESIGN-ErdosProgressionPowers"
+      }
     },
     {
       "id": "ErdosProgressionPowers/E14",
@@ -3642,7 +3771,12 @@
         "Existing independently reviewed atlas errata research/blueprint/errata/PAPER-BENNETT-SIKSEK-20.json was read. Its rejected findings E8,E12,E13 are not asserted as source mistakes here; its E18 rejects an extra small-zero gap. No current preprint/publisher collation beyond this published PDF is claimed."
       ],
       "existingRegister": "PAPER-BENNETT-SIKSEK-20/E14",
-      "provenance": "Existing independently reviewed register finding, re-read against the published passage. Its review is not copied as a verdict on this design packet."
+      "provenance": "Existing independently reviewed register finding, re-read against the published passage. Its review is not copied as a verdict on this design packet.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The p.371 image confirms the printed coordinates. Exact finite-field substitution at p=5 disproves the printed y-coordinate; the corrected point and doubling identity pass independent finite controls.",
+        "by": "REV-DESIGN-ErdosProgressionPowers"
+      }
     },
     {
       "id": "ErdosProgressionPowers/E15",
@@ -3659,7 +3793,12 @@
         "Existing independently reviewed atlas errata research/blueprint/errata/PAPER-BENNETT-SIKSEK-20.json was read. Its rejected findings E8,E12,E13 are not asserted as source mistakes here; its E18 rejects an extra small-zero gap. No current preprint/publisher collation beyond this published PDF is claimed."
       ],
       "existingRegister": "PAPER-BENNETT-SIKSEK-20/E15",
-      "provenance": "Existing independently reviewed register finding, re-read against the published passage. Its review is not copied as a verdict on this design packet."
+      "provenance": "Existing independently reviewed register finding, re-read against the published passage. Its review is not copied as a verdict on this design packet.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The pinned logarithm bounds give10^6<132*log2*10^5<10^7. This is a failure of the quoted proof threshold, not a disproof of the sharper proposition.",
+        "by": "REV-DESIGN-ErdosProgressionPowers"
+      }
     },
     {
       "id": "ErdosProgressionPowers/E16",
@@ -3676,7 +3815,12 @@
         "Existing independently reviewed atlas errata research/blueprint/errata/PAPER-BENNETT-SIKSEK-20.json was read. Its rejected findings E8,E12,E13 are not asserted as source mistakes here; its E18 rejects an extra small-zero gap. No current preprint/publisher collation beyond this published PDF is claimed."
       ],
       "existingRegister": "PAPER-BENNETT-SIKSEK-20/E16",
-      "provenance": "Existing independently reviewed register finding, re-read against the published passage. Its review is not copied as a verdict on this design packet."
+      "provenance": "Existing independently reviewed register finding, re-read against the published passage. Its review is not copied as a verdict on this design packet.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The p.386 statement suppresses height while its subsequent zero-set definition imposes |Im rho|<=T. The bounded-height form is the appropriate requested input; no all-height fixed strip is asserted.",
+        "by": "REV-DESIGN-ErdosProgressionPowers"
+      }
     },
     {
       "id": "ErdosProgressionPowers/E17",
@@ -3693,7 +3837,12 @@
         "Existing independently reviewed atlas errata research/blueprint/errata/PAPER-BENNETT-SIKSEK-20.json was read. Its rejected findings E8,E12,E13 are not asserted as source mistakes here; its E18 rejects an extra small-zero gap. No current preprint/publisher collation beyond this published PDF is claimed."
       ],
       "existingRegister": "PAPER-BENNETT-SIKSEK-20/E17",
-      "provenance": "Existing independently reviewed register finding, re-read against the published passage. Its review is not copied as a verdict on this design packet."
+      "provenance": "Existing independently reviewed register finding, re-read against the published passage. Its review is not copied as a verdict on this design packet.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "A principal character gives a half-interval main term of order k; the application requires a primitive nonprincipal character whose excluded modulus is its conductor.",
+        "by": "REV-DESIGN-ErdosProgressionPowers"
+      }
     },
     {
       "id": "ErdosProgressionPowers/E18",
@@ -3710,7 +3859,12 @@
         "Existing independently reviewed atlas errata research/blueprint/errata/PAPER-BENNETT-SIKSEK-20.json was read. Its rejected findings E8,E12,E13 are not asserted as source mistakes here; its E18 rejects an extra small-zero gap. No current preprint/publisher collation beyond this published PDF is claimed."
       ],
       "existingRegister": "PAPER-BENNETT-SIKSEK-20/E18",
-      "provenance": "Existing independently reviewed register finding, re-read against the published passage. Its review is not copied as a verdict on this design packet."
+      "provenance": "Existing independently reviewed register finding, re-read against the published passage. Its review is not copied as a verdict on this design packet.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The truncation height in the zero sums must beT, matching (40)-(41). Reflection and local zero counting control low zeros; no additional low-zero source gap is endorsed.",
+        "by": "REV-DESIGN-ErdosProgressionPowers"
+      }
     },
     {
       "id": "ErdosProgressionPowers/E19",
@@ -3727,7 +3881,12 @@
         "Existing independently reviewed atlas errata research/blueprint/errata/PAPER-BENNETT-SIKSEK-20.json was read. Its rejected findings E8,E12,E13 are not asserted as source mistakes here; its E18 rejects an extra small-zero gap. No current preprint/publisher collation beyond this published PDF is claimed."
       ],
       "existingRegister": "PAPER-BENNETT-SIKSEK-20/E19",
-      "provenance": "Existing independently reviewed register finding, re-read against the published passage. Its review is not copied as a verdict on this design packet."
+      "provenance": "Existing independently reviewed register finding, re-read against the published passage. Its review is not copied as a verdict on this design packet.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The published proof repeats the word divides; deleting the duplicate changes no mathematics.",
+        "by": "REV-DESIGN-ErdosProgressionPowers"
+      }
     },
     {
       "id": "ErdosProgressionPowers/E20",
@@ -3744,7 +3903,12 @@
         "Existing independently reviewed atlas errata research/blueprint/errata/PAPER-BENNETT-SIKSEK-20.json was read. Its rejected findings E8,E12,E13 are not asserted as source mistakes here; its E18 rejects an extra small-zero gap. No current preprint/publisher collation beyond this published PDF is claimed."
       ],
       "existingRegister": "PAPER-BENNETT-SIKSEK-20/E20",
-      "provenance": "Existing independently reviewed register finding, re-read against the published passage. Its review is not copied as a verdict on this design packet."
+      "provenance": "Existing independently reviewed register finding, re-read against the published passage. Its review is not copied as a verdict on this design packet.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The published product and index sets run from0 to k-1, whereas the displayed shifted list runs from1 to k. This reviewer confirms the publisher passage; the earlier v1 collation belongs to the cited historical register.",
+        "by": "REV-DESIGN-ErdosProgressionPowers"
+      }
     },
     {
       "id": "ErdosProgressionPowers/E21",
@@ -3761,7 +3925,12 @@
         "Existing independently reviewed atlas errata research/blueprint/errata/PAPER-BENNETT-SIKSEK-20.json was read. Its rejected findings E8,E12,E13 are not asserted as source mistakes here; its E18 rejects an extra small-zero gap. No current preprint/publisher collation beyond this published PDF is claimed."
       ],
       "existingRegister": "PAPER-BENNETT-SIKSEK-20/E21",
-      "provenance": "Existing independently reviewed register finding, re-read against the published passage. Its review is not copied as a verdict on this design packet."
+      "provenance": "Existing independently reviewed register finding, re-read against the published passage. Its review is not copied as a verdict on this design packet.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The p.383 image contains an undefined trailing f. The three preceding loss estimates give the expression without it. This reviewer did not repeat the historical v1 comparison.",
+        "by": "REV-DESIGN-ErdosProgressionPowers"
+      }
     },
     {
       "id": "ErdosProgressionPowers/E22",
@@ -3778,21 +3947,52 @@
         "Existing independently reviewed atlas errata research/blueprint/errata/PAPER-BENNETT-SIKSEK-20.json was read. Its rejected findings E8,E12,E13 are not asserted as source mistakes here; its E18 rejects an extra small-zero gap. No current preprint/publisher collation beyond this published PDF is claimed."
       ],
       "existingRegister": "PAPER-BENNETT-SIKSEK-20/E22",
-      "provenance": "Existing independently reviewed register finding, re-read against the published passage. Its review is not copied as a verdict on this design packet."
+      "provenance": "Existing independently reviewed register finding, re-read against the published passage. Its review is not copied as a verdict on this design packet.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The p.380 inner-product display omits the m=k coordinate present in the vectors and Proposition8.2; restore the inclusive upper endpoint. Current verification is against the publisher image.",
+        "by": "REV-DESIGN-ErdosProgressionPowers"
+      }
     },
     {
       "id": "ErdosProgressionPowers/E23",
       "source": "BS20",
       "kind": "gap",
       "locator": "§6, Case I, equation (21), p. 369; Proposition 6.1, pp. 366–367, published publisher PDF read 2026-10-05",
-      "correction": "The signed four-character projection directly guarantees a large absolute sum, not a positive sum of one of the unsigned characters. Use |Σchi_a Lambda|>0.1239k throughout both endgames. An additional argument would be required for the printed positive choice.",
-      "reason": "From -s1+s2+s3-s4>=4C one may infer max|s_i|>=C. The inference max s_i>=C does not hold for real s_i, for example (-4C,0,0,0). The four correlated mod 8 patterns likewise permit the local pattern obtained by lambda nonsquare in every class. This diagnoses the local pigeonhole deduction, not a counterexample to Proposition 6.1 under all global hypotheses. Both analytic contradictions require only absolute values.",
+      "printed": "Equation (21) asserts |Σ μ_i(p) log p| ≥ (1−3ε)k/8; equation (16) asserts |Σ χ_a(m)Λ(m)| > 0.1239k.",
+      "correction": "No correction to these published statements: retain the printed absolute values.",
+      "reason": "The proposed gap arose from text extraction losing the vertical absolute-value bars. They are visible on the authenticated publisher images at pp.369 and367. The signed projection and triangle inequality give exactly the printed absolute-value conclusion.",
       "affects": "the proof",
       "known": "new",
       "searched": [
         "Bounded correction search 2026-10-05: journal landing page https://annals.math.princeton.edu/2020/191-2/p02; exact-title/author erratum-correction queries; author pages https://personal.math.ubc.ca/~bennett/publ.html and https://samirsiksek.github.io/siksek.github.io/index.html. No correction located; not an exhaustive novelty claim.",
         "Existing independently reviewed atlas errata research/blueprint/errata/PAPER-BENNETT-SIKSEK-20.json was read. Its rejected findings E8,E12,E13 are not asserted as source mistakes here; its E18 rejects an extra small-zero gap. No current preprint/publisher collation beyond this published PDF is claimed."
-      ]
+      ],
+      "review": {
+        "verdict": "rejected",
+        "reason": "The proposed gap arose from text extraction losing the vertical absolute-value bars. They are visible on the authenticated publisher images at pp.369 and367. The signed projection and triangle inequality give exactly the printed absolute-value conclusion.",
+        "by": "REV-DESIGN-ErdosProgressionPowers"
+      }
+    },
+    {
+      "id": "ErdosProgressionPowers/E24",
+      "source": "DG95",
+      "kind": "misprint",
+      "locator": "Section2.1, equation(2.2), printed p.520 (physical page8), author-hosted scan SHA256 2a77462524aebdce6a34c540e99afb3913c2c6113b597af9792bed6c82376aca",
+      "printed": "The source derives lambda_j*z_j^m=j*lambda_2*z_2^m-(j-1)*lambda_1*z_1^m from a+i*d=lambda_i*z_i^m for i=1,...,k.",
+      "correction": "Replace the coefficients j and j-1 by j-1 and j-2, respectively.",
+      "reason": "Direct expansion gives j*(a+2d)-(j-1)*(a+d)=a+(j+1)d; the indexed left side is a+j*d. For a=d=1 and j=3 these are5 and4. The corrected identity holds identically. The complete intersection still has distinct linear forms, the same degree and ramification count, so the finiteness route is unchanged. This is a local algebraic transcription check, not a counterexample to the finiteness theorem.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Bounded search2026-10-05: Darmon Granville Corollary2.1 errata; Darmon Granville On the equations correction. Checked author publication lists https://www.math.mcgill.ca/darmon/pub/pub.html and https://dms.umontreal.ca/~andrew/Algebraic.html plus publisher metadata https://londmathsoc.onlinelibrary.wiley.com/doi/10.1112/blms/27.6.513. No correction of this display located; no exhaustive novelty or publisher-PDF collation claim."
+      ],
+      "addedBy": "REV-DESIGN-ErdosProgressionPowers",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Direct expansion gives j*(a+2d)-(j-1)*(a+d)=a+(j+1)d; the indexed left side is a+j*d. For a=d=1 and j=3 these are5 and4. The corrected identity holds identically. The complete intersection still has distinct linear forms, the same degree and ramification count, so the finiteness route is unchanged. This is a local algebraic transcription check, not a counterexample to the finiteness theorem.",
+        "by": "REV-DESIGN-ErdosProgressionPowers"
+      }
     }
   ],
   "targetLevel": "Target level; routine polynomial, valuation, finite-set and numerical steps remain in proof sketches or APIs rather than extra proof-lemma nodes.",
@@ -3831,7 +4031,7 @@
   ],
   "catalogueCoverage": {
     "paper": "PAPER-BENNETT-SIKSEK-20",
-    "route": 12,
+    "route": 9,
     "routedItems": 80,
     "nodeItems": 79,
     "statementRegisterOnly": [
@@ -3840,9 +4040,9 @@
     "note": "The historical Erdős–Selfridge endpoint is imported from CA.4 and registered, not duplicated as a local proof node. All other routed items occur in the nodes’ catalogueItems."
   },
   "prototypeBoundary": {
-    "nativeTargetDeclarations": 38,
+    "nativeTargetDeclarations": 39,
     "nativeApiDeclarations": 55,
-    "unitTestExamples": 58,
+    "unitTestExamples": 59,
     "omittedTargets": [
       "ErdosProgressionPowers:EP.1/first-reduced-level",
       "ErdosProgressionPowers:EP.1/second-reduced-level",
@@ -3873,5 +4073,276 @@
       }
     ],
     "explanation": "The suggested file is a checked native Mathlib prototype, not a full combined Mathlib/Tau Ceti signature check. No built Tau Ceti pin was available. Unavailable or unreconciled conditions are omitted explicitly under PROTOCOL section13, not represented by fake fields."
+  },
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-DESIGN-ErdosProgressionPowers",
+    "date": "2026-10-05",
+    "notes": "Independent target-level review of all 49 final nodes, 24 actual pinned baseline declarations, 30 exact supplier statements, all 80 routed items, both source passages and all 21 source findings. Added the Stirling numerical adapter; corrected odd-prime avoidance, principal-pole guards, explicit memberships and direct dependencies; rejected E23 after image inspection and confirmed the new DG equation(2.2) index correction E24. The 49-node pass is complete as planning, every stage remains planned rather than closed, and 7 explicit gaps plus 20 precise requests remain. Final suggested Mathlib prototype elaborates with only admitted-proof warnings; 10 geometric targets, 1 API and 3 clauses are explicitly omitted. No proof implementation, full combined native closure or effective Faltings enumeration is claimed.",
+    "checked": [
+      {
+        "nodeId": "ErdosProgressionPowers:EP.0/primitive-solution",
+        "verdict": "verified",
+        "note": "The positive-length, prime-exponent, integer-gcd and nontriviality domains match equation(2); signed and degenerate examples distinguish them."
+      },
+      {
+        "nodeId": "ErdosProgressionPowers:EP.0/term-gcd",
+        "verdict": "verified",
+        "note": "The gcd cancellation uses gcd(n,d)=1 and the nonzero index difference. No perfect-power premise is needed for this stronger elementary statement."
+      },
+      {
+        "nodeId": "ErdosProgressionPowers:EP.0/large-prime-valuations",
+        "verdict": "verified",
+        "note": "A prime at least k divides at most one nonzero term; product valuations give the required exponent divisibility, including the q=k endpoint."
+      },
+      {
+        "nodeId": "ErdosProgressionPowers:EP.0/signed-factors",
+        "verdict": "verified",
+        "note": "Odd positive exponent carries signs in z_i; full small-prime powers remain in positive A_i. The uniqueness and support tests rule out a powerfree interpretation."
+      },
+      {
+        "nodeId": "ErdosProgressionPowers:EP.0/ap-triples",
+        "verdict": "verified",
+        "note": "Strict first two indices and i+h=2j force a nonconstant ordered triple; small cardinalities and empty ranges agree."
+      },
+      {
+        "nodeId": "ErdosProgressionPowers:EP.0/equal-sum-quadruples",
+        "verdict": "verified",
+        "note": "The repeated middle index is allowed. Equal sums with strict exterior inequalities force negative nonzero kappa, with absolute value below k^2."
+      },
+      {
+        "nodeId": "ErdosProgressionPowers:EP.0/divisibility-indices",
+        "verdict": "verified",
+        "note": "The total finite divisibility filter, including r=0, matches its API; prime divisors of d give an empty set under coprimality."
+      },
+      {
+        "nodeId": "ErdosProgressionPowers:EP.0/residue-class-count",
+        "verdict": "verified",
+        "note": "Coprimality gives an empty set or one residue class; the k/r+1 loss and prime strict discrepancy are preserved, also when r>k."
+      },
+      {
+        "nodeId": "ErdosProgressionPowers:EP.1/first-curve",
+        "verdict": "verified",
+        "note": "Native five-coefficient specialization and positive gcd normalization agree with(7)-(8). The absent generic Frey equality remains an explicit omitted API."
+      },
+      {
+        "nodeId": "ErdosProgressionPowers:EP.1/first-local-invariants",
+        "verdict": "verified",
+        "note": "The corrected native discriminant is16(abc)^2 and c4=16(a^2-bc). Odd local minimality and valuation obligations remain honestly untyped."
+      },
+      {
+        "nodeId": "ErdosProgressionPowers:EP.1/linear-fermat-identities",
+        "verdict": "verified",
+        "note": "Expansion gives the three-index linear relation; signed factors specialize it to the progression Fermat identity."
+      },
+      {
+        "nodeId": "ErdosProgressionPowers:EP.1/second-curve",
+        "verdict": "verified",
+        "note": "Equal-sum cancellation yields A-B=kappa*d^2 and the actual second-family coefficients. The two sample models distinguish the two families."
+      },
+      {
+        "nodeId": "ErdosProgressionPowers:EP.1/second-local-invariants",
+        "verdict": "verified",
+        "note": "Both invariant formulas hold. The two-term half-interval branch proves its own c4-unit test rather than misapplying the p>=k clause."
+      },
+      {
+        "nodeId": "ErdosProgressionPowers:EP.1/first-reduced-level",
+        "verdict": "verified",
+        "note": "Irreducibility at ell>=7 and level lowering lead to the deletion-level bounds. This statement does not identify that level with the residual conductor."
+      },
+      {
+        "nodeId": "ErdosProgressionPowers:EP.1/second-reduced-level",
+        "verdict": "verified",
+        "note": "The rational-two-torsion cutoff ell>=11 and wild2/3 factors are retained in the second-family level bounds."
+      },
+      {
+        "nodeId": "ErdosProgressionPowers:EP.1/half-primes-divide-d",
+        "verdict": "verified",
+        "note": "The unique and two-divisible-term cases use the appropriate family and the removed-prime bound with p!=ell; numerical H supplies all cutoffs."
+      },
+      {
+        "nodeId": "ErdosProgressionPowers:EP.1/coefficient-prime-bridge",
+        "verdict": "corrected",
+        "note": "Added explicit a in A(k). The coefficient-prime finite-flat weight and exact Artin-conductor comparison remain real requested theorems, not assigned invariants."
+      },
+      {
+        "nodeId": "ErdosProgressionPowers:EP.1/kraus-progression-threshold",
+        "verdict": "corrected",
+        "note": "Added explicit a in A(k). Native Gamma0 index, lcm(N,4), trivial-character newspace dimension and the exact Kraus thresholds match the supplier."
+      },
+      {
+        "nodeId": "ErdosProgressionPowers:EP.1/comparison-curve",
+        "verdict": "verified",
+        "note": "The same residual representation and exact conductor belong to an actual full-two-torsion elliptic curve; no fake conductor field is used."
+      },
+      {
+        "nodeId": "ErdosProgressionPowers:EP.1/good-trace-comparison",
+        "verdict": "verified",
+        "note": "Half-interval divisibility gives good reduction; Hasse plus the large residual prime lifts congruence to equality. Supersingularity uses the p>=5 criterion."
+      },
+      {
+        "nodeId": "ErdosProgressionPowers:EP.2/case-partition",
+        "verdict": "verified",
+        "note": "The finite parameter-set adapter is exhaustive and disjoint. Constructing the actual six Legendre parameters remains with the missing generic owner."
+      },
+      {
+        "nodeId": "ErdosProgressionPowers:EP.2/case-one-projection",
+        "verdict": "corrected",
+        "note": "The mod8 projection gives exactly the absolute-value bound printed in(21). Reject E23: the authenticated page images show bars in both(21) and(16)."
+      },
+      {
+        "nodeId": "ErdosProgressionPowers:EP.2/case-two-normalization",
+        "verdict": "verified",
+        "note": "Positive normalization and the p=5mod8 square test match the source after replacing its faulty halving coordinates; the generic geometric interfaces remain gaps."
+      },
+      {
+        "nodeId": "ErdosProgressionPowers:EP.2/frey-non-cm",
+        "verdict": "verified",
+        "note": "The native j expression and pairwise coprimality force the powers-of-two case; d=0 or d|3 contradicts the half-prime input under H."
+      },
+      {
+        "nodeId": "ErdosProgressionPowers:EP.2/case-two-projection",
+        "verdict": "verified",
+        "note": "Odd-conductor exclusion uses the actual quartic descent, CM image, and non-CM surjectivity with a rational cyclic isogeny, preserving every supplier hypothesis."
+      },
+      {
+        "nodeId": "ErdosProgressionPowers:EP.2/character-family",
+        "verdict": "verified",
+        "note": "One primitive real quadratic character supplies absolute mass, nontrivial odd support and dyadic bound simultaneously. Native modulus and conductor are related by primitivity."
+      },
+      {
+        "nodeId": "ErdosProgressionPowers:EP.3/harmonic-criterion",
+        "verdict": "verified",
+        "note": "The effective PNT requires a nonprincipal character and gives exponent min(c1,1/2). Exceptional repulsion and the finite nonvanishing certificate remain exact supplier obligations."
+      },
+      {
+        "nodeId": "ErdosProgressionPowers:EP.3/many-character-criterion",
+        "verdict": "verified",
+        "note": "The Gram bound uses squared absolute sums and1/68<0.1239^2. The correlation input distinguishes ambient modulus from primitive product conductor."
+      },
+      {
+        "nodeId": "ErdosProgressionPowers:EP.4/thin-prime-survivors",
+        "verdict": "corrected",
+        "note": "Corrected the generic avoidance API to odd primes and added its direct character-family dependency; the dyadic bound still controls the largest prime factor."
+      },
+      {
+        "nodeId": "ErdosProgressionPowers:EP.4/valuation-deletion",
+        "verdict": "verified",
+        "note": "The least maximal valuation deletes at most one index per supported prime. The remaining product divides(k-1)!; exact finite controls exercise signs and ties."
+      },
+      {
+        "nodeId": "ErdosProgressionPowers:EP.4/survivor-density",
+        "verdict": "corrected",
+        "note": "Added the missing explicit Stirling adapter and separated its routed item. The simpler native factorial bound also suffices for0.44 in the certified range."
+      },
+      {
+        "nodeId": "ErdosProgressionPowers:EP.4/thin-conductor-witness",
+        "verdict": "corrected",
+        "note": "The same witness carries all avoidance and size conclusions. Reciprocal mass<0.17 excludes2, so the corrected odd-prime API suffices; the Roth cutoff is10^7."
+      },
+      {
+        "nodeId": "ErdosProgressionPowers:EP.4/maximal-conductor-family",
+        "verdict": "verified",
+        "note": "Finite inclusion maximality and distinct largest conductor primes give the augmentation argument. Empty, repeated-prime and extension tests are substantive."
+      },
+      {
+        "nodeId": "ErdosProgressionPowers:EP.4/original-route-bound",
+        "verdict": "verified",
+        "note": "The large-family branch uses c2=418; the small branch has mass>=0.1683 and uses c1=1/20000 to handle the closed lower endpoint."
+      },
+      {
+        "nodeId": "ErdosProgressionPowers:EP.5/exceptional-moduli",
+        "verdict": "corrected",
+        "note": "Added a regular-point guard to both zero predicates so a totalized value at the principal pole cannot be a zero witness; added a principal-pole test."
+      },
+      {
+        "nodeId": "ErdosProgressionPowers:EP.5/exceptional-moduli-bounds",
+        "verdict": "verified",
+        "note": "The exact bounded-height Landau-Page constant and zero density give the simultaneous effective bounds, with the primary quantitative inputs still requested."
+      },
+      {
+        "nodeId": "ErdosProgressionPowers:EP.5/nonexceptional-half-sum",
+        "verdict": "verified",
+        "note": "Primitive nonprincipal characters, conductor<=k^4, heightT and all explicit-formula errors are retained; the integral difference handles low zeros."
+      },
+      {
+        "nodeId": "ErdosProgressionPowers:EP.5/exceptional-indices",
+        "verdict": "verified",
+        "note": "Positive divisors may exceed k. The modulus8 boundary and modulus1000 large-divisor examples match the real cube-root threshold."
+      },
+      {
+        "nodeId": "ErdosProgressionPowers:EP.5/exceptional-indices-sparse",
+        "verdict": "verified",
+        "note": "The uniform residue count keeps+1, whose total is O(k^(1/3)log(k)^61); it is negligible relative to the claimed bound."
+      },
+      {
+        "nodeId": "ErdosProgressionPowers:EP.5/addendum-witness",
+        "verdict": "corrected",
+        "note": "Added direct effective pi(k)=o(k) input. Deleting bad indices and prime maxima leaves disjoint blocks whose combined product gives one simultaneous small witness."
+      },
+      {
+        "nodeId": "ErdosProgressionPowers:EP.5/conductor-detection",
+        "verdict": "verified",
+        "note": "Odd squarefree conductor support supplies the product-of-gcds lower bound; the same selected index would detect any exceptional conductor."
+      },
+      {
+        "nodeId": "ErdosProgressionPowers:EP.5/granville-route-bound",
+        "verdict": "verified",
+        "note": "The same primitive nonprincipal witness is small and nonexceptional; its effective O(k/logk) bound contradicts the printed absolute lower bound."
+      },
+      {
+        "nodeId": "ErdosProgressionPowers:EP.6/effective-prime-bound",
+        "verdict": "verified",
+        "note": "Both routes yield the stated logical endpoint; effective computability remains a separate recorded ledger obligation, not inferred from a classical existential."
+      },
+      {
+        "nodeId": "ErdosProgressionPowers:EP.6/fixed-exponent-finiteness",
+        "verdict": "corrected",
+        "note": "Added the corrected1-based elimination coefficients in DG(2.2). The genus formula was image-checked; signed smoothness, connectedness and primitive lifts remain explicit obligations."
+      },
+      {
+        "nodeId": "ErdosProgressionPowers:EP.6/composite-exponent-reduction",
+        "verdict": "verified",
+        "note": "Prime-divisor reduction preserves the product equation. Five distinct nonzero terms exclude |y|<=1; fixed nonunit integers have finitely many power representations."
+      },
+      {
+        "nodeId": "ErdosProgressionPowers:EP.6/fixed-length-finiteness",
+        "verdict": "verified",
+        "note": "The finite union is for each fixed sufficiently large k. Signed finiteness depends on the recorded diagonal adapter; neither varying-k finiteness nor effective point enumeration is claimed."
+      },
+      {
+        "nodeId": "ErdosProgressionPowers:EP.7/erdos-threshold",
+        "verdict": "verified",
+        "note": "The stronger conjecture is an explicit positive-domain predicate with false small-threshold examples. It is neither an axiom nor an input to the proof."
+      },
+      {
+        "nodeId": "ErdosProgressionPowers:EP.7/smooth-multiplier",
+        "verdict": "verified",
+        "note": "The smooth-multiplier predicate excludes zero and records the fixed tau<1/2 announcement without asserting an unproved quantified theorem."
+      },
+      {
+        "nodeId": "ErdosProgressionPowers:EP.4/stirling-upper-adapter",
+        "verdict": "added",
+        "note": "Added routed item141 as a numerical theorem. The pinned Robbins stepwise inequality telescopes to the positive Stirling limit, yielding the stated finite-m upper bound."
+      }
+    ]
+  },
+  "checks": {
+    "independentReview": {
+      "compiler": "Lean4.34.0-rc2 at commit6a10ac8c22beadecabdbb0919c2b50214762f91d",
+      "suggestedSha256": "0fa93662503c08df51e5bb73390a4297ad6afd047d6977e56fa1af24c2607fa4",
+      "elaboration": {
+        "errors": 0,
+        "sorryWarnings": 140,
+        "otherWarnings": 0,
+        "authenticatedMathlibModules": 3517
+      },
+      "finiteControls": {
+        "assertions": 67804,
+        "method": "Exact integers, rational Taylor intervals and finite fields; controls do not prove universal roadmap theorems."
+      },
+      "coverage": "49 nodes;56 API items;59 examples;36 planets;24 baseline declarations;20 requests;7 gaps;21 source findings(20 confirmed,1 rejected).",
+      "limits": "The prototype states39 target declarations and55 API signatures. Ten geometric endpoints, one Frey compatibility API and three local/conductor clauses remain explicitly untyped; effectivity is not certified by existential syntax."
+    }
   }
 }
