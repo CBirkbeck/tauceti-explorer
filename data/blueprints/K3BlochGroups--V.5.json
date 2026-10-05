@@ -1,0 +1,1714 @@
+{
+  "roadmapId": "K3BlochGroups",
+  "protocol": "blueprint-v1",
+  "part": "V.5",
+  "scope": [
+    "K3BlochGroups:V.5"
+  ],
+  "status": "complete",
+  "summary": "Target-level completion of concrete degree-three calculations, importing stable finite-field and arithmetic K-theory and refining the parent with finite-field unstable homology, the finite Bloch–Wigner comparison, norm-one Cartan maps and the Rogers detector for the universal real Bloch class. V.5 is planned with explicit proof-input and supplier gaps, not closed.",
+  "baseline": {
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "declarations": [
+      {
+        "ref": "mathlib:groupHomology",
+        "kind": "def",
+        "module": "Mathlib/RepresentationTheory/Homological/GroupHomology/Basic.lean",
+        "provides": "Homology of Mathlib’s inhomogeneous chains of a representation; use degree three with trivial coefficients.",
+        "checked": "Statement read in source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:groupHomology.map",
+        "kind": "def",
+        "module": "Mathlib/RepresentationTheory/Homological/GroupHomology/Functoriality.lean",
+        "provides": "Map induced by a group homomorphism and a compatible coefficient morphism; inclusion direction, not transfer.",
+        "checked": "Statement read in source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:Rep.trivial",
+        "kind": "def",
+        "module": "Mathlib/RepresentationTheory/Rep/Basic.lean",
+        "provides": "The trivial representation on a module.",
+        "checked": "Statement read in source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:Matrix.SpecialLinearGroup",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/Matrix/SpecialLinearGroup.lean",
+        "provides": "Matrices with determinant one; use index Fin 2.",
+        "checked": "Statement read in source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:Matrix.SpecialLinearGroup.map",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/Matrix/SpecialLinearGroup.lean",
+        "provides": "Entrywise map along a ring homomorphism.",
+        "checked": "Statement read in source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:Algebra.norm",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/Norm/Defs.lean",
+        "provides": "Determinant of multiplication by an element of a finite free algebra.",
+        "checked": "Statement read in source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:LinearMap.toMatrix",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/Matrix/ToLin.lean",
+        "provides": "Matrix of an actual linear endomorphism in a chosen basis.",
+        "checked": "Statement read in source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:TensorProduct.map",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/TensorProduct/Map.lean",
+        "provides": "Map of tensor products induced by two linear maps.",
+        "checked": "Statement read in source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:ZMod",
+        "kind": "def",
+        "module": "Mathlib/Data/ZMod/Defs.lean",
+        "provides": "Integers modulo a natural-number modulus.",
+        "checked": "Statement read in source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:AddCircle",
+        "kind": "def",
+        "module": "Mathlib/Topology/Instances/AddCircle/Defs.lean",
+        "provides": "Additive quotient by integral multiples of a specified period; use the real period π².",
+        "checked": "Statement read in source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "Hutch",
+      "title": "A Bloch–Wigner complex for SL₂",
+      "authors": "Kevin Hutchinson",
+      "edition": "arXiv:1107.0264v2; published Journal of K-Theory 12(1) (2013), 15–68, DOI 10.1017/IS013003031JKT13222. All mathematical locators here refer to the preprint.",
+      "url": "https://arxiv.org/pdf/1107.0264v2",
+      "sha256": "057ce8a6ae5548fd9f6279514adfa3afa5a6554ad1e58f9ca34bb4c62df52e94",
+      "accessDate": "2026-10-05",
+      "readSections": [
+        "§3, especially Corollaries 3.6–3.9 and Lemma 3.14",
+        "§4 Theorem 4.3",
+        "§6.3–6.4 chain and cyclic formulas",
+        "§7 Lemmas 7.1–7.4 and Corollary 7.5"
+      ]
+    },
+    {
+      "id": "CGZ",
+      "title": "Bloch groups, algebraic K-theory, units, and Nahm’s Conjecture",
+      "authors": "Frank Calegari, Stavros Garoufalidis, Don Zagier",
+      "edition": "Ann. Sci. ENS 56 (2023), 383–426; printed author copy",
+      "url": "https://people.mpim-bonn.mpg.de/stavros/publications/printed/calegari_unit.pdf",
+      "sha256": "13d38474d6b7b6e3fc946d50cc2764094c3a25a194d873c17d9cd334c25600cf",
+      "accessDate": "2026-10-05",
+      "readSections": [
+        "§4.2 pp406–407",
+        "§4.3 Lemma 4.4 p407; compare arXiv v3"
+      ]
+    },
+    {
+      "id": "KIII",
+      "title": "The K-book, Chapter III",
+      "authors": "Charles Weibel",
+      "edition": "Author’s public chapter, Higher K-Theory; Examples III.7.2",
+      "url": "https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.III.pdf",
+      "sha256": "ba1bc2d25680ab25c4baadc5ab28e39d1077dc66bb12ca4e2174b6cb55f81307",
+      "accessDate": "2026-10-05",
+      "readSections": [
+        "III.7.2(a), (c), (d) pp61–62"
+      ]
+    },
+    {
+      "id": "KIV",
+      "title": "The K-book, Chapter IV",
+      "authors": "Charles Weibel",
+      "edition": "Author’s public chapter; Corollary IV.1.13",
+      "url": "https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.IV.pdf",
+      "sha256": "9f1c1b8cccfe19d547c27dd04c61f198fd7a0cddd0018a0b84442b00fa575248",
+      "accessDate": "2026-10-05",
+      "readSections": [
+        "IV.1.13 and 1.13.1 p10"
+      ]
+    },
+    {
+      "id": "KVI",
+      "title": "The K-book, Chapter VI",
+      "authors": "Charles Weibel",
+      "edition": "Author’s public chapter; Algebraic K-Theory of Fields",
+      "url": "https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.VI.pdf",
+      "sha256": "efca16d77ed598735aa4e819be48d10d35bec0cf1b4138548f94f67922d40cd1",
+      "accessDate": "2026-10-05",
+      "readSections": [
+        "VI.2.1.2 pp7–8",
+        "VI.5.1–5.3 pp23–25"
+      ]
+    },
+    {
+      "id": "Suslin",
+      "title": "K₃ of a field, and the Bloch group",
+      "authors": "A. A. Suslin",
+      "edition": "Proc. Steklov Inst. Math. 183 (1991), 217–239; scanned public copy",
+      "url": "https://www.maths.dur.ac.uk/users/herbert.gangl/Suslin_K3_Bloch_group.pdf",
+      "sha256": "ef16d5d93f6f9f6509f93e9b748f5cf06bda2a2a2da852404375638bab12994c",
+      "accessDate": "2026-10-05",
+      "readSections": [
+        "§1 pp219–220, Lemmas 1.4–1.6 and Proposition 1.1; visually read scan pages3–4"
+      ]
+    },
+    {
+      "id": "Zagier",
+      "title": "The Dilogarithm Function",
+      "authors": "Don Zagier",
+      "edition": "Frontiers in Number Theory, Physics, and Geometry II (2007)",
+      "url": "https://people.mpim-bonn.mpg.de/zagier/files/doi/10.1007/978-3-540-30308-4_1/fulltext.pdf",
+      "sha256": "05079cf525c6ba0f0d00b5c0d948bad202d291bc4910149d5d4abbab0515e7a0",
+      "accessDate": "2026-10-05",
+      "readSections": [
+        "II.1.A pp23–24, Rogers normalization and real extension"
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "K3BlochGroups:V.5/finite-indecomposable-specialization",
+      "parentStageId": "K3BlochGroups:V.5",
+      "realises": [
+        "K3BlochGroups:V.5"
+      ],
+      "title": "Finite-field indecomposable quotient",
+      "kind": "application",
+      "statement": "For every finite field F of cardinality q, including q=2,3, the canonical quotient K₃(F)→K₃ⁱⁿᵈ(F) is an isomorphism. Its group has order q²−1, imported from L.1; no Quillen model or generator is constructed here.",
+      "hypotheses": [
+        "F is a finite field with cardinality q≥2 and prime characteristic ℓ."
+      ],
+      "proofSteps": [
+        "Use the parent’s finite Milnor vanishing, whose proof reduces tensors to the exact finite K₂ vanishing at T.2, not to the unrelated T.5 stage.",
+        "The image of the degree-three Milnor map is zero; the cokernel quotient is therefore an isomorphism.",
+        "Apply L.1/quillen-k-groups with i=2."
+      ],
+      "acceptance": [
+        "q=2 gives Z/3, q=3 gives Z/8, q=5 gives Z/24."
+      ],
+      "prerequisites": [
+        "K3BlochGroups:V.5/milnor-k3-finite-field",
+        "K3BlochGroups:V.2/k3-indecomposable",
+        "KTheoryFiniteLocalFields:L.1/quillen-k-groups",
+        "K2SymbolsBrauer:T.2/k2-finite-field",
+        "K2SymbolsBrauer:T.2/matsumoto"
+      ],
+      "sources": [
+        {
+          "sourceId": "KIII",
+          "locator": "III.7.2(a), p61",
+          "excerpt": "for all n ≥ 2",
+          "match": "Finite Milnor groups in positive degrees at least two vanish."
+        },
+        {
+          "sourceId": "KIV",
+          "locator": "IV.1.13, p10",
+          "excerpt": "For every finite field",
+          "match": "Apply the supplier with i=2."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Bloch/Finite",
+        "namespace": "TauCeti.K3Concrete"
+      }
+    },
+    {
+      "id": "K3BlochGroups:V.5/transfer-on-indecomposables",
+      "parentStageId": "K3BlochGroups:V.5",
+      "realises": [
+        "K3BlochGroups:V.5"
+      ],
+      "title": "Restriction and transfer on finite indecomposables",
+      "kind": "application",
+      "statement": "Transport L.1’s restriction, transfer and Frobenius along the canonical quotient isomorphisms. For Fq⊂Fqᵈ: restriction is injective with image the Gal-invariants, transfer is onto, tr∘res=d, res∘tr=(q²ᵈ−1)/(q²−1), and Frobenius acts by q². The same formulas hold on K₃ⁱⁿᵈ and do not specify generators.",
+      "hypotheses": [
+        "E/F is an extension of finite fields, |F|=q and [E:F]=d≥1.",
+        "Restriction, transfer and Frobenius are the L.1 maps, transported through the canonical indecomposable quotient isomorphisms."
+      ],
+      "proofSteps": [
+        "Use the naturality of the V.2 quotient and its finite-field inverse.",
+        "Conjugate the supplier’s i=2 maps and identities by these isomorphisms."
+      ],
+      "acceptance": [
+        "d=1 gives identity maps.",
+        "F₂⊂F₄: tr∘res=2, res∘tr=5 on Z/15; Frob₂ acts by4."
+      ],
+      "prerequisites": [
+        "K3BlochGroups:V.5/finite-indecomposable-specialization",
+        "KTheoryFiniteLocalFields:L.1/finite-field-transfer-formulas",
+        "KTheoryFiniteLocalFields:L.1/finite-field-galois-descent"
+      ],
+      "sources": [
+        {
+          "sourceId": "KIV",
+          "locator": "IV.1.13, p10",
+          "excerpt": "is onto",
+          "match": "Transport, rather than reprove, the stable computation."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Bloch/Finite",
+        "namespace": "TauCeti.K3Concrete"
+      }
+    },
+    {
+      "id": "K3BlochGroups:V.5/localized-sl2-homology",
+      "parentStageId": "K3BlochGroups:V.5",
+      "realises": [
+        "K3BlochGroups:V.5"
+      ],
+      "title": "Prime-to-characteristic third homology",
+      "kind": "theorem",
+      "statement": "Let F be finite of characteristic ℓ and cardinality q. H₃(SL₂(F),Z[1/ℓ]) is cyclic of order q²−1. For a subgroup C⊂SL₂(F) of order prime to ℓ the inclusion induces an injection on integral H₃ and H₃(C,Z) is cyclic of order |C|. GL₂(F) conjugation acts trivially on localized H₃. Integral H₃ is not asserted to have order q²−1.",
+      "hypotheses": [
+        "F is a finite field with cardinality q≥2 and prime characteristic ℓ.",
+        "C≤SL₂(F) is a subgroup whose order is prime to ℓ, for the subgroup assertion."
+      ],
+      "proofSteps": [
+        "Hutchinson §3 computes Sylow subgroups: away from ℓ they are cyclic, except the generalized quaternion 2-Sylow for odd q. Normalizers act by inversion on split and nonsplit cyclic Sylows.",
+        "Apply the stable-elements and periodic-homology facts quoted as Theorem 3.1 and Brown III.9–10 in the source. Their formal supplier is an explicit gap, not an assumed Mathlib theorem.",
+        "Combine primary factors to get q²−1. Injectivity for subgroups follows from periodic resolutions and stable elements; GL₂-conjugation becomes inner after passing to Fq², where restriction is injective."
+      ],
+      "acceptance": [
+        "q=5 localized order24, not120.",
+        "The norm-one Cartan of order q+1 injects on H₃."
+      ],
+      "prerequisites": [
+        "mathlib:groupHomology",
+        "mathlib:Rep.trivial",
+        "mathlib:Matrix.SpecialLinearGroup",
+        "mathlib:groupHomology.map"
+      ],
+      "sources": [
+        {
+          "sourceId": "Hutch",
+          "locator": "§3, Corollaries 3.6–3.7 and Lemma 3.8, pp14–15",
+          "excerpt": "is trivial",
+          "match": "Cyclic computation uses coefficients Z[1/ℓ], and the inclusion map is the source’s homological corestriction."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Bloch/Finite",
+        "namespace": "TauCeti.K3Concrete"
+      },
+      "planet": {
+        "name": "Finite-field SL₂ homology"
+      }
+    },
+    {
+      "id": "K3BlochGroups:V.5/sl2-characteristic-exceptions",
+      "parentStageId": "K3BlochGroups:V.5",
+      "realises": [
+        "K3BlochGroups:V.5"
+      ],
+      "title": "Characteristic torsion in third homology",
+      "kind": "theorem",
+      "statement": "For finite Fq of characteristic ℓ, the ℓ-primary summand of integral H₃(SL₂(Fq),Z) is Z/ℓ exactly for q∈{2,3,4,5,8,9,27}, and is zero otherwise. Thus integral H₃ is abstractly Z/(ℓ(q²−1)) in these exceptional cases, and Z/(q²−1) otherwise.",
+      "hypotheses": [
+        "F is a finite field with cardinality q≥2 and prime characteristic ℓ."
+      ],
+      "proofSteps": [
+        "Use transfer from the unipotent Sylow subgroup with its torus action. Lemmas 3.11–3.13 reduce stable elements to invariant exterior and symmetric tensors.",
+        "The explicit invariant calculations in Lemma 3.14 give the seven nonzero cases; combine with the coprime cyclic factor of the preceding node. The elementary-abelian homology and stable-elements inputs remain in the same gap."
+      ],
+      "acceptance": [
+        "H₃(SL₂(F₅),Z) has order120; H₃(SL₂(F₃),Z) has order24.",
+        "H₃(SL₂(F₁₁),Z) has order120."
+      ],
+      "prerequisites": [
+        "K3BlochGroups:V.5/localized-sl2-homology"
+      ],
+      "sources": [
+        {
+          "sourceId": "Hutch",
+          "locator": "§3, Lemma 3.14, pp17–18",
+          "excerpt": "(3, 2), (3, 3), (3, 4), (3, 5), (3, 8), (3, 9), (3, 27)",
+          "match": "The k=3 row gives the complete exception list."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Bloch/Finite",
+        "namespace": "TauCeti.K3Concrete"
+      }
+    },
+    {
+      "id": "K3BlochGroups:V.5/finite-stabilization-map",
+      "parentStageId": "K3BlochGroups:V.5",
+      "realises": [
+        "K3BlochGroups:V.5"
+      ],
+      "title": "Finite-field stabilization map",
+      "kind": "construction",
+      "statement": "Construct σF:H₃(SL₂(F),Z[1/ℓ])→K₃(F) from SL₂→SL∞ and the inverse stable Hurewicz identification K₃(F)/(−1·K₂(F))≅H₃(SL∞(F),Z). Finite K₂=0 and K₃ has no ℓ-primary torsion, so the integral map extends uniquely over localization. This is the actual stabilization map, not an arbitrary cyclic isomorphism.",
+      "hypotheses": [
+        "F is a finite field with cardinality q≥2 and prime characteristic ℓ."
+      ],
+      "proofSteps": [
+        "Use V.2/k3-to-h3-sl-field, which already specializes the V.1 stable Hurewicz sequence and identifies E(F)=SL∞(F). Compose its inverse with the homology map induced by SL₂→SL∞. The algebraically closed unstable comparison needed for bijectivity remains a recorded gap.",
+        "Kill the −1·K₂ term using the exact T.2 finite theorem.",
+        "Extend along coefficient localization uniquely because ℓ acts invertibly on K₃ by L.1."
+      ],
+      "acceptance": [
+        "No identification is chosen by comparing two group orders."
+      ],
+      "prerequisites": [
+        "K3BlochGroups:V.5/finite-indecomposable-specialization",
+        "K3BlochGroups:V.1/k2-to-k3-h3-e",
+        "K2SymbolsBrauer:T.2/k2-finite-field",
+        "mathlib:groupHomology.map",
+        "K3BlochGroups:V.2/k3-to-h3-sl-field",
+        "mathlib:Matrix.SpecialLinearGroup.map"
+      ],
+      "sources": [
+        {
+          "sourceId": "Hutch",
+          "locator": "§3, proof of Corollary 3.9, p15",
+          "excerpt": "there is a natural composite homomorphism",
+          "match": "Specifies the stabilization/Hurewicz map before proving it bijective."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Bloch/Finite",
+        "namespace": "TauCeti.K3Concrete"
+      },
+      "api": [
+        {
+          "name": "finiteStabilization",
+          "role": "constructor",
+          "statement": "The σF homomorphism with the specified stabilization composite."
+        },
+        {
+          "name": "finiteStabilization_natural",
+          "role": "functoriality",
+          "statement": "For an embedding F→L of finite fields, σL∘H₃(SL₂(f))=K₃(f)∘σF, with the same localized coefficient ring."
+        },
+        {
+          "name": "finiteStabilization_unique",
+          "role": "universal-property",
+          "statement": "A homomorphism on localized H₃ agreeing on all integral coefficient classes with stabilization equals σF."
+        },
+        {
+          "name": "finiteStabilization_hurewicz",
+          "role": "compatibility",
+          "statement": "For the actual stable Hurewicz map h and the homology stabilization s, h(σF(loc z))=s(z) for every integral class z. This fixes σF as the stabilization composite, including its normalization."
+        }
+      ],
+      "tests": [
+        {
+          "name": "finiteStabilization_char_torsion",
+          "kind": "non-example",
+          "statement": "The integral stabilization sends every characteristic-primary class to zero."
+        },
+        {
+          "name": "finiteStabilization_F2_F4",
+          "kind": "compatibility",
+          "statement": "The F₂→F₄ square commutes for the actual entrywise inclusion."
+        },
+        {
+          "name": "finiteStabilization_not_integral_iso_F5",
+          "kind": "non-example",
+          "statement": "Integral stabilization at F₅ has a nontrivial kernel; the localized map is bijective."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Hutchinson Corollary 3.9",
+          "how": "Supplies the natural comparison with stable K₃."
+        },
+        {
+          "where": "CGZ Lemma 4.4",
+          "how": "Preserves field maps and hence the local comparison squares."
+        }
+      ]
+    },
+    {
+      "id": "K3BlochGroups:V.5/finite-stabilization-equivalence",
+      "parentStageId": "K3BlochGroups:V.5",
+      "realises": [
+        "K3BlochGroups:V.5"
+      ],
+      "title": "Finite-field stabilization comparison",
+      "kind": "comparison",
+      "statement": "The map σF is bijective for every finite field, including F₂ and F₃. Consequently H₃(SL₂(F),Z[1/ℓ])≅K₃(F)≅K₃ⁱⁿᵈ(F) naturally in finite fields.",
+      "hypotheses": [
+        "F is a finite field with cardinality q≥2 and prime characteristic ℓ."
+      ],
+      "proofSteps": [
+        "Pass to the algebraic closure. Hutchinson invokes Sah’s algebraically closed unstable-to-stable comparison; its exact supplier is a recorded gap.",
+        "Quillen restriction is injective and the homology inclusion is injective on all prime-to-characteristic factors. The commutative square proves injectivity of σF.",
+        "The source and target have equal finite orders q²−1, hence σF is onto."
+      ],
+      "acceptance": [
+        "q=2 and q=3 are covered for K₃, without introducing a small-field Bloch exact sequence."
+      ],
+      "prerequisites": [
+        "K3BlochGroups:V.5/finite-stabilization-map",
+        "K3BlochGroups:V.5/localized-sl2-homology",
+        "KTheoryFiniteLocalFields:L.1/finite-field-galois-descent"
+      ],
+      "sources": [
+        {
+          "sourceId": "Hutch",
+          "locator": "§3, Corollary 3.9, p15",
+          "excerpt": "For any finite field Fq",
+          "match": "Naturality and equality with K₃ⁱⁿᵈ are part of the result."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Bloch/Finite",
+        "namespace": "TauCeti.K3Concrete"
+      }
+    },
+    {
+      "id": "K3BlochGroups:V.5/finite-cross-ratio-map",
+      "parentStageId": "K3BlochGroups:V.5",
+      "realises": [
+        "K3BlochGroups:V.5"
+      ],
+      "title": "Finite Bloch–Wigner map",
+      "kind": "construction",
+      "statement": "For finite F with q≥4 construct λF:H₃(SL₂(F),Z)→Bₛ(F), where Bₛ is precisely the V.3 Suslin kernel using the antisymmetric tensor quotient. Use Hutchinson’s refined configuration edge map followed by RB(F)→Bₛ(F). On a cyclic bar class represented by Σᵢ(1,t,tⁱ⁺¹,tⁱ⁺²), evaluate using the chain map βx,y of §6.3 and the refined cross-ratio map, then forget square classes. Degenerate tuples are handled by β, not by inserting inadmissible symbols.",
+      "hypotheses": [
+        "F is a finite field with cardinality q≥4 and prime characteristic ℓ.",
+        "Bₛ(F) is the V.3 Suslin Bloch kernel in the antisymmetric tensor quotient, with no extra relation."
+      ],
+      "proofSteps": [
+        "Use the actual group action on P¹ and the refined square-class configuration complex. The infinite acyclicity theorem in V.4 is not applied to a finite set.",
+        "Hutchinson Theorem 4.3’s finite spectral-sequence analysis and Lemma 7.1 give the edge map into the ordinary Bloch kernel. The refined complex and exactness input are recorded as a gap.",
+        "Apply the explicit chain map β and cross ratio of §6 to cyclic generators; homotopies prove independence of x,y."
+      ],
+      "acceptance": [
+        "At q=5 the map has kernel order40 and target order3."
+      ],
+      "prerequisites": [
+        "K3BlochGroups:V.3/bloch-group",
+        "K3BlochGroups:V.4/configuration-complex",
+        "K3BlochGroups:V.4/hyperhomology-map",
+        "K3BlochGroups:V.4/cross-ratio",
+        "mathlib:groupHomology.map",
+        "mathlib:Matrix.SpecialLinearGroup.map"
+      ],
+      "sources": [
+        {
+          "sourceId": "Hutch",
+          "locator": "§4 Theorem 4.3; §6.3–6.4 pp30–33; §7 Lemma 7.1",
+          "excerpt": "independent of the particular choice of x and y",
+          "match": "Chain-homotopy independence specifies the map, not only an abstract cyclic quotient."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Bloch/Finite",
+        "namespace": "TauCeti.K3Concrete"
+      },
+      "planet": {
+        "name": "Finite Bloch–Wigner map"
+      },
+      "api": [
+        {
+          "name": "finiteBlochHom",
+          "role": "constructor",
+          "statement": "The homomorphism λF induced by the refined configuration edge map."
+        },
+        {
+          "name": "finiteBlochHom_natural",
+          "role": "functoriality",
+          "statement": "Bₛ(f)∘λF=λL∘H₃(SL₂(f)) for embeddings between finite fields of cardinality at least4."
+        },
+        {
+          "name": "finiteBlochHom_char_torsion",
+          "role": "simp",
+          "statement": "If ℓᵃz=0, λF(z)=0."
+        },
+        {
+          "name": "finiteBlochHom_cyclic_bar",
+          "role": "characterisation",
+          "statement": "For a cyclic subgroup and the specified bar generator, λ equals the sum of cr(βx,y(1,t,tⁱ⁺¹,tⁱ⁺²)) in Bₛ; the result is independent of x,y."
+        }
+      ],
+      "tests": [
+        {
+          "name": "finiteBlochHom_F5_kernel",
+          "kind": "computation",
+          "statement": "The kernel for F₅ has order40, distinguishing integral H₃ from its order24 localization."
+        },
+        {
+          "name": "finiteBlochHom_F7_kernel",
+          "kind": "computation",
+          "statement": "The kernel for F₇ has order12 and the target has order4."
+        },
+        {
+          "name": "finiteBlochHom_F4_kernel",
+          "kind": "computation",
+          "statement": "The kernel for a field of cardinality4 has order6 and target order5."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Hutchinson §§6–7",
+          "how": "Computes cyclic and quaternion images and fixes the finite Bloch order."
+        },
+        {
+          "where": "HabiroNumberFields:HB.2, CGZ §4.2",
+          "how": "Carries actual unstable homology classes to Bloch classes modulo odd n."
+        }
+      ]
+    },
+    {
+      "id": "K3BlochGroups:V.5/finite-bloch-orders",
+      "parentStageId": "K3BlochGroups:V.5",
+      "realises": [
+        "K3BlochGroups:V.5"
+      ],
+      "title": "Bloch groups of finite fields",
+      "kind": "theorem",
+      "statement": "For q≥4, Bₛ(Fq) is cyclic of order (q+1)/2 when q is odd, and q+1 when q is even. At q=2,3 the unmodified Suslin presentation instead gives Bₛ(F₂)=0 and Bₛ(F₃)=Z; these are separate presentation calculations, not instances of the finite exact sequence. The CGZ convention agrees modulo odd n through V.3/κ, not integrally.",
+      "hypotheses": [
+        "F is a finite field with cardinality q≥4 for the cyclic order formula.",
+        "The separate small-field assertions use the same Suslin presentation at F₂ and F₃."
+      ],
+      "proofSteps": [
+        "In characteristic2 the square-class terms vanish and Theorem 4.3 gives order q+1.",
+        "For odd q the initial sequence allows q+1 or (q+1)/2. If q≡1 mod4, kill the generalized quaternion image with square angle-brackets; if q≡−1 mod4 kill the cyclic subgroup generated by w using 2{−1/y}=0.",
+        "For F₂ there are no admissible generators. For F₃ the pre-Bloch group has one generator [−1] and no admissible five-term pairs. Its antisymmetric tensor boundary is the nonzero generator of Z/2, so the Bloch kernel is 2Z≅Z, generated by2[−1]. This differs from the exterior-square kernel, which is all of Z. Parent small-field groups are used only as abstract groups, with this corrected embedding."
+      ],
+      "acceptance": [
+        "Bₛ(F₄)=Z/5, Bₛ(F₅)=Z/3, Bₛ(F₇)=Z/4, Bₛ(F₁₁)=Z/6."
+      ],
+      "prerequisites": [
+        "K3BlochGroups:V.5/finite-cross-ratio-map",
+        "K3BlochGroups:V.5/localized-sl2-homology",
+        "K3BlochGroups:V.3/angle-bracket-homomorphism",
+        "K3BlochGroups:V.3/cgz-convention-comparison",
+        "K3BlochGroups:V.3/pre-bloch-group"
+      ],
+      "sources": [
+        {
+          "sourceId": "Hutch",
+          "locator": "§7 Lemma 7.4 and preceding paragraph, pp34–35",
+          "excerpt": "it is always the latter",
+          "match": "Resolves the extra factor2 by explicit quaternion/cyclic bar images; the ambient hypothesis is q≥4."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Bloch/Finite",
+        "namespace": "TauCeti.K3Concrete"
+      },
+      "planet": {
+        "name": "Finite-field Bloch groups"
+      }
+    },
+    {
+      "id": "K3BlochGroups:V.5/finite-k3-bloch-map",
+      "parentStageId": "K3BlochGroups:V.5",
+      "realises": [
+        "K3BlochGroups:V.5"
+      ],
+      "title": "Finite K₃-to-Bloch map",
+      "kind": "construction",
+      "statement": "For q≥4, factor λF through coefficient localization (its target has order prime to ℓ), obtaining λF,loc. Define bF=λF,loc∘σF⁻¹:K₃(F)→Bₛ(F). It is a natural surjection and satisfies bF∘σF∘localization=λF. The inverse of σ is canonical, so no cyclic generator enters the definition.",
+      "hypotheses": [
+        "F is a finite field with cardinality q≥4 and prime characteristic ℓ.",
+        "σF is the actual stabilization comparison and λF the finite refined edge map followed by RB→Bₛ."
+      ],
+      "proofSteps": [
+        "The target order from the preceding node is coprime to ℓ; localization therefore gives a unique extension.",
+        "Compose with the inverse of the actual bijective σF and inherit field-map naturality.",
+        "Surjectivity is supplied by the finite refined edge-map theorem, not inferred from existence of some group isomorphism."
+      ],
+      "acceptance": [
+        "The triangle commutes before reducing modulo n."
+      ],
+      "prerequisites": [
+        "K3BlochGroups:V.5/finite-cross-ratio-map",
+        "K3BlochGroups:V.5/finite-bloch-orders",
+        "K3BlochGroups:V.5/finite-stabilization-equivalence"
+      ],
+      "sources": [
+        {
+          "sourceId": "Hutch",
+          "locator": "§7 Corollary 7.5 and proof, pp35–36",
+          "excerpt": "natural short exact sequence",
+          "match": "Transfers the finite refined Bloch map through the natural stabilization comparison."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Bloch/Finite",
+        "namespace": "TauCeti.K3Concrete"
+      },
+      "api": [
+        {
+          "name": "finiteK3Bloch",
+          "role": "constructor",
+          "statement": "bF is λF,loc∘σF⁻¹."
+        },
+        {
+          "name": "finiteK3Bloch_triangle",
+          "role": "compatibility",
+          "statement": "bF(σF(localization(z)))=λF(z)."
+        },
+        {
+          "name": "finiteK3Bloch_natural",
+          "role": "functoriality",
+          "statement": "Bₛ(f)∘bF=bL∘K₃(f) for finite-field embeddings."
+        },
+        {
+          "name": "finiteK3Bloch_surjective",
+          "role": "characterisation",
+          "statement": "Every finite Bloch class is the image of an actual K₃ class."
+        }
+      ],
+      "tests": [
+        {
+          "name": "finiteK3Bloch_F5_kernel",
+          "kind": "computation",
+          "statement": "Its kernel at F₅ has order8."
+        },
+        {
+          "name": "finiteK3Bloch_F7_kernel",
+          "kind": "computation",
+          "statement": "Its kernel at F₇ has order12."
+        },
+        {
+          "name": "finiteK3Bloch_F4_kernel",
+          "kind": "computation",
+          "statement": "Its kernel at cardinality4 has order3."
+        }
+      ],
+      "uses": [
+        {
+          "where": "K3BlochGroups:V.5 odd-coefficient comparison",
+          "how": "Constructs the map whose tensor is proved bijective."
+        },
+        {
+          "where": "CGZ Lemma 4.4",
+          "how": "Gives the finite vertical comparison with field-map compatibility."
+        }
+      ]
+    },
+    {
+      "id": "K3BlochGroups:V.5/finite-enhanced-torsion-sequence",
+      "parentStageId": "K3BlochGroups:V.5",
+      "realises": [
+        "K3BlochGroups:V.5"
+      ],
+      "title": "Finite Bloch–Wigner exact sequence",
+      "kind": "theorem",
+      "statement": "For q≥4, 0→T̃(Fq)→K₃(Fq)−bF→Bₛ(Fq)→0 is natural and exact; T̃ is exactly the enhanced Tor term of V.4. It is cyclic of order2(q−1) for odd q and q−1 for even q. The left arrow is the homological torsion map of Hutchinson Corollary 7.5. The statement does not identify this arrow with an untwisted roots-of-unity inclusion.",
+      "hypotheses": [
+        "F is a finite field with cardinality q≥4 and prime characteristic ℓ.",
+        "T̃(F) and its monomial arrow are the V.4 enhanced Tor construction; the finite identification of this arrow is the recorded refined-chain gap."
+      ],
+      "proofSteps": [
+        "Apply the finite refined Bloch–Wigner sequence and the explicit 2-primary calculation of Lemma 7.4.",
+        "Transport through σF and RB≅B. Identify the kernel with enhanced Tor via the diagonal homology map used in the source. The compatibility of the parent monomial model with this map is recorded in the refined-comparison gap.",
+        "Use μ(Fq) of order q−1 and the V.4 enhanced Tor computation to obtain the two kernel orders."
+      ],
+      "acceptance": [
+        "For q=5 orders8→24→3 multiply correctly; for q=4 orders3→15→5."
+      ],
+      "prerequisites": [
+        "K3BlochGroups:V.5/finite-k3-bloch-map",
+        "K3BlochGroups:V.4/enhanced-tor",
+        "K3BlochGroups:V.4/tor-form-comparison",
+        "K3BlochGroups:V.5/finite-bloch-orders"
+      ],
+      "sources": [
+        {
+          "sourceId": "Hutch",
+          "locator": "§7 Corollary 7.5, p35",
+          "excerpt": "We can thus extend the main result",
+          "match": "Finite-field proof replaces the infinite-field-only proof in the K-book."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Bloch/Finite",
+        "namespace": "TauCeti.K3Concrete"
+      }
+    },
+    {
+      "id": "K3BlochGroups:V.5/odd-coefficient-finite-comparison",
+      "parentStageId": "K3BlochGroups:V.5",
+      "realises": [
+        "K3BlochGroups:V.5"
+      ],
+      "title": "Odd-coefficient finite Bloch comparison",
+      "kind": "theorem",
+      "statement": "Let q≥4 and n>0 be odd with gcd(n,q−1)=1. The actual map bF induces a bijection K₃(Fq)⊗Z/n→Bₛ(Fq)⊗Z/n. Both are cyclic of order gcd(n,q+1), and κ gives the same comparison with BCGZ. If n|q+1 they have order n. Without the gcd hypothesis this is false (q=7,n=3). These are tensor quotients of integral H₃/K₃, not group homology with Z/n coefficients.",
+      "hypotheses": [
+        "F is a finite field with cardinality q≥4 and prime characteristic ℓ.",
+        "n is a positive odd integer with gcd(n,q−1)=1; modulo n means tensoring the integral groups with Z/n."
+      ],
+      "proofSteps": [
+        "Multiplication by n is bijective on the enhanced Tor kernel of order2(q−1) or q−1. The snake lemma for multiplication by n therefore makes the quotient map bijective modulo n, including its injectivity.",
+        "Compute cyclic quotients from L.1 and finite Bloch orders; κ has 2-primary kernel and cokernel, hence is bijective on odd quotients.",
+        "Use the finite triangle to give H₃(SL₂,Z)⊗Z/n the same map when n|q+1. Since gcd(n,ℓ)=1, characteristic-primary integral torsion disappears."
+      ],
+      "acceptance": [
+        "q=5,n=3 gives Z/3; q=17,n=9 gives Z/9; q=8,n=9 gives Z/9.",
+        "q=7,n=3 gives K₃/3=Z/3 but Bₛ/3=0."
+      ],
+      "prerequisites": [
+        "K3BlochGroups:V.5/finite-enhanced-torsion-sequence",
+        "K3BlochGroups:V.5/finite-indecomposable-specialization",
+        "K3BlochGroups:V.3/cgz-convention-comparison",
+        "mathlib:TensorProduct.map",
+        "mathlib:ZMod"
+      ],
+      "sources": [
+        {
+          "sourceId": "CGZ",
+          "locator": "§4.2 and Lemma 4.4, pp406–407",
+          "excerpt": "is an isomorphism after tensoring with Z/nZ",
+          "match": "State the exact coefficient and congruence restrictions for the map."
+        },
+        {
+          "sourceId": "Hutch",
+          "locator": "§7 Corollary 7.5, p35",
+          "excerpt": "natural short exact sequence",
+          "match": "The kernel order is invertible modulo n."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Bloch/Finite",
+        "namespace": "TauCeti.K3Concrete"
+      },
+      "planet": {
+        "name": "Finite Bloch comparison modulo n"
+      }
+    },
+    {
+      "id": "K3BlochGroups:V.5/norm-one-cartan-embedding",
+      "parentStageId": "K3BlochGroups:V.5",
+      "realises": [
+        "K3BlochGroups:V.5"
+      ],
+      "title": "Norm-one nonsplit Cartan embedding",
+      "kind": "construction",
+      "statement": "For a quadratic extension E/F of finite fields and a basis e:Fin2→E, let C¹=ker(N:Eˣ→Fˣ). Construct ιe:C¹→SL₂(F) by the matrix in e of multiplication by u. Its determinant is N(u)=1 and it is injective. A basis change conjugates the matrices by the actual change-of-basis element of GL₂(F). The field norm and matrix carriers are Mathlib’s; no second norm or special-linear group is defined.",
+      "hypotheses": [
+        "E/F is a quadratic extension of finite fields.",
+        "e is an F-linear basis of E indexed by Fin 2; C¹ is the kernel of the norm homomorphism on units."
+      ],
+      "proofSteps": [
+        "Restrict the multiplication representation of Eˣ to the norm-one subgroup.",
+        "The determinant-norm identity places each multiplication matrix in Mathlib SL₂. Evaluate multiplication at1 to prove injectivity.",
+        "Express the two representations through their basis equivalences; this yields the actual conjugation equation."
+      ],
+      "acceptance": [
+        "C¹ has order q+1 from surjectivity of the finite-field norm."
+      ],
+      "prerequisites": [
+        "mathlib:Algebra.norm",
+        "mathlib:LinearMap.toMatrix",
+        "mathlib:Matrix.SpecialLinearGroup"
+      ],
+      "sources": [
+        {
+          "sourceId": "Hutch",
+          "locator": "§3 before Lemma 3.5, p13",
+          "excerpt": "is just the norm map",
+          "match": "The multiplication representation lands in SL₂ on the norm kernel."
+        },
+        {
+          "sourceId": "CGZ",
+          "locator": "§4.2 p406",
+          "excerpt": "well defined up to conjugation",
+          "match": "Basis dependence is conjugation, not equality of embeddings."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Bloch/Finite",
+        "namespace": "TauCeti.K3Concrete"
+      },
+      "api": [
+        {
+          "name": "cartanEmbedding",
+          "role": "constructor",
+          "statement": "The multiplication-matrix homomorphism C¹→SL₂(F)."
+        },
+        {
+          "name": "cartanEmbedding_toMatrix",
+          "role": "data",
+          "statement": "Its underlying matrix is LinearMap.toMatrix e e of multiplication by u."
+        },
+        {
+          "name": "cartanEmbedding_injective",
+          "role": "characterisation",
+          "statement": "Equality of matrices implies equality of units."
+        },
+        {
+          "name": "cartanEmbedding_changeBasis",
+          "role": "compatibility",
+          "statement": "If U=e′⁻¹∘e in coordinates then ιe′(u)=Uιe(u)U⁻¹."
+        }
+      ],
+      "tests": [
+        {
+          "name": "cartanEmbedding_one",
+          "kind": "degenerate",
+          "statement": "The norm-one unit1 maps to the identity matrix."
+        },
+        {
+          "name": "cartanEmbedding_negOne",
+          "kind": "computation",
+          "statement": "The norm-one unit−1 maps to the scalar matrix−I, including characteristic2."
+        },
+        {
+          "name": "cartanEmbedding_trace",
+          "kind": "compatibility",
+          "statement": "For u∈C¹ the matrix trace is u+u⁻¹, viewed in E by algebraMap."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Hutchinson Lemma 3.5",
+          "how": "Computes the nonsplit Sylow normalizer."
+        },
+        {
+          "where": "CGZ §4.2; HabiroNumberFields:HB.2",
+          "how": "Defines the actual homology map carrying Cartan classes into finite Bloch groups."
+        }
+      ]
+    },
+    {
+      "id": "K3BlochGroups:V.5/cartan-homology-modulo-n",
+      "parentStageId": "K3BlochGroups:V.5",
+      "realises": [
+        "K3BlochGroups:V.5"
+      ],
+      "title": "Nonsplit Cartan comparison modulo n",
+      "kind": "theorem",
+      "statement": "Let Fq be finite with q≥4 odd, n>0 odd and n|q+1. The maps H₃(C¹,Z)⊗Z/n→H₃(SL₂(Fq),Z)⊗Z/n→K₃(Fq)⊗Z/n→Bₛ(Fq)⊗Z/n→BCGZ(Fq)⊗Z/n induced by ιe, stabilization, bF and κ are bijective. Their composite is independent of e because GL₂ conjugation acts trivially after inverting the characteristic. The result concerns H₃(C¹), not a claimed canonical identification H₃(C¹)=C¹.",
+      "hypotheses": [
+        "F has odd cardinality q≥4; E/F is its quadratic extension, with an F-basis e indexed by Fin 2.",
+        "n is positive and odd, and n divides q+1; all quotients mean tensoring integral homology with Z/n."
+      ],
+      "proofSteps": [
+        "C¹ is cyclic of order q+1 and its inclusion is injective on integral H₃ by Corollary 3.7. Its index in prime-to-characteristic H₃ is q−1. Since n is odd and n|q+1, this index is invertible modulo n.",
+        "Use coefficient localization and the already specified stabilization/Bloch maps.",
+        "Lemma 3.8 and the basis-change equation make the induced map independent of the basis. The generic cyclic-homology functor and stable-elements inputs are in the recorded gap."
+      ],
+      "acceptance": [
+        "q=11,n=3 has group order3 throughout.",
+        "A subgroup μn⊂C¹ need not generate H₃(C¹)/n if n²|q+1: the cyclic inclusion multiplier is (q+1)/n. A primitive root must not be silently equated with a quotient generator."
+      ],
+      "prerequisites": [
+        "K3BlochGroups:V.5/norm-one-cartan-embedding",
+        "K3BlochGroups:V.5/localized-sl2-homology",
+        "K3BlochGroups:V.5/odd-coefficient-finite-comparison",
+        "mathlib:groupHomology.map",
+        "K3BlochGroups:V.5/finite-stabilization-equivalence",
+        "K3BlochGroups:V.5/finite-k3-bloch-map",
+        "K3BlochGroups:V.3/cgz-convention-comparison",
+        "mathlib:TensorProduct.map"
+      ],
+      "sources": [
+        {
+          "sourceId": "CGZ",
+          "locator": "§4.2 pp406–407",
+          "excerpt": "is an isomorphism after tensoring with Z/nZ",
+          "match": "Retains the actual Cartan inclusion; corrects the integral H₃ and canonical cyclic-identification assertions."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Bloch/Finite",
+        "namespace": "TauCeti.K3Concrete"
+      }
+    },
+    {
+      "id": "K3BlochGroups:V.5/number-field-product-image",
+      "parentStageId": "K3BlochGroups:V.5",
+      "realises": [
+        "K3BlochGroups:V.5"
+      ],
+      "title": "Number-field decomposable product image",
+      "kind": "application",
+      "statement": "For a number field F, the image of K₃ᴹ(F)→K₃(F) equals the image of multiplication by [−1]:K₂(F)→K₃(F). Via V.2 injectivity it is (Z/2)^r₁. In particular it vanishes for totally imaginary F. All degree-three Milnor signs are imported from T.2:symbols, not computed in V.5.",
+      "hypotheses": [
+        "F is a number field; multiplication is the Quillen product with the K₁ class of−1, and the Milnor comparison preserves products."
+      ],
+      "prerequisites": [
+        "K2SymbolsBrauer:T.2:symbols/milnor-number-field",
+        "K2SymbolsBrauer:T.2/matsumoto",
+        "K3BlochGroups:V.2/milnor-to-quillen-degree-three",
+        "K3BlochGroups:V.2/milnor-k3-injective",
+        "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-1-weak-approximation-and-multiplicative-congruences"
+      ],
+      "proofSteps": [
+        "Matsumoto and multiplicativity put every product [−1]·K₂(F) in the degree-three Milnor image.",
+        "For an arbitrary Milnor3 class choose d∈Fˣ with negative signs precisely at the real places where that class has nonzero signature, using the upstream total-sign surjectivity. The symbol{−1,−1,d} has the same degree3 signs.",
+        "The imported Bass–Tate sign map is injective at degree3, so these classes are equal. This symbol is [−1] times the degree2 symbol{−1,d}.",
+        "Use the V.2 injection to identify the common image with the sign group."
+      ],
+      "acceptance": [
+        "OverQ the image is the nonzero order2 subgroup ofZ/48.",
+        "OverQ(i) the image is zero."
+      ],
+      "sources": [
+        {
+          "sourceId": "KIII",
+          "locator": "III.7.2(c)–(d), pp61–62",
+          "excerpt": "this map is an isomorphism for all n ≥ 3",
+          "match": "Bass–Tate signs determine degree-three symbols; weak approximation supplies a unit with each prescribed sign pattern."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Bloch/Arithmetic",
+        "namespace": "TauCeti.K3Concrete"
+      }
+    },
+    {
+      "id": "K3BlochGroups:V.5/rational-decomposable-subgroup",
+      "parentStageId": "K3BlochGroups:V.5",
+      "realises": [
+        "K3BlochGroups:V.5"
+      ],
+      "title": "Decomposable rational classes",
+      "kind": "theorem",
+      "statement": "Import K₃(Z)→K₃(Q) as an isomorphism and K₃(Q)≅Z/48 from ArithmeticKTheory N.5/N.7 (with N.8 responsible for its certified example). Bass–Tate gives K₃ᴹ(Q)=Z/2 and the V.2 degree-three map is injective. Its image is the unique order2 subgroup generated by {−1,−1,−1}; under any cyclic coordinate it is {0,24}. Thus K₃ⁱⁿᵈ(Q)=Z/24. This quotient extension does not split.",
+      "hypotheses": [
+        "F=Q; the Milnor comparison and indecomposable quotient are those of V.2.",
+        "The ambient K₃(Z)→K₃(Q) and cyclic structure of order48 are imported from ArithmeticKTheory N.5/N.7, not recomputed here."
+      ],
+      "proofSteps": [
+        "Set r₁=1,r₂=0,w₂=24 in N.5’s degree3 row and use its ring-of-integers comparison.",
+        "Use the T.2 Bass–Tate sign isomorphism and V.2 injectivity; the real triple−1 symbol is nonzero.",
+        "The unique order2 subgroup of Z/48 is generated by24; its quotient is Z/24. A section would split Z/48 as Z/2⊕Z/24, whose exponent is24, contradiction.",
+        "N.8’s current certified-example node still points back to V.5; the ownership correction is requested and recorded as a gap rather than imported circularly."
+      ],
+      "acceptance": [
+        "The decomposition is a short exact sequence, not a direct-product splitting."
+      ],
+      "prerequisites": [
+        "ArithmeticKTheory:N.5/the-real-case-modulo-eight",
+        "ArithmeticKTheory:N.5/soule-theorem",
+        "ArithmeticKTheory:N.7/w-invariant",
+        "K2SymbolsBrauer:T.2:symbols/milnor-number-field",
+        "K3BlochGroups:V.2/milnor-k3-injective",
+        "K3BlochGroups:V.2/k3-indecomposable",
+        "K3BlochGroups:V.5/number-field-product-image"
+      ],
+      "sources": [
+        {
+          "sourceId": "KVI",
+          "locator": "VI.2.1.2 p7; VI.5.3 p24",
+          "excerpt": "Lee and Szczarba used a variant of the formula",
+          "match": "The ambient arithmetic calculation is imported, not owned by this application."
+        },
+        {
+          "sourceId": "KIII",
+          "locator": "III.7.2(d) p62",
+          "excerpt": "this map is an isomorphism for all n ≥ 3",
+          "match": "Use the exact signs theorem at degree3."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Bloch/Finite",
+        "namespace": "TauCeti.K3Concrete"
+      },
+      "planet": {
+        "name": "Rational indecomposable K₃"
+      }
+    },
+    {
+      "id": "K3BlochGroups:V.5/gaussian-decomposable-vanishing",
+      "parentStageId": "K3BlochGroups:V.5",
+      "realises": [
+        "K3BlochGroups:V.5"
+      ],
+      "title": "Gaussian indecomposable classes",
+      "kind": "application",
+      "statement": "For F=Q(i), import K₃(F)≅Z⊕Z/24 from ArithmeticKTheory N.5 and its N.8 example. Bass–Tate gives K₃ᴹ(F)=0 since r₁=0; hence the quotient K₃(F)→K₃ⁱⁿᵈ(F) is an isomorphism. The rank1 free generator exists but is not canonical; choosing a basis is distinct from constructing a Bloch-symbol generator with certified index.",
+      "hypotheses": [
+        "F=Q(i), with no real embeddings and one pair of complex embeddings.",
+        "The ambient K₃(F) structure is imported from ArithmeticKTheory N.5; the N.8 Gaussian w₂=24 certificate and removal of its reverse dependency remain requested."
+      ],
+      "proofSteps": [
+        "Use N.5 with r₁=0,r₂=1 and the value w₂=24 supplied by the N.8 certificate request; the certified w₂ example is a precise gap until its reverse V.5 dependency is removed.",
+        "Bass–Tate signs vanish, so the indecomposable quotient is canonically an isomorphism.",
+        "A group decomposition supplies existence of a free generator modulo torsion but no preferred class or regulator normalization."
+      ],
+      "acceptance": [
+        "Imaginary degree-three Milnor symbols have zero image.",
+        "Both K₃ and K₃ⁱⁿᵈ have torsion order24 and rank1."
+      ],
+      "prerequisites": [
+        "ArithmeticKTheory:N.5/totally-imaginary-integral-structure",
+        "K2SymbolsBrauer:T.2:symbols/milnor-number-field",
+        "K3BlochGroups:V.2/k3-indecomposable",
+        "K3BlochGroups:V.5/number-field-product-image"
+      ],
+      "sources": [
+        {
+          "sourceId": "KVI",
+          "locator": "VI.2.1.2 p7; VI.5.3 p24",
+          "excerpt": "w2 = 24",
+          "match": "The Gaussian field has r₂=1 and vanishing real signs."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Bloch/Finite",
+        "namespace": "TauCeti.K3Concrete"
+      }
+    },
+    {
+      "id": "K3BlochGroups:V.5/real-rogers-detector",
+      "parentStageId": "K3BlochGroups:V.5",
+      "realises": [
+        "K3BlochGroups:V.5"
+      ],
+      "title": "Rogers homomorphism on the real pre-Bloch group",
+      "kind": "construction",
+      "statement": "Using the interval Rogers function L from Polylogarithms P.1, construct ρ:Pₛ(R)→R/(π²Z). For an admissible real generator x, set ρ([x]) equal modulo π² to L(x)−π²/6 if 0<x<1, π²/6−L(1/x) if x>1, and L(1/(1−x))−π²/3 if x<0. This is the Suslin normalization. Restricting along Bₛ(R)⊂Pₛ(R) gives the Bloch detector. No analytic function is newly defined in V.5.",
+      "hypotheses": [
+        "Pₛ(R) is the V.3 Suslin pre-Bloch group on real symbols x≠0,1.",
+        "L is the unshifted interval Rogers function with the normalization, reflection and ordered five-term identity specified in the P.1 request."
+      ],
+      "proofSteps": [
+        "Suslin’s positive presentation P′(R) has generators0<x<1 and five-term relations restricted to0<y<x<1. The map P′→P is onto with kernel generated by6c′ (Lemma1.6), proved by the three-case inverse ψ on p219. This auxiliary presentation proof is recorded in a gap, rather than smuggling a missing Prop into an interface.",
+        "The shifted function L(x)−L(1) annihilates the restricted five-term relation since the unshifted relation equals L(1). It sends c′ to−π²/6 and6c′ to−π².",
+        "Descend moduloπ² and evaluate ψ to obtain the three formulas. Restrict to the V.3 Bloch kernel."
+      ],
+      "acceptance": [
+        "The period isπ², notπ²/2; c is sent to−π²/6."
+      ],
+      "prerequisites": [
+        "K3BlochGroups:V.3/pre-bloch-group",
+        "K3BlochGroups:V.3/bloch-group",
+        "K3BlochGroups:V.3/element-c",
+        "Polylogarithms:P.1",
+        "mathlib:AddCircle",
+        "K3BlochGroups:V.3/three-c-angle-minus-one"
+      ],
+      "sources": [
+        {
+          "sourceId": "Suslin",
+          "locator": "§1 Lemma 1.6 and proof, pp219–220",
+          "excerpt": "the image of c′ under this homomorphism",
+          "match": "The positive presentation and its kernel6c′ determine the periodπ²."
+        },
+        {
+          "sourceId": "Zagier",
+          "locator": "II.1.A pp23–24",
+          "excerpt": "L(1) = π²/6",
+          "match": "Fix the interval normalization; the global periodπ²/2 version is insufficient for order6."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Bloch/Finite",
+        "namespace": "TauCeti.K3Concrete"
+      },
+      "api": [
+        {
+          "name": "realRogersHom",
+          "role": "constructor",
+          "statement": "The homomorphism ρ on the exact Suslin real pre-Bloch presentation."
+        },
+        {
+          "name": "realRogersHom_pos",
+          "role": "simp",
+          "statement": "For0<x<1, ρ([x])=[L(x)−π²/6]."
+        },
+        {
+          "name": "realRogersHom_gt_one",
+          "role": "simp",
+          "statement": "Forx>1, ρ([x])=[π²/6−L(1/x)]."
+        },
+        {
+          "name": "realRogersHom_neg",
+          "role": "simp",
+          "statement": "Forx<0, ρ([x])=[L(1/(1−x))−π²/3]."
+        },
+        {
+          "name": "realRogersHom_unique",
+          "role": "extensionality",
+          "statement": "A homomorphism agreeing on every admissible symbol with those three formulas equalsρ."
+        }
+      ],
+      "tests": [
+        {
+          "name": "realRogersHom_half",
+          "kind": "computation",
+          "statement": "ρ([1/2])=[−π²/12]."
+        },
+        {
+          "name": "realRogersHom_two",
+          "kind": "computation",
+          "statement": "ρ([2])=[π²/12]."
+        },
+        {
+          "name": "realRogersHom_neg_one",
+          "kind": "computation",
+          "statement": "ρ([−1])=[−π²/4]."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Suslin Proposition1.1",
+          "how": "Detects the order6 of the universal real class."
+        },
+        {
+          "where": "K3BlochGroups:V.5, rational Bloch torsion",
+          "how": "The Q→R map carries cQ to cR, giving the rational lower bound."
+        }
+      ]
+    },
+    {
+      "id": "K3BlochGroups:V.5/universal-class-order-six",
+      "parentStageId": "K3BlochGroups:V.5",
+      "realises": [
+        "K3BlochGroups:V.5"
+      ],
+      "title": "Universal real and rational Bloch torsion",
+      "kind": "theorem",
+      "statement": "The universal class c has exact order6 in Bₛ(R) and Bₛ(Q). The real detector sends c=[2]+[−1] to−π²/6 moduloπ², an element of order6. Naturality under Q→R proves the rational lower bound; the V.3 relation6c=0 gives the upper bound in both fields. Through the infinite Suslin sequence, K₃ⁱⁿᵈ(Q)=Z/24 and T̃(Q) has order4, so Bₛ(Q)=Z/6 and c is a generator.",
+      "hypotheses": [
+        "The fields are R and Q, with the V.3 Suslin Bloch group and universal class c=[x]+[1−x]."
+      ],
+      "proofSteps": [
+        "Evaluate the detector at2 and−1 and add. The additive-circle class−π²/6 has exact order6 becauseπ≠0.",
+        "Use V.3/three-c-angle-minus-one to obtain6c=0 and use naturality Q→R for the rational lower bound.",
+        "Apply V.4 for the infinite fieldQ: enhanced Tor order4 and indecomposable order24 give Bloch order6."
+      ],
+      "acceptance": [
+        "3cQ≠0; the cQ generator maps to the order6 class in Bₛ(R)."
+      ],
+      "prerequisites": [
+        "K3BlochGroups:V.5/real-rogers-detector",
+        "K3BlochGroups:V.5/rational-decomposable-subgroup",
+        "K3BlochGroups:V.3/element-c",
+        "K3BlochGroups:V.3/angle-bracket-homomorphism",
+        "K3BlochGroups:V.4/suslin-exact-sequence",
+        "K3BlochGroups:V.4/enhanced-tor",
+        "K3BlochGroups:V.3/three-c-angle-minus-one"
+      ],
+      "sources": [
+        {
+          "sourceId": "Suslin",
+          "locator": "§1 Proposition1.1, p220",
+          "excerpt": "is equal to six",
+          "match": "Original proof establishes the exact real lower bound."
+        },
+        {
+          "sourceId": "KVI",
+          "locator": "VI.5.2.1 p24",
+          "excerpt": "using the Rogers L-function",
+          "match": "Resolves the parent’s missing lower bound without the Bloch–Wigner function."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Bloch/Finite",
+        "namespace": "TauCeti.K3Concrete"
+      },
+      "planet": {
+        "name": "Universal Bloch torsion"
+      }
+    }
+  ],
+  "requests": [
+    {
+      "supplier": "Polylogarithms:P.1",
+      "need": "Define interval Rogers L(x)=Σxⁿ/n²+(1/2)log(x)log(1−x), analytic for0<x<1, with L(0)=0,L(1)=π²/6,L(1/2)=π²/12, derivative−(1/2)(log(1−x)/x+log(x)/(1−x)), reflectionL(x)+L(1−x)=π²/6, and the ordered Suslin five-term expression=L(1) for0<y<x<1. Supply exact unshifted normalization, not only a Bloch–Wigner map or a quotient of periodπ²/2.",
+      "neededBy": [
+        "K3BlochGroups:V.5/real-rogers-detector"
+      ]
+    },
+    {
+      "supplier": "ArithmeticKTheory:N.8",
+      "need": "Correct the existing N.8 integer/Gaussian certificate nodes to import N.5, not V.5. Supply certified K₃(Z)→K₃(Q)≅Z/48 and K₃(Q(i))≅Z⊕Z/24, with r₁=0,r₂=1,w₂(Q(i))=24. Their group computations are owned by N.5/N.8; V.5 only consumes them to track Milnor images. Remove the reverse V.5 prerequisite before materialising the requested N.8→V.5 edge.",
+      "neededBy": [
+        "K3BlochGroups:V.5/rational-decomposable-subgroup",
+        "K3BlochGroups:V.5/gaussian-decomposable-vanishing"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-1-weak-approximation-and-multiplicative-congruences",
+      "need": "Use the upstream total sign homomorphism on Fˣ and its surjectivity: for each prescribed ±1 pattern at the real places of a number field there is a nonzero element with exactly those signs. This is already in the upstream roadmap and is consumed without re-planning it.",
+      "neededBy": [
+        "K3BlochGroups:V.5/number-field-product-image"
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "K3BlochGroups:V.5",
+      "status": "planned",
+      "remaining": [
+        "Finite-group stable elements and periodic homology supplier: Hutchinson §3 quotes Brown III.9–10 (homological stable elements via Sylow transfer) and Swan Theorems1–2 (cyclic/quaternion periods) and uses cyclic/elementary-abelian homology. None was found in the pinned libraries or as an exact atlas node. The source explicitly states the needed results, but its cited general proofs have not been read in this pass. A foundational owner must provide these results and cyclic subgroup inclusion maps; propose StableHomotopyKTheory PartII below. Do not misuse H.6’s K-spectrum coefficients as this theorem.",
+        "Algebraically closed unstable comparison and naturality refinement: V.2/k3-to-h3-sl-field already supplies the field specialization of the V.1 stable Hurewicz sequence, including E(F)=SL∞(F); it is now imported directly rather than requested again. Refine the naturality of its inverse and coefficient-localization comparison used in Hutchinson Cor3.9. That proof invokes Sah’s algebraically closed unstable-to-stable comparison (Homology of classical Lie groups made discrete III). Sah’s result was not read or matched to an exact supplier node and remains an input gap, together with the filtered-colimit passage to the algebraic closure; it is not replaced by equality of cyclic orders.",
+        "Finite refined configuration complex and torsion-map identification: Hutchinson §§4,6,7 gives the finite spectral-sequence edge map, square-class refined RB→B and explicit β-cycle formulas. The parent V.4 provides ordinary configurations and infinite acyclicity, not this finite refined chain package. Refine the chain maps, their homotopies, Theorem4.3 finite exactness, and the identification of its kernel arrow with V.4’s monomial enhanced Tor. The full chain-level cyclic API is commented, not represented by a dummy condition, in the suggested file.",
+        "Rogers supplier and positive-presentation descent: The analytic interval Rogers package is requested from P.1. Suslin Lemma1.6 proves P′(R)/⟨6c′⟩≅P(R) by a three-case inverse; this presentation argument has been read on pp219–220 and specified here, but its auxiliary carrier and proof must be refined before implementation. The final detector and generator values are stated; the missing theorem is not encoded as a Prop-valued field.",
+        "Arithmetic N.8 reverse ownership and Gaussian w₂ certificate: The current N.8/k-groups-of-the-integers and N.8/gaussian-and-imaginary-quadratic refer to V.5 as supplier. Importing these exact nodes into V.5 would be circular, contrary to RT-AREA-ktheory-2/22. N.5 and N.7 independently supply the rational ambient group. The Gaussian r₂=1,w₂=24 certificate is requested from N.8 together with removal of the reverse dependency; its direct edge is proposed, not falsely claimed already acyclic."
+      ],
+      "note": "Every stage target is in targetCoverage and every prerequisite chain terminates at a baseline declaration, an existing supplier node, a precise request, or one of these gaps. This target-level pass is complete; no implementation is claimed."
+    }
+  ],
+  "gaps": [
+    {
+      "title": "Finite-group stable elements and periodic homology supplier",
+      "neededBy": [
+        "K3BlochGroups:V.5/localized-sl2-homology",
+        "K3BlochGroups:V.5/sl2-characteristic-exceptions",
+        "K3BlochGroups:V.5/cartan-homology-modulo-n"
+      ],
+      "detail": "Hutchinson §3 quotes Brown III.9–10 (homological stable elements via Sylow transfer) and Swan Theorems1–2 (cyclic/quaternion periods) and uses cyclic/elementary-abelian homology. None was found in the pinned libraries or as an exact atlas node. The source explicitly states the needed results, but its cited general proofs have not been read in this pass. A foundational owner must provide these results and cyclic subgroup inclusion maps; propose StableHomotopyKTheory PartII below. Do not misuse H.6’s K-spectrum coefficients as this theorem."
+    },
+    {
+      "title": "Algebraically closed unstable comparison and naturality refinement",
+      "neededBy": [
+        "K3BlochGroups:V.5/finite-stabilization-map",
+        "K3BlochGroups:V.5/finite-stabilization-equivalence"
+      ],
+      "detail": "V.2/k3-to-h3-sl-field already supplies the field specialization of the V.1 stable Hurewicz sequence, including E(F)=SL∞(F); it is now imported directly rather than requested again. Refine the naturality of its inverse and coefficient-localization comparison used in Hutchinson Cor3.9. That proof invokes Sah’s algebraically closed unstable-to-stable comparison (Homology of classical Lie groups made discrete III). Sah’s result was not read or matched to an exact supplier node and remains an input gap, together with the filtered-colimit passage to the algebraic closure; it is not replaced by equality of cyclic orders."
+    },
+    {
+      "title": "Finite refined configuration complex and torsion-map identification",
+      "neededBy": [
+        "K3BlochGroups:V.5/finite-cross-ratio-map",
+        "K3BlochGroups:V.5/finite-bloch-orders",
+        "K3BlochGroups:V.5/finite-enhanced-torsion-sequence"
+      ],
+      "detail": "Hutchinson §§4,6,7 gives the finite spectral-sequence edge map, square-class refined RB→B and explicit β-cycle formulas. The parent V.4 provides ordinary configurations and infinite acyclicity, not this finite refined chain package. Refine the chain maps, their homotopies, Theorem4.3 finite exactness, and the identification of its kernel arrow with V.4’s monomial enhanced Tor. The full chain-level cyclic API is commented, not represented by a dummy condition, in the suggested file."
+    },
+    {
+      "title": "Rogers supplier and positive-presentation descent",
+      "neededBy": [
+        "K3BlochGroups:V.5/real-rogers-detector",
+        "K3BlochGroups:V.5/universal-class-order-six"
+      ],
+      "detail": "The analytic interval Rogers package is requested from P.1. Suslin Lemma1.6 proves P′(R)/⟨6c′⟩≅P(R) by a three-case inverse; this presentation argument has been read on pp219–220 and specified here, but its auxiliary carrier and proof must be refined before implementation. The final detector and generator values are stated; the missing theorem is not encoded as a Prop-valued field."
+    },
+    {
+      "title": "Arithmetic N.8 reverse ownership and Gaussian w₂ certificate",
+      "neededBy": [
+        "K3BlochGroups:V.5/rational-decomposable-subgroup",
+        "K3BlochGroups:V.5/gaussian-decomposable-vanishing"
+      ],
+      "detail": "The current N.8/k-groups-of-the-integers and N.8/gaussian-and-imaginary-quadratic refer to V.5 as supplier. Importing these exact nodes into V.5 would be circular, contrary to RT-AREA-ktheory-2/22. N.5 and N.7 independently supply the rational ambient group. The Gaussian r₂=1,w₂=24 certificate is requested from N.8 together with removal of the reverse dependency; its direct edge is proposed, not falsely claimed already acyclic."
+    }
+  ],
+  "targetCoverage": [
+    {
+      "target": "Quillen K₃(Fq), all q; restriction, transfer and Frobenius",
+      "suppliedBy": [
+        "KTheoryFiniteLocalFields:L.1/quillen-k-groups",
+        "KTheoryFiniteLocalFields:L.1/finite-field-transfer-formulas"
+      ],
+      "refinements": [
+        "K3BlochGroups:V.5/finite-indecomposable-specialization",
+        "K3BlochGroups:V.5/transfer-on-indecomposables"
+      ]
+    },
+    {
+      "target": "K₃(Z), K₃(Q), decomposable image and quotient",
+      "suppliedBy": [
+        "ArithmeticKTheory:N.5/the-real-case-modulo-eight",
+        "ArithmeticKTheory:N.5/soule-theorem",
+        "ArithmeticKTheory:N.7/w-invariant"
+      ],
+      "refinements": [
+        "K3BlochGroups:V.5/rational-decomposable-subgroup"
+      ]
+    },
+    {
+      "target": "K₃(Q(i)), rank1 torsion24 and basis existence",
+      "suppliedBy": [
+        "ArithmeticKTheory:N.5/totally-imaginary-integral-structure"
+      ],
+      "refinements": [
+        "K3BlochGroups:V.5/gaussian-decomposable-vanishing"
+      ]
+    },
+    {
+      "target": "General number-field K₃ⁱⁿᵈ structure and sign image",
+      "suppliedBy": [
+        "K3BlochGroups:V.5/k3-number-field",
+        "K2SymbolsBrauer:T.2:symbols/milnor-number-field"
+      ],
+      "refinements": [
+        "K3BlochGroups:V.5/rational-decomposable-subgroup",
+        "K3BlochGroups:V.5/gaussian-decomposable-vanishing",
+        "K3BlochGroups:V.5/number-field-product-image"
+      ]
+    },
+    {
+      "target": "Finite Bloch orders, unstable comparison and HB.2 export",
+      "suppliedBy": [],
+      "refinements": [
+        "K3BlochGroups:V.5/finite-bloch-orders",
+        "K3BlochGroups:V.5/odd-coefficient-finite-comparison",
+        "K3BlochGroups:V.5/cartan-homology-modulo-n"
+      ]
+    },
+    {
+      "target": "Exact order of c over Q and R",
+      "suppliedBy": [],
+      "refinements": [
+        "K3BlochGroups:V.5/universal-class-order-six"
+      ]
+    }
+  ],
+  "restructure": [
+    {
+      "action": "rescope",
+      "roadmaps": [
+        "K3BlochGroups",
+        "ArithmeticKTheory"
+      ],
+      "detail": "Confirmed RT /21–22 assigns stable finite groups and arithmetic groups to L.1 and N.5/N.8. Existing N.8 nodes still reverse the latter ownership.",
+      "proposal": "V.5 imports stable K₃/transfer from L.1 and arithmetic groups from N.5/N.8. N.8 imports its ambient K₃ groups from N.5; remove its prerequisites on V.5. Keep V.5’s indecomposable applications and finite Bloch comparisons. Then add L.1→V.5,N.5→V.5,N.8→V.5 and V.5→HB.2; do not move any existing node in this job."
+    },
+    {
+      "action": "rescope",
+      "roadmaps": [
+        "Polylogarithms",
+        "K3BlochGroups"
+      ],
+      "detail": "The interval Rogers function is missing while its real Bloch application belongs to V.5.",
+      "proposal": "P.1 owns the interval Rogers analysis and exact functional identities requested here; V.5 owns the homomorphism on the Suslin presentation and the c-order-six application."
+    },
+    {
+      "action": "split",
+      "roadmaps": [
+        "StableHomotopyKTheory"
+      ],
+      "detail": "General finite-group periodic homology is not a consequence of H.6’s K-spectrum coefficient/completion scope.",
+      "proposal": "Propose StableHomotopyKTheory, PartII: finite-group periodic homology, built on Mathlib groupHomology and the existing classifying-space comparison. Own homological Sylow stable elements, cyclic and generalized quaternion periodic resolutions, automorphism action on H₃(Cm), subgroup inclusion maps, and elementary-abelian H₂/H₃. V.5 consumes these general results for SL₂; no new stage is asserted to exist yet."
+    }
+  ],
+  "links": [
+    {
+      "source": "KTheoryFiniteLocalFields:L.1",
+      "target": "K3BlochGroups:V.5",
+      "reason": "Direct import of i=2 stable computation, restriction and transfer."
+    },
+    {
+      "source": "ArithmeticKTheory:N.5",
+      "target": "K3BlochGroups:V.5",
+      "reason": "Ambient odd K₃ structure; V.5 tracks only the decomposable quotient."
+    },
+    {
+      "source": "ArithmeticKTheory:N.7",
+      "target": "K3BlochGroups:V.5",
+      "reason": "Independent rational value w₂(Q)=24."
+    },
+    {
+      "source": "K3BlochGroups:V.5",
+      "target": "HabiroNumberFields:HB.2",
+      "reason": "Finite Bloch homomorphism, odd-n comparison and actual nonsplit Cartan homology map needed by CGZ §§4.2–4.3. This export does not assume HB.2."
+    },
+    {
+      "source": "K2SymbolsBrauer:T.2:symbols",
+      "target": "K3BlochGroups:V.5",
+      "reason": "Exact Bass–Tate number-field signs theorem, imported by node id."
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "K3BlochGroups/E501",
+      "source": "CGZ",
+      "kind": "error",
+      "locator": "Published 2023 author copy, §4.2 p406, second paragraph; same assertion in arXiv1712.04887v3 §4.2.",
+      "printed": "H₃(SL₂(Fq), Z) is cyclic of order q² − 1.",
+      "correction": "The always-valid cyclic computation is H₃(SL₂(Fq),Z[1/ℓ])≅Z/(q²−1), with ℓ=char(Fq). Integral H₃ has an additional Z/ℓ for q=2,3,4,5,8,9,27. In the paper’s odd-prime scope q=3,5 already contradict the integral order. Its tensor comparison for n=pᵐ, p>2 and q≡−1 modn is unchanged, because p≠ℓ.",
+      "reason": "Hutchinson Cor3.6 gives the localized statement and Lemma3.14 computes the characteristic summand. At q=5, integral order is5·24=120, not24.",
+      "affects": "a stated result",
+      "known": "new: no correction found in the searched public sources; not a claim that no erratum exists.",
+      "searched": [
+        "arXiv1712.04887 submission history and current v3 (2021-04-06), checked2026-10-05",
+        "Garoufalidis publication page and linked printed 2023 PDF, checked2026-10-05",
+        "Calegari research page and web query for title + erratum + SL2 finite H3, checked2026-10-05"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently checked §4.2 p406 of the published author copy and §4.2 pp23–24 of arXiv v3. Hutchinson Cor3.6 and Lemma3.14 give the localized order and extra characteristic summand. The allowed case q=5,n=3 has integral order120, not24; the comparison modulo n still holds.",
+        "by": "REV-K3BlochGroups--V.5"
+      }
+    },
+    {
+      "id": "K3BlochGroups/E502",
+      "source": "CGZ",
+      "kind": "error",
+      "locator": "Published 2023 §4.2 p406, displayed C¹=H₃(C¹,Z) and following canonical-identification discussion.",
+      "printed": "C¹ = H₃(C¹; Z)",
+      "correction": "There is an abstract cyclic-group isomorphism after choosing a generator, not an identification natural for all automorphisms of C¹. Use the actual homology of the Cartan inclusion and specify the cyclic bar class separately. Also distinguish n-torsion from the quotient modulo n when labelling primitive-root classes.",
+      "reason": "For a cyclic group of order m the automorphism u↦uᵃ acts on H₃ by a², whereas it acts on C by a. Inversion acts identically on H₃ but as inversion on C, disproving such a natural identification when m>2. The cyclic subgroup inclusion Cn→Cm sends a bar generator to (m/n) times a generator; its quotient-mod-n image need not generate if n²|m.",
+      "affects": "a stated result",
+      "known": "new: no correction found in the searched versions; the chosen-generator formulation retains the Cartan mod-n theorem.",
+      "searched": [
+        "Published 2023 §4.2 and arXiv1712.04887v3 §4.2, checked2026-10-05",
+        "Garoufalidis and Calegari public research pages, checked2026-10-05",
+        "Hutchinson §6.4, explicit periodic-to-bar generator and chain map, checked2026-10-05"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently checked the published display and surrounding primitive-root discussion, also present in arXiv v3. On cyclic H₃ the automorphism exponent is squared, so inversion rules out an automorphism-natural identification with C¹. The inclusion Cn→Cm has multiplier m/n on H₃, which can vanish modulo n when n² divides m. The actual Cartan homology map remains valid; a chosen-generator abstract isomorphism is not disputed.",
+        "by": "REV-K3BlochGroups--V.5"
+      }
+    },
+    {
+      "id": "K3BlochGroups/E503",
+      "source": "Hutch",
+      "kind": "misprint",
+      "locator": "§3 proof of Corollary3.3, arXiv1107.0264v2 p12 (also institutional repository copy p12).",
+      "printed": "k ≡ 3 (mod 3)",
+      "correction": "Replace mod3 by mod4.",
+      "reason": "The displayed statement immediately above uses mod4 and the proof explicitly invokes quaternionic period4. In degree6 the printed mod3 clause would contradict the same proof’s vanishing in even degrees.",
+      "affects": "nothing",
+      "known": "new: no correction found in the public versions searched; published full text was not accessible, so this finding is scoped to the two public preprint/author copies.",
+      "searched": [
+        "arXiv1107.0264 submission history: v2 is the latest listed version; checked2026-10-05",
+        "Cambridge journal DOI page and title + erratum/corrigendum query; no correction found, checked2026-10-05",
+        "Author institutional repository copy https://researchrepository.ucd.ie/rest/bitstreams/18229/retrieve: the same wording remains, checked2026-10-05"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The displayed statement immediately above uses mod4 and the proof explicitly invokes quaternionic period4. In degree6 the printed mod3 clause would contradict the same proof’s vanishing in even degrees.",
+        "by": "REV-K3BlochGroups--V.5"
+      }
+    },
+    {
+      "id": "K3BlochGroups/E504",
+      "source": "Hutch",
+      "kind": "misprint",
+      "locator": "§3 proof of Corollary3.13, arXiv1107.0264v2 p17 (also institutional repository copy p17).",
+      "printed": "if and only if 1 is not an eigenvalue of φ",
+      "correction": "Delete not: a nonzero fixed vector exists exactly when1 is an eigenvalue.",
+      "reason": "A fixed vector lies in ker(φ−id), which is nonzero exactly when1 is an eigenvalue. The subsequent argument excludes eigenvalue1, so φ−id is invertible and the coinvariants vanish as intended.",
+      "affects": "nothing",
+      "known": "new: no correction found in the public versions searched; published full text was not accessible, so this finding is scoped to the two public preprint/author copies.",
+      "searched": [
+        "arXiv1107.0264 submission history: v2 is the latest listed version; checked2026-10-05",
+        "Cambridge journal DOI page and title + erratum/corrigendum query; no correction found, checked2026-10-05",
+        "Author institutional repository copy https://researchrepository.ucd.ie/rest/bitstreams/18229/retrieve: the same wording remains, checked2026-10-05"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "A fixed vector lies in ker(φ−id), which is nonzero exactly when1 is an eigenvalue. The subsequent argument excludes eigenvalue1, so φ−id is invertible and the coinvariants vanish as intended.",
+        "by": "REV-K3BlochGroups--V.5"
+      }
+    },
+    {
+      "id": "K3BlochGroups/E505",
+      "source": "Hutch",
+      "kind": "misprint",
+      "locator": "Institutional repository author copy, proof of Lemma3.14 p18; compare arXiv1107.0264v2 p18.",
+      "printed": "By Corollary 7.5",
+      "correction": "The intended reference is Corollary3.13.",
+      "reason": "The step uses the tensor/exterior-power coinvariant vanishing bound, which is precisely Corollary3.13. Corollary7.5 is instead the finite K₃–Bloch exact sequence. The arXiv v2 passage explicitly cites Corollary3.13.",
+      "affects": "nothing",
+      "known": "Corrected in arXiv1107.0264v2 p18; this finding is only against the institutional repository author copy.",
+      "searched": [
+        "Compared the institutional repository proof of Lemma3.14 with arXiv1107.0264v2 on2026-10-05."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The two public copies differ at this reference; v2 supplies the correct Corollary3.13 reference. No mathematical statement needs changing.",
+        "by": "REV-K3BlochGroups--V.5"
+      }
+    }
+  ],
+  "parentReferences": [
+    {
+      "id": "K3BlochGroups:V.5/k3-finite-field",
+      "role": "Replace local ownership by exact L.1 import."
+    },
+    {
+      "id": "K3BlochGroups:V.5/finite-field-transfer",
+      "role": "Transport supplier formulas, do not reprove them."
+    },
+    {
+      "id": "K3BlochGroups:V.5/bloch-group-finite-field",
+      "role": "Retain small-presentation cases; supply finite proof rather than infinite Suslin."
+    },
+    {
+      "id": "K3BlochGroups:V.5/finite-field-bloch-comparison",
+      "role": "Refine missing natural maps and coefficient hypotheses."
+    },
+    {
+      "id": "K3BlochGroups:V.5/bloch-finite-field-mod-n",
+      "role": "Provide the actual map and kernel-order argument."
+    },
+    {
+      "id": "K3BlochGroups:V.5/nonsplit-cartan-mod-n",
+      "role": "Specify actual Cartan embedding and induced homology."
+    },
+    {
+      "id": "K3BlochGroups:V.5/k3-Q-splitting",
+      "role": "Resolve indecomposable quotient and order-six detector."
+    },
+    {
+      "id": "K3BlochGroups:V.5/element-c-order-six",
+      "role": "Resolve source and normalization; exact P.1 request."
+    },
+    {
+      "id": "K3BlochGroups:V.5/k3-number-field",
+      "role": "Retain the general theorem without re-planning."
+    },
+    {
+      "id": "K3BlochGroups:V.5/k3-gaussian",
+      "role": "N.5/N.8 owns ambient group; keep vanishing-Milnor application."
+    }
+  ],
+  "sourceVersions": [
+    {
+      "kind": "published",
+      "url": "https://people.mpim-bonn.mpg.de/stavros/publications/printed/calegari_unit.pdf",
+      "citation": "Calegari–Garoufalidis–Zagier, Ann. Sci. ENS 56 (2023), 383–426; author-hosted printed version of record",
+      "read": "2026-10-05",
+      "sha256": "13d38474d6b7b6e3fc946d50cc2764094c3a25a194d873c17d9cd334c25600cf"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1712.04887v3",
+      "citation": "arXiv1712.04887v3, 6 April2021",
+      "read": "2026-10-05",
+      "sha256": "024317c20a1d8b66234e608af46941093a675b6399ef480dfedd52a31dcd7bf5"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1107.0264v2",
+      "citation": "Hutchinson, arXiv1107.0264v2; locators refer to this version",
+      "read": "2026-10-05",
+      "sha256": "057ce8a6ae5548fd9f6279514adfa3afa5a6554ad1e58f9ca34bb4c62df52e94"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://researchrepository.ucd.ie/rest/bitstreams/18229/retrieve",
+      "citation": "Hutchinson institutional repository copy, 39pages, independently checked proofs of Corollaries3.3 and3.13 and the opening of Lemma3.14.",
+      "read": "2026-10-05",
+      "sha256": "fc235e293f4224fde0f5c816850da558362d50d79fc32c134ad5a9322d3dc2df"
+    },
+    {
+      "kind": "published",
+      "url": "https://doi.org/10.1017/IS013003031JKT13222",
+      "citation": "Journal of K-Theory12(1)(2013),15–68; journal metadata and abstract read only. Full text was not accessible; no claim that the two preprint misprints persist in print.",
+      "read": "2026-10-05"
+    }
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-K3BlochGroups--V.5",
+    "date": "2026-10-05",
+    "notes": "Independent target-level review of all18 nodes, every excerpt and locator, all10 pinned Mathlib declarations, the Tau Ceti pin, exact cross-roadmap supplier statements, reviewed library audit, reader and red-team findings13/19/21/22. Corrected17 hypothesis lists, direct prerequisite omissions, Hutchinson bibliographic metadata and one overbroad gap; added one stabilization compatibility API and its Lean signature. Confirmed E501/E502 and recorded three public-copy misprints E503–E505, one already corrected in arXiv v2. No nodes added or removed. Complete pass and planned coverage are honest with five explicit gaps and three requests; no closure or formalization claim. check_blueprint: zero errors/warnings. lean-check at the pinned Mathlib: success, only admitted-proof warnings. Reader differences and supplier follow-ups are recorded in the review report.",
+    "checked": [
+      {
+        "nodeId": "K3BlochGroups:V.5/finite-indecomposable-specialization",
+        "verdict": "corrected",
+        "note": "III.7.2(a) and IV.1.13 checked, including q=2,3. Added the exact T.2 finite K₂ and Matsumoto edges to repair the parent proof’s coarse T.5 attribution; clarified the field hypothesis."
+      },
+      {
+        "nodeId": "K3BlochGroups:V.5/transfer-on-indecomposables",
+        "verdict": "corrected",
+        "note": "IV.1.13 and both L.1 supplier statements checked. The i=2 maps transport through the natural quotient; res–transfer composites and Frobenius exponent agree. Replaced the construction command in hypotheses by extension data."
+      },
+      {
+        "nodeId": "K3BlochGroups:V.5/localized-sl2-homology",
+        "verdict": "corrected",
+        "note": "Hutchinson Cor3.6–3.7 and Lemma3.8 checked: localization, inclusion direction and GL₂ action agree. Clarified characteristic and the subgroup hypothesis. Brown/Swan periodic and stable-elements inputs remain an explicit gap."
+      },
+      {
+        "nodeId": "K3BlochGroups:V.5/sl2-characteristic-exceptions",
+        "verdict": "corrected",
+        "note": "Hutchinson Lemma3.14 checked against all seven degree-three pairs. Coprime primary factors give the asserted abstract cyclic group. Separated the finite-field hypothesis from the conclusion."
+      },
+      {
+        "nodeId": "K3BlochGroups:V.5/finite-stabilization-map",
+        "verdict": "corrected",
+        "note": "Cor3.9’s actual natural composite checked. Added V.2/k3-to-h3-sl-field as the existing field bridge; narrowed the gap and added a Hurewicz compatibility API/signature to fix normalization. Explicit finite-field hypothesis. Added the actual entrywise SL₂ field-map prerequisite for naturality."
+      },
+      {
+        "nodeId": "K3BlochGroups:V.5/finite-stabilization-equivalence",
+        "verdict": "corrected",
+        "note": "Cor3.9 checked: the injection square precedes equality of orders and includes q=2,3. Explicit finite-field hypothesis; Sah and the filtered-colimit passage remain recorded inputs."
+      },
+      {
+        "nodeId": "K3BlochGroups:V.5/finite-cross-ratio-map",
+        "verdict": "corrected",
+        "note": "Theorem4.3, §§6.3–6.4 and Lemma7.1 checked. Finite refined chains supplement the infinite parent construction. Made q≥4 and the exact Suslin convention explicit; the cyclic-bar signature is honestly deferred in the chain gap. Added the actual entrywise SL₂ field-map prerequisite for naturality."
+      },
+      {
+        "nodeId": "K3BlochGroups:V.5/finite-bloch-orders",
+        "verdict": "corrected",
+        "note": "Lemma7.4 and its preceding small-field paragraph checked. Odd/even orders and the separate F₂=0,F₃≈Z assertions use the antisymmetric convention. Explicit domains for the main formula and small cases."
+      },
+      {
+        "nodeId": "K3BlochGroups:V.5/finite-k3-bloch-map",
+        "verdict": "corrected",
+        "note": "Cor7.5 checked and factorization through localization is valid because the Bloch order is prime to the characteristic. Specified q≥4 and the actual maps in hypotheses; the triangle and all three kernel tests agree."
+      },
+      {
+        "nodeId": "K3BlochGroups:V.5/finite-enhanced-torsion-sequence",
+        "verdict": "corrected",
+        "note": "Cor7.5 checked in its ambient q≥4 scope. Kernel orders match μ and enhanced Tor; finite identification of the monomial arrow stays in the refined-chain gap. Explicit finite-field and supplier hypotheses."
+      },
+      {
+        "nodeId": "K3BlochGroups:V.5/odd-coefficient-finite-comparison",
+        "verdict": "corrected",
+        "note": "CGZ §4.2/Lemma4.4, Hutchinson Cor7.5 and the κ supplier checked. Oddness and gcd(n,q−1)=1 make multiplication by n invertible on the kernel. Tensor quotient convention and field hypothesis explicit; q=7,n=3 is a genuine counterexample without the gcd condition."
+      },
+      {
+        "nodeId": "K3BlochGroups:V.5/norm-one-cartan-embedding",
+        "verdict": "corrected",
+        "note": "Hutchinson p13 and CGZ p406 checked. Mathlib norm is the multiplication determinant and toMatrix uses the correct basis direction. Explicit basis and quadratic field hypotheses; identity, minus identity and trace tests cover normalization."
+      },
+      {
+        "nodeId": "K3BlochGroups:V.5/cartan-homology-modulo-n",
+        "verdict": "corrected",
+        "note": "CGZ comparison checked with source errors corrected. Added direct edges for stabilization, b, κ and the tensor map; explicit quadratic extension and basis. The quotient comparison is basis independent and is not a primitive-root identification."
+      },
+      {
+        "nodeId": "K3BlochGroups:V.5/number-field-product-image",
+        "verdict": "verified",
+        "note": "III.7.2(c)–(d), exact T.2:symbols Bass–Tate statement, Matsumoto and V.2 comparison read. Total-sign surjectivity supplies d so {−1,−1,d} has each prescribed degree-three sign. No new sign theory or product assumption introduced."
+      },
+      {
+        "nodeId": "K3BlochGroups:V.5/rational-decomposable-subgroup",
+        "verdict": "corrected",
+        "note": "VI.2.1.2 and VI.5.3 checked. N.5/N.7 supply the ambient Z/48; T.2 and V.2 identify its order-two image and nonsplit quotient Z/24. Explicit field and supplier hypotheses; no circular N.8 prerequisite."
+      },
+      {
+        "nodeId": "K3BlochGroups:V.5/gaussian-decomposable-vanishing",
+        "verdict": "corrected",
+        "note": "VI.2.1.2 and VI.5.3 checked. No real places implies Milnor3=0; N.5 supplies rank/torsion structure with the Gaussian w₂ certificate still requested from N.8. Replaced the claimed conclusion in hypotheses by field and supplier data."
+      },
+      {
+        "nodeId": "K3BlochGroups:V.5/real-rogers-detector",
+        "verdict": "corrected",
+        "note": "Suslin pp219–220 visually read, Zagier pp23–24 checked. The shift and positive-presentation kernel give periodπ² and all three generator values. Added the exact V.3/three-c-angle-minus-one edge and precise supplier normalization hypotheses."
+      },
+      {
+        "nodeId": "K3BlochGroups:V.5/universal-class-order-six",
+        "verdict": "corrected",
+        "note": "Suslin Proposition1.1 and VI.5.2.1 checked. Added V.3/three-c-angle-minus-one for6c=0, while the real detector provides the exact lower bound. Specified the fields and class rather than assuming its order; enhanced Tor overQ has order4."
+      }
+    ]
+  }
+}
