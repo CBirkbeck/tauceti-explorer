@@ -417,6 +417,17 @@
     "data/blueprints/DirichletPadicLFunctions--L0.md"
    ]
   },
+  "research/blueprint/packets/DirichletPadicLFunctions--L3.json": {
+   "promotedAt": "2026-10-05T08:08:52Z",
+   "review": "4e197bcf272c4b0a",
+   "reviewDate": "2026-10-05",
+   "reviewer": "independent-review-REV-DirichletPadicLFunctions--L3",
+   "sha256": "cb8a1d6a2c20916dfa0be7ae756d737062011005e2b59166bb789615b7d58876",
+   "to": [
+    "data/blueprints/DirichletPadicLFunctions--L3.json",
+    "data/blueprints/DirichletPadicLFunctions--L3.md"
+   ]
+  },
   "research/blueprint/packets/DirichletPadicLFunctions--L4.json": {
    "promotedAt": "2026-10-05T01:02:34Z",
    "review": "eb0b7ea9569e016e",

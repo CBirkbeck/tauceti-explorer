@@ -78,7 +78,7 @@
    "tauceti:Completed/IntegralLattices": 0.0,
    "tauceti:Completed/OrthogonalL2Bases": 0.0
   },
-  "declarationsVsDistance": -0.15
+  "declarationsVsDistance": -0.151
  },
  "roadmaps": {
   "AInfCohomology": {
@@ -1934,12 +1934,12 @@
     "declarationLevel": {
      "source": "blueprint",
      "reviewed": true,
-     "declarations": 272,
-     "missingDeclarations": 272,
-     "depth": 20,
-     "layersCovered": 2,
+     "declarations": 1935,
+     "missingDeclarations": 1935,
+     "depth": 42,
+     "layersCovered": 3,
      "layers": 5,
-     "sourcePages": 9
+     "sourcePages": 82
     }
    },
    "measurement": 3.76,
