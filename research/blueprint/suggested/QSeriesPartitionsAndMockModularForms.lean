@@ -1020,8 +1020,9 @@ integers; its weight is `(1/2) ∑ r_δ`. -/
 def etaQuotient (r : ℕ →₀ ℤ) (τ : ℂ) : ℂ :=
   ∏ δ ∈ r.support, η ((δ : ℂ) * τ) ^ (r δ)
 
-/-- `η_{r+s} = η_r η_s` on the upper half-plane. -/
-theorem etaQuotient_add (r s : ℕ →₀ ℤ) (τ : ℍ) :
+/-- `η_{r+s} = η_r η_s` on the upper half-plane, for positive support. -/
+theorem etaQuotient_add (r s : ℕ →₀ ℤ)
+    (hr : ∀ δ ∈ r.support, 0 < δ) (hs : ∀ δ ∈ s.support, 0 < δ) (τ : ℍ) :
     etaQuotient (r + s) τ = etaQuotient r τ * etaQuotient s τ := sorry
 
 /-- `η_{single δ n}(τ) = η(δτ)^n`. -/
@@ -1356,8 +1357,9 @@ theorem jacobiEllipticSlash_add (m : ℚ) (hm : ∃ n : ℤ, 2 * m = n) (l μ l'
 theorem jacobiEllipticSlash_zero (m : ℚ) (φ : ℍ → ℂ → ℂ) : jacobiEllipticSlash m 0 0 φ = φ := sorry
 
 /-- The Jacobi-group law (Eichler–Zagier Theorem 1.4): `(φ|_m X)|_{k,m} γ = (φ|_{k,m} γ)|_m (Xγ)`,
-`X = (l, μ)` a row vector. -/
-theorem jacobiModularSlash_jacobiEllipticSlash (k m : ℚ) (γ : SL(2, ℤ)) (l μ : ℤ)
+`X = (l, μ)` a row vector; the index must be integral. -/
+theorem jacobiModularSlash_jacobiEllipticSlash (k m : ℚ) (hm : ∃ n : ℤ, m = n)
+    (γ : SL(2, ℤ)) (l μ : ℤ)
     (φ : ℍ → ℂ → ℂ) :
     jacobiModularSlash k m γ (jacobiEllipticSlash m l μ φ) =
       jacobiEllipticSlash m (l * γ 0 0 + μ * γ 1 0) (l * γ 0 1 + μ * γ 1 1)
@@ -1612,7 +1614,7 @@ theorem jacobiThetaIndex_S (m : ℕ) (hm : 0 < m) (μ : ℤ) (τ : ℍ) (z : ℂ
 /-- The `ϑ_{m,μ}(τ, ·)`, `0 ≤ μ < 2m`, are linearly independent over functions of `τ`. -/
 theorem jacobiThetaIndex_linearIndependent (m : ℕ) (hm : 0 < m) (τ : ℍ) (h : ℤ → ℂ)
     (hsum : ∀ z, ∑ μ ∈ Finset.range (2 * m), h μ * jacobiThetaIndex m μ τ z = 0) :
-    ∀ μ < 2 * m, h μ = 0 := sorry
+    ∀ μ : ℕ, μ < 2 * m → h μ = 0 := sorry
 
 /-- Unit test `jacobiThetaIndex.test_theta`: `ϑ_{1,0}(τ, 0) = ∑ q^{n²} = jacobiTheta(2τ)`. -/
 example (τ : ℍ) : jacobiThetaIndex 1 0 τ 0 = jacobiTheta (2 * (τ : ℂ)) := sorry
@@ -1633,6 +1635,7 @@ def thetaDecompositionCoeff (m : ℕ) (φ : ℍ → ℂ → ℂ) (μ : ℤ) (τ 
 
 /-- `h_{μ+2m} = h_μ` under the elliptic law. -/
 theorem thetaDecompositionCoeff_add (m : ℕ) (hm : 0 < m) {φ : ℍ → ℂ → ℂ}
+    (hφ : ∀ τ, Differentiable ℂ (φ τ))
     (hE : ∀ l μ : ℤ, jacobiEllipticSlash m l μ φ = φ) (μ : ℤ) :
     thetaDecompositionCoeff m φ (μ + 2 * m) = thetaDecompositionCoeff m φ μ := sorry
 
@@ -3189,6 +3192,10 @@ def cuspMatrix (Γ : Subgroup (GL (Fin 2) ℝ)) (c : CuspOrbits Γ) : SL(2, ℤ)
 def cuspWidth (Γ : Subgroup (GL (Fin 2) ℝ)) (c : CuspOrbits Γ) : ℝ :=
   (ConjAct.toConjAct (mapGL (R := ℤ) ℝ (cuspMatrix Γ c))⁻¹ • Γ).strictWidthInfty
 
+/-- The geometric cusp width; at an irregular cusp this is half `cuspWidth`. -/
+def cuspOrbitWidth (Γ : Subgroup (GL (Fin 2) ℝ)) (c : CuspOrbits Γ) : ℝ :=
+  (ConjAct.toConjAct (mapGL (R := ℤ) ℝ (cuspMatrix Γ c))⁻¹ • Γ).widthInfty
+
 /-! ### The Bruinier–Funke pairing (QM.3/bruinier-funke-pairing and following) -/
 
 variable {Γ : Subgroup (GL (Fin 2) ℝ)} {k : ℤ}
@@ -3219,7 +3226,7 @@ theorem bruinierFunkePairing_eq_peterssonInnerCosets (Γ₁ : Subgroup SL(2, ℤ
       peterssonInnerCosetsLocal Γ₁ (2 - k) h g := sorry
 
 /-- QM.3/bruinier-funke-pairing-formula (Bruinier–Funke Prop. 3.5): `{g, f}` depends only on the
-principal parts, `{g, f} = Σ_c h_c Σ_{n ≤ 0} a⁺_c(n) b_c(-n)`, written as a sum over the cosets
+principal parts, `{g, f} = Σ_c w_c Σ_{n ≤ 0} a⁺_c(n) b_c(-n)`, written as a sum over the cosets
 with the common period `P = commonWidth Γ`. -/
 theorem bruinierFunkePairing_eq_sum [Γ.IsArithmetic] [Γ.HasDetOne] (hΓ : Γ ≤ 𝒮ℒ) (hk : k ≠ 1)
     (g : ModularForm Γ (2 - k)) {f : HarmonicMaassForm Γ k}
@@ -3228,13 +3235,13 @@ theorem bruinierFunkePairing_eq_sum [Γ.IsArithmetic] [Γ.HasDetOne] (hΓ : Γ �
       holoCoeffAt (commonWidth Γ) (⇑f ∣[k] q.out⁻¹) (-n) *
         holoCoeffAt (commonWidth Γ) (⇑g ∣[2 - k] q.out⁻¹) n := sorry
 
-/-- `{g, f}′ = Σ_c h_c Σ_{n < 0} a⁺_c(n) b_c(-n)` (Bruinier–Funke (3.15)). -/
+/-- `{g, f}′ = Σ_c w_c Σ_{n < 0} a⁺_c(n) b_c(-n)` (Bruinier–Funke (3.15)). -/
 def bruinierFunkePairing' (g : ModularForm Γ (2 - k)) (f : HarmonicMaassForm Γ k) : ℂ :=
   ∑ᶠ q : CosetsPM Γ, ∑' n : ℕ,
     holoCoeffAt (commonWidth Γ) (⇑f ∣[k] q.out⁻¹) (-(n + 1 : ℕ)) *
       holoCoeffAt (commonWidth Γ) (⇑g ∣[2 - k] q.out⁻¹) (n + 1 : ℕ)
 
-/-- The constant-term pairing `Σ_c h_c a_c(0) b_c(0)`. -/
+/-- The constant-term pairing `Σ_c w_c a_c(0) b_c(0)`. -/
 def constantTermPairing (Γ : Subgroup (GL (Fin 2) ℝ)) (k : ℤ) (g f : ℍ → ℂ) : ℂ :=
   ∑ᶠ q : CosetsPM Γ, holoCoeffAt (commonWidth Γ) (f ∣[k] q.out⁻¹) 0 *
     holoCoeffAt (commonWidth Γ) (g ∣[2 - k] q.out⁻¹) 0
@@ -3316,18 +3323,32 @@ example [Γ.IsArithmetic] [Γ.HasDetOne] (hk : 3 ≤ k) :
 
 /-! ### Principal parts and the residue pairing (QM.3/principal-part-residue-pairing) -/
 
-/-- `Sing(Γ) = ⊕_c ℂ[q_c⁻¹]`: families of Laurent polynomials with non-positive exponents, one per
-cusp orbit. -/
-def PrincipalPartSpace (Γ : Subgroup (GL (Fin 2) ℝ)) : Submodule ℂ (CuspOrbits Γ → LaurentPolynomial ℂ) where
-  carrier := {P | ∀ c (n : ℤ), 0 < n → (P c).coeff n = 0}
+/-- The finite Fourier polynomial of a Laurent-polynomial family at a cusp. -/
+def principalPartFunction (Γ : Subgroup (GL (Fin 2) ℝ))
+    (P : CuspOrbits Γ → LaurentPolynomial ℂ) (c : CuspOrbits Γ) : ℍ → ℂ :=
+  fun τ ↦ ∑ᶠ n : ℤ, (P c).coeff n * fourierMode n (cuspWidth Γ c) τ
+
+/-- The full cusp stabilizer law, including central and irregular-cusp restrictions. -/
+def IsCompatiblePrincipalPart (Γ : Subgroup (GL (Fin 2) ℝ)) (k : ℤ)
+    (P : CuspOrbits Γ → LaurentPolynomial ℂ) : Prop :=
+  ∀ c, ∀ γ : GL (Fin 2) ℝ,
+    γ ∈ (ConjAct.toConjAct (mapGL (R := ℤ) ℝ (cuspMatrix Γ c))⁻¹ • Γ) →
+    γ • (∞ : _root_.OnePoint ℝ) = ∞ →
+      principalPartFunction Γ P c ∣[k] γ = principalPartFunction Γ P c
+
+/-- `Sing_k(Γ)`: non-positive Laurent families satisfying the weight-k cusp stabilizer law. -/
+def PrincipalPartSpace (Γ : Subgroup (GL (Fin 2) ℝ)) (k : ℤ) :
+    Submodule ℂ (CuspOrbits Γ → LaurentPolynomial ℂ) where
+  carrier := {P | (∀ c (n : ℤ), 0 < n → (P c).coeff n = 0) ∧
+    IsCompatiblePrincipalPart Γ k P}
   add_mem' := sorry
   zero_mem' := sorry
   smul_mem' := sorry
 
-/-- The residue pairing `⟨F, P⟩ = Σ_c h_c Σ_{n ≥ 0} F_c(n) P_c(-n)` (Borcherds, GKZ §3). -/
+/-- The residue pairing `⟨F, P⟩ = Σ_c w_c Σ_{n ≥ 0} F_c(n) P_c(-n)` (Borcherds, GKZ §3). -/
 def residuePairing (Γ : Subgroup (GL (Fin 2) ℝ)) (F : CuspOrbits Γ → PowerSeries ℂ)
     (P : CuspOrbits Γ → LaurentPolynomial ℂ) : ℂ :=
-  ∑ᶠ c : CuspOrbits Γ, (cuspWidth Γ c : ℂ) *
+  ∑ᶠ c : CuspOrbits Γ, (cuspOrbitWidth Γ c : ℂ) *
     ∑' n : ℕ, PowerSeries.coeff n (F c) * (P c).coeff (-n)
 
 /-- The expansions at the cusps of a holomorphic function, `c ↦ Σ_{n ≥ 0} b_c(n) q_cⁿ`. -/
@@ -3354,7 +3375,7 @@ theorem residuePairing_principalPartMap_eq_zero [Γ.IsArithmetic] [Γ.HasDetOne]
 /-- QM.3/borcherds-obstruction-theorem (Borcherds, GKZ Thm 3.1, scalar case): a principal part is
 realised by some `f ∈ M^!_k(Γ)` iff it is orthogonal to `λ(M_{2-k}(Γ))`. -/
 theorem exists_weaklyHolomorphic_principalPart_iff [Γ.IsArithmetic] [Γ.HasDetOne] (hΓ : Γ ≤ 𝒮ℒ)
-    (P : CuspOrbits Γ → LaurentPolynomial ℂ) (hP : P ∈ PrincipalPartSpace Γ) :
+    (P : CuspOrbits Γ → LaurentPolynomial ℂ) (hP : P ∈ PrincipalPartSpace Γ k) :
     (∃ f : WeaklyHolomorphicModularForm Γ k, principalPartMap Γ k f = P) ↔
       ∀ g : ModularForm Γ (2 - k), residuePairing Γ (powerSeriesMap Γ (2 - k) g) P = 0 := sorry
 
@@ -3421,7 +3442,7 @@ theorem bruinierFunkePairing_nondegenerate [Γ.IsArithmetic] [Γ.HasDetOne] (hΓ
 
 /-- QM.3/bruinier-funke-duality-negative (Bruinier–Funke Cor. 3.9). -/
 theorem bruinierFunkePairing'_nondegenerate [Γ.IsArithmetic] [Γ.HasDetOne] (hΓ : Γ ≤ 𝒮ℒ)
-    (hk : k ≠ 1) :
+    (hk : k ≠ 1) (hk2 : k ≠ 2) :
     (∀ g : ModularForm Γ (2 - k),
       (∀ f ∈ HarmonicMaassForm.plusSpace hk, bruinierFunkePairing' g f = 0) → g = 0) ∧
     ∀ f ∈ HarmonicMaassForm.plusSpace hk,
@@ -3431,7 +3452,8 @@ theorem bruinierFunkePairing'_nondegenerate [Γ.IsArithmetic] [Γ.HasDetOne] (h�
 /-- QM.3/harmonic-maass-form-prescribed-principal-parts (Bruinier–Funke Prop. 3.11, all cusps). -/
 theorem HarmonicMaassForm.exists_principalPart [Γ.IsArithmetic] [Γ.HasDetOne] (hΓ : Γ ≤ 𝒮ℒ)
     (hk : k ≠ 1) (Q : CuspOrbits Γ → LaurentPolynomial ℂ)
-    (hQ : ∀ c (n : ℤ), 0 ≤ n → (Q c).coeff n = 0) :
+    (hQ : ∀ c (n : ℤ), 0 ≤ n → (Q c).coeff n = 0)
+    (hcompat : IsCompatiblePrincipalPart Γ k Q) :
     ∃ f ∈ HarmonicMaassForm.plusSpace (Γ := Γ) hk, ∀ c, ∀ n : ℤ, n < 0 →
       holoCoeffAt (cuspWidth Γ c) (⇑f ∣[k] cuspMatrix Γ c) n = (Q c).coeff n := sorry
 
@@ -3541,7 +3563,7 @@ gamma function. -/
 def maassPoincareSeed (m : ℕ) (k : ℤ) (τ : ℍ) : ℂ :=
   (regularizedGammaLocal (k - 1) (4 * π * m * τ.im) : ℂ) * fourierMode (-m) 1 τ
 
-theorem maassPoincareSeed_eq (m : ℕ) (k : ℤ) (hk : 2 ≤ k) (τ : ℍ) :
+theorem maassPoincareSeed_eq (m : ℕ) (hm : 0 < m) (k : ℤ) (hk : 2 ≤ k) (τ : ℍ) :
     maassPoincareSeed m k τ = fourierMode (-m) 1 τ -
       (upperIncompleteGamma (k - 1) (4 * π * m * τ.im) : ℂ) * fourierMode (-m) 1 τ /
         ((k - 2).toNat.factorial : ℂ) := sorry
@@ -4574,15 +4596,19 @@ example (m : ℕ) (hm : 1 ≤ m) (l : ℤ) (u : ℂ) {τ : ℂ} (hτ : 0 < τ.im
         ∑' n : ℤ, Real.exp (-π * τ.im * ((2 * m * n + l : ℤ) + 2 * m * u.im / τ.im) ^ 2 / (2 * m)) :=
   sorry
 
-/-- Unit test `levelR_not_holomorphic_test`: `e^{-2πimα²τ} R_{m,l}(ατ + β; τ)` is not holomorphic. -/
-example (m : ℕ) (hm : 1 ≤ m) (l : ℤ) (α β : ℝ) :
-    ∃ τ : ℂ, 0 < τ.im ∧
-      ¬ DifferentiableAt ℂ (fun τ ↦ cexp (-2 * π * I * m * α ^ 2 * τ) * levelR m l (α * τ + β) τ) τ :=
-  sorry
+/-- Unit test `levelR_not_holomorphic_test`: a specific nonzero shadow. The former universal
+claim fails for `l = 0, α = β = 0`, where pairing opposite indices gives the constant `1`. -/
+example : ∃ τ : ℂ, 0 < τ.im ∧
+    ¬ DifferentiableAt ℂ (fun τ ↦ levelR 1 1 (1 / 4) τ) τ := sorry
 
-/-- `f̃_u = f_u - ½ Σ_{l mod 2m} R_{m,l}(u; τ) ϑ_{m,l}(z; τ)` (Zwegers Def. 3.4). -/
+open Classical in
+/-- `f̃_u = f_u - ½ Σ_{l mod 2m} R_{m,l}(u; τ) ϑ_{m,l}(z; τ)` (Zwegers Def. 3.4).
+Totalise the meromorphic expression by `0` on the invariant pole set, so the global
+elliptic/modular predicates use the same convention as the packet. -/
 def completedAppell (m : ℕ) (u z τ : ℂ) : ℂ :=
-  levelAppell m u z τ - (1 / 2) * ∑ l ∈ Finset.range (2 * m), levelR m l u τ * thetaIndexLocal m l z τ
+  if NotInLattice (z - u) τ then
+    levelAppell m u z τ - (1 / 2) * ∑ l ∈ Finset.range (2 * m), levelR m l u τ * thetaIndexLocal m l z τ
+  else 0
 
 theorem completedAppell_add_one_left (m : ℕ) (u z τ : ℂ) :
     completedAppell m (u + 1) z τ = completedAppell m u z τ := sorry
@@ -4606,7 +4632,8 @@ example (m : ℕ) (hm : 1 ≤ m) {τ : ℂ} (hτ : 0 < τ.im) :
 /-- Unit test `completedAppell_indefinite_theta_test`: `f̃_u(z; τ) = ½ϑ^{c₁,c₂}((z - u, 2mu); τ)` for
 `A = (2m 1; 1 0)`, `c₁ = (0, 1)`, `c₂ = (-1, 2m)` (Zwegers Prop. 3.5(3)). -/
 example (m : ℕ) (hm : 1 ≤ m) (F : ZwegersForm 2) (hA : F.A = !![2 * (m : ℤ), 1; 1, 0])
-    (hc : F.c₀ = ![-1, 2 * (m : ℝ)]) (u z : ℂ) {τ : ℂ} (hτ : 0 < τ.im) (hzu : NotInLattice (z - u) τ) :
+    (hc : F.c₀ = ![-1, 2 * (m : ℝ)]) (u z : ℂ) {τ : ℂ} (hτ : 0 < τ.im)
+    (hzu : NotInLattice (z - u) τ) (hadm : ∀ j : ℤ, (z - u).im / τ.im ≠ j) :
     completedAppell m u z τ = (1 / 2) * F.indefiniteTheta ![0, 1] ![-1, 2 * (m : ℝ)] ![z - u, 2 * (m : ℂ) * u] τ :=
   sorry
 
@@ -4724,9 +4751,9 @@ example (b : ℝ) {τ : ℂ} (hτ : 0 < τ.im) :
       ((Real.sign (n : ℝ) * zwegersBeta (2 * (n : ℝ) ^ 2 * τ.im) : ℝ) : ℂ) *
         cexp (-π * I * ((n : ℝ) : ℂ) ^ 2 * τ - 2 * π * I * ((n : ℝ) : ℂ) * b) := sorry
 
-/-- Unit test `unaryR_not_holomorphic_test`: `R_{a,b}` is not holomorphic for `a ∉ ℤ`. -/
-example {a : ℝ} (ha : ∀ n : ℤ, a ≠ n) (b : ℝ) :
-    ∃ τ : ℂ, 0 < τ.im ∧ ¬ DifferentiableAt ℂ (unaryR a b) τ := sorry
+/-- Unit test `unaryR_not_holomorphic_test`: `a = 1/3, b = 0` has a nonzero shadow.
+The former claim for every nonintegral `a` fails at `a = 1/2, b = 0`, where the series is zero. -/
+example : ∃ τ : ℂ, 0 < τ.im ∧ ¬ DifferentiableAt ℂ (unaryR (1 / 3) 0) τ := sorry
 
 /-- Unit test `unaryR_eq_R_test`: for `a ∈ (0, 1)`,
 `R_{a,b}(τ) = i e^{-πi(a-½)²τ - 2πi(a-½)b} R((a - ½)τ + b + ½; τ)` (Zwegers Prop. 4.2(1)). -/
@@ -4926,7 +4953,7 @@ def fifthOrderCapF0 (τ : ℂ) : ℂ := sorry
 /-- `F₁`. -/
 def fifthOrderCapF1 (τ : ℂ) : ℂ := sorry
 
-/-- `1 + 2ψ₀`, from Andrews' **corrected** third identity. -/
+/-- `ψ₀` itself: subtract `1` from Andrews' corrected third right-hand side and divide by `2`. -/
 def fifthOrderPsi0 (τ : ℂ) : ℂ := sorry
 
 /-- `ψ₁`. -/
@@ -5043,7 +5070,8 @@ theorem indexThirteenPhi_residue {τ : ℂ} (hτ : 0 < τ.im) :
 def indexThirteenCoefficients (l : ℤ) (τ : ℂ) : ℂ := sorry
 
 /-- Zwegers Prop. 3.12: the decomposition of `φ`. -/
-theorem indexThirteenPhi_decomposition {z τ : ℂ} (hτ : 0 < τ.im) :
+theorem indexThirteenPhi_decomposition {z τ : ℂ} (hτ : 0 < τ.im)
+    (hz : NotInLattice z τ) :
     indexThirteenPhi z τ =
       (∑ l ∈ Finset.range 26, indexThirteenCoefficients l τ * thetaIndexLocal 13 l z τ) +
         512 * I * completedAppell 13 0 z τ := sorry
@@ -5256,7 +5284,7 @@ theorem euler_maclaurin_asymptotic {f : ℝ → ℂ} (hf : ContDiff ℝ (⊤ : �
 /-- Lawrence–Zagier, Proposition (first part): `Σ Φ(n)e^{−nt} ∼ Σ L(−r, Φ)(−t)^r/r!`. -/
 theorem periodic_exponential_sum_asymptotic {M : ℕ} [NeZero M] (Φ : ZMod M → ℂ)
     (hΦ : ∑ j, Φ j = 0) (R : ℕ) :
-    (fun t : ℝ => ∑' n : ℕ, Φ n * Complex.exp (-(n * t)) -
+    (fun t : ℝ => ∑' n : ℕ, Φ (n + 1) * Complex.exp (-((n + 1 : ℕ) * t)) -
       ∑ r ∈ range R, ZMod.LFunction Φ (-(r : ℂ)) * ((-t : ℝ) : ℂ) ^ r / (r.factorial : ℂ))
       =O[𝓝[>] 0] fun t : ℝ => (t : ℂ) ^ R := sorry
 
@@ -5264,15 +5292,15 @@ theorem periodic_exponential_sum_asymptotic {M : ℕ} [NeZero M] (Φ : ZMod M �
 `Σ n^ν Φ(n)e^{−n²t} ∼ Σ L(−2r − ν, Φ)(−t)^r/r!`. -/
 theorem periodic_gaussian_sum_asymptotic {M : ℕ} [NeZero M] (Φ : ZMod M → ℂ)
     (hΦ : ∑ j, Φ j = 0) {ν : ℕ} (hν : ν ≤ 1) (R : ℕ) :
-    (fun t : ℝ => ∑' n : ℕ, (n : ℂ) ^ ν * Φ n * Complex.exp (-((n : ℂ) ^ 2 * t)) -
+    (fun t : ℝ => ∑' n : ℕ, ((n + 1 : ℕ) : ℂ) ^ ν * Φ (n + 1) * Complex.exp (-(((n + 1 : ℕ) : ℂ) ^ 2 * t)) -
       ∑ r ∈ range R, ZMod.LFunction Φ (-(2 * r + ν : ℂ)) * ((-t : ℝ) : ℂ) ^ r /
         (r.factorial : ℂ)) =O[𝓝[>] 0] fun t : ℝ => (t : ℂ) ^ R := sorry
 
 /-- Lawrence–Zagier, Corollary: the renormalised sum. -/
 theorem renormalised_sum {M : ℕ} [NeZero M] (Φ : ZMod M → ℂ) (hΦ : ∑ j, Φ j = 0) :
-    Tendsto (fun t : ℝ => ∑' n : ℕ, Φ n * Complex.exp (-(n * t))) (𝓝[>] 0)
+    Tendsto (fun t : ℝ => ∑' n : ℕ, Φ (n + 1) * Complex.exp (-((n + 1 : ℕ) * t))) (𝓝[>] 0)
         (𝓝 (ZMod.LFunction Φ 0)) ∧
-      Tendsto (fun t : ℝ => ∑' n : ℕ, Φ n * Complex.exp (-((n : ℂ) ^ 2 * t))) (𝓝[>] 0)
+      Tendsto (fun t : ℝ => ∑' n : ℕ, Φ (n + 1) * Complex.exp (-(((n + 1 : ℕ) : ℂ) ^ 2 * t))) (𝓝[>] 0)
         (𝓝 (ZMod.LFunction Φ 0)) := sorry
 
 /-! ### Quantum modular forms (Zagier's canonical definition) -/
@@ -5343,7 +5371,7 @@ theorem isQuantumModularForm_of_analyticOnNhd (k : ℤ) {F : ℝ → ℂ}
 /-- The cocycle condition on the factor `ε(γ)·j_k(γ, x)` over `Γ` (a multiplier system for the lower
 boundary branch). -/
 def QuantumCocycleCondition (Γ : Subgroup SL(2, ℤ)) (k : ℝ) (ε : SL(2, ℤ) → ℂ) : Prop :=
-  ∀ γ₁ ∈ Γ, ∀ γ₂ ∈ Γ, ∀ x : ℚ, ((γ₂ 1 0 : ℤ) : ℚ) * x + γ₂ 1 1 ≠ 0 →
+  ε 1 = 1 ∧ ∀ γ₁ ∈ Γ, ∀ γ₂ ∈ Γ, ∀ x : ℚ, ((γ₂ 1 0 : ℤ) : ℚ) * x + γ₂ 1 1 ≠ 0 →
     (((γ₁ * γ₂) 1 0 : ℤ) : ℚ) * x + (γ₁ * γ₂) 1 1 ≠ 0 →
       ε (γ₁ * γ₂) * boundaryFactor k (γ₁ * γ₂) x =
         ε γ₁ * boundaryFactor k γ₁ (qmfMoebius γ₂ x) * (ε γ₂ * boundaryFactor k γ₂ x)
@@ -5663,6 +5691,8 @@ theorem twistedLSeries_vertical_growth {k : ℝ} (hk : ∃ m : ℕ, k = m + 1 / 
 asymptotic expansion. -/
 theorem mellin_asymptotic_transfer {F : ℝ → ℂ} (hF : ContinuousOn F (Set.Ioi 0)) {α β r : ℝ}
     (hβ : β < α) (hr : 1 < r) {G : ℂ → ℂ} (poles : Finset ℂ) (res : ℂ → ℂ)
+    (habs : ∀ s : ℂ, α < s.re →
+      IntegrableOn (fun x : ℝ => (x : ℂ) ^ (s - 1) * F x) (Set.Ioi 0))
     (hconv : ∀ s : ℂ, α < s.re → mellin F s = G s)
     (hmero : DifferentiableOn ℂ G ({s : ℂ | β ≤ s.re} \ (poles : Set ℂ)))
     (hpoles : ∀ a ∈ poles, β < a.re ∧
@@ -5682,10 +5712,17 @@ theorem eichlerIntegral_hasRadialExpansion {k : ℝ} (hk : ∃ m : ℕ, k = m + 
       (PowerSeries.mk fun n => (-1 : ℂ) ^ n / (n.factorial : ℂ) * L ((k : ℂ) - 1 - n)) := sorry
 
 /-- The Mellin transform of `e^tΓ(k − 1, 2t)`: poles and residues (Bringmann–Rolen Lemma 3.2 core). -/
-theorem incompleteGamma_mellin_residue {k : ℝ} (hk : ∃ m : ℕ, k = m + 1 / 2) (n : ℕ) :
-    Tendsto (fun s : ℂ => (s + n) * mellin (fun t : ℝ => Complex.exp t *
-      upperIncompleteGammaLocal ((k : ℂ) - 1) (2 * t)) s) (𝓝[≠] (-(n : ℂ)))
-      (𝓝 (Complex.Gamma ((k : ℂ) - 1) / (n.factorial : ℂ))) := sorry
+-- The total Mellin integral is zero when it is not integrable; residues belong to its
+-- meromorphic continuation, not to that total function outside the convergence half-plane.
+theorem incompleteGamma_mellin_residue {k : ℝ} (hk : ∃ m : ℕ, k = m + 1 / 2) :
+    ∃ G : ℂ → ℂ,
+      (∀ s : ℂ, 0 < s.re → 0 < ((k : ℂ) - 1 + s).re →
+        G s = mellin (fun t : ℝ => Complex.exp t *
+          upperIncompleteGammaLocal ((k : ℂ) - 1) (2 * t)) s) ∧
+      DifferentiableOn ℂ G {s : ℂ | ∀ j : ℕ,
+        s ≠ -(j : ℂ) ∧ s ≠ 1 - (k : ℂ) - j} ∧
+      ∀ n : ℕ, Tendsto (fun s : ℂ => (s + n) * G s) (𝓝[≠] (-(n : ℂ)))
+        (𝓝 (Complex.Gamma ((k : ℂ) - 1) / (n.factorial : ℂ))) := sorry
 
 /-- Bringmann–Rolen (3.19): the radial expansion of `f*` from below. -/
 theorem nonholomorphicEichler_hasRadialExpansionBelow {k : ℝ} (hk : ∃ m : ℕ, k = m + 1 / 2)
@@ -6256,7 +6293,8 @@ def unimodalValue (a b h k : ℕ) : ℂ :=
         Complex.exp (2 * π * Complex.I * h / k)) (Complex.exp (2 * π * Complex.I * h / k)) n *
       Complex.exp (2 * π * Complex.I * h / k) ^ (n + 1)
 
-theorem unimodalValue_eq_sum_range {a b h k M : ℕ} (hbk : b ∣ k) (hk : 0 < k) (hM : k ≤ M) :
+theorem unimodalValue_eq_sum_range {a b h k M : ℕ} (hbk : b ∣ k) (hk : 0 < k)
+    (hhk : Nat.Coprime h k) (hM : k ≤ M) :
     unimodalValue a b h k = ∑ n ∈ range M,
       rootPochhammer (Complex.exp (2 * π * Complex.I * a / b) *
           Complex.exp (2 * π * Complex.I * h / k)) (Complex.exp (2 * π * Complex.I * h / k)) n *
@@ -6682,11 +6720,11 @@ theorem commutator_formula (A : VertexAlgebra R V) (u v : V) (m n : ℤ) :
       ∑ᶠ i : ℕ, Ring.choose m i • A.nprod (A.nprod u i v) (m + n - i) := sorry
 
 /-- Node `vertex-algebra-commutator-formula`: the associativity formula. -/
-theorem associativity_formula (A : VertexAlgebra R V) (u v : V) (q n : ℤ) :
-    A.nprod (A.nprod u q v) n =
+theorem associativity_formula (A : VertexAlgebra R V) (u v w : V) (q n : ℤ) :
+    A.nprod (A.nprod u q v) n w =
       ∑ᶠ i : ℕ, ((-1 : ℤ) ^ i * Ring.choose q i) •
-        (A.nprod u (q - i) ∘ₗ A.nprod v (n + i) -
-          (q.negOnePow : ℤ) • (A.nprod v (n + q - i) ∘ₗ A.nprod u i)) := sorry
+        (A.nprod u (q - i) (A.nprod v (n + i) w) -
+          (q.negOnePow : ℤ) • A.nprod v (n + q - i) (A.nprod u i w)) := sorry
 
 /-- Node `vertex-algebra-skew-symmetry`. -/
 theorem skew_symmetry (A : VertexAlgebra R V) (u v : V) (n : ℤ) :
@@ -6986,6 +7024,7 @@ theorem Aut.mapsTo_weightSpace (ω : ConformalVector A) (g : A.Aut) (hg : g ∈ 
 
 /-- Invariant (compatible) bilinear forms, for an involution `θ`. -/
 def IsInvariantForm (ω : ConformalVector A) (θ : A.Aut) (B : LinearMap.BilinForm k V) : Prop :=
+  (∀ u : V, ∃ N : ℕ, (ω.L 1 ^ N) u = 0) ∧
   B.IsSymm ∧ ∀ (i : ℤ) (u : V), u ∈ ω.weightSpace i → ∀ (n : ℤ) (v w : V),
     B (A.nprod u n v) w = ((i.negOnePow : ℤ) : k) *
       ∑ᶠ j : ℕ, ((j.factorial : k))⁻¹ * B v (A.nprod ((ω.L 1 ^ j) (θ u)) (2 * i - j - n - 2) w)
@@ -7015,7 +7054,8 @@ theorem IsInvariantForm.comp_aut {ω : ConformalVector A} {θ : A.Aut}
   sorry
 
 /-- Unit test `TauCeti.QSeries.VertexAlgebra.isInvariantForm_zero`: the zero form is invariant. -/
-example (ω : ConformalVector A) (θ : A.Aut) : IsInvariantForm ω θ 0 := sorry
+example (ω : ConformalVector A) (θ : A.Aut)
+    (hL : ∀ u : V, ∃ N : ℕ, (ω.L 1 ^ N) u = 0) : IsInvariantForm ω θ 0 := sorry
 
 /-- Unit test `TauCeti.QSeries.VertexAlgebra.IsInvariantForm.vac_orthogonal`: `(1, v) = 0` for `v` of
 nonzero weight. -/
@@ -7054,7 +7094,8 @@ def IsNonnegGraded : Prop := ∀ n < 0, V.weightSpace n = ⊥
 
 /-- CFT type: nonnegatively graded with `V₀ = k·1`. -/
 def IsCFTType : Prop :=
-  V.IsNonnegGraded ∧ V.weightSpace 0 = Submodule.span k {V.toVertexAlgebra.vac}
+  V.IsNonnegGraded ∧ V.toVertexAlgebra.vac ≠ 0 ∧
+    V.weightSpace 0 = Submodule.span k {V.toVertexAlgebra.vac}
 
 /-- The group of conformal automorphisms. -/
 def Aut : Subgroup V.toVertexAlgebra.Aut := VertexAlgebra.Aut.conformal V.conformal
@@ -7320,7 +7361,8 @@ theorem conformalVector_c (hnd : ∀ x, (∀ y, Λ.form x y = 0) → x = 0) :
     (conformalVector (k := k) Λ ε hnd).L 0 (latticeExp γ) =
       ((Λ.form γ γ / 2 : ℤ) : k) • latticeExp γ := sorry
 
-/-- The Cartan involution `θ(α(n)) = -α(n)`, `θ(e^γ) = (-1)^{⟨γ,γ⟩/2} e^{-γ}`. -/
+/-- The Cartan involution `θ(α(n)) = -α(n)`, `θ(e^γ) = e^{-γ}` for the normalized bimultiplicative cocycle;
+on a double-cover lift, `θ(ι(a)) = (-1)^{⟨γ,γ⟩/2} ι(a⁻¹)`. -/
 noncomputable def cartanInvolution : (latticeVertexAlgebra (k := k) Λ ε).Aut := sorry
 
 /-- For a positive definite lattice, `V_L` as a vertex operator algebra. -/
@@ -7440,8 +7482,11 @@ example (ε : EvenLattice.A1.Cocycle) (hpos : ∀ x, x ≠ 0 → 0 < EvenLattice
 
 /-- Unit test `TauCeti.QSeries.VertexOperatorAlgebra.not_II11`: `V_{II_{1,1}}` is not a vertex
 operator algebra. -/
-example (ε : II11.Cocycle) : ¬ ∃ V : VertexOperatorAlgebra ℚ (LatticeFock ℚ (Fin 2 → ℤ)),
-    V.toVertexAlgebra = latticeVertexAlgebra II11 ε := sorry
+example (ε : II11.Cocycle)
+    (hnd : ∀ x, (∀ y, II11.form x y = 0) → x = 0) :
+    ¬ ∃ V : VertexOperatorAlgebra ℚ (LatticeFock ℚ (Fin 2 → ℤ)),
+      V.toVertexAlgebra = latticeVertexAlgebra II11 ε ∧
+      V.conformal.L 0 = (latticeVertexAlgebra.conformalVector II11 ε hnd).L 0 := sorry
 
 /-- Unit test `TauCeti.QSeries.VertexOperatorAlgebra.isCFTType_lattice`: `V_L` is of CFT type for
 positive definite `L`. -/
@@ -7830,6 +7875,9 @@ def physicalRadical (ω : ConformalVector A) (B : LinearMap.BilinForm k V) : Sub
 def physicalLieAlgebra (ω : ConformalVector A) (B : LinearMap.BilinForm k V) : Type _ :=
   physicalSpace ω 1 ⧸ (physicalRadical ω B).comap (physicalSpace ω 1).subtype
 
+/- REVIEW GAP: the following Lie instances and bracket_mk require an invariant form.
+The current unrestricted carrier signatures do not supply that hypothesis. Propagate a
+proof or Fact parameter through this API and its consumers before implementation. -/
 instance (ω : ConformalVector A) (B : LinearMap.BilinForm k V) :
     LieRing (physicalLieAlgebra ω B) := sorry
 instance (ω : ConformalVector A) (B : LinearMap.BilinForm k V) :
@@ -7852,7 +7900,8 @@ theorem form_lie (hB : IsInvariantForm ω 1 B) (x y z : physicalLieAlgebra ω B)
     form ω B ⁅x, y⁆ z = -form ω B y ⁅x, z⁆ := sorry
 
 /-- The Lie algebra involution induced by `θ`. -/
-noncomputable def involution (θ : A.Aut) (hθ : θ ω.ω = ω.ω) :
+noncomputable def involution (θ : A.Aut) (hθ : θ ω.ω = ω.ω)
+    (hθB : ∀ u v, B (θ u) (θ v) = B u v) :
     physicalLieAlgebra ω B ≃ₗ⁅k⁆ physicalLieAlgebra ω B := sorry
 
 /-- The graded piece of degree `r` for a grading `deg` of `V`. -/
@@ -7932,7 +7981,9 @@ noncomputable instance (V : VertexOperatorAlgebra ℝ W) (B : LinearMap.BilinFor
 
 /-- The action of `G` on `P¹_r / N_r` through `V`. -/
 noncomputable def noGhostQuotient.action {G : Type*} [Group G] (V : VertexOperatorAlgebra ℝ W)
-    (B : LinearMap.BilinForm ℝ W) (ε : II11.Cocycle) (r : Fin 2 → ℤ) (ρ : G →* V.Aut) :
+    (B : LinearMap.BilinForm ℝ W) (ε : II11.Cocycle) (r : Fin 2 → ℤ) (ρ : G →* V.Aut)
+    (hρ : ∀ (g : G) (u v : W), B ((ρ g : V.toVertexAlgebra.Aut) u)
+      ((ρ g : V.toVertexAlgebra.Aut) v) = B u v) :
     G →* (noGhostQuotient V B ε r ≃ₗ[ℝ] noGhostQuotient V B ε r) := sorry
 
 /-- The action of `G` on a weight space. -/
@@ -7952,7 +8003,7 @@ theorem no_ghost (V : VertexOperatorAlgebra ℝ W) (B : LinearMap.BilinForm ℝ 
       B u v)
     (r : Fin 2 → ℤ) (hr : r ≠ 0) :
     ∃ e : noGhostQuotient V B ε r ≃ₗ[ℝ] V.weightSpace (1 - II11.form r r / 2),
-      ∀ g : G, (noGhostQuotient.action V B ε r ρ g).trans e =
+      ∀ g : G, (noGhostQuotient.action V B ε r ρ hρ g).trans e =
         e.trans (V.weightAction ρ (1 - II11.form r r / 2) g) := sorry
 
 /-- Node `no-ghost-theorem`, case `r = 0`: `P¹₀ / N₀ ≃ V₁ ⊕ ℝ²`. -/
@@ -8132,7 +8183,9 @@ example (ε : EvenLattice.A1.Cocycle) (hnd : ∀ x, (∀ y, EvenLattice.A1.form 
 
 /-- Unit test `TauCeti.QSeries.VertexAlgebra.physicalLieAlgebra.radical_II11_ne_bot`: for
 `V_{II_{1,1}}` the radical `N ⊆ P¹` is nonzero (it contains `D e^{(1,0)}`). -/
-example (ε : II11.Cocycle) (B : LinearMap.BilinForm ℚ (LatticeFock ℚ (Fin 2 → ℤ))) :
+example (ε : II11.Cocycle) (B : LinearMap.BilinForm ℚ (LatticeFock ℚ (Fin 2 → ℤ)))
+    (hB : VertexAlgebra.IsInvariantForm
+      (latticeVertexAlgebra.conformalVector (k := ℚ) II11 ε II11.nondegenerate) 1 B) :
     ∃ p ∈ VertexAlgebra.physicalRadical
       (latticeVertexAlgebra.conformalVector (k := ℚ) II11 ε II11.nondegenerate) B, p ≠ 0 := sorry
 
@@ -8186,7 +8239,9 @@ theorem rootGrading [DecidableEq I] : DirectSum.IsInternal (rootSpace A) := sorr
 noncomputable def chevalleyInvolution : BorcherdsAlgebra A ≃ₗ⁅ℝ⁆ BorcherdsAlgebra A := sorry
 
 /-- Comparison with Mathlib's Serre construction for a symmetric generalized Cartan matrix. -/
-noncomputable def equivToLieAlgebra [DecidableEq I] (CM : Matrix I I ℤ) (hCM : ∀ i, CM i i = 2) :
+noncomputable def equivToLieAlgebra [DecidableEq I] (CM : Matrix I I ℤ)
+    (hCM : ∀ i, CM i i = 2) (hsymm : CM.IsSymm)
+    (hoff : ∀ i j, i ≠ j → CM i j ≤ 0) :
     BorcherdsAlgebra (CM.map ((↑) : ℤ → ℝ)) ≃ₗ⁅ℝ⁆ Matrix.ToLieAlgebra ℝ CM := sorry
 
 /-- The positive part `n⁺`, generated by the `eᵢ`. -/
