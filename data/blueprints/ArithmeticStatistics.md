@@ -3,6 +3,51 @@
 **Roadmap** `ArithmeticStatistics` · stages ST.0–ST.5 · baseline Mathlib `082e2d3`, Tau Ceti `f790474`.
 Restructured by RS-07 (accepted), which this blueprint follows.
 
+## Current planning pass
+
+The planning pass is **complete** under PROTOCOL §0. The incoming packet already contains **415 nodes**, above the
+300-node planning budget; this continuation adds none. Every stage remains **partial**. The packet retains all
+47 gaps, 53 supplier requests, 76 source findings, and the four unaccepted restructuring proposals. Completion sends
+this finite planning pass to independent review and then to stage follow-ups; it does not establish mathematical closure.
+
+| Stage | Existing nodes | Work required before coverage can advance |
+|---|---:|---|
+| ST.0 | 37 | Source-specific families, weights, local conditions and height comparisons; number-field twist denominators; finite-field abelian-variety counts |
+| ST.1 | 57 | BGW's even-hyperelliptic orbit dictionary and solubility; missing higher-Selmer representations; named inverse/stabilizer comparisons |
+| ST.2 | 52 | BSW squarefree-discriminant counts, BGW large-family tails, quartic/quintic cusp analysis and the corrected BLS local-density route |
+| ST.3 | 33 | Routed general field-counting bounds; proofs of quartic/quintic and class-group asymptotics; rigidified multiplicities and finite group certificates |
+| ST.4 | 42 | BGW's Sel_2(J¹) average, the BLS plane-cubic result and Skinner's positive-proportion rank-one result with their imported inputs |
+| ST.5 | 194 | Higher-Selmer proof decomposition, function-field component limits, conditional finite-field comparisons and outstanding supplier interfaces |
+
+The packet's `routedTargetInventory` retains **527 distinct extraction item IDs from 18 papers in 31 source routes**.
+It checks the route IDs against their extraction registers; it does not certify that those targets or their proofs are covered.
+Multi-stage routes retain their original stage set. The precise work and source locators remain in the coverage lists,
+requests, gaps and extraction files.
+
+The field-counting frontier includes PAPER-BHARGAVA-25 /6, /32–/34, /55, /68 and /70. The small trace-zero element
+is a field generator only with the primitive-field hypothesis. The Galois counting bound fixes the base field and group,
+requires |G| > 4 and retains ε; the Klein-four case cannot be assigned a bare square-root bound without logarithms.
+Wood's refined conjecture uses the corrected generator form /298 and its prime-to-characteristic domain. Its finite
+95-candidate computation is evidence for the stated finite target, not a universal vanishing result.
+
+For function-field moments, LWZB's corrected conclusion uses the outer limit in b of the q-limsup and q-liminf;
+it does not establish an inner ordinary q-limit for each b. Wood's non-good cases retain liminf and the boundary
+component remainder. Lipnowski–Tsimerman's comparisons retain their conjectural assumptions, the common-p Weil
+family, uniform eventual threshold, elliptic-or-B₀ alternative and odd-p restriction where needed. BGW's average
+concerns Sel_2(J¹); it is not the elliptic average or an average of Sel_2(J). BKLOS retains unweighted squareclass
+height and a lower proportion; whole-family elliptic averages do not establish thin-twist laws.
+
+The Cohen–Lenstra measure is already planned once in ST.5. ST.0 needs the family and weighting comparisons, not a
+second measure. Smith's method belongs to its Part II, while the finite-field kernel law and the normalized-kernel-weight
+identity remain here with the accepted correction and source finding E675. The unchanged September 30 review accepts
+that scoped fix; it does not review this planning continuation.
+
+The full 8,960-line suggested file freshly elaborated against pinned Mathlib `082e2d3` with Lean `v4.34.0-rc2`:
+zero errors and 1,137 admission warnings only. Its 122 imports are Mathlib imports. Tau Ceti's unbuilt carriers remain
+explicit provisional interfaces, and omitted foreign-carrier prototypes remain listed in the coverage frontier.
+The existing declaration bodies, API outlines and tests are unchanged. Historical source readings and numerical checks
+retain their original provenance; this pass does not claim to repeat them.
+
 ## Purpose
 
 This roadmap proves counting theorems for families of arithmetic objects:
@@ -24,8 +69,8 @@ The roadmap also states the known higher moments and the distribution models:
 - the two Selmer-distribution theorems Burungale–Tian use: Smith's 2^∞ law and Bhargava–Klagsbrun–Lemke Oliver–Shnidman's
   3^∞ corank consequence.
 
-Conjectural predictions are **definitions of propositions that no theorem assumes**. Every proved statement keeps its
-source's family, ordering, weights, local conditions and error terms.
+Conjectural predictions are **named propositions**. A conditional consequence lists its conjectural input explicitly;
+it is not asserted unconditionally. Every statement keeps its source's family, ordering, weights, local conditions and error terms.
 
 ## Scope and structure
 
@@ -55,8 +100,9 @@ packet's coverage `remaining` lists and its gaps.
   is stated whenever the source restricts it.
 - **Local conditions** are closed subsets with boundary of measure 0 for Haar measure on ℤ_p. Infinitely many conditions
   are imposed only through the uniformity estimates of ST.2.
-- **Conjectures** (Cohen–Lenstra, Malle, Poonen–Rains, Bhargava–Kane–Lenstra–Poonen–Rains) are propositions and never
-  hypotheses of a theorem of this roadmap.
+- **Conjectures** (Cohen–Lenstra, Malle, Poonen–Rains, Bhargava–Kane–Lenstra–Poonen–Rains) are stated as propositions.
+  Conditional consequences, including the Lipnowski–Tsimerman comparisons, retain their conjectural assumptions and
+  are not unconditional statistical theorems.
 
 ## Boundaries with other roadmaps
 

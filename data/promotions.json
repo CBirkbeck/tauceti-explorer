@@ -329,11 +329,11 @@
    ]
   },
   "research/blueprint/packets/ArithmeticStatistics.json": {
-   "promotedAt": "2026-09-30T22:16:26Z",
-   "review": "488af3e879cf6656",
-   "reviewDate": "2026-09-30",
-   "reviewer": "independent-review-REV-FIX-RT-PAPER-KOYMANS-PAGANO",
-   "sha256": "41c5edc3d527f2aea9e98881fa76b66a99998f3861a65ee77e95313e1bc0e880",
+   "promotedAt": "2026-10-05T07:13:01Z",
+   "review": "dcb0b752fbc30e8f",
+   "reviewDate": "2026-10-05",
+   "reviewer": "independent-review-REV-ArithmeticStatistics",
+   "sha256": "cdb8a395a9e31c558652bced177cbf833d4b6935341ba92418830a7c9e3a91aa",
    "to": [
     "data/blueprints/ArithmeticStatistics.json",
     "data/blueprints/ArithmeticStatistics.md"
