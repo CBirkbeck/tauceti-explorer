@@ -26478,7 +26478,8 @@
    ],
    "avoidAccountOf": "BP-KTheoryLowDegrees--U.1",
    "prompt": "research/blueprint/prompts/REV-KTheoryLowDegrees--U.1.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #441"
   },
   {
    "id": "BP-KTheoryLowDegrees--Z.3",
@@ -32828,8 +32829,9 @@
    ],
    "followUpOf": "BP-FiniteFieldsAndCharacterSums",
    "prompt": "research/blueprint/prompts/BP-FiniteFieldsAndCharacterSums--FF.1.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6348"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6348",
+   "finishedAt": "2026-10-05T18:36:17Z"
   },
   {
    "id": "REV-FiniteFieldsAndCharacterSums--FF.1",
@@ -32872,7 +32874,8 @@
    ],
    "followUpOf": "BP-FiniteFieldsAndCharacterSums",
    "prompt": "research/blueprint/prompts/BP-FiniteFieldsAndCharacterSums--FF.2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6349"
   },
   {
    "id": "REV-FiniteFieldsAndCharacterSums--FF.2",
@@ -32915,8 +32918,9 @@
    ],
    "followUpOf": "BP-FiniteFieldsAndCharacterSums",
    "prompt": "research/blueprint/prompts/BP-FiniteFieldsAndCharacterSums--FF.3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6350"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6350",
+   "finishedAt": "2026-10-05T18:36:19Z"
   },
   {
    "id": "REV-FiniteFieldsAndCharacterSums--FF.3",
