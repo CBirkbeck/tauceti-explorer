@@ -31588,7 +31588,8 @@
    ],
    "followUpOf": "BP-K3BlochGroups",
    "prompt": "research/blueprint/prompts/BP-K3BlochGroups--V.3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6383"
   },
   {
    "id": "REV-K3BlochGroups--V.3",
@@ -32368,7 +32369,8 @@
    ],
    "followUpOf": "BP-HabiroCyclotomicCompletions",
    "prompt": "research/blueprint/prompts/BP-HabiroCyclotomicCompletions--HC.6.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6471"
   },
   {
    "id": "REV-HabiroCyclotomicCompletions--HC.6",
