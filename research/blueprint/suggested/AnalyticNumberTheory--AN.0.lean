@@ -15,6 +15,9 @@ import Mathlib.MeasureTheory.Integral.IntervalIntegral.Basic
 import Mathlib.Data.Finsupp.Basic
 import Mathlib.Data.Nat.Prime.Nth
 import Mathlib.Data.Finset.Powerset
+import Mathlib.Data.Nat.Squarefree
+import Mathlib.Data.Nat.Totient
+import Mathlib.Analysis.SpecialFunctions.Choose
 import Mathlib.Tactic
 
 /-!
@@ -31,7 +34,13 @@ imported carriers cannot yet be stated. Their mathematical specifications and al
 API/test names are retained below, rather than introducing substitute Prop fields.
 Continuation codex-ws2Gd5: added a conditional positive exceptional-zero test
 and corrected the mathematical CM/period specifications; the executable section
-was independently read. Current elaboration has 159 admitted-proof warnings.
+was independently read. That continuation’s elaboration had 159 admitted-proof warnings.
+Continuation codex-KI4dsy adds medium-prime endpoint and size APIs, the promoted
+cardinality signature, and concrete Mertens, Euler-tail and Möbius/totient forms.
+The Euler tail uses HasProd, so a divergent totalized product cannot satisfy it.
+Exercise5.4(c) in the preliminary Koukoulopoulos source has the reversed
+integrand; use κ=∫(1_[0,1](u)−exp(−u))/u du=γ as recorded in source issue E19.
+The full independent mathematical review is still unfinished.
 Other statements requiring those carriers or unacquired higher-genus/covering
 interfaces are listed mathematically at the end. They are not executable signatures.
 -/
@@ -301,6 +310,14 @@ lemma medium_prime_products.membership (x : ℝ) (m n : ℕ) :
       ∃ t ∈ (medium_prime_set x).powersetCard m, n = ∏ p ∈ t, p := by sorry
 lemma medium_prime_products.card (x : ℝ) (m : ℕ) :
     (medium_prime_products x m).card = Nat.choose (medium_prime_set x).card m := by sorry
+/-- The promoted cardinality node uses the existing prime-factor recovery API. -/
+lemma medium_prime_product_card (x : ℝ) (m : ℕ) :
+    (medium_prime_products x m).card = Nat.choose (medium_prime_set x).card m := by sorry
+lemma medium_prime_products.zero (x : ℝ) :
+    medium_prime_products x 0 = {1} := by sorry
+lemma medium_prime_products.size_bounds (x : ℝ) (hx : 2 ≤ x) (m n : ℕ)
+    (hn : n ∈ medium_prime_products x m) :
+    (x / 2) ^ m ≤ (n : ℝ) ∧ (n : ℝ) ≤ x ^ m := by sorry
 lemma medium_prime_products.squarefree (x : ℝ) (m n : ℕ)
     (h : n ∈ medium_prime_products x m) : Squarefree n ∧ n.primeFactors.card = m := by sorry
 lemma medium_prime_products.support (x : ℝ) (m n p : ℕ)
@@ -314,6 +331,8 @@ example : medium_prime_products 10 1 = {5, 7} := by sorry
 example : medium_prime_products 10 2 = {35} ∧ medium_prime_products 10 3 = ∅ := by sorry
 -- medium_prime_products.distinct
 example : 25 ∉ medium_prime_products 10 2 := by sorry
+-- medium_prime_products.closed_lower_endpoint
+example : medium_prime_products 4 1 = {2, 3} := by sorry
 
 def even_von_mangoldt (n : ℤ) : ℝ := ArithmeticFunction.vonMangoldt n.natAbs
 lemma even_von_mangoldt.nat (n : ℕ) :
@@ -540,6 +559,11 @@ lemma lerch_pde (z s c : ℂ) (hz : ‖z‖ < 1) (hc : 0 < c.re) :
 
 /-! Further theorem forms with concrete baseline carriers. -/
 
+theorem mertens_prime_reciprocal :
+    ∃ B C : ℝ, 0 < C ∧ ∀ x : ℝ, 2 ≤ x →
+      |(∑ p ∈ (Finset.range (Nat.floor x + 1)).filter Nat.Prime, (p : ℝ)⁻¹) -
+        Real.log (Real.log x) - B| ≤ C / Real.log x := by sorry
+
 theorem mertens_first_theorem :
     ∃ C : ℝ, 0 < C ∧ ∀ x : ℝ, 2 ≤ x →
       |(∑ p ∈ (Finset.range (Nat.floor x + 1)).filter
@@ -549,6 +573,38 @@ theorem mertens_prime_product :
     ∃ C : ℝ, 0 < C ∧ ∀ x : ℝ, 2 ≤ x →
       |(∏ p ∈ (Finset.range (Nat.floor x + 1)).filter Nat.Prime,
           (1 - (p : ℝ)⁻¹)⁻¹) - Real.exp Real.eulerMascheroniConstant * Real.log x| ≤ C := by sorry
+
+/-- The local expression is defined at n = 0 without truncated natural subtraction. -/
+theorem gamma_prime_product_tail (n : ℕ) :
+    ∃ C : ℝ, 0 < C ∧ ∀ x : ℝ, Real.exp 2 ≤ x → ∀ S : Set ℕ,
+      ∃ P : ℝ,
+        HasProd
+          (fun p : {p : ℕ // p.Prime ∧ Real.log x < p ∧ p ∈ S} =>
+            1 - (p.val : ℝ)⁻¹ +
+              (1 + ((p.val : ℝ) - 1)⁻¹) ^ n / (p.val : ℝ)) P ∧
+        |P - 1| ≤ C / Real.log x := by sorry
+
+-- Acceptance check for AN.5/gamma-prime-product-tail at n = 0.
+example (p : ℕ) (hp : p.Prime) :
+    1 - (p : ℝ)⁻¹ + (1 + ((p : ℝ) - 1)⁻¹) ^ (0 : ℕ) / (p : ℝ) = 1 := by sorry
+
+theorem mertens_product_comparison :
+    ∃ c C : ℝ, 0 < c ∧ 0 < C ∧ ∀ y : ℝ, 2 ≤ y →
+      c / Real.log y ≤
+        ∏ p ∈ (Finset.range (Nat.floor y + 1)).filter Nat.Prime, (1 - (p : ℝ)⁻¹) ∧
+      (∏ p ∈ (Finset.range (Nat.floor y + 1)).filter Nat.Prime,
+        (1 - (p : ℝ)⁻¹)) ≤ C / Real.log y := by sorry
+
+theorem shifted_coprime_mobius_sum (A : ℝ) (hA : 0 < A) :
+    ∃ C T₀ : ℝ, 0 < C ∧ 2 ≤ T₀ ∧ ∀ T : ℝ, T₀ ≤ T →
+      ∀ q : ℕ, 1 ≤ q → (q : ℝ) ≤ Real.sqrt T →
+        |(∑ t ∈ (Finset.Icc 1 (Nat.floor (T / q))).filter (fun t => Nat.Coprime t q),
+            (ArithmeticFunction.moebius t : ℝ) * Real.log ((q : ℝ) * t) / t) +
+          (q : ℝ) / q.totient| ≤ C * (Real.log T) ^ (-A) := by sorry
+
+theorem totient_reciprocal_bound :
+    ∃ C : ℝ, 0 < C ∧ ∀ n : ℕ, 3 ≤ n →
+      ((n.totient : ℝ)⁻¹) ≤ C * Real.log (Real.log n) / n := by sorry
 
 theorem dirichlet_divisor_average :
     ∃ C : ℝ, 0 < C ∧ ∀ x : ℝ, 2 ≤ x →
@@ -932,13 +988,13 @@ AnalyticNumberTheory:AN.5/prime-divisor-product-mean
 For fixed n∈N,c>0 and f on rational primes with |f(p)|≤c/p, set a(t)=∏_{p|t}(1+f(p))^n for t≥1. Then Σ_{1≤t≤x}a(t)=Cx+O_{n,c}(√x), x≥1, where C=∏_p(1+((1+f(p))^n−1)/p); the product is absolutely convergent and f may be complex.
 
 AnalyticNumberTheory:AN.5/gamma-prime-product-tail
-For fixed n∈N and x≥e², ∏_{p>log x}(1−1/p+p^(n−1)/(p−1)^n)=1+O_n(1/log x). The same bound holds after omitting any subset of primes.
+For fixed n∈ℕ and real x≥e², define γ_n(p)=1−1/p+(1+1/(p−1))^n/p for each rational prime p. The convergent product over p>log x is 1+O_n(1/log x), uniformly after retaining any subset of those primes. In particular γ_0(p)=1; the equivalent expression p^(n−1)/(p−1)^n uses an integer exponent n−1, never truncated natural subtraction.
 
 AnalyticNumberTheory:AN.2/mertens-product-comparison
 For y≥2, ∏_{p≤y}(1−1/p) is comparable to 1/log y, with absolute positive upper and lower constants. The application here needs the lower estimate after removing finitely many fixed primes, not an unsourced precise constant.
 
 AnalyticNumberTheory:AN.5/shifted-coprime-mobius-sum
-For every A>0 and uniformly 1≤q≤√T as T→∞, Σ_{t≤T/q,(t,q)=1}μ(t)log(qt)/t=−q/φ(q)+O_A((log T)^{-A}). This is the exactLemma3.11 form used in the Euler-factor calculation; the original PNT-with-coprimality supplier must establish its uniformity.
+For every A>0 there are constants C_A>0 and T_A≥2 such that for every real T≥T_A and every positive integer 1≤q≤√T, |Σ_{1≤t≤T/q,(t,q)=1}μ(t)log(qt)/t+q/φ(q)|≤C_A(log T)^(−A). The constants are independent of q.
 
 AnalyticNumberTheory:AN.5/totient-reciprocal-bound
 For n≥3, 1/φ(n)≤C log log n/n, with an absolute C>0.

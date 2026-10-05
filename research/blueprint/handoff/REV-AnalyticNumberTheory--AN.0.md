@@ -1,3 +1,38 @@
+# REV-AnalyticNumberTheory--AN.0 — current checkpoint
+
+Issue [#527](https://github.com/CBirkbeck/tauceti-explorer/issues/527), Codex — `codex-KI4dsy`, 2026-10-05. Input commit `f7af18783e675e67940130a78c1b25b4bcc1ad57`; branch `codex-KI4dsy/review-analytic-number-theory-527`.
+
+**Partial independent review. No final verdict and no top-level packet `review` object.** The packet's inherited `status: complete` describes the original planning pass. This submission is a checkpoint. Preserve this session's corrections and both historical checkpoints below; their source receipts are limited to their stated reading scopes.
+
+## What this session saved
+
+- Changed22 existing nodes at zero-based indices66–71,73–86,96,221. Read the full payloads66–86,96,221; inspected87–95 without a fresh primary-source audit. Node72 remains unverified.
+- Mertens sources/proof outlines now use Theorem3.4 in the accessible preliminary Koukoulopoulos book. New E19 records the reversed integrand in Exercise5.4(c), confined to that exact preliminary PDF. The constant-identification estimates remain gaps.
+- Medium-prime empty-product/size APIs and closed endpoint test: at x=4, N_1={2,3}. Existing Mathlib factor recovery and finite-cardinality declarations give the exact binomial identity; `isEquivalent_choose` gives the fixed-m asymptotic. No new combinatorial theorem needs planning here.
+- Pinned von-Mangoldt/Möbius identities settle the nonzero large-cutoff truncation and explicit zero convention. Analytic cancellation is still unfinished.
+- SS's full Lemma4.3 proof replaces the unnecessary general Wintner supplier request with a finite squarefree-convolution/floor argument and a summable uniform majorant. The series/Euler-product and integral interfaces remain a precise gap.
+- Euler-tail local factor now handles n=0 correctly. The x≥e² range excludes p=2, and the native statement requires `HasProd` and uniformity over all retained prime subsets. Its local binomial and infinite-product interfaces remain open.
+- Shifted coprime Möbius constants are quantified uniformly for q≤sqrt T. The q≤T^4 coprime suppliers are still stronger than the source's unquantified invocation and require proof. Reciprocal-totient estimates use the pinned rational product after transfer to ℝ.
+- Smati's original theorem statement supports the inverse-totient count, but only pp.143–146 were read; the later proof remains unread.
+- Four primary-source version/hash receipts were added. See the latest section of the [review report](../reviews/REV-AnalyticNumberTheory--AN.0.md) and packet `sources`/`sourceVersions` for URLs, hashes, exact passages and unread references. Scratch downloads/logs are deleted after submission; none is required to resume.
+- Twelve Mathlib baseline declarations were freshly read and added. Current counts:224 nodes,91 API items,77 tests,26 planets,66 baseline declarations,43 gaps,29 requests, six ownership proposals,17 source issues. No node or planet was added or removed.
+- Ten native signatures/examples were added and affected mathematical comments synchronized. `lean-check` completed with169 warnings, all `sorry`, and0 errors at Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`. File hash: `f4d7ed37ca08a301b30aa7e7eaf51bec1d2495bfa482945ae5955c3418b8c522`. Available memory was102 GiB. No compile or background process remains. Six canonical-carrier definitions still have only mathematical comments.
+- Packet validation:0 errors,0 warnings. Submission-file rules, source-issue/version schemas and incomplete-review classification are checked before opening the PR. Only the three issue deliverables and this handoff are changed.
+
+## Resume after a fresh claim
+
+1. Re-read the current issue, protocols, report and historical handoffs. Start the next sequential primary-source audit at node87. Return to node72, Mertens constant/log-summatory/majorant proofs, coprime uniformity, inverse-totient proof and the new squarefree-mean/Euler-tail interfaces. The earlier node0–65 supplier/proof obligations remain open; this session does not certify that whole prefix.
+2. Continue all224 consumers' statement/hypothesis matching against the66 pinned baseline declarations. This session freshly read only the12 additions. A successful elaboration or source reading receipt is not a verified mathematical verdict.
+3. Preserve previous CM parity/conductor/pole, partial-ideal zero-slot and DIT unit/measure corrections. Resolve the actual GN9/10, CFT11/13, AL.1 and quadratic geometric supplier contracts, and the proposed FuchsianOrbifolds Part II ownership. The historical worklists below remain live.
+4. Read the remaining source proofs, including Smati after p.146, the external Davenport/IK/Montgomery–Vaughan bounds, numerical original sources, Lerch, and all other unaudited families. Adjudicate every E1–E18 finding and preserve E19's preliminary-only scope; no published GSM203 misprint has been verified.
+5. Finish the complete definition/API/test, native-comment, reader, planet, closure/ownership and named red-team-route audits. Preserve arithmetic-scheme Chebotarev, AC.4, growing-modulus W(N), maximal divisor order and classical zero-free issues from the earlier handoff.
+6. The reader is not an authorized issue deliverable. It needs authorized synchronization of all three review checkpoints: earlier CM/period/pole corrections and the current Mertens sign/source, medium-prime APIs/test, Euler n=0/convergence, Möbius uniformity and revised supplier/gap list. Do not claim acceptance while it diverges. Do not edit it under this issue without authorization.
+7. Only after every node, source issue and required route has a defensible verdict, and the reader/native/closure obligations are resolved, add the final independent-review object. Re-run the pinned packet checker and `lean-check` if executable statements change. Use the shared build, memory/timeout rules and automatic intake; never merge, close or change labels manually.
+
+No maintainer decision is required for the local corrections saved here. The remaining work is substantive independent review and the recorded supplier/reader interfaces.
+
+## Historical checkpoint — Codex `codex-ws2Gd5`
+
 # REV-AnalyticNumberTheory--AN.0 — continuation checkpoint
 
 Issue [#527](https://github.com/CBirkbeck/tauceti-explorer/issues/527), Codex — `codex-ws2Gd5`, 2026-10-05. Claim [5992528918](https://github.com/CBirkbeck/tauceti-explorer/issues/527#issuecomment-5992528918) was confirmed by [bot comment 5992531573](https://github.com/CBirkbeck/tauceti-explorer/issues/527#issuecomment-5992531573). Branch: `codex-ws2Gd5/review-analytic-number-theory-527`. Review input: `8270021f197b68362ac29ddae9755b434d27059f`.
