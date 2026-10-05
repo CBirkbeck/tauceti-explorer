@@ -513,6 +513,12 @@
       "reviewer": "independent-review-REV-DESIGN-ErdosProgressionPowers"
     },
     {
+      "file": "FiniteFieldsAndCharacterSums--FF.3",
+      "roadmap": "FiniteFieldsAndCharacterSums",
+      "nodes": 8,
+      "reviewer": "independent-review-REV-FiniteFieldsAndCharacterSums--FF.3"
+    },
+    {
       "file": "FiniteFieldsAndCharacterSums",
       "roadmap": "FiniteFieldsAndCharacterSums",
       "nodes": 354,
@@ -634,8 +640,8 @@
     }
   ],
   "sourceDocuments": 296,
-  "htmlBytes": 32251984,
-  "htmlSha256": "1e6225bb81716e0d58de3800c63da8a0ff7cce29f79a45487a738cf9e120a409",
+  "htmlBytes": 32253652,
+  "htmlSha256": "0d68cfe7300a730b3e1e2b600cc4eb0a36c252bc267701a628677a8c15781c66",
   "networkDependencies": 0,
   "localProgressOverridesIncluded": false,
   "assets": {
@@ -666,7 +672,7 @@
     "data/roadmap-summaries.json": "c8bdd0a9105f5d3c4a858c8b635990729f8e94497dee784a71fae659b8c05b9f",
     "data/roadmap-classification.json": "2641dbc97eb2566c715162d011b46890d1635629181ef8126ac7aed9e24a3b13",
     "data/classification-estimates.json": "625d35fe6121bf099dc5de9e6a9111793596f9b664e3fbd439841434bb4a57d6",
-    "data/roadmap-distances.json": "cbd6f428a68bf8d567447e24d829557c09a18f5508b767347ba79c0ba2b5366b",
+    "data/roadmap-distances.json": "949edb1e497722c99789b44a4e5690ce535cce095ec756e7e5defcfa03f64f32",
     "data/galaxy-layout.json": "92f736cdbedc11ea25886ab1b3da97c6e1364c28c6170267d456a29ecb7f702a",
     "data/bibliography.json": "bef230a41fad22d6b790c7564061c4d05c2ae5b78cab53d005eb404afab2b122",
     "NOTICE": "a285b95d5adbf5c2bcc82db36e2a77b797f84a2c5cbb30292efd0bae17cc4f34",
@@ -780,6 +786,8 @@
     "data/blueprints/EllipticRegulators.md": "45df41d0725c4f4bc7b0c43f9710b879367d2386a73a9fddfe4778881d7be759",
     "data/blueprints/ErdosProgressionPowers.json": "59cb5889367c4d8bb5fe0ac4920d7f9042b10abd22b2d237ad6c4c77b2979c3c",
     "data/blueprints/ErdosProgressionPowers.md": "59f7e5945a0743b3d8cf5c7cc1aa85b7572673182a92ff5ca91ffc3c076689f5",
+    "data/blueprints/FiniteFieldsAndCharacterSums--FF.3.json": "94f566d91d4c124fa1c14e45699779e27e950502bb9aac27194dd0afb995e8f7",
+    "data/blueprints/FiniteFieldsAndCharacterSums--FF.3.md": "5fc0e2a65c83aa28d33bacdf80329730db3a51e46cf0cfbfed1166714c87d98b",
     "data/blueprints/FiniteFieldsAndCharacterSums.json": "ea64ec0f7a0888da20c74fbcb2c0b0b7d58184f7a411ab147b9db3fcae4fb711",
     "data/blueprints/FiniteFieldsAndCharacterSums.md": "280948019fed01a8fc773fc58a7eec61fd477cd2d5e59b93c83d430f4d9fda57",
     "data/blueprints/GeneralAlgebraicKTheory--K.1.json": "6d99ed94515665f97711483d11547ac5f74fdecc5ab4f73270602feea1ead6b4",

@@ -2522,12 +2522,12 @@
     "declarationLevel": {
      "source": "blueprint",
      "reviewed": true,
-     "declarations": 354,
-     "missingDeclarations": 354,
+     "declarations": 362,
+     "missingDeclarations": 362,
      "depth": 13,
      "layersCovered": 5,
      "layers": 5,
-     "sourcePages": 254
+     "sourcePages": 256
     }
    },
    "measurement": 5.42,
