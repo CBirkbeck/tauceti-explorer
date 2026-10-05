@@ -241,8 +241,8 @@
         "ref": "mathlib:DirichletCharacter.LFunction_ne_zero_of_one_le_re",
         "kind": "theorem",
         "module": "Mathlib/NumberTheory/LSeries/Nonvanishing.lean",
-        "provides": "The K = ℚ case of Hecke nonvanishing on Re s ≥ 1.",
-        "checked": "Name, kind and module confirmed in the pinned declaration index (Mathlib 082e2d3); statement read in the pinned source (cc-39fac3, 2026-09-29)."
+        "provides": "The K = ℚ case of Hecke nonvanishing: LFunction χ s ≠ 0 when 1 ≤ Re s and (χ ≠ 1 or s ≠ 1). The principal character at s = 1 is excluded.",
+        "checked": "Name, kind and module confirmed in the pinned declaration index (Mathlib 082e2d3); statement read in the pinned source (cc-39fac3, 2026-09-29). Independently reread at the same pin, lines 400–403, by codex-7e92bd on 2026-10-05; restored the explicit hχs hypothesis."
       },
       {
         "ref": "mathlib:LSeries.positive",
@@ -1844,7 +1844,7 @@
         "mathlib:DirichletCharacter.IsPrimitive.completedLFunction_one_sub"
       ],
       "acceptance": [
-        "Check K = ℚ and χ primitive Dirichlet of conductor N: Λ(s, χ) = gammaFactor χ s · LFunction χ s, and the identity has the shape of Mathlib's DirichletCharacter.IsPrimitive.completedLFunction_one_sub.",
+        "For K = ℚ and a primitive Dirichlet character χ of positive conductor N, distinguish the conductor-completed meromorphic function Λ(s,χ)=N^(s/2)·DirichletCharacter.completedLFunction χ s from Mathlib’s completedLFunction, which omits that conductor power. Mathlib states completedLFunction χ (1−s)=N^(s−1/2)·rootNumber χ·completedLFunction χ⁻¹ s. Multiplying by N^((1−s)/2) gives Λ(1−s,χ)=rootNumber χ·Λ(s,χ⁻¹); compare orientations before identifying ε(χ). At poles use meromorphic identities, not a product of totalized point values.",
         "Check that an imprimitive character's L-function acquires zeros on Re s = 0 from the removed Euler factors, which is why the functional equation is stated only for the primitive function."
       ],
       "library": {
@@ -2256,20 +2256,23 @@
       ],
       "title": "Prime powers do not erase the character-sum margin",
       "kind": "theorem",
-      "statement": "For k>=2*10^10, the prime-power mass psi(k)-theta(k)-psi(k/2)+theta(k/2) is smaller than (((1-3*0.002811)/8)-0.1239)*k. Thus an absolute prime-weighted sum >=(1-3*epsilon)k/8 implies an absolute Lambda-weighted sum >0.1239*k.",
+      "statement": "Put ε=0.002811. For real k≥2*10^10, the prime-power mass M=psi(k)−theta(k)−psi(k/2)+theta(k/2) is smaller than (((1−3*ε)/8)−0.1239)*k. For b:ℕ→ℂ with |b(n)|≤1 whenever k/2<n≤k, put P=Σ_{k/2<p≤k, p prime}b(p)log p and V=Σ_{k/2<n≤k}b(n)Λ(n). Then |V−P|≤M, so |P|≥(1−3*ε)*k/8 implies |V|>0.1239*k.",
       "hypotheses": [
-        "Parameters, ranges, character normalization and constant dependence are those in the displayed statement."
+        "k is real and k≥2*10^10; ε=0.002811.",
+        "b:ℕ→ℂ and |b(n)|≤1 on the summation interval k/2<n≤k; the two sums use the same b and endpoints."
       ],
       "proofSteps": [
         "Bound the powers p^j with j≥2 by a sum of theta(k^(1/j)), and subtract endpoints before estimating.",
-        "Insert the certified constants from the source; retain the strict inequality."
+        "Insert the certified constants from the source; retain the strict inequality.",
+        "On prime terms Λ(p)=log p, and on higher prime powers use |b(p^j)|≤1. The triangle inequality gives |V−P|≤M and |V|≥|P|−M."
       ],
       "prerequisites": [
         "mathlib:Chebyshev.psi",
         "mathlib:Chebyshev.theta"
       ],
       "acceptance": [
-        "Check every endpoint and the stated dependence of constants; no conjectural input is implicit."
+        "Check the certified strict mass bound at the minimum k and all larger k; its original numerical proof remains an open source obligation.",
+        "The weighted implication requires the same coefficient sequence in both sums and the bound |b(n)|≤1 at higher prime powers, not only at primes."
       ],
       "uses": [
         {
@@ -2659,7 +2662,7 @@
       ],
       "title": "Weighted-prime sum input to the factorial estimate",
       "kind": "theorem",
-      "statement": "For x≥319 there is one absolute real E such that log x+E−1/(2 log x)<Σ_{p≤x}(log p)/p<log x+E+1/(2 log x).",
+      "statement": "There exists an absolute real constant E such that, for every real x≥319, log x+E−1/(2 log x)<Σ_{p≤x}(log p)/p<log x+E+1/(2 log x). The same E applies at both endpoints of every interval subtraction.",
       "hypotheses": [
         "Parameters, ranges, character normalization and constant dependence are those in the displayed statement."
       ],
@@ -9088,18 +9091,19 @@
       ],
       "title": "Nonnegative ray-character logarithmic coefficients",
       "kind": "lemma",
-      "statement": "For the finite character group Ĥ of a ray-class quotient H, Σ_{χ∈Ĥ}χ(h^k) is #H if h^k=1 and0 otherwise. Thus the logarithmic coefficients of ∏_χL(s,χ) are nonnegative after norm regrouping, with bad primes omitted consistently.",
+      "statement": "For a finite abelian ray-class quotient H and its full complex character group Ĥ, for h∈H and an integer k≥1, Σ_{χ∈Ĥ}χ(h^k) is #H if h^k=1 and 0 otherwise. On Re s>1 the contribution of an allowed prime ideal 𝔭 to log ∏_χL(s,χ) is Σ_{k≥1}(Σ_χχ([𝔭]^k))/k · N𝔭^(−ks). Thus these logarithmic coefficients are nonnegative after norm regrouping, with bad primes omitted consistently.",
       "hypotheses": [],
       "proofSteps": [
         "Import finite-character orthogonality on the actual finite ray quotient.",
-        "Apply it to each prime power in the absolutely convergent Euler logarithm."
+        "Expand −log(1−z)=Σ_{k≥1}z^k/k in the absolutely convergent Euler logarithm, then apply orthogonality; the positive divisor k must be retained."
       ],
       "prerequisites": [
         "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-9-hecke-and-ray-class-characters",
         "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-3-local-factors-and-euler-products"
       ],
       "acceptance": [
-        "Check every endpoint and the stated dependence of constants; no conjectural input is implicit."
+        "For the trivial group, the local coefficients at powers k=1 and k=2 are 1 and 1/2, respectively.",
+        "If h^k≠1 the character sum is zero; if h^k=1 the coefficient is #H/k."
       ],
       "uses": [
         {
@@ -9115,9 +9119,9 @@
       "sources": [
         {
           "sourceId": "kedlaya-ant-2025",
-          "locator": "§3.4 Theorem3.9",
-          "excerpt": "product of L-functions",
-          "match": "Exact target or stated specialization; unresolved proof inputs are named in the gap ledger."
+          "locator": "§3.3, Theorem 3.7, equation (3.3.1), printed p.19 (PDF p.35), December 2025 author copy",
+          "excerpt": "nonnegative real coeﬀicients",
+          "match": "The source treats Dirichlet characters; the ray-class version uses the separately imported finite character orthogonality and ideal Euler product. Restore the missing factor 1/k in (3.3.1), recorded as AnalyticNumberTheory/E18. Supplier contracts remain to be independently checked."
         }
       ],
       "implementationStatus": "unchecked"
@@ -9286,9 +9290,9 @@
       "sources": [
         {
           "sourceId": "kedlaya-ant-2025",
-          "locator": "Theorem3.10 quadratic case and Landau theorem",
-          "excerpt": "quadratic",
-          "match": "Exact target or stated specialization; unresolved proof inputs are named in the gap ledger."
+          "locator": "§3.4, Theorem 3.11, statement printed p.19 and proof p.20 (PDF pp.35–36), using Theorem 2.4",
+          "excerpt": "nonnegative real coeﬀicients",
+          "match": "The real nonprincipal Dirichlet-character case supplies the model argument. The ray-class generalization and the endpoint supplier contract still require the independent closure check recorded in the existing gap ledger."
         }
       ],
       "implementationStatus": "unchecked"
@@ -12770,6 +12774,27 @@
         "Publisher final PDF equation(2.5) and §4 proof freshly read on2026-10-05.",
         "arXivv1 equation(2.5), introduction(1.7), and the author publication listing checked on2026-10-05."
       ]
+    },
+    {
+      "id": "AnalyticNumberTheory/E18",
+      "source": "kedlaya-ant-2025",
+      "kind": "misprint",
+      "locator": "December 2025 author PreTeXt PDF, §3.3, proof of Theorem 3.7, equation (3.3.1), printed p.19 (PDF p.35); SHA256 7a934fce8272cedd36ad609f79bbe79af0056320bb1e0bc690c87af990f305be.",
+      "printed": "log f_N(s) = Σ_{p:(p,N)=1} Σ_{n≥1} (Σ_χ χ(p^n)) p^(−ns).",
+      "correction": "Insert 1/n: log f_N(s) = Σ_{p:(p,N)=1} Σ_{n≥1} (Σ_χ χ(p^n)) p^(−ns)/n.",
+      "reason": "The convergent expansion −log(1−z)=Σ_{n≥1}z^n/n gives the divisor n. At level N=1, the local p^(−2s) coefficient is 1/2 rather than 1. Dividing each nonnegative character sum by n preserves the positivity used in the proof. The missing divisor was checked on the page image as well as the text layer.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "On 2026-10-05 read https://kskedlaya.org/papers/ : the analytic-number-theory course-notes entry links the December 2025 PDF and HTML and an older PDF, but no correction for (3.3.1) was listed there.",
+        "Freshly acquired the linked author PDF and inspected printed p.19; the missing divisor persists in those bytes.",
+        "A bounded web search for site:kskedlaya.org \"ant\" \"errata\" \"3.3.1\" returned no result. Opening https://kskedlaya.org/ant/ yielded no readable text. This records the limited search, not a claim of global novelty."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Direct page-image check and the coefficient comparison at N=1, n=2 confirm the omitted divisor. This checkpoint does not finish the review job, so the verdict does not yet count as a completed independent review.",
+        "by": "REV-AnalyticNumberTheory--AN.0"
+      }
     }
   ],
   "provenance": {
@@ -12917,6 +12942,22 @@
         ],
         "compiled": false
       }
+    },
+    "independentReviewCheckpoint": {
+      "job": "REV-AnalyticNumberTheory--AN.0",
+      "session": "codex-7e92bd",
+      "date": "2026-10-05",
+      "status": "partial; no final review verdict",
+      "report": "research/blueprint/reviews/REV-AnalyticNumberTheory--AN.0.md",
+      "handoff": "research/blueprint/handoff/REV-AnalyticNumberTheory--AN.0.md",
+      "inputCommit": "5132943b05181dfb33bfc0a3ba618f200f1cc7fe",
+      "baselineStatementsRead": 54,
+      "nodePayloadsRead": 53,
+      "sourceIssuesAdded": [
+        "AnalyticNumberTheory/E18"
+      ],
+      "suggestedFileElaborates": true,
+      "elaborationLimit": "Executable content only; six omitted carrier definitions remain mathematical comments, not checked Lean declarations."
     }
   },
   "routedInputs": [
