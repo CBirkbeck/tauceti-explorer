@@ -6,6 +6,8 @@ converge on names and signatures. They claim no implementation.
 
 BP-HabiroCyclotomicCompletions--HC.4. Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174;
 Tau Ceti f790474821cf4256814db967cb154e7af3d0c369. All nodes remain unchecked.
+Independent review REV-HabiroCyclotomicCompletions--HC.4 refines the declaration
+catalogue in its report; the original document's mathematical conventions hold.
 The factorial-compatible-family model below sketches the imported HC.1–HC.2
 object, rather than introducing a second completion into the packet. Finite
 indices are ordered exactly as in the document. Auxiliary maps have concrete
@@ -15,6 +17,7 @@ import Mathlib.RingTheory.AdjoinRoot
 import Mathlib.RingTheory.Polynomial.Cyclotomic.Basic
 import Mathlib.RingTheory.Polynomial.Cyclotomic.Roots
 import Mathlib.RingTheory.RootsOfUnity.Lemmas
+import Mathlib.RingTheory.RootsOfUnity.Complex
 import Mathlib.RingTheory.Polynomial.Resultant.Basic
 import Mathlib.Algebra.Polynomial.HasseDeriv
 import Mathlib.RingTheory.PowerSeries.Basic
@@ -122,6 +125,7 @@ def atFourthRoot {K : Type*} [Field K] (i : K) (hi : i ^ 2 + 1 = 0) :
 
 /-- Test universal_split_nonexample. Applies in particular to K=Q(i). -/
 example {K : Type*} [Field K] [CharZero K] (i : K) (hi : i ^ 2 + 1 = 0) :
+    Module.finrank K (CycloCoeff K 4) = 2 ∧
     cycloRoot K 4 - algebraMap K (CycloCoeff K 4) i ≠ 0 ∧
     atFourthRoot i hi (cycloRoot K 4 - algebraMap K (CycloCoeff K 4) i) = 0 := sorry
 
@@ -131,22 +135,29 @@ def hFiltration (N : ℕ) : Ideal (Naive R) := RingHom.ker (hProjection R (N - 1
 theorem mem_hFiltration_iff (N : ℕ) (h : Naive R) :
     h ∈ hFiltration R N ↔ hProjection R (N - 1) h = 0 := sorry
 
-/-- HC.4/factorial-kernel-characterisation (principal-kernel part). -/
+/-- HC.4/factorial-digit-kernel. -/
+theorem mem_hFiltration_digits (N : ℕ) (hN : 0 < N) (h : Naive R) :
+    h ∈ hFiltration R N ↔ ∀ n : ℕ, 0 < n → n < N → digit R h n = 0 := sorry
+
+/-- HC.4/factorial-kernel-characterisation. -/
 theorem hFiltration_eq_principal (N : ℕ) (hN : 0 < N) :
     hFiltration R N = Ideal.span {fromPoly R (factorialPoly R (N - 1))} := sorry
 
+/-- HC.4/factorial-filtration-antitone. -/
 theorem hFiltration_antitone (N : ℕ) (hN : 0 < N) :
     hFiltration R (N + 1) ≤ hFiltration R N := sorry
 
+/-- HC.4/factorial-filtration-separated. -/
 theorem hFiltration_inter : (⨅ N : ℕ+, hFiltration R N) = ⊥ := sorry
 
+/-- HC.4/factorial-finite-quotient. -/
 def hFiltration_quotient_equiv (N : ℕ) (hN : 0 < N) :
     (Naive R ⧸ hFiltration R N) ≃ₐ[R] FiniteH R (N - 1) := sorry
 
 /-- Test hFiltration_one. -/
 example : hFiltration R 1 = ⊤ := sorry
 
-/-- Test hFiltration_two. -/
+/-- Polynomial specialization of test hFiltration_two. -/
 example (g : R[X]) : fromPoly R g ∈ hFiltration R 2 ↔ g.eval 1 = 0 := sorry
 
 /-- Test hFiltration_digit_boundary. -/
@@ -166,8 +177,10 @@ theorem mem_pFiltration_iff (N : ℕ) (f : TaylorProduct R) :
     f ∈ pFiltration R N ↔ ∀ (m : ℕ+) (l : ℕ), 0 < l → (m : ℕ) * l < N →
       taylorCoeff R f m l = 0 := sorry
 
+/-- HC.4/taylor-filtration-antitone. -/
 theorem pFiltration_antitone (N : ℕ) : pFiltration R (N + 1) ≤ pFiltration R N := sorry
 
+/-- HC.4/taylor-filtration-separated. -/
 theorem pFiltration_inter : (⨅ N : ℕ+, pFiltration R N) = ⊥ := sorry
 
 abbrev FiniteP (N : ℕ) := TaylorProduct R ⧸ pFiltration R N
@@ -235,6 +248,10 @@ theorem coeff_iota_fromPoly (g : R[X]) (m : ℕ+) (k : ℕ) :
 theorem iota_map {S : Type*} [CommRing S] (φ : R →+* S) (h : Naive R) :
     iota S (naiveMap R φ h) = TaylorProduct.map R φ (iota R h) := sorry
 
+/-- Test hFiltration_two, including arbitrary completed elements. -/
+example (h : Naive R) : h ∈ hFiltration R 2 ↔
+    PowerSeries.coeff 0 (iota R h 1) = 0 := sorry
+
 /-- Test iota_one. -/
 example : iota R 1 = 1 := sorry
 
@@ -271,18 +288,39 @@ def factorialGradedEquiv (N : ℕ) (hN : 0 < N) :
 /-- HC.4/taylor-graded-piece: extract exponent N/m−1. -/
 def taylorGradedEquiv (N : ℕ) (hN : 0 < N) : PGr R N ≃ₗ[R] DivisorCoeff R N := sorry
 
-/-- The digit and jet bases of HC.4/finite-precision-bases. -/
+/-- HC.4/finite-precision-bases: the imported digit basis in shifted indexing. -/
 def finiteDigitBasis (N : ℕ) (hN : 0 < N) :
     Module.Basis (Fin (dimension N)) R (FiniteH R (N - 1)) := sorry
 
+/-- The basis is specified by its polynomial classes, not just its index type. -/
+theorem finiteDigitBasis_apply (N : ℕ) (hN : 0 < N) (i : Fin (dimension N)) :
+    finiteDigitBasis R N hN i = AdjoinRoot.mk _
+      (X ^ (digitAt N i).2 * factorialPoly R ((digitAt N i).1 - 1)) := sorry
+
+theorem finiteDigitBasis_repr (N : ℕ) (hN : 0 < N) (h : Naive R)
+    (i : Fin (dimension N)) :
+    (finiteDigitBasis R N hN).repr (hProjection R (N - 1) h) i =
+      digitCoordinates R N h i := sorry
+
+/-- HC.4/finite-jet-basis. -/
 def finiteJetBasis (N : ℕ) (hN : 0 < N) :
     Module.Basis (Fin (dimension N)) R (FiniteP R N) := sorry
+
+theorem finiteJetBasis_repr (N : ℕ) (hN : 0 < N) (f : TaylorProduct R)
+    (i : Fin (dimension N)) :
+    (finiteJetBasis R N hN).repr (Ideal.Quotient.mk _ f) i =
+      jetCoordinates R N f i := sorry
+
+/-- HC.4/finite-precision-rank: exact finite counts, also over the zero ring. -/
+theorem finite_precision_counts (N : ℕ) (hN : 0 < N) :
+    (digitRows N).length = dimension N ∧ (jetRows N).length = dimension N := sorry
 
 /-- HC.4/factorial-vanishing-order. -/
 theorem factorial_vanishing_order (n : ℕ) (m : ℕ+) :
     (X : (CycloCoeff R m)[X]) ^ (n / m) ∣
       taylorPolynomial R m (factorialPoly R n) := sorry
 
+/-- HC.4/taylor-comparison-filtered. -/
 theorem iota_filtered (N : ℕ) (hN : 0 < N) (h : Naive R)
     (hh : h ∈ hFiltration R N) : iota R h ∈ pFiltration R N := sorry
 
@@ -324,6 +362,7 @@ theorem graded_taylor_map (N : ℕ) (hN : 0 < N) (g : R[X])
     (leadingFactor m.val (N / m.val) : CycloCoeff R m.val) *
       g.eval₂ (algebraMap R (CycloCoeff R m.val)) (cycloRoot R m.val) := sorry
 
+/-- HC.4/simultaneous-cyclotomic-remainders. -/
 def simultaneousRemainders (N : ℕ) (hN : 0 < N) :
     AdjoinRoot (X ^ N - 1 : R[X]) →ₐ[R] DivisorCoeff R N := sorry
 
@@ -332,6 +371,7 @@ theorem simultaneous_remainders_injective
     (hR : ∀ z : ℤ, z ≠ 0 → Function.Injective (fun r : R => z • r))
     (N : ℕ) (hN : 0 < N) : Function.Injective (simultaneousRemainders R N hN) := sorry
 
+/-- HC.4/simultaneous-remainders-rational. -/
 theorem simultaneous_remainders_bijective [Algebra ℚ R] (N : ℕ) (hN : 0 < N) :
     Function.Bijective (simultaneousRemainders R N hN) := sorry
 
@@ -340,6 +380,7 @@ theorem graded_taylor_injective
     (hR : ∀ z : ℤ, z ≠ 0 → Function.Injective (fun r : R => z • r))
     (N : ℕ) (hN : 0 < N) : Function.Injective (gradedIota R N hN) := sorry
 
+/-- HC.4/graded-taylor-rational. -/
 theorem graded_taylor_bijective [Algebra ℚ R] (N : ℕ) (hN : 0 < N) :
     Function.Bijective (gradedIota R N hN) := sorry
 
@@ -350,7 +391,18 @@ theorem finiteIota_polynomial (N : ℕ) (hN : 0 < N) (g : R[X]) :
     finiteIota R N hN (AdjoinRoot.mk _ g) =
       Ideal.Quotient.mk _ (iota R (fromPoly R g)) := sorry
 
+/-- The finite map agrees with the joint map on every completed element. -/
+theorem iota_hProjection (N : ℕ) (hN : 0 < N) (h : Naive R) :
+    finiteIota R N hN (hProjection R (N - 1) h) =
+      Ideal.Quotient.mk _ (iota R h) := sorry
+
 def pTransition (N : ℕ) : FiniteP R (N + 1) →ₐ[R] FiniteP R N := sorry
+
+/-- HC.4/taylor-finite-reconstruction. Positive precision is indexed by n+1. -/
+theorem taylor_finite_reconstruction (f : ∀ n : ℕ, FiniteP R (n + 1))
+    (hf : ∀ n, pTransition R (n + 1) (f (n + 1)) = f n) :
+    ∃! g : TaylorProduct R, ∀ n : ℕ,
+      Ideal.Quotient.mk (pFiltration R (n + 1)) g = f n := sorry
 
 theorem finiteIota_transition (N : ℕ) (hN : 0 < N) (g : FiniteH R N) :
     pTransition R N (finiteIota R (N + 1) (by omega) g) =
@@ -379,8 +431,20 @@ theorem finite_taylor_injective
     (hR : ∀ z : ℤ, z ≠ 0 → Function.Injective (fun r : R => z • r))
     (N : ℕ) (hN : 0 < N) : Function.Injective (finiteIota R N hN) := sorry
 
+/-- HC.4/finite-taylor-rational. -/
 theorem finite_taylor_bijective [Algebra ℚ R] (N : ℕ) (hN : 0 < N) :
     Function.Bijective (finiteIota R N hN) := sorry
+
+/-- HC.4/compatible-finite-preimages. -/
+theorem compatible_finite_preimages
+    (hR : ∀ z : ℤ, z ≠ 0 → Function.Injective (fun r : R => z • r))
+    (f : TaylorProduct R) (x : ∀ n : ℕ, FiniteH R n)
+    (hx : ∀ n, finiteIota R (n + 1) (Nat.succ_pos n) (x n) =
+      Ideal.Quotient.mk _ f) :
+    (∀ n, hTransition R n (x (n + 1)) = x n) ∧
+    (∀ y : ∀ n : ℕ, FiniteH R n,
+      (∀ n, finiteIota R (n + 1) (Nat.succ_pos n) (y n) = Ideal.Quotient.mk _ f) →
+      y = x) := sorry
 
 /-- HC.4/global-taylor-injective. Joint components, with no domain assumption. -/
 theorem global_taylor_injective
@@ -409,15 +473,17 @@ theorem taylorMatrix_entry (N : ℕ) (i k : Fin (dimension N)) :
         (X ^ (digitAt N k).2 * factorialPoly ℤ ((digitAt N k).1 - 1))).coeff
         ((jetAt N i).2.1 - 1))).coeff (jetAt N i).2.2 := sorry
 
-/-- HC.4/finite-taylor-coordinate-matrix, with the following base-change and zero statements. -/
+/-- HC.4/taylor-matrix-digits. -/
 theorem taylorMatrix_mul_digits (N : ℕ) (hN : 0 < N) (h : Naive R) :
     (taylorMatrix N).map (Int.castRingHom R) *ᵥ digitCoordinates R N h =
       jetCoordinates R N (iota R h) := sorry
 
+/-- HC.4/finite-taylor-coordinate-matrix. -/
 theorem taylorMatrix_baseChange (N : ℕ) (hN : 0 < N) :
     (finiteIota R N hN).toLinearMap.toMatrix (finiteDigitBasis R N hN)
       (finiteJetBasis R N hN) = (taylorMatrix N).map (Int.castRingHom R) := sorry
 
+/-- HC.4/taylor-matrix-triangular. -/
 theorem taylorMatrix_zero_above_weight (N : ℕ) (i k : Fin (dimension N))
     (h : (jetAt N i).1 * (jetAt N i).2.1 < (digitAt N k).1) :
     taylorMatrix N i k = 0 := sorry
@@ -476,16 +542,18 @@ def delta (N : ℕ) : ℕ := (taylorMatrix N).det.natAbs
 theorem finite_taylor_determinant (N : ℕ) (hN : 0 < N) :
     delta N = ∏ n ∈ (Finset.range N).erase 0, D1 n * D2 n := sorry
 
+/-- HC.4/finite-taylor-determinant-positive. -/
 theorem delta_pos (N : ℕ) (hN : 0 < N) : 0 < delta N := sorry
 
 /-- HC.4/signed-adjugate. -/
 def starMatrix (N : ℕ) : Matrix (Fin (dimension N)) (Fin (dimension N)) ℤ :=
   (taylorMatrix N).det.sign • (taylorMatrix N).adjugate
 
-/-- HC.4/signed-adjugate-identities, with the reversed identity immediately below. -/
+/-- HC.4/signed-adjugate-identities. -/
 theorem taylorMatrix_mul_starMatrix (N : ℕ) (hN : 0 < N) :
     taylorMatrix N * starMatrix N = (delta N : ℤ) • 1 := sorry
 
+/-- HC.4/signed-adjugate-left. -/
 theorem starMatrix_mul_taylorMatrix (N : ℕ) (hN : 0 < N) :
     starMatrix N * taylorMatrix N = (delta N : ℤ) • 1 := sorry
 
@@ -528,6 +596,13 @@ abbrev Invert (D : ℤ) := Localization.Away D
 def awayToPadic (D : ℤ) (p : ℕ) [Fact p.Prime] (hpD : ¬(p : ℤ) ∣ D) :
     Invert D →+* ℤ_[p] := sorry
 
+/-- HC.4/localized-integer-divisibility; the zero numerator is explicit. -/
+theorem localized_integer_divisibility (D : ℤ) (hD : D ≠ 0) (d : ℕ) (hd : 0 < d)
+    (b : ℤ) :
+    ((d : Invert D) ∣ (b : Invert D) ↔ ∃ k : ℕ, (d : ℤ) ∣ D ^ k * b) ∧
+    ((d : Invert D) ∣ (b : Invert D) ↔ b = 0 ∨
+      ∀ p : ℕ, p.Prime → ¬(p : ℤ) ∣ D → d.factorization p ≤ b.natAbs.factorization p) := sorry
+
 /-- HC.4/localized-scalar-divisibility. -/
 theorem localized_scalar_divisibility (D : ℤ) (hD : D ≠ 0) (d : ℕ) (hd : 0 < d)
     (a : Invert D) : (d : Invert D) ∣ a ↔
@@ -544,7 +619,10 @@ theorem local_integrality_detection (D : ℤ) (hD : D ≠ 0) (f : TaylorProduct 
 
 /-- HC.4/kontsevich-matrix-example: first digit coordinates all constant one. -/
 theorem kontsevich_matrix_example :
-    taylorMatrix 5 *ᵥ ![1,1,0,1,0,0,1,0,0,0] = ![1,3,1,5,-1,2,8,-3,11,5] ∧
+    taylorMatrix 5 *ᵥ ![1,1,0,1,0,0,1,0,0,0] = ![1,3,1,5,-1,2,8,-3,11,5] := sorry
+
+/-- HC.4/kontsevich-perturbation. -/
+theorem kontsevich_perturbation :
     ((taylorMatrix 5).map (Int.castRingHom ℚ))⁻¹ *ᵥ ![2,3,1,5,-1,2,8,-3,11,5] =
       ![2,3/4,1/4,65/72,-1/72,17/72,275/288,-7/144,1/32,17/72] := sorry
 
@@ -562,20 +640,26 @@ theorem odd_order_idempotent_example :
 /-- Imported HC.3 substitution q↦q² on the ordinary completion. -/
 def substituteTwo : Naive ℚ →ₐ[ℚ] Naive ℚ := sorry
 
-/-- The digit computations in HC.4/odd-order-idempotent-example. -/
+/-- HC.4/odd-projector-digits. -/
 theorem odd_projector_digits :
     let e := (rationalTaylorEquiv ℚ).symm oddProjector
     digit ℚ e 1 = 1 ∧ digit ℚ e 2 = (C (-1) + X) * C (1/4) ∧
     digit ℚ e 3 = (1 - X + X^2) * C (1/8) ∧
     digit ℚ e 4 = (C (-5) + C 2 * X + X^2 + C 4 * X^3) * C (1/32) := sorry
 
+/-- HC.4/companion-projector. -/
+theorem companion_projector :
+    let e := (rationalTaylorEquiv ℚ).symm oddProjector
+    let g := substituteTwo e - e
+    ∀ m : ℕ+, iota ℚ g m = if (m : ℕ) % 4 = 2 then 1 else 0 := sorry
+
+/-- HC.4/companion-projector-digits. -/
 theorem companion_projector_digits :
     let e := (rationalTaylorEquiv ℚ).symm oddProjector
     let g := substituteTwo e - e
     digit ℚ g 1 = 0 ∧ digit ℚ g 2 = (1 - X) * C (1/4) ∧
     digit ℚ g 3 = (C (-1) + X - X^2) * C (1/8) ∧
-    digit ℚ g 4 = (1 - C 2 * X + C 3 * X^2 - C 4 * X^3) * C (1/32) ∧
-    (∀ m : ℕ+, iota ℚ g m = if (m : ℕ) % 4 = 2 then 1 else 0) := sorry
+    digit ℚ g 4 = (1 - C 2 * X + C 3 * X^2 - C 4 * X^3) * C (1/32) := sorry
 
 /-- HC.4/finite-domain-module-embedding. -/
 theorem finite_domain_module_embedding {B : Type*} [CommRing B] [IsDomain R] [IsDomain B]
