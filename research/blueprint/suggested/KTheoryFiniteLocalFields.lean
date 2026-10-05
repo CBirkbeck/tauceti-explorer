@@ -3389,7 +3389,11 @@ example (p : ℕ) [Fact p.Prime] :
 
 end TauCeti.KTheoryFiniteLocal
 
-/-! ### `KTheoryFiniteLocalFields:L.5/log-witt-complex` — log Witt complexes over `(R, M)` -/
+/-! Universal log-Witt imports, owned once by CrystallineCohomology CR.4 on
+CR.5:log-algebra. The API/tests below are supplier specifications, not local definitions.
+Their exact statements are preserved in the CR.4 packet request. -/
+
+/-! ### `CrystallineCohomology:CR.4 (import: log-witt-complex)` — log Witt complexes over `(R, M)` -/
 
 /- `TauCeti.LogWittComplex`: not stated here; needs pro-log differential graded rings
 `(E^*_•, M_E)` with `Dlog` and the prelog structure `W_n(R)` through `[-]_n` (supplier:
@@ -3418,12 +3422,12 @@ complexes (supplier: CrystallineCohomology CR.5:log-algebra). -/
 -- test TauCeti.LogWittComplex.not_p2 (non-example): not stated here; needs `TR^•_*(ℤ_(2)|ℚ;2)`
 -- with Connes' operator (supplier: KTheoryFiniteLocalFields:L.4/connes-operator, RT.2).
 
-/- `KTheoryFiniteLocalFields:L.5/log-witt-complex-derived-relations`
+/- `CrystallineCohomology:CR.4 (import: log-witt-complex)-derived-relations`
 (`TauCeti.KTheoryFiniteLocal.log_witt_complex_derived_relations`): not stated here; needs
-log Witt complexes (supplier: KTheoryFiniteLocalFields:L.5/log-witt-complex, i.e.
+log Witt complexes (supplier: CrystallineCohomology:CR.4 (import: log-witt-complex), i.e.
 CrystallineCohomology CR.5:log-algebra and CR.4). -/
 
-/-! ### `KTheoryFiniteLocalFields:L.5/log-de-rham-witt-complex` — `W_•ω^*_{(R,M)}` -/
+/-! ### `CrystallineCohomology:CR.4 (import: log-de-rham-witt-complex)` — `W_•ω^*_{(R,M)}` -/
 
 /- `TauCeti.logDeRhamWitt`: not stated here; needs the category of log Witt complexes and its
 initial object (supplier: CrystallineCohomology CR.5:log-algebra, CR.4; the existence proof is
@@ -3455,11 +3459,11 @@ CR.5:log-algebra, CR.4). -/
 -- test TauCeti.logDeRhamWitt_ne_ordinary (non-example): not stated here; needs `W_1ω¹_{(A,M)}` and
 -- `W_1Ω¹_{ℤ_p}` (supplier: CrystallineCohomology CR.4, CR.5:log-algebra).
 
-/- `KTheoryFiniteLocalFields:L.5/log-de-rham-witt-level-one`
+/- `CrystallineCohomology:CR.4 (import: log-de-rham-witt-level-one)`
 (`TauCeti.KTheoryFiniteLocal.log_de_rham_witt_level_one`): not stated here; needs
 `W_1ω^*_{(R,M)}` and the universal log dga `ω^*_{(R,M)}` of a general log ring (supplier:
 CrystallineCohomology CR.5:log-algebra).
-`KTheoryFiniteLocalFields:L.5/standard-filtration-quotient`
+`CrystallineCohomology:CR.4 (import: standard-filtration-quotient)`
 (`TauCeti.KTheoryFiniteLocal.standard_filtration_quotient`): not stated here; needs log Witt
 complexes and `W_nω^i_{(R,M)}` (supplier: CrystallineCohomology CR.5:log-algebra, CR.4). -/
 
@@ -4961,3 +4965,107 @@ example (k : Type u) [Field k] : Countable (milnorK (LaurentSeries k) 0) :=
   (milnorK.zeroEquiv (F := LaurentSeries k)).injective.countable
 
 end TauCeti.KTheoryFiniteLocal
+
+/-! ## Published Nikolaus–Scholze IV.4 prime-field calculation names
+
+TC^- means circle homotopy fixed points; TP means circle Tate. The finite C_p-Tate
+object is separate. RT.2 supplies these carriers, E∞ maps and cyclotomic structure;
+RT.1 supplies derived HH over Z. No typed spectra signatures can be given at this pin.
+The following are exact proposed theorem specifications, not implementations. -/
+
+/- `KTheoryFiniteLocalFields:L.5/fp-tc-minus-filtration-extension`
+Proposed name: `TauCeti.KTheoryFiniteLocal.fp_tc_minus_filtration_extension`
+
+For X=THH(HF_p), choose Bökstedt u∈π_2X and the standard orientation v∈H²(BT,F_p). In the circle homotopy-fixed-point spectral sequence, the image of p∈π_0X^hT in the first nonzero filtration quotient H²(BT,π_2X) is uv. Consequently p^a represents (uv)^a in filtration 2a. The filtration is not split as a ring over F_p.
+
+Hypotheses: p is any prime, including 2; F_p denotes the prime field. The displayed TC, TC^- and TP are p-complete.
+Required carriers/imports: KTheoryFiniteLocalFields:L.5/thh-of-perfect-field, RefinedTraceMethods:RT.1, RefinedTraceMethods:RT.2.
+Acceptance checks:
+* At p=2 the first extension is Z/4, not F_2⊕F_2.
+* The class of p is zero in filtration zero but nonzero in filtration two.
+Source: NikolausScholze.2018.published, Lemma IV.4.7, printed p.359. -/
+
+/- `KTheoryFiniteLocalFields:L.5/fp-negative-topological-cyclic-homology`
+Proposed name: `TauCeti.KTheoryFiniteLocal.fp_negative_topological_cyclic_homology`
+
+For X=THH(HF_p), TC^-(F_p)=X^hT has graded homotopy ring Z_p[ũ,v]/(ũv−p), |ũ|=2 and |v|=−2. Odd groups vanish, π_2a=Z_p·ũ^a and π_−2a=Z_p·v^a for a≥0. The edge sends ũ to Bökstedt u and v to the orientation class. TC^- is RT.2’s existing homotopy-fixed-point object, not a new local definition.
+
+Hypotheses: p is any prime, including 2; F_p denotes the prime field. The displayed TC, TC^- and TP are p-complete.
+Required carriers/imports: KTheoryFiniteLocalFields:L.5/fp-tc-minus-filtration-extension, RefinedTraceMethods:RT.2, StableHomotopyKTheory:H.6.
+Acceptance checks:
+* π_0=Z_p has characteristic zero, even though π_0THH(F_p)=F_p.
+* π_2 and π_−2 are each Z_p and their chosen generators multiply to p, not zero.
+* At p=2 the same presentation holds; the p-odd restriction of the HM log-Witt comparison is not used.
+Source: NikolausScholze.2018.published, Proposition IV.4.6, printed pp.358–359. -/
+
+/- `KTheoryFiniteLocalFields:L.5/fp-periodic-topological-cyclic-homology`
+Proposed name: `TauCeti.KTheoryFiniteLocal.fp_periodic_topological_cyclic_homology`
+
+TP(F_p)=THH(HF_p)^tT has π_*=Z_p[v,v^−1], |v|=−2, and zero odd groups. For generators of fp-negative-topological-cyclic-homology the canonical map can:TC^-→TP sends v↦v and ũ↦pv^−1. On π_i, i even, can is injective, an isomorphism for i≤0, and has image p^aZ_p for i=2a≥0.
+
+Hypotheses: p is any prime, including 2; F_p denotes the prime field. The displayed TC, TC^- and TP are p-complete.
+Required carriers/imports: KTheoryFiniteLocalFields:L.5/fp-negative-topological-cyclic-homology, RefinedTraceMethods:RT.2.
+Acceptance checks:
+* can on π_2 has image pZ_p; can on π_−2 is an isomorphism.
+* TP(F_p) has π_0=Z_p; THH(F_p)^tC_p instead has π_0=F_p.
+Source: NikolausScholze.2018.published, Corollary IV.4.8, printed p.360. -/
+
+/- `KTheoryFiniteLocalFields:L.5/fp-cyclotomic-frobenius-on-tc-minus`
+Proposed name: `TauCeti.KTheoryFiniteLocal.fp_cyclotomic_frobenius_on_tc_minus`
+
+The p-cyclotomic Frobenius φ^hT:TC^-(F_p)→TP(F_p) is injective on every even homotopy group, an isomorphism for i≥0, and has image p^aZ_p for i=−2a≤0. The degree-zero map is the identity of Z_p. These image statements are independent of generator units; a simultaneous exact normalization is supplied by fp-cyclotomic-shift-model.
+
+Hypotheses: p is any prime, including 2; F_p denotes the prime field. The displayed TC, TC^- and TP are p-complete.
+Required carriers/imports: KTheoryFiniteLocalFields:L.5/fp-periodic-topological-cyclic-homology, RefinedTraceMethods:RT.2.
+Acceptance checks:
+* At p=2, φ is an isomorphism on π_2 whereas can has image 2Z_2; these maps cannot be identified.
+* For every a≥1, p^a−1 is a p-adic unit; this is the input to the TC fibre calculation.
+Source: NikolausScholze.2018.published, Proposition IV.4.9, printed pp.360–361. -/
+
+/- `KTheoryFiniteLocalFields:L.5/fp-cyclotomic-tate-cover`
+Proposed name: `TauCeti.KTheoryFiniteLocal.fp_cyclotomic_tate_cover`
+
+The HZ_p→THH(HF_p) map obtained from τ≥0TC(F_p)=HZ_p induces a T/C_p-equivariant equivalence of E∞-rings HZ_p^tC_p≃THH(HF_p)^tC_p, with homotopy F_p[v±1]. The cyclotomic Frobenius φ_p:THH(HF_p)→THH(HF_p)^tC_p identifies its source with the connective cover, with residual circle action transported by T≃T/C_p.
+
+Hypotheses: p is any prime, including 2; F_p denotes the prime field. The displayed TC, TC^- and TP are p-complete.
+Required carriers/imports: KTheoryFiniteLocalFields:L.5/tc-of-perfect-field, KTheoryFiniteLocalFields:L.5/fp-cyclotomic-frobenius-on-tc-minus, RefinedTraceMethods:RT.2.
+Acceptance checks:
+* π_0 of the finite Tate target is F_p, not Z_p.
+* φ_p identifies π_2a for a≥0, while the target has nonzero negative even homotopy absent from THH.
+* The HZ_p map through TC is specified; Remark IV.4.17 warns that the natural, Frobenius and through-F_p algebra maps need not coincide.
+Source: NikolausScholze.2018.published, Corollary IV.4.13, printed pp.362–363. -/
+
+/- `KTheoryFiniteLocalFields:L.5/fp-cyclotomic-shift-model`
+Proposed name: `TauCeti.KTheoryFiniteLocal.fp_cyclotomic_shift_model`
+
+Using RT.2’s shift sh_p(X)=τ≥0(X^tC_p) with residual circle action and induced Frobenius (NS Construction IV.4.15), THH(HF_p)≃sh_p(HZ_p^triv) as E∞-cyclotomic spectra. Generators may simultaneously be chosen with ũv=p, can(v)=v, can(ũ)=pv^−1, φ^hT(v)=pv and φ^hT(ũ)=v^−1. For n≥1 the genuine fixed points THH(HF_p)^C_(p^n)≃τ≥0 HZ_p^tC_(p^(n+1)); the HM TR index for these fixed points is n+1.
+
+Hypotheses: p is any prime, including 2; F_p denotes the prime field. The displayed TC, TC^- and TP are p-complete.
+Required carriers/imports: KTheoryFiniteLocalFields:L.5/fp-cyclotomic-tate-cover, KTheoryFiniteLocalFields:L.5/fp-negative-topological-cyclic-homology, RefinedTraceMethods:RT.2.
+Acceptance checks:
+* In degree 2a>0, can−φ is multiplication by p^a−1 in the v^−a basis. In degree −2a<0 it is 1−p^a in the v^a basis.
+* For n=1, the fixed-point formula gives π_0=Z/p², matching π_0TR²(F_p)=W_2(F_p); π_0THH=F_p corresponds to TR¹.
+* The three HZ_p algebra maps in Remark IV.4.17 stay distinct; an underlying spectrum equivalence alone does not specify this cyclotomic comparison.
+Source: NikolausScholze.2018.published, Construction IV.4.15 and Corollary IV.4.16, printed pp.363–364. -/
+
+/- `KTheoryFiniteLocalFields:L.5/char-p-algebra-tc-fibre-sequence`
+Proposed name: `TauCeti.KTheoryFiniteLocal.char_p_algebra_tc_fibre_sequence`
+
+For a discrete commutative F_p-algebra A, p-complete TC(A) is fib(can−φ^hT:THH(A)^hT→THH(A)^tT). With v the degree −2 class induced by TC^-(F_p), THH(A)^tT≃THH(A)^hT[v^−1]; can becomes an equivalence after inverting p. This applies to perfect fields, truncated polynomial F_p-algebras and the regular characteristic-p rings of L.5/L.6. RT.2 owns the stronger statement for arbitrary E₂ characteristic-p algebras with a chosen nullhomotopy, including unbounded inputs.
+
+Hypotheses: p is any prime, including 2; F_p denotes the prime field. The displayed TC, TC^- and TP are p-complete.
+Required carriers/imports: KTheoryFiniteLocalFields:L.5/fp-cyclotomic-shift-model, RefinedTraceMethods:RT.2.
+Acceptance checks:
+* For A=F_p, the sequence recovers π_0TC=π_−1TC=Z_p and zero in all other degrees.
+* For A=F_p[x]/(x²), the fibre formula applies without smoothness; it does not assert the algebra’s TC groups equal those of F_p.
+* For a mixed-characteristic DVR A=Z_p, the F_p-algebra hypothesis fails, so this node is not the local-DVR comparison theorem.
+Source: NikolausScholze.2018.published, End of IV.4, printed pp.364–365. -/
+
+/- Existing `tc_of_perfect_field`: for the prime-field specialization the new
+TC^- and TP calculations give can−φ=0 in degree zero and a p-adic unit in every
+other even degree; hence π_0TC(F_p)=π_−1TC(F_p)=Z_p. This is a check of the
+existing general perfect-field theorem, not an extra TC definition.
+
+L.4 comparison names import RT.2’s general genuine/modern theorem, with the
+HM n−1 fixed-point index and local bounded-below hypotheses checked. The π_0
+log-THH torsion argument is used only for mixed-characteristic DVRs. -/
