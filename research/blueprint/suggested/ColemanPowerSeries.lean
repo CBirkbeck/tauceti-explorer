@@ -1,3 +1,9 @@
+/-
+This file is not the roadmap and is not exhaustive. The roadmap document is
+definitive. These suggested names, signatures, API items and examples help
+contributors and reviewers converge on Lean forms. All new constructions and
+proofs are placeholders; no implementation is claimed.
+-/
 import Mathlib.Topology.Algebra.Module.FiniteDimension
 import Mathlib.RingTheory.Norm.Transitivity
 import Mathlib.Topology.Algebra.Valued.NormedValued
@@ -21,6 +27,7 @@ import Mathlib.Analysis.SpecificLimits.Normed
 import Mathlib.Topology.Algebra.InfiniteSum.Nonarchimedean
 import Mathlib.Algebra.DualNumber
 import research.blueprint.suggested.PadicMeasuresIwasawaAlgebras
+import research.blueprint.suggested.«DirichletPadicLFunctions--L1»
 import Mathlib.Algebra.Polynomial.Taylor
 import Mathlib.LinearAlgebra.Matrix.Charpoly.Coeff
 import Mathlib.FieldTheory.Finite.Basic
@@ -1802,5 +1809,236 @@ example (F : normFixedUnits p) (n : ℕ) :
 -- NormLimitTests.ternary_constant_evaluation
 example (F : normFixedUnits 3) (hF : (F : (PowerSeries ℤ_[3])ˣ) = -1) (n : ℕ) :
     (normFixedEvaluation 3 F).val n = -1 := sorry
+end ColemanCyclotomic
+end
+
+/-! Arithmetic interpolation and the actual Coleman composite.
+The new signatures below have not been elaborated in this run: the available
+shared build lacks a prebuilt native import. All proofs and constructors remain
+placeholders. No module structure on the full unit tower is asserted. -/
+noncomputable section
+namespace ColemanCyclotomic
+open scoped AbstractMeasure PowerSeries.WithPiTopology
+open TauCetiRoadmap.Campaign.ColemanPowerSeries AbstractMeasure
+variable (p : ℕ) [Fact p.Prime]
+local notation "Z" => ℤ_[p]
+local notation "B" => PowerSeries Z
+local notation "O" => fun n => integralClosure Z (level p n)
+local notation "U" => normCompatibleUnits p
+local notation "M" => D(Zˣ, Z)
+local instance : TopologicalSpace M := AbstractMeasure.WeakTopology
+local notation "A" => unitsMeasureAmiceEquiv p
+
+lemma polynomial_evaluation_ne_zero (n : ℕ) (P : Polynomial Z)
+    (hP : P ≠ 0) (hdeg : P.natDegree < p^n*(p-1)) :
+    aeval (integralZeta p n-1) P ≠ 0 := sorry
+lemma seriesEvaluation_eventually_ne_zero (F : B) (hF : F ≠ 0) :
+    ∃ N, ∀ n ≥ N, seriesEvaluation p n F ≠ 0 := sorry
+theorem seriesEvaluation_ext (F G : B)
+    (h : ∀ n, seriesEvaluation p n F = seriesEvaluation p n G) : F = G := sorry
+theorem normFixedEvaluation_injective : Function.Injective (normFixedEvaluation p) := sorry
+lemma seriesEvaluation_norm_sub_le (n r : ℕ) (F G : B)
+    (h : (p : B)^r ∣ F-G) :
+    ‖seriesEvaluation p n F-seriesEvaluation p n G‖ ≤ (p : ℝ)^(-(r : ℤ)) := sorry
+lemma iterate_norm_evaluation (u : U) (m n : ℕ) (h : n ≤ m) (f : Bˣ)
+    (hf : Units.map (seriesEvaluation p m).toMonoidHom f = u.val m) :
+    Units.map (seriesEvaluation p n).toMonoidHom
+      ((Units.map (colemanNorm p))^[m-n] f) = u.val n := sorry
+lemma exists_normFixed_approximation (u : U) (k : ℕ) :
+    ∃ F : normFixedUnits p, ∀ n ≤ k,
+      ‖seriesEvaluation p n (F : Bˣ).val-(u.val n : O n)‖ ≤
+        (p : ℝ)^(-((k+1 : ℕ) : ℤ)) := sorry
+lemma interpolation_fibers (u : U) :
+    let S := fun k : ℕ => {F : normFixedUnits p | ∀ n ≤ k,
+      ‖seriesEvaluation p n (F : Bˣ).val-(u.val n : O n)‖ ≤
+        (p : ℝ)^(-((k+1 : ℕ) : ℤ))}
+    (∀ k, (S k).Nonempty ∧ IsClosed (S k) ∧ IsCompact (S k)) ∧ Antitone S := sorry
+theorem normFixedEvaluation_surjective : Function.Surjective (normFixedEvaluation p) := sorry
+
+def colemanEquiv : U ≃* normFixedUnits p := sorry
+lemma colemanEquiv_evaluation (u : U) (n : ℕ) :
+    Units.map (seriesEvaluation p n).toMonoidHom (colemanEquiv p u : Bˣ) = u.val n := sorry
+lemma colemanEquiv_inverse (u : U) : normFixedEvaluation p (colemanEquiv p u) = u := sorry
+lemma colemanEquiv_unique (f : U → normFixedUnits p)
+    (hf : ∀ u n, Units.map (seriesEvaluation p n).toMonoidHom (f u : Bˣ) = u.val n) :
+    f = colemanEquiv p := sorry
+lemma colemanEquiv_mul (u v : U) : colemanEquiv p (u*v) = colemanEquiv p u*colemanEquiv p v := sorry
+theorem continuous_colemanEquiv : Continuous (colemanEquiv p) ∧
+    Continuous (colemanEquiv p).symm := sorry
+-- ColemanInterpolationTests.identity
+example : colemanEquiv p 1 = 1 := sorry
+-- ColemanInterpolationTests.product
+example (u v : U) (n : ℕ) :
+    Units.map (seriesEvaluation p n).toMonoidHom (colemanEquiv p (u*v) : Bˣ) =
+      u.val n*v.val n := sorry
+-- ColemanInterpolationTests.constant_minus_one_three
+example (F : normFixedUnits 3) (hF : (F : (PowerSeries ℤ_[3])ˣ) = -1) :
+    (colemanEquiv 3 (normFixedEvaluation 3 F) : (PowerSeries ℤ_[3])ˣ) = -1 := sorry
+
+lemma relative_power_minpoly (n a : ℕ) (ha : ¬ p ∣ a) :
+    minpoly (level p n) (zeta p (n+1)^a) = Polynomial.X^p-Polynomial.C (zeta p n^a) := sorry
+lemma norm_power_difference (n a : ℕ) (ha : ¬ p ∣ a) :
+    Algebra.norm (level p n) (zeta p (n+1)^a-1) =
+      (-1 : level p n)^(p+1)*(zeta p n^a-1) := sorry
+lemma unitsNorm_cyclotomicSeriesUnit (n a : ℕ) (ha : IsUnit (a : Z)) :
+    unitsNorm p n (Units.map (seriesEvaluation p (n+1)).toMonoidHom (cyclotomicSeriesUnit a ha)) =
+      Units.map (seriesEvaluation p n).toMonoidHom (cyclotomicSeriesUnit a ha) := sorry
+lemma cyclotomicSeriesUnit_normFixed (a : ℕ) (ha : IsUnit (a : Z)) :
+    cyclotomicSeriesUnit a ha ∈ normFixedUnits p := sorry
+
+def cyclotomicTower (a : ℕ) (ha : IsUnit (a : Z)) : U := sorry
+lemma cyclotomicTower_apply (a : ℕ) (ha : IsUnit (a : Z)) (n : ℕ) :
+    algebraMap (O n) (level p n) ((cyclotomicTower p a ha).val n : O n) =
+      (zeta p n^a-1)/(zeta p n-1) := sorry
+lemma colemanEquiv_cyclotomicTower (a : ℕ) (ha : IsUnit (a : Z)) :
+    (colemanEquiv p (cyclotomicTower p a ha) : Bˣ) = cyclotomicSeriesUnit a ha := sorry
+lemma cyclotomicTower_one (ha : IsUnit (1 : Z)) : cyclotomicTower p 1 ha = 1 := sorry
+-- CyclotomicTowerTests.one
+example (ha : IsUnit (1 : Z)) : cyclotomicTower p 1 ha = 1 := sorry
+-- CyclotomicTowerTests.ternary_two
+example (ha : IsUnit (2 : ℤ_[3])) :
+    algebraMap (integralClosure ℤ_[3] (level 3 0)) (level 3 0)
+      ((cyclotomicTower 3 2 ha).val 0 : integralClosure ℤ_[3] (level 3 0)) = 1+zeta 3 0 := sorry
+-- CyclotomicTowerTests.ternary_three_excluded
+example : seriesEvaluation 3 0 (3+3*PowerSeries.X+(PowerSeries.X : PowerSeries ℤ_[3])^2) = 0 ∧
+    ¬ IsUnit (3 : ℤ_[3]) := sorry
+
+/-- The actual multiplicative homomorphism to the additive measure group. -/
+def rawColeman : U →* Multiplicative M := sorry
+lemma rawColeman_amice (u : U) :
+    (A (Multiplicative.toAdd (rawColeman p u))).val =
+      inverseMahler p (logDeriv (colemanEquiv p u : Bˣ)-
+        PowerSeries.subst ((1+PowerSeries.X : B)^p-1) (logDeriv (colemanEquiv p u : Bˣ))) := sorry
+lemma rawColeman_mul (u v : U) :
+    Multiplicative.toAdd (rawColeman p (u*v)) =
+      Multiplicative.toAdd (rawColeman p u)+Multiplicative.toAdd (rawColeman p v) := sorry
+lemma rawColeman_inv (u : U) :
+    Multiplicative.toAdd (rawColeman p u⁻¹) = -Multiplicative.toAdd (rawColeman p u) := sorry
+lemma rawColeman_ext (u v : U)
+    (h : A (Multiplicative.toAdd (rawColeman p u)) = A (Multiplicative.toAdd (rawColeman p v))) :
+    rawColeman p u = rawColeman p v := sorry
+lemma continuous_rawColeman : Continuous (rawColeman p) := sorry
+
+def colemanMap : U →* Multiplicative M := sorry
+lemma colemanMap_eq_neg_raw (u : U) :
+    Multiplicative.toAdd (colemanMap p u) = -Multiplicative.toAdd (rawColeman p u) := sorry
+lemma colemanMap_mul (u v : U) :
+    Multiplicative.toAdd (colemanMap p (u*v)) =
+      Multiplicative.toAdd (colemanMap p u)+Multiplicative.toAdd (colemanMap p v) := sorry
+lemma colemanMap_kernel (u : U) : colemanMap p u = 1 ↔ rawColeman p u = 1 := sorry
+theorem rawColeman_cyclotomicTower (a : ℕ) (ha : IsUnit (a : Z))
+    (aUnit : Zˣ) (hval : (aUnit : Z) = a) :
+    Multiplicative.toAdd (rawColeman p (cyclotomicTower p a ha)) =
+      -DirichletPadic.padicIntrinsicNumerator p aUnit ∧
+    Multiplicative.toAdd (colemanMap p (cyclotomicTower p a ha)) =
+      DirichletPadic.padicIntrinsicNumerator p aUnit := sorry
+-- ColemanMapTests.raw_identity
+example : Multiplicative.toAdd (rawColeman p 1) = 0 := sorry
+-- ColemanMapTests.raw_inverse
+example (u : U) : Multiplicative.toAdd (rawColeman p u)+
+    Multiplicative.toAdd (rawColeman p u⁻¹) = 0 := sorry
+-- ColemanMapTests.raw_constant_three
+example (F : normFixedUnits 3) (hF : (F : (PowerSeries ℤ_[3])ˣ) = -1) :
+    Multiplicative.toAdd (rawColeman 3 (normFixedEvaluation 3 F)) = 0 := sorry
+-- ColemanMapTests.normalized_identity
+example : Multiplicative.toAdd (colemanMap p 1) = 0 := sorry
+-- ColemanMapTests.normalized_inverse
+example (u : U) : Multiplicative.toAdd (colemanMap p u⁻¹) =
+    -Multiplicative.toAdd (colemanMap p u) := sorry
+-- ColemanMapTests.sign_relation
+example (u : U) : Multiplicative.toAdd (colemanMap p u)+
+    Multiplicative.toAdd (rawColeman p u) = 0 := sorry
+
+/-- Oddness is retained as an explicit parameter of the arithmetic binomial inclusion. -/
+def binomialNormFixed (hp : Odd p) : Multiplicative Z →* normFixedUnits p := sorry
+lemma binomialNormFixed_val (hp : Odd p) (a : Z) :
+    (binomialNormFixed p hp (Multiplicative.ofAdd a) : Bˣ).val = PowerSeries.binomialSeries Z a := sorry
+lemma binomialNormFixed_add (hp : Odd p) (a b : Z) :
+    binomialNormFixed p hp (Multiplicative.ofAdd (a+b)) =
+      binomialNormFixed p hp (Multiplicative.ofAdd a)*binomialNormFixed p hp (Multiplicative.ofAdd b) := sorry
+lemma binomialNormFixed_continuous (hp : Odd p) : Continuous (binomialNormFixed p hp) := sorry
+lemma logDeriv_binomialNormFixed (hp : Odd p) (a : Z) :
+    logDeriv (binomialNormFixed p hp (Multiplicative.ofAdd a) : Bˣ) = PowerSeries.C a := sorry
+
+def tateTower (hp : Odd p) : Multiplicative Z →* U := sorry
+lemma tateTower_apply (hp : Odd p) (a : Z) (n : ℕ) :
+    algebraMap (O n) (level p n) ((tateTower p hp (Multiplicative.ofAdd a)).val n : O n) =
+      zeta p n^((PadicInt.toZModPow (n+1) a).val) := sorry
+lemma tateTower_injective (hp : Odd p) : Function.Injective (tateTower p hp) := sorry
+lemma tateTower_principal (hp : Odd p) (a : Z) :
+    tateTower p hp (Multiplicative.ofAdd a) ∈ principalNormCompatibleUnits p := sorry
+lemma tateTower_continuous (hp : Odd p) : Continuous (tateTower p hp) := sorry
+-- TateTests.zero_series
+example (hp : Odd p) : binomialNormFixed p hp (Multiplicative.ofAdd 0) = 1 := sorry
+-- TateTests.one_series_three
+example : (binomialNormFixed 3 (by decide) (Multiplicative.ofAdd 1) :
+    (PowerSeries ℤ_[3])ˣ).val = 1+PowerSeries.X := sorry
+-- TateTests.dyadic_unsigned_excluded
+example (u : (PowerSeries ℤ_[2])ˣ) (hu : u.val = 1+PowerSeries.X) :
+    u ∉ normFixedUnits 2 := sorry
+-- TateTests.zero_tower
+example (hp : Odd p) : tateTower p hp (Multiplicative.ofAdd 0) = 1 := sorry
+-- TateTests.one_tower
+example (hp : Odd p) (n : ℕ) :
+    algebraMap (O n) (level p n) ((tateTower p hp (Multiplicative.ofAdd 1)).val n : O n) =
+      zeta p n := sorry
+-- TateTests.ternary_first_power
+example :
+    algebraMap (integralClosure ℤ_[3] (level 3 0)) (level 3 0)
+      ((tateTower 3 (by decide) (Multiplicative.ofAdd 3)).val 0 :
+        integralClosure ℤ_[3] (level 3 0)) = 1 ∧
+    algebraMap (integralClosure ℤ_[3] (level 3 1)) (level 3 1)
+      ((tateTower 3 (by decide) (Multiplicative.ofAdd 3)).val 1 :
+        integralClosure ℤ_[3] (level 3 1)) = algebraMap (level 3 0) (level 3 1) (zeta 3 0) := sorry
+
+theorem normFixedEvaluation_binomialNormFixed (hp : Odd p) (a : Z) :
+    normFixedEvaluation p (binomialNormFixed p hp (Multiplicative.ofAdd a)) =
+      tateTower p hp (Multiplicative.ofAdd a) := sorry
+
+theorem rawColeman_kernel (hp : Odd p) (u : U) :
+    rawColeman p u = 1 ↔ ∃! q : Zˣ×Z, q.1^(p-1)=1 ∧
+      (colemanEquiv p u : Bˣ).val = PowerSeries.C (q.1 : Z)*PowerSeries.binomialSeries Z q.2 := sorry
+
+def cyclotomicMoment : M →ₗ[Z] Z := sorry
+lemma cyclotomicMoment_apply (μ : M) :
+    cyclotomicMoment p μ = μ (⟨Units.val, Units.continuous_val⟩ : C(Zˣ,Z)) := sorry
+lemma cyclotomicMoment_amice (μ : M) : cyclotomicMoment p μ = PowerSeries.coeff 1 (A μ).val := sorry
+lemma cyclotomicMoment_dirac (a : Zˣ) : cyclotomicMoment p (dirac Z a) = (a : Z) := sorry
+lemma cyclotomicMoment_continuous : Continuous (cyclotomicMoment p) := sorry
+lemma cyclotomicMoment_surjective : Function.Surjective (cyclotomicMoment p) := sorry
+-- MomentTests.one_atom
+example : cyclotomicMoment p (dirac Z (1 : Zˣ)) = 1 := sorry
+-- MomentTests.minus_one_atom
+example : cyclotomicMoment p (dirac Z (-1 : Zˣ)) = -1 := sorry
+-- MomentTests.not_mass_three
+example : cyclotomicMoment 3 (dirac ℤ_[3] (1 : ℤ_[3]ˣ)-dirac ℤ_[3] (-1 : ℤ_[3]ˣ)) = 2 ∧
+    (dirac ℤ_[3] (1 : ℤ_[3]ˣ)-dirac ℤ_[3] (-1 : ℤ_[3]ˣ))
+      (ContinuousMap.const ℤ_[3]ˣ (1 : ℤ_[3])) = 0 := sorry
+
+theorem rawColeman_range (hp : Odd p) :
+    Set.range (fun u : U => Multiplicative.toAdd (rawColeman p u)) =
+      (LinearMap.ker (cyclotomicMoment p) : Set M) := sorry
+/-- Exactness of the actual maps and the closed/quotient topology on the middle
+and final images. The kernel inclusion is the closed embedding of the actual
+constant/binomial product characterized by rawColeman_kernel. Equivariance,
+completed-module and tensor comparisons remain continuation work. -/
+theorem colemanSequence_topology (hp : Odd p) :
+    let torsion := {c : Zˣ // c^(p-1)=1}
+    let ι : torsion × Multiplicative Z → U := fun q =>
+      (colemanEquiv p).symm ⟨Units.map PowerSeries.C.toMonoidHom q.1.val *
+        (binomialNormFixed p hp q.2 : Bˣ), by sorry⟩
+    Topology.IsClosedEmbedding ι ∧ Function.Injective ι ∧
+    Set.range ι = {u : U | rawColeman p u = 1} ∧
+    (∀ u : U, rawColeman p u = 1 ↔ ∃! q : Zˣ×Z, q.1^(p-1)=1 ∧
+      (colemanEquiv p u : Bˣ).val = PowerSeries.C (q.1 : Z)*PowerSeries.binomialSeries Z q.2) ∧
+    Set.range (fun u : U => Multiplicative.toAdd (rawColeman p u)) =
+      (LinearMap.ker (cyclotomicMoment p) : Set M) ∧
+    Function.Surjective (cyclotomicMoment p) ∧
+    IsClosed (Set.range (fun u : U => Multiplicative.toAdd (rawColeman p u))) ∧
+    IsClosed {u : U | rawColeman p u = 1} ∧
+    IsQuotientMap (fun u : U =>
+      (⟨Multiplicative.toAdd (rawColeman p u), ⟨u,rfl⟩⟩ :
+        Set.range (fun v : U => Multiplicative.toAdd (rawColeman p v)))) ∧
+    IsQuotientMap (cyclotomicMoment p) := sorry
 end ColemanCyclotomic
 end
