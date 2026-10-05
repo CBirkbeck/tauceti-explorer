@@ -2616,6 +2616,10 @@ lemma mem_regularLocus (R : Type u) [CommRing R] (p : PrimeSpectrum R) :
 lemma regularLocus_eq_univ (R : Type u) [CommRing R] [IsRegularRing R] :
     regularLocus R = Set.univ := by sorry
 
+lemma regularLocus_ringEquiv (R S : Type u) [CommRing R] [CommRing S]
+    (e : R ≃+* S) (q : PrimeSpectrum S) :
+    q ∈ regularLocus S ↔ PrimeSpectrum.comap e.toRingHom q ∈ regularLocus R := by sorry
+
 -- test: regularLocus.test_field
 example (k : Type u) [Field k] : regularLocus k = Set.univ := by sorry
 -- test: regularLocus.test_zero
@@ -2640,6 +2644,9 @@ lemma IsGRing.completion_regular (R : Type u) [CommRing R] (h : IsGRing R)
       (AdicCompletion (IsLocalRing.maximalIdeal (Localization.AtPrime p.asIdeal))
         (Localization.AtPrime p.asIdeal)) := by sorry
 
+lemma IsGRing.ringEquiv (R S : Type u) [CommRing R] [CommRing S]
+    (e : R ≃+* S) (h : IsGRing R) : IsGRing S := by sorry
+
 -- test: IsGRing.test_field
 example (k : Type u) [Field k] : IsGRing k := by sorry
 -- test: IsGRing.test_zero
@@ -2659,6 +2666,9 @@ lemma IsJ2.noetherian (R : Type u) [CommRing R] (h : IsJ2 R) :
 lemma IsJ2.regularLocus_open (R B : Type u) [CommRing R] [CommRing B] [Algebra R B]
     [Algebra.FiniteType R B] (h : IsJ2 R) : IsOpen (regularLocus B) := by sorry
 
+lemma IsJ2.ringEquiv (R S : Type u) [CommRing R] [CommRing S]
+    (e : R ≃+* S) (h : IsJ2 R) : IsJ2 S := by sorry
+
 -- test: IsJ2.test_field
 example (k : Type u) [Field k] : IsJ2 k := by sorry
 -- test: IsJ2.test_zero
@@ -2672,6 +2682,9 @@ lemma IsQuasiExcellentRing.gRing (R : Type u) [CommRing R]
     (h : IsQuasiExcellentRing R) : IsGRing R := by sorry
 lemma IsQuasiExcellentRing.j2 (R : Type u) [CommRing R]
     (h : IsQuasiExcellentRing R) : IsJ2 R := by sorry
+
+lemma IsQuasiExcellentRing.noetherian (R : Type u) [CommRing R]
+    (h : IsQuasiExcellentRing R) : IsNoetherianRing R := h.1.1
 
 -- test: IsQuasiExcellentRing.test_field
 example (k : Type u) [Field k] : IsQuasiExcellentRing k := by sorry
@@ -2723,6 +2736,9 @@ lemma IsQuasiExcellentScheme.affine_iff (X : Scheme.{u}) :
 
 lemma IsQuasiExcellentScheme.locallyNoetherian (X : Scheme.{u})
     (h : IsQuasiExcellentScheme X) : IsLocallyNoetherian X := by sorry
+
+lemma IsQuasiExcellentScheme.iso (X Y : Scheme.{u}) (e : X ≅ Y)
+    (h : IsQuasiExcellentScheme X) : IsQuasiExcellentScheme Y := by sorry
 
 -- test: IsQuasiExcellentScheme.test_spec
 example (R : Type u) [CommRing R] :
@@ -3085,7 +3101,7 @@ Node SchemeAndStackFoundations:SF.2/hom-invariants: Hom_{Γ,O_X}(F,G) is the inv
 Node SchemeAndStackFoundations:SF.2/degree-zero: H^0(X,Γ;F)≅Γ(X,F)^Γ naturally.
 Node SchemeAndStackFoundations:SF.2/ordinary-comparison: For Γ=1, H^n(X,1;F) is naturally isomorphic to ordinary sheaf cohomology.
 Node SchemeAndStackFoundations:SF.2/point-comparison: For a one-point space, equivariant cohomology agrees with group cohomology of its section module.
-Node SchemeAndStackFoundations:SF.2/invariants-acyclic: For an injective equivariant sheaf I, its global-section Γ-module is acyclic for invariants; verify this through the exact adjoint to the section functor.
+Node SchemeAndStackFoundations:SF.2/invariants-acyclic: For an injective equivariant O_X-module sheaf I, its global-section Γ-module is acyclic for invariants. Obtain this by a retract of the sections of a coinduced sheaf; no exactness of the free O_X-module left adjoint to abelian-group sections is assumed.
 Node SchemeAndStackFoundations:SF.2/spectral-sequence: For arbitrary discrete Γ, there is a natural first-quadrant spectral sequence H^p(Γ,H^q(X,F))⇒H^{p+q}(X,Γ;F).
 Node SchemeAndStackFoundations:SF.2/localization: For a Γ-stable closed D and invariant complement U, the natural supported, global and restricted equivariant cohomology maps give a long exact sequence, with boundary H^n(U,Γ;F|_U)→H^{n+1}_D(X,Γ;F).
 Node SchemeAndStackFoundations:key/galois-gerbs: Fix a characteristic-zero field k, a Galois extension k′/k inside an algebraic closure, and Γ=Gal(k′/k) with its Krull topology. A gerb consists of a linear algebraic group H/k′ and a topological extension 1→H(k′)→E→Γ→1 with discrete kernel. Every lift of σ acts on the kernel through an algebraic σ-semilinear automorphism of H. Over Gal(k′/K) for some finite K/k inside k′, there is a local splitting chart whose algebraic conjugation action is effective descent to K. None of these conditions forces a global splitting.
@@ -3151,3 +3167,7 @@ TauCeti.SchemeFoundations.GaloisGerbs.LocalSplitChart.test_neutral: The neutral 
 TauCeti.SchemeFoundations.GaloisGerbs.LocalSplitChart.test_c4: For C4→C2, the trivial open subgroup has a chart even though no homomorphic section exists on all C2.
 TauCeti.SchemeFoundations.GaloisGerbs.LocalSplitChart.test_unit_coordinate: The chart sends (1,1) to 1, and (n,1) to i(n).
 -/
+
+/- Independent-review prototype boundary: TauCeti.Henselization.algebra is the explicit presentation of the imported PerfectoidSpaces:P3/henselisation-of-pairs carrier. Its canonical presentation equivalence remains a gap.
+Added GaloisGerb.test_nonsemilinear_extension: Let τ(x+iy)=x+2y−iy on the additive group C, and form C⋊τGal(C/R) with discrete kernel Ga(C). This split topological extension is not a gerb with that algebraic kernel: τ(1)=1 and τ(i)=2−i, so τ is not complex-antilinear and cannot be an algebraic conjugation-semilinear automorphism of Ga/C. Inner conjugation cannot repair it because the kernel is abelian.
+API importedPresentationEquiv: The displayed small-neighbourhood colimit is canonically the imported P3 henselization, commuting with η, the extended ideal, stage maps and canonical residue map. -/
