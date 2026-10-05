@@ -11614,8 +11614,8 @@
    "avoidAccountOf": "DESIGN-HodgeStructuresPartII",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-HodgeStructuresPartII.md",
-   "state": "pending",
-   "note": "released on GitHub issue #3548"
+   "state": "external",
+   "note": "claimed on GitHub issue #3548"
   },
   {
    "id": "DESIGN-MotivicStructuresInModuliOfCurves",
@@ -21725,7 +21725,8 @@
    ],
    "avoidAccountOf": "BP-AlgebraicModuliForArithmeticGeometry--A0-extension",
    "prompt": "research/blueprint/prompts/REV-AlgebraicModuliForArithmeticGeometry--A0-extension.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #346"
   },
   {
    "id": "BP-AlgebraicModuliForArithmeticGeometry--R09.7a",
@@ -25826,8 +25827,9 @@
    ],
    "avoidAccountOf": "BP-HeegnerPointEulerSystems--HE.0",
    "prompt": "research/blueprint/prompts/REV-HeegnerPointEulerSystems--HE.0.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #428"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #428",
+   "finishedAt": "2026-10-05T10:43:38Z"
   },
   {
    "id": "BP-HeegnerPointEulerSystems--HE.7s",
