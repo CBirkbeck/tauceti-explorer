@@ -12779,7 +12779,8 @@
    "avoidAccountOf": "DESIGN-ErdosProgressionPowers",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-ErdosProgressionPowers.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1723"
   },
   {
    "id": "DESIGN-FaltingsFinitenessAndIsogenyTheoremsPartII",
@@ -23800,12 +23801,13 @@
     "REV-RS-14"
    ],
    "prompt": "research/blueprint/prompts/BP-DirichletPadicLFunctions--L2.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [
     "BP-LocallyAnalyticDistributions",
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "claimed on GitHub issue #5880"
+   "note": "deliverables arrived from an external worker on issue #5880",
+   "finishedAt": "2026-10-05T07:51:15Z"
   },
   {
    "id": "REV-DirichletPadicLFunctions--L2",
