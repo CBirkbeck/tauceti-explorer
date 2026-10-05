@@ -1,0 +1,2670 @@
+{
+  "roadmapId": "EllipticLegendreCharacterInterfaces",
+  "protocol": "blueprint-v1",
+  "part": null,
+  "scope": [
+    "EllipticLegendreCharacterInterfaces:LG.0",
+    "EllipticLegendreCharacterInterfaces:LG.1",
+    "EllipticLegendreCharacterInterfaces:LG.2",
+    "EllipticLegendreCharacterInterfaces:LG.3",
+    "EllipticLegendreCharacterInterfaces:LG.4",
+    "EllipticLegendreCharacterInterfaces:LG.5"
+  ],
+  "status": "complete",
+  "summary": "Complete target-level pass through six Legendre equation-interface layers: 37 declaration-sized nodes, including native split-cubic readings of μ rather than a duplicate descent map. All seven routed extraction items are covered, including the independently confirmed correction of the Lemma 6.6 witness. Local minimal-model and actual elliptic-conductor comparisons, and generic twist local factors, remain exact requests to their existing owners. Every layer is planned, none claimed closed; all implementation statuses are unchecked.",
+  "baseline": {
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "declarations": [
+      {
+        "ref": "mathlib:AddCommGroup.equiv_directSum_zmod_of_finite",
+        "kind": "theorem",
+        "module": "Mathlib/GroupTheory/FiniteAbelian/Basic.lean",
+        "provides": "Every finite abelian group is additively isomorphic to a finite direct sum of cyclic groups of prime-power order; the primes and nonnegative exponents are supplied by the theorem.",
+        "checked": "Statement and hypotheses read at the pinned source commit; source SHA-256 5628f3ef9b5103856a0fad9a5750f42d5e04a2b93a81f3319ddf1e3a823f421c; line 135."
+      },
+      {
+        "ref": "mathlib:Ideal.quotientMulEquivQuotientProd",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/Ideal/Quotient/Operations.lean",
+        "provides": "For two coprime ideals I,J of a commutative ring, the quotient by IJ is ring-isomorphic to the product of the quotients by I and J.",
+        "checked": "Statement and hypotheses read at the pinned source commit; source SHA-256 25359917b64f9434dbff99f3033ecba35badb45d0a4e3468aead0ba87743d109; line 314."
+      },
+      {
+        "ref": "mathlib:Polynomial.quotientSpanXSubCAlgEquiv",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/Polynomial/Quotient.lean",
+        "provides": "Evaluation at r induces the R-algebra equivalence R[X]/(X−r) ≃ R, with evaluation on polynomial classes.",
+        "checked": "Statement and hypotheses read at the pinned source commit; source SHA-256 69769663954dd7fcc42c7abe70fd2c68fdd8027f8e8bfa2363f7b360d899eb82; line 32."
+      },
+      {
+        "ref": "mathlib:QuotientGroup.map",
+        "kind": "def",
+        "module": "Mathlib/GroupTheory/QuotientGroup/Defs.lean",
+        "provides": "A homomorphism of groups descends to quotients when the source normal subgroup maps into the target normal subgroup.",
+        "checked": "Statement and hypotheses read at the pinned source commit; source SHA-256 935efb53426fbcbfbfe2d1aefe6c267c039470d3e9118d8461c74e871b65dd31; line 309."
+      },
+      {
+        "ref": "mathlib:WeierstrassCurve",
+        "kind": "structure",
+        "module": "Mathlib/AlgebraicGeometry/EllipticCurve/Weierstrass.lean",
+        "provides": "The native five-coefficient Weierstrass equation over an arbitrary coefficient type; over a commutative ring its affine equation is y²+a₁xy+a₃y=x³+a₂x²+a₄x+a₆.",
+        "checked": "Statement and hypotheses read at the pinned source commit; source SHA-256 1988191df7486d097926a625fcf930559abef0e2c04e8db9b9f5beb12242184b; line 77."
+      },
+      {
+        "ref": "mathlib:WeierstrassCurve.Affine.Equation",
+        "kind": "def",
+        "module": "Mathlib/AlgebraicGeometry/EllipticCurve/Affine/Basic.lean",
+        "provides": "The affine polynomial equation evaluated at a pair (x,y); equation_iff gives its five-coefficient expression.",
+        "checked": "Statement and hypotheses read at the pinned source commit; source SHA-256 b8bd64bfbd3eb9468502c262c37855e75d84457fc4933abc3a395b39a58bdf4a; line 149."
+      },
+      {
+        "ref": "mathlib:WeierstrassCurve.Affine.Point",
+        "kind": "inductive",
+        "module": "Mathlib/AlgebraicGeometry/EllipticCurve/Affine/Point.lean",
+        "provides": "The native nonsingular affine points and one point at infinity; over a field with decidable equality it carries the native abelian point-group operations.",
+        "checked": "Statement and hypotheses read at the pinned source commit; source SHA-256 77b0dd8038c9a4cb198b23a411ba637911a3183f1092f38ecaf48760ab9c4ed9; line 478."
+      },
+      {
+        "ref": "mathlib:WeierstrassCurve.Affine.Point.add_self_of_Y_ne",
+        "kind": "lemma",
+        "module": "Mathlib/AlgebraicGeometry/EllipticCurve/Affine/Point.lean",
+        "provides": "For a nonsingular affine point not equal to its inverse, native addition of the point to itself is the tangent-formula point, with its nonsingularity proof.",
+        "checked": "Statement and hypotheses read at the pinned source commit; source SHA-256 77b0dd8038c9a4cb198b23a411ba637911a3183f1092f38ecaf48760ab9c4ed9; line 702."
+      },
+      {
+        "ref": "mathlib:WeierstrassCurve.HasGoodReduction",
+        "kind": "class",
+        "module": "Mathlib/AlgebraicGeometry/EllipticCurve/Reduction.lean",
+        "provides": "A minimal local Weierstrass equation has good reduction when its multiplicative discriminant valuation equals 1. The class extends IsMinimal; it is not a predicate on an arbitrary unminimalized coefficient model.",
+        "checked": "Statement and hypotheses read at the pinned source commit; source SHA-256 adea55836b2b7dc8b127c17a0dab8e2f043421726c13f7142ecaf3bdb53ad3e5; line 325."
+      },
+      {
+        "ref": "mathlib:WeierstrassCurve.IsElliptic",
+        "kind": "class",
+        "module": "Mathlib/AlgebraicGeometry/EllipticCurve/Weierstrass.lean",
+        "provides": "The native class asserting that the Weierstrass discriminant is a unit; over a field this is equivalent to its being nonzero.",
+        "checked": "Statement and hypotheses read at the pinned source commit; source SHA-256 1988191df7486d097926a625fcf930559abef0e2c04e8db9b9f5beb12242184b; line 367."
+      },
+      {
+        "ref": "mathlib:WeierstrassCurve.VariableChange",
+        "kind": "structure",
+        "module": "Mathlib/AlgebraicGeometry/EllipticCurve/VariableChange.lean",
+        "provides": "An admissible change of Weierstrass coordinates (u,r,s,t), with u a unit, and its action on equations.",
+        "checked": "Statement and hypotheses read at the pinned source commit; source SHA-256 35f25b2dcb8c06a36eadb2d430a44cea282cf6d0fe142f37561be68fe4ea892d; line 57."
+      },
+      {
+        "ref": "mathlib:WeierstrassCurve.c₄",
+        "kind": "def",
+        "module": "Mathlib/AlgebraicGeometry/EllipticCurve/Weierstrass.lean",
+        "provides": "The native polynomial invariant c₄=b₂²−24b₄ over a commutative ring.",
+        "checked": "Statement and hypotheses read at the pinned source commit; source SHA-256 1988191df7486d097926a625fcf930559abef0e2c04e8db9b9f5beb12242184b; line 121."
+      },
+      {
+        "ref": "mathlib:WeierstrassCurve.hasGoodReduction_iff_isElliptic_reduction",
+        "kind": "lemma",
+        "module": "Mathlib/AlgebraicGeometry/EllipticCurve/Reduction.lean",
+        "provides": "For a minimal local equation over the fraction field of a DVR, good reduction is equivalent to ellipticity of its residue-field reduction.",
+        "checked": "Statement and hypotheses read at the pinned source commit; source SHA-256 adea55836b2b7dc8b127c17a0dab8e2f043421726c13f7142ecaf3bdb53ad3e5; line 330."
+      },
+      {
+        "ref": "mathlib:WeierstrassCurve.j",
+        "kind": "def",
+        "module": "Mathlib/AlgebraicGeometry/EllipticCurve/Weierstrass.lean",
+        "provides": "For an elliptic model, the native j-invariant c₄³/Δ, using the unit discriminant.",
+        "checked": "Statement and hypotheses read at the pinned source commit; source SHA-256 1988191df7486d097926a625fcf930559abef0e2c04e8db9b9f5beb12242184b; line 389."
+      },
+      {
+        "ref": "mathlib:WeierstrassCurve.toCharNeTwoNF",
+        "kind": "def",
+        "module": "Mathlib/AlgebraicGeometry/EllipticCurve/NormalForms.lean",
+        "provides": "The canonical admissible variable change completing the square when 2 is nonzero; its resulting model has a₁=a₃=0.",
+        "checked": "Statement and hypotheses read at the pinned source commit; source SHA-256 d9b961a91c4634bdac4d8a7a901efd1a694ccd81ce52f09c1bcf391b354aea2a; line 167."
+      },
+      {
+        "ref": "mathlib:WeierstrassCurve.variableChange_j",
+        "kind": "lemma",
+        "module": "Mathlib/AlgebraicGeometry/EllipticCurve/VariableChange.lean",
+        "provides": "An admissible coordinate change preserves the native j-invariant on elliptic models.",
+        "checked": "Statement and hypotheses read at the pinned source commit; source SHA-256 35f25b2dcb8c06a36eadb2d430a44cea282cf6d0fe142f37561be68fe4ea892d; line 246."
+      },
+      {
+        "ref": "mathlib:WeierstrassCurve.Δ",
+        "kind": "def",
+        "module": "Mathlib/AlgebraicGeometry/EllipticCurve/Weierstrass.lean",
+        "provides": "The native Weierstrass discriminant, expressed through b₂,b₄,b₆,b₈; it is not a minimal discriminant by definition.",
+        "checked": "Statement and hypotheses read at the pinned source commit; source SHA-256 1988191df7486d097926a625fcf930559abef0e2c04e8db9b9f5beb12242184b; line 132."
+      },
+      {
+        "ref": "mathlib:ZMod.euler_criterion",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/LegendreSymbol/Basic.lean",
+        "provides": "At a prime p, being a nonzero square in ZMod p is characterized by the appropriate power with exponent (p−1)/2 being 1; used with p odd.",
+        "checked": "Statement and hypotheses read at the pinned source commit; source SHA-256 e719ed31ee33a23d312f2747347358da79cfee90d2ba6a8ed0de81b1aa6cd47b; line 62."
+      },
+      {
+        "ref": "mathlib:ZMod.exists_sq_eq_neg_one_iff",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/LegendreSymbol/Basic.lean",
+        "provides": "For a prime p, existence of a square root of −1 in ZMod p is equivalent to p not congruent to 3 modulo 4.",
+        "checked": "Statement and hypotheses read at the pinned source commit; source SHA-256 e719ed31ee33a23d312f2747347358da79cfee90d2ba6a8ed0de81b1aa6cd47b; line 285."
+      },
+      {
+        "ref": "mathlib:legendreSym.at_neg_one",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/LegendreSymbol/Basic.lean",
+        "provides": "The supplementary law for the Legendre symbol of −1 at an odd prime, in the native sign convention.",
+        "checked": "Statement and hypotheses read at the pinned source commit; source SHA-256 e719ed31ee33a23d312f2747347358da79cfee90d2ba6a8ed0de81b1aa6cd47b; line 274."
+      },
+      {
+        "ref": "mathlib:legendreSym.at_two",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/LegendreSymbol/QuadraticReciprocity.lean",
+        "provides": "The supplementary law for the Legendre symbol of 2 at an odd prime; in particular it equals −1 at primes congruent to 5 modulo 8.",
+        "checked": "Statement and hypotheses read at the pinned source commit; source SHA-256 24ffbf256f6f6f7a2617901323c2d532e2d7871c826a8b11f0580b283e994302; line 60."
+      },
+      {
+        "ref": "mathlib:legendreSym.eq_neg_one_iff",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/LegendreSymbol/Basic.lean",
+        "provides": "At an odd prime, Legendre symbol −1 is equivalent to a nonzero nonsquare residue.",
+        "checked": "Statement and hypotheses read at the pinned source commit; source SHA-256 e719ed31ee33a23d312f2747347358da79cfee90d2ba6a8ed0de81b1aa6cd47b; line 190."
+      },
+      {
+        "ref": "mathlib:padicValRat",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/Padics/PadicVal/Basic.lean",
+        "provides": "The additive integer p-adic valuation of a rational number, with the native total convention at zero.",
+        "checked": "Statement and hypotheses read at the pinned source commit; source SHA-256 caa95ad16873b4922b196ba217dcc41a684e42a688441a5841bfd6c43c84d707; line 128."
+      },
+      {
+        "ref": "mathlib:padicValRat.add_eq_min",
+        "kind": "lemma",
+        "module": "Mathlib/NumberTheory/Padics/PadicVal/Basic.lean",
+        "provides": "For rational summands with unequal additive valuations at a prime, the valuation of their sum equals the minimum.",
+        "checked": "Statement and hypotheses read at the pinned source commit; source SHA-256 caa95ad16873b4922b196ba217dcc41a684e42a688441a5841bfd6c43c84d707; line 323."
+      },
+      {
+        "ref": "mathlib:padicValRat.div",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/Padics/PadicVal/Basic.lean",
+        "provides": "For nonzero rational numerator and denominator at a prime, the additive valuation of their quotient is the difference of valuations.",
+        "checked": "Statement and hypotheses read at the pinned source commit; source SHA-256 caa95ad16873b4922b196ba217dcc41a684e42a688441a5841bfd6c43c84d707; line 265."
+      },
+      {
+        "ref": "mathlib:padicValRat.mul",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/Padics/PadicVal/Basic.lean",
+        "provides": "For nonzero rational factors at a prime, the additive valuation of their product is the sum of valuations.",
+        "checked": "Statement and hypotheses read at the pinned source commit; source SHA-256 caa95ad16873b4922b196ba217dcc41a684e42a688441a5841bfd6c43c84d707; line 227."
+      },
+      {
+        "ref": "mathlib:quadraticChar",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/LegendreSymbol/QuadraticChar/Basic.lean",
+        "provides": "The quadratic character of a finite field, valued in integers, extended by zero at zero and recording nonzero square versus nonsquare.",
+        "checked": "Statement and hypotheses read at the pinned source commit; source SHA-256 d0a5eb315197f57508bbb1b9d606dac1e76fdd85f295c420e914454ab41f0314; line 120."
+      },
+      {
+        "ref": "mathlib:quadraticChar_card_sqrts",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/LegendreSymbol/QuadraticChar/Basic.lean",
+        "provides": "Over a finite field of characteristic not two, the number of square roots of a equals 1 plus its quadratic character.",
+        "checked": "Statement and hypotheses read at the pinned source commit; source SHA-256 d0a5eb315197f57508bbb1b9d606dac1e76fdd85f295c420e914454ab41f0314; line 214."
+      },
+      {
+        "ref": "tauceti:WeierstrassCurve.Affine.A",
+        "kind": "abbrev",
+        "module": "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/XSubT.lean",
+        "provides": "For a normal-form Weierstrass model, the native cubic étale algebra is AdjoinRoot of its cubic f; ellipticity gives separability.",
+        "checked": "Statement and hypotheses read at the pinned source commit; source SHA-256 6c87264ac862685e883690e43d06b483e11794fdc352b128c542e88f5c96cfc6; line 342."
+      },
+      {
+        "ref": "tauceti:WeierstrassCurve.Affine.M",
+        "kind": "abbrev",
+        "module": "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/XSubT.lean",
+        "provides": "The native multiplicative group of squareclasses of units of the cubic algebra A, namely its unit group modulo the range of squaring.",
+        "checked": "Statement and hypotheses read at the pinned source commit; source SHA-256 6c87264ac862685e883690e43d06b483e11794fdc352b128c542e88f5c96cfc6; line 534."
+      },
+      {
+        "ref": "tauceti:WeierstrassCurve.Affine.Point.equivVariableChange",
+        "kind": "def",
+        "module": "TauCeti/AlgebraicGeometry/EllipticCurve/Affine/Point/VariableChange.lean",
+        "provides": "The native additive equivalence from points on C•W to points on W induced by an admissible coordinate change, preserving the origin and addition.",
+        "checked": "Statement and hypotheses read at the pinned source commit; source SHA-256 365b00b65d3db28171ea449823d8268fd63878004c7da9dc0ff555fe12a6e52e; line 167."
+      },
+      {
+        "ref": "tauceti:WeierstrassCurve.Affine.card_ker_nsmul_two",
+        "kind": "theorem",
+        "module": "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/TwoTorsion.lean",
+        "provides": "On an elliptic normal-form curve over a field of characteristic not two, the cardinality of the doubling kernel equals the number of roots of its cubic in the field plus one.",
+        "checked": "Statement and hypotheses read at the pinned source commit; source SHA-256 0734c8ee9e5b65f2876aa32b4d5454469f8b6cefc088d2e6efaab71ea475ecce; line 57."
+      },
+      {
+        "ref": "tauceti:WeierstrassCurve.Affine.equivProdA'",
+        "kind": "def",
+        "module": "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/XSubT.lean",
+        "provides": "For an elliptic normal-form curve and a root r of its cubic, the native CRT ring equivalence A ≃ K × K[X]/fCofactor(r).",
+        "checked": "Statement and hypotheses read at the pinned source commit; source SHA-256 6c87264ac862685e883690e43d06b483e11794fdc352b128c542e88f5c96cfc6; line 432."
+      },
+      {
+        "ref": "tauceti:WeierstrassCurve.Affine.equivProdA'_apply",
+        "kind": "lemma",
+        "module": "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/XSubT.lean",
+        "provides": "At a root r, the native CRT map sends a polynomial class h to (h(r), the class of h in the cofactor quotient).",
+        "checked": "Statement and hypotheses read at the pinned source commit; source SHA-256 6c87264ac862685e883690e43d06b483e11794fdc352b128c542e88f5c96cfc6; line 445."
+      },
+      {
+        "ref": "tauceti:WeierstrassCurve.Affine.finite_point",
+        "kind": "instance",
+        "module": "TauCeti/AlgebraicGeometry/EllipticCurve/Affine/FinitePoint.lean",
+        "provides": "The native affine point type, including the origin, is finite when its coefficient ring is finite.",
+        "checked": "Statement and hypotheses read at the pinned source commit; source SHA-256 61385c0c4ff950bf88dbc79e317029d114dae921794b87740e5ab0f01eed26e5; line 53."
+      },
+      {
+        "ref": "tauceti:WeierstrassCurve.Affine.ker_μ_eq",
+        "kind": "lemma",
+        "module": "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/XSubT.lean",
+        "provides": "For the native normal-form elliptic descent homomorphism μ, its kernel is exactly the range of doubling on the point group, transported through Multiplicative.",
+        "checked": "Statement and hypotheses read at the pinned source commit; source SHA-256 6c87264ac862685e883690e43d06b483e11794fdc352b128c542e88f5c96cfc6; line 991."
+      },
+      {
+        "ref": "tauceti:WeierstrassCurve.Affine.normM_μ₀_eq_one",
+        "kind": "lemma",
+        "module": "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/XSubT.lean",
+        "provides": "The native norm squareclass of μ₀(P) equals 1 for every native point P; includes the origin and points at roots.",
+        "checked": "Statement and hypotheses read at the pinned source commit; source SHA-256 6c87264ac862685e883690e43d06b483e11794fdc352b128c542e88f5c96cfc6; line 1053."
+      },
+      {
+        "ref": "tauceti:WeierstrassCurve.Affine.separable_f",
+        "kind": "lemma",
+        "module": "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/XSubT.lean",
+        "provides": "The cubic of an elliptic native normal-form model is separable over its coefficient field.",
+        "checked": "Statement and hypotheses read at the pinned source commit; source SHA-256 6c87264ac862685e883690e43d06b483e11794fdc352b128c542e88f5c96cfc6; line 222."
+      },
+      {
+        "ref": "tauceti:WeierstrassCurve.Affine.μ",
+        "kind": "def",
+        "module": "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/XSubT.lean",
+        "provides": "The existing multiplicative group homomorphism from the native point group, transported through Multiplicative, to M, encoding the x−θ descent map.",
+        "checked": "Statement and hypotheses read at the pinned source commit; source SHA-256 6c87264ac862685e883690e43d06b483e11794fdc352b128c542e88f5c96cfc6; line 817."
+      },
+      {
+        "ref": "tauceti:WeierstrassCurve.Affine.μX_of_eval_f_eq_zero",
+        "kind": "lemma",
+        "module": "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/XSubT.lean",
+        "provides": "At a cubic root x, the native descent value is represented by the unit x−θ+fCofactor(x), not by the nonunit x−θ.",
+        "checked": "Statement and hypotheses read at the pinned source commit; source SHA-256 6c87264ac862685e883690e43d06b483e11794fdc352b128c542e88f5c96cfc6; line 588."
+      },
+      {
+        "ref": "tauceti:WeierstrassCurve.Affine.μX_of_eval_f_ne_zero",
+        "kind": "lemma",
+        "module": "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/XSubT.lean",
+        "provides": "Away from a cubic root, the native descent value is represented by the unit x−θ.",
+        "checked": "Statement and hypotheses read at the pinned source commit; source SHA-256 6c87264ac862685e883690e43d06b483e11794fdc352b128c542e88f5c96cfc6; line 596."
+      },
+      {
+        "ref": "tauceti:WeierstrassCurve.Affine.μ_apply",
+        "kind": "lemma",
+        "module": "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/XSubT.lean",
+        "provides": "The native descent homomorphism at a point transported by Multiplicative.ofAdd agrees with the underlying coordinate map μ₀.",
+        "checked": "Statement and hypotheses read at the pinned source commit; source SHA-256 6c87264ac862685e883690e43d06b483e11794fdc352b128c542e88f5c96cfc6; line 826."
+      },
+      {
+        "ref": "tauceti:WeierstrassCurve.Affine.μ₀_zero",
+        "kind": "lemma",
+        "module": "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/XSubT.lean",
+        "provides": "The native underlying descent map sends the point at infinity to the identity squareclass.",
+        "checked": "Statement and hypotheses read at the pinned source commit; source SHA-256 6c87264ac862685e883690e43d06b483e11794fdc352b128c542e88f5c96cfc6; line 620."
+      },
+      {
+        "ref": "tauceti:WeierstrassCurve.c₄_quadraticTwistOf",
+        "kind": "theorem",
+        "module": "TauCeti/AlgebraicGeometry/EllipticCurve/QuadraticTwist.lean",
+        "provides": "For native twisting parameters (t,n), c₄ of the twisted model equals (t²−4n)² times c₄ of the original model.",
+        "checked": "Statement and hypotheses read at the pinned source commit; source SHA-256 4c80d742a2113d7e3880ae48abfb22e5c311ab96bf4a0b43f2c2adb6c673ff9b; line 223."
+      },
+      {
+        "ref": "tauceti:WeierstrassCurve.frobeniusTrace",
+        "kind": "def",
+        "module": "TauCeti/AlgebraicGeometry/EllipticCurve/PointCount.lean",
+        "provides": "The native integer q+1−pointCount over a finite field; the pointCount includes the point at infinity and any singular equation solutions.",
+        "checked": "Statement and hypotheses read at the pinned source commit; source SHA-256 415f2a6f883006615b392f2131e73cd349fd72176eb66a7041aea46a9f5f7488; line 97."
+      },
+      {
+        "ref": "tauceti:WeierstrassCurve.frobeniusTrace_def",
+        "kind": "theorem",
+        "module": "TauCeti/AlgebraicGeometry/EllipticCurve/PointCount.lean",
+        "provides": "The defining identity frobeniusTrace=Nat.card(field)+1−pointCount in integers.",
+        "checked": "Statement and hypotheses read at the pinned source commit; source SHA-256 415f2a6f883006615b392f2131e73cd349fd72176eb66a7041aea46a9f5f7488; line 105."
+      },
+      {
+        "ref": "tauceti:WeierstrassCurve.isElliptic_quadraticTwistOf_iff",
+        "kind": "theorem",
+        "module": "TauCeti/AlgebraicGeometry/EllipticCurve/QuadraticTwist.lean",
+        "provides": "A native quadratic twist is elliptic iff its twisting discriminant t²−4n is a unit and the original equation is elliptic; works over a commutative ring.",
+        "checked": "Statement and hypotheses read at the pinned source commit; source SHA-256 4c80d742a2113d7e3880ae48abfb22e5c311ab96bf4a0b43f2c2adb6c673ff9b; line 277."
+      },
+      {
+        "ref": "tauceti:WeierstrassCurve.j_quadraticTwistOf",
+        "kind": "theorem",
+        "module": "TauCeti/AlgebraicGeometry/EllipticCurve/QuadraticTwist.lean",
+        "provides": "For an elliptic original equation and an elliptic native quadratic twist, their native j-invariants agree.",
+        "checked": "Statement and hypotheses read at the pinned source commit; source SHA-256 4c80d742a2113d7e3880ae48abfb22e5c311ab96bf4a0b43f2c2adb6c673ff9b; line 284."
+      },
+      {
+        "ref": "tauceti:WeierstrassCurve.pointCount",
+        "kind": "def",
+        "module": "TauCeti/AlgebraicGeometry/EllipticCurve/PointCount.lean",
+        "provides": "The native full projective equation count: the cardinality of all affine equation solutions plus one for infinity; not automatically the nonsingular point-group cardinality.",
+        "checked": "Statement and hypotheses read at the pinned source commit; source SHA-256 415f2a6f883006615b392f2131e73cd349fd72176eb66a7041aea46a9f5f7488; line 69."
+      },
+      {
+        "ref": "tauceti:WeierstrassCurve.pointCount_eq_card_point",
+        "kind": "theorem",
+        "module": "TauCeti/AlgebraicGeometry/EllipticCurve/PointCount.lean",
+        "provides": "When the affine equation solution type is finite and the equation is elliptic, the native pointCount equals the cardinality of the native nonsingular point type.",
+        "checked": "Statement and hypotheses read at the pinned source commit; source SHA-256 415f2a6f883006615b392f2131e73cd349fd72176eb66a7041aea46a9f5f7488; line 82."
+      },
+      {
+        "ref": "tauceti:WeierstrassCurve.quadraticTwistOf",
+        "kind": "def",
+        "module": "TauCeti/AlgebraicGeometry/EllipticCurve/QuadraticTwist.lean",
+        "provides": "The existing five-coefficient quadratic twist with parameters (t,n) and twisting discriminant t²−4n; at (0,−d/4) a normal-form cubic is scaled by d,d²,d³.",
+        "checked": "Statement and hypotheses read at the pinned source commit; source SHA-256 4c80d742a2113d7e3880ae48abfb22e5c311ab96bf4a0b43f2c2adb6c673ff9b; line 163."
+      },
+      {
+        "ref": "tauceti:WeierstrassCurve.y_eq_zero_of_order_two",
+        "kind": "lemma",
+        "module": "TauCeti/AlgebraicGeometry/EllipticCurve/NormalForms.lean",
+        "provides": "For a nonsingular affine point on a native a₁=a₃=0 model over a field with 2 nonzero, annihilation by doubling implies its y-coordinate is zero.",
+        "checked": "Statement and hypotheses read at the pinned source commit; source SHA-256 c963c3c03a519d49723d9ca24f9d9d1b7eb7a57c95f12e05fb1eb031afa0d083; line 71."
+      },
+      {
+        "ref": "tauceti:WeierstrassCurve.Δ_quadraticTwistOf",
+        "kind": "theorem",
+        "module": "TauCeti/AlgebraicGeometry/EllipticCurve/QuadraticTwist.lean",
+        "provides": "The discriminant of the native quadratic twist equals (t²−4n)⁶ times the original discriminant.",
+        "checked": "Statement and hypotheses read at the pinned source commit; source SHA-256 4c80d742a2113d7e3880ae48abfb22e5c311ab96bf4a0b43f2c2adb6c673ff9b; line 233."
+      },
+      {
+        "ref": "mathlib:WeierstrassCurve.minimal",
+        "kind": "def",
+        "module": "Mathlib/AlgebraicGeometry/EllipticCurve/Reduction.lean",
+        "provides": "An existing minimal local Weierstrass equation obtained by an admissible change over the fraction field of a DVR, with an IsMinimal instance. Its coefficient model is not asserted equal to the original displayed equation.",
+        "checked": "Full minimal-model statement and surrounding hypotheses read at Mathlib 082e2d3, Reduction.lean lines 268–306."
+      }
+    ],
+    "auditStatus": "Reviewed data/library-coverage.json at 3a98a37da9242f48f2146b742cc4f18012b14c75 read first. No entry exists for this new roadmap. Relevant EllipticCurves Layers 2–6, CA.1 and BSD.0 entries were inspected; the descent map, its kernel, point counts, twist equations and torsion counts are reused rather than planned."
+  },
+  "sources": [
+    {
+      "id": "BS20",
+      "title": "A conjecture of Erdős, supersingular primes and short character sums",
+      "authors": "Michael A. Bennett and Samir Siksek",
+      "edition": "Annals of Mathematics 191 (2020), no. 2, 355–392; publisher version of record",
+      "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v191-n2-p02-s.pdf",
+      "sha256": "3920a7524a37870942fe3591ac858db23cb604f4331bccd2a6dc5f11a1671fbf",
+      "accessed": "2026-10-05",
+      "readSections": [
+        "Entire paper §§1–12 and references read during the immediately preceding design; §§5–6, pp.366–372 reread for this job; Lemmas 6.2,6.3,6.5 and local portion of Lemma 6.6 inspected in full."
+      ]
+    },
+    {
+      "id": "PINNED",
+      "title": "Pinned Mathlib and Tau Ceti source declarations",
+      "authors": "Mathlib and Tau Ceti contributors",
+      "edition": "Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; Tau Ceti f790474821cf4256814db967cb154e7af3d0c369",
+      "url": "https://github.com/TauCetiProject/TauCeti/tree/f790474821cf4256814db967cb154e7af3d0c369",
+      "accessed": "2026-10-05",
+      "readSections": [
+        "Weierstrass equations, normal forms and affine point group; Tau Ceti XSubT descent source, CRT, corrected representatives and kernel; two-torsion cardinality; point-count definitions; quadraticTwistOf coefficients and invariants."
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "EllipticLegendreCharacterInterfaces:LG.0/legendre-model",
+      "parentStageId": "EllipticLegendreCharacterInterfaces:LG.0",
+      "realises": [
+        "EllipticLegendreCharacterInterfaces:LG.0"
+      ],
+      "title": "The Legendre equation",
+      "kind": "definition",
+      "statement": "For any commutative ring R and λ∈R, legendre λ is the existing WeierstrassCurve with coefficients a₁=a₃=a₆=0, a₂=−(1+λ), a₄=λ. Its equation is y²=x(x−1)(x−λ). This defines a model even at λ=0,1; no ellipticity is claimed there.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Specify the five coefficients in WeierstrassCurve; the factored equation follows by ring algebra from Affine.equation_iff."
+      ],
+      "acceptance": [
+        "λ=−1 has equation y²=x³−x; λ=2 has Δ=64; λ=1/2 has Δ=1 over ℚ."
+      ],
+      "prerequisites": [
+        "mathlib:WeierstrassCurve",
+        "mathlib:WeierstrassCurve.Affine.Equation"
+      ],
+      "sources": [
+        {
+          "sourceId": "BS20",
+          "locator": "§6, equation (17), p.367",
+          "match": "Specialization of the existing Weierstrass carrier, not a new elliptic-curve type."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/EllipticCurve/Legendre/LG0",
+        "namespace": "WeierstrassCurve"
+      },
+      "proposedName": "WeierstrassCurve.legendre",
+      "api": [
+        {
+          "name": "WeierstrassCurve.legendre_equation",
+          "role": "characterisation",
+          "statement": "The native affine equation of legendre λ is equivalent to y²=x(x−1)(x−λ)."
+        },
+        {
+          "name": "WeierstrassCurve.legendre_map",
+          "role": "functoriality",
+          "statement": "(legendre λ).map f=legendre(f λ) for every ring homomorphism f."
+        },
+        {
+          "name": "WeierstrassCurve.legendre_ext",
+          "role": "extensionality",
+          "statement": "legendre λ=legendre μ iff λ=μ, over every commutative ring (compare a₄)."
+        },
+        {
+          "name": "WeierstrassCurve.legendre_normalForm",
+          "role": "instance",
+          "statement": "legendre λ is in native IsCharNeTwoNF normal form: a₁=a₃=0."
+        }
+      ],
+      "tests": [
+        {
+          "name": "WeierstrassCurve.legendre_test_minus_one",
+          "kind": "computation",
+          "statement": "Over ℚ, (legendre (−1)).a₂=0 and (legendre (−1)).a₄=−1."
+        },
+        {
+          "name": "WeierstrassCurve.legendre_test_two",
+          "kind": "computation",
+          "statement": "Over ℚ, (legendre 2).Δ=64."
+        },
+        {
+          "name": "WeierstrassCurve.legendre_test_half",
+          "kind": "computation",
+          "statement": "Over ℚ, (legendre (1/2)).Δ=1."
+        },
+        {
+          "name": "WeierstrassCurve.legendre_test_zero",
+          "kind": "non-example",
+          "statement": "Over ℚ, legendre 0 is not elliptic (Δ=0)."
+        }
+      ],
+      "uses": [
+        {
+          "where": "BS20 §6 Lemmas 6.3,6.5",
+          "how": "The equations and distinguished roots determine torsion and halving."
+        },
+        {
+          "where": "ErdosProgressionPowers EP.4",
+          "how": "Consumes the rational Legendre parameter and nonsingular reductions; no progression hypotheses enter its definition."
+        }
+      ],
+      "planet": {
+        "name": "Legendre model"
+      },
+      "catalogueItems": [
+        "PAPER-BENNETT-SIKSEK-20/28"
+      ]
+    },
+    {
+      "id": "EllipticLegendreCharacterInterfaces:LG.0/scaled-legendre-model",
+      "parentStageId": "EllipticLegendreCharacterInterfaces:LG.0",
+      "realises": [
+        "EllipticLegendreCharacterInterfaces:LG.0"
+      ],
+      "title": "The scaled Legendre equation",
+      "kind": "definition",
+      "statement": "For a commutative ring R and d,λ∈R, scaledLegendre d λ has coefficients (0,−d(1+λ),0,d²λ,0), hence equation y²=x(x−d)(x−dλ). For fields with 2≠0 it is the native quadraticTwistOf (legendre λ) with parameters (0,−d/4): its twisting discriminant is d, not 4d.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Specify the coefficients and factor the cubic.",
+        "At 2≠0 compare all five coefficients with native quadraticTwistOf at t=0,n=−d/4; do not copy the generic twist construction."
+      ],
+      "acceptance": [
+        "d=1 recovers legendre λ; d=2 recovers F′λ exactly, not merely the same j-invariant."
+      ],
+      "prerequisites": [
+        "EllipticLegendreCharacterInterfaces:LG.0/legendre-model",
+        "tauceti:WeierstrassCurve.quadraticTwistOf"
+      ],
+      "sources": [
+        {
+          "sourceId": "BS20",
+          "locator": "§6, proof of Lemma 6.6, p.371",
+          "match": "The d=2 model used by the source; extending the scalar d uses the same explicit coefficient comparison."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/EllipticCurve/Legendre/LG0",
+        "namespace": "WeierstrassCurve"
+      },
+      "proposedName": "WeierstrassCurve.scaledLegendre",
+      "api": [
+        {
+          "name": "WeierstrassCurve.scaledLegendre_equation",
+          "role": "characterisation",
+          "statement": "The affine equation is equivalent to y²=x(x−d)(x−dλ)."
+        },
+        {
+          "name": "WeierstrassCurve.scaledLegendre_one",
+          "role": "simp",
+          "statement": "scaledLegendre 1 λ=legendre λ."
+        },
+        {
+          "name": "WeierstrassCurve.scaledLegendre_map",
+          "role": "functoriality",
+          "statement": "Mapping coefficients along f gives scaledLegendre (f d) (f λ)."
+        },
+        {
+          "name": "WeierstrassCurve.scaledLegendre_eq_quadraticTwistOf",
+          "role": "compatibility",
+          "statement": "Over a field with 2≠0, scaledLegendre d λ=(legendre λ).quadraticTwistOf 0 (−d/4).",
+          "promotedTo": "EllipticLegendreCharacterInterfaces:LG.0/scaled-legendre-twist-identity"
+        }
+      ],
+      "tests": [
+        {
+          "name": "WeierstrassCurve.scaledLegendre_test_one",
+          "kind": "compatibility",
+          "statement": "Over ℚ, scaledLegendre 1 (1/2)=legendre (1/2)."
+        },
+        {
+          "name": "WeierstrassCurve.scaledLegendre_test_two_half",
+          "kind": "computation",
+          "statement": "scaledLegendre 2 (1/2) over ℚ has a₂=−3,a₄=2,Δ=64."
+        },
+        {
+          "name": "WeierstrassCurve.scaledLegendre_test_zero",
+          "kind": "degenerate",
+          "statement": "For d=0 all five coefficients vanish, and Δ=0, for every λ."
+        }
+      ],
+      "uses": [
+        {
+          "where": "BS20 Lemma 6.6",
+          "how": "The corrected point lies on the twist by 2, with roots 0,2,2λ."
+        },
+        {
+          "where": "BS20 Lemma 6.2 proof",
+          "how": "For λ=b/a,d=a the integral model y²=x(x−a)(x−b) is this scaled equation."
+        }
+      ],
+      "planet": {
+        "name": "Scaled Legendre model"
+      },
+      "catalogueItems": [
+        "PAPER-BENNETT-SIKSEK-20/28"
+      ]
+    },
+    {
+      "id": "EllipticLegendreCharacterInterfaces:LG.0/legendre-parameters",
+      "parentStageId": "EllipticLegendreCharacterInterfaces:LG.0",
+      "realises": [
+        "EllipticLegendreCharacterInterfaces:LG.0"
+      ],
+      "title": "Six labelled Legendre parameters",
+      "kind": "construction",
+      "statement": "For a field K, legendreParameters λ is the Fin 6-indexed tuple (λ,1/λ,1−λ,1/(1−λ),λ/(λ−1),(λ−1)/λ). Labelled entries are retained, including repetitions. Mathematical parameter assertions require λ≠0,1; the tuple is a total rational-expression construction but its degenerate values are not valid parameters.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Evaluate the six rational expressions at their labels.",
+        "Do not quotient by equality: exceptional parameters have coincident entries. The moduli-level S₃-action and invariant-ring theory remain ModularCurves 9E imports, not targets here."
+      ],
+      "acceptance": [
+        "The generic rational tuple at λ=3 has six distinct values; at λ=−1 its image is only {−1,2,1/2}."
+      ],
+      "prerequisites": [
+        "mathlib:WeierstrassCurve"
+      ],
+      "sources": [
+        {
+          "sourceId": "BS20",
+          "locator": "§6, proof of Lemma 6.2, p.368",
+          "match": "With λ=b/a these are the six labelled values."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/EllipticCurve/Legendre/LG0",
+        "namespace": "WeierstrassCurve"
+      },
+      "proposedName": "WeierstrassCurve.legendreParameters",
+      "api": [
+        {
+          "name": "WeierstrassCurve.legendreParameters_apply",
+          "role": "data",
+          "statement": "The six evaluations, in the declared order, are exactly the displayed rational expressions."
+        },
+        {
+          "name": "WeierstrassCurve.legendreParameters_valid",
+          "role": "characterisation",
+          "statement": "If λ≠0,1 then every labelled entry is different from 0 and 1."
+        },
+        {
+          "name": "WeierstrassCurve.legendreParameters_inverse_pairs",
+          "role": "relation",
+          "statement": "Labels (0,1), (2,3), and (4,5) have product 1 when λ≠0,1."
+        },
+        {
+          "name": "WeierstrassCurve.legendreParameters_map",
+          "role": "functoriality",
+          "statement": "An injective field homomorphism maps every labelled entry to the corresponding entry at f λ."
+        }
+      ],
+      "tests": [
+        {
+          "name": "WeierstrassCurve.legendreParameters_test_minus_one",
+          "kind": "computation",
+          "statement": "At −1 over ℚ the tuple is (−1,−1,2,1/2,1/2,2)."
+        },
+        {
+          "name": "WeierstrassCurve.legendreParameters_test_two",
+          "kind": "computation",
+          "statement": "At 2 over ℚ the tuple is (2,1/2,−1,−1,2,1/2)."
+        },
+        {
+          "name": "WeierstrassCurve.legendreParameters_test_half",
+          "kind": "computation",
+          "statement": "At 1/2 over ℚ the tuple is (1/2,2,1/2,2,−1,−1)."
+        },
+        {
+          "name": "WeierstrassCurve.legendreParameters_test_generic",
+          "kind": "computation",
+          "statement": "At 3 over ℚ the tuple is (3,1/3,−2,−1/2,3/2,2/3)."
+        }
+      ],
+      "uses": [
+        {
+          "where": "BS20 Lemma 6.2",
+          "how": "The good-prime and conductor statements apply to every root ordering."
+        },
+        {
+          "where": "ErdosProgressionPowers EP.4 squareclass split",
+          "how": "The finite labelled family is partitioned by rational squareclasses even when values coincide."
+        }
+      ],
+      "planet": {
+        "name": "Six Legendre parameters"
+      },
+      "catalogueItems": [
+        "PAPER-BENNETT-SIKSEK-20/28"
+      ]
+    },
+    {
+      "id": "EllipticLegendreCharacterInterfaces:LG.0/legendre-invariants",
+      "parentStageId": "EllipticLegendreCharacterInterfaces:LG.0",
+      "realises": [
+        "EllipticLegendreCharacterInterfaces:LG.0"
+      ],
+      "title": "Legendre discriminant and ellipticity",
+      "kind": "theorem",
+      "statement": "For every commutative ring, Δ(Lλ)=16λ²(1−λ)² and c₄(Lλ)=16(λ²−λ+1). Over a field with 2≠0, Lλ is elliptic iff λ≠0 and λ≠1; for these parameters its native j-invariant equals 256(λ²−λ+1)³/(λ²(1−λ)²). The identities form one simultaneous coefficient calculation.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Substitute the five coefficients into native b₂,b₄,b₆,b₈,c₄,Δ.",
+        "Factor the discriminant; over a field apply IsElliptic iff Δ is a unit.",
+        "Divide c₄³ by Δ only on an elliptic model. No hypothesis j≠0 or j≠1728 is imposed."
+      ],
+      "acceptance": [
+        "At λ=−1,2,1/2 the j-invariant is 1728. In characteristic 2 the discriminant vanishes for every λ."
+      ],
+      "prerequisites": [
+        "EllipticLegendreCharacterInterfaces:LG.0/legendre-model",
+        "mathlib:WeierstrassCurve.Δ",
+        "mathlib:WeierstrassCurve.c₄",
+        "mathlib:WeierstrassCurve.j",
+        "mathlib:WeierstrassCurve.IsElliptic"
+      ],
+      "sources": [
+        {
+          "sourceId": "BS20",
+          "locator": "§6, equation (17), p.367; explicit coefficient computation",
+          "match": "The equation determines these invariants in the pinned convention; the computation is provided explicitly rather than attributing an unstated formula to the paper."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/EllipticCurve/Legendre/LG0",
+        "namespace": "WeierstrassCurve"
+      },
+      "proposedName": "WeierstrassCurve.legendre_invariants",
+      "planet": {
+        "name": "Legendre discriminant"
+      },
+      "catalogueItems": [
+        "PAPER-BENNETT-SIKSEK-20/28"
+      ]
+    },
+    {
+      "id": "EllipticLegendreCharacterInterfaces:LG.0/scaled-invariants",
+      "parentStageId": "EllipticLegendreCharacterInterfaces:LG.0",
+      "realises": [
+        "EllipticLegendreCharacterInterfaces:LG.0"
+      ],
+      "title": "Scaled Legendre discriminant",
+      "kind": "lemma",
+      "statement": "Δ(Ld,λ)=16d⁶λ²(1−λ)² and c₄(Ld,λ)=16d²(λ²−λ+1). For a field with 2≠0 and d≠0, Ld,λ is elliptic iff λ≠0,1; on elliptic models j(Ld,λ)=j(Lλ).",
+      "hypotheses": [],
+      "proofSteps": [
+        "Compute the coefficients or specialize Δ_quadraticTwistOf and c₄_quadraticTwistOf with twisting discriminant d.",
+        "Apply native j_quadraticTwistOf. The d≠0 assumption is indispensable; over a ring nonzero must be replaced by IsUnit where ellipticity is claimed."
+      ],
+      "acceptance": [
+        "At d=2, λ=1/2, Δ=64 and j=1728; at d=0 singularity is explicit."
+      ],
+      "prerequisites": [
+        "EllipticLegendreCharacterInterfaces:LG.0/scaled-legendre-model",
+        "EllipticLegendreCharacterInterfaces:LG.0/legendre-invariants",
+        "tauceti:WeierstrassCurve.Δ_quadraticTwistOf",
+        "tauceti:WeierstrassCurve.c₄_quadraticTwistOf",
+        "tauceti:WeierstrassCurve.j_quadraticTwistOf"
+      ],
+      "sources": [
+        {
+          "sourceId": "BS20",
+          "locator": "§6, F′λ in proof of Lemma 6.6, p.371",
+          "match": "Native twist invariant comparison specialized to the scaled equation."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/EllipticCurve/Legendre/LG0",
+        "namespace": "WeierstrassCurve"
+      },
+      "proposedName": "WeierstrassCurve.scaledLegendre_invariants",
+      "catalogueItems": [
+        "PAPER-BENNETT-SIKSEK-20/28"
+      ]
+    },
+    {
+      "id": "EllipticLegendreCharacterInterfaces:LG.0/parameters-from-root-orderings",
+      "parentStageId": "EllipticLegendreCharacterInterfaces:LG.0",
+      "realises": [
+        "EllipticLegendreCharacterInterfaces:LG.0"
+      ],
+      "title": "Root-ordering cross-ratios",
+      "kind": "lemma",
+      "statement": "Let e₀,e₁,e₂ be pairwise distinct in a field, and λ=(e₂−e₀)/(e₁−e₀). The cross-ratios obtained from root orders (012),(021),(102),(120),(210),(201) equal, respectively, the six entries of legendreParameters λ. Each lies outside {0,1}. Repetitions in values do not collapse the six root orderings.",
+      "hypotheses": [
+        "The three roots are pairwise distinct."
+      ],
+      "proofSteps": [
+        "Write every quotient in terms of d=e₁−e₀ and λ using e₂−e₀=dλ.",
+        "Cancel only the nonzero differences; compute each numerator and denominator.",
+        "Do not deduce that these are all curves with this j-invariant or that they are rationally isomorphic. The scheme-theoretic S₃-action is not reconstructed."
+      ],
+      "acceptance": [
+        "Roots (0,1,−1) produce exactly the labelled exceptional tuple; roots (0,1,3) produce the generic tuple."
+      ],
+      "prerequisites": [
+        "EllipticLegendreCharacterInterfaces:LG.0/legendre-parameters"
+      ],
+      "sources": [
+        {
+          "sourceId": "BS20",
+          "locator": "§6, six ratios in proof of Lemma 6.2, p.368",
+          "match": "These are coordinate changes attached to ordered split roots, not the moduli quotient of ModularCurves 9E."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/EllipticCurve/Legendre/LG0",
+        "namespace": "WeierstrassCurve"
+      },
+      "proposedName": "WeierstrassCurve.legendreParameters_from_roots",
+      "catalogueItems": [
+        "PAPER-BENNETT-SIKSEK-20/28"
+      ]
+    },
+    {
+      "id": "EllipticLegendreCharacterInterfaces:LG.0/split-normalization",
+      "parentStageId": "EllipticLegendreCharacterInterfaces:LG.0",
+      "realises": [
+        "EllipticLegendreCharacterInterfaces:LG.0"
+      ],
+      "title": "Legendre normalization of a split cubic",
+      "kind": "theorem",
+      "statement": "Let W over a field K with 2≠0 be in native IsCharNeTwoNF normal form, with cubic f=(X−e₀)(X−e₁)(X−e₂) and pairwise distinct roots. Set d=e₁−e₀, λ=(e₂−e₀)/d. Translation x_old=x_new+e₀,y_old=y_new gives a native VariableChange C with C•W=scaledLegendre d λ. Hence W is a quadratic twist of Lλ in the precise native coefficient sense, d≠0 and λ≠0,1. Reordering roots yields exactly the six parameters, with the corresponding twist scalar recomputed.",
+      "hypotheses": [
+        "K is a field; 2≠0; a₁=a₃=0; the cubic has three distinct K-rational roots."
+      ],
+      "proofSteps": [
+        "Expand the split monic cubic and translate by e₀ using the native VariableChange action.",
+        "The translated roots are 0,d,dλ; compare the five coefficients with scaledLegendre.",
+        "Apply parameters_from_root_orderings to every ordering and the scaled/native-twist coefficient identity. Translation is a K-isomorphism; passage to Lλ itself is a twist, not generally a K-isomorphism."
+      ],
+      "acceptance": [
+        "For roots (3,5,9), d=2,λ=3; translation gives y²=x(x−2)(x−6)."
+      ],
+      "prerequisites": [
+        "EllipticLegendreCharacterInterfaces:LG.0/scaled-legendre-model",
+        "EllipticLegendreCharacterInterfaces:LG.0/parameters-from-root-orderings",
+        "mathlib:WeierstrassCurve.VariableChange"
+      ],
+      "sources": [
+        {
+          "sourceId": "BS20",
+          "locator": "§6, Legendre discussion p.367 and proof of Lemma 6.2 p.368",
+          "match": "The source uses the normalized split equation; this node gives the missing explicit construction from ordered roots."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/EllipticCurve/Legendre/LG0",
+        "namespace": "WeierstrassCurve"
+      },
+      "proposedName": "WeierstrassCurve.scaledLegendre_normalization",
+      "planet": {
+        "name": "Legendre twist normalization"
+      },
+      "catalogueItems": [
+        "PAPER-BENNETT-SIKSEK-20/28"
+      ]
+    },
+    {
+      "id": "EllipticLegendreCharacterInterfaces:LG.0/full-two-torsion-normalization",
+      "parentStageId": "EllipticLegendreCharacterInterfaces:LG.0",
+      "realises": [
+        "EllipticLegendreCharacterInterfaces:LG.0"
+      ],
+      "title": "Normalization from full rational two-torsion",
+      "kind": "theorem",
+      "statement": "If E/ℚ is an elliptic Weierstrass curve whose native rational point group has exactly four points killed by 2, there exist a native rational VariableChange C, d∈ℚ× and λ∈ℚ\\{0,1} such that C•E=scaledLegendre d λ. All associated parameters are precisely the labelled six root-ordering parameters, allowing coincidences.",
+      "hypotheses": [
+        "E is elliptic; Nat.card of the kernel of doubling on E(ℚ) is 4."
+      ],
+      "proofSteps": [
+        "Use native toCharNeTwoNF to complete the square. Transport the native point group by the variable change.",
+        "Apply native card_ker_nsmul_two: the normalized cubic has exactly three rational roots. Ellipticity makes it separable, so they are distinct; degree three and monicity give the split factorization.",
+        "Apply split-normalization. The normalization does not use an automorphism classification and works at j=0 and j=1728 as well."
+      ],
+      "acceptance": [
+        "E:y²=x³−x is normalized by d=1,λ=−1 and has the three nonzero rational two-torsion points (0,0),(1,0),(−1,0)."
+      ],
+      "prerequisites": [
+        "EllipticLegendreCharacterInterfaces:LG.0/split-normalization",
+        "mathlib:WeierstrassCurve.toCharNeTwoNF",
+        "tauceti:WeierstrassCurve.Affine.card_ker_nsmul_two",
+        "tauceti:WeierstrassCurve.Affine.Point.equivVariableChange",
+        "tauceti:WeierstrassCurve.Affine.separable_f"
+      ],
+      "sources": [
+        {
+          "sourceId": "BS20",
+          "locator": "§6, following equation (17), p.367",
+          "match": "The paper’s full-two-torsion assertion is realized by the root-count and coefficient construction rather than assumed as a new predicate."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/EllipticCurve/Legendre/LG0",
+        "namespace": "WeierstrassCurve"
+      },
+      "proposedName": "WeierstrassCurve.exists_scaledLegendre_of_full_two_torsion",
+      "catalogueItems": [
+        "PAPER-BENNETT-SIKSEK-20/28"
+      ]
+    },
+    {
+      "id": "EllipticLegendreCharacterInterfaces:LG.0/legendre-two-torsion",
+      "parentStageId": "EllipticLegendreCharacterInterfaces:LG.0",
+      "realises": [
+        "EllipticLegendreCharacterInterfaces:LG.0"
+      ],
+      "title": "The three labelled two-torsion points",
+      "kind": "construction",
+      "statement": "For a field K with 2≠0,d≠0,λ≠0,1, scaledLegendreTwoTorsion d λ is the Fin 3-indexed tuple of native points (0,0),(d,0),(dλ,0) of Ld,λ, each supplied with its native nonsingularity proof. Their y-coordinate is zero; the point at infinity is not an entry.",
+      "hypotheses": [
+        "K is a field; 2≠0; d≠0; λ≠0,1."
+      ],
+      "proofSteps": [
+        "Use scaled-invariants for ellipticity and the factored equation to prove each displayed point nonsingular.",
+        "Use native negation and addition to show doubling is zero; distinct roots distinguish the three points. Their sum is O by the horizontal line y=0."
+      ],
+      "acceptance": [
+        "The native kernel of doubling consists of O and these three points."
+      ],
+      "prerequisites": [
+        "EllipticLegendreCharacterInterfaces:LG.0/scaled-legendre-model",
+        "EllipticLegendreCharacterInterfaces:LG.0/scaled-invariants",
+        "mathlib:WeierstrassCurve.Affine.Point"
+      ],
+      "sources": [
+        {
+          "sourceId": "BS20",
+          "locator": "§6, descent discussion and Lemma 6.5, p.370",
+          "match": "The distinguished points label the coordinate evaluations of native descent."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/EllipticCurve/Legendre/LG0",
+        "namespace": "WeierstrassCurve"
+      },
+      "proposedName": "WeierstrassCurve.scaledLegendreTwoTorsion",
+      "api": [
+        {
+          "name": "WeierstrassCurve.scaledLegendreTwoTorsion_coordinates",
+          "role": "data",
+          "statement": "The three labelled points have exactly the root coordinates displayed in the definition."
+        },
+        {
+          "name": "WeierstrassCurve.scaledLegendreTwoTorsion_double",
+          "role": "simp",
+          "statement": "2•T_j=O for every label j."
+        },
+        {
+          "name": "WeierstrassCurve.scaledLegendreTwoTorsion_injective",
+          "role": "extensionality",
+          "statement": "The Fin 3 tuple is injective and all its entries are nonzero points."
+        },
+        {
+          "name": "WeierstrassCurve.scaledLegendreTwoTorsion_exhausts",
+          "role": "characterisation",
+          "statement": "A native point P satisfies 2•P=O iff P=O or P is one of the three labelled points.",
+          "promotedTo": "EllipticLegendreCharacterInterfaces:LG.0/legendre-two-torsion-exhausts"
+        }
+      ],
+      "tests": [
+        {
+          "name": "WeierstrassCurve.scaledLegendreTwoTorsion_test_minus_one",
+          "kind": "computation",
+          "statement": "For d=1,λ=−1 over ℚ the labelled coordinates are (0,0),(1,0),(−1,0)."
+        },
+        {
+          "name": "WeierstrassCurve.scaledLegendreTwoTorsion_test_two_half",
+          "kind": "computation",
+          "statement": "For d=2,λ=1/2 over ℚ the coordinates are (0,0),(2,0),(1,0)."
+        },
+        {
+          "name": "WeierstrassCurve.scaledLegendreTwoTorsion_test_sum",
+          "kind": "compatibility",
+          "statement": "For d=1,λ=3 over ℚ the sum of the three labelled native points is O, and each is killed by doubling."
+        }
+      ],
+      "uses": [
+        {
+          "where": "BS20 Lemmas 6.3,6.5,6.6",
+          "how": "Halving and descent are tested at these exact nonzero two-torsion points."
+        },
+        {
+          "where": "LG.3 two-by-four-subgroup",
+          "how": "A labelled independent two-torsion point complements an order-four point."
+        }
+      ],
+      "planet": {
+        "name": "Legendre two-torsion points"
+      },
+      "catalogueItems": [
+        "PAPER-BENNETT-SIKSEK-20/28"
+      ]
+    },
+    {
+      "id": "EllipticLegendreCharacterInterfaces:LG.0/scaled-legendre-twist-identity",
+      "parentStageId": "EllipticLegendreCharacterInterfaces:LG.0",
+      "realises": [
+        "EllipticLegendreCharacterInterfaces:LG.0"
+      ],
+      "title": "The native scalar-twist identity",
+      "kind": "lemma",
+      "statement": "Over a field with 2≠0, scaledLegendre d λ=(legendre λ).quadraticTwistOf 0 (−d/4). The native twisting discriminant 0²−4(−d/4) is exactly d, so the twist is elliptic iff d≠0 and Lλ is elliptic.",
+      "hypotheses": [
+        "K is a field; 2≠0."
+      ],
+      "proofSteps": [
+        "Compare all five native coefficients.",
+        "Use isElliptic_quadraticTwistOf_iff rather than any j-invariant classification."
+      ],
+      "acceptance": [
+        "d=2 gives parameters (0,−1/2), not (0,−2); the latter produces scalar 8."
+      ],
+      "prerequisites": [
+        "EllipticLegendreCharacterInterfaces:LG.0/scaled-legendre-model",
+        "EllipticLegendreCharacterInterfaces:LG.0/legendre-model",
+        "tauceti:WeierstrassCurve.quadraticTwistOf",
+        "tauceti:WeierstrassCurve.isElliptic_quadraticTwistOf_iff"
+      ],
+      "sources": [
+        {
+          "sourceId": "BS20",
+          "locator": "§6, proof of Lemma 6.6, p.371",
+          "match": "Promotes the scaled-model compatibility API because the finite-field specialization consumes it."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/EllipticCurve/Legendre/LG0",
+        "namespace": "WeierstrassCurve"
+      },
+      "proposedName": "WeierstrassCurve.scaledLegendre_eq_quadraticTwistOf",
+      "catalogueItems": [
+        "PAPER-BENNETT-SIKSEK-20/28"
+      ]
+    },
+    {
+      "id": "EllipticLegendreCharacterInterfaces:LG.0/legendre-two-torsion-exhausts",
+      "parentStageId": "EllipticLegendreCharacterInterfaces:LG.0",
+      "realises": [
+        "EllipticLegendreCharacterInterfaces:LG.0"
+      ],
+      "title": "Exhaustion of Legendre two-torsion",
+      "kind": "lemma",
+      "statement": "On Ld,λ over a field with 2≠0,d≠0,λ≠0,1, a native point P is killed by doubling iff P=O or P is one of (0,0),(d,0),(dλ,0). These four points are distinct; hence the doubling kernel has cardinality 4.",
+      "hypotheses": [
+        "K is a field; 2≠0; d≠0; λ≠0,1."
+      ],
+      "proofSteps": [
+        "Native y_eq_zero_of_order_two gives y=0 for any affine two-torsion point.",
+        "The factored cubic then forces x∈{0,d,dλ}; the construction supplies all three, and the native point constructors distinguish them from O.",
+        "This is an equation-specific enumeration, not a general torsion-basis construction."
+      ],
+      "acceptance": [
+        "For λ=−1 the four points are O,(0,0),(1,0),(−1,0); none is lost at j=1728."
+      ],
+      "prerequisites": [
+        "EllipticLegendreCharacterInterfaces:LG.0/legendre-two-torsion",
+        "EllipticLegendreCharacterInterfaces:LG.0/scaled-legendre-model",
+        "EllipticLegendreCharacterInterfaces:LG.0/scaled-invariants",
+        "tauceti:WeierstrassCurve.y_eq_zero_of_order_two",
+        "tauceti:WeierstrassCurve.Affine.card_ker_nsmul_two"
+      ],
+      "sources": [
+        {
+          "sourceId": "BS20",
+          "locator": "§6, Lemmas 6.3 and 6.5, pp.368,370",
+          "match": "The source uses full two-torsion; this node supplies the exact enumeration on these equations."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/EllipticCurve/Legendre/LG0",
+        "namespace": "WeierstrassCurve"
+      },
+      "proposedName": "WeierstrassCurve.scaledLegendreTwoTorsion_exhausts",
+      "catalogueItems": [
+        "PAPER-BENNETT-SIKSEK-20/28"
+      ]
+    },
+    {
+      "id": "EllipticLegendreCharacterInterfaces:LG.1/legendre-j-valuation",
+      "parentStageId": "EllipticLegendreCharacterInterfaces:LG.1",
+      "realises": [
+        "EllipticLegendreCharacterInterfaces:LG.1"
+      ],
+      "title": "Nonintegral Legendre parameters force nonintegral j",
+      "kind": "theorem",
+      "statement": "Let p be an odd rational prime and λ∈ℚ\\{0,1}. Write a=v_p(λ), b=v_p(1−λ). If a<0 then b=a and v_p(j(Lλ))=2a<0. If a>0 then b=0 and v_p(j(Lλ))=−2a<0. If b>0 then a=0 and v_p(j(Lλ))=−2b<0. Consequently v_p(j(Lλ))≥0 implies a=b=0.",
+      "hypotheses": [
+        "p is an odd prime; λ is a rational different from 0 and 1."
+      ],
+      "proofSteps": [
+        "Apply native padicValRat.add_eq_min to λ+(1−λ)=1; the three bad cases above exhaust failure of a=b=0.",
+        "When λ or 1−λ has positive valuation, λ²−λ+1 is a unit; when a<0 its λ² term uniquely has the least valuation 2a.",
+        "Use j=256(λ²−λ+1)³/(λ²(1−λ)²). The factor 256 is a p-adic unit even at p=3. There is no assumption that j itself is a unit."
+      ],
+      "acceptance": [
+        "λ=3 at p=3 gives valuations (1,0) and v₃(j)=−2; λ=1/3 at p=3 gives (−1,−1) and v₃(j)=−2. At λ=−1,p=3 j=1728 has positive valuation although both parameter factors are units."
+      ],
+      "prerequisites": [
+        "EllipticLegendreCharacterInterfaces:LG.0/legendre-invariants",
+        "mathlib:padicValRat",
+        "mathlib:padicValRat.mul",
+        "mathlib:padicValRat.div",
+        "mathlib:padicValRat.add_eq_min"
+      ],
+      "sources": [
+        {
+          "sourceId": "BS20",
+          "locator": "§6, Lemma 6.2(i), pp.367–368; alternate explicit invariant proof",
+          "match": "The source proves the implication via an odd-primitive integral model; this node gives an independent direct valuation calculation from its equation."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/EllipticCurve/Legendre/LG1",
+        "namespace": "WeierstrassCurve"
+      },
+      "proposedName": "WeierstrassCurve.legendre_j_valuation",
+      "planet": {
+        "name": "Legendre parameter unit criterion"
+      },
+      "catalogueItems": [
+        "PAPER-BENNETT-SIKSEK-20/29"
+      ]
+    },
+    {
+      "id": "EllipticLegendreCharacterInterfaces:LG.1/good-prime-units",
+      "parentStageId": "EllipticLegendreCharacterInterfaces:LG.1",
+      "realises": [
+        "EllipticLegendreCharacterInterfaces:LG.1"
+      ],
+      "title": "Parameters at good odd primes",
+      "kind": "theorem",
+      "statement": "Let F/ℚ be elliptic with full rational two-torsion, semistable away from 2, and let λ be any associated Legendre parameter. If an odd prime p is of good reduction for the curve F, then v_p(λ)=v_p(1−λ)=0. The reduction hypothesis is applied to a minimal equation of F over ℚ_p, not to the arbitrary displayed scaled Legendre model.",
+      "hypotheses": [
+        "F is elliptic with full rational two-torsion and semistable away from 2; p is an odd prime of good curve-level reduction; λ is any of the six associated parameters."
+      ],
+      "proofSteps": [
+        "At a good minimal local model, c₄ is integral and Δ is a unit, so j is integral. The generic local/minimal-model comparison is imported from EllipticCurves Layer 4.",
+        "Native j invariance under VariableChange and quadraticTwistOf identifies j(F) with j(Lλ).",
+        "Apply legendre-j-valuation. For every root ordering the same argument applies; never infer good reduction of a ramified quadratic twist merely from equal j."
+      ],
+      "acceptance": [
+        "F:y²=x³−x, λ=−1,2,1/2: at every odd good prime all three parameters and their complements are units."
+      ],
+      "prerequisites": [
+        "EllipticLegendreCharacterInterfaces:LG.1/legendre-j-valuation",
+        "EllipticLegendreCharacterInterfaces:LG.0/full-two-torsion-normalization",
+        "EllipticLegendreCharacterInterfaces:LG.0/scaled-invariants",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
+        "mathlib:WeierstrassCurve.variableChange_j",
+        "mathlib:WeierstrassCurve.minimal"
+      ],
+      "sources": [
+        {
+          "sourceId": "BS20",
+          "locator": "§6, Lemma 6.2(i), pp.367–368",
+          "match": "Exactly the source theorem, with the model-versus-curve reduction convention made explicit."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/EllipticCurve/Legendre/LG1",
+        "namespace": "WeierstrassCurve"
+      },
+      "proposedName": "WeierstrassCurve.legendre_units_of_good_reduction",
+      "planet": {
+        "name": "Good-prime Legendre units"
+      },
+      "catalogueItems": [
+        "PAPER-BENNETT-SIKSEK-20/29"
+      ]
+    },
+    {
+      "id": "EllipticLegendreCharacterInterfaces:LG.1/legendre-good-model",
+      "parentStageId": "EllipticLegendreCharacterInterfaces:LG.1",
+      "realises": [
+        "EllipticLegendreCharacterInterfaces:LG.1"
+      ],
+      "title": "Nonsingular reduction of the unit Legendre model",
+      "kind": "theorem",
+      "statement": "For λ∈ℚ\\{0,1} and an odd prime p with v_p(λ)=v_p(1−λ)=0, the coefficient model Lλ is integral over ℤ_p with unit discriminant. Its reduction is an elliptic Legendre model over 𝔽_p with parameter λ̄≠0,1; the curve has good reduction at p. This statement is about Lλ itself, not an arbitrary d-twist.",
+      "hypotheses": [
+        "p is an odd prime; λ and 1−λ are p-adic units."
+      ],
+      "proofSteps": [
+        "The coefficients −(1+λ),λ are integral; Δ=16λ²(1−λ)² is a unit.",
+        "The integral unit-discriminant equation is minimal and reduces nonsingularly, using native reduction predicates and the generic local comparison.",
+        "Reduction of both nonzero units excludes the two singular parameters."
+      ],
+      "acceptance": [
+        "λ=3,p=5 gives good reduction; λ=3,p=3 fails the unit hypothesis and Δ is divisible by 3."
+      ],
+      "prerequisites": [
+        "EllipticLegendreCharacterInterfaces:LG.0/legendre-invariants",
+        "EllipticLegendreCharacterInterfaces:LG.0/legendre-model",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
+        "mathlib:WeierstrassCurve.HasGoodReduction",
+        "mathlib:WeierstrassCurve.hasGoodReduction_iff_isElliptic_reduction",
+        "mathlib:WeierstrassCurve.minimal"
+      ],
+      "sources": [
+        {
+          "sourceId": "BS20",
+          "locator": "§6, proof of Lemma 6.4, p.368",
+          "match": "Explains the coefficient-level unit-discriminant step the source uses."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/EllipticCurve/Legendre/LG1",
+        "namespace": "WeierstrassCurve"
+      },
+      "proposedName": "WeierstrassCurve.legendre_good_reduction_of_units",
+      "catalogueItems": [
+        "PAPER-BENNETT-SIKSEK-20/29"
+      ]
+    },
+    {
+      "id": "EllipticLegendreCharacterInterfaces:LG.1/character-odd-support",
+      "parentStageId": "EllipticLegendreCharacterInterfaces:LG.1",
+      "realises": [
+        "EllipticLegendreCharacterInterfaces:LG.1"
+      ],
+      "title": "Odd support of the attached primitive character",
+      "kind": "theorem",
+      "statement": "Let F,λ be as in good-prime-units, let ω∈{1,−1,2,−2}, and let χ be the CA.1 primitive character of the nonzero rational squareclass ωλ, of conductor N. Every odd prime dividing N is a bad prime of F. Equivalently the odd prime support of N is contained in the bad odd prime set of F.",
+      "hypotheses": [
+        "F/ℚ has full rational two-torsion and is semistable away from 2; λ is associated; ω∈{±1,±2}."
+      ],
+      "proofSteps": [
+        "Import CA.1: an odd prime p divides N iff v_p(ωλ) is odd, and the odd conductor is squarefree.",
+        "For odd p the four allowed ω are units, so v_p(ωλ)=v_p(λ). At a good p good-prime-units makes this zero.",
+        "Use contraposition. No character construction or reciprocity theorem is repeated here."
+      ],
+      "acceptance": [
+        "For λ=3 the characters attached to ±3,±6 have possible odd support {3}, whereas for λ=−1,2,1/2 every such odd conductor is 1."
+      ],
+      "prerequisites": [
+        "EllipticLegendreCharacterInterfaces:LG.1/good-prime-units",
+        "ClassicalArithmeticCompletion:CA.1/quadratic-character-of-a-squareclass",
+        "mathlib:padicValRat.mul"
+      ],
+      "sources": [
+        {
+          "sourceId": "BS20",
+          "locator": "§6, Lemma 6.2(ii), pp.367–368",
+          "match": "The support portion of the source conductor conclusion, separated from the elliptic-conductor bridge."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/EllipticCurve/Legendre/LG1",
+        "namespace": "WeierstrassCurve"
+      },
+      "proposedName": "WeierstrassCurve.legendre_character_odd_support",
+      "catalogueItems": [
+        "PAPER-BENNETT-SIKSEK-20/30"
+      ]
+    },
+    {
+      "id": "EllipticLegendreCharacterInterfaces:LG.1/character-conductor-divides",
+      "parentStageId": "EllipticLegendreCharacterInterfaces:LG.1",
+      "realises": [
+        "EllipticLegendreCharacterInterfaces:LG.1"
+      ],
+      "title": "Odd character conductor divides the elliptic conductor",
+      "kind": "theorem",
+      "statement": "Under the preceding hypotheses, if M is the actual elliptic conductor of F and N is the primitive conductor of the CA.1 character of ωλ, then ordCompl[2](N) divides M. In particular at semistable odd primes it divides the squarefree odd part of M. The theorem permits N=1 and does not assert nontriviality of the odd conductor.",
+      "hypotheses": [
+        "M is the elliptic conductor of F, not a displayed discriminant or an unproved Ogg-exponent surrogate; F,λ,ω as in character-odd-support."
+      ],
+      "proofSteps": [
+        "Use the imported elliptic conductor comparison: an odd bad prime p of F divides M; semistable odd primes have conductor exponent 1.",
+        "CA.1 gives the squarefree odd part of N.",
+        "The support containment and prime factorization give divisibility. Nontriviality of the odd conductor belongs to the downstream progression argument."
+      ],
+      "acceptance": [
+        "F:y²=x³−x has conductor 32; all four ω at λ=−1 give characters with odd conductor 1, so the result is valid without a nontrivial-character hypothesis."
+      ],
+      "prerequisites": [
+        "EllipticLegendreCharacterInterfaces:LG.1/character-odd-support",
+        "ClassicalArithmeticCompletion:CA.1/quadratic-character-of-a-squareclass",
+        "ArithmeticGaloisRepresentations:R01.3",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv"
+      ],
+      "sources": [
+        {
+          "sourceId": "BS20",
+          "locator": "§6, Lemma 6.2(ii), pp.367–368",
+          "match": "The actual conductor-divisibility assertion, with its precise imported bridge."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/EllipticCurve/Legendre/LG1",
+        "namespace": "WeierstrassCurve"
+      },
+      "proposedName": "WeierstrassCurve.legendre_character_odd_conductor_dvd",
+      "planet": {
+        "name": "Odd character conductor support"
+      },
+      "catalogueItems": [
+        "PAPER-BENNETT-SIKSEK-20/30"
+      ]
+    },
+    {
+      "id": "EllipticLegendreCharacterInterfaces:LG.2/split-cubic-crt",
+      "parentStageId": "EllipticLegendreCharacterInterfaces:LG.2",
+      "realises": [
+        "EllipticLegendreCharacterInterfaces:LG.2"
+      ],
+      "title": "The Legendre split-cubic CRT",
+      "kind": "construction",
+      "statement": "For Ld,λ under the nonsingularity hypotheses, scaledLegendreCrt d λ is the canonical root-evaluation ring equivalence A=K[X]/(X(X−d)(X−dλ)) ≃ K×K×K, in root order (0,d,dλ). It is an adapter for the native Affine.A étale algebra, not a replacement algebra.",
+      "hypotheses": [
+        "K is a field; 2≠0; d≠0; λ≠0,1; root order is 0,d,dλ."
+      ],
+      "proofSteps": [
+        "The three linear factors are pairwise coprime because d, dλ, d(1−λ) are nonzero.",
+        "Apply the native CRT decomposition at root 0 (equivProdA′), then the polynomial CRT on its cofactor and quotientSpanXSubC at d and dλ.",
+        "The inverse is degree-at-most-two Lagrange interpolation modulo the cubic; keep the declared order."
+      ],
+      "acceptance": [
+        "A polynomial class maps to (h(0),h(d),h(dλ)), and constants map diagonally."
+      ],
+      "prerequisites": [
+        "EllipticLegendreCharacterInterfaces:LG.0/scaled-legendre-model",
+        "EllipticLegendreCharacterInterfaces:LG.0/scaled-invariants",
+        "tauceti:WeierstrassCurve.Affine.A",
+        "tauceti:WeierstrassCurve.Affine.equivProdA'",
+        "tauceti:WeierstrassCurve.Affine.equivProdA'_apply",
+        "mathlib:Ideal.quotientMulEquivQuotientProd",
+        "mathlib:Polynomial.quotientSpanXSubCAlgEquiv"
+      ],
+      "sources": [
+        {
+          "sourceId": "BS20",
+          "locator": "§6, two-descent display preceding Lemma 6.5, p.370",
+          "match": "The displayed triple is the split reading of the already implemented étale-algebra descent."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/EllipticCurve/Legendre/LG2",
+        "namespace": "WeierstrassCurve"
+      },
+      "proposedName": "WeierstrassCurve.scaledLegendreCrt",
+      "api": [
+        {
+          "name": "WeierstrassCurve.scaledLegendreCrt_mk",
+          "role": "projection",
+          "statement": "The class of h(X) maps to (h(0),h(d),h(dλ)).",
+          "promotedTo": "EllipticLegendreCharacterInterfaces:LG.2/split-cubic-evaluation"
+        },
+        {
+          "name": "WeierstrassCurve.scaledLegendreCrt_ext",
+          "role": "extensionality",
+          "statement": "Two native A classes agree iff their three root evaluations agree."
+        },
+        {
+          "name": "WeierstrassCurve.scaledLegendreCrt_root",
+          "role": "simp",
+          "statement": "The native AdjoinRoot root maps to (0,d,dλ)."
+        },
+        {
+          "name": "WeierstrassCurve.scaledLegendreCrt_unit_iff",
+          "role": "characterisation",
+          "statement": "A class is a unit iff every root evaluation is nonzero."
+        }
+      ],
+      "tests": [
+        {
+          "name": "WeierstrassCurve.scaledLegendreCrt_test_minus_one",
+          "kind": "computation",
+          "statement": "At d=1,λ=−1 over ℚ, the root maps to (0,1,−1)."
+        },
+        {
+          "name": "WeierstrassCurve.scaledLegendreCrt_test_two_half",
+          "kind": "computation",
+          "statement": "At d=2,λ=1/2 over ℚ, the root maps to (0,2,1)."
+        },
+        {
+          "name": "WeierstrassCurve.scaledLegendreCrt_test_nonunit",
+          "kind": "non-example",
+          "statement": "The class of X is not a unit, since its first coordinate is zero; its squareclass is not formed."
+        }
+      ],
+      "uses": [
+        {
+          "where": "BS20 §6 two-descent discussion",
+          "how": "Identifies the three factors in the native x−θ descent target."
+        },
+        {
+          "where": "LG.2 descent-at-root",
+          "how": "Evaluates the corrected representative rather than assigning a class to zero."
+        }
+      ],
+      "planet": {
+        "name": "Split-cubic CRT"
+      },
+      "catalogueItems": [
+        "PAPER-BENNETT-SIKSEK-20/31",
+        "PAPER-BENNETT-SIKSEK-20/34",
+        "PAPER-BENNETT-SIKSEK-20/77"
+      ]
+    },
+    {
+      "id": "EllipticLegendreCharacterInterfaces:LG.2/split-squareclass-equivalence",
+      "parentStageId": "EllipticLegendreCharacterInterfaces:LG.2",
+      "realises": [
+        "EllipticLegendreCharacterInterfaces:LG.2"
+      ],
+      "title": "Root readings of native squareclasses",
+      "kind": "construction",
+      "statement": "scaledLegendreSquareclassEquiv d λ is the induced multiplicative equivalence from native M=Aˣ/(Aˣ)² to (Kˣ/(Kˣ)²)³, obtained from scaledLegendreCrt. It transports μ values; it defines neither a new generic descent homomorphism nor a new kernel theorem.",
+      "hypotheses": [
+        "K is a field; 2≠0; d≠0; λ≠0,1; root order is 0,d,dλ."
+      ],
+      "proofSteps": [
+        "Map units through the root-evaluation ring equivalence.",
+        "This carries the square subgroup bijectively onto the product of the three square subgroups; descend it and its inverse through the native quotient construction.",
+        "Use the equivalence to read the existing μ and normM."
+      ],
+      "acceptance": [
+        "A unit class maps to the three unit-evaluation classes; the class of 1 maps to (1,1,1)."
+      ],
+      "prerequisites": [
+        "EllipticLegendreCharacterInterfaces:LG.2/split-cubic-crt",
+        "tauceti:WeierstrassCurve.Affine.M",
+        "mathlib:QuotientGroup.map"
+      ],
+      "sources": [
+        {
+          "sourceId": "BS20",
+          "locator": "§6, two-descent display preceding Lemma 6.5, p.370",
+          "match": "Names only the new identification of native squareclasses with the triple; μ remains the sole descent map."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/EllipticCurve/Legendre/LG2",
+        "namespace": "WeierstrassCurve"
+      },
+      "proposedName": "WeierstrassCurve.scaledLegendreSquareclassEquiv",
+      "api": [
+        {
+          "name": "WeierstrassCurve.scaledLegendreSquareclassEquiv_unit",
+          "role": "projection",
+          "statement": "For a native A unit u, its image is the triple of squareclasses of the three CRT unit evaluations.",
+          "promotedTo": "EllipticLegendreCharacterInterfaces:LG.2/split-squareclass-unit-reading"
+        },
+        {
+          "name": "WeierstrassCurve.scaledLegendreSquareclassEquiv_one",
+          "role": "simp",
+          "statement": "The trivial native squareclass maps to (1,1,1)."
+        },
+        {
+          "name": "WeierstrassCurve.scaledLegendreSquareclassEquiv_eq_one",
+          "role": "characterisation",
+          "statement": "A native squareclass is 1 iff all three coordinate squareclasses are 1."
+        },
+        {
+          "name": "WeierstrassCurve.scaledLegendreSquareclassEquiv_mul",
+          "role": "structure",
+          "statement": "The reading preserves multiplication; it is an equivalence, not merely a map."
+        }
+      ],
+      "tests": [
+        {
+          "name": "WeierstrassCurve.scaledLegendreSquareclassEquiv_test_one",
+          "kind": "degenerate",
+          "statement": "At d=1,λ=−1 over ℚ, the class of 1 maps to (1,1,1)."
+        },
+        {
+          "name": "WeierstrassCurve.scaledLegendreSquareclassEquiv_test_constant_square",
+          "kind": "computation",
+          "statement": "At d=1,λ=2 over ℚ, the class of constant 4 maps to (1,1,1)."
+        },
+        {
+          "name": "WeierstrassCurve.scaledLegendreSquareclassEquiv_test_constant_nonsquare",
+          "kind": "non-example",
+          "statement": "At d=1,λ=1/2 over ℚ, constant 2 is a unit whose class maps to ([2],[2],[2])≠(1,1,1)."
+        }
+      ],
+      "uses": [
+        {
+          "where": "BS20 Lemmas 6.3,6.5,6.6",
+          "how": "Reads native descent coordinate values and detects the native kernel."
+        },
+        {
+          "where": "LG.2 halving-square-criterion",
+          "how": "A triple of trivial coordinate classes is exactly a trivial μ value."
+        }
+      ],
+      "planet": {
+        "name": "Split squareclass reading"
+      },
+      "catalogueItems": [
+        "PAPER-BENNETT-SIKSEK-20/31",
+        "PAPER-BENNETT-SIKSEK-20/34",
+        "PAPER-BENNETT-SIKSEK-20/77"
+      ]
+    },
+    {
+      "id": "EllipticLegendreCharacterInterfaces:LG.2/descent-off-roots",
+      "parentStageId": "EllipticLegendreCharacterInterfaces:LG.2",
+      "realises": [
+        "EllipticLegendreCharacterInterfaces:LG.2"
+      ],
+      "title": "Native descent away from the roots",
+      "kind": "lemma",
+      "statement": "For an affine native point (x,y) on Ld,λ with x∉{0,d,dλ}, the split reading of μ(P) is ([x],[x−d],[x−dλ]), with all three representatives nonzero. The image of O is (1,1,1).",
+      "hypotheses": [
+        "K is a field; 2≠0; d≠0; λ≠0,1; root order is 0,d,dλ."
+      ],
+      "proofSteps": [
+        "The factored cubic is nonzero at x, so native μX uses its nonroot representative x−θ.",
+        "Apply the CRT evaluation and quotient-unit reading.",
+        "At O use native μ_apply and μ₀_zero. This does not define a second Θ map."
+      ],
+      "acceptance": [
+        "For a nonroot point the product class is [y²]=1, not the class of an arbitrary cubic value."
+      ],
+      "prerequisites": [
+        "EllipticLegendreCharacterInterfaces:LG.2/split-squareclass-equivalence",
+        "EllipticLegendreCharacterInterfaces:LG.2/split-cubic-crt",
+        "EllipticLegendreCharacterInterfaces:LG.0/scaled-legendre-model",
+        "tauceti:WeierstrassCurve.Affine.μ",
+        "tauceti:WeierstrassCurve.Affine.μ_apply",
+        "tauceti:WeierstrassCurve.Affine.μX_of_eval_f_ne_zero",
+        "tauceti:WeierstrassCurve.Affine.μ₀_zero",
+        "EllipticLegendreCharacterInterfaces:LG.2/split-cubic-evaluation",
+        "EllipticLegendreCharacterInterfaces:LG.2/split-squareclass-unit-reading"
+      ],
+      "sources": [
+        {
+          "sourceId": "BS20",
+          "locator": "§6, two-descent discussion, p.370",
+          "match": "The native nonroot branch produces the familiar coordinates; all exclusions needed to form units are retained."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/EllipticCurve/Legendre/LG2",
+        "namespace": "WeierstrassCurve"
+      },
+      "proposedName": "WeierstrassCurve.scaledLegendre_descent_off_roots",
+      "catalogueItems": [
+        "PAPER-BENNETT-SIKSEK-20/31",
+        "PAPER-BENNETT-SIKSEK-20/34",
+        "PAPER-BENNETT-SIKSEK-20/77"
+      ]
+    },
+    {
+      "id": "EllipticLegendreCharacterInterfaces:LG.2/descent-at-root",
+      "parentStageId": "EllipticLegendreCharacterInterfaces:LG.2",
+      "realises": [
+        "EllipticLegendreCharacterInterfaces:LG.2"
+      ],
+      "title": "Native descent at the three two-torsion points",
+      "kind": "theorem",
+      "statement": "The split readings at T₀,T_d,T_dλ on Ld,λ are respectively ([d²λ],[−d],[−dλ]), ([d],[d²(1−λ)],[d(1−λ)]), and ([dλ],[d(λ−1)],[d²λ(λ−1)]). All representatives are nonzero. The entry at a root is the derivative product of the other two differences, not zero.",
+      "hypotheses": [
+        "K is a field; 2≠0; d≠0; λ≠0,1; root order is 0,d,dλ."
+      ],
+      "proofSteps": [
+        "At a root r native μX uses r−θ+fCofactor(r), not r−θ alone.",
+        "At its own root evaluation fCofactor(r)(r)=f′(r)=∏_{s≠r}(r−s); at other roots the cofactor vanishes and r−s remains.",
+        "Compute the displayed three tuples in declared CRT order; units follow from distinct roots."
+      ],
+      "acceptance": [
+        "At d=1,λ=−1,p=5 the tuples reduce to (1,1,1),(1,[2],[2]),(1,[2],[2]); at d=2 and conic λ=2t²,1−λ=2v² the last tuple is entirely square over a field containing i²=−1."
+      ],
+      "prerequisites": [
+        "EllipticLegendreCharacterInterfaces:LG.2/split-squareclass-equivalence",
+        "EllipticLegendreCharacterInterfaces:LG.2/split-cubic-crt",
+        "EllipticLegendreCharacterInterfaces:LG.0/legendre-two-torsion",
+        "EllipticLegendreCharacterInterfaces:LG.0/scaled-legendre-model",
+        "tauceti:WeierstrassCurve.Affine.μX_of_eval_f_eq_zero",
+        "tauceti:WeierstrassCurve.Affine.μ_apply",
+        "EllipticLegendreCharacterInterfaces:LG.2/split-cubic-evaluation",
+        "EllipticLegendreCharacterInterfaces:LG.2/split-squareclass-unit-reading"
+      ],
+      "sources": [
+        {
+          "sourceId": "BS20",
+          "locator": "§6, Lemma 6.5 and proof of Lemma 6.6, pp.370–371",
+          "match": "The corrected representative of the native implementation gives the source’s root-coordinate computations."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/EllipticCurve/Legendre/LG2",
+        "namespace": "WeierstrassCurve"
+      },
+      "proposedName": "WeierstrassCurve.scaledLegendre_descent_at_roots",
+      "planet": {
+        "name": "Two-torsion descent coordinates"
+      },
+      "catalogueItems": [
+        "PAPER-BENNETT-SIKSEK-20/31",
+        "PAPER-BENNETT-SIKSEK-20/34",
+        "PAPER-BENNETT-SIKSEK-20/77"
+      ]
+    },
+    {
+      "id": "EllipticLegendreCharacterInterfaces:LG.2/descent-product",
+      "parentStageId": "EllipticLegendreCharacterInterfaces:LG.2",
+      "realises": [
+        "EllipticLegendreCharacterInterfaces:LG.2"
+      ],
+      "title": "Product of the split descent coordinates",
+      "kind": "lemma",
+      "statement": "For every native point P on Ld,λ, the product of the three split readings of μ(P) is 1. This is the native normM condition read through the split algebra; it holds at O and at the two-torsion roots as well.",
+      "hypotheses": [
+        "K is a field; 2≠0; d≠0; λ≠0,1; root order is 0,d,dλ."
+      ],
+      "proofSteps": [
+        "The algebra norm in a split cubic is the product of the three evaluations.",
+        "Native normM_μ₀_eq_one states that μ(P) has trivial norm squareclass.",
+        "Transport this statement along the CRT and quotient equivalences."
+      ],
+      "acceptance": [
+        "At T₀ the product of the representatives is d⁴λ²; it is a nonzero square."
+      ],
+      "prerequisites": [
+        "EllipticLegendreCharacterInterfaces:LG.2/split-squareclass-equivalence",
+        "EllipticLegendreCharacterInterfaces:LG.2/split-cubic-crt",
+        "tauceti:WeierstrassCurve.Affine.normM_μ₀_eq_one",
+        "tauceti:WeierstrassCurve.Affine.μ_apply"
+      ],
+      "sources": [
+        {
+          "sourceId": "BS20",
+          "locator": "§6, two-descent discussion p.370",
+          "match": "A compatibility lemma for the existing norm map, not a new generic norm theory."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/EllipticCurve/Legendre/LG2",
+        "namespace": "WeierstrassCurve"
+      },
+      "proposedName": "WeierstrassCurve.scaledLegendre_descent_product",
+      "catalogueItems": [
+        "PAPER-BENNETT-SIKSEK-20/31",
+        "PAPER-BENNETT-SIKSEK-20/34",
+        "PAPER-BENNETT-SIKSEK-20/77"
+      ]
+    },
+    {
+      "id": "EllipticLegendreCharacterInterfaces:LG.2/halving-square-criterion",
+      "parentStageId": "EllipticLegendreCharacterInterfaces:LG.2",
+      "realises": [
+        "EllipticLegendreCharacterInterfaces:LG.2"
+      ],
+      "title": "The Legendre halving criterion",
+      "kind": "theorem",
+      "statement": "For a native affine point P=(x,y) on Ld,λ over K with 2≠0,d≠0,λ≠0,1, there exists Q∈Ld,λ(K) with 2Q=P iff x,x−d,x−dλ are all squares in K. Here IsSquare includes 0, but zero is not passed to a unit squareclass. The criterion also covers the three two-torsion points.",
+      "hypotheses": [
+        "K is a field; 2≠0; d≠0; λ≠0,1; root order is 0,d,dλ."
+      ],
+      "proofSteps": [
+        "Native ker_μ_eq gives halving iff μ(P)=1. Apply the split squareclass equivalence.",
+        "Away from the roots, use descent-off-roots and the unit squareclass criterion.",
+        "At a root exactly one difference is zero. The other two classes are explicit and the root component is their product, so their being squares is equivalent to all three split classes being trivial. Zero is a square in the field, but it is never a unit representative."
+      ],
+      "acceptance": [
+        "At λ=−1 over ℚ, (0,0) is not divisible by 2 because −1 is not a rational square. Over 𝔽₅ it is divisible by 2."
+      ],
+      "prerequisites": [
+        "EllipticLegendreCharacterInterfaces:LG.2/descent-off-roots",
+        "EllipticLegendreCharacterInterfaces:LG.2/descent-at-root",
+        "EllipticLegendreCharacterInterfaces:LG.2/split-squareclass-equivalence",
+        "tauceti:WeierstrassCurve.Affine.ker_μ_eq"
+      ],
+      "sources": [
+        {
+          "sourceId": "BS20",
+          "locator": "§6, proof of Lemma 6.3, p.368",
+          "match": "The source’s square criterion is derived from native descent, including the special root branch."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/EllipticCurve/Legendre/LG2",
+        "namespace": "WeierstrassCurve"
+      },
+      "proposedName": "WeierstrassCurve.scaledLegendre_halving_iff_squares",
+      "planet": {
+        "name": "Legendre halving criterion"
+      },
+      "catalogueItems": [
+        "PAPER-BENNETT-SIKSEK-20/31",
+        "PAPER-BENNETT-SIKSEK-20/34",
+        "PAPER-BENNETT-SIKSEK-20/77"
+      ]
+    },
+    {
+      "id": "EllipticLegendreCharacterInterfaces:LG.3/two-by-four-subgroup",
+      "parentStageId": "EllipticLegendreCharacterInterfaces:LG.3",
+      "realises": [
+        "EllipticLegendreCharacterInterfaces:LG.3"
+      ],
+      "title": "Two-by-four torsion over prime fields",
+      "kind": "theorem",
+      "statement": "Let p be prime, p≡3 mod4, and η∈𝔽_p\\{0,1,−1}. The native point group of L_{η²}:y²=x(x−1)(x−η²) contains a subgroup additively isomorphic to ZMod 2 × ZMod 4. In particular 8 divides the native pointCount.",
+      "hypotheses": [
+        "p is prime and p%4=3; η≠0,η≠1,η≠−1."
+      ],
+      "proofSteps": [
+        "The two-torsion enumeration supplies all four points. Apply the halving criterion at (1,0). If 1−η² is a square, this point is a double.",
+        "Otherwise the nonzero 1−η² is a nonsquare. Since −1 is a nonsquare when p≡3 mod4, η²−1 is a square. The criterion at (η²,0) now gives a half.",
+        "A half P of a nonzero point killed by 2 has exact order 4. A different nonzero two-torsion point T is not 2P, hence is independent of ⟨P⟩. The map (a,b)↦aT+bP embeds ZMod 2×ZMod 4; native finite-point and count comparison give 8|pointCount."
+      ],
+      "acceptance": [
+        "At p=7,η=2,λ=4 the count is 8. Excluding η=0,±1 is essential: these give repeated cubic roots and not an elliptic group."
+      ],
+      "prerequisites": [
+        "EllipticLegendreCharacterInterfaces:LG.2/halving-square-criterion",
+        "EllipticLegendreCharacterInterfaces:LG.0/legendre-two-torsion-exhausts",
+        "EllipticLegendreCharacterInterfaces:LG.0/legendre-invariants",
+        "mathlib:legendreSym.at_neg_one",
+        "mathlib:legendreSym.eq_neg_one_iff",
+        "tauceti:WeierstrassCurve.Affine.finite_point",
+        "tauceti:WeierstrassCurve.pointCount_eq_card_point"
+      ],
+      "sources": [
+        {
+          "sourceId": "BS20",
+          "locator": "§6, Lemma 6.3, p.368",
+          "match": "Exactly the source subgroup theorem, with subgroup independence and the count consequence spelled out."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/EllipticCurve/Legendre/LG3",
+        "namespace": "WeierstrassCurve"
+      },
+      "proposedName": "WeierstrassCurve.legendre_two_by_four_subgroup",
+      "planet": {
+        "name": "Two-by-four torsion"
+      },
+      "catalogueItems": [
+        "PAPER-BENNETT-SIKSEK-20/31"
+      ]
+    },
+    {
+      "id": "EllipticLegendreCharacterInterfaces:LG.3/minus-one-order-four",
+      "parentStageId": "EllipticLegendreCharacterInterfaces:LG.3",
+      "realises": [
+        "EllipticLegendreCharacterInterfaces:LG.3"
+      ],
+      "title": "A half of the zero root on the minus-one model",
+      "kind": "construction",
+      "statement": "Over a field K with 2≠0 and i²=−1, minusOneOrderFour i is the native point (i,1−i) on L_{−1}. Its double is (0,0), hence its order is exactly 4. Over 𝔽_p with p≡5 mod8 such i exists by the supplementary law at −1; this is the source application.",
+      "hypotheses": [
+        "K is a field; 2≠0; i²=−1."
+      ],
+      "proofSteps": [
+        "Membership is (1−i)²=−2i=i(i−1)(i+1).",
+        "The native tangent/doubling formula gives x(2P)=0,y(2P)=0; characteristic 2 is excluded and the tangent denominator is nonzero.",
+        "The double is a nonzero two-torsion point, so order is 4."
+      ],
+      "acceptance": [
+        "At p=5,i=2 the point is (2,4), and at i=3 it is (3,3)."
+      ],
+      "prerequisites": [
+        "EllipticLegendreCharacterInterfaces:LG.0/legendre-model",
+        "EllipticLegendreCharacterInterfaces:LG.0/legendre-invariants",
+        "EllipticLegendreCharacterInterfaces:LG.0/legendre-two-torsion",
+        "mathlib:ZMod.exists_sq_eq_neg_one_iff",
+        "mathlib:WeierstrassCurve.Affine.Point"
+      ],
+      "sources": [
+        {
+          "sourceId": "BS20",
+          "locator": "§6, proof of Lemma 6.5, p.370",
+          "match": "Native point construction for the source’s explicit half, not a formal pair with an assumed group law."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/EllipticCurve/Legendre/LG3",
+        "namespace": "WeierstrassCurve"
+      },
+      "proposedName": "WeierstrassCurve.minusOneOrderFour",
+      "api": [
+        {
+          "name": "WeierstrassCurve.minusOneOrderFour_coordinates",
+          "role": "data",
+          "statement": "The coordinates are (i,1−i)."
+        },
+        {
+          "name": "WeierstrassCurve.minusOneOrderFour_double",
+          "role": "relation",
+          "statement": "2•minusOneOrderFour i is the native point (0,0) on L_{−1}.",
+          "promotedTo": "EllipticLegendreCharacterInterfaces:LG.3/minus-one-double"
+        },
+        {
+          "name": "WeierstrassCurve.minusOneOrderFour_order",
+          "role": "characterisation",
+          "statement": "addOrderOf(minusOneOrderFour i)=4.",
+          "promotedTo": "EllipticLegendreCharacterInterfaces:LG.3/minus-one-order"
+        },
+        {
+          "name": "WeierstrassCurve.minusOneOrderFour_first_descent",
+          "role": "compatibility",
+          "statement": "The first split coordinate of native μ at this point is the squareclass [i].",
+          "promotedTo": "EllipticLegendreCharacterInterfaces:LG.3/minus-one-first-descent"
+        }
+      ],
+      "tests": [
+        {
+          "name": "WeierstrassCurve.minusOneOrderFour_test_five_i_two",
+          "kind": "computation",
+          "statement": "For p=5,i=2, the coordinates are (2,4)."
+        },
+        {
+          "name": "WeierstrassCurve.minusOneOrderFour_test_five_i_three",
+          "kind": "computation",
+          "statement": "For p=5,i=3, the coordinates are (3,3)."
+        },
+        {
+          "name": "WeierstrassCurve.minusOneOrderFour_test_double",
+          "kind": "compatibility",
+          "statement": "At p=5,i=2, native doubling is (0,0) and the point is not two-torsion."
+        }
+      ],
+      "uses": [
+        {
+          "where": "BS20 Lemma 6.5",
+          "how": "All four halves of (0,0) are its translates by native two-torsion."
+        },
+        {
+          "where": "LG.3 minus-one-no-order-eight",
+          "how": "The nonsquare first descent coordinate rules out further halving."
+        }
+      ],
+      "planet": {
+        "name": "Minus-one order-four point"
+      },
+      "catalogueItems": [
+        "PAPER-BENNETT-SIKSEK-20/34"
+      ]
+    },
+    {
+      "id": "EllipticLegendreCharacterInterfaces:LG.3/minus-one-no-order-eight",
+      "parentStageId": "EllipticLegendreCharacterInterfaces:LG.3",
+      "realises": [
+        "EllipticLegendreCharacterInterfaces:LG.3"
+      ],
+      "title": "No order-eight point on the minus-one model",
+      "kind": "lemma",
+      "statement": "For p≡5 mod8 prime, L_{−1}(𝔽_p) has no point of exact order 8. Only (0,0) among the three nonzero two-torsion points is divisible by 2; each of its four halves has nonsquare first descent coordinate.",
+      "hypotheses": [
+        "p is prime and p%8=5."
+      ],
+      "proofSteps": [
+        "The supplementary law says 2 is a nonsquare and −1 is a square. In descent-at-roots the tuples at (0,0),(1,0),(−1,0) are (1,1,1),(1,[2],[2]),(1,[2],[2]).",
+        "Every point of order 4 must double to (0,0); its halves are the four translates of minusOneOrderFour by the doubling kernel (enumerated by EX). Their first descent class is [i], since every root tuple has first class 1.",
+        "An i with i²=−1 is a nonsquare: otherwise a square root of i would have order 8 in 𝔽_p×, contrary to p−1≡4 mod8 (equivalently Euler’s criterion gives i^((p−1)/2)=−1).",
+        "Native ker_μ_eq rules out halving any point of order 4, hence rules out order 8."
+      ],
+      "acceptance": [
+        "At p=5 the point group has 8 elements but exponent 4; thus 8|#E does not imply an order-eight element."
+      ],
+      "prerequisites": [
+        "EllipticLegendreCharacterInterfaces:LG.3/minus-one-order-four",
+        "EllipticLegendreCharacterInterfaces:LG.2/descent-at-root",
+        "EllipticLegendreCharacterInterfaces:LG.0/legendre-two-torsion-exhausts",
+        "EllipticLegendreCharacterInterfaces:LG.2/halving-square-criterion",
+        "mathlib:legendreSym.at_two",
+        "mathlib:ZMod.euler_criterion",
+        "EllipticLegendreCharacterInterfaces:LG.3/minus-one-double",
+        "EllipticLegendreCharacterInterfaces:LG.3/minus-one-order",
+        "EllipticLegendreCharacterInterfaces:LG.3/minus-one-first-descent"
+      ],
+      "sources": [
+        {
+          "sourceId": "BS20",
+          "locator": "§6, proof of Lemma 6.5, p.370",
+          "match": "The proof’s finite group and nonsquare input are retained; it does not assert a cyclic full point group."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/EllipticCurve/Legendre/LG3",
+        "namespace": "WeierstrassCurve"
+      },
+      "proposedName": "WeierstrassCurve.legendre_minus_one_no_order_eight",
+      "catalogueItems": [
+        "PAPER-BENNETT-SIKSEK-20/34"
+      ]
+    },
+    {
+      "id": "EllipticLegendreCharacterInterfaces:LG.3/minus-one-point-count",
+      "parentStageId": "EllipticLegendreCharacterInterfaces:LG.3",
+      "realises": [
+        "EllipticLegendreCharacterInterfaces:LG.3"
+      ],
+      "title": "Exact two-adic order of the minus-one point count",
+      "kind": "theorem",
+      "statement": "For p prime with p≡5 mod8, v₂(pointCount(L_{−1}/𝔽_p))=3, equivalently 8 divides this positive integer and 16 does not divide it. The count is the full projective elliptic count, including O.",
+      "hypotheses": [
+        "p is prime and p%8=5."
+      ],
+      "proofSteps": [
+        "The native point group is finite and its doubling kernel has cardinality 4.",
+        "The explicit order-four half with an independent two-torsion point gives a subgroup of order 8.",
+        "Use the existing finite-abelian-group structure theorem. Since there is no point of order 8, each two-primary cyclic factor has order at most 4. Exactly two factors contribute to the doubling kernel, so the 2-part is at most 16. If it were 16, both factors would have order 4 and every two-torsion point would be divisible by 2, contradicting NO, which identifies only one nonzero divisible point.",
+        "Thus the two-primary group is Z/2×Z/4, of order 8. Compare native pointCount and Nat.card Point."
+      ],
+      "acceptance": [
+        "p=5,13,29 give counts 8,8,40 respectively, all of exact two-adic valuation 3."
+      ],
+      "prerequisites": [
+        "EllipticLegendreCharacterInterfaces:LG.3/minus-one-order-four",
+        "EllipticLegendreCharacterInterfaces:LG.3/minus-one-no-order-eight",
+        "EllipticLegendreCharacterInterfaces:LG.0/legendre-two-torsion-exhausts",
+        "mathlib:AddCommGroup.equiv_directSum_zmod_of_finite",
+        "tauceti:WeierstrassCurve.Affine.finite_point",
+        "tauceti:WeierstrassCurve.pointCount_eq_card_point",
+        "EllipticLegendreCharacterInterfaces:LG.3/minus-one-double",
+        "EllipticLegendreCharacterInterfaces:LG.3/minus-one-order"
+      ],
+      "sources": [
+        {
+          "sourceId": "BS20",
+          "locator": "§6, Lemma 6.5, p.370",
+          "match": "The source’s exact valuation, not merely divisibility by 8; the finite group bridge is made explicit."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/EllipticCurve/Legendre/LG3",
+        "namespace": "WeierstrassCurve"
+      },
+      "proposedName": "WeierstrassCurve.legendre_minus_one_point_count_v_two",
+      "planet": {
+        "name": "Minus-one two-adic point count"
+      },
+      "catalogueItems": [
+        "PAPER-BENNETT-SIKSEK-20/34"
+      ]
+    },
+    {
+      "id": "EllipticLegendreCharacterInterfaces:LG.4/twist-halving-point",
+      "parentStageId": "EllipticLegendreCharacterInterfaces:LG.4",
+      "realises": [
+        "EllipticLegendreCharacterInterfaces:LG.4"
+      ],
+      "title": "The corrected order-four witness",
+      "kind": "construction",
+      "statement": "Over a field K with 2≠0, let t,v be nonzero, i²=−1 and 2t²+2v²=1, and put λ=2t². twistHalvingPoint t v i is the native point P=(2λ+4itv,8itv(t+iv)) on L_{2,λ}:y²=x(x−2)(x−2λ). The conditions imply λ≠0,1 and y(P)≠0. This algebraic construction is valid without any progression hypothesis; the source applies it at p≡5 mod8.",
+      "hypotheses": [
+        "K is a field; 2≠0; t≠0,v≠0; i²=−1; 2t²+2v²=1."
+      ],
+      "proofSteps": [
+        "Set r=2t,s=2iv: r²=2λ,s²=2λ−2,rs=4itv. Then x=r²+rs and y=rs(r+s).",
+        "The three factors x,x−2,x−2λ equal r(r+s),s(r+s),rs, so the product is y².",
+        "Distinct cubic roots and the scaled-invariant criterion give nonsingularity. If r+s=0 then r²=s² would force 2=0, so y is nonzero.",
+        "Use the corrected y-coordinate from the independently confirmed published-source finding; the printed coordinate fails the equation."
+      ],
+      "acceptance": [
+        "For p=5,t=v=2,i=3,λ=3, P=(4,3) belongs to y²=x(x−2)(x−1); the printed point (4,4) does not."
+      ],
+      "prerequisites": [
+        "EllipticLegendreCharacterInterfaces:LG.0/scaled-legendre-model",
+        "EllipticLegendreCharacterInterfaces:LG.0/scaled-invariants",
+        "EllipticLegendreCharacterInterfaces:LG.0/legendre-two-torsion"
+      ],
+      "sources": [
+        {
+          "sourceId": "BS20",
+          "locator": "§6, proof of Lemma 6.6, p.371, corrected by atlas finding E14",
+          "match": "The printed x is retained; the y is corrected to 8itv(t+iv), preserving the local proof."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/EllipticCurve/Legendre/LG4",
+        "namespace": "WeierstrassCurve"
+      },
+      "proposedName": "WeierstrassCurve.twistHalvingPoint",
+      "api": [
+        {
+          "name": "WeierstrassCurve.twistHalvingPoint_coordinates",
+          "role": "data",
+          "statement": "Coordinates are exactly (4t²+4itv,8itv(t+iv))."
+        },
+        {
+          "name": "WeierstrassCurve.twistHalvingPoint_double",
+          "role": "relation",
+          "statement": "2•twistHalvingPoint t v i is the native two-torsion point (2λ,0).",
+          "promotedTo": "EllipticLegendreCharacterInterfaces:LG.4/twist-halving-double"
+        },
+        {
+          "name": "WeierstrassCurve.twistHalvingPoint_order",
+          "role": "characterisation",
+          "statement": "addOrderOf(twistHalvingPoint t v i)=4.",
+          "promotedTo": "EllipticLegendreCharacterInterfaces:LG.4/twist-halving-order"
+        },
+        {
+          "name": "WeierstrassCurve.twistHalvingPoint_third_descent",
+          "role": "compatibility",
+          "statement": "The third split reading of native μ(P) is [4itv].",
+          "promotedTo": "EllipticLegendreCharacterInterfaces:LG.4/twist-halving-descent"
+        },
+        {
+          "name": "WeierstrassCurve.twistHalvingPoint_map",
+          "role": "functoriality",
+          "statement": "Field extension maps the native point to the point with mapped t,v,i, preserving the chosen square root i."
+        }
+      ],
+      "tests": [
+        {
+          "name": "WeierstrassCurve.twistHalvingPoint_test_five",
+          "kind": "computation",
+          "statement": "Over 𝔽₅ with t=v=2,i=3, the corrected coordinates are (4,3)."
+        },
+        {
+          "name": "WeierstrassCurve.twistHalvingPoint_test_other_i",
+          "kind": "computation",
+          "statement": "Over 𝔽₅ with t=v=2,i=2, the corrected coordinates are (3,4)."
+        },
+        {
+          "name": "WeierstrassCurve.twistHalvingPoint_test_double",
+          "kind": "compatibility",
+          "statement": "At p=5,t=v=2,i=3, native doubling is (1,0)=(2λ,0)."
+        },
+        {
+          "name": "WeierstrassCurve.twistHalvingPoint_test_printed",
+          "kind": "non-example",
+          "statement": "At p=5,t=v=2,i=3, the printed pair (4,4) does not satisfy the native scaled Legendre equation."
+        }
+      ],
+      "uses": [
+        {
+          "where": "BS20 proof of Lemma 6.6",
+          "how": "Supplies the actual order-four point whose third descent class is [4itv]."
+        },
+        {
+          "where": "ErdosProgressionPowers EP.4",
+          "how": "The finite-field conic branch uses the witness after supplying the local hypotheses, not as a progression-specific construction."
+        }
+      ],
+      "planet": {
+        "name": "Corrected order-four witness"
+      },
+      "catalogueItems": [
+        "PAPER-BENNETT-SIKSEK-20/77"
+      ]
+    },
+    {
+      "id": "EllipticLegendreCharacterInterfaces:LG.4/twist-halving-double",
+      "parentStageId": "EllipticLegendreCharacterInterfaces:LG.4",
+      "realises": [
+        "EllipticLegendreCharacterInterfaces:LG.4"
+      ],
+      "title": "Doubling the corrected witness",
+      "kind": "lemma",
+      "statement": "Under the corrected-witness hypotheses, native doubling of P is exactly (2λ,0). With r=2t,s=2iv the tangent slope is r+s and the doubled coordinates are (r²,0).",
+      "hypotheses": [
+        "The hypotheses of twist-halving-point."
+      ],
+      "proofSteps": [
+        "Write r=2t,s=2iv, so 2=r²−s², a₂=−(2r²−s²),a₄=r²(r²−s²), and P=(r²+rs,rs(r+s)).",
+        "The tangent numerator is 2rs(r+s)² and denominator 2rs(r+s), which is nonzero. The native slope is r+s.",
+        "The native doubling x is (r+s)²−a₂−2(r²+rs)=r², and y is −y(P)+(r+s)(x(P)−r²)=0."
+      ],
+      "acceptance": [
+        "At the p=5 tuple, (4,3)+(4,3)=(1,0), which is nonzero."
+      ],
+      "prerequisites": [
+        "EllipticLegendreCharacterInterfaces:LG.4/twist-halving-point",
+        "EllipticLegendreCharacterInterfaces:LG.0/scaled-legendre-model",
+        "EllipticLegendreCharacterInterfaces:LG.0/legendre-two-torsion",
+        "mathlib:WeierstrassCurve.Affine.Point.add_self_of_Y_ne"
+      ],
+      "sources": [
+        {
+          "sourceId": "BS20",
+          "locator": "§6, proof of Lemma 6.6, p.371",
+          "match": "A denominator-checked native doubling calculation for the corrected point."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/EllipticCurve/Legendre/LG4",
+        "namespace": "WeierstrassCurve"
+      },
+      "proposedName": "WeierstrassCurve.twistHalvingPoint_double",
+      "catalogueItems": [
+        "PAPER-BENNETT-SIKSEK-20/77"
+      ]
+    },
+    {
+      "id": "EllipticLegendreCharacterInterfaces:LG.4/twist-halving-order",
+      "parentStageId": "EllipticLegendreCharacterInterfaces:LG.4",
+      "realises": [
+        "EllipticLegendreCharacterInterfaces:LG.4"
+      ],
+      "title": "Exact order four of the corrected witness",
+      "kind": "theorem",
+      "statement": "Under the corrected-witness hypotheses, addOrderOf P=4. In particular it is neither O nor two-torsion, although its double is a two-torsion point.",
+      "hypotheses": [
+        "The hypotheses of twist-halving-point."
+      ],
+      "proofSteps": [
+        "Use TD and nonzero of the native labelled point (2λ,0).",
+        "That labelled point doubles to O. Hence 4P=O and 2P≠O; the divisors of 4 leave only exact order 4."
+      ],
+      "acceptance": [
+        "The p=5 tuple satisfies 4P=O and 2P=(1,0)≠O."
+      ],
+      "prerequisites": [
+        "EllipticLegendreCharacterInterfaces:LG.4/twist-halving-double",
+        "EllipticLegendreCharacterInterfaces:LG.0/legendre-two-torsion"
+      ],
+      "sources": [
+        {
+          "sourceId": "BS20",
+          "locator": "§6, proof of Lemma 6.6, p.371",
+          "match": "This order assertion is separately exported from the coordinate construction."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/EllipticCurve/Legendre/LG4",
+        "namespace": "WeierstrassCurve"
+      },
+      "proposedName": "WeierstrassCurve.twistHalvingPoint_order",
+      "planet": {
+        "name": "Twist order-four theorem"
+      },
+      "catalogueItems": [
+        "PAPER-BENNETT-SIKSEK-20/77"
+      ]
+    },
+    {
+      "id": "EllipticLegendreCharacterInterfaces:LG.4/twist-halving-descent",
+      "parentStageId": "EllipticLegendreCharacterInterfaces:LG.4",
+      "realises": [
+        "EllipticLegendreCharacterInterfaces:LG.4"
+      ],
+      "title": "The witness’s third native descent coordinate",
+      "kind": "lemma",
+      "statement": "Under the corrected-witness hypotheses, the third split reading of native μ(P) is the nonzero squareclass [4itv]. Indeed x(P)−2λ=4itv; y(P)≠0 implies x(P) avoids all three roots.",
+      "hypotheses": [
+        "The hypotheses of twist-halving-point."
+      ],
+      "proofSteps": [
+        "The corrected point has nonzero y, so the nonroot descent formula applies.",
+        "In declared root order (0,2,2λ), the third difference is exactly 4itv. Its nonzero value follows from 2,t,v,i all being nonzero.",
+        "No condition that this class is square is assumed."
+      ],
+      "acceptance": [
+        "At p=5,t=v=2,i=3 this representative is 3, a nonsquare; at i=2 it is 2, also a nonsquare."
+      ],
+      "prerequisites": [
+        "EllipticLegendreCharacterInterfaces:LG.4/twist-halving-point",
+        "EllipticLegendreCharacterInterfaces:LG.2/descent-off-roots"
+      ],
+      "sources": [
+        {
+          "sourceId": "BS20",
+          "locator": "§6, proof of Lemma 6.6, p.371",
+          "match": "The coordinate driving the source proof is unchanged by the corrected y-coordinate."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/EllipticCurve/Legendre/LG4",
+        "namespace": "WeierstrassCurve"
+      },
+      "proposedName": "WeierstrassCurve.twistHalvingPoint_third_descent",
+      "catalogueItems": [
+        "PAPER-BENNETT-SIKSEK-20/77"
+      ]
+    },
+    {
+      "id": "EllipticLegendreCharacterInterfaces:LG.5/symmetric-cubic-trace-zero",
+      "parentStageId": "EllipticLegendreCharacterInterfaces:LG.5",
+      "realises": [
+        "EllipticLegendreCharacterInterfaces:LG.5"
+      ],
+      "title": "Trace zero for a symmetric split cubic",
+      "kind": "theorem",
+      "statement": "For p prime with p≡3 mod4 and u∈𝔽_p×, the native Weierstrass curve with equation y²=x(x−u)(x+u) has pointCount p+1 and frobeniusTrace 0. It is scaledLegendre u (−1), hence is elliptic. No CM distribution or Hasse-bound input is required.",
+      "hypotheses": [
+        "p is prime and p%4=3; u≠0."
+      ],
+      "proofSteps": [
+        "Use the finite quadratic-character square-root count to write pointCount=p+1+Σ_x quadraticChar(x(x−u)(x+u)).",
+        "The cubic is odd: f(−x)=−f(x). Since −1 is a nonsquare, the quadratic character changes sign under x↦−x, including its zero values.",
+        "The sum equals its own negative; it is an integer sum so it vanishes. Use the native frobeniusTrace definition."
+      ],
+      "acceptance": [
+        "At p=3,u=1 the point count is 4; at p=7,u=2 it is 8; u=0 is excluded because the model is singular."
+      ],
+      "prerequisites": [
+        "EllipticLegendreCharacterInterfaces:LG.0/scaled-legendre-model",
+        "EllipticLegendreCharacterInterfaces:LG.0/scaled-invariants",
+        "mathlib:quadraticChar",
+        "mathlib:quadraticChar_card_sqrts",
+        "mathlib:legendreSym.at_neg_one",
+        "tauceti:WeierstrassCurve.pointCount",
+        "tauceti:WeierstrassCurve.frobeniusTrace_def"
+      ],
+      "sources": [
+        {
+          "sourceId": "BS20",
+          "locator": "§5, proof of Lemma 5.2, p.366",
+          "match": "The equation-specific trace-zero fact isolated from the progression argument; direct counting replaces the unread generic CM citation."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/EllipticCurve/Legendre/LG5",
+        "namespace": "WeierstrassCurve"
+      },
+      "proposedName": "WeierstrassCurve.scaledLegendre_minus_one_trace_zero",
+      "planet": {
+        "name": "Symmetric-cubic trace zero"
+      },
+      "catalogueItems": [
+        "PAPER-BENNETT-SIKSEK-20/69"
+      ]
+    },
+    {
+      "id": "EllipticLegendreCharacterInterfaces:LG.5/twist-euler-factor-specialization",
+      "parentStageId": "EllipticLegendreCharacterInterfaces:LG.5",
+      "realises": [
+        "EllipticLegendreCharacterInterfaces:LG.5"
+      ],
+      "title": "Legendre specialization of the twist-factor interface",
+      "kind": "comparison",
+      "statement": "For p odd prime and d∈𝔽_p×,λ∉{0,1}, specialize the BSD.0 good-prime quadratic-twist comparison along the native identity Ld,λ=(Lλ).quadraticTwistOf 0 (−d/4): frobeniusTrace(Ld,λ)=quadraticChar(d)·frobeniusTrace(Lλ). The good Euler polynomial is 1−quadraticChar(d)a_p(Lλ)T+pT². In particular at p≡5 mod8 the d=2 trace is −a_p(Lλ). This node exports only the equation-specific identification; the generic Euler-factor theorem and rational bad-prime factors stay in BSD.0.",
+      "hypotheses": [
+        "p is prime and p≠2; d≠0; λ≠0,1."
+      ],
+      "proofSteps": [
+        "Use the native scalar-twist identity to align the actual coefficient model and the imported twist comparison.",
+        "BSD.0 supplies the generic local-factor comparison and its Frobenius-trace normalization; read its good-prime case here.",
+        "The finite quadratic character of 2 is −1 at p≡5 mod8 by the native supplementary law. No analytic continuation is needed for this specialization."
+      ],
+      "acceptance": [
+        "At p=5,λ=3, Lλ and L2,λ have counts 4 and 8, traces 2 and −2. If d is a square the traces agree."
+      ],
+      "prerequisites": [
+        "EllipticLegendreCharacterInterfaces:LG.0/scaled-legendre-twist-identity",
+        "EllipticLegendreCharacterInterfaces:LG.0/legendre-invariants",
+        "EllipticLegendreCharacterInterfaces:LG.0/scaled-invariants",
+        "RankZeroOneBSD:BSD.0",
+        "mathlib:quadraticChar",
+        "mathlib:legendreSym.at_two",
+        "tauceti:WeierstrassCurve.frobeniusTrace"
+      ],
+      "sources": [
+        {
+          "sourceId": "BS20",
+          "locator": "§6, proof of Lemma 6.6, p.371",
+          "match": "The source’s twist-by-two sign is an adapter for the already owned generic BSD.0 comparison."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/EllipticCurve/Legendre/LG5",
+        "namespace": "WeierstrassCurve"
+      },
+      "proposedName": "WeierstrassCurve.scaledLegendre_frobeniusTrace",
+      "catalogueItems": [
+        "PAPER-BENNETT-SIKSEK-20/77"
+      ]
+    },
+    {
+      "id": "EllipticLegendreCharacterInterfaces:LG.2/split-cubic-evaluation",
+      "parentStageId": "EllipticLegendreCharacterInterfaces:LG.2",
+      "realises": [
+        "EllipticLegendreCharacterInterfaces:LG.2"
+      ],
+      "title": "Evaluation through the split-cubic CRT",
+      "kind": "lemma",
+      "statement": "The class of h(X) maps to (h(0),h(d),h(dλ)).",
+      "hypotheses": [
+        "K is a field; 2≠0; d≠0; λ≠0,1; root order is 0,d,dλ."
+      ],
+      "proofSteps": [
+        "Evaluate the two successive native CRT maps on a polynomial class; the native equivProdA′_apply and the linear quotient evaluation give the three values."
+      ],
+      "acceptance": [
+        "The constant 1 maps to (1,1,1), the root to (0,d,dλ)."
+      ],
+      "prerequisites": [
+        "EllipticLegendreCharacterInterfaces:LG.2/split-cubic-crt",
+        "tauceti:WeierstrassCurve.Affine.equivProdA'_apply",
+        "mathlib:Polynomial.quotientSpanXSubCAlgEquiv"
+      ],
+      "sources": [
+        {
+          "sourceId": "BS20",
+          "locator": "§6, split descent discussion p.370",
+          "match": "Promotes the consuming API item rather than leaving a dependency hidden in a constructor API."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/EllipticCurve/Legendre/LG2",
+        "namespace": "WeierstrassCurve"
+      },
+      "proposedName": "WeierstrassCurve.scaledLegendreCrt_mk",
+      "catalogueItems": [
+        "PAPER-BENNETT-SIKSEK-20/31",
+        "PAPER-BENNETT-SIKSEK-20/34",
+        "PAPER-BENNETT-SIKSEK-20/77"
+      ]
+    },
+    {
+      "id": "EllipticLegendreCharacterInterfaces:LG.2/split-squareclass-unit-reading",
+      "parentStageId": "EllipticLegendreCharacterInterfaces:LG.2",
+      "realises": [
+        "EllipticLegendreCharacterInterfaces:LG.2"
+      ],
+      "title": "Unit-class root readings",
+      "kind": "lemma",
+      "statement": "For a native A unit u, its image is the triple of squareclasses of the three CRT unit evaluations.",
+      "hypotheses": [
+        "K is a field; 2≠0; d≠0; λ≠0,1; root order is 0,d,dλ."
+      ],
+      "proofSteps": [
+        "Map the native unit through CRT; quotient maps identify its three evaluations modulo squares."
+      ],
+      "acceptance": [
+        "A constant square maps to three trivial classes; zero never supplies a unit."
+      ],
+      "prerequisites": [
+        "EllipticLegendreCharacterInterfaces:LG.2/split-squareclass-equivalence",
+        "EllipticLegendreCharacterInterfaces:LG.2/split-cubic-evaluation",
+        "mathlib:QuotientGroup.map"
+      ],
+      "sources": [
+        {
+          "sourceId": "BS20",
+          "locator": "§6, split descent discussion p.370",
+          "match": "Promotes the consuming API item rather than leaving a dependency hidden in a constructor API."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/EllipticCurve/Legendre/LG2",
+        "namespace": "WeierstrassCurve"
+      },
+      "proposedName": "WeierstrassCurve.scaledLegendreSquareclassEquiv_unit",
+      "catalogueItems": [
+        "PAPER-BENNETT-SIKSEK-20/31",
+        "PAPER-BENNETT-SIKSEK-20/34",
+        "PAPER-BENNETT-SIKSEK-20/77"
+      ]
+    },
+    {
+      "id": "EllipticLegendreCharacterInterfaces:LG.3/minus-one-double",
+      "parentStageId": "EllipticLegendreCharacterInterfaces:LG.3",
+      "realises": [
+        "EllipticLegendreCharacterInterfaces:LG.3"
+      ],
+      "title": "Doubling the minus-one half",
+      "kind": "lemma",
+      "statement": "2•minusOneOrderFour i is the native point (0,0) on L_{−1}.",
+      "hypotheses": [
+        "K is a field; 2≠0; i²=−1."
+      ],
+      "proofSteps": [
+        "Use i²=−1 and the native tangent formula; its denominator 2(1−i) is nonzero. The doubled coordinates are (0,0)."
+      ],
+      "acceptance": [
+        "At p=5,i=2 the native double of (2,4) is (0,0)."
+      ],
+      "prerequisites": [
+        "EllipticLegendreCharacterInterfaces:LG.3/minus-one-order-four",
+        "mathlib:WeierstrassCurve.Affine.Point.add_self_of_Y_ne"
+      ],
+      "sources": [
+        {
+          "sourceId": "BS20",
+          "locator": "§6, Lemma 6.5 proof p.370",
+          "match": "Promotes the consuming API item rather than leaving a dependency hidden in a constructor API."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/EllipticCurve/Legendre/LG3",
+        "namespace": "WeierstrassCurve"
+      },
+      "proposedName": "WeierstrassCurve.minusOneOrderFour_double",
+      "catalogueItems": [
+        "PAPER-BENNETT-SIKSEK-20/34"
+      ]
+    },
+    {
+      "id": "EllipticLegendreCharacterInterfaces:LG.3/minus-one-order",
+      "parentStageId": "EllipticLegendreCharacterInterfaces:LG.3",
+      "realises": [
+        "EllipticLegendreCharacterInterfaces:LG.3"
+      ],
+      "title": "Order of the minus-one half",
+      "kind": "lemma",
+      "statement": "addOrderOf(minusOneOrderFour i)=4.",
+      "hypotheses": [
+        "K is a field; 2≠0; i²=−1."
+      ],
+      "proofSteps": [
+        "Use the nonzero double (0,0) and the native root two-torsion enumeration. Exactly 4, not 1 or 2, is the additive order."
+      ],
+      "acceptance": [
+        "The p=5 example has 2P≠O,4P=O."
+      ],
+      "prerequisites": [
+        "EllipticLegendreCharacterInterfaces:LG.3/minus-one-double",
+        "EllipticLegendreCharacterInterfaces:LG.0/legendre-two-torsion-exhausts"
+      ],
+      "sources": [
+        {
+          "sourceId": "BS20",
+          "locator": "§6, Lemma 6.5 proof p.370",
+          "match": "Promotes the consuming API item rather than leaving a dependency hidden in a constructor API."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/EllipticCurve/Legendre/LG3",
+        "namespace": "WeierstrassCurve"
+      },
+      "proposedName": "WeierstrassCurve.minusOneOrderFour_order",
+      "catalogueItems": [
+        "PAPER-BENNETT-SIKSEK-20/34"
+      ]
+    },
+    {
+      "id": "EllipticLegendreCharacterInterfaces:LG.3/minus-one-first-descent",
+      "parentStageId": "EllipticLegendreCharacterInterfaces:LG.3",
+      "realises": [
+        "EllipticLegendreCharacterInterfaces:LG.3"
+      ],
+      "title": "First descent class of the minus-one half",
+      "kind": "lemma",
+      "statement": "The first split coordinate of native μ at this point is the squareclass [i].",
+      "hypotheses": [
+        "K is a field; 2≠0; i²=−1."
+      ],
+      "proofSteps": [
+        "The x-coordinate i is not 0,1,−1 since i²=−1 and characteristic is odd. Apply the native nonroot reading with d=1,λ=−1."
+      ],
+      "acceptance": [
+        "At p=5 both i=2 and i=3 have the nontrivial squareclass."
+      ],
+      "prerequisites": [
+        "EllipticLegendreCharacterInterfaces:LG.3/minus-one-order-four",
+        "EllipticLegendreCharacterInterfaces:LG.2/descent-off-roots"
+      ],
+      "sources": [
+        {
+          "sourceId": "BS20",
+          "locator": "§6, Lemma 6.5 proof p.370",
+          "match": "Promotes the consuming API item rather than leaving a dependency hidden in a constructor API."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/EllipticCurve/Legendre/LG3",
+        "namespace": "WeierstrassCurve"
+      },
+      "proposedName": "WeierstrassCurve.minusOneOrderFour_first_descent",
+      "catalogueItems": [
+        "PAPER-BENNETT-SIKSEK-20/34"
+      ]
+    }
+  ],
+  "requests": [
+    {
+      "supplier": "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
+      "need": "For a rational curve at a prime p, transport to ℚ_p and a minimal local equation; good reduction implies integral j; an integral unit-discriminant equation is minimal and has nonsingular reduction; compare rational padicValRat units with ℤ_p-unit reductions. All predicates apply to minimal models.",
+      "neededBy": [
+        "EllipticLegendreCharacterInterfaces:LG.1/good-prime-units",
+        "EllipticLegendreCharacterInterfaces:LG.1/legendre-good-model"
+      ]
+    },
+    {
+      "supplier": "ArithmeticGaloisRepresentations:R01.3",
+      "need": "The actual elliptic conductor M has an odd prime p in its support iff the curve has bad reduction there, and at odd semistable primes its exponent is 1. Compare with the equation-level local reduction theory; this is not supplied by an unproved identification with the algorithmic Ogg exponent.",
+      "neededBy": [
+        "EllipticLegendreCharacterInterfaces:LG.1/character-conductor-divides"
+      ]
+    },
+    {
+      "supplier": "RankZeroOneBSD:BSD.0",
+      "need": "Generic good-prime/finite-field quadratic-twist Euler-factor comparison in native frobeniusTrace normalization: the scalar class d multiplies the trace by quadraticChar(d), including d a square. Its rational all-local-factor and L-function factorization targets remain entirely with BSD.0.",
+      "neededBy": [
+        "EllipticLegendreCharacterInterfaces:LG.5/twist-euler-factor-specialization"
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "EllipticLegendreCharacterInterfaces:LG.0",
+      "status": "planned",
+      "remaining": [
+        "Refine rational full-torsion normalization against native polynomial factorization and point transport."
+      ]
+    },
+    {
+      "stageId": "EllipticLegendreCharacterInterfaces:LG.1",
+      "status": "planned",
+      "remaining": [
+        "Discharge the minimal-model, ℚ_p-unit and elliptic-conductor supplier requests on their owners; prototype the actual CA.1 character once its native declaration exists."
+      ]
+    },
+    {
+      "stageId": "EllipticLegendreCharacterInterfaces:LG.2",
+      "status": "planned",
+      "remaining": [
+        "Elaborate CRT/quotient signatures against the compiled Tau Ceti pin and prove the split reading compatibility for μ."
+      ]
+    },
+    {
+      "stageId": "EllipticLegendreCharacterInterfaces:LG.3",
+      "status": "planned",
+      "remaining": [
+        "Implement the native halving calculations and finite-abelian two-primary cardinality argument."
+      ]
+    },
+    {
+      "stageId": "EllipticLegendreCharacterInterfaces:LG.4",
+      "status": "planned",
+      "remaining": [
+        "Prove denominator-cleared native doubling identities and compatibility with μ, using the corrected point."
+      ]
+    },
+    {
+      "stageId": "EllipticLegendreCharacterInterfaces:LG.5",
+      "status": "planned",
+      "remaining": [
+        "Discharge the generic BSD.0 finite-field twist comparison request; implement the direct quadratic-character point-count sum."
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "title": "Compiled Tau Ceti baseline is not available",
+      "neededBy": [
+        "EllipticLegendreCharacterInterfaces:LG.2/split-cubic-crt",
+        "EllipticLegendreCharacterInterfaces:LG.2/split-squareclass-equivalence",
+        "EllipticLegendreCharacterInterfaces:LG.2/descent-off-roots",
+        "EllipticLegendreCharacterInterfaces:LG.2/descent-at-root",
+        "EllipticLegendreCharacterInterfaces:LG.2/descent-product",
+        "EllipticLegendreCharacterInterfaces:LG.2/halving-square-criterion",
+        "EllipticLegendreCharacterInterfaces:LG.5/twist-euler-factor-specialization",
+        "EllipticLegendreCharacterInterfaces:LG.0/full-two-torsion-normalization"
+      ],
+      "detail": "Native source statements are inspected at f790474, but no compiled Tau Ceti build at that pin is available. The publication includes native signatures and imports, plus a separately elaborated Mathlib-only projection; it does not certify full native elaboration. Do not build libraries or download caches."
+    },
+    {
+      "title": "Generic local reduction/minimalization and conductor comparison requests",
+      "neededBy": [
+        "EllipticLegendreCharacterInterfaces:LG.1/good-prime-units",
+        "EllipticLegendreCharacterInterfaces:LG.1/legendre-good-model",
+        "EllipticLegendreCharacterInterfaces:LG.1/character-conductor-divides"
+      ],
+      "detail": "The local ℚ_p and minimal-equation unit bridge is requested from EllipticCurves Layer 4; the actual conductor support comparison is requested from ArithmeticGaloisRepresentations R01.3, whose stated scope covers it. No unexamined global odd-primitive split-model lemma is used as an assumed input."
+    },
+    {
+      "title": "Generic twist Euler-factor comparison remains a supplier request",
+      "neededBy": [
+        "EllipticLegendreCharacterInterfaces:LG.5/twist-euler-factor-specialization"
+      ],
+      "detail": "BSD.0 plans the comparison but the inspected packets do not contain a finer node for it. This packet supplies only the native equation specialization and retains an explicit request rather than proving a second generic comparison."
+    },
+    {
+      "title": "Native squareclass-character and actual conductor signatures require their owner declarations",
+      "neededBy": [
+        "EllipticLegendreCharacterInterfaces:LG.1/character-odd-support",
+        "EllipticLegendreCharacterInterfaces:LG.1/character-conductor-divides"
+      ],
+      "detail": "The exact mathematical CA.1 primitive squareclass-character node is imported, but it has no native construction declaration at the pin. The actual elliptic-conductor comparison is requested from R01.3. The two character/conductor signatures are explicitly omitted from the suggested file until these objects can be named; no Prop-valued surrogate or local duplicate is introduced."
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "EllipticLegendreCharacterInterfaces/E1",
+      "kind": "misprint",
+      "locator": "Proof of Lemma 6.6, p.371, in the published version, Annals of Mathematics 191 (2020), 355–392 (publisher PDF, SHA-256 3920a7524a37870942fe3591ac858db23cb604f4331bccd2a6dc5f11a1671fbf) Compared with arXiv:1709.01022v1, pp.14–15.",
+      "printed": "The source gives P = (4ivt + 2λ, (128iv⁵ − 64iv³)t − 128v⁶ + 96v⁴ − 16v²) ∈ E(F_p), asserts 2P = (2λ,0), and concludes that the order of P is 4.",
+      "correction": "P=(4itv+2λ,8itv(t+iv)) belongs to F′_λ(F_p), not the undefined E(F_p) in this display. Its double is (2λ,0). The x-coordinate and θ′₃(P)=4itv remain unchanged.",
+      "reason": "For the local coordinate identity take p=5, t=v=2, i=3, λ=3. Then 2t²+2v²=1, but the printed point is (4,4), with y²=1 and x(x−2)(x−2λ)=4. This is a counterexample to that formula, not to all global hypotheses of the lemma. With r=2t and s=2iv, r²=2λ and s²=2λ−2, the point x=r²+rs, y=rs(r+s) lies on the curve and doubles to (2λ,0), as verified symbolically. Its x-coordinate and descent coordinate are unchanged, so the intended argument is preserved.",
+      "affects": "nothing",
+      "known": "Existing independently confirmed atlas finding PAPER-BENNETT-SIKSEK-20/E14; no published correction was found in the recorded bounded search.",
+      "searched": [
+        "Independently checked 23 September 2026: https://annals.math.princeton.edu/2020/191-2/p02 has no correction link; the Crossref record for DOI 10.4007/annals.2020.191.2.2 has empty relation and no update-to or updated-by field.",
+        "https://arxiv.org/abs/1709.01022 lists only v1, 4 September 2017. Compared relevant passages of that preprint with the published PDF. The preprint predates publication and has no §12 addendum.",
+        "https://personal.math.ubc.ca/~bennett/publ.html and https://samirsiksek.github.io/siksek.github.io/index.html list the paper without a correction. Bennett’s linked PDF is byte-identical to the publisher PDF.",
+        "Exact-title and author/title searches with erratum, corrigendum and correction located no separate correction. A correction found for a different paper citing Bennett–Siksek is not a correction to this article. This is a bounded search, not proof of global novelty."
+      ],
+      "priorFinding": "PAPER-BENNETT-SIKSEK-20/E14",
+      "source": "BS20",
+      "priorReview": {
+        "verdict": "confirmed",
+        "reason": "Confirmed independently by symbolic curve membership and denominator-cleared doubling identities modulo i²+1 and 2t²+2v²−1. Also checked all 2,504 admissible nonzero tuples for p<200, p≡5 mod8; the printed point is off the curve in 2,472 cases, and every corrected point doubles as required. These finite examples test the coordinate identity, not the full global hypotheses of Lemma 6.6.",
+        "by": "REV-ERRATA-PAPER-BENNETT-SIKSEK-20"
+      }
+    }
+  ],
+  "sourceVersions": [
+    {
+      "kind": "published",
+      "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v191-n2-p02-s.pdf",
+      "read": "2026-10-05",
+      "sha256": "3920a7524a37870942fe3591ac858db23cb604f4331bccd2a6dc5f11a1671fbf",
+      "citation": "Annals of Mathematics 191 (2020), no. 2, 355–392; publisher version of record"
+    }
+  ],
+  "provenance": {
+    "agent": "Codex",
+    "session": "codex-a71f92",
+    "issue": 1692,
+    "inspectionBase": "3a98a37da9242f48f2146b742cc4f18012b14c75"
+  },
+  "conventions": {
+    "models": "L_λ has coefficients (0,−(1+λ),0,λ,0); L_{d,λ} has (0,−d(1+λ),0,d²λ,0). Definitions exist over commutative rings; elliptic statements require a field, 2≠0, d≠0, λ≠0,1.",
+    "points": "The native nonsingular Affine.Point, including O. All point counts use the native projective pointCount and identify it with Nat.card Point only under ellipticity.",
+    "descent": "Only native μ into M=Aˣ/(Aˣ)²; the new equivalences read its existing values in root order (0,d,dλ). No second generic descent map. Squareclass of zero is never formed.",
+    "rational": "padicValRat is the additive integer valuation, not an exponent. Curve-level good reduction is HasGoodReduction applied to a minimal local model.",
+    "characters": "The primitive character is the existing CA.1 construction for a nonzero rational squareclass, including conductor 1 for the trivial class. The odd part is ordCompl[2], not removal of a single factor 2.",
+    "finiteFields": "Prime-field exports use ZMod p, Fact p.Prime and explicit residue congruences. Characteristic 2 and singular root collisions are excluded.",
+    "witness": "Corrected Lemma 6.6 point x=2λ+4itv, y=8itv(t+iv); no large-exponent hypothesis."
+  },
+  "restructure": [
+    {
+      "action": "rescope",
+      "roadmaps": [
+        "EllipticLegendreCharacterInterfaces",
+        "tauceti:TauCetiRoadmap/EllipticCurves",
+        "RankZeroOneBSD"
+      ],
+      "detail": "The reviewed extraction notes this equation-specific Part II is thin beside the other elliptic Part IIs. It has distinct ownership: Legendre coordinates and finite-field torsion, not generic twists or BSD.",
+      "proposal": "Keep this current six-layer equation-interface plan and its ids; consider an organizational merge of the elliptic Part IIs in a maintainer-selected restructuring while retaining these six layer owners and generic BSD.0 boundaries. No change to the existing Tau Ceti roadmap is proposed."
+    }
+  ]
+}
