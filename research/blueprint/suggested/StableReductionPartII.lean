@@ -564,6 +564,22 @@ theorem ringTensorEquivUnique {A' : Type*} [CommRing A'] (f : A →+* A') :
           coefficientMap A γ δ s t f r) → e = ringTensorEquiv A γ δ s t f := by
   sorry
 
+-- API of StableReductionPartII:MC.2/section-ring-tensor-equivalence
+theorem ringTensorEquivIdentity (a : A) (r : R₀) :
+    ringTensorEquiv A γ δ s t (RingHom.id A) (a ⊗ₜ[A] r) = ι₀ a * r := by
+  sorry
+
+theorem ringTensorEquivComposition {A' A'' : Type*} [CommRing A'] [CommRing A'']
+    (f : A →+* A') (g : A' →+* A'') :
+    letI : Algebra A A' := f.toAlgebra
+    letI : Algebra A' A'' := g.toAlgebra
+    letI : Algebra A A'' := (g.comp f).toAlgebra
+    ∀ (a'' : A'') (a' : A') (r : R₀),
+      ringTensorEquiv A' (f γ) (f δ) (f s) (f t) g
+        (a'' ⊗ₜ[A'] ringTensorEquiv A γ δ s t f (a' ⊗ₜ[A] r)) =
+      ringTensorEquiv A γ δ s t (g.comp f) ((a'' * g a') ⊗ₜ[A] r) := by
+  sorry
+
 -- StableReductionPartII:MC.2/section-dual-tensor-equivalence
 def dualTensorEquiv {A' : Type*} [CommRing A'] (f : A →+* A') :
     letI : Algebra A A' := f.toAlgebra
@@ -704,6 +720,31 @@ theorem dualQuotientTensorEquivResidue {A' : Type*} [CommRing A'] (f : A →+* A
       dualQuotientEquiv A' (f γ) (f δ) (f s) (f t)
         (dualQuotientTensorEquiv A γ δ s t f (a' ⊗ₜ[A] q)) =
       a' * f (dualQuotientEquiv A γ δ s t q) := by
+  sorry
+
+theorem dualQuotientTensorEquivIdentity (a : A) (q : sectionDualQuotient A γ δ s t) :
+    dualQuotientTensorEquiv A γ δ s t (RingHom.id A) (a ⊗ₜ[A] q) = a • q := by
+  sorry
+
+theorem dualQuotientTensorEquivComposition {A' A'' : Type*} [CommRing A'] [CommRing A'']
+    (f : A →+* A') (g : A' →+* A'') :
+    letI : Algebra A A' := f.toAlgebra
+    letI : Algebra A' A'' := g.toAlgebra
+    letI : Algebra A A'' := (g.comp f).toAlgebra
+    ∀ (a'' : A'') (a' : A') (q : sectionDualQuotient A γ δ s t),
+      dualQuotientTensorEquiv A' (f γ) (f δ) (f s) (f t) g
+        (a'' ⊗ₜ[A'] dualQuotientTensorEquiv A γ δ s t f (a' ⊗ₜ[A] q)) =
+      dualQuotientTensorEquiv A γ δ s t (g.comp f) ((a'' * g a') ⊗ₜ[A] q) := by
+  sorry
+
+theorem dualQuotientTensorEquivUnique {A' : Type*} [CommRing A'] (f : A →+* A') :
+    letI : Algebra A A' := f.toAlgebra
+    ∀ e : (A' ⊗[A] sectionDualQuotient A γ δ s t) ≃ₗ[A']
+        sectionDualQuotient A' (f γ) (f δ) (f s) (f t),
+      (∀ (a' : A') (q : sectionDualQuotient A γ δ s t),
+        dualQuotientEquiv A' (f γ) (f δ) (f s) (f t) (e (a' ⊗ₜ[A] q)) =
+          a' * f (dualQuotientEquiv A γ δ s t q)) →
+      e = dualQuotientTensorEquiv A γ δ s t f := by
   sorry
 
 -- test: NodeSectionFactorization.PolynomialModel.ringTensorIdentity
@@ -2359,13 +2400,19 @@ example (M : Type*) [AddCommGroup M] [Module A M] (z : M ⊗[A] (Fin 2 → R₀)
   sorry
 -- NodeSectionFactorization.PolynomialModel.tensorIdealTorsionNegativeGenerator
 example  :
-    tensorCokernelIdeal ℤ 1 0 1 0 (ZMod 2) (Submodule.Quotient.mk ((1 : ZMod 2) ⊗ₜ[ℤ] ![0,1])) =
-      (1 : ZMod 2) ⊗ₜ[ℤ] (-⟨AdjoinRoot.of (polynomial ℤ 1 0 1 0) Polynomial.X - coefficientHom ℤ 1 0 1 0 0, sectionSecond_mem ℤ 1 0 1 0⟩) := by
+    let j : sectionIdeal ℤ 1 0 1 0 :=
+      ⟨AdjoinRoot.of (polynomial ℤ 1 0 1 0) Polynomial.X - coefficientHom ℤ 1 0 1 0 0,
+        sectionSecond_mem ℤ 1 0 1 0⟩
+    let z := tensorCokernelIdeal ℤ 1 0 1 0 (ZMod 3)
+      (Submodule.Quotient.mk ((1 : ZMod 3) ⊗ₜ[ℤ] ![0,1]))
+    z = (1 : ZMod 3) ⊗ₜ[ℤ] (-j) ∧ z ≠ (1 : ZMod 3) ⊗ₜ[ℤ] j := by
   sorry
 -- NodeSectionFactorization.PolynomialModel.tensorDualTorsionNegativeGenerator
 example  :
-    tensorCokernelDual ℤ 1 0 1 0 (ZMod 2) (Submodule.Quotient.mk ((1 : ZMod 2) ⊗ₜ[ℤ] ![0,1])) =
-      (1 : ZMod 2) ⊗ₜ[ℤ] (-dualGenerator ℤ 1 0 1 0) := by
+    let z := tensorCokernelDual ℤ 1 0 1 0 (ZMod 3)
+      (Submodule.Quotient.mk ((1 : ZMod 3) ⊗ₜ[ℤ] ![0,1]))
+    z = (1 : ZMod 3) ⊗ₜ[ℤ] (-dualGenerator ℤ 1 0 1 0) ∧
+      z ≠ (1 : ZMod 3) ⊗ₜ[ℤ] dualGenerator ℤ 1 0 1 0 := by
   sorry
 -- NodeSectionFactorization.PolynomialModel.tensorTorsionLeftExact
 example  : Function.Exact
