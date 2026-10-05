@@ -22987,11 +22987,12 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-ColemanIntegration.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [
     "BP-LocallyAnalyticDistributions"
    ],
-   "note": "claimed on GitHub issue #698"
+   "note": "deliverables arrived from an external worker on issue #698",
+   "finishedAt": "2026-10-05T16:27:48Z"
   },
   {
    "id": "REV-ColemanIntegration",
@@ -26447,9 +26448,9 @@
     "REV-RS-18"
    ],
    "prompt": "research/blueprint/prompts/BP-KTheoryLowDegrees--U.1.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [],
-   "note": "released on GitHub issue #764"
+   "note": "claimed on GitHub issue #764"
   },
   {
    "id": "REV-KTheoryLowDegrees--U.1",
