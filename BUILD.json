@@ -1,8 +1,8 @@
 {
-  "roadmaps": 223,
-  "stages": 3104,
-  "originalStages": 2043,
-  "sourceRefinements": 1061,
+  "roadmaps": 224,
+  "stages": 3140,
+  "originalStages": 2049,
+  "sourceRefinements": 1091,
   "reviewedDecompositions": [
     {
       "roadmap": "AInfCohomology",
@@ -327,7 +327,7 @@
       "deferredLinks": 0
     }
   ],
-  "terminalTargets": 1971,
+  "terminalTargets": 1977,
   "groups": 27,
   "retiredRoadmaps": [
     "FoundationsAndLibraryIntegration"
@@ -336,7 +336,7 @@
   "estimatedRoadmaps": 0,
   "distanceBases": {
     "judged": 203,
-    "measured": 3,
+    "measured": 4,
     "built": 7,
     "children": 1
   },
@@ -344,18 +344,18 @@
   "unmappedAreas": 0,
   "areasWithRoadmaps": 27,
   "additionalRegions": 0,
-  "mathematicalSummaries": 223,
+  "mathematicalSummaries": 224,
   "editedRoadmapSummaries": 181,
   "curatedStagePresentations": 339,
   "administrativeStages": 101,
-  "mathematicalStars": 3003,
+  "mathematicalStars": 3039,
   "plainTextPlanetLabels": 398,
   "hiddenPlanets": 600,
   "mappedStageStatuses": 350,
   "libraryAuditStatuses": 35,
   "bibliographicSources": 46,
-  "roadmapEdges": 1792,
-  "stageEdges": 8851,
+  "roadmapEdges": 1793,
+  "stageEdges": 8895,
   "reviewedLinkPackets": 25,
   "promotedBlueprints": [
     {
@@ -491,6 +491,12 @@
       "reviewer": "independent-review-REV-FIX-RT-AREA-etale~2"
     },
     {
+      "file": "InductionRestrictionPartII",
+      "roadmap": "InductionRestrictionPartII",
+      "nodes": 109,
+      "reviewer": "independent-review-REV-DESIGN-InductionRestrictionPartII"
+    },
+    {
       "file": "K2SymbolsBrauer--T.3",
       "roadmap": "K2SymbolsBrauer",
       "nodes": 58,
@@ -522,8 +528,8 @@
     }
   ],
   "sourceDocuments": 296,
-  "htmlBytes": 30957638,
-  "htmlSha256": "eea598364d9648035e58d0c7c0475ac79d73b684881a2bbaeab029b97e7758b0",
+  "htmlBytes": 31055671,
+  "htmlSha256": "9b5dfb60d2c08578a534cdbbec4824045e81889f7ce6f1e2f42f179521b61a43",
   "networkDependencies": 0,
   "localProgressOverridesIncluded": false,
   "assets": {
@@ -554,8 +560,8 @@
     "data/roadmap-summaries.json": "c8bdd0a9105f5d3c4a858c8b635990729f8e94497dee784a71fae659b8c05b9f",
     "data/roadmap-classification.json": "2641dbc97eb2566c715162d011b46890d1635629181ef8126ac7aed9e24a3b13",
     "data/classification-estimates.json": "625d35fe6121bf099dc5de9e6a9111793596f9b664e3fbd439841434bb4a57d6",
-    "data/roadmap-distances.json": "375c0a00ae284e7efabda829fbed3ac79946c9d7f88b0cf3edbd0e7dddcc3776",
-    "data/galaxy-layout.json": "b86eb40fef14c658e809ddf39dac8281c0e6dfefc62e80cc6a8dfeb978213090",
+    "data/roadmap-distances.json": "476e36d1edc08b5aa4317d5a5b123286c7cc82e2ab43697b90e7c3fa0cd48b77",
+    "data/galaxy-layout.json": "a4cd38a0706b41da1057d34666072311a2912073eaeb5975806c3f35ab72e59a",
     "data/bibliography.json": "bef230a41fad22d6b790c7564061c4d05c2ae5b78cab53d005eb404afab2b122",
     "NOTICE": "a285b95d5adbf5c2bcc82db36e2a77b797f84a2c5cbb30292efd0bae17cc4f34",
     "LICENSE": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1",
@@ -656,6 +662,8 @@
     "data/blueprints/HabiroNumberFields.md": "6dacd129ca08c9fc3747d9ffb451223707b6b47e1b9f78aebe03a907cf11df9d",
     "data/blueprints/HabiroRings.json": "ee7b77adfe9994ce370a081a546cbd46515a83bf427247442db556bd651ab84f",
     "data/blueprints/HabiroRings.md": "160228b0864d6bc3f4ce34b83994e5cda0e423f1127f1b39d61e4fd735e0560c",
+    "data/blueprints/InductionRestrictionPartII.json": "0db4b3e80ab6e85338b576ea40139b9cde93c466049c714d359abb50181af1a2",
+    "data/blueprints/InductionRestrictionPartII.md": "62bab3a7d7a78e2b81f254fdb13b351108bd5ad2d51a12a409e8c8ff9eddb7e3",
     "data/blueprints/K2SymbolsBrauer--T.3.json": "2f6d249a186a84fd2d5e79c950a1f825a7ed89a019bb1b408d62caed1e6f73ec",
     "data/blueprints/K2SymbolsBrauer--T.3.md": "008cc52b3b52ce5e0674e8af693faa037a4932c9096fc8e64a06c947216c1ed9",
     "data/blueprints/K3BlochGroups.json": "ac9ba93202af2d2e5d7dcf6a6db0c8c84550756cad0cede5425905a178aac599",
@@ -668,6 +676,7 @@
     "data/blueprints/SmallRamificationAndAbelianVarietyBaseCases.md": "bf5bb37e33b91d56f46879172730f6ced43c4f448c1ff01efeec27bc66d0141e",
     "data/blueprints/roadmaps/AbelianVarietiesIsogenousToNoJacobian.json": "2bf1f5bf267748898edb5c660f847da5daca1f83422fc4f0bb5cdb5b842d0414",
     "data/blueprints/roadmaps/GenericDoublePointInterpolation.json": "bea51793a161eba89a41cd1b9296431a0feec87374a8009e0ee3c9f008f0ddaf",
+    "data/blueprints/roadmaps/InductionRestrictionPartII.json": "610f6d9d6d58360ee2e0f342c5a27188ba677510f9f294f621675be04172ed16",
     "data/blueprints/roadmaps/SemisimpleAlgebrasPartII.json": "deab3aab287fec5e5304f5ca49ea05c149e532c66341477eff5c83ea6ac9d4fc",
     "data/links/tauceti_Completed_EffectiveBounds.json": "a1493c80585e5e41a95005979315013c4406ce3be31b57b9fd2fb8bc9c278805",
     "data/links/tauceti_Completed_OrthogonalL2Bases.json": "34ad7cad18dde976767ba8df3183e3b3ec9586ddb040ecff1654dbdd2bec5a46",
