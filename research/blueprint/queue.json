@@ -21267,8 +21267,9 @@
    ],
    "avoidAccountOf": "BP-SchemeAndStackFoundations",
    "prompt": "research/blueprint/prompts/REV-SchemeAndStackFoundations.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #317"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #317",
+   "finishedAt": "2026-10-05T03:18:29Z"
   },
   {
    "id": "BP-AInfCohomology--AI.0",
@@ -23867,7 +23868,8 @@
    ],
    "avoidAccountOf": "BP-DirichletPadicLFunctions--L3",
    "prompt": "research/blueprint/prompts/REV-DirichletPadicLFunctions--L3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5876"
   },
   {
    "id": "BP-DirichletPadicLFunctions--L4",
