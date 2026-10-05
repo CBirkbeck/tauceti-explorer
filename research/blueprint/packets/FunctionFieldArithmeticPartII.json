@@ -3403,8 +3403,8 @@
       "sources": [
         {
           "sourceId": "AGV08",
-          "locator": "B.2 pp. 53–54; stack-base sentence p. 54; TV §3 pp. 12–13",
-          "match": "The stated source passage gives the construction or proof specialized with the hypotheses and conventions above; the decomposition makes its non-routine steps explicit."
+          "locator": "Appendix B.2, pp. 53–54: scheme-base triples and classifying-stack fibre product; algebraic-stack bases are an atlas-descent extension, not a sentence in this appendix.",
+          "match": "AGV gives the root-object definition for scheme bases. The extension to an algebraic-stack base uses the separately requested atlas and descent infrastructure; AGV Appendix B does not itself state that extension."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3504,8 +3504,8 @@
       "sources": [
         {
           "sourceId": "AGV08",
-          "locator": "B.2 pp. 53–54 displayed fibre-product diagram",
-          "match": "The stated source passage gives the construction or proof specialized with the hypotheses and conventions above; the decomposition makes its non-routine steps explicit."
+          "locator": "Appendix B.2, p. 54: U=[A¹/G_m] and the displayed S×_U U description.",
+          "match": "The final B.2 display identifies the scheme-base root construction as this fibre product; the stack-base version uses the requested geometric descent interface."
         }
       ],
       "implementationStatus": "unchecked"
@@ -3587,8 +3587,13 @@
       "sources": [
         {
           "sourceId": "AGV08",
-          "locator": "B.2 p. 54; TV Corollary 3.13 p. 16, P=N",
-          "match": "The stated source passage gives the construction or proof specialized with the hypotheses and conventions above; the decomposition makes its non-routine steps explicit."
+          "locator": "Appendix B.2, pp. 53–54: [V_σ/G_m] and W_σ×G_m≃V_σ; finite μ_n quotient after trivializing the line.",
+          "match": "The quotient and displayed trivialization give the affine μ_n chart; this is not a claim that μ_n appears in the p. 54 paragraph. Talpo–Vistoli Corollary 3.13 is also recorded below."
+        },
+        {
+          "sourceId": "TV17",
+          "locator": "Corollary 3.13, p. 16, finite root chart with P=N.",
+          "match": "The finite quotient chart specializes to Spec A[t]/(t^n−f) with its μ_n grading action."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3630,8 +3635,8 @@
       "sources": [
         {
           "sourceId": "AGV08",
-          "locator": "B.2 p. 54 closed-locus discussion; YZ19 A.1.3 pp. 515–516 corrected; B24 p. 135",
-          "match": "The stated source passage gives the construction or proof specialized with the hypotheses and conventions above; the decomposition makes its non-routine steps explicit."
+          "locator": "Appendix B.2, p. 53: nilpotent closed embedding of the root gerbe into the zero-section fibre.",
+          "match": "The source distinguishes the full zero-section fibre from its root gerbe. At a geometric field this is the nilpotent quotient chart and its reduced classifying gerbe."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3700,9 +3705,9 @@
         "AlgebraicModuliForArithmeticGeometry:R09.4"
       ],
       "proofSteps": [
-        "Locally choose a regular parameter f cutting out D; the equation tⁿ=f replaces that parameter and gives a regular chart.",
-        "For invertible n the finite diagonalizable stabilizer is étale; descend regularity through the atlas.",
-        "At an actual branch point use the computed μ_n inertia and its nonreduced characteristic-dividing part to obstruct the DM diagonal."
+        "On a local trivialization use the smooth G_m-torsor atlas V_σ from AGV B.2, with coordinates z,q,q⁻¹ and equation zⁿ=qf. At z=0, f cuts out a regular divisor, so zⁿ−qf has a nonzero linear regular-parameter term. At z≠0 the equation forces f to be a unit and solves for q. Verify these local rings are regular with the requested regular-divisor interface.",
+        "Descend regularity along this smooth G_m atlas. The finite chart Spec A[t]/(tⁿ−f)→root stack is only a μ_n torsor in general; when n is not invertible it is not a smooth atlas and must not by itself be used for smooth-local regularity descent.",
+        "For invertible n the branch inertia μ_n is étale, giving the DM condition. At a branch point of characteristic dividing n the same inertia is non-étale and obstructs DM; outside the divisor the root stack is the base."
       ],
       "acceptance": [
         "On a DVR the n=2 root is regular in odd residue characteristic; the assertion is not that arbitrary sections cut regular divisors."
@@ -3714,8 +3719,8 @@
       "sources": [
         {
           "sourceId": "AGV08",
-          "locator": "B.2 p. 54 smooth/normal-crossing root construction; YZ19 A.1.4 pp. 516–517",
-          "match": "The stated source passage gives the construction or proof specialized with the hypotheses and conventions above; the decomposition makes its non-routine steps explicit."
+          "locator": "Appendix B.2, pp. 53–54: the G_m quotient atlas; regularity is the local regular-parameter argument in proofSteps, rather than a smooth/normal-crossing theorem printed here.",
+          "match": "The G_m atlas can test regularity even at wild exponents. The requested regular-divisor and geometric quotient interfaces supply the commutative-algebra and descent details; Appendix B does not state a general regularity theorem."
         }
       ],
       "implementationStatus": "unchecked"
@@ -4460,9 +4465,10 @@
       ],
       "title": "The evaluation smoothness criterion",
       "kind": "lemma",
-      "statement": "For a smooth Z over the algebraically closed base, a map Z→[A^r/G_m^r] given by r line bundles with sections is smooth exactly when their zero divisors are smooth and meet transversely, including the empty strata.",
+      "statement": "Let Z be a smooth irreducible scheme over an algebraically closed field and let r line bundles with sections determine f:Z→[A^r/G_m^r]. Assume no section vanishes identically on Z, so each scheme-theoretic zero locus D_i is an effective Cartier divisor, possibly empty. Then f is smooth if and only if every D_i is smooth and all their intersections are transverse, with each nonempty intersection indexed by I of codimension |I|.",
       "hypotheses": [
-        "For GC layers: k is finite of characteristic p≠2; X/k is smooth, projective and geometrically connected; R⊂X is a reduced finite divisor, possibly empty; ρ=deg R, and g is the curve genus. Coefficients are Q̄ℓ with ℓ≠p; geometric Frobenius is used."
+        "For GC layers: k is finite of characteristic p≠2; X/k is smooth, projective and geometrically connected; R⊂X is a reduced finite divisor, possibly empty; ρ=deg R, and g is the curve genus. Coefficients are Q̄ℓ with ℓ≠p; geometric Frobenius is used.",
+        "Z is smooth and irreducible over an algebraically closed field; each section is not identically zero. Vanishing loci and their intersections are scheme-theoretic; an empty divisor is allowed."
       ],
       "prerequisites": [
         "FunctionFieldArithmeticPartII:RS.1/two-pullback",
@@ -4483,8 +4489,8 @@
       "sources": [
         {
           "sourceId": "YZ19",
-          "locator": "Lemma A.3 p. 516",
-          "match": "The stated source passage gives the construction or proof specialized with the hypotheses and conventions above; the decomposition makes its non-routine steps explicit."
+          "locator": "Claim in the proof of Lemma A.4(1), p. 516; Definition A.3 on that page is a different item.",
+          "match": "The source claim assumes Z smooth and irreducible and each section not identically zero. Its scheme-theoretic vanishing divisors are smooth and meet transversely precisely when the classifying map is smooth."
         }
       ],
       "implementationStatus": "unchecked"
@@ -4603,7 +4609,7 @@
       "sources": [
         {
           "sourceId": "YZ19",
-          "locator": "A.1.4 pp. 517–518",
+          "locator": "A.1.4, pp. 517–518; (A.2) on p. 517.",
           "match": "The stated source passage gives the construction or proof specialized with the hypotheses and conventions above; the decomposition makes its non-routine steps explicit."
         }
       ],
@@ -4687,7 +4693,7 @@
       "sources": [
         {
           "sourceId": "YZ19",
-          "locator": "A.1.4 (A.3) p. 518",
+          "locator": "A.1.4, (A.3), p. 517.",
           "match": "The stated source passage gives the construction or proof specialized with the hypotheses and conventions above; the decomposition makes its non-routine steps explicit."
         }
       ],
@@ -4805,7 +4811,7 @@
       "sources": [
         {
           "sourceId": "YZ19",
-          "locator": "A.1.5 p. 518",
+          "locator": "A.1.5, p. 517: both hat Abel–Jacobi maps and their effective restrictions.",
           "match": "The stated source passage gives the construction or proof specialized with the hypotheses and conventions above; the decomposition makes its non-routine steps explicit."
         }
       ],
@@ -4885,7 +4891,7 @@
       "sources": [
         {
           "sourceId": "YZ19",
-          "locator": "A.1.6 pp. 518–519",
+          "locator": "A.1.6, pp. 517–518, modified local-unit groups.",
           "match": "The stated source passage gives the construction or proof specialized with the hypotheses and conventions above; the decomposition makes its non-routine steps explicit."
         }
       ],
@@ -4972,7 +4978,7 @@
       "sources": [
         {
           "sourceId": "YZ19",
-          "locator": "Lemma A.5 p. 519 and proof",
+          "locator": "Lemma A.5, (A.4) and complete proof, p. 518.",
           "match": "The stated source passage gives the construction or proof specialized with the hypotheses and conventions above; the decomposition makes its non-routine steps explicit."
         }
       ],
@@ -4987,23 +4993,30 @@
       "realises": [
         "FunctionFieldArithmeticPartII:GC.2"
       ],
-      "title": "Root divisors supported away from R",
-      "kind": "comparison",
-      "statement": "The groupoid of root divisors used in §6.2.3 is the effective open X_d^√R(k) with its root data and automorphisms; forgetting the root gives the ordinary divisor. The character on differences of such objects is evaluated through the adelic root-Picard equivalence, not through an unweighted set bijection.",
+      "title": "The signed root-divisor groupoid",
+      "kind": "construction",
+      "statement": "Define Div^√R(X) to be the action groupoid A_F×/O_{√R}× for the actual homomorphism O_{√R}×→A_F×. It contains signed divisors in all degrees; neither quotient by F× nor an effectivity condition is imposed. The forgetful map to A_F×/O×=Div(X) uses E(a)=Σ_x v_x(a_x)x. With this valuation convention its Abel–Jacobi functor lands in the double quotient Pic_X^√R(k) and has underlying line bundle O_X(−E(a)), with the retained square-root line along R. The quadratic character is pulled back along this functor. Effective section moduli are a separate construction; they are not identified with this entire groupoid.",
       "hypotheses": [
         "For GC layers: k is finite of characteristic p≠2; X/k is smooth, projective and geometrically connected; R⊂X is a reduced finite divisor, possibly empty; ρ=deg R, and g is the curve genus. Coefficients are Q̄ℓ with ℓ≠p; geometric Frobenius is used."
       ],
       "prerequisites": [
-        "FunctionFieldArithmeticPartII:GC.1/root-symmetric-space",
-        "FunctionFieldArithmeticPartII:GC.2/adelic-root-groupoid"
+        "FunctionFieldArithmeticPartII:GC.2/root-units",
+        "FunctionFieldArithmeticPartII:GC.2/adelic-root-groupoid",
+        "FunctionFieldArithmetic:FA.2",
+        "SchemeAndStackFoundations:SF.3",
+        "mathlib:CategoryTheory.Groupoid"
       ],
       "proofSteps": [
-        "Identify the effective global section with its Cartier divisor using the imported divisor dictionary.",
-        "Retain the line and root isomorphisms in the morphism groupoid.",
-        "Apply root Abel–Jacobi and the adelic equivalence to differences."
+        "Form the right-action groupoid of the modified-unit homomorphism. Arrows retain their full labels, including the kernel ∏_{x∈R}μ₂(k(x)); an orbit set would lose these automorphisms.",
+        "Use the parent’s divisor/idele dictionary E(a)=Σv_x(a_x)x to obtain the ordinary signed divisor, without imposing nonnegative valuations or dividing by F×.",
+        "Apply the canonical functor to the double quotient and Lemma A.5. Its sign is fixed by a uniformizer π_x⁻¹: E=−x and the associated Picard line is O_X(x). At branch points retain the root line and square isomorphism.",
+        "Pull back the idele character along this Abel–Jacobi functor; the specialized matrix quotient and 1/#Aut integration remain with ShtukaSpecialCyclesAndHigherSiegelWeil."
       ],
       "acceptance": [
-        "Any matrix-stack integration consumer retains the factor 1/#Aut; constructing that specialized matrix stack belongs to ShtukaSpecialCyclesAndHigherSiegelWeil."
+        "At R=∅, both x and −x occur as signed divisors; neither is discarded by an effectivity condition.",
+        "A scalar from F× changes the signed divisor by a principal divisor and only becomes identified after the further Picard quotient.",
+        "At x∉R, π_x⁻¹ has E=−x but its Abel–Jacobi line is O_X(x).",
+        "At a branch point a nontrivial modified-unit kernel label remains a nontrivial automorphism; matrix integration retains 1/#Aut."
       ],
       "library": {
         "module": "TauCeti/AlgebraicGeometry/RootStacks/GC2",
@@ -5012,11 +5025,76 @@
       "sources": [
         {
           "sourceId": "YZ19",
-          "locator": "§6.2.3 p. 499, Lemma 6.4 (6.9); Definition A.2 p. 515",
-          "match": "The stated source passage gives the construction or proof specialized with the hypotheses and conventions above; the decomposition makes its non-routine steps explicit."
+          "locator": "§6.2.3, p. 498: definition of Div^√R(X), its two maps and O_X(−E); Lemma 6.4, (6.9), p. 499.",
+          "match": "The source defines the right idele action quotient on all signed divisors. The left F× quotient occurs only in the subsequent Picard map; it is not an effective symmetric-power moduli problem."
         }
       ],
-      "implementationStatus": "unchecked"
+      "implementationStatus": "unchecked",
+      "declarationName": "TauCeti.RamifiedClassField.rootDivisorGroupoid",
+      "uses": [
+        {
+          "where": "Yun–Zhang §6.2.3, p. 498, definition of Div^√R(X) and simultaneous translation on four root divisors",
+          "how": "Signed root divisors form a group-like action groupoid before quotienting by principal ideles; this supplies the matrix-stack inputs and their automorphisms."
+        },
+        {
+          "where": "Yun–Zhang Lemma 6.4, (6.9), p. 499",
+          "how": "The pulled-back quadratic character is evaluated on a difference E₁^♮−E₂^♮ and the groupoid sum keeps automorphism weights."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.RamifiedClassField.rootDivisorGroupoid.ofIdele",
+          "role": "constructor",
+          "statement": "An idele a determines its object in the right-action groupoid."
+        },
+        {
+          "name": "TauCeti.RamifiedClassField.rootDivisorGroupoid.arrow",
+          "role": "constructor",
+          "statement": "A modified unit h gives the arrow a→a·forget(h); its label h is retained even when forget(h)=1."
+        },
+        {
+          "name": "TauCeti.RamifiedClassField.rootDivisorGroupoid.forget",
+          "role": "projection",
+          "statement": "The ordinary signed divisor is E(a)=Σ_x v_x(a_x)x, and modified-unit arrows preserve it."
+        },
+        {
+          "name": "TauCeti.RamifiedClassField.rootDivisorGroupoid.tensor",
+          "role": "structure",
+          "statement": "Idele multiplication supplies addition of root divisors; identity and inverse give the unit and additive inverse, with their groupoid coherence."
+        },
+        {
+          "name": "TauCeti.RamifiedClassField.rootDivisorGroupoid.abelJacobi",
+          "role": "functoriality",
+          "statement": "The right quotient maps to F×\\A_F×/O_{√R}×; its underlying line is O_X(−E) in the stated valuation convention."
+        },
+        {
+          "name": "TauCeti.RamifiedClassField.rootDivisorGroupoid.automorphisms",
+          "role": "characterisation",
+          "statement": "The automorphism group of every idele object is ker(O_{√R}×→A_F×)=∏_{x∈R}μ₂(k(x)); at R=∅ it is trivial."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.RamifiedClassField.rootDivisorGroupoid.test_empty_R_signed",
+          "kind": "non-example",
+          "statement": "For R=∅ the groupoid is equivalent to the discrete groupoid of all signed divisors. A uniformizer idele and its inverse give x and −x; both occur."
+        },
+        {
+          "name": "TauCeti.RamifiedClassField.rootDivisorGroupoid.test_uniformizer_sign",
+          "kind": "computation",
+          "statement": "For x∉R the idele equal to π_x⁻¹ at x and 1 elsewhere has E=−x and Abel–Jacobi line O_X(x)."
+        },
+        {
+          "name": "TauCeti.RamifiedClassField.rootDivisorGroupoid.test_branch_kernel",
+          "kind": "characterisation",
+          "statement": "At any branch point in odd characteristic, the modified unit with u=1,v=−1 there and identity elsewhere gives a nonidentity automorphism of the unit idele."
+        },
+        {
+          "name": "TauCeti.RamifiedClassField.rootDivisorGroupoid.test_principal_not_quotiented",
+          "kind": "non-example",
+          "statement": "For R=∅ and a nonconstant f∈F× with nonzero principal divisor, the identity and diagonal-f objects are not isomorphic in the right quotient, but their images in the double Picard quotient are isomorphic."
+        }
+      ]
     },
     {
       "id": "FunctionFieldArithmeticPartII:GC.3/tame-local-systems",
@@ -5492,7 +5570,7 @@
       "sources": [
         {
           "sourceId": "YZ19",
-          "locator": "Lemma A.8 p. 520 and A.2.3 p. 523 coherence argument",
+          "locator": "Lemma A.8 and concluding exercise, p. 520; Proposition A.11(3) and its proof, p. 523.",
           "match": "The stated source passage gives the construction or proof specialized with the hypotheses and conventions above; the decomposition makes its non-routine steps explicit."
         }
       ],
@@ -5529,7 +5607,7 @@
       "sources": [
         {
           "sourceId": "YZ19",
-          "locator": "Lemma A.8 p. 520; A.2.3 p. 523",
+          "locator": "Lemma A.8 and concluding exercise, p. 520; Proposition A.11(3), p. 523.",
           "match": "The stated source passage gives the construction or proof specialized with the hypotheses and conventions above; the decomposition makes its non-routine steps explicit."
         }
       ],
@@ -5879,7 +5957,7 @@
       "sources": [
         {
           "sourceId": "YZ19",
-          "locator": "A.2.2 p. 521, translation by divisors; Lemma A.10 p. 522",
+          "locator": "A.2.2, pp. 521–522: translation by divisors and reduction to effective divisors; Lemma A.10, p. 522.",
           "match": "The stated source passage gives the construction or proof specialized with the hypotheses and conventions above; the decomposition makes its non-routine steps explicit."
         }
       ],
@@ -6204,7 +6282,7 @@
       "sources": [
         {
           "sourceId": "YZ19",
-          "locator": "Lemma A.10 p. 522 (source issue E68)",
+          "locator": "Lemma A.10, p. 522; the packet finding is E6, inherited from PAPER-YUN-ZHANG-19/E68.",
           "match": "The stated source passage gives the construction or proof specialized with the hypotheses and conventions above; the decomposition makes its non-routine steps explicit."
         }
       ],
@@ -6286,7 +6364,7 @@
       "sources": [
         {
           "sourceId": "YZ19",
-          "locator": "Proof of Proposition A.11 p. 523 (source issues E35/E69)",
+          "locator": "Proof of Proposition A.11, p. 523; product Abel–Jacobi correction E4 and Picard-superscript correction E7.",
           "match": "The stated source passage gives the construction or proof specialized with the hypotheses and conventions above; the decomposition makes its non-routine steps explicit."
         }
       ],
@@ -7051,7 +7129,7 @@
       "sources": [
         {
           "sourceId": "YZ19",
-          "locator": "A.2.3 p. 520 and proof of Proposition A.12 p. 525 (source issue E34)",
+          "locator": "Proposition A.11, pp. 522–523, and the proof of Proposition A.12, p. 525. A.2.3 is on pp. 522–523, not p. 520.",
           "match": "The stated source passage gives the construction or proof specialized with the hypotheses and conventions above; the decomposition makes its non-routine steps explicit."
         }
       ],
@@ -41649,7 +41727,8 @@
         "FunctionFieldArithmeticPartII:GC.6/norm-residue-square",
         "FunctionFieldArithmeticPartII:GC.6/root-norm",
         "FunctionFieldArithmeticPartII:GC.6/picard-descent-obstructions",
-        "FunctionFieldArithmeticPartII:GC.6/hat-root-norm"
+        "FunctionFieldArithmeticPartII:GC.6/hat-root-norm",
+        "FunctionFieldArithmeticPartII:GC.2/root-divisor-groupoid"
       ]
     },
     {
@@ -41659,7 +41738,8 @@
       "neededBy": [
         "FunctionFieldArithmeticPartII:GC.2/root-units",
         "FunctionFieldArithmeticPartII:GC.2/adelic-root-groupoid",
-        "FunctionFieldArithmeticPartII:GC.6/away-ramification-generation"
+        "FunctionFieldArithmeticPartII:GC.6/away-ramification-generation",
+        "FunctionFieldArithmeticPartII:GC.2/root-divisor-groupoid"
       ]
     },
     {
@@ -41914,7 +41994,7 @@
     {
       "id": "LEAN-GEOMETRY",
       "title": "Signatures blocked by absent geometric carriers",
-      "detail": "The suggested file prototypes the native root-object and affine-action fragment. All other geometric signatures need the actual algebraic-stack, Picard-stack, torsor, root pullback and constructible/lisse sheaf types from the requests and ST-LISSE/ST-OPS. The file carries an exhaustive omission ledger by declaration/API/test name; it does not replace missing types or conditions with arbitrary predicate fields. Complete those typed signatures after their suppliers fix their concrete types, and compile with an existing pinned build. A pinned Mathlib build exists, but no compiled Tau Ceti build with these imports was found; full-file elaboration remains open.",
+      "detail": "The suggested file prototypes the native root-object and affine-action fragment. All other geometric signatures need the actual algebraic-stack, Picard-stack, torsor, root pullback and constructible/lisse sheaf types from the requests and ST-LISSE/ST-OPS. The file carries an exhaustive omission ledger by declaration/API/test name; it does not replace missing types or conditions with arbitrary predicate fields. Complete those typed signatures after their suppliers fix their concrete types, and compile with an existing pinned build. A pinned Mathlib build exists, but no compiled Tau Ceti build with these imports was found; full-file elaboration remains open. Review checkpoint: rootDivisorGroupoid and its six API/four test signatures require the actual action-groupoid, idele, divisor and Picard carriers. Their omission ledger is explicit in the suggested file; no arbitrary predicate substitutes for these types.",
       "neededBy": [
         "FunctionFieldArithmeticPartII:key/root-stacks",
         "FunctionFieldArithmeticPartII:RS.1/two-pullback",
@@ -42676,6 +42756,11 @@
         "by": "REV-PAPER-YUN-ZHANG-19",
         "originalLocator": "§7.1.1 p.506 and §A.2.1 p.519, perversity terminology; same issue in the corresponding arXiv v2 passage collated",
         "amendedCorrection": "K_{d,i} is a shifted perverse sheaf: K_{d,i}[d] is perverse. The same applies to p^√R_{d,!}L^{⊠d} and L_d in §A.2.1, and to 'The perverse sheaf L_d' in Lemma A.7."
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Printed p.506 has the normalized IC display followed by the perverse label, and Appendix A pp.519–520 calls the unshifted lisse object perverse. The correction retains the actual normalization.",
+        "by": "REV-DESIGN-FunctionFieldArithmeticPartII"
       }
     },
     {
@@ -42702,6 +42787,11 @@
         "by": "REV-PAPER-YUN-ZHANG-19",
         "originalLocator": "§A.1.3 pp.515–516, fibre over a(x)=0; same issue in the corresponding arXiv v2 passage collated",
         "amendedCorrection": "P_x ≅ [Spec K[t]/(t²)/μ_{2,K}] when a(x) = 0, with μ_2 acting by t ↦ −t; its reduced substack is Bμ_{2,K}."
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Printed pp.515–516 assert the classifying-stack full fibre, but the scheme-theoretic root equation is t²=0; AGV B.2 p.53 explicitly retains its nilpotent thickening.",
+        "by": "REV-DESIGN-FunctionFieldArithmeticPartII"
       }
     },
     {
@@ -42729,6 +42819,11 @@
         "by": "REV-PAPER-YUN-ZHANG-19",
         "originalLocator": "LemmaA.8 proof p.520, general monodromy character; published version",
         "amendedCorrection": "χ: π_1(U) → Q̄_ℓ^×; the maps (A.5) and (A.6) also land in Q̄_ℓ^×. Only the inertia at x ∈ R has order dividing 2."
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Printed p.520 uses a globally ±1-valued character for the arbitrary rank-one input fixed on p.519; only the branch inertia is constrained to order two.",
+        "by": "REV-DESIGN-FunctionFieldArithmeticPartII"
       }
     },
     {
@@ -42755,6 +42850,11 @@
         "by": "REV-PAPER-YUN-ZHANG-19",
         "originalLocator": "LemmaA.11 proof p.523, descent pullback; published version",
         "amendedCorrection": "Since AJ^√R_{d1} × AJ^√R_{d2} has connected geometric fibres, it suffices to give μ_{d1,d2} after pulling back to X^√R_{d1} × X^√R_{d2}, where it is α_{d1,d2} of Lemma A.8."
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Printed p.523 names AJ_(d1+d2) while the multiplication comparison is on the two-factor Picard product; the product of Abel–Jacobi maps is the required pullback.",
+        "by": "REV-DESIGN-FunctionFieldArithmeticPartII"
       }
     },
     {
@@ -42777,6 +42877,11 @@
         "verdict": "confirmed",
         "reason": "found and checked on the page image by the review",
         "by": "REV-PAPER-YUN-ZHANG-19"
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Printed p.515 says a_R is the restriction of a_R; the previous bullet supplies the global section a whose restriction is intended.",
+        "by": "REV-DESIGN-FunctionFieldArithmeticPartII"
       }
     },
     {
@@ -42799,6 +42904,11 @@
         "verdict": "confirmed",
         "reason": "found and checked on the page image by the review",
         "by": "REV-PAPER-YUN-ZHANG-19"
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Printed p.522 uses a divisor in an addition-of-effective-divisors map. Choosing a sufficiently large effective divisor is the needed condition; no degree-one point is required.",
+        "by": "REV-DESIGN-FunctionFieldArithmeticPartII"
       }
     },
     {
@@ -42821,6 +42931,11 @@
         "verdict": "confirmed",
         "reason": "found and checked on the page image by the review",
         "by": "REV-PAPER-YUN-ZHANG-19"
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The three expressions on p.523 following (A.8) apply translations and multiplication on Picard stacks to L rather than L^Pic; the preceding definition and (A.8) fix the intended object.",
+        "by": "REV-DESIGN-FunctionFieldArithmeticPartII"
       }
     },
     {
@@ -42837,7 +42952,12 @@
         "2026-10-02: Annals article page https://annals.math.princeton.edu/2019/189-2/p02 has no linked erratum; publisher PDF p. 525 inspected.",
         "2026-10-02: arXiv listing https://arxiv.org/abs/1712.08026 lists v2 (13 June 2020); its p. 89 retains the same display and one-sentence implication.",
         "2026-10-02: Wei Zhang publication page https://math.mit.edu/~wz2113/math/pub.html and searches for an Appendix A/Picard exactness correction found no correction."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The P¹ double-cover degree test rules out ordinary kernel/image exactness on line-bundle classes. This confirms only the recorded interpretation/proof gap: a coherent Picard-stack replacement and its obstruction data remain to be established.",
+        "by": "REV-DESIGN-FunctionFieldArithmeticPartII"
+      }
     },
     {
       "id": "FunctionFieldArithmeticPartII/E9",
@@ -42859,6 +42979,11 @@
         "verdict": "confirmed",
         "reason": "found and checked on the page image by the review",
         "by": "REV-PAPER-YUN-ZHANG-19"
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Printed p.518 introduces t_R as the root-line frame and then writes τ_R for these extra data. The ordinary line frames τ_x are different.",
+        "by": "REV-DESIGN-FunctionFieldArithmeticPartII"
       }
     },
     {
@@ -42888,6 +43013,27 @@
       "searched": [
         "Author-hosted23February2023 draft and current author-hosted5January2026 draft; corresponding selected exercise paragraphs were collated. No publisher-version or complete erratum search claimed."
       ]
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII/E12",
+      "source": "AGV08",
+      "kind": "misprint",
+      "locator": "arXiv:math/0603151v2, Appendix B.2, p.53, item (3) in the triple definition; preprint only.",
+      "printed": "φ(τ^m) = σ",
+      "correction": "φ(τ^d) = σ",
+      "reason": "The same definition has φ:M^{⊗d}≅L_T and d is the root exponent. No exponent m is bound there; the displayed m makes the expression ill-typed. The rendered p.53 confirms m rather than a text-extraction artifact. The packet already uses the correct exponent.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "2026-10-05: arXiv version list https://arxiv.org/abs/math/0603151 has v2 as its latest version; the inspected v2 retains m.",
+        "2026-10-05: exact-title erratum search and Abramovich public paper directory https://www.math.brown.edu/dabramov/PAPERS/ did not identify a correction.",
+        "2026-10-05: attempted Project Euclid journal page for DOI 10.1353/ajm.0.0017 was not served by the browser tool. No published-version collation or assertion about the version of record is made."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The rendered inspected preprint p.53 has exponent m while the preceding power-isomorphism has exponent d. Confirmation applies only to that preprint.",
+        "by": "REV-DESIGN-FunctionFieldArithmeticPartII"
+      }
     }
   ],
   "upstreamNotes": [
@@ -43229,6 +43375,13 @@
       "read": "2026-10-04",
       "sha256": "f07437af689e9ae4ccd355183f357d234474606a4e0d6511ff2d4ac0a4f14d6d",
       "citation": "Alper Stacks and Moduli author draft5January2026; selected extractedpp.159–160 only. This later author draft supplies the correction, no publisher version read."
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/math/0603151v2",
+      "read": "2026-10-05",
+      "sha256": "c2889c567c21aa5473ba0be75221dbb67ca122210fa4e4973f4727c490bdd5eb",
+      "citation": "AGV arXiv v2, Appendix B pp.52–54 only; p.53 rendered. The new misprint below is scoped to this preprint, with published collation still unestablished."
     }
   ],
   "auditEvidence": {
@@ -44967,5 +45120,405 @@
     "mathematicalClosure": false,
     "sourceBoundary": "Both source routes and the 38-contract symplectic split inventory remain unchanged; completing the pass does not accept the split or certify its proposed sibling stages.",
     "compilation": "No Lean run in this pass. The canonical file still lacks an existing exact-pin Tau Ceti build; predecessor proof receipts are preserved and attributed separately."
+  },
+  "reviewCheckpoint": {
+    "status": "partial",
+    "reviewer": "independent-review-REV-DESIGN-FunctionFieldArithmeticPartII",
+    "date": "2026-10-05",
+    "agent": "Codex — codex-yqJkRM",
+    "completionGate": "No final top-level review verdict: the 638 continuation nodes and 323 remaining baseline entries still require source-qualified independent verification.",
+    "nodeStatementsRead": [
+      "FunctionFieldArithmeticPartII:RS.0/tensor-power",
+      "FunctionFieldArithmeticPartII:RS.0/section-power",
+      "FunctionFieldArithmeticPartII:RS.0/root-object",
+      "FunctionFieldArithmeticPartII:RS.0/affine-action",
+      "FunctionFieldArithmeticPartII:key/root-stacks",
+      "FunctionFieldArithmeticPartII:RS.1/two-pullback",
+      "FunctionFieldArithmeticPartII:RS.1/base-change",
+      "FunctionFieldArithmeticPartII:RS.1/affine-chart",
+      "FunctionFieldArithmeticPartII:RS.1/closed-fibre",
+      "FunctionFieldArithmeticPartII:RS.1/coarse-space",
+      "FunctionFieldArithmeticPartII:RS.1/regular-dm",
+      "FunctionFieldArithmeticPartII:RS.2/transition",
+      "FunctionFieldArithmeticPartII:RS.2/infinite-root-stack",
+      "FunctionFieldArithmeticPartII:RS.2/infinite-base-change",
+      "FunctionFieldArithmeticPartII:RS.2/dvr-roots",
+      "FunctionFieldArithmeticPartII:RS.2/dvr-infinite-gerbe",
+      "FunctionFieldArithmeticPartII:RS.2/dvr-kummer-classes",
+      "FunctionFieldArithmeticPartII:GC.0/root-picard",
+      "FunctionFieldArithmeticPartII:GC.0/square-action-quotient",
+      "FunctionFieldArithmeticPartII:GC.0/root-picard-section",
+      "FunctionFieldArithmeticPartII:GC.1/root-symmetric-space",
+      "FunctionFieldArithmeticPartII:GC.1/evaluation-pullback",
+      "FunctionFieldArithmeticPartII:GC.1/incidence-transversality",
+      "FunctionFieldArithmeticPartII:GC.1/evaluation-smooth-criterion",
+      "FunctionFieldArithmeticPartII:GC.1/root-symmetric-smooth",
+      "FunctionFieldArithmeticPartII:GC.1/root-symmetric-coarse",
+      "FunctionFieldArithmeticPartII:GC.1/root-addition",
+      "FunctionFieldArithmeticPartII:GC.1/ordered-divisors",
+      "FunctionFieldArithmeticPartII:GC.1/ordered-proper",
+      "FunctionFieldArithmeticPartII:GC.1/root-abel-jacobi",
+      "FunctionFieldArithmeticPartII:GC.2/root-units",
+      "FunctionFieldArithmeticPartII:GC.2/adelic-root-groupoid",
+      "FunctionFieldArithmeticPartII:GC.2/root-divisor-groupoid",
+      "FunctionFieldArithmeticPartII:GC.3/tame-local-systems",
+      "FunctionFieldArithmeticPartII:GC.3/symmetric-local-system",
+      "FunctionFieldArithmeticPartII:GC.3/collision-kernel",
+      "FunctionFieldArithmeticPartII:GC.3/middle-extension",
+      "FunctionFieldArithmeticPartII:GC.3/collision-descent",
+      "FunctionFieldArithmeticPartII:GC.3/cohomology-vanishing",
+      "FunctionFieldArithmeticPartII:GC.3/koszul-exterior",
+      "FunctionFieldArithmeticPartII:GC.3/exterior-cohomology",
+      "FunctionFieldArithmeticPartII:GC.3/multiplicity-free-product",
+      "FunctionFieldArithmeticPartII:GC.3/symmetric-multiplicativity",
+      "FunctionFieldArithmeticPartII:GC.3/symmetric-associativity",
+      "FunctionFieldArithmeticPartII:GC.3/symmetric-symmetry",
+      "FunctionFieldArithmeticPartII:GC.4/evaluation-surjective",
+      "FunctionFieldArithmeticPartII:GC.4/affine-fibre-chart",
+      "FunctionFieldArithmeticPartII:GC.4/weighted-cover",
+      "FunctionFieldArithmeticPartII:GC.4/weighted-ramification",
+      "FunctionFieldArithmeticPartII:GC.4/weighted-simply-connected",
+      "FunctionFieldArithmeticPartII:GC.4/fibre-triviality",
+      "FunctionFieldArithmeticPartII:GC.4/empty-ramification-descent",
+      "FunctionFieldArithmeticPartII:GC.4/high-degree-descent",
+      "FunctionFieldArithmeticPartII:GC.5/auxiliary-divisors",
+      "FunctionFieldArithmeticPartII:GC.5/divisor-tensor-line",
+      "FunctionFieldArithmeticPartII:GC.5/translate-high-degree",
+      "FunctionFieldArithmeticPartII:GC.5/all-degree-extension",
+      "FunctionFieldArithmeticPartII:GC.5/choice-comparison",
+      "FunctionFieldArithmeticPartII:GC.5/choice-cocycle",
+      "FunctionFieldArithmeticPartII:GC.5/effective-pullback",
+      "FunctionFieldArithmeticPartII:GC.5/unit-trivialization",
+      "FunctionFieldArithmeticPartII:GC.5/high-degree-multiplication",
+      "FunctionFieldArithmeticPartII:GC.5/all-degree-multiplication",
+      "FunctionFieldArithmeticPartII:GC.5/character-associativity",
+      "FunctionFieldArithmeticPartII:GC.5/character-symmetry-unit",
+      "FunctionFieldArithmeticPartII:GC.5/hat-character-pullback",
+      "FunctionFieldArithmeticPartII:GC.6/root-multiplicative-sheaf",
+      "FunctionFieldArithmeticPartII:GC.6/norm-residue-square",
+      "FunctionFieldArithmeticPartII:GC.6/root-norm",
+      "FunctionFieldArithmeticPartII:GC.6/root-norm-surjective",
+      "FunctionFieldArithmeticPartII:GC.6/norm-kernel",
+      "FunctionFieldArithmeticPartII:GC.6/exact-sheaf-complex",
+      "FunctionFieldArithmeticPartII:GC.6/picard-descent-obstructions",
+      "FunctionFieldArithmeticPartII:GC.6/hat-root-norm",
+      "FunctionFieldArithmeticPartII:GC.6/quadratic-input",
+      "FunctionFieldArithmeticPartII:GC.6/trace-character",
+      "FunctionFieldArithmeticPartII:GC.6/closed-point-trace",
+      "FunctionFieldArithmeticPartII:GC.6/away-ramification-generation",
+      "FunctionFieldArithmeticPartII:GC.6/quadratic-trace"
+    ],
+    "baselineStatementsRead": [
+      "mathlib:AlgebraicGeometry.Scheme",
+      "tauceti:TauCeti.AlgebraicGeometry.InvertibleSheaf",
+      "tauceti:TauCeti.AlgebraicGeometry.InvertibleSheaf.trivial",
+      "tauceti:TauCeti.AlgebraicGeometry.InvertibleSheaf.tensorProduct",
+      "mathlib:AlgebraicGeometry.Scheme.Modules.presheaf",
+      "mathlib:CategoryTheory.Core",
+      "mathlib:CategoryTheory.Pseudofunctor.IsStack",
+      "mathlib:CategoryTheory.Pseudofunctor.Grothendieck",
+      "mathlib:AlgebraicGeometry.Scheme.fppfTopology",
+      "mathlib:AdjoinRoot",
+      "mathlib:AdjoinRoot.eval₂_root",
+      "mathlib:AdjoinRoot.lift",
+      "mathlib:rootsOfUnity",
+      "mathlib:ExteriorAlgebra.exteriorPower",
+      "tauceti:TauCeti.AlgebraicGeometry.InvertibleSheaf.tensorProductCongrLeft",
+      "tauceti:TauCeti.AlgebraicGeometry.InvertibleSheaf.tensorProductCongrRight",
+      "tauceti:TauCeti.AlgebraicGeometry.InvertibleSheaf.tensorProductComm",
+      "tauceti:TauCeti.AlgebraicGeometry.InvertibleSheaf.tensorProductAssoc",
+      "tauceti:TauCeti.AlgebraicGeometry.InvertibleSheaf.tensorTrivialLeftIso",
+      "tauceti:TauCeti.AlgebraicGeometry.InvertibleSheaf.tensorTrivialRightIso",
+      "mathlib:AlgebraicGeometry.Scheme.Modules.Hom.app",
+      "mathlib:SheafOfModules.freeSection",
+      "mathlib:SheafOfModules.sections",
+      "mathlib:SheafOfModules.sectionsMap"
+    ],
+    "corrections": [
+      {
+        "nodeId": "FunctionFieldArithmeticPartII:key/root-stacks",
+        "change": "source locator/excerpt/match",
+        "before": {
+          "sourceId": "AGV08",
+          "locator": "B.2 pp. 53–54; stack-base sentence p. 54; TV §3 pp. 12–13",
+          "match": "The stated source passage gives the construction or proof specialized with the hypotheses and conventions above; the decomposition makes its non-routine steps explicit."
+        },
+        "after": {
+          "sourceId": "AGV08",
+          "locator": "Appendix B.2, pp. 53–54: scheme-base triples and classifying-stack fibre product; algebraic-stack bases are an atlas-descent extension, not a sentence in this appendix.",
+          "match": "AGV gives the root-object definition for scheme bases. The extension to an algebraic-stack base uses the separately requested atlas and descent infrastructure; AGV Appendix B does not itself state that extension."
+        }
+      },
+      {
+        "nodeId": "FunctionFieldArithmeticPartII:RS.1/two-pullback",
+        "change": "source locator/excerpt/match",
+        "before": {
+          "sourceId": "AGV08",
+          "locator": "B.2 pp. 53–54 displayed fibre-product diagram",
+          "match": "The stated source passage gives the construction or proof specialized with the hypotheses and conventions above; the decomposition makes its non-routine steps explicit."
+        },
+        "after": {
+          "sourceId": "AGV08",
+          "locator": "Appendix B.2, p. 54: U=[A¹/G_m] and the displayed S×_U U description.",
+          "match": "The final B.2 display identifies the scheme-base root construction as this fibre product; the stack-base version uses the requested geometric descent interface."
+        }
+      },
+      {
+        "nodeId": "FunctionFieldArithmeticPartII:RS.1/affine-chart",
+        "change": "source locator/excerpt/match",
+        "before": {
+          "sourceId": "AGV08",
+          "locator": "B.2 p. 54; TV Corollary 3.13 p. 16, P=N",
+          "match": "The stated source passage gives the construction or proof specialized with the hypotheses and conventions above; the decomposition makes its non-routine steps explicit."
+        },
+        "after": {
+          "sourceId": "AGV08",
+          "locator": "Appendix B.2, pp. 53–54: [V_σ/G_m] and W_σ×G_m≃V_σ; finite μ_n quotient after trivializing the line.",
+          "match": "The quotient and displayed trivialization give the affine μ_n chart; this is not a claim that μ_n appears in the p. 54 paragraph. Talpo–Vistoli Corollary 3.13 is also recorded below."
+        }
+      },
+      {
+        "nodeId": "FunctionFieldArithmeticPartII:RS.1/closed-fibre",
+        "change": "source locator/excerpt/match",
+        "before": {
+          "sourceId": "AGV08",
+          "locator": "B.2 p. 54 closed-locus discussion; YZ19 A.1.3 pp. 515–516 corrected; B24 p. 135",
+          "match": "The stated source passage gives the construction or proof specialized with the hypotheses and conventions above; the decomposition makes its non-routine steps explicit."
+        },
+        "after": {
+          "sourceId": "AGV08",
+          "locator": "Appendix B.2, p. 53: nilpotent closed embedding of the root gerbe into the zero-section fibre.",
+          "match": "The source distinguishes the full zero-section fibre from its root gerbe. At a geometric field this is the nilpotent quotient chart and its reduced classifying gerbe."
+        }
+      },
+      {
+        "nodeId": "FunctionFieldArithmeticPartII:RS.1/regular-dm",
+        "change": "source locator/excerpt/match",
+        "before": {
+          "sourceId": "AGV08",
+          "locator": "B.2 p. 54 smooth/normal-crossing root construction; YZ19 A.1.4 pp. 516–517",
+          "match": "The stated source passage gives the construction or proof specialized with the hypotheses and conventions above; the decomposition makes its non-routine steps explicit."
+        },
+        "after": {
+          "sourceId": "AGV08",
+          "locator": "Appendix B.2, pp. 53–54: the G_m quotient atlas; regularity is the local regular-parameter argument in proofSteps, rather than a smooth/normal-crossing theorem printed here.",
+          "match": "The G_m atlas can test regularity even at wild exponents. The requested regular-divisor and geometric quotient interfaces supply the commutative-algebra and descent details; Appendix B does not state a general regularity theorem."
+        }
+      },
+      {
+        "nodeId": "FunctionFieldArithmeticPartII:RS.1/regular-dm",
+        "change": "use the smooth G_m atlas for regularity at wild exponents; theorem statement retained"
+      },
+      {
+        "nodeId": "FunctionFieldArithmeticPartII:GC.1/evaluation-smooth-criterion",
+        "change": "source locator/excerpt/match",
+        "before": {
+          "sourceId": "YZ19",
+          "locator": "Lemma A.3 p. 516",
+          "match": "The stated source passage gives the construction or proof specialized with the hypotheses and conventions above; the decomposition makes its non-routine steps explicit."
+        },
+        "after": {
+          "sourceId": "YZ19",
+          "locator": "Claim in the proof of Lemma A.4(1), p. 516; Definition A.3 on that page is a different item.",
+          "match": "The source claim assumes Z smooth and irreducible and each section not identically zero. Its scheme-theoretic vanishing divisors are smooth and meet transversely precisely when the classifying map is smooth."
+        }
+      },
+      {
+        "nodeId": "FunctionFieldArithmeticPartII:GC.1/evaluation-smooth-criterion",
+        "change": "restore the hypotheses in the printed smoothness claim"
+      },
+      {
+        "nodeId": "FunctionFieldArithmeticPartII:GC.1/root-addition",
+        "change": "source locator/excerpt/match",
+        "before": {
+          "sourceId": "YZ19",
+          "locator": "A.1.4 pp. 517–518",
+          "match": "The stated source passage gives the construction or proof specialized with the hypotheses and conventions above; the decomposition makes its non-routine steps explicit."
+        },
+        "after": {
+          "sourceId": "YZ19",
+          "locator": "A.1.4, pp. 517–518; (A.2) on p. 517.",
+          "match": "The stated source passage gives the construction or proof specialized with the hypotheses and conventions above; the decomposition makes its non-routine steps explicit."
+        }
+      },
+      {
+        "nodeId": "FunctionFieldArithmeticPartII:GC.1/ordered-divisors",
+        "change": "source locator/excerpt/match",
+        "before": {
+          "sourceId": "YZ19",
+          "locator": "A.1.4 (A.3) p. 518",
+          "match": "The stated source passage gives the construction or proof specialized with the hypotheses and conventions above; the decomposition makes its non-routine steps explicit."
+        },
+        "after": {
+          "sourceId": "YZ19",
+          "locator": "A.1.4, (A.3), p. 517.",
+          "match": "The stated source passage gives the construction or proof specialized with the hypotheses and conventions above; the decomposition makes its non-routine steps explicit."
+        }
+      },
+      {
+        "nodeId": "FunctionFieldArithmeticPartII:GC.1/root-abel-jacobi",
+        "change": "source locator/excerpt/match",
+        "before": {
+          "sourceId": "YZ19",
+          "locator": "A.1.5 p. 518",
+          "match": "The stated source passage gives the construction or proof specialized with the hypotheses and conventions above; the decomposition makes its non-routine steps explicit."
+        },
+        "after": {
+          "sourceId": "YZ19",
+          "locator": "A.1.5, p. 517: both hat Abel–Jacobi maps and their effective restrictions.",
+          "match": "The stated source passage gives the construction or proof specialized with the hypotheses and conventions above; the decomposition makes its non-routine steps explicit."
+        }
+      },
+      {
+        "nodeId": "FunctionFieldArithmeticPartII:GC.2/root-units",
+        "change": "source locator/excerpt/match",
+        "before": {
+          "sourceId": "YZ19",
+          "locator": "A.1.6 pp. 518–519",
+          "match": "The stated source passage gives the construction or proof specialized with the hypotheses and conventions above; the decomposition makes its non-routine steps explicit."
+        },
+        "after": {
+          "sourceId": "YZ19",
+          "locator": "A.1.6, pp. 517–518, modified local-unit groups.",
+          "match": "The stated source passage gives the construction or proof specialized with the hypotheses and conventions above; the decomposition makes its non-routine steps explicit."
+        }
+      },
+      {
+        "nodeId": "FunctionFieldArithmeticPartII:GC.2/adelic-root-groupoid",
+        "change": "source locator/excerpt/match",
+        "before": {
+          "sourceId": "YZ19",
+          "locator": "Lemma A.5 p. 519 and proof",
+          "match": "The stated source passage gives the construction or proof specialized with the hypotheses and conventions above; the decomposition makes its non-routine steps explicit."
+        },
+        "after": {
+          "sourceId": "YZ19",
+          "locator": "Lemma A.5, (A.4) and complete proof, p. 518.",
+          "match": "The stated source passage gives the construction or proof specialized with the hypotheses and conventions above; the decomposition makes its non-routine steps explicit."
+        }
+      },
+      {
+        "nodeId": "FunctionFieldArithmeticPartII:GC.3/symmetric-associativity",
+        "change": "source locator/excerpt/match",
+        "before": {
+          "sourceId": "YZ19",
+          "locator": "Lemma A.8 p. 520 and A.2.3 p. 523 coherence argument",
+          "match": "The stated source passage gives the construction or proof specialized with the hypotheses and conventions above; the decomposition makes its non-routine steps explicit."
+        },
+        "after": {
+          "sourceId": "YZ19",
+          "locator": "Lemma A.8 and concluding exercise, p. 520; Proposition A.11(3) and its proof, p. 523.",
+          "match": "The stated source passage gives the construction or proof specialized with the hypotheses and conventions above; the decomposition makes its non-routine steps explicit."
+        }
+      },
+      {
+        "nodeId": "FunctionFieldArithmeticPartII:GC.3/symmetric-symmetry",
+        "change": "source locator/excerpt/match",
+        "before": {
+          "sourceId": "YZ19",
+          "locator": "Lemma A.8 p. 520; A.2.3 p. 523",
+          "match": "The stated source passage gives the construction or proof specialized with the hypotheses and conventions above; the decomposition makes its non-routine steps explicit."
+        },
+        "after": {
+          "sourceId": "YZ19",
+          "locator": "Lemma A.8 and concluding exercise, p. 520; Proposition A.11(3), p. 523.",
+          "match": "The stated source passage gives the construction or proof specialized with the hypotheses and conventions above; the decomposition makes its non-routine steps explicit."
+        }
+      },
+      {
+        "nodeId": "FunctionFieldArithmeticPartII:GC.5/auxiliary-divisors",
+        "change": "source locator/excerpt/match",
+        "before": {
+          "sourceId": "YZ19",
+          "locator": "A.2.2 p. 521, translation by divisors; Lemma A.10 p. 522",
+          "match": "The stated source passage gives the construction or proof specialized with the hypotheses and conventions above; the decomposition makes its non-routine steps explicit."
+        },
+        "after": {
+          "sourceId": "YZ19",
+          "locator": "A.2.2, pp. 521–522: translation by divisors and reduction to effective divisors; Lemma A.10, p. 522.",
+          "match": "The stated source passage gives the construction or proof specialized with the hypotheses and conventions above; the decomposition makes its non-routine steps explicit."
+        }
+      },
+      {
+        "nodeId": "FunctionFieldArithmeticPartII:GC.5/effective-pullback",
+        "change": "source locator/excerpt/match",
+        "before": {
+          "sourceId": "YZ19",
+          "locator": "Lemma A.10 p. 522 (source issue E68)",
+          "match": "The stated source passage gives the construction or proof specialized with the hypotheses and conventions above; the decomposition makes its non-routine steps explicit."
+        },
+        "after": {
+          "sourceId": "YZ19",
+          "locator": "Lemma A.10, p. 522; the packet finding is E6, inherited from PAPER-YUN-ZHANG-19/E68.",
+          "match": "The stated source passage gives the construction or proof specialized with the hypotheses and conventions above; the decomposition makes its non-routine steps explicit."
+        }
+      },
+      {
+        "nodeId": "FunctionFieldArithmeticPartII:GC.5/high-degree-multiplication",
+        "change": "source locator/excerpt/match",
+        "before": {
+          "sourceId": "YZ19",
+          "locator": "Proof of Proposition A.11 p. 523 (source issues E35/E69)",
+          "match": "The stated source passage gives the construction or proof specialized with the hypotheses and conventions above; the decomposition makes its non-routine steps explicit."
+        },
+        "after": {
+          "sourceId": "YZ19",
+          "locator": "Proof of Proposition A.11, p. 523; product Abel–Jacobi correction E4 and Picard-superscript correction E7.",
+          "match": "The stated source passage gives the construction or proof specialized with the hypotheses and conventions above; the decomposition makes its non-routine steps explicit."
+        }
+      },
+      {
+        "nodeId": "FunctionFieldArithmeticPartII:GC.6/trace-character",
+        "change": "source locator/excerpt/match",
+        "before": {
+          "sourceId": "YZ19",
+          "locator": "A.2.3 p. 520 and proof of Proposition A.12 p. 525 (source issue E34)",
+          "match": "The stated source passage gives the construction or proof specialized with the hypotheses and conventions above; the decomposition makes its non-routine steps explicit."
+        },
+        "after": {
+          "sourceId": "YZ19",
+          "locator": "Proposition A.11, pp. 522–523, and the proof of Proposition A.12, p. 525. A.2.3 is on pp. 522–523, not p. 520.",
+          "match": "The stated source passage gives the construction or proof specialized with the hypotheses and conventions above; the decomposition makes its non-routine steps explicit."
+        }
+      },
+      {
+        "nodeId": "FunctionFieldArithmeticPartII:GC.2/root-divisor-groupoid",
+        "change": "source locator/excerpt/match",
+        "before": {
+          "sourceId": "YZ19",
+          "locator": "§6.2.3 p. 499, Lemma 6.4 (6.9); Definition A.2 p. 515",
+          "match": "The stated source passage gives the construction or proof specialized with the hypotheses and conventions above; the decomposition makes its non-routine steps explicit."
+        },
+        "after": {
+          "sourceId": "YZ19",
+          "locator": "§6.2.3, p. 498: definition of Div^√R(X), its two maps and O_X(−E); Lemma 6.4, (6.9), p. 499.",
+          "match": "The source defines the right idele action quotient on all signed divisors. The left F× quotient occurs only in the subsequent Picard map; it is not an effective symmetric-power moduli problem."
+        }
+      },
+      {
+        "nodeId": "FunctionFieldArithmeticPartII:GC.2/root-divisor-groupoid",
+        "change": "replace false effective-space identification with the full signed right-action groupoid; add 6 API items and 4 discriminating tests; preserve the node id"
+      }
+    ],
+    "sourceIssuesChecked": [
+      "FunctionFieldArithmeticPartII/E1",
+      "FunctionFieldArithmeticPartII/E2",
+      "FunctionFieldArithmeticPartII/E3",
+      "FunctionFieldArithmeticPartII/E4",
+      "FunctionFieldArithmeticPartII/E5",
+      "FunctionFieldArithmeticPartII/E6",
+      "FunctionFieldArithmeticPartII/E7",
+      "FunctionFieldArithmeticPartII/E8",
+      "FunctionFieldArithmeticPartII/E9",
+      "FunctionFieldArithmeticPartII/E12"
+    ],
+    "remaining": [
+      "Independently verify every continuation node, starting at RS.0/affine-root-relation (packet index 79).",
+      "Read and validate the remaining 323 baseline statements at their recorded pins; raw name/module searches are not statement confirmation.",
+      "Finish supplier closure, API/tests, planet selection and all ten coverage entries, including both source-route boundaries and the symplectic split inventory.",
+      "Check E10–E11 against both Alper draft versions; published/preprint source collation remains version-specific.",
+      "Coordinate the definitive reader corrections in the review report: that reader is absent from this issue’s allowed deliverables.",
+      "Compile the canonical suggested file only when an existing exact-pin Tau build supplies its imports; no library build or cache fetch is authorized."
+    ]
   }
 }

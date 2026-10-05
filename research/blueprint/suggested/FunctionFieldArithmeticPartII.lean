@@ -1,3 +1,24 @@
+/-
+This file is not the roadmap and is not exhaustive. The roadmap document is
+definitive. These signatures suggest Lean forms so that contributors and
+reviewers converge on names and signatures. No implementation is claimed.
+
+The planning pass is complete at the protocol node budget; every stage remains
+partial. All declaration bodies and the geometric omission ledger are retained.
+Complete planning status does not certify this file or close its geometric gaps.
+
+The native fragment uses the pinned invertible-sheaf and quotient-ring types.
+The omission ledger below records signatures needing actual geometric types
+from other roadmap owners. It does not replace them with assumed predicates.
+The independent review check on 2026-10-05 stopped at the missing compiled
+TauCeti.Algebra.AddCircle module, before any declarations were elaborated.
+The complete file remains uncompiled; no implementation is certified.
+The finite action-comparison fragment was checked against pinned Mathlib with
+its native character generator expanded. The suggested bodies are admitted
+under PROTOCOL §13; separate proof-prototype evidence is recorded in the handoff;
+this does not certify the complete file or any implementation.
+-/
+
 import Mathlib.CategoryTheory.Comma.Over.Pullback
 
 import Mathlib.CategoryTheory.Comma.Over.Basic
@@ -32,25 +53,6 @@ import Mathlib.Data.Nat.ModEq
 import Mathlib.Data.Finset.Prod
 import Mathlib.LinearAlgebra.FiniteDimensional.Lemmas
 import Mathlib.Algebra.Field.ZMod
-/-
-This file is not the roadmap and is not exhaustive. The roadmap document is
-definitive. These signatures suggest Lean forms so that contributors and
-reviewers converge on names and signatures. No implementation is claimed.
-
-The planning pass is complete at the protocol node budget; every stage remains
-partial. All declaration bodies and the geometric omission ledger are retained.
-Complete planning status does not certify this file or close its geometric gaps.
-
-The native fragment uses the pinned invertible-sheaf and quotient-ring types.
-The omission ledger below records signatures needing actual geometric types
-from other roadmap owners. It does not replace them with assumed predicates.
-The complete file was not compiled: required Tau Ceti compiled modules are unavailable.
-The finite action-comparison fragment was checked against pinned Mathlib with
-its native character generator expanded. The suggested bodies are admitted
-under PROTOCOL §13; separate proof-prototype evidence is recorded in the handoff;
-this does not certify the complete file or any implementation.
--/
-
 import TauCeti.AlgebraicGeometry.LineBundle.TensorProduct
 import Mathlib.Algebra.Group.Fin.Basic
 import Mathlib.AlgebraicGeometry.Modules.Sheaf
@@ -755,9 +757,7 @@ smooth, and intersections for a subset I of distinct branch points identify with
 d≥|I|, with codimension |I|; the intersection is empty when d<|I|.
 
 Node FunctionFieldArithmeticPartII:GC.1/evaluation-smooth-criterion
-For a smooth Z over the algebraically closed base, a map Z→[A^r/G_m^r] given by r line bundles with
-sections is smooth exactly when their zero divisors are smooth and meet transversely, including the
-empty strata.
+Let Z be a smooth irreducible scheme over an algebraically closed field and let r line bundles with sections determine f:Z→[A^r/G_m^r]. Assume no section vanishes identically on Z, so each scheme-theoretic zero locus D_i is an effective Cartier divisor, possibly empty. Then f is smooth if and only if every D_i is smooth and all their intersections are transverse, with each nonempty intersection indexed by I of codimension |I|.
 
 Node FunctionFieldArithmeticPartII:GC.1/root-symmetric-smooth
 The effective root symmetric power X_d^√R is smooth over k of dimension d and is DM. Its evaluation
@@ -822,10 +822,18 @@ uses the actual noninjective homomorphism to idele units. Degree and all stabili
 At x∉R, π_x⁻¹ represents O_X(x)^♮.
 
 Node FunctionFieldArithmeticPartII:GC.2/root-divisor-groupoid
-The groupoid of root divisors used in §6.2.3 is the effective open X_d^√R(k) with its root data and
-automorphisms; forgetting the root gives the ordinary divisor. The character on differences of such
-objects is evaluated through the adelic root-Picard equivalence, not through an unweighted set
-bijection.
+Declaration TauCeti.RamifiedClassField.rootDivisorGroupoid: Define Div^√R(X) to be the action groupoid A_F×/O_{√R}× for the actual homomorphism O_{√R}×→A_F×. It contains signed divisors in all degrees; neither quotient by F× nor an effectivity condition is imposed. The forgetful map to A_F×/O×=Div(X) uses E(a)=Σ_x v_x(a_x)x. With this valuation convention its Abel–Jacobi functor lands in the double quotient Pic_X^√R(k) and has underlying line bundle O_X(−E(a)), with the retained square-root line along R. The quadratic character is pulled back along this functor. Effective section moduli are a separate construction; they are not identified with this entire groupoid.
+API TauCeti.RamifiedClassField.rootDivisorGroupoid.ofIdele: An idele a determines its object in the right-action groupoid.
+API TauCeti.RamifiedClassField.rootDivisorGroupoid.arrow: A modified unit h gives the arrow a→a·forget(h); its label h is retained even when forget(h)=1.
+API TauCeti.RamifiedClassField.rootDivisorGroupoid.forget: The ordinary signed divisor is E(a)=Σ_x v_x(a_x)x, and modified-unit arrows preserve it.
+API TauCeti.RamifiedClassField.rootDivisorGroupoid.tensor: Idele multiplication supplies addition of root divisors; identity and inverse give the unit and additive inverse, with their groupoid coherence.
+API TauCeti.RamifiedClassField.rootDivisorGroupoid.abelJacobi: The right quotient maps to F×\A_F×/O_{√R}×; its underlying line is O_X(−E) in the stated valuation convention.
+API TauCeti.RamifiedClassField.rootDivisorGroupoid.automorphisms: The automorphism group of every idele object is ker(O_{√R}×→A_F×)=∏_{x∈R}μ₂(k(x)); at R=∅ it is trivial.
+Example TauCeti.RamifiedClassField.rootDivisorGroupoid.test_empty_R_signed: For R=∅ the groupoid is equivalent to the discrete groupoid of all signed divisors. A uniformizer idele and its inverse give x and −x; both occur.
+Example TauCeti.RamifiedClassField.rootDivisorGroupoid.test_uniformizer_sign: For x∉R the idele equal to π_x⁻¹ at x and 1 elsewhere has E=−x and Abel–Jacobi line O_X(x).
+Example TauCeti.RamifiedClassField.rootDivisorGroupoid.test_branch_kernel: At any branch point in odd characteristic, the modified unit with u=1,v=−1 there and identity elsewhere gives a nonidentity automorphism of the unit idele.
+Example TauCeti.RamifiedClassField.rootDivisorGroupoid.test_principal_not_quotiented: For R=∅ and a nonconstant f∈F× with nonzero principal divisor, the identity and diagonal-f objects are not isomorphic in the right quotient, but their images in the double Picard quotient are isomorphic.
+These signatures remain omitted pending actual supplier carriers, under LEAN-GEOMETRY.
 
 Node FunctionFieldArithmeticPartII:GC.3/tame-local-systems
 Rank-one Q̄ℓ-local systems L on X_1^√R correspond to rank-one tame local systems on U=X−R whose
