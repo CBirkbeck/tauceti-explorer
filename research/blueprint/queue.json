@@ -13681,8 +13681,8 @@
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-MultiquadraticPartII.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #3416",
-   "finishedAt": "2026-10-05T21:07:07Z"
+   "finishedAt": "2026-10-05T21:07:07Z",
+   "note": "deliverables arrived from an external worker on issue #3416"
   },
   {
    "id": "REV-DESIGN-MultiquadraticPartII",
@@ -34998,8 +34998,8 @@
    "followUpOf": "BP-FiniteFieldsAndCharacterSums",
    "prompt": "research/blueprint/prompts/BP-FiniteFieldsAndCharacterSums--FF.4.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #6351",
-   "finishedAt": "2026-10-05T21:07:08Z"
+   "finishedAt": "2026-10-05T21:07:08Z",
+   "note": "deliverables arrived from an external worker on issue #6351"
   },
   {
    "id": "REV-FiniteFieldsAndCharacterSums--FF.4",
@@ -59226,6 +59226,9 @@
     "research/blueprint/packets/FiniteFieldsAndCharacterSums--FF.3.json",
     "research/blueprint/readmes/FiniteFieldsAndCharacterSums--FF.3.md",
     "research/blueprint/suggested/FiniteFieldsAndCharacterSums--FF.3.lean",
+    "research/blueprint/packets/FiniteFieldsAndCharacterSums--FF.4.json",
+    "research/blueprint/readmes/FiniteFieldsAndCharacterSums--FF.4.md",
+    "research/blueprint/suggested/FiniteFieldsAndCharacterSums--FF.4.lean",
     "research/blueprint/packets/FiniteFieldsAndCharacterSums--FF.1.json",
     "research/blueprint/readmes/FiniteFieldsAndCharacterSums--FF.1.md",
     "research/blueprint/suggested/FiniteFieldsAndCharacterSums--FF.1.lean",
@@ -59252,10 +59255,12 @@
     "research/blueprint/reviews/REV-FIX-RT-AREA-finitefields~2.md",
     "research/blueprint/packets/FiniteFieldsAndCharacterSums.json",
     "research/blueprint/packets/FiniteFieldsAndCharacterSums--FF.3.json",
+    "research/blueprint/packets/FiniteFieldsAndCharacterSums--FF.4.json",
     "research/blueprint/packets/FiniteFieldsAndCharacterSums--FF.1.json",
     "research/blueprint/packets/ComputationalNumberTheory.json",
     "research/blueprint/suggested/FiniteFieldsAndCharacterSums.lean",
     "research/blueprint/suggested/FiniteFieldsAndCharacterSums--FF.3.lean",
+    "research/blueprint/suggested/FiniteFieldsAndCharacterSums--FF.4.lean",
     "research/blueprint/suggested/FiniteFieldsAndCharacterSums--FF.1.lean",
     "research/blueprint/suggested/ComputationalNumberTheory.lean"
    ],
@@ -61681,6 +61686,150 @@
    "note": "deliverables arrived from an external worker on issue #5154"
   },
   {
+   "id": "FIX-RT-AREA-padic-2~3",
+   "kind": "fix",
+   "priority": 1,
+   "order": 432,
+   "name": "area: p-adic Hodge theory and p-adic geometry (Algebraic number theory), part 2 of 3",
+   "target": "area:padic:2",
+   "roadmapIds": [
+    "AInfCohomology",
+    "CohomologyComparisons",
+    "CrystallineCohomology",
+    "DerivedDeRhamCohomology",
+    "FiniteFlatGroupsAndIntegralPadicHodgeTheory",
+    "PadicDifferentialEquationsAndRigidCohomology",
+    "PadicHodgeTheory",
+    "PrismaticCohomology"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-AREA-padic-2.fixes-3.md",
+    "research/blueprint/packets/FaltingsFinitenessAndIsogenyTheorems.json",
+    "research/blueprint/readmes/FaltingsFinitenessAndIsogenyTheorems.md",
+    "research/blueprint/suggested/FaltingsFinitenessAndIsogenyTheorems.lean",
+    "research/blueprint/packets/PerfectoidSpaces--P0.json",
+    "research/blueprint/readmes/PerfectoidSpaces--P0.md",
+    "research/blueprint/suggested/PerfectoidSpaces--P0.lean",
+    "research/blueprint/packets/AdicSpacesPartII.json",
+    "research/blueprint/readmes/AdicSpacesPartII.md",
+    "research/blueprint/suggested/AdicSpacesPartII.lean"
+   ],
+   "after": [
+    "REV-FIX-RT-AREA-padic-2~2"
+   ],
+   "prompt": "research/blueprint/prompts/FIX-RT-AREA-padic-2~3.md",
+   "state": "done",
+   "finishedAt": "2026-10-02T03:08:27Z",
+   "note": "deliverables arrived from an external worker on issue #5537"
+  },
+  {
+   "id": "REV-FIX-RT-AREA-padic-2~3",
+   "kind": "review",
+   "priority": 1,
+   "order": 432,
+   "name": "area: p-adic Hodge theory and p-adic geometry (Algebraic number theory), part 2 of 3",
+   "roadmapIds": [
+    "AInfCohomology",
+    "CohomologyComparisons",
+    "CrystallineCohomology",
+    "DerivedDeRhamCohomology",
+    "FiniteFlatGroupsAndIntegralPadicHodgeTheory",
+    "PadicDifferentialEquationsAndRigidCohomology",
+    "PadicHodgeTheory",
+    "PrismaticCohomology"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-FIX-RT-AREA-padic-2~3.md",
+    "research/blueprint/packets/FaltingsFinitenessAndIsogenyTheorems.json",
+    "research/blueprint/packets/PerfectoidSpaces--P0.json",
+    "research/blueprint/packets/AdicSpacesPartII.json",
+    "research/blueprint/suggested/FaltingsFinitenessAndIsogenyTheorems.lean",
+    "research/blueprint/suggested/PerfectoidSpaces--P0.lean",
+    "research/blueprint/suggested/AdicSpacesPartII.lean"
+   ],
+   "after": [
+    "FIX-RT-AREA-padic-2~3"
+   ],
+   "avoidAccountOf": "FIX-RT-AREA-padic-2~3",
+   "independentOf": [
+    "FIX-RT-AREA-padic-2~3"
+   ],
+   "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-padic-2~3.md",
+   "state": "done",
+   "finishedAt": "2026-10-02T04:15:03Z",
+   "note": "deliverables arrived from an external worker on issue #5538"
+  },
+  {
+   "id": "FIX-RT-AREA-padic-2~4",
+   "kind": "fix",
+   "priority": 1,
+   "order": 432,
+   "name": "area: p-adic Hodge theory and p-adic geometry (Algebraic number theory), part 2 of 3",
+   "target": "area:padic:2",
+   "roadmapIds": [
+    "AInfCohomology",
+    "CohomologyComparisons",
+    "CrystallineCohomology",
+    "DerivedDeRhamCohomology",
+    "FiniteFlatGroupsAndIntegralPadicHodgeTheory",
+    "PadicDifferentialEquationsAndRigidCohomology",
+    "PadicHodgeTheory",
+    "PrismaticCohomology"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-AREA-padic-2.fixes-4.md",
+    "research/blueprint/packets/FaltingsFinitenessAndIsogenyTheorems.json",
+    "research/blueprint/readmes/FaltingsFinitenessAndIsogenyTheorems.md",
+    "research/blueprint/suggested/FaltingsFinitenessAndIsogenyTheorems.lean",
+    "research/blueprint/packets/PerfectoidSpaces--P0.json",
+    "research/blueprint/readmes/PerfectoidSpaces--P0.md",
+    "research/blueprint/suggested/PerfectoidSpaces--P0.lean",
+    "research/blueprint/packets/AdicSpacesPartII.json",
+    "research/blueprint/readmes/AdicSpacesPartII.md",
+    "research/blueprint/suggested/AdicSpacesPartII.lean"
+   ],
+   "after": [
+    "REV-FIX-RT-AREA-padic-2~3"
+   ],
+   "prompt": "research/blueprint/prompts/FIX-RT-AREA-padic-2~4.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-FIX-RT-AREA-padic-2~4",
+   "kind": "review",
+   "priority": 1,
+   "order": 432,
+   "name": "area: p-adic Hodge theory and p-adic geometry (Algebraic number theory), part 2 of 3",
+   "roadmapIds": [
+    "AInfCohomology",
+    "CohomologyComparisons",
+    "CrystallineCohomology",
+    "DerivedDeRhamCohomology",
+    "FiniteFlatGroupsAndIntegralPadicHodgeTheory",
+    "PadicDifferentialEquationsAndRigidCohomology",
+    "PadicHodgeTheory",
+    "PrismaticCohomology"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-FIX-RT-AREA-padic-2~4.md",
+    "research/blueprint/packets/FaltingsFinitenessAndIsogenyTheorems.json",
+    "research/blueprint/packets/PerfectoidSpaces--P0.json",
+    "research/blueprint/packets/AdicSpacesPartII.json",
+    "research/blueprint/suggested/FaltingsFinitenessAndIsogenyTheorems.lean",
+    "research/blueprint/suggested/PerfectoidSpaces--P0.lean",
+    "research/blueprint/suggested/AdicSpacesPartII.lean"
+   ],
+   "after": [
+    "FIX-RT-AREA-padic-2~4"
+   ],
+   "avoidAccountOf": "FIX-RT-AREA-padic-2~4",
+   "independentOf": [
+    "FIX-RT-AREA-padic-2~4"
+   ],
+   "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-padic-2~4.md",
+   "state": "pending"
+  },
+  {
    "id": "RT-AREA-padic-3",
    "kind": "redteam",
    "priority": 2,
@@ -63331,6 +63480,137 @@
    "state": "done",
    "finishedAt": "2026-09-30T22:30:34Z",
    "note": "deliverables arrived from an external worker on issue #5168"
+  },
+  {
+   "id": "FIX-RT-AREA-topology~3",
+   "kind": "fix",
+   "priority": 1,
+   "order": 571,
+   "name": "area: Topology",
+   "target": "area:topology",
+   "roadmapIds": [
+    "ArithmeticQuantumTopology",
+    "tauceti:TauCetiRoadmap/AlgebraicTopology",
+    "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer",
+    "tauceti:TauCetiRoadmap/GeometricTopology",
+    "tauceti:TauCetiRoadmap/HeegaardFloer",
+    "tauceti:TauCetiRoadmap/UniversalCovers"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-AREA-topology.fixes-3.md",
+    "research/blueprint/packets/Polylogarithms.json",
+    "research/blueprint/readmes/Polylogarithms.md",
+    "research/blueprint/suggested/Polylogarithms.lean",
+    "research/blueprint/packets/HabiroNahmSeries.json",
+    "research/blueprint/readmes/HabiroNahmSeries.md",
+    "research/blueprint/suggested/HabiroNahmSeries.lean"
+   ],
+   "after": [
+    "REV-FIX-RT-AREA-topology~2"
+   ],
+   "prompt": "research/blueprint/prompts/FIX-RT-AREA-topology~3.md",
+   "state": "done",
+   "finishedAt": "2026-10-01T22:08:00Z",
+   "note": "deliverables arrived from an external worker on issue #5543"
+  },
+  {
+   "id": "REV-FIX-RT-AREA-topology~3",
+   "kind": "review",
+   "priority": 1,
+   "order": 571,
+   "name": "area: Topology",
+   "roadmapIds": [
+    "ArithmeticQuantumTopology",
+    "tauceti:TauCetiRoadmap/AlgebraicTopology",
+    "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer",
+    "tauceti:TauCetiRoadmap/GeometricTopology",
+    "tauceti:TauCetiRoadmap/HeegaardFloer",
+    "tauceti:TauCetiRoadmap/UniversalCovers"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-FIX-RT-AREA-topology~3.md",
+    "research/blueprint/packets/Polylogarithms.json",
+    "research/blueprint/packets/HabiroNahmSeries.json",
+    "research/blueprint/suggested/Polylogarithms.lean",
+    "research/blueprint/suggested/HabiroNahmSeries.lean"
+   ],
+   "after": [
+    "FIX-RT-AREA-topology~3"
+   ],
+   "avoidAccountOf": "FIX-RT-AREA-topology~3",
+   "independentOf": [
+    "FIX-RT-AREA-topology~3"
+   ],
+   "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-topology~3.md",
+   "state": "done",
+   "finishedAt": "2026-10-02T04:08:50Z",
+   "note": "deliverables arrived from an external worker on issue #5544"
+  },
+  {
+   "id": "FIX-RT-AREA-topology~4",
+   "kind": "fix",
+   "priority": 1,
+   "order": 571,
+   "name": "area: Topology",
+   "target": "area:topology",
+   "roadmapIds": [
+    "ArithmeticQuantumTopology",
+    "tauceti:TauCetiRoadmap/AlgebraicTopology",
+    "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer",
+    "tauceti:TauCetiRoadmap/GeometricTopology",
+    "tauceti:TauCetiRoadmap/HeegaardFloer",
+    "tauceti:TauCetiRoadmap/UniversalCovers"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-AREA-topology.fixes-4.md",
+    "research/blueprint/packets/Polylogarithms.json",
+    "research/blueprint/readmes/Polylogarithms.md",
+    "research/blueprint/suggested/Polylogarithms.lean",
+    "research/blueprint/packets/HabiroNahmSeries.json",
+    "research/blueprint/readmes/HabiroNahmSeries.md",
+    "research/blueprint/suggested/HabiroNahmSeries.lean",
+    "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
+    "research/blueprint/readmes/QSeriesPartitionsAndMockModularForms.md",
+    "research/blueprint/suggested/QSeriesPartitionsAndMockModularForms.lean"
+   ],
+   "after": [
+    "FIX-RT-AREA-topology~3"
+   ],
+   "prompt": "research/blueprint/prompts/FIX-RT-AREA-topology~4.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-FIX-RT-AREA-topology~4",
+   "kind": "review",
+   "priority": 1,
+   "order": 571,
+   "name": "area: Topology",
+   "roadmapIds": [
+    "ArithmeticQuantumTopology",
+    "tauceti:TauCetiRoadmap/AlgebraicTopology",
+    "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer",
+    "tauceti:TauCetiRoadmap/GeometricTopology",
+    "tauceti:TauCetiRoadmap/HeegaardFloer",
+    "tauceti:TauCetiRoadmap/UniversalCovers"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-FIX-RT-AREA-topology~4.md",
+    "research/blueprint/packets/Polylogarithms.json",
+    "research/blueprint/packets/HabiroNahmSeries.json",
+    "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
+    "research/blueprint/suggested/Polylogarithms.lean",
+    "research/blueprint/suggested/HabiroNahmSeries.lean",
+    "research/blueprint/suggested/QSeriesPartitionsAndMockModularForms.lean"
+   ],
+   "after": [
+    "FIX-RT-AREA-topology~4"
+   ],
+   "avoidAccountOf": "FIX-RT-AREA-topology~4",
+   "independentOf": [
+    "FIX-RT-AREA-topology~4"
+   ],
+   "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-topology~4.md",
+   "state": "pending"
   },
   {
    "id": "RT-AREA-diffgeom",
@@ -65219,145 +65499,6 @@
    "prompt": "research/blueprint/prompts/REV-DirichletPadicLFunctions.md",
    "state": "superseded",
    "note": "Split on 2026-10-02 into one blueprint job per layer (BP-DirichletPadicLFunctions--L0 to --L4), each with its own review, and an assembly job. After six days and over 200 checkpoints the packet held 2,258 nodes, more than one review can check. The merged work carries over to the layer jobs."
-  },
-  {
-   "id": "FIX-RT-AREA-padic-2~3",
-   "kind": "fix",
-   "priority": 1,
-   "order": 432,
-   "name": "area: p-adic Hodge theory and p-adic geometry (Algebraic number theory), part 2 of 3",
-   "target": "area:padic:2",
-   "roadmapIds": [
-    "AInfCohomology",
-    "CohomologyComparisons",
-    "CrystallineCohomology",
-    "DerivedDeRhamCohomology",
-    "FiniteFlatGroupsAndIntegralPadicHodgeTheory",
-    "PadicDifferentialEquationsAndRigidCohomology",
-    "PadicHodgeTheory",
-    "PrismaticCohomology"
-   ],
-   "outputs": [
-    "research/blueprint/redteam/RT-AREA-padic-2.fixes-3.md",
-    "research/blueprint/packets/FaltingsFinitenessAndIsogenyTheorems.json",
-    "research/blueprint/readmes/FaltingsFinitenessAndIsogenyTheorems.md",
-    "research/blueprint/suggested/FaltingsFinitenessAndIsogenyTheorems.lean",
-    "research/blueprint/packets/PerfectoidSpaces--P0.json",
-    "research/blueprint/readmes/PerfectoidSpaces--P0.md",
-    "research/blueprint/suggested/PerfectoidSpaces--P0.lean",
-    "research/blueprint/packets/AdicSpacesPartII.json",
-    "research/blueprint/readmes/AdicSpacesPartII.md",
-    "research/blueprint/suggested/AdicSpacesPartII.lean"
-   ],
-   "after": [
-    "REV-FIX-RT-AREA-padic-2~2"
-   ],
-   "prompt": "research/blueprint/prompts/FIX-RT-AREA-padic-2~3.md",
-   "state": "done",
-   "note": "deliverables arrived from an external worker on issue #5537",
-   "finishedAt": "2026-10-02T03:08:27Z"
-  },
-  {
-   "id": "REV-FIX-RT-AREA-padic-2~3",
-   "kind": "review",
-   "priority": 1,
-   "order": 432,
-   "name": "area: p-adic Hodge theory and p-adic geometry (Algebraic number theory), part 2 of 3",
-   "roadmapIds": [
-    "AInfCohomology",
-    "CohomologyComparisons",
-    "CrystallineCohomology",
-    "DerivedDeRhamCohomology",
-    "FiniteFlatGroupsAndIntegralPadicHodgeTheory",
-    "PadicDifferentialEquationsAndRigidCohomology",
-    "PadicHodgeTheory",
-    "PrismaticCohomology"
-   ],
-   "outputs": [
-    "research/blueprint/reviews/REV-FIX-RT-AREA-padic-2~3.md",
-    "research/blueprint/packets/FaltingsFinitenessAndIsogenyTheorems.json",
-    "research/blueprint/packets/PerfectoidSpaces--P0.json",
-    "research/blueprint/packets/AdicSpacesPartII.json",
-    "research/blueprint/suggested/FaltingsFinitenessAndIsogenyTheorems.lean",
-    "research/blueprint/suggested/PerfectoidSpaces--P0.lean",
-    "research/blueprint/suggested/AdicSpacesPartII.lean"
-   ],
-   "after": [
-    "FIX-RT-AREA-padic-2~3"
-   ],
-   "avoidAccountOf": "FIX-RT-AREA-padic-2~3",
-   "independentOf": [
-    "FIX-RT-AREA-padic-2~3"
-   ],
-   "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-padic-2~3.md",
-   "state": "done",
-   "note": "deliverables arrived from an external worker on issue #5538",
-   "finishedAt": "2026-10-02T04:15:03Z"
-  },
-  {
-   "id": "FIX-RT-AREA-topology~3",
-   "kind": "fix",
-   "priority": 1,
-   "order": 571,
-   "name": "area: Topology",
-   "target": "area:topology",
-   "roadmapIds": [
-    "ArithmeticQuantumTopology",
-    "tauceti:TauCetiRoadmap/AlgebraicTopology",
-    "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer",
-    "tauceti:TauCetiRoadmap/GeometricTopology",
-    "tauceti:TauCetiRoadmap/HeegaardFloer",
-    "tauceti:TauCetiRoadmap/UniversalCovers"
-   ],
-   "outputs": [
-    "research/blueprint/redteam/RT-AREA-topology.fixes-3.md",
-    "research/blueprint/packets/Polylogarithms.json",
-    "research/blueprint/readmes/Polylogarithms.md",
-    "research/blueprint/suggested/Polylogarithms.lean",
-    "research/blueprint/packets/HabiroNahmSeries.json",
-    "research/blueprint/readmes/HabiroNahmSeries.md",
-    "research/blueprint/suggested/HabiroNahmSeries.lean"
-   ],
-   "after": [
-    "REV-FIX-RT-AREA-topology~2"
-   ],
-   "prompt": "research/blueprint/prompts/FIX-RT-AREA-topology~3.md",
-   "state": "done",
-   "note": "deliverables arrived from an external worker on issue #5543",
-   "finishedAt": "2026-10-01T22:08:00Z"
-  },
-  {
-   "id": "REV-FIX-RT-AREA-topology~3",
-   "kind": "review",
-   "priority": 1,
-   "order": 571,
-   "name": "area: Topology",
-   "roadmapIds": [
-    "ArithmeticQuantumTopology",
-    "tauceti:TauCetiRoadmap/AlgebraicTopology",
-    "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer",
-    "tauceti:TauCetiRoadmap/GeometricTopology",
-    "tauceti:TauCetiRoadmap/HeegaardFloer",
-    "tauceti:TauCetiRoadmap/UniversalCovers"
-   ],
-   "outputs": [
-    "research/blueprint/reviews/REV-FIX-RT-AREA-topology~3.md",
-    "research/blueprint/packets/Polylogarithms.json",
-    "research/blueprint/packets/HabiroNahmSeries.json",
-    "research/blueprint/suggested/Polylogarithms.lean",
-    "research/blueprint/suggested/HabiroNahmSeries.lean"
-   ],
-   "after": [
-    "FIX-RT-AREA-topology~3"
-   ],
-   "avoidAccountOf": "FIX-RT-AREA-topology~3",
-   "independentOf": [
-    "FIX-RT-AREA-topology~3"
-   ],
-   "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-topology~3.md",
-   "state": "done",
-   "note": "deliverables arrived from an external worker on issue #5544",
-   "finishedAt": "2026-10-02T04:08:50Z"
   },
   {
    "id": "FIX-RT-LINK-tauceti_TauCetiRoadmap_ModularCurves",
