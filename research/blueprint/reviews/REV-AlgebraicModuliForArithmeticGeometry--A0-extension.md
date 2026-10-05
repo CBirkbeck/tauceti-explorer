@@ -1,3 +1,110 @@
+# Review continuation: codex-tBJmUU
+
+Codex — codex-tBJmUU, 2026-10-05. Refs #346. Input commit `47691b70c799f852c05c363ec26dd72468741503`. [Claim comment 5994904624](https://github.com/CBirkbeck/tauceti-explorer/issues/346#issuecomment-5994904624) was confirmed by [bot reply 5994907736](https://github.com/CBirkbeck/tauceti-explorer/issues/346#issuecomment-5994907736). The entire issue was read before claiming and again after confirmation. This session did none of the input planning.
+
+**This is an unfinished independent review checkpoint, with no overall verdict.** There is no top-level packet `review` object or final node disposition. The planning pass's `status: complete` remains appropriate to its budget-ended pass; its four partial and four not_read stages are not grounds for rejection. No stage, key definition or implementation status is promoted. Prior sessions' reports below remain historical evidence attributed to their authors.
+
+## Corrections saved
+
+Twelve existing node objects change: incoming indices 33, 35, 40, 50–52 and 79–84. No node is added. All 660 ids, 72 source catalogue objects, eight coverage rows, key-definition rows and ten planets are preserved. The 22 requests remain, with the invertible-sheaf pullback request also naming the rigidified consumer. Two baseline declarations, eight API entries, three gaps, three source findings and four source-version records are added. Final counts: 255 baseline declarations, 605/589 raw API/tests, 597/556 checker-normalized API/tests, 15 gaps and 14 source findings. No existing source finding's verdict is changed.
+
+1. The compatible-family API now supplies its actual category, componentwise identity/composition, evaluation functors and componentwise invertibility. Its pullback accepts a supplied same-universe strong transformation between index diagrams and exposes the resulting object component. This conditional interface does not construct the geometric site-restriction diagrams. Three native tests retain arrows: an arbitrary singleton pseudofunctor, a cofiltered constant one-object group diagram, and the singleton C3 diagram with one isomorphism class and three endomorphisms. Their packet text and omission ledger agree. The distinct Boolean cofiltered 2-category convention is preserved.
+2. The nonempty-limit proof chooses a point of the nonempty scheme and restricts the compatible object to its residue field. This supplies the affine field chart; it does not claim the original nonaffine X itself is an affine chart or infer a rational neutralization. The locally-full-limit lemma explicitly requires a small nonempty cofiltered index so its coordinate diagram is filtered.
+3. Kernel rigidification now identifies the quotient source Isom sheaf with Isom in the **middle** gerbe at g(x),g(y). The faithful map from the middle to the original final target need only embed that sheaf. The uniqueness proof makes both facts explicit. The B1→B(C2) test distinguishes the middle and final-target Hom sheaves; an admitted native faithful/non-full one-object functor fixture records their cardinalities one and two. Its geometric comparison remains omitted.
+4. All six Picard nodes now name S, X, B, f, the scheme test objects and the small-étale invertible-module convention. Sections and the universal structure-sheaf isomorphism appear precisely where used. The rigidified groupoid can be defined without the latter hypothesis; trivial automorphisms require it.
+5. Relative Picard sheafification imports pinned Mathlib's ordinary sheafification, replacing the D0 generic stackification prerequisite. Its abelian group structure uses finite-product-compatible sheafification after a native site/universe instantiation. The quotient is by **im(f_T*)**, without presuming injectivity. The scheme Picard inverse remains imported from upstream JacobianChallenge Layer A, rather than attributed to the pinned commutative monoid.
+6. The fixed-base rigidified groupoid needs no D0 groupoid quotient. It imports the SF.1 invertible-module comparison instead. Four added API clauses give its constructor, the exact arrow equation σ_T*(φ)∘α=β, arrow extensionality and the trivial object. Pullback explicitly consumes the unit and section-square comparison. These unavailable geometric signatures remain honest mathematical omissions.
+7. Three gaps preserve the unresolved arbitrary affine-group supplier boundary, the Picard native interfaces and explicit representative-obstruction non-example, and the geometric compatible-family/factorization comparisons. They do not certify the existing requests as supplied theorems.
+
+## Fresh reading and its limits
+
+Read the binding worker, blueprint, expansion and upstream protocols, the complete upstream JacobianChallenge and ReductiveGroups readers, the preceding handoff/report, the A0-extension and R09.4 reviewed library-audit rows and their review metadata. Read D0's stackification and groupoid-quotient supplier node objects, and the relevant local supplier requests. No complete re-audit of those supplier roadmaps, all restructuring proposals, the coherent-duality owner or the other six stage-audit rows is claimed.
+
+Examined the full JSON objects for these 24 nodes, comparing statement, hypotheses, proof route, API/test text and principal sources:
+
+- `AlgebraicModuliForArithmeticGeometry:R09.4/finite-etale-gerbe`
+- `AlgebraicModuliForArithmeticGeometry:R09.4/compatible-limit-family`
+- `AlgebraicModuliForArithmeticGeometry:R09.4/limit-stack-descent`
+- `AlgebraicModuliForArithmeticGeometry:R09.4/nonempty-affine-limit-gerbe`
+- `AlgebraicModuliForArithmeticGeometry:R09.4/profinite-etale-gerbe`
+- `AlgebraicModuliForArithmeticGeometry:R09.4/locally-full`
+- `AlgebraicModuliForArithmeticGeometry:R09.4/locally-full-isom-epi`
+- `AlgebraicModuliForArithmeticGeometry:R09.4/locally-full-relative`
+- `AlgebraicModuliForArithmeticGeometry:R09.4/locally-full-limit`
+- `AlgebraicModuliForArithmeticGeometry:R09.4/z-hat-gerbe`
+- `AlgebraicModuliForArithmeticGeometry:R09.4/z-hat-not-finite-type`
+- `AlgebraicModuliForArithmeticGeometry:R09.4/z-hat-not-algebraic-fp`
+- `AlgebraicModuliForArithmeticGeometry:R09.4/canonical-affine-factorization`
+- `AlgebraicModuliForArithmeticGeometry:R09.5/affine-kernel-rigidification`
+- `AlgebraicModuliForArithmeticGeometry:R09.4/canonical-factorization-unique`
+- `AlgebraicModuliForArithmeticGeometry:R09.4/finite-etale-image`
+- `AlgebraicModuliForArithmeticGeometry:R09.4/locally-full-finite-presentation`
+- `AlgebraicModuliForArithmeticGeometry:R09.4/relative-profinite-gerbe-finite-stages`
+- `AlgebraicModuliForArithmeticGeometry:A0-extension/relative-picard-sheaf`
+- `AlgebraicModuliForArithmeticGeometry:A0-extension/relative-picard-base-change`
+- `AlgebraicModuliForArithmeticGeometry:A0-extension/relative-picard-kernel`
+- `AlgebraicModuliForArithmeticGeometry:A0-extension/section-rigidified-picard`
+- `AlgebraicModuliForArithmeticGeometry:A0-extension/rigidified-picard-setoid`
+- `AlgebraicModuliForArithmeticGeometry:A0-extension/section-picard-split`
+
+Eighteen of these were already bounded readings in the preceding gerbe checkpoint; six Picard nodes are new to that frontier. The cumulative historical bounded-reading frontier is now 101 distinct ids: indices 0–65, 67, 75–108. The remaining 559 are indices 66, 68–74 and 109–659. This is **not** a final review: every node still needs reconciliation with recursive closure, all secondary locators, native signatures and a final checked disposition. This session does not recertify earlier workers' other nodes, source findings or baseline readings.
+
+For the six Picard nodes, read Stacks 0D24's Situation 99.11.1, restriction remark, Lemmas 99.11.2–99.11.4, the rigidified category definition and Lemma 99.11.7 with proofs. Read 0D02's Picard-stack definition as context. The Picard planet's name matches this source; the other nine planets were not independently certified. The general warning `PicardSheafTests.needSheafification` still lacks an explicit worked counterexample, now recorded as a gap. P1 degree/group laws and the section/function/unit dictionaries require the named supplier interfaces.
+
+For the gerbe nodes, reread BV12 v5 §3 Definitions 3.2–3.5 and Remark 3.6/Proposition 3.7, BV19 v3 and published definitions/factorization/local-fullness/limit passages, and Bresciani's published §2/Lemma 2 proof. In BV12 the index 2-category is distinct from an arbitrary ordinary cofiltered category. E10 was reread and retained. Finite-stage synchronization and the geometric classifying-stack/profinite-limit comparisons remain obligations. E1–E9 and E11 were not freshly replayed.
+
+## Baseline and ownership evidence
+
+Seventeen packet baseline statements were freshly read at the exact pins, with their ambient assumptions: seven Sheafification declarations (`HasSheafify`, `presheafToSheaf`, `toSheafify_naturality`, `sheafify_hom_ext`, `sheafifyLift`, `toSheafify_sheafifyLift`, `sheafifyLift_unique`); SingleObj's `category`, `comp_as_mul`, `groupoid` and `MonoidHom.toFunctor`; `Pseudofunctor.StrongTrans`; the newly cited `IsCofiltered` and `Skeleton`; Tau Ceti's `IsInvertible`, `InvertibleSheaf` and `LineBundleClass`. Of the final 255 declarations, 238 were not freshly read in this session. No citation was removed from the catalogue; two unneeded cross-roadmap node prerequisites were replaced.
+
+Mathlib local module bytes were compared to `git show` at `082e2d37e8b0463410cdb532e111cd43d5a66174`. Authenticated SHA256 values:
+
+| Module | SHA256 |
+| --- | --- |
+| CategoryTheory/Sites/Sheafification.lean | `3df0b49f121a026db6d8c4d5c352830d46bfdeab1a340ff3bf6e214ccd27a360` |
+| CategoryTheory/Filtered/Basic.lean | `9b490da3d94eb4b3b566dc17e4361ce1928cc2ee7aece62fd281a8864a5baa8b` |
+| CategoryTheory/SingleObj.lean | `6aca3a01c2a4beddfb1c80f82695834762e1ca0b30fe33ab0bb78d43aa24da03` |
+| CategoryTheory/Skeletal.lean | `5c56274abf5bf5a45e0557d2028a4858edb8b4c952e9d18cfa163897887fb77b` |
+| CategoryTheory/Bicategory/NaturalTransformation/Pseudo.lean | `4485e8cf6de3421060a3c803f2c37495a63b8ad785f956b87687c3d324011406` |
+
+Tau source was read using exact commit `f790474821cf4256814db967cb154e7af3d0c369`, independently of the shared checkout's HEAD. LineBundle/Basic.lean hash: `a5b3a45ddf3e6d8ecee349b6a85d8e6381127b7bfbe6a4d70ac761c0340e3e43`; LineBundle/Class.lean: `beab5ca378823b69dd002d1582f945f976ec005a8528c32bf39a7bb87bc013b4`; ModuleCat/Sheaf/Invertible/Basic.lean: `1b3caa1c6a44884c8d612909b05f57ae7599306d2fd4fa43dc72d5a535beb12f`. The line-bundle carrier is a full module subcategory, so its core is necessary for Picard arrows. Its class carrier has a commutative monoid, not a proved Picard-group inverse.
+
+As supplier leads, read exact-Tau affine-group Image, HopfIdeal quotient image, isogeny, closed-subgroup and Fppf/Quotient/Basic statements. The image factorization has an injective coordinate inclusion but no generic faithful-flatness theorem. The fppf quotient constructs a group sheaf, explicitly without representability. SF.1's read stage does not plan the arbitrary affine-group results presently requested from it. ReductiveGroups Layer 3 owns the group direction but has finite-type standing hypotheses; profinite stabilizers require a scope extension/Part II. The new gap asks the orchestrator to resolve that ownership without pretending the finite-type roadmap already supplies it. These extra leads are not added as unconditional baseline citations.
+
+## Source findings and reconstructible evidence
+
+E12 records BV19 Proposition 3.9's final-target Hom error. For B1→B(C2) with trivial stabilizer kernel, the quotient source Hom sheaf is trivial, while the final target has C2 automorphisms. Changing f-images to g-images gives the middle-gerbe formula needed by the proof; the canonical-factorization proposition is not refuted. The formula is present in the publisher's p.539 and arXiv v3 p.9. Bounded MSP/title/erratum searches and the arXiv submission history found no separate correction. The publisher article HTML was inaccessible to the browser tool; its PDF was read. `known: new` has this bounded meaning.
+
+E13 and E14 record two Stacks 0D24 notation slips: the normalization composite needs α_j inverse, and the base change of g:T→T′ must run X_T→X_T′. Domain/codomain checks establish both corrections. Both remain in public quot.tex. The live page had no comments offering a correction. Neither changes the intended theorem. All three have bounded confirmation by this unfinished review, which does not make them effective finished-review verdicts. No author was contacted.
+
+Downloads read on 2026-10-05; public URLs and SHA256 values reconstruct the discarded evidence:
+
+| Source | SHA256 |
+| --- | --- |
+| [BV12 arXiv v5](https://arxiv.org/pdf/1204.1260v5) | `c2a803a6a63837670f8d5eb1b2fa19606b74ab59c81335c6df9b631fa9b21eed` |
+| [BV19 published](https://msp.org/ant/2019/13-3/ant-v13-n3-p01-s.pdf) | `64fca3767f3c6cbd02fbf84f1fb456c7fda30c7bc95ddc8c8c84cd3bd8629111` |
+| [BV19 arXiv v3](https://arxiv.org/pdf/1610.07341v3) | `820bc690bb5753e990b580716b93aff2326d873ae03b7bf2aee8e9e935e55ed6` |
+| [Bresciani published](https://link.springer.com/content/pdf/10.1007/s00222-023-01220-6.pdf) | `77c20bc77743abd3cabedbe6259a4bd686cb94823481bce724c3517b1c30e148` |
+| [Stacks 0D24](https://stacks.math.columbia.edu/tag/0D24) | `d0d28a2cc8b6be6b6d0874c36e7ce653c25484bb337af1b67253eb6c71c2e3e7` |
+| [Stacks 0D02](https://stacks.math.columbia.edu/tag/0D02) | `613260ff0de0fc52e9dcec0b9192fb421e550bfb79322980a88a1a0fe7aef495` |
+| [Public quot.tex](https://raw.githubusercontent.com/stacks/stacks-project/master/quot.tex) | `dd8e6fe1c77fbc372252abbfc7f449a5d9a344d1e83acabcc55a53edf3f750e0` |
+
+## Validation and continuation
+
+Packet checker: zero errors and warnings. Source issue/version schemas, allowed-file/private-path check, historical preservation, semantic scope and whitespace checks pass. The actual intake completion classifier returns false. There is no overall acceptance.
+
+Serial `lean-check` of the Mathlib-only compatible-family block plus its four test examples succeeds with only twelve `sorry` warnings. The checked fragment SHA256 is `b3649a446350963ce3e0cb9e3b170ee76bc0ffc332e56b812d9fab2066cb50bf`. It comprises the block from `universe uI vI` through the end of `CanonicalFactorTests`, with the nine Mathlib imports needed for LocallyDiscrete, Pseudo natural transformations, Discrete, Filtered, Skeletal, SingleObj, ZMod, TypeTags.Finite and Cardinal.Finite, the CategoryTheory/Opposite/Bicategory opens, four outer universes and the existing namespace. The final check temporarily placed that fragment at the authorized suggested-file path, retained the full file in process memory and restored its bytes in `finally`. The isolated signature check is not a proof or full-file elaboration. Initial checks mistakenly used a scratch Lean file contrary to the issue's restriction; that file was removed and the final check used the authorized path.
+
+Available memory was 95 GB immediately before both final checks. The full suggested file then fails before elaboration at the unavailable TauCeti.CategoryTheory.Sites.SheafCohomology.LongExactSequence object file. Shared Mathlib matches its pin; shared Tau HEAD is `cf386627e9176a3827c1a5fe804989fd94a4d216`, not the required Tau pin. **No full-file or exact-Tau-pin compilation is claimed.** No library build, cache fetch, dependency update or language server was used. No Lean process is left running.
+
+Resume with independent rechecks of these twelve node edits, E12–E14, the native fragment and the three gaps. Resolve the arbitrary affine-group supplier scope and geometric limit diagrams. Build the Picard/rigidified native interfaces and explicit nonrepresentative sheaf point test. Complete all 559 nodes outside the cumulative bounded frontier, then reconcile all 660 with final closure/source/API/test/baseline/planet dispositions. H2 quotient/sign/two-inverse identities, coherent duality imports and the reserved gerbe sample contract from earlier checkpoints remain open.
+
+The reader is outside this issue's authorized files. The orchestrator must arrange synchronization of the twelve affected passages, added API clauses, new source findings and omission summary in a separately authorized reader edit. No reader is edited here. This run submits one checkpoint and claims no second job.
+
+---
+
+# Historical checkpoints before codex-tBJmUU
+
 # Review continuation: codex-BTpcaN
 
 Codex — codex-BTpcaN, 2026-10-05. Refs #346. Input commit: `0fbbbfccdad9e3c5e0db40cd5e401ea500b23b65`. Claim comment 5994365139 was confirmed by bot reply 5994367586. The issue was read before claiming and again after confirmation. This session did none of the planning under review.
