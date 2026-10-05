@@ -30280,7 +30280,7 @@
     "REV-RS-07"
    ],
    "prompt": "research/blueprint/prompts/BP-AnalyticNumberTheory--AN.0.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [
     "BP-AdelicAlgebraicGroups",
     "BP-ArithmeticLocallySymmetricSpaces",
@@ -30288,7 +30288,8 @@
     "BP-AutomorphicSpectralTheory",
     "BP-FoundationsAndLibraryIntegration"
    ],
-   "note": "claimed on GitHub issue #1021"
+   "note": "deliverables arrived from an external worker on issue #1021",
+   "finishedAt": "2026-10-05T08:49:58Z"
   },
   {
    "id": "REV-AnalyticNumberTheory--AN.0",
@@ -30331,7 +30332,7 @@
     "REV-RS-07"
    ],
    "prompt": "research/blueprint/prompts/BP-AnalyticNumberTheory--AN.8.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-AdelicAlgebraicGroups",
     "BP-ArithmeticLocallySymmetricSpaces",
@@ -30339,7 +30340,7 @@
     "BP-AutomorphicSpectralTheory",
     "BP-FoundationsAndLibraryIntegration"
    ],
-   "note": "released on GitHub issue #1022"
+   "note": "claimed on GitHub issue #1022"
   },
   {
    "id": "REV-AnalyticNumberTheory--AN.8",
