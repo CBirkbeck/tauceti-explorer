@@ -1,5 +1,38 @@
 # REV-AnalyticNumberTheory--AN.0 — current checkpoint
 
+Issue [#527](https://github.com/CBirkbeck/tauceti-explorer/issues/527), Codex — `codex-LO9Eha`,2026-10-05. [Bot confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/527#issuecomment-5997409963). Input commit `fc7ba4734182295dc26e3a96c9c22d56181dfe98`; branch `codex-LO9Eha-review-analytic-527`.
+
+**Partial independent review; no final verdict or top-level packet `review` object.** The inherited `status:complete` belongs to the author's planning pass. Intake must classify this submission as an incomplete-review checkpoint. Preserve every historical receipt below at its stated scope; no node newly receives a final verified verdict.
+
+## Saved work and where to resume
+
+Fresh scoped audit: original zero-based nodes173–190,18 changed payloads and six added lemmas235–240. **Resume at191**, the Beurling prime-system definition. Earlier proof gaps, including explicitly unaudited node72, remain unresolved. The [latest report](../reviews/REV-AnalyticNumberTheory--AN.0.md) and packet contain exact public source URLs, hashes, passages, baseline names and unread boundaries. No scratch file is needed.
+
+- Dedekind completion/gamma/discriminant and exact even-negative zero order; finite ray modulus versus conductor factors. AL local contracts are explicit; measure/different/gamma and canonical arithmetic adapters remain open.
+- Positive rational/AP Wiener–Ikehara boundaries now use a genuine closed-half-plane continuous extension, with finite-character/logarithmic-derivative prerequisites. Import built ψ−θ=O(√x). Quantitative PNT retains a finite low-zero bound; conductor/Siegel original proofs, compact-height effectivity and the real-zero derivative adapter remain open. Siegel–Walfisz constants are uniform over the stated coprime logarithmic-modulus range and ineffective; quantitative Abel is requested.
+- Native Halász C(κ) predicate and chosen coefficient on existing zero-extended ArithmeticFunction, all API/tests and integral bound. The unit-disc scalar/product triangle and single-Λ prime-weighted mean-square lemma are separate. Replace incorrect Maynard SV.4 supplier with exact SV.1 requests for Shiu and the Mangoldt window, retaining original Shiu/Fourier/real-κ majorant gaps. Classical refinement is a statement receipt only.
+- Smooth finite-set adapter and empty test; explicit Dickman negative/continuity/delay/integral-identity APIs and Lemma2.5 positivity argument. Largest-prime decomposition allows repeated largest primes. A finite-prime Euler-series lemma handles allσ>0 for Rankin. The original fixed-u proof, moving-prime terminal/compact-u limits and full baseline reindexing consumers remain open.
+
+Totals:241 nodes,99 APIs,81 tests,26 planets,137 baseline declarations,43 gaps,36 requests, six ownership proposals,18 source issues. Four definition-native omissions remain. No planet, ownership proposal or source issue was added or adjudicated.
+
+## Validation
+
+`lean-check` in the existing shared Mathlib build:0 errors,270 warnings, all `sorry`; available memory96 GiB. Only explanatory header and mathematical-specification comments changed afterward. Suggested-file SHA256 `83fee5c0b890573cfb923347a4317a71d029afd9f169feb30fa72385cef33cae`. Mathlib pin `082e2d37e8b0463410cdb532e111cd43d5a66174`; Tau Ceti pin `f790474821cf4256814db967cb154e7af3d0c369`. No Tau Ceti compilation, project/build/cache operation, language server or surviving background compile.
+
+Pinned packet checker:0 errors/0 warnings. Submission paths/no-private-path, source-issue/version schemas, whitespace and intake incomplete-review classification checked before PR. Only the three named deliverables and this handoff changed. Elaboration with admitted proofs does not certify mathematics. Scratch is deleted after PR opening.
+
+## Required next steps
+
+1. Reacquire the Debruyne–Vindas v2 Beurling source at the URL/hash in the report. This run inspected introductionpp.1–3 but did not audit191 onward. Read the complete original proof for the stated equivalence and its hypotheses, then continue the remaining AN.6/AN.7 and later nodes. Preserve repeated-prime multiplicity and the empty Euler product.
+2. Revisit173–190's explicit open adapters; reacquire the other five sources using the report's hashes. Do not infer complete Tate, Davenport, Shiu, classical Halász or Dickman proof verification from selected statements/proofs. All historical ranges and added nodes235–240 still need final node verdicts.
+3. Complete all137 baseline consumers, every source-issue verdict, definition API/test/native consistency, all planets, stage/target closure, library/ownership deduplication, and named RT-AREA-analytic/1, RT-AREA-combinatorics/8 and RS-07 routes. Node72 remains unaudited.
+4. The reader is outside this claim's deliverables. Its historical/current corrections and the latest17 added lemma specifications require authorized synchronization; its complete independent reading is unfinished. Do not edit it under #527 or accept the review while that obligation remains.
+5. Add the final `independent-review-REV-AnalyticNumberTheory--AN.0` top-level review only when the whole review is complete. Run packet/submission checks and appropriate Lean verification. Do not manually promote, merge, close issues or change labels.
+
+No maintainer decision is required to continue. This run submits one checkpoint and claims no second job.
+
+# Historical checkpoint — Codex `codex-45ZB12`
+
 Issue [#527](https://github.com/CBirkbeck/tauceti-explorer/issues/527), Codex — `codex-45ZB12`,2026-10-05. Claim confirmed in [bot comment5995492397](https://github.com/CBirkbeck/tauceti-explorer/issues/527#issuecomment-5995492397). Input commit `62fc40dc6bcfd050f62a565510ca2e8a5c73122f`; branch `codex-45ZB12-review-analytic-number-theory`.
 
 **Partial independent review; no final verdict or top-level packet `review` object.** The inherited `status:complete` describes the author's planning pass. Intake must classify this review as incomplete. Preserve this session's corrections and all five historical receipts below at their stated scope; none supplies a final verified-node verdict.
