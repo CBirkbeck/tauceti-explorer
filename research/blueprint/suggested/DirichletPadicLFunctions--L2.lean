@@ -6697,7 +6697,7 @@ local notation "O" => Valuation.integer (NormedField.valuation (K := K))
 local notation "U" => (ℤ_[p])ˣ
 -- even_weights_insufficient
 example :
-    let δ : D(U,O) := AbstractMeasure.dirac 1-AbstractMeasure.dirac (-1)
+    let δ : D(U,O) := AbstractMeasure.dirac O (1 : U)-AbstractMeasure.dirac O (-1 : U)
     δ≠0 ∧ ∀ k : ℕ, δ (integralPrimePowerArithmeticCharacter p 0
       (1 : DirichletCharacter K (p^0)) (2*k)).toContinuousMap=0 := by sorry
 end EvenWeights
