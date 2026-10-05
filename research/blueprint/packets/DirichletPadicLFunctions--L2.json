@@ -111,7 +111,7 @@
       },
       {
         "ref": "mathlib:PadicInt.norm_natCast_eq_one_iff",
-        "kind": "theorem",
+        "kind": "lemma",
         "module": "Mathlib/NumberTheory/Padics/PadicIntegers.lean",
         "provides": "The norm of a natural integer in ℤ_p is one exactly when it is coprime to p.",
         "checked": "Statement read at pinned Mathlib 082e2d3, lines 296–299; file blob checked against the pinned Git tree."
@@ -132,7 +132,7 @@
       },
       {
         "ref": "mathlib:AbstractMeasure.injective_amiceTransform",
-        "kind": "theorem",
+        "kind": "lemma",
         "module": "Mathlib/NumberTheory/Padics/Measure/AmiceTransform.lean",
         "provides": "Injectivity of the Amice transform for complete ultrametric normed coefficient algebras with bounded scalar multiplication.",
         "checked": "Statement read at pinned Mathlib 082e2d3, lines 86–95; file blob checked against the pinned Git tree."
@@ -1126,7 +1126,7 @@
       },
       {
         "ref": "mathlib:Equiv.prod_comp",
-        "kind": "theorem",
+        "kind": "lemma",
         "module": "Mathlib/Algebra/BigOperators/Group/Finset/Defs.lean",
         "provides": "Native reindexing; its explicit to_additive annotation provides Equiv.sum_comp used for the reflected atom sum.",
         "checked": "Full native declaration and relevant ambient hypotheses read at pin082e2d37e8b0463410cdb532e111cd43d5a66174; additive-generation annotation read where applicable. Existing native artifacts only."
@@ -1140,21 +1140,21 @@
       },
       {
         "ref": "mathlib:DirichletCharacter.level_one",
-        "kind": "theorem",
+        "kind": "lemma",
         "module": "Mathlib/NumberTheory/DirichletCharacter/Basic.lean",
         "provides": "The only native Dirichlet character of modulus1 is principal.",
         "checked": "Full native declaration and relevant ambient hypotheses read at pin082e2d37e8b0463410cdb532e111cd43d5a66174; additive-generation annotation read where applicable. Existing native artifacts only."
       },
       {
         "ref": "mathlib:DirichletCharacter.map_zero'",
-        "kind": "theorem",
+        "kind": "lemma",
         "module": "Mathlib/NumberTheory/DirichletCharacter/Basic.lean",
         "provides": "A native Dirichlet character maps0 to0 at every modulus other than1.",
         "checked": "Full native declaration and relevant ambient hypotheses read at pin082e2d37e8b0463410cdb532e111cd43d5a66174; additive-generation annotation read where applicable. Existing native artifacts only."
       },
       {
         "ref": "mathlib:AbstractMeasure.map_dirac",
-        "kind": "theorem",
+        "kind": "lemma",
         "module": "Mathlib/NumberTheory/Padics/Measure/Basic.lean",
         "provides": "Native pushforward sends a Dirac measure to the Dirac measure at the image point.",
         "checked": "Full native declaration and relevant ambient hypotheses read at pin082e2d37e8b0463410cdb532e111cd43d5a66174; additive-generation annotation read where applicable. Existing native artifacts only."
@@ -1511,7 +1511,7 @@
       },
       {
         "ref": "mathlib:IsUltrametricDist.isNonarchimedean_norm",
-        "kind": "theorem",
+        "kind": "lemma",
         "module": "Mathlib/Analysis/Normed/Group/Ultra.lean",
         "provides": "The norm is nonarchimedean: norm(x+y) is at most max(norm(x),norm(y)).",
         "checked": "Full statement and ambient hypotheses read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174, including the generated additive declarations. Seven complete native lemmas check the supporting finite-sum, norm and logarithm identities."
@@ -2036,7 +2036,7 @@
       },
       {
         "ref": "mathlib:Nat.primeFactors",
-        "kind": "definition",
+        "kind": "def",
         "module": "Mathlib/Data/Nat/PrimeFin.lean",
         "provides": "The existing finite set of prime divisors, with multiplicities removed.",
         "checked": "Complete declaration and ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 30 September 2026. Native proofs verify the finite iteration, prime support, level-value and conductor-certificate uses. Generated additive powerset theorem is tracked through its indexed multiplicative parent."
@@ -2099,7 +2099,7 @@
       },
       {
         "ref": "mathlib:DirichletCharacter.conductor",
-        "kind": "definition",
+        "kind": "def",
         "module": "Mathlib/NumberTheory/DirichletCharacter/Basic.lean",
         "provides": "The existing least inducing level of a Dirichlet character.",
         "checked": "Complete declaration and ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 30 September 2026. Native proofs verify the finite iteration, prime support, level-value and conductor-certificate uses. Generated additive powerset theorem is tracked through its indexed multiplicative parent."
@@ -2120,7 +2120,7 @@
       },
       {
         "ref": "mathlib:DirichletCharacter.primitiveCharacter",
-        "kind": "definition",
+        "kind": "def",
         "module": "Mathlib/NumberTheory/DirichletCharacter/Basic.lean",
         "provides": "The existing native character at the conductor that induces the given character.",
         "checked": "Complete declaration and ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 30 September 2026. Native proofs verify the finite iteration, prime support, level-value and conductor-certificate uses. Generated additive powerset theorem is tracked through its indexed multiplicative parent."
@@ -2155,7 +2155,7 @@
       },
       {
         "ref": "mathlib:Units.coeHom",
-        "kind": "definition",
+        "kind": "def",
         "module": "Mathlib/Algebra/Group/Units/Hom.lean",
         "provides": "The native multiplicative inclusion of units transports finite products to products of underlying values.",
         "checked": "Complete declaration and ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 30 September 2026, with native IsUnit.unit/unit_spec and finite-product laws. Complete native probes verify the unit-family, product and finite inclusion calculations."
@@ -2169,14 +2169,14 @@
       },
       {
         "ref": "mathlib:Nat.Prime.not_dvd_mul",
-        "kind": "lemma",
+        "kind": "theorem",
         "module": "Mathlib/Data/Nat/Prime/Basic.lean",
         "provides": "A prime dividing neither natural factor does not divide their product.",
         "checked": "Full declaration and ambient hypotheses read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on30 September2026. The current complete native probe checks their exact use for primitive values and tame subset products."
       },
       {
         "ref": "mathlib:Finset.prod_div_distrib",
-        "kind": "lemma",
+        "kind": "theorem",
         "module": "Mathlib/Algebra/BigOperators/Group/Finset/Defs.lean",
         "provides": "Finite products commute with division in a DivisionCommMonoid, used in the coefficient field.",
         "checked": "Complete declaration and ambient hypotheses freshly read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on30September2026. The complete native product and subtype-reflection probes verify these exact uses."
@@ -2190,14 +2190,14 @@
       },
       {
         "ref": "mathlib:AddChar.sum_mulShift",
-        "kind": "lemma",
+        "kind": "theorem",
         "module": "Mathlib/NumberTheory/LegendreSymbol/AddCharacter.lean",
         "provides": "Additive orthogonality for a primitive additive character on any finite commutative ring, with domain coefficient ring.",
         "checked": "Complete native statement and ambient hypotheses freshly read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on30September2026; exact uses checked in the complete GaussProbe."
       },
       {
         "ref": "mathlib:AddChar.zmodChar_primitive_of_primitive_root",
-        "kind": "lemma",
+        "kind": "theorem",
         "module": "Mathlib/NumberTheory/LegendreSymbol/AddCharacter.lean",
         "provides": "A primitive root gives a primitive native additive character on the positive residue ring.",
         "checked": "Complete native statement and ambient hypotheses freshly read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on30September2026; exact uses checked in the complete GaussProbe."
@@ -2281,14 +2281,14 @@
       },
       {
         "ref": "mathlib:DirichletCharacter.conductor_changeLevel",
-        "kind": "lemma",
+        "kind": "theorem",
         "module": "Mathlib/NumberTheory/DirichletCharacter/Basic.lean",
         "provides": "Increasing a positive character level preserves its conductor.",
         "checked": "Statement freshly read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; source excerpts and file hash retained."
       },
       {
         "ref": "mathlib:DirichletCharacter.conductor_mul_dvd_lcm_conductor",
-        "kind": "lemma",
+        "kind": "theorem",
         "module": "Mathlib/NumberTheory/DirichletCharacter/Basic.lean",
         "provides": "The conductor of a product divides the least common multiple of the two conductors; equality is not asserted.",
         "checked": "Statement freshly read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; source excerpts and file hash retained."
@@ -2918,22 +2918,22 @@
         {
           "name": "SuggestedCharacterTwistTests.principal_positive_moment",
           "kind": "computation",
-          "statement": "At p=3,a=2, the principal modulus3 twist has first moment1/2."
+          "statement": "Over Q_3, at p=3,a=2, the principal modulus3 twist has first moment1/2."
         },
         {
           "name": "SuggestedCharacterTwistTests.principal_zero_level_moment",
           "kind": "non-example",
-          "statement": "At p=3,a=2, the modulus1 twist has first moment−1/4, different from the positive-level principal twist."
+          "statement": "Over Q_3, at p=3,a=2, the modulus1 twist has first moment−1/4, different from the positive-level principal twist."
         },
         {
           "name": "SuggestedCharacterTwistTests.dyadic_principal_moment",
           "kind": "computation",
-          "statement": "At p=2,a=3, the principal modulus2 twist has first moment2/3."
+          "statement": "Over Q_2, at p=2,a=3, the principal modulus2 twist has first moment2/3."
         },
         {
           "name": "SuggestedCharacterTwistTests.inverse_twist_unit_projection",
           "kind": "compatibility",
-          "statement": "At p=3,a=2, twisting the modulus3 χ-twist again by χ⁻¹ recovers I_Qρ_2, the unit projection of the smoothed measure."
+          "statement": "Over Q_3, at p=3,a=2, twisting the modulus3 χ-twist again by χ⁻¹ recovers I_Qρ_2, the unit projection of the smoothed measure."
         }
       ],
       "planet": {
@@ -4754,7 +4754,7 @@
           "sourceId": "RJW-published",
           "locator": "§5.2, equation(5-3) and Lemma5.9, printed144/PDF45; Lemma5.11, printed145/PDF46. Full printed144–146 freshly reread from the hash-verified published PDF.",
           "excerpt": "L(η, −k)",
-          "match": "Worker formal-algebra decomposition of the source ordinary-moment and unit-moment formulas. The finite numerator route extends from primitive to all nonprincipal characters at a positive modulus. Complex special values import the existing QSeries periodic-L-value nodes; the field-general measure moment identity is explicitly requested from PMIA L2. No new generic Bernoulli carrier or analytic convergence assertion."
+          "match": "Worker formal-algebra decomposition of the source ordinary-moment and unit-moment formulas. The finite numerator route extends from primitive to all nonprincipal characters at a positive modulus. Complex special values import the existing QSeries periodic-L-value nodes; the field-general ordinary-moment identity uses the now supplied PMIA L2 coefficient-extension and formal-exponential interfaces through tame-measure-ordinary-moment. No new generic Bernoulli carrier or analytic convergence assertion."
         }
       ],
       "implementationStatus": "unchecked",
@@ -5161,7 +5161,7 @@
           "sourceId": "RJW-published",
           "locator": "§5.2, Definition5.13 and its immediately following interpolation identity, printed146/PDF47; Lemma5.11, printed145/PDF46. Complete published144–146 read during this continuous session from the hash-verified public PDF.",
           "excerpt": "x⁻¹",
-          "match": "Arithmetic specialization of the source inverse weighting to the actual tame measure. General weighting and continuity of the native p-adic unit inverse are imported from PMIA. Only the untwisted positive-power comparison is established at blueprint level; conductor-product twists and the coefficient-field ordinary-moment request remain explicit."
+          "match": "Arithmetic specialization of the source inverse weighting to the actual tame measure. General weighting and continuity of the native p-adic unit inverse are imported from PMIA. The untwisted and conductor-product positive-power comparisons are planned below through the supplied PMIA ordinary-moment interfaces. The two remaining requests concern canonical pseudomeasure character evaluation and coefficient-general positive-moment separation."
         }
       ],
       "implementationStatus": "unchecked",
@@ -13634,7 +13634,7 @@
       "kind": "lemma",
       "statement": "For every n,w≥0, χ:DirichletCharacter K (p^n), and u∈U, c(κOK_n,χ,w(u))=κOL_n,(χ.ringHomComp ι),w(u).",
       "hypotheses": [
-        "K and L are normed ultrametric fields with Algebra ℤ_p and bounded scalar action, an actual K-algebra on L, IsScalarTower ℤ_p K L and Valuation.HasExtension vK vL. Use exactly the native integer rings and map c as above. For this pointwise identity completeness, nontrivial norms and ContinuousSMul K L are not required.",
+        "K and L are normed ultrametric fields with Algebra ℤ_p and bounded scalar action, an actual K-algebra on L, and IsScalarTower ℤ_p K L. Let vK=NormedField.valuation(K), vL=NormedField.valuation(L), OK=vK.integer and OL=vL.integer be the native valuation integer subrings with inherited norms and topologies. Assume Valuation.HasExtension vK vL and use its native instAlgebraInteger map c=algebraMap OK OL, whose included field value is ι=algebraMap K L. For this pointwise identity completeness, nontrivial norms and ContinuousSMul K L are not required.",
         "The native unit group U, level n≥0 and exponent w≥0 are unchanged by coefficient extension. The integral arithmetic characters are the existing continuous monoid homomorphisms into the respective integer rings."
       ],
       "proofSteps": [
@@ -17829,7 +17829,7 @@
       "kind": "comparison",
       "statement": "ζU_η(κ_n,χ,w)=Π_(q∈S)(1−η₀(q)χ(q)q^w/q) · ζU_η₀(κ_n,χ,w).",
       "hypotheses": [
-        "Use the preceding coefficient-field, p and arithmetic-character hypotheses. Now η has positive tame level N and is nonprincipal, f=η.conductor and η₀=η.primitiveCharacter are the existing native objects. hF and hpF are the derived conductor constructor certificates, and the local NeZero f instance is provided by conductor_ne_zero.",
+        "p is any prime, including 2. K is a complete nontrivially normed ultrametric field with Algebra Z_p K and IsBoundedSMul Z_p K. n,w are nonnegative integers and chi is an arbitrary native DirichletCharacter K (p^n). The tame character eta has positive level N and is nonprincipal, with hN:IsUnit(N:K) and hpN:p does not divide N. f=eta.conductor and eta_0=eta.primitiveCharacter are the native objects; hF and hpF are their derived unit and tame constructor certificates, and conductor_ne_zero supplies NeZero f.",
         "S=N.primeFactors\\f.primeFactors, κ and κO are unchanged by the tame conductor specialization. For the integral formula c(t) includes as η₀(d_t)/d_t and u(q) has underlying value q on S; existence and presentation independence were established in the preceding primitive-conductor comparisons."
       ],
       "proofSteps": [
@@ -17895,7 +17895,7 @@
       "kind": "comparison",
       "statement": "ζO,U_η(κO_n,χ,w)=Π_(q∈S)(1−c({q})κO_n,χ,w(u_q)) · ζO,U_η₀(κO_n,χ,w).",
       "hypotheses": [
-        "Use the preceding coefficient-field, p and arithmetic-character hypotheses. Now η has positive tame level N and is nonprincipal, f=η.conductor and η₀=η.primitiveCharacter are the existing native objects. hF and hpF are the derived conductor constructor certificates, and the local NeZero f instance is provided by conductor_ne_zero.",
+        "p is any prime, including 2. K is a complete nontrivially normed ultrametric field with Algebra Z_p K and IsBoundedSMul Z_p K. n,w are nonnegative integers and chi is an arbitrary native DirichletCharacter K (p^n). The tame character eta has positive level N and is nonprincipal, with hN:IsUnit(N:K) and hpN:p does not divide N. f=eta.conductor and eta_0=eta.primitiveCharacter are the native objects; hF and hpF are their derived unit and tame constructor certificates, and conductor_ne_zero supplies NeZero f.",
         "S=N.primeFactors\\f.primeFactors, κ and κO are unchanged by the tame conductor specialization. For the integral formula c(t) includes as η₀(d_t)/d_t and u(q) has underlying value q on S; existence and presentation independence were established in the preceding primitive-conductor comparisons."
       ],
       "proofSteps": [
@@ -18554,13 +18554,19 @@
       "correction": "Retain the scalar a before the second exponential in both integral displays. In the final Dirichlet-series display either change the summand to χ(k) when χ(−1) is factored out, or keep χ(−k) with no extra parity factor outside. The stated Lemma5.5 formula remains unchanged.",
       "reason": "The definition on published141 multiplies its second rational summand by a, which survives geometric expansion. Its Mellin scaling is therefore a·a^(−s)=a^(1−s); the printed integrands without a would instead give a^(−s). Also χ(−k)=χ(−1)χ(k); the printed outside χ(−1) counts that sign twice for odd characters. Restoring a and using the parity factor exactly once gives precisely the lemma statement. These are proof-display slips, not a refutation of the stated interpolation formula.",
       "affects": "the proof",
-      "known": "new",
+      "known": "Also recorded and confirmed in PAPER-RODRIGUES-JACINTO-WILLIAMS-23/E29; own inherited finding retained, with no novelty claim.",
       "searched": [
         "27 September2026: complete published printed139–144/PDF40–45 freshly read in batches of at most3 physical pages. Published142 and144 visually inspected; full arXiv v2PDF30–32 collated. Both source digests match sourceVersions.",
         "The snapshot atlas register was screened by relevant Dirichlet, PMIA and Coleman owners and these locators; no matching existing finding was identified. This is not a priority or novelty claim, and no independent-review verdict is supplied.",
         "Current-session checks of https://arxiv.org/abs/2309.15692, https://sites.google.com/site/joaquinrj/home, https://chriswilliams1404.wixsite.com/website/publications-preprints and https://msp.org/ent/2025/4-1/p03.xhtml are retained from the immediately preceding Kummer continuation. The listing showed latest v2,19 December2024. Journal direct HTTP succeeded after the browser route failed; no correction entry was identified.",
-        "27 September2026: additional bounded exact-identifier/5.5+correction, geometric+correction and article-title+errata web searches found no identified correcting publication. Unrelated errata search results were discarded. These checks do not establish absence; no authors were contacted."
-      ]
+        "27 September2026: additional bounded exact-identifier/5.5+correction, geometric+correction and article-title+errata web searches found no identified correcting publication. Unrelated errata search results were discarded. These checks do not establish absence; no authors were contacted.",
+        "Independent2026-10-05 complete affected published and v2 page images collated; the current atlas register identifies the matching already confirmed paper-extraction record. Current arXiv listing still has v2 of19December2024. Bounded primary-domain correction searches found source copies and earlier notes, not an identified correction. No exhaustive absence claim or author contact."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently read the complete published142 and v2physical31 page images against the defining expression on141. The second rational summand has a scalar a, which survives expansion and Mellin scaling as a^(1−s); factoring chi(−1) requires chi(k) in the remaining series. The correctly qualified lemma statement is unchanged.",
+        "by": "REV-DirichletPadicLFunctions--L2"
+      }
     },
     {
       "id": "DirichletPadicLFunctions/E12",
@@ -18571,13 +18577,19 @@
       "correction": "Insert (−1)^k in the coefficient of T^k: the reciprocal of (1+T)ε^c−1 expands as Σ_{k≥0}(−1)^k ε^(kc)/(ε^c−1)^(k+1)·T^k.",
       "reason": "Factor the denominator as (ε^c−1)(1+ε^c T/(ε^c−1)); its inverse is the alternating geometric series. The displayed sum without the sign represents F_η(−T), not F_η(T). For the primitive quadratic character modulo3, with ε²+ε+1=0 and G(η)=ε−ε², the defining rational sum reduces to (1+T)/(T²+3T+3). Its T³ coefficient is1/9; the printed unsigned expansion gives−1/9. This is also a tame example at p=2. Multiplying coefficients by signs preserves integrality, so the ensuing integral-coefficient conclusion is unaffected.",
       "affects": "the proof",
-      "known": "new",
+      "known": "Also recorded and confirmed in PAPER-RODRIGUES-JACINTO-WILLIAMS-23/E30; own inherited finding retained, with no novelty claim.",
       "searched": [
         "27 September2026: complete published printed139–144/PDF40–45 freshly read in batches of at most3 physical pages. Published142 and144 visually inspected; full arXiv v2PDF30–32 collated. Both source digests match sourceVersions.",
         "The snapshot atlas register was screened by relevant Dirichlet, PMIA and Coleman owners and these locators; no matching existing finding was identified. This is not a priority or novelty claim, and no independent-review verdict is supplied.",
         "Current-session checks of https://arxiv.org/abs/2309.15692, https://sites.google.com/site/joaquinrj/home, https://chriswilliams1404.wixsite.com/website/publications-preprints and https://msp.org/ent/2025/4-1/p03.xhtml are retained from the immediately preceding Kummer continuation. The listing showed latest v2,19 December2024. Journal direct HTTP succeeded after the browser route failed; no correction entry was identified.",
-        "27 September2026: additional bounded exact-identifier/5.5+correction, geometric+correction and article-title+errata web searches found no identified correcting publication. Unrelated errata search results were discarded. These checks do not establish absence; no authors were contacted."
-      ]
+        "27 September2026: additional bounded exact-identifier/5.5+correction, geometric+correction and article-title+errata web searches found no identified correcting publication. Unrelated errata search results were discarded. These checks do not establish absence; no authors were contacted.",
+        "Independent2026-10-05 complete affected published and v2 page images collated; the current atlas register identifies the matching already confirmed paper-extraction record. Current arXiv listing still has v2 of19December2024. Bounded primary-domain correction searches found source copies and earlier notes, not an identified correction. No exhaustive absence claim or author contact."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently read the complete published144 and v2physical32 page images. Inverting (epsilon−1)+epsilon*T gives coefficient (−1)^n epsilon^n/(epsilon−1)^(n+1). The root-free quadratic-modulo3 rational expression has cubic coefficient1/9; its unsigned expansion reverses that sign. Integrality is unchanged.",
+        "by": "REV-DirichletPadicLFunctions--L2"
+      }
     },
     {
       "id": "DirichletPadicLFunctions/E13",
@@ -18587,15 +18599,65 @@
       "correction": "Replace the denominator pG(η)⁻¹ by pG(η⁻¹), keeping the common coefficient −1/(pG(η⁻¹)) inherited from equation(5-3) and root averaging.",
       "reason": "The Gauss sum of the inverse character is not the inverse of its Gauss sum. The defining series has coefficient −1/G(η⁻¹), and averaging contributes1/p. The following line of the same proof already uses the corrected normalization. For the primitive quadratic character modulo3, η⁻¹=η and G(η)²=−3, so the printed coefficient differs by the nontrivial factor−3; this is also tame at p=2. Correcting the coefficient preserves the stated psi-eigenrelation.",
       "affects": "the proof",
-      "known": "new",
+      "known": "Also recorded and confirmed in PAPER-RODRIGUES-JACINTO-WILLIAMS-23/E31; own inherited finding retained, with no novelty claim.",
       "searched": [
         "27 September2026: complete published139–147/PDF40–48 read in consecutive batches; full arXiv v2PDF33–35 collated and published145 visually inspected. Both canonical digests match sourceVersions. The error is present in both versions.",
         "The atlas source register was screened by Dirichlet, PMIA and Coleman owners and all relevant locators; no prior matching entry was identified. Own E11/E12 are retained whole. No priority claim or independent verdict is supplied.",
         "Current-session arXiv/author/journal checks from the preceding Kummer and character-twist slices remain their own provenance; latest listed arXiv revision v2,19December2024. Additional identifier+Lemma5.10+correction and authors+Gauss+errata queries identified no correcting publication; unrelated results were discarded.",
         "The search surfaced https://warwick.ac.uk/fac/sci/maths/people/staff/cwilliams/lecturenotes/lecturenotes-change.pdf. Its title page and complete pp23–25 were read; metadata creation/modification date is8February2018, not a newly dated correction. The same typo occurs in Lemma4.10 onp24. SHA256500774707f990324aaf1ccb43def197089d39907177024471d30dfc9ee52feb9. This older note is not substituted for the version of record.",
-        "These are bounded checks, not an exhaustive absence or novelty claim; no authors contacted."
+        "These are bounded checks, not an exhaustive absence or novelty claim; no authors contacted.",
+        "Independent2026-10-05 complete affected published and v2 page images collated; the current atlas register identifies the matching already confirmed paper-extraction record. Current arXiv listing still has v2 of19December2024. Bounded primary-domain correction searches found source copies and earlier notes, not an identified correction. No exhaustive absence claim or author contact."
       ],
-      "source": "RJW-published"
+      "source": "RJW-published",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently read the complete published145 and v2physical33 page images. The previous defining expression has normalization −1/G(eta inverse), and root averaging adds1/p; neither operation changes the argument of the Gauss sum to its inverse value. The next line uses the correct inverse-character Gauss sum. For quadratic conductor3, G(eta)^2=−3 distinguishes the two scalars.",
+        "by": "REV-DirichletPadicLFunctions--L2"
+      }
+    },
+    {
+      "id": "DirichletPadicLFunctions/E34",
+      "source": "RJW-published",
+      "kind": "misprint",
+      "locator": "Published printed144/PDF45, after equation(5-3), explanation that epsilon_D^c−1 is an integral unit; arXivv2physical32 has the same wording.",
+      "printed": "since it has norm dividing D",
+      "correction": "Use the order of the root epsilon_D^c, not a divisibility property of its norm or of epsilon_D^c−1: for unit c it is a nontrivial root of order D, prime to p, and therefore epsilon_D^c−1 is a unit of the p-adic integer ring.",
+      "reason": "A root of unity has p-adic norm1 regardless of whether its order is divisible by p; norm1 alone does not imply its difference from1 is a unit. For a primitive pth root that difference has positive valuation. The intended tame argument uses D>1 and p not dividing D: the nontrivial root epsilon satisfies sum_(j<D) epsilon^j=0. If epsilon−1 reduced to0, this equation would reduce to D=0 in the residue field, contrary to p not dividing D. Thus its difference is a unit. The final integrality assertion is correct; the printed explanatory word and its referent need repair.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Hash-verified published PDF https://msp.org/ent/2025/4-1/ent-v4-n1-p03-s.pdf, SHA25678d0479b4b7e3f03d2f9c9a75a772ebd75b58091a3b4f8a1558869b8283b44a6, acquired2026-10-05; selected full chapter5 pages139–147 read. Exact affected published page images completely read.",
+        "Hash-verified arXivv2 PDF https://arxiv.org/pdf/2309.15692v2, SHA256efa1e10168fb092ffb072bbf147f85f07bea72d2a8f4907d6e9e4fd559c039c4, acquired2026-10-05; complete physical31–33 images checked. Official arXiv record https://arxiv.org/abs/2309.15692 still identifies v2 of19December2024. No full-paper claim.",
+        "Three bounded primary-domain searches on2026-10-05 for exact title/norm-dividing/correction, authors/Lemma5.5/correction and exact title/errata at MSP, arXiv and Warwick returned paper copies, author-index entries, earlier notes and unrelated entries, not an identified matching correction. The MSP XHTML record was rejected by the browser content-type route. No exhaustive later-paper survey or historical novelty claim; no author contacted.",
+        "Current atlas register screened for the exact wording and the affected published page, alongside the known E12/E30 geometric-sign finding; no matching norm/order wording finding located. Current Dirichlet sibling packets contain no E34 id. Earlier broad unrelated-citation outputs do not count as a full register reading."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Complete affected published144 and v2physical32 images independently read. The reduction-of-finite-geometric-sum proof supplies the intended tame unit argument and separates root order from its always-one norm. No failure of the integral series theorem is claimed.",
+        "by": "REV-DirichletPadicLFunctions--L2"
+      }
+    },
+    {
+      "id": "DirichletPadicLFunctions/E35",
+      "source": "RJW-published",
+      "kind": "gap",
+      "locator": "Published printed145/PDF46, proof of Lemma5.10, the geometric series proving equation(5-4); arXivv2physical33 identical.",
+      "printed": "Expanding each summand as a geometric series",
+      "correction": "Prove the root-average identity as a finite rational-function identity, clearing denominators: sum_(xi^p=1) 1/(y*xi−1)=p/(y^p−1). Then substitute y=(1+T)epsilon_D^c using the genuine unit constant denominators. A finite factorization/logarithmic derivative proof works also at p=2; the original infinite Y-series is not a convergent T-adic expansion.",
+      "reason": "The displayed terms ((1+T)xi epsilon_D^c)^n have unit constant terms at every n, so they do not tend to zero in the T-adic topology. On the p-adic open unit disc, at T=0 their values are roots of unity of norm1 and likewise do not tend to zero. Thus the displayed summation is not justified as a series identity there. The finite rational identity is true, so the psi eigenrelation remains correct. The present packet already supplies an independent finite-residue/actual-measure route rather than relying on this expansion.",
+      "affects": "the proof",
+      "known": "Already recorded and confirmed as PAPER-RODRIGUES-JACINTO-WILLIAMS-23/E104. Added to this packet for the affected source proof, not a new discovery.",
+      "searched": [
+        "Hash-verified published PDF https://msp.org/ent/2025/4-1/ent-v4-n1-p03-s.pdf, SHA25678d0479b4b7e3f03d2f9c9a75a772ebd75b58091a3b4f8a1558869b8283b44a6, acquired2026-10-05; selected full chapter5 pages139–147 read. Exact affected published page images completely read.",
+        "Hash-verified arXivv2 PDF https://arxiv.org/pdf/2309.15692v2, SHA256efa1e10168fb092ffb072bbf147f85f07bea72d2a8f4907d6e9e4fd559c039c4, acquired2026-10-05; complete physical31–33 images checked. Official arXiv record https://arxiv.org/abs/2309.15692 still identifies v2 of19December2024. No full-paper claim.",
+        "Three bounded primary-domain searches on2026-10-05 for exact title/norm-dividing/correction, authors/Lemma5.5/correction and exact title/errata at MSP, arXiv and Warwick returned paper copies, author-index entries, earlier notes and unrelated entries, not an identified matching correction. The MSP XHTML record was rejected by the browser content-type route. No exhaustive later-paper survey or historical novelty claim; no author contacted.",
+        "Exact current atlas E104 row completely read; its source observation is reused with attribution. Its finite factorization example was stated for odd p; this record uses an all-prime rational identity and keeps the dyadic case explicit. Current Dirichlet sibling packets contain no E35 id."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independent complete published145 and v2physical33 images confirm the geometric step. Constant terms provide a symbolic nonconvergence test; the all-prime finite rational identity repairs the proof. Native packet nodes26–31 use the finite residue route and do not assume the invalid geometric summation.",
+        "by": "REV-DirichletPadicLFunctions--L2"
+      }
     }
   ],
   "checks": {
@@ -19076,6 +19138,76 @@
       "sourceReading": "Published §§5.1–5.2 freshly read at the recorded digest; three inherited source issues retained unchanged.",
       "baseline": "326 native records;323 inherited own-session statement reads retained,3 new statements freshly read. All126 cited source files authenticated at the pin.",
       "closure": "Two precisely requested PMIA inputs remain; stage planned, not closed."
+    },
+    "independentReview": {
+      "date": "2026-10-05",
+      "reviewJob": "REV-DirichletPadicLFunctions--L2",
+      "blueprintErrors": 0,
+      "blueprintWarnings": 0,
+      "nodesRead": 252,
+      "nodesCorrected": 7,
+      "packetNodeObjectsCorrected": 6,
+      "baselineRead": 326,
+      "baselineClaimsCorrected": 17,
+      "foreignContractsRead": 67,
+      "requestedSupplierStagesRead": 2,
+      "sourceFindingsConfirmed": 5,
+      "sourceFindingsAdded": 2,
+      "suggestedLinesRead": 6706,
+      "suggestedSha256": "c17e92e90269b44ddcec5b1f4f72c0e1a877c3298bd675fc1156bf96cca026cb",
+      "namedPacketTestsRead": 543,
+      "namedTestMappingErrors": 0,
+      "exactArithmeticAssertions": 1626,
+      "leanCompiled": false,
+      "leanErrors": null,
+      "leanWarnings": null,
+      "leanReason": "Existing build Tau Ceti checkout differs from the required pin and the required suggested supplier/L1 imports are unavailable. No dependency build, harness, setup, cache acquisition, LSP or compilation was run.",
+      "sourceVersionsFreshlyChecked": [
+        {
+          "id": "RJW-published",
+          "url": "https://msp.org/ent/2025/4-1/ent-v4-n1-p03-s.pdf",
+          "sha256": "78d0479b4b7e3f03d2f9c9a75a772ebd75b58091a3b4f8a1558869b8283b44a6",
+          "bytes": 3983735,
+          "status": 200,
+          "date": "2026-10-05"
+        },
+        {
+          "id": "RJW-v2",
+          "url": "https://arxiv.org/pdf/2309.15692v2",
+          "sha256": "efa1e10168fb092ffb072bbf147f85f07bea72d2a8f4907d6e9e4fd559c039c4",
+          "bytes": 950625,
+          "status": 200,
+          "date": "2026-10-05"
+        }
+      ],
+      "historicalChecks": "Other checks, source-read histories and compilation claims in this packet belong to its authors and predecessors. They are retained as provenance and are not this reviewer’s compilation or fresh reading.",
+      "closure": {
+        "nodes": 252,
+        "internalEdges": 515,
+        "topologicallyVisited": 252,
+        "unknownReferences": [],
+        "cyclicOrDownstreamNodes": [],
+        "externalContracts": 69,
+        "requestCount": 2,
+        "gapCount": 2,
+        "definitionConstructionNodes": 21,
+        "nodesWithNoTests": [],
+        "planets": 6
+      },
+      "graphReplay": {
+        "method": "Read-only build.assemble with an in-memory L2 overlay; no existing L2 promoted packet was present. All other promoted suppliers retained. No atlas or promotion file written.",
+        "beforeStages": 3341,
+        "beforeEdges": 9208,
+        "afterStages": 3347,
+        "afterEdges": 9212,
+        "existingOrphanEndpoints": 51,
+        "newOrphanEndpoints": 0,
+        "cyclicOrDownstreamStages": 0,
+        "skippedLinks": 0,
+        "layerDeclarations": 252
+      },
+      "definitionApiItems": 132,
+      "definitionTests": 89
     }
   },
   "provenance": {
@@ -32436,5 +32568,1273 @@
       ],
       "checked": "Complete six-node supplier addition and81-line actual suggested-file addition read at main ef2687ade0070151552d31cac1632d7fec022dab. The ring-general hypotheses specialize to the requested actual K-valued carrier; coordinate equality is Algebra.smul_def. The exact ordinary-moment node replaces the old stage leaf in tame-ordinary-moments. Planning request resolved; all implementations remain unchecked."
     }
-  ]
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-DirichletPadicLFunctions--L2",
+    "date": "2026-10-05",
+    "notes": "Independent full review of all252 nodes,326 pinned baseline declarations,67 exact supplier contracts plus2 requested supplier stages, and6706 suggested-file lines. Corrected6 packet node objects,1 typed counterexample affecting a seventh node, and17 baseline declaration kinds; confirmed5 source findings including2 added records, one credited to an existing extraction finding. All543 named typed tests were read and mapped;1626 independent exact arithmetic assertions passed. Acceptance is of the finished planning pass, with2 precise generic supplier gaps and requests retained. No Lean compilation or implementation is claimed. The reader-document and generic supplier handoffs are in the review report.",
+    "checked": [
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/prime-power-character",
+        "verdict": "verified",
+        "note": "Native ContinuousMap composition preserves the actual character at p-power level; modulus1 gives constant1, positive-level principal characters give the unit indicator. Existing weighting/support carrier is imported, not duplicated. Final review resolves the indicated supplier and pin checks against the retained individual ledgers."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/prime-power-character-support",
+        "verdict": "verified",
+        "note": "For positive n the residue ring is nontrivial and reduction is a surjective local hom; nonunits reduce to nonunits and character support vanishes. The modulus1 case is excluded explicitly. Final review resolves the indicated pinned local-hom check."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/prime-power-character-level",
+        "verdict": "verified",
+        "note": "Positive-level change agrees on units by native cast compatibility and on nonunits by support vanishing. The excluded n0 counterexample prevents a false global equality."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/twisted-smoothed-measure",
+        "verdict": "corrected",
+        "note": "Actual arithmetic twist is imported weighting of the canonical coefficient extension. Smoothing1 gives zero and modulus1 retains the ambient measure rather than its unit projection. Numeric first-moment distinctions must specify the typed Q_3/Q_2 fields; coefficient specializations can collapse them. Numeric test fields now explicitly match the typed Q_2/Q_3 examples."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/twisted-smoothed-support",
+        "verdict": "verified",
+        "note": "The actual unit projector equals multiplication by its indicator; pointwise e*w=w plus measure extensionality proves the support equality. Only positive levels have this property."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/twisted-smoothed-principal",
+        "verdict": "verified",
+        "note": "Principal positive-level lift equals the native unit indicator, and canonical coefficient extension commutes with the original unit projector. Its first-moment difference from level0 is a Q_3 comparison."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/twisted-smoothed-level",
+        "verdict": "verified",
+        "note": "Exact positive-level lift equality substitutes directly into the same imported weight. This is level independence, not invariance of the primitive Euler-factor calculation under arbitrary imprimitive extension."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/twisted-smoothed-product",
+        "verdict": "verified",
+        "note": "Native successive weighting plus the pointwise character-product identity proves the original product equality. The field-only inverse test gives the unit projection rather than the ambient smoothed measure."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/tame-numerator",
+        "verdict": "verified",
+        "note": "Finite numerator is the negative character-weighted sum of existing q_a. Actual ZMod representatives and polynomial degrees retain modulus1=zero; no chosen root, Gauss inverse or generalized Bernoulli carrier is introduced."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/tame-numerator-cancellation",
+        "verdict": "verified",
+        "note": "Existing T*q_a identity and the native nonprincipal-character sum-zero theorem cancel the constant term over a domain. The principal example prevents dropping eta!=1."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/tame-series",
+        "verdict": "verified",
+        "note": "Actual unit inverse at constant coefficient D gives q_D*F=Q. The antidiagonal coefficient recurrence includes n0, all signs and the unique solution; the wild field constructor is distinct from an integral bound."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/tame-generating-equation",
+        "verdict": "verified",
+        "note": "The formal identity Y^D-1=T*q_D and the cancelled numerator give the finite periodic generating equation with two cancelling minus signs. No divergent Y-adic geometric expansion at T0 is used."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/tame-coefficient-bound",
+        "verdict": "verified",
+        "note": "Integral q_D inverse maps into K and every mapped coefficient is bounded by1. Finite scalar character sums then use native ultrametric sum bounds. Completeness enters the later measure construction; primitive/nonprincipal hypotheses are not needed for this bound."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/tame-coefficient-sequence",
+        "verdict": "verified",
+        "note": "Native bounded continuous function on discrete naturals packages the actual coefficient sequence; it is not an unrestricted power-series inverse transform. Supremum bound follows from actual pointwise bound."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/tame-measure",
+        "verdict": "verified",
+        "note": "The exact imported bounded inverse transform yields the native K-valued measure with the specified Amice coefficients. Its mass and second moment agree with the quadratic tame controls; source Gauss normalization and integer-ring transport remain separate comparisons."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/tame-measure-norm",
+        "verdict": "verified",
+        "note": "Supremum bound transfers through the exact native bounded-inverse norm identity over a nontrivially normed field; no topology or norm is invented on an integral completed group ring."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/tame-measure-unique",
+        "verdict": "verified",
+        "note": "A unit arithmetic denominator fixes the Amice series uniquely; the imported bounded-inverse uniqueness then identifies the original actual measure. Gauss agreement is not assumed."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/tame-gauss-generating",
+        "verdict": "verified",
+        "note": "Native primitive-character Fourier identity at all frequencies, including nonunits, supplies finite denominator clearing. Nonzero Gauss and actual root assumptions are retained; the characteristic/composite-modulus Gauss-product overclaim is avoided."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/tame-gauss-series",
+        "verdict": "verified",
+        "note": "Both finite generating identities have the same nonzero multiplier -T*q_D. Domain cancellation gives equality with the root-free series, retaining D invertible and Gauss nonzero. Root choices affect individual Gauss data but cancel in this normalized expression."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/tame-gauss-coefficients",
+        "verdict": "verified",
+        "note": "Native unit-denominator inverse coefficients and rescaling give the exact alternating sign. Nonunit character weights are zero before any totalized inverse cancellation; alpha1 inverse0 is not Laurent1/T."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/tame-gauss-measure",
+        "verdict": "verified",
+        "note": "Existing Amice identity composed with the conditional finite Gauss comparison gives the same actual K-valued measure; integral-ring lift and special values are separate consumers."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/tame-integral-series",
+        "verdict": "verified",
+        "note": "Actual bounded coefficients are bundled in the native integer subring of the norm valuation, with inclusion preserving the original series. No arbitrary valuation is identified with the norm."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/tame-integral-test-bound",
+        "verdict": "verified",
+        "note": "All O-valued continuous tests have supremum norm at most1 and the native inclusion is isometric. The stronger homogeneous operator bound by norm(f), rather than only by1, supplies continuity."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/tame-integral-measure",
+        "verdict": "verified",
+        "note": "Restriction of the same actual K-valued functional to integral-valued tests is O-linear and has a homogeneous continuity estimate. The native O-linear measure constructor does not require O to be a field or a prechosen Z_p action."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/tame-integral-amice",
+        "verdict": "verified",
+        "note": "Actual integral Mahler tests compare under an explicitly compatible scalar tower. Factoring the bounded Z_p embedding through the norm integer subring supplies the canonical action; arbitrary incompatible actions are not identified."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/tame-integral-measure-unique",
+        "verdict": "verified",
+        "note": "Injectivity of the native subtype inclusion compares all actual integral-valued tests and yields measure equality. No density theorem or generic field-coefficient extension is assumed."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/tame-translation",
+        "verdict": "verified",
+        "note": "Specific Mahler translation identity follows from finite Vandermonde at dense natural points, then native Amice injectivity turns the finite generating equation into the actual measure translation."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/tame-residue-coefficients",
+        "verdict": "verified",
+        "note": "Canonical representative finite weighted sums solve the translation recurrence and total-mass equation. Characteristic zero is explicit because the constant ambiguity is removed by cancelling p^n; the characteristic-three non-example detects omission."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/tame-psi",
+        "verdict": "verified",
+        "note": "Exact residue coefficients give the eta(p) eigenvalue, and explicit uniform approximations by p-power reductions pass to Mahler tests. No unjustified all-finite-map cofinality is assumed. Native source/pinned approximation details remain to check. Final supplier and baseline reading verifies the complete reduction-continuity, kernel, representative estimate, compact-uniform-continuity, pairing and Amice route."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/tame-integral-psi",
+        "verdict": "verified",
+        "note": "Actual integral scalar eta(p) is in the native integer subring; all integral-valued tests transport the already obtained field-valued psi identity through the injective inclusion."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/tame-unit-restriction",
+        "verdict": "verified",
+        "note": "The existing identity E=id-phi*psi and linearity give the same ambient unit projection with eta(p) scalar. A separate unit carrier is not silently introduced."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/tame-unit-moments",
+        "verdict": "verified",
+        "note": "Native phi evaluates monomials at p*x, giving exponent k in the ordinary-moment Euler factor. The degree-two quadratic dyadic factor5 preserves the original -2/9 moment and yields -10/9."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/tame-bernoulli-generating",
+        "verdict": "corrected",
+        "note": "Native rational Bernoulli generating function rescaled at D and character-weighted finite sum give the exact formal equation. Nonprincipality cancels the constant term, and nonzero D/X are cancelled without inverting exp(DX)-1. Corrected the obsolete ordinary-moment supplier-request description. Corrected stale source-match commentary: already supplied formal-series and moment adapters are no longer described as open requests."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/tame-exponential-coefficients",
+        "verdict": "verified",
+        "note": "Zero-constant exponential substitution is native and legal. The finite generating identities have common nonzero factor with linear coefficient -D, whose cancellation yields the factorial-divided coefficient formula."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/tame-formal-moments",
+        "verdict": "verified",
+        "note": "The owned Mahler/exponential coefficient theorem multiplies by k!, leaving denominator k+1 rather than (k+1)!. Concrete quadratic fourth moment2/3 differs from its exponential coefficient1/36."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/tame-algebraic-value-map",
+        "verdict": "verified",
+        "note": "Common Bernoulli elements transport through characteristic-zero field maps fixing rational scalars; no map from C to the p-adic field or topological embedding is assumed. Historical scratch checks are not replayed in this review."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/tame-complex-special-values",
+        "verdict": "verified",
+        "note": "Complex special-value comparison separates positive k and the k=0 endpoint using the owned QSeries/Hurwitz suppliers. The argument uses representatives in (0,1], with eta(D)=0 for primitive D>1; it does not apply a negative Hurwitz formula at zero. Quartic eta(2)=i fixes the Gauss and conjugation orientation."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/tame-ordinary-moments",
+        "verdict": "verified",
+        "note": "The actual PMIA algebra-ordinary-moment supplier applies to the same measure and Amice identity. Independent Q- and Z_p-algebra structures suffice; no map from Q to Z_p is used. Supplier existence and precise hypotheses remain to be checked in the supplier pass."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/tame-special-value-comparison",
+        "verdict": "verified",
+        "note": "The common Bernoulli element in E has separate embeddings into C and K. Field-map injectivity preserves nonprincipality and the two evaluations; it neither identifies C with K nor conjugates eta."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/tame-unit-special-value-comparison",
+        "verdict": "verified",
+        "note": "Unit projection has Euler factor 1-eta(p)*p^k on the common ordinary moment. The inverse-weight construction later shifts the exponent; it cannot be substituted here. The quadratic dyadic fourth moment example has value 34/3."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/tame-zeta-measure",
+        "verdict": "corrected",
+        "note": "The same ambient K-valued continuous dual carries zeta_eta = weight(zero-extended Z_p inverse)(E mu_eta). Its weight vanishes on nonunits and is continuous by the owned supplier. Principal constructors remain permitted but value comparisons require the later nonprincipal assumptions. The dyadic quadratic first moment differs from the first ordinary projected moment. Corrected obsolete prose that omitted the now planned conductor-product moments. Corrected stale source-match commentary: already supplied formal-series and moment adapters are no longer described as open requests."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/tame-zeta-support",
+        "verdict": "verified",
+        "note": "The unit indicator is idempotent, so E zeta_eta=zeta_eta; the precise unit-support/psi supplier then gives psi zeta_eta=0. This is support expressed by continuous tests, not MeasureTheory.support, and needs no extra characteristic-zero assumption."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/tame-zeta-weight",
+        "verdict": "verified",
+        "note": "Multiplication by the coordinate recovers the projected measure because native inversion cancels only on Z_p units; no division by a nonunit is used."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/tame-zeta-moment-shift",
+        "verdict": "verified",
+        "note": "Weight evaluation shifts positive moments, including the first moment to projected mass; it says nothing about the zero-th zeta moment."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/tame-zeta-norm",
+        "verdict": "verified",
+        "note": "Bounded Z_p scalar action sends every Z_p integer to norm at most one. All-test weight and measure bounds give norm at most one without a factor 1/|p| or an isometry assumption on the algebra map."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/tame-zeta-common-special-value",
+        "verdict": "verified",
+        "note": "Degree k-1 in the previous common-element comparison gives the displayed Euler exponent, Bernoulli index and L argument for k>=1. No value at L(eta,1) follows."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/tame-integral-zeta-measure",
+        "verdict": "verified",
+        "note": "The inverse weight is bundled directly in the fixed native norm-valuation integer ring using the bounded scalar action and continuity. This constructs an actual O-valued continuous dual without requiring a separately chosen Z_p action or a field operator norm on O."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/tame-integral-zeta-inclusion",
+        "verdict": "verified",
+        "note": "Expansion of both actual evaluations and multiplicative inclusion proves the comparison for all continuous O-tests. Native subring value and sup norms give the bound."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/tame-integral-zeta-support",
+        "verdict": "verified",
+        "note": "A second unit indicator is idempotent, and the exact psi/support supplier gives psi_O zeta_O=0. No division or coefficient-characteristic restriction is needed."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/tame-integral-zeta-unique",
+        "verdict": "verified",
+        "note": "Subtype inclusion is injective and the assumed comparison is for all O-tests; native continuous-dual extensionality gives uniqueness without scalar extension or moment separation."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/tame-zeta-value-integral",
+        "verdict": "verified",
+        "note": "The coordinate has a canonical continuous O-valued lift by bounded scalar action. Shifted moments identify its actual integral-measure value with the displayed K-valued Euler-Bernoulli scalar; k may be divisible by p since division occurs only in K."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/tame-integral-zeta-amice",
+        "verdict": "verified",
+        "note": "Coefficientwise inclusion of Amice transforms uses the explicitly compatible O action and scalar tower. No injectivity or inverse transform over O is asserted."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/twisted-tame-measure",
+        "verdict": "verified",
+        "note": "The twist is weighting the existing actual measure. Modulus one, level zero and positive principal character cases are separate; native finite-character norm bounds give all-test boundedness."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/twisted-tame-psi",
+        "verdict": "verified",
+        "note": "At positive p-power levels, support gives psi=0 and theta(p)=0 at the product level, including principal chi. Level zero uses the tame psi theorem with its nonprincipal and characteristic-zero hypotheses."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/twisted-tame-translation",
+        "verdict": "verified",
+        "note": "A finite telescope through M translates, canonical representatives b+D*t, periodicity of the weight and native changeLevel on units give the exact product-level translation equation. Nonunits require a separate zero-factor argument."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/twisted-tame-amice",
+        "verdict": "verified",
+        "note": "Coprime factor-through-gcd theory keeps theta nonprincipal. The translation equation gives the same formal generating equation; its factor has nonzero linear term -N and is cancelled in K[[T]], not inverted. A wild product-level coefficient bound is not imported from the tame theorem."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/twisted-tame-moments",
+        "verdict": "verified",
+        "note": "The finite Bernoulli difference identity, evaluated on actual continuous K-tests, directly converts the translation equation to ordinary moments. Denominators N and k+1 are inverted in K only, with correct negative sign; no primitivity or Amice moment supplier is needed for this route."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/tame-zeta-character-shift",
+        "verdict": "verified",
+        "note": "The existing weight identity on character-times-power tests gives the positive-degree shift. At positive level support removes the projector; level zero retains the Euler factor. Degree-zero character integrals are not identified."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/tame-zeta-character-common-value",
+        "verdict": "verified",
+        "note": "The complex and p-adic images of the same finite E-valued Bernoulli element use the displayed product-level theta and separate embeddings. Positive-level theta(p)=0 and its L-function already removes the p Euler factor; replacing theta by primitiveCharacter requires a separate comparison."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/integral-tame-character-measure",
+        "verdict": "verified",
+        "note": "Native character norm bounds lift the multiplier into the fixed O. Weighting the actual integral zeta measure gives every advertised constructor/support/bound law. Its existing unit support permits level raising even from zero and permits principal twists at all levels to agree without asserting global equality of the lifted functions."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/integral-tame-character-inclusion",
+        "verdict": "verified",
+        "note": "All-test integral inclusion follows from multiplication-preserving subtype inclusion, with no arbitrary extension of coefficients. Degree-zero mass remains an unidentified arithmetic value."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/integral-tame-character-inverse",
+        "verdict": "verified",
+        "note": "Inverse native character weighting cancels on units; unit support suffices to recover zeta_O at every level. Positive-level products remain zero off units, so the proof does not imply cancellation for arbitrary ambient measures."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/tame-character-value-integral",
+        "verdict": "verified",
+        "note": "Coordinate lifts and actual all-test comparison identify the displayed field-valued Bernoulli expression with an O-valued measure evaluation at k>=1. The argument permits imprimitive characters and p dividing the weight, using no rational action on O."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/integral-tame-character-amice",
+        "verdict": "verified",
+        "note": "The mapped Amice comparison uses the actual character-weighted K-measure and every native Mahler coefficient, with explicitly compatible O action/tower. No inverse transform over O is assumed."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/tame-character-finite-values",
+        "verdict": "verified",
+        "note": "Finite K-linear evaluation gives the exact sum of individually displayed product-level Bernoulli values; different character levels need not be unified."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/tame-character-kummer",
+        "verdict": "verified",
+        "note": "The uniform hypothesis is on all p-adic units. Unit projection extends the bound to a genuine continuous test, and the all-test measure bound yields the finite-value inequality. Actual |p| is retained; neither sampled residues nor an unproved norm/ideal identification replaces the hypothesis."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/tame-atoms-reflection",
+        "verdict": "verified",
+        "note": "Nonprincipality rules out modulus one and removes the zero residue. Negation of each other canonical representative is D-a.val, so the finite atomic reindexing is exact; the sum reindexing name is generated by the cited to_additive declaration."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/tame-measure-reflection",
+        "verdict": "verified",
+        "note": "Reflection of the translation equation gives a translation-fixed difference. The explicit unit constant of q_D and nonzero T make the formal factor nonzero; domain cancellation and native Amice injectivity prove reflection without monomial moment density or division by two."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/tame-zeta-reflection",
+        "verdict": "verified",
+        "note": "The existing unit projector commutes with negation. Native zero-extended integer inversion is odd on units and vanishes off units, contributing the second negative sign to the zeta reflection formula."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/tame-character-zeta-reflection",
+        "verdict": "verified",
+        "note": "The native reduced character has parity chi(-1), including modulus one. Weight projection under the involution combines it with eta(-1), without primitive-conductor or Gauss assumptions."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/integral-tame-character-reflection",
+        "verdict": "verified",
+        "note": "Norm bounds put both parity factors in the fixed O. All-test inclusion of reflected evaluations reduces the integral identity to its K-valued counterpart; subtype injectivity suffices without an integral half-projector."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/tame-character-parity-test",
+        "verdict": "verified",
+        "note": "The explicit inequality epsilon!=c permits field cancellation of (epsilon-c)*value. Integral vanishing follows by inclusion. Only the ±1 odd-mass corollary needs characteristic zero; even-character degree-zero values remain unidentified."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/tame-character-value-parity",
+        "verdict": "verified",
+        "note": "The coordinate power has parity (-1)^k. The positive-degree Bernoulli comparison yields scalar and integral-test vanishing for mismatched parity; matching parity alone does not prove nonzero values."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/tame-complex-kernel",
+        "verdict": "verified",
+        "note": "The total real divided-difference constructor removes the origin singularity before complex inclusion. Its positive exponential orientation and subtracted constants permit principal constructors but prohibit the unsmoothed principal L-comparison. The quartic origin fixes character rather than inverse orientation."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/tame-complex-regularity",
+        "verdict": "verified",
+        "note": "Real local power series for the divided difference at zero, quotient analyticity away from zero and the supplied real beta regularity give global real analyticity. No entire complex t-variable function is asserted."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/tame-complex-origin-derivatives",
+        "verdict": "verified",
+        "note": "Differentiating the finite identity k+1 times leaves D*(k+1)*f^(k)(0). Zero character sum supplies the missing Bernoulli term, yielding the unsigned derivative value; the later Mellin evaluation contributes (-1)^k. Unique differentiability handles the endpoint within [0,infinity)."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/tame-complex-positive-series",
+        "verdict": "verified",
+        "note": "Absolute geometric summability justifies finite residue-class reindexing. Negating nonzero canonical representatives introduces exactly one factor -eta(-1), including the even-character negative kernel. Principal characters fail the unsmoothed expansion as shown by the log2 control."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/tame-complex-positive-derivatives",
+        "verdict": "verified",
+        "note": "The induction supplies a summable uniform derivative majorant on (t/2,infinity), convergence at t and equality on that interval. The exact native differentiation theorem is applicable; convergence of the original series alone would not be sufficient."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/tame-complex-derivative-decay",
+        "verdict": "verified",
+        "note": "For each fixed order and positive cutoff the explicit weighted exponential bound yields order-dependent constants with rate one. Smoothness and unique derivatives make ordinary/within derivatives eventually equal; this is an archimedean statement."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/tame-complex-mellin-convergent",
+        "verdict": "verified",
+        "note": "Smoothness gives local integrability and a bounded small-t estimate; the native exponential Mellin theorem gives exactly Re(s)>0, independently of the later absolute series half-plane."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/tame-complex-mellin-gamma-l",
+        "verdict": "verified",
+        "note": "The native hasSum_mellin theorem supplies a justified interchange for positive natural frequencies and the summable Re(s)>1 coefficient majorant. The character zero term vanishes, and the exact native LFunction/LSeries comparison is used only in its half-plane."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/tame-complex-mellin-entire",
+        "verdict": "verified",
+        "note": "The supplied L0 continuation applies to the actual smooth half-line kernel and every separately bounded derivative with positive decay rate. Entireness is in the Mellin variable only."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/tame-complex-mellin-comparison",
+        "verdict": "verified",
+        "note": "Gamma cancellation is justified in Re(s)>1; both functions are then entire under nonprincipality and agree near 2. The native whole-plane preconnected analytic identity principle gives the global comparison, including s=1."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/tame-complex-mellin-values",
+        "verdict": "verified",
+        "note": "The supplied negative-value theorem gives (-1)^k times the unsigned kernel derivative. The independent global factor -eta(-1) agrees by parity vanishing; the even-character k=1 control has the required extra minus sign."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/complex-gauss-denominator",
+        "verdict": "verified",
+        "note": "Primitive roots have complex absolute norm one. A real exp(t) multiple can equal one only at t=0, where nonzero representatives contradict primitive-root nontriviality. The zero residue is explicitly excluded."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/complex-gauss-regularity",
+        "verdict": "verified",
+        "note": "The zero-residue weighted term is identically zero under totalized division; every other denominator is nonzero on the real line. Finite analytic division proves regularity even when the totalized Gauss normalizer is zero."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/complex-gauss-generating",
+        "verdict": "verified",
+        "note": "The exact all-residue primitive Gauss inversion and finite geometric identity produce the scalar generating equation. Zero weights are removed before denominator cancellation, and nonzero G is explicit; no finite-field nonvanishing is used for composite modulus."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/complex-gauss-kernel-comparison",
+        "verdict": "verified",
+        "note": "Away from zero finite scalar cancellation gives equality; continuity gives equality at the origin. Both root choices must recompute their Gauss normalizers for independence. The actual Mellin comparison follows from equality of functions."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/complex-tame-formal-derivatives",
+        "verdict": "verified",
+        "note": "The analytic jet and iterated formal Mahler constant equal the same finite Bernoulli sum. The exponential coefficient divides the derivative by k!, without evaluating arbitrary formal series at exp(t)-1."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/prime-power-character-gauss",
+        "verdict": "verified",
+        "note": "The exact native primitive Gauss identity holds at all reduced residues, including nonunits; multiplying by the explicitly nonzero inverse gives the pointwise character lift. No units-only replacement is allowed."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/smoothed-additive-twist",
+        "verdict": "verified",
+        "note": "Additive weighting acts on the exact supplied extension of the integral smoothing measure. Continuity comes from the discrete finite quotient, and boundary values at zero index, trivial additive character and a=1 are separate from positive-level Gauss hypotheses. The dyadic sign first moment detects loss of the weight."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/twisted-smoothed-gauss",
+        "verdict": "verified",
+        "note": "Pointwise finite Gauss expansion and actual K-linear all-test evaluation give equality of measures, not merely masses or coefficients. The a=1 zero boundary involves no smoothing denominator."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/twisted-smoothed-gauss-amice",
+        "verdict": "verified",
+        "note": "Native bundled Amice linearity transports the finite measure equality to transforms and individual Mahler coefficients; coefficient2 is not the second ordinary moment."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/smoothed-translation-sum",
+        "verdict": "verified",
+        "note": "Finite Mahler translation and the exact smoothed-extension series identity give Q_a(Y)*A=B_a(Y). Native Amice injectivity transfers this to the finite translation/atom identity on actual measures."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/smoothed-additive-translation",
+        "verdict": "verified",
+        "note": "Additive character covariance beta(x+i)=epsilon^i beta(x) and the exact weight/pushforward supplier produce the weighted translation equation. Atomic coefficients carry epsilon^j, matching the dyadic 2*delta0-delta1 control."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/smoothed-additive-amice-cancellation",
+        "verdict": "verified",
+        "note": "Native Amice linearity and the finite translation calculation yield ordinary polynomial multiplication Q_a(epsilon*Y)*A=B_a(epsilon*Y), without substituting a nonzero constant into an infinite series. The dyadic denominator/numerator signs are correct."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/smoothed-additive-denominator",
+        "verdict": "verified",
+        "note": "For epsilon=1 the smoothing parameter is a mapped native unit; otherwise vanishing of the finite sum makes epsilon^a=1. Its order also divides p^n, so coprimality forces epsilon=1, a contradiction. This proves the smoothing denominator, not the Gauss denominator."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/smoothed-additive-rational",
+        "verdict": "verified",
+        "note": "The finite smoothing denominator has a nonzero constant coefficient, exactly matching the native inverse equivalence. Identity roots use the pole-cancelled polynomial quotient; dyadic coefficients distinguish Mahler coefficient2 from ordinary moment2."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/twisted-smoothed-gauss-rational",
+        "verdict": "verified",
+        "note": "Replacing each actual additive transform in the finite Gauss sum gives the normalized rational expression. Smoothing denominators are proved; Gauss nonvanishing remains an independent explicit hypothesis."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/smoothed-additive-root-power",
+        "verdict": "verified",
+        "note": "The proved finite smoothing sum times epsilon-1 equals epsilon^a-1, so nonidentity survives an admissible smoothing power. The excluded even dyadic parameter explains the necessity of coprimality."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/smoothed-additive-fractions",
+        "verdict": "verified",
+        "note": "Both linear and powered denominators have separately justified nonzero constant coefficients. Finite polynomial identities recover the two-fraction expression inside K[[T]]. At the identity root both native inverses vanish and cannot replace the actual polynomial quotient."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/twisted-smoothed-gauss-fractions",
+        "verdict": "verified",
+        "note": "Primitive-root nonidentity handles every nonzero residue, while zero/nonunit character weights remove their terms before inverse cancellation. The factor a in the second fraction is retained."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/prime-power-resolvent-reindex",
+        "verdict": "verified",
+        "note": "The unit permutation c->a*c gives character factor chi(a), rather than its inverse. Additive frequency multiplication accounts for root powers; no denominator is cancelled, so all residues remain valid."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/prime-power-resolvent-substitution",
+        "verdict": "verified",
+        "note": "The substitution Y^a-1 has zero constant coefficient. Unit-inverse transport applies at nonzero residues, and the zero character weight removes the identity-root term even at a=0."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/prime-power-amice-formal-kernel",
+        "verdict": "verified",
+        "note": "The prime-power modulus uses only the existing formal finite kernel, with its field unit certificate. It never instantiates a tame actual measure at a wild modulus. Finite reindexing and legal substitution give -F+a*chi(a)*subst(F)."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/prime-power-exponential-coefficients",
+        "verdict": "verified",
+        "note": "Legal exponential substitution composition and rescaling contribute a^k in addition to the outer a. The negative finite-kernel coefficient changes the prefactor to 1-chi(a)*a^(k+1), with denominator (k+1)! retained."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/prime-power-ordinary-moments",
+        "verdict": "verified",
+        "note": "The exact coefficient-algebra ordinary-moment supplier multiplies by k!, giving denominator k+1. All field/root/Gauss hypotheses remain visible; finite controls supplement, but do not prove, the general actual-measure theorem."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/smoothed-complex-character-kernel",
+        "verdict": "verified",
+        "note": "The actual smooth complex kernel is the finite combination -f+a*chi(a)*f(a*t), with correct removable value. The constructor permits a=0 and principal inputs, while later L comparisons state their narrower hypotheses."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/smoothed-complex-regularity",
+        "verdict": "verified",
+        "note": "Real analytic composition with scaling and finite complex linear combination prove global real regularity, including the origin and a=0. No entire complex t-plane extension is claimed."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/smoothed-complex-higher-derivatives",
+        "verdict": "verified",
+        "note": "The correct native real-scalar composition theorem handles R->C functions and contributes a^k. Multiplication by the outer smoothing scalar gives exponent k+1, including k=0 and a=0."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/smoothed-complex-origin-values",
+        "verdict": "verified",
+        "note": "The unsigned origin derivative multiplies the existing native special value by chi(a)*a^(k+1)-1. The within endpoint uses global smoothness/unique derivatives; normalized Mellin values later add (-1)^k."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/smoothed-complex-derivative-decay",
+        "verdict": "verified",
+        "note": "Positive natural a>=1 preserves rate-one exponential decay after scaling, separately for each order. Global smoothness supplies exact within-derivative eventual equality."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/smoothed-complex-gauss-comparison",
+        "verdict": "verified",
+        "note": "The actual complex Gauss comparison holds at all real inputs including the removable point. The unit permutation fixes the second character factor, and zero character weights precede cancellation. The explicit G!=0 assumption remains."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/smoothed-mellin-convergence",
+        "verdict": "verified",
+        "note": "Positive real input scaling preserves native Mellin convergence; finite complex linearity gives Re(s)>0 for g, including chi(a)=0. No raw integral is asserted at nonpositive integers."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/smoothed-mellin-gamma-l",
+        "verdict": "verified",
+        "note": "The outer smoothing coefficient and native Mellin scaling give a^(1-s), and the tame sign contributes exactly one chi(-1). The half-plane uses actual convergent integrals and the native LFunction."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/smoothed-mellin-entire",
+        "verdict": "verified",
+        "note": "The existing L0 entire continuation applies to global smoothness restricted to the half-line and positive rate-one decay for every derivative order. Entireness is in s."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/smoothed-mellin-comparison",
+        "verdict": "verified",
+        "note": "The fixed positive nonzero complex base makes a^(1-s) entire. Gamma cancellation on Re(s)>1 and whole-plane analytic uniqueness give the global nonprincipal comparison; principal a=1 tests use the zero constructor separately."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/smoothed-mellin-negative-values",
+        "verdict": "verified",
+        "note": "The within-derivative formula yields the explicit (-1)^k normalized sign, including k=0. Native natural-power conversion and character parity reconcile the global comparison."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/smoothed-gauss-mellin-comparison",
+        "verdict": "verified",
+        "note": "Equality of actual real-variable Gauss and root-free kernels, including the origin, transports the existing normalized continuation. No formal evaluation map or unconditional Gauss nonvanishing is introduced."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/prime-power-common-special-value",
+        "verdict": "verified",
+        "note": "One explicit finite element in E has separate complex and arithmetic images. Injective coefficient maps preserve nonprincipality from the actual primitive K-character; the signed element, rather than the unsigned moment, matches odd-order normalized Mellin values."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/prime-power-common-positive-weight",
+        "verdict": "verified",
+        "note": "The explicit w>=1 permits substitution k=w-1 and gives exponent/Bernoulli index/divisor w. Weight1 includes mass/L(0); the final inverse-weighted pseudomeasure interface is still separate."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/prime-power-quotient-common-value",
+        "verdict": "verified",
+        "note": "The explicit nonzero smoothing factor transports injectively to K, where evaluated moments can be divided. The complex b0 comparison itself needs no smoothing division; a=1 is an excluded zero denominator."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/prime-power-smoothing-independent-quotient",
+        "verdict": "verified",
+        "note": "Each separately eligible quotient equals the same finite K-valued Bernoulli expression, giving independence without a complex embedding. This is evaluated-moment independence, not a generic localization evaluation map."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/prime-power-arithmetic-character",
+        "verdict": "verified",
+        "note": "The unit character uses only the native normed ring algebra/action and continuity assumptions; no field, completeness or ultrametric assumption enters its constructor. Its natural representative formula and minus-one sign follow from changeLevel and the native power map. The witness 1+p^(n+1) reduces to one even at level zero; positive powers need not factor through the finite quotient."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/prime-power-arithmetic-character-nontrivial",
+        "verdict": "verified",
+        "note": "For a nontrivial characteristic-zero target and positive weight, the witness 1+p^(n+1)>1 has nonunit power value under injective natural casting. This proves nontriviality without assuming a nonprincipal finite character or a procyclic description and includes p=2 and level zero."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/intrinsic-numerator-character-shift",
+        "verdict": "verified",
+        "note": "Pulling the unit test through Units.val, intrinsic extension/inclusion and inverse weighting gives the actual ambient smoothed ordinary moment. Level n>=1 and weight w>=1 are essential: the displayed level-zero mass counterexample excludes unjustified extension to n=0. Primitive roots and Gauss values remain explicit only where needed."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/two-dirac-arithmetic-character",
+        "verdict": "verified",
+        "note": "Dirac extension evaluates the cleared natural-unit denominator to chi(a)*a^w-1 for all levels and weights. This is an actual ring evaluation formula, requiring no primitive character, Gauss nonvanishing or localization regularity. Weight-zero trivial denominators correctly evaluate to zero."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/intrinsic-numerator-common-character-value",
+        "verdict": "verified",
+        "note": "The common algebraic value has separate complex and p-adic images; cancellation requires the smoothing denominator to evaluate nonzero. The existing Zp-to-Qp character evaluator does not provide the required K-valued ring homomorphism, so the precise supplier gap remains."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/pseudomeasure-natural-numerator",
+        "verdict": "verified",
+        "note": "The L1 arithmetic numerator for the actual unit convolution pseudomeasure agrees with the intrinsic numerator before any quotient evaluation. Native FractionRing is not asserted to be a field or domain here. The identity-unit numerator is zero and is not used as a regular denominator."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/pseudomeasure-character-numerator",
+        "verdict": "verified",
+        "note": "Evaluating the actual cleared numerator uses the inverse-weight cancellation on unit support and the positive ordinary degree w-1, with n>=1 and w>=1. Principal and imprimitive positive-level characters remain covered; the identity unit gives zero without a Gauss nonvanishing assumption."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/prime-power-principal-unit-value",
+        "verdict": "verified",
+        "note": "The principal-unit value is a promotion of the exact constructor API. Native reduction of 1+p^(n+1) is one at every level including zero, so only the actual coordinate power remains; neither primitivity nor characteristic zero is needed."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/prime-power-admissible-principal-unit",
+        "verdict": "verified",
+        "note": "Positive weight and characteristic zero make the explicit principal-unit denominator nonzero and hence a field unit. The statement correctly distinguishes its scalar image from regularity in the measure ring and excludes both the identity unit and weight-zero principal character."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/pseudomeasure-character-evaluation-ratio",
+        "verdict": "verified",
+        "note": "Generic evalAt is instantiated only on the existing pseudomeasure submodule with f.toAlgebra. The explicit functional compatibility computes numerator and denominator, and admissibility permits division. The missing canonical K-valued ring map remains an input; no map from the whole total quotient is inferred."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/pseudomeasure-common-character-value",
+        "verdict": "verified",
+        "note": "The admissible scalar image reflects nonzero smoothing factor back through the field embedding, allowing the earlier common-field quotient at degree w-1. The signs cancel exactly, the complex and p-adic images remain separate, and primitive-root/Gauss hypotheses are retained for this route."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/arithmetic-character-pointwise-value",
+        "verdict": "verified",
+        "note": "The promoted formula is the defining product of finite-character restriction with the power of the actual unit coordinate. Weight zero removes only the latter factor; it does not replace an actual unit by a residue representative."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/intrinsic-tame-zeta-measure",
+        "verdict": "verified",
+        "note": "The specific intrinsic measure is the supplied linear restriction of the existing supported ambient tame measure. The supplier retraction proves uniqueness from actual pushforward, without a finite-moment determination assertion. Its modulus-one and zero-test cases and positive first moment have the correct scope."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/intrinsic-tame-zeta-inclusion",
+        "verdict": "verified",
+        "note": "Pushforward of restriction is the native ambient unit projector, which fixes the existing tame measure. Native map_apply yields equality on all ambient continuous tests and preserves mass; no identification of additive and multiplicative convolution is asserted."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/intrinsic-tame-character-value",
+        "verdict": "verified",
+        "note": "The pointwise arithmetic formula identifies the pulled-back ambient test on every unit, so actual pushforward computes the character value at all levels and weights. CharacterIntegralAlgHom applies with matching K coefficients; this does not solve the different integral pseudomeasure evaluator request."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/intrinsic-tame-zeta-norm",
+        "verdict": "verified",
+        "note": "The supplied unit-inclusion operator norm equality and ambient tame bound give the intrinsic bound without a factor of p. Nontrivially normed field hypotheses match the native operator norm receiver; all-test and mass bounds follow from le_opNorm."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/intrinsic-tame-common-character-value",
+        "verdict": "verified",
+        "note": "The existing product-level Euler-Bernoulli common value transports through actual inclusion. At level zero the tame Euler factor remains; at positive level theta(p)=0 and the product-level imprimitive L-function already contains its missing Euler factor. Primitive-conductor replacement requires the later explicit comparison."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/arithmetic-character-norm",
+        "verdict": "verified",
+        "note": "Bounded scalar action bounds algebraMap(z)=z acting on one, independently of an isometric algebra map. Combining the native finite-character norm bound, norm multiplication and nonnegative powers gives a uniform bound for every weight, including zero."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/integral-arithmetic-character",
+        "verdict": "verified",
+        "note": "The norm bound puts the existing arithmetic character in the native valuation integer subtype. Subtype extensionality and continuity supply monoid laws and topology without installing a Zp algebra on the integer ring. The negative-one API retains the arithmetic power sign."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/integral-arithmetic-character-coefficient",
+        "verdict": "verified",
+        "note": "Coefficient inclusion is the first component of the subtype constructor at every unit. This yields an equality of the particular continuous tests and makes no claim that arbitrary K-tests lift to integral-valued tests."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/intrinsic-integral-tame-zeta-measure",
+        "verdict": "verified",
+        "note": "The intrinsic integral measure uses the existing normed subring and native restriction of the actual O-valued ambient measure. Retraction gives uniqueness from actual pushforward. No field, completeness instance or separately chosen scalar action on O is assumed."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/intrinsic-integral-tame-inclusion",
+        "verdict": "verified",
+        "note": "The existing integral unit projector fixes the actual supported ambient measure. Applying native inclusion/restriction at coefficient ring O proves equality of measures and all ambient O-test evaluations with unchanged mass."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/intrinsic-integral-tame-coefficients",
+        "verdict": "verified",
+        "note": "Coefficient inclusion commutes with clopen zero extension pointwise on both pieces, then the ambient all-O-test comparison applies. Norm preservation and subtype injectivity give the test bound and uniqueness. No lift of arbitrary K-valued tests or general measure-extension functor is assumed."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/intrinsic-integral-tame-character-value",
+        "verdict": "verified",
+        "note": "Specializing the all-O-test comparison to the actual subtype-valued character and using its exact coefficient formula gives integral values for all weights including zero. Those endpoints remain actual integral values with no logarithmic formula asserted."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/intrinsic-integral-tame-common-value",
+        "verdict": "verified",
+        "note": "The positive-weight common E-element from the product-level formula has its arithmetic image in the native integer ring by the actual O-measure evaluation. Level-zero and positive-level Euler conventions remain distinct and no root/Gauss hypotheses are added."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/arithmetic-character-zero-level",
+        "verdict": "verified",
+        "note": "At modulus one the native character takes one on the sole unit residue, so the existing arithmetic pointwise formula reduces to the coordinate power. The extra Eisenstein carrier notation is contextual and is not needed to strengthen the ring hypotheses."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/arithmetic-character-natural-value",
+        "verdict": "verified",
+        "note": "The promoted natural-unit API keeps the actual unit value a in Zp; both the residue lift and algebra map preserve that cast. The arithmetic power is not replaced by a canonical finite representative, and zero exponents and zero levels remain valid."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/intrinsic-integral-tame-one-level",
+        "verdict": "verified",
+        "note": "The native finite tame numerator at modulus one has only representative zero with an empty smoothing sum, hence is zero. The actual bounded inverse, integral subtype and both restrictions preserve this zero. This does not identify the zero tame constructor with the principal zeta pseudomeasure."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/integral-arithmetic-character-weight-congruence",
+        "verdict": "verified",
+        "note": "Finite unit-group order at p^r gives the sufficient period p^(r-1)*(p-1). Kernel membership gives an actual Zp quotient witness, and bounded scalar action puts its image in O. Multiplication by the fixed integral finite-character value preserves divisibility even when its level exceeds r."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/tame-residue-cyclic-shift",
+        "verdict": "verified",
+        "note": "The finite residue formula reduces only character arguments modulo D. Reindexing a+qj with q a unit modulo D makes the unweighted sum zero; the finite weighted cyclic shift changes it by D*eta(a), giving the stated negative mass difference. This is not adding q within ZMod q."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/tame-character-coefficient-variation",
+        "verdict": "verified",
+        "note": "Subtracting the common finite integral-kernel decomposition before estimating preserves the sharp pointwise bound B. Every common kernel coefficient is bounded by one and the native ultrametric finite-sum law retains B. No norm or infinite root substitution on unrestricted formal series is introduced."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/tame-character-measure-variation",
+        "verdict": "verified",
+        "note": "The bounded coefficient difference is mapped linearly through the supplied inverse Amice isometry after toCLM. The operator norm bound and all-test bound follow on the actual dual without installing a new normed measure carrier."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/dyadic-tame-quadratic-reference",
+        "verdict": "verified",
+        "note": "For any odd D>1 a prime divisor supplies the native nonprincipal quadratic character. Injective integer casting and native change-level injectivity preserve nonprincipality, including additional nonunits. Values on units are plus/minus one, and bounded Z2 action bounds the principal difference by norm(2)<=1/2."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/integral-arithmetic-character-level",
+        "verdict": "verified",
+        "note": "Reduction of the same actual unit and native changeLevel-on-units give equality of the two integral characters, including level zero. The ambient zero counterexample correctly prevents an unrestricted equality of the two character functions on Zp."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/integral-arithmetic-character-product",
+        "verdict": "verified",
+        "note": "Integral inclusion reduces the character product to finite-character multiplication and the coordinate power-addition identity. Weights add and zero weights are allowed without inversion in O."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/integral-tame-twist-unit-restriction",
+        "verdict": "verified",
+        "note": "The ambient integral multiplier pulls back to the weight-zero integral unit character. Native weight-pushforward and restriction retraction identify actual intrinsic measures on all O-tests. Principal characters act identically on units and the modulus-one constructor remains zero."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/integral-tame-twist-arithmetic-moment",
+        "verdict": "verified",
+        "note": "Weight evaluation and the integral product identity combine chi and psi at the same displayed level while retaining the coordinate weight w. This is an actual O-valued integral at weight zero; only the existing positive common-field comparison yields special L-values."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/integral-tame-twist-unit-inverse",
+        "verdict": "verified",
+        "note": "Finite-character inverse and character multiplication give the constant-one test only on actual units. Native weight multiplication then recovers the original intrinsic measure on all O-tests, including after a level raise and at level zero."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/intrinsic-integral-tame-norm",
+        "verdict": "verified",
+        "note": "The exact existing all-test API is promoted. Pointwise norm-preserving inclusion identifies compact test norms and the field-valued tame bound gives the O-valued bound, with no operator norm on O-duals presumed."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/intrinsic-integral-tame-test-congruence",
+        "verdict": "verified",
+        "note": "The native valuation integer divisibility criterion converts every pointwise difference into a norm bound, including divisor zero. Compact test norm and the owned all-test measure bound give the reverse divisibility conclusion in O, retaining its integral quotient witness."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/intrinsic-integral-tame-weight-congruence",
+        "verdict": "verified",
+        "note": "The pointwise sufficient-period congruence combines with the integral all-test congruence for arbitrary fixed finite character level. It does not require that level to be below precision. The p=5 negative value difference -2/3 detects omission of p-1, and weight-zero integrals receive no extra L-value claim."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/intrinsic-integral-tame-finite-congruence",
+        "verdict": "verified",
+        "note": "A finite O-linear combination of actual continuous character tests is a continuous test, and native finite linearity transfers the pointwise integral divisibility to its values. Empty families, varying levels, zero weights and zero divisor are retained; no density of finite characters is presumed."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/integral-tame-twist-test-congruence",
+        "verdict": "verified",
+        "note": "The existing restricted twist is weighting by an actual integral character. Pointwise multiplication preserves an O-valued divisibility witness, so the all-test congruence applies to both weighted tests without inverting the ambient finite character."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/tame-numerator-coefficient-map",
+        "verdict": "verified",
+        "note": "Finite numerator mapping uses preservation of sums, negation, products and the natural binomial coefficients of q_a. Native ringHomComp maps character values pointwise. This algebraic identity needs no p-adic topology, roots or field hypotheses."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/tame-series-coefficient-map",
+        "verdict": "verified",
+        "note": "The actual unit q_D equation q_D*F=Q maps to the same equation in the target. Cancelling the target unit proves transport and independence of the unit certificate without assuming division by T or a field of fractions."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/tame-measure-amice",
+        "verdict": "verified",
+        "note": "The supplier inverse-Amice identity on the bounded coefficient sequence gives the transform of the actual measure by coefficient extensionality. Its completeness, ultrametric and bounded scalar-action hypotheses are exactly retained."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/tame-measure-field-comparison",
+        "verdict": "verified",
+        "note": "The exact pinned Mahler dense-span theorem is over a complete normed commutative ring, so a nontrivial field norm is not missing here. The two continuous K-linear maps agree on mapped Mahler tests by the scalar tower and formal coefficient map. Equality extends to all original-field tests without claiming all target tests descend."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/tame-zeta-unrestricted-weight",
+        "verdict": "verified",
+        "note": "The native inverse is zero on every nonunit, so multiplication by the unit indicator fixes the inverse-weight test. Evaluation on all tests proves the single-weight identity; continuity is supplied for the zero-extended inverse rather than inferred from field inversion at zero."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/tame-zeta-field-comparison",
+        "verdict": "verified",
+        "note": "The all-test field comparison applied to gK*f transports the actual zeta value. The explicit Zp/K/L tower identifies the included native integer inverse in each field, including its zero branch. Constants compare actual masses only."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/intrinsic-tame-zeta-restriction",
+        "verdict": "verified",
+        "note": "The promoted defining restriction keeps the native unit group distinct from the clopen unit-locus subtype; its evaluation uses the supplied inverse homeomorphism before zero extension."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/intrinsic-tame-zeta-field-comparison",
+        "verdict": "verified",
+        "note": "Coefficient mapping commutes with clopen zero extension separately on the unit locus and its complement. Applying the ambient zeta field comparison gives equality on every original-field unit test, including constants and zero-weight arithmetic characters."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/tame-integral-measure-inclusion",
+        "verdict": "verified",
+        "note": "Taking the first component of the existing integral measure subtype gives its exact field-valued evaluation on each included O-test. No arbitrary test lift or new integral measure-extension theorem is needed."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/integral-arithmetic-character-field-comparison",
+        "verdict": "corrected",
+        "note": "Including both integral character values in L reduces their equality to pointwise character transport, power preservation and the explicit scalar tower. Subtype injectivity concludes the result. Corrected the locally incomplete first hypothesis to name both actual norm valuations, their native integer subrings, the HasExtension instance and its coefficient map explicitly, without strengthening the pointwise assumptions. The packet now spells out the actual native norm valuations, integer rings and inclusion instead of relying on “as above”."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/integral-tame-measure-field-comparison",
+        "verdict": "verified",
+        "note": "The native HasExtension map between the actual norm-valuation integer rings has underlying field map, continuous by subtype lifting. The integral inclusion square and all-test field comparison then give equality in OL by subtype injectivity. Valuation equivalence suffices; isometry is not assumed."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/integral-tame-zeta-field-comparison",
+        "verdict": "verified",
+        "note": "The same native integer-ring inclusion square applies to the actual inverse-weighted zeta measures through their owned all-test inclusion laws. It preserves the native zero inverse on nonunits and compares masses without a degree-zero special-value claim."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/intrinsic-integral-tame-field-comparison",
+        "verdict": "verified",
+        "note": "The intrinsic all-test field comparison and native integer inclusion square give equality in OL on every transported OK-test. Arithmetic characters transport by their exact coefficient formula at all levels and weights; no new restriction or convolution map is built."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/intrinsic-integral-tame-field-congruence",
+        "verdict": "verified",
+        "note": "HasExtension reflects valuation order and hence integral divisibility of mapped evaluated differences. This includes divisor zero and the exact rational prime power p^r; ramification does not permit replacing it by a target uniformizer power. It does not infer pointwise congruence from evaluated congruence."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/tame-character-field",
+        "verdict": "verified",
+        "note": "The field is the native intermediate adjunction of the actual finite character range over the displayed Qp algebra. Principal and quadratic values generate bottom, while an outside value prevents bottom. No full cyclotomic field or conductor degree is identified with this field."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/tame-character-field-minimal",
+        "verdict": "verified",
+        "note": "The native adjunction universal property unpacks to membership of every actual character value in the proposed intermediate field. Minimality is relative to the fixed ambient Qp embedding."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/tame-character-values-algebraic",
+        "verdict": "verified",
+        "note": "Nonunit character values are zero; unit values satisfy a positive finite-group-order power equation equal to one. Native of_pow gives algebraicity over the base field, including the modulus-one unit group, without Gauss or coprimality hypotheses."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/tame-character-field-finite",
+        "verdict": "verified",
+        "note": "The finite range consists of integral elements over Qp, so the exact native finiteDimensional_adjoin theorem gives finite degree. Quadratic degree one follows from bottom; no arbitrary conductor/order degree formula is inferred."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/tame-character-field-complete",
+        "verdict": "verified",
+        "note": "The actual inherited norm and native NormedAlgebra structure, together with finite dimension over complete Qp, prove completeness of the generated field. Ambient completeness is unnecessary; merely being a subfield would not suffice."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/tame-character-in-field",
+        "verdict": "verified",
+        "note": "The subtype-valued character has actual membership witnesses in the native generated field; monoid and nonunit-zero laws follow by inclusion injectivity. Uniqueness and nonprincipality transfer are at the same modulus with unchanged signs."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/tame-character-field-recovery",
+        "verdict": "verified",
+        "note": "The native subtype inclusion recovers the exact original bundled character pointwise, and injectivity reflects nonprincipality. This is a coefficient comparison before measure descent is instantiated."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/tame-character-field-integer-tower",
+        "verdict": "verified",
+        "note": "The restricted intermediate-field Zp algebra has the exact ambient scalar image because of the given Zp/Qp/K tower. Native of_algebraMap_eq supplies the required Zp/F/K tower and does not accept an unrelated algebra structure."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/tame-character-field-bounded-action",
+        "verdict": "verified",
+        "note": "The inherited norm and restricted action reduce the scalar estimate to the actual ambient IsBoundedSMul estimate. Native of_norm_smul_le gives the bounded action needed by the measure constructors without choosing an integer-ring action."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/tame-character-field-valuation-extension",
+        "verdict": "verified",
+        "note": "The inherited subfield norm makes its valuation exactly the pullback of the ambient norm valuation, giving native HasExtension and the integer-ring map. Its double-subtype inclusion is continuous and reflects divisibility, including zero."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/tame-measure-character-field-descent",
+        "verdict": "verified",
+        "note": "The preceding finite completeness, bounded action, actual scalar tower and native continuous subtype field action supply every receiver hypothesis for the existing all-test tame comparison. Character recovery and proof irrelevance identify the actual constructors. Wild tests require their values in the smaller field."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/tame-zeta-character-field-descent",
+        "verdict": "verified",
+        "note": "The same supplied generated-field structures instantiate the existing all-test inverse-weighted zeta comparison; recovering the original character identifies the exact ambient constructor. Only transported smaller-field tests are covered, including actual mass."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/intrinsic-tame-character-field-descent",
+        "verdict": "verified",
+        "note": "The native intrinsic all-test comparison is instantiated using the exact generated-field structures, yielding actual unit-group measure descent. Its positive coordinate moments are a specialization and do not imply arbitrary wild-character descent."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/integral-tame-character-field-descent",
+        "verdict": "verified",
+        "note": "The native valuation-extension integer map and already supplied field structures instantiate integral tame comparison. Recovery retains equality in the actual ambient integer ring on all transported smaller-integer tests, rather than forgetting integrality."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/integral-tame-zeta-character-field-descent",
+        "verdict": "verified",
+        "note": "The same integer map instantiates the existing integral zeta all-test comparison under exactly the generated-field hypotheses. Character recovery preserves the actual inverse-weighted constructor and transported integral masses."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/intrinsic-integral-character-field-descent",
+        "verdict": "verified",
+        "note": "Integral intrinsic descent uses the existing unit-group all-test comparison and native integer map. The modulus-one constructor remains zero, and arbitrary ambient integer tests or outside wild-character values are not included."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/tame-character-integer-range",
+        "verdict": "verified",
+        "note": "An ambient integral element lies in the integer-ring image exactly when its field value lies in the native generated field. The reverse direction uses the inherited norm to reuse its integer-membership proof; double subtype extensionality gives the actual map witness."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/tame-measure-character-field-range",
+        "verdict": "verified",
+        "note": "A continuous ambient test with pointwise generated-field values lifts continuously to the native subtype. The actual all-test descent yields an integral in that field, hence membership of the ambient value. The Dirac outside-constant control correctly prevents dropping the pointwise range condition."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/tame-zeta-character-field-range",
+        "verdict": "verified",
+        "note": "The same continuous subtype lift and actual zeta all-test descent prove the generated-field range property. Constants in the smaller field and actual mass are covered, without asserting that all ambient tests have the required values."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/intrinsic-tame-character-field-range",
+        "verdict": "verified",
+        "note": "Continuous descent to the actual character field uses the pointwise range condition, including total mass, and the subspace topology; no arbitrary ambient measure descends."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/integral-tame-character-integer-range",
+        "verdict": "verified",
+        "note": "Integral descent uses a double subtype test lift, inherited valuation bound and the actual smaller native integer-ring witness."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/integral-tame-zeta-character-integer-range",
+        "verdict": "verified",
+        "note": "The ambient zeta descent retains the same actual range condition and inverse weight."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/intrinsic-integral-character-integer-range",
+        "verdict": "verified",
+        "note": "The intrinsic zeta descent transports the actual unit-domain tests through continuous inclusion."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/prime-power-character-pointwise-value",
+        "verdict": "verified",
+        "note": "Character evaluation reduces definitionally to the finite residue character; level zero is constant one and needs no artificial Zp algebra assumption."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/tame-character-field-quadratic",
+        "verdict": "verified",
+        "note": "The quadratic character field is bottom because all values are zero or plus/minus one."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/tame-character-field-principal",
+        "verdict": "verified",
+        "note": "The principal character field is bottom using the native quadratic characterization, including modulus one."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/arithmetic-character-values-in-character-field",
+        "verdict": "verified",
+        "note": "The arithmetic weight lies in the character field via the explicit Zp/Qp/K tower and finite character-value generators."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/intrinsic-tame-joint-character-comparison",
+        "verdict": "verified",
+        "note": "The actual intrinsic moment descends to the joint field F_eta join F_chi. Its finite dimension, completeness, bounded integer action and continuous inclusion precede the measure comparison; all weights and level zero are allowed."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/intrinsic-integral-joint-character-comparison",
+        "verdict": "verified",
+        "note": "The integral joint-field moment uses the native integer ring and inherited-norm extension, not an arbitrary coefficient subring."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/intrinsic-tame-joint-character-range",
+        "verdict": "verified",
+        "note": "Field membership is witnessed by the actual smaller-field integral; principal and quadratic auxiliary character fields reduce to bottom."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/intrinsic-integral-joint-character-range",
+        "verdict": "verified",
+        "note": "Integer-range membership is witnessed by the actual integral over the native joint integer ring."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/tame-prime-level-character-value",
+        "verdict": "verified",
+        "note": "Prime-level character comparison splits units and nonunits before using the change-level unit formula; repeated primes and principal characters remain covered."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/tame-prime-level-finite-sum",
+        "verdict": "verified",
+        "note": "The finite polynomial identity subtracts the multiples of q from the block sum, works over arbitrary coefficient rings, and permits repeated primes."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/tame-series-prime-level-comparison",
+        "verdict": "verified",
+        "note": "The formal generating-series comparison requires a nonprincipal character and unit moduli. Substitution has zero constant coefficient. Principal mass values give a necessary counterexample."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/tame-series-repeated-prime-level",
+        "verdict": "verified",
+        "note": "The repeated-prime formal identity follows because eta(q)=0; the nonprincipal hypothesis remains necessary."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/tame-measure-prime-level-comparison",
+        "verdict": "verified",
+        "note": "The actual measure identity follows from Amice injectivity and finite Mahler dilation coefficients, with q a native Zp unit. Pushforward pulls tests back along multiplication by q."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/tame-measure-repeated-prime-level",
+        "verdict": "verified",
+        "note": "The repeated-prime measure equality is equality of actual measures. The principal zero example is not an assertion of the nonprincipal formula for all principal characters."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/tame-measure-prime-level-moments",
+        "verdict": "verified",
+        "note": "Ordinary degree-k moments have factor 1-eta(q)*q^k for every k including zero."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/tame-unit-restriction-prime-level",
+        "verdict": "verified",
+        "note": "The unit-support projector commutes with dilation because q is a Zp unit; this uses the generic restriction/dilation interface."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/tame-zeta-prime-level-comparison",
+        "verdict": "verified",
+        "note": "Inverse weighting introduces the actual coefficient eta(q)/q, using native ring inverse at zero and the inverse law with a unit factor."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/tame-zeta-repeated-prime-level",
+        "verdict": "verified",
+        "note": "Repeated-prime zeta equality follows by applying the existing inverse-weight construction to the measure equality."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/intrinsic-tame-zeta-prime-level",
+        "verdict": "verified",
+        "note": "Intrinsic comparison is reflected through injective unit inclusion and its commuting dilation square, with multiplication by the actual native unit."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/tame-zeta-prime-level-positive-moments",
+        "verdict": "verified",
+        "note": "Degree k+1 intrinsic moments use 1-eta(q)*q^k. Degree-zero mass is treated separately with eta(q)/q, avoiding truncated natural subtraction."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/tame-prime-correction-integrality",
+        "verdict": "verified",
+        "note": "The correction eta(q)/q is integral by character norm and the bounded image of the inverse Zp unit; lifts are unique native integer subtypes."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/tame-integral-measure-prime-level",
+        "verdict": "verified",
+        "note": "Integral measure comparison reflects the field identity using inclusion injectivity and actual O-valued tests."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/tame-integral-zeta-prime-level",
+        "verdict": "verified",
+        "note": "Integral ambient zeta comparison uses the integral correction coefficient and native inverse weight; it retains the correct mass factor and repeated-prime case."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/intrinsic-integral-tame-prime-level",
+        "verdict": "verified",
+        "note": "Integral intrinsic prime-level comparison reflects every O-valued test through subtype inclusion; mass is multiplied by 1-c and repeated primes have c=0."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/tame-measure-arbitrary-level",
+        "verdict": "verified",
+        "note": "Prime-factor induction retains a downward-closed admissibility predicate. Only new prime divisors enter the signed subset sum; repeated exponents add no factor."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/tame-zeta-arbitrary-level",
+        "verdict": "verified",
+        "note": "The zeta subset coefficients retain eta(d)/d. All used denominators are p-adic units, and degree-zero mass is separate from positive polynomial moments."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/tame-measure-primitive-conductor",
+        "verdict": "verified",
+        "note": "The native conductor supplies positivity, unit image, tameness and primitive nonprincipality. Recovery changes the actual primitive character back to the given character."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/tame-zeta-primitive-conductor",
+        "verdict": "verified",
+        "note": "Primitive ambient zeta comparison is the same native conductor specialization with inverse-product coefficients retained."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/intrinsic-tame-zeta-arbitrary-level",
+        "verdict": "verified",
+        "note": "Actual unit families exist from tameness, and native Units.coeHom identifies subset products. Injectivity through the supplied retraction reflects the ambient equality."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/integral-tame-measure-arbitrary-level",
+        "verdict": "verified",
+        "note": "Every character value lifts to the native integer ring. Evaluation and subtype inclusion reflect the finite field equality on all integral tests."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/integral-tame-zeta-arbitrary-level",
+        "verdict": "verified",
+        "note": "Used inverse-product coefficients lift simultaneously because their denominators are prime to p. Values outside the finite powerset are irrelevant."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/intrinsic-integral-tame-arbitrary-level",
+        "verdict": "verified",
+        "note": "Integral intrinsic comparison uses exactly the field comparison and existing all-test inclusion; auxiliary unit and coefficient choices are unique on used indices."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/intrinsic-tame-zeta-primitive-conductor",
+        "verdict": "verified",
+        "note": "Primitive intrinsic comparison keeps the same unit carrier. At new bad primes the original character is zero and its primitive character is nonzero."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/integral-tame-measure-primitive-conductor",
+        "verdict": "verified",
+        "note": "Primitive integral ordinary-measure comparison uses the un-divided character coefficients and derived conductor certificates."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/integral-tame-zeta-primitive-conductor",
+        "verdict": "verified",
+        "note": "Primitive integral zeta comparison retains eta_0(d)/d; finite prime-to-p denominator integrality supplies the whole coefficient family."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/intrinsic-integral-tame-primitive-conductor",
+        "verdict": "verified",
+        "note": "Primitive intrinsic integral comparison is equality on every continuous O-valued unit test, without assigning an analytic special value to mass."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/tame-arithmetic-moment-level",
+        "verdict": "verified",
+        "note": "Arithmetic-character evaluation turns the subset sum into a finite Euler product. Weight zero keeps q^0/q, and level zero removes only the finite character."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/integral-tame-arithmetic-moment-level",
+        "verdict": "verified",
+        "note": "Integral Euler products use actual singleton coefficient lifts and reflect subset-product multiplicativity through O into K; there is no division in O."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/tame-arithmetic-moment-primitive",
+        "verdict": "corrected",
+        "note": "Primitive arithmetic moments use eta_0 at each new prime exactly once; the wild character and its level remain unchanged. Made its inherited coefficient/wild/tame hypotheses locally explicit. Replaced the inherited backward hypothesis reference by the complete local prime, coefficient-field, ambient-character and primitive-tame hypotheses."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/integral-tame-arithmetic-moment-primitive",
+        "verdict": "corrected",
+        "note": "Primitive integral moments specialize the existing finite O-valued product formula, with inclusion identifying the field product. Made the same inherited hypotheses locally explicit. Replaced the inherited backward hypothesis reference by the complete local prime, coefficient-field, ambient-character and primitive-tame hypotheses."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/tame-primitive-gauss-norm",
+        "verdict": "verified",
+        "note": "Primitive Gauss norm follows from all-residue Fourier and additive orthogonality at any positive composite modulus. The dual additive character is inverse; same-character products need parity. Both sums have norm at most one and their product is D of norm one."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/tame-primitive-gauss-unit",
+        "verdict": "verified",
+        "note": "The norm-one normalization gives a native integer-ring unit by the actual valuation interface, uniquely including its inverse."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/tame-gauss-series-certified",
+        "verdict": "verified",
+        "note": "The certified Gauss series discharges nonvanishing by norm one while retaining D>1, primitivity, inverse-character orientation and alternating coefficient signs."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/tame-integral-series-map",
+        "verdict": "verified",
+        "note": "Mapping the integral series is coefficientwise subtype reduction; it promotes an existing API and declaration instead of redeclaring a constructor."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/tame-integral-gauss-series-certified",
+        "verdict": "verified",
+        "note": "The integral certified Gauss comparison composes the exact series inclusion with the certified field formula. An O-valued Amice statement still requires its compatible scalar action."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/tame-wild-product-primitive",
+        "verdict": "verified",
+        "note": "Coprime conductor equality follows by applying the native product-conductor divisibility twice with inverse characters, then using coprimality and conductor divides level."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/primitive-tame-wild-euler-value",
+        "verdict": "verified",
+        "note": "The primitive Euler value equals eta(p) at wild level zero and vanishes at positive primitive wild level. Principal inflation is explicitly outside those hypotheses."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/primitive-integral-interpolation",
+        "verdict": "verified",
+        "note": "Positive-weight primitive interpolation composes the existing common algebraic Bernoulli value with primitive conductor equality and actual integral inclusion. Separate E-to-C and E-to-K embeddings are retained."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L2/tame-integral-interpolation-unique",
+        "verdict": "corrected",
+        "note": "Uniqueness uses all positive ordinary degrees and the precisely requested O-valued moment separation. The Zp-only supplier theorem is insufficient; even-only degrees are rejected by delta_1-delta_minus1. Corrected the final Lean Dirac example to pass its explicit native O coefficient argument. Corrected the even-weight counterexample to pass the explicit coefficient-ring argument required by the pinned AbstractMeasure.dirac constructor. The exact atomic controls distinguish its odd moment and annihilate the even moments."
+      }
+    ]
+  }
 }
