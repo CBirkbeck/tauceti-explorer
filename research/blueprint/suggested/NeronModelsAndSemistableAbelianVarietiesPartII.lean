@@ -15,24 +15,6 @@ import Mathlib.AlgebraicGeometry.AffineScheme
 import Mathlib.Topology.ContinuousMap.Basic
 import Mathlib.RingTheory.Spectrum.Prime.Topology
 import Mathlib.CategoryTheory.Limits.Shapes.Pullback.PullbackCone
-/-!
-This file is not the roadmap and is not exhaustive. The companion roadmap document is
-definitive. These statements suggest Lean forms so contributors and reviewers can converge
-on names and signatures. Nothing here claims an implementation.
-
-Pinned baseline: Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174;
-TauCeti f790474821cf4256814db967cb154e7af3d0c369. The full combined file is NOT
-COMPILED: required Tau Ceti artifacts are unavailable. An exact Mathlib-only affine
-extraction is checked at the Mathlib pin; its warnings are inherited/new admitted planning declarations. The current
-basis continuation stores actual prototype bodies in the immutable proof snapshot
-linked in the handoff; all newly submitted bodies are admitted under PROTOCOL§13. Native proof bodies are planning prototypes, not implementation claims.
-
-The packet is partial. Missing geometric conditions are explicitly omitted, never represented
-by arbitrary proposition parameters or a definition of a proposition by `sorry`. The final
-ledger names every API, example and layer theorem whose full signature needs supplier types.
-The two partial data structures below are not substitutes for their mathematical definitions.
--/
-
 import Mathlib.CategoryTheory.Sites.Abelian
 import Mathlib.CategoryTheory.Sites.Limits
 import Mathlib.CategoryTheory.Sites.Whiskering
@@ -121,6 +103,21 @@ import Mathlib.Algebra.Polynomial.AlgebraMap
 import Mathlib.Algebra.Algebra.Subalgebra.Lattice
 import Mathlib.Tactic.LinearCombination
 import Lean.Elab.Tactic.Omega
+
+/-!
+This file is not the roadmap and is not exhaustive. The companion roadmap document is
+definitive. These statements suggest Lean forms so contributors and reviewers can converge
+on names and signatures. Nothing here claims an implementation.
+
+Pinned baseline: Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174;
+TauCeti f790474821cf4256814db967cb154e7af3d0c369. The whole file requires the
+individual Tau Ceti modules imported above. Checks of extracted Mathlib-only signatures
+do not establish that this whole file elaborates.
+
+The packet records a complete planning pass with partial stage coverage. Conditions whose
+supplier vocabulary is unavailable are listed explicitly in the final ledger. The partial
+data structures below are not substitutes for their mathematical definitions.
+-/
 
 open CategoryTheory CategoryTheory.Limits AlgebraicGeometry
 open scoped Polynomial
@@ -4077,7 +4074,7 @@ local instance (a b : k) : IsIntegralHom (normalization a b) := by
   infer_instance
 
 /-- Integral comparison from normalization in the actual generic-point field.
-The comparison is not yet asserted to be an isomorphism. -/
+The section comparison and isomorphism proof are specified later in this file. -/
 def absoluteNormalizationComparison (a b : k) :
     ((curve a b).fromSpecStalk (genericPoint (curve a b))).normalization ⟶
       normalizationSource a b := by sorry
