@@ -629,6 +629,17 @@
     "data/blueprints/Polylogarithms.md"
    ]
   },
+  "research/blueprint/packets/SchemeAndStackFoundations.json": {
+   "promotedAt": "2026-10-05T03:18:44Z",
+   "review": "86a1c84075b47966",
+   "reviewDate": "2026-10-05",
+   "reviewer": "independent-review-REV-SchemeAndStackFoundations",
+   "sha256": "0f55d115438cd23b2c0c1c2f478601a158f5e660a4f98e5afab64f185aed85ee",
+   "to": [
+    "data/blueprints/SchemeAndStackFoundations.json",
+    "data/blueprints/SchemeAndStackFoundations.md"
+   ]
+  },
   "research/blueprint/packets/SemisimpleAlgebrasPartII.json": {
    "promotedAt": "2026-10-04T23:25:46Z",
    "review": "055ccdce0067b119",
