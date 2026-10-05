@@ -1,3 +1,64 @@
+# REV-DESIGN-StableReductionPartII: relative Picard suppliers and consumer checkpoint
+
+Issue [#3619](https://github.com/CBirkbeck/tauceti-explorer/issues/3619). Reviewer: Codex (GPT-6), session `codex-LwkQQl`. Date: 2026-10-05. Continues [#6200](https://github.com/CBirkbeck/tauceti-explorer/pull/6200) and the preserved reports below.
+
+**Incomplete independent review checkpoint; no top-level `review` or acceptance.** This pass corrects six geometric nodes, checks two further level-source contracts and checks the six reserved-key consumer interfaces. It replaces eight stale direct requests with fourteen exact supplier-node imports and three precise remaining requests. It also reconciles stale expression inventories against the actual suggested file. Global mathematical composition, source-issue collation and semantic signature adequacy remain unfinished. Successful structural checks and source receipts do not establish closure.
+
+## Exact suppliers and mathematical corrections
+
+The complete upstream [StableReduction](../../../content/tau-ceti/StableReduction/README.md) and [JacobianChallenge](../../../content/tau-ceti/JacobianChallenge/README.md) documents were read. Upstream Picard layer D is a field construction; coherent nodal-family theory has Noetherian hypotheses. Neither is re-planned here. The inspected library audit and reserved-key ownership record retain this roadmap as the unique owner; no new primitive definition or baseline declaration is introduced.
+
+The accepted [JacobianChallengePartII packet](../packets/JacobianChallengePartII.json) now supplies relative degree components, represented Picard schemes/torsors, relative ppav Jacobians, arbitrary pullback, canonical polarization, the Leray obstruction and integral Noetherian stable-family Lie/Hodge comparisons. The accepted [NeronModelsAndSemistableAbelianVarieties packet](../packets/NeronModelsAndSemistableAbelianVarieties.json) supplies stable-family semiabelian Picard and the geometric normalization exact sequence. The [A0-extension packet](../packets/AlgebraicModuliForArithmeticGeometry--A0-extension.json) supplies the sheaf/base-change and section-rigidification interfaces; it has no accepted review object in this checkout. These are plans with transitive gaps, not built library declarations. The last checkpoint records each packet's byte hash, review identity, complete imported statements/hypotheses and selected local proof scope.
+
+| Local node | Result and remaining boundary |
+| --- | --- |
+| `MC.4/full-level` | Use early JC1 Jacobian/base-change/polarization nodes on the Noetherian tricanonical atlas. Request actual polarized-abelian effective descent over arbitrary test bases from R09.4. Preserve the SF.3 comparison between étale H¹ with its inverse Tate twist and Jacobian torsion/Weil pairing. The exact fixed symplectic component and homogeneous multiplier functor remain distinct. |
+| `MC.4/fine-level-scheme`, `level-connectedness` | Fresh DM §5 and DGH §6.1 checks preserve their statements. DGH alone gives the characteristic-zero chosen component, not the integral theorem. DM cites Serre and Teichmüller/Dehn inputs; their proofs and the tame boundary component comparison remain gaps. |
+| `MC.6/smooth-torelli` | Apply JC1 to the projective universal curve on the Noetherian fine scheme; M5/M6 classify the polarized level Jacobian and give the Cartesian square. Import early JC1, never downstream JC7/universal-level-jacobian, which consumes this roadmap's fine-level construction. The Hodge API is provided by the separate pullback theorem, not a prerequisite of constructing the map. |
+| `MC.6/jacobian-hodge-comparison` | Rescope the duplicate generic Lie/duality theorem to Hodge pullback along smooth full-level Torelli. Import JC6 on the integral open-and-closed components of the regular Noetherian fine scheme; an exact SF.0 component criterion is requested. Assemble on the disjoint cover, identify invariant differentials using the Cartesian family, and pull back to arbitrary T. No Teichmüller connectedness is needed merely for this argument. Yuan's original comparison assumes integral Noetherian S and g>1. |
+| `MC.6/compactified-torelli` | Import stable-family Picard and JC6 directly for the boundary comparison; the newly specialized smooth full-level Hodge theorem cannot supply a nodal-family theorem. The geometric normalization sequence gives the abelian quotient. Its own DVR-shaped predecessor does not close the all-nodal-curve proof; its G-normalization-cohomology gap remains. Semiabelian stack descent and all-characteristic minimal Siegel extension remain open. |
+| `MC.7/level-picard-parameter`, `picard-triples-comparison` | Import exact JC0 degree/representability/torsor, JC4 obstruction, JC6 infinitesimal and A0 base-change/section-split targets. Verify universal global functions on every test base before using the exact sequence. For an algebraically closed field, an fppf-local representative can be pulled back along a rational point of a nonempty finite-type open in the cover; Pic(k)=0 makes the actual line class unique. Curve-level rigidity removes curve inertia; line scalars survive in the groupoid. |
+
+For general T the precise boundary is
+
+`0 → Pic(T) → Pic(C_T) → Pic_{C_T/T}(T) → H²_fppf(T,G_m) → H²_fppf(C_T,G_m)`.
+
+Vanishing of a point's obstruction gives an actual degree-d line. Its line-class lifts form a **Pic(T)-torsor**, rather than a uniquely determined line. The added `LevelPicardParameter.liftFiber` API records this. The added base-twist test takes C×P¹ over C and distinguishes L from L tensored with the base O(1), while identifying their relative Picard points. The dual-number test takes a fixed smooth genus-two curve with level3: first-order degree-d line deformations have tangent H¹(O), dimension2. These two tests distinguish an incorrect global-line or reduced-points parameter functor. All three new items remain explicit geometric Lean omissions.
+
+## Six consumer contracts
+
+The complete source-qualified export ledger is `keyDefinitionCoverage[0].consumerContractReview`; five absent consumer routes are added, and existing routes retain partial status.
+
+| Consumer and selected passage | Required export and owner boundary |
+| --- | --- |
+| Abdurrahman–Venkatesh §5.1–5.2, pp.39–41 | Unpointed smooth curve stack/universal family in genus≥2, over Z[1/#G]. Its G-cover Hurwitz groupoid has central deck inertia; it is not replaced by a fine curve-level scheme. Hurwitz twist, gerbe and monodromy stay in SymplecticLFunctionsModSquares. |
+| Canning–Larson–Payne Introduction and §2.1, pp.1–2,4–5 | All stable pointed pairs, smooth proper DM stacks, smooth open, ordered relabeling, forget/stabilize, clutching and graph-quotient boundary normalization. Integral normalization/pointed descent remain partial; cohomology operations and motivic/STE graph theory stay in MotivicStructuresInModuliOfCurves. |
+| Chen Introduction, pp.2–3 | Smooth one-pointed genus-one stack, universal marked curve and its separate coarse scheme. `MC.4/coarse-space` already covers **every stable pair**, including (1,1); no new coarse request is needed. Only projectivity/fine full-level results have the unpointed genus≥2 restriction. Covers, ramification, Nielsen/Higman invariants and Markoff work stay in IG.5. |
+| Dimitrov–Gao–Habegger §6.1, pp.23–24 | Fixed level component, regular quasi-projective fine scheme, irreducibility, projective universal curve and Cartesian Jacobian family. The source assumes no global curve section and uses Pic¹. Strong Torelli/sign refinements and topology remain supplier gaps; finite fibres do not give a finite smooth Torelli morphism. |
+| Landesman–Litt Notation1.10.1–1.10.3, pp.10–11 | Every stable pair over C, ordered marked smooth proper families and their classifying maps to the smooth stack. Dominant étale versal charts, puncture complements, analytification and stack π₁/MCG comparison stay in MappingClassGroupsAndCanonicalRepresentations. |
+| Yuan §§3.1.1–3.1.3 and4.3.2, pp.41–44,73–75 | Stable/smooth unpointed genus>1 stacks and universal stable curve, separately coarse/fine moduli and stable extensions after covers. Picard parameter geometric triples do not assert a global universal line or naive fine full level on nodal fibres. |
+
+These checks specify the right targets and hypotheses. They do not prove the six exports through every unresolved supplier.
+
+## Sources, inventories and validation
+
+Fresh selected [BLR public scan](https://archive.math.arizona.edu/cais/scans/BLR-Neron_Models/neron4.pdf): Leray discussion pp.202–203, Proposition8.1/4 and proof pp.204–205, Theorem8.4/1(a) and proof pp.231–232, curve formal smoothness p.232, Theorem9.3/1 and proof p.252, and Proposition9.4/4 and proof pp.260–261. The book uses cohomological H²; no Azumaya identification is claimed. These source statements support the imported contracts, not all their transitive representability/duality/theta proofs.
+
+Fresh [DM](https://www.dam.brown.edu/people/mumford/alg_geom/papers/1969c--IrredModCurves-Deligne-Numdam.pdf) §5.1–5.16 text pp.104–109, with rendered p.105 pairing conventions; [DGH v3](https://arxiv.org/pdf/2001.10276v3) pp.23–24, rendered Cartesian diagram; [Yuan author copy](http://faculty.bicmr.pku.edu.cn/~yxy/preprints/bigness_and_bogomolov.pdf) pp.41,43–44,46,73–75, with rendered pp.43–44,74–75; [CLP v3](https://arxiv.org/pdf/2307.08830v3) pp.1–2,4–5 with rendered boundary formulas; [Chen v2](https://arxiv.org/pdf/2011.12940v2) pp.2–3, rendered opening; [LL v4](https://arxiv.org/pdf/2205.15352v4) pp.10–11 rendered; [AV](https://arxiv.org/pdf/2303.13436) pp.39–41, rendered pp.39–40. Downloaded AV is stamped v1 (23 March2023), not a collated published2025 version. Their current arXiv submission histories were also checked; all four selected AV/Chen/CLP/LL preprints are the latest versions listed there. Exact PDF byte hashes/read scopes are in the packet. Publisher landing pages do not establish full published-text collation. E1–E14 retain their attributed predecessor verdicts; no new source error or whole-register confirmation is asserted.
+
+The fourteen exact new supplier imports reach sixty explicit supplier nodes when following declaration edges across169 local packets. There is no explicit cycle or path back into this packet, and no ambiguous reachable id. Opaque stage/upstream targets remain listed boundaries; expanding an entire stage, including unrelated downstream applications, would be an invalid proof of either closure or cyclicity.
+
+The incoming expression lists missed36 actual declarations,83 APIs and76 immediately tagged typed tests already in the compiled file. The reconciliation records their existing declaration names, line numbers and signature hashes, and preserves historical receipt attribution. Both `api` and `API` omission-kind spellings are recognized. All current names now occur in exactly one expressed/omitted inventory:450/78 nodes,365/97 unique APIs and356/76 unique tests. Every omission name occurs in the Lean comments; none is duplicated. This is bookkeeping, not a fresh semantic adequacy audit of all mathematical signatures or proof bodies.
+
+Final counts:528 nodes;117 definitions/constructions with469 APIs/406 tests; all-node470 API items/433 tests (462/432 unique names);35 planets;276 baseline entries;140 requests;twenty gaps;36 sources;fourteen source issues;26 consumer routes;251 prototype omissions. All eight stages remain partial. Packet `complete` still means the inherited finished planning pass.
+
+Fresh `lean-check research/blueprint/suggested/StableReductionPartII.lean`: exit0;zero errors;875 intentional `sorry` warnings;zero other warnings. File:5,929 lines, SHA-256 `7404b755cde1a888739f54b4acafffb342a7ba3c66ca0fe02ab420656fbdb333`. Available memory before compilation:96GiB. Mathlib imports only, pinned `082e2d37e8b0463410cdb532e111cd43d5a66174`; no Tau Ceti import/proof check is claimed. No proof body is added, and no compiler remains running.
+
+Packet checker:zero errors/warnings. Allowed-file intake checker on all five deliverables:zero problems. `git diff --check`:clean. Global mathematical/source/semantic review remains unfinished; resume from the handoff. The reader document is outside this issue's authorized paths; its next authorized update must incorporate this pass's exact supplier boundaries, specialized Hodge theorem, lifting-torsor/infinitesimal tests and consumer contracts along with all predecessor corrections.
+
+---
+
+## Preserved predecessor reports
 # REV-DESIGN-StableReductionPartII: MC.0–MC.1 checkpoint
 
 Issue [#3619](https://github.com/CBirkbeck/tauceti-explorer/issues/3619). Reviewer: Codex (GPT-6), session `codex-KKjBS6`. Date: 2026-10-05. Continues [#6196](https://github.com/CBirkbeck/tauceti-explorer/pull/6196) and its preserved predecessor reports below.
