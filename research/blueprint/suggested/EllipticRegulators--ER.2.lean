@@ -123,7 +123,8 @@ end Archimedean
 
 /-! ER.2/elliptic-deligne-specialisation-contract:
 `elliptic_deligne_specialisation` is not stated: needs early M.8's actual Deligne
-complex/hypercohomology and C5's geometric H¹ and Hodge comparison. Its required
+complex/hypercohomology and C5's geometric H¹ comparison, including conjugation
+and cup/trace compatibility. On a curve Ω^{≥2}=0, so F²=0. Its required
 signature is the real linear equivalence of H²_D(E_R,R(2)) with the geometric
 minus eigenspace of H¹(⊔σ Eσ(C),R(1)), induced by the exact sequence with F²=0.
 Coefficient conjugation composed with geometric c* must become -c* on R(1).

@@ -72,7 +72,7 @@
   "sources": [
     {
       "id": "Brunault.These.2005",
-      "title": "Valeur en 2 de fonctions L de courbes elliptiques",
+      "title": "Étude de la valeur en s = 2 de la fonction L d’une courbe elliptique",
       "authors": "François Brunault",
       "edition": "Doctoral thesis, 2005; arXiv:math/0602186v1. PDF and printed page numbers agree.",
       "url": "https://arxiv.org/pdf/math/0602186v1",
@@ -123,17 +123,18 @@
       "statement": "Specialise the early M.8 Deligne-complex comparison to every smooth projective Eσ/C. With R(p)=(2πi)^p R and R(2)_D=[R(2)→O→Ω¹] in degrees 0,1,2, its cone long exact sequence yields 0→F²H¹_dR(Eσ)→H¹(Eσ(C),R(1))→H²_D(Eσ,R(2))→0. F²H¹_dR(Eσ)=0, so the last arrow is an isomorphism. On the disjoint union of all embeddings, total de Rham conjugation is coefficient conjugation composed with geometric c*. It acts on R(1)-valued classes as -c*, hence its fixed part is the geometric (-1)-eigenspace. Under the accepted target node’s wedge pairing, fixed classes are precisely the functionals taking the real differential space (fixed by ω↦c*conj(ω)) into R(1). The complex, hypercohomology, cone comparison and products are imported, not constructed in ER.2.",
       "hypotheses": [
         "E/F is an elliptic curve over a number field; Eσ is smooth and projective.",
-        "C5 supplies the geometric Betti–de Rham comparison, Hodge filtration and Poincaré pairing; the early M.8 interface supplies the Deligne comparison and its conjugation compatibility.",
+        "C5 supplies geometric Betti–de Rham comparison and the oriented Poincaré pairing and its compatibility with real conjugation; the Hodge filtration is the filtration induced by the truncated de Rham complex. The early M.8 interface supplies the Deligne comparison and its conjugation compatibility.",
         "c* acts geometrically and leaves the coefficient line R(1) alone; total conjugation includes complex conjugation of coefficients."
       ],
       "proofSteps": [
         "Use Schneider §2 and Nekovář (7.2.2) for the imported Deligne cone and exact sequence in the range i=2<2p=4; this is an instance, not a new construction of the complex.",
-        "C5’s curve Hodge decomposition has H¹=H^{1,0}⊕H^{0,1}, hence F²=0. The comparison therefore gives the accepted target node’s isomorphism.",
+        "Use C5/repair-proper-de-rham-betti for the additive comparison. On a smooth curve Ω^j=0 for j≥2, so the truncated complex Ω^{≥2} is zero and F²H¹_dR=0. This gives the accepted target node’s isomorphism without requiring a Hodge decomposition from C5. Cup/trace and real-conjugation compatibility remain the explicit C5 stage request.",
         "Coefficient conjugation is -1 on R(1), so total conjugation is -c*. Taking invariants commutes with the finite direct sum; real invariants are exact by averaging.",
         "Use Brunault (2.104) with complex dimension one: geometric c reverses the surface orientation, and the fixed differential condition makes the wedge functional imaginary-valued."
       ],
       "prerequisites": [
         "EllipticRegulators:ER.2/the-deligne-cohomology-target",
+        "ComplexComparisonPartII:C5/repair-proper-de-rham-betti",
         "ComplexComparisonPartII:C5"
       ],
       "sources": [
@@ -380,8 +381,8 @@
         },
         {
           "sourceId": "Brunault.These.2005",
-          "locator": "Proposition67 pp.67–69, (2.122)–(2.123); proof of Theorem68 p.70",
-          "excerpt": "r_A = r̂_{A_R} ∘ η*",
+          "locator": "Proposition67 pp.67–69, (2.122)–(2.123) and conclusion p.69; proof of Theorem68 p.70",
+          "excerpt": "r_A(γ) = r̂_A(η*γ)",
           "match": "Identifies the Beilinson regulator with the η_B wedge pairing; the elliptic integration-by-parts formula gives 2r_E."
         }
       ],
@@ -528,7 +529,7 @@
     },
     {
       "supplier": "ComplexComparisonPartII:C5",
-      "need": "For each smooth projective elliptic Eσ, H¹ Betti–de Rham comparison, H^{1,0}⊕H^{0,1} decomposition with F²=0, real-conjugation compatibility and the oriented Poincaré/period pairing. The accepted ER.1 period nodes supply the specialised lattice data.",
+      "need": "For each smooth projective elliptic Eσ, supplement C5/repair-proper-de-rham-betti with real-conjugation compatibility and the oriented Poincaré/cup/period pairing. Its finer node already supplies the additive Betti–de Rham comparison. F²=0 follows from Ω^{≥2}=0 on a smooth curve and requires no new Hodge-decomposition theorem. The accepted ER.1 period nodes supply the specialised lattice data.",
       "neededBy": [
         "EllipticRegulators:ER.2/elliptic-deligne-specialisation-contract"
       ]
@@ -549,7 +550,13 @@
         "Public web searches for Nekovar/Nekovář Beilinson erratum, correction and exact (7.5.1), 2026-10-05; no correction located.",
         "AMS Motives vol.55.1 contents https://www.ams.org/books/pspum/055.1/pspum055.1-endmatter.pdf identifies the published pp.537–570; a publisher PDF access attempt did not retrieve the chapter. The findings are confined to the hashed Stanford author copy.",
         "Brunault thesis Definition63, (2.107), Remark64 and Proposition67, pp.66–70, cross-checked against the author copy’s earlier (7.3.2)."
-      ]
+      ],
+      "source": "Nekovar.AuthorCopy",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in the p.24 page image: the preceding displayed comparison and π₁-valued representative have R(1) coefficients; R(2) in the next sentence is a coefficient-index slip.",
+        "by": "REV-EllipticRegulators--ER.2"
+      }
     },
     {
       "id": "EllipticRegulators/E25",
@@ -565,7 +572,13 @@
         "Public web searches for Nekovar/Nekovář Beilinson erratum, correction and exact (7.5.1), 2026-10-05; no correction located.",
         "AMS Motives vol.55.1 contents https://www.ams.org/books/pspum/055.1/pspum055.1-endmatter.pdf identifies the published pp.537–570; a publisher PDF access attempt did not retrieve the chapter. The findings are confined to the hashed Stanford author copy.",
         "Brunault thesis Definition63, (2.107), Remark64 and Proposition67, pp.66–70, cross-checked against the author copy’s earlier (7.3.2)."
-      ]
+      ],
+      "source": "Nekovar.AuthorCopy",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in the p.24 page image and checked against (7.3.2): π₁(dlog g)=i darg(g) for real darg, so the last expression for ψ omits i. Brunault (2.107) gives the intended imaginary-valued form.",
+        "by": "REV-EllipticRegulators--ER.2"
+      }
     },
     {
       "id": "EllipticRegulators/E26",
@@ -581,7 +594,35 @@
         "Public web searches for Nekovar/Nekovář Beilinson erratum, correction and exact (7.5.1), 2026-10-05; no correction located.",
         "AMS Motives vol.55.1 contents https://www.ams.org/books/pspum/055.1/pspum055.1-endmatter.pdf identifies the published pp.537–570; a publisher PDF access attempt did not retrieve the chapter. The findings are confined to the hashed Stanford author copy.",
         "Brunault thesis Definition63, (2.107), Remark64 and Proposition67, pp.66–70, cross-checked against the author copy’s earlier (7.3.2)."
-      ]
+      ],
+      "source": "Nekovar.AuthorCopy",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in the p.24 page image: the bar is present, but both displayed integrands use g twice. Expanding the alternating cup representative and integrating d(log|f|log|g|ω) replaces the differential variable by f and gives the stated r_E/(πi) pairing.",
+        "by": "REV-EllipticRegulators--ER.2"
+      }
+    },
+    {
+      "id": "EllipticRegulators/E27",
+      "source": "Nekovar.AuthorCopy",
+      "kind": "misprint",
+      "affects": "nothing",
+      "locator": "Nekovar.AuthorCopy, §7.5 p.24, sentence describing r_D(f) immediately after the two comparison isomorphisms; this finding concerns only the hashed author copy.",
+      "printed": "df = π₀(ω_f), for ω_f = ∂f/f",
+      "correction": "Replace df by dφ_f, where φ_f=log|f|: dφ_f=π₀(ω_f).",
+      "reason": "The pair model (7.3.1) requires the differential of the real-valued φ_f, and (7.4.1) gives φ_f=log|f|. For the local holomorphic unit f=e^z at z=0, df=dz while π₀(df/f)=dx=dlog|f|; the printed equation cannot hold.",
+      "known": "new; no correction found in the searches listed; no assertion about the publisher’s version of record.",
+      "searched": [
+        "Public web searches for Nekovar/Nekovář Beilinson erratum, corrigendum, (7.5.1), and the unit-regulator df/log formula, 2026-10-05; no relevant correction found.",
+        "Author publications page https://webusers.imj-prg.fr/~jan.nekovar/pu/ indexed entry [5]; direct page and https://webusers.imj-prg.fr/~jan.nekovar/pu/mot.pdf access failed (403), 2026-10-05.",
+        "AMS https://www.ams.org/books/pspum/055.1/pspum055.1-endmatter.pdf access failed (403), 2026-10-05. Publisher chapter not retrieved; finding scoped to the Stanford author copy.",
+        "Cross-checked (7.3.1) and (7.4.1), author-copy pp.22–23, and the p.24 page image."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The p.24 page image prints df. The local unit f=e^z distinguishes df from the required dφ_f=π₀(df/f), confirming a variable slip with no change to the intended regulator.",
+        "by": "REV-EllipticRegulators--ER.2"
+      }
     }
   ],
   "reusedNodes": [
@@ -636,7 +677,7 @@
       "url": "https://math.stanford.edu/~conrad/BSDseminar/refs/BeilinsonintroII.pdf",
       "read": "2026-10-05",
       "sha256": "3b6ba59cb8338b59fd8206318b2a91c3588ca09545522d6fb33717287924eacd",
-      "note": "Publisher chapter not retrieved. Source issues E24–E26 concern only this copy."
+      "note": "Publisher chapter not retrieved. Source issues E24–E27 concern only this copy; the independent review confirms all four from its p.24 page image."
     }
   ],
   "checks": {
@@ -652,5 +693,38 @@
   "suggestedFile": {
     "path": "research/blueprint/suggested/EllipticRegulators--ER.2.lean",
     "scope": "Mathlib period-coordinate instances of orbitEquiv, dimension and normalization computations. Actual cohomological and K₂ signatures cannot be typed at the baseline: omitted conditions are identified individually in comments, not replaced by empty predicates or assumed-comparison fields."
+  },
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-EllipticRegulators--ER.2",
+    "date": "2026-10-05",
+    "notes": "Independently checked all five nodes, three hashed public sources and every locator/excerpt, eight Mathlib declarations at the pin, accepted reused ER.2 and ER.1 nodes, E.3/P.5/C5 suppliers, target coverage, API/tests, planets and RT-AREA-ktheory-2/7. Corrected the C5 dependency/vanishing argument, Brunault source title and quotation; confirmed E24–E26 and added author-copy misprint E27. Suggested period-model file elaborates with only proposed-proof warnings. Complete planning pass accepted; stage remains planned, implementation unchecked and the acyclic early M.8 supplier gap remains open.",
+    "checked": [
+      {
+        "nodeId": "EllipticRegulators:ER.2/elliptic-deligne-specialisation-contract",
+        "verdict": "corrected",
+        "note": "Exact sequence, Tate line and -c* invariants verified in Schneider/Brunault. Reuse the finer additive C5 comparison and prove F²=0 from the zero Ω^{≥2} complex; retain the request for conjugation and cup/trace compatibilities."
+      },
+      {
+        "nodeId": "EllipticRegulators:ER.2/archimedean-orbit-equivalence",
+        "verdict": "verified",
+        "note": "Computed real Cε and transported complex-pair swap eigenspaces, inverse coordinates and representative dependence; seven API items and five distinguishing tests match the Lean period model."
+      },
+      {
+        "nodeId": "EllipticRegulators:ER.2/archimedean-rank-from-orbits",
+        "verdict": "verified",
+        "note": "Orbit ranks give r₁+2r₂; pinned place-count theorem identifies this with [F:Q]. Real and complex coefficient dimensions and regulator conjugation agree with the target convention."
+      },
+      {
+        "nodeId": "EllipticRegulators:ER.2/chern-character-symbol-comparison",
+        "verdict": "corrected",
+        "note": "Two Schneider signs cancel; π₁(dlog)=i darg and Brunault’s Stokes comparison gives W(r_D)=2r_E. Corrected the p.69 quotation’s subscript; rational K₂ descent is kept distinct from vanishing real tame residues."
+      },
+      {
+        "nodeId": "EllipticRegulators:ER.2/oriented-period-coordinate-comparison",
+        "verdict": "verified",
+        "note": "Oriented determinant pairing yields -ν(γ₂), toReal=-2πa(γ₂)=-∮η and J=W/(2πi)=r_E/(πi); shear and orientation tests and the plus-class non-example are correct."
+      }
+    ]
   }
 }
