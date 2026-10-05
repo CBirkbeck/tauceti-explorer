@@ -87,6 +87,13 @@ measure and pseudomeasure operations remain imported from PMIA. The current
 PMIA prototype has no matching authenticated compiled module available; the
 full file is NOT COMPILED. Missing completed-algebra comparison carriers are
 recorded explicitly, not replaced by fabricated structures or Prop fields.
+
+Independent review REV-DirichletPadicLFunctions--L1 promotes eight existing
+boundary/continuity/operator API signatures to packet lemmas. The four residue
+lemmas below expose the arithmetic used by smoothedMeasure_residue. Its generic
+finite cyclic recurrence uniqueness input is requested from PMIA L1; the six
+supplier requests remain open. Elaboration still stops at the unavailable PMIA
+import, so these signatures have not been checked by Lean.
 -/
 noncomputable section
 open scoped PowerSeries AbstractMeasure
@@ -1739,6 +1746,38 @@ theorem smoothedMeasure_residue_recurrence (a : ℕ) (ha : ¬p∣a) (m : ℕ)
       (∑ i ∈ Finset.range a, if (i : ZMod (p^m))=r then (1 : K) else 0)-
         (a : K)*(if r=0 then 1 else 0) := sorry
 
+-- Reviewer-added declaration-sized arithmetic prerequisites.
+lemma smoothedResidue_carry (a : ℕ) (m : ℕ)
+    (u : (ZMod (p^m))ˣ) (hu : (u : ZMod (p^m)) = (a : ZMod (p^m)))
+    (r : ZMod (p^m)) :
+    let N := ((Finset.range a).filter (fun i => (i : ZMod (p^m)) = r)).card
+    (((r-(a : ZMod (p^m))).val : ℤ)-(r.val : ℤ) =
+      -(a : ℤ)+((p^m : ℕ) : ℤ)*(N : ℤ) ∧
+    (((((↑u⁻¹ : ZMod (p^m))*(r-(a : ZMod (p^m)))).val) : ℤ)-
+      ((((↑u⁻¹ : ZMod (p^m))*r).val) : ℤ)) =
+      -1+((p^m : ℕ) : ℤ)*(if r=0 then (1 : ℤ) else 0) := sorry
+
+lemma smoothedResidue_candidate_recurrence [CharZero K] (a : ℕ) (m : ℕ)
+    (u : (ZMod (p^m))ˣ) (hu : (u : ZMod (p^m)) = (a : ZMod (p^m)))
+    (r : ZMod (p^m)) :
+    let d := fun s : ZMod (p^m) => ((a : K)-1)/2+
+      ((s.val : K)-(a : K)*(((↑u⁻¹ : ZMod (p^m))*s).val : K))/((p^m : ℕ) : K)
+    d (r-(a : ZMod (p^m)))-d r =
+      (∑ i ∈ Finset.range a, if (i : ZMod (p^m))=r then (1 : K) else 0)-
+        (a : K)*(if r=0 then 1 else 0) := sorry
+
+lemma smoothedResidue_candidate_mass [CharZero K] (a : ℕ) (m : ℕ)
+    (u : (ZMod (p^m))ˣ) (hu : (u : ZMod (p^m)) = (a : ZMod (p^m))) :
+    (∑ r : ZMod (p^m), (((a : K)-1)/2+
+      ((r.val : K)-(a : K)*(((↑u⁻¹ : ZMod (p^m))*r).val : K))/((p^m : ℕ) : K))) =
+      ((a : K)-1)/2 := sorry
+
+lemma smoothedMeasure_residue_mass [CharZero K] (a : ℕ) (ha : ¬p∣a) (m : ℕ) :
+    (∑ r : ZMod (p^m), finiteProjection
+      (⟨PadicInt.toZModPow m,PadicInt.continuous_toZModPow p m⟩ : C(ℤ_[p],ZMod (p^m)))
+      (extendIntegralCoefficients (R := K) (smoothedMeasure p a ha)) r) =
+      ((a : K)-1)/2 := sorry
+
 theorem smoothedMeasure_residue [CharZero K] (a : ℕ) (ha : ¬p∣a) (m : ℕ)
     (u : (ZMod (p^m))ˣ) (hu : (u : ZMod (p^m))=(a : ZMod (p^m)))
     (r : ZMod (p^m)) :
@@ -1960,7 +1999,9 @@ DirichletPadic.kubotaLeopoldt_completed_plus
 DirichletPadic.kubotaLeopoldt_sign_quotient_comparison
 DirichletPadic.kubotaLeopoldt_coefficient_naturality
 
-The packet states their arithmetic contracts and five precise PMIA requests.
+The packet states their arithmetic contracts and six precise PMIA requests.
+The additional request is the native finite cyclic recurrence uniqueness lemma
+used by smoothedMeasure_residue, whose arithmetic inputs are explicit above.
 In particular, a corner ring has identity e-plus, and a quotient pushforward is
 not automatically a map of total quotient rings. No abstract carrier with a
 field asserting the requested comparison is substituted for those inputs.
