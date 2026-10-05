@@ -9088,7 +9088,7 @@ CG Remark 9.3 applies CSP to the latter two cases, GL₂ over a CM quartic and G
 
 #### Full relative Mennicke universality and the finite arithmetic congruence defect
 
-New CG route requires BMS Theorem 4.1(c), not just stable SK₁=0. For A=O_{F,S}, n≥3 and I≠0, prove SL_n(A,I)/E_n(A,I) is the universal Mennicke group, then determine it by Corollary 4.3: trivial if F has a real place or S contains a finite place; in the totally complex S=∅ case cyclic of order r(I), with the specified transition maps and inverse limit μ(F). The inherited universal-mennicke-group is abstract; its SK₁-valued symbol does not establish this finite-rank relative universality. Need lemma-level Kubota §6 and extension §§8–10, the arithmetic r(I) formula and compatible roots-of-unity normalization. §4 statements were freshly read; these proofs remain uncompleted. This is an unplanned U.4 target, not a prerequisite of the already closed elementary-containment proof.
+New CG route requires BMS Theorem 4.1(c), not just stable SK₁=0. For A=O_{F,S}, n≥3 and I≠0, prove SL_n(A,I)/E_n(A,I) is the universal Mennicke group, then determine it by Corollary 4.3: trivial if F has a real place or S contains a finite place; in the totally complex S=∅ case cyclic of order r(I), with the specified transition maps and inverse limit μ(F). The inherited universal-mennicke-group is abstract; its SK₁-valued symbol does not establish this finite-rank relative universality. Kubota §6 and §8 through the standard-form value and its two-sided covariance are decomposed below. The §9–§10 homomorphism proof, §11 relative universality, the arithmetic r(I) formula and compatible roots-of-unity normalization remain explicit targets. This is an unplanned U.4 target, not a prerequisite of the already closed elementary-containment proof.
 
 #### The arithmetic and congruence completions and the central kernel
 
@@ -9142,7 +9142,7 @@ The local-ring K₀, determinant and semilocal K₁ computations flow from this 
 
 ## Kubota continuation — Codex codex-Px3FlU, 5 October 2026
 
-This partial checkpoint adds twenty-three U.4 declarations, preserving all 228 inherited node objects and all planets. The next uncompleted target is BMS Proposition 8.5, followed by Proposition 8.6 and the finite arithmetic defect. Reading a section is not claimed to finish its decomposition. The constructions below use the existing GL congruence kernel, relative elementary closure and Mennicke-symbol carrier. C is any group: only the symbol image is forced to commute.
+This partial checkpoint adds twenty-three U.4 declarations, preserving all 228 inherited node objects and all planets. The rank-two homomorphism supplies BMS Proposition 8.5; the standard-form section below constructs the next-rank function. Propositions 8.5–8.6 still require the §9–§10 homomorphism argument and the finite arithmetic defect. Reading a section is not claimed to finish its decomposition. The constructions below use the existing GL congruence kernel, relative elementary closure and Mennicke-symbol carrier. C is any group: only the symbol image is forced to commute.
 
 Fresh sources: [Bass–Milnor–Serre, public published scan](https://www.numdam.org/item/10.1007/BF02684586.pdf), §2 pp.65–69 and §§4–11 pp.94–120, with the §6 calculation inspected in the image; [Bass, public published scan](https://www.numdam.org/item/10.1007/BF02684689.pdf), pp.16–20, especially Proposition 5.1(a) and Corollary 5.2. The hashes agree with the recorded inherited versions. Source versions and exact read scope are in the packet. No new source error is asserted.
 
@@ -9584,6 +9584,706 @@ Prerequisites: KTheoryLowDegrees:U.4/kubota-ideal-image, KTheoryLowDegrees:U.4/r
 
 Source: BMS.1967, §6 Theorem 6.1 and proof, printed pp.103–105. Implementation remains unchecked.
 
-The three §2 lemmas supply Kervaire reciprocity and Lam denominator multiplication explicitly; they are no longer hidden assumptions in Kubota. The homomorphism kills relative elementary and relative diagonal matrices, and commutators against global elementary and unit diagonal matrices, hence the generated GE subgroups in BMS’s statement. All eight gaps, eight supplier requests and 44 planets survive. The next proof boundary is Proposition 8.5, then Proposition 8.6 and §§8–10.
+The three §2 lemmas supply Kervaire reciprocity and Lam denominator multiplication explicitly; they are no longer hidden assumptions in Kubota. The homomorphism kills relative elementary and relative diagonal matrices, and commutators against global elementary and unit diagonal matrices, hence the generated GE subgroups in BMS’s statement. All eight gaps, eight supplier requests and 44 planets survive. The standard-form section below continues through Lemma 8.12. The next proof boundary is the §9–§10 normalizer and swap argument completing Propositions 8.5–8.6.
 
-Validation for this continuation: the indexed packet checker has zero errors and warnings. All 228 inherited node objects and 467 baseline records are preserved. The internal dependency graph is acyclic. Every new node, API name and definition test has a corresponding typed suggested declaration or example. The full suggested file does not elaborate because the shared build lacks the TauCeti.CategoryTheory.Exact.Functor object file. A harness made from the exact inherited definitions and new section elaborates against pinned Mathlib with autoImplicit disabled and thirteen typed examples, with expected sorry warnings. This is signature validation, not proof checking or validation of the complete suggested file.
+
+
+## Relative standard forms and the next-rank value
+
+The relative argument uses the existing matrix groups and the existing relative elementary
+subgroup. Its purpose is to construct the function that can extend a Mennicke homomorphism
+from rank r to rank r+1, and to identify the exact conditions under which this function is
+independent of its factorization. Multiplicativity is a separate mathematical assertion. The
+normalizer proof of BMS §§9–10 supplies it; the standard-form formula alone does not.
+
+Let A be a commutative ring and I an ideal. A relative unimodular column is congruent to the
+first basis vector modulo I, and its entries generate A. Both requirements matter. The columns
+(2,1,0) and (3,6,0) over ℤ illustrate the distinction at I=2ℤ: the first is unimodular with
+wrong congruences; the second has the right congruences without unimodularity. The inherited
+absolute orbit theorem cannot replace the relative theorem. Every reducing factor must remain
+at the chosen ideal level.
+
+The convention HasStableRange A k means shortening every unimodular column of length greater
+than k. It is BMS condition (7.2) indexed by k+1. Thus a Dedekind domain has the condition with
+k=2, giving relative elementary transitivity in ranks at least three. Rank two is supplied by
+the existing relative Bézout completion in SL₂. No E₂ transitivity or stable range one assertion
+is made for a general Dedekind domain. The full uniform GL transitivity hypothesis in the
+extension is quantified over every ideal, since a related matrix requires its standard form at
+the smaller ideal tI. Transitivity only at I does not supply that step.
+
+The two block types deliberately use different corner positions. Type L has an upper-left
+rank-r invertible corner and last row the last standard row. Type R has a lower-right rank-r
+corner and first column the first basis vector. A standard form is their product, separated by
+the elementary root from the first coordinate to the last row, with coefficient t∈I. The
+coefficient is fixed by the last-first entry of the matrix. Its corners and off-diagonal vectors
+need not be unique. The integer nonuniqueness test moves e₀₁(2) between the type-L corner and
+the first row of the type-R factor.
+
+The additional relative matrix relation is oriented. It scales a first column into a first row
+using the same witness, with the top-left witness required to lie in I. Over ℤ, parameter zero
+relates e₀₁(2) to the identity but does not relate the identity back to e₀₁(2). This example rejects
+both an equivalence-relation closure and an accidental transposition of the convention. The
+parameter need not be cancellable. In the zero-divisor case the construction leaves a possible
+first-row difference; equality of determinants turns that difference into a product of I-level
+first-row roots. This correction is part of the same-rank elementary-equivalence theorem.
+
+For a homomorphism κ, the extension conditions assert actual equations: it kills the relative
+elementary group; elementary and diagonal conjugation preserve it; its kernel is transpose
+stable; and the oriented relation preserves its value. Transpose kernel stability asserts an
+implication about the value 1, not equality of arbitrary transposed values. Postcomposing κ
+preserves all these conditions when the target homomorphism is injective; an arbitrary target
+homomorphism may enlarge the kernel in a way that destroys that implication.
+
+The value of a standard form is κ(a)κ(b), in that order. To compare two forms, compute their
+relative L and R quotients. A cyclic permutation takes the latter corner to a matrix related
+to the former. Conjugation invariance and the relation therefore identify their images. Multiplying
+on the appropriate sides proves equality of the two products without commuting target elements.
+An arbitrary group C is allowed throughout. The resulting function agrees with κ on both corner
+placements and satisfies the two-sided L/R covariance formula. These assertions use standard
+forms and κ's multiplication; they do not assume the new function is a homomorphism.
+
+The declarations that follow state BMS §7's relative inputs and §8 through Lemma 8.12. Their
+source is the published numdam scan, with Bass's relative orbit and reduction proofs supplying
+Theorem 7.5. The precise remaining mathematical boundary is Lemma 9.1: form the multiplier
+subgroup and the conjugation stabilizer of this function, prove the normalizer lemmas, then
+perform the two distinct swap calculations of §10. Propositions 8.5 and 8.6 separate the
+Dedekind rank-two step from the higher-rank induction. The subsequent relative universality,
+arithmetic finite defect and congruence completions remain targets of U.4.
+
+### KTheoryLowDegrees:U.4/relative-unimodular-column — Relative unimodular columns
+
+**Declaration:** TauCeti.MennickeExtension.RelativeColumn.
+
+For r=n+1≥1, RelativeColumn(I,n,a) means that the coordinates of a generate the unit ideal and a≡e₀ modulo I. Thus a₀−1∈I and aᵢ∈I for i>0. It is a predicate on the existing function type Fin(r)→A, not an additional row carrier.
+
+The construction or proof proceeds as follows.
+
+1. Use the unit-ideal span of the actual coordinates and the coordinate congruences. The first coordinate is distinguished; no determinant or completion is included in the definition.
+
+The public API is:
+
+- **RelativeColumn_iff** (characterisation): Equivalently, the span is A, a₀−1∈I and all other coordinates lie in I.
+- **RelativeColumn_map** (functoriality): A unital ring map f with f(I)⊆J sends a relative column to the coordinatewise image relative to J.
+- **RelativeColumn_one** (example): The first basis vector is relative unimodular at every ideal.
+
+The definition tests are:
+
+- **RelativeColumn_integer_test** (computation): (3,2,0) is relative unimodular over ℤ at 2ℤ.
+- **RelativeColumn_bot_test** (degenerate): At I=0 the relative unimodular columns are exactly e₀.
+- **RelativeColumn_level_test** (non-example): (2,1,0) is unimodular over ℤ but is not relative unimodular at 2ℤ.
+- **RelativeColumn_nonunimodular_test** (non-example): (3,6,0) has the correct congruences at 2ℤ but is not unimodular.
+
+Uses: BMS Lemma 7.3 and Theorem 7.5(a) — Distinguishes same-level column reduction from absolute elementary transitivity.; BMS Lemma 8.9 — The first column supplies a standard form..
+
+Direct prerequisites: mathlib:Ideal.span, mathlib:Matrix.mulVec.
+
+Acceptance: The integer non-example (3,6,0) at 2ℤ must fail despite satisfying all coordinate congruences; the definition requires the actual unit-ideal span.
+
+Source: BMS.1967, §7 opening definition, printed p.105.
+
+### KTheoryLowDegrees:U.4/relative-shortening — Shortening at the same ideal level
+
+**Declaration:** TauCeti.MennickeExtension.relative_shortening.
+
+Assume HasStableRange A k, k≥1 and n≥k. A relative unimodular column of length n+1 can be shortened to length n by adding bᵢaₙ to the first n coordinates, with every bᵢ∈I. The shortened column is still congruent to e₀ modulo I.
+
+The construction or proof proceeds as follows.
+
+1. Write 1 as a linear combination of the column entries. Replacing the last entry by its square preserves unimodularity: if X+y aₙ=1 with X in the ideal of the other entries, then X(1+y aₙ)+y²aₙ²=1.
+2. Apply absolute stable range to the column with last entry aₙ². If its shortening coefficients are tᵢ, use bᵢ=tᵢaₙ, which lie in I because n≥1 and aₙ∈I. The new first coordinate remains 1 modulo I and the others remain 0.
+
+Direct prerequisites: KTheoryLowDegrees:U.4/relative-unimodular-column, KTheoryLowDegrees:U.3/stable-range.
+
+Acceptance: Produce coefficients in I, including when I=0; absolute shortening coefficients alone do not meet this contract.
+
+Source: BMS.1967, Lemma 7.3, printed p.106.
+
+### KTheoryLowDegrees:U.4/relative-elementary-transitive — Relative elementary transitivity
+
+**Declaration:** TauCeti.MennickeExtension.relative_elementary_transitive.
+
+If HasStableRange A k, k≥1, and r=n+1>k, every I-relative unimodular column of length r is carried to e₀ by some element of E_r(A,I). The conclusion uses the existing normal closure under E_r(A), not the subgroup generated only by bare I-level roots.
+
+The construction or proof proceeds as follows.
+
+1. Write a=(1+q₀,q₁,…,qₙ). Multiply a Bézout identity by aₙ to find q∈I such that (a₀,…,aₙ₋₁,q aₙ) is unimodular; this uses only algebra and qᵢ∈I.
+2. Shorten that column with absolute stable range and perform the corresponding last-column transvections with coefficients in I. Let the shortened coordinates be (1+q₀′,q₁′,…,qₙ₋₁′).
+3. A Bézout identity for those coordinates writes q₀′−aₙ as their linear combination with coefficients in I. Last-row I-level transvections change the last entry to q₀′.
+4. The absolute elementary matrix σ=e₀ₙ(−1) makes the first coordinate 1. I-level transvections τ clear all other coordinates. Although σ need not be relative, σ fixes e₀ and σ⁻¹τσ is relative. Thus σ⁻¹τσ times the preceding relative factors sends a to e₀.
+
+Direct prerequisites: KTheoryLowDegrees:U.4/relative-unimodular-column, KTheoryLowDegrees:U.4/relative-shortening, KTheoryLowDegrees:U.5/relative-elementary-subgroup, KTheoryLowDegrees:U.1/elementary-matrix.
+
+Acceptance: The resulting matrix must belong to the E_r(A)-normal closure of I-level roots and send the supplied column exactly to e₀.
+
+Source: Bass.1964, Theorem 4.2(a) and its proof, printed pp.14–15.
+
+### KTheoryLowDegrees:U.4/relative-gl-reduction — Relative general linear reduction
+
+**Declaration:** TauCeti.MennickeExtension.relative_gl_reduction.
+
+For HasStableRange A k, k≥1 and r>k, every g∈GL_r(A,I) has g=diag(a,1)ε with a∈GL_k(A,I) and ε∈E_r(A,I). This is surjective relative reduction, without a claim of injective stability.
+
+The construction or proof proceeds as follows.
+
+1. Apply relative column transitivity to the last column, after reindexing coordinates, to make it the last basis vector.
+2. The remaining upper-left block is invertible and congruent to 1 modulo I. Clear the remaining last row with I-level block transvections, giving reduction by one coordinate.
+3. Repeat until the corner has rank k. The resulting expression initially places relative factors on the left; conjugating them past the corner is unnecessary: take inverses of the chosen reduction product and use the equivalent right-factor reduction by applying the same argument to transpose, whose relative elementary subgroup is transpose-stable from its defining generators.
+
+Direct prerequisites: KTheoryLowDegrees:U.4/relative-elementary-transitive, KTheoryLowDegrees:U.1/stabilisation-map, KTheoryLowDegrees:U.1/block-unitriangular-elementary, KTheoryLowDegrees:U.5/congruence-subgroup, KTheoryLowDegrees:U.5/relative-elementary-subgroup.
+
+Acceptance: Both the smaller corner and every reducing factor remain at level I; the conclusion is surjectivity, with no injective-stability claim.
+
+Source: Bass.1964, Theorem 4.2(b), printed pp.14–15.
+
+### KTheoryLowDegrees:U.4/relative-rank-one-conjugate — Relative rank-one conjugation word
+
+**Declaration:** TauCeti.MennickeExtension.relative_rank_one_conjugate.
+
+For vectors a,b of length r≥1 with b·a=0 and q∈I, diag(1+q ab,1) lies in E_{r+1}(A,I). Here ab is the outer product, with entries aᵢbⱼ. The zero dot product is essential.
+
+The construction or proof proceeds as follows.
+
+1. Put U=((1,a),(0,1)) and V=((1,0),(qb,1)). U is absolute elementary, while V is a product of bare I-level roots.
+2. Multiply the four block factors U,V,U⁻¹,V⁻¹. The equation ba=0 cancels the upper-right and lower-right correction terms and yields diag(1+aqb,1). The relative elementary subgroup contains this commutator because it is normalized by the absolute elementary subgroup.
+
+Direct prerequisites: KTheoryLowDegrees:U.1/block-unitriangular-elementary, KTheoryLowDegrees:U.5/relative-elementary-subgroup, mathlib:Matrix.vecMulVec.
+
+Acceptance: The displayed four-factor commutator must equal the stabilized outer-product matrix, including over rings with zero divisors.
+
+Source: Bass.1964, Theorem 4.2(c), Case 2, printed pp.15–16.
+
+### KTheoryLowDegrees:U.4/relative-elementary-normal — Finite-rank relative elementary normality
+
+**Declaration:** TauCeti.MennickeExtension.relative_elementary_normal.
+
+If HasStableRange A k, k≥1 and r>k, the existing subgroup E_r(A,I) is normal in GL_r(A). No normality statement at ranks outside this bound is inferred.
+
+The construction or proof proceeds as follows.
+
+1. It suffices to conjugate a bare I-level root and then an E-conjugate of one. Relative GL reduction at I=A reduces its conjugator modulo E_r(A) to a corner in GL_{r−1}(A).
+2. If a root meets the last coordinate, the corner conjugation is a product of I-level last-row or last-column roots.
+3. If both root indices lie in the corner, take a to be the corresponding column of the corner and b the distinct row of its inverse; ba=0. The conjugate has the rank-one matrix 1+q ab in the corner. Apply relative-rank-one-conjugate.
+4. The relative subgroup is already normalized by E by its definition, so the reduction and these calculations handle arbitrary GL conjugation, and then its closure.
+
+Direct prerequisites: KTheoryLowDegrees:U.4/relative-gl-reduction, KTheoryLowDegrees:U.4/relative-rank-one-conjugate, KTheoryLowDegrees:U.5/relative-elementary-subgroup, KTheoryLowDegrees:U.1/elementary-subgroup.
+
+Acceptance: Preserve the bound r>k; this theorem gives no GL-normality of E₂(A,I) over an arbitrary Dedekind domain.
+
+Source: Bass.1964, Theorem 4.2(c), printed pp.15–16.
+
+### KTheoryLowDegrees:U.5/relative-elementary-commutator — Relative elementary commutator identity
+
+**Declaration:** TauCeti.RelativeK1.relElementary_eq_commutator.
+
+For r≥3, [E_r(A),E_r(A,I)]=E_r(A,I). This requires no stable-range assumption.
+
+The construction or proof proceeds as follows.
+
+1. For a bare root eᵢⱼ(q), q∈I, choose a third index ℓ. The chain commutator expresses this root as [eᵢℓ(1),eℓⱼ(q)].
+2. Conjugate this formula by any E element and use closure induction to obtain containment of the entire relative group in the commutator subgroup.
+3. The reverse containment is the defining E-normalization of the relative elementary subgroup.
+
+Direct prerequisites: KTheoryLowDegrees:U.1/elementary-commutator-chain, KTheoryLowDegrees:U.5/relative-elementary-subgroup.
+
+Acceptance: Use a third root index and retain the rank ≥3 bound. This is the existing relElementary_eq_commutator API promoted to a prerequisite node.
+
+Source: BMS.1967, §5 (5.1), printed p.101.
+
+### KTheoryLowDegrees:U.4/relative-ge-commutator — The relative GE commutator bound
+
+**Declaration:** TauCeti.MennickeExtension.relative_ge_commutator.
+
+If HasStableRange A k, k≥1, r>k and r≥3, then [τ,g]∈E_r(A,I) for every τ∈E_r(A) and g∈GL_r(A,I); the same holds with τ any diagonal matrix of units. Thus all commutators against the group generated by these matrices lie in E_r(A,I).
+
+The construction or proof proceeds as follows.
+
+1. For an elementary root, conjugate its indices by elementary Weyl matrices to make it a last-row root. Relative reduction modulo E_r(A,I) leaves g in a rank r−1 corner.
+2. Compute its commutator with that corner: its last-row coefficients are differences from the identity and therefore belong to I. Extend over products of roots using commutator identities and relative normality.
+3. For a diagonal unit at the last coordinate, that corner commutes with it. The commutator with the remaining relative factor is relative by normality. Conjugate a single-coordinate diagonal to the last coordinate, then multiply the single-coordinate diagonals to get every diagonal.
+4. These containments extend to the subgroup generated by elementary and diagonal matrices. The relative commutator identity explains the equivalence with the source kernel condition.
+
+Direct prerequisites: KTheoryLowDegrees:U.4/relative-gl-reduction, KTheoryLowDegrees:U.4/relative-elementary-normal, KTheoryLowDegrees:U.5/relative-elementary-commutator, KTheoryLowDegrees:U.1/signed-transposition, KTheoryLowDegrees:U.1/elementary-matrix.
+
+Acceptance: Supply both elementary and diagonal conjugators at the same ideal level, with the commutator order τgτ⁻¹g⁻¹.
+
+Source: BMS.1967, Theorem 7.5(d), printed p.106; Bass Theorem 4.2(d), pp.16–17.
+
+### KTheoryLowDegrees:U.4/dedekind-relative-gl-transitive — Relative GL transitivity over Dedekind domains
+
+**Declaration:** TauCeti.MennickeExtension.dedekind_relative_gl_transitive.
+
+For a Dedekind domain A, every ideal I, and r=n+1≥2, GL_r(A,I) sends any I-relative unimodular column to e₀. At r=2 the completion is determinant one; no stable-range-one assumption is used.
+
+The construction or proof proceeds as follows.
+
+1. At rank two, relative-first-row-completion supplies an SL₂ matrix with first row the given coprime coordinates. Transpose this completion, then invert it; the result sends the column to e₀ at level I.
+2. At rank at least three, apply relative elementary transitivity with HasStableRange A 2. Relative elementary elements belong to the existing congruence group.
+
+Direct prerequisites: KTheoryLowDegrees:U.4/relative-elementary-transitive, KTheoryLowDegrees:U.4/dedekind-stable-range-two, KTheoryLowDegrees:U.4/relative-first-row-completion, mathlib:Matrix.transpose_mul.
+
+Acceptance: The rank-two case uses relative Bézout completion and must work without an E₂-transitivity or stable-range-one assumption.
+
+Source: BMS.1967, Lemma 8.7(a), printed p.108; (7.1), p.105.
+
+### KTheoryLowDegrees:U.4/asymmetric-related-matrices — The asymmetric relative matrix relation
+
+**Declaration:** TauCeti.MennickeExtension.Related.
+
+For g,h∈GL_{n+1}(A,I) and t∈A, Related(I,t,g,h) means there is a matrix X with X₀₀∈I such that g is X with its first column replaced by e₀+t times that column of X, and h is X with its first row replaced by e₀ᵀ+t times that row of X. The extension condition uses t∈I. This is an oriented relation, and need not be symmetric or reflexive.
+
+The construction or proof proceeds as follows.
+
+1. Use an existential witness for all entries of X, impose X₀₀∈I, and impose both coordinate formulas. Keep the same distinguished coordinate on each side.
+
+The public API is:
+
+- **Related_iff** (characterisation): The relation is equivalent to the stated witness and the two coordinate formulas.
+- **Related_map** (functoriality): Entrywise application of f:A→B sends a related pair to a related pair with parameter f(t), when f(I)⊆J.
+- **Related_one** (characterisation): At I=A and t=1 the relation is exactly equality.
+
+The definition tests are:
+
+- **Related_one_test** (compatibility): At I=A and t=1, Related(a,b) holds exactly when a=b.
+- **Related_bot_test** (degenerate): The identity is related to itself with t=0 at I=0.
+- **Related_asymmetric_test** (non-example): Over ℤ at I=ℤ with t=0, e₀₁(2) is related to 1, but 1 is not related to e₀₁(2).
+
+Uses: BMS (8.4) — The extra invariance hypothesis needed to prove independence of standard form.; BMS Lemmas 8.8–8.11 — Products, elementary equivalence and comparing different standard forms all retain the orientation..
+
+Direct prerequisites: KTheoryLowDegrees:U.5/congruence-subgroup.
+
+Acceptance: The relation must accept e₀₁(2) Related(ℤ,0) 1 and reject its converse; retain the witness condition X₀₀∈I.
+
+Source: BMS.1967, §8 definition before (8.4), printed p.107.
+
+### KTheoryLowDegrees:U.4/related-product — Products of related matrices
+
+**Declaration:** TauCeti.MennickeExtension.related_product.
+
+If t∈I and a′ is (I,t)-related to a and b′ is (I,t)-related to b, then a′b′ is (I,t)-related to ab, with that same parameter and ideal.
+
+The construction or proof proceeds as follows.
+
+1. Multiply the 2×2 block decompositions separating the first coordinate. The upper-right and lower-left blocks acquire the same factors t on the appropriate side.
+2. The new top-left witness is X₀₀+Y₀₀+tX₀₀Y₀₀+Σⱼ>₀ X₀ⱼYⱼ₀. The summands lie in I: X₀₀,Y₀₀∈I, while the off-diagonal row and column lie in I because both given matrices are at level I.
+
+Direct prerequisites: KTheoryLowDegrees:U.4/asymmetric-related-matrices.
+
+Acceptance: Retain the same t∈I and prove the new top-left witness lies in I; never cancel t.
+
+Source: BMS.1967, Lemma 8.8(a), printed p.108.
+
+### KTheoryLowDegrees:U.4/related-stabilized-commutator — Related matrices differ by a stabilized commutator
+
+**Declaration:** TauCeti.MennickeExtension.related_stabilized_commutator.
+
+For n+1≥2, t∈I and Related(I,t,a,b), the one-coordinate stabilization of a⁻¹b lies in [E_{n+2}(A),GL_{n+2}(A,I)]. In particular a and b have equal determinant.
+
+The construction or proof proceeds as follows.
+
+1. Use the source commutator of the block upper elementary matrix with the extra-coordinate elementary Weyl matrix, at the given first-column witness.
+2. Its coordinate formula gives the desired related matrix with the extra coordinate, up to I-level last-row and last-column elementary factors.
+3. Those extra factors lie in the displayed commutator subgroup because the enlarged rank is at least three and relative-elementary-commutator applies. The determinant of a group commutator is 1.
+
+Direct prerequisites: KTheoryLowDegrees:U.4/asymmetric-related-matrices, KTheoryLowDegrees:U.1/elementary-matrix, KTheoryLowDegrees:U.1/block-unitriangular-elementary, KTheoryLowDegrees:U.1/stabilisation-map, KTheoryLowDegrees:U.5/relative-elementary-commutator, mathlib:Matrix.det_transpose.
+
+Acceptance: The conclusion is in the displayed commutator subgroup after one stabilization; a same-rank conclusion needs the stable-range argument in related-relative-elementary.
+
+Source: BMS.1967, Lemma 8.8(b), printed pp.108–109.
+
+### KTheoryLowDegrees:U.4/relative-left-block — Relative upper block matrices
+
+**Declaration:** TauCeti.MennickeExtension.leftBlock.
+
+For a∈GL_{n+1}(A,I) and an I-valued column y, leftBlock(a,y) is the actual matrix ((a,y),(0,1)) in GL_{n+2}(A,I). This is type L: its last row is the last standard row.
+
+The construction or proof proceeds as follows.
+
+1. Define the displayed coordinate matrix with the first n+1 coordinates followed by one last coordinate. Its inverse is ((a⁻¹,−a⁻¹y),(0,1)); all off-diagonal entries remain in I.
+2. Bundle it with native general-linear-group construction and the existing congruence-kernel membership.
+
+The public API is:
+
+- **leftBlock_apply** (projection): The underlying matrix is ((a,y),(0,1)).
+- **leftBlock_mul** (relation): leftBlock(a,y)leftBlock(b,z)=leftBlock(ab,az+y).
+- **leftBlock_ext** (extensionality): Two upper block matrices agree exactly when their corners and columns agree.
+
+The definition tests are:
+
+- **leftBlock_zero_test** (compatibility): At y=0, leftBlock(a,0) is the inherited stabilization of a.
+- **leftBlock_row_test** (characterisation): Its last row is e_lastᵀ at every ideal.
+- **leftBlock_integer_test** (computation): For a=1 and y=(2,4) at 2ℤ, the matrix is (1 0 2;0 1 4;0 0 1).
+
+Uses: BMS Lemmas 8.9, 8.11–8.12 — The left factor of a standard form and the left multiplication covariance of its value..
+
+Direct prerequisites: KTheoryLowDegrees:U.5/congruence-subgroup, mathlib:Matrix.GeneralLinearGroup.mk''.
+
+Acceptance: Recover the supplied corner and I-valued last column from the actual matrix; the last row is e_lastᵀ.
+
+Source: BMS.1967, Definition of type L before Lemma 8.9, printed p.109.
+
+### KTheoryLowDegrees:U.4/relative-right-block — Relative lower-right block matrices
+
+**Declaration:** TauCeti.MennickeExtension.rightBlock.
+
+For b∈GL_{n+1}(A,I) and an I-valued row p, rightBlock(b,p) is the actual matrix ((1,p),(0,b)) in GL_{n+2}(A,I). This is type R: its first column is e₀. Its corner occupies the last n+1 coordinates, in contrast to the type-L corner.
+
+The construction or proof proceeds as follows.
+
+1. Define the displayed coordinate matrix with one first coordinate followed by the corner. The inverse is ((1,−pb⁻¹),(0,b)), at the same ideal.
+2. Bundle it using the native GL construction and the existing congruence membership.
+
+The public API is:
+
+- **rightBlock_apply** (projection): The underlying matrix is ((1,p),(0,b)).
+- **rightBlock_mul** (relation): rightBlock(a,p)rightBlock(b,q)=rightBlock(ab,q+pb).
+- **rightBlock_ext** (extensionality): Equality is exactly equality of the corners and rows.
+
+The definition tests are:
+
+- **rightBlock_zero_test** (compatibility): At p=0 the lower-right entries are exactly b, at shifted indices.
+- **rightBlock_column_test** (characterisation): The first column is e₀.
+- **rightBlock_integer_test** (computation): For b=1 and p=(2,4) at 2ℤ, the matrix is (1 2 4;0 1 0;0 0 1).
+
+Uses: BMS Lemmas 8.9, 8.11–8.12 — The right factor, with its different corner placement, and the right multiplication covariance of the value..
+
+Direct prerequisites: KTheoryLowDegrees:U.5/congruence-subgroup, mathlib:Matrix.GeneralLinearGroup.mk''.
+
+Acceptance: The lower-right corner and I-valued first row are recoverable; the first column is e₀.
+
+Source: BMS.1967, Definition of type R before Lemma 8.9, printed p.109.
+
+### KTheoryLowDegrees:U.4/relative-standard-form — Relative standard forms
+
+**Declaration:** TauCeti.MennickeExtension.StandardForm.
+
+A StandardForm of g∈GL_{n+2}(A,I) consists of a,b∈GL_{n+1}(A,I), an I-valued column y, an I-valued row p, and t∈I, with the equality g=leftBlock(a,y)e_last,0(t)rightBlock(b,p). This is actual factorization data on g, not uniqueness of a chosen factorization.
+
+The construction or proof proceeds as follows.
+
+1. Use the specified matrices for the left and right factors and the existing elementary root for the middle factor. The stored condition is their equality with the given g.
+
+The public API is:
+
+- **StandardForm.left** (projection): The rank n+1 upper-left corner a.
+- **StandardForm.right** (projection): The rank n+1 lower-right corner b.
+- **StandardForm.column** (projection): The I-valued last column y.
+- **StandardForm.row** (projection): The I-valued first row p.
+- **StandardForm.parameter** (projection): The I-valued middle-root coefficient t.
+- **StandardForm.factorization** (projection): The exact equality g=L(a,y)e_last,0(t)R(b,p).
+- **StandardForm.parameter_eq** (characterisation): The parameter t equals the (last,first) entry of g.
+- **StandardForm.ext** (extensionality): For the same g, equality of a,b,y,p implies equality of the standard-form data; t follows from g.
+- **StandardForm.identity** (constructor): The identity has all corners equal to 1 and all off-diagonal data and parameter 0.
+
+The definition tests are:
+
+- **StandardForm_identity_test** (degenerate): The identity standard form has t=0.
+- **StandardForm_middle_test** (computation): Every e_last,0(t), t∈I, has a standard form with a=b=1 and y=p=0.
+- **StandardForm_nonunique_test** (non-example): Over ℤ at I=ℤ, e₀₁(2) in rank three has two standard forms with t=0 and different upper-left corners: put it wholly in L or wholly in the first row of R.
+
+Uses: BMS Lemma 8.11 — A value is defined from the two corners of any standard form.; BMS Lemma 8.12 — Multiplying by L and R factors gives new standard forms..
+
+Direct prerequisites: KTheoryLowDegrees:U.4/relative-left-block, KTheoryLowDegrees:U.4/relative-right-block, KTheoryLowDegrees:U.1/elementary-matrix.
+
+Acceptance: The stored factorization is an equality in the existing congruence group, and the parameter is determined by g(last,first); the other factors need not be unique.
+
+Source: BMS.1967, Lemma 8.9(a) and following Remark, printed p.109.
+
+### KTheoryLowDegrees:U.4/relative-standard-form-exists — Existence of relative standard forms
+
+**Declaration:** TauCeti.MennickeExtension.standardForm_exists.
+
+Let n≥1, assume HasStableRange A (n+1), and assume for every ideal J that GL_{n+1}(A,J) sends every J-relative unimodular column to e₀. Then every g∈GL_{n+2}(A,I) has a StandardForm. For this existence assertion, the transitivity hypothesis is used only at J=I.
+
+The construction or proof proceeds as follows.
+
+1. Shorten the first column of g at level I, using a last-column block transvection γ=((1,y),(0,1)) whose column y has coefficients in I.
+2. By the stated corner transitivity choose a₁∈GL_{n+1}(A,I) that sends this shortened column to e₀. Stabilize it as α₁=diag(a₁,1).
+3. The last entry t of that column is unchanged by γ and α₁. Thus e_last,0(−t)α₁γg has first column e₀ and is a rightBlock.
+4. Set α=γ⁻¹α₁⁻¹, a leftBlock. Then g=α e_last,0(t)β. All factors remain at level I, and t is exactly the original (last,first) entry.
+
+Direct prerequisites: KTheoryLowDegrees:U.4/relative-standard-form, KTheoryLowDegrees:U.4/relative-shortening, KTheoryLowDegrees:U.4/relative-unimodular-column.
+
+Acceptance: Return actual factorization data at level I, with parameter g(last,first); the transitivity input is a theorem about concrete columns.
+
+Source: BMS.1967, Lemma 8.9(a), printed pp.109–110.
+
+### KTheoryLowDegrees:U.4/related-relative-elementary — Same-rank relative elementary equivalence
+
+**Declaration:** TauCeti.MennickeExtension.related_relative_elementary.
+
+Under the standard-form existence hypotheses (uniform transitivity at every ideal), n≥1, t∈I and Related(I,t,a,b) at rank n+2 imply a⁻¹b∈E_{n+2}(A,I). The extra stable coordinate in Lemma 8.8 is removed here using the stable-range hypothesis.
+
+The construction or proof proceeds as follows.
+
+1. The first column of a is relative to tI. Apply standard form at this smaller ideal, using the uniformly quantified transitivity hypothesis; its L factor and middle coefficient are at level tI.
+2. Choose related L, middle and R factors by dividing the prescribed first-column witnesses before scaling the first row. Lemma 8.8(a) shows their product is related to a.
+3. The middle and R corrections are relative elementary. The L correction belongs to E_{n+2}(A,I) by Lemma 8.8(b) applied to its smaller corner and the relative GE commutator bound. Use relative normality to combine the corrections.
+4. The constructed related product and b may differ when t is a zero divisor. They differ only in their first row and have the same determinant. Their quotient therefore has first row (1,u₁,…,u_last), all uᵢ∈I, and all remaining rows those of 1; it is a product of I-level first-row roots.
+
+Direct prerequisites: KTheoryLowDegrees:U.4/relative-standard-form-exists, KTheoryLowDegrees:U.4/related-product, KTheoryLowDegrees:U.4/related-stabilized-commutator, KTheoryLowDegrees:U.4/relative-elementary-normal, KTheoryLowDegrees:U.4/relative-ge-commutator, KTheoryLowDegrees:U.1/elementary-matrix.
+
+Acceptance: Quantify corner transitivity over every ideal J, since the proof uses tI, and include the first-row correction when t is a zero divisor.
+
+Source: BMS.1967, Lemma 8.9(b), printed p.110.
+
+### KTheoryLowDegrees:U.4/extension-conditions — Mennicke homomorphism extension conditions
+
+**Declaration:** TauCeti.MennickeExtension.ExtensionConditions.
+
+For an actual homomorphism κ:GL_{n+1}(A,I)→C, ExtensionConditions(κ) consists of annihilation of E_{n+1}(A,I), invariance under conjugation by absolute elementary and diagonal matrices, transpose stability of ker κ, and invariance under the oriented (I,t)-relation for every t∈I. These are the concrete equations equivalent to BMS (8.2)–(8.4); none is a free proposition field.
+
+The construction or proof proceeds as follows.
+
+1. Use native homomorphisms on the existing congruence subgroup. Conjugation is the normal-kernel conjugation with actual matrix τgτ⁻¹; transposition has matrix gᵀ and inverse (g⁻¹)ᵀ.
+2. State each of the five equations as a proof-valued structure field. Invariance under E and diagonals is equivalent to the commutator-kernel condition for the subgroup they generate.
+
+The public API is:
+
+- **ExtensionConditions.elementary_kernel** (projection): Every relative elementary element has value 1.
+- **ExtensionConditions.elementary_conjugation** (projection): Conjugation by each absolute elementary element preserves κ.
+- **ExtensionConditions.diagonal_conjugation** (projection): Conjugation by every diagonal of units preserves κ.
+- **ExtensionConditions.transpose_kernel** (projection): κ(g)=1 implies κ(gᵀ)=1; equality of κ(gᵀ) and κ(g) is not asserted.
+- **ExtensionConditions.related** (projection): For t∈I, Related(I,t,a,b) implies κ(b)=κ(a).
+- **ExtensionConditions_iff** (characterisation): The structure is equivalent to the conjunction of the five displayed conditions.
+- **ExtensionConditions_comp** (functoriality): Postcomposition by an injective homomorphism preserves all conditions, including transpose stability of the kernel. Without injectivity that last implication is not supplied.
+
+The definition tests are:
+
+- **ExtensionConditions_trivial_test** (degenerate): The trivial homomorphism satisfies every condition.
+- **ExtensionConditions_identity_fails_test** (non-example): The identity on GL₂(ℤ) at I=ℤ fails the relative elementary kernel condition.
+- **ExtensionConditions_comp_test** (compatibility): Transport of the target by a group isomorphism preserves the conditions.
+
+Uses: BMS Propositions 8.5–8.6 — The rank-two base satisfies these conditions and the inductive extension must preserve them.; BMS Lemma 8.11 — Elementary/diagonal conjugation and oriented relation invariance prove value independence..
+
+Direct prerequisites: KTheoryLowDegrees:U.4/asymmetric-related-matrices, KTheoryLowDegrees:U.1/elementary-subgroup, KTheoryLowDegrees:U.5/relative-elementary-subgroup, KTheoryLowDegrees:U.5/congruence-subgroup, mathlib:Matrix.transpose_mul.
+
+Acceptance: Every field is an equation involving the actual homomorphism or matrix; postcomposition preserves transpose-kernel stability only with the stated injectivity hypothesis.
+
+Source: BMS.1967, (8.2)–(8.4), printed p.107.
+
+### KTheoryLowDegrees:U.4/kubota-extension-conditions — Kubota satisfies the extension conditions
+
+**Declaration:** TauCeti.MennickeExtension.kubota_extension_conditions.
+
+For a Dedekind domain A and every Mennicke symbol s:W_I→C, the inherited homomorphism kubotaHom(s) satisfies ExtensionConditions in rank two, including when I=0.
+
+The construction or proof proceeds as follows.
+
+1. The inherited Kubota commutator and relative-kernel equations give the elementary/diagonal conditions. Its transpose value is its inverse, by kubota-opposite-row, so its kernel is transpose-stable.
+2. For a related pair in rank two write the common top-left entry d=1+tx₀₀. The top numerators are x₀₁ and tx₀₁. MS2 gives [tx₀₁/d]=[t/d][x₀₁/d], and MS1 reduces (d,t) to (1,t), whose symbol is 1. Here x₀₀∈I is precisely the allowed coefficient of the elementary move.
+3. At I=0, the congruence group is trivial and all equations reduce to normalization.
+
+Direct prerequisites: KTheoryLowDegrees:U.4/extension-conditions, KTheoryLowDegrees:U.4/kubota-hom, KTheoryLowDegrees:U.4/kubota-opposite-row, KTheoryLowDegrees:U.4/mennicke-symbol, KTheoryLowDegrees:U.4/kubota-relative-kernel, KTheoryLowDegrees:U.4/kubota-commutator-kernel.
+
+Acceptance: The actual inherited kubotaHom must satisfy all five conditions for every ideal, including I=0; a homomorphism with assumed conditions is insufficient.
+
+Source: BMS.1967, Lemma 8.7(b), printed p.108.
+
+### KTheoryLowDegrees:U.4/extension-unique — Uniqueness of a relative extension
+
+**Declaration:** TauCeti.MennickeExtension.extension_unique.
+
+For n≥1 and HasStableRange A (n+1), two homomorphisms GL_{n+2}(A,I)→C that agree on the stabilized rank n+1 subgroup and annihilate E_{n+2}(A,I) are equal. Existence of either homomorphism is an explicit hypothesis.
+
+The construction or proof proceeds as follows.
+
+1. Relative reduction with k=n+1 writes every element as a stabilized corner times a relative elementary element. Evaluate both homomorphisms on this expression.
+
+Direct prerequisites: KTheoryLowDegrees:U.4/relative-gl-reduction, KTheoryLowDegrees:U.1/stabilisation-map.
+
+Acceptance: Assume existence and elementary-kernel equations for both homomorphisms; the conclusion must not be used as an extension-existence theorem.
+
+Source: BMS.1967, Corollary 8.10 (Uniqueness), printed p.110.
+
+### KTheoryLowDegrees:U.4/extension-transpose-kernel — Transpose stability passes to a homomorphic extension
+
+**Declaration:** TauCeti.MennickeExtension.extension_transpose_kernel.
+
+Under n≥1 and HasStableRange A (n+1), let κ have ExtensionConditions and let f:GL_{n+2}(A,I)→C extend κ and annihilate E_{n+2}(A,I). Then f(g)=1 implies f(gᵀ)=1.
+
+The construction or proof proceeds as follows.
+
+1. Write g=diag(a,1)ε using relative reduction. Since f(ε)=1, f(g)=κ(a).
+2. Transpose reverses the two factors. The defining relative generators are transpose-stable: transpose changes the E-conjugator to its inverse transpose and transposes the root.
+3. Thus f(gᵀ)=κ(aᵀ), which is 1 when κ(a)=1. Only the kernel stability condition on κ is used; no equality of the two arbitrary values follows.
+
+Direct prerequisites: KTheoryLowDegrees:U.4/relative-gl-reduction, KTheoryLowDegrees:U.4/extension-conditions, KTheoryLowDegrees:U.5/relative-elementary-subgroup, mathlib:Matrix.transpose_mul.
+
+Acceptance: Assert only transpose stability of the kernel, retaining the actual extension and annihilation hypotheses.
+
+Source: BMS.1967, Corollary 8.10, printed p.110.
+
+### KTheoryLowDegrees:U.4/extension-related-invariance — Related invariance passes to an extension
+
+**Declaration:** TauCeti.MennickeExtension.extension_related_invariance.
+
+Under n≥1, HasStableRange A (n+1), and uniform relative GL transitivity in rank n+1, every homomorphism f:GL_{n+2}(A,I)→C annihilating E_{n+2}(A,I) sends (I,t)-related matrices to the same value for each t∈I.
+
+The construction or proof proceeds as follows.
+
+1. The relative elementary difference a⁻¹b has value 1. Multiply its image by f(a) to obtain f(b)=f(a).
+
+Direct prerequisites: KTheoryLowDegrees:U.4/related-relative-elementary.
+
+Acceptance: Use the same-rank relative elementary difference and an actual homomorphism annihilating it; no new extension is constructed.
+
+Source: BMS.1967, Corollary 8.10, printed p.110.
+
+### KTheoryLowDegrees:U.4/standard-form-value — Evaluation of a standard form
+
+**Declaration:** TauCeti.MennickeExtension.standardFormValue.
+
+For a homomorphism κ:GL_{n+1}(A,I)→C and a StandardForm f of g, define standardFormValue(κ,f)=κ(f.left)κ(f.right), in that order. The I-valued row, column and middle coefficient do not enter this formula. Independence of the form requires ExtensionConditions.
+
+The construction or proof proceeds as follows.
+
+1. Evaluate κ on the actual upper-left and lower-right corners and multiply their values in the source order. Do not use a commutative-group simplification.
+
+The public API is:
+
+- **standardFormValue_apply** (simp): The value is exactly κ(a)κ(b), with left before right.
+- **standardFormValue_comp** (functoriality): Postcomposing κ by φ evaluates to φ of the standard-form value.
+- **standardFormValue_congr** (compatibility): If the two left-corner images and the two right-corner images agree, the values on the forms agree.
+
+The definition tests are:
+
+- **standardFormValue_identity_test** (degenerate): The identity standard form has value 1.
+- **standardFormValue_trivial_test** (degenerate): A trivial κ gives value 1 on every standard form.
+- **standardFormValue_middle_test** (computation): A standard form of e_last,0(t) with both corners 1 has value 1.
+
+Uses: BMS Lemma 8.11 — Comparison of different standard forms.; BMS Lemma 8.12 — Multiplication of corners proves the two-sided covariance formula..
+
+Direct prerequisites: KTheoryLowDegrees:U.4/relative-standard-form.
+
+Acceptance: Retain κ(left)κ(right) in the displayed order for arbitrary target groups.
+
+Source: BMS.1967, Lemma 8.11, printed pp.110–111.
+
+### KTheoryLowDegrees:U.4/standard-form-value-independent — Independence of the standard-form value
+
+**Declaration:** TauCeti.MennickeExtension.standardFormValue_independent.
+
+For n≥1 and κ satisfying ExtensionConditions, any two StandardForms of the same g have the same standardFormValue. No stable-range or transitivity hypothesis is needed once the two forms are supplied.
+
+The construction or proof proceeds as follows.
+
+1. From L₁ε₁R₁=L₂ε₂R₂ obtain L₂⁻¹L₁ε₁=ε₂R₂R₁⁻¹. The (last,first) entry forces the two parameters to be equal.
+2. Write the upper-left corner of L₂⁻¹L₁ as a and the lower-right corner of R₂R₁⁻¹ as b. Comparing entries as on p.111 shows that cyclically moving the last coordinate of b to the first gives a matrix (I,t)-related to a. The common witness top-left entry is the negative first component of the relative last column, hence belongs to I.
+3. The cyclic permutation matrix is in the subgroup generated by elementary and diagonal matrices: decompose it into elementary Weyl transpositions and diagonal signs using the inherited signed-transposition formula. Conjugation therefore does not change κ(b). Related invariance gives κ(a)=κ(b).
+4. Now κ(a₂)⁻¹κ(a₁)=κ(b₂)κ(b₁)⁻¹. Multiply on the left by κ(a₂) and on the right by κ(b₁) to obtain κ(a₁)κ(b₁)=κ(a₂)κ(b₂), without commuting target elements.
+
+Direct prerequisites: KTheoryLowDegrees:U.4/standard-form-value, KTheoryLowDegrees:U.4/extension-conditions, KTheoryLowDegrees:U.4/asymmetric-related-matrices, KTheoryLowDegrees:U.1/signed-transposition, KTheoryLowDegrees:U.1/elementary-matrix.
+
+Acceptance: Compare arbitrary supplied forms of the same matrix without assuming stable range or commuting their target values.
+
+Source: BMS.1967, Lemma 8.11 proof, printed p.111.
+
+### KTheoryLowDegrees:U.4/extended-value — The next-rank Mennicke value
+
+**Declaration:** TauCeti.MennickeExtension.extendedValue.
+
+For n≥1, HasStableRange A (n+1), uniform relative GL transitivity in rank n+1, and a homomorphism κ on that rank, choose a StandardForm of each g∈GL_{n+2}(A,I) and evaluate κ(a)κ(b). This defines extendedValue as a function on the existing congruence group. Under ExtensionConditions it is independent of every choice. Its multiplicativity remains a separate §9–§10 target.
+
+The construction or proof proceeds as follows.
+
+1. Use the proven nonempty StandardForm at each g, and ordinary classical choice. Evaluate the selected form.
+2. Under ExtensionConditions, standard-form-value-independent equates this value with the evaluation of any supplied form. No homomorphism is bundled before multiplicativity is established.
+
+The public API is:
+
+- **extendedValue_standardForm** (characterisation): If κ has ExtensionConditions, every standard form g=L(a,y)e_last,0(t)R(b,p) evaluates to κ(a)κ(b).
+- **extendedValue_one** (simp): Under ExtensionConditions, the value at the identity is 1.
+- **extendedValue_comp** (functoriality): For any homomorphism φ:C→D, extendedValue for φ∘κ is φ of extendedValue for κ, using the same stable-range and uniform transitivity data; no injectivity is needed for this value equation.
+
+The definition tests are:
+
+- **extendedValue_one_test** (degenerate): Under ExtensionConditions, extendedValue(1)=1.
+- **extendedValue_middle_test** (computation): Under ExtensionConditions, extendedValue(e_last,0(t))=1 for each t∈I.
+- **extendedValue_trivial_test** (degenerate): If κ is trivial, extendedValue is the constant 1 function.
+
+Uses: BMS §9 — The value is used to define the multiplier subgroup and the conjugation stabilizer before proving it a homomorphism.; BMS Propositions 8.5–8.6 — Their homomorphic extensions must have this function after the §9–§10 normalizer proof..
+
+Direct prerequisites: KTheoryLowDegrees:U.4/relative-standard-form-exists, KTheoryLowDegrees:U.4/standard-form-value, KTheoryLowDegrees:U.4/standard-form-value-independent.
+
+Acceptance: Return a function on the existing congruence group with an evaluation theorem for every supplied standard form; do not bundle a homomorphism before §§9–10.
+
+Source: BMS.1967, Lemma 8.11, printed pp.110–111.
+
+### KTheoryLowDegrees:U.4/extended-value-type-l — The next-rank value on type L
+
+**Declaration:** TauCeti.MennickeExtension.extendedValue_left.
+
+Under the hypotheses defining extendedValue and ExtensionConditions(κ), its value on L(a,y) is κ(a). In particular it extends κ on the inherited upper-left stabilization.
+
+The construction or proof proceeds as follows.
+
+1. Give L(a,y) the standard form with its stated left factor, middle parameter 0, and right factor 1. Evaluate it by extendedValue_standardForm.
+
+Direct prerequisites: KTheoryLowDegrees:U.4/extended-value, KTheoryLowDegrees:U.4/relative-standard-form.
+
+Acceptance: The formula must be conditional on ExtensionConditions(κ) and agree with the inherited upper-left stabilization.
+
+Source: BMS.1967, Lemma 8.11, printed p.111; Lemma 8.12, p.112.
+
+### KTheoryLowDegrees:U.4/extended-value-type-r — The next-rank value on type R
+
+**Declaration:** TauCeti.MennickeExtension.extendedValue_right.
+
+Under the hypotheses defining extendedValue and ExtensionConditions(κ), its value on R(b,p) is κ(b), on the lower-right corner placement.
+
+The construction or proof proceeds as follows.
+
+1. Use left factor 1, middle parameter 0 and right factor R(b,p) as a standard form, and evaluate the two corners.
+
+Direct prerequisites: KTheoryLowDegrees:U.4/extended-value, KTheoryLowDegrees:U.4/relative-standard-form.
+
+Acceptance: Evaluate the lower-right corner placement, preserving ExtensionConditions(κ) as an explicit hypothesis.
+
+Source: BMS.1967, Lemma 8.12, printed p.112.
+
+### KTheoryLowDegrees:U.4/extended-value-two-sided — Two-sided covariance of the next-rank value
+
+**Declaration:** TauCeti.MennickeExtension.extendedValue_two_sided.
+
+Under the hypotheses defining extendedValue and ExtensionConditions(κ), for L(a,y), R(b,p) and any g at rank n+2, the value on L(a,y)gR(b,p) equals κ(a)extendedValue(g)κ(b), in that order.
+
+The construction or proof proceeds as follows.
+
+1. Take any standard form L(a₀,y₀)e_last,0(t)R(b₀,p₀) of g. Block multiplication makes L(a,y)L(a₀,y₀) a new left factor with corner aa₀, and R(b₀,p₀)R(b,p) a new right factor with corner b₀b.
+2. These give a standard form of the product with unchanged middle parameter. Evaluate using the defining corner formula, κ multiplicativity and associativity. Neither multiplicativity of extendedValue nor commutativity of C is used.
+
+Direct prerequisites: KTheoryLowDegrees:U.4/extended-value, KTheoryLowDegrees:U.4/relative-left-block, KTheoryLowDegrees:U.4/relative-right-block.
+
+Acceptance: Keep κ(a), extendedValue(g), κ(b) in this order, without assuming multiplicativity of the extended function.
+
+Source: BMS.1967, Lemma 8.12, printed p.112.
+
+### KTheoryLowDegrees:U.4/kubota-relative-kernel — The relative kernel of Kubota
+
+**Declaration:** TauCeti.MennickeSymbol.kubotaHom_relative_kernel.
+
+For a Dedekind domain A, every ideal I and every Mennicke symbol s:W_I→C, the inherited kubotaHom(s) annihilates E₂(A,I) and every diagonal of units congruent to 1 modulo I.
+
+1. For I≠0, specialize the inherited relative elementary and relative diagonal invariance formulas at g=1, whose Kubota value is 1. The bundled homomorphism has exactly that value function.
+2. For I=0, the congruence kernel is the trivial group, so its elements have value 1.
+
+Direct prerequisites: KTheoryLowDegrees:U.4/kubota-hom, KTheoryLowDegrees:U.4/kubota-relative-elementary-invariance, KTheoryLowDegrees:U.4/kubota-relative-diagonal-invariance.
+
+Source: BMS Theorem 6.1, proof step (6), pp.103–105; Lemma 8.7(b), p.108.
+
+Acceptance: Annihilate the existing relative normal closure and relative diagonal matrices; do not assume E₂(A,I) is GL₂-normal.
+
+### KTheoryLowDegrees:U.4/kubota-commutator-kernel — The GE commutator kernel of Kubota
+
+**Declaration:** TauCeti.MennickeSymbol.kubotaHom_commutator_kernel.
+
+For a Dedekind domain A, every ideal I and every Mennicke symbol s, kubotaHom(s) sends [τ,g] to 1 for every g∈GL₂(A,I) and every τ∈E₂(A); the same holds for τ any diagonal of two units. These equations supply the commutator condition against their generated group GE₂(A).
+
+1. For I≠0, elementary and diagonal conjugation preserve the underlying Kubota value. Evaluate κ(τgτ⁻¹g⁻¹) using the inherited multiplicativity and cancel κ(g) with its inverse.
+2. For I=0, the domain is trivial. Extend the conjugation-invariance equations over products of elementary and diagonal conjugators, proving the GE condition without another group carrier.
+
+Direct prerequisites: KTheoryLowDegrees:U.4/kubota-hom, KTheoryLowDegrees:U.4/kubota-elementary-conjugation, KTheoryLowDegrees:U.4/kubota-diagonal-conjugation.
+
+Source: BMS Theorem 6.1, proof step (6), pp.103–105; Lemma 8.7(b), p.108.
+
+Acceptance: Use the actual Kubota homomorphism and the orientation τgτ⁻¹g⁻¹; handle I=0 without a nonzero-ideal assumption.
