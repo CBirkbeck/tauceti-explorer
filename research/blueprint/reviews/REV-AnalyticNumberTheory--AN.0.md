@@ -1,3 +1,85 @@
+# REV-AnalyticNumberTheory--AN.0 — continuation checkpoint codex-ywaJcp
+
+Issue [#527](https://github.com/CBirkbeck/tauceti-explorer/issues/527); Codex — `codex-ywaJcp`, 2026-10-05. [Winning claim](https://github.com/CBirkbeck/tauceti-explorer/issues/527#issuecomment-5998388142). Input commit `581f7aaf96426f2fd30da917c3b6ff212b7b9f7c`; branch `codex-ywaJcp-review-analytic-527`.
+
+**Partial independent review; no final verdict.** No top-level packet `review` object or final verified-node verdict is added. The inherited `status:complete` belongs to the author's planning pass. This submission preserves a scoped continuation, rather than certifying all eight stages. Earlier reports below retain their original reading limits. The [handoff](../handoff/REV-AnalyticNumberTheory--AN.0.md) lists the unfinished obligations.
+
+## Changed scope
+
+Input zero-based nodes191–218 and223 have29 changed payloads. The inherited handoff called191 the Beurling definition;191 is actually the divisor average, and Beurling begins at195. No fresh original-proof certification is claimed for moment nodes192–194 or the general polynomial mean-square node198. Their existing target formulas now have explicit acquisition boundaries rather than a generic proof attribution.
+
+Six lemmas are added at241–246, all with prefix `AnalyticNumberTheory:`:
+
+| Index | Identifier | Purpose |
+| --- | --- | --- |
+| 241 | `AN.5/harmonic-euler-remainder` | Derive the one-sided harmonic remainder using the existing Euler-sequence inequalities. |
+| 242 | `AN.5/divisor-hyperbola-identity` | Exact inclusive floor identity, including square cutoffs, before the average estimate. |
+| 243 | `AN.5/beurling-count-growth` | Derive N/π growth from an additional summability hypothesis. |
+| 244 | `AN.5/beurling-prime-power-correction` | Isolate the finite higher-prime-power correction with repeated primes retained. |
+| 245 | `AN.7/lerch-z-monodromy-shift` | State the semi-principal logarithm and residue-index shift under the z=0 loop. |
+| 246 | `AN.7/lerch-solvable-descent` | Separate second-commutator invariance from universal-cover construction. |
+
+Current totals:247 nodes (22 definitions,103 lemmas,112 theorems,10 comparisons),105 API items,83 definition tests,26 planets,150 baseline declarations,43 gaps,38 supplier requests, six ownership proposals and26 source issues. No planet or ownership proposal changes. The added source-issue identifiers E21–E28 follow inherited E20; E14/E15 were already absent, so the maximum identifier is not the count.
+
+## Mathematical corrections and limits
+
+The divisor average no longer depends on a subpower divisor bound. Count the positive pairs ab≤x with M=floor(sqrt x), giving Στ(n)+M²=2Σ floor(x/a). The pinned Euler inequalities trap H_M−log M−γ strictly between0 and log(1+1/M)≤1/M. Together they yield the O(sqrt x) error with the correct inclusive cutoff. The finite-pair/divisor-carrier proof still needs its exact pinned summation adapters; the signatures are admitted. The preliminary book's wrong b cutoff is recorded as E21. A suspected missing x in its later displayed evaluation was rejected after inspecting the image: that x multiplies the entire parenthesis correctly.
+
+The Beurling carrier remains indexed finite exponent vectors. Four APIs now give extensionality, positive multiplicative norm and finite prime indices, and the new low-cutoff test retains the empty product. Ordinary specialization now includes the existing inclusive prime count. The prime-system axioms alone do not give abscissa≤1; the zeta/product and counting estimates require summability. The compact majorant proves locally uniform convergence of the finite-prime products. The analytic logarithm is the matched Euler logarithm, not a pointwise principal logarithm of an arbitrary nonzero zeta value.
+
+The complete selected Debruyne–Vindas proof was read: Theorem2's monotonicity, eventual absolute continuity and T′≤A exp u; derivative exponents β_n/n→0; the one-sided bump, distributional Fourier transform and integration-by-parts decay; Proposition1's uniform boundary estimates and its o(log|t|) improvement; Theorem3's equivalent N/Π remainders; and Lemma1's closed-boundary nonvanishing/inverse bounds. The Π correction makes the discrete π statement equivalent. These proofs expose substantial Laplace–Stieltjes, distribution/Fourier, regular-boundary and matched-log interfaces. They are still explicit gap15, not routine omitted steps or a native proof. The Cesàro extension in §5 is outside this target.
+
+The initial Lerch sum uses the principal log only when Re c>0 and |z|<1. A compact geometric majorant now includes every fixed iterated Fréchet derivative and handles z=0 without dividing by z. Native joint holomorphy and s/z/c derivative signatures match that domain. The principal integral is an existential jointly holomorphic extension on the slit z plane; it is not an equality for a divergent totalized sum outside the disc.
+
+The based cover omits z=0,1 and nonpositive integer c. Its basepoint z=−1 is fixed by the principal integral, since it lies outside the open series disc. Positive c strata must be filled by an actual holomorphic extension using the lowering operator, not by zero monodromy alone or the four-term equation at c=1. The a-loop logarithm is cut downwards; the z logarithm uses argument(0,2π), so neither can silently become `Complex.log` on every sheet. The z=0 loop shifts the residue index; a zero principal-loop monodromy does not imply abelian descent. The cocycle argument gives invariance under the second commutator subgroup.
+
+The complete [UniversalCovers supplier](../../../content/tau-ceti/UniversalCovers/README.md) was read. Stage0 owns the canonical based cover and path/homotopy lifting, and Stage2 owns its regular quotient cover. Two precise requests import those contracts. AN.7 owns chart pullback and analytic continuation. The canonical native cover/monodromy signatures remain omissions in gap39; mathematical specifications are saved instead of substitute Prop fields. The even/odd equations have a pre-cover proof route via real Fourier–Mellin and identity theorems, so they no longer depend circularly on a global cover. The complete original LerchI/Weil functional-equation proof is still unread. Removable completed values at gamma poles are distinguished from totalized Gamma products.
+
+Pinned circle Hurwitz is already continued. The comparison uses a real positive representative0<c≤1, with c=1 representing the circle zero parameter and its zero-base term totalized to0 in Re s>1. It must not be extended unchanged to every positive c. Pinned `ZMod.LFunction` already supplies the continued finite character sum; only the positive-representative adapter is planned. The periodic comparison retains the z prefactor. A nonreal c shift test exercises the separate complex Hurwitz carrier. Radial degeneration is restricted to Re s>1. The general complex-c continuation separates H off its pole from the entire removable R with R(1,c)=1; a pointwise product at1 gives0 and cannot be R. Its Taylor-subtracted gamma proof and Bernoulli-value proof remain gap19. In particular, the slit-domain Lerch integral cannot simply be evaluated at its excluded point z=1.
+
+## Primary-source receipts
+
+These are acquired-file hashes and exact fresh reading scopes, not whole-document certification. No deleted scratch file is needed to resume.
+
+| Version and public source | Fresh reading | SHA256 |
+| --- | --- | --- |
+| [Debruyne–Vindas, arXiv1601.05324v2](https://arxiv.org/pdf/1601.05324) | Entire introduction/§2.1 and complete §§3–4, pp1–11; excludes §5 | `5100c8395e6eb149e76fd3d62cf5146d38faac1804afa6c7d9f0dd7e9f30464c` |
+| [Lagarias–Li II, arXiv1005.4967v2](https://arxiv.org/pdf/1005.4967v2) | Complete §§3–5 pp8–22 and §8 pp26–27; selected §2 pp4–7 and §9 p28 | `f249ec6b41f632be29ea4f894f42c921e3ce61cadb8c368a8e39ca58de891eb9` |
+| [Lagarias–Li III, published RMS3:2(2016)](https://link.springer.com/content/pdf/10.1186/s40687-015-0049-2.pdf) | Complete selected §§3.2–3.5 pp21–32; Theorem4.1 proof p33; Theorem5.1 proof p36; Theorem5.3 displayed recurrence and §6 pp40–42 including full Theorem6.1 proof; images pp40–42 | `1b9d8d35cf23b15bd921621011a066832dd39924688b121e85d6067eb25f6593` |
+| [Lagarias–Li I, arXiv1005.4712v2](https://arxiv.org/pdf/1005.4712v2) | Selected initial specializations and Theorem2.3 boundary statement; not the §5 Fourier–Mellin proof | `c89fc79652718216ca5a207101309e3edb27133dca4de64f5ad562010d761a10` |
+| [Koukoulopoulos, author preliminary book](https://dms.umontreal.ca/~koukoulo/documents/publications/primes.pdf) | Complete selected Theorem1.11 pp15–16 and hyperbola/Theorem3.3 pp38–39; p39 image | `1445e107bba9c89db6529aeb4bca3ecf01170fc2854a675f5ca6f288c77ea0a8` |
+
+Published GSM203 and the original second/fourth moment, Hilbert mean-value and general moment-model sources were not acquired/read. LerchII remains the specified preprint; no published-II proof collation is asserted. The remaining published III §§4–6 and all other historic source scopes are not promoted to a fresh complete audit.
+
+Thirteen new baseline declaration statements/definitions were read at Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`: `Real.eulerMascheroniSeq_lt_eulerMascheroniConstant`, `Real.eulerMascheroniConstant_lt_eulerMascheroniSeq'`, `Real.log_le_sub_one_of_pos`; `HurwitzZeta.hasSum_hurwitzZeta_of_one_lt_re`, `HurwitzZeta.differentiableAt_hurwitzZeta`, `HurwitzZeta.hurwitzZeta_residue_one`, `HurwitzZeta.differentiableAt_hurwitzZeta_sub_one_div`; `Complex.cpow_def_of_ne_zero`, `ZMod.LFunction`; `Polynomial.bernoulli`, `Polynomial.bernoulli_one`, `Polynomial.bernoulli_eval_one`; and `Nat.primeCounting`. The full selected existing Hurwitz/expZeta source and Dirichlet specialization were also reread. The normalized Hurwitz subtraction is1/(s−1)/Gammaℝ(s), not an unqualified pointwise subtraction of1/(s−1). Tau Ceti pin remains `f790474821cf4256814db967cb154e7af3d0c369`. These receipts do not audit every one of the150 consumers.
+
+## New source findings
+
+E21 is preliminary-book-only. E22–E28 are against the acquired publisher PDF, not a preprint. All have fresh local confirmed receipts with an explicit statement that a checkpoint's verdict is not a completed independent review. Packet `sourceVersions` preserves the hashes above.
+
+- E21: the preliminary hyperbola proof prints b≤x in place of b≤B.
+- E22: the last displayed recurrence proof omits the factor q_(m+1−j)(z).
+- E23: the Bernoulli generating series begins at1, omitting the constant term.
+- E24: the printed ζ(−k) Bernoulli sign fails at k=0 under its stated convention.
+- E25: the introductory periodic-zeta specialization omits z.
+- E26: **published Theorem6.1(2) is false at order0**. For a=1/2+i log2/(2π), z=−1/2, the periodic series is absolutely convergent and gives F(a,0)=−1/3, but the printed q₀(z)=2/3. The c→0 Φ limit retains its n=0 term1. For m≥1 it vanishes as the proof requires, so the displayed relation remains correct there; at m=0 subtract1. Part(1) is unaffected. The real a=1/2 check gives−1/2 versus+1/2.
+- E27: the integral in that proof omits z exp(−t) in the numerator. Its printed tail diverges already at a=1/2,s=2. Restoring the numerator gives the convergent Re s>0 representation; all-s continuation still requires the near-zero Taylor subtraction.
+- E28: three nearby variable/exponential slips, separately recorded so they do not hide E26.
+
+A bounded correction search checked the publisher article/PDF, Koukoulopoulos's home/book link and Lagarias's available publication listing, plus targeted errata/Theorem6.1 searches. No relevant correction was found. The separate author number-theory listing was unavailable; this is not exhaustive novelty. No message was sent to any author. All inherited findings still need the final independent item-by-item audit.
+
+## Validation and acceptance boundary
+
+The final suggested file elaborates with `lean-check` in the existing shared pinned Mathlib build: **exit0,300 warnings, all `declaration uses sorry`,0 errors,0 other warnings**; available memory96 GiB. Its SHA256 is `f2e353dc48f8bc7c752bc655e382226a974bdbe07b4f48143056d12770a96249`. No Tau Ceti compilation, new Lake project, build, cache operation or language server was used; no compile survives this run. New signatures include four of the six added lemmas; the two cover-action lemmas retain explicit canonical-interface omissions. The native file and mathematical specifications were reconciled only in this continuation's scope.
+
+The packet checker uses the pinned declaration index and reports0 errors/0 warnings. The shared source-issue/version checks, local-path/deliverable checks, whitespace check, within-packet dependency acyclicity and intake incomplete-review classification are checked before submission. Calling the standalone errata-artifact CLI on a blueprint is not its supported schema; the shared source-issue validator and packet checker supply that check. Elaboration and schema validity establish neither proved mathematics nor complete closure.
+
+Still required: originals for the moment/model and mean-square targets; Beurling Fourier/Laplace and Lerch cover/functional-equation/Hurwitz interfaces; node72 and every historical unread proof; all150 baseline consumers; final source-issue verdicts; every definition API/test/native signature; all planets, closure/ownership/library audits and named RT routes. The reader is outside this issue's deliverables and remains unsynchronized/unread at the required independent scope. Do not accept until authorized synchronization and the whole review are finished. No maintainer decision is needed to continue from this checkpoint.
+
+---
+
+# Historical review reports
+
 # Analytic number theory independent review — checkpoint
 
 Latest continuation: Codex `codex-BdrTzT`; see its checkpoint section below. Earlier sections are preserved historical evidence. No final verdict has been issued.

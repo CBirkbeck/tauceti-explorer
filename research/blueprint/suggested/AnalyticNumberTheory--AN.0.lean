@@ -5,6 +5,7 @@ import Mathlib.NumberTheory.Chebyshev
 import Mathlib.NumberTheory.Harmonic.EulerMascheroni
 import Mathlib.Topology.Algebra.InfiniteSum.Basic
 import Mathlib.NumberTheory.SmoothNumbers
+import Mathlib.NumberTheory.PrimeCounting
 import Mathlib.Analysis.Analytic.Order
 import Mathlib.Analysis.SpecialFunctions.Pow.Real
 import Mathlib.Analysis.SpecialFunctions.Pow.Complex
@@ -33,6 +34,8 @@ import Mathlib.Analysis.SpecialFunctions.Complex.LogBounds
 import Mathlib.Analysis.SpecialFunctions.Gamma.Digamma
 import Mathlib.NumberTheory.LSeries.Dirichlet
 import Mathlib.NumberTheory.DirichletCharacter.Orthogonality
+import Mathlib.NumberTheory.BernoulliPolynomials
+import Mathlib.Analysis.Calculus.ContDiff.FTaylorSeries
 import Mathlib.Tactic
 
 /-!
@@ -72,6 +75,12 @@ API, its integral bound and prime-weighted mean square, regularized PNT boundari
 and Dickman delay/continuity plus finite-prime smooth-number adapters. The shared
 pinned Mathlib check had 270 admitted-proof warnings and no errors. Four imported
 definition carriers and the independent mathematical review remain unfinished.
+Continuation codex-ywaJcp separates the initial Lerch series, its principal
+integral extension, and the regularized complex Hurwitz pole. It adds joint
+holomorphy, derivative majorants, nonreal-shift tests, the harmonic/hyperbola
+lemmas, and Beurling finite-product/counting signatures. The canonical Lerch
+cover and monodromy interfaces remain mathematical specifications. Published
+Theorem6.1(2) must exclude order zero; E26 records the surviving n=0 term.
 Other statements requiring those carriers or unacquired higher-genus/covering
 interfaces are listed mathematically at the end. They are not executable signatures.
 -/
@@ -532,6 +541,14 @@ def beurling_integer_count (P : beurling_prime_system) (x : ℝ) : ℕ :=
   Nat.card {a : ℕ →₀ ℕ // P.norm a ≤ x}
 def beurling_prime_count (P : beurling_prime_system) (x : ℝ) : ℕ :=
   Nat.card {i : ℕ // P.prime i ≤ x}
+lemma beurling_prime_system.ext (P Q : beurling_prime_system)
+    (h : ∀ i, P.prime i = Q.prime i) : P = Q := by sorry
+lemma beurling_prime_system.norm_pos (P : beurling_prime_system) (a : ℕ →₀ ℕ) :
+    1 ≤ P.norm a ∧ 0 < P.norm a := by sorry
+lemma beurling_prime_system.norm_add (P : beurling_prime_system) (a b : ℕ →₀ ℕ) :
+    P.norm (a + b) = P.norm a * P.norm b := by sorry
+lemma beurling_prime_system.prime_finite (P : beurling_prime_system) (x : ℝ) :
+    Set.Finite {i : ℕ | P.prime i ≤ x} := by sorry
 lemma beurling_prime_system.finite (P : beurling_prime_system) (x : ℝ) :
     Set.Finite {a : ℕ →₀ ℕ | P.norm a ≤ x} := by sorry
 lemma beurling_prime_system.unit (P : beurling_prime_system) : P.norm 0 = 1 := by sorry
@@ -541,7 +558,8 @@ lemma beurling_prime_system.multiplicity (P : beurling_prime_system)
     2 ≤ beurling_integer_count P x := by sorry
 lemma beurling_prime_system.ordinary (P : beurling_prime_system)
     (hp : ∀ i, P.prime i = (Nat.nth Nat.Prime i : ℝ)) (x : ℝ) (hx : 1 ≤ x) :
-    beurling_integer_count P x = Nat.floor x := by sorry
+    beurling_integer_count P x = Nat.floor x ∧
+      beurling_prime_count P x = Nat.primeCounting (Nat.floor x) := by sorry
 -- beurling_prime_system.ordinary
 example (P : beurling_prime_system) (hp : ∀ i, P.prime i = (Nat.nth Nat.Prime i : ℝ)) :
     beurling_integer_count P 10 = 10 := by sorry
@@ -553,6 +571,36 @@ example (P : beurling_prime_system) (x : ℝ) (hx : 1 ≤ x) (hp : x < P.prime 0
     beurling_integer_count P x = 1 ∧ beurling_prime_count P x = 0 := by sorry
 -- beurling_prime_system.invalid
 example (P : beurling_prime_system) : P.prime 0 ≠ 1 := by sorry
+
+-- beurling_prime_system.empty: the zero exponent vector is the empty product.
+example (P : beurling_prime_system) (x : ℝ) (hx : x < 1) :
+    beurling_integer_count P x = 0 ∧ beurling_prime_count P x = 0 ∧
+      P.norm 0 = 1 := by sorry
+
+lemma beurling_count_growth (P : beurling_prime_system) (σ x : ℝ)
+    (hσ : 0 < σ) (hx : 1 ≤ x)
+    (hsum : Summable (fun a : ℕ →₀ ℕ => P.norm a ^ (-σ))) :
+    (beurling_integer_count P x : ℝ) ≤
+        (∑' a : ℕ →₀ ℕ, P.norm a ^ (-σ)) * x ^ σ ∧
+      beurling_prime_count P x ≤ beurling_integer_count P x := by sorry
+
+lemma beurling_prime_power_correction (P : beurling_prime_system) :
+    let primePowerCount : ℝ → ℝ := fun x =>
+      ∑ j ∈ Finset.Icc 1 (Nat.floor (Real.log x / Real.log (P.prime 0))),
+        (beurling_prime_count P (x ^ (1 / (j : ℝ))) : ℝ) / j
+    (∀ x : ℝ, 1 ≤ x → ∀ j : ℕ,
+        Nat.floor (Real.log x / Real.log (P.prime 0)) < j →
+        beurling_prime_count P (x ^ (1 / (j : ℝ))) = 0) ∧
+      (∀ x : ℝ, P.prime 0 ≤ x →
+        0 ≤ primePowerCount x - beurling_prime_count P x ∧
+        primePowerCount x - beurling_prime_count P x ≤
+          beurling_prime_count P (Real.sqrt x) +
+          beurling_prime_count P (x ^ (1 / (3 : ℝ))) *
+            Real.log x / Real.log (P.prime 0)) ∧
+      ((∀ σ : ℝ, 1 < σ → Summable (fun a : ℕ →₀ ℕ => P.norm a ^ (-σ))) →
+        ∀ ε : ℝ, 0 < ε →
+          (fun x : ℝ => primePowerCount x - beurling_prime_count P x) =O[atTop]
+            (fun x : ℝ => x ^ ((1 / 2 : ℝ) + ε))) := by sorry
 
 /-! Explicit C(κ) uses the pinned zero-extended arithmetic-function carrier. -/
 def halasz_coefficient_class (f : ArithmeticFunction ℂ) (κ : ℝ) : Prop :=
@@ -690,6 +738,20 @@ lemma lerch_transcendent.exp_change (a s c : ℂ) (ha : 0 < a.im) (hc : 0 < c.re
 lemma lerch_transcendent.polylog (z s : ℂ) (hz : ‖z‖ < 1) :
     z * lerch_transcendent z s 1 =
       ∑' n : ℕ, z ^ (n + 1) * Complex.exp (-s * Complex.log ((n + 1 : ℕ) : ℂ)) := by sorry
+lemma lerch_compact_series_bound (K : Set (ℂ × ℂ × ℂ)) (hK : IsCompact K)
+    (hdom : K ⊆ {q | ‖q.2.1‖ < 1 ∧ 0 < q.2.2.re}) (m : ℕ) :
+    ∃ g : ℕ → ℝ, Summable g ∧ (∀ n, 0 ≤ g n) ∧
+      ∀ n : ℕ, ∀ q ∈ K,
+        ‖iteratedFDeriv ℂ m (fun q : ℂ × ℂ × ℂ =>
+          q.2.1 ^ n * Complex.exp (-q.1 * Complex.log ((n : ℂ) + q.2.2))) q‖ ≤ g n :=
+  by sorry
+lemma lerch_transcendent.holomorphic :
+    DifferentiableOn ℂ (fun q : ℂ × ℂ × ℂ => lerch_transcendent q.2.1 q.1 q.2.2)
+      {q | ‖q.2.1‖ < 1 ∧ 0 < q.2.2.re} := by sorry
+lemma lerch_transcendent.deriv_s (z s c : ℂ) (hz : ‖z‖ < 1) (hc : 0 < c.re) :
+    deriv (fun s => lerch_transcendent z s c) s =
+      -∑' n : ℕ, z ^ n * Complex.log ((n : ℂ) + c) *
+        Complex.exp (-s * Complex.log ((n : ℂ) + c)) := by sorry
 -- lerch_transcendent.zero
 example : lerch_transcendent 0 2 1 = 1 := by sorry
 -- lerch_transcendent.s_zero
@@ -722,6 +784,86 @@ example (s : ℂ) (hs : 1 < s.re) :
     complex_hurwitz_series s (1 / 2) = ((2 : ℂ) ^ s - 1) * riemannZeta s := by sorry
 -- complex_hurwitz_series.excluded
 example : ¬ (0 < (0 : ℂ).re) := by sorry
+
+-- complex_hurwitz_series.nonreal_shift
+example : complex_hurwitz_series 2 (2 + Complex.I) =
+    complex_hurwitz_series 2 (1 + Complex.I) -
+      Complex.exp (-(2 : ℂ) * Complex.log (1 + Complex.I)) := by sorry
+
+lemma lerch_parameter_shift (z s c : ℂ) (hz : ‖z‖ < 1) (hc : 0 < c.re) :
+    lerch_transcendent z s c = Complex.exp (-s * Complex.log c) +
+      z * lerch_transcendent z s (c + 1) := by sorry
+lemma lerch_z_derivative (z s c : ℂ) (hz : ‖z‖ < 1) (hc : 0 < c.re) :
+    z * deriv (fun z => lerch_transcendent z s c) z +
+      c * lerch_transcendent z s c = lerch_transcendent z (s - 1) c := by sorry
+lemma lerch_c_derivative (z s c : ℂ) (hz : ‖z‖ < 1) (hc : 0 < c.re) :
+    deriv (fun c => lerch_transcendent z s c) c =
+      -s * lerch_transcendent z (s + 1) c := by sorry
+
+/-- F is the principal-sheet extension, not the totalized series off its disc. -/
+lemma lerch_integral_representation :
+    ∃ F : (ℂ × ℂ × ℂ) → ℂ,
+      DifferentiableOn ℂ F {q | 0 < q.1.re ∧ 0 < q.2.2.re ∧
+        q.2.1 ∉ (fun t : ℝ => (t : ℂ)) '' Set.Ici 1} ∧
+      (∀ s z c : ℂ, 0 < s.re → 0 < c.re → ‖z‖ < 1 →
+        F (s, z, c) = lerch_transcendent z s c) ∧
+      ∀ s z c : ℂ, 0 < s.re → 0 < c.re →
+        z ∉ (fun t : ℝ => (t : ℂ)) '' Set.Ici 1 →
+        MeasureTheory.IntegrableOn
+          (fun t : ℝ => Complex.exp ((s - 1) * (Real.log t : ℂ)) *
+            Complex.exp (-c * t) / (1 - z * Complex.exp (-t))) (Set.Ioi 0) ∧
+        F (s, z, c) = (Complex.Gamma s)⁻¹ * ∫ t : ℝ in Set.Ioi 0,
+          Complex.exp ((s - 1) * (Real.log t : ℂ)) *
+            Complex.exp (-c * t) / (1 - z * Complex.exp (-t)) := by sorry
+
+/-- H's value at the pole is unspecified; R is the genuine removable extension. -/
+theorem complex_hurwitz_continuation :
+    ∃ H R : (ℂ × ℂ) → ℂ,
+      DifferentiableOn ℂ H {q | q.1 ≠ 1 ∧ 0 < q.2.re} ∧
+      DifferentiableOn ℂ R {q | 0 < q.2.re} ∧
+      (∀ c : ℂ, 0 < c.re → R (1, c) = 1) ∧
+      (∀ s c : ℂ, s ≠ 1 → 0 < c.re → R (s, c) = (s - 1) * H (s, c)) ∧
+      (∀ s c : ℂ, 1 < s.re → 0 < c.re → H (s, c) = complex_hurwitz_series s c) ∧
+      (∀ s c : ℂ, s ≠ 1 → 0 < c.re →
+        H (s, c + 1) = H (s, c) - Complex.exp (-s * Complex.log c)) := by sorry
+
+/-- Any continuation matching the convergent series has these off-pole values. -/
+theorem complex_hurwitz_bernoulli_values (H : (ℂ × ℂ) → ℂ)
+    (hH : DifferentiableOn ℂ H {q | q.1 ≠ 1 ∧ 0 < q.2.re})
+    (hseries : ∀ s c : ℂ, 1 < s.re → 0 < c.re →
+      H (s, c) = complex_hurwitz_series s c) (m : ℕ) (c : ℂ) (hc : 0 < c.re) :
+    H (-(m : ℂ), c) =
+      -(Polynomial.bernoulli (m + 1)).eval₂ (algebraMap ℚ ℂ) c / (m + 1 : ℕ) := by sorry
+
+/-- Initial boundary series: the prefactor is essential. -/
+lemma exp_zeta_lerch_comparison (a : ℝ) (s : ℂ) (hs : 1 < s.re) :
+    HurwitzZeta.expZeta (a : UnitAddCircle) s =
+      Complex.exp (2 * Real.pi * Complex.I * a) *
+        lerch_transcendent (Complex.exp (2 * Real.pi * Complex.I * a)) s 1 := by sorry
+-- Theorem6.1(2) order-zero exception: q₀ differs from the periodic value by1.
+example : riemannZeta 0 = -(1 / 2 : ℂ) := by sorry
+example (z : ℂ) (hz : z ≠ 1) : z / (1 - z) = (1 - z)⁻¹ - 1 := by sorry
+
+lemma lerch_zero_order_value (z c : ℂ) (hz : ‖z‖ < 1) (hc : 0 < c.re) :
+    lerch_transcendent z 0 c = (1 - z)⁻¹ := by sorry
+lemma lerch_nonpositive_special_values (m : ℕ) (z c : ℂ)
+    (hz : ‖z‖ < 1) (hc : 0 < c.re) :
+    let D : (ℂ → ℂ) → (ℂ → ℂ) := fun f z => z * deriv f z + c * f z
+    lerch_transcendent z (-(m : ℂ)) c = (D^[m]) (fun z => (1 - z)⁻¹) z := by sorry
+lemma circle_hurwitz_import (s : ℂ) (c : ℝ)
+    (hs : 1 < s.re) (hc : 0 < c) (hc1 : c ≤ 1) :
+    complex_hurwitz_series s (c : ℂ) = HurwitzZeta.hurwitzZeta (c : UnitAddCircle) s := by sorry
+lemma dirichlet_hurwitz_finite_sum (q : ℕ) [NeZero q] (χ : DirichletCharacter ℂ q)
+    (s : ℂ) (hs : 1 < s.re) :
+    DirichletCharacter.LFunction χ s = (q : ℂ) ^ (-s) *
+      ∑ a ∈ Finset.Icc 1 q, χ (a : ZMod q) *
+        complex_hurwitz_series s ((a : ℂ) / q) := by sorry
+lemma lerch_boundary_degeneration (s c : ℂ) (hs : 1 < s.re) (hc : 0 < c.re) :
+    Tendsto (fun r : ℝ => lerch_transcendent (r : ℂ) s c) (𝓝[<] (1 : ℝ))
+      (𝓝 (complex_hurwitz_series s c)) := by sorry
+-- E26: an absolutely convergent counterexample inside the z disc.
+example : lerch_transcendent (-(1 / 2 : ℂ)) 0 1 = 2 / 3 ∧
+    (-(1 / 2 : ℂ)) * lerch_transcendent (-(1 / 2 : ℂ)) 0 1 = -(1 / 3) := by sorry
 
 lemma lerch_parameter_derivatives (z s c : ℂ) (hz : ‖z‖ < 1) (hc : 0 < c.re) :
     deriv (fun c => lerch_transcendent z s c) c = -s * lerch_transcendent z (s + 1) c ∧
@@ -779,6 +921,19 @@ theorem shifted_coprime_mobius_sum (A : ℝ) (hA : 0 < A) :
 theorem totient_reciprocal_bound :
     ∃ C : ℝ, 0 < C ∧ ∀ n : ℕ, 3 ≤ n →
       ((n.totient : ℝ)⁻¹) ≤ C * Real.log (Real.log n) / n := by sorry
+
+lemma harmonic_euler_remainder (N : ℕ) (hN : 1 ≤ N) :
+    let E := (∑ n ∈ Finset.Icc 1 N, (n : ℝ)⁻¹) -
+      Real.log N - Real.eulerMascheroniConstant
+    0 < E ∧ E < Real.log (1 + (N : ℝ)⁻¹) ∧
+      Real.log (1 + (N : ℝ)⁻¹) ≤ (N : ℝ)⁻¹ := by sorry
+lemma divisor_hyperbola_identity (x : ℝ) (hx : 1 ≤ x) :
+    let M := Nat.floor (Real.sqrt x)
+    (∑ n ∈ Finset.Icc 1 (Nat.floor x), n.divisors.card) + M ^ 2 =
+      2 * ∑ a ∈ Finset.Icc 1 M, Nat.floor (x / a) := by sorry
+-- The inclusive hyperbola identity at its smallest and square cutoffs.
+example : (∑ n ∈ Finset.Icc 1 4, n.divisors.card) + 2 ^ 2 = 2 * (4 + 2) := by sorry
+example : (∑ n ∈ Finset.Icc 1 1, n.divisors.card) + 1 ^ 2 = 2 * 1 := by sorry
 
 theorem dirichlet_divisor_average :
     ∃ C : ℝ, 0 < C ∧ ∀ x : ℝ, 2 ≤ x →
@@ -1777,7 +1932,7 @@ AnalyticNumberTheory:AN.3/dirichlet-polynomial-mean-square
 For N≥1,T≥1 and complex a₁,…,a_N, ∫_{−T}^T|Σ_{n=1}^N a_n n^(−it)|²dt=2TΣ|a_n|²+O(Σn|a_n|²), with an absolute constant.
 
 AnalyticNumberTheory:AN.7/lerch-cover-continuation
-The initial Φ germ continues to a single-valued holomorphic function on the universal cover of C_s times (C_z minus {0,1}) times (C_c minus the nonpositive integers), with basepoint (s,z,c)=(1/2,−1,1/2) and the germ continued from the principal domain. The continuation becomes single-valued on a two-step solvable cover; it need not descend to an abelian cover in the z coordinate.
+The initial Φ germ continues to a single-valued holomorphic function on the universal cover of N#=C_s×(C_z\{0,1})×(C_c\Z≤0), based at(s,z,c)=(1/2,−1,1/2). Fix its base germ by the principal integral and continuation from |z|<1. The separate solvable-descent lemma states the quotient-cover invariance.
 
 AnalyticNumberTheory:AN.7/lerch-nonpositive-special-values
 For m≥0, Φ(z,−m,c)=(z∂_z+c)^m(1/(1−z)), a rational function of z,c with poles only at z=1. It extends in c across all integers and has zero monodromy. For m=1 it equals c/(1−z)+z/(1−z)².
@@ -1786,22 +1941,22 @@ AnalyticNumberTheory:AN.7/circle-hurwitz-import
 For real 0<c≤1 and Re s>1, the z=1 Lerch/Hurwitz series Σ_{n≥0}(n+c)^−s agrees with the pinned UnitAddCircle Hurwitz function using c mod1 and its endpoint convention c=1. Its meromorphic continuation has a simple pole at s=1 of residue1.
 
 AnalyticNumberTheory:AN.7/exp-zeta-lerch-comparison
-For real a, z=e^(2πia), Re s>1, expZeta(a,s)=zΦ(z,s,1) in the absolutely convergent boundary series. The right side uses that series or its matched boundary continuation. At a=0 it is the Riemann/Hurwitz degeneration, handled separately.
+For real a, z=exp(2πia) and Re s>1, expZeta(a,s)=zΣ_{n≥0}z^n exp(−sLog(n+1)), in the absolutely convergent boundary series. The totalized defining Φ sum agrees here after its boundary summability proof; at a∈Z this is the Riemann degeneration. It gives no equality of arbitrary sheets or unqualified limit for Re s≤1.
 
 AnalyticNumberTheory:AN.7/dirichlet-hurwitz-finite-sum
 For a character χ modulo q≥1 and Re s>1, L(s,χ)=q^−sΣ_{a=1}^q χ(a)ζ_H(s,a/q), using the actual principal/imprimitive character values. Continue with the pinned Dirichlet and circle-Hurwitz functions and keep the principal pole.
 
 AnalyticNumberTheory:AN.7/lerch-even-functional-equation
-On the extended polycylinder s∈C,0<Re a<1,0<Re c<1, put L_+=ζ(s,a,c)+e^(−2πia)ζ(s,1−a,1−c) and Λ_+=π^(−s/2)Γ(s/2)L_+. Then Λ_+(s,a,c)=e^(−2πiac)Λ_+(1−s,1−c,a), as matched holomorphic continuations. Apparent gamma poles cancel in the completed combination.
+On the extended polycylinder s∈C,0<Re a<1,0<Re c<1, put L_+=ζ(s,a,c)+e^(−2πia)ζ(s,1−a,1−c) and Λ_+=π^(−s/2)Γ(s/2)L_+. Then Λ_+(s,a,c)=e^(−2πiac)Λ_+(1−s,1−c,a), as matched holomorphic continuations. At a gamma pole, Λ denotes the removable holomorphic extension of the product, not its pointwise totalized Gamma value.
 
 AnalyticNumberTheory:AN.7/lerch-odd-functional-equation
-On the same polycylinder, L_−=ζ(s,a,c)−e^(−2πia)ζ(s,1−a,1−c) and Λ_−=π^(−(s+1)/2)Γ((s+1)/2)L_− satisfy Λ_−(s,a,c)=i e^(−2πiac)Λ_−(1−s,1−c,a), with matched continuations and removable gamma poles.
+On the same polycylinder, L_−=ζ(s,a,c)−e^(−2πia)ζ(s,1−a,1−c) and Λ_−=π^(−(s+1)/2)Γ((s+1)/2)L_− satisfy Λ_−(s,a,c)=i e^(−2πiac)Λ_−(1−s,1−c,a), with matched continuations; at gamma poles Λ denotes the removable holomorphic extension rather than a pointwise totalized Gamma product.
 
 AnalyticNumberTheory:AN.7/complex-hurwitz-continuation
-The preceding series extends jointly meromorphically to s∈C, Re c>0, with only a simple pole at s=1 and residue1 independent of c. For fixed c, (s−1)ζ_H(s,c) is entire in s. The c shift identity remains valid there.
+There exist canonical joint continuations H(s,c),R(s,c) on s∈C, Re c>0, with H jointly holomorphic off s=1, R jointly holomorphic everywhere on this domain, R(1,c)=1, and R(s,c)=(s−1)H(s,c) for s≠1. H agrees with the defining Hurwitz series on Re s>1 and has a simple pole at1 of residue1. The shift holds off the pole. Neither a totalized divergent series nor the pointwise product(s−1)H at1 is claimed to be the removable extension R.
 
 AnalyticNumberTheory:AN.7/complex-hurwitz-bernoulli-values
-For m≥0 and Re c>0, the canonical continuation has ζ_H(−m,c)=−B_{m+1}(c)/(m+1), with Bernoulli polynomials normalized by te^(ct)/(e^t−1)=ΣB_j(c)t^j/j!. In particular ζ_H(0,c)=1/2−c.
+For m≥0 and Re c>0, the canonical continuation has ζ_H(−m,c)=−B_{m+1}(c)/(m+1), with Bernoulli polynomials normalized by te^(ct)/(e^t−1)=ΣB_j(c)t^j/j!. In particular ζ_H(0,c)=1/2−c. The polynomial is the pinned Polynomial.bernoulli(m+1) evaluated at complex c after coefficient extension; B₁(c)=c−1/2, so at c=1 the order-zero value is−1/2.
 
 AnalyticNumberTheory:AN.4/quadratic-residue-quotient
 For a quadratic extension E/F, L_f(1,η)=κ_E/κ_F>0, where κ_K is the positive residue of the continued Dedekind function. Here η is the canonical nontrivial primitive quadratic Hecke character attached by global Artin reciprocity. Its holomorphy at 1, the continued zeta factorization, and the two simple positive residues give the quotient; general line-one nonvanishing is not needed for this argument.
@@ -1911,3 +2066,42 @@ For each fixed u>0, Ψ(x,x^(1/u))/x→ρ(u) as x→∞. This statement is not un
 
 /- AnalyticNumberTheory:AN.5/smooth-rankin-bound
 For x≥1,y≥2 and σ>0, Ψ(x,y)≤x^σ∏_{p≤y}(1−p^−σ)^−1. The finite-prime Euler product is finite and each geometric series converges. -/
+
+/-! Additional specifications exposed by codex-ywaJcp.
+
+The z-monodromy and solvable-descent nodes have no native canonical-cover
+signature yet. Packet gap39 records this omission; the UniversalCovers
+Stage0/Stage2 requests identify the supplier contracts.
+
+AnalyticNumberTheory:AN.5/harmonic-euler-remainder
+For every integer N≥1, 0<H_N−log N−γ<log(1+1/N)≤1/N, where H_N=Σ_{1≤n≤N}1/n and γ is the pinned Euler–Mascheroni constant.
+
+AnalyticNumberTheory:AN.5/divisor-hyperbola-identity
+For real x≥1 and M=floor(sqrt x), Σ_{1≤n≤floor x}τ(n)+M²=2Σ_{1≤a≤M}floor(x/a). The equality is exact, including x at a perfect square.
+
+AnalyticNumberTheory:AN.5/beurling-count-growth
+For a Beurling system P, real σ>0 and S=Σ_a norm(a)^−σ with summable nonnegative summands, N(x)≤S x^σ for x≥1, and π_P(x)≤N(x). Thus convergence for every σ>1 gives N(x),π_P(x)=O_ε(x^(1+ε)) for every ε>0.
+
+AnalyticNumberTheory:AN.5/beurling-prime-power-correction
+For x≥1, J=floor(log x/log p₁) and Π_P(x)=Σ_{1≤j≤J}π_P(x^(1/j))/j, all later terms are0. For x≥p₁, 0≤Π_P(x)−π_P(x)≤π_P(sqrt x)+π_P(x^(1/3))log x/log p₁. Under convergence for every σ>1, the difference is O_ε(x^(1/2+ε)) for every ε>0.
+
+AnalyticNumberTheory:AN.7/lerch-z-monodromy-shift
+On D={s∈C,z∈C\[0,∞),0<Re c<1}, choose Log z with0<Im Log z<2π and a=Log z/(2πi). Let f_p=z^−c(a−p)^(s−1) for p≤0, and f_p=exp(πi(s−1))z^−c(p−a)^(s−1) for p≥1, using principal logarithms of the positive-real-part bases. For the source based loops Z₀,Z₁ around0,1, M_Z₀Φ=0, M_Z₁Φ=−(2πi)^s f₀/Γ(s), while continuing f_p along Z₀^k sends it to f_(p−k); Z₁ and c loops fix every f_p.
+
+AnalyticNumberTheory:AN.7/lerch-solvable-descent
+The holomorphic Lerch continuation on the universal cover of N#=C_s×(C_z\{0,1})×(C_c\Z≤0) is invariant under π₁(N#)″. It therefore descends to the regular cover associated to that second commutator subgroup; its deck group π₁(N#)/π₁(N#)″ is solvable of derived length at most2. No descent to the maximal abelian z cover is asserted.
+
+-/
+
+/-! Further canonical analytic interfaces still requiring native refinement.
+
+AnalyticNumberTheory:AN.5/beurling-zeta-product
+If Σ_n n^−σ (with generalized-integer multiplicities) converges for every real σ>1, then ζ_P(s)=Σ_n n^−s=∏_j(1−p_j^−s)^−1 on Re s>1, absolutely and locally uniformly. The convergence hypothesis is additional to the prime-system axioms.
+
+AnalyticNumberTheory:AN.7/lerch-c-monodromy
+On the principal Lerch-zeta germ ζ(s,a,c)=Φ(exp(2πia),s,c), a positive loop around c=−n (n≥0) changes the branch by (e^(−2πis)−1)e^(2πina)(c+n)^−s, with the same logarithm lift. Loops about positive integer c have zero monodromy.
+
+AnalyticNumberTheory:AN.7/lerch-a-monodromy
+For the lifted principal Lerch-zeta branch, a positive loop around a=n∈Z changes it by −(2πi)^s Γ(s)^−1(a−n)^(s−1)e^(−2πic(a−n)), with (2πi)^s defined by log(2π)+iπ/2 and the continued logarithm of a−n. On the fundamental strip0<Re a<1, the logarithm of a−n is cut along the negative imaginary axis with argument in(−π/2,3π/2). Equivalently, for n≥1 replace(a−n)^(s−1) by exp(πi(s−1))(n−a)^(s−1), whose base has positive real part; for n≤0 use the principal logarithm of a−n.
+
+-/

@@ -978,6 +978,97 @@
         "module": "Mathlib/NumberTheory/SmoothNumbers.lean",
         "provides": "For a prime p not in a finite set s, a bijection ℕ×factoredNumbers s≃factoredNumbers(insert p s), with forward map (e,m)↦p^e*m; supports finite-prime geometric factorization without an infinite-prime convergence assumption.",
         "checked": "Full statement and ambient hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex codex-LO9Eha,2026-10-05."
+      },
+      {
+        "ref": "mathlib:Real.eulerMascheroniSeq_lt_eulerMascheroniConstant",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/Harmonic/EulerMascheroni.lean",
+        "provides": "For every natural n, harmonic n−log(n+1)<γ; no positive-n hypothesis is omitted.",
+        "checked": "Statement and ambient hypotheses freshly read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex codex-ywaJcp."
+      },
+      {
+        "ref": "mathlib:Real.eulerMascheroniConstant_lt_eulerMascheroniSeq'",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/Harmonic/EulerMascheroni.lean",
+        "provides": "γ<the upper Euler sequence at every natural n; for n>0 its defining expression is harmonic n−log n. At n=0 it is the junk value2.",
+        "checked": "Statement and ambient hypotheses freshly read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex codex-ywaJcp."
+      },
+      {
+        "ref": "mathlib:Real.log_le_sub_one_of_pos",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/SpecialFunctions/Log/Basic.lean",
+        "provides": "For positive real x, log x≤x−1. Used with x=1+1/N to derive the harmonic remainder bound.",
+        "checked": "Statement and ambient hypotheses freshly read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex codex-ywaJcp."
+      },
+      {
+        "ref": "mathlib:HurwitzZeta.hasSum_hurwitzZeta_of_one_lt_re",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/LSeries/HurwitzZeta.lean",
+        "provides": "For real a∈[0,1] and Re s>1, HasSum of1/(n+a)^s to the circle Hurwitz function. At a=0 and s≠0, the n=0 term is totalized0; real c=1 gives the positive-integer representative.",
+        "checked": "Statement and ambient hypotheses freshly read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex codex-ywaJcp."
+      },
+      {
+        "ref": "mathlib:HurwitzZeta.differentiableAt_hurwitzZeta",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/LSeries/HurwitzZeta.lean",
+        "provides": "The circle Hurwitz function is complex differentiable at every s≠1, for any circle parameter.",
+        "checked": "Statement and ambient hypotheses freshly read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex codex-ywaJcp."
+      },
+      {
+        "ref": "mathlib:HurwitzZeta.hurwitzZeta_residue_one",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/LSeries/HurwitzZeta.lean",
+        "provides": "The punctured complex limit of(s−1)hurwitzZeta(a,s) at1 equals1 for every UnitAddCircle a.",
+        "checked": "Statement and ambient hypotheses freshly read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex codex-ywaJcp."
+      },
+      {
+        "ref": "mathlib:HurwitzZeta.differentiableAt_hurwitzZeta_sub_one_div",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/LSeries/HurwitzZeta.lean",
+        "provides": "At s=1, hurwitzZeta(a,s)−1/(s−1)/Gammaℝ(s) is differentiable. This is the pinned normalization; it does not identify the pointwise value of subtraction by1/(s−1) with its analytic extension.",
+        "checked": "Statement and ambient hypotheses freshly read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex codex-ywaJcp."
+      },
+      {
+        "ref": "mathlib:Complex.cpow_def_of_ne_zero",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/SpecialFunctions/Pow/Complex.lean",
+        "provides": "For nonzero complex x, x^y=exp(log x*y), with the pinned principal logarithm. For Re(n+c)>0 this matches the defining Lerch/Hurwitz exponential term.",
+        "checked": "Statement and ambient hypotheses freshly read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex codex-ywaJcp."
+      },
+      {
+        "ref": "mathlib:ZMod.LFunction",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/LSeries/ZMod.lean",
+        "provides": "For N≠0 and Φ:ZMod N→C, the continued L-function is defined as N^(−s) times the finite sum of Φ(j)hurwitzZeta(toAddCircle j,s). Reuse this continuation rather than construct a second one.",
+        "checked": "Statement and ambient hypotheses freshly read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex codex-ywaJcp."
+      },
+      {
+        "ref": "mathlib:Polynomial.bernoulli",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/BernoulliPolynomials.lean",
+        "provides": "Rational polynomial B_n, defined using the negative-convention Bernoulli numbers; use eval₂ into C for complex c.",
+        "checked": "Definition/statement and ambient hypotheses freshly read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex codex-ywaJcp."
+      },
+      {
+        "ref": "mathlib:Polynomial.bernoulli_one",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/BernoulliPolynomials.lean",
+        "provides": "B₁(X)=X−1/2, fixing the order-zero Hurwitz endpoint normalization.",
+        "checked": "Definition/statement and ambient hypotheses freshly read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex codex-ywaJcp."
+      },
+      {
+        "ref": "mathlib:Polynomial.bernoulli_eval_one",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/BernoulliPolynomials.lean",
+        "provides": "B_n(1)=bernoulli′ n; the positive Bernoulli convention at1 differs from B_n(0) when n=1.",
+        "checked": "Definition/statement and ambient hypotheses freshly read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex codex-ywaJcp."
+      },
+      {
+        "ref": "mathlib:Nat.primeCounting",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/PrimeCounting.lean",
+        "provides": "Inclusive natural prime count π(n), defined as primeCounting′(n+1). This fixes the ordinary Beurling specialization at the real floor cutoff.",
+        "checked": "Definition freshly read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex codex-ywaJcp."
       }
     ]
   },
@@ -1613,7 +1704,8 @@
       "sha256": "c89fc79652718216ca5a207101309e3edb27133dca4de64f5ad562010d761a10",
       "accessed": "2026-10-05",
       "readSections": [
-        "Introduction and Theorem2.3 boundary statement; remaining proof sections not freshly read."
+        "Introduction and Theorem2.3 boundary statement; remaining proof sections not freshly read.",
+        "Codex codex-ywaJcp: introductory specialization/periodic normalization and Theorem2.3 boundary statement. Entire §5 Fourier–Mellin proof not audited in this continuation."
       ]
     },
     {
@@ -1625,7 +1717,8 @@
       "sha256": "f249ec6b41f632be29ea4f894f42c921e3ce61cadb8c368a8e39ca58de891eb9",
       "accessed": "2026-10-05",
       "readSections": [
-        "§2 Theorems2.1–2.3; §4 monodromy formulas and residue/shift proof pp16–18; §5 derivative proof pp20–22; §7 nonpositive-integer monodromy proof. Complete §§3–4 cover gluing remains a gap."
+        "§2 Theorems2.1–2.3; §4 monodromy formulas and residue/shift proof pp16–18; §5 derivative proof pp20–22; §7 nonpositive-integer monodromy proof. Complete §§3–4 cover gluing remains a gap.",
+        "Codex codex-ywaJcp: complete §§3–4 pp.8–20 and §8 pp.26–27, plus §2 pp.4–7 integral/target discussion and §9 p.28 Hurwitz singular-stratum discussion. The real LerchI/Weil functional-equation proof remains unread. Complete §5 pp.20–22 derivative/transport proof also read."
       ]
     },
     {
@@ -1688,7 +1781,8 @@
       "sha256": "5100c8395e6eb149e76fd3d62cf5146d38faac1804afa6c7d9f0dd7e9f30464c",
       "accessed": "2026-10-05",
       "readSections": [
-        "Introduction, Theorem1 and §2.1 pp1–3; complete Tauberian proofs remain gaps."
+        "Introduction, Theorem1 and §2.1 pp1–3; complete Tauberian proofs remain gaps.",
+        "Codex codex-ywaJcp: entire Introduction/§2.1 pp.1–3 and complete §§3–4 pp.4–11, including Theorem2/Proposition1/Theorem3/Lemma1 proofs. §5 Cesàro theorem is outside the present target and not audited."
       ]
     },
     {
@@ -1700,7 +1794,8 @@
       "sha256": "1b9d8d35cf23b15bd921621011a066832dd39924688b121e85d6067eb25f6593",
       "accessed": "2026-10-05",
       "readSections": [
-        "Theorem2.3 (2.3)–(2.5) and corresponding §4 derivative proof read fresh; larger continuation/special-value statements first read in v1 and matched to this publisher text at the named statement only. Full publisher §§3–6 proof collation remains a gap."
+        "Theorem2.3 (2.3)–(2.5) and corresponding §4 derivative proof read fresh; larger continuation/special-value statements first read in v1 and matched to this publisher text at the named statement only. Full publisher §§3–6 proof collation remains a gap.",
+        "Codex codex-ywaJcp: complete selected §3.2–§3.5 pp.21–32, §4 Theorem4.1 and proof p.33, §5 Theorem5.1 proof p.36; §6 pp.40–42 introductory normalizations and Theorem6.1 discussion. Page40 additionally viewed as image. Remaining §§4–6 material not fully audited. The full selected Theorem6.1 proof pp.41–42 and preceding Theorem5.3 displayed recurrence were read; pp.40–42 were viewed as images. E22–E28 record the slips and order-zero error."
       ]
     },
     {
@@ -1774,7 +1869,8 @@
       "readSections": [
         "Theorem3.4 and proof, printed pp.40–41; Exercise5.4(a)–(d), printed p.61, additionally checked as a rendered page.",
         "Selected preceding hyperbola calculation and Theorem3.3, printed pp.38–39. Exercise5.4 is a proof worklist, not a completed proof of its estimates.",
-        "codex-BdrTzT, 2026-10-05: Chapter13 pp.130–135 through the initial Corollary13.4 argument, and Exercise13.4 p.140. Theorem13.2 statement/initial discussion read; remaining proof pp.135–140 not audited. Exercise13.4 states Landau, with the exact prime-factor criterion already in Mathlib."
+        "codex-BdrTzT, 2026-10-05: Chapter13 pp.130–135 through the initial Corollary13.4 argument, and Exercise13.4 p.140. Theorem13.2 statement/initial discussion read; remaining proof pp.135–140 not audited. Exercise13.4 states Landau, with the exact prime-factor criterion already in Mathlib.",
+        "Codex codex-ywaJcp: complete selected Theorem1.11 proof pp.15–16 and hyperbola discussion/Theorem3.3 proof pp.38–39. Pinned Euler-sequence inequalities separately read for the constant and quantitative remainder."
       ]
     },
     {
@@ -11966,14 +12062,17 @@
       "statement": "For x≥2, Σ_{1≤n≤x}τ(n)=x log x+(2γ−1)x+O(√x), with an absolute constant and inclusive real cutoff.",
       "hypotheses": [],
       "proofSteps": [
-        "Apply the exact hyperbola identity 2Σ_{n≤√x}floor(x/n)−floor(√x)^2.",
-        "Use the harmonic-sum constant γ with an O(1/N) error and control the floor errors."
+        "Apply the exact symmetric hyperbola identity with M=floor(sqrt x)≥1. Replace each floor(x/a) by x/a with an error of absolute value<1, for a total O(M).",
+        "Use H_M=log M+γ+O(1/M). With δ=sqrt x−M∈[0,1), expand 2x log M−M² around M=sqrt x; the discrepancy from x log x−x is O(1), while x/M=O(sqrt x) for x≥2.",
+        "Combine the errors with an absolute constant. This proof uses no subpower divisor bound."
       ],
       "prerequisites": [
-        "AnalyticNumberTheory:AN.5/uniform-divisor-subpower-bound"
+        "AnalyticNumberTheory:AN.5/divisor-hyperbola-identity",
+        "AnalyticNumberTheory:AN.5/harmonic-euler-remainder"
       ],
       "acceptance": [
-        "Check every endpoint and the stated dependence of constants; no conjectural input is implicit."
+        "The exact divisor sums at x=1 and x=4 are1 and8; the asymptotic is asserted on x≥2 with a single absolute constant.",
+        "A perfect-square endpoint is included once. The error O(sqrt x) requires the harmonic remainder rate, not merely existence of the Euler-constant limit."
       ],
       "uses": [
         {
@@ -11988,10 +12087,10 @@
       },
       "sources": [
         {
-          "sourceId": "atlas-an-brief",
-          "locator": "AN.5 target specification",
-          "excerpt": "Multiplicative functions and value distribution",
-          "match": "Fully specified target. Its original proof is explicitly unacquired; the gap lists the required source and nonroutine inputs."
+          "sourceId": "kouk-primary-preliminary",
+          "locator": "Theorem3.3 and complete hyperbola proof, printed pp.38–39; Theorem1.11 pp.15–16",
+          "excerpt": "hyperbola method",
+          "match": "Source proof newly read; its two nonroutine inputs are separate nodes. The printed preliminary calculation has local typographical slips recorded under sourceIssues; the theorem and corrected argument are sound."
         }
       ],
       "implementationStatus": "unchecked"
@@ -12012,6 +12111,7 @@
       ],
       "prerequisites": [],
       "acceptance": [
+        "All source-proof and normalization gaps remain open; the displayed bound/signature is a target rather than a freshly verified theorem.",
         "Check every endpoint and the stated dependence of constants; no conjectural input is implicit."
       ],
       "uses": [
@@ -12051,6 +12151,7 @@
       ],
       "prerequisites": [],
       "acceptance": [
+        "All source-proof and normalization gaps remain open; the displayed bound/signature is a target rather than a freshly verified theorem.",
         "Check every endpoint and the stated dependence of constants; no conjectural input is implicit."
       ],
       "uses": [
@@ -12094,6 +12195,7 @@
         "ProbabilisticAndMetricNumberTheory:PM.5"
       ],
       "acceptance": [
+        "All source-proof and normalization gaps remain open; the displayed bound/signature is a target rather than a freshly verified theorem.",
         "Check every endpoint and the stated dependence of constants; no conjectural input is implicit."
       ],
       "uses": [
@@ -12128,9 +12230,13 @@
       "statement": "A discrete Beurling prime system is a nondecreasing sequence of real numbers1<p₁≤p₂≤… tending to∞. Generalized integers are finite-support exponent vectors a:N→N, with norm∏p_j^(a_j); coincident real values are counted with multiplicity. N(x) counts these vectors of norm≤x, and π_P(x) counts the prime indices with p_j≤x.",
       "hypotheses": [],
       "proofSteps": [
-        "Construct the displayed object on the specified domain using the existing carriers; prove the listed API before its analytic applications."
+        "Use a monotone real sequence p:N→R with p(0)>1 and p→∞. Generalized integers are N→₀N, not the set of real norm values. Define their norm by the finite product and counts by finite subtype cardinality.",
+        "For x≥1, only finitely many indices satisfy p(i)≤x, by escape to∞; every contributing exponent is≤log x/log p(0). Every positive exponent forces its prime≤x. Embed contributing vectors into the product of these finite exponent intervals. For x<1 there are none, since every norm≥1.",
+        "Coordinatewise addition gives norm(a+b)=norm(a)norm(b); the zero vector has norm1. Unique factorization of ordinary positive naturals supplies the ordinary-prime compatibility, preserving repeated norms for a general system."
       ],
-      "prerequisites": [],
+      "prerequisites": [
+        "mathlib:Nat.primeCounting"
+      ],
       "acceptance": [
         "The ordinary primes give N(10)=10.",
         "If p₁=p₂=2<p₃, N(2)=3, counting the unit and two distinct norm2 vectors.",
@@ -12151,9 +12257,9 @@
       "sources": [
         {
           "sourceId": "beurling-dv",
-          "locator": "Introduction pp1–2",
+          "locator": "Introduction p.1, definition and counting functions (1); §2.1 p.3",
           "excerpt": "multiplicities into account",
-          "match": "Exact target or stated specialization; unresolved proof inputs are named in the gap ledger."
+          "match": "The complete discrete definition was freshly read. The finite-vector proof and added monoid API are explicit consequences of its positive, locally finite indexed-prime data."
         }
       ],
       "implementationStatus": "unchecked",
@@ -12185,6 +12291,26 @@
           "name": "beurling_prime_system.ordinary",
           "role": "compatibility",
           "statement": "Taking the increasing ordinary prime sequence recovers the ordinary positive integers and prime count."
+        },
+        {
+          "name": "beurling_prime_system.ext",
+          "role": "extensionality",
+          "statement": "Two systems with identical indexed prime sequences are equal; proof fields do not change the carrier."
+        },
+        {
+          "name": "beurling_prime_system.norm_pos",
+          "role": "projection",
+          "statement": "For every exponent vector a,1≤norm(a), in particular norm(a)>0."
+        },
+        {
+          "name": "beurling_prime_system.norm_add",
+          "role": "relation",
+          "statement": "For exponent vectors a,b, norm(a+b)=norm(a)norm(b)."
+        },
+        {
+          "name": "beurling_prime_system.prime_finite",
+          "role": "projection",
+          "statement": "For every real x the prime indices i with p(i)≤x form a finite set."
         }
       ],
       "tests": [
@@ -12207,6 +12333,11 @@
           "name": "beurling_prime_system.invalid",
           "kind": "non-example",
           "statement": "A sequence with p₁=1 is rejected because N(x) would have infinitely many unit powers."
+        },
+        {
+          "name": "beurling_prime_system.empty",
+          "kind": "degenerate",
+          "statement": "For x=0 both N(x) and π_P(x) are0; the unit appears at x=1."
         }
       ]
     },
@@ -12221,14 +12352,18 @@
       "statement": "If Σ_n n^−σ (with generalized-integer multiplicities) converges for every real σ>1, then ζ_P(s)=Σ_n n^−s=∏_j(1−p_j^−s)^−1 on Re s>1, absolutely and locally uniformly. The convergence hypothesis is additional to the prime-system axioms.",
       "hypotheses": [],
       "proofSteps": [
-        "Expand the finite-prime products as geometric series with nonnegative real majorants.",
-        "Exhaust the finite-support exponent vectors and use the convergence hypothesis to interchange sums/products."
+        "Define ζ_P(s) by the summable exponent-vector series exp(−s log norm(a)); keep the additional summability assumption for every realσ>1. For the first M indexed primes, independent geometric summation gives the finite Euler product, with ratio p_j^(−s) of norm<1.",
+        "Exhaust all finite-support vectors with the first M indices. On a compact K⊂{Re s>1}, choose1<σ₀<inf_K Re s; norm(a)≥1 makes the summable norm(a)^−σ₀ series a uniform majorant. The finite-prime tails converge uniformly to the full series.",
+        "For a nonzero Euler product, additionally sum the logarithmic local factors using |p_j^(−s)|≤p_j^−σ₀ and the prime-index-to-vector injection. The normalized analytic logarithm is this convergent sum, not an arbitrary pointwise principal logarithm of ζ_P."
       ],
       "prerequisites": [
-        "AnalyticNumberTheory:AN.5/beurling-prime-system"
+        "AnalyticNumberTheory:AN.5/beurling-prime-system",
+        "AnalyticNumberTheory:AN.5/beurling-count-growth"
       ],
       "acceptance": [
-        "Check every endpoint and the stated dependence of constants; no conjectural input is implicit."
+        "On the ordinary prime system the series and product recover ζ on Re s>1.",
+        "For the doubled ordinary-prime sequence the product is ζ(s)²; no coincident-factor cancellation occurs.",
+        "The bare prime-system axioms do not imply convergence on Re s>1."
       ],
       "uses": [
         {
@@ -12244,9 +12379,9 @@
       "sources": [
         {
           "sourceId": "beurling-dv",
-          "locator": "§2.1 (5)–(7)",
+          "locator": "§2.1 pp.2–3, (5)–(7) and displayed discrete Euler product",
           "excerpt": "Euler product",
-          "match": "Exact target or stated specialization; unresolved proof inputs are named in the gap ledger."
+          "match": "Full discrete comparison paragraph read. The independent geometric-series and compact-majorant arguments are made explicit; the exact infinite-product native proof adapter remains open."
         }
       ],
       "implementationStatus": "unchecked"
@@ -12262,15 +12397,21 @@
       "statement": "For a discrete Beurling system whose ζ converges on Re s>1, π_P(x)=Li(x)+O_m(x/log^m x) for every m≥1 iff N(x)=ax+O_m(x/log^m x) for every m≥1 for some a>0. Each error constant may depend on m and the system.",
       "hypotheses": [],
       "proofSteps": [
-        "Use the source’s Tauberian remainder theorem and its exact zeta-boundary equivalences.",
-        "Separate π from the Riemann prime distribution Π, bounding prime powers under the convergence hypothesis."
+        "Replace π by Π using the separate higher-prime-power correction. Fix Li(x)=∫_2^x dt/log t for x≥2; any additive constant is swallowed by every stated error. Each m has its own constant and eventual threshold.",
+        "For S(u)=N(exp u), T(u)=a exp u, use Theorem3(i)⇔(ii)⇔(iii). G(s)=ζ_P(s)−a/(s−1) is represented by its smooth closed-half-plane extension, not a junk-valued subtraction at1. Condition(ii) has one fixedε>0 controlling every derivative (with derivative-dependent constants); condition(iii) is uniform onσ>1 for eachε>0 and each derivative.",
+        "Proposition1 provides the Abelian direction by integration by parts and X=|t|^(1/γ). Theorem2 gives the reverse direction from a C∞ Laplace boundary with bounds G^(n)(1+it)=O(|t|^β_n), β_n/n→0, using monotonicity and T′≤A exp u. Its normalized Δ(u)=exp(−u)(S−T)(u), one-sided bump/Fourier smoothing and n-fold integration by parts produce Δ(h)=O(h^(−n/(β_n+1))). These are named missing analytic interfaces, not routine steps.",
+        "Theorem3 Lemma1 uses the3–4–1 inequality and derivative bounds to prove (s−1)ζ_P nonzero on the closed half-plane and1/ζ_P=O_ε((1+|t|)^ε). Use the Euler-series logarithm and its continuous extension, normalized on realσ>1.",
+        "Apply the same Tauberian/Abelian pair to S₁(u)=Π(exp u), T₁(u)=∫_1^(exp u)(1−1/y)/log y dy. Its transform is log((s−1)ζ_P(s))−log s on the matched analytic branch. The stronger Proposition1 bound o(log|t|) controls exponentiation in the reverse implication; a=exp G₁(1)>0 and smooth division by s−1 removes the apparent pole."
       ],
       "prerequisites": [
         "AnalyticNumberTheory:AN.5/beurling-prime-system",
-        "AnalyticNumberTheory:AN.5/beurling-zeta-product"
+        "AnalyticNumberTheory:AN.5/beurling-zeta-product",
+        "AnalyticNumberTheory:AN.5/beurling-prime-power-correction"
       ],
       "acceptance": [
-        "Check every endpoint and the stated dependence of constants; no conjectural input is implicit."
+        "The density a>0 is quantified once, before all m. Error constants and eventual cutoffs may depend on P and m.",
+        "Taking each ordinary prime twice gives N(x)∼x log x andπ_P(x)∼2Li(x), so neither side holds. Convergence alone does not force density1.",
+        "The residue-subtracted boundary at1 is the extension value; no equality with the totalized series value there is asserted."
       ],
       "uses": [
         {
@@ -12286,9 +12427,9 @@
       "sources": [
         {
           "sourceId": "beurling-dv",
-          "locator": "Theorem1 and §4",
+          "locator": "Theorem1 p.2; entire §§3–4 pp.4–11, Theorem2, Proposition1, Theorem3, Lemma1",
           "excerpt": "The PNT with remainder",
-          "match": "Exact target or stated specialization; unresolved proof inputs are named in the gap ledger."
+          "match": "Both directions and their complete selected proofs freshly read. General distribution/Fourier, Laplace-Stieltjes and boundary-regularity interfaces remain explicitly open; §5 Cesàro extension is outside this target."
         }
       ],
       "implementationStatus": "unchecked"
@@ -12309,6 +12450,7 @@
       ],
       "prerequisites": [],
       "acceptance": [
+        "All source-proof and normalization gaps remain open; the displayed bound/signature is a target rather than a freshly verified theorem.",
         "Check every endpoint and the stated dependence of constants; no conjectural input is implicit."
       ],
       "uses": [
@@ -12346,9 +12488,13 @@
       "statement": "For |z|<1, Re c>0 and s∈C, Φ(z,s,c)=Σ_{n≥0}z^n exp(−s Log(n+c)), using the principal logarithm. This series defines a jointly holomorphic function on that domain. At z=1 the separate Hurwitz series requires Re s>1.",
       "hypotheses": [],
       "proofSteps": [
-        "Construct the displayed object on the specified domain using the existing carriers; prove the listed API before its analytic applications."
+        "Define the series with exp(−s Log(n+c)); Re c>0 makes every n+c nonzero and keeps it in the principal-log analytic half-plane. At z=0, define z⁰=1; the n=0 term is retained.",
+        "Use the separate compact-series lemma to prove absolute convergence and joint holomorphy on |z|<1, Re c>0, s arbitrary. The definition itself is the initial series, so no analytic continuation is silently assigned to its totalized sum outside this domain.",
+        "Reindex the absolutely convergent series to obtain the c shift and the periodic/polylog z prefactor. Compare the explicit series in a when Im a>0; no independent Lerch-zeta carrier is assumed."
       ],
-      "prerequisites": [],
+      "prerequisites": [
+        "mathlib:Complex.cpow_def_of_ne_zero"
+      ],
       "acceptance": [
         "Φ(0,2,1)=1.",
         "Φ(z,0,c)=1/(1−z) on |z|<1, independently of c.",
@@ -12357,7 +12503,7 @@
       ],
       "uses": [
         {
-          "where": "AnalyticNumberTheory:AN.7/lerch-parameter-derivatives",
+          "where": "AnalyticNumberTheory:AN.7/lerch-z-derivative",
           "how": "Differentiate the convergent series."
         },
         {
@@ -12373,9 +12519,9 @@
       "sources": [
         {
           "sourceId": "lerch-III-published",
-          "locator": "Introduction (1.1), §2 and §3",
+          "locator": "Introduction (1.1); §3.3 pp.24–25; Theorem5.1 proof p.36",
           "excerpt": "Lerch transcendent",
-          "match": "Exact target or stated specialization; unresolved proof inputs are named in the gap ledger."
+          "match": "Selected defining-series and special-value arguments newly read. Enlarging the printed initial rectangle to Re c>0 and every s uses the explicit compact-majorant lemma; the native series is not its continuation outside the unit disc."
         }
       ],
       "implementationStatus": "unchecked",
@@ -12407,6 +12553,16 @@
           "name": "lerch_transcendent.polylog",
           "role": "compatibility",
           "statement": "The periodic/polylog series is zΦ(z,s,1), not Φ(z,s,1)."
+        },
+        {
+          "name": "lerch_transcendent.holomorphic",
+          "role": "projection",
+          "statement": "The map(s,z,c)↦Φ(z,s,c) is jointly holomorphic on |z|<1, Re c>0, s∈C."
+        },
+        {
+          "name": "lerch_transcendent.deriv_s",
+          "role": "relation",
+          "statement": "On the initial domain, ∂_sΦ(z,s,c)=−Σ_{n≥0}z^n Log(n+c)exp(−sLog(n+c)); the differentiated series is absolutely and locally uniformly convergent."
         }
       ],
       "tests": [
@@ -12443,14 +12599,16 @@
       "statement": "On every compact subset of |z|<1, Re c>0, s∈C, the Φ series and each fixed derivative in z,s,c converge uniformly and absolutely.",
       "hypotheses": [],
       "proofSteps": [
-        "Choose |z|≤r<1, Re c≥δ>0 and bounded s,c on the compact set.",
-        "Bound each power/logarithmic derivative by a polynomial in n times r^n; sum the geometric majorant."
+        "For a compact subset choose0<r₀<r<1 with |z|≤r₀, Re c≥δ>0, and |s|,|c| bounded. The principal argument of n+c stays within(−π/2,π/2). Thus |exp(−sLog(n+c))|≤C(n+1)^B uniformly, after treating finitely many small n.",
+        "Each fixed mixed derivative contributes finitely many factors polynomial in n, shifted powers of n+c and powers of Log(n+c). Differentiating z^n directly treats z=0 correctly: its d-th derivative is0 for n<d and a falling factorial times z^(n−d) otherwise.",
+        "Absorb every fixed polynomial/logarithmic factor and the finite index shift into C r^n using r₀<r; use a summable geometric majorant for absolute, uniform convergence and joint termwise differentiation."
       ],
       "prerequisites": [
         "AnalyticNumberTheory:AN.7/lerch-transcendent"
       ],
       "acceptance": [
-        "Check every endpoint and the stated dependence of constants; no conjectural input is implicit."
+        "Uniformity is on compact subsets, not up to |z|=1 or Re c=0.",
+        "The z-derivative estimate remains valid at z=0 without dividing by z."
       ],
       "uses": [
         {
@@ -12466,9 +12624,9 @@
       "sources": [
         {
           "sourceId": "lerch-II",
-          "locator": "§2 (2.1) and §5 termwise differentiation",
+          "locator": "§2 p.4 (2.1) and §5 pp.20–22 termwise derivative proof",
           "excerpt": "series representation",
-          "match": "Exact target or stated specialization; unresolved proof inputs are named in the gap ledger."
+          "match": "Both passages freshly read; the larger-domain compact proof is spelled out rather than claimed verbatim from the source."
         }
       ],
       "implementationStatus": "unchecked"
@@ -12481,7 +12639,7 @@
       ],
       "title": "Lerch shift identity",
       "kind": "lemma",
-      "statement": "On the initial convergence domain, Φ(z,s,c)=c^−s+zΦ(z,s,c+1). The identity continues only along corresponding paths avoiding c∈Z≤0.",
+      "statement": "On the initial convergence domain, Φ(z,s,c)=c^−s+zΦ(z,s,c+1). For an already constructed analytic continuation it transports along matching lifted paths, including the shifted c path, by uniqueness.",
       "hypotheses": [],
       "proofSteps": [
         "Separate n=0 and reindex n≥1 in the absolutely convergent series.",
@@ -12492,7 +12650,7 @@
         "AnalyticNumberTheory:AN.7/lerch-compact-series-bound"
       ],
       "acceptance": [
-        "Check every endpoint and the stated dependence of constants; no conjectural input is implicit."
+        "The initial statement holds also at z=0; any continued version must use the same analytic germ and the matching shifted parameter path."
       ],
       "uses": [
         {
@@ -12508,9 +12666,9 @@
       "sources": [
         {
           "sourceId": "lerch-II",
-          "locator": "§4 (4.32)",
+          "locator": "§4 p.17, (4.30)–(4.32), specialized to N=0",
           "excerpt": "series representation",
-          "match": "Exact target or stated specialization; unresolved proof inputs are named in the gap ledger."
+          "match": "The finite-term separation and branch continuation proof freshly read; the initial shift is an input to global continuation, not an assumption of it."
         }
       ],
       "implementationStatus": "unchecked"
@@ -12523,7 +12681,7 @@
       ],
       "title": "Lerch lowering relation",
       "kind": "lemma",
-      "statement": "On the initial domain, z∂_zΦ(z,s,c)+cΦ(z,s,c)=Φ(z,s−1,c). The identity holds on any continued branch with the same lifted parameter paths.",
+      "statement": "On the initial domain, z∂_zΦ(z,s,c)+cΦ(z,s,c)=Φ(z,s−1,c). For an already constructed continuation it transports along matching lifted paths by uniqueness.",
       "hypotheses": [],
       "proofSteps": [
         "Differentiate termwise using compact uniform convergence.",
@@ -12534,7 +12692,7 @@
         "AnalyticNumberTheory:AN.7/lerch-compact-series-bound"
       ],
       "acceptance": [
-        "Check every endpoint and the stated dependence of constants; no conjectural input is implicit."
+        "The initial statement holds also at z=0; any continued version must use the same analytic germ and the matching shifted parameter path."
       ],
       "uses": [
         {
@@ -12550,9 +12708,9 @@
       "sources": [
         {
           "sourceId": "lerch-III-published",
-          "locator": "Theorem2.3 (2.3), §4",
+          "locator": "Theorem2.3 p.13 (2.3), §4 Theorem4.1 and proof p.33",
           "excerpt": "Differential-Difference Operators",
-          "match": "Exact target or stated specialization; unresolved proof inputs are named in the gap ledger."
+          "match": "Published identities and the full selected §4 derivative proof freshly read. The PDE has the printed publication minus sign; the sourceIssues preprint correction is preserved."
         }
       ],
       "implementationStatus": "unchecked"
@@ -12565,7 +12723,7 @@
       ],
       "title": "Lerch raising relation",
       "kind": "lemma",
-      "statement": "On the initial domain, ∂_cΦ(z,s,c)=−sΦ(z,s+1,c), continued with the matching s+1 path.",
+      "statement": "On the initial domain, ∂_cΦ(z,s,c)=−sΦ(z,s+1,c), For an already constructed continuation the identity transports along the matching s+1 path by uniqueness.",
       "hypotheses": [],
       "proofSteps": [
         "Differentiate exp(−sLog(n+c)) termwise under compact convergence.",
@@ -12576,7 +12734,7 @@
         "AnalyticNumberTheory:AN.7/lerch-compact-series-bound"
       ],
       "acceptance": [
-        "Check every endpoint and the stated dependence of constants; no conjectural input is implicit."
+        "The initial statement holds also at z=0; any continued version must use the same analytic germ and the matching shifted parameter path."
       ],
       "uses": [
         {
@@ -12592,9 +12750,9 @@
       "sources": [
         {
           "sourceId": "lerch-III-published",
-          "locator": "Theorem2.3 (2.4), §4",
+          "locator": "Theorem2.3 p.13 (2.4), §4 Theorem4.1 and proof p.33",
           "excerpt": "Differential-Difference Operators",
-          "match": "Exact target or stated specialization; unresolved proof inputs are named in the gap ledger."
+          "match": "Published identities and the full selected §4 derivative proof freshly read. The PDE has the printed publication minus sign; the sourceIssues preprint correction is preserved."
         }
       ],
       "implementationStatus": "unchecked"
@@ -12634,9 +12792,9 @@
       "sources": [
         {
           "sourceId": "lerch-III-published",
-          "locator": "Theorem2.3 (2.5); preprint v1 sign corrected in publication",
+          "locator": "Theorem2.3 p.13 (2.5), §4 Theorem4.1 and proof p.33",
           "excerpt": "Differential-Difference Operators",
-          "match": "Exact target or stated specialization; unresolved proof inputs are named in the gap ledger."
+          "match": "Published identities and the full selected §4 derivative proof freshly read. The PDE has the printed publication minus sign; the sourceIssues preprint correction is preserved."
         }
       ],
       "implementationStatus": "unchecked"
@@ -12649,18 +12807,20 @@
       ],
       "title": "Lerch integral representation",
       "kind": "lemma",
-      "statement": "For Re s>0, Re c>0 and z outside [1,∞), Φ(z,s,c)=Γ(s)^−1∫_0^∞t^(s−1)e^(−ct)/(1−ze^−t)dt on the principal sheet, agreeing with the series for |z|<1.",
+      "statement": "There exists a jointly holomorphic principal-sheet extension F(s,z,c) on Re s>0, Re c>0, z∈C\\[1,∞), agreeing with the defining Φ series for |z|<1, such that F(s,z,c)=Γ(s)^−1∫_0^∞t^(s−1)exp(−ct)/(1−zexp(−t))dt. The integral is absolutely convergent; its formula is not asserted for the totalized series outside |z|<1.",
       "hypotheses": [],
       "proofSteps": [
-        "Expand the denominator geometrically in |z|<1 and apply the gamma integral with absolute majorants.",
-        "For z outside the cut, prove compact denominator lower bounds near finite t and exponential tail bounds; continue in z."
+        "For |z|<1, expand the denominator; the geometric bound and Re c>0 dominate the integral at∞ and Re s>0 dominates its origin. Apply the complex gamma integral and sum-integral interchange to identify the initial series.",
+        "On a compact subset outside the real cut[1,∞), the denominator has a positive lower bound on any fixed finite t interval, and is uniformly close to1 for large t. At t=0 it is bounded away from0 because z≠1. These bounds permit joint differentiation with integrable power/logarithmic majorants.",
+        "Define F by the absolutely convergent integral on this domain; joint holomorphy and agreement in the disc fix the principal sheet. The gamma integral for complex c and its parameter differentiation remain exact imported analytic adapters to verify."
       ],
       "prerequisites": [
         "AnalyticNumberTheory:AN.7/lerch-transcendent",
         "AnalyticNumberTheory:AN.7/lerch-compact-series-bound"
       ],
       "acceptance": [
-        "Check every endpoint and the stated dependence of constants; no conjectural input is implicit."
+        "At z=0 the integral gives c^−s, agreeing with Φ(0,s,c).",
+        "At z=1 the denominator vanishes linearly at the origin, so Re s>0 alone is insufficient; that point is excluded and belongs to the separate Hurwitz construction."
       ],
       "uses": [
         {
@@ -12676,9 +12836,9 @@
       "sources": [
         {
           "sourceId": "lerch-II",
-          "locator": "§2 (2.2)–(2.3)",
+          "locator": "§2 p.5, (2.2)–(2.4), integral cut-domain paragraph; §4 (4.18)–(4.23)",
           "excerpt": "integral representation",
-          "match": "Exact target or stated specialization; unresolved proof inputs are named in the gap ledger."
+          "match": "Complete selected integral/contour discussion newly read; the endpoint estimates are explicit and a distinct principal-sheet function prevents a false claim about a divergent totalized series."
         }
       ],
       "implementationStatus": "unchecked"
@@ -12691,19 +12851,27 @@
       ],
       "title": "Lerch continuation on a covering",
       "kind": "theorem",
-      "statement": "The initial Φ germ continues to a single-valued holomorphic function on the universal cover of C_s times (C_z minus {0,1}) times (C_c minus the nonpositive integers), with basepoint (s,z,c)=(1/2,−1,1/2) and the germ continued from the principal domain. The continuation becomes single-valued on a two-step solvable cover; it need not descend to an abelian cover in the z coordinate.",
+      "statement": "The initial Φ germ continues to a single-valued holomorphic function on the universal cover of N#=C_s×(C_z\\{0,1})×(C_c\\Z≤0), based at(s,z,c)=(1/2,−1,1/2). Fix its base germ by the principal integral and continuation from |z|<1. The separate solvable-descent lemma states the quotient-cover invariance.",
       "hypotheses": [],
       "proofSteps": [
-        "Use the Lerch-zeta continuation in a=Log z/(2πi) and its branch-dependent monodromy.",
-        "Apply the source’s two-step commutator calculation; positive integer c strata are removable."
+        "Import the canonical based universal cover of the punctured complex-product manifold. Verify path-connectedness, local path-connectedness and semilocal simple connectedness; pull back its complex charts along the covering projection. Path composition follows the source: first traverse the based loop, then the path.",
+        "In the a coordinate the integral defines the downward-cut domains for Re s>0, Re c>0. Clockwise contour detours give analytic cells covering all a∉Z; residue differences provide the local a-loop continuations. Finite c-shift separation supplies cells for c away from nonpositive integers.",
+        "For Re c>0, repeatedly apply the already proved lowering relation on overlapping s half-planes to extend to every s. This is essential at positive integer c, where the four-term functional equation would contain excluded1−c. Keep the finite c-shift identity to reach all remaining c; its terms are entire in s on their lifted logarithm branches.",
+        "Use analytic uniqueness on overlaps and endpoint-fixed homotopy invariance to glue local germs on the simply connected cover. The residue and finite-term monodromy germs themselves continue globally; word composition is the monodromy cocycle M_(τ₁τ₂)=M_τ₁+M_τ₂+M_τ₂(M_τ₁), with the source concatenation order. Positive c strata are filled by the actual local holomorphic extension, not merely by vanishing monodromy."
       ],
       "prerequisites": [
         "AnalyticNumberTheory:AN.7/lerch-transcendent",
         "AnalyticNumberTheory:AN.7/lerch-integral-representation",
-        "AnalyticNumberTheory:AN.7/lerch-parameter-shift"
+        "AnalyticNumberTheory:AN.7/lerch-parameter-shift",
+        "AnalyticNumberTheory:AN.7/lerch-z-derivative",
+        "AnalyticNumberTheory:AN.7/lerch-a-monodromy",
+        "AnalyticNumberTheory:AN.7/lerch-c-monodromy",
+        "tauceti:TauCetiRoadmap/UniversalCovers#stage-0-port-the-foundations-into-tauceti"
       ],
       "acceptance": [
-        "Check every endpoint and the stated dependence of constants; no conjectural input is implicit."
+        "The basepoint z=−1 lies outside the open series disc; its germ is fixed by the principal integral with Re s,Re c>0.",
+        "The cover omits z=0,1; the initial principal series still extends at z=0, but other sheets may not.",
+        "Holomorphy at positive integer c uses the lowering operator; zero monodromy without a removable-singularity proof would be insufficient."
       ],
       "uses": [
         {
@@ -12719,9 +12887,9 @@
       "sources": [
         {
           "sourceId": "lerch-III-published",
-          "locator": "Theorems2.1–2.2 and §3",
+          "locator": "Theorems2.1–2.2 p.12; complete selected §3.2–§3.5 pp.21–32, and LerchII §§3–4/§8",
           "excerpt": "Analytic Continuation",
-          "match": "Exact target or stated specialization; unresolved proof inputs are named in the gap ledger."
+          "match": "The full selected topological/monodromy argument and LerchII extension proof were newly read. Universal-cover construction is imported; the analytic cell/homotopy and exponential-cover adapters remain gaps until their pinned interfaces are matched."
         }
       ],
       "implementationStatus": "unchecked",
@@ -12747,7 +12915,8 @@
         "AnalyticNumberTheory:AN.7/lerch-parameter-shift"
       ],
       "acceptance": [
-        "Check every endpoint and the stated dependence of constants; no conjectural input is implicit."
+        "The loop is a based counterclockwise generator reached and returned along the source upper-half-plane path; arbitrary conjugate generators need their own translated branch.",
+        "The formula uses reciprocal gamma continued through its zeros at nonpositive integers; it does not require a finite value of the unregularized gamma function there."
       ],
       "uses": [
         {
@@ -12763,9 +12932,9 @@
       "sources": [
         {
           "sourceId": "lerch-II",
-          "locator": "Theorem4.5 (4.15), proof pp17–18",
+          "locator": "Theorem4.5 (4.15) p.14, complete finite-shift proof (4.28)–(4.34) pp.17–18",
           "excerpt": "monodromy functions",
-          "match": "Exact target or stated specialization; unresolved proof inputs are named in the gap ledger."
+          "match": "All selected branch/shift calculations newly read; loops around positive integers are locally removable by the separate extension argument."
         }
       ],
       "implementationStatus": "unchecked"
@@ -12778,7 +12947,7 @@
       ],
       "title": "Monodromy around a=n",
       "kind": "lemma",
-      "statement": "For the lifted principal Lerch-zeta branch, a positive loop around a=n∈Z changes it by −(2πi)^s Γ(s)^−1(a−n)^(s−1)e^(−2πic(a−n)), with (2πi)^s defined by log(2π)+iπ/2 and the continued logarithm of a−n.",
+      "statement": "For the lifted principal Lerch-zeta branch, a positive loop around a=n∈Z changes it by −(2πi)^s Γ(s)^−1(a−n)^(s−1)e^(−2πic(a−n)), with (2πi)^s defined by log(2π)+iπ/2 and the continued logarithm of a−n. On the fundamental strip0<Re a<1, the logarithm of a−n is cut along the negative imaginary axis with argument in(−π/2,3π/2). Equivalently, for n≥1 replace(a−n)^(s−1) by exp(πi(s−1))(n−a)^(s−1), whose base has positive real part; for n≤0 use the principal logarithm of a−n.",
       "hypotheses": [],
       "proofSteps": [
         "Move the integral contour across the simple pole t=2πi(a−n), retaining the clockwise residue sign.",
@@ -12788,7 +12957,8 @@
         "AnalyticNumberTheory:AN.7/lerch-integral-representation"
       ],
       "acceptance": [
-        "Check every endpoint and the stated dependence of constants; no conjectural input is implicit."
+        "The loop is a based counterclockwise generator reached and returned along the source upper-half-plane path; arbitrary conjugate generators need their own translated branch.",
+        "The formula uses reciprocal gamma continued through its zeros at nonpositive integers; it does not require a finite value of the unregularized gamma function there."
       ],
       "uses": [
         {
@@ -12804,9 +12974,9 @@
       "sources": [
         {
           "sourceId": "lerch-II",
-          "locator": "Theorem4.5 (4.11), (4.26)–(4.27)",
+          "locator": "Theorem4.5 (4.11) pp.13–14, negative-imaginary cut convention; complete contour/residue proof (4.18)–(4.27) pp.14–17",
           "excerpt": "monodromy functions",
-          "match": "Exact target or stated specialization; unresolved proof inputs are named in the gap ledger."
+          "match": "The based-loop orientation and full cut-log/residue proof were read; using the standard negative-real principal log for all a−n would change this branch on part of the strip."
         }
       ],
       "implementationStatus": "unchecked"
@@ -12831,7 +13001,9 @@
         "AnalyticNumberTheory:AN.7/lerch-zero-order-value"
       ],
       "acceptance": [
-        "Check every endpoint and the stated dependence of constants; no conjectural input is implicit."
+        "At m=0 the value is1/(1−z); at m=1 it is c/(1−z)+z/(1−z)².",
+        "The rational function is polynomial in c and extends through all integer c. No radial limit at z=1 is asserted.",
+        "Do not use published Theorem6.1(2) at m=0: the c→0 Φ limit retains the n=0 term1, while the periodic continuation equals q₀(z)−1. See E26."
       ],
       "uses": [
         {
@@ -12847,9 +13019,9 @@
       "sources": [
         {
           "sourceId": "lerch-III-published",
-          "locator": "§5 Theorem5.1 and recursion",
+          "locator": "§5 Theorem5.1 and complete recurrence proof p.36, (5.2)–(5.5)",
           "excerpt": "special values",
-          "match": "Exact target or stated specialization; unresolved proof inputs are named in the gap ledger."
+          "match": "The source states the z-prefactored Li; dividing by z on the nonzero initial domain gives Φ, whose rational expression extends at z=0. The elementary binomial/operator recurrence fixes every m."
         }
       ],
       "implementationStatus": "unchecked",
@@ -12868,14 +13040,21 @@
       "statement": "For real 0<c≤1 and Re s>1, the z=1 Lerch/Hurwitz series Σ_{n≥0}(n+c)^−s agrees with the pinned UnitAddCircle Hurwitz function using c mod1 and its endpoint convention c=1. Its meromorphic continuation has a simple pole at s=1 of residue1.",
       "hypotheses": [],
       "proofSteps": [
-        "Use the pinned real-circle defining series with the exact representative convention.",
-        "Transport its existing continuation and pole theorem; no new real Hurwitz function is constructed."
+        "For0<c≤1, use the pinned HasSum statement and cpow/exponential conversion for the positive bases n+c. At c=1 the circle parameter is0; its n=0 zero-base term is junk-valued0 in Re s>1, so the endpoint still represents the positive-integer Hurwitz series.",
+        "Use pinned differentiability away from1 and the punctured residue1 limit for the continued circle function. Keep its special subtraction1/(s−1)/Gammaℝ(s); no assertion about a pointwise value at a pole is made."
       ],
       "prerequisites": [
-        "mathlib:HurwitzZeta.hurwitzZeta"
+        "mathlib:HurwitzZeta.hurwitzZeta",
+        "mathlib:HurwitzZeta.hasSum_hurwitzZeta_of_one_lt_re",
+        "mathlib:HurwitzZeta.differentiableAt_hurwitzZeta",
+        "mathlib:HurwitzZeta.hurwitzZeta_residue_one",
+        "mathlib:HurwitzZeta.differentiableAt_hurwitzZeta_sub_one_div",
+        "mathlib:Complex.cpow_def_of_ne_zero",
+        "AnalyticNumberTheory:AN.7/complex-hurwitz-series"
       ],
       "acceptance": [
-        "Check every endpoint and the stated dependence of constants; no conjectural input is implicit."
+        "The c=1 series isζ(s), notζ(s)+an extra zero-base contribution.",
+        "Circle parameters c and c+1 agree as circle elements, but their ordinary unperiodized Hurwitz series differ by c^−s; the comparison is restricted to0<c≤1."
       ],
       "uses": [
         {
@@ -12891,9 +13070,9 @@
       "sources": [
         {
           "sourceId": "lerch-I",
-          "locator": "§1, Hurwitz degeneration a=0; pinned Hurwitz comparison",
+          "locator": "§1 p.2 Hurwitz specialization; exact pinned Hurwitz series/residue declarations",
           "excerpt": "Hurwitz zeta function",
-          "match": "Exact target or stated specialization; unresolved proof inputs are named in the gap ledger."
+          "match": "Selected introductory degeneration text read and each cited pinned declaration statement matched; no new real Hurwitz continuation is planned."
         }
       ],
       "implementationStatus": "unchecked"
@@ -12906,7 +13085,7 @@
       ],
       "title": "Periodic zeta and Lerch normalization",
       "kind": "comparison",
-      "statement": "For real a, z=e^(2πia), Re s>1, expZeta(a,s)=zΦ(z,s,1) in the absolutely convergent boundary series. The right side uses that series or its matched boundary continuation. At a=0 it is the Riemann/Hurwitz degeneration, handled separately.",
+      "statement": "For real a, z=exp(2πia) and Re s>1, expZeta(a,s)=zΣ_{n≥0}z^n exp(−sLog(n+1)), in the absolutely convergent boundary series. The totalized defining Φ sum agrees here after its boundary summability proof; at a∈Z this is the Riemann degeneration. It gives no equality of arbitrary sheets or unqualified limit for Re s≤1.",
       "hypotheses": [],
       "proofSteps": [
         "Shift the n≥1 periodic sum to n≥0 and factor out z.",
@@ -12915,10 +13094,12 @@
       "prerequisites": [
         "AnalyticNumberTheory:AN.7/lerch-transcendent",
         "mathlib:HurwitzZeta.expZeta",
-        "mathlib:HurwitzZeta.hasSum_expZeta_of_one_lt_re"
+        "mathlib:HurwitzZeta.hasSum_expZeta_of_one_lt_re",
+        "mathlib:Complex.cpow_def_of_ne_zero"
       ],
       "acceptance": [
-        "Check every endpoint and the stated dependence of constants; no conjectural input is implicit."
+        "At a=0 the boundary series isζ(s).",
+        "At a=1/2,s=2, expZeta(a,s)=−π²/12 while Φ(−1,2,1)=+π²/12; the z prefactor changes the sign."
       ],
       "uses": [
         {
@@ -12934,9 +13115,9 @@
       "sources": [
         {
           "sourceId": "lerch-I",
-          "locator": "§1 (1.4)",
+          "locator": "§1 p.2 defining periodic series; LerchIII §6 Theorem6.1 pp.41–42",
           "excerpt": "periodic zeta",
-          "match": "Exact target or stated specialization; unresolved proof inputs are named in the gap ledger."
+          "match": "Initial series normalization freshly matched to the pinned HasSum theorem; the published LerchIII introductory prefactor omission is recorded separately as a source misprint. Published Theorem6.1(2) has a separate order-zero exception E26, not used by this Re s>1 comparison."
         }
       ],
       "implementationStatus": "unchecked"
@@ -12952,14 +13133,18 @@
       "statement": "For a character χ modulo q≥1 and Re s>1, L(s,χ)=q^−sΣ_{a=1}^q χ(a)ζ_H(s,a/q), using the actual principal/imprimitive character values. Continue with the pinned Dirichlet and circle-Hurwitz functions and keep the principal pole.",
       "hypotheses": [],
       "proofSteps": [
-        "Partition positive integers by residues a=1,…,q in the absolutely convergent LSeries.",
-        "Use positive-real power multiplication and the pinned continuations on the common domain."
+        "Reuse ZMod.LFunction, which already defines the continued finite combination of circle Hurwitz functions on ZMod q. DirichletCharacter.LFunction is its specialization; q≥1 provides NeZero q.",
+        "Choose representatives a=1,…,q; toAddCircle of a equals(a/q mod1), with a=q representing residue0 and positive endpoint c=1. On Re s>1 use the real-circle comparison; outside this range the statement is the existing continued finite sum, not the divergent positive-half-plane series."
       ],
       "prerequisites": [
-        "AnalyticNumberTheory:AN.7/circle-hurwitz-import"
+        "AnalyticNumberTheory:AN.7/circle-hurwitz-import",
+        "mathlib:ZMod.LFunction",
+        "mathlib:DirichletCharacter.LFunction",
+        "mathlib:Complex.cpow_def_of_ne_zero"
       ],
       "acceptance": [
-        "Check every endpoint and the stated dependence of constants; no conjectural input is implicit."
+        "For q=1 and its unique principal character, this reduces toζ(s), with its pole at1.",
+        "Principal and imprimitive characters retain their zero values on nonunits; no primitivity is silently imposed."
       ],
       "uses": [
         {
@@ -12975,9 +13160,9 @@
       "sources": [
         {
           "sourceId": "lerch-I",
-          "locator": "Hurwitz/Dirichlet specialization of the defining series",
+          "locator": "Introductory Hurwitz/Dirichlet specializations; exact pinned ZMod.LFunction definition",
           "excerpt": "Hurwitz zeta",
-          "match": "Exact target or stated specialization; unresolved proof inputs are named in the gap ledger."
+          "match": "The continuation is already defined in Mathlib; only the positive-real representative adapter is planned."
         }
       ],
       "implementationStatus": "unchecked"
@@ -12990,18 +13175,21 @@
       ],
       "title": "Even Lerch functional relation",
       "kind": "theorem",
-      "statement": "On the extended polycylinder s∈C,0<Re a<1,0<Re c<1, put L_+=ζ(s,a,c)+e^(−2πia)ζ(s,1−a,1−c) and Λ_+=π^(−s/2)Γ(s/2)L_+. Then Λ_+(s,a,c)=e^(−2πiac)Λ_+(1−s,1−c,a), as matched holomorphic continuations. Apparent gamma poles cancel in the completed combination.",
+      "statement": "On the extended polycylinder s∈C,0<Re a<1,0<Re c<1, put L_+=ζ(s,a,c)+e^(−2πia)ζ(s,1−a,1−c) and Λ_+=π^(−s/2)Γ(s/2)L_+. Then Λ_+(s,a,c)=e^(−2πiac)Λ_+(1−s,1−c,a), as matched holomorphic continuations. At a gamma pole, Λ denotes the removable holomorphic extension of the product, not its pointwise totalized Gamma value.",
       "hypotheses": [],
       "proofSteps": [
-        "Start from the real-parameter four-term identity and continue in a,c on the fundamental strip.",
-        "Use the functional equation to continue in s and prove removable gamma singularities."
+        "Use the real-parameter Fourier/Poisson-Mellin proof in LerchI Theorem5.1 with0<a,c<1 and0<Re s<1; its real-parameter analytic supplier remains an explicit source boundary until the entire proof is checked.",
+        "The principal integral is jointly holomorphic on the fundamental polycylinder. Continue the real a identity first in a at fixed real c, then in c, using the one-variable identity theorem.",
+        "Combine even and odd equations with gamma reflection/duplication to obtain the three-term transformation, defining ζ on Re s<1 from values at1−s with positive real part. Glue this with the integral Re s>0 representation on their overlap.",
+        "At a gamma pole on a nonpositive s integer, the functional equation relates the completed combination to its finite positive-integer value at1−s; use meromorphic uniqueness and the removable extension. The pointwise product with totalized Gamma at a pole is not that extension."
       ],
       "prerequisites": [
         "AnalyticNumberTheory:AN.7/lerch-integral-representation",
-        "AnalyticNumberTheory:AN.7/lerch-cover-continuation"
+        "AnalyticNumberTheory:AN.7/lerch-compact-series-bound"
       ],
       "acceptance": [
-        "Check every endpoint and the stated dependence of constants; no conjectural input is implicit."
+        "These strip identities precede the global cover and therefore create no cycle in its construction.",
+        "The odd equation retains the i multiplier; both symmetrizations use exp(−2πia)."
       ],
       "uses": [
         {
@@ -13017,9 +13205,9 @@
       "sources": [
         {
           "sourceId": "lerch-II",
-          "locator": "Theorem2.1 (2.7)–(2.8) and §3",
+          "locator": "Theorem2.1 (2.7)–(2.10) p.5; complete §3 pp.8–10, Lemma3.1 and Theorem2.1 proof",
           "excerpt": "Functional Equations",
-          "match": "Exact target or stated specialization; unresolved proof inputs are named in the gap ledger."
+          "match": "Selected whole §3 proof read; its real-parameter LerchI/Weil proof is separately recorded as an open source boundary, not supplied by the global-cover theorem."
         }
       ],
       "implementationStatus": "unchecked"
@@ -13032,18 +13220,21 @@
       ],
       "title": "Odd Lerch functional relation",
       "kind": "theorem",
-      "statement": "On the same polycylinder, L_−=ζ(s,a,c)−e^(−2πia)ζ(s,1−a,1−c) and Λ_−=π^(−(s+1)/2)Γ((s+1)/2)L_− satisfy Λ_−(s,a,c)=i e^(−2πiac)Λ_−(1−s,1−c,a), with matched continuations and removable gamma poles.",
+      "statement": "On the same polycylinder, L_−=ζ(s,a,c)−e^(−2πia)ζ(s,1−a,1−c) and Λ_−=π^(−(s+1)/2)Γ((s+1)/2)L_− satisfy Λ_−(s,a,c)=i e^(−2πiac)Λ_−(1−s,1−c,a), with matched continuations; at gamma poles Λ denotes the removable holomorphic extension rather than a pointwise totalized Gamma product.",
       "hypotheses": [],
       "proofSteps": [
-        "Apply the odd real-parameter four-term identity and the same analytic-continuation argument.",
-        "Retain the i multiplier and the shifted gamma parity."
+        "Use the real-parameter Fourier/Poisson-Mellin proof in LerchI Theorem5.1 with0<a,c<1 and0<Re s<1; its real-parameter analytic supplier remains an explicit source boundary until the entire proof is checked.",
+        "The principal integral is jointly holomorphic on the fundamental polycylinder. Continue the real a identity first in a at fixed real c, then in c, using the one-variable identity theorem.",
+        "Combine even and odd equations with gamma reflection/duplication to obtain the three-term transformation, defining ζ on Re s<1 from values at1−s with positive real part. Glue this with the integral Re s>0 representation on their overlap.",
+        "At a gamma pole on a nonpositive s integer, the functional equation relates the completed combination to its finite positive-integer value at1−s; use meromorphic uniqueness and the removable extension. The pointwise product with totalized Gamma at a pole is not that extension."
       ],
       "prerequisites": [
         "AnalyticNumberTheory:AN.7/lerch-integral-representation",
-        "AnalyticNumberTheory:AN.7/lerch-cover-continuation"
+        "AnalyticNumberTheory:AN.7/lerch-compact-series-bound"
       ],
       "acceptance": [
-        "Check every endpoint and the stated dependence of constants; no conjectural input is implicit."
+        "These strip identities precede the global cover and therefore create no cycle in its construction.",
+        "The odd equation retains the i multiplier; both symmetrizations use exp(−2πia)."
       ],
       "uses": [
         {
@@ -13059,9 +13250,9 @@
       "sources": [
         {
           "sourceId": "lerch-II",
-          "locator": "Theorem2.1 (2.9)–(2.10) and §3",
+          "locator": "Theorem2.1 (2.7)–(2.10) p.5; complete §3 pp.8–10, Lemma3.1 and Theorem2.1 proof",
           "excerpt": "Functional Equations",
-          "match": "Exact target or stated specialization; unresolved proof inputs are named in the gap ledger."
+          "match": "Selected whole §3 proof read; its real-parameter LerchI/Weil proof is separately recorded as an open source boundary, not supplied by the global-cover theorem."
         }
       ],
       "implementationStatus": "unchecked"
@@ -13077,16 +13268,18 @@
       "statement": "For Re c>0 and Re s>1, the principal radial limit Φ(r,s,c) as r↑1 equals the convergent Hurwitz series. This limit is not an analytic continuation theorem across the entire z=1 stratum for all s; for s=0, Φ(r,0,c)=1/(1−r) diverges.",
       "hypotheses": [],
       "proofSteps": [
-        "Use dominated convergence of the absolutely convergent Hurwitz majorant when Re s>1.",
-        "Use the explicit s=0 rational special value as a counterexample to an unrestricted boundary limit."
+        "For Re c>0 and Re s>1, majorize |exp(−sLog(n+c))| by C(n+1)^(−Re s), using bounded principal arguments and |n+c|≥n+Re c. The Hurwitz majorant is summable.",
+        "For0≤r<1 each r^n is bounded by1 and tends to1; apply dominated convergence for counting measure to get the complex-c Hurwitz series.",
+        "At s=0 the initial geometric-series value1/(1−r) diverges to+∞, so no unrestricted degeneration follows."
       ],
       "prerequisites": [
         "AnalyticNumberTheory:AN.7/lerch-transcendent",
-        "AnalyticNumberTheory:AN.7/circle-hurwitz-import",
-        "AnalyticNumberTheory:AN.7/lerch-nonpositive-special-values"
+        "AnalyticNumberTheory:AN.7/complex-hurwitz-series",
+        "AnalyticNumberTheory:AN.7/lerch-zero-order-value"
       ],
       "acceptance": [
-        "Check every endpoint and the stated dependence of constants; no conjectural input is implicit."
+        "The limit holds for complex c with positive real part, including c=1+i.",
+        "At s=0 it diverges for every allowed c, so the Re s>1 hypothesis is material."
       ],
       "uses": [
         {
@@ -13102,9 +13295,9 @@
       "sources": [
         {
           "sourceId": "lerch-I",
-          "locator": "Theorem2.3 boundary cases; introductory singular-strata discussion",
+          "locator": "Theorem2.3 boundary statement and §1 singular-strata discussion; discrete dominated-convergence specialization",
           "excerpt": "singular strata",
-          "match": "Exact target or stated specialization; unresolved proof inputs are named in the gap ledger."
+          "match": "The selected boundary statement is checked; the radial complex-c proof is written from absolute series domination and does not rely on a real-circle c carrier."
         }
       ],
       "implementationStatus": "unchecked"
@@ -13120,10 +13313,11 @@
       "statement": "For Re c>0 and Re s>1, ζ_H(s,c)=Σ_{n≥0}exp(−sLog(n+c)), with the principal logarithm. It is the z=1 series, not an unqualified value of the general Lerch continuation on its omitted z=1 stratum.",
       "hypotheses": [],
       "proofSteps": [
-        "Construct the displayed object on the specified domain using the existing carriers; prove the listed API before its analytic applications."
+        "Define the principal series on Re c>0, Re s>1; every n+c is nonzero. The polynomial p-series majorant is locally uniform on compact subsets with inf Re s>1 and inf Re c>0.",
+        "Reindex its absolutely convergent series to obtain the c shift; compare to existing circle Hurwitz only for real0<c≤1, preserving its endpoint representative."
       ],
       "prerequisites": [
-        "AnalyticNumberTheory:AN.7/circle-hurwitz-import"
+        "mathlib:Complex.cpow_def_of_ne_zero"
       ],
       "acceptance": [
         "ζ_H(2,1)=π²/6.",
@@ -13190,6 +13384,11 @@
           "name": "complex_hurwitz_series.excluded",
           "kind": "non-example",
           "statement": "c=0 is outside the domain and no0^−s term is assigned a junk value."
+        },
+        {
+          "name": "complex_hurwitz_series.nonreal_shift",
+          "kind": "computation",
+          "statement": "ζ_H(2,1+i)−ζ_H(2,2+i)=−i/2; this tests the actual complex c parameter and inclusion of the n=0 term."
         }
       ]
     },
@@ -13201,10 +13400,10 @@
       ],
       "title": "Complex Hurwitz continuation",
       "kind": "theorem",
-      "statement": "The preceding series extends jointly meromorphically to s∈C, Re c>0, with only a simple pole at s=1 and residue1 independent of c. For fixed c, (s−1)ζ_H(s,c) is entire in s. The c shift identity remains valid there.",
+      "statement": "There exist canonical joint continuations H(s,c),R(s,c) on s∈C, Re c>0, with H jointly holomorphic off s=1, R jointly holomorphic everywhere on this domain, R(1,c)=1, and R(s,c)=(s−1)H(s,c) for s≠1. H agrees with the defining Hurwitz series on Re s>1 and has a simple pole at1 of residue1. The shift holds off the pole. Neither a totalized divergent series nor the pointwise product(s−1)H at1 is claimed to be the removable extension R.",
       "hypotheses": [],
       "proofSteps": [
-        "Write the gamma integral at z=1 and subtract its t=0 Taylor terms to continue in s.",
+        "Establish the separate z=1 gamma integral on Re s>1, Re c>0 by termwise integration of the absolutely convergent Hurwitz series and parameter-uniform domination. The principal-sheet integral lemma excludes z=1 and cannot simply be evaluated there. Subtract the t=0 Taylor terms to continue in s.",
         "Prove locally uniform parameter domination and cancel the reciprocal-gamma zeros.",
         "Uniqueness on the convergence half-plane fixes the continuation and the pole residue."
       ],
@@ -13213,7 +13412,8 @@
         "AnalyticNumberTheory:AN.7/lerch-integral-representation"
       ],
       "acceptance": [
-        "Check every endpoint and the stated dependence of constants; no conjectural input is implicit."
+        "R(1,c)=1 for every Re c>0; directly evaluating(1−1) times a totalized H(1,c) would give0 and is not the claim.",
+        "For real0<c≤1, H matches the existing circle function away from1."
       ],
       "uses": [
         {
@@ -13229,9 +13429,9 @@
       "sources": [
         {
           "sourceId": "lerch-II",
-          "locator": "§2 Hurwitz singular stratum; complete separate proof required",
+          "locator": "§9 p.28 Hurwitz singular-stratum paragraph; complete separate complex-c proof remains required",
           "excerpt": "Hurwitz zeta",
-          "match": "Exact target or stated specialization; unresolved proof inputs are named in the gap ledger."
+          "match": "The paper supplies the singular-stratum target but not the complete Taylor-subtraction proof; this source and native existence contract are explicitly conditional on the recorded gap."
         }
       ],
       "implementationStatus": "unchecked"
@@ -13244,17 +13444,21 @@
       ],
       "title": "Hurwitz Bernoulli values",
       "kind": "theorem",
-      "statement": "For m≥0 and Re c>0, the canonical continuation has ζ_H(−m,c)=−B_{m+1}(c)/(m+1), with Bernoulli polynomials normalized by te^(ct)/(e^t−1)=ΣB_j(c)t^j/j!. In particular ζ_H(0,c)=1/2−c.",
+      "statement": "For m≥0 and Re c>0, the canonical continuation has ζ_H(−m,c)=−B_{m+1}(c)/(m+1), with Bernoulli polynomials normalized by te^(ct)/(e^t−1)=ΣB_j(c)t^j/j!. In particular ζ_H(0,c)=1/2−c. The polynomial is the pinned Polynomial.bernoulli(m+1) evaluated at complex c after coefficient extension; B₁(c)=c−1/2, so at c=1 the order-zero value is−1/2.",
       "hypotheses": [],
       "proofSteps": [
         "Use the Taylor-subtracted integral and the reciprocal-gamma zero at−m.",
         "Identify its coefficient by the stated Bernoulli generating series; pin the B₁ sign."
       ],
       "prerequisites": [
-        "AnalyticNumberTheory:AN.7/complex-hurwitz-continuation"
+        "AnalyticNumberTheory:AN.7/complex-hurwitz-continuation",
+        "mathlib:Polynomial.bernoulli",
+        "mathlib:Polynomial.bernoulli_one",
+        "mathlib:Polynomial.bernoulli_eval_one"
       ],
       "acceptance": [
-        "Check every endpoint and the stated dependence of constants; no conjectural input is implicit."
+        "At m=0,c=1 the value is−1/2; at m=0,c=1/2 it is0.",
+        "The positive-half-plane series definition at s=0 is divergent and totalizes to0; use the continued H, not that totalized sum."
       ],
       "uses": [
         {
@@ -13270,9 +13474,9 @@
       "sources": [
         {
           "sourceId": "lerch-III-published",
-          "locator": "§6 Hurwitz special-value discussion; generating-function proof required",
+          "locator": "§6 p.40 Bernoulli/Hurwitz discussion; full separate Taylor/generating-function proof required",
           "excerpt": "special values",
-          "match": "Exact target or stated specialization; unresolved proof inputs are named in the gap ledger."
+          "match": "The source discussion and pinned Bernoulli normalization are read. The printed Bernoulli generating index and Riemann order-zero formula have local corrections recorded under sourceIssues; this is not a completed complex Hurwitz proof."
         }
       ],
       "implementationStatus": "unchecked"
@@ -13460,7 +13664,7 @@
         "AnalyticNumberTheory:AN.7/lerch-transcendent"
       ],
       "acceptance": [
-        "Check every endpoint and the stated dependence of constants; no conjectural input is implicit."
+        "At z=1/2 the value is2; z=1 is excluded."
       ],
       "uses": [
         {
@@ -13476,9 +13680,9 @@
       "sources": [
         {
           "sourceId": "lerch-III-published",
-          "locator": "Theorem5.1, m=0",
-          "excerpt": "Lerch at order zero",
-          "match": "Exact target or stated specialization; unresolved proof inputs are named in the gap ledger."
+          "locator": "Theorem5.1, (5.3) and m=0 proof p.36",
+          "excerpt": "special values",
+          "match": "The exact initial geometric-series value was freshly read; the former node-title excerpt was not a checked literal source passage and has been replaced."
         }
       ],
       "implementationStatus": "unchecked"
@@ -14269,6 +14473,266 @@
       ],
       "implementationStatus": "unchecked",
       "addedBy": "REV-AnalyticNumberTheory--AN.0"
+    },
+    {
+      "id": "AnalyticNumberTheory:AN.5/harmonic-euler-remainder",
+      "parentStageId": "AnalyticNumberTheory:AN.5",
+      "realises": [
+        "AnalyticNumberTheory:AN.5"
+      ],
+      "title": "Harmonic sum remainder",
+      "kind": "lemma",
+      "statement": "For every integer N≥1, 0<H_N−log N−γ<log(1+1/N)≤1/N, where H_N=Σ_{1≤n≤N}1/n and γ is the pinned Euler–Mascheroni constant.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Unfold the two pinned Euler-sequence inequalities at N>0; subtract to trap H_N−log N−γ between0 and log(N+1)−log N.",
+        "Use log(N+1)−log N=log(1+1/N) and the pinned positive-real log inequality. No new Euler constant is defined."
+      ],
+      "prerequisites": [
+        "mathlib:Real.eulerMascheroniSeq_lt_eulerMascheroniConstant",
+        "mathlib:Real.eulerMascheroniConstant_lt_eulerMascheroniSeq'",
+        "mathlib:Real.log_le_sub_one_of_pos"
+      ],
+      "acceptance": [
+        "For N=1 the error is1−γ>0; N=0 is excluded."
+      ],
+      "uses": [
+        {
+          "where": "AnalyticNumberTheory:AN.5",
+          "how": "Harmonic sum remainder"
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/AnalyticNumberTheory/AN5",
+        "namespace": "TauCeti.AnalyticNumberTheory",
+        "declaration": "TauCeti.AnalyticNumberTheory.harmonic_euler_remainder"
+      },
+      "sources": [
+        {
+          "sourceId": "kouk-primary-preliminary",
+          "locator": "Theorem1.11 and complete proof, printed pp.15–16; pinned Euler-sequence inequalities",
+          "excerpt": "harmonic series",
+          "match": "The author preliminary source supplies the classical remainder proof; the explicit one-sided bound follows directly from stronger pinned inequalities."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "addedBy": "REV-AnalyticNumberTheory--AN.0"
+    },
+    {
+      "id": "AnalyticNumberTheory:AN.5/divisor-hyperbola-identity",
+      "parentStageId": "AnalyticNumberTheory:AN.5",
+      "realises": [
+        "AnalyticNumberTheory:AN.5"
+      ],
+      "title": "Divisor hyperbola identity",
+      "kind": "lemma",
+      "statement": "For real x≥1 and M=floor(sqrt x), Σ_{1≤n≤floor x}τ(n)+M²=2Σ_{1≤a≤M}floor(x/a). The equality is exact, including x at a perfect square.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Count positive ordered pairs(a,b) with ab≤x. A pair has a≤M or b≤M because (M+1)²>x.",
+        "Transpose to equate the two strips; their intersection is precisely1≤a,b≤M, containing M² pairs. Regroup pairs by ab and use the existing divisor carrier."
+      ],
+      "prerequisites": [],
+      "acceptance": [
+        "At x=4, the identity gives8+4=2(4+2). At x=1 both sides equal2."
+      ],
+      "uses": [
+        {
+          "where": "AnalyticNumberTheory:AN.5",
+          "how": "Divisor hyperbola identity"
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/AnalyticNumberTheory/AN5",
+        "namespace": "TauCeti.AnalyticNumberTheory",
+        "declaration": "TauCeti.AnalyticNumberTheory.divisor_hyperbola_identity"
+      },
+      "sources": [
+        {
+          "sourceId": "kouk-primary-preliminary",
+          "locator": "Hyperbola discussion, printed pp.38–39, (3.4)–(3.5) and Theorem3.3 proof",
+          "excerpt": "hyperbola method",
+          "match": "Complete selected proof read; the symmetric inclusive floor identity is the explicit specialization A=B=sqrt x."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "addedBy": "REV-AnalyticNumberTheory--AN.0"
+    },
+    {
+      "id": "AnalyticNumberTheory:AN.5/beurling-count-growth",
+      "parentStageId": "AnalyticNumberTheory:AN.5",
+      "realises": [
+        "AnalyticNumberTheory:AN.5"
+      ],
+      "title": "Beurling counting growth from summability",
+      "kind": "lemma",
+      "statement": "For a Beurling system P, real σ>0 and S=Σ_a norm(a)^−σ with summable nonnegative summands, N(x)≤S x^σ for x≥1, and π_P(x)≤N(x). Thus convergence for every σ>1 gives N(x),π_P(x)=O_ε(x^(1+ε)) for every ε>0.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Each counted vector satisfies1≤x^σ norm(a)^−σ. Bound its finite sum by the full summable nonnegative sum.",
+        "Map each counted prime index injectively to its unit exponent vector. Repeated equal real primes remain distinct vectors."
+      ],
+      "prerequisites": [
+        "AnalyticNumberTheory:AN.5/beurling-prime-system"
+      ],
+      "acceptance": [
+        "No growth rate follows from the prime-system axioms alone; p(i) growing arbitrarily slowly need not have abscissa≤1."
+      ],
+      "uses": [
+        {
+          "where": "AnalyticNumberTheory:AN.5",
+          "how": "Beurling counting growth from summability"
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/AnalyticNumberTheory/AN5",
+        "namespace": "TauCeti.AnalyticNumberTheory",
+        "declaration": "TauCeti.AnalyticNumberTheory.beurling_count_growth"
+      },
+      "sources": [
+        {
+          "sourceId": "beurling-dv",
+          "locator": "§2.1 p.3, growth deduction after (6)",
+          "excerpt": "region of convergence",
+          "match": "The source states this consequence; its discrete proof is written directly from nonnegative series and the native exponent-vector carrier."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "addedBy": "REV-AnalyticNumberTheory--AN.0"
+    },
+    {
+      "id": "AnalyticNumberTheory:AN.5/beurling-prime-power-correction",
+      "parentStageId": "AnalyticNumberTheory:AN.5",
+      "realises": [
+        "AnalyticNumberTheory:AN.5"
+      ],
+      "title": "Beurling higher-prime-power correction",
+      "kind": "lemma",
+      "statement": "For x≥1, J=floor(log x/log p₁) and Π_P(x)=Σ_{1≤j≤J}π_P(x^(1/j))/j, all later terms are0. For x≥p₁, 0≤Π_P(x)−π_P(x)≤π_P(sqrt x)+π_P(x^(1/3))log x/log p₁. Under convergence for every σ>1, the difference is O_ε(x^(1/2+ε)) for every ε>0.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Use p₁>1 to bound j for any prime power≤x. Isolate j=1 and j=2; for3≤j≤J use x^(1/j)≤x^(1/3) and bound1/j≤1.",
+        "Apply the counting-growth lemma at exponent1+η with0<η<2ε. Absorb the logarithm in the strictly smaller exponent for the j≥3 contribution. The finite low-x range changes only the constant."
+      ],
+      "prerequisites": [
+        "AnalyticNumberTheory:AN.5/beurling-prime-system",
+        "AnalyticNumberTheory:AN.5/beurling-count-growth"
+      ],
+      "acceptance": [
+        "With two prime indices equal2 and all other primes>4, Π_P(4)=3 and π_P(4)=2; repeated indices are retained.",
+        "For1≤x<p₁, Π_P(x)=π_P(x)=0."
+      ],
+      "uses": [
+        {
+          "where": "AnalyticNumberTheory:AN.5",
+          "how": "Beurling higher-prime-power correction"
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/AnalyticNumberTheory/AN5",
+        "namespace": "TauCeti.AnalyticNumberTheory",
+        "declaration": "TauCeti.AnalyticNumberTheory.beurling_prime_power_correction"
+      },
+      "sources": [
+        {
+          "sourceId": "beurling-dv",
+          "locator": "§2.1 p.3, (7) and subsequent prime-power bounds",
+          "excerpt": "Riemann prime distribution",
+          "match": "Complete discrete prime-power paragraph freshly read; this is not a statement for non-discrete prime measures."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "addedBy": "REV-AnalyticNumberTheory--AN.0"
+    },
+    {
+      "id": "AnalyticNumberTheory:AN.7/lerch-z-monodromy-shift",
+      "parentStageId": "AnalyticNumberTheory:AN.7",
+      "realises": [
+        "AnalyticNumberTheory:AN.7"
+      ],
+      "title": "Lerch z-loop monodromy and shifts",
+      "kind": "lemma",
+      "statement": "On D={s∈C,z∈C\\[0,∞),0<Re c<1}, choose Log z with0<Im Log z<2π and a=Log z/(2πi). Let f_p=z^−c(a−p)^(s−1) for p≤0, and f_p=exp(πi(s−1))z^−c(p−a)^(s−1) for p≥1, using principal logarithms of the positive-real-part bases. For the source based loops Z₀,Z₁ around0,1, M_Z₀Φ=0, M_Z₁Φ=−(2πi)^s f₀/Γ(s), while continuing f_p along Z₀^k sends it to f_(p−k); Z₁ and c loops fix every f_p.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Lift Z₀ by the exponential cover to a path from a=1/2 to3/2 in the upper half-plane; the initial Fourier series is periodic there, so Φ has zero Z₀ monodromy. Z₁ lifts to the a=0 based loop, giving the existing a-monodromy residue.",
+        "The continued Log z increases by2πik along Z₀^k. Check f_p transforms to f_(p−k), including when p and p−k have different signs; the compensating exp(πi(s−1)) chooses the correct branch. No universal equality Log z=Complex.log z is asserted."
+      ],
+      "prerequisites": [
+        "AnalyticNumberTheory:AN.7/lerch-a-monodromy",
+        "AnalyticNumberTheory:AN.7/lerch-c-monodromy",
+        "tauceti:TauCetiRoadmap/UniversalCovers#stage-0-port-the-foundations-into-tauceti"
+      ],
+      "acceptance": [
+        "A loop around0 fixes the principal Φ germ but shifts the logarithmic residue germs; that distinction prevents an unjustified abelian descent."
+      ],
+      "uses": [
+        {
+          "where": "AnalyticNumberTheory:AN.7",
+          "how": "Lerch z-loop monodromy and shifts"
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/AnalyticNumberTheory/AN7",
+        "namespace": "TauCeti.AnalyticNumberTheory",
+        "declaration": "TauCeti.AnalyticNumberTheory.lerch_z_monodromy_shift"
+      },
+      "sources": [
+        {
+          "sourceId": "lerch-III-published",
+          "locator": "§3.2 Lemma3.1 pp.21–24; §3.3 Theorem3.4 pp.25–28, (3.24)–(3.35)",
+          "excerpt": "monodromy functions",
+          "match": "Complete selected published continuation/monodromy argument newly read; the general topology is imported rather than rebuilt."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "addedBy": "REV-AnalyticNumberTheory--AN.0"
+    },
+    {
+      "id": "AnalyticNumberTheory:AN.7/lerch-solvable-descent",
+      "parentStageId": "AnalyticNumberTheory:AN.7",
+      "realises": [
+        "AnalyticNumberTheory:AN.7"
+      ],
+      "title": "Lerch solvable-cover descent",
+      "kind": "lemma",
+      "statement": "The holomorphic Lerch continuation on the universal cover of N#=C_s×(C_z\\{0,1})×(C_c\\Z≤0) is invariant under π₁(N#)″. It therefore descends to the regular cover associated to that second commutator subgroup; its deck group π₁(N#)/π₁(N#)″ is solvable of derived length at most2. No descent to the maximal abelian z cover is asserted.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Set H₀=kernel of the exponent-sum homomorphism sending Z₀↦1, Z₁,Y_n↦0. Its generators are the Z₀-conjugates of Z₁ and Y_n; G/H₀≅Z.",
+        "Use the z-loop shift formulas and the c-loop monodromy to verify vanishing on[H₀,H₀]. The mixed z/c actions annihilate each other; the cocycle composition identity, not just commutativity of loops, is required.",
+        "Since G′⊂H₀, G″⊂[H₀,H₀]. This characteristic normal subgroup gives the regular quotient cover imported from UniversalCovers Stage2. Filling positive c strata kills their zero-monodromy loops and preserves the second-commutator conclusion."
+      ],
+      "prerequisites": [
+        "AnalyticNumberTheory:AN.7/lerch-cover-continuation",
+        "AnalyticNumberTheory:AN.7/lerch-z-monodromy-shift",
+        "AnalyticNumberTheory:AN.7/lerch-c-monodromy",
+        "tauceti:TauCetiRoadmap/UniversalCovers#stage-2-lifting-criterion-and-galois-correspondence"
+      ],
+      "acceptance": [
+        "At a generic s the Z₀-shift of the Z₁ residue is nontrivial; vanishing of principal Z₀ monodromy alone does not imply an abelian z cover."
+      ],
+      "uses": [
+        {
+          "where": "AnalyticNumberTheory:AN.7",
+          "how": "Lerch solvable-cover descent"
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/AnalyticNumberTheory/AN7",
+        "namespace": "TauCeti.AnalyticNumberTheory",
+        "declaration": "TauCeti.AnalyticNumberTheory.lerch_solvable_descent"
+      },
+      "sources": [
+        {
+          "sourceId": "lerch-III-published",
+          "locator": "§3.4 Theorem3.5 and complete proof pp.28–31; §3.5 Theorem3.6 pp.31–32",
+          "excerpt": "monodromy functions",
+          "match": "Complete selected published continuation/monodromy argument newly read; the general topology is imported rather than rebuilt."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "addedBy": "REV-AnalyticNumberTheory--AN.0"
     }
   ],
   "requests": [
@@ -14553,6 +15017,21 @@
       "neededBy": [
         "AnalyticNumberTheory:AN.5/mangoldt-polynomial-mean-square"
       ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/UniversalCovers#stage-0-port-the-foundations-into-tauceti",
+      "need": "Canonical based universal cover, covering projection, path/homotopy lifting and deck action for the path-connected locally path-connected semilocally simply connected punctured complex-product domains M# and N#. Preserve the loop-then-path concatenation convention. AN.7 owns the analytic chart pullback and Lerch continuation, not a second universal-cover construction.",
+      "neededBy": [
+        "AnalyticNumberTheory:AN.7/lerch-cover-continuation",
+        "AnalyticNumberTheory:AN.7/lerch-z-monodromy-shift"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/UniversalCovers#stage-2-lifting-criterion-and-galois-correspondence",
+      "need": "Canonical regular quotient cover associated to the normal subgroup π₁(N#)″, with deck group π₁(N#)/π₁(N#)″ and based descent. The separate analytic invariance theorem is proved in AN.7.",
+      "neededBy": [
+        "AnalyticNumberTheory:AN.7/lerch-solvable-descent"
+      ]
     }
   ],
   "coverage": [
@@ -14787,11 +15266,11 @@
       "detail": "Fresh codex-LO9Eha reading viewed formula pages414,426 and read the complete selected Lemma2.5 proof. Consecutive-interval construction, delay, negative convention, continuity and integral identity are now explicit APIs; their formal construction/gluing and finite-prime Euler reindexing still need complete baseline consumer audits. The survey states fixed-u Dickman but does not certify its original proof. Reacquire and read Dickman/de Bruijn or a complete modern proof, then split the moving largest-prime sum into quantitative prime partial summation, terminal-range control and compact-u limit lemmas. Later §2 saddle-point results and §3 are unread; no growing-u range is inferred."
     },
     {
-      "title": "Divisor-average source and harmonic constant",
+      "title": "Divisor hyperbola finite-carrier adapter",
       "neededBy": [
         "AnalyticNumberTheory:AN.5/dirichlet-divisor-average"
       ],
-      "detail": "Acquire a complete hyperbola-method proof and match the pinned harmonic-sum/Euler-constant error theorem. Tao’s post motivates divisor estimates but is not a proof of this summatory asymptotic."
+      "detail": "The complete preliminary Theorems1.11/3.3 proofs and the pinned Euler-sequence inequalities were read. The mathematical proof is now explicit in two added lemmas. Check the divisor-pair finite equivalence against the exact pinned Nat.divisors and Finset summation APIs before claiming executable proof closure; the suggested signatures remain admitted."
     },
     {
       "title": "Proved moments and conjectural model normalization",
@@ -14807,7 +15286,7 @@
       "neededBy": [
         "AnalyticNumberTheory:AN.5/beurling-all-log-remainders"
       ],
-      "detail": "Read Debruyne–Vindas §§3–4 completely and split their distributional boundary/slow-decrease assumptions and inverse Laplace remainder theorem into lemmas. This is the all-logarithmic-remainders theorem actually read, not an unsourced general PNT under arbitrary prime-system axioms."
+      "detail": "Codex codex-ywaJcp read §§3–4 completely, including Theorem2, Proposition1, Theorem3 and Lemma1. The source-reading boundary is removed; proof closure still needs separate general lemmas for Laplace-Stieltjes integration by parts, tempered boundary/Fourier inversion, one-sided bump smoothing and the β_n/n→0 remainder estimate; Abelian all-derivative bounds and o(log|t|); weak* boundary-extension upgrade from half-plane derivative bounds;3–4–1 nonvanishing/reciprocal bounds; smooth removable division at1 and matched analytic logarithms. The ordinary arithmetic Wiener–Ikehara supplier does not export these all-remainder general measure results. Choose one foundational analytic owner before promoting them; never substitute only a smooth boundary without its growth hypotheses."
     },
     {
       "title": "Dirichlet-polynomial Hilbert inequality",
@@ -14827,7 +15306,7 @@
         "AnalyticNumberTheory:AN.7/lerch-even-functional-equation",
         "AnalyticNumberTheory:AN.7/lerch-odd-functional-equation"
       ],
-      "detail": "Read complete §§3–4 of LerchII and §§3–4 of the published LerchIII, including the contour-deformation covers, path-lift homotopy invariance and two-step solvable monodromy calculation. Promote those nonroutine constructions to lemma nodes with canonical topology supplier requests. Fresh reading currently covers the displayed target statements, monodromy residue/shift proofs and derivative proofs, not the full covering-space argument."
+      "detail": "Codex codex-ywaJcp read complete LerchII §§3–4 and §8, and published LerchIII §3.2–§3.5/§4 Theorem4.1/§5 Theorem5.1 proofs. Source reading no longer stops at displayed monodromy targets. Remaining interfaces: exact complex-c gamma integral and sum-integral/parameter differentiation; analytic continuation cells from contour detours, analytic uniqueness along homotopies; complex chart pullback to canonical universal covers; exponential-cover lifts/free punctured-plane generators and branch conventions; the general monodromy cocycle and subgroup descent. UniversalCovers Stage0/Stage2 are precise suppliers for topological covers, not for holomorphic continuation. LerchI/Weil real four-term Fourier–Mellin proof remains unread and is an explicit functional-equation input. Positive integer c removability needs the lowering operator, not mere trivial monodromy. Solvable descent is now its own node."
     },
     {
       "title": "Hurwitz and Dirichlet endpoint adapters",
@@ -14837,7 +15316,7 @@
         "AnalyticNumberTheory:AN.7/dirichlet-hurwitz-finite-sum",
         "AnalyticNumberTheory:AN.7/lerch-boundary-degeneration"
       ],
-      "detail": "Match the precise pinned representative and pole declarations for HurwitzZeta and the actual Dirichlet LSeries series theorem. Re s>1 radial degeneration is proved by series domination; unrestricted z=1 limits are explicitly rejected. General complex-c Hurwitz continuation requires its separate branch-aware source proof."
+      "detail": "Pinned Hurwitz HasSum, differentiability, residue, normalized subtraction and expZeta HasSum statements, together with ZMod.LFunction definition, freshly read. The mathematical positive-representative/c=1 and finite Dirichlet adapters are explicit; native signatures are admitted. Complete the integer-representative finite-sum reindexing and cpow conversion proofs at the pin. Radial complex-c degeneration has a summable absolute majorant; it requires the complex Hurwitz series, not a real UnitAddCircle carrier. General complex-c continuation is the separate source/analytic gap."
     },
     {
       "title": "Complex Hurwitz Taylor-subtraction proof",
@@ -14845,7 +15324,7 @@
         "AnalyticNumberTheory:AN.7/complex-hurwitz-continuation",
         "AnalyticNumberTheory:AN.7/complex-hurwitz-bernoulli-values"
       ],
-      "detail": "Read a complete positive-half-plane complex-c Hurwitz proof, including uniform integral subtraction, reciprocal-gamma cancellation and the Bernoulli polynomial convention. Real UnitAddCircle continuation does not establish joint holomorphy for complex c."
+      "detail": "The LerchII §9 statement and published LerchIII §6 introductory discussion were read, but neither supplies a complete positive-half-plane complex-c Hurwitz proof. Acquire and check the Taylor-subtracted gamma integral proof, local parameter-uniform bounds and reciprocal-gamma zeros, matching the pinned Bernoulli polynomial. Native H/R existence and negative-value contracts now distinguish the continued H and removable R from the divergent totalized series. The printed source Bernoulli generating index and ζ(0) sign have recorded corrections; do not treat the corrected statement as a proof receipt. Published Theorem6.1 proof also has a divergent printed integral E27 and a surviving order-zero boundary term E26; neither supplies the missing Hurwitz analytic proof."
     },
     {
       "title": "Conductor-uniform zero theory",
@@ -15037,7 +15516,7 @@
         "AnalyticNumberTheory:AN.4/artin-local-polynomial",
         "AnalyticNumberTheory:AN.4/artin-euler-series"
       ],
-      "detail": "Four definition blocks and their API/tests remain mathematical comments without executable signatures: partial ideal zeta on the canonical class carrier, exceptional squareclasses with their canonical quadratic character, and the local/global Artin constructions on the actual inertia/Frobenius representation data. Do not substitute unrelated Prop fields or a degree-one Artin series. C(κ) now has an explicit native predicate on ArithmeticFunction and LSeries, concrete coefficient witnesses, every API/test and its native integral mean-bound signature; its proofs remain admitted. Eighteen definitions have native forms, whose whole-file semantic consistency still needs final review."
+      "detail": "Four definition blocks and their API/tests remain mathematical comments without executable signatures: partial ideal zeta on the canonical class carrier, exceptional squareclasses with their canonical quadratic character, and the local/global Artin constructions on the actual inertia/Frobenius representation data. Do not substitute unrelated Prop fields or a degree-one Artin series. C(κ) now has an explicit native predicate on ArithmeticFunction and LSeries, concrete coefficient witnesses, every API/test and its native integral mean-bound signature; its proofs remain admitted. Eighteen definitions have native forms, whose whole-file semantic consistency still needs final review. The Lerch universal/solvable-cover continuation, cocycle action and z-monodromy-shift lemmas additionally remain mathematical specifications without native canonical-cover signatures. Resolve UniversalCovers supplier interfaces; do not encode monodromy through arbitrary Prop witnesses. The compact-series signature now bounds every fixed iterated Fréchet derivative on a compact subset; its analytic majorant proof remains admitted. Beurling zeta/product and all-log targets also remain mathematical specifications; an indexed finite-product/Laplace-Stieltjes native interface must be fixed before claiming suggested-file completeness."
     },
     {
       "title": "CM parity and conductor adapter proof",
@@ -15392,6 +15871,173 @@
         "reason": "Published scan pp.212–213 viewed as images; the explicit continuous piecewise-exponential counterexample satisfies the printed one-signed conditions and makes the required Φ(0) diverge. Scoped to the general asymmetric statement; this checkpoint does not finish the independent review.",
         "by": "REV-AnalyticNumberTheory--AN.0"
       }
+    },
+    {
+      "id": "AnalyticNumberTheory/E21",
+      "source": "kouk-primary-preliminary",
+      "kind": "misprint",
+      "locator": "Author preliminary PDF, printed p.39 (PDFp50), Theorem3.3 proof, first displayed evaluation; published GSM203 not inspected.",
+      "printed": "Σ_(b≤x) x/b",
+      "correction": "The second strip sum is Σ_(b≤B) x/b.",
+      "reason": "Equation(3.5) and the immediately preceding floor-sum line have b≤B. At A=B=sqrt x the wrong cutoff adds order x log x, which cannot fit the claimed O(sqrt x) error. The rendered preliminary page confirms the printed x; the intended harmonic evaluation uses B.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Author home https://dms.umontreal.ca/~koukoulo/ read2026-10-05; preliminary version supplied, no errata link found.",
+        "Bounded search for the book title/author with errata returned no relevant correction. Published book not acquired; scoped solely to the preliminary PDF."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Fresh selected page-image and mathematical check support this local finding. It does not count as a completed independent-review verdict; this job remains a checkpoint.",
+        "by": "REV-AnalyticNumberTheory--AN.0"
+      }
+    },
+    {
+      "id": "AnalyticNumberTheory/E22",
+      "source": "lerch-III-published",
+      "kind": "misprint",
+      "locator": "Published RMS3:2(2016), p.40, last line of Theorem5.3 proof.",
+      "printed": "q_(m+1)=z/(1−z) Σ_(j=1)^(m+1) binom(m+1,j)",
+      "correction": "Restore q_(m+1−j)(z) in each summand.",
+      "reason": "The preceding derivative line has this factor and Theorem5.3 states the correct recurrence. For m=0,z=1/2 the truncated printed line gives1 instead of q₁=2. Page40 viewed as image.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Publisher article https://link.springer.com/article/10.1186/s40687-015-0049-2 and final publisher PDF checked2026-10-05; no linked erratum and the displayed formulas retain the slips.",
+        "Author listing https://websites.umich.edu/~lagarias/papers.html opened2026-10-05; it lists I/II but no III correction. The separate numbertheory.html listing was unavailable.",
+        "Bounded web searches for the paper title with errata/erratum and Theorem6.1 correction returned no relevant correction. This is a limited search, not exhaustive novelty."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Fresh selected page-image and mathematical check support this local finding. It does not count as a completed independent-review verdict; this job remains a checkpoint.",
+        "by": "REV-AnalyticNumberTheory--AN.0"
+      }
+    },
+    {
+      "id": "AnalyticNumberTheory/E23",
+      "source": "lerch-III-published",
+      "kind": "misprint",
+      "locator": "Published RMS3:2(2016), §6 p.40, Bernoulli generating series.",
+      "printed": "t/(e^t−1)=Σ_(k=1)^∞ B_k t^k/k!",
+      "correction": "The lower index is k=0 with B₀=1.",
+      "reason": "The left side has constant coefficient1; the printed right side has0. Page40 image confirms the index.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Publisher article https://link.springer.com/article/10.1186/s40687-015-0049-2 and final publisher PDF checked2026-10-05; no linked erratum and the displayed formulas retain the slips.",
+        "Author listing https://websites.umich.edu/~lagarias/papers.html opened2026-10-05; it lists I/II but no III correction. The separate numbertheory.html listing was unavailable.",
+        "Bounded web searches for the paper title with errata/erratum and Theorem6.1 correction returned no relevant correction. This is a limited search, not exhaustive novelty."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Fresh selected page-image and mathematical check support this local finding. It does not count as a completed independent-review verdict; this job remains a checkpoint.",
+        "by": "REV-AnalyticNumberTheory--AN.0"
+      }
+    },
+    {
+      "id": "AnalyticNumberTheory/E24",
+      "source": "lerch-III-published",
+      "kind": "error",
+      "locator": "Published RMS3:2(2016), §6 p.40, Riemann special-value formula in the nonpositive-order discussion.",
+      "printed": "ζ(−k)=−B_(k+1)/(k+1)",
+      "correction": "For k≥0 use ζ(−k)=(−1)^k B_(k+1)/(k+1), equivalently −B_(k+1)(1)/(k+1). The printed formula is valid for k≥1 but not0.",
+      "reason": "With the stated generating convention B₁=−1/2, k=0 gives+1/2 rather than ζ(0)=−1/2. Pinned Polynomial.bernoulli_one/eval_one fix the endpoint convention. Page40 image checked.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Publisher article https://link.springer.com/article/10.1186/s40687-015-0049-2 and final publisher PDF checked2026-10-05; no linked erratum and the displayed formulas retain the slips.",
+        "Author listing https://websites.umich.edu/~lagarias/papers.html opened2026-10-05; it lists I/II but no III correction. The separate numbertheory.html listing was unavailable.",
+        "Bounded web searches for the paper title with errata/erratum and Theorem6.1 correction returned no relevant correction. This is a limited search, not exhaustive novelty."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Fresh selected page-image and mathematical check support this local finding. It does not count as a completed independent-review verdict; this job remains a checkpoint.",
+        "by": "REV-AnalyticNumberTheory--AN.0"
+      }
+    },
+    {
+      "id": "AnalyticNumberTheory/E25",
+      "source": "lerch-III-published",
+      "kind": "misprint",
+      "locator": "Published RMS3:2(2016), §6 p.40, introductory periodic-zeta specializations.",
+      "printed": "P(a/d,−m)=Φ(−m,e^(2πia/d),1)",
+      "correction": "Insert the prefactor z=e^(2πia/d): P(a/d,−m)=zΦ(−m,z,1), using the matched continued functions.",
+      "reason": "The periodic series starts at n=1 whereas Φ starts at0 and has (n+1) in its denominator. At z=−1,m=0 the periodic continuation is−1/2 and Φ=+1/2. This agrees with the source’s definition of the extended polylogarithm. Page40 image checked.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Publisher article https://link.springer.com/article/10.1186/s40687-015-0049-2 and final publisher PDF checked2026-10-05; no linked erratum and the displayed formulas retain the slips.",
+        "Author listing https://websites.umich.edu/~lagarias/papers.html opened2026-10-05; it lists I/II but no III correction. The separate numbertheory.html listing was unavailable.",
+        "Bounded web searches for the paper title with errata/erratum and Theorem6.1 correction returned no relevant correction. This is a limited search, not exhaustive novelty."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Fresh selected page-image and mathematical check support this local finding. It does not count as a completed independent-review verdict; this job remains a checkpoint.",
+        "by": "REV-AnalyticNumberTheory--AN.0"
+      }
+    },
+    {
+      "id": "AnalyticNumberTheory/E26",
+      "source": "lerch-III-published",
+      "kind": "error",
+      "locator": "Published RMS3:2(2016), Theorem6.1(2), (6.2) p.41 and proof p.42.",
+      "printed": "F(a,−m)=e^(−2πia)Li_(−m)(e^(2πia),0)=q_m(e^(2πia)), m≥0",
+      "correction": "Keep the displayed relation for m≥1. For m=0, with z=e^(2πia), F(a,0)=z/(1−z)=q₀(z)−1; equivalently subtract the surviving n=0 term from the c→0 limit of Φ. Part(1) remains correct.",
+      "reason": "The proof explicitly requires Re s<0 to make c^(−s) vanish; at s=0 it equals1. At a=1/2, the printed value is q₀(−1)=+1/2. The continued alternating series is F(1/2,s)=−(1−2^(1−s))ζ(s), so F(1/2,0)=−1/2. The rational m=0 formula already gives Φ=1/(1−z) for all c. Images pp41–42 confirm the nonpositive range and proof. A counterexample requiring no boundary argument takes a=1/2+i log2/(2π), z=−1/2. Its entire absolutely convergent periodic series at0 is−1/3, whereas q₀(−1/2)=2/3. This lies inside the theorem’s0<Re a<1 domain.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Publisher article https://link.springer.com/article/10.1186/s40687-015-0049-2 and final publisher PDF checked2026-10-05; no linked erratum and the displayed formulas retain the slips.",
+        "Author listing https://websites.umich.edu/~lagarias/papers.html opened2026-10-05; it lists I/II but no III correction. The separate numbertheory.html listing was unavailable.",
+        "Bounded web searches for the paper title with errata/erratum and Theorem6.1 correction returned no relevant correction. This is a limited search, not exhaustive novelty."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Fresh selected page-image and mathematical check support this local finding. It does not count as a completed independent-review verdict; this job remains a checkpoint.",
+        "by": "REV-AnalyticNumberTheory--AN.0"
+      }
+    },
+    {
+      "id": "AnalyticNumberTheory/E27",
+      "source": "lerch-III-published",
+      "kind": "misprint",
+      "locator": "Published RMS3:2(2016), Theorem6.1(2) proof p.41, integral preceding(6.4).",
+      "printed": "F(a,s)=Γ(s)^−1∫₀^∞ t^(s−1)/(1−z e^(−t))dt",
+      "correction": "For Re s>0 the numerator must be z e^(−t). Prove the entire extension separately by subtracting the kernel Taylor terms near0 and using reciprocal-gamma zeros.",
+      "reason": "At a=1/2,s=2 the printed integrand t/(1+e^(−t)) has divergent positive tail. The corrected kernel expands as Σ_(n≥1)z^n e^(−nt), matching the periodic series. For other s, the direct integral does not itself assert all-s convergence. Page41 image confirms the omitted numerator.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Publisher article https://link.springer.com/article/10.1186/s40687-015-0049-2 and final publisher PDF checked2026-10-05; no linked erratum and the displayed formulas retain the slips.",
+        "Author listing https://websites.umich.edu/~lagarias/papers.html opened2026-10-05; it lists I/II but no III correction. The separate numbertheory.html listing was unavailable.",
+        "Bounded web searches for the paper title with errata/erratum and Theorem6.1 correction returned no relevant correction. This is a limited search, not exhaustive novelty."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Fresh selected page-image and mathematical check support this local finding. It does not count as a completed independent-review verdict; this job remains a checkpoint.",
+        "by": "REV-AnalyticNumberTheory--AN.0"
+      }
+    },
+    {
+      "id": "AnalyticNumberTheory/E28",
+      "source": "lerch-III-published",
+      "kind": "misprint",
+      "locator": "Published RMS3:2(2016), p.41 introductory sentence and p.42 last displayed proof chain.",
+      "printed": "z=−m; F(−m,s); Li_(−m)(e^(eπia),0)",
+      "correction": "Read s=−m, F(a,−m), and Li_(−m)(e^(2πia),0), respectively.",
+      "reason": "The theorem and immediately preceding equations fix the variables and exponential substitution. Images pp41–42 confirm these three local typesetting slips. This correction does not remove the separate order-zero error E26.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Publisher article https://link.springer.com/article/10.1186/s40687-015-0049-2 and final publisher PDF checked2026-10-05; no linked erratum and the displayed formulas retain the slips.",
+        "Author listing https://websites.umich.edu/~lagarias/papers.html opened2026-10-05; it lists I/II but no III correction. The separate numbertheory.html listing was unavailable.",
+        "Bounded web searches for the paper title with errata/erratum and Theorem6.1 correction returned no relevant correction. This is a limited search, not exhaustive novelty."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Fresh selected page-image and mathematical check support this local finding. It does not count as a completed independent-review verdict; this job remains a checkpoint.",
+        "by": "REV-AnalyticNumberTheory--AN.0"
+      }
     }
   ],
   "provenance": {
@@ -15637,6 +16283,36 @@
           "AnalyticNumberTheory/E11",
           "AnalyticNumberTheory/E16"
         ]
+      },
+      {
+        "job": "REV-AnalyticNumberTheory--AN.0",
+        "session": "codex-ywaJcp",
+        "date": "2026-10-05",
+        "inputCommit": "581f7aaf96426f2fd30da917c3b6ff212b7b9f7c",
+        "status": "partial; no final review verdict",
+        "payloadReading": "Fresh scoped audit of input indices191–218 and223:29 changed existing payloads, plus six added lemmas241–246. The moment targets192–194 and198 retain explicit unacquired-original-proof gaps; no source certification or final node verdict is inferred.",
+        "sourceReading": "Debruyne–Vindas arXivv2 entire introduction/§2.1 and complete §§3–4 pp1–11; LerchII arXivv2 complete §§3–5/§8 plus selected §2/§9; published LerchIII selected §§3.2–3.5 pp21–32, Theorem4.1 proof p33, Theorem5.1 proof p36, Theorem5.3 displayed recurrence and §6 pp40–42 including full Theorem6.1 proof; LerchI selected initial/boundary statements; Koukoulopoulos preliminary full selected Theorem1.11/3.3 proofs pp15–16/38–39. Images of preliminary p39 and published pp40–42 checked. Exact hashes/limits in sources and report.",
+        "baselineReading": "13 added declarations read at Mathlib082e2d3:3 Euler/log inequalities,4 Hurwitz declarations,cpow conversion,ZMod.LFunction,3 Bernoulli polynomial declarations and inclusive Nat.primeCounting. Existing expZeta/Dirichlet declarations separately reread. Not a fresh audit of all150 baseline consumers.",
+        "supplierReading": "Complete UniversalCovers roadmap reread; Stage0/Stage2 supply the canonical based and quotient covers through two precise requests. Selected ADS supplier contracts inspected. No upstream roadmap replanning.",
+        "sourceIssuesAdded": [
+          "AnalyticNumberTheory/E21",
+          "AnalyticNumberTheory/E22",
+          "AnalyticNumberTheory/E23",
+          "AnalyticNumberTheory/E24",
+          "AnalyticNumberTheory/E25",
+          "AnalyticNumberTheory/E26",
+          "AnalyticNumberTheory/E27",
+          "AnalyticNumberTheory/E28"
+        ],
+        "readerLimitation": "Reader is outside issue527 deliverables. Authorized synchronization and complete independent reading remain required before acceptance.",
+        "validation": {
+          "packet": "Pinned declaration-index checker:0 errors,0 warnings. Source-issue/version schemas, deliverable paths, whitespace, dependency acyclicity and intake incomplete-review classification checked before PR.",
+          "suggestedLean": "lean-check in shared pinned Mathlib build:exit0,300 warnings, all admitted proofs; no errors or other warnings.",
+          "suggestedLeanSha256": "f2e353dc48f8bc7c752bc655e382226a974bdbe07b4f48143056d12770a96249",
+          "availableMemoryBeforeLean": "96 GiB",
+          "noFinalVerdict": true,
+          "declarationIndexSha256": "86649a7d5f35d1178a45fe7aa4713741d03d43ff3b37bb8c91a1da1c794c8ce1"
+        }
       }
     ]
   },
@@ -16009,8 +16685,8 @@
   "links": [],
   "validationNotes": [
     "Every node is an unchecked plan. No implementation or proof completion is claimed.",
-    "The suggested file was elaborated with lean-check in the existing shared build at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174. The latest codex-LO9Eha check has0 errors and270 warnings, all admitted-proof warnings. This is Mathlib-only elaboration; no Tau Ceti module compilation, new project, build/cache operation or language server is claimed. Only explanatory header and mathematical-specification comments changed after that check.",
-    "Historical elaboration receipts retain their individual scopes. Current signatures and mathematical comments were reconciled in the codex-LO9Eha continuation; elaboration checks types, not proof correctness or complete source closure.",
+    "The suggested file was elaborated with lean-check in the existing shared build at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174. The latest codex-ywaJcp check has0 errors and300 warnings, all admitted-proof warnings. Mathlib-only elaboration; no Tau Ceti module compilation, new project, build/cache operation or language server.",
+    "Historical elaboration receipts retain their individual scopes. The codex-ywaJcp continuation reconciles selected Beurling/Lerch signatures and mathematical comments. Elaboration checks types, not proof correctness, complete source closure or canonical-cover signature completeness.",
     "The current checker resolves tauceti atlas-stage prerequisites, so the prior upstreamPrerequisites workaround was removed.",
     "AN.3 remains whole. The proposed SV.2→AN.3 reverse edge is withheld until the old AN.3→SV.2 edge can be removed atomically by the maintainer.",
     "The generic Landau, Perron, Wiener–Ikehara and prime-transfer packages remain owned by ADS; Tate continuation/functional equations remain imported from AL.1.",
