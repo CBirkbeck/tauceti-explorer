@@ -1,18 +1,8 @@
-The packet contains **167 unchecked nodes**, 257 API entries, 148 packet tests (133 definition/construction tests), 105 typed examples, 22 planets and 121 pinned baseline references. Five gaps and twenty requests remain; no stage is closed. The geometric boundary limit is supplied; the four-puncture Coleman constancy comparison remains explicit.
-
-**Earlier special-unit model checkpoint, 27 September 2026.** That checkpoint had 149 unchecked nodes, 257 API entries, 133 definition/construction tests plus five other tests, 22 planets and 105 baseline references. Five gaps and twenty requests remain; no stage is closed. Ten new declarations supply the finite-extension four-puncture model and scalar zero differential, with the exact remaining Coleman comparison recorded below.
-
-**Earlier smoothed-transform endpoint checkpoint, 27 September 2026.** That checkpoint had 139 unchecked nodes, 253 API entries, 129 definition/construction tests plus five inherited lemma tests, 22 planets and 103 baseline references. Its 5 gaps and 20 requests remain. Seven new L3 nodes correct the rotated smoothing transform at w=1. The two singular terms are cancelled before any formal inverse is taken; the logarithm quotient sign is corrected to give -log_p(b). No layer is newly closed.
-
 # Coleman integration and noncritical Dirichlet L-values
 
-**Earlier scalar transport checkpoint, 27 September 2026.** This continuation preserves 117 of the
-118 predecessor node objects exactly and refines the remaining global five-term parent.
-Fourteen new nodes make the signed scalar transformations and the exhaustive norm case split
-explicit. The special-unit good-reduction argument remains open; no stage is newly closed.
-The preceding scalar-transport checkpoint contained 132 nodes, 242 API entries, 121 definition/construction tests and
-five inherited lemma tests, 22 planets and 95 baseline references, with 20 requests and five gaps.
-All implementation statuses remain unchecked.
+This is a **complete target-level planning pass**, with **177 unchecked nodes** (19 definitions, 11 constructions, 98 lemmas, 39 theorems and 10 comparisons), 257 API entries, 151 packet tests (133 definition/construction tests), 111 typed examples, 22 planets and 123 pinned baseline references. Every L0–L3 target is represented. Five gaps and twenty supplier requests remain; no stage is closed and no declaration is claimed implemented.
+
+The scalar five-term proof connects the actual dilogarithm on the four-punctured line to one Coleman constant, identifies it on all punctured residue discs and normalizes it by the geometric boundary sequence. The field-general projective and Bloch comparisons are separate recorded gaps. The coverage and exact supplier contracts are listed with their layers.
 
 ## Purpose
 
@@ -66,8 +56,8 @@ roots of unity and the dilogarithm identities. L3: Coleman's formula at every po
 formula, the case $k=1$, comparisons with the other proofs, and the syntomic-regulator interpretation, with the
 $p$-adic Beilinson conjecture stated as a proposition and proved for Dirichlet motives.
 
-**Out of scope, recorded as gaps.** The algebraic de Rham comparison and lift independence for general curves when
-the differentials are not free (L1); the arbitrary-special-unit good-reduction input and projective/Bloch comparison (L2); the nested-disc subcase and scalar norm reduction are decomposed below; the proof
+**Unresolved target prerequisites, recorded as gaps.** The algebraic de Rham comparison and lift independence for general curves when
+the differentials are not free (L1); the field-general projective and Bloch comparisons (L2); the proof
 of Besser–de Jeu Theorem 1.10(2) and complex Artin $L$-functions with coefficients (L3).
 
 **Boundaries with neighbouring roadmaps.**
@@ -112,7 +102,7 @@ of Besser–de Jeu Theorem 1.10(2) and complex Artin $L$-functions with coeffici
 
 ## L0 Analytic differential equations on residue discs
 
-This layer supplies the analysis the later layers integrate with. Termwise integration divides the $n$-th coefficient by $n+1$, and $|1/(n+1)|$ can be as large as $n+1$: the radius-loss estimate shows that the open disc of convergence survives while convergence on the closed disc is lost, with the counterexample $\sum p^k X^{p^k-1}$. On an open disc a function has a unique primitive with a prescribed value at a point; among locally analytic functions it does not, which is why L1 is needed. On an annulus a differential is exact exactly when its residue vanishes; otherwise a primitive needs a logarithm, and the ring $\mathcal O(A)[\ell]$ with $\ell \mapsto \log_a(z-e)$ makes every differential integrable. The branches $\log_a$ are the homomorphisms $\mathbb C_p^\times \to \mathbb C_p$ that extend the logarithm series on $1+\mathfrak m$ and send $p$ to $a$. Dagger algebras and Laurent rings of annuli are imported.
+This layer supplies the analysis L1–L3 integrate with. Termwise integration divides the $n$-th coefficient by $n+1$, and $|1/(n+1)|$ can be as large as $n+1$: the radius-loss estimate shows that the open disc of convergence survives while convergence on the closed disc is lost, with the counterexample $\sum p^k X^{p^k-1}$. On an open disc a function has a unique primitive with a prescribed value at a point; among locally analytic functions it does not, which is why L1 is needed. On an annulus a differential is exact exactly when its residue vanishes; otherwise a primitive needs a logarithm, and the ring $\mathcal O(A)[\ell]$ with $\ell \mapsto \log_a(z-e)$ makes every differential integrable. The branches $\log_a$ are the homomorphisms $\mathbb C_p^\times \to \mathbb C_p$ that extend the logarithm series on $1+\mathfrak m$ and send $p$ to $a$. Dagger algebras and Laurent rings of annuli are imported.
 
 ### Objects
 
@@ -400,7 +390,7 @@ The Iwasawa branch of the p-adic logarithm is log_p := log_0 (L0/log-branch): th
 
 Let A = A(e; r, s) be an open annulus (or the end germ R_e of a residue disc) over a complete subfield K of C_p and a in C_p a branch. The logarithmic function ring is the polynomial ring O_K(A)[l] in one indeterminate l, with the derivation d extending d on O_K(A) by dl = dz/(z - e); it is realised on points by the ring homomorphism rho_a : O_K(A)[l] -> (A(C_p) -> C_p), sum f_k l^k |-> (z |-> sum f_k(z) log_a(z - e)^k), which commutes with d (L0/log-branch-local-expansion) and is injective (L0/annulus-log-transcendence). This is A_log(U_x) of Besser and A^a_log(U_x) of Furusho at an end; it does not depend on the local parameter (a change t = u (z - e)(1 + h) with |u| = 1 replaces l by l + log_a(u) + log(1 + h), an element of O(A)).
 
-*Hypotheses.* K complete subfield of C_p; a in C_p. A an open annulus A(e; r, s) with r < s, or the end germ colim_{r -> 1} O(A(e; r, 1)).
+*Hypotheses.* K complete subfield of C_p; a in C_p. A an open annulus A(e; r, s) with 0 ≤ r < s, or the end germ colim_{r -> 1} O(A(e; r, 1)).
 
 *API.*
 
@@ -806,9 +796,9 @@ For x_0 in C_p^x and z in D^-(x_0, |x_0|) (so |z| = |x_0|): log_a(z) = log_a(x_0
 
 *Node* `ColemanIntegration:L0/annulus-log-transcendence`.
 
-Let A = A(e; r, s) with r < s and a in C_p. If f_0, ..., f_n in O_K(A) satisfy sum_k f_k(z) log_a(z - e)^k = 0 for all z in A(C_p), then all f_k = 0. Equivalently the realisation rho_a of L0/annulus-log-ring is injective.
+Let A = A(e; r, s) with 0 ≤ r < s and a in C_p. If f_0, ..., f_n in O_K(A) satisfy sum_k f_k(z) log_a(z - e)^k = 0 for all z in A(C_p), then all f_k = 0. Equivalently the realisation rho_a of L0/annulus-log-ring is injective.
 
-*Hypotheses.* r < s, so that A contains circles of more than one radius; K complete subfield of C_p.
+*Hypotheses.* 0 ≤ r < s, so that A contains circles of more than one radius; K complete subfield of C_p.
 
 *Proof outline.*
 
@@ -880,7 +870,7 @@ For F = sum f_k l^k in O_K(A)[l] and branches a, b: rho_b(F)(z) = sum_k f_k(z) (
 
 ### What is missing
 
-- Coverage status: `source_decomposed`. Convergent series and radii are baseline (HasFPowerSeriesOnBall, FormalMultilinearSeries.radius, PowerSeries.IsRestricted, Gauss norms); overconvergent (dagger) algebras and Laurent series on annuli are imported from AdicSpacesPartII:F1 and PadicHodgeTheory:P7:annulus-foundations (requests). Planned here: the normalised formal primitive in characteristic zero and its derivative; the radius-loss estimate with the closed-disc counterexample; functions on open discs and the unique primitive with chosen base value; the failure of uniqueness among locally analytic functions; residues on annuli, exactness iff zero residue, logarithmic rings, transcendence of log and logarithmic primitives; the logarithm series, the branches log_a on C_p^x with log_a(p) = a, branch change log_b = log_a + (b - a) v_p, the Iwasawa branch, compatibility with automorphisms and finite extensions, local expansions. Path-independent continuation is deferred to the theory of L1 by design (the stage text).
+- Coverage status: `source_decomposed`. Convergent series and radii are baseline (HasFPowerSeriesOnBall, FormalMultilinearSeries.radius, PowerSeries.IsRestricted, Gauss norms); overconvergent (dagger) algebras and Laurent series on annuli are imported from AdicSpacesPartII:F1 and PadicHodgeTheory:P7:annulus-foundations (requests). Planned here: the normalised formal primitive in characteristic zero and its derivative; the radius-loss estimate with the closed-disc counterexample; functions on open discs and the unique primitive with chosen base value; the failure of uniqueness among locally analytic functions; residues on annuli, exactness iff zero residue, logarithmic rings, transcendence of log and logarithmic primitives; the logarithm series, the branches log_a on C_p^x with log_a(p) = a, branch change log_b = log_a + (b - a) v_p, the Iwasawa branch, compatibility with automorphisms and finite extensions, local expansions. Path-independent continuation is supplied by the theory of L1 by design (the stage text).
 - **Request to `LocallyAnalyticDistributions:L1`.** (1) For a finite extension L of Q_p inside C_p, the ring R^+_L of power series sum a_n T^n over L with |a_n| r^n -> 0 for every r < 1 (functions on the open unit disc), with its Frechet topology and the derivative d/dT, and the comparison theorem that its coefficient map identifies it with ColemanIntegration:L0/disc-analytic-functions at centre 0 and radius 1 (API equivRPlus). (2) Locally analytic primitives on Z_p (and on compact open subsets) with the precise freedom of adding a locally constant function, as stated in the stage text. Needed by `ColemanIntegration:L0/disc-analytic-functions`, `ColemanIntegration:L0/locally-analytic-primitive-nonunique`.
 - **Request to `PadicHodgeTheory:P7:annulus-foundations`.** For a complete subfield K of C_p, a centre e in K and 0 <= r < s <= infinity: the K-algebra O_K(A(e; r, s)) of Laurent series sum_{n in Z} a_n (z - e)^n with |a_n| rho^n -> 0 as |n| -> infinity for every rho in (r, s), as functions on {r < |z - e| < s}; its multiplicative Gauss norms |.|_rho and Frechet topology; restriction to sub-annuli and the end-germ ring colim_{r -> 1} O_K(A(e; r, 1)) (the elements of the Robba ring); the derivative; the identity principle (a Laurent series vanishing as a function on A(C_p) is zero, the Gauss norm |f|_rho being attained on the circle |z - e| = rho for rho in |C_p^x|); and the discreteness of the break radii of the Newton polygon (a nonzero f is a unit, dominant monomial times 1 + h with |h| < 1, on some open sub-annulus). Needed by `ColemanIntegration:L0/annulus-residue`, `ColemanIntegration:L0/annulus-exact-iff-residue-zero`, `ColemanIntegration:L0/annulus-log-ring`, `ColemanIntegration:L0/annulus-log-transcendence`.
 
@@ -1936,16 +1926,17 @@ Let (phi, omega, M, g) and (phi', omega, M', g') be data on (X, D) that differ i
 
 *Node* `ColemanIntegration:L1/coleman-pullback`.
 
-Let (X', D') and (X, D) carry data (Frobenius lifts phi', phi, with q-powers q', q having a common power) and let f be a morphism of wide opens, i.e. a K-algebra map f^* : A+(Y) -> A+(Y') reducing to a morphism Y'_k -> Y_k and mapping ends to ends (for instance an O_K-morphism X' -> X with f(Y') in Y). Then pullback of locally analytic functions maps A_Col^a(Y) into A_Col^a(Y'), commutes with d, and int f^* eta = f^* int eta modulo constants. Proved here when Omega+(Y') = A+(Y') dt' (all genus-0 cases of L1/punctured-line); for general pairs it rests on the gap recorded for L1/frobenius-lift-independence. For L1/punctured-line this covers: the involutions z |-> 1/z and z |-> 1 - z of P^1 minus {0, 1, infinity}, the rotations z |-> zeta z (zeta in mu_N) of U_N, the maps z |-> zeta z for zeta a p-power root of unity (endomorphisms of the wide open of U_N reducing to the identity), the power maps z |-> z^m from U_(m) to U_1 for p not dividing m, and the inclusions U_N -> U_1.
+Let (X', D') and (X, D) carry data (Frobenius lifts phi', phi, with q-powers q', q having a common power) and let f be a morphism of wide opens, i.e. a K-algebra map f^* : A+(Y) -> A+(Y') reducing to a morphism Y'_k -> Y_k and mapping ends to ends (for instance an O_K-morphism X' -> X with f(Y') in Y). Then pullback of locally analytic functions maps A_Col^a(Y) into A_Col^a(Y'), commutes with d, and int f^* eta = f^* int eta modulo constants. Proved here when Omega+(Y') = A+(Y') dt' (all genus-0 cases of L1/punctured-line); for general pairs it rests on the gap recorded for L1/frobenius-lift-independence. For L1/punctured-line this covers: the involutions z |-> 1/z and z |-> 1 - z of P^1 minus {0, 1, infinity}, the rotations z |-> zeta z (zeta in mu_N) of U_N, the maps z |-> zeta z for zeta a p-power root of unity (endomorphisms of the wide open of U_N reducing to the identity), the power maps z |-> z^m from U_(m) to U_1 for p not dividing m, and the inclusions U_N -> U_1. Also covered in the free genus-zero case are integral fractional-linear automorphisms f:(P¹,D′)→(P¹,D) with f^−1(D)⊆D′: an additional source end may map to an ordinary target point. L1/regular-image-end-pullback supplies its LocAn comparison and all-component Taylor compatibility; the existing ends-to-ends restriction applies only to the preceding general wide-open formulation.
 
 *Hypotheses.* Data on both pairs; f as above; Omega+(Y') free on dt' for the proof given here.
 
 *Proof outline.*
 
-1. By induction on depth, G := f^* rho(L_w) satisfies dG = f^*(omega_i) f^* rho(L_w') in Omega_Col(Y') by the induction hypothesis, so G minus a Coleman primitive of dG is locally constant on Y'.
-2. After replacing phi, phi' by powers with the same q, the maps f o phi' and phi o f are two lifts of the same morphism Y'_k -> Y_k; the Taylor expansion of L1/taylor-homotopy (along the two maps f o phi' and phi o f, which reduce to the same map) shows phi'^* G - f^* rho(phi^# L_w) is a Coleman function on Y' of lower depth.
-3. Hence G satisfies a Frobenius equation phi'^* G = M^(tensor n) G + (Coleman functions of lower depth) on Y', and by L1/dwork-principle it equals the Coleman function with that equation and the same value at one point: G is Coleman.
-4. Compatibility with int: both sides are primitives in A_Col(Y') of f^* eta.
+1. For the additional integral genus-zero case, use regular-image-end-pullback to define the ordinary-image source-end component and to check the Taylor identity there. All components therefore enter the same induction below.
+2. By induction on depth, G := f^* rho(L_w) satisfies dG = f^*(omega_i) f^* rho(L_w') in Omega_Col(Y') by the induction hypothesis, so G minus a Coleman primitive of dG is locally constant on Y'.
+3. After replacing phi, phi' by powers with the same q, the maps f o phi' and phi o f are two lifts of the same morphism Y'_k -> Y_k; the Taylor expansion of L1/taylor-homotopy (along the two maps f o phi' and phi o f, which reduce to the same map) shows phi'^* G - f^* rho(phi^# L_w) is a Coleman function on Y' of lower depth.
+4. Hence G satisfies a Frobenius equation phi'^* G = M^(tensor n) G + (Coleman functions of lower depth) on Y', and by L1/dwork-principle it equals the Coleman function with that equation and the same value at one point: G is Coleman.
+5. Compatibility with int: both sides are primitives in A_Col(Y') of f^* eta.
 
 *Acceptance.*
 
@@ -2140,7 +2131,7 @@ Let U_alg be the subalgebra of U(U_N) with coefficients in the regular functions
 
 ### What is missing
 
-- Coverage status: `partial`. Complete for P^1 minus {0, infinity} and mu_N (p not dividing N), in particular P^1 minus {0, 1, infinity}: dagger algebra (carrier requested from AdicSpacesPartII:F1), Mittag-Leffler decomposition, H^1 with basis dz/z, dz/(z - zeta), Frobenius z |-> z^p with eigenvalue p, the unipotent word algebra (successive extensions), local expansions, Frobenius on the word algebra, realisation by Dwork's principle, Coleman functions with products, d, integration, uniqueness principle, independence of the Frobenius lift, pullback along the needed morphisms, branch independence, tangential base point. Stated for general good-reduction curves with the exact hypotheses: the same construction with the H^1 input imported from RD.0, RD.4, RD.5, RD.6 and AdicSpacesPartII:F1/R2.
+- Coverage status: `planned`. Complete for P^1 minus {0, infinity} and mu_N (p not dividing N), in particular P^1 minus {0, 1, infinity}: dagger algebra (carrier requested from AdicSpacesPartII:F1), Mittag-Leffler decomposition, H^1 with basis dz/z, dz/(z - zeta), Frobenius z |-> z^p with eigenvalue p, the unipotent word algebra (successive extensions), local expansions, Frobenius on the word algebra, realisation by Dwork's principle, Coleman functions with products, d, integration, uniqueness principle, independence of the Frobenius lift, pullback along the needed morphisms, branch independence, tangential base point. Stated for general good-reduction curves with the exact hypotheses: the same construction with the H^1 input imported from RD.0, RD.4, RD.5, RD.6 and AdicSpacesPartII:F1/R2. Additional regular-image source ends for integral genus-zero argument maps are now explicitly compared by fractional-disc-composition and regular-image-end-pullback. Planning-pass coverage is at target level: the two stated general-curve inputs remain recorded gaps, so this stage is not closed.
 - Gap 'Algebraic de Rham comparison for good-reduction affine curves' (algebraic basis and dimension of H^1 for general pairs).
 - Gap 'Independence of the Frobenius lift and functoriality when Omega+ is not free' (general pairs).
 - Requests to AdicSpacesPartII:F1, AdicSpacesPartII:R2, PadicDifferentialEquationsAndRigidCohomology:RD.0, RD.4, RD.5, RD.6 for the general-curve inputs.
@@ -3015,11 +3006,12 @@ large one small, complementation makes one near 1 small, and a special first coo
 be exchanged with the second. The resulting theorem says that R(x,y) is already zero or is,
 up to sign, R(u,v) with |v|=|1−v|=1. It does not assert that this remaining value is zero.
 
-The analytic input still required is the whole special-unit subcase, for every admissible
-first coordinate u. It needs Coleman pullbacks on P¹ minus {0,1,∞,v} for arbitrary special v,
-the zero-differential/constant argument there, and its boundary normalization. A result only
-for pairs with all five arguments special does not suffice. If constructed first over finite
-extensions, its extension to arbitrary ℂ_p inputs needs the stated density argument. The
+The analytic input is the whole special-unit subcase, for every admissible first
+coordinate u. The end-comparison section supplies it by Coleman pullbacks on
+P¹ minus {0,1,∞,v}, the zero-differential/constant argument and boundary
+normalization, followed by the algebraic-density reduction. Its constancy
+statement includes every admissible first coordinate, rather than only pairs
+with all five arguments special. The
 cyclic projective comparison and Bloch descent also retain their separate supplier request.
 The scalar reduction works for every prime and all ℂ_p points, so it introduces none of
 those geometric or finite-extension hypotheses on its own.
@@ -3320,7 +3312,7 @@ Proof/construction:
 
 1. Apply defect-special-unit-reduction. Its first alternative is the conclusion.
 2. In its second alternative, apply the special-unit hypothesis to the furnished admissible pair. Either transported sign gives zero.
-3. This is a proved-in-plan reduction implication, not the unconditional global five-term theorem: the special-unit input still needs the separately recorded good-reduction Coleman construction, pullbacks, constancy and density passage. It is a strictly smaller input, not the conclusion repackaged as a structure.
+3. This is a conditional reduction implication. The end-comparison construction, geometric boundary normalization and algebraic-density passage supply its special-unit hypothesis in five-term-scalar-global. No carrier or field asserting the desired global conclusion is introduced.
 
 Prerequisites: `ColemanIntegration:L2/defect-special-unit-reduction`.
 
@@ -3328,11 +3320,19 @@ Acceptance: The supplied analytic input must cover all admissible first coordina
 
 Source: de Jeu, arXiv:2007.11014v1, p.6 discussion before Proposition2.10 and p.14 discussion immediately before its proof. Fixes the p-adic D, its two-term identities and the five-term normalization. This explicit scalar covariance/norm case decomposition is a worker-derived elaboration, not a claim that these lemmas or this proof are printed there.
 
+#### Abel and nested-disc controls
+
+- `abel_composite_zero` (degenerate): For u=0 the v-composite is zero and the w-composite is Li_2^ser(x).
+- `abel_zero_x` (degenerate): At x=0 and any |u|<1 both sides of the ordinary identity equal zero.
+- `abel_wrong_sign` (non-example): The wrong-sign residual has XU coefficient 2, which is nonzero in C_2 as well as every C_p.
+- `five_term_nested_two` (computation): At p=2, (x,y)=(2,8) satisfies the relation for every branch.
+- `five_term_nested_five` (computation): At p=5, (x,y)=(5,25) satisfies the relation for every branch.
+
 #### Theorem. The five-term relation for the p-adic dilogarithm
 
 *Node* `ColemanIntegration:L2/five-term-relation`.
 
-For every a ∈ C_p and all x, y ∈ C_p ∖ {0, 1} with x ≠ y: D^a(x) − D^a(y) + D^a(y/x) − D^a((1 − x^{−1})/(1 − y^{−1})) + D^a((1 − x)/(1 − y)) = 0. Equivalently, for five distinct points s_1, …, s_5 of P¹(C_p), Σ_{i∈Z/5} D^a([s_i, s_{i+1}, s_{i+2}, s_{i+3}]) = 0 with the cross-ratio [s_1,s_2,s_3,s_4] = (s_1 − s_2)(s_3 − s_4)/((s_1 − s_4)(s_3 − s_2)) in the convention of Polylogarithms P.1/bloch-wigner-five-term (a complex comparison only; its algebraic identities over C_p are a supplier request). Hence, for every subfield K ⊂ C_p, [x] ↦ D^a(x) is a homomorphism from the free abelian group on K ∖ {0, 1} modulo the five-term relations (the pre-Bloch group) to C_p, independent of a on the Bloch group. The nested-disc case 0<|y|<|x|<1 now has a separate source-derived proof chain. Scalar signed covariance and exhaustive norm reduction to the special-unit subcase are now decomposed. The finite-extension special-unit model and zero differential are now decomposed. The conditional algebraic-density reduction is now supplied. The geometric boundary limit is now supplied. Coleman membership across additional regular-image ends, global constancy and its identification with actual punctured-disc values, and the separate field-correct projective/Bloch comparisons remain open; no complete global proof is claimed.
+For every a ∈ C_p and all x, y ∈ C_p ∖ {0, 1} with x ≠ y: D^a(x) − D^a(y) + D^a(y/x) − D^a((1 − x^{−1})/(1 − y^{−1})) + D^a((1 − x)/(1 − y)) = 0. Equivalently, for five distinct points s_1, …, s_5 of P¹(C_p), Σ_{i∈Z/5} D^a([s_i, s_{i+1}, s_{i+2}, s_{i+3}]) = 0 with the cross-ratio [s_1,s_2,s_3,s_4] = (s_1 − s_2)(s_3 − s_4)/((s_1 − s_4)(s_3 − s_2)) in the convention of Polylogarithms P.1/bloch-wigner-five-term (a complex comparison only; its algebraic identities over C_p are a supplier request). Hence, for every subfield K ⊂ C_p, [x] ↦ D^a(x) is a homomorphism from the free abelian group on K ∖ {0, 1} modulo the five-term relations (the pre-Bloch group) to C_p, independent of a on the Bloch group. The scalar analytic identity is decomposed by five-term-scalar-global; the projective cyclic and Bloch conclusions retain their recorded field-general supplier gap. All implementation statuses remain unchecked.
 
 *Hypotheses.* a ∈ C_p; x, y ∉ {0, 1}, x ≠ y; p any prime.
 
@@ -3340,8 +3340,8 @@ For every a ∈ C_p and all x, y ∈ C_p ∖ {0, 1} with x ≠ y: D^a(x) − D^a
 
 1. The differential: by ColemanIntegration:L2/dilogarithm-identities (c), dD^a(z) = ½ρ(z, 1 − z) with ρ(f, g) := log_a f·d log g − log_a g·d log f, which is bi-additive and alternating in (f, g) and vanishes when f or g is a root of unity (log_a of a root of unity is 0).
 2. The scalar differential is now supplied by five-term-logarithmic-pullbacks and five-term-defect-zero-differential; it uses no field-general projective identity. The cyclic projective reformulation still needs the separate Polylogarithms supplier, including infinity and denominator conditions.
-3. The explicit sequence x_n=1+p^(n+1) now has a vanishing limit for the actual scalar defect, for every branch and every v≠0,1 in C_p. The geometric logarithm bounds and three small-argument limits are separate nodes. It remains to extend the Coleman pullback comparison to an extra source end mapping to a regular target point, prove membership of the defect in the four-puncture Coleman algebra, obtain a single Coleman constant and identify that constant with the actual defect on all punctured residue discs (including the boundary sequence). Constancy only on the tube is insufficient. The new five-term-from-algebraic-constancy states the exact remaining algebraic input; the existing density reduction then reaches all C_p points. Retain the separate field-general projective/Bloch comparisons. Zero local derivative alone proves none of these global identifications.
-4. Scalar transport is now supplied by five-term-defect through five-term-from-special-units: the four elementary pair transformations have checked signs; mixed norms, separated residue discs and close equal-norm pairs reduce to nested discs; the remaining cases reduce to a special-unit second coordinate. Thus the scalar global conclusion follows once the preceding good-reduction input is proved. No field-general cross-ratio interface is needed for this scalar reduction. The cyclic projective reformulation still needs its separate algebraic supplier, including infinity cases.
+3. Apply five-term-scalar-global. Its chain supplies the extra-end analytic pullback, the actual scalar Coleman element, zero differential in every component, one Coleman constant and its equality with actual values on all four punctured discs. The inherited boundary sequence then forces that constant to zero and the density/norm reduction reaches all admissible C_p pairs. The field-general projective/Bloch conclusions remain separate supplier comparisons.
+4. Scalar transport is now supplied by five-term-defect through five-term-from-special-units: the four elementary pair transformations have checked signs; mixed norms, separated residue discs and close equal-norm pairs reduce to nested discs; the remaining cases reduce to a special-unit second coordinate. The scalar global proof composes these reductions with the end-comparison and boundary-normalization chains. No field-general cross-ratio interface is needed for this scalar reduction. The cyclic projective reformulation still needs its separate algebraic supplier, including infinity cases.
 5. Once the requested algebraic five-term boundary identity is supplied, the branch-change formula in L2/dilogarithm-identities is an alternating bi-additive expression and cancels in the five-term sum; its factorization through the pre-Bloch group and branch independence on the Bloch group use the same algebraic input. These global consequences are targets, not consequences of the nested-disc result alone.
 6. Nested-disc case: apply ColemanIntegration:L2/five-term-nested-discs, proved from the single-disc Abel series identity and explicit cancellation of the two branch logarithms. This replaces the old unproved inference that a logarithm-polynomial expression with vanishing partial differentials is constant. It needs neither semistable Coleman continuation nor a two-variable logarithm-transcendence theorem.
 
@@ -3570,10 +3570,9 @@ Let Li_k^ℂ be the principal branch of the complex polylogarithm (Polylogarithm
 
 ### What is missing
 
-- Close the special-unit good-reduction input for every admissible first coordinate and every second coordinate v with |v|=|1−v|=1: construct the arbitrary-special-unit punctured-line model, its Coleman pullbacks and constancy argument, then finite-extension/density comparison. The scalar norm reduction is decomposed; the cyclic projective reformulation and Bloch descent still need their field-correct algebraic supplier.
+- Coverage status: `planned`. Every target of the stage text is realised by a node: existence and uniqueness in the Coleman category with the base-point normalisation at 0 (made explicit as a tangential normalisation), the differential recursion, the distribution, inversion and Frobenius relations (with the explicit overconvergent series g_k and the integral function ℓ_k), branch dependence, the explicit non-example to 'local antiderivatives determine Li_k', values at tame and at p-power roots of unity, the power-series expansion at a root of unity with its logarithmic growth (for L3), norm/trace and twisted-sum compatibilities for primitive characters, compatibility with automorphisms and embeddings of the coefficients, values in finite extensions, and the complex polylogarithm at roots of unity (cited from Polylogarithms P.1 and Mathlib). The dilogarithm identities used by PadicHodgeRegulators D.1 and HabiroNahmSeries HB.9 (reflection, D_p, its branch and Frobenius relations, five-term relation) are included. Six further lemma nodes give a coefficient-bounded Abel identity and branch-uniform five-term relation on nested discs. Fourteen scalar transport nodes now decompose the norm case split without using a complex cross-ratio theorem over ℂ_p. The scalar global five-term proof is now decomposed, including actual values on whole punctured discs. The separate projective/Bloch supplier comparisons and primary-source collation are precise remaining refinements; this stage is planned rather than closed.
+- The scalar analytic identity is now decomposed by five-term-scalar-global. What remains in L2/five-term-relation is the projective cyclic reformulation over a general subfield of C_p, with every denominator and infinity case, and the pre-Bloch/Bloch boundary and branch-change descent. These must use the requested field-general Polylogarithms:P.1 algebraic interface, not the complex Bloch-Wigner theorem over C_p. Keep the current complex supplier unchanged and specialize the field-general algebraic comparison when it is supplied.
 - Coleman 1982 (Invent. Math. 69) was not read (no public copy): the Frobenius and distribution relations are proved here from L1 and checked numerically; when a copy is available, compare Propositions 6.1-6.4 and 7.1 with these nodes and record the misprints Besser-de Jeu point out.
-
-The explicit sequence x_n=1+p^(n+1) now has a vanishing limit for the actual scalar defect, for every branch and every v≠0,1 in C_p. The geometric logarithm bounds and three small-argument limits are separate nodes. It remains to extend the Coleman pullback comparison to an extra source end mapping to a regular target point, prove membership of the defect in the four-puncture Coleman algebra, obtain a single Coleman constant and identify that constant with the actual defect on all punctured residue discs (including the boundary sequence). Constancy only on the tube is insufficient. The new five-term-from-algebraic-constancy states the exact remaining algebraic input; the existing density reduction then reaches all C_p points. Retain the separate field-general projective/Bloch comparisons. Zero local derivative alone proves none of these global identifications.
 
 Request to Polylogarithms:P.1: Generalize the algebraic cross-ratio interface behind P.1/five-cross-ratio-identity from complex points to pairwise distinct points of P^1 over a field: the complement, inverse, adjacent-permutation and fractional-linear invariance identities, and the five-point cyclic identity, with explicit denominator and infinity cases. Keep the current complex Bloch-Wigner theorem unchanged. ColemanIntegration needs only these algebraic identities over C_p, not a duplicate complex or p-adic five-term theorem. The scalar two-variable norm reduction now uses only specialized D-valued covariance and no general projective carrier. This request remains for the parent’s cyclic projective comparison and algebraic boundary/descent, not as an unresolved input to the scalar norm-reduction lemmas.
 
@@ -4543,7 +4542,7 @@ Let theta be a nontrivial primitive Dirichlet character of conductor N >= 2, n >
 
 ### What is missing
 
-- Coverage status: `partial`. Theorem 6.7 of RJW in corrected form (L_p(theta omega^{1-k}, k)) for every k >= 1 and every nontrivial primitive theta, with a complete public proof from the L2 inputs by the locally analytic distribution argument (geometric measures for tame part D > 1, smoothed measures for pure p-power conductor), the RJW-normalisation corollary and the trivial-character case; the complex formula from Mathlib's Fourier analysis on ZMod N; k = 1 recovers Theorem 6.1 with tame, mixed and p-power-conductor tests; comparisons with RJW §6.2, with BHYY's bounded-measure proof, with arbitrary locally analytic primitives and for independence of branch, root of unity and Frobenius lift; numerical checks of every case; the modified polylogarithm, the syntomic regulator of cyclotomic elements, the p-adic Beilinson conjecture as a proposition, and its proof for Dirichlet motives.
+- Coverage status: `planned`. Theorem 6.7 of RJW in corrected form (L_p(theta omega^{1-k}, k)) for every k >= 1 and every nontrivial primitive theta, with a complete public proof from the L2 inputs by the locally analytic distribution argument (geometric measures for tame part D > 1, smoothed measures for pure p-power conductor), the RJW-normalisation corollary and the trivial-character case; the complex formula from Mathlib's Fourier analysis on ZMod N; k = 1 recovers Theorem 6.1 with tame, mixed and p-power-conductor tests; comparisons with RJW §6.2, with BHYY's bounded-measure proof, with arbitrary locally analytic primitives and for independence of branch, root of unity and Frobenius lift; numerical checks of every case; the modified polylogarithm, the syntomic regulator of cyclotomic elements, the p-adic Beilinson conjecture as a proposition, and its proof for Dirichlet motives. Every target has an explicit node; the regulator-proof and coefficient-valued Artin inputs remain recorded gaps. Under section0 this finishes target-level planning coverage, without closing those inputs.
 - Decompose the proof of Besser-de Jeu Theorem 1.10(2) (gap) or import it from PadicHodgeRegulators:D.2.
 - Complex Artin L-functions with coefficients for the non-abelian statement of the p-adic Beilinson proposition (gap: no owner).
 - **Gap: The proof of Besser-de Jeu Theorem 1.10(2) is not decomposed.** The regulator formula reg_sigma([x]_n) = ±(n-1)! L^mod_n(sigma x) for special units occupies Besser-de Jeu §§3-7 (multi-relative K-theory and localisation, rigid syntomic regulators, the integration-down process by Coleman integration, regulators of special elements, and the appendix on Chern classes in relative cohomology). Read for structure only. NEXT ACTION: decompose Besser-de Jeu §§3-7 into nodes, in PadicHodgeRegulators:D.2 if that stage takes the regulator of symbols in all weights, otherwise in this layer. Needed by `ColemanIntegration:L3/syntomic-regulator-of-cyclotomic-elements`, `ColemanIntegration:L3/padic-beilinson-for-dirichlet-motives`, `ColemanIntegration:L3/coleman-formula-as-syntomic-regulator-formula`.
@@ -4601,7 +4600,7 @@ Each entry gives the printed text, the correction and the reason; the packet rec
 8. **GSWZ Lemma 2.1 (integrality of Li_n^{(p)}) is planned twice** (ownership, rescope; ColemanIntegration, HabiroNumberFields). HabiroNumberFields:HB.7/pochhammer-dwork-difference states and proves GSWZ Lemma 2.1, Li_n^{(p)}(t) ∈ Z[t, 1/(1−t)]^∧_p, which is ColemanIntegration:L2/integral-modified-polylogarithm (the same statement, with the same proof as BHYY Lemma 3.3). ColemanIntegration is the unique owner of p-adic polylogarithms (its README and the audit AUDIT-26/AUDIT-30). *Proposal:* HabiroNumberFields HB.7/pochhammer-dwork-difference imports Lemma 2.1 from ColemanIntegration:L2/integral-modified-polylogarithm (prerequisite plus request) and keeps only GSWZ Proposition 2.2 (the Dwork difference of the infinite Pochhammer symbol and its specialisation t ↦ ζ).
 9. **Complex and p-adic polylogarithms: no duplication** (boundary, rescope; ColemanIntegration, Polylogarithms). AUDIT-30 lists ColemanIntegration:L2 as a duplicate of Polylogarithms:P.1. The formal series polylogSeries and the complex Li_n with its distribution and inversion relations belong to P.1; L2 plans only the p-adic continuation and cites P.1 node ids (polylogarithm-power-series, complex-polylogarithm-at-roots-of-unity, five-term-relation). *Proposal:* Keep both layers; record the boundary: Polylogarithms P.1 owns Li_n over C and the formal series over Q; ColemanIntegration L2 owns the p-adic Li_k, Li_k^{(p)}, D_p and their relations and values.
 10. **Dilogarithm identities for D_p belong to ColemanIntegration L2** (boundary, rescope; ColemanIntegration, PadicHodgeRegulators). PadicHodgeRegulators D.1 imports 'logarithms, analytic continuation and p-adic polylogarithms' and D.2 compares the regulator with the p-adic dilogarithm on the Bloch group, which needs the five-term relation for D_p (GSWZ (173)-(174)). L2 now plans D^a, its reflection, inversion, branch and Frobenius relations, and the five-term relation (ColemanIntegration:L2/dilogarithm-identities, ColemanIntegration:L2/five-term-relation). The p²-integrality of D_p on special units (GSWZ Lemma 3.1) and the spanning statement (Proposition 3.3) stay in PadicHodgeRegulators D.3, which imports the tame values and the integral ℓ_k from L2. *Proposal:* PadicHodgeRegulators D.1-D.3 cite ColemanIntegration:L2/dilogarithm-identities, ColemanIntegration:L2/five-term-relation, ColemanIntegration:L2/values-at-tame-roots-of-unity and ColemanIntegration:L2/integral-modified-polylogarithm by node id.
-11. **Coleman functions on P¹ minus finite sets with bad (semistable) reduction** (scope, rescope; ColemanIntegration). L1 remains scoped to good-reduction curves. The local nested-disc five-term subcase is now obtained by a single-disc Abel identity and branch cancellation, so it does not require a semistable extension of L1. Scalar signed transport and norm reduction are now decomposed. The arbitrary-special-unit good-reduction model and projective/Bloch comparison still require proof. Wojtkowiak's more general functional-equation framework on arbitrary punctured lines is a distinct possible reason for a broader L1 scope. *Proposal:* Keep the current L1 scope. Supply the arbitrary-special-unit good-reduction argument and the separate field-correct projective/Bloch interfaces still recorded in the five-term gap. A semistable extension for broader functional-equation theory is a separate scope decision, not an input silently introduced by this scalar reduction.
+11. **Coleman functions on P¹ minus finite sets with bad (semistable) reduction** (scope, rescope; ColemanIntegration). L1 remains scoped to good-reduction curves. The local nested-disc five-term subcase is now obtained by a single-disc Abel identity and branch cancellation, so it does not require a semistable extension of L1. Scalar signed transport and norm reduction are now decomposed. The separated fourth-point good-reduction model and scalar end comparison are decomposed in this plan. The field-general projective/Bloch comparison remains a gap. Wojtkowiak's more general functional-equation framework on arbitrary punctured lines is a distinct possible reason for a broader L1 scope. *Proposal:* Keep the current L1 scope. Supply the separate field-correct projective/Bloch interfaces recorded in the five-term gap. A semistable extension for broader functional-equation theory is a separate scope decision, not an input silently introduced by this scalar reduction.
 12. **Leopoldt's formula (RJW Theorem 6.1) and its pure p-power-conductor proof** (restructure, rescope; ColemanIntegration, DirichletPadicLFunctions). DirichletPadicLFunctions:L3 owns RJW Theorem 6.1 and plans RJW's §6.2 proof, whose pure p-power-conductor case (D = 1) uses the undefined measure mu_theta = (mu_1)_chi (ColemanIntegration/E17). ColemanIntegration:L3 proves Theorem 6.7 for all k, which contains Theorem 6.1 at k = 1, but it requires DirichletPadicLFunctions:L3, so DirichletPadicLFunctions cannot import it without a cycle. *Proposal:* Keep Theorem 6.1 in DirichletPadicLFunctions:L3 and rescope its proof for D = 1 to the smoothed measure: twist mu_a by chi and use RJW's Ftilde_a of §7 (ColemanIntegration:L3/negative-moments-of-smoothed-measure at k = 1 is exactly that computation). ColemanIntegration:L3 keeps the general k and the comparison node recovers-leopoldt-formula.
 13. **Negative moments on Z_p^x through locally analytic primitives** (restructure, rescope; ColemanIntegration, LocallyAnalyticDistributions). ColemanIntegration:L3/unit-moment-via-distribution-primitive (int_{Z_p^x} x^{-k} mu = ((1 - phi psi) Ftilde)(0) when ((1+T) d/dT)^k Ftilde = A_mu) is a general statement about locally analytic distributions, the k-fold version of RJW Lemma 6.5 and (6.5); LocallyAnalyticDistributions:L1 plans 'division by x on distributions supported on units'. *Proposal:* Move ColemanIntegration:L3/unit-moment-via-distribution-primitive to LocallyAnalyticDistributions:L1 and cite it from ColemanIntegration:L3; LocallyAnalyticDistributions:L1 can state it without division by x, as in its proof step 2.
 14. **Correct the L3 target statement** (restructure, rescope; ColemanIntegration). The stage text of ColemanIntegration:L3 repeats RJW Theorem 6.7(ii) as printed, L_p(theta, k) = (1 - theta(p) p^{-k}) G(theta^{-1})^{-1} sum theta^{-1}(c) Li_{k,p}(xi_N^c), which is false for k not congruent to 1 mod p - 1 in RJW's normalisation (ColemanIntegration/E15). *Proposal:* Replace the displayed target by L_p(theta omega^{1-k}, k) = (1 - theta(p) p^{-k}) G(theta^{-1})^{-1} sum_c theta^{-1}(c) Li_k(xi_N^c), with Li_k Coleman's polylogarithm for the Iwasawa branch, and add the RJW-normalisation corollary ColemanIntegration:L3/coleman-formula-rjw-normalisation.
@@ -4609,8 +4608,7 @@ Each entry gives the printed text, the correction and the reason; the packet rec
 
 ## Numerical checks
 
-All checks use PARI/GP 2.17.4; the scripts are kept with the job's scratch files, and the packet's acceptance
-lines record each value.
+The inherited numerical evidence uses PARI/GP 2.17.4. The acceptance lines record its values; it is supporting evidence for the proof plans, with no claim that the scripts survive as deliverables.
 
 - **L0/L1.** PARI's $p$-adic logarithm is the Iwasawa branch. The depth-two direct construction, including the
   Frobenius, the tangential normalisation and the sign of $\mathrm{Li}_2$, gives $p\,\mathrm{Li}^{(p)}_2$ in
@@ -4653,26 +4651,19 @@ lines record each value.
 
 The six local Abel lemmas introduce no new definitions or competing analytic carriers. The existing 22 planets are retained; the L2 layer is already at its six-planet limit. All nodes remain unchecked. The nested-disc result does not consume the global five-term theorem or any complex Bloch–Wigner theorem.
 
-The field-general cross-ratio identities are requested from `Polylogarithms:P.1`, preserving its existing complex theorem. The packet retains every inherited supplier request and adds this one; no general Tate-algebra completion or semistable continuation is silently assumed. Scalar normalization and covariance are now decomposed below. The remaining global proof still requires the hypothesis-complete special-unit good-reduction argument and the projective/Bloch comparisons.
+The field-general cross-ratio identities are requested from `Polylogarithms:P.1`, preserving its existing complex theorem. The packet records this supplier request; no general Tate-algebra completion or semistable continuation is silently assumed. Scalar normalization and covariance are now decomposed below. The scalar global proof has its hypothesis-complete special-unit good-reduction argument below. The projective/Bloch comparisons retain their separate gap.
 
 Fresh source: [de Jeu, version 1 PDF](https://arxiv.org/pdf/2007.11014v1), SHA-256 `6d96d3d58d55e4c55506271e5cd0058b8ea8406995ca642febe868be87440b68`. The paragraph before the proof of Proposition 2.10 on printed p. 14 was visually checked. Wojtkowiak's version-of-record Proposition 4.4 on printed p. 364 was also visually checked; its constancy argument belongs to its Coleman framework, not arbitrary locally analytic functions. No new source erratum is asserted.
 
-### Scalar transport evidence and remaining boundary
+### Scalar transport source evidence
 
-The 27 September 2026 continuation freshly read de Jeu arXiv:2007.11014v1,
-printed/PDF pp.6,7,14 and Wojtkowiak’s version of record, printed pp.361–365 / PDF20–24.
-Both downloaded digests match the source records. The 24 inherited source findings are retained
-exactly; no new source erratum is asserted. Earlier broad reading and numerical claims are
-predecessor provenance, not a fresh all-source audit by this continuation.
+The scalar transport argument uses de Jeu arXiv:2007.11014v1, pp.6,7,14,
+and Wojtkowiak’s version-of-record pp.361–365. The packet records their
+versions and locators. All 25 source findings remain recorded; the inherited
+finite checks and source audit are provenance, not fresh all-source verification.
 
 The three new pinned references are PadicComplex.isNonarchimedean, norm_div and norm_inv.
-The complete suggested file elaborates with 300 placeholder warnings and no errors or other
-warnings. Its import closure is checked against the pin and the required Tau Ceti logarithm
-module is compiled from pinned source. Six complete scratch field-algebra proofs and three
-baseline telescope checks verify the rational substitutions independently. Exact rational
-controls run 154,058 assertions on 6,162 admissible pairs and p=2,3,5,7: every signed move,
-domain condition and terminal norm case passes, and 6,110 pairs reject a wrong-fourth-sign
-inversion identity. These finite controls do not prove the special-unit analytic input.
+The signature file uses admitted proofs. Current checks and unavailable supplier carriers are recorded in the handoff.
 
 No new planet is added because L2 already has six. Generic projective cross-ratio identities
 remain with Polylogarithms and generic pre-Bloch carriers remain with K3BlochGroups. The new
@@ -4878,12 +4869,13 @@ where k is the residue field. The lift fixes K and sends z to z^q. A ramified
 coefficient v can have v^q−v divisible by a uniformizer without being divisible
 by p; the correction estimate therefore uses the maximal ideal.
 
-This continuation also computes the five logarithmic pullbacks and proves zero
-differential of the scalar defect. The remaining proof must identify the defect
-as a Coleman function, including extra source ends mapping to regular target
-points, and identify that same constant with its values on the boundary sequence. The geometric boundary limit is supplied below. These are separate steps.
-The scalar identity for arbitrary C_p inputs also needs the algebraic-input
-density argument. No stage is closed by this continuation.
+The five logarithmic pullbacks give zero differential of the scalar defect.
+The end-comparison section below establishes its membership in the same
+four-puncture Coleman algebra, including additional source ends mapping to
+ordinary target discs, and identifies one constant with its actual values on
+every punctured source disc. The geometric boundary limit and algebraic-density
+reduction then supply the scalar identity for arbitrary C_p inputs. All these
+results are proof plans; the independent supplier and comparison gaps remain.
 
 ### Tube of the four-punctured line
 
@@ -5079,7 +5071,7 @@ Proof outline:
 1. Represent the four maps by matrices [[1,0],[0,1]], [[0,v],[1,0]], [[v,−v],[v−1,0]], [[−1,1],[0,1−v]]. Their determinants1,−v,v(v−1),v−1 are units, so the rational maps extend over O_K with invertible reduction.
 2. Solve their numerator, numerator-minus-denominator and denominator equations to obtain the preimage table, including infinity. Their inverse images of the removed target sections are subsets of D_v.
 3. For the constant v both v and1−v are units, so it defines an integral section of U_1. On the tube, direct norm division proves the target and its complement have norm1.
-4. A removed source point can map to a regular target point: the identity sends v to v. Accordingly this establishes the scheme-morphism hypotheses of Furusho Proposition2.5, but not the unnecessarily restrictive ends-to-ends wording in the current inherited pullback node. The analytic pullback extension across such extra source ends is retained as an explicit next step.
+4. An additional removed source point may map to an ordinary target point: the identity sendsv tov. The scheme-morphism hypotheses of Furusho Proposition2.5 suffice. The analytic comparison is now supplied by regular-image-end-pullback and special-unit-local-charts, rather than an ends-to-ends assumption.
 
 Prerequisites: `ColemanIntegration:L1/special-unit-line-good-reduction`, `ColemanIntegration:L1/special-unit-tube`, `ColemanIntegration:L1/punctured-line`, `mathlib:norm_div`.
 
@@ -5160,10 +5152,11 @@ no fixed finite extension, and in particular not Q_p, is declared dense in C_p.
 
 Consequently an identity R_a=0 proved on algebraic pairs in S extends to every
 point of S by continuity. The preceding scalar norm-reduction theorem then
-extends it to all admissible pairs. The new theorem states its algebraic-input
-hypothesis explicitly. Establishing that hypothesis still requires the actual
-Coleman pullback across an additional source end mapping to a regular target
-point, membership of R_a, global Coleman constancy and its comparison with actual punctured-disc values. The geometric boundary limit is supplied below.
+extends it to all admissible pairs. The conditional reduction states its algebraic-input hypothesis explicitly.
+The end-comparison section supplies it through literal pullbacks at additional
+source ends mapping to ordinary target points, membership of R_a, one Coleman
+constant and its comparison with the actual whole-punctured-disc values.
+The geometric boundary limit then fixes this constant.
 A locally analytic function with zero derivative is not used as a substitute.
 The projective and Bloch-group comparisons are still separate obligations.
 
@@ -5320,7 +5313,7 @@ Sources:
 
 `ColemanIntegration:L2/five-term-from-algebraic-special-units` — `fiveTermDefect_of_algebraic_special_units` (theorem).
 
-Fix a branch. Assume R_a(e(u),e(v))=0 for every u,v in the existing PadicAlgCl(p) whose image pair is in S. Then R_a(x,y)=0 for every admissible x,y∈ℂ_p. The displayed hypothesis is the still-required finite-extension special-unit Coleman input.
+Fix a branch. Assume R_a(e(u),e(v))=0 for every u,v in the existing PadicAlgCl(p) whose image pair is in S. Then R_a(x,y)=0 for every admissible x,y∈ℂ_p. This is a conditional density-and-norm reduction. Its hypothesis is supplied by five-term-algebraic-special-unit-constancy and the geometric boundary normalization.
 
 Hypotheses: p is any prime, including 2. Fix a branch parameter a∈ℂ_p and an actual logarithm branch L satisfying the existing IsLogBranch interface. D and R_a are the existing dilogD and scalar fiveTermDefect. An admissible pair (x,y) has x,y different from 0 and 1, and x≠y. Write A for this subset of ℂ_p² and S for its subset with |y|=|1−y|=1. No condition |x|=1 or |x−y|=1 is imposed. The topology is the ordinary product p-adic topology.
 
@@ -5329,7 +5322,7 @@ Proof outline:
 1. Restrict five-term-defect-continuous to S. The hypothesis gives equality with the constant-zero function on S∩range(e).
 2. Use Set.EqOn.of_subset_closure with five-term-algebraic-density to extend equality to every point of S. This is extension of a continuous identity, not a conclusion from a vanishing local derivative.
 3. Apply the existing five-term-from-special-units theorem to obtain vanishing at every admissible pair. The existing signed covariance and norm reduction supply this last step.
-4. The algebraic hypothesis is not proved here: the four-puncture Coleman pullback, constancy and boundary normalization must establish it. Any two input elements of PadicAlgCl(p) lie in a common finite extension, but that field can vary. Branch parameters remain arbitrary in ℂ_p.
+4. The reduction itself is conditional. Its algebraic hypothesis is supplied by five-term-algebraic-special-unit-constancy and five-term-boundary-limit in the final scalar proof. Any two input elements of PadicAlgCl(p) lie in a common finite extension, but that field can vary. Branch parameters remain arbitrary in ℂ_p.
 
 Prerequisites: `ColemanIntegration:L2/five-term-defect-continuous`, `ColemanIntegration:L2/five-term-algebraic-density`, `ColemanIntegration:L2/five-term-from-special-units`, `mathlib:Set.EqOn.of_subset_closure`.
 
@@ -5339,10 +5332,10 @@ Sources:
 
 - §2.2, Definition2.9 and Proposition2.11, arXiv v2 pp.9–10; p.10 read in full together with pp.7–9. The source supplies local analyticity of the existing Coleman polylogarithms away from 1. The continuity, open-locus and algebraic-density reductions here are explicit worker deductions using the pinned completion and topology theorems. The source does not state these adapters, and the conditional reduction does not establish the finite-extension five-term input.
 
-The added dependency of the global five-term target is
-`ColemanIntegration:L2/five-term-from-algebraic-special-units`. Its explicit
-hypothesis is precisely the unfinished algebraic case, so the global target
-remains unchecked and the corresponding gap remains open.
+The final scalar theorem applies this conditional algebraic-density reduction
+after the end-comparison and boundary-sequence theorems supply its hypothesis.
+Every implementation status remains unchecked. The remaining five-term gap
+concerns the field-general projective and Bloch comparisons.
 
 Seven complete scratch lemmas check the open-locus/density extension and the
 logarithm/dilogarithm/five-argument continuity reductions at the pin. They have
@@ -5350,9 +5343,9 @@ no placeholders. The finite stability harness passes 9,119 exact assertions,
 including 2,989 rational perturbation pairs and 49 pairs in the unramified
 dyadic quadratic model with a root of X²+X+1. The latter distinguishes special
 units over the algebraic closure from the empty special residue locus in F₂.
-These checks do not prove the outstanding Coleman constancy or boundary input.
+These inherited finite checks validate the locus and continuity reductions; the Coleman constancy and boundary steps have their own proof plans.
 
-The current full suggested file elaborates with zero errors and 342 expected proof-placeholder warnings. The actual PMIA and Dirichlet supplier seeds elaborate with 255 and 107 placeholder warnings. All 3923 reached Mathlib source modules match the pin; the one reached Tau Ceti module was rebuilt from its pinned source. The 100 typed examples include the five new locus and continuity tests. Both complete scratch proof files have zero errors and warnings.
+Current signature checks and their exact compilation limits are recorded in the handoff.
 
 
 ## Geometric boundary normalization of the five-term expression
@@ -5365,7 +5358,7 @@ The proof controls actual values on a specified sequence. It uses the exact loga
 
 At x=1+q_n the first term is −D(−q_n). The third argument tends to v, and its value cancels the fixed term −D(v). The fourth and fifth arguments are (v/(v−1))q_n/(1+q_n) and q_n/(v−1), both covered by the bounded-log limit. The fourth sign remains negative.
 
-To use this normalization, a continuation must first identify the same Coleman constant with the actual values on the punctured disc approaching one. Constancy only on the special-unit tube does not give that identification. The final theorem below states the remaining input as constancy on all admissible algebraic first coordinates; it then uses the existing algebraic-density and scalar-reduction theorems. General pullback across a regular-image extra end, membership, constancy and punctured-disc comparison remain within the recorded gap. The projective and Bloch comparisons remain separate supplier work.
+The end-comparison section identifies the same Coleman constant with the actual values on the entire punctured disc approaching one. It proves constancy on all admissible first coordinates for every algebraic special unit, using whole-disc logarithmic Laurent expansions rather than tube constancy alone. The conditional theorem below then normalizes this constant and applies the algebraic-density and scalar-reduction theorems. The projective and Bloch comparisons remain separate supplier work.
 
 The two logarithm bounds belong to L0; the remaining declarations belong to L2. They introduce no new carrier and no planet. The zero-value declaration promotes an existing API signature. [Furusho, arXiv v2](https://arxiv.org/abs/math/0304085v2), pp.7–12, supplies the normalization and analytic inputs. These geometric-sequence calculations are explicit deductions for this blueprint; the source does not state them in this form.
 
@@ -5614,7 +5607,7 @@ Fix a branch and let e:PadicAlgCl(p)→C_p be the canonical completion embedding
 1. For a fixed algebraic special unit v, the elements u_n=1+p^(n+1) lie in Q_p and hence in the existing PadicAlgCl. Their images equal 1+q_n by the native algebra-map operations.
 2. By five-term-boundary-admissible the constancy hypothesis applies eventually to u_n. The theorem five-term-boundary-constant forces C_v=0. Therefore every admissible algebraic special-unit pair has vanishing defect.
 3. Apply five-term-from-algebraic-special-units to extend to all admissible C_p pairs. Its continuity, algebraic-density and signed scalar reduction remain the supplied route.
-4. The constancy hypothesis is still unproved: obtain Coleman membership on the four-punctured line using a pullback which permits an extra source end to map to a regular target point, then transport the Coleman constant to the actual values on all punctured residue discs. This is not inferred from the existing zero-derivative theorem.
+4. The explicit constancy hypothesis is now supplied by five-term-algebraic-special-unit-constancy, using actual Coleman membership, global Coleman constancy and whole-disc end determination. This conditional reduction remains useful independently of that construction and retains no dependency on its own consuming global theorem.
 
 **Prerequisites:** `ColemanIntegration:L2/five-term-boundary-admissible`, `ColemanIntegration:L2/five-term-boundary-constant`, `ColemanIntegration:L2/five-term-from-algebraic-special-units`, `mathlib:PadicComplex.coe_eq`, `mathlib:PadicComplex.coe_natCast`.
 
@@ -5629,3 +5622,296 @@ Fix a branch and let e:PadicAlgCl(p)→C_p be the canonical completion embedding
 `ColemanIntegration/E25`: Lemma2.15, arXiv math/0304085v2, printed/PDFp.11 (page image checked). Finding scoped to the preprint; the published text was not served. Replace z→1 by z→0. Here g(z)=Σ_(k=0)^l a_k(log^a z)^k. As printed, g(z)=log^a z is a counterexample: local analyticity at1 gives limit0 although its linear coefficient is1. The proof itself takes z_n=α^n with |α|<1, hence approaches0; this is also the puncture used by the preceding proof of Theorem2.13. The intended zero-puncture assertion is unchanged.
 
 The author publication list, arXiv version history, publisher endpoints and a targeted correction search were checked on 27 September2026. No correction was identified. The publisher PDF endpoint returned an access page, so this finding makes no assertion about the published wording. The finding awaits independent review.
+
+
+## End comparison and the scalar five-term theorem
+
+Fix a branch $L=\log_a$ and a special unit $v$, so $|v|=|1-v|=1$. For algebraic $v$, its four-punctured good-reduction pair is defined over a finite extension $K/\mathbb Q_p$. The four rational argument maps carry it to the three-punctured line. Furusho Proposition 2.5 allows additional source ends to map to ordinary target points: its condition is $f(Y\prime)\subseteq Y$. At these ends the component pullback is the restriction of an ordinary target-disc series. This fact is needed to realize the **actual** scalar defect in the Coleman algebra.
+
+The image table uses rows $f_0=z$, $f_1=v/z$, $f_2=v(z-1)/(z(v-1))$, $f_3=(1-z)/(1-v)$ and columns the source punctures.
+
+| Map | $0$ | $1$ | $v$ | $\infty$ |
+| --- | --- | --- | --- | --- |
+| $f_0$ | $0$ | $1$ | $v$ | $\infty$ |
+| $f_1$ | $\infty$ | $v$ | $1$ | $0$ |
+| $f_2$ | $\infty$ | $0$ | $1$ | $v/(v-1)$ |
+| $f_3$ | $1/(1-v)$ | $0$ | $1$ | $\infty$ |
+
+Each parameter has the form $u t/(1+b t)$ with $|u|=1$ and $|b|\le1$. The explicit all-radius coefficient estimate below ensures that ordinary target-disc series remain one series on the whole source disc. A local analytic composition theorem alone would supply a smaller unspecified radius.
+
+The defect has zero differential and is therefore one constant as a Coleman element. On ordinary source discs its realization already gives the actual values. At the four ends, equality of logarithmic Laurent germs extends to equality on the entire punctured disc: both sides have all-radius expansions, logarithm transcendence separates the coefficients, and the owned Laurent identity principle determines them. This excludes locally constant modifications supported deep inside a punctured disc. The boundary sequence at $1$ determines the same constant, and density plus signed norm reduction gives the scalar identity on all admissible $\mathbb C_p$ pairs.
+
+### Whole-disc composition in a fractional local coordinate
+
+**Node:** `ColemanIntegration:L1/fractional-disc-composition` (lemma). **Declaration:** `TauCeti.ColemanIntegration.EndComparison.fractional_disc_composition`.
+
+Let F(c+s)=Σ a_m s^m be one power series converging on |s|<1 in C_p. For |u|≤1 and |b|≤1, F(c+u t/(1+b t)) is one power series on |t|<1. Its constant coefficient is a_0 and, for n≥1, its coefficient is Σ_(1≤m≤n) a_m u^m (−b)^(n−m) binom(n−1,m−1). For each 0<r<R<1 choose C_R with |a_m|R^m≤C_R; the composed coefficients c_n satisfy |c_n|r^n≤C_R(r/R)^n. In particular the ordinary target-disc function pulls back on the whole source disc, including its centre.
+
+*Hypotheses.*
+
+- p is any prime; c,u,b∈C_p; |u|≤1 and |b|≤1.
+- F has one expansion on the whole target disc, not merely local analyticity.
+
+*Proof outline.*
+
+1. Expand u t/(1+b t)=Σ_(n≥1) u(−b)^(n−1)t^n, using the existing geometric series. The denominator has norm1 for |t|<1.
+2. For m≥1 the m-th power has coefficient u^m(−b)^(n−m)binom(n−1,m−1) for n≥m. Obtain this by the finite binomial expansion of (1+b t)^(−m); the substitution has zero constant coefficient.
+3. The native ultrametric bound on natural-number casts bounds every binomial coefficient by1. Since R<1 and m≤n, each coefficient term has norm at most C_R R^(−n), giving the displayed all-radius bound. The m=0 term is handled separately.
+4. For a fixed |t|<r<R<1 the double sum is absolutely summable after taking real norms: the binomial majorants and (|t|/R)^m form convergent geometric tails. Exchange the sums and recover the actual composite. This estimate, rather than local analytic composition alone, supplies radius1.
+
+*Prerequisites.* `ColemanIntegration:L0/disc-analytic-functions`, `mathlib:FormalMultilinearSeries.ofScalars`, `mathlib:HasFPowerSeriesOnBall`, `mathlib:HasFPowerSeriesAt.comp`, `mathlib:hasFPowerSeriesOnBall_inv_one_add`, `mathlib:IsUltrametricDist.norm_natCast_le_one`.
+
+*Acceptance.*
+
+- For u=0 the composite is the constant F(c); for b=0 its n-th coefficient is a_n u^n.
+- For F(c+s)=s, u=1,b=1 the coefficients are (−1)^(n−1) for n≥1, fixing the denominator sign.
+
+*Source.* arXiv math/0304085v2, §2.1 p.7: the ordinary components are A(]x[); Proposition2.5 pp.8–9. Exact coefficient and radius estimates are worker deductions. The source supplies the good-reduction functorial framework and whole-disc polylogarithm expansions. The stated comparison and its explicit calculations are worker deductions, not a theorem attributed verbatim to the paper.
+
+### Pullback at an additional source end
+
+**Node:** `ColemanIntegration:L1/regular-image-end-pullback` (lemma). **Declaration:** `TauCeti.ColemanIntegration.EndComparison.regular_image_end_pullback`.
+
+For genus-zero good-reduction pairs (P¹,D′) and (P¹,D) over O_K, let f be an integral fractional-linear automorphism with f^−1(D)⊆D′. At a source end e′ whose reduction maps into the ordinary target locus Y_k, an ordinary target component H∈O(]f(e′)[) pulls back to H∘f∈O(]e′[), and hence to its Laurent end germ in A_loc^a(Y′). At ends mapping to target ends use the existing logarithmic parameter substitution. These component maps define the usual f# on A_loc and commute with differentiation. Together with the inherited Taylor/Frobenius argument they permit L1/coleman-pullback for these maps, even when an additional source end maps to an ordinary target point.
+
+*Hypotheses.*
+
+- K is a finite extension of Q_p; both divisors have disjoint reduction; both pairs carry the existing Frobenius data.
+- f is represented by an O_K matrix with unit determinant; f^−1(D)⊆D′. Coefficients and branch are extended to C_p.
+- This is the genus-zero free-differential case. The recorded nonfree-differential gluing gap is retained.
+
+*Proof outline.*
+
+1. In residue-disc coordinates an integral fractional-linear automorphism has form f(e′+t)=c+u t/(1+b t), with |u|=1, |b|≤1, when the image is ordinary. Use fractional-disc-composition to obtain one whole-disc pullback and restrict it to the source end. There is no target logarithmic symbol in this case.
+2. At an end mapping to a target end its parameter is u t/(1+b t). The branch identity gives log_a(u t/(1+b t))=log_a t+log_a u−log(1+b t); the last term is analytic on |t|<1. Use the existing annulus logarithmic parameter-change map.
+3. On every source component, the chain rule identifies d(f#H) with f#(dH). Restriction to the end agrees with the dagger-algebra pullback, so the component map does not introduce a new choice of integration constant.
+4. For the inherited proof of Coleman functoriality, choose common powers of the Frobenius lifts. The two nearby maps f∘φ′ and φ∘f have the same reduction. At a regular-image end apply Taylor expansion to the same ordinary target-disc series; at target-end images apply the existing logarithmic Taylor calculation. Thus the Frobenius equation used in L1/coleman-pullback holds in all components of A_loc, not only on the tube. Dwork induction on word depth gives the same Coleman pullback.
+
+*Prerequisites.* `ColemanIntegration:L1/fractional-disc-composition`, `ColemanIntegration:L1/locally-analytic-log-functions`, `ColemanIntegration:L1/word-algebra-local-expansion`, `ColemanIntegration:L1/taylor-homotopy`, `ColemanIntegration:L1/dwork-principle`, `ColemanIntegration:L0/annulus-log-ring`, `ColemanIntegration:L0/log-branch`, `ColemanIntegration:L0/log-one-add-convergence`, `ColemanIntegration:L1/word-algebra-frobenius`, `ColemanIntegration:L1/coleman-realization`.
+
+*Acceptance.*
+
+- For the inclusion P¹ minus {0,1,v,∞}→P¹ minus {0,1,∞}, the source end v pulls an ordinary target series back by t↦v+t.
+- No assertion requires that every source end maps to a target end; both the ordinary-image and end-image cases are distinguished.
+
+*Source.* arXiv math/0304085v2, Proposition2.5 pp.8–9 (no ends-to-ends hypothesis), with the component rings on p.7. The source requires f(Y′)⊆Y. The componentwise comparison and free-coordinate Taylor argument spell out the additional-end case of that precise theorem.
+
+### Local coordinates of the four argument maps
+
+**Node:** `ColemanIntegration:L1/special-unit-local-charts` (lemma). **Declaration:** `TauCeti.ColemanIntegration.EndComparison.special_unit_local_charts`.
+
+Fix |v|=|1−v|=1 and write f_0(z)=z, f_1(z)=v/z, f_2(z)=v(z−1)/(z(v−1)), f_3(z)=(1−z)/(1−v). At the source points (0,1,v,∞), with parameters (z,z−1,z−v,1/z), the target values are respectively (0,1,v,∞), (∞,v,1,0), (∞,0,1,v/(v−1)), (1/(1−v),0,1,∞). For each entry use target parameter w at0, w−1 at1, 1/w at∞, and w−c at a regular value c. Every resulting coordinate is u t/(1+b t). The rows (u;b) are (1,1,1,1;0,0,0,0), (1/v,−v,−1/v,v;0,1,1/v,0), ((1−v)/v,v/(v−1),1/(v(v−1)),−v/(v−1);−1,1,1/v,0), (−1/(1−v),1/(v−1),1/(v−1),v−1;0,0,0,−1). All |u|=1 and |b|≤1; every regular target value is a special unit. Thus the parameter map preserves |t| and gives an automorphism of the open unit disc.
+
+*Hypotheses.*
+
+- p is any prime, including2; v∈C_p is a special unit; 0<|t|<1 for formulas using t^−1.
+- These local algebra/norm identities do not require v algebraic. The scheme/Frobenius use still takes v in a finite extension.
+
+*Proof outline.*
+
+1. Insert z=t,1+t,v+t,t^−1 in the four rational maps from special-unit-maps. Subtract the target value at regular images or1, and invert at∞. Direct field manipulation gives all sixteen displayed (u,b) pairs.
+2. Since v,1−v and1 have norm1, each u has norm1 and each b has norm at most1. For |t|<1 the denominator1+b t has norm1. The inverse parameter substitution is t=s/(u−b s), which converges on |s|<1 and has the same norm.
+3. For the four extra-end cases the target centres are v,v,v/(v−1),1/(1−v); their complements have norm1. The constant argument v is ordinary on every source disc.
+4. At an end image, the identity for log_a(u t/(1+b t)) supplies the exact source logarithm and an analytic correction. At a regular image, fractional-disc-composition supplies one analytic pullback.
+
+*Prerequisites.* `ColemanIntegration:L1/special-unit-maps`, `ColemanIntegration:L1/fractional-disc-composition`, `ColemanIntegration:L0/log-branch`, `ColemanIntegration:L0/log-one-add-convergence`, `mathlib:norm_div`.
+
+*Acceptance.*
+
+- At p=5,v=2,z=2+t the third map minus1 is t/(2(1+t/2)); no extra puncture lies inside this disc.
+- At the source end1, v/z−v=−v t/(1+t), showing an ordinary target image and the sign of the correction.
+
+*Source.* arXiv math/0304085v2, §2.1 pp.7–9 and Proposition2.11 p.10; freshly read 5 October2026. The source supplies the good-reduction functorial framework and whole-disc polylogarithm expansions. The stated comparison and its explicit calculations are worker deductions, not a theorem attributed verbatim to the paper.
+
+### A logarithmic Laurent end determines its punctured disc
+
+**Node:** `ColemanIntegration:L2/log-laurent-end-determination` (lemma). **Declaration:** `TauCeti.ColemanIntegration.EndComparison.log_laurent_eq_of_end`.
+
+Let L be the actual logarithm branch. Suppose f and g each have a finite polynomial expansion in L(z−c), with Laurent coefficients converging absolutely at every real radius 0<ρ<1, as in the existing IsLogLaurentNear. If for some 0≤r<1 one has f(z)=g(z) whenever r<|z−c|<1, then f(z)=g(z) for every 0<|z−c|<1. A germ equality means such equality on an outer annulus; it is not merely agreement on a finite collection of points.
+
+*Hypotheses.*
+
+- p is any prime; a,c∈C_p; L=log_a; 0≤r<1.
+- Both functions have the existing whole-punctured-disc logarithmic Laurent expansions, with a finite logarithmic degree and all-radius convergence.
+
+*Proof outline.*
+
+1. Subtract the two finite expansions and pad the shorter polynomial by zero coefficients. The resulting polynomial in L(z−c) vanishes on the nonempty open annulus r<|z−c|<1.
+2. Apply annulus-log-transcendence on that annulus: every Laurent coefficient function vanishes there. The radii are nonnegative and genuinely distinct, so no empty-annulus injectivity assertion is used.
+3. Apply the already requested Laurent-series identity principle from P7:annulus-foundations to each coefficient function. Its coefficient sequence is zero, since restricting an all-radius Laurent series to the outer annulus preserves those same coefficients.
+4. All coefficients therefore vanish on the whole punctured disc, by their existing convergent series. Recover f=g there. Zero derivative of an arbitrary locally analytic function is not used.
+
+*Prerequisites.* `ColemanIntegration:L0/annulus-log-transcendence`, `ColemanIntegration:L0/annulus-log-ring`, `ColemanIntegration:L2/elementary-characterisation`, `PadicHodgeTheory:P7:annulus-foundations`.
+
+*Acceptance.*
+
+- A function equal to1 on 0<|z−c|<|p| and0 outside that smaller disc is locally constant but cannot have such a whole-disc logarithmic Laurent expansion: its end germ is0 and it is not identically0.
+
+*Tests.*
+
+- `EndComparison.indicator_not_log_laurent` (non-example): The indicator of |z|<|p| has no IsLogLaurentNear expansion at0, although it is locally constant and vanishes on its outer end.
+
+*Source.* arXiv math/0304085v2, §2.1 p.7 (Laurent germ ring and logarithm transcendence); Proposition2.11 and proof of Theorem2.13 p.10 (whole-disc logarithmic coefficients). Worker deduction from the source end ring and its transcendental logarithm, using the already requested Laurent identity principle. It makes the germ-to-whole-disc comparison precise.
+
+### A logarithmic Laurent end determines the disc at infinity
+
+**Node:** `ColemanIntegration:L2/log-laurent-infinity-determination` (lemma). **Declaration:** `TauCeti.ColemanIntegration.EndComparison.log_laurent_infty_eq_of_end`.
+
+Let f,g satisfy the existing IsLogLaurentAtInfty for the same branch. If for some 0≤r<1 they agree whenever r<|1/z|<1, then they agree for every |z|>1. This compares the actual functions on the entire punctured residue disc of∞.
+
+*Hypotheses.*
+
+- p is any prime; a∈C_p; L=log_a; 0≤r<1; both expansions converge at every parameter radius0<ρ<1.
+
+*Proof outline.*
+
+1. Pull both functions back along z=t^−1. The definitions become IsLogLaurentNear at0, with the identical Laurent coefficient sequences and logarithm L(t).
+2. Apply log-laurent-end-determination at0 and then set t=z^−1; for |z|>1, 0<|t|<1.
+
+*Prerequisites.* `ColemanIntegration:L2/log-laurent-end-determination`, `ColemanIntegration:L2/elementary-characterisation`, `mathlib:norm_inv`.
+
+*Acceptance.*
+
+- A modification supported only on |z|>|p|^−1 cannot preserve a whole-disc logarithmic Laurent expansion and an unchanged outer germ.
+
+*Source.* arXiv math/0304085v2, Proposition2.11 p.10, the parameter1/t at∞. The source supplies the good-reduction functorial framework and whole-disc polylogarithm expansions. The stated comparison and its explicit calculations are worker deductions, not a theorem attributed verbatim to the paper.
+
+### Whole-disc expansions of the scalar defect
+
+**Node:** `ColemanIntegration:L2/five-term-defect-log-laurent` (lemma). **Declaration:** `TauCeti.ColemanIntegration.EndComparison.five_term_defect_log_laurent`.
+
+For any special unit v∈C_p and branch L, the actual function z↦R_a(z,v) has an IsLogLaurentNear expansion at each of0,1,v and an IsLogLaurentAtInfty expansion at∞. The logarithmic degree is finite; each Laurent coefficient converges on the whole punctured parameter disc. These statements concern the actual dilogD and fiveTermDefect already defined in this packet, not an abstract replacement.
+
+*Hypotheses.*
+
+- p is any prime; a∈C_p; L=log_a; |v|=|1−v|=1.
+- No algebraicity restriction is needed for these local expansions.
+
+*Proof outline.*
+
+1. Li_2 has the supplied whole-disc expansions at0,1,∞ and one analytic series on each ordinary residue disc. The existing logarithm branch has analytic expansions away from0 and a single logarithm at0 or∞. Thus D=Li_2+½L(w)L(1−w) has a finite logarithmic polynomial expansion on each target punctured disc and is analytic on every ordinary target disc.
+2. For an ordinary target image use the exact local-chart table and fractional-disc-composition on its one analytic series. The pullback is one analytic series on the entire source disc.
+3. For a target end, its parameter is u t/(1+b t) with |u|=1 and |b|≤1. Replace its logarithm by L(t)+L(u)−log(1+b t). Its analytic coefficients compose by fractional-disc-composition. Any finite negative powers come from the rational log factors; after factoring t^−j their remaining coefficients are analytic on the whole disc. Here the supplied Li_2 coefficients themselves are analytic on the whole disc.
+4. The constant term D(v) and all four pulled-back functions lie in this one source logarithmic Laurent class on each source disc. Take their signed sum. Disjoint reduction ensures that no other source puncture lies inside the disc.
+
+*Prerequisites.* `ColemanIntegration:L1/special-unit-local-charts`, `ColemanIntegration:L1/fractional-disc-composition`, `ColemanIntegration:L2/polylogarithms-on-the-punctured-residue-discs`, `ColemanIntegration:L2/p-adic-polylogarithm`, `ColemanIntegration:L2/dilogarithm-identities`, `ColemanIntegration:L2/five-term-defect`, `ColemanIntegration:L0/log-branch-local-expansion`, `ColemanIntegration:L0/log-branch`, `ColemanIntegration:L0/log-one-add-convergence`.
+
+*Acceptance.*
+
+- At the source puncturev the identity-map argument is regular; at the source puncture1 the argumentv/z is regular. Both are treated as analytic coefficients rather than target logarithmic ends.
+
+*Source.* arXiv math/0304085v2, §2.1 pp.7–9 and Proposition2.11 p.10; freshly read 5 October2026. The source supplies the good-reduction functorial framework and whole-disc polylogarithm expansions. The stated comparison and its explicit calculations are worker deductions, not a theorem attributed verbatim to the paper.
+
+### Coleman membership of the scalar defect
+
+**Node:** `ColemanIntegration:L2/five-term-defect-coleman` (lemma). **Declaration:** `TauCeti.ColemanIntegration.EndComparison.five_term_defect_coleman`.
+
+Let v lie in a finite extension K/Q_p and satisfy |v|=|1−v|=1. In the existing Coleman algebra for the four-punctured pair Y_v, the element H_v=f_0^*D−D(v)+f_1^*D−f_2^*D+f_3^*D has, on every ordinary source disc, the actual values R_a(z,v), and at every source end the germ of the actual function R_a(·,v). It is a Coleman function of depth at most2. The equality at regular-image additional ends uses the ordinary-series restriction of L1/regular-image-end-pullback.
+
+*Hypotheses.*
+
+- K is finite over Q_p; v∈K is a special unit; a∈C_p is arbitrary.
+- The four-puncture Frobenius datum and the actual Li_2 and logarithm branches are those already planned; no new Coleman carrier is introduced.
+
+*Proof outline.*
+
+1. On the target three-punctured line, Li_2 and both logarithms are Coleman; their product and linear combination D are Coleman by the existing subalgebra structure.
+2. Instantiate coleman-pullback for each of the four integral maps of special-unit-maps, using regular-image-end-pullback for its extra source end. The free coordinate dz and the supplied four-puncture Frobenius datum discharge the genus-zero hypotheses.
+3. Take the indicated linear combination in the source Coleman subalgebra; the scalar D(v) is its constant element. Products of depth-one logarithms and Li_2 have depth at most2.
+4. The LocAn pullback is literal composition on ordinary discs and literal restriction of the same analytic or logarithmic series at source ends. Therefore its componentwise realization is the actual defect, including the extra-end germs. This comparison is part of membership, not an independent arbitrary normalization assumption.
+
+*Prerequisites.* `ColemanIntegration:L1/regular-image-end-pullback`, `ColemanIntegration:L1/coleman-pullback`, `ColemanIntegration:L1/coleman-functions`, `ColemanIntegration:L1/special-unit-frobenius-datum`, `ColemanIntegration:L1/special-unit-maps`, `ColemanIntegration:L2/existence-and-uniqueness-of-coleman-polylogarithms`, `ColemanIntegration:L2/dilogarithm-identities`, `ColemanIntegration:L2/five-term-defect`, `ColemanIntegration:L2/five-term-defect-log-laurent`.
+
+*Acceptance.*
+
+- All five arguments at p=5,v=2,z=3 are realized by the same source algebra.
+- Changing one ordinary-disc value by a locally constant bump cannot preserve this pullback realization.
+
+*Source.* arXiv math/0304085v2, Proposition2.5 pp.8–9 and Definition2.9 pp.9–10. The explicit scalar combination is a worker deduction. The source supplies the good-reduction functorial framework and whole-disc polylogarithm expansions. The stated comparison and its explicit calculations are worker deductions, not a theorem attributed verbatim to the paper.
+
+### One Coleman constant for the scalar defect
+
+**Node:** `ColemanIntegration:L2/five-term-defect-coleman-constant` (lemma). **Declaration:** `TauCeti.ColemanIntegration.EndComparison.five_term_defect_coleman_constant`.
+
+For the Coleman element H_v of five-term-defect-coleman there exists one C_v∈C_p with H_v=C_v in A_Col^a(Y_v), hence in every component of A_loc. Thus the actual scalar defect is C_v on every ordinary residue disc and its germ at each of0,1,v,∞ is the constant C_v. The same constant is used in all components.
+
+*Hypotheses.*
+
+- K/Q_p finite; v∈K special unit; arbitrary branch a∈C_p.
+- H_v is the actual pullback realization supplied by five-term-defect-coleman.
+
+*Proof outline.*
+
+1. Its ordinary and end components are the actual scalar expression. Apply five-term-defect-zero-differential on every admissible point. On each end annulus the derivative of the germ is the derivative of that same expression, so dH_v=0 in Omega_loc.
+2. Differentiation of the Coleman realization agrees with differentiation in LocAn. The uniqueness/injectivity of the realization therefore gives dH_v=0 as a Coleman form.
+3. Apply the existing Coleman ker(d)=C_p theorem. Equality H_v=C_v in the Coleman algebra implies equality in every component of LocAn. No inference from local constancy of arbitrary functions is made.
+
+*Prerequisites.* `ColemanIntegration:L2/five-term-defect-coleman`, `ColemanIntegration:L2/five-term-defect-zero-differential`, `ColemanIntegration:L1/coleman-uniqueness-principle`, `ColemanIntegration:L1/coleman-functions`, `ColemanIntegration:L1/coleman-realization`.
+
+*Acceptance.*
+
+- The branch parameter may lie outsideK; C_v is allowed inC_p.
+- Equality of just the tube values would leave the extra-end comparison unspecified; the conclusion includes all end germs.
+
+*Source.* arXiv math/0304085v2, Proposition2.4 p.8; corroborated by Besser arXiv math/0011269v1, Corollary4.14 p.14. Scalar application is a worker deduction. The source supplies the good-reduction functorial framework and whole-disc polylogarithm expansions. The stated comparison and its explicit calculations are worker deductions, not a theorem attributed verbatim to the paper.
+
+### Constancy of the actual defect for an algebraic special unit
+
+**Node:** `ColemanIntegration:L2/five-term-algebraic-special-unit-constancy` (theorem). **Declaration:** `TauCeti.ColemanIntegration.EndComparison.five_term_algebraic_special_unit_constancy`.
+
+Let v be in PadicAlgCl(p), embedded into C_p, and |v|=|1−v|=1. For every branch there exists C_v∈C_p such that R_a(x,v)=C_v for every x∈C_p minus {0,1,v}. This includes all points in the four punctured residue discs, not only the special-unit tube.
+
+*Hypotheses.*
+
+- p is any prime, including2; v is algebraic over Q_p; a∈C_p is arbitrary.
+- The actual dilogD and fiveTermDefect are used throughout.
+
+*Proof outline.*
+
+1. Place v in a finite extensionK ofQ_p and instantiate five-term-defect-coleman-constant there, extending coefficients toC_p. The equality on ordinary residue discs and at all four end germs uses oneC_v.
+2. At0,1,v compare the actual defect with the constant function using five-term-defect-log-laurent and log-laurent-end-determination. The germ equality gives an outer annulus on which the expansions agree, and hence equality on the entire punctured disc.
+3. At∞ use log-laurent-infinity-determination. Every admissible point ofP¹(C_p) lies either in an ordinary residue disc or in one of these four punctured discs, since the removed sections have distinct reduction.
+4. This supplies the exact hypothesis of five-term-from-algebraic-constancy. It does not require the first coordinate to be algebraic or to lie inK.
+
+*Prerequisites.* `ColemanIntegration:L2/five-term-defect-coleman-constant`, `ColemanIntegration:L2/five-term-defect-log-laurent`, `ColemanIntegration:L2/log-laurent-end-determination`, `ColemanIntegration:L2/log-laurent-infinity-determination`, `ColemanIntegration:L1/special-unit-line-good-reduction`, `ColemanIntegration:L2/values-in-finite-extensions`.
+
+*Acceptance.*
+
+- The geometric boundary sequence1+p^(n+1) lies in the punctured disc of1, so its eventual defect values equal precisely thisC_v.
+- Atp=2 use an algebraic special unit reducing toF_4 minus{0,1}; no such unit inQ_2 is assumed.
+
+*Source.* arXiv math/0304085v2, §2.1 pp.7–9 and Proposition2.11 p.10; freshly read 5 October2026. The source supplies the good-reduction functorial framework and whole-disc polylogarithm expansions. The stated comparison and its explicit calculations are worker deductions, not a theorem attributed verbatim to the paper.
+
+### The scalar five-term dilogarithm identity
+
+**Node:** `ColemanIntegration:L2/five-term-scalar-global` (theorem). **Declaration:** `TauCeti.ColemanIntegration.EndComparison.five_term_defect_eq_zero`.
+
+For every primep, every brancha∈C_p and every x,y∈C_p with x,y≠0,1 and x≠y, the actual fiveTermDefect R_a(x,y) is zero. This is the scalar part of L2/five-term-relation. The field-general projective reformulation and pre-Bloch/Bloch descent remain separate supplier comparisons.
+
+*Hypotheses.*
+
+- p is any prime, including2; a∈C_p; x,y≠0,1; x≠y.
+
+*Proof outline.*
+
+1. For each algebraic special unitv use five-term-algebraic-special-unit-constancy to obtain one constant for all admissible first coordinates. In particular restrict it to algebraic first coordinates.
+2. Apply the existing five-term-from-algebraic-constancy: its geometric boundary limit forces the constant to0; the open-locus algebraic density and continuity extend this to everyC_p special-unit pair; the signed scalar norm reduction gives every admissible pair.
+3. This dependency chain uses no field-general projective five-point identity. Those additional conclusions retain their precise request to the Polylogarithms owner.
+
+*Prerequisites.* `ColemanIntegration:L2/five-term-algebraic-special-unit-constancy`, `ColemanIntegration:L2/five-term-from-algebraic-constancy`.
+
+*Acceptance.*
+
+- Forp=3,(x,y)=(4,2), the identity holds for every branch, including nonzeroa.
+- Forp=2 an algebraic special unitζ withζ²+ζ+1=0 permits the special-unit input; the scalar conclusion applies to every admissibleC_2 pair.
+
+*Tests.*
+
+- `EndComparison.branch_three` (computation): For any branch onC_3 the scalar defectR_a(4,2) is0.
+- `EndComparison.dyadic_special_unit` (computation): For a special unitζ∈C_2 withζ²+ζ+1=0, the scalar defectR_a(2,ζ) is0 for every branch.
+
+*Source.* arXiv2007.11014v1, Proposition2.10 p.6 and its normalization on p.14. The explicit proof chain here is derived from the inherited normalization, source functoriality, end comparison and boundary reduction. The source supplies the good-reduction functorial framework and whole-disc polylogarithm expansions. The stated comparison and its explicit calculations are worker deductions, not a theorem attributed verbatim to the paper.
+
+The newly reached Mathlib declarations are `HasFPowerSeriesAt.comp` (`Mathlib/Analysis/Analytic/Composition.lean`) and `hasFPowerSeriesOnBall_inv_one_add` (`Mathlib/Analysis/Analytic/Constructions.lean`), read at the recorded pin. The first identifies local composition, while the explicit coefficient estimate supplies the whole-disc radius. The second is the alternating geometric expansion of $(1+x)^{-1}$ on the open unit ball.
+
+The seven new analytic/scalar signatures and six examples are stated using the existing native carriers. Three new componentwise Coleman results are comments in the suggested file because the genuine dagger/LocAn carrier and its end realization are supplied by other roadmaps. Their mathematical contracts above specify the actual component maps, element and single constant. No substitute carrier or unconstrained predicate represents these missing objects.
