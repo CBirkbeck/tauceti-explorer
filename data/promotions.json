@@ -306,6 +306,17 @@
     "data/blueprints/AdicSpacesPartII.md"
    ]
   },
+  "research/blueprint/packets/AlgebraicModuliForArithmeticGeometry--A0-extension.json": {
+   "promotedAt": "2026-10-05T16:36:51Z",
+   "review": "7747f42b3dec9e52",
+   "reviewDate": "2026-10-05",
+   "reviewer": "independent-review-REV-AlgebraicModuliForArithmeticGeometry--A0-extension",
+   "sha256": "312f9e3e2b0e30340b328ed1d8f31513a84cebc0083e45416fe5f1c47bdc106b",
+   "to": [
+    "data/blueprints/AlgebraicModuliForArithmeticGeometry--A0-extension.json",
+    "data/blueprints/AlgebraicModuliForArithmeticGeometry--A0-extension.md"
+   ]
+  },
   "research/blueprint/packets/AnabelianGeometryAndNonabelianChabauty.json": {
    "promotedAt": "2026-10-05T15:38:39Z",
    "review": "589e2645aee81f7e",
