@@ -31504,8 +31504,9 @@
    ],
    "followUpOf": "BP-K3BlochGroups",
    "prompt": "research/blueprint/prompts/BP-K3BlochGroups--V.1.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6381"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6381",
+   "finishedAt": "2026-10-05T23:34:15Z"
   },
   {
    "id": "REV-K3BlochGroups--V.1",
@@ -31706,7 +31707,8 @@
    ],
    "avoidAccountOf": "BP-K3BlochGroups--V.5",
    "prompt": "research/blueprint/prompts/REV-K3BlochGroups--V.5.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6400"
   },
   {
    "id": "BP-K3BlochGroups--V.6",
@@ -31772,7 +31774,8 @@
    ],
    "followUpOf": "BP-Polylogarithms",
    "prompt": "research/blueprint/prompts/BP-Polylogarithms--P.2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6387"
   },
   {
    "id": "REV-Polylogarithms--P.2",
@@ -33550,8 +33553,9 @@
    ],
    "followUpOf": "BP-EllipticRegulators",
    "prompt": "research/blueprint/prompts/BP-EllipticRegulators--ER.2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6483"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6483",
+   "finishedAt": "2026-10-05T23:34:17Z"
   },
   {
    "id": "REV-EllipticRegulators--ER.2",
@@ -34416,7 +34420,8 @@
    ],
    "followUpOf": "BP-HabiroNahmSeries",
    "prompt": "research/blueprint/prompts/BP-HabiroNahmSeries--HB.4.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6507"
   },
   {
    "id": "REV-HabiroNahmSeries--HB.4",
@@ -35798,8 +35803,9 @@
    ],
    "revisionOf": "BP-KTheoryLowDegrees--Z.3",
    "prompt": "research/blueprint/prompts/BP-KTheoryLowDegrees--Z.3~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6504"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6504",
+   "finishedAt": "2026-10-05T23:34:18Z"
   },
   {
    "priority": 2,
