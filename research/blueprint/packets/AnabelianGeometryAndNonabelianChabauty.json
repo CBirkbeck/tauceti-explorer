@@ -77,8 +77,8 @@
         "ref": "mathlib:MulAction.toPerm",
         "kind": "def",
         "module": "Mathlib/Algebra/Group/Action/Basic.lean",
-        "provides": "A group action as a homomorphism to permutations.",
-        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+        "provides": "For each acting group element, the action gives a permutation of the acted-on type. The homomorphism packaging is MulAction.toPermHom, separately cited where needed.",
+        "checked": "REV-AnabelianGeometryAndNonabelianChabauty: read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; toPerm is the elementwise permutation, not the homomorphism to permutations."
       },
       {
         "ref": "mathlib:MulAut.conj",
@@ -679,8 +679,8 @@
         "ref": "mathlib:Subgroup.continuousSMul",
         "kind": "instance",
         "module": "Mathlib/Topology/Algebra/MulAction.lean",
-        "provides": "A subgroup with the native subtype topology inherits joint continuity of the original group action.",
-        "checked": "Actual statement and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02; exact name confirmed in the pinned declaration index."
+        "provides": "A jointly continuous action of the ambient acting group restricts to a jointly continuous action of any subgroup of that acting group, with its native subtype topology. This is not an instance for an arbitrary subgroup of the coefficient group.",
+        "checked": "REV-AnabelianGeometryAndNonabelianChabauty: statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174. The subgroup is in the acting group; its use for source-subgroup restriction is valid."
       },
       {
         "ref": "mathlib:QuotientGroup.isOpenQuotientMap_mk",
@@ -1562,10 +1562,10 @@
         {
           "name": "TauCeti.NonabelianCohomology.Z1.mem_iff",
           "role": "characterisation",
-          "statement": "c ∈ Z¹ iff c is continuous and satisfies the cocycle identity."
+          "statement": "A function f:G→U is the underlying function of a continuous cocycle if and only if f is continuous and f(gh)=f(g)·(g•f(h)) for all g,h."
         },
         {
-          "name": "TauCeti.NonabelianCohomology.Z1.one",
+          "name": "TauCeti.NonabelianCohomology.Z1.instOne",
           "role": "constructor",
           "statement": "The trivial cocycle g ↦ 1, the base point."
         },
@@ -2368,7 +2368,7 @@
         },
         {
           "sourceId": "kim-albanese-2009",
-          "locator": "§3, p. 26",
+          "locator": "§4 Comments II, printed p. 26",
           "match": "The same structure for Selmer varieties."
         }
       ],
@@ -15615,7 +15615,6 @@
         "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-cocycle-lift-inclusion",
         "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-h1-representative",
         "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-map-surjectivity",
-        "AnabelianGeometryAndNonabelianChabauty:NC.3/coefficient-h1-map",
         "AnabelianGeometryAndNonabelianChabauty:NC.3/coefficient-h1-map"
       ],
       "proofSteps": [
