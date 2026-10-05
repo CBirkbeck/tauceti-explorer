@@ -13180,8 +13180,8 @@
    "avoidAccountOf": "DESIGN-FunctionFieldArithmeticPartII",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-FunctionFieldArithmeticPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3533"
+   "state": "pending",
+   "note": "released on GitHub issue #3533"
   },
   {
    "id": "DESIGN-ProbabilisticAndMetricNumberTheoryPartII",
@@ -20972,7 +20972,8 @@
    ],
    "avoidAccountOf": "BP-DeformationAndDerivedPatchingAlgebra--P7",
    "prompt": "research/blueprint/prompts/REV-DeformationAndDerivedPatchingAlgebra--P7.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #142"
   },
   {
    "id": "BP-DeformationAndDerivedPatchingAlgebra--R03.6",
@@ -30319,8 +30320,8 @@
    ],
    "avoidAccountOf": "BP-AnalyticNumberTheory--AN.0",
    "prompt": "research/blueprint/prompts/REV-AnalyticNumberTheory--AN.0.md",
-   "state": "pending",
-   "note": "released on GitHub issue #527"
+   "state": "external",
+   "note": "claimed on GitHub issue #527"
   },
   {
    "id": "BP-AnalyticNumberTheory--AN.8",
