@@ -9662,12 +9662,37 @@
           "name": "IntrinsicBandSections.commGroup",
           "role": "instance",
           "statement": "The subgroup has pointwise group operations and a commutative group structure inherited from centrality."
+        },
+        {
+          "name": "IntrinsicBandSections.mk",
+          "role": "constructor",
+          "statement": "For U, a family z(V,f) of units of CatCenter(F(V)) satisfying the vertical compatibility equation for every f:V→U, g:W→V and x over V determines a section in ZF(U). No topology, gerbe, chosen object or abelian-inertia assumption is needed."
+        },
+        {
+          "name": "IntrinsicBandSections.val_mk",
+          "role": "simp",
+          "statement": "For every V and f:V→U, the component of mk(z,hz) is z(V,f); the compatibility witness does not change this component."
+        },
+        {
+          "name": "IntrinsicBandSections.val_one",
+          "role": "simp",
+          "statement": "For every f:V→U, the component of the identity section is the identity unit of CatCenter(F(V))."
+        },
+        {
+          "name": "IntrinsicBandSections.val_mul",
+          "role": "simp",
+          "statement": "For s,t in ZF(U), val(s t,V,f)=val(s,V,f) val(t,V,f) with the pinned categorical-center multiplication."
+        },
+        {
+          "name": "IntrinsicBandSections.val_inv",
+          "role": "simp",
+          "statement": "For s in ZF(U), val(s inverse,V,f)=val(s,V,f) inverse."
         }
       ],
       "tests": [
         {
           "name": "BandCenterTests.C3",
-          "kind": "computed",
+          "kind": "computation",
           "statement": "On the one-object point-site gerbe B(C3), there are three central sections, with evaluation recovering all of C3."
         },
         {
@@ -9682,7 +9707,7 @@
         },
         {
           "name": "BandLocalityTests.cover",
-          "kind": "general",
+          "kind": "characterisation",
           "statement": "For a gerbe on an arbitrary site, equality of central-section restrictions on a covering sieve forces equality of the original sections; no terminal object or fibre products are needed."
         },
         {
@@ -9848,7 +9873,7 @@
         },
         {
           "name": "BandRestrictionTests.chain",
-          "kind": "computed",
+          "kind": "computation",
           "statement": "For the three-object chain with fibre groups C4→C2→C2 and restrictions reduction mod2 then identity, the generator1 restricts to1 by either the composite or the two successive maps."
         },
         {
@@ -10006,7 +10031,7 @@
       "tests": [
         {
           "name": "BandEvaluationTests.generator",
-          "kind": "computed",
+          "kind": "computation",
           "statement": "For B(C3) evaluation sends its generator section to the nonidentity automorphism1."
         },
         {
@@ -10050,7 +10075,6 @@
         "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-evaluation",
         "mathlib:CategoryTheory.Pseudofunctor.IsPrestack",
         "mathlib:CategoryTheory.Pseudofunctor.sheafHom",
-        "SchemeAndStackFoundations:SF.1",
         "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-cover-automorphism",
         "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-cover-automorphism-unique",
         "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-separated",
@@ -10066,7 +10090,7 @@
       ],
       "acceptance": [
         "Explicitly glue inverse maps as well as hom maps.",
-        "Invoke imported sheaf/Hom descent; do not replan generic gluing or absolute-sheaf assembly."
+        "Use pinned Mathlib Hom descent and the local central-section gluing nodes. The separate comparison with the SF.1 slice-glued band is not needed to prove this presheaf is a sheaf."
       ],
       "library": {
         "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
@@ -10277,7 +10301,7 @@
       "tests": [
         {
           "name": "BandSheafTests.BC3",
-          "kind": "computed",
+          "kind": "computation",
           "statement": "For B(C3) on a point the coefficient group is C3 and its banding sends generator to generator."
         },
         {
@@ -10288,7 +10312,7 @@
         {
           "name": "BandSheafTests.rootNonneutral",
           "kind": "non-example",
-          "statement": "For the gerbe of nth roots of O(1) on P1, the coefficient sheaf is μn even though the fibre over P1 is empty; assigning the zero band whenever F(U) is empty is incorrect."
+          "statement": "Let k be an algebraically closed field, n≥2 an integer invertible in k, and X=P¹_k with its small étale site. The gerbe of nth roots of O_X(1) has intrinsic coefficient sheaf μn although its fibre over X is empty: n times the degree of a putative root would equal 1. Assigning the zero band whenever F(U) is empty is incorrect. For n=1 the fibre is nonempty, so that boundary case is excluded."
         }
       ],
       "uses": [
@@ -40860,7 +40884,8 @@
       "supplier": "SchemeAndStackFoundations:SF.1",
       "need": "Effective descent of sheaves of groups on slice sites, with restriction coherence; use D0 ordinary stack foundations and existing Mathlib sheaf carriers.",
       "neededBy": [
-        "AlgebraicModuliForArithmeticGeometry:R09.4/intrinsic-abelian-band"
+        "AlgebraicModuliForArithmeticGeometry:R09.4/intrinsic-abelian-band",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-glued-comparison"
       ]
     },
     {
@@ -41292,6 +41317,18 @@
         "AlgebraicModuliForArithmeticGeometry:R09.4/canonical-affine-factorization",
         "AlgebraicModuliForArithmeticGeometry:R09.5/affine-kernel-rigidification",
         "AlgebraicModuliForArithmeticGeometry:R09.4/canonical-factorization-unique"
+      ]
+    },
+    {
+      "title": "Intrinsic-band concrete fixtures and slice comparison review boundary",
+      "detail": "The point-site C3, terminal-fibre and S3 tests and the connected two-object evaluation test are now stated on the existing native BandFixtures/ConnectedBandFixtures carriers under their original test names. This repairs the earlier omission ledger only for those concrete signatures. Their geometric comparison to a classifying stack, the nonconstant restriction-chain and terminal-free fixtures, actual fixed-band inversion, and the n≥2 invertible-order O(1) root-gerbe fixture still need full independent validation. The SF.1 descended-slice band comparison remains an open supplier request; it is not a prerequisite for proving the native central-section presheaf is a sheaf. A source-checked H2/classification/sign route is still required before interpreting the root-gerbe class.",
+      "neededBy": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-sections",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-restrict",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-evaluation",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-banding",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-from-banding",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-glued-comparison"
       ]
     }
   ],
