@@ -394,6 +394,17 @@
     "data/blueprints/ClassicalSerreModularity--R33.5.md"
    ]
   },
+  "research/blueprint/packets/ColemanIntegration.json": {
+   "promotedAt": "2026-10-05T18:03:35Z",
+   "review": "20d0df0709cd5206",
+   "reviewDate": "2026-10-05",
+   "reviewer": "independent-review-REV-ColemanIntegration",
+   "sha256": "7365c824bd2e583603741ca94647250a4b41365a776b822aa58e196bfbe1eba5",
+   "to": [
+    "data/blueprints/ColemanIntegration.json",
+    "data/blueprints/ColemanIntegration.md"
+   ]
+  },
   "research/blueprint/packets/ComputationalNumberTheory.json": {
    "promotedAt": "2026-10-05T01:53:35Z",
    "review": "5efee3fa44a58f2b",
