@@ -6,8 +6,8 @@
     "AnalyticNumberTheory:AN.8",
     "AnalyticNumberTheory:AN.9"
   ],
-  "status": "complete",
-  "summary": "Protocol §0 target-planning pass for AN.8 and AN.9. Both stages are planned and remain open at the recorded source and supplier interfaces; no formalization or proof closure is claimed.",
+  "status": "partial",
+  "summary": "Independent review of the selected AN.8/AN.9 target pass: mathematical corrections and additional lemma inputs are recorded, but the required lemma-level refinement and native interfaces remain incomplete. Both stages are partial; no formalization or proof closure is claimed.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -17,259 +17,287 @@
         "kind": "abbrev",
         "module": "Mathlib/Topology/Instances/AddCircle/Defs.lean",
         "provides": "ℚ/ℤ as AddCircle (1 : ℚ), the index set of the e(γ).",
-        "checked": "Fresh 2026-10-05 declaration statement/parameters reread at the pinned source revision; no build result inferred."
+        "checked": "Independent REV-AnalyticNumberTheory--AN.8: declaration and parameters read at the recorded pinned commit on 2026-10-05; source verification only, not elaboration."
       },
       {
         "ref": "mathlib:Complex.cpow",
         "kind": "def",
         "module": "Mathlib/Analysis/SpecialFunctions/Pow/Complex.lean",
         "provides": "Complex powers a^{iz}.",
-        "checked": "Fresh 2026-10-05 declaration statement/parameters reread at the pinned source revision; no build result inferred."
+        "checked": "Independent REV-AnalyticNumberTheory--AN.8: declaration and parameters read at the recorded pinned commit on 2026-10-05; source verification only, not elaboration."
       },
       {
         "ref": "mathlib:HeckeCoset",
         "kind": "def",
         "module": "Mathlib/NumberTheory/HeckeRing/Defs.lean",
         "provides": "Double cosets H₁\\Δ/H₂.",
-        "checked": "Fresh 2026-10-05 declaration statement/parameters reread at the pinned source revision; no build result inferred."
+        "checked": "Independent REV-AnalyticNumberTheory--AN.8: declaration and parameters read at the recorded pinned commit on 2026-10-05; source verification only, not elaboration."
       },
       {
         "ref": "mathlib:HeckeCoset.mk",
         "kind": "def",
         "module": "Mathlib/NumberTheory/HeckeRing/Defs.lean",
         "provides": "The double coset of an element.",
-        "checked": "Fresh 2026-10-05 declaration statement/parameters reread at the pinned source revision; no build result inferred."
+        "checked": "Independent REV-AnalyticNumberTheory--AN.8: declaration and parameters read at the recorded pinned commit on 2026-10-05; source verification only, not elaboration."
       },
       {
         "ref": "mathlib:HeckeCosetModule",
         "kind": "def",
         "module": "Mathlib/NumberTheory/HeckeRing/Defs.lean",
         "provides": "The Hecke coset module underlying the Hecke ring.",
-        "checked": "Fresh 2026-10-05 declaration statement/parameters reread at the pinned source revision; no build result inferred."
+        "checked": "Independent REV-AnalyticNumberTheory--AN.8: declaration and parameters read at the recorded pinned commit on 2026-10-05; source verification only, not elaboration."
       },
       {
         "ref": "mathlib:HeckeRing",
         "kind": "abbrev",
         "module": "Mathlib/NumberTheory/HeckeRing/Defs.lean",
         "provides": "The Hecke ring 𝕋 Δ H Z of finitely supported functions on double cosets.",
-        "checked": "Fresh 2026-10-05 declaration statement/parameters reread at the pinned source revision; no build result inferred."
+        "checked": "Independent REV-AnalyticNumberTheory--AN.8: declaration and parameters read at the recorded pinned commit on 2026-10-05; source verification only, not elaboration."
       },
       {
         "ref": "mathlib:HilbertBasis",
         "kind": "structure",
         "module": "Mathlib/Analysis/InnerProductSpace/l2Space.lean",
-        "provides": "The orthonormal basis (ε_k) of ℓ².",
-        "checked": "Fresh 2026-10-05 declaration statement/parameters reread at the pinned source revision; no build result inferred."
+        "provides": "An indexed Hilbert basis is a linear isometry equivalence with lp over the index type. This structure does not itself choose the canonical coordinate vectors or prove their basis laws.",
+        "checked": "Independent REV-AnalyticNumberTheory--AN.8: declaration and parameters read at the recorded pinned commit on 2026-10-05; source verification only, not elaboration."
       },
       {
         "ref": "mathlib:IsCyclotomicExtension",
         "kind": "class",
         "module": "Mathlib/NumberTheory/Cyclotomic/Basic.lean",
         "provides": "Cyclotomic fields, where the ground-state values lie.",
-        "checked": "Fresh 2026-10-05 declaration statement/parameters reread at the pinned source revision; no build result inferred."
+        "checked": "Independent REV-AnalyticNumberTheory--AN.8: declaration and parameters read at the recorded pinned commit on 2026-10-05; source verification only, not elaboration."
       },
       {
         "ref": "mathlib:IsHeckeTriple",
         "kind": "class",
         "module": "Mathlib/NumberTheory/HeckeRing/Defs.lean",
         "provides": "Hecke triples (H₁, Δ, H₂): Δ in the commensurator, the input of the Hecke ring.",
-        "checked": "Fresh 2026-10-05 declaration statement/parameters reread at the pinned source revision; no build result inferred."
+        "checked": "Independent REV-AnalyticNumberTheory--AN.8: declaration and parameters read at the recorded pinned commit on 2026-10-05; source verification only, not elaboration."
       },
       {
         "ref": "mathlib:IsHeckeTriple.of_diagonal",
         "kind": "theorem",
         "module": "Mathlib/NumberTheory/HeckeRing/Defs.lean",
         "provides": "A pair H ≤ Δ ≤ commensurator H is a Hecke triple.",
-        "checked": "Fresh 2026-10-05 declaration statement/parameters reread at the pinned source revision; no build result inferred."
+        "checked": "Independent REV-AnalyticNumberTheory--AN.8: declaration and parameters read at the recorded pinned commit on 2026-10-05; source verification only, not elaboration."
       },
       {
         "ref": "mathlib:Matrix.GeneralLinearGroup",
         "kind": "abbrev",
         "module": "Mathlib/LinearAlgebra/Matrix/GeneralLinearGroup/Defs.lean",
         "provides": "GL₂(ℚ), the ambient group of the ax+b pair.",
-        "checked": "Fresh 2026-10-05 declaration statement/parameters reread at the pinned source revision; no build result inferred."
+        "checked": "Independent REV-AnalyticNumberTheory--AN.8: declaration and parameters read at the recorded pinned commit on 2026-10-05; source verification only, not elaboration."
       },
       {
         "ref": "mathlib:Matrix.GeneralLinearGroup.mkOfDetNeZero",
         "kind": "def",
         "module": "Mathlib/LinearAlgebra/Matrix/GeneralLinearGroup/Defs.lean",
         "provides": "Invertible matrices from a nonzero determinant, for the named elements [1 b; 0 a].",
-        "checked": "Fresh 2026-10-05 declaration statement/parameters reread at the pinned source revision; no build result inferred."
+        "checked": "Independent REV-AnalyticNumberTheory--AN.8: declaration and parameters read at the recorded pinned commit on 2026-10-05; source verification only, not elaboration."
       },
       {
         "ref": "mathlib:MulAut",
         "kind": "abbrev",
         "module": "Mathlib/Algebra/Group/End.lean",
         "provides": "Automorphism groups; its additive twin AddAut (ℚ/ℤ) is Ẑ^×.",
-        "checked": "Fresh 2026-10-05 declaration statement/parameters reread at the pinned source revision; no build result inferred."
+        "checked": "Independent REV-AnalyticNumberTheory--AN.8: declaration and parameters read at the recorded pinned commit on 2026-10-05; source verification only, not elaboration."
       },
       {
         "ref": "mathlib:PNat",
         "kind": "def",
         "module": "Mathlib/Data/PNat/Notation.lean",
         "provides": "The index set ℕ≥1.",
-        "checked": "Fresh 2026-10-05 declaration statement/parameters reread at the pinned source revision; no build result inferred."
+        "checked": "Independent REV-AnalyticNumberTheory--AN.8: declaration and parameters read at the recorded pinned commit on 2026-10-05; source verification only, not elaboration."
       },
       {
         "ref": "mathlib:Rat.num_div_den",
         "kind": "lemma",
         "module": "Mathlib/Algebra/Ring/Rat.lean",
         "provides": "a = num a / den a.",
-        "checked": "Fresh 2026-10-05 declaration statement/parameters reread at the pinned source revision; no build result inferred."
+        "checked": "Independent REV-AnalyticNumberTheory--AN.8: declaration and parameters read at the recorded pinned commit on 2026-10-05; source verification only, not elaboration."
       },
       {
         "ref": "mathlib:Real.log",
         "kind": "def",
         "module": "Mathlib/Analysis/SpecialFunctions/Log/Basic.lean",
         "provides": "The eigenvalues log k of the Hamiltonian.",
-        "checked": "Fresh 2026-10-05 declaration statement/parameters reread at the pinned source revision; no build result inferred."
+        "checked": "Independent REV-AnalyticNumberTheory--AN.8: declaration and parameters read at the recorded pinned commit on 2026-10-05; source verification only, not elaboration."
       },
       {
         "ref": "mathlib:Subgroup.Commensurable",
         "kind": "def",
         "module": "Mathlib/GroupTheory/Commensurable.lean",
         "provides": "Commensurability of subgroups.",
-        "checked": "Fresh 2026-10-05 declaration statement/parameters reread at the pinned source revision; no build result inferred."
+        "checked": "Independent REV-AnalyticNumberTheory--AN.8: declaration and parameters read at the recorded pinned commit on 2026-10-05; source verification only, not elaboration."
       },
       {
         "ref": "mathlib:Subgroup.Normal",
         "kind": "structure",
         "module": "Mathlib/Algebra/Group/Subgroup/Defs.lean",
         "provides": "Normality, for the test that P⁺_ℤ is not normal in P⁺_ℚ.",
-        "checked": "Fresh 2026-10-05 declaration statement/parameters reread at the pinned source revision; no build result inferred."
+        "checked": "Independent REV-AnalyticNumberTheory--AN.8: declaration and parameters read at the recorded pinned commit on 2026-10-05; source verification only, not elaboration."
       },
       {
         "ref": "mathlib:Subgroup.relIndex",
         "kind": "def",
         "module": "Mathlib/GroupTheory/Index.lean",
         "provides": "Relative index, for the degrees of double cosets.",
-        "checked": "Fresh 2026-10-05 declaration statement/parameters reread at the pinned source revision; no build result inferred."
+        "checked": "Independent REV-AnalyticNumberTheory--AN.8: declaration and parameters read at the recorded pinned commit on 2026-10-05; source verification only, not elaboration."
       },
       {
         "ref": "mathlib:lp",
         "kind": "def",
         "module": "Mathlib/Analysis/Normed/Lp/lpSpace.lean",
         "provides": "The Hilbert space ℓ²(ℕ≥1).",
-        "checked": "Fresh 2026-10-05 declaration statement/parameters reread at the pinned source revision; no build result inferred."
+        "checked": "Independent REV-AnalyticNumberTheory--AN.8: declaration and parameters read at the recorded pinned commit on 2026-10-05; source verification only, not elaboration."
       },
       {
         "ref": "mathlib:riemannZeta",
         "kind": "def",
         "module": "Mathlib/NumberTheory/LSeries/RiemannZeta.lean",
         "provides": "The Riemann zeta function, the partition function.",
-        "checked": "Fresh 2026-10-05 declaration statement/parameters reread at the pinned source revision; no build result inferred."
+        "checked": "Independent REV-AnalyticNumberTheory--AN.8: declaration and parameters read at the recorded pinned commit on 2026-10-05; source verification only, not elaboration."
       },
       {
         "ref": "mathlib:zeta_eq_tsum_one_div_nat_cpow",
         "kind": "theorem",
         "module": "Mathlib/NumberTheory/LSeries/RiemannZeta.lean",
         "provides": "ζ(s) = Σ n^{−s} for Re s > 1.",
-        "checked": "Fresh 2026-10-05 declaration statement/parameters reread at the pinned source revision; no build result inferred."
+        "checked": "Independent REV-AnalyticNumberTheory--AN.8: declaration and parameters read at the recorded pinned commit on 2026-10-05; source verification only, not elaboration."
       },
       {
         "ref": "tauceti:HeckeCoset.degree",
         "kind": "def",
         "module": "TauCeti/NumberTheory/HeckeRing/Basic.lean",
         "provides": "The number of left cosets in a double coset.",
-        "checked": "Fresh 2026-10-05 declaration statement/parameters reread at the pinned source revision; no build result inferred."
+        "checked": "Independent REV-AnalyticNumberTheory--AN.8: declaration and parameters read at the recorded pinned commit on 2026-10-05; source verification only, not elaboration."
       },
       {
         "ref": "tauceti:HeckeCoset.degree_eq_relIndex",
         "kind": "lemma",
         "module": "TauCeti/NumberTheory/HeckeRing/Basic.lean",
         "provides": "The degree as a relative index.",
-        "checked": "Fresh 2026-10-05 declaration statement/parameters reread at the pinned source revision; no build result inferred."
+        "checked": "Independent REV-AnalyticNumberTheory--AN.8: declaration and parameters read at the recorded pinned commit on 2026-10-05; source verification only, not elaboration."
       },
       {
         "ref": "tauceti:HeckeCosetModule.instRingHeckeRing",
         "kind": "instance",
         "module": "TauCeti/NumberTheory/HeckeRing/Associativity.lean",
         "provides": "The ring structure (Shimura's convolution) on the Hecke ring.",
-        "checked": "Fresh 2026-10-05 declaration statement/parameters reread at the pinned source revision; no build result inferred."
+        "checked": "Independent REV-AnalyticNumberTheory--AN.8: declaration and parameters read at the recorded pinned commit on 2026-10-05; source verification only, not elaboration."
       },
       {
         "ref": "tauceti:HeckeCosetModule.mul_single_single",
         "kind": "lemma",
         "module": "TauCeti/NumberTheory/HeckeRing/Multiplication.lean",
         "provides": "Product of two basis elements through the structure constants.",
-        "checked": "Fresh 2026-10-05 declaration statement/parameters reread at the pinned source revision; no build result inferred."
+        "checked": "Independent REV-AnalyticNumberTheory--AN.8: declaration and parameters read at the recorded pinned commit on 2026-10-05; source verification only, not elaboration."
       },
       {
         "ref": "tauceti:HeckeCosetModule.single",
         "kind": "def",
         "module": "TauCeti/NumberTheory/HeckeRing/Basic.lean",
         "provides": "The basis element of a double coset.",
-        "checked": "Fresh 2026-10-05 declaration statement/parameters reread at the pinned source revision; no build result inferred."
+        "checked": "Independent REV-AnalyticNumberTheory--AN.8: declaration and parameters read at the recorded pinned commit on 2026-10-05; source verification only, not elaboration."
       },
       {
         "ref": "tauceti:HeckeCosetModule.single_mul_single",
         "kind": "lemma",
         "module": "TauCeti/NumberTheory/HeckeRing/Multiplication.lean",
         "provides": "Product of basis elements in the Hecke ring.",
-        "checked": "Fresh 2026-10-05 declaration statement/parameters reread at the pinned source revision; no build result inferred."
+        "checked": "Independent REV-AnalyticNumberTheory--AN.8: declaration and parameters read at the recorded pinned commit on 2026-10-05; source verification only, not elaboration."
       },
       {
         "ref": "mathlib:DirichletCharacter",
         "kind": "abbrev",
         "module": "Mathlib/NumberTheory/DirichletCharacter/Basic.lean",
         "provides": "Real mod8 character carrier.",
-        "checked": "Statement, parameters and hypotheses read in the existing source tree at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174; index check is separate."
+        "checked": "Independent REV-AnalyticNumberTheory--AN.8: declaration and parameters read at the recorded pinned commit on 2026-10-05; source verification only, not elaboration."
       },
       {
         "ref": "mathlib:jacobiSym",
         "kind": "def",
         "module": "Mathlib/NumberTheory/LegendreSymbol/JacobiSymbol.lean",
         "provides": "Jacobi symbol on integer numerator and natural denominator.",
-        "checked": "Statement, parameters and hypotheses read in the existing source tree at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174; index check is separate."
+        "checked": "Independent REV-AnalyticNumberTheory--AN.8: declaration and parameters read at the recorded pinned commit on 2026-10-05; source verification only, not elaboration."
       },
       {
         "ref": "mathlib:LSeries",
         "kind": "def",
         "module": "Mathlib/NumberTheory/LSeries/Basic.lean",
         "provides": "Totalized Dirichlet sum; domain assertions remain separate.",
-        "checked": "Statement, parameters and hypotheses read in the existing source tree at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174; index check is separate."
+        "checked": "Independent REV-AnalyticNumberTheory--AN.8: declaration and parameters read at the recorded pinned commit on 2026-10-05; source verification only, not elaboration."
       },
       {
         "ref": "mathlib:Complex.Gamma",
         "kind": "def",
         "module": "Mathlib/Analysis/SpecialFunctions/Gamma/Basic.lean",
         "provides": "Complex gamma, totalized at poles; meromorphic identities use germs.",
-        "checked": "Statement, parameters and hypotheses read in the existing source tree at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174; index check is separate."
+        "checked": "Independent REV-AnalyticNumberTheory--AN.8: declaration and parameters read at the recorded pinned commit on 2026-10-05; source verification only, not elaboration."
       },
       {
         "ref": "mathlib:mellin",
         "kind": "def",
         "module": "Mathlib/Analysis/MellinTransform.lean",
         "provides": "Mellin integral on positive reals.",
-        "checked": "Statement, parameters and hypotheses read in the existing source tree at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174; index check is separate."
+        "checked": "Independent REV-AnalyticNumberTheory--AN.8: declaration and parameters read at the recorded pinned commit on 2026-10-05; source verification only, not elaboration."
       },
       {
         "ref": "mathlib:AnalyticOnNhd",
         "kind": "def",
         "module": "Mathlib/Analysis/Analytic/Basic.lean",
         "provides": "Analytic carrier on C and normed C².",
-        "checked": "Statement, parameters and hypotheses read in the existing source tree at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174; index check is separate."
+        "checked": "Independent REV-AnalyticNumberTheory--AN.8: declaration and parameters read at the recorded pinned commit on 2026-10-05; source verification only, not elaboration."
       },
       {
         "ref": "mathlib:MeromorphicOn",
         "kind": "def",
         "module": "Mathlib/Analysis/Meromorphic/Basic.lean",
         "provides": "One-variable meromorphic carrier.",
-        "checked": "Statement, parameters and hypotheses read in the existing source tree at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174; index check is separate."
+        "checked": "Independent REV-AnalyticNumberTheory--AN.8: declaration and parameters read at the recorded pinned commit on 2026-10-05; source verification only, not elaboration."
       },
       {
         "ref": "mathlib:StarSubalgebra.topologicalClosure",
         "kind": "def",
         "module": "Mathlib/Topology/Algebra/StarSubalgebra.lean",
         "provides": "Existing operator star-subalgebra closure.",
-        "checked": "Statement, parameters and hypotheses read in the existing source tree at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174; index check is separate."
+        "checked": "Independent REV-AnalyticNumberTheory--AN.8: declaration and parameters read at the recorded pinned commit on 2026-10-05; source verification only, not elaboration."
       },
       {
         "ref": "mathlib:Polynomial",
-        "kind": "def",
+        "kind": "structure",
         "module": "Mathlib/Algebra/Polynomial/Basic.lean",
         "provides": "Polynomial carrier for the Eisenstein recurrence.",
-        "checked": "Statement, parameters and hypotheses read in the existing source tree at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174; index check is separate."
+        "checked": "Independent REV-AnalyticNumberTheory--AN.8: declaration and parameters read at the recorded pinned commit on 2026-10-05; source verification only, not elaboration."
+      },
+      {
+        "ref": "mathlib:ArithmeticFunction.moebius",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/ArithmeticFunction/Moebius.lean",
+        "provides": "The integer-valued arithmetic Möbius function, zero at zero and at nonsquarefree positive integers.",
+        "checked": "Independent REV-AnalyticNumberTheory--AN.8: exact statement read at Mathlib 082e2d3 on 2026-10-05."
+      },
+      {
+        "ref": "mathlib:ArithmeticFunction.sum_eq_iff_sum_mul_moebius_eq",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/ArithmeticFunction/Moebius.lean",
+        "provides": "For a NonAssocRing R and functions f,g : ℕ→R, the divisor-sum identity for every n>0 is equivalent to Möbius inversion over divisorsAntidiagonal. Apply over ℚ to positive integers; negative powers are rational powers of nonzero integers.",
+        "checked": "Independent REV-AnalyticNumberTheory--AN.8: exact statement read at Mathlib 082e2d3 on 2026-10-05."
+      },
+      {
+        "ref": "mathlib:DirichletCharacter.IsPrimitive.completedLFunction_one_sub",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/LSeries/DirichletContinuation.lean",
+        "provides": "For a primitive complex character at nonzero level N and any s, completedLFunction χ (1−s)=N^(s−1/2) rootNumber χ completedLFunction χ⁻¹ s. Identification of quadratic root number and conductor is a separate adapter.",
+        "checked": "Independent REV-AnalyticNumberTheory--AN.8: exact statement read at Mathlib 082e2d3 on 2026-10-05."
+      },
+      {
+        "ref": "mathlib:DirichletCharacter.LFunction_changeLevel",
+        "kind": "lemma",
+        "module": "Mathlib/NumberTheory/LSeries/DirichletContinuation.lean",
+        "provides": "For nonzero levels M|N, χ mod M and χ≠1 or s≠1, the changed-level L-function equals LFunction χ times the deleted Euler factors at prime divisors of N. At the principal pole use meromorphic germs.",
+        "checked": "Independent REV-AnalyticNumberTheory--AN.8: exact statement read at Mathlib 082e2d3 on 2026-10-05."
       }
     ]
   },
@@ -284,19 +312,31 @@
       "readSections": [
         "§4 'Presentation of the C*-algebra C_Q', pp. 430–433 (PDF pp. 20–23): the notations (α), (β), Proposition 18 and its proof, formulas (1)–(7), and the remark on the rational presentation.",
         "Fresh page-image reread 2026-10-05: pp.430–433, complete Proposition 18 proof and rational-form remark."
-      ]
+      ],
+      "reviewReceipt": {
+        "by": "REV-AnalyticNumberTheory--AN.8",
+        "date": "2026-10-05",
+        "hashMatched": true,
+        "note": "Public URL downloaded independently; SHA256 matches the recorded source. Review report identifies the passages read and remaining original-source gaps."
+      }
     },
     {
       "id": "connes-marcolli-2008",
       "title": "Noncommutative Geometry, Quantum Fields and Motives",
       "authors": "Alain Connes and Matilde Marcolli",
-      "edition": "AMS Colloquium Publications 55 (2008); author-hosted PDF on Marcolli's page; printed page = PDF page − 19; accessed 2026-09-28",
+      "edition": "AMS Colloquium Publications 55 (2008); author-hosted PDF on Marcolli's page; printed page = PDF page − 22; accessed 2026-09-28",
       "url": "https://www.its.caltech.edu/~matilde/coll-55.pdf",
       "sha256": "4154ad00fad638e06746f11cd476adb00d186d30cee11e9f531fd21c45aa71f7",
       "readSections": [
         "Chapter 3, §2.2 'The KMS condition' (pp. 445–447), and §4 '1-dimensional Q-lattices' from Proposition 3.23 through §4.6 'KMS states and class field theory' (pp. 457–476): the presentation, the time evolution (Lemma 3.24), the Hecke algebra (Proposition 3.25, (3.61)–(3.72)), the symmetries (3.73)–(3.77), Theorem 3.32 and (3.138)–(3.142).",
         "Fresh 2026-10-05 text read: Definitions 3.4–3.7 pp.445–448; Lemma 3.21 and Propositions 3.22–3.25 pp.454–461; §4.3–4.4 pp.461–470, including Lemmas 3.27–3.29 and Theorem 3.30 proof; Theorem 3.32 pp.474–476. No claim that source-cited operator-algebra or class-field-theory proofs were reread."
-      ]
+      ],
+      "reviewReceipt": {
+        "by": "REV-AnalyticNumberTheory--AN.8",
+        "date": "2026-10-05",
+        "hashMatched": true,
+        "note": "Public URL downloaded independently; SHA256 matches the recorded source. Review report identifies the passages read and remaining original-source gaps."
+      }
     },
     {
       "id": "blomer-2011",
@@ -308,7 +348,13 @@
       "readSections": [
         "§2.1, (7)–(11), published p.358: complete character and conductor definitions; page image inspected.",
         "§3, Lemma 2 and its complete proof, (27)–(36), published pp.361–364; compared with arXiv v1 pp.6–9."
-      ]
+      ],
+      "reviewReceipt": {
+        "by": "REV-AnalyticNumberTheory--AN.8",
+        "date": "2026-10-05",
+        "hashMatched": true,
+        "note": "Public URL downloaded independently; SHA256 matches the recorded source. Review report identifies the passages read and remaining original-source gaps."
+      }
     },
     {
       "id": "neshveyev-2000-correct",
@@ -319,7 +365,13 @@
       "edition": "arXiv math/0002141v1. The inherited math/0012110 link was a blueprint citation error and points to an unrelated paper.",
       "readSections": [
         "All four pages, including Proposition, finite-prime projection formula, character proof, corollary and references."
-      ]
+      ],
+      "reviewReceipt": {
+        "by": "REV-AnalyticNumberTheory--AN.8",
+        "date": "2026-10-05",
+        "hashMatched": true,
+        "note": "Public URL downloaded independently; SHA256 matches the recorded source. Review report identifies the passages read and remaining original-source gaps."
+      }
     },
     {
       "id": "neshveyev-2009",
@@ -330,7 +382,13 @@
       "edition": "arXiv 0907.1456v1. Only the Q specialization of the number-field argument is used.",
       "readSections": [
         "Introduction; §1 ratio and asymptotic ratio sets; §2 Theorem 2.1, Lemma 2.3 and their complete proofs, pp.1–5. The GL2 argument is outside this target."
-      ]
+      ],
+      "reviewReceipt": {
+        "by": "REV-AnalyticNumberTheory--AN.8",
+        "date": "2026-10-05",
+        "hashMatched": true,
+        "note": "Public URL downloaded independently; SHA256 matches the recorded source. Review report identifies the passages read and remaining original-source gaps."
+      }
     },
     {
       "id": "loww-2025-analytic",
@@ -341,7 +399,13 @@
       "edition": "Source route PAPER-LEMKEOLIVER-WANG-WOOD25/14, reviewed payload. Fresh arXiv text; published-version reading evidence stays with that accepted extraction. Do not promote this receipt to a reading of the published PDF.",
       "readSections": [
         "§3.2 in full: Shintani zeta definitions, Proposition 3.7 and Lemmas 3.8–3.11, pp.11–14. Original Wright/Datskovsky–Wright proofs cited there remain an explicit acquisition/decomposition gap."
-      ]
+      ],
+      "reviewReceipt": {
+        "by": "REV-AnalyticNumberTheory--AN.8",
+        "date": "2026-10-05",
+        "hashMatched": true,
+        "note": "Public URL downloaded independently; SHA256 matches the recorded source. Review report identifies the passages read and remaining original-source gaps."
+      }
     },
     {
       "id": "sarnak-1990",
@@ -352,7 +416,13 @@
       "edition": "Author-hosted published scan, pp.601–622. Only the spectral definition and heat argument on p.603 are cited.",
       "readSections": [
         "Page images pp.601–606; §1.1–1.5 on p.603 supplies the spectral series, heat Mellin transform, regularity at zero and determinant definition. Sections beyond the stated scope were not read."
-      ]
+      ],
+      "reviewReceipt": {
+        "by": "REV-AnalyticNumberTheory--AN.8",
+        "date": "2026-10-05",
+        "hashMatched": true,
+        "note": "Public URL downloaded independently; SHA256 matches the recorded source. Review report identifies the passages read and remaining original-source gaps."
+      }
     },
     {
       "id": "zagier-selberg",
@@ -363,7 +433,13 @@
       "edition": "Author-hosted survey. Supplies conventions, not a proof-closure certificate for continuation.",
       "readSections": [
         "§1 in full, pp.1–2, including spectral parameters and primitive-hyperbolic product. §2–3 statement context read, not used as complete proofs."
-      ]
+      ],
+      "reviewReceipt": {
+        "by": "REV-AnalyticNumberTheory--AN.8",
+        "date": "2026-10-05",
+        "hashMatched": true,
+        "note": "Public URL downloaded independently; SHA256 matches the recorded source. Review report identifies the passages read and remaining original-source gaps."
+      }
     },
     {
       "id": "jss-2026",
@@ -374,7 +450,13 @@
       "edition": "arXiv 2512.16681v2, 9 February 2026. The torsion-factor sign in v1 is already corrected in v2.",
       "readSections": [
         "Introduction; §6 Theorem 6.1 and complete proof pp.20–24 read first in v1 and collated with v2; §8.2–8.3 complete formulas and corollary proofs pp.27–28 read in v2. §5.14 normalization read. Earlier heat/transform lemmas remain explicitly requested/source gaps."
-      ]
+      ],
+      "reviewReceipt": {
+        "by": "REV-AnalyticNumberTheory--AN.8",
+        "date": "2026-10-05",
+        "hashMatched": true,
+        "note": "Public URL downloaded independently; SHA256 matches the recorded source. Review report identifies the passages read and remaining original-source gaps."
+      }
     }
   ],
   "nodes": [
@@ -776,7 +858,15 @@
         "tauceti:HeckeCosetModule.single_mul_single",
         "tauceti:HeckeCosetModule.mul_single_single",
         "AnalyticNumberTheory:AN.9/bc-normal-form-product",
-        "AnalyticNumberTheory:AN.9/bc-normal-form-independent"
+        "AnalyticNumberTheory:AN.9/bc-normal-form-independent",
+        "AnalyticNumberTheory:AN.9/bc-relation-left-inverse",
+        "AnalyticNumberTheory:AN.9/bc-relation-dilations",
+        "AnalyticNumberTheory:AN.9/bc-relation-inverse-dilations",
+        "AnalyticNumberTheory:AN.9/bc-relation-coprime",
+        "AnalyticNumberTheory:AN.9/bc-relation-translation-zero",
+        "AnalyticNumberTheory:AN.9/bc-relation-translation-add",
+        "AnalyticNumberTheory:AN.9/bc-relation-transport",
+        "AnalyticNumberTheory:AN.9/bc-relation-preimage-sum"
       ],
       "sources": [
         {
@@ -1699,7 +1789,7 @@
       "sources": [
         {
           "sourceId": "blomer-2011",
-          "locator": "Definition (2), p.355; §3 (29)–(31), pp.361–362",
+          "locator": "Introduction, equation (1), p.356; §3 equation (29), p.362",
           "excerpt": "functional equations",
           "match": "The selected quadratic double Dirichlet series; the statement fixes the source conventions and the proof leaves below."
         }
@@ -1873,7 +1963,7 @@
       "sources": [
         {
           "sourceId": "blomer-2011",
-          "locator": "§3, Lemma 2 and proof (27)–(36), pp.361–364",
+          "locator": "§3 proof of Lemma 2, initial expansion (28), pp.361–362",
           "excerpt": "functional equations",
           "match": "Absolute convergence in the initial double tube; the statement fixes the source conventions and the proof leaves below."
         }
@@ -1911,7 +2001,7 @@
       "sources": [
         {
           "sourceId": "blomer-2011",
-          "locator": "§3, Lemma 2 and proof (27)–(36), pp.361–364",
+          "locator": "§3 equation (29), p.362",
           "excerpt": "functional equations",
           "match": "Separating square factors of the discriminant index; the statement fixes the source conventions and the proof leaves below."
         }
@@ -1950,8 +2040,8 @@
       "sources": [
         {
           "sourceId": "blomer-2011",
-          "locator": "§3, Lemma 2 and proof (27)–(36), pp.361–364",
-          "excerpt": "functional equations",
+          "locator": "§2.1 equation (16), p.359; application to (29), p.362",
+          "excerpt": "average bound",
           "match": "The first-moment input for the wider convergence tube; the statement fixes the source conventions and the proof leaves below."
         }
       ],
@@ -1989,7 +2079,7 @@
       "sources": [
         {
           "sourceId": "blomer-2011",
-          "locator": "§3, Lemma 2 and proof (27)–(36), pp.361–364",
+          "locator": "§3 proof following (29), p.362",
           "excerpt": "functional equations",
           "match": "Locally uniform convergence in R1; the statement fixes the source conventions and the proof leaves below."
         }
@@ -2028,7 +2118,7 @@
       "sources": [
         {
           "sourceId": "blomer-2011",
-          "locator": "§3, Lemma 2 and proof (27)–(36), pp.361–364",
+          "locator": "§3 equations (31)–(32), p.362",
           "excerpt": "functional equations",
           "match": "The swap functional equation; the statement fixes the source conventions and the proof leaves below."
         }
@@ -2063,12 +2153,13 @@
       "prerequisites": [
         "AnalyticNumberTheory:AN.8/squarefree-square-decomposition",
         "AnalyticNumberTheory:AN.8/double-functional-system",
-        "AnalyticNumberTheory:AN.1"
+        "mathlib:DirichletCharacter.IsPrimitive.completedLFunction_one_sub",
+        "mathlib:DirichletCharacter.LFunction_changeLevel"
       ],
       "sources": [
         {
           "sourceId": "blomer-2011",
-          "locator": "§3, Lemma 2 and proof (27)–(36), pp.361–364",
+          "locator": "§3 equations (10) and (33)–(35), pp.358,362–363",
           "excerpt": "functional equations",
           "match": "The reflection functional equation; the statement fixes the source conventions and the proof leaves below."
         }
@@ -2107,7 +2198,7 @@
       "sources": [
         {
           "sourceId": "blomer-2011",
-          "locator": "§3, Lemma 2 and proof (27)–(36), pp.361–364",
+          "locator": "§3 proof after (35), p.363",
           "excerpt": "functional equations",
           "match": "The zero block that removes a false pole; the statement fixes the source conventions and the proof leaves below."
         }
@@ -2148,7 +2239,7 @@
       "sources": [
         {
           "sourceId": "blomer-2011",
-          "locator": "§3, Lemma 2 and proof (27)–(36), pp.361–364",
+          "locator": "§3 proof of Lemma 2, tube R1 and its images (36), pp.363–364",
           "excerpt": "functional equations",
           "match": "Gluing the four continued tubes; the statement fixes the source conventions and the proof leaves below."
         }
@@ -2186,7 +2277,7 @@
       "sources": [
         {
           "sourceId": "blomer-2011",
-          "locator": "§3, Lemma 2 and proof (27)–(36), pp.361–364",
+          "locator": "§3 final tube-hull argument and cited DGH03 Propositions 4.6–4.7, p.364; original input remains unread",
           "excerpt": "functional equations",
           "match": "Filling the remaining real twelve-gon; the statement fixes the source conventions and the proof leaves below."
         }
@@ -2226,7 +2317,7 @@
       "sources": [
         {
           "sourceId": "blomer-2011",
-          "locator": "§3, Lemma 2 and proof (27)–(36), pp.361–364",
+          "locator": "§3 Lemma 2, equation (27), p.361; proof pp.361–364",
           "excerpt": "functional equations",
           "match": "Meromorphic continuation and the three polar hyperplanes; the statement fixes the source conventions and the proof leaves below."
         }
@@ -2249,7 +2340,7 @@
       ],
       "title": "Binary-cubic local zeta integrals",
       "kind": "construction",
-      "statement": "For a local field F, take V(F)=Sym³(F²) and its twisted GL2 action and discriminant P from ST.1. For a Schwartz–Bruhat test function Φ and fixed additive Haar measure dx, define the local integral over P(x)≠0 by ∫Φ(x)|P(x)|F^s dx on its proven integrability half-plane. For a nonarchimedean place with residue cardinal q and dx(O_F^4)=1, the shell density dk(U) is the measure of {x∈U:ord P(x)=k}; the resulting shell series is Σk≥0 dk(U)q^(−ks). Zero-discriminant mass is recorded separately.",
+      "statement": "For a local field F, take V(F)=Sym³(F²) and its twisted GL2 action and discriminant P from ST.1. For a Schwartz–Bruhat test function Φ and fixed additive Haar measure dx, define the local integral over P(x)≠0 by ∫Φ(x)|P(x)|F^s dx on its proven integrability half-plane. For a nonarchimedean place with residue cardinal q and dx(O_F^4)=1, the shell density dk(U) is the measure of {x∈U:ord P(x)=k}; for Φ=1_U with U⊆O_F⁴ the resulting shell series is Σk≥0 dk(U)q^(−ks). For general Φ use Φ-weighted shell integrals, not unweighted masses. Zero-discriminant mass is recorded separately.",
       "hypotheses": [
         "The carrier, domain and normalization hypotheses in the statement are part of the result."
       ],
@@ -2259,7 +2350,7 @@
         "Decompose an integral test function into disjoint measurable valuation shells and apply dominated summation."
       ],
       "acceptance": [
-        "For a local field F, take V(F)=Sym³(F²) and its twisted GL2 action and discriminant P from ST.1. For a Schwartz–Bruhat test function Φ and fixed additive Haar measure dx, define the local integral over P(x)≠0 by ∫Φ(x)|P(x)|F^s dx on its proven integrability half-plane. For a nonarchimedean place with residue cardinal q and dx(O_F^4)=1, the shell density dk(U) is the measure of {x∈U:ord P(x)=k}; the resulting shell series is Σk≥0 dk(U)q^(−ks). Zero-discriminant mass is recorded separately."
+        "For a local field F, take V(F)=Sym³(F²) and its twisted GL2 action and discriminant P from ST.1. For a Schwartz–Bruhat test function Φ and fixed additive Haar measure dx, define the local integral over P(x)≠0 by ∫Φ(x)|P(x)|F^s dx on its proven integrability half-plane. For a nonarchimedean place with residue cardinal q and dx(O_F^4)=1, the shell density dk(U) is the measure of {x∈U:ord P(x)=k}; for Φ=1_U with U⊆O_F⁴ the resulting shell series is Σk≥0 dk(U)q^(−ks). For general Φ use Φ-weighted shell integrals, not unweighted masses. Zero-discriminant mass is recorded separately."
       ],
       "prerequisites": [
         "ArithmeticStatistics:ST.1",
@@ -2271,7 +2362,7 @@
           "sourceId": "loww-2025-analytic",
           "locator": "§3.2, Proposition 3.7 and Lemmas 3.8–3.11, pp.11–14",
           "excerpt": "Shintani zeta function",
-          "match": "Binary-cubic local zeta integrals; the statement fixes the source conventions and the proof leaves below."
+          "match": "LOWW §3.2 states the global Shintani series/theorems, not this local/adelic proof or all O_F adapters. Original-source normalization and proof are explicit review gaps; this overview citation does not verify the displayed contract."
         }
       ],
       "library": {
@@ -2353,7 +2444,7 @@
       "sources": [
         {
           "sourceId": "loww-2025-analytic",
-          "locator": "§3.2, Proposition 3.7 and Lemmas 3.8–3.11, pp.11–14",
+          "locator": "§3.2 definition before Proposition 3.7 and dual definition in (3), p.12",
           "excerpt": "Shintani zeta function",
           "match": "Signature-refined cubic Shintani zeta functions; the statement fixes the source conventions and the proof leaves below."
         }
@@ -2440,7 +2531,7 @@
       "sources": [
         {
           "sourceId": "loww-2025-analytic",
-          "locator": "§3.2, Proposition3.7(3), displayed sine coefficients, pp.12–13",
+          "locator": "§3.2 equation (3.1) and preceding complex/diagonal cases, p.12",
           "excerpt": "Shintani zeta function",
           "match": "The binary-cubic archimedean functional-equation matrix; the statement fixes the source conventions and the proof leaves below."
         }
@@ -2522,7 +2613,7 @@
           "sourceId": "loww-2025-analytic",
           "locator": "§3.2, Proposition 3.7 and Lemmas 3.8–3.11, pp.11–14",
           "excerpt": "Shintani zeta function",
-          "match": "From arithmetic cubic orbits to analytic coefficients; the statement fixes the source conventions and the proof leaves below."
+          "match": "LOWW §3.2 states the global Shintani series/theorems, not this local/adelic proof or all O_F adapters. Original-source normalization and proof are explicit review gaps; this overview citation does not verify the displayed contract."
         }
       ],
       "library": {
@@ -2562,7 +2653,7 @@
           "sourceId": "loww-2025-analytic",
           "locator": "§3.2, Proposition 3.7 and Lemmas 3.8–3.11, pp.11–14",
           "excerpt": "Shintani zeta function",
-          "match": "Local density and coefficient conventions agree; the statement fixes the source conventions and the proof leaves below."
+          "match": "LOWW §3.2 states the global Shintani series/theorems, not this local/adelic proof or all O_F adapters. Original-source normalization and proof are explicit review gaps; this overview citation does not verify the displayed contract."
         }
       ],
       "library": {
@@ -2580,17 +2671,17 @@
       ],
       "title": "The selected adelic binary-cubic zeta integral",
       "kind": "construction",
-      "statement": "With the ST binary-cubic representation and AA.2 quotient Haar measure, define Z(Φ,s)=∫GL2(F)\\GL2(A_F) |det g|^(2s) Σx∈V(F),Disc x≠0 Φ(g·x) dg. Use the twisted action (g·f)(u,v)=det(g)^(−1)f((u,v)g), so Disc(g·f)=det(g)² Disc f. Fix local measures and the dual pairing before invoking Poisson. Its decomposition into signature-weighted ξF,α times local zeta factors is a separate comparison and original-source gap.",
+      "statement": "With the ST binary-cubic representation and AA.2 quotient Haar measure, define Z(Φ,s)=∫GL2(A_F)/GL2(F) |det g|^(2s) Σx∈V(F),Disc x≠0 Φ(g·x) dg. Use the twisted action (g·f)(u,v)=det(g)^(−1)f((u,v)g), so Disc(g·f)=det(g)² Disc f. Fix local measures and the dual pairing before invoking Poisson. Its decomposition into signature-weighted ξF,α times local zeta factors is a separate comparison and original-source gap. The theta sum is invariant under g↦gh for h∈GL2(F), by rational reindexing and the product formula. Transport AA.2 left-quotient measure by inversion; a left-quotient formulation instead uses Φ(g⁻¹·x) and |det g|^(−2s).",
       "hypotheses": [
         "The carrier, domain and normalization hypotheses in the statement are part of the result."
       ],
       "proofSteps": [
         "Import the twisted action and discriminant covariance from ST.",
-        "Form the nondegenerate rational theta sum and the quotient integral with AA Haar conventions.",
+        "Prove right GL2(F)-invariance of the theta sum; the product formula makes |det h|_A=1. Transport the AA.2 left-quotient measure through inversion before forming the right-quotient integral.",
         "Prove convergence and orbit unfolding with exact local factors; those original-source leaves are recorded below."
       ],
       "acceptance": [
-        "With the ST binary-cubic representation and AA.2 quotient Haar measure, define Z(Φ,s)=∫GL2(F)\\GL2(A_F) |det g|^(2s) Σx∈V(F),Disc x≠0 Φ(g·x) dg. Use the twisted action (g·f)(u,v)=det(g)^(−1)f((u,v)g), so Disc(g·f)=det(g)² Disc f. Fix local measures and the dual pairing before invoking Poisson. Its decomposition into signature-weighted ξF,α times local zeta factors is a separate comparison and original-source gap."
+        "With the ST binary-cubic representation and AA.2 quotient Haar measure, define Z(Φ,s)=∫GL2(A_F)/GL2(F) |det g|^(2s) Σx∈V(F),Disc x≠0 Φ(g·x) dg. Use the twisted action (g·f)(u,v)=det(g)^(−1)f((u,v)g), so Disc(g·f)=det(g)² Disc f. Fix local measures and the dual pairing before invoking Poisson. Its decomposition into signature-weighted ξF,α times local zeta factors is a separate comparison and original-source gap. The theta sum is invariant under g↦gh for h∈GL2(F), by rational reindexing and the product formula. Transport AA.2 left-quotient measure by inversion; a left-quotient formulation instead uses Φ(g⁻¹·x) and |det g|^(−2s)."
       ],
       "prerequisites": [
         "AnalyticNumberTheory:AN.8/pvs-local-zeta",
@@ -2604,7 +2695,7 @@
           "sourceId": "loww-2025-analytic",
           "locator": "§3.2, Proposition 3.7 and Lemmas 3.8–3.11, pp.11–14",
           "excerpt": "Shintani zeta function",
-          "match": "The selected adelic binary-cubic zeta integral; the statement fixes the source conventions and the proof leaves below."
+          "match": "LOWW §3.2 states the global Shintani series/theorems, not this local/adelic proof or all O_F adapters. Original-source normalization and proof are explicit review gaps; this overview citation does not verify the displayed contract."
         }
       ],
       "library": {
@@ -2617,7 +2708,7 @@
         {
           "name": "TauCeti.SeveralVariableZeta.CubicAdelic.integral",
           "role": "constructor",
-          "statement": "The quotient integral with |det g|^(2s) and the nonzero-discriminant theta sum."
+          "statement": "The right-quotient integral on GL2(A_F)/GL2(F), with |det g|^(2s) and the nonzero-discriminant theta sum Φ(g·x)."
         },
         {
           "name": "TauCeti.SeveralVariableZeta.CubicAdelic.linear",
@@ -2628,6 +2719,11 @@
           "name": "TauCeti.SeveralVariableZeta.CubicAdelic.unfolding",
           "role": "compatibility",
           "statement": "Decompose by signatures and arithmetic orbit weights with the pinned local zeta factors."
+        },
+        {
+          "name": "TauCeti.SeveralVariableZeta.CubicAdelic.theta_right_invariant",
+          "role": "compatibility",
+          "statement": "For h∈GL2(F), thetaΦ(gh)=thetaΦ(g), and the full integrand is right invariant by the product formula."
         }
       ],
       "tests": [
@@ -2645,6 +2741,11 @@
           "name": "TauCeti.SeveralVariableZeta.CubicAdelic.test_singular_locus",
           "kind": "non-example",
           "statement": "Degenerate binary cubics are excluded from the theta sum and return only as separately analyzed singular terms after Poisson."
+        },
+        {
+          "name": "TauCeti.SeveralVariableZeta.CubicAdelic.test_quotient_side",
+          "kind": "compatibility",
+          "statement": "Right rational translation leaves the theta integrand unchanged; inversion transports it to the left quotient with inverse action and determinant exponent −2s."
         }
       ],
       "uses": [
@@ -2681,7 +2782,7 @@
       "sources": [
         {
           "sourceId": "loww-2025-analytic",
-          "locator": "§3.2, Proposition 3.7 and Lemmas 3.8–3.11, pp.11–14",
+          "locator": "§3.2 Proposition 3.7(1), p.12",
           "excerpt": "Shintani zeta function",
           "match": "Absolute convergence of cubic Shintani series; the statement fixes the source conventions and the proof leaves below."
         }
@@ -2722,7 +2823,7 @@
       "sources": [
         {
           "sourceId": "loww-2025-analytic",
-          "locator": "§3.2, Proposition 3.7 and Lemmas 3.8–3.11, pp.11–14",
+          "locator": "§3.2 Proposition 3.7(3), pp.12–13",
           "excerpt": "Shintani zeta function",
           "match": "The cubic global matrix functional equation; the statement fixes the source conventions and the proof leaves below."
         }
@@ -2762,7 +2863,7 @@
       "sources": [
         {
           "sourceId": "loww-2025-analytic",
-          "locator": "§3.2, Proposition 3.7 and Lemmas 3.8–3.11, pp.11–14",
+          "locator": "§3.2 Proposition 3.7(2),(5), pp.12–13",
           "excerpt": "Shintani zeta function",
           "match": "The two cubic poles and their residues; the statement fixes the source conventions and the proof leaves below."
         }
@@ -2800,7 +2901,7 @@
       "sources": [
         {
           "sourceId": "loww-2025-analytic",
-          "locator": "§3.2, Proposition 3.7 and Lemmas 3.8–3.11, pp.11–14",
+          "locator": "§3.2 equation (3.1), p.12, and proof of Lemma 3.8, p.13",
           "excerpt": "Shintani zeta function",
           "match": "Archimedean coefficients vanish to degree order; the statement fixes the source conventions and the proof leaves below."
         }
@@ -2839,7 +2940,7 @@
       "sources": [
         {
           "sourceId": "loww-2025-analytic",
-          "locator": "§3.2, Proposition 3.7 and Lemmas 3.8–3.11, pp.11–14",
+          "locator": "§3.2 Proposition 3.7(3), p.12, and proof of Lemma 3.8, p.13",
           "excerpt": "Shintani zeta function",
           "match": "The global prefactor is a unit at one; the statement fixes the source conventions and the proof leaves below."
         }
@@ -2875,12 +2976,13 @@
         "AnalyticNumberTheory:AN.8/arch-entry-vanishing-at-one",
         "AnalyticNumberTheory:AN.8/gamma-unit-at-one",
         "AnalyticNumberTheory:AN.8/cubic-global-functional-equation",
-        "AnalyticNumberTheory:AN.8/cubic-residues-and-entire-clearance"
+        "AnalyticNumberTheory:AN.8/cubic-residues-and-entire-clearance",
+        "AnalyticNumberTheory:AN.8/cubic-dual-simple-poles"
       ],
       "sources": [
         {
           "sourceId": "loww-2025-analytic",
-          "locator": "§3.2, Proposition 3.7 and Lemmas 3.8–3.11, pp.11–14",
+          "locator": "§3.2 Lemma 3.8 and proof, p.13",
           "excerpt": "Shintani zeta function",
           "match": "The degree-dependent zero at the origin; the statement fixes the source conventions and the proof leaves below."
         }
@@ -2905,7 +3007,7 @@
         "The carrier, domain and normalization hypotheses in the statement are part of the result."
       ],
       "proofSteps": [
-        "Use the local order enumeration supplied by Datskovsky–Wright Theorem6.2.",
+        "Use the local order enumeration supplied by Datskovsky–Wright Theorem6.1.",
         "Multiply local factors in their common convergence domain.",
         "Retain the index-squared exponent; converting to an index Dirichlet variable requires substituting s/2."
       ],
@@ -2920,7 +3022,7 @@
       "sources": [
         {
           "sourceId": "loww-2025-analytic",
-          "locator": "§3.2, Proposition 3.7 and Lemmas 3.8–3.11, pp.11–14",
+          "locator": "§3.2 Lemma 3.9, p.13; explicitly cites DW86 Theorem 6.1",
           "excerpt": "Shintani zeta function",
           "match": "Orders in a fixed étale cubic algebra; the statement fixes the source conventions and the proof leaves below."
         }
@@ -2960,7 +3062,7 @@
       "sources": [
         {
           "sourceId": "loww-2025-analytic",
-          "locator": "§3.2, Proposition 3.7 and Lemmas 3.8–3.11, pp.11–14",
+          "locator": "§3.2 Lemma 3.10 and proof, pp.13–14",
           "excerpt": "Shintani zeta function",
           "match": "The weighted cubic-coefficient bound; the statement fixes the source conventions and the proof leaves below."
         }
@@ -2980,17 +3082,17 @@
       ],
       "title": "Reflected vertical bound from the matrix equation",
       "kind": "lemma",
-      "statement": "For σ<−1/2 and |t|≥1, the functional equation gives ξF,α(σ+it)≪ε,n,σ h2(F)D^(2−4σ+ε)(1+|t|)^(n(2−4σ)+ε), using the right-half-plane dual bound. Constants depend on the fixed real strip.",
+      "statement": "For σ<−1/2 and |t|≥1, the functional equation gives ξF,α(σ+it)≪ε,n,σ h2(F)D^(5/2−4σ+ε)(1+|t|)^(n(2−4σ)+ε), using the right-half-plane dual bound. Constants depend on the fixed real strip.",
       "hypotheses": [
         "The carrier, domain and normalization hypotheses in the statement are part of the result."
       ],
       "proofSteps": [
         "Bound the dual by the ordinary positive-coefficient series at1−σ>3/2.",
         "Apply Stirling to the gamma factors and combine with sine growth.",
-        "Keep h2(F), D^(2−4σ) and the height power."
+        "Multiply the functional-equation factor D^(2−4σ) by the right-half-plane bound h2(F)D^(1/2+ε). The combined exponent is 5/2−4σ+ε; retain the stated height power."
       ],
       "acceptance": [
-        "For σ<−1/2 and |t|≥1, the functional equation gives ξF,α(σ+it)≪ε,n,σ h2(F)D^(2−4σ+ε)(1+|t|)^(n(2−4σ)+ε), using the right-half-plane dual bound. Constants depend on the fixed real strip."
+        "For σ<−1/2 and |t|≥1, the functional equation gives ξF,α(σ+it)≪ε,n,σ h2(F)D^(5/2−4σ+ε)(1+|t|)^(n(2−4σ)+ε), using the right-half-plane dual bound. Constants depend on the fixed real strip."
       ],
       "prerequisites": [
         "AnalyticNumberTheory:AN.8/cubic-reducible-and-field-coefficient-bound",
@@ -2999,7 +3101,7 @@
       "sources": [
         {
           "sourceId": "loww-2025-analytic",
-          "locator": "§3.2, Proposition 3.7 and Lemmas 3.8–3.11, pp.11–14",
+          "locator": "§3.2 proof of Lemma 3.11, left-boundary estimate, p.14; combine Proposition 3.7(3) with Lemma 3.10",
           "excerpt": "Shintani zeta function",
           "match": "Reflected vertical bound from the matrix equation; the statement fixes the source conventions and the proof leaves below."
         }
@@ -3040,7 +3142,7 @@
       "sources": [
         {
           "sourceId": "loww-2025-analytic",
-          "locator": "§3.2, Proposition 3.7 and Lemmas 3.8–3.11, pp.11–14",
+          "locator": "§3.2 Lemma 3.11 and proof, p.14; packet restricted to |t|≥1 to avoid poles",
           "excerpt": "Shintani zeta function",
           "match": "Pole-aware cubic convexity bound; the statement fixes the source conventions and the proof leaves below."
         }
@@ -3241,7 +3343,8 @@
       "prerequisites": [
         "AnalyticNumberTheory:AN.9/spectral-zeta-series",
         "mathlib:mellin",
-        "mathlib:Complex.Gamma"
+        "mathlib:Complex.Gamma",
+        "AnalyticNumberTheory:AN.9/spectral-regularity-zero"
       ],
       "sources": [
         {
@@ -3389,17 +3492,17 @@
       ],
       "title": "Subtracting small-time heat coefficients",
       "kind": "lemma",
-      "statement": "For any prescribed continuation range, subtract a finite heat asymptotic expansion H(t)~Σk≥0 ak t^(k−1) at0. Integrating each subtracted monomial on(0,1) gives ak/(s+k−1); the remainder integral is holomorphic in the extended half-plane.",
+      "statement": "Write H(t)=Σj≥0 exp(−tλj), including its simple zero mode. The positive spectral Mellin integral uses H(t)−1. If H(t)=Σk=0..N ak t^(k−1)+O(t^N), then subtract Σk=0..N ak t^(k−1)−1. Its integral on (0,1) is Σk=0..N ak/(s+k−1)−1/s. The remainder integral is holomorphic for Re s>−N under locally uniform remainder bounds; thus the coefficient at s=0 is a1−1, not a1.",
       "hypotheses": [
         "The carrier, domain and normalization hypotheses in the statement are part of the result."
       ],
       "proofSteps": [
         "Obtain uniform heat-remainder bounds from the heat-kernel supplier.",
-        "Split the Mellin integral at1.",
-        "Integrate the finite asymptotic polynomial and dominate the remainder locally."
+        "Split the Mellin integral of H(t)−1 at 1; subtract the zero mode along with the finite heat expansion.",
+        "Integrate the polynomial to Σ ak/(s+k−1)−1/s and dominate the remainder locally for Re s>−N."
       ],
       "acceptance": [
-        "For any prescribed continuation range, subtract a finite heat asymptotic expansion H(t)~Σk≥0 ak t^(k−1) at0. Integrating each subtracted monomial on(0,1) gives ak/(s+k−1); the remainder integral is holomorphic in the extended half-plane."
+        "Write H(t)=Σj≥0 exp(−tλj), including its simple zero mode. The positive spectral Mellin integral uses H(t)−1. If H(t)=Σk=0..N ak t^(k−1)+O(t^N), then subtract Σk=0..N ak t^(k−1)−1. Its integral on (0,1) is Σk=0..N ak/(s+k−1)−1/s. The remainder integral is holomorphic for Re s>−N under locally uniform remainder bounds; thus the coefficient at s=0 is a1−1, not a1."
       ],
       "prerequisites": [
         "AnalyticNumberTheory:AN.9/heat-mellin-on-right-half-plane",
@@ -3442,7 +3545,7 @@
       ],
       "prerequisites": [
         "AnalyticNumberTheory:AN.9/heat-small-time-subtraction",
-        "AnalyticNumberTheory:AN.9/spectral-regularized-determinant"
+        "mathlib:Complex.Gamma"
       ],
       "sources": [
         {
@@ -3526,7 +3629,7 @@
       "sources": [
         {
           "sourceId": "jss-2026",
-          "locator": "Theorem 6.1 and proof; Corollaries 8.2.1 and 8.3.1–2, pp.20–24,27–28",
+          "locator": "§5 equations (5.1)–(5.3), p.16, scalar trivial twist m=0; remove the 1/4 operator shift; no elliptic terms",
           "excerpt": "identity contribution",
           "match": "The compact scalar heat trace input; the statement fixes the source conventions and the proof leaves below."
         }
@@ -3565,7 +3668,7 @@
       "sources": [
         {
           "sourceId": "jss-2026",
-          "locator": "Theorem 6.1 and proof; Corollaries 8.2.1 and 8.3.1–2, pp.20–24,27–28",
+          "locator": "§5 Lemmas 5.1–5.3 and Proposition 5.4, pp.17–18; determinant proof §6",
           "excerpt": "identity contribution",
           "match": "Hyperbolic transform is the Selberg logarithm; the statement fixes the source conventions and the proof leaves below."
         }
@@ -3604,7 +3707,7 @@
       "sources": [
         {
           "sourceId": "jss-2026",
-          "locator": "Theorem 6.1 and proof; Corollaries 8.2.1 and 8.3.1–2, pp.20–24,27–28",
+          "locator": "§6 proof of Theorem 6.1, identity contribution and asymptotic constant, pp.21–24; (2.8)–(2.9)",
           "excerpt": "identity contribution",
           "match": "Identity contribution and Barnes normalization; the statement fixes the source conventions and the proof leaves below."
         }
@@ -3645,7 +3748,7 @@
       "sources": [
         {
           "sourceId": "jss-2026",
-          "locator": "Theorem 6.1 and proof; Corollaries 8.2.1 and 8.3.1–2, pp.20–24,27–28",
+          "locator": "§6 Theorem 6.1 (6.1), pp.20–24, scalar m=0 and trivial representation; §8.3 (8.8), p.28",
           "excerpt": "identity contribution",
           "match": "The compact Selberg determinant comparison; the statement fixes the source conventions and the proof leaves below."
         }
@@ -3684,7 +3787,7 @@
       "sources": [
         {
           "sourceId": "jss-2026",
-          "locator": "Theorem 6.1 and proof; Corollaries 8.2.1 and 8.3.1–2, pp.20–24,27–28",
+          "locator": "§7 scalar specialization of (7.3), pp.24–26; §8.3 (8.8), p.28",
           "excerpt": "identity contribution",
           "match": "The compact Selberg functional equation; the statement fixes the source conventions and the proof leaves below."
         }
@@ -3758,7 +3861,8 @@
       ],
       "prerequisites": [
         "AnalyticNumberTheory:AN.9/bost-connes-hecke-algebra",
-        "mathlib:StarSubalgebra.topologicalClosure"
+        "mathlib:StarSubalgebra.topologicalClosure",
+        "AnalyticNumberTheory:AN.9/bc-convolution-norm-bound"
       ],
       "sources": [
         {
@@ -3845,8 +3949,8 @@
       "sources": [
         {
           "sourceId": "connes-marcolli-2008",
-          "locator": "Ch.3, Definitions3.4–3.6, pp.445–447",
-          "excerpt": "Q-lattices",
+          "locator": "Chapter 3, Definitions 3.4–3.6, pp.445–447",
+          "excerpt": "inverse temperature",
           "match": "Completed KMS states and the bounded strip condition; the statement fixes the source conventions and the proof leaves below."
         }
       ],
@@ -3923,8 +4027,8 @@
       "sources": [
         {
           "sourceId": "connes-marcolli-2008",
-          "locator": "Ch.3, Definition3.7, p.447; Theorem3.32, pp.474–476",
-          "excerpt": "Q-lattices",
+          "locator": "Chapter 3, Definition 3.7 and following ground-state remark, p.447",
+          "excerpt": "ground states",
           "match": "KMS∞ states and upper-half-plane ground states; the statement fixes the source conventions and the proof leaves below."
         }
       ],
@@ -3988,7 +4092,7 @@
         "The carrier, domain and normalization hypotheses in the statement are part of the result."
       ],
       "proofSteps": [
-        "Prove the six generator relations from finite coset convolutions.",
+        "Use the separately listed generator relations; do not reprove them inside the normal-form closure lemma.",
         "Use the displayed gcd cancellation and character-transport formulas of p.433.",
         "Reduce a noncoprime outer pair with μq eγ μq*=q^(−1)Σqδ=γ eδ."
       ],
@@ -3997,7 +4101,15 @@
       ],
       "prerequisites": [
         "AnalyticNumberTheory:AN.9/bost-connes-hecke-algebra",
-        "AnalyticNumberTheory:AN.9/double-cosets-and-degrees"
+        "AnalyticNumberTheory:AN.9/double-cosets-and-degrees",
+        "AnalyticNumberTheory:AN.9/bc-relation-left-inverse",
+        "AnalyticNumberTheory:AN.9/bc-relation-dilations",
+        "AnalyticNumberTheory:AN.9/bc-relation-inverse-dilations",
+        "AnalyticNumberTheory:AN.9/bc-relation-coprime",
+        "AnalyticNumberTheory:AN.9/bc-relation-translation-zero",
+        "AnalyticNumberTheory:AN.9/bc-relation-translation-add",
+        "AnalyticNumberTheory:AN.9/bc-relation-transport",
+        "AnalyticNumberTheory:AN.9/bc-relation-preimage-sum"
       ],
       "sources": [
         {
@@ -4074,8 +4186,9 @@
         "Each finite-support Hecke element acts boundedly on the right-coset l² carrier by a finite sum of finite-degree correspondences; operator adjoint matches the Hecke involution and the action on the base vector detects each coefficient."
       ],
       "prerequisites": [
-        "AnalyticNumberTheory:AN.9/bc-cstar-completion",
-        "AnalyticNumberTheory:AN.9/double-cosets-and-degrees"
+        "AnalyticNumberTheory:AN.9/bost-connes-hecke-algebra",
+        "AnalyticNumberTheory:AN.9/double-cosets-and-degrees",
+        "mathlib:lp"
       ],
       "sources": [
         {
@@ -4200,8 +4313,8 @@
       "sources": [
         {
           "sourceId": "connes-marcolli-2008",
-          "locator": "Ch.3, §4, pp.454–476",
-          "excerpt": "Q-lattices",
+          "locator": "Chapter 3, Definition 3.6 and entire-element condition (3.17), pp.446–447; the converse analytic-core theorem is an additional source gap",
+          "excerpt": "entire elements",
           "match": "The analytic core and the strip KMS condition; the statement fixes the source conventions and the proof leaves below."
         }
       ],
@@ -4239,7 +4352,7 @@
       "sources": [
         {
           "sourceId": "neshveyev-2000-correct",
-          "locator": "Proposition and its proof, pp.2–3; corollary p.4",
+          "locator": "Local product density and Proposition, p.2; normalized scaling equation (1β), p.1",
           "excerpt": "ergodic",
           "match": "The finite-adele scaling measure; the statement fixes the source conventions and the proof leaves below."
         }
@@ -4319,7 +4432,7 @@
       "sources": [
         {
           "sourceId": "neshveyev-2000-correct",
-          "locator": "Proposition and its proof, pp.2–3; corollary p.4",
+          "locator": "Introduction, normalized scaling condition (1β) and KMS correspondence attributed to Laca, p.1",
           "excerpt": "ergodic",
           "match": "KMS states and scaling measures; the statement fixes the source conventions and the proof leaves below."
         }
@@ -4357,7 +4470,7 @@
       "sources": [
         {
           "sourceId": "neshveyev-2000-correct",
-          "locator": "Proposition and its proof, pp.2–3; corollary p.4",
+          "locator": "Proposition proof, projection formula (2) and verification, p.2",
           "excerpt": "ergodic",
           "match": "Finite-prime orbit projection; the statement fixes the source conventions and the proof leaves below."
         }
@@ -4395,7 +4508,7 @@
       "sources": [
         {
           "sourceId": "neshveyev-2000-correct",
-          "locator": "Proposition and its proof, pp.2–3; corollary p.4",
+          "locator": "Proposition proof, local characters and valuation translates, pp.2–3",
           "excerpt": "ergodic",
           "match": "Local characters form a dense family; the statement fixes the source conventions and the proof leaves below."
         }
@@ -4435,7 +4548,7 @@
       "sources": [
         {
           "sourceId": "neshveyev-2000-correct",
-          "locator": "Proposition and its proof, pp.2–3; corollary p.4",
+          "locator": "Proposition proof, nontrivial character product and progression argument, p.3",
           "excerpt": "ergodic",
           "match": "Nontrivial characters are annihilated in the critical interval; the statement fixes the source conventions and the proof leaves below."
         }
@@ -4475,7 +4588,7 @@
       "sources": [
         {
           "sourceId": "neshveyev-2000-correct",
-          "locator": "Proposition and its proof, pp.2–3; corollary p.4",
+          "locator": "Proposition and complete proof, pp.2–3",
           "excerpt": "ergodic",
           "match": "Ergodicity of positive rationals on finite adeles; the statement fixes the source conventions and the proof leaves below."
         }
@@ -4515,7 +4628,7 @@
       "sources": [
         {
           "sourceId": "neshveyev-2000-correct",
-          "locator": "Proposition and its proof, pp.2–3; corollary p.4",
+          "locator": "Corollary and proof, p.3 (p.4 contains references)",
           "excerpt": "ergodic",
           "match": "Uniqueness in the critical inverse-temperature interval; the statement fixes the source conventions and the proof leaves below."
         }
@@ -4554,7 +4667,7 @@
       "sources": [
         {
           "sourceId": "neshveyev-2000-correct",
-          "locator": "Proposition and its proof, pp.2–3; corollary p.4",
+          "locator": "Introduction, unit-orbit decomposition after (1β), pp.1–2",
           "excerpt": "ergodic",
           "match": "Unit-orbit decomposition above the critical temperature; the statement fixes the source conventions and the proof leaves below."
         }
@@ -4595,7 +4708,7 @@
       "sources": [
         {
           "sourceId": "connes-marcolli-2008",
-          "locator": "Ch.3, §4, pp.454–476",
+          "locator": "Chapter 3, Theorem 3.32, pp.474–475; Proposition 3.8, pp.447–448 supplies the general Choquet statement",
           "excerpt": "Q-lattices",
           "match": "High-β extremal states and unique barycentres; the statement fixes the source conventions and the proof leaves below."
         }
@@ -4869,12 +4982,13 @@
       ],
       "prerequisites": [
         "AnalyticNumberTheory:AN.9/bc-trigonometric-eisenstein",
-        "AnalyticNumberTheory:AN.6"
+        "mathlib:ArithmeticFunction.moebius",
+        "mathlib:ArithmeticFunction.sum_eq_iff_sum_mul_moebius_eq"
       ],
       "sources": [
         {
           "sourceId": "connes-marcolli-2008",
-          "locator": "Ch.3, §4, pp.454–476",
+          "locator": "Chapter 3, equations (3.103)–(3.107), p.466",
           "excerpt": "Q-lattices",
           "match": "Möbius divisibility identities; the statement fixes the source conventions and the proof leaves below."
         }
@@ -4913,7 +5027,7 @@
       "sources": [
         {
           "sourceId": "connes-marcolli-2008",
-          "locator": "Ch.3, §4, pp.454–476",
+          "locator": "Chapter 3, Lemma 3.29, (3.108)–(3.109), p.467",
           "excerpt": "Q-lattices",
           "match": "The Eisenstein division formula; the statement fixes the source conventions and the proof leaves below."
         }
@@ -4952,7 +5066,7 @@
       "sources": [
         {
           "sourceId": "connes-marcolli-2008",
-          "locator": "Ch.3, §4, pp.454–476",
+          "locator": "Chapter 3, proof of Theorem 3.30, prime-power and doubled dyadic level step, pp.467–468",
           "excerpt": "Q-lattices",
           "match": "Recovering prime-power divisibility projections; the statement fixes the source conventions and the proof leaves below."
         }
@@ -4991,7 +5105,7 @@
       "sources": [
         {
           "sourceId": "connes-marcolli-2008",
-          "locator": "Ch.3, §4, pp.454–476",
+          "locator": "Chapter 3, proof of Theorem 3.30, (3.110)–(3.117), pp.468–469",
           "excerpt": "Q-lattices",
           "match": "Recovering roots of unity from Eisenstein functions; the statement fixes the source conventions and the proof leaves below."
         }
@@ -5031,7 +5145,7 @@
       "sources": [
         {
           "sourceId": "connes-marcolli-2008",
-          "locator": "Ch.3, §4, pp.454–476",
+          "locator": "Chapter 3, Theorem 3.30 and proof, pp.467–470",
           "excerpt": "Q-lattices",
           "match": "The trigonometric arithmetic algebra equals the BC rational form; the statement fixes the source conventions and the proof leaves below."
         }
@@ -5072,7 +5186,7 @@
       "sources": [
         {
           "sourceId": "connes-marcolli-2008",
-          "locator": "Ch.3, §4, pp.454–476",
+          "locator": "Chapter 3, (3.140)–(3.142), pp.475–476; weak Gibbs limit is the stated elementary consequence",
           "excerpt": "Q-lattices",
           "match": "The Gibbs limit and its uniform tail bound; the statement fixes the source conventions and the proof leaves below."
         }
@@ -5114,7 +5228,7 @@
       "sources": [
         {
           "sourceId": "connes-marcolli-2008",
-          "locator": "Ch.3, §4, pp.454–476",
+          "locator": "Chapter 3, Theorem 3.32 (3)–(4), (3.136)–(3.137), p.475",
           "excerpt": "Q-lattices",
           "match": "Arithmetic values and symmetry intertwining; the statement fixes the source conventions and the proof leaves below."
         }
@@ -5125,21 +5239,371 @@
         "name": "TauCeti.BostConnes.bc_arithmetic_values_and_symmetry"
       },
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnalyticNumberTheory:AN.8/cubic-dual-simple-poles",
+      "parentStageId": "AnalyticNumberTheory:AN.8",
+      "realises": [
+        "AnalyticNumberTheory:AN.8"
+      ],
+      "title": "Simple poles of the dual cubic Shintani series",
+      "kind": "lemma",
+      "statement": "For each number field F and archimedean signature α, the dual ξhatF,α has a meromorphic continuation with no poles except possible simple poles at 1 and 5/6. In particular (s−1)ξhatF,α(s) is holomorphic near 1.",
+      "hypotheses": [
+        "Use the trace-divisible dual series of cubic-shintani-series, with the LOWW normalizations."
+      ],
+      "proofSteps": [
+        "Import the exact analytic statement of LOWW Proposition 3.7(4). Its original DW86 Theorem 6.2 continuation proof is the recorded global analytic gap, not a consequence of the positive-coefficient inequality."
+      ],
+      "prerequisites": [
+        "AnalyticNumberTheory:AN.8/cubic-shintani-series"
+      ],
+      "acceptance": [
+        "The pole-order input concerns the dual series, not only the ordinary series."
+      ],
+      "sources": [
+        {
+          "sourceId": "loww-2025-analytic",
+          "locator": "§3.2, Proposition 3.7(4), p.13",
+          "excerpt": "both simple",
+          "match": "The stated dual meromorphic continuation and pole orders."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/SeveralVariableZeta/CubicDualPoles",
+        "namespace": "TauCeti.SeveralVariableZeta",
+        "name": "TauCeti.SeveralVariableZeta.cubic_dual_simple_poles"
+      },
+      "implementationStatus": "unchecked",
+      "addedBy": "REV-AnalyticNumberTheory--AN.8"
+    },
+    {
+      "id": "AnalyticNumberTheory:AN.9/bc-relation-left-inverse",
+      "parentStageId": "AnalyticNumberTheory:AN.9",
+      "realises": [
+        "AnalyticNumberTheory:AN.9"
+      ],
+      "title": "For n≥1, x′n xn=n·1.",
+      "kind": "lemma",
+      "statement": "For n≥1, x′n xn=n·1.",
+      "hypotheses": [
+        "K is a characteristic-zero field; x,x′,e are the rational, unnormalized Hecke generators."
+      ],
+      "proofSteps": [
+        "Count the n left-coset representatives of Xn inverse; each product with Xn is in the identity class.",
+        "Use the cited Tau Ceti single-product multiplicities, then extend coefficients to K."
+      ],
+      "prerequisites": [
+        "AnalyticNumberTheory:AN.9/bost-connes-hecke-algebra",
+        "AnalyticNumberTheory:AN.9/double-cosets-and-degrees",
+        "tauceti:HeckeCosetModule.single_mul_single"
+      ],
+      "acceptance": [
+        "After rescaling over ℂ this is the corresponding relation of BC Proposition 18."
+      ],
+      "sources": [
+        {
+          "sourceId": "bost-connes-1995",
+          "locator": "§4, Proposition 18 (a)–(f), p.431, and proof pp.432–433; unnormalized rational rescaling",
+          "excerpt": "the following relations",
+          "match": "One relation extracted from the simultaneous source presentation; coefficients rescaled by x_n=√n μ_n."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/BostConnes/HeckeAlgebra",
+        "namespace": "TauCeti.BostConnes.BCHecke",
+        "name": "TauCeti.BostConnes.BCHecke.x_prime_mul_x"
+      },
+      "implementationStatus": "unchecked",
+      "addedBy": "REV-AnalyticNumberTheory--AN.8"
+    },
+    {
+      "id": "AnalyticNumberTheory:AN.9/bc-relation-dilations",
+      "parentStageId": "AnalyticNumberTheory:AN.9",
+      "realises": [
+        "AnalyticNumberTheory:AN.9"
+      ],
+      "title": "For n,m≥1, x(nm)=xn xm.",
+      "kind": "lemma",
+      "statement": "For n,m≥1, x(nm)=xn xm.",
+      "hypotheses": [
+        "K is a characteristic-zero field; x,x′,e are the rational, unnormalized Hecke generators."
+      ],
+      "proofSteps": [
+        "The positive integral dilation cosets have the single representative needed for this product.",
+        "Use the cited Tau Ceti single-product multiplicities, then extend coefficients to K."
+      ],
+      "prerequisites": [
+        "AnalyticNumberTheory:AN.9/bost-connes-hecke-algebra",
+        "AnalyticNumberTheory:AN.9/double-cosets-and-degrees",
+        "tauceti:HeckeCosetModule.single_mul_single"
+      ],
+      "acceptance": [
+        "After rescaling over ℂ this is the corresponding relation of BC Proposition 18."
+      ],
+      "sources": [
+        {
+          "sourceId": "bost-connes-1995",
+          "locator": "§4, Proposition 18 (a)–(f), p.431, and proof pp.432–433; unnormalized rational rescaling",
+          "excerpt": "the following relations",
+          "match": "One relation extracted from the simultaneous source presentation; coefficients rescaled by x_n=√n μ_n."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/BostConnes/HeckeAlgebra",
+        "namespace": "TauCeti.BostConnes.BCHecke",
+        "name": "TauCeti.BostConnes.BCHecke.x_mul"
+      },
+      "implementationStatus": "unchecked",
+      "addedBy": "REV-AnalyticNumberTheory--AN.8"
+    },
+    {
+      "id": "AnalyticNumberTheory:AN.9/bc-relation-inverse-dilations",
+      "parentStageId": "AnalyticNumberTheory:AN.9",
+      "realises": [
+        "AnalyticNumberTheory:AN.9"
+      ],
+      "title": "For n,m≥1, x′(nm)=x′n x′m.",
+      "kind": "lemma",
+      "statement": "For n,m≥1, x′(nm)=x′n x′m.",
+      "hypotheses": [
+        "K is a characteristic-zero field; x,x′,e are the rational, unnormalized Hecke generators."
+      ],
+      "proofSteps": [
+        "Compute the inverse dilation coset representatives and count each output once.",
+        "Use the cited Tau Ceti single-product multiplicities, then extend coefficients to K."
+      ],
+      "prerequisites": [
+        "AnalyticNumberTheory:AN.9/bost-connes-hecke-algebra",
+        "AnalyticNumberTheory:AN.9/double-cosets-and-degrees",
+        "tauceti:HeckeCosetModule.single_mul_single"
+      ],
+      "acceptance": [
+        "After rescaling over ℂ this is the corresponding relation of BC Proposition 18."
+      ],
+      "sources": [
+        {
+          "sourceId": "bost-connes-1995",
+          "locator": "§4, Proposition 18 (a)–(f), p.431, and proof pp.432–433; unnormalized rational rescaling",
+          "excerpt": "the following relations",
+          "match": "One relation extracted from the simultaneous source presentation; coefficients rescaled by x_n=√n μ_n."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/BostConnes/HeckeAlgebra",
+        "namespace": "TauCeti.BostConnes.BCHecke",
+        "name": "TauCeti.BostConnes.BCHecke.x_prime_mul"
+      },
+      "implementationStatus": "unchecked",
+      "addedBy": "REV-AnalyticNumberTheory--AN.8"
+    },
+    {
+      "id": "AnalyticNumberTheory:AN.9/bc-relation-coprime",
+      "parentStageId": "AnalyticNumberTheory:AN.9",
+      "realises": [
+        "AnalyticNumberTheory:AN.9"
+      ],
+      "title": "For coprime n,m≥1, xn x′m=x′m xn.",
+      "kind": "lemma",
+      "statement": "For coprime n,m≥1, xn x′m=x′m xn.",
+      "hypotheses": [
+        "K is a characteristic-zero field; x,x′,e are the rational, unnormalized Hecke generators."
+      ],
+      "proofSteps": [
+        "Use the finite coset decomposition and the residue bijection modulo coprime n,m.",
+        "Use the cited Tau Ceti single-product multiplicities, then extend coefficients to K."
+      ],
+      "prerequisites": [
+        "AnalyticNumberTheory:AN.9/bost-connes-hecke-algebra",
+        "AnalyticNumberTheory:AN.9/double-cosets-and-degrees",
+        "tauceti:HeckeCosetModule.single_mul_single"
+      ],
+      "acceptance": [
+        "After rescaling over ℂ this is the corresponding relation of BC Proposition 18."
+      ],
+      "sources": [
+        {
+          "sourceId": "bost-connes-1995",
+          "locator": "§4, Proposition 18 (a)–(f), p.431, and proof pp.432–433; unnormalized rational rescaling",
+          "excerpt": "the following relations",
+          "match": "One relation extracted from the simultaneous source presentation; coefficients rescaled by x_n=√n μ_n."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/BostConnes/HeckeAlgebra",
+        "namespace": "TauCeti.BostConnes.BCHecke",
+        "name": "TauCeti.BostConnes.BCHecke.x_mul_x_prime_of_coprime"
+      },
+      "implementationStatus": "unchecked",
+      "addedBy": "REV-AnalyticNumberTheory--AN.8"
+    },
+    {
+      "id": "AnalyticNumberTheory:AN.9/bc-relation-translation-zero",
+      "parentStageId": "AnalyticNumberTheory:AN.9",
+      "realises": [
+        "AnalyticNumberTheory:AN.9"
+      ],
+      "title": "e(0)=1.",
+      "kind": "lemma",
+      "statement": "e(0)=1.",
+      "hypotheses": [
+        "K is a characteristic-zero field; x,x′,e are the rational, unnormalized Hecke generators."
+      ],
+      "proofSteps": [
+        "The zero translation is the identity double coset.",
+        "Use the cited Tau Ceti single-product multiplicities, then extend coefficients to K."
+      ],
+      "prerequisites": [
+        "AnalyticNumberTheory:AN.9/bost-connes-hecke-algebra",
+        "AnalyticNumberTheory:AN.9/double-cosets-and-degrees",
+        "tauceti:HeckeCosetModule.single_mul_single"
+      ],
+      "acceptance": [
+        "After rescaling over ℂ this is the corresponding relation of BC Proposition 18."
+      ],
+      "sources": [
+        {
+          "sourceId": "bost-connes-1995",
+          "locator": "§4, Proposition 18 (a)–(f), p.431, and proof pp.432–433; unnormalized rational rescaling",
+          "excerpt": "the following relations",
+          "match": "One relation extracted from the simultaneous source presentation; coefficients rescaled by x_n=√n μ_n."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/BostConnes/HeckeAlgebra",
+        "namespace": "TauCeti.BostConnes.BCHecke",
+        "name": "TauCeti.BostConnes.BCHecke.e_zero"
+      },
+      "implementationStatus": "unchecked",
+      "addedBy": "REV-AnalyticNumberTheory--AN.8"
+    },
+    {
+      "id": "AnalyticNumberTheory:AN.9/bc-relation-translation-add",
+      "parentStageId": "AnalyticNumberTheory:AN.9",
+      "realises": [
+        "AnalyticNumberTheory:AN.9"
+      ],
+      "title": "For γ,δ∈ℚ/ℤ, e(γ+δ)=e(γ)e(δ).",
+      "kind": "lemma",
+      "statement": "For γ,δ∈ℚ/ℤ, e(γ+δ)=e(γ)e(δ).",
+      "hypotheses": [
+        "K is a characteristic-zero field; x,x′,e are the rational, unnormalized Hecke generators."
+      ],
+      "proofSteps": [
+        "Multiply the single translation representatives, independent of their integer lifts.",
+        "Use the cited Tau Ceti single-product multiplicities, then extend coefficients to K."
+      ],
+      "prerequisites": [
+        "AnalyticNumberTheory:AN.9/bost-connes-hecke-algebra",
+        "AnalyticNumberTheory:AN.9/double-cosets-and-degrees",
+        "tauceti:HeckeCosetModule.single_mul_single"
+      ],
+      "acceptance": [
+        "After rescaling over ℂ this is the corresponding relation of BC Proposition 18."
+      ],
+      "sources": [
+        {
+          "sourceId": "bost-connes-1995",
+          "locator": "§4, Proposition 18 (a)–(f), p.431, and proof pp.432–433; unnormalized rational rescaling",
+          "excerpt": "the following relations",
+          "match": "One relation extracted from the simultaneous source presentation; coefficients rescaled by x_n=√n μ_n."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/BostConnes/HeckeAlgebra",
+        "namespace": "TauCeti.BostConnes.BCHecke",
+        "name": "TauCeti.BostConnes.BCHecke.e_add"
+      },
+      "implementationStatus": "unchecked",
+      "addedBy": "REV-AnalyticNumberTheory--AN.8"
+    },
+    {
+      "id": "AnalyticNumberTheory:AN.9/bc-relation-transport",
+      "parentStageId": "AnalyticNumberTheory:AN.9",
+      "realises": [
+        "AnalyticNumberTheory:AN.9"
+      ],
+      "title": "For n≥1 and γ∈ℚ/ℤ, e(γ)xn=xn e(nγ).",
+      "kind": "lemma",
+      "statement": "For n≥1 and γ∈ℚ/ℤ, e(γ)xn=xn e(nγ).",
+      "hypotheses": [
+        "K is a characteristic-zero field; x,x′,e are the rational, unnormalized Hecke generators."
+      ],
+      "proofSteps": [
+        "The corresponding triangular matrices multiply to the same representative.",
+        "Use the cited Tau Ceti single-product multiplicities, then extend coefficients to K."
+      ],
+      "prerequisites": [
+        "AnalyticNumberTheory:AN.9/bost-connes-hecke-algebra",
+        "AnalyticNumberTheory:AN.9/double-cosets-and-degrees",
+        "tauceti:HeckeCosetModule.single_mul_single"
+      ],
+      "acceptance": [
+        "After rescaling over ℂ this is the corresponding relation of BC Proposition 18."
+      ],
+      "sources": [
+        {
+          "sourceId": "bost-connes-1995",
+          "locator": "§4, Proposition 18 (a)–(f), p.431, and proof pp.432–433; unnormalized rational rescaling",
+          "excerpt": "the following relations",
+          "match": "One relation extracted from the simultaneous source presentation; coefficients rescaled by x_n=√n μ_n."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/BostConnes/HeckeAlgebra",
+        "namespace": "TauCeti.BostConnes.BCHecke",
+        "name": "TauCeti.BostConnes.BCHecke.e_mul_x"
+      },
+      "implementationStatus": "unchecked",
+      "addedBy": "REV-AnalyticNumberTheory--AN.8"
+    },
+    {
+      "id": "AnalyticNumberTheory:AN.9/bc-relation-preimage-sum",
+      "parentStageId": "AnalyticNumberTheory:AN.9",
+      "realises": [
+        "AnalyticNumberTheory:AN.9"
+      ],
+      "title": "For n≥1 and γ∈ℚ/ℤ, xn e(γ)x′n=Σnδ=γ e(δ); the fiber has n elements.",
+      "kind": "lemma",
+      "statement": "For n≥1 and γ∈ℚ/ℤ, xn e(γ)x′n=Σnδ=γ e(δ); the fiber has n elements.",
+      "hypotheses": [
+        "K is a characteristic-zero field; x,x′,e are the rational, unnormalized Hecke generators."
+      ],
+      "proofSteps": [
+        "Enumerate the n residue representatives of the inverse dilation and match the translations to the n-element fiber.",
+        "Use the cited Tau Ceti single-product multiplicities, then extend coefficients to K."
+      ],
+      "prerequisites": [
+        "AnalyticNumberTheory:AN.9/bost-connes-hecke-algebra",
+        "AnalyticNumberTheory:AN.9/double-cosets-and-degrees",
+        "tauceti:HeckeCosetModule.single_mul_single"
+      ],
+      "acceptance": [
+        "After rescaling over ℂ this is the corresponding relation of BC Proposition 18."
+      ],
+      "sources": [
+        {
+          "sourceId": "bost-connes-1995",
+          "locator": "§4, Proposition 18 (a)–(f), p.431, and proof pp.432–433; unnormalized rational rescaling",
+          "excerpt": "the following relations",
+          "match": "One relation extracted from the simultaneous source presentation; coefficients rescaled by x_n=√n μ_n."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/BostConnes/HeckeAlgebra",
+        "namespace": "TauCeti.BostConnes.BCHecke",
+        "name": "TauCeti.BostConnes.BCHecke.x_mul_e_mul_x_prime"
+      },
+      "implementationStatus": "unchecked",
+      "addedBy": "REV-AnalyticNumberTheory--AN.8"
     }
   ],
   "requests": [
     {
       "supplier": "AnalyticNumberTheory:AN.2",
-      "need": "Supply the exact quadratic first-moment estimate Blomer(16), with squarefree discriminants, four mod8 twists and vertical-strip uniformity; the current AN.0 packet does not certify this exact interface.",
+      "need": "Extension request: for ε>0, X≥1 and the four mod8 twists ψ, supply Σ0<d≤X,d odd |L2(1/2+it,χdψ)| ≪ε (X(1+|t|)^(1/4))^(1+ε), then the precise pole-aware vertical-strip variant used in Blomer (29). Ordinary PNT and convexity alone do not supply this mean estimate.",
       "neededBy": [
         "AnalyticNumberTheory:AN.8/quadratic-mean-bound-import"
-      ]
-    },
-    {
-      "supplier": "AnalyticNumberTheory:AN.1",
-      "need": "Use the existing Dirichlet-character functional-equation chain with primitive conductor, parity and missing Euler factors; match its output to the four quadratic residue-class factors r in AN.8.",
-      "neededBy": [
-        "AnalyticNumberTheory:AN.8/quadratic-reflection-equation"
       ]
     },
     {
@@ -5166,7 +5630,7 @@
     },
     {
       "supplier": "AutomorphicLFunctionsAndLocalFactors:AL.0",
-      "need": "Supply local/adelic Schwartz–Bruhat functions, the binary-cubic Fourier pairing and self-dual measures, Poisson summation with the singular-orbit correction, and locally uniform holomorphic parameter integrals.",
+      "need": "Supply local/adelic Schwartz–Bruhat functions, the binary-cubic Fourier pairing and self-dual measures, Poisson summation with the singular-orbit correction, and locally uniform holomorphic parameter integrals. Existing AL.0 Fourier/Poisson statements concern one-dimensional additive adeles. The V=Sym³(F²) extension and removal of singular orbits are additional requested contracts, not supplied by Tate Poisson alone.",
       "neededBy": [
         "AnalyticNumberTheory:AN.8/pvs-local-zeta",
         "AnalyticNumberTheory:AN.8/cubic-adelic-zeta"
@@ -5204,7 +5668,7 @@
     },
     {
       "supplier": "AutomorphicSpectralTheory:AS.4",
-      "need": "Supply the scalar positive self-adjoint Laplacian, complete discrete eigenbasis, finite multiplicities, simple zero mode, Weyl counting and uniform heat-kernel asymptotics on the selected compact surface.",
+      "need": "Supply the scalar positive self-adjoint Laplacian, complete discrete eigenbasis, finite multiplicities, simple zero mode, Weyl counting and uniform heat-kernel asymptotics on the selected compact surface. AS.4 supplies discrete automorphic Hilbert sums; the scalar geometric Laplacian, simple zero mode, Weyl law and uniform heat asymptotics are extension requests.",
       "neededBy": [
         "AnalyticNumberTheory:AN.9/spectral-zeta-series",
         "AnalyticNumberTheory:AN.9/compact-spectrum-and-weyl",
@@ -5213,7 +5677,7 @@
     },
     {
       "supplier": "AutomorphicSpectralTheory:AS.6",
-      "need": "Supply the compact scalar heat trace formula, the Gaussian test-function extension and geodesic growth, with exactly the primitive-class convention and the identity/hyperbolic constants displayed here.",
+      "need": "Supply the compact scalar heat trace formula, the Gaussian test-function extension and geodesic growth, with exactly the primitive-class convention and the identity/hyperbolic constants displayed here. AS.6 is stated for compactly supported smooth tests; Gaussian tests and their orbital-integral constants require an explicit limiting/decay adapter.",
       "neededBy": [
         "AnalyticNumberTheory:AN.9/selberg-primitive-product",
         "AnalyticNumberTheory:AN.9/selberg-log-product",
@@ -5222,7 +5686,7 @@
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-10-archimedean-characters-infinity-types-and-cyclotomic-arithmetic",
-      "need": "Supply the Q cyclotomic character and the explicit class-field identification Aut(Q/Z)=Ẑ×=Gal(Qcycl/Q), preserving the source Artin-map convention. The elementary basis-value formula does not require continuity of field automorphisms of C.",
+      "need": "Import the finite cyclotomic Galois identifications and their compatible transition maps from GlobalNumberFields layer 10. Construct the inverse-limit identification Gal(Qcycl/Q)=Ẑ× by compatible finite restrictions. That layer explicitly supplies arithmetic Frobenius and no global Artin map; do not assume a class-field existence or reciprocity theorem from it.",
       "neededBy": [
         "AnalyticNumberTheory:AN.9/bc-arithmetic-values-and-symmetry"
       ]
@@ -5231,20 +5695,26 @@
   "coverage": [
     {
       "stageId": "AnalyticNumberTheory:AN.8",
-      "status": "planned",
+      "status": "partial",
       "remaining": [
+        "Refine this target pass to the issue-mandated lemma level; unresolved exact contracts and bundled declarations are itemized in the review report and review.checked.",
         "Original PVS local/global gamma, density, residue and order-enumeration proofs, including2/3 and nonprincipal modules.",
         "Quadratic first-moment proof and bounded tube-hull extension; continuation matrices and singular hyperplanes are already target-planned.",
-        "Native adelic quotient carrier adapters and elaboration."
+        "Native adelic quotient carrier adapters and elaboration.",
+        "Specify the pole-aware quadratic mean estimate, primitive-conductor adapter and exact local density constants.",
+        "Certify the corrected right-quotient adelic action/exponent against the original global PVS source."
       ]
     },
     {
       "stageId": "AnalyticNumberTheory:AN.9",
-      "status": "planned",
+      "status": "partial",
       "remaining": [
+        "Refine this target pass to the issue-mandated lemma level; unresolved exact contracts and bundled declarations are itemized in the review report and review.checked.",
         "Compact scalar heat/Weyl and Gaussian trace inputs; JSS earlier Laplace–Mellin leaves and Barnes normalization/asymptotics.",
         "C*-GNS/universal-reduced/analytic-core, state–measure simplex and ratio-set/full-corner supplier interfaces.",
-        "Exact pinned cotangent/Newton and cyclotomic adapters; native elaboration."
+        "Exact pinned cotangent/Newton and cyclotomic adapters; native elaboration.",
+        "Supply the abstract presentation universal property and bounded-convolution/GNS/state-simplex contracts.",
+        "Supply a shifted determinant zero-divisor theorem including the λ=1/4 double-root multiplicity."
       ]
     }
   ],
@@ -5290,7 +5760,8 @@
       "title": "Original global analytic theorem",
       "neededBy": [
         "AnalyticNumberTheory:AN.8/cubic-global-functional-equation",
-        "AnalyticNumberTheory:AN.8/cubic-residues-and-entire-clearance"
+        "AnalyticNumberTheory:AN.8/cubic-residues-and-entire-clearance",
+        "AnalyticNumberTheory:AN.8/cubic-dual-simple-poles"
       ],
       "detail": "Acquire Wright (1985) Theorem4.1 and Datskovsky–Wright (1986) Theorems6.1–6.2, cited in LOWW. The full LOWW statement is read; its original continuation, residue and order-one proofs are not decomposed here."
     },
@@ -5299,7 +5770,7 @@
       "neededBy": [
         "AnalyticNumberTheory:AN.8/cubic-orders-generating-series"
       ],
-      "detail": "The generating formula is LOWW Lemma3.9, cited from DW86 Theorem6.2. Read its original local proof before refining the order-count Euler factors."
+      "detail": "The generating formula is LOWW Lemma3.9, cited from DW86 Theorem6.1. Read its original local proof before refining the order-count Euler factors."
     },
     {
       "title": "Barnes G normalization and asymptotics",
@@ -5391,7 +5862,177 @@
         "AnalyticNumberTheory:AN.9/bc-adelic-scaling-measure",
         "AnalyticNumberTheory:AN.9/bc-trigonometric-eisenstein"
       ],
-      "detail": "No complete pre-existing build at both pinned revisions is available. The suggested file is uncompiled. Its source-based signatures and finite mathematics checks are not elaboration evidence; match the bounded-operator, polynomial and quotient coercions in the exact build before implementation."
+      "detail": "Independent review attempted lean-check on the suggested file. It stopped at import TauCeti.NumberTheory.HeckeRing.Basic because its prebuilt object was missing. The shared Mathlib revision matches the pin, but no complete prebuilt Tau Ceti baseline at the recorded pin was available. No elaboration success or source syntax failure is inferred; no library build was started."
+    },
+    {
+      "title": "Quadratic primitive-conductor adapter",
+      "neededBy": [
+        "AnalyticNumberTheory:AN.8/quadratic-reflection-equation",
+        "AnalyticNumberTheory:AN.8/reflect-holomorphy-and-zero"
+      ],
+      "detail": "Match the four twists and squarefree odd d to the actual primitive characters, parity, root number and removed factor at 2. The two newly audited Mathlib declarations give general functional equations/change of level, not this quadratic table. AN.1 was dropped by accepted RS-07 and is not a supplier.",
+      "addedBy": "REV-AnalyticNumberTheory--AN.8"
+    },
+    {
+      "title": "Exact first-moment statement and pole exclusion",
+      "neededBy": [
+        "AnalyticNumberTheory:AN.8/quadratic-mean-bound-import",
+        "AnalyticNumberTheory:AN.8/double-R1-convergence"
+      ],
+      "detail": "Blomer (16), p.359 gives the first moment over all positive odd d, not only squarefree d. Pin a closed strip separated from the principal pole s=1 and give its uniform constants, or state the critical-line estimate and prove the strip extension separately. The current qualitative node is not a lemma contract.",
+      "addedBy": "REV-AnalyticNumberTheory--AN.8"
+    },
+    {
+      "title": "Lemma-level refinement and exact theorem carriers",
+      "neededBy": [
+        "AnalyticNumberTheory:AN.9/ax-plus-b-pair",
+        "AnalyticNumberTheory:AN.9/ax-plus-b-hecke-triple",
+        "AnalyticNumberTheory:AN.9/double-cosets-and-degrees",
+        "AnalyticNumberTheory:AN.9/bost-connes-hecke-algebra",
+        "AnalyticNumberTheory:AN.9/rational-presentation",
+        "AnalyticNumberTheory:AN.9/rational-forms-comparison",
+        "AnalyticNumberTheory:AN.9/time-evolution",
+        "AnalyticNumberTheory:AN.9/regular-representation",
+        "AnalyticNumberTheory:AN.9/partition-function",
+        "AnalyticNumberTheory:AN.9/gibbs-states",
+        "AnalyticNumberTheory:AN.9/kms-states",
+        "AnalyticNumberTheory:AN.9/gibbs-states-are-kms",
+        "AnalyticNumberTheory:AN.9/kms-classification",
+        "AnalyticNumberTheory:AN.9/symmetry-action",
+        "AnalyticNumberTheory:AN.9/galois-action-on-ground-states",
+        "AnalyticNumberTheory:AN.8/characters-mod-eight",
+        "AnalyticNumberTheory:AN.8/quadratic-double-series",
+        "AnalyticNumberTheory:AN.8/double-functional-system",
+        "AnalyticNumberTheory:AN.8/odd-double-sum-absolute",
+        "AnalyticNumberTheory:AN.8/squarefree-square-decomposition",
+        "AnalyticNumberTheory:AN.8/quadratic-mean-bound-import",
+        "AnalyticNumberTheory:AN.8/double-R1-convergence",
+        "AnalyticNumberTheory:AN.8/reciprocity-swap-equation",
+        "AnalyticNumberTheory:AN.8/quadratic-reflection-equation",
+        "AnalyticNumberTheory:AN.8/reflect-holomorphy-and-zero",
+        "AnalyticNumberTheory:AN.8/tube-overlap-gluing",
+        "AnalyticNumberTheory:AN.8/tube-hull-extension",
+        "AnalyticNumberTheory:AN.8/double-series-continuation",
+        "AnalyticNumberTheory:AN.8/pvs-local-zeta",
+        "AnalyticNumberTheory:AN.8/cubic-shintani-series",
+        "AnalyticNumberTheory:AN.8/cubic-archimedean-matrix",
+        "AnalyticNumberTheory:AN.8/cubic-orbit-to-coefficient",
+        "AnalyticNumberTheory:AN.8/local-density-coefficient-comparison",
+        "AnalyticNumberTheory:AN.8/cubic-adelic-zeta",
+        "AnalyticNumberTheory:AN.8/cubic-absolute-convergence",
+        "AnalyticNumberTheory:AN.8/cubic-global-functional-equation",
+        "AnalyticNumberTheory:AN.8/cubic-residues-and-entire-clearance",
+        "AnalyticNumberTheory:AN.8/arch-entry-vanishing-at-one",
+        "AnalyticNumberTheory:AN.8/gamma-unit-at-one",
+        "AnalyticNumberTheory:AN.8/cubic-zero-at-origin",
+        "AnalyticNumberTheory:AN.8/cubic-orders-generating-series",
+        "AnalyticNumberTheory:AN.8/cubic-reducible-and-field-coefficient-bound",
+        "AnalyticNumberTheory:AN.8/cubic-reflected-bound",
+        "AnalyticNumberTheory:AN.8/cubic-pole-cleared-convexity",
+        "AnalyticNumberTheory:AN.9/spectral-zeta-series",
+        "AnalyticNumberTheory:AN.9/selberg-primitive-product",
+        "AnalyticNumberTheory:AN.9/spectral-regularized-determinant",
+        "AnalyticNumberTheory:AN.9/compact-spectrum-and-weyl",
+        "AnalyticNumberTheory:AN.9/heat-mellin-on-right-half-plane",
+        "AnalyticNumberTheory:AN.9/heat-small-time-subtraction",
+        "AnalyticNumberTheory:AN.9/spectral-regularity-zero",
+        "AnalyticNumberTheory:AN.9/selberg-log-product",
+        "AnalyticNumberTheory:AN.9/scalar-heat-trace-formula",
+        "AnalyticNumberTheory:AN.9/hyperbolic-laplace-mellin",
+        "AnalyticNumberTheory:AN.9/identity-barnes-transform",
+        "AnalyticNumberTheory:AN.9/selberg-determinant-comparison",
+        "AnalyticNumberTheory:AN.9/selberg-functional-equation",
+        "AnalyticNumberTheory:AN.9/selberg-spectral-zero-comparison",
+        "AnalyticNumberTheory:AN.9/bc-cstar-completion",
+        "AnalyticNumberTheory:AN.9/bc-completed-kms",
+        "AnalyticNumberTheory:AN.9/bc-kms-infinity-and-ground",
+        "AnalyticNumberTheory:AN.9/bc-normal-form-product",
+        "AnalyticNumberTheory:AN.9/bc-normal-form-independent",
+        "AnalyticNumberTheory:AN.9/bc-convolution-norm-bound",
+        "AnalyticNumberTheory:AN.9/bc-real-dynamics-extension",
+        "AnalyticNumberTheory:AN.9/bc-bounded-state-extension",
+        "AnalyticNumberTheory:AN.9/bc-analytic-core-strip-equivalence",
+        "AnalyticNumberTheory:AN.9/bc-adelic-scaling-measure",
+        "AnalyticNumberTheory:AN.9/bc-kms-scaling-correspondence",
+        "AnalyticNumberTheory:AN.9/bc-finite-prime-projection",
+        "AnalyticNumberTheory:AN.9/bc-local-character-density",
+        "AnalyticNumberTheory:AN.9/bc-nontrivial-character-projection",
+        "AnalyticNumberTheory:AN.9/bc-critical-ergodicity",
+        "AnalyticNumberTheory:AN.9/bc-low-temperature-uniqueness",
+        "AnalyticNumberTheory:AN.9/bc-high-beta-unit-orbits",
+        "AnalyticNumberTheory:AN.9/bc-high-beta-barycentres",
+        "AnalyticNumberTheory:AN.9/bc-prime-pair-ratio",
+        "AnalyticNumberTheory:AN.9/bc-valuation-tail-ratio",
+        "AnalyticNumberTheory:AN.9/bc-full-positive-ratio-set",
+        "AnalyticNumberTheory:AN.9/bc-type-three-one",
+        "AnalyticNumberTheory:AN.9/bc-trigonometric-eisenstein",
+        "AnalyticNumberTheory:AN.9/bc-eisenstein-mobius-divisibility",
+        "AnalyticNumberTheory:AN.9/bc-eisenstein-division",
+        "AnalyticNumberTheory:AN.9/bc-eisenstein-prime-projections",
+        "AnalyticNumberTheory:AN.9/bc-eisenstein-roots-recovery",
+        "AnalyticNumberTheory:AN.9/bc-arithmetic-algebra-generation",
+        "AnalyticNumberTheory:AN.9/bc-gibbs-tail-limit",
+        "AnalyticNumberTheory:AN.9/bc-arithmetic-values-and-symmetry"
+      ],
+      "detail": "The issue requires lemma level (roadmap distance 4, maximum 5). Split bundled subgroup/convolution/relations, matrix construction, residue/order-one, classification and Eisenstein construction claims. Extract the named nonroutine proof leaves, replace generic hypotheses by exact domains, and supply native signatures for expressible series/analytic/state statements. Explicit uncertainty is retained; a target sketch is not lemma-level closure.",
+      "addedBy": "REV-AnalyticNumberTheory--AN.8"
+    },
+    {
+      "title": "Local density constants and adelic normalization",
+      "neededBy": [
+        "AnalyticNumberTheory:AN.8/pvs-local-zeta",
+        "AnalyticNumberTheory:AN.8/local-density-coefficient-comparison",
+        "AnalyticNumberTheory:AN.8/cubic-adelic-zeta"
+      ],
+      "detail": "LOWW §3.2 states the resulting global series and analytic theorems, but does not define the displayed local integrals or the adelic integral. Read original local/global PVS sources and specify the orbit-by-orbit constants, dyadic/triadic exceptions, Fourier pairing and action/exponent comparison. The right-quotient correction ensures invariance but does not certify source normalization.",
+      "addedBy": "REV-AnalyticNumberTheory--AN.8"
+    },
+    {
+      "title": "Native definition tests and reusable APIs",
+      "neededBy": [
+        "AnalyticNumberTheory:AN.8/characters-mod-eight",
+        "AnalyticNumberTheory:AN.8/double-functional-system",
+        "AnalyticNumberTheory:AN.8/pvs-local-zeta",
+        "AnalyticNumberTheory:AN.8/cubic-shintani-series",
+        "AnalyticNumberTheory:AN.9/spectral-zeta-series",
+        "AnalyticNumberTheory:AN.9/selberg-primitive-product",
+        "AnalyticNumberTheory:AN.9/bc-cstar-completion",
+        "AnalyticNumberTheory:AN.9/bc-completed-kms",
+        "AnalyticNumberTheory:AN.9/bc-kms-infinity-and-ground",
+        "AnalyticNumberTheory:AN.9/bc-adelic-scaling-measure",
+        "AnalyticNumberTheory:AN.9/bc-trigonometric-eisenstein"
+      ],
+      "detail": "Supply extensionality and linearity/domain/compatibility operations where missing. The local linear benchmark currently tests a geometric sum rather than a local integral; finite spectral tests need the positive infinite-spectrum carrier; completed KMS temperature-one must test a completed state; the ground/KMS-infinity test must distinguish the predicates rather than merely reject the zero functional. Canonical cubic ring adapter remains missing even after singleton tests are repaired.",
+      "addedBy": "REV-AnalyticNumberTheory--AN.8"
+    },
+    {
+      "title": "Finite-adele supplier ownership",
+      "neededBy": [
+        "AnalyticNumberTheory:AN.9/bc-adelic-scaling-measure",
+        "AnalyticNumberTheory:AN.9/bc-kms-scaling-correspondence",
+        "AnalyticNumberTheory:AN.9/bc-finite-prime-projection"
+      ],
+      "detail": "AA.2 supplies reductive quotient measures, while restricted-product Haar measures live in AA.0 and finite-adele arithmetic in upstream GlobalNumberFields layer 4. Pin the actual measure/carrier interfaces and distinguish the canonical unit-invariant μβ from the space of all normalized scaling measures in the KMS correspondence.",
+      "addedBy": "REV-AnalyticNumberTheory--AN.8"
+    },
+    {
+      "title": "Shifted spectral determinant zero orders",
+      "neededBy": [
+        "AnalyticNumberTheory:AN.9/selberg-functional-equation",
+        "AnalyticNumberTheory:AN.9/selberg-spectral-zero-comparison"
+      ],
+      "detail": "Provide a holomorphic shifted determinant family and its zero-divisor theorem. State the spectral multiplicities numerically, including doubling at λ=1/4 where s(1−s) has a double root. Separate the zero-mode contributions and identity-factor trivial zeros before deriving Selberg multiplicities.",
+      "addedBy": "REV-AnalyticNumberTheory--AN.8"
+    },
+    {
+      "title": "Presentation universal property and normal-form refinements",
+      "neededBy": [
+        "AnalyticNumberTheory:AN.9/rational-presentation",
+        "AnalyticNumberTheory:AN.9/bc-normal-form-product",
+        "AnalyticNumberTheory:AN.9/bc-normal-form-independent"
+      ],
+      "detail": "The eight explicit generator relation inputs are now separate nodes, but the abstract presented algebra/quotient and universal property still need their own carrier and signature. Split support identification from basis independence; prove the normal-form rewriting and rescaling leaves. The native presentation conjunction asserts relations only, not an algebra isomorphism.",
+      "addedBy": "REV-AnalyticNumberTheory--AN.8"
     }
   ],
   "sourceIssues": [
@@ -5409,7 +6050,12 @@
         "Springer's page for the article (Selecta Math. (N.S.) 1 (1995) 411–457): no erratum or correction listed",
         "a web search for an erratum or corrigendum to the paper: none found",
         "Connes–Marcolli, Chapter 3 §4, which does not reproduce formula (7)"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Page image p.433 displays γ, whereas convolution gives γ/m. The n=1,m=2,γ=1/2 case would collapse distinct normal forms under the printed entry.",
+        "by": "REV-AnalyticNumberTheory--AN.8"
+      }
     },
     {
       "id": "AnalyticNumberTheory/E18",
@@ -5425,7 +6071,12 @@
         "Cambridge version-of-record page and published PDF, pp.358,361,364; no linked correction found.",
         "arXiv0907.4867v1 and latest PDF compared: same hash, same slips.",
         "Blomer author publication listing and exact-title erratum/corrigendum search: no correction found."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The published character definitions on p.358 display +1 on the listed classes; comparison with the unit and multiplicative character table forces −1.",
+        "by": "REV-AnalyticNumberTheory--AN.8"
+      }
     },
     {
       "id": "AnalyticNumberTheory/E19",
@@ -5441,7 +6092,12 @@
         "Cambridge version-of-record page and published PDF, pp.358,361,364; no linked correction found.",
         "arXiv0907.4867v1 and latest PDF compared: same hash, same slips.",
         "Blomer author publication listing and exact-title erratum/corrigendum search: no correction found."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The two conductor cases in published (11), p.358 repeat the same conditions. Odd squarefree d=3 with ψ1 requires conductor 12, so the second row must use the complementary classes.",
+        "by": "REV-AnalyticNumberTheory--AN.8"
+      }
     },
     {
       "id": "AnalyticNumberTheory/E20",
@@ -5457,7 +6113,12 @@
         "Cambridge version-of-record page and published PDF, pp.358,361,364; no linked correction found.",
         "arXiv0907.4867v1 and latest PDF compared: same hash, same slips.",
         "Blomer author publication listing and exact-title erratum/corrigendum search: no correction found."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Published Lemma 2, p.361 omits absolute values in the height bound. Negative imaginary height −1 would force an identically zero bound; the symmetric polynomial estimate needs absolute values.",
+        "by": "REV-AnalyticNumberTheory--AN.8"
+      }
     },
     {
       "id": "AnalyticNumberTheory/E21",
@@ -5473,7 +6134,12 @@
         "Cambridge version-of-record page and published PDF, pp.358,361,364; no linked correction found.",
         "arXiv0907.4867v1 and latest PDF compared: same hash, same slips.",
         "Blomer author publication listing and exact-title erratum/corrigendum search: no correction found."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Published p.364 changes the squared w-coordinate only in the final filled tube. The immediately preceding annulus is a Euclidean squared-radius annulus, so its hull is the squared-radius disk.",
+        "by": "REV-AnalyticNumberTheory--AN.8"
+      }
     },
     {
       "id": "AnalyticNumberTheory/E22",
@@ -5488,7 +6154,33 @@
       "searched": [
         "arXiv latest PDF downloaded and source text collated withv1; v2 corrects the sign.",
         "Exact-title correction search and arXiv record checked; finding is scoped to the preprint versions, not a published version."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently compared arXiv v1/v2 §8.3 and the v2 revision record. The negative Euler-characteristic sign agrees with 2Cρ in (8.8); v2 already corrects v1.",
+        "by": "REV-AnalyticNumberTheory--AN.8"
+      }
+    },
+    {
+      "id": "AnalyticNumberTheory/E23",
+      "source": "connes-marcolli-2008",
+      "kind": "misprint",
+      "locator": "Chapter 3, proof of Lemma 3.28, p.465 (PDF p.487), second case before (3.101)",
+      "printed": "The second case repeats bc = 0 mod n while asserting φ(a) ≠ 0 and U ≠ 1.",
+      "correction": "In the second case use bc ≠ 0 mod n.",
+      "reason": "For a=b/n and multiplication by c on N-torsion, φ(a)=0 precisely when bc=0 mod n. The second case uses the complementary nonzero value and U=exp(2πi bc/n)≠1, so its repeated equality is a misprint. The formula (3.100) and packet finite Fourier normalization are unaffected.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Public Caltech author-hosted PDF page image compared with text at the recorded hash.",
+        "Exact-title/author and Lemma 3.28 errata/corrigendum searches on 2026-10-05 returned no identified correction; this does not establish that none exists.",
+        "AMS publisher page https://www.ams.org/books/coll/055/ was requested on 2026-10-05 and returned HTTP 403; no claim that publisher updates were successfully screened."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Both page image and extracted text repeat the zero congruence. The displayed U≠1 and φ(a)≠0 force the complementary case.",
+        "by": "REV-AnalyticNumberTheory--AN.8"
+      }
     }
   ],
   "sourceVersions": [
@@ -5742,16 +6434,9 @@
   "ownershipRequests": [
     {
       "supplier": "AnalyticNumberTheory:AN.2",
-      "need": "Supply the exact quadratic first-moment estimate Blomer(16), with squarefree discriminants, four mod8 twists and vertical-strip uniformity; the current AN.0 packet does not certify this exact interface.",
+      "need": "Extension request: for ε>0, X≥1 and the four mod8 twists ψ, supply Σ0<d≤X,d odd |L2(1/2+it,χdψ)| ≪ε (X(1+|t|)^(1/4))^(1+ε), then the precise pole-aware vertical-strip variant used in Blomer (29). Ordinary PNT and convexity alone do not supply this mean estimate.",
       "neededBy": [
         "AnalyticNumberTheory:AN.8/quadratic-mean-bound-import"
-      ]
-    },
-    {
-      "supplier": "AnalyticNumberTheory:AN.1",
-      "need": "Use the existing Dirichlet-character functional-equation chain with primitive conductor, parity and missing Euler factors; match its output to the four quadratic residue-class factors r in AN.8.",
-      "neededBy": [
-        "AnalyticNumberTheory:AN.8/quadratic-reflection-equation"
       ]
     },
     {
@@ -5778,7 +6463,7 @@
     },
     {
       "supplier": "AutomorphicLFunctionsAndLocalFactors:AL.0",
-      "need": "Supply local/adelic Schwartz–Bruhat functions, the binary-cubic Fourier pairing and self-dual measures, Poisson summation with the singular-orbit correction, and locally uniform holomorphic parameter integrals.",
+      "need": "Supply local/adelic Schwartz–Bruhat functions, the binary-cubic Fourier pairing and self-dual measures, Poisson summation with the singular-orbit correction, and locally uniform holomorphic parameter integrals. Existing AL.0 Fourier/Poisson statements concern one-dimensional additive adeles. The V=Sym³(F²) extension and removal of singular orbits are additional requested contracts, not supplied by Tate Poisson alone.",
       "neededBy": [
         "AnalyticNumberTheory:AN.8/pvs-local-zeta",
         "AnalyticNumberTheory:AN.8/cubic-adelic-zeta"
@@ -5816,7 +6501,7 @@
     },
     {
       "supplier": "AutomorphicSpectralTheory:AS.4",
-      "need": "Supply the scalar positive self-adjoint Laplacian, complete discrete eigenbasis, finite multiplicities, simple zero mode, Weyl counting and uniform heat-kernel asymptotics on the selected compact surface.",
+      "need": "Supply the scalar positive self-adjoint Laplacian, complete discrete eigenbasis, finite multiplicities, simple zero mode, Weyl counting and uniform heat-kernel asymptotics on the selected compact surface. AS.4 supplies discrete automorphic Hilbert sums; the scalar geometric Laplacian, simple zero mode, Weyl law and uniform heat asymptotics are extension requests.",
       "neededBy": [
         "AnalyticNumberTheory:AN.9/spectral-zeta-series",
         "AnalyticNumberTheory:AN.9/compact-spectrum-and-weyl",
@@ -5825,7 +6510,7 @@
     },
     {
       "supplier": "AutomorphicSpectralTheory:AS.6",
-      "need": "Supply the compact scalar heat trace formula, the Gaussian test-function extension and geodesic growth, with exactly the primitive-class convention and the identity/hyperbolic constants displayed here.",
+      "need": "Supply the compact scalar heat trace formula, the Gaussian test-function extension and geodesic growth, with exactly the primitive-class convention and the identity/hyperbolic constants displayed here. AS.6 is stated for compactly supported smooth tests; Gaussian tests and their orbital-integral constants require an explicit limiting/decay adapter.",
       "neededBy": [
         "AnalyticNumberTheory:AN.9/selberg-primitive-product",
         "AnalyticNumberTheory:AN.9/selberg-log-product",
@@ -5834,7 +6519,7 @@
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-10-archimedean-characters-infinity-types-and-cyclotomic-arithmetic",
-      "need": "Supply the Q cyclotomic character and the explicit class-field identification Aut(Q/Z)=Ẑ×=Gal(Qcycl/Q), preserving the source Artin-map convention. The elementary basis-value formula does not require continuity of field automorphisms of C.",
+      "need": "Import the finite cyclotomic Galois identifications and their compatible transition maps from GlobalNumberFields layer 10. Construct the inverse-limit identification Gal(Qcycl/Q)=Ẑ× by compatible finite restrictions. That layer explicitly supplies arithmetic Frobenius and no global Artin map; do not assume a class-field existence or reciprocity theorem from it.",
       "neededBy": [
         "AnalyticNumberTheory:AN.9/bc-arithmetic-values-and-symmetry"
       ]
@@ -5844,8 +6529,9 @@
     "The checkpoint citation math/0012110 was replaced by the actual Neshveyev ergodicity source math/0002141; this is a blueprint correction, not a published erratum.",
     "Both source character/conductor slips are verified against the published Blomer PDF. JSS v1 sign slip is already corrected in v2.",
     "No RH inference, finite-volume/cusp generalization, motivic transfer beyond source residue bounds or duplication of ST orbit structures is included.",
-    "The complete pass ends once both scoped targets are planned; recorded gaps and remaining lists schedule the subsequent refinements.",
-    "Native signatures use actual character, series, matrix, integral, polynomial, Hilbert/continuous-linear-map and closed-star-subalgebra carriers. Explicit omission blocks list source/supplier interfaces whose full hypotheses are not yet expressible. No fabricated Prop fields or trivial True target theorems are used."
+    "Native signatures use actual character, series, matrix, integral, polynomial, Hilbert/continuous-linear-map and closed-star-subalgebra carriers. Explicit omission blocks list source/supplier interfaces whose full hypotheses are not yet expressible. No fabricated Prop fields or trivial True target theorems are used.",
+    "Independent review corrects stage coverage to partial: the target pass cannot be labelled planned at the mandated lemma granularity.",
+    "Independent lean-check failed at the missing prebuilt HeckeRing.Basic object before checking native declarations; no library build was started."
   ],
   "upstreamNotes": [
     {
@@ -6316,6 +7002,13 @@
         "TauCeti.BostConnes.bc_arithmetic_values_and_symmetry"
       ],
       "reason": "The exact canonical carrier or full theorem hypotheses require the recorded source/supplier refinements. The reader states the mathematical obligation; no proposition hole substitutes for it."
+    },
+    {
+      "node": "AnalyticNumberTheory:AN.8/cubic-dual-simple-poles",
+      "names": [
+        "TauCeti.SeveralVariableZeta.cubic_dual_simple_poles"
+      ],
+      "reason": "Canonical number-field cubic continuation carrier and meromorphic-germ adapter are not yet supplied."
     }
   ],
   "mathematicalChecks": {
@@ -6366,6 +7059,499 @@
         "name": "torsion_sign",
         "result": "passed",
         "evidence": "Genus2,3,5: corrected−χ=2(g−1)=2C; v1 plus sign disagrees with its own(8.8), as corrected inv2."
+      }
+    ]
+  },
+  "review": {
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-AnalyticNumberTheory--AN.8",
+    "date": "2026-10-05",
+    "notes": "Completed independent review of all 88 original nodes and 37 baseline declarations; corrected explicit mathematical/source/dependency errors, added 9 lemma inputs and 4 pinned baseline declarations, confirmed 6 inherited source issues and added one. Required lemma-level refinement, exact local/operator/analytic contracts and native interfaces remain unresolved. Packet and stage coverage are partial; this is a completed review with needs_changes, not an accepted blueprint or unfinished review.",
+    "checked": [
+      {
+        "nodeId": "AnalyticNumberTheory:AN.9/ax-plus-b-pair",
+        "verdict": "unverifiable",
+        "note": "The two subgroup constructions, inclusion and diagonal/translation maps are bundled. Split them and their conjugation API at lemma level; source conventions match."
+      },
+      {
+        "nodeId": "AnalyticNumberTheory:AN.9/ax-plus-b-hecke-triple",
+        "verdict": "verified",
+        "note": "The conjugation indices prove commensurability for every positive rational diagonal. The pinned IsHeckeTriple hypotheses match the subgroup inclusions."
+      },
+      {
+        "nodeId": "AnalyticNumberTheory:AN.9/double-cosets-and-degrees",
+        "verdict": "unverifiable",
+        "note": "The coset classification and both degree laws are bundled; denominator convention matches Tau degree, but representative bijection and degree proofs need distinct declarations."
+      },
+      {
+        "nodeId": "AnalyticNumberTheory:AN.9/bost-connes-hecke-algebra",
+        "verdict": "unverifiable",
+        "note": "The Hecke carrier is available, but convolution comparison and conjugate-linear involution are separate nonroutine results hidden in this definition node. The finite coefficient tests are useful."
+      },
+      {
+        "nodeId": "AnalyticNumberTheory:AN.9/rational-presentation",
+        "verdict": "unverifiable",
+        "note": "Eight relation nodes were extracted. The normal-form basis, abstract presented algebra, universal property and complex rescaling still share this node. Native presentation proves only a conjunction of relations."
+      },
+      {
+        "nodeId": "AnalyticNumberTheory:AN.9/rational-forms-comparison",
+        "verdict": "verified",
+        "note": "The rational-valued Hecke form and the rational generator form are related by complex time evolution, not by a star map; the packet correctly retains this distinction."
+      },
+      {
+        "nodeId": "AnalyticNumberTheory:AN.9/time-evolution",
+        "verdict": "unverifiable",
+        "note": "The diagonal character gives the algebraic evolution and its sign is correct. Split its multiplicativity/support proof, entire-orbit property and real star compatibility; the completion needs strong continuity."
+      },
+      {
+        "nodeId": "AnalyticNumberTheory:AN.9/regular-representation",
+        "verdict": "unverifiable",
+        "note": "The positive-integer representation is correctly distinguished from left regular convolution. Bounded shifts/diagonal operators, adjoints and Hamiltonian implementation need named lemmas; HilbertBasis alone is not their proof."
+      },
+      {
+        "nodeId": "AnalyticNumberTheory:AN.9/partition-function",
+        "verdict": "verified",
+        "note": "The diagonal Gibbs trace is Σk≥1 k^(-β)=ζ(β), with β>1. The pinned zeta sum uses naturals including a zero term; removing that term gives the stated positive-integer convention."
+      },
+      {
+        "nodeId": "AnalyticNumberTheory:AN.9/gibbs-states",
+        "verdict": "unverifiable",
+        "note": "The Gibbs functional has the correct normalization and inverse temperature, but convergence, positivity, bounded extension and trace/diagonal formula need separate contracts. Core examples do not test completed bounded states."
+      },
+      {
+        "nodeId": "AnalyticNumberTheory:AN.9/kms-states",
+        "verdict": "verified",
+        "note": "The algebraic-core KMS predicate uses positive normalized functionals and the correct +iβ boundary shift. Equivalence with completed KMS is explicitly a later gap."
+      },
+      {
+        "nodeId": "AnalyticNumberTheory:AN.9/gibbs-states-are-kms",
+        "verdict": "unverifiable",
+        "note": "The Gibbs KMS computation has the correct index factors. Absolute/locally uniform convergence of the strip series, bounds and extension are not separate prerequisites; add those lemmas rather than citing trace cyclicity."
+      },
+      {
+        "nodeId": "AnalyticNumberTheory:AN.9/kms-classification",
+        "verdict": "unverifiable",
+        "note": "Theorem 3.32 supports the stated regimes, but uniqueness, classification of extremes, barycentres and transitive symmetry require separate nodes and the state-simplex/correspondence inputs."
+      },
+      {
+        "nodeId": "AnalyticNumberTheory:AN.9/symmetry-action",
+        "verdict": "verified",
+        "note": "The symmetry is induced by the automorphism of Q/Z, fixes dilation generators and commutes with evolution. The test excluding multiplication by 2 catches failure of invertibility."
+      },
+      {
+        "nodeId": "AnalyticNumberTheory:AN.9/galois-action-on-ground-states",
+        "verdict": "unverifiable",
+        "note": "The arithmetic ground-state conclusion matches Theorem 3.32. The actual finite cyclotomic restrictions/inverse-limit adapter must be supplied; GlobalNumberFields layer 10 explicitly excludes a global Artin-map construction."
+      },
+      {
+        "nodeId": "AnalyticNumberTheory:AN.8/characters-mod-eight",
+        "verdict": "verified",
+        "note": "Independently read the published four characters and checked the corrected signs and multiplicative unit table. E18 and E19 are confirmed; primitive conductor adapters remain separate."
+      },
+      {
+        "nodeId": "AnalyticNumberTheory:AN.8/quadratic-double-series",
+        "verdict": "corrected",
+        "note": "Definition is equation (1), p.356, not (2), p.355. Repaired locator; odd imprimitive characters and the deleted factor at 2 are retained. Continuation is distinct from the totalized tsum."
+      },
+      {
+        "nodeId": "AnalyticNumberTheory:AN.8/double-functional-system",
+        "verdict": "unverifiable",
+        "note": "The matrices and affine maps match (31)-(35), including conductor/parity. This bundles several constructions; fill-in of removable singularities and B(s)B(1-s) need precise native contracts and separate lemmas."
+      },
+      {
+        "nodeId": "AnalyticNumberTheory:AN.8/odd-double-sum-absolute",
+        "verdict": "unverifiable",
+        "note": "The initial absolute convergence follows from |χψ|≤1 and scalar zeta majorants. Local uniformity needs its own domination input. The existing concrete series carrier permits a signature, so the generic omission is not justified."
+      },
+      {
+        "nodeId": "AnalyticNumberTheory:AN.8/squarefree-square-decomposition",
+        "verdict": "unverifiable",
+        "note": "The squarefree/square identity matches (29). Supply the unique factorization node, denominator nonvanishing domain and native identity; generic omitted-carrier wording does not specify the obstacle."
+      },
+      {
+        "nodeId": "AnalyticNumberTheory:AN.8/quadratic-mean-bound-import",
+        "verdict": "unverifiable",
+        "note": "Repaired locator to (16), p.359, and made the AN.2 extension request numerical. The node itself still has no exact quantifiers/constants or principal-pole exclusion. Ordinary PNT does not supply this mean bound."
+      },
+      {
+        "nodeId": "AnalyticNumberTheory:AN.8/double-R1-convergence",
+        "verdict": "unverifiable",
+        "note": "R1 and its possible principal pole match the proof. Its chain needs the exact mean estimate and compact-uniform denominator bounds; this is not yet lemma-level closure."
+      },
+      {
+        "nodeId": "AnalyticNumberTheory:AN.8/reciprocity-swap-equation",
+        "verdict": "unverifiable",
+        "note": "Equation (31) matches quadratic reciprocity and the finite A matrix. Explicit odd-symbol reciprocity and Fubini/continuation inputs are not direct named prerequisites."
+      },
+      {
+        "nodeId": "AnalyticNumberTheory:AN.8/quadratic-reflection-equation",
+        "verdict": "unverifiable",
+        "note": "Replaced the retired AN.1 edge with audited primitive functional equation/change-level declarations. Quadratic conductor, root-number and deleted-Euler-factor adapters remain a precise gap."
+      },
+      {
+        "nodeId": "AnalyticNumberTheory:AN.8/reflect-holomorphy-and-zero",
+        "verdict": "unverifiable",
+        "note": "The source states holomorphy and B1(0)=0, but entrywise removable-singularity cancellations and uniform gamma-ratio growth are nonroutine unnamed leaves."
+      },
+      {
+        "nodeId": "AnalyticNumberTheory:AN.8/tube-overlap-gluing",
+        "verdict": "unverifiable",
+        "note": "The overlap gluing uses matching germs and residual polar-factor checks. State these extension/uniqueness contracts precisely; the tube sketch is not a lemma decomposition."
+      },
+      {
+        "nodeId": "AnalyticNumberTheory:AN.8/tube-hull-extension",
+        "verdict": "unverifiable",
+        "note": "Corrected tube locator and confirmed E21. The bounded shell-to-hull theorem from DGH03 is not read or stated with exact bounds; record its hypotheses and canonical analytic carrier."
+      },
+      {
+        "nodeId": "AnalyticNumberTheory:AN.8/double-series-continuation",
+        "verdict": "unverifiable",
+        "note": "The three polar hyperplanes agree with Lemma 2. Its native pole-cleared entireness assertion exists, but the continuation graph still inherits the exact-mean and tube-hull gaps."
+      },
+      {
+        "nodeId": "AnalyticNumberTheory:AN.8/pvs-local-zeta",
+        "verdict": "unverifiable",
+        "note": "Restricted unweighted shells to indicator tests on integral support and excluded zero discriminant in native shellDensity. LOWW does not state this local integral normalization. The linear test only tests a geometric sum; supply a genuine integral test and weighted-shell API."
+      },
+      {
+        "nodeId": "AnalyticNumberTheory:AN.8/cubic-shintani-series",
+        "verdict": "unverifiable",
+        "note": "Source weights/signatures/dual selector match. Repaired native split-weight and dual-subseries tests to call the series. The canonical locally free O_F ring enumeration/trace adapter and coefficient finiteness still need suppliers."
+      },
+      {
+        "nodeId": "AnalyticNumberTheory:AN.8/cubic-archimedean-matrix",
+        "verdict": "corrected",
+        "note": "Repaired locator to the matrix definition (3.1). The real off-diagonal factor 3 and complex four-sine product agree with the source; zero-order tests catch their omission."
+      },
+      {
+        "nodeId": "AnalyticNumberTheory:AN.8/cubic-orbit-to-coefficient",
+        "verdict": "unverifiable",
+        "note": "Read both accepted ST.1 supplier statements: they cover PID/local rings, not arbitrary nonprincipal locally free O_F modules. The packet records this extension gap; it must not call the general adapter supplied."
+      },
+      {
+        "nodeId": "AnalyticNumberTheory:AN.8/local-density-coefficient-comparison",
+        "verdict": "unverifiable",
+        "note": "No numerical orbit-density comparison or constants are stated. The generic local-selector wording and LD.3 request cannot certify matching arithmetic coefficients, especially at residue characteristics 2 and 3."
+      },
+      {
+        "nodeId": "AnalyticNumberTheory:AN.8/cubic-adelic-zeta",
+        "verdict": "unverifiable",
+        "note": "Corrected the quotient to GL2(A_F)/GL2(F) for Φ(g·x), added right-invariance API/test and inversion comparison. This ensures descent, but the original PVS action/exponent, local factors and canonical native quotient remain unverified."
+      },
+      {
+        "nodeId": "AnalyticNumberTheory:AN.8/cubic-absolute-convergence",
+        "verdict": "verified",
+        "note": "Proposition 3.7(1) states absolute convergence for Re s>1. The original Wright proof remains an explicit gap; no bounded-coefficient proof is asserted for cubic counts."
+      },
+      {
+        "nodeId": "AnalyticNumberTheory:AN.8/cubic-global-functional-equation",
+        "verdict": "verified",
+        "note": "The discriminant exponent, 3/pi factor, gamma arguments and cαβ orientation agree with Proposition 3.7(3). Its original global proof is explicitly open, not attributed to a generic Tate Poisson theorem."
+      },
+      {
+        "nodeId": "AnalyticNumberTheory:AN.8/cubic-residues-and-entire-clearance",
+        "verdict": "unverifiable",
+        "note": "The ordinary residues and order-one statement match Proposition 3.7(2),(5). Split the two residues, meromorphic continuation and growth clearance; native canonical residue/continuation signatures are still absent."
+      },
+      {
+        "nodeId": "AnalyticNumberTheory:AN.8/arch-entry-vanishing-at-one",
+        "verdict": "verified",
+        "note": "Each real factor has at least a simple zero at s=1 and each complex factor a double zero. Their product has order at least [F:Q], including the diagonal and off-diagonal cases."
+      },
+      {
+        "nodeId": "AnalyticNumberTheory:AN.8/gamma-unit-at-one",
+        "verdict": "verified",
+        "note": "The listed gamma arguments 1,5/6,7/6 avoid poles and zeros, and all exponential/discriminant factors are nonzero there. This is a local prefactor statement, not an entire-function claim."
+      },
+      {
+        "nodeId": "AnalyticNumberTheory:AN.8/cubic-zero-at-origin",
+        "verdict": "corrected",
+        "note": "Added the explicit dual-simple-pole prerequisite from Proposition 3.7(4). Ordinary residues alone do not bound the dual pole. The vanishing order at least n-1 is then the correct local functional-equation consequence."
+      },
+      {
+        "nodeId": "AnalyticNumberTheory:AN.8/cubic-orders-generating-series",
+        "verdict": "corrected",
+        "note": "DW86 is Theorem 6.1 for order enumeration, as LOWW Lemma 3.9 says. The packet counts index norm n with n^(-2s); the source counts index-squared n with n^(-s), which are equivalent conventions."
+      },
+      {
+        "nodeId": "AnalyticNumberTheory:AN.8/cubic-reducible-and-field-coefficient-bound",
+        "verdict": "verified",
+        "note": "Lemma 3.10 gives h2(F)D^(1/2+ε), uniform in t at fixed σ>3/2. Its reducible/field estimate and ST.3 extension request are kept explicit."
+      },
+      {
+        "nodeId": "AnalyticNumberTheory:AN.8/cubic-reflected-bound",
+        "verdict": "corrected",
+        "note": "The reflected discriminant exponent must be 5/2-4σ+ε. The functional-equation factor D^(2-4σ) must multiply the right bound D^(1/2+ε). Corrected statement, acceptance and native obligation; the height exponent is unchanged."
+      },
+      {
+        "nodeId": "AnalyticNumberTheory:AN.8/cubic-pole-cleared-convexity",
+        "verdict": "verified",
+        "note": "The convexity discriminant exponent 7/2-2σ matches the two boundary exponents. The packet restriction |t|≥1 excludes the actual poles; original Phragmen-Lindelof/Stirling proof leaves remain open."
+      },
+      {
+        "nodeId": "AnalyticNumberTheory:AN.9/spectral-zeta-series",
+        "verdict": "verified",
+        "note": "The spectral series excludes the simple zero eigenvalue and converges for Re s>1 in dimension two. The finite-spectrum model tests are useful normalization checks, but do not supply the canonical compact-spectrum carrier."
+      },
+      {
+        "nodeId": "AnalyticNumberTheory:AN.9/selberg-primitive-product",
+        "verdict": "verified",
+        "note": "The product over primitive conjugacy classes and k≥0 agrees with Zagier. Preserve the same orientation/inverse-class convention in the scalar trace supplier; no noncompact specialization is asserted."
+      },
+      {
+        "nodeId": "AnalyticNumberTheory:AN.9/spectral-regularized-determinant",
+        "verdict": "corrected",
+        "note": "The determinant is conditional on spectral regularity at zero. Reversed the misplaced dependency through spectral-regularity-zero: prove regularity before using it, rather than making regularity depend on the determinant definition."
+      },
+      {
+        "nodeId": "AnalyticNumberTheory:AN.9/compact-spectrum-and-weyl",
+        "verdict": "unverifiable",
+        "note": "AS.4 provides a discrete automorphic Hilbert sum, not the geometric scalar Laplacian, Weyl law or heat expansion. Marked those outputs as explicit extension requests; source p.603 is not their full proof."
+      },
+      {
+        "nodeId": "AnalyticNumberTheory:AN.9/heat-mellin-on-right-half-plane",
+        "verdict": "verified",
+        "note": "The Mellin transform uses H(t)-1 and Gamma(s), with Re s>1 and positive spectrum. Fubini follows under the stated Weyl/heat inputs; it cannot use the full heat trace without zero subtraction."
+      },
+      {
+        "nodeId": "AnalyticNumberTheory:AN.9/heat-small-time-subtraction",
+        "verdict": "corrected",
+        "note": "Inserted the removed zero mode explicitly: rational Mellin terms are Σak/(s+k-1)-1/s. The coefficient at s=0 is a1-1. Matched remainder domain Re s>-N and corrected native obligation."
+      },
+      {
+        "nodeId": "AnalyticNumberTheory:AN.9/spectral-regularity-zero",
+        "verdict": "corrected",
+        "note": "Removed the determinant prerequisite and used the heat subtraction/Gamma chain. A simple zero of reciprocal Gamma cancels the simple Mellin pole, independent of defining det prime."
+      },
+      {
+        "nodeId": "AnalyticNumberTheory:AN.9/selberg-log-product",
+        "verdict": "verified",
+        "note": "The logarithmic geodesic expansion has the correct negative sign and 1/m denominator. The source product convention is retained; compact absolute convergence is an explicit trace/geodesic supplier input."
+      },
+      {
+        "nodeId": "AnalyticNumberTheory:AN.9/scalar-heat-trace-formula",
+        "verdict": "unverifiable",
+        "note": "Repaired locator to JSS (5.1)-(5.3), p.16 and the scalar operator shift. The source gives the stated constants, but AS.6 only promises compactly supported smooth tests; the Gaussian extension is still missing."
+      },
+      {
+        "nodeId": "AnalyticNumberTheory:AN.9/hyperbolic-laplace-mellin",
+        "verdict": "unverifiable",
+        "note": "Repaired locator to JSS Lemmas 5.1-5.3 and Proposition 5.4. The transform identity has the correct normalization, but branch/domain, locally uniform interchange and geodesic growth must be separate inputs."
+      },
+      {
+        "nodeId": "AnalyticNumberTheory:AN.9/identity-barnes-transform",
+        "verdict": "unverifiable",
+        "note": "The scalar identity factor and constant agree with the Theorem 6.1 proof. AN.7 currently covers Hurwitz/Lerch, not Barnes G; its normalization, branches and asymptotic proofs are an extension gap."
+      },
+      {
+        "nodeId": "AnalyticNumberTheory:AN.9/selberg-determinant-comparison",
+        "verdict": "verified",
+        "note": "The compact scalar determinant formula and 2C constant agree with Theorem 6.1 and (8.8). E22 is scoped to v1; v2 has the corrected Euler-characteristic sign. The formula inherits explicitly recorded Barnes/heat inputs."
+      },
+      {
+        "nodeId": "AnalyticNumberTheory:AN.9/selberg-functional-equation",
+        "verdict": "unverifiable",
+        "note": "The scalar functional equation follows from the determinant symmetry after entire continuation. The packet lacks a holomorphic shifted determinant family and a branch-aware identity-factor comparison."
+      },
+      {
+        "nodeId": "AnalyticNumberTheory:AN.9/selberg-spectral-zero-comparison",
+        "verdict": "unverifiable",
+        "note": "The location relation s(1-s)=λ is correct, but multiplicities are left as determined by the comparison. State them explicitly, including the double root at λ=1/4 and identity-factor cancellation."
+      },
+      {
+        "nodeId": "AnalyticNumberTheory:AN.9/bc-cstar-completion",
+        "verdict": "unverifiable",
+        "note": "Corrected the dependency direction so bounded faithful convolution precedes operator closure. The left regular star map, faithfulness, C*-instances and dense-image API still need exact contracts."
+      },
+      {
+        "nodeId": "AnalyticNumberTheory:AN.9/bc-completed-kms",
+        "verdict": "unverifiable",
+        "note": "The bounded strip predicate matches Definition 3.6; repaired an unrelated Q-lattices excerpt. The temperature-one native test uses only algebraic IsKMS, so it does not test this completed definition. Add completed base state and API."
+      },
+      {
+        "nodeId": "AnalyticNumberTheory:AN.9/bc-kms-infinity-and-ground",
+        "verdict": "unverifiable",
+        "note": "Weak KMS-infinity and upper-half-plane ground states match Definition 3.7 and its distinction. Both fail for the zero functional, so the current third test does not catch equating the two predicates; split construction and limit theorem."
+      },
+      {
+        "nodeId": "AnalyticNumberTheory:AN.9/bc-normal-form-product",
+        "verdict": "unverifiable",
+        "note": "Added the eight generator relation prerequisites. Product/star closure, gcd cancellation and finite preimage reduction still hide nonroutine rewriting and rational-to-complex rescaling in one lemma."
+      },
+      {
+        "nodeId": "AnalyticNumberTheory:AN.9/bc-normal-form-independent",
+        "verdict": "unverifiable",
+        "note": "The corrected γ/m support formula agrees with BC convolution. Support equality, representative bijection and basis independence should be separate declarations; the native basis equality alone does not state independence."
+      },
+      {
+        "nodeId": "AnalyticNumberTheory:AN.9/bc-convolution-norm-bound",
+        "verdict": "unverifiable",
+        "note": "Removed the backward C*-completion prerequisite and imported the algebra, coset degrees and lp. The finite row/column bound, boundedness, adjoint and coefficient recovery remain bundled and lack exact estimates."
+      },
+      {
+        "nodeId": "AnalyticNumberTheory:AN.9/bc-real-dynamics-extension",
+        "verdict": "verified",
+        "note": "Real-time multiplication is isometric on the regular carrier and extends to the closure. Strong continuity/dense core belongs to the operator extension gap; complex times are not asserted bounded on the completion."
+      },
+      {
+        "nodeId": "AnalyticNumberTheory:AN.9/bc-bounded-state-extension",
+        "verdict": "unverifiable",
+        "note": "The source amenability remark permits universal=reduced, but this node hides the GNS bounded-generator and universal norm comparison. Pin their statements and sources rather than treating positivity as a ready continuity theorem."
+      },
+      {
+        "nodeId": "AnalyticNumberTheory:AN.9/bc-analytic-core-strip-equivalence",
+        "verdict": "unverifiable",
+        "note": "Corrected citation to Definition 3.6/(3.17). Dense entire-core boundary identities require a bounded-state analytic continuation theorem for the converse; the source description does not prove that theorem."
+      },
+      {
+        "nodeId": "AnalyticNumberTheory:AN.9/bc-adelic-scaling-measure",
+        "verdict": "unverifiable",
+        "note": "Repaired source locator to pp.1-2. The local product density and scaling are correct; native finite-adele measure carrier is omitted and AA.2 is not the restricted-product measure owner."
+      },
+      {
+        "nodeId": "AnalyticNumberTheory:AN.9/bc-kms-scaling-correspondence",
+        "verdict": "unverifiable",
+        "note": "Repaired locator to the p.1 condition (1β). The correspondence is with all normalized scaling measures, not just the canonical W-invariant μβ. Crossed-product/full-corner and measure reconstruction are missing exact contracts."
+      },
+      {
+        "nodeId": "AnalyticNumberTheory:AN.9/bc-finite-prime-projection",
+        "verdict": "corrected",
+        "note": "Repaired locator to projection formula (2), p.2. Weighted averaging uses n^(-β)/ζA(β); the normalized finite-prime orbit formula matches the source, conditional on the explicitly open measure/Hilbert carrier."
+      },
+      {
+        "nodeId": "AnalyticNumberTheory:AN.9/bc-local-character-density",
+        "verdict": "corrected",
+        "note": "Repaired locator to pp.2-3. Character cylinder density needs valuation translates and the correct locally compact multiplicative characters; full carrier/Fourier foundation is honestly a gap."
+      },
+      {
+        "nodeId": "AnalyticNumberTheory:AN.9/bc-nontrivial-character-projection",
+        "verdict": "unverifiable",
+        "note": "Repaired locator to p.3 and read the AN.2 fixed-progression PNT statement. It is a sufficient requested prime-divergence input, but prove the partial-summation implication; mere infinitude is not enough."
+      },
+      {
+        "nodeId": "AnalyticNumberTheory:AN.9/bc-critical-ergodicity",
+        "verdict": "unverifiable",
+        "note": "Ergodicity for 0<β≤1 matches the Proposition. The limiting finite-prime projections and constant-subspace convergence need explicit Hilbert lemmas; the character-density supplier is still open."
+      },
+      {
+        "nodeId": "AnalyticNumberTheory:AN.9/bc-low-temperature-uniqueness",
+        "verdict": "unverifiable",
+        "note": "The corollary is on p.3, not p.4. Passing from the canonical ergodic measure to uniqueness of all scaling measures uses the KMS simplex/factor argument, still not a precise dependency chain."
+      },
+      {
+        "nodeId": "AnalyticNumberTheory:AN.9/bc-high-beta-unit-orbits",
+        "verdict": "corrected",
+        "note": "Repaired locator to pp.1-2. For β>1 the disjoint qW orbits have full measure and μ(W)=1/ζ(β); β≤1 has zero unit measure. Reconstruction of all measures is the subsequent simplex contract."
+      },
+      {
+        "nodeId": "AnalyticNumberTheory:AN.9/bc-high-beta-barycentres",
+        "verdict": "unverifiable",
+        "note": "The high-beta barycentre conclusion matches Theorem 3.32 and the general Choquet statement. State the topological simplex and affine measure/state bijection, its inverse and uniqueness, as named declarations."
+      },
+      {
+        "nodeId": "AnalyticNumberTheory:AN.9/bc-prime-pair-ratio",
+        "verdict": "verified",
+        "note": "Read Neshveyev Lemma 2.3 and the AN.2 rational PNT supplier. The q/p approximation and disjoint prime-pair sum support the Q specialization; no general number-field class-group input is imported."
+      },
+      {
+        "nodeId": "AnalyticNumberTheory:AN.9/bc-valuation-tail-ratio",
+        "verdict": "verified",
+        "note": "The two-coordinate valuation swap gives the exact derivative (q/p)^β after shell constants cancel. The source only needs approximation; the packet exact finite ratio is consistent with its measure law."
+      },
+      {
+        "nodeId": "AnalyticNumberTheory:AN.9/bc-full-positive-ratio-set",
+        "verdict": "unverifiable",
+        "note": "The cylinders support the asymptotic ratio argument, but the ratio-set definition, asymptotic-ratio inclusion and compact-unit lifting have no exact carriers/contracts. The stage cannot inherit them from a retired logic supplier."
+      },
+      {
+        "nodeId": "AnalyticNumberTheory:AN.9/bc-type-three-one",
+        "verdict": "unverifiable",
+        "note": "The Q type III1 conclusion matches Theorem 2.1. Ergodicity-to-factor, ratio-set classification, crossed-product and full-corner invariance are substantial missing operator/measure declarations."
+      },
+      {
+        "nodeId": "AnalyticNumberTheory:AN.9/bc-trigonometric-eisenstein",
+        "verdict": "unverifiable",
+        "note": "Finite Eisenstein sum and recurrence match Lemmas 3.27-3.28; recorded the newly confirmed second-case misprint. Split first generator, recurrence, finite Fourier identity and higher functions; denominator-independent API is insufficiently granular."
+      },
+      {
+        "nodeId": "AnalyticNumberTheory:AN.9/bc-eisenstein-mobius-divisibility",
+        "verdict": "corrected",
+        "note": "Replaced retired AN.6 with the pinned Möbius function and exact inversion theorem over Q. Source (3.103)-(3.107) includes negative exponents on positive integers, which the arithmetic-function domain permits."
+      },
+      {
+        "nodeId": "AnalyticNumberTheory:AN.9/bc-eisenstein-division",
+        "verdict": "verified",
+        "note": "The k-division coefficients agree with Lemma 3.29/(3.108). Retaining the degenerate term and n=1-k Möbius expression is essential; no illegal zero-to-negative-power index is included."
+      },
+      {
+        "nodeId": "AnalyticNumberTheory:AN.9/bc-eisenstein-prime-projections",
+        "verdict": "verified",
+        "note": "The prime 2 recovery uses the doubled level 2^(b+1), not the vanishing top coefficient at level 2^b. This agrees with the explicit pi2 example and prevents circular induction."
+      },
+      {
+        "nodeId": "AnalyticNumberTheory:AN.9/bc-eisenstein-roots-recovery",
+        "verdict": "unverifiable",
+        "note": "The roots/Newton argument matches Theorem 3.30 but its polynomial degree, repeated-root handling and symmetric-function declarations are not matched to exact pinned statements."
+      },
+      {
+        "nodeId": "AnalyticNumberTheory:AN.9/bc-arithmetic-algebra-generation",
+        "verdict": "unverifiable",
+        "note": "The arithmetic generation conclusion matches Theorem 3.30. Group-ring generation, adjoining shifts, rational form and complexification must be separate results with the preceding exact roots-recovery inputs."
+      },
+      {
+        "nodeId": "AnalyticNumberTheory:AN.9/bc-gibbs-tail-limit",
+        "verdict": "verified",
+        "note": "For bounded a, isolate the k=1 Gibbs term and bound the remaining diagonal sum by ||a|| Σk≥2 k^(-β). The normalized tail tends to zero, giving the stated vector-state weak limit without an unbounded trace rearrangement."
+      },
+      {
+        "nodeId": "AnalyticNumberTheory:AN.9/bc-arithmetic-values-and-symmetry",
+        "verdict": "unverifiable",
+        "note": "The elementary rational basis values lie in cyclotomic fields and the symmetry conclusion matches Theorem 3.32. Repaired the upstream request to finite Galois identifications plus inverse limit; exact carrier/transition adapters remain open."
+      },
+      {
+        "nodeId": "AnalyticNumberTheory:AN.8/cubic-dual-simple-poles",
+        "verdict": "added",
+        "note": "Exact dual meromorphic pole-order input read in LOWW Proposition 3.7(4); original continuation proof remains the named global analytic gap."
+      },
+      {
+        "nodeId": "AnalyticNumberTheory:AN.9/bc-relation-left-inverse",
+        "verdict": "added",
+        "note": "Declaration-sized extraction of one BC Proposition 18 relation, with rational generator rescaling and explicit finite Hecke-product prerequisites. Native signature is present; elaboration remains blocked by the missing prebuilt import."
+      },
+      {
+        "nodeId": "AnalyticNumberTheory:AN.9/bc-relation-dilations",
+        "verdict": "added",
+        "note": "Declaration-sized extraction of one BC Proposition 18 relation, with rational generator rescaling and explicit finite Hecke-product prerequisites. Native signature is present; elaboration remains blocked by the missing prebuilt import."
+      },
+      {
+        "nodeId": "AnalyticNumberTheory:AN.9/bc-relation-inverse-dilations",
+        "verdict": "added",
+        "note": "Declaration-sized extraction of one BC Proposition 18 relation, with rational generator rescaling and explicit finite Hecke-product prerequisites. Native signature is present; elaboration remains blocked by the missing prebuilt import."
+      },
+      {
+        "nodeId": "AnalyticNumberTheory:AN.9/bc-relation-coprime",
+        "verdict": "added",
+        "note": "Declaration-sized extraction of one BC Proposition 18 relation, with rational generator rescaling and explicit finite Hecke-product prerequisites. Native signature is present; elaboration remains blocked by the missing prebuilt import."
+      },
+      {
+        "nodeId": "AnalyticNumberTheory:AN.9/bc-relation-translation-zero",
+        "verdict": "added",
+        "note": "Declaration-sized extraction of one BC Proposition 18 relation, with rational generator rescaling and explicit finite Hecke-product prerequisites. Native signature is present; elaboration remains blocked by the missing prebuilt import."
+      },
+      {
+        "nodeId": "AnalyticNumberTheory:AN.9/bc-relation-translation-add",
+        "verdict": "added",
+        "note": "Declaration-sized extraction of one BC Proposition 18 relation, with rational generator rescaling and explicit finite Hecke-product prerequisites. Native signature is present; elaboration remains blocked by the missing prebuilt import."
+      },
+      {
+        "nodeId": "AnalyticNumberTheory:AN.9/bc-relation-transport",
+        "verdict": "added",
+        "note": "Declaration-sized extraction of one BC Proposition 18 relation, with rational generator rescaling and explicit finite Hecke-product prerequisites. Native signature is present; elaboration remains blocked by the missing prebuilt import."
+      },
+      {
+        "nodeId": "AnalyticNumberTheory:AN.9/bc-relation-preimage-sum",
+        "verdict": "added",
+        "note": "Declaration-sized extraction of one BC Proposition 18 relation, with rational generator rescaling and explicit finite Hecke-product prerequisites. Native signature is present; elaboration remains blocked by the missing prebuilt import."
       }
     ]
   }
