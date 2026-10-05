@@ -4,7 +4,7 @@ The atlas's workers read papers and books line by line to extract and plan their
 
 Collected by `scripts/errata.py` from the paper extractions and blueprint packets (research/blueprint/PROTOCOL.md, section 18); the data is in `data/source-issues.json`.
 
-7089 new mistakes confirmed · 1546 awaiting review · 1428 already corrected in print · 110 rejected on review · 20 extractions and packets not yet checked.
+7089 new mistakes confirmed · 1547 awaiting review · 1428 already corrected in print · 110 rejected on review · 20 extractions and packets not yet checked.
 
 ## New mistakes, confirmed
 
@@ -12210,6 +12210,10 @@ Both feed Theorem 6.1 and Theorem 7.1, hence the main theorem for every odd b �
 
 - **Misprint** at Proof of Corollary 4.2, p. 17 of the accepted manuscript (arXiv v2 §4). The source says `I[Z1 − Z2 : (π(Z1), π(Z2)) | π(Z1) + π(Z2)] = I[(Y1 − Y2, Y3 − Y4) : (Y1 − Y3, Y2 − Y4) | Y1 − Y2 − Y3 + Y4]`; it should be `The conditioning variable is π(Z1 − Z2) = π(Z1) − π(Z2), as in (4.1).`. Corollary 4.2 is stated for an arbitrary abelian group, and (4.1) conditions on π(Z1 − Z2). The right-hand side as printed, Y1 − Y2 − Y3 + Y4, equals π(Z1) − π(Z2) = (Y1 − Y3) − (Y2 − Y4), not π(Z1) + π(Z2) = Y1 − Y3 + Y2 − Y4. The two agree only in characteristic 2 (Remark 4.3). Checked on the page image. Recorded as `AdditiveCombinatorics/E5`; looked for an existing correction in: 2026-09-29: arXiv:2311.05762v2 and the accepted manuscript both contain the passage.; 2026-09-29: the Annals article page gives no erratum; the published text was not read. Not an exhaustive novelty claim..
 - **Misprint** at Lemma 7.2, display (7.5), p. 25 of the accepted manuscript (arXiv v2). The source says `δ := Σ_{1⩽i<j⩽3} I[Ti; Tj].`; it should be `δ := Σ_{1⩽i<j⩽3} I[Ti : Tj], the mutual information.`. The paper writes mutual information with a colon, I[X : Y], and reserves the semicolon for the distance d[X; Y]; the proof of Lemma 7.2 evaluates δ as a sum of mutual informations. Checked on the page image. Recorded as `AdditiveCombinatorics/E6`; looked for an existing correction in: 2026-09-29: arXiv:2311.05762v2 and the accepted manuscript both contain the passage.; 2026-09-29: the Annals article page gives no erratum; the published text was not read. Not an exhaustive novelty claim..
+
+### The Stacks Project authors, Fpqc descent of quasi-coherent sheaves, Version accessed 2026-10-02 (`AlgebraicModuliForArithmeticGeometry`)
+
+- **Misprint** at Stacks Tag 023T, Proposition 35.5.2, fullness paragraph and displayed common refinement; live HTML and descent.tex read 2026-10-05. The source says `U_i \times_U U_j; \{V_k \times_S V_{k'} \to V_{jj'}\}`; it should be `The original maps are compared on Ui×S Ui′. Write Wj,k for the actual affine member U_(i_j(k),k) of the refinement over Vj; the common refinement is {Wj,k×S Wj′,k′→Vj∩Vj′}, indexed by k∈Kj and k′∈Kj′.`. S is the base scheme; U is not defined as a base. The source defines affine opens indexed by Kj inside the original Ui; Vk is not one of those definitions and k need not even index an affine base open. The corrected fibre products map to both actual refinements and cover the intersection by fpqc base change and composition. The packet already used the correct geometric idea; its proof now names the members explicitly. Recorded as `AlgebraicModuliForArithmeticGeometry/E11`; looked for an existing correction in: Comments on Stacks Tag 023T, including the 2023 restriction-domain correction (which concerns a different formula).; Current stacks/stacks-project master descent.tex at proposition-fpqc-descent-quasi-coherent; both slips remain in that text..
 
 ### Kiran S. Kedlaya, Notes on analytic number theory, Author PreTeXt PDF, last modified 21 December 2025, 154 PDF pages (`AnalyticNumberTheory`)
 
