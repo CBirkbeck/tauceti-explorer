@@ -10318,8 +10318,8 @@
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-StableReductionPartII.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #3619",
-   "finishedAt": "2026-10-05T18:03:14Z"
+   "finishedAt": "2026-10-05T18:03:14Z",
+   "note": "deliverables arrived from an external worker on issue #3619"
   },
   {
    "id": "DESIGN-HeightsRationalPointsAndObstructionsPartII",
@@ -12028,8 +12028,8 @@
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-ClassicalGroupsPartII.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #3382",
-   "finishedAt": "2026-10-05T19:15:15Z"
+   "finishedAt": "2026-10-05T19:15:15Z",
+   "note": "deliverables arrived from an external worker on issue #3382"
   },
   {
    "id": "REV-DESIGN-ClassicalGroupsPartII",
@@ -23019,8 +23019,8 @@
    "avoidAccountOf": "BP-ColemanIntegration",
    "prompt": "research/blueprint/prompts/REV-ColemanIntegration.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #373",
-   "finishedAt": "2026-10-05T18:03:18Z"
+   "finishedAt": "2026-10-05T18:03:18Z",
+   "note": "deliverables arrived from an external worker on issue #373"
   },
   {
    "id": "BP-ColemanPowerSeries",
@@ -23050,8 +23050,8 @@
    "suppliers": [
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "deliverables arrived from an external worker on issue #699",
-   "finishedAt": "2026-10-05T17:57:04Z"
+   "finishedAt": "2026-10-05T17:57:04Z",
+   "note": "deliverables arrived from an external worker on issue #699"
   },
   {
    "id": "REV-ColemanPowerSeries",
@@ -23072,8 +23072,8 @@
    "avoidAccountOf": "BP-ColemanPowerSeries",
    "prompt": "research/blueprint/prompts/REV-ColemanPowerSeries.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #374",
-   "finishedAt": "2026-10-05T18:42:02Z"
+   "finishedAt": "2026-10-05T18:42:02Z",
+   "note": "deliverables arrived from an external worker on issue #374"
   },
   {
    "id": "BP-CompletedCohomologyAndLocalGlobalCompatibility",
@@ -26461,8 +26461,8 @@
    "prompt": "research/blueprint/prompts/BP-KTheoryLowDegrees--U.1.md",
    "state": "done",
    "suppliers": [],
-   "note": "deliverables arrived from an external worker on issue #764",
-   "finishedAt": "2026-10-05T18:13:41Z"
+   "finishedAt": "2026-10-05T18:13:41Z",
+   "note": "deliverables arrived from an external worker on issue #764"
   },
   {
    "id": "REV-KTheoryLowDegrees--U.1",
@@ -26483,8 +26483,8 @@
    "avoidAccountOf": "BP-KTheoryLowDegrees--U.1",
    "prompt": "research/blueprint/prompts/REV-KTheoryLowDegrees--U.1.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #441",
-   "finishedAt": "2026-10-05T19:46:28Z"
+   "finishedAt": "2026-10-05T19:46:28Z",
+   "note": "deliverables arrived from an external worker on issue #441"
   },
   {
    "id": "BP-KTheoryLowDegrees--Z.3",
@@ -30341,8 +30341,8 @@
    "avoidAccountOf": "BP-AnalyticNumberTheory--AN.0",
    "prompt": "research/blueprint/prompts/REV-AnalyticNumberTheory--AN.0.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #527",
-   "finishedAt": "2026-10-05T18:13:43Z"
+   "finishedAt": "2026-10-05T18:13:43Z",
+   "note": "deliverables arrived from an external worker on issue #527"
   },
   {
    "id": "BP-AnalyticNumberTheory--AN.8",
@@ -31480,6 +31480,479 @@
    "note": "deliverables arrived from an external worker on issue #549"
   },
   {
+   "id": "BP-K3BlochGroups--V.1",
+   "kind": "blueprint",
+   "priority": 1,
+   "order": 300,
+   "roadmapIds": [
+    "K3BlochGroups"
+   ],
+   "scope": [
+    "K3BlochGroups:V.1"
+   ],
+   "outputs": [
+    "research/blueprint/packets/K3BlochGroups--V.1.json",
+    "research/blueprint/readmes/K3BlochGroups--V.1.md",
+    "research/blueprint/suggested/K3BlochGroups--V.1.lean"
+   ],
+   "after": [
+    "REV-K3BlochGroups"
+   ],
+   "followUpOf": "BP-K3BlochGroups",
+   "prompt": "research/blueprint/prompts/BP-K3BlochGroups--V.1.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-K3BlochGroups--V.1",
+   "kind": "review",
+   "priority": 2,
+   "order": 300,
+   "roadmapIds": [
+    "K3BlochGroups"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-K3BlochGroups--V.1.md",
+    "research/blueprint/packets/K3BlochGroups--V.1.json",
+    "research/blueprint/suggested/K3BlochGroups--V.1.lean"
+   ],
+   "after": [
+    "BP-K3BlochGroups--V.1"
+   ],
+   "avoidAccountOf": "BP-K3BlochGroups--V.1",
+   "prompt": "research/blueprint/prompts/REV-K3BlochGroups--V.1.md",
+   "state": "pending"
+  },
+  {
+   "id": "BP-K3BlochGroups--V.2",
+   "kind": "blueprint",
+   "priority": 1,
+   "order": 300,
+   "roadmapIds": [
+    "K3BlochGroups"
+   ],
+   "scope": [
+    "K3BlochGroups:V.2"
+   ],
+   "outputs": [
+    "research/blueprint/packets/K3BlochGroups--V.2.json",
+    "research/blueprint/readmes/K3BlochGroups--V.2.md",
+    "research/blueprint/suggested/K3BlochGroups--V.2.lean"
+   ],
+   "after": [
+    "REV-K3BlochGroups"
+   ],
+   "followUpOf": "BP-K3BlochGroups",
+   "prompt": "research/blueprint/prompts/BP-K3BlochGroups--V.2.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-K3BlochGroups--V.2",
+   "kind": "review",
+   "priority": 2,
+   "order": 300,
+   "roadmapIds": [
+    "K3BlochGroups"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-K3BlochGroups--V.2.md",
+    "research/blueprint/packets/K3BlochGroups--V.2.json",
+    "research/blueprint/suggested/K3BlochGroups--V.2.lean"
+   ],
+   "after": [
+    "BP-K3BlochGroups--V.2"
+   ],
+   "avoidAccountOf": "BP-K3BlochGroups--V.2",
+   "prompt": "research/blueprint/prompts/REV-K3BlochGroups--V.2.md",
+   "state": "pending"
+  },
+  {
+   "id": "BP-K3BlochGroups--V.3",
+   "kind": "blueprint",
+   "priority": 1,
+   "order": 300,
+   "roadmapIds": [
+    "K3BlochGroups"
+   ],
+   "scope": [
+    "K3BlochGroups:V.3"
+   ],
+   "outputs": [
+    "research/blueprint/packets/K3BlochGroups--V.3.json",
+    "research/blueprint/readmes/K3BlochGroups--V.3.md",
+    "research/blueprint/suggested/K3BlochGroups--V.3.lean"
+   ],
+   "after": [
+    "REV-K3BlochGroups"
+   ],
+   "followUpOf": "BP-K3BlochGroups",
+   "prompt": "research/blueprint/prompts/BP-K3BlochGroups--V.3.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-K3BlochGroups--V.3",
+   "kind": "review",
+   "priority": 2,
+   "order": 300,
+   "roadmapIds": [
+    "K3BlochGroups"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-K3BlochGroups--V.3.md",
+    "research/blueprint/packets/K3BlochGroups--V.3.json",
+    "research/blueprint/suggested/K3BlochGroups--V.3.lean"
+   ],
+   "after": [
+    "BP-K3BlochGroups--V.3"
+   ],
+   "avoidAccountOf": "BP-K3BlochGroups--V.3",
+   "prompt": "research/blueprint/prompts/REV-K3BlochGroups--V.3.md",
+   "state": "pending"
+  },
+  {
+   "id": "BP-K3BlochGroups--V.4",
+   "kind": "blueprint",
+   "priority": 1,
+   "order": 300,
+   "roadmapIds": [
+    "K3BlochGroups"
+   ],
+   "scope": [
+    "K3BlochGroups:V.4"
+   ],
+   "outputs": [
+    "research/blueprint/packets/K3BlochGroups--V.4.json",
+    "research/blueprint/readmes/K3BlochGroups--V.4.md",
+    "research/blueprint/suggested/K3BlochGroups--V.4.lean"
+   ],
+   "after": [
+    "REV-K3BlochGroups"
+   ],
+   "followUpOf": "BP-K3BlochGroups",
+   "prompt": "research/blueprint/prompts/BP-K3BlochGroups--V.4.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-K3BlochGroups--V.4",
+   "kind": "review",
+   "priority": 2,
+   "order": 300,
+   "roadmapIds": [
+    "K3BlochGroups"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-K3BlochGroups--V.4.md",
+    "research/blueprint/packets/K3BlochGroups--V.4.json",
+    "research/blueprint/suggested/K3BlochGroups--V.4.lean"
+   ],
+   "after": [
+    "BP-K3BlochGroups--V.4"
+   ],
+   "avoidAccountOf": "BP-K3BlochGroups--V.4",
+   "prompt": "research/blueprint/prompts/REV-K3BlochGroups--V.4.md",
+   "state": "pending"
+  },
+  {
+   "id": "BP-K3BlochGroups--V.5",
+   "kind": "blueprint",
+   "priority": 1,
+   "order": 300,
+   "roadmapIds": [
+    "K3BlochGroups"
+   ],
+   "scope": [
+    "K3BlochGroups:V.5"
+   ],
+   "outputs": [
+    "research/blueprint/packets/K3BlochGroups--V.5.json",
+    "research/blueprint/readmes/K3BlochGroups--V.5.md",
+    "research/blueprint/suggested/K3BlochGroups--V.5.lean"
+   ],
+   "after": [
+    "REV-K3BlochGroups"
+   ],
+   "followUpOf": "BP-K3BlochGroups",
+   "prompt": "research/blueprint/prompts/BP-K3BlochGroups--V.5.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-K3BlochGroups--V.5",
+   "kind": "review",
+   "priority": 2,
+   "order": 300,
+   "roadmapIds": [
+    "K3BlochGroups"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-K3BlochGroups--V.5.md",
+    "research/blueprint/packets/K3BlochGroups--V.5.json",
+    "research/blueprint/suggested/K3BlochGroups--V.5.lean"
+   ],
+   "after": [
+    "BP-K3BlochGroups--V.5"
+   ],
+   "avoidAccountOf": "BP-K3BlochGroups--V.5",
+   "prompt": "research/blueprint/prompts/REV-K3BlochGroups--V.5.md",
+   "state": "pending"
+  },
+  {
+   "id": "BP-K3BlochGroups--V.6",
+   "kind": "blueprint",
+   "priority": 1,
+   "order": 300,
+   "roadmapIds": [
+    "K3BlochGroups"
+   ],
+   "scope": [
+    "K3BlochGroups:V.6"
+   ],
+   "outputs": [
+    "research/blueprint/packets/K3BlochGroups--V.6.json",
+    "research/blueprint/readmes/K3BlochGroups--V.6.md",
+    "research/blueprint/suggested/K3BlochGroups--V.6.lean"
+   ],
+   "after": [
+    "REV-K3BlochGroups"
+   ],
+   "followUpOf": "BP-K3BlochGroups",
+   "prompt": "research/blueprint/prompts/BP-K3BlochGroups--V.6.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-K3BlochGroups--V.6",
+   "kind": "review",
+   "priority": 2,
+   "order": 300,
+   "roadmapIds": [
+    "K3BlochGroups"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-K3BlochGroups--V.6.md",
+    "research/blueprint/packets/K3BlochGroups--V.6.json",
+    "research/blueprint/suggested/K3BlochGroups--V.6.lean"
+   ],
+   "after": [
+    "BP-K3BlochGroups--V.6"
+   ],
+   "avoidAccountOf": "BP-K3BlochGroups--V.6",
+   "prompt": "research/blueprint/prompts/REV-K3BlochGroups--V.6.md",
+   "state": "pending"
+  },
+  {
+   "id": "BP-Polylogarithms--P.2",
+   "kind": "blueprint",
+   "priority": 1,
+   "order": 400,
+   "roadmapIds": [
+    "Polylogarithms"
+   ],
+   "scope": [
+    "Polylogarithms:P.2"
+   ],
+   "outputs": [
+    "research/blueprint/packets/Polylogarithms--P.2.json",
+    "research/blueprint/readmes/Polylogarithms--P.2.md",
+    "research/blueprint/suggested/Polylogarithms--P.2.lean"
+   ],
+   "after": [
+    "REV-Polylogarithms"
+   ],
+   "followUpOf": "BP-Polylogarithms",
+   "prompt": "research/blueprint/prompts/BP-Polylogarithms--P.2.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-Polylogarithms--P.2",
+   "kind": "review",
+   "priority": 2,
+   "order": 400,
+   "roadmapIds": [
+    "Polylogarithms"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-Polylogarithms--P.2.md",
+    "research/blueprint/packets/Polylogarithms--P.2.json",
+    "research/blueprint/suggested/Polylogarithms--P.2.lean"
+   ],
+   "after": [
+    "BP-Polylogarithms--P.2"
+   ],
+   "avoidAccountOf": "BP-Polylogarithms--P.2",
+   "prompt": "research/blueprint/prompts/REV-Polylogarithms--P.2.md",
+   "state": "pending"
+  },
+  {
+   "id": "BP-Polylogarithms--P.3",
+   "kind": "blueprint",
+   "priority": 1,
+   "order": 400,
+   "roadmapIds": [
+    "Polylogarithms"
+   ],
+   "scope": [
+    "Polylogarithms:P.3"
+   ],
+   "outputs": [
+    "research/blueprint/packets/Polylogarithms--P.3.json",
+    "research/blueprint/readmes/Polylogarithms--P.3.md",
+    "research/blueprint/suggested/Polylogarithms--P.3.lean"
+   ],
+   "after": [
+    "REV-Polylogarithms"
+   ],
+   "followUpOf": "BP-Polylogarithms",
+   "prompt": "research/blueprint/prompts/BP-Polylogarithms--P.3.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-Polylogarithms--P.3",
+   "kind": "review",
+   "priority": 2,
+   "order": 400,
+   "roadmapIds": [
+    "Polylogarithms"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-Polylogarithms--P.3.md",
+    "research/blueprint/packets/Polylogarithms--P.3.json",
+    "research/blueprint/suggested/Polylogarithms--P.3.lean"
+   ],
+   "after": [
+    "BP-Polylogarithms--P.3"
+   ],
+   "avoidAccountOf": "BP-Polylogarithms--P.3",
+   "prompt": "research/blueprint/prompts/REV-Polylogarithms--P.3.md",
+   "state": "pending"
+  },
+  {
+   "id": "BP-Polylogarithms--P.4",
+   "kind": "blueprint",
+   "priority": 1,
+   "order": 400,
+   "roadmapIds": [
+    "Polylogarithms"
+   ],
+   "scope": [
+    "Polylogarithms:P.4"
+   ],
+   "outputs": [
+    "research/blueprint/packets/Polylogarithms--P.4.json",
+    "research/blueprint/readmes/Polylogarithms--P.4.md",
+    "research/blueprint/suggested/Polylogarithms--P.4.lean"
+   ],
+   "after": [
+    "REV-Polylogarithms"
+   ],
+   "followUpOf": "BP-Polylogarithms",
+   "prompt": "research/blueprint/prompts/BP-Polylogarithms--P.4.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-Polylogarithms--P.4",
+   "kind": "review",
+   "priority": 2,
+   "order": 400,
+   "roadmapIds": [
+    "Polylogarithms"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-Polylogarithms--P.4.md",
+    "research/blueprint/packets/Polylogarithms--P.4.json",
+    "research/blueprint/suggested/Polylogarithms--P.4.lean"
+   ],
+   "after": [
+    "BP-Polylogarithms--P.4"
+   ],
+   "avoidAccountOf": "BP-Polylogarithms--P.4",
+   "prompt": "research/blueprint/prompts/REV-Polylogarithms--P.4.md",
+   "state": "pending"
+  },
+  {
+   "id": "BP-Polylogarithms--P.5",
+   "kind": "blueprint",
+   "priority": 1,
+   "order": 400,
+   "roadmapIds": [
+    "Polylogarithms"
+   ],
+   "scope": [
+    "Polylogarithms:P.5"
+   ],
+   "outputs": [
+    "research/blueprint/packets/Polylogarithms--P.5.json",
+    "research/blueprint/readmes/Polylogarithms--P.5.md",
+    "research/blueprint/suggested/Polylogarithms--P.5.lean"
+   ],
+   "after": [
+    "REV-Polylogarithms"
+   ],
+   "followUpOf": "BP-Polylogarithms",
+   "prompt": "research/blueprint/prompts/BP-Polylogarithms--P.5.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-Polylogarithms--P.5",
+   "kind": "review",
+   "priority": 2,
+   "order": 400,
+   "roadmapIds": [
+    "Polylogarithms"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-Polylogarithms--P.5.md",
+    "research/blueprint/packets/Polylogarithms--P.5.json",
+    "research/blueprint/suggested/Polylogarithms--P.5.lean"
+   ],
+   "after": [
+    "BP-Polylogarithms--P.5"
+   ],
+   "avoidAccountOf": "BP-Polylogarithms--P.5",
+   "prompt": "research/blueprint/prompts/REV-Polylogarithms--P.5.md",
+   "state": "pending"
+  },
+  {
+   "id": "BP-Polylogarithms--P.6",
+   "kind": "blueprint",
+   "priority": 1,
+   "order": 400,
+   "roadmapIds": [
+    "Polylogarithms"
+   ],
+   "scope": [
+    "Polylogarithms:P.6"
+   ],
+   "outputs": [
+    "research/blueprint/packets/Polylogarithms--P.6.json",
+    "research/blueprint/readmes/Polylogarithms--P.6.md",
+    "research/blueprint/suggested/Polylogarithms--P.6.lean"
+   ],
+   "after": [
+    "REV-Polylogarithms"
+   ],
+   "followUpOf": "BP-Polylogarithms",
+   "prompt": "research/blueprint/prompts/BP-Polylogarithms--P.6.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-Polylogarithms--P.6",
+   "kind": "review",
+   "priority": 2,
+   "order": 400,
+   "roadmapIds": [
+    "Polylogarithms"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-Polylogarithms--P.6.md",
+    "research/blueprint/packets/Polylogarithms--P.6.json",
+    "research/blueprint/suggested/Polylogarithms--P.6.lean"
+   ],
+   "after": [
+    "BP-Polylogarithms--P.6"
+   ],
+   "avoidAccountOf": "BP-Polylogarithms--P.6",
+   "prompt": "research/blueprint/prompts/REV-Polylogarithms--P.6.md",
+   "state": "pending"
+  },
+  {
    "id": "BP-DeformationAndDerivedPatchingAlgebra--P7-2",
    "kind": "blueprint",
    "priority": 3,
@@ -31501,8 +31974,8 @@
    "followUpOf": "BP-DeformationAndDerivedPatchingAlgebra--P7",
    "prompt": "research/blueprint/prompts/BP-DeformationAndDerivedPatchingAlgebra--P7-2.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #6317",
-   "finishedAt": "2026-10-05T20:27:56Z"
+   "finishedAt": "2026-10-05T20:27:56Z",
+   "note": "deliverables arrived from an external worker on issue #6317"
   },
   {
    "id": "REV-DeformationAndDerivedPatchingAlgebra--P7-2",
@@ -31825,6 +32298,92 @@
    ],
    "avoidAccountOf": "BP-DeformationAndDerivedPatchingAlgebra--R03.5",
    "prompt": "research/blueprint/prompts/REV-DeformationAndDerivedPatchingAlgebra--R03.5.md",
+   "state": "pending"
+  },
+  {
+   "id": "BP-HabiroCyclotomicCompletions--HC.4",
+   "kind": "blueprint",
+   "priority": 3,
+   "order": 1200,
+   "roadmapIds": [
+    "HabiroCyclotomicCompletions"
+   ],
+   "scope": [
+    "HabiroCyclotomicCompletions:HC.4"
+   ],
+   "outputs": [
+    "research/blueprint/packets/HabiroCyclotomicCompletions--HC.4.json",
+    "research/blueprint/readmes/HabiroCyclotomicCompletions--HC.4.md",
+    "research/blueprint/suggested/HabiroCyclotomicCompletions--HC.4.lean"
+   ],
+   "after": [
+    "REV-HabiroCyclotomicCompletions"
+   ],
+   "followUpOf": "BP-HabiroCyclotomicCompletions",
+   "prompt": "research/blueprint/prompts/BP-HabiroCyclotomicCompletions--HC.4.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-HabiroCyclotomicCompletions--HC.4",
+   "kind": "review",
+   "priority": 2,
+   "order": 1200,
+   "roadmapIds": [
+    "HabiroCyclotomicCompletions"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-HabiroCyclotomicCompletions--HC.4.md",
+    "research/blueprint/packets/HabiroCyclotomicCompletions--HC.4.json",
+    "research/blueprint/suggested/HabiroCyclotomicCompletions--HC.4.lean"
+   ],
+   "after": [
+    "BP-HabiroCyclotomicCompletions--HC.4"
+   ],
+   "avoidAccountOf": "BP-HabiroCyclotomicCompletions--HC.4",
+   "prompt": "research/blueprint/prompts/REV-HabiroCyclotomicCompletions--HC.4.md",
+   "state": "pending"
+  },
+  {
+   "id": "BP-HabiroCyclotomicCompletions--HC.6",
+   "kind": "blueprint",
+   "priority": 3,
+   "order": 1200,
+   "roadmapIds": [
+    "HabiroCyclotomicCompletions"
+   ],
+   "scope": [
+    "HabiroCyclotomicCompletions:HC.6"
+   ],
+   "outputs": [
+    "research/blueprint/packets/HabiroCyclotomicCompletions--HC.6.json",
+    "research/blueprint/readmes/HabiroCyclotomicCompletions--HC.6.md",
+    "research/blueprint/suggested/HabiroCyclotomicCompletions--HC.6.lean"
+   ],
+   "after": [
+    "REV-HabiroCyclotomicCompletions"
+   ],
+   "followUpOf": "BP-HabiroCyclotomicCompletions",
+   "prompt": "research/blueprint/prompts/BP-HabiroCyclotomicCompletions--HC.6.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-HabiroCyclotomicCompletions--HC.6",
+   "kind": "review",
+   "priority": 2,
+   "order": 1200,
+   "roadmapIds": [
+    "HabiroCyclotomicCompletions"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-HabiroCyclotomicCompletions--HC.6.md",
+    "research/blueprint/packets/HabiroCyclotomicCompletions--HC.6.json",
+    "research/blueprint/suggested/HabiroCyclotomicCompletions--HC.6.lean"
+   ],
+   "after": [
+    "BP-HabiroCyclotomicCompletions--HC.6"
+   ],
+   "avoidAccountOf": "BP-HabiroCyclotomicCompletions--HC.6",
+   "prompt": "research/blueprint/prompts/REV-HabiroCyclotomicCompletions--HC.6.md",
    "state": "pending"
   },
   {
@@ -32473,6 +33032,307 @@
    "state": "pending"
   },
   {
+   "id": "BP-ArithmeticKTheory--N.2",
+   "kind": "blueprint",
+   "priority": 3,
+   "order": 202700,
+   "roadmapIds": [
+    "ArithmeticKTheory"
+   ],
+   "scope": [
+    "ArithmeticKTheory:N.2"
+   ],
+   "outputs": [
+    "research/blueprint/packets/ArithmeticKTheory--N.2.json",
+    "research/blueprint/readmes/ArithmeticKTheory--N.2.md",
+    "research/blueprint/suggested/ArithmeticKTheory--N.2.lean"
+   ],
+   "after": [
+    "REV-ArithmeticKTheory--N.1"
+   ],
+   "followUpOf": "BP-ArithmeticKTheory--N.1",
+   "prompt": "research/blueprint/prompts/BP-ArithmeticKTheory--N.2.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-ArithmeticKTheory--N.2",
+   "kind": "review",
+   "priority": 2,
+   "order": 202700,
+   "roadmapIds": [
+    "ArithmeticKTheory"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ArithmeticKTheory--N.2.md",
+    "research/blueprint/packets/ArithmeticKTheory--N.2.json",
+    "research/blueprint/suggested/ArithmeticKTheory--N.2.lean"
+   ],
+   "after": [
+    "BP-ArithmeticKTheory--N.2"
+   ],
+   "avoidAccountOf": "BP-ArithmeticKTheory--N.2",
+   "prompt": "research/blueprint/prompts/REV-ArithmeticKTheory--N.2.md",
+   "state": "pending"
+  },
+  {
+   "id": "BP-ArithmeticKTheory--N.3",
+   "kind": "blueprint",
+   "priority": 3,
+   "order": 202700,
+   "roadmapIds": [
+    "ArithmeticKTheory"
+   ],
+   "scope": [
+    "ArithmeticKTheory:N.3"
+   ],
+   "outputs": [
+    "research/blueprint/packets/ArithmeticKTheory--N.3.json",
+    "research/blueprint/readmes/ArithmeticKTheory--N.3.md",
+    "research/blueprint/suggested/ArithmeticKTheory--N.3.lean"
+   ],
+   "after": [
+    "REV-ArithmeticKTheory--N.1"
+   ],
+   "followUpOf": "BP-ArithmeticKTheory--N.1",
+   "prompt": "research/blueprint/prompts/BP-ArithmeticKTheory--N.3.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-ArithmeticKTheory--N.3",
+   "kind": "review",
+   "priority": 2,
+   "order": 202700,
+   "roadmapIds": [
+    "ArithmeticKTheory"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ArithmeticKTheory--N.3.md",
+    "research/blueprint/packets/ArithmeticKTheory--N.3.json",
+    "research/blueprint/suggested/ArithmeticKTheory--N.3.lean"
+   ],
+   "after": [
+    "BP-ArithmeticKTheory--N.3"
+   ],
+   "avoidAccountOf": "BP-ArithmeticKTheory--N.3",
+   "prompt": "research/blueprint/prompts/REV-ArithmeticKTheory--N.3.md",
+   "state": "pending"
+  },
+  {
+   "id": "BP-ArithmeticKTheory--N.3-finite-generation",
+   "kind": "blueprint",
+   "priority": 3,
+   "order": 202700,
+   "roadmapIds": [
+    "ArithmeticKTheory"
+   ],
+   "scope": [
+    "ArithmeticKTheory:N.3:finite-generation"
+   ],
+   "outputs": [
+    "research/blueprint/packets/ArithmeticKTheory--N.3-finite-generation.json",
+    "research/blueprint/readmes/ArithmeticKTheory--N.3-finite-generation.md",
+    "research/blueprint/suggested/ArithmeticKTheory--N.3-finite-generation.lean"
+   ],
+   "after": [
+    "REV-ArithmeticKTheory--N.1"
+   ],
+   "followUpOf": "BP-ArithmeticKTheory--N.1",
+   "prompt": "research/blueprint/prompts/BP-ArithmeticKTheory--N.3-finite-generation.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-ArithmeticKTheory--N.3-finite-generation",
+   "kind": "review",
+   "priority": 2,
+   "order": 202700,
+   "roadmapIds": [
+    "ArithmeticKTheory"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ArithmeticKTheory--N.3-finite-generation.md",
+    "research/blueprint/packets/ArithmeticKTheory--N.3-finite-generation.json",
+    "research/blueprint/suggested/ArithmeticKTheory--N.3-finite-generation.lean"
+   ],
+   "after": [
+    "BP-ArithmeticKTheory--N.3-finite-generation"
+   ],
+   "avoidAccountOf": "BP-ArithmeticKTheory--N.3-finite-generation",
+   "prompt": "research/blueprint/prompts/REV-ArithmeticKTheory--N.3-finite-generation.md",
+   "state": "pending"
+  },
+  {
+   "id": "BP-ArithmeticKTheory--N.5",
+   "kind": "blueprint",
+   "priority": 3,
+   "order": 202700,
+   "roadmapIds": [
+    "ArithmeticKTheory"
+   ],
+   "scope": [
+    "ArithmeticKTheory:N.5"
+   ],
+   "outputs": [
+    "research/blueprint/packets/ArithmeticKTheory--N.5.json",
+    "research/blueprint/readmes/ArithmeticKTheory--N.5.md",
+    "research/blueprint/suggested/ArithmeticKTheory--N.5.lean"
+   ],
+   "after": [
+    "REV-ArithmeticKTheory--N.1"
+   ],
+   "followUpOf": "BP-ArithmeticKTheory--N.1",
+   "prompt": "research/blueprint/prompts/BP-ArithmeticKTheory--N.5.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-ArithmeticKTheory--N.5",
+   "kind": "review",
+   "priority": 2,
+   "order": 202700,
+   "roadmapIds": [
+    "ArithmeticKTheory"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ArithmeticKTheory--N.5.md",
+    "research/blueprint/packets/ArithmeticKTheory--N.5.json",
+    "research/blueprint/suggested/ArithmeticKTheory--N.5.lean"
+   ],
+   "after": [
+    "BP-ArithmeticKTheory--N.5"
+   ],
+   "avoidAccountOf": "BP-ArithmeticKTheory--N.5",
+   "prompt": "research/blueprint/prompts/REV-ArithmeticKTheory--N.5.md",
+   "state": "pending"
+  },
+  {
+   "id": "BP-ArithmeticKTheory--N.6",
+   "kind": "blueprint",
+   "priority": 3,
+   "order": 202700,
+   "roadmapIds": [
+    "ArithmeticKTheory"
+   ],
+   "scope": [
+    "ArithmeticKTheory:N.6"
+   ],
+   "outputs": [
+    "research/blueprint/packets/ArithmeticKTheory--N.6.json",
+    "research/blueprint/readmes/ArithmeticKTheory--N.6.md",
+    "research/blueprint/suggested/ArithmeticKTheory--N.6.lean"
+   ],
+   "after": [
+    "REV-ArithmeticKTheory--N.1"
+   ],
+   "followUpOf": "BP-ArithmeticKTheory--N.1",
+   "prompt": "research/blueprint/prompts/BP-ArithmeticKTheory--N.6.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-ArithmeticKTheory--N.6",
+   "kind": "review",
+   "priority": 2,
+   "order": 202700,
+   "roadmapIds": [
+    "ArithmeticKTheory"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ArithmeticKTheory--N.6.md",
+    "research/blueprint/packets/ArithmeticKTheory--N.6.json",
+    "research/blueprint/suggested/ArithmeticKTheory--N.6.lean"
+   ],
+   "after": [
+    "BP-ArithmeticKTheory--N.6"
+   ],
+   "avoidAccountOf": "BP-ArithmeticKTheory--N.6",
+   "prompt": "research/blueprint/prompts/REV-ArithmeticKTheory--N.6.md",
+   "state": "pending"
+  },
+  {
+   "id": "BP-ColemanPowerSeries--L0",
+   "kind": "blueprint",
+   "priority": 3,
+   "order": 204200,
+   "roadmapIds": [
+    "ColemanPowerSeries"
+   ],
+   "scope": [
+    "ColemanPowerSeries:L0"
+   ],
+   "outputs": [
+    "research/blueprint/packets/ColemanPowerSeries--L0.json",
+    "research/blueprint/readmes/ColemanPowerSeries--L0.md",
+    "research/blueprint/suggested/ColemanPowerSeries--L0.lean"
+   ],
+   "after": [
+    "REV-ColemanPowerSeries"
+   ],
+   "followUpOf": "BP-ColemanPowerSeries",
+   "prompt": "research/blueprint/prompts/BP-ColemanPowerSeries--L0.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-ColemanPowerSeries--L0",
+   "kind": "review",
+   "priority": 2,
+   "order": 204200,
+   "roadmapIds": [
+    "ColemanPowerSeries"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ColemanPowerSeries--L0.md",
+    "research/blueprint/packets/ColemanPowerSeries--L0.json",
+    "research/blueprint/suggested/ColemanPowerSeries--L0.lean"
+   ],
+   "after": [
+    "BP-ColemanPowerSeries--L0"
+   ],
+   "avoidAccountOf": "BP-ColemanPowerSeries--L0",
+   "prompt": "research/blueprint/prompts/REV-ColemanPowerSeries--L0.md",
+   "state": "pending"
+  },
+  {
+   "id": "BP-ColemanPowerSeries--L1",
+   "kind": "blueprint",
+   "priority": 3,
+   "order": 204200,
+   "roadmapIds": [
+    "ColemanPowerSeries"
+   ],
+   "scope": [
+    "ColemanPowerSeries:L1"
+   ],
+   "outputs": [
+    "research/blueprint/packets/ColemanPowerSeries--L1.json",
+    "research/blueprint/readmes/ColemanPowerSeries--L1.md",
+    "research/blueprint/suggested/ColemanPowerSeries--L1.lean"
+   ],
+   "after": [
+    "REV-ColemanPowerSeries"
+   ],
+   "followUpOf": "BP-ColemanPowerSeries",
+   "prompt": "research/blueprint/prompts/BP-ColemanPowerSeries--L1.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-ColemanPowerSeries--L1",
+   "kind": "review",
+   "priority": 2,
+   "order": 204200,
+   "roadmapIds": [
+    "ColemanPowerSeries"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ColemanPowerSeries--L1.md",
+    "research/blueprint/packets/ColemanPowerSeries--L1.json",
+    "research/blueprint/suggested/ColemanPowerSeries--L1.lean"
+   ],
+   "after": [
+    "BP-ColemanPowerSeries--L1"
+   ],
+   "avoidAccountOf": "BP-ColemanPowerSeries--L1",
+   "prompt": "research/blueprint/prompts/REV-ColemanPowerSeries--L1.md",
+   "state": "pending"
+  },
+  {
    "id": "BP-DirichletPadicLFunctions--L3-2",
    "kind": "blueprint",
    "priority": 3,
@@ -32513,6 +33373,1167 @@
    ],
    "avoidAccountOf": "BP-DirichletPadicLFunctions--L3-2",
    "prompt": "research/blueprint/prompts/REV-DirichletPadicLFunctions--L3-2.md",
+   "state": "pending"
+  },
+  {
+   "id": "BP-EllipticKTheory--E.5",
+   "kind": "blueprint",
+   "priority": 3,
+   "order": 205400,
+   "roadmapIds": [
+    "EllipticKTheory"
+   ],
+   "scope": [
+    "EllipticKTheory:E.5"
+   ],
+   "outputs": [
+    "research/blueprint/packets/EllipticKTheory--E.5.json",
+    "research/blueprint/readmes/EllipticKTheory--E.5.md",
+    "research/blueprint/suggested/EllipticKTheory--E.5.lean"
+   ],
+   "after": [
+    "REV-EllipticKTheory"
+   ],
+   "followUpOf": "BP-EllipticKTheory",
+   "prompt": "research/blueprint/prompts/BP-EllipticKTheory--E.5.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-EllipticKTheory--E.5",
+   "kind": "review",
+   "priority": 2,
+   "order": 205400,
+   "roadmapIds": [
+    "EllipticKTheory"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-EllipticKTheory--E.5.md",
+    "research/blueprint/packets/EllipticKTheory--E.5.json",
+    "research/blueprint/suggested/EllipticKTheory--E.5.lean"
+   ],
+   "after": [
+    "BP-EllipticKTheory--E.5"
+   ],
+   "avoidAccountOf": "BP-EllipticKTheory--E.5",
+   "prompt": "research/blueprint/prompts/REV-EllipticKTheory--E.5.md",
+   "state": "pending"
+  },
+  {
+   "id": "BP-EllipticKTheory--E.6",
+   "kind": "blueprint",
+   "priority": 3,
+   "order": 205400,
+   "roadmapIds": [
+    "EllipticKTheory"
+   ],
+   "scope": [
+    "EllipticKTheory:E.6"
+   ],
+   "outputs": [
+    "research/blueprint/packets/EllipticKTheory--E.6.json",
+    "research/blueprint/readmes/EllipticKTheory--E.6.md",
+    "research/blueprint/suggested/EllipticKTheory--E.6.lean"
+   ],
+   "after": [
+    "REV-EllipticKTheory"
+   ],
+   "followUpOf": "BP-EllipticKTheory",
+   "prompt": "research/blueprint/prompts/BP-EllipticKTheory--E.6.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-EllipticKTheory--E.6",
+   "kind": "review",
+   "priority": 2,
+   "order": 205400,
+   "roadmapIds": [
+    "EllipticKTheory"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-EllipticKTheory--E.6.md",
+    "research/blueprint/packets/EllipticKTheory--E.6.json",
+    "research/blueprint/suggested/EllipticKTheory--E.6.lean"
+   ],
+   "after": [
+    "BP-EllipticKTheory--E.6"
+   ],
+   "avoidAccountOf": "BP-EllipticKTheory--E.6",
+   "prompt": "research/blueprint/prompts/REV-EllipticKTheory--E.6.md",
+   "state": "pending"
+  },
+  {
+   "id": "BP-EllipticRegulators--ER.1",
+   "kind": "blueprint",
+   "priority": 3,
+   "order": 205500,
+   "roadmapIds": [
+    "EllipticRegulators"
+   ],
+   "scope": [
+    "EllipticRegulators:ER.1"
+   ],
+   "outputs": [
+    "research/blueprint/packets/EllipticRegulators--ER.1.json",
+    "research/blueprint/readmes/EllipticRegulators--ER.1.md",
+    "research/blueprint/suggested/EllipticRegulators--ER.1.lean"
+   ],
+   "after": [
+    "REV-EllipticRegulators"
+   ],
+   "followUpOf": "BP-EllipticRegulators",
+   "prompt": "research/blueprint/prompts/BP-EllipticRegulators--ER.1.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-EllipticRegulators--ER.1",
+   "kind": "review",
+   "priority": 2,
+   "order": 205500,
+   "roadmapIds": [
+    "EllipticRegulators"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-EllipticRegulators--ER.1.md",
+    "research/blueprint/packets/EllipticRegulators--ER.1.json",
+    "research/blueprint/suggested/EllipticRegulators--ER.1.lean"
+   ],
+   "after": [
+    "BP-EllipticRegulators--ER.1"
+   ],
+   "avoidAccountOf": "BP-EllipticRegulators--ER.1",
+   "prompt": "research/blueprint/prompts/REV-EllipticRegulators--ER.1.md",
+   "state": "pending"
+  },
+  {
+   "id": "BP-EllipticRegulators--ER.2",
+   "kind": "blueprint",
+   "priority": 3,
+   "order": 205500,
+   "roadmapIds": [
+    "EllipticRegulators"
+   ],
+   "scope": [
+    "EllipticRegulators:ER.2"
+   ],
+   "outputs": [
+    "research/blueprint/packets/EllipticRegulators--ER.2.json",
+    "research/blueprint/readmes/EllipticRegulators--ER.2.md",
+    "research/blueprint/suggested/EllipticRegulators--ER.2.lean"
+   ],
+   "after": [
+    "REV-EllipticRegulators"
+   ],
+   "followUpOf": "BP-EllipticRegulators",
+   "prompt": "research/blueprint/prompts/BP-EllipticRegulators--ER.2.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-EllipticRegulators--ER.2",
+   "kind": "review",
+   "priority": 2,
+   "order": 205500,
+   "roadmapIds": [
+    "EllipticRegulators"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-EllipticRegulators--ER.2.md",
+    "research/blueprint/packets/EllipticRegulators--ER.2.json",
+    "research/blueprint/suggested/EllipticRegulators--ER.2.lean"
+   ],
+   "after": [
+    "BP-EllipticRegulators--ER.2"
+   ],
+   "avoidAccountOf": "BP-EllipticRegulators--ER.2",
+   "prompt": "research/blueprint/prompts/REV-EllipticRegulators--ER.2.md",
+   "state": "pending"
+  },
+  {
+   "id": "BP-EllipticRegulators--ER.3",
+   "kind": "blueprint",
+   "priority": 3,
+   "order": 205500,
+   "roadmapIds": [
+    "EllipticRegulators"
+   ],
+   "scope": [
+    "EllipticRegulators:ER.3"
+   ],
+   "outputs": [
+    "research/blueprint/packets/EllipticRegulators--ER.3.json",
+    "research/blueprint/readmes/EllipticRegulators--ER.3.md",
+    "research/blueprint/suggested/EllipticRegulators--ER.3.lean"
+   ],
+   "after": [
+    "REV-EllipticRegulators"
+   ],
+   "followUpOf": "BP-EllipticRegulators",
+   "prompt": "research/blueprint/prompts/BP-EllipticRegulators--ER.3.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-EllipticRegulators--ER.3",
+   "kind": "review",
+   "priority": 2,
+   "order": 205500,
+   "roadmapIds": [
+    "EllipticRegulators"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-EllipticRegulators--ER.3.md",
+    "research/blueprint/packets/EllipticRegulators--ER.3.json",
+    "research/blueprint/suggested/EllipticRegulators--ER.3.lean"
+   ],
+   "after": [
+    "BP-EllipticRegulators--ER.3"
+   ],
+   "avoidAccountOf": "BP-EllipticRegulators--ER.3",
+   "prompt": "research/blueprint/prompts/REV-EllipticRegulators--ER.3.md",
+   "state": "pending"
+  },
+  {
+   "id": "BP-EllipticRegulators--ER.4",
+   "kind": "blueprint",
+   "priority": 3,
+   "order": 205500,
+   "roadmapIds": [
+    "EllipticRegulators"
+   ],
+   "scope": [
+    "EllipticRegulators:ER.4"
+   ],
+   "outputs": [
+    "research/blueprint/packets/EllipticRegulators--ER.4.json",
+    "research/blueprint/readmes/EllipticRegulators--ER.4.md",
+    "research/blueprint/suggested/EllipticRegulators--ER.4.lean"
+   ],
+   "after": [
+    "REV-EllipticRegulators"
+   ],
+   "followUpOf": "BP-EllipticRegulators",
+   "prompt": "research/blueprint/prompts/BP-EllipticRegulators--ER.4.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-EllipticRegulators--ER.4",
+   "kind": "review",
+   "priority": 2,
+   "order": 205500,
+   "roadmapIds": [
+    "EllipticRegulators"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-EllipticRegulators--ER.4.md",
+    "research/blueprint/packets/EllipticRegulators--ER.4.json",
+    "research/blueprint/suggested/EllipticRegulators--ER.4.lean"
+   ],
+   "after": [
+    "BP-EllipticRegulators--ER.4"
+   ],
+   "avoidAccountOf": "BP-EllipticRegulators--ER.4",
+   "prompt": "research/blueprint/prompts/REV-EllipticRegulators--ER.4.md",
+   "state": "pending"
+  },
+  {
+   "id": "BP-EllipticRegulators--ER.5",
+   "kind": "blueprint",
+   "priority": 3,
+   "order": 205500,
+   "roadmapIds": [
+    "EllipticRegulators"
+   ],
+   "scope": [
+    "EllipticRegulators:ER.5"
+   ],
+   "outputs": [
+    "research/blueprint/packets/EllipticRegulators--ER.5.json",
+    "research/blueprint/readmes/EllipticRegulators--ER.5.md",
+    "research/blueprint/suggested/EllipticRegulators--ER.5.lean"
+   ],
+   "after": [
+    "REV-EllipticRegulators"
+   ],
+   "followUpOf": "BP-EllipticRegulators",
+   "prompt": "research/blueprint/prompts/BP-EllipticRegulators--ER.5.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-EllipticRegulators--ER.5",
+   "kind": "review",
+   "priority": 2,
+   "order": 205500,
+   "roadmapIds": [
+    "EllipticRegulators"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-EllipticRegulators--ER.5.md",
+    "research/blueprint/packets/EllipticRegulators--ER.5.json",
+    "research/blueprint/suggested/EllipticRegulators--ER.5.lean"
+   ],
+   "after": [
+    "BP-EllipticRegulators--ER.5"
+   ],
+   "avoidAccountOf": "BP-EllipticRegulators--ER.5",
+   "prompt": "research/blueprint/prompts/REV-EllipticRegulators--ER.5.md",
+   "state": "pending"
+  },
+  {
+   "id": "BP-EllipticRegulators--ER.6",
+   "kind": "blueprint",
+   "priority": 3,
+   "order": 205500,
+   "roadmapIds": [
+    "EllipticRegulators"
+   ],
+   "scope": [
+    "EllipticRegulators:ER.6"
+   ],
+   "outputs": [
+    "research/blueprint/packets/EllipticRegulators--ER.6.json",
+    "research/blueprint/readmes/EllipticRegulators--ER.6.md",
+    "research/blueprint/suggested/EllipticRegulators--ER.6.lean"
+   ],
+   "after": [
+    "REV-EllipticRegulators"
+   ],
+   "followUpOf": "BP-EllipticRegulators",
+   "prompt": "research/blueprint/prompts/BP-EllipticRegulators--ER.6.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-EllipticRegulators--ER.6",
+   "kind": "review",
+   "priority": 2,
+   "order": 205500,
+   "roadmapIds": [
+    "EllipticRegulators"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-EllipticRegulators--ER.6.md",
+    "research/blueprint/packets/EllipticRegulators--ER.6.json",
+    "research/blueprint/suggested/EllipticRegulators--ER.6.lean"
+   ],
+   "after": [
+    "BP-EllipticRegulators--ER.6"
+   ],
+   "avoidAccountOf": "BP-EllipticRegulators--ER.6",
+   "prompt": "research/blueprint/prompts/REV-EllipticRegulators--ER.6.md",
+   "state": "pending"
+  },
+  {
+   "id": "BP-EllipticRegulators--ER.7",
+   "kind": "blueprint",
+   "priority": 3,
+   "order": 205500,
+   "roadmapIds": [
+    "EllipticRegulators"
+   ],
+   "scope": [
+    "EllipticRegulators:ER.7"
+   ],
+   "outputs": [
+    "research/blueprint/packets/EllipticRegulators--ER.7.json",
+    "research/blueprint/readmes/EllipticRegulators--ER.7.md",
+    "research/blueprint/suggested/EllipticRegulators--ER.7.lean"
+   ],
+   "after": [
+    "REV-EllipticRegulators"
+   ],
+   "followUpOf": "BP-EllipticRegulators",
+   "prompt": "research/blueprint/prompts/BP-EllipticRegulators--ER.7.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-EllipticRegulators--ER.7",
+   "kind": "review",
+   "priority": 2,
+   "order": 205500,
+   "roadmapIds": [
+    "EllipticRegulators"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-EllipticRegulators--ER.7.md",
+    "research/blueprint/packets/EllipticRegulators--ER.7.json",
+    "research/blueprint/suggested/EllipticRegulators--ER.7.lean"
+   ],
+   "after": [
+    "BP-EllipticRegulators--ER.7"
+   ],
+   "avoidAccountOf": "BP-EllipticRegulators--ER.7",
+   "prompt": "research/blueprint/prompts/REV-EllipticRegulators--ER.7.md",
+   "state": "pending"
+  },
+  {
+   "id": "BP-EllipticRegulators--ER.8",
+   "kind": "blueprint",
+   "priority": 3,
+   "order": 205500,
+   "roadmapIds": [
+    "EllipticRegulators"
+   ],
+   "scope": [
+    "EllipticRegulators:ER.8"
+   ],
+   "outputs": [
+    "research/blueprint/packets/EllipticRegulators--ER.8.json",
+    "research/blueprint/readmes/EllipticRegulators--ER.8.md",
+    "research/blueprint/suggested/EllipticRegulators--ER.8.lean"
+   ],
+   "after": [
+    "REV-EllipticRegulators"
+   ],
+   "followUpOf": "BP-EllipticRegulators",
+   "prompt": "research/blueprint/prompts/BP-EllipticRegulators--ER.8.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-EllipticRegulators--ER.8",
+   "kind": "review",
+   "priority": 2,
+   "order": 205500,
+   "roadmapIds": [
+    "EllipticRegulators"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-EllipticRegulators--ER.8.md",
+    "research/blueprint/packets/EllipticRegulators--ER.8.json",
+    "research/blueprint/suggested/EllipticRegulators--ER.8.lean"
+   ],
+   "after": [
+    "BP-EllipticRegulators--ER.8"
+   ],
+   "avoidAccountOf": "BP-EllipticRegulators--ER.8",
+   "prompt": "research/blueprint/prompts/REV-EllipticRegulators--ER.8.md",
+   "state": "pending"
+  },
+  {
+   "id": "BP-HabiroCohomologyFoundations--HQ.1-2",
+   "kind": "blueprint",
+   "priority": 3,
+   "order": 207300,
+   "roadmapIds": [
+    "HabiroCohomologyFoundations"
+   ],
+   "scope": [
+    "HabiroCohomologyFoundations:HQ.1"
+   ],
+   "outputs": [
+    "research/blueprint/packets/HabiroCohomologyFoundations--HQ.1-2.json",
+    "research/blueprint/readmes/HabiroCohomologyFoundations--HQ.1-2.md",
+    "research/blueprint/suggested/HabiroCohomologyFoundations--HQ.1-2.lean"
+   ],
+   "after": [
+    "REV-HabiroCohomologyFoundations--HQ.1"
+   ],
+   "followUpOf": "BP-HabiroCohomologyFoundations--HQ.1",
+   "prompt": "research/blueprint/prompts/BP-HabiroCohomologyFoundations--HQ.1-2.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-HabiroCohomologyFoundations--HQ.1-2",
+   "kind": "review",
+   "priority": 2,
+   "order": 207300,
+   "roadmapIds": [
+    "HabiroCohomologyFoundations"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-HabiroCohomologyFoundations--HQ.1-2.md",
+    "research/blueprint/packets/HabiroCohomologyFoundations--HQ.1-2.json",
+    "research/blueprint/suggested/HabiroCohomologyFoundations--HQ.1-2.lean"
+   ],
+   "after": [
+    "BP-HabiroCohomologyFoundations--HQ.1-2"
+   ],
+   "avoidAccountOf": "BP-HabiroCohomologyFoundations--HQ.1-2",
+   "prompt": "research/blueprint/prompts/REV-HabiroCohomologyFoundations--HQ.1-2.md",
+   "state": "pending"
+  },
+  {
+   "id": "BP-HabiroCohomologyFoundations--HQ.3",
+   "kind": "blueprint",
+   "priority": 3,
+   "order": 207300,
+   "roadmapIds": [
+    "HabiroCohomologyFoundations"
+   ],
+   "scope": [
+    "HabiroCohomologyFoundations:HQ.3"
+   ],
+   "outputs": [
+    "research/blueprint/packets/HabiroCohomologyFoundations--HQ.3.json",
+    "research/blueprint/readmes/HabiroCohomologyFoundations--HQ.3.md",
+    "research/blueprint/suggested/HabiroCohomologyFoundations--HQ.3.lean"
+   ],
+   "after": [
+    "REV-HabiroCohomologyFoundations--HQ.1"
+   ],
+   "followUpOf": "BP-HabiroCohomologyFoundations--HQ.1",
+   "prompt": "research/blueprint/prompts/BP-HabiroCohomologyFoundations--HQ.3.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-HabiroCohomologyFoundations--HQ.3",
+   "kind": "review",
+   "priority": 2,
+   "order": 207300,
+   "roadmapIds": [
+    "HabiroCohomologyFoundations"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-HabiroCohomologyFoundations--HQ.3.md",
+    "research/blueprint/packets/HabiroCohomologyFoundations--HQ.3.json",
+    "research/blueprint/suggested/HabiroCohomologyFoundations--HQ.3.lean"
+   ],
+   "after": [
+    "BP-HabiroCohomologyFoundations--HQ.3"
+   ],
+   "avoidAccountOf": "BP-HabiroCohomologyFoundations--HQ.3",
+   "prompt": "research/blueprint/prompts/REV-HabiroCohomologyFoundations--HQ.3.md",
+   "state": "pending"
+  },
+  {
+   "id": "BP-HabiroNumberFields--HB.1",
+   "kind": "blueprint",
+   "priority": 3,
+   "order": 207400,
+   "roadmapIds": [
+    "HabiroNumberFields"
+   ],
+   "scope": [
+    "HabiroNumberFields:HB.1"
+   ],
+   "outputs": [
+    "research/blueprint/packets/HabiroNumberFields--HB.1.json",
+    "research/blueprint/readmes/HabiroNumberFields--HB.1.md",
+    "research/blueprint/suggested/HabiroNumberFields--HB.1.lean"
+   ],
+   "after": [
+    "REV-HabiroNumberFields"
+   ],
+   "followUpOf": "BP-HabiroNumberFields",
+   "prompt": "research/blueprint/prompts/BP-HabiroNumberFields--HB.1.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-HabiroNumberFields--HB.1",
+   "kind": "review",
+   "priority": 2,
+   "order": 207400,
+   "roadmapIds": [
+    "HabiroNumberFields"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-HabiroNumberFields--HB.1.md",
+    "research/blueprint/packets/HabiroNumberFields--HB.1.json",
+    "research/blueprint/suggested/HabiroNumberFields--HB.1.lean"
+   ],
+   "after": [
+    "BP-HabiroNumberFields--HB.1"
+   ],
+   "avoidAccountOf": "BP-HabiroNumberFields--HB.1",
+   "prompt": "research/blueprint/prompts/REV-HabiroNumberFields--HB.1.md",
+   "state": "pending"
+  },
+  {
+   "id": "BP-HabiroNumberFields--HB.2",
+   "kind": "blueprint",
+   "priority": 3,
+   "order": 207400,
+   "roadmapIds": [
+    "HabiroNumberFields"
+   ],
+   "scope": [
+    "HabiroNumberFields:HB.2"
+   ],
+   "outputs": [
+    "research/blueprint/packets/HabiroNumberFields--HB.2.json",
+    "research/blueprint/readmes/HabiroNumberFields--HB.2.md",
+    "research/blueprint/suggested/HabiroNumberFields--HB.2.lean"
+   ],
+   "after": [
+    "REV-HabiroNumberFields"
+   ],
+   "followUpOf": "BP-HabiroNumberFields",
+   "prompt": "research/blueprint/prompts/BP-HabiroNumberFields--HB.2.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-HabiroNumberFields--HB.2",
+   "kind": "review",
+   "priority": 2,
+   "order": 207400,
+   "roadmapIds": [
+    "HabiroNumberFields"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-HabiroNumberFields--HB.2.md",
+    "research/blueprint/packets/HabiroNumberFields--HB.2.json",
+    "research/blueprint/suggested/HabiroNumberFields--HB.2.lean"
+   ],
+   "after": [
+    "BP-HabiroNumberFields--HB.2"
+   ],
+   "avoidAccountOf": "BP-HabiroNumberFields--HB.2",
+   "prompt": "research/blueprint/prompts/REV-HabiroNumberFields--HB.2.md",
+   "state": "pending"
+  },
+  {
+   "id": "BP-HabiroNumberFields--HB.6",
+   "kind": "blueprint",
+   "priority": 3,
+   "order": 207400,
+   "roadmapIds": [
+    "HabiroNumberFields"
+   ],
+   "scope": [
+    "HabiroNumberFields:HB.6"
+   ],
+   "outputs": [
+    "research/blueprint/packets/HabiroNumberFields--HB.6.json",
+    "research/blueprint/readmes/HabiroNumberFields--HB.6.md",
+    "research/blueprint/suggested/HabiroNumberFields--HB.6.lean"
+   ],
+   "after": [
+    "REV-HabiroNumberFields"
+   ],
+   "followUpOf": "BP-HabiroNumberFields",
+   "prompt": "research/blueprint/prompts/BP-HabiroNumberFields--HB.6.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-HabiroNumberFields--HB.6",
+   "kind": "review",
+   "priority": 2,
+   "order": 207400,
+   "roadmapIds": [
+    "HabiroNumberFields"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-HabiroNumberFields--HB.6.md",
+    "research/blueprint/packets/HabiroNumberFields--HB.6.json",
+    "research/blueprint/suggested/HabiroNumberFields--HB.6.lean"
+   ],
+   "after": [
+    "BP-HabiroNumberFields--HB.6"
+   ],
+   "avoidAccountOf": "BP-HabiroNumberFields--HB.6",
+   "prompt": "research/blueprint/prompts/REV-HabiroNumberFields--HB.6.md",
+   "state": "pending"
+  },
+  {
+   "id": "BP-HabiroNumberFields--HB.7",
+   "kind": "blueprint",
+   "priority": 3,
+   "order": 207400,
+   "roadmapIds": [
+    "HabiroNumberFields"
+   ],
+   "scope": [
+    "HabiroNumberFields:HB.7"
+   ],
+   "outputs": [
+    "research/blueprint/packets/HabiroNumberFields--HB.7.json",
+    "research/blueprint/readmes/HabiroNumberFields--HB.7.md",
+    "research/blueprint/suggested/HabiroNumberFields--HB.7.lean"
+   ],
+   "after": [
+    "REV-HabiroNumberFields"
+   ],
+   "followUpOf": "BP-HabiroNumberFields",
+   "prompt": "research/blueprint/prompts/BP-HabiroNumberFields--HB.7.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-HabiroNumberFields--HB.7",
+   "kind": "review",
+   "priority": 2,
+   "order": 207400,
+   "roadmapIds": [
+    "HabiroNumberFields"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-HabiroNumberFields--HB.7.md",
+    "research/blueprint/packets/HabiroNumberFields--HB.7.json",
+    "research/blueprint/suggested/HabiroNumberFields--HB.7.lean"
+   ],
+   "after": [
+    "BP-HabiroNumberFields--HB.7"
+   ],
+   "avoidAccountOf": "BP-HabiroNumberFields--HB.7",
+   "prompt": "research/blueprint/prompts/REV-HabiroNumberFields--HB.7.md",
+   "state": "pending"
+  },
+  {
+   "id": "BP-HabiroRings--HR.1",
+   "kind": "blueprint",
+   "priority": 3,
+   "order": 207500,
+   "roadmapIds": [
+    "HabiroRings"
+   ],
+   "scope": [
+    "HabiroRings:HR.1"
+   ],
+   "outputs": [
+    "research/blueprint/packets/HabiroRings--HR.1.json",
+    "research/blueprint/readmes/HabiroRings--HR.1.md",
+    "research/blueprint/suggested/HabiroRings--HR.1.lean"
+   ],
+   "after": [
+    "REV-HabiroRings"
+   ],
+   "followUpOf": "BP-HabiroRings",
+   "prompt": "research/blueprint/prompts/BP-HabiroRings--HR.1.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-HabiroRings--HR.1",
+   "kind": "review",
+   "priority": 2,
+   "order": 207500,
+   "roadmapIds": [
+    "HabiroRings"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-HabiroRings--HR.1.md",
+    "research/blueprint/packets/HabiroRings--HR.1.json",
+    "research/blueprint/suggested/HabiroRings--HR.1.lean"
+   ],
+   "after": [
+    "BP-HabiroRings--HR.1"
+   ],
+   "avoidAccountOf": "BP-HabiroRings--HR.1",
+   "prompt": "research/blueprint/prompts/REV-HabiroRings--HR.1.md",
+   "state": "pending"
+  },
+  {
+   "id": "BP-HabiroRings--HR.2",
+   "kind": "blueprint",
+   "priority": 3,
+   "order": 207500,
+   "roadmapIds": [
+    "HabiroRings"
+   ],
+   "scope": [
+    "HabiroRings:HR.2"
+   ],
+   "outputs": [
+    "research/blueprint/packets/HabiroRings--HR.2.json",
+    "research/blueprint/readmes/HabiroRings--HR.2.md",
+    "research/blueprint/suggested/HabiroRings--HR.2.lean"
+   ],
+   "after": [
+    "REV-HabiroRings"
+   ],
+   "followUpOf": "BP-HabiroRings",
+   "prompt": "research/blueprint/prompts/BP-HabiroRings--HR.2.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-HabiroRings--HR.2",
+   "kind": "review",
+   "priority": 2,
+   "order": 207500,
+   "roadmapIds": [
+    "HabiroRings"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-HabiroRings--HR.2.md",
+    "research/blueprint/packets/HabiroRings--HR.2.json",
+    "research/blueprint/suggested/HabiroRings--HR.2.lean"
+   ],
+   "after": [
+    "BP-HabiroRings--HR.2"
+   ],
+   "avoidAccountOf": "BP-HabiroRings--HR.2",
+   "prompt": "research/blueprint/prompts/REV-HabiroRings--HR.2.md",
+   "state": "pending"
+  },
+  {
+   "id": "BP-HabiroRings--HR.3",
+   "kind": "blueprint",
+   "priority": 3,
+   "order": 207500,
+   "roadmapIds": [
+    "HabiroRings"
+   ],
+   "scope": [
+    "HabiroRings:HR.3"
+   ],
+   "outputs": [
+    "research/blueprint/packets/HabiroRings--HR.3.json",
+    "research/blueprint/readmes/HabiroRings--HR.3.md",
+    "research/blueprint/suggested/HabiroRings--HR.3.lean"
+   ],
+   "after": [
+    "REV-HabiroRings"
+   ],
+   "followUpOf": "BP-HabiroRings",
+   "prompt": "research/blueprint/prompts/BP-HabiroRings--HR.3.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-HabiroRings--HR.3",
+   "kind": "review",
+   "priority": 2,
+   "order": 207500,
+   "roadmapIds": [
+    "HabiroRings"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-HabiroRings--HR.3.md",
+    "research/blueprint/packets/HabiroRings--HR.3.json",
+    "research/blueprint/suggested/HabiroRings--HR.3.lean"
+   ],
+   "after": [
+    "BP-HabiroRings--HR.3"
+   ],
+   "avoidAccountOf": "BP-HabiroRings--HR.3",
+   "prompt": "research/blueprint/prompts/REV-HabiroRings--HR.3.md",
+   "state": "pending"
+  },
+  {
+   "id": "BP-HabiroRings--HR.4",
+   "kind": "blueprint",
+   "priority": 3,
+   "order": 207500,
+   "roadmapIds": [
+    "HabiroRings"
+   ],
+   "scope": [
+    "HabiroRings:HR.4"
+   ],
+   "outputs": [
+    "research/blueprint/packets/HabiroRings--HR.4.json",
+    "research/blueprint/readmes/HabiroRings--HR.4.md",
+    "research/blueprint/suggested/HabiroRings--HR.4.lean"
+   ],
+   "after": [
+    "REV-HabiroRings"
+   ],
+   "followUpOf": "BP-HabiroRings",
+   "prompt": "research/blueprint/prompts/BP-HabiroRings--HR.4.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-HabiroRings--HR.4",
+   "kind": "review",
+   "priority": 2,
+   "order": 207500,
+   "roadmapIds": [
+    "HabiroRings"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-HabiroRings--HR.4.md",
+    "research/blueprint/packets/HabiroRings--HR.4.json",
+    "research/blueprint/suggested/HabiroRings--HR.4.lean"
+   ],
+   "after": [
+    "BP-HabiroRings--HR.4"
+   ],
+   "avoidAccountOf": "BP-HabiroRings--HR.4",
+   "prompt": "research/blueprint/prompts/REV-HabiroRings--HR.4.md",
+   "state": "pending"
+  },
+  {
+   "id": "BP-HabiroRings--HR.6",
+   "kind": "blueprint",
+   "priority": 3,
+   "order": 207500,
+   "roadmapIds": [
+    "HabiroRings"
+   ],
+   "scope": [
+    "HabiroRings:HR.6"
+   ],
+   "outputs": [
+    "research/blueprint/packets/HabiroRings--HR.6.json",
+    "research/blueprint/readmes/HabiroRings--HR.6.md",
+    "research/blueprint/suggested/HabiroRings--HR.6.lean"
+   ],
+   "after": [
+    "REV-HabiroRings"
+   ],
+   "followUpOf": "BP-HabiroRings",
+   "prompt": "research/blueprint/prompts/BP-HabiroRings--HR.6.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-HabiroRings--HR.6",
+   "kind": "review",
+   "priority": 2,
+   "order": 207500,
+   "roadmapIds": [
+    "HabiroRings"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-HabiroRings--HR.6.md",
+    "research/blueprint/packets/HabiroRings--HR.6.json",
+    "research/blueprint/suggested/HabiroRings--HR.6.lean"
+   ],
+   "after": [
+    "BP-HabiroRings--HR.6"
+   ],
+   "avoidAccountOf": "BP-HabiroRings--HR.6",
+   "prompt": "research/blueprint/prompts/REV-HabiroRings--HR.6.md",
+   "state": "pending"
+  },
+  {
+   "id": "BP-HabiroNahmSeries--HB.10",
+   "kind": "blueprint",
+   "priority": 3,
+   "order": 313100,
+   "roadmapIds": [
+    "HabiroNahmSeries"
+   ],
+   "scope": [
+    "HabiroNahmSeries:HB.10"
+   ],
+   "outputs": [
+    "research/blueprint/packets/HabiroNahmSeries--HB.10.json",
+    "research/blueprint/readmes/HabiroNahmSeries--HB.10.md",
+    "research/blueprint/suggested/HabiroNahmSeries--HB.10.lean"
+   ],
+   "after": [
+    "REV-HabiroNahmSeries"
+   ],
+   "followUpOf": "BP-HabiroNahmSeries",
+   "prompt": "research/blueprint/prompts/BP-HabiroNahmSeries--HB.10.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-HabiroNahmSeries--HB.10",
+   "kind": "review",
+   "priority": 2,
+   "order": 313100,
+   "roadmapIds": [
+    "HabiroNahmSeries"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-HabiroNahmSeries--HB.10.md",
+    "research/blueprint/packets/HabiroNahmSeries--HB.10.json",
+    "research/blueprint/suggested/HabiroNahmSeries--HB.10.lean"
+   ],
+   "after": [
+    "BP-HabiroNahmSeries--HB.10"
+   ],
+   "avoidAccountOf": "BP-HabiroNahmSeries--HB.10",
+   "prompt": "research/blueprint/prompts/REV-HabiroNahmSeries--HB.10.md",
+   "state": "pending"
+  },
+  {
+   "id": "BP-HabiroNahmSeries--HB.3",
+   "kind": "blueprint",
+   "priority": 3,
+   "order": 313100,
+   "roadmapIds": [
+    "HabiroNahmSeries"
+   ],
+   "scope": [
+    "HabiroNahmSeries:HB.3"
+   ],
+   "outputs": [
+    "research/blueprint/packets/HabiroNahmSeries--HB.3.json",
+    "research/blueprint/readmes/HabiroNahmSeries--HB.3.md",
+    "research/blueprint/suggested/HabiroNahmSeries--HB.3.lean"
+   ],
+   "after": [
+    "REV-HabiroNahmSeries"
+   ],
+   "followUpOf": "BP-HabiroNahmSeries",
+   "prompt": "research/blueprint/prompts/BP-HabiroNahmSeries--HB.3.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-HabiroNahmSeries--HB.3",
+   "kind": "review",
+   "priority": 2,
+   "order": 313100,
+   "roadmapIds": [
+    "HabiroNahmSeries"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-HabiroNahmSeries--HB.3.md",
+    "research/blueprint/packets/HabiroNahmSeries--HB.3.json",
+    "research/blueprint/suggested/HabiroNahmSeries--HB.3.lean"
+   ],
+   "after": [
+    "BP-HabiroNahmSeries--HB.3"
+   ],
+   "avoidAccountOf": "BP-HabiroNahmSeries--HB.3",
+   "prompt": "research/blueprint/prompts/REV-HabiroNahmSeries--HB.3.md",
+   "state": "pending"
+  },
+  {
+   "id": "BP-HabiroNahmSeries--HB.4",
+   "kind": "blueprint",
+   "priority": 3,
+   "order": 313100,
+   "roadmapIds": [
+    "HabiroNahmSeries"
+   ],
+   "scope": [
+    "HabiroNahmSeries:HB.4"
+   ],
+   "outputs": [
+    "research/blueprint/packets/HabiroNahmSeries--HB.4.json",
+    "research/blueprint/readmes/HabiroNahmSeries--HB.4.md",
+    "research/blueprint/suggested/HabiroNahmSeries--HB.4.lean"
+   ],
+   "after": [
+    "REV-HabiroNahmSeries"
+   ],
+   "followUpOf": "BP-HabiroNahmSeries",
+   "prompt": "research/blueprint/prompts/BP-HabiroNahmSeries--HB.4.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-HabiroNahmSeries--HB.4",
+   "kind": "review",
+   "priority": 2,
+   "order": 313100,
+   "roadmapIds": [
+    "HabiroNahmSeries"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-HabiroNahmSeries--HB.4.md",
+    "research/blueprint/packets/HabiroNahmSeries--HB.4.json",
+    "research/blueprint/suggested/HabiroNahmSeries--HB.4.lean"
+   ],
+   "after": [
+    "BP-HabiroNahmSeries--HB.4"
+   ],
+   "avoidAccountOf": "BP-HabiroNahmSeries--HB.4",
+   "prompt": "research/blueprint/prompts/REV-HabiroNahmSeries--HB.4.md",
+   "state": "pending"
+  },
+  {
+   "id": "BP-HabiroNahmSeries--HB.5",
+   "kind": "blueprint",
+   "priority": 3,
+   "order": 313100,
+   "roadmapIds": [
+    "HabiroNahmSeries"
+   ],
+   "scope": [
+    "HabiroNahmSeries:HB.5"
+   ],
+   "outputs": [
+    "research/blueprint/packets/HabiroNahmSeries--HB.5.json",
+    "research/blueprint/readmes/HabiroNahmSeries--HB.5.md",
+    "research/blueprint/suggested/HabiroNahmSeries--HB.5.lean"
+   ],
+   "after": [
+    "REV-HabiroNahmSeries"
+   ],
+   "followUpOf": "BP-HabiroNahmSeries",
+   "prompt": "research/blueprint/prompts/BP-HabiroNahmSeries--HB.5.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-HabiroNahmSeries--HB.5",
+   "kind": "review",
+   "priority": 2,
+   "order": 313100,
+   "roadmapIds": [
+    "HabiroNahmSeries"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-HabiroNahmSeries--HB.5.md",
+    "research/blueprint/packets/HabiroNahmSeries--HB.5.json",
+    "research/blueprint/suggested/HabiroNahmSeries--HB.5.lean"
+   ],
+   "after": [
+    "BP-HabiroNahmSeries--HB.5"
+   ],
+   "avoidAccountOf": "BP-HabiroNahmSeries--HB.5",
+   "prompt": "research/blueprint/prompts/REV-HabiroNahmSeries--HB.5.md",
+   "state": "pending"
+  },
+  {
+   "id": "BP-HabiroNahmSeries--HB.8",
+   "kind": "blueprint",
+   "priority": 3,
+   "order": 313100,
+   "roadmapIds": [
+    "HabiroNahmSeries"
+   ],
+   "scope": [
+    "HabiroNahmSeries:HB.8"
+   ],
+   "outputs": [
+    "research/blueprint/packets/HabiroNahmSeries--HB.8.json",
+    "research/blueprint/readmes/HabiroNahmSeries--HB.8.md",
+    "research/blueprint/suggested/HabiroNahmSeries--HB.8.lean"
+   ],
+   "after": [
+    "REV-HabiroNahmSeries"
+   ],
+   "followUpOf": "BP-HabiroNahmSeries",
+   "prompt": "research/blueprint/prompts/BP-HabiroNahmSeries--HB.8.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-HabiroNahmSeries--HB.8",
+   "kind": "review",
+   "priority": 2,
+   "order": 313100,
+   "roadmapIds": [
+    "HabiroNahmSeries"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-HabiroNahmSeries--HB.8.md",
+    "research/blueprint/packets/HabiroNahmSeries--HB.8.json",
+    "research/blueprint/suggested/HabiroNahmSeries--HB.8.lean"
+   ],
+   "after": [
+    "BP-HabiroNahmSeries--HB.8"
+   ],
+   "avoidAccountOf": "BP-HabiroNahmSeries--HB.8",
+   "prompt": "research/blueprint/prompts/REV-HabiroNahmSeries--HB.8.md",
+   "state": "pending"
+  },
+  {
+   "id": "BP-HabiroNahmSeries--HB.9",
+   "kind": "blueprint",
+   "priority": 3,
+   "order": 313100,
+   "roadmapIds": [
+    "HabiroNahmSeries"
+   ],
+   "scope": [
+    "HabiroNahmSeries:HB.9"
+   ],
+   "outputs": [
+    "research/blueprint/packets/HabiroNahmSeries--HB.9.json",
+    "research/blueprint/readmes/HabiroNahmSeries--HB.9.md",
+    "research/blueprint/suggested/HabiroNahmSeries--HB.9.lean"
+   ],
+   "after": [
+    "REV-HabiroNahmSeries"
+   ],
+   "followUpOf": "BP-HabiroNahmSeries",
+   "prompt": "research/blueprint/prompts/BP-HabiroNahmSeries--HB.9.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-HabiroNahmSeries--HB.9",
+   "kind": "review",
+   "priority": 2,
+   "order": 313100,
+   "roadmapIds": [
+    "HabiroNahmSeries"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-HabiroNahmSeries--HB.9.md",
+    "research/blueprint/packets/HabiroNahmSeries--HB.9.json",
+    "research/blueprint/suggested/HabiroNahmSeries--HB.9.lean"
+   ],
+   "after": [
+    "BP-HabiroNahmSeries--HB.9"
+   ],
+   "avoidAccountOf": "BP-HabiroNahmSeries--HB.9",
+   "prompt": "research/blueprint/prompts/REV-HabiroNahmSeries--HB.9.md",
    "state": "pending"
   },
   {
@@ -32838,8 +34859,8 @@
    "followUpOf": "BP-FiniteFieldsAndCharacterSums",
    "prompt": "research/blueprint/prompts/BP-FiniteFieldsAndCharacterSums--FF.1.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #6348",
-   "finishedAt": "2026-10-05T18:36:17Z"
+   "finishedAt": "2026-10-05T18:36:17Z",
+   "note": "deliverables arrived from an external worker on issue #6348"
   },
   {
    "id": "REV-FiniteFieldsAndCharacterSums--FF.1",
@@ -32860,8 +34881,8 @@
    "avoidAccountOf": "BP-FiniteFieldsAndCharacterSums--FF.1",
    "prompt": "research/blueprint/prompts/REV-FiniteFieldsAndCharacterSums--FF.1.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #6305",
-   "finishedAt": "2026-10-05T19:22:26Z"
+   "finishedAt": "2026-10-05T19:22:26Z",
+   "note": "deliverables arrived from an external worker on issue #6305"
   },
   {
    "id": "BP-FiniteFieldsAndCharacterSums--FF.2",
@@ -32929,8 +34950,8 @@
    "followUpOf": "BP-FiniteFieldsAndCharacterSums",
    "prompt": "research/blueprint/prompts/BP-FiniteFieldsAndCharacterSums--FF.3.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #6350",
-   "finishedAt": "2026-10-05T18:36:19Z"
+   "finishedAt": "2026-10-05T18:36:19Z",
+   "note": "deliverables arrived from an external worker on issue #6350"
   },
   {
    "id": "REV-FiniteFieldsAndCharacterSums--FF.3",
@@ -32951,8 +34972,8 @@
    "avoidAccountOf": "BP-FiniteFieldsAndCharacterSums--FF.3",
    "prompt": "research/blueprint/prompts/REV-FiniteFieldsAndCharacterSums--FF.3.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #6308",
-   "finishedAt": "2026-10-05T19:01:10Z"
+   "finishedAt": "2026-10-05T19:01:10Z",
+   "note": "deliverables arrived from an external worker on issue #6308"
   },
   {
    "id": "BP-FiniteFieldsAndCharacterSums--FF.4",
@@ -33300,6 +35321,889 @@
    "state": "pending"
   },
   {
+   "kind": "design",
+   "priority": 1,
+   "order": 1,
+   "roadmapIds": [
+    "MordellLawrenceVenkatesh"
+   ],
+   "timeout": 28800,
+   "id": "DESIGN-LV~2",
+   "outputs": [
+    "research/blueprint/roadmaps/MordellLawrenceVenkatesh.json",
+    "research/blueprint/packets/MordellLawrenceVenkatesh.json",
+    "research/blueprint/readmes/MordellLawrenceVenkatesh.md",
+    "research/blueprint/suggested/MordellLawrenceVenkatesh.lean",
+    "research/blueprint/handoff/DESIGN-LV~2.md"
+   ],
+   "after": [
+    "REV-DESIGN-LV"
+   ],
+   "revisionOf": "DESIGN-LV",
+   "prompt": "research/blueprint/prompts/DESIGN-LV~2.md",
+   "state": "pending"
+  },
+  {
+   "priority": 2,
+   "order": 1,
+   "roadmapIds": [
+    "MordellLawrenceVenkatesh"
+   ],
+   "timeout": 28800,
+   "id": "REV-DESIGN-LV~2",
+   "kind": "review",
+   "outputs": [
+    "research/blueprint/reviews/REV-DESIGN-LV~2.md",
+    "research/blueprint/roadmaps/MordellLawrenceVenkatesh.json",
+    "research/blueprint/packets/MordellLawrenceVenkatesh.json",
+    "research/blueprint/suggested/MordellLawrenceVenkatesh.lean"
+   ],
+   "after": [
+    "DESIGN-LV~2"
+   ],
+   "avoidAccountOf": "DESIGN-LV~2",
+   "independentOf": [
+    "DESIGN-LV",
+    "DESIGN-LV~2"
+   ],
+   "prompt": "research/blueprint/prompts/REV-DESIGN-LV~2.md",
+   "state": "pending"
+  },
+  {
+   "kind": "design",
+   "priority": 1,
+   "order": 12,
+   "roadmapIds": [
+    "StableReductionPartII"
+   ],
+   "name": "Stable reduction of curves and stable maps, Part II",
+   "timeout": 28800,
+   "id": "DESIGN-StableReductionPartII~2",
+   "outputs": [
+    "research/blueprint/roadmaps/StableReductionPartII.json",
+    "research/blueprint/packets/StableReductionPartII.json",
+    "research/blueprint/readmes/StableReductionPartII.md",
+    "research/blueprint/suggested/StableReductionPartII.lean",
+    "research/blueprint/handoff/DESIGN-StableReductionPartII~2.md"
+   ],
+   "after": [
+    "REV-DESIGN-StableReductionPartII"
+   ],
+   "revisionOf": "DESIGN-StableReductionPartII",
+   "prompt": "research/blueprint/prompts/DESIGN-StableReductionPartII~2.md",
+   "state": "pending"
+  },
+  {
+   "priority": 2,
+   "order": 1,
+   "roadmapIds": [
+    "StableReductionPartII"
+   ],
+   "name": "Stable reduction of curves and stable maps, Part II",
+   "timeout": 28800,
+   "id": "REV-DESIGN-StableReductionPartII~2",
+   "kind": "review",
+   "outputs": [
+    "research/blueprint/reviews/REV-DESIGN-StableReductionPartII~2.md",
+    "research/blueprint/roadmaps/StableReductionPartII.json",
+    "research/blueprint/packets/StableReductionPartII.json",
+    "research/blueprint/suggested/StableReductionPartII.lean"
+   ],
+   "after": [
+    "DESIGN-StableReductionPartII~2"
+   ],
+   "avoidAccountOf": "DESIGN-StableReductionPartII~2",
+   "independentOf": [
+    "DESIGN-StableReductionPartII",
+    "DESIGN-StableReductionPartII~2"
+   ],
+   "prompt": "research/blueprint/prompts/REV-DESIGN-StableReductionPartII~2.md",
+   "state": "pending"
+  },
+  {
+   "kind": "design",
+   "priority": 1,
+   "order": 49,
+   "roadmapIds": [
+    "NeronModelsAndSemistableAbelianVarietiesPartII"
+   ],
+   "name": "Néron models and semistable abelian varieties, Part II",
+   "timeout": 28800,
+   "id": "DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII~2",
+   "outputs": [
+    "research/blueprint/roadmaps/NeronModelsAndSemistableAbelianVarietiesPartII.json",
+    "research/blueprint/packets/NeronModelsAndSemistableAbelianVarietiesPartII.json",
+    "research/blueprint/readmes/NeronModelsAndSemistableAbelianVarietiesPartII.md",
+    "research/blueprint/suggested/NeronModelsAndSemistableAbelianVarietiesPartII.lean",
+    "research/blueprint/handoff/DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII~2.md"
+   ],
+   "after": [
+    "REV-DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII"
+   ],
+   "revisionOf": "DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII",
+   "prompt": "research/blueprint/prompts/DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII~2.md",
+   "state": "pending"
+  },
+  {
+   "priority": 2,
+   "order": 1,
+   "roadmapIds": [
+    "NeronModelsAndSemistableAbelianVarietiesPartII"
+   ],
+   "name": "Néron models and semistable abelian varieties, Part II",
+   "timeout": 28800,
+   "id": "REV-DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII~2",
+   "kind": "review",
+   "outputs": [
+    "research/blueprint/reviews/REV-DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII~2.md",
+    "research/blueprint/roadmaps/NeronModelsAndSemistableAbelianVarietiesPartII.json",
+    "research/blueprint/packets/NeronModelsAndSemistableAbelianVarietiesPartII.json",
+    "research/blueprint/suggested/NeronModelsAndSemistableAbelianVarietiesPartII.lean"
+   ],
+   "after": [
+    "DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII~2"
+   ],
+   "avoidAccountOf": "DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII~2",
+   "independentOf": [
+    "DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII",
+    "DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII~2"
+   ],
+   "prompt": "research/blueprint/prompts/REV-DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII~2.md",
+   "state": "pending"
+  },
+  {
+   "kind": "design",
+   "priority": 1,
+   "order": 78,
+   "roadmapIds": [
+    "FunctionFieldArithmeticPartII"
+   ],
+   "name": "Global function fields, reciprocity and automorphic foundations, Part II",
+   "timeout": 28800,
+   "id": "DESIGN-FunctionFieldArithmeticPartII~2",
+   "outputs": [
+    "research/blueprint/roadmaps/FunctionFieldArithmeticPartII.json",
+    "research/blueprint/packets/FunctionFieldArithmeticPartII.json",
+    "research/blueprint/readmes/FunctionFieldArithmeticPartII.md",
+    "research/blueprint/suggested/FunctionFieldArithmeticPartII.lean",
+    "research/blueprint/handoff/DESIGN-FunctionFieldArithmeticPartII~2.md"
+   ],
+   "after": [
+    "REV-DESIGN-FunctionFieldArithmeticPartII"
+   ],
+   "revisionOf": "DESIGN-FunctionFieldArithmeticPartII",
+   "prompt": "research/blueprint/prompts/DESIGN-FunctionFieldArithmeticPartII~2.md",
+   "state": "pending"
+  },
+  {
+   "priority": 2,
+   "order": 1,
+   "roadmapIds": [
+    "FunctionFieldArithmeticPartII"
+   ],
+   "name": "Global function fields, reciprocity and automorphic foundations, Part II",
+   "timeout": 28800,
+   "id": "REV-DESIGN-FunctionFieldArithmeticPartII~2",
+   "kind": "review",
+   "outputs": [
+    "research/blueprint/reviews/REV-DESIGN-FunctionFieldArithmeticPartII~2.md",
+    "research/blueprint/roadmaps/FunctionFieldArithmeticPartII.json",
+    "research/blueprint/packets/FunctionFieldArithmeticPartII.json",
+    "research/blueprint/suggested/FunctionFieldArithmeticPartII.lean"
+   ],
+   "after": [
+    "DESIGN-FunctionFieldArithmeticPartII~2"
+   ],
+   "avoidAccountOf": "DESIGN-FunctionFieldArithmeticPartII~2",
+   "independentOf": [
+    "DESIGN-FunctionFieldArithmeticPartII",
+    "DESIGN-FunctionFieldArithmeticPartII~2"
+   ],
+   "prompt": "research/blueprint/prompts/REV-DESIGN-FunctionFieldArithmeticPartII~2.md",
+   "state": "pending"
+  },
+  {
+   "kind": "blueprint",
+   "priority": 3,
+   "order": 1300,
+   "roadmapIds": [
+    "PadicMeasuresIwasawaAlgebras"
+   ],
+   "scope": [
+    "PadicMeasuresIwasawaAlgebras:L0",
+    "PadicMeasuresIwasawaAlgebras:L0a",
+    "PadicMeasuresIwasawaAlgebras:L1",
+    "PadicMeasuresIwasawaAlgebras:L2",
+    "PadicMeasuresIwasawaAlgebras:L3",
+    "PadicMeasuresIwasawaAlgebras:L4",
+    "PadicMeasuresIwasawaAlgebras:L5",
+    "PadicMeasuresIwasawaAlgebras:L6"
+   ],
+   "id": "BP-PadicMeasuresIwasawaAlgebras~2",
+   "outputs": [
+    "research/blueprint/packets/PadicMeasuresIwasawaAlgebras.json",
+    "research/blueprint/readmes/PadicMeasuresIwasawaAlgebras.md",
+    "research/blueprint/suggested/PadicMeasuresIwasawaAlgebras.lean",
+    "research/blueprint/handoff/BP-PadicMeasuresIwasawaAlgebras~2.md"
+   ],
+   "after": [
+    "REV-PadicMeasuresIwasawaAlgebras"
+   ],
+   "revisionOf": "BP-PadicMeasuresIwasawaAlgebras",
+   "prompt": "research/blueprint/prompts/BP-PadicMeasuresIwasawaAlgebras~2.md",
+   "state": "pending"
+  },
+  {
+   "priority": 2,
+   "order": 1300,
+   "roadmapIds": [
+    "PadicMeasuresIwasawaAlgebras"
+   ],
+   "id": "REV-PadicMeasuresIwasawaAlgebras~2",
+   "kind": "review",
+   "outputs": [
+    "research/blueprint/reviews/REV-PadicMeasuresIwasawaAlgebras~2.md",
+    "research/blueprint/packets/PadicMeasuresIwasawaAlgebras.json",
+    "research/blueprint/suggested/PadicMeasuresIwasawaAlgebras.lean"
+   ],
+   "after": [
+    "BP-PadicMeasuresIwasawaAlgebras~2"
+   ],
+   "avoidAccountOf": "BP-PadicMeasuresIwasawaAlgebras~2",
+   "independentOf": [
+    "BP-PadicMeasuresIwasawaAlgebras",
+    "BP-PadicMeasuresIwasawaAlgebras~2"
+   ],
+   "prompt": "research/blueprint/prompts/REV-PadicMeasuresIwasawaAlgebras~2.md",
+   "state": "pending"
+  },
+  {
+   "kind": "blueprint",
+   "priority": 3,
+   "order": 207301,
+   "roadmapIds": [
+    "HabiroCohomologyFoundations"
+   ],
+   "scope": [
+    "HabiroCohomologyFoundations:HQ.8"
+   ],
+   "id": "BP-HabiroCohomologyFoundations--HQ.8~2",
+   "outputs": [
+    "research/blueprint/packets/HabiroCohomologyFoundations--HQ.8.json",
+    "research/blueprint/readmes/HabiroCohomologyFoundations--HQ.8.md",
+    "research/blueprint/suggested/HabiroCohomologyFoundations--HQ.8.lean",
+    "research/blueprint/handoff/BP-HabiroCohomologyFoundations--HQ.8~2.md"
+   ],
+   "after": [
+    "REV-HabiroCohomologyFoundations--HQ.8"
+   ],
+   "revisionOf": "BP-HabiroCohomologyFoundations--HQ.8",
+   "prompt": "research/blueprint/prompts/BP-HabiroCohomologyFoundations--HQ.8~2.md",
+   "state": "pending"
+  },
+  {
+   "priority": 2,
+   "order": 207301,
+   "roadmapIds": [
+    "HabiroCohomologyFoundations"
+   ],
+   "id": "REV-HabiroCohomologyFoundations--HQ.8~2",
+   "kind": "review",
+   "outputs": [
+    "research/blueprint/reviews/REV-HabiroCohomologyFoundations--HQ.8~2.md",
+    "research/blueprint/packets/HabiroCohomologyFoundations--HQ.8.json",
+    "research/blueprint/suggested/HabiroCohomologyFoundations--HQ.8.lean"
+   ],
+   "after": [
+    "BP-HabiroCohomologyFoundations--HQ.8~2"
+   ],
+   "avoidAccountOf": "BP-HabiroCohomologyFoundations--HQ.8~2",
+   "independentOf": [
+    "BP-HabiroCohomologyFoundations--HQ.8",
+    "BP-HabiroCohomologyFoundations--HQ.8~2"
+   ],
+   "prompt": "research/blueprint/prompts/REV-HabiroCohomologyFoundations--HQ.8~2.md",
+   "state": "pending"
+  },
+  {
+   "kind": "blueprint",
+   "priority": 3,
+   "order": 207700,
+   "roadmapIds": [
+    "HeegnerPointEulerSystems"
+   ],
+   "scope": [
+    "HeegnerPointEulerSystems:HE.0",
+    "HeegnerPointEulerSystems:HE.1",
+    "HeegnerPointEulerSystems:HE.2",
+    "HeegnerPointEulerSystems:HE.3",
+    "HeegnerPointEulerSystems:HE.4",
+    "HeegnerPointEulerSystems:HE.5",
+    "HeegnerPointEulerSystems:HE.6",
+    "HeegnerPointEulerSystems:HE.7"
+   ],
+   "id": "BP-HeegnerPointEulerSystems--HE.0~2",
+   "outputs": [
+    "research/blueprint/packets/HeegnerPointEulerSystems--HE.0.json",
+    "research/blueprint/readmes/HeegnerPointEulerSystems--HE.0.md",
+    "research/blueprint/suggested/HeegnerPointEulerSystems--HE.0.lean",
+    "research/blueprint/handoff/BP-HeegnerPointEulerSystems--HE.0~2.md"
+   ],
+   "after": [
+    "REV-HeegnerPointEulerSystems--HE.0"
+   ],
+   "revisionOf": "BP-HeegnerPointEulerSystems--HE.0",
+   "prompt": "research/blueprint/prompts/BP-HeegnerPointEulerSystems--HE.0~2.md",
+   "state": "pending"
+  },
+  {
+   "priority": 2,
+   "order": 207700,
+   "roadmapIds": [
+    "HeegnerPointEulerSystems"
+   ],
+   "id": "REV-HeegnerPointEulerSystems--HE.0~2",
+   "kind": "review",
+   "outputs": [
+    "research/blueprint/reviews/REV-HeegnerPointEulerSystems--HE.0~2.md",
+    "research/blueprint/packets/HeegnerPointEulerSystems--HE.0.json",
+    "research/blueprint/suggested/HeegnerPointEulerSystems--HE.0.lean"
+   ],
+   "after": [
+    "BP-HeegnerPointEulerSystems--HE.0~2"
+   ],
+   "avoidAccountOf": "BP-HeegnerPointEulerSystems--HE.0~2",
+   "independentOf": [
+    "BP-HeegnerPointEulerSystems--HE.0",
+    "BP-HeegnerPointEulerSystems--HE.0~2"
+   ],
+   "prompt": "research/blueprint/prompts/REV-HeegnerPointEulerSystems--HE.0~2.md",
+   "state": "pending"
+  },
+  {
+   "kind": "blueprint",
+   "priority": 3,
+   "order": 208500,
+   "roadmapIds": [
+    "KTheoryLowDegrees"
+   ],
+   "scope": [
+    "KTheoryLowDegrees:U.1",
+    "KTheoryLowDegrees:U.2",
+    "KTheoryLowDegrees:U.3",
+    "KTheoryLowDegrees:U.4",
+    "KTheoryLowDegrees:U.5",
+    "KTheoryLowDegrees:U.6",
+    "KTheoryLowDegrees:Z.1",
+    "KTheoryLowDegrees:Z.2"
+   ],
+   "id": "BP-KTheoryLowDegrees--U.1~2",
+   "outputs": [
+    "research/blueprint/packets/KTheoryLowDegrees--U.1.json",
+    "research/blueprint/readmes/KTheoryLowDegrees--U.1.md",
+    "research/blueprint/suggested/KTheoryLowDegrees--U.1.lean",
+    "research/blueprint/handoff/BP-KTheoryLowDegrees--U.1~2.md"
+   ],
+   "after": [
+    "REV-KTheoryLowDegrees--U.1"
+   ],
+   "revisionOf": "BP-KTheoryLowDegrees--U.1",
+   "prompt": "research/blueprint/prompts/BP-KTheoryLowDegrees--U.1~2.md",
+   "state": "pending"
+  },
+  {
+   "priority": 2,
+   "order": 208500,
+   "roadmapIds": [
+    "KTheoryLowDegrees"
+   ],
+   "id": "REV-KTheoryLowDegrees--U.1~2",
+   "kind": "review",
+   "outputs": [
+    "research/blueprint/reviews/REV-KTheoryLowDegrees--U.1~2.md",
+    "research/blueprint/packets/KTheoryLowDegrees--U.1.json",
+    "research/blueprint/suggested/KTheoryLowDegrees--U.1.lean"
+   ],
+   "after": [
+    "BP-KTheoryLowDegrees--U.1~2"
+   ],
+   "avoidAccountOf": "BP-KTheoryLowDegrees--U.1~2",
+   "independentOf": [
+    "BP-KTheoryLowDegrees--U.1",
+    "BP-KTheoryLowDegrees--U.1~2"
+   ],
+   "prompt": "research/blueprint/prompts/REV-KTheoryLowDegrees--U.1~2.md",
+   "state": "pending"
+  },
+  {
+   "kind": "blueprint",
+   "priority": 3,
+   "order": 208501,
+   "roadmapIds": [
+    "KTheoryLowDegrees"
+   ],
+   "scope": [
+    "KTheoryLowDegrees:Z.3",
+    "KTheoryLowDegrees:Z.4",
+    "KTheoryLowDegrees:Z.5",
+    "KTheoryLowDegrees:Z.6"
+   ],
+   "id": "BP-KTheoryLowDegrees--Z.3~2",
+   "outputs": [
+    "research/blueprint/packets/KTheoryLowDegrees--Z.3.json",
+    "research/blueprint/readmes/KTheoryLowDegrees--Z.3.md",
+    "research/blueprint/suggested/KTheoryLowDegrees--Z.3.lean",
+    "research/blueprint/handoff/BP-KTheoryLowDegrees--Z.3~2.md"
+   ],
+   "after": [
+    "REV-KTheoryLowDegrees--Z.3"
+   ],
+   "revisionOf": "BP-KTheoryLowDegrees--Z.3",
+   "prompt": "research/blueprint/prompts/BP-KTheoryLowDegrees--Z.3~2.md",
+   "state": "pending"
+  },
+  {
+   "priority": 2,
+   "order": 208501,
+   "roadmapIds": [
+    "KTheoryLowDegrees"
+   ],
+   "id": "REV-KTheoryLowDegrees--Z.3~2",
+   "kind": "review",
+   "outputs": [
+    "research/blueprint/reviews/REV-KTheoryLowDegrees--Z.3~2.md",
+    "research/blueprint/packets/KTheoryLowDegrees--Z.3.json",
+    "research/blueprint/suggested/KTheoryLowDegrees--Z.3.lean"
+   ],
+   "after": [
+    "BP-KTheoryLowDegrees--Z.3~2"
+   ],
+   "avoidAccountOf": "BP-KTheoryLowDegrees--Z.3~2",
+   "independentOf": [
+    "BP-KTheoryLowDegrees--Z.3",
+    "BP-KTheoryLowDegrees--Z.3~2"
+   ],
+   "prompt": "research/blueprint/prompts/REV-KTheoryLowDegrees--Z.3~2.md",
+   "state": "pending"
+  },
+  {
+   "kind": "blueprint",
+   "priority": 3,
+   "order": 414000,
+   "roadmapIds": [
+    "AnalyticNumberTheory"
+   ],
+   "scope": [
+    "AnalyticNumberTheory:AN.0",
+    "AnalyticNumberTheory:AN.1",
+    "AnalyticNumberTheory:AN.2",
+    "AnalyticNumberTheory:AN.3",
+    "AnalyticNumberTheory:AN.4",
+    "AnalyticNumberTheory:AN.5",
+    "AnalyticNumberTheory:AN.6",
+    "AnalyticNumberTheory:AN.7"
+   ],
+   "id": "BP-AnalyticNumberTheory--AN.0~2",
+   "outputs": [
+    "research/blueprint/packets/AnalyticNumberTheory--AN.0.json",
+    "research/blueprint/readmes/AnalyticNumberTheory--AN.0.md",
+    "research/blueprint/suggested/AnalyticNumberTheory--AN.0.lean",
+    "research/blueprint/handoff/BP-AnalyticNumberTheory--AN.0~2.md"
+   ],
+   "after": [
+    "REV-AnalyticNumberTheory--AN.0"
+   ],
+   "revisionOf": "BP-AnalyticNumberTheory--AN.0",
+   "prompt": "research/blueprint/prompts/BP-AnalyticNumberTheory--AN.0~2.md",
+   "state": "pending"
+  },
+  {
+   "priority": 2,
+   "order": 414000,
+   "roadmapIds": [
+    "AnalyticNumberTheory"
+   ],
+   "id": "REV-AnalyticNumberTheory--AN.0~2",
+   "kind": "review",
+   "outputs": [
+    "research/blueprint/reviews/REV-AnalyticNumberTheory--AN.0~2.md",
+    "research/blueprint/packets/AnalyticNumberTheory--AN.0.json",
+    "research/blueprint/suggested/AnalyticNumberTheory--AN.0.lean"
+   ],
+   "after": [
+    "BP-AnalyticNumberTheory--AN.0~2"
+   ],
+   "avoidAccountOf": "BP-AnalyticNumberTheory--AN.0~2",
+   "independentOf": [
+    "BP-AnalyticNumberTheory--AN.0",
+    "BP-AnalyticNumberTheory--AN.0~2"
+   ],
+   "prompt": "research/blueprint/prompts/REV-AnalyticNumberTheory--AN.0~2.md",
+   "state": "pending"
+  },
+  {
+   "kind": "blueprint",
+   "priority": 3,
+   "order": 414001,
+   "roadmapIds": [
+    "AnalyticNumberTheory"
+   ],
+   "scope": [
+    "AnalyticNumberTheory:AN.8",
+    "AnalyticNumberTheory:AN.9"
+   ],
+   "id": "BP-AnalyticNumberTheory--AN.8~2",
+   "outputs": [
+    "research/blueprint/packets/AnalyticNumberTheory--AN.8.json",
+    "research/blueprint/readmes/AnalyticNumberTheory--AN.8.md",
+    "research/blueprint/suggested/AnalyticNumberTheory--AN.8.lean",
+    "research/blueprint/handoff/BP-AnalyticNumberTheory--AN.8~2.md"
+   ],
+   "after": [
+    "REV-AnalyticNumberTheory--AN.8"
+   ],
+   "revisionOf": "BP-AnalyticNumberTheory--AN.8",
+   "prompt": "research/blueprint/prompts/BP-AnalyticNumberTheory--AN.8~2.md",
+   "state": "pending"
+  },
+  {
+   "priority": 2,
+   "order": 414001,
+   "roadmapIds": [
+    "AnalyticNumberTheory"
+   ],
+   "id": "REV-AnalyticNumberTheory--AN.8~2",
+   "kind": "review",
+   "outputs": [
+    "research/blueprint/reviews/REV-AnalyticNumberTheory--AN.8~2.md",
+    "research/blueprint/packets/AnalyticNumberTheory--AN.8.json",
+    "research/blueprint/suggested/AnalyticNumberTheory--AN.8.lean"
+   ],
+   "after": [
+    "BP-AnalyticNumberTheory--AN.8~2"
+   ],
+   "avoidAccountOf": "BP-AnalyticNumberTheory--AN.8~2",
+   "independentOf": [
+    "BP-AnalyticNumberTheory--AN.8",
+    "BP-AnalyticNumberTheory--AN.8~2"
+   ],
+   "prompt": "research/blueprint/prompts/REV-AnalyticNumberTheory--AN.8~2.md",
+   "state": "pending"
+  },
+  {
+   "kind": "blueprint",
+   "priority": 3,
+   "order": 414300,
+   "roadmapIds": [
+    "ClassicalArithmeticCompletion"
+   ],
+   "scope": [
+    "ClassicalArithmeticCompletion:CA.0",
+    "ClassicalArithmeticCompletion:CA.1",
+    "ClassicalArithmeticCompletion:CA.2",
+    "ClassicalArithmeticCompletion:CA.3",
+    "ClassicalArithmeticCompletion:CA.4",
+    "ClassicalArithmeticCompletion:CA.5",
+    "ClassicalArithmeticCompletion:CA.6",
+    "ClassicalArithmeticCompletion:CA.7"
+   ],
+   "id": "BP-ClassicalArithmeticCompletion~2",
+   "outputs": [
+    "research/blueprint/packets/ClassicalArithmeticCompletion.json",
+    "research/blueprint/readmes/ClassicalArithmeticCompletion.md",
+    "research/blueprint/suggested/ClassicalArithmeticCompletion.lean",
+    "research/blueprint/handoff/BP-ClassicalArithmeticCompletion~2.md"
+   ],
+   "after": [
+    "REV-ClassicalArithmeticCompletion"
+   ],
+   "revisionOf": "BP-ClassicalArithmeticCompletion",
+   "prompt": "research/blueprint/prompts/BP-ClassicalArithmeticCompletion~2.md",
+   "state": "pending"
+  },
+  {
+   "priority": 2,
+   "order": 414300,
+   "roadmapIds": [
+    "ClassicalArithmeticCompletion"
+   ],
+   "id": "REV-ClassicalArithmeticCompletion~2",
+   "kind": "review",
+   "outputs": [
+    "research/blueprint/reviews/REV-ClassicalArithmeticCompletion~2.md",
+    "research/blueprint/packets/ClassicalArithmeticCompletion.json",
+    "research/blueprint/suggested/ClassicalArithmeticCompletion.lean"
+   ],
+   "after": [
+    "BP-ClassicalArithmeticCompletion~2"
+   ],
+   "avoidAccountOf": "BP-ClassicalArithmeticCompletion~2",
+   "independentOf": [
+    "BP-ClassicalArithmeticCompletion",
+    "BP-ClassicalArithmeticCompletion~2"
+   ],
+   "prompt": "research/blueprint/prompts/REV-ClassicalArithmeticCompletion~2.md",
+   "state": "pending"
+  },
+  {
+   "kind": "blueprint",
+   "priority": 3,
+   "order": 414500,
+   "roadmapIds": [
+    "DiophantineApproximationAndTranscendence"
+   ],
+   "scope": [
+    "DiophantineApproximationAndTranscendence:DT.0",
+    "DiophantineApproximationAndTranscendence:DT.1",
+    "DiophantineApproximationAndTranscendence:DT.2",
+    "DiophantineApproximationAndTranscendence:DT.3",
+    "DiophantineApproximationAndTranscendence:DT.4",
+    "DiophantineApproximationAndTranscendence:DT.5"
+   ],
+   "id": "BP-DiophantineApproximationAndTranscendence~2",
+   "outputs": [
+    "research/blueprint/packets/DiophantineApproximationAndTranscendence.json",
+    "research/blueprint/readmes/DiophantineApproximationAndTranscendence.md",
+    "research/blueprint/suggested/DiophantineApproximationAndTranscendence.lean",
+    "research/blueprint/handoff/BP-DiophantineApproximationAndTranscendence~2.md"
+   ],
+   "after": [
+    "REV-DiophantineApproximationAndTranscendence"
+   ],
+   "revisionOf": "BP-DiophantineApproximationAndTranscendence",
+   "prompt": "research/blueprint/prompts/BP-DiophantineApproximationAndTranscendence~2.md",
+   "state": "pending"
+  },
+  {
+   "priority": 2,
+   "order": 414500,
+   "roadmapIds": [
+    "DiophantineApproximationAndTranscendence"
+   ],
+   "id": "REV-DiophantineApproximationAndTranscendence~2",
+   "kind": "review",
+   "outputs": [
+    "research/blueprint/reviews/REV-DiophantineApproximationAndTranscendence~2.md",
+    "research/blueprint/packets/DiophantineApproximationAndTranscendence.json",
+    "research/blueprint/suggested/DiophantineApproximationAndTranscendence.lean"
+   ],
+   "after": [
+    "BP-DiophantineApproximationAndTranscendence~2"
+   ],
+   "avoidAccountOf": "BP-DiophantineApproximationAndTranscendence~2",
+   "independentOf": [
+    "BP-DiophantineApproximationAndTranscendence",
+    "BP-DiophantineApproximationAndTranscendence~2"
+   ],
+   "prompt": "research/blueprint/prompts/REV-DiophantineApproximationAndTranscendence~2.md",
+   "state": "pending"
+  },
+  {
+   "kind": "blueprint",
+   "priority": 3,
+   "order": 414800,
+   "roadmapIds": [
+    "GeometryOfNumbersAndQuadraticArithmetic"
+   ],
+   "scope": [
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.0",
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.1",
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.2",
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.3",
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.4",
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.5",
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.6"
+   ],
+   "id": "BP-GeometryOfNumbersAndQuadraticArithmetic~2",
+   "outputs": [
+    "research/blueprint/packets/GeometryOfNumbersAndQuadraticArithmetic.json",
+    "research/blueprint/readmes/GeometryOfNumbersAndQuadraticArithmetic.md",
+    "research/blueprint/suggested/GeometryOfNumbersAndQuadraticArithmetic.lean",
+    "research/blueprint/handoff/BP-GeometryOfNumbersAndQuadraticArithmetic~2.md"
+   ],
+   "after": [
+    "REV-GeometryOfNumbersAndQuadraticArithmetic"
+   ],
+   "revisionOf": "BP-GeometryOfNumbersAndQuadraticArithmetic",
+   "prompt": "research/blueprint/prompts/BP-GeometryOfNumbersAndQuadraticArithmetic~2.md",
+   "state": "pending"
+  },
+  {
+   "priority": 2,
+   "order": 414800,
+   "roadmapIds": [
+    "GeometryOfNumbersAndQuadraticArithmetic"
+   ],
+   "id": "REV-GeometryOfNumbersAndQuadraticArithmetic~2",
+   "kind": "review",
+   "outputs": [
+    "research/blueprint/reviews/REV-GeometryOfNumbersAndQuadraticArithmetic~2.md",
+    "research/blueprint/packets/GeometryOfNumbersAndQuadraticArithmetic.json",
+    "research/blueprint/suggested/GeometryOfNumbersAndQuadraticArithmetic.lean"
+   ],
+   "after": [
+    "BP-GeometryOfNumbersAndQuadraticArithmetic~2"
+   ],
+   "avoidAccountOf": "BP-GeometryOfNumbersAndQuadraticArithmetic~2",
+   "independentOf": [
+    "BP-GeometryOfNumbersAndQuadraticArithmetic",
+    "BP-GeometryOfNumbersAndQuadraticArithmetic~2"
+   ],
+   "prompt": "research/blueprint/prompts/REV-GeometryOfNumbersAndQuadraticArithmetic~2.md",
+   "state": "pending"
+  },
+  {
+   "kind": "blueprint",
+   "priority": 3,
+   "order": 715800,
+   "roadmapIds": [
+    "QSeriesPartitionsAndMockModularForms"
+   ],
+   "scope": [
+    "QSeriesPartitionsAndMockModularForms:QM.0",
+    "QSeriesPartitionsAndMockModularForms:QM.1",
+    "QSeriesPartitionsAndMockModularForms:QM.2",
+    "QSeriesPartitionsAndMockModularForms:QM.3",
+    "QSeriesPartitionsAndMockModularForms:QM.4",
+    "QSeriesPartitionsAndMockModularForms:QM.5",
+    "QSeriesPartitionsAndMockModularForms:QM.6"
+   ],
+   "id": "BP-QSeriesPartitionsAndMockModularForms~2",
+   "outputs": [
+    "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
+    "research/blueprint/readmes/QSeriesPartitionsAndMockModularForms.md",
+    "research/blueprint/suggested/QSeriesPartitionsAndMockModularForms.lean",
+    "research/blueprint/handoff/BP-QSeriesPartitionsAndMockModularForms~2.md"
+   ],
+   "after": [
+    "REV-QSeriesPartitionsAndMockModularForms"
+   ],
+   "revisionOf": "BP-QSeriesPartitionsAndMockModularForms",
+   "prompt": "research/blueprint/prompts/BP-QSeriesPartitionsAndMockModularForms~2.md",
+   "state": "pending"
+  },
+  {
+   "priority": 2,
+   "order": 715800,
+   "roadmapIds": [
+    "QSeriesPartitionsAndMockModularForms"
+   ],
+   "id": "REV-QSeriesPartitionsAndMockModularForms~2",
+   "kind": "review",
+   "outputs": [
+    "research/blueprint/reviews/REV-QSeriesPartitionsAndMockModularForms~2.md",
+    "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
+    "research/blueprint/suggested/QSeriesPartitionsAndMockModularForms.lean"
+   ],
+   "after": [
+    "BP-QSeriesPartitionsAndMockModularForms~2"
+   ],
+   "avoidAccountOf": "BP-QSeriesPartitionsAndMockModularForms~2",
+   "independentOf": [
+    "BP-QSeriesPartitionsAndMockModularForms",
+    "BP-QSeriesPartitionsAndMockModularForms~2"
+   ],
+   "prompt": "research/blueprint/prompts/REV-QSeriesPartitionsAndMockModularForms~2.md",
+   "state": "pending"
+  },
+  {
+   "kind": "blueprint",
+   "priority": 3,
+   "order": 414700,
+   "roadmapIds": [
+    "FiniteFieldsAndCharacterSums"
+   ],
+   "scope": [
+    "FiniteFieldsAndCharacterSums:FF.1"
+   ],
+   "id": "BP-FiniteFieldsAndCharacterSums--FF.1~2",
+   "outputs": [
+    "research/blueprint/packets/FiniteFieldsAndCharacterSums--FF.1.json",
+    "research/blueprint/readmes/FiniteFieldsAndCharacterSums--FF.1.md",
+    "research/blueprint/suggested/FiniteFieldsAndCharacterSums--FF.1.lean",
+    "research/blueprint/handoff/BP-FiniteFieldsAndCharacterSums--FF.1~2.md"
+   ],
+   "after": [
+    "REV-FiniteFieldsAndCharacterSums--FF.1"
+   ],
+   "revisionOf": "BP-FiniteFieldsAndCharacterSums--FF.1",
+   "prompt": "research/blueprint/prompts/BP-FiniteFieldsAndCharacterSums--FF.1~2.md",
+   "state": "pending"
+  },
+  {
+   "priority": 2,
+   "order": 414700,
+   "roadmapIds": [
+    "FiniteFieldsAndCharacterSums"
+   ],
+   "id": "REV-FiniteFieldsAndCharacterSums--FF.1~2",
+   "kind": "review",
+   "outputs": [
+    "research/blueprint/reviews/REV-FiniteFieldsAndCharacterSums--FF.1~2.md",
+    "research/blueprint/packets/FiniteFieldsAndCharacterSums--FF.1.json",
+    "research/blueprint/suggested/FiniteFieldsAndCharacterSums--FF.1.lean"
+   ],
+   "after": [
+    "BP-FiniteFieldsAndCharacterSums--FF.1~2"
+   ],
+   "avoidAccountOf": "BP-FiniteFieldsAndCharacterSums--FF.1~2",
+   "independentOf": [
+    "BP-FiniteFieldsAndCharacterSums--FF.1",
+    "BP-FiniteFieldsAndCharacterSums--FF.1~2"
+   ],
+   "prompt": "research/blueprint/prompts/REV-FiniteFieldsAndCharacterSums--FF.1~2.md",
+   "state": "pending"
+  },
+  {
+   "id": "ASM-K3BlochGroups",
+   "kind": "assembly",
+   "priority": 2,
+   "order": 5000,
+   "roadmapIds": [
+    "K3BlochGroups"
+   ],
+   "outputs": [
+    "research/blueprint/readmes/K3BlochGroups.md",
+    "research/blueprint/suggested/K3BlochGroups.lean",
+    "research/blueprint/handoff/ASM-K3BlochGroups.md"
+   ],
+   "after": [
+    "REV-K3BlochGroups",
+    "REV-K3BlochGroups--V.1",
+    "REV-K3BlochGroups--V.2",
+    "REV-K3BlochGroups--V.3",
+    "REV-K3BlochGroups--V.4",
+    "REV-K3BlochGroups--V.5",
+    "REV-K3BlochGroups--V.6"
+   ],
+   "prompt": "research/blueprint/prompts/ASM-K3BlochGroups.md",
+   "state": "pending"
+  },
+  {
+   "id": "ASM-Polylogarithms",
+   "kind": "assembly",
+   "priority": 2,
+   "order": 5000,
+   "roadmapIds": [
+    "Polylogarithms"
+   ],
+   "outputs": [
+    "research/blueprint/readmes/Polylogarithms.md",
+    "research/blueprint/suggested/Polylogarithms.lean",
+    "research/blueprint/handoff/ASM-Polylogarithms.md"
+   ],
+   "after": [
+    "REV-Polylogarithms",
+    "REV-Polylogarithms--P.2",
+    "REV-Polylogarithms--P.3",
+    "REV-Polylogarithms--P.4",
+    "REV-Polylogarithms--P.5",
+    "REV-Polylogarithms--P.6"
+   ],
+   "prompt": "research/blueprint/prompts/ASM-Polylogarithms.md",
+   "state": "pending"
+  },
+  {
    "id": "ASM-DeformationAndDerivedPatchingAlgebra",
    "kind": "assembly",
    "priority": 2,
@@ -33325,6 +36229,27 @@
     "REV-DeformationAndDerivedPatchingAlgebra--R03.5"
    ],
    "prompt": "research/blueprint/prompts/ASM-DeformationAndDerivedPatchingAlgebra.md",
+   "state": "pending"
+  },
+  {
+   "id": "ASM-HabiroCyclotomicCompletions",
+   "kind": "assembly",
+   "priority": 2,
+   "order": 5000,
+   "roadmapIds": [
+    "HabiroCyclotomicCompletions"
+   ],
+   "outputs": [
+    "research/blueprint/readmes/HabiroCyclotomicCompletions.md",
+    "research/blueprint/suggested/HabiroCyclotomicCompletions.lean",
+    "research/blueprint/handoff/ASM-HabiroCyclotomicCompletions.md"
+   ],
+   "after": [
+    "REV-HabiroCyclotomicCompletions",
+    "REV-HabiroCyclotomicCompletions--HC.4",
+    "REV-HabiroCyclotomicCompletions--HC.6"
+   ],
+   "prompt": "research/blueprint/prompts/ASM-HabiroCyclotomicCompletions.md",
    "state": "pending"
   },
   {
@@ -33416,7 +36341,12 @@
    ],
    "after": [
     "REV-ArithmeticKTheory--N.1",
-    "REV-ArithmeticKTheory--N.7"
+    "REV-ArithmeticKTheory--N.7",
+    "REV-ArithmeticKTheory--N.2",
+    "REV-ArithmeticKTheory--N.3",
+    "REV-ArithmeticKTheory--N.3-finite-generation",
+    "REV-ArithmeticKTheory--N.5",
+    "REV-ArithmeticKTheory--N.6"
    ],
    "prompt": "research/blueprint/prompts/ASM-ArithmeticKTheory.md",
    "state": "pending"
@@ -33523,6 +36453,27 @@
    "state": "pending"
   },
   {
+   "id": "ASM-ColemanPowerSeries",
+   "kind": "assembly",
+   "priority": 2,
+   "order": 5000,
+   "roadmapIds": [
+    "ColemanPowerSeries"
+   ],
+   "outputs": [
+    "research/blueprint/readmes/ColemanPowerSeries.md",
+    "research/blueprint/suggested/ColemanPowerSeries.lean",
+    "research/blueprint/handoff/ASM-ColemanPowerSeries.md"
+   ],
+   "after": [
+    "REV-ColemanPowerSeries",
+    "REV-ColemanPowerSeries--L0",
+    "REV-ColemanPowerSeries--L1"
+   ],
+   "prompt": "research/blueprint/prompts/ASM-ColemanPowerSeries.md",
+   "state": "pending"
+  },
+  {
    "id": "ASM-CompletedCohomologyPartII",
    "kind": "assembly",
    "priority": 2,
@@ -33624,6 +36575,54 @@
     "REV-DirichletPadicLFunctions--L3-2"
    ],
    "prompt": "research/blueprint/prompts/ASM-DirichletPadicLFunctions.md",
+   "state": "pending"
+  },
+  {
+   "id": "ASM-EllipticKTheory",
+   "kind": "assembly",
+   "priority": 2,
+   "order": 5000,
+   "roadmapIds": [
+    "EllipticKTheory"
+   ],
+   "outputs": [
+    "research/blueprint/readmes/EllipticKTheory.md",
+    "research/blueprint/suggested/EllipticKTheory.lean",
+    "research/blueprint/handoff/ASM-EllipticKTheory.md"
+   ],
+   "after": [
+    "REV-EllipticKTheory",
+    "REV-EllipticKTheory--E.5",
+    "REV-EllipticKTheory--E.6"
+   ],
+   "prompt": "research/blueprint/prompts/ASM-EllipticKTheory.md",
+   "state": "pending"
+  },
+  {
+   "id": "ASM-EllipticRegulators",
+   "kind": "assembly",
+   "priority": 2,
+   "order": 5000,
+   "roadmapIds": [
+    "EllipticRegulators"
+   ],
+   "outputs": [
+    "research/blueprint/readmes/EllipticRegulators.md",
+    "research/blueprint/suggested/EllipticRegulators.lean",
+    "research/blueprint/handoff/ASM-EllipticRegulators.md"
+   ],
+   "after": [
+    "REV-EllipticRegulators",
+    "REV-EllipticRegulators--ER.1",
+    "REV-EllipticRegulators--ER.2",
+    "REV-EllipticRegulators--ER.3",
+    "REV-EllipticRegulators--ER.4",
+    "REV-EllipticRegulators--ER.5",
+    "REV-EllipticRegulators--ER.6",
+    "REV-EllipticRegulators--ER.7",
+    "REV-EllipticRegulators--ER.8"
+   ],
+   "prompt": "research/blueprint/prompts/ASM-EllipticRegulators.md",
    "state": "pending"
   },
   {
@@ -33862,12 +36861,61 @@
    ],
    "after": [
     "REV-HabiroCohomologyFoundations--HQ.1",
-    "REV-HabiroCohomologyFoundations--HQ.8"
+    "REV-HabiroCohomologyFoundations--HQ.8~2",
+    "REV-HabiroCohomologyFoundations--HQ.1-2",
+    "REV-HabiroCohomologyFoundations--HQ.3"
    ],
    "prompt": "research/blueprint/prompts/ASM-HabiroCohomologyFoundations.md",
    "state": "done",
    "finishedAt": "2026-09-25T07:00:43Z",
    "note": "deliverables arrived from an external worker on issue #237"
+  },
+  {
+   "id": "ASM-HabiroNumberFields",
+   "kind": "assembly",
+   "priority": 2,
+   "order": 5000,
+   "roadmapIds": [
+    "HabiroNumberFields"
+   ],
+   "outputs": [
+    "research/blueprint/readmes/HabiroNumberFields.md",
+    "research/blueprint/suggested/HabiroNumberFields.lean",
+    "research/blueprint/handoff/ASM-HabiroNumberFields.md"
+   ],
+   "after": [
+    "REV-HabiroNumberFields",
+    "REV-HabiroNumberFields--HB.1",
+    "REV-HabiroNumberFields--HB.2",
+    "REV-HabiroNumberFields--HB.6",
+    "REV-HabiroNumberFields--HB.7"
+   ],
+   "prompt": "research/blueprint/prompts/ASM-HabiroNumberFields.md",
+   "state": "pending"
+  },
+  {
+   "id": "ASM-HabiroRings",
+   "kind": "assembly",
+   "priority": 2,
+   "order": 5000,
+   "roadmapIds": [
+    "HabiroRings"
+   ],
+   "outputs": [
+    "research/blueprint/readmes/HabiroRings.md",
+    "research/blueprint/suggested/HabiroRings.lean",
+    "research/blueprint/handoff/ASM-HabiroRings.md"
+   ],
+   "after": [
+    "REV-HabiroRings",
+    "REV-HabiroRings--HR.1",
+    "REV-HabiroRings--HR.2",
+    "REV-HabiroRings--HR.3",
+    "REV-HabiroRings--HR.4",
+    "REV-HabiroRings--HR.6"
+   ],
+   "prompt": "research/blueprint/prompts/ASM-HabiroRings.md",
+   "state": "pending"
   },
   {
    "id": "ASM-HeegnerPointEulerSystems",
@@ -33883,7 +36931,7 @@
     "research/blueprint/handoff/ASM-HeegnerPointEulerSystems.md"
    ],
    "after": [
-    "REV-HeegnerPointEulerSystems--HE.0",
+    "REV-HeegnerPointEulerSystems--HE.0~2",
     "REV-HeegnerPointEulerSystems--HE.7s"
    ],
    "prompt": "research/blueprint/prompts/ASM-HeegnerPointEulerSystems.md",
@@ -33983,8 +37031,8 @@
     "research/blueprint/handoff/ASM-KTheoryLowDegrees.md"
    ],
    "after": [
-    "REV-KTheoryLowDegrees--U.1",
-    "REV-KTheoryLowDegrees--Z.3"
+    "REV-KTheoryLowDegrees--U.1~2",
+    "REV-KTheoryLowDegrees--Z.3~2"
    ],
    "prompt": "research/blueprint/prompts/ASM-KTheoryLowDegrees.md",
    "state": "pending"
@@ -34351,6 +37399,31 @@
    "state": "pending"
   },
   {
+   "id": "ASM-HabiroNahmSeries",
+   "kind": "assembly",
+   "priority": 2,
+   "order": 5000,
+   "roadmapIds": [
+    "HabiroNahmSeries"
+   ],
+   "outputs": [
+    "research/blueprint/readmes/HabiroNahmSeries.md",
+    "research/blueprint/suggested/HabiroNahmSeries.lean",
+    "research/blueprint/handoff/ASM-HabiroNahmSeries.md"
+   ],
+   "after": [
+    "REV-HabiroNahmSeries",
+    "REV-HabiroNahmSeries--HB.10",
+    "REV-HabiroNahmSeries--HB.3",
+    "REV-HabiroNahmSeries--HB.4",
+    "REV-HabiroNahmSeries--HB.5",
+    "REV-HabiroNahmSeries--HB.8",
+    "REV-HabiroNahmSeries--HB.9"
+   ],
+   "prompt": "research/blueprint/prompts/ASM-HabiroNahmSeries.md",
+   "state": "pending"
+  },
+  {
    "id": "ASM-OverconvergentAutomorphicForms",
    "kind": "assembly",
    "priority": 2,
@@ -34410,8 +37483,8 @@
     "research/blueprint/handoff/ASM-AnalyticNumberTheory.md"
    ],
    "after": [
-    "REV-AnalyticNumberTheory--AN.0",
-    "REV-AnalyticNumberTheory--AN.8"
+    "REV-AnalyticNumberTheory--AN.0~2",
+    "REV-AnalyticNumberTheory--AN.8~2"
    ],
    "prompt": "research/blueprint/prompts/ASM-AnalyticNumberTheory.md",
    "state": "pending"
@@ -34431,7 +37504,7 @@
    ],
    "after": [
     "REV-FiniteFieldsAndCharacterSums",
-    "REV-FiniteFieldsAndCharacterSums--FF.1",
+    "REV-FiniteFieldsAndCharacterSums--FF.1~2",
     "REV-FiniteFieldsAndCharacterSums--FF.2",
     "REV-FiniteFieldsAndCharacterSums--FF.3",
     "REV-FiniteFieldsAndCharacterSums--FF.4"
@@ -51781,6 +54854,100 @@
    "note": "deliverables arrived from an external worker on issue #5190"
   },
   {
+   "id": "RT-BP-ColemanIntegration",
+   "kind": "redteam",
+   "priority": 2,
+   "order": 741,
+   "name": "blueprint BP-ColemanIntegration: Coleman integration and noncritical Dirichlet L-values",
+   "target": "BP-ColemanIntegration",
+   "roadmapIds": [
+    "ColemanIntegration"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-ColemanIntegration.result.json",
+    "research/blueprint/redteam/RT-BP-ColemanIntegration.md"
+   ],
+   "after": [],
+   "independentOf": [
+    "BP-ColemanIntegration",
+    "REV-ColemanIntegration"
+   ],
+   "prompt": "research/blueprint/prompts/RT-BP-ColemanIntegration.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-RT-BP-ColemanIntegration",
+   "kind": "review",
+   "priority": 2,
+   "order": 741,
+   "name": "blueprint BP-ColemanIntegration: Coleman integration and noncritical Dirichlet L-values",
+   "roadmapIds": [
+    "ColemanIntegration"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-ColemanIntegration.review.json",
+    "research/blueprint/reviews/REV-RT-BP-ColemanIntegration.md"
+   ],
+   "after": [
+    "RT-BP-ColemanIntegration"
+   ],
+   "avoidAccountOf": "RT-BP-ColemanIntegration",
+   "independentOf": [
+    "RT-BP-ColemanIntegration",
+    "BP-ColemanIntegration",
+    "REV-ColemanIntegration"
+   ],
+   "prompt": "research/blueprint/prompts/REV-RT-BP-ColemanIntegration.md",
+   "state": "pending"
+  },
+  {
+   "id": "RT-BP-ColemanPowerSeries",
+   "kind": "redteam",
+   "priority": 2,
+   "order": 742,
+   "name": "blueprint BP-ColemanPowerSeries: Coleman power series, local units, and cyclotomic-unit quotients",
+   "target": "BP-ColemanPowerSeries",
+   "roadmapIds": [
+    "ColemanPowerSeries"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-ColemanPowerSeries.result.json",
+    "research/blueprint/redteam/RT-BP-ColemanPowerSeries.md"
+   ],
+   "after": [],
+   "independentOf": [
+    "BP-ColemanPowerSeries",
+    "REV-ColemanPowerSeries"
+   ],
+   "prompt": "research/blueprint/prompts/RT-BP-ColemanPowerSeries.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-RT-BP-ColemanPowerSeries",
+   "kind": "review",
+   "priority": 2,
+   "order": 742,
+   "name": "blueprint BP-ColemanPowerSeries: Coleman power series, local units, and cyclotomic-unit quotients",
+   "roadmapIds": [
+    "ColemanPowerSeries"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-ColemanPowerSeries.review.json",
+    "research/blueprint/reviews/REV-RT-BP-ColemanPowerSeries.md"
+   ],
+   "after": [
+    "RT-BP-ColemanPowerSeries"
+   ],
+   "avoidAccountOf": "RT-BP-ColemanPowerSeries",
+   "independentOf": [
+    "RT-BP-ColemanPowerSeries",
+    "BP-ColemanPowerSeries",
+    "REV-ColemanPowerSeries"
+   ],
+   "prompt": "research/blueprint/prompts/REV-RT-BP-ColemanPowerSeries.md",
+   "state": "pending"
+  },
+  {
    "id": "RT-BP-DirichletPadicLFunctions--L0",
    "kind": "redteam",
    "priority": 2,
@@ -53108,10 +56275,57 @@
    "state": "pending"
   },
   {
+   "id": "RT-BP-FiniteFieldsAndCharacterSums--FF.3",
+   "kind": "redteam",
+   "priority": 2,
+   "order": 988,
+   "name": "blueprint BP-FiniteFieldsAndCharacterSums--FF.3: Finite fields, character sums, finite rings and coding interfaces",
+   "target": "BP-FiniteFieldsAndCharacterSums--FF.3",
+   "roadmapIds": [
+    "FiniteFieldsAndCharacterSums"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-FiniteFieldsAndCharacterSums--FF.3.result.json",
+    "research/blueprint/redteam/RT-BP-FiniteFieldsAndCharacterSums--FF.3.md"
+   ],
+   "after": [],
+   "independentOf": [
+    "BP-FiniteFieldsAndCharacterSums--FF.3",
+    "REV-FiniteFieldsAndCharacterSums--FF.3"
+   ],
+   "prompt": "research/blueprint/prompts/RT-BP-FiniteFieldsAndCharacterSums--FF.3.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-RT-BP-FiniteFieldsAndCharacterSums--FF.3",
+   "kind": "review",
+   "priority": 2,
+   "order": 988,
+   "name": "blueprint BP-FiniteFieldsAndCharacterSums--FF.3: Finite fields, character sums, finite rings and coding interfaces",
+   "roadmapIds": [
+    "FiniteFieldsAndCharacterSums"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-FiniteFieldsAndCharacterSums--FF.3.review.json",
+    "research/blueprint/reviews/REV-RT-BP-FiniteFieldsAndCharacterSums--FF.3.md"
+   ],
+   "after": [
+    "RT-BP-FiniteFieldsAndCharacterSums--FF.3"
+   ],
+   "avoidAccountOf": "RT-BP-FiniteFieldsAndCharacterSums--FF.3",
+   "independentOf": [
+    "RT-BP-FiniteFieldsAndCharacterSums--FF.3",
+    "BP-FiniteFieldsAndCharacterSums--FF.3",
+    "REV-FiniteFieldsAndCharacterSums--FF.3"
+   ],
+   "prompt": "research/blueprint/prompts/REV-RT-BP-FiniteFieldsAndCharacterSums--FF.3.md",
+   "state": "pending"
+  },
+  {
    "id": "RT-DESIGN-EllipticLegendreCharacterInterfaces",
    "kind": "redteam",
    "priority": 2,
-   "order": 958,
+   "order": 1021,
    "name": "new roadmap DESIGN-EllipticLegendreCharacterInterfaces: Elliptic curves, Part II: Legendre models, descent and character interfaces",
    "target": "DESIGN-EllipticLegendreCharacterInterfaces",
    "roadmapIds": [
@@ -53133,7 +56347,7 @@
    "id": "REV-RT-DESIGN-EllipticLegendreCharacterInterfaces",
    "kind": "review",
    "priority": 2,
-   "order": 958,
+   "order": 1021,
    "name": "new roadmap DESIGN-EllipticLegendreCharacterInterfaces: Elliptic curves, Part II: Legendre models, descent and character interfaces",
    "roadmapIds": [
     "EllipticLegendreCharacterInterfaces"
@@ -53158,7 +56372,7 @@
    "id": "RT-AUDIT-01",
    "kind": "redteam",
    "priority": 2,
-   "order": 1075,
+   "order": 1138,
    "name": "library audit AUDIT-01: Algebraic moduli and representability for arithmetic geometry",
    "target": "AUDIT-01",
    "roadmapIds": [
@@ -53186,7 +56400,7 @@
    "id": "REV-RT-AUDIT-01",
    "kind": "review",
    "priority": 2,
-   "order": 1075,
+   "order": 1138,
    "name": "library audit AUDIT-01: Algebraic moduli and representability for arithmetic geometry",
    "roadmapIds": [
     "AlgebraicModuliForArithmeticGeometry",
@@ -53217,7 +56431,7 @@
    "id": "FIX-RT-AUDIT-01",
    "kind": "fix",
    "priority": 1,
-   "order": 1075,
+   "order": 1138,
    "name": "library audit AUDIT-01: Algebraic moduli and representability for arithmetic geometry",
    "target": "AUDIT-01",
    "roadmapIds": [
@@ -53241,7 +56455,7 @@
    "id": "RT-AUDIT-02",
    "kind": "redteam",
    "priority": 2,
-   "order": 1076,
+   "order": 1139,
    "name": "library audit AUDIT-02: Hodge structures (pure, mixed, and polarized)",
    "target": "AUDIT-02",
    "roadmapIds": [
@@ -53269,7 +56483,7 @@
    "id": "REV-RT-AUDIT-02",
    "kind": "review",
    "priority": 2,
-   "order": 1076,
+   "order": 1139,
    "name": "library audit AUDIT-02: Hodge structures (pure, mixed, and polarized)",
    "roadmapIds": [
     "tauceti:TauCetiRoadmap/HodgeStructures",
@@ -53300,7 +56514,7 @@
    "id": "RT-AUDIT-03",
    "kind": "redteam",
    "priority": 2,
-   "order": 1077,
+   "order": 1140,
    "name": "library audit AUDIT-03: Higher local fields and higher class field theory",
    "target": "AUDIT-03",
    "roadmapIds": [
@@ -53328,7 +56542,7 @@
    "id": "REV-RT-AUDIT-03",
    "kind": "review",
    "priority": 2,
-   "order": 1077,
+   "order": 1140,
    "name": "library audit AUDIT-03: Higher local fields and higher class field theory",
    "roadmapIds": [
     "HigherLocalFieldsAndHigherClassFieldTheory",
@@ -53359,7 +56573,7 @@
    "id": "FIX-RT-AUDIT-03",
    "kind": "fix",
    "priority": 1,
-   "order": 1077,
+   "order": 1140,
    "name": "library audit AUDIT-03: Higher local fields and higher class field theory",
    "target": "AUDIT-03",
    "roadmapIds": [
@@ -53383,7 +56597,7 @@
    "id": "RT-AUDIT-04",
    "kind": "redteam",
    "priority": 2,
-   "order": 1078,
+   "order": 1141,
    "name": "library audit AUDIT-04: Global number fields, ray classes, adeles, and Hecke characters",
    "target": "AUDIT-04",
    "roadmapIds": [
@@ -53411,7 +56625,7 @@
    "id": "REV-RT-AUDIT-04",
    "kind": "review",
    "priority": 2,
-   "order": 1078,
+   "order": 1141,
    "name": "library audit AUDIT-04: Global number fields, ray classes, adeles, and Hecke characters",
    "roadmapIds": [
     "tauceti:TauCetiRoadmap/GlobalNumberFields",
@@ -53442,7 +56656,7 @@
    "id": "FIX-RT-AUDIT-04",
    "kind": "fix",
    "priority": 1,
-   "order": 1078,
+   "order": 1141,
    "name": "library audit AUDIT-04: Global number fields, ray classes, adeles, and Hecke characters",
    "target": "AUDIT-04",
    "roadmapIds": [
@@ -53466,7 +56680,7 @@
    "id": "RT-AUDIT-05",
    "kind": "redteam",
    "priority": 2,
-   "order": 1079,
+   "order": 1142,
    "name": "library audit AUDIT-05: Galois groups of polynomials",
    "target": "AUDIT-05",
    "roadmapIds": [
@@ -53494,7 +56708,7 @@
    "id": "REV-RT-AUDIT-05",
    "kind": "review",
    "priority": 2,
-   "order": 1079,
+   "order": 1142,
    "name": "library audit AUDIT-05: Galois groups of polynomials",
    "roadmapIds": [
     "tauceti:TauCetiRoadmap/PolynomialGaloisGroups",
@@ -53525,7 +56739,7 @@
    "id": "FIX-RT-AUDIT-05",
    "kind": "fix",
    "priority": 1,
-   "order": 1079,
+   "order": 1142,
    "name": "library audit AUDIT-05: Galois groups of polynomials",
    "target": "AUDIT-05",
    "roadmapIds": [
@@ -53549,7 +56763,7 @@
    "id": "RT-AUDIT-06",
    "kind": "redteam",
    "priority": 2,
-   "order": 1080,
+   "order": 1143,
    "name": "library audit AUDIT-06: Fuchsian groups and orbifold Riemann surfaces",
    "target": "AUDIT-06",
    "roadmapIds": [
@@ -53576,7 +56790,7 @@
    "id": "REV-RT-AUDIT-06",
    "kind": "review",
    "priority": 2,
-   "order": 1080,
+   "order": 1143,
    "name": "library audit AUDIT-06: Fuchsian groups and orbifold Riemann surfaces",
    "roadmapIds": [
     "tauceti:TauCetiRoadmap/FuchsianOrbifolds",
@@ -53606,7 +56820,7 @@
    "id": "FIX-RT-AUDIT-06",
    "kind": "fix",
    "priority": 1,
-   "order": 1080,
+   "order": 1143,
    "name": "library audit AUDIT-06: Fuchsian groups and orbifold Riemann surfaces",
    "target": "AUDIT-06",
    "roadmapIds": [
@@ -53629,7 +56843,7 @@
    "id": "RT-AUDIT-07",
    "kind": "redteam",
    "priority": 2,
-   "order": 1081,
+   "order": 1144,
    "name": "library audit AUDIT-07: Arithmetic statistics, counting fields and Selmer distributions",
    "target": "AUDIT-07",
    "roadmapIds": [
@@ -53657,7 +56871,7 @@
    "id": "REV-RT-AUDIT-07",
    "kind": "review",
    "priority": 2,
-   "order": 1081,
+   "order": 1144,
    "name": "library audit AUDIT-07: Arithmetic statistics, counting fields and Selmer distributions",
    "roadmapIds": [
     "ArithmeticStatistics",
@@ -53688,7 +56902,7 @@
    "id": "FIX-RT-AUDIT-07",
    "kind": "fix",
    "priority": 1,
-   "order": 1081,
+   "order": 1144,
    "name": "library audit AUDIT-07: Arithmetic statistics, counting fields and Selmer distributions",
    "target": "AUDIT-07",
    "roadmapIds": [
@@ -53712,7 +56926,7 @@
    "id": "RT-AUDIT-08",
    "kind": "redteam",
    "priority": 2,
-   "order": 1082,
+   "order": 1145,
    "name": "library audit AUDIT-08: Arithmetic Dirichlet series and Tauberian methods",
    "target": "AUDIT-08",
    "roadmapIds": [
@@ -53740,7 +56954,7 @@
    "id": "REV-RT-AUDIT-08",
    "kind": "review",
    "priority": 2,
-   "order": 1082,
+   "order": 1145,
    "name": "library audit AUDIT-08: Arithmetic Dirichlet series and Tauberian methods",
    "roadmapIds": [
     "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries",
@@ -53771,7 +56985,7 @@
    "id": "FIX-RT-AUDIT-08",
    "kind": "fix",
    "priority": 1,
-   "order": 1082,
+   "order": 1145,
    "name": "library audit AUDIT-08: Arithmetic Dirichlet series and Tauberian methods",
    "target": "AUDIT-08",
    "roadmapIds": [
@@ -53795,7 +57009,7 @@
    "id": "RT-AUDIT-09",
    "kind": "redteam",
    "priority": 2,
-   "order": 1083,
+   "order": 1146,
    "name": "library audit AUDIT-09: Complex multiplication and explicit reciprocity",
    "target": "AUDIT-09",
    "roadmapIds": [
@@ -53823,7 +57037,7 @@
    "id": "REV-RT-AUDIT-09",
    "kind": "review",
    "priority": 2,
-   "order": 1083,
+   "order": 1146,
    "name": "library audit AUDIT-09: Complex multiplication and explicit reciprocity",
    "roadmapIds": [
     "ComplexMultiplicationAndExplicitReciprocity",
@@ -53854,7 +57068,7 @@
    "id": "FIX-RT-AUDIT-09",
    "kind": "fix",
    "priority": 1,
-   "order": 1083,
+   "order": 1146,
    "name": "library audit AUDIT-09: Complex multiplication and explicit reciprocity",
    "target": "AUDIT-09",
    "roadmapIds": [
@@ -53878,7 +57092,7 @@
    "id": "RT-AUDIT-10",
    "kind": "redteam",
    "priority": 2,
-   "order": 1084,
+   "order": 1147,
    "name": "library audit AUDIT-10: Modular Curves PartII",
    "target": "AUDIT-10",
    "roadmapIds": [
@@ -53906,7 +57120,7 @@
    "id": "REV-RT-AUDIT-10",
    "kind": "review",
    "priority": 2,
-   "order": 1084,
+   "order": 1147,
    "name": "library audit AUDIT-10: Modular Curves PartII",
    "roadmapIds": [
     "ModularCurvesPartII",
@@ -53937,7 +57151,7 @@
    "id": "FIX-RT-AUDIT-10",
    "kind": "fix",
    "priority": 1,
-   "order": 1084,
+   "order": 1147,
    "name": "library audit AUDIT-10: Modular Curves PartII",
    "target": "AUDIT-10",
    "roadmapIds": [
@@ -53961,7 +57175,7 @@
    "id": "RT-AUDIT-11",
    "kind": "redteam",
    "priority": 2,
-   "order": 1085,
+   "order": 1148,
    "name": "library audit AUDIT-11: Complex Shimura varieties and canonical models",
    "target": "AUDIT-11",
    "roadmapIds": [
@@ -53988,7 +57202,7 @@
    "id": "REV-RT-AUDIT-11",
    "kind": "review",
    "priority": 2,
-   "order": 1085,
+   "order": 1148,
    "name": "library audit AUDIT-11: Complex Shimura varieties and canonical models",
    "roadmapIds": [
     "ShimuraVarieties",
@@ -54018,7 +57232,7 @@
    "id": "FIX-RT-AUDIT-11",
    "kind": "fix",
    "priority": 1,
-   "order": 1085,
+   "order": 1148,
    "name": "library audit AUDIT-11: Complex Shimura varieties and canonical models",
    "target": "AUDIT-11",
    "roadmapIds": [
@@ -54041,7 +57255,7 @@
    "id": "RT-AUDIT-12",
    "kind": "redteam",
    "priority": 2,
-   "order": 1086,
+   "order": 1149,
    "name": "library audit AUDIT-12: Modular curves, following Katz–Mazur",
    "target": "AUDIT-12",
    "roadmapIds": [
@@ -54065,7 +57279,7 @@
    "id": "REV-RT-AUDIT-12",
    "kind": "review",
    "priority": 2,
-   "order": 1086,
+   "order": 1149,
    "name": "library audit AUDIT-12: Modular curves, following Katz–Mazur",
    "roadmapIds": [
     "tauceti:TauCetiRoadmap/ModularCurves"
@@ -54092,7 +57306,7 @@
    "id": "FIX-RT-AUDIT-12",
    "kind": "fix",
    "priority": 1,
-   "order": 1086,
+   "order": 1149,
    "name": "library audit AUDIT-12: Modular curves, following Katz–Mazur",
    "target": "AUDIT-12",
    "roadmapIds": [
@@ -54112,7 +57326,7 @@
    "id": "RT-AUDIT-13",
    "kind": "redteam",
    "priority": 2,
-   "order": 1087,
+   "order": 1150,
    "name": "library audit AUDIT-13: Adelic algebraic groups and arithmetic quotients",
    "target": "AUDIT-13",
    "roadmapIds": [
@@ -54140,7 +57354,7 @@
    "id": "REV-RT-AUDIT-13",
    "kind": "review",
    "priority": 2,
-   "order": 1087,
+   "order": 1150,
    "name": "library audit AUDIT-13: Adelic algebraic groups and arithmetic quotients",
    "roadmapIds": [
     "AdelicAlgebraicGroups",
@@ -54171,7 +57385,7 @@
    "id": "FIX-RT-AUDIT-13",
    "kind": "fix",
    "priority": 1,
-   "order": 1087,
+   "order": 1150,
    "name": "library audit AUDIT-13: Adelic algebraic groups and arithmetic quotients",
    "target": "AUDIT-13",
    "roadmapIds": [
@@ -54195,7 +57409,7 @@
    "id": "RT-AUDIT-14",
    "kind": "redteam",
    "priority": 2,
-   "order": 1088,
+   "order": 1151,
    "name": "library audit AUDIT-14: Automorphic L-functions and local factors",
    "target": "AUDIT-14",
    "roadmapIds": [
@@ -54223,7 +57437,7 @@
    "id": "REV-RT-AUDIT-14",
    "kind": "review",
    "priority": 2,
-   "order": 1088,
+   "order": 1151,
    "name": "library audit AUDIT-14: Automorphic L-functions and local factors",
    "roadmapIds": [
     "AutomorphicLFunctionsAndLocalFactors",
@@ -54254,7 +57468,7 @@
    "id": "FIX-RT-AUDIT-14",
    "kind": "fix",
    "priority": 1,
-   "order": 1088,
+   "order": 1151,
    "name": "library audit AUDIT-14: Automorphic L-functions and local factors",
    "target": "AUDIT-14",
    "roadmapIds": [
@@ -54278,7 +57492,7 @@
    "id": "RT-AUDIT-15",
    "kind": "redteam",
    "priority": 2,
-   "order": 1089,
+   "order": 1152,
    "name": "library audit AUDIT-15: Hilbert Modular Varieties And Shimura Curves",
    "target": "AUDIT-15",
    "roadmapIds": [
@@ -54306,7 +57520,7 @@
    "id": "REV-RT-AUDIT-15",
    "kind": "review",
    "priority": 2,
-   "order": 1089,
+   "order": 1152,
    "name": "library audit AUDIT-15: Hilbert Modular Varieties And Shimura Curves",
    "roadmapIds": [
     "HilbertModularVarietiesAndShimuraCurves",
@@ -54337,7 +57551,7 @@
    "id": "FIX-RT-AUDIT-15",
    "kind": "fix",
    "priority": 1,
-   "order": 1089,
+   "order": 1152,
    "name": "library audit AUDIT-15: Hilbert Modular Varieties And Shimura Curves",
    "target": "AUDIT-15",
    "roadmapIds": [
@@ -54361,7 +57575,7 @@
    "id": "RT-AUDIT-16",
    "kind": "redteam",
    "priority": 2,
-   "order": 1090,
+   "order": 1153,
    "name": "library audit AUDIT-16: Modular forms — Hecke theory, newforms, and L-functions",
    "target": "AUDIT-16",
    "roadmapIds": [
@@ -54388,7 +57602,7 @@
    "id": "REV-RT-AUDIT-16",
    "kind": "review",
    "priority": 2,
-   "order": 1090,
+   "order": 1153,
    "name": "library audit AUDIT-16: Modular forms — Hecke theory, newforms, and L-functions",
    "roadmapIds": [
     "tauceti:TauCetiRoadmap/ModularForms",
@@ -54418,7 +57632,7 @@
    "id": "FIX-RT-AUDIT-16",
    "kind": "fix",
    "priority": 1,
-   "order": 1090,
+   "order": 1153,
    "name": "library audit AUDIT-16: Modular forms — Hecke theory, newforms, and L-functions",
    "target": "AUDIT-16",
    "roadmapIds": [
@@ -54441,7 +57655,7 @@
    "id": "RT-AUDIT-17",
    "kind": "redteam",
    "priority": 2,
-   "order": 1091,
+   "order": 1154,
    "name": "library audit AUDIT-17: Commutative algebra for deformation theory and patching",
    "target": "AUDIT-17",
    "roadmapIds": [
@@ -54469,7 +57683,7 @@
    "id": "REV-RT-AUDIT-17",
    "kind": "review",
    "priority": 2,
-   "order": 1091,
+   "order": 1154,
    "name": "library audit AUDIT-17: Commutative algebra for deformation theory and patching",
    "roadmapIds": [
     "DeformationAndDerivedPatchingAlgebra",
@@ -54500,7 +57714,7 @@
    "id": "FIX-RT-AUDIT-17",
    "kind": "fix",
    "priority": 1,
-   "order": 1091,
+   "order": 1154,
    "name": "library audit AUDIT-17: Commutative algebra for deformation theory and patching",
    "target": "AUDIT-17",
    "roadmapIds": [
@@ -54524,7 +57738,7 @@
    "id": "RT-AUDIT-18",
    "kind": "redteam",
    "priority": 2,
-   "order": 1092,
+   "order": 1155,
    "name": "library audit AUDIT-18: Classical arithmetic, sequences, polynomials and reciprocity",
    "target": "AUDIT-18",
    "roadmapIds": [
@@ -54552,7 +57766,7 @@
    "id": "REV-RT-AUDIT-18",
    "kind": "review",
    "priority": 2,
-   "order": 1092,
+   "order": 1155,
    "name": "library audit AUDIT-18: Classical arithmetic, sequences, polynomials and reciprocity",
    "roadmapIds": [
     "ClassicalArithmeticCompletion",
@@ -54583,7 +57797,7 @@
    "id": "FIX-RT-AUDIT-18",
    "kind": "fix",
    "priority": 1,
-   "order": 1092,
+   "order": 1155,
    "name": "library audit AUDIT-18: Classical arithmetic, sequences, polynomials and reciprocity",
    "target": "AUDIT-18",
    "roadmapIds": [
@@ -54607,7 +57821,7 @@
    "id": "RT-AUDIT-19",
    "kind": "redteam",
    "priority": 2,
-   "order": 1093,
+   "order": 1156,
    "name": "library audit AUDIT-19: Q-Hodge filtrations and Habiro cohomology",
    "target": "AUDIT-19",
    "roadmapIds": [
@@ -54635,7 +57849,7 @@
    "id": "REV-RT-AUDIT-19",
    "kind": "review",
    "priority": 2,
-   "order": 1093,
+   "order": 1156,
    "name": "library audit AUDIT-19: Q-Hodge filtrations and Habiro cohomology",
    "roadmapIds": [
     "HabiroCohomologyFoundations",
@@ -54666,7 +57880,7 @@
    "id": "FIX-RT-AUDIT-19",
    "kind": "fix",
    "priority": 1,
-   "order": 1093,
+   "order": 1156,
    "name": "library audit AUDIT-19: Q-Hodge filtrations and Habiro cohomology",
    "target": "AUDIT-19",
    "roadmapIds": [
@@ -54690,7 +57904,7 @@
    "id": "RT-AUDIT-20",
    "kind": "redteam",
    "priority": 2,
-   "order": 1094,
+   "order": 1157,
    "name": "library audit AUDIT-20: Drinfeld modules, t-motives and characteristic-p special values",
    "target": "AUDIT-20",
    "roadmapIds": [
@@ -54718,7 +57932,7 @@
    "id": "REV-RT-AUDIT-20",
    "kind": "review",
    "priority": 2,
-   "order": 1094,
+   "order": 1157,
    "name": "library audit AUDIT-20: Drinfeld modules, t-motives and characteristic-p special values",
    "roadmapIds": [
     "DrinfeldModulesAndTModules",
@@ -54749,7 +57963,7 @@
    "id": "FIX-RT-AUDIT-20",
    "kind": "fix",
    "priority": 1,
-   "order": 1094,
+   "order": 1157,
    "name": "library audit AUDIT-20: Drinfeld modules, t-motives and characteristic-p special values",
    "target": "AUDIT-20",
    "roadmapIds": [
@@ -54773,7 +57987,7 @@
    "id": "RT-AUDIT-21",
    "kind": "redteam",
    "priority": 2,
-   "order": 1095,
+   "order": 1158,
    "name": "library audit AUDIT-21: Geometric Satake over the Fargues–Fontaine curve",
    "target": "AUDIT-21",
    "roadmapIds": [
@@ -54801,7 +58015,7 @@
    "id": "REV-RT-AUDIT-21",
    "kind": "review",
    "priority": 2,
-   "order": 1095,
+   "order": 1158,
    "name": "library audit AUDIT-21: Geometric Satake over the Fargues–Fontaine curve",
    "roadmapIds": [
     "GeometricSatakeAndFusion",
@@ -54832,7 +58046,7 @@
    "id": "FIX-RT-AUDIT-21",
    "kind": "fix",
    "priority": 1,
-   "order": 1095,
+   "order": 1158,
    "name": "library audit AUDIT-21: Geometric Satake over the Fargues–Fontaine curve",
    "target": "AUDIT-21",
    "roadmapIds": [
@@ -54856,7 +58070,7 @@
    "id": "RT-AUDIT-22",
    "kind": "redteam",
    "priority": 2,
-   "order": 1096,
+   "order": 1159,
    "name": "library audit AUDIT-22: Profinite and pro-p groups",
    "target": "AUDIT-22",
    "roadmapIds": [
@@ -54883,7 +58097,7 @@
    "id": "REV-RT-AUDIT-22",
    "kind": "review",
    "priority": 2,
-   "order": 1096,
+   "order": 1159,
    "name": "library audit AUDIT-22: Profinite and pro-p groups",
    "roadmapIds": [
     "tauceti:TauCetiRoadmap/ProfiniteProPGroups",
@@ -54913,7 +58127,7 @@
    "id": "RT-AUDIT-23",
    "kind": "redteam",
    "priority": 2,
-   "order": 1097,
+   "order": 1160,
    "name": "library audit AUDIT-23: Continuous cohomology of profinite groups",
    "target": "AUDIT-23",
    "roadmapIds": [
@@ -54941,7 +58155,7 @@
    "id": "REV-RT-AUDIT-23",
    "kind": "review",
    "priority": 2,
-   "order": 1097,
+   "order": 1160,
    "name": "library audit AUDIT-23: Continuous cohomology of profinite groups",
    "roadmapIds": [
     "tauceti:TauCetiRoadmap/ProfiniteCohomology",
@@ -54972,7 +58186,7 @@
    "id": "RT-AUDIT-24",
    "kind": "redteam",
    "priority": 2,
-   "order": 1098,
+   "order": 1161,
    "name": "library audit AUDIT-24: Coleman power series, local units, and cyclotomic-unit quotients",
    "target": "AUDIT-24",
    "roadmapIds": [
@@ -55000,7 +58214,7 @@
    "id": "REV-RT-AUDIT-24",
    "kind": "review",
    "priority": 2,
-   "order": 1098,
+   "order": 1161,
    "name": "library audit AUDIT-24: Coleman power series, local units, and cyclotomic-unit quotients",
    "roadmapIds": [
     "ColemanPowerSeries",
@@ -55031,7 +58245,7 @@
    "id": "FIX-RT-AUDIT-24",
    "kind": "fix",
    "priority": 1,
-   "order": 1098,
+   "order": 1161,
    "name": "library audit AUDIT-24: Coleman power series, local units, and cyclotomic-unit quotients",
    "target": "AUDIT-24",
    "roadmapIds": [
@@ -55055,7 +58269,7 @@
    "id": "RT-AUDIT-25",
    "kind": "redteam",
    "priority": 2,
-   "order": 1099,
+   "order": 1162,
    "name": "library audit AUDIT-25: Gross–Zagier formulas and arithmetic heights",
    "target": "AUDIT-25",
    "roadmapIds": [
@@ -55083,7 +58297,7 @@
    "id": "REV-RT-AUDIT-25",
    "kind": "review",
    "priority": 2,
-   "order": 1099,
+   "order": 1162,
    "name": "library audit AUDIT-25: Gross–Zagier formulas and arithmetic heights",
    "roadmapIds": [
     "GrossZagierAndArithmeticHeights",
@@ -55114,7 +58328,7 @@
    "id": "FIX-RT-AUDIT-25",
    "kind": "fix",
    "priority": 1,
-   "order": 1099,
+   "order": 1162,
    "name": "library audit AUDIT-25: Gross–Zagier formulas and arithmetic heights",
    "target": "AUDIT-25",
    "roadmapIds": [
@@ -55138,7 +58352,7 @@
    "id": "RT-AUDIT-26",
    "kind": "redteam",
    "priority": 2,
-   "order": 1100,
+   "order": 1163,
    "name": "library audit AUDIT-26: Main conjectures for modular forms and their families",
    "target": "AUDIT-26",
    "roadmapIds": [
@@ -55166,7 +58380,7 @@
    "id": "REV-RT-AUDIT-26",
    "kind": "review",
    "priority": 2,
-   "order": 1100,
+   "order": 1163,
    "name": "library audit AUDIT-26: Main conjectures for modular forms and their families",
    "roadmapIds": [
     "ModularIwasawaMainConjectures",
@@ -55197,7 +58411,7 @@
    "id": "FIX-RT-AUDIT-26",
    "kind": "fix",
    "priority": 1,
-   "order": 1100,
+   "order": 1163,
    "name": "library audit AUDIT-26: Main conjectures for modular forms and their families",
    "target": "AUDIT-26",
    "roadmapIds": [
@@ -55221,7 +58435,7 @@
    "id": "RT-AUDIT-27",
    "kind": "redteam",
    "priority": 2,
-   "order": 1101,
+   "order": 1164,
    "name": "library audit AUDIT-27: Periods, motivic L-values and special-value conjectures",
    "target": "AUDIT-27",
    "roadmapIds": [
@@ -55249,7 +58463,7 @@
    "id": "REV-RT-AUDIT-27",
    "kind": "review",
    "priority": 2,
-   "order": 1101,
+   "order": 1164,
    "name": "library audit AUDIT-27: Periods, motivic L-values and special-value conjectures",
    "roadmapIds": [
     "PeriodsAndSpecialValues",
@@ -55280,7 +58494,7 @@
    "id": "FIX-RT-AUDIT-27",
    "kind": "fix",
    "priority": 1,
-   "order": 1101,
+   "order": 1164,
    "name": "library audit AUDIT-27: Periods, motivic L-values and special-value conjectures",
    "target": "AUDIT-27",
    "roadmapIds": [
@@ -55304,7 +58518,7 @@
    "id": "RT-AUDIT-28",
    "kind": "redteam",
    "priority": 2,
-   "order": 1102,
+   "order": 1165,
    "name": "library audit AUDIT-28: Stable arithmetic cohomology and Borel regulators",
    "target": "AUDIT-28",
    "roadmapIds": [
@@ -55332,7 +58546,7 @@
    "id": "REV-RT-AUDIT-28",
    "kind": "review",
    "priority": 2,
-   "order": 1102,
+   "order": 1165,
    "name": "library audit AUDIT-28: Stable arithmetic cohomology and Borel regulators",
    "roadmapIds": [
     "BorelRegulators",
@@ -55363,7 +58577,7 @@
    "id": "FIX-RT-AUDIT-28",
    "kind": "fix",
    "priority": 1,
-   "order": 1102,
+   "order": 1165,
    "name": "library audit AUDIT-28: Stable arithmetic cohomology and Borel regulators",
    "target": "AUDIT-28",
    "roadmapIds": [
@@ -55387,7 +58601,7 @@
    "id": "RT-AUDIT-29",
    "kind": "redteam",
    "priority": 2,
-   "order": 1103,
+   "order": 1166,
    "name": "library audit AUDIT-29: Explicit K₂: symbols, residues and reciprocity",
    "target": "AUDIT-29",
    "roadmapIds": [
@@ -55414,7 +58628,7 @@
    "id": "REV-RT-AUDIT-29",
    "kind": "review",
    "priority": 2,
-   "order": 1103,
+   "order": 1166,
    "name": "library audit AUDIT-29: Explicit K₂: symbols, residues and reciprocity",
    "roadmapIds": [
     "K2SymbolsBrauer",
@@ -55444,7 +58658,7 @@
    "id": "RT-AUDIT-30",
    "kind": "redteam",
    "priority": 2,
-   "order": 1104,
+   "order": 1167,
    "name": "library audit AUDIT-30: Motivic and étale methods for arithmetic K-theory",
    "target": "AUDIT-30",
    "roadmapIds": [
@@ -55472,7 +58686,7 @@
    "id": "REV-RT-AUDIT-30",
    "kind": "review",
    "priority": 2,
-   "order": 1104,
+   "order": 1167,
    "name": "library audit AUDIT-30: Motivic and étale methods for arithmetic K-theory",
    "roadmapIds": [
     "MotivicEtaleKTheory",
@@ -55503,7 +58717,7 @@
    "id": "FIX-RT-AUDIT-30",
    "kind": "fix",
    "priority": 1,
-   "order": 1104,
+   "order": 1167,
    "name": "library audit AUDIT-30: Motivic and étale methods for arithmetic K-theory",
    "target": "AUDIT-30",
    "roadmapIds": [
@@ -55527,7 +58741,7 @@
    "id": "RT-AUDIT-31",
    "kind": "redteam",
    "priority": 2,
-   "order": 1105,
+   "order": 1168,
    "name": "library audit AUDIT-31: Arithmetic Galois representations and conductors",
    "target": "AUDIT-31",
    "roadmapIds": [
@@ -55555,7 +58769,7 @@
    "id": "REV-RT-AUDIT-31",
    "kind": "review",
    "priority": 2,
-   "order": 1105,
+   "order": 1168,
    "name": "library audit AUDIT-31: Arithmetic Galois representations and conductors",
    "roadmapIds": [
     "ArithmeticGaloisRepresentations",
@@ -55586,7 +58800,7 @@
    "id": "FIX-RT-AUDIT-31",
    "kind": "fix",
    "priority": 1,
-   "order": 1105,
+   "order": 1168,
    "name": "library audit AUDIT-31: Arithmetic Galois representations and conductors",
    "target": "AUDIT-31",
    "roadmapIds": [
@@ -55610,7 +58824,7 @@
    "id": "RT-AUDIT-34",
    "kind": "redteam",
    "priority": 2,
-   "order": 1108,
+   "order": 1171,
    "name": "library audit AUDIT-34: Reusable infrastructure for potential automorphy over CM fields",
    "target": "AUDIT-34",
    "roadmapIds": [
@@ -55638,7 +58852,7 @@
    "id": "REV-RT-AUDIT-34",
    "kind": "review",
    "priority": 2,
-   "order": 1108,
+   "order": 1171,
    "name": "library audit AUDIT-34: Reusable infrastructure for potential automorphy over CM fields",
    "roadmapIds": [
     "PotentialAutomorphyInfrastructure",
@@ -55669,7 +58883,7 @@
    "id": "FIX-RT-AUDIT-34",
    "kind": "fix",
    "priority": 1,
-   "order": 1108,
+   "order": 1171,
    "name": "library audit AUDIT-34: Reusable infrastructure for potential automorphy over CM fields",
    "target": "AUDIT-34",
    "roadmapIds": [
@@ -55693,7 +58907,7 @@
    "id": "RT-AUDIT-39",
    "kind": "redteam",
    "priority": 2,
-   "order": 1113,
+   "order": 1176,
    "name": "library audit AUDIT-39: Relative Fargues–Fontaine curves and period geometry",
    "target": "AUDIT-39",
    "roadmapIds": [
@@ -55720,7 +58934,7 @@
    "id": "REV-RT-AUDIT-39",
    "kind": "review",
    "priority": 2,
-   "order": 1113,
+   "order": 1176,
    "name": "library audit AUDIT-39: Relative Fargues–Fontaine curves and period geometry",
    "roadmapIds": [
     "RelativeFarguesFontaine",
@@ -55750,7 +58964,7 @@
    "id": "FIX-RT-AUDIT-39",
    "kind": "fix",
    "priority": 1,
-   "order": 1113,
+   "order": 1176,
    "name": "library audit AUDIT-39: Relative Fargues–Fontaine curves and period geometry",
    "target": "AUDIT-39",
    "roadmapIds": [
@@ -56006,6 +59220,12 @@
     "research/blueprint/packets/FiniteFieldsAndCharacterSums.json",
     "research/blueprint/readmes/FiniteFieldsAndCharacterSums.md",
     "research/blueprint/suggested/FiniteFieldsAndCharacterSums.lean",
+    "research/blueprint/packets/FiniteFieldsAndCharacterSums--FF.3.json",
+    "research/blueprint/readmes/FiniteFieldsAndCharacterSums--FF.3.md",
+    "research/blueprint/suggested/FiniteFieldsAndCharacterSums--FF.3.lean",
+    "research/blueprint/packets/FiniteFieldsAndCharacterSums--FF.1.json",
+    "research/blueprint/readmes/FiniteFieldsAndCharacterSums--FF.1.md",
+    "research/blueprint/suggested/FiniteFieldsAndCharacterSums--FF.1.lean",
     "research/blueprint/packets/ComputationalNumberTheory.json",
     "research/blueprint/readmes/ComputationalNumberTheory.md",
     "research/blueprint/suggested/ComputationalNumberTheory.lean"
@@ -56028,8 +59248,12 @@
    "outputs": [
     "research/blueprint/reviews/REV-FIX-RT-AREA-finitefields~2.md",
     "research/blueprint/packets/FiniteFieldsAndCharacterSums.json",
+    "research/blueprint/packets/FiniteFieldsAndCharacterSums--FF.3.json",
+    "research/blueprint/packets/FiniteFieldsAndCharacterSums--FF.1.json",
     "research/blueprint/packets/ComputationalNumberTheory.json",
     "research/blueprint/suggested/FiniteFieldsAndCharacterSums.lean",
+    "research/blueprint/suggested/FiniteFieldsAndCharacterSums--FF.3.lean",
+    "research/blueprint/suggested/FiniteFieldsAndCharacterSums--FF.1.lean",
     "research/blueprint/suggested/ComputationalNumberTheory.lean"
    ],
    "after": [
@@ -58943,6 +62167,9 @@
     "research/blueprint/packets/K3BlochGroups.json",
     "research/blueprint/readmes/K3BlochGroups.md",
     "research/blueprint/suggested/K3BlochGroups.lean",
+    "research/blueprint/packets/KTheoryLowDegrees--U.1.json",
+    "research/blueprint/readmes/KTheoryLowDegrees--U.1.md",
+    "research/blueprint/suggested/KTheoryLowDegrees--U.1.lean",
     "research/blueprint/packets/KTheoryLowDegrees--Z.3.json",
     "research/blueprint/readmes/KTheoryLowDegrees--Z.3.md",
     "research/blueprint/suggested/KTheoryLowDegrees--Z.3.lean"
@@ -58979,6 +62206,7 @@
     "research/blueprint/packets/GeneralAlgebraicKTheory--K.6.json",
     "research/blueprint/packets/K2SymbolsBrauer--T.1.json",
     "research/blueprint/packets/K3BlochGroups.json",
+    "research/blueprint/packets/KTheoryLowDegrees--U.1.json",
     "research/blueprint/packets/KTheoryLowDegrees--Z.3.json",
     "research/blueprint/suggested/ArithmeticKTheory--N.1.lean",
     "research/blueprint/suggested/GeneralAlgebraicKTheory--K.1.lean",
@@ -58987,6 +62215,7 @@
     "research/blueprint/suggested/GeneralAlgebraicKTheory--K.6.lean",
     "research/blueprint/suggested/K2SymbolsBrauer--T.1.lean",
     "research/blueprint/suggested/K3BlochGroups.lean",
+    "research/blueprint/suggested/KTheoryLowDegrees--U.1.lean",
     "research/blueprint/suggested/KTheoryLowDegrees--Z.3.lean"
    ],
    "after": [
