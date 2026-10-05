@@ -2375,8 +2375,8 @@
       "sources": [
         {
           "sourceId": "knudsen2",
-          "locator": "Definitions1.1–1.2,pp.162–164",
-          "match": "The cited passage supplies the construction or proof in the stated range; qualifications and upstream inputs are explicit in the statement and prerequisites."
+          "locator": "Definitions1.1–1.2,printedpp.162–164 (PDF2–4); groupoid statement p.164",
+          "match": "Definition1.1 specifies stable pointed families; Definition1.2 gives cartesian marking-preserving morphisms and states the groupoid-fibred stack property. The log-dualizing ampleness formulation is imported from the parent roadmap."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2477,8 +2477,8 @@
       "sources": [
         {
           "sourceId": "knudsen2",
-          "locator": "Definition1.2,p.164",
-          "match": "The cited passage supplies the construction or proof in the stated range; qualifications and upstream inputs are explicit in the statement and prerequisites."
+          "locator": "Definition1.2,printedp.164 (PDF4),condition(ii)",
+          "match": "Condition(ii) identifies the source family with the scheme-theoretic pullback. The identity and associativity coherence follow from uniqueness with fixed pullback projections."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2554,9 +2554,9 @@
       ],
       "sources": [
         {
-          "sourceId": "knudsen2",
-          "locator": "Definition1.2,p.164",
-          "match": "The cited passage supplies the construction or proof in the stated range; qualifications and upstream inputs are explicit in the statement and prerequisites."
+          "sourceId": "knudsen2012",
+          "locator": "Introduction,printedpp.1–2,cartesian universal-curve diagram",
+          "match": "The Introduction allows an unrestricted extra section, explicitly constructs the cartesian representing square, and identifies the projection as the universal stable pointed curve. The smooth restriction is the base change to the smooth-curve locus."
         }
       ],
       "implementationStatus": "unchecked",
@@ -31547,7 +31547,7 @@
       "status": "partial",
       "remaining": [
         "Verify augmented-clutching restriction using Ile; acquire a modern primary normalization reference.",
-        "Independently review the Corollary3.9(b) counterexample; finish line/graph quotient suppliers and Lean APIs."
+        "Finish line/graph quotient suppliers and Lean APIs, and the remaining clutching-node source and prerequisite checks."
       ]
     },
     {
@@ -31959,7 +31959,12 @@
       "known": "Knudsen, A closer look at the stacks of stable pointed curves, arXiv:1106.1588v2,2012",
       "searched": [
         "Read the full2012 repair and its introduction; compared with1983 Main Lemma."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in the published 1983 scan, printed p.175: the explicit pointed versal deformation is asserted from general deformation theory without its calculation. Knudsen arXiv:1106.1588v2 abstract and Introduction identify this omission and Proposition 2.1 supplies its repair. This verdict concerns the identified proof gap, not failure of the Main Lemma.",
+        "by": "REV-DESIGN-StableReductionPartII"
+      }
     },
     {
       "id": "StableReductionPartII/E2",
@@ -31973,7 +31978,12 @@
       "known": "Runar Ile, Stably reflexive modules and a lemma of Knudsen, Remark6.4 and Example6.5 (arXiv:1110.3909)",
       "searched": [
         "Read Ile Remark6.4 and Example6.5 in full; checked Knudsen2012 repair as distinct from this clutching-proof restriction."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed by the 1983 scan, printed pp.187–189, and Ile arXiv:1110.3909v3 Remark 6.4 and Example 6.5, pp.20–21. In the split model the quotient of the pairing ideal is S/(b,c), not S on the whole base; after restricting the section to the relative singular locus, b=c=0 and the required rank-two calculation applies. The augmented map gamma in Theorem 3.7 is distinguished from the unaugmented clutching maps.",
+        "by": "REV-DESIGN-StableReductionPartII"
+      }
     },
     {
       "id": "StableReductionPartII/E3",
@@ -31989,7 +31999,12 @@
         "2026-10-02: journal original PDF and Corollary3.9 page rendered at high resolution.",
         "Bounded searches for Knudsen Corollary3.9 closed-immersion correction/erratum found no exact published correction; later repetitions are not verification.",
         "Ile1110.3909 Remarks6.4/6.5 correct3.7 proof, not this3.9(b) statement. Novelty and the counterexample require independent review."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed against published Corollary 3.9(b), printed p.190. Over C choose elliptic curves E_L,E_M,E_R with distinct j-invariants, join them in a chain at distinct smooth points of E_M, and put the sole mark at a third smooth point of E_M. Both nodes separate an unmarked genus-one tail from a marked genus-two curve. Cutting the left or right node gives two nonisomorphic points of the same source Mbar_1,1 × Mbar_2,2 (g1=1,g2=2,H empty,K={1}) with isomorphic glued targets. The first factors have different j-invariants. A closed immersion is a monomorphism, so these two geometric preimages refute the stated conclusion. This verifies the counterexample, not novelty or the absence of an erratum.",
+        "by": "REV-DESIGN-StableReductionPartII"
+      }
     },
     {
       "id": "StableReductionPartII/E4",
@@ -32005,7 +32020,12 @@
         "Read author manuscript p.45 and the routed item83.",
         "Annals article page checked; candidate publisher PDF404 and Euclid returned non-PDF, so no published-text collation is claimed.",
         "ArXiv v4 predates the21August2024 manuscript; no later author version verified."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed for the hash-identified 21 August 2024 author manuscript, §3.1.4 p.45. A constant smooth genus-at-least-two family over A1 has constant moduli map; its finite-cover components still have dimension one, whereas their images in the chosen moduli cover have dimension zero. Thus closing the moduli image does not compactify the base. Retaining the base coordinate and normalizing the graph in the finite cover function field fixes the construction. No verdict on uncollated published wording is made.",
+        "by": "REV-DESIGN-StableReductionPartII"
+      }
     },
     {
       "id": "StableReductionPartII/E5",
@@ -32019,7 +32039,12 @@
       "known": "Previously recorded and independently confirmed in PAPER-YUAN-26/E7 and ERRATA-PAPER-YUAN-26/E4; no published correction verified",
       "searched": [
         "Read data/source-issues.json entries for the exact owner PAPER-YUAN-26 and the paper extraction; publisher acquisition failed as stated in sourceVersions."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed for the same author manuscript, §1.6 p.16. A rational component with one self-node attached to an elliptic component has normalization P1 with three node flags, so its dualizing degree is one; the elliptic component has degree one as well. The total arithmetic genus is two and the nodal curve is stable, though the rational component meets the other component only once. Count normalization flags, or restrict the displayed intersection wording to nonsingular rational components. The published version was not collated here.",
+        "by": "REV-DESIGN-StableReductionPartII"
+      }
     },
     {
       "id": "StableReductionPartII/E6",
@@ -32033,7 +32058,12 @@
       "known": "Corrected in the later NSF-deposited author copy,PDF1,https://par.nsf.gov/servlets/purl/10585475",
       "searched": [
         "Compared full introductions in2021 author copy and43-page NSF copy; the latter is not asserted to be the publisher’s version of record."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as a correction documented by the two author copies: the 2021 introduction p.1 includes smooth for the coarse scheme, while the NSF-deposited copy p.1 removes it. Smoothness of the stable stack alone does not imply smoothness of its coarse space. This confirmation is scoped to the author-copy claim and the documented correction; the publisher version was not inspected.",
+        "by": "REV-DESIGN-StableReductionPartII"
+      }
     },
     {
       "id": "StableReductionPartII/E7",
@@ -32047,13 +32077,18 @@
       "known": "Corrected in the later NSF-deposited author copy,Lemma1.5 proof,PDF4–6",
       "searched": [
         "Read2021 pp.4–5 and NSF pp.4–5;PDF6 was subsequently read in full, including the cocycle/norm compatibility."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in the 2021 author copy, Lemma 1.5 proof p.4, and the replacement proof in the NSF copy pp.4–6. For a nontrivial tame mu_N, character lines on Bmu_N all pull back to the trivial line on Spec k, so forgetting equivariance need not inject Pic(X) into Pic(U). The replacement keeps the groupoid descent datum and checks the norm cocycle. No claim about an uninspected publisher copy is made.",
+        "by": "REV-DESIGN-StableReductionPartII"
+      }
     },
     {
       "id": "StableReductionPartII/E8",
       "source": "clm",
       "kind": "gap",
-      "locator": "Lemma7.1 proof,p.29,1July2021 author manuscript",
+      "locator": "Lemma7.1 proof,p.30 (lemma begins p.29),1July2021 author manuscript; NSF Lemma1.44 proof,PDF39",
       "printed": "The source deduces that S is Noetherian from its finite map to M_g.",
       "correction": "Require finite type/noetherian source explicitly before applying relative Serre vanishing.",
       "reason": "The assumption is finite fibres of the classifying map; finite fibres alone do not imply a finite morphism or a noetherian source. The later NSF copy p.39 supplies finite type instead.",
@@ -32061,7 +32096,12 @@
       "known": "Corrected in the later NSF-deposited author copy,Lemma1.44 proof,PDF39",
       "searched": [
         "Compared2021 Lemma7.1 proof and NSF Lemma1.44 proof. The node in this packet assumes proper finite-type S."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in the 2021 author copy, Lemma 7.1 proof p.30 (the lemma begins on p.29). Finite geometric fibres do not imply a finite morphism: for example a morphism from Spec C(t) to Spec C has one geometric point in its fibre but is not finite type. The NSF Lemma 1.44 proof p.39 invokes finite type, and its theorem assumptions must be retained before using relative Serre vanishing. This is scoped to the two author copies.",
+        "by": "REV-DESIGN-StableReductionPartII"
+      }
     },
     {
       "id": "StableReductionPartII/E9",
@@ -32076,7 +32116,12 @@
       "searched": [
         "Compared2021 p.25 with the later NSF p.33, rendered to check the star position.",
         "Bounded search for Cheng–Lian–Murayama projectivity erratum on2026-10-02 found no exact correction. Publisher version not identified; finding scoped to these author copies."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in the 2021 copy p.25 and visually in the NSF copy p.33: for b:S→Sprime the printed pushforward has its sheaf on Sprime and its result on S, so it is ill-typed. Interpreting the star as pullback instead would miss the exceptional divisor of a (-1)-curve contraction. The intended pluricanonical pushforward comparison is the needed statement; its proof remains a separately recorded supplier obligation. No publisher-version or novelty certification is made.",
+        "by": "REV-DESIGN-StableReductionPartII"
+      }
     },
     {
       "id": "StableReductionPartII/E10",
@@ -32091,7 +32136,12 @@
       "searched": [
         "Compared both author-copy proof endings and their correctly stated determinant-ample lemma.",
         "Bounded projectivity erratum search2026-10-02 found no exact correction; no assertion about an unread publisher text."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in the 2021 Lemma 7.1 proof p.30 and NSF Lemma 1.44 proof p.40. The lemma statement concerns det(f_*omega^(3d)), and the invoked ampleness lemma supplies ampleness of the determinant of the quotient. Its invocation does not supply vector-bundle ampleness. The intended determinant conclusion agrees with the roadmap. This is a proof-line misprint in these author copies, not a rejection of their projectivity theorem.",
+        "by": "REV-DESIGN-StableReductionPartII"
+      }
     },
     {
       "id": "StableReductionPartII/E11",
@@ -32107,7 +32157,12 @@
         "2026-10-03: arXiv submission history lists v1(2011),v2(2012),v3(2013); read latest v3 PDF5.",
         "Publisher DOI-indexed §2.3 text reproduces the assertion; direct ScienceDirect and DOI opens fail403/internal error. No publisher PDF or journal correction archive was accessible.",
         "Bounded title/author plus erratum,corrigendum,correction searches and author BI publication list found no exact correction. Novelty and the counterexample require independent review."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed visually in arXiv:1110.3909v3 §2.3 p.5: Hom is underlined, and the stable category is all coherent modules modulo maps through coherent projectives. For A=Z, M=Z/2 and N=Z, the first syzygy 2Z is itself coherent projective, so every map from it to Z has zero stable class. The free resolution with multiplication by 2 gives Ext^1_Z(Z/2,Z)=Z/2, which is nonzero. Thus the unrestricted displayed isomorphism fails. This confirmation is scoped to v3; neither the publisher text nor novelty was independently verified.",
+        "by": "REV-DESIGN-StableReductionPartII"
+      }
     }
   ],
   "sourceVersions": [
