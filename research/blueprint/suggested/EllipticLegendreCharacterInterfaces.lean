@@ -66,6 +66,17 @@ instance scaledLegendre_elliptic (d lam : K) [NeZero (2:K)] [NeZero d]
     [NeZero lam] [NeZero (lam-1)] : (scaledLegendre d lam).IsElliptic := by sorry
 instance legendre_elliptic (lam : K) [NeZero (2:K)] [NeZero lam] [NeZero (lam-1)] :
     (legendre lam).IsElliptic := by sorry
+-- The generic instance asks for NeZero (lam-1); instance search does not
+-- simplify (-1)-1 to -2. This specialization supports the native mu signature.
+instance scaledLegendre_minus_one_elliptic [NeZero (2:K)] :
+    (scaledLegendre 1 (-1:K)).IsElliptic := by
+  apply (scaledLegendre_isElliptic_iff 1 (-1:K) (NeZero.ne 2)).mpr
+  refine ⟨by simp, by simp, ?_⟩
+  intro h
+  apply NeZero.ne (2:K)
+  calc
+    (2:K) = 1 - (-1) := by ring
+    _ = 0 := by rw [h, sub_self]
 lemma legendre_j (lam : K) [(legendre lam).IsElliptic] :
     (legendre lam).j=256*(lam^2-lam+1)^3/(lam^2*(1-lam)^2) := by sorry
 lemma scaledLegendre_j (d lam : K) [(scaledLegendre d lam).IsElliptic]

@@ -118,7 +118,7 @@
         "ref": "mathlib:WeierstrassCurve.toCharNeTwoNF",
         "kind": "def",
         "module": "Mathlib/AlgebraicGeometry/EllipticCurve/NormalForms.lean",
-        "provides": "The canonical admissible variable change completing the square when 2 is nonzero; its resulting model has a₁=a₃=0.",
+        "provides": "The canonical admissible variable change completing the square when 2 is invertible in the coefficient ring; over a field this follows from 2≠0. Its resulting model has a₁=a₃=0.",
         "checked": "Statement and hypotheses read at the pinned source commit; source SHA-256 d9b961a91c4634bdac4d8a7a901efd1a694ccd81ce52f09c1bcf391b354aea2a; line 167."
       },
       {
@@ -393,6 +393,20 @@
         "module": "Mathlib/AlgebraicGeometry/EllipticCurve/Reduction.lean",
         "provides": "An existing minimal local Weierstrass equation obtained by an admissible change over the fraction field of a DVR, with an IsMinimal instance. Its coefficient model is not asserted equal to the original displayed equation.",
         "checked": "Full minimal-model statement and surrounding hypotheses read at Mathlib 082e2d3, Reduction.lean lines 268–306."
+      },
+      {
+        "ref": "tauceti:WeierstrassCurve.Affine.μ₀_some",
+        "kind": "lemma",
+        "module": "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/XSubT.lean",
+        "provides": "On a nonsingular affine point, μ₀(some x y h)=μX x. Together with μ_apply this connects the group homomorphism to either coordinate representative.",
+        "checked": "Statement, namespace and surrounding hypotheses independently read at the pinned commit on 2026-10-05; source SHA-256 6c87264ac862685e883690e43d06b483e11794fdc352b128c542e88f5c96cfc6; line 625."
+      },
+      {
+        "ref": "mathlib:QuotientGroup.eq_one_iff",
+        "kind": "theorem",
+        "module": "Mathlib/GroupTheory/QuotientGroup/Defs.lean",
+        "provides": "For a normal subgroup N, the quotient class of g equals 1 iff g∈N. Applied to the range of squaring on field units, a nonzero representative has trivial squareclass iff it is a square.",
+        "checked": "Statement, namespace and surrounding hypotheses independently read at the pinned commit on 2026-10-05; source SHA-256 935efb53426fbcbfbfe2d1aefe6c267c039470d3e9118d8461c74e871b65dd31; line 120."
       }
     ],
     "auditStatus": "Reviewed data/library-coverage.json at 3a98a37da9242f48f2146b742cc4f18012b14c75 read first. No entry exists for this new roadmap. Relevant EllipticCurves Layers 2–6, CA.1 and BSD.0 entries were inspected; the descent map, its kernel, point counts, twist equations and torsion counts are reused rather than planned."
@@ -1554,6 +1568,7 @@
         "K is a field; 2≠0; d≠0; λ≠0,1; root order is 0,d,dλ."
       ],
       "proofSteps": [
+        "Use native μ_apply followed by μ₀_some to pass from μ of the affine point to μX of its x-coordinate; the coordinate lemma is an explicit baseline prerequisite.",
         "The factored cubic is nonzero at x, so native μX uses its nonroot representative x−θ.",
         "Apply the CRT evaluation and quotient-unit reading.",
         "At O use native μ_apply and μ₀_zero. This does not define a second Θ map."
@@ -1570,7 +1585,8 @@
         "tauceti:WeierstrassCurve.Affine.μX_of_eval_f_ne_zero",
         "tauceti:WeierstrassCurve.Affine.μ₀_zero",
         "EllipticLegendreCharacterInterfaces:LG.2/split-cubic-evaluation",
-        "EllipticLegendreCharacterInterfaces:LG.2/split-squareclass-unit-reading"
+        "EllipticLegendreCharacterInterfaces:LG.2/split-squareclass-unit-reading",
+        "tauceti:WeierstrassCurve.Affine.μ₀_some"
       ],
       "sources": [
         {
@@ -1605,6 +1621,7 @@
         "K is a field; 2≠0; d≠0; λ≠0,1; root order is 0,d,dλ."
       ],
       "proofSteps": [
+        "Use native μ_apply followed by μ₀_some to pass from μ of the affine point to μX of its x-coordinate; the coordinate lemma is an explicit baseline prerequisite.",
         "At a root r native μX uses r−θ+fCofactor(r), not r−θ alone.",
         "At its own root evaluation fCofactor(r)(r)=f′(r)=∏_{s≠r}(r−s); at other roots the cofactor vanishes and r−s remains.",
         "Compute the displayed three tuples in declared CRT order; units follow from distinct roots."
@@ -1620,7 +1637,8 @@
         "tauceti:WeierstrassCurve.Affine.μX_of_eval_f_eq_zero",
         "tauceti:WeierstrassCurve.Affine.μ_apply",
         "EllipticLegendreCharacterInterfaces:LG.2/split-cubic-evaluation",
-        "EllipticLegendreCharacterInterfaces:LG.2/split-squareclass-unit-reading"
+        "EllipticLegendreCharacterInterfaces:LG.2/split-squareclass-unit-reading",
+        "tauceti:WeierstrassCurve.Affine.μ₀_some"
       ],
       "sources": [
         {
@@ -1658,9 +1676,9 @@
         "K is a field; 2≠0; d≠0; λ≠0,1; root order is 0,d,dλ."
       ],
       "proofSteps": [
-        "The algebra norm in a split cubic is the product of the three evaluations.",
-        "Native normM_μ₀_eq_one states that μ(P) has trivial norm squareclass.",
-        "Transport this statement along the CRT and quotient equivalences."
+        "For O, use native μ_apply and μ₀_zero and the multiplicative equivalence, so all three classes are 1.",
+        "For a point away from the roots, descent-off-roots gives representatives x,x−d,x−dλ. Their product is y² by the scaled equation, and y≠0, so its unit squareclass is 1.",
+        "At T₀,T_d,T_dλ, descent-at-root gives representative products d⁴λ², d⁴(1−λ)², d⁴λ²(λ−1)² respectively. Each is a nonzero square. The native normM_μ₀_eq_one gives the matching general norm condition; the coordinate proof does not assume an unstated split-norm comparison."
       ],
       "acceptance": [
         "At T₀ the product of the representatives is d⁴λ²; it is a nonzero square."
@@ -1669,7 +1687,11 @@
         "EllipticLegendreCharacterInterfaces:LG.2/split-squareclass-equivalence",
         "EllipticLegendreCharacterInterfaces:LG.2/split-cubic-crt",
         "tauceti:WeierstrassCurve.Affine.normM_μ₀_eq_one",
-        "tauceti:WeierstrassCurve.Affine.μ_apply"
+        "tauceti:WeierstrassCurve.Affine.μ_apply",
+        "EllipticLegendreCharacterInterfaces:LG.2/descent-off-roots",
+        "EllipticLegendreCharacterInterfaces:LG.2/descent-at-root",
+        "tauceti:WeierstrassCurve.Affine.μ₀_zero",
+        "EllipticLegendreCharacterInterfaces:LG.0/scaled-legendre-model"
       ],
       "sources": [
         {
@@ -1705,7 +1727,7 @@
       ],
       "proofSteps": [
         "Native ker_μ_eq gives halving iff μ(P)=1. Apply the split squareclass equivalence.",
-        "Away from the roots, use descent-off-roots and the unit squareclass criterion.",
+        "Away from the roots, use descent-off-roots. QuotientGroup.eq_one_iff says a unit class is trivial iff its representative lies in the range of squaring; a nonzero field square has a nonzero square root, hence a unit square root.",
         "At a root exactly one difference is zero. The other two classes are explicit and the root component is their product, so their being squares is equivalent to all three split classes being trivial. Zero is a square in the field, but it is never a unit representative."
       ],
       "acceptance": [
@@ -1715,7 +1737,8 @@
         "EllipticLegendreCharacterInterfaces:LG.2/descent-off-roots",
         "EllipticLegendreCharacterInterfaces:LG.2/descent-at-root",
         "EllipticLegendreCharacterInterfaces:LG.2/split-squareclass-equivalence",
-        "tauceti:WeierstrassCurve.Affine.ker_μ_eq"
+        "tauceti:WeierstrassCurve.Affine.ker_μ_eq",
+        "mathlib:QuotientGroup.eq_one_iff"
       ],
       "sources": [
         {
@@ -2665,6 +2688,11 @@
         "verdict": "confirmed",
         "reason": "Confirmed independently by symbolic curve membership and denominator-cleared doubling identities modulo i²+1 and 2t²+2v²−1. Also checked all 2,504 admissible nonzero tuples for p<200, p≡5 mod8; the printed point is off the curve in 2,472 cases, and every corrected point doubles as required. These finite examples test the coordinate identity, not the full global hypotheses of Lemma 6.6.",
         "by": "REV-ERRATA-PAPER-BENNETT-SIKSEK-20"
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently reread the publisher PDF (matching SHA-256), p.371. At p=5,t=v=2,i=3,λ=3 the printed point is (4,4) and fails the equation. With r=2t,s=2iv, r²−s²=2, the corrected coordinates (r²+rs,rs(r+s)) satisfy the equation identically and native tangent doubling has slope r+s and gives (r²,0). This verifies the local identity and preserves the third descent coordinate; it does not use the finite example as a solution of the lemma’s global progression hypotheses.",
+        "by": "REV-DESIGN-EllipticLegendreCharacterInterfaces"
       }
     }
   ],
@@ -2703,5 +2731,198 @@
       "detail": "The reviewed extraction notes this equation-specific Part II is thin beside the other elliptic Part IIs. It has distinct ownership: Legendre coordinates and finite-field torsion, not generic twists or BSD.",
       "proposal": "Keep this current six-layer equation-interface plan and its ids; consider an organizational merge of the elliptic Part IIs in a maintainer-selected restructuring while retaining these six layer owners and generic BSD.0 boundaries. No change to the existing Tau Ceti roadmap is proposed."
     }
-  ]
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-DESIGN-EllipticLegendreCharacterInterfaces",
+    "date": "2026-10-05",
+    "notes": "Independent mathematical review of all 37 nodes, all 54 original pinned declarations and two added baseline declarations, the roadmap definition, 33 API items, 27 tests, 19 planets, three exact supplier requests and one source finding. Corrected five node/prototype interfaces: native affine coordinate conversion, explicit quotient squareclass membership, direct-case descent-product proof, and symbolic minus-one ellipticity. Clarified the general-ring invertibility requirement of toCharNeTwoNF. No new nodes or changed target statements. All six layers remain planned with four honest gaps; full native elaboration is unavailable because the shared build lacks the imported Tau Ceti objects. The Mathlib projection elaborates with 61 admission warnings only.",
+    "checked": [
+      {
+        "nodeId": "EllipticLegendreCharacterInterfaces:LG.0/legendre-model",
+        "verdict": "verified",
+        "note": "Published equation (17), p.367; five native coefficients, ring-map compatibility and all four rational/boundary tests checked."
+      },
+      {
+        "nodeId": "EllipticLegendreCharacterInterfaces:LG.0/scaled-legendre-model",
+        "verdict": "verified",
+        "note": "Published twist-by-two equation, p.371; d,d² coefficient scaling and native twist discriminant d checked, including d=0."
+      },
+      {
+        "nodeId": "EllipticLegendreCharacterInterfaces:LG.0/legendre-parameters",
+        "verdict": "verified",
+        "note": "Six published ratios, p.368; all labels and coincidences at −1,2,1/2 checked; ordered-root adapter is separate from ModularCurves 9E."
+      },
+      {
+        "nodeId": "EllipticLegendreCharacterInterfaces:LG.0/legendre-invariants",
+        "verdict": "verified",
+        "note": "Direct substitution into pinned b-invariants gives the displayed Δ,c₄,j; field ellipticity excludes characteristic 2 and λ=0,1."
+      },
+      {
+        "nodeId": "EllipticLegendreCharacterInterfaces:LG.0/scaled-invariants",
+        "verdict": "verified",
+        "note": "Same coefficient computation and pinned native twist invariants give d⁶,d² and unchanged j; d=0 is singular."
+      },
+      {
+        "nodeId": "EllipticLegendreCharacterInterfaces:LG.0/parameters-from-root-orderings",
+        "verdict": "verified",
+        "note": "All six displayed root orders give the claimed ratios by cancellation of nonzero differences; rational regression checks labels and boundary exclusions."
+      },
+      {
+        "nodeId": "EllipticLegendreCharacterInterfaces:LG.0/split-normalization",
+        "verdict": "verified",
+        "note": "Pinned VariableChange action uses old x=new x+e₀; comparing cubic coefficients gives d=e₁−e₀ and λ=(e₂−e₀)/d without assuming a rational square root of d."
+      },
+      {
+        "nodeId": "EllipticLegendreCharacterInterfaces:LG.0/full-two-torsion-normalization",
+        "verdict": "verified",
+        "note": "Pinned completion of the square, native point equivalence, two-torsion root count and separability provide three distinct roots and the split factorization over ℚ."
+      },
+      {
+        "nodeId": "EllipticLegendreCharacterInterfaces:LG.0/legendre-two-torsion",
+        "verdict": "verified",
+        "note": "Distinct roots are nonsingular on the elliptic native model; each root point doubles to O, and their horizontal-line sum is O. All three labelled tests checked."
+      },
+      {
+        "nodeId": "EllipticLegendreCharacterInterfaces:LG.0/scaled-legendre-twist-identity",
+        "verdict": "verified",
+        "note": "All five coefficients of native quadraticTwistOf at (0,−d/4) agree; the discriminant parameter is d, not 4d."
+      },
+      {
+        "nodeId": "EllipticLegendreCharacterInterfaces:LG.0/legendre-two-torsion-exhausts",
+        "verdict": "verified",
+        "note": "Pinned y_eq_zero_of_order_two forces every affine double-kernel point onto a root; native point constructors distinguish them from O."
+      },
+      {
+        "nodeId": "EllipticLegendreCharacterInterfaces:LG.1/legendre-j-valuation",
+        "verdict": "verified",
+        "note": "Unequal-valuation calculation gives the three cases including p=3; rational numerator λ²−λ+1 is nonzero. Good j means integral, not necessarily a unit."
+      },
+      {
+        "nodeId": "EllipticLegendreCharacterInterfaces:LG.1/good-prime-units",
+        "verdict": "verified",
+        "note": "Published Lemma 6.2(i) and the direct j calculation agree. Minimal-model good reduction, twist j-invariance and every root ordering are separated; exact local supplier request remains."
+      },
+      {
+        "nodeId": "EllipticLegendreCharacterInterfaces:LG.1/legendre-good-model",
+        "verdict": "verified",
+        "note": "Integral coefficients and unit discriminant follow from the two unit hypotheses at an odd prime. Generic ℚ_p/unit/reduction bridge is explicitly requested."
+      },
+      {
+        "nodeId": "EllipticLegendreCharacterInterfaces:LG.1/character-odd-support",
+        "verdict": "verified",
+        "note": "CA.1 squareclass-character node states odd support by valuation parity and includes conductor 1. Every allowed ω is an odd-prime unit, so good-prime units prove support containment."
+      },
+      {
+        "nodeId": "EllipticLegendreCharacterInterfaces:LG.1/character-conductor-divides",
+        "verdict": "verified",
+        "note": "Published Lemma 6.2(ii); squarefree odd character conductor plus the exact R01.3 support request prove divisibility. Actual conductor is not replaced by a discriminant or Ogg exponent."
+      },
+      {
+        "nodeId": "EllipticLegendreCharacterInterfaces:LG.2/split-cubic-crt",
+        "verdict": "verified",
+        "note": "Pinned native one-root CRT plus polynomial CRT and evaluation quotients give A≃K×K×K in the declared order; coprimality follows from distinct roots."
+      },
+      {
+        "nodeId": "EllipticLegendreCharacterInterfaces:LG.2/split-squareclass-equivalence",
+        "verdict": "verified",
+        "note": "Units and squares transport through the ring equivalence and its inverse. The quotient map is native QuotientGroup.map; no second generic descent or squareclass theory is planned."
+      },
+      {
+        "nodeId": "EllipticLegendreCharacterInterfaces:LG.2/descent-off-roots",
+        "verdict": "corrected",
+        "note": "Added native μ₀_some citation and explicit μ→μ₀→μX passage before evaluating x−θ. Nonzero differences and O branch checked."
+      },
+      {
+        "nodeId": "EllipticLegendreCharacterInterfaces:LG.2/descent-at-root",
+        "verdict": "corrected",
+        "note": "Added native μ₀_some citation. The corrected root representative evaluates to f′(r) at r and r−s at other roots; all three sign-sensitive tuples agree with the source cases."
+      },
+      {
+        "nodeId": "EllipticLegendreCharacterInterfaces:LG.2/descent-product",
+        "verdict": "corrected",
+        "note": "Replaced the unlisted split-norm compatibility step by direct nonroot/root/O cases using explicit prerequisites. Products are y², d⁴λ², d⁴(1−λ)² and d⁴λ²(λ−1)²."
+      },
+      {
+        "nodeId": "EllipticLegendreCharacterInterfaces:LG.2/halving-square-criterion",
+        "verdict": "corrected",
+        "note": "Added QuotientGroup.eq_one_iff as the precise unit-squareclass criterion; checked both nonroot and root branches, where zero is a field square but never a unit representative."
+      },
+      {
+        "nodeId": "EllipticLegendreCharacterInterfaces:LG.3/two-by-four-subgroup",
+        "verdict": "verified",
+        "note": "Published Lemma 6.3: −1 nonsquare ensures one of the two root points is a double. A half has order 4 and an independent root point supplies Z/2×Z/4; count comparison is native."
+      },
+      {
+        "nodeId": "EllipticLegendreCharacterInterfaces:LG.3/minus-one-order-four",
+        "verdict": "verified",
+        "note": "Published (i,1−i) witness, p.370; direct membership, nonzero tangent denominator and the two F₅ coordinate tests checked."
+      },
+      {
+        "nodeId": "EllipticLegendreCharacterInterfaces:LG.3/minus-one-no-order-eight",
+        "verdict": "verified",
+        "note": "Published Lemma 6.5 proof: only (0,0) is divisible, its four halves have first class [i], and Euler’s criterion makes i nonsquare at p≡5 mod8."
+      },
+      {
+        "nodeId": "EllipticLegendreCharacterInterfaces:LG.3/minus-one-point-count",
+        "verdict": "verified",
+        "note": "Finite-abelian structure plus four two-torsion points and the no-order-eight result gives at most Z/4×Z/4; nonhalving of (±1,0) rules out that order-16 case, leaving exact valuation 3."
+      },
+      {
+        "nodeId": "EllipticLegendreCharacterInterfaces:LG.4/twist-halving-point",
+        "verdict": "verified",
+        "note": "Published p.371 display independently corrected: r=2t,s=2iv give x=r²+rs,y=rs(r+s), r²−s²=2. Membership and y≠0 hold under the stated field hypotheses; all four tests checked."
+      },
+      {
+        "nodeId": "EllipticLegendreCharacterInterfaces:LG.4/twist-halving-double",
+        "verdict": "verified",
+        "note": "Denominator-cleared tangent numerator is 2rs(r+s)², slope r+s; native doubling gives (r²,0). Universal polynomial identities independently checked."
+      },
+      {
+        "nodeId": "EllipticLegendreCharacterInterfaces:LG.4/twist-halving-order",
+        "verdict": "verified",
+        "note": "Its double is the nonzero labelled root point (2λ,0), whose double is O, so exact order is 4."
+      },
+      {
+        "nodeId": "EllipticLegendreCharacterInterfaces:LG.4/twist-halving-descent",
+        "verdict": "verified",
+        "note": "The nonzero third difference is 4itv, unchanged by the y correction. The nonroot descent formula supplies its unit squareclass."
+      },
+      {
+        "nodeId": "EllipticLegendreCharacterInterfaces:LG.5/symmetric-cubic-trace-zero",
+        "verdict": "verified",
+        "note": "Published symmetric equation in Lemma 5.2 proof, p.366; direct square-root counting and x↦−x character cancellation give count p+1 and trace 0, including p=3."
+      },
+      {
+        "nodeId": "EllipticLegendreCharacterInterfaces:LG.5/twist-euler-factor-specialization",
+        "verdict": "verified",
+        "note": "Published twist-by-two trace sign, p.371; exact BSD.0 generic comparison request and coefficient twist identity specialize the native trace normalization. Square scalars and d=2 checked."
+      },
+      {
+        "nodeId": "EllipticLegendreCharacterInterfaces:LG.2/split-cubic-evaluation",
+        "verdict": "verified",
+        "note": "Successive pinned CRT evaluation lemmas give (h(0),h(d),h(dλ)), including constants and the native root."
+      },
+      {
+        "nodeId": "EllipticLegendreCharacterInterfaces:LG.2/split-squareclass-unit-reading",
+        "verdict": "verified",
+        "note": "Native quotient maps applied to CRT units give the three classes; the constant 4/2 tests distinguish a square from a nontrivial rational squareclass."
+      },
+      {
+        "nodeId": "EllipticLegendreCharacterInterfaces:LG.3/minus-one-double",
+        "verdict": "verified",
+        "note": "Published doubling equation, p.370; native tangent formula has nonzero denominator 2(1−i) and gives (0,0)."
+      },
+      {
+        "nodeId": "EllipticLegendreCharacterInterfaces:LG.3/minus-one-order",
+        "verdict": "verified",
+        "note": "Native double is nonzero and killed by 2, so order is exactly 4; matches the published order-four list."
+      },
+      {
+        "nodeId": "EllipticLegendreCharacterInterfaces:LG.3/minus-one-first-descent",
+        "verdict": "corrected",
+        "note": "Mathematical first class [i] checked against the source and nonroot reading. Added an explicit scaled minus-one ellipticity instance in the suggested file after reproducing a symbolic instance-resolution failure."
+      }
+    ]
+  }
 }
