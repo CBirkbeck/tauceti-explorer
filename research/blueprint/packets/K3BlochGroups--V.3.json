@@ -129,6 +129,20 @@
         "module": "Mathlib/Algebra/Group/TypeTags/Basic.lean",
         "provides": "The standard type tag converting multiplicative commutative groups into additive groups; used for Fˣ.",
         "checked": "Statement read at the pinned commit, Mathlib/Algebra/Group/TypeTags/Basic.lean:42. Generated additive twin also checked through elaboration where applicable."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.QuasiCompact",
+        "kind": "class",
+        "module": "Mathlib/AlgebraicGeometry/Morphisms/QuasiCompact.lean",
+        "provides": "The preimages of compact open subsets under a scheme morphism are compact. Together with smoothness (locally of finite presentation), this restricts the curve carrier to finite type.",
+        "checked": "Statement read independently at the pinned Mathlib commit, Mathlib/AlgebraicGeometry/Morphisms/QuasiCompact.lean:43; added by REV-K3BlochGroups--V.3."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.IsSeparated",
+        "kind": "class",
+        "module": "Mathlib/AlgebraicGeometry/Morphisms/Separated.lean",
+        "provides": "A scheme morphism has closed-immersion diagonal. The relative predicate restricts the smooth-curve carrier to separated algebraic curves.",
+        "checked": "Statement read independently at the pinned Mathlib commit, Mathlib/AlgebraicGeometry/Morphisms/Separated.lean:44; added by REV-K3BlochGroups--V.3."
       }
     ],
     "searches": [
@@ -166,7 +180,13 @@
         "Lecture 6 §6.1, p. 43, equation (6.1.2)",
         "Lecture 7 §7.2, pp. 51–54",
         "Lecture 7 §7.4, pp. 57–60, especially Lemma 7.4.3"
-      ]
+      ],
+      "reviewAccess": {
+        "by": "REV-K3BlochGroups--V.3",
+        "date": "2026-10-05",
+        "sha256": "4fdc485ec5431ea302bd1f2d1fff267541de2c8c28625054933f179b7056a44d",
+        "note": "The independently fetched dynamic HTML has a different byte hash from the author’s recorded fetch. The §6.1 p.43 definition, boundary formula and short excerpt agree. The original fetch hash is retained as provenance."
+      }
     },
     {
       "id": "Goncharov1995",
@@ -181,7 +201,12 @@
         "§1.8 pp. 217–219: the weight-two boundary and the wedge convention",
         "§1.9 pp. 221–225: smooth-curve specializations and Conjecture 1.20",
         "§2.3 pp. 253–255: generic cross-ratio five-term presentation"
-      ]
+      ],
+      "reviewAccess": {
+        "by": "REV-K3BlochGroups--V.3",
+        "date": "2026-10-05",
+        "sha256": "434fd9093d2e27e96fae240f8f591ca532baa2f9cc7cdfeb8bc087f5235f5344"
+      }
     },
     {
       "id": "Goncharov1991",
@@ -193,7 +218,12 @@
       "sha256": "4b918d5b77b86d129c1d5f2d0d1e948c83a723b2a551319cb54e6507547f701f",
       "readSections": [
         "§§1.8–1.9 and 2.3: searchable counterpart of the published passages"
-      ]
+      ],
+      "reviewAccess": {
+        "by": "REV-K3BlochGroups--V.3",
+        "date": "2026-10-05",
+        "sha256": "4b918d5b77b86d129c1d5f2d0d1e948c83a723b2a551319cb54e6507547f701f"
+      }
     },
     {
       "id": "CGZ2023",
@@ -207,7 +237,12 @@
         "Definition 1.1 and equations (1)–(4), pp. 384–385",
         "§2.1 pp. 390–392, Definition 2.1, equation (21), Lemma 2.2 and proof",
         "Acknowledgements: correction of the earlier definition"
-      ]
+      ],
+      "reviewAccess": {
+        "by": "REV-K3BlochGroups--V.3",
+        "date": "2026-10-05",
+        "sha256": "8003ee09bfec725127f4b5c2058c5516834a91a160d9c4428d962b1e5a1f0212"
+      }
     }
   ],
   "nodes": [
@@ -232,7 +267,8 @@
         "mathlib:FreeAbelianGroup.lift",
         "mathlib:TensorProduct",
         "mathlib:MonoidHom.ker",
-        "mathlib:Additive"
+        "mathlib:Additive",
+        "mathlib:TensorProduct.map"
       ],
       "acceptance": [
         "The F₃ kernel is 2ℤ inside ℤ[−1].",
@@ -637,12 +673,13 @@
         "F is a field.",
         "u,v are F-rational points, not geometric points over an unspecified extension.",
         "Specializations take zeros to 0 and poles to ∞.",
-        "All smooth connected curves occur; F(t) alone is a different relation set."
+        "All smooth connected curves occur; F(t) alone is a different relation set.",
+        "Curve has its usual algebraic meaning: separated and of finite type over F; smoothness has relative dimension one. The integral carrier expresses connectedness in this smooth setting."
       ],
       "proofSteps": [
-        "Use the Mathlib smooth-relative-dimension, integral-scheme and function-field carriers. Import the canonical projective specialization at rational points from the AlgebraicCurves dictionary; it is an explicit outstanding request, not a new curve theory planned here.",
+        "Use the Mathlib smooth-relative-dimension, integral-scheme and function-field carriers. Import the canonical projective specialization at rational points from the AlgebraicCurves dictionary; it is an explicit outstanding request, not a new curve theory planned here. The suggested bundle also requires quasi-compactness and separatedness of the structure morphism; smoothness gives local finite presentation, so these are finite-type algebraic curves.",
         "Use Finsupp over ℚ for V_F and the tensor product for W_F. The relation subspace is the span of the displayed degenerate generators and all specialized cycle differences.",
-        "The rational version agrees with rationalizing the source’s integral cycle-difference relations: any rational cycle can be multiplied by a common denominator to become an integral cycle, by flatness of ℚ.",
+        "The rational version agrees with rationalizing the source’s integral cycle-difference relations. Clear the finitely many coefficients of a rational cycle to obtain an integral symbol sum β. Its integral boundary may still be torsion: zero after tensoring with ℚ means some nonzero integer m kills that boundary. Thus mβ is an integral cycle. Conversely integral cycles rationalize to rational cycles. Equivalently, flatness of ℚ identifies the rationalized integral kernel with the rational boundary kernel.",
         "Taking X=P¹ and the cycle [t]+[1−t], specializing at 0 and ∞ and using the two degenerate generators gives [1]∈R_curv^ℚ. This also pins the rationalization convention independently of (1.25a)’s typography."
       ],
       "prerequisites": [
@@ -652,7 +689,11 @@
         "mathlib:AlgebraicGeometry.IsIntegral",
         "mathlib:AlgebraicGeometry.SmoothOfRelativeDimension",
         "mathlib:Module.Flat.lTensor_exact",
-        "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts"
+        "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts",
+        "K3BlochGroups:V.3/antisymmetric-tensor-quotient",
+        "mathlib:TensorProduct",
+        "mathlib:AlgebraicGeometry.QuasiCompact",
+        "mathlib:AlgebraicGeometry.IsSeparated"
       ],
       "acceptance": [
         "The definition is rational and quantifies over all curves.",
@@ -822,22 +863,20 @@
       "statement": "For every field F the identity on symbols induces a surjection ψ:P(F)⊗ℚ→G₂^curv(F), compatible with δ_curv=−∂_ℚ. Let R_red=spanℚ([0],[1],[∞])+R₅⊗ℚ inside V_F and K_curv=R_curv^ℚ/R_red. Then ker ψ≅K_curv and coker ψ=0. Because K_curv consists of cycles, ψ restricts to a surjection B(F)⊗ℚ→ker δ_curv with the same kernel K_curv. Over F₃, canonical projective-line inversion gives class(−1)+class(−1)=0, so G₂^curv(F₃)=0 and K_curv≅ℚ, whereas P(F₃)⊗ℚ≅ℚ. Over F₂ both groups and K_curv are zero. Thus an all-field isomorphism is false, and any relation-equality theorem must respect small-field exceptions. No bound by 2, 3 or 6 can dispose of a nonzero rational vector-space kernel. For fields with at least four elements, the statement K_curv=0 is the rational weight-two instance of Conjecture 1.20 in the source; this pass has not established it. The separate F(t)-inductive comparison for infinite fields is imported from Polylogarithms:P.4/explicit-to-inductive-comparison, and is not substituted for the all-curve assertion.",
       "hypotheses": [
         "F is a field.",
-        "All-curve specializations and the boundary closure are as in the preceding two nodes.",
-        "For the separate imported F(t) theorem, F is infinite as required by its supplier."
+        "All-curve specializations and the boundary closure are as in the preceding two nodes."
       ],
       "proofSteps": [
         "The degenerate symbols lie in R_curv^ℚ. For an admissible pair x,y, use on P¹ the free cycle R(1+t(x−1),y); its values at t=1 and t=0 are R(x,y) and [1]. This puts every R₅ generator into R_curv^ℚ, as claimed on p. 225.",
         "The inclusion R_red≤R_curv^ℚ gives a surjective linear quotient map. The quotient-of-quotient theorem identifies its exact kernel with R_curv^ℚ/R_red.",
         "Boundary compatibility follows on generators and hence everywhere. Since R_curv^ℚ is a cycle subspace, every preimage of a δ_curv-cycle is already a ∂_ℚ-cycle, proving surjectivity on kernels with the same kernel.",
-        "Record injectivity as a source-sensitive mathematical gap; use the P.4 theorem only for its explicitly different F(t) relation set."
+        "Record injectivity as a source-sensitive mathematical gap. The P.4 F(t)-inductive comparison is a related comparison with a different relation set and an infinite-field hypothesis; it is not a prerequisite of this quotient-map proof and does not discharge the gap."
       ],
       "prerequisites": [
         "K3BlochGroups:V.3/goncharov-generic-comparison",
         "K3BlochGroups:V.3/goncharov-curve-b2",
         "K3BlochGroups:V.3/goncharov-curve-boundary",
         "K3BlochGroups:V.3/bloch-group",
-        "mathlib:Submodule.mkQ",
-        "Polylogarithms:P.4/explicit-to-inductive-comparison"
+        "mathlib:Submodule.mkQ"
       ],
       "acceptance": [
         "For F₂ the rational generic group, curve group and correction are zero. For F₃ the rational generic group is ℚ, the curve group is zero by inversion antisymmetry, and K_curv≅ℚ. A relation-equality theorem needs a field-size qualification.",
@@ -859,7 +898,14 @@
       "library": {
         "module": "TauCeti/Algebra/KTheory/K3/BlochConventions",
         "namespace": "TauCeti.BlochConventions"
-      }
+      },
+      "relatedComparisons": [
+        {
+          "nodeId": "Polylogarithms:P.4/explicit-to-inductive-comparison",
+          "scope": "F(t)-inductive weight-two presentation over infinite fields",
+          "note": "Read to distinguish its relation set and field hypotheses; it is contextual, not an input to the all-curve quotient proof or evidence that K_curv vanishes."
+        }
+      ]
     },
     {
       "id": "K3BlochGroups:V.3/cgz-published-negative-tensor",
@@ -1434,7 +1480,7 @@
   "requests": [
     {
       "supplier": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts",
-      "need": "For an integral scheme X smooth of relative dimension one over Spec F and an F-rational section u, identify the local ring at u with a DVR having fraction field X.functionField and residue field F; supply canonical projective specialization F(X)→P¹(F), evaluation of regular functions and constants, zeros/poles, and its compatibility with the projective line and field embeddings. V.3 imports this geometry and uses Polylogarithms:P.4/specialization-and-delta for the algebraic cycle formula.",
+      "need": "For a separated finite-type integral scheme X smooth of relative dimension one over Spec F and an F-rational section u, identify the local ring at u with a DVR having fraction field X.functionField and residue field F; supply canonical projective specialization F(X)→P¹(F), evaluation of regular functions and constants, zeros/poles, and its compatibility with the projective line and field embeddings. V.3 imports this geometry and uses Polylogarithms:P.4/specialization-and-delta for the algebraic cycle formula. Layer 12A currently states its dictionary for proper regular curves. The requested local contract must also apply to the smooth open curves quantified over here, either directly or by a justified regular proper model and restriction; properness must not silently replace the all-curve relation set.",
       "neededBy": [
         "K3BlochGroups:V.3/goncharov-curve-b2",
         "K3BlochGroups:V.3/goncharov-curve-boundary",
@@ -1487,22 +1533,32 @@
         "2026-10-05: author-hosted published CGZ PDF pp. 390–392 and acknowledgements p. 424; no further field-size correction there.",
         "2026-10-05: Calegari research page https://math.uchicago.edu/~fcale/research.html and arXiv https://arxiv.org/abs/1712.04887 (latest listed version v3, 6 April 2021); no further small-field erratum found."
       ],
-      "source": "CGZ2023"
+      "source": "CGZ2023",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at published p.391: Lemma 2.2 has no field-size restriction. Independent enumeration of all admissible projective pairs and integer Smith reduction gives B_new(F₂)=ℤ/3 with classical B=0, and B_new(F₃)=0 with classical B=2ℤ. Thus both asserted all-field properties fail. The ≥4 theorem follows from the read inherited angle prerequisites; the published target is correctly Q_neg, distinct from the old version.",
+        "by": "REV-K3BlochGroups--V.3"
+      }
     },
     {
       "id": "K3BlochGroups/E102",
       "kind": "misprint",
-      "locator": "Goncharov 1995 §1.9, p. 222, equation (1.25a), read together with p. 221 inversion-cycle sentence and p. 224 Corollary 1.19",
+      "locator": "Goncharov 1995 §1.9, p. 222, equation (1.25a), read together with p. 224 Corollary 1.19",
       "printed": "𝓑_p(F)_ℚ = ℤ[P¹_F]/𝓡_p(F)",
-      "correction": "When the left side is rationalized, rationalize the quotient on the right as well: ℚ[P¹(F)]/𝓡_p(F)_ℚ. Interpret the accompanying weight-two inversion-cycle claim rationally; integrally δ([x]+[x⁻¹])=x∧(−x) can be nonzero 2-torsion.",
-      "reason": "The displayed right side is an abelian-group quotient, not automatically a ℚ-vector space. Corollary 1.19 explicitly uses the rational relation subspace in ℚ[P¹], and the surrounding motivic complex uses rational coefficients. At weight two the antisymmetric wedge defined on p. 218 retains diagonal 2-torsion, so the unqualified inversion-cycle sentence is not an integral cycle identity; e.g. the boundary of h(2) in P(F₅) is nonzero. The packet implements the consistently rational version and asserts no integral all-curve identification.",
+      "correction": "When the left side is rationalized, rationalize the quotient on the right as well: ℚ[P¹(F)]/𝓡_p(F)_ℚ.",
+      "reason": "The displayed right side is an abelian-group quotient, not automatically a ℚ-vector space. Corollary 1.19 explicitly uses the rational relation subspace in ℚ[P¹], and the surrounding motivic complex uses rational coefficients. The packet implements this consistently rational version. The separate unqualified integral inversion-cycle claim is recorded as E104.",
       "affects": "nothing",
       "known": "No separate published erratum found; the rational reading is explicit in the source’s Corollary 1.19 and its rational motivic formulation.",
       "searched": [
         "2026-10-05: published scan pp. 218 and 221–225 and MPIM 1991 preprint counterpart.",
         "2026-10-05: author publications page https://sasha-goncharov.github.io/ and its Advances1995.pdf link; no linked erratum to this display."
       ],
-      "source": "Goncharov1995"
+      "source": "Goncharov1995",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed by visually reading (1.25a) on p.222 and Corollary 1.19 on p.224. The left side is rationalized, whereas the displayed integral quotient on the right omits rationalization. The false integral inversion sentence is now separately E104, so this entry records only the coefficient misprint.",
+        "by": "REV-K3BlochGroups--V.3"
+      }
     },
     {
       "id": "K3BlochGroups/E103",
@@ -1518,7 +1574,32 @@
         "2026-10-05: published scan pp. 217–225, including the arbitrary-field scope and complete all-curve definition.",
         "2026-10-05: author publications page https://sasha-goncharov.github.io/ and its Advances1995.pdf link; no linked erratum.",
         "2026-10-05: searches for Goncharov Conjecture 1.20 finite-field qualification and published-paper erratum; no applicable correction located."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed with the literal arbitrary-field scope on p.217, reduced five-tuple presentation on p.218, and all-curve definition and Conjecture 1.20 on pp.221–225. P¹(F₃) has no injective five-tuple; projective-line specialization of the doubled inversion cycle kills 2[−1], and rationalization kills its only remaining generator. This is a counterexample to the stated conjectural equality for that small-field convention, not a refutation of an infinite-field theorem.",
+        "by": "REV-K3BlochGroups--V.3"
+      }
+    },
+    {
+      "id": "K3BlochGroups/E104",
+      "source": "Goncharov1995",
+      "kind": "error",
+      "locator": "Goncharov 1995 §1.9, p. 221, sentence after the definition of A_p(F); weight p=2 with the antisymmetric wedge convention on p. 218",
+      "printed": "{x}_p + (−1)^p{x⁻¹}_p ∈ A_p(F)",
+      "correction": "At weight two the inversion sum is a rational cycle; integrally its boundary may be nonzero 2-torsion. Twice that sum is an integral cycle. Do not assert that the unmultiplied integral sum belongs to A₂(F).",
+      "reason": "For F₅ and x=2, the sum [2]+[3] has boundary equal, up to the recorded sign, to 2∧(−2). F₅ˣ is cyclic of order four, and the antisymmetric quotient is ℤ/2; this boundary is its nonzero generator. The ordinary exterior square would conceal the error. Rationalizing, or multiplying by two, kills it, so the rational curve construction and the F₃ exception remain valid.",
+      "affects": "a stated result",
+      "known": "The original packet noticed this in E102 but classified it together with the coefficient misprint. Independent review separates the false integral assertion from that typographical issue.",
+      "searched": [
+        "2026-10-05: published scan pp. 218 and 221–224, plus MPIM preprint counterpart.",
+        "2026-10-05: https://sasha-goncharov.github.io/ has the published scan and no linked erratum to this passage."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-K3BlochGroups--V.3",
+        "reason": "Read the integral A_p definition and inversion sentence in the published scan. The independently enumerated F₅ symbol boundary is nonzero modulo two; the rational and doubled-integral corrections follow directly from bilinearity."
+      }
     }
   ],
   "sourceVersions": [
@@ -1610,11 +1691,104 @@
   ],
   "formalPrototype": {
     "status": "elaborated-signatures-only",
-    "note": "The suggested file uses concrete free groups, kernels, tensor and subgroup/submodule quotients. Its Imported namespace supplies signature forms for the cited same-roadmap objects; these remain planned, not implemented. For the curve nodes, an explicit family of projective evaluation functions is a parameter. Unconditional quotient APIs apply to any such family, while geometric conclusions need the canonical supplier. GoncharovCurve.boundary and its APIs take the exact relation-subspace containment R_curv≤ker d as the quotient-descent input. GoncharovCurve.genericCompare takes R_red≤R_curv, and cycleCompare takes both containments. The two projective-line tests display the precise evaluation equalities at 0/∞ or x/0. These conditions expose the missing dictionary, and are not new theorem assumptions that replace its construction. No unconditional boundary closure or generic-relation containment is asserted for arbitrary evaluation functions.",
+    "note": "The suggested file uses concrete free groups, kernels, tensor and subgroup/submodule quotients. Its Imported namespace supplies signature forms for the cited same-roadmap objects; these remain planned, not implemented. For the curve nodes, an explicit family of projective evaluation functions is a parameter. Unconditional quotient APIs apply to any such family, while geometric conclusions need the canonical supplier. GoncharovCurve.boundary and its APIs take the exact relation-subspace containment R_curv≤ker d as the quotient-descent input. GoncharovCurve.genericCompare takes R_red≤R_curv, and cycleCompare takes both containments. The two projective-line tests display the precise evaluation equalities at 0/∞ or x/0. These conditions expose the missing dictionary, and are not new theorem assumptions that replace its construction. No unconditional boundary closure or generic-relation containment is asserted for arbitrary evaluation functions. Independent review restricts SmoothCurve to quasi-compact separated structure morphisms, and distinguishes the all-field angle symbol assignment from its homomorphism, whose signature requires FourElements. The generated subgroup H agrees with the homomorphism range under that hypothesis.",
     "curveInputs": [
       "Canonical projective specialization at every F-rational point and its projective-line evaluation equalities.",
       "R_curv^ℚ≤ker d, from the local-DVR dictionary and Polylogarithms:P.4/specialization-and-delta.",
       "R_red≤R_curv^ℚ, from the projective-line cycle R(1+t(x−1),y)."
+    ]
+  },
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-K3BlochGroups--V.3",
+    "date": "2026-10-05",
+    "notes": "Independent target-level review of every node, source locator/excerpt, supplier statement, baseline declaration, API, test and ownership finding. Ten nodes verified and seven corrected; no new nodes. All nineteen baseline citations confirmed. Independent integer relation computations agree over F₂, F₃, F₅, F₇ and F₁₁. All four source issues have confirmed review verdicts (the integral inversion error is separated as E104). Suggested signatures elaborate with only admitted-proof warnings; no implementation is claimed. The canonical smooth-curve dictionary and all-curve rational injectivity remain explicit gaps. Complete pass and planned-stage status are appropriate; no stage is closed. Reader synchronization and HB.1/PLAN-HABIRO/reservation assembly actions are recorded in the review and handoff because those documents are outside this review’s edit permissions.",
+    "checked": [
+      {
+        "nodeId": "K3BlochGroups:V.3/bloch-lecture-kernel",
+        "verdict": "corrected",
+        "note": "Verified the full-tensor carrier and functorial restriction, and added the direct tensor-map prerequisite. Strengthened the F₃ prototype test to exhibit T≃ℤ/2 and the generator image explicitly."
+      },
+      {
+        "nodeId": "K3BlochGroups:V.3/bloch-lecture-comparison",
+        "verdict": "verified",
+        "note": "The negative boundary identity restricts q to the full-tensor kernel; its kernel is exactly R₅∩ker λ. Checked the F₅ infinite-order relation cycle and the rational-field 4[−1] counterexample."
+      },
+      {
+        "nodeId": "K3BlochGroups:V.3/bloch-lecture-obstruction",
+        "verdict": "verified",
+        "note": "The obstruction E/L is independent of the lift, surjective, and vanishes exactly when a relation removes the full-tensor boundary; this gives the displayed exact sequence."
+      },
+      {
+        "nodeId": "K3BlochGroups:V.3/bloch-lecture-six-torsion",
+        "verdict": "verified",
+        "note": "The flip/complement identity, constant relation and integral cycle 2[−1] give the explicit sixfold lift. The relation quotient is taken before coefficient changes."
+      },
+      {
+        "nodeId": "K3BlochGroups:V.3/goncharov-generic-b2",
+        "verdict": "corrected",
+        "note": "Read the reduced configuration presentation in the published scan; corrected the malformed free-generator excerpt. Cross-ratio normalization imports the existing V.4 foundational node, rather than constructing a second configuration theory."
+      },
+      {
+        "nodeId": "K3BlochGroups:V.3/goncharov-generic-comparison",
+        "verdict": "verified",
+        "note": "Normalized the five faces of (0,∞,1,x,y) and checked their alternating sum. The generic integral group is P, its boundary is −∂ into Q_s, and its cycle kernel is B. F₂/F₃/F₅ tests agree with the integer presentations."
+      },
+      {
+        "nodeId": "K3BlochGroups:V.3/goncharov-curve-b2",
+        "verdict": "corrected",
+        "note": "Clarified the torsion-killing multiple after clearing denominators and supplied missing direct tensor/antisymmetric prerequisites. Restricted the prototype to separated finite-type smooth curves using two read baseline predicates. Canonical specialization remains the precise upstream gap."
+      },
+      {
+        "nodeId": "K3BlochGroups:V.3/goncharov-curve-boundary",
+        "verdict": "verified",
+        "note": "The imported P.4 weight-two local-valuation identity annihilates specialized cycles after rationalization; quotient descent is conventional. The prototype explicitly requires the actual relation containment until the geometric dictionary is supplied."
+      },
+      {
+        "nodeId": "K3BlochGroups:V.3/goncharov-curve-comparison",
+        "verdict": "corrected",
+        "note": "Verified the projective-line five-term deformation, surjection and exact rational correction. The F₃ inversion specialization gives the stated counterexample. Removed the unused F(t)-only comparison prerequisite and retained it as a scoped contextual reference; no all-curve injectivity is inferred."
+      },
+      {
+        "nodeId": "K3BlochGroups:V.3/cgz-published-negative-tensor",
+        "verdict": "corrected",
+        "note": "Read the published negative-unit target. The expansion n(xy)−n(x)−n(y) produces the symmetrizer, and its quotient kernel is killed by two. Strengthened the F₅ prototype test to display the full-tensor generator and its triple negative relation."
+      },
+      {
+        "nodeId": "K3BlochGroups:V.3/cgz-published-target-kernel",
+        "verdict": "corrected",
+        "note": "The negative-target kernel is ∂H, so the composite kernel is B+H. Corrected the inherited prototype: the angle symbol assignment exists for all fields, but its homomorphism signature requires |F|≥4; its generated subgroup equals the homomorphism range there."
+      },
+      {
+        "nodeId": "K3BlochGroups:V.3/cgz-published-boundary",
+        "verdict": "verified",
+        "note": "Ordinary admissible relations vanish by the inherited boundary calculation; direct degenerate and diagonal substitutions vanish in the negative-unit target without a field-size assumption. Enumerated all admissible pairs over F₂/F₃/F₅/F₇/F₁₁ and checked boundary annihilation."
+      },
+      {
+        "nodeId": "K3BlochGroups:V.3/cgz-published-bloch-group",
+        "verdict": "verified",
+        "note": "Since C_ext≤ker d_new, the cycle quotient is the quotient-boundary kernel. Computed the F₂, F₃ and F₁₁ modified groups; the ≥4 identification is (B+H)/H, without changing the older inherited node."
+      },
+      {
+        "nodeId": "K3BlochGroups:V.3/cgz-published-comparison-map",
+        "verdict": "corrected",
+        "note": "Verified the canonical inclusion on symbols, naturality and c↦[0]. Corrected the prototype angle statement to use the explicit angle assignment with the required Bloch-membership hypothesis. F₅/F₇/F₁₁ maps and kernels were computed independently."
+      },
+      {
+        "nodeId": "K3BlochGroups:V.3/cgz-published-lemma-two-two",
+        "verdict": "verified",
+        "note": "For |F|≥4, every class of B+H modulo H has a Bloch representative; the exact kernel B∩H is killed by two. Independent F₂/F₃ computations confirm the missing source hypothesis and E101."
+      },
+      {
+        "nodeId": "K3BlochGroups:V.3/cgz-published-to-older",
+        "verdict": "verified",
+        "note": "Both versioned groups embed in P/H as images of B and B̃. Their subgroup inclusion has the displayed two-torsion cokernel, and the older map factors through the published map; checked indices two over F₇ and F₁₁."
+      },
+      {
+        "nodeId": "K3BlochGroups:V.3/convention-coefficient-exports",
+        "verdict": "verified",
+        "note": "Flat rationalization/localization kills the exact bounded-torsion corrections. For coprime moduli use the automorphism of multiplication by n on kernels/cokernels, not flatness of ℤ/n. The extra [0]=0 quotient kills precisely the image of c; K_curv is retained."
+      }
     ]
   }
 }

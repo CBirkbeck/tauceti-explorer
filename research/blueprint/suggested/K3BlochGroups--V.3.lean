@@ -5,6 +5,7 @@ suggest Lean forms so that contributors and reviewers converge on names and
 signatures. They claim no implementation; every packet node stays unchecked.
 
 BP-K3BlochGroups--V.3, Codex — codex-o0QQ19.
+Independent review REV-K3BlochGroups--V.3, Codex — codex-VPXw22.
 Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174;
 Tau Ceti f790474821cf4256814db967cb154e7af3d0c369.
 
@@ -28,6 +29,8 @@ import Mathlib.Algebra.Exact.Basic
 import Mathlib.Algebra.FreeAbelianGroup.Finsupp
 import Mathlib.AlgebraicGeometry.FunctionField
 import Mathlib.AlgebraicGeometry.Morphisms.Smooth
+import Mathlib.AlgebraicGeometry.Morphisms.QuasiCompact
+import Mathlib.AlgebraicGeometry.Morphisms.Separated
 import Mathlib.Basic.Complex.Basic
 import Mathlib.Data.Fin.Embedding
 import Mathlib.Data.ZMod.Basic
@@ -93,8 +96,16 @@ def boundary : P F →+ Qs F := by sorry
 abbrev B := (boundary F).ker
 abbrev BE := ((toExterior F).comp (boundary F)).ker
 
-def h : UnitAdd F →+ P F := by sorry
-abbrev H : AddSubgroup (P F) := (h F).range
+-- The symbol assignment exists for every field. Its homomorphism law needs
+-- at least four elements: over F₃ the value at -1 is 2[-1], of infinite order.
+def angle (u : UnitAdd F) : P F :=
+  q F (sym F ((Additive.toMul u : Fˣ) : F) +
+    sym F (((Additive.toMul u : Fˣ)⁻¹) : F))
+def h (hF : FourElements F) : UnitAdd F →+ P F := by sorry
+lemma h_apply (hF : FourElements F) (u : UnitAdd F) :
+    h F hF u = angle F u := by sorry
+abbrev H : AddSubgroup (P F) := AddSubgroup.closure (Set.range (angle F))
+lemma H_eq_range (hF : FourElements F) : H F = (h F hF).range := by sorry
 def c : B F := by sorry
 
 variable {E : Type} [Field E]
@@ -149,6 +160,8 @@ example : Subsingleton (Group (ZMod 2)) := by sorry
 /-- Test `LectureBloch.test_F3`. -/
 example : ∃ e : RawSymbols (ZMod 3) ≃+ ℤ,
     e (Imported.sym (ZMod 3) (-1)) = 1 ∧
+    (∃ t : FullTensor (ZMod 3) ≃+ ZMod 2,
+      t (lambda (ZMod 3) (Imported.sym (ZMod 3) (-1))) = 1) ∧
     ∀ α, lambda (ZMod 3) α = 0 ↔ Even (e α) := by sorry
 /-- Test `LectureBloch.test_F5_relation`. -/
 example : Imported.fiveTerm (ZMod 5) 2 3 = Imported.sym (ZMod 5) 4 ∧
@@ -285,7 +298,11 @@ example : Nonempty (NegativeTarget (ZMod 3) ≃+ ZMod 2) ∧
     Subsingleton (Imported.Exterior (ZMod 3)) := by sorry
 /-- Test `CGZPublished.test_tensor_F5`. -/
 example : Nonempty (Imported.Qs (ZMod 5) ≃+ ZMod 2) ∧
-    Subsingleton (NegativeTarget (ZMod 5)) := by sorry
+    Subsingleton (NegativeTarget (ZMod 5)) ∧
+    (∃ t : FullTensor (ZMod 5) ≃+ ZMod 4,
+      let g := Imported.unit (ZMod 5) 2 (by sorry)
+      t (g ⊗ₜ[ℤ] g) = 1 ∧
+      t (g ⊗ₜ[ℤ] negativeUnit (ZMod 5) g) = 3) := by sorry
 /-- Test `CGZPublished.test_tensor_Q`. -/
 example : let u := Imported.unit ℚ 2 (by sorry)
     let v := negativeUnit ℚ u
@@ -372,7 +389,8 @@ lemma compare_coe (β : Imported.B F) :
 lemma compare_c (hF : FourElements F) :
     compare F (Imported.c F) = cycleClass F (zeroCycle F) := by sorry
 lemma compare_angle (hF : FourElements F) (u : UnitAdd F)
-    (hu : Imported.h F u ∈ Imported.B F) : compare F ⟨Imported.h F u, hu⟩ = 0 := by sorry
+    (hu : Imported.angle F u ∈ Imported.B F) :
+    compare F ⟨Imported.angle F u, hu⟩ = 0 := by sorry
 
 def map {E : Type} [Field E] (f : F →+* E) : Group F →+ Group E := by sorry
 lemma compare_natural {E : Type} [Field E] (f : F →+* E) :
@@ -440,7 +458,12 @@ structure SmoothCurve (F : Type) [Field F] where
   toBase : X ⟶ Spec (CommRingCat.of F)
   integral : IsIntegral X
   smooth : SmoothOfRelativeDimension 1 toBase
+  quasiCompact : QuasiCompact toBase
+  separated : IsSeparated toBase
+-- Smoothness is locally of finite presentation. Quasi-compactness makes
+-- these finite-type curves; separatedness excludes nonseparated schemes.
 attribute [instance] SmoothCurve.integral SmoothCurve.smooth
+  SmoothCurve.quasiCompact SmoothCurve.separated
 
 abbrev SmoothCurve.Point {F : Type} [Field F] (C : SmoothCurve F) :=
   {u : Spec (CommRingCat.of F) ⟶ C.X // u ≫ C.toBase = 𝟙 _}
