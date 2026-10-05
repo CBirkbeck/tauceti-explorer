@@ -30310,7 +30310,8 @@
    ],
    "avoidAccountOf": "BP-AnalyticNumberTheory--AN.0",
    "prompt": "research/blueprint/prompts/REV-AnalyticNumberTheory--AN.0.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #527"
   },
   {
    "id": "BP-AnalyticNumberTheory--AN.8",
@@ -59725,8 +59726,8 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-EllipticModularityEffectiveComparisons.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1691"
+   "state": "external",
+   "note": "claimed on GitHub issue #1691"
   },
   {
    "id": "REV-DESIGN-EllipticModularityEffectiveComparisons",
