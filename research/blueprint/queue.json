@@ -21730,8 +21730,9 @@
    ],
    "avoidAccountOf": "BP-AlgebraicModuliForArithmeticGeometry--A0-extension",
    "prompt": "research/blueprint/prompts/REV-AlgebraicModuliForArithmeticGeometry--A0-extension.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #346"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #346",
+   "finishedAt": "2026-10-05T16:36:35Z"
   },
   {
    "id": "BP-AlgebraicModuliForArithmeticGeometry--R09.7a",
