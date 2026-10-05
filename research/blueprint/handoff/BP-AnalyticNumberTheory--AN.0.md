@@ -1,91 +1,118 @@
-# BP-AnalyticNumberTheory--AN.0 — checkpoint 2 (Claude Code cc-39fac3)
+# BP-AnalyticNumberTheory--AN.0 handoff
 
-Claude Code, session `cc-39fac3`, 29 September 2026. Refs #1021; the bot confirmed the claim (comment 5884836949). **Status: partial.**
+Agent: Codex. Session: `codex-rtOQ9t`. Issue: #1021. Date: 2026-10-05.
+Base: `30e57b9090cc4c5e6d91a92848a4837206a921f8`.
+Branch: `codex-rtOQ9t/analytic-number-theory-1021-6142`.
 
-## Checkpoint 2: AN.4 on top of AL.1
+## Result and limits
 
-AutomorphicLFunctionsAndLocalFactors AL.1 now plans Tate's thesis (#3918), so AN.4 imports it.
+This is a **complete target-planning pass under PROTOCOL §0**, ready for independent
+review. It is not a gap-free proof decomposition or implementation. All eight scoped
+stages have their targets accounted for. AN.0, AN.1 and AN.6 are closed as import-only
+under accepted RS-07. AN.2, AN.3, AN.4, AN.5 and AN.7 are planned, with exact remaining
+lists. Follow-ups must establish the recorded inputs before those stages can be closed.
 
-**Sources.**
-- Kedlaya, *Notes on analytic number theory* (same sha256 7a934f…): §§3.3–3.4 (Lemma 3.6, Theorems 3.7–3.11), Exercises 3.6.1–3.6.5 and Chapter 22.
-- Tate's thesis §§4.4–4.5, read on page images for AL.1.
+The packet expands the inherited17 nodes to224, preserving every identifier, including
+the seven divisor-bound IDs. It contains22 definitions,80 lemmas,112 theorems,
+10 comparisons,89 API items,75 unit tests,26 planets,54 pinned baseline declarations,
+24 supplier requests and43 refinement gaps. All91 selected routed inputs from fourteen
+accepted paper extractions have a declaration mapping or explicit outside-part owner.
 
-**New AN.4 nodes (6).**
-- `dedekind-zeta-continuation-and-residue` (planet "Analytic class number formula"). Continuation of Mathlib's `NumberField.dedekindZeta`, its residue κ = `dedekindZeta_residue`, Λ_K(1 − s) = Λ_K(s), and ζ_K(−2) = 0.
-- `hecke-primitive-functional-equation` (planet). An identity of meromorphic functions; imprimitive factors are multiplied in, never divided.
-- `landau-nonnegative-logarithm`. Kedlaya's Lemma 3.6, whose proof he leaves as an exercise, planned via 3 + 4cos θ + cos 2θ = 2(1 + cos θ)².
-- `ray-class-product-nonvanishing`.
-- `hecke-nonvanishing-on-line-one` (planet). Kedlaya's Theorems 3.8, 3.10 and 3.11 for ray class characters.
-- `mth-root-gluing`.
+The reader specifies every declaration, prerequisite, proof outline, definition API,
+test, source, ownership boundary and gap. The suggested file includes sixteen concrete
+definition blocks and their API/tests, the inherited divisor chain and principal
+analytic theorem forms with available carriers. Six canonical-carrier definitions are
+mathematical comments with all API/test names, **not executable signatures**. This is
+an explicit native gap under PROTOCOL §13; no substitute proposition-valued interface
+is introduced. Other named-target signatures requiring unavailable carriers or further
+analytic interfaces are specified mathematically in the reader and file comments.
+Local-uniform factorization and those remaining native forms require follow-up.
 
-**Rewired.**
-- `hecke-L-function-euler-product-comparison` now imports AL.1/global-zeta-integral and completed-hecke-l-function.
-- `artin-induction-versus-artin-holomorphy` now uses the nonvanishing, root-gluing and Dedekind nodes.
-- The gaps "Hecke comparison construction and completed functional equation" and "Hecke nonvanishing and local root gluing" are closed, and removed from AN.4's remaining list.
-- The AL.1 request records which AL.1 nodes are imported.
+**The suggested file was not compiled.** No complete existing build at both exact
+pins was available. No Lake project, library build, cache download or Lean language
+server was started. Historical compilation receipts do not validate this expanded
+file. All nodes remain `implementationStatus: unchecked`.
 
-**Lean.** Six checked examples were added to the suggested file:
-- the 3-4-1 identity and inequality;
-- the two local factors of Kedlaya's ψ;
-- κ(ℚ(i)) = π/4.
+## Read receipts
 
-The file elaborates against Mathlib 082e2d3 with 0 errors; the only warnings are the 20 existing placeholders.
+- The full issue was read before claiming and again after bot confirmation.
+  Claim comment5989747753; confirmation5989749656.
+- WORKERS, the binding blueprint/expansion protocols and upstream guide were read;
+  the reviewed audit for all eight stages and accepted RS-07 were read before planning.
+- ArithmeticDirichletSeries README (424 lines) and Chebotarev README (743 lines) were
+  read in full. Their norm-fibre, Perron, Landau, Tauberian and Chebotarev ownership
+  contracts determine the imports here.
+- All seventeen inherited node payloads, source-issue/ownership records, and every
+  selected routed item payload and accepted route were read. Accepted extraction
+  does not certify the original paper's external proofs.
+- Full statements of all54 cited baseline declarations were read at Mathlib
+  `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti
+  `f790474821cf4256814db967cb154e7af3d0c369`. Declaration-index SHA-256:
+  `86649a7d5f35d1178a45fe7aa4713741d03d43ff3b37bb8c91a1da1c794c8ce1`.
+- Fresh Kedlaya reading: printed pp19–22,47–60,127–130, including full chapters8,9,22.
+  Current author PDF SHA-256:
+  `7a934fce8272cedd36ad609f79bbe79af0056320bb1e0bc690c87af990f305be`.
+  Other inherited source receipts remain attributed to their earlier passes.
+- Fresh Yun–Zhang: published AppendixB.1 pp901–903. SHA-256:
+  `b02ed5cbe5e6443a59360551cd41048ebb1e589d3c4cbe89f7fcbbbec50fc111`.
+  The already-reviewed E16 nonpolynomial and E18 order-formula corrections are used;
+  neither is claimed as a new finding.
+- Fresh Lagarias–Li: I's initial domains and Theorem2.3 boundaries; II's integral
+  domain, selected §4 monodromy/shift formulas, §5 derivatives and §7 nonpositive
+  values; III's preprint statements and selected rational values; final publisher
+  Theorem2.3 and its §4 PDE proof. Publisher SHA-256:
+  `1b9d8d35cf23b15bd921621011a066832dd39924688b121e85d6067eb25f6593`.
+  Full covering/functional-equation proofs and full publisher/preprint collation
+  remain gaps. Every version URL/hash and selected scope is in the packet.
+- Fresh Granville–Harper–Soundararajan: first four pages and selected §2 preliminary
+  lemmas. Fresh Granville–Soundararajan: pp1–4. Complete Halász, Shiu and general
+  Dirichlet-polynomial mean-square proofs remain gaps.
+- Fresh Hildebrand–Tenenbaum: introductory smooth-number/Dickman statements and
+  page414 image to recover formulas omitted by text extraction. Fresh Debruyne–Vindas:
+  pp1–3, Theorem1 and §2.1. Full limiting-recursion and Tauberian proofs remain gaps.
 
-**Checks.** `check_blueprint.py`: 0 errors, 0 warnings (17 nodes). `intake.py check-files`: 0 problems. Unit tests pass.
+## Corrections and boundaries
 
-**Continue with:**
-- AN.4's Artin Euler-factor carrier: the remaining gap "Artin arithmetic Euler factors and induction adapter".
-- The AN.2 and AN.3 proof decompositions.
+Inherited source discrepancies E1–E13 retain original attribution. E16 records the
+invalid exponential-type majorant in Kedlaya Lemma8.3's proof. Retaining exponential
+theta decay gives gamma-size growth and preserves the order-one conclusion. The
+current author PDF and parallel HTML contain the failed step; a bounded author-domain
+correction search found none. E17 records the LerchIII preprint PDE plus sign,
+**already corrected to minus in the publisher's equation(2.5)**; it affects no
+published result. No global novelty or independent-review verdict is asserted.
 
-# BP-AnalyticNumberTheory--AN.0 — partial checkpoint
+The final mathematical check tightened the repeated-prime example to p₁=p₂=2<p₃
+and Dickman monotonicity to nonnegative arguments. Strict zero-height cutoffs,
+analytic multiplicities, finite Perron endpoint values, integer-zero truncation
+contributions, quadratic conductors, inertia-invariant Artin factors, the nonmetric
+pretentious diagonal, inclusive smoothness and the polylogarithm's z factor remain explicit.
 
-Author: Codex — codex-a71f92. Refs #1021.
+Generic ADS and Tate AL.1 analysis is imported. AN.3 stays whole: the reverse SV.2
+edge is withheld until atomic removal of the existing opposite edge. Qualitative
+number-field Chebotarev is imported. Effective and arithmetic-scheme Chebotarev,
+narrow Laurent-zeta support for AC.4, Colmez data and regulator dictionaries remain
+ownership proposals. No unavailable stage is fabricated. AN.8 inputs stay outside
+this AN.0–AN.7 part; PM.5 owns the conjectural random-model material.
 
-## Completed work
+## Checks and resumption
 
-- Read the issue in full before and after the bot-confirmed claim (claim5851054697, confirmation5851055522).
-- Read the scoped AUDIT-06 rows before planning, the accepted RS-07 proposal/review, all ten inherited decomposition records and all AN-touching link records.
-- Follow RS-07's title/base and ownership: AN.0, AN.1 and AN.6 are closed with no new nodes. Their closure is removal of duplicate/process scope, not a proof-completion claim.
-- Seven AN.5 declarations supply the explicit constant D^B, the uniform C≥1 interface and a separate eventual threshold. No divisor-function carrier or prime-factor formula is rebuilt.
-- Four inherited AN-owned IDs are retained and narrowed to individual conclusions. The explicit formula now uses the half-weight endpoint convention. The old PNT-error and Hecke-functional-equation bundles have precise continuation gaps.
-- Six inherited zeta/Tate IDs remain in the provenance/import ledger. Full Tate Z1–Z3 admissibility is retained in the AL.0/1 requests, not weakened to unspecified test functions.
-- All 19 Bennett–Siksek routed items are recorded. Item96 is the selected completed proof-plan chain; the other 18 original proofs are not claimed decomposed.
-- Thirteen version-scoped source issues are recorded. E1 is the already confirmed BS divisor-bound error; E5 retains an inherited review qualification. Other findings are author-PDF/HTML checks awaiting independent review, not author contact or a novelty claim.
+- Indexed `scripts/check_blueprint.py`: **0 errors, 0 warnings**.
+- Artifact consistency: all224 statements and91 targets occur in the reader; all89
+  API and75 test names occur in reader/native, distinguishing six comment-only
+  blocks; all seventeen inherited IDs survive.
+- Finite checks passed for truncated Mangoldt at zero/negative/full-cutoff inputs,
+  smooth counts(8,2)/(6,3), exactly two Beurling primes of value2, the pretentious
+  zero diagonal at prime2, Lerch s=0/−1 normalizations and the PDE sign at z=0.
+  These diagnostics check conventions, not analytic proofs.
+- Native import paths were checked against pinned sources, with no fake proposition
+  stubs. JSON parsing, whitespace and deliverable-only changes were checked.
 
-Statistics: 11 nodes (4 lemmas, 6 theorems, 1 comparison), 0 new definitions/constructions, 0 definition-API items, 0 definition unit tests, 12 theorem/compatibility examples, 5 planets, 27 baseline declarations, 13 gaps, 8 requests. All nodes are unchecked.
-
-## Checks
-
-The suggested file elaborates against Lean4.34.0-rc2 and the pinned source baseline. Every reached Mathlib source file (8,482) was byte-compared with the compilation cache source; no Tau Ceti module is needed. Eight named signatures plus twelve examples produce exactly20 declaration-placeholder warnings, with zero errors and no other warnings. The three analytic signatures omitted for unavailable precise interfaces are explicitly recorded as a gap, not encoded by proposition-valued stand-ins.
-
-A separate scratch file proves the two local inequalities, constant absorption and five concrete carrier/counterexample checks: eight declarations, zero errors and zero warnings. This scratch verification is not published as an implementation.
-
-Exact finite diagnostics passed: 10,000 prime-factorization/divisor-count checks, 70,000 small-prime-cardinality checks, 36,600 rational local-bound checks and 2,562 large-cutoff checks. Rational checks use coarse constants at ε=1/m; they are finite diagnostics, not a proof of the real-parameter theorem. The unit-constant false claim fails at n=2, and the signed reciprocal-zero toy sum cancels while its absolute-value counterpart does not.
-
-The blueprint checker with the pinned declaration index reports zero errors and zero warnings. Supplemental checks validate all seven canonical upstream-stage edges, matching requests and links, 19 routed inputs, short source excerpts, unchecked statuses and empty dropped-stage node sets.
-
-## Checker limitation
-
-The checker treats a prerequisite starting with tauceti: as a library declaration before testing membership in atlas stages. The seven upstream-stage dependencies therefore appear under upstreamPrerequisites, explicit links and requests; they are not fabricated baseline declarations. A recorded gap and supplemental endpoint check make this transparent. Normalize that field when the checker supports canonical upstream stage IDs. No checker/application code is changed.
-
-## Source boundaries
-
-The packet gives URLs, hashes and exact reading ranges. Fresh reads include Tao's full main divisor post; Kedlaya §§7.1–7.3, §8.2, §8.3, Lemma9.8/Theorem9.9 final assembly, Chapter10 and Chapter22; Tate scan57–59 as page images. The key Kedlaya gamma, signed-ordinate and Frobenius passages were checked on rendered pages and/or the author HTML. The old author course page, current preface and bounded author-domain searches were checked for corrections. Full source coverage is not claimed.
-
-Tate scan53–56 was inspected only as unreliable OCR: its full construction remains inherited-review provenance. The local Tate chapters, Kedlaya exercise proofs, the original proofs behind the other BS inputs, the complete mean-value sources and general complex Lerch sources require continued source work. Existing inherited Gauss-sum conjugation and local Fourier-factor corrections remain in the provenance ledger.
-
-At least two nearby upstream documents were read fully: EffectiveBounds and GlobalNumberFields. ArithmeticDirichletSeries was additionally read fully, and the exact NFA2, CFT11, GlobalNumberFields9, AL.0/1 and RepresentationTheory/InductionRestriction6 supplier contracts were inspected.
-
-## Exact resumption order
-
-1. Preserve the seven AN.5 IDs and consume uniform-divisor-subpower-bound for the ES.0 request; do not replace its uniform constant by a unit constant at every input.
-2. Decompose AN.2's Hadamard/logarithmic-derivative/gamma chain and bounded-height patch; audit existing complex-analysis results first.
-3. Decompose the prerequisites of Theorem9.9 into actual zero-multiplicity, local-zero-count and contour declarations, then add the separately named PNT-error corollary.
-4. Read Tate scan53–56 from images and complete the AN.4 arithmetic comparison, importing the full AL admissibility and analytic contracts.
-5. Build the Artin Euler-factor/induction adapters and the Hecke boundary-nonvanishing/root-gluing lemmas. Global Brauer meromorphy is not Artin holomorphy, and Chebotarev remains another owner's theorem.
-6. Work through the 18 remaining BS routed inputs with their exact constants, conductor/height ranges, exceptional-zero alternatives and certified small cases.
-7. Source/decompose the remaining multiplicative-function families and the complex Lerch branch-dependent API.
-
-Publication guard: all55 consulted input blobs were unchanged between snapshot5680ec2a4546c8e933d37e18c2224543d0ebf708 and main bf0c1ca3ffff66284779a374e39a4a33ac829ecb; both recursive tree responses were untruncated. All four deliverable paths remained absent, and the bot-confirmed claim remained ours. Supplier-packet prefixes were also checked for newly appearing inputs.
-
-No new independent-review verdict has been asserted. No issue was closed, no labels were edited, and no git command was used.
+Resume from `coverage.remaining`, `gaps`, `requests`, `targetLedger` and the matching
+reader sections. Acquire each original proof and split nonroutine steps at lemma
+density before removing a gap. The largest open chains are canonical-product lower
+bounds, uniform zeros/contours, arithmetic original-source proofs, Hecke periods,
+Halász/smooth/Beurling decompositions, Lerch covering/Hurwitz continuation and six
+native supplier carriers. Preserve ownership and stable IDs. Independent review
+decides acceptance; workers do not promote, merge, close or relabel manually.
+Scratch is deleted after the PR opens; these four deliverables preserve the receipts
+and resume paths needed for review and follow-up.
