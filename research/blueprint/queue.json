@@ -12027,7 +12027,8 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-ClassicalGroupsPartII.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3382"
   },
   {
    "id": "REV-DESIGN-ClassicalGroupsPartII",
