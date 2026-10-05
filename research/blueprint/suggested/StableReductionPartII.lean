@@ -1184,6 +1184,24 @@ test: CurvesModuli.rationalTwoExcluded
   The mathematical discriminating example is recorded; its actual geometric Lean types are missing.
 test: CurvesModuli.ellipticInvolution
   The mathematical discriminating example is recorded; its actual geometric Lean types are missing.
+API: CurvesModuli.rationalThreeEquivalence
+  The sample is linked to its existing exported theorem node; actual pointed-moduli/stack types and the theorem signature are missing.
+API: CurvesModuli.crossRatio
+  The sample is linked to its existing exported theorem node; actual pointed-moduli/stack types and the theorem signature are missing.
+API: CurvesModuli.stableStackProperties
+  The sample is linked to its existing exported theorem node; actual pointed-moduli/stack types and the theorem signature are missing.
+API: CurvesModuli.universalForgetful
+  The sample is linked to its existing exported theorem node; actual pointed-moduli/stack types and the theorem signature are missing.
+API: CurvesModuli.forgetStabilize
+  The sample is linked to its existing exported theorem node; actual pointed-moduli/stack types and the theorem signature are missing.
+test: CurvesModuli.crossRatioBoundary
+  The geometric sample is specified and linked to its existing export; actual family/stack types are missing.
+test: CurvesModuli.stableStackDimensions
+  The geometric sample is specified and linked to its existing export; actual family/stack types are missing.
+test: CurvesModuli.universalRationalFour
+  The geometric sample is specified and linked to its existing export; actual family/stack types are missing.
+test: CurvesModuli.forgetRationalTail
+  The geometric sample is specified and linked to its existing export; actual family/stack types are missing.
 test: CurvesModuli.selfNodeFlags
   The mathematical discriminating example is recorded; its actual geometric Lean types are missing.
 node: StableReductionPartII:MC.0/pullback-coherence
@@ -1209,7 +1227,7 @@ node: StableReductionPartII:MC.1/tricanonical-cohomology
 node: StableReductionPartII:MC.1/tricanonical-hilbert
   Requires supplier types and the precise statement in the reader.
 API: TricanonicalHilbert.universal
-  Requires stable pointed-family/stack/line/Picard types; no surrogate Prop signature.
+  Requires actual projective-frame and base-line-twist types; O(1) is only ω³ up to a base line.
 API: TricanonicalHilbert.frame
   Requires stable pointed-family/stack/line/Picard types; no surrogate Prop signature.
 API: TricanonicalHilbert.action
@@ -1218,6 +1236,8 @@ test: TricanonicalHilbert.genusTwo
   The mathematical discriminating example is recorded; its actual geometric Lean types are missing.
 test: TricanonicalHilbert.wrongPolarization
   The mathematical discriminating example is recorded; its actual geometric Lean types are missing.
+test: TricanonicalHilbert.projectiveFrameTwist
+  Requires the actual Hilbert/projective-frame functor, invertible sheaves and GL/PGL scalar-lift comparison; no surrogate proposition is introduced.
 test: TricanonicalHilbert.pullback
   The mathematical discriminating example is recorded; its actual geometric Lean types are missing.
 node: StableReductionPartII:MC.1/frame-torsor

@@ -1,3 +1,108 @@
+# REV-DESIGN-StableReductionPartII: continuing review checkpoint
+
+Issue [#3619](https://github.com/CBirkbeck/tauceti-explorer/issues/3619). Reviewer: Codex (GPT-6), session `codex-g0hY4x`. Date: 2026-10-05.
+
+**Incomplete independent review; no final verdict.** This checkpoint continues the checkpoint merged in [#6172](https://github.com/CBirkbeck/tauceti-explorer/pull/6172). It checks source statements, hypotheses and local proof routes for 22 existing geometric nodes, repairs the owned definition's sample API placement, and records two missing supplier packages. It does not certify those nodes' transitive closure or the other 506 nodes. No top-level `review` is assigned. The preceding reviewer's report and its 268 declaration locators are preserved below with their original attribution.
+
+## Current counts
+
+There are still 528 nodes: 8 definitions, 109 constructions, 342 lemmas, 67 theorems, 1 application and 1 comparison. No nodes were added, removed or renamed. The 117 definition/construction nodes now carry 437 API items and 399 tests (previously 432/394). Across all node kinds the totals are 438 API items and 426 tests. The five new tests comprise four owned-key tests and the projective-frame twist test.
+
+There are 35 planets, 268 baseline declarations, 136 supplier requests (one added), 17 gaps (two added), 29 source records (three added), and 217 prototype omissions (ten added). The prototype still lists 414 expressed nodes, 277 API items and 280 tests; these inherited inventories have not been fully matched to declarations here. All eight stages remain `partial`. Packet `status: complete` describes a finished budgeted planning pass, not closure or review acceptance.
+
+## Corrections and bounded source checks
+
+The node ids below are relative to `StableReductionPartII:`. “Checked” in this section means source/hypothesis/local proof-route checking, not a final `verified` verdict.
+
+| Nodes | Finding and correction | Source read |
+| --- | --- | --- |
+| `key/moduli-curves` | State g,n≥0 and the integer inequality 2g−2+n>0 explicitly. Keep arbitrary-scheme family data separate from locally Noetherian cohomology inputs. The smooth flavour is a full open substack in this range. Add five API exports and four tests on the reserved node itself, linking existing theorem nodes through `providedBy`. | Knudsen II Definitions 1.1–1.2, printed pp.162–164 (PDF 2–4). |
+| `MC.0/pullback-coherence`, `MC.0/effective-descent` | Replace boilerplate hypotheses with the stable range, composable scheme maps and the fppf topology. The IsStack predicate encodes descent, not an algebraic atlas. Narrow seven supplier requests to the exact pullback, polarized descent, topology, family condition and representability outputs required. | Knudsen II Definition 1.2, p.164 (PDF 4); supplier stages SF.0, SF.1, R09.3. |
+| `MC.0/universal-curve` | The whole universal curve becomes smooth after base change to M_{g,n}. Over the stable stack its relative smooth locus excludes the fibre nodes. Remove its spurious use as an input to the projective-frame torsor. | Knudsen 2012 Introduction, PDF pp.1–2, cartesian universal-family diagram. |
+| `MC.1/tricanonical-cohomology` | Keep geometric vanishing/very-ampleness and numerical calculations distinct from arbitrary-base locally free pushforward/base change. The canonical embedding is into P_S(f_*ω³), and only a local frame identifies its target with standard projective space. | Deligne–Mumford Theorem 1.2 and corollary, pp.77–78 (PDF 4–5). |
+| `MC.1/tricanonical-hilbert`, `MC.1/frame-torsor` | Projective frames are isomorphisms P(f_*ω³)≅P^{5g−6}, not linear bases. The embedded hyperplane line agrees with ω³ up to a base invertible sheaf, with no chosen trivialization. Correct the universal/frame APIs and wrong-polarization test; add the twist test proved below. Replace the universal-curve dependency by moduli/descent inputs. Add an R09.3 relative-polarization request and retain the precise locally closed Hilbert/frame comparison as a gap. | Deligne–Mumford framed functor p.78 (PDF 5), Proposition 5.1 p.104 (PDF 31). |
+| `MC.1/hilbert-quotient` | Explain quotient equivalence through descent on frame torsors; this is not a GIT coarse quotient. | Deligne–Mumford Proposition 5.1, p.104. |
+| `MC.1/isom-representable`, `MC.1/isom-unramified` | Retain finite-presentation and separated-target hypotheses for the marked equalizer deduction. Identify the vector-field vanishing input in every characteristic and the separate infinitesimal scheme criterion. | Deligne–Mumford Definition 1.10/Theorem 1.11 p.84 (PDF 11), Lemma 1.4 pp.80–81. |
+| `MC.1/isom-proper` | The final Isom theorem permits nodal generic fibres. Its proof first reduces to a universal Hilbert pair and uses density of smooth curves. Add direct `frame-torsor` and `versal-node-parameters` dependencies for this route, rather than silently applying smooth-generic stable reduction to all pairs. | Deligne–Mumford Theorem 1.11 and Lemma 1.12 pp.84–85 (PDF 11–12), including the a posteriori extension paragraph. |
+| `MC.1/finite-unramified-diagonal` | Identify Theorem 4.21 as the smooth-atlas/unramified-diagonal criterion; proper quasi-finite Isom schemes give the finite diagonal. | Deligne–Mumford pp.84, 104. |
+| `MC.1/obstruction-vanishing` | Specify coherent-sheaf Ext of Ω¹ over a proper geometrically connected nodal curve over an algebraically closed field. The target is the sum of local node Ext groups, not an unspecified Ext theory. Record that R09.6's current brief does not supply the whole local-to-global coherent Ext package. | Deligne–Mumford Lemma 1.3 p.79 (PDF 6), Proposition 1.5 pp.81–82 (PDF 8–9). |
+| `MC.1/versal-node-parameters` | Specify the fixed geometric curve, split nodes and residue-field identification; use k as coefficient ring in characteristic zero and a complete unramified Cohen ring in positive characteristic. Retain chart-local parameters and stabilizer permutations. | Deligne–Mumford Proposition 1.5 through Theorem 1.6, pp.81–83. |
+| `MC.1/smooth-dimension`, `MC.1/normal-crossing-boundary` | Separate the unframed dimension from the Hilbert frame factor and relative normal crossings from simple normal crossings of global components. | Deligne–Mumford Corollaries 1.7/1.9 p.83 and Theorem 5.2 pp.104–105. |
+| `MC.1/proper-moduli` | Add the direct `smooth-dimension` prerequisite. The stack criterion reduces to the dense smooth locus and permits a finite extension of the trait; a scheme properness criterion or smooth-generic reduction alone does not give the conclusion. | Deligne–Mumford criterion 4.19 p.103 and Theorem 5.2 proof p.105 (PDF 30,32). |
+| `MC.2/forget` | Cite Proposition 2.1 and its final stack-morphism paragraph, p.174, rather than treating Corollary 2.6 as a proof of repeated-forgetting coherence. Keep parent contraction/uniqueness and its base scope explicit. | Knudsen II p.174 (PDF 14). |
+| `MC.2/expansion-contraction-inverses` | Cite the family comparison in Lemma 2.5 as well as Corollary 2.6. Flatness and the relative Proj comparison are needed to upgrade geometric checks to family isomorphisms. | Knudsen II pp.178–179 (PDF 18–19). |
+| `MC.2/genus-zero-base`, `MC.2/pointed-dm-theorem`, `MC.2/cross-ratio` | Specify stable pairs and exact base cases. Explain the four-point cross-ratio statement as a deduction from the universal three-pointed curve, not a printed cross-ratio theorem. These exports provide the reserved key's sample contracts; the remaining expansion/flatness, genus-one and arbitrary-base prerequisites still need review. | Knudsen II Theorem 2.7 proof p.179 (PDF 19). |
+
+All existing `sourceIssues` E1–E11 retain the previous reviewer's individual confirmations. This run did not freshly recheck those eleven claims; the historical section below records their evidence and version qualifications. The projective-frame correction is an error in the plan, not a newly alleged error in Deligne–Mumford.
+
+## Independent projective-frame twist test
+
+Fix an algebraically closed field k of characteristic zero, a smooth genus-g curve C₀ with g≥2, and a tricanonical projective coordinate. Put r=5g−5≥5 and
+
+S=D_+(det)⊂P(Mat_r)=P^{r²−1}_k.
+
+An invertible matrix up to scalar acts on projective coordinates, so S≅PGL_{r,k}. On C₀×S apply this tautological varying projective coordinate to the fixed tricanonical embedding. Its homogeneous coordinates are bilinear in the curve coordinate and the projective matrix coordinate. They generate the line
+
+L=pr_C₀*ω_{C₀/k}³⊗pr_S*O_S(1).
+
+They have no simultaneous zero because the matrix is invertible, and give an embedding fibrewise (indeed a projective automorphism of the constant embedding). Thus this is a legitimate projectively framed S-family and an S-point of the source's H_g/U_g functor. The quotient-line convention and hyperplane pullback are supplied by [Stacks tag 01OA](https://stacks.math.columbia.edu/tag/01OA).
+
+The determinant hypersurface D is irreducible of degree r: rank-r−1 matrices form one orbit under left/right invertible transformations, an irreducible orbit, and its closure is the rank-at-most-r−1 locus. Projective matrix space is regular and locally factorial. Every invertible sheaf on its open complement S extends ([tag 0BD9](https://stacks.math.columbia.edu/tag/0BD9)), and its Picard group is Z generated by O(1) ([tag 0BXJ](https://stacks.math.columbia.edu/tag/0BXJ)). The kernel of restriction consists of Cartier divisors supported on the single prime divisor D: a trivialization on S is a rational section whose divisor is mD. Conversely every O(mD) restricts trivially. As [D]=r[O(1)], this gives Pic(S)=Z/r and O_S(1) has exact order r.
+
+Choose c∈C₀(k) and restrict L⊗pr_C₀*ω^{-3} to {c}×S. It is the nontrivial O_S(1). Therefore L cannot be globally identified with the untwisted ω³ pullback. Requiring such an identification would exclude this constant family with its varying projective frame. This test detects the distinction missed by tests using only fields or globally liftable linear frames. The argument is recorded mathematically; none of the Picard/GL/PGL or moduli conclusions is claimed formalized here.
+
+## Owned-key API and prototype
+
+The reserved id occurs exactly once. Five added API contracts are `CurvesModuli.rationalThreeEquivalence`, `crossRatio`, `stableStackProperties`, `universalForgetful` and `forgetStabilize`. They refer respectively to existing `MC.2/genus-zero-base`, `cross-ratio`, `pointed-dm-theorem`, `expansion-contraction-inverses` and `forget` nodes. These are exported operations/theorems of the definition, so `providedBy` links do not add circular definition prerequisites.
+
+The retained three-pointed and elliptic-involution tests plus the four added `crossRatioBoundary`, `stableStackDimensions`, `universalRationalFour` and `forgetRationalTail` tests place all six survey samples in the owned node's API/tests. `sampleApiCoverage.status` is `specified`, not closed or Lean-expressed. The extra `TricanonicalHilbert.projectiveFrameTwist` test is on the Hilbert construction. All ten additions have explicit prototype omissions and comment entries in the suggested file. No tautological replacement propositions or geometric Lean signatures were invented. Its executable Lean declarations are unchanged.
+
+## Baseline, suppliers and owner boundaries
+
+Two full pinned Mathlib declarations and their surrounding binders were read for these geometric uses:
+
+- [AlgebraicGeometry.Scheme, Scheme.lean:42](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/AlgebraicGeometry/Scheme.lean#L42): a locally affine locally ringed space, with the accompanying scheme morphisms/category. This supplies scheme data, not stable families, relative duality or moduli representability.
+- [CategoryTheory.Pseudofunctor.IsStack, IsStack.lean:49](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/CategoryTheory/Sites/Descent/IsStack.lean#L49): for a category-valued pseudofunctor and a Grothendieck topology, extends IsPrestack and requires essential surjectivity for covering sieves. This matches the generic effective-descent predicate once the fppf topology and moduli pseudofunctor are supplied; it does not prove their descent or algebraicity. The source's fully faithful and essential-surjective comparison was also read.
+
+No baseline citations were added, removed or replaced. These two use checks do not certify all consumers throughout the packet. The other 266 entries still require full consumer-level semantic checks beyond the predecessor's inventory screening.
+
+Freshly read supplier briefs were SchemeAndStackFoundations SF.0/SF.1 and AlgebraicModuliForArithmeticGeometry R09.2/R09.3/R09.4/R09.6. R09.2 supplies generic Hilbert/Quot/Hom/Isom representability, R09.3 polarized projective-object descent, and R09.4 quotient/atlas criteria; none alone proves the canonical relative Hilbert locus. R09.6's formal deformation/algebraization comparison does not explicitly specify coherent-sheaf Ext spectral sequences, H² vanishing or finite-support H¹ vanishing. Those inputs have a named gap, rather than being silently credited to a supplier. A DerivedDeRham DD.0 cotangent-complex brief was inspected as a lead, without making a new unsupported request to it.
+
+Parent StableReduction and JacobianChallenge reader models and reviewed library-coverage entries for parent layers 2,3,8,9 were consulted. The parent owns coherent curve theory, pointed stability and contraction, smooth-generic reduction and its nodal/marked extension; import these rather than duplicate them. Its locally Noetherian coherent results do not justify an arbitrary-base theorem. The two added gaps specify finite-presentation approximation, compatible duality/pushforward/evaluation, the canonical Hilbert/projective-frame comparison, and the coherent deformation package. Existing gaps and all eight stage remaining lists continue to apply. RS16/17/18/25/27 accepted restructuring entries touching the parent were inspected; no new action for this Part II is inferred.
+
+The roadmap's MC.0 supplier list and MC.1 scope/supplier list now match the corrected projective-frame and arbitrary-base contracts. No stage ordering or planet was changed. No all-library absence assertion is made.
+
+## Fresh public-source receipts
+
+The three PDFs match their inherited hashes. Each read scope below is fresh in this session; it is not full-paper reading. Packet `sourceReadReceipts` stores the same worker attribution.
+
+| Source | SHA-256 | Fresh read scope |
+| --- | --- | --- |
+| [Deligne–Mumford public author PDF](https://www.dam.brown.edu/people/mumford/alg_geom/papers/1969c--IrredModCurves-Deligne-Numdam.pdf) | `d779973708ecef9a098db863df766f173740d75302f15655e4bbc9dd7df739e7` | Extracted printed pp.77–85/PDF 4–12 and pp.101–105/PDF 28–32; rendered p.78/PDF 5. No fresh §§2–3 proof reading. |
+| [Knudsen II public scan](https://journals.msp.org/mscand/article/download/1622/1621/1653) | `18e04bbf5c24a460ff10e965ebf665ea0229378c6a9521bd279909476012e230` | Rendered printed pp.162–164/PDF 2–4, p.174/PDF 14, pp.178–179/PDF 18–19. No fresh Appendix or §3 reading. |
+| [Knudsen 2012 v2](https://arxiv.org/pdf/1106.1588v2) | `de9f73f25a4fbe03dbe2865ebc5932412b5bf3aa7f02734c04de05013da44d36` | Extracted PDF pp.1–2 and matching [primary HTML Introduction](https://arxiv.org/html/1106.1588v2) through the unrestricted-section diagram/inverse assertions. |
+| [Stacks 01OA](https://stacks.math.columbia.edu/tag/01OA) | `64a86cace89758f834c2c6c6584ab5f18141e34883f534b323e23e1492360c07` | Definition 27.21.1 and quotient representing property. |
+| [Stacks 0BXJ](https://stacks.math.columbia.edu/tag/0BXJ) | `d5a23ef428e9d908a636ca6f9cade4865c0c639b3024dba0f8a81c09817ee8db` | Lemma 31.29.5, statement/proof. |
+| [Stacks 0BD9](https://stacks.math.columbia.edu/tag/0BD9) | `7a439d7d29b145fd0dd7ea900f1d41f4324b90a056d5349842c2d0f94bf35798` | Lemma 31.29.3, statement/proof. |
+
+HTML hashes describe the fetched pages on 2026-10-05, not immutable whole-chapter releases. Other exploratory Stacks pages were read without adding sources or relying on them for a new conclusion.
+
+## Validation and resumption boundary
+
+`python3 scripts/check_blueprint.py research/blueprint/packets/StableReductionPartII.json` reports 0 errors and 0 warnings, including its pinned declaration-index checks. Submission validation covers the five allowed files, and `git diff --check` passes. These structural checks do not establish mathematical closure.
+
+After checking available memory (95 GiB), `lean-check research/blueprint/suggested/StableReductionPartII.lean` completed with exit code 0, zero errors, 870 intentional `sorry` warnings and no other warnings. The file has 5,755 lines and SHA-256 `b57732875c4d82b93716d79d058228b5ccac67fea8d049eb885d9b0b523cbecf`. The ten new omission entries and wording updates are comments; the declaration bodies are unchanged. The fresh `reviewCompilation` preserves earlier compilation receipts rather than replacing their attribution.
+
+The shared Mathlib commit is exactly `082e2d37e8b0463410cdb532e111cd43d5a66174`. The enclosing shared Tau Ceti checkout is `cf386627e9176a3827c1a5fe804989fd94a4d216`, not pinned `f790474821cf4256814db967cb154e7af3d0c369`. As this suggested file imports only Mathlib, the receipt is a pinned-Mathlib type check, not a pinned Tau Ceti import or proof check.
+
+Resume at the new MC.0/MC.1 supplier gaps and the actual geometric types, then audit the remaining MC.2 expansion/genus-one prerequisites before treating the key's exports as closed. Continue all remaining node, API/test, baseline-use, request, source-issue-version and planet checks at target level. The 22 source checks here and the predecessor's eleven source-issue confirmations are useful evidence, not a substitute for those obligations.
+
+The reader is **not** an allowed deliverable of #3619 and was not edited. An authorized reader synchronization must copy the corrected stable-range hypothesis; universal-curve smooth restriction; tricanonical projective-frame/base-line formulation and twist test; five linked owned-key API contracts/four tests; Isom density/frame dependencies; properness dense-open dependency; and two supplier gaps from this packet. That mismatch remains a review resumption item. No orchestrator mathematical decision is required to continue. Only assign a final top-level `review` once every binding check is complete.
+
+## Historical checkpoint: codex-FiMKR8, merged in #6172
+
+The following is the preceding reviewer's unchanged report. Its counts, unchanged-file statements and proposed next steps describe the pre-current-checkpoint input. The current counts and corrections above supersede them; its source evidence and pinned locator inventory remain useful and attributed to that worker.
+
 # REV-DESIGN-StableReductionPartII: review checkpoint
 
 Issue: [#3619](https://github.com/CBirkbeck/tauceti-explorer/issues/3619). Reviewer: Codex (GPT-6), session `codex-FiMKR8`. Date: 2026-10-05.
