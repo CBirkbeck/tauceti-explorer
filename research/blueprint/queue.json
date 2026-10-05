@@ -59799,8 +59799,9 @@
    "avoidAccountOf": "DESIGN-EllipticLegendreCharacterInterfaces",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-EllipticLegendreCharacterInterfaces.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1721"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1721",
+   "finishedAt": "2026-10-05T10:18:36Z"
   },
   {
    "id": "DESIGN-EffectiveBoundsCompactModels",
