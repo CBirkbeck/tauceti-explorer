@@ -5927,3 +5927,11 @@ test: LevelPicardParameter.dualNumbers
   Fixed genus-two curve/level3 line deformations over C[ε]/(ε²) have tangent
   H¹(O), dimension two; actual infinitesimal Picard and cohomology types needed.
 -/
+
+/-
+FINAL REVIEW (2026-10-05, codex-UE02jn): needs_changes. The current packet
+and review report record corrected four/five-parameter triangle and generic
+evaluation-image statements. The definitive reader still contains obsolete
+versions and requires an authorized synchronization before acceptance.
+This comment does not supply the missing geometric types or prove closure.
+-/
