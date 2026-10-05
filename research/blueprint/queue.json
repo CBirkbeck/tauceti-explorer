@@ -32349,7 +32349,8 @@
    ],
    "avoidAccountOf": "BP-HabiroCyclotomicCompletions--HC.4",
    "prompt": "research/blueprint/prompts/REV-HabiroCyclotomicCompletions--HC.4.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6413"
   },
   {
    "id": "BP-HabiroCyclotomicCompletions--HC.6",
@@ -32372,8 +32373,9 @@
    ],
    "followUpOf": "BP-HabiroCyclotomicCompletions",
    "prompt": "research/blueprint/prompts/BP-HabiroCyclotomicCompletions--HC.6.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6471"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6471",
+   "finishedAt": "2026-10-05T22:33:36Z"
   },
   {
    "id": "REV-HabiroCyclotomicCompletions--HC.6",
