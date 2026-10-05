@@ -13,7 +13,7 @@
     "StableReductionPartII:MC.7"
   ],
   "status": "complete",
-  "summary": "Planning pass complete at 528 declarations under PROTOCOL section 0 and NODE_BUDGET 300; no declarations are added. All eight geometric stages MC.0–MC.7 and the general pointed moduli key remain partial with explicit remaining work. The plan retains polynomial nodal section coordinates, dual and bidual, arbitrary original-coefficient Hom/Ext calculations, finite two-base tensor comparisons, completed coefficient actions, finite-projective tensor/limit interchange and the actual Hom_R compatible-family comparison. The reusable relative stable-reflexivity interface, two-base completion for arbitrary completed coefficients, completed-ring Hom/Ext, faithful reflection, pointed hull, sheaf descent, arbitrary-base approximation and all stack geometry remain required. All 528 node objects, 268 baseline declarations, 143 requests, 13 source findings, 21 consumer routes and the six-consumer reserved key are preserved. The entire existing suggested Lean file elaborates; 244 explicit geometric prototype omissions remain. Completion concerns this planning pass and its independent review, not mathematical closure.",
+  "summary": "Planning pass complete at 528 declarations under PROTOCOL section 0 and NODE_BUDGET 300; no declarations are added. All eight geometric stages MC.0–MC.7 and the general pointed moduli key remain partial with explicit remaining work. The plan retains polynomial nodal section coordinates, dual and bidual, arbitrary original-coefficient Hom/Ext calculations, finite two-base tensor comparisons, completed coefficient actions, finite-projective tensor/limit interchange and the actual Hom_R compatible-family comparison. The reusable relative stable-reflexivity interface, two-base completion for arbitrary completed coefficients, completed-ring Hom/Ext, faithful reflection, pointed hull, sheaf descent, arbitrary-base approximation and all stack geometry remain required. All 528 node objects, 276 baseline declarations, 145 requests, 14 source findings, 21 consumer routes and the six-consumer reserved key are preserved. The entire existing suggested Lean file elaborates; 248 explicit geometric prototype omissions remain. Completion concerns this planning pass and its independent review, not mathematical closure.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -1985,6 +1985,62 @@
         "module": "Mathlib/Algebra/Category/ModuleCat/Monoidal/Closed.lean",
         "provides": "def monoidalClosedHomEquiv (M N P : ModuleCat.{u} R) : Existing native machinery, reused without replanning.",
         "checked": "Statement and indicated source proof read at 082e2d37e8b0463410cdb532e111cd43d5a66174, line 29; blob 8015b07987c5c697a6838a5b0fe1d19a4cc24275."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Limits.pullbackLeftPullbackSndIso",
+        "kind": "def",
+        "module": "Mathlib/CategoryTheory/Limits/Shapes/Pullback/Pasting.lean",
+        "provides": "For C→S, T→S and U→T, the canonical isomorphism (C×_S T)×_T U≅C×_S U, preserving both projections; generic categories require the displayed pullbacks.",
+        "checked": "Full statement and ambient binders read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex — codex-KKjBS6 on 2026-10-05."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Limits.pullbackLeftPullbackSndIso_hom_fst",
+        "kind": "theorem",
+        "module": "Mathlib/CategoryTheory/Limits/Shapes/Pullback/Pasting.lean",
+        "provides": "The composition of the pasting isomorphism with the projection to C equals the two successive projections to C.",
+        "checked": "Full statement and ambient binders read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex — codex-KKjBS6 on 2026-10-05."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Limits.pullbackLeftPullbackSndIso_hom_snd",
+        "kind": "theorem",
+        "module": "Mathlib/CategoryTheory/Limits/Shapes/Pullback/Pasting.lean",
+        "provides": "The composition of the pasting isomorphism with the projection to U equals the projection to U from the iterated pullback.",
+        "checked": "Full statement and ambient binders read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex — codex-KKjBS6 on 2026-10-05."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Limits.pullback.hom_ext",
+        "kind": "theorem",
+        "module": "Mathlib/CategoryTheory/Limits/Shapes/Pullback/HasPullback.lean",
+        "provides": "Two morphisms into an existing pullback are equal when their compositions with both projections are equal; this supplies coherence by uniqueness, not by definitional equality.",
+        "checked": "Full statement and ambient binders read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex — codex-KKjBS6 on 2026-10-05."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Limits.pullback_fst_iso_of_right_iso",
+        "kind": "instance",
+        "module": "Mathlib/CategoryTheory/Limits/Shapes/Pullback/Iso.lean",
+        "provides": "For f:X→Z and an isomorphism g:Y→Z, the first projection X×_Z Y→X is an isomorphism. Set g=id_S for the identity base change.",
+        "checked": "Full statement and ambient binders read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex — codex-KKjBS6 on 2026-10-05."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme.fppfTopology",
+        "kind": "abbrev",
+        "module": "Mathlib/AlgebraicGeometry/Sites/Fpqc.lean",
+        "provides": "The native Grothendieck topology on schemes generated by jointly surjective flat locally finitely presented covering families; the module also proves subcanonicity, not effective descent of pointed curves.",
+        "checked": "Full statement and ambient binders read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex — codex-KKjBS6 on 2026-10-05."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.FormallyUnramified.of_hom_ext",
+        "kind": "lemma",
+        "module": "Mathlib/AlgebraicGeometry/Morphisms/FormallyUnramified.lean",
+        "provides": "A scheme morphism is formally unramified if lifts in every affine square-zero closed-immersion test are unique. The quantifier is over all the displayed commutative rings and lifts, not merely tangent vectors over a field.",
+        "checked": "Full statement and ambient binders read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex — codex-KKjBS6 on 2026-10-05."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.IsFinite.of_isProper_of_locallyQuasiFinite",
+        "kind": "lemma",
+        "module": "Mathlib/AlgebraicGeometry/ZariskisMainTheorem.lean",
+        "provides": "For a scheme morphism f:X→S, IsProper f and LocallyQuasiFinite f imply IsFinite f; the ambient LocallyOfFiniteType instance is supplied by properness.",
+        "checked": "Full statement and ambient binders read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex — codex-KKjBS6 on 2026-10-05."
       }
     ]
   },
@@ -2401,6 +2457,18 @@
       "readSections": [
         "§2.1 opening normalized-boundary and graph-invariant paragraphs, PDF pp.4–5 only"
       ]
+    },
+    {
+      "id": "stacks-noetherian-valuative-KKjBS6",
+      "title": "Noetherian valuative criterion for schemes",
+      "authors": "The Stacks Project Authors",
+      "edition": "Public tag 0208, accessed 2026-10-05",
+      "url": "https://stacks.math.columbia.edu/tag/0208",
+      "sha256": "ed433cfe29bbab8d1b3de3e319e1acb5303988ffb6219782f8c2fd5a2bfbb9c2",
+      "accessDate": "2026-10-05",
+      "readSections": [
+        "Lemma 32.15.3: full statement and proof. Chow lemma and DVR-domination transitive inputs cited there were not freshly verified."
+      ]
     }
   ],
   "nodes": [
@@ -2580,10 +2648,15 @@
       ],
       "prerequisites": [
         "StableReductionPartII:key/moduli-curves",
-        "SchemeAndStackFoundations:SF.0"
+        "mathlib:CategoryTheory.Limits.pullbackLeftPullbackSndIso",
+        "mathlib:CategoryTheory.Limits.pullbackLeftPullbackSndIso_hom_fst",
+        "mathlib:CategoryTheory.Limits.pullbackLeftPullbackSndIso_hom_snd",
+        "mathlib:CategoryTheory.Limits.pullback.hom_ext",
+        "mathlib:CategoryTheory.Limits.pullback_fst_iso_of_right_iso",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves"
       ],
       "proofSteps": [
-        "Use the unique morphisms supplied by pullback universal properties; their composites have equal projections, hence agree.",
+        "Use the native scheme pullbacks and pullbackLeftPullbackSndIso with its two projection formulas. For identity base change use the first pullback projection with an identity right leg. Equal projections give equality by pullback.hom_ext, so the pentagon, unit and marking coherence follow by uniqueness.",
         "Import the parent’s base-change preservation of geometric genus, nodality, smooth sections and log-dualizing ampleness."
       ],
       "acceptance": [
@@ -2621,7 +2694,8 @@
         "SchemeAndStackFoundations:SF.1",
         "AlgebraicModuliForArithmeticGeometry:R09.3",
         "mathlib:CategoryTheory.Pseudofunctor.IsStack",
-        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity"
+        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity",
+        "mathlib:AlgebraicGeometry.Scheme.fppfTopology"
       ],
       "proofSteps": [
         "Descend the relatively ample log-dualizing line with the family by polarized-scheme descent.",
@@ -2636,7 +2710,7 @@
           "sourceId": "knudsen2",
           "locator": "Definition 1.2, printed p.164 (PDF4), groupoid-fibred stack assertion",
           "excerpt": "stack",
-          "match": "The passage identifies the stable pointed category as a stack. The fppf effective-descent route and its smooth full substack use polarized-object descent and locality of smoothness from the named suppliers; no algebraic atlas follows just from this assertion."
+          "match": "Knudsen calls this a stack and refers to Deligne–Mumford Definition 4.1; the latter paper specializes its general site to the étale topology on p.98. The fppf assertion here is a strengthening using the explicitly requested effective fppf descent of polarized schemes and sections, together with locality of the family conditions; it is not asserted as the printed topology or as a consequence of the IsStack class alone."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2698,6 +2772,21 @@
           "name": "UniversalCurve.baseChange",
           "role": "functoriality",
           "statement": "The representing isomorphism is natural in S and respects the pointed-family cocycle."
+        },
+        {
+          "name": "UniversalCurve.marking",
+          "role": "projection",
+          "statement": "For each ordered marking i, define σ_i:M̄_{g,n}→Z̄_{g,n} by (C/S;s₁,…,sₙ)↦(C/S;s₁,…,sₙ;Δ=s_i). The projection composed with σ_i is the identity; under S×_{M̄}Z̄≅C it is exactly s_i, with coherent arbitrary base change."
+        },
+        {
+          "name": "UniversalCurve.projectionNodal",
+          "role": "structure",
+          "statement": "The universal projection is representable proper flat finitely presented of pure relative dimension one, with geometrically connected genus-g nodal fibres; for a classifying family C/S its base change is precisely f:C→S. It is smooth at a geometric point exactly when that point of its fibre is smooth."
+        },
+        {
+          "name": "UniversalCurve.smoothRestriction",
+          "role": "compatibility",
+          "statement": "Base change of Z̄_{g,n} to the full smooth-family substack M_{g,n} is the universal smooth proper n-pointed curve. This differs from taking only the relative smooth locus of Z̄ over all of M̄: a singular stable curve retains its nodal point in the universal fibre."
         }
       ],
       "tests": [
@@ -2715,6 +2804,11 @@
           "name": "UniversalCurve.smoothFiber",
           "kind": "compatibility",
           "statement": "Over a smooth curve over an algebraically closed field, the fibre is the whole smooth proper curve."
+        },
+        {
+          "name": "UniversalCurve.nodalProjection",
+          "kind": "non-example",
+          "statement": "Let C/k be an irreducible rational curve with one ordinary node and one smooth marking over an algebraically closed field. Its arithmetic genus is one and it is pointed-stable. The base change of the universal projection to its classifying point is C→Spec k and is not smooth at the node; smoothness of the total universal stack over Z does not make this projection smooth."
         }
       ],
       "uses": [
@@ -2822,7 +2916,7 @@
           "sourceId": "stacks-projective-picard-review",
           "locator": "Lemma31.29.5, complete statement and proof",
           "excerpt": "Picard group",
-          "match": "Projective matrix space has Picard group Z generated by O(1). For the varying-frame test, remove the irreducible determinant divisor of degree r; the explicit divisor argument in the review then gives Pic(PGL_r)=Z/r."
+          "match": "Projective matrix space has Picard group Z generated by O(1). For the varying-frame test, remove the irreducible determinant divisor of degree r; the explicit divisor argument in the review then gives Pic(PGL_r)=Z/r. Apply the lemma only in positive dimension n=r²−1≥24; its missing n≥1 hypothesis is recorded as E14."
         },
         {
           "sourceId": "stacks-picard-extension-review",
@@ -3026,11 +3120,12 @@
       "prerequisites": [
         "StableReductionPartII:MC.1/isom-representable",
         "SchemeAndStackFoundations:SF.0",
-        "tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves"
+        "tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves",
+        "mathlib:AlgebraicGeometry.FormallyUnramified.of_hom_ext"
       ],
       "proofSteps": [
-        "Identify first-order automorphisms with vector fields.",
-        "Use vanishing and the finite-presentation infinitesimal criterion for unramifiedness."
+        "At a geometric isomorphism identify its tangent vectors with H⁰(C,T_C); import the parent’s vanishing for stable geometric curves in every characteristic.",
+        "Use the requested finite-presentation geometric-fibre infinitesimal criterion to obtain uniqueness of all square-zero affine lifts, then apply the native FormallyUnramified.of_hom_ext criterion. That native theorem alone does not turn one field-valued tangent calculation into the family statement."
       ],
       "acceptance": [
         "No characteristic-zero assumption is used."
@@ -3066,23 +3161,32 @@
         "StableReductionPartII:MC.1/isom-representable",
         "SchemeAndStackFoundations:SF.0",
         "tauceti:TauCetiRoadmap/StableReduction#layer-8-canonical-contraction-and-unpointed-stable-reduction",
-        "tauceti:TauCetiRoadmap/StableReduction#layer-9-marked-stabilization-and-stable-pointed-reduction",
         "StableReductionPartII:MC.1/versal-node-parameters",
-        "StableReductionPartII:MC.1/frame-torsor"
+        "StableReductionPartII:MC.1/frame-torsor",
+        "StableReductionPartII:MC.1/hilbert-quotient"
       ],
       "proofSteps": [
-        "Reduce locally to the universal pair of Hilbert families using tricanonical projective frames. Their formal deformation charts give the smooth-generic density used in Deligne–Mumford Theorem 1.11.",
-        "On the locally Noetherian DVR test use the parent uniqueness of stable models. The universal density and scheme valuative criterion extend this to properness of the whole Isom scheme, including pairs with nodal generic fibre; the arbitrary-base pullback/approximation input is separate."
+        "Reduce locally on S to the universal pair of Hilbert families over U_g×U_g using tricanonical projective frames. Under the framed representing property, the scheme of isomorphisms between that universal pair is U_g×PGL_r, r=5g−5: an isomorphism φ:C₁→C₂ induces P(E₁)→P(E₂), and its unique frame change is α₂ P(φ) α₁⁻¹; conversely a frame change gives the corresponding embedded isomorphism. This is the action-groupoid description, not just a statement about orbit classes or the density of U_g×U_g.",
+        "The source open consisting of smooth curves is U_g^sm×PGL_r. Independent versal node-smoothing parameters make U_g^sm dense; the smooth projection U_g×PGL_r→U_g is open and surjective, so this inverse image is dense. The source is of finite type over the Noetherian scheme U_g×U_g.",
+        "Apply the refined Noetherian scheme criterion of Stacks tag 0208: it suffices to extend maps from generic points of irreducible components of the universal Isom source over DVRs. Those generic points lie in the displayed smooth-curve open. The parent unpointed smooth-generic stable-model uniqueness gives the unique extension. This does not apply a field-extension existence criterion for stacks to a scheme.",
+        "Pull back this proper universal Isom scheme to arbitrary pairs of stable families after their local projective frames; properness is local on the target and stable under base change. The family/cohomology approximation input remains explicit. Its valuative consequence then supplies extension for every valuation ring and for nodal generic fibres as well; no such general uniqueness is assumed in the smooth-generic test."
       ],
       "acceptance": [
-        "The final Isom theorem includes singular generic stable curves."
+        "The final Isom theorem includes singular generic stable curves.",
+        "The universal Isom scheme is the action groupoid U_g×PGL_r, whose smooth-curve open is dense. Density of the ambient pair space alone cannot justify testing only smooth-generic isomorphisms."
       ],
       "sources": [
         {
           "sourceId": "dm",
           "locator": "Theorem 1.11 proof p.84 (PDF11), Lemma 1.12 pp.84–85 (PDF11–12)",
           "excerpt": "proper",
-          "match": "The proof first reduces to the universal Hilbert pair, uses density of smooth curves there, and applies the DVR extension lemma. The a posteriori paragraph explicitly removes smooth-generic and DVR restrictions; the packet lists the versal-chart density input instead of assuming it."
+          "match": "Theorem 1.11 first reduces to the universal Hilbert pair and asserts source density of its smooth-curve Isom open, then applies smooth-generic DVR uniqueness. The action-groupoid identification U_g×PGL_r and the open smooth projection supply that density here. The a posteriori paragraph removes smooth-generic and DVR restrictions only after the properness theorem."
+        },
+        {
+          "sourceId": "stacks-noetherian-valuative-KKjBS6",
+          "locator": "Tag 0208, Lemma 32.15.3(4) and proof of (4)⇒(1)",
+          "excerpt": "any irreducible component",
+          "match": "This scheme theorem justifies the generic-point DVR refinement over a locally Noetherian target. Its proof uses a proper birational Chow cover and a DVR dominating the local ring of a missing projective-boundary point. It is an owner request, not a baseline theorem or a fresh proof of the generic inputs."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3109,10 +3213,11 @@
         "StableReductionPartII:MC.1/isom-unramified",
         "StableReductionPartII:MC.1/isom-proper",
         "AlgebraicModuliForArithmeticGeometry:R09.4",
-        "SchemeAndStackFoundations:SF.0"
+        "SchemeAndStackFoundations:SF.0",
+        "mathlib:AlgebraicGeometry.IsFinite.of_isProper_of_locallyQuasiFinite"
       ],
       "proofSteps": [
-        "Unramified finite presentation is quasi-finite; proper quasi-finite implies finite.",
+        "The requested finite-type unramified-to-locally-quasi-finite criterion gives LocallyQuasiFinite for each scheme Isom fibre of the diagonal. Apply the native IsFinite.of_isProper_of_locallyQuasiFinite to its already proved properness; this generic finiteness theorem is not rebuilt.",
         "Identify diagonal fibres with the Isom schemes and apply the smooth-atlas/unramified-diagonal DM criterion."
       ],
       "acceptance": [
@@ -3192,12 +3297,13 @@
         "StableReductionPartII:MC.1/obstruction-vanishing",
         "StableReductionPartII:MC.1/tricanonical-cohomology",
         "AlgebraicModuliForArithmeticGeometry:R09.6",
-        "tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves"
+        "tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity"
       ],
       "proofSteps": [
         "The local node deformation has one smoothing coordinate per node.",
         "Surjectivity of the global-to-local tangent map and obstruction vanishing give a smooth lifting map.",
-        "Use the parent’s curve Riemann–Roch dimension and formal algebraization with ample ω³."
+        "Use curve Riemann–Roch and duality on the normalization: with total component genus G, v components and r nodes, the branches contribute 2r marked points, and the tangent spaces preserving them have total dimension 3G−3v+2r. Adding r independent local smoothing parameters and g=G+r−v+1 gives 3g−3. Algebraize the deformation with its ample ω³ and use the projective-frame torsor for the additional PGL_r smooth factor, where the frame rank is 5g−5."
       ],
       "acceptance": [
         "An automorphism can permute node parameters; no globally chosen ordering of nodes is asserted."
@@ -3235,7 +3341,8 @@
       "prerequisites": [
         "StableReductionPartII:MC.1/finite-unramified-diagonal",
         "StableReductionPartII:MC.1/versal-node-parameters",
-        "AlgebraicModuliForArithmeticGeometry:R09.6"
+        "AlgebraicModuliForArithmeticGeometry:R09.6",
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
       ],
       "proofSteps": [
         "Translate the versal smooth formal rings to atlas smoothness by the finite-presentation formal criterion.",
@@ -3274,7 +3381,8 @@
       "prerequisites": [
         "StableReductionPartII:MC.1/smooth-dimension",
         "StableReductionPartII:MC.1/versal-node-parameters",
-        "SchemeAndStackFoundations:SF.0"
+        "SchemeAndStackFoundations:SF.0",
+        "AlgebraicModuliForArithmeticGeometry:R09.6"
       ],
       "proofSteps": [
         "In the node charts the family is singular exactly when one of the smoothing parameters vanishes.",
@@ -31693,15 +31801,8 @@
       ]
     },
     {
-      "supplier": "SchemeAndStackFoundations:SF.0",
-      "need": "Scheme fibre products with canonical identity/associativity comparisons and uniqueness for fixed projections; pullback of sections and marking-preserving isomorphisms.",
-      "neededBy": [
-        "StableReductionPartII:MC.0/pullback-coherence"
-      ]
-    },
-    {
       "supplier": "SchemeAndStackFoundations:SF.1",
-      "need": "The fppf topology on schemes, descent of relative morphisms/sections and groupoid cocycles, and the effective-descent criterion matching CategoryTheory.Pseudofunctor.IsStack.",
+      "need": "Effective fppf descent of the required fibred-groupoid objects and their ordered sections, with cocycle comparisons matching the native CategoryTheory.Pseudofunctor.IsStack predicate. The fppf topology on schemes and its subcanonicity already exist in Mathlib; they do not supply effective descent of the polarized family.",
       "neededBy": [
         "StableReductionPartII:MC.0/effective-descent"
       ]
@@ -31799,42 +31900,35 @@
     },
     {
       "supplier": "SchemeAndStackFoundations:SF.0",
-      "need": "Named schemes/morphism properties, fibre products, relative symmetric algebra and Proj, finite/proper/quasi-finite criteria, coherent sheaves, effective Cartier divisors and finite normalization over an excellent finite-type base. Consumer: Unramified Isom scheme. Required use: Identify first-order automorphisms with vector fields. Use vanishing and the finite-presentation infinitesimal criterion for unramifiedness.",
+      "need": "For a locally finitely presented scheme morphism, the geometric-fibre infinitesimal/tangent-space criterion for unramifiedness, retaining its finite-presentation hypotheses, and the passage to uniqueness in every affine square-zero lifting square. Mathlib FormallyUnramified.of_hom_ext supplies the final general lifting test once those squares are controlled; it does not by itself supply the geometric-fibre reduction.",
       "neededBy": [
         "StableReductionPartII:MC.1/isom-unramified"
       ]
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/StableReduction#layer-8-canonical-contraction-and-unpointed-stable-reduction",
-      "need": "Stable reduction for unpointed genus≥2 over a finite extension of the trait fraction field, and unique isomorphism extension between stable models, with the exact valuative criterion scope. Consumer: Properness of stable-curve Isom. Required use: Use the parent’s uniqueness of stable models, with limit/descent to the required noetherian test setting. Apply the scheme valuative criterion to the Isom scheme; the source’s smooth-generic test reduction requires the universal density argument, not an assumption on every trait.",
-      "neededBy": [
-        "StableReductionPartII:MC.1/isom-proper"
-      ]
-    },
-    {
-      "supplier": "tauceti:TauCetiRoadmap/StableReduction#layer-9-marked-stabilization-and-stable-pointed-reduction",
-      "need": "Marked stabilization, coherent repeated forgetting, and stable pointed reduction including already-nodal generic fibres; no smooth-generic hypothesis in the final uniqueness test. Consumer: Properness of stable-curve Isom. Required use: Use the parent’s uniqueness of stable models, with limit/descent to the required noetherian test setting. Apply the scheme valuative criterion to the Isom scheme; the source’s smooth-generic test reduction requires the universal density argument, not an assumption on every trait.",
+      "need": "Unique extension of an isomorphism between stable genus-g models, g≥2, over a DVR when the generic fibre is smooth. This is the only stable-model uniqueness input in the refined universal scheme test; general valuation rings and nodal generic fibres follow after Isom properness. No pointed stable-reduction existence theorem is needed here.",
       "neededBy": [
         "StableReductionPartII:MC.1/isom-proper"
       ]
     },
     {
       "supplier": "SchemeAndStackFoundations:SF.0",
-      "need": "Named schemes/morphism properties, fibre products, relative symmetric algebra and Proj, finite/proper/quasi-finite criteria, coherent sheaves, effective Cartier divisors and finite normalization over an excellent finite-type base. Consumer: Properness of stable-curve Isom. Required use: Use the parent’s uniqueness of stable models, with limit/descent to the required noetherian test setting. Apply the scheme valuative criterion to the Isom scheme; the source’s smooth-generic test reduction requires the universal density argument, not an assumption on every trait.",
+      "need": "The refined Noetherian scheme valuative criterion of Stacks tag 0208: for a finite-type f:X→S with S locally Noetherian, unique extension for DVR diagrams whose top map is a generic point of an irreducible component of X implies properness. Include the reduction to those diagrams, properness locality/base-change and openness of smooth maps used for U_g^sm×PGL_r. The pinned IsProper.of_valuativeCriterion instead quantifies over all valuation-ring squares and does not supply this refinement.",
       "neededBy": [
         "StableReductionPartII:MC.1/isom-proper"
       ]
     },
     {
       "supplier": "AlgebraicModuliForArithmeticGeometry:R09.4",
-      "need": "Stack/fibred-groupoid language, quotient stacks and torsors, smooth-atlas/unramified-diagonal DM criterion, representability from stabilizer injectivity, and proper-stack valuative criterion allowing finite DVR extension. Consumer: Finite unramified diagonal. Required use: Unramified finite presentation is quasi-finite; proper quasi-finite implies finite. Identify diagonal fibres with the Isom schemes and apply the smooth-atlas/unramified-diagonal DM criterion.",
+      "need": "Deligne–Mumford atlas criterion of DM Theorem 4.21: over a Noetherian base a quasi-separated stack with representable unramified diagonal and a finite-type smooth surjective scheme atlas admits an étale atlas and is of finite type. Define separatedness by properness of the representable diagonal, distinct from properness of the stack morphism. DM §4 announces these general results without proofs; supply the generic proof or precise supplier.",
       "neededBy": [
         "StableReductionPartII:MC.1/finite-unramified-diagonal"
       ]
     },
     {
       "supplier": "SchemeAndStackFoundations:SF.0",
-      "need": "Named schemes/morphism properties, fibre products, relative symmetric algebra and Proj, finite/proper/quasi-finite criteria, coherent sheaves, effective Cartier divisors and finite normalization over an excellent finite-type base. Consumer: Finite unramified diagonal. Required use: Unramified finite presentation is quasi-finite; proper quasi-finite implies finite. Identify diagonal fibres with the Isom schemes and apply the smooth-atlas/unramified-diagonal DM criterion.",
+      "need": "Finite-type unramified scheme morphisms are locally quasi-finite, with the finite-type hypothesis retained. Proper plus locally quasi-finite implies finite is already Mathlib IsFinite.of_isProper_of_locallyQuasiFinite; do not plan it again. Identify the represented diagonal base changes with Isom schemes.",
       "neededBy": [
         "StableReductionPartII:MC.1/finite-unramified-diagonal"
       ]
@@ -31897,7 +31991,7 @@
     },
     {
       "supplier": "AlgebraicModuliForArithmeticGeometry:R09.4",
-      "need": "Stack/fibred-groupoid language, quotient stacks and torsors, smooth-atlas/unramified-diagonal DM criterion, representability from stabilizer injectivity, and proper-stack valuative criterion allowing finite DVR extension. Consumer: Properness from stable reduction. Required use: Import the parent’s stable-reduction existence over a finite DVR extension and uniqueness. Apply the stack valuative criterion with extension allowed; ordinary scheme IsProper is not a replacement for this criterion.",
+      "need": "The finite-type separated-stack valuative criterion of DM Theorem 4.19 over a Noetherian base: stable extension may require a finite fraction-field/trait extension, and testing complete DVRs with algebraically closed residue field and generic maps into a dense open suffices. Retain the diagonal hypotheses and the finite-type condition. Supply a generic proof or precise supplier; DM §4 states the criterion without proof. This is not the scheme criterion on Isom.",
       "neededBy": [
         "StableReductionPartII:MC.1/proper-moduli"
       ]
@@ -32679,6 +32773,34 @@
         "StableReductionPartII:MC.4/projective-coarse",
         "StableReductionPartII:MC.4/finite-degree-equations"
       ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves",
+      "need": "Canonical base-change preservation of the actual stable pointed-family predicates, ordered disjoint relative-smooth markings and log-dualizing ampleness, and fixed geometric arithmetic genus. Parent stability/base-change APIs are imported; the locally Noetherian HasGenus/cohomology-to-arbitrary-base comparison remains gap 15. Scheme pullbacks, their pasting and identity comparisons, and uniqueness for fixed projections already exist in Mathlib and are not requested anew.",
+      "neededBy": [
+        "StableReductionPartII:MC.0/pullback-coherence"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity",
+      "need": "Riemann–Roch/Serre-duality and componentwise tangent-line degrees on the normalization of a stable unpointed nodal genus-g curve, g≥2, to compute h¹(T_C)+r=3g−3 where r is the number of nodes. Each node contributes one independent local Ext¹ parameter; the parent supplies the curve cohomology and degree ingredients, not a moduli or deformation theorem.",
+      "neededBy": [
+        "StableReductionPartII:MC.1/versal-node-parameters"
+      ]
+    },
+    {
+      "supplier": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "need": "Smoothness and relative dimension of a finite-presentation algebraic-stack morphism may be checked through a representable smooth surjective atlas; retain the atlas relative dimension and its projective-frame factor. Descent of density/open loci through this atlas is part of the contract. Formal completion criteria belong separately to R09.6.",
+      "neededBy": [
+        "StableReductionPartII:MC.1/smooth-dimension"
+      ]
+    },
+    {
+      "supplier": "AlgebraicModuliForArithmeticGeometry:R09.6",
+      "need": "For a smooth finite-type chart over Z, detect a relative effective Cartier divisor with normal crossings from its strict completed local equation, a unit times a product of independent relative parameters; supply the formal-to-étale local comparison and base-change/atlas descent. Do not infer smooth global boundary components or simple normal crossings from this criterion.",
+      "neededBy": [
+        "StableReductionPartII:MC.1/normal-crossing-boundary"
+      ]
     }
   ],
   "coverage": [
@@ -32687,17 +32809,19 @@
       "status": "partial",
       "remaining": [
         "Resolve stable-family/descent types and the locally Noetherian-to-arbitrary-scheme extension; supply the real Lean moduli-pseudofunctor signatures.",
-        "Discharge the owned key sample exports via MC.2 supplier nodes, and express all added API/tests once the geometric types exist. Initial MC.0 source passages have been independently checked; a whole-packet review remains required."
+        "Discharge the owned key sample exports via MC.2 supplier nodes, and express all added API/tests once the geometric types exist. Initial MC.0 source passages have been independently checked; a whole-packet review remains required.",
+        "Supply the actual marking/projection/smooth-restriction geometric Lean types for the four added universal-curve API/test omissions. Native scheme pullback/topology primitives are read and imported; they do not provide effective fppf object descent."
       ]
     },
     {
       "stageId": "StableReductionPartII:MC.1",
       "status": "partial",
       "remaining": [
-        "Read the stack valuative and algebraization arguments in DM §§2–4 at full depth.",
+        "Finish generic proofs/supplier closure for the DM §4 atlas and stack valuative criteria, which the source explicitly states without proofs. The relevant §1 and §4 statements and §5.1–5.2 application have fresh bounded source receipts; DM §§2–3 and transitive inputs are not wholly re-reviewed.",
         "Resolve Hilbert/Isom/deformation suppliers and separate each nonroutine formal-to-algebraic criterion.",
         "Construct the canonical relative-polarization Hilbert locus with its projective-frame/base-line twist and prove its representing property.",
-        "Discharge the coherent Ext/deformation supplier scope and the arbitrary-base extension; source verification of MC.1 alone does not close either obligation."
+        "Discharge the coherent Ext/deformation supplier scope and the arbitrary-base extension; source verification of MC.1 alone does not close either obligation.",
+        "Discharge the universal Isom action-groupoid comparison, refined Noetherian source-dense scheme criterion, geometric-fibre infinitesimal criterion and formal-to-étale normal-crossings detection at their exact owner contracts; generic baseline names do not supply those intermediate inputs."
       ]
     },
     {
@@ -32834,7 +32958,7 @@
         "StableReductionPartII:MC.4/pointed-normalization-nef",
         "StableReductionPartII:MC.4/persistent-node-residue-sequence"
       ],
-      "detail": "Every such use has a precise request naming the real supplier stage and consuming proof. Stage descriptions are specifications, not built declarations. Closure requires verified supplier nodes or pinned declarations; the parent roadmap is not replanned here."
+      "detail": "Every such use has a precise request naming the real supplier stage and consuming proof. Stage descriptions are specifications, not built declarations. Closure requires verified supplier nodes or pinned declarations; the parent roadmap is not replanned here. The 2026-10-05 MC.0/MC.1 audit confirms only stage contracts, not all supplier implementations: the accepted SF.1 nodes inspected concern set-valued algebraic spaces and Galois gerbs, not a geometric category-valued stable-curve stack. The generic DM §4 atlas and stack valuative criteria are stated without proofs. Exact geometric-fibre infinitesimal, unramified-to-quasi-finite, Noetherian source-dense valuative and strict-completion-to-étale criteria remain owner obligations. Native pullback comparisons, the fppf topology and proper-plus-locally-quasi-finite finiteness are now explicit pinned references."
     },
     {
       "title": "Curve-family Jacobians and Picard components",
@@ -33145,7 +33269,7 @@
         "StableReductionPartII:MC.5/separating-hodge",
         "StableReductionPartII:MC.5/nonseparating-hodge"
       ],
-      "detail": "The parent StableReduction has locally Noetherian coherent pushforward, relative duality and polarized descent scope. Establish finite-presentation approximation/spreading for stable pointed families, the dualizing polarization, tricanonical locally free pushforward/evaluation and their coherent arbitrary-base pullbacks before asserting the MC.0/MC.1 conclusions for every scheme. For U_g construct the complete-canonical-polarization locally closed Hilbert locus and its projective-frame representing property, including the base-line twist; generic Hilbert representability and equal Hilbert polynomials do not by themselves prove this locus comparison. These owner extensions are mathematical input obligations, not compilation failures. The arbitrary-base Hodge bundle/determinant and forgetting/clutching comparisons also consume this extension; parent cohomology over locally Noetherian bases alone does not establish them for every scheme."
+      "detail": "The parent StableReduction has locally Noetherian coherent pushforward, relative duality and polarized descent scope. Establish finite-presentation approximation/spreading for stable pointed families, the dualizing polarization, tricanonical locally free pushforward/evaluation and their coherent arbitrary-base pullbacks before asserting the MC.0/MC.1 conclusions for every scheme. For U_g construct the complete-canonical-polarization locally closed Hilbert locus and its projective-frame representing property, including the base-line twist; generic Hilbert representability and equal Hilbert polynomials do not by themselves prove this locus comparison. These owner extensions are mathematical input obligations, not compilation failures. The arbitrary-base Hodge bundle/determinant and forgetting/clutching comparisons also consume this extension; parent cohomology over locally Noetherian bases alone does not establish them for every scheme. The universal Isom source is specified as the projective-frame action groupoid U_g×PGL_r; proving that functor identification uses the actual canonical frame locus and must preserve its base-line twist. Its smooth-curve source density, not density only on U_g×U_g, feeds the refined Noetherian test. The named general criteria and descent interfaces must still be supplied."
     },
     {
       "title": "Coherent deformation Ext supplier scope",
@@ -33438,6 +33562,27 @@
         "reason": "Both author-copy proofs use the same finite-cover/maximum step without justifying the neighbourhood uniformly in d. The packet repairs its route by first choosing d on the single integral noetherian parameter family using relative Serre generation/vanishing, then using the explicit fixed-degree ampleness criterion and fixed-line openness. Its generic supplier contracts remain open. Publisher version and novelty remain unchecked; the theorem is not rejected.",
         "by": "REV-DESIGN-StableReductionPartII"
       }
+    },
+    {
+      "id": "StableReductionPartII/E14",
+      "source": "stacks-projective-picard-review",
+      "kind": "misprint",
+      "locator": "Tag0BXJ, Lemma31.29.5, displayed Picard-group isomorphism and opening statement, public HTML read2026-10-05",
+      "printed": "The Picard group of projective n-space over a UFD is Z.",
+      "correction": "Add n≥1. For n=0 and R a field k, projective zero-space is Spec(k), whose Picard group is zero; the displayed map from Z is not an isomorphism. The application here has n=r²−1≥24, so its Picard computation remains valid.",
+      "reason": "The statement does not restrict n. Definition27.13.2 and the single standard chart of Lemma27.13.3 give P⁰_k=Spec(k). Every invertible module over k is free of rank one. Thus every O(m) on P⁰_k is trivial. The cocycle proof needs an overlap, absent at n=0.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Read all three tag0BXJ comments (2023–2024) and the linked May2024 proof revision; they address the non-Noetherian UFD issue, not n=0.",
+        "Read Section31.29 context and projective-space Definition27.13.2/Lemma27.13.3 for a positive-dimension convention; none found. The tag history endpoint failed to load.",
+        "2026-10-05 bounded searches for tag0BXJ with zero/n=0 and Stacks GitHub Picard n=0 found no pertinent correction. Novelty is not certified."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The field and n=0 counterexample is immediate. This is a missing positive-dimension hypothesis, with no effect on the roadmap use in positive-dimensional projective matrix space. No whole-list E1–E13 revalidation or priority claim follows.",
+        "by": "REV-DESIGN-StableReductionPartII"
+      }
     }
   ],
   "sourceVersions": [
@@ -33557,6 +33702,14 @@
       "read": "2026-10-03",
       "citation": "Runar Ile, Journal of Algebra397(2014),141–167",
       "scope": "Only the publisher indexed HTML §2.3 extract was returned and read, reproducing the stable-Hom definition and assertion; direct opens failed. No full publisher text or PDF collation is claimed. E11 is fully witnessed by the hashed v3 PDF."
+    },
+    {
+      "source": "stacks-projective-picard-review",
+      "kind": "published",
+      "url": "https://stacks.math.columbia.edu/tag/0BXJ",
+      "read": "2026-10-05",
+      "sha256": "d5a23ef428e9d908a636ca6f9cade4865c0c639b3024dba0f8a81c09817ee8db",
+      "citation": "The Stacks Project, Lemma31.29.5, live public HTML."
     }
   ],
   "restructure": [
@@ -33838,7 +33991,7 @@
   "prototypeCoverage": {
     "status": "partial",
     "compiled": true,
-    "reason": "Predecessor codex-FiMKR8 recorded: The entire existing 5,735-line Mathlib-only suggested file elaborates with zero errors and only 870 intentional admission warnings. This checks its expressed signatures and tests; 207 inherited geometric omissions remain. The predecessor admission-free native archive and its proof receipts retain their original attribution and source hashes. This pass adds no declarations or proof bodies. Its fresh compilation receipt does not prove the missing completed-ring Hom/Ext, arbitrary completed-coefficient, pointed-family, sheaf or moduli interfaces. Review continuation codex-g0hY4x adds ten explicit geometric omissions for the owned sample API and projective-frame twist test; this change is comment-only in the suggested file and does not provide geometric signatures. Review continuation codex-G2QhrF adds ten further geometric API omissions and one degenerate graph test, also comments only; formal-Proj transfer and integral boundary/deformation-line descent remain explicit gaps. Review continuation codex-0Sbfnu adds thirteen geometric API and three test omissions, in comments only; corrected mathematical routes and remaining supplier obligations are recorded in the packet/report. The current Mathlib-only file freshly elaborates with 870 intentional admission warnings and no other warnings.",
+    "reason": "Predecessor codex-FiMKR8 recorded: The entire existing 5,735-line Mathlib-only suggested file elaborates with zero errors and only 870 intentional admission warnings. This checks its expressed signatures and tests; 207 inherited geometric omissions remain. The predecessor admission-free native archive and its proof receipts retain their original attribution and source hashes. This pass adds no declarations or proof bodies. Its fresh compilation receipt does not prove the missing completed-ring Hom/Ext, arbitrary completed-coefficient, pointed-family, sheaf or moduli interfaces. Review continuation codex-g0hY4x adds ten explicit geometric omissions for the owned sample API and projective-frame twist test; this change is comment-only in the suggested file and does not provide geometric signatures. Review continuation codex-G2QhrF adds ten further geometric API omissions and one degenerate graph test, also comments only; formal-Proj transfer and integral boundary/deformation-line descent remain explicit gaps. Review continuation codex-0Sbfnu adds thirteen geometric API and three test omissions, in comments only; corrected mathematical routes and remaining supplier obligations are recorded in the packet/report. The codex-0Sbfnu Mathlib-only file elaborated with 870 intentional admission warnings and no other warnings. Review continuation codex-J80wsc added five typed API sketches and recorded 875 intentional admission warnings. Review continuation codex-KKjBS6 adds three geometric APIs and one test as explicit comment omissions, seven individual native imports and ten complete-type name checks; its fresh 5,912-line elaboration has zero errors and only 875 intentional admission warnings. These checks do not express the omitted moduli interfaces.",
     "expressedNodes": [
       "StableReductionPartII:MC.2/binary-node-form",
       "StableReductionPartII:MC.2/node-factorization-products",
@@ -36041,6 +36194,26 @@
         "name": "CurveGraphClosure.constantDimension",
         "kind": "test",
         "reason": "Requires the actual geometric interface; the mathematical guard is recorded in the review report, not encoded as a vacuous proposition."
+      },
+      {
+        "name": "UniversalCurve.marking",
+        "kind": "API",
+        "reason": "Actual stable-family/groupoid-stack and represented universal projection types are required; this mathematical contract is explicit, without a surrogate proposition."
+      },
+      {
+        "name": "UniversalCurve.projectionNodal",
+        "kind": "API",
+        "reason": "Actual stable-family/groupoid-stack and represented universal projection types are required; this mathematical contract is explicit, without a surrogate proposition."
+      },
+      {
+        "name": "UniversalCurve.smoothRestriction",
+        "kind": "API",
+        "reason": "Actual stable-family/groupoid-stack and represented universal projection types are required; this mathematical contract is explicit, without a surrogate proposition."
+      },
+      {
+        "name": "UniversalCurve.nodalProjection",
+        "kind": "test",
+        "reason": "Actual stable-family/groupoid-stack and represented universal projection types are required; this mathematical contract is explicit, without a surrogate proposition."
       }
     ],
     "nativeExports": {
@@ -37202,18 +37375,18 @@
     },
     "budgetPreviousReason": "The entire current Mathlib-only admitted sketch elaborates. A separately checked admission-free native archive preserves all prior polynomial/tensor/bidual bodies and supplies the actual arbitrary-coefficient-module Hom maps, signed coordinate proofs, R-linear isomorphisms, coefficient naturality and M=A unit/bidual comparisons. Higher Ext, relative stable reflexivity, two-base completion and all geometry remain open. The specialized actual Hom cochain signatures, positive native cohomology and signed augmentation cycles are now expressible; native resolution/Ext comparison remains outside this checkpoint. The actual native projective-resolution signatures and differential comparisons are now expressible; categorical Hom-complex/Ext comparisons remain open. The actual categorical Hom-complex comparison is now checked, coefficient-natural in every degree and linked to both native Mathlib positive Ext interfaces. Ext_R^{n+1}(J,R⊗_A M)=Ext_R^{n+1}(D,R⊗_A M)=0 for every M without flatness. The next frontier is the exact Appendix/Ile relative stable-reflexivity and two-base completion theorem, then the pointed completed-local hull, family/sheaf descent and arbitrary-base approximation. All MC.0–MC.7 geometric obligations remain. The actual ideal-adic coefficient homomorphism Â→R̂ is now constructed from compatible native finite quotients for the polynomial nodal chart whenever p⊆ι⁻¹(m). Its original-coefficient square, finite evaluations, uniqueness and actual A→Â→R̂ scalar tower have explicit native signatures and proof bodies. The complete new native and admitted files are not freshly compiled in this continuation because available memory is below the WORKERS.md threshold. For every Â-module N, the native R̂-linear comparison R̂⊗_A N→R̂⊗_Â N is surjective, with its exact Â-linear kernel generated by completed-coefficient balancing differences. This identifies the additional quotient; injectivity is not claimed. Next establish the reusable owner-level relative stable-reflexivity formulation and the actual two-base completion Hom/Ext or universally acyclic-complex comparison with justified faithful reflection, then the pointed completed-local hull, coefficient-compatible sheaf descent and arbitrary-base approximation. Bourbaki III5.4.4 remains unread and Proposition7 remains an exercise input. All eight stages remain partial. Current complete suggested file not freshly compiled: available memory is below20 GB. Historical compilation receipts refer only to their own recovered source hashes. For finitely generated p and every Â-module N, the finite quotients now have an explicit actual equivalence Qₙ⊗_A N≃Qₙ⊗_Â N and postcomposition equivalences on actual Hom spaces, including L=Qₙ⊗_R J. The proof uses the native completion evaluation kernel pⁿ·Â and submodule induction; N need not factor through A/pⁿ or be flat. This finite-level result does not prove injectivity of R̂⊗_A N→R̂⊗_Â N. Passing through an inverse limit would require justified tensor/Hom/Ext comparison hypotheses and cannot be inferred for arbitrary N. Knudsen Proposition6, Proposition7, owner-level stable-reflexivity, faithful reflection, hull identification, sheaf descent, approximation and all eight geometric stages remain open. Current Native and FullCanonical are uncompiled proof draft and admitted plan respectively; older compilation receipts are historical only. The actual finite quotient maps now preserve completed coefficients, compose and have identity laws. The finite tensor equivalence and its inverse commute with every quotient transition and every completed-coefficient-module map. The inherited original-coefficient quotient action is compared explicitly with the displayed finite coefficient homomorphism, repairing the native proof draft without changing its hypotheses. This supplies the coherent finite family, but no inverse-limit diagram, limit comparison, tensor/limit interchange, whole completed-ring injectivity, universally acyclic completion or faithful reflection is claimed. The reusable relative stable-reflexivity interface, Knudsen Proposition6 and the Proposition7 exercise, pointed hull, family/sheaf descent, approximation and all eight geometric stages remain open. The actual finite tensor diagrams over A and Â now have an A-linear natural isomorphism and native inverse-limit comparison with forward/inverse projections, uniqueness and cone transport. This compares limits of finite tensors only; ordinary tensor commutation with completion and the full relative completion theorem remain distinct required inputs. The completed-action checkpoint adds twenty declarations (five constructions and fifteen promoted API lemmas), fifteen APIs and fifteen tests. It constructs the actual Â-linear finite tensor diagram, its restriction comparison, the A-linear equivalence with the restricted native completed limit, the transported Â-action on the original A-limit with its actual scalar tower, and an Â-linear equivalence with completed-linear projection formulas. All 406 incoming node objects remain identical; ordinary tensor/limit interchange and full two-base relative completion remain open. For finite free completed coefficients N=Fin(r)→Â, the ordinary tensor R̂⊗_Â N is the native limit of G, with explicit finite projections and a proved universal property. If p is finitely generated, the inherited original-base tensor limit, with its transported Â-action, is also identified with this ordinary tensor. No arbitrary-N tensor/limit interchange, injectivity of R̂⊗_A N→R̂⊗_Â N, completion Hom/Ext theorem, Knudsen Proposition6/7, faithful reflection, pointed hull, sheaf descent or arbitrary-base approximation follows. All eight geometric stages remain partial. The ordinary tensor R̂⊗_Â N is now the native limit of G_N for every finite projective completed-coefficient module N, via an explicit finite-free retraction; the lift is independent of the chosen retraction and rank. If p is finitely generated, compose with the incoming two-base finite-tensor limit comparison to identify the original A-limit, with its transported Â-action, with this ordinary tensor. Projection and cone constructions exist for arbitrary N, but their universal property requires a finite-free retraction. No general finitely presented or arbitrary-N interchange, injectivity of R̂⊗_A N→R̂⊗_Â N, relative Hom/Ext completion theorem, Knudsen Proposition6/7, faithful reflection, pointed hull, sheaf descent or arbitrary-base approximation is concluded. All eight geometric stages remain partial. For finite projective Â-coefficients N, Hom_R(L,R̂⊗_Â N) is now Â-linearly equivalent to the native submodule of quotient-level R-linear Hom families (hₙ:L→Qₙ⊗_Â N) satisfying τᵢⱼ∘hⱼ=hᵢ. The inverse assembles actual compatible tensor sections and is R-linear by separation with finite projections; both inverse laws, evaluation equations and contravariant source compatibility are supplied, including typed instances L=J and L=D. This is a specialized adapter of native module limits and linear maps, not a replacement for generic Hom or limit theory. It does not identify Hom over R̂ from a completed section ideal, prove higher Ext comparison, extend tensor interchange to arbitrary Â-modules, or prove injectivity of R̂⊗_A N→R̂⊗_Â N. Knudsen Proposition6/7, reusable relative stable reflexivity, faithful reflection, pointed hull identification, sheaf descent, arbitrary-base approximation and all eight geometric stages remain open.",
     "reviewCompilation": {
-      "worker": "Codex — codex-J80wsc",
+      "worker": "Codex — codex-KKjBS6",
       "date": "2026-10-05",
       "command": "lean-check research/blueprint/suggested/StableReductionPartII.lean",
       "exitCode": 0,
       "errors": 0,
       "sorryWarnings": 875,
       "otherWarnings": 0,
-      "lines": 5878,
-      "sha256": "d0f459129a2046acdc0e31cae89081a1791f5e84fdf761cc8dcac0b03c7356e0",
+      "lines": 5912,
+      "sha256": "d82f7e6e99128494a330b40161665c9daa13827003355350f7ab3ad14410003c",
       "mathlibCommit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
       "sharedTauCetiCommit": "cf386627e9176a3827c1a5fe804989fd94a4d216",
-      "qualification": "Imports only pinned Mathlib. Five added API signatures and two strengthened sign tests are admitted sketches. No proof certification, Tau Ceti import check, omitted geometry or general completion theorem is claimed.",
+      "qualification": "Only pinned Mathlib imports. Ten complete native declaration types checked; geometric additions are four explicit comment omissions, not Lean signatures. Existing admitted sketches unchanged. No Tau Ceti import/proof check or whole-packet acceptance.",
       "availableGiBBefore": 96
     },
     "previousReviewCompilations": [
@@ -37260,6 +37433,21 @@
         "sharedTauCetiCommit": "cf386627e9176a3827c1a5fe804989fd94a4d216",
         "qualification": "Imports only Mathlib. The shared enclosing Tau Ceti checkout differs from its pin; no Tau Ceti import/proof check is claimed. This checkpoint adds sixteen geometric API/test omission comments, no executable declarations. Elaboration does not validate omitted geometry or author-copy proof repairs.",
         "availableGiBBefore": 95
+      },
+      {
+        "worker": "Codex — codex-J80wsc",
+        "date": "2026-10-05",
+        "command": "lean-check research/blueprint/suggested/StableReductionPartII.lean",
+        "exitCode": 0,
+        "errors": 0,
+        "sorryWarnings": 875,
+        "otherWarnings": 0,
+        "lines": 5878,
+        "sha256": "d0f459129a2046acdc0e31cae89081a1791f5e84fdf761cc8dcac0b03c7356e0",
+        "mathlibCommit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+        "sharedTauCetiCommit": "cf386627e9176a3827c1a5fe804989fd94a4d216",
+        "qualification": "Imports only pinned Mathlib. Five added API signatures and two strengthened sign tests are admitted sketches. No proof certification, Tau Ceti import check, omitted geometry or general completion theorem is claimed.",
+        "availableGiBBefore": 96
       }
     ]
   },
@@ -37824,6 +38012,69 @@
       "url": "https://github.com/leanprover-community/mathlib4/tree/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib",
       "scope": "Fresh native sectionsSubmodule, two-action tensor module, linear inverse constructor, covariant Hom limit preservation and internal-Hom statements; authored Hom_R compatible-family assembly checked for finite projective completed coefficients and arbitrary original-ring source. Not completed-ring Hom or higher Ext.",
       "use": "Bounded independent review of local specialized adapters; exact source-file Git blobs are in this checkpoint. Not whole-roadmap acceptance."
+    },
+    {
+      "sourceId": "knudsen2",
+      "reader": "Codex — codex-KKjBS6",
+      "date": "2026-10-05",
+      "url": "https://journals.msp.org/mscand/article/download/1622/1621/1653",
+      "sha256": "18e04bbf5c24a460ff10e965ebf665ea0229378c6a9521bd279909476012e230",
+      "scope": "Fresh rendered complete printed pp.162–164 (physical PDF2–4): definitions 1.1–1.2, stability/genus/marking conditions, dualizing conventions and fibre-groupoid/cartesian morphisms. Not a whole-paper or Appendix reread.",
+      "use": "Independent bounded MC.0/MC.1 review checkpoint; no whole-packet acceptance."
+    },
+    {
+      "sourceId": "knudsen2012",
+      "reader": "Codex — codex-KKjBS6",
+      "date": "2026-10-05",
+      "url": "https://arxiv.org/pdf/1106.1588v2",
+      "sha256": "de9f73f25a4fbe03dbe2865ebc5932412b5bf3aa7f02734c04de05013da44d36",
+      "scope": "Fresh full Introduction pp.1–3 for unrestricted extra sections, n canonical sections, the cartesian universal-curve square and contraction/stabilization boundary. Not a fresh whole-paper read.",
+      "use": "Independent bounded MC.0/MC.1 review checkpoint; no whole-packet acceptance."
+    },
+    {
+      "sourceId": "dm",
+      "reader": "Codex — codex-KKjBS6",
+      "date": "2026-10-05",
+      "url": "https://www.dam.brown.edu/people/mumford/alg_geom/papers/1969c--IrredModCurves-Deligne-Numdam.pdf",
+      "sha256": "d779973708ecef9a098db863df766f173740d75302f15655e4bbc9dd7df739e7",
+      "scope": "Fresh full §1 through Lemma1.12 proof, printed pp.76–85; §4 definitions and stated criteria pp.96–104; §5.1–5.2 application pp.104–105. Rendered pp.78,79,83,84,102–105 to check equations and hypotheses. §4 explicitly supplies no proofs of its generic theorems; §§2–3 and transitive Schlessinger/Chow/DVR-domination inputs are not claimed freshly verified.",
+      "use": "Independent bounded MC.0/MC.1 review checkpoint; no whole-packet acceptance."
+    },
+    {
+      "sourceId": "stacks-noetherian-valuative-KKjBS6",
+      "reader": "Codex — codex-KKjBS6",
+      "date": "2026-10-05",
+      "url": "https://stacks.math.columbia.edu/tag/0208",
+      "sha256": "ed433cfe29bbab8d1b3de3e319e1acb5303988ffb6219782f8c2fd5a2bfbb9c2",
+      "scope": "Fresh full tag0208 statement and proof; retain locally Noetherian target and finite-type morphism. The cited Chow and DVR-domination proofs were not freshly read.",
+      "use": "Independent bounded MC.0/MC.1 review checkpoint; no whole-packet acceptance."
+    },
+    {
+      "sourceId": "stacks-projective-bundles-review",
+      "reader": "Codex — codex-KKjBS6",
+      "date": "2026-10-05",
+      "url": "https://stacks.math.columbia.edu/tag/01OA",
+      "sha256": "64a86cace89758f834c2c6c6584ab5f18141e34883f534b323e23e1492360c07",
+      "scope": "Fresh complete selected passage: Definition27.21.1 and rank-one quotient representing property. For 0BXJ also read all three comments; no whole-chapter or transitive-proof reread is claimed.",
+      "use": "MC.1 tricanonical Hilbert projective-frame/base-line twist example."
+    },
+    {
+      "sourceId": "stacks-projective-picard-review",
+      "reader": "Codex — codex-KKjBS6",
+      "date": "2026-10-05",
+      "url": "https://stacks.math.columbia.edu/tag/0BXJ",
+      "sha256": "d5a23ef428e9d908a636ca6f9cade4865c0c639b3024dba0f8a81c09817ee8db",
+      "scope": "Fresh complete selected passage: Lemma31.29.5, complete statement and proof. For 0BXJ also read all three comments; no whole-chapter or transitive-proof reread is claimed.",
+      "use": "MC.1 tricanonical Hilbert projective-frame/base-line twist example."
+    },
+    {
+      "sourceId": "stacks-picard-extension-review",
+      "reader": "Codex — codex-KKjBS6",
+      "date": "2026-10-05",
+      "url": "https://stacks.math.columbia.edu/tag/0BD9",
+      "sha256": "7a439d7d29b145fd0dd7ea900f1d41f4324b90a056d5349842c2d0f94bf35798",
+      "scope": "Fresh complete selected passage: Lemma31.29.3, complete statement and proof. For 0BXJ also read all three comments; no whole-chapter or transitive-proof reread is claimed.",
+      "use": "MC.1 tricanonical Hilbert projective-frame/base-line twist example."
     }
   ],
   "coefficientChangeContinuation": {
@@ -40497,6 +40748,250 @@
           "scope": "Fresh v3 p.5 text and rendered formula; same integral counterexample. Publisher collation and novelty not checked; not whole-list sourceIssue acceptance."
         }
       ]
+    },
+    {
+      "job": "REV-DESIGN-StableReductionPartII",
+      "worker": "Codex — codex-KKjBS6",
+      "date": "2026-10-05",
+      "status": "partial",
+      "sourceCheckedNodes": [
+        "StableReductionPartII:key/moduli-curves",
+        "StableReductionPartII:MC.0/pullback-coherence",
+        "StableReductionPartII:MC.0/effective-descent",
+        "StableReductionPartII:MC.0/universal-curve",
+        "StableReductionPartII:MC.1/tricanonical-cohomology",
+        "StableReductionPartII:MC.1/tricanonical-hilbert",
+        "StableReductionPartII:MC.1/frame-torsor",
+        "StableReductionPartII:MC.1/hilbert-quotient",
+        "StableReductionPartII:MC.1/isom-representable",
+        "StableReductionPartII:MC.1/isom-unramified",
+        "StableReductionPartII:MC.1/isom-proper",
+        "StableReductionPartII:MC.1/finite-unramified-diagonal",
+        "StableReductionPartII:MC.1/obstruction-vanishing",
+        "StableReductionPartII:MC.1/versal-node-parameters",
+        "StableReductionPartII:MC.1/smooth-dimension",
+        "StableReductionPartII:MC.1/normal-crossing-boundary",
+        "StableReductionPartII:MC.1/proper-moduli"
+      ],
+      "checked": [
+        {
+          "nodeId": "StableReductionPartII:key/moduli-curves",
+          "verdict": "verified",
+          "note": "Fresh bounded source/hypothesis/local-proof/API/test and direct stage-supplier check; unresolved generic, geometric and arbitrary-base inputs stay in explicit requests and gaps. This verdict verifies the specification under those inputs, not global closure, source-error collation or a geometric Lean signature."
+        },
+        {
+          "nodeId": "StableReductionPartII:MC.0/pullback-coherence",
+          "verdict": "corrected",
+          "note": "Fresh bounded source/hypothesis/local-proof/API/test and direct stage-supplier check; unresolved generic, geometric and arbitrary-base inputs stay in explicit requests and gaps. This verdict verifies the specification under those inputs, not global closure, source-error collation or a geometric Lean signature."
+        },
+        {
+          "nodeId": "StableReductionPartII:MC.0/effective-descent",
+          "verdict": "corrected",
+          "note": "Fresh bounded source/hypothesis/local-proof/API/test and direct stage-supplier check; unresolved generic, geometric and arbitrary-base inputs stay in explicit requests and gaps. This verdict verifies the specification under those inputs, not global closure, source-error collation or a geometric Lean signature."
+        },
+        {
+          "nodeId": "StableReductionPartII:MC.0/universal-curve",
+          "verdict": "corrected",
+          "note": "Fresh bounded source/hypothesis/local-proof/API/test and direct stage-supplier check; unresolved generic, geometric and arbitrary-base inputs stay in explicit requests and gaps. This verdict verifies the specification under those inputs, not global closure, source-error collation or a geometric Lean signature."
+        },
+        {
+          "nodeId": "StableReductionPartII:MC.1/tricanonical-cohomology",
+          "verdict": "verified",
+          "note": "Fresh bounded source/hypothesis/local-proof/API/test and direct stage-supplier check; unresolved generic, geometric and arbitrary-base inputs stay in explicit requests and gaps. This verdict verifies the specification under those inputs, not global closure, source-error collation or a geometric Lean signature."
+        },
+        {
+          "nodeId": "StableReductionPartII:MC.1/tricanonical-hilbert",
+          "verdict": "corrected",
+          "note": "Fresh bounded source/hypothesis/local-proof/API/test and direct stage-supplier check; unresolved generic, geometric and arbitrary-base inputs stay in explicit requests and gaps. This verdict verifies the specification under those inputs, not global closure, source-error collation or a geometric Lean signature."
+        },
+        {
+          "nodeId": "StableReductionPartII:MC.1/frame-torsor",
+          "verdict": "verified",
+          "note": "Fresh bounded source/hypothesis/local-proof/API/test and direct stage-supplier check; unresolved generic, geometric and arbitrary-base inputs stay in explicit requests and gaps. This verdict verifies the specification under those inputs, not global closure, source-error collation or a geometric Lean signature."
+        },
+        {
+          "nodeId": "StableReductionPartII:MC.1/hilbert-quotient",
+          "verdict": "verified",
+          "note": "Fresh bounded source/hypothesis/local-proof/API/test and direct stage-supplier check; unresolved generic, geometric and arbitrary-base inputs stay in explicit requests and gaps. This verdict verifies the specification under those inputs, not global closure, source-error collation or a geometric Lean signature."
+        },
+        {
+          "nodeId": "StableReductionPartII:MC.1/isom-representable",
+          "verdict": "verified",
+          "note": "Fresh bounded source/hypothesis/local-proof/API/test and direct stage-supplier check; unresolved generic, geometric and arbitrary-base inputs stay in explicit requests and gaps. This verdict verifies the specification under those inputs, not global closure, source-error collation or a geometric Lean signature."
+        },
+        {
+          "nodeId": "StableReductionPartII:MC.1/isom-unramified",
+          "verdict": "corrected",
+          "note": "Fresh bounded source/hypothesis/local-proof/API/test and direct stage-supplier check; unresolved generic, geometric and arbitrary-base inputs stay in explicit requests and gaps. This verdict verifies the specification under those inputs, not global closure, source-error collation or a geometric Lean signature."
+        },
+        {
+          "nodeId": "StableReductionPartII:MC.1/isom-proper",
+          "verdict": "corrected",
+          "note": "Fresh bounded source/hypothesis/local-proof/API/test and direct stage-supplier check; unresolved generic, geometric and arbitrary-base inputs stay in explicit requests and gaps. This verdict verifies the specification under those inputs, not global closure, source-error collation or a geometric Lean signature."
+        },
+        {
+          "nodeId": "StableReductionPartII:MC.1/finite-unramified-diagonal",
+          "verdict": "corrected",
+          "note": "Fresh bounded source/hypothesis/local-proof/API/test and direct stage-supplier check; unresolved generic, geometric and arbitrary-base inputs stay in explicit requests and gaps. This verdict verifies the specification under those inputs, not global closure, source-error collation or a geometric Lean signature."
+        },
+        {
+          "nodeId": "StableReductionPartII:MC.1/obstruction-vanishing",
+          "verdict": "verified",
+          "note": "Fresh bounded source/hypothesis/local-proof/API/test and direct stage-supplier check; unresolved generic, geometric and arbitrary-base inputs stay in explicit requests and gaps. This verdict verifies the specification under those inputs, not global closure, source-error collation or a geometric Lean signature."
+        },
+        {
+          "nodeId": "StableReductionPartII:MC.1/versal-node-parameters",
+          "verdict": "corrected",
+          "note": "Fresh bounded source/hypothesis/local-proof/API/test and direct stage-supplier check; unresolved generic, geometric and arbitrary-base inputs stay in explicit requests and gaps. This verdict verifies the specification under those inputs, not global closure, source-error collation or a geometric Lean signature."
+        },
+        {
+          "nodeId": "StableReductionPartII:MC.1/smooth-dimension",
+          "verdict": "corrected",
+          "note": "Fresh bounded source/hypothesis/local-proof/API/test and direct stage-supplier check; unresolved generic, geometric and arbitrary-base inputs stay in explicit requests and gaps. This verdict verifies the specification under those inputs, not global closure, source-error collation or a geometric Lean signature."
+        },
+        {
+          "nodeId": "StableReductionPartII:MC.1/normal-crossing-boundary",
+          "verdict": "corrected",
+          "note": "Fresh bounded source/hypothesis/local-proof/API/test and direct stage-supplier check; unresolved generic, geometric and arbitrary-base inputs stay in explicit requests and gaps. This verdict verifies the specification under those inputs, not global closure, source-error collation or a geometric Lean signature."
+        },
+        {
+          "nodeId": "StableReductionPartII:MC.1/proper-moduli",
+          "verdict": "verified",
+          "note": "Fresh bounded source/hypothesis/local-proof/API/test and direct stage-supplier check; unresolved generic, geometric and arbitrary-base inputs stay in explicit requests and gaps. This verdict verifies the specification under those inputs, not global closure, source-error collation or a geometric Lean signature."
+        }
+      ],
+      "baselineUseChecked": [
+        "mathlib:AlgebraicGeometry.Scheme",
+        "mathlib:CategoryTheory.Pseudofunctor.IsStack",
+        "mathlib:CategoryTheory.Limits.pullbackLeftPullbackSndIso",
+        "mathlib:CategoryTheory.Limits.pullbackLeftPullbackSndIso_hom_fst",
+        "mathlib:CategoryTheory.Limits.pullbackLeftPullbackSndIso_hom_snd",
+        "mathlib:CategoryTheory.Limits.pullback.hom_ext",
+        "mathlib:CategoryTheory.Limits.pullback_fst_iso_of_right_iso",
+        "mathlib:AlgebraicGeometry.Scheme.fppfTopology",
+        "mathlib:AlgebraicGeometry.FormallyUnramified.of_hom_ext",
+        "mathlib:AlgebraicGeometry.IsFinite.of_isProper_of_locallyQuasiFinite"
+      ],
+      "baselineNearMissRead": "Mathlib IsProper.of_valuativeCriterion was read with its all-valuation-ring quantifier and finite-type/quasi-compact/quasi-separated binders. It is not cited as the Noetherian source-dense criterion or the stack finite-extension criterion. The native Scheme HasPullbacks instance and fppf subcanonical instances were read in the pinned files; no invented named instance is cited.",
+      "baselineSourceBlobs": {
+        "Mathlib/AlgebraicGeometry/Morphisms/FormallyUnramified.lean": "8827ae777da5709621d4d8173cb2d41708314d5a",
+        "Mathlib/AlgebraicGeometry/Pullbacks.lean": "fed0f2b6152def8612c8694efa1ef83a71099cdd",
+        "Mathlib/AlgebraicGeometry/Scheme.lean": "7b6780cadcf0a4d2df6c5bf7e4356b95d059e8d9",
+        "Mathlib/AlgebraicGeometry/Sites/Fpqc.lean": "7dbc07064ae2a5e9e03656d3560765c847afa5c2",
+        "Mathlib/AlgebraicGeometry/ValuativeCriterion.lean": "cc7d95565e8a3e283d4b458971585bd4a7cd1e51",
+        "Mathlib/AlgebraicGeometry/ZariskisMainTheorem.lean": "1879be52c37a82e63869cb08eecad1bac2419db7",
+        "Mathlib/CategoryTheory/Limits/Shapes/Pullback/HasPullback.lean": "afe517d8f5d0547045a066d8adf7f79279fda2fc",
+        "Mathlib/CategoryTheory/Limits/Shapes/Pullback/Iso.lean": "6d07d735d895a382e1f5c7c1a3bd100b5444e55d",
+        "Mathlib/CategoryTheory/Limits/Shapes/Pullback/Pasting.lean": "3c3806af27e6e2e0f2f614f55f560092900fe6ea",
+        "Mathlib/CategoryTheory/Sites/Descent/IsStack.lean": "5da59514b26017c13b2fc3bb5f13b49687443fe0"
+      },
+      "corrections": [
+        {
+          "where": "StableReductionPartII:MC.0/pullback-coherence",
+          "change": "Replace the SF.0 primitive-pullback request by five pinned categorical declarations; expose the actually missing parent family-preservation input."
+        },
+        {
+          "where": "StableReductionPartII:MC.0/effective-descent",
+          "change": "Use the native fppf topology and distinguish the printed étale stack assertion from the requested fppf descent theorem."
+        },
+        {
+          "where": "StableReductionPartII:MC.0/universal-curve",
+          "change": "Add the n canonical marking sections, the actual projection properties and the smooth-base restriction; add a test separating a nodal projection from a smooth total stack."
+        },
+        {
+          "where": "StableReductionPartII:MC.1/isom-proper",
+          "change": "Identify the actual universal Isom source with the frame action groupoid, justify its smooth-open density, cite the precise Noetherian scheme criterion, and remove the unused pointed-reduction dependency/request."
+        },
+        {
+          "where": "StableReductionPartII:MC.1/isom-unramified",
+          "change": "Expose the native all-square-zero lifting criterion and keep its geometric-fibre reduction as an exact owner obligation."
+        },
+        {
+          "where": "StableReductionPartII:MC.1/finite-unramified-diagonal",
+          "change": "Reuse pinned proper-plus-locally-quasi-finite finiteness; restrict the generic request to the missing preceding criterion and diagonal comparison."
+        },
+        {
+          "where": "StableReductionPartII:MC.1/versal-node-parameters",
+          "change": "Add the direct parent cohomology prerequisite/request actually used for the 3g−3 calculation and spell out the normalization Euler-characteristic computation."
+        },
+        {
+          "where": "StableReductionPartII:MC.1/smooth-dimension",
+          "change": "Expose stack smoothness/dimension descent through the Hilbert atlas as an R09.4 input, distinct from formal algebraization."
+        },
+        {
+          "where": "StableReductionPartII:MC.1/normal-crossing-boundary",
+          "change": "Expose the strict-completion-to-étale normal-crossings criterion as an owner request; the formal local equation alone is not the stated étale-local conclusion."
+        },
+        {
+          "where": "StableReductionPartII:MC.1/proper-moduli",
+          "change": "Make the unproved source status and hypotheses of the stack finite-extension/dense-open valuative criterion explicit in its owner request."
+        },
+        {
+          "where": "prototypeCoverage/suggested universal-curve omission block",
+          "change": "Add three API and one test omissions in the packet and suggested-file comment inventory; no geometric signature or new proof is fabricated."
+        },
+        {
+          "where": "packet/roadmap summaries and stage descriptions",
+          "change": "Synchronize baseline/request/omission counts and the universal-curve, source-density and formal-to-étale contracts without changing stage scope or promoting any stage."
+        },
+        {
+          "where": "suggested built-input imports/checks",
+          "change": "Import seven individual native modules and check all ten MC.0/MC.1 baseline names with their complete inferred types; no replacement geometric carrier or proposition is introduced."
+        },
+        {
+          "where": "MC.1/tricanonical-hilbert/sourceIssues E14",
+          "change": "Record the missing n≥1 hypothesis in Stacks tag0BXJ; qualify its positive-dimensional application without changing the varying-frame example."
+        }
+      ],
+      "requestsCheckedScope": "The 33 inherited requests touching the first seventeen nodes were read against SF.0/SF.1, R09.1–R09.4/R09.6 and parent StableReduction layers1–3,8–9; corrected/removed/added contracts are in this ledger. No whole-list request closure is asserted.",
+      "supplierLimits": "The accepted SF.1 node statements inspected are for set-valued algebraic spaces or Galois gerbs, not a replacement for the category-valued pointed moduli stack. Parent cohomology remains locally Noetherian. DM4.21 and4.19 are printed assertions without proofs.",
+      "keyDefinitionCheck": "The reserved key occurs once as a node. All six survey samples remain present with providedBy links. This freshly verifies specification/API coverage and stack/coarse distinctions, not closure of their MC.2 exports or the six consumer proofs.",
+      "report": "research/blueprint/reviews/REV-DESIGN-StableReductionPartII.md",
+      "note": "No nodes added. No final review object. Source-version/errata collation, global consumer composition and remaining stages stay unfinished.",
+      "baselinePrototypeAudits": {
+        "names": [
+          "AlgebraicGeometry.Scheme",
+          "CategoryTheory.Pseudofunctor.IsStack",
+          "CategoryTheory.Limits.pullbackLeftPullbackSndIso",
+          "CategoryTheory.Limits.pullbackLeftPullbackSndIso_hom_fst",
+          "CategoryTheory.Limits.pullbackLeftPullbackSndIso_hom_snd",
+          "CategoryTheory.Limits.pullback.hom_ext",
+          "CategoryTheory.Limits.pullback_fst_iso_of_right_iso",
+          "AlgebraicGeometry.Scheme.fppfTopology",
+          "AlgebraicGeometry.FormallyUnramified.of_hom_ext",
+          "AlgebraicGeometry.IsFinite.of_isProper_of_locallyQuasiFinite"
+        ],
+        "imports": [
+          "Mathlib.AlgebraicGeometry.Scheme",
+          "Mathlib.AlgebraicGeometry.Sites.Fpqc",
+          "Mathlib.CategoryTheory.Sites.Descent.IsStack",
+          "Mathlib.CategoryTheory.Limits.Shapes.Pullback.Pasting",
+          "Mathlib.CategoryTheory.Limits.Shapes.Pullback.Iso",
+          "Mathlib.AlgebraicGeometry.Morphisms.FormallyUnramified",
+          "Mathlib.AlgebraicGeometry.ZariskisMainTheorem"
+        ],
+        "scope": "Existing primitive interfaces only, checked by name and inferred full type. No additional node/API/test is expressed, and no moduli signature or geometric theorem follows from these checks."
+      },
+      "sourceIssueCheck": "E14 freshly added and confirmed with the field/n=0 counterexample. E1–E13 retain attributed inherited verdicts; no whole-list fresh collation.",
+      "validation": {
+        "packetCheck": "zero errors and zero warnings with the supplied baseline declaration index; final command receipt in report/handoff",
+        "compilation": {
+          "worker": "Codex — codex-KKjBS6",
+          "date": "2026-10-05",
+          "command": "lean-check research/blueprint/suggested/StableReductionPartII.lean",
+          "exitCode": 0,
+          "errors": 0,
+          "sorryWarnings": 875,
+          "otherWarnings": 0,
+          "lines": 5912,
+          "sha256": "d82f7e6e99128494a330b40161665c9daa13827003355350f7ab3ad14410003c",
+          "mathlibCommit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "sharedTauCetiCommit": "cf386627e9176a3827c1a5fe804989fd94a4d216",
+          "qualification": "Only pinned Mathlib imports. Ten complete native declaration types checked; geometric additions are four explicit comment omissions, not Lean signatures. Existing admitted sketches unchanged. No Tau Ceti import/proof check or whole-packet acceptance.",
+          "availableGiBBefore": 96
+        },
+        "deliverableScope": "Five issue-allowed paths including the review handoff. Reader synchronization remains outside this issue."
+      }
     }
   ]
 }
