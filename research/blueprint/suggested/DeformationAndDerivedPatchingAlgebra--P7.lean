@@ -4,8 +4,8 @@ definitive; these statements suggest names and signatures for contributors and
 reviewers. Every packet implementation status remains unchecked. The packet has
 478 nodes; three stages are partial and five not_read.
 The complete Tau-importing file has no successful elaboration receipt. Historical
-projection receipts cover only their stated extracted sources. The independent
-review checkpoint records the current compiler checks and the missing Tau object.
+projection receipts cover only their stated extracted sources. The completed
+independent review records the current compiler checks and the missing Tau object.
 -/
 import Mathlib.RingTheory.MvPolynomial.Homogeneous
 import TauCeti.RingTheory.GradedAlgebra.Homogeneous.Quotient
@@ -28,6 +28,7 @@ import Mathlib.LinearAlgebra.Complex.FiniteDimensional
 import Mathlib.RingTheory.MvPowerSeries.Inverse
 import Mathlib.RingTheory.LocalRing.Length
 import Mathlib.RingTheory.LocalRing.ResidueField.Basic
+import Mathlib.RingTheory.AdicCompletion.LocalRing
 import Mathlib.LinearAlgebra.Dimension.Constructions
 import Mathlib.Algebra.Category.ModuleCat.AB
 import Mathlib.Algebra.Homology.HomologicalComplexLimits
@@ -614,6 +615,50 @@ theorem multiplicity_pow [Nontrivial M] (q : Ideal A)
     multiplicity (M := M) (q ^ s) hqs =
       (s : ℚ) ^ d * multiplicity (M := M) q hq := by sorry
 
+/- Reserved-key sample API completed by the independent review, codex-rAusOU.
+These are admitted planning signatures. The regular associated-graded, Nagata,
+parameter-ideal and completion proof decompositions remain packet gaps.
+The native completion/local-ring carriers are reused; Noetherian completion is
+explicit until its instance is proved or supplied. -/
+theorem multiplicity_eq_one_iff_regular_of_formally_unmixed
+    [IsNoetherianRing (AdicCompletion (IsLocalRing.maximalIdeal A) A)]
+    (hq : (IsLocalRing.maximalIdeal A).radical = IsLocalRing.maximalIdeal A)
+    (hUnmixed : ∀ p ∈ associatedPrimes
+      (AdicCompletion (IsLocalRing.maximalIdeal A) A)
+      (AdicCompletion (IsLocalRing.maximalIdeal A) A),
+      ringKrullDim ((AdicCompletion (IsLocalRing.maximalIdeal A) A) ⧸ p) =
+        ringKrullDim (AdicCompletion (IsLocalRing.maximalIdeal A) A)) :
+    multiplicity (M := A) (IsLocalRing.maximalIdeal A) hq = 1 ↔
+      IsRegularLocalRing A := by sorry
+
+/-- Goto's positive-dimensional parameter inequality plus the separate
+dimension-zero finite-length branch. No primary-ideal tuple is left implicit. -/
+theorem multiplicity_parameter_le (x : List A) (d : ℕ)
+    (hx : x.length = d) (hd : ringKrullDim A = (d : WithBot ℕ∞))
+    (hq : (Ideal.ofList x).radical = IsLocalRing.maximalIdeal A) :
+    multiplicity (M := A) (Ideal.ofList x) hq ≤
+      ((Module.length A (A ⧸ Ideal.ofList x)).toNat : ℚ) := by sorry
+
+/-- The parameter-sequence criterion uses the existing native regular-sequence
+predicate, including its nonzero final quotient. -/
+theorem multiplicity_parameter_eq_iff_regular (x : List A) (d : ℕ)
+    (hx : x.length = d) (hd : ringKrullDim A = (d : WithBot ℕ∞))
+    (hq : (Ideal.ofList x).radical = IsLocalRing.maximalIdeal A) :
+    multiplicity (M := A) (Ideal.ofList x) hq =
+      ((Module.length A (A ⧸ Ideal.ofList x)).toNat : ℚ) ↔
+        RingTheory.Sequence.IsRegular A x := by sorry
+
+/-- Ring clause of completion invariance. The finite-module comparison and
+Noetherian-completion proof remain explicit follow-up obligations. -/
+theorem multiplicity_completion
+    [IsNoetherianRing (AdicCompletion (IsLocalRing.maximalIdeal A) A)]
+    (q : Ideal A) (hq : q.radical = IsLocalRing.maximalIdeal A)
+    (hqHat : (q.map (algebraMap A (AdicCompletion (IsLocalRing.maximalIdeal A) A))).radical =
+      IsLocalRing.maximalIdeal (AdicCompletion (IsLocalRing.maximalIdeal A) A)) :
+    multiplicity (M := A) q hq =
+      multiplicity (M := AdicCompletion (IsLocalRing.maximalIdeal A) A)
+        (q.map (algebraMap A (AdicCompletion (IsLocalRing.maximalIdeal A) A))) hqHat := by sorry
+
 /-- R03.3/dimension-normalized-additivity.
 The original maps are exact; their q-adic quotient maps need not be exact. -/
 theorem multiplicityInDegree_additive
@@ -645,6 +690,8 @@ theorem multiplicityInDegree_associativity
     (hqP : ∀ p : PrimeSpectrum A, p ∈ P →
       (q.map (Ideal.Quotient.mk p.asIdeal)).radical =
         IsLocalRing.maximalIdeal (A ⧸ p.asIdeal)) :
+    (∀ p ∈ P, Module.length (Localization.AtPrime p.asIdeal)
+      (LocalizedModule p.asIdeal.primeCompl M) ≠ ⊤) ∧
     multiplicityInDegree (M := M) q hq d =
       ∑ p ∈ P.attach, ((Module.length (Localization.AtPrime p.1.asIdeal)
         (LocalizedModule p.1.asIdeal.primeCompl M)).toNat : ℚ) *
@@ -652,6 +699,11 @@ theorem multiplicityInDegree_associativity
           (q.map (Ideal.Quotient.mk p.1.asIdeal)) (hqP p.1 p.2) d := by sorry
 
 end FiniteLocal
+
+/-- The regular-local instance supplies Noetherianity and locality. -/
+theorem multiplicity_regular [IsRegularLocalRing A]
+    (hq : (IsLocalRing.maximalIdeal A).radical = IsLocalRing.maximalIdeal A) :
+    multiplicity (M := A) (IsLocalRing.maximalIdeal A) hq = 1 := by sorry
 
 /-- R03.3/top-coefficient-finite-difference: translate the pinned forward-difference
 binomial formula to y=t-d and reflect range(d+1). Mathlib already supplies the
@@ -743,6 +795,29 @@ example (k : Type*) [Field k] [IsNoetherianRing (EmbeddedRing k)]
     multiplicity (M := EmbeddedRing k) _ hq = 1 ∧
       ¬ IsRegularLocalRing (EmbeddedRing k) := by sorry
 
+-- test: HilbertSamuelTest.parameter_dvr
+example (O : Type*) [CommRing O] [IsDomain O] [IsDiscreteValuationRing O]
+    [IsNoetherianRing O] (π : O) (hπ : Irreducible π) (s : ℕ) (hs : 0 < s)
+    (hq : (Ideal.ofList [π ^ s]).radical = IsLocalRing.maximalIdeal O) :
+    multiplicity (M := O) (Ideal.ofList [π ^ s]) hq = (s : ℚ) ∧
+      Module.length O (O ⧸ Ideal.ofList [π ^ s]) = s ∧
+      RingTheory.Sequence.IsRegular O [π ^ s] := by sorry
+
+-- test: HilbertSamuelTest.parameter_embedded
+example [IsNoetherianRing (EmbeddedRing ℚ)] [IsLocalRing (EmbeddedRing ℚ)] :
+    let x : EmbeddedRing ℚ := Ideal.Quotient.mk _ (MvPowerSeries.X (0 : Fin 2))
+    ∃ hq : (Ideal.ofList [x]).radical = IsLocalRing.maximalIdeal (EmbeddedRing ℚ),
+      multiplicity (M := EmbeddedRing ℚ) (Ideal.ofList [x]) hq = 1 ∧
+      Module.length (EmbeddedRing ℚ) (EmbeddedRing ℚ ⧸ Ideal.ofList [x]) = 2 ∧
+      ¬ RingTheory.Sequence.IsRegular (EmbeddedRing ℚ) [x] := by sorry
+
+-- test: HilbertSamuelTest.completion_field
+example [IsNoetherianRing (AdicCompletion (IsLocalRing.maximalIdeal ℚ) ℚ)]
+    (hq : (IsLocalRing.maximalIdeal (AdicCompletion (IsLocalRing.maximalIdeal ℚ) ℚ)).radical =
+      IsLocalRing.maximalIdeal (AdicCompletion (IsLocalRing.maximalIdeal ℚ) ℚ)) :
+    multiplicity (M := AdicCompletion (IsLocalRing.maximalIdeal ℚ) ℚ)
+      (IsLocalRing.maximalIdeal (AdicCompletion (IsLocalRing.maximalIdeal ℚ) ℚ)) hq = 1 := by sorry
+
 -- test: HilbertSamuelTest.inDegree_residue
 example (O : Type*) [CommRing O] [IsDomain O] [IsDiscreteValuationRing O]
     [IsNoetherianRing O]
@@ -800,9 +875,9 @@ end HilbertSamuelTest
 The reader's Section 7 is definitive. These forms elaborate with placeholder proofs. The definitions
 use actual pinned carriers. Ordinary residual tensor on projective representatives
 is not presented as an already implemented generic derived tensor functor.
-Omitted signatures: disk rank equations; the locally finite disk-family isomorphism is supplied below;
-the generic derived-object forms of residualPerfectness and residualNakayama;
-the Tor-amplitude predicate, derived tensor/RHom, filtered-colimit factorization,
+The cancellation rank equations and locally finite disk-family isomorphism are supplied below.
+Omitted signatures: the generic derived-object forms of residualPerfectness and residualNakayama;
+the Tor-amplitude predicate and derived tensor/RHom,
 and completed infinite-rank minimality. Their exact obligations remain packet gaps.
 -/
 
@@ -1046,10 +1121,16 @@ example (i : ℤ) : IsMinimal (0 : Complex R) ∧
         (𝟙 ((HomologicalComplex.single (ModuleCat.{u} R) (.up ℤ) (i + 1)).obj
           (ModuleCat.of R R)))) (0 : Complex R)) := by sorry
 
-/-- P7/minimal-residual-ranks: the actual residual homology is the residual term.
-The rank-number transport is specified in the reader, not yet elaborated here. -/
-theorem minimal_residual_ranks (C : Complex R) (h : IsMinimal C) (i : ℤ) :
-    Nonempty ((residueComplex C).homology i ≅ (residueComplex C).X i) := by sorry
+/-- P7/minimal-residual-ranks: homology, numerical rank and vanishing of actual
+residual representatives, with transport through any homotopy equivalence. -/
+theorem minimal_residual_ranks (C : Complex R) (h : IsMinimal C)
+    (hF : ∀ j, Module.Finite R (C.X j) ∧ Module.Free R (C.X j)) (i : ℤ) :
+    Nonempty ((residueComplex C).homology i ≅ (residueComplex C).X i) ∧
+      Module.finrank R (C.X i) =
+        Module.finrank (IsLocalRing.ResidueField R) ((residueComplex C).homology i) ∧
+      (IsZero (C.X i) ↔ IsZero ((residueComplex C).homology i)) ∧
+      ∀ (D : Complex R) (e : HomotopyEquiv C D), Module.finrank R (C.X i) =
+        Module.finrank (IsLocalRing.ResidueField R) ((residueComplex D).homology i) := by sorry
 
 /-- P7/residual-perfectness-criterion, on an actual finite-free representative.
 The corresponding generic derived-base-change signature remains an explicit gap. -/
@@ -1100,16 +1181,29 @@ end ThreeTerm
 
 section Cancellation
 -- The unit-pivot theorem itself is valid without a local hypothesis.
-variable {C : Complex R} {ι κ : Type u}
-/-- P7/unit-pivot-cancellation. Rank and unchanged-degree equations remain noted omissions. -/
+variable {C : Complex R} {ι κ : Type u} [Fintype ι] [Fintype κ]
+/-- P7/unit-pivot-cancellation. The decomposition works over the zero ring too;
+only the intrinsic numerical-rank equations require a nontrivial ring. -/
 theorem unit_pivot_cancellation (i : ℤ)
     (hF : ∀ j, Module.Finite R (C.X j) ∧ Module.Free R (C.X j))
     (b₀ : Basis ι R (C.X i)) (b₁ : Basis κ R (C.X (i + 1)))
     (j : ι) (k : κ)
     (hu : IsUnit (b₁.repr ((C.d i (i + 1)).hom (b₀ j)) k)) :
-    ∃ C' : Complex R, Nonempty (C ≅ C' ⊞ CochainComplex.mappingCone
+    let D : Complex R := CochainComplex.mappingCone
       (𝟙 ((HomologicalComplex.single (ModuleCat.{u} R) (.up ℤ) (i + 1)).obj
-        (ModuleCat.of R R)))) := by sorry
+        (ModuleCat.of R R)))
+    ∃ C' : Complex R, (∀ j, Module.Finite R (C'.X j) ∧ Module.Free R (C'.X j)) ∧
+      Nonempty (C ≅ C' ⊞ D) ∧
+      Nonempty (Basis {j' : ι // j' ≠ j} R (C'.X i)) ∧
+      Nonempty (Basis {k' : κ // k' ≠ k} R (C'.X (i + 1))) ∧
+      (∀ j, j ≠ i → j ≠ i + 1 → Nonempty (C'.X j ≅ C.X j)) ∧
+      (Nontrivial R → Module.finrank R (C'.X i) + 1 = Module.finrank R (C.X i) ∧
+        Module.finrank R (C'.X (i + 1)) + 1 = Module.finrank R (C.X (i + 1))) ∧
+      Nonempty (Homotopy (𝟙 D) 0) := by sorry
+
+-- The numerical-rank clause needs Nontrivial R even though basis deletion does not.
+example : Module.finrank (ZMod 1) (ZMod 1) = 1 := by
+  simp [Module.finrank]
 end Cancellation
 
 end TauCeti.LocalPerfect
@@ -4177,6 +4271,20 @@ example (hq : Ideal.radical q = IsLocalRing.maximalIdeal C) : multiplicity (A :=
 -- test: ScalarCurveTests.order_three_actual_polynomial
 example (hq : Ideal.radical q = IsLocalRing.maximalIdeal C) : polynomial (A := C) (M := C) q hq = Polynomial.C 3 * Polynomial.X := by sorry
 end order_three
+section ordinary_triple
+local notation "R" => MvPowerSeries (Fin 2) ℚ
+local notation "x" => (MvPowerSeries.X (0 : Fin 2) : R)
+local notation "y" => (MvPowerSeries.X (1 : Fin 2) : R)
+local notation "f" => (x * y * (x - y))
+local notation "I" => Ideal.span (Set.singleton f : Set R)
+local notation "C" => R ⧸ I
+local notation "v" => Ideal.span (Set.range (MvPowerSeries.X : Fin 2 → R))
+local notation "q" => Ideal.map (Ideal.Quotient.mk I) v
+variable [IsNoetherianRing C] [IsLocalRing C]
+-- test: ScalarCurveTests.ordinary_triple_intrinsic
+example (hq : Ideal.radical q = IsLocalRing.maximalIdeal C) :
+    multiplicity (A := C) (M := C) q hq = 3 := by sorry
+end ordinary_triple
 -- test: ScalarCurveTests.unit_function_boundary
 example (n : ℕ) : let R := MvPowerSeries (Fin 2) ℚ; let I : Ideal R := Ideal.span {(1 : R)}; let C := R ⧸ I; let v : Ideal R := Ideal.span (Set.range MvPowerSeries.X); function (A := C) (M := C) (v.map (Ideal.Quotient.mk I)) n = 0 := by sorry
 -- test: ScalarCurveTests.zero_equation_surface_boundary
