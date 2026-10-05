@@ -13,6 +13,7 @@
   "estimatedRoadmaps": 0,
   "distanceBases": {
     "judged": 203,
+    "measured": 7,
     "built": 7,
     "children": 1
   },
@@ -28,12 +29,24 @@
   "plainTextPlanetLabels": 81,
   "hiddenPlanets": 245,
   "mappedStageStatuses": 350,
-  "libraryAuditStatuses": 35,
+  "libraryAuditStatuses": 32,
   "bibliographicSources": 46,
   "roadmapEdges": 93,
   "stageEdges": 376,
   "reviewedLinkPackets": 25,
   "promotedBlueprints": [
+    {
+      "file": "AbelianSchemesAndArithmeticModuliPartII",
+      "roadmap": "AbelianSchemesAndArithmeticModuliPartII",
+      "nodes": 115,
+      "reviewer": "independent-review-REV-DESIGN-AbelianSchemesAndArithmeticModuliPartII"
+    },
+    {
+      "file": "AbelianVarietiesIsogenousToNoJacobian",
+      "roadmap": "AbelianVarietiesIsogenousToNoJacobian",
+      "nodes": 95,
+      "reviewer": "independent-review-REV-DESIGN-AbelianVarietiesIsogenousToNoJacobian"
+    },
     {
       "file": "AdicEtaleGeometry",
       "roadmap": "AdicEtaleGeometry",
@@ -83,10 +96,34 @@
       "reviewer": "independent-review-REV-FIX-RT-BP-ClassicalSerreModularity--R33.5"
     },
     {
+      "file": "ComputationalNumberTheory",
+      "roadmap": "ComputationalNumberTheory",
+      "nodes": 108,
+      "reviewer": "independent-review-REV-ComputationalNumberTheory"
+    },
+    {
+      "file": "ConformalMappingPartII",
+      "roadmap": "ConformalMappingPartII",
+      "nodes": 98,
+      "reviewer": "independent-review-REV-DESIGN-ConformalMappingPartII"
+    },
+    {
       "file": "DeformationAndDerivedPatchingAlgebra--R03.6",
       "roadmap": "DeformationAndDerivedPatchingAlgebra",
       "nodes": 53,
       "reviewer": "independent-review-REV-DeformationAndDerivedPatchingAlgebra--R03.6"
+    },
+    {
+      "file": "DirichletPadicLFunctions--L0",
+      "roadmap": "DirichletPadicLFunctions",
+      "nodes": 80,
+      "reviewer": "independent-review-REV-DirichletPadicLFunctions--L0"
+    },
+    {
+      "file": "DirichletPadicLFunctions--L4",
+      "roadmap": "DirichletPadicLFunctions",
+      "nodes": 192,
+      "reviewer": "independent-review-REV-DirichletPadicLFunctions--L4"
     },
     {
       "file": "EllipticCurveModularity",
@@ -107,6 +144,12 @@
       "reviewer": "independent-review-REV-FIX-RT-AREA-combinatorics~2"
     },
     {
+      "file": "FiniteFieldsAndCharacterSums",
+      "roadmap": "FiniteFieldsAndCharacterSums",
+      "nodes": 354,
+      "reviewer": "independent-review-REV-FiniteFieldsAndCharacterSums"
+    },
+    {
       "file": "GeneralAlgebraicKTheory--K.1",
       "roadmap": "GeneralAlgebraicKTheory",
       "nodes": 33,
@@ -117,6 +160,12 @@
       "roadmap": "GeneralAlgebraicKTheory",
       "nodes": 22,
       "reviewer": "independent-review-REV-GeneralAlgebraicKTheory--K.6"
+    },
+    {
+      "file": "GenericDoublePointInterpolation",
+      "roadmap": "GenericDoublePointInterpolation",
+      "nodes": 77,
+      "reviewer": "independent-review-REV-DESIGN-GenericDoublePointInterpolation"
     },
     {
       "file": "GlobalGaloisDeformations",
@@ -155,6 +204,18 @@
       "reviewer": "independent-review-REV-FIX-RT-AREA-etale~2"
     },
     {
+      "file": "InductionRestrictionPartII",
+      "roadmap": "InductionRestrictionPartII",
+      "nodes": 109,
+      "reviewer": "independent-review-REV-DESIGN-InductionRestrictionPartII"
+    },
+    {
+      "file": "JacobianChallengePartII",
+      "roadmap": "JacobianChallengePartII",
+      "nodes": 48,
+      "reviewer": "independent-review-REV-DESIGN-JacobianChallengePartII"
+    },
+    {
       "file": "K2SymbolsBrauer--T.3",
       "roadmap": "K2SymbolsBrauer",
       "nodes": 58,
@@ -167,10 +228,34 @@
       "reviewer": "independent-review-REV-FIX-RT-AREA-ktheory-1"
     },
     {
+      "file": "NeronModelsAndSemistableAbelianVarieties",
+      "roadmap": "NeronModelsAndSemistableAbelianVarieties",
+      "nodes": 78,
+      "reviewer": "independent-review-REV-NeronModelsAndSemistableAbelianVarieties"
+    },
+    {
       "file": "Polylogarithms",
       "roadmap": "Polylogarithms",
       "nodes": 75,
       "reviewer": "independent-review-REV-FIX-RT-AREA-topology~3"
+    },
+    {
+      "file": "ProbabilisticAndMetricNumberTheory",
+      "roadmap": "ProbabilisticAndMetricNumberTheory",
+      "nodes": 300,
+      "reviewer": "independent-review-REV-ProbabilisticAndMetricNumberTheory"
+    },
+    {
+      "file": "SchemeAndStackFoundations",
+      "roadmap": "SchemeAndStackFoundations",
+      "nodes": 303,
+      "reviewer": "independent-review-REV-SchemeAndStackFoundations"
+    },
+    {
+      "file": "SemisimpleAlgebrasPartII",
+      "roadmap": "SemisimpleAlgebrasPartII",
+      "nodes": 55,
+      "reviewer": "independent-review-REV-DESIGN-SemisimpleAlgebrasPartII"
     },
     {
       "file": "SmallRamificationAndAbelianVarietyBaseCases",
@@ -180,8 +265,8 @@
     }
   ],
   "sourceDocuments": 296,
-  "htmlBytes": 11919046,
-  "htmlSha256": "1b4fb31e27fa34c64df0e943682d7c45d6c32ab5155a4f7e09d552f6c82dd377",
+  "htmlBytes": 11921471,
+  "htmlSha256": "237324fe0a87662536dc47150e13629a23dae28c123f3db224e38362aca58f2b",
   "networkDependencies": 0,
   "localProgressOverridesIncluded": false,
   "assets": {
@@ -200,7 +285,7 @@
     "src/app.js": "2edab54d4b58f8061ad287d88e17074ca69ec6967f4d3c05263b95ca688f6945",
     "data/atlas.json": "62ab6c2ccb94ee9c4d99813da02b69656941721d30fc29384e2b7e6e86361c56",
     "data/status.json": "7b9fe0072201b427ed600ee7066bd729d34b2632450823e1f877a8d5d3f7ad2e",
-    "data/tauceti-progress.json": "73d10086796c3985cf26ade8a5329f60a50fd8f03ec1bc2df16fbdd6c917c148",
+    "data/tauceti-progress.json": "c761316ddc30137812d0733d14f58974fb4da9e0d7257db931d412d8037ba0a4",
     "data/tauceti-new-roadmaps.json": "3e835f30fa5a79a1c330723f39fe01accce0879dfa8d5cfa65397c16fe2e9f18",
     "data/galaxies.json": "90d5131f4073e762260faa5614e53cbe41f194012b424f81db67afac16610599",
     "data/roadmap-retirements.json": "d572bc6f66332331ea507db17f12bdad008f73228b2dc9b5197f7e4c86334c9f",
@@ -212,8 +297,8 @@
     "data/roadmap-summaries.json": "c8bdd0a9105f5d3c4a858c8b635990729f8e94497dee784a71fae659b8c05b9f",
     "data/roadmap-classification.json": "2641dbc97eb2566c715162d011b46890d1635629181ef8126ac7aed9e24a3b13",
     "data/classification-estimates.json": "625d35fe6121bf099dc5de9e6a9111793596f9b664e3fbd439841434bb4a57d6",
-    "data/roadmap-distances.json": "962a7a3ade665fdb69d88beccd624230f92351be6d606423475f736f4a3d3603",
-    "data/galaxy-layout.json": "a563f8a5fc810abe4d604487d77f6222bf89822fde7830c1c1b5df064208a132",
+    "data/roadmap-distances.json": "c8605cd7b0247868b79e30e6758b30bc33cd52ed53885936acae1024d40ab43c",
+    "data/galaxy-layout.json": "5baeb3bc7c4b109ca1c927a5e307e87e74a9ae53025203186c33a6be188e6e7a",
     "data/bibliography.json": "bef230a41fad22d6b790c7564061c4d05c2ae5b78cab53d005eb404afab2b122",
     "NOTICE": "a285b95d5adbf5c2bcc82db36e2a77b797f84a2c5cbb30292efd0bae17cc4f34",
     "LICENSE": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1",
@@ -270,6 +355,10 @@
     "data/decompositions/VectorBundlesAndIsocrystals.json": "fdbac76db40806c39866334c8b06f46f938a7c806c886caa06b0020a8172dd9f",
     "data/decompositions/WeightsInEtaleCohomology.json": "4a41151244faf21477866c23a4cd43d5a212e2fbafac8a6b5504f0e19d5f3b43",
     "data/decompositions/WeilConjectures.json": "532f2a6f1ccd3188a4ed372133937f0cc0057236fd5a981d640a0295c7566d41",
+    "data/blueprints/AbelianSchemesAndArithmeticModuliPartII.json": "a4cfd32db464be2e7e935070c073d3add46ce52173be146bb7c2326b545ae87d",
+    "data/blueprints/AbelianSchemesAndArithmeticModuliPartII.md": "5653c26d4d6dec80f1fedb795d7f7a11b2e4f4c2257c0b671d9b8a6fe7e3d365",
+    "data/blueprints/AbelianVarietiesIsogenousToNoJacobian.json": "9de60585cfbbd64b4668c4a9697e673e9f0307ba3e97085eff0c30d38a6f13c3",
+    "data/blueprints/AbelianVarietiesIsogenousToNoJacobian.md": "9258a7772a96c3e40de4c254235abe86727cede0ae9d75feb41a06cd94580143",
     "data/blueprints/AdicEtaleGeometry.json": "99497353570273dc940038827e1a5eef68adcf05099ff390767a11a2f7cc8d45",
     "data/blueprints/AdicEtaleGeometry.md": "d580cd34ef211625d8012c497854b46ee450aa7ac374676e1bf668406e0d86cc",
     "data/blueprints/AdicSpacesPartII.json": "e45a2b12a1dba869acdbe200a2e6034876ace6c72b51a1fa40114c27c12ea6c4",
@@ -286,18 +375,30 @@
     "data/blueprints/ClassicalSerreModularity--R27.3.md": "065d11b977a14df5a67d62820bfeb223730332e27f3683fc66045ad5df0f503d",
     "data/blueprints/ClassicalSerreModularity--R33.5.json": "5763d16595d69e1a5f2f4a220c03127950801a2dc45bbf9f01cf741fa517276f",
     "data/blueprints/ClassicalSerreModularity--R33.5.md": "99edb64836667376d2ab5f016e2103f7025733514c844da969a0f8f37f816756",
+    "data/blueprints/ComputationalNumberTheory.json": "fd533475b2e0a67edfad753092d8da33c4ace30b85a34202da6ceac517506a73",
+    "data/blueprints/ComputationalNumberTheory.md": "e5035ba10d69d7378b539b90b7b384401ba32998c9a3f50693e7865f20f1f129",
+    "data/blueprints/ConformalMappingPartII.json": "14d52fe162118fb2d04f31304a43d60f8b882ac4d85332d633d0d258ee1744a3",
+    "data/blueprints/ConformalMappingPartII.md": "83d804e8e91cac36717619b4ff44202e1f35e55e6e9ea63756d4bb0304b7c560",
     "data/blueprints/DeformationAndDerivedPatchingAlgebra--R03.6.json": "7d5095850eca12bc0d5930af24e45a800c675c46a491d99a38bf1eed5f5930be",
     "data/blueprints/DeformationAndDerivedPatchingAlgebra--R03.6.md": "5cb32739e0e0e2d6b2a7497f810abcee961f72e8c8cbb434012ef9811e3649c4",
+    "data/blueprints/DirichletPadicLFunctions--L0.json": "f2445a2a9748de37d37916a1138dffa2d71c1c77e7cef8e643898bf87fd990f5",
+    "data/blueprints/DirichletPadicLFunctions--L0.md": "f4b72a43a58c23643a880c6de3d4ace1819e28d4618955d8616bddb74d9ef25c",
+    "data/blueprints/DirichletPadicLFunctions--L4.json": "bcde7779be3dd8f1c55699ffb3f3c3df08884b454c2bb91a5d54e1f5a0d2a653",
+    "data/blueprints/DirichletPadicLFunctions--L4.md": "d2d3ea088164a1c6a20422654cdfbd897560235ddbe5f361b4172bf6c712c950",
     "data/blueprints/EllipticCurveModularity.json": "5eb2631efd9128f36e333420d4c67e10720b1e462134ada41b5dcc073d62364e",
     "data/blueprints/EllipticCurveModularity.md": "5ecf52cec3c71eedbca1ba81c7d1342ac7b816d1eeb39ca32b6786835434109b",
     "data/blueprints/EllipticKTheory.json": "a267374bf1844e6c3ae1a85cd815f9c146e795b6c5d7b0351f7a0150b3aade04",
     "data/blueprints/EllipticKTheory.md": "c254d197a539eef155a823d0dfd3f179ba9b91982fa113dbc003b18d1de4903f",
     "data/blueprints/EllipticRegulators.json": "ea78b6592ec7aedf3d14e30e3a6437070ba764ba9ae7d49b352826efea48864f",
     "data/blueprints/EllipticRegulators.md": "45df41d0725c4f4bc7b0c43f9710b879367d2386a73a9fddfe4778881d7be759",
+    "data/blueprints/FiniteFieldsAndCharacterSums.json": "ea64ec0f7a0888da20c74fbcb2c0b0b7d58184f7a411ab147b9db3fcae4fb711",
+    "data/blueprints/FiniteFieldsAndCharacterSums.md": "280948019fed01a8fc773fc58a7eec61fd477cd2d5e59b93c83d430f4d9fda57",
     "data/blueprints/GeneralAlgebraicKTheory--K.1.json": "6d99ed94515665f97711483d11547ac5f74fdecc5ab4f73270602feea1ead6b4",
     "data/blueprints/GeneralAlgebraicKTheory--K.1.md": "0897b3b7abb9bdfd592bc3324b70acc5cc9905d85d84c923d90a8d3c033d29f0",
     "data/blueprints/GeneralAlgebraicKTheory--K.6.json": "14d13811cf26d920957a5b5791e6eec18d834bf2a991c96e4b781bdcf8a64370",
     "data/blueprints/GeneralAlgebraicKTheory--K.6.md": "acccd72a10a82d52e7b0981a1975476cefb9578c8a2b876a1491e53c808a8f8f",
+    "data/blueprints/GenericDoublePointInterpolation.json": "6b2d11b9013fe9fc19322c11361357ca7210f074ab175b2aa701702ee7ee09c8",
+    "data/blueprints/GenericDoublePointInterpolation.md": "6f2fe26ae4640d325cf3d0fb4606ac6a34fd9181552699655c4c22dc0009d454",
     "data/blueprints/GlobalGaloisDeformations.json": "31cbc73148a71345a8573de74fde1a1e01cc909b37ad94469327c9b23546846a",
     "data/blueprints/GlobalGaloisDeformations.md": "4f917fe4c79aa4e3221ea7b4a2ffbaa562c8d034e3f66d80268642ae3e83fa02",
     "data/blueprints/HabiroCohomologyFoundations--HQ.1.json": "b0c8f42d8d1bfce1a87085fc717eb06658de3f72500d771a68f637513b690eb7",
@@ -310,14 +411,33 @@
     "data/blueprints/HabiroNumberFields.md": "6dacd129ca08c9fc3747d9ffb451223707b6b47e1b9f78aebe03a907cf11df9d",
     "data/blueprints/HabiroRings.json": "ee7b77adfe9994ce370a081a546cbd46515a83bf427247442db556bd651ab84f",
     "data/blueprints/HabiroRings.md": "160228b0864d6bc3f4ce34b83994e5cda0e423f1127f1b39d61e4fd735e0560c",
+    "data/blueprints/InductionRestrictionPartII.json": "0db4b3e80ab6e85338b576ea40139b9cde93c466049c714d359abb50181af1a2",
+    "data/blueprints/InductionRestrictionPartII.md": "62bab3a7d7a78e2b81f254fdb13b351108bd5ad2d51a12a409e8c8ff9eddb7e3",
+    "data/blueprints/JacobianChallengePartII.json": "fe5ba0926b48925f60ff4f689dad88c54a684b257f9318c41d878e0543484b82",
+    "data/blueprints/JacobianChallengePartII.md": "630fa6d551abfef4d0e916d091f7c82fd89e93f3db947ff3747dc84de0bf821c",
     "data/blueprints/K2SymbolsBrauer--T.3.json": "2f6d249a186a84fd2d5e79c950a1f825a7ed89a019bb1b408d62caed1e6f73ec",
     "data/blueprints/K2SymbolsBrauer--T.3.md": "008cc52b3b52ce5e0674e8af693faa037a4932c9096fc8e64a06c947216c1ed9",
     "data/blueprints/K3BlochGroups.json": "ac9ba93202af2d2e5d7dcf6a6db0c8c84550756cad0cede5425905a178aac599",
     "data/blueprints/K3BlochGroups.md": "165b68c2bffead7bf468a831b3900aa954e06bbea3e85878621915d056c4c05f",
+    "data/blueprints/NeronModelsAndSemistableAbelianVarieties.json": "ecfc3d666e01fb13072267aead918ad3926a2d766f5718558a3a7da9e7e56e5a",
+    "data/blueprints/NeronModelsAndSemistableAbelianVarieties.md": "7e174f3a26bad9ab37af9b71d1e741eb3fabd739d6d22a7d6903ea9f22e378d9",
     "data/blueprints/Polylogarithms.json": "c9068486dd97c07d99f56c54ed6af8d7bd29607a0f6069817ec95927f968bb86",
     "data/blueprints/Polylogarithms.md": "1d28e812ddc1cdf712e71814d4ba70a913d2107cd694003639dd5cc7ea08cf43",
+    "data/blueprints/ProbabilisticAndMetricNumberTheory.json": "c281a61e13ec7f433532aa0ecef0848a7951f3cb467e8a815b482b492f0412ab",
+    "data/blueprints/ProbabilisticAndMetricNumberTheory.md": "b7e90cc06297f3f3fd9baf7e5e8c452a935a601fc650bf168b2a5cae6932052b",
+    "data/blueprints/SchemeAndStackFoundations.json": "0f55d115438cd23b2c0c1c2f478601a158f5e660a4f98e5afab64f185aed85ee",
+    "data/blueprints/SchemeAndStackFoundations.md": "cb63bfd11a0822a766181443e2c4c49d6dd0a7e0f431035d5cb619af5e65f7c7",
+    "data/blueprints/SemisimpleAlgebrasPartII.json": "a22b0e4cf4bb7405cfb80d792b3057900910ae92a18c3716175c0e1fe8299f05",
+    "data/blueprints/SemisimpleAlgebrasPartII.md": "7d72aa9a82427470a96a523a502fdd12fee1268a581dd08fd02e94d143bec247",
     "data/blueprints/SmallRamificationAndAbelianVarietyBaseCases.json": "fb0daca4a0b888dfad1d7bb862a800af846fc2f9553abe9f9cd2e61567e6d3a7",
     "data/blueprints/SmallRamificationAndAbelianVarietyBaseCases.md": "bf5bb37e33b91d56f46879172730f6ced43c4f448c1ff01efeec27bc66d0141e",
+    "data/blueprints/roadmaps/AbelianSchemesAndArithmeticModuliPartII.json": "444741ba656f1e4ead75407906b20b9e1b9145585ad3c9d8b86053231e3641c0",
+    "data/blueprints/roadmaps/AbelianVarietiesIsogenousToNoJacobian.json": "2bf1f5bf267748898edb5c660f847da5daca1f83422fc4f0bb5cdb5b842d0414",
+    "data/blueprints/roadmaps/ConformalMappingPartII.json": "ddd4e3d4097c295f24ab7f018f6427105621a2335e2040955e49fd8f5137088b",
+    "data/blueprints/roadmaps/GenericDoublePointInterpolation.json": "bea51793a161eba89a41cd1b9296431a0feec87374a8009e0ee3c9f008f0ddaf",
+    "data/blueprints/roadmaps/InductionRestrictionPartII.json": "610f6d9d6d58360ee2e0f342c5a27188ba677510f9f294f621675be04172ed16",
+    "data/blueprints/roadmaps/JacobianChallengePartII.json": "9125c2f7116f65188ada8a2d42c9c4220297bf09ac49d4de1235728506276698",
+    "data/blueprints/roadmaps/SemisimpleAlgebrasPartII.json": "deab3aab287fec5e5304f5ca49ea05c149e532c66341477eff5c83ea6ac9d4fc",
     "data/links/tauceti_Completed_EffectiveBounds.json": "a1493c80585e5e41a95005979315013c4406ce3be31b57b9fd2fb8bc9c278805",
     "data/links/tauceti_Completed_OrthogonalL2Bases.json": "34ad7cad18dde976767ba8df3183e3b3ec9586ddb040ecff1654dbdd2bec5a46",
     "data/links/tauceti_TauCetiRoadmap_AdicSpaces.json": "43ec8b83183c85b01f454cb423613b9dcf2ddfbeb56731f6502fc7479392a425",
@@ -411,14 +531,14 @@
     "data/restructure/RS-33.result.json": "f9e95d0edcb3f28b9821335eb9d879a57466bed358835b428b338deb97b4369f"
   },
   "taucetiProgress": {
-    "exportedAt": "2026-10-04T18:45:08Z",
+    "exportedAt": "2026-10-05T06:00:44Z",
     "roadmaps": 69,
     "unplaced": 0,
     "layers": {
-      "done": 240,
-      "partial": 217,
-      "untouched": 77,
-      "unassessed": 45,
+      "done": 266,
+      "partial": 224,
+      "untouched": 68,
+      "unassessed": 21,
       "total": 579
     },
     "added": [
