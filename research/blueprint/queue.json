@@ -31494,7 +31494,8 @@
    ],
    "followUpOf": "BP-DeformationAndDerivedPatchingAlgebra--P7",
    "prompt": "research/blueprint/prompts/BP-DeformationAndDerivedPatchingAlgebra--P7-2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6317"
   },
   {
    "id": "REV-DeformationAndDerivedPatchingAlgebra--P7-2",
