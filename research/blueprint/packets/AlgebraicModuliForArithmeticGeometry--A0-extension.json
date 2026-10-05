@@ -3532,22 +3532,22 @@
       ],
       "title": "Conjugation is independent of the chosen object isomorphism",
       "kind": "lemma",
-      "statement": "For x,y in a gerbe whose automorphism sheaves are abelian, two isomorphisms x≅y induce the same identification of automorphism sheaves. This statement does not presuppose a chosen band.",
+      "statement": "In any category D, if Aut(x) is commutative and e,e′:x≅y are actual isomorphisms, the native group equivalences Aut.autMulEquivOfIso(e) and Aut.autMulEquivOfIso(e′) are equal. Applied in every restricted fibre of an abelian-inertia gerbe, these equalities identify its automorphism sheaves independently of the chosen object isomorphism. No band is chosen.",
       "hypotheses": [
-        "F is a gerbe on (C,J).",
-        "Every Aut(x) sheaf on C/U is abelian."
+        "D is a category in fixed object and morphism universes; x,y are its objects, e,e′ are actual isomorphisms x≅y, and a*b=b*a for every a,b in Aut(x).",
+        "The automorphism-sheaf specialization uses a gerbe with abelian inertia on a specified site, applying the categorical statement after every base restriction. Gerbe, groupoid and site assumptions are not needed for the categorical lemma itself."
       ],
       "prerequisites": [
-        "AlgebraicModuliForArithmeticGeometry:key/gerbes",
         "mathlib:CategoryTheory.Aut.autMulEquivOfIso"
       ],
       "proofSteps": [
-        "The quotient of the two isomorphisms is an automorphism of x.",
-        "Its inner conjugation is trivial by the abelian-inertia hypothesis.",
-        "The actual pinned pointwise banding_iso_independent signature is proved in the immutable archive; the new generic category helpers are its native adapters. This is not a claim that the global sheaf band or varying-base comparison is complete."
+        "In the native Aut group the ratio of e and e′ is an automorphism of x; its inner conjugation fixes every a by the stated commutativity.",
+        "Unfold the pinned conjugation equivalence and apply isomorphism cancellation and function extensionality. Retain Mathlib’s reversed multiplication/composition convention.",
+        "Apply this categorical identity in each restriction fibre for the gerbe sheaf corollary. It does not prove descent, arbitrary-base band gluing or evaluation surjectivity; those have their own nodes."
       ],
       "acceptance": [
-        "The conclusion is invariant under equivalence over the fixed site and retains all stated hypotheses."
+        "The conclusion is invariant under equivalence over the fixed site and retains all stated hypotheses.",
+        "In SingleObj(S3), conjugation through the actual transposition (0 1) sends (1 2) to (0 2), while identity conjugation fixes (1 2). The two native conjugation equivalences differ, so dropping commutativity makes the claimed independence false."
       ],
       "library": {
         "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
@@ -12592,7 +12592,10 @@
       ],
       "prerequisites": [
         "AlgebraicModuliForArithmeticGeometry:R09.4/band-conjugate-cover-local",
-        "mathlib:CategoryTheory.Functor.FullyFaithful.map_injective"
+        "mathlib:CategoryTheory.Functor.FullyFaithful.map_injective",
+        "mathlib:CategoryTheory.Pseudofunctor.isPrestackFor'",
+        "mathlib:CategoryTheory.Pseudofunctor.IsPrestackFor.fullyFaithful",
+        "mathlib:CategoryTheory.Pseudofunctor.DescentData.hom_ext"
       ],
       "proofSteps": [
         "Use isomorphism extensionality and injectivity of the canonical native descent map.",
@@ -12890,10 +12893,14 @@
         "F satisfies the existing IsPrestack J condition, and R belongs to J(U). Only morphism descent is used; object-effectivity and groupoid fibres are not additional hypotheses."
       ],
       "prerequisites": [
-        "AlgebraicModuliForArithmeticGeometry:R09.4/band-conjugate-cover-local"
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-conjugate-cover-local",
+        "mathlib:CategoryTheory.Pseudofunctor.isPrestackFor'",
+        "mathlib:CategoryTheory.Pseudofunctor.IsPrestackFor.fullyFaithful",
+        "mathlib:CategoryTheory.Pseudofunctor.DescentData.hom_ext",
+        "mathlib:CategoryTheory.Functor.FullyFaithful.map_injective"
       ],
       "proofSteps": [
-        "Apply native descent faithfulness to compare the returned automorphism with a.",
+        "Use the actual isPrestackFor′ witness on R and its fullyFaithful structure. Apply native isomorphism extensionality and FullyFaithful.map_injective to the canonical descent functor, then DescentData.hom_ext to reduce equality to every R-arrow component.",
         "Recovery twice reduces every component to conjugation by e_i followed by e_i inverse. Native isomorphism cancellation gives the original component."
       ],
       "acceptance": [
@@ -13403,7 +13410,8 @@
         "AlgebraicModuliForArithmeticGeometry:R09.4"
       ],
       "hypotheses": [
-        "C is a fixed small category with topology J; F is the existing Cat-valued pseudofunctor. Gerbe and abelian-inertia assumptions are imposed only where stated. All coefficient sheaves use one fixed universe large enough for the indexed family.",
+        "C is a category with object universe u and morphism universe v and Grothendieck topology J. F is the native Cat-valued pseudofunctor with fibre universes u′,v′ and satisfies IsGerbe F J, including groupoid fibres, native IsStack J and local nonemptiness/local isomorphisms.",
+        "A is a prescribed sheaf of abelian groups on (C,J), and b is an actual AbelianBanding F J A: each b(V,x) is a group equivalence from Multiplicative(A(V)) to Aut(x), with the stated restriction and conjugation equations. Its coefficient universe is fixed large enough for the indexed constructions; the current suggested adapters use max(u,v,u′,v′). Independent coefficient-universe normalization remains part of the reserved-key review boundary. No object of every fibre, terminal object, fibre products or global neutralization is assumed.",
         "For this local lemma only, an actual x∈F(U) is displayed."
       ],
       "implementationStatus": "unchecked",
@@ -13443,7 +13451,8 @@
         "AlgebraicModuliForArithmeticGeometry:R09.4"
       ],
       "hypotheses": [
-        "C is a fixed small category with topology J; F is the existing Cat-valued pseudofunctor. Gerbe and abelian-inertia assumptions are imposed only where stated. All coefficient sheaves use one fixed universe large enough for the indexed family.",
+        "C is a category with object universe u and morphism universe v and Grothendieck topology J. F is the native Cat-valued pseudofunctor with fibre universes u′,v′ and satisfies IsGerbe F J, including groupoid fibres, native IsStack J and local nonemptiness/local isomorphisms.",
+        "A is a prescribed sheaf of abelian groups on (C,J), and b is an actual AbelianBanding F J A: each b(V,x) is a group equivalence from Multiplicative(A(V)) to Aut(x), with the stated restriction and conjugation equations. Its coefficient universe is fixed large enough for the indexed constructions; the current suggested adapters use max(u,v,u′,v′). Independent coefficient-universe normalization remains part of the reserved-key review boundary. No object of every fibre, terminal object, fibre products or global neutralization is assumed.",
         "R is an arbitrary sieve, with an actual chosen object x_f for each arrow f in R. It need not cover U for the family/recovery/matching statements."
       ],
       "implementationStatus": "unchecked",
@@ -13482,6 +13491,11 @@
           "name": "TauCeti.AlgebraicGeometry.IntrinsicBandSections.localBandCoefficient",
           "role": "constructor",
           "statement": "For any sieve R on U and actual objects x_f∈F(V) for every f:V→U in R, construct the native family of coefficient sections a_f=b(V,x_f) inverse applied to ev_(f,x_f)(z), for z∈ZF(U). This is a Presieve.FamilyOfElements of the underlying Type-valued coefficient presheaf."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.IntrinsicBandSections.localBandCoefficient_apply",
+          "role": "simp",
+          "statement": "For f:V→U in R with displayed object x_f, the additive local coefficient a_f is exactly the additive form of b(V,x_f)⁻¹(ev_(f,x_f)(z)). This formula retains the prescribed band and the full section evaluation, for an arbitrary sieve R."
         },
         {
           "name": "TauCeti.AlgebraicGeometry.IntrinsicBandSections.localBandCoefficient_recovery",
@@ -13532,7 +13546,8 @@
         "AlgebraicModuliForArithmeticGeometry:R09.4"
       ],
       "hypotheses": [
-        "C is a fixed small category with topology J; F is the existing Cat-valued pseudofunctor. Gerbe and abelian-inertia assumptions are imposed only where stated. All coefficient sheaves use one fixed universe large enough for the indexed family.",
+        "C is a category with object universe u and morphism universe v and Grothendieck topology J. F is the native Cat-valued pseudofunctor with fibre universes u′,v′ and satisfies IsGerbe F J, including groupoid fibres, native IsStack J and local nonemptiness/local isomorphisms.",
+        "A is a prescribed sheaf of abelian groups on (C,J), and b is an actual AbelianBanding F J A: each b(V,x) is a group equivalence from Multiplicative(A(V)) to Aut(x), with the stated restriction and conjugation equations. Its coefficient universe is fixed large enough for the indexed constructions; the current suggested adapters use max(u,v,u′,v′). Independent coefficient-universe normalization remains part of the reserved-key review boundary. No object of every fibre, terminal object, fibre products or global neutralization is assumed.",
         "R is an arbitrary sieve, with an actual chosen object x_f for each arrow f in R. It need not cover U for the family/recovery/matching statements."
       ],
       "implementationStatus": "unchecked",
@@ -13574,7 +13589,8 @@
         "AlgebraicModuliForArithmeticGeometry:R09.4"
       ],
       "hypotheses": [
-        "C is a fixed small category with topology J; F is the existing Cat-valued pseudofunctor. Gerbe and abelian-inertia assumptions are imposed only where stated. All coefficient sheaves use one fixed universe large enough for the indexed family.",
+        "C is a category with object universe u and morphism universe v and Grothendieck topology J. F is the native Cat-valued pseudofunctor with fibre universes u′,v′ and satisfies IsGerbe F J, including groupoid fibres, native IsStack J and local nonemptiness/local isomorphisms.",
+        "A is a prescribed sheaf of abelian groups on (C,J), and b is an actual AbelianBanding F J A: each b(V,x) is a group equivalence from Multiplicative(A(V)) to Aut(x), with the stated restriction and conjugation equations. Its coefficient universe is fixed large enough for the indexed constructions; the current suggested adapters use max(u,v,u′,v′). Independent coefficient-universe normalization remains part of the reserved-key review boundary. No object of every fibre, terminal object, fibre products or global neutralization is assumed.",
         "R is an arbitrary sieve, with an actual chosen object x_f for each arrow f in R. It need not cover U for the family/recovery/matching statements."
       ],
       "implementationStatus": "unchecked",
@@ -13618,7 +13634,8 @@
         "AlgebraicModuliForArithmeticGeometry:R09.4"
       ],
       "hypotheses": [
-        "C is a fixed small category with topology J; F is the existing Cat-valued pseudofunctor. Gerbe and abelian-inertia assumptions are imposed only where stated. All coefficient sheaves use one fixed universe large enough for the indexed family."
+        "C is a category with object universe u and morphism universe v and Grothendieck topology J. F is the native Cat-valued pseudofunctor with fibre universes u′,v′ and satisfies IsGerbe F J, including groupoid fibres, native IsStack J and local nonemptiness/local isomorphisms.",
+        "A is a prescribed sheaf of abelian groups on (C,J), and b is an actual AbelianBanding F J A: each b(V,x) is a group equivalence from Multiplicative(A(V)) to Aut(x), with the stated restriction and conjugation equations. Its coefficient universe is fixed large enough for the indexed constructions; the current suggested adapters use max(u,v,u′,v′). Independent coefficient-universe normalization remains part of the reserved-key review boundary. No object of every fibre, terminal object, fibre products or global neutralization is assumed."
       ],
       "implementationStatus": "unchecked",
       "library": {
@@ -13636,7 +13653,9 @@
         "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-separated",
         "mathlib:CategoryTheory.Presieve.IsSheafFor",
         "mathlib:CategoryTheory.Presheaf.isSheaf_comp_of_isSheaf",
-        "mathlib:CategoryTheory.isSheaf_iff_isSheaf_of_type"
+        "mathlib:CategoryTheory.isSheaf_iff_isSheaf_of_type",
+        "AlgebraicModuliForArithmeticGeometry:key/gerbes",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-from-banding-restriction"
       ],
       "proofSteps": [
         "Gerbe local nonemptiness supplies an actual covering sieve R and an object x_f over every arrow f∈R. Construct the local coefficient family for z using these objects.",
@@ -13663,7 +13682,8 @@
         "AlgebraicModuliForArithmeticGeometry:R09.4"
       ],
       "hypotheses": [
-        "C is a fixed small category with topology J; F is the existing Cat-valued pseudofunctor. Gerbe and abelian-inertia assumptions are imposed only where stated. All coefficient sheaves use one fixed universe large enough for the indexed family."
+        "C is a category with object universe u and morphism universe v and Grothendieck topology J. F is the native Cat-valued pseudofunctor with fibre universes u′,v′ and satisfies IsGerbe F J, including groupoid fibres, native IsStack J and local nonemptiness/local isomorphisms.",
+        "A is a prescribed sheaf of abelian groups on (C,J), and b is an actual AbelianBanding F J A: each b(V,x) is a group equivalence from Multiplicative(A(V)) to Aut(x), with the stated restriction and conjugation equations. Its coefficient universe is fixed large enough for the indexed constructions; the current suggested adapters use max(u,v,u′,v′). Independent coefficient-universe normalization remains part of the reserved-key review boundary. No object of every fibre, terminal object, fibre products or global neutralization is assumed."
       ],
       "implementationStatus": "unchecked",
       "library": {

@@ -1,3 +1,141 @@
+# Review continuation: codex-X10mph
+
+Codex — codex-X10mph, 2026-10-05. Refs #346. Input commit `6417f4eae40e972d6bb80ea2b3e5e6a4be553524`; branch `codex-X10mph-review-346`. [Claim comment](https://github.com/CBirkbeck/tauceti-explorer/issues/346#issuecomment-5996545879) was confirmed by [the bot](https://github.com/CBirkbeck/tauceti-explorer/issues/346#issuecomment-5996549584). The whole issue was read before claiming and again after confirmation. This session did none of the input planning.
+
+**Unfinished independent review checkpoint; no overall verdict.** There is no top-level packet review object or final checked disposition. Planning status remains complete, with four partial and four not_read stages. The partial reserved gerbe contract, sixteen gaps, twenty-two requests and unchecked implementation statuses remain unchanged. Honest planning boundaries are permitted; they are not a rejection verdict. All historical reports below retain their authorship and are not recertified here.
+
+## Corrections saved
+
+Nine existing node objects change: incoming zero-based indices **8, 159, 165, 173–178**. No node or baseline declaration is added or removed.
+
+1. **Categorical scope of conjugation independence (8).** The overlap adapter 155 works in an arbitrary category with commutative Aut(x); its named prerequisite previously stated only a gerbe result. The existing node and its existing general categorical API now agree: equality of the two native conjugation equivalences requires only those category/object/isomorphism/commutativity hypotheses. Gerbe automorphism-sheaf independence remains its restrictionwise application. Remove the unnecessary gerbe prerequisite from the categorical result. This uses the actual computation in Stacks 8.11.8, not a stronger stack theorem.
+2. **Explicit faithfulness inputs (159, 165).** Name the pinned covering-sieve prestack witness, its actual fully faithful descent structure and native descent-morphism extensionality. The reversal proof additionally names the existing injectivity lemma. Its comparison runs through the canonical descent functor; it does not assume one arbitrary restriction detects equality. These are existing catalogue entries, not newly planned descent theory.
+3. **Fixed-band data and universes (173–178).** Replace the inherited unspecified assumptions with actual IsGerbe F J, the prescribed abelian sheaf A and band b, their restriction/conjugation equations, and the local objects only where supplied. The mathematical statement permits a fixed sufficiently large coefficient universe; the present native signatures use max(u,v,u′,v′). The independent coefficient-universe normalization remains open in the reserved-key boundary. No neutralization or object in each fibre is assumed.
+4. **Surjectivity closure (177).** List the gerbe local-nonemptiness input and the existing coefficient restriction theorem explicitly. The proof glues in the prescribed coefficient sheaf and detects the resulting section equality on a covering sieve, so it also covers an empty global fibre.
+5. **Local coefficient projection (174).** Add `localBandCoefficient_apply`: each coefficient is exactly the additive form of the displayed band's inverse applied to the full native section evaluation. Its suggested signature retains the actual object family, arrow, sieve membership and band. The three existing tests remain and constrain unit, existing coefficients and independence of local objects.
+6. **Native commutativity counterexample.** Two added suggested examples use the existing one-object category of S3, with actual groupoid isomorphisms from transpositions. Conjugation by (0 1) sends (1 2) to (0 2), and its whole native conjugation equivalence differs from identity conjugation. These are acceptance examples for node 8, with admitted bodies; they do not define a second stack or prove a geometric comparison. The explicit category and both object arguments of the native isomorphism constructor are necessary because the single-object Hom type alone does not determine its endpoints.
+
+All 660 ids, 255 baseline entries, 72 source catalogue objects, fourteen source findings and their verdicts, source versions, twenty-two requests, eight coverage rows, key-definition rows and ten planets are preserved. Raw API/tests: 610/589 → **611/589**; checker-normalized: 602/556 → **603/556**. One API signature and two theorem-acceptance examples are added. No source finding or gap is added or closed. No final planet or ownership verdict is claimed.
+
+## Fresh bounded reading
+
+Read the binding worker, blueprint, expansion and upstream rules; the issue and prior handoff/report; and the complete upstream JacobianChallenge and ReductiveGroups readers. Read the reviewed R09.4 audit and AUDIT-01 review metadata: native IsStack, IsPrestack and DescentData are imported, while groupoid/gerbe/band extensions do not duplicate a generic stack carrier. No complete cross-atlas duplication screen or review of the other seven stage-audit rows is claimed.
+
+Read all fields of nodes **155–184**, with their principal source and direct prerequisite statements. Node 8 and the fourteen earlier direct supplier objects were consulted to assess the categorical and fixed-band chain; that contextual inspection does not recertify the previous whole frontier or every secondary locator.
+
+- 155: `band-conjugate-overlap`
+- 156: `band-conjugate-descent-iso`
+- 157: `band-conjugate-cover-aut`
+- 158: `band-conjugate-cover-local`
+- 159: `band-conjugate-cover-unique`
+- 160: `band-conjugate-cover-choice`
+- 161: `band-conjugate-cover-hom`
+- 162: `band-conjugate-cover-global-iso`
+- 163: `band-conjugate-cover-refinement`
+- 164: `band-conjugate-cover-independent`
+- 165: `band-conjugate-cover-reverse`
+- 166: `band-conjugate-cover-equivalence`
+- 167: `band-conjugate-cover-equivalence-independent`
+- 168: `band-conjugate-cover-composition`
+- 169: `band-conjugate-base-change`
+- 170: `band-conjugate-naturality`
+- 171: `band-center-lift`
+- 172: `band-center-lift-evaluation`
+- 173: `band-coefficient-local-surjective`
+- 174: `band-coefficient-local-family`
+- 175: `band-coefficient-local-recovery`
+- 176: `band-coefficient-local-matching`
+- 177: `band-center-from-banding-surjective`
+- 178: `band-center-from-banding-equivalence`
+- 179: `band-center-from-banding-presheaf-iso`
+- 180: `band-center-from-banding-presheaf-iso-hom`
+- 181: `band-center-from-banding-sheaf-iso`
+- 182: `band-center-from-banding-sheaf-iso-hom`
+- 183: `band-center-from-banding-sheaf-iso-hom-transport`
+- 184: `band-center-from-banding-sheaf-iso-unique`
+
+The combined historical bounded-reading frontier now contains **177 distinct nodes: 0–65, 67, 75–184**. The remaining **483** are **66, 68–74, 185–659**. This is a reading frontier, not final verification. Every node still requires a reconciled checked disposition, recursive closure/source/baseline reconciliation and the relevant geometric and native-signature checks before an overall verdict.
+
+Read [Stacks Lemma 8.11.8, tag 0CJY](https://stacks.math.columbia.edu/tag/0CJY), its complete statement and proof, and [Definition 8.4.1, tag 026F](https://stacks.math.columbia.edu/tag/026F). Verified the five source entries used by 155–184 at this shared passage and their literal excerpts. The printed abelian-gerbe argument supports local conjugation, its choice independence and same-base cocycles; it explicitly leaves the final varying-base verification unprinted. The native arbitrary-base transport, simultaneous centre-unit lift and prescribed-band inverse are authored deductions, labelled as such in the packet. Their mathematical proof routes retain pullback/intersection covering, actual pseudofunctor composition and identity constraints, native Hom descent and the coefficient sheaf axiom. No effective object descent is needed to lift an automorphism of an already specified object. The SF.1 slice-glued-band identification is a separate unresolved comparison.
+
+Downloaded on 2026-10-05, SHA256: 0CJY `41dd0c0a1e20dfe2fd60212274a30f259ae0875225b1540b069adf3f89f27a9e`; 026F `0024923a8e370df81c72261a9765c15c3e1d3bbb8b59a46ab41605f2f2ae60a0`. No mistake in these two texts is newly alleged. The fourteen inherited source findings were preserved, not independently replayed.
+
+## Baseline evidence
+
+The following **30 existing baseline entries** were freshly read, with their ambient binders, at Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`. The modules were compared byte-for-byte against the commit's git objects. This does not recertify the other 225 catalogue entries or every recursive baseline leaf of the broader packet. In particular, the forgetful-sheaf theorem requires limit preservation of the appropriate size; the mapComp constraint points from composite restriction to iterated restriction; the sheaf inclusion is the existing full subcategory; and native Aut multiplication follows reverse categorical composition.
+
+- `mathlib:CategoryTheory.Pseudofunctor.IsStack`
+- `mathlib:CategoryTheory.Pseudofunctor.IsPrestack`
+- `mathlib:CategoryTheory.Aut.autMulEquivOfIso`
+- `mathlib:CategoryTheory.Functor.mapAut`
+- `mathlib:CategoryTheory.Aut.unitsEndEquivAut`
+- `mathlib:CategoryTheory.NatIso.ofComponents`
+- `mathlib:CategoryTheory.Pseudofunctor.isPrestackFor'`
+- `mathlib:CategoryTheory.Pseudofunctor.IsPrestackFor.fullyFaithful`
+- `mathlib:CategoryTheory.Pseudofunctor.toDescentData`
+- `mathlib:CategoryTheory.Pseudofunctor.DescentData.hom_ext`
+- `mathlib:CategoryTheory.Functor.FullyFaithful.map_injective`
+- `mathlib:CategoryTheory.GrothendieckTopology.pullback_stable`
+- `mathlib:CategoryTheory.Presheaf.isSheaf_comp_of_isSheaf`
+- `mathlib:CategoryTheory.isSheaf_iff_isSheaf_of_type`
+- `mathlib:CategoryTheory.Pseudofunctor.DescentData.isoMk`
+- `mathlib:CategoryTheory.Functor.FullyFaithful.preimageIso`
+- `mathlib:CategoryTheory.Pseudofunctor.mapComp'`
+- `mathlib:CategoryTheory.Cat.Hom.toNatIso`
+- `mathlib:CategoryTheory.Presieve.IsSheafFor`
+- `mathlib:CategoryTheory.GrothendieckTopology.intersection_covering`
+- `mathlib:CategoryTheory.Pseudofunctor.mapId'`
+- `mathlib:CategoryTheory.Presieve.FamilyOfElements`
+- `mathlib:CategoryTheory.Presieve.FamilyOfElements.Compatible`
+- `mathlib:MulEquiv.ofBijective`
+- `mathlib:CategoryTheory.fullyFaithfulSheafToPresheaf`
+- `mathlib:CategoryTheory.Presheaf.isSheaf_of_iso_iff`
+- `mathlib:CategoryTheory.Sheaf.hom_ext`
+- `mathlib:CategoryTheory.eqToIso`
+- `mathlib:CategoryTheory.eqToHom`
+- `mathlib:CategoryTheory.Functor.FullyFaithful`
+
+Also read the native SingleObj category/groupoid/arrow conventions as context for the S3 examples. No new baseline entry is asserted on that basis. Module hashes, paths relative to Mathlib:
+
+| Module | SHA256 |
+| --- | --- |
+| Algebra/Group/Equiv/Defs.lean | `27737abca9e515c38b7381864638c89c4c12bf6532821c04a78c4d8a22fdc381` |
+| CategoryTheory/Bicategory/Functor/Pseudofunctor.lean | `d5ef476a4cbde70668b9be30cf9d8c09dd4478b17a9625abe2b9a12210e8fe1b` |
+| CategoryTheory/Category/Cat.lean | `9e0a731c46c8986adc4395a43e7cf14616db47ca16882b1f868bc85934beaa72` |
+| CategoryTheory/Endomorphism.lean | `7c9eb33bb74caeacb6efe3bab7f7e57ad77c07b42489ba91952eebf866fcca4f` |
+| CategoryTheory/EqToHom.lean | `2626e21deb49f8106302bd9396a3c5d08fc65318e9f13575d479eb4162544a3b` |
+| CategoryTheory/Functor/FullyFaithful.lean | `94c995fd165ad4c7a422bca4b64d422deb2207bc490967487bb20b16b2d3315e` |
+| CategoryTheory/NatIso.lean | `c2e8b0662cae553808f1973dfc6027272b8ec2697a105a487ce1b1044330d103` |
+| CategoryTheory/SingleObj.lean | `6aca3a01c2a4beddfb1c80f82695834762e1ca0b30fe33ab0bb78d43aa24da03` |
+| CategoryTheory/Sites/Descent/DescentData.lean | `2292153f538142a8c3879094fed08f38a619a6dd13af91ab1c2f29448fb5e13e` |
+| CategoryTheory/Sites/Descent/IsPrestack.lean | `470b75a20ab5cb1de6de12444a84d4b50352cbd1b6bba9224cd54779dd8b22b2` |
+| CategoryTheory/Sites/Descent/IsStack.lean | `389633d8611b769455a07fdb1d0b591848dfba27ba09f12274dd391d086d2a10` |
+| CategoryTheory/Sites/Grothendieck.lean | `7cfa1dbe1bc7ac44fabb7cef395478d7978e72e5282fa67310bf7248ff1d611d` |
+| CategoryTheory/Sites/IsSheafFor.lean | `b47fe14e505dce52cac9e86a823b4b0e4968c16a898da7447c37fd705cf73653` |
+| CategoryTheory/Sites/Sheaf.lean | `e186b91a924c25ec3bdf802a47a2f83aeacac23e085e93025c0c875c07f4b1de` |
+
+## Validation and exact compilation boundary
+
+Packet checker: zero errors and warnings. File/private-path check, semantic preservation and whitespace check pass. The actual intake completion classifier returns false. No overall review object is supplied.
+
+The final **1,754-line Mathlib fragment**, including the new coefficient signature and both S3 acceptance examples, elaborates with **175 warnings, all declaration-uses-admission warnings; zero errors and no other warnings**. SHA256: `0345bc0dbf34a819305b46625018752422eaf5c2fa3190e121ea9b60e472dd36`. This is a signature check against exact pinned Mathlib, with admissions, not proved test values, validation of every geometric fixture, or full-file elaboration. The fragment was temporarily placed only at the authorized suggested path, the full bytes were retained in process memory, and a finally clause restored them after every attempt. Initial versions of the S3 signature needed explicit category/object annotations; the stated result is for the final corrected fragment.
+
+To reconstruct it: retain all distinct individual Mathlib imports appearing before the full file's first CategoryTheory/Opposite/Bicategory open, in their original order, omitting the TauCeti import. Supply that open and the file's six outer universes. Take the initial TauCeti.AlgebraicGeometry namespace through immediately before the neutralization declaration, then close it. Take the intrinsic-band namespace block beginning after its continuation comment through the first closing IntrinsicBandSections, and close its outer namespace. Append the entire local-conjugation continuation through immediately before the constant point-site fixture comment, including the S3 review-test namespace. These are the actual committed signatures and prerequisite carriers; none is replaced by an opaque theorem assumption.
+
+Before each check, free memory was 95 GB. A full suggested-file attempt failed before elaboration at the unavailable TauCeti SheafCohomology.LongExactSequence object file. Shared Mathlib matches the pin; shared Tau HEAD is `cf386627e9176a3827c1a5fe804989fd94a4d216`, whereas the required Tau commit is `f790474821cf4256814db967cb154e7af3d0c369`. **The full file did not compile, and no exact-Tau-pin compilation is claimed.** No library build, update, cache fetch or language server was used. No Lean process is left running.
+
+## Resume and orchestrator questions
+
+Recheck the nine changed nodes, the coefficient projection and concrete S3 examples, then continue the remaining indices. Independently replay the earlier five central-section/fixture edits and root-gerbe correction when reconciling the previous checkpoint. Complete the reserved gerbe sample API and imported coherent-duality ownership checks, independent coefficient universes, source findings, geometric nonconstant/nonneutral fixtures, fixed-band inversion, SF.1 descended-slice comparison, H² quotient/sign/two-inverse identities and affine/profinite supplier scope. All sixteen gaps and twenty-two requests remain open; prior reports give their detailed source frontiers.
+
+The reader is outside this issue's authorized deliverables. A separately authorized orchestrator edit must synchronize node 8's categorical scope, nodes 159/165/177's dependencies, the six fixed-band assumption passages and the new coefficient API/acceptance example. No reader edit is made here.
+
+The report and handoff replace disposable scratch evidence. This session submits one checkpoint and takes no second job.
+
+---
+
+# Historical checkpoints before codex-X10mph
+
 # Review continuation: codex-2ahsNe
 
 Codex — codex-2ahsNe, 2026-10-05. Refs #346. Input commit `300bb4cef8937635f6ae26056f1e3b16f42b4eca`; branch `codex-2ahsNe-review-346`. [Claim](https://github.com/CBirkbeck/tauceti-explorer/issues/346#issuecomment-5995810022) confirmed by [bot reply](https://github.com/CBirkbeck/tauceti-explorer/issues/346#issuecomment-5995812680). The whole issue was read before claiming and again after confirmation. This session did none of the input planning.
