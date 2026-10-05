@@ -19018,8 +19018,9 @@
    ],
    "avoidAccountOf": "BP-BorelRegulators",
    "prompt": "research/blueprint/prompts/REV-BorelRegulators.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #141"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #141",
+   "finishedAt": "2026-10-05T22:58:32Z"
   },
   {
    "id": "REVIEW-EXT-12",
@@ -31568,7 +31569,8 @@
    ],
    "avoidAccountOf": "BP-K3BlochGroups--V.2",
    "prompt": "research/blueprint/prompts/REV-K3BlochGroups--V.2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6397"
   },
   {
    "id": "BP-K3BlochGroups--V.3",
