@@ -10,7 +10,7 @@
   "ModularSymbolsPadicLFunctions:L4"
  ],
  "status": "partial",
- "summary": "Blueprint for modular symbols and analytic p-adic L-functions of modular forms. L0 is source-decomposed (checkpoints 1–2): Pollack–Stevens' Hom-side modular symbols Symb_Γ(V) = Hom_Γ(Div⁰(P¹(ℚ)), V) for arbitrary coefficient modules, with Hecke, diamond and involution actions, the Manin and fundamental-domain descriptions, boundary symbols and the integral exact sequence 0 → V^Γ → BSymb → Symb → H¹(Γ, V) → ⊕ H¹(Γ_c, V), parabolic cohomology, descent, symbols with character, the period symbol ψ_f, the Eichler–Shimura isomorphism (Wiese's proof) and one-dimensional newform eigenspaces. Div⁰, Manin's theorem, the homological module 𝕄 and the period-map analysis are imported from Tau Ceti ModularForms Layer 8 rather than re-planned. Pollack–Stevens Theorem 2.6/Corollary 2.7 print the D∞ relation with the wrong sign (sourceIssues E1). Stages L1–L4 remain. Checkpoint 3 plans L1 (6 nodes): period lines and periods after a choice of basis, saturated integral lattices with periods canonical up to 𝒪^×, the twisted Mellin formula (Σχ(a)·2πi∫_{i∞}^{a/m} f(z)(z − a/m)^j dz = τ(χ)j!/(−2πi)^j L(f, χ̄, j+1), checked numerically), algebraicity with the parity sign (−1)^{k−j}χ(−1), L-functions of p-stabilized forms, and the exact comparison with RJW Theorem B.1. Checkpoint 4 plans L2 (12 nodes): p-stabilisations and refinements with the refined eigenline, weight-k distributions and specialisation, overconvergent lifts, the slope decomposition, Stevens' control theorem for h < k + 1, admissibility, the p-adic L-function of a refinement, interpolation fixed to Pollack–Stevens (2) and to RJW B.1, uniqueness, and integral ordinary measures. Pollack–Stevens (1) is off by a sign on the −-part and at n = 0 (sourceIssues E4–E5). Checkpoint 5 plans L3 (6 nodes) as RS-08 narrows it, importing the general critical-slope, θ-critical and secondary theory from PadicFamilies L3 (Bellaïche): the critical-slope L-function of a non-θ-critical refinement normalised by specialisation, its interpolation, the failure of uniqueness at h = k + 1 (log^{[k]}), the θ-critical single-form comparison through the top secondary L-function, comparison through families, and Pollack–Stevens' Examples 8.6–8.8. It starts L4 (2 nodes): the level-11 examples (the 11-adic trivial zero, μ = 0, λ = 1) and the two Euler factors at p; Bellaïche's (5) prints the factors of f_β with α (sourceIssues E9). Coefficient changes and supersingular refinements remain. Checkpoint 6 adds L4's supersingular theory from Pollack (Duke 2003): tame twists, both refinements and the infinitude of zeros, the half-logarithms log^±_p, the ± decomposition with integral L^±_p for elliptic curves, and X₀(11) at p = 2 and p = 19.",
+ "summary": "Plan for cohomological modular symbols and analytic p-adic L-functions, extending Tau Ceti ModularForms under accepted RS-08. The packet retains the Hom-side symbols, signed periods, small-slope and critical-slope single-form constructions and the worked ordinary and supersingular examples. It adds the rational Drinfeld–Manin retraction assigned by the Nakamura extraction, with a separating-annihilator theorem, a usable projection API, rational and integral-obstruction tests, and explicit higher-weight and realization boundaries. The pass is partial: L4 coefficient embeddings and primitive/imprimitive level changes, source closure for the new general-weight splitting, and the full typed suggested interfaces remain open.",
  "baseline": {
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -336,6 +336,55 @@
     "module": "TauCeti/NumberTheory/ModularForms/CharacterDecomp.lean",
     "provides": "The nebentypus decomposition of S_k(Γ₁(N)) as an internal direct sum.",
     "checked": "name, kind and module confirmed in the pinned declaration index at the baseline commits; signature read in the pinned source (2026-09-28)"
+   },
+   {
+    "ref": "mathlib:CongruenceSubgroup.Gamma",
+    "kind": "def",
+    "module": "Mathlib/NumberTheory/ModularForms/CongruenceSubgroups.lean",
+    "provides": "The full-level congruence subgroup Γ(N), the kernel of reduction modulo N; the native carrier for the connected Betti prototype.",
+    "checked": "Declaration statement read in the source tree at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05."
+   },
+   {
+    "ref": "mathlib:Algebra.adjoin",
+    "kind": "def",
+    "module": "Mathlib/Algebra/Algebra/Subalgebra/Lattice.lean",
+    "provides": "The least subalgebra containing a set of endomorphisms; used for the rational good Hecke algebra.",
+    "checked": "Declaration statement read in the source tree at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05."
+   },
+   {
+    "ref": "mathlib:IsCoprime",
+    "kind": "def",
+    "module": "Mathlib/RingTheory/Coprime/Basic.lean",
+    "provides": "Coprimality means existence of Bézout coefficients a,b with aP+bQ=1; used over ℚ[X].",
+    "checked": "Declaration statement read in the source tree at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05."
+   },
+   {
+    "ref": "mathlib:LinearMap.aeval_self_charpoly",
+    "kind": "theorem",
+    "module": "Mathlib/LinearAlgebra/Charpoly/Basic.lean",
+    "provides": "Cayley–Hamilton for an endomorphism of a finite free finite module; supplies annihilating polynomials after the spectral separation input.",
+    "checked": "Declaration statement read in the source tree at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05."
+   },
+   {
+    "ref": "mathlib:Submodule.projectionOnto",
+    "kind": "def",
+    "module": "Mathlib/LinearAlgebra/Projection.lean",
+    "provides": "A linear projection to an existing submodule along a proved complement; generic projection theory is reused, rather than planned again.",
+    "checked": "Declaration statement read in the source tree at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05."
+   },
+   {
+    "ref": "mathlib:LinearMap.isCompl_of_proj",
+    "kind": "theorem",
+    "module": "Mathlib/LinearAlgebra/Projection.lean",
+    "provides": "A linear retraction to a submodule identifies its kernel as a complement.",
+    "checked": "Declaration statement read in the source tree at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05."
+   },
+   {
+    "ref": "mathlib:Nat.exists_prime_gt_modEq_one",
+    "kind": "theorem",
+    "module": "Mathlib/NumberTheory/PrimesCongruentOne.lean",
+    "provides": "For nonzero N and any bound n, a prime ℓ greater than n with ℓ ≡ 1 modulo N. This supplies the good prime in Elkik’s weight-two argument without new analytic number theory.",
+    "checked": "Declaration statement and proof read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05."
    }
   ]
  },
@@ -433,6 +482,43 @@
     "§4: Lemma 4.1, Corollaries 4.2–4.3, Lemmas 4.5–4.8 (pp. 535–540)",
     "§5.1–5.2.2: Theorem 5.1, Lemma 5.2, Remarks 5.3–5.5, Theorem 5.6, Remark 5.7 (pp. 540–543)",
     "§7 Table 1 (pp. 555–556)"
+   ]
+  },
+  {
+   "id": "NAKAMURA-ZETA-2023",
+   "title": "Zeta morphisms for rank two universal deformations",
+   "authors": "Kentaro Nakamura",
+   "edition": "Inventiones mathematicae 234 (2023), 171–290, DOI 10.1007/s00222-023-01203-7; published open-access PDF, printed page = PDF page + 170",
+   "url": "https://link.springer.com/content/pdf/10.1007/s00222-023-01203-7.pdf",
+   "sha256": "47682f856244439d8cc3d3e6e0a4e1f804e6a710ec1a2dde8fad76f94aea20e4",
+   "read": "2026-10-05",
+   "readSections": [
+    "§3.1.1–3.1.2, pp. 202–207: the full-level curve, coefficient systems, usual and adjoint Hecke conventions, (5)–(8) and Lemma 3.1",
+    "§3.2 opening, p. 220: rational Drinfeld–Manin splitting, (20)–(21), real and Galois equivariance; references [12], [20] and [28]"
+   ]
+  },
+  {
+   "id": "ELKIK-MANIN-DRINFELD-1990",
+   "title": "Le théorème de Manin-Drinfeld",
+   "authors": "Renée Elkik",
+   "edition": "Astérisque 183 (1990), 59–67; Numdam published scan, printed page = PDF page + 57",
+   "url": "https://www.numdam.org/item/AST_1990__183__59_0.pdf",
+   "sha256": "7618e61b8ec287b9fcce61fb4ac7d89ea98d58ca9274fa899ed52cda670b19b5",
+   "read": "2026-10-05",
+   "readSections": [
+    "Introduction, pp. 59–60; §I, pp. 60–62; §II, pp. 62–64; §III, pp. 64–66; bibliography, p. 67. This is the weight-two, trivial-local-system proof."
+   ]
+  },
+  {
+   "id": "SHARIFI-AWS-2018",
+   "title": "Modular curves and cyclotomic fields",
+   "authors": "Romyar Sharifi",
+   "edition": "Arizona Winter School 2018 lecture notes, publicly posted PDF; printed page = PDF page",
+   "url": "https://swc-math.github.io/aws/2018/2018SharifiNotes.pdf",
+   "sha256": "8fe8f4c77019e84c7c6c80bdaedcc507c643ab3a952e3b0b9fe22ccf888d5621",
+   "read": "2026-10-05",
+   "readSections": [
+    "§3.4, pp. 34–38: boundary sequence, Betti/group comparisons, Poincaré duality and the adjoint Hecke action, higher-weight modular symbols, Theorem 3.4.10, Theorem 3.4.16 and Remark 3.4.17; bibliography entries [Sho1] and [Sho2]. The cited Shokurov paper was not read."
    ]
   }
  ],
@@ -743,7 +829,8 @@
    "kind": "construction",
    "statement": "For V with a right Σ₀(N)-action extending its Γ₀(N)-action, and φ ∈ Symb_{Γ₀(N)}(V): (φ|δ)(D) := φ(δD)|δ; for a prime ℓ ∤ N, φ|T_ℓ := φ|(ℓ 0; 0 1) + Σ_{a=0}^{ℓ−1} φ|(1 a; 0 ℓ); for q | N, φ|U_q := Σ_{a=0}^{q−1} φ|(1 a; 0 q). These preserve Symb_{Γ₀(N)}(V) and commute.",
    "hypotheses": [
-    "V's Γ₀(N)-action is the restriction of the Σ₀(N)-action."
+    "V's Γ₀(N)-action is the restriction of the Σ₀(N)-action.",
+    "The suggested coefficient action is a monoid homomorphism from the opposite matrix semigroup to module endomorphisms, and its restriction is ρ(γ⁻¹). Preservation and commutativity apply to equivariant symbols, not arbitrary divisor maps."
    ],
    "proofSteps": [
     "The listed matrices are representatives of Γ₀(N)\\Γ₀(N)(ℓ 0; 0 1)Γ₀(N) (resp. for U_q); right multiplication by γ ∈ Γ₀(N) permutes the cosets, so Σ φ|α_i is again Γ₀(N)-invariant.",
@@ -2079,10 +2166,7 @@
      "kind": "non-example",
      "statement": "With the unadjugated action P((X, Y)γ) the map f ↦ ψ_f is not Γ₀(11)-invariant for k = 2."
     }
-   ],
-   "planet": {
-    "name": "Period symbol"
-   }
+   ]
   },
   {
    "id": "ModularSymbolsPadicLFunctions:L0/parabolic-cohomology-dimension",
@@ -4225,6 +4309,182 @@
     }
    ],
    "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ModularSymbolsPadicLFunctions:L0/rational-hecke-separation",
+   "parentStageId": "ModularSymbolsPadicLFunctions:L0",
+   "realises": [
+    "ModularSymbolsPadicLFunctions:L0"
+   ],
+   "title": "Rational separation of parabolic and boundary Hecke supports",
+   "kind": "theorem",
+   "statement": "Let N ≥ 3 and k ≥ 0, H = H¹(Γ(N), V_k(ℚ)) and P = H¹_par(Γ(N), V_k(ℚ)). Let T be the ℚ-subalgebra of End_ℚ(H) generated by the usual good-prime T_ℓ and scalar S_ℓ, for primes ℓ not dividing N, transported through the polynomial-coefficient dictionary. There exist A ∈ T and coprime polynomials F,G ∈ ℚ[X] such that F(A) vanishes on P and the image of G(A) lies in P, equivalently G(A) vanishes on H/P. These are annihilators, not just a statement about individual eigenvectors.",
+   "hypotheses": [
+    "The finite-dimensional rational cohomology and parabolic subspace are those of the existing L0 nodes, with the connected full-level carrier Γ(N).",
+    "The usual cohomological Hecke normalization and its transport to the adjugate polynomial action must be proved; the full-level comparison is recorded as an open request."
+   ],
+   "proofSteps": [
+    "In weight two use Elkik §III: choose a prime ℓ congruent to 1 modulo N; T_ℓ acts on the boundary quotient by ℓ+1, while every cusp-form eigenvalue has absolute value strictly smaller than ℓ+1. Elkik proves the strict bound by the Petersson norm triangle inequality and the Fourier-expansion obstruction to equality, without Deligne’s theorem.",
+    "Transport the cusp-form bound to parabolic cohomology through Eichler–Shimura. Cayley–Hamilton gives rational annihilators and the absence of a shared root gives their coprimality. The native Nat.exists_prime_gt_modEq_one supplies the congruence prime by its cyclotomic argument; it is not a statement about every good prime.",
+    "For higher weight Sharifi Theorem 3.4.16 cites the rational left-kernel theorem of Shokurov. Its cohomological transport, together with the separation of cusp and Eisenstein Hecke characters, must furnish separating rational annihilators in the finite good Hecke algebra. The unread source step is recorded as a gap; Elkik’s trivial-local-system proof is not asserted to cover k > 0."
+   ],
+   "acceptance": [
+    "The conditions on F and G control generalized eigenspaces, so a nonsemisimple boundary extension is included.",
+    "In weight two the boundary scalar ℓ+1 and Elkik’s strict cusp bound imply that X−(ℓ+1) is coprime to the parabolic characteristic polynomial.",
+    "Annihilator separation is over ℚ. It gives no coprimality over ℤ at a congruence prime."
+   ],
+   "prerequisites": [
+    "ModularSymbolsPadicLFunctions:L0/parabolic-cohomology",
+    "ModularSymbolsPadicLFunctions:L0/symbols-cohomology-sequence",
+    "ModularSymbolsPadicLFunctions:L0/eichler-shimura-isomorphism",
+    "ModularSymbolsPadicLFunctions:L0/hecke-operators-gamma1",
+    "mathlib:CongruenceSubgroup.Gamma",
+    "mathlib:Algebra.adjoin",
+    "mathlib:IsCoprime",
+    "mathlib:LinearMap.aeval_self_charpoly",
+    "ModularCurvesPartII:R14.3",
+    "mathlib:Nat.exists_prime_gt_modEq_one"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularSymbols/DrinfeldManin",
+    "namespace": "TauCeti.ModularSymbol"
+   },
+   "sources": [
+    {
+     "sourceId": "ELKIK-MANIN-DRINFELD-1990",
+     "locator": "§III, pp. 64–66, especially (3), (6) and the final characteristic-polynomial argument",
+     "excerpt": "Cette majoration des valeurs propres",
+     "match": "The weight-two disjoint-spectrum argument, and only that coefficient case."
+    },
+    {
+     "sourceId": "SHARIFI-AWS-2018",
+     "locator": "§3.4, Theorem 3.4.16 and its proof paragraph, Remark 3.4.17, p. 38",
+     "excerpt": "There exists a canonical, Hecke-equivariant splitting",
+     "match": "The general-weight rational conclusion and the explicit Shokurov proof input; the source proof boundary is retained."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ModularSymbolsPadicLFunctions:L0/drinfeld-manin-splitting",
+   "parentStageId": "ModularSymbolsPadicLFunctions:L0",
+   "realises": [
+    "ModularSymbolsPadicLFunctions:L0"
+   ],
+   "title": "The rational Drinfeld–Manin splitting",
+   "kind": "construction",
+   "statement": "For N ≥ 3 and k ≥ 0 there is a unique ℚ-linear retraction s_N : H¹(Γ(N),V_k(ℚ)) → H¹_par(Γ(N),V_k(ℚ)) equivariant for the rational good Hecke algebra (usual T_ℓ and scalar S_ℓ, ℓ not dividing N). Its inclusion-composite is the rational parabolic projector. Under the requested coefficient/local-system comparison, take the direct sum over geometric components to obtain Nakamura’s s_N : H¹(Y(N)(ℂ),𝒱_{k+2/ℚ}) → H¹(X(N)(ℂ),j_*𝒱_{k+2/ℚ}). Rationalization precedes this construction; no integral splitting is asserted.",
+   "hypotheses": [
+    "Nakamura’s weight is k+2 and his curve Y(N) has all geometric components, whereas the connected Betti prototype uses Γ(N).",
+    "The comparison between Nakamura’s dual symmetric-power local system and the packet’s adjugate action, including determinant twists and usual versus adjoint Hecke operators, is requested from the geometric supplier.",
+    "Higher-weight rational spectral separation has the source gap recorded at rational-hecke-separation."
+   ],
+   "proofSteps": [
+    "Take A,F,G from rational-hecke-separation and Bézout polynomials a,b with aF+bG=1. Set e=b(A)G(A). Its image lies in P and it restricts to the identity on P, since F(A) kills P. Native projection theory identifies ker(e) as a complement.",
+    "Every good Hecke generator commutes with A, hence with e. Restrict the codomain of e to P to define s_N. This supplies existence, retraction, equivariance and idempotence.",
+    "If t is another Hecke-equivariant retraction, it commutes with A and all its polynomials. Since F(A) kills P, t(1−e)=a(A)|_P F(A)|_P t=0, while t e=s_N. Therefore t=s_N.",
+    "For an endomorphism preserving P and commuting with the good Hecke algebra, its commutation with the same polynomial projector proves naturality.",
+    "After the requested geometric dictionary, the usual and adjoint Hecke actions are related by Nakamura Lemma 3.1, with T′_ℓ=ℓ^k T_ℓ S_ℓ⁻¹ and S′_ℓ=ℓ^(2k) S_ℓ⁻¹. Thus the projector commutes with both. The full-curve action of complex conjugation, and the Galois action after rational p-adic coefficient extension and Betti–étale comparison, must be transported through that dictionary; the suggested file does not claim to have these geometric carriers."
+   ],
+   "acceptance": [
+    "At full level N=3 and weight two (k=0), X(3) has genus zero, the parabolic subspace is zero and drinfeldManin 3 0 is the zero linear map. Ordinary H¹ has dimension three, so the ordinary and parabolic spaces are not identified.",
+    "At full level N=6 and weight two, dim_ℚ H¹_par=2 and s_6 restricts to the identity on that subspace. This excludes the zero retraction.",
+    "For H=ℚ², P=ℚ×{0} and T(x,y)=(y,2y), the Bézout projector e=1−T/2 sends (0,1) to (−1/2,0), fixes (1,0), kills T(H), commutes with T and satisfies e²=e. Projection onto the first coordinate alone fails to commute with T.",
+    "For the same model over ℤ there is no ℤ-linear retraction s:ℤ²→ℤ with s(1,0)=1 and s(Tv)=0 for all v: substituting v=(0,1) forces 1+2s(0,1)=0."
+   ],
+   "prerequisites": [
+    "ModularSymbolsPadicLFunctions:L0/rational-hecke-separation",
+    "ModularSymbolsPadicLFunctions:L0/parabolic-cohomology",
+    "mathlib:Submodule.projectionOnto",
+    "mathlib:LinearMap.isCompl_of_proj",
+    "ModularCurvesPartII:R14.3",
+    "tauceti:TauCetiRoadmap/ModularForms#10c--modular-forms-as-section-spaces-and-the-dimension-formulas"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularSymbols/DrinfeldManin",
+    "namespace": "TauCeti.ModularSymbol"
+   },
+   "sources": [
+    {
+     "sourceId": "NAKAMURA-ZETA-2023",
+     "locator": "§3.2, p. 220, opening paragraph and (20)–(21); §3.1.2, Lemma 3.1, p. 206",
+     "excerpt": "over Q, not over Z",
+     "match": "The unique rational Hecke-equivariant retraction and its usual/adjoint, real and p-adic arithmetic compatibilities. The mathematical formulas were checked on the published PDF."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "drinfeldManin",
+     "role": "constructor",
+     "statement": "For N ≥ 3, the rational retraction H¹(Γ(N),V_k(ℚ)) → H¹_par(Γ(N),V_k(ℚ)) with the usual good Hecke action."
+    },
+    {
+     "name": "drinfeldManin_subtype",
+     "role": "simp",
+     "statement": "For x in the parabolic subspace, s_N(x) = x."
+    },
+    {
+     "name": "drinfeldManin_hecke",
+     "role": "compatibility",
+     "statement": "For every prime ℓ not dividing N, inclusion(s_N(T_ℓ x)) = T_ℓ inclusion(s_N(x))."
+    },
+    {
+     "name": "drinfeldManin_scalarHecke",
+     "role": "compatibility",
+     "statement": "For every prime ℓ not dividing N, inclusion(s_N(S_ℓ x)) = S_ℓ inclusion(s_N(x))."
+    },
+    {
+     "name": "drinfeldManin_unique",
+     "role": "characterisation",
+     "statement": "Any ℚ-linear retraction to the parabolic subspace which intertwines all good T_ℓ and S_ℓ equals s_N."
+    },
+    {
+     "name": "drinfeldManin_idempotent",
+     "role": "relation",
+     "statement": "s_N(inclusion(s_N(x))) = s_N(x), so inclusion composed with s_N is an idempotent endomorphism with image the parabolic subspace."
+    },
+    {
+     "name": "drinfeldManin_natural",
+     "role": "functoriality",
+     "statement": "An endomorphism F of rational cohomology that preserves the parabolic subspace and commutes with every good T_ℓ and S_ℓ also commutes with inclusion composed with s_N. Preservation and commutation are hypotheses to verify for the geometric involution and arithmetic realization actions."
+    }
+   ],
+   "tests": [
+    {
+     "name": "DrinfeldManinTest.genus_zero",
+     "kind": "degenerate",
+     "statement": "At full level N=3 and weight two (k=0), X(3) has genus zero, the parabolic subspace is zero and drinfeldManin 3 0 is the zero linear map. Ordinary H¹ has dimension three, so the ordinary and parabolic spaces are not identified."
+    },
+    {
+     "name": "DrinfeldManinTest.identity_parabolic",
+     "kind": "compatibility",
+     "statement": "At full level N=6 and weight two, dim_ℚ H¹_par=2 and s_6 restricts to the identity on that subspace. This excludes the zero retraction."
+    },
+    {
+     "name": "DrinfeldManinTest.rational_model",
+     "kind": "computation",
+     "statement": "For H=ℚ², P=ℚ×{0} and T(x,y)=(y,2y), the Bézout projector e=1−T/2 sends (0,1) to (−1/2,0), fixes (1,0), kills T(H), commutes with T and satisfies e²=e. Projection onto the first coordinate alone fails to commute with T."
+    },
+    {
+     "name": "DrinfeldManinTest.integral_obstruction",
+     "kind": "non-example",
+     "statement": "For the same model over ℤ there is no ℤ-linear retraction s:ℤ²→ℤ with s(1,0)=1 and s(Tv)=0 for all v: substituting v=(0,1) forces 1+2s(0,1)=0."
+    }
+   ],
+   "uses": [
+    {
+     "where": "Nakamura §3.2, p. 220 and the extraction PAPER-NAKAMURA-23/23",
+     "how": "Projects classes in the cohomology of the open full-level modular curve to parabolic cohomology before constructing the parabolic zeta morphisms."
+    },
+    {
+     "where": "ModularSymbolsPadicLFunctions:L0/eichler-shimura-isomorphism and ModularSymbolsPadicLFunctions:L1/period-lines",
+     "how": "The projector fixes the cuspidal/parabolic rational summand. Its Hecke equivariance controls the comparison to rational period lines; it supplies no canonical basis for those lines."
+    }
+   ],
+   "planet": {
+    "name": "Drinfeld–Manin splitting"
+   }
   }
  ],
  "requests": [
@@ -4357,31 +4617,58 @@
    ],
    "status": "open",
    "note": "PadicFamilies checkpoint 3 plans these nodes; this packet only specialises them to a single form."
+  },
+  {
+   "supplier": "ModularCurvesPartII:R14.3",
+   "need": "Full-level Betti/group and Betti–étale comparisons for the rational symmetric-power local systems on all geometric components of Y(N), N≥3: identify H¹(X(N),j_*𝒱) with the parabolic subspace, transport the packet’s adjugate polynomial action to Nakamura’s dual local system, and prove compatibility with usual T_ℓ,S_ℓ, adjoint T′_ℓ,S′_ℓ, complex conjugation and the Galois action after extension to ℚ_p. In the packet weight k+2, verify Nakamura Lemma 3.1 as T′_ℓ=ℓ^k T_ℓ S_ℓ⁻¹ and S′_ℓ=ℓ^(2k) S_ℓ⁻¹. The good scalar S_ℓ is invertible. The splitting itself is owned by this L0 packet.",
+   "neededBy": [
+    "ModularSymbolsPadicLFunctions:L0/rational-hecke-separation",
+    "ModularSymbolsPadicLFunctions:L0/drinfeld-manin-splitting"
+   ],
+   "status": "open",
+   "note": "No existing R14.3 node supplies the higher-weight/full-level dictionary: its current packet plans weight-two Γ₁(N) Betti inputs."
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/ModularForms#10c--modular-forms-as-section-spaces-and-the-dimension-formulas",
+   "need": "The full-level weight-two dimension computations dim S₂(Γ(3))=0 and dim S₂(Γ(6))=1, equivalently g(X(3))=0 and g(X(6))=1, for the Drinfeld–Manin tests. Use the existing analytic congruence-curve carrier and cusp/index/genus formula.",
+   "neededBy": [
+    "ModularSymbolsPadicLFunctions:L0/drinfeld-manin-splitting"
+   ],
+   "status": "open"
   }
  ],
  "coverage": [
   {
    "stageId": "ModularSymbolsPadicLFunctions:L0",
-   "status": "source_decomposed",
-   "remaining": [],
-   "notes": "Checkpoint 2 completes L0 on the Hom (cohomological) side for arbitrary coefficient modules, which is what L2's distribution-valued symbols need: Manin coset description and generator-value criterion (Pollack–Stevens Corollaries 2.7/2.10, sign-corrected, sourceIssues E1–E3), boundary symbols, the integral exact sequence with group cohomology, parabolic cohomology and Symb/Eis ≅ H¹_par, descent through a torsion-free auxiliary level (integral for symbols, after inverting the index for cohomology), diamond and Γ₁(N) Hecke operators, symbols with character and their decomposition, duality with ModularForms Layer 8's homological module and the invariant pairing V_k ≅ Hom(Sym^k, ·) (only after inverting k!), the period symbol ψ_f, the dimension of parabolic cohomology, the Eichler–Shimura isomorphism with ± versions, flat base change, and one-dimensionality of newform eigenspaces. Per AUDIT-26, Div⁰, Manin's theorem, the fundamental-domain presentation, 𝕄 and the period-map analysis are imported from ModularForms Layer 8 (requests), the dimension formula from ModularForms 10C, and the topological H¹_c comparison from ModularCurvesPartII R14.3. The checkpoint-1 nodes steinberg-module, unimodular-map, manin-surjectivity and manin-relations were withdrawn in favour of those requests."
+   "status": "planned",
+   "remaining": [
+    "Close the recorded higher-weight rational-separation proof and the full-level realization dictionary for the newly assigned Drinfeld–Manin splitting.",
+    "Complete the inherited suggested interfaces and unit-test signatures for L0; several preceding nodes still have only part of their API in the suggested file."
+   ],
+   "notes": "Retains the original Hom-side symbol plan and imports. Adds the rational Drinfeld–Manin splitting assigned from Nakamura, its rational separation input, seven API items and four discriminating tests. The source closure boundaries are explicit gaps. The connected Betti prototype is typed; the geometric comparison and arithmetic realization actions are requested from R14.3. The period-symbol node is retained, with its planet slot given to the splitting so that L0 has six planets."
   },
   {
    "stageId": "ModularSymbolsPadicLFunctions:L1",
-   "status": "source_decomposed",
-   "remaining": [],
+   "status": "planned",
+   "remaining": [
+    "Replace the inherited comment-only signatures with typed definitions, API lemmas and named unit-test examples against the requested supplier interfaces; verify agreement with every packet name."
+   ],
    "notes": "RS-08 keeps for L1: ± eigenspaces over the coefficient field, signed period lines, saturated integral symbol lattices and canonical integral periods up to 𝒪^×, the twisted Mellin formula with all its normalizations, algebraicity with the parity sign, and the RJW B.1 comparison with the n = 0 and p-stabilized-versus-primitive distinctions. All are planned (6 nodes; the eigenspaces themselves are L0/eigenspace-dimension). The twisted Mellin formula was checked numerically with PARI/GP in weights 2 and 4 with non-real characters. RJW's printed B.1 carries χ̄ (the stage text's transcription drops the bar), so no source issue is recorded. The distribution-level normalization (cusps −a/p^n) is handed to L2."
   },
   {
    "stageId": "ModularSymbolsPadicLFunctions:L2",
-   "status": "source_decomposed",
-   "remaining": [],
+   "status": "planned",
+   "remaining": [
+    "Replace the inherited comment-only signatures with typed definitions, API lemmas and named unit-test examples against the requested supplier interfaces; verify agreement with every packet name."
+   ],
    "notes": "All of the stage is planned (12 nodes, Pollack–Stevens §§3–6). p-stabilisations with U_p-eigenvalue and coefficients (the Euler-factor change is L1/p-stabilised-euler-factors); refinements with slopes, including p | N with the actual U_p eigenvalue; the one-dimensional refined eigenline; weight-k distributions and specialisation; explicit overconvergent lifts; the slope decomposition of the fibre (the Riesz theory is LocallyAnalyticDistributions L4); Stevens' control theorem for h < k + 1; h-admissibility of eigensymbol values; the p-adic L-function Φ({∞} − {0})|_{ℤ_p^×} with its distribution relation; interpolation (fixed to Pollack–Stevens (2), equal to RJW B.1 with Ω_{B.1} = −Ω/(2πi)) and uniqueness; and integrality of ordinary measures through the saturated lattices of L1, with boundedness alone giving 𝒪⟦G⟧[1/p]. Pollack–Stevens (1) disagrees with (2) by a sign on the −-part and omits the n = 0 factor (E4, E5); E6–E7 are misprints in §6.4, and E8 restricts the weight-k action to r < p. LocallyAnalyticDistributions L0 and L2 and ModularForms Layers 4–5 are requested."
   },
   {
    "stageId": "ModularSymbolsPadicLFunctions:L3",
-   "status": "source_decomposed",
-   "remaining": [],
+   "status": "planned",
+   "remaining": [
+    "Replace the inherited comment-only signatures with typed definitions, API lemmas and named unit-test examples against the requested supplier interfaces; verify agreement with every packet name."
+   ],
    "notes": "RS-08 narrows L3 to single-form specialisations and normalisation comparisons, importing the general Pollack–Stevens/Bellaïche theory from PadicFamilies L3 (checkpoint 3 of that packet). Planned: the critical-slope L-function of a non-θ-critical refinement normalised by specialisation, its interpolation, the failure of uniqueness at h = k + 1 (log^{[k]}), the θ-critical single-form comparison through the top secondary L-function, the family comparison principle, and Pollack–Stevens' Examples 8.6–8.8."
   },
   {
@@ -4389,12 +4676,29 @@
    "status": "partial",
    "remaining": [
     "Coefficient embeddings (Galois-conjugate forms and their periods) and primitive/imprimitive level change with the ℓ-Euler factors: Mazur–Tate–Teitelbaum 1986 is not read. RJW §§6–8, suggested earlier, treat the Kubota–Leopoldt function and do not cover this.",
-    "Supersingular primes with a_p ≠ 0 (p = 2, 3): a decomposition in the style of Sprung's ♯/♭ is not read; only Pollack's Corollary 3.6 is planned there."
+    "Complete the half-logarithm construction/API/tests and other inherited L4 statements as typed suggested signatures; current examples verify only selected algebraic bookkeeping."
    ],
-   "notes": "Planned: the level-11 examples (symbol values, the 11-adic trivial zero with μ = 0, λ = 1) and the comparison of the two Euler factors at p, with Bellaïche's misprint E9 recorded. Checkpoint 6 plans the tame twist (Pollack §2), both refinements at a supersingular prime with their zeros (§3), the half-logarithms (§4), the ± decomposition (Theorems 5.1 and 5.6), and X₀(11) at p = 2 and p = 19."
+   "notes": "Planned: the level-11 examples (symbol values, the 11-adic trivial zero with μ = 0, λ = 1) and the comparison of the two Euler factors at p, with Bellaïche's misprint E9 recorded. Checkpoint 6 plans the tame twist (Pollack §2), both refinements at a supersingular prime with their zeros (§3), the half-logarithms (§4), the ± decomposition (Theorems 5.1 and 5.6), and X₀(11) at p = 2 and p = 19. Both refinements at a_p≠0 are already covered by supersingular-refinements; a general ♯/♭ decomposition is not a target of L4 and is not added to this roadmap’s required scope."
   }
  ],
- "gaps": [],
+ "gaps": [
+  {
+   "title": "Higher-weight rational separation proof",
+   "neededBy": [
+    "ModularSymbolsPadicLFunctions:L0/rational-hecke-separation",
+    "ModularSymbolsPadicLFunctions:L0/drinfeld-manin-splitting"
+   ],
+   "detail": "Sharifi Theorem 3.4.16 on p.38 gives the rational splitting and cites Shokurov, Shimura integrals of cusp forms, Izv. Akad. Nauk SSSR Ser. Mat.44 (1980), 670–718,720, for the rational left kernel of the integration pairing. That source and its cohomological transport have not been read. Establish the precise theorem and use it, together with the actual cusp/Eisenstein Hecke-character separation, to produce the coprime rational annihilators of rational-hecke-separation. Elkik pp.64–66 establishes the trivial-local-system case only; it does not close general k."
+  },
+  {
+   "title": "Full-level coefficient and arithmetic realization dictionary",
+   "neededBy": [
+    "ModularSymbolsPadicLFunctions:L0/rational-hecke-separation",
+    "ModularSymbolsPadicLFunctions:L0/drinfeld-manin-splitting"
+   ],
+   "detail": "The open R14.3 request specifies the missing local-system and Hecke normalizations and the all-component Betti–étale comparison. The source states the real and Galois equivariance of the rational splitting, but the suggested file currently represents only the connected Betti/group-cohomology model and generic naturality. Do not read its successful elaboration as a signature for Galois equivariance or for integral cohomology."
+  }
+ ],
  "sourceIssues": [
   {
    "id": "ModularSymbolsPadicLFunctions/E1",
