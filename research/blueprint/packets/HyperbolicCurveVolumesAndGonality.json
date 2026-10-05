@@ -1,0 +1,2099 @@
+{
+  "roadmapId": "HyperbolicCurveVolumesAndGonality",
+  "protocol": "blueprint-v1",
+  "part": null,
+  "scope": [
+    "HyperbolicCurveVolumesAndGonality:HV.0",
+    "HyperbolicCurveVolumesAndGonality:HV.1",
+    "HyperbolicCurveVolumesAndGonality:HV.2",
+    "HyperbolicCurveVolumesAndGonality:HV.3",
+    "HyperbolicCurveVolumesAndGonality:HV.4",
+    "HyperbolicCurveVolumesAndGonality:HV.5",
+    "HyperbolicCurveVolumesAndGonality:HV.6",
+    "HyperbolicCurveVolumesAndGonality:HV.7"
+  ],
+  "status": "partial",
+  "summary": "Checkpoint: exact local metric, area, invariant scalar potential and parametrized-volume contracts, with concrete suggested signatures. The full global current-theory, Hwang–To, relative-volume, gonality and Li–Yau proof inputs remain named in coverage/gaps; no endpoint closure is claimed.",
+  "baseline": {
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "declarations": [
+      {
+        "ref": "tauceti:TauCeti.PoincareDisc.dist_eq",
+        "kind": "declaration",
+        "module": "TauCeti/Analysis/Complex/Conformal/Poincare/MetricSpace.lean",
+        "provides": "The existing metric instance reads as hyperbolicDist, whose normalization is artanh of the pseudohyperbolic expression.",
+        "checked": "Statement read at the pinned commit on 2026-10-05; source path and hypotheses checked directly."
+      },
+      {
+        "ref": "tauceti:TauCeti.PoincareDisc.dist_toPoincare_zero_right",
+        "kind": "declaration",
+        "module": "TauCeti/Analysis/Complex/Conformal/Poincare/MetricSpace.lean",
+        "provides": "Distance to zero is artanh of the Euclidean modulus, before the new factor-two conversion.",
+        "checked": "Statement read at the pinned commit on 2026-10-05; source path and hypotheses checked directly."
+      },
+      {
+        "ref": "tauceti:TauCeti.PoincareDisc.dist_map_le",
+        "kind": "declaration",
+        "module": "TauCeti/Analysis/Complex/Conformal/Poincare/SchwarzPick.lean",
+        "provides": "Schwarz–Pick for a represented holomorphic disc self-map with DifferentiableOn ℂ and the coordinate representation hypothesis. It is imported, not re-proved.",
+        "checked": "Statement read at the pinned commit on 2026-10-05; source path and hypotheses checked directly."
+      },
+      {
+        "ref": "tauceti:UpperHalfPlane.discCoordinateEquiv",
+        "kind": "declaration",
+        "module": "TauCeti/Analysis/Complex/UpperHalfPlane/DiscCoordinate.lean",
+        "provides": "The explicit Cayley equivalence ℍ≃Complex.UnitDisc centered at an upper-half-plane point.",
+        "checked": "Statement read at the pinned commit on 2026-10-05; source path and hypotheses checked directly."
+      },
+      {
+        "ref": "tauceti:UpperHalfPlane.norm_discCoordinate",
+        "kind": "declaration",
+        "module": "TauCeti/Analysis/Complex/UpperHalfPlane/DiscCoordinate.lean",
+        "provides": "‖discCoordinate a z‖=tanh(dist(z,a)/2), with the existing UpperHalfPlane curvature −1 metric.",
+        "checked": "Statement read at the pinned commit on 2026-10-05; source path and hypotheses checked directly."
+      },
+      {
+        "ref": "tauceti:TauCeti.hyperbolicDist_unitDiscMoebius",
+        "kind": "declaration",
+        "module": "TauCeti/Analysis/Complex/Conformal/Hyperbolic/Distance.lean",
+        "provides": "Common unit-disc Möbius transformations preserve the scalar hyperbolicDist; all a,z,w are UnitDisc points.",
+        "checked": "Statement read at the pinned commit on 2026-10-05; source path and hypotheses checked directly."
+      },
+      {
+        "ref": "tauceti:TauCeti.pseudoHyperbolicExpr",
+        "kind": "declaration",
+        "module": "TauCeti/Analysis/Complex/Conformal/PseudoHyperbolic.lean",
+        "provides": "The actual quotient modulus ‖(z−w)/(1−w̄z)‖ as a total scalar expression; geometric interpretations require disc hypotheses.",
+        "checked": "Statement read at the pinned commit on 2026-10-05; source path and hypotheses checked directly."
+      },
+      {
+        "ref": "tauceti:TauCeti.tanh_hyperbolicDist",
+        "kind": "declaration",
+        "module": "TauCeti/Analysis/Complex/Conformal/Hyperbolic/ClosedForm.lean",
+        "provides": "For ‖z‖,‖w‖<1, tanh(hyperbolicDist z w)=pseudoHyperbolicExpr z w.",
+        "checked": "Statement read at the pinned commit on 2026-10-05; source path and hypotheses checked directly."
+      },
+      {
+        "ref": "mathlib:Real.artanh_tanh",
+        "kind": "declaration",
+        "module": "Mathlib/Analysis/SpecialFunctions/Artanh.lean",
+        "provides": "artanh(tanh x)=x for every real x.",
+        "checked": "Statement read at the pinned commit on 2026-10-05; source path and hypotheses checked directly."
+      },
+      {
+        "ref": "mathlib:MeasureTheory.Measure.withDensity",
+        "kind": "declaration",
+        "module": "Mathlib/MeasureTheory/Measure/WithDensity.lean",
+        "provides": "A density against a measure gives an actual measure, not an abstract area record.",
+        "checked": "Statement read at the pinned commit on 2026-10-05; source path and hypotheses checked directly."
+      },
+      {
+        "ref": "mathlib:MeasureTheory.withDensity_apply",
+        "kind": "declaration",
+        "module": "Mathlib/MeasureTheory/Measure/WithDensity.lean",
+        "provides": "On a measurable set, the weighted measure equals the nonnegative integral of its density.",
+        "checked": "Statement read at the pinned commit on 2026-10-05; source path and hypotheses checked directly."
+      },
+      {
+        "ref": "mathlib:Complex.lintegral_comp_polarCoord_symm",
+        "kind": "declaration",
+        "module": "Mathlib/Analysis/SpecialFunctions/PolarCoord.lean",
+        "provides": "Complex nonnegative integrals become radial-angular integrals with the radial Jacobian factor. It requires no prior integrability hypothesis.",
+        "checked": "Statement read at the pinned commit on 2026-10-05; source path and hypotheses checked directly."
+      },
+      {
+        "ref": "mathlib:MeasureTheory.lintegral_image_eq_lintegral_abs_det_fderiv_mul",
+        "kind": "declaration",
+        "module": "Mathlib/MeasureTheory/Function/Jacobian.lean",
+        "provides": "The nonnegative change-of-variables theorem on a measurable set with derivative hypotheses and InjOn; it cannot be applied to a degree-d power map as though it were injective.",
+        "checked": "Statement read at the pinned commit on 2026-10-05; source path and hypotheses checked directly."
+      },
+      {
+        "ref": "mathlib:UpperHalfPlane.volume_def",
+        "kind": "declaration",
+        "module": "Mathlib/Analysis/Complex/UpperHalfPlane/Measure.lean",
+        "provides": "The pinned invariant upper-half-plane area measure has density y⁻² relative to real Lebesgue measure; its global Riemannian comparison remains in FuchsianOrbifolds Layer 2.",
+        "checked": "Statement read at the pinned commit on 2026-10-05; source path and hypotheses checked directly."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "bt",
+      "title": "p-torsion monodromy representations of elliptic curves over geometric function fields",
+      "authors": "Benjamin Bakker and Jacob Tsimerman",
+      "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n3-p02-p.pdf",
+      "edition": "Annals of Mathematics 184 (2016), no.3, 709–744, published version",
+      "readSections": [
+        "§1.3 pp.712–713",
+        "Lemma 13 and Figure 2 pp.724–725",
+        "§§5.1–5.2 pp.732–735",
+        "Canonical degree paragraph p.736"
+      ],
+      "accessed": "2026-10-05",
+      "sha256": "814976eeb93367cf0810bb0f9c514709a6474bfb7202ddb2834d33dd6a25f40a"
+    },
+    {
+      "id": "erratum",
+      "title": "Erratum to p-torsion monodromy representations of elliptic curves over geometric function fields",
+      "authors": "Benjamin Bakker and Jacob Tsimerman",
+      "url": "https://benjamin-bakker.github.io/P.torsion.erratum.pdf",
+      "edition": "Undated five-page author erratum; no publication date inferred",
+      "readSections": [
+        "All five pages; §3 pp.2–3 and reversed ratio in §4.1 p.3 checked"
+      ],
+      "accessed": "2026-10-05",
+      "sha256": "db8effa1d3ef6a96c843e8ffad085a0ad03cd86a486f5e6cc3956bd14352acc1"
+    },
+    {
+      "id": "demailly",
+      "title": "Complex Analytic and Differential Geometry",
+      "authors": "Jean-Pierre Demailly",
+      "url": "https://www-fourier.univ-grenoble-alpes.fr/~demailly/source_files/analgeom/agbook.pdf",
+      "edition": "Version of Thursday June 21, 2012",
+      "readSections": [
+        "Chapter III §2.C pp.141–144, especially (2.15)",
+        "Chapter III §3 opening and (3.1), p.144; no claim to have completed the analytic-current prerequisite development"
+      ],
+      "accessed": "2026-10-05",
+      "sha256": "f41eb026184088b5b14e3127a0bf693e6c51e176a63a8896ffd6e0818db8098f"
+    },
+    {
+      "id": "abramovich",
+      "title": "A linear lower bound on the gonality of modular curves",
+      "authors": "Dan Abramovich",
+      "url": "https://arxiv.org/pdf/alg-geom/9609012",
+      "edition": "arXiv alg-geom/9609012v1 (16 September 1996); regenerated internal heading October 23, 2018",
+      "readSections": [
+        "§§0.1–1.8 pp.1–3, including singular metric, λ′₁ Rayleigh characterization and conformal area proof"
+      ],
+      "accessed": "2026-10-05",
+      "sha256": "5ff2134fbfb6bd702fa7051637027405c8e0d77a595830a63e8ad36f50791779"
+    },
+    {
+      "id": "li-yau",
+      "title": "A New Conformal Invariant and Its Applications to the Willmore Conjecture and the First Eigenvalue of Compact Surfaces",
+      "authors": "Peter Li and Shing-Tung Yau",
+      "url": "https://math.jhu.edu/~js/Math748/li-yau.conformal.pdf",
+      "edition": "Inventiones mathematicae 69 (1982), 269–291; public scanned PDF viewed through browser",
+      "readSections": [
+        "§1 definitions (1.2)–(1.4), Facts 1–2, pp.271–272; §2 Theorem 1 proof pp.273–276 and Corollary pp.276–277. Proof inspected but not yet decomposed into declaration nodes."
+      ],
+      "accessed": "2026-10-05"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "HyperbolicCurveVolumesAndGonality:HV.0/curvature-one-distance",
+      "parentStageId": "HyperbolicCurveVolumesAndGonality:HV.0",
+      "realises": [
+        "HyperbolicCurveVolumesAndGonality:HV.0"
+      ],
+      "title": "Curvature −1 disc distance",
+      "kind": "definition",
+      "statement": "For z,w in Complex.UnitDisc, d₁(z,w)=2·dist(z.toPoincare,w.toPoincare). This scalar comparison uses the existing PoincareDisc metric and makes no second metric instance on UnitDisc.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Read PoincareDisc.dist_eq at the pin: its distance is artanh of the pseudohyperbolic expression. Multiply by two to match the infinitesimal norm 2|dz|/(1−|z|²).",
+        "Transport the metric axioms and Schwarz–Pick by multiplication by the positive constant two."
+      ],
+      "prerequisites": [
+        "tauceti:TauCeti.PoincareDisc.dist_eq",
+        "tauceti:TauCeti.PoincareDisc.dist_toPoincare_zero_right",
+        "tauceti:TauCeti.PoincareDisc.dist_map_le"
+      ],
+      "acceptance": [
+        "For z,w in Complex.UnitDisc, d₁(z,w)=2·dist(z.toPoincare,w.toPoincare). This scalar comparison uses the existing PoincareDisc metric and makes no second metric instance on UnitDisc."
+      ],
+      "sources": [
+        {
+          "sourceId": "bt",
+          "locator": "§1.3, pp.712–713",
+          "excerpt": "a(r) = 4π · sinh²(r/2).",
+          "match": "The curvature −1 distance, density and area conventions; the new signatures expose the comparisons to the pinned libraries."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Analysis/Complex/HyperbolicVolumes/Local",
+        "namespace": "TauCeti.HyperbolicVolumes"
+      },
+      "uses": [
+        {
+          "where": "§1.3, pp.712–713",
+          "how": "The curvature −1 distance, density and area conventions; the new signatures expose the comparisons to the pinned libraries."
+        },
+        {
+          "where": "HyperbolicCurveVolumesAndGonality:HV.4–HV.7",
+          "how": "Provides explicit local formulas and normalization checks for the global volume and gonality contracts, without assuming those estimates."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.HyperbolicVolumes.distOne_nonneg",
+          "role": "structure",
+          "statement": "d₁ is nonnegative."
+        },
+        {
+          "name": "TauCeti.HyperbolicVolumes.distOne_comm",
+          "role": "relation",
+          "statement": "d₁(z,w)=d₁(w,z)."
+        },
+        {
+          "name": "TauCeti.HyperbolicVolumes.distOne_triangle",
+          "role": "structure",
+          "statement": "d₁ satisfies the triangle inequality."
+        },
+        {
+          "name": "TauCeti.HyperbolicVolumes.distOne_map_le",
+          "role": "functoriality",
+          "statement": "Schwarz–Pick remains nonexpanding after rescaling distance by two."
+        },
+        {
+          "name": "TauCeti.HyperbolicVolumes.distOne_isometry",
+          "role": "functoriality",
+          "statement": "A PoincareDisc isometry preserves d₁."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.HyperbolicVolumes.distOne_zero",
+          "kind": "degenerate",
+          "statement": "d₁(0,0)=0."
+        },
+        {
+          "name": "TauCeti.HyperbolicVolumes.distOne_origin",
+          "kind": "computation",
+          "statement": "d₁(z,0)=2 artanh|z|."
+        },
+        {
+          "name": "TauCeti.HyperbolicVolumes.distOne_factor_two",
+          "kind": "compatibility",
+          "statement": "d₁ is twice the existing metric, exactly."
+        }
+      ],
+      "planet": {
+        "name": "Curvature −1 disc distance"
+      }
+    },
+    {
+      "id": "HyperbolicCurveVolumesAndGonality:HV.0/cayley-distance",
+      "parentStageId": "HyperbolicCurveVolumesAndGonality:HV.0",
+      "realises": [
+        "HyperbolicCurveVolumesAndGonality:HV.0"
+      ],
+      "title": "Cayley distance comparison",
+      "kind": "comparison",
+      "statement": "For a,z∈UpperHalfPlane, d₁(discCoordinateEquiv(a)(z),0)=dist(z,a) with Mathlib’s upper-half-plane metric.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Use norm_discCoordinate=tanh(dist(z,a)/2), the radial distance API, and artanh_tanh. This radial comparison avoids assuming a new Cayley isometry theorem."
+      ],
+      "prerequisites": [
+        "HyperbolicCurveVolumesAndGonality:HV.0/curvature-one-distance",
+        "tauceti:UpperHalfPlane.discCoordinateEquiv",
+        "tauceti:UpperHalfPlane.norm_discCoordinate",
+        "mathlib:Real.artanh_tanh"
+      ],
+      "acceptance": [
+        "For a,z∈UpperHalfPlane, d₁(discCoordinateEquiv(a)(z),0)=dist(z,a) with Mathlib’s upper-half-plane metric."
+      ],
+      "sources": [
+        {
+          "sourceId": "bt",
+          "locator": "§1.3, pp.712–713",
+          "excerpt": "a(r) = 4π · sinh²(r/2).",
+          "match": "The curvature −1 distance, density and area conventions; the new signatures expose the comparisons to the pinned libraries."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Analysis/Complex/HyperbolicVolumes/Local",
+        "namespace": "TauCeti.HyperbolicVolumes"
+      }
+    },
+    {
+      "id": "HyperbolicCurveVolumesAndGonality:HV.0/disc-balls",
+      "parentStageId": "HyperbolicCurveVolumesAndGonality:HV.0",
+      "realises": [
+        "HyperbolicCurveVolumesAndGonality:HV.0"
+      ],
+      "title": "Curvature −1 radial balls",
+      "kind": "definition",
+      "statement": "Define D(r)={z∈ℂ: |z|<tanh(r/2)}. For r>0 this is exactly the d₁-ball at zero, read in the existing disc carrier. For r≤0 it is empty.",
+      "hypotheses": [],
+      "proofSteps": [
+        "The radial comparison d₁(z,0)=2 artanh|z| and strict monotonicity of tanh/artanh identify the sublevel set; no quotient geometry is used."
+      ],
+      "prerequisites": [
+        "HyperbolicCurveVolumesAndGonality:HV.0/curvature-one-distance",
+        "mathlib:Real.artanh_tanh"
+      ],
+      "acceptance": [
+        "Define D(r)={z∈ℂ: |z|<tanh(r/2)}. For r>0 this is exactly the d₁-ball at zero, read in the existing disc carrier. For r≤0 it is empty."
+      ],
+      "sources": [
+        {
+          "sourceId": "bt",
+          "locator": "§1.3, pp.712–713",
+          "excerpt": "a(r) = 4π · sinh²(r/2).",
+          "match": "The curvature −1 distance, density and area conventions; the new signatures expose the comparisons to the pinned libraries."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Analysis/Complex/HyperbolicVolumes/Local",
+        "namespace": "TauCeti.HyperbolicVolumes"
+      },
+      "uses": [
+        {
+          "where": "§1.3, pp.712–713",
+          "how": "The curvature −1 distance, density and area conventions; the new signatures expose the comparisons to the pinned libraries."
+        },
+        {
+          "where": "HyperbolicCurveVolumesAndGonality:HV.4–HV.7",
+          "how": "Provides explicit local formulas and normalization checks for the global volume and gonality contracts, without assuming those estimates."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.HyperbolicVolumes.radialBall_mem",
+          "role": "characterisation",
+          "statement": "Membership is |z|<tanh(r/2)."
+        },
+        {
+          "name": "TauCeti.HyperbolicVolumes.radialBall_mono",
+          "role": "functoriality",
+          "statement": "r≤R implies D(r)⊆D(R)."
+        },
+        {
+          "name": "TauCeti.HyperbolicVolumes.radialBall_subset_disc",
+          "role": "compatibility",
+          "statement": "Every radial ball lies in the open unit disc."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.HyperbolicVolumes.radialBall_zero",
+          "kind": "degenerate",
+          "statement": "D(0)=∅."
+        },
+        {
+          "name": "TauCeti.HyperbolicVolumes.radialBall_metric",
+          "kind": "compatibility",
+          "statement": "The radial formula agrees with d₁."
+        },
+        {
+          "name": "TauCeti.HyperbolicVolumes.radialBall_center",
+          "kind": "characterisation",
+          "statement": "Zero lies in D(r) exactly for r>0."
+        }
+      ]
+    },
+    {
+      "id": "HyperbolicCurveVolumesAndGonality:HV.0/disc-area-density",
+      "parentStageId": "HyperbolicCurveVolumesAndGonality:HV.0",
+      "realises": [
+        "HyperbolicCurveVolumesAndGonality:HV.0"
+      ],
+      "title": "Hyperbolic area density",
+      "kind": "definition",
+      "statement": "The curvature −1 disc area density relative to dx dy is b(z)=4/(1−|z|²)², used only on |z|<1. Its infinitesimal form is ω_D=2i dz∧d z̄/(1−|z|²)².",
+      "hypotheses": [],
+      "proofSteps": [
+        "Translate the Kähler form of BT §1.3 into the ordinary real Lebesgue measure; i dz∧d z̄=2 dx∧dy.",
+        "For a disc automorphism A, the holomorphic real Jacobian is |A′|²; the defect identity gives b(Az)|A′(z)|²=b(z)."
+      ],
+      "prerequisites": [
+        "mathlib:MeasureTheory.Measure.withDensity"
+      ],
+      "acceptance": [
+        "The curvature −1 disc area density relative to dx dy is b(z)=4/(1−|z|²)², used only on |z|<1. Its infinitesimal form is ω_D=2i dz∧d z̄/(1−|z|²)²."
+      ],
+      "sources": [
+        {
+          "sourceId": "bt",
+          "locator": "§1.3, pp.712–713",
+          "excerpt": "a(r) = 4π · sinh²(r/2).",
+          "match": "The curvature −1 distance, density and area conventions; the new signatures expose the comparisons to the pinned libraries."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Analysis/Complex/HyperbolicVolumes/Local",
+        "namespace": "TauCeti.HyperbolicVolumes"
+      },
+      "uses": [
+        {
+          "where": "§1.3, pp.712–713",
+          "how": "The curvature −1 distance, density and area conventions; the new signatures expose the comparisons to the pinned libraries."
+        },
+        {
+          "where": "HyperbolicCurveVolumesAndGonality:HV.4–HV.7",
+          "how": "Provides explicit local formulas and normalization checks for the global volume and gonality contracts, without assuming those estimates."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.HyperbolicVolumes.areaDensity_pos",
+          "role": "structure",
+          "statement": "b(z)>0 inside D."
+        },
+        {
+          "name": "TauCeti.HyperbolicVolumes.areaDensity_conj",
+          "role": "functoriality",
+          "statement": "Conjugation preserves b."
+        },
+        {
+          "name": "TauCeti.HyperbolicVolumes.areaDensity_moebius",
+          "role": "functoriality",
+          "statement": "The Möbius chart Jacobian preserves b(z) dxdy."
+        },
+        {
+          "name": "TauCeti.HyperbolicVolumes.areaDensity_rotation",
+          "role": "functoriality",
+          "statement": "A unit scalar u preserves b."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.HyperbolicVolumes.areaDensity_origin",
+          "kind": "computation",
+          "statement": "b(0)=4."
+        },
+        {
+          "name": "TauCeti.HyperbolicVolumes.areaDensity_half",
+          "kind": "computation",
+          "statement": "b(1/2)=64/9."
+        },
+        {
+          "name": "TauCeti.HyperbolicVolumes.areaDensity_not_tau_scale",
+          "kind": "non-example",
+          "statement": "Density at zero is not 1, the unscaled metric’s density."
+        }
+      ],
+      "planet": {
+        "name": "Hyperbolic area form"
+      }
+    },
+    {
+      "id": "HyperbolicCurveVolumesAndGonality:HV.0/disc-area-measure",
+      "parentStageId": "HyperbolicCurveVolumesAndGonality:HV.0",
+      "realises": [
+        "HyperbolicCurveVolumesAndGonality:HV.0"
+      ],
+      "title": "Disc area measure",
+      "kind": "construction",
+      "statement": "Define ν_D=(Lebesgue measure restricted to {|z|<1}).withDensity(ENNReal.ofReal∘b). Restriction excludes the total formulas’ geometric junk values outside D.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Use Mathlib Measure.withDensity; density is continuous inside D and hence measurable there.",
+        "Nonnegative integration gives the measure and restriction API. Compact subdiscs have bounded density and finite measure."
+      ],
+      "prerequisites": [
+        "HyperbolicCurveVolumesAndGonality:HV.0/disc-area-density",
+        "mathlib:MeasureTheory.Measure.withDensity",
+        "mathlib:MeasureTheory.withDensity_apply"
+      ],
+      "acceptance": [
+        "Define ν_D=(Lebesgue measure restricted to {|z|<1}).withDensity(ENNReal.ofReal∘b). Restriction excludes the total formulas’ geometric junk values outside D."
+      ],
+      "sources": [
+        {
+          "sourceId": "bt",
+          "locator": "§1.3, pp.712–713",
+          "excerpt": "a(r) = 4π · sinh²(r/2).",
+          "match": "The curvature −1 distance, density and area conventions; the new signatures expose the comparisons to the pinned libraries."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Analysis/Complex/HyperbolicVolumes/Local",
+        "namespace": "TauCeti.HyperbolicVolumes"
+      },
+      "uses": [
+        {
+          "where": "§1.3, pp.712–713",
+          "how": "The curvature −1 distance, density and area conventions; the new signatures expose the comparisons to the pinned libraries."
+        },
+        {
+          "where": "HyperbolicCurveVolumesAndGonality:HV.4–HV.7",
+          "how": "Provides explicit local formulas and normalization checks for the global volume and gonality contracts, without assuming those estimates."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.HyperbolicVolumes.discAreaMeasure_apply",
+          "role": "characterisation",
+          "statement": "ν_D(S)=∫_S b dxdy for measurable S⊆D."
+        },
+        {
+          "name": "TauCeti.HyperbolicVolumes.discAreaMeasure_rotation",
+          "role": "functoriality",
+          "statement": "Unit rotations preserve ν_D."
+        },
+        {
+          "name": "TauCeti.HyperbolicVolumes.discAreaMeasure_finite_subdisc",
+          "role": "structure",
+          "statement": "Closed subdiscs of Euclidean radius t<1 have finite ν_D-measure."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.HyperbolicVolumes.discAreaMeasure_empty",
+          "kind": "degenerate",
+          "statement": "ν_D(∅)=0."
+        },
+        {
+          "name": "TauCeti.HyperbolicVolumes.discAreaMeasure_singleton",
+          "kind": "degenerate",
+          "statement": "ν_D({z})=0 for every point."
+        },
+        {
+          "name": "TauCeti.HyperbolicVolumes.discAreaMeasure_outside",
+          "kind": "non-example",
+          "statement": "The complement of D has zero ν_D-measure."
+        }
+      ]
+    },
+    {
+      "id": "HyperbolicCurveVolumesAndGonality:HV.0/area-profile",
+      "parentStageId": "HyperbolicCurveVolumesAndGonality:HV.0",
+      "realises": [
+        "HyperbolicCurveVolumesAndGonality:HV.0"
+      ],
+      "title": "Hyperbolic disc area",
+      "kind": "definition",
+      "statement": "The area profile a(r)=4π sinh²(r/2) for r≥0. The total scalar formula has no ball interpretation for negative r.",
+      "hypotheses": [],
+      "proofSteps": [
+        "The radial integral of b over D(r) is 8π∫₀^{tanh(r/2)} t/(1−t²)² dt.",
+        "Its antiderivative gives 4πt²/(1−t²); tanh/sinh identities give a(r). The measure identity is the separate disc-ball-area theorem."
+      ],
+      "prerequisites": [
+        "HyperbolicCurveVolumesAndGonality:HV.0/disc-area-density",
+        "HyperbolicCurveVolumesAndGonality:HV.0/disc-balls",
+        "mathlib:Complex.lintegral_comp_polarCoord_symm"
+      ],
+      "acceptance": [
+        "The area profile a(r)=4π sinh²(r/2) for r≥0. The total scalar formula has no ball interpretation for negative r."
+      ],
+      "sources": [
+        {
+          "sourceId": "bt",
+          "locator": "§1.3, pp.712–713",
+          "excerpt": "a(r) = 4π · sinh²(r/2).",
+          "match": "The curvature −1 distance, density and area conventions; the new signatures expose the comparisons to the pinned libraries."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Analysis/Complex/HyperbolicVolumes/Local",
+        "namespace": "TauCeti.HyperbolicVolumes"
+      },
+      "uses": [
+        {
+          "where": "§1.3, pp.712–713",
+          "how": "The curvature −1 distance, density and area conventions; the new signatures expose the comparisons to the pinned libraries."
+        },
+        {
+          "where": "HyperbolicCurveVolumesAndGonality:HV.4–HV.7",
+          "how": "Provides explicit local formulas and normalization checks for the global volume and gonality contracts, without assuming those estimates."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.HyperbolicVolumes.areaProfile_pos",
+          "role": "structure",
+          "statement": "a(r)>0 for r>0."
+        },
+        {
+          "name": "TauCeti.HyperbolicVolumes.areaProfile_mono",
+          "role": "functoriality",
+          "statement": "a is strictly increasing on [0,∞)."
+        },
+        {
+          "name": "TauCeti.HyperbolicVolumes.areaProfile_double",
+          "role": "simp",
+          "statement": "a(2r)=4π sinh²r."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.HyperbolicVolumes.areaProfile_zero",
+          "kind": "degenerate",
+          "statement": "a(0)=0."
+        },
+        {
+          "name": "TauCeti.HyperbolicVolumes.areaProfile_tanh",
+          "kind": "computation",
+          "statement": "a(r)=4πt²/(1−t²), t=tanh(r/2)."
+        },
+        {
+          "name": "TauCeti.HyperbolicVolumes.areaProfile_small",
+          "kind": "characterisation",
+          "statement": "a(r)/(πr²) tends to one as r→0, r≠0."
+        }
+      ],
+      "planet": {
+        "name": "Hyperbolic disc area"
+      }
+    },
+    {
+      "id": "HyperbolicCurveVolumesAndGonality:HV.0/disc-ball-area",
+      "parentStageId": "HyperbolicCurveVolumesAndGonality:HV.0",
+      "realises": [
+        "HyperbolicCurveVolumesAndGonality:HV.0"
+      ],
+      "title": "Disc ball area formula",
+      "kind": "theorem",
+      "statement": "For r≥0, ν_D(D(r))=ENNReal.ofReal(a(r)).",
+      "hypotheses": [],
+      "proofSteps": [
+        "Apply the pinned polar-coordinate nonnegative-integral formula to the restricted density.",
+        "Integrate 8πt/(1−t²)² on [0,tanh(r/2)], which is compactly inside [0,1); simplify with tanh²/(1−tanh²)=sinh²."
+      ],
+      "prerequisites": [
+        "HyperbolicCurveVolumesAndGonality:HV.0/disc-area-measure",
+        "HyperbolicCurveVolumesAndGonality:HV.0/disc-balls",
+        "HyperbolicCurveVolumesAndGonality:HV.0/area-profile",
+        "mathlib:Complex.lintegral_comp_polarCoord_symm"
+      ],
+      "acceptance": [
+        "For r≥0, ν_D(D(r))=ENNReal.ofReal(a(r))."
+      ],
+      "sources": [
+        {
+          "sourceId": "bt",
+          "locator": "§1.3, pp.712–713",
+          "excerpt": "a(r) = 4π · sinh²(r/2).",
+          "match": "The curvature −1 distance, density and area conventions; the new signatures expose the comparisons to the pinned libraries."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Analysis/Complex/HyperbolicVolumes/Local",
+        "namespace": "TauCeti.HyperbolicVolumes"
+      },
+      "planet": {
+        "name": "Hyperbolic ball area formula"
+      }
+    },
+    {
+      "id": "HyperbolicCurveVolumesAndGonality:HV.0/scaled-area",
+      "parentStageId": "HyperbolicCurveVolumesAndGonality:HV.0",
+      "realises": [
+        "HyperbolicCurveVolumesAndGonality:HV.0"
+      ],
+      "title": "Curvature rescaling",
+      "kind": "definition",
+      "statement": "For λ>0, scaling the curvature −1 metric tensor by λ² gives distance λd₁ and area ν_λ=λ²ν_D; a_λ(r)=λ²a(r/λ). Its curvature is −1/λ². No scalar formula asserts a curvature theorem before the quotient tensor is constructed.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Metric length scales by λ, whereas pullback of the real two-form scales by λ². Translate the radius r to r/λ in the unscaled ball."
+      ],
+      "prerequisites": [
+        "HyperbolicCurveVolumesAndGonality:HV.0/area-profile"
+      ],
+      "acceptance": [
+        "For λ>0, scaling the curvature −1 metric tensor by λ² gives distance λd₁ and area ν_λ=λ²ν_D; a_λ(r)=λ²a(r/λ). Its curvature is −1/λ². No scalar formula asserts a curvature theorem before the quotient tensor is constructed."
+      ],
+      "sources": [
+        {
+          "sourceId": "bt",
+          "locator": "Remark 24, p.735",
+          "excerpt": "cosh(r/λ)",
+          "match": "The curvature rescaling convention; length and area factors are derived explicitly, not suppressed."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Analysis/Complex/HyperbolicVolumes/Local",
+        "namespace": "TauCeti.HyperbolicVolumes"
+      },
+      "uses": [
+        {
+          "where": "Remark 24, p.735",
+          "how": "The curvature rescaling convention; length and area factors are derived explicitly, not suppressed."
+        },
+        {
+          "where": "HyperbolicCurveVolumesAndGonality:HV.4–HV.7",
+          "how": "Provides explicit local formulas and normalization checks for the global volume and gonality contracts, without assuming those estimates."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.HyperbolicVolumes.scaledArea_unit",
+          "role": "compatibility",
+          "statement": "λ=1 gives a."
+        },
+        {
+          "name": "TauCeti.HyperbolicVolumes.scaledArea_rescale",
+          "role": "functoriality",
+          "statement": "a_λ(λr)=λ²a(r) for λ>0."
+        },
+        {
+          "name": "TauCeti.HyperbolicVolumes.scaledArea_comp",
+          "role": "functoriality",
+          "statement": "Scaling twice multiplies the scale constants."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.HyperbolicVolumes.scaledArea_zero",
+          "kind": "degenerate",
+          "statement": "a_λ(0)=0."
+        },
+        {
+          "name": "TauCeti.HyperbolicVolumes.scaledArea_two",
+          "kind": "computation",
+          "statement": "a₂(2r)=4a(r)."
+        },
+        {
+          "name": "TauCeti.HyperbolicVolumes.scaledArea_wrong_length",
+          "kind": "non-example",
+          "statement": "Area at corresponding radii scales quadratically, not linearly."
+        }
+      ]
+    },
+    {
+      "id": "HyperbolicCurveVolumesAndGonality:HV.0/max-product-balls",
+      "parentStageId": "HyperbolicCurveVolumesAndGonality:HV.0",
+      "realises": [
+        "HyperbolicCurveVolumesAndGonality:HV.0"
+      ],
+      "title": "Max-product balls",
+      "kind": "definition",
+      "statement": "For n coordinates in D, B∞(x,r)={y: ∀i,d₁(x_i,y_i)<r}. Empty products give the full singleton product for every r; n>0 is required to identify this with a strict max-distance ball at r≤0.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Use coordinatewise d₁-sublevels; for nonempty Fin n, maximum of the finitely many coordinate distances gives the product metric.",
+        "This defines neighborhoods only; the area form for complex curves is the sum, constructed in HV.2."
+      ],
+      "prerequisites": [
+        "HyperbolicCurveVolumesAndGonality:HV.0/curvature-one-distance"
+      ],
+      "acceptance": [
+        "For n coordinates in D, B∞(x,r)={y: ∀i,d₁(x_i,y_i)<r}. Empty products give the full singleton product for every r; n>0 is required to identify this with a strict max-distance ball at r≤0."
+      ],
+      "sources": [
+        {
+          "sourceId": "bt",
+          "locator": "§1.3, pp.712–713",
+          "excerpt": "a(r) = 4π · sinh²(r/2).",
+          "match": "The curvature −1 distance, density and area conventions; the new signatures expose the comparisons to the pinned libraries."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Analysis/Complex/HyperbolicVolumes/Local",
+        "namespace": "TauCeti.HyperbolicVolumes"
+      },
+      "uses": [
+        {
+          "where": "§1.3, pp.712–713",
+          "how": "The curvature −1 distance, density and area conventions; the new signatures expose the comparisons to the pinned libraries."
+        },
+        {
+          "where": "HyperbolicCurveVolumesAndGonality:HV.4–HV.7",
+          "how": "Provides explicit local formulas and normalization checks for the global volume and gonality contracts, without assuming those estimates."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.HyperbolicVolumes.productBall_mem",
+          "role": "characterisation",
+          "statement": "Membership is the conjunction of coordinate sublevels."
+        },
+        {
+          "name": "TauCeti.HyperbolicVolumes.productBall_mono",
+          "role": "functoriality",
+          "statement": "r≤R gives inclusion of balls."
+        },
+        {
+          "name": "TauCeti.HyperbolicVolumes.productBall_permute",
+          "role": "functoriality",
+          "statement": "Permuting coordinates preserves the neighborhood."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.HyperbolicVolumes.productBall_empty",
+          "kind": "degenerate",
+          "statement": "In zero coordinates the conjunction is vacuous."
+        },
+        {
+          "name": "TauCeti.HyperbolicVolumes.productBall_center",
+          "kind": "degenerate",
+          "statement": "For n>0 the center is in the ball iff r>0."
+        },
+        {
+          "name": "TauCeti.HyperbolicVolumes.productBall_max",
+          "kind": "compatibility",
+          "statement": "A pair of coordinate distances below r is sufficient, with no sum condition."
+        }
+      ],
+      "planet": {
+        "name": "Max-product neighborhoods"
+      }
+    },
+    {
+      "id": "HyperbolicCurveVolumesAndGonality:HV.0/lens-radius",
+      "parentStageId": "HyperbolicCurveVolumesAndGonality:HV.0",
+      "realises": [
+        "HyperbolicCurveVolumesAndGonality:HV.0"
+      ],
+      "title": "Hyperbolic lens radius",
+      "kind": "definition",
+      "statement": "For R>0 define M(R)=2 artanh sqrt(tanh(R/2)). This upper bound for lens enclosures is independent of the separation parameter D.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Put s=tanh(R/2). The Euclidean lens from BT Figure 2 lies in |z|<sqrt(s), and the radial distance comparison gives M(R)."
+      ],
+      "prerequisites": [
+        "HyperbolicCurveVolumesAndGonality:HV.0/curvature-one-distance",
+        "HyperbolicCurveVolumesAndGonality:HV.0/disc-balls"
+      ],
+      "acceptance": [
+        "For R>0 define M(R)=2 artanh sqrt(tanh(R/2)). This upper bound for lens enclosures is independent of the separation parameter D."
+      ],
+      "sources": [
+        {
+          "sourceId": "bt",
+          "locator": "Lemma 13 and Figure 2, pp.724–725",
+          "excerpt": "2 tanh⁻¹(√s)",
+          "match": "The Euclidean lens enclosure and its hyperbolic radius, with s=tanh(R/2)."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Analysis/Complex/HyperbolicVolumes/Local",
+        "namespace": "TauCeti.HyperbolicVolumes"
+      },
+      "uses": [
+        {
+          "where": "Lemma 13 and Figure 2, pp.724–725",
+          "how": "The Euclidean lens enclosure and its hyperbolic radius, with s=tanh(R/2)."
+        },
+        {
+          "where": "HyperbolicCurveVolumesAndGonality:HV.4–HV.7",
+          "how": "Provides explicit local formulas and normalization checks for the global volume and gonality contracts, without assuming those estimates."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.HyperbolicVolumes.lensRadius_pos",
+          "role": "structure",
+          "statement": "M(R)>0 for R>0."
+        },
+        {
+          "name": "TauCeti.HyperbolicVolumes.lensRadius_mono",
+          "role": "functoriality",
+          "statement": "M is strictly increasing for positive R."
+        },
+        {
+          "name": "TauCeti.HyperbolicVolumes.lensRadius_cosh",
+          "role": "characterisation",
+          "statement": "cosh M(R)=exp R for R≥0."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.HyperbolicVolumes.lensRadius_zero",
+          "kind": "degenerate",
+          "statement": "M(0)=0."
+        },
+        {
+          "name": "TauCeti.HyperbolicVolumes.lensRadius_exceeds_R",
+          "kind": "non-example",
+          "statement": "M(R)>R for R>0; radius R alone is not this enclosure."
+        },
+        {
+          "name": "TauCeti.HyperbolicVolumes.lensRadius_limit",
+          "kind": "computation",
+          "statement": "M(R)−R→log 2 as R→∞."
+        }
+      ],
+      "planet": {
+        "name": "Hyperbolic lens radius"
+      }
+    },
+    {
+      "id": "HyperbolicCurveVolumesAndGonality:HV.0/normalized-lens",
+      "parentStageId": "HyperbolicCurveVolumesAndGonality:HV.0",
+      "realises": [
+        "HyperbolicCurveVolumesAndGonality:HV.0"
+      ],
+      "title": "Normalized lens enclosure",
+      "kind": "theorem",
+      "statement": "For a∈[0,1), p=a and q=−a in D, D=d₁(p,0), R>0, a point u with d₁(u,p)<D+R and d₁(u,q)<D+R satisfies d₁(u,0)<M(R). The a=0 case is included.",
+      "hypotheses": [
+        "0≤a<1; R>0; p=a and q=−a."
+      ],
+      "proofSteps": [
+        "Each hyperbolic ball is contained in a Euclidean disc centered at ±(1−s)/2 of radius (1+s)/2, with s=tanh(R/2).",
+        "Add the two squared Euclidean distance inequalities to obtain |u|²<s, then use the radial distance API.",
+        "The global midpoint lens theorem requires the geodesic-normalizing isometry supplied by FuchsianOrbifolds; it is a separate HV.4 target."
+      ],
+      "prerequisites": [
+        "HyperbolicCurveVolumesAndGonality:HV.0/curvature-one-distance",
+        "HyperbolicCurveVolumesAndGonality:HV.0/lens-radius",
+        "tauceti:TauCeti.hyperbolicDist_unitDiscMoebius"
+      ],
+      "acceptance": [
+        "For a∈[0,1), p=a and q=−a in D, D=d₁(p,0), R>0, a point u with d₁(u,p)<D+R and d₁(u,q)<D+R satisfies d₁(u,0)<M(R). The a=0 case is included."
+      ],
+      "sources": [
+        {
+          "sourceId": "bt",
+          "locator": "Lemma 13 proof and Figure 2, pp.724–725",
+          "excerpt": "B(z, D + R) ∩ B(z′, D + R)",
+          "match": "After moving the midpoint to zero and the endpoints to the real axis, the proof becomes the displayed Euclidean lens calculation."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Analysis/Complex/HyperbolicVolumes/Local",
+        "namespace": "TauCeti.HyperbolicVolumes"
+      }
+    },
+    {
+      "id": "HyperbolicCurveVolumesAndGonality:HV.1/diagonal-mu",
+      "parentStageId": "HyperbolicCurveVolumesAndGonality:HV.1",
+      "realises": [
+        "HyperbolicCurveVolumesAndGonality:HV.1"
+      ],
+      "title": "Diagonal distance potential μ",
+      "kind": "definition",
+      "statement": "For z,w∈D define μ(z,w)=tanh²(d₁(z,w)/4). The Lean scalar formula uses tanh(hyperbolicDist(z,w)/2). Geometric claims require both arguments in D.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Use the factor-two bridge; the half-distance to the diagonal is d₁(z,w)/2, and its anti-diagonal radial coordinate has squared modulus μ.",
+        "Distance invariance under a common disc automorphism gives simultaneous-action invariance."
+      ],
+      "prerequisites": [
+        "HyperbolicCurveVolumesAndGonality:HV.0/curvature-one-distance",
+        "tauceti:TauCeti.hyperbolicDist_unitDiscMoebius"
+      ],
+      "acceptance": [
+        "For z,w∈D define μ(z,w)=tanh²(d₁(z,w)/4). The Lean scalar formula uses tanh(hyperbolicDist(z,w)/2). Geometric claims require both arguments in D."
+      ],
+      "sources": [
+        {
+          "sourceId": "bt",
+          "locator": "§5.1, pp.732–733",
+          "excerpt": "χ = 4µ/(1+µ)²",
+          "match": "The invariant distance potentials and their relation. Scalar identities here precede the current and plurisubharmonicity arguments."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Analysis/Complex/HyperbolicVolumes/Local",
+        "namespace": "TauCeti.HyperbolicVolumes"
+      },
+      "uses": [
+        {
+          "where": "§5.1, pp.732–733",
+          "how": "The invariant distance potentials and their relation. Scalar identities here precede the current and plurisubharmonicity arguments."
+        },
+        {
+          "where": "HyperbolicCurveVolumesAndGonality:HV.4–HV.7",
+          "how": "Provides explicit local formulas and normalization checks for the global volume and gonality contracts, without assuming those estimates."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.HyperbolicVolumes.diagonalMu_range",
+          "role": "structure",
+          "statement": "0≤μ<1 for z,w∈D."
+        },
+        {
+          "name": "TauCeti.HyperbolicVolumes.diagonalMu_eq_zero",
+          "role": "characterisation",
+          "statement": "μ=0 iff z=w on D."
+        },
+        {
+          "name": "TauCeti.HyperbolicVolumes.diagonalMu_moebius",
+          "role": "functoriality",
+          "statement": "A common disc Möbius change of chart preserves μ."
+        },
+        {
+          "name": "TauCeti.HyperbolicVolumes.diagonalMu_invariant",
+          "role": "functoriality",
+          "statement": "Every common distance-preserving change of chart preserves μ."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.HyperbolicVolumes.diagonalMu_self",
+          "kind": "degenerate",
+          "statement": "μ(z,z)=0."
+        },
+        {
+          "name": "TauCeti.HyperbolicVolumes.diagonalMu_antigraph",
+          "kind": "computation",
+          "statement": "μ(z,−z)=|z|² for |z|<1."
+        },
+        {
+          "name": "TauCeti.HyperbolicVolumes.diagonalMu_not_chi",
+          "kind": "non-example",
+          "statement": "For nonzero z∈D, μ(z,0)<χ(z,0)=|z|²."
+        }
+      ],
+      "planet": {
+        "name": "Diagonal distance potential"
+      }
+    },
+    {
+      "id": "HyperbolicCurveVolumesAndGonality:HV.1/diagonal-chi",
+      "parentStageId": "HyperbolicCurveVolumesAndGonality:HV.1",
+      "realises": [
+        "HyperbolicCurveVolumesAndGonality:HV.1"
+      ],
+      "title": "Diagonal pseudohyperbolic potential χ",
+      "kind": "definition",
+      "statement": "For z,w∈D, χ(z,w)=|(z−w)/(1−w̄z)|²=tanh²(d₁(z,w)/2). This is the square of the existing pseudohyperbolic expression, not a new distance.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Reuse pseudoHyperbolicExpr and tanh_hyperbolicDist; the latter has the half-curvature distance convention."
+      ],
+      "prerequisites": [
+        "tauceti:TauCeti.pseudoHyperbolicExpr",
+        "tauceti:TauCeti.tanh_hyperbolicDist",
+        "HyperbolicCurveVolumesAndGonality:HV.0/curvature-one-distance"
+      ],
+      "acceptance": [
+        "For z,w∈D, χ(z,w)=|(z−w)/(1−w̄z)|²=tanh²(d₁(z,w)/2). This is the square of the existing pseudohyperbolic expression, not a new distance."
+      ],
+      "sources": [
+        {
+          "sourceId": "bt",
+          "locator": "§5.1, pp.732–733",
+          "excerpt": "χ = 4µ/(1+µ)²",
+          "match": "The invariant distance potentials and their relation. Scalar identities here precede the current and plurisubharmonicity arguments."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Analysis/Complex/HyperbolicVolumes/Local",
+        "namespace": "TauCeti.HyperbolicVolumes"
+      },
+      "uses": [
+        {
+          "where": "§5.1, pp.732–733",
+          "how": "The invariant distance potentials and their relation. Scalar identities here precede the current and plurisubharmonicity arguments."
+        },
+        {
+          "where": "HyperbolicCurveVolumesAndGonality:HV.4–HV.7",
+          "how": "Provides explicit local formulas and normalization checks for the global volume and gonality contracts, without assuming those estimates."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.HyperbolicVolumes.diagonalChi_formula",
+          "role": "projection",
+          "statement": "χ is the squared modulus of the explicit quotient."
+        },
+        {
+          "name": "TauCeti.HyperbolicVolumes.diagonalChi_distance",
+          "role": "compatibility",
+          "statement": "χ=tanh²(d₁/2) on D."
+        },
+        {
+          "name": "TauCeti.HyperbolicVolumes.diagonalChi_moebius",
+          "role": "functoriality",
+          "statement": "A common disc Möbius change of chart preserves χ."
+        },
+        {
+          "name": "TauCeti.HyperbolicVolumes.diagonalChi_range",
+          "role": "structure",
+          "statement": "0≤χ<1 on D."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.HyperbolicVolumes.diagonalChi_self",
+          "kind": "degenerate",
+          "statement": "χ(z,z)=0."
+        },
+        {
+          "name": "TauCeti.HyperbolicVolumes.diagonalChi_origin",
+          "kind": "computation",
+          "statement": "χ(z,0)=|z|²."
+        },
+        {
+          "name": "TauCeti.HyperbolicVolumes.diagonalChi_antigraph",
+          "kind": "computation",
+          "statement": "χ(z,−z)=4|z|²/(1+|z|²)²."
+        }
+      ],
+      "planet": {
+        "name": "Pseudohyperbolic potential"
+      }
+    },
+    {
+      "id": "HyperbolicCurveVolumesAndGonality:HV.1/chi-mu-relation",
+      "parentStageId": "HyperbolicCurveVolumesAndGonality:HV.1",
+      "realises": [
+        "HyperbolicCurveVolumesAndGonality:HV.1"
+      ],
+      "title": "Double-angle potential relation",
+      "kind": "lemma",
+      "statement": "For z,w∈D, χ=4μ/(1+μ)² and 1−χ=(1−μ)²/(1+μ)².",
+      "hypotheses": [],
+      "proofSteps": [
+        "Apply the tanh double-angle identity to t=d₁/4; square and rearrange. The two equalities are one algebraic identity and its complement."
+      ],
+      "prerequisites": [
+        "HyperbolicCurveVolumesAndGonality:HV.1/diagonal-mu",
+        "HyperbolicCurveVolumesAndGonality:HV.1/diagonal-chi"
+      ],
+      "acceptance": [
+        "For z,w∈D, χ=4μ/(1+μ)² and 1−χ=(1−μ)²/(1+μ)²."
+      ],
+      "sources": [
+        {
+          "sourceId": "bt",
+          "locator": "§5.1, pp.732–733",
+          "excerpt": "χ = 4µ/(1+µ)²",
+          "match": "The invariant distance potentials and their relation. Scalar identities here precede the current and plurisubharmonicity arguments."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Analysis/Complex/HyperbolicVolumes/Local",
+        "namespace": "TauCeti.HyperbolicVolumes"
+      }
+    },
+    {
+      "id": "HyperbolicCurveVolumesAndGonality:HV.1/conjugate-psi",
+      "parentStageId": "HyperbolicCurveVolumesAndGonality:HV.1",
+      "realises": [
+        "HyperbolicCurveVolumesAndGonality:HV.1"
+      ],
+      "title": "Conjugate-diagonal potential ψ",
+      "kind": "definition",
+      "statement": "For z,w∈D define ψ(z,w)=χ(z,w̄)=|(w̄−z)/(1−zw)|². Its zero locus is the real analytic graph w=z̄, not a complex hypersurface.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Conjugation preserves the unit disc; substitute it in χ.",
+        "For a disc automorphism A, the conjugate action is (z,w)↦(Az,conj(A(conj(w)))); under it ψ is invariant."
+      ],
+      "prerequisites": [
+        "HyperbolicCurveVolumesAndGonality:HV.1/diagonal-chi"
+      ],
+      "acceptance": [
+        "For z,w∈D define ψ(z,w)=χ(z,w̄)=|(w̄−z)/(1−zw)|². Its zero locus is the real analytic graph w=z̄, not a complex hypersurface."
+      ],
+      "sources": [
+        {
+          "sourceId": "erratum",
+          "locator": "§3, Proposition 3.1 proof, pp.2–3",
+          "excerpt": "ψ(z, w) = tanh²(d_D(z, w̄)/2)",
+          "match": "Conjugation changes the second coordinate; its graph is real analytic. The scalar potential precedes the positive-current computation."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Analysis/Complex/HyperbolicVolumes/Local",
+        "namespace": "TauCeti.HyperbolicVolumes"
+      },
+      "uses": [
+        {
+          "where": "§3, Proposition 3.1 proof, pp.2–3",
+          "how": "Conjugation changes the second coordinate; its graph is real analytic. The scalar potential precedes the positive-current computation."
+        },
+        {
+          "where": "HyperbolicCurveVolumesAndGonality:HV.4–HV.7",
+          "how": "Provides explicit local formulas and normalization checks for the global volume and gonality contracts, without assuming those estimates."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.HyperbolicVolumes.conjugatePsi_formula",
+          "role": "projection",
+          "statement": "ψ=|(w̄−z)/(1−zw)|²."
+        },
+        {
+          "name": "TauCeti.HyperbolicVolumes.conjugatePsi_zero",
+          "role": "characterisation",
+          "statement": "ψ=0 iff w=z̄ for disc points."
+        },
+        {
+          "name": "TauCeti.HyperbolicVolumes.conjugatePsi_invariant",
+          "role": "functoriality",
+          "statement": "Conjugate-diagonal actions preserving χ preserve ψ."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.HyperbolicVolumes.conjugatePsi_graph",
+          "kind": "degenerate",
+          "statement": "ψ(z,z̄)=0."
+        },
+        {
+          "name": "TauCeti.HyperbolicVolumes.conjugatePsi_origin",
+          "kind": "computation",
+          "statement": "ψ(0,w)=|w|²."
+        },
+        {
+          "name": "TauCeti.HyperbolicVolumes.conjugatePsi_not_diagonal",
+          "kind": "non-example",
+          "statement": "At a nonreal z∈D, ψ(z,z)>0."
+        }
+      ],
+      "planet": {
+        "name": "Conjugate-diagonal potential"
+      }
+    },
+    {
+      "id": "HyperbolicCurveVolumesAndGonality:HV.1/conjugate-tangent",
+      "parentStageId": "HyperbolicCurveVolumesAndGonality:HV.1",
+      "realises": [
+        "HyperbolicCurveVolumesAndGonality:HV.1"
+      ],
+      "title": "Conjugate diagonal is totally real",
+      "kind": "lemma",
+      "statement": "The tangent plane T={(v,w)∈ℂ²:w=v̄} is not invariant under multiplication by i: (1,1)∈T but (i,i)∉T. Thus the conjugate graph cannot be treated as a complex divisor.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Compute conjugation of i. This coordinate tangent calculation suffices to reject the complex-divisor interpretation. Global change of charts belongs to HV.5."
+      ],
+      "prerequisites": [
+        "HyperbolicCurveVolumesAndGonality:HV.1/conjugate-psi"
+      ],
+      "acceptance": [
+        "The tangent plane T={(v,w)∈ℂ²:w=v̄} is not invariant under multiplication by i: (1,1)∈T but (i,i)∉T. Thus the conjugate graph cannot be treated as a complex divisor."
+      ],
+      "sources": [
+        {
+          "sourceId": "erratum",
+          "locator": "§3, Proposition 3.1 proof, pp.2–3",
+          "excerpt": "ψ(z, w) = tanh²(d_D(z, w̄)/2)",
+          "match": "Conjugation changes the second coordinate; its graph is real analytic. The scalar potential precedes the positive-current computation."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Analysis/Complex/HyperbolicVolumes/Local",
+        "namespace": "TauCeti.HyperbolicVolumes"
+      }
+    },
+    {
+      "id": "HyperbolicCurveVolumesAndGonality:HV.1/diagonal-positive-profile",
+      "parentStageId": "HyperbolicCurveVolumesAndGonality:HV.1",
+      "realises": [
+        "HyperbolicCurveVolumesAndGonality:HV.1"
+      ],
+      "title": "Diagonal area potential profile",
+      "kind": "definition",
+      "statement": "F(z,w)=−8π log(1−μ(z,w)). The argument of log is positive on D², including the diagonal; this is a finite scalar function. Its plurisubharmonicity and ddᶜ domination are HV.3 targets.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Use 0≤μ<1 to obtain a well-defined smooth scalar logarithm away from μ’s nonsmooth locus. The profile is zero at μ=0.",
+        "Restrict to (z,−z): F=−8π log(1−|z|²). This calibrates the area constant without assuming a current inequality."
+      ],
+      "prerequisites": [
+        "HyperbolicCurveVolumesAndGonality:HV.1/diagonal-mu"
+      ],
+      "acceptance": [
+        "F(z,w)=−8π log(1−μ(z,w)). The argument of log is positive on D², including the diagonal; this is a finite scalar function. Its plurisubharmonicity and ddᶜ domination are HV.3 targets."
+      ],
+      "sources": [
+        {
+          "sourceId": "bt",
+          "locator": "§5.1, pp.732–733",
+          "excerpt": "χ = 4µ/(1+µ)²",
+          "match": "The invariant distance potentials and their relation. Scalar identities here precede the current and plurisubharmonicity arguments."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Analysis/Complex/HyperbolicVolumes/Local",
+        "namespace": "TauCeti.HyperbolicVolumes"
+      },
+      "uses": [
+        {
+          "where": "§5.1, pp.732–733",
+          "how": "The invariant distance potentials and their relation. Scalar identities here precede the current and plurisubharmonicity arguments."
+        },
+        {
+          "where": "HyperbolicCurveVolumesAndGonality:HV.4–HV.7",
+          "how": "Provides explicit local formulas and normalization checks for the global volume and gonality contracts, without assuming those estimates."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.HyperbolicVolumes.diagonalAreaPotential_nonneg",
+          "role": "structure",
+          "statement": "F≥0 on D²."
+        },
+        {
+          "name": "TauCeti.HyperbolicVolumes.diagonalAreaPotential_formula",
+          "role": "projection",
+          "statement": "The profile is −8π log(1−μ)."
+        },
+        {
+          "name": "TauCeti.HyperbolicVolumes.diagonalAreaPotential_invariant",
+          "role": "functoriality",
+          "statement": "Invariance of μ transports to F."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.HyperbolicVolumes.diagonalAreaPotential_self",
+          "kind": "degenerate",
+          "statement": "F(z,z)=0."
+        },
+        {
+          "name": "TauCeti.HyperbolicVolumes.diagonalAreaPotential_antigraph",
+          "kind": "computation",
+          "statement": "F(z,−z)=−8πlog(1−|z|²)."
+        },
+        {
+          "name": "TauCeti.HyperbolicVolumes.diagonalAreaPotential_positive",
+          "kind": "non-example",
+          "statement": "F(z,0)>0 for nonzero z∈D."
+        }
+      ]
+    },
+    {
+      "id": "HyperbolicCurveVolumesAndGonality:HV.1/relative-log-profile",
+      "parentStageId": "HyperbolicCurveVolumesAndGonality:HV.1",
+      "realises": [
+        "HyperbolicCurveVolumesAndGonality:HV.1"
+      ],
+      "title": "Relative diagonal logarithmic profile",
+      "kind": "definition",
+      "statement": "For s<0 set H(s)=log(4eˢ/(1−eˢ)²). Off the diagonal, H(log μ)=log(χ/(1−χ)); H′(log tanh²(r/2))=cosh r for r>0. The scalar function is used only on this domain; log μ at μ=0 is an extended-real singularity owned by HV.3.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Substitute the χ–μ relation and differentiate H(s)=log4+s−2log(1−eˢ).",
+        "H′=(1+eˢ)/(1−eˢ); putting eˢ=tanh²(r/2) gives cosh r."
+      ],
+      "prerequisites": [
+        "HyperbolicCurveVolumesAndGonality:HV.1/chi-mu-relation"
+      ],
+      "acceptance": [
+        "For s<0 set H(s)=log(4eˢ/(1−eˢ)²). Off the diagonal, H(log μ)=log(χ/(1−χ)); H′(log tanh²(r/2))=cosh r for r>0. The scalar function is used only on this domain; log μ at μ=0 is an extended-real singularity owned by HV.3."
+      ],
+      "sources": [
+        {
+          "sourceId": "bt",
+          "locator": "Proposition 23 proof, p.735",
+          "excerpt": "g(log µ)",
+          "match": "The logarithmic reparameterization and its boundary slope. The first current-display prefactors are corrected separately in sourceIssues."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Analysis/Complex/HyperbolicVolumes/Local",
+        "namespace": "TauCeti.HyperbolicVolumes"
+      },
+      "uses": [
+        {
+          "where": "Proposition 23 proof, p.735",
+          "how": "The logarithmic reparameterization and its boundary slope. The first current-display prefactors are corrected separately in sourceIssues."
+        },
+        {
+          "where": "HyperbolicCurveVolumesAndGonality:HV.4–HV.7",
+          "how": "Provides explicit local formulas and normalization checks for the global volume and gonality contracts, without assuming those estimates."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.HyperbolicVolumes.relativeLogProfile_expand",
+          "role": "characterisation",
+          "statement": "H(s)=log4+s−2log(1−eˢ), s<0."
+        },
+        {
+          "name": "TauCeti.HyperbolicVolumes.relativeLogProfile_deriv",
+          "role": "data",
+          "statement": "H′=(1+eˢ)/(1−eˢ), s<0."
+        },
+        {
+          "name": "TauCeti.HyperbolicVolumes.relativeLogProfile_chi",
+          "role": "compatibility",
+          "statement": "H(log μ)=log(χ/(1−χ)) off Δ."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.HyperbolicVolumes.relativeLogProfile_slope",
+          "kind": "computation",
+          "statement": "At radius r>0 the slope is cosh r."
+        },
+        {
+          "name": "TauCeti.HyperbolicVolumes.relativeLogProfile_value",
+          "kind": "computation",
+          "statement": "H(log(1/4))=log(16/9)."
+        },
+        {
+          "name": "TauCeti.HyperbolicVolumes.relativeLogProfile_injective",
+          "kind": "characterisation",
+          "statement": "H is strictly increasing on s<0."
+        }
+      ]
+    },
+    {
+      "id": "HyperbolicCurveVolumesAndGonality:HV.1/conjugate-f-profile",
+      "parentStageId": "HyperbolicCurveVolumesAndGonality:HV.1",
+      "realises": [
+        "HyperbolicCurveVolumesAndGonality:HV.1"
+      ],
+      "title": "Conjugate area profile f",
+      "kind": "definition",
+      "statement": "For 0≤s<1 define f(s)=−log(1−s). For ψ=tanh²(d/2), f(ψ)=2log cosh(d/2). The identity i∂∂̄f(ψ)=ω/2 is a separate current target.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Use 1−tanh²t=cosh(t)⁻² and logarithm identities; the analytic positivity computation is not assumed by this scalar definition."
+      ],
+      "prerequisites": [
+        "HyperbolicCurveVolumesAndGonality:HV.1/conjugate-psi"
+      ],
+      "acceptance": [
+        "For 0≤s<1 define f(s)=−log(1−s). For ψ=tanh²(d/2), f(ψ)=2log cosh(d/2). The identity i∂∂̄f(ψ)=ω/2 is a separate current target."
+      ],
+      "sources": [
+        {
+          "sourceId": "erratum",
+          "locator": "§3, Proposition 3.1 proof, pp.2–3",
+          "excerpt": "ψ(z, w) = tanh²(d_D(z, w̄)/2)",
+          "match": "Conjugation changes the second coordinate; its graph is real analytic. The scalar potential precedes the positive-current computation."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Analysis/Complex/HyperbolicVolumes/Local",
+        "namespace": "TauCeti.HyperbolicVolumes"
+      },
+      "uses": [
+        {
+          "where": "§3, Proposition 3.1 proof, pp.2–3",
+          "how": "Conjugation changes the second coordinate; its graph is real analytic. The scalar potential precedes the positive-current computation."
+        },
+        {
+          "where": "HyperbolicCurveVolumesAndGonality:HV.4–HV.7",
+          "how": "Provides explicit local formulas and normalization checks for the global volume and gonality contracts, without assuming those estimates."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.HyperbolicVolumes.conjugateAreaProfile_nonneg",
+          "role": "structure",
+          "statement": "f≥0 on [0,1)."
+        },
+        {
+          "name": "TauCeti.HyperbolicVolumes.conjugateAreaProfile_deriv",
+          "role": "data",
+          "statement": "f′(s)=1/(1−s) for s<1."
+        },
+        {
+          "name": "TauCeti.HyperbolicVolumes.conjugateAreaProfile_tanh",
+          "role": "compatibility",
+          "statement": "f(tanh²r)=2log cosh r."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.HyperbolicVolumes.conjugateAreaProfile_zero",
+          "kind": "degenerate",
+          "statement": "f(0)=0."
+        },
+        {
+          "name": "TauCeti.HyperbolicVolumes.conjugateAreaProfile_half",
+          "kind": "computation",
+          "statement": "f(1/2)=log2."
+        },
+        {
+          "name": "TauCeti.HyperbolicVolumes.conjugateAreaProfile_blowup",
+          "kind": "non-example",
+          "statement": "f(s)→∞ as s→1 from below."
+        }
+      ]
+    },
+    {
+      "id": "HyperbolicCurveVolumesAndGonality:HV.1/conjugate-g-profile",
+      "parentStageId": "HyperbolicCurveVolumesAndGonality:HV.1",
+      "realises": [
+        "HyperbolicCurveVolumesAndGonality:HV.1"
+      ],
+      "title": "Conjugate positive profile g",
+      "kind": "definition",
+      "statement": "For t≥0 define g(t)=2asin sqrt(1−e^(−t)). Then g(f(s))=2asin sqrt(s) for 0≤s<1 and g′(2log cosh r)=1/sinh r for r>0. The positivity of i∂∂̄(g∘f∘ψ) is a separate HV.5 theorem.",
+      "hypotheses": [],
+      "proofSteps": [
+        "The composition follows from e^(−f(s))=1−s.",
+        "For t>0, g′(t)=1/sqrt(eᵗ−1); substitute eᵗ=cosh²r and use r>0."
+      ],
+      "prerequisites": [
+        "HyperbolicCurveVolumesAndGonality:HV.1/conjugate-f-profile"
+      ],
+      "acceptance": [
+        "For t≥0 define g(t)=2asin sqrt(1−e^(−t)). Then g(f(s))=2asin sqrt(s) for 0≤s<1 and g′(2log cosh r)=1/sinh r for r>0. The positivity of i∂∂̄(g∘f∘ψ) is a separate HV.5 theorem."
+      ],
+      "sources": [
+        {
+          "sourceId": "erratum",
+          "locator": "§3, Proposition 3.1 proof, pp.2–3",
+          "excerpt": "ψ(z, w) = tanh²(d_D(z, w̄)/2)",
+          "match": "Conjugation changes the second coordinate; its graph is real analytic. The scalar potential precedes the positive-current computation."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Analysis/Complex/HyperbolicVolumes/Local",
+        "namespace": "TauCeti.HyperbolicVolumes"
+      },
+      "uses": [
+        {
+          "where": "§3, Proposition 3.1 proof, pp.2–3",
+          "how": "Conjugation changes the second coordinate; its graph is real analytic. The scalar potential precedes the positive-current computation."
+        },
+        {
+          "where": "HyperbolicCurveVolumesAndGonality:HV.4–HV.7",
+          "how": "Provides explicit local formulas and normalization checks for the global volume and gonality contracts, without assuming those estimates."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.HyperbolicVolumes.conjugatePositiveProfile_comp",
+          "role": "compatibility",
+          "statement": "g(f(s))=2asin sqrt s on [0,1)."
+        },
+        {
+          "name": "TauCeti.HyperbolicVolumes.conjugatePositiveProfile_deriv",
+          "role": "data",
+          "statement": "g′(t)=1/sqrt(eᵗ−1) for t>0."
+        },
+        {
+          "name": "TauCeti.HyperbolicVolumes.conjugatePositiveProfile_mono",
+          "role": "structure",
+          "statement": "g is strictly increasing on [0,∞)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.HyperbolicVolumes.conjugatePositiveProfile_zero",
+          "kind": "degenerate",
+          "statement": "g(0)=0."
+        },
+        {
+          "name": "TauCeti.HyperbolicVolumes.conjugatePositiveProfile_log_two",
+          "kind": "computation",
+          "statement": "g(log2)=π/2."
+        },
+        {
+          "name": "TauCeti.HyperbolicVolumes.conjugatePositiveProfile_slope",
+          "kind": "computation",
+          "statement": "g′(2log cosh r)=1/sinh r, r>0."
+        }
+      ],
+      "planet": {
+        "name": "Conjugate-diagonal positive profile"
+      }
+    },
+    {
+      "id": "HyperbolicCurveVolumesAndGonality:HV.2/parameter-area-density",
+      "parentStageId": "HyperbolicCurveVolumesAndGonality:HV.2",
+      "realises": [
+        "HyperbolicCurveVolumesAndGonality:HV.2"
+      ],
+      "title": "Parametrized sum area density",
+      "kind": "definition",
+      "statement": "For holomorphic f=(f₁,…,fₙ):U→Dⁿ, the pulled-back sum area form has density q_f(t)=Σᵢ b(fᵢ(t))|fᵢ′(t)|² relative to dxdy. Each constant coordinate contributes zero. The total expression is used geometrically only on an open U with DifferentiableOn ℂ fᵢ U and fᵢ(U)⊆D.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Pull back each ω_D by a holomorphic coordinate; the real Jacobian equals the squared modulus of the complex derivative.",
+        "Add the coordinate densities; do not take their maximum or their product."
+      ],
+      "prerequisites": [
+        "HyperbolicCurveVolumesAndGonality:HV.0/disc-area-density"
+      ],
+      "acceptance": [
+        "For holomorphic f=(f₁,…,fₙ):U→Dⁿ, the pulled-back sum area form has density q_f(t)=Σᵢ b(fᵢ(t))|fᵢ′(t)|² relative to dxdy. Each constant coordinate contributes zero. The total expression is used geometrically only on an open U with DifferentiableOn ℂ fᵢ U and fᵢ(U)⊆D."
+      ],
+      "sources": [
+        {
+          "sourceId": "bt",
+          "locator": "§1.3, pp.712–713",
+          "excerpt": "a(r) = 4π · sinh²(r/2).",
+          "match": "The curvature −1 distance, density and area conventions; the new signatures expose the comparisons to the pinned libraries."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Analysis/Complex/HyperbolicVolumes/Local",
+        "namespace": "TauCeti.HyperbolicVolumes"
+      },
+      "uses": [
+        {
+          "where": "§1.3, pp.712–713",
+          "how": "The curvature −1 distance, density and area conventions; the new signatures expose the comparisons to the pinned libraries."
+        },
+        {
+          "where": "HyperbolicCurveVolumesAndGonality:HV.4–HV.7",
+          "how": "Provides explicit local formulas and normalization checks for the global volume and gonality contracts, without assuming those estimates."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.HyperbolicVolumes.parameterDensity_nonneg",
+          "role": "structure",
+          "statement": "q_f≥0 everywhere."
+        },
+        {
+          "name": "TauCeti.HyperbolicVolumes.parameterDensity_ext",
+          "role": "extensionality",
+          "statement": "Equality of coordinate maps gives equality of densities."
+        },
+        {
+          "name": "TauCeti.HyperbolicVolumes.parameterDensity_constant",
+          "role": "simp",
+          "statement": "All constant coordinates give zero density."
+        },
+        {
+          "name": "TauCeti.HyperbolicVolumes.parameterDensity_reparam",
+          "role": "functoriality",
+          "statement": "Under a holomorphic parameter change h, q_(f∘h)(t)=q_f(h(t))|h′(t)|²."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.HyperbolicVolumes.parameterDensity_fibre",
+          "kind": "computation",
+          "statement": "For (t,c), q=b(t)."
+        },
+        {
+          "name": "TauCeti.HyperbolicVolumes.parameterDensity_antigraph",
+          "kind": "computation",
+          "statement": "For (t,−t), q=2b(t)."
+        },
+        {
+          "name": "TauCeti.HyperbolicVolumes.parameterDensity_cusp_constant",
+          "kind": "degenerate",
+          "statement": "Any constant coordinate has zero complex derivative, including the constant q=0 cusp coordinate."
+        }
+      ],
+      "planet": {
+        "name": "Sum area density"
+      }
+    },
+    {
+      "id": "HyperbolicCurveVolumesAndGonality:HV.2/parameter-volume",
+      "parentStageId": "HyperbolicCurveVolumesAndGonality:HV.2",
+      "realises": [
+        "HyperbolicCurveVolumesAndGonality:HV.2"
+      ],
+      "title": "Parametrized volume",
+      "kind": "construction",
+      "statement": "V(f,U)=∫⁻_U ENNReal.ofReal(q_f(t)) dxdy for a holomorphic parameter map into Dⁿ. This integrates over the source and counts the degree of a parameterization. Global cycle volume on normalized branches is a distinct unconstructed target.",
+      "hypotheses": [],
+      "proofSteps": [
+        "The nonnegative density defines the integral without assuming finite total volume.",
+        "For injective holomorphic reparameterizations apply the pinned Jacobian change-of-variables theorem and the density chain rule. A finite non-injective map requires degree counting, not the injective theorem alone."
+      ],
+      "prerequisites": [
+        "HyperbolicCurveVolumesAndGonality:HV.2/parameter-area-density",
+        "mathlib:MeasureTheory.lintegral_image_eq_lintegral_abs_det_fderiv_mul"
+      ],
+      "acceptance": [
+        "V(f,U)=∫⁻_U ENNReal.ofReal(q_f(t)) dxdy for a holomorphic parameter map into Dⁿ. This integrates over the source and counts the degree of a parameterization. Global cycle volume on normalized branches is a distinct unconstructed target."
+      ],
+      "sources": [
+        {
+          "sourceId": "bt",
+          "locator": "§1.3, pp.712–713",
+          "excerpt": "a(r) = 4π · sinh²(r/2).",
+          "match": "The curvature −1 distance, density and area conventions; the new signatures expose the comparisons to the pinned libraries."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Analysis/Complex/HyperbolicVolumes/Local",
+        "namespace": "TauCeti.HyperbolicVolumes"
+      },
+      "uses": [
+        {
+          "where": "§1.3, pp.712–713",
+          "how": "The curvature −1 distance, density and area conventions; the new signatures expose the comparisons to the pinned libraries."
+        },
+        {
+          "where": "HyperbolicCurveVolumesAndGonality:HV.4–HV.7",
+          "how": "Provides explicit local formulas and normalization checks for the global volume and gonality contracts, without assuming those estimates."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.HyperbolicVolumes.parameterVolume_mono",
+          "role": "functoriality",
+          "statement": "U⊆W implies V(f,U)≤V(f,W)."
+        },
+        {
+          "name": "TauCeti.HyperbolicVolumes.parameterVolume_ext",
+          "role": "extensionality",
+          "statement": "Equal density on U gives equal volume."
+        },
+        {
+          "name": "TauCeti.HyperbolicVolumes.parameterVolume_reparam",
+          "role": "functoriality",
+          "statement": "An injective holomorphic parameter change preserves the source integral after changing its domain."
+        },
+        {
+          "name": "TauCeti.HyperbolicVolumes.parameterVolume_weight",
+          "role": "structure",
+          "statement": "Weight m multiplies the local volume by m; weights are not erased by taking the image set."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.HyperbolicVolumes.parameterVolume_empty",
+          "kind": "degenerate",
+          "statement": "V(f,∅)=0."
+        },
+        {
+          "name": "TauCeti.HyperbolicVolumes.parameterVolume_constant",
+          "kind": "degenerate",
+          "statement": "The volume of a constant map is zero."
+        },
+        {
+          "name": "TauCeti.HyperbolicVolumes.parameterVolume_zero_dimension",
+          "kind": "degenerate",
+          "statement": "There is zero pulled-back sum area in D⁰."
+        }
+      ],
+      "planet": {
+        "name": "Parametrized curve volume"
+      }
+    },
+    {
+      "id": "HyperbolicCurveVolumesAndGonality:HV.2/fibre-volume",
+      "parentStageId": "HyperbolicCurveVolumesAndGonality:HV.2",
+      "realises": [
+        "HyperbolicCurveVolumesAndGonality:HV.2"
+      ],
+      "title": "Point-volume equality for a fibre",
+      "kind": "theorem",
+      "statement": "For c∈D and r≥0, V(t↦(t,c),D(r))=a(r). This is the local equality model for the point-volume estimate.",
+      "hypotheses": [],
+      "proofSteps": [
+        "The constant coordinate has zero derivative, leaving exactly b(t).",
+        "Apply disc-ball-area to D(r)."
+      ],
+      "prerequisites": [
+        "HyperbolicCurveVolumesAndGonality:HV.2/parameter-volume",
+        "HyperbolicCurveVolumesAndGonality:HV.0/disc-area-measure",
+        "HyperbolicCurveVolumesAndGonality:HV.0/area-profile",
+        "HyperbolicCurveVolumesAndGonality:HV.0/disc-balls",
+        "HyperbolicCurveVolumesAndGonality:HV.0/disc-ball-area"
+      ],
+      "acceptance": [
+        "For c∈D and r≥0, V(t↦(t,c),D(r))=a(r). This is the local equality model for the point-volume estimate."
+      ],
+      "sources": [
+        {
+          "sourceId": "bt",
+          "locator": "Theorem 19 and equality discussion, p.732",
+          "excerpt": "a union of fibers",
+          "match": "The point estimate is sharp on fibers. Here the equality is computed in the actual local parametrized integral."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Analysis/Complex/HyperbolicVolumes/Local",
+        "namespace": "TauCeti.HyperbolicVolumes"
+      },
+      "planet": {
+        "name": "Fibre volume equality"
+      }
+    },
+    {
+      "id": "HyperbolicCurveVolumesAndGonality:HV.2/antigraph-volume",
+      "parentStageId": "HyperbolicCurveVolumesAndGonality:HV.2",
+      "realises": [
+        "HyperbolicCurveVolumesAndGonality:HV.2"
+      ],
+      "title": "Graph-of-minus-identity volume",
+      "kind": "theorem",
+      "statement": "For r≥0, V(t↦(t,−t),D(r))=2a(r). Since μ(t,−t)=|t|², D(r) is exactly the preimage of the diagonal radius-r tube; the intersection at zero has multiplicity one.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Both coordinate densities equal b(t), so the sum is 2b(t).",
+        "Use the anti-graph μ computation and disc-ball-area. Intersection multiplicity one follows from the local equation (−t)−t=−2t, not from point multiplicity by convention."
+      ],
+      "prerequisites": [
+        "HyperbolicCurveVolumesAndGonality:HV.2/parameter-volume",
+        "HyperbolicCurveVolumesAndGonality:HV.1/diagonal-mu",
+        "HyperbolicCurveVolumesAndGonality:HV.0/area-profile",
+        "HyperbolicCurveVolumesAndGonality:HV.0/disc-balls",
+        "HyperbolicCurveVolumesAndGonality:HV.0/disc-ball-area"
+      ],
+      "acceptance": [
+        "For r≥0, V(t↦(t,−t),D(r))=2a(r). Since μ(t,−t)=|t|², D(r) is exactly the preimage of the diagonal radius-r tube; the intersection at zero has multiplicity one."
+      ],
+      "sources": [
+        {
+          "sourceId": "bt",
+          "locator": "Theorem 19 equality discussion, p.732",
+          "excerpt": "the graph of −z",
+          "match": "The factor two is attained in the normalized anti-diagonal disc, where the sum form has twice the single-disc density."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Analysis/Complex/HyperbolicVolumes/Local",
+        "namespace": "TauCeti.HyperbolicVolumes"
+      },
+      "planet": {
+        "name": "Diagonal volume equality"
+      }
+    },
+    {
+      "id": "HyperbolicCurveVolumesAndGonality:HV.2/power-parameter-volume",
+      "parentStageId": "HyperbolicCurveVolumesAndGonality:HV.2",
+      "realises": [
+        "HyperbolicCurveVolumesAndGonality:HV.2"
+      ],
+      "title": "Degree-d parameterization volume",
+      "kind": "theorem",
+      "statement": "For d≥1, 0≤s<1 and c∈D, V(t↦(tᵈ,c),{|t|<s})=d·4πs^(2d)/(1−s^(2d)). This counts the covering degree d; replacing the source by its image without degree loses this factor.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Differentiate tᵈ: |(tᵈ)′|²=d²|t|^(2d−2). Multiply by b(tᵈ).",
+        "Use polar coordinates and substitute v=tᵈ in the one-dimensional radial integral; the result is d times the area of the image subdisc.",
+        "This explicit model does not assert a general finite-map area formula; that belongs to the normalized-cycle construction."
+      ],
+      "prerequisites": [
+        "HyperbolicCurveVolumesAndGonality:HV.2/parameter-volume",
+        "HyperbolicCurveVolumesAndGonality:HV.0/disc-area-density",
+        "mathlib:Complex.lintegral_comp_polarCoord_symm"
+      ],
+      "acceptance": [
+        "For d≥1, 0≤s<1 and c∈D, V(t↦(tᵈ,c),{|t|<s})=d·4πs^(2d)/(1−s^(2d)). This counts the covering degree d; replacing the source by its image without degree loses this factor."
+      ],
+      "sources": [
+        {
+          "sourceId": "bt",
+          "locator": "§1.3, pp.712–713",
+          "excerpt": "a(r) = 4π · sinh²(r/2).",
+          "match": "The curvature −1 distance, density and area conventions; the new signatures expose the comparisons to the pinned libraries."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Analysis/Complex/HyperbolicVolumes/Local",
+        "namespace": "TauCeti.HyperbolicVolumes"
+      }
+    }
+  ],
+  "requests": [
+    {
+      "supplier": "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-2-hyperbolic-polygons-and-cofinite-groups",
+      "need": "Geodesic midpoint normalization by a holomorphic disc/half-plane isometry, and the existing invariant-measure/Riemannian comparison; needed to transport the normalized ±a lens enclosure to arbitrary endpoints.",
+      "neededBy": [
+        "HyperbolicCurveVolumesAndGonality:HV.4"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-3-cusps-and-q-coordinates",
+      "need": "Actual cusp q-charts and their transition laws, including constant q=0 and the precisely invariant cusp domains; used by zero pullback contribution and finite-area singular metric tests.",
+      "neededBy": [
+        "HyperbolicCurveVolumesAndGonality:HV.2",
+        "HyperbolicCurveVolumesAndGonality:HV.7"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-4-compactified-quotient-riemann-surfaces",
+      "need": "The actual compactified quotient Riemann surface and its finite-index maps; no abstract record postulating compactness is sufficient.",
+      "neededBy": [
+        "HyperbolicCurveVolumesAndGonality:HV.2",
+        "HyperbolicCurveVolumesAndGonality:HV.7"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-5-compact-surface-degree-theory-and-fuchsian-applications",
+      "need": "Finite nonconstant holomorphic maps, localMultiplicity, degree as a fibre sum, and the degree-one biholomorphism theorem, to compare algebraic gonality with analytic finite maps.",
+      "neededBy": [
+        "HyperbolicCurveVolumesAndGonality:HV.6",
+        "HyperbolicCurveVolumesAndGonality:HV.7"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts",
+      "need": "Smooth projective complex models and the function-field/curve dictionary preserving finite morphisms, degrees, canonical bundles and genus, so the pinned function-field RR applies to gonality.",
+      "neededBy": [
+        "HyperbolicCurveVolumesAndGonality:HV.3",
+        "HyperbolicCurveVolumesAndGonality:HV.6"
+      ]
+    },
+    {
+      "supplier": "SchemeAndStackFoundations:SF.5",
+      "need": "Proper curve/Cartier-divisor intersection on smooth projective products of curves, including (C·Δ), pullback, cycle weights and canonical degree pairing; no algebraic intersection with the totally real conjugate diagonal.",
+      "neededBy": [
+        "HyperbolicCurveVolumesAndGonality:HV.3",
+        "HyperbolicCurveVolumesAndGonality:HV.4",
+        "HyperbolicCurveVolumesAndGonality:HV.5"
+      ]
+    },
+    {
+      "supplier": "ComplexComparisonPartII:C4",
+      "need": "Analytification/algebraization of proper curve morphisms and analytic closed curves, preserving their models; consume C0–C3 coherent GAGA for line-bundle/degree comparisons. These layers do not supply positive currents.",
+      "neededBy": [
+        "HyperbolicCurveVolumesAndGonality:HV.3",
+        "HyperbolicCurveVolumesAndGonality:HV.6"
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "HyperbolicCurveVolumesAndGonality:HV.0",
+      "status": "closed",
+      "remaining": []
+    },
+    {
+      "stageId": "HyperbolicCurveVolumesAndGonality:HV.1",
+      "status": "closed",
+      "remaining": []
+    },
+    {
+      "stageId": "HyperbolicCurveVolumesAndGonality:HV.2",
+      "status": "partial",
+      "remaining": [
+        "Construct analytic cycles and their normalizations globally, branch/local multiplicity and weighted finite-map pushforward. Prove global chart independence; the present parameterVolume is a source integral, not an image-cycle invariant.",
+        "Descend the uniformized metric/form to X and prove the half-plane invariant-measure comparison through Fuchsian charts. Define compact ρ_X via half the systole; separate cusped systolic invariants from pointwise injectivity radius.",
+        "Prove constant q=0 contributes zero after cusp completion with the actual singular target metric, not only for the present smooth disc formula."
+      ]
+    },
+    {
+      "stageId": "HyperbolicCurveVolumesAndGonality:HV.3",
+      "status": "not_read",
+      "remaining": [
+        "Read Demailly Chapter I differential forms/currents and Chapter II analytic normalization; complete Chapter III §§1–5 and the exact Lelong–Jensen results required by BT. Build continuity topology on compactly supported test forms, positive currents, psh regularization and branchwise singular Stokes.",
+        "Decompose the Hessian computations proving log μ psh and ddᶜF≤ω; prove the log-singularity/Poincaré–Lelong atomic normalization before using BT equation (7).",
+        "Construct Chern–Weil curvature comparison and the analytic-to-algebraic canonical pairing using SF.5 and C0–C4; function-field canonical degree alone is insufficient."
+      ]
+    },
+    {
+      "stageId": "HyperbolicCurveVolumesAndGonality:HV.4",
+      "status": "not_read",
+      "remaining": [
+        "Obtain and read original Hwang–To 2002 Theorem 2 and 2012 Theorem 1/Lemma 5, including proofs; current public searches/DOI endpoints yielded no full text. Record exact hypotheses and constants against the max-neighborhood/sum-form convention.",
+        "Plan the quotient tube lift, point-volume proof, I(r) regular-level Stokes and Lelong limit, and the X⁴ tie-boundary argument of BT Lemma 22 without hiding its orientation/positivity step.",
+        "Extend the normalized lens lemma via the geodesic-normalizing isometries exported by FuchsianOrbifolds Layer 2."
+      ]
+    },
+    {
+      "stageId": "HyperbolicCurveVolumesAndGonality:HV.5",
+      "status": "not_read",
+      "remaining": [
+        "Construct quotient and conjugate-quotient tubes with radii <ρ_X/2, then plan the corrected current identity and the two relative monotonicity proofs.",
+        "Compute the erratum Hessian matrices and prove positive-current extensions across ψ=0; derive the small/large sinh ratio in the correct direction and all λ-rescaling formulas."
+      ]
+    },
+    {
+      "stageId": "HyperbolicCurveVolumesAndGonality:HV.6",
+      "status": "not_read",
+      "remaining": [
+        "Acquire a public primary Brill–Noether source for existence and generic sharpness; Abramovich only cites the theorem. Construct actual gonality against imported finite morphisms/models, prove minimum existence and algebraically closed base-change equality via descent/specialization.",
+        "Derive gon≤g+1 from pinned function-field RR and its curve dictionary; plan the separate Brill–Noether bound and P¹/genus-one/nonrational-conic tests. Do not privately reconstruct P¹ or projective models."
+      ]
+    },
+    {
+      "stageId": "HyperbolicCurveVolumesAndGonality:HV.7",
+      "status": "not_read",
+      "remaining": [
+        "Decompose the inspected Li–Yau §§1–2 Theorem 1 proof into barycenter balancing, Rayleigh inequality, sphere value and degree comparison; trace and inspect its supporting topological and variational inputs. The browser can read the PDF; the local endpoint returns 403.",
+        "Reconcile stable Li–Yau conformal area with Abramovich’s sphere-map formulation; prove finite Dirichlet energy and mean-zero test conditions for cusp/elliptic singular metrics.",
+        "Read the AutomorphicSpectralTheory congruence-gap extension once defined (design issue #1699). Add its exact stage/node request and spectrum/Rayleigh compatibility; never guess the future stage id."
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "title": "Global analytic cycle/current foundations",
+      "neededBy": [
+        "HyperbolicCurveVolumesAndGonality:HV.2",
+        "HyperbolicCurveVolumesAndGonality:HV.3",
+        "HyperbolicCurveVolumesAndGonality:HV.4",
+        "HyperbolicCurveVolumesAndGonality:HV.5"
+      ],
+      "detail": "Local parameter integrals and scalar potentials are typed. No global normalization, continuity topology on test forms, positive currents, psh singular Stokes or Lelong multiplicity theorem has been built into nodes; resume at the exact Demailly/HT source worklist in coverage."
+    },
+    {
+      "title": "Original Hwang–To source proofs not acquired",
+      "neededBy": [
+        "HyperbolicCurveVolumesAndGonality:HV.4"
+      ],
+      "detail": "The point/diagonal targets are recorded from the published BT Theorem 19 and the alternate diagonal proof, not from an inspection of HT02/HT12. DOI resolution and author/title public searches did not yield full-text originals in this pass; acquire public source copies before decomposing the missing proof inputs."
+    },
+    {
+      "title": "Gonality, Brill–Noether and Li–Yau proof development",
+      "neededBy": [
+        "HyperbolicCurveVolumesAndGonality:HV.6",
+        "HyperbolicCurveVolumesAndGonality:HV.7"
+      ],
+      "detail": "Abramovich’s §§1.1–1.7 and Li–Yau’s conformal-volume definitions and Theorem 1 proof are inspected. Finite-type base-change descent and Brill–Noether existence/sharpness still need primary source reading; the inspected barycenter/Rayleigh proof still needs declaration nodes and a checked supporting-input chain."
+    },
+    {
+      "title": "Congruence spectral-gap supplier has no stage yet",
+      "neededBy": [
+        "HyperbolicCurveVolumesAndGonality:HV.7"
+      ],
+      "detail": "Separate design job #1699 owns the AutomorphicSpectralTheory extension. Until its actual roadmap/stage is written, do not fabricate a prerequisite identifier or re-plan its theorem; add the exact supplier request on continuation."
+    }
+  ],
+  "sourceIssues": [
+    {
+      "kind": "misprint",
+      "locator": "Proof of Proposition 4.1, p.3, in the authors' erratum (B. Bakker and J. Tsimerman, Erratum, 5 pp., https://benjamin-bakker.github.io/P.torsion.erratum.pdf, SHA-256 db8effa1…acc1)",
+      "printed": "\"mult_{CM−∩Δ̄}(T*_m C) ≪ … ≪ vol(T*_m C ∩ B(Δ̄, ε)) ≪ (sinh(ρ_{X(p)}/2)/sinh(ε)) vol(T*_m C)\"",
+      "correction": "The factor is sinh(ε)/sinh(ρ_{X(p)}/2): Proposition 3.1 gives vol(C ∩ B(Δ̄,ε)) ≤ (sinh ε/sinh R) vol(C ∩ B(Δ̄,R)) for 0 < ε < R < ρ/2, and letting R ↑ ρ_{X(p)}/2 gives the small factor.",
+      "reason": "Proposition 3.1 says (1/sinh r)·vol(C ∩ B(Δ̄,r)) increases with r, so the small ball has at most the proportion sinh ε/sinh R of the large one. The printed reciprocal is a large factor (ρ_{X(p)} ~ 2 log p) and would not give the p^{−1} saving the next line states, (p^{−2δ₂} + d₃p^{−1}) Deg(C).",
+      "affects": "nothing",
+      "known": "Previously recorded and independently confirmed in research/blueprint/errata/PAPER-BAKKER-TSIMERMAN-16.json, PAPER-BAKKER-TSIMERMAN-16/E4; not a newly discovered source error.",
+      "searched": [
+        "The programme’s independently reviewed errata file, PAPER-BAKKER-TSIMERMAN-16/E4.",
+        "Published BT PDF and complete author erratum retrieved 2026-10-05; the formulas remain in the versions with hashes recorded in sources."
+      ],
+      "id": "HyperbolicCurveVolumesAndGonality/E1",
+      "source": "erratum",
+      "relatedFinding": "PAPER-BAKKER-TSIMERMAN-16/E4"
+    },
+    {
+      "kind": "misprint",
+      "locator": "Proof of Proposition 23, p.735, in the published version, Annals of Mathematics 184 (2016), 709–744 (publisher PDF, SHA-256 814976ee…f40a)",
+      "printed": "\"dd^c(f∘χ) = −(1/2π) dd^c log(|1 − z w̄|² − |z − w|²) + dd^c log|z − w|² = −(1/2π) dd^c log[(1 − |z|²)(1 − |w|²)] + [Δ_D] = (1/4π) ω_{D×D} + [Δ_D].\"",
+      "correction": "The coefficient in the first two lines is −1: f∘χ = log|z − w|² − log(|1 − z w̄|² − |z − w|²), so dd^c(f∘χ) = −dd^c log[(1 − |z|²)(1 − |w|²)] + [Δ_D] = (1/4π) ω_{D×D} + [Δ_D].",
+      "reason": "With f(s) = log(s/(1 − s)) and χ = |z − w|²/|1 − z w̄|², f∘χ is the stated difference of logarithms with coefficient 1; the final line is consistent with the paper's d^c normalization only with coefficient −1 in front of the first term. Found by the review REV-PAPER-BAKKER-TSIMERMAN-16 (item 117).",
+      "affects": "nothing",
+      "known": "Previously recorded and independently confirmed in research/blueprint/errata/PAPER-BAKKER-TSIMERMAN-16.json, PAPER-BAKKER-TSIMERMAN-16/E10; not a newly discovered source error.",
+      "searched": [
+        "The programme’s independently reviewed errata file, PAPER-BAKKER-TSIMERMAN-16/E10.",
+        "Published BT PDF and complete author erratum retrieved 2026-10-05; the formulas remain in the versions with hashes recorded in sources."
+      ],
+      "id": "HyperbolicCurveVolumesAndGonality/E2",
+      "source": "bt",
+      "relatedFinding": "PAPER-BAKKER-TSIMERMAN-16/E10"
+    }
+  ],
+  "sourceVersions": [
+    {
+      "kind": "published",
+      "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n3-p02-p.pdf",
+      "read": "2026-10-05",
+      "sha256": "814976eeb93367cf0810bb0f9c514709a6474bfb7202ddb2834d33dd6a25f40a"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://benjamin-bakker.github.io/P.torsion.erratum.pdf",
+      "read": "2026-10-05",
+      "sha256": "db8effa1d3ef6a96c843e8ffad085a0ad03cd86a486f5e6cc3956bd14352acc1"
+    }
+  ],
+  "libraryAudit": {
+    "read": "2026-10-05",
+    "file": "data/library-coverage.json",
+    "notes": "Read FuchsianOrbifolds Layers 0–5, AlgebraicCurves RR/canonical/model suppliers, ComplexComparisonPartII C0–C4 and SF.5. New roadmap has no prior audit. Existing half-plane measure, PoincareDisc, Schwarz–Pick, function-field RR and canonical degree are consumed; analytic cycles/currents and gonality are not supplied by these near misses."
+  }
+}
