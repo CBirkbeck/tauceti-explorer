@@ -10317,7 +10317,8 @@
    "avoidAccountOf": "DESIGN-StableReductionPartII",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-StableReductionPartII.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3619"
   },
   {
    "id": "DESIGN-HeightsRationalPointsAndObstructionsPartII",
@@ -31359,8 +31360,9 @@
    ],
    "avoidAccountOf": "BP-ProbabilisticAndMetricNumberTheory",
    "prompt": "research/blueprint/prompts/REV-ProbabilisticAndMetricNumberTheory.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #548"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #548",
+   "finishedAt": "2026-10-05T03:35:02Z"
   },
   {
    "id": "BP-QSeriesPartitionsAndMockModularForms",
