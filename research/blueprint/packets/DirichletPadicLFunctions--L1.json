@@ -6,7 +6,745 @@
     "DirichletPadicLFunctions:L1"
   ],
   "status": "complete",
-  "summary": "Complete L1 planning pass: preserve 121 arithmetic nodes, expose 32 inherited declaration names, and add 13 character/congruence and transport comparisons. Integral parity includes p=2. Five precise PMIA requests remain, with four corresponding Lean comparison signatures explicitly omitted until their owned carriers/maps exist. Nothing is claimed implemented or closed.",
+  "summary": "Independently reviewed L1 planning pass: 146 arithmetic nodes, including 12 reviewer-added declaration-sized API and residue lemmas. Six precise PMIA requests remain; the four completed-algebra/sign/coefficient comparison signatures await their owned carriers and maps. Integral parity includes p=2. No implementation or closed coverage is claimed.",
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-DirichletPadicLFunctions--L1",
+    "date": "2026-10-05",
+    "notes": "Independent session codex-PzhnPB reviewed all 146 nodes, the 143 pinned Mathlib citations, 62 direct foreign node contracts, construction APIs/tests and six planets against public source passages, the accepted RS-14 ownership and AUDIT-24. Corrected 23 existing nodes and added 12 declaration-sized API/residue lemmas; confirmed all eight source findings. Six explicit PMIA requests/gaps remain; coverage is planned, not closed. The final suggested file failed before declaration elaboration because its PMIA import is unavailable in the shared pinned build. Historical full-roadmap scratch receipts were not replayed or treated as fresh compilation evidence.",
+    "checked": [
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/smoothing-denominator",
+        "verdict": "verified",
+        "note": "Integral coefficient definition; the source division by T is interpreted by a shift, with no inverse of T."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/denominator-coefficients",
+        "verdict": "verified",
+        "note": "The native coefficient-of-mk lemma supplies exactly the shifted natural binomial coefficient."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/denominator-constant",
+        "verdict": "verified",
+        "note": "Degree zero gives a; no positivity or domain assumption is needed."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/denominator-factorization",
+        "verdict": "verified",
+        "note": "Coefficient comparison with the native binomial polynomial works also at a=0."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/denominator-unit",
+        "verdict": "verified",
+        "note": "Native series invertibility is equivalent to an invertible constant coefficient over the stated commutative ring."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/denominator-coefficient-map",
+        "verdict": "verified",
+        "note": "Natural coefficients commute with a unital ring map; the target ring uses the same arithmetic series."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/smoothed-series",
+        "verdict": "verified",
+        "note": "The actual inverse-of-unit-series construction gives integral coefficients and the corrected source sign."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/series-cancellation",
+        "verdict": "verified",
+        "note": "The declared constant-unit certificate is exactly the hypothesis of mul_invOfUnit."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/series-cleared-equation",
+        "verdict": "verified",
+        "note": "The numerator shift and denominator factorization give the displayed pole-cleared equation."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/series-uniqueness",
+        "verdict": "verified",
+        "note": "Coefficient shifting cancels T; the unit denominator then cancels without a domain hypothesis."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/series-constant",
+        "verdict": "verified",
+        "note": "The native constant coefficient of the inverse is the inverse of the chosen unit."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/series-coefficient-recurrence",
+        "verdict": "verified",
+        "note": "The antidiagonal product formula separates the degree-zero factor a and gives the stated recurrence."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/series-coefficient-map",
+        "verdict": "verified",
+        "note": "Ring maps preserve the defining cleared relation and the unit certificate; uniqueness gives independence of proofs."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/series-fraction-comparison",
+        "verdict": "verified",
+        "note": "After a ring map into a field, the unit denominator remains nonzero; the explicit nonzero T hypothesis permits the rational comparison."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/smoothed-measure",
+        "verdict": "verified",
+        "note": "The pinned native integral Amice inverse already constructs this particular measure, including p=2."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/measure-amice",
+        "verdict": "verified",
+        "note": "The equivalence inverse law supplies the exact arithmetic series and makes the choice of unit proof immaterial."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/measure-mahler",
+        "verdict": "verified",
+        "note": "The pinned coefficient formula has precisely the native Mahler continuous test and integral coefficients."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/measure-uniqueness",
+        "verdict": "verified",
+        "note": "Pinned Amice injectivity applies to integral coefficients and has the required receiver instances."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/denominator-exp-factorization",
+        "verdict": "verified",
+        "note": "Formal substitution has zero constant term; the cleared binomial identity survives substitution."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/bernoulli-denominator-comparison",
+        "verdict": "verified",
+        "note": "The formal Bernoulli exponential relation is used only over a rational algebra; its scaled version has the stated a factor."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/series-exp-bernoulli",
+        "verdict": "verified",
+        "note": "The two Bernoulli expressions are compared after clearing the exponential denominator, not by inverting it in integral series."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/series-exp-coefficients",
+        "verdict": "verified",
+        "note": "The degree k+1 coefficient gives the k! normalization and the ordinary B₁=−1/2 convention."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/measure-ordinary-moment",
+        "verdict": "verified",
+        "note": "The exact supplier ordinary-moment/formal-derivative statement and rational coefficient comparison give the formula for every k≥0."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/smoothed-value-integral",
+        "verdict": "verified",
+        "note": "The witness is the value of the actual integral measure; neither Euler nor smoothing factors are cancelled."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/smoothing-root-average",
+        "verdict": "verified",
+        "note": "The supplier finite partial-fractions identity applies twice, with the primitive root raised to a coprime exponent and both nonzero denominators retained."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/series-phi-psi-fixed",
+        "verdict": "verified",
+        "note": "The rational identity is compared only after clearing poles through the exact root-average-descent supplier; ψ is not applied to 1/T inside integral series."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/series-psi-fixed",
+        "verdict": "verified",
+        "note": "The exact supplier injectivity of φ converts the preceding φψ equality to ψ invariance."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/measure-psi-fixed",
+        "verdict": "verified",
+        "note": "The supplier intertwining law and native Amice injectivity transport the actual series identity to measures."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/measure-one",
+        "verdict": "verified",
+        "note": "At a=1 the numerator coefficients vanish, so the measure is zero by native Amice injectivity."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/unit-smoothed-measure",
+        "verdict": "verified",
+        "note": "This is the actual ambient projector E applied to the already defined measure; no second restriction carrier is introduced."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/unit-smoothed-support",
+        "verdict": "verified",
+        "note": "The proof uses the exact characteristic-function evaluation and its pointwise idempotence, rather than an unpromoted foreign API lemma."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/unit-smoothed-difference",
+        "verdict": "verified",
+        "note": "The stated E=id−φψ relation requires, and explicitly lists, arithmetic ψ invariance."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/unit-smoothed-euler",
+        "verdict": "verified",
+        "note": "The raw Frobenius pushforward pulls x^k back to p^k x^k, including degree zero."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/unit-smoothed-moment",
+        "verdict": "verified",
+        "note": "The two exact preceding formulas combine after inclusion into Q_p; no complex-to-p-adic map is used."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/unit-smoothed-mass",
+        "verdict": "verified",
+        "note": "At k=0 the Euler factor is zero and the continuous test is one even at x=0."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/unit-smoothed-integral",
+        "verdict": "verified",
+        "note": "The integral witness is the unit-restricted measure value, with all smoothing factors retained."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/smoothed-numerator",
+        "verdict": "verified",
+        "note": "The actual supplier inverse weighting is zero on nonunits and acts on the native continuous dual."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/numerator-support",
+        "verdict": "verified",
+        "note": "Exact inverse-weight support gives Eν_a=ν_a independently of the pole-clearing argument."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/numerator-weight",
+        "verdict": "verified",
+        "note": "The supplier identity WJ=E has the stated integral coefficient domain."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/numerator-unique",
+        "verdict": "verified",
+        "note": "The supplier JW=E identity and support hypothesis recover ν; cancellation at zero would be invalid."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/numerator-moment-shift",
+        "verdict": "verified",
+        "note": "Weight evaluation on x^k gives precisely the degree k+1 shift."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/numerator-moment",
+        "verdict": "verified",
+        "note": "The degree k−1 restricted moment gives the correct Bernoulli and Euler factors; k=1 is retained."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/numerator-integral",
+        "verdict": "verified",
+        "note": "An actual integral numerator value supplies the witness; unsmoothed integrality is not inferred."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/numerator-amice",
+        "verdict": "verified",
+        "note": "The exact inverse-Mahler intertwining theorem identifies the existing arithmetic numerator, without rebuilding that operator."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/measure-smoothing-cocycle",
+        "verdict": "verified",
+        "note": "Ordinary moments have the essential outer scalar a; factorial cancellation uses a nonzero scalar in the native integral domain and all moments including degree zero."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/measure-cross-smoothing",
+        "verdict": "verified",
+        "note": "Swapping the natural parameters in the raw cocycle gives the two scalar-weighted dilations with the correct orientation."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/measure-reflection",
+        "verdict": "verified",
+        "note": "All moments determine the zero-atom correction (a−1)δ_0; division by2 is not used."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/numerator-smoothing-cocycle",
+        "verdict": "verified",
+        "note": "The exact inverse-weight dilation law cancels the outer scalar a, leaving the scalar-free numerator cocycle."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/numerator-cross-smoothing",
+        "verdict": "verified",
+        "note": "Commuting the two natural smoothing parameters gives the cross relation before localization."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/numerator-even",
+        "verdict": "verified",
+        "note": "Inverse weighting kills the reflection atom through the exact evaluation law and the native zero-extended inverse at0."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/smoothed-series-euler-values",
+        "verdict": "verified",
+        "note": "The exact iterated formal Euler derivative/exponential comparison gives the same rational constant as the coefficient theorem."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/smoothed-measure-formal-values",
+        "verdict": "verified",
+        "note": "The moment formula and the formal derivative constant use separate rational casts; no complex embedding of an arbitrary p-adic parameter occurs."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/smoothed-extension-amice",
+        "verdict": "verified",
+        "note": "The exact coefficient-extension/Amice supplier matches the native series coefficient map and preserves the receiver hypotheses."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/smoothed-extension-unique",
+        "verdict": "verified",
+        "note": "Native Amice injectivity requires complete ultrametric coefficients and bounded scalar multiplication, which are explicitly assumed."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/smoothed-extension-integral-descent",
+        "verdict": "verified",
+        "note": "Descent is restricted to Q_p and to the explicitly integral arithmetic series; uniqueness uses the actual inclusion, not arbitrary field descent."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/smoothed-extension-moments",
+        "verdict": "verified",
+        "note": "The supplier test-function extension law converts the integral polynomial test to its actual Q_p-valued extension."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/unit-smoothed-extension-moments",
+        "verdict": "verified",
+        "note": "The coefficient-extension pushforward law respects the actual unit projector and the stated Euler factor."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/smoothed-numerator-extension-moments",
+        "verdict": "verified",
+        "note": "The extension is the actual ambient measure, with degree k≥1 and all divisions interpreted in Q_p."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/intrinsic-numerator",
+        "verdict": "verified",
+        "note": "The existing actual restriction linear map is applied to the supported numerator; the native multiplicative unit carrier is retained."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/intrinsic-numerator-inclusion",
+        "verdict": "verified",
+        "note": "The exact supplier jr=E identity and the separate support lemma give equality on all ambient tests."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/intrinsic-numerator-moment",
+        "verdict": "verified",
+        "note": "Pullback along the unit inclusion identifies the polynomial test, followed by the actual ambient numerator formula."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/intrinsic-numerator-dirac",
+        "verdict": "verified",
+        "note": "The multiplicative unit convolution evaluation has the correct ordered product; inclusion is not treated as an additive-convolution algebra map."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/intrinsic-numerator-cocycle",
+        "verdict": "verified",
+        "note": "The supplier retraction makes unit inclusion injective, transporting the ambient scalar-free cocycle."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/intrinsic-numerator-cross",
+        "verdict": "verified",
+        "note": "Distributivity and inclusion injectivity transport the existing cross identity; no regular denominator is cancelled."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/intrinsic-numerator-even",
+        "verdict": "verified",
+        "note": "The ambient reflection and exact Dirac adapter prove integral parity at p=2 without an averaging idempotent."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/intrinsic-numerator-extension-inclusion",
+        "verdict": "verified",
+        "note": "The exact coefficient-extension/inclusion square supplies the comparison on the actual native carriers."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/intrinsic-numerator-extension-moment",
+        "verdict": "verified",
+        "note": "The actual unit test-extension theorem has the correct algebra map and bounded receiver assumptions."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/intrinsic-numerator-norm",
+        "verdict": "corrected",
+        "note": "The integral-to-field extension is contractive on continuous tests, so the arithmetic integral numerator has operator norm at most1. Correction: Replaced a transcribed mathematical excerpt with the literal source words “Kummer congruences”."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/finite-smoothed-moments",
+        "verdict": "corrected",
+        "note": "Native linearity and the exact extended numerator moments give the finite sum, for positive degrees only. Correction: Replaced a transcribed mathematical excerpt with the literal source words “Kummer congruences”."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/generalized-smoothed-kummer",
+        "verdict": "corrected",
+        "note": "The pointwise bound yields a continuous-map supremum norm bound; the contractive integral numerator gives the stated result. Correction: Replaced a transcribed mathematical excerpt with the literal source words “Kummer congruences”."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/weight-period-smoothed-kummer",
+        "verdict": "corrected",
+        "note": "Native reduction, Euler's totient identity, exponent congruence and the kernel/norm-ball equality prove the precise p^(−r) bound, also at p=2. Correction: Replaced a transcribed mathematical excerpt with the literal source words “Kummer congruences”."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/unit-denominator-kummer",
+        "verdict": "corrected",
+        "note": "Removing smoothing factors uses units of norm1 and the weight-period estimate; the stronger unqualified congruence is not claimed. Correction: Replaced a transcribed mathematical excerpt with the literal source words “Kummer congruences”."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/padic-smoothing-series",
+        "verdict": "verified",
+        "note": "Native binomial-ring coefficients and the actual inverse series construct the family at every unit; negative parameters are formal and p-adic only."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/padic-smoothing-series-natural",
+        "verdict": "verified",
+        "note": "Native choose_natCast and the defining inverse series identify the original natural arithmetic series."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/padic-smoothing-coefficients-continuous",
+        "verdict": "verified",
+        "note": "The coefficient recurrence for invOfUnit and induction give coefficientwise continuity in the scoped product topology."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/padic-smoothed-measure",
+        "verdict": "verified",
+        "note": "The native integral Amice inverse gives the actual all-unit measure; boundary APIs use the real Dirac measure."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/padic-smoothed-measure-natural",
+        "verdict": "verified",
+        "note": "Native Amice injectivity identifies the all-unit and natural constructions with the same normalization."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/padic-smoothed-measure-weak-continuity",
+        "verdict": "corrected",
+        "note": "The supplied homeomorphism has the exact scoped coefficient topology and native weak topology, with integral bounded coefficients. Correction: Promoted the fixed-test continuity API."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/padic-smoothed-ordinary-moments",
+        "verdict": "corrected",
+        "note": "Natural unit values are dense by the native open units map; both scalar functions are continuous and the original moments extend to all units. Correction: Named the consumed promoted API lemmas: padic-smoothed-measure-fixed-test-continuity."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/padic-measure-psi-fixed",
+        "verdict": "corrected",
+        "note": "For each fixed transformed test, dense natural-unit compatibility extends ψ invariance; no unproved operator-norm continuity is assumed. Correction: Split the restriction consequence and named the fixed-test continuity prerequisite."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/padic-smoothed-numerator",
+        "verdict": "corrected",
+        "note": "The actual inverse-weight map defines ν_u; its reusable properties now have named prerequisites. Correction: Promoted support, weight, negative boundary and fixed-test continuity; removed use of an unlisted inverse-weight Dirac law."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/padic-numerator-natural",
+        "verdict": "verified",
+        "note": "The exact all-unit/natural measure comparison survives the same inverse-weight linear map."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/padic-numerator-moments",
+        "verdict": "corrected",
+        "note": "The explicit weight and restriction-difference lemmas give the Euler factor and degree shift, including weight one. Correction: Named the consumed promoted API lemmas: padic-numerator-weight, padic-unit-restriction-difference."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/padic-intrinsic-numerator",
+        "verdict": "verified",
+        "note": "The actual restriction map constructs a measure on U; inclusion and moments remain separate theorems."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/padic-intrinsic-inclusion",
+        "verdict": "corrected",
+        "note": "The promoted support fact and supplier projector identity identify actual measures rather than merely their moments. Correction: Named the consumed promoted API lemmas: padic-numerator-support."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/padic-intrinsic-natural",
+        "verdict": "verified",
+        "note": "The two constructors use the same restriction map and the established ambient natural comparison."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/padic-intrinsic-moments",
+        "verdict": "verified",
+        "note": "The exact inclusion comparison evaluates the native unit monomial test and transfers the all-unit numerator formula."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/padic-intrinsic-continuity",
+        "verdict": "corrected",
+        "note": "Restriction transforms each fixed unit test to a fixed ambient test; the promoted ambient continuity then gives weak continuity. Correction: Named the consumed promoted API lemmas: padic-numerator-fixed-test-continuity."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/padic-measure-cocycle",
+        "verdict": "verified",
+        "note": "Ordinary moments give the outer scalar u; native Mahler extensionality and nonzero factorial cancellation determine the integral measure."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/padic-measure-reflection",
+        "verdict": "corrected",
+        "note": "The explicit negative-boundary measure and map_dirac give the essential zero-atom correction. Correction: Named the consumed promoted API lemmas: padic-smoothed-measure-negative."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/padic-numerator-cocycle",
+        "verdict": "verified",
+        "note": "The exact inverse-weight/dilation theorem cancels the scalar u on the native integral module."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/padic-numerator-even",
+        "verdict": "corrected",
+        "note": "The explicit ν_(−1)=0 lemma gives integral evenness through the two cocycle specializations. Correction: Named the consumed promoted API lemmas: padic-numerator-negative."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/padic-intrinsic-dirac",
+        "verdict": "verified",
+        "note": "Exact convolution evaluation and inclusion yield the ordered multiplicative Dirac action on the ambient numerator."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/padic-intrinsic-cocycle",
+        "verdict": "corrected",
+        "note": "The actual restriction retraction transports the ambient cocycle without relying on unlisted boundary consequences. Correction: Removed subsidiary boundary consequences that consumed unlisted API facts."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/padic-intrinsic-cross",
+        "verdict": "verified",
+        "note": "Commuting the native unit parameters and using the Dirac identity gives the cross relation integrally."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/padic-intrinsic-even",
+        "verdict": "corrected",
+        "note": "The revised inclusion/Dirac/ambient-evenness proof avoids assuming the later λ_(−1)=0 theorem. Correction: Replaced the unlisted λ_(−1) argument with ambient transport, removing a potential cycle with the later boundary lemma."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/arithmetic-fraction-clearing",
+        "verdict": "verified",
+        "note": "The actual θ_(p+1) is regular by the exact supplier; the integral cross relation and localization denominator law clear every g."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/arithmetic-pseudomeasure",
+        "verdict": "verified",
+        "note": "All-unit clearing proves membership in the supplier submodule. FractionRing M is not asserted to be a field or a second arithmetic carrier."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/arithmetic-pseudomeasure-clearing",
+        "verdict": "verified",
+        "note": "The defining fraction and the exact prior clearing theorem give the equality for every unit, including1 and−1."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/arithmetic-pseudomeasure-numerator",
+        "verdict": "verified",
+        "note": "The supplier cleared-numerator specification and native localization injectivity identify the integral numerator."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/arithmetic-pseudomeasure-regular-parameter",
+        "verdict": "verified",
+        "note": "Only parameters explicitly certified regular can supply a fraction denominator; localization cross multiplication gives independence."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/arithmetic-pseudomeasure-unique",
+        "verdict": "verified",
+        "note": "The regular p+1 difference and the cleared-numerator specification determine the total-quotient element and its subtype value."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/arithmetic-pseudomeasure-even",
+        "verdict": "verified",
+        "note": "Integral numerator evenness transports to the actual fraction and submodule; p=2 does not require inverting2."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/arithmetic-positive-bernoulli",
+        "verdict": "corrected",
+        "note": "The exact cleared-moment supplier and nonzero (p+1)^k−1 yield the minus sign when cancelling the smoothing factor in Q_p. Correction: Used the exact existing cleared-moment theorem instead of an unpromoted ratio API."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/arithmetic-euler-zeta-comparison",
+        "verdict": "verified",
+        "note": "The pinned zeta/Bernoulli conventions agree for k>1, and the k=1 discrepancy is killed by the zero Euler factor."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/arithmetic-positive-interpolation",
+        "verdict": "verified",
+        "note": "Injectivity of the rational-to-complex cast fixes the rational representative; the p-adic equality uses the same rational expression."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/arithmetic-interpolation-unique",
+        "verdict": "corrected",
+        "note": "The defining admissible evaluation is linear; positive-moment separation applies to the difference in the actual pseudomeasure module. Correction: Made native linearity of the defining admissible evaluation explicit; no unpromoted moment-scalar theorem is assumed."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/arithmetic-odd-moments",
+        "verdict": "verified",
+        "note": "For k=1 use the Euler factor; for larger odd k use the Bernoulli vanishing theorem with its explicit n>1 condition."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/arithmetic-euler-value-norm",
+        "verdict": "verified",
+        "note": "The pinned von Staudt–Clausen valuation is exactly −1 under k>0 and p−1|2k; the Euler factor is a p-adic unit."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/arithmetic-positive-moment-norm",
+        "verdict": "verified",
+        "note": "The arithmetic positive moment equals the rational value; integer norm≤1 gives the additional lower bound p."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/arithmetic-not-integral",
+        "verdict": "corrected",
+        "note": "The exact integral-evaluation theorem forces norm≤1 for an integral measure, contradicting the positive-moment lower bound. Correction: Named the existing integral-evaluation theorem rather than consuming its unpromoted positive-moment specialization."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/arithmetic-growing-moments",
+        "verdict": "verified",
+        "note": "The degrees2(p−1)p^r satisfy the valuation hypothesis and their denominator norm gives growth at least p^(r+1), including p=2."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/arithmetic-unbounded-moments",
+        "verdict": "verified",
+        "note": "Native unbounded real powers and p>1 turn the explicit growing sequence into arbitrarily large norms."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/arithmetic-no-field-measure",
+        "verdict": "verified",
+        "note": "Every continuous-dual Q_p measure has a finite operator norm and unit monomial tests have norm≤1, contradicting unbounded moments."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/smoothing-geometric-denominator",
+        "verdict": "verified",
+        "note": "The finite geometric identity and injective coefficient shift yield the same denominator, also at a=0."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/smoothing-geometric-cancellation",
+        "verdict": "verified",
+        "note": "The double finite sum represents the shifted numerator; the existing integral inverse gives the cleared relation."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/padic-intrinsic-identity",
+        "verdict": "verified",
+        "note": "The cross identity at1 and the regular p+1 difference force λ_1=0 without using an unpromoted boundary API."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/padic-intrinsic-negative-identity",
+        "verdict": "verified",
+        "note": "Intrinsic evenness makes θ_(-1)λ_a=0; the cross identity and regular p+1 factor force λ_(-1)=0 acyclically."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/smoothed-translation-difference",
+        "verdict": "corrected",
+        "note": "The exact supplier arithmetic translation-sum theorem uses the preceding geometric cancellation and the actual extended smoothing measure. Correction: Removed unrelated inherited L2 inverse-moment and character-quotient hypotheses."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/smoothed-residue-recurrence",
+        "verdict": "corrected",
+        "note": "Native finite projection of the translation difference gives the actual residue recurrence with all wrap multiplicities counted. Correction: Removed unrelated inherited L2 inverse-moment and character-quotient hypotheses."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/smoothed-residue-coefficients",
+        "verdict": "corrected",
+        "note": "The explicit candidate recurrence and two mass lemmas reduce this to the newly recorded generic finite-cycle uniqueness gap; characteristic zero is retained. Correction: Removed unrelated inherited L2 inverse-moment and character-quotient hypotheses. Split four carry/recurrence/mass lemmas and recorded the generic cyclic uniqueness argument with its owner as an exact request/gap. Removed inherited claims of independently unverified scratch proofs."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/arithmetic-character-clearing",
+        "verdict": "verified",
+        "note": "The exact supplier arbitrary-character numerator identity applies even when κ(g)=1, after the arithmetic numerator comparison."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/arithmetic-character-ratio",
+        "verdict": "verified",
+        "note": "A nonzero scalar denominator is explicitly required; the supplier evaluator is on the pseudomeasure module, not the entire total quotient ring."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/arithmetic-character-positive",
+        "verdict": "verified",
+        "note": "The exact supplier character/power-moment comparison uses the same integral character and positive weight as the arithmetic Bernoulli formula."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/arithmetic-character-odd",
+        "verdict": "verified",
+        "note": "The numerator at−1 vanishes and κ(−1)−1=−2 is nonzero in Q_p, including the dyadic case."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/arithmetic-character-combination",
+        "verdict": "verified",
+        "note": "The common nonzero smoothing denominators and actual integral-unit coefficient extension give the finite test-function identity."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/arithmetic-character-kummer",
+        "verdict": "verified",
+        "note": "The previously proved arithmetic numerator norm bound applies to the explicit denominator-divided finite test function."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/arithmetic-character-difference",
+        "verdict": "verified",
+        "note": "The ultrametric bound on the common test numerator uses integral character values of norm≤1 and loses exactly the product of smoothing-denominator norms."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/arithmetic-character-unit-denominators",
+        "verdict": "verified",
+        "note": "Integral unit denominators have norm1, so the precise previous loss disappears. The hypotheses are intentionally impossible for dyadic integral characters."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/arithmetic-fixed-character-weight-period",
+        "verdict": "verified",
+        "note": "The common integral character factor has norm≤1; the native finite unit exponent period gives the bound on the fixed component under both unit-denominator hypotheses."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/arithmetic-completed-transport",
+        "verdict": "verified",
+        "note": "The comparison is conditional on the exact owned completed-algebra and localization maps, explicitly requested; arithmetic clearing is transported rather than generic objects redefined."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/arithmetic-plus-corner",
+        "verdict": "verified",
+        "note": "The argument uses p odd and the corner identity e⁺, with the arithmetic evenness theorem; no dyadic product decomposition is inferred."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/arithmetic-sign-quotient",
+        "verdict": "verified",
+        "note": "The normalized plus-corner map and regular-denominator projection are explicitly requested. A generic quotient pushforward is not assumed to extend to total quotients."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/arithmetic-coefficient-naturality",
+        "verdict": "corrected",
+        "note": "The bounded finite-extension measure and localization/evaluation maps are precisely requested; the base Q_p notation is disambiguated from the finite extension K. Correction: Disambiguated the base field K₀=ℚ_p from the finite extension K."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/padic-smoothing-series-negative",
+        "verdict": "added",
+        "note": "The equality is in the native integral series ring, including p=2; it does not invoke a complex smoothing kernel at a negative parameter."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/padic-smoothed-measure-negative",
+        "verdict": "added",
+        "note": "The actual measure is −δ_0, not zero. Its positive ordinary moments vanish but its total mass is−1."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/padic-smoothed-measure-fixed-test-continuity",
+        "verdict": "added",
+        "note": "The result is continuity for every fixed integral test; no operator-norm continuity is asserted."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/padic-unit-restriction-difference",
+        "verdict": "added",
+        "note": "The proof explicitly uses psi invariance and the exact supplier projector identities."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/padic-numerator-support",
+        "verdict": "added",
+        "note": "The support condition is the exact projector equality Eν_u=ν_u on the ambient measure carrier."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/padic-numerator-weight",
+        "verdict": "added",
+        "note": "Weighting is multiplication by x on continuous tests. The right side is Eμ_u rather than the whole μ_u."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/padic-numerator-negative",
+        "verdict": "added",
+        "note": "Inverse weighting removes the nonzero boundary atom because native inv(0)=0, also at p=2."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/padic-numerator-fixed-test-continuity",
+        "verdict": "added",
+        "note": "The transformed test is fixed before invoking continuity; no topology on pseudomeasures is introduced."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/smoothed-residue-carry",
+        "verdict": "added",
+        "note": "Both equalities are in the integers and cover q=1 and a≥q; the number of wraps is not truncated to a Boolean."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/smoothed-residue-candidate-recurrence",
+        "verdict": "added",
+        "note": "Cancellation by q and the half-integer expression occur in the characteristic-zero field K only."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/smoothed-residue-candidate-mass",
+        "verdict": "added",
+        "note": "The proof uses the actual native residue-unit permutation and counts q representatives, including q=1."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L1/smoothed-residue-mass",
+        "verdict": "added",
+        "note": "The statement concerns the actual finiteProjection of the actual extended measure and divides by2 only in K."
+      }
+    ]
+  },
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -983,6 +1721,34 @@
         "module": "Mathlib/Algebra/BigOperators/Fin.lean",
         "provides": "Identify the native range product with the product overFin n.",
         "checked": "Full statement, hypotheses and proof read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on1October2026. Includes modular cancellation via gcd, finite image-cardinality surjectivity, the native product equivalence, interval quotient choice and its unique representative, and the explicit type-tag conversion. Existing Gamma/cyclic-point, coercion and finite-product endpoint proofs were reread; all native consumer proofs compile."
+      },
+      {
+        "ref": "mathlib:ZMod.finEquiv",
+        "kind": "def",
+        "module": "Mathlib/Data/ZMod/Basic.lean",
+        "provides": "An existing ring equivalence Fin n≃+*ZMod n for n≠0; permits reindexing canonical representatives.",
+        "checked": "Independent reviewer read statement and ambient NeZero hypotheses at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, lines 45–53."
+      },
+      {
+        "ref": "mathlib:ZMod.val_lt",
+        "kind": "theorem",
+        "module": "Mathlib/Data/ZMod/Basic.lean",
+        "provides": "For NeZero n and a:ZMod n, a.val<n.",
+        "checked": "Independent reviewer read statement and ambient NeZero hypotheses at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, lines 61–64."
+      },
+      {
+        "ref": "mathlib:ZMod.val_natCast",
+        "kind": "theorem",
+        "module": "Mathlib/Data/ZMod/Basic.lean",
+        "provides": "For all n,a, the canonical representative of the natural cast is a%n.",
+        "checked": "Independent reviewer read statement and ambient NeZero hypotheses at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, lines 89–93."
+      },
+      {
+        "ref": "mathlib:ZMod.natCast_zmod_val",
+        "kind": "theorem",
+        "module": "Mathlib/Data/ZMod/Basic.lean",
+        "provides": "For NeZero n, casting a.val back to ZMod n gives a.",
+        "checked": "Independent reviewer read statement and ambient NeZero hypotheses at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, lines 205–208."
       }
     ]
   },
@@ -994,7 +1760,7 @@
       "edition": "Essential Number Theory 4 (2025), no. 1, 101–216; DOI 10.2140/ent.2025.4.101",
       "url": "https://msp.org/ent/2025/4-1/ent-v4-n1-p03-s.pdf",
       "sha256": "78d0479b4b7e3f03d2f9c9a75a772ebd75b58091a3b4f8a1558869b8283b44a6",
-      "accessed": "2026-09-27",
+      "accessed": "2026-10-05",
       "readSections": [
         "PDF 37–40, printed 136–139: all of §4, including Lemmas 4.2–4.3, Proposition 4.4, Definition 4.5, Proposition 4.6, Lemma 4.7, Proposition 4.8, Definitions 4.9–4.10 and Proposition 4.11 with their proofs; beginning of §5.1 on PDF 40.",
         "PDF 66, printed 165: §10.2, Lemma 10.3 and Propositions 10.4 / Lemma 10.5 with their proofs, to verify the Coleman-series consumer and sign.",
@@ -1017,7 +1783,8 @@
         "27 September2026 character-twist continuation: complete printed139–144/PDF40–45 freshly read; full v2PDF30–32 collated; published142/144 visually inspected. Equation5-1 is decomposed on the actual arithmetic measure. Primitive Gauss/Fourier interpolation and tame construction remain gaps. E11/E12 record proof-display slips; no full-paper extraction is claimed.",
         "27 September2026 tame-kernel continuation: complete published139–147/PDF40–48 read, including downstream tame uses; fullv2PDF33–35 collated and published145 visually inspected. Finite rational arithmetic and bounded K-valued construction are worker deductions; primitive Gauss comparison, integral-ring transport and special values remain gaps. E13 records the Gauss-inverse notation slip. Older Warwick note title/pp23–25 checked as a bounded correction-search result, not the source of record.",
         "28September2026: complete published149–150/PDF50–51 freshly read for Theorem6.1(i), its full proof, Remark6.3 and opening§6.2. The eight log-kernel nodes give a native improper-integral route to the classical formula. No new source finding, whole-paper reading or p-adic logarithmic theorem is asserted.",
-        "28September2026 even refinement: the complete published149–150/PDF50–51 reading from the immediate predecessor is reused for Remark6.3. Native conjugation, argument/slit-plane, even-character and finite-reindexing statements read with their applicable hypotheses. No new source finding or odd/p-adic logarithmic theorem is asserted."
+        "28September2026 even refinement: the complete published149–150/PDF50–51 reading from the immediate predecessor is reused for Remark6.3. Native conjugation, argument/slit-plane, even-character and finite-reindexing statements read with their applicable hypotheses. No new source finding or odd/p-adic logarithmic theorem is asserted.",
+        "Independent review REV-DirichletPadicLFunctions--L1, 5 October 2026: fresh publisher PDF12–13,16–18,20–33,37–42,52–55,75–76 read for the cited L1 passages and their context; PDF76 visually inspected. All 146 node excerpts/locators checked with explicit derived-match qualifications. v2 PDF26–28 and55 collated. The wider earlier reading entries are author provenance, not this reviewer’s full-paper reading."
       ]
     },
     {
@@ -1221,13 +1988,15 @@
       "kind": "published",
       "url": "https://msp.org/ent/2025/4-1/ent-v4-n1-p03-s.pdf",
       "read": "2026-09-27",
-      "sha256": "78d0479b4b7e3f03d2f9c9a75a772ebd75b58091a3b4f8a1558869b8283b44a6"
+      "sha256": "78d0479b4b7e3f03d2f9c9a75a772ebd75b58091a3b4f8a1558869b8283b44a6",
+      "independentReviewRead": "2026-10-05; freshly downloaded identical bytes. Publisher cited L1 passages and source findings checked; arXiv v2 PDF26–28 and55 collated. Other version records retain author provenance."
     },
     {
       "kind": "preprint",
       "url": "https://arxiv.org/pdf/2309.15692v2",
       "read": "2026-09-27",
-      "sha256": "efa1e10168fb092ffb072bbf147f85f07bea72d2a8f4907d6e9e4fd559c039c4"
+      "sha256": "efa1e10168fb092ffb072bbf147f85f07bea72d2a8f4907d6e9e4fd559c039c4",
+      "independentReviewRead": "2026-10-05; freshly downloaded identical bytes. Publisher cited L1 passages and source findings checked; arXiv v2 PDF26–28 and55 collated. Other version records retain author provenance."
     },
     {
       "kind": "published",
@@ -5390,7 +6159,7 @@
       ],
       "proofSteps": [
         "The preceding series continuity uses WithPiTopology. Import the supplied integral-Amice homeomorphism, whose inverse has precisely the required continuity from that topology to the native weak measure topology.",
-        "Compose with the actual inverse Amice map defining μ_u. For each fixed f∈C(Z,Z), the weak topology is induced by the evaluation family, so u↦μ_u(f) is continuous."
+        "Compose with the actual inverse Amice map defining μ_u. Fixed-test continuity is a separate promoted lemma."
       ],
       "prerequisites": [
         "DirichletPadicLFunctions:L1/padic-smoothed-measure",
@@ -5464,7 +6233,8 @@
         "mathlib:Topology.Dense.preimage",
         "mathlib:PadicInt.norm_units",
         "mathlib:PadicInt.norm_natCast_lt_one_iff",
-        "mathlib:Continuous.ext_on"
+        "mathlib:Continuous.ext_on",
+        "DirichletPadicLFunctions:L1/padic-smoothed-measure-fixed-test-continuity"
       ],
       "library": {
         "module": "TauCeti/NumberTheory/DirichletPadic/PadicSmoothing",
@@ -5504,15 +6274,14 @@
       ],
       "title": "Psi invariance at every smoothing unit",
       "kind": "theorem",
-      "statement": "For every u∈U, ψμ_u=μ_u. Consequently Eμ_u=μ_u−φμ_u.",
+      "statement": "For every u∈U, ψμ_u=μ_u.",
       "hypotheses": [
         "p is any prime, including2. Put Z=Z_p and U=Z^× with the existing topologies, and μ_u=padicSmoothedMeasure p u for u∈U. All measures use the native AbstractMeasure carrier. Write E, φ, ψ, J and r for the exact supplier unitRestriction, phiMeasure, psiMeasure, inverseWeight and restrictUnits; j is native pushforward along Units.val. The inverse test ι is the existing PadicInt.inv, continuous by the supplier and zero on every nonunit."
       ],
       "proofSteps": [
         "Fix an arbitrary integral continuous test f. The exact psi evaluation is (ψμ_u)(f)=μ_u(χ_pZ·(f∘divideByP)). The transformed test is fixed as u varies. Both sides of the asserted equality are continuous in u by the preceding fixed-test continuity; this argument requires no unstated operator-norm topology.",
         "Units whose values are natural numbers form a dense subset: pull back native natural-number density in Z along the open unit-value map. A natural number equal to a unit has norm1, hence p does not divide it, by the native unit and natural norm criteria.",
-        "On that dense set, exact natural compatibility reduces the assertion to the existing psi_smoothedMeasure. Apply Continuous.ext_on to each fixed test and then native functional extensionality. The argument includes u=−1 and p=2.",
-        "The supplier gives E=id−P and φψ=P. Substituting ψμ_u=μ_u gives the displayed unit-restriction API."
+        "On that dense set, exact natural compatibility reduces the assertion to the existing psi_smoothedMeasure. Apply Continuous.ext_on to each fixed test and then native functional extensionality. The argument includes u=−1 and p=2."
       ],
       "prerequisites": [
         "DirichletPadicLFunctions:L1/padic-smoothed-measure-weak-continuity",
@@ -5527,7 +6296,8 @@
         "mathlib:PadicInt.norm_units",
         "mathlib:PadicInt.norm_natCast_lt_one_iff",
         "mathlib:Continuous.ext_on",
-        "mathlib:AbstractMeasure.toCLMEquiv"
+        "mathlib:AbstractMeasure.toCLMEquiv",
+        "DirichletPadicLFunctions:L1/padic-smoothed-measure-fixed-test-continuity"
       ],
       "library": {
         "module": "TauCeti/NumberTheory/DirichletPadic/PadicNumerator",
@@ -5578,10 +6348,8 @@
         "p is any prime, including2. Put Z=Z_p and U=Z^× with the existing topologies, and μ_u=padicSmoothedMeasure p u for u∈U. All measures use the native AbstractMeasure carrier. Write E, φ, ψ, J and r for the exact supplier unitRestriction, phiMeasure, psiMeasure, inverseWeight and restrictUnits; j is native pushforward along Units.val. The inverse test ι is the existing PadicInt.inv, continuous by the supplier and zero on every nonunit."
       ],
       "proofSteps": [
-        "Apply the actual supplier inverseWeight to the existing μ_u. Its evaluation is μ_u(ιf), its output satisfies Eν_u=ν_u, and multiplication by x gives Eμ_u. These follow directly from the exact supplier evaluation, support and two weight-composition laws.",
-        "For uniqueness, if Eν=ν and Wν=Eμ_u, apply J. The identity JW=E gives ν=J(Eμ_u)=Jμ_u. This uses support rather than cancellation at x=0.",
-        "At u=1, μ_u=0 and linearity gives ν_u=0. At u=−1, μ_u=−δ_0 and the supplier inverse-weight Dirac law, together with native PadicInt.inv(0)=0, gives ν_u=0.",
-        "For a fixed test f, the transformed test ιf is independent of u. The preceding continuity of μ_u at that fixed test gives continuity of ν_u(f). No new generic weighting operator or topology is defined."
+        "Apply the actual supplier inverseWeight to the existing μ_u. Evaluation, support, weight compatibility, boundary values and continuity are supplied by the exact named supplier statements and the separately promoted arithmetic API lemmas.",
+        "For uniqueness, if Eν=ν and Wν=Eμ_u, apply J. The identity JW=E gives ν=J(Eμ_u)=Jμ_u using inverse-weight-support. This uses support rather than cancellation at x=0."
       ],
       "prerequisites": [
         "DirichletPadicLFunctions:L1/padic-smoothed-measure",
@@ -5760,7 +6528,9 @@
         "PadicMeasuresIwasawaAlgebras:L2/weight-evaluation",
         "PadicMeasuresIwasawaAlgebras:L2/phi-evaluation",
         "mathlib:AbstractMeasure.map_apply",
-        "mathlib:bernoulli_eq_zero_of_odd"
+        "mathlib:bernoulli_eq_zero_of_odd",
+        "DirichletPadicLFunctions:L1/padic-numerator-weight",
+        "DirichletPadicLFunctions:L1/padic-unit-restriction-difference"
       ],
       "library": {
         "module": "TauCeti/NumberTheory/DirichletPadic/PadicNumerator",
@@ -5909,7 +6679,8 @@
         "DirichletPadicLFunctions:L1/padic-intrinsic-numerator",
         "DirichletPadicLFunctions:L1/padic-smoothed-numerator",
         "PadicMeasuresIwasawaAlgebras:L2/intrinsic-unit-extension-projector",
-        "mathlib:AbstractMeasure.map_apply"
+        "mathlib:AbstractMeasure.map_apply",
+        "DirichletPadicLFunctions:L1/padic-numerator-support"
       ],
       "library": {
         "module": "TauCeti/NumberTheory/DirichletPadic/PadicNumerator",
@@ -6059,7 +6830,8 @@
         "DirichletPadicLFunctions:L1/padic-intrinsic-numerator",
         "DirichletPadicLFunctions:L1/padic-smoothed-numerator",
         "PadicMeasuresIwasawaAlgebras:L2/intrinsic-unit-restriction-evaluation",
-        "mathlib:AbstractMeasure.WeakTopology"
+        "mathlib:AbstractMeasure.WeakTopology",
+        "DirichletPadicLFunctions:L1/padic-numerator-fixed-test-continuity"
       ],
       "library": {
         "module": "TauCeti/NumberTheory/DirichletPadic/PadicNumerator",
@@ -6176,7 +6948,8 @@
       "prerequisites": [
         "DirichletPadicLFunctions:L1/padic-measure-cocycle",
         "DirichletPadicLFunctions:L1/padic-smoothed-measure",
-        "mathlib:AbstractMeasure.map_dirac"
+        "mathlib:AbstractMeasure.map_dirac",
+        "DirichletPadicLFunctions:L1/padic-smoothed-measure-negative"
       ],
       "library": {
         "module": "TauCeti/NumberTheory/DirichletPadic/PadicSmoothingRelations",
@@ -6278,7 +7051,8 @@
       "prerequisites": [
         "DirichletPadicLFunctions:L1/padic-numerator-cocycle",
         "DirichletPadicLFunctions:L1/padic-smoothed-numerator",
-        "DirichletPadicLFunctions:L1/padic-numerator-moments"
+        "DirichletPadicLFunctions:L1/padic-numerator-moments",
+        "DirichletPadicLFunctions:L1/padic-numerator-negative"
       ],
       "library": {
         "module": "TauCeti/NumberTheory/DirichletPadic/PadicSmoothingRelations",
@@ -6376,8 +7150,7 @@
       ],
       "proofSteps": [
         "Apply the injectivity of j supplied by the actual restriction retraction rj=id. Native pushforward is Z-linear, so inclusion carries the sum to the sum.",
-        "Use jλ_w=ν_w for the two bare terms and the preceding Dirac-action adapter for the convolution term. The desired identity becomes exactly the ambient scalar-free numerator cocycle.",
-        "At inverse parameters this gives λ_u+δ_u*λ_(u⁻¹)=λ_1=0. At v=−1 it gives λ_(−u)=λ_u because λ_(−1)=0."
+        "Use jλ_w=ν_w for the two bare terms and the preceding Dirac-action adapter for the convolution term. The desired identity becomes exactly the ambient scalar-free numerator cocycle."
       ],
       "prerequisites": [
         "DirichletPadicLFunctions:L1/padic-intrinsic-inclusion",
@@ -6478,15 +7251,15 @@
         "p is any prime, including2. Put Z=Z_p and U=Z^×. For u∈U let μ_u, ν_u and λ_u be the preceding actual padicSmoothedMeasure, padicSmoothedNumerator and padicIntrinsicNumerator. These are on D(Z,Z), D(Z,Z) and D(U,Z), respectively. Let σ_u be native raw pushforward by z↦uz, and j the native pushforward U→Z. On D(U,Z), multiplication is the exact supplier multiplicative convolution and δ_u is native Dirac. No completed-algebra or localization identification is assumed."
       ],
       "proofSteps": [
-        "The intrinsic cocycle at (u,−1) and λ_(−1)=0 gives λ_(−u)=λ_u. At (−1,u), it gives λ_(−u)=δ_(−1)*λ_u.",
-        "Compare the two identities in the existing integral convolution ring. This can equivalently be transported from ambient evenness through the exact Dirac-action/inclusion comparison.",
-        "At p=2 the sign element is retained. This result does not average using (1+δ_(−1))/2 or assert a product decomposition of the integral unit algebra."
+        "Apply injectivity of the actual unit inclusion j, supplied by rj=id. The Dirac adapter gives j(δ_(−1)*λ_u)=σ_(−1)ν_u.",
+        "Ambient evenness changes this toν_u, and the inclusion comparison identifies it with jλ_u. Injectivity concludes. This proof does not assume λ_(−1)=0.",
+        "The proof remains integral at p=2; no averaging idempotent or inverse of2 is used."
       ],
       "prerequisites": [
-        "DirichletPadicLFunctions:L1/padic-intrinsic-cocycle",
-        "DirichletPadicLFunctions:L1/padic-intrinsic-numerator",
+        "DirichletPadicLFunctions:L1/padic-intrinsic-inclusion",
+        "DirichletPadicLFunctions:L1/padic-intrinsic-dirac",
         "DirichletPadicLFunctions:L1/padic-numerator-even",
-        "DirichletPadicLFunctions:L1/padic-intrinsic-dirac"
+        "PadicMeasuresIwasawaAlgebras:L2/intrinsic-unit-restriction-section"
       ],
       "library": {
         "module": "TauCeti/NumberTheory/DirichletPadic/PadicSmoothingRelations",
@@ -6967,7 +7740,7 @@
         "p is any prime, including2. Put Z=Z_p, U=Z^×, M=D(U,Z) with the exact existing commutative multiplicative convolution operations, Q=FractionRing M and PM=Iwasawa.pseudomeasures δ Q for the actual Dirac homomorphism. Let ζ_p be the preceding kubotaLeopoldtPseudomeasure p. For k>0 write M_k for the exact supplier positivePseudoMoment p k hk. B_k is the native ordinary Bernoulli convention B_1=−1/2. The rational expression r_(p,k)=−(1−p^(k−1))B_k/k is notation, not a new scalar carrier or definition. Its inclusions into C and Q_p are separate native rational casts."
       ],
       "proofSteps": [
-        "Choose a∈U with value p+1. The exact supplier positivePseudoMoment_eq expresses M_k(ζ_p) as the kth moment of its numerator at a divided by a^k−1 in Q_p.",
+        "Choose a∈U with value p+1. The exact supplier actual-pseudomoment-numerator theorem gives λ_a(x^k)=(a^k−1)M_k(ζ_p) after applying the actual arithmetic numerator comparison.",
         "Use the actual numerator comparison to replace the supplier numerator by λ_a, then use the existing all-unit intrinsic moment formula: λ_a(x^k)=(1−p^(k−1))(1−a^k)·alg(B_k/k).",
         "The supplier proves a^k≠1 in Z for k>0. The injective Z→Q_p inclusion keeps this denominator nonzero. Cancel (1−a^k)/(a^k−1)=−1 in Q_p. The complete native probe verifies the exact scalar identity. No factor k or a^k−1 is inverted in Z.",
         "At k=1, the Euler factor vanishes. At p=3,k=2 the value is1/6; at p=2,k=4 it is−7/120. These tests detect a sign error when removing the smoothing factor."
@@ -6979,7 +7752,8 @@
         "PadicMeasuresIwasawaAlgebras:L3/one-add-prime-unit",
         "PadicMeasuresIwasawaAlgebras:L3/one-add-prime-positive-powers",
         "mathlib:PadicInt.ext",
-        "mathlib:bernoulli_two"
+        "mathlib:bernoulli_two",
+        "PadicMeasuresIwasawaAlgebras:L3/actual-pseudomoment-numerator"
       ],
       "library": {
         "module": "TauCeti/NumberTheory/DirichletPadic/ArithmeticInterpolation",
@@ -7138,7 +7912,7 @@
         "p is any prime, including2. Put Z=Z_p, U=Z^×, M=D(U,Z) with the exact existing commutative multiplicative convolution operations, Q=FractionRing M and PM=Iwasawa.pseudomeasures δ Q for the actual Dirac homomorphism. Let ζ_p be the preceding kubotaLeopoldtPseudomeasure p. For k>0 write M_k for the exact supplier positivePseudoMoment p k hk. B_k is the native ordinary Bernoulli convention B_1=−1/2. The rational expression r_(p,k)=−(1−p^(k−1))B_k/k is notation, not a new scalar carrier or definition. Its inclusions into C and Q_p are separate native rational casts."
       ],
       "proofSteps": [
-        "The actual positive Bernoulli theorem gives the same values for ζ_p. Apply additivity and the supplier M-scalar law at−1 to see that every positive moment of z−ζ_p is zero. The scalar test value of−1 is−1 since the convolution identity is δ_1.",
+        "The actual positive Bernoulli theorem gives the same values for ζ_p. Unfold positivePseudoMoment as the existing admissible R-linear evaluation for the power character. Native linear-map additivity and negation give every positive moment of z−ζ_p equal to zero.",
         "Invoke the exact supplier pseudomeasure_eq_zero_of_positive_moments on z−ζ_p, then subtract-zero extensionality gives z=ζ_p. No new generic separation theorem is planned.",
         "Existence is the preceding actual ζ_p, so the typed test states unique existence of an object with these values. If the input interpolation is instead supplied by shared rational values as in the preceding node, their unique complex rational representatives first identify them with r_(p,k), reducing to this hypothesis."
       ],
@@ -7146,7 +7920,8 @@
         "DirichletPadicLFunctions:L1/arithmetic-positive-bernoulli",
         "DirichletPadicLFunctions:L1/arithmetic-positive-interpolation",
         "PadicMeasuresIwasawaAlgebras:L3/actual-positive-pseudomoment",
-        "PadicMeasuresIwasawaAlgebras:L3/actual-pseudomoment-separation"
+        "PadicMeasuresIwasawaAlgebras:L3/actual-pseudomoment-separation",
+        "PadicMeasuresIwasawaAlgebras:L3/admissible-evaluation"
       ],
       "library": {
         "module": "TauCeti/NumberTheory/DirichletPadic/ArithmeticInterpolation",
@@ -7352,7 +8127,7 @@
       ],
       "proofSteps": [
         "Suppose such an integral μ exists. Choose k=p−1, positive by primality. Then p−1 divides2k, so the preceding norm bound gives p≤‖M_(2k)(ζ_p)‖, with p>1.",
-        "The supplier positivePseudoMoment_integral identifies this value with the scalar inclusion of μ(u↦u^(2k)). The test is a native Z-valued continuous function and μ has Z-valued output. Native PadicInt.norm_le_one, transported by its norm_def, gives the opposing bound≤1.",
+        "Unfold the positive moment as the admissible evaluation for the power character. The exact supplier evaluation-on-integral-elements identifies the value with the scalar inclusion of μ(u↦u^(2k)). This test is a native Z-valued continuous function and μ has Z-valued output. Native PadicInt.norm_le_one, transported by norm_def, gives the opposing bound≤1.",
         "The contradiction p≤1 proves nonexistence. This uniform choice works for p=2, where k=1 and the witness degree is2. It does not require division by2 or an odd-prime restriction.",
         "For the range test, an equality alg(μ)=ζ_p in Q would, by the exact supplier integral-inclusion-value and subtype extensionality, give the excluded equality in PM. Thus the underlying fraction is also outside Set.range(algebraMap M Q)."
       ],
@@ -7362,7 +8137,8 @@
         "PadicMeasuresIwasawaAlgebras:L3/integral-pseudomeasure",
         "PadicMeasuresIwasawaAlgebras:L3/integral-inclusion-value",
         "mathlib:PadicInt.norm_le_one",
-        "mathlib:PadicInt.norm_def"
+        "mathlib:PadicInt.norm_def",
+        "PadicMeasuresIwasawaAlgebras:L3/evaluation-on-integral-elements"
       ],
       "library": {
         "module": "TauCeti/NumberTheory/DirichletPadic/ArithmeticNonintegrality",
@@ -7770,9 +8546,7 @@
       "hypotheses": [
         "p is any prime, including2. K is a complete ultrametric normed field with Algebra ℤ_p K and IsBoundedSMul ℤ_p K. The natural smoothing parameter a satisfies p∤a. Write μ=extendIntegralCoefficients(smoothedMeasure p a ha), the actual previously constructed measure on Z=ℤ_p. τ_i(x)=x+i is the native continuous translation and δ_i the native Dirac measure.",
         "For m≥0 put q=p^m, red_m=the native PadicInt.toZModPow m bundled using the existing PMIA continuity theorem, and c_m(r)=finiteProjection(red_m)(μ)(r). The residue r lies in native ZMod q, and r.val is its canonical natural representative. This notation introduces no new finite-measure carrier.",
-        "The exact mass formula additionally assumes CharZero K and an explicit native unit u:(ZMod q)ˣ with ↑u=(a:ZMod q). Such u exists by the native unitOfCoprime and p∤a. Put v_r=((↑u⁻¹)r).val. Divisions by2 and q in that formula occur only in K; no integral inversion of p or2 is asserted.",
-        "For inverse moments let n≥0, χ:DirichletCharacter K(p^n), k≥1, and I∈C(Z,K) be the existing native inverse extended by zero, followed by algebraMap. Write M_a=twistedSmoothedMeasure p n χ a ha(I^k). The approximation uses m≥1 and n≤m. The finite sum is S_m=Σ_(r:ZMod q)c_m(r)·primePowerCharacter(p,n,χ)(r.val)·I(r.val)^k.",
-        "The quotient estimate uses d_a=χ(a)·((a:K)⁻¹)^(k−1)−1 and explicitly assumes d_a≠0. Its error is p^(−m)/‖d_a‖. It neither constructs a scalar L-function nor evaluates a pseudomeasure at a character with zero smoothing denominator."
+        "The exact mass formula additionally assumes CharZero K and an explicit native unit u:(ZMod q)ˣ with ↑u=(a:ZMod q). Such u exists by the native unitOfCoprime and p∤a. Put v_r=((↑u⁻¹)r).val. Divisions by2 and q in that formula occur only in K; no integral inversion of p or2 is asserted."
       ],
       "proofSteps": [
         "Start with the existing actual measure equality Σ_(i<a)(τ_i)_*μ=Σ_(i<a)Σ_(j<i)δ_j. Apply native pushforward alongτ_1 and subtract the original equality.",
@@ -7796,8 +8570,8 @@
       "sources": [
         {
           "sourceId": "RJW-published",
-          "locator": "Finite quotient integration and Proposition3.16, published121–123/PDF22–24; Proposition4.4, Definition4.5 and Proposition4.6, published137/PDF38; the actual character twist in equation(5-1) and the smoothed transform, published140–141/PDF41–42; equation(6-2) and§7, published151–158/PDF52–59.",
-          "match": "Worker finite-residue derivation for the actual smoothing measure, followed by quantitative inverse-moment approximation. These specific carry formulas and error estimates are derived here from existing arithmetic translation, finite-projection and boundedness statements; the paper does not state them as separate lemmas. No Bernoulli-distribution carrier, unsmoothed pure-p measure, new projective limit or Coleman primitive is constructed."
+          "locator": "Finite quotient integration and Proposition 3.16, printed 121–123 / PDF22–24; Proposition 4.4, Definition 4.5 and Proposition 4.6, printed 137 / PDF38; equation (4-3) and the arithmetic moment normalization, printed 138 / PDF39.",
+          "match": "Worker arithmetic derivation for the actual smoothing measure: translation, residue carry, recurrence and total-mass identities follow from the existing arithmetic series/measure and exact finite-projection inputs. These are not separately source-numbered lemmas. Generic finite cyclic recurrence uniqueness is requested once from PMIA L1; no inverse-moment approximation or scalar L-function construction is asserted in this L1 packet."
         }
       ],
       "implementationStatus": "unchecked",
@@ -7824,9 +8598,7 @@
       "hypotheses": [
         "p is any prime, including2. K is a complete ultrametric normed field with Algebra ℤ_p K and IsBoundedSMul ℤ_p K. The natural smoothing parameter a satisfies p∤a. Write μ=extendIntegralCoefficients(smoothedMeasure p a ha), the actual previously constructed measure on Z=ℤ_p. τ_i(x)=x+i is the native continuous translation and δ_i the native Dirac measure.",
         "For m≥0 put q=p^m, red_m=the native PadicInt.toZModPow m bundled using the existing PMIA continuity theorem, and c_m(r)=finiteProjection(red_m)(μ)(r). The residue r lies in native ZMod q, and r.val is its canonical natural representative. This notation introduces no new finite-measure carrier.",
-        "The exact mass formula additionally assumes CharZero K and an explicit native unit u:(ZMod q)ˣ with ↑u=(a:ZMod q). Such u exists by the native unitOfCoprime and p∤a. Put v_r=((↑u⁻¹)r).val. Divisions by2 and q in that formula occur only in K; no integral inversion of p or2 is asserted.",
-        "For inverse moments let n≥0, χ:DirichletCharacter K(p^n), k≥1, and I∈C(Z,K) be the existing native inverse extended by zero, followed by algebraMap. Write M_a=twistedSmoothedMeasure p n χ a ha(I^k). The approximation uses m≥1 and n≤m. The finite sum is S_m=Σ_(r:ZMod q)c_m(r)·primePowerCharacter(p,n,χ)(r.val)·I(r.val)^k.",
-        "The quotient estimate uses d_a=χ(a)·((a:K)⁻¹)^(k−1)−1 and explicitly assumes d_a≠0. Its error is p^(−m)/‖d_a‖. It neither constructs a scalar L-function nor evaluates a pseudomeasure at a character with zero smoothing denominator."
+        "The exact mass formula additionally assumes CharZero K and an explicit native unit u:(ZMod q)ˣ with ↑u=(a:ZMod q). Such u exists by the native unitOfCoprime and p∤a. Put v_r=((↑u⁻¹)r).val. Divisions by2 and q in that formula occur only in K; no integral inversion of p or2 is asserted."
       ],
       "proofSteps": [
         "Evaluate the preceding measure translation difference on the actual continuous indicator of the residue fiber r. The existing finite-projection coefficient theorem identifies its integral with c_m(r).",
@@ -7851,8 +8623,8 @@
       "sources": [
         {
           "sourceId": "RJW-published",
-          "locator": "Finite quotient integration and Proposition3.16, published121–123/PDF22–24; Proposition4.4, Definition4.5 and Proposition4.6, published137/PDF38; the actual character twist in equation(5-1) and the smoothed transform, published140–141/PDF41–42; equation(6-2) and§7, published151–158/PDF52–59.",
-          "match": "Worker finite-residue derivation for the actual smoothing measure, followed by quantitative inverse-moment approximation. These specific carry formulas and error estimates are derived here from existing arithmetic translation, finite-projection and boundedness statements; the paper does not state them as separate lemmas. No Bernoulli-distribution carrier, unsmoothed pure-p measure, new projective limit or Coleman primitive is constructed."
+          "locator": "Finite quotient integration and Proposition 3.16, printed 121–123 / PDF22–24; Proposition 4.4, Definition 4.5 and Proposition 4.6, printed 137 / PDF38; equation (4-3) and the arithmetic moment normalization, printed 138 / PDF39.",
+          "match": "Worker arithmetic derivation for the actual smoothing measure: translation, residue carry, recurrence and total-mass identities follow from the existing arithmetic series/measure and exact finite-projection inputs. These are not separately source-numbered lemmas. Generic finite cyclic recurrence uniqueness is requested once from PMIA L1; no inverse-moment approximation or scalar L-function construction is asserted in this L1 packet."
         }
       ],
       "implementationStatus": "unchecked",
@@ -7879,31 +8651,20 @@
       "hypotheses": [
         "p is any prime, including2. K is a complete ultrametric normed field with Algebra ℤ_p K and IsBoundedSMul ℤ_p K. The natural smoothing parameter a satisfies p∤a. Write μ=extendIntegralCoefficients(smoothedMeasure p a ha), the actual previously constructed measure on Z=ℤ_p. τ_i(x)=x+i is the native continuous translation and δ_i the native Dirac measure.",
         "For m≥0 put q=p^m, red_m=the native PadicInt.toZModPow m bundled using the existing PMIA continuity theorem, and c_m(r)=finiteProjection(red_m)(μ)(r). The residue r lies in native ZMod q, and r.val is its canonical natural representative. This notation introduces no new finite-measure carrier.",
-        "The exact mass formula additionally assumes CharZero K and an explicit native unit u:(ZMod q)ˣ with ↑u=(a:ZMod q). Such u exists by the native unitOfCoprime and p∤a. Put v_r=((↑u⁻¹)r).val. Divisions by2 and q in that formula occur only in K; no integral inversion of p or2 is asserted.",
-        "For inverse moments let n≥0, χ:DirichletCharacter K(p^n), k≥1, and I∈C(Z,K) be the existing native inverse extended by zero, followed by algebraMap. Write M_a=twistedSmoothedMeasure p n χ a ha(I^k). The approximation uses m≥1 and n≤m. The finite sum is S_m=Σ_(r:ZMod q)c_m(r)·primePowerCharacter(p,n,χ)(r.val)·I(r.val)^k.",
-        "The quotient estimate uses d_a=χ(a)·((a:K)⁻¹)^(k−1)−1 and explicitly assumes d_a≠0. Its error is p^(−m)/‖d_a‖. It neither constructs a scalar L-function nor evaluates a pseudomeasure at a character with zero smoothing denominator."
+        "The exact mass formula additionally assumes CharZero K and an explicit native unit u:(ZMod q)ˣ with ↑u=(a:ZMod q). Such u exists by the native unitOfCoprime and p∤a. Put v_r=((↑u⁻¹)r).val. Divisions by2 and q in that formula occur only in K; no integral inversion of p or2 is asserted."
       ],
       "proofSteps": [
-        "Let N=N_a(r), r′=(r−a).val and v′=((↑u⁻¹)(r−a)).val. The division algorithm gives the integer equalities r′−r.val=−a+qN and v′−v_r=−1+q·[r=0]. The second equality uses invertibility of u, so v_r=0 exactly when r=0. These formulas allow arbitrarily many wraps of a around q.",
-        "Substitute both equalities into the proposed coefficient difference. It equals N−a[r=0], exactly the preceding recurrence. The complete native carry_recurrence lemma verifies the field calculation, retaining q≠0.",
-        "Multiplication by u⁻¹ permutes ZMod q. Therefore Σ_r v_r=Σ_r r.val=q(q−1)/2, from the native finite sum of natural representatives. The complete inverse_unit_permutation proof checks the actual residue permutation, and candidate_mass checks that the proposed coefficients sum to(a−1)/2.",
-        "The actual coefficients have this same total. Apply coefficient extension and evaluation at1 to the existing reflection identity μ_a+(−id)_*μ_a=(a−1)δ_0; this gives2μ(1)=a−1. Divide by2 in the characteristic-zero field K and apply finite-projection-mass.",
-        "The difference of the proposed and actual coefficients is invariant under addition by a. Since u is a unit modulo q, every residue is a natural multiple of a; induction along those multiples makes the difference constant. Equal total masses give q times that constant equal to0. The complete cyclic_difference_unique proof verifies this finite argument on native ZMod q and cancels q only using characteristic zero.",
-        "At m=0 the formula is(a−1)/2. At a=1 it is0 on every residue. At p=3,a=2,m=1 the masses are1/2,−1/2,1/2; at p=2,a=3,m=2 they are1,−1,0,1. They obey the existing generic finite-projection refinement theorem.",
-        "Equivalently, the coefficient is(a−1)/2−floor(a v_r/q), since a v_r mod q=r.val. In the dyadic case a is odd and(a−1)/2 is an integer. The displayed equality in K remains valid uniformly and does not place1/2 or1/q inℤ_p."
+        "The proposed coefficients satisfy the actual recurrence by the promoted candidate-recurrence lemma and the arithmetic residue-recurrence theorem.",
+        "The promoted candidate-mass and actual-mass lemmas identify their total masses.",
+        "Apply the precisely requested PMIA finite cyclic recurrence uniqueness theorem with the actual residue unit u to obtain c_m(r)=d(r). Its characteristic-zero and positive-modulus hypotheses are retained.",
+        "The formula specializes to(a−1)/2 at m=0 and zero at a=1. It gives the listed ternary and dyadic finite-cell tests; it does not invert p or2 in Z_p."
       ],
       "prerequisites": [
         "DirichletPadicLFunctions:L1/smoothed-residue-recurrence",
-        "DirichletPadicLFunctions:L1/measure-reflection",
-        "PadicMeasuresIwasawaAlgebras:L1/finite-projection-mass",
-        "PadicMeasuresIwasawaAlgebras:L1/finite-projection-refinement",
-        "PadicMeasuresIwasawaAlgebras:L2/integral-coefficient-extension",
-        "PadicMeasuresIwasawaAlgebras:L2/coefficient-extension-pushforward",
-        "mathlib:Nat.Prime.coprime_iff_not_dvd",
-        "mathlib:ZMod.unitOfCoprime",
-        "mathlib:ZMod.card",
-        "mathlib:Fin.prod_univ_eq_prod_range",
-        "mathlib:Finset.sum_range_id_mul_two"
+        "DirichletPadicLFunctions:L1/smoothed-residue-candidate-recurrence",
+        "DirichletPadicLFunctions:L1/smoothed-residue-candidate-mass",
+        "DirichletPadicLFunctions:L1/smoothed-residue-mass",
+        "PadicMeasuresIwasawaAlgebras:L1"
       ],
       "library": {
         "module": "TauCeti/NumberTheory/DirichletPadic/SmoothedResidues",
@@ -7913,8 +8674,8 @@
       "sources": [
         {
           "sourceId": "RJW-published",
-          "locator": "Finite quotient integration and Proposition3.16, published121–123/PDF22–24; Proposition4.4, Definition4.5 and Proposition4.6, published137/PDF38; the actual character twist in equation(5-1) and the smoothed transform, published140–141/PDF41–42; equation(6-2) and§7, published151–158/PDF52–59.",
-          "match": "Worker finite-residue derivation for the actual smoothing measure, followed by quantitative inverse-moment approximation. These specific carry formulas and error estimates are derived here from existing arithmetic translation, finite-projection and boundedness statements; the paper does not state them as separate lemmas. No Bernoulli-distribution carrier, unsmoothed pure-p measure, new projective limit or Coleman primitive is constructed."
+          "locator": "Finite quotient integration and Proposition 3.16, printed 121–123 / PDF22–24; Proposition 4.4, Definition 4.5 and Proposition 4.6, printed 137 / PDF38; equation (4-3) and the arithmetic moment normalization, printed 138 / PDF39.",
+          "match": "Worker arithmetic derivation for the actual smoothing measure: translation, residue carry, recurrence and total-mass identities follow from the existing arithmetic series/measure and exact finite-projection inputs. These are not separately source-numbered lemmas. Generic finite cyclic recurrence uniqueness is requested once from PMIA L1; no inverse-moment approximation or scalar L-function construction is asserted in this L1 packet."
         }
       ],
       "implementationStatus": "unchecked",
@@ -8561,7 +9322,7 @@
       "kind": "comparison",
       "statement": "For finite complete valued extensions K⊂L of ℚ_p with compatible continuous scalar embeddings, the requested bounded-measure localization maps carry ζ_p to ζ_K and then to ζ_L. They carry λ_g to its actual coefficient extensions and preserve every admissible character value; extension to ℚ_p agrees with the existing integral-to-field measure extension.",
       "hypotheses": [
-        "p is any prime, including 2. Z=ℤ_p, K=ℚ_p, U=Zˣ and M=D(U,Z) have their native structures and the supplied commutative multiplicative convolution ring. Q=FractionRing M is a total quotient ring, not assumed to be a field. ζ_p is the existing kubotaLeopoldtPseudomeasure in Iwasawa.pseudomeasures δ Q.",
+        "p is any prime, including 2. Z=ℤ_p, K₀=ℚ_p, U=Zˣ and M=D(U,Z) have their native structures and the supplied commutative multiplicative convolution ring. Q=FractionRing M is a total quotient ring, not assumed to be a field. ζ_p is the existing kubotaLeopoldtPseudomeasure in Iwasawa.pseudomeasures δ Q.",
         "K and L are finite extensions of ℚ_p with their complete ultrametric field structures; embeddings are continuous, injective and compatible with the given ℤ_p-algebra maps. All coefficient operator and localization maps are the exact requested PMIA maps."
       ],
       "proofSteps": [
@@ -8595,6 +9356,489 @@
         "The target is the bounded K-valued measure algebra. It is not the unrestricted inverse limit of K-valued finite measures. General coefficients do not justify evaluating a zero smoothing denominator, and no map ℂ→K is used. Exact finite-extension localization and evaluator signatures await their supplier."
       ],
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DirichletPadicLFunctions:L1/padic-smoothing-series-negative",
+      "parentStageId": "DirichletPadicLFunctions:L1",
+      "realises": [
+        "DirichletPadicLFunctions:L1"
+      ],
+      "title": "F_(−1)=−1.",
+      "kind": "lemma",
+      "statement": "F_(−1)=−1.",
+      "hypotheses": [
+        "p is any prime, including2; Z=Z_p and U=Z^× with their native topologies. All series have integral coefficients in the existing PowerSeries Z. For u∈U, write q_u=mk(n↦Ring.choose(u,n+1)) and b_u=mk(n↦Ring.choose(u,n+2)) as local notation. These are shifted coefficients of the native binomialSeries Z u, not new series carriers or a new exponentiation operation."
+      ],
+      "proofSteps": [
+        "Native choose_neg' and multichoose_one give choose(−1,n)=(−1)^n. Coefficient extensionality gives b_(−1)=−q_(−1).",
+        "Unfold the actual series and use q_(−1)·invOfUnit(q_(−1),−1)=1; rearrange in the integral commutative series ring."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L1/padic-smoothing-series",
+        "mathlib:Ring.choose_neg'",
+        "mathlib:Ring.multichoose_one",
+        "mathlib:PowerSeries.coeff_mk",
+        "mathlib:PowerSeries.mul_invOfUnit"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/PadicSmoothing",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.padicSmoothedSeries_neg_one"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Section4.1, Proposition4.4, Definition4.5 and Proposition4.6, published136–137/PDF37–38, read with4.2–4.3 and Theorem4.1 on complete published136–139/PDF37–40.",
+          "match": "Worker extension from natural parameters prime to p to every u in Z_p^×, using the native binomial-ring structure and coefficientwise continuity. It constructs an actual integral arithmetic series and measure on existing carriers. The source complex smoothing argument still requires a positive natural parameter, as preserved in E3; the negative unit is a valid formal and p-adic parameter."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "addedBy": "REV-DirichletPadicLFunctions--L1",
+      "acceptance": [
+        "The equality is in the native integral series ring, including p=2; it does not invoke a complex smoothing kernel at a negative parameter."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L1/padic-smoothed-measure-negative",
+      "parentStageId": "DirichletPadicLFunctions:L1",
+      "realises": [
+        "DirichletPadicLFunctions:L1"
+      ],
+      "title": "μ_(−1)=−δ_0 as an actual integral measure.",
+      "kind": "lemma",
+      "statement": "μ_(−1)=−δ_0 as an actual integral measure.",
+      "hypotheses": [
+        "p is any prime, including2; Z=Z_p and U=Z^× with their native topologies. All series have integral coefficients in the existing PowerSeries Z. For u∈U, write q_u=mk(n↦Ring.choose(u,n+1)) and b_u=mk(n↦Ring.choose(u,n+2)) as local notation. These are shifted coefficients of the native binomialSeries Z u, not new series carriers or a new exponentiation operation."
+      ],
+      "proofSteps": [
+        "Use the explicit negative-unit series lemma. The Amice coefficients of δ_0 are its evaluations on native Mahler functions: the coefficient at zero is1 and the others vanish by mahler_natCast_eq at0.",
+        "The native linear equivalence therefore sends −δ_0 to−1. Its injectivity and the defining inverse Amice transform identify μ_(−1)=−δ_0."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L1/padic-smoothed-measure",
+        "DirichletPadicLFunctions:L1/padic-smoothing-series-negative",
+        "mathlib:AbstractMeasure.coeff_amiceTransformEquiv",
+        "mathlib:AbstractMeasure.dirac_apply",
+        "mathlib:mahler_natCast_eq",
+        "mathlib:AbstractMeasure.amiceTransformEquiv"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/PadicSmoothing",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.padicSmoothedMeasure_neg_one"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Section4.1, Proposition4.4, Definition4.5 and Proposition4.6, published136–137/PDF37–38, read with4.2–4.3 and Theorem4.1 on complete published136–139/PDF37–40.",
+          "match": "Worker extension from natural parameters prime to p to every u in Z_p^×, using the native binomial-ring structure and coefficientwise continuity. It constructs an actual integral arithmetic series and measure on existing carriers. The source complex smoothing argument still requires a positive natural parameter, as preserved in E3; the negative unit is a valid formal and p-adic parameter."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "addedBy": "REV-DirichletPadicLFunctions--L1",
+      "acceptance": [
+        "The actual measure is −δ_0, not zero. Its positive ordinary moments vanish but its total mass is−1."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L1/padic-smoothed-measure-fixed-test-continuity",
+      "parentStageId": "DirichletPadicLFunctions:L1",
+      "realises": [
+        "DirichletPadicLFunctions:L1"
+      ],
+      "title": "For every fixed continuous integral test f, u↦μ_u(f) is continuous U→Z.",
+      "kind": "lemma",
+      "statement": "For every fixed continuous integral test f, u↦μ_u(f) is continuous U→Z.",
+      "hypotheses": [
+        "p is any prime, including2; Z=Z_p and U=Z^× with their native topologies. All series have integral coefficients in the existing PowerSeries Z. For u∈U, write q_u=mk(n↦Ring.choose(u,n+1)) and b_u=mk(n↦Ring.choose(u,n+2)) as local notation. These are shifted coefficients of the native binomialSeries Z u, not new series carriers or a new exponentiation operation."
+      ],
+      "proofSteps": [
+        "Unfold the native weak topology induced by the family of all test evaluations. Compose the continuous family μ_u with its induced map and the continuous coordinate evaluation at f."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L1/padic-smoothed-measure-weak-continuity",
+        "mathlib:AbstractMeasure.WeakTopology",
+        "mathlib:continuous_induced_dom",
+        "mathlib:continuous_apply"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/PadicSmoothing",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.padicSmoothedMeasure_apply_continuous"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Section4.1, Proposition4.4, Definition4.5 and Proposition4.6, published136–137/PDF37–38, read with4.2–4.3 and Theorem4.1 on complete published136–139/PDF37–40.",
+          "match": "Worker extension from natural parameters prime to p to every u in Z_p^×, using the native binomial-ring structure and coefficientwise continuity. It constructs an actual integral arithmetic series and measure on existing carriers. The source complex smoothing argument still requires a positive natural parameter, as preserved in E3; the negative unit is a valid formal and p-adic parameter."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "addedBy": "REV-DirichletPadicLFunctions--L1",
+      "acceptance": [
+        "The result is continuity for every fixed integral test; no operator-norm continuity is asserted."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L1/padic-unit-restriction-difference",
+      "parentStageId": "DirichletPadicLFunctions:L1",
+      "realises": [
+        "DirichletPadicLFunctions:L1"
+      ],
+      "title": "Eμ_u=μ_u−φμ_u for every smoothing unit.",
+      "kind": "lemma",
+      "statement": "Eμ_u=μ_u−φμ_u for every smoothing unit.",
+      "hypotheses": [
+        "p is any prime, including2. Put Z=Z_p and U=Z^× with the existing topologies, and μ_u=padicSmoothedMeasure p u for u∈U. All measures use the native AbstractMeasure carrier. Write E, φ, ψ, J and r for the exact supplier unitRestriction, phiMeasure, psiMeasure, inverseWeight and restrictUnits; j is native pushforward along Units.val. The inverse test ι is the existing PadicInt.inv, continuous by the supplier and zero on every nonunit."
+      ],
+      "proofSteps": [
+        "The supplier gives E=id−P and φψ=P. Apply both identities to μ_u and substitute the preceding exact psi invariance; native linear-map subtraction gives Eμ_u=μ_u−φμ_u."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L1/padic-measure-psi-fixed",
+        "PadicMeasuresIwasawaAlgebras:L2/unit-restriction",
+        "PadicMeasuresIwasawaAlgebras:L2/phi-psi"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/PadicNumerator",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.unitRestriction_padicSmoothedMeasure"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Lemma4.7 and Proposition4.8, equation4-3, Definitions4.9–4.10 and Proposition4.11 with proof, published137–139/PDF38–40; complete published136–139 freshly read28September2026.",
+          "match": "Worker extension of the arithmetic numerator to every unit of Z_p using the preceding integral smoothing family, the existing psi/inverse-weight operators and the exact intrinsic restriction. Generic operators and topologies remain with PMIA and Mathlib. The k=1 Euler factor is retained as zero; E4 and all predecessor findings remain unchanged. No complex kernel for negative parameters is asserted."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "addedBy": "REV-DirichletPadicLFunctions--L1",
+      "acceptance": [
+        "The proof explicitly uses psi invariance and the exact supplier projector identities."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L1/padic-numerator-support",
+      "parentStageId": "DirichletPadicLFunctions:L1",
+      "realises": [
+        "DirichletPadicLFunctions:L1"
+      ],
+      "title": "Eν_u=ν_u.",
+      "kind": "lemma",
+      "statement": "Eν_u=ν_u.",
+      "hypotheses": [
+        "p is any prime, including2. Put Z=Z_p and U=Z^× with the existing topologies, and μ_u=padicSmoothedMeasure p u for u∈U. All measures use the native AbstractMeasure carrier. Write E, φ, ψ, J and r for the exact supplier unitRestriction, phiMeasure, psiMeasure, inverseWeight and restrictUnits; j is native pushforward along Units.val. The inverse test ι is the existing PadicInt.inv, continuous by the supplier and zero on every nonunit."
+      ],
+      "proofSteps": [
+        "Unfold ν_u=Jμ_u and apply the exact supplier inverse-weight-support theorem E(Jμ)=Jμ."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L1/padic-smoothed-numerator",
+        "PadicMeasuresIwasawaAlgebras:L2/inverse-weight-support"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/PadicNumerator",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.padicSmoothedNumerator_supported"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Lemma4.7 and Proposition4.8, equation4-3, Definitions4.9–4.10 and Proposition4.11 with proof, published137–139/PDF38–40; complete published136–139 freshly read28September2026.",
+          "match": "Worker extension of the arithmetic numerator to every unit of Z_p using the preceding integral smoothing family, the existing psi/inverse-weight operators and the exact intrinsic restriction. Generic operators and topologies remain with PMIA and Mathlib. The k=1 Euler factor is retained as zero; E4 and all predecessor findings remain unchanged. No complex kernel for negative parameters is asserted."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "addedBy": "REV-DirichletPadicLFunctions--L1",
+      "acceptance": [
+        "The support condition is the exact projector equality Eν_u=ν_u on the ambient measure carrier."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L1/padic-numerator-weight",
+      "parentStageId": "DirichletPadicLFunctions:L1",
+      "realises": [
+        "DirichletPadicLFunctions:L1"
+      ],
+      "title": "Wν_u=Eμ_u.",
+      "kind": "lemma",
+      "statement": "Wν_u=Eμ_u.",
+      "hypotheses": [
+        "p is any prime, including2. Put Z=Z_p and U=Z^× with the existing topologies, and μ_u=padicSmoothedMeasure p u for u∈U. All measures use the native AbstractMeasure carrier. Write E, φ, ψ, J and r for the exact supplier unitRestriction, phiMeasure, psiMeasure, inverseWeight and restrictUnits; j is native pushforward along Units.val. The inverse test ι is the existing PadicInt.inv, continuous by the supplier and zero on every nonunit."
+      ],
+      "proofSteps": [
+        "Unfold ν_u=Jμ_u and apply the exact supplier weight-inverse-weight identity WJ=E to μ_u."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L1/padic-smoothed-numerator",
+        "PadicMeasuresIwasawaAlgebras:L2/weight-inverse-weight"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/PadicNumerator",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.weight_padicSmoothedNumerator"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Lemma4.7 and Proposition4.8, equation4-3, Definitions4.9–4.10 and Proposition4.11 with proof, published137–139/PDF38–40; complete published136–139 freshly read28September2026.",
+          "match": "Worker extension of the arithmetic numerator to every unit of Z_p using the preceding integral smoothing family, the existing psi/inverse-weight operators and the exact intrinsic restriction. Generic operators and topologies remain with PMIA and Mathlib. The k=1 Euler factor is retained as zero; E4 and all predecessor findings remain unchanged. No complex kernel for negative parameters is asserted."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "addedBy": "REV-DirichletPadicLFunctions--L1",
+      "acceptance": [
+        "Weighting is multiplication by x on continuous tests. The right side is Eμ_u rather than the whole μ_u."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L1/padic-numerator-negative",
+      "parentStageId": "DirichletPadicLFunctions:L1",
+      "realises": [
+        "DirichletPadicLFunctions:L1"
+      ],
+      "title": "ν_(−1)=0.",
+      "kind": "lemma",
+      "statement": "ν_(−1)=0.",
+      "hypotheses": [
+        "p is any prime, including2. Put Z=Z_p and U=Z^× with the existing topologies, and μ_u=padicSmoothedMeasure p u for u∈U. All measures use the native AbstractMeasure carrier. Write E, φ, ψ, J and r for the exact supplier unitRestriction, phiMeasure, psiMeasure, inverseWeight and restrictUnits; j is native pushforward along Units.val. The inverse test ι is the existing PadicInt.inv, continuous by the supplier and zero on every nonunit."
+      ],
+      "proofSteps": [
+        "Substitute the promoted μ_(−1)=−δ_0 into ν_(−1)=Jμ_(−1). On every continuous test f, inverse-weight-evaluation and native dirac_apply give −inv(0)f(0).",
+        "Unfold the pinned PadicInt.inv at zero: the nonunit branch is zero. Functional extensionality gives the zero measure. No unlisted supplier Dirac API is required."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L1/padic-smoothed-numerator",
+        "DirichletPadicLFunctions:L1/padic-smoothed-measure-negative",
+        "PadicMeasuresIwasawaAlgebras:L2/inverse-weight-evaluation",
+        "mathlib:AbstractMeasure.dirac_apply",
+        "mathlib:PadicInt.inv"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/PadicNumerator",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.padicSmoothedNumerator_neg_one"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Lemma4.7 and Proposition4.8, equation4-3, Definitions4.9–4.10 and Proposition4.11 with proof, published137–139/PDF38–40; complete published136–139 freshly read28September2026.",
+          "match": "Worker extension of the arithmetic numerator to every unit of Z_p using the preceding integral smoothing family, the existing psi/inverse-weight operators and the exact intrinsic restriction. Generic operators and topologies remain with PMIA and Mathlib. The k=1 Euler factor is retained as zero; E4 and all predecessor findings remain unchanged. No complex kernel for negative parameters is asserted."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "addedBy": "REV-DirichletPadicLFunctions--L1",
+      "acceptance": [
+        "Inverse weighting removes the nonzero boundary atom because native inv(0)=0, also at p=2."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L1/padic-numerator-fixed-test-continuity",
+      "parentStageId": "DirichletPadicLFunctions:L1",
+      "realises": [
+        "DirichletPadicLFunctions:L1"
+      ],
+      "title": "For each fixed integral continuous test f, u↦ν_u(f) is continuous.",
+      "kind": "lemma",
+      "statement": "For each fixed integral continuous test f, u↦ν_u(f) is continuous.",
+      "hypotheses": [
+        "p is any prime, including2. Put Z=Z_p and U=Z^× with the existing topologies, and μ_u=padicSmoothedMeasure p u for u∈U. All measures use the native AbstractMeasure carrier. Write E, φ, ψ, J and r for the exact supplier unitRestriction, phiMeasure, psiMeasure, inverseWeight and restrictUnits; j is native pushforward along Units.val. The inverse test ι is the existing PadicInt.inv, continuous by the supplier and zero on every nonunit."
+      ],
+      "proofSteps": [
+        "For fixed f, inverse-weight-evaluation expresses ν_u(f) as μ_u(ιf). The test ιf is a fixed native continuous integral function.",
+        "Apply the promoted fixed-test continuity of the smoothing measure to that function."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L1/padic-smoothed-numerator",
+        "DirichletPadicLFunctions:L1/padic-smoothed-measure-fixed-test-continuity",
+        "PadicMeasuresIwasawaAlgebras:L2/inverse-weight-evaluation"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/PadicNumerator",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.padicSmoothedNumerator_apply_continuous"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Lemma4.7 and Proposition4.8, equation4-3, Definitions4.9–4.10 and Proposition4.11 with proof, published137–139/PDF38–40; complete published136–139 freshly read28September2026.",
+          "match": "Worker extension of the arithmetic numerator to every unit of Z_p using the preceding integral smoothing family, the existing psi/inverse-weight operators and the exact intrinsic restriction. Generic operators and topologies remain with PMIA and Mathlib. The k=1 Euler factor is retained as zero; E4 and all predecessor findings remain unchanged. No complex kernel for negative parameters is asserted."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "addedBy": "REV-DirichletPadicLFunctions--L1",
+      "acceptance": [
+        "The transformed test is fixed before invoking continuity; no topology on pseudomeasures is introduced."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L1/smoothed-residue-carry",
+      "parentStageId": "DirichletPadicLFunctions:L1",
+      "realises": [
+        "DirichletPadicLFunctions:L1"
+      ],
+      "title": "Carry identities for the arithmetic smoothing residues",
+      "kind": "lemma",
+      "statement": "For q=p^m, u∈(ZMod q)^× with value a, r∈ZMod q, v_r=(u⁻¹r).val and N_a(r)=#{i∈[0,a):i≡r mod q}, the integer identities (r−a).val−r.val=−a+qN_a(r) and (u⁻¹(r−a)).val−v_r=−1+q·[r=0] hold.",
+      "hypotheses": [
+        "p is any prime, including2. K is a complete ultrametric normed field with Algebra ℤ_p K and IsBoundedSMul ℤ_p K. The natural smoothing parameter a satisfies p∤a. Write μ=extendIntegralCoefficients(smoothedMeasure p a ha), the actual previously constructed measure on Z=ℤ_p. τ_i(x)=x+i is the native continuous translation and δ_i the native Dirac measure.",
+        "For m≥0 put q=p^m, red_m=the native PadicInt.toZModPow m bundled using the existing PMIA continuity theorem, and c_m(r)=finiteProjection(red_m)(μ)(r). The residue r lies in native ZMod q, and r.val is its canonical natural representative. This notation introduces no new finite-measure carrier.",
+        "The exact mass formula additionally assumes CharZero K and an explicit native unit u:(ZMod q)ˣ with ↑u=(a:ZMod q). Such u exists by the native unitOfCoprime and p∤a. Put v_r=((↑u⁻¹)r).val. Divisions by2 and q in that formula occur only in K; no integral inversion of p or2 is asserted."
+      ],
+      "proofSteps": [
+        "Since 0≤r.val<q, count the integers i=r.val+jq in [0,a) by Euclidean division of a relative to r.val. Substitution into the canonical representative of r−a proves the first identity, including multiple wraps and q=1.",
+        "Since u⁻¹(r−a)=u⁻¹r−1, the canonical representative drops by1 except when v_r=0, when it wraps byq. Multiplication by a unit makes v_r=0 equivalent to r=0."
+      ],
+      "prerequisites": [
+        "mathlib:Nat.Prime.coprime_iff_not_dvd",
+        "mathlib:ZMod.unitOfCoprime",
+        "mathlib:ZMod.card",
+        "mathlib:ZMod.val_lt",
+        "mathlib:ZMod.val_natCast",
+        "mathlib:ZMod.natCast_zmod_val"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/SmoothedResidues",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.smoothedResidue_carry"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Finite quotient integration and Proposition 3.16, printed 121–123 / PDF22–24; Proposition 4.4, Definition 4.5 and Proposition 4.6, printed 137 / PDF38; equation (4-3) and the arithmetic moment normalization, printed 138 / PDF39.",
+          "match": "Worker arithmetic derivation for the actual smoothing measure: translation, residue carry, recurrence and total-mass identities follow from the existing arithmetic series/measure and exact finite-projection inputs. These are not separately source-numbered lemmas. Generic finite cyclic recurrence uniqueness is requested once from PMIA L1; no inverse-moment approximation or scalar L-function construction is asserted in this L1 packet."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "addedBy": "REV-DirichletPadicLFunctions--L1",
+      "acceptance": [
+        "Both equalities are in the integers and cover q=1 and a≥q; the number of wraps is not truncated to a Boolean."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L1/smoothed-residue-candidate-recurrence",
+      "parentStageId": "DirichletPadicLFunctions:L1",
+      "realises": [
+        "DirichletPadicLFunctions:L1"
+      ],
+      "title": "Recurrence of the proposed smoothing coefficients",
+      "kind": "lemma",
+      "statement": "For CharZero K and d(r)=(a−1)/2+(r.val−a v_r)/q, d(r−a)−d(r)=N_a(r)−a·[r=0].",
+      "hypotheses": [
+        "p is any prime, including2. K is a complete ultrametric normed field with Algebra ℤ_p K and IsBoundedSMul ℤ_p K. The natural smoothing parameter a satisfies p∤a. Write μ=extendIntegralCoefficients(smoothedMeasure p a ha), the actual previously constructed measure on Z=ℤ_p. τ_i(x)=x+i is the native continuous translation and δ_i the native Dirac measure.",
+        "For m≥0 put q=p^m, red_m=the native PadicInt.toZModPow m bundled using the existing PMIA continuity theorem, and c_m(r)=finiteProjection(red_m)(μ)(r). The residue r lies in native ZMod q, and r.val is its canonical natural representative. This notation introduces no new finite-measure carrier.",
+        "The exact mass formula additionally assumes CharZero K and an explicit native unit u:(ZMod q)ˣ with ↑u=(a:ZMod q). Such u exists by the native unitOfCoprime and p∤a. Put v_r=((↑u⁻¹)r).val. Divisions by2 and q in that formula occur only in K; no integral inversion of p or2 is asserted."
+      ],
+      "proofSteps": [
+        "Cast the two integer carry identities into K. The characteristic-zero assumption gives q≠0 since p is prime.",
+        "Substitute the carry identities into d(r−a)−d(r). Field algebra cancels q and the constant (a−1)/2, giving the displayed recurrence."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L1/smoothed-residue-carry"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/SmoothedResidues",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.smoothedResidue_candidate_recurrence"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Finite quotient integration and Proposition 3.16, printed 121–123 / PDF22–24; Proposition 4.4, Definition 4.5 and Proposition 4.6, printed 137 / PDF38; equation (4-3) and the arithmetic moment normalization, printed 138 / PDF39.",
+          "match": "Worker arithmetic derivation for the actual smoothing measure: translation, residue carry, recurrence and total-mass identities follow from the existing arithmetic series/measure and exact finite-projection inputs. These are not separately source-numbered lemmas. Generic finite cyclic recurrence uniqueness is requested once from PMIA L1; no inverse-moment approximation or scalar L-function construction is asserted in this L1 packet."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "addedBy": "REV-DirichletPadicLFunctions--L1",
+      "acceptance": [
+        "Cancellation by q and the half-integer expression occur in the characteristic-zero field K only."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L1/smoothed-residue-candidate-mass",
+      "parentStageId": "DirichletPadicLFunctions:L1",
+      "realises": [
+        "DirichletPadicLFunctions:L1"
+      ],
+      "title": "Total mass of the proposed smoothing coefficients",
+      "kind": "lemma",
+      "statement": "For CharZero K and d(r)=(a−1)/2+(r.val−a v_r)/q, Σ_(r∈ZMod q)d(r)=(a−1)/2.",
+      "hypotheses": [
+        "p is any prime, including2. K is a complete ultrametric normed field with Algebra ℤ_p K and IsBoundedSMul ℤ_p K. The natural smoothing parameter a satisfies p∤a. Write μ=extendIntegralCoefficients(smoothedMeasure p a ha), the actual previously constructed measure on Z=ℤ_p. τ_i(x)=x+i is the native continuous translation and δ_i the native Dirac measure.",
+        "For m≥0 put q=p^m, red_m=the native PadicInt.toZModPow m bundled using the existing PMIA continuity theorem, and c_m(r)=finiteProjection(red_m)(μ)(r). The residue r lies in native ZMod q, and r.val is its canonical natural representative. This notation introduces no new finite-measure carrier.",
+        "The exact mass formula additionally assumes CharZero K and an explicit native unit u:(ZMod q)ˣ with ↑u=(a:ZMod q). Such u exists by the native unitOfCoprime and p∤a. Put v_r=((↑u⁻¹)r).val. Divisions by2 and q in that formula occur only in K; no integral inversion of p or2 is asserted."
+      ],
+      "proofSteps": [
+        "The native unit action r↦u⁻¹r is a permutation of ZMod q, so reindexing a finite sum gives Σ_r v_r=Σ_r r.val.",
+        "Canonical representatives are exactly 0,…,q−1. Native finite-sum reindexing and sum_range_id_mul_two give2Σ_r r.val=q(q−1).",
+        "Sum the defining expression for d, use card(ZMod q)=q and the preceding identity, then cancel2 andq in the characteristic-zero field."
+      ],
+      "prerequisites": [
+        "mathlib:ZMod.card",
+        "mathlib:Fin.prod_univ_eq_prod_range",
+        "mathlib:Finset.sum_range_id_mul_two",
+        "mathlib:ZMod.finEquiv",
+        "mathlib:ZMod.val_natCast"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/SmoothedResidues",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.smoothedResidue_candidate_mass"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Finite quotient integration and Proposition 3.16, printed 121–123 / PDF22–24; Proposition 4.4, Definition 4.5 and Proposition 4.6, printed 137 / PDF38; equation (4-3) and the arithmetic moment normalization, printed 138 / PDF39.",
+          "match": "Worker arithmetic derivation for the actual smoothing measure: translation, residue carry, recurrence and total-mass identities follow from the existing arithmetic series/measure and exact finite-projection inputs. These are not separately source-numbered lemmas. Generic finite cyclic recurrence uniqueness is requested once from PMIA L1; no inverse-moment approximation or scalar L-function construction is asserted in this L1 packet."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "addedBy": "REV-DirichletPadicLFunctions--L1",
+      "acceptance": [
+        "The proof uses the actual native residue-unit permutation and counts q representatives, including q=1."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L1/smoothed-residue-mass",
+      "parentStageId": "DirichletPadicLFunctions:L1",
+      "realises": [
+        "DirichletPadicLFunctions:L1"
+      ],
+      "title": "Total mass of the actual smoothing residues",
+      "kind": "lemma",
+      "statement": "For CharZero K, Σ_r c_m(r)=(a−1)/2.",
+      "hypotheses": [
+        "p is any prime, including2. K is a complete ultrametric normed field with Algebra ℤ_p K and IsBoundedSMul ℤ_p K. The natural smoothing parameter a satisfies p∤a. Write μ=extendIntegralCoefficients(smoothedMeasure p a ha), the actual previously constructed measure on Z=ℤ_p. τ_i(x)=x+i is the native continuous translation and δ_i the native Dirac measure.",
+        "For m≥0 put q=p^m, red_m=the native PadicInt.toZModPow m bundled using the existing PMIA continuity theorem, and c_m(r)=finiteProjection(red_m)(μ)(r). The residue r lies in native ZMod q, and r.val is its canonical natural representative. This notation introduces no new finite-measure carrier.",
+        "The exact mass formula additionally assumes CharZero K and an explicit native unit u:(ZMod q)ˣ with ↑u=(a:ZMod q). Such u exists by the native unitOfCoprime and p∤a. Put v_r=((↑u⁻¹)r).val. Divisions by2 and q in that formula occur only in K; no integral inversion of p or2 is asserted."
+      ],
+      "proofSteps": [
+        "Extend the integral reflection identity to K using the exact coefficient-extension/pushforward comparison. Evaluation on the constant function1 gives2μ(1)=a−1, since reflection preserves1.",
+        "Divide by2 in K and apply the supplier finite-projection-mass theorem to the native reduction map."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L1/measure-reflection",
+        "PadicMeasuresIwasawaAlgebras:L1/finite-projection-mass",
+        "PadicMeasuresIwasawaAlgebras:L2/integral-coefficient-extension",
+        "PadicMeasuresIwasawaAlgebras:L2/coefficient-extension-pushforward"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/SmoothedResidues",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.smoothedMeasure_residue_mass"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Finite quotient integration and Proposition 3.16, printed 121–123 / PDF22–24; Proposition 4.4, Definition 4.5 and Proposition 4.6, printed 137 / PDF38; equation (4-3) and the arithmetic moment normalization, printed 138 / PDF39.",
+          "match": "Worker arithmetic derivation for the actual smoothing measure: translation, residue carry, recurrence and total-mass identities follow from the existing arithmetic series/measure and exact finite-projection inputs. These are not separately source-numbered lemmas. Generic finite cyclic recurrence uniqueness is requested once from PMIA L1; no inverse-moment approximation or scalar L-function construction is asserted in this L1 packet."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "addedBy": "REV-DirichletPadicLFunctions--L1",
+      "acceptance": [
+        "The statement concerns the actual finiteProjection of the actual extended measure and divides by2 only in K."
+      ]
     }
   ],
   "requests": [
@@ -8634,6 +9878,13 @@
         "DirichletPadicLFunctions:L1/arithmetic-coefficient-naturality"
       ],
       "need": "For those actual bounded finite-extension coefficient maps, prove preservation of regular elements needed for localization (in particular θ_(p+1)), construct the corresponding native total-quotient and pseudomeasure maps, and the admissible continuous K-valued character evaluator with its numerator ratio and base-change law. Prove nonzero scalar denominators persist under the injective coefficient embedding. The current Q_p-valued integral-character evaluator is reused in its scope; a finite-extension evaluator or entire-total-quotient ring evaluator is not silently inferred."
+    },
+    {
+      "supplier": "PadicMeasuresIwasawaAlgebras:L1",
+      "neededBy": [
+        "DirichletPadicLFunctions:L1/smoothed-residue-coefficients"
+      ],
+      "need": "For q>0, a unit u∈(ZMod q)^×, a characteristic-zero field K and f,g:ZMod q→K, if f(r−u)−f(r)=g(r−u)−g(r) for every r and Σ_r f(r)=Σ_r g(r), prove f=g. The difference is constant because translation by a unit generates the additive cyclic group; cancel the nonzero scalar q using CharZero K. Supply this native finite-function uniqueness lemma once, at PMIA L1, without defining another finite-measure carrier."
     }
   ],
   "coverage": [
@@ -8646,7 +9897,8 @@
         "Normalized odd-prime sign quotient: For p≠2, supply the native closed sign quotient U/{±1}, the actual completed-algebra quotient map, corners A⁺=e⁺A and A⁻=e⁻A with their own identities e⁺,e⁻, the product decomposition, and the normalized isomorphism A⁺≃completedGroupAlgebra p (U/{±1}) sending e⁺[g] to [q(g)]. Derive this on compatible finite quotients before passage to the limit. The unscaled orbit sum maps to twice the quotient basis vector; make that normalization explicit. This generic source Lemma 11.2 interface is owned by PMIA, not duplicated in L1.",
         "Finite-extension bounded measure coefficients: Extend the existing actual integral coefficient-extension maps to compatible finite complete valued extensions K⊂L of Q_p on bounded continuous-dual measures over U and Z_p. Supply identity/composition, integral-test evaluation, convolution/Dirac compatibility, and commuting squares for intrinsic restriction, unit inclusion, psi, Frobenius and inverse weighting on their stated domains. Preserve bounded scalar hypotheses. This is the finite-extension measure carrier, not the unrestricted inverse limit of field-valued finite measures.",
         "Finite-extension admissible pseudomeasure evaluation: For those actual bounded finite-extension coefficient maps, prove preservation of regular elements needed for localization (in particular θ_(p+1)), construct the corresponding native total-quotient and pseudomeasure maps, and the admissible continuous K-valued character evaluator with its numerator ratio and base-change law. Prove nonzero scalar denominators persist under the injective coefficient embedding. The current Q_p-valued integral-character evaluator is reused in its scope; a finite-extension evaluator or entire-total-quotient ring evaluator is not silently inferred.",
-        "Elaborate the exact L1 suggested file against a matching current PMIA artifact; supply its four explicitly omitted comparison signatures when the owned carriers and maps exist. Current compilation is unavailable, not successful."
+        "Elaborate the exact L1 suggested file against a matching current PMIA artifact; supply its four explicitly omitted comparison signatures when the owned carriers and maps exist. Current compilation is unavailable, not successful.",
+        "Finite cyclic recurrence uniqueness: For q>0, a unit u∈(ZMod q)^×, a characteristic-zero field K and f,g:ZMod q→K, if f(r−u)−f(r)=g(r−u)−g(r) for every r and Σ_r f(r)=Σ_r g(r), prove f=g. The difference is constant because translation by a unit generates the additive cyclic group; cancel the nonzero scalar q using CharZero K. Supply this native finite-function uniqueness lemma once, at PMIA L1, without defining another finite-measure carrier."
       ]
     }
   ],
@@ -8687,6 +9939,13 @@
         "DirichletPadicLFunctions:L1/arithmetic-coefficient-naturality"
       ],
       "detail": "For those actual bounded finite-extension coefficient maps, prove preservation of regular elements needed for localization (in particular θ_(p+1)), construct the corresponding native total-quotient and pseudomeasure maps, and the admissible continuous K-valued character evaluator with its numerator ratio and base-change law. Prove nonzero scalar denominators persist under the injective coefficient embedding. The current Q_p-valued integral-character evaluator is reused in its scope; a finite-extension evaluator or entire-total-quotient ring evaluator is not silently inferred."
+    },
+    {
+      "title": "Finite cyclic recurrence uniqueness",
+      "neededBy": [
+        "DirichletPadicLFunctions:L1/smoothed-residue-coefficients"
+      ],
+      "detail": "For q>0, a unit u∈(ZMod q)^×, a characteristic-zero field K and f,g:ZMod q→K, if f(r−u)−f(r)=g(r−u)−g(r) for every r and Σ_r f(r)=Σ_r g(r), prove f=g. The difference is constant because translation by a unit generates the additive cyclic group; cancel the nonzero scalar q using CharZero K. Supply this native finite-function uniqueness lemma once, at PMIA L1, without defining another finite-measure carrier."
     }
   ],
   "sourceIssues": [
@@ -8706,7 +9965,12 @@
         "The journal article page https://msp.org/ent/2025/4-1/p03.xhtml, and Crossref DOI 10.2140/ent.2025.4.101 metadata, checked in this worker session on 26 September 2026; no correction link or update-to/updated-by relation found. The journal XHTML was read through a direct HTTP fetch because the browser text tool rejected that content type.",
         "Authors’ publication pages https://sites.google.com/site/joaquinrj/home and https://chriswilliams1404.wixsite.com/website/publications-preprints, rechecked 26 September 2026; no correction linked for this paper.",
         "Targeted searches for the authors/title plus errata/correction and for Proposition 4.4 and Corollary 2.8, 26 September 2026; no correcting publication located. The campaign/accepted RS-14 already warns about ζ(0) and the k=1 Euler-factor endpoint; these are acknowledged prior roadmap observations, not claims of first discovery. This bounded search does not prove that no correction exists."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in the freshly downloaded publisher PDF38 and v2 PDF27: at a=2 the correct series has constant +1/2, while the printed geometric tail has −1/2.",
+        "by": "REV-DirichletPadicLFunctions--L1"
+      }
     },
     {
       "id": "DirichletPadicLFunctions/E2",
@@ -8724,7 +9988,12 @@
         "The journal article page https://msp.org/ent/2025/4-1/p03.xhtml, and Crossref DOI 10.2140/ent.2025.4.101 metadata, checked in this worker session on 26 September 2026; no correction link or update-to/updated-by relation found. The journal XHTML was read through a direct HTTP fetch because the browser text tool rejected that content type.",
         "Authors’ publication pages https://sites.google.com/site/joaquinrj/home and https://chriswilliams1404.wixsite.com/website/publications-preprints, rechecked 26 September 2026; no correction linked for this paper.",
         "Targeted searches for the authors/title plus errata/correction and for Proposition 4.4 and Corollary 2.8, 26 September 2026; no correcting publication located. The campaign/accepted RS-14 already warns about ζ(0) and the k=1 Euler-factor endpoint; these are acknowledged prior roadmap observations, not claims of first discovery. This bounded search does not prove that no correction exists."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in publisher PDF37 and v2 PDF26. At k=0, f(0)=1 but ζ(0)=−1/2; the corrected shifted derivative gives the stated Bernoulli value.",
+        "by": "REV-DirichletPadicLFunctions--L1"
+      }
     },
     {
       "id": "DirichletPadicLFunctions/E4",
@@ -8742,7 +10011,12 @@
         "The journal article page https://msp.org/ent/2025/4-1/p03.xhtml, and Crossref DOI 10.2140/ent.2025.4.101 metadata, checked in this worker session on 26 September 2026; no correction link or update-to/updated-by relation found. The journal XHTML was read through a direct HTTP fetch because the browser text tool rejected that content type.",
         "Authors’ publication pages https://sites.google.com/site/joaquinrj/home and https://chriswilliams1404.wixsite.com/website/publications-preprints, rechecked 26 September 2026; no correction linked for this paper.",
         "Targeted searches for the authors/title plus errata/correction and for Proposition 4.4 and Corollary 2.8, 26 September 2026; no correcting publication located. The campaign/accepted RS-14 already warns about ζ(0) and the k=1 Euler-factor endpoint; these are acknowledged prior roadmap observations, not claims of first discovery. This bounded search does not prove that no correction exists."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in publisher PDF40 and v2 PDF28: k=1 contradicts the printed equivalence. The zero Euler factor repairs the interpolation endpoint.",
+        "by": "REV-DirichletPadicLFunctions--L1"
+      }
     },
     {
       "id": "DirichletPadicLFunctions/E6",
@@ -8750,7 +10024,7 @@
       "kind": "gap",
       "locator": "Proof of Lemma4.7, printed p.137 / PDF38; arXiv:2309.15692v2 p.27.",
       "printed": "ψ(1/T)=1/T",
-      "correction": "Justify an extension of ψ and its comparison to the bounded operator before acting on 1/T, or clear the poles and apply the generic rational-series root-average comparison only to the integral smoothed F_a. The latter route is specified by the two L2 requests in this packet.",
+      "correction": "Justify an extension of ψ and its comparison to the bounded operator before acting on 1/T, or clear the poles and apply the generic rational-series root-average comparison only to the integral smoothed F_a. The latter route uses the exact PadicMeasuresIwasawaAlgebras:L2/rational-root-average-descent and root-partial-fractions nodes already listed as prerequisites.",
       "reason": "The bounded integral operator acts on ℤ_p[[T]], while 1/T is outside that carrier. Linearity and commutation with dilation cannot be applied to the two pole terms inside the existing domain, even though their smoothed difference is integral. The finite partial-fraction identity is algebraically correct; the missing step is its operator-domain comparison, not a counterexample to Lemma4.7.",
       "affects": "the proof",
       "known": "new",
@@ -8759,7 +10033,12 @@
         "Fresh collation of the full published §4 (PDF37–40) and v2 PDF26–28 on 27 September 2026; both retain the displayed pole calculation. The source digests are recorded in sourceVersions.",
         "arXiv version listing https://arxiv.org/abs/2309.15692 checked on27 September2026: latest revision v2,19 December2024; no later correcting version identified.",
         "Targeted title/authors plus errata/correction and arXiv number plus Lemma4.7 searches on27 September2026 found no correcting publication. The journal article URL https://msp.org/ent/2025/4-1/p03.xhtml returned unsupported/error content through the browser route in this continuation; this failure is not evidence of absence. Earlier author-page/Crossref searches are retained with E1–E5 as their own provenance. The marker new means no identified published correction, not claimed novelty."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as a domain gap in publisher PDF38 and v2 PDF27. The pole 1/T is not an integral power series. The exact PMIA rational-root-average-descent statement permits clearing poles before comparing the bounded operator.",
+        "by": "REV-DirichletPadicLFunctions--L1"
+      }
     },
     {
       "id": "DirichletPadicLFunctions/E10",
@@ -8776,7 +10055,12 @@
         "27 September 2026: freshly read full published printed115–117 / PDF16–18, visually inspected printed117, and collated full arXiv v2PDF11–13, including Remark2.18 on p.12. Both source hashes match sourceVersions.",
         "27 September 2026: https://arxiv.org/abs/2309.15692 read; latest listed revision remains v2,19 December2024. Author article entries at https://sites.google.com/site/joaquinrj/home and https://chriswilliams1404.wixsite.com/website/publications-preprints read, with no correction entry for this paper identified.",
         "27 September 2026: journal landing page https://msp.org/ent/2025/4-1/p03.xhtml failed through the browser route but succeeded through direct HTTP; the full parsed article page was read, with no erratum/corrigendum/correction link identified. Bounded title+errata, identifier+correction and authors+Remark2.18 searches identified no correcting publication. This does not establish absence or priority; no authors were contacted."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in publisher PDF18. At p=3, k=2,l=4 the unsmoothed difference is23/60 of norm3, whereas the smoothed difference15/4 has norm1/3. This refutes the blanket congruence, not interpolation.",
+        "by": "REV-DirichletPadicLFunctions--L1"
+      }
     },
     {
       "id": "DirichletPadicLFunctions/E34",
@@ -8796,7 +10080,12 @@
         "The authors' pages https://sites.google.com/site/joaquinrj/home and https://chriswilliams1404.wixsite.com/website/publications-preprints (29 September 2026): both list the paper with its journal link and no correction.",
         "5 October 2026: fresh publisher PDF76 text and page image, and full arXiv v2 PDF55, confirm the short quotation and corrected context. Fresh title/authors plus errata and identifier plus correction/Lemma11.3 searches found no correcting publication. The arXiv listing still shows v2, 19 December 2024, as latest. This bounded search establishes neither absence nor priority."
       ],
-      "source": "RJW-published"
+      "source": "RJW-published",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed by the freshly inspected publisher PDF76 image and v2 PDF55. The odd moment is that of μ⁻, not μ⁺; δ_1 has odd moment1 and provides a counterexample to the printed equality.",
+        "by": "REV-DirichletPadicLFunctions--L1"
+      }
     },
     {
       "id": "DirichletPadicLFunctions/E35",
@@ -8816,7 +10105,12 @@
         "The authors' pages https://sites.google.com/site/joaquinrj/home and https://chriswilliams1404.wixsite.com/website/publications-preprints (29 September 2026): both list the paper with its journal link and no correction.",
         "5 October 2026: fresh publisher PDF76 text and page image, and full arXiv v2 PDF55, confirm the short quotation and corrected context. Fresh title/authors plus errata and identifier plus correction/Lemma11.3 searches found no correcting publication. The arXiv listing still shows v2, 19 December 2024, as latest. This bounded search establishes neither absence nor priority."
       ],
-      "source": "RJW-published"
+      "source": "RJW-published",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed by publisher PDF76 image and v2 PDF55. ζ(0)≠0, and the measure lemma must be applied to cleared integral numerators. The Euler factor gives the correct weight-one vanishing.",
+        "by": "REV-DirichletPadicLFunctions--L1"
+      }
     },
     {
       "id": "DirichletPadicLFunctions/E36",
@@ -8836,7 +10130,12 @@
         "The authors' pages https://sites.google.com/site/joaquinrj/home and https://chriswilliams1404.wixsite.com/website/publications-preprints (29 September 2026): both list the paper with its journal link and no correction.",
         "5 October 2026: fresh publisher PDF76 text and page image, and full arXiv v2 PDF55, confirm the short quotation and corrected context. Fresh title/authors plus errata and identifier plus correction/Lemma11.3 searches found no correcting publication. The arXiv listing still shows v2, 19 December 2024, as latest. This bounded search establishes neither absence nor priority."
       ],
-      "source": "RJW-published"
+      "source": "RJW-published",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed by publisher PDF76 image and v2 PDF55: the augmentation formula uses g while the printed quantifier uses σ. This is a harmless variable misprint.",
+        "by": "REV-DirichletPadicLFunctions--L1"
+      }
     }
   ],
   "checks": {
