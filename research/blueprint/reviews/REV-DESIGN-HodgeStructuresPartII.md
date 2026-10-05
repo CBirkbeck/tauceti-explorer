@@ -1,5 +1,227 @@
 # Independent review checkpoint: Hodge structures, Part II
 
+Job `REV-DESIGN-HodgeStructuresPartII`, issue #3548. Codex session
+`codex-BjAqvx`, 5 October 2026. This continuation is a **partial review**.
+It adds neither acceptance nor a final `needs_changes` verdict, and the packet
+has no top-level `review` object. Read the current handoff before continuing.
+
+## Current extent
+
+The preceding checkpoint, merged in PR #6156, inspected array indices 0–46.
+This session independently inspected the next **65 nodes**, indices **47–111**,
+from `H.0/determinant-coordinate` through
+`H.0/affine-ordered-iterate-base-change-one-zero-iff`: statements, hypotheses,
+proof routes, prerequisites, API, tests and corresponding suggested signatures.
+The accumulated inspected prefix is **112 of 569 nodes**; **457 remain**.
+Inspection is conditional on the stated inputs and is not a final per-node
+verdict. Later supplier nodes referenced by this prefix are still unfinished
+review work. The predecessor's 47-node inspection is credited to
+`codex-tUuT7s`, not claimed as a fresh review by this session.
+
+There are **107 new pinned declaration-statement receipts**: 106 existing
+entries and the newly cited native `LinearMap.mul'`. Together with the prior
+15 receipts, **122 of 280 baseline entries** have been inspected for this job;
+**158 remain**. Mathlib is pinned to
+`082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti to
+`f790474821cf4256814db967cb154e7af3d0c369`. Reading native declarations does
+not certify the later uninspected consumers that also cite them.
+
+The packet still has 569 nodes, 540 API entries, 491 tests, six planets, five
+requests and 13 gaps. Every node remains `implementationStatus: unchecked`.
+H.0 is partial and H.1–H.8 are not_read; the author's `status: complete`
+continues to mean its budgeted planning pass ended, as permitted by section 0.
+No stage was promoted. The reserved key occurs once under
+`HodgeStructuresPartII:key/higgs-parameter-connections`, with its generality
+and the predecessor's local finite-rank correction preserved.
+
+## Corrections in this continuation
+
+1. **A genuine change-of-chart test.** The affine ordered-iterate construction
+   had a suggested example whose conclusion was the same equation on both
+   sides of an iff. Replaced it with `test_scaled_chart`: over Q, the coefficient
+   unit map is θ, ψ=2θ, f=3 id and u=2 id. The horizontal equation
+   ψf=(f⊗u)θ holds with nonidentity isomorphisms; ψ≠θ and both order-n iterates
+   are nonzero, including the tensor-unit boundary n=0. The packet and actual
+   suggested signature now agree. This discriminates the coefficient change
+   rather than asserting a tautology.
+2. **The characteristic-two counterexample now has its whole signature.**
+   The named suggested theorem only asserted that a nonzero raw two-slot
+   tensor dies in the symmetric quotient. That did not supply the node's
+   integrable Higgs field or its ordered nilpotence assertion. Added concrete
+   native coordinate fixtures for multiplication by x and y on the monomial
+   basis of F₂[x,y]/(x²,y²), and native multiplication after the two symmetric
+   generators. The named node theorem now states commutation of all
+   contractions, the value of the ordered square on 1, its nonvanishing, the
+   vanishing symmetric image, and exact ordered bound 3. The old raw-tensor
+   assertion remains a separately named supporting theorem. Added the direct
+   ordered-square, ordered-iterate and native multiplication prerequisites,
+   and a concrete-fixture proof step. The fixtures are definitions with actual
+   bodies; the theorem is still an admitted plan. No generic carrier or new
+   declaration node was introduced.
+3. **Test metadata.** Corrected nine invalid test-kind values to the section 12
+   vocabulary: `computation`, `degenerate`, `compatibility` or `non-example`.
+   They occur at indices 76, 95, 148, 268 and 305. The statements at the last
+   three indices were read to classify those tests; this does not enlarge the
+   mathematical review beyond index 111. No tests were removed.
+4. **Precise source pagination.** Nine citations in the inspected algebra
+   prefix placed Heuer's Remark 4.2 on p.297. The published remark is on p.298;
+   Definition 4.1 spans pp.297–298. Corrected the locators and recorded the
+   exact published edition read, without replacing the authored general
+   module arguments by the source's rigid-geometric hypotheses.
+5. **Precise native evidence.** The `Fin.append_left_eq_cons` baseline entry
+   now mentions its actual `Nat.add_comm 1 n` cast. The `Matrix.toLin'` entry
+   also records its use by the characteristic-two fixture. Added
+   `LinearMap.mul'` from `Mathlib/Algebra/Algebra/Bilinear.lean`, with the
+   actual ambient assumptions, for the symmetric image map. No baseline
+   citations were removed. The other new receipts record personally read
+   statements and ambient hypotheses, not just declaration-index matches.
+6. **Version-specific source findings.** Recovered the exact published EG20
+   bytes from the Tsinghua archive and confirmed the inherited p.108
+   `integrality`/Ω¹_X notation finding. The previous HTTP 403 boundary remains
+   explicitly historical, with a resolution and fresh version-specific
+   verdict. Added and confirmed
+   `HodgeStructuresPartII/EHeuer25-Remark4-9-coefficient-index`: published
+   Remark 4.9 applies θ_j(e) to input Σ_i e_i⊗ω_i; the output needs θ_j(e_i).
+   The same slip occurs in arXiv v3 and the publisher HTML. The displayed
+   coefficient order ω_i⊗ω_j is retained. This is a missing index, not a
+   false correspondence theorem. A bounded correction search found no
+   matching correction. The predecessor's confirmed, already-corrected
+   historical Stacks finding is preserved with its original attribution.
+7. **Review receipts.** Added selected primary-source reading receipts,
+   an explicit ownership-audit boundary, and
+   `verification.independentReviewCheckpoint`, which enumerates all 65 node
+   ids, the 107 new native receipts, the next node and the full-file compile.
+   No predecessor proof receipt is silently treated as this review's proof.
+
+## Mathematical checks of indices 47–111
+
+The table records the reasoning actually inspected. Global sheaf contracts
+and later affine suppliers remain conditional unless explicitly read below.
+
+| Indices and nodes (all H.0) | Check and practical boundary |
+| --- | --- |
+| 47–54: `determinant-coordinate` through `determinant-gauge-curvature` | Taking traces gives λδ(tr A)+trace commutator for curvature, hence trace κ. The dual sign and tensor rank factors affect A, not λ. Gauge curvature is conjugated, so determinant curvature is invariant. Rank zero gives the unit line and trace zero; arbitrary characteristic needs no division. Global top exterior powers are still requested from E1. |
+| 55–56: `determinant-derivation-rows`, `determinant-row-action` | Derivation of the determinant expands by row replacement and Leibniz. Replacing each row by the corresponding row of A*S sums to tr(A) det(S); off-diagonal replacements vanish by alternation. This works for singular S and in characteristic two. |
+| 57–59: `determinant-gauge-matrix`, `determinant-gauge`, `determinant-alternating-operator` | Read the exact `ColemanPowerSeries:L1/derivation-determinant-unit` supplier: finite indices, commutative algebra and a matrix unit, with no characteristic-zero assumption. Its Jacobi formula gives the scalar derivative correction. The full connection gauge identity uses that correction. Section vectors are columns, so their induced column variation is S*Aᵀ; applying the row identity to the transpose gives the required trace. The supplier remains a planned cross-packet theorem, not a compiled proof loaded here. |
+| 60–64: `affine-contractions` through `symmetric-action-morphism` | Contraction needs Q duality and tensor-unit evaluation, not a basis of E. An action into associative End(E) must use `TensorAlgebra.lift` and the commuting-generator relation; the commutative-target `SymmetricAlgebra.lift` would be insufficient. Conversely the symmetric source forces commutation. Ordered word products act rightmost first and the empty word is the identity. Generator intertwining extends by symmetric-algebra induction. |
+| 65–69: `ordered-coordinate-vanishing` through `truncated-symmetric-action` | Finite local freeness of Q detects all ordered coefficients. The existing Tau Ceti augmentation ideal equals the span of the generators; native `Submodule.span_pow` and `Set.mem_pow` give degree-N word generators without assuming End(E) commutative. Killing the source ideal is equivalent to killing those words and permits the quotient action. At N=0 the ideal is the whole source, so only the zero module admits that quotient action. Global tensor-power detection and the same uniform exponent remain sheaf obligations. |
+| 70: `symmetric-projection-counterexample` | On E=F₂[x,y]/(x²,y²), X²=Y²=0, XY=YX≠0 and all length-three products vanish. The ordered square at 1 is xy⊗(q₀⊗q₁+q₁⊗q₀), nonzero in the ordered tensor basis, while its symmetric image is zero. This verifies why projecting to Sym² cannot replace ordered nilpotence. The suggested theorem was strengthened to this actual field and exact bound. |
+| 71–74: `affine-contractions-reconstruction` through `affine-ordered-square-vanishing` | A finite basis of Q reconstructs θ while E is arbitrary. In (θ⊗id)θ the new coefficient is prepended. Evaluating the two slots against (v,w) gives a(v)a(w); the E12/E21 test distinguishes the opposite order. Vanishing of every coordinate pair detects the ordered square. |
+| 75–80: `affine-ordered-step` through `affine-ordered-iterate-succ` | A singleton coefficient is converted to TensorPower degree 1, multiplied with degree n and cast from 1+n to n+1. The actual Fin cast was checked. I₀ uses the tensor unit, and the successor rule agrees on elementary tensors. No zero-degree vanishing is inferred for a nonzero module. |
+| 81–87: `affine-ordered-step-zero` through `affine-ordered-iterate-zero-field` | Tensor induction establishes additivity and zero-step equations. Contracting a step prepends the endomorphism; induction gives ordered word products. A tensor-power basis detects the full iterate from those products. Zero field gives every positive iterate zero, while I₀ is unchanged. |
+| 88–94: `affine-ordered-step-natural` through `affine-ordered-iterate-two` | Horizontality propagates through each step and every order. Vanishing at N propagates to larger bounds. Surjectivity of the module map transfers a bound to the receiver; two isomorphisms reflect the identical exponent. Degree-one and degree-two comparisons use the actual unit and associator identifications, not literal equality of different tensor carriers. The replacement chart test makes the compatibility nontrivial. |
+| 95–99: `affine-base-change` through `affine-base-change-bound-faithful` | Scalar extension is distributor after `LinearMap.baseChange`, with the scalar placed on E and unit on Q. The native End base-change hom preserves ordered products. A finite basis of Q gives same-exponent preservation for every scalar extension and reflection under faithful flatness, with E arbitrary. Later arbitrary-Q tensor-power comparison nodes are not yet reviewed. |
+| 100–104: `affine-coefficient-map` through `affine-coefficient-map-bound-retract` | Applying id⊗u gives the new field. Identity, composition and iterate maps follow on elementary tensors. Bounds are preserved for any u. A left inverse reflects the same exponent by applying its tensor powers; no flatness is needed for this retract case. |
+| 105–106: `affine-ordered-iterate-flat-subobject`, `affine-coefficient-map-bound-flat` | For injective f and u, the stated flatness of F, Q and P suffices to make f⊗u^⊗n injective: first tensor f with flat Q^⊗n, then tensor the injective coefficient-power map with flat F. Reflection concerns the receiving iterate restricted along f, not arbitrary vectors outside its image. An injective Z→Z given by 2 becomes zero after tensoring with Z/2, so the unrestricted injectivity claim would be false. |
+| 107–111: `affine-base-change-natural` through `affine-ordered-iterate-base-change-one-zero-iff` | The scalar-extension horizontal equation and coefficient-map equation use the distributor on each pure tensor. Iterate naturality is stated over the receiving ring; later general tensor-power suppliers remain conditional. Faithful-flat detection θ_S=0 iff θ=0 applies `one_tmul_eq_zero_iff` to E⊗Q and does not require a basis of Q. The same degree-one assertion follows through the singleton equivalence. |
+
+## Pinned declarations and ownership
+
+The new native receipts cover matrix trace/determinant/gauge interfaces;
+derivation constants; associative tensor/symmetric-algebra quotient and ideal
+power interfaces; tensor products, duals, finite bases and tensor powers;
+scalar extension; faithful flatness; flat tensor injectivity; and the native
+linear multiplication map. The packet lists each exact declaration/module
+and its reading receipt. Ambient hypotheses, not just the named line, were
+read. The two Tau Ceti augmentation interfaces were read at their exact
+source pin. No new tensor, symmetric algebra, augmentation, quotient or
+multiplication owner was planned.
+
+The reviewed library-audit rows for parent HodgeStructures L0–L3 and the
+relevant E1/D3 target/evidence/duplicate rows were read, including the
+REV-AUDIT02/10/22 metadata. The complete upstream HodgeStructures and
+SchurWeyl reader documents were read for scope and density. This is an
+ownership check, not a fresh proof audit of their Tau Ceti implementation.
+The broader route inventory and all uninspected stage suppliers still need
+a complete review.
+
+## Sources freshly read by this session
+
+All hashes below identify the downloaded bytes, not an inferred equivalent
+edition. Reading the printed proof is distinguished from recursively
+checking every cited proof.
+
+- [Esnault–Groechenig author copy](https://www.mi.fu-berlin.de/users/esnault/preprints/helene/126_esn_gro.pdf),
+  SHA-256 `0bfa00b7dbae7a59c193d3523028df826741f15d3e88cb50526f8656a7fb8e35`:
+  p.2 Definition 1.1/Remark 1.2, complete §2.1 and Lemma 2.1 proof on
+  pp.5–6, and the parameter definition and complete printed Lemma 4.9 proof
+  on pp.23–24. Simpson's cited inputs were not recursively audited.
+- [EG20 published archive copy](https://archive.ymsc.tsinghua.edu.cn/pacm_download/117/11915-ACTA-2020-0225-0001-a002.pdf),
+  SHA-256 `0d81a6d3e9be477c58a725096c41f06a8a9262422fe596363c3f04c26ab1cfab`:
+  complete printed pp.108–109. Its bytes match the packet's expected
+  published hash exactly. This resolves the previous inaccessible-version
+  boundary for the inherited p.108 notation finding only.
+- [Liu–Zhu arXiv v3](https://arxiv.org/pdf/1602.06282v3),
+  SHA-256 `8b11e55bffbfb1835a6da8975272670c9465601c08640e06f3a566a459a1da79`:
+  pp.6–9, Theorem 2.1 and equations (2.4)–(2.5), and pp.18–19, Lemma 2.15
+  with its full printed quasi-unipotence proof. These do not verify a finite
+  Rees construction; external correspondence proofs were not recursively read.
+- [Heuer published PDF](https://link.springer.com/content/pdf/10.1007/s00222-025-01321-4.pdf),
+  SHA-256 `7608fff18ccbc47b96bd54cfe01f31f8ccd9953889834cc9f6c39787563175cd`:
+  p.262 Definition 1.2(2), pp.297–298 Definition 4.1/Remark 4.2, and
+  pp.300–302 Theorem 4.8/Remark 4.9 and its complete displayed proof.
+  Visual inspection of p.301 confirms the missing coefficient index.
+- [Heuer arXiv v3](https://arxiv.org/pdf/2307.01303v3),
+  SHA-256 `df8caac5ee92e8bcd5a4f9de8dcd5901d61d5f6f4f5c1c3c5bd6b65880e18943`:
+  Definition 1.2 and complete pp.27–28 Theorem 4.8/Remark 4.9 proof.
+  This is a selected comparison, not full version collation. The correction
+  search inspected the existing PAPER-HEUER-25 findings E1–E13, the
+  [publisher HTML](https://link.springer.com/article/10.1007/s00222-025-01321-4),
+  [arXiv version history](https://arxiv.org/abs/2307.01303), and returned results
+  for three erratum/corrigendum queries. No matching correction was found in
+  that bounded search; the source issue records the exact extent.
+- [Stacks tag 01CA](https://stacks.math.columbia.edu/tag/01CA): complete
+  displayed section 17.16, its tensor-presheaf/sheafification definition,
+  universal property, Lemmas 1–6 and comments. Proofs the source omits were
+  not silently supplied. [Tag 00H9](https://stacks.math.columbia.edu/tag/00H9):
+  selected flatness/injection statements and the complete displayed proof
+  of Lemma 10.39.14, not the whole chapter.
+
+## Remaining review and questions for the orchestrator
+
+Continue at array index **112**,
+`HodgeStructuresPartII:H.0/affine-tensor-power-base-change`. The 457 remaining
+nodes end at `H.0/dual-three-step--triple-flat-iff`. Read their full contracts,
+sources, APIs, tests and suggested signatures; do not infer correctness from
+the admitted file's elaboration or historical proof receipts. Audit the 158
+remaining baseline statements, and complete the new-roadmap scope/layer,
+source-route, supplier/duplication and planet checks before a final verdict.
+
+The prior unresolved contracts remain: CR.1's crystalline quasi-nilpotent
+scope versus ordinary connections on an arbitrary differential site; E1's
+precise underived tensor/exterior/dual/restriction/descent interfaces and the
+35-node global omission ledger; and DD.1's exact finite Rees module-sheaf
+construction and supporting primary source. LZ's nilpotence theorem does
+not support the Rees citation. Preserve the reserved key's broader carrier
+while resolving ownership. The source findings now have version-specific
+verdicts, but source inventory closure is unfinished.
+
+The issue does not authorize editing the reader document. An authorized
+assembly or follow-up must synchronize both checkpoints' corrections into
+`research/blueprint/readmes/HodgeStructuresPartII.md`. No reader, parent roadmap,
+campaign or atlas data was edited in this session.
+
+## Current validation
+
+`python3 scripts/check_blueprint.py research/blueprint/packets/HodgeStructuresPartII.json`
+reports **0 errors, 0 warnings**. The exact full edited suggested file was
+elaborated by `lean-check` against the pinned Mathlib build: **exit 0, no errors,
+948 warnings, all `declaration uses sorry`**. Its SHA-256 is
+`96c8174ef8f9ebbe6511d8810f4d796910a9373e8e6e8c9bf712ce685f4acea1`.
+It imports only Mathlib, so this check loads no Tau Ceti code. Native fixture
+bodies elaborate; admitted theorem bodies remain plans. These checks do not
+fill the global omission ledger or prove any mathematical claim. The
+compilation finished, and no language server or library build was started.
+
+## Archived predecessor report
+
+The following report is preserved as the `codex-tUuT7s` checkpoint history.
+Its 47-node/279-baseline counts and unresolved EG published-version boundary
+describe that earlier submission. The current extent and resolution above
+supersede them; the current handoff controls where to resume.
+
+### Independent review checkpoint: Hodge structures, Part II (codex-tUuT7s)
+
 Job `REV-DESIGN-HodgeStructuresPartII`, issue #3548. Codex, session
 `codex-tUuT7s`, 5 October 2026. This is a **partial review**, not acceptance or
 a finished `needs_changes` verdict. No top-level `review` object has been added.
