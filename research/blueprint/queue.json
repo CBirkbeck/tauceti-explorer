@@ -21162,8 +21162,9 @@
    ],
    "avoidAccountOf": "BP-PadicMeasuresIwasawaAlgebras",
    "prompt": "research/blueprint/prompts/REV-PadicMeasuresIwasawaAlgebras.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #146"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #146",
+   "finishedAt": "2026-10-05T03:02:50Z"
   },
   {
    "id": "BP-LocallyAnalyticDistributions",
@@ -30621,7 +30622,8 @@
    ],
    "avoidAccountOf": "BP-DiophantineApproximationAndTranscendence",
    "prompt": "research/blueprint/prompts/REV-DiophantineApproximationAndTranscendence.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #534"
   },
   {
    "id": "BP-EffectiveDiophantineMethods",
