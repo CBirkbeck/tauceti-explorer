@@ -41,7 +41,9 @@ Dependency on Tau Ceti: the module `TauCeti.Analysis.Normed.Algebra.LogOneAdd.Ba
 is imported for `NormedSpace.logOneAdd`; it depends only on Mathlib.
 -/
 
-import research.blueprint.suggested.DirichletPadicLFunctions
+import research.blueprint.suggested.«DirichletPadicLFunctions--L1»
+import Mathlib.Analysis.Analytic.Composition
+import Mathlib.Analysis.Analytic.Constructions
 import Mathlib.FieldTheory.Finite.Basic
 import Mathlib.Algebra.CharP.Lemmas
 import Mathlib.NumberTheory.Padics.Complex
@@ -642,7 +644,7 @@ theorem AnnulusLogRing.d_ell_pow {O : Type*} [CommRing O] [Algebra ℚ O] (D : D
   sorry
 
 /-- `AnnulusLogRing.realize_injective`, i.e. `ColemanIntegration:L0/annulus-log-transcendence`. -/
-theorem AnnulusLogRing.realize_injective (r s : ℝ) (hrs : r < s) (a : ℂ_[p]) :
+theorem AnnulusLogRing.realize_injective (r s : ℝ) (hr : 0 ≤ r) (hrs : r < s) (a : ℂ_[p]) :
     Function.Injective (AnnulusLogRing.realize p r s a) := by
   sorry
 
@@ -671,7 +673,7 @@ example (r s : ℝ) (a : ℂ_[p]) (f : annulusFunctions p r s) :
     AnnulusLogRing.realize p r s a (Polynomial.C f) = f := by sorry
 
 /-- Test `AnnulusLogRing.ell_not_mem` (non-example). -/
-example (r s : ℝ) (hrs : r < s) (a : ℂ_[p]) :
+example (r s : ℝ) (hr : 0 ≤ r) (hrs : r < s) (a : ℂ_[p]) :
     ¬ ∃ f : annulusFunctions p r s,
       (f : annulusSet p r s → ℂ_[p]) = fun z : annulusSet p r s => padicLogBranch p a z := by
   sorry
@@ -1788,8 +1790,8 @@ theorem dilogD_inv (hL : IsLogBranch p a L) {z : ℂ_[p]} (hz0 : z ≠ 0) (hz1 :
 
 These are unchecked planning statements. The analytic certificates refer to one power series on
 the entire open unit disc. A merely locally analytic zero-derivative argument does not suffice.
-The global five-term theorem below still has the special-unit good-reduction and projective
-comparison gap recorded in the packet; none of these statements imports a complex cross-ratio theorem over C_p.
+The end-comparison section supplies the scalar good-reduction argument. The field-general
+projective comparison remains a gap; none of these statements imports a complex theorem over C_p.
 -/
 
 /-- ColemanIntegration:L2/abel-disc-rational-pair; zero x or u is allowed. -/
@@ -1865,7 +1867,7 @@ theorem dilogD_five_term_nested_discs (hL : IsLogBranch p a L) {x y : ℂ_[p]}
       dilogD hL ((1 - x) / (1 - y)) = 0 := by
   sorry
 
-/-- Zero is admissible for the ordinary identity, not for its D-valued corollary. -/
+/-- Test `abel_zero_x`: zero is admissible for the ordinary identity. -/
 example {u : ℂ_[p]} (hu : ‖u‖ < 1) :
     polylogSer p 2 0 + polylogSer p 2 u - polylogSer p 2 (0 * u) -
       polylogSer p 2 (u * (1 - 0) / (1 - 0 * u)) -
@@ -1874,34 +1876,39 @@ example {u : ℂ_[p]} (hu : ‖u‖ < 1) :
       (polylogSer p 1 u - polylogSer p 1 (0 * u)) := by
   sorry
 
-/-- Degenerate coefficient test at u=0. -/
+/-- Test `abel_composite_zero`: both composites at u=0. -/
 example (z : ℂ_[p]) :
-    polylogSer p 2 (0 * (1 - z) / (1 - z * 0)) = 0 := by
+    polylogSer p 2 (0 * (1 - z) / (1 - z * 0)) = 0 ∧
+    polylogSer p 2 (z * (1 - 0) / (1 - z * 0)) = polylogSer p 2 z := by
   sorry
 
-/-- p=2 tests the nonintegral scalar 1/2, not an odd-prime specialization. -/
+/-- Test `five_term_nested_two`: p=2 and an arbitrary logarithm branch. -/
 example (a₂ : ℂ_[2]) (L₂ : ℂ_[2] → ℂ_[2]) (hL : IsLogBranch 2 a₂ L₂) :
     dilogD hL 2 - dilogD hL 8 + dilogD hL (8 / 2) -
       dilogD hL ((1 - (2 : ℂ_[2])⁻¹) / (1 - (8 : ℂ_[2])⁻¹)) +
       dilogD hL ((1 - 2) / (1 - 8)) = 0 := by
   sorry
 
-/-- The old missing nested configuration, for every branch rather than just log_0. -/
-example (a₅ : ℂ_[5]) (L₅ : ℂ_[5] → ℂ_[5]) (hL : IsLogBranch 5 a₅ L₅) :
+/-- Test `five_term_nested_five`: p=5 and an arbitrary logarithm branch. -/
+example [Fact (Nat.Prime 5)] (a₅ : ℂ_[5]) (L₅ : ℂ_[5] → ℂ_[5])
+    (hL : IsLogBranch 5 a₅ L₅) :
     dilogD hL 5 - dilogD hL 25 + dilogD hL (25 / 5) -
       dilogD hL ((1 - (5 : ℂ_[5])⁻¹) / (1 - (25 : ℂ_[5])⁻¹)) +
       dilogD hL ((1 - 5) / (1 - 25)) = 0 := by
   sorry
 
-/-- Wrong-sign sentinel: the XU residual is 2, even in C_2. -/
+/-- Scalar part of Test `abel_wrong_sign`: its XU residual is 2, even in C_2.
+The bivariate residual coefficient computation is a packet proof step.
+This example checks the nonzero scalar used in that computation. -/
 example : (2 : ℂ_[2]) ≠ 0 := by
   sorry
 
 /-! ### Scalar five-term transport and norm reduction
 
 These declarations use only the p-adic D and its two-term identities. They do not define
-projective cross-ratios or assume the global five-term relation. The special-unit
-Coleman argument and the projective/Bloch comparisons remain separate obligations.
+projective cross-ratios or assume the global five-term relation. The end-comparison
+section supplies the special-unit scalar argument; the projective/Bloch comparisons
+remain supplier obligations.
 -/
 
 /-- The scalar five-term expression, with the exact source signs. -/
@@ -1977,7 +1984,7 @@ theorem fiveTermDefect_reduce_special_unit (hL : IsLogBranch p a L) {x y : ℂ_[
        fiveTermDefect hL x y = -fiveTermDefect hL u v) := by sorry
 
 /-- A reduction theorem with a strictly smaller analytic input. The special-unit input
-is the remaining good-reduction obligation, not an assumption of the global target itself. -/
+is supplied by the end-comparison construction and boundary normalization. -/
 theorem fiveTermDefect_vanishes_of_special_units (hL : IsLogBranch p a L)
     (hspecial : ∀ (u v : ℂ_[p]), u ≠ 0 → u ≠ 1 → v ≠ 0 → v ≠ 1 → u ≠ v →
       ‖v‖ = 1 → ‖1 - v‖ = 1 → fiveTermDefect hL u v = 0)
@@ -1998,8 +2005,8 @@ example {a : ℂ_[5]} {L : ℂ_[5] → ℂ_[5]} (hL : IsLogBranch 5 a L) :
     fiveTermDefect hL 5 6 = 0 := by sorry
 
 
-/-- **Global five-term target**; scalar covariance and norm reduction are decomposed above.
-The arbitrary-special-unit good-reduction input and projective/Bloch comparisons remain open. -/
+/-- **Global five-term target**; its scalar proof plan is completed by the end comparisons below.
+The field-general projective/Bloch comparisons remain separate supplier obligations. -/
 theorem dilogD_five_term (hL : IsLogBranch p a L) {x y : ℂ_[p]} (hx0 : x ≠ 0) (hx1 : x ≠ 1)
     (hy0 : y ≠ 0) (hy1 : y ≠ 1) (hxy : x ≠ y) :
     dilogD hL x - dilogD hL y + dilogD hL (y / x) - dilogD hL ((1 - x⁻¹) / (1 - y⁻¹)) +
@@ -3005,7 +3012,8 @@ end TauCeti.ColemanIntegration
 
 
 /- Algebraic-input reduction for the actual scalar five-term defect.
-The finite-extension Coleman constancy and boundary proof remain a separate input. -/
+The end-comparison section and geometric boundary normalization supply the
+finite-extension constancy input used by this conditional reduction. -/
 noncomputable section
 namespace TauCeti.ColemanIntegration
 section FiveTermDensity
@@ -3066,7 +3074,8 @@ end TauCeti.ColemanIntegration
 
 These signatures concern the actual branch, dilogarithm and scalar defect above.
 Their statements use explicit sequences and bounds, not continuity at a puncture.
-The algebraic constancy input in the final theorem remains an explicit hypothesis.
+The algebraic constancy input in the final theorem is an explicit hypothesis,
+supplied by the end-comparison theorem below.
 -/
 namespace TauCeti.ColemanIntegration
 namespace FiveTermBoundary
@@ -3157,3 +3166,138 @@ example (hL : IsLogBranch p a L) {v : ℂ_[p]} (hv0 : v ≠ 0) (hv1 : v ≠ 1) (
       atTop (𝓝 δ) := by sorry
 end FiveTermBoundary
 end TauCeti.ColemanIntegration
+
+/-! Whole-disc comparisons for the actual scalar defect. Every planned proof remains
+unchecked. The missing genuine Coleman/end carriers are identified explicitly below. -/
+noncomputable section
+namespace TauCeti.ColemanIntegration.EndComparison
+variable (p : ℕ) [Fact p.Prime]
+
+/-- ColemanIntegration:L1/fractional-disc-composition. The finite coefficient formula
+and all-radius estimate distinguish one whole-disc series from local analyticity. -/
+lemma fractional_disc_composition (F : ℂ_[p] → ℂ_[p]) (c u b : ℂ_[p])
+    (coeff : ℕ → ℂ_[p])
+    (hF : HasFPowerSeriesOnBall F (FormalMultilinearSeries.ofScalars ℂ_[p] coeff) c 1)
+    (hu : ‖u‖ ≤ 1) (hb : ‖b‖ ≤ 1) :
+    let out : ℕ → ℂ_[p] := fun n => if n = 0 then coeff 0 else
+      ∑ m ∈ Finset.Icc 1 n, coeff m * u ^ m * (-b) ^ (n-m) *
+        ((n-1).choose (m-1) : ℂ_[p])
+    HasFPowerSeriesOnBall (fun t => F (c + u * t / (1 + b * t)))
+      (FormalMultilinearSeries.ofScalars ℂ_[p] out) 0 1 ∧
+    ∀ r R : ℝ, 0 < r → r < R → R < 1 →
+      ∃ C : ℝ, 0 ≤ C ∧ (∀ m, ‖coeff m‖ * R ^ m ≤ C) ∧
+        ∀ n, ‖out n‖ * r ^ n ≤ C * (r / R) ^ n := by sorry
+
+-- ColemanIntegration:L1/regular-image-end-pullback; regular_image_end_pullback:
+-- not stated as an artificial abstract ring map. It needs the existing LocAn
+-- product of ordinary-disc rings and Laurent end rings, the genuine genus-zero
+-- pairs and the actual integral fractional-linear map. At an additional source
+-- end mapping to an ordinary target disc, its component is the whole-disc
+-- composite in fractional_disc_composition, restricted to the Laurent germ.
+-- For target-end images the parameter logarithm is L(t)+L(u)-log(1+b*t).
+-- The packet spells out compatibility with d and all-component Taylor/Frobenius
+-- induction; no independent pullback compatibility is inserted as a Prop field.
+
+/-- ColemanIntegration:L1/special-unit-local-charts. Columns are source points
+0,1,v,∞. Use w,w-1,1/w or w-c according to the target-image table in the reader. -/
+lemma special_unit_local_charts (v t : ℂ_[p]) (hv : ‖v‖ = 1)
+    (hv1 : ‖1-v‖ = 1) (ht0 : t ≠ 0) (ht : ‖t‖ < 1) :
+    let coords : Fin 4 → Fin 4 → ℂ_[p] :=
+      ![![t, (1+t)-1, (v+t)-v, (t⁻¹)⁻¹],
+        ![(v/t)⁻¹, v/(1+t)-v, v/(v+t)-1, v/t⁻¹],
+        ![(v*(t-1)/(t*(v-1)))⁻¹, v*t/((1+t)*(v-1)),
+          v*((v+t)-1)/((v+t)*(v-1))-1,
+          v*(t⁻¹-1)/(t⁻¹*(v-1))-v/(v-1)],
+        ![(1-t)/(1-v)-1/(1-v), (1-(1+t))/(1-v),
+          (1-(v+t))/(1-v)-1, ((1-t⁻¹)/(1-v))⁻¹]]
+    let us : Fin 4 → Fin 4 → ℂ_[p] :=
+      ![![1,1,1,1], ![v⁻¹,-v,-v⁻¹,v],
+        ![(1-v)/v,v/(v-1),(v*(v-1))⁻¹,-v/(v-1)],
+        ![-(1-v)⁻¹,(v-1)⁻¹,(v-1)⁻¹,v-1]]
+    let bs : Fin 4 → Fin 4 → ℂ_[p] :=
+      ![![0,0,0,0], ![0,1,v⁻¹,0], ![-1,1,v⁻¹,0], ![0,0,0,-1]]
+    ∀ i j, coords i j = us i j * t / (1 + bs i j * t) ∧
+      ‖us i j‖ = 1 ∧ ‖bs i j‖ ≤ 1 ∧ ‖coords i j‖ = ‖t‖ := by sorry
+
+variable {p} {a : ℂ_[p]} {L : ℂ_[p] → ℂ_[p]}
+
+/-- ColemanIntegration:L2/log-laurent-end-determination. Both functions have
+the existing all-radius expansions; equality on an outer annulus suffices. -/
+lemma log_laurent_eq_of_end (hL : IsLogBranch p a L)
+    {f g : ℂ_[p] → ℂ_[p]} {c : ℂ_[p]} {r : ℝ}
+    (hf : IsLogLaurentNear p L f c) (hg : IsLogLaurentNear p L g c)
+    (hr0 : 0 ≤ r) (hr1 : r < 1)
+    (he : ∀ z : ℂ_[p], r < ‖z-c‖ → ‖z-c‖ < 1 → f z = g z) :
+    ∀ z : ℂ_[p], 0 < ‖z-c‖ → ‖z-c‖ < 1 → f z = g z := by sorry
+
+/-- ColemanIntegration:L2/log-laurent-infinity-determination; parameter 1/z. -/
+lemma log_laurent_infty_eq_of_end (hL : IsLogBranch p a L)
+    {f g : ℂ_[p] → ℂ_[p]} {r : ℝ}
+    (hf : IsLogLaurentAtInfty p L f) (hg : IsLogLaurentAtInfty p L g)
+    (hr0 : 0 ≤ r) (hr1 : r < 1)
+    (he : ∀ z : ℂ_[p], r < ‖z⁻¹‖ → ‖z⁻¹‖ < 1 → f z = g z) :
+    ∀ z : ℂ_[p], 1 < ‖z‖ → f z = g z := by sorry
+
+/-- ColemanIntegration:L2/five-term-defect-log-laurent. Actual functions on
+the full punctured residue discs, including the additional regular-image ends. -/
+lemma five_term_defect_log_laurent (hL : IsLogBranch p a L)
+    {v : ℂ_[p]} (hv : ‖v‖ = 1) (hv1 : ‖1-v‖ = 1) :
+    (∀ c ∈ ({0,1,v} : Set ℂ_[p]),
+      IsLogLaurentNear p L (fun z => fiveTermDefect hL z v) c) ∧
+    IsLogLaurentAtInfty p L (fun z => fiveTermDefect hL z v) := by sorry
+
+-- ColemanIntegration:L2/five-term-defect-coleman; five_term_defect_coleman:
+-- not stated; needs the actual Coleman subalgebra of the four-puncture LocAn
+-- ring (its dagger carrier and end components are not available at the pin).
+-- Its element is the specified sum of the four literal pullbacks of D and the
+-- scalar -D(v), and its realization is the germ of the actual fiveTermDefect.
+-- ColemanIntegration:L2/five-term-defect-coleman-constant;
+-- five_term_defect_coleman_constant: not stated; the preceding actual Coleman
+-- element has d=0 and is a single constant in all components by the existing
+-- Coleman uniqueness theorem. The actual function theorem below is statable.
+
+/-- ColemanIntegration:L2/five-term-algebraic-special-unit-constancy. The
+first coordinate is unrestricted in C_p, including all four punctured discs. -/
+theorem five_term_algebraic_special_unit_constancy (hL : IsLogBranch p a L)
+    (v : PadicAlgCl p) (hv : ‖(v : ℂ_[p])‖ = 1)
+    (hv1 : ‖1-(v : ℂ_[p])‖ = 1) :
+    ∃ C : ℂ_[p], ∀ x : ℂ_[p], x ≠ 0 → x ≠ 1 → x ≠ (v : ℂ_[p]) →
+      fiveTermDefect hL x (v : ℂ_[p]) = C := by sorry
+
+/-- ColemanIntegration:L2/five-term-scalar-global. End comparison supplies
+the hypothesis of the inherited algebraic-constancy/boundary/density reduction. -/
+theorem five_term_defect_eq_zero (hL : IsLogBranch p a L)
+    {x y : ℂ_[p]} (hx0 : x ≠ 0) (hx1 : x ≠ 1) (hy0 : y ≠ 0) (hy1 : y ≠ 1)
+    (hxy : x ≠ y) : fiveTermDefect hL x y = 0 := by sorry
+
+/-! Controls for coordinate signs, a deceptive local-constant modification,
+and branch-uniform scalar values. These are planning examples, not implementations. -/
+
+/-- Test EndComparison.indicator_not_log_laurent. -/
+example (hL : IsLogBranch p a L) :
+    ¬ IsLogLaurentNear p L
+      (fun z : ℂ_[p] => if ‖z‖ < ‖(p : ℂ_[p])‖ then 1 else 0) 0 := by sorry
+
+/-- Test EndComparison.branch_three. -/
+example {a₃ : ℂ_[3]} {L₃ : ℂ_[3] → ℂ_[3]} (hL : IsLogBranch 3 a₃ L₃) :
+    fiveTermDefect hL 4 2 = 0 := by sorry
+
+/-- Test EndComparison.dyadic_special_unit. -/
+example {a₂ : ℂ_[2]} {L₂ : ℂ_[2] → ℂ_[2]} (hL : IsLogBranch 2 a₂ L₂)
+    (ζ : ℂ_[2]) (hζ : ζ ^ 2 + ζ + 1 = 0) (hζ0 : ‖ζ‖ = 1) (hζ1 : ‖1-ζ‖ = 1) :
+    fiveTermDefect hL 2 ζ = 0 := by sorry
+
+/-- The ordinary-image extra end 1 of v/z fixes the sign of its analytic coordinate. -/
+example {v t : ℂ_[p]} (ht : 1+t ≠ 0) :
+    v/(1+t)-v = -v*t/(1+t) := by sorry
+
+/-- The end v for the third argument, with v=2 and t=5. -/
+example [Fact (Nat.Prime 5)] :
+    (2 : ℂ_[5]) * (7-1) / (7*(2-1)) - 1 = (5 : ℂ_[5]) / 7 := by sorry
+
+/-- The coefficient sign at degree two in t/(1+t). -/
+example : (∑ m ∈ Finset.Icc 1 2,
+    (if m = 1 then (1 : ℂ_[3]) else 0) * (-1 : ℂ_[3]) ^ (2-m) *
+      ((2-1).choose (m-1) : ℂ_[3])) = -1 := by sorry
+
+end TauCeti.ColemanIntegration.EndComparison

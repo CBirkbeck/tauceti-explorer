@@ -1,159 +1,217 @@
-# BP-ColemanIntegration — geometric boundary normalization
+# BP-ColemanIntegration handoff
 
-Codex — codex-hjdg0j. Refs #698. Claim 5852748641 was explicitly confirmed by bot 5852749680; the complete issue was reread after confirmation. This is a continuation of the merged packet, not an independent review.
+Job #698; Codex session `codex-grgRy0`; 5 October 2026. Claim comment
+5997745255 was confirmed by the bot in comment 5997747664. This submission
+finishes the target-level planning pass required by PROTOCOL section 0.
+The packet is `complete`, every stage is planned, and **no stage is closed**.
+Every implementation status remains `unchecked`.
 
-## Result and remaining input
+The deliverables are the [packet](../packets/ColemanIntegration.json),
+[reader](../readmes/ColemanIntegration.md) and
+[suggested signatures](../suggested/ColemanIntegration.lean).
 
-Eleven nodes are added: two L0 logarithm lemmas and nine L2 declarations (including promotion of the existing zero-value API). The new chain proves, at blueprint level, that the actual scalar expression R_a(1+p^(n+1),v) tends to zero for every v≠0,1 in C_p and every branch. It gives bounded-log sequential vanishing for D, scaled geometric and quotient limits, eventual admissibility, the exact five-argument rewrite, determination of an eventual constant, and a reduction from algebraic constancy to the full scalar identity. Five typed tests include p=2, an exact p=3 argument calculation, and a nonzero constant that survives the boundary test.
+## What is supplied
 
-The proof does not assert global continuity at either puncture. It uses L(c p^m)=L(c)+m a and the native bound |m|≤1; the quotient adds the term −L(1+p^(n+1)), which tends to zero. At the ordinary point v, the existing continuity theorem supplies the limit D(v). No finite-extension restriction on v or on the branch parameter is needed for this sequence.
+The packet has 177 nodes: 19 definitions, 11 constructions, 98 lemmas,
+39 theorems and 10 comparisons. It has 257 API entries, 151 packet tests
+(133 definition/construction tests), 111 typed examples, 22 planets and
+123 pinned baseline references. Five gaps and twenty requests remain.
 
-The remaining L2 task is precise: extend pullback to a regular-image extra source end; prove the actual five-term expression is a Coleman function on the existing four-puncture model; obtain its global Coleman constant; and compare that same constant with the actual values on the whole punctured residue discs, including the sequence approaching 1. Constancy only on the tube does not suffice. The final conditional theorem accepts constancy on all admissible algebraic first coordinates, forces its constant to zero by the boundary sequence, and uses the inherited density reduction. The independent field-general projective/Bloch comparisons remain. Zero derivative alone is not used as constancy.
+All 167 inherited node ids are retained. Of those node objects, 159 are
+unchanged. Six connect or describe the completed scalar proof chain:
+`coleman-pullback`, `special-unit-maps`,
+`five-term-from-special-units`, `five-term-from-algebraic-special-units`,
+`five-term-from-algebraic-constancy` and `five-term-relation`.
+The two annulus-log nodes explicitly require a nonnegative inner radius;
+their corresponding signatures exclude empty negative-radius annuli.
+All inherited API entries, tests, planets, baseline records and 25 source
+findings are preserved.
 
-All five gaps and all twenty requests remain; no layer is closed. The other gaps are the general-curve de Rham comparison, nonfree differential-module gluing, the Besser–de Jeu regulator proof and coefficient-valued Artin L-functions.
+Ten nodes supply the missing scalar end comparison:
 
-## Preservation and counts
+1. L1 `fractional-disc-composition`: coefficients of composition with
+   u t/(1+b t), and an all-radius bound proving convergence on the whole
+   open disc. Local analytic composition alone does not give this radius.
+2. L1 `regular-image-end-pullback`: an additional source end mapping to an
+   ordinary target disc uses its actual analytic series restricted to the
+   source Laurent germ. This component map commutes with differentiation
+   and participates in the same Taylor/Frobenius induction.
+3. L1 `special-unit-local-charts`: all sixteen charts of the four argument
+   maps at 0, 1, v and infinity, with coefficient signs, unit slopes,
+   denominator bounds and inverse substitutions.
+4. L2 `log-laurent-end-determination`: equality on an outer annulus determines
+   functions with finite logarithmic degree and Laurent coefficients convergent
+   at every punctured-disc radius. It uses logarithm transcendence and the
+   already requested Laurent identity principle.
+5. L2 `log-laurent-infinity-determination`: the same comparison in parameter 1/z.
+6. L2 `five-term-defect-log-laurent`: the actual scalar defect has these
+   whole-disc expansions at all four punctures, including ordinary-image ends.
+7. L2 `five-term-defect-coleman`: the actual defect is the specified linear
+   combination of literal pullbacks in the existing four-puncture Coleman
+   algebra, with its actual ordinary values and end germs.
+8. L2 `five-term-defect-coleman-constant`: zero differential gives one constant
+   in every component by Coleman uniqueness.
+9. L2 `five-term-algebraic-special-unit-constancy`: the end-germ comparisons
+   identify that constant with actual values on every punctured disc. The
+   first coordinate can be any admissible C_p point; only v is algebraic.
+10. L2 `five-term-scalar-global`: the inherited geometric boundary sequence
+    fixes the constant, then algebraic density and signed norm reduction give
+    the scalar five-term theorem for every admissible pair and every branch.
 
-167 unchecked nodes: 19 definitions, 11 constructions, 90 lemmas, 37 theorems and 10 comparisons. There are 257 API entries,148 packet tests (133 definition/construction tests),105 typed examples,22 planets,121 baseline references and 25 source findings.
+The scalar statement introduces no projective carrier and uses no complex
+cross-ratio theorem over C_p. The projective cyclic and Bloch conclusions
+remain separate supplier comparisons in the parent target.
 
-155 of 156 inherited node objects are unchanged. Only the global five-term parent gains a prerequisite and narrows its remaining proof description; its mathematical conclusion and source records are retained. All 112 inherited baseline records,24 prior findings,20 requests,22 planets and coverage statuses are preserved. The new source finding is unreviewed. The reader keeps its inherited full content and adds all eleven declarations, with hypotheses, proofs, dependencies and tests. All new assertions have actual typed signatures; the promoted zero-value declaration uses its existing signature.
+## Coverage and the stopping point
 
-## Sources and verification
+Each stage target has a node with prerequisites ending in the pinned baseline,
+owned supplier nodes or requests, or the gaps below. Under section 0 this is
+a completed planning pass; its open stages receive follow-up jobs after
+independent review. This does not assert implementation or closure.
 
-The current owner document and atlas extract, four reviewed AUDIT23 rows, all touching links/overlaps and accepted RS14 logarithm ownership were read. All 156 node statements/hypotheses were inspected, with complete detailed reads of the twelve directly relevant inherited node objects. The other retained proofs and APIs are inherited evidence, not claimed newly audited. The upstream ContourIntegration and AnalyticToricGeometry documents were read as style/model inputs. No general analytic, field or topology carrier is replanned.
+| Stage | Coverage | Targets represented | Remaining refinement |
+| --- | --- | --- | --- |
+| L0 | `source_decomposed` (planned) | Formal/analytic primitives, radius loss, disc uniqueness and its local-analytic counterexample, residues, annulus logarithms, branches and branch change | Laurent and dagger carriers remain owned supplier requests; continuation is supplied by L1 |
+| L1 | `planned` | Good-reduction pairs, wide opens, cohomological/Frobenius data, word algebra, continuation, uniqueness, products, integration, lift independence and pullback; explicit three- and four-puncture models | General-curve de Rham comparison and nonfree-differential gluing gaps; rigid-cohomology suppliers |
+| L2 | `planned` | Coleman polylogarithms and normalization, recursion/distribution/inversion/Frobenius relations, branch and coefficient compatibility, tame/p-power roots, norm/trace, complex comparison and scalar dilogarithm identities | Field-general projective/Bloch comparison; primary-source collation of Coleman 1982 |
+| L3 | `planned` | Corrected positive-integer formula for every k and conductor case, k=1, complex formula, distribution/measure comparisons and independence, regularized smoothing, regulator interpretation and defined Beilinson proposition | Syntomic-regulator proof and coefficient-valued Artin L-functions |
 
-Furusho, arXiv math/0304085v2, physical/printed pp.7–12, was freshly downloaded, hash-verified and read in full in batches of at most three pages. Page 11 was inspected as an image. SHA256: fd2391bd4dbf328667f0fb1b46d979c4814892c2c2cd14051de8d674d4c5b9fb. The geometric boundary proof is a worker deduction from the normalization and local analytic inputs. E25 records the preprint's misprinted limit point in Lemma 2.15: z→1 must be z→0. The direct publisher PDF request returned an HTML cookie/access page; the author list, arXiv version history and targeted correction search did not identify an erratum. The finding makes no claim about the unavailable published wording.
+The recorded correction to RJW Theorem 6.7 remains essential: the formula uses
+the twist theta omega^(1-k) with RJW's definition of L_p. The uncorrected
+stage text is preserved as a source finding and restructuring proposal; no
+application or atlas data was edited.
 
-Nine new baseline declarations were read at the pin and their source blobs verified; two already-recorded analytic/norm declarations used by the new chain were reread. The catalogue and pinned Mathlib/Tau Ceti searches found no existing Coleman boundary adapter. The indexed blueprint checker reports zero errors and zero warnings. Source-finding schema/version checks pass. The graph has 593 internal edges and 905 total edges and is acyclic. Each new declaration matches its reader statement and suggested name.
+## Exact follow-up work
 
-The actual combined suggested file compiles with zero errors and 357 expected placeholder warnings only. Its actual PMIA and Dirichlet suggested imports compile with 317 and 141 placeholder warnings respectively. All 8482 reached Mathlib source modules match the pin and cache source bytes. All 20 reached Tau Ceti modules were freshly compiled from pin-verified sources. Lean version 4.34.0-rc2. Suggested SHA256: 4cf9ae1362efedb04eed31e330b4cc119559017d19366b6c35edb0a7382568c3. No auxiliary Lean proof file was created.
+1. **General-curve algebraic de Rham comparison.** Supply the comparison of
+   the overconvergent complex with algebraic de Rham cohomology of an affine
+   good-reduction curve, including the algebraic basis and dimension
+   2g + number of geometric punctures - 1. It is needed by
+   `L1/good-reduction-datum-exists`. Coordinate with the RD.4 owner;
+   rigid finiteness alone does not provide the comparison.
+2. **Nonfree differentials.** Extend the lift-independence and functoriality
+   proof from a free differential coordinate to general good-reduction
+   pairs by local-coordinate gluing. This does not block the explicit
+   genus-zero scalar construction.
+3. **Field-general projective and Bloch comparison.** Obtain the algebraic
+   cross-ratio identities from `Polylogarithms:P.1`, with every denominator
+   and infinity case, and prove the cyclic reformulation and pre-Bloch/Bloch
+   boundary/branch descent over a subfield of C_p. Preserve that supplier's
+   complex Bloch-Wigner theorem. The scalar theorem is already decomposed.
+4. **Syntomic regulator proof.** Decompose Besser–de Jeu Theorem 1.10(2),
+   including the multi-relative K-theory, localization, integration-down
+   and Chern-class inputs of sections 3–7, or import the exact result from
+   `PadicHodgeRegulators:D.2`. The existing L3 statements are precise targets
+   with a recorded proof gap.
+5. **Coefficient-valued Artin L-functions.** Assign the nonabelian
+   coefficient-valued Artin L-function required by the defined Beilinson
+   proposition to an owner. Existing Dirichlet L-functions suffice for its
+   abelian application, but not this general proposition.
 
-Exact rational arithmetic checks 7452 argument cases at p=2,3,5,7, including 7444 admissible cases,8 collision controls and 2565 special-unit cases. They verify original inverse arguments, denominator exclusions, p-adic valuations and the explicit eventual-collision threshold. They are finite tests of the decomposition, not proofs of analytic convergence or the open constancy hypothesis.
+Twenty supplier requests are retained: two to
+`LocallyAnalyticDistributions:L1`; the annulus foundations in
+`PadicHodgeTheory:P7:annulus-foundations`; `AdicSpacesPartII:F1/R2`;
+`PadicDifferentialEquationsAndRigidCohomology:RD.0/RD.4/RD.5/RD.6`;
+`DirichletPadicLFunctions:L0/L1/L2/L3`;
+`PadicMeasuresIwasawaAlgebras:L2/L3`; `PadicHodgeRegulators:D.2`;
+`Polylogarithms:P.4`; `BorelRegulators:R.7`;
+`AutomorphicPadicLFunctions:L3`; and `Polylogarithms:P.1`.
+The existing annulus request now also names the end-determination consumer.
+The packet records the exact statements and consuming node ids.
 
-## Resume
+## Checks and compilation limits
 
-Start with ColemanIntegration:L2/five-term-from-algebraic-constancy and discharge its explicit hypothesis by the four-puncture membership/constancy comparison. The boundary normalization is supplied by five-term-boundary-limit and five-term-boundary-constant. Preserve the distinction between the tube, end germs and actual punctured-disc values. The new limit proof does not depend on the global five-term theorem.
+`python3 scripts/check_blueprint.py research/blueprint/packets/ColemanIntegration.json`
+passes with **zero errors and zero warnings**: four stages planned and zero
+closed. JSON validation, acyclicity, allowed-path/whitespace checks and
+preservation checks pass. Every packet API/test name occurs as a signature
+or explicit missing-carrier comment in the suggested file; every packet
+test name is recorded in the reader. These are name/contract checks,
+not proof verification. The inherited wrong-sign example checks the nonzero
+scalar used by the packet coefficient calculation; it does not state that
+bivariate coefficient computation itself.
 
-The preceding worker's handoff is retained below solely as historical provenance. Its scratch-proof workflow and old counts are not assertions about this continuation.
+**The full suggested file was not compiled.** Its `lean-check` attempt stops
+at the missing cached `research.blueprint.suggested.DirichletPadicLFunctions--L1`
+module. The obsolete umbrella import was repaired to that existing split
+supplier. Its PMIA dependency and the three reached Tau Ceti imports also
+lack cached modules. Their source bytes match the Tau Ceti pin, but the
+shared checkout itself has a newer HEAD. No Tau Ceti, Mathlib or supplier
+modules were built, and no Lake project, cache download or language server
+was started.
 
-Final publication check: main `9259a46d027f801a362476a366170bdee9033db9` matches all 63 captured inputs after three supplier updates were reconciled; all four predecessor output blobs are unchanged. The Dirichlet additions concern L4 finite Eisenstein coordinates and the locally analytic additions concern L4 Hasse resolvents. The imported L0/L1 node records are unchanged. The actual current Dirichlet seed and the combined Coleman seed were recompiled successfully. The issue body and winning claim confirmation are unchanged. The exact four-file intake reports zero problems.
+A **Mathlib-only signature slice** passed `lean-check` with zero errors
+and fourteen expected admitted-proof warnings. It contains the seven new
+signatures and six examples verbatim, with the genuine existing ancestor
+definitions, rather than replacement abstract predicates. Mathlib is at
+`082e2d37e8b0463410cdb532e111cd43d5a66174`; this slice has no Tau Ceti imports.
 
----
+To reproduce that slice, take the exact ancestors `IsLogBranch`,
+`IsLogLaurentNear`, `IsLogLaurentAtInfty`, `InPolylogClass`,
+`IsPolylogFamily`, `existsUnique_isPolylogFamily`, `padicPolylog`, `dilogD`
+and `fiveTermDefect` from the suggested file, maintaining their namespace
+and prime parameters. Append its entire `EndComparison` section. The
+individual imports are `Mathlib.NumberTheory.Padics.Complex`,
+`Mathlib.Analysis.Analytic.Composition`,
+`Mathlib.Analysis.Analytic.Constructions`,
+`Mathlib.Analysis.Analytic.OfScalars`,
+`Mathlib.Analysis.Calculus.Deriv.Basic` and
+`Mathlib.Analysis.SpecificLimits.Normed`. Open `Filter` and `Topology` and
+retain the noncomputable section. This checks the new signatures without
+claiming that the full file or the admitted proofs are checked.
 
-# BP-ColemanIntegration — algebraic-input density
+A separate Mathlib-only slice of the five existing Abel/nested-disc controls
+also passes with zero errors and six expected admitted-proof warnings. Its
+ancestors are the same, plus the exact `polylogSer` definition. Test labels
+were reconciled, the prime-5 instance input was made explicit, and the
+degenerate composite example states both evaluations.
 
-Codex — codex-7e92bd. Refs #698. Own-job follow-up to merged PR3176 under
-WORKERS. Original claim5852469617 was confirmed by bot5852470358; the winning
-reply was fetched and the entire issue reread. No second claim was made.
+Three new Coleman component results are explicit comments because the
+actual dagger/LocAn carrier and end realization are unavailable at the pin.
+The packet and reader give their element and map contracts. No substitute
+carrier or hypothesis asserting the desired conclusion was introduced.
 
-Totals: **156 nodes** (19 definitions, 11 constructions, 81 lemmas,
-35 theorems, 10 comparisons); **257 API entries**;
-**143 packet tests**, including 133 definition/construction
-tests; **100 typed examples**; **22 planets**;
-**112 baseline references**; **5 gaps**, **20 requests**,
-**24 source findings**, **0 closed stages**. Every implementation status is unchecked.
+Exact arithmetic controls pass **62,368 assertions**: 62,118 chart/norm
+checks in 609 configurations and 250 independently computed composition
+coefficient checks through degree 9. The chart controls use primes
+3, 5, 7 and 11 and the unramified dyadic quadratic field with
+zeta^2+zeta+1=0. They evaluate the actual rational maps, compare all sixteen
+coordinates with u t/(1+b t), verify norm preservation and inverse
+substitutions, and check regular target centres. The coefficient control
+compares truncated direct polynomial substitution with the displayed
+binomial formula, including u=0 and b=0. These finite checks support signs
+and formulas; they do not prove analytic continuation.
 
-## Change and exact boundary
+## Sources and baseline
 
-Seven L2 nodes promote the already present local-analytic and weight-one APIs,
-prove continuity of the actual dilogarithm and scalar five-term expression,
-prove openness of the special-unit admissible locus, give its algebraic density,
-and reduce the full scalar identity to an explicit algebraic special-unit input.
-Five new signatures and five typed tests append to the preceding seed. No new
-carrier, operator, logarithm or general density theorem is constructed.
+The recorded baseline is Mathlib
+`082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti
+`f790474821cf4256814db967cb154e7af3d0c369`. The two new Mathlib references
+are `HasFPowerSeriesAt.comp` and `hasFPowerSeriesOnBall_inv_one_add`.
+Their statements were read at the pin and the source bytes compared. The
+composition theorem is used locally; the explicit coefficient estimate
+provides the whole-disc radius.
 
-The admissible locus excludes 0, 1 and collisions. The special-unit condition
-is imposed only on the second coordinate: |y|=|1−y|=1. In particular the point
-(3,2) at p=3 is included although its first coordinate is not a unit. The
-completion's dense algebraic-closure pairs can approximate within this open
-locus, retaining all conditions. A fixed finite extension is not declared
-dense in C_p. The source of the approximating field may vary.
+Public PDFs freshly obtained and the following pages read on 5 October 2026:
 
-The reduction theorem explicitly assumes the vanishing of the actual R_a on
-algebraic pairs in this locus. It extends that identity by continuity, then
-uses the existing signed scalar reduction to reach all admissible C_p pairs.
-It does not prove the finite-extension Coleman membership, global constancy
-or boundary value. Zero local derivative is not treated as global constancy.
-The projective and Bloch comparisons remain separate.
+| Source | Passages | SHA-256 |
+| --- | --- | --- |
+| [Furusho, p-adic multiple zeta values I, v2](https://arxiv.org/pdf/math/0304085v2) | pp.7–10: component rings, uniqueness, Proposition 2.5 functoriality, Proposition 2.11 whole-disc expansions | `fd2391bd4dbf328667f0fb1b46d979c4814892c2cd14051de8d674d4c5b9fb` |
+| [Besser, Coleman integration using the Tannakian formalism, v1](https://arxiv.org/pdf/math/0011269v1) | pp.12–15: pullback, uniqueness and kernel of differentiation; corroboration, not a new Tannakian prerequisite | `35d1b109d891dea711d2b557c1e81f826d6da73498ee82c7732185283702e2b7` |
+| [Besser, Heidelberg lectures](https://www.math.bgu.ac.il/~bessera/Heidelberg-lecture.pdf) | pp.17–18: Coleman constant principle | `cbb50a0514044e71926bfc83e2f514ae12eefd1dc3c590f7948a8d187fdf7c12` |
+| [de Jeu, Functional equations of dilogarithms in one variable, v1](https://arxiv.org/pdf/2007.11014v1) | pp.6–7 and 14: scalar p-adic five-term normalization and discussion | `6d96d3d58d55e4c55506271e5cd0058b8ea8406995ca642febe868be87440b68` |
 
-148 of 149 previous node objects are unchanged, including all ten preceding
-puncture-model/differential nodes. The global five-term parent alone gains
-the new exact prerequisite and narrows its remaining-work statement/proof.
-Its conclusion and source records are unchanged. All 105 prior baseline
-records, 24 source findings, 22 planets, requests and stage statuses are
-preserved. The L2 coverage and corresponding special-unit gap are narrowed;
-all other gap/coverage records are unchanged.
+The chart computations, coefficient bound and end-determination adapters
+are explicit deductions from those inputs, not theorems attributed verbatim
+to these papers. No new source erratum is asserted. Inherited broader
+source/numerical checks are preserved as provenance, not claimed as fresh
+all-source verification. Coleman 1982 remains unread because no public
+copy was available; its collation and the regulator proof remain recorded.
 
-## Sources and verification
-
-Read the full owner document, all four reviewed AUDIT23 rows, the relevant
-AlgebraicCurves and AdicSpaces links and LocalFields logarithm overlap, and
-the current actual polylogarithm, dilogarithm, scalar-defect and global-parent
-proof/API interfaces. Primary binding/audit/model inputs were byte-checked;
-the fresh source-issue registry and errata register match the primary's read
-versions. The PMIA supplier is the exact PR3172 packet/seed. The current
-Dirichlet packet matches the six changed L1 records read during PR3175.
-Its seven added L4 nodes are outside this task.
-
-Public [Furusho arXiv v2](https://arxiv.org/pdf/math/0304085v2), pp.7–10,
-read in full, especially Definition2.9 and Proposition2.11; accessed
-27 September2026, SHA256
-`fd2391bd4dbf328667f0fb1b46d979c4814892c2c2cd14051de8d674d4c5b9fb`.
-The continuity and completion-density decompositions are worker deductions.
-This is not a new full-source reading claim. No new source finding is asserted.
-
-The exact baseline statements on completion, product density, nonzero-radius
-spheres, open inequality loci, extension of continuous equalities and
-analytic continuity were read. Seven new baseline records are added; the
-unmodified pinned declaration index is used. Existing topology is cited,
-not replanned. The packet inventory contains no existing Coleman density
-adapter supplying this precise admissible/special-unit reduction.
-
-The actual combined suggested file compiles with **0 errors and 342
-expected placeholder warnings only**. Its actual PMIA and Dirichlet imports
-compile with **255 and 107** placeholder warnings.
-All **3923 Mathlib source modules** match the pin. The one reached
-Tau Ceti module is freshly compiled from its pinned source with no warnings.
-Seed SHA256: `54d99a0e868caafaacd534c44330f327853f8ee39e27da84ba0d3561a8217832`.
-
-Seven complete scratch lemmas check the open-locus/density extension and the
-logarithm/dilogarithm/rational-argument continuity steps, with **0 errors,
-0 warnings and 0 placeholders**. The topology file reaches2354 pinned Mathlib
-modules; the continuity file reaches2360. Their hypotheses retain the actual
-analytic inputs, and these checks do not implement the polylogarithm.
-Topology proof SHA256: `89093bb2f247ecf1aa9d8d47384caa57ad58754567f4e17b19024947f4e78d15`.
-Continuity proof SHA256: `7b93725b2a5edaab7aa51ba73a6c964bb82b78271d270c0b84e16b0ce371e967`.
-
-**9,119 exact finite assertions** check 2,989 rational perturbation pairs at
-p=3,5,7 and 49 pairs in the unramified dyadic quadratic model with a root of
-X²+X+1. Perturbations have norm strictly smaller than the minimum of
-|x|,|1−x|,|y|,|1−y|,|x−y|; all five norms are preserved. Controls exclude the
-diagonal and zero and include small first coordinates. The dyadic model uses
-the integral basis 1,ζ reducing to F₄; the norm is 2 to the negative minimum
-coefficient valuation. It distinguishes algebraic special units from the
-empty special-residue locus in F₂. These are finite stability tests, not a
-proof of density or the remaining Coleman vanishing hypothesis.
-
-The unmodified-index blueprint validator reports zero errors and warnings;
-the exact four-file intake reports zero problems. The dependency graph is
-acyclic, and reader/signature/test parity passes. Fresh main `96c6e79eae6728d86946aec13032d536b15d5a08`
-matches all 58 captured inputs and all four predecessor output blobs.
-The issue body and own winning confirmation5852470358 are unchanged; #698 is
-available and review #373 is unclaimed. No manual merge or independent review
-was performed.
-
-## Continuation
-
-Supply the hypothesis of five-term-from-algebraic-special-units. Extend the
-existing Coleman pullback comparison to an extra source end whose image is
-a regular target point, prove that the actual scalar defect belongs to the
-four-puncture Coleman algebra, apply Coleman uniqueness, and evaluate the
-constant by the precise boundary normalization. The conditional density
-adapter then discharges passage to arbitrary C_p points. Continue the
-independent field-general projective and Bloch descent comparisons.
-
-The other four gaps and all supplier requests remain as recorded in the
-packet: general de Rham comparison, nonfree differential-module gluing,
-the Besser–de Jeu regulator proof and coefficient-valued Artin L-functions.
-The source and coefficient conditions for positive integer values remain.
-The preceding handoff is retained in [PR3176](https://github.com/CBirkbeck/tauceti-explorer/pull/3176).
+The roadmap's accepted library audit, owner stages, touching links and
+overlaps were read before planning. The upstream models read were
+AnalyticToricGeometry and ContourIntegration. No general analytic, Laurent,
+scheme, projective or distribution carrier was replanned. Scratch papers,
+logs and harnesses are disposable; the mathematical statements, supplier
+contracts, check results and reproducibility inputs are all recorded here
+or in the deliverables.
