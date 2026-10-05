@@ -130,8 +130,9 @@ names and signatures. They claim no implementation.
 BP-ClassicalArithmeticCompletion: partial prototype, implementationStatus = unchecked.
 Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174;
 Tau Ceti f790474821cf4256814db967cb154e7af3d0c369.
-The file imports Mathlib only and elaborates at the Mathlib pin: the only messages are
-`declaration uses 'sorry'` warnings. Where a node imports a Tau Ceti declaration, the
+The author reported Mathlib-only elaboration before this review; that historical receipt
+is archived in the packet. The current edited file was not compiled: no complete existing
+build matches both pins. Where a node imports a Tau Ceti declaration, the
 section says so in a comment and states locally only what the prototype needs.
 
 One section per layer, CA.0 to CA.7, in the order of the roadmap; later sections use the
@@ -1680,10 +1681,13 @@ namespace LaurentSeries
 
 variable {K : Type*} [Field K]
 
-/-- The Cartier operator `Λ_r` of modulus `q`: `∑ aₙ Xⁿ ↦ ∑ a_{qn+r} Xⁿ`. -/
+/-- For positive `q`, the Cartier operator `Λ_r` is `∑ aₙ Xⁿ ↦ ∑ a_{qn+r} Xⁿ`.
+At `q = 0` its junk value is zero. Preservation of power series requires `r < q`. -/
 def cartier (q r : ℕ) (f : K⸨X⸩) : K⸨X⸩ := by sorry
 
-theorem coeff_cartier (q r : ℕ) (f : K⸨X⸩) (n : ℤ) :
+theorem cartier_zero (r : ℕ) (f : K⸨X⸩) : cartier 0 r f = 0 := by sorry
+
+theorem coeff_cartier (q r : ℕ) (hq : 0 < q) (f : K⸨X⸩) (n : ℤ) :
     (cartier q r f).coeff n = f.coeff (q * n + r) := by sorry
 
 theorem cartier_add (q r : ℕ) (f g : K⸨X⸩) : cartier q r (f + g) = cartier q r f + cartier q r g := by
@@ -1692,7 +1696,7 @@ theorem cartier_add (q r : ℕ) (f g : K⸨X⸩) : cartier q r (f + g) = cartier
 theorem cartier_smul (q r : ℕ) (c : K) (f : K⸨X⸩) : cartier q r (c • f) = c • cartier q r f := by
   sorry
 
-theorem cartier_ofPowerSeries (q r : ℕ) (a : ℕ → K) :
+theorem cartier_ofPowerSeries (q r : ℕ) (hq : 0 < q) (hr : r < q) (a : ℕ → K) :
     cartier q r (HahnSeries.ofPowerSeries ℤ K (PowerSeries.mk a)) =
       HahnSeries.ofPowerSeries ℤ K (PowerSeries.mk fun n => a (q * n + r)) := by sorry
 
@@ -1705,7 +1709,7 @@ theorem eq_sum_single_mul_cartier_pow [Fintype K] (f : K⸨X⸩) :
       HahnSeries.single (r : ℤ) (1 : K) * (cartier (Fintype.card K) r f) ^ Fintype.card K := by
   sorry
 
-theorem natDegree_cartier_le (q r : ℕ) (hq : 0 < q) (P : K[X]) :
+theorem natDegree_cartier_le (q r : ℕ) (hq : 0 < q) (hr : r < q) (P : K[X]) :
     ∃ P' : K[X], P'.natDegree ≤ P.natDegree / q ∧
       cartier q r (P : K⸨X⸩) = (P' : K⸨X⸩) := by sorry
 
@@ -1720,6 +1724,14 @@ example (f : K⸨X⸩) : cartier 1 0 f = f := by sorry
 
 /-- Unit test `LaurentSeries.cartier_pow_card`: over a finite field, `Λ_0 (g ^ q) = g`. -/
 example [Fintype K] (g : K⸨X⸩) : cartier (Fintype.card K) 0 (g ^ Fintype.card K) = g := by sorry
+
+/-- Unit test `LaurentSeries.cartier_zero_modulus`: the coefficient specification does not
+extend to modulus zero; the defined junk value is zero. -/
+example : cartier 0 0 (1 : K⸨X⸩) = 0 := by sorry
+
+/-- Unit test `LaurentSeries.cartier_outside_residue_range`: `r < q` is necessary to preserve
+power series: `Λ_1` at modulus one sends `1` to `X⁻¹`. -/
+example : cartier 1 1 (1 : K⸨X⸩) = HahnSeries.single (-1 : ℤ) (1 : K) := by sorry
 
 end LaurentSeries
 
@@ -3654,7 +3666,7 @@ theorem aperySet_unique_decomposition {S : AddSubmonoid ℕ} (hS : IsNumericalSe
 
 /-- CA.4/selmer-frobenius-formula. -/
 theorem selmer_frobenius {S : AddSubmonoid ℕ} (hS : IsNumericalSemigroup S) {n : ℕ} (hn : n ∈ S)
-    (hn0 : 0 < n) : numericalFrobenius S = (sSup (aperySet S n) : ℕ) - n := by sorry
+    (hn0 : 0 < n) : numericalFrobenius S = ((sSup (aperySet S n) : ℕ) : ℤ) - (n : ℤ) := by sorry
 
 /-- CA.4/selmer-genus-formula. -/
 theorem selmer_genus {S : AddSubmonoid ℕ} (hS : IsNumericalSemigroup S) {n : ℕ} (hn : n ∈ S)
@@ -3736,7 +3748,7 @@ theorem IsEgyptianExpansion.union {r s : ℚ} {D E : Finset ℕ} (hD : IsEgyptia
   sorry
 
 theorem IsEgyptianExpansion.split {r : ℚ} {D : Finset ℕ} {n : ℕ} (hD : IsEgyptianExpansion r D)
-    (hn : n ∈ D) (h1 : n + 1 ∉ D) (h2 : n * (n + 1) ∉ D) :
+    (hn : n ∈ D) (hn1 : 1 < n) (h1 : n + 1 ∉ D) (h2 : n * (n + 1) ∉ D) :
     IsEgyptianExpansion r (insert (n + 1) (insert (n * (n + 1)) (D.erase n))) := by sorry
 
 theorem IsEgyptianExpansion.pos {r : ℚ} {D : Finset ℕ} (hD : IsEgyptianExpansion r D)
@@ -3753,6 +3765,9 @@ example (D : Finset ℕ) : IsEgyptianExpansion 0 D ↔ D = ∅ := by sorry
 
 /-- Unit test `not_isEgyptianExpansion_two_thirds_three`. -/
 example : ¬ IsEgyptianExpansion (2 / 3) {3} := by sorry
+
+/-- Unit test `egyptian_split_one_failure`. -/
+example : IsEgyptianExpansion 1 {1} ∧ ¬ IsEgyptianExpansion 1 {2} := by sorry
 
 /-- Unit test `isEgyptianExpansion_compat_sum`. -/
 example (r : ℚ) (D : Finset ℕ) :
@@ -3775,7 +3790,7 @@ def egyptianGreedy (r : ℚ) : List ℕ :=
 theorem egyptianGreedy_sum {r : ℚ} (h0 : 0 < r) (h1 : r ≤ 1) :
     ((egyptianGreedy r).map fun c : ℕ => (1 : ℚ) / c).sum = r := by sorry
 
-theorem egyptianGreedy_sorted (r : ℚ) : (egyptianGreedy r).Pairwise (· < ·) := by sorry
+theorem egyptianGreedy_sorted (r : ℚ) (hr : r ≤ 1) : (egyptianGreedy r).Pairwise (· < ·) := by sorry
 
 theorem egyptianGreedy_length_le (r : ℚ) : (egyptianGreedy r).length ≤ r.num.natAbs := by sorry
 
@@ -3797,6 +3812,9 @@ example {n : ℕ} (hn : 1 ≤ n) : egyptianGreedy (1 / n) = [n] := by sorry
 /-- Unit test `egyptianGreedy_not_shortest`: the greedy expansion is not the shortest. -/
 example : (egyptianGreedy (5 / 31)).length = 5 ∧ IsEgyptianExpansion (5 / 31) {7, 62, 434} := by
   sorry
+
+/-- Unit test `egyptianGreedy_two_not_sorted`. -/
+example : egyptianGreedy 2 = [1, 1] ∧ ¬ (egyptianGreedy 2).Pairwise (· < ·) := by sorry
 
 /-- Unit test `egyptianGreedy_two_sevenths`. -/
 example : egyptianGreedy (2 / 7) = [4, 28] := by sorry
@@ -4815,11 +4833,15 @@ theorem exists_sq_eq_of_sq_add_four_mul {Q : ℤ[X]} (hQ0 : Q.coeff 0 = 1)
 /-- CA.6/root-power-polynomial-square-cyclotomic (Dimitrov Lemma 2.3). -/
 theorem rootPowPoly_square_tfae {P : ℤ[X]} (hP : P.Monic) (hirr : Irreducible P)
     (hdeg : 1 < P.natDegree) (hsq : ¬ IsSquare (rootPowPoly P hP 2)) :
-    List.TFAE [∃ N : ℕ, Odd N ∧ P = cyclotomic N ℤ,
+    List.TFAE [∃ N : ℕ, 0 < N ∧ ¬ 4 ∣ N ∧ P = cyclotomic N ℤ,
       rootPowPoly P hP 2 = rootPowPoly P hP 4,
       IsSquare (rootPowPoly P hP 2 * rootPowPoly P hP 4),
       IsSquare (algebraMap ℚ[X] (RatFunc ℚ)
         ((rootPowPoly P hP 2 * rootPowPoly P hP 4).map (Int.castRingHom ℚ)))] := by sorry
+
+/-- Regression: Φ₆ has even level but its square and fourth-power root polynomials agree. -/
+example : rootPowPoly (cyclotomic 6 ℤ) (cyclotomic.monic 6 ℤ) 2 = cyclotomic 3 ℤ ∧
+    rootPowPoly (cyclotomic 6 ℤ) (cyclotomic.monic 6 ℤ) 4 = cyclotomic 3 ℤ := by sorry
 
 /-- CA.6/schinzel-zassenhaus-dimitrov (**Dimitrov's theorem**, the Schinzel–Zassenhaus conjecture):
 a monic irreducible non-cyclotomic `P ∈ ℤ[X]` of degree `n > 1` has a root of modulus at least
@@ -4866,10 +4888,11 @@ BP-ClassicalArithmeticCompletion (continuation). This section is not the roadmap
 exhaustive; the roadmap document is definitive. The statements suggest Lean forms so that
 contributors and reviewers converge on names and signatures. They claim no implementation.
 
-Elaborated against Mathlib 082e2d3; the only messages are `declaration uses 'sorry'` warnings.
+The author reported elaboration against Mathlib 082e2d3 before this review. The edited
+file is uncompiled; the archived receipt does not certify these changed signatures.
 
 Tau Ceti is not built here. Ring `K₀` is Tau Ceti's `TauCeti.SplitK0` of
-`TauCeti.finiteProjectiveModules`; the stand-in `RingK0` below names what is needed locally.
+`TauCeti.finiteProjectiveModules`; the owner-dependent `RingK0` signatures below are pending comments.
 The lemma nodes `local-tame-split-extension`, `normal-integral-basis-of-split-extension` and
 `completed-ring-of-integers-is-induced` need the local-field and completion carriers of the Tau Ceti
 roadmaps LocalFieldsRamification and NumberFieldArithmetic, and are not stated in this section.
@@ -4989,7 +5012,7 @@ def equiv : MonoidAlgebra K (L ≃ₐ[K] L) ≃ₗ[K] L :=
 
 theorem isGenerator_iff_exists_unit {θ : L} (h : IsGenerator K L θ) (β : L) :
     IsGenerator K L β ↔
-      ∃ u : (MonoidAlgebra K (L ≃ₐ[K] L))ˣ, β = equivOfGenerator h (u : MonoidAlgebra K _) := by
+      ∃! u : (MonoidAlgebra K (L ≃ₐ[K] L))ˣ, β = equivOfGenerator h (u : MonoidAlgebra K _) := by
   sorry
 
 /-- Unit test `NormalBasis.test_trivialGroup`: over the trivial group every nonzero element is a
@@ -5003,7 +5026,7 @@ example [Nontrivial (L ≃ₐ[K] L)] : ¬ IsGenerator K L 1 := by sorry
 /-- Unit test `NormalBasis.test_quadratic_generator`: in a quadratic extension, `1 + x` is a
 normal basis generator when the nontrivial automorphism negates `x ≠ 0`, as for `1 + i`. -/
 example (hL : Nat.card (L ≃ₐ[K] L) = 2) (σ : L ≃ₐ[K] L) (hσ : σ ≠ 1) (x : L) (hx : x ≠ 0)
-    (hσx : σ x = -x) : IsGenerator K L (1 + x) := by sorry
+    (hσx : σ x = -x) (hchar : (2 : K) ≠ 0) : IsGenerator K L (1 + x) := by sorry
 
 /-- Unit test `NormalBasis.test_equiv_single_one`: the normal basis map sends `σ` to the
 conjugate of Mathlib's normal basis generator. -/
@@ -5054,7 +5077,8 @@ theorem IsNIBGenerator.isGenerator {K L : Type*} [Field K] [Field L] [NumberFiel
 
 /-- Unit test `IntegralGaloisModule.nib_test_trivialGroup`: over the trivial group a generator is
 exactly a unit. -/
-example [IsDomain A] [Subsingleton G] (α : B) : IsNIBGenerator A B G α ↔ IsUnit α := by sorry
+example [IsDomain A] [Subsingleton G] (hAB : Function.Injective (algebraMap A B))
+    (α : B) : IsNIBGenerator A B G α ↔ IsUnit α := by sorry
 
 /-- Unit test `IntegralGaloisModule.nib_test_one_not_generator`: `1` never generates a normal
 integral basis of a nontrivial extension. -/
@@ -5252,7 +5276,8 @@ variable (Λ M : Type*) [Ring Λ] [Algebra A Λ] [AddCommGroup M] [Module Λ M] 
 
 /-- `M` is a locally free `Λ`-lattice of rank `n`: finitely generated over `A`, and at every
 nonzero prime `v` of `A` the completion `Â_v ⊗ M` is isomorphic to `(Â_v ⊗ Λ)ⁿ`, compatibly with
-the action of `Λ`. -/
+the action of `Λ`. This raw predicate is vacuous over fields; rank, zero and projectivity
+consequences require that `A` is not a field. -/
 def IsLocallyFreeOfRank (n : ℕ) : Prop :=
   Module.Finite A M ∧
     ∀ v : HeightOneSpectrum A,
@@ -5275,7 +5300,7 @@ theorem IsLocallyFreeOfRank.of_linearEquiv {N : Type*} [AddCommGroup N] [Module 
     [Module A N] [IsScalarTower A Λ N] {n : ℕ} (e : M ≃ₗ[Λ] N)
     (hM : IsLocallyFreeOfRank A K Λ M n) : IsLocallyFreeOfRank A K Λ N n := by sorry
 
-theorem IsLocallyFreeOfRank.finrank [Module.Finite A Λ] {n : ℕ}
+theorem IsLocallyFreeOfRank.finrank [Module.Finite A Λ] (hA : ¬ IsField A) {n : ℕ}
     (hM : IsLocallyFreeOfRank A K Λ M n) :
     Module.finrank K (K ⊗[A] M) = n * Module.finrank K (K ⊗[A] Λ) := by sorry
 
@@ -5287,14 +5312,14 @@ theorem isLocallyFreeOfRank_one_groupRing_iff (B G : Type*) [CommRing B] [Algebr
         ∃ b : Module.Basis G (v.adicCompletionIntegers K) ((v.adicCompletionIntegers K) ⊗[A] B),
           ∀ g : G, b g = (galoisRep A B G g).baseChange _ (b 1) := by sorry
 
-theorem IsLocallyFreeOfRank.projective [Module.Finite A Λ] {n : ℕ}
+theorem IsLocallyFreeOfRank.projective [Module.Finite A Λ] (hA : ¬ IsField A) {n : ℕ}
     (hM : IsLocallyFreeOfRank A K Λ M n) : Module.Projective Λ M := by sorry
 
 /-- Unit test `LocallyFree.test_self`: `Λ` is locally free of rank one over itself. -/
 example [Module.Finite A Λ] : IsLocallyFreeOfRank A K Λ (Fin 1 → Λ) 1 := by sorry
 
 /-- Unit test `LocallyFree.test_rank_zero`: a locally free lattice of rank zero is zero. -/
-example (h : IsLocallyFreeOfRank A K Λ M 0) : Subsingleton M := by sorry
+example (hA : ¬ IsField A) (h : IsLocallyFreeOfRank A K Λ M 0) : Subsingleton M := by sorry
 
 /-- Unit test `LocallyFree.test_ideal_not_free`: a nonprincipal ideal of a Dedekind domain is
 locally free of rank one over the domain but not free. -/
@@ -5307,7 +5332,7 @@ example (L : Type*) [Field L] [NumberField L] [IsCyclotomicExtension {4} ℚ L] 
     ¬ IsLocallyFreeOfRank (𝓞 ℚ) ℚ (MonoidAlgebra (𝓞 ℚ) (L ≃ₐ[ℚ] L))
       (IntegralGaloisModule.GroupRingModule (𝓞 ℚ) (𝓞 L) (L ≃ₐ[ℚ] L)) 1 := by sorry
 
-theorem submodule_eq_of_baseChange_surjective {V : Type*} [AddCommGroup V] [Module A V]
+theorem submodule_eq_of_baseChange_surjective (hA : ¬ IsField A) {V : Type*} [AddCommGroup V] [Module A V]
     {N P : Submodule A V} (hNP : N ≤ P) [Module.Finite A P]
     (h : ∀ v : HeightOneSpectrum A,
       Function.Surjective ((Submodule.inclusion hNP).baseChange (v.adicCompletionIntegers K))) :
@@ -5521,7 +5546,7 @@ theorem associatedOrder_gaussian (L : Type*) [Field L] [NumberField L]
 
 /-- Unit test `IntegralGaloisModule.associatedOrder_test_trivial`: for `L = K` the associated
 order is `A`. -/
-example [Subsingleton (L ≃ₐ[K] L)] :
+example [IsDedekindDomain A] [Subsingleton (L ≃ₐ[K] L)] :
     associatedOrder A K L B = groupRingSubalgebra A K (L ≃ₐ[K] L) := by sorry
 
 /-- Unit test `IntegralGaloisModule.associatedOrder_test_contains_groupRing`: the associated order
@@ -5651,29 +5676,15 @@ theorem isNIBGenerator_iff_discr_eq (K : Type*) [Field K] [NumberField K] [IsGal
 
 end GaloisResolvent
 
-/-! ### Locally free class groups and the Fröhlich–Taylor theorems
-
-Ring `K₀` is Tau Ceti's `TauCeti.SplitK0 (TauCeti.finiteProjectiveModules Λ).FullSubcategory`
-(`TauCeti/CategoryTheory/GrothendieckGroup/Split.lean`,
-`TauCeti/Algebra/Category/ModuleCat/CartanMap.lean`), with the ring-level interface of
-`KTheoryLowDegrees:Z.1`. Tau Ceti is not built here, so `RingK0` below is a local stand-in for that
-declaration: what is needed locally is the abelian group and the class of a finitely generated
-projective module. -/
+/- REVIEW PENDING OWNER TYPES — REV-ClassicalArithmeticCompletion.
+The typed specifications below depend on the actual RingK0 of
+KTheoryLowDegrees:Z.1, defined using TauCeti.SplitK0 of the finite-projective
+module category. Its finite-order hypotheses and the locally-free-to-projective
+bridge must be supplied before these commands can be activated. No local K0
+type or object-class replacement is defined. These signatures are comments,
+not elaborated declarations or formalised results.
 
 universe uGM
-
-namespace LocallyFree
-
-/-- Local stand-in for Tau Ceti's ring `K₀` (see the note above). -/
-def RingK0 (Λ : Type uGM) [Ring Λ] : Type uGM := by sorry
-
-instance (Λ : Type uGM) [Ring Λ] : AddCommGroup (RingK0 Λ) := by sorry
-
-/-- Local stand-in for the class of a finitely generated projective module in ring `K₀`. -/
-def RingK0.of {Λ : Type uGM} [Ring Λ] (P : Type uGM) [AddCommGroup P] [Module Λ P]
-    [Module.Finite Λ P] [Module.Projective Λ P] : RingK0 Λ := by sorry
-
-end LocallyFree
 
 namespace LocallyFree
 
@@ -5786,10 +5797,13 @@ example (L : Type) [Field L] [NumberField L] [IsGalois ℚ L] (h : IsTamelyRamif
 
 /-- Fröhlich: `[𝓞_L]` lies in the kernel group `D(ℤ[G])`. -/
 theorem ringOfIntegersClassInt_mem_kernelGroup (h : IsTamelyRamified (𝓞 K) (𝓞 L))
-    {Λ' : Type} [Ring Λ'] [Module.Finite ℤ Λ']
-    (f : MonoidAlgebra ℤ (L ≃ₐ[K] L) →ₐ[ℤ] Λ')
-    (hmax : IntegralOrder.IsMaximalOrder ℤ ℚ (MonoidAlgebra ℚ (L ≃ₐ[K] L))
-      (IntegralOrder.groupRingSubalgebra ℤ ℚ (L ≃ₐ[K] L))) :
+    (Γ : Subalgebra ℤ (MonoidAlgebra ℚ (L ≃ₐ[K] L))) [Module.Finite ℤ Γ]
+    (hmax : IntegralOrder.IsMaximalOrder ℤ ℚ (MonoidAlgebra ℚ (L ≃ₐ[K] L)) Γ)
+    (hRG : IntegralOrder.groupRingSubalgebra ℤ ℚ (L ≃ₐ[K] L) ≤ Γ)
+    (f : MonoidAlgebra ℤ (L ≃ₐ[K] L) →ₐ[ℤ] Γ)
+    (hf : ∀ g : L ≃ₐ[K] L,
+      (f (MonoidAlgebra.single g 1) : MonoidAlgebra ℚ (L ≃ₐ[K] L)) =
+        MonoidAlgebra.of ℚ (L ≃ₐ[K] L) g) :
     ringOfIntegersClassInt K L h ∈ kernelGroup (K := ℚ) f := by sorry
 
 /-- **Taylor's theorem** (Fröhlich's conjecture), part (a): `[𝓞_L]` has order at most two. -/
@@ -5811,6 +5825,8 @@ theorem free_intGroupRing_of_odd_card (h : IsTamelyRamified (𝓞 K) (𝓞 L))
         Module.finrank ℚ K := by sorry
 
 end IntegralGaloisModule
+
+-/
 
 end CA7
 
