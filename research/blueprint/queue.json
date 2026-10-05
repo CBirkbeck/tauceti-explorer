@@ -10271,8 +10271,8 @@
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-JacobianChallengePartII.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #3554",
-   "finishedAt": "2026-10-05T00:41:08Z"
+   "finishedAt": "2026-10-05T00:41:08Z",
+   "note": "deliverables arrived from an external worker on issue #3554"
   },
   {
    "id": "DESIGN-StableReductionPartII",
@@ -10837,8 +10837,8 @@
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-AbelianSchemesAndArithmeticModuliPartII.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #3483",
-   "finishedAt": "2026-10-05T02:03:53Z"
+   "finishedAt": "2026-10-05T02:03:53Z",
+   "note": "deliverables arrived from an external worker on issue #3483"
   },
   {
    "id": "DESIGN-MordellLawrenceVenkateshPartII",
@@ -11919,8 +11919,8 @@
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #3580",
-   "finishedAt": "2026-10-05T12:01:13Z"
+   "finishedAt": "2026-10-05T12:01:13Z",
+   "note": "deliverables arrived from an external worker on issue #3580"
   },
   {
    "id": "DESIGN-SmallRamificationAndAbelianVarietyBaseCasesPartII",
@@ -12758,8 +12758,8 @@
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-ErdosProgressionPowers.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #1693",
-   "finishedAt": "2026-10-05T07:23:27Z"
+   "finishedAt": "2026-10-05T07:23:27Z",
+   "note": "deliverables arrived from an external worker on issue #1693"
   },
   {
    "id": "REV-DESIGN-ErdosProgressionPowers",
@@ -12783,8 +12783,8 @@
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-ErdosProgressionPowers.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #1723",
-   "finishedAt": "2026-10-05T08:44:02Z"
+   "finishedAt": "2026-10-05T08:44:02Z",
+   "note": "deliverables arrived from an external worker on issue #1723"
   },
   {
    "id": "DESIGN-FaltingsFinitenessAndIsogenyTheoremsPartII",
@@ -12848,8 +12848,8 @@
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-AbelianVarietiesIsogenousToNoJacobian.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #4969",
-   "finishedAt": "2026-10-04T22:32:12Z"
+   "finishedAt": "2026-10-04T22:32:12Z",
+   "note": "deliverables arrived from an external worker on issue #4969"
   },
   {
    "id": "REV-DESIGN-AbelianVarietiesIsogenousToNoJacobian",
@@ -12873,8 +12873,8 @@
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-AbelianVarietiesIsogenousToNoJacobian.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #5049",
-   "finishedAt": "2026-10-05T00:15:46Z"
+   "finishedAt": "2026-10-05T00:15:46Z",
+   "note": "deliverables arrived from an external worker on issue #5049"
   },
   {
    "id": "DESIGN-ComplexMultiplicationAndExplicitReciprocityPartII",
@@ -13092,8 +13092,8 @@
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-GenericDoublePointInterpolation.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #1724",
-   "finishedAt": "2026-10-04T23:56:32Z"
+   "finishedAt": "2026-10-04T23:56:32Z",
+   "note": "deliverables arrived from an external worker on issue #1724"
   },
   {
    "id": "DESIGN-EffectiveBoundsPartII",
@@ -13182,8 +13182,8 @@
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-FunctionFieldArithmeticPartII.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #3533",
-   "finishedAt": "2026-10-05T13:20:10Z"
+   "finishedAt": "2026-10-05T13:20:10Z",
+   "note": "deliverables arrived from an external worker on issue #3533"
   },
   {
    "id": "DESIGN-ProbabilisticAndMetricNumberTheoryPartII",
@@ -14150,8 +14150,8 @@
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-InductionRestrictionPartII.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #3428",
-   "finishedAt": "2026-10-04T23:34:22Z"
+   "finishedAt": "2026-10-04T23:34:22Z",
+   "note": "deliverables arrived from an external worker on issue #3428"
   },
   {
    "id": "REV-DESIGN-InductionRestrictionPartII",
@@ -14175,8 +14175,8 @@
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-InductionRestrictionPartII.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #3550",
-   "finishedAt": "2026-10-05T00:34:35Z"
+   "finishedAt": "2026-10-05T00:34:35Z",
+   "note": "deliverables arrived from an external worker on issue #3550"
   },
   {
    "id": "DESIGN-ArithmeticStatisticsPartII",
@@ -15703,8 +15703,8 @@
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-ConformalMappingPartII.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #3466",
-   "finishedAt": "2026-10-04T23:34:23Z"
+   "finishedAt": "2026-10-04T23:34:23Z",
+   "note": "deliverables arrived from an external worker on issue #3466"
   },
   {
    "id": "REV-DESIGN-ConformalMappingPartII",
@@ -15728,8 +15728,8 @@
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-ConformalMappingPartII.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #3511",
-   "finishedAt": "2026-10-05T00:41:12Z"
+   "finishedAt": "2026-10-05T00:41:12Z",
+   "note": "deliverables arrived from an external worker on issue #3511"
   },
   {
    "id": "DESIGN-PadicHodgeParametersInLocallyAnalyticRepresentations",
@@ -15861,8 +15861,8 @@
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-SemisimpleAlgebrasPartII.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #3610",
-   "finishedAt": "2026-10-04T23:25:33Z"
+   "finishedAt": "2026-10-04T23:25:33Z",
+   "note": "deliverables arrived from an external worker on issue #3610"
   },
   {
    "id": "DESIGN-RealSurfacePeriodIndex",
@@ -20975,8 +20975,8 @@
    "avoidAccountOf": "BP-DeformationAndDerivedPatchingAlgebra--P7",
    "prompt": "research/blueprint/prompts/REV-DeformationAndDerivedPatchingAlgebra--P7.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #142",
-   "finishedAt": "2026-10-05T14:43:26Z"
+   "finishedAt": "2026-10-05T14:43:26Z",
+   "note": "deliverables arrived from an external worker on issue #142"
   },
   {
    "id": "BP-DeformationAndDerivedPatchingAlgebra--R03.6",
@@ -21175,8 +21175,8 @@
    "avoidAccountOf": "BP-PadicMeasuresIwasawaAlgebras",
    "prompt": "research/blueprint/prompts/REV-PadicMeasuresIwasawaAlgebras.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #146",
-   "finishedAt": "2026-10-05T03:02:50Z"
+   "finishedAt": "2026-10-05T03:02:50Z",
+   "note": "deliverables arrived from an external worker on issue #146"
   },
   {
    "id": "BP-LocallyAnalyticDistributions",
@@ -21280,8 +21280,8 @@
    "avoidAccountOf": "BP-SchemeAndStackFoundations",
    "prompt": "research/blueprint/prompts/REV-SchemeAndStackFoundations.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #317",
-   "finishedAt": "2026-10-05T03:18:29Z"
+   "finishedAt": "2026-10-05T03:18:29Z",
+   "note": "deliverables arrived from an external worker on issue #317"
   },
   {
    "id": "BP-AInfCohomology--AI.0",
@@ -21731,8 +21731,8 @@
    "avoidAccountOf": "BP-AlgebraicModuliForArithmeticGeometry--A0-extension",
    "prompt": "research/blueprint/prompts/REV-AlgebraicModuliForArithmeticGeometry--A0-extension.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #346",
-   "finishedAt": "2026-10-05T16:36:35Z"
+   "finishedAt": "2026-10-05T16:36:35Z",
+   "note": "deliverables arrived from an external worker on issue #346"
   },
   {
    "id": "BP-AlgebraicModuliForArithmeticGeometry--R09.7a",
@@ -22992,8 +22992,8 @@
    "suppliers": [
     "BP-LocallyAnalyticDistributions"
    ],
-   "note": "deliverables arrived from an external worker on issue #698",
-   "finishedAt": "2026-10-05T16:27:48Z"
+   "finishedAt": "2026-10-05T16:27:48Z",
+   "note": "deliverables arrived from an external worker on issue #698"
   },
   {
    "id": "REV-ColemanIntegration",
@@ -23721,8 +23721,8 @@
     "BP-LocallyAnalyticDistributions",
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "deliverables arrived from an external worker on issue #5878",
-   "finishedAt": "2026-10-04T22:48:02Z"
+   "finishedAt": "2026-10-04T22:48:02Z",
+   "note": "deliverables arrived from an external worker on issue #5878"
   },
   {
    "id": "REV-DirichletPadicLFunctions--L0",
@@ -23743,8 +23743,8 @@
    "avoidAccountOf": "BP-DirichletPadicLFunctions--L0",
    "prompt": "research/blueprint/prompts/REV-DirichletPadicLFunctions--L0.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #5873",
-   "finishedAt": "2026-10-05T01:10:57Z"
+   "finishedAt": "2026-10-05T01:10:57Z",
+   "note": "deliverables arrived from an external worker on issue #5873"
   },
   {
    "id": "BP-DirichletPadicLFunctions--L1",
@@ -23771,8 +23771,8 @@
     "BP-LocallyAnalyticDistributions",
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "deliverables arrived from an external worker on issue #5879",
-   "finishedAt": "2026-10-05T09:36:09Z"
+   "finishedAt": "2026-10-05T09:36:09Z",
+   "note": "deliverables arrived from an external worker on issue #5879"
   },
   {
    "id": "REV-DirichletPadicLFunctions--L1",
@@ -23793,8 +23793,8 @@
    "avoidAccountOf": "BP-DirichletPadicLFunctions--L1",
    "prompt": "research/blueprint/prompts/REV-DirichletPadicLFunctions--L1.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #5874",
-   "finishedAt": "2026-10-05T10:53:50Z"
+   "finishedAt": "2026-10-05T10:53:50Z",
+   "note": "deliverables arrived from an external worker on issue #5874"
   },
   {
    "id": "BP-DirichletPadicLFunctions--L2",
@@ -23821,8 +23821,8 @@
     "BP-LocallyAnalyticDistributions",
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "deliverables arrived from an external worker on issue #5880",
-   "finishedAt": "2026-10-05T07:51:15Z"
+   "finishedAt": "2026-10-05T07:51:15Z",
+   "note": "deliverables arrived from an external worker on issue #5880"
   },
   {
    "id": "REV-DirichletPadicLFunctions--L2",
@@ -23843,8 +23843,8 @@
    "avoidAccountOf": "BP-DirichletPadicLFunctions--L2",
    "prompt": "research/blueprint/prompts/REV-DirichletPadicLFunctions--L2.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #5875",
-   "finishedAt": "2026-10-05T09:46:03Z"
+   "finishedAt": "2026-10-05T09:46:03Z",
+   "note": "deliverables arrived from an external worker on issue #5875"
   },
   {
    "id": "BP-DirichletPadicLFunctions--L3",
@@ -23893,8 +23893,8 @@
    "avoidAccountOf": "BP-DirichletPadicLFunctions--L3",
    "prompt": "research/blueprint/prompts/REV-DirichletPadicLFunctions--L3.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #5876",
-   "finishedAt": "2026-10-05T08:08:36Z"
+   "finishedAt": "2026-10-05T08:08:36Z",
+   "note": "deliverables arrived from an external worker on issue #5876"
   },
   {
    "id": "BP-DirichletPadicLFunctions--L4",
@@ -23943,8 +23943,8 @@
    "avoidAccountOf": "BP-DirichletPadicLFunctions--L4",
    "prompt": "research/blueprint/prompts/REV-DirichletPadicLFunctions--L4.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #5877",
-   "finishedAt": "2026-10-05T01:02:20Z"
+   "finishedAt": "2026-10-05T01:02:20Z",
+   "note": "deliverables arrived from an external worker on issue #5877"
   },
   {
    "id": "BP-EllipticCurveModularity",
@@ -25815,8 +25815,8 @@
    "prompt": "research/blueprint/prompts/BP-HeegnerPointEulerSystems--HE.0.md",
    "state": "done",
    "suppliers": [],
-   "note": "deliverables arrived from an external worker on issue #751",
-   "finishedAt": "2026-10-05T09:52:17Z"
+   "finishedAt": "2026-10-05T09:52:17Z",
+   "note": "deliverables arrived from an external worker on issue #751"
   },
   {
    "id": "REV-HeegnerPointEulerSystems--HE.0",
@@ -25837,8 +25837,8 @@
    "avoidAccountOf": "BP-HeegnerPointEulerSystems--HE.0",
    "prompt": "research/blueprint/prompts/REV-HeegnerPointEulerSystems--HE.0.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #428",
-   "finishedAt": "2026-10-05T10:43:38Z"
+   "finishedAt": "2026-10-05T10:43:38Z",
+   "note": "deliverables arrived from an external worker on issue #428"
   },
   {
    "id": "BP-HeegnerPointEulerSystems--HE.7s",
@@ -26499,8 +26499,8 @@
    "prompt": "research/blueprint/prompts/BP-KTheoryLowDegrees--Z.3.md",
    "state": "done",
    "suppliers": [],
-   "note": "deliverables arrived from an external worker on issue #765",
-   "finishedAt": "2026-10-04T22:34:52Z"
+   "finishedAt": "2026-10-04T22:34:52Z",
+   "note": "deliverables arrived from an external worker on issue #765"
   },
   {
    "id": "REV-KTheoryLowDegrees--Z.3",
@@ -26521,8 +26521,8 @@
    "avoidAccountOf": "BP-KTheoryLowDegrees--Z.3",
    "prompt": "research/blueprint/prompts/REV-KTheoryLowDegrees--Z.3.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #442",
-   "finishedAt": "2026-10-05T01:08:20Z"
+   "finishedAt": "2026-10-05T01:08:20Z",
+   "note": "deliverables arrived from an external worker on issue #442"
   },
   {
    "id": "BP-KatoEulerSystems",
@@ -27260,8 +27260,8 @@
    "avoidAccountOf": "BP-NeronModelsAndSemistableAbelianVarieties",
    "prompt": "research/blueprint/prompts/REV-NeronModelsAndSemistableAbelianVarieties.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #457",
-   "finishedAt": "2026-10-05T02:03:56Z"
+   "finishedAt": "2026-10-05T02:03:56Z",
+   "note": "deliverables arrived from an external worker on issue #457"
   },
   {
    "id": "BP-OrdinaryAutomorphicFormsAndModularityLifting",
@@ -30269,8 +30269,8 @@
    "avoidAccountOf": "BP-AnabelianGeometryAndNonabelianChabauty",
    "prompt": "research/blueprint/prompts/REV-AnabelianGeometryAndNonabelianChabauty.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #526",
-   "finishedAt": "2026-10-05T15:38:26Z"
+   "finishedAt": "2026-10-05T15:38:26Z",
+   "note": "deliverables arrived from an external worker on issue #526"
   },
   {
    "id": "BP-AnalyticNumberTheory--AN.0",
@@ -30307,8 +30307,8 @@
     "BP-AutomorphicSpectralTheory",
     "BP-FoundationsAndLibraryIntegration"
    ],
-   "note": "deliverables arrived from an external worker on issue #1021",
-   "finishedAt": "2026-10-05T08:49:58Z"
+   "finishedAt": "2026-10-05T08:49:58Z",
+   "note": "deliverables arrived from an external worker on issue #1021"
   },
   {
    "id": "REV-AnalyticNumberTheory--AN.0",
@@ -30360,8 +30360,8 @@
     "BP-AutomorphicSpectralTheory",
     "BP-FoundationsAndLibraryIntegration"
    ],
-   "note": "deliverables arrived from an external worker on issue #1022",
-   "finishedAt": "2026-10-05T10:48:52Z"
+   "finishedAt": "2026-10-05T10:48:52Z",
+   "note": "deliverables arrived from an external worker on issue #1022"
   },
   {
    "id": "REV-AnalyticNumberTheory--AN.8",
@@ -30382,8 +30382,8 @@
    "avoidAccountOf": "BP-AnalyticNumberTheory--AN.8",
    "prompt": "research/blueprint/prompts/REV-AnalyticNumberTheory--AN.8.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #528",
-   "finishedAt": "2026-10-05T11:29:06Z"
+   "finishedAt": "2026-10-05T11:29:06Z",
+   "note": "deliverables arrived from an external worker on issue #528"
   },
   {
    "id": "BP-ArithmeticDynamics",
@@ -30550,8 +30550,8 @@
    "avoidAccountOf": "BP-ClassicalArithmeticCompletion",
    "prompt": "research/blueprint/prompts/REV-ClassicalArithmeticCompletion.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #532",
-   "finishedAt": "2026-10-05T04:32:26Z"
+   "finishedAt": "2026-10-05T04:32:26Z",
+   "note": "deliverables arrived from an external worker on issue #532"
   },
   {
    "id": "BP-ComputationalNumberTheory",
@@ -30586,8 +30586,8 @@
     "BP-ModularCurvesPartII--R14.3",
     "BP-SchemeAndStackFoundations"
    ],
-   "note": "deliverables arrived from an external worker on issue #1026",
-   "finishedAt": "2026-10-04T23:56:35Z"
+   "finishedAt": "2026-10-04T23:56:35Z",
+   "note": "deliverables arrived from an external worker on issue #1026"
   },
   {
    "id": "REV-ComputationalNumberTheory",
@@ -30608,8 +30608,8 @@
    "avoidAccountOf": "BP-ComputationalNumberTheory",
    "prompt": "research/blueprint/prompts/REV-ComputationalNumberTheory.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #533",
-   "finishedAt": "2026-10-05T01:53:23Z"
+   "finishedAt": "2026-10-05T01:53:23Z",
+   "note": "deliverables arrived from an external worker on issue #533"
   },
   {
    "id": "BP-DiophantineApproximationAndTranscendence",
@@ -30662,8 +30662,8 @@
    "avoidAccountOf": "BP-DiophantineApproximationAndTranscendence",
    "prompt": "research/blueprint/prompts/REV-DiophantineApproximationAndTranscendence.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #534",
-   "finishedAt": "2026-10-05T05:00:53Z"
+   "finishedAt": "2026-10-05T05:00:53Z",
+   "note": "deliverables arrived from an external worker on issue #534"
   },
   {
    "id": "BP-EffectiveDiophantineMethods",
@@ -30774,8 +30774,8 @@
    "avoidAccountOf": "BP-FiniteFieldsAndCharacterSums",
    "prompt": "research/blueprint/prompts/REV-FiniteFieldsAndCharacterSums.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #536",
-   "finishedAt": "2026-10-05T03:55:03Z"
+   "finishedAt": "2026-10-05T03:55:03Z",
+   "note": "deliverables arrived from an external worker on issue #536"
   },
   {
    "id": "BP-GeometryOfNumbersAndQuadraticArithmetic",
@@ -30807,8 +30807,8 @@
     "BP-GeneralAlgebraicKTheory--K.1",
     "BP-GeneralAlgebraicKTheory--K.6"
    ],
-   "note": "deliverables arrived from an external worker on issue #1030",
-   "finishedAt": "2026-10-04T22:48:04Z"
+   "finishedAt": "2026-10-04T22:48:04Z",
+   "note": "deliverables arrived from an external worker on issue #1030"
   },
   {
    "id": "REV-GeometryOfNumbersAndQuadraticArithmetic",
@@ -30829,8 +30829,8 @@
    "avoidAccountOf": "BP-GeometryOfNumbersAndQuadraticArithmetic",
    "prompt": "research/blueprint/prompts/REV-GeometryOfNumbersAndQuadraticArithmetic.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #537",
-   "finishedAt": "2026-10-05T02:19:05Z"
+   "finishedAt": "2026-10-05T02:19:05Z",
+   "note": "deliverables arrived from an external worker on issue #537"
   },
   {
    "id": "BP-HeightsRationalPointsAndObstructions",
@@ -31291,8 +31291,8 @@
    "avoidAccountOf": "BP-ArithmeticStatistics",
    "prompt": "research/blueprint/prompts/REV-ArithmeticStatistics.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #546",
-   "finishedAt": "2026-10-05T07:12:47Z"
+   "finishedAt": "2026-10-05T07:12:47Z",
+   "note": "deliverables arrived from an external worker on issue #546"
   },
   {
    "id": "BP-ExponentialSumsAndCircleMethod",
@@ -31379,8 +31379,8 @@
     "BP-ExponentialSumsAndCircleMethod",
     "BP-GeometryOfNumbersAndQuadraticArithmetic"
    ],
-   "note": "deliverables arrived from an external worker on issue #1041",
-   "finishedAt": "2026-10-05T00:23:50Z"
+   "finishedAt": "2026-10-05T00:23:50Z",
+   "note": "deliverables arrived from an external worker on issue #1041"
   },
   {
    "id": "REV-ProbabilisticAndMetricNumberTheory",
@@ -31401,8 +31401,8 @@
    "avoidAccountOf": "BP-ProbabilisticAndMetricNumberTheory",
    "prompt": "research/blueprint/prompts/REV-ProbabilisticAndMetricNumberTheory.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #548",
-   "finishedAt": "2026-10-05T03:35:02Z"
+   "finishedAt": "2026-10-05T03:35:02Z",
+   "note": "deliverables arrived from an external worker on issue #548"
   },
   {
    "id": "BP-QSeriesPartitionsAndMockModularForms",
@@ -31463,8 +31463,1814 @@
    "avoidAccountOf": "BP-QSeriesPartitionsAndMockModularForms",
    "prompt": "research/blueprint/prompts/REV-QSeriesPartitionsAndMockModularForms.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #549",
-   "finishedAt": "2026-10-05T07:03:02Z"
+   "finishedAt": "2026-10-05T07:03:02Z",
+   "note": "deliverables arrived from an external worker on issue #549"
+  },
+  {
+   "id": "BP-DeformationAndDerivedPatchingAlgebra--P7-2",
+   "kind": "blueprint",
+   "priority": 3,
+   "order": 1000,
+   "roadmapIds": [
+    "DeformationAndDerivedPatchingAlgebra"
+   ],
+   "scope": [
+    "DeformationAndDerivedPatchingAlgebra:P7"
+   ],
+   "outputs": [
+    "research/blueprint/packets/DeformationAndDerivedPatchingAlgebra--P7-2.json",
+    "research/blueprint/readmes/DeformationAndDerivedPatchingAlgebra--P7-2.md",
+    "research/blueprint/suggested/DeformationAndDerivedPatchingAlgebra--P7-2.lean"
+   ],
+   "after": [
+    "REV-DeformationAndDerivedPatchingAlgebra--P7"
+   ],
+   "followUpOf": "BP-DeformationAndDerivedPatchingAlgebra--P7",
+   "prompt": "research/blueprint/prompts/BP-DeformationAndDerivedPatchingAlgebra--P7-2.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-DeformationAndDerivedPatchingAlgebra--P7-2",
+   "kind": "review",
+   "priority": 2,
+   "order": 1000,
+   "roadmapIds": [
+    "DeformationAndDerivedPatchingAlgebra"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-DeformationAndDerivedPatchingAlgebra--P7-2.md",
+    "research/blueprint/packets/DeformationAndDerivedPatchingAlgebra--P7-2.json",
+    "research/blueprint/suggested/DeformationAndDerivedPatchingAlgebra--P7-2.lean"
+   ],
+   "after": [
+    "BP-DeformationAndDerivedPatchingAlgebra--P7-2"
+   ],
+   "avoidAccountOf": "BP-DeformationAndDerivedPatchingAlgebra--P7-2",
+   "prompt": "research/blueprint/prompts/REV-DeformationAndDerivedPatchingAlgebra--P7-2.md",
+   "state": "pending"
+  },
+  {
+   "id": "BP-DeformationAndDerivedPatchingAlgebra--P8",
+   "kind": "blueprint",
+   "priority": 3,
+   "order": 1000,
+   "roadmapIds": [
+    "DeformationAndDerivedPatchingAlgebra"
+   ],
+   "scope": [
+    "DeformationAndDerivedPatchingAlgebra:P8"
+   ],
+   "outputs": [
+    "research/blueprint/packets/DeformationAndDerivedPatchingAlgebra--P8.json",
+    "research/blueprint/readmes/DeformationAndDerivedPatchingAlgebra--P8.md",
+    "research/blueprint/suggested/DeformationAndDerivedPatchingAlgebra--P8.lean"
+   ],
+   "after": [
+    "REV-DeformationAndDerivedPatchingAlgebra--P7"
+   ],
+   "followUpOf": "BP-DeformationAndDerivedPatchingAlgebra--P7",
+   "prompt": "research/blueprint/prompts/BP-DeformationAndDerivedPatchingAlgebra--P8.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-DeformationAndDerivedPatchingAlgebra--P8",
+   "kind": "review",
+   "priority": 2,
+   "order": 1000,
+   "roadmapIds": [
+    "DeformationAndDerivedPatchingAlgebra"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-DeformationAndDerivedPatchingAlgebra--P8.md",
+    "research/blueprint/packets/DeformationAndDerivedPatchingAlgebra--P8.json",
+    "research/blueprint/suggested/DeformationAndDerivedPatchingAlgebra--P8.lean"
+   ],
+   "after": [
+    "BP-DeformationAndDerivedPatchingAlgebra--P8"
+   ],
+   "avoidAccountOf": "BP-DeformationAndDerivedPatchingAlgebra--P8",
+   "prompt": "research/blueprint/prompts/REV-DeformationAndDerivedPatchingAlgebra--P8.md",
+   "state": "pending"
+  },
+  {
+   "id": "BP-DeformationAndDerivedPatchingAlgebra--P9",
+   "kind": "blueprint",
+   "priority": 3,
+   "order": 1000,
+   "roadmapIds": [
+    "DeformationAndDerivedPatchingAlgebra"
+   ],
+   "scope": [
+    "DeformationAndDerivedPatchingAlgebra:P9"
+   ],
+   "outputs": [
+    "research/blueprint/packets/DeformationAndDerivedPatchingAlgebra--P9.json",
+    "research/blueprint/readmes/DeformationAndDerivedPatchingAlgebra--P9.md",
+    "research/blueprint/suggested/DeformationAndDerivedPatchingAlgebra--P9.lean"
+   ],
+   "after": [
+    "REV-DeformationAndDerivedPatchingAlgebra--P7"
+   ],
+   "followUpOf": "BP-DeformationAndDerivedPatchingAlgebra--P7",
+   "prompt": "research/blueprint/prompts/BP-DeformationAndDerivedPatchingAlgebra--P9.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-DeformationAndDerivedPatchingAlgebra--P9",
+   "kind": "review",
+   "priority": 2,
+   "order": 1000,
+   "roadmapIds": [
+    "DeformationAndDerivedPatchingAlgebra"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-DeformationAndDerivedPatchingAlgebra--P9.md",
+    "research/blueprint/packets/DeformationAndDerivedPatchingAlgebra--P9.json",
+    "research/blueprint/suggested/DeformationAndDerivedPatchingAlgebra--P9.lean"
+   ],
+   "after": [
+    "BP-DeformationAndDerivedPatchingAlgebra--P9"
+   ],
+   "avoidAccountOf": "BP-DeformationAndDerivedPatchingAlgebra--P9",
+   "prompt": "research/blueprint/prompts/REV-DeformationAndDerivedPatchingAlgebra--P9.md",
+   "state": "pending"
+  },
+  {
+   "id": "BP-DeformationAndDerivedPatchingAlgebra--R03.1",
+   "kind": "blueprint",
+   "priority": 3,
+   "order": 1000,
+   "roadmapIds": [
+    "DeformationAndDerivedPatchingAlgebra"
+   ],
+   "scope": [
+    "DeformationAndDerivedPatchingAlgebra:R03.1"
+   ],
+   "outputs": [
+    "research/blueprint/packets/DeformationAndDerivedPatchingAlgebra--R03.1.json",
+    "research/blueprint/readmes/DeformationAndDerivedPatchingAlgebra--R03.1.md",
+    "research/blueprint/suggested/DeformationAndDerivedPatchingAlgebra--R03.1.lean"
+   ],
+   "after": [
+    "REV-DeformationAndDerivedPatchingAlgebra--P7"
+   ],
+   "followUpOf": "BP-DeformationAndDerivedPatchingAlgebra--P7",
+   "prompt": "research/blueprint/prompts/BP-DeformationAndDerivedPatchingAlgebra--R03.1.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-DeformationAndDerivedPatchingAlgebra--R03.1",
+   "kind": "review",
+   "priority": 2,
+   "order": 1000,
+   "roadmapIds": [
+    "DeformationAndDerivedPatchingAlgebra"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-DeformationAndDerivedPatchingAlgebra--R03.1.md",
+    "research/blueprint/packets/DeformationAndDerivedPatchingAlgebra--R03.1.json",
+    "research/blueprint/suggested/DeformationAndDerivedPatchingAlgebra--R03.1.lean"
+   ],
+   "after": [
+    "BP-DeformationAndDerivedPatchingAlgebra--R03.1"
+   ],
+   "avoidAccountOf": "BP-DeformationAndDerivedPatchingAlgebra--R03.1",
+   "prompt": "research/blueprint/prompts/REV-DeformationAndDerivedPatchingAlgebra--R03.1.md",
+   "state": "pending"
+  },
+  {
+   "id": "BP-DeformationAndDerivedPatchingAlgebra--R03.2",
+   "kind": "blueprint",
+   "priority": 3,
+   "order": 1000,
+   "roadmapIds": [
+    "DeformationAndDerivedPatchingAlgebra"
+   ],
+   "scope": [
+    "DeformationAndDerivedPatchingAlgebra:R03.2"
+   ],
+   "outputs": [
+    "research/blueprint/packets/DeformationAndDerivedPatchingAlgebra--R03.2.json",
+    "research/blueprint/readmes/DeformationAndDerivedPatchingAlgebra--R03.2.md",
+    "research/blueprint/suggested/DeformationAndDerivedPatchingAlgebra--R03.2.lean"
+   ],
+   "after": [
+    "REV-DeformationAndDerivedPatchingAlgebra--P7"
+   ],
+   "followUpOf": "BP-DeformationAndDerivedPatchingAlgebra--P7",
+   "prompt": "research/blueprint/prompts/BP-DeformationAndDerivedPatchingAlgebra--R03.2.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-DeformationAndDerivedPatchingAlgebra--R03.2",
+   "kind": "review",
+   "priority": 2,
+   "order": 1000,
+   "roadmapIds": [
+    "DeformationAndDerivedPatchingAlgebra"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-DeformationAndDerivedPatchingAlgebra--R03.2.md",
+    "research/blueprint/packets/DeformationAndDerivedPatchingAlgebra--R03.2.json",
+    "research/blueprint/suggested/DeformationAndDerivedPatchingAlgebra--R03.2.lean"
+   ],
+   "after": [
+    "BP-DeformationAndDerivedPatchingAlgebra--R03.2"
+   ],
+   "avoidAccountOf": "BP-DeformationAndDerivedPatchingAlgebra--R03.2",
+   "prompt": "research/blueprint/prompts/REV-DeformationAndDerivedPatchingAlgebra--R03.2.md",
+   "state": "pending"
+  },
+  {
+   "id": "BP-DeformationAndDerivedPatchingAlgebra--R03.3",
+   "kind": "blueprint",
+   "priority": 3,
+   "order": 1000,
+   "roadmapIds": [
+    "DeformationAndDerivedPatchingAlgebra"
+   ],
+   "scope": [
+    "DeformationAndDerivedPatchingAlgebra:R03.3"
+   ],
+   "outputs": [
+    "research/blueprint/packets/DeformationAndDerivedPatchingAlgebra--R03.3.json",
+    "research/blueprint/readmes/DeformationAndDerivedPatchingAlgebra--R03.3.md",
+    "research/blueprint/suggested/DeformationAndDerivedPatchingAlgebra--R03.3.lean"
+   ],
+   "after": [
+    "REV-DeformationAndDerivedPatchingAlgebra--P7"
+   ],
+   "followUpOf": "BP-DeformationAndDerivedPatchingAlgebra--P7",
+   "prompt": "research/blueprint/prompts/BP-DeformationAndDerivedPatchingAlgebra--R03.3.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-DeformationAndDerivedPatchingAlgebra--R03.3",
+   "kind": "review",
+   "priority": 2,
+   "order": 1000,
+   "roadmapIds": [
+    "DeformationAndDerivedPatchingAlgebra"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-DeformationAndDerivedPatchingAlgebra--R03.3.md",
+    "research/blueprint/packets/DeformationAndDerivedPatchingAlgebra--R03.3.json",
+    "research/blueprint/suggested/DeformationAndDerivedPatchingAlgebra--R03.3.lean"
+   ],
+   "after": [
+    "BP-DeformationAndDerivedPatchingAlgebra--R03.3"
+   ],
+   "avoidAccountOf": "BP-DeformationAndDerivedPatchingAlgebra--R03.3",
+   "prompt": "research/blueprint/prompts/REV-DeformationAndDerivedPatchingAlgebra--R03.3.md",
+   "state": "pending"
+  },
+  {
+   "id": "BP-DeformationAndDerivedPatchingAlgebra--R03.4",
+   "kind": "blueprint",
+   "priority": 3,
+   "order": 1000,
+   "roadmapIds": [
+    "DeformationAndDerivedPatchingAlgebra"
+   ],
+   "scope": [
+    "DeformationAndDerivedPatchingAlgebra:R03.4"
+   ],
+   "outputs": [
+    "research/blueprint/packets/DeformationAndDerivedPatchingAlgebra--R03.4.json",
+    "research/blueprint/readmes/DeformationAndDerivedPatchingAlgebra--R03.4.md",
+    "research/blueprint/suggested/DeformationAndDerivedPatchingAlgebra--R03.4.lean"
+   ],
+   "after": [
+    "REV-DeformationAndDerivedPatchingAlgebra--P7"
+   ],
+   "followUpOf": "BP-DeformationAndDerivedPatchingAlgebra--P7",
+   "prompt": "research/blueprint/prompts/BP-DeformationAndDerivedPatchingAlgebra--R03.4.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-DeformationAndDerivedPatchingAlgebra--R03.4",
+   "kind": "review",
+   "priority": 2,
+   "order": 1000,
+   "roadmapIds": [
+    "DeformationAndDerivedPatchingAlgebra"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-DeformationAndDerivedPatchingAlgebra--R03.4.md",
+    "research/blueprint/packets/DeformationAndDerivedPatchingAlgebra--R03.4.json",
+    "research/blueprint/suggested/DeformationAndDerivedPatchingAlgebra--R03.4.lean"
+   ],
+   "after": [
+    "BP-DeformationAndDerivedPatchingAlgebra--R03.4"
+   ],
+   "avoidAccountOf": "BP-DeformationAndDerivedPatchingAlgebra--R03.4",
+   "prompt": "research/blueprint/prompts/REV-DeformationAndDerivedPatchingAlgebra--R03.4.md",
+   "state": "pending"
+  },
+  {
+   "id": "BP-DeformationAndDerivedPatchingAlgebra--R03.5",
+   "kind": "blueprint",
+   "priority": 3,
+   "order": 1000,
+   "roadmapIds": [
+    "DeformationAndDerivedPatchingAlgebra"
+   ],
+   "scope": [
+    "DeformationAndDerivedPatchingAlgebra:R03.5"
+   ],
+   "outputs": [
+    "research/blueprint/packets/DeformationAndDerivedPatchingAlgebra--R03.5.json",
+    "research/blueprint/readmes/DeformationAndDerivedPatchingAlgebra--R03.5.md",
+    "research/blueprint/suggested/DeformationAndDerivedPatchingAlgebra--R03.5.lean"
+   ],
+   "after": [
+    "REV-DeformationAndDerivedPatchingAlgebra--P7"
+   ],
+   "followUpOf": "BP-DeformationAndDerivedPatchingAlgebra--P7",
+   "prompt": "research/blueprint/prompts/BP-DeformationAndDerivedPatchingAlgebra--R03.5.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-DeformationAndDerivedPatchingAlgebra--R03.5",
+   "kind": "review",
+   "priority": 2,
+   "order": 1000,
+   "roadmapIds": [
+    "DeformationAndDerivedPatchingAlgebra"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-DeformationAndDerivedPatchingAlgebra--R03.5.md",
+    "research/blueprint/packets/DeformationAndDerivedPatchingAlgebra--R03.5.json",
+    "research/blueprint/suggested/DeformationAndDerivedPatchingAlgebra--R03.5.lean"
+   ],
+   "after": [
+    "BP-DeformationAndDerivedPatchingAlgebra--R03.5"
+   ],
+   "avoidAccountOf": "BP-DeformationAndDerivedPatchingAlgebra--R03.5",
+   "prompt": "research/blueprint/prompts/REV-DeformationAndDerivedPatchingAlgebra--R03.5.md",
+   "state": "pending"
+  },
+  {
+   "id": "BP-SchemeAndStackFoundations--SF.0",
+   "kind": "blueprint",
+   "priority": 3,
+   "order": 101500,
+   "roadmapIds": [
+    "SchemeAndStackFoundations"
+   ],
+   "scope": [
+    "SchemeAndStackFoundations:SF.0"
+   ],
+   "outputs": [
+    "research/blueprint/packets/SchemeAndStackFoundations--SF.0.json",
+    "research/blueprint/readmes/SchemeAndStackFoundations--SF.0.md",
+    "research/blueprint/suggested/SchemeAndStackFoundations--SF.0.lean"
+   ],
+   "after": [
+    "REV-SchemeAndStackFoundations"
+   ],
+   "followUpOf": "BP-SchemeAndStackFoundations",
+   "prompt": "research/blueprint/prompts/BP-SchemeAndStackFoundations--SF.0.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-SchemeAndStackFoundations--SF.0",
+   "kind": "review",
+   "priority": 2,
+   "order": 101500,
+   "roadmapIds": [
+    "SchemeAndStackFoundations"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-SchemeAndStackFoundations--SF.0.md",
+    "research/blueprint/packets/SchemeAndStackFoundations--SF.0.json",
+    "research/blueprint/suggested/SchemeAndStackFoundations--SF.0.lean"
+   ],
+   "after": [
+    "BP-SchemeAndStackFoundations--SF.0"
+   ],
+   "avoidAccountOf": "BP-SchemeAndStackFoundations--SF.0",
+   "prompt": "research/blueprint/prompts/REV-SchemeAndStackFoundations--SF.0.md",
+   "state": "pending"
+  },
+  {
+   "id": "BP-SchemeAndStackFoundations--SF.1",
+   "kind": "blueprint",
+   "priority": 3,
+   "order": 101500,
+   "roadmapIds": [
+    "SchemeAndStackFoundations"
+   ],
+   "scope": [
+    "SchemeAndStackFoundations:SF.1"
+   ],
+   "outputs": [
+    "research/blueprint/packets/SchemeAndStackFoundations--SF.1.json",
+    "research/blueprint/readmes/SchemeAndStackFoundations--SF.1.md",
+    "research/blueprint/suggested/SchemeAndStackFoundations--SF.1.lean"
+   ],
+   "after": [
+    "REV-SchemeAndStackFoundations"
+   ],
+   "followUpOf": "BP-SchemeAndStackFoundations",
+   "prompt": "research/blueprint/prompts/BP-SchemeAndStackFoundations--SF.1.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-SchemeAndStackFoundations--SF.1",
+   "kind": "review",
+   "priority": 2,
+   "order": 101500,
+   "roadmapIds": [
+    "SchemeAndStackFoundations"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-SchemeAndStackFoundations--SF.1.md",
+    "research/blueprint/packets/SchemeAndStackFoundations--SF.1.json",
+    "research/blueprint/suggested/SchemeAndStackFoundations--SF.1.lean"
+   ],
+   "after": [
+    "BP-SchemeAndStackFoundations--SF.1"
+   ],
+   "avoidAccountOf": "BP-SchemeAndStackFoundations--SF.1",
+   "prompt": "research/blueprint/prompts/REV-SchemeAndStackFoundations--SF.1.md",
+   "state": "pending"
+  },
+  {
+   "id": "BP-SchemeAndStackFoundations--SF.2",
+   "kind": "blueprint",
+   "priority": 3,
+   "order": 101500,
+   "roadmapIds": [
+    "SchemeAndStackFoundations"
+   ],
+   "scope": [
+    "SchemeAndStackFoundations:SF.2"
+   ],
+   "outputs": [
+    "research/blueprint/packets/SchemeAndStackFoundations--SF.2.json",
+    "research/blueprint/readmes/SchemeAndStackFoundations--SF.2.md",
+    "research/blueprint/suggested/SchemeAndStackFoundations--SF.2.lean"
+   ],
+   "after": [
+    "REV-SchemeAndStackFoundations"
+   ],
+   "followUpOf": "BP-SchemeAndStackFoundations",
+   "prompt": "research/blueprint/prompts/BP-SchemeAndStackFoundations--SF.2.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-SchemeAndStackFoundations--SF.2",
+   "kind": "review",
+   "priority": 2,
+   "order": 101500,
+   "roadmapIds": [
+    "SchemeAndStackFoundations"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-SchemeAndStackFoundations--SF.2.md",
+    "research/blueprint/packets/SchemeAndStackFoundations--SF.2.json",
+    "research/blueprint/suggested/SchemeAndStackFoundations--SF.2.lean"
+   ],
+   "after": [
+    "BP-SchemeAndStackFoundations--SF.2"
+   ],
+   "avoidAccountOf": "BP-SchemeAndStackFoundations--SF.2",
+   "prompt": "research/blueprint/prompts/REV-SchemeAndStackFoundations--SF.2.md",
+   "state": "pending"
+  },
+  {
+   "id": "BP-SchemeAndStackFoundations--SF.3",
+   "kind": "blueprint",
+   "priority": 3,
+   "order": 101500,
+   "roadmapIds": [
+    "SchemeAndStackFoundations"
+   ],
+   "scope": [
+    "SchemeAndStackFoundations:SF.3"
+   ],
+   "outputs": [
+    "research/blueprint/packets/SchemeAndStackFoundations--SF.3.json",
+    "research/blueprint/readmes/SchemeAndStackFoundations--SF.3.md",
+    "research/blueprint/suggested/SchemeAndStackFoundations--SF.3.lean"
+   ],
+   "after": [
+    "REV-SchemeAndStackFoundations"
+   ],
+   "followUpOf": "BP-SchemeAndStackFoundations",
+   "prompt": "research/blueprint/prompts/BP-SchemeAndStackFoundations--SF.3.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-SchemeAndStackFoundations--SF.3",
+   "kind": "review",
+   "priority": 2,
+   "order": 101500,
+   "roadmapIds": [
+    "SchemeAndStackFoundations"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-SchemeAndStackFoundations--SF.3.md",
+    "research/blueprint/packets/SchemeAndStackFoundations--SF.3.json",
+    "research/blueprint/suggested/SchemeAndStackFoundations--SF.3.lean"
+   ],
+   "after": [
+    "BP-SchemeAndStackFoundations--SF.3"
+   ],
+   "avoidAccountOf": "BP-SchemeAndStackFoundations--SF.3",
+   "prompt": "research/blueprint/prompts/REV-SchemeAndStackFoundations--SF.3.md",
+   "state": "pending"
+  },
+  {
+   "id": "BP-SchemeAndStackFoundations--SF.4",
+   "kind": "blueprint",
+   "priority": 3,
+   "order": 101500,
+   "roadmapIds": [
+    "SchemeAndStackFoundations"
+   ],
+   "scope": [
+    "SchemeAndStackFoundations:SF.4"
+   ],
+   "outputs": [
+    "research/blueprint/packets/SchemeAndStackFoundations--SF.4.json",
+    "research/blueprint/readmes/SchemeAndStackFoundations--SF.4.md",
+    "research/blueprint/suggested/SchemeAndStackFoundations--SF.4.lean"
+   ],
+   "after": [
+    "REV-SchemeAndStackFoundations"
+   ],
+   "followUpOf": "BP-SchemeAndStackFoundations",
+   "prompt": "research/blueprint/prompts/BP-SchemeAndStackFoundations--SF.4.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-SchemeAndStackFoundations--SF.4",
+   "kind": "review",
+   "priority": 2,
+   "order": 101500,
+   "roadmapIds": [
+    "SchemeAndStackFoundations"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-SchemeAndStackFoundations--SF.4.md",
+    "research/blueprint/packets/SchemeAndStackFoundations--SF.4.json",
+    "research/blueprint/suggested/SchemeAndStackFoundations--SF.4.lean"
+   ],
+   "after": [
+    "BP-SchemeAndStackFoundations--SF.4"
+   ],
+   "avoidAccountOf": "BP-SchemeAndStackFoundations--SF.4",
+   "prompt": "research/blueprint/prompts/REV-SchemeAndStackFoundations--SF.4.md",
+   "state": "pending"
+  },
+  {
+   "id": "BP-SchemeAndStackFoundations--SF.5",
+   "kind": "blueprint",
+   "priority": 3,
+   "order": 101500,
+   "roadmapIds": [
+    "SchemeAndStackFoundations"
+   ],
+   "scope": [
+    "SchemeAndStackFoundations:SF.5"
+   ],
+   "outputs": [
+    "research/blueprint/packets/SchemeAndStackFoundations--SF.5.json",
+    "research/blueprint/readmes/SchemeAndStackFoundations--SF.5.md",
+    "research/blueprint/suggested/SchemeAndStackFoundations--SF.5.lean"
+   ],
+   "after": [
+    "REV-SchemeAndStackFoundations"
+   ],
+   "followUpOf": "BP-SchemeAndStackFoundations",
+   "prompt": "research/blueprint/prompts/BP-SchemeAndStackFoundations--SF.5.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-SchemeAndStackFoundations--SF.5",
+   "kind": "review",
+   "priority": 2,
+   "order": 101500,
+   "roadmapIds": [
+    "SchemeAndStackFoundations"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-SchemeAndStackFoundations--SF.5.md",
+    "research/blueprint/packets/SchemeAndStackFoundations--SF.5.json",
+    "research/blueprint/suggested/SchemeAndStackFoundations--SF.5.lean"
+   ],
+   "after": [
+    "BP-SchemeAndStackFoundations--SF.5"
+   ],
+   "avoidAccountOf": "BP-SchemeAndStackFoundations--SF.5",
+   "prompt": "research/blueprint/prompts/REV-SchemeAndStackFoundations--SF.5.md",
+   "state": "pending"
+  },
+  {
+   "id": "BP-SchemeAndStackFoundations--SF.6",
+   "kind": "blueprint",
+   "priority": 3,
+   "order": 101500,
+   "roadmapIds": [
+    "SchemeAndStackFoundations"
+   ],
+   "scope": [
+    "SchemeAndStackFoundations:SF.6"
+   ],
+   "outputs": [
+    "research/blueprint/packets/SchemeAndStackFoundations--SF.6.json",
+    "research/blueprint/readmes/SchemeAndStackFoundations--SF.6.md",
+    "research/blueprint/suggested/SchemeAndStackFoundations--SF.6.lean"
+   ],
+   "after": [
+    "REV-SchemeAndStackFoundations"
+   ],
+   "followUpOf": "BP-SchemeAndStackFoundations",
+   "prompt": "research/blueprint/prompts/BP-SchemeAndStackFoundations--SF.6.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-SchemeAndStackFoundations--SF.6",
+   "kind": "review",
+   "priority": 2,
+   "order": 101500,
+   "roadmapIds": [
+    "SchemeAndStackFoundations"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-SchemeAndStackFoundations--SF.6.md",
+    "research/blueprint/packets/SchemeAndStackFoundations--SF.6.json",
+    "research/blueprint/suggested/SchemeAndStackFoundations--SF.6.lean"
+   ],
+   "after": [
+    "BP-SchemeAndStackFoundations--SF.6"
+   ],
+   "avoidAccountOf": "BP-SchemeAndStackFoundations--SF.6",
+   "prompt": "research/blueprint/prompts/REV-SchemeAndStackFoundations--SF.6.md",
+   "state": "pending"
+  },
+  {
+   "id": "BP-AlgebraicModuliForArithmeticGeometry--A0-extension-2",
+   "kind": "blueprint",
+   "priority": 3,
+   "order": 202300,
+   "roadmapIds": [
+    "AlgebraicModuliForArithmeticGeometry"
+   ],
+   "scope": [
+    "AlgebraicModuliForArithmeticGeometry:A0-extension"
+   ],
+   "outputs": [
+    "research/blueprint/packets/AlgebraicModuliForArithmeticGeometry--A0-extension-2.json",
+    "research/blueprint/readmes/AlgebraicModuliForArithmeticGeometry--A0-extension-2.md",
+    "research/blueprint/suggested/AlgebraicModuliForArithmeticGeometry--A0-extension-2.lean"
+   ],
+   "after": [
+    "REV-AlgebraicModuliForArithmeticGeometry--A0-extension"
+   ],
+   "followUpOf": "BP-AlgebraicModuliForArithmeticGeometry--A0-extension",
+   "prompt": "research/blueprint/prompts/BP-AlgebraicModuliForArithmeticGeometry--A0-extension-2.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-AlgebraicModuliForArithmeticGeometry--A0-extension-2",
+   "kind": "review",
+   "priority": 2,
+   "order": 202300,
+   "roadmapIds": [
+    "AlgebraicModuliForArithmeticGeometry"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-AlgebraicModuliForArithmeticGeometry--A0-extension-2.md",
+    "research/blueprint/packets/AlgebraicModuliForArithmeticGeometry--A0-extension-2.json",
+    "research/blueprint/suggested/AlgebraicModuliForArithmeticGeometry--A0-extension-2.lean"
+   ],
+   "after": [
+    "BP-AlgebraicModuliForArithmeticGeometry--A0-extension-2"
+   ],
+   "avoidAccountOf": "BP-AlgebraicModuliForArithmeticGeometry--A0-extension-2",
+   "prompt": "research/blueprint/prompts/REV-AlgebraicModuliForArithmeticGeometry--A0-extension-2.md",
+   "state": "pending"
+  },
+  {
+   "id": "BP-AlgebraicModuliForArithmeticGeometry--R09.1",
+   "kind": "blueprint",
+   "priority": 3,
+   "order": 202300,
+   "roadmapIds": [
+    "AlgebraicModuliForArithmeticGeometry"
+   ],
+   "scope": [
+    "AlgebraicModuliForArithmeticGeometry:R09.1"
+   ],
+   "outputs": [
+    "research/blueprint/packets/AlgebraicModuliForArithmeticGeometry--R09.1.json",
+    "research/blueprint/readmes/AlgebraicModuliForArithmeticGeometry--R09.1.md",
+    "research/blueprint/suggested/AlgebraicModuliForArithmeticGeometry--R09.1.lean"
+   ],
+   "after": [
+    "REV-AlgebraicModuliForArithmeticGeometry--A0-extension"
+   ],
+   "followUpOf": "BP-AlgebraicModuliForArithmeticGeometry--A0-extension",
+   "prompt": "research/blueprint/prompts/BP-AlgebraicModuliForArithmeticGeometry--R09.1.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-AlgebraicModuliForArithmeticGeometry--R09.1",
+   "kind": "review",
+   "priority": 2,
+   "order": 202300,
+   "roadmapIds": [
+    "AlgebraicModuliForArithmeticGeometry"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-AlgebraicModuliForArithmeticGeometry--R09.1.md",
+    "research/blueprint/packets/AlgebraicModuliForArithmeticGeometry--R09.1.json",
+    "research/blueprint/suggested/AlgebraicModuliForArithmeticGeometry--R09.1.lean"
+   ],
+   "after": [
+    "BP-AlgebraicModuliForArithmeticGeometry--R09.1"
+   ],
+   "avoidAccountOf": "BP-AlgebraicModuliForArithmeticGeometry--R09.1",
+   "prompt": "research/blueprint/prompts/REV-AlgebraicModuliForArithmeticGeometry--R09.1.md",
+   "state": "pending"
+  },
+  {
+   "id": "BP-AlgebraicModuliForArithmeticGeometry--R09.2",
+   "kind": "blueprint",
+   "priority": 3,
+   "order": 202300,
+   "roadmapIds": [
+    "AlgebraicModuliForArithmeticGeometry"
+   ],
+   "scope": [
+    "AlgebraicModuliForArithmeticGeometry:R09.2"
+   ],
+   "outputs": [
+    "research/blueprint/packets/AlgebraicModuliForArithmeticGeometry--R09.2.json",
+    "research/blueprint/readmes/AlgebraicModuliForArithmeticGeometry--R09.2.md",
+    "research/blueprint/suggested/AlgebraicModuliForArithmeticGeometry--R09.2.lean"
+   ],
+   "after": [
+    "REV-AlgebraicModuliForArithmeticGeometry--A0-extension"
+   ],
+   "followUpOf": "BP-AlgebraicModuliForArithmeticGeometry--A0-extension",
+   "prompt": "research/blueprint/prompts/BP-AlgebraicModuliForArithmeticGeometry--R09.2.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-AlgebraicModuliForArithmeticGeometry--R09.2",
+   "kind": "review",
+   "priority": 2,
+   "order": 202300,
+   "roadmapIds": [
+    "AlgebraicModuliForArithmeticGeometry"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-AlgebraicModuliForArithmeticGeometry--R09.2.md",
+    "research/blueprint/packets/AlgebraicModuliForArithmeticGeometry--R09.2.json",
+    "research/blueprint/suggested/AlgebraicModuliForArithmeticGeometry--R09.2.lean"
+   ],
+   "after": [
+    "BP-AlgebraicModuliForArithmeticGeometry--R09.2"
+   ],
+   "avoidAccountOf": "BP-AlgebraicModuliForArithmeticGeometry--R09.2",
+   "prompt": "research/blueprint/prompts/REV-AlgebraicModuliForArithmeticGeometry--R09.2.md",
+   "state": "pending"
+  },
+  {
+   "id": "BP-AlgebraicModuliForArithmeticGeometry--R09.3",
+   "kind": "blueprint",
+   "priority": 3,
+   "order": 202300,
+   "roadmapIds": [
+    "AlgebraicModuliForArithmeticGeometry"
+   ],
+   "scope": [
+    "AlgebraicModuliForArithmeticGeometry:R09.3"
+   ],
+   "outputs": [
+    "research/blueprint/packets/AlgebraicModuliForArithmeticGeometry--R09.3.json",
+    "research/blueprint/readmes/AlgebraicModuliForArithmeticGeometry--R09.3.md",
+    "research/blueprint/suggested/AlgebraicModuliForArithmeticGeometry--R09.3.lean"
+   ],
+   "after": [
+    "REV-AlgebraicModuliForArithmeticGeometry--A0-extension"
+   ],
+   "followUpOf": "BP-AlgebraicModuliForArithmeticGeometry--A0-extension",
+   "prompt": "research/blueprint/prompts/BP-AlgebraicModuliForArithmeticGeometry--R09.3.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-AlgebraicModuliForArithmeticGeometry--R09.3",
+   "kind": "review",
+   "priority": 2,
+   "order": 202300,
+   "roadmapIds": [
+    "AlgebraicModuliForArithmeticGeometry"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-AlgebraicModuliForArithmeticGeometry--R09.3.md",
+    "research/blueprint/packets/AlgebraicModuliForArithmeticGeometry--R09.3.json",
+    "research/blueprint/suggested/AlgebraicModuliForArithmeticGeometry--R09.3.lean"
+   ],
+   "after": [
+    "BP-AlgebraicModuliForArithmeticGeometry--R09.3"
+   ],
+   "avoidAccountOf": "BP-AlgebraicModuliForArithmeticGeometry--R09.3",
+   "prompt": "research/blueprint/prompts/REV-AlgebraicModuliForArithmeticGeometry--R09.3.md",
+   "state": "pending"
+  },
+  {
+   "id": "BP-AlgebraicModuliForArithmeticGeometry--R09.4",
+   "kind": "blueprint",
+   "priority": 3,
+   "order": 202300,
+   "roadmapIds": [
+    "AlgebraicModuliForArithmeticGeometry"
+   ],
+   "scope": [
+    "AlgebraicModuliForArithmeticGeometry:R09.4"
+   ],
+   "outputs": [
+    "research/blueprint/packets/AlgebraicModuliForArithmeticGeometry--R09.4.json",
+    "research/blueprint/readmes/AlgebraicModuliForArithmeticGeometry--R09.4.md",
+    "research/blueprint/suggested/AlgebraicModuliForArithmeticGeometry--R09.4.lean"
+   ],
+   "after": [
+    "REV-AlgebraicModuliForArithmeticGeometry--A0-extension"
+   ],
+   "followUpOf": "BP-AlgebraicModuliForArithmeticGeometry--A0-extension",
+   "prompt": "research/blueprint/prompts/BP-AlgebraicModuliForArithmeticGeometry--R09.4.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-AlgebraicModuliForArithmeticGeometry--R09.4",
+   "kind": "review",
+   "priority": 2,
+   "order": 202300,
+   "roadmapIds": [
+    "AlgebraicModuliForArithmeticGeometry"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-AlgebraicModuliForArithmeticGeometry--R09.4.md",
+    "research/blueprint/packets/AlgebraicModuliForArithmeticGeometry--R09.4.json",
+    "research/blueprint/suggested/AlgebraicModuliForArithmeticGeometry--R09.4.lean"
+   ],
+   "after": [
+    "BP-AlgebraicModuliForArithmeticGeometry--R09.4"
+   ],
+   "avoidAccountOf": "BP-AlgebraicModuliForArithmeticGeometry--R09.4",
+   "prompt": "research/blueprint/prompts/REV-AlgebraicModuliForArithmeticGeometry--R09.4.md",
+   "state": "pending"
+  },
+  {
+   "id": "BP-AlgebraicModuliForArithmeticGeometry--R09.5",
+   "kind": "blueprint",
+   "priority": 3,
+   "order": 202300,
+   "roadmapIds": [
+    "AlgebraicModuliForArithmeticGeometry"
+   ],
+   "scope": [
+    "AlgebraicModuliForArithmeticGeometry:R09.5"
+   ],
+   "outputs": [
+    "research/blueprint/packets/AlgebraicModuliForArithmeticGeometry--R09.5.json",
+    "research/blueprint/readmes/AlgebraicModuliForArithmeticGeometry--R09.5.md",
+    "research/blueprint/suggested/AlgebraicModuliForArithmeticGeometry--R09.5.lean"
+   ],
+   "after": [
+    "REV-AlgebraicModuliForArithmeticGeometry--A0-extension"
+   ],
+   "followUpOf": "BP-AlgebraicModuliForArithmeticGeometry--A0-extension",
+   "prompt": "research/blueprint/prompts/BP-AlgebraicModuliForArithmeticGeometry--R09.5.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-AlgebraicModuliForArithmeticGeometry--R09.5",
+   "kind": "review",
+   "priority": 2,
+   "order": 202300,
+   "roadmapIds": [
+    "AlgebraicModuliForArithmeticGeometry"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-AlgebraicModuliForArithmeticGeometry--R09.5.md",
+    "research/blueprint/packets/AlgebraicModuliForArithmeticGeometry--R09.5.json",
+    "research/blueprint/suggested/AlgebraicModuliForArithmeticGeometry--R09.5.lean"
+   ],
+   "after": [
+    "BP-AlgebraicModuliForArithmeticGeometry--R09.5"
+   ],
+   "avoidAccountOf": "BP-AlgebraicModuliForArithmeticGeometry--R09.5",
+   "prompt": "research/blueprint/prompts/REV-AlgebraicModuliForArithmeticGeometry--R09.5.md",
+   "state": "pending"
+  },
+  {
+   "id": "BP-AlgebraicModuliForArithmeticGeometry--R09.6",
+   "kind": "blueprint",
+   "priority": 3,
+   "order": 202300,
+   "roadmapIds": [
+    "AlgebraicModuliForArithmeticGeometry"
+   ],
+   "scope": [
+    "AlgebraicModuliForArithmeticGeometry:R09.6"
+   ],
+   "outputs": [
+    "research/blueprint/packets/AlgebraicModuliForArithmeticGeometry--R09.6.json",
+    "research/blueprint/readmes/AlgebraicModuliForArithmeticGeometry--R09.6.md",
+    "research/blueprint/suggested/AlgebraicModuliForArithmeticGeometry--R09.6.lean"
+   ],
+   "after": [
+    "REV-AlgebraicModuliForArithmeticGeometry--A0-extension"
+   ],
+   "followUpOf": "BP-AlgebraicModuliForArithmeticGeometry--A0-extension",
+   "prompt": "research/blueprint/prompts/BP-AlgebraicModuliForArithmeticGeometry--R09.6.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-AlgebraicModuliForArithmeticGeometry--R09.6",
+   "kind": "review",
+   "priority": 2,
+   "order": 202300,
+   "roadmapIds": [
+    "AlgebraicModuliForArithmeticGeometry"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-AlgebraicModuliForArithmeticGeometry--R09.6.md",
+    "research/blueprint/packets/AlgebraicModuliForArithmeticGeometry--R09.6.json",
+    "research/blueprint/suggested/AlgebraicModuliForArithmeticGeometry--R09.6.lean"
+   ],
+   "after": [
+    "BP-AlgebraicModuliForArithmeticGeometry--R09.6"
+   ],
+   "avoidAccountOf": "BP-AlgebraicModuliForArithmeticGeometry--R09.6",
+   "prompt": "research/blueprint/prompts/REV-AlgebraicModuliForArithmeticGeometry--R09.6.md",
+   "state": "pending"
+  },
+  {
+   "id": "BP-AlgebraicModuliForArithmeticGeometry--R09.7",
+   "kind": "blueprint",
+   "priority": 3,
+   "order": 202300,
+   "roadmapIds": [
+    "AlgebraicModuliForArithmeticGeometry"
+   ],
+   "scope": [
+    "AlgebraicModuliForArithmeticGeometry:R09.7"
+   ],
+   "outputs": [
+    "research/blueprint/packets/AlgebraicModuliForArithmeticGeometry--R09.7.json",
+    "research/blueprint/readmes/AlgebraicModuliForArithmeticGeometry--R09.7.md",
+    "research/blueprint/suggested/AlgebraicModuliForArithmeticGeometry--R09.7.lean"
+   ],
+   "after": [
+    "REV-AlgebraicModuliForArithmeticGeometry--A0-extension"
+   ],
+   "followUpOf": "BP-AlgebraicModuliForArithmeticGeometry--A0-extension",
+   "prompt": "research/blueprint/prompts/BP-AlgebraicModuliForArithmeticGeometry--R09.7.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-AlgebraicModuliForArithmeticGeometry--R09.7",
+   "kind": "review",
+   "priority": 2,
+   "order": 202300,
+   "roadmapIds": [
+    "AlgebraicModuliForArithmeticGeometry"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-AlgebraicModuliForArithmeticGeometry--R09.7.md",
+    "research/blueprint/packets/AlgebraicModuliForArithmeticGeometry--R09.7.json",
+    "research/blueprint/suggested/AlgebraicModuliForArithmeticGeometry--R09.7.lean"
+   ],
+   "after": [
+    "BP-AlgebraicModuliForArithmeticGeometry--R09.7"
+   ],
+   "avoidAccountOf": "BP-AlgebraicModuliForArithmeticGeometry--R09.7",
+   "prompt": "research/blueprint/prompts/REV-AlgebraicModuliForArithmeticGeometry--R09.7.md",
+   "state": "pending"
+  },
+  {
+   "id": "BP-DirichletPadicLFunctions--L3-2",
+   "kind": "blueprint",
+   "priority": 3,
+   "order": 205203,
+   "roadmapIds": [
+    "DirichletPadicLFunctions"
+   ],
+   "scope": [
+    "DirichletPadicLFunctions:L3"
+   ],
+   "outputs": [
+    "research/blueprint/packets/DirichletPadicLFunctions--L3-2.json",
+    "research/blueprint/readmes/DirichletPadicLFunctions--L3-2.md",
+    "research/blueprint/suggested/DirichletPadicLFunctions--L3-2.lean"
+   ],
+   "after": [
+    "REV-DirichletPadicLFunctions--L3"
+   ],
+   "followUpOf": "BP-DirichletPadicLFunctions--L3",
+   "prompt": "research/blueprint/prompts/BP-DirichletPadicLFunctions--L3-2.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-DirichletPadicLFunctions--L3-2",
+   "kind": "review",
+   "priority": 2,
+   "order": 205203,
+   "roadmapIds": [
+    "DirichletPadicLFunctions"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-DirichletPadicLFunctions--L3-2.md",
+    "research/blueprint/packets/DirichletPadicLFunctions--L3-2.json",
+    "research/blueprint/suggested/DirichletPadicLFunctions--L3-2.lean"
+   ],
+   "after": [
+    "BP-DirichletPadicLFunctions--L3-2"
+   ],
+   "avoidAccountOf": "BP-DirichletPadicLFunctions--L3-2",
+   "prompt": "research/blueprint/prompts/REV-DirichletPadicLFunctions--L3-2.md",
+   "state": "pending"
+  },
+  {
+   "id": "BP-AnabelianGeometryAndNonabelianChabauty--NC.0",
+   "kind": "blueprint",
+   "priority": 3,
+   "order": 413900,
+   "roadmapIds": [
+    "AnabelianGeometryAndNonabelianChabauty"
+   ],
+   "scope": [
+    "AnabelianGeometryAndNonabelianChabauty:NC.0"
+   ],
+   "outputs": [
+    "research/blueprint/packets/AnabelianGeometryAndNonabelianChabauty--NC.0.json",
+    "research/blueprint/readmes/AnabelianGeometryAndNonabelianChabauty--NC.0.md",
+    "research/blueprint/suggested/AnabelianGeometryAndNonabelianChabauty--NC.0.lean"
+   ],
+   "after": [
+    "REV-AnabelianGeometryAndNonabelianChabauty"
+   ],
+   "followUpOf": "BP-AnabelianGeometryAndNonabelianChabauty",
+   "prompt": "research/blueprint/prompts/BP-AnabelianGeometryAndNonabelianChabauty--NC.0.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-AnabelianGeometryAndNonabelianChabauty--NC.0",
+   "kind": "review",
+   "priority": 2,
+   "order": 413900,
+   "roadmapIds": [
+    "AnabelianGeometryAndNonabelianChabauty"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-AnabelianGeometryAndNonabelianChabauty--NC.0.md",
+    "research/blueprint/packets/AnabelianGeometryAndNonabelianChabauty--NC.0.json",
+    "research/blueprint/suggested/AnabelianGeometryAndNonabelianChabauty--NC.0.lean"
+   ],
+   "after": [
+    "BP-AnabelianGeometryAndNonabelianChabauty--NC.0"
+   ],
+   "avoidAccountOf": "BP-AnabelianGeometryAndNonabelianChabauty--NC.0",
+   "prompt": "research/blueprint/prompts/REV-AnabelianGeometryAndNonabelianChabauty--NC.0.md",
+   "state": "pending"
+  },
+  {
+   "id": "BP-AnabelianGeometryAndNonabelianChabauty--NC.1",
+   "kind": "blueprint",
+   "priority": 3,
+   "order": 413900,
+   "roadmapIds": [
+    "AnabelianGeometryAndNonabelianChabauty"
+   ],
+   "scope": [
+    "AnabelianGeometryAndNonabelianChabauty:NC.1"
+   ],
+   "outputs": [
+    "research/blueprint/packets/AnabelianGeometryAndNonabelianChabauty--NC.1.json",
+    "research/blueprint/readmes/AnabelianGeometryAndNonabelianChabauty--NC.1.md",
+    "research/blueprint/suggested/AnabelianGeometryAndNonabelianChabauty--NC.1.lean"
+   ],
+   "after": [
+    "REV-AnabelianGeometryAndNonabelianChabauty"
+   ],
+   "followUpOf": "BP-AnabelianGeometryAndNonabelianChabauty",
+   "prompt": "research/blueprint/prompts/BP-AnabelianGeometryAndNonabelianChabauty--NC.1.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-AnabelianGeometryAndNonabelianChabauty--NC.1",
+   "kind": "review",
+   "priority": 2,
+   "order": 413900,
+   "roadmapIds": [
+    "AnabelianGeometryAndNonabelianChabauty"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-AnabelianGeometryAndNonabelianChabauty--NC.1.md",
+    "research/blueprint/packets/AnabelianGeometryAndNonabelianChabauty--NC.1.json",
+    "research/blueprint/suggested/AnabelianGeometryAndNonabelianChabauty--NC.1.lean"
+   ],
+   "after": [
+    "BP-AnabelianGeometryAndNonabelianChabauty--NC.1"
+   ],
+   "avoidAccountOf": "BP-AnabelianGeometryAndNonabelianChabauty--NC.1",
+   "prompt": "research/blueprint/prompts/REV-AnabelianGeometryAndNonabelianChabauty--NC.1.md",
+   "state": "pending"
+  },
+  {
+   "id": "BP-AnabelianGeometryAndNonabelianChabauty--NC.2",
+   "kind": "blueprint",
+   "priority": 3,
+   "order": 413900,
+   "roadmapIds": [
+    "AnabelianGeometryAndNonabelianChabauty"
+   ],
+   "scope": [
+    "AnabelianGeometryAndNonabelianChabauty:NC.2"
+   ],
+   "outputs": [
+    "research/blueprint/packets/AnabelianGeometryAndNonabelianChabauty--NC.2.json",
+    "research/blueprint/readmes/AnabelianGeometryAndNonabelianChabauty--NC.2.md",
+    "research/blueprint/suggested/AnabelianGeometryAndNonabelianChabauty--NC.2.lean"
+   ],
+   "after": [
+    "REV-AnabelianGeometryAndNonabelianChabauty"
+   ],
+   "followUpOf": "BP-AnabelianGeometryAndNonabelianChabauty",
+   "prompt": "research/blueprint/prompts/BP-AnabelianGeometryAndNonabelianChabauty--NC.2.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-AnabelianGeometryAndNonabelianChabauty--NC.2",
+   "kind": "review",
+   "priority": 2,
+   "order": 413900,
+   "roadmapIds": [
+    "AnabelianGeometryAndNonabelianChabauty"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-AnabelianGeometryAndNonabelianChabauty--NC.2.md",
+    "research/blueprint/packets/AnabelianGeometryAndNonabelianChabauty--NC.2.json",
+    "research/blueprint/suggested/AnabelianGeometryAndNonabelianChabauty--NC.2.lean"
+   ],
+   "after": [
+    "BP-AnabelianGeometryAndNonabelianChabauty--NC.2"
+   ],
+   "avoidAccountOf": "BP-AnabelianGeometryAndNonabelianChabauty--NC.2",
+   "prompt": "research/blueprint/prompts/REV-AnabelianGeometryAndNonabelianChabauty--NC.2.md",
+   "state": "pending"
+  },
+  {
+   "id": "BP-AnabelianGeometryAndNonabelianChabauty--NC.3",
+   "kind": "blueprint",
+   "priority": 3,
+   "order": 413900,
+   "roadmapIds": [
+    "AnabelianGeometryAndNonabelianChabauty"
+   ],
+   "scope": [
+    "AnabelianGeometryAndNonabelianChabauty:NC.3"
+   ],
+   "outputs": [
+    "research/blueprint/packets/AnabelianGeometryAndNonabelianChabauty--NC.3.json",
+    "research/blueprint/readmes/AnabelianGeometryAndNonabelianChabauty--NC.3.md",
+    "research/blueprint/suggested/AnabelianGeometryAndNonabelianChabauty--NC.3.lean"
+   ],
+   "after": [
+    "REV-AnabelianGeometryAndNonabelianChabauty"
+   ],
+   "followUpOf": "BP-AnabelianGeometryAndNonabelianChabauty",
+   "prompt": "research/blueprint/prompts/BP-AnabelianGeometryAndNonabelianChabauty--NC.3.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-AnabelianGeometryAndNonabelianChabauty--NC.3",
+   "kind": "review",
+   "priority": 2,
+   "order": 413900,
+   "roadmapIds": [
+    "AnabelianGeometryAndNonabelianChabauty"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-AnabelianGeometryAndNonabelianChabauty--NC.3.md",
+    "research/blueprint/packets/AnabelianGeometryAndNonabelianChabauty--NC.3.json",
+    "research/blueprint/suggested/AnabelianGeometryAndNonabelianChabauty--NC.3.lean"
+   ],
+   "after": [
+    "BP-AnabelianGeometryAndNonabelianChabauty--NC.3"
+   ],
+   "avoidAccountOf": "BP-AnabelianGeometryAndNonabelianChabauty--NC.3",
+   "prompt": "research/blueprint/prompts/REV-AnabelianGeometryAndNonabelianChabauty--NC.3.md",
+   "state": "pending"
+  },
+  {
+   "id": "BP-AnabelianGeometryAndNonabelianChabauty--NC.4",
+   "kind": "blueprint",
+   "priority": 3,
+   "order": 413900,
+   "roadmapIds": [
+    "AnabelianGeometryAndNonabelianChabauty"
+   ],
+   "scope": [
+    "AnabelianGeometryAndNonabelianChabauty:NC.4"
+   ],
+   "outputs": [
+    "research/blueprint/packets/AnabelianGeometryAndNonabelianChabauty--NC.4.json",
+    "research/blueprint/readmes/AnabelianGeometryAndNonabelianChabauty--NC.4.md",
+    "research/blueprint/suggested/AnabelianGeometryAndNonabelianChabauty--NC.4.lean"
+   ],
+   "after": [
+    "REV-AnabelianGeometryAndNonabelianChabauty"
+   ],
+   "followUpOf": "BP-AnabelianGeometryAndNonabelianChabauty",
+   "prompt": "research/blueprint/prompts/BP-AnabelianGeometryAndNonabelianChabauty--NC.4.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-AnabelianGeometryAndNonabelianChabauty--NC.4",
+   "kind": "review",
+   "priority": 2,
+   "order": 413900,
+   "roadmapIds": [
+    "AnabelianGeometryAndNonabelianChabauty"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-AnabelianGeometryAndNonabelianChabauty--NC.4.md",
+    "research/blueprint/packets/AnabelianGeometryAndNonabelianChabauty--NC.4.json",
+    "research/blueprint/suggested/AnabelianGeometryAndNonabelianChabauty--NC.4.lean"
+   ],
+   "after": [
+    "BP-AnabelianGeometryAndNonabelianChabauty--NC.4"
+   ],
+   "avoidAccountOf": "BP-AnabelianGeometryAndNonabelianChabauty--NC.4",
+   "prompt": "research/blueprint/prompts/REV-AnabelianGeometryAndNonabelianChabauty--NC.4.md",
+   "state": "pending"
+  },
+  {
+   "id": "BP-AnabelianGeometryAndNonabelianChabauty--NC.5",
+   "kind": "blueprint",
+   "priority": 3,
+   "order": 413900,
+   "roadmapIds": [
+    "AnabelianGeometryAndNonabelianChabauty"
+   ],
+   "scope": [
+    "AnabelianGeometryAndNonabelianChabauty:NC.5"
+   ],
+   "outputs": [
+    "research/blueprint/packets/AnabelianGeometryAndNonabelianChabauty--NC.5.json",
+    "research/blueprint/readmes/AnabelianGeometryAndNonabelianChabauty--NC.5.md",
+    "research/blueprint/suggested/AnabelianGeometryAndNonabelianChabauty--NC.5.lean"
+   ],
+   "after": [
+    "REV-AnabelianGeometryAndNonabelianChabauty"
+   ],
+   "followUpOf": "BP-AnabelianGeometryAndNonabelianChabauty",
+   "prompt": "research/blueprint/prompts/BP-AnabelianGeometryAndNonabelianChabauty--NC.5.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-AnabelianGeometryAndNonabelianChabauty--NC.5",
+   "kind": "review",
+   "priority": 2,
+   "order": 413900,
+   "roadmapIds": [
+    "AnabelianGeometryAndNonabelianChabauty"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-AnabelianGeometryAndNonabelianChabauty--NC.5.md",
+    "research/blueprint/packets/AnabelianGeometryAndNonabelianChabauty--NC.5.json",
+    "research/blueprint/suggested/AnabelianGeometryAndNonabelianChabauty--NC.5.lean"
+   ],
+   "after": [
+    "BP-AnabelianGeometryAndNonabelianChabauty--NC.5"
+   ],
+   "avoidAccountOf": "BP-AnabelianGeometryAndNonabelianChabauty--NC.5",
+   "prompt": "research/blueprint/prompts/REV-AnabelianGeometryAndNonabelianChabauty--NC.5.md",
+   "state": "pending"
+  },
+  {
+   "id": "BP-AnabelianGeometryAndNonabelianChabauty--NC.6",
+   "kind": "blueprint",
+   "priority": 3,
+   "order": 413900,
+   "roadmapIds": [
+    "AnabelianGeometryAndNonabelianChabauty"
+   ],
+   "scope": [
+    "AnabelianGeometryAndNonabelianChabauty:NC.6"
+   ],
+   "outputs": [
+    "research/blueprint/packets/AnabelianGeometryAndNonabelianChabauty--NC.6.json",
+    "research/blueprint/readmes/AnabelianGeometryAndNonabelianChabauty--NC.6.md",
+    "research/blueprint/suggested/AnabelianGeometryAndNonabelianChabauty--NC.6.lean"
+   ],
+   "after": [
+    "REV-AnabelianGeometryAndNonabelianChabauty"
+   ],
+   "followUpOf": "BP-AnabelianGeometryAndNonabelianChabauty",
+   "prompt": "research/blueprint/prompts/BP-AnabelianGeometryAndNonabelianChabauty--NC.6.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-AnabelianGeometryAndNonabelianChabauty--NC.6",
+   "kind": "review",
+   "priority": 2,
+   "order": 413900,
+   "roadmapIds": [
+    "AnabelianGeometryAndNonabelianChabauty"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-AnabelianGeometryAndNonabelianChabauty--NC.6.md",
+    "research/blueprint/packets/AnabelianGeometryAndNonabelianChabauty--NC.6.json",
+    "research/blueprint/suggested/AnabelianGeometryAndNonabelianChabauty--NC.6.lean"
+   ],
+   "after": [
+    "BP-AnabelianGeometryAndNonabelianChabauty--NC.6"
+   ],
+   "avoidAccountOf": "BP-AnabelianGeometryAndNonabelianChabauty--NC.6",
+   "prompt": "research/blueprint/prompts/REV-AnabelianGeometryAndNonabelianChabauty--NC.6.md",
+   "state": "pending"
+  },
+  {
+   "id": "BP-FiniteFieldsAndCharacterSums--FF.1",
+   "kind": "blueprint",
+   "priority": 3,
+   "order": 414700,
+   "roadmapIds": [
+    "FiniteFieldsAndCharacterSums"
+   ],
+   "scope": [
+    "FiniteFieldsAndCharacterSums:FF.1"
+   ],
+   "outputs": [
+    "research/blueprint/packets/FiniteFieldsAndCharacterSums--FF.1.json",
+    "research/blueprint/readmes/FiniteFieldsAndCharacterSums--FF.1.md",
+    "research/blueprint/suggested/FiniteFieldsAndCharacterSums--FF.1.lean"
+   ],
+   "after": [
+    "REV-FiniteFieldsAndCharacterSums"
+   ],
+   "followUpOf": "BP-FiniteFieldsAndCharacterSums",
+   "prompt": "research/blueprint/prompts/BP-FiniteFieldsAndCharacterSums--FF.1.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-FiniteFieldsAndCharacterSums--FF.1",
+   "kind": "review",
+   "priority": 2,
+   "order": 414700,
+   "roadmapIds": [
+    "FiniteFieldsAndCharacterSums"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-FiniteFieldsAndCharacterSums--FF.1.md",
+    "research/blueprint/packets/FiniteFieldsAndCharacterSums--FF.1.json",
+    "research/blueprint/suggested/FiniteFieldsAndCharacterSums--FF.1.lean"
+   ],
+   "after": [
+    "BP-FiniteFieldsAndCharacterSums--FF.1"
+   ],
+   "avoidAccountOf": "BP-FiniteFieldsAndCharacterSums--FF.1",
+   "prompt": "research/blueprint/prompts/REV-FiniteFieldsAndCharacterSums--FF.1.md",
+   "state": "pending"
+  },
+  {
+   "id": "BP-FiniteFieldsAndCharacterSums--FF.2",
+   "kind": "blueprint",
+   "priority": 3,
+   "order": 414700,
+   "roadmapIds": [
+    "FiniteFieldsAndCharacterSums"
+   ],
+   "scope": [
+    "FiniteFieldsAndCharacterSums:FF.2"
+   ],
+   "outputs": [
+    "research/blueprint/packets/FiniteFieldsAndCharacterSums--FF.2.json",
+    "research/blueprint/readmes/FiniteFieldsAndCharacterSums--FF.2.md",
+    "research/blueprint/suggested/FiniteFieldsAndCharacterSums--FF.2.lean"
+   ],
+   "after": [
+    "REV-FiniteFieldsAndCharacterSums"
+   ],
+   "followUpOf": "BP-FiniteFieldsAndCharacterSums",
+   "prompt": "research/blueprint/prompts/BP-FiniteFieldsAndCharacterSums--FF.2.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-FiniteFieldsAndCharacterSums--FF.2",
+   "kind": "review",
+   "priority": 2,
+   "order": 414700,
+   "roadmapIds": [
+    "FiniteFieldsAndCharacterSums"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-FiniteFieldsAndCharacterSums--FF.2.md",
+    "research/blueprint/packets/FiniteFieldsAndCharacterSums--FF.2.json",
+    "research/blueprint/suggested/FiniteFieldsAndCharacterSums--FF.2.lean"
+   ],
+   "after": [
+    "BP-FiniteFieldsAndCharacterSums--FF.2"
+   ],
+   "avoidAccountOf": "BP-FiniteFieldsAndCharacterSums--FF.2",
+   "prompt": "research/blueprint/prompts/REV-FiniteFieldsAndCharacterSums--FF.2.md",
+   "state": "pending"
+  },
+  {
+   "id": "BP-FiniteFieldsAndCharacterSums--FF.3",
+   "kind": "blueprint",
+   "priority": 3,
+   "order": 414700,
+   "roadmapIds": [
+    "FiniteFieldsAndCharacterSums"
+   ],
+   "scope": [
+    "FiniteFieldsAndCharacterSums:FF.3"
+   ],
+   "outputs": [
+    "research/blueprint/packets/FiniteFieldsAndCharacterSums--FF.3.json",
+    "research/blueprint/readmes/FiniteFieldsAndCharacterSums--FF.3.md",
+    "research/blueprint/suggested/FiniteFieldsAndCharacterSums--FF.3.lean"
+   ],
+   "after": [
+    "REV-FiniteFieldsAndCharacterSums"
+   ],
+   "followUpOf": "BP-FiniteFieldsAndCharacterSums",
+   "prompt": "research/blueprint/prompts/BP-FiniteFieldsAndCharacterSums--FF.3.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-FiniteFieldsAndCharacterSums--FF.3",
+   "kind": "review",
+   "priority": 2,
+   "order": 414700,
+   "roadmapIds": [
+    "FiniteFieldsAndCharacterSums"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-FiniteFieldsAndCharacterSums--FF.3.md",
+    "research/blueprint/packets/FiniteFieldsAndCharacterSums--FF.3.json",
+    "research/blueprint/suggested/FiniteFieldsAndCharacterSums--FF.3.lean"
+   ],
+   "after": [
+    "BP-FiniteFieldsAndCharacterSums--FF.3"
+   ],
+   "avoidAccountOf": "BP-FiniteFieldsAndCharacterSums--FF.3",
+   "prompt": "research/blueprint/prompts/REV-FiniteFieldsAndCharacterSums--FF.3.md",
+   "state": "pending"
+  },
+  {
+   "id": "BP-FiniteFieldsAndCharacterSums--FF.4",
+   "kind": "blueprint",
+   "priority": 3,
+   "order": 414700,
+   "roadmapIds": [
+    "FiniteFieldsAndCharacterSums"
+   ],
+   "scope": [
+    "FiniteFieldsAndCharacterSums:FF.4"
+   ],
+   "outputs": [
+    "research/blueprint/packets/FiniteFieldsAndCharacterSums--FF.4.json",
+    "research/blueprint/readmes/FiniteFieldsAndCharacterSums--FF.4.md",
+    "research/blueprint/suggested/FiniteFieldsAndCharacterSums--FF.4.lean"
+   ],
+   "after": [
+    "REV-FiniteFieldsAndCharacterSums"
+   ],
+   "followUpOf": "BP-FiniteFieldsAndCharacterSums",
+   "prompt": "research/blueprint/prompts/BP-FiniteFieldsAndCharacterSums--FF.4.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-FiniteFieldsAndCharacterSums--FF.4",
+   "kind": "review",
+   "priority": 2,
+   "order": 414700,
+   "roadmapIds": [
+    "FiniteFieldsAndCharacterSums"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-FiniteFieldsAndCharacterSums--FF.4.md",
+    "research/blueprint/packets/FiniteFieldsAndCharacterSums--FF.4.json",
+    "research/blueprint/suggested/FiniteFieldsAndCharacterSums--FF.4.lean"
+   ],
+   "after": [
+    "BP-FiniteFieldsAndCharacterSums--FF.4"
+   ],
+   "avoidAccountOf": "BP-FiniteFieldsAndCharacterSums--FF.4",
+   "prompt": "research/blueprint/prompts/REV-FiniteFieldsAndCharacterSums--FF.4.md",
+   "state": "pending"
+  },
+  {
+   "id": "BP-ArithmeticStatistics--ST.0",
+   "kind": "blueprint",
+   "priority": 3,
+   "order": 615500,
+   "roadmapIds": [
+    "ArithmeticStatistics"
+   ],
+   "scope": [
+    "ArithmeticStatistics:ST.0"
+   ],
+   "outputs": [
+    "research/blueprint/packets/ArithmeticStatistics--ST.0.json",
+    "research/blueprint/readmes/ArithmeticStatistics--ST.0.md",
+    "research/blueprint/suggested/ArithmeticStatistics--ST.0.lean"
+   ],
+   "after": [
+    "REV-ArithmeticStatistics"
+   ],
+   "followUpOf": "BP-ArithmeticStatistics",
+   "prompt": "research/blueprint/prompts/BP-ArithmeticStatistics--ST.0.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-ArithmeticStatistics--ST.0",
+   "kind": "review",
+   "priority": 2,
+   "order": 615500,
+   "roadmapIds": [
+    "ArithmeticStatistics"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ArithmeticStatistics--ST.0.md",
+    "research/blueprint/packets/ArithmeticStatistics--ST.0.json",
+    "research/blueprint/suggested/ArithmeticStatistics--ST.0.lean"
+   ],
+   "after": [
+    "BP-ArithmeticStatistics--ST.0"
+   ],
+   "avoidAccountOf": "BP-ArithmeticStatistics--ST.0",
+   "prompt": "research/blueprint/prompts/REV-ArithmeticStatistics--ST.0.md",
+   "state": "pending"
+  },
+  {
+   "id": "BP-ArithmeticStatistics--ST.1",
+   "kind": "blueprint",
+   "priority": 3,
+   "order": 615500,
+   "roadmapIds": [
+    "ArithmeticStatistics"
+   ],
+   "scope": [
+    "ArithmeticStatistics:ST.1"
+   ],
+   "outputs": [
+    "research/blueprint/packets/ArithmeticStatistics--ST.1.json",
+    "research/blueprint/readmes/ArithmeticStatistics--ST.1.md",
+    "research/blueprint/suggested/ArithmeticStatistics--ST.1.lean"
+   ],
+   "after": [
+    "REV-ArithmeticStatistics"
+   ],
+   "followUpOf": "BP-ArithmeticStatistics",
+   "prompt": "research/blueprint/prompts/BP-ArithmeticStatistics--ST.1.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-ArithmeticStatistics--ST.1",
+   "kind": "review",
+   "priority": 2,
+   "order": 615500,
+   "roadmapIds": [
+    "ArithmeticStatistics"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ArithmeticStatistics--ST.1.md",
+    "research/blueprint/packets/ArithmeticStatistics--ST.1.json",
+    "research/blueprint/suggested/ArithmeticStatistics--ST.1.lean"
+   ],
+   "after": [
+    "BP-ArithmeticStatistics--ST.1"
+   ],
+   "avoidAccountOf": "BP-ArithmeticStatistics--ST.1",
+   "prompt": "research/blueprint/prompts/REV-ArithmeticStatistics--ST.1.md",
+   "state": "pending"
+  },
+  {
+   "id": "BP-ArithmeticStatistics--ST.2",
+   "kind": "blueprint",
+   "priority": 3,
+   "order": 615500,
+   "roadmapIds": [
+    "ArithmeticStatistics"
+   ],
+   "scope": [
+    "ArithmeticStatistics:ST.2"
+   ],
+   "outputs": [
+    "research/blueprint/packets/ArithmeticStatistics--ST.2.json",
+    "research/blueprint/readmes/ArithmeticStatistics--ST.2.md",
+    "research/blueprint/suggested/ArithmeticStatistics--ST.2.lean"
+   ],
+   "after": [
+    "REV-ArithmeticStatistics"
+   ],
+   "followUpOf": "BP-ArithmeticStatistics",
+   "prompt": "research/blueprint/prompts/BP-ArithmeticStatistics--ST.2.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-ArithmeticStatistics--ST.2",
+   "kind": "review",
+   "priority": 2,
+   "order": 615500,
+   "roadmapIds": [
+    "ArithmeticStatistics"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ArithmeticStatistics--ST.2.md",
+    "research/blueprint/packets/ArithmeticStatistics--ST.2.json",
+    "research/blueprint/suggested/ArithmeticStatistics--ST.2.lean"
+   ],
+   "after": [
+    "BP-ArithmeticStatistics--ST.2"
+   ],
+   "avoidAccountOf": "BP-ArithmeticStatistics--ST.2",
+   "prompt": "research/blueprint/prompts/REV-ArithmeticStatistics--ST.2.md",
+   "state": "pending"
+  },
+  {
+   "id": "BP-ArithmeticStatistics--ST.3",
+   "kind": "blueprint",
+   "priority": 3,
+   "order": 615500,
+   "roadmapIds": [
+    "ArithmeticStatistics"
+   ],
+   "scope": [
+    "ArithmeticStatistics:ST.3"
+   ],
+   "outputs": [
+    "research/blueprint/packets/ArithmeticStatistics--ST.3.json",
+    "research/blueprint/readmes/ArithmeticStatistics--ST.3.md",
+    "research/blueprint/suggested/ArithmeticStatistics--ST.3.lean"
+   ],
+   "after": [
+    "REV-ArithmeticStatistics"
+   ],
+   "followUpOf": "BP-ArithmeticStatistics",
+   "prompt": "research/blueprint/prompts/BP-ArithmeticStatistics--ST.3.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-ArithmeticStatistics--ST.3",
+   "kind": "review",
+   "priority": 2,
+   "order": 615500,
+   "roadmapIds": [
+    "ArithmeticStatistics"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ArithmeticStatistics--ST.3.md",
+    "research/blueprint/packets/ArithmeticStatistics--ST.3.json",
+    "research/blueprint/suggested/ArithmeticStatistics--ST.3.lean"
+   ],
+   "after": [
+    "BP-ArithmeticStatistics--ST.3"
+   ],
+   "avoidAccountOf": "BP-ArithmeticStatistics--ST.3",
+   "prompt": "research/blueprint/prompts/REV-ArithmeticStatistics--ST.3.md",
+   "state": "pending"
+  },
+  {
+   "id": "BP-ArithmeticStatistics--ST.4",
+   "kind": "blueprint",
+   "priority": 3,
+   "order": 615500,
+   "roadmapIds": [
+    "ArithmeticStatistics"
+   ],
+   "scope": [
+    "ArithmeticStatistics:ST.4"
+   ],
+   "outputs": [
+    "research/blueprint/packets/ArithmeticStatistics--ST.4.json",
+    "research/blueprint/readmes/ArithmeticStatistics--ST.4.md",
+    "research/blueprint/suggested/ArithmeticStatistics--ST.4.lean"
+   ],
+   "after": [
+    "REV-ArithmeticStatistics"
+   ],
+   "followUpOf": "BP-ArithmeticStatistics",
+   "prompt": "research/blueprint/prompts/BP-ArithmeticStatistics--ST.4.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-ArithmeticStatistics--ST.4",
+   "kind": "review",
+   "priority": 2,
+   "order": 615500,
+   "roadmapIds": [
+    "ArithmeticStatistics"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ArithmeticStatistics--ST.4.md",
+    "research/blueprint/packets/ArithmeticStatistics--ST.4.json",
+    "research/blueprint/suggested/ArithmeticStatistics--ST.4.lean"
+   ],
+   "after": [
+    "BP-ArithmeticStatistics--ST.4"
+   ],
+   "avoidAccountOf": "BP-ArithmeticStatistics--ST.4",
+   "prompt": "research/blueprint/prompts/REV-ArithmeticStatistics--ST.4.md",
+   "state": "pending"
+  },
+  {
+   "id": "BP-ArithmeticStatistics--ST.5",
+   "kind": "blueprint",
+   "priority": 3,
+   "order": 615500,
+   "roadmapIds": [
+    "ArithmeticStatistics"
+   ],
+   "scope": [
+    "ArithmeticStatistics:ST.5"
+   ],
+   "outputs": [
+    "research/blueprint/packets/ArithmeticStatistics--ST.5.json",
+    "research/blueprint/readmes/ArithmeticStatistics--ST.5.md",
+    "research/blueprint/suggested/ArithmeticStatistics--ST.5.lean"
+   ],
+   "after": [
+    "REV-ArithmeticStatistics"
+   ],
+   "followUpOf": "BP-ArithmeticStatistics",
+   "prompt": "research/blueprint/prompts/BP-ArithmeticStatistics--ST.5.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-ArithmeticStatistics--ST.5",
+   "kind": "review",
+   "priority": 2,
+   "order": 615500,
+   "roadmapIds": [
+    "ArithmeticStatistics"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ArithmeticStatistics--ST.5.md",
+    "research/blueprint/packets/ArithmeticStatistics--ST.5.json",
+    "research/blueprint/suggested/ArithmeticStatistics--ST.5.lean"
+   ],
+   "after": [
+    "BP-ArithmeticStatistics--ST.5"
+   ],
+   "avoidAccountOf": "BP-ArithmeticStatistics--ST.5",
+   "prompt": "research/blueprint/prompts/REV-ArithmeticStatistics--ST.5.md",
+   "state": "pending"
+  },
+  {
+   "id": "BP-ProbabilisticAndMetricNumberTheory--PM.4",
+   "kind": "blueprint",
+   "priority": 3,
+   "order": 715700,
+   "roadmapIds": [
+    "ProbabilisticAndMetricNumberTheory"
+   ],
+   "scope": [
+    "ProbabilisticAndMetricNumberTheory:PM.4"
+   ],
+   "outputs": [
+    "research/blueprint/packets/ProbabilisticAndMetricNumberTheory--PM.4.json",
+    "research/blueprint/readmes/ProbabilisticAndMetricNumberTheory--PM.4.md",
+    "research/blueprint/suggested/ProbabilisticAndMetricNumberTheory--PM.4.lean"
+   ],
+   "after": [
+    "REV-ProbabilisticAndMetricNumberTheory"
+   ],
+   "followUpOf": "BP-ProbabilisticAndMetricNumberTheory",
+   "prompt": "research/blueprint/prompts/BP-ProbabilisticAndMetricNumberTheory--PM.4.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-ProbabilisticAndMetricNumberTheory--PM.4",
+   "kind": "review",
+   "priority": 2,
+   "order": 715700,
+   "roadmapIds": [
+    "ProbabilisticAndMetricNumberTheory"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ProbabilisticAndMetricNumberTheory--PM.4.md",
+    "research/blueprint/packets/ProbabilisticAndMetricNumberTheory--PM.4.json",
+    "research/blueprint/suggested/ProbabilisticAndMetricNumberTheory--PM.4.lean"
+   ],
+   "after": [
+    "BP-ProbabilisticAndMetricNumberTheory--PM.4"
+   ],
+   "avoidAccountOf": "BP-ProbabilisticAndMetricNumberTheory--PM.4",
+   "prompt": "research/blueprint/prompts/REV-ProbabilisticAndMetricNumberTheory--PM.4.md",
+   "state": "pending"
   },
   {
    "id": "ASM-DeformationAndDerivedPatchingAlgebra",
@@ -31481,9 +33287,43 @@
    ],
    "after": [
     "REV-DeformationAndDerivedPatchingAlgebra--P7",
-    "REV-DeformationAndDerivedPatchingAlgebra--R03.6"
+    "REV-DeformationAndDerivedPatchingAlgebra--R03.6",
+    "REV-DeformationAndDerivedPatchingAlgebra--P7-2",
+    "REV-DeformationAndDerivedPatchingAlgebra--P8",
+    "REV-DeformationAndDerivedPatchingAlgebra--P9",
+    "REV-DeformationAndDerivedPatchingAlgebra--R03.1",
+    "REV-DeformationAndDerivedPatchingAlgebra--R03.2",
+    "REV-DeformationAndDerivedPatchingAlgebra--R03.3",
+    "REV-DeformationAndDerivedPatchingAlgebra--R03.4",
+    "REV-DeformationAndDerivedPatchingAlgebra--R03.5"
    ],
    "prompt": "research/blueprint/prompts/ASM-DeformationAndDerivedPatchingAlgebra.md",
+   "state": "pending"
+  },
+  {
+   "id": "ASM-SchemeAndStackFoundations",
+   "kind": "assembly",
+   "priority": 2,
+   "order": 5000,
+   "roadmapIds": [
+    "SchemeAndStackFoundations"
+   ],
+   "outputs": [
+    "research/blueprint/readmes/SchemeAndStackFoundations.md",
+    "research/blueprint/suggested/SchemeAndStackFoundations.lean",
+    "research/blueprint/handoff/ASM-SchemeAndStackFoundations.md"
+   ],
+   "after": [
+    "REV-SchemeAndStackFoundations",
+    "REV-SchemeAndStackFoundations--SF.0",
+    "REV-SchemeAndStackFoundations--SF.1",
+    "REV-SchemeAndStackFoundations--SF.2",
+    "REV-SchemeAndStackFoundations--SF.3",
+    "REV-SchemeAndStackFoundations--SF.4",
+    "REV-SchemeAndStackFoundations--SF.5",
+    "REV-SchemeAndStackFoundations--SF.6"
+   ],
+   "prompt": "research/blueprint/prompts/ASM-SchemeAndStackFoundations.md",
    "state": "pending"
   },
   {
@@ -31521,7 +33361,15 @@
    ],
    "after": [
     "REV-AlgebraicModuliForArithmeticGeometry--A0-extension",
-    "REV-AlgebraicModuliForArithmeticGeometry--R09.7a"
+    "REV-AlgebraicModuliForArithmeticGeometry--R09.7a",
+    "REV-AlgebraicModuliForArithmeticGeometry--A0-extension-2",
+    "REV-AlgebraicModuliForArithmeticGeometry--R09.1",
+    "REV-AlgebraicModuliForArithmeticGeometry--R09.2",
+    "REV-AlgebraicModuliForArithmeticGeometry--R09.3",
+    "REV-AlgebraicModuliForArithmeticGeometry--R09.4",
+    "REV-AlgebraicModuliForArithmeticGeometry--R09.5",
+    "REV-AlgebraicModuliForArithmeticGeometry--R09.6",
+    "REV-AlgebraicModuliForArithmeticGeometry--R09.7"
    ],
    "prompt": "research/blueprint/prompts/ASM-AlgebraicModuliForArithmeticGeometry.md",
    "state": "pending"
@@ -31745,7 +33593,8 @@
     "REV-DirichletPadicLFunctions--L1",
     "REV-DirichletPadicLFunctions--L2",
     "REV-DirichletPadicLFunctions--L3",
-    "REV-DirichletPadicLFunctions--L4"
+    "REV-DirichletPadicLFunctions--L4",
+    "REV-DirichletPadicLFunctions--L3-2"
    ],
    "prompt": "research/blueprint/prompts/ASM-DirichletPadicLFunctions.md",
    "state": "pending"
@@ -32495,6 +34344,32 @@
    "state": "pending"
   },
   {
+   "id": "ASM-AnabelianGeometryAndNonabelianChabauty",
+   "kind": "assembly",
+   "priority": 2,
+   "order": 5000,
+   "roadmapIds": [
+    "AnabelianGeometryAndNonabelianChabauty"
+   ],
+   "outputs": [
+    "research/blueprint/readmes/AnabelianGeometryAndNonabelianChabauty.md",
+    "research/blueprint/suggested/AnabelianGeometryAndNonabelianChabauty.lean",
+    "research/blueprint/handoff/ASM-AnabelianGeometryAndNonabelianChabauty.md"
+   ],
+   "after": [
+    "REV-AnabelianGeometryAndNonabelianChabauty",
+    "REV-AnabelianGeometryAndNonabelianChabauty--NC.0",
+    "REV-AnabelianGeometryAndNonabelianChabauty--NC.1",
+    "REV-AnabelianGeometryAndNonabelianChabauty--NC.2",
+    "REV-AnabelianGeometryAndNonabelianChabauty--NC.3",
+    "REV-AnabelianGeometryAndNonabelianChabauty--NC.4",
+    "REV-AnabelianGeometryAndNonabelianChabauty--NC.5",
+    "REV-AnabelianGeometryAndNonabelianChabauty--NC.6"
+   ],
+   "prompt": "research/blueprint/prompts/ASM-AnabelianGeometryAndNonabelianChabauty.md",
+   "state": "pending"
+  },
+  {
    "id": "ASM-AnalyticNumberTheory",
    "kind": "assembly",
    "priority": 2,
@@ -32515,6 +34390,29 @@
    "state": "pending"
   },
   {
+   "id": "ASM-FiniteFieldsAndCharacterSums",
+   "kind": "assembly",
+   "priority": 2,
+   "order": 5000,
+   "roadmapIds": [
+    "FiniteFieldsAndCharacterSums"
+   ],
+   "outputs": [
+    "research/blueprint/readmes/FiniteFieldsAndCharacterSums.md",
+    "research/blueprint/suggested/FiniteFieldsAndCharacterSums.lean",
+    "research/blueprint/handoff/ASM-FiniteFieldsAndCharacterSums.md"
+   ],
+   "after": [
+    "REV-FiniteFieldsAndCharacterSums",
+    "REV-FiniteFieldsAndCharacterSums--FF.1",
+    "REV-FiniteFieldsAndCharacterSums--FF.2",
+    "REV-FiniteFieldsAndCharacterSums--FF.3",
+    "REV-FiniteFieldsAndCharacterSums--FF.4"
+   ],
+   "prompt": "research/blueprint/prompts/ASM-FiniteFieldsAndCharacterSums.md",
+   "state": "pending"
+  },
+  {
    "id": "ASM-PeriodsAndSpecialValues",
    "kind": "assembly",
    "priority": 2,
@@ -32532,6 +34430,51 @@
     "REV-PeriodsAndSpecialValues--PS.8"
    ],
    "prompt": "research/blueprint/prompts/ASM-PeriodsAndSpecialValues.md",
+   "state": "pending"
+  },
+  {
+   "id": "ASM-ArithmeticStatistics",
+   "kind": "assembly",
+   "priority": 2,
+   "order": 5000,
+   "roadmapIds": [
+    "ArithmeticStatistics"
+   ],
+   "outputs": [
+    "research/blueprint/readmes/ArithmeticStatistics.md",
+    "research/blueprint/suggested/ArithmeticStatistics.lean",
+    "research/blueprint/handoff/ASM-ArithmeticStatistics.md"
+   ],
+   "after": [
+    "REV-ArithmeticStatistics",
+    "REV-ArithmeticStatistics--ST.0",
+    "REV-ArithmeticStatistics--ST.1",
+    "REV-ArithmeticStatistics--ST.2",
+    "REV-ArithmeticStatistics--ST.3",
+    "REV-ArithmeticStatistics--ST.4",
+    "REV-ArithmeticStatistics--ST.5"
+   ],
+   "prompt": "research/blueprint/prompts/ASM-ArithmeticStatistics.md",
+   "state": "pending"
+  },
+  {
+   "id": "ASM-ProbabilisticAndMetricNumberTheory",
+   "kind": "assembly",
+   "priority": 2,
+   "order": 5000,
+   "roadmapIds": [
+    "ProbabilisticAndMetricNumberTheory"
+   ],
+   "outputs": [
+    "research/blueprint/readmes/ProbabilisticAndMetricNumberTheory.md",
+    "research/blueprint/suggested/ProbabilisticAndMetricNumberTheory.lean",
+    "research/blueprint/handoff/ASM-ProbabilisticAndMetricNumberTheory.md"
+   ],
+   "after": [
+    "REV-ProbabilisticAndMetricNumberTheory",
+    "REV-ProbabilisticAndMetricNumberTheory--PM.4"
+   ],
+   "prompt": "research/blueprint/prompts/ASM-ProbabilisticAndMetricNumberTheory.md",
    "state": "pending"
   },
   {
@@ -44740,6 +46683,382 @@
    "note": "deliverables arrived from an external worker on issue #5540"
   },
   {
+   "id": "RT-DESIGN-JacobianChallengePartII",
+   "kind": "redteam",
+   "priority": 2,
+   "order": 450,
+   "name": "new roadmap DESIGN-JacobianChallengePartII: The Jacobian challenge (Christian Merten's AG version), Part II",
+   "target": "DESIGN-JacobianChallengePartII",
+   "roadmapIds": [
+    "JacobianChallengePartII"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-DESIGN-JacobianChallengePartII.result.json",
+    "research/blueprint/redteam/RT-DESIGN-JacobianChallengePartII.md"
+   ],
+   "after": [],
+   "independentOf": [
+    "DESIGN-JacobianChallengePartII",
+    "REV-DESIGN-JacobianChallengePartII"
+   ],
+   "prompt": "research/blueprint/prompts/RT-DESIGN-JacobianChallengePartII.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-RT-DESIGN-JacobianChallengePartII",
+   "kind": "review",
+   "priority": 2,
+   "order": 450,
+   "name": "new roadmap DESIGN-JacobianChallengePartII: The Jacobian challenge (Christian Merten's AG version), Part II",
+   "roadmapIds": [
+    "JacobianChallengePartII"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-DESIGN-JacobianChallengePartII.review.json",
+    "research/blueprint/reviews/REV-RT-DESIGN-JacobianChallengePartII.md"
+   ],
+   "after": [
+    "RT-DESIGN-JacobianChallengePartII"
+   ],
+   "avoidAccountOf": "RT-DESIGN-JacobianChallengePartII",
+   "independentOf": [
+    "RT-DESIGN-JacobianChallengePartII",
+    "DESIGN-JacobianChallengePartII",
+    "REV-DESIGN-JacobianChallengePartII"
+   ],
+   "prompt": "research/blueprint/prompts/REV-RT-DESIGN-JacobianChallengePartII.md",
+   "state": "pending"
+  },
+  {
+   "id": "RT-DESIGN-AbelianSchemesAndArithmeticModuliPartII",
+   "kind": "redteam",
+   "priority": 2,
+   "order": 463,
+   "name": "new roadmap DESIGN-AbelianSchemesAndArithmeticModuliPartII: Abelian Schemes And Arithmetic Moduli, Part II",
+   "target": "DESIGN-AbelianSchemesAndArithmeticModuliPartII",
+   "roadmapIds": [
+    "AbelianSchemesAndArithmeticModuliPartII"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-DESIGN-AbelianSchemesAndArithmeticModuliPartII.result.json",
+    "research/blueprint/redteam/RT-DESIGN-AbelianSchemesAndArithmeticModuliPartII.md"
+   ],
+   "after": [],
+   "independentOf": [
+    "DESIGN-AbelianSchemesAndArithmeticModuliPartII",
+    "REV-DESIGN-AbelianSchemesAndArithmeticModuliPartII"
+   ],
+   "prompt": "research/blueprint/prompts/RT-DESIGN-AbelianSchemesAndArithmeticModuliPartII.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-RT-DESIGN-AbelianSchemesAndArithmeticModuliPartII",
+   "kind": "review",
+   "priority": 2,
+   "order": 463,
+   "name": "new roadmap DESIGN-AbelianSchemesAndArithmeticModuliPartII: Abelian Schemes And Arithmetic Moduli, Part II",
+   "roadmapIds": [
+    "AbelianSchemesAndArithmeticModuliPartII"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-DESIGN-AbelianSchemesAndArithmeticModuliPartII.review.json",
+    "research/blueprint/reviews/REV-RT-DESIGN-AbelianSchemesAndArithmeticModuliPartII.md"
+   ],
+   "after": [
+    "RT-DESIGN-AbelianSchemesAndArithmeticModuliPartII"
+   ],
+   "avoidAccountOf": "RT-DESIGN-AbelianSchemesAndArithmeticModuliPartII",
+   "independentOf": [
+    "RT-DESIGN-AbelianSchemesAndArithmeticModuliPartII",
+    "DESIGN-AbelianSchemesAndArithmeticModuliPartII",
+    "REV-DESIGN-AbelianSchemesAndArithmeticModuliPartII"
+   ],
+   "prompt": "research/blueprint/prompts/REV-RT-DESIGN-AbelianSchemesAndArithmeticModuliPartII.md",
+   "state": "pending"
+  },
+  {
+   "id": "RT-DESIGN-ErdosProgressionPowers",
+   "kind": "redteam",
+   "priority": 2,
+   "order": 508,
+   "name": "new roadmap DESIGN-ErdosProgressionPowers: Perfect powers in primitive arithmetic progressions",
+   "target": "DESIGN-ErdosProgressionPowers",
+   "roadmapIds": [
+    "ErdosProgressionPowers"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-DESIGN-ErdosProgressionPowers.result.json",
+    "research/blueprint/redteam/RT-DESIGN-ErdosProgressionPowers.md"
+   ],
+   "after": [],
+   "independentOf": [
+    "DESIGN-ErdosProgressionPowers",
+    "REV-DESIGN-ErdosProgressionPowers"
+   ],
+   "prompt": "research/blueprint/prompts/RT-DESIGN-ErdosProgressionPowers.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-RT-DESIGN-ErdosProgressionPowers",
+   "kind": "review",
+   "priority": 2,
+   "order": 508,
+   "name": "new roadmap DESIGN-ErdosProgressionPowers: Perfect powers in primitive arithmetic progressions",
+   "roadmapIds": [
+    "ErdosProgressionPowers"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-DESIGN-ErdosProgressionPowers.review.json",
+    "research/blueprint/reviews/REV-RT-DESIGN-ErdosProgressionPowers.md"
+   ],
+   "after": [
+    "RT-DESIGN-ErdosProgressionPowers"
+   ],
+   "avoidAccountOf": "RT-DESIGN-ErdosProgressionPowers",
+   "independentOf": [
+    "RT-DESIGN-ErdosProgressionPowers",
+    "DESIGN-ErdosProgressionPowers",
+    "REV-DESIGN-ErdosProgressionPowers"
+   ],
+   "prompt": "research/blueprint/prompts/REV-RT-DESIGN-ErdosProgressionPowers.md",
+   "state": "pending"
+  },
+  {
+   "id": "RT-DESIGN-AbelianVarietiesIsogenousToNoJacobian",
+   "kind": "redteam",
+   "priority": 2,
+   "order": 510,
+   "name": "new roadmap DESIGN-AbelianVarietiesIsogenousToNoJacobian: Abelian varieties isogenous to no Jacobian (Masser–Zannier)",
+   "target": "DESIGN-AbelianVarietiesIsogenousToNoJacobian",
+   "roadmapIds": [
+    "AbelianVarietiesIsogenousToNoJacobian"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-DESIGN-AbelianVarietiesIsogenousToNoJacobian.result.json",
+    "research/blueprint/redteam/RT-DESIGN-AbelianVarietiesIsogenousToNoJacobian.md"
+   ],
+   "after": [],
+   "independentOf": [
+    "DESIGN-AbelianVarietiesIsogenousToNoJacobian",
+    "REV-DESIGN-AbelianVarietiesIsogenousToNoJacobian"
+   ],
+   "prompt": "research/blueprint/prompts/RT-DESIGN-AbelianVarietiesIsogenousToNoJacobian.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-RT-DESIGN-AbelianVarietiesIsogenousToNoJacobian",
+   "kind": "review",
+   "priority": 2,
+   "order": 510,
+   "name": "new roadmap DESIGN-AbelianVarietiesIsogenousToNoJacobian: Abelian varieties isogenous to no Jacobian (Masser–Zannier)",
+   "roadmapIds": [
+    "AbelianVarietiesIsogenousToNoJacobian"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-DESIGN-AbelianVarietiesIsogenousToNoJacobian.review.json",
+    "research/blueprint/reviews/REV-RT-DESIGN-AbelianVarietiesIsogenousToNoJacobian.md"
+   ],
+   "after": [
+    "RT-DESIGN-AbelianVarietiesIsogenousToNoJacobian"
+   ],
+   "avoidAccountOf": "RT-DESIGN-AbelianVarietiesIsogenousToNoJacobian",
+   "independentOf": [
+    "RT-DESIGN-AbelianVarietiesIsogenousToNoJacobian",
+    "DESIGN-AbelianVarietiesIsogenousToNoJacobian",
+    "REV-DESIGN-AbelianVarietiesIsogenousToNoJacobian"
+   ],
+   "prompt": "research/blueprint/prompts/REV-RT-DESIGN-AbelianVarietiesIsogenousToNoJacobian.md",
+   "state": "pending"
+  },
+  {
+   "id": "RT-DESIGN-GenericDoublePointInterpolation",
+   "kind": "redteam",
+   "priority": 2,
+   "order": 515,
+   "name": "new roadmap DESIGN-GenericDoublePointInterpolation: Generic double-point interpolation in characteristic zero",
+   "target": "DESIGN-GenericDoublePointInterpolation",
+   "roadmapIds": [
+    "GenericDoublePointInterpolation"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-DESIGN-GenericDoublePointInterpolation.result.json",
+    "research/blueprint/redteam/RT-DESIGN-GenericDoublePointInterpolation.md"
+   ],
+   "after": [],
+   "independentOf": [
+    "DESIGN-GenericDoublePointInterpolation",
+    "REV-DESIGN-GenericDoublePointInterpolation"
+   ],
+   "prompt": "research/blueprint/prompts/RT-DESIGN-GenericDoublePointInterpolation.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-RT-DESIGN-GenericDoublePointInterpolation",
+   "kind": "review",
+   "priority": 2,
+   "order": 515,
+   "name": "new roadmap DESIGN-GenericDoublePointInterpolation: Generic double-point interpolation in characteristic zero",
+   "roadmapIds": [
+    "GenericDoublePointInterpolation"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-DESIGN-GenericDoublePointInterpolation.review.json",
+    "research/blueprint/reviews/REV-RT-DESIGN-GenericDoublePointInterpolation.md"
+   ],
+   "after": [
+    "RT-DESIGN-GenericDoublePointInterpolation"
+   ],
+   "avoidAccountOf": "RT-DESIGN-GenericDoublePointInterpolation",
+   "independentOf": [
+    "RT-DESIGN-GenericDoublePointInterpolation",
+    "DESIGN-GenericDoublePointInterpolation",
+    "REV-DESIGN-GenericDoublePointInterpolation"
+   ],
+   "prompt": "research/blueprint/prompts/REV-RT-DESIGN-GenericDoublePointInterpolation.md",
+   "state": "pending"
+  },
+  {
+   "id": "RT-DESIGN-InductionRestrictionPartII",
+   "kind": "redteam",
+   "priority": 2,
+   "order": 540,
+   "name": "new roadmap DESIGN-InductionRestrictionPartII: Induction, restriction, and Mackey theory for finite groups, Part II",
+   "target": "DESIGN-InductionRestrictionPartII",
+   "roadmapIds": [
+    "InductionRestrictionPartII"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-DESIGN-InductionRestrictionPartII.result.json",
+    "research/blueprint/redteam/RT-DESIGN-InductionRestrictionPartII.md"
+   ],
+   "after": [],
+   "independentOf": [
+    "DESIGN-InductionRestrictionPartII",
+    "REV-DESIGN-InductionRestrictionPartII"
+   ],
+   "prompt": "research/blueprint/prompts/RT-DESIGN-InductionRestrictionPartII.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-RT-DESIGN-InductionRestrictionPartII",
+   "kind": "review",
+   "priority": 2,
+   "order": 540,
+   "name": "new roadmap DESIGN-InductionRestrictionPartII: Induction, restriction, and Mackey theory for finite groups, Part II",
+   "roadmapIds": [
+    "InductionRestrictionPartII"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-DESIGN-InductionRestrictionPartII.review.json",
+    "research/blueprint/reviews/REV-RT-DESIGN-InductionRestrictionPartII.md"
+   ],
+   "after": [
+    "RT-DESIGN-InductionRestrictionPartII"
+   ],
+   "avoidAccountOf": "RT-DESIGN-InductionRestrictionPartII",
+   "independentOf": [
+    "RT-DESIGN-InductionRestrictionPartII",
+    "DESIGN-InductionRestrictionPartII",
+    "REV-DESIGN-InductionRestrictionPartII"
+   ],
+   "prompt": "research/blueprint/prompts/REV-RT-DESIGN-InductionRestrictionPartII.md",
+   "state": "pending"
+  },
+  {
+   "id": "RT-DESIGN-ConformalMappingPartII",
+   "kind": "redteam",
+   "priority": 2,
+   "order": 576,
+   "name": "new roadmap DESIGN-ConformalMappingPartII: Conformal mapping and the geometric theory of holomorphic functions, Part II",
+   "target": "DESIGN-ConformalMappingPartII",
+   "roadmapIds": [
+    "ConformalMappingPartII"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-DESIGN-ConformalMappingPartII.result.json",
+    "research/blueprint/redteam/RT-DESIGN-ConformalMappingPartII.md"
+   ],
+   "after": [],
+   "independentOf": [
+    "DESIGN-ConformalMappingPartII",
+    "REV-DESIGN-ConformalMappingPartII"
+   ],
+   "prompt": "research/blueprint/prompts/RT-DESIGN-ConformalMappingPartII.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-RT-DESIGN-ConformalMappingPartII",
+   "kind": "review",
+   "priority": 2,
+   "order": 576,
+   "name": "new roadmap DESIGN-ConformalMappingPartII: Conformal mapping and the geometric theory of holomorphic functions, Part II",
+   "roadmapIds": [
+    "ConformalMappingPartII"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-DESIGN-ConformalMappingPartII.review.json",
+    "research/blueprint/reviews/REV-RT-DESIGN-ConformalMappingPartII.md"
+   ],
+   "after": [
+    "RT-DESIGN-ConformalMappingPartII"
+   ],
+   "avoidAccountOf": "RT-DESIGN-ConformalMappingPartII",
+   "independentOf": [
+    "RT-DESIGN-ConformalMappingPartII",
+    "DESIGN-ConformalMappingPartII",
+    "REV-DESIGN-ConformalMappingPartII"
+   ],
+   "prompt": "research/blueprint/prompts/REV-RT-DESIGN-ConformalMappingPartII.md",
+   "state": "pending"
+  },
+  {
+   "id": "RT-DESIGN-SemisimpleAlgebrasPartII",
+   "kind": "redteam",
+   "priority": 2,
+   "order": 579,
+   "name": "new roadmap DESIGN-SemisimpleAlgebrasPartII: Semisimple algebras, Artin-Wedderburn, and the structure of their modules, Part II",
+   "target": "DESIGN-SemisimpleAlgebrasPartII",
+   "roadmapIds": [
+    "SemisimpleAlgebrasPartII"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-DESIGN-SemisimpleAlgebrasPartII.result.json",
+    "research/blueprint/redteam/RT-DESIGN-SemisimpleAlgebrasPartII.md"
+   ],
+   "after": [],
+   "independentOf": [
+    "DESIGN-SemisimpleAlgebrasPartII",
+    "REV-DESIGN-SemisimpleAlgebrasPartII"
+   ],
+   "prompt": "research/blueprint/prompts/RT-DESIGN-SemisimpleAlgebrasPartII.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-RT-DESIGN-SemisimpleAlgebrasPartII",
+   "kind": "review",
+   "priority": 2,
+   "order": 579,
+   "name": "new roadmap DESIGN-SemisimpleAlgebrasPartII: Semisimple algebras, Artin-Wedderburn, and the structure of their modules, Part II",
+   "roadmapIds": [
+    "SemisimpleAlgebrasPartII"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-DESIGN-SemisimpleAlgebrasPartII.review.json",
+    "research/blueprint/reviews/REV-RT-DESIGN-SemisimpleAlgebrasPartII.md"
+   ],
+   "after": [
+    "RT-DESIGN-SemisimpleAlgebrasPartII"
+   ],
+   "avoidAccountOf": "RT-DESIGN-SemisimpleAlgebrasPartII",
+   "independentOf": [
+    "RT-DESIGN-SemisimpleAlgebrasPartII",
+    "DESIGN-SemisimpleAlgebrasPartII",
+    "REV-DESIGN-SemisimpleAlgebrasPartII"
+   ],
+   "prompt": "research/blueprint/prompts/REV-RT-DESIGN-SemisimpleAlgebrasPartII.md",
+   "state": "pending"
+  },
+  {
    "id": "RT-LINK-tauceti_TauCetiRoadmap_ModularCurves",
    "kind": "redteam",
    "priority": 2,
@@ -48715,6 +51034,53 @@
    "note": "deliverables arrived from an external worker on issue #5120"
   },
   {
+   "id": "RT-BP-DeformationAndDerivedPatchingAlgebra--P7",
+   "kind": "redteam",
+   "priority": 2,
+   "order": 700,
+   "name": "blueprint BP-DeformationAndDerivedPatchingAlgebra--P7: Commutative algebra for deformation theory and patching",
+   "target": "BP-DeformationAndDerivedPatchingAlgebra--P7",
+   "roadmapIds": [
+    "DeformationAndDerivedPatchingAlgebra"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-DeformationAndDerivedPatchingAlgebra--P7.result.json",
+    "research/blueprint/redteam/RT-BP-DeformationAndDerivedPatchingAlgebra--P7.md"
+   ],
+   "after": [],
+   "independentOf": [
+    "BP-DeformationAndDerivedPatchingAlgebra--P7",
+    "REV-DeformationAndDerivedPatchingAlgebra--P7"
+   ],
+   "prompt": "research/blueprint/prompts/RT-BP-DeformationAndDerivedPatchingAlgebra--P7.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-RT-BP-DeformationAndDerivedPatchingAlgebra--P7",
+   "kind": "review",
+   "priority": 2,
+   "order": 700,
+   "name": "blueprint BP-DeformationAndDerivedPatchingAlgebra--P7: Commutative algebra for deformation theory and patching",
+   "roadmapIds": [
+    "DeformationAndDerivedPatchingAlgebra"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-DeformationAndDerivedPatchingAlgebra--P7.review.json",
+    "research/blueprint/reviews/REV-RT-BP-DeformationAndDerivedPatchingAlgebra--P7.md"
+   ],
+   "after": [
+    "RT-BP-DeformationAndDerivedPatchingAlgebra--P7"
+   ],
+   "avoidAccountOf": "RT-BP-DeformationAndDerivedPatchingAlgebra--P7",
+   "independentOf": [
+    "RT-BP-DeformationAndDerivedPatchingAlgebra--P7",
+    "BP-DeformationAndDerivedPatchingAlgebra--P7",
+    "REV-DeformationAndDerivedPatchingAlgebra--P7"
+   ],
+   "prompt": "research/blueprint/prompts/REV-RT-BP-DeformationAndDerivedPatchingAlgebra--P7.md",
+   "state": "pending"
+  },
+  {
    "id": "RT-BP-DeformationAndDerivedPatchingAlgebra--R03.6",
    "kind": "redteam",
    "priority": 2,
@@ -48813,6 +51179,53 @@
    "state": "pending"
   },
   {
+   "id": "RT-BP-SchemeAndStackFoundations",
+   "kind": "redteam",
+   "priority": 2,
+   "order": 706,
+   "name": "blueprint BP-SchemeAndStackFoundations: Scheme, stack, cohomology and intersection foundations",
+   "target": "BP-SchemeAndStackFoundations",
+   "roadmapIds": [
+    "SchemeAndStackFoundations"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-SchemeAndStackFoundations.result.json",
+    "research/blueprint/redteam/RT-BP-SchemeAndStackFoundations.md"
+   ],
+   "after": [],
+   "independentOf": [
+    "BP-SchemeAndStackFoundations",
+    "REV-SchemeAndStackFoundations"
+   ],
+   "prompt": "research/blueprint/prompts/RT-BP-SchemeAndStackFoundations.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-RT-BP-SchemeAndStackFoundations",
+   "kind": "review",
+   "priority": 2,
+   "order": 706,
+   "name": "blueprint BP-SchemeAndStackFoundations: Scheme, stack, cohomology and intersection foundations",
+   "roadmapIds": [
+    "SchemeAndStackFoundations"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-SchemeAndStackFoundations.review.json",
+    "research/blueprint/reviews/REV-RT-BP-SchemeAndStackFoundations.md"
+   ],
+   "after": [
+    "RT-BP-SchemeAndStackFoundations"
+   ],
+   "avoidAccountOf": "RT-BP-SchemeAndStackFoundations",
+   "independentOf": [
+    "RT-BP-SchemeAndStackFoundations",
+    "BP-SchemeAndStackFoundations",
+    "REV-SchemeAndStackFoundations"
+   ],
+   "prompt": "research/blueprint/prompts/REV-RT-BP-SchemeAndStackFoundations.md",
+   "state": "pending"
+  },
+  {
    "id": "RT-BP-AdicEtaleGeometry",
    "kind": "redteam",
    "priority": 2,
@@ -48904,6 +51317,53 @@
     "REV-AdicSpacesPartII"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-AdicSpacesPartII.md",
+   "state": "pending"
+  },
+  {
+   "id": "RT-BP-AlgebraicModuliForArithmeticGeometry--A0-extension",
+   "kind": "redteam",
+   "priority": 2,
+   "order": 715,
+   "name": "blueprint BP-AlgebraicModuliForArithmeticGeometry--A0-extension: Algebraic moduli and representability for arithmetic geometry",
+   "target": "BP-AlgebraicModuliForArithmeticGeometry--A0-extension",
+   "roadmapIds": [
+    "AlgebraicModuliForArithmeticGeometry"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-AlgebraicModuliForArithmeticGeometry--A0-extension.result.json",
+    "research/blueprint/redteam/RT-BP-AlgebraicModuliForArithmeticGeometry--A0-extension.md"
+   ],
+   "after": [],
+   "independentOf": [
+    "BP-AlgebraicModuliForArithmeticGeometry--A0-extension",
+    "REV-AlgebraicModuliForArithmeticGeometry--A0-extension"
+   ],
+   "prompt": "research/blueprint/prompts/RT-BP-AlgebraicModuliForArithmeticGeometry--A0-extension.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-RT-BP-AlgebraicModuliForArithmeticGeometry--A0-extension",
+   "kind": "review",
+   "priority": 2,
+   "order": 715,
+   "name": "blueprint BP-AlgebraicModuliForArithmeticGeometry--A0-extension: Algebraic moduli and representability for arithmetic geometry",
+   "roadmapIds": [
+    "AlgebraicModuliForArithmeticGeometry"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-AlgebraicModuliForArithmeticGeometry--A0-extension.review.json",
+    "research/blueprint/reviews/REV-RT-BP-AlgebraicModuliForArithmeticGeometry--A0-extension.md"
+   ],
+   "after": [
+    "RT-BP-AlgebraicModuliForArithmeticGeometry--A0-extension"
+   ],
+   "avoidAccountOf": "RT-BP-AlgebraicModuliForArithmeticGeometry--A0-extension",
+   "independentOf": [
+    "RT-BP-AlgebraicModuliForArithmeticGeometry--A0-extension",
+    "BP-AlgebraicModuliForArithmeticGeometry--A0-extension",
+    "REV-AlgebraicModuliForArithmeticGeometry--A0-extension"
+   ],
+   "prompt": "research/blueprint/prompts/REV-RT-BP-AlgebraicModuliForArithmeticGeometry--A0-extension.md",
    "state": "pending"
   },
   {
@@ -49292,6 +51752,241 @@
    "state": "done",
    "finishedAt": "2026-09-30T21:23:06Z",
    "note": "deliverables arrived from an external worker on issue #5190"
+  },
+  {
+   "id": "RT-BP-DirichletPadicLFunctions--L0",
+   "kind": "redteam",
+   "priority": 2,
+   "order": 756,
+   "name": "blueprint BP-DirichletPadicLFunctions--L0: Dirichlet p-adic L-functions, special values, and Eisenstein measures",
+   "target": "BP-DirichletPadicLFunctions--L0",
+   "roadmapIds": [
+    "DirichletPadicLFunctions"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-DirichletPadicLFunctions--L0.result.json",
+    "research/blueprint/redteam/RT-BP-DirichletPadicLFunctions--L0.md"
+   ],
+   "after": [],
+   "independentOf": [
+    "BP-DirichletPadicLFunctions--L0",
+    "REV-DirichletPadicLFunctions--L0"
+   ],
+   "prompt": "research/blueprint/prompts/RT-BP-DirichletPadicLFunctions--L0.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-RT-BP-DirichletPadicLFunctions--L0",
+   "kind": "review",
+   "priority": 2,
+   "order": 756,
+   "name": "blueprint BP-DirichletPadicLFunctions--L0: Dirichlet p-adic L-functions, special values, and Eisenstein measures",
+   "roadmapIds": [
+    "DirichletPadicLFunctions"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-DirichletPadicLFunctions--L0.review.json",
+    "research/blueprint/reviews/REV-RT-BP-DirichletPadicLFunctions--L0.md"
+   ],
+   "after": [
+    "RT-BP-DirichletPadicLFunctions--L0"
+   ],
+   "avoidAccountOf": "RT-BP-DirichletPadicLFunctions--L0",
+   "independentOf": [
+    "RT-BP-DirichletPadicLFunctions--L0",
+    "BP-DirichletPadicLFunctions--L0",
+    "REV-DirichletPadicLFunctions--L0"
+   ],
+   "prompt": "research/blueprint/prompts/REV-RT-BP-DirichletPadicLFunctions--L0.md",
+   "state": "pending"
+  },
+  {
+   "id": "RT-BP-DirichletPadicLFunctions--L1",
+   "kind": "redteam",
+   "priority": 2,
+   "order": 757,
+   "name": "blueprint BP-DirichletPadicLFunctions--L1: Dirichlet p-adic L-functions, special values, and Eisenstein measures",
+   "target": "BP-DirichletPadicLFunctions--L1",
+   "roadmapIds": [
+    "DirichletPadicLFunctions"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-DirichletPadicLFunctions--L1.result.json",
+    "research/blueprint/redteam/RT-BP-DirichletPadicLFunctions--L1.md"
+   ],
+   "after": [],
+   "independentOf": [
+    "BP-DirichletPadicLFunctions--L1",
+    "REV-DirichletPadicLFunctions--L1"
+   ],
+   "prompt": "research/blueprint/prompts/RT-BP-DirichletPadicLFunctions--L1.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-RT-BP-DirichletPadicLFunctions--L1",
+   "kind": "review",
+   "priority": 2,
+   "order": 757,
+   "name": "blueprint BP-DirichletPadicLFunctions--L1: Dirichlet p-adic L-functions, special values, and Eisenstein measures",
+   "roadmapIds": [
+    "DirichletPadicLFunctions"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-DirichletPadicLFunctions--L1.review.json",
+    "research/blueprint/reviews/REV-RT-BP-DirichletPadicLFunctions--L1.md"
+   ],
+   "after": [
+    "RT-BP-DirichletPadicLFunctions--L1"
+   ],
+   "avoidAccountOf": "RT-BP-DirichletPadicLFunctions--L1",
+   "independentOf": [
+    "RT-BP-DirichletPadicLFunctions--L1",
+    "BP-DirichletPadicLFunctions--L1",
+    "REV-DirichletPadicLFunctions--L1"
+   ],
+   "prompt": "research/blueprint/prompts/REV-RT-BP-DirichletPadicLFunctions--L1.md",
+   "state": "pending"
+  },
+  {
+   "id": "RT-BP-DirichletPadicLFunctions--L2",
+   "kind": "redteam",
+   "priority": 2,
+   "order": 758,
+   "name": "blueprint BP-DirichletPadicLFunctions--L2: Dirichlet p-adic L-functions, special values, and Eisenstein measures",
+   "target": "BP-DirichletPadicLFunctions--L2",
+   "roadmapIds": [
+    "DirichletPadicLFunctions"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-DirichletPadicLFunctions--L2.result.json",
+    "research/blueprint/redteam/RT-BP-DirichletPadicLFunctions--L2.md"
+   ],
+   "after": [],
+   "independentOf": [
+    "BP-DirichletPadicLFunctions--L2",
+    "REV-DirichletPadicLFunctions--L2"
+   ],
+   "prompt": "research/blueprint/prompts/RT-BP-DirichletPadicLFunctions--L2.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-RT-BP-DirichletPadicLFunctions--L2",
+   "kind": "review",
+   "priority": 2,
+   "order": 758,
+   "name": "blueprint BP-DirichletPadicLFunctions--L2: Dirichlet p-adic L-functions, special values, and Eisenstein measures",
+   "roadmapIds": [
+    "DirichletPadicLFunctions"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-DirichletPadicLFunctions--L2.review.json",
+    "research/blueprint/reviews/REV-RT-BP-DirichletPadicLFunctions--L2.md"
+   ],
+   "after": [
+    "RT-BP-DirichletPadicLFunctions--L2"
+   ],
+   "avoidAccountOf": "RT-BP-DirichletPadicLFunctions--L2",
+   "independentOf": [
+    "RT-BP-DirichletPadicLFunctions--L2",
+    "BP-DirichletPadicLFunctions--L2",
+    "REV-DirichletPadicLFunctions--L2"
+   ],
+   "prompt": "research/blueprint/prompts/REV-RT-BP-DirichletPadicLFunctions--L2.md",
+   "state": "pending"
+  },
+  {
+   "id": "RT-BP-DirichletPadicLFunctions--L3",
+   "kind": "redteam",
+   "priority": 2,
+   "order": 759,
+   "name": "blueprint BP-DirichletPadicLFunctions--L3: Dirichlet p-adic L-functions, special values, and Eisenstein measures",
+   "target": "BP-DirichletPadicLFunctions--L3",
+   "roadmapIds": [
+    "DirichletPadicLFunctions"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-DirichletPadicLFunctions--L3.result.json",
+    "research/blueprint/redteam/RT-BP-DirichletPadicLFunctions--L3.md"
+   ],
+   "after": [],
+   "independentOf": [
+    "BP-DirichletPadicLFunctions--L3",
+    "REV-DirichletPadicLFunctions--L3"
+   ],
+   "prompt": "research/blueprint/prompts/RT-BP-DirichletPadicLFunctions--L3.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-RT-BP-DirichletPadicLFunctions--L3",
+   "kind": "review",
+   "priority": 2,
+   "order": 759,
+   "name": "blueprint BP-DirichletPadicLFunctions--L3: Dirichlet p-adic L-functions, special values, and Eisenstein measures",
+   "roadmapIds": [
+    "DirichletPadicLFunctions"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-DirichletPadicLFunctions--L3.review.json",
+    "research/blueprint/reviews/REV-RT-BP-DirichletPadicLFunctions--L3.md"
+   ],
+   "after": [
+    "RT-BP-DirichletPadicLFunctions--L3"
+   ],
+   "avoidAccountOf": "RT-BP-DirichletPadicLFunctions--L3",
+   "independentOf": [
+    "RT-BP-DirichletPadicLFunctions--L3",
+    "BP-DirichletPadicLFunctions--L3",
+    "REV-DirichletPadicLFunctions--L3"
+   ],
+   "prompt": "research/blueprint/prompts/REV-RT-BP-DirichletPadicLFunctions--L3.md",
+   "state": "pending"
+  },
+  {
+   "id": "RT-BP-DirichletPadicLFunctions--L4",
+   "kind": "redteam",
+   "priority": 2,
+   "order": 760,
+   "name": "blueprint BP-DirichletPadicLFunctions--L4: Dirichlet p-adic L-functions, special values, and Eisenstein measures",
+   "target": "BP-DirichletPadicLFunctions--L4",
+   "roadmapIds": [
+    "DirichletPadicLFunctions"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-DirichletPadicLFunctions--L4.result.json",
+    "research/blueprint/redteam/RT-BP-DirichletPadicLFunctions--L4.md"
+   ],
+   "after": [],
+   "independentOf": [
+    "BP-DirichletPadicLFunctions--L4",
+    "REV-DirichletPadicLFunctions--L4"
+   ],
+   "prompt": "research/blueprint/prompts/RT-BP-DirichletPadicLFunctions--L4.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-RT-BP-DirichletPadicLFunctions--L4",
+   "kind": "review",
+   "priority": 2,
+   "order": 760,
+   "name": "blueprint BP-DirichletPadicLFunctions--L4: Dirichlet p-adic L-functions, special values, and Eisenstein measures",
+   "roadmapIds": [
+    "DirichletPadicLFunctions"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-DirichletPadicLFunctions--L4.review.json",
+    "research/blueprint/reviews/REV-RT-BP-DirichletPadicLFunctions--L4.md"
+   ],
+   "after": [
+    "RT-BP-DirichletPadicLFunctions--L4"
+   ],
+   "avoidAccountOf": "RT-BP-DirichletPadicLFunctions--L4",
+   "independentOf": [
+    "RT-BP-DirichletPadicLFunctions--L4",
+    "BP-DirichletPadicLFunctions--L4",
+    "REV-DirichletPadicLFunctions--L4"
+   ],
+   "prompt": "research/blueprint/prompts/REV-RT-BP-DirichletPadicLFunctions--L4.md",
+   "state": "pending"
   },
   {
    "id": "RT-BP-EllipticCurveModularity",
@@ -50010,6 +52705,53 @@
    "state": "pending"
   },
   {
+   "id": "RT-BP-NeronModelsAndSemistableAbelianVarieties",
+   "kind": "redteam",
+   "priority": 2,
+   "order": 827,
+   "name": "blueprint BP-NeronModelsAndSemistableAbelianVarieties: Néron models and semistable abelian varieties",
+   "target": "BP-NeronModelsAndSemistableAbelianVarieties",
+   "roadmapIds": [
+    "NeronModelsAndSemistableAbelianVarieties"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-NeronModelsAndSemistableAbelianVarieties.result.json",
+    "research/blueprint/redteam/RT-BP-NeronModelsAndSemistableAbelianVarieties.md"
+   ],
+   "after": [],
+   "independentOf": [
+    "BP-NeronModelsAndSemistableAbelianVarieties",
+    "REV-NeronModelsAndSemistableAbelianVarieties"
+   ],
+   "prompt": "research/blueprint/prompts/RT-BP-NeronModelsAndSemistableAbelianVarieties.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-RT-BP-NeronModelsAndSemistableAbelianVarieties",
+   "kind": "review",
+   "priority": 2,
+   "order": 827,
+   "name": "blueprint BP-NeronModelsAndSemistableAbelianVarieties: Néron models and semistable abelian varieties",
+   "roadmapIds": [
+    "NeronModelsAndSemistableAbelianVarieties"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-NeronModelsAndSemistableAbelianVarieties.review.json",
+    "research/blueprint/reviews/REV-RT-BP-NeronModelsAndSemistableAbelianVarieties.md"
+   ],
+   "after": [
+    "RT-BP-NeronModelsAndSemistableAbelianVarieties"
+   ],
+   "avoidAccountOf": "RT-BP-NeronModelsAndSemistableAbelianVarieties",
+   "independentOf": [
+    "RT-BP-NeronModelsAndSemistableAbelianVarieties",
+    "BP-NeronModelsAndSemistableAbelianVarieties",
+    "REV-NeronModelsAndSemistableAbelianVarieties"
+   ],
+   "prompt": "research/blueprint/prompts/REV-RT-BP-NeronModelsAndSemistableAbelianVarieties.md",
+   "state": "pending"
+  },
+  {
    "id": "RT-BP-SmallRamificationAndAbelianVarietyBaseCases",
    "kind": "redteam",
    "priority": 2,
@@ -50104,10 +52846,292 @@
    "state": "pending"
   },
   {
+   "id": "RT-BP-AnabelianGeometryAndNonabelianChabauty",
+   "kind": "redteam",
+   "priority": 2,
+   "order": 886,
+   "name": "blueprint BP-AnabelianGeometryAndNonabelianChabauty: Anabelian geometry and nonabelian Chabauty",
+   "target": "BP-AnabelianGeometryAndNonabelianChabauty",
+   "roadmapIds": [
+    "AnabelianGeometryAndNonabelianChabauty"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-AnabelianGeometryAndNonabelianChabauty.result.json",
+    "research/blueprint/redteam/RT-BP-AnabelianGeometryAndNonabelianChabauty.md"
+   ],
+   "after": [],
+   "independentOf": [
+    "BP-AnabelianGeometryAndNonabelianChabauty",
+    "REV-AnabelianGeometryAndNonabelianChabauty"
+   ],
+   "prompt": "research/blueprint/prompts/RT-BP-AnabelianGeometryAndNonabelianChabauty.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-RT-BP-AnabelianGeometryAndNonabelianChabauty",
+   "kind": "review",
+   "priority": 2,
+   "order": 886,
+   "name": "blueprint BP-AnabelianGeometryAndNonabelianChabauty: Anabelian geometry and nonabelian Chabauty",
+   "roadmapIds": [
+    "AnabelianGeometryAndNonabelianChabauty"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-AnabelianGeometryAndNonabelianChabauty.review.json",
+    "research/blueprint/reviews/REV-RT-BP-AnabelianGeometryAndNonabelianChabauty.md"
+   ],
+   "after": [
+    "RT-BP-AnabelianGeometryAndNonabelianChabauty"
+   ],
+   "avoidAccountOf": "RT-BP-AnabelianGeometryAndNonabelianChabauty",
+   "independentOf": [
+    "RT-BP-AnabelianGeometryAndNonabelianChabauty",
+    "BP-AnabelianGeometryAndNonabelianChabauty",
+    "REV-AnabelianGeometryAndNonabelianChabauty"
+   ],
+   "prompt": "research/blueprint/prompts/REV-RT-BP-AnabelianGeometryAndNonabelianChabauty.md",
+   "state": "pending"
+  },
+  {
+   "id": "RT-BP-ComputationalNumberTheory",
+   "kind": "redteam",
+   "priority": 2,
+   "order": 892,
+   "name": "blueprint BP-ComputationalNumberTheory: Certified computational number theory and arithmetic data",
+   "target": "BP-ComputationalNumberTheory",
+   "roadmapIds": [
+    "ComputationalNumberTheory"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-ComputationalNumberTheory.result.json",
+    "research/blueprint/redteam/RT-BP-ComputationalNumberTheory.md"
+   ],
+   "after": [],
+   "independentOf": [
+    "BP-ComputationalNumberTheory",
+    "REV-ComputationalNumberTheory"
+   ],
+   "prompt": "research/blueprint/prompts/RT-BP-ComputationalNumberTheory.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-RT-BP-ComputationalNumberTheory",
+   "kind": "review",
+   "priority": 2,
+   "order": 892,
+   "name": "blueprint BP-ComputationalNumberTheory: Certified computational number theory and arithmetic data",
+   "roadmapIds": [
+    "ComputationalNumberTheory"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-ComputationalNumberTheory.review.json",
+    "research/blueprint/reviews/REV-RT-BP-ComputationalNumberTheory.md"
+   ],
+   "after": [
+    "RT-BP-ComputationalNumberTheory"
+   ],
+   "avoidAccountOf": "RT-BP-ComputationalNumberTheory",
+   "independentOf": [
+    "RT-BP-ComputationalNumberTheory",
+    "BP-ComputationalNumberTheory",
+    "REV-ComputationalNumberTheory"
+   ],
+   "prompt": "research/blueprint/prompts/REV-RT-BP-ComputationalNumberTheory.md",
+   "state": "pending"
+  },
+  {
+   "id": "RT-BP-FiniteFieldsAndCharacterSums",
+   "kind": "redteam",
+   "priority": 2,
+   "order": 895,
+   "name": "blueprint BP-FiniteFieldsAndCharacterSums: Finite fields, character sums, finite rings and coding interfaces",
+   "target": "BP-FiniteFieldsAndCharacterSums",
+   "roadmapIds": [
+    "FiniteFieldsAndCharacterSums"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-FiniteFieldsAndCharacterSums.result.json",
+    "research/blueprint/redteam/RT-BP-FiniteFieldsAndCharacterSums.md"
+   ],
+   "after": [],
+   "independentOf": [
+    "BP-FiniteFieldsAndCharacterSums",
+    "REV-FiniteFieldsAndCharacterSums"
+   ],
+   "prompt": "research/blueprint/prompts/RT-BP-FiniteFieldsAndCharacterSums.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-RT-BP-FiniteFieldsAndCharacterSums",
+   "kind": "review",
+   "priority": 2,
+   "order": 895,
+   "name": "blueprint BP-FiniteFieldsAndCharacterSums: Finite fields, character sums, finite rings and coding interfaces",
+   "roadmapIds": [
+    "FiniteFieldsAndCharacterSums"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-FiniteFieldsAndCharacterSums.review.json",
+    "research/blueprint/reviews/REV-RT-BP-FiniteFieldsAndCharacterSums.md"
+   ],
+   "after": [
+    "RT-BP-FiniteFieldsAndCharacterSums"
+   ],
+   "avoidAccountOf": "RT-BP-FiniteFieldsAndCharacterSums",
+   "independentOf": [
+    "RT-BP-FiniteFieldsAndCharacterSums",
+    "BP-FiniteFieldsAndCharacterSums",
+    "REV-FiniteFieldsAndCharacterSums"
+   ],
+   "prompt": "research/blueprint/prompts/REV-RT-BP-FiniteFieldsAndCharacterSums.md",
+   "state": "pending"
+  },
+  {
+   "id": "RT-BP-ArithmeticStatistics",
+   "kind": "redteam",
+   "priority": 2,
+   "order": 904,
+   "name": "blueprint BP-ArithmeticStatistics: Arithmetic statistics, counting fields and Selmer distributions",
+   "target": "BP-ArithmeticStatistics",
+   "roadmapIds": [
+    "ArithmeticStatistics"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-ArithmeticStatistics.result.json",
+    "research/blueprint/redteam/RT-BP-ArithmeticStatistics.md"
+   ],
+   "after": [],
+   "independentOf": [
+    "BP-ArithmeticStatistics",
+    "REV-ArithmeticStatistics"
+   ],
+   "prompt": "research/blueprint/prompts/RT-BP-ArithmeticStatistics.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-RT-BP-ArithmeticStatistics",
+   "kind": "review",
+   "priority": 2,
+   "order": 904,
+   "name": "blueprint BP-ArithmeticStatistics: Arithmetic statistics, counting fields and Selmer distributions",
+   "roadmapIds": [
+    "ArithmeticStatistics"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-ArithmeticStatistics.review.json",
+    "research/blueprint/reviews/REV-RT-BP-ArithmeticStatistics.md"
+   ],
+   "after": [
+    "RT-BP-ArithmeticStatistics"
+   ],
+   "avoidAccountOf": "RT-BP-ArithmeticStatistics",
+   "independentOf": [
+    "RT-BP-ArithmeticStatistics",
+    "BP-ArithmeticStatistics",
+    "REV-ArithmeticStatistics"
+   ],
+   "prompt": "research/blueprint/prompts/REV-RT-BP-ArithmeticStatistics.md",
+   "state": "pending"
+  },
+  {
+   "id": "RT-BP-ProbabilisticAndMetricNumberTheory",
+   "kind": "redteam",
+   "priority": 2,
+   "order": 906,
+   "name": "blueprint BP-ProbabilisticAndMetricNumberTheory: Probabilistic, metric and ergodic number theory",
+   "target": "BP-ProbabilisticAndMetricNumberTheory",
+   "roadmapIds": [
+    "ProbabilisticAndMetricNumberTheory"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-ProbabilisticAndMetricNumberTheory.result.json",
+    "research/blueprint/redteam/RT-BP-ProbabilisticAndMetricNumberTheory.md"
+   ],
+   "after": [],
+   "independentOf": [
+    "BP-ProbabilisticAndMetricNumberTheory",
+    "REV-ProbabilisticAndMetricNumberTheory"
+   ],
+   "prompt": "research/blueprint/prompts/RT-BP-ProbabilisticAndMetricNumberTheory.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-RT-BP-ProbabilisticAndMetricNumberTheory",
+   "kind": "review",
+   "priority": 2,
+   "order": 906,
+   "name": "blueprint BP-ProbabilisticAndMetricNumberTheory: Probabilistic, metric and ergodic number theory",
+   "roadmapIds": [
+    "ProbabilisticAndMetricNumberTheory"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-ProbabilisticAndMetricNumberTheory.review.json",
+    "research/blueprint/reviews/REV-RT-BP-ProbabilisticAndMetricNumberTheory.md"
+   ],
+   "after": [
+    "RT-BP-ProbabilisticAndMetricNumberTheory"
+   ],
+   "avoidAccountOf": "RT-BP-ProbabilisticAndMetricNumberTheory",
+   "independentOf": [
+    "RT-BP-ProbabilisticAndMetricNumberTheory",
+    "BP-ProbabilisticAndMetricNumberTheory",
+    "REV-ProbabilisticAndMetricNumberTheory"
+   ],
+   "prompt": "research/blueprint/prompts/REV-RT-BP-ProbabilisticAndMetricNumberTheory.md",
+   "state": "pending"
+  },
+  {
+   "id": "RT-DESIGN-EllipticLegendreCharacterInterfaces",
+   "kind": "redteam",
+   "priority": 2,
+   "order": 958,
+   "name": "new roadmap DESIGN-EllipticLegendreCharacterInterfaces: Elliptic curves, Part II: Legendre models, descent and character interfaces",
+   "target": "DESIGN-EllipticLegendreCharacterInterfaces",
+   "roadmapIds": [
+    "EllipticLegendreCharacterInterfaces"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-DESIGN-EllipticLegendreCharacterInterfaces.result.json",
+    "research/blueprint/redteam/RT-DESIGN-EllipticLegendreCharacterInterfaces.md"
+   ],
+   "after": [],
+   "independentOf": [
+    "DESIGN-EllipticLegendreCharacterInterfaces",
+    "REV-DESIGN-EllipticLegendreCharacterInterfaces"
+   ],
+   "prompt": "research/blueprint/prompts/RT-DESIGN-EllipticLegendreCharacterInterfaces.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-RT-DESIGN-EllipticLegendreCharacterInterfaces",
+   "kind": "review",
+   "priority": 2,
+   "order": 958,
+   "name": "new roadmap DESIGN-EllipticLegendreCharacterInterfaces: Elliptic curves, Part II: Legendre models, descent and character interfaces",
+   "roadmapIds": [
+    "EllipticLegendreCharacterInterfaces"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-DESIGN-EllipticLegendreCharacterInterfaces.review.json",
+    "research/blueprint/reviews/REV-RT-DESIGN-EllipticLegendreCharacterInterfaces.md"
+   ],
+   "after": [
+    "RT-DESIGN-EllipticLegendreCharacterInterfaces"
+   ],
+   "avoidAccountOf": "RT-DESIGN-EllipticLegendreCharacterInterfaces",
+   "independentOf": [
+    "RT-DESIGN-EllipticLegendreCharacterInterfaces",
+    "DESIGN-EllipticLegendreCharacterInterfaces",
+    "REV-DESIGN-EllipticLegendreCharacterInterfaces"
+   ],
+   "prompt": "research/blueprint/prompts/REV-RT-DESIGN-EllipticLegendreCharacterInterfaces.md",
+   "state": "pending"
+  },
+  {
    "id": "RT-AUDIT-01",
    "kind": "redteam",
    "priority": 2,
-   "order": 1033,
+   "order": 1075,
    "name": "library audit AUDIT-01: Algebraic moduli and representability for arithmetic geometry",
    "target": "AUDIT-01",
    "roadmapIds": [
@@ -50135,7 +53159,7 @@
    "id": "REV-RT-AUDIT-01",
    "kind": "review",
    "priority": 2,
-   "order": 1033,
+   "order": 1075,
    "name": "library audit AUDIT-01: Algebraic moduli and representability for arithmetic geometry",
    "roadmapIds": [
     "AlgebraicModuliForArithmeticGeometry",
@@ -50166,7 +53190,7 @@
    "id": "FIX-RT-AUDIT-01",
    "kind": "fix",
    "priority": 1,
-   "order": 1033,
+   "order": 1075,
    "name": "library audit AUDIT-01: Algebraic moduli and representability for arithmetic geometry",
    "target": "AUDIT-01",
    "roadmapIds": [
@@ -50190,7 +53214,7 @@
    "id": "RT-AUDIT-02",
    "kind": "redteam",
    "priority": 2,
-   "order": 1034,
+   "order": 1076,
    "name": "library audit AUDIT-02: Hodge structures (pure, mixed, and polarized)",
    "target": "AUDIT-02",
    "roadmapIds": [
@@ -50218,7 +53242,7 @@
    "id": "REV-RT-AUDIT-02",
    "kind": "review",
    "priority": 2,
-   "order": 1034,
+   "order": 1076,
    "name": "library audit AUDIT-02: Hodge structures (pure, mixed, and polarized)",
    "roadmapIds": [
     "tauceti:TauCetiRoadmap/HodgeStructures",
@@ -50249,7 +53273,7 @@
    "id": "RT-AUDIT-03",
    "kind": "redteam",
    "priority": 2,
-   "order": 1035,
+   "order": 1077,
    "name": "library audit AUDIT-03: Higher local fields and higher class field theory",
    "target": "AUDIT-03",
    "roadmapIds": [
@@ -50277,7 +53301,7 @@
    "id": "REV-RT-AUDIT-03",
    "kind": "review",
    "priority": 2,
-   "order": 1035,
+   "order": 1077,
    "name": "library audit AUDIT-03: Higher local fields and higher class field theory",
    "roadmapIds": [
     "HigherLocalFieldsAndHigherClassFieldTheory",
@@ -50308,7 +53332,7 @@
    "id": "FIX-RT-AUDIT-03",
    "kind": "fix",
    "priority": 1,
-   "order": 1035,
+   "order": 1077,
    "name": "library audit AUDIT-03: Higher local fields and higher class field theory",
    "target": "AUDIT-03",
    "roadmapIds": [
@@ -50332,7 +53356,7 @@
    "id": "RT-AUDIT-04",
    "kind": "redteam",
    "priority": 2,
-   "order": 1036,
+   "order": 1078,
    "name": "library audit AUDIT-04: Global number fields, ray classes, adeles, and Hecke characters",
    "target": "AUDIT-04",
    "roadmapIds": [
@@ -50360,7 +53384,7 @@
    "id": "REV-RT-AUDIT-04",
    "kind": "review",
    "priority": 2,
-   "order": 1036,
+   "order": 1078,
    "name": "library audit AUDIT-04: Global number fields, ray classes, adeles, and Hecke characters",
    "roadmapIds": [
     "tauceti:TauCetiRoadmap/GlobalNumberFields",
@@ -50391,7 +53415,7 @@
    "id": "FIX-RT-AUDIT-04",
    "kind": "fix",
    "priority": 1,
-   "order": 1036,
+   "order": 1078,
    "name": "library audit AUDIT-04: Global number fields, ray classes, adeles, and Hecke characters",
    "target": "AUDIT-04",
    "roadmapIds": [
@@ -50415,7 +53439,7 @@
    "id": "RT-AUDIT-05",
    "kind": "redteam",
    "priority": 2,
-   "order": 1037,
+   "order": 1079,
    "name": "library audit AUDIT-05: Galois groups of polynomials",
    "target": "AUDIT-05",
    "roadmapIds": [
@@ -50443,7 +53467,7 @@
    "id": "REV-RT-AUDIT-05",
    "kind": "review",
    "priority": 2,
-   "order": 1037,
+   "order": 1079,
    "name": "library audit AUDIT-05: Galois groups of polynomials",
    "roadmapIds": [
     "tauceti:TauCetiRoadmap/PolynomialGaloisGroups",
@@ -50474,7 +53498,7 @@
    "id": "FIX-RT-AUDIT-05",
    "kind": "fix",
    "priority": 1,
-   "order": 1037,
+   "order": 1079,
    "name": "library audit AUDIT-05: Galois groups of polynomials",
    "target": "AUDIT-05",
    "roadmapIds": [
@@ -50498,7 +53522,7 @@
    "id": "RT-AUDIT-06",
    "kind": "redteam",
    "priority": 2,
-   "order": 1038,
+   "order": 1080,
    "name": "library audit AUDIT-06: Fuchsian groups and orbifold Riemann surfaces",
    "target": "AUDIT-06",
    "roadmapIds": [
@@ -50525,7 +53549,7 @@
    "id": "REV-RT-AUDIT-06",
    "kind": "review",
    "priority": 2,
-   "order": 1038,
+   "order": 1080,
    "name": "library audit AUDIT-06: Fuchsian groups and orbifold Riemann surfaces",
    "roadmapIds": [
     "tauceti:TauCetiRoadmap/FuchsianOrbifolds",
@@ -50555,7 +53579,7 @@
    "id": "FIX-RT-AUDIT-06",
    "kind": "fix",
    "priority": 1,
-   "order": 1038,
+   "order": 1080,
    "name": "library audit AUDIT-06: Fuchsian groups and orbifold Riemann surfaces",
    "target": "AUDIT-06",
    "roadmapIds": [
@@ -50578,7 +53602,7 @@
    "id": "RT-AUDIT-07",
    "kind": "redteam",
    "priority": 2,
-   "order": 1039,
+   "order": 1081,
    "name": "library audit AUDIT-07: Arithmetic statistics, counting fields and Selmer distributions",
    "target": "AUDIT-07",
    "roadmapIds": [
@@ -50606,7 +53630,7 @@
    "id": "REV-RT-AUDIT-07",
    "kind": "review",
    "priority": 2,
-   "order": 1039,
+   "order": 1081,
    "name": "library audit AUDIT-07: Arithmetic statistics, counting fields and Selmer distributions",
    "roadmapIds": [
     "ArithmeticStatistics",
@@ -50637,7 +53661,7 @@
    "id": "FIX-RT-AUDIT-07",
    "kind": "fix",
    "priority": 1,
-   "order": 1039,
+   "order": 1081,
    "name": "library audit AUDIT-07: Arithmetic statistics, counting fields and Selmer distributions",
    "target": "AUDIT-07",
    "roadmapIds": [
@@ -50661,7 +53685,7 @@
    "id": "RT-AUDIT-08",
    "kind": "redteam",
    "priority": 2,
-   "order": 1040,
+   "order": 1082,
    "name": "library audit AUDIT-08: Arithmetic Dirichlet series and Tauberian methods",
    "target": "AUDIT-08",
    "roadmapIds": [
@@ -50689,7 +53713,7 @@
    "id": "REV-RT-AUDIT-08",
    "kind": "review",
    "priority": 2,
-   "order": 1040,
+   "order": 1082,
    "name": "library audit AUDIT-08: Arithmetic Dirichlet series and Tauberian methods",
    "roadmapIds": [
     "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries",
@@ -50720,7 +53744,7 @@
    "id": "FIX-RT-AUDIT-08",
    "kind": "fix",
    "priority": 1,
-   "order": 1040,
+   "order": 1082,
    "name": "library audit AUDIT-08: Arithmetic Dirichlet series and Tauberian methods",
    "target": "AUDIT-08",
    "roadmapIds": [
@@ -50744,7 +53768,7 @@
    "id": "RT-AUDIT-09",
    "kind": "redteam",
    "priority": 2,
-   "order": 1041,
+   "order": 1083,
    "name": "library audit AUDIT-09: Complex multiplication and explicit reciprocity",
    "target": "AUDIT-09",
    "roadmapIds": [
@@ -50772,7 +53796,7 @@
    "id": "REV-RT-AUDIT-09",
    "kind": "review",
    "priority": 2,
-   "order": 1041,
+   "order": 1083,
    "name": "library audit AUDIT-09: Complex multiplication and explicit reciprocity",
    "roadmapIds": [
     "ComplexMultiplicationAndExplicitReciprocity",
@@ -50803,7 +53827,7 @@
    "id": "FIX-RT-AUDIT-09",
    "kind": "fix",
    "priority": 1,
-   "order": 1041,
+   "order": 1083,
    "name": "library audit AUDIT-09: Complex multiplication and explicit reciprocity",
    "target": "AUDIT-09",
    "roadmapIds": [
@@ -50827,7 +53851,7 @@
    "id": "RT-AUDIT-10",
    "kind": "redteam",
    "priority": 2,
-   "order": 1042,
+   "order": 1084,
    "name": "library audit AUDIT-10: Modular Curves PartII",
    "target": "AUDIT-10",
    "roadmapIds": [
@@ -50855,7 +53879,7 @@
    "id": "REV-RT-AUDIT-10",
    "kind": "review",
    "priority": 2,
-   "order": 1042,
+   "order": 1084,
    "name": "library audit AUDIT-10: Modular Curves PartII",
    "roadmapIds": [
     "ModularCurvesPartII",
@@ -50886,7 +53910,7 @@
    "id": "FIX-RT-AUDIT-10",
    "kind": "fix",
    "priority": 1,
-   "order": 1042,
+   "order": 1084,
    "name": "library audit AUDIT-10: Modular Curves PartII",
    "target": "AUDIT-10",
    "roadmapIds": [
@@ -50910,7 +53934,7 @@
    "id": "RT-AUDIT-11",
    "kind": "redteam",
    "priority": 2,
-   "order": 1043,
+   "order": 1085,
    "name": "library audit AUDIT-11: Complex Shimura varieties and canonical models",
    "target": "AUDIT-11",
    "roadmapIds": [
@@ -50937,7 +53961,7 @@
    "id": "REV-RT-AUDIT-11",
    "kind": "review",
    "priority": 2,
-   "order": 1043,
+   "order": 1085,
    "name": "library audit AUDIT-11: Complex Shimura varieties and canonical models",
    "roadmapIds": [
     "ShimuraVarieties",
@@ -50967,7 +53991,7 @@
    "id": "FIX-RT-AUDIT-11",
    "kind": "fix",
    "priority": 1,
-   "order": 1043,
+   "order": 1085,
    "name": "library audit AUDIT-11: Complex Shimura varieties and canonical models",
    "target": "AUDIT-11",
    "roadmapIds": [
@@ -50990,7 +54014,7 @@
    "id": "RT-AUDIT-12",
    "kind": "redteam",
    "priority": 2,
-   "order": 1044,
+   "order": 1086,
    "name": "library audit AUDIT-12: Modular curves, following Katz–Mazur",
    "target": "AUDIT-12",
    "roadmapIds": [
@@ -51014,7 +54038,7 @@
    "id": "REV-RT-AUDIT-12",
    "kind": "review",
    "priority": 2,
-   "order": 1044,
+   "order": 1086,
    "name": "library audit AUDIT-12: Modular curves, following Katz–Mazur",
    "roadmapIds": [
     "tauceti:TauCetiRoadmap/ModularCurves"
@@ -51041,7 +54065,7 @@
    "id": "FIX-RT-AUDIT-12",
    "kind": "fix",
    "priority": 1,
-   "order": 1044,
+   "order": 1086,
    "name": "library audit AUDIT-12: Modular curves, following Katz–Mazur",
    "target": "AUDIT-12",
    "roadmapIds": [
@@ -51061,7 +54085,7 @@
    "id": "RT-AUDIT-13",
    "kind": "redteam",
    "priority": 2,
-   "order": 1045,
+   "order": 1087,
    "name": "library audit AUDIT-13: Adelic algebraic groups and arithmetic quotients",
    "target": "AUDIT-13",
    "roadmapIds": [
@@ -51089,7 +54113,7 @@
    "id": "REV-RT-AUDIT-13",
    "kind": "review",
    "priority": 2,
-   "order": 1045,
+   "order": 1087,
    "name": "library audit AUDIT-13: Adelic algebraic groups and arithmetic quotients",
    "roadmapIds": [
     "AdelicAlgebraicGroups",
@@ -51120,7 +54144,7 @@
    "id": "FIX-RT-AUDIT-13",
    "kind": "fix",
    "priority": 1,
-   "order": 1045,
+   "order": 1087,
    "name": "library audit AUDIT-13: Adelic algebraic groups and arithmetic quotients",
    "target": "AUDIT-13",
    "roadmapIds": [
@@ -51144,7 +54168,7 @@
    "id": "RT-AUDIT-14",
    "kind": "redteam",
    "priority": 2,
-   "order": 1046,
+   "order": 1088,
    "name": "library audit AUDIT-14: Automorphic L-functions and local factors",
    "target": "AUDIT-14",
    "roadmapIds": [
@@ -51172,7 +54196,7 @@
    "id": "REV-RT-AUDIT-14",
    "kind": "review",
    "priority": 2,
-   "order": 1046,
+   "order": 1088,
    "name": "library audit AUDIT-14: Automorphic L-functions and local factors",
    "roadmapIds": [
     "AutomorphicLFunctionsAndLocalFactors",
@@ -51203,7 +54227,7 @@
    "id": "FIX-RT-AUDIT-14",
    "kind": "fix",
    "priority": 1,
-   "order": 1046,
+   "order": 1088,
    "name": "library audit AUDIT-14: Automorphic L-functions and local factors",
    "target": "AUDIT-14",
    "roadmapIds": [
@@ -51227,7 +54251,7 @@
    "id": "RT-AUDIT-15",
    "kind": "redteam",
    "priority": 2,
-   "order": 1047,
+   "order": 1089,
    "name": "library audit AUDIT-15: Hilbert Modular Varieties And Shimura Curves",
    "target": "AUDIT-15",
    "roadmapIds": [
@@ -51255,7 +54279,7 @@
    "id": "REV-RT-AUDIT-15",
    "kind": "review",
    "priority": 2,
-   "order": 1047,
+   "order": 1089,
    "name": "library audit AUDIT-15: Hilbert Modular Varieties And Shimura Curves",
    "roadmapIds": [
     "HilbertModularVarietiesAndShimuraCurves",
@@ -51286,7 +54310,7 @@
    "id": "FIX-RT-AUDIT-15",
    "kind": "fix",
    "priority": 1,
-   "order": 1047,
+   "order": 1089,
    "name": "library audit AUDIT-15: Hilbert Modular Varieties And Shimura Curves",
    "target": "AUDIT-15",
    "roadmapIds": [
@@ -51310,7 +54334,7 @@
    "id": "RT-AUDIT-16",
    "kind": "redteam",
    "priority": 2,
-   "order": 1048,
+   "order": 1090,
    "name": "library audit AUDIT-16: Modular forms — Hecke theory, newforms, and L-functions",
    "target": "AUDIT-16",
    "roadmapIds": [
@@ -51337,7 +54361,7 @@
    "id": "REV-RT-AUDIT-16",
    "kind": "review",
    "priority": 2,
-   "order": 1048,
+   "order": 1090,
    "name": "library audit AUDIT-16: Modular forms — Hecke theory, newforms, and L-functions",
    "roadmapIds": [
     "tauceti:TauCetiRoadmap/ModularForms",
@@ -51367,7 +54391,7 @@
    "id": "FIX-RT-AUDIT-16",
    "kind": "fix",
    "priority": 1,
-   "order": 1048,
+   "order": 1090,
    "name": "library audit AUDIT-16: Modular forms — Hecke theory, newforms, and L-functions",
    "target": "AUDIT-16",
    "roadmapIds": [
@@ -51390,7 +54414,7 @@
    "id": "RT-AUDIT-17",
    "kind": "redteam",
    "priority": 2,
-   "order": 1049,
+   "order": 1091,
    "name": "library audit AUDIT-17: Commutative algebra for deformation theory and patching",
    "target": "AUDIT-17",
    "roadmapIds": [
@@ -51418,7 +54442,7 @@
    "id": "REV-RT-AUDIT-17",
    "kind": "review",
    "priority": 2,
-   "order": 1049,
+   "order": 1091,
    "name": "library audit AUDIT-17: Commutative algebra for deformation theory and patching",
    "roadmapIds": [
     "DeformationAndDerivedPatchingAlgebra",
@@ -51449,7 +54473,7 @@
    "id": "FIX-RT-AUDIT-17",
    "kind": "fix",
    "priority": 1,
-   "order": 1049,
+   "order": 1091,
    "name": "library audit AUDIT-17: Commutative algebra for deformation theory and patching",
    "target": "AUDIT-17",
    "roadmapIds": [
@@ -51473,7 +54497,7 @@
    "id": "RT-AUDIT-18",
    "kind": "redteam",
    "priority": 2,
-   "order": 1050,
+   "order": 1092,
    "name": "library audit AUDIT-18: Classical arithmetic, sequences, polynomials and reciprocity",
    "target": "AUDIT-18",
    "roadmapIds": [
@@ -51501,7 +54525,7 @@
    "id": "REV-RT-AUDIT-18",
    "kind": "review",
    "priority": 2,
-   "order": 1050,
+   "order": 1092,
    "name": "library audit AUDIT-18: Classical arithmetic, sequences, polynomials and reciprocity",
    "roadmapIds": [
     "ClassicalArithmeticCompletion",
@@ -51532,7 +54556,7 @@
    "id": "FIX-RT-AUDIT-18",
    "kind": "fix",
    "priority": 1,
-   "order": 1050,
+   "order": 1092,
    "name": "library audit AUDIT-18: Classical arithmetic, sequences, polynomials and reciprocity",
    "target": "AUDIT-18",
    "roadmapIds": [
@@ -51556,7 +54580,7 @@
    "id": "RT-AUDIT-19",
    "kind": "redteam",
    "priority": 2,
-   "order": 1051,
+   "order": 1093,
    "name": "library audit AUDIT-19: Q-Hodge filtrations and Habiro cohomology",
    "target": "AUDIT-19",
    "roadmapIds": [
@@ -51584,7 +54608,7 @@
    "id": "REV-RT-AUDIT-19",
    "kind": "review",
    "priority": 2,
-   "order": 1051,
+   "order": 1093,
    "name": "library audit AUDIT-19: Q-Hodge filtrations and Habiro cohomology",
    "roadmapIds": [
     "HabiroCohomologyFoundations",
@@ -51615,7 +54639,7 @@
    "id": "FIX-RT-AUDIT-19",
    "kind": "fix",
    "priority": 1,
-   "order": 1051,
+   "order": 1093,
    "name": "library audit AUDIT-19: Q-Hodge filtrations and Habiro cohomology",
    "target": "AUDIT-19",
    "roadmapIds": [
@@ -51639,7 +54663,7 @@
    "id": "RT-AUDIT-20",
    "kind": "redteam",
    "priority": 2,
-   "order": 1052,
+   "order": 1094,
    "name": "library audit AUDIT-20: Drinfeld modules, t-motives and characteristic-p special values",
    "target": "AUDIT-20",
    "roadmapIds": [
@@ -51667,7 +54691,7 @@
    "id": "REV-RT-AUDIT-20",
    "kind": "review",
    "priority": 2,
-   "order": 1052,
+   "order": 1094,
    "name": "library audit AUDIT-20: Drinfeld modules, t-motives and characteristic-p special values",
    "roadmapIds": [
     "DrinfeldModulesAndTModules",
@@ -51698,7 +54722,7 @@
    "id": "FIX-RT-AUDIT-20",
    "kind": "fix",
    "priority": 1,
-   "order": 1052,
+   "order": 1094,
    "name": "library audit AUDIT-20: Drinfeld modules, t-motives and characteristic-p special values",
    "target": "AUDIT-20",
    "roadmapIds": [
@@ -51722,7 +54746,7 @@
    "id": "RT-AUDIT-21",
    "kind": "redteam",
    "priority": 2,
-   "order": 1053,
+   "order": 1095,
    "name": "library audit AUDIT-21: Geometric Satake over the Fargues–Fontaine curve",
    "target": "AUDIT-21",
    "roadmapIds": [
@@ -51750,7 +54774,7 @@
    "id": "REV-RT-AUDIT-21",
    "kind": "review",
    "priority": 2,
-   "order": 1053,
+   "order": 1095,
    "name": "library audit AUDIT-21: Geometric Satake over the Fargues–Fontaine curve",
    "roadmapIds": [
     "GeometricSatakeAndFusion",
@@ -51781,7 +54805,7 @@
    "id": "FIX-RT-AUDIT-21",
    "kind": "fix",
    "priority": 1,
-   "order": 1053,
+   "order": 1095,
    "name": "library audit AUDIT-21: Geometric Satake over the Fargues–Fontaine curve",
    "target": "AUDIT-21",
    "roadmapIds": [
@@ -51805,7 +54829,7 @@
    "id": "RT-AUDIT-22",
    "kind": "redteam",
    "priority": 2,
-   "order": 1054,
+   "order": 1096,
    "name": "library audit AUDIT-22: Profinite and pro-p groups",
    "target": "AUDIT-22",
    "roadmapIds": [
@@ -51832,7 +54856,7 @@
    "id": "REV-RT-AUDIT-22",
    "kind": "review",
    "priority": 2,
-   "order": 1054,
+   "order": 1096,
    "name": "library audit AUDIT-22: Profinite and pro-p groups",
    "roadmapIds": [
     "tauceti:TauCetiRoadmap/ProfiniteProPGroups",
@@ -51862,7 +54886,7 @@
    "id": "RT-AUDIT-23",
    "kind": "redteam",
    "priority": 2,
-   "order": 1055,
+   "order": 1097,
    "name": "library audit AUDIT-23: Continuous cohomology of profinite groups",
    "target": "AUDIT-23",
    "roadmapIds": [
@@ -51890,7 +54914,7 @@
    "id": "REV-RT-AUDIT-23",
    "kind": "review",
    "priority": 2,
-   "order": 1055,
+   "order": 1097,
    "name": "library audit AUDIT-23: Continuous cohomology of profinite groups",
    "roadmapIds": [
     "tauceti:TauCetiRoadmap/ProfiniteCohomology",
@@ -51921,7 +54945,7 @@
    "id": "RT-AUDIT-24",
    "kind": "redteam",
    "priority": 2,
-   "order": 1056,
+   "order": 1098,
    "name": "library audit AUDIT-24: Coleman power series, local units, and cyclotomic-unit quotients",
    "target": "AUDIT-24",
    "roadmapIds": [
@@ -51949,7 +54973,7 @@
    "id": "REV-RT-AUDIT-24",
    "kind": "review",
    "priority": 2,
-   "order": 1056,
+   "order": 1098,
    "name": "library audit AUDIT-24: Coleman power series, local units, and cyclotomic-unit quotients",
    "roadmapIds": [
     "ColemanPowerSeries",
@@ -51980,7 +55004,7 @@
    "id": "FIX-RT-AUDIT-24",
    "kind": "fix",
    "priority": 1,
-   "order": 1056,
+   "order": 1098,
    "name": "library audit AUDIT-24: Coleman power series, local units, and cyclotomic-unit quotients",
    "target": "AUDIT-24",
    "roadmapIds": [
@@ -52004,7 +55028,7 @@
    "id": "RT-AUDIT-25",
    "kind": "redteam",
    "priority": 2,
-   "order": 1057,
+   "order": 1099,
    "name": "library audit AUDIT-25: Gross–Zagier formulas and arithmetic heights",
    "target": "AUDIT-25",
    "roadmapIds": [
@@ -52032,7 +55056,7 @@
    "id": "REV-RT-AUDIT-25",
    "kind": "review",
    "priority": 2,
-   "order": 1057,
+   "order": 1099,
    "name": "library audit AUDIT-25: Gross–Zagier formulas and arithmetic heights",
    "roadmapIds": [
     "GrossZagierAndArithmeticHeights",
@@ -52063,7 +55087,7 @@
    "id": "FIX-RT-AUDIT-25",
    "kind": "fix",
    "priority": 1,
-   "order": 1057,
+   "order": 1099,
    "name": "library audit AUDIT-25: Gross–Zagier formulas and arithmetic heights",
    "target": "AUDIT-25",
    "roadmapIds": [
@@ -52087,7 +55111,7 @@
    "id": "RT-AUDIT-26",
    "kind": "redteam",
    "priority": 2,
-   "order": 1058,
+   "order": 1100,
    "name": "library audit AUDIT-26: Main conjectures for modular forms and their families",
    "target": "AUDIT-26",
    "roadmapIds": [
@@ -52115,7 +55139,7 @@
    "id": "REV-RT-AUDIT-26",
    "kind": "review",
    "priority": 2,
-   "order": 1058,
+   "order": 1100,
    "name": "library audit AUDIT-26: Main conjectures for modular forms and their families",
    "roadmapIds": [
     "ModularIwasawaMainConjectures",
@@ -52146,7 +55170,7 @@
    "id": "FIX-RT-AUDIT-26",
    "kind": "fix",
    "priority": 1,
-   "order": 1058,
+   "order": 1100,
    "name": "library audit AUDIT-26: Main conjectures for modular forms and their families",
    "target": "AUDIT-26",
    "roadmapIds": [
@@ -52170,7 +55194,7 @@
    "id": "RT-AUDIT-27",
    "kind": "redteam",
    "priority": 2,
-   "order": 1059,
+   "order": 1101,
    "name": "library audit AUDIT-27: Periods, motivic L-values and special-value conjectures",
    "target": "AUDIT-27",
    "roadmapIds": [
@@ -52198,7 +55222,7 @@
    "id": "REV-RT-AUDIT-27",
    "kind": "review",
    "priority": 2,
-   "order": 1059,
+   "order": 1101,
    "name": "library audit AUDIT-27: Periods, motivic L-values and special-value conjectures",
    "roadmapIds": [
     "PeriodsAndSpecialValues",
@@ -52229,7 +55253,7 @@
    "id": "FIX-RT-AUDIT-27",
    "kind": "fix",
    "priority": 1,
-   "order": 1059,
+   "order": 1101,
    "name": "library audit AUDIT-27: Periods, motivic L-values and special-value conjectures",
    "target": "AUDIT-27",
    "roadmapIds": [
@@ -52253,7 +55277,7 @@
    "id": "RT-AUDIT-28",
    "kind": "redteam",
    "priority": 2,
-   "order": 1060,
+   "order": 1102,
    "name": "library audit AUDIT-28: Stable arithmetic cohomology and Borel regulators",
    "target": "AUDIT-28",
    "roadmapIds": [
@@ -52281,7 +55305,7 @@
    "id": "REV-RT-AUDIT-28",
    "kind": "review",
    "priority": 2,
-   "order": 1060,
+   "order": 1102,
    "name": "library audit AUDIT-28: Stable arithmetic cohomology and Borel regulators",
    "roadmapIds": [
     "BorelRegulators",
@@ -52312,7 +55336,7 @@
    "id": "FIX-RT-AUDIT-28",
    "kind": "fix",
    "priority": 1,
-   "order": 1060,
+   "order": 1102,
    "name": "library audit AUDIT-28: Stable arithmetic cohomology and Borel regulators",
    "target": "AUDIT-28",
    "roadmapIds": [
@@ -52336,7 +55360,7 @@
    "id": "RT-AUDIT-29",
    "kind": "redteam",
    "priority": 2,
-   "order": 1061,
+   "order": 1103,
    "name": "library audit AUDIT-29: Explicit K₂: symbols, residues and reciprocity",
    "target": "AUDIT-29",
    "roadmapIds": [
@@ -52363,7 +55387,7 @@
    "id": "REV-RT-AUDIT-29",
    "kind": "review",
    "priority": 2,
-   "order": 1061,
+   "order": 1103,
    "name": "library audit AUDIT-29: Explicit K₂: symbols, residues and reciprocity",
    "roadmapIds": [
     "K2SymbolsBrauer",
@@ -52393,7 +55417,7 @@
    "id": "RT-AUDIT-30",
    "kind": "redteam",
    "priority": 2,
-   "order": 1062,
+   "order": 1104,
    "name": "library audit AUDIT-30: Motivic and étale methods for arithmetic K-theory",
    "target": "AUDIT-30",
    "roadmapIds": [
@@ -52421,7 +55445,7 @@
    "id": "REV-RT-AUDIT-30",
    "kind": "review",
    "priority": 2,
-   "order": 1062,
+   "order": 1104,
    "name": "library audit AUDIT-30: Motivic and étale methods for arithmetic K-theory",
    "roadmapIds": [
     "MotivicEtaleKTheory",
@@ -52452,7 +55476,7 @@
    "id": "FIX-RT-AUDIT-30",
    "kind": "fix",
    "priority": 1,
-   "order": 1062,
+   "order": 1104,
    "name": "library audit AUDIT-30: Motivic and étale methods for arithmetic K-theory",
    "target": "AUDIT-30",
    "roadmapIds": [
@@ -52476,7 +55500,7 @@
    "id": "RT-AUDIT-31",
    "kind": "redteam",
    "priority": 2,
-   "order": 1063,
+   "order": 1105,
    "name": "library audit AUDIT-31: Arithmetic Galois representations and conductors",
    "target": "AUDIT-31",
    "roadmapIds": [
@@ -52504,7 +55528,7 @@
    "id": "REV-RT-AUDIT-31",
    "kind": "review",
    "priority": 2,
-   "order": 1063,
+   "order": 1105,
    "name": "library audit AUDIT-31: Arithmetic Galois representations and conductors",
    "roadmapIds": [
     "ArithmeticGaloisRepresentations",
@@ -52535,7 +55559,7 @@
    "id": "FIX-RT-AUDIT-31",
    "kind": "fix",
    "priority": 1,
-   "order": 1063,
+   "order": 1105,
    "name": "library audit AUDIT-31: Arithmetic Galois representations and conductors",
    "target": "AUDIT-31",
    "roadmapIds": [
@@ -52559,7 +55583,7 @@
    "id": "RT-AUDIT-34",
    "kind": "redteam",
    "priority": 2,
-   "order": 1066,
+   "order": 1108,
    "name": "library audit AUDIT-34: Reusable infrastructure for potential automorphy over CM fields",
    "target": "AUDIT-34",
    "roadmapIds": [
@@ -52587,7 +55611,7 @@
    "id": "REV-RT-AUDIT-34",
    "kind": "review",
    "priority": 2,
-   "order": 1066,
+   "order": 1108,
    "name": "library audit AUDIT-34: Reusable infrastructure for potential automorphy over CM fields",
    "roadmapIds": [
     "PotentialAutomorphyInfrastructure",
@@ -52618,7 +55642,7 @@
    "id": "FIX-RT-AUDIT-34",
    "kind": "fix",
    "priority": 1,
-   "order": 1066,
+   "order": 1108,
    "name": "library audit AUDIT-34: Reusable infrastructure for potential automorphy over CM fields",
    "target": "AUDIT-34",
    "roadmapIds": [
@@ -52642,7 +55666,7 @@
    "id": "RT-AUDIT-39",
    "kind": "redteam",
    "priority": 2,
-   "order": 1071,
+   "order": 1113,
    "name": "library audit AUDIT-39: Relative Fargues–Fontaine curves and period geometry",
    "target": "AUDIT-39",
    "roadmapIds": [
@@ -52669,7 +55693,7 @@
    "id": "REV-RT-AUDIT-39",
    "kind": "review",
    "priority": 2,
-   "order": 1071,
+   "order": 1113,
    "name": "library audit AUDIT-39: Relative Fargues–Fontaine curves and period geometry",
    "roadmapIds": [
     "RelativeFarguesFontaine",
@@ -52699,7 +55723,7 @@
    "id": "FIX-RT-AUDIT-39",
    "kind": "fix",
    "priority": 1,
-   "order": 1071,
+   "order": 1113,
    "name": "library audit AUDIT-39: Relative Fargues–Fontaine curves and period geometry",
    "target": "AUDIT-39",
    "roadmapIds": [
@@ -52830,6 +55854,52 @@
    "note": "deliverables arrived from an external worker on issue #3956"
   },
   {
+   "id": "FIX-RT-AREA-computational~2",
+   "kind": "fix",
+   "priority": 1,
+   "order": 321,
+   "name": "area: Computational number theory (Elementary and computational number theory)",
+   "target": "area:computational",
+   "roadmapIds": [
+    "ComputationalNumberTheory"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-AREA-computational.fixes-2.md",
+    "research/blueprint/packets/ComputationalNumberTheory.json",
+    "research/blueprint/readmes/ComputationalNumberTheory.md",
+    "research/blueprint/suggested/ComputationalNumberTheory.lean"
+   ],
+   "after": [
+    "FIX-RT-AREA-computational"
+   ],
+   "prompt": "research/blueprint/prompts/FIX-RT-AREA-computational~2.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-FIX-RT-AREA-computational~2",
+   "kind": "review",
+   "priority": 1,
+   "order": 321,
+   "name": "area: Computational number theory (Elementary and computational number theory)",
+   "roadmapIds": [
+    "ComputationalNumberTheory"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-FIX-RT-AREA-computational~2.md",
+    "research/blueprint/packets/ComputationalNumberTheory.json",
+    "research/blueprint/suggested/ComputationalNumberTheory.lean"
+   ],
+   "after": [
+    "FIX-RT-AREA-computational~2"
+   ],
+   "avoidAccountOf": "FIX-RT-AREA-computational~2",
+   "independentOf": [
+    "FIX-RT-AREA-computational~2"
+   ],
+   "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-computational~2.md",
+   "state": "pending"
+  },
+  {
    "id": "RT-AREA-finitefields",
    "kind": "redteam",
    "priority": 2,
@@ -52908,7 +55978,10 @@
     "research/blueprint/redteam/RT-AREA-finitefields.fixes-2.md",
     "research/blueprint/packets/FiniteFieldsAndCharacterSums.json",
     "research/blueprint/readmes/FiniteFieldsAndCharacterSums.md",
-    "research/blueprint/suggested/FiniteFieldsAndCharacterSums.lean"
+    "research/blueprint/suggested/FiniteFieldsAndCharacterSums.lean",
+    "research/blueprint/packets/ComputationalNumberTheory.json",
+    "research/blueprint/readmes/ComputationalNumberTheory.md",
+    "research/blueprint/suggested/ComputationalNumberTheory.lean"
    ],
    "after": [
     "FIX-RT-AREA-finitefields"
@@ -52928,7 +56001,9 @@
    "outputs": [
     "research/blueprint/reviews/REV-FIX-RT-AREA-finitefields~2.md",
     "research/blueprint/packets/FiniteFieldsAndCharacterSums.json",
-    "research/blueprint/suggested/FiniteFieldsAndCharacterSums.lean"
+    "research/blueprint/packets/ComputationalNumberTheory.json",
+    "research/blueprint/suggested/FiniteFieldsAndCharacterSums.lean",
+    "research/blueprint/suggested/ComputationalNumberTheory.lean"
    ],
    "after": [
     "FIX-RT-AREA-finitefields~2"
@@ -53024,6 +56099,64 @@
    "note": "deliverables arrived from an external worker on issue #3959"
   },
   {
+   "id": "FIX-RT-AREA-analytic~2",
+   "kind": "fix",
+   "priority": 1,
+   "order": 341,
+   "name": "area: Analytic number theory",
+   "target": "area:analytic",
+   "roadmapIds": [
+    "AnalyticNumberTheory",
+    "ArithmeticStatistics",
+    "DiophantineApproximationAndTranscendence",
+    "ExponentialSumsAndCircleMethod",
+    "ProbabilisticAndMetricNumberTheory",
+    "SieveMethodsAndPrimePatterns",
+    "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-AREA-analytic.fixes-2.md",
+    "research/blueprint/packets/AnalyticNumberTheory--AN.0.json",
+    "research/blueprint/readmes/AnalyticNumberTheory--AN.0.md",
+    "research/blueprint/suggested/AnalyticNumberTheory--AN.0.lean"
+   ],
+   "after": [
+    "FIX-RT-AREA-analytic"
+   ],
+   "prompt": "research/blueprint/prompts/FIX-RT-AREA-analytic~2.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-FIX-RT-AREA-analytic~2",
+   "kind": "review",
+   "priority": 1,
+   "order": 341,
+   "name": "area: Analytic number theory",
+   "roadmapIds": [
+    "AnalyticNumberTheory",
+    "ArithmeticStatistics",
+    "DiophantineApproximationAndTranscendence",
+    "ExponentialSumsAndCircleMethod",
+    "ProbabilisticAndMetricNumberTheory",
+    "SieveMethodsAndPrimePatterns",
+    "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-FIX-RT-AREA-analytic~2.md",
+    "research/blueprint/packets/AnalyticNumberTheory--AN.0.json",
+    "research/blueprint/suggested/AnalyticNumberTheory--AN.0.lean"
+   ],
+   "after": [
+    "FIX-RT-AREA-analytic~2"
+   ],
+   "avoidAccountOf": "FIX-RT-AREA-analytic~2",
+   "independentOf": [
+    "FIX-RT-AREA-analytic~2"
+   ],
+   "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-analytic~2.md",
+   "state": "pending"
+  },
+  {
    "id": "RT-AREA-algebraicnt-1",
    "kind": "redteam",
    "priority": 2,
@@ -53105,6 +56238,64 @@
    "state": "done",
    "finishedAt": "2026-09-29T17:49:41Z",
    "note": "deliverables arrived from an external worker on issue #3960"
+  },
+  {
+   "id": "FIX-RT-AREA-algebraicnt-1~2",
+   "kind": "fix",
+   "priority": 1,
+   "order": 351,
+   "name": "area: Number fields and class field theory (Algebraic number theory), part 1 of 2",
+   "target": "area:algebraicnt:1",
+   "roadmapIds": [
+    "ArithmeticGaloisDuality",
+    "GeometryOfNumbersAndQuadraticArithmetic",
+    "HigherLocalFieldsAndHigherClassFieldTheory",
+    "tauceti:Completed/EffectiveBounds",
+    "tauceti:Completed/IntegralLattices",
+    "tauceti:TauCetiRoadmap/Chebotarev",
+    "tauceti:TauCetiRoadmap/ClassFieldTheory"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-AREA-algebraicnt-1.fixes-2.md",
+    "research/blueprint/packets/GeometryOfNumbersAndQuadraticArithmetic.json",
+    "research/blueprint/readmes/GeometryOfNumbersAndQuadraticArithmetic.md",
+    "research/blueprint/suggested/GeometryOfNumbersAndQuadraticArithmetic.lean"
+   ],
+   "after": [
+    "FIX-RT-AREA-algebraicnt-1"
+   ],
+   "prompt": "research/blueprint/prompts/FIX-RT-AREA-algebraicnt-1~2.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-FIX-RT-AREA-algebraicnt-1~2",
+   "kind": "review",
+   "priority": 1,
+   "order": 351,
+   "name": "area: Number fields and class field theory (Algebraic number theory), part 1 of 2",
+   "roadmapIds": [
+    "ArithmeticGaloisDuality",
+    "GeometryOfNumbersAndQuadraticArithmetic",
+    "HigherLocalFieldsAndHigherClassFieldTheory",
+    "tauceti:Completed/EffectiveBounds",
+    "tauceti:Completed/IntegralLattices",
+    "tauceti:TauCetiRoadmap/Chebotarev",
+    "tauceti:TauCetiRoadmap/ClassFieldTheory"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-FIX-RT-AREA-algebraicnt-1~2.md",
+    "research/blueprint/packets/GeometryOfNumbersAndQuadraticArithmetic.json",
+    "research/blueprint/suggested/GeometryOfNumbersAndQuadraticArithmetic.lean"
+   ],
+   "after": [
+    "FIX-RT-AREA-algebraicnt-1~2"
+   ],
+   "avoidAccountOf": "FIX-RT-AREA-algebraicnt-1~2",
+   "independentOf": [
+    "FIX-RT-AREA-algebraicnt-1~2"
+   ],
+   "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-algebraicnt-1~2.md",
+   "state": "pending"
   },
   {
    "id": "RT-AREA-algebraicnt-2",
@@ -53725,6 +56916,66 @@
    "state": "done",
    "finishedAt": "2026-09-29T19:46:45Z",
    "note": "deliverables arrived from an external worker on issue #3964"
+  },
+  {
+   "id": "FIX-RT-AREA-iwasawa-1~2",
+   "kind": "fix",
+   "priority": 1,
+   "order": 391,
+   "name": "area: Iwasawa theory and special values (Algebraic number theory), part 1 of 3",
+   "target": "area:iwasawa:1",
+   "roadmapIds": [
+    "AutomorphicCongruences",
+    "AutomorphicPadicLFunctions",
+    "EulerSystemsAndKolyvaginSystems",
+    "GrossZagierAndArithmeticHeights",
+    "HeegnerPointEulerSystems",
+    "ModularIwasawaMainConjectures",
+    "RankZeroOneBSD",
+    "SelmerIwasawaCohomology"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-AREA-iwasawa-1.fixes-2.md",
+    "research/blueprint/packets/HeegnerPointEulerSystems--HE.0.json",
+    "research/blueprint/readmes/HeegnerPointEulerSystems--HE.0.md",
+    "research/blueprint/suggested/HeegnerPointEulerSystems--HE.0.lean"
+   ],
+   "after": [
+    "FIX-RT-AREA-iwasawa-1"
+   ],
+   "prompt": "research/blueprint/prompts/FIX-RT-AREA-iwasawa-1~2.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-FIX-RT-AREA-iwasawa-1~2",
+   "kind": "review",
+   "priority": 1,
+   "order": 391,
+   "name": "area: Iwasawa theory and special values (Algebraic number theory), part 1 of 3",
+   "roadmapIds": [
+    "AutomorphicCongruences",
+    "AutomorphicPadicLFunctions",
+    "EulerSystemsAndKolyvaginSystems",
+    "GrossZagierAndArithmeticHeights",
+    "HeegnerPointEulerSystems",
+    "ModularIwasawaMainConjectures",
+    "RankZeroOneBSD",
+    "SelmerIwasawaCohomology"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-FIX-RT-AREA-iwasawa-1~2.md",
+    "research/blueprint/packets/HeegnerPointEulerSystems--HE.0.json",
+    "research/blueprint/suggested/HeegnerPointEulerSystems--HE.0.lean"
+   ],
+   "after": [
+    "FIX-RT-AREA-iwasawa-1~2"
+   ],
+   "avoidAccountOf": "FIX-RT-AREA-iwasawa-1~2",
+   "independentOf": [
+    "FIX-RT-AREA-iwasawa-1~2"
+   ],
+   "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-1~2.md",
+   "state": "pending"
   },
   {
    "id": "RT-AREA-iwasawa-2",
@@ -55664,7 +58915,10 @@
     "research/blueprint/suggested/K2SymbolsBrauer--T.1.lean",
     "research/blueprint/packets/K3BlochGroups.json",
     "research/blueprint/readmes/K3BlochGroups.md",
-    "research/blueprint/suggested/K3BlochGroups.lean"
+    "research/blueprint/suggested/K3BlochGroups.lean",
+    "research/blueprint/packets/KTheoryLowDegrees--Z.3.json",
+    "research/blueprint/readmes/KTheoryLowDegrees--Z.3.md",
+    "research/blueprint/suggested/KTheoryLowDegrees--Z.3.lean"
    ],
    "after": [
     "REV-FIX-RT-AREA-ktheory-1"
@@ -55698,13 +58952,15 @@
     "research/blueprint/packets/GeneralAlgebraicKTheory--K.6.json",
     "research/blueprint/packets/K2SymbolsBrauer--T.1.json",
     "research/blueprint/packets/K3BlochGroups.json",
+    "research/blueprint/packets/KTheoryLowDegrees--Z.3.json",
     "research/blueprint/suggested/ArithmeticKTheory--N.1.lean",
     "research/blueprint/suggested/GeneralAlgebraicKTheory--K.1.lean",
     "research/blueprint/suggested/K2SymbolsBrauer--T.3.lean",
     "research/blueprint/suggested/ArithmeticKTheory--N.7.lean",
     "research/blueprint/suggested/GeneralAlgebraicKTheory--K.6.lean",
     "research/blueprint/suggested/K2SymbolsBrauer--T.1.lean",
-    "research/blueprint/suggested/K3BlochGroups.lean"
+    "research/blueprint/suggested/K3BlochGroups.lean",
+    "research/blueprint/suggested/KTheoryLowDegrees--Z.3.lean"
    ],
    "after": [
     "FIX-RT-AREA-ktheory-1~2"
@@ -55840,7 +59096,10 @@
     "research/blueprint/suggested/ArithmeticKTheory--N.1.lean",
     "research/blueprint/packets/SchemeAndStackFoundations.json",
     "research/blueprint/readmes/SchemeAndStackFoundations.md",
-    "research/blueprint/suggested/SchemeAndStackFoundations.lean"
+    "research/blueprint/suggested/SchemeAndStackFoundations.lean",
+    "research/blueprint/packets/KTheoryLowDegrees--Z.3.json",
+    "research/blueprint/readmes/KTheoryLowDegrees--Z.3.md",
+    "research/blueprint/suggested/KTheoryLowDegrees--Z.3.lean"
    ],
    "after": [
     "FIX-RT-AREA-ktheory-2"
@@ -55875,6 +59134,7 @@
     "research/blueprint/packets/K2SymbolsBrauer--T.1.json",
     "research/blueprint/packets/ArithmeticKTheory--N.1.json",
     "research/blueprint/packets/SchemeAndStackFoundations.json",
+    "research/blueprint/packets/KTheoryLowDegrees--Z.3.json",
     "research/blueprint/suggested/EllipticKTheory.lean",
     "research/blueprint/suggested/HabiroNumberFields.lean",
     "research/blueprint/suggested/EllipticRegulators.lean",
@@ -55882,7 +59142,8 @@
     "research/blueprint/suggested/K3BlochGroups.lean",
     "research/blueprint/suggested/K2SymbolsBrauer--T.1.lean",
     "research/blueprint/suggested/ArithmeticKTheory--N.1.lean",
-    "research/blueprint/suggested/SchemeAndStackFoundations.lean"
+    "research/blueprint/suggested/SchemeAndStackFoundations.lean",
+    "research/blueprint/suggested/KTheoryLowDegrees--Z.3.lean"
    ],
    "after": [
     "FIX-RT-AREA-ktheory-2~2"
@@ -56616,6 +59877,9 @@
     "research/blueprint/redteam/RT-AREA-combinatorics.fixes-2.md",
     "research/blueprint/papers/PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26.result.json",
     "research/blueprint/restructure/RS-03.result.json",
+    "research/blueprint/packets/AnalyticNumberTheory--AN.0.json",
+    "research/blueprint/readmes/AnalyticNumberTheory--AN.0.md",
+    "research/blueprint/suggested/AnalyticNumberTheory--AN.0.lean",
     "research/blueprint/packets/EllipticRegulators.json",
     "research/blueprint/readmes/EllipticRegulators.md",
     "research/blueprint/suggested/EllipticRegulators.lean"
@@ -56642,7 +59906,9 @@
    "outputs": [
     "research/blueprint/reviews/REV-FIX-RT-AREA-combinatorics~2.md",
     "research/blueprint/restructure/RS-03.result.json",
+    "research/blueprint/packets/AnalyticNumberTheory--AN.0.json",
     "research/blueprint/packets/EllipticRegulators.json",
+    "research/blueprint/suggested/AnalyticNumberTheory--AN.0.lean",
     "research/blueprint/suggested/EllipticRegulators.lean"
    ],
    "after": [
