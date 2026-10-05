@@ -116,6 +116,14 @@ lemma finiteStabilization_unique (F : Type) [Field F] [Finite F] (ell : ℕ)
     (h : ∀ z, g (loc z) = finiteStabilization K3 F ell (loc z)) :
     g = finiteStabilization K3 F ell := by sorry
 
+-- hurewicz and stabilize are the actual maps from V.2/k3-to-h3-sl-field
+-- and SL2 → stable SL, with loc the actual coefficient map.
+lemma finiteStabilization_hurewicz (F : Type) [Field F] [Finite F] (ell : ℕ)
+    [Fact ell.Prime] [CharP F ell] (HStable : Type) [AddCommGroup HStable]
+    (hurewicz : K3 F →+ HStable) (stabilize : H3Int F →+ HStable)
+    (loc : H3Int F →+ H3Away ell F) (z : H3Int F) :
+    hurewicz (finiteStabilization K3 F ell (loc z)) = stabilize z := by sorry
+
 /-- Test `finiteStabilization_char_torsion`: loc is the coefficient localization map. -/
 example (F : Type) [Field F] [Finite F] (ell : ℕ) [Fact ell.Prime] [CharP F ell]
     (loc : H3Int F →+ H3Away ell F) (a : ℕ) (z : H3Int F)
