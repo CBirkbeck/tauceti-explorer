@@ -626,6 +626,18 @@ Example TauCeti.RootStack.rootStack.test_unit_section: For (O_X,1), every expone
 Example TauCeti.RootStack.rootStack.test_zero_section: Over an algebraically closed field, (O,0) at invertible n>1 has μ_n automorphisms and is not the
 coarse point.
 Example TauCeti.RootStack.rootStack.test_stack_base: At n=1 over BG the output is BG, rather than Spec k.
+API TauCeti.RootStack.rootStack.affinePresentation: For a scheme affine chart X=Spec A and a trivialized (L,s)=(O,f), the root stack is [Spec A[t]/(t^n−f)/μ_n] with the grading action; this is the RS.1/affine-chart comparison, including wild exponents.
+API TauCeti.RootStack.rootStack.coarseComparison: For a scheme base the projection is the coarse moduli map, is an isomorphism away from V(s), and has affine invariant algebra A. For an algebraic-stack base use the relative coarse assertion after scheme base change (RS.1/coarse-space).
+API TauCeti.RootStack.rootStack.closedFibre: Over a geometric zero of s the full fibre is [Spec k[t]/(t^n)/μ_n], while its reduction is Bμ_n; this exposes RS.1/closed-fibre without discarding nilpotent root sections.
+API TauCeti.RootStack.rootStack.regularDM: For a regular scheme X and regular Cartier divisor D the root stack is regular; it is DM when n is invertible. A geometric branch point of characteristic dividing n has non-étale μ_n inertia (RS.1/regular-dm).
+API TauCeti.RootStack.rootStack.transitionLimit: The finite map from order nm to n sends (M,t) to (M^m,t^m), coherently under composition and base change. The infinite root stack is the genuine groupoid two-limit with these transition isomorphisms (RS.2/transition and infinite-root-stack).
+API TauCeti.RootStack.rootStack.dvrGerbe: For a DVR, after choosing a neutralization the reduced infinite closed fibre is B_k lim_n μ_n in the fpqc topology; its isomorphism classes are H1_fpqc(k,lim_n μ_n), with the origin dependent on that choice (RS.2/dvr-infinite-gerbe and dvr-kummer-classes).
+Example TauCeti.RootStack.rootStack.test_affine_cartier: For X=Spec k[x], f=x and n=3, recover [Spec k[x,t]/(t³−x)/μ_3] with ζ·t=ζt, retaining the stack action as well as the ring.
+Example TauCeti.RootStack.rootStack.test_coarse_grading: In characteristic p with n=p, the μ_p grading still gives (A[t]/(t^p−f))^{μ_p}=A; using only geometric μ_p(k)-points would incorrectly make every function invariant.
+Example TauCeti.RootStack.rootStack.test_nilpotent_fibre: For n=2 and k of characteristic not two, the root t=ε over k[ε]/(ε²) is a nonzero section in the zero fibre, which a pure Bμ_2 replacement would lose.
+Example TauCeti.RootStack.rootStack.test_wild_branch: For X=Spec k[x], D=V(x), char k=p and n=p, the root stack is regular but not DM along x=0; the unit-section case remains X even at this exponent.
+Example TauCeti.RootStack.rootStack.test_transition_coherence: A fourth root maps to its square at order two and then to its fourth power at order one, agreeing with the direct transition and its base changes. Unrelated finite roots without transition isomorphisms are not an infinite object.
+Example TauCeti.RootStack.rootStack.test_dvr_origin: For a DVR the reduced infinite fibre has lim_n μ_n automorphisms after neutralization; changing the chosen origin translates its H1_fpqc coordinate, rather than canonically identifying all torsor classes with the trivial one.
 
 Node FunctionFieldArithmeticPartII:RS.1/two-pullback
 Let A=[A¹/G_m] classify a line bundle with section and [n]:A→A take its n-th tensor power. The root
@@ -652,7 +664,7 @@ algebraic-stack base, it is relative coarse over X: after scheme base change it 
 coarse property. It is not an assertion that X is an absolute algebraic space.
 
 Node FunctionFieldArithmeticPartII:RS.1/regular-dm
-If X is regular and D is a regular effective Cartier divisor, √[n]{(O(D),s_D)/X} is regular; when n
+If X is a regular scheme and D is a regular effective Cartier divisor, √[n]{(O(D),s_D)/X} is regular; when n
 is invertible on X it is Deligne–Mumford with μ_n inertia over D and trivial inertia outside D. If a
 geometric branch point has characteristic dividing n, its μ_n inertia is not étale, so the stack is
 not DM there. An empty divisor still gives X in every characteristic.
@@ -915,8 +927,9 @@ at least one coordinate divisor x_i=0 in a chart where a weight-one coordinate y
 such an intermediate cover cannot be finite étale.
 
 Node FunctionFieldArithmeticPartII:GC.4/weighted-simply-connected
-The weighted quotient [A^n minus {0}/G_m] with weights (2^{n−ρ},1^ρ), ρ≥1 and n≥ρ+1, has no
-nontrivial connected finite étale cover. Thus every rank-one lisse Q̄ℓ-local system on it is
+After base change to an algebraically closed field K of characteristic not two, the weighted
+quotient [A_K^n minus {0}/G_m,K] with weights (2^{n−ρ},1^ρ), ρ≥1 and n≥ρ+1, has no nontrivial
+connected finite étale cover. Every rank-one lisse Q̄ℓ-local system on the original quotient is
 geometrically constant.
 
 Node FunctionFieldArithmeticPartII:GC.4/fibre-triviality
