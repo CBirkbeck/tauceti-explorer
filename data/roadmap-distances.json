@@ -1906,12 +1906,12 @@
     "declarationLevel": {
      "source": "blueprint",
      "reviewed": true,
-     "declarations": 192,
-     "missingDeclarations": 192,
+     "declarations": 272,
+     "missingDeclarations": 272,
      "depth": 20,
-     "layersCovered": 1,
+     "layersCovered": 2,
      "layers": 5,
-     "sourcePages": 6
+     "sourcePages": 9
     }
    },
    "measurement": 3.76,
