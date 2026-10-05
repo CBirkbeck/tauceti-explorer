@@ -13,7 +13,7 @@
     "StableReductionPartII:MC.7"
   ],
   "status": "complete",
-  "summary": "Planning pass complete at 528 declarations under PROTOCOL section 0 and NODE_BUDGET 300; no declarations are added. All eight geometric stages MC.0–MC.7 and the general pointed moduli key remain partial with explicit remaining work. The plan retains polynomial nodal section coordinates, dual and bidual, arbitrary original-coefficient Hom/Ext calculations, finite two-base tensor comparisons, completed coefficient actions, finite-projective tensor/limit interchange and the actual Hom_R compatible-family comparison. The reusable relative stable-reflexivity interface, two-base completion for arbitrary completed coefficients, completed-ring Hom/Ext, faithful reflection, pointed hull, sheaf descent, arbitrary-base approximation and all stack geometry remain required. All 528 node objects, 268 baseline declarations, 135 requests, 11 source findings, 21 consumer routes and the six-consumer reserved key are preserved. The entire existing suggested Lean file elaborates; 207 inherited geometric prototype omissions remain. Completion concerns this planning pass and its independent review, not mathematical closure.",
+  "summary": "Planning pass complete at 528 declarations under PROTOCOL section 0 and NODE_BUDGET 300; no declarations are added. All eight geometric stages MC.0–MC.7 and the general pointed moduli key remain partial with explicit remaining work. The plan retains polynomial nodal section coordinates, dual and bidual, arbitrary original-coefficient Hom/Ext calculations, finite two-base tensor comparisons, completed coefficient actions, finite-projective tensor/limit interchange and the actual Hom_R compatible-family comparison. The reusable relative stable-reflexivity interface, two-base completion for arbitrary completed coefficients, completed-ring Hom/Ext, faithful reflection, pointed hull, sheaf descent, arbitrary-base approximation and all stack geometry remain required. All 528 node objects, 268 baseline declarations, 143 requests, 13 source findings, 21 consumer routes and the six-consumer reserved key are preserved. The entire existing suggested Lean file elaborates; 244 explicit geometric prototype omissions remain. Completion concerns this planning pass and its independent review, not mathematical closure.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -8738,6 +8738,16 @@
           "name": "NodeSectionFactorization.PolynomialModel.ringTensorEquivUnique",
           "role": "extensionality",
           "statement": "Every A′-algebra equivalence with this pure-tensor formula equals E_R."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.ringTensorEquivIdentity",
+          "role": "compatibility",
+          "statement": "For f=id_A, E_R(a⊗r)=ιa·r on the actual polynomial ring."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.ringTensorEquivComposition",
+          "role": "functoriality",
+          "statement": "For A —f→ A′ —g→ A″, E_{R,g}(a″⊗E_{R,f}(a′⊗r))=E_{R,g∘f}((a″g(a′))⊗r), with γ,δ,s,t mapped at each step. Equality on pure tensors gives the tensor-associativity composition square."
         }
       ],
       "tests": [
@@ -9112,11 +9122,11 @@
         "StableReductionPartII:MC.2/section-dual-tensor-equivalence",
         "StableReductionPartII:MC.2/section-ring-tensor-equivalence",
         "StableReductionPartII:MC.2/section-dual-tensor-scalar",
-        "mathlib:TensorProduct.lid",
+        "mathlib:TensorProduct.AlgebraTensorModule.rid",
         "mathlib:Submodule.liftQ"
       ],
       "proofSteps": [
-        "Compose the tensor of E_Q with the canonical A′⊗_A A≃A′ and E_Q′⁻¹ to construct a bijective coefficient-linear map.",
+        "Tensor E_Q, use the native heterobasic right unit TensorProduct.AlgebraTensorModule.rid A A′ A′ : A′⊗_A A≃ₗ[A′]A′, then compose with E_Q′⁻¹. Its coefficient action is through f and its A′-linearity is retained.",
         "The evaluation formula and generation of J′ show E_D(a′⊗m(r))=m′(ι′a′φ(r)); hence passing from h to its quotient class is well-defined.",
         "Evaluate E_D in normal coordinates: it takes r incl+ιαε to the corresponding primed expression, sends ε to ε′, and its residue is a′f(ρh). This proves the quotient-representative formula agrees with the constructed equivalence.",
         "Identity and composition follow from the residue formula and injectivity of E_Q′; no tensor left-exactness or flatness of f is assumed."
@@ -9151,6 +9161,21 @@
           "name": "NodeSectionFactorization.PolynomialModel.dualQuotientTensorEquivResidue",
           "role": "compatibility",
           "statement": "E_Q′(E_{Q,f}(a′⊗z))=a′f(E_Q(z))."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.dualQuotientTensorEquivIdentity",
+          "role": "compatibility",
+          "statement": "For f=id_A, E_{Q,id}(a⊗z)=a·z for every actual quotient class z∈Q."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.dualQuotientTensorEquivComposition",
+          "role": "functoriality",
+          "statement": "For A —f→ A′ —g→ A″, E_{Q,g}(a″⊗E_{Q,f}(a′⊗z))=E_{Q,g∘f}((a″g(a′))⊗z), for every actual z∈D/im(m), without flatness."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.dualQuotientTensorEquivUnique",
+          "role": "extensionality",
+          "statement": "Any A′-linear equivalence e:A′⊗_A Q≃Q′ with E_Q′(e(a′⊗z))=a′f(E_Q(z)) for all a′,z equals E_{Q,f}."
         }
       ],
       "tests": [
@@ -10529,7 +10554,7 @@
         },
         {
           "name": "NodeSectionFactorization.PolynomialModel.idealCoefficientMap.nonflat",
-          "kind": "counterexample",
+          "kind": "non-example",
           "statement": "For A=ℤ, γ=1,δ=s=t=0 and f:ℤ→ℤ/2, the actual ideal element j=2d is nonzero in the untruncated polynomial model, but ψ(j)=0. Thus arbitrary coefficient restriction is not injective and need not be flat."
         }
       ]
@@ -14095,7 +14120,7 @@
         {
           "name": "NodeSectionFactorization.PolynomialModel.tensorIdealTorsionNegativeGenerator",
           "kind": "computation",
-          "statement": "For any commutative ring A and γ,δ,s,t∈A, put q(x,y)=x²+γxy+δy², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), P_J(z)=cz₀−dz₁, P_D(z)=z₀·incl−z₁·ε, where dε(j)=bj. Restrict these maps to A. For every A-module M write T_M(f)=id_M⊗_A f, on the actual native tensor products. For A=Z, γ=s=1, δ=t=0 and M=Z/2, E_J([1⊗(0,1)])=1⊗(-d) in the actual section ideal."
+          "statement": "For any commutative ring A and γ,δ,s,t∈A, put q(x,y)=x²+γxy+δy², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), P_J(z)=cz₀−dz₁, P_D(z)=z₀·incl−z₁·ε, where dε(j)=bj. Restrict these maps to A. For every A-module M write T_M(f)=id_M⊗_A f, on the actual native tensor products. For A=Z, γ=s=1, δ=t=0 and M=Z/3, E_J([1⊗(0,1)])=1⊗(-d) in the actual section ideal, and this value is unequal to 1⊗d. Thus a positive second generator fails the test."
         }
       ]
     },
@@ -14367,7 +14392,7 @@
         {
           "name": "NodeSectionFactorization.PolynomialModel.tensorDualTorsionNegativeGenerator",
           "kind": "computation",
-          "statement": "For any commutative ring A and γ,δ,s,t∈A, put q(x,y)=x²+γxy+δy², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), P_J(z)=cz₀−dz₁, P_D(z)=z₀·incl−z₁·ε, where dε(j)=bj. Restrict these maps to A. For every A-module M write T_M(f)=id_M⊗_A f, on the actual native tensor products. For A=Z, γ=s=1, δ=t=0 and M=Z/2, E_D([1⊗(0,1)])=1⊗(-ε) in the actual R-linear dual."
+          "statement": "For any commutative ring A and γ,δ,s,t∈A, put q(x,y)=x²+γxy+δy², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), P_J(z)=cz₀−dz₁, P_D(z)=z₀·incl−z₁·ε, where dε(j)=bj. Restrict these maps to A. For every A-module M write T_M(f)=id_M⊗_A f, on the actual native tensor products. For A=Z, γ=s=1, δ=t=0 and M=Z/3, E_D([1⊗(0,1)])=1⊗(-ε) in the actual R-linear dual, and this value is unequal to 1⊗ε. Thus a positive second dual generator fails the test."
         }
       ]
     },
@@ -15625,12 +15650,14 @@
         "All tensor actions and Hom spaces are the actual native inherited ones; no noetherianity, nontriviality or unit-discriminant assumption is imposed for this polynomial calculation."
       ],
       "prerequisites": [
-        "StableReductionPartII:MC.2/section-dual-coefficient-hom-presentation",
+        "StableReductionPartII:MC.2/section-ideal-coefficient-hom-presentation",
         "StableReductionPartII:MC.2/section-dual-presentation-surjective",
         "StableReductionPartII:MC.2/section-complex-right-tensor-exact",
         "StableReductionPartII:MC.2/section-dual-presentation-tensor-exact",
         "mathlib:LinearMap.rTensor_surjective",
-        "mathlib:LinearMap.rTensor_exact_iff_lTensor_exact"
+        "mathlib:LinearMap.rTensor_exact_iff_lTensor_exact",
+        "StableReductionPartII:MC.2/section-matrix-rotation",
+        "mathlib:LinearEquiv.rTensor"
       ],
       "proofSteps": [
         "By tensor surjectivity of P_D, write a difference tensor as U_M(P_D)z.",
@@ -15735,7 +15762,7 @@
       "sources": [
         {
           "sourceId": "knudsen2012",
-          "locator": "§3 Proposition3.1 and Corollary3.2, with §4 Main Lemma proof; arXiv:1106.1588v2",
+          "locator": "arXiv:1106.1588v2 §3, Proposition 3.1, printed p.12; motivating noetherian/unit-discriminant example, with arbitrary-module exchange deduced here.",
           "match": "Motivates the polynomial dual and coefficient-universal complexes. The displayed module-valued Hom comparison in this arbitrary-ring range is an authored deduction through the separately listed coordinate and exactness lemmas; it does not assert the printed relative stable-reflexivity conclusion."
         }
       ],
@@ -16265,7 +16292,9 @@
         "StableReductionPartII:MC.2/section-complex-left-tensor-exact",
         "StableReductionPartII:MC.2/section-ideal-presentation-tensor-exact",
         "mathlib:LinearMap.rTensor_surjective",
-        "mathlib:LinearMap.rTensor_exact_iff_lTensor_exact"
+        "mathlib:LinearMap.rTensor_exact_iff_lTensor_exact",
+        "StableReductionPartII:MC.2/section-matrix-rotation",
+        "mathlib:LinearEquiv.rTensor"
       ],
       "proofSteps": [
         "Lift a difference tensor through the tensor-surjective P_J.",
@@ -16370,7 +16399,7 @@
       "sources": [
         {
           "sourceId": "knudsen2012",
-          "locator": "§3 Proposition3.1 and Corollary3.2, with §4 Main Lemma proof; arXiv:1106.1588v2",
+          "locator": "arXiv:1106.1588v2 §3, Proposition 3.1, printed p.12; motivating noetherian/unit-discriminant example, with arbitrary-module exchange deduced here.",
           "match": "Motivates the polynomial dual and coefficient-universal complexes. The displayed module-valued Hom comparison in this arbitrary-ring range is an authored deduction through the separately listed coordinate and exactness lemmas; it does not assert the printed relative stable-reflexivity conclusion."
         }
       ],
@@ -21549,12 +21578,12 @@
         },
         {
           "name": "NodeSectionFactorization.PolynomialModel.completionResidueAlgebra.test_unit",
-          "kind": "example",
+          "kind": "computation",
           "statement": "Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R the inherited native coefficient map, p⊆A and m⊆R ideals with p⊆ι⁻¹(m), and n≥0. Put Â=AdicCompletion(p,A), Bₙ=A/pⁿ and Qₙ=R/mⁿ. The actual actions on Qₙ are induced by λₙ:Bₙ→Qₙ, A→Bₙ and evalₙ:Â→Bₙ. The original coefficient 1 maps to 1."
         },
         {
           "name": "NodeSectionFactorization.PolynomialModel.completionResidueAlgebra.test_zero",
-          "kind": "example",
+          "kind": "degenerate",
           "statement": "Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R the inherited native coefficient map, p⊆A and m⊆R ideals with p⊆ι⁻¹(m), and n≥0. Put Â=AdicCompletion(p,A), Bₙ=A/pⁿ and Qₙ=R/mⁿ. The actual actions on Qₙ are induced by λₙ:Bₙ→Qₙ, A→Bₙ and evalₙ:Â→Bₙ. The completed zero maps to zero."
         }
       ]
@@ -21745,7 +21774,7 @@
         },
         {
           "name": "NodeSectionFactorization.PolynomialModel.completionFiniteChartAlgebra.test_zero",
-          "kind": "example",
+          "kind": "degenerate",
           "statement": "Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R the inherited native coefficient map, p⊆A and m⊆R ideals with p⊆ι⁻¹(m), and n≥0. Put Â=AdicCompletion(p,A), Bₙ=A/pⁿ and Qₙ=R/mⁿ. The actual actions on Qₙ are induced by λₙ:Bₙ→Qₙ, A→Bₙ and evalₙ:Â→Bₙ. The finite coefficient zero maps to zero."
         },
         {
@@ -22482,7 +22511,7 @@
       "tests": [
         {
           "name": "NodeSectionFactorization.PolynomialModel.completionFiniteHomEquiv.test_zero",
-          "kind": "example",
+          "kind": "degenerate",
           "statement": "Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R the inherited native coefficient map, p⊆A and m⊆R ideals with p⊆ι⁻¹(m), and n≥0. Put Â=AdicCompletion(p,A), Bₙ=A/pⁿ and Qₙ=R/mⁿ. The actual actions on Qₙ are induced by λₙ:Bₙ→Qₙ, A→Bₙ and evalₙ:Â→Bₙ. For arbitrary Â-module N equip N with its restricted A-action; require the actual scalar tower A→Â→N. Neither flatness nor finite generation of N is assumed, and its action need not factor through Bₙ. With p finitely generated, Hₙ,N,L sends the zero linear map to zero."
         },
         {
@@ -23197,7 +23226,8 @@
         "mathlib:ModuleCat.hom_injective",
         "mathlib:TensorProduct.induction_on",
         "mathlib:DFunLike.ext",
-        "mathlib:Ideal.Quotient.mk_surjective"
+        "mathlib:Ideal.Quotient.mk_surjective",
+        "mathlib:ModuleCat.restrictScalars"
       ],
       "proofSteps": [
         "Form each tensor over Â with the actual finite quotient action. Restrict the bundled Â-module through the native ModuleCat scalar-restriction functor along A→Â; its A-action is exactly Module.compHom.",
@@ -26646,7 +26676,7 @@
         },
         {
           "name": "NodeSectionFactorization.PolynomialModel.completionOrdinaryTensorLimitEquiv.test_rank_one",
-          "kind": "value",
+          "kind": "computation",
           "statement": "For rank one and its basis vector 1, the sole coordinate of each projected E(u⊗1) is exactly evalₙ(u)."
         }
       ],
@@ -27329,7 +27359,8 @@
         "StableReductionPartII:MC.2/native-completed-tensor-diagram",
         "mathlib:AdicCompletion",
         "mathlib:AdicCompletion.evalₐ",
-        "mathlib:TensorProduct"
+        "mathlib:TensorProduct",
+        "mathlib:TensorProduct.piScalarRight_symm_single"
       ],
       "proofSteps": [
         "Use the specified native data/projection or inverse law; retain the actual coefficient action and carrier."
@@ -28678,7 +28709,8 @@
       ],
       "prerequisites": [
         "StableReductionPartII:MC.2/retract-completion-is-limit",
-        "mathlib:TensorProduct"
+        "mathlib:TensorProduct",
+        "mathlib:CategoryTheory.Limits.IsLimit.hom_ext"
       ],
       "proofSteps": [
         "Apply native IsLimit.hom_ext and its factorisation law."
@@ -28895,7 +28927,8 @@
       ],
       "prerequisites": [
         "StableReductionPartII:MC.2/projective-completion-is-limit",
-        "mathlib:TensorProduct"
+        "mathlib:TensorProduct",
+        "mathlib:CategoryTheory.Limits.IsLimit.hom_ext"
       ],
       "proofSteps": [
         "Use IsLimit.hom_ext with the factorisation equations."
@@ -29526,7 +29559,8 @@
       ],
       "prerequisites": [
         "StableReductionPartII:MC.2/retract-completion-free-cone",
-        "mathlib:TensorProduct"
+        "mathlib:TensorProduct",
+        "mathlib:LinearMap.lTensor_zero"
       ],
       "proofSteps": [
         "Use native LinearMap.lTensor_zero on the actual cone component."
@@ -29737,7 +29771,8 @@
       ],
       "prerequisites": [
         "StableReductionPartII:MC.2/retract-completion-projection-ext",
-        "mathlib:TensorProduct"
+        "mathlib:TensorProduct",
+        "mathlib:Module.Finite.exists_comp_eq_id_of_projective"
       ],
       "proofSteps": [
         "Use the pinned finite-projective splitting and incoming retract projection separation. No basis of N is chosen as a hypothesis."
@@ -33795,7 +33830,12 @@
       "NodeSectionFactorization.PolynomialModel.completionRelativeHomEquiv_apply",
       "NodeSectionFactorization.PolynomialModel.completionRelativeHomEquiv_symm_projection",
       "NodeSectionFactorization.PolynomialModel.completionRelativeHomEquiv_left",
-      "NodeSectionFactorization.PolynomialModel.completionRelativeHomEquiv_right"
+      "NodeSectionFactorization.PolynomialModel.completionRelativeHomEquiv_right",
+      "NodeSectionFactorization.PolynomialModel.ringTensorEquivIdentity",
+      "NodeSectionFactorization.PolynomialModel.ringTensorEquivComposition",
+      "NodeSectionFactorization.PolynomialModel.dualQuotientTensorEquivIdentity",
+      "NodeSectionFactorization.PolynomialModel.dualQuotientTensorEquivComposition",
+      "NodeSectionFactorization.PolynomialModel.dualQuotientTensorEquivUnique"
     ],
     "expressedTests": [
       "NodeForm.characteristicTwo",
@@ -36460,19 +36500,19 @@
     },
     "budgetPreviousReason": "The entire current Mathlib-only admitted sketch elaborates. A separately checked admission-free native archive preserves all prior polynomial/tensor/bidual bodies and supplies the actual arbitrary-coefficient-module Hom maps, signed coordinate proofs, R-linear isomorphisms, coefficient naturality and M=A unit/bidual comparisons. Higher Ext, relative stable reflexivity, two-base completion and all geometry remain open. The specialized actual Hom cochain signatures, positive native cohomology and signed augmentation cycles are now expressible; native resolution/Ext comparison remains outside this checkpoint. The actual native projective-resolution signatures and differential comparisons are now expressible; categorical Hom-complex/Ext comparisons remain open. The actual categorical Hom-complex comparison is now checked, coefficient-natural in every degree and linked to both native Mathlib positive Ext interfaces. Ext_R^{n+1}(J,R⊗_A M)=Ext_R^{n+1}(D,R⊗_A M)=0 for every M without flatness. The next frontier is the exact Appendix/Ile relative stable-reflexivity and two-base completion theorem, then the pointed completed-local hull, family/sheaf descent and arbitrary-base approximation. All MC.0–MC.7 geometric obligations remain. The actual ideal-adic coefficient homomorphism Â→R̂ is now constructed from compatible native finite quotients for the polynomial nodal chart whenever p⊆ι⁻¹(m). Its original-coefficient square, finite evaluations, uniqueness and actual A→Â→R̂ scalar tower have explicit native signatures and proof bodies. The complete new native and admitted files are not freshly compiled in this continuation because available memory is below the WORKERS.md threshold. For every Â-module N, the native R̂-linear comparison R̂⊗_A N→R̂⊗_Â N is surjective, with its exact Â-linear kernel generated by completed-coefficient balancing differences. This identifies the additional quotient; injectivity is not claimed. Next establish the reusable owner-level relative stable-reflexivity formulation and the actual two-base completion Hom/Ext or universally acyclic-complex comparison with justified faithful reflection, then the pointed completed-local hull, coefficient-compatible sheaf descent and arbitrary-base approximation. Bourbaki III5.4.4 remains unread and Proposition7 remains an exercise input. All eight stages remain partial. Current complete suggested file not freshly compiled: available memory is below20 GB. Historical compilation receipts refer only to their own recovered source hashes. For finitely generated p and every Â-module N, the finite quotients now have an explicit actual equivalence Qₙ⊗_A N≃Qₙ⊗_Â N and postcomposition equivalences on actual Hom spaces, including L=Qₙ⊗_R J. The proof uses the native completion evaluation kernel pⁿ·Â and submodule induction; N need not factor through A/pⁿ or be flat. This finite-level result does not prove injectivity of R̂⊗_A N→R̂⊗_Â N. Passing through an inverse limit would require justified tensor/Hom/Ext comparison hypotheses and cannot be inferred for arbitrary N. Knudsen Proposition6, Proposition7, owner-level stable-reflexivity, faithful reflection, hull identification, sheaf descent, approximation and all eight geometric stages remain open. Current Native and FullCanonical are uncompiled proof draft and admitted plan respectively; older compilation receipts are historical only. The actual finite quotient maps now preserve completed coefficients, compose and have identity laws. The finite tensor equivalence and its inverse commute with every quotient transition and every completed-coefficient-module map. The inherited original-coefficient quotient action is compared explicitly with the displayed finite coefficient homomorphism, repairing the native proof draft without changing its hypotheses. This supplies the coherent finite family, but no inverse-limit diagram, limit comparison, tensor/limit interchange, whole completed-ring injectivity, universally acyclic completion or faithful reflection is claimed. The reusable relative stable-reflexivity interface, Knudsen Proposition6 and the Proposition7 exercise, pointed hull, family/sheaf descent, approximation and all eight geometric stages remain open. The actual finite tensor diagrams over A and Â now have an A-linear natural isomorphism and native inverse-limit comparison with forward/inverse projections, uniqueness and cone transport. This compares limits of finite tensors only; ordinary tensor commutation with completion and the full relative completion theorem remain distinct required inputs. The completed-action checkpoint adds twenty declarations (five constructions and fifteen promoted API lemmas), fifteen APIs and fifteen tests. It constructs the actual Â-linear finite tensor diagram, its restriction comparison, the A-linear equivalence with the restricted native completed limit, the transported Â-action on the original A-limit with its actual scalar tower, and an Â-linear equivalence with completed-linear projection formulas. All 406 incoming node objects remain identical; ordinary tensor/limit interchange and full two-base relative completion remain open. For finite free completed coefficients N=Fin(r)→Â, the ordinary tensor R̂⊗_Â N is the native limit of G, with explicit finite projections and a proved universal property. If p is finitely generated, the inherited original-base tensor limit, with its transported Â-action, is also identified with this ordinary tensor. No arbitrary-N tensor/limit interchange, injectivity of R̂⊗_A N→R̂⊗_Â N, completion Hom/Ext theorem, Knudsen Proposition6/7, faithful reflection, pointed hull, sheaf descent or arbitrary-base approximation follows. All eight geometric stages remain partial. The ordinary tensor R̂⊗_Â N is now the native limit of G_N for every finite projective completed-coefficient module N, via an explicit finite-free retraction; the lift is independent of the chosen retraction and rank. If p is finitely generated, compose with the incoming two-base finite-tensor limit comparison to identify the original A-limit, with its transported Â-action, with this ordinary tensor. Projection and cone constructions exist for arbitrary N, but their universal property requires a finite-free retraction. No general finitely presented or arbitrary-N interchange, injectivity of R̂⊗_A N→R̂⊗_Â N, relative Hom/Ext completion theorem, Knudsen Proposition6/7, faithful reflection, pointed hull, sheaf descent or arbitrary-base approximation is concluded. All eight geometric stages remain partial. For finite projective Â-coefficients N, Hom_R(L,R̂⊗_Â N) is now Â-linearly equivalent to the native submodule of quotient-level R-linear Hom families (hₙ:L→Qₙ⊗_Â N) satisfying τᵢⱼ∘hⱼ=hᵢ. The inverse assembles actual compatible tensor sections and is R-linear by separation with finite projections; both inverse laws, evaluation equations and contravariant source compatibility are supplied, including typed instances L=J and L=D. This is a specialized adapter of native module limits and linear maps, not a replacement for generic Hom or limit theory. It does not identify Hom over R̂ from a completed section ideal, prove higher Ext comparison, extend tensor interchange to arbitrary Â-modules, or prove injectivity of R̂⊗_A N→R̂⊗_Â N. Knudsen Proposition6/7, reusable relative stable reflexivity, faithful reflection, pointed hull identification, sheaf descent, arbitrary-base approximation and all eight geometric stages remain open.",
     "reviewCompilation": {
-      "worker": "Codex — codex-0Sbfnu",
+      "worker": "Codex — codex-J80wsc",
       "date": "2026-10-05",
       "command": "lean-check research/blueprint/suggested/StableReductionPartII.lean",
       "exitCode": 0,
       "errors": 0,
-      "sorryWarnings": 870,
+      "sorryWarnings": 875,
       "otherWarnings": 0,
-      "lines": 5831,
-      "sha256": "ef4be33b04e9279cbf6ee0ccb7ac7f1867a7b84ca07c25d50021aa5952bc5d75",
+      "lines": 5878,
+      "sha256": "d0f459129a2046acdc0e31cae89081a1791f5e84fdf761cc8dcac0b03c7356e0",
       "mathlibCommit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
       "sharedTauCetiCommit": "cf386627e9176a3827c1a5fe804989fd94a4d216",
-      "qualification": "Imports only Mathlib. The shared enclosing Tau Ceti checkout differs from its pin; no Tau Ceti import/proof check is claimed. This checkpoint adds sixteen geometric API/test omission comments, no executable declarations. Elaboration does not validate omitted geometry or author-copy proof repairs.",
-      "availableGiBBefore": 95
+      "qualification": "Imports only pinned Mathlib. Five added API signatures and two strengthened sign tests are admitted sketches. No proof certification, Tau Ceti import check, omitted geometry or general completion theorem is claimed.",
+      "availableGiBBefore": 96
     },
     "previousReviewCompilations": [
       {
@@ -36503,6 +36543,21 @@
         "sharedTauCetiCommit": "cf386627e9176a3827c1a5fe804989fd94a4d216",
         "qualification": "Imports only Mathlib. The shared enclosing Tau Ceti checkout differs from its pinned commit; no Tau Ceti import or proof check is claimed. This checkpoint changes only Lean comments, recording eleven new geometric omissions.",
         "availableGiBBefore": 89
+      },
+      {
+        "worker": "Codex — codex-0Sbfnu",
+        "date": "2026-10-05",
+        "command": "lean-check research/blueprint/suggested/StableReductionPartII.lean",
+        "exitCode": 0,
+        "errors": 0,
+        "sorryWarnings": 870,
+        "otherWarnings": 0,
+        "lines": 5831,
+        "sha256": "ef4be33b04e9279cbf6ee0ccb7ac7f1867a7b84ca07c25d50021aa5952bc5d75",
+        "mathlibCommit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+        "sharedTauCetiCommit": "cf386627e9176a3827c1a5fe804989fd94a4d216",
+        "qualification": "Imports only Mathlib. The shared enclosing Tau Ceti checkout differs from its pin; no Tau Ceti import/proof check is claimed. This checkpoint adds sixteen geometric API/test omission comments, no executable declarations. Elaboration does not validate omitted geometry or author-copy proof repairs.",
+        "availableGiBBefore": 95
       }
     ]
   },
@@ -36976,6 +37031,97 @@
       "sha256": "5f4705860a598eb525e2d99600ec1ab6ba7561d9736e88a04d301ad07b407169",
       "scope": "Fresh selected comparison: Corollary 1.39 and beginning of Proposition 1.40 p.33; Lemma 1.44/Theorem 1.45 pp.40–41. Later NSF author copy, not publisher-version certification.",
       "use": "Scoped author-copy comparisons for E12/E13; not a whole-paper review."
+    },
+    {
+      "sourceId": "knudsen2012",
+      "reader": "Codex — codex-J80wsc",
+      "date": "2026-10-05",
+      "url": "https://arxiv.org/pdf/1106.1588v2",
+      "sha256": "de9f73f25a4fbe03dbe2865ebc5932412b5bf3aa7f02734c04de05013da44d36",
+      "scope": "Fresh full §3 pp.11–12, including all signed matrices, monic normal form, prescribed ideal/dual cokernels and residue, Proposition 3.1 and Corollary 3.2; §4 and Theorem 5.1 pp.13–16 for the geometric boundary. Printed noetherian/unit-discriminant assumptions are retained; arbitrary-ring algebra is explicitly authored deduction.",
+      "use": "Bounded independent review of actual polynomial and flat-ambient adapters; not final acceptance or whole-source collation."
+    },
+    {
+      "sourceId": "knudsen2",
+      "reader": "Codex — codex-J80wsc",
+      "date": "2026-10-05",
+      "url": "https://journals.msp.org/mscand/article/download/1622/1621/1653",
+      "sha256": "18e04bbf5c24a460ff10e965ebf665ea0229378c6a9521bd279909476012e230",
+      "scope": "Fresh rendered Appendix Definition 1, Theorem 2 and its proof, Corollary 3, Propositions 4–7, printed pp.191–195 (PDF31–35). The source uses noetherian coefficient/ambient rings, an initially flat coefficient algebra and a noetherian module. Proposition 6 supplies only a Bourbaki citation; Proposition 7 is an exercise. No general two-base completion proof is inferred.",
+      "use": "Bounded independent review of actual polynomial and flat-ambient adapters; not final acceptance or whole-source collation."
+    },
+    {
+      "sourceId": "stacks-hom-flat",
+      "reader": "Codex — codex-J80wsc",
+      "date": "2026-10-05",
+      "url": "https://stacks.math.columbia.edu/tag/087R",
+      "scope": "Full Lemma 15.67.4(1) statement/proof, and full supporting Lemma 15.67.3 statement/proof at https://stacks.math.columbia.edu/tag/087Q. Keep finite presentation and ambient flatness.",
+      "use": "Bounded review of the explicitly listed algebra adapters."
+    },
+    {
+      "sourceId": "stacks-completion",
+      "reader": "Codex — codex-J80wsc",
+      "date": "2026-10-05",
+      "url": "https://stacks.math.columbia.edu/tag/0BNH",
+      "scope": "§10.97 Lemmas 10.97.1–3 with proofs: finite-module completion, noetherian completion flatness and Jacobson-radical faithful-flatness boundary. Not a whole-section or two-base completion proof.",
+      "use": "Bounded review of the explicitly listed algebra adapters."
+    },
+    {
+      "sourceId": "stacks-faithful",
+      "reader": "Codex — codex-J80wsc",
+      "date": "2026-10-05",
+      "url": "https://stacks.math.columbia.edu/tag/00H9",
+      "scope": "Full Definition 10.39.1 and Lemma 10.39.14 statement/proof for exactness reflection; selected flat-cokernel Lemma 10.39.12. Not a whole-section read.",
+      "use": "Bounded review of the explicitly listed algebra adapters."
+    },
+    {
+      "sourceId": "ile",
+      "reader": "Codex — codex-J80wsc",
+      "date": "2026-10-05",
+      "url": "https://arxiv.org/pdf/1110.3909v3",
+      "sha256": "41e6a87de44074fdc24770e0f842c6e8846347c3b77483d17371d40c97793743",
+      "scope": "Fresh full §2.3 pp.5–6, §3 Definition3.1 through Proposition3.5 and its proof, Remark3.6 and its proof pp.6–8. Page5 rendered and visually read to verify the underlined stable Hom assertion. No whole-paper, publisher-version or novelty certification.",
+      "use": "Canonical second Hom exchange in nodes319–324, absolute versus relative reflexivity boundaries, and fresh scoped corroboration of E11 by the integral counterexample already recorded."
+    },
+    {
+      "sourceId": "finite-limit-native-pinned",
+      "reader": "Codex — codex-J80wsc",
+      "date": "2026-10-05",
+      "url": "https://github.com/leanprover-community/mathlib4/tree/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib",
+      "scope": "Fresh complete native functor, natural transformation/isomorphism, quotient-transition, ModuleCat scalar-restriction and limit projection/lift/uniqueness declarations with binders; specialized finite diagram uses only.",
+      "use": "Bounded independent review of local specialized adapters; exact source-file Git blobs are in this checkpoint. Not whole-roadmap acceptance."
+    },
+    {
+      "sourceId": "completed-limit-action-native-pinned",
+      "reader": "Codex — codex-J80wsc",
+      "date": "2026-10-05",
+      "url": "https://github.com/leanprover-community/mathlib4/tree/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib",
+      "scope": "Fresh complete preservation-of-limits and both projection formulas, AddEquiv.module/linearEquiv and LinearEquiv.isScalarTower statements/binders/proofs used to preserve the original action while transporting the completed action.",
+      "use": "Bounded independent review of local specialized adapters; exact source-file Git blobs are in this checkpoint. Not whole-roadmap acceptance."
+    },
+    {
+      "sourceId": "finite-free-completion-native-pinned",
+      "reader": "Codex — codex-J80wsc",
+      "date": "2026-10-05",
+      "url": "https://github.com/leanprover-community/mathlib4/tree/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib",
+      "scope": "Fresh finite-index piScalarRight coordinates and inverse single vector, native adic compatible-family carrier, ring evaluation/extensionality and limiting-cone universal-property/uniqueness statements; the authored finite-free assembly argument checked. Not all historically listed readSections reread.",
+      "use": "Bounded independent review of local specialized adapters; exact source-file Git blobs are in this checkpoint. Not whole-roadmap acceptance."
+    },
+    {
+      "sourceId": "finite-projective-completion-native-pinned",
+      "reader": "Codex — codex-J80wsc",
+      "date": "2026-10-05",
+      "url": "https://github.com/leanprover-community/mathlib4/tree/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib",
+      "scope": "Fresh entire finite-projective splitting theorem and its proof; tensor map composition, identity and zero, specialized retract lift, separation, splitting independence and the actual limit equivalence. No arbitrary-module tensor/limit interchange.",
+      "use": "Bounded independent review of local specialized adapters; exact source-file Git blobs are in this checkpoint. Not whole-roadmap acceptance."
+    },
+    {
+      "sourceId": "nodal-relative-hom-completion-J6LwjP",
+      "reader": "Codex — codex-J80wsc",
+      "date": "2026-10-05",
+      "url": "https://github.com/leanprover-community/mathlib4/tree/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib",
+      "scope": "Fresh native sectionsSubmodule, two-action tensor module, linear inverse constructor, covariant Hom limit preservation and internal-Hom statements; authored Hom_R compatible-family assembly checked for finite projective completed coefficients and arbitrary original-ring source. Not completed-ring Hom or higher Ext.",
+      "use": "Bounded independent review of local specialized adapters; exact source-file Git blobs are in this checkpoint. Not whole-roadmap acceptance."
     }
   ],
   "coefficientChangeContinuation": {
@@ -38559,6 +38705,1096 @@
       ],
       "report": "research/blueprint/reviews/REV-DESIGN-StableReductionPartII.md",
       "note": "60 nodes: 40 MC.4–MC.7 and 20 polynomial-model MC.2 source/hypothesis/local-route/API checks. Fifty-one complete pinned declaration statements/binders checked for the selected core polynomial and completion/retraction uses, not every consumer. Corrected locators, section evaluation-image argument, characteristic-zero GRR/integral Picard route, ordered determinant signs, full-level flavour and fixed integral determinant degree; added thirteen APIs, three tests and scoped author-copy source issues E12/E13. No all-node or transitive-closure certification."
+    },
+    {
+      "job": "REV-DESIGN-StableReductionPartII",
+      "worker": "Codex — codex-J80wsc",
+      "date": "2026-10-05",
+      "status": "partial",
+      "sourceCheckedNodes": [
+        "StableReductionPartII:MC.2/section-evaluation-coefficient-naturality",
+        "StableReductionPartII:MC.2/section-ring-tensor-equivalence",
+        "StableReductionPartII:MC.2/section-dual-tensor-equivalence",
+        "StableReductionPartII:MC.2/section-correction-coefficient-naturality",
+        "StableReductionPartII:MC.2/section-dual-tensor-action",
+        "StableReductionPartII:MC.2/section-dual-tensor-scalar",
+        "StableReductionPartII:MC.2/section-dual-quotient-equivalence",
+        "StableReductionPartII:MC.2/section-dual-quotient-tensor-equivalence",
+        "StableReductionPartII:MC.2/section-ideal-finite-presentation",
+        "StableReductionPartII:MC.2/section-ideal-ambient-equivalence",
+        "StableReductionPartII:MC.2/section-dual-ambient-equivalence",
+        "StableReductionPartII:MC.2/section-dual-ambient-multiplication",
+        "StableReductionPartII:MC.2/section-dual-ambient-quotient-equivalence",
+        "StableReductionPartII:MC.2/section-dual-completion-equivalence",
+        "StableReductionPartII:MC.2/section-dual-quotient-completion-equivalence",
+        "StableReductionPartII:MC.2/section-dual-ambient-faithful-detection",
+        "StableReductionPartII:MC.2/coefficient-inclusion-action",
+        "StableReductionPartII:MC.2/section-evaluation-scalars",
+        "StableReductionPartII:MC.2/section-evaluation-projection",
+        "StableReductionPartII:MC.2/section-projection-formula",
+        "StableReductionPartII:MC.2/section-projection-retraction",
+        "StableReductionPartII:MC.2/section-projection-coefficients",
+        "StableReductionPartII:MC.2/section-polynomial-monic",
+        "StableReductionPartII:MC.2/section-polynomial-freeness",
+        "StableReductionPartII:MC.2/section-polynomial-relation",
+        "StableReductionPartII:MC.2/section-dual-divisibility",
+        "StableReductionPartII:MC.2/section-dual-generator-formula",
+        "StableReductionPartII:MC.2/section-dual-generator-values",
+        "StableReductionPartII:MC.2/section-dual-correction-formula",
+        "StableReductionPartII:MC.2/section-dual-correction-product",
+        "StableReductionPartII:MC.2/section-ideal-coefficient-map",
+        "StableReductionPartII:MC.2/section-projection-coefficient-naturality",
+        "StableReductionPartII:MC.2/section-dual-generator-coefficient-naturality",
+        "StableReductionPartII:MC.2/polynomial-degree-two",
+        "StableReductionPartII:MC.2/polynomial-coordinate-equivalence",
+        "StableReductionPartII:MC.2/polynomial-coordinate-inverse",
+        "StableReductionPartII:MC.2/polynomial-coordinate-reconstruction",
+        "StableReductionPartII:MC.2/polynomial-coordinate-uniqueness",
+        "StableReductionPartII:MC.2/polynomial-two-term-basis",
+        "StableReductionPartII:MC.2/polynomial-two-term-basis-values",
+        "StableReductionPartII:MC.2/polynomial-monomial-basis",
+        "StableReductionPartII:MC.2/polynomial-monomial-basis-values",
+        "StableReductionPartII:MC.2/polynomial-coordinate-coefficient-multiplication",
+        "StableReductionPartII:MC.2/polynomial-coordinate-section-multiplication",
+        "StableReductionPartII:MC.2/polynomial-coordinate-root-multiplication",
+        "StableReductionPartII:MC.2/polynomial-coordinate-first-multiplication",
+        "StableReductionPartII:MC.2/section-dual-value-commutation",
+        "StableReductionPartII:MC.2/section-dual-value-section-relation",
+        "StableReductionPartII:MC.2/polynomial-coordinate-dual-numerator",
+        "StableReductionPartII:MC.2/section-dual-value-decomposition",
+        "StableReductionPartII:MC.2/section-dual-normal-existence",
+        "StableReductionPartII:MC.2/section-dual-coordinate-uniqueness",
+        "StableReductionPartII:MC.2/section-dual-multiplication",
+        "StableReductionPartII:MC.2/section-dual-generator-action",
+        "StableReductionPartII:MC.2/section-ideal-coefficient-projective",
+        "StableReductionPartII:MC.2/section-dual-coefficient-free",
+        "StableReductionPartII:MC.2/section-projection-tensor-retraction",
+        "StableReductionPartII:MC.2/section-ideal-tensor-injective",
+        "StableReductionPartII:MC.2/section-ideal-syzygy",
+        "StableReductionPartII:MC.2/polynomial-coordinate-first-generator",
+        "StableReductionPartII:MC.2/polynomial-coordinate-coefficient",
+        "StableReductionPartII:MC.2/polynomial-coordinate-root",
+        "StableReductionPartII:MC.2/polynomial-coordinate-numerator-multiplication",
+        "StableReductionPartII:MC.2/section-dual-syzygy",
+        "StableReductionPartII:MC.2/section-ideal-presentation",
+        "StableReductionPartII:MC.2/section-ideal-presentation-formula",
+        "StableReductionPartII:MC.2/section-ideal-presentation-surjective",
+        "StableReductionPartII:MC.2/section-matrix-right-action",
+        "StableReductionPartII:MC.2/section-matrix-left-action",
+        "StableReductionPartII:MC.2/section-ideal-presentation-kernel",
+        "StableReductionPartII:MC.2/section-dual-presentation",
+        "StableReductionPartII:MC.2/section-dual-presentation-formula",
+        "StableReductionPartII:MC.2/section-dual-presentation-surjective",
+        "StableReductionPartII:MC.2/section-dual-presentation-zero",
+        "StableReductionPartII:MC.2/section-dual-presentation-kernel",
+        "StableReductionPartII:MC.2/section-ideal-cokernel-generators",
+        "StableReductionPartII:MC.2/section-ideal-cokernel-unique",
+        "StableReductionPartII:MC.2/section-dual-cokernel-generators",
+        "StableReductionPartII:MC.2/section-dual-cokernel-unique",
+        "StableReductionPartII:MC.2/section-complex-left-exact",
+        "StableReductionPartII:MC.2/section-complex-right-exact",
+        "StableReductionPartII:MC.2/section-matrix-transpose-left-action",
+        "StableReductionPartII:MC.2/section-matrix-transpose-right-action",
+        "StableReductionPartII:MC.2/section-complex-transpose-left-exact",
+        "StableReductionPartII:MC.2/section-complex-transpose-right-exact",
+        "StableReductionPartII:MC.2/section-left-image-tensor-injective",
+        "StableReductionPartII:MC.2/section-right-image-tensor-injective",
+        "StableReductionPartII:MC.2/section-complex-left-tensor-exact",
+        "StableReductionPartII:MC.2/section-complex-right-tensor-exact",
+        "StableReductionPartII:MC.2/section-matrix-rotation",
+        "StableReductionPartII:MC.2/section-matrix-rotation-formula",
+        "StableReductionPartII:MC.2/section-matrix-rotation-inverse",
+        "StableReductionPartII:MC.2/section-matrix-rotation-square",
+        "StableReductionPartII:MC.2/section-transpose-left-rotation",
+        "StableReductionPartII:MC.2/section-transpose-right-rotation",
+        "StableReductionPartII:MC.2/section-transpose-left-tensor-rotation",
+        "StableReductionPartII:MC.2/section-transpose-right-tensor-rotation",
+        "StableReductionPartII:MC.2/section-complex-transpose-left-tensor-exact",
+        "StableReductionPartII:MC.2/section-complex-transpose-right-tensor-exact",
+        "StableReductionPartII:MC.2/section-ideal-presentation-tensor-exact",
+        "StableReductionPartII:MC.2/section-dual-presentation-tensor-exact",
+        "StableReductionPartII:MC.2/section-ideal-tensor-cokernel",
+        "StableReductionPartII:MC.2/section-ideal-tensor-cokernel-representative",
+        "StableReductionPartII:MC.2/section-ideal-tensor-cokernel-pure",
+        "StableReductionPartII:MC.2/section-ideal-tensor-cokernel-inverse",
+        "StableReductionPartII:MC.2/section-ideal-tensor-cokernel-unique",
+        "StableReductionPartII:MC.2/section-dual-tensor-cokernel",
+        "StableReductionPartII:MC.2/section-dual-tensor-cokernel-representative",
+        "StableReductionPartII:MC.2/section-dual-tensor-cokernel-pure",
+        "StableReductionPartII:MC.2/section-dual-tensor-cokernel-inverse",
+        "StableReductionPartII:MC.2/section-dual-tensor-cokernel-unique",
+        "StableReductionPartII:MC.2/section-dual-generator-module-relation",
+        "StableReductionPartII:MC.2/section-bidual-relation",
+        "StableReductionPartII:MC.2/section-bidual-value-membership",
+        "StableReductionPartII:MC.2/section-bidual-inverse",
+        "StableReductionPartII:MC.2/section-bidual-inverse-value",
+        "StableReductionPartII:MC.2/section-bidual-inverse-evaluation",
+        "StableReductionPartII:MC.2/section-bidual-evaluation-inverse",
+        "StableReductionPartII:MC.2/section-ideal-ordinary-reflexive",
+        "StableReductionPartII:MC.2/section-bidual-equivalence",
+        "StableReductionPartII:MC.2/section-bidual-equivalence-apply",
+        "StableReductionPartII:MC.2/section-bidual-equivalence-inverse",
+        "StableReductionPartII:MC.2/section-bidual-equivalence-native",
+        "StableReductionPartII:MC.2/section-dual-coefficient-hom-map",
+        "StableReductionPartII:MC.2/section-dual-coefficient-hom-pure",
+        "StableReductionPartII:MC.2/section-free-coefficient-hom-transpose",
+        "StableReductionPartII:MC.2/section-ideal-coefficient-hom-coordinates",
+        "StableReductionPartII:MC.2/section-ideal-coefficient-hom-coordinates-injective",
+        "StableReductionPartII:MC.2/section-ideal-coefficient-hom-relations",
+        "StableReductionPartII:MC.2/section-ideal-presentation-generators",
+        "StableReductionPartII:MC.2/section-ideal-coefficient-hom-presentation",
+        "StableReductionPartII:MC.2/section-transpose-left-right-tensor-rotation",
+        "StableReductionPartII:MC.2/section-dual-coefficient-hom-injective",
+        "StableReductionPartII:MC.2/section-dual-coefficient-hom-surjective",
+        "StableReductionPartII:MC.2/section-dual-coefficient-hom-equivalence",
+        "StableReductionPartII:MC.2/section-dual-coefficient-hom-equivalence-pure",
+        "StableReductionPartII:MC.2/section-dual-coefficient-hom-naturality",
+        "StableReductionPartII:MC.2/section-ideal-coefficient-hom-map",
+        "StableReductionPartII:MC.2/section-ideal-coefficient-hom-pure",
+        "StableReductionPartII:MC.2/section-dual-coefficient-hom-coordinates",
+        "StableReductionPartII:MC.2/section-dual-coefficient-hom-coordinates-injective",
+        "StableReductionPartII:MC.2/section-dual-coefficient-hom-relations",
+        "StableReductionPartII:MC.2/section-dual-coefficient-hom-presentation",
+        "StableReductionPartII:MC.2/section-transpose-right-right-tensor-rotation",
+        "StableReductionPartII:MC.2/section-ideal-coefficient-hom-injective",
+        "StableReductionPartII:MC.2/section-ideal-coefficient-hom-surjective",
+        "StableReductionPartII:MC.2/section-ideal-coefficient-hom-equivalence",
+        "StableReductionPartII:MC.2/section-ideal-coefficient-hom-equivalence-pure",
+        "StableReductionPartII:MC.2/section-ideal-coefficient-hom-naturality",
+        "StableReductionPartII:MC.2/section-dual-coefficient-hom-equivalence-inverse",
+        "StableReductionPartII:MC.2/section-ideal-coefficient-hom-equivalence-inverse",
+        "StableReductionPartII:MC.2/section-dual-coefficient-hom-equivalence-unique",
+        "StableReductionPartII:MC.2/section-ideal-coefficient-hom-equivalence-unique",
+        "StableReductionPartII:MC.2/section-dual-coefficient-hom-unit",
+        "StableReductionPartII:MC.2/section-ideal-coefficient-hom-unit",
+        "StableReductionPartII:MC.2/section-hom-differential",
+        "StableReductionPartII:MC.2/section-hom-left-right-exact",
+        "StableReductionPartII:MC.2/section-hom-right-left-exact",
+        "StableReductionPartII:MC.2/section-hom-differential-exact",
+        "StableReductionPartII:MC.2/section-hom-differential-square",
+        "StableReductionPartII:MC.2/section-hom-cochain",
+        "StableReductionPartII:MC.2/section-hom-cochain-differential",
+        "StableReductionPartII:MC.2/section-hom-cochain-exact",
+        "StableReductionPartII:MC.2/section-hom-cochain-positive-homology",
+        "StableReductionPartII:MC.2/section-hom-ideal-start",
+        "StableReductionPartII:MC.2/section-hom-dual-start",
+        "StableReductionPartII:MC.2/section-hom-differential-periodic",
+        "StableReductionPartII:MC.2/section-hom-cochain-objects",
+        "StableReductionPartII:MC.2/section-hom-cochain-shape",
+        "StableReductionPartII:MC.2/section-hom-ideal-augmentation-exact",
+        "StableReductionPartII:MC.2/section-hom-dual-augmentation-exact",
+        "StableReductionPartII:MC.2/section-chain-differential",
+        "StableReductionPartII:MC.2/section-chain-differential-exact",
+        "StableReductionPartII:MC.2/section-chain-differential-square",
+        "StableReductionPartII:MC.2/section-chain",
+        "StableReductionPartII:MC.2/section-chain-successor-map",
+        "StableReductionPartII:MC.2/section-chain-positive-exact",
+        "StableReductionPartII:MC.2/section-chain-projective",
+        "StableReductionPartII:MC.2/section-chain-ideal-augmentation-zero",
+        "StableReductionPartII:MC.2/section-chain-dual-augmentation-zero",
+        "StableReductionPartII:MC.2/section-ideal-augmentation",
+        "StableReductionPartII:MC.2/section-dual-augmentation",
+        "StableReductionPartII:MC.2/section-ideal-augmentation-degree-zero",
+        "StableReductionPartII:MC.2/section-dual-augmentation-degree-zero",
+        "StableReductionPartII:MC.2/section-ideal-augmentation-quasi-isomorphism",
+        "StableReductionPartII:MC.2/section-dual-augmentation-quasi-isomorphism",
+        "StableReductionPartII:MC.2/section-ideal-projective-resolution",
+        "StableReductionPartII:MC.2/section-dual-projective-resolution",
+        "StableReductionPartII:MC.2/section-chain-ideal-start",
+        "StableReductionPartII:MC.2/section-chain-dual-start",
+        "StableReductionPartII:MC.2/section-chain-differential-periodic",
+        "StableReductionPartII:MC.2/section-chain-objects",
+        "StableReductionPartII:MC.2/section-chain-finite-free",
+        "StableReductionPartII:MC.2/section-chain-shape",
+        "StableReductionPartII:MC.2/section-resolution-hom-differential",
+        "StableReductionPartII:MC.2/section-ideal-resolution-complex",
+        "StableReductionPartII:MC.2/section-ideal-resolution-augmentation",
+        "StableReductionPartII:MC.2/section-dual-resolution-complex",
+        "StableReductionPartII:MC.2/section-dual-resolution-augmentation",
+        "StableReductionPartII:MC.2/section-ideal-resolution-quasi-isomorphism",
+        "StableReductionPartII:MC.2/section-dual-resolution-quasi-isomorphism",
+        "StableReductionPartII:MC.2/section-resolution-hom-isomorphism",
+        "StableReductionPartII:MC.2/section-resolution-hom-isomorphism-apply",
+        "StableReductionPartII:MC.2/section-resolution-hom-isomorphism-inverse",
+        "StableReductionPartII:MC.2/section-resolution-categorical-hom-exact",
+        "StableReductionPartII:MC.2/section-ideal-derived-ext-isomorphism",
+        "StableReductionPartII:MC.2/section-dual-derived-ext-isomorphism",
+        "StableReductionPartII:MC.2/section-ideal-derived-ext-isomorphism-inverse",
+        "StableReductionPartII:MC.2/section-dual-derived-ext-isomorphism-inverse",
+        "StableReductionPartII:MC.2/section-ideal-derived-ext-vanishing",
+        "StableReductionPartII:MC.2/section-dual-derived-ext-vanishing",
+        "StableReductionPartII:MC.2/section-ideal-localization-ext-vanishing",
+        "StableReductionPartII:MC.2/section-dual-localization-ext-vanishing",
+        "StableReductionPartII:MC.2/section-resolution-hom-isomorphism-naturality",
+        "StableReductionPartII:MC.2/section-ideal-derived-ext-isomorphism-zero",
+        "StableReductionPartII:MC.2/section-dual-derived-ext-isomorphism-zero",
+        "StableReductionPartII:MC.2/section-bidual-coefficient-hom-equivalence",
+        "StableReductionPartII:MC.2/section-bidual-coefficient-hom-evaluation",
+        "StableReductionPartII:MC.2/section-ideal-absolute-derived-ext-vanishing",
+        "StableReductionPartII:MC.2/section-dual-absolute-derived-ext-vanishing",
+        "StableReductionPartII:MC.2/section-ideal-absolute-localization-ext-vanishing",
+        "StableReductionPartII:MC.2/section-dual-absolute-localization-ext-vanishing",
+        "StableReductionPartII:MC.2/completion-coefficient-powers",
+        "StableReductionPartII:MC.2/completion-coefficient-level",
+        "StableReductionPartII:MC.2/completion-coefficient-level-representatives",
+        "StableReductionPartII:MC.2/completion-coefficient-level-transition",
+        "StableReductionPartII:MC.2/completion-coefficient-level-products",
+        "StableReductionPartII:MC.2/completion-source-transition",
+        "StableReductionPartII:MC.2/completion-coefficient-family",
+        "StableReductionPartII:MC.2/completion-coefficient-family-transition",
+        "StableReductionPartII:MC.2/completion-coefficient-family-original",
+        "StableReductionPartII:MC.2/completion-coefficient-family-unit",
+        "StableReductionPartII:MC.2/completion-coefficient-hom",
+        "StableReductionPartII:MC.2/completion-coefficient-hom-evaluation",
+        "StableReductionPartII:MC.2/completion-coefficient-hom-original",
+        "StableReductionPartII:MC.2/completion-coefficient-hom-unique",
+        "StableReductionPartII:MC.2/completion-coefficient-algebra",
+        "StableReductionPartII:MC.2/completion-coefficient-algebra-map",
+        "StableReductionPartII:MC.2/completion-coefficient-algebra-original",
+        "StableReductionPartII:MC.2/completion-coefficient-scalar-tower",
+        "StableReductionPartII:MC.2/completion-coefficient-tensor",
+        "StableReductionPartII:MC.2/completion-coefficient-tensor-pure",
+        "StableReductionPartII:MC.2/completion-coefficient-tensor-surjective",
+        "StableReductionPartII:MC.2/completion-coefficient-tensor-balancing",
+        "StableReductionPartII:MC.2/completion-coefficient-tensor-kernel",
+        "StableReductionPartII:MC.2/finite-residue-algebra",
+        "StableReductionPartII:MC.2/finite-residue-algebra-map",
+        "StableReductionPartII:MC.2/finite-residue-original",
+        "StableReductionPartII:MC.2/finite-residue-surjective",
+        "StableReductionPartII:MC.2/finite-chart-algebra",
+        "StableReductionPartII:MC.2/finite-chart-algebra-map",
+        "StableReductionPartII:MC.2/finite-chart-original",
+        "StableReductionPartII:MC.2/finite-chart-completed-square",
+        "StableReductionPartII:MC.2/finite-residue-kernel",
+        "StableReductionPartII:MC.2/finite-chart-power-annihilate",
+        "StableReductionPartII:MC.2/finite-chart-coefficient-tower",
+        "StableReductionPartII:MC.2/finite-tensor-power-vanish",
+        "StableReductionPartII:MC.2/finite-tensor-completed-balance",
+        "StableReductionPartII:MC.2/finite-tensor-compatible",
+        "StableReductionPartII:MC.2/finite-tensor-equivalence",
+        "StableReductionPartII:MC.2/finite-tensor-forward-pure",
+        "StableReductionPartII:MC.2/finite-tensor-inverse-pure",
+        "StableReductionPartII:MC.2/finite-tensor-source-roundtrip",
+        "StableReductionPartII:MC.2/finite-tensor-target-roundtrip",
+        "StableReductionPartII:MC.2/finite-tensor-balance",
+        "StableReductionPartII:MC.2/finite-hom-equivalence",
+        "StableReductionPartII:MC.2/finite-hom-evaluation",
+        "StableReductionPartII:MC.2/finite-hom-inverse-evaluation",
+        "StableReductionPartII:MC.2/finite-hom-roundtrip",
+        "StableReductionPartII:MC.2/finite-chart-original-scalar",
+        "StableReductionPartII:MC.2/finite-transition-algebra",
+        "StableReductionPartII:MC.2/finite-transition-native",
+        "StableReductionPartII:MC.2/finite-transition-identity",
+        "StableReductionPartII:MC.2/finite-transition-compose",
+        "StableReductionPartII:MC.2/finite-transition-scalar",
+        "StableReductionPartII:MC.2/finite-tensor-transition",
+        "StableReductionPartII:MC.2/finite-tensor-inverse-transition",
+        "StableReductionPartII:MC.2/finite-tensor-coefficient-naturality",
+        "StableReductionPartII:MC.2/finite-tensor-inverse-coefficient",
+        "StableReductionPartII:MC.2/finite-tensor-diagram-a",
+        "StableReductionPartII:MC.2/finite-tensor-diagram-complete",
+        "StableReductionPartII:MC.2/finite-tensor-diagram-iso",
+        "StableReductionPartII:MC.2/finite-tensor-limit-iso",
+        "StableReductionPartII:MC.2/finite-tensor-diagram-a-obj",
+        "StableReductionPartII:MC.2/finite-tensor-diagram-a-map-tmul",
+        "StableReductionPartII:MC.2/finite-tensor-diagram-a-map-id",
+        "StableReductionPartII:MC.2/finite-tensor-diagram-a-map-comp",
+        "StableReductionPartII:MC.2/finite-tensor-diagram-complete-obj",
+        "StableReductionPartII:MC.2/finite-tensor-diagram-complete-map-tmul",
+        "StableReductionPartII:MC.2/finite-tensor-diagram-complete-map-id",
+        "StableReductionPartII:MC.2/finite-tensor-diagram-complete-map-comp",
+        "StableReductionPartII:MC.2/finite-tensor-diagram-iso-hom-tmul",
+        "StableReductionPartII:MC.2/finite-tensor-diagram-iso-inv-tmul",
+        "StableReductionPartII:MC.2/finite-tensor-diagram-iso-naturality",
+        "StableReductionPartII:MC.2/finite-tensor-diagram-iso-inverse-naturality",
+        "StableReductionPartII:MC.2/finite-tensor-diagram-iso-left",
+        "StableReductionPartII:MC.2/finite-tensor-diagram-iso-right",
+        "StableReductionPartII:MC.2/finite-tensor-limit-hom-projection",
+        "StableReductionPartII:MC.2/finite-tensor-limit-inv-projection",
+        "StableReductionPartII:MC.2/finite-tensor-limit-left",
+        "StableReductionPartII:MC.2/finite-tensor-limit-right",
+        "StableReductionPartII:MC.2/finite-tensor-limit-unique",
+        "StableReductionPartII:MC.2/finite-tensor-limit-lift",
+        "StableReductionPartII:MC.2/native-completed-tensor-diagram",
+        "StableReductionPartII:MC.2/native-completed-tensor-diagram-obj",
+        "StableReductionPartII:MC.2/native-completed-tensor-diagram-map-tmul",
+        "StableReductionPartII:MC.2/native-completed-tensor-diagram-map-zero",
+        "StableReductionPartII:MC.2/completed-diagram-restriction-iso",
+        "StableReductionPartII:MC.2/completed-diagram-restriction-iso-hom",
+        "StableReductionPartII:MC.2/completed-diagram-restriction-iso-inv",
+        "StableReductionPartII:MC.2/completed-diagram-restriction-iso-map",
+        "StableReductionPartII:MC.2/completed-tensor-limit-iso",
+        "StableReductionPartII:MC.2/completed-tensor-limit-iso-hom-projection",
+        "StableReductionPartII:MC.2/completed-tensor-limit-iso-inv-projection",
+        "StableReductionPartII:MC.2/completed-tensor-limit-iso-left",
+        "StableReductionPartII:MC.2/original-tensor-limit-completed-module",
+        "StableReductionPartII:MC.2/original-tensor-limit-completed-module-tower",
+        "StableReductionPartII:MC.2/original-tensor-limit-completed-module-smul",
+        "StableReductionPartII:MC.2/original-tensor-limit-completed-module-coefficient",
+        "StableReductionPartII:MC.2/completed-tensor-limit-linear-equivalence",
+        "StableReductionPartII:MC.2/completed-tensor-limit-linear-equivalence-apply",
+        "StableReductionPartII:MC.2/completed-tensor-limit-linear-equivalence-symm-apply",
+        "StableReductionPartII:MC.2/completed-tensor-limit-linear-equivalence-projection-smul",
+        "StableReductionPartII:MC.2/completed-chart-evaluation",
+        "StableReductionPartII:MC.2/completed-chart-evaluation-apply",
+        "StableReductionPartII:MC.2/completed-chart-evaluation-transition",
+        "StableReductionPartII:MC.2/completed-chart-coherent-family",
+        "StableReductionPartII:MC.2/completed-chart-coherent-family-eval",
+        "StableReductionPartII:MC.2/finite-free-tensor-coordinates",
+        "StableReductionPartII:MC.2/finite-free-tensor-coordinates-transition",
+        "StableReductionPartII:MC.2/ordinary-completed-tensor-projection",
+        "StableReductionPartII:MC.2/ordinary-completed-tensor-projection-tmul",
+        "StableReductionPartII:MC.2/ordinary-completed-tensor-projection-coordinates",
+        "StableReductionPartII:MC.2/ordinary-completed-tensor-cone",
+        "StableReductionPartII:MC.2/finite-free-cone-lift-coordinate",
+        "StableReductionPartII:MC.2/finite-free-cone-lift-coordinate-eval",
+        "StableReductionPartII:MC.2/finite-free-ordinary-cone-lift",
+        "StableReductionPartII:MC.2/finite-free-ordinary-cone-lift-projection",
+        "StableReductionPartII:MC.2/ordinary-completed-tensor-projection-ext",
+        "StableReductionPartII:MC.2/ordinary-completed-tensor-is-limit",
+        "StableReductionPartII:MC.2/ordinary-completed-tensor-limit-iso",
+        "StableReductionPartII:MC.2/ordinary-completed-tensor-limit-equivalence",
+        "StableReductionPartII:MC.2/ordinary-completed-tensor-limit-equivalence-projection",
+        "StableReductionPartII:MC.2/ordinary-completed-tensor-limit-equivalence-inverse-projection",
+        "StableReductionPartII:MC.2/ordinary-completed-tensor-limit-equivalence-tmul",
+        "StableReductionPartII:MC.2/ordinary-completed-tensor-limit-equivalence-left",
+        "StableReductionPartII:MC.2/ordinary-completed-tensor-limit-equivalence-right",
+        "StableReductionPartII:MC.2/original-tensor-ordinary-completed-equivalence",
+        "StableReductionPartII:MC.2/original-tensor-ordinary-completed-equivalence-projection",
+        "StableReductionPartII:MC.2/ordinary-completed-tensor-cone-projection",
+        "StableReductionPartII:MC.2/completion-chart-eval-of",
+        "StableReductionPartII:MC.2/completion-chart-assemble-zero",
+        "StableReductionPartII:MC.2/completion-chart-assemble-recover",
+        "StableReductionPartII:MC.2/completion-finite-free-coordinates-tmul",
+        "StableReductionPartII:MC.2/completion-finite-free-coordinates-single",
+        "StableReductionPartII:MC.2/completion-finite-free-lift-coordinate-zero",
+        "StableReductionPartII:MC.2/completion-finite-free-lift-coordinate-tmul",
+        "StableReductionPartII:MC.2/completion-finite-free-lift-zero",
+        "StableReductionPartII:MC.2/completion-finite-free-lift-smul",
+        "StableReductionPartII:MC.2/completion-ordinary-tensor-is-limit-self-lift",
+        "StableReductionPartII:MC.2/completion-ordinary-tensor-limit-iso-left",
+        "StableReductionPartII:MC.2/completion-original-tensor-ordinary-equiv-left",
+        "StableReductionPartII:MC.2/completion-original-tensor-ordinary-equiv-right",
+        "StableReductionPartII:MC.2/module-completion-projection",
+        "StableReductionPartII:MC.2/module-completion-projection-tmul",
+        "StableReductionPartII:MC.2/module-completion-projection-map",
+        "StableReductionPartII:MC.2/module-completion-cone",
+        "StableReductionPartII:MC.2/module-completion-cone-projection",
+        "StableReductionPartII:MC.2/module-completion-cone-transition",
+        "StableReductionPartII:MC.2/retract-completion-free-cone",
+        "StableReductionPartII:MC.2/retract-completion-free-cone-projection",
+        "StableReductionPartII:MC.2/retract-completion-free-cone-transition",
+        "StableReductionPartII:MC.2/retract-completion-lift",
+        "StableReductionPartII:MC.2/retract-completion-lift-projection",
+        "StableReductionPartII:MC.2/retract-completion-projection-ext",
+        "StableReductionPartII:MC.2/retract-completion-lift-independent",
+        "StableReductionPartII:MC.2/retract-completion-is-limit",
+        "StableReductionPartII:MC.2/retract-completion-is-limit-fac",
+        "StableReductionPartII:MC.2/retract-completion-is-limit-unique",
+        "StableReductionPartII:MC.2/retract-completion-is-limit-self",
+        "StableReductionPartII:MC.2/projective-completion-is-limit",
+        "StableReductionPartII:MC.2/projective-completion-is-limit-fac",
+        "StableReductionPartII:MC.2/projective-completion-is-limit-unique",
+        "StableReductionPartII:MC.2/projective-completion-is-limit-self",
+        "StableReductionPartII:MC.2/projective-completion-limit-equiv",
+        "StableReductionPartII:MC.2/projective-completion-limit-equiv-projection",
+        "StableReductionPartII:MC.2/projective-completion-limit-equiv-symm-projection",
+        "StableReductionPartII:MC.2/projective-completion-limit-equiv-left",
+        "StableReductionPartII:MC.2/projective-completion-limit-equiv-right",
+        "StableReductionPartII:MC.2/projective-completion-original-equiv",
+        "StableReductionPartII:MC.2/projective-completion-original-equiv-projection",
+        "StableReductionPartII:MC.2/projective-completion-original-equiv-left",
+        "StableReductionPartII:MC.2/projective-completion-original-equiv-right",
+        "StableReductionPartII:MC.2/module-completion-projection-zero",
+        "StableReductionPartII:MC.2/module-completion-cone-smul",
+        "StableReductionPartII:MC.2/retract-completion-free-cone-zero",
+        "StableReductionPartII:MC.2/retract-completion-lift-zero",
+        "StableReductionPartII:MC.2/hom-completion-ring-scalar",
+        "StableReductionPartII:MC.2/hom-completion-ring-projection",
+        "StableReductionPartII:MC.2/hom-completion-separation",
+        "StableReductionPartII:MC.2/hom-completion-section-assembly",
+        "StableReductionPartII:MC.2/hom-completion-section-evaluation",
+        "StableReductionPartII:MC.2/hom-completion-compatible-homs",
+        "StableReductionPartII:MC.2/hom-completion-hom-projection",
+        "StableReductionPartII:MC.2/hom-completion-hom-assembly",
+        "StableReductionPartII:MC.2/hom-completion-hom-evaluation",
+        "StableReductionPartII:MC.2/hom-completion-hom-left",
+        "StableReductionPartII:MC.2/hom-completion-hom-right",
+        "StableReductionPartII:MC.2/hom-completion-hom-equivalence",
+        "StableReductionPartII:MC.2/hom-completion-ring-projection-tensor",
+        "StableReductionPartII:MC.2/hom-completion-ring-projection-coefficient",
+        "StableReductionPartII:MC.2/hom-completion-ring-projection-zero",
+        "StableReductionPartII:MC.2/hom-completion-section-unique",
+        "StableReductionPartII:MC.2/hom-completion-section-zero",
+        "StableReductionPartII:MC.2/hom-completion-family-transition",
+        "StableReductionPartII:MC.2/hom-completion-family-zero",
+        "StableReductionPartII:MC.2/hom-completion-family-ext",
+        "StableReductionPartII:MC.2/hom-completion-hom-projection-apply",
+        "StableReductionPartII:MC.2/hom-completion-hom-projection-zero",
+        "StableReductionPartII:MC.2/hom-completion-hom-projection-coefficient",
+        "StableReductionPartII:MC.2/hom-completion-hom-source-naturality",
+        "StableReductionPartII:MC.2/hom-completion-hom-equivalence-apply",
+        "StableReductionPartII:MC.2/hom-completion-hom-equivalence-inverse",
+        "StableReductionPartII:MC.2/hom-completion-hom-equivalence-left",
+        "StableReductionPartII:MC.2/hom-completion-hom-equivalence-right"
+      ],
+      "baselineUseChecked": [
+        "mathlib:AddEquiv.linearEquiv",
+        "mathlib:AddEquiv.module",
+        "mathlib:AdicCompletion",
+        "mathlib:AdicCompletion.algebraMap_apply",
+        "mathlib:AdicCompletion.evalₐ",
+        "mathlib:AdicCompletion.evalₐ_liftRingHom",
+        "mathlib:AdicCompletion.evalₐ_of",
+        "mathlib:AdicCompletion.ext_evalₐ",
+        "mathlib:AdicCompletion.factor_evalₐ_eq_eval",
+        "mathlib:AdicCompletion.flat_of_isNoetherian",
+        "mathlib:AdicCompletion.liftRingHom",
+        "mathlib:AdicCompletion.ofTensorProductEquivOfFiniteNoetherian",
+        "mathlib:AdicCompletion.ofTensorProductEquivOfFiniteNoetherian_apply",
+        "mathlib:AdicCompletion.pow_smul_top_eq_ker_eval",
+        "mathlib:AdicCompletion.surjective_evalₐ",
+        "mathlib:AdicCompletion.transitionMap_comp_eval_apply",
+        "mathlib:AdjoinRoot.algebraMap_eq",
+        "mathlib:AdjoinRoot.algebraMap_eq'",
+        "mathlib:AdjoinRoot.mk_self",
+        "mathlib:AdjoinRoot.powerBasis'",
+        "mathlib:AdjoinRoot.ringHom_ext",
+        "mathlib:AlgHom",
+        "mathlib:AlgHom.ext",
+        "mathlib:AlgHom.liftEquiv",
+        "mathlib:AlgHom.toLinearMap",
+        "mathlib:Algebra.compHom",
+        "mathlib:Algebra.smul_def",
+        "mathlib:CategoryTheory.Abelian.Ext",
+        "mathlib:CategoryTheory.Abelian.extFunctorObj",
+        "mathlib:CategoryTheory.Functor",
+        "mathlib:CategoryTheory.Functor.mapIso",
+        "mathlib:CategoryTheory.Iso",
+        "mathlib:CategoryTheory.Iso.toLinearEquiv",
+        "mathlib:CategoryTheory.Limits.Cone.postcompose",
+        "mathlib:CategoryTheory.Limits.HasLimit.isoOfNatIso",
+        "mathlib:CategoryTheory.Limits.HasLimit.isoOfNatIso_hom_π",
+        "mathlib:CategoryTheory.Limits.HasLimit.isoOfNatIso_inv_π",
+        "mathlib:CategoryTheory.Limits.HasLimit.lift_isoOfNatIso_hom",
+        "mathlib:CategoryTheory.Limits.IsLimit",
+        "mathlib:CategoryTheory.Limits.IsLimit.conePointUniqueUpToIso",
+        "mathlib:CategoryTheory.Limits.IsLimit.conePointUniqueUpToIso_hom_comp",
+        "mathlib:CategoryTheory.Limits.IsLimit.conePointUniqueUpToIso_inv_comp",
+        "mathlib:CategoryTheory.Limits.IsLimit.hom_ext",
+        "mathlib:CategoryTheory.Limits.IsZero.of_iso",
+        "mathlib:CategoryTheory.Limits.limit.hom_ext",
+        "mathlib:CategoryTheory.Limits.limit.isLimit",
+        "mathlib:CategoryTheory.NatIso.ofComponents",
+        "mathlib:CategoryTheory.NatTrans",
+        "mathlib:CategoryTheory.ProjectiveResolution",
+        "mathlib:CategoryTheory.ProjectiveResolution.extMk_eq_zero_iff",
+        "mathlib:CategoryTheory.ProjectiveResolution.extMk_surjective",
+        "mathlib:CategoryTheory.ProjectiveResolution.isoExt",
+        "mathlib:CategoryTheory.ShortComplex.exact_and_epi_g_iff_of_iso",
+        "mathlib:CategoryTheory.ShortComplex.isoMk",
+        "mathlib:CategoryTheory.ShortComplex.moduleCat_exact_iff",
+        "mathlib:CategoryTheory.ShortComplex.quasiIso_iff_of_zeros'",
+        "mathlib:CategoryTheory.hasExt_of_enoughProjectives",
+        "mathlib:CategoryTheory.leOfHom",
+        "mathlib:CategoryTheory.preservesLimitIso",
+        "mathlib:CategoryTheory.preservesLimitIso_hom_π",
+        "mathlib:CategoryTheory.preservesLimitIso_inv_π",
+        "mathlib:CategoryTheory.preservesLimits_preadditiveCoyonedaObj",
+        "mathlib:ChainComplex.exactAt_succ_single_obj",
+        "mathlib:ChainComplex.linearYonedaObj",
+        "mathlib:ChainComplex.of",
+        "mathlib:ChainComplex.of_d",
+        "mathlib:ChainComplex.quasiIsoAt₀_iff",
+        "mathlib:ChainComplex.toSingle₀Equiv",
+        "mathlib:ChainComplex.toSingle₀Equiv_symm_apply_f_zero",
+        "mathlib:CochainComplex.of",
+        "mathlib:CochainComplex.of_d",
+        "mathlib:DFunLike.ext",
+        "mathlib:Ext",
+        "mathlib:Function.Exact.linearMap_comp_eq_zero",
+        "mathlib:Function.Exact.of_ladder_linearEquiv_of_exact",
+        "mathlib:Function.Injective.comp_exact_iff_exact",
+        "mathlib:HomologicalComplex",
+        "mathlib:HomologicalComplex.ExactAt",
+        "mathlib:HomologicalComplex.ExactAt.isZero_homology",
+        "mathlib:HomologicalComplex.Hom.isoOfComponents",
+        "mathlib:HomologicalComplex.d_comp_d",
+        "mathlib:HomologicalComplex.exactAt_iff'",
+        "mathlib:HomologicalComplex.homologyFunctor",
+        "mathlib:Ideal.Quotient.eq_zero_iff_mem",
+        "mathlib:Ideal.Quotient.factor",
+        "mathlib:Ideal.Quotient.factorPow",
+        "mathlib:Ideal.Quotient.factor_mk",
+        "mathlib:Ideal.Quotient.mk_surjective",
+        "mathlib:Ideal.map_le_iff_le_comap",
+        "mathlib:Ideal.map_pow",
+        "mathlib:Ideal.map_span",
+        "mathlib:Ideal.mem_map_of_mem",
+        "mathlib:Ideal.mem_span_pair",
+        "mathlib:Ideal.one_eq_top",
+        "mathlib:Ideal.quotientMap",
+        "mathlib:Ideal.quotientMap_mk",
+        "mathlib:Ideal.span_le",
+        "mathlib:IsBaseChange.equiv",
+        "mathlib:IsBaseChange.equiv_tmul",
+        "mathlib:IsRegular.isSMulRegular",
+        "mathlib:IsScalarTower.algebraMap_smul",
+        "mathlib:IsScalarTower.of_algebraMap_eq",
+        "mathlib:IsScalarTower.of_algebraMap_smul",
+        "mathlib:LinearEquiv.coe_lTensor",
+        "mathlib:LinearEquiv.coe_rTensor",
+        "mathlib:LinearEquiv.congrRight",
+        "mathlib:LinearEquiv.finTwoArrow",
+        "mathlib:LinearEquiv.isScalarTower",
+        "mathlib:LinearEquiv.lTensor",
+        "mathlib:LinearEquiv.ofBijective",
+        "mathlib:LinearEquiv.ofLinearMap",
+        "mathlib:LinearEquiv.ofSubsingleton",
+        "mathlib:LinearEquiv.piRing",
+        "mathlib:LinearEquiv.piRing_symm_apply",
+        "mathlib:LinearEquiv.rTensor",
+        "mathlib:LinearEquiv.rTensor_tmul",
+        "mathlib:LinearEquiv.restrictScalars",
+        "mathlib:LinearEquiv.toModuleIso",
+        "mathlib:LinearMap.baseChangeHom",
+        "mathlib:LinearMap.exact_iff",
+        "mathlib:LinearMap.exact_lcomp_of_exact_of_surjective",
+        "mathlib:LinearMap.ker_rangeRestrict",
+        "mathlib:LinearMap.lTensor",
+        "mathlib:LinearMap.lTensor_comp",
+        "mathlib:LinearMap.lTensor_comp_apply",
+        "mathlib:LinearMap.lTensor_id",
+        "mathlib:LinearMap.lTensor_id_apply",
+        "mathlib:LinearMap.lTensor_injective_of_exact_of_flat",
+        "mathlib:LinearMap.lTensor_tmul",
+        "mathlib:LinearMap.lTensor_zero",
+        "mathlib:LinearMap.lcomp",
+        "mathlib:LinearMap.lcomp_injective_of_surjective",
+        "mathlib:LinearMap.map_smulₛₗ",
+        "mathlib:LinearMap.rTensor",
+        "mathlib:LinearMap.rTensor_comp",
+        "mathlib:LinearMap.rTensor_exact_iff_lTensor_exact",
+        "mathlib:LinearMap.rTensor_surjective",
+        "mathlib:LinearMap.rTensor_tmul",
+        "mathlib:LinearMap.rangeRestrict",
+        "mathlib:LinearMap.restrictScalars",
+        "mathlib:LinearMap.subtype_comp_rangeRestrict",
+        "mathlib:LinearMap.surjective_rangeRestrict",
+        "mathlib:Matrix.mulVecLin",
+        "mathlib:Matrix.mulVecLin_apply",
+        "mathlib:Module.Basis.equivFun",
+        "mathlib:Module.Basis.isTorsionFree",
+        "mathlib:Module.Basis.ofEquivFun",
+        "mathlib:Module.Basis.reindex",
+        "mathlib:Module.Basis.smulTower",
+        "mathlib:Module.Basis.smulTower_apply",
+        "mathlib:Module.Basis.smulTower_repr",
+        "mathlib:Module.Dual.eval",
+        "mathlib:Module.Dual.instIsReflecive",
+        "mathlib:Module.FaithfullyFlat.lTensor_bijective_iff_bijective",
+        "mathlib:Module.Finite.exists_comp_eq_id_of_projective",
+        "mathlib:Module.Finite.of_injective",
+        "mathlib:Module.Finite.pi",
+        "mathlib:Module.FinitePresentation.isBaseChange_map",
+        "mathlib:Module.Flat.lTensor_preserves_injective_linearMap",
+        "mathlib:Module.Free.of_basis",
+        "mathlib:Module.Free.of_equiv",
+        "mathlib:Module.Free.pi",
+        "mathlib:Module.Free.prod",
+        "mathlib:Module.IsReflexive",
+        "mathlib:Module.Projective.of_basis",
+        "mathlib:Module.Projective.of_split",
+        "mathlib:Module.compHom",
+        "mathlib:Module.evalEquiv",
+        "mathlib:Module.finitePresentation_of_surjective",
+        "mathlib:Module.subsingleton",
+        "mathlib:ModuleCat.epi_iff_surjective",
+        "mathlib:ModuleCat.hasLimits",
+        "mathlib:ModuleCat.homLinearEquiv",
+        "mathlib:ModuleCat.hom_ext",
+        "mathlib:ModuleCat.hom_injective",
+        "mathlib:ModuleCat.monoidalClosedHomEquiv",
+        "mathlib:ModuleCat.of",
+        "mathlib:ModuleCat.ofHom",
+        "mathlib:ModuleCat.preservesLimit_restrictScalars",
+        "mathlib:ModuleCat.projective_of_categoryTheory_projective",
+        "mathlib:ModuleCat.restrictScalars",
+        "mathlib:ModuleCat.sectionsSubmodule",
+        "mathlib:Polynomial.Monic.free_adjoinRoot",
+        "mathlib:Polynomial.X_sub_C_dvd_sub_C_eval",
+        "mathlib:Polynomial.algebraMap_eq",
+        "mathlib:Polynomial.basisMonomials",
+        "mathlib:Polynomial.coe_basisMonomials",
+        "mathlib:Polynomial.evalRingHom",
+        "mathlib:Polynomial.eval₂_evalRingHom",
+        "mathlib:Polynomial.leadingCoeff_quadratic",
+        "mathlib:Polynomial.mapRingHom",
+        "mathlib:Polynomial.mem_span_C_X_sub_C_X_sub_C_iff_eval_eval_eq_zero",
+        "mathlib:Polynomial.monic_X_sub_C",
+        "mathlib:Polynomial.natDegree_quadratic",
+        "mathlib:RingHom",
+        "mathlib:Submodule.Quotient.induction_on",
+        "mathlib:Submodule.fg_range",
+        "mathlib:Submodule.liftQ",
+        "mathlib:Submodule.prodEquivOfIsCompl",
+        "mathlib:Submodule.smul_induction_on",
+        "mathlib:TensorProduct",
+        "mathlib:TensorProduct.AlgebraTensorModule.cancelBaseChange",
+        "mathlib:TensorProduct.AlgebraTensorModule.congr",
+        "mathlib:TensorProduct.AlgebraTensorModule.ext",
+        "mathlib:TensorProduct.AlgebraTensorModule.ker_mapOfCompatibleSMul",
+        "mathlib:TensorProduct.AlgebraTensorModule.lift",
+        "mathlib:TensorProduct.AlgebraTensorModule.map",
+        "mathlib:TensorProduct.AlgebraTensorModule.map_tmul",
+        "mathlib:TensorProduct.AlgebraTensorModule.rTensor",
+        "mathlib:TensorProduct.AlgebraTensorModule.rid",
+        "mathlib:TensorProduct.AlgebraTensorModule.rid_tmul",
+        "mathlib:TensorProduct.AlgebraTensorModule.tensorQuotientEquiv",
+        "mathlib:TensorProduct.AlgebraTensorModule.tensorQuotientEquiv_apply_tmul",
+        "mathlib:TensorProduct.CompatibleSMul",
+        "mathlib:TensorProduct.equivOfCompatibleSMul",
+        "mathlib:TensorProduct.induction_on",
+        "mathlib:TensorProduct.leftModule",
+        "mathlib:TensorProduct.lid",
+        "mathlib:TensorProduct.lift",
+        "mathlib:TensorProduct.mapOfCompatibleSMul",
+        "mathlib:TensorProduct.mapOfCompatibleSMul_surjective",
+        "mathlib:TensorProduct.mapOfCompatibleSMul_tmul",
+        "mathlib:TensorProduct.piLeft",
+        "mathlib:TensorProduct.piScalarRight",
+        "mathlib:TensorProduct.piScalarRightHom_tmul",
+        "mathlib:TensorProduct.piScalarRight_symm_single",
+        "mathlib:TensorProduct.smul_tmul'",
+        "mathlib:isNoetherian_linearMap",
+        "mathlib:lTensor.equiv",
+        "mathlib:lTensor_exact",
+        "mathlib:quasiIsoAt_iff_exactAt'"
+      ],
+      "baselineSourceBlobs": {
+        "Mathlib/Algebra/Algebra/Defs.lean": "d540d5fa819588cf2012d189d3b2cfd0552a7c23",
+        "Mathlib/Algebra/Algebra/Hom.lean": "df17ba4e63c30720043c606e94fd3ac0f3a5a081",
+        "Mathlib/Algebra/Algebra/Operations.lean": "38184a3262bee39df4f4ef37e099d7c3ada5ddd3",
+        "Mathlib/Algebra/Algebra/Tower.lean": "ae551c438c7583a07c1925cf32708be2bf985854",
+        "Mathlib/Algebra/Category/ModuleCat/Basic.lean": "ce476abb2be23ec8afc47ed7fd7af22d288f7b0f",
+        "Mathlib/Algebra/Category/ModuleCat/ChangeOfRings.lean": "c57bd910ab26facf20a937ad8eecdec13262e9ed",
+        "Mathlib/Algebra/Category/ModuleCat/EpiMono.lean": "40377fdd233362fa5ed922826224d4f893b4f2cc",
+        "Mathlib/Algebra/Category/ModuleCat/Limits.lean": "74a56f2d0a5c07b21cf53b6e59c9fef0be0f4e7c",
+        "Mathlib/Algebra/Category/ModuleCat/Monoidal/Closed.lean": "8015b07987c5c697a6838a5b0fe1d19a4cc24275",
+        "Mathlib/Algebra/Category/ModuleCat/Projective.lean": "ff85271c34c256c3084e99aa8f86878c6a93dd6c",
+        "Mathlib/Algebra/Exact/Basic.lean": "ec439f202f708f0f0cb380f43353918f7fb1b5b5",
+        "Mathlib/Algebra/Homology/DerivedCategory/Ext/Basic.lean": "2abba2bebf4ca3c1d31d7358fb5b5c010b93d8da",
+        "Mathlib/Algebra/Homology/DerivedCategory/Ext/EnoughProjectives.lean": "35f10fb23ad1f2ad77c2b9d8e8fab8283e5fc6c9",
+        "Mathlib/Algebra/Homology/HomologicalComplex.lean": "50646b814429df3f77ee4be826053853b54d6c64",
+        "Mathlib/Algebra/Homology/QuasiIso.lean": "c4fa141e33886fa8ff0b256b270fe86b4538b9e1",
+        "Mathlib/Algebra/Homology/ShortComplex/Basic.lean": "dbed55d20ef07d8d5cc495ae730c264dc7ab3bde",
+        "Mathlib/Algebra/Homology/ShortComplex/Exact.lean": "4061209ac58f4b523e996d0e1fe1179db463028b",
+        "Mathlib/Algebra/Homology/ShortComplex/HomologicalComplex.lean": "27731c25d8f93ed52053070198f138d58bf08312",
+        "Mathlib/Algebra/Homology/ShortComplex/ModuleCat.lean": "4fb81255d484976de4dda622b51b5b01d2265fb6",
+        "Mathlib/Algebra/Homology/Single.lean": "a3bfeb86550c5c45d87f030aecdf8ab60a723cac",
+        "Mathlib/Algebra/Homology/SingleHomology.lean": "822522705b7a0e9d64dead90a1b7d05906c47b6c",
+        "Mathlib/Algebra/Module/Defs.lean": "658209d4f26b59f63ef01b69125ce60e37906b51",
+        "Mathlib/Algebra/Module/Equiv/Basic.lean": "9c54387d3cbce50725b34efe18e010eee528c846",
+        "Mathlib/Algebra/Module/FinitePresentation.lean": "8ae31d2f88080cb67c0b331e2525441c1752172b",
+        "Mathlib/Algebra/Module/LinearMap/Defs.lean": "f17b667368926cdb52b767809edd102254cda83d",
+        "Mathlib/Algebra/Module/Projective.lean": "02c321ad3fb9135cff54a6eea621cce367ce0052",
+        "Mathlib/Algebra/Module/RingHom.lean": "d3622a79a910859c20a5d975797cea5d0e207d99",
+        "Mathlib/Algebra/Module/Submodule/Equiv.lean": "e51d1b639a1bfab884cfb44bd4c9c88040d4344d",
+        "Mathlib/Algebra/Module/Submodule/Range.lean": "80f52ef00ffa7d27c50bf38014b6400545827cff",
+        "Mathlib/Algebra/Module/Torsion/Free.lean": "15d082b9e385d917b477f436945ecaa370cb8c74",
+        "Mathlib/Algebra/Module/TransferInstance.lean": "b5ea58515e39ba091b6b4b9224a81e3eb50bbd8a",
+        "Mathlib/Algebra/Polynomial/AlgebraMap.lean": "ded5b12a9cab76a67e458f6dd48b68b9e4549ecd",
+        "Mathlib/Algebra/Polynomial/Basis.lean": "c0028424bcd3828c102fe813e329f673bfb9b3f5",
+        "Mathlib/Algebra/Polynomial/Bivariate.lean": "b7b6952f5e49eaa9c71f8efa4be56a0a5677cb44",
+        "Mathlib/Algebra/Polynomial/Degree/SmallDegree.lean": "bec6d12bb80526793c2a67612b385e0bd8a085d7",
+        "Mathlib/Algebra/Polynomial/Div.lean": "7c27999b35c585576885d167b838afa9aea9c9f5",
+        "Mathlib/Algebra/Polynomial/Eval/Defs.lean": "c42ff574f952192ec1f14d4e4c4091432ab0aec7",
+        "Mathlib/Algebra/Polynomial/Monic.lean": "facebe38cd161f5df111d1885d9039377494cd53",
+        "Mathlib/Algebra/Ring/Hom/Defs.lean": "86e2ff51531ddfe3424da0c71167b51defc9b5de",
+        "Mathlib/CategoryTheory/Abelian/Ext.lean": "a294b6680886fdb1c96ff29b56f8ae356201c89f",
+        "Mathlib/CategoryTheory/Abelian/Projective/Ext.lean": "25dc4129ee8309174c223dba0eb460912b3f1f99",
+        "Mathlib/CategoryTheory/Category/Preorder.lean": "c47ccd60dbca995639609972346ddb27c57cb20d",
+        "Mathlib/CategoryTheory/Functor/Basic.lean": "593211de97c93317e2cfbfa2534ee3b4681575f6",
+        "Mathlib/CategoryTheory/Iso.lean": "1d3e3cabd5c38fa072a3d9b7823b54bf206afd7b",
+        "Mathlib/CategoryTheory/Limits/Cones.lean": "323c621426ff20083e100559fad04f8941acc45f",
+        "Mathlib/CategoryTheory/Limits/HasLimits.lean": "05e795bd8dc5a9acefa063d2c5d48087528cb6f1",
+        "Mathlib/CategoryTheory/Limits/IsLimit.lean": "7cc8819f0c18e2ee09c5d25a6cedb8e213179910",
+        "Mathlib/CategoryTheory/Limits/Preserves/Limits.lean": "00e91245f5f20047ecfb41a228500320e3e21ed2",
+        "Mathlib/CategoryTheory/Limits/Shapes/ZeroObjects.lean": "5ffb598b92c1c8ba9a6ccc3de6259dd30c50fe0c",
+        "Mathlib/CategoryTheory/NatIso.lean": "739b42424b3571d4ee4415644a1b104936758a84",
+        "Mathlib/CategoryTheory/NatTrans.lean": "4fbc4a18a55d7cd90d79dd6cbc6eea1bb770e4e7",
+        "Mathlib/CategoryTheory/Preadditive/Projective/Resolution.lean": "42041701fed3489d0c14f65a035ec40249dcb5cf",
+        "Mathlib/CategoryTheory/Preadditive/Yoneda/Limits.lean": "942adcf90563938e52ae6895b5699b727cbba907",
+        "Mathlib/Data/FunLike/Basic.lean": "439add527b6cc1803ca63d03d4cc897b60692f4e",
+        "Mathlib/LinearAlgebra/Basis/Basic.lean": "0a4b3f8556ca2e41bde93bfbad9dbe0b385f8ead",
+        "Mathlib/LinearAlgebra/Basis/Defs.lean": "2c6447584898f4df5ae9df6479beba49291d0f45",
+        "Mathlib/LinearAlgebra/Basis/Prod.lean": "6c239cb1f8c41489a135909a63a3e4b71d311356",
+        "Mathlib/LinearAlgebra/BilinearMap.lean": "f1b9cc3397532e9f8518e525d879a9ae6b140aca",
+        "Mathlib/LinearAlgebra/Dual/Defs.lean": "734f471149bf7392b5cd68e6a3c010e326ed6663",
+        "Mathlib/LinearAlgebra/FreeModule/Basic.lean": "e91f04cde835056b8839f2bdc5a3f4668b58f5e2",
+        "Mathlib/LinearAlgebra/LeftExact.lean": "86066438f798002c57045706b2ff2deea01a722b",
+        "Mathlib/LinearAlgebra/Matrix/ToLin.lean": "e27ea745bb8ab9f7766890e55c6a48e85d89a370",
+        "Mathlib/LinearAlgebra/Pi.lean": "bb28df575bc416f6a7820f54d0bab7e056f2dba1",
+        "Mathlib/LinearAlgebra/Projection.lean": "7b2833f9f5a66cc8997e70174bbca0935269ce23",
+        "Mathlib/LinearAlgebra/Quotient/Basic.lean": "4a0da4567b8b41ad8120b46809c6270e0a00bf14",
+        "Mathlib/LinearAlgebra/Quotient/Defs.lean": "2c25d9a529dfd044d3bf88361d79a3e8de23fda3",
+        "Mathlib/LinearAlgebra/StdBasis.lean": "d9a4c320c4b1ed34111084a7ddc0ca0632961766",
+        "Mathlib/LinearAlgebra/TensorProduct/Associator.lean": "1996a90a925a2e635d236105a42eaf1e9fe6b5cb",
+        "Mathlib/LinearAlgebra/TensorProduct/Basic.lean": "8227c91e6c37dd509c47ca80aa2e8cb0896c4605",
+        "Mathlib/LinearAlgebra/TensorProduct/Defs.lean": "35ca03514c24a635f1f95b8303f07e61d35b8398",
+        "Mathlib/LinearAlgebra/TensorProduct/Map.lean": "10be2126b1596820ccf13960c4aafdead7f354ed",
+        "Mathlib/LinearAlgebra/TensorProduct/Pi.lean": "406b79e5182f6085e25cc4e9ee65f9a4480ef8a7",
+        "Mathlib/LinearAlgebra/TensorProduct/Quotient.lean": "b604a7a2363aa56e940b000aa93e382c9aaeb1b3",
+        "Mathlib/LinearAlgebra/TensorProduct/RightExactness.lean": "298b9922c1dc6fa352aa15aa41122ab038bf6dc0",
+        "Mathlib/LinearAlgebra/TensorProduct/Tower.lean": "5eade282e80768d37f4b74d1244ed83584c2943b",
+        "Mathlib/RingTheory/AdicCompletion/Algebra.lean": "3bcc672bd83bdf455bcf785a7c57df8a01a68f0b",
+        "Mathlib/RingTheory/AdicCompletion/AsTensorProduct.lean": "5c3185b279c744bb7adb3a7a818ea9719d887234",
+        "Mathlib/RingTheory/AdicCompletion/Basic.lean": "32df0034933fcd744a1f5a82f971da098f694c1d",
+        "Mathlib/RingTheory/AdicCompletion/Completeness.lean": "aaaca5e9a5fb4f675df822a02498732376c6b9b3",
+        "Mathlib/RingTheory/AdjoinRoot.lean": "1945b7728630a10baf56374f183be1bcfa3727f0",
+        "Mathlib/RingTheory/AlgebraTower.lean": "115298b1016d527450806833b24e6a0b8f4b9052",
+        "Mathlib/RingTheory/Finiteness/Basic.lean": "789c0beb4703fdd6f602c57e07e0d1956fae3806",
+        "Mathlib/RingTheory/Finiteness/Projective.lean": "fb6280828d31d67523c44ada54709186cd7fb146",
+        "Mathlib/RingTheory/Flat/Basic.lean": "b827fedf96ce35fa107badc6b41b7de0b8e14c66",
+        "Mathlib/RingTheory/Flat/Equalizer.lean": "25ac6637151c1f8b7b0ed2db1a07c3a89f45fa72",
+        "Mathlib/RingTheory/Flat/FaithfullyFlat/Basic.lean": "c2d6c3c609d283fe01bcddb47be836eca8230e50",
+        "Mathlib/RingTheory/Ideal/Maps.lean": "d3597ae968d410972c69f585a2d41b79585ccca4",
+        "Mathlib/RingTheory/Ideal/Operations.lean": "0ba0cd611cd01f2427ea2908a0257313d37a2f8e",
+        "Mathlib/RingTheory/Ideal/Quotient/Defs.lean": "352e9b336639a952b1a01a2bac77cdfdbe7e21d0",
+        "Mathlib/RingTheory/Ideal/Quotient/Operations.lean": "225f9102da25667f06fe021abc4fb895669d0880",
+        "Mathlib/RingTheory/Ideal/Quotient/PowTransition.lean": "a141a4e99f4ac0ecfa3d3b6aa5532185795e772c",
+        "Mathlib/RingTheory/Ideal/Span.lean": "ab0d0df7f1a1c29ec6eb9588a3cc0cf2efdfde2a",
+        "Mathlib/RingTheory/IsTensorProduct.lean": "3d0bc96617d2c716281fc104812a7f05489ffb47",
+        "Mathlib/RingTheory/Noetherian/Basic.lean": "5f62a5128556beb0c8aa4c480daca79fe99d0761",
+        "Mathlib/RingTheory/Polynomial/Ideal.lean": "b805ca6021912e8246f217f362a6821b90abe690",
+        "Mathlib/RingTheory/TensorProduct/Basic.lean": "dab1052775aa7636ebabff20c92d0215c569a6bb"
+      },
+      "corrections": [
+        {
+          "nodeId": "StableReductionPartII:MC.2/coefficient-inclusion-action",
+          "change": "Literal source header capitalization."
+        },
+        {
+          "nodeId": "StableReductionPartII:MC.2/section-evaluation-scalars",
+          "change": "Literal source header capitalization."
+        },
+        {
+          "nodeId": "StableReductionPartII:MC.2/section-evaluation-projection",
+          "change": "Literal source header capitalization."
+        },
+        {
+          "nodeId": "StableReductionPartII:MC.2/section-projection-formula",
+          "change": "Literal source header capitalization."
+        },
+        {
+          "nodeId": "StableReductionPartII:MC.2/section-projection-retraction",
+          "change": "Literal source header capitalization."
+        },
+        {
+          "nodeId": "StableReductionPartII:MC.2/section-projection-coefficients",
+          "change": "Literal source header capitalization."
+        },
+        {
+          "nodeId": "StableReductionPartII:MC.2/section-polynomial-monic",
+          "change": "Literal source header capitalization."
+        },
+        {
+          "nodeId": "StableReductionPartII:MC.2/section-polynomial-freeness",
+          "change": "Literal source header capitalization."
+        },
+        {
+          "nodeId": "StableReductionPartII:MC.2/section-polynomial-relation",
+          "change": "Literal source header capitalization."
+        },
+        {
+          "nodeId": "StableReductionPartII:MC.2/section-dual-divisibility",
+          "change": "Literal source header capitalization."
+        },
+        {
+          "nodeId": "StableReductionPartII:MC.2/section-dual-generator-formula",
+          "change": "Literal source header capitalization."
+        },
+        {
+          "nodeId": "StableReductionPartII:MC.2/section-dual-generator-values",
+          "change": "Literal source header capitalization."
+        },
+        {
+          "nodeId": "StableReductionPartII:MC.2/section-dual-correction-formula",
+          "change": "Literal source header capitalization."
+        },
+        {
+          "nodeId": "StableReductionPartII:MC.2/section-dual-correction-product",
+          "change": "Literal source header capitalization."
+        },
+        {
+          "nodeId": "StableReductionPartII:MC.2/polynomial-degree-two",
+          "change": "Literal source header capitalization."
+        },
+        {
+          "nodeId": "StableReductionPartII:MC.2/polynomial-coordinate-equivalence",
+          "change": "Literal source header capitalization."
+        },
+        {
+          "nodeId": "StableReductionPartII:MC.2/polynomial-coordinate-inverse",
+          "change": "Literal source header capitalization."
+        },
+        {
+          "nodeId": "StableReductionPartII:MC.2/polynomial-coordinate-reconstruction",
+          "change": "Literal source header capitalization."
+        },
+        {
+          "nodeId": "StableReductionPartII:MC.2/polynomial-coordinate-uniqueness",
+          "change": "Literal source header capitalization."
+        },
+        {
+          "nodeId": "StableReductionPartII:MC.2/polynomial-two-term-basis",
+          "change": "Literal source header capitalization."
+        },
+        {
+          "nodeId": "StableReductionPartII:MC.2/polynomial-two-term-basis-values",
+          "change": "Literal source header capitalization."
+        },
+        {
+          "nodeId": "StableReductionPartII:MC.2/polynomial-monomial-basis",
+          "change": "Literal source header capitalization."
+        },
+        {
+          "nodeId": "StableReductionPartII:MC.2/polynomial-monomial-basis-values",
+          "change": "Literal source header capitalization."
+        },
+        {
+          "nodeId": "StableReductionPartII:MC.2/polynomial-coordinate-coefficient-multiplication",
+          "change": "Literal source header capitalization."
+        },
+        {
+          "nodeId": "StableReductionPartII:MC.2/polynomial-coordinate-section-multiplication",
+          "change": "Literal source header capitalization."
+        },
+        {
+          "nodeId": "StableReductionPartII:MC.2/polynomial-coordinate-root-multiplication",
+          "change": "Literal source header capitalization."
+        },
+        {
+          "nodeId": "StableReductionPartII:MC.2/polynomial-coordinate-first-multiplication",
+          "change": "Literal source header capitalization."
+        },
+        {
+          "nodeId": "StableReductionPartII:MC.2/section-dual-value-commutation",
+          "change": "Literal source header capitalization."
+        },
+        {
+          "nodeId": "StableReductionPartII:MC.2/section-dual-value-section-relation",
+          "change": "Literal source header capitalization."
+        },
+        {
+          "nodeId": "StableReductionPartII:MC.2/polynomial-coordinate-dual-numerator",
+          "change": "Literal source header capitalization."
+        },
+        {
+          "nodeId": "StableReductionPartII:MC.2/section-dual-value-decomposition",
+          "change": "Literal source header capitalization."
+        },
+        {
+          "nodeId": "StableReductionPartII:MC.2/section-dual-normal-existence",
+          "change": "Literal source header capitalization."
+        },
+        {
+          "nodeId": "StableReductionPartII:MC.2/section-dual-coordinate-uniqueness",
+          "change": "Literal source header capitalization."
+        },
+        {
+          "nodeId": "StableReductionPartII:MC.2/section-dual-multiplication",
+          "change": "Literal source header capitalization."
+        },
+        {
+          "nodeId": "StableReductionPartII:MC.2/section-dual-generator-action",
+          "change": "Literal source header capitalization."
+        },
+        {
+          "nodeId": "StableReductionPartII:MC.2/section-ideal-coefficient-projective",
+          "change": "Literal source header capitalization."
+        },
+        {
+          "nodeId": "StableReductionPartII:MC.2/section-dual-coefficient-free",
+          "change": "Literal source header capitalization."
+        },
+        {
+          "nodeId": "StableReductionPartII:MC.2/section-projection-tensor-retraction",
+          "change": "Literal source header capitalization."
+        },
+        {
+          "nodeId": "StableReductionPartII:MC.2/section-ideal-tensor-injective",
+          "change": "Literal source header capitalization."
+        },
+        {
+          "nodeId": "StableReductionPartII:MC.2/section-dual-coefficient-hom-equivalence",
+          "change": "Replace absent source quotation with actual Proposition 3.1 phrase; retain authored-deduction boundary."
+        },
+        {
+          "nodeId": "StableReductionPartII:MC.2/section-ideal-coefficient-hom-equivalence",
+          "change": "Replace absent source quotation with actual Proposition 3.1 phrase; retain authored-deduction boundary."
+        },
+        {
+          "nodeId": "StableReductionPartII:MC.2/section-dual-quotient-tensor-equivalence",
+          "change": "Replace left-unit prerequisite by the correctly oriented A′-linear heterobasic right unit."
+        },
+        {
+          "nodeId": "StableReductionPartII:MC.2/section-dual-coefficient-hom-injective",
+          "change": "Use C_J θ_D P_D = −U(p)U(Ψ), rather than the opposite C_D θ_J P_J presentation formula."
+        },
+        {
+          "nodeId": "StableReductionPartII:MC.2/section-dual-coefficient-hom-injective",
+          "change": "Expose actual rotation equivalence and native tensor equivalence used for cancellation."
+        },
+        {
+          "nodeId": "StableReductionPartII:MC.2/section-ideal-coefficient-hom-injective",
+          "change": "Expose actual rotation equivalence and native tensor equivalence used for cancellation."
+        },
+        {
+          "nodeId": "StableReductionPartII:MC.2/section-ideal-coefficient-map",
+          "change": "Use protocol non-example test kind for the noninjective coefficient restriction."
+        },
+        {
+          "nodeId": "StableReductionPartII:MC.2/section-ideal-tensor-cokernel",
+          "change": "Use nonflat Z/3 coefficients and require inequality with the positive second ideal generator."
+        },
+        {
+          "nodeId": "StableReductionPartII:MC.2/section-dual-tensor-cokernel",
+          "change": "Use nonflat Z/3 coefficients and require inequality with the positive second dual generator."
+        },
+        {
+          "nodeId": "StableReductionPartII:MC.2/section-ring-tensor-equivalence",
+          "change": "Add actual identity/composition and, for the quotient, residue-characterized uniqueness APIs; express all five signatures in Lean."
+        },
+        {
+          "nodeId": "StableReductionPartII:MC.2/section-dual-quotient-tensor-equivalence",
+          "change": "Add actual identity/composition and, for the quotient, residue-characterized uniqueness APIs; express all five signatures in Lean."
+        },
+        {
+          "nodeId": "StableReductionPartII:MC.2/section-bidual-coefficient-hom-equivalence",
+          "field": "sources.ile.excerpt",
+          "before": "canonical maps",
+          "after": "exchange map"
+        },
+        {
+          "nodeId": "StableReductionPartII:MC.2/section-bidual-coefficient-hom-evaluation",
+          "field": "sources.ile.excerpt",
+          "before": "canonical maps",
+          "after": "exchange map"
+        },
+        {
+          "nodeId": "StableReductionPartII:MC.2/section-ideal-absolute-derived-ext-vanishing",
+          "field": "sources.ile.excerpt",
+          "before": "canonical maps",
+          "after": "exchange map"
+        },
+        {
+          "nodeId": "StableReductionPartII:MC.2/section-dual-absolute-derived-ext-vanishing",
+          "field": "sources.ile.excerpt",
+          "before": "canonical maps",
+          "after": "exchange map"
+        },
+        {
+          "nodeId": "StableReductionPartII:MC.2/section-ideal-absolute-localization-ext-vanishing",
+          "field": "sources.ile.excerpt",
+          "before": "canonical maps",
+          "after": "exchange map"
+        },
+        {
+          "nodeId": "StableReductionPartII:MC.2/section-dual-absolute-localization-ext-vanishing",
+          "field": "sources.ile.excerpt",
+          "before": "canonical maps",
+          "after": "exchange map"
+        },
+        {
+          "nodeId": "StableReductionPartII:MC.2/finite-residue-algebra",
+          "field": "tests.NodeSectionFactorization.PolynomialModel.completionResidueAlgebra.test_unit.kind",
+          "before": "example",
+          "after": "computation"
+        },
+        {
+          "nodeId": "StableReductionPartII:MC.2/finite-residue-algebra",
+          "field": "tests.NodeSectionFactorization.PolynomialModel.completionResidueAlgebra.test_zero.kind",
+          "before": "example",
+          "after": "degenerate"
+        },
+        {
+          "nodeId": "StableReductionPartII:MC.2/finite-chart-algebra",
+          "field": "tests.NodeSectionFactorization.PolynomialModel.completionFiniteChartAlgebra.test_zero.kind",
+          "before": "example",
+          "after": "degenerate"
+        },
+        {
+          "nodeId": "StableReductionPartII:MC.2/finite-hom-equivalence",
+          "field": "tests.NodeSectionFactorization.PolynomialModel.completionFiniteHomEquiv.test_zero.kind",
+          "before": "example",
+          "after": "degenerate"
+        },
+        {
+          "nodeId": "StableReductionPartII:MC.2/ordinary-completed-tensor-limit-equivalence",
+          "field": "tests.NodeSectionFactorization.PolynomialModel.completionOrdinaryTensorLimitEquiv.test_rank_one.kind",
+          "before": "value",
+          "after": "computation"
+        },
+        {
+          "nodeId": "StableReductionPartII:MC.2/finite-tensor-diagram-complete",
+          "field": "prerequisites",
+          "before": "implicit ModuleCat.restrictScalars",
+          "after": "mathlib:ModuleCat.restrictScalars"
+        },
+        {
+          "nodeId": "StableReductionPartII:MC.2/completion-finite-free-coordinates-single",
+          "field": "prerequisites",
+          "before": "implicit TensorProduct.piScalarRight_symm_single",
+          "after": "mathlib:TensorProduct.piScalarRight_symm_single"
+        },
+        {
+          "nodeId": "StableReductionPartII:MC.2/retract-completion-is-limit-self",
+          "field": "prerequisites",
+          "before": "implicit CategoryTheory.Limits.IsLimit.hom_ext",
+          "after": "mathlib:CategoryTheory.Limits.IsLimit.hom_ext"
+        },
+        {
+          "nodeId": "StableReductionPartII:MC.2/projective-completion-is-limit-self",
+          "field": "prerequisites",
+          "before": "implicit CategoryTheory.Limits.IsLimit.hom_ext",
+          "after": "mathlib:CategoryTheory.Limits.IsLimit.hom_ext"
+        },
+        {
+          "nodeId": "StableReductionPartII:MC.2/retract-completion-free-cone-zero",
+          "field": "prerequisites",
+          "before": "implicit LinearMap.lTensor_zero",
+          "after": "mathlib:LinearMap.lTensor_zero"
+        },
+        {
+          "nodeId": "StableReductionPartII:MC.2/hom-completion-separation",
+          "field": "prerequisites",
+          "before": "implicit Module.Finite.exists_comp_eq_id_of_projective",
+          "after": "mathlib:Module.Finite.exists_comp_eq_id_of_projective"
+        },
+        {
+          "nodeId": "StableReductionPartII:MC.2/section-dual-tensor-equivalence",
+          "field": "suggested Lean node marker",
+          "before": "marker above newly inserted ring API",
+          "after": "marker immediately above dualTensorEquiv"
+        }
+      ],
+      "report": "research/blueprint/reviews/REV-DESIGN-StableReductionPartII.md",
+      "note": "Fresh bounded source/hypothesis/local-proof/API/test review of all 425 consecutive MC.2 algebra nodes from section-evaluation-coefficient-naturality through hom-completion-hom-equivalence-right, inclusive. Full pinned statements and surrounding binders read for 231 fresh baseline entries: 215 direct references in this scope plus 16 additional entries, including 5 inventory-only entries with no current direct node use. Other additional entries were checked at their polynomial-core consumers. Combined receipts now cover all 528 nodes locally and all 268 baseline entries with selected-use or inventory-only statement reads; no claim that all consumers, transitive suppliers or global closure are certified. No final top-level review. Geometry-source collation, sourceIssues E1–E13 as a whole, requests/gaps/remaining lists, reserved-key and planet checks and full packet/prototype matching remain unfinished.",
+      "baselineInventoryOnlyChecked": [
+        "mathlib:CategoryTheory.preservesLimits_preadditiveCoyonedaObj",
+        "mathlib:Ideal.one_eq_top",
+        "mathlib:ModuleCat.monoidalClosedHomEquiv",
+        "mathlib:Submodule.prodEquivOfIsCompl",
+        "mathlib:TensorProduct.lid"
+      ],
+      "sourceIssueChecks": [
+        {
+          "id": "StableReductionPartII/E11",
+          "verdict": "confirmed",
+          "scope": "Fresh v3 p.5 text and rendered formula; same integral counterexample. Publisher collation and novelty not checked; not whole-list sourceIssue acceptance."
+        }
+      ]
     }
   ]
 }
