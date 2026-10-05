@@ -4,7 +4,7 @@ The atlas's workers read papers and books line by line to extract and plan their
 
 Collected by `scripts/errata.py` from the paper extractions and blueprint packets (research/blueprint/PROTOCOL.md, section 18); the data is in `data/source-issues.json`.
 
-7083 new mistakes confirmed · 1549 awaiting review · 1426 already corrected in print · 110 rejected on review · 20 extractions and packets not yet checked.
+7083 new mistakes confirmed · 1550 awaiting review · 1426 already corrected in print · 110 rejected on review · 20 extractions and packets not yet checked.
 
 ## New mistakes, confirmed
 
@@ -12463,6 +12463,10 @@ Both feed Theorem 6.1 and Theorem 7.1, hence the main theorem for every odd b �
 ### Zhiwei Yun and Wei Zhang, Shtukas and the Taylor expansion of L-functions (II), Annals of Mathematics 189 (2019), 393–526, published author-hosted copy (`FunctionFieldArithmeticPartII`)
 
 - **Gap** at Version of record, p. 525, A.3.3 display (A.11); unchanged in arXiv:1712.08026v2 p. 89. (it affects the proof). The source says `exact sequence of Picard stacks: (A.11)`; it should be `Specify the coherent exactness notion and construct the torsor connecting/descent data from the two short exact sheaf sequences; do not identify the ordinary kernel of 1−σ on Picard classes with the image of pullback.`. For ν:P¹→P¹, t↦t² in odd characteristic, σ*O(1)≅O(1), but every pulled-back line bundle has even degree. Thus plain kernel/image exactness is false. Passing from a four-term exact sheaf complex to Picard groupoids does not by itself prove a chosen two-categorical replacement. Root-normalized trivializations and connecting maps must be retained. This tests an interpretation, and does not assert that every possible intended coherent exactness statement is false. Recorded as `FunctionFieldArithmeticPartII/E8`; looked for an existing correction in: 2026-10-02: Annals article page https://annals.math.princeton.edu/2019/189-2/p02 has no linked erratum; publisher PDF p. 525 inspected.; 2026-10-02: arXiv listing https://arxiv.org/abs/1712.08026 lists v2 (13 June 2020); its p. 89 retains the same display and one-sentence implication.; 2026-10-02: Wei Zhang publication page https://math.mit.edu/~wz2113/math/pub.html and searches for an Appendix A/Picard exactness correction found no correction..
+
+### Dan Abramovich, Tom Graber and Angelo Vistoli, Gromov–Witten theory of Deligne–Mumford stacks, arXiv:math/0603151v2, 13 April 2008; Appendix B (`FunctionFieldArithmeticPartII`)
+
+- **Misprint** at arXiv:math/0603151v2, Appendix B.2, p.53, item (3) in the triple definition; preprint only.. The source says `φ(τ^m) = σ`; it should be `φ(τ^d) = σ`. The same definition has φ:M^{⊗d}≅L_T and d is the root exponent. No exponent m is bound there; the displayed m makes the expression ill-typed. The rendered p.53 confirms m rather than a text-extraction artifact. The packet already uses the correct exponent. Recorded as `FunctionFieldArithmeticPartII/E12`; looked for an existing correction in: 2026-10-05: arXiv version list https://arxiv.org/abs/math/0603151 has v2 as its latest version; the inspected v2 retains m.; 2026-10-05: exact-title erratum search and Abramovich public paper directory https://www.math.brown.edu/dabramov/PAPERS/ did not identify a correction.; 2026-10-05: attempted Project Euclid journal page for DOI 10.1353/ajm.0.0017 was not served by the browser tool. No published-version collation or assertion about the version of record is made..
 
 ### Francesc Castella; Ming-Lun Hsieh, Heegner cycles and p-adic L-functions, Mathematische Annalen 370 (2018), 567--628, DOI 10.1007/s00208-017-1517-3; journal-typeset PDF on Castella's page, inspected 2026-09-26 (`GeneralizedHeegnerCycles`)
 
