@@ -29,6 +29,8 @@ Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174;
 Tau Ceti f790474821cf4256814db967cb154e7af3d0c369. Full file not compiled.
 The earlier Mathlib-only intrinsic-band extraction and the current compatible-
 family category/pullback/fixture fragment elaborate with planning admissions.
+The codex-X10mph local-conjugation, band-lift and prescribed-band inverse
+fragment, including native S3 examples, also elaborates with admissions.
 Their separate validation boundaries are recorded in the review and handoff.
 The final omission ledger names every interface requiring an unavailable
 supplier. No desired theorem is encoded as an unspecified Prop-valued field.
@@ -3215,6 +3217,14 @@ noncomputable def localBandCoefficient (b : AbelianBanding F J A) {U : C} (R : S
     Presieve.FamilyOfElements (A.obj ⋙ forget AddCommGrpCat.{max u v u' v'}) R.arrows := by
   sorry
 
+/-- The local coefficient is the inverse of the displayed, prescribed band map. -/
+lemma localBandCoefficient_apply {U V : C} (R : Sieve U)
+    (objects : ∀ ⦃W : C⦄ (f : W ⟶ U), R f → F.obj (.mk (op W)))
+    (z : IntrinsicBandSection F U) (f : V ⟶ U) (hf : R f) :
+    localBandCoefficient F J A b R objects z f hf =
+      ((b.autEquiv V (objects f hf)).symm (eval F f (objects f hf) z)).toAdd := by
+  sorry
+
 lemma localBandCoefficient_recovery {U V : C} (R : Sieve U)
     (objects : ∀ ⦃W : C⦄ (f : W ⟶ U), R f → F.obj (.mk (op W)))
     (z : IntrinsicBandSection F U) (f : V ⟶ U) (hf : R f) :
@@ -3431,6 +3441,27 @@ example (e : A ≅ S)
     e = fromBandingSheafIso F J A b S hS := by sorry
 
 end TauCeti.AlgebraicGeometry.IntrinsicBandSections
+
+/-! Native counterexamples for the categorical conjugation hypothesis. -/
+namespace TauCeti.AlgebraicGeometry.GerbeConjugationReviewTests
+local notation "s3Point" => SingleObj.star (Equiv.Perm (Fin 3))
+
+-- GerbeConjugationTests.S3_value: the actual conjugate is a different transposition.
+example :
+    (Aut.autMulEquivOfIso
+      (asIso (C := SingleObj (Equiv.Perm (Fin 3))) (X := s3Point) (Y := s3Point) (Equiv.swap (0 : Fin 3) 1 : s3Point ⟶ s3Point))
+      (asIso (C := SingleObj (Equiv.Perm (Fin 3))) (X := s3Point) (Y := s3Point) (Equiv.swap (1 : Fin 3) 2 : s3Point ⟶ s3Point))).hom =
+        (Equiv.swap (0 : Fin 3) 2 : s3Point ⟶ s3Point) := by
+  sorry
+
+-- GerbeConjugationTests.S3_distinct: commutativity cannot be removed.
+example :
+    Aut.autMulEquivOfIso (Iso.refl s3Point) ≠
+      Aut.autMulEquivOfIso
+        (asIso (C := SingleObj (Equiv.Perm (Fin 3))) (X := s3Point) (Y := s3Point) (Equiv.swap (0 : Fin 3) 1 : s3Point ⟶ s3Point)) := by
+  sorry
+
+end TauCeti.AlgebraicGeometry.GerbeConjugationReviewTests
 
 /-! Constant point-site intrinsic-band fixtures. Native carrier aliases only; all new mathematical bodies are admissions under PROTOCOL section 13. -/
 
