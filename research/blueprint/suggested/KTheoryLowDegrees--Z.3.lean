@@ -78,15 +78,17 @@ import TauCeti.RingTheory.MvPolynomial.Symmetric.Substitution
 # Suggested Lean forms for `KTheoryLowDegrees--Z.3` (stages Z.3, Z.4, Z.5, Z.6)
 
 This file is not the roadmap and is not exhaustive. The roadmap document
-`research/blueprint/readmes/KTheoryLowDegrees--Z.3.md` still needs regeneration from the reviewed packet,
-as recorded in `research/blueprint/reviews/REV-KTheoryLowDegrees--Z.3.md`. The statements below suggest
+`research/blueprint/readmes/KTheoryLowDegrees--Z.3.md` carries all 260 reviewed nodes and the
+corrections recorded in `research/blueprint/reviews/REV-KTheoryLowDegrees--Z.3.md`. The statements below suggest
 Lean forms so that contributors and reviewers converge on names and signatures; they claim no
 implementation, and `implementationStatus` stays `"unchecked"` for every node.
 
 Pinned commits: Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti
 `f790474821cf4256814db967cb154e7af3d0c369`.
 
-Elaboration was not run: no existing build matches both pinned commits. The independent review records the source checks and remaining integration work.
+Elaboration was not run: no existing build matches both pinned commits. The independent review
+and round-2 handoff record the source checks and remaining integration work. The 31 explicit
+node-level omission contracts remain: one partial and 30 omitted.
 The signatures and proof placeholders are planning material, not completed formalization.
 
 ## Pinned conventions
@@ -103,6 +105,9 @@ The signatures and proof placeholders are planning material, not completed forma
 * **`det : K₀(R) → Pic(R)` is an additive-to-multiplicative group map**,
   `TauCeti.RingK0.detHom : K0 R →+ Additive (CommRing.Pic R)`, **never a ring map**; the ring map is
   `rank ⊕ det` into the square-zero extension `RankPic R`.
+  The top exterior formula applies to an actual projective of constant rank, not to an arbitrary
+  virtual class of that rank: `[L] - [R]` has rank zero and determinant `Pic.mk R L`, while its
+  zeroth lambda operation is the unit. The formula distinguishes the Picard class from its K₀ class.
 * **The rank lives in `LocallyConstant (PrimeSpectrum R) ℤ`** (`H⁰(Spec R, ℤ)`), never an integer on
   a disconnected spectrum; `rankℤ` exists only under `ConnectedSpace (PrimeSpectrum R)`.
 * **`S` is a finite set of finite places** (height-one primes of `𝓞_F`) and **`O_{F,S}` is
@@ -255,6 +260,26 @@ theorem compPoly_esymm (k l n : ℕ) (hn : k * l ≤ n) :
       esymmOfProducts n k l := by
   sorry
 
+/-- API `TauCeti.LambdaRing.compPoly_unique`: the defining identity determines `P_{k,l}`. -/
+theorem compPoly_unique (k l n : ℕ) (hk : 0 < k) (hl : 0 < l) (hn : k * l ≤ n)
+    (Q : MvPolynomial (Fin (k * l)) ℤ)
+    (hQ : aeval (fun i : Fin (k * l) => esymm (Fin n) ℤ (i + 1)) Q =
+      esymmOfProducts n k l) : Q = compPoly k l := by
+  sorry
+
+/-- API `TauCeti.LambdaRing.newtonPoly_esymm`: the power-sum identity, stable in `n ≥ k`. -/
+theorem newtonPoly_esymm (k n : ℕ) (hk : 0 < k) (hn : k ≤ n) :
+    aeval (fun i : Fin k => esymm (Fin n) ℤ (i + 1)) (newtonPoly k) =
+      psum (Fin n) ℤ k := by
+  sorry
+
+/-- API `TauCeti.LambdaRing.newtonPoly_unique`: algebraic independence gives uniqueness. -/
+theorem newtonPoly_unique (k n : ℕ) (hk : 0 < k) (hn : k ≤ n)
+    (Q : MvPolynomial (Fin k) ℤ)
+    (hQ : aeval (fun i : Fin k => esymm (Fin n) ℤ (i + 1)) Q = psum (Fin n) ℤ k) :
+    Q = newtonPoly k := by
+  sorry
+
 /-- Uniqueness of `P_k` (algebraic independence of `e₁, …, e_k`,
 `MvPolynomial.esymmAlgHom_fin_injective`): a polynomial with the defining identity for some
 `n, m ≥ k` is `P_k`. -/
@@ -309,7 +334,7 @@ example (k l : ℕ) (hk : 0 < k) (hl : 0 < l) :
 example : productPoly 2 ≠ X (Sum.inl 1) * X (Sum.inr 1) + X (Sum.inl 0) * X (Sum.inr 0) := by
   sorry
 
--- The Newton polynomials in low degree (acceptance of the node): `N₂ = a₁² − 2a₂`.
+-- test TauCeti.LambdaRing.newtonPoly_two_test (computation): `N₂ = a₁² − 2a₂`.
 example : newtonPoly 2 = X 0 ^ 2 - 2 * X 1 := by
   sorry
 
@@ -408,6 +433,18 @@ theorem IsLineElement.lambdaTotal [PreLambdaRing K] {ℓ : K} (h : IsLineElement
       1 + PowerSeries.C ℓ * PowerSeries.X := by
   sorry
 
+/-- API `TauCeti.LambdaRing.lambdaTotal_of_isLineElement`: the weak line predicate determines
+the total series; it does not assert that the element is a unit. -/
+theorem lambdaTotal_of_isLineElement [PreLambdaRing K] {ℓ : K} (h : IsLineElement ℓ) :
+    ((Additive.toMul (lambdaTotal ℓ) : (PowerSeries K)ˣ) : PowerSeries K) =
+      1 + PowerSeries.C ℓ * PowerSeries.X :=
+  h.lambdaTotal
+
+/-- API `TauCeti.LambdaRing.isLineElement_zero`: zero satisfies the weak line predicate. -/
+@[simp] theorem isLineElement_zero [PreLambdaRing K] : IsLineElement (0 : K) := by
+  intro n hn
+  exact lambda_of_zero n (by omega)
+
 end LambdaRing
 
 namespace PreLambdaRing
@@ -439,6 +476,12 @@ structure Hom (K L : Type*) [CommRing K] [PreLambdaRing K] [CommRing L] [PreLamb
   map_lambda' : ∀ n x, toRingHom (lambda n x) = lambda n (toRingHom x)
 
 namespace Hom
+
+/-- API `TauCeti.PreLambdaRing.Hom.ext`: equality of the underlying ring maps determines a
+pre-λ-homomorphism, since its additional field is a proposition. -/
+@[ext] theorem ext {K L : Type*} [CommRing K] [PreLambdaRing K] [CommRing L]
+    [PreLambdaRing L] {f g : Hom K L} (h : f.toRingHom = g.toRingHom) : f = g := by
+  sorry
 
 /-- The identity pre-λ-homomorphism. -/
 def id (K : Type*) [CommRing K] [PreLambdaRing K] : Hom K K :=
@@ -480,6 +523,15 @@ noncomputable instance quotient [PreLambdaRing K] (I : Ideal K) [IsLambdaIdeal I
 /-- The projection `K → K ⧸ I` is a pre-λ-homomorphism. -/
 theorem quotient_mk_lambda [PreLambdaRing K] (I : Ideal K) [IsLambdaIdeal I] (n : ℕ) (x : K) :
     Ideal.Quotient.mk I (lambda n x) = lambda n (Ideal.Quotient.mk I x) := by
+  sorry
+
+/-- API `TauCeti.LambdaRing.quotient_unique`: surjectivity of the projection determines the
+induced pre-λ-structure, with the commutative-ring structure fixed. -/
+theorem quotient_unique [PreLambdaRing K] (I : Ideal K) [IsLambdaIdeal I]
+    (s : PreLambdaRing (K ⧸ I))
+    (hs : ∀ (n : ℕ) (x : K),
+      @PreLambdaRing.lambda (K ⧸ I) _ s n (Ideal.Quotient.mk I x) =
+        Ideal.Quotient.mk I (lambda n x)) : s = quotient I := by
   sorry
 
 /-- `KTheoryLowDegrees:Z.3/lambda-nat-cast`: if `1` is a line element (`λ_t(1) = 1 + t`), then
@@ -3783,6 +3835,17 @@ variable {R : Type u} [CommRing R] {L N : Type u} [AddCommGroup L] [Module R L]
 def indexIdeal (f : L →ₗ[R] N) : Ideal R :=
   LinearMap.range (TensorProduct.lift ((LinearMap.lcomp R R f).flip.flip))
 
+/-- API `Module.Invertible.mem_indexIdeal`: membership in the evaluation-image ideal. -/
+theorem mem_indexIdeal (f : L →ₗ[R] N) (r : R) :
+    r ∈ indexIdeal f ↔ ∃ t : Module.Dual R N ⊗[R] L,
+      TensorProduct.lift ((LinearMap.lcomp R R f).flip.flip) t = r := by
+  sorry
+
+/-- API `Module.Invertible.indexIdeal_tmul`: every elementary evaluation belongs to the image. -/
+theorem indexIdeal_tmul (f : L →ₗ[R] N) (φ : Module.Dual R N) (l : L) :
+    φ (f l) ∈ indexIdeal f := by
+  sorry
+
 /-- `KTheoryLowDegrees:Z.4/invertible-injection-class`: the Picard class formula for an
 injective map between invertible modules over a domain. Its image ideal carries the invertibility
 structure supplied by index-ideal-evaluation; the other index-ideal facts are separate nodes. -/
@@ -3815,8 +3878,11 @@ theorem indexIdeal_free (f : L →ₗ[R] N) (l : L) (n : N) (a : R)
 /-- API of `KTheoryLowDegrees:Z.4/index-ideal`. -/
 @[simp] theorem indexIdeal_zero : indexIdeal (0 : L →ₗ[R] N) = ⊥ := by sorry
 
+-- test Module.Invertible.indexIdeal_id_test (example)
 example : indexIdeal (LinearMap.id : ℤ →ₗ[ℤ] ℤ) = ⊤ := by sorry
+-- test Module.Invertible.indexIdeal_six_test (computation)
 example : indexIdeal ((6 : ℤ) • (LinearMap.id : ℤ →ₗ[ℤ] ℤ)) = Ideal.span {6} := by sorry
+-- test Module.Invertible.indexIdeal_zero_test (degenerate)
 example : indexIdeal (0 : ℤ →ₗ[ℤ] ℤ) = ⊥ := by sorry
 
 end Module.Invertible
@@ -6776,6 +6842,7 @@ Reason: Missing enhanced graded-Picard/spectrum/support carrier and coherent sup
 Target: For a prime 𝔭 of a commutative ring R, finite projective N, and a linear f:L→N, the ideal generated by 𝔠(f) in R_𝔭 equals the evaluation image ideal 𝔠(f_𝔭).
 Required prerequisites: KTheoryLowDegrees:Z.4/index-ideal, KTheoryLowDegrees:Z.3/projective-dual-base-change, mathlib:Ideal.map_span
 Reason: The localised evaluation-image comparison requires the specified tensor/dual/range transports; no surrogate equality of unrelated carriers is supplied.
+API Module.Invertible.indexIdeal_localisation [compatibility]: Transport the ideal generated by 𝔠(f) along R→R_𝔭 to the evaluation image 𝔠(f_𝔭), using finite projective N and its dual-base-change isomorphism.
 -/
 
 /- OMISSION KTheoryLowDegrees:Z.5/curve-ample-line-bundle [omitted]
@@ -6800,24 +6867,41 @@ Reason: Only the ideal inclusion monomorphism and cokernel carrier are native; t
 /-! Independent-review tests of the separated abstract λ contracts. -/
 namespace TauCeti.LambdaRing
 open TauCeti.PreLambdaRing
+-- Additional generic identity check; the packet's concrete id_test follows.
 example (K : Type*) [CommRing K] [PreLambdaRing K] (n : ℕ) (x : K) :
     (Hom.id K).toRingHom (lambda n x) = lambda n ((Hom.id K).toRingHom x) := rfl
+-- test TauCeti.PreLambdaRing.Hom.id_test (compatibility)
+example : (Hom.id ℤ).toRingHom (lambda 2 (3 : ℤ)) = 3 := by sorry
+-- test TauCeti.PreLambdaRing.Hom.comp_test (degenerate, zero rings included)
 example (K : Type*) [CommRing K] [PreLambdaRing K] : Hom.comp (Hom.id K) (Hom.id K) = Hom.id K := by sorry
+-- test TauCeti.PreLambdaRing.Hom.different_structures_test (non-example)
 example : ¬ ∃ f : @Hom ℤ ℤ _ (ofBinomialRing ℤ) _ cubicPreLambda,
     f.toRingHom = RingHom.id ℤ := by sorry
+-- test TauCeti.LambdaRing.lambdaIdeal_bot_test (degenerate)
 example (K : Type*) [CommRing K] [PreLambdaRing K] : IsLambdaIdeal (⊥ : Ideal K) := by sorry
+-- test TauCeti.LambdaRing.lambdaIdeal_top_test (degenerate)
 example (K : Type*) [CommRing K] [PreLambdaRing K] : IsLambdaIdeal (⊤ : Ideal K) := by sorry
+-- test TauCeti.LambdaRing.lambdaIdeal_two_test (non-example)
 example : ¬ IsLambdaIdeal (Ideal.span {(2 : ℤ)}) := by sorry
+-- test TauCeti.LambdaRing.quotient_bot_test (compatibility)
 example (K : Type*) [CommRing K] [PreLambdaRing K] (n : ℕ) (x : K) :
     letI : IsLambdaIdeal (⊥ : Ideal K) := by sorry
     lambda n (Ideal.Quotient.mk (⊥ : Ideal K) x) = Ideal.Quotient.mk (⊥ : Ideal K) (lambda n x) := by sorry
+-- test TauCeti.LambdaRing.quotient_top_test (degenerate)
 example (K : Type*) [CommRing K] [PreLambdaRing K] : Subsingleton (K ⧸ (⊤ : Ideal K)) := by sorry
+-- test TauCeti.LambdaRing.quotient_two_not_test (non-example)
 example : Ideal.Quotient.mk (Ideal.span {(2 : ℤ)}) (lambda 2 (2 : ℤ)) ≠
     Ideal.Quotient.mk (Ideal.span {(2 : ℤ)}) (lambda 2 (0 : ℤ)) := by sorry
+-- test TauCeti.LambdaRing.lineElement_zero_test (degenerate)
 example (K : Type*) [CommRing K] [PreLambdaRing K] : IsLineElement (0 : K) := by sorry
+-- test TauCeti.LambdaRing.lineElement_one_test (example)
 example : IsLineElement (1 : ℤ) := by sorry
+-- test TauCeti.LambdaRing.lineElement_two_test (non-example)
 example : ¬ IsLineElement (2 : ℤ) := by sorry
+-- test TauCeti.LambdaRing.compPoly_rank_four_test (compatibility)
 example : MvPolynomial.aeval (fun i : Fin 4 => (![4,6,4,1] : Fin 4 → ℤ) i) (compPoly 2 2) = 15 := by sorry
+-- test TauCeti.LambdaRing.newtonPoly_one_test (degenerate)
 example : newtonPoly 1 = MvPolynomial.X 0 := by sorry
+-- test TauCeti.LambdaRing.newtonPoly_three_test (computation)
 example : newtonPoly 3 = MvPolynomial.X 0 ^ 3 - 3 * MvPolynomial.X 0 * MvPolynomial.X 1 + 3 * MvPolynomial.X 2 := by sorry
 end TauCeti.LambdaRing
