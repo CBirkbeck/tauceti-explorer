@@ -59875,7 +59875,8 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-HyperbolicCurveVolumesAndGonality.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1697"
   },
   {
    "id": "REV-DESIGN-HyperbolicCurveVolumesAndGonality",
