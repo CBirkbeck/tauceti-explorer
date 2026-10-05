@@ -1,3 +1,131 @@
+# Review continuation: codex-weV8Bp
+
+Codex — codex-weV8Bp, 2026-10-05. Refs #346. Input commit `db18a825efd9434f4bed2896d2050b4b0ab03fcf`; branch `codex-weV8Bp-review-346`. [Claim comment](https://github.com/CBirkbeck/tauceti-explorer/issues/346#issuecomment-5997304645) was confirmed by [the bot](https://github.com/CBirkbeck/tauceti-explorer/issues/346#issuecomment-5997308251). The whole issue was read before claiming and after confirmation. This session did none of the planning under review.
+
+**Unfinished independent review checkpoint; no overall verdict.** The packet has no top-level review object. Its complete planning-pass status is retained, with four partial and four not_read stages. The partial reserved gerbe contract, sixteen gaps, twenty-two requests, source-finding verdicts and unchecked implementation statuses remain open as received. Earlier report sections are historical evidence, not fresh certifications by this session.
+
+## Changes saved
+
+Nine existing nodes change, at incoming zero-based indices **189, 197, 199, 212, 213, 218, 219, 222, 223**. No nodes, API entries, planets or source findings are added or removed. Four native baseline citations and two fixture tests are added.
+
+1. **Discrete-fibre inputs (189, 197).** Cite the existing Discrete carrier/category and its exact eq_of_hom theorem. The cross-component obstruction now derives false = true from the first component of a proposed isomorphism hom. Remove the unrelated constant-functor, Cat and groupoid citations from that obstruction; no new discrete category or groupoid is planned.
+2. **Point-stack closure (199, 222).** Explicitly list the native DescentData carrier, ofObj, toDescentData and hom_ext, plus the existing IsStackFor interface. The canonical descent functor's actual full-faithfulness and essential-surjectivity witnesses produce IsStackFor before IsStack.of_isStackFor is invoked. Its self-transition field supplies the identity equation, even for an empty fibre category. This exposes the existing argument's inputs without introducing another descent theory.
+3. **Cross-object naturality (213).** Replace the claimed first-factor identity arrow between arbitrary labels with the actual Codiscrete comparison isomorphism hom. The group factor is the identity element. An identity morphism at the first label has the wrong target when the two labels differ. Add the native comparison and extensionality citations. The centre-equivalence statement and its actual chosen member i are retained.
+4. **Named equality/convention inputs (212, 218, 219).** Supply the existing product-morphism extensionality lemma where the proof names it. Explicitly cite SingleObj.comp_as_mul and the native Aut definition for the automorphism construction: categorical composition reverses group multiplication, and Aut multiplication reverses isomorphism composition back. No commutativity assumption is introduced for G.
+5. **Nonemptiness counterexamples (213, 223).** Add ConnectedEquivTests.emptyFibreCollapse: for an empty label type and G=C3, the distinct central coefficients 1 and 0 in additive notation define the same categorical-centre unit. Thus the centre equivalence requires an actual label. Add ConnectedBandTests.emptyFibreNotGerbe: the empty connected-fibre diagram on the point site is a stack and fails local nonemptiness, hence is not a gerbe. Both are actual native suggested examples with admitted bodies, and both type-check in the fresh fragment.
+
+All **660 ids, 255 incoming baseline objects, 72 source objects, 14 source findings and their verdicts, 16 gaps, 22 requests, 8 coverage rows and 10 planets** survive. Baseline count becomes **259**. Raw API/tests become **611/591**, from 611/589; normalized API/tests are **603/557**, from 603/556. The checker counts tests on definitions/constructions, so the new theorem-node test is retained in the raw total but not its normalized total. Nothing is promoted or declared implemented.
+
+## Fresh reading and bounded conclusions
+
+Read the binding worker, blueprint, expansion and upstream guidance; the issue; the previous review handoff/current report section; and the complete upstream JacobianChallenge and ReductiveGroups reader documents. Read the R09.4 library-coverage audit with its AUDIT-01 review metadata. The audit supplies the native generic stack carrier, while generic stackification belongs to D0 and representable diagonals/atlases to SF.1. These fixture nodes import the built categories and descent carrier, and neither build the missing generic stackification nor claim a geometric band comparison. No whole-atlas duplication screen or full audit of the other seven stages is claimed.
+
+Read all fields of nodes **185–239**, inclusive: **55 full node objects**. Repeated hypothesis/source/library fields were compared against the two fixture-family roots; there were no differences. Read direct earlier supplier objects **0, 109, 110, 112, 115, 138** as context, and inspected the native section subgroup, restriction, evaluation and gerbe signatures. These contextual reads do not recertify all earlier source locators, geometric tests or recursive supplier chains.
+
+| Incoming indices | Scope and bounded conclusion |
+| --- | --- |
+| 185–188, 201–203 | Constant-diagram sections are exactly full categorical-centre units, recovered at the identity slice arrow. Arbitrary base categories are allowed: every slice object maps to that identity object. No terminal base object, topology or gerbe condition is used. |
+| 189–194, 204–210 | Discrete-component centres are profiles I→G for commutative G, including empty I. The two composed native equivalences retain full units and all slice arrows. The stated API projections and inverses agree with the suggested signatures. |
+| 195–198 | A chosen member of a subsingleton I gives bijective evaluation. Two discrete components and a nonidentity group element give a nontrivial kernel at one component. The bottom topology's covering-sieve criterion turns failure of a cross-component isomorphism into failure of the gerbe condition. |
+| 199–200 | Native point-stack proof uses the one-object/one-arrow cover indexing; the connected PUnit fixture additionally satisfies the groupoid, local-existence and local-isomorphism requirements. The native self-transition equation is needed in the descent-object comparison. |
+| 211–216, 224–226, 229–235 | For Codiscrete(I)×SingleObj(G), a chosen label identifies centre units and compatible sections with Z(G), for arbitrary G. Naturality along comparison arrows forces equality at distinct labels. Empty I is a genuine obstruction to coefficient recovery; the added test prevents omitting the chosen member. |
+| 217–220, 227, 236–237 | Evaluation is injective and has image exactly Z(G), hence is onto precisely when Z(G)=G. The native Aut multiplication makes the actual automorphism for gh equal the product in the stated order. |
+| 221–223, 228, 238–239 | Comparison isomorphisms retain distinct object labels. The generic point-stack statement allows an empty category, while the point-gerbe assertion requires an actual i. The added empty-fibre test separates these assertions. |
+
+All definition/construction nodes in this bounded section have their API and at least three tests, and the names occur in the compiled fragment at the matching signatures/examples. This is a bounded statement/signature check, not a full per-node acceptance verdict or a proof of admitted tests. The combined historical reading frontier is now **232 distinct nodes: 0–65, 67, 75–239**. The remaining **428** are **66, 68–74, 240–659**. All 660 still need reconciled final dispositions and recursive source/closure/baseline checks before an overall verdict.
+
+Read the complete mathematical content of [Stacks Definition 8.11.1, 06NZ](https://stacks.math.columbia.edu/tag/06NZ), [Lemma 8.11.8, 0CJY](https://stacks.math.columbia.edu/tag/0CJY), and [Definition 8.4.1, 026F](https://stacks.math.columbia.edu/tag/026F). The fixture-family source excerpts match the gerbe definition literally. The complete 0CJY printed proof retains its abelian-inertia assumption and explicitly omits varying-base compatibility. These centre/profile/point-stack/finite-fixture computations are labelled authored deductions in the packet; they are not extra results asserted to be printed in Stacks. No new mistake in these source texts is alleged, and the fourteen inherited source findings were not replayed.
+
+Fresh downloads on 2026-10-05 have SHA256: 06NZ `b60742528d35ea2612a54bc8d95096fb2e97a39e4cba59034918834e5f414535`; 0CJY `41dd0c0a1e20dfe2fd60212274a30f259ae0875225b1540b069adf3f89f27a9e`; 026F `0024923a8e370df81c72261a9765c15c3e1d3bbb8b59a46ab41605f2f2ae60a0`. These match the relevant inherited source bytes.
+
+Independently checked the finite fixture consequences by enumerating every profile, pair of object labels and group-valued arrow, imposing the native-order naturality equation a(j)g=g a(i). Discrete fibres use only i=j; codiscrete fibres use all i,j. Inverses in these groupoids are uniquely determined. C3 gives 3 sections with one component, 9 with two discrete components, 3 with two codiscrete labels, and 1 with no labels. S3 was enumerated as all six permutations of three letters under function composition: its centre has one element and does not contain (0 1). Projection at one disconnected component loses information; a connected C3 generator is recovered at both labels. The empty tuple is identical for distinct C3 coefficients. These exhaustive finite checks support the test values, without claiming a proof of the native Lean statements or an algebraic-geometric fixture.
+
+## Baseline statements read
+
+Freshly read **29 existing catalogue statements**, including ambient binders, and the **4 new citations** below at Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`. Each module was compared byte-for-byte to the pinned git object. No Tau Ceti declaration is newly certified. The other incoming catalogue entries and the broader recursive baseline leaves are not recertified by this continuation.
+
+| Declaration | Module |
+| --- | --- |
+| `mathlib:CategoryTheory.CatCenter` | Mathlib/CategoryTheory/Center/Basic.lean |
+| `mathlib:CategoryTheory.CatCenter.ext` | Mathlib/CategoryTheory/Center/Basic.lean |
+| `mathlib:CategoryTheory.CatCenter.naturality` | Mathlib/CategoryTheory/Center/Basic.lean |
+| `mathlib:CategoryTheory.Pseudofunctor.DescentData.isoMk` | Mathlib/CategoryTheory/Sites/Descent/DescentData.lean |
+| `mathlib:CategoryTheory.eqToIso` | Mathlib/CategoryTheory/EqToHom.lean |
+| `mathlib:CategoryTheory.Functor.FullyFaithful` | Mathlib/CategoryTheory/Functor/FullyFaithful.lean |
+| `mathlib:CategoryTheory.Cat.of` | Mathlib/CategoryTheory/Category/Cat.lean |
+| `mathlib:CategoryTheory.Functor.EssSurj` | Mathlib/CategoryTheory/EssentialImage.lean |
+| `mathlib:CategoryTheory.Functor.IsEquivalence` | Mathlib/CategoryTheory/Equivalence.lean |
+| `mathlib:CategoryTheory.Functor.const` | Mathlib/CategoryTheory/Functor/Const.lean |
+| `mathlib:CategoryTheory.Functor.toPseudofunctor'` | Mathlib/CategoryTheory/Bicategory/Functor/LocallyDiscrete.lean |
+| `mathlib:CategoryTheory.GrothendieckTopology.bot_covering` | Mathlib/CategoryTheory/Sites/Grothendieck.lean |
+| `mathlib:CategoryTheory.Prod.hom_ext` | Mathlib/CategoryTheory/Products/Basic.lean |
+| `mathlib:CategoryTheory.Pseudofunctor.IsStack.of_isStackFor` | Mathlib/CategoryTheory/Sites/Descent/IsStack.lean |
+| `mathlib:CategoryTheory.SingleObj.category` | Mathlib/CategoryTheory/SingleObj.lean |
+| `mathlib:CategoryTheory.SingleObj.comp_as_mul` | Mathlib/CategoryTheory/SingleObj.lean |
+| `mathlib:CategoryTheory.SingleObj.groupoid` | Mathlib/CategoryTheory/SingleObj.lean |
+| `mathlib:CategoryTheory.isIso_prod_iff` | Mathlib/CategoryTheory/Products/Basic.lean |
+| `mathlib:CategoryTheory.Codiscrete` | Mathlib/CategoryTheory/CodiscreteCategory.lean |
+| `mathlib:CategoryTheory.Codiscrete.iso` | Mathlib/CategoryTheory/CodiscreteCategory.lean |
+| `mathlib:CategoryTheory.Codiscrete.eq_iso_hom` | Mathlib/CategoryTheory/CodiscreteCategory.lean |
+| `mathlib:CategoryTheory.Iso.prod` | Mathlib/CategoryTheory/Products/Basic.lean |
+| `mathlib:Subgroup.center` | Mathlib/GroupTheory/Subgroup/Center.lean |
+| `mathlib:Subgroup.mem_center_iff` | Mathlib/GroupTheory/Subgroup/Center.lean |
+| `mathlib:CategoryTheory.Pseudofunctor.DescentData` | Mathlib/CategoryTheory/Sites/Descent/DescentData.lean |
+| `mathlib:CategoryTheory.Pseudofunctor.DescentData.ofObj` | Mathlib/CategoryTheory/Sites/Descent/DescentData.lean |
+| `mathlib:CategoryTheory.Pseudofunctor.toDescentData` | Mathlib/CategoryTheory/Sites/Descent/DescentData.lean |
+| `mathlib:CategoryTheory.Pseudofunctor.DescentData.hom_ext` | Mathlib/CategoryTheory/Sites/Descent/DescentData.lean |
+| `mathlib:CategoryTheory.Aut` | Mathlib/CategoryTheory/Endomorphism.lean |
+| `mathlib:CategoryTheory.Discrete` | Mathlib/CategoryTheory/Discrete/Basic.lean |
+| `mathlib:CategoryTheory.discreteCategory` | Mathlib/CategoryTheory/Discrete/Basic.lean |
+| `mathlib:CategoryTheory.Discrete.eq_of_hom` | Mathlib/CategoryTheory/Discrete/Basic.lean |
+| `mathlib:CategoryTheory.Pseudofunctor.IsStackFor` | Mathlib/CategoryTheory/Sites/Descent/DescentData.lean |
+
+Module SHA256 receipts:
+
+| Module | SHA256 |
+| --- | --- |
+| Mathlib/CategoryTheory/Bicategory/Functor/LocallyDiscrete.lean | `412205e7e04b7980e29d4825d0c13a48d5c40f1c79b3fb009bfb76d0306ada1a` |
+| Mathlib/CategoryTheory/Category/Cat.lean | `9e0a731c46c8986adc4395a43e7cf14616db47ca16882b1f868bc85934beaa72` |
+| Mathlib/CategoryTheory/Center/Basic.lean | `a94d5510ede4d946248e08dd97bbfee277f0f873b4175a9f0bf4a7881f76cc3f` |
+| Mathlib/CategoryTheory/CodiscreteCategory.lean | `fef5dccd077b2b07121f612f3693036ff018fbee5708df139bed94aed02efc85` |
+| Mathlib/CategoryTheory/Discrete/Basic.lean | `991b2b47f290004ad22760c7bc244b2258b68e4befd4f03a8f19dfab14b9e8b8` |
+| Mathlib/CategoryTheory/Endomorphism.lean | `7c9eb33bb74caeacb6efe3bab7f7e57ad77c07b42489ba91952eebf866fcca4f` |
+| Mathlib/CategoryTheory/EqToHom.lean | `2626e21deb49f8106302bd9396a3c5d08fc65318e9f13575d479eb4162544a3b` |
+| Mathlib/CategoryTheory/Equivalence.lean | `7cdcf9ca9aa50982c7471a2f4124e667f164fd68dfc6bdad08272c6565a457ea` |
+| Mathlib/CategoryTheory/EssentialImage.lean | `a72ca2e0427028cf8ab5256b008727458aa002d52b8ca0d962eb4ef808b81691` |
+| Mathlib/CategoryTheory/Functor/Const.lean | `e4f0f3a1ec0ba21d7bc7149c8cf8e0907ada124ef1e01ad49bff52f414df6123` |
+| Mathlib/CategoryTheory/Functor/FullyFaithful.lean | `94c995fd165ad4c7a422bca4b64d422deb2207bc490967487bb20b16b2d3315e` |
+| Mathlib/CategoryTheory/Products/Basic.lean | `7d04b57043d610daef8c683e752fe6750a5e5fa868a4ed92ea2e8bedb7a6c6e4` |
+| Mathlib/CategoryTheory/SingleObj.lean | `6aca3a01c2a4beddfb1c80f82695834762e1ca0b30fe33ab0bb78d43aa24da03` |
+| Mathlib/CategoryTheory/Sites/Descent/DescentData.lean | `2292153f538142a8c3879094fed08f38a619a6dd13af91ab1c2f29448fb5e13e` |
+| Mathlib/CategoryTheory/Sites/Descent/IsStack.lean | `389633d8611b769455a07fdb1d0b591848dfba27ba09f12274dd391d086d2a10` |
+| Mathlib/CategoryTheory/Sites/Grothendieck.lean | `7cfa1dbe1bc7ac44fabb7cef395478d7978e72e5282fa67310bf7248ff1d611d` |
+| Mathlib/GroupTheory/Subgroup/Center.lean | `4f4ca009b6f8cbfc42a2c5503dba3859670abd5d43e1e8257273b4057f5bee93` |
+
+The discrete category has equality witnesses as morphisms; codiscrete labels remain distinct despite unique comparison arrows. SingleObj composition is g times f. The centre is End(identity), Aut multiplication is reverse Iso.trans, and product morphism equality checks both factors. IsStackFor requires equivalence of the actual descent functor; DescentData supplies its self-transition identity. The new inputs are baseline imports, never duplicate planned definitions.
+
+## Validation and exact compilation boundary
+
+Packet checker at the declaration index: **zero errors, zero warnings**. Source-finding schema/version checks: **zero errors**. The intake's file/private-path check, unchanged-history/preservation checks and whitespace check pass. The actual issues.deliverables_complete classifier remains false: this review is a checkpoint.
+
+The freshly checked **807-line Mathlib-only fragment** contains the actual basic gerbe signatures, native section subgroup/restriction/evaluation interfaces, both complete fixture namespaces and the two added counterexamples. It elaborates with **127 warnings, all declaration-uses-sorry warnings; zero errors and no other warnings**. Its SHA256 is `20a15736a57987f19ba11fae7e411e6fc53480653e94092924d95f3ff65510e4`; the final full suggested-file SHA256 is `95f25747754c6d854d24f2dc78956dcd66ccceac3fd3007f9e08b3acd34a0df3`. This checks admitted signatures and examples at the exact Mathlib pin, not proofs or full-file elaboration.
+
+Exact reconstruction: retain distinct individual Mathlib imports before the full file's first CategoryTheory/Opposite/Bicategory open, in original order, omitting the Tau Ceti import. Retain that open and its six outer universe declarations. Take the first outer AlgebraicGeometry namespace through immediately before the neutralization declaration comment, then close the namespace. Take the intrinsic-band continuation's outer namespace through immediately before the comment introducing local central families that commute with native descent transitions, then close IntrinsicBandSections and its outer namespace. Append the complete constant point-site fixture block through the end of ConnectedBandFixtures, including the new tests. Join these blocks with one blank line; all mathematical bodies come from the committed suggested file. The authorized suggested path was used temporarily, its full bytes held in process memory, and restored in a finally clause. The full-file restoration was verified byte-for-byte.
+
+The **full file did not compile**: lean-check stopped at the missing object file for TauCeti.CategoryTheory.Sites.SheafCohomology.LongExactSequence. Available memory before the checks was **96 GiB**. Shared Mathlib has the exact pin, while shared Tau Ceti HEAD is `cf386627e9176a3827c1a5fe804989fd94a4d216`, not `f790474821cf4256814db967cb154e7af3d0c369`. No exact-Tau-pin or full-file compilation is claimed. Only lean-check was used to invoke Lean; no builds, updates, caches, language servers or background Lean processes were started or left running.
+
+## Resume and orchestrator questions
+
+Recheck these nine edits and the two empty-fibre examples, then resume **240–659**, alongside the unresolved earlier indices **66, 68–74**. Reconcile the earlier central-section, root-gerbe, conjugation and fixed-band inverse corrections when producing final checked dispositions. The reserved gerbe sample API, coherent-duality ownership, independent coefficient universes, geometric nonconstant/nonneutral fixtures, H² quotient/sign/two-inverse identities, SF.1 descended-band comparison and affine/profinite supplier scope remain for review. Honest partial planning is not a rejection reason; the absence of a reconciled full review is the reason no overall verdict is supplied here.
+
+The reader is not an authorized deliverable of this review. A separately authorized orchestrator edit must synchronize the fixture proof inputs, the corrected cross-object comparison passage and the two empty-fibre tests with the reader. The shared exact Tau Ceti build/module is needed for full-file elaboration; this run does not build one.
+
+The report and handoff contain the continuation evidence; scratch is disposable and removed after submission. This session submits one checkpoint and takes no second job.
+
+---
+
+# Historical checkpoints before codex-weV8Bp
+
 # Review continuation: codex-X10mph
 
 Codex — codex-X10mph, 2026-10-05. Refs #346. Input commit `6417f4eae40e972d6bb80ea2b3e5e6a4be553524`; branch `codex-X10mph-review-346`. [Claim comment](https://github.com/CBirkbeck/tauceti-explorer/issues/346#issuecomment-5996545879) was confirmed by [the bot](https://github.com/CBirkbeck/tauceti-explorer/issues/346#issuecomment-5996549584). The whole issue was read before claiming and again after confirmation. This session did none of the input planning.
