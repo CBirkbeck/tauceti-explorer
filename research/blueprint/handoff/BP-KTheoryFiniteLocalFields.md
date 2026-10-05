@@ -1,6 +1,173 @@
 # Handoff: BP-KTheoryFiniteLocalFields (issue #763)
 
-## Current checkpoint — Codex — codex-7e92bd, 26 September 2026
+## Current checkpoint — Codex — codex-nlUyak, 5 October 2026
+
+Claim [5997778824](https://github.com/CBirkbeck/tauceti-explorer/issues/763#issuecomment-5997778824)
+was confirmed by bot [5997782125](https://github.com/CBirkbeck/tauceti-explorer/issues/763#issuecomment-5997782125).
+The whole issue was reread after confirmation. Branch:
+`codex-nlUyak-k-theory-finite-local`. Only the four named deliverables are changed.
+This is a **partial checkpoint**, not a complete plan or an implementation.
+No second job was claimed. No supplier, campaign, decomposition or atlas file was edited.
+
+### What changed
+
+Seven new L.5 nodes decompose the published Nikolaus–Scholze IV.4 prime-field
+calculation: the hidden p-adic filtration extension; TC^-; TP and the canonical
+map; the opposite divisibility range of cyclotomic Frobenius; the finite C_p-Tate
+connective cover; the cyclotomic-shift model with simultaneous generator
+normalizations; and the TC fibre-sequence application to the characteristic-p
+algebras used by L.5/L.6. The existing perfect-field TC theorem gains an
+independent prime-field check. General fixed/Tate/shift/adjunction constructions
+are requested from RT.2, and derived Hochschild/cotangent inputs from RT.1 with
+RT.2’s low-degree THH comparison. No new generic cyclotomic object is defined.
+
+The maps and indices are explicit: TC^- has
+`Z_p[ũ,v]/(ũv-p)`, degrees 2 and -2; TP has `Z_p[v±1]`;
+`can(ũ)=pv^-1`, `can(v)=v`, `φ(ũ)=v^-1`, `φ(v)=pv` in the
+simultaneous shift-model normalization. The finite C_p-Tate target instead has
+`F_p[v±1]`. Genuine C_(p^n) fixed points correspond to HM TR^(n+1).
+The calculations include p=2. This does not extend the p-odd HM log-Witt/DVR
+comparison to p=2. The three HZ_p algebra maps in NS Remark IV.4.17 are not identified.
+
+Confirmed ownership finding RT-AREA-ktheory-1/39 is handled by moving the five
+generic L.5 records log-witt-complex, log-witt-complex-derived-relations,
+log-de-rham-witt-complex, log-de-rham-witt-level-one and
+standard-filtration-quotient into the CR.4 request’s `importedSpecifications`.
+Their exact definitions, 15 API names, nine tests, hypotheses, proof sketches,
+uses and source references survive there. Their former IDs are superseded
+provenance, not live nodes. Every local consumer now imports CR.4; the Freyd
+existence/level-one source gap remains open as a supplier boundary. CR.4 is
+requested to own universal log-Witt theory on CR.5:log-algebra; CR.6 owns its
+Hyodo–Kato comparison. L.5 retains the ramified-DVR calculations and the HM
+homotopy-orbit algebra used for its TR comparison. The full prelog complex is
+kept distinct from the dlog-generated subgroup W_nΩ^r_log. The proposed
+CR.5:log-algebra→L.5 edge is recorded without modifying the atlas or supplier.
+
+For RT-AREA-ktheory-1/37: the Green node now imports the exact upstream
+InductionRestriction Layer6 virtual-character/Brauer characterization, and its
+atlas edge is proposed. Green’s specialized proof remains unread. The existing
+RT.4:topological request now specifies the finite-group Atiyah–Segal completion
+contract and KU^1(BG)=0. The Quillen equivalence uses the existing exact
+StableHomotopyKTheory:H.3/plus-construction-universal-property supplier node;
+its unread proof remains a requested supplier obligation. The unsupported
+alternative using a simply-connected Whitehead theorem for nontrivial π_1
+has been removed.
+
+RT-AREA-ktheory-2/33 remains an import: the L.4 comparison node is explicitly
+an application of RT.2’s general genuine/modern theorem, with HM index,
+completion and local bounded-below hypotheses checked. Its connectivity
+lemma’s torsion-to-torsion-free π_0 argument is now restricted to mixed
+characteristic; general DVR connectivity uses only the cofibre sequence.
+RT-AREA-ktheory-2/21 needs no duplicate finite-field K_3 proof: the current
+K3BlochGroups V.5 nodes already import L.1’s calculation and transfer.
+
+Reader concordance also restored the missing
+L.6/equal-characteristic-unique-p-divisibility section and replaced the
+stale duplicated integral-structure section from the unchanged packet. The
+L.3/L.6 overview counts are corrected. The preceding Milnor uncountability
+proof and every inherited source finding are preserved.
+
+### Sources and baseline: fresh reads versus inherited evidence
+
+The seven reviewed AUDIT-29 layer entries, campaign document, incident atlas
+edges and relevant supplier records were read. JacobianChallenge and
+GrothendieckEulerForms were read as the two nearby upstream models. The
+InductionRestriction Layer6 text was read directly. No full new audit of the
+96 inherited baseline declarations is claimed. Spot reads at the pins covered
+PadicInt, ZMod, WittVector.frobenius and TauCeti.SplitK0.finrankEquiv. The
+baseline object is byte-for-byte equal as JSON data to the inherited one.
+
+All fresh source URLs, exact SHA-256 hashes and sections read are in packet
+`sources`/`sourceVersions` and the reader’s “Sources read for this continuation”.
+The source PDFs and extracted text were scratch only and are not needed to resume:
+
+- Published NS Acta221(2018) IV.4 was read in full, printed pp.355–365, including
+  the proofs. It has its own source ID `NikolausScholze.2018.published`; the
+  inherited arXiv source ID/hash/II.4 locators were not overwritten.
+- HM local-fields §3.2, pp.47–51 was reread. The fresh arXiv bytes have a
+  different hash from the inherited PDF; both versions remain documented.
+- Calmès et al. III v4 §3.1.1–3.1.10 was read for the newly routed targets,
+  including Proposition3.1.4 and Remark3.1.10. The Annals version was not read.
+- Abdurrahman–Venkatesh v1 §2.7, pp.16–17, both lemma proofs were read. The
+  Inventiones version was not read. Existing finding
+  PAPER-ABDURRAHMAN-VENKATESH-25/E3, about H_2(SL_2(F_9),Z)=Z/3, is a
+  constraint on the pending proof, not a new published erratum claim.
+- Atiyah–Segal1969 scanned pp.1,3,4,10 were inspected, including Theorem2.1 and
+  Proposition4.2. Intervening proof pages still need reading by the supplier.
+- Green1955’s AMS PDF returned403; no proof read is claimed.
+
+Known NS capitalization typo PAPER-NIKOLAUS-SCHOLZE-18/E11 is normalized to
+lowercase v. The two imported paper findings are cross-referenced by
+`sourceIssueImports`, not duplicated among this packet’s 39 source findings.
+The preceding continuation audit is retained in `continuationHistory`.
+
+### Checks and limits
+
+The packet has **254 nodes**, **209 local definition/construction API items**,
+**117 local definition/construction tests**, **42 planets** (six per stage),
+**96 baseline declarations**, **30 gaps** and **31 supplier requests**. All
+seven coverage records remain partial. Of 252 inherited node IDs, 247 remain
+live, 235 node records are unchanged, and five are migrated supplier
+specifications. All 39 source-finding records are unchanged.
+
+- `python3 scripts/check_blueprint.py research/blueprint/packets/KTheoryFiniteLocalFields.json`:
+  zero errors and warnings against the existing pinned declaration index.
+- `python3 research/blueprint/intake.py check-files` on the four deliverables:
+  zero problems. JSON syntax and `git diff --check` pass.
+- Focused concordance audit: every live node has exactly one reader heading
+  and its exact statement; all coverage remaining lists agree; all new Lean
+  specifications and acceptance checks agree; all new literal NS excerpts
+  occur in the downloaded PDF text. No live prerequisite/neededBy reference
+  points to a superseded ID. Superseded references survive only in the
+  explicitly preserved historical supplier specification.
+- Focused dependency audit: for all 15 nodes with new/rewired prerequisites,
+  no supplier path returns to that consumer, using integrated and blueprint
+  node prerequisites and atlas-stage requires. The checker also verifies the
+  packet’s internal graph. This is not a claim that the whole atlas was
+  independently re-audited.
+- Suggested Lean executable declarations are unchanged after stripping nested
+  block and line comments. The added specifications require absent spectrum
+  carriers and are honestly comments. No fake Prop-valued stand-ins were added.
+- `lean-check research/blueprint/suggested/KTheoryFiniteLocalFields.lean`
+  was attempted with 96GB available. It stopped at line1 before elaboration:
+  the pinned shared build lacks
+  `TauCeti/CategoryTheory/GrothendieckGroup/Abelian.olean`.
+  **This version was not compiled.** No build, update, cache command or language
+  server was run. The prior successful compilation is historical evidence for
+  the prior file only. No compiler was left running.
+
+### Where the next worker resumes
+
+Start with the two new routed-source gaps, not a new generic carrier:
+
+1. Identify the design owner for general hermitian K/GW/L theory. Read its
+   exact carriers, cartesian K/GW/L/Tate square, localization and shift
+   conventions. Decompose Calmès III Theorem3.1.3, Proposition3.1.4,
+   Remarks3.1.5–3.1.6 and the mixed-(0,2) local-ring comparison Remark3.1.10
+   into L.1/L.6 applications. The even-q full-spectrum result is for every
+   integer shift m; it is not merely a connective or rational equivalence.
+2. Read the published Abdurrahman–Venkatesh §2.7 and corrected rank/exception
+   hypotheses. Plan finite-rank H_3(Sp_(2r)(F_q),Z/2)→H_3(SL_(2r)(F_q),Z/2)
+   and c_et:H_3(Sp_(2r)(F_q),Z)/2→F_q^×/2, with odd q. Split stabilization,
+   universal-cover Hurewicz and the K_3/2 étale class. The SL_2(F_9) H_2
+   exception has odd order, which suffices for the mod2 UCT; never import a
+   blanket integral H_2=0 claim.
+3. Obtain the precise RT.1/RT.2 and CR.4/CR.5 exports listed in the requests.
+   Read Green’s proof and Atiyah–Segal’s full proof before closing their gaps.
+4. Continue the inherited missing proof sources: Quillen1972 §11 and ℓ=2
+   cohomology comparison, Gabber rigidity, Merkurjev’s K_2 torsion,
+   Lindenstrauss–Madsen/continuity inputs, and the distinct integral
+   divisible-component gaps. Every stage’s exact remaining list is in the
+   packet and reader. Do not reopen the supplied Milnor uncountability proof.
+
+The checkpoint is well below the node budget because those new scope chains
+cannot yet be maintained at declaration-level depth. It must not be relabelled
+complete solely because schema checks pass. Source hashes, scope constraints,
+supplier contracts and exact resume points above survive scratch deletion.
+
+---
+
+## Historical checkpoint — Codex — codex-7e92bd, 26 September 2026
 
 Claim comment 5849861034 was confirmed by bot comment 5849862048. The whole issue
 was reread afterward. Initial snapshot:

@@ -12,7 +12,7 @@
     "KTheoryFiniteLocalFields:L.6",
     "KTheoryFiniteLocalFields:L.7"
   ],
-  "summary": "The blueprint of the K-theory of finite and local fields, stages L.1–L.7, planned from Weibel's K-book (IV.1, IV.2, IV.5, VI.1, VI.2, VI.7, III.6), Weibel's Handbook chapter I.5 (§5.6), and Hesselholt–Madsen's \"On the K-theory of local fields\", with Haine's and Mestel's expositions of Quillen's argument, Clausen–Mathew–Morrow, Geisser–Hesselholt and Nikolaus–Scholze where they fill steps. L.1 builds K-theory with finite coefficients and the Bott element, Brauer lifting and Quillen's space FΨ^q, and proves Quillen's theorem BGL(𝔽_q)^+ ≃ FΨ^q with K_{2j}(𝔽_q) = 0 and K_{2j−1}(𝔽_q) ≅ ℤ/(q^j − 1), Galois descent and the transfer formulas without a chosen generator; it also defines completed K-theory. L.2 states Gabber's rigidity, builds the localisation sequence of a henselian DVR with a fixed sign, and derives the prime-to-p K-theory of local fields and rings of integers, with the Bockstein and divisibility arguments and the uniformiser dependence marked. L.3 builds the norm-residue map K₂(E) → μ(E) from K2SymbolsBrauer T.7's symbols and proves Moore's theorem, in characteristic p and characteristic zero separately, with K₂ of the ring of integers. L.4 specialises RefinedTraceMethods' trace theories to Hesselholt–Madsen's TR/TC conventions and proves the localisation square; L.5 builds the de Rham–Witt complex with log poles and the TR/TC calculations for perfect fields, truncated polynomial rings and complete DVRs (p odd). L.6 obtains the p-adic K-groups of local fields, their divisible and finite parts and the comparison maps with kernels and cokernels, and the equal-characteristic case; L.7 proves the compatibility of completion at a finite place with restriction, transfer, boundaries, Hilbert symbols, étale Chern classes and cyclotomic traces. All seven stages are partial: 29 gaps record the steps whose proof has not yet been supplied (Quillen's cohomology computation, Gabber's rigidity, Merkurjev's theorem and others). Nothing is formalised; implementationStatus is unchecked throughout. Continuation: the tame Hilbert-symbol source gap is resolved with Sharifi's general formula; three local comparison lemmas and five discriminating tests are added, while upstream implementation edges and all other gaps remain explicit. This continuation supplies an independent five-step residue-and-transfer proof that every positive-degree Milnor K-group of a finite-field Laurent-series field is uncountable, closing that L.6 proof gap while preserving the separate divisibility and trace-theory gaps.",
+  "summary": "The blueprint of the K-theory of finite and local fields, stages L.1–L.7, planned from Weibel's K-book (IV.1, IV.2, IV.5, VI.1, VI.2, VI.7, III.6), Weibel's Handbook chapter I.5 (§5.6), and Hesselholt–Madsen's \"On the K-theory of local fields\", with Haine's and Mestel's expositions of Quillen's argument, Clausen–Mathew–Morrow, Geisser–Hesselholt and Nikolaus–Scholze where they fill steps. L.1 builds K-theory with finite coefficients and the Bott element, Brauer lifting and Quillen's space FΨ^q, and proves Quillen's theorem BGL(𝔽_q)^+ ≃ FΨ^q with K_{2j}(𝔽_q) = 0 and K_{2j−1}(𝔽_q) ≅ ℤ/(q^j − 1), Galois descent and the transfer formulas without a chosen generator; it also defines completed K-theory. L.2 states Gabber's rigidity, builds the localisation sequence of a henselian DVR with a fixed sign, and derives the prime-to-p K-theory of local fields and rings of integers, with the Bockstein and divisibility arguments and the uniformiser dependence marked. L.3 builds the norm-residue map K₂(E) → μ(E) from K2SymbolsBrauer T.7's symbols and proves Moore's theorem, in characteristic p and characteristic zero separately, with K₂ of the ring of integers. L.4 specialises RefinedTraceMethods' trace theories to Hesselholt–Madsen's TR/TC conventions and proves the localisation square; L.5 imports the universal log de Rham–Witt complex from CrystallineCohomology and builds its DVR comparisons and the TR/TC calculations for perfect fields, truncated polynomial rings and complete DVRs (p odd). L.6 obtains the p-adic K-groups of local fields, their divisible and finite parts and the comparison maps with kernels and cokernels, and the equal-characteristic case; L.7 proves the compatibility of completion at a finite place with restriction, transfer, boundaries, Hilbert symbols, étale Chern classes and cyclotomic traces. All seven stages are partial: 30 gaps record the steps whose proof has not yet been supplied (Quillen's cohomology computation, Gabber's rigidity, Merkurjev's theorem and others). Nothing is formalised; implementationStatus is unchecked throughout. Continuation: the tame Hilbert-symbol source gap is resolved with Sharifi's general formula; three local comparison lemmas and five discriminating tests are added, while upstream implementation edges and all other gaps remain explicit. This continuation supplies an independent five-step residue-and-transfer proof that every positive-degree Milnor K-group of a finite-field Laurent-series field is uncountable, closing that L.6 proof gap while preserving the separate divisibility and trace-theory gaps. Current checkpoint: seven NS IV.4 calculation nodes; five general log-Witt nodes moved to a preserved supplier specification; Brauer/Atiyah–Segal/H-space imports made exact. The newly routed hermitian and finite-rank symplectic targets remain named scope gaps.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -958,6 +958,50 @@
         "§9.3, Definition 9.3.2, Proposition 9.3.4 and Theorem 9.3.8 with proofs (pp. 195–198); the tame formula and opposite variable order checked in PDF and HTML",
         "§6.3, Lemma 6.3.3 and Proposition 6.3.4; §6.4, Lemma 6.4.1 and Definition 6.4.4 (pp. 130, 133); source limitations recorded, not silently assumed"
       ]
+    },
+    {
+      "id": "NikolausScholze.2018.published",
+      "title": "On topological cyclic homology",
+      "authors": "Thomas Nikolaus and Peter Scholze",
+      "edition": "Acta Mathematica 221 (2018), 203–409, published PDF",
+      "url": "https://www.intlpress.com/site/pub/files/_fulltext/journals/acta/2018/0221/0002/ACTA-2018-0221-0002-a001.pdf",
+      "sha256": "8b1856fa8faefa3efebd64580249aa6fbc0c918f69820bba01410ab0ef1eb8ef",
+      "readSections": [
+        "IV.4 in full, printed pp.355–365: propositions, constructions and proofs; earlier II.4 statements are inherited reads, not a fresh full proof audit."
+      ]
+    },
+    {
+      "id": "CalmesEtAl.2026.v4",
+      "title": "Hermitian K-theory for stable ∞-categories III: Grothendieck–Witt groups of rings",
+      "authors": "Baptiste Calmès, Emanuele Dotto, Yonatan Harpaz, Fabian Hebestreit, Markus Land, Kristian Moi, Denis Nardin, Thomas Nikolaus and Wolfgang Steimle",
+      "edition": "arXiv:2009.07225v4; routed version of record Annals of Mathematics 204 (2026), paper 02 was not read",
+      "url": "https://arxiv.org/pdf/2009.07225v4",
+      "sha256": "1e4b6720055ebdce0012f5780bfc7cdb5b853e32f29b17224a1be0bc676f770c",
+      "readSections": [
+        "§3.1.1–3.1.10, including proofs of Proposition3.1.4 and Remark3.1.10; targeted scope read, no complete new blueprint chain supplied."
+      ]
+    },
+    {
+      "id": "AbdurrahmanVenkatesh.2025.v1",
+      "title": "Symplectic L-functions and symplectic Reidemeister torsion (mod squares)",
+      "authors": "Amina Abdurrahman and Akshay Venkatesh",
+      "edition": "arXiv:2303.13436v1; Inventiones Mathematicae (2025) version of record was not read",
+      "url": "https://arxiv.org/pdf/2303.13436v1",
+      "sha256": "3e2736beea70ba3467ad30a24b518d82cf589d9ddd4a06f6b0684c7bfd7d6306",
+      "readSections": [
+        "§2.7, Lemmas2.7.1–2.7.2 and proofs, pp.16–17; finite-rank hypotheses need further decomposition."
+      ]
+    },
+    {
+      "id": "AtiyahSegal.1969",
+      "title": "Equivariant K-theory and completion",
+      "authors": "Michael F. Atiyah and Graeme B. Segal",
+      "edition": "Journal of Differential Geometry 3 (1969), 1–18; scanned author-hosted copy",
+      "url": "https://webhomes.maths.ed.ac.uk/~v1ranick/papers/atiyahsegal1.pdf",
+      "sha256": "7211b9c834160aae6d4423f77915f565a5475799000dc6395185b8262a500a26",
+      "readSections": [
+        "Printed pp.1,3,4,10 visually inspected: Theorem2.1 and Proposition4.2; full proof on intervening pages not read."
+      ]
     }
   ],
   "sourceVersions": [
@@ -1102,6 +1146,41 @@
       "read": "2026-09-26",
       "sha256": "a04f53c9393b20672fab2a6818279b2f9996dbc7cf74735789ed13804b058845",
       "note": "Reread III.7.3, III.7.5.3 and III.7.6.1 discussion (PDF pp.254,256–257), III Ex.7.4 (p.265), V.11.13 (p.466), VI.7.1–7.2 (pp.515–516). Alternative proof explicitly worker-derived; Tate paper not read."
+    },
+    {
+      "kind": "published",
+      "url": "https://www.intlpress.com/site/pub/files/_fulltext/journals/acta/2018/0221/0002/ACTA-2018-0221-0002-a001.pdf",
+      "read": "2026-10-05",
+      "sha256": "8b1856fa8faefa3efebd64580249aa6fbc0c918f69820bba01410ab0ef1eb8ef",
+      "note": "Acta Mathematica 221 (2018), 203–409, published PDF; IV.4 in full, printed pp.355–365: propositions, constructions and proofs; earlier II.4 statements are inherited reads, not a fresh full proof audit."
+    },
+    {
+      "kind": "author copy",
+      "url": "https://arxiv.org/pdf/2009.07225v4",
+      "read": "2026-10-05",
+      "sha256": "1e4b6720055ebdce0012f5780bfc7cdb5b853e32f29b17224a1be0bc676f770c",
+      "note": "arXiv:2009.07225v4; routed version of record Annals of Mathematics 204 (2026), paper 02 was not read; §3.1.1–3.1.10, including proofs of Proposition3.1.4 and Remark3.1.10; targeted scope read, no complete new blueprint chain supplied."
+    },
+    {
+      "kind": "author copy",
+      "url": "https://arxiv.org/pdf/2303.13436v1",
+      "read": "2026-10-05",
+      "sha256": "3e2736beea70ba3467ad30a24b518d82cf589d9ddd4a06f6b0684c7bfd7d6306",
+      "note": "arXiv:2303.13436v1; Inventiones Mathematicae (2025) version of record was not read; §2.7, Lemmas2.7.1–2.7.2 and proofs, pp.16–17; finite-rank hypotheses need further decomposition."
+    },
+    {
+      "kind": "published",
+      "url": "https://webhomes.maths.ed.ac.uk/~v1ranick/papers/atiyahsegal1.pdf",
+      "read": "2026-10-05",
+      "sha256": "7211b9c834160aae6d4423f77915f565a5475799000dc6395185b8262a500a26",
+      "note": "Journal of Differential Geometry 3 (1969), 1–18; scanned author-hosted copy; Printed pp.1,3,4,10 visually inspected: Theorem2.1 and Proposition4.2; full proof on intervening pages not read."
+    },
+    {
+      "kind": "author copy",
+      "url": "https://arxiv.org/pdf/math/9910186v2",
+      "read": "2026-10-05",
+      "sha256": "38f4919e35a7afedc8503c921929ac892fb1fe102d461724ce464d6923e44d0e",
+      "note": "Fresh download of HM §3.2, printed pp.47–51; arXiv PDF bytes differ from inherited source hash, which remains attached to its original excerpts."
     }
   ],
   "nodes": [
@@ -1633,14 +1712,16 @@
       ],
       "proofSteps": [
         "The source's theorem is Green's (Trans. AMS 1955, Theorem 1), which the K-book, Haine and Mestel cite and none of them proves; recorded as a gap ('Green's theorem on Brauer characters').",
-        "The reduction from F_q to a finite field F containing the eigenvalues uses L.1/brauer-character (character_baseChange): extending scalars does not change the Brauer character."
+        "The reduction from F_q to a finite field F containing the eigenvalues uses L.1/brauer-character (character_baseChange): extending scalars does not change the Brauer character.",
+        "Import the characteristic-zero virtual-character lattice and Brauer’s elementary-subgroup characterization from InductionRestriction Layer6. The remaining calculation is to show Green’s lifted symmetric eigenvalue class restricts to a virtual character on each elementary subgroup. Artin’s rational induction alone cannot prove integral membership. The Green1955 source proof was not obtained, so this specialized step remains the named gap."
       ],
       "acceptance": [
         "For GL_2(F_3) and the natural representation, the Brauer character has ⟨χ, χ⟩ = 2 and no linear constituent (recomputed), so it is a difference ψ_4 − ψ_2 of irreducible characters of degrees 4 and 2: a virtual character that is not a character.",
         "For an abelian group G and V a sum of characters over F, the virtual character is the sum of the lifted characters, a genuine representation."
       ],
       "prerequisites": [
-        "KTheoryFiniteLocalFields:L.1/brauer-character"
+        "KTheoryFiniteLocalFields:L.1/brauer-character",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-6-the-virtual-character-ring-artin-and-brauer-induction"
       ],
       "sources": [
         {
@@ -2625,7 +2706,7 @@
       ],
       "proofSteps": [
         "θ induces an integral homology isomorphism (L.1/quillen-homology-iso).",
-        "FΨ^q is an H-space (L.1/fpsi), so by Remark IV.1.8.1 (StableHomotopyKTheory:H.3/plus-construction-universal-property: 'an integral homology isomorphism BGL(R) → H into an H-space is acyclic and induces BGL(R)^+ ≃ H') θ^+ is a homotopy equivalence. Alternatively both spaces are simple and Whitehead's theorem for simple spaces applies (Haine, Theorem 6.5; Mestel, Theorem 38).",
+        "FΨ^q is an H-space (L.1/fpsi). Apply the exact imported StableHomotopyKTheory:H.3/plus-construction-universal-property node: an integral homology equivalence BGL(R)→H into an H-space induces BGL(R)^+≃H. Its supplier packet marks the proof unread, so this is a conditional import, not a local Whitehead argument. AlgebraicTopology Layer8’s simply-connected theorem does not supply a simple-space theorem when π_1=F_q^× is nontrivial.",
         "The fibration form follows from L.1/fpsi (FΨ^q ≃ hofib(1 − ψ^q)) and ρ = φθ^+."
       ],
       "acceptance": [
@@ -6304,7 +6385,7 @@
           "how": "dκ = κ dlog(−p)"
         },
         {
-          "where": "KTheoryFiniteLocalFields:L.5/log-witt-complex",
+          "where": "CrystallineCohomology:CR.4",
           "how": "the differential of a log Witt complex realised by TR"
         }
       ],
@@ -6522,7 +6603,7 @@
       "realises": [
         "KTheoryFiniteLocalFields:L.4"
       ],
-      "title": "Hesselholt–Madsen's TR^n, R − F and TC(C;p) against the genuine and Nikolaus–Scholze definitions",
+      "title": "Application of RT.2’s genuine/modern TC comparison to the Hesselholt–Madsen model",
       "kind": "comparison",
       "statement": "Let C be a linear Waldhausen category whose T-spectrum T(C) has bounded-below underlying spectrum (for instance node L.4/log-thh-bounded-below). Write X = T(C) as a genuine p-cyclotomic spectrum. Then: (i) TR^n(C;p) = X^{C_{p^{n−1}}}, and HM's TR(C;p) = holim_R TR^n(C;p) is Nikolaus–Scholze's TR(X,p) = lim_R X^{C_{p^m}} (m = n − 1 ≥ 0); (ii) HM's TC(C;p) = hofib(R − F: TR → TR) is equivalent to the Bökstedt–Hsiang–Madsen TC^gen(X,p) = Eq(id, F: TR(X,p) ⇉ TR(X,p)), R acting as the identity on the limit; (iii) consequently, by the comparison theorem imported from RefinedTraceMethods RT.2 (Nikolaus–Scholze Theorem II.4.10), TC(C;p) ≃ TC(X,p) = fib(φ_p^{hC_{p^∞}} − can: X^{hC_{p^∞}} → (X^{tC_p})^{hC_{p^∞}}), compatibly with the trace from K(C); (iv) under these identifications Γ and Γ̂ of node L.4/norm-restriction-cofibre-sequence are the maps X^{C_{p^n}} → X^{hC_{p^n}} and X^{C_{p^{n−1}}} ≃ (Φ^{C_p}X)^{C_{p^{n−1}}} → X^{tC_{p^n}} of Nikolaus–Scholze Lemma II.4.5. The bounded-below hypothesis is part of the statement: the modern fixed-point formula is not asserted for unbounded T(C).",
       "hypotheses": [
@@ -6532,7 +6613,8 @@
         "(i) is the index shift n − 1 = m together with the definition of TR in Nikolaus–Scholze Definition II.4.4.",
         "(ii) On holim_R the map induced by R is the shift map, canonically equivalent to the identity; hence the homotopy fibre of R − F is the homotopy equaliser of id and F.",
         "(iii) Apply the comparison of RefinedTraceMethods RT.2 ('State bounded-below/completion hypotheses when using the modern fixed-point formula, and prove agreement with the classical genuine-equivariant TR/TC formulation used by local K-theory calculations'), whose model statement is Nikolaus–Scholze Theorem II.4.10; its hypothesis is satisfied by assumption.",
-        "(iv) Nikolaus–Scholze Lemma II.4.5 and Proposition II.4.6 identify the pullback square X^{C_{p^n}} → (Φ^{C_p}X)^{C_{p^{n−1}}} over X^{hC_{p^n}} → X^{tC_{p^n}}, which is HM's map of cofibration sequences after the identification Φ^{C_p}X ≃ X."
+        "(iv) Nikolaus–Scholze Lemma II.4.5 and Proposition II.4.6 identify the pullback square X^{C_{p^n}} → (Φ^{C_p}X)^{C_{p^{n−1}}} over X^{hC_{p^n}} → X^{tC_{p^n}}, which is HM's map of cofibration sequences after the identification Φ^{C_p}X ≃ X.",
+        "Ownership RT-AREA-ktheory-2/33: all general equivalences are imported from RT.2. The local obligation is to verify T(k), T(A), T(A|K) are bounded below (using log-thh-bounded-below) and match HM TR^n=C_(p^(n−1)) fixed points, R/F and completion. No general comparison proof is owned by L.4."
       ],
       "acceptance": [
         "For C = P_{F_p}: both sides give TC ≃ HZ_p ∨ Σ^{−1}HZ_p.",
@@ -6604,14 +6686,14 @@
       ],
       "title": "T(k), T(A) and T(A|K) are connective, so the modern comparison applies",
       "kind": "lemma",
-      "statement": "Let A be a discrete valuation ring with fraction field K and residue field k. The T-spectra T(k), T(A) and T(A|K) of Definition 1.5.5 are connective (π_q = 0 for q < 0), and π_0 T(A|K) ≅ A. Since each is cyclotomic, all geometric fixed points Φ^{C_{p^s}} are connective as well, so the hypotheses of the Nikolaus–Scholze comparison (node L.4/hm-conventions-agree-with-nikolaus-scholze) and of Corollary II.4.9 of Nikolaus–Scholze hold for them.",
+      "statement": "Let A be a discrete valuation ring with fraction field K and residue field k. The T-spectra T(k), T(A) and T(A|K) of Definition 1.5.5 are connective (π_q = 0 for q < 0), and, when A has mixed characteristic (0,p), π_0 T(A|K) ≅ A. Since each is cyclotomic, all geometric fixed points Φ^{C_{p^s}} are connective as well, so the hypotheses of the Nikolaus–Scholze comparison (node L.4/hm-conventions-agree-with-nikolaus-scholze) and of Corollary II.4.9 of Nikolaus–Scholze hold for them.",
       "hypotheses": [
         "A a discrete valuation ring (for the calculations: complete, of mixed characteristic (0,p), with perfect residue field)."
       ],
       "proofSteps": [
         "T(k) ≃ T(P_k) and T(A) ≃ T(P_A) as cyclotomic spectra (node L.4/dvr-tr-agrees-with-ring-tr), and THH of a discrete ring is connective (RefinedTraceMethods RT.2).",
         "The localisation sequence T(k) →i^! T(A) →j_* T(A|K) → ΣT(k) (node L.4/tr-localization-sequence, n = 1) shows that the cofibre T(A|K) of a map of connective spectra is connective: π_{−1}T(A|K) injects into π_{−2}T(k) = 0 and surjects from π_{−1}T(A) = 0.",
-        "In degree 0, i^!: π_0 T(k) = k → π_0 T(A) = A is zero (a torsion group to a torsion-free group) and π_{−1}T(k) = 0, so π_0 T(A|K) ≅ A.",
+        "For the displayed π_0 identification assume A has mixed characteristic (0,p). Then i^!:k→A is zero because its source is p-torsion and its target is torsion-free; π_−1T(k)=0 gives π_0T(A|K)≅A. Connectivity for a general DVR uses only the preceding cofibre argument, not this torsion argument.",
         "The cyclotomic structure gives Φ^{C_p}T ≃ T for each of the three spectra, so every Φ^{C_{p^s}} is connective."
       ],
       "acceptance": [
@@ -8421,375 +8503,6 @@
       "implementationStatus": "unchecked"
     },
     {
-      "id": "KTheoryFiniteLocalFields:L.5/log-witt-complex",
-      "parentStageId": "KTheoryFiniteLocalFields:L.5",
-      "realises": [
-        "KTheoryFiniteLocalFields:L.5"
-      ],
-      "title": "Log Witt complexes over a log ring (R, M)",
-      "kind": "definition",
-      "statement": "Let p be odd, R a Z_(p)-algebra and (R, M) a log ring (a prelog structure α: M → (R,·)); give W_n(R) the prelog structure M →α R →[−]_n W_n(R). A log Witt complex over (R,M) consists of: (i) a pro-log differential graded ring (E^*_•, M_E) with a map of pro-log rings λ: (W_•(R), M) → (E^0_•, M_E); (ii) a map of pro-log graded rings F: E^*_n → E^*_{n−1} with λF = Fλ, F dlog_n a = dlog_{n−1} a for a ∈ M, and F d[a]_n = [a]_{n−1}^{p−1} d[a]_{n−1} for a ∈ R; (iii) a map of pro-graded E^*_•-modules V: F^*E^*_n → E^*_{n+1} with λV = Vλ, FV = p and FdV = d. Here a pro-log dga is a pro-dga with prelog structure α: M → E^0 and Dlog: M → E^1 with d∘Dlog = 0 and dα(a) = α(a)Dlog a (CrystallineCohomology CR.5:log-algebra). A map of log Witt complexes is a map of pro-log dgas commuting with λ, F and V. For the trivial log structure M = {1} this is the notion of Witt complex of CrystallineCohomology CR.4.",
-      "hypotheses": [
-        "p odd; R a Z_(p)-algebra. For p = 2 the definition must be changed: in TR one has d∘d = η·d with η = dlog(−1) ≠ 0 (Hesselholt–Madsen 2004)."
-      ],
-      "proofSteps": [
-        "Assemble the data from the prelog structures of CR.5:log-algebra and the Witt-vector operators on W_•(R) (CrystallineCohomology CR.4 for F, V, R on truncated Witt vectors); no construction beyond the definition is involved."
-      ],
-      "acceptance": [
-        "(W_•(R), M) concentrated in degree 0 is a log Witt complex (λ = id).",
-        "TR^•_*(A|K;p) is a log Witt complex over (A,M) for p odd (node L.5/tr-log-dvr-is-log-witt-complex)."
-      ],
-      "uses": [
-        {
-          "where": "HM Proposition 3.2.2",
-          "how": "the initial object W_•ω^*_{(R,M)}"
-        },
-        {
-          "where": "HM Proposition 3.3.1",
-          "how": "TR^•_*(A|K;p) is a log Witt complex, giving the canonical map from W_•ω^*_{(A,M)}"
-        },
-        {
-          "where": "HM Lemma 3.2.4",
-          "how": "the filtration quotients W_nω/Fil^s are log Witt complexes"
-        },
-        {
-          "where": "HM §6.1",
-          "how": "W_•ω^*_{(A,M)} ⊗ S_{Z/p^v}(μ_{p^v}) with R, F, V acting trivially on the second factor is a log Witt complex"
-        }
-      ],
-      "api": [
-        {
-          "name": "TauCeti.LogWittComplex",
-          "role": "structure",
-          "statement": "The structure of a log Witt complex over (R,M): (E, λ, F, V) with the axioms (i)–(iii)."
-        },
-        {
-          "name": "TauCeti.LogWittComplex.Hom",
-          "role": "structure",
-          "statement": "Maps of log Witt complexes: maps of pro-log dgas commuting with λ, F, V; they form a category."
-        },
-        {
-          "name": "TauCeti.LogWittComplex.frobenius_dlog",
-          "role": "simp",
-          "statement": "F(dlog_n a) = dlog_{n−1} a for a ∈ M."
-        },
-        {
-          "name": "TauCeti.LogWittComplex.frobenius_d_teichmuller",
-          "role": "simp",
-          "statement": "F(d[a]_n) = [a]_{n−1}^{p−1} d[a]_{n−1}."
-        },
-        {
-          "name": "TauCeti.LogWittComplex.frobenius_verschiebung",
-          "role": "simp",
-          "statement": "F(V(x)) = p x and F(d(V(x))) = d x."
-        },
-        {
-          "name": "TauCeti.LogWittComplex.ofWittComplex",
-          "role": "compatibility",
-          "statement": "For the trivial log structure M = {1} (or M ⊂ R^×), a log Witt complex is exactly a Witt complex over R in the sense of CR.4 (dlog of units is forced to be u^{−1}du)."
-        },
-        {
-          "name": "TauCeti.LogWittComplex.restrictScalars",
-          "role": "functoriality",
-          "statement": "A map of log rings (R,M) → (R',M') pulls log Witt complexes over (R',M') back to (R,M)."
-        }
-      ],
-      "tests": [
-        {
-          "name": "TauCeti.LogWittComplex.degreeZero",
-          "kind": "degenerate",
-          "statement": "(W_•(R), M) with E^i = 0 for i > 0, Dlog = 0, F and V the Witt-vector operators, is a log Witt complex (all axioms involving E^1 hold trivially), and the unique map W_•ω^*_{(R,M)} → (W_•(R),M) is the projection onto degree 0."
-        },
-        {
-          "name": "TauCeti.LogWittComplex.ofTrivial",
-          "kind": "compatibility",
-          "statement": "With M = {1}, the category of log Witt complexes over (R,{1}) equals the category of Witt complexes over R of CrystallineCohomology CR.4."
-        },
-        {
-          "name": "TauCeti.LogWittComplex.tr_example",
-          "kind": "computation",
-          "statement": "For A = Z_p with p odd, TR^•_*(Z_p|Q_p;p) is a log Witt complex with dlog_n(p) ∈ TR^n_1 and F dlog_n p = dlog_{n−1} p."
-        },
-        {
-          "name": "TauCeti.LogWittComplex.not_p2",
-          "kind": "non-example",
-          "statement": "For p = 2 and A = Z_(2), TR^•_*(A|A[1/2];2) with its operators is not a log Witt complex in this sense, since d∘d = η·d ≠ 0 (Hesselholt–Madsen 2004, introduction)."
-        }
-      ],
-      "prerequisites": [
-        "CrystallineCohomology:CR.4",
-        "CrystallineCohomology:CR.5:log-algebra",
-        "mathlib:TruncatedWittVector",
-        "mathlib:WittVector.teichmuller"
-      ],
-      "library": {
-        "module": "TauCeti/RingTheory/LogDeRhamWitt/Basic",
-        "namespace": "TauCeti"
-      },
-      "sources": [
-        {
-          "sourceId": "HesselholtMadsen.2003",
-          "locator": "Definition 3.2.1, p. 47",
-          "match": "Definition, (i)–(iii)."
-        },
-        {
-          "sourceId": "HesselholtMadsen.2003",
-          "locator": "§3.2, p. 47",
-          "match": "Standing hypotheses of the definition."
-        }
-      ],
-      "implementationStatus": "unchecked"
-    },
-    {
-      "id": "KTheoryFiniteLocalFields:L.5/log-witt-complex-derived-relations",
-      "parentStageId": "KTheoryFiniteLocalFields:L.5",
-      "realises": [
-        "KTheoryFiniteLocalFields:L.5"
-      ],
-      "title": "dF = pFd, Vd = pdV and V(x dy) = V(x)dV(y) in any log Witt complex",
-      "kind": "lemma",
-      "statement": "In every log Witt complex over (R,M): dF = pFd, Vd = pdV and V(x dy) = V(x)dV(y).",
-      "hypotheses": [
-        "A log Witt complex (node L.5/log-witt-complex)."
-      ],
-      "proofSteps": [
-        "V(x dy) = V(x·FdV(y)) = V(x)dV(y) by FdV = d and the projection formula V(x F(z)) = V(x)z.",
-        "dF(x) = FdVF(x) = Fd(V(1)x) = FdV(1)F(x) + FV(1)F(dx) = d(1)F(x) + pFd(x) = pFd(x).",
-        "Vd(x) = V(1)dV(x) = d(V(1)V(x)) − dV(1)V(x) = dV(xFV(1)) − V(x d(1)) = pdV(x)."
-      ],
-      "acceptance": [
-        "In W_•ω^*_{(A,M)}: V(dlog a) = V(1) dlog a.",
-        "For the de Rham–Witt complex of F_p: dF = pFd holds with both sides zero in degree 0 → 1 since W_nΩ^1_{F_p} = 0."
-      ],
-      "prerequisites": [
-        "KTheoryFiniteLocalFields:L.5/log-witt-complex"
-      ],
-      "sources": [
-        {
-          "sourceId": "HesselholtMadsen.2003",
-          "locator": "§3.2, p. 48",
-          "match": "Statement and proof."
-        }
-      ],
-      "implementationStatus": "unchecked"
-    },
-    {
-      "id": "KTheoryFiniteLocalFields:L.5/log-de-rham-witt-complex",
-      "parentStageId": "KTheoryFiniteLocalFields:L.5",
-      "realises": [
-        "KTheoryFiniteLocalFields:L.5"
-      ],
-      "title": "The de Rham–Witt complex with log poles W_•ω^*_{(R,M)}",
-      "kind": "construction",
-      "statement": "For p odd and a log ring (R,M) with R a Z_(p)-algebra, the category of log Witt complexes over (R,M) has an initial object W_•ω^*_{(R,M)}, the de Rham–Witt complex with log poles, and the canonical map λ: ω^*_{(W_•(R),M)} → W_•ω^*_{(R,M)} from the log de Rham complex of (W_•(R), M) is surjective; W_•ω^0_{(R,M)} = W_•(R). For M trivial it is the de Rham–Witt complex W_•Ω^*_R of CrystallineCohomology CR.4; there is a natural map W_•Ω^*_R → W_•ω^*_{(R,M)}. For a complete discrete valuation ring A with canonical log structure, W_•ω^*_{(A,M)} is the de Rham–Witt complex of A with log poles at the maximal ideal.",
-      "hypotheses": [
-        "p odd; R a Z_(p)-algebra; M → R a prelog structure."
-      ],
-      "proofSteps": [
-        "Existence: Freyd's adjoint functor theorem (solution set: log Witt complexes generated by the images of λ, dlog and the operators form a set), as in Hesselholt–Madsen 2004 §1 for the non-log case; HM 2003 give no further detail and HM 2004 refer back to HM 2003 §3 for the log case (recorded gap and source issue).",
-        "Surjectivity of λ: the sub-pro-dga generated by the images of ω^*_{(W_•(R),M)} is stable under F and V (by F d[a] = [a]^{p−1}d[a], FdV = d and the projection formula) and is therefore a log Witt complex receiving the initial map; so it is everything.",
-        "Degree 0: (W_•(R), M) is itself a log Witt complex concentrated in degree zero, which forces W_•ω^0 = W_•(R).",
-        "Trivial log structure: the universal property coincides with that of W_•Ω^*_R (node L.5/log-witt-complex, compatibility item)."
-      ],
-      "acceptance": [
-        "W_1ω^*_{(R,M)} = ω^*_{(R,M)} (node L.5/log-de-rham-witt-level-one).",
-        "For A = Z_p, p odd: W̄_nω^1_{(Z_p,M)} has F_p-dimension n (node L.5/log-de-rham-witt-dvr-mod-p)."
-      ],
-      "uses": [
-        {
-          "where": "HM Proposition 3.3.1",
-          "how": "the canonical map W_•ω^*_{(A,M)} → TR^•_*(A|K;p)"
-        },
-        {
-          "where": "HM Theorem 3.3.8",
-          "how": "it is an isomorphism in degrees ≤ 2"
-        },
-        {
-          "where": "HM Theorem C",
-          "how": "W_•ω^*_{(A,M)} ⊗ S_{Z/p^v}(μ_{p^v}) ≅ TR^•_*(A|K;p,Z/p^v) as pro-groups"
-        },
-        {
-          "where": "HM introduction, the sequence before Theorem A",
-          "how": "K_*(K,Z/p^v) is computed from W ω^*_{(A,M)} ⊗ S(μ_{p^v}) and 1 − F"
-        },
-        {
-          "where": "HigherLocalFieldsAndHigherClassFieldTheory HL.1, HL.2, HL.4",
-          "how": "the logarithmic/DVR de Rham–Witt comparison for complete discrete valuation rings requested from L.5"
-        }
-      ],
-      "api": [
-        {
-          "name": "TauCeti.logDeRhamWitt",
-          "role": "constructor",
-          "statement": "W_•ω^*_{(R,M)}, the initial log Witt complex over (R,M)."
-        },
-        {
-          "name": "TauCeti.logDeRhamWitt.lift",
-          "role": "universal-property",
-          "statement": "For every log Witt complex E over (R,M) the unique map W_•ω^*_{(R,M)} → E of log Witt complexes."
-        },
-        {
-          "name": "TauCeti.logDeRhamWitt.lift_unique",
-          "role": "universal-property",
-          "statement": "Any two maps of log Witt complexes W_•ω^*_{(R,M)} → E are equal (initiality)."
-        },
-        {
-          "name": "TauCeti.logDeRhamWitt.surjective_of_logDeRham",
-          "role": "characterisation",
-          "statement": "λ: ω^*_{(W_n(R),M)} → W_nω^*_{(R,M)} is surjective for every n."
-        },
-        {
-          "name": "TauCeti.logDeRhamWitt.degreeZero",
-          "role": "simp",
-          "statement": "W_nω^0_{(R,M)} = W_n(R)."
-        },
-        {
-          "name": "TauCeti.logDeRhamWitt.map",
-          "role": "functoriality",
-          "statement": "A map of log rings (R,M) → (R',M') induces W_•ω^*_{(R,M)} → W_•ω^*_{(R',M')}, functorially."
-        },
-        {
-          "name": "TauCeti.logDeRhamWitt.ofDeRhamWitt",
-          "role": "compatibility",
-          "statement": "The natural map W_•Ω^*_R → W_•ω^*_{(R,M)} from the ordinary de Rham–Witt complex of CR.4, an isomorphism when M consists of units."
-        },
-        {
-          "name": "TauCeti.logDeRhamWitt.dlog",
-          "role": "data",
-          "statement": "dlog_n: M → W_nω^1_{(R,M)}, a monoid map to (W_nω^1,+) with d[α(a)]_n = [α(a)]_n dlog_n a."
-        }
-      ],
-      "tests": [
-        {
-          "name": "TauCeti.logDeRhamWitt_levelOne",
-          "kind": "computation",
-          "statement": "W_1ω^*_{(R,M)} ≅ ω^*_{(R,M)}; for (Z_p, M) and p odd, W_1ω^1/p ≅ F_p·dlog p."
-        },
-        {
-          "name": "TauCeti.logDeRhamWitt_trivial",
-          "kind": "compatibility",
-          "statement": "For M = {1}: W_•ω^*_{(R,{1})} ≅ W_•Ω^*_R (CrystallineCohomology CR.4), and for R = F_p both are W_•(F_p) = Z/p^• in degree 0."
-        },
-        {
-          "name": "TauCeti.logDeRhamWitt_units",
-          "kind": "degenerate",
-          "statement": "For M = R^× (units only) the log structure adds nothing: W_•ω^*_{(R,R^×)} ≅ W_•Ω^*_R, since dlog u = [u]^{−1}d[u] is forced."
-        },
-        {
-          "name": "TauCeti.logDeRhamWitt_Zp_dim",
-          "kind": "computation",
-          "statement": "For A = Z_p (p odd) and every n ≥ 1, W_nω^1_{(Z_p,M)}/p is an n-dimensional F_p-vector space (Proposition 3.4.1 with e_K = 1)."
-        },
-        {
-          "name": "TauCeti.logDeRhamWitt_ne_ordinary",
-          "kind": "non-example",
-          "statement": "For A = Z_p with M = A ∩ Q_p^×: W_1ω^1_{(A,M)}/p = F_p dlog p ≠ 0 = W_1Ω^1_{Z_p}/p (Ω^1_{Z_p} is uniquely divisible), so the log complex differs from CR.4's ordinary complex."
-        }
-      ],
-      "planet": {
-        "name": "De Rham–Witt complex with log poles"
-      },
-      "prerequisites": [
-        "KTheoryFiniteLocalFields:L.5/log-witt-complex",
-        "KTheoryFiniteLocalFields:L.5/log-witt-complex-derived-relations",
-        "CrystallineCohomology:CR.4",
-        "CrystallineCohomology:CR.5:log-algebra"
-      ],
-      "library": {
-        "module": "TauCeti/RingTheory/LogDeRhamWitt/Basic",
-        "namespace": "TauCeti"
-      },
-      "sources": [
-        {
-          "sourceId": "HesselholtMadsen.2003",
-          "locator": "Proposition 3.2.2, p. 48",
-          "match": "Statement and the proof by reference."
-        },
-        {
-          "sourceId": "HesselholtMadsen.2004",
-          "locator": "Introduction, PDF p. 4",
-          "match": "HM 2004 refer the log case back to HM 2003 §3."
-        }
-      ],
-      "implementationStatus": "unchecked"
-    },
-    {
-      "id": "KTheoryFiniteLocalFields:L.5/log-de-rham-witt-level-one",
-      "parentStageId": "KTheoryFiniteLocalFields:L.5",
-      "realises": [
-        "KTheoryFiniteLocalFields:L.5"
-      ],
-      "title": "W_1ω^*_{(R,M)} is the de Rham complex with log poles",
-      "kind": "lemma",
-      "statement": "The canonical map λ: ω^*_{(R,M)} → W_1ω^*_{(R,M)} is an isomorphism, where ω^*_{(R,M)} = Λ^*_R ω^1_{(R,M)} is the universal log dga with underlying log ring (R,M).",
-      "hypotheses": [
-        "p odd; R a Z_(p)-algebra."
-      ],
-      "proofSteps": [
-        "HM cite Hesselholt–Madsen 2004 Theorem D (the forgetful functor from Witt complexes to V-complexes without F preserves initial objects), which is proved there for the non-log Witt complexes; the log analogue is asserted without proof (recorded gap).",
-        "Route: show that ω^*_{(R,M)} extends to a log Witt complex in which level 1 is ω^* (define the higher levels by the initial object and prove that W_1 of the initial object is the initial log dga by checking that ω^*_{(R,M)} with F = V = 0 at level 1 satisfies the axioms restricted to level 1)."
-      ],
-      "acceptance": [
-        "For A = Z_p: W_1ω^1_{(Z_p,M)} = ω^1_{(Z_p,M)}, with W_1ω^1/p = F_p dlog p."
-      ],
-      "prerequisites": [
-        "KTheoryFiniteLocalFields:L.5/log-de-rham-witt-complex",
-        "CrystallineCohomology:CR.5:log-algebra"
-      ],
-      "sources": [
-        {
-          "sourceId": "HesselholtMadsen.2003",
-          "locator": "Addendum 3.2.3, p. 48",
-          "match": "Statement."
-        },
-        {
-          "sourceId": "HesselholtMadsen.2003",
-          "locator": "§3.2, p. 48",
-          "match": "The addendum is taken from HM 2004 Theorem D."
-        }
-      ],
-      "implementationStatus": "unchecked"
-    },
-    {
-      "id": "KTheoryFiniteLocalFields:L.5/standard-filtration-quotient",
-      "parentStageId": "KTheoryFiniteLocalFields:L.5",
-      "realises": [
-        "KTheoryFiniteLocalFields:L.5"
-      ],
-      "title": "W_nω/Fil^s ≅ W_sω for the standard filtration",
-      "kind": "lemma",
-      "statement": "For a log Witt complex E the standard filtration Fil^s E^i_n = V^s E^i_{n−s} + dV^s E^{i−1}_{n−s} ⊂ E^i_n (0 ≤ s < n) consists of differential graded ideals with F(Fil^s) ⊂ Fil^{s−1} and V(Fil^s) ⊂ Fil^{s+1} (not multiplicative in general). For the initial object, restriction induces isomorphisms W_nω^i_{(R,M)}/Fil^s W_nω^i_{(R,M)} ≅ W_sω^i_{(R,M)}.",
-      "hypotheses": [
-        "p odd, R a Z_(p)-algebra; s ≤ n."
-      ],
-      "proofSteps": [
-        "For fixed n − s the quotients 'W_sω^i = W_nω^i/Fil^s form a log Witt complex over (R,M).",
-        "Existence of a map to any log Witt complex E: naturality of the filtration and R^{n−s}: E_n/Fil^s → E_s.",
-        "Uniqueness: ω^i_{(W_s(R),M)} → 'W_sω^i is surjective, by the surjectivity of λ for W_n and of W_n → 'W_s (node L.5/log-de-rham-witt-complex).",
-        "Hence 'W_•ω is initial, i.e. equals W_•ω."
-      ],
-      "acceptance": [
-        "s = n − 1: W_nω^i/(V^{n−1}W_1ω^i + dV^{n−1}W_1ω^{i−1}) ≅ W_{n−1}ω^i, used in Proposition 3.2.6."
-      ],
-      "prerequisites": [
-        "KTheoryFiniteLocalFields:L.5/log-de-rham-witt-complex",
-        "KTheoryFiniteLocalFields:L.5/log-witt-complex-derived-relations"
-      ],
-      "sources": [
-        {
-          "sourceId": "HesselholtMadsen.2003",
-          "locator": "§3.2, p. 48",
-          "match": "The standard filtration."
-        },
-        {
-          "sourceId": "HesselholtMadsen.2003",
-          "locator": "Lemma 3.2.4, p. 48",
-          "match": "Statement."
-        }
-      ],
-      "implementationStatus": "unchecked"
-    },
-    {
       "id": "KTheoryFiniteLocalFields:L.5/homotopy-orbit-de-rham-witt-module",
       "parentStageId": "KTheoryFiniteLocalFields:L.5",
       "realises": [
@@ -8884,7 +8597,7 @@
         }
       ],
       "prerequisites": [
-        "KTheoryFiniteLocalFields:L.5/log-de-rham-witt-complex",
+        "CrystallineCohomology:CR.4",
         "CrystallineCohomology:CR.5:log-algebra",
         "mathlib:TruncatedWittVector"
       ],
@@ -8920,14 +8633,14 @@
       ],
       "proofSteps": [
         "λ(F^{n−1}da) = F^{n−1}dλ(a) for a ∈ W_n(R) (Definition 3.2.1), so N is W_n(R)-linear.",
-        "The image of N is Fil^{n−1}W_nω^i, and W_nω^i/Fil^{n−1} ≅ W_{n−1}ω^i by node L.5/standard-filtration-quotient."
+        "The image of N is Fil^{n−1}W_nω^i, and W_nω^i/Fil^{n−1} ≅ W_{n−1}ω^i by node CrystallineCohomology:CR.4."
       ],
       "acceptance": [
         "i = 0: 0 → (F^{n−1})^*R →V^{n−1} W_n(R) →R W_{n−1}(R) → 0 (exact on the left too)."
       ],
       "prerequisites": [
         "KTheoryFiniteLocalFields:L.5/homotopy-orbit-de-rham-witt-module",
-        "KTheoryFiniteLocalFields:L.5/standard-filtration-quotient"
+        "CrystallineCohomology:CR.4"
       ],
       "sources": [
         {
@@ -8988,7 +8701,7 @@
         "p odd."
       ],
       "proofSteps": [
-        "E_n^* is generated as a graded k-vector space by monomials in V_π^s([π]^i), dV_π^s([π]^i), V_π^s([π]^i dlog π), dV_π^s([π]^i dlog π) (nodes L.5/witt-mod-p-of-dvr, L.5/log-de-rham-witt-complex).",
+        "E_n^* is generated as a graded k-vector space by monomials in V_π^s([π]^i), dV_π^s([π]^i), V_π^s([π]^i dlog π), dV_π^s([π]^i dlog π) (nodes L.5/witt-mod-p-of-dvr, CrystallineCohomology:CR.4).",
         "E^q_n = 0 for q ≥ 2: this follows from Theorem 3.3.8 and Corollary 3.2.7 (nodes L.5/log-de-rham-witt-tr-low-degrees, L.5/log-de-rham-witt-dvr-divisible); in particular the degree-two generators vanish.",
         "For s ≤ r, p^{−s}(i + pe_K(p^s − 1)/(p−1)) is an integer and iterating the second relation of Proposition 3.1.5 gives V_π^s([π]^i) = [π]^{p^{−s}(i + pe_K(p^s−1)/(p−1))}; hence dV_π^s([π]^i) = 0 for s < r and the stated relation at s = r; V_π d = 0 gives the vanishing for s > r.",
         "(ii) is obtained by differentiating the relations of Proposition 3.1.5.",
@@ -9000,7 +8713,7 @@
       ],
       "prerequisites": [
         "KTheoryFiniteLocalFields:L.5/witt-mod-p-of-dvr",
-        "KTheoryFiniteLocalFields:L.5/log-de-rham-witt-complex",
+        "CrystallineCohomology:CR.4",
         "KTheoryFiniteLocalFields:L.5/log-de-rham-witt-dvr-divisible",
         "KTheoryFiniteLocalFields:L.5/log-de-rham-witt-tr-low-degrees",
         "KTheoryFiniteLocalFields:L.5/tr-mod-p-dimension",
@@ -9461,7 +9174,7 @@
         "(TR^n_*(A|K;p), M) is a log dga with underlying log ring (W_n(A),M) (nodes L.5/tr-log-dvr-is-log-dga, L.4/pi0-tr-is-witt-vectors).",
         "F dlog_n a = dlog_{n−1} a is immediate from the definitions of F and dlog_n (node L.5/tr-log-structure-maps).",
         "FV = p, FdV = d and F d[a]_n = [a]_{n−1}^{p−1}d[a]_{n−1}: HM 1997 Lemma 3.3 and Hesselholt 1996 Lemmas 1.5.1 (F_rδV_r = δ + (r−1)η, which is δ for r = p odd) and 1.5.6 (F_rδx = x^{r−1}dx), cited.",
-        "Initiality of W_•ω^*_{(A,M)} (node L.5/log-de-rham-witt-complex) gives the map."
+        "Initiality of W_•ω^*_{(A,M)} (node CrystallineCohomology:CR.4) gives the map."
       ],
       "acceptance": [
         "For n = 1 the map is ω^*_{(A,M)} → π_*T(A|K) of node L.5/log-thh-low-degrees.",
@@ -9470,8 +9183,7 @@
       "prerequisites": [
         "KTheoryFiniteLocalFields:L.5/tr-log-dvr-is-log-dga",
         "KTheoryFiniteLocalFields:L.5/tr-log-structure-maps",
-        "KTheoryFiniteLocalFields:L.5/log-witt-complex",
-        "KTheoryFiniteLocalFields:L.5/log-de-rham-witt-complex",
+        "CrystallineCohomology:CR.4",
         "KTheoryFiniteLocalFields:L.4/tr-pro-spectrum"
       ],
       "sources": [
@@ -10708,7 +10420,7 @@
         "KTheoryFiniteLocalFields:L.5/bott-multiplication-standard-basis",
         "KTheoryFiniteLocalFields:L.5/log-de-rham-witt-tr-low-degrees",
         "KTheoryFiniteLocalFields:L.5/tr-mod-p-dimension",
-        "KTheoryFiniteLocalFields:L.5/standard-filtration-quotient",
+        "CrystallineCohomology:CR.4",
         "KTheoryFiniteLocalFields:L.4/tate-spectral-sequence-connes-module",
         "KTheoryFiniteLocalFields:L.5/bott-element-in-tr"
       ],
@@ -10755,7 +10467,7 @@
       "prerequisites": [
         "KTheoryFiniteLocalFields:L.5/log-de-rham-witt-tr-mod-p",
         "KTheoryFiniteLocalFields:L.5/bott-element-in-tr",
-        "KTheoryFiniteLocalFields:L.5/log-de-rham-witt-complex",
+        "CrystallineCohomology:CR.4",
         "KTheoryFiniteLocalFields:L.5/tr-log-dvr-is-log-witt-complex",
         "StableHomotopyKTheory:H.6/mod-l-homotopy-and-bockstein-sequence"
       ],
@@ -10965,7 +10677,8 @@
       "proofSteps": [
         "TR(k;p) = HW(k) by node L.5/tr-of-perfect-field, with F the Witt vector Frobenius (Mathlib WittVector.frobenius); the fibre sequence TC → TR →(1−F) TR (node L.4/p-typical-tc) gives 0 → TC_0 → W(k) →(1−F) W(k) → TC_{−1} → 0.",
         "ker(1 − F) = W(k^{φ=1}) = W(F_p) = Z_p (Mathlib WittVector.equiv); TC(F_p) is Eilenberg–Mac Lane and TC(k) is a TC(F_p)-module, hence also Eilenberg–Mac Lane.",
-        "Mod p: W(k)_F/p ≅ coker(1 − φ on k) since W(k)/p = k and F reduces to φ; F − 1 is surjective on W(k) for k algebraically closed (Lang/Artin–Schreier on each Witt component)."
+        "Mod p: W(k)_F/p ≅ coker(1 − φ on k) since W(k)/p = k and F reduces to φ; F − 1 is surjective on W(k) for k algebraically closed (Lang/Artin–Schreier on each Witt component).",
+        "Independent prime-field check (NS Corollary IV.4.10): use fp-cyclotomic-frobenius-on-tc-minus and the can−φ fibre sequence of RT.2. In every nonzero even degree one map is a p-adic isomorphism and the other is divisible by p; their difference is invertible. In degree zero both are the identity, so the kernel and cokernel are Z_p. Thus π_0TC(F_p)=π_−1TC(F_p)=Z_p and every other group is zero; this supplies the HZ_p-algebra structure used by the finite-Tate cover. This check does not replace the inherited proof for a general perfect field."
       ],
       "acceptance": [
         "k = F_p: TC(F_p;p) ≃ HZ_p ∨ Σ^{−1}HZ_p.",
@@ -10977,7 +10690,9 @@
         "KTheoryFiniteLocalFields:L.4/p-typical-tc",
         "mathlib:WittVector.frobenius",
         "mathlib:WittVector.equiv",
-        "mathlib:PerfectRing"
+        "mathlib:PerfectRing",
+        "KTheoryFiniteLocalFields:L.5/fp-cyclotomic-frobenius-on-tc-minus",
+        "RefinedTraceMethods:RT.2"
       ],
       "sources": [
         {
@@ -10994,6 +10709,11 @@
           "sourceId": "HesselholtMadsen.2003",
           "locator": "Proof of Theorem 6.1.6, p. 102",
           "match": "TC_{−1}(k;p,Z/p) ≅ k_φ."
+        },
+        {
+          "sourceId": "NikolausScholze.2018.published",
+          "locator": "Corollary IV.4.10, printed p.361",
+          "match": "Independent prime-field TC fibre computation and its HZ_p structure."
         }
       ],
       "implementationStatus": "unchecked"
@@ -14639,6 +14359,287 @@
         }
       ],
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "KTheoryFiniteLocalFields:L.5/fp-tc-minus-filtration-extension",
+      "parentStageId": "KTheoryFiniteLocalFields:L.5",
+      "realises": [
+        "KTheoryFiniteLocalFields:L.5"
+      ],
+      "title": "The first p-adic extension in the prime-field homotopy-fixed-point filtration",
+      "kind": "lemma",
+      "statement": "For X=THH(HF_p), choose Bökstedt u∈π_2X and the standard orientation v∈H²(BT,F_p). In the circle homotopy-fixed-point spectral sequence, the image of p∈π_0X^hT in the first nonzero filtration quotient H²(BT,π_2X) is uv. Consequently p^a represents (uv)^a in filtration 2a. The filtration is not split as a ring over F_p.",
+      "hypotheses": [
+        "p is any prime, including 2; F_p denotes the prime field. The displayed TC, TC^- and TP are p-complete."
+      ],
+      "proofSteps": [
+        "Import the circle-equivariant low-degree comparison τ≤2 THH(HF_p)≃Hτ≤2 HH(F_p/Z), with DERIVED Hochschild homology over Z, from RT.1/RT.2. Ordinary HH(F_p/F_p)=F_p would erase the extension.",
+        "In the first derived-HKR filtration quotient, HH(A) is an extension of A by L_(A/Z)[1]; the CP¹-action induces the universal derivation A→L_(A/Z). Import this calculation from RT.1 with its cotangent-complex input.",
+        "For A=F_p, L_(F_p/Z)≃F_p[1]. The corresponding extension is Z/p² with p mapping to the generator u. Compute H_0 of its CP¹-homotopy fixed points to identify the class of p as uv.",
+        "Use the restriction BT→CP¹ to identify the first quotient, then multiplicativity to identify the class of p^a. This supplies the hidden extension needed for the complete filtered calculation."
+      ],
+      "acceptance": [
+        "At p=2 the first extension is Z/4, not F_2⊕F_2.",
+        "The class of p is zero in filtration zero but nonzero in filtration two."
+      ],
+      "prerequisites": [
+        "KTheoryFiniteLocalFields:L.5/thh-of-perfect-field",
+        "RefinedTraceMethods:RT.1",
+        "RefinedTraceMethods:RT.2"
+      ],
+      "sources": [
+        {
+          "sourceId": "NikolausScholze.2018.published",
+          "locator": "Lemma IV.4.7, printed p.359",
+          "match": "Prime-field calculation and its proof; notation and normalizations are specified in this node."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/KTheory/FiniteLocal/PrimeFieldTC",
+        "namespace": "TauCeti.KTheoryFiniteLocal"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "KTheoryFiniteLocalFields:L.5/fp-negative-topological-cyclic-homology",
+      "parentStageId": "KTheoryFiniteLocalFields:L.5",
+      "realises": [
+        "KTheoryFiniteLocalFields:L.5"
+      ],
+      "title": "Negative topological cyclic homology of the prime field",
+      "kind": "theorem",
+      "statement": "For X=THH(HF_p), TC^-(F_p)=X^hT has graded homotopy ring Z_p[ũ,v]/(ũv−p), |ũ|=2 and |v|=−2. Odd groups vanish, π_2a=Z_p·ũ^a and π_−2a=Z_p·v^a for a≥0. The edge sends ũ to Bökstedt u and v to the orientation class. TC^- is RT.2’s existing homotopy-fixed-point object, not a new local definition.",
+      "hypotheses": [
+        "p is any prime, including 2; F_p denotes the prime field. The displayed TC, TC^- and TP are p-complete."
+      ],
+      "proofSteps": [
+        "Use π_*X=F_p[u] and H*(BT,F_p)=F_p[v]. The homotopy-fixed-point spectral sequence E₂^(i,j)=H^i(BT,π_−jX)⇒π_−i−jX has only even total degrees, so every differential vanishes.",
+        "Use fp-tc-minus-filtration-extension: p^a represents (uv)^a. Establish complete and separated convergence of the filtration via the homotopy-fixed-point tower (RT.2), so these successive F_p quotients reconstruct π_0=lim Z/p^a=Z_p rather than a direct sum.",
+        "Multiply the filtered generators by ũ^a and v^a to identify all even groups. Their product is p times a degree-zero unit; rescale ũ to obtain ũv=p. Check the graded monomial normal forms to prove the ring presentation."
+      ],
+      "acceptance": [
+        "π_0=Z_p has characteristic zero, even though π_0THH(F_p)=F_p.",
+        "π_2 and π_−2 are each Z_p and their chosen generators multiply to p, not zero.",
+        "At p=2 the same presentation holds; the p-odd restriction of the HM log-Witt comparison is not used."
+      ],
+      "prerequisites": [
+        "KTheoryFiniteLocalFields:L.5/fp-tc-minus-filtration-extension",
+        "RefinedTraceMethods:RT.2",
+        "StableHomotopyKTheory:H.6"
+      ],
+      "sources": [
+        {
+          "sourceId": "NikolausScholze.2018.published",
+          "locator": "Proposition IV.4.6, printed pp.358–359",
+          "match": "Prime-field calculation and its proof; notation and normalizations are specified in this node."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/KTheory/FiniteLocal/PrimeFieldTC",
+        "namespace": "TauCeti.KTheoryFiniteLocal"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Negative TC of the prime field"
+      }
+    },
+    {
+      "id": "KTheoryFiniteLocalFields:L.5/fp-periodic-topological-cyclic-homology",
+      "parentStageId": "KTheoryFiniteLocalFields:L.5",
+      "realises": [
+        "KTheoryFiniteLocalFields:L.5"
+      ],
+      "title": "Periodic topological cyclic homology of the prime field and the canonical map",
+      "kind": "theorem",
+      "statement": "TP(F_p)=THH(HF_p)^tT has π_*=Z_p[v,v^−1], |v|=−2, and zero odd groups. For generators of fp-negative-topological-cyclic-homology the canonical map can:TC^-→TP sends v↦v and ũ↦pv^−1. On π_i, i even, can is injective, an isomorphism for i≤0, and has image p^aZ_p for i=2a≥0.",
+      "hypotheses": [
+        "p is any prime, including 2; F_p denotes the prime field. The displayed TC, TC^- and TP are p-complete."
+      ],
+      "proofSteps": [
+        "Form RT.2’s multiplicative circle Tate spectral sequence. Its even-degree support forces degeneration; use the comparison with the homotopy-fixed-point filtration to identify the nonpositive groups and v.",
+        "The Tate construction makes the orientation v invertible (RT.2’s HZ-module localization input). Invert v in ũv=p to obtain π_*TP=Z_p[v±1] and can(ũ)=pv^−1.",
+        "Identify π_2a(TC^-)=Z_p·ũ^a and π_2a(TP)=Z_p·v^−a; the canonical map is multiplication by p^a in positive degrees, and is the identity on negative powers of v."
+      ],
+      "acceptance": [
+        "can on π_2 has image pZ_p; can on π_−2 is an isomorphism.",
+        "TP(F_p) has π_0=Z_p; THH(F_p)^tC_p instead has π_0=F_p."
+      ],
+      "prerequisites": [
+        "KTheoryFiniteLocalFields:L.5/fp-negative-topological-cyclic-homology",
+        "RefinedTraceMethods:RT.2"
+      ],
+      "sources": [
+        {
+          "sourceId": "NikolausScholze.2018.published",
+          "locator": "Corollary IV.4.8, printed p.360",
+          "match": "Prime-field calculation and its proof; notation and normalizations are specified in this node."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/KTheory/FiniteLocal/PrimeFieldTC",
+        "namespace": "TauCeti.KTheoryFiniteLocal"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "KTheoryFiniteLocalFields:L.5/fp-cyclotomic-frobenius-on-tc-minus",
+      "parentStageId": "KTheoryFiniteLocalFields:L.5",
+      "realises": [
+        "KTheoryFiniteLocalFields:L.5"
+      ],
+      "title": "The opposite divisibility ranges of canonical map and cyclotomic Frobenius",
+      "kind": "theorem",
+      "statement": "The p-cyclotomic Frobenius φ^hT:TC^-(F_p)→TP(F_p) is injective on every even homotopy group, an isomorphism for i≥0, and has image p^aZ_p for i=−2a≤0. The degree-zero map is the identity of Z_p. These image statements are independent of generator units; a simultaneous exact normalization is supplied by fp-cyclotomic-shift-model.",
+      "hypotheses": [
+        "p is any prime, including 2; F_p denotes the prime field. The displayed TC, TC^- and TP are p-complete."
+      ],
+      "proofSteps": [
+        "Use ũv=p and multiplicativity: φ(ũ)φ(v)=p in Z_p[v±1]. Both maps are injective and either the positive or the negative-degree generator has unit coefficient.",
+        "Assume φ is an isomorphism in negative degrees. Compose the square TC^-→TP / THH→THH^tC_p with the augmentation THH(HF_p)→HF_p. The lower-left π_−2THH is zero, so surjectivity of the upper-left map would force π_−2TP→π_−2HF_p^tC_p to vanish. But the orientation v maps to a nonzero class in π_−2HF_p^tT and then in π_−2HF_p^tC_p=F_p, a contradiction. This uses RT.2’s elementary HF_p Tate calculation, not the later THH finite-Tate-cover theorem.",
+        "Thus φ is an isomorphism in positive degrees, and the product relation forces valuation a in degree −2a. In degree zero, a unital continuous map Z_p→Z_p fixes integers, hence is the identity.",
+        "Together with the canonical map, in each nonzero even degree can−φ has one unit coefficient and one p-divisible coefficient, hence is invertible; in degree zero the difference is zero."
+      ],
+      "acceptance": [
+        "At p=2, φ is an isomorphism on π_2 whereas can has image 2Z_2; these maps cannot be identified.",
+        "For every a≥1, p^a−1 is a p-adic unit; this is the input to the TC fibre calculation."
+      ],
+      "prerequisites": [
+        "KTheoryFiniteLocalFields:L.5/fp-periodic-topological-cyclic-homology",
+        "RefinedTraceMethods:RT.2"
+      ],
+      "sources": [
+        {
+          "sourceId": "NikolausScholze.2018.published",
+          "locator": "Proposition IV.4.9, printed pp.360–361",
+          "match": "Prime-field calculation and its proof; notation and normalizations are specified in this node."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/KTheory/FiniteLocal/PrimeFieldTC",
+        "namespace": "TauCeti.KTheoryFiniteLocal"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "KTheoryFiniteLocalFields:L.5/fp-cyclotomic-tate-cover",
+      "parentStageId": "KTheoryFiniteLocalFields:L.5",
+      "realises": [
+        "KTheoryFiniteLocalFields:L.5"
+      ],
+      "title": "The finite Tate construction and connective cyclotomic Frobenius for the prime field",
+      "kind": "theorem",
+      "statement": "The HZ_p→THH(HF_p) map obtained from τ≥0TC(F_p)=HZ_p induces a T/C_p-equivariant equivalence of E∞-rings HZ_p^tC_p≃THH(HF_p)^tC_p, with homotopy F_p[v±1]. The cyclotomic Frobenius φ_p:THH(HF_p)→THH(HF_p)^tC_p identifies its source with the connective cover, with residual circle action transported by T≃T/C_p.",
+      "hypotheses": [
+        "p is any prime, including 2; F_p denotes the prime field. The displayed TC, TC^- and TP are p-complete."
+      ],
+      "proofSteps": [
+        "Apply the TC fibre calculation to obtain the T-equivariant HZ_p-algebra structure. Use RT.2’s HZ-module base-change formulas (NS Lemma IV.4.12) to identify the finite Tate construction as TP(F_p)/p.",
+        "The quotient of Z_p[v±1] by p is F_p[v±1]. The natural map HZ_p^tC_p→THH(HF_p)^tC_p is a unital graded endomorphism after these identifications; the invertible degree −2 generator must map to a nonzero scalar multiple, giving an equivalence.",
+        "Use the square with φ^hT, the edge TC^-→THH and TP→THH^tC_p. The explicit maps show φ_p is an isomorphism in nonnegative degrees; THH is connective, hence is the connective cover. Keep the residual action and E∞ maps throughout."
+      ],
+      "acceptance": [
+        "π_0 of the finite Tate target is F_p, not Z_p.",
+        "φ_p identifies π_2a for a≥0, while the target has nonzero negative even homotopy absent from THH.",
+        "The HZ_p map through TC is specified; Remark IV.4.17 warns that the natural, Frobenius and through-F_p algebra maps need not coincide."
+      ],
+      "prerequisites": [
+        "KTheoryFiniteLocalFields:L.5/tc-of-perfect-field",
+        "KTheoryFiniteLocalFields:L.5/fp-cyclotomic-frobenius-on-tc-minus",
+        "RefinedTraceMethods:RT.2"
+      ],
+      "sources": [
+        {
+          "sourceId": "NikolausScholze.2018.published",
+          "locator": "Corollary IV.4.13, printed pp.362–363",
+          "match": "Prime-field calculation and its proof; notation and normalizations are specified in this node."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/KTheory/FiniteLocal/PrimeFieldTC",
+        "namespace": "TauCeti.KTheoryFiniteLocal"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "KTheoryFiniteLocalFields:L.5/fp-cyclotomic-shift-model",
+      "parentStageId": "KTheoryFiniteLocalFields:L.5",
+      "realises": [
+        "KTheoryFiniteLocalFields:L.5"
+      ],
+      "title": "Prime-field THH as the cyclotomic shift of trivial HZ_p",
+      "kind": "comparison",
+      "statement": "Using RT.2’s shift sh_p(X)=τ≥0(X^tC_p) with residual circle action and induced Frobenius (NS Construction IV.4.15), THH(HF_p)≃sh_p(HZ_p^triv) as E∞-cyclotomic spectra. Generators may simultaneously be chosen with ũv=p, can(v)=v, can(ũ)=pv^−1, φ^hT(v)=pv and φ^hT(ũ)=v^−1. For n≥1 the genuine fixed points THH(HF_p)^C_(p^n)≃τ≥0 HZ_p^tC_(p^(n+1)); the HM TR index for these fixed points is n+1.",
+      "hypotheses": [
+        "p is any prime, including 2; F_p denotes the prime field. The displayed TC, TC^- and TP are p-complete."
+      ],
+      "proofSteps": [
+        "Import the trivial-cyclotomic/TC adjunction and shift functor from RT.2; do not define another general cyclotomic category or shift in this roadmap. The TC calculation gives HZ_p^triv→THH(HF_p).",
+        "Apply sh_p to this map. The finite-Tate equivalence makes the lower shifted map an equivalence and fp-cyclotomic-tate-cover makes THH→sh_pTHH an equivalence. Their square gives the comparison as E∞-cyclotomic spectra.",
+        "Compute the shifted Frobenius on the orientation generator to get φ(v)=pv, keeping the same generator under can. Use ũv=p to get φ(ũ)=v^−1; cancellation is valid in Z_p[v±1].",
+        "Apply the imported bounded-below fixed-point comparison, NS Corollary II.4.9, to the connective spectrum THH and iterate the finite Tate identification to obtain the C_(p^n) formula. It is the prime-field application of RT.2, not another proof of its general theorem."
+      ],
+      "acceptance": [
+        "In degree 2a>0, can−φ is multiplication by p^a−1 in the v^−a basis. In degree −2a<0 it is 1−p^a in the v^a basis.",
+        "For n=1, the fixed-point formula gives π_0=Z/p², matching π_0TR²(F_p)=W_2(F_p); π_0THH=F_p corresponds to TR¹.",
+        "The three HZ_p algebra maps in Remark IV.4.17 stay distinct; an underlying spectrum equivalence alone does not specify this cyclotomic comparison."
+      ],
+      "prerequisites": [
+        "KTheoryFiniteLocalFields:L.5/fp-cyclotomic-tate-cover",
+        "KTheoryFiniteLocalFields:L.5/fp-negative-topological-cyclic-homology",
+        "RefinedTraceMethods:RT.2"
+      ],
+      "sources": [
+        {
+          "sourceId": "NikolausScholze.2018.published",
+          "locator": "Construction IV.4.15 and Corollary IV.4.16, printed pp.363–364",
+          "match": "Prime-field calculation and its proof; notation and normalizations are specified in this node."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/KTheory/FiniteLocal/PrimeFieldTC",
+        "namespace": "TauCeti.KTheoryFiniteLocal"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "KTheoryFiniteLocalFields:L.5/char-p-algebra-tc-fibre-sequence",
+      "parentStageId": "KTheoryFiniteLocalFields:L.5",
+      "realises": [
+        "KTheoryFiniteLocalFields:L.5"
+      ],
+      "title": "The TC fibre sequence for characteristic-p algebras used in the local calculations",
+      "kind": "theorem",
+      "statement": "For a discrete commutative F_p-algebra A, p-complete TC(A) is fib(can−φ^hT:THH(A)^hT→THH(A)^tT). With v the degree −2 class induced by TC^-(F_p), THH(A)^tT≃THH(A)^hT[v^−1]; can becomes an equivalence after inverting p. This applies to perfect fields, truncated polynomial F_p-algebras and the regular characteristic-p rings of L.5/L.6. RT.2 owns the stronger statement for arbitrary E₂ characteristic-p algebras with a chosen nullhomotopy, including unbounded inputs.",
+      "hypotheses": [
+        "p is any prime, including 2; F_p denotes the prime field. The displayed TC, TC^- and TP are p-complete."
+      ],
+      "proofSteps": [
+        "The specified F_p-algebra structure supplies an E₂ map HF_p→HA and its nullhomotopy of p. By multiplicativity THH(A) is a cyclotomic module over THH(HF_p), hence over the HZ_p structure obtained from TC(F_p).",
+        "Apply RT.2’s HZ-module Tate-orbit comparison and TC equalizer theorem. The cyclotomic-module hypothesis gives the displayed can−φ fibre sequence. This verifies the hypotheses for the local algebra examples; it does not reprove the general theorem.",
+        "Use the HZ-module base-change formula of NS Lemma IV.4.12: circle Tate equals base change along HZ_p^hT→HZ_p^tT, or inversion of the orientation v.",
+        "The relation ũv=p in the coefficient TC^- ring implies v is invertible after inverting p, proving can[1/p] is an equivalence. Keep this rational comparison separate from an integral TC assertion."
+      ],
+      "acceptance": [
+        "For A=F_p, the sequence recovers π_0TC=π_−1TC=Z_p and zero in all other degrees.",
+        "For A=F_p[x]/(x²), the fibre formula applies without smoothness; it does not assert the algebra’s TC groups equal those of F_p.",
+        "For a mixed-characteristic DVR A=Z_p, the F_p-algebra hypothesis fails, so this node is not the local-DVR comparison theorem."
+      ],
+      "prerequisites": [
+        "KTheoryFiniteLocalFields:L.5/fp-cyclotomic-shift-model",
+        "RefinedTraceMethods:RT.2"
+      ],
+      "sources": [
+        {
+          "sourceId": "NikolausScholze.2018.published",
+          "locator": "End of IV.4, printed pp.364–365",
+          "match": "Prime-field calculation and its proof; notation and normalizations are specified in this node."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/KTheory/FiniteLocal/PrimeFieldTC",
+        "namespace": "TauCeti.KTheoryFiniteLocal"
+      },
+      "implementationStatus": "unchecked"
     }
   ],
   "coverage": [
@@ -14654,7 +14655,8 @@
         "Browder's mod-ℓ ring structure and scholium; Araki–Toda multiplications on Moore spectra: gaps, nodes L.1/browder-mod-l-ring and L.1/mod-m-products (the latter also requested from StableHomotopyKTheory H.6).",
         "Answers to the requests to RefinedTraceMethods RT.4:topological (Adams operations on BU, Atiyah map, K̃U^1(BG) = 0; proposed as a Part II), StableHomotopyKTheory H.6 (Moore multiplications, Eilenberg–Moore spectral sequence), SchemeKTheoryOperations S.6 (Quillen–Hiller operations and Hiller's universality), GeneralAlgebraicKTheory K.7, KTheoryLowDegrees U.5 and U.6.",
         "Re-derive Mestel's Lemmas 26–29 (the classes c_i(W), e_{jr}(W) and the product formula) against Quillen 1972 §§8–9 before implementation (gap on the expository source).",
-        "Once K2SymbolsBrauer--T.1 cites GeneralAlgebraicKTheory K.2:plus instead of the umbrella K.2 (restructure), add K2SymbolsBrauer:T.2/k2-finite-field and K2SymbolsBrauer:T.1/k2-pi2 as prerequisites of L.1/degree-two-symbols."
+        "Once K2SymbolsBrauer--T.1 cites GeneralAlgebraicKTheory K.2:plus instead of the umbrella K.2 (restructure), add K2SymbolsBrauer:T.2/k2-finite-field and K2SymbolsBrauer:T.1/k2-pi2 as prerequisites of L.1/degree-two-symbols.",
+        "Decompose the newly routed Calmès finite-field hermitian comparison targets and Abdurrahman–Venkatesh finite-rank H_3/2 and c_et targets listed in the two new gaps."
       ]
     },
     {
@@ -14693,16 +14695,17 @@
     {
       "stageId": "KTheoryFiniteLocalFields:L.5",
       "status": "partial",
-      "note": "Targets and realisation. 'Consume existing Witt-vector algebra': Mathlib's WittVector, TruncatedWittVector, ghost map, Frobenius, Verschiebung and Teichmüller are baseline; the new Witt-vector lemmas of HM §3.1 (ghost-image criterion, V(1) ≡ [−p] and [−1] ≡ −1 for p odd, p-th powers of Teichmüller additive mod p, ρ_n, V_π, the presentation of W_n(A)/p) are nodes. 'Import ordinary de Rham–Witt complexes, Frobenius, Verschiebung and restriction from CR.4 … Do not define a second ordinary de Rham–Witt complex': requested; L.5/log-witt-complex specialises to CR.4's Witt complexes for the trivial log structure. 'own the logarithmic/DVR comparison … with its ramification data and map-level comparison': log differentials of a complete DVR (HM 2.2.2–2.2.6, with e_K, tame and wild base change), log Witt complexes and W_•ω^*_{(A,M)} (3.2.1–3.2.7), its mod p structure with the ramification invariant r(i,e_K) (3.4.1), the canonical map to TR (3.3.1) and the comparisons 3.3.8 and Theorem C. 'THH/TR/TC for perfect fields' (Bökstedt periodicity, HM 1997 Theorems 4.5 and B), 'truncated polynomial rings' (HM A.1.4–A.1.7, Hesselholt 2005 Propositions 7, 8, Theorems 10, 11, 13, HM 1997b Theorem A) and 'the complete DVRs required for local-field K-theory' (HM §§2–6 in mixed characteristic, p odd; Hesselholt 1996 and Geisser–Hesselholt for k[[t]] in equal characteristic). Concrete tests: L.5/relative-k-of-truncated-polynomial-over-perfect-field and L.5/relative-k-of-truncated-polynomial-char-zero (e = 2 is the square-zero comparison with differential forms). Integral, p-adic and mod p^v statements are separate nodes or explicitly labelled. The p = 2 hypothesis: every HM node carries 'p odd'; tests record the failures at p = 2 (V(1) ≢ [−2] mod 2W_3(Z), [−1]_2 ≢ −1, d∘d = ηd in TR of Z_(2)); the Handbook's p = 2 local results (Theorem 61 via Rognes–Weibel) are not trace-theoretic and are left to L.6.",
+      "note": "Targets and realisation. 'Consume existing Witt-vector algebra': Mathlib's WittVector, TruncatedWittVector, ghost map, Frobenius, Verschiebung and Teichmüller are baseline; the new Witt-vector lemmas of HM §3.1 (ghost-image criterion, V(1) ≡ [−p] and [−1] ≡ −1 for p odd, p-th powers of Teichmüller additive mod p, ρ_n, V_π, the presentation of W_n(A)/p) are nodes. 'Import ordinary de Rham–Witt complexes, Frobenius, Verschiebung and restriction from CR.4 … Do not define a second ordinary de Rham–Witt complex': requested; general log Witt complexes, their initial object and filtration are also imported once from CR.4 with CR.5:log-algebra. 'own the logarithmic/DVR comparison … with its ramification data and map-level comparison': log differentials of a complete DVR (HM 2.2.2–2.2.6, with e_K, tame and wild base change), the imported log Witt object W_•ω^*_{(A,M)} and its DVR kernel/homotopy-orbit structure (3.2.5–3.2.7), its mod p structure with the ramification invariant r(i,e_K) (3.4.1), the canonical map to TR (3.3.1) and the comparisons 3.3.8 and Theorem C. 'THH/TR/TC for perfect fields' (Bökstedt periodicity, HM 1997 Theorems 4.5 and B), 'truncated polynomial rings' (HM A.1.4–A.1.7, Hesselholt 2005 Propositions 7, 8, Theorems 10, 11, 13, HM 1997b Theorem A) and 'the complete DVRs required for local-field K-theory' (HM §§2–6 in mixed characteristic, p odd; Hesselholt 1996 and Geisser–Hesselholt for k[[t]] in equal characteristic). Concrete tests: L.5/relative-k-of-truncated-polynomial-over-perfect-field and L.5/relative-k-of-truncated-polynomial-char-zero (e = 2 is the square-zero comparison with differential forms). Integral, p-adic and mod p^v statements are separate nodes or explicitly labelled. The HM log-Witt/DVR comparison requires p odd; tests record the failures at p = 2 (V(1) ≢ [−2] mod 2W_3(Z), [−1]_2 ≢ −1, d∘d = ηd in TR of Z_(2)); the Handbook's p = 2 local results (Theorem 61 via Rognes–Weibel) are not trace-theoretic and are left to L.6. NS IV.4 now has explicit prime-field TC^-, TP, canonical/Frobenius maps, the finite-Tate connective cover and cyclotomic shift. These calculations include p=2; the p-odd restriction applies to HM’s log-Witt/DVR comparisons only.",
       "remaining": [
-        "Prove the existence of the log de Rham–Witt complex and W_1ω = ω for log rings (gap and source issue: the two HM papers refer to each other).",
+        "Obtain CR.4’s universal log-Witt existence, initiality, degree-zero/level-one and standard-filtration exports on CR.5:log-algebra; the circular HM source reference remains a supplier proof gap.",
         "Prove the Lindenstrauss–Madsen inputs (π̄_*T(A), π_*(T(A);Z_p), their Proposition 4.3) and Remark 2.4.2 (gaps).",
         "Replace Tsalidis' theorem in Addendum 5.4.4 by Nikolaus–Scholze Corollary II.4.9 with the hypotheses checked (gap).",
         "Split the proofs of Propositions 5.5.4 and 5.5.5 and Theorem 5.5.1 into declaration-sized steps (the degree bookkeeping is recorded in proof steps only).",
         "Supply the continuity results and Kratzer's theorem behind HM 1997 Theorem D, and HM 1997 Theorem 5.1 (gap).",
         "Supply the Galois-cohomology inputs of Theorem 6.1.6 (Serre's residue sequence, Artin–Schreier) and obtain answers to the requests to MotivicEtaleKTheory M.1 and Tau Ceti ProfiniteCohomology layer 9.",
         "Supply TR^n_{q−λ}(k;p) for perfect k (HM 'cyclic polytopes' Proposition 9.1, cited in Hesselholt 2005) and the cyclic-polytope geometry behind HM 1997b Theorem B.",
-        "Answers to the requests to RefinedTraceMethods RT.1–RT.3, CrystallineCohomology CR.4 and CR.5:log-algebra."
+        "Answers to the requests to RefinedTraceMethods RT.1–RT.3, CrystallineCohomology CR.4 and CR.5:log-algebra.",
+        "Obtain the exact RT.1/RT.2 derived-HH low-degree, HZ-module base-change and cyclotomic-shift exports listed by the seven new NS IV.4 nodes; their local proof chains are explicit and their general foundations remain imports."
       ]
     },
     {
@@ -14715,7 +14718,8 @@
         "Assign an owner to the Geisser–Levine theorem (gap) and to cd_p ≤ 2 for complete discretely valued fields with perfect infinite residue field (gap).",
         "Decide whether the natural splitting in Hesselholt–Madsen's Theorem A for v > 1 is needed anywhere; if so, find its argument (gap).",
         "Rognes–Weibel's proof for p = 2 (K-book [161, 3.7], Handbook [51]) was not read; the p = 2 case rests on M.7's Quillen–Lichtenbaum statement for fields of 2-cohomological dimension 2.",
-        "Route Examples VI.7.6–7.8 of the K-book (Handbook 64–66), which are local–global, to L.7 (restructure entry)."
+        "Route Examples VI.7.6–7.8 of the K-book (Handbook 64–66), which are local–global, to L.7 (restructure entry).",
+        "Decompose Calmès Remark3.1.10 for local rings at residue characteristic2 with its field comparison, GW localization and bounded 2-primary L-theory imports; no hermitian carrier is defined here."
       ]
     },
     {
@@ -14758,7 +14762,7 @@
     },
     {
       "title": "Green's theorem on Brauer characters is cited, not proved",
-      "detail": "That g ↦ S(ι(λ_1(g)), …, ι(λ_n(g))) is a virtual character (Green, The characters of the finite general linear groups, Trans. AMS 80 (1955), Theorem 1) is cited by the K-book (implicitly, Example IV.5.8), Haine (Theorem 5.8) and Mestel (Theorem 14); no proof was read. It is a statement about finite-group representation theory, closest to a representation-theory roadmap; no atlas stage names it. NEXT SOURCE ACTION: Serre, Linear representations of finite groups, §18 (Brauer's characterisation of characters), or Green 1955.",
+      "detail": "That g ↦ S(ι(λ_1(g)), …, ι(λ_n(g))) is a virtual character (Green, The characters of the finite general linear groups, Trans. AMS 80 (1955), Theorem 1) is cited by the K-book (implicitly, Example IV.5.8), Haine (Theorem 5.8) and Mestel (Theorem 14); no proof was read. It is a statement about finite-group representation theory, closest to a representation-theory roadmap; no atlas stage names it. NEXT SOURCE ACTION: Serre, Linear representations of finite groups, §18 (Brauer's characterisation of characters), or Green 1955. Ownership correction RT-AREA-ktheory-1/37: InductionRestriction Layer6 explicitly already plans Brauer’s characterization and integral induction. Import it, then prove the special elementary-subgroup restrictions for Green’s function. The AMS Green1955 PDF returned403 on this run; no source proof is claimed.",
       "neededBy": [
         "KTheoryFiniteLocalFields:L.1/green-virtual-character",
         "KTheoryFiniteLocalFields:L.1/brauer-lift"
@@ -14873,11 +14877,14 @@
       ]
     },
     {
-      "title": "Existence of the de Rham–Witt complex with log poles: the two sources refer to each other",
-      "detail": "HM 2003 Proposition 3.2.2 ('a fairly straightforward application of the Freyd adjoint functor theorem … For a detailed proof, we refer the reader to [HM 2004, §1]') and Addendum 3.2.3 (from [HM 2004, Th. D]); HM 2004 §1 and Theorem D treat only Witt complexes without log structure, and HM 2004's introduction says 'The notion of a Witt complex and theorem A above generalize to log-rings; see [HM 2003, §3] for details.' So no read source proves the existence of the initial log Witt complex, the surjectivity of λ: ω^*_{(W_•(R),M)} → W_•ω^*_{(R,M)} or W_1ω^*_{(R,M)} ≅ ω^*_{(R,M)}. The non-log arguments of HM 2004 §1 (solution set for Freyd's theorem; Theorem D via the construction P(E)) are expected to carry over; this must be written out (see the source issue).",
+      "title": "Supplier proof boundary: initial log Witt complex and its level-one identification",
+      "detail": "HM 2003 Proposition 3.2.2 ('a fairly straightforward application of the Freyd adjoint functor theorem … For a detailed proof, we refer the reader to [HM 2004, §1]') and Addendum 3.2.3 (from [HM 2004, Th. D]); HM 2004 §1 and Theorem D treat only Witt complexes without log structure, and HM 2004's introduction says 'The notion of a Witt complex and theorem A above generalize to log-rings; see [HM 2003, §3] for details.' So no read source proves the existence of the initial log Witt complex, the surjectivity of λ: ω^*_{(W_•(R),M)} → W_•ω^*_{(R,M)} or W_1ω^*_{(R,M)} ≅ ω^*_{(R,M)}. The non-log arguments of HM 2004 §1 (solution set for Freyd's theorem; Theorem D via the construction P(E)) are expected to carry over; this must be written out (see the source issue). This is requested once from CrystallineCohomology CR.4 on CR.5:log-algebra, as required by RT-AREA-ktheory-1/39. The five former general L.5 nodes are migrated to its importedSpecifications; the gap remains open for the DVR consumers.",
       "neededBy": [
-        "KTheoryFiniteLocalFields:L.5/log-de-rham-witt-complex",
-        "KTheoryFiniteLocalFields:L.5/log-de-rham-witt-level-one"
+        "KTheoryFiniteLocalFields:L.5/homotopy-orbit-de-rham-witt-module",
+        "KTheoryFiniteLocalFields:L.5/kernel-of-restriction",
+        "KTheoryFiniteLocalFields:L.5/tr-log-dvr-is-log-witt-complex",
+        "KTheoryFiniteLocalFields:L.5/log-de-rham-witt-dvr-mod-p",
+        "KTheoryFiniteLocalFields:L.5/log-de-rham-witt-tr-mod-p"
       ]
     },
     {
@@ -14974,12 +14981,28 @@
         "KTheoryFiniteLocalFields:L.6/equal-characteristic-completed-k-groups",
         "KTheoryFiniteLocalFields:L.6/milnor-k-of-local-fields"
       ]
+    },
+    {
+      "title": "New routed hermitian K-theory inputs: supplier carriers and finite/local proof chains",
+      "detail": "Issue763 routes Calmès et al. III catalog400–405,409 to L.1/L.6. The targeted v4 read establishes the required targets: connective finite-field symmetric GW→K^hC2 (Theorem3.1.3); for finite even-q fields, full GW(F_q;(Q^s)[m])→K(F_q)^hC2 for every integer m (Proposition3.1.4), including the shifted L/Tate square; its multiplicative proof (Remark3.1.5); the perfect-char2 extension (Remark3.1.6); and the mixed-(0,2) local-ring comparison via residue/fraction-field localization and bounded 2-primary L-groups (Remark3.1.10). General hermitian/GW/L carrier definitions must come from their design owner, not be invented in this packet. Next worker must identify that owner, read the universal cartesian square and localization suppliers, and split these targets into fully sourced nodes. A targeted source read is recorded, not a completed comparison plan.",
+      "neededBy": [
+        "KTheoryFiniteLocalFields:L.1/quillen-k-groups",
+        "KTheoryFiniteLocalFields:L.6/hm-theorem-d"
+      ]
+    },
+    {
+      "title": "New finite-rank symplectic degree-three and étale Chern-class route",
+      "detail": "Issue763 routes Abdurrahman–Venkatesh §2.7 (catalog17–18) to L.1. Required targets for odd q: H_3(Sp_(2r)(F_q),Z/2)→H_3(SL_(2r)(F_q),Z/2) is an isomorphism of groups of order2; c_et:H_3(Sp_(2r)(F_q),Z)/2→F_q^×/2 is an isomorphism. Read v1 §2.7 pp.16–17, but finite-rank stabilization, the universal-cover Hurewicz argument, and its identification with Weibel’s K_3/2 étale class need declaration-sized proofs. The reviewed PAPER-ABDURRAHMAN-VENKATESH-25/E3 warns that H_2(SL_2(F_9),Z)=Z/3, so the printed blanket H_2=0 claim cannot be imported; odd-order H_2 suffices for the mod2 universal-coefficient step. Check the published version and corrected rank/exception hypotheses before planning; the general K_3(F_q) and transfer calculation is imported from L.1 by K3BlochGroups V.5, not duplicated there.",
+      "neededBy": [
+        "KTheoryFiniteLocalFields:L.1/quillen-k-groups",
+        "KTheoryFiniteLocalFields:L.1/finite-field-transfer-formulas"
+      ]
     }
   ],
   "requests": [
     {
       "supplier": "RefinedTraceMethods:RT.4:topological",
-      "need": "RT.4:topological's text: 'Construct topological complex K-theory from vector bundles, prove Bott periodicity and its spectrum-level multiplication ... Identify π_*ku=ℤ[β] and π_*KU=ℤ[β,β⁻¹]'. L.1 uses BU as a homotopy-commutative H-group with π_{2i}(BU) ≅ Z, π_{2i−1}(BU) = 0, and additionally needs, beyond that text: (a) Adams operations ψ^k: BU → BU as H-maps representing ψ^k on K̃U^0, with ψ^jψ^k ≃ ψ^{jk}, ψ^kψ^q ≃ ψ^qψ^k, ψ^k = k^i on π_{2i}(BU) = K̃U(S^{2i}) (K-book Example II.4.4.1) and ψ^q acting by q^i on the mod-ℓ Chern class c_i ∈ H^{2i}(BU; F_ℓ); (b) the λ-ring structure on [X, BU] (K-book Example IV.5.7.1); (c) the Atiyah map R_C(G) → [BG, Z × BU] as a λ-ring homomorphism; (d) K̃U^1(BG) = 0 for finite G and the vanishing of lim^1 of K̃U^0(BGL_n(F_q)) (Atiyah–Segal). Items (a)–(d) are proposed as 'RefinedTraceMethods, Part II' in restructure if RT.4:topological does not take them. RT.4:topological's text: 'Construct topological complex K-theory from vector bundles, prove Bott periodicity and its spectrum-level multiplication, and define ku as the connective cover of KU.' L.6 needs, beyond that text and beyond L.1's request for integral Adams operations: the p-adic Adams operations Ψ^k, k ∈ ℤ_p^×, on the p-completions of ℤ × BU and BU, acting on π_{2i} by k^i, so that FΨ^k = hofib(Ψ^k − 1) is defined for p-adic k (Hesselholt–Madsen Theorem D, K-book Theorem VI.7.9).",
+      "need": "RT.4:topological's text: 'Construct topological complex K-theory from vector bundles, prove Bott periodicity and its spectrum-level multiplication ... Identify π_*ku=ℤ[β] and π_*KU=ℤ[β,β⁻¹]'. L.1 uses BU as a homotopy-commutative H-group with π_{2i}(BU) ≅ Z, π_{2i−1}(BU) = 0, and additionally needs, beyond that text: (a) Adams operations ψ^k: BU → BU as H-maps representing ψ^k on K̃U^0, with ψ^jψ^k ≃ ψ^{jk}, ψ^kψ^q ≃ ψ^qψ^k, ψ^k = k^i on π_{2i}(BU) = K̃U(S^{2i}) (K-book Example II.4.4.1) and ψ^q acting by q^i on the mod-ℓ Chern class c_i ∈ H^{2i}(BU; F_ℓ); (b) the λ-ring structure on [X, BU] (K-book Example IV.5.7.1); (c) the Atiyah map R_C(G) → [BG, Z × BU] as a λ-ring homomorphism; (d) K̃U^1(BG) = 0 for finite G and the vanishing of lim^1 of K̃U^0(BGL_n(F_q)) (Atiyah–Segal). Items (a)–(d) are proposed as 'RefinedTraceMethods, Part II' in restructure if RT.4:topological does not take them. RT.4:topological's text: 'Construct topological complex K-theory from vector bundles, prove Bott periodicity and its spectrum-level multiplication, and define ku as the connective cover of KU.' L.6 needs, beyond that text and beyond L.1's request for integral Adams operations: the p-adic Adams operations Ψ^k, k ∈ ℤ_p^×, on the p-completions of ℤ × BU and BU, acting on π_{2i} by k^i, so that FΨ^k = hofib(Ψ^k − 1) is defined for p-adic k (Hesselholt–Madsen Theorem D, K-book Theorem VI.7.9). Completion contract (Atiyah–Segal1969 Theorem2.1, Proposition4.2): for finite G and augmentation ideal I=ker(dim:R_C(G)→Z), the Atiyah λ-ring map identifies KU^0(BG) with lim_n R_C(G)/I^n, and KU^1(BG)=0, with the Milnor lim¹ term controlled by the completed/pro tower. This is a supplier theorem of RT.4:topological, not a new L.1 proof; its full source proof remains to read. The point specialization was inspected in the published scan, and RT-AREA-ktheory-1/37b requests it explicitly.",
       "neededBy": [
         "KTheoryFiniteLocalFields:L.1/fpsi",
         "KTheoryFiniteLocalFields:L.1/fpsi-homotopy",
@@ -14988,7 +15011,8 @@
         "KTheoryFiniteLocalFields:L.1/fpsi-cohomology",
         "KTheoryFiniteLocalFields:L.1/frobenius-is-adams",
         "KTheoryFiniteLocalFields:L.1/adams-on-finite-field-k",
-        "KTheoryFiniteLocalFields:L.6/hm-theorem-d"
+        "KTheoryFiniteLocalFields:L.6/hm-theorem-d",
+        "KTheoryFiniteLocalFields:L.1/brauer-lift"
       ]
     },
     {
@@ -15206,7 +15230,7 @@
     },
     {
       "supplier": "RefinedTraceMethods:RT.1",
-      "need": "Hochschild homology HH_*(A) of commutative rings (cyclic model, Connes' B, relative groups for an ideal), cyclic homology HC and negative cyclic homology HC^- with the SBI sequence, the smooth characteristic-zero HKR isomorphism Ω^*_A ≅ HH_*(A) and its extension to filtered colimits (so to regular noetherian Q-algebras by Popescu), and étale base change HH_*(B) ≅ B ⊗_A HH_*(A) for A → B étale. RT.1's text: 'Construct the Hochschild chain complex of an associative algebra … Define faces, degeneracies, cyclic operators and Connes's B … Prove Morita invariance, external products, base change under actual Tor hypotheses and the smooth characteristic-zero HKR comparison.' L.5 uses it for HH_*(k) = k for perfect k, HH_* of k[x]/(x^e), the rational relative cyclic homology of truncated polynomial algebras and the characteristic-zero comparison with differential forms.",
+      "need": "Hochschild homology HH_*(A) of commutative rings (cyclic model, Connes' B, relative groups for an ideal), cyclic homology HC and negative cyclic homology HC^- with the SBI sequence, the smooth characteristic-zero HKR isomorphism Ω^*_A ≅ HH_*(A) and its extension to filtered colimits (so to regular noetherian Q-algebras by Popescu), and étale base change HH_*(B) ≅ B ⊗_A HH_*(A) for A → B étale. RT.1's text: 'Construct the Hochschild chain complex of an associative algebra … Define faces, degeneracies, cyclic operators and Connes's B … Prove Morita invariance, external products, base change under actual Tor hypotheses and the smooth characteristic-zero HKR comparison.' L.5 uses it for HH_*(k) = k for perfect k, HH_* of k[x]/(x^e), the rational relative cyclic homology of truncated polynomial algebras and the characteristic-zero comparison with differential forms. For NS Lemma IV.4.7, supply DERIVED HH(A/Z) for nonflat A, the first HKR filtration quotient as an extension of A by L_(A/Z)[1] with circle derivation, L_(F_p/Z)≃F_p[1], and identification of the resulting first extension with Z/p². The full cotangent complex is an imported foundation, not Mathlib’s naive Algebra.Extension.H1Cotangent. RT.2 also supplies τ≤2THH(HF_p)≃Hτ≤2HH(F_p/Z) (NS Proposition IV.4.2).",
       "neededBy": [
         "KTheoryFiniteLocalFields:L.4/connes-operator",
         "KTheoryFiniteLocalFields:L.5/hochschild-homology-of-perfect-field",
@@ -15214,12 +15238,13 @@
         "KTheoryFiniteLocalFields:L.5/relative-cyclic-homology-of-truncated-polynomial-algebra",
         "KTheoryFiniteLocalFields:L.5/relative-k-of-truncated-polynomial-char-zero",
         "KTheoryFiniteLocalFields:L.5/log-differentials-divisible-part",
-        "KTheoryFiniteLocalFields:L.5/log-thh-low-degrees"
+        "KTheoryFiniteLocalFields:L.5/log-thh-low-degrees",
+        "KTheoryFiniteLocalFields:L.5/fp-tc-minus-filtration-extension"
       ]
     },
     {
       "supplier": "RefinedTraceMethods:RT.2",
-      "need": "THH of spectral categories (in particular of Z-linear categories via Eilenberg–Mac Lane spectra of the Hom-groups) by cyclic realisation, with the T-action as coherent data and its genuine cyclotomic structure (genuine C_{p^n}-fixed points, restriction R through geometric fixed points, inclusion F, transfer V), homotopy orbits, homotopy fixed points and Tate constructions with the norm cofibre sequence and multiplicative structure, and the agreement of the classical genuine TR/TC with the Nikolaus–Scholze TC for bounded-below cyclotomic spectra. RT.2's text: 'Construct THH of spectral categories and E₁-algebras by cyclic realization. Give the S¹-action as coherent data … Construct restriction, homotopy orbits, homotopy fixed points and Tate constructions with their norm/fibre sequence and multiplicative structure … State bounded-below/completion hypotheses when using the modern fixed-point formula, and prove agreement with the classical genuine-equivariant TR/TC formulation used by local K-theory calculations.' L.4 builds Hesselholt–Madsen's T(C) of a linear Waldhausen category, its TR^n, R, F, V and TC(C;p) on these foundations and specialises the comparison to T(k), T(A), T(A|K).",
+      "need": "THH of spectral categories (in particular of Z-linear categories via Eilenberg–Mac Lane spectra of the Hom-groups) by cyclic realisation, with the T-action as coherent data and its genuine cyclotomic structure (genuine C_{p^n}-fixed points, restriction R through geometric fixed points, inclusion F, transfer V), homotopy orbits, homotopy fixed points and Tate constructions with the norm cofibre sequence and multiplicative structure, and the agreement of the classical genuine TR/TC with the Nikolaus–Scholze TC for bounded-below cyclotomic spectra. RT.2's text: 'Construct THH of spectral categories and E₁-algebras by cyclic realization. Give the S¹-action as coherent data … Construct restriction, homotopy orbits, homotopy fixed points and Tate constructions with their norm/fibre sequence and multiplicative structure … State bounded-below/completion hypotheses when using the modern fixed-point formula, and prove agreement with the classical genuine-equivariant TR/TC formulation used by local K-theory calculations.' L.4 builds Hesselholt–Madsen's T(C) of a linear Waldhausen category, its TR^n, R, F, V and TC(C;p) on these foundations and specialises the comparison to T(k), T(A), T(A|K). For the prime-field NS IV.4 calculation also export: the circle/finite-Tate base-change formulas for HZ-module circle spectra (Lemma IV.4.12); the comparison square followed by augmentation to HF_p and the nonzero orientation in π_−2HF_p^tC_p, without using IV.4.13; the trivial cyclotomic spectrum/TC adjunction (IV.4.14); the connective shift τ≥0(−^tC_p) with residual action and induced Frobenius (IV.4.15); and the characteristic-p E₂ cyclotomic-module TC fibre theorem, including the stronger unbounded HZ-module version (end IV.4). RT.2 owns these general statements; L.5 applies them to fields and the F_p-algebras in its calculation scope.",
       "neededBy": [
         "KTheoryFiniteLocalFields:L.4/thh-of-linear-waldhausen-category",
         "KTheoryFiniteLocalFields:L.4/tr-pro-spectrum",
@@ -15238,16 +15263,22 @@
         "KTheoryFiniteLocalFields:L.5/log-thh-tame-descent",
         "KTheoryFiniteLocalFields:L.5/gamma-hat-all-levels",
         "KTheoryFiniteLocalFields:L.5/thh-of-perfect-field",
-        "KTheoryFiniteLocalFields:L.5/thh-of-pointed-monoid-algebra"
+        "KTheoryFiniteLocalFields:L.5/thh-of-pointed-monoid-algebra",
+        "KTheoryFiniteLocalFields:L.5/fp-tc-minus-filtration-extension",
+        "KTheoryFiniteLocalFields:L.5/fp-negative-topological-cyclic-homology",
+        "KTheoryFiniteLocalFields:L.5/fp-periodic-topological-cyclic-homology",
+        "KTheoryFiniteLocalFields:L.5/fp-cyclotomic-frobenius-on-tc-minus",
+        "KTheoryFiniteLocalFields:L.5/fp-cyclotomic-tate-cover",
+        "KTheoryFiniteLocalFields:L.5/fp-cyclotomic-shift-model",
+        "KTheoryFiniteLocalFields:L.5/char-p-algebra-tc-fibre-sequence",
+        "KTheoryFiniteLocalFields:L.5/tc-of-perfect-field"
       ]
     },
     {
       "supplier": "CrystallineCohomology:CR.4",
-      "need": "On the Witt-vector carrier: the Frobenius F: W_n(A) → W_{n−1}(A), Verschiebung V: W_{n−1}(A) → W_n(A) and restriction R on Mathlib's TruncatedWittVector (Mathlib has F and V only on the untruncated WittVector), and the Witt complexes of Hesselholt–Madsen over Z_(p)-algebras (p odd) and over F_p-algebras with R, F, V, the relations FV = p, FdV = d, Fd[a] = [a]^{p−1}d[a], the initial Witt complex W_•Ω^*_A with surjection Ω^*_{W_•(A)} → W_•Ω^*_A, the standard filtration and, for smooth (and regular) F_p-algebras, the classical de Rham–Witt complex of Bloch–Deligne–Illusie. CR.4's text: 'Construct Witt complexes W_nΩ, restriction, Frobenius, Verschiebung, Teichmuller lifts and dlog, using the existing Witt-vector carrier. Prove the full relations and universal property … For smooth algebras over a perfect F_p-field prove agreement with the classical de Rham–Witt complex.' L.5 defines only the log version W_•ω^*_{(R,M)} and compares it with this ordinary complex for the trivial log structure. CR.4's text: 'Construct Witt complexes W_nΩ, restriction, Frobenius, Verschiebung, Teichmuller lifts and dlog, using the existing Witt-vector carrier. ... Compute polynomial basic Witt differentials, localization and étale descent'. L.6 needs the de Rham–Witt complex W_nΩ^*_A of 𝔽_p-algebras with F, V, R, d, its compatibility with localisation (W_nΩ_{A[1/f]} = W_nΩ_A[1/[f]]), the basic Witt differentials of k[t] for k perfect, the logarithmic subgroups W_nΩ^q_{A,log}, and Illusie's I.5.7.4: W_nΩ^q_{A,log} ⊆ ker(R − F) ⊆ W_nΩ^q_{A,log} + Fil^{n−1}W_nΩ^q_A for smooth A.",
+      "need": "On the Witt-vector carrier: the Frobenius F: W_n(A) → W_{n−1}(A), Verschiebung V: W_{n−1}(A) → W_n(A) and restriction R on Mathlib's TruncatedWittVector (Mathlib has F and V only on the untruncated WittVector), and the Witt complexes of Hesselholt–Madsen over Z_(p)-algebras (p odd) and over F_p-algebras with R, F, V, the relations FV = p, FdV = d, Fd[a] = [a]^{p−1}d[a], the initial Witt complex W_•Ω^*_A with surjection Ω^*_{W_•(A)} → W_•Ω^*_A, the standard filtration and, for smooth (and regular) F_p-algebras, the classical de Rham–Witt complex of Bloch–Deligne–Illusie. CR.4's text: 'Construct Witt complexes W_nΩ, restriction, Frobenius, Verschiebung, Teichmuller lifts and dlog, using the existing Witt-vector carrier. Prove the full relations and universal property … For smooth algebras over a perfect F_p-field prove agreement with the classical de Rham–Witt complex.' CR.4 also owns the universal log Witt theory over prelog Z_(p)-algebras for p odd, importing prelog rings and absolute log differentials from CR.5:log-algebra. L.5 imports that theory and owns only its complete-DVR structure and TR comparison. CR.4's text: 'Construct Witt complexes W_nΩ, restriction, Frobenius, Verschiebung, Teichmuller lifts and dlog, using the existing Witt-vector carrier. ... Compute polynomial basic Witt differentials, localization and étale descent'. L.6 needs the de Rham–Witt complex W_nΩ^*_A of 𝔽_p-algebras with F, V, R, d, its compatibility with localisation (W_nΩ_{A[1/f]} = W_nΩ_A[1/[f]]), the basic Witt differentials of k[t] for k perfect, the logarithmic subgroups W_nΩ^q_{A,log}, and Illusie's I.5.7.4: W_nΩ^q_{A,log} ⊆ ker(R − F) ⊆ W_nΩ^q_{A,log} + Fil^{n−1}W_nΩ^q_A for smooth A. Universal log contract (HM 2003 §3.2): the category of log Witt complexes with λ,F,V,R,d,dlog; FV=p, FdV=d, Fd[a]=[a]^(p−1)d[a], F(dlog a)=dlog a and the derived relations; its initial object W_•ω*_(R,M), the surjection from absolute log differentials over W_n(R), W_1ω*=ω*, W_nω^0=W_n(R), trivial/unit log compatibility with the ordinary complex, and restriction W_nω*/(V^sW_(n−s)ω*+dV^sW_(n−s)ω*−1)≅W_sω* for 0≤s≤n (W_0=0). Initiality/existence and level-one identification remain an explicit supplier proof boundary, not a proof supplied here.",
       "neededBy": [
         "KTheoryFiniteLocalFields:L.4/pi0-tr-is-witt-vectors",
-        "KTheoryFiniteLocalFields:L.5/log-witt-complex",
-        "KTheoryFiniteLocalFields:L.5/log-de-rham-witt-complex",
         "KTheoryFiniteLocalFields:L.5/tr-of-smooth-fp-algebra",
         "KTheoryFiniteLocalFields:L.5/tc-of-regular-fp-algebra",
         "KTheoryFiniteLocalFields:L.5/twisted-tr-of-regular-fp-algebra",
@@ -15255,19 +15286,361 @@
         "KTheoryFiniteLocalFields:L.6/power-series-de-rham-witt",
         "KTheoryFiniteLocalFields:L.6/geisser-hesselholt-regular-local",
         "KTheoryFiniteLocalFields:L.5/residue-field-to-witt-mod-p",
-        "KTheoryFiniteLocalFields:L.5/modified-verschiebung"
+        "KTheoryFiniteLocalFields:L.5/modified-verschiebung",
+        "KTheoryFiniteLocalFields:L.5/homotopy-orbit-de-rham-witt-module",
+        "KTheoryFiniteLocalFields:L.5/kernel-of-restriction",
+        "KTheoryFiniteLocalFields:L.5/log-de-rham-witt-dvr-mod-p",
+        "KTheoryFiniteLocalFields:L.5/tr-log-dvr-is-log-witt-complex",
+        "KTheoryFiniteLocalFields:L.5/log-de-rham-witt-tr-mod-p",
+        "KTheoryFiniteLocalFields:L.5/log-de-rham-witt-tr-mod-pv"
+      ],
+      "importedSpecifications": [
+        {
+          "owner": "CrystallineCohomology:CR.4",
+          "supersedes": "KTheoryFiniteLocalFields:L.5/log-witt-complex",
+          "statement": "Let p be odd, R a Z_(p)-algebra and (R, M) a log ring (a prelog structure α: M → (R,·)); give W_n(R) the prelog structure M →α R →[−]_n W_n(R). A log Witt complex over (R,M) consists of: (i) a pro-log differential graded ring (E^*_•, M_E) with a map of pro-log rings λ: (W_•(R), M) → (E^0_•, M_E); (ii) a map of pro-log graded rings F: E^*_n → E^*_{n−1} with λF = Fλ, F dlog_n a = dlog_{n−1} a for a ∈ M, and F d[a]_n = [a]_{n−1}^{p−1} d[a]_{n−1} for a ∈ R; (iii) a map of pro-graded E^*_•-modules V: F^*E^*_n → E^*_{n+1} with λV = Vλ, FV = p and FdV = d. Here a pro-log dga is a pro-dga with prelog structure α: M → E^0 and Dlog: M → E^1 with d∘Dlog = 0 and dα(a) = α(a)Dlog a (CrystallineCohomology CR.5:log-algebra). A map of log Witt complexes is a map of pro-log dgas commuting with λ, F and V. For the trivial log structure M = {1} this is the notion of Witt complex of CrystallineCohomology CR.4.",
+          "hypotheses": [
+            "p odd; R a Z_(p)-algebra. For p = 2 the definition must be changed: in TR one has d∘d = η·d with η = dlog(−1) ≠ 0 (Hesselholt–Madsen 2004)."
+          ],
+          "api": [
+            {
+              "name": "TauCeti.LogWittComplex",
+              "role": "structure",
+              "statement": "The structure of a log Witt complex over (R,M): (E, λ, F, V) with the axioms (i)–(iii)."
+            },
+            {
+              "name": "TauCeti.LogWittComplex.Hom",
+              "role": "structure",
+              "statement": "Maps of log Witt complexes: maps of pro-log dgas commuting with λ, F, V; they form a category."
+            },
+            {
+              "name": "TauCeti.LogWittComplex.frobenius_dlog",
+              "role": "simp",
+              "statement": "F(dlog_n a) = dlog_{n−1} a for a ∈ M."
+            },
+            {
+              "name": "TauCeti.LogWittComplex.frobenius_d_teichmuller",
+              "role": "simp",
+              "statement": "F(d[a]_n) = [a]_{n−1}^{p−1} d[a]_{n−1}."
+            },
+            {
+              "name": "TauCeti.LogWittComplex.frobenius_verschiebung",
+              "role": "simp",
+              "statement": "F(V(x)) = p x and F(d(V(x))) = d x."
+            },
+            {
+              "name": "TauCeti.LogWittComplex.ofWittComplex",
+              "role": "compatibility",
+              "statement": "For the trivial log structure M = {1} (or M ⊂ R^×), a log Witt complex is exactly a Witt complex over R in the sense of CR.4 (dlog of units is forced to be u^{−1}du)."
+            },
+            {
+              "name": "TauCeti.LogWittComplex.restrictScalars",
+              "role": "functoriality",
+              "statement": "A map of log rings (R,M) → (R',M') pulls log Witt complexes over (R',M') back to (R,M)."
+            }
+          ],
+          "tests": [
+            {
+              "name": "TauCeti.LogWittComplex.degreeZero",
+              "kind": "degenerate",
+              "statement": "(W_•(R), M) with E^i = 0 for i > 0, Dlog = 0, F and V the Witt-vector operators, is a log Witt complex (all axioms involving E^1 hold trivially), and the unique map W_•ω^*_{(R,M)} → (W_•(R),M) is the projection onto degree 0."
+            },
+            {
+              "name": "TauCeti.LogWittComplex.ofTrivial",
+              "kind": "compatibility",
+              "statement": "With M = {1}, the category of log Witt complexes over (R,{1}) equals the category of Witt complexes over R of CrystallineCohomology CR.4."
+            },
+            {
+              "name": "TauCeti.LogWittComplex.tr_example",
+              "kind": "computation",
+              "statement": "For A = Z_p with p odd, TR^•_*(Z_p|Q_p;p) is a log Witt complex with dlog_n(p) ∈ TR^n_1 and F dlog_n p = dlog_{n−1} p."
+            },
+            {
+              "name": "TauCeti.LogWittComplex.not_p2",
+              "kind": "non-example",
+              "statement": "For p = 2 and A = Z_(2), TR^•_*(A|A[1/2];2) with its operators is not a log Witt complex in this sense, since d∘d = η·d ≠ 0 (Hesselholt–Madsen 2004, introduction)."
+            }
+          ],
+          "acceptance": [
+            "(W_•(R), M) concentrated in degree 0 is a log Witt complex (λ = id).",
+            "TR^•_*(A|K;p) is a log Witt complex over (A,M) for p odd (node L.5/tr-log-dvr-is-log-witt-complex)."
+          ],
+          "sources": [
+            {
+              "sourceId": "HesselholtMadsen.2003",
+              "locator": "Definition 3.2.1, p. 47",
+              "match": "Definition, (i)–(iii)."
+            },
+            {
+              "sourceId": "HesselholtMadsen.2003",
+              "locator": "§3.2, p. 47",
+              "match": "Standing hypotheses of the definition."
+            }
+          ],
+          "proofSketch": [
+            "Assemble the data from the prelog structures of CR.5:log-algebra and the Witt-vector operators on W_•(R) (CrystallineCohomology CR.4 for F, V, R on truncated Witt vectors); no construction beyond the definition is involved."
+          ],
+          "uses": [
+            {
+              "where": "HM Proposition 3.2.2",
+              "how": "the initial object W_•ω^*_{(R,M)}"
+            },
+            {
+              "where": "HM Proposition 3.3.1",
+              "how": "TR^•_*(A|K;p) is a log Witt complex, giving the canonical map from W_•ω^*_{(A,M)}"
+            },
+            {
+              "where": "HM Lemma 3.2.4",
+              "how": "the filtration quotients W_nω/Fil^s are log Witt complexes"
+            },
+            {
+              "where": "HM §6.1",
+              "how": "W_•ω^*_{(A,M)} ⊗ S_{Z/p^v}(μ_{p^v}) with R, F, V acting trivially on the second factor is a log Witt complex"
+            }
+          ],
+          "originalPrerequisites": [
+            "CrystallineCohomology:CR.4",
+            "CrystallineCohomology:CR.5:log-algebra",
+            "mathlib:TruncatedWittVector",
+            "mathlib:WittVector.teichmuller"
+          ]
+        },
+        {
+          "owner": "CrystallineCohomology:CR.4",
+          "supersedes": "KTheoryFiniteLocalFields:L.5/log-witt-complex-derived-relations",
+          "statement": "In every log Witt complex over (R,M): dF = pFd, Vd = pdV and V(x dy) = V(x)dV(y).",
+          "hypotheses": [
+            "A log Witt complex (node L.5/log-witt-complex)."
+          ],
+          "api": [],
+          "tests": [],
+          "acceptance": [
+            "In W_•ω^*_{(A,M)}: V(dlog a) = V(1) dlog a.",
+            "For the de Rham–Witt complex of F_p: dF = pFd holds with both sides zero in degree 0 → 1 since W_nΩ^1_{F_p} = 0."
+          ],
+          "sources": [
+            {
+              "sourceId": "HesselholtMadsen.2003",
+              "locator": "§3.2, p. 48",
+              "match": "Statement and proof."
+            }
+          ],
+          "proofSketch": [
+            "V(x dy) = V(x·FdV(y)) = V(x)dV(y) by FdV = d and the projection formula V(x F(z)) = V(x)z.",
+            "dF(x) = FdVF(x) = Fd(V(1)x) = FdV(1)F(x) + FV(1)F(dx) = d(1)F(x) + pFd(x) = pFd(x).",
+            "Vd(x) = V(1)dV(x) = d(V(1)V(x)) − dV(1)V(x) = dV(xFV(1)) − V(x d(1)) = pdV(x)."
+          ],
+          "uses": [],
+          "originalPrerequisites": [
+            "KTheoryFiniteLocalFields:L.5/log-witt-complex"
+          ]
+        },
+        {
+          "owner": "CrystallineCohomology:CR.4",
+          "supersedes": "KTheoryFiniteLocalFields:L.5/log-de-rham-witt-complex",
+          "statement": "For p odd and a log ring (R,M) with R a Z_(p)-algebra, the category of log Witt complexes over (R,M) has an initial object W_•ω^*_{(R,M)}, the de Rham–Witt complex with log poles, and the canonical map λ: ω^*_{(W_•(R),M)} → W_•ω^*_{(R,M)} from the log de Rham complex of (W_•(R), M) is surjective; W_•ω^0_{(R,M)} = W_•(R). For M trivial it is the de Rham–Witt complex W_•Ω^*_R of CrystallineCohomology CR.4; there is a natural map W_•Ω^*_R → W_•ω^*_{(R,M)}. For a complete discrete valuation ring A with canonical log structure, W_•ω^*_{(A,M)} is the de Rham–Witt complex of A with log poles at the maximal ideal.",
+          "hypotheses": [
+            "p odd; R a Z_(p)-algebra; M → R a prelog structure."
+          ],
+          "api": [
+            {
+              "name": "TauCeti.logDeRhamWitt",
+              "role": "constructor",
+              "statement": "W_•ω^*_{(R,M)}, the initial log Witt complex over (R,M)."
+            },
+            {
+              "name": "TauCeti.logDeRhamWitt.lift",
+              "role": "universal-property",
+              "statement": "For every log Witt complex E over (R,M) the unique map W_•ω^*_{(R,M)} → E of log Witt complexes."
+            },
+            {
+              "name": "TauCeti.logDeRhamWitt.lift_unique",
+              "role": "universal-property",
+              "statement": "Any two maps of log Witt complexes W_•ω^*_{(R,M)} → E are equal (initiality)."
+            },
+            {
+              "name": "TauCeti.logDeRhamWitt.surjective_of_logDeRham",
+              "role": "characterisation",
+              "statement": "λ: ω^*_{(W_n(R),M)} → W_nω^*_{(R,M)} is surjective for every n."
+            },
+            {
+              "name": "TauCeti.logDeRhamWitt.degreeZero",
+              "role": "simp",
+              "statement": "W_nω^0_{(R,M)} = W_n(R)."
+            },
+            {
+              "name": "TauCeti.logDeRhamWitt.map",
+              "role": "functoriality",
+              "statement": "A map of log rings (R,M) → (R',M') induces W_•ω^*_{(R,M)} → W_•ω^*_{(R',M')}, functorially."
+            },
+            {
+              "name": "TauCeti.logDeRhamWitt.ofDeRhamWitt",
+              "role": "compatibility",
+              "statement": "The natural map W_•Ω^*_R → W_•ω^*_{(R,M)} from the ordinary de Rham–Witt complex of CR.4, an isomorphism when M consists of units."
+            },
+            {
+              "name": "TauCeti.logDeRhamWitt.dlog",
+              "role": "data",
+              "statement": "dlog_n: M → W_nω^1_{(R,M)}, a monoid map to (W_nω^1,+) with d[α(a)]_n = [α(a)]_n dlog_n a."
+            }
+          ],
+          "tests": [
+            {
+              "name": "TauCeti.logDeRhamWitt_levelOne",
+              "kind": "computation",
+              "statement": "W_1ω^*_{(R,M)} ≅ ω^*_{(R,M)}; for (Z_p, M) and p odd, W_1ω^1/p ≅ F_p·dlog p."
+            },
+            {
+              "name": "TauCeti.logDeRhamWitt_trivial",
+              "kind": "compatibility",
+              "statement": "For M = {1}: W_•ω^*_{(R,{1})} ≅ W_•Ω^*_R (CrystallineCohomology CR.4), and for R = F_p both are W_•(F_p) = Z/p^• in degree 0."
+            },
+            {
+              "name": "TauCeti.logDeRhamWitt_units",
+              "kind": "degenerate",
+              "statement": "For M = R^× (units only) the log structure adds nothing: W_•ω^*_{(R,R^×)} ≅ W_•Ω^*_R, since dlog u = [u]^{−1}d[u] is forced."
+            },
+            {
+              "name": "TauCeti.logDeRhamWitt_Zp_dim",
+              "kind": "computation",
+              "statement": "For A = Z_p (p odd) and every n ≥ 1, W_nω^1_{(Z_p,M)}/p is an n-dimensional F_p-vector space (Proposition 3.4.1 with e_K = 1)."
+            },
+            {
+              "name": "TauCeti.logDeRhamWitt_ne_ordinary",
+              "kind": "non-example",
+              "statement": "For A = Z_p with M = A ∩ Q_p^×: W_1ω^1_{(A,M)}/p = F_p dlog p ≠ 0 = W_1Ω^1_{Z_p}/p (Ω^1_{Z_p} is uniquely divisible), so the log complex differs from CR.4's ordinary complex."
+            }
+          ],
+          "acceptance": [
+            "W_1ω^*_{(R,M)} = ω^*_{(R,M)} (node L.5/log-de-rham-witt-level-one).",
+            "For A = Z_p, p odd: W̄_nω^1_{(Z_p,M)} has F_p-dimension n (node L.5/log-de-rham-witt-dvr-mod-p)."
+          ],
+          "sources": [
+            {
+              "sourceId": "HesselholtMadsen.2003",
+              "locator": "Proposition 3.2.2, p. 48",
+              "match": "Statement and the proof by reference."
+            },
+            {
+              "sourceId": "HesselholtMadsen.2004",
+              "locator": "Introduction, PDF p. 4",
+              "match": "HM 2004 refer the log case back to HM 2003 §3."
+            }
+          ],
+          "proofSketch": [
+            "Existence: Freyd's adjoint functor theorem (solution set: log Witt complexes generated by the images of λ, dlog and the operators form a set), as in Hesselholt–Madsen 2004 §1 for the non-log case; HM 2003 give no further detail and HM 2004 refer back to HM 2003 §3 for the log case (recorded gap and source issue).",
+            "Surjectivity of λ: the sub-pro-dga generated by the images of ω^*_{(W_•(R),M)} is stable under F and V (by F d[a] = [a]^{p−1}d[a], FdV = d and the projection formula) and is therefore a log Witt complex receiving the initial map; so it is everything.",
+            "Degree 0: (W_•(R), M) is itself a log Witt complex concentrated in degree zero, which forces W_•ω^0 = W_•(R).",
+            "Trivial log structure: the universal property coincides with that of W_•Ω^*_R (node L.5/log-witt-complex, compatibility item)."
+          ],
+          "uses": [
+            {
+              "where": "HM Proposition 3.3.1",
+              "how": "the canonical map W_•ω^*_{(A,M)} → TR^•_*(A|K;p)"
+            },
+            {
+              "where": "HM Theorem 3.3.8",
+              "how": "it is an isomorphism in degrees ≤ 2"
+            },
+            {
+              "where": "HM Theorem C",
+              "how": "W_•ω^*_{(A,M)} ⊗ S_{Z/p^v}(μ_{p^v}) ≅ TR^•_*(A|K;p,Z/p^v) as pro-groups"
+            },
+            {
+              "where": "HM introduction, the sequence before Theorem A",
+              "how": "K_*(K,Z/p^v) is computed from W ω^*_{(A,M)} ⊗ S(μ_{p^v}) and 1 − F"
+            },
+            {
+              "where": "HigherLocalFieldsAndHigherClassFieldTheory HL.1, HL.2, HL.4",
+              "how": "the logarithmic/DVR de Rham–Witt comparison for complete discrete valuation rings requested from L.5"
+            }
+          ],
+          "originalPrerequisites": [
+            "KTheoryFiniteLocalFields:L.5/log-witt-complex",
+            "KTheoryFiniteLocalFields:L.5/log-witt-complex-derived-relations",
+            "CrystallineCohomology:CR.4",
+            "CrystallineCohomology:CR.5:log-algebra"
+          ]
+        },
+        {
+          "owner": "CrystallineCohomology:CR.4",
+          "supersedes": "KTheoryFiniteLocalFields:L.5/log-de-rham-witt-level-one",
+          "statement": "The canonical map λ: ω^*_{(R,M)} → W_1ω^*_{(R,M)} is an isomorphism, where ω^*_{(R,M)} = Λ^*_R ω^1_{(R,M)} is the universal log dga with underlying log ring (R,M).",
+          "hypotheses": [
+            "p odd; R a Z_(p)-algebra."
+          ],
+          "api": [],
+          "tests": [],
+          "acceptance": [
+            "For A = Z_p: W_1ω^1_{(Z_p,M)} = ω^1_{(Z_p,M)}, with W_1ω^1/p = F_p dlog p."
+          ],
+          "sources": [
+            {
+              "sourceId": "HesselholtMadsen.2003",
+              "locator": "Addendum 3.2.3, p. 48",
+              "match": "Statement."
+            },
+            {
+              "sourceId": "HesselholtMadsen.2003",
+              "locator": "§3.2, p. 48",
+              "match": "The addendum is taken from HM 2004 Theorem D."
+            }
+          ],
+          "proofSketch": [
+            "HM cite Hesselholt–Madsen 2004 Theorem D (the forgetful functor from Witt complexes to V-complexes without F preserves initial objects), which is proved there for the non-log Witt complexes; the log analogue is asserted without proof (recorded gap).",
+            "Route: show that ω^*_{(R,M)} extends to a log Witt complex in which level 1 is ω^* (define the higher levels by the initial object and prove that W_1 of the initial object is the initial log dga by checking that ω^*_{(R,M)} with F = V = 0 at level 1 satisfies the axioms restricted to level 1)."
+          ],
+          "uses": [],
+          "originalPrerequisites": [
+            "KTheoryFiniteLocalFields:L.5/log-de-rham-witt-complex",
+            "CrystallineCohomology:CR.5:log-algebra"
+          ]
+        },
+        {
+          "owner": "CrystallineCohomology:CR.4",
+          "supersedes": "KTheoryFiniteLocalFields:L.5/standard-filtration-quotient",
+          "statement": "For a log Witt complex E the standard filtration Fil^s E^i_n = V^s E^i_{n−s} + dV^s E^{i−1}_{n−s} ⊂ E^i_n (0 ≤ s < n) consists of differential graded ideals with F(Fil^s) ⊂ Fil^{s−1} and V(Fil^s) ⊂ Fil^{s+1} (not multiplicative in general). For the initial object, restriction induces isomorphisms W_nω^i_{(R,M)}/Fil^s W_nω^i_{(R,M)} ≅ W_sω^i_{(R,M)}.",
+          "hypotheses": [
+            "p odd, R a Z_(p)-algebra; s ≤ n."
+          ],
+          "api": [],
+          "tests": [],
+          "acceptance": [
+            "s = n − 1: W_nω^i/(V^{n−1}W_1ω^i + dV^{n−1}W_1ω^{i−1}) ≅ W_{n−1}ω^i, used in Proposition 3.2.6."
+          ],
+          "sources": [
+            {
+              "sourceId": "HesselholtMadsen.2003",
+              "locator": "§3.2, p. 48",
+              "match": "The standard filtration."
+            },
+            {
+              "sourceId": "HesselholtMadsen.2003",
+              "locator": "Lemma 3.2.4, p. 48",
+              "match": "Statement."
+            }
+          ],
+          "proofSketch": [
+            "For fixed n − s the quotients 'W_sω^i = W_nω^i/Fil^s form a log Witt complex over (R,M).",
+            "Existence of a map to any log Witt complex E: naturality of the filtration and R^{n−s}: E_n/Fil^s → E_s.",
+            "Uniqueness: ω^i_{(W_s(R),M)} → 'W_sω^i is surjective, by the surjectivity of λ for W_n and of W_n → 'W_s (node L.5/log-de-rham-witt-complex).",
+            "Hence 'W_•ω is initial, i.e. equals W_•ω."
+          ],
+          "uses": [],
+          "originalPrerequisites": [
+            "KTheoryFiniteLocalFields:L.5/log-de-rham-witt-complex",
+            "KTheoryFiniteLocalFields:L.5/log-witt-complex-derived-relations"
+          ]
+        }
       ]
     },
     {
       "supplier": "CrystallineCohomology:CR.5:log-algebra",
       "need": "Prelog rings (R, α: M → (R,·)) with the group completion M^gp and morphisms of prelog rings; the induced prelog structure on W_n(R) through the Teichmüller map; log derivations (D, Dlog) into an R-module and the universal one ω^1_{(R,M)} = (Ω^1_R ⊕ (R ⊗ M^gp))/⟨dα(a) − α(a) ⊗ a⟩ with absolute Ω^1_R; the log differential graded rings (E^*, M) (a dga with prelog structure α: M → E^0 and Dlog: M → E^1, d∘Dlog = 0, dα(a) = α(a)Dlog a) and the universal one ω^*_{(R,M)} = Λ^*_R ω^1_{(R,M)}. CR.5:log-algebra's text: 'The early prefix constructs prelog rings, associated log structures on the étale site, charts, groupification, integral/fine/saturated monoids … Prove the explicit log differential module and residue maps for the standard semistable chart O_K[x_1,…,x_d]/(x_1…x_r−pi)'. L.5 uses the absolute log differentials of the canonical prelog structure M = A ∩ K^× of a complete DVR (the case d = r = 1 of that chart) and proves their DVR-specific structure itself (residue sequence, cyclicity, torsion, tame base change).",
       "neededBy": [
-        "KTheoryFiniteLocalFields:L.5/log-witt-complex",
         "KTheoryFiniteLocalFields:L.5/log-differentials-residue-sequence",
         "KTheoryFiniteLocalFields:L.5/relative-log-differentials-of-dvr",
-        "KTheoryFiniteLocalFields:L.5/log-de-rham-witt-complex",
         "KTheoryFiniteLocalFields:L.5/tr-log-structure-maps",
-        "KTheoryFiniteLocalFields:L.5/log-de-rham-witt-level-one",
         "KTheoryFiniteLocalFields:L.5/homotopy-orbit-de-rham-witt-module"
       ]
     },
@@ -15320,6 +15693,21 @@
       "neededBy": [
         "KTheoryFiniteLocalFields:L.3/tame-unit-pair",
         "KTheoryFiniteLocalFields:L.3/tame-uniformizer-unit"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-6-the-virtual-character-ring-artin-and-brauer-induction",
+      "need": "The integral virtual-character lattice inside characteristic-zero class functions; induction/restriction and Brauer’s characterization by restriction to elementary subgroups, together with integral Brauer induction. These are already owned by upstream InductionRestriction Layer6; no Part II is proposed for them. L.1 uses them to prove Green’s specific lifted class-function integrality, which remains unread.",
+      "neededBy": [
+        "KTheoryFiniteLocalFields:L.1/green-virtual-character",
+        "KTheoryFiniteLocalFields:L.1/brauer-lift"
+      ]
+    },
+    {
+      "supplier": "StableHomotopyKTheory:H.3",
+      "need": "Supply the existing H.3/plus-construction-universal-property node in its exact BGL(R)→H-space form, including acyclicity and the induced plus equivalence. Its source proof is still marked unread by the supplier. L.1 uses that conditional theorem directly; no general simple-space Whitehead theorem is planned again here (RT-AREA-ktheory-1/37c).",
+      "neededBy": [
+        "KTheoryFiniteLocalFields:L.1/quillen-fibration"
       ]
     }
   ],
@@ -15402,12 +15790,12 @@
     {
       "kind": "ownership",
       "title": "'Logarithmic de Rham–Witt' in HL.2 and 'de Rham–Witt with log poles' in L.5 are different objects",
-      "detail": "The audit flags HigherLocalFieldsAndHigherClassFieldTheory HL.2 ('introduce logarithmic de Rham–Witt/Artin–Schreier–Witt coefficients for the wild characteristic case') as overlapping L.5. HL.2's object is W_nΩ^r_log ⊂ W_nΩ^r of a characteristic-p field (generated by dlog forms; built from CR.4's ordinary complex), used with the Bloch–Kato–Gabber symbol. L.5's object is Hesselholt–Madsen's W_•ω^*_{(A,M)} for a mixed-characteristic complete DVR with log poles at the closed point (p odd), used to compute TR(A|K). Answer to HL's request ('the logarithmic and discrete-valuation de Rham-Witt comparison for complete discrete valuation rings'): L.5 supplies L.5/log-de-rham-witt-complex, L.5/log-de-rham-witt-dvr-mod-p (explicit basis with the ramification invariant r(i,e_K)), L.5/log-differentials-residue-sequence and, in equal characteristic, L.5/tr-of-smooth-fp-algebra (TR of k[[t]] is WΩ of CR.4). It does not supply W_nΩ^r_log or the Bloch–Kato graded pieces of the Milnor K filtration, which remain HL.1/HL.2's targets on CR.4."
+      "detail": "The audit flags HigherLocalFieldsAndHigherClassFieldTheory HL.2 ('introduce logarithmic de Rham–Witt/Artin–Schreier–Witt coefficients for the wild characteristic case') as overlapping L.5. HL.2's object is W_nΩ^r_log ⊂ W_nΩ^r of a characteristic-p field (generated by dlog forms; built from CR.4's ordinary complex), used with the Bloch–Kato–Gabber symbol. L.5's object is Hesselholt–Madsen's W_•ω^*_{(A,M)} for a mixed-characteristic complete DVR with log poles at the closed point (p odd), used to compute TR(A|K). Answer to HL's request ('the logarithmic and discrete-valuation de Rham-Witt comparison for complete discrete valuation rings'): L.5 imports the general complex from CrystallineCohomology:CR.4 and supplies L.5/log-de-rham-witt-dvr-mod-p (explicit basis with the ramification invariant r(i,e_K)), L.5/log-differentials-residue-sequence and, in equal characteristic, L.5/tr-of-smooth-fp-algebra (TR of k[[t]] is WΩ of CR.4). It does not supply W_nΩ^r_log or the Bloch–Kato graded pieces of the Milnor K filtration, which remain HL.1/HL.2's targets on CR.4."
     },
     {
       "kind": "sub-layers",
       "title": "Proposed sub-layers of L.4 and L.5 for the atlas",
-      "detail": "L.4 (35 nodes): L.4a 'Hesselholt–Madsen TR and TC' (thh-of-linear-waldhausen-category, thh-structure-maps-f-equivalences, tr-pro-spectrum, norm-restriction-cofibre-sequence, p-typical-tc, connes-operator, moore-spectrum-splitting-for-hz-modules, tr-homotopy-orbit-spectral-sequence, pi0-tr-is-witt-vectors, hm-conventions-agree-with-nikolaus-scholze, integral-and-p-typical-tc-agree-after-completion, log-thh-bounded-below, three-by-three-lemma); L.4b 'Tate cohomology and the Tate spectral sequence' (tate-cohomology-hm-model, tate-cohomology-ring-of-odd-cyclic-group, multiplicative-tate-spectral-sequence, tate-spectral-sequence-connes-module, tate-d2-is-connes-operator); L.4c 'Localisation for THH of Waldhausen categories' (the fifteen nodes from exact-simplicial-homotopy-invariance to k-tc-localization-square). L.5 (83 nodes): L.5a 'Witt vectors and log differentials of complete DVRs' (complete-dvr-eisenstein-presentation … hochschild-homology-of-perfect-field); L.5b 'De Rham–Witt with log poles and TR in low degrees' (log-witt-complex … connecting-map-of-kappa); L.5c 'The Tate spectral sequence and Theorem C' (lubin-tate-unit-polynomial … tc-of-log-dvr-mod-p); L.5d 'Perfect fields, truncated polynomial and regular F_p-algebras' (thh-of-perfect-field … tc-of-regular-fp-algebra). With sub-layers each could show up to six planets; at the stage level the packet marks six per stage."
+      "detail": "L.4 (35 nodes): L.4a 'Hesselholt–Madsen TR and TC' (thh-of-linear-waldhausen-category, thh-structure-maps-f-equivalences, tr-pro-spectrum, norm-restriction-cofibre-sequence, p-typical-tc, connes-operator, moore-spectrum-splitting-for-hz-modules, tr-homotopy-orbit-spectral-sequence, pi0-tr-is-witt-vectors, hm-conventions-agree-with-nikolaus-scholze, integral-and-p-typical-tc-agree-after-completion, log-thh-bounded-below, three-by-three-lemma); L.4b 'Tate cohomology and the Tate spectral sequence' (tate-cohomology-hm-model, tate-cohomology-ring-of-odd-cyclic-group, multiplicative-tate-spectral-sequence, tate-spectral-sequence-connes-module, tate-d2-is-connes-operator); L.4c 'Localisation for THH of Waldhausen categories' (the fifteen nodes from exact-simplicial-homotopy-invariance to k-tc-localization-square). L.5 (85 nodes): L.5a 'Witt vectors and log differentials of complete DVRs' (complete-dvr-eisenstein-presentation … hochschild-homology-of-perfect-field); L.5b 'De Rham–Witt with log poles and TR in low degrees' (import CR.4 log-Witt theory; homotopy-orbit-de-rham-witt-module … connecting-map-of-kappa); L.5c 'The Tate spectral sequence and Theorem C' (lubin-tate-unit-polynomial … tc-of-log-dvr-mod-p); L.5d 'Perfect fields, truncated polynomial and regular F_p-algebras' (thh-of-perfect-field … tc-of-regular-fp-algebra). With sub-layers each could show up to six planets; at the stage level the packet marks six per stage. L.5d also contains the seven NS IV.4 prime-field calculation/application nodes; no new generic cyclotomic definition is owned there."
     },
     {
       "kind": "ownership",
@@ -15467,6 +15855,28 @@
       ],
       "title": "Proposed sub-layers of L.6 for the atlas",
       "detail": "L.6a Completed carrier and abelian-group tools: completed-k-theory, maximal-divisible-subgroup, p-adic-tate-module, completion-exact-sequence, divisible-subgroup-criterion, torsion-free-lattice-lemma. L.6b Galois cohomology of Tate twists: p-adic-w-invariant, w-invariant-prime-to-p-factor, p-adic-w-invariant-of-q-p, h0-of-tate-twists, local-duality-for-tate-twists, h1-of-tate-twists, h1-with-divisible-coefficients. L.6c Étale comparison: ring-of-integers-versus-field, hm-etale-comparison, hm-theorem-a, finite-coefficient-lichtenbaum-quillen, discrete-coefficient-k-groups. L.6d Completed K-groups: odd-completed-k-groups-are-h1, even-completed-k-groups-are-h2, completed-k-groups-of-p-adic-fields, completed-k-groups-of-q-p, completed-k3-of-unramified-fields, hm-theorem-d. L.6e Integral groups and comparison maps: p-primary-torsion-of-odd-k-groups, odd-integral-k-groups, even-k-groups-mod-p-powers, even-integral-k-groups, even-k-groups-tate-module, divisible-rank-relation, finite-coefficient-k-groups-structure, k3-torsion-free-lattice, even-integral-to-completed-comparison, odd-integral-to-completed-comparison, milnor-k-of-local-fields, uniquely-divisible-summand. L.6f Equal characteristic: power-series-de-rham-witt, geisser-hesselholt-regular-local, equal-characteristic-relative-k-theory, equal-characteristic-completed-k-groups, equal-characteristic-unique-p-divisibility, equal-characteristic-integral-structure. The six planets fall one each in L.6a, L.6c, L.6d (two), L.6e and L.6f."
+    },
+    {
+      "kind": "ownership",
+      "title": "Universal log Witt theory is imported from Crystalline Cohomology",
+      "detail": "RT-AREA-ktheory-1/39 requires universal (log) Witt complexes, their initial object, level-one identification and standard filtration to be owned once by CrystallineCohomology CR.4 on CR.5:log-algebra. Five former generic L.5 node records have been migrated into the CR.4 request’s importedSpecifications, preserving exact definitions, API and tests as a supplier contract. L.5 owns the ramified-DVR structure, HM homotopy-orbit calculations and comparison with TR; CR.6 owns the Hyodo–Kato comparison maps and imports CR.4/CR.5. W_nΩ^r_log generated by dlog symbols remains distinct from the full prelog de Rham–Witt complex. No supplier files are edited by this checkpoint. Requested atlas edge: CrystallineCohomology:CR.5:log-algebra → KTheoryFiniteLocalFields:L.5, in addition to the existing CR.4 edge.",
+      "prerequisiteEdges": [
+        {
+          "source": "CrystallineCohomology:CR.5:log-algebra",
+          "target": "KTheoryFiniteLocalFields:L.5"
+        }
+      ]
+    },
+    {
+      "kind": "ownership",
+      "title": "Finite-field Brauer lifting imports InductionRestriction Layer6",
+      "detail": "RT-AREA-ktheory-1/37a: add the upstream InductionRestriction Layer6 → KTheoryFiniteLocalFields:L.1 atlas edge. L.1/green-virtual-character is a specialization of the supplier’s integral virtual-character characterization; its Green proof gap stays open. The supplier’s characteristic-zero representation ring and Brauer induction are not new L.1 definitions.",
+      "prerequisiteEdges": [
+        {
+          "source": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-6-the-virtual-character-ring-artin-and-brauer-induction",
+          "target": "KTheoryFiniteLocalFields:L.1"
+        }
+      ]
     }
   ],
   "sourceIssues": [
@@ -16036,51 +16446,109 @@
     }
   ],
   "continuationAudit": {
-    "agent": "Codex — codex-7e92bd",
-    "date": "2026-09-26",
-    "claimComment": 5849861034,
-    "claimConfirmation": 5849862048,
+    "agent": "Codex — codex-nlUyak",
+    "date": "2026-10-05",
+    "claimComment": 5997778824,
+    "claimConfirmation": 5997782125,
+    "focus": "Published NS IV.4 prime-field calculations and confirmed ownership boundaries; partial checkpoint.",
+    "newNodes": 7,
+    "migratedNodes": [
+      "log-witt-complex",
+      "log-witt-complex-derived-relations",
+      "log-de-rham-witt-complex",
+      "log-de-rham-witt-level-one",
+      "standard-filtration-quotient"
+    ],
     "inheritedIdsPreserved": 247,
-    "inheritedNodesUnchanged": 244,
-    "newNodes": 5,
     "sourceFindingIdsPreserved": 39,
-    "sourceFindingRecordsUnchanged": 38,
-    "sourceFindingUpdate": "E36 gains the alternative-proof reference; its diagnosis is retained.",
-    "focus": "Positive-characteristic Milnor uncountability through transcendence-basis symbols, iterated residues and finite-stage restriction-transfer degree.",
+    "sourceFindingRecordsUnchanged": 39,
+    "baseline": "96 inherited records retained; PadicInt/ZMod/WittVector.frobenius/finrankEquiv sources spot-read at pins, not a new audit of all records.",
     "lean": {
-      "status": "compiled",
-      "version": "4.34.0-rc2",
-      "errors": 0,
-      "proofPlaceholderWarnings": 270,
-      "otherWarnings": 0,
-      "taucetiModulesBuilt": 90,
-      "mathlibSourcesMatched": 8483,
-      "fileSha256": "ee452a0d0f3e6874c33d395632520f8a1d2f3d44d9e3fddc81f1bc7e1871cdf0"
+      "status": "unavailable",
+      "reason": "lean-check at the pinned shared build stops before elaboration: TauCeti.CategoryTheory.GrothendieckGroup.Abelian.olean is absent. No build or dependency update was run; historical compilation record remains in continuationHistory."
     },
-    "internalGraph": {
-      "nodes": 252,
-      "edges": 701,
-      "acyclic": true
-    },
-    "focusedSupplierGraph": {
-      "newNodes": 5,
-      "reachablePrerequisites": 83,
-      "noReturnPathToNewNode": true,
-      "limitation": "Explicit declaration and unresolved prerequisite edges only; inherited stage-level supplier gaps and atlas-wide stage cycles are not certified."
-    },
-    "parity": "All five new signatures and every statement, hypothesis, proof step and acceptance item of the five new and three amended nodes match the reader. Four additional Lean examples cover degrees 1,2,3 and the excluded degree zero.",
-    "sourceScope": "Targeted K-book proof reread: III.7.3, III.7.5.3, III.7.6.1 discussion and Lemma III.7.6.2 proof; III Ex.7.4; V.11.13; VI.7.1–7.2. PDF pp.254 and256 visually inspected. Alternative proof is worker-derived; Tate was not read.",
-    "ownership": "General Milnor carriers, residues and transfer degree imported from existing T.2/T.3/T.4 nodes. No owner files or general constructions are duplicated. Previously fully read GrothendieckEulerForms and JacobianChallenge documents were byte-verified unchanged.",
-    "checks": {
-      "blueprint": "0 errors, 0 warnings with pinned declaration index",
-      "intake": "4 files, 0 problems"
-    },
-    "publicationGuard": {
-      "baseCommit": "aa9dde4813c60764490d15bba6ff576d08f96e60",
-      "unchangedInputBlobs": 23,
-      "unchangedExistingOutputs": 4,
-      "issueBodyUnchanged": true,
-      "claimConfirmation": 5849862048
+    "readerRepair": "Restored missing equal-characteristic-unique-p-divisibility block and replaced duplicated integral-structure block from the unchanged packet records; corrected L.3/L.6 table counts.",
+    "validation": {
+      "nodes": 254,
+      "new": 7,
+      "superseded": 5,
+      "retained": 247,
+      "unchangedInherited": 235,
+      "sourceFindingsUnchanged": 39,
+      "baselineUnchanged": 96,
+      "readerParity": true,
+      "newSuggestedSpecParity": true,
+      "executableLeanUnchanged": true,
+      "rewiredNodesWithoutReturnPaths": 15,
+      "planets": {
+        "KTheoryFiniteLocalFields:L.1": 6,
+        "KTheoryFiniteLocalFields:L.2": 6,
+        "KTheoryFiniteLocalFields:L.3": 6,
+        "KTheoryFiniteLocalFields:L.4": 6,
+        "KTheoryFiniteLocalFields:L.5": 6,
+        "KTheoryFiniteLocalFields:L.6": 6,
+        "KTheoryFiniteLocalFields:L.7": 6
+      }
     }
-  }
+  },
+  "continuationHistory": [
+    {
+      "agent": "Codex — codex-7e92bd",
+      "date": "2026-09-26",
+      "claimComment": 5849861034,
+      "claimConfirmation": 5849862048,
+      "inheritedIdsPreserved": 247,
+      "inheritedNodesUnchanged": 244,
+      "newNodes": 5,
+      "sourceFindingIdsPreserved": 39,
+      "sourceFindingRecordsUnchanged": 38,
+      "sourceFindingUpdate": "E36 gains the alternative-proof reference; its diagnosis is retained.",
+      "focus": "Positive-characteristic Milnor uncountability through transcendence-basis symbols, iterated residues and finite-stage restriction-transfer degree.",
+      "lean": {
+        "status": "compiled",
+        "version": "4.34.0-rc2",
+        "errors": 0,
+        "proofPlaceholderWarnings": 270,
+        "otherWarnings": 0,
+        "taucetiModulesBuilt": 90,
+        "mathlibSourcesMatched": 8483,
+        "fileSha256": "ee452a0d0f3e6874c33d395632520f8a1d2f3d44d9e3fddc81f1bc7e1871cdf0"
+      },
+      "internalGraph": {
+        "nodes": 252,
+        "edges": 701,
+        "acyclic": true
+      },
+      "focusedSupplierGraph": {
+        "newNodes": 5,
+        "reachablePrerequisites": 83,
+        "noReturnPathToNewNode": true,
+        "limitation": "Explicit declaration and unresolved prerequisite edges only; inherited stage-level supplier gaps and atlas-wide stage cycles are not certified."
+      },
+      "parity": "All five new signatures and every statement, hypothesis, proof step and acceptance item of the five new and three amended nodes match the reader. Four additional Lean examples cover degrees 1,2,3 and the excluded degree zero.",
+      "sourceScope": "Targeted K-book proof reread: III.7.3, III.7.5.3, III.7.6.1 discussion and Lemma III.7.6.2 proof; III Ex.7.4; V.11.13; VI.7.1–7.2. PDF pp.254 and256 visually inspected. Alternative proof is worker-derived; Tate was not read.",
+      "ownership": "General Milnor carriers, residues and transfer degree imported from existing T.2/T.3/T.4 nodes. No owner files or general constructions are duplicated. Previously fully read GrothendieckEulerForms and JacobianChallenge documents were byte-verified unchanged.",
+      "checks": {
+        "blueprint": "0 errors, 0 warnings with pinned declaration index",
+        "intake": "4 files, 0 problems"
+      },
+      "publicationGuard": {
+        "baseCommit": "aa9dde4813c60764490d15bba6ff576d08f96e60",
+        "unchangedInputBlobs": 23,
+        "unchangedExistingOutputs": 4,
+        "issueBodyUnchanged": true,
+        "claimConfirmation": 5849862048
+      }
+    }
+  ],
+  "sourceIssueImports": [
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/E11",
+      "use": "Known uppercase V typo in published Proposition IV.4.6 is normalized to v; no new finding claimed."
+    },
+    {
+      "id": "PAPER-ABDURRAHMAN-VENKATESH-25/E3",
+      "use": "Known SL_2(F_9) H_2=Z/3 exception constrains the pending §2.7 mod2 route; published version not checked."
+    }
+  ]
 }
