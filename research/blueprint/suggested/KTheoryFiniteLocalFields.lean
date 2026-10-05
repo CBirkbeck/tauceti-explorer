@@ -82,9 +82,11 @@ no implementation, and `implementationStatus` stays `"unchecked"` for every node
 Pinned commits: Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti
 `f790474821cf4256814db967cb154e7af3d0c369`.
 
-Compiled with `lean` in the `TauCeti-adic` project on its Lake search path for Mathlib `082e2d3`,
-with the imported Tau Ceti modules compiled from the `f790474` sources by `lean -o` into a
-directory placed first on `LEAN_PATH`: it elaborates with exit code `0` and only `sorry` warnings.
+A preceding version has a historical successful compilation record. This version's
+`lean-check` stopped before elaboration because the shared pinned build lacks
+`TauCeti/CategoryTheory/GrothendieckGroup/Abelian.olean`. This version was not compiled;
+that older result does not certify this file.
+No build, cache download, update or Lean language server was used in this checkpoint.
 
 ## Pinned conventions
 
@@ -5069,3 +5071,327 @@ existing general perfect-field theorem, not an extra TC definition.
 L.4 comparison names import RT.2’s general genuine/modern theorem, with the
 HM n−1 fixed-point index and local bounded-below hypotheses checked. The π_0
 log-THH torsion argument is used only for mixed-characteristic DVRs. -/
+
+/-! ## Routed hermitian comparisons — checkpoint codex-Gcq0RM
+
+The spectrum/Poincaré carriers needed to state these signatures are missing at the
+pinned baseline. The following are mathematical specifications and proposed names,
+not executable declarations. They omit no hypothesis through a Prop-valued stand-in.
+The actual signatures await the registered general Poincaré owner; the canonical
+square, C₂-action, shifts and maps must be imported, never reconstructed locally.
+The statements and acceptance checks below mirror the packet and reader.
+-/
+
+/- KTheoryFiniteLocalFields:L.1/finite-even-k-two-completion
+Proposed theorem/comparison name: TauCeti.KTheoryFiniteLocal.Hermitian.finite_even_k_two_completion
+For q=2^r with r≥1 the canonical rank/Postnikov map K(F_q)→Hℤ is a C₂-equivariant 2-adic equivalence for symmetric duality. Its degree-zero action is trivial. Thus K(F_q)^∧₂≃Hℤ₂; this does not identify integral K(F_q) with Hℤ.
+
+Hypotheses:
+* K is connective algebraic K-theory of perfect complexes, with the C₂-action induced by the indicated duality; GW and L use the non-genuine symmetric Poincaré structure Qˢ, not a substitute classical or genuine spectrum.
+* General Poincaré carriers and the fundamental square are missing registered supplier contracts, as recorded in the hermitian foundation gap.
+* q=2^r, r≥1.
+
+Proof reduction:
+1. Use quillen-k-groups: positive odd K-groups have order q^j−1, which is odd, and positive even groups vanish.
+2. The Bockstein sequence gives π₀(K(F_q)/2^ν)=ℤ/2^ν and vanishing in all other degrees, including the torsion contribution one degree above an odd K-group.
+3. The rank map agrees with dualization on K₀; the Postnikov truncation of the duality action is the trivial action on Hℤ. Complete the tower using H.6, keeping the equivariant map.
+
+Required imports: KTheoryFiniteLocalFields:L.1/quillen-k-groups, KTheoryFiniteLocalFields:L.1/k-theory-mod-m, KTheoryFiniteLocalFields:L.1/completed-k-theory, StableHomotopyKTheory:H.6.
+Acceptance checks:
+* For F₂ the integral group K₃ is ℤ/3 although its 2-completion is zero.
+* For F₄ the positive group K₃ is ℤ/15 and contributes no 2-primary Bockstein term.
+* The statement requires q even: K₁(F₃)=ℤ/2 obstructs the same rank equivalence.
+Sources: CalmesEtAl.2026.v4, Proposition 3.1.4, proof, pp.50–51.
+-/
+
+/- KTheoryFiniteLocalFields:L.1/finite-even-tate-k-groups
+Proposed theorem/comparison name: TauCeti.KTheoryFiniteLocal.Hermitian.finite_even_tate_k_groups
+For q=2^r, r≥1, and unshifted symmetric duality, rank induces K(F_q;Qˢ)^{tC₂}≃(Hℤ)^{tC₂}. Hence π_n is ℤ/2 for every even integer n and zero for every odd integer n. The class of a one-dimensional vector space maps to 1 modulo 2 in degree zero.
+
+Hypotheses:
+* K is connective algebraic K-theory of perfect complexes, with the C₂-action induced by the indicated duality; GW and L use the non-genuine symmetric Poincaré structure Qˢ, not a substitute classical or genuine spectrum.
+* General Poincaré carriers and the fundamental square are missing registered supplier contracts, as recorded in the hermitian foundation gap.
+* The connective inputs K(F_q) and Hℤ are bounded below; use RT.2’s finite-group Tate construction and its 2-adic invariance on these inputs.
+
+Proof reduction:
+1. Apply finite-even-k-two-completion and RT.2’s Tate invariance under 2-adic equivalence of bounded-below C₂-spectra.
+2. Compute (Hℤ)^{tC₂} by the complete 2-periodic resolution with trivial C₂-action: its alternating maps are 0 and multiplication by 2.
+3. Identify π₀ with invariants modulo the norm; rank one represents the nonzero element. Do not confuse the spectrum Tate construction with an unbounded cochain complex without the Eilenberg–Mac Lane comparison.
+
+Required imports: KTheoryFiniteLocalFields:L.1/finite-even-k-two-completion, RefinedTraceMethods:RT.2.
+Acceptance checks:
+* π₋₂=ℤ/2 and π₋₁=0: connective truncation loses a required comparison degree.
+* The norm on K₀=ℤ is multiplication by 2, not zero.
+Sources: CalmesEtAl.2026.v4, Proposition 3.1.4, proof, pp.50–51.
+-/
+
+/- KTheoryFiniteLocalFields:L.1/finite-even-symmetric-l-groups
+Proposed theorem/comparison name: TauCeti.KTheoryFiniteLocal.Hermitian.finite_even_symmetric_l_groups
+For q=2^r, r≥1, π_{2a}L(F_q;Qˢ)=Wˢ(F_q)≅ℤ/2 and π_{2a+1}L(F_q;Qˢ)=0 for every integer a. In degree zero the class of the nonsingular bilinear form ⟨1⟩ is the generator. This is symmetric bilinear Witt theory in characteristic 2, not quadratic Witt theory.
+
+Hypotheses:
+* K is connective algebraic K-theory of perfect complexes, with the C₂-action induced by the indicated duality; GW and L use the non-genuine symmetric Poincaré structure Qˢ, not a substitute classical or genuine spectrum.
+* General Poincaré carriers and the fundamental square are missing registered supplier contracts, as recorded in the hermitian foundation gap.
+* Use the general field L₀-to-symmetric-Witt comparison, odd-dimensional vanishing and characteristic-2 2-periodicity from the Poincaré design owner; their contract is recorded as a gap.
+
+Proof reduction:
+1. Specialize the imported field comparison of Corollaries 1.3.3–1.3.4: L₀ is the symmetric Witt group and odd L-groups vanish by Remark 1.3.5.
+2. Every alternating nonsingular bilinear form is hyperbolic; the remaining Witt classes are sums of rank-one forms. Frobenius is surjective in F_q, so each ⟨a⟩≅⟨1⟩.
+3. The form ⟨1,1⟩ is metabolic with diagonal Lagrangian, while ⟨1⟩ has nonzero rank mod 2. Apply the imported 2-periodicity from R.10 in both positive and negative degrees.
+
+Required imports: GeometryOfNumbersAndQuadraticArithmetic:GN.6.
+Acceptance checks:
+* Over F₂ the alternating plane [[0,1],[1,0]] is zero in Wˢ, but the rank-one form is nonzero.
+* This is an all-integer-degree statement, not just L₀.
+Sources: CalmesEtAl.2026.v4, Proposition 3.1.4, proof, p.50; Corollaries 1.3.3–1.3.4, Remark 1.3.5 and R.10.
+-/
+
+/- KTheoryFiniteLocalFields:L.1/finite-even-l-tate-generator
+Proposed theorem/comparison name: TauCeti.KTheoryFiniteLocal.Hermitian.finite_even_l_tate_generator
+For q=2^r, r≥1, the canonical map Ξ:L(F_q;Qˢ)→K(F_q;Qˢ)^{tC₂} sends [⟨1⟩]∈L₀ to the nonzero element of π₀≅ℤ/2.
+
+Hypotheses:
+* K is connective algebraic K-theory of perfect complexes, with the C₂-action induced by the indicated duality; GW and L use the non-genuine symmetric Poincaré structure Qˢ, not a substitute classical or genuine spectrum.
+* General Poincaré carriers and the fundamental square are missing registered supplier contracts, as recorded in the hermitian foundation gap.
+
+Proof reduction:
+1. Use the imported fundamental square and the source diagram from components of Poincaré objects through GW₀, L₀, duality-invariant K₀ and its Tate quotient.
+2. The forgetful map sends the rank-one form to 1 in K₀(F_q)=ℤ, using the existing dimension equivalence.
+3. Its image modulo the norm 2ℤ is 1, which is nonzero. The commutative diagram identifies this quotient with the π₀ Tate target.
+
+Required imports: KTheoryFiniteLocalFields:L.1/finite-even-symmetric-l-groups, KTheoryFiniteLocalFields:L.1/finite-even-tate-k-groups, tauceti:TauCeti.SplitK0.finrankEquiv, GeometryOfNumbersAndQuadraticArithmetic:GN.6.
+Acceptance checks:
+* A comparison map that is zero on π₀ fails this check even though its source and target have the same abstract groups.
+* The hyperbolic plane maps to 2 and then zero modulo the norm.
+Sources: CalmesEtAl.2026.v4, Proposition 3.1.4, final diagram and proof, p.51.
+-/
+
+/- KTheoryFiniteLocalFields:L.1/finite-even-l-tate-equivalence
+Proposed theorem/comparison name: TauCeti.KTheoryFiniteLocal.Hermitian.finite_even_l_tate_equivalence
+For q=2^r, r≥1, the canonical Ξ:L(F_q;Qˢ)→K(F_q;Qˢ)^{tC₂} is an integral equivalence of spectra. The equivalence is that of the canonical map, not an arbitrarily chosen isomorphism of homotopy groups.
+
+Hypotheses:
+* K is connective algebraic K-theory of perfect complexes, with the C₂-action induced by the indicated duality; GW and L use the non-genuine symmetric Poincaré structure Qˢ, not a substitute classical or genuine spectrum.
+* General Poincaré carriers and the fundamental square are missing registered supplier contracts, as recorded in the hermitian foundation gap.
+
+Proof reduction:
+1. finite-even-symmetric-l-groups and finite-even-tate-k-groups identify the degree-one groups as zero.
+2. finite-even-l-tate-generator makes Ξ an isomorphism in degree zero.
+3. Use the imported simultaneous 2-periodicity of L and Tate K and compatibility of Ξ with that periodicity to propagate to every integer degree; apply stable Whitehead.
+
+Required imports: KTheoryFiniteLocalFields:L.1/finite-even-symmetric-l-groups, KTheoryFiniteLocalFields:L.1/finite-even-tate-k-groups, KTheoryFiniteLocalFields:L.1/finite-even-l-tate-generator, GeometryOfNumbersAndQuadraticArithmetic:GN.6.
+Acceptance checks:
+* Check both π₀ and π₁ before propagating periodically.
+* The argument includes negative degrees and uses the actual natural transformation Ξ.
+Sources: CalmesEtAl.2026.v4, Proposition 3.1.4, proof, pp.50–51.
+-/
+
+/- KTheoryFiniteLocalFields:L.1/finite-even-shifted-hermitian-comparison
+Proposed theorem/comparison name: TauCeti.KTheoryFiniteLocal.Hermitian.finite_even_shifted_hermitian_comparison
+For q=2^r, r≥1, and every integer m, the canonical map GW(F_q;(Qˢ)[m])→K(F_q;(Qˢ)[m])^{hC₂} is an integral equivalence of full spectra.
+
+Hypotheses:
+* K is connective algebraic K-theory of perfect complexes, with the C₂-action induced by the indicated duality; GW and L use the non-genuine symmetric Poincaré structure Qˢ, not a substitute classical or genuine spectrum.
+* General Poincaré carriers and the fundamental square are missing registered supplier contracts, as recorded in the hermitian foundation gap.
+* m is the shift of the Poincaré structure, not a homotopy-group index.
+
+Proof reduction:
+1. Import the cartesian GW/L/K^{hC₂}/K^{tC₂} square, Paper II Corollary 4.4.13.
+2. Import the metabolic-sequence suspension identifications L(Q[m])≃Σ^mL(Q) and K(Q[m])^{tC₂}≃Σ^mK(Q)^{tC₂}, compatible with Ξ, to transport finite-even-l-tate-equivalence to every shift.
+3. Pull back the equivalence on the right side of the square; the canonical map on the left is an equivalence. Homotopy fixed K is not asserted to be Σ^m of its unshifted value.
+
+Required imports: KTheoryFiniteLocalFields:L.1/finite-even-l-tate-equivalence, GeometryOfNumbersAndQuadraticArithmetic:GN.6.
+Acceptance checks:
+* For F₂, m=−1 is included and cannot be deduced solely from a connective-cover theorem.
+* Shifting the duality changes its coherent C₂-action; the underlying K-spectrum alone does not determine the target.
+Sources: CalmesEtAl.2026.v4, Proposition 3.1.4, statement and proof, pp.50–51; CalmesEtAl.II.20261005, Corollary 4.4.13 and proof, p.107.
+-/
+
+/- KTheoryFiniteLocalFields:L.1/finite-field-classical-hermitian-connective-comparison
+Proposed theorem/comparison name: TauCeti.KTheoryFiniteLocal.Hermitian.finite_field_classical_hermitian_connective_comparison
+For every prime power q and ε=±1, the canonical map GWˢ_cl(F_q;ε)→K(F_q;ε)^{hC₂} is an equivalence on connective covers. Here GWˢ_cl is classical symmetric Grothendieck–Witt theory; no integral full-spectrum equivalence for odd q is asserted by this statement.
+
+Hypotheses:
+* Use the genuine/classical-to-non-genuine symmetric comparison in the source’s precise connective range.
+* For q odd the original Friedlander/Fiedorowicz–Priddy finite-group computations and topological real/symplectic comparison proofs remain unread, recorded as a gap.
+
+Proof reduction:
+1. For q even apply finite-even-shifted-hermitian-comparison at the relevant symmetric duality and import Corollary 1.3.15’s comparison on connective covers.
+2. For q odd use the source’s Adams-operation description of finite-field GW-spaces and BO/BSp, with the positive complex-field homotopy-limit solution. These original proof inputs are imported from GN.6/RT.4:topological and recorded as unread.
+3. Pass to connective covers; retain the different quadratic and symmetric models, especially in characteristic 2.
+
+Required imports: KTheoryFiniteLocalFields:L.1/finite-even-shifted-hermitian-comparison, GeometryOfNumbersAndQuadraticArithmetic:GN.6, RefinedTraceMethods:RT.4:topological.
+Acceptance checks:
+* For q even, classical quadratic GW₁ is ℤ/2 according to the cited corrected calculation; it is not erased by treating quadratic and symmetric forms as identical.
+* The conclusion specifies the map and the connective range, not just abstract positive GW-group orders.
+Sources: CalmesEtAl.2026.v4, Theorem 3.1.3 and preceding discussion, p.50; Corollary 1.3.15, pp.31–32.
+-/
+
+/- KTheoryFiniteLocalFields:L.1/finite-even-multiplicative-l-tate-comparison
+Proposed theorem/comparison name: TauCeti.KTheoryFiniteLocal.Hermitian.finite_even_multiplicative_l_tate_comparison
+For q=2^r, r≥1, using the imported E∞ refinement of Ξ for commutative rings, the map Ξ:L(F_q;Qˢ)→K(F_q;Qˢ)^{tC₂} induces an isomorphism of graded homotopy rings, each identified with F₂[x,x⁻¹], |x|=2. This supplies the multiplicative proof of its equivalence.
+
+Hypotheses:
+* K is connective algebraic K-theory of perfect complexes, with the C₂-action induced by the indicated duality; GW and L use the non-genuine symmetric Poincaré structure Qˢ, not a substitute classical or genuine spectrum.
+* General Poincaré carriers and the fundamental square are missing registered supplier contracts, as recorded in the hermitian foundation gap.
+* The E∞ natural transformation is an input from Paper IV, not proved in Paper III; it is recorded as a distinct supplier proof boundary.
+
+Proof reduction:
+1. Apply finite-even-symmetric-l-groups and finite-even-tate-k-groups with the source’s multiplicative periodicity normalizations.
+2. The source map is a unital degree-preserving ring homomorphism. The generator x is an invertible degree 2 element, so its image must be the unique nonzero degree 2 element and its inverse must map compatibly.
+3. Thus the induced graded ring map is an isomorphism; apply stable Whitehead. An ungraded ring endomorphism x↦x² would not give this argument.
+
+Required imports: KTheoryFiniteLocalFields:L.1/finite-even-symmetric-l-groups, KTheoryFiniteLocalFields:L.1/finite-even-tate-k-groups, GeometryOfNumbersAndQuadraticArithmetic:GN.6, GeneralAlgebraicKTheory:K.7, RefinedTraceMethods:RT.2.
+Acceptance checks:
+* Degree preservation forces x↦x; it excludes the ungraded map x↦x².
+* A non-unital zero map cannot satisfy the E∞ comparison contract.
+Sources: CalmesEtAl.2026.v4, Remark 3.1.5, p.51.
+-/
+
+/- KTheoryFiniteLocalFields:L.1/perfect-char-two-k-two-completion
+Proposed theorem/comparison name: TauCeti.KTheoryFiniteLocal.Hermitian.perfect_char_two_k_two_completion
+For a perfect field k of characteristic 2 the map F₂→k induces K(F₂)^∧₂≃K(k)^∧₂, compatible with symmetric duality; each side is Hℤ₂. The assertion concerns derived 2-completion and does not assert equality of integral positive K-groups.
+
+Hypotheses:
+* k is a perfect field of characteristic 2; it need not be finite.
+* Hiller Theorem 5.4’s Adams/Frobenius proof has not been read; its exact positive-degree unique 2-divisibility input remains a source gap.
+
+Proof reduction:
+1. Import the Adams operations and their Frobenius compatibility from SchemeKTheoryOperations:S.6.
+2. Use the cited Hiller theorem: positive K-groups of a perfect characteristic 2 field are uniquely 2-divisible. Unlike the finite case, Quillen’s group orders cannot establish this statement.
+3. Use the Bockstein sequence in every degree and K₀(k)=ℤ by dimension to show F₂→k is an equivalence modulo every 2^ν; take the derived tower. The map respects the duality and hence the coherent C₂-action.
+
+Required imports: KTheoryFiniteLocalFields:L.1/finite-even-k-two-completion, KTheoryFiniteLocalFields:L.1/k-theory-mod-m, StableHomotopyKTheory:H.6, SchemeKTheoryOperations:S.6, tauceti:TauCeti.SplitK0.finrankEquiv.
+Acceptance checks:
+* Apply to an algebraic closure of F₂ and to the perfect closure of F₂(t).
+* The same proof cannot be applied to F₂(t), whose Frobenius is not surjective.
+Sources: CalmesEtAl.2026.v4, Remark 3.1.6, p.51, citing Hiller Theorem 5.4.
+-/
+
+/- KTheoryFiniteLocalFields:L.1/perfect-char-two-symmetric-l-base-change
+Proposed theorem/comparison name: TauCeti.KTheoryFiniteLocal.Hermitian.perfect_char_two_symmetric_l_base_change
+For a perfect field k of characteristic 2, extension F₂→k induces an integral equivalence L(F₂;Qˢ)≃L(k;Qˢ). On degree-zero symmetric Witt groups its comparison is rank modulo 2, sending ⟨1⟩ to ⟨1⟩; all odd groups vanish and even groups are ℤ/2.
+
+Hypotheses:
+* K is connective algebraic K-theory of perfect complexes, with the C₂-action induced by the indicated duality; GW and L use the non-genuine symmetric Poincaré structure Qˢ, not a substitute classical or genuine spectrum.
+* General Poincaré carriers and the fundamental square are missing registered supplier contracts, as recorded in the hermitian foundation gap.
+* k is perfect of characteristic 2.
+
+Proof reduction:
+1. Import the field L/Witt comparison and vanishing from the Poincaré owner. Every nonsingular alternating form is metabolic; symmetric Witt classes are generated by rank-one forms.
+2. Perfection writes a=y² for every nonzero a, and multiplication by y⁻¹ is an isometry ⟨a⟩≅⟨1⟩. The rank-mod 2 map and the unit form are inverse identifications with ℤ/2.
+3. Compare degree 0 under F₂→k and zero odd degrees, then use natural 2-periodicity from R.10 for all integer degrees.
+
+Required imports: KTheoryFiniteLocalFields:L.1/finite-even-symmetric-l-groups, GeometryOfNumbersAndQuadraticArithmetic:GN.6.
+Acceptance checks:
+* The element t of F₂(t) is not a square, illustrating why perfection is an actual hypothesis in the rank-one comparison.
+* The symmetric bilinear Witt group is used; characteristic 2 quadratic Witt theory is not a replacement.
+Sources: CalmesEtAl.2026.v4, Remark 3.1.6, pp.51–52.
+-/
+
+/- KTheoryFiniteLocalFields:L.1/perfect-char-two-shifted-hermitian-comparison
+Proposed theorem/comparison name: TauCeti.KTheoryFiniteLocal.Hermitian.perfect_char_two_shifted_hermitian_comparison
+For every perfect field k of characteristic 2 and every integer m, the canonical map GW(k;(Qˢ)[m])→K(k;(Qˢ)[m])^{hC₂} is an integral equivalence of full spectra.
+
+Hypotheses:
+* K is connective algebraic K-theory of perfect complexes, with the C₂-action induced by the indicated duality; GW and L use the non-genuine symmetric Poincaré structure Qˢ, not a substitute classical or genuine spectrum.
+* General Poincaré carriers and the fundamental square are missing registered supplier contracts, as recorded in the hermitian foundation gap.
+* k is perfect; m∈ℤ.
+
+Proof reduction:
+1. Use perfect-char-two-k-two-completion and RT.2’s Tate invariance to identify Tate K under F₂→k.
+2. Use perfect-char-two-symmetric-l-base-change. Naturality of Ξ and finite-even-l-tate-equivalence give an equivalence Ξ for k.
+3. Apply the imported metabolic shift identifications and the fundamental cartesian square exactly as for finite-even-shifted-hermitian-comparison. Integral equivalence comes from integral L and Tate equivalences, rather than by dropping completion from a K-equivalence.
+
+Required imports: KTheoryFiniteLocalFields:L.1/perfect-char-two-k-two-completion, KTheoryFiniteLocalFields:L.1/perfect-char-two-symmetric-l-base-change, KTheoryFiniteLocalFields:L.1/finite-even-l-tate-equivalence, KTheoryFiniteLocalFields:L.1/finite-even-shifted-hermitian-comparison, RefinedTraceMethods:RT.2, GeometryOfNumbersAndQuadraticArithmetic:GN.6.
+Acceptance checks:
+* The conclusion includes k algebraically closed and m<0.
+* Positive integral K(k) can be nonzero and uniquely 2-divisible although the completed input is Hℤ₂.
+Sources: CalmesEtAl.2026.v4, Remark 3.1.6, pp.51–52, with the shifted argument of Proposition 3.1.4.
+-/
+
+/- KTheoryFiniteLocalFields:L.6/dyadic-field-hermitian-two-comparison
+Proposed theorem/comparison name: TauCeti.KTheoryFiniteLocal.Hermitian.dyadic_field_hermitian_two_comparison
+For a finite extension K/ℚ₂ and every integer m, the canonical map GW(K;(Qˢ)[m])→K(K;(Qˢ)[m])^{hC₂} is a 2-adic equivalence.
+
+Hypotheses:
+* K is connective algebraic K-theory of perfect complexes, with the C₂-action induced by the indicated duality; GW and L use the non-genuine symmetric Poincaré structure Qˢ, not a substitute classical or genuine spectrum.
+* General Poincaré carriers and the fundamental square are missing registered supplier contracts, as recorded in the hermitian foundation gap.
+* K is a finite extension of ℚ₂, so char K=0, cd₂(K)=2 and vcd₂(K)≤2.
+
+Proof reduction:
+1. Specialize L.6/local-duality-for-tate-twists at p=2: finite 2-primary coefficient cohomology vanishes above degree 2 and H²(K,μ₂)=ℤ/2. These are exactly the upper and lower cohomological-dimension bounds; the source/supplier boundary of that existing local theorem is retained.
+2. Apply the characteristic≠2 finite-vcd₂ homotopy-limit theorem of source Theorem 3.1.1 in the symmetric ± flavours, with its original proof a GN.6 supplier obligation.
+3. Transport to all duality shifts using the imported general Poincaré comparison/periodicity machinery. This is not a claim that the proof for finite residue fields alone establishes the fraction-field comparison.
+
+Required imports: GeometryOfNumbersAndQuadraticArithmetic:GN.6, KTheoryFiniteLocalFields:L.6/local-duality-for-tate-twists.
+Acceptance checks:
+* K=ℚ₂ satisfies the hypotheses.
+* Only a 2-adic equivalence is used here; the integral refinement for the integers needs its separate L-completeness argument.
+Sources: CalmesEtAl.2026.v4, Remark 3.1.10, pp.52–53; Theorem 3.1.1, p.49.
+-/
+
+/- KTheoryFiniteLocalFields:L.6/dyadic-integer-hermitian-two-comparison
+Proposed theorem/comparison name: TauCeti.KTheoryFiniteLocal.Hermitian.dyadic_integer_hermitian_two_comparison
+Let K be a finite extension of ℚ₂, R its ring of integers and k its finite residue field. For every integer m, GW(R;(Qˢ)[m])→K(R;(Qˢ)[m])^{hC₂} is a 2-adic equivalence.
+
+Hypotheses:
+* K is connective algebraic K-theory of perfect complexes, with the C₂-action induced by the indicated duality; GW and L use the non-genuine symmetric Poincaré structure Qˢ, not a substitute classical or genuine spectrum.
+* General Poincaré carriers and the fundamental square are missing registered supplier contracts, as recorded in the hermitian foundation gap.
+* R is a complete DVR with finite characteristic 2 residue field. The coefficient line with involution ±1 is trivial as a line because R is local; m records the Poincaré shift.
+
+Proof reduction:
+1. Import the canonical residue-duality coefficient RHom_R(k,R)=(𝔪⁻¹/R)[−1] and symmetric GW localization. A uniformizer identifies the residue term with shift m−1.
+2. Use the ordinary K localization sequence with duality action and exactness of homotopy fixed points to form the vertical comparison of fibre sequences.
+3. The residue map is an integral equivalence by finite-even-shifted-hermitian-comparison at shift m−1. The field map is a 2-adic equivalence by dyadic-field-hermitian-two-comparison. Complete the two fibre sequences and use two-out-of-three for the middle map.
+
+Required imports: KTheoryFiniteLocalFields:L.6/dyadic-field-hermitian-two-comparison, KTheoryFiniteLocalFields:L.1/finite-even-shifted-hermitian-comparison, GeometryOfNumbersAndQuadraticArithmetic:GN.6/dedekind-residue-duality-line, GeometryOfNumbersAndQuadraticArithmetic:GN.6/dedekind-symmetric-localization, GeneralAlgebraicKTheory:K.3, StableHomotopyKTheory:H.6, RefinedTraceMethods:RT.2.
+Acceptance checks:
+* For R=ℤ₂ the residue coefficient has shift m−1, not m.
+* A ramified extension does not send a chosen uniformizer to a uniformizer in general; naturality is via the canonical duality line.
+Sources: CalmesEtAl.2026.v4, Remark 3.1.10, pp.52–53; Corollary 2.2.5 and Remark 2.2.6, p.39.
+-/
+
+/- KTheoryFiniteLocalFields:L.6/dyadic-integer-symmetric-l-two-complete
+Proposed theorem/comparison name: TauCeti.KTheoryFiniteLocal.Hermitian.dyadic_integer_symmetric_l_two_complete
+For K a finite extension of ℚ₂ with integers R and residue field k, the symmetric L-spectrum L(R;Qˢ) is derived 2-complete, as are all its Poincaré shifts L(R;(Qˢ)[m]).
+
+Hypotheses:
+* K is connective algebraic K-theory of perfect complexes, with the C₂-action induced by the indicated duality; GW and L use the non-genuine symmetric Poincaré structure Qˢ, not a substitute classical or genuine spectrum.
+* General Poincaré carriers and the fundamental square are missing registered supplier contracts, as recorded in the hermitian foundation gap.
+* The local symmetric Witt group Wˢ(K) has bounded 2-power exponent; this original Lam input remains a source/supplier gap.
+
+Proof reduction:
+1. The imported field L/Witt identification gives 4-periodic L(K;Qˢ), with symmetric Witt groups in degrees 0 mod 4 and zero other degrees; the finite dyadic Witt group has bounded 2-power exponent.
+2. Finite-even-symmetric-l-groups gives 2-torsion for every even-degree L(k) and zero odd groups.
+3. Use symmetric L localization (Corollary 2.2.5, requested from GN.6 alongside its GW theorem): L(k;Qˢ[m−1])→L(R;Qˢ[m])→L(K;Qˢ[m]). Bounded 2-power exponent of the outside homotopy groups bounds the middle groups, including extensions.
+4. Use H.6’s derived completion criterion for spectra with uniformly bounded 2-primary homotopy, and the metabolic shift equivalence. No finite generation of ordinary K(R) is inferred.
+
+Required imports: KTheoryFiniteLocalFields:L.1/finite-even-symmetric-l-groups, GeometryOfNumbersAndQuadraticArithmetic:GN.6/dedekind-residue-duality-line, GeometryOfNumbersAndQuadraticArithmetic:GN.6, StableHomotopyKTheory:H.6.
+Acceptance checks:
+* For ℤ₂ this excludes a free integral signature summand.
+* The argument uses the bounded exponent, not merely an assertion of torsion without a bound.
+Sources: CalmesEtAl.2026.v4, Remark 3.1.10, p.53, referring to Lam VI.2.29; Remark 3.1.9, p.52.
+-/
+
+/- KTheoryFiniteLocalFields:L.6/dyadic-integer-integral-hermitian-comparison
+Proposed theorem/comparison name: TauCeti.KTheoryFiniteLocal.Hermitian.dyadic_integer_integral_hermitian_comparison
+For K a finite extension of ℚ₂, R its ring of integers and every integer m, the canonical map GW(R;(Qˢ)[m])→K(R;(Qˢ)[m])^{hC₂} is an integral equivalence of full spectra.
+
+Hypotheses:
+* K is connective algebraic K-theory of perfect complexes, with the C₂-action induced by the indicated duality; GW and L use the non-genuine symmetric Poincaré structure Qˢ, not a substitute classical or genuine spectrum.
+* General Poincaré carriers and the fundamental square are missing registered supplier contracts, as recorded in the hermitian foundation gap.
+* This is the R-spectrum comparison; no assertion that arbitrary Dedekind rings with real fraction fields satisfy integral homotopy-limit equivalence is made.
+
+Proof reduction:
+1. The fundamental cartesian square identifies the fibre of the GW-to-homotopy-fixed comparison with the fibre of Ξ:L(R;Qˢ[m])→K(R;Qˢ[m])^{tC₂}.
+2. dyadic-integer-hermitian-two-comparison makes this fibre zero after 2-completion.
+3. dyadic-integer-symmetric-l-two-complete makes its L term complete; RT.2 makes Tate K complete for connective K(R). The fibre of a map of complete spectra is complete.
+4. A complete spectrum with zero 2-completion is zero. Hence the fibre vanishes integrally and the canonical comparison is an equivalence.
+
+Required imports: KTheoryFiniteLocalFields:L.6/dyadic-integer-hermitian-two-comparison, KTheoryFiniteLocalFields:L.6/dyadic-integer-symmetric-l-two-complete, GeometryOfNumbersAndQuadraticArithmetic:GN.6, RefinedTraceMethods:RT.2, StableHomotopyKTheory:H.6.
+Acceptance checks:
+* R=ℤ₂ is an integral full-spectrum example even though 2 is not a unit.
+* Replacing R by a number ring with a real embedding does not preserve the L-completeness input.
+Sources: CalmesEtAl.2026.v4, Remark 3.1.10, p.53, with the fundamental-square argument of Remark 3.1.9; CalmesEtAl.II.20261005, Corollary 4.4.13 and proof, p.107.
+-/
