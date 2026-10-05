@@ -466,6 +466,21 @@ theorem H1.map_eq_map_iff_central (i : A →* B) (hi : Topology.IsClosedEmbeddin
 --   `H1.connecting₂`, and freeness of the central action under vanishing twisted invariants:
 --   not stated here; the first needs a `DistribMulAction G (Additive A)` instance, which Mathlib
 --   does not provide at the pin.
+-- The planned obstruction uses the positive defect c(g) * (g • c(h)) * c(g*h)⁻¹,
+-- matching TauCeti.ContCohomology.d1 after writing the central coefficient additively.
+-- Kim arXiv:math/0409456v1, printed p.5, uses its inverse as dc(g,h). Thus the planned
+-- class is the negative of Kim's printed class; their zero fibres agree. This convention
+-- must also be retained in the missing cochain-independence and connecting-map comparisons.
+
+-- TauCeti.NonabelianCohomology.tests.central_defect_sign_C3_C9
+-- For the trivial-action extension C3 -> C9 -> C3, use the least-residue lift s.
+-- At (2,1) the positive defect is 3 in C9 and Kim's defect is 6. Under the
+-- identification a -> 3*a of the central C3, these are 1 and -1, respectively.
+-- This arithmetic discriminator does not type the missing continuous H² interface.
+example :
+    (let s : ZMod 3 → ZMod 9 := fun x => (x.val : ZMod 9)
+     let D := s 2 + s 1 - s ((2 : ZMod 3) + 1)
+     D = 3 ∧ -D = 6 ∧ D ≠ -D) := by decide
 
 end ExactSequence
 
