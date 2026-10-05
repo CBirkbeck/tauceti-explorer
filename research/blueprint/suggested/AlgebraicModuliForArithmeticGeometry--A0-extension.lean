@@ -86,15 +86,14 @@ class IsGerbe (F : LocallyDiscrete Cᵒᵖ ⥤ᵖ Cat.{v', u'})
 variable {F G : LocallyDiscrete Cᵒᵖ ⥤ᵖ Cat.{v', u'}}
     {J : GrothendieckTopology C}
 
--- IsGerbe.toIsStack, locallyNonempty and locallyIsomorphic are projections.
+-- IsGerbe.toIsStack, isIso_hom, locallyNonempty and locallyIsomorphic are projections.
 theorem IsGerbe.equivalence_iff (η : Pseudofunctor.StrongTrans F G)
     (hη : ∀ U : C, (η.app (.mk (op U))).toFunctor.IsEquivalence) :
     IsGerbe F J ↔ IsGerbe G J := by
   sorry
 
--- GerbeTests.twoComponents: the one-point-site connectedness obstruction.
-example : ¬ (∀ x y : Discrete Bool, Nonempty (x ≅ y)) := by
-  sorry
+-- GerbeTests.twoComponents is stated on the actual constant point-site
+-- pseudofunctor below, after BandFixtures.constantDiagram is available.
 
 /-- Packet: R09.4/abelian-banding. The two compatibility equations are
 actual equations on the existing restriction and automorphism maps. -/
@@ -545,7 +544,8 @@ Omitted LiftingGerbeTests.zeroKernel
 If A=0, a lifting gerbe of P is equivalent to the terminal stack because B→D is an isomorphism.
 
 Omitted AlgebraicModuliForArithmeticGeometry:R09.4/torsor-representative-of-class
-Choose a monomorphism A→I into an injective abelian sheaf and let D be its cokernel. For α∈H2(A), take the inverse dimension-shift class in H1(D), choose a D-torsor representing it, and construct Lift(P). This constructs an A-gerbe for α, with the choice of P irrelevant up to band-preserving equivalence. Enough injectives, cokernel exactness and the derived-H1 torsor comparison are inputs, not assumptions that every section of D lifts globally.
+On the chosen site with terminal object S and the stated native-cohomology and torsor-comparison inputs, choose a monomorphism A→I into an injective abelian sheaf and let D be its cokernel. For α∈H2(A), take the inverse dimension-shift class in H1(D), choose a D-torsor representing it, and construct Lift(P). This constructs an A-gerbe for α, with the choice of P irrelevant up to band-preserving equivalence. Enough injectives, cokernel exactness and the derived-H1 torsor comparison are inputs, not assumptions that every section of D lifts globally.
+Required hypotheses: A specified site (C,J), with fixed object and morphism universes, a chosen terminal object S and its Limits.IsTerminal witness; all stacks have groupoid fibres. HasSheafify and HasExt for the chosen abelian-sheaf category, with coefficient/site universes compatible with the pinned Tau connecting-map interface. Enough injectives, cokernel short exactness and the natural derived-H1 torsor comparison requested from SchemeAndStackFoundations:SF.2.
 
 Omitted Gerbe.ofH2
 A derived H2 class produces an A-gerbe through an injective embedding and a lifting torsor.
@@ -569,7 +569,8 @@ Omitted AlgebraicModuliForArithmeticGeometry:R09.4/injective-gerbe-neutral
 On a site with terminal object S and the slice-site injective restriction and Čech-acyclicity inputs below, every gerbe banded by an injective abelian sheaf I has an object over S.
 
 Omitted AlgebraicModuliForArithmeticGeometry:R09.4/class-of-gerbe
-For an A-gerbe F, choose an injective embedding A→I and neutralize the I-gerbe obtained by extension of band. For a neutralizing object z, let Pz be the sheaf of isomorphism classes of pairs (x,φ) with x∈F(U) and φ:u_*x≅z|U; quotient arrows are isomorphisms in F commuting with φ. This is a D=I/A-torsor. Define class(F)=δ([Pz])∈H2(A), with δ the pinned connecting map and the contraction convention fixed above.
+On the chosen site with terminal object S and the stated injective-neutralization inputs, for an A-gerbe F, choose an injective embedding A→I and neutralize the I-gerbe obtained by extension of band. For a neutralizing object z, let Pz be the sheaf of isomorphism classes of pairs (x,φ) with x∈F(U) and φ:u_*x≅z|U; quotient arrows are isomorphisms in F commuting with φ. This is a D=I/A-torsor. Define class(F)=δ([Pz])∈H2(A), with δ the pinned connecting map and the contraction convention fixed above.
+Required hypotheses: A specified site (C,J), with fixed object and morphism universes, a chosen terminal object S and its Limits.IsTerminal witness; all stacks have groupoid fibres. HasSheafify and HasExt for the chosen abelian-sheaf category, with coefficient/site universes compatible with the pinned Tau connecting-map interface. Enough injectives, cokernel short exactness and the natural derived-H1 torsor comparison requested from SchemeAndStackFoundations:SF.2. The slice-site injective restriction and covering Čech-acyclicity interfaces requested by R09.4/injective-gerbe-neutral are available; these remain supplier obligations, not proved facts in this packet.
 
 Omitted Gerbe.class
 The class is an element of the pinned derived H2(A).
@@ -590,10 +591,12 @@ Omitted GerbeClassTests.banding
 Changing a chosen band by a coefficient automorphism applies that automorphism to the H2 class; band choices are not silently forgotten.
 
 Omitted AlgebraicModuliForArithmeticGeometry:R09.4/class-choice-independent
-The derived class of an A-gerbe is independent of the injective embedding A→I and the chosen neutralization of u_*F.
+The derived class of an A-gerbe is independent of the injective embedding A→I and the chosen neutralization of u_*F. This uses the same terminal site and native-cohomology, torsor-comparison and injective-neutralization hypotheses as class-of-gerbe.
+Required hypotheses: A specified site (C,J), with fixed object and morphism universes, a chosen terminal object S and its Limits.IsTerminal witness; all stacks have groupoid fibres. HasSheafify and HasExt for the chosen abelian-sheaf category, with coefficient/site universes compatible with the pinned Tau connecting-map interface. Enough injectives, cokernel short exactness and the natural derived-H1 torsor comparison requested from SchemeAndStackFoundations:SF.2. The slice-site injective restriction and covering Čech-acyclicity interfaces requested by R09.4/injective-gerbe-neutral are available; these remain supplier obligations, not proved facts in this packet.
 
 Omitted AlgebraicModuliForArithmeticGeometry:R09.4/h2-classification
 For a fixed abelian sheaf A on the chosen site with terminal object, band-preserving equivalence classes of A-gerbes are naturally in bijection with the pinned derived H2(A). The class and lifting-gerbe constructions are inverse. The zero class is precisely the neutral class. Equivalence fixes the A-banding; the domain is not unbanded gerbes modulo arbitrary band automorphisms.
+Required hypotheses: A specified site (C,J), with fixed object and morphism universes, a chosen terminal object S and its Limits.IsTerminal witness; all stacks have groupoid fibres. HasSheafify and HasExt for the chosen abelian-sheaf category, with coefficient/site universes compatible with the pinned Tau connecting-map interface. Enough injectives, cokernel short exactness and the natural derived-H1 torsor comparison requested from SchemeAndStackFoundations:SF.2. The slice-site injective restriction and covering Čech-acyclicity interfaces requested by R09.4/injective-gerbe-neutral are available; these remain supplier obligations, not proved facts in this packet.
 
 Omitted AlgebraicModuliForArithmeticGeometry:R09.4/root-gerbe
 For a scheme X, an invertible sheaf L and n>0 invertible on X, RootGerbe_n(L)(T) consists of line bundles M on T and isomorphisms φ:M⊗n≅L|T, with arrows ρ satisfying φ=ψ∘ρ⊗n. It is the lifting gerbe for 1→μn→Gm→Gm→1 and the Gm-torsor of L, hence a μn-gerbe. No section of L is part of the data. The root stack of a line bundle with a section is a different construction owned by FunctionFieldArithmeticPartII:key/root-stacks.
@@ -617,16 +620,19 @@ Omitted RootGerbeTests.noSection
 For n>1 the root gerbe has μn inertia at every geometric point, whereas a divisor root stack has trivial inertia outside the divisor.
 
 Omitted AlgebraicModuliForArithmeticGeometry:R09.4/root-gerbe-class
-class(RootGerbe_n(L))=δ([L]) in derived H2(Xét,μn), with δ the connecting map of the Kummer sequence and with the same sign convention as the lifting-gerbe construction.
+For X, L and n on the small étale site specified below, class(RootGerbe_n(L))=δ([L]) in derived H2(Xét,μn), with δ the connecting map of the Kummer sequence and with the same sign convention as the lifting-gerbe construction.
+Required hypotheses: X is a scheme, L an invertible sheaf on X, and n a positive integer invertible on X. Use the small étale site of X with terminal object X and its terminality witness; the native-cohomology and injective-neutralization inputs of h2-classification apply to this site. The requested étale Kummer short exact sequence, line-bundle/Gm-torsor equivalence and derived-H1(Gm)=Pic(X) comparison retain the band orientation and the pinned δ convention.
 
 Omitted AlgebraicModuliForArithmeticGeometry:R09.4/root-o1-nonneutral
 Let k be algebraically closed and n>1 invertible in k. RootGerbe_n(O(1)) on P1_k is locally nonempty, but has no global object and its derived Kummer class is nonzero.
 
 Omitted AlgebraicModuliForArithmeticGeometry:R09.4/class-coefficient-map
-For u:A→B, class(u_*F)=H2(u)(class(F)), where H2(u) is the pinned same-site coefficient map.
+For u:A→B, class(u_*F)=H2(u)(class(F)), where H2(u) is the pinned same-site coefficient map. Both class constructions use the same terminal site and the hypotheses of class-of-gerbe and class-choice-independent.
+Required hypotheses: A specified site (C,J), with fixed object and morphism universes, a chosen terminal object S and its Limits.IsTerminal witness; all stacks have groupoid fibres. HasSheafify and HasExt for the chosen abelian-sheaf category, with coefficient/site universes compatible with the pinned Tau connecting-map interface. Enough injectives, cokernel short exactness and the natural derived-H1 torsor comparison requested from SchemeAndStackFoundations:SF.2. The slice-site injective restriction and covering Čech-acyclicity interfaces requested by R09.4/injective-gerbe-neutral are available; these remain supplier obligations, not proved facts in this packet.
 
 Omitted AlgebraicModuliForArithmeticGeometry:R09.4/class-site-pullback
 For a geometric morphism of the chosen sheaf topoi induced by base change T→S, with exact inverse-image functor on abelian sheaves and the derived global-cohomology comparison, pullback carries an A-banding to an f* A-banding and class(f*F)=f*(class(F)). The map on H2 is the change-of-site map furnished by that geometric morphism, not Sheaf.H.map on coefficients alone.
+Required hypotheses: Both specified sites have fixed universes and chosen terminal objects with terminality witnesses; their native-cohomology, torsor-comparison and injective-neutralization inputs satisfy h2-classification. The geometric morphism induced by T→S has exact inverse image on abelian sheaves and the derived global-cohomology comparison requested from SchemeAndStackFoundations:SF.2, natural for short exact sequences and connecting maps. The A-banding is fixed on the source gerbe and the target band is its inverse image; all stack fibres are groupoids.
 
 Omitted AlgebraicModuliForArithmeticGeometry:R09.4/finite-etale-gerbe
 A finite étale gerbe over k is an fpqc gerbe admitting a flat presentation R⇒U with both U and R finite étale k-schemes. Equivalently it is a finite gerbe whose base change to a separable splitting extension is BG for a finite étale group scheme G. Finite geometric automorphism groups alone are not the definition: retain the finite algebraic presentation and gerbe condition.
@@ -3406,6 +3412,11 @@ example : (eval
     (componentSectionsEquiv (Discrete PUnit) PUnit (Multiplicative (ZMod 3))
       (Discrete.mk PUnit.unit) (fun _ => Multiplicative.ofAdd (1 : ZMod 3)))).hom.2 =
         Multiplicative.ofAdd (1 : ZMod 3) := by sorry
+
+-- GerbeTests.twoComponents: the constant discrete two-object stack on the
+-- one-point site is a stack and fails the locally-isomorphic gerbe condition.
+example : (constantDiagram (Discrete PUnit) (Discrete Bool)).IsStack ⊥ ∧
+    ¬ IsGerbe (constantDiagram (Discrete PUnit) (Discrete Bool)) ⊥ := by sorry
 
 -- BandPointTests.trivialDiscreteTwoObjects
 example : (constantDiagram (Discrete PUnit) (Fibre Bool (Multiplicative (ZMod 1)))).IsStack ⊥ ∧

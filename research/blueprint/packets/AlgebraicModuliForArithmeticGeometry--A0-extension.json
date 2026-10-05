@@ -3056,6 +3056,11 @@
           "statement": "A gerbe is an instance of the pinned F.IsStack J."
         },
         {
+          "name": "IsGerbe.isIso_hom",
+          "role": "projection",
+          "statement": "Every morphism in every fibre is invertible; the pinned IsStack predicate alone does not impose this groupoid condition."
+        },
+        {
           "name": "IsGerbe.locallyNonempty",
           "role": "projection",
           "statement": "Each U has a J-covering sieve on which the fibre categories are nonempty."
@@ -4426,9 +4431,11 @@
       ],
       "title": "A torsor representative for a derived degree-two class",
       "kind": "construction",
-      "statement": "Choose a monomorphism A→I into an injective abelian sheaf and let D be its cokernel. For α∈H2(A), take the inverse dimension-shift class in H1(D), choose a D-torsor representing it, and construct Lift(P). This constructs an A-gerbe for α, with the choice of P irrelevant up to band-preserving equivalence. Enough injectives, cokernel exactness and the derived-H1 torsor comparison are inputs, not assumptions that every section of D lifts globally.",
+      "statement": "On the chosen site with terminal object S and the stated native-cohomology and torsor-comparison inputs, choose a monomorphism A→I into an injective abelian sheaf and let D be its cokernel. For α∈H2(A), take the inverse dimension-shift class in H1(D), choose a D-torsor representing it, and construct Lift(P). This constructs an A-gerbe for α, with the choice of P irrelevant up to band-preserving equivalence. Enough injectives, cokernel exactness and the derived-H1 torsor comparison are inputs, not assumptions that every section of D lifts globally.",
       "hypotheses": [
-        "A specified site (C,J), with fixed object and morphism universes; all stacks have groupoid fibres."
+        "A specified site (C,J), with fixed object and morphism universes, a chosen terminal object S and its Limits.IsTerminal witness; all stacks have groupoid fibres.",
+        "HasSheafify and HasExt for the chosen abelian-sheaf category, with coefficient/site universes compatible with the pinned Tau connecting-map interface.",
+        "Enough injectives, cokernel short exactness and the natural derived-H1 torsor comparison requested from SchemeAndStackFoundations:SF.2."
       ],
       "prerequisites": [
         "AlgebraicModuliForArithmeticGeometry:R09.4/injective-boundary-bijection",
@@ -4561,9 +4568,12 @@
       ],
       "title": "The derived class of a banded gerbe",
       "kind": "construction",
-      "statement": "For an A-gerbe F, choose an injective embedding A→I and neutralize the I-gerbe obtained by extension of band. For a neutralizing object z, let Pz be the sheaf of isomorphism classes of pairs (x,φ) with x∈F(U) and φ:u_*x≅z|U; quotient arrows are isomorphisms in F commuting with φ. This is a D=I/A-torsor. Define class(F)=δ([Pz])∈H2(A), with δ the pinned connecting map and the contraction convention fixed above.",
+      "statement": "On the chosen site with terminal object S and the stated injective-neutralization inputs, for an A-gerbe F, choose an injective embedding A→I and neutralize the I-gerbe obtained by extension of band. For a neutralizing object z, let Pz be the sheaf of isomorphism classes of pairs (x,φ) with x∈F(U) and φ:u_*x≅z|U; quotient arrows are isomorphisms in F commuting with φ. This is a D=I/A-torsor. Define class(F)=δ([Pz])∈H2(A), with δ the pinned connecting map and the contraction convention fixed above.",
       "hypotheses": [
-        "A specified site (C,J), with fixed object and morphism universes; all stacks have groupoid fibres."
+        "A specified site (C,J), with fixed object and morphism universes, a chosen terminal object S and its Limits.IsTerminal witness; all stacks have groupoid fibres.",
+        "HasSheafify and HasExt for the chosen abelian-sheaf category, with coefficient/site universes compatible with the pinned Tau connecting-map interface.",
+        "Enough injectives, cokernel short exactness and the natural derived-H1 torsor comparison requested from SchemeAndStackFoundations:SF.2.",
+        "The slice-site injective restriction and covering Čech-acyclicity interfaces requested by R09.4/injective-gerbe-neutral are available; these remain supplier obligations, not proved facts in this packet."
       ],
       "prerequisites": [
         "AlgebraicModuliForArithmeticGeometry:R09.4/change-band",
@@ -4572,7 +4582,7 @@
         "SchemeAndStackFoundations:SF.2"
       ],
       "proofSteps": [
-        "Use injective-band neutrality to choose z.",
+        "Use injective-band neutrality to choose z. The object z is over the chosen terminal S, so z|U uses the unique U→S. Retain the cover/slice hypotheses of injective-gerbe-neutral.",
         "The action of I on the pair sheaf has stabilizer A, so descends to a simply transitive D action.",
         "Local objects of F give local sections; descent makes the quotient a sheaf.",
         "Take the derived H1 torsor class and apply the baseline δ."
@@ -4645,9 +4655,12 @@
       ],
       "title": "Independence of injective and neutralization choices",
       "kind": "lemma",
-      "statement": "The derived class of an A-gerbe is independent of the injective embedding A→I and the chosen neutralization of u_*F.",
+      "statement": "The derived class of an A-gerbe is independent of the injective embedding A→I and the chosen neutralization of u_*F. This uses the same terminal site and native-cohomology, torsor-comparison and injective-neutralization hypotheses as class-of-gerbe.",
       "hypotheses": [
-        "A specified site (C,J), with fixed object and morphism universes; all stacks have groupoid fibres."
+        "A specified site (C,J), with fixed object and morphism universes, a chosen terminal object S and its Limits.IsTerminal witness; all stacks have groupoid fibres.",
+        "HasSheafify and HasExt for the chosen abelian-sheaf category, with coefficient/site universes compatible with the pinned Tau connecting-map interface.",
+        "Enough injectives, cokernel short exactness and the natural derived-H1 torsor comparison requested from SchemeAndStackFoundations:SF.2.",
+        "The slice-site injective restriction and covering Čech-acyclicity interfaces requested by R09.4/injective-gerbe-neutral are available; these remain supplier obligations, not proved facts in this packet."
       ],
       "prerequisites": [
         "AlgebraicModuliForArithmeticGeometry:R09.4/class-of-gerbe",
@@ -4685,13 +4698,17 @@
       "kind": "theorem",
       "statement": "For a fixed abelian sheaf A on the chosen site with terminal object, band-preserving equivalence classes of A-gerbes are naturally in bijection with the pinned derived H2(A). The class and lifting-gerbe constructions are inverse. The zero class is precisely the neutral class. Equivalence fixes the A-banding; the domain is not unbanded gerbes modulo arbitrary band automorphisms.",
       "hypotheses": [
-        "A specified site (C,J), with fixed object and morphism universes; all stacks have groupoid fibres."
+        "A specified site (C,J), with fixed object and morphism universes, a chosen terminal object S and its Limits.IsTerminal witness; all stacks have groupoid fibres.",
+        "HasSheafify and HasExt for the chosen abelian-sheaf category, with coefficient/site universes compatible with the pinned Tau connecting-map interface.",
+        "Enough injectives, cokernel short exactness and the natural derived-H1 torsor comparison requested from SchemeAndStackFoundations:SF.2.",
+        "The slice-site injective restriction and covering Čech-acyclicity interfaces requested by R09.4/injective-gerbe-neutral are available; these remain supplier obligations, not proved facts in this packet."
       ],
       "prerequisites": [
         "AlgebraicModuliForArithmeticGeometry:R09.4/torsor-representative-of-class",
         "AlgebraicModuliForArithmeticGeometry:R09.4/class-of-gerbe",
         "AlgebraicModuliForArithmeticGeometry:R09.4/class-choice-independent",
-        "AlgebraicModuliForArithmeticGeometry:R09.4/neutralization-equivalence"
+        "AlgebraicModuliForArithmeticGeometry:R09.4/neutralization-equivalence",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-equivalence"
       ],
       "proofSteps": [
         "Compare F with the lifting gerbe of its quotient torsor by a band-preserving map, hence an equivalence.",
@@ -4820,9 +4837,11 @@
       ],
       "title": "The Kummer class of a root gerbe",
       "kind": "lemma",
-      "statement": "class(RootGerbe_n(L))=δ([L]) in derived H2(Xét,μn), with δ the connecting map of the Kummer sequence and with the same sign convention as the lifting-gerbe construction.",
+      "statement": "For X, L and n on the small étale site specified below, class(RootGerbe_n(L))=δ([L]) in derived H2(Xét,μn), with δ the connecting map of the Kummer sequence and with the same sign convention as the lifting-gerbe construction.",
       "hypotheses": [
-        "A specified site (C,J), with fixed object and morphism universes; all stacks have groupoid fibres."
+        "X is a scheme, L an invertible sheaf on X, and n a positive integer invertible on X.",
+        "Use the small étale site of X with terminal object X and its terminality witness; the native-cohomology and injective-neutralization inputs of h2-classification apply to this site.",
+        "The requested étale Kummer short exact sequence, line-bundle/Gm-torsor equivalence and derived-H1(Gm)=Pic(X) comparison retain the band orientation and the pinned δ convention."
       ],
       "prerequisites": [
         "AlgebraicModuliForArithmeticGeometry:R09.4/root-gerbe",
@@ -4908,9 +4927,12 @@
       ],
       "title": "Change of band on derived gerbe classes",
       "kind": "lemma",
-      "statement": "For u:A→B, class(u_*F)=H2(u)(class(F)), where H2(u) is the pinned same-site coefficient map.",
+      "statement": "For u:A→B, class(u_*F)=H2(u)(class(F)), where H2(u) is the pinned same-site coefficient map. Both class constructions use the same terminal site and the hypotheses of class-of-gerbe and class-choice-independent.",
       "hypotheses": [
-        "A specified site (C,J), with fixed object and morphism universes; all stacks have groupoid fibres."
+        "A specified site (C,J), with fixed object and morphism universes, a chosen terminal object S and its Limits.IsTerminal witness; all stacks have groupoid fibres.",
+        "HasSheafify and HasExt for the chosen abelian-sheaf category, with coefficient/site universes compatible with the pinned Tau connecting-map interface.",
+        "Enough injectives, cokernel short exactness and the natural derived-H1 torsor comparison requested from SchemeAndStackFoundations:SF.2.",
+        "The slice-site injective restriction and covering Čech-acyclicity interfaces requested by R09.4/injective-gerbe-neutral are available; these remain supplier obligations, not proved facts in this packet."
       ],
       "prerequisites": [
         "AlgebraicModuliForArithmeticGeometry:R09.4/change-band",
@@ -4949,7 +4971,9 @@
       "kind": "theorem",
       "statement": "For a geometric morphism of the chosen sheaf topoi induced by base change T→S, with exact inverse-image functor on abelian sheaves and the derived global-cohomology comparison, pullback carries an A-banding to an f* A-banding and class(f*F)=f*(class(F)). The map on H2 is the change-of-site map furnished by that geometric morphism, not Sheaf.H.map on coefficients alone.",
       "hypotheses": [
-        "A specified site (C,J), with fixed object and morphism universes; all stacks have groupoid fibres."
+        "Both specified sites have fixed universes and chosen terminal objects with terminality witnesses; their native-cohomology, torsor-comparison and injective-neutralization inputs satisfy h2-classification.",
+        "The geometric morphism induced by T→S has exact inverse image on abelian sheaves and the derived global-cohomology comparison requested from SchemeAndStackFoundations:SF.2, natural for short exact sequences and connecting maps.",
+        "The A-banding is fixed on the source gerbe and the target band is its inverse image; all stack fibres are groupoids."
       ],
       "prerequisites": [
         "AlgebraicModuliForArithmeticGeometry:R09.4/relative-pullback",
@@ -5103,7 +5127,7 @@
         {
           "sourceId": "BV12",
           "locator": "§3 Definitions3.2–3.5, pp.4–6",
-          "match": "The source uses a Boolean cofiltered 2-category, or equivalently a cofiltered poset with pseudofunctor data."
+          "match": "The source uses a Boolean cofiltered 2-category, or equivalently a cofiltered poset with pseudofunctor data. The morphism compatibility clause in arXiv v5 Definition 3.5(b) says 2-arrow where its diagram requires a 1-arrow (E10); distinct compatibility with index 2-arrows is retained in the object data."
         }
       ],
       "implementationStatus": "unchecked",
@@ -40300,7 +40324,7 @@
     },
     {
       "title": "The quotient torsor and the two inverse identities",
-      "detail": "The pair quotient Pz must be shown to be a sheaf and an I/A-torsor. Construct F≃Lift(Pz) and prove class(Lift(P))=δ([P]) with the fixed sign. The course notes leave the inverse check as an exercise; no completed source proof was obtained for this general site statement.",
+      "detail": "The pair quotient Pz must be shown to be a sheaf and an I/A-torsor. Construct F≃Lift(Pz) and prove class(Lift(P))=δ([P]) with the fixed sign. The course notes leave the inverse check as an exercise; no completed source proof was obtained for this general site statement. The chosen route requires the terminal object and native-cohomology/cover/slice hypotheses now propagated into the dependent nodes. Breen94 Proposition 2.14 supplies a 2-stack equivalence with Tors(A)-torsors; its comparison with this native δ and the contraction sign is still to prove.",
       "neededBy": [
         "AlgebraicModuliForArithmeticGeometry:R09.4/class-of-gerbe",
         "AlgebraicModuliForArithmeticGeometry:R09.4/class-choice-independent",
@@ -40390,6 +40414,18 @@
           "All other incoming source, H2, profinite, module-descent and arithmetic representability obligations remain required."
         ]
       }
+    },
+    {
+      "title": "Reserved gerbe sample API and suggested fixtures",
+      "detail": "The reserved survey’s eight clauses are spread across the classifying, H2, root, self-equivalence and profinite nodes. Align the root API/tests with that full contract without planning the descendants twice. GerbeTests.classifying and GerbeTests.rootNotNeutral remain in the omission ledger; root class, pullback of derived classes, torsor-groupoid equivalence, coherent limit objects and the B(Z_hat) nonalgebraicity signatures still need native supplier-backed fixtures. The new twoComponents example states IsStack together with not IsGerbe, but its proof remains a planning admission and it does not close the key definition.",
+      "neededBy": [
+        "AlgebraicModuliForArithmeticGeometry:key/gerbes",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/classifying-abelian-gerbe",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/h2-classification",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/root-gerbe-class",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/compatible-limit-family",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/z-hat-not-algebraic-fp"
+      ]
     }
   ],
   "sourceIssues": [
@@ -40591,6 +40627,30 @@
         "reason": "The constant C2 translation torsor gives an explicit counterexample to descending the equivariant map to N. Descent of Q as a Γ1-torsor is valid; the original map remains on P×_T P′. The packet already uses this valid product-map proof route, so the theorem statement needs no change.",
         "by": "REV-AlgebraicModuliForArithmeticGeometry--A0-extension"
       }
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry/E10",
+      "source": "BV12",
+      "kind": "misprint",
+      "locator": "arXiv:1204.1260v5, Definition 3.5, arrow compatibility (b), printed p.5 (PDF5); SHA256 c2a803a6a63837670f8d5eb1b2fa19606b74ab59c81335c6df9b631fa9b21eed",
+      "printed": "The source requires this for every 2-arrow a : j → i.",
+      "correction": "for each 1-arrow a : j → i",
+      "reason": "The preceding conventions define Γ_a for a 1-arrow j→i; a 2-arrow instead relates parallel 1-arrows a,b. The displayed morphism square uses Γ_a(f_j) and the transition isomorphisms ξ_a,η_a, which were introduced for 1-arrows. The separate object equation involving Γ_a,b already expresses compatibility with index 2-arrows.",
+      "affects": "nothing",
+      "known": "No separate correction found in bounded title/erratum and Definition 3.5 phrase searches on 2026-10-05. This is scoped to arXiv v5, not the version of record; no exhaustive novelty claim.",
+      "searched": [
+        "arXiv:1204.1260v5, Definition 3.5 and preceding notation, independently reread on 2026-10-05",
+        "Web title/erratum/corrigendum and exact 2-arrow/1-arrow Definition 3.5 searches on 2026-10-05",
+        "SNS publication record https://ricerca.sns.it/handle/11384/55844; publisher and institutional PDF attempts did not yield readable publication bytes"
+      ],
+      "affectedNodes": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/compatible-limit-family"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The domain of Γ_a and the endpoints of ξ_a make the required dimension of a unambiguous. This slip changes neither the compatible-family definition as intended nor its 2-arrow coherence equation. This is bounded preprint evidence, pending completion of the independent packet review.",
+        "by": "REV-AlgebraicModuliForArithmeticGeometry--A0-extension"
+      }
     }
   ],
   "keyDefinitions": [
@@ -40656,6 +40716,13 @@
       "url": "https://stacks.math.columbia.edu/tag/026F",
       "read": "2026-10-02",
       "sha256": "0024923a8e370df81c72261a9765c15c3e1d3bbb8b59a46ab41605f2f2ae60a0"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1204.1260v5",
+      "read": "2026-10-05",
+      "sha256": "c2a803a6a63837670f8d5eb1b2fa19606b74ab59c81335c6df9b631fa9b21eed",
+      "accessNote": "E10 quotes only this preprint. AMS publication download returned HTML, and SNS publisher/accepted PDF attempts returned HTTP 403; the version of record was not read."
     }
   ],
   "routedItems": [
