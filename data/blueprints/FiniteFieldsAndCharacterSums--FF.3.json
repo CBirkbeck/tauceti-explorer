@@ -1,0 +1,941 @@
+{
+  "roadmapId": "FiniteFieldsAndCharacterSums",
+  "protocol": "blueprint-v1",
+  "part": "FF.3",
+  "scope": [
+    "FiniteFieldsAndCharacterSums:FF.3"
+  ],
+  "status": "complete",
+  "summary": "Supplement to the accepted FF.3 algorithm plan: normalized squarefree-square decomposition, exact monic and degree-pair polynomial counts for Bergström–Faber–Payne, and the degree-zero prescribed-coefficient exception in BKK. The prime-polynomial bounds and all factorization, lifting and elliptic counting algorithms are imported unchanged by existing node ids. Explicit requests retain the executable/cost/certificate services and add the all-extension WC.5 point-count bounds; foreign duplication and stage-edge corrections are proposed without editing another job.",
+  "baseline": {
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "declarations": [
+      {
+        "ref": "mathlib:Squarefree",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Squarefree/Basic.lean",
+        "provides": "Squarefree r means every x with x² dividing r is a unit.",
+        "checked": "Statement and ambient context read at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05."
+      },
+      {
+        "ref": "mathlib:exists_sq_mul_squarefree",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Squarefree/Basic.lean",
+        "provides": "In a unique factorization monoid, each x equals e²d with Squarefree d; no monic normalization or uniqueness supplied.",
+        "checked": "Statement and ambient context read at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05."
+      },
+      {
+        "ref": "mathlib:UniqueFactorizationMonoid.normalizedFactors_mul",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/UniqueFactorizationDomain/NormalizedFactors.lean",
+        "provides": "For nonzero x,y, normalized factors of xy are the multiset sum.",
+        "checked": "Statement and ambient context read at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05."
+      },
+      {
+        "ref": "mathlib:UniqueFactorizationMonoid.normalizedFactors_pow",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/UniqueFactorizationDomain/NormalizedFactors.lean",
+        "provides": "Normalized factors of x^n are n times the factor multiset.",
+        "checked": "Statement and ambient context read at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05."
+      },
+      {
+        "ref": "mathlib:UniqueFactorizationMonoid.squarefree_iff_nodup_normalizedFactors",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Squarefree/Basic.lean",
+        "provides": "For nonzero x, Squarefree x iff its normalized-factor multiset is nodup.",
+        "checked": "Statement and ambient context read at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05."
+      },
+      {
+        "ref": "mathlib:UniqueFactorizationMonoid.prod_normalizedFactors_eq",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/UniqueFactorizationDomain/NormalizedFactors.lean",
+        "provides": "For nonzero x in a strongly normalized UFM, the product of normalized factors is normalize x.",
+        "checked": "Statement and ambient context read at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05."
+      },
+      {
+        "ref": "mathlib:Polynomial.monic_normalize",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Polynomial/FieldDivision.lean",
+        "provides": "Nonzero polynomial normalization over a field is monic.",
+        "checked": "Statement and ambient context read at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05."
+      },
+      {
+        "ref": "mathlib:Polynomial.eq_of_monic_of_associated",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Polynomial/Monic.lean",
+        "provides": "Associated monic polynomials over a semiring are equal.",
+        "checked": "Statement and ambient context read at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05."
+      },
+      {
+        "ref": "mathlib:Polynomial.Monic.natDegree_mul",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Polynomial/Monic.lean",
+        "provides": "Monic polynomial products have additive natural degree.",
+        "checked": "Statement and ambient context read at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05."
+      },
+      {
+        "ref": "mathlib:Polynomial.Monic.natDegree_pow",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Polynomial/Monic.lean",
+        "provides": "For monic p, natDegree(p^n)=n natDegree p.",
+        "checked": "Statement and ambient context read at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05."
+      },
+      {
+        "ref": "mathlib:PerfectField.separable_iff_squarefree",
+        "kind": "theorem",
+        "module": "Mathlib/FieldTheory/Perfect.lean",
+        "provides": "Over a perfect field, a polynomial is separable iff it is Squarefree.",
+        "checked": "Statement and ambient context read at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05."
+      },
+      {
+        "ref": "mathlib:Polynomial.degreeLTEquiv",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/Polynomial/Basic.lean",
+        "provides": "The degree-less-than-n polynomial module is linearly equivalent to the first n coefficients.",
+        "checked": "Statement and ambient context read at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "BFP24",
+      "title": "Polynomial point counts and odd cohomology vanishing on moduli spaces of stable curves",
+      "authors": "Jonas Bergström, Carel Faber and Sam Payne",
+      "edition": "arXiv:2206.07759v2, 17 October 2023; Annals publication not collated",
+      "url": "https://arxiv.org/pdf/2206.07759v2",
+      "sha256": "36beb2d3eccb42161a0b6190a653b060337f08fed5866f6b578888d503346758",
+      "accessed": "2026-10-05",
+      "readSections": [
+        "§5 opening and counting argument, printed pp. 7–8, including P_g and its g=0 exception."
+      ]
+    },
+    {
+      "id": "BKK23",
+      "title": "Irreducibility of random polynomials: general measures",
+      "authors": "Lior Bary-Soroker, Dimitris Koukoulopoulos and Gady Kozma",
+      "edition": "arXiv:2007.14567v3, 2 June 2023; Inventiones version not collated",
+      "url": "https://arxiv.org/pdf/2007.14567v3",
+      "sha256": "adb1359df46f92d608009b32f45939672e08b1e3fe052587b035431e70d5d3e1",
+      "accessed": "2026-10-05",
+      "readSections": [
+        "Lemma 3.2 proof, printed pp. 19–20 (prescribed coefficients).",
+        "Proposition 8.1 and its applications to the sieve, printed pp. 39–40."
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "FiniteFieldsAndCharacterSums:FF.3/monic-squarefree-polynomial-set",
+      "parentStageId": "FiniteFieldsAndCharacterSums:FF.3",
+      "realises": [
+        "FiniteFieldsAndCharacterSums:FF.3"
+      ],
+      "title": "Monic squarefree polynomials of degree n",
+      "kind": "construction",
+      "statement": "monicSquarefreeOfDegree F n is the finite subset of monicOfDegree F n consisting of the polynomials satisfying Mathlib Squarefree. Write s_n for its cardinality. In particular 1 is included at n=0, while 0 is never included. Squarefree is the factor-multiplicity condition, not a nonzero-derivative shortcut.",
+      "hypotheses": [
+        "F is a finite field with q = #F; n,g ∈ ℕ. All polynomials use Mathlib Polynomial F."
+      ],
+      "proofSteps": [
+        "Filter the accepted monicOfDegree census by Squarefree, using classical decidability.",
+        "Membership is exactly monicity, degree n and Squarefree; over a finite field use PerfectField.separable_iff_squarefree to compare with separability."
+      ],
+      "acceptance": [
+        "The unit 1 is squarefree, so s_0=1.",
+        "Over F_2 the monic squarefree quadratics are X²+X and X²+X+1; X²+1 is excluded."
+      ],
+      "prerequisites": [
+        "FiniteFieldsAndCharacterSums:FF.2/monic-polynomials-of-degree",
+        "mathlib:Squarefree",
+        "mathlib:PerfectField.separable_iff_squarefree"
+      ],
+      "library": {
+        "module": "TauCeti/FieldTheory/Finite/SquarefreeCount",
+        "namespace": "TauCeti.FiniteFieldSums",
+        "declaration": "TauCeti.FiniteFieldSums.monicSquarefreeOfDegree"
+      },
+      "sources": [
+        {
+          "sourceId": "BFP24",
+          "locator": "§5, arXiv v2, printed p. 8",
+          "excerpt": "squarefree polynomials",
+          "match": "The degree-pair census is refined by exact degree and monic normalization; the carrier reuses the parent census."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "mem_monicSquarefreeOfDegree",
+          "role": "characterisation",
+          "statement": "f ∈ monicSquarefreeOfDegree F n iff f is monic, natDegree f=n and Squarefree f."
+        },
+        {
+          "name": "monicSquarefreeOfDegree_subset",
+          "role": "coercion",
+          "statement": "monicSquarefreeOfDegree F n ⊆ monicOfDegree F n."
+        },
+        {
+          "name": "mem_monicSquarefreeOfDegree_iff_separable",
+          "role": "compatibility",
+          "statement": "Membership is equivalently monic f, natDegree f=n and Polynomial.Separable f, since F is perfect."
+        },
+        {
+          "name": "monicSquarefreeOfDegree_zero",
+          "role": "simp",
+          "statement": "monicSquarefreeOfDegree F 0 = {1}."
+        },
+        {
+          "name": "monicSquarefreeOfDegree_one",
+          "role": "simp",
+          "statement": "monicSquarefreeOfDegree F 1 = monicOfDegree F 1."
+        }
+      ],
+      "tests": [
+        {
+          "name": "monicSquarefree_degree_zero",
+          "kind": "degenerate",
+          "statement": "monicSquarefreeOfDegree F 0 = {1}."
+        },
+        {
+          "name": "monicSquarefree_quadratics_f2",
+          "kind": "computation",
+          "statement": "monicSquarefreeOfDegree F_2 2 = {X²+X, X²+X+1}."
+        },
+        {
+          "name": "monicSquarefree_repeated_root_f2",
+          "kind": "non-example",
+          "statement": "X²+1 ∉ monicSquarefreeOfDegree F_2 2, since X²+1=(X+1)²."
+        },
+        {
+          "name": "monicSquarefree_separable",
+          "kind": "compatibility",
+          "statement": "For monic f of degree n, f ∈ monicSquarefreeOfDegree F n iff f.Separable."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Bergström–Faber–Payne §5, p. 8",
+          "how": "Count the squarefree polynomials parametrizing the hyperelliptic presentation space."
+        },
+        {
+          "where": "ArithmeticStatistics squarefree-count consumer, inherited PAPER-BERGSTROM-FABER-PAYNE-24 route",
+          "how": "Import the exact monic count rather than build a second polynomial census."
+        }
+      ]
+    },
+    {
+      "id": "FiniteFieldsAndCharacterSums:FF.3/unique-monic-squarefree-square-decomposition",
+      "parentStageId": "FiniteFieldsAndCharacterSums:FF.3",
+      "realises": [
+        "FiniteFieldsAndCharacterSums:FF.3"
+      ],
+      "title": "Unique normalized squarefree-square decomposition",
+      "kind": "theorem",
+      "statement": "For every monic f over F, there is exactly one pair (h,m) of monic polynomials such that Squarefree h and f=h m². For this pair, natDegree f = natDegree h + 2 natDegree m. This includes f=1 with (h,m)=(1,1). Scaling this theorem by the nonzero leading coefficient yields the source decomposition for nonmonic nonzero inputs; that consequence is used inside the P_g proof rather than introduced as another declaration.",
+      "hypotheses": [
+        "F is a finite field with q = #F; n,g ∈ ℕ. All polynomials use Mathlib Polynomial F."
+      ],
+      "proofSteps": [
+        "Existence starts from Mathlib exists_sq_mul_squarefree, or from the parent canonical square-free decomposition: retain each monic irreducible once when its exponent is odd and use half its exponent in m.",
+        "Normalize the square factor to be monic and absorb its unit squared into h. For monic f the remaining h is monic.",
+        "Use normalizedFactors_mul and normalizedFactors_pow: for each monic irreducible π, v_π(f)=v_π(h)+2v_π(m), with v_π(h)∈{0,1} by squarefree_iff_nodup_normalizedFactors. Parity fixes both multiplicities. Products reconstruct the normalized polynomials, so both components are equal.",
+        "Monic.natDegree_mul and Monic.natDegree_pow give the degree equation."
+      ],
+      "acceptance": [
+        "Over F_2: X²(X+1) has pair (X+1,X).",
+        "In every characteristic (X+1)^4 has pair (1,(X+1)²).",
+        "h and m need not be coprime: X³ has pair (X,X)."
+      ],
+      "prerequisites": [
+        "FiniteFieldsAndCharacterSums:FF.3/square-free-decomposition",
+        "mathlib:exists_sq_mul_squarefree",
+        "mathlib:UniqueFactorizationMonoid.normalizedFactors_mul",
+        "mathlib:UniqueFactorizationMonoid.normalizedFactors_pow",
+        "mathlib:UniqueFactorizationMonoid.squarefree_iff_nodup_normalizedFactors",
+        "mathlib:UniqueFactorizationMonoid.prod_normalizedFactors_eq",
+        "mathlib:Polynomial.monic_normalize",
+        "mathlib:Polynomial.eq_of_monic_of_associated",
+        "mathlib:Polynomial.Monic.natDegree_mul",
+        "mathlib:Polynomial.Monic.natDegree_pow"
+      ],
+      "library": {
+        "module": "TauCeti/FieldTheory/Finite/SquarefreeCount",
+        "namespace": "TauCeti.FiniteFieldSums",
+        "declaration": "TauCeti.FiniteFieldSums.existsUnique_monic_squarefree_square"
+      },
+      "sources": [
+        {
+          "sourceId": "BFP24",
+          "locator": "§5, arXiv v2, printed p. 8",
+          "excerpt": "written uniquely",
+          "match": "The source asserts squarefree times a monic square. The proof normalizes both factors for monic inputs using existing UFD results; no new generic decomposition is planned."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FiniteFieldsAndCharacterSums:FF.3/squarefree-square-degree-equivalence",
+      "parentStageId": "FiniteFieldsAndCharacterSums:FF.3",
+      "realises": [
+        "FiniteFieldsAndCharacterSums:FF.3"
+      ],
+      "title": "Degree-indexed squarefree-square equivalence",
+      "kind": "construction",
+      "statement": "There is an equivalence from the disjoint union over 0≤j≤⌊n/2⌋ of monicSquarefreeOfDegree F (n−2j) × monicOfDegree F j to monicOfDegree F n. It sends (j,h,m) to h m²; its inverse uses the unique normalized decomposition, with j=deg m. Each finite set is read as its subtype. The subtraction n−2j is valid because the index enforces 2j≤n.",
+      "hypotheses": [
+        "F is a finite field with q = #F; n,g ∈ ℕ. All polynomials use Mathlib Polynomial F."
+      ],
+      "proofSteps": [
+        "Use the normalized uniqueness theorem to recover h,m and j from f.",
+        "Use the degree formula to show j≤n/2 and deg h=n−2j.",
+        "The map and inverse cancel by normalized uniqueness; all finite indexing choices are explicit."
+      ],
+      "acceptance": [
+        "At n=0 the source is a singleton (j=0,h=1,m=1).",
+        "At n=2 over F_2 the source has two squarefree quadratics at j=0 and two monic linear square factors at j=1, giving all four monic quadratics."
+      ],
+      "prerequisites": [
+        "FiniteFieldsAndCharacterSums:FF.3/monic-squarefree-polynomial-set",
+        "FiniteFieldsAndCharacterSums:FF.3/unique-monic-squarefree-square-decomposition",
+        "FiniteFieldsAndCharacterSums:FF.2/monic-polynomials-of-degree"
+      ],
+      "library": {
+        "module": "TauCeti/FieldTheory/Finite/SquarefreeCount",
+        "namespace": "TauCeti.FiniteFieldSums",
+        "declaration": "TauCeti.FiniteFieldSums.squarefreeSquareEquiv"
+      },
+      "sources": [
+        {
+          "sourceId": "BFP24",
+          "locator": "§5, arXiv v2, printed p. 8",
+          "excerpt": "monic polynomial",
+          "match": "The exact-degree decomposition supplies the coefficient recurrence behind the degree-pair recurrence on p. 8."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "squarefreeSquareEquiv_apply",
+          "role": "data",
+          "statement": "The image of (j,h,m) is h m²."
+        },
+        {
+          "name": "squarefreeSquareEquiv_symm_degree",
+          "role": "projection",
+          "statement": "If the inverse of f has index j and square factor m, then j=natDegree m."
+        },
+        {
+          "name": "squarefreeSquareEquiv_symm_squarefree",
+          "role": "projection",
+          "statement": "The inverse squarefree factor h satisfies Squarefree h and natDegree h=n−2j."
+        },
+        {
+          "name": "squarefreeSquareEquiv_symm_eq",
+          "role": "characterisation",
+          "statement": "The inverse of f is (j,h,m) iff h,m belong to the indicated factors and f=h m²; both inverse laws hold."
+        }
+      ],
+      "tests": [
+        {
+          "name": "squarefreeSquareEquiv_zero",
+          "kind": "degenerate",
+          "statement": "At n=0, (0,1,1) maps to 1."
+        },
+        {
+          "name": "squarefreeSquareEquiv_repeated_linear_f2",
+          "kind": "computation",
+          "statement": "At n=2 over F_2, (1,1,X+1) maps to X²+1."
+        },
+        {
+          "name": "squarefreeSquareEquiv_shared_factor",
+          "kind": "non-example",
+          "statement": "At n=3 over F_2, (1,X,X) maps to X³; a false extra coprimality condition would omit this polynomial."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Bergström–Faber–Payne §5, p. 8",
+          "how": "Partitions all nonzero polynomials by the square factor degree."
+        },
+        {
+          "where": "monic-squarefree-convolution",
+          "how": "Count the disjoint fibers with the accepted coefficient census."
+        }
+      ]
+    },
+    {
+      "id": "FiniteFieldsAndCharacterSums:FF.3/monic-squarefree-convolution",
+      "parentStageId": "FiniteFieldsAndCharacterSums:FF.3",
+      "realises": [
+        "FiniteFieldsAndCharacterSums:FF.3"
+      ],
+      "title": "Squarefree census convolution",
+      "kind": "theorem",
+      "statement": "For every n≥0, q^n = Σ_{j=0}^{⌊n/2⌋} s_{n−2j} q^j, where s_k=#monicSquarefreeOfDegree F k. This counts all monic degree-n polynomials, not only squarefree inputs.",
+      "hypotheses": [
+        "F is a finite field with q = #F; n,g ∈ ℕ. All polynomials use Mathlib Polynomial F."
+      ],
+      "proofSteps": [
+        "Take finite cardinalities of squarefreeSquareEquiv.",
+        "Cardinality of the j-th product is s_{n−2j} times #monicOfDegree F j=s_{n−2j}q^j; cardinality of the target is q^n."
+      ],
+      "acceptance": [
+        "For n=0: 1=s_0.",
+        "For n=1: q=s_1.",
+        "For n=2 over F_2: 4=2+2, including both monic squares."
+      ],
+      "prerequisites": [
+        "FiniteFieldsAndCharacterSums:FF.3/squarefree-square-degree-equivalence",
+        "FiniteFieldsAndCharacterSums:FF.2/monic-polynomials-of-degree"
+      ],
+      "library": {
+        "module": "TauCeti/FieldTheory/Finite/SquarefreeCount",
+        "namespace": "TauCeti.FiniteFieldSums",
+        "declaration": "TauCeti.FiniteFieldSums.card_monic_eq_sum_squarefree"
+      },
+      "sources": [
+        {
+          "sourceId": "BFP24",
+          "locator": "§5, arXiv v2, printed p. 8",
+          "excerpt": "simple induction",
+          "match": "The source degree-pair induction is resolved into its monic exact-degree convolution, valid in every characteristic."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FiniteFieldsAndCharacterSums:FF.3/monic-squarefree-count-formula",
+      "parentStageId": "FiniteFieldsAndCharacterSums:FF.3",
+      "realises": [
+        "FiniteFieldsAndCharacterSums:FF.3"
+      ],
+      "title": "Exact squarefree polynomial count",
+      "kind": "theorem",
+      "statement": "For a finite field F of cardinality q, s_0=1, s_1=q, and s_n=q^n−q^(n−1) for n≥2. In natural numbers the difference is nonnegative, since q≥2. This is valid for all finite fields, including characteristic 2; only the hyperelliptic-curve interpretation in BFP §5 uses odd q.",
+      "hypotheses": [
+        "F is a finite field with q = #F; n,g ∈ ℕ. All polynomials use Mathlib Polynomial F."
+      ],
+      "proofSteps": [
+        "The convolution at n=0,1 gives s_0=1,s_1=q.",
+        "For n≥2, the j≥1 terms of the convolution are q times the convolution at n−2. Thus q^n=s_n+q·q^(n−2)=s_n+q^(n−1).",
+        "Deduce the natural-number difference; q≥2 ensures no truncation changes the integer identity."
+      ],
+      "acceptance": [
+        "Over F_2, degrees 0 through 5 give 1,2,2,4,8,16.",
+        "Over F_3, degrees 0 through 4 give 1,3,6,18,54.",
+        "The generic expression q^n−q^(n−1) must not be used at n=1."
+      ],
+      "prerequisites": [
+        "FiniteFieldsAndCharacterSums:FF.3/monic-squarefree-convolution"
+      ],
+      "library": {
+        "module": "TauCeti/FieldTheory/Finite/SquarefreeCount",
+        "namespace": "TauCeti.FiniteFieldSums",
+        "declaration": "TauCeti.FiniteFieldSums.card_monicSquarefreeOfDegree"
+      },
+      "sources": [
+        {
+          "sourceId": "BFP24",
+          "locator": "§5, arXiv v2, printed p. 8",
+          "excerpt": "simple induction",
+          "match": "The finite recurrence proves the monic constituent of the source degree-pair count without an odd-characteristic assumption."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FiniteFieldsAndCharacterSums:FF.3/hyperelliptic-presentation-polynomial-set",
+      "parentStageId": "FiniteFieldsAndCharacterSums:FF.3",
+      "realises": [
+        "FiniteFieldsAndCharacterSums:FF.3"
+      ],
+      "title": "Squarefree polynomials of adjacent odd and even degree",
+      "kind": "construction",
+      "statement": "hyperellipticPolynomials F g (P_g) is the finite set of all squarefree polynomials of degree 2g+1 or 2g+2 with nonzero leading coefficient, without requiring monicity. Construct it as the image of F× times the disjoint union of the two monic squarefree sets under (a,h)↦C(a)h. Every element has a unique leading-coefficient/monic-factor representation. The definition is a polynomial presentation space, not a set of isomorphism classes of curves; no automorphism quotient is taken.",
+      "hypotheses": [
+        "F is a finite field with q = #F; n,g ∈ ℕ. All polynomials use Mathlib Polynomial F."
+      ],
+      "proofSteps": [
+        "Form the finite union of monic squarefree sets of degrees 2g+1 and 2g+2; different degrees make it disjoint.",
+        "Scale by nonzero a∈F. Multiplication by a unit preserves Squarefree, degree and roots. Recover a as the leading coefficient and h as normalize f to prove uniqueness.",
+        "The scalar action of F× preserves P_g; a field isomorphism transports P_g coefficientwise."
+      ],
+      "acceptance": [
+        "At g=0 over F_2, P_0 has four elements.",
+        "At g=0 over F_3, P_0 has 18 elements; the monic-only version has 9."
+      ],
+      "prerequisites": [
+        "FiniteFieldsAndCharacterSums:FF.3/monic-squarefree-polynomial-set",
+        "mathlib:Polynomial.monic_normalize",
+        "mathlib:Squarefree"
+      ],
+      "library": {
+        "module": "TauCeti/FieldTheory/Finite/SquarefreeCount",
+        "namespace": "TauCeti.FiniteFieldSums",
+        "declaration": "TauCeti.FiniteFieldSums.hyperellipticPolynomials"
+      },
+      "sources": [
+        {
+          "sourceId": "BFP24",
+          "locator": "§5, arXiv v2, printed p. 8",
+          "excerpt": "single variable",
+          "match": "This is exactly the source P_g; both degrees and every nonzero leading coefficient must be retained."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "mem_hyperellipticPolynomials",
+          "role": "characterisation",
+          "statement": "f ∈ P_g iff Squarefree f and (natDegree f=2g+1 or natDegree f=2g+2)."
+        },
+        {
+          "name": "hyperellipticPolynomials_leadingCoeff_ne_zero",
+          "role": "projection",
+          "statement": "Every f∈P_g has nonzero leading coefficient."
+        },
+        {
+          "name": "hyperellipticPolynomials_normalize",
+          "role": "compatibility",
+          "statement": "For f∈P_g, normalize f lies in the degree-pair monic squarefree union and f=C(leadingCoeff f)·normalize f."
+        },
+        {
+          "name": "hyperellipticPolynomials_scalar_iff",
+          "role": "structure",
+          "statement": "For a≠0, C(a)f∈P_g iff f∈P_g; the action obeys the multiplication and identity laws."
+        },
+        {
+          "name": "hyperellipticPolynomials_map",
+          "role": "functoriality",
+          "statement": "For a field isomorphism e:F≃K, coefficientwise Polynomial.map e gives a bijection P_g(F)≃P_g(K); identity and composition agree with Polynomial.map laws."
+        }
+      ],
+      "tests": [
+        {
+          "name": "hyperellipticPolynomials_f2_zero",
+          "kind": "computation",
+          "statement": "P_0(F_2)={X,X+1,X²+X,X²+X+1}."
+        },
+        {
+          "name": "hyperellipticPolynomials_nonmonic_f3",
+          "kind": "non-example",
+          "statement": "2X∈P_0(F_3), although 2X is not monic."
+        },
+        {
+          "name": "hyperellipticPolynomials_square_excluded",
+          "kind": "non-example",
+          "statement": "X²∉P_0(F_3), although it has an allowed degree."
+        },
+        {
+          "name": "hyperellipticPolynomials_zero_excluded",
+          "kind": "degenerate",
+          "statement": "0∉P_g for every g."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Bergström–Faber–Payne §5, p. 8",
+          "how": "The affine chart of binary forms with nonvanishing discriminant is represented by P_g in odd characteristic."
+        },
+        {
+          "where": "ArithmeticStatistics squarefree census consumer",
+          "how": "Supply presentation counts before stack or orbit weights; those weights belong to the consumer."
+        }
+      ]
+    },
+    {
+      "id": "FiniteFieldsAndCharacterSums:FF.3/hyperelliptic-presentation-count",
+      "parentStageId": "FiniteFieldsAndCharacterSums:FF.3",
+      "realises": [
+        "FiniteFieldsAndCharacterSums:FF.3"
+      ],
+      "title": "Count of the squarefree hyperelliptic presentation space",
+      "kind": "theorem",
+      "statement": "#P_g=(q−1)(s_{2g+1}+s_{2g+2}). Consequently #P_0=q²(q−1), and #P_g=(q−1)(q^(2g+2)−q^(2g)) for g≥1. Both degrees and all nonzero leading coefficients are counted. These polynomial counts hold in characteristic 2 as well; they do not assert the same y²=f curve parametrization there.",
+      "hypotheses": [
+        "F is a finite field with q = #F; n,g ∈ ℕ. All polynomials use Mathlib Polynomial F."
+      ],
+      "proofSteps": [
+        "The unique scalar/monic representation in P_g makes its cardinality (#F×) times the sum of the two monic counts; #F×=q−1.",
+        "At g=0 insert s_1=q and s_2=q²−q.",
+        "At g≥1 insert the formula at both degrees: the q^(2g+1) terms cancel, leaving q^(2g+2)−q^(2g)."
+      ],
+      "acceptance": [
+        "q=3,g=0: 18.",
+        "q=3,g=1: 144.",
+        "q=2,g=1: 12.",
+        "Replacing the g=0 count by the g≥1 expression gives 16 over F_3, so the boundary test detects the error."
+      ],
+      "prerequisites": [
+        "FiniteFieldsAndCharacterSums:FF.3/hyperelliptic-presentation-polynomial-set",
+        "FiniteFieldsAndCharacterSums:FF.3/monic-squarefree-count-formula"
+      ],
+      "library": {
+        "module": "TauCeti/FieldTheory/Finite/SquarefreeCount",
+        "namespace": "TauCeti.FiniteFieldSums",
+        "declaration": "TauCeti.FiniteFieldSums.card_hyperellipticPolynomials"
+      },
+      "sources": [
+        {
+          "sourceId": "BFP24",
+          "locator": "§5, arXiv v2, printed p. 8",
+          "excerpt": "simple induction",
+          "match": "The normalized finite-set argument proves the displayed count, separating its exceptional g=0 case."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FiniteFieldsAndCharacterSums:FF.3/monic-prescribed-constant-count-boundary",
+      "parentStageId": "FiniteFieldsAndCharacterSums:FF.3",
+      "realises": [
+        "FiniteFieldsAndCharacterSums:FF.3"
+      ],
+      "title": "Monic coefficient fiber including degree zero",
+      "kind": "theorem",
+      "statement": "For n≥0 and b∈F, #{f∈monicOfDegree F n : f(0)=b} equals 1 if n=0 and b=1, equals 0 if n=0 and b≠1, and equals q^(n−1) if n≥1. This is a count of all monic polynomials, not of irreducible polynomials. For BKK Lemma 3.2, use the exceptional indicator when its auxiliary factor degree m=0; the irreducible-factor count still uses the distinct parent fixed-constant theorem and requires nonzero prescribed constant.",
+      "hypotheses": [
+        "F is a finite field with q = #F; n,g ∈ ℕ. All polynomials use Mathlib Polynomial F."
+      ],
+      "proofSteps": [
+        "At degree zero the parent monic set is {1}.",
+        "At degree n≥1, the constant coefficient is fixed and the other n−1 lower coefficients are arbitrary. Restrict the parent coefficient-vector parametrization and take cardinalities."
+      ],
+      "acceptance": [
+        "Over F_3 and n=0 the count is 1 at b=1 and 0 at b=0,2.",
+        "For n=1 each b occurs exactly once, including b=0.",
+        "For n=2 over F_3 every constant coefficient occurs 3 times."
+      ],
+      "prerequisites": [
+        "FiniteFieldsAndCharacterSums:FF.2/monic-polynomials-of-degree",
+        "mathlib:Polynomial.degreeLTEquiv"
+      ],
+      "library": {
+        "module": "TauCeti/FieldTheory/Finite/SquarefreeCount",
+        "namespace": "TauCeti.FiniteFieldSums",
+        "declaration": "TauCeti.FiniteFieldSums.card_monic_prescribed_constant"
+      },
+      "sources": [
+        {
+          "sourceId": "BKK23",
+          "locator": "Lemma 3.2 proof, arXiv v3, printed p. 20",
+          "excerpt": "and the number of",
+          "match": "The positive-degree fiber count is the printed statement; the zero-degree correction is already recorded in parent source issue E734 and paper issue E6."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    }
+  ],
+  "sourceIssues": [],
+  "coverage": [
+    {
+      "stageId": "FiniteFieldsAndCharacterSums:FF.3",
+      "status": "planned",
+      "note": "Every original target remains realized in the accepted parent packet; this supplement accounts for the routed squarefree frontier and maps BKK /73 and /130 to exact parent suppliers. Planning pass complete, mathematical closure not asserted.",
+      "remaining": [
+        "Discharge the inherited CN.0 algebraic/bit cost, random execution and coefficient-list refinement requests and CN.5 certificate discipline; replace stage references only with exact exported services.",
+        "Resolve WC.5 request for general all-extension curve and Betti-number bounds, and supply exact model/point-set comparison before extending the parent elliptic and affine-hyperelliptic certificate algorithms to arbitrary smooth projective varieties.",
+        "Apply the documented foreign ownership and stage-edge corrections in the authorized CN.1/FA.7/restructuring jobs; no foreign files are changed here.",
+        "Retain the accepted parent Schoof cost gap: source and import an exact quantitative prime-product/Chebyshev estimate excluding char(F), and instantiate the requested CN.0 operational model before closing schoof-algorithm-cost."
+      ]
+    }
+  ],
+  "requests": [
+    {
+      "supplier": "ComputationalNumberTheory:CN.0",
+      "need": "The algebraic cost model over a commutative ring R, with the randomness model, as Shoup uses them in Chapter 20 (§§3.2, 9.1, 17.1): (1) an algorithm over R is a program whose primitive steps are +, −, ×, the equality test, inversion of units and, for finite R, drawing a uniformly random element of R, each of unit cost ('operations in R'); (2) a deterministic program's cost on an input is the number of primitive steps; a randomized program on an input has an output distribution (a Mathlib PMF) and a cost random variable, halts with probability 1 when P[more than n steps] → 0, and has expected cost E[cost] (Shoup §9.1.2); serial composition, conditionals and loops (Shoup Examples 9.1-9.4) and the generate-and-test theorem (Shoup Theorem 9.3: geometric number of iterations, E[Z] = E[Z₁]/P[H₁], conditional output law); (3) the dense coefficient-vector representation of R[X] with the costs of Shoup Theorem 17.1 (± in O(len g + len h), × in O(len g · len h), division with remainder by h with unit leading coefficient in O(len h · len q)), arithmetic in R[X]/(f) (+ in O(ℓ), × in O(ℓ²), α^e with O(len e) multiplications, Shoup p. 467), Euclid and extended Euclid over a field in O(len g · len h) (Theorems 17.3, 17.5), and Gaussian elimination over a field computing the reduced row echelon form, the rank and a basis of the row null space of an m × n matrix in O(mn(m + n)) operations (Shoup §14.4, pp. 390-393); (4) the translation to bit operations for the standard presentations of 𝔽_q (ℤ/p, or 𝔽_p[X]/(φ) with φ irreducible of degree w; FiniteFieldsAndCharacterSums FF.0), where one operation in 𝔽_q costs O(len(q)²) bit operations (Shoup Chapter 20 introduction), and for ℤ/p^kℤ, O(len(p^k)²).",
+      "neededBy": [
+        "FiniteFieldsAndCharacterSums:FF.3/square-free-decomposition-algorithm-cost",
+        "FiniteFieldsAndCharacterSums:FF.3/distinct-degree-factorization-algorithm-cost",
+        "FiniteFieldsAndCharacterSums:FF.3/irreducibility-test-cost",
+        "FiniteFieldsAndCharacterSums:FF.3/rabin-certificate-generation-cost",
+        "FiniteFieldsAndCharacterSums:FF.3/equal-degree-factorization-cost",
+        "FiniteFieldsAndCharacterSums:FF.3/cantor-zassenhaus-cost",
+        "FiniteFieldsAndCharacterSums:FF.3/berlekamp-algorithm",
+        "FiniteFieldsAndCharacterSums:FF.3/berlekamp-algorithm-correct",
+        "FiniteFieldsAndCharacterSums:FF.3/berlekamp-algorithm-cost",
+        "FiniteFieldsAndCharacterSums:FF.3/random-irreducible-polynomial-cost",
+        "FiniteFieldsAndCharacterSums:FF.3/hensel-lifting-algorithm-cost",
+        "FiniteFieldsAndCharacterSums:FF.3/naive-point-count-cost",
+        "FiniteFieldsAndCharacterSums:FF.3/schoof-algorithm-cost"
+      ]
+    },
+    {
+      "supplier": "ComputationalNumberTheory:CN.0",
+      "need": "Executable presentations with refinement lemmas: dense coefficient-list presentations of F[X] over the FF.0 standard presentations of finite fields and of (ℤ/p^kℤ)[X], with lemmas identifying their +, ×, division by a monic polynomial, gcd and extended gcd, and modular powering with Mathlib's Polynomial operations, so that FF.3's checkers (FactorizationCertificate.check, PointCountCertificate.check, FF.0's Rabin checker) and algorithms evaluate by computation on concrete inputs. FF.3's objects are Mathlib functions on Polynomial F; CN.0 owns their computable refinements.",
+      "neededBy": [
+        "FiniteFieldsAndCharacterSums:FF.3/factorization-certificate",
+        "FiniteFieldsAndCharacterSums:FF.3/point-count-certificate",
+        "FiniteFieldsAndCharacterSums:FF.3/certified-factorization-algorithm",
+        "FiniteFieldsAndCharacterSums:FF.3/cantor-zassenhaus-algorithm",
+        "FiniteFieldsAndCharacterSums:FF.3/berlekamp-algorithm",
+        "FiniteFieldsAndCharacterSums:FF.3/schoof-algorithm"
+      ]
+    },
+    {
+      "supplier": "ComputationalNumberTheory:CN.5",
+      "need": "Import the finite-verification certificate discipline used by the parent FF.5: for a finite set S and decidable P, certify ∀x∈S, P x by kernel evaluation of an explicitly checked finite computation, and report verification cost. FF.3 supplies the factorization and point-count checker semantics and soundness; CN.0 supplies executable refinements. CN.5 supplies reusable proof/certificate recording and constant-instantiation rules, not a second factorization or point-count algorithm.",
+      "neededBy": [
+        "FiniteFieldsAndCharacterSums:FF.3/factorization-certificate",
+        "FiniteFieldsAndCharacterSums:FF.3/point-count-certificate"
+      ]
+    },
+    {
+      "supplier": "WeilConjectures:WC.5",
+      "need": "For every smooth projective geometrically connected curve C/F_q of genus g and r≥1, |#C(F_{q^r})−(q^r+1)|≤2g q^{r/2}; for a smooth projective geometrically connected variety of dimension d>0, |N_r−(1+q^{dr})|≤Σ_{i=1}^{2d−1} b_i q^{ir/2}. Dimension zero is handled separately. Export the actual rational-point/cohomology comparison and geometric Frobenius sign convention. This is the supplier contract for a general point-count certificate, not a theorem inferred from the elliptic Hasse bound or an affine hyperelliptic sum. Scope this request to the general point-bound component proposed below. The existing elliptic root-table certificate uses its elliptic suppliers, and the affine hyperelliptic estimate uses FF.2; neither acquires a compulsory WC.5 prerequisite from this request.",
+      "neededBy": [
+        "FiniteFieldsAndCharacterSums:FF.3"
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "title": "General-model certificate comparison",
+      "neededBy": [
+        "FiniteFieldsAndCharacterSums:FF.3"
+      ],
+      "detail": "WC.5 states the required all-extension bounds, but the accepted FF.3 certificate prototype is for affine y²=f and Schoof is elliptic. Extension to arbitrary smooth projective models needs a concrete computable rational-point representation, inclusion of points at infinity and its cardinality comparison with WC.5 N_r. The WC.5 request pins that contract; the parent algorithms are not advertised as general-variety algorithms."
+    },
+    {
+      "title": "Schoof prime-growth estimate and instantiated operational cost model",
+      "neededBy": [
+        "FiniteFieldsAndCharacterSums:FF.3/schoof-algorithm-cost"
+      ],
+      "detail": "Schoof §5 invokes a weak prime-number theorem to obtain O(log q) auxiliary primes of size O(log q). The pinned citations and the precise CN.0 supplier stage do not provide that quantitative prime-product estimate. Import it from its owner or prove/source its exact elementary Chebyshev version, excluding char(F), before closing this cost target. CN.0 is an explicit requested bit/randomness model, not an already exported operation counter; the listed polynomial-time cost remains a target-level contract against that model, not a theorem about an arbitrary supplied count field.",
+      "inheritedFrom": "research/blueprint/packets/FiniteFieldsAndCharacterSums.json"
+    }
+  ],
+  "imports": [
+    {
+      "node": "FiniteFieldsAndCharacterSums:FF.3/square-free-decomposition",
+      "statement": "A list L = ((g1, s1), …, (gt, st)) is a square-free decomposition of f ∈ F[X] (IsSquarefreeDecomposition f L) if each gi is monic, of positive degree and square-free, each si ≥ 1, the gi are pairwise coprime, the si are pairwise distinct, and f = ∏ gi^si. For monic f this holds exactly when L lists, for each multiplicity s occurring in the factorization of f, the pair (∏_{h : v_h(f) = s} h, s) once; in particular it is unique up to order.",
+      "why": "Accepted parent FF.3 owner, reused without a duplicate declaration."
+    },
+    {
+      "node": "FiniteFieldsAndCharacterSums:FF.3/square-free-decomposition-algorithm-correct",
+      "statement": "For every monic f over a finite field, squarefreeDecomposition f is a square-free decomposition of f.",
+      "why": "Accepted parent FF.3 owner, reused without a duplicate declaration."
+    },
+    {
+      "node": "FiniteFieldsAndCharacterSums:FF.3/distinct-degree-factorization-algorithm-correct",
+      "statement": "For monic square-free f, distinctDegreeFactorization f is a distinct-degree factorization of f.",
+      "why": "Accepted parent FF.3 owner, reused without a duplicate declaration."
+    },
+    {
+      "node": "FiniteFieldsAndCharacterSums:FF.3/cantor-zassenhaus-correct",
+      "statement": "For monic f and every n: if some m lies in the support of cantorZassenhaus f n then m = normalizedFactors f.",
+      "why": "Accepted parent FF.3 owner, reused without a duplicate declaration."
+    },
+    {
+      "node": "FiniteFieldsAndCharacterSums:FF.3/berlekamp-algorithm-correct",
+      "statement": "For monic f and every n, a completed outcome some m of berlekampFactor f n satisfies m = normalizedFactors f; and P[none] ≤ (deg f)² (5/9)^n.",
+      "why": "Accepted parent FF.3 owner, reused without a duplicate declaration."
+    },
+    {
+      "node": "FiniteFieldsAndCharacterSums:FF.3/factorization-certificate-sound",
+      "statement": "If c.check f = true then c.leadingCoeff = leadingCoeff f and Σ_i e_i • {g_i} = normalizedFactors f.",
+      "why": "Accepted parent FF.3 owner, reused without a duplicate declaration."
+    },
+    {
+      "node": "FiniteFieldsAndCharacterSums:FF.3/factorization-certificate-complete",
+      "statement": "Every nonzero f over a finite field has a factorization certificate that checks.",
+      "why": "Accepted parent FF.3 owner, reused without a duplicate declaration."
+    },
+    {
+      "node": "FiniteFieldsAndCharacterSums:FF.3/hensel-lifting-of-factorizations",
+      "statement": "Let I be an ideal of a commutative ring R, f ∈ R[X] monic, and g0, h0 monic with f ≡ g0 h0 (mod I) and ḡ0, h̄0 coprime in (R/I)[X]. Then for every k ≥ 1 there are monic g, h ∈ R[X] with deg g = deg g0, g ≡ g0 and h ≡ h0 (mod I), and f ≡ g h (mod I^k R[X]).",
+      "why": "Accepted parent FF.3 owner, reused without a duplicate declaration."
+    },
+    {
+      "node": "FiniteFieldsAndCharacterSums:FF.3/hensel-lifting-over-complete-rings",
+      "statement": "Let R be I-adically complete (Mathlib IsAdicComplete I R), f ∈ R[X] monic, and f̄ = g0 h0 in (R/I)[X] with g0, h0 monic and coprime. Then there is a unique pair (g, h) of monic polynomials in R[X] with ḡ = g0, h̄ = h0 and f = g h. (For R = ℤ_p, I = (p) this is Milne's Theorem 7.33 over ℤ_p; for R = 𝔽_q⟦t⟧ over the power series ring.)",
+      "why": "Accepted parent FF.3 owner, reused without a duplicate declaration."
+    },
+    {
+      "node": "FiniteFieldsAndCharacterSums:FF.3/hensel-lifting-modulo-prime-powers",
+      "statement": "Let p be prime, k ≥ 1, f ∈ ℤ[X] monic and f mod p = g0 h0 in 𝔽_p[X] with g0, h0 monic and coprime. Then there is a unique pair (g, h) of monic polynomials in (ℤ/p^kℤ)[X] reducing to (g0, h0) modulo p with f mod p^k = g h. This is the form used by factoring algorithms over ℤ.",
+      "why": "Accepted parent FF.3 owner, reused without a duplicate declaration."
+    },
+    {
+      "node": "FiniteFieldsAndCharacterSums:FF.3/schoof-algorithm-correct",
+      "statement": "For q odd and W elliptic with a₁ = a₃ = 0: schoofPointCount W = naivePointCount W (= pointCount W); equivalently the algorithm returns a_q = frobeniusTrace W exactly.",
+      "why": "Accepted parent FF.3 owner, reused without a duplicate declaration."
+    },
+    {
+      "node": "FiniteFieldsAndCharacterSums:FF.3/schoof-algorithm-cost",
+      "statement": "Over a prime field 𝔽_p, Schoof's algorithm uses O(log⁸ p) bit operations with schoolbook multiplication (Schoof 1995, §5); over 𝔽_q with q odd its running time is bounded by a polynomial in log q (Sutherland Lecture 8 §8.4): O(log q) primes ℓ = O(log q) are used, and Algorithm 8.3 works with polynomials of degree < ℓ² over F; costs in the model of ComputationalNumberTheory CN.0.",
+      "why": "Accepted parent FF.3 owner, reused without a duplicate declaration."
+    },
+    {
+      "node": "FiniteFieldsAndCharacterSums:FF.3/point-count-certificate-sound",
+      "statement": "If c.check W = true (q odd, a₁ = a₃ = 0) then c.count W = naivePointCount W.",
+      "why": "Accepted parent FF.3 owner, reused without a duplicate declaration."
+    },
+    {
+      "node": "FiniteFieldsAndCharacterSums:FF.3/point-count-certificate-complete",
+      "statement": "For q odd every W with a₁ = a₃ = 0 has a point-count certificate that checks.",
+      "why": "Accepted parent FF.3 owner, reused without a duplicate declaration."
+    },
+    {
+      "node": "FiniteFieldsAndCharacterSums:FF.3/hasse-error-bound-for-point-counts",
+      "statement": "For W elliptic over F with q elements: (q + 1 − naivePointCount W)² ≤ 4q, i.e. |#W(F) − (q + 1)| ≤ 2√q. Every certified count therefore lies in the Hasse interval [(√q − 1)², (√q + 1)²].",
+      "why": "Accepted parent FF.3 owner, reused without a duplicate declaration."
+    },
+    {
+      "node": "FiniteFieldsAndCharacterSums:FF.3/weil-error-bound-for-hyperelliptic-counts",
+      "statement": "For q odd and f ∈ F[X] square-free of degree d ≥ 1: |#{(x, y) ∈ F² : y² = f(x)} − q| ≤ (d − 1)√q.",
+      "why": "Accepted parent FF.3 owner, reused without a duplicate declaration."
+    },
+    {
+      "node": "FiniteFieldsAndCharacterSums:FF.3/gauss-count-formula",
+      "statement": "For n ≥ 1, Σ_{d ∈ n.divisors} d · irreducibleCount F d = q^n.",
+      "why": "Accepted parent FF.3 owner, reused without a duplicate declaration."
+    },
+    {
+      "node": "FiniteFieldsAndCharacterSums:FF.3/moebius-formula-for-irreducible-count",
+      "statement": "For n ≥ 1, n · Π_F(n) = Σ_{d | n} μ(d) q^{n/d} (as integers), with μ Mathlib's ArithmeticFunction.moebius.",
+      "why": "Accepted parent FF.3 owner, reused without a duplicate declaration."
+    },
+    {
+      "node": "FiniteFieldsAndCharacterSums:FF.3/prime-polynomial-theorem",
+      "statement": "For n ≥ 1, (q^n − 2 q^{n/2})/n ≤ Π_F(n) ≤ q^n/n, the exponent n/2 being real. For F = 𝔽_p this is Proposition 8.1 of Bary-Soroker–Koukoulopoulos–Kozma (item 73 of its extraction).",
+      "why": "Accepted parent FF.3 owner, reused without a duplicate declaration."
+    },
+    {
+      "node": "FiniteFieldsAndCharacterSums:FF.3/irreducible-count-upper-bound",
+      "statement": "For every n ∈ ℕ, n · Π_F(n) ≤ q^n. Equivalently Π_F(n)/q^n ≤ 1/n, which is Bary-Soroker–Koukoulopoulos–Kozma's Σ_{deg I = n} 1/‖I‖ ≤ 1/n.",
+      "why": "Accepted parent FF.3 owner, reused without a duplicate declaration."
+    },
+    {
+      "node": "FiniteFieldsAndCharacterSums:FF.3/irreducible-polynomials-with-prescribed-constant-coefficient",
+      "statement": "For n ≥ 1 and b ≠ 0, the number Π_F(n; b) of monic irreducible polynomials of degree n with constant coefficient b satisfies |n (q − 1) Π_F(n; b)/q^n − 1| ≤ 3 q^{1 − n/2}. Hence Π_F(n; b) = q^n/((q − 1) n) (1 + O(q^{1 − n/2})) with absolute implied constant 3, the statement Bary-Soroker–Koukoulopoulos–Kozma use in the proof of Lemma 3.2 (item 130 of the extraction), citing Rosen, Theorem 4.8.",
+      "why": "Accepted parent FF.3 owner, reused without a duplicate declaration."
+    },
+    {
+      "node": "FiniteFieldsAndCharacterSums:FF.3/count-of-irreducible-polynomials",
+      "statement": "For a finite field F with q elements and n ∈ ℕ, irreducibleCount F n = Π_F(n) is the number of monic irreducible polynomials of degree n in F[X] (Shoup's Π_F(ℓ); for F = 𝔽_p it is Bary-Soroker–Koukoulopoulos–Kozma's π_p(k)). Its package is Gauss's formula Σ_{d|n} d Π_F(d) = q^n, the Möbius formula n Π_F(n) = Σ_{d|n} μ(d) q^{n/d}, and the bounds (q^n − 2q^{n/2})/n ≤ Π_F(n) ≤ q^n/n and q^n ≤ 2n Π_F(n) (n ≥ 1).",
+      "why": "Accepted parent FF.3 owner, reused without a duplicate declaration."
+    },
+    {
+      "node": "FiniteFieldsAndCharacterSums:FF.3/irreducible-count-with-constant-coefficient",
+      "statement": "For a finite field F, n ∈ ℕ and b ∈ F, irreducibleCountWithConstantCoeff F n b is the number of f ∈ monicIrreducibles F n with f(0) = b (for F = 𝔽_p and b ≠ 0, the count of I_p in Bary-Soroker–Koukoulopoulos–Kozma's proof of Lemma 3.2).",
+      "why": "Accepted parent FF.3 owner, reused without a duplicate declaration."
+    }
+  ],
+  "restructure": [
+    {
+      "action": "rescope",
+      "roadmaps": [
+        "FiniteFieldsAndCharacterSums",
+        "ComputationalNumberTheory",
+        "FunctionFieldArithmetic"
+      ],
+      "detail": "RT finitefields /1,/11,/12: register separate elementary factorization/Hensel and point-count components, so CN.1 imports the elementary owner without inheriting cohomological bounds; preserve FA.7’s other function-field targets.",
+      "proposal": "Register component stages before regenerating the graph: assign the polynomial census and prime-polynomial counts, square-free and distinct-degree decomposition, Cantor–Zassenhaus, Berlekamp, random irreducible generation, irreducibility/factorization certificates and Hensel lifting (including their correctness/cost exports) to an elementary FF.3 component with direct FF.0, CA.3 and the precise CN service inputs. Assign naive elliptic point counts, root-table certificates and Schoof to a point-count component using their elliptic suppliers; keep the affine hyperelliptic bound on its exact FF.2 supplier. Assign general all-extension curve/variety bounds and their model/certificate comparison to the point-bound component importing WC.5. Remove the compulsory all-FF.2 algorithm edge. CN.1 replaces its duplicate polynomial-factorization-over-finite-fields target with the elementary component’s square-free, DDF, Cantor–Zassenhaus and Berlekamp correctness/cost imports, retaining implementation/refinement obligations; it must not import the whole point-bound stage. Merely substituting WC.5 for FF.2 on an unsplit FF.3 stage would preserve the cohomological obstruction. FA.7 imports the elementary factorization component and the relevant point-count certificates, retaining place enumeration, Riemann–Roch computations, ray characters, conductors/local completions, its other certificate exports, and L-polynomial assembly/functional-equation checks. Counts through r=g determine the curve zeta numerator only for a smooth projective geometrically connected genus-g curve, using Newton identities and the normalized functional equation; this does not replace arbitrary Artin/ramified L-polynomial computations. Split FF.4’s elementary constructions (direct FF.0/FF.1 inputs) from bound-dependent applications (their exact FF.2/WC suppliers), allowing a specific FF.3 algorithm import when a consumer needs it. FF.5 packages each exact supplying component. Move the elementary accepted monic-polynomials-of-degree carrier from its present FF.2 placement to FF.0 during assembly, updating parentStageId and all incoming references consistently without duplicating the declaration. Keep current stable node ids until the authorized component/census moves are registered and applied; then recompute depths. No stage split or foreign-file change is applied by this packet."
+    }
+  ],
+  "planetSelection": {
+    "retainedFrom": "research/blueprint/packets/FiniteFieldsAndCharacterSums.json",
+    "note": "Retain the existing six FF.3 planets (Gauss product formula, prime polynomial theorem, Cantor–Zassenhaus, Berlekamp, Hensel lifting, Schoof). No new planet is added to an already full layer. The squarefree census is visible in the declaration panel.",
+    "retainedNodes": [
+      "FiniteFieldsAndCharacterSums:FF.3/gauss-product-formula",
+      "FiniteFieldsAndCharacterSums:FF.3/prime-polynomial-theorem",
+      "FiniteFieldsAndCharacterSums:FF.3/cantor-zassenhaus-algorithm",
+      "FiniteFieldsAndCharacterSums:FF.3/berlekamp-algorithm",
+      "FiniteFieldsAndCharacterSums:FF.3/hensel-lifting-of-factorizations",
+      "FiniteFieldsAndCharacterSums:FF.3/schoof-algorithm"
+    ]
+  },
+  "routedItems": [
+    {
+      "item": "PAPER-BERGSTROM-FABER-PAYNE-24/squarefree-count",
+      "providedBy": [
+        "FiniteFieldsAndCharacterSums:FF.3/monic-squarefree-count-formula",
+        "FiniteFieldsAndCharacterSums:FF.3/hyperelliptic-presentation-count"
+      ],
+      "note": "Includes s_0,s_1 and P_0; all coefficients and both adjacent degrees included."
+    },
+    {
+      "item": "PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23/73",
+      "providedBy": [
+        "FiniteFieldsAndCharacterSums:FF.3/prime-polynomial-theorem",
+        "FiniteFieldsAndCharacterSums:FF.3/irreducible-count-upper-bound"
+      ],
+      "note": "Specialize F to F_p. Degree k≥1. The weighted reciprocal sum is π_p(k)/p^k, bounded by 1/k; degree zero is excluded."
+    },
+    {
+      "item": "PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23/130",
+      "providedBy": [
+        "FiniteFieldsAndCharacterSums:FF.3/irreducible-polynomials-with-prescribed-constant-coefficient"
+      ],
+      "note": "Specialize to F_p, r≥1 and b≠0. Parent supplies absolute relative-error constant 3. For r=1 the exact count is 1, including b=0 in the separate exact API; no asymptotic formula is applied at r=0. The auxiliary all-polynomial m=0 fiber is the new boundary theorem."
+    }
+  ],
+  "links": [
+    {
+      "source": "WeilConjectures:WC.5",
+      "target": "FiniteFieldsAndCharacterSums:FF.3",
+      "reason": "WC.5 supplies the all-extension curve and Betti-number point-count error bounds requested by FF.3 for non-elliptic smooth projective models; its curve constant is 2g. This supplies the error bound only, not the model/certificate comparison recorded as a gap.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "WeilConjectures:WC.5",
+          "quote": "In dimension one identify b_1=2g\nusing the actual curve/Jacobian cohomology supplier, obtaining\n|N_r−(q^r+1)|≤2g q^{r/2}."
+        },
+        {
+          "stageId": "FiniteFieldsAndCharacterSums:FF.3",
+          "quote": "a point count agrees with the trace convention and a provable error bound."
+        }
+      ]
+    }
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-FiniteFieldsAndCharacterSums--FF.3",
+    "date": "2026-10-05",
+    "notes": "Codex — codex-JWkQAv independently reviewed the plan by Codex codex-jYursF (PR #6365); this session wrote none of that plan. Verified every new node against the versioned public BFP/BKK passages, every one of the 12 baseline statements at Mathlib 082e2d3, all 23 unchanged parent imports, construction APIs/tests, source-issue boundary, six retained planets and the six routed verifier findings. Corrected ownership metadata to require a registered elementary/point-count component split, preserve all FA.7 targets and qualify first-g curve counts; removed unrelated elliptic/affine nodes from the general WC.5 request; carried the inherited Schoof quantitative-prime-growth/operational-model gap into this supplement and coverage remaining. No mathematical node or baseline citation changed, no node added. Complete target-level planning pass accepted with four requests and two explicit gaps; FF.3 is planned, not closed. Checker: zero errors/warnings. Suggested file elaborates at the exact Mathlib pin with only admitted-declaration warnings and imports no Tau Ceti modules. Reader synchronization and foreign graph changes remain authorized assembly/restructuring work described in the report.",
+    "checked": [
+      {
+        "nodeId": "FiniteFieldsAndCharacterSums:FF.3/monic-squarefree-polynomial-set",
+        "verdict": "verified",
+        "note": "Verified the p.8 squarefree carrier, finite-field perfectness bridge, unit/zero cases, five API items and four tests; imports the existing monic carrier rather than duplicating it."
+      },
+      {
+        "nodeId": "FiniteFieldsAndCharacterSums:FF.3/unique-monic-squarefree-square-decomposition",
+        "verdict": "verified",
+        "note": "Verified normalized existence and uniqueness by factor multiplicities, reconstruction and monic degree laws; the factors may share an irreducible, including (X,X) for X³. Generic Mathlib existence alone is not misrepresented as uniqueness."
+      },
+      {
+        "nodeId": "FiniteFieldsAndCharacterSums:FF.3/squarefree-square-degree-equivalence",
+        "verdict": "verified",
+        "note": "Verified the finite index enforces 2j≤n, the inverse uses normalized uniqueness and the degree equation, all four API items and three tests; independently enumerated every valid pair in the tested degrees."
+      },
+      {
+        "nodeId": "FiniteFieldsAndCharacterSums:FF.3/monic-squarefree-convolution",
+        "verdict": "verified",
+        "note": "Verified cardinalities of the disjoint degree-indexed equivalence give q^n=Σ s_(n−2j)q^j, including n=0,1; prerequisites supply both the equivalence and monic cardinalities."
+      },
+      {
+        "nodeId": "FiniteFieldsAndCharacterSums:FF.3/monic-squarefree-count-formula",
+        "verdict": "verified",
+        "note": "Verified the n−2 convolution shift gives s_n=q^n−q^(n−1) only for n≥2, with s_0=1 and s_1=q; the elementary argument covers characteristic two."
+      },
+      {
+        "nodeId": "FiniteFieldsAndCharacterSums:FF.3/hyperelliptic-presentation-polynomial-set",
+        "verdict": "verified",
+        "note": "Verified both adjacent degrees, all nonzero leading coefficients, unique scalar/monic representation and five API items/four tests; this is the polynomial carrier, with the source curve interpretation restricted to odd characteristic."
+      },
+      {
+        "nodeId": "FiniteFieldsAndCharacterSums:FF.3/hyperelliptic-presentation-count",
+        "verdict": "verified",
+        "note": "Verified the scalar factor q−1, the exceptional P_0=q²(q−1), and the g≥1 cancellation; direct enumeration confirms the examples without asserting a characteristic-two curve parametrization."
+      },
+      {
+        "nodeId": "FiniteFieldsAndCharacterSums:FF.3/monic-prescribed-constant-count-boundary",
+        "verdict": "verified",
+        "note": "Verified the degree-zero indicator at b=1 and q^(n−1) for n≥1, distinct from irreducible fixed-constant counts; independently confirmed the already-recorded BKK p.20 boundary error, without duplicating parent E734/paper E6."
+      }
+    ]
+  }
+}

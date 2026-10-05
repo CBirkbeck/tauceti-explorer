@@ -573,6 +573,17 @@
     "data/blueprints/roadmaps/ErdosProgressionPowers.json"
    ]
   },
+  "research/blueprint/packets/FiniteFieldsAndCharacterSums--FF.3.json": {
+   "promotedAt": "2026-10-05T19:01:18Z",
+   "review": "3c9f96b4d57979c2",
+   "reviewDate": "2026-10-05",
+   "reviewer": "independent-review-REV-FiniteFieldsAndCharacterSums--FF.3",
+   "sha256": "94f566d91d4c124fa1c14e45699779e27e950502bb9aac27194dd0afb995e8f7",
+   "to": [
+    "data/blueprints/FiniteFieldsAndCharacterSums--FF.3.json",
+    "data/blueprints/FiniteFieldsAndCharacterSums--FF.3.md"
+   ]
+  },
   "research/blueprint/packets/FiniteFieldsAndCharacterSums.json": {
    "promotedAt": "2026-10-05T03:55:17Z",
    "review": "a2e81ea118045f4a",
