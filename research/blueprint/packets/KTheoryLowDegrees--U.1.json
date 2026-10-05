@@ -13,7 +13,7 @@
     "KTheoryLowDegrees:U.5",
     "KTheoryLowDegrees:U.6"
   ],
-  "summary": "Part U.1 of the roadmap KTheoryLowDegrees: stages Z.1, Z.2 and U.1–U.6. The companion part KTheoryLowDegrees--Z.3 holds Z.3–Z.6. The plan follows Weibel's K-book (I.1–I.3, II.1–II.2, II.7.3, III.1–III.2, IV.1), Bass's \"K-theory and stable algebra\" (1964), Dieudonné's \"Les déterminants sur un corps non commutatif\" (1943) and Bass–Milnor–Serre (1967).\n- Z.1 presents finitely generated projectives through free-summand data and idempotent matrices, classifies them by stabilised conjugacy, and defines ring K₀ as Tau Ceti's SplitK0 of finiteProjectiveModules. It also proves the stable-isomorphism criterion and builds scalar extension along any ring map, restriction along finite projective extensions and Morita invariance.\n- Z.2 gives the rank as a locally constant function on Spec A, never collapsed to one integer on a disconnected spectrum. It covers localisation and base change, K₀ of division, local and semilocal rings, the product formula and K₀(F × F) ≅ ℤ², with a non-free rank-one ideal of ℤ[√−5].\n- U.1 builds the stable GL(A) as a direct limit, elementary matrices over any ring, E(A), the commutator identities, perfectness for n ≥ 3 and Whitehead's lemma. The explicit non-examples E₂(𝔽₂) and E₂(𝔽₃) keep the stable theorem away from rank 2.\n- U.2 defines K₁(A) = GL(A)/E(A) = GL(A)^ab with its functoriality and the class of an automorphism of a projective. The class is independent of the complement, additive along filtrations and compatible with sums and scalar extension.\n- U.3 gives the stable determinant, SK₁ and the natural splitting K₁(A) ≅ Aˣ × SK₁(A). SK₁ vanishes for fields and for commutative semilocal rings by stable range one. It adds the Dieudonné determinant with K₁(D) ≅ D^×ab, and non-examples showing K₁(A) = Aˣ is not a general rule.\n- U.4 proves SK₁(O_{F,S}) = 0 along the Bass–Milnor–Serre route (stable range two, Mennicke symbols and the arithmetic Dirichlet and power-reduction theorems) and identifies K₁(O_{F,S}) ≅ O_{F,S}ˣ ≅ μ(F) ⊕ ℤ^{r₁+r₂+|S|−1}. S is a finite set of finite places; the determinant is canonical and the splitting depends on fundamental S-units.\n- U.5 builds the relative groups GL(I), E(A, I) and K₁(A, I) = GL(I)/E(A, I), not a kernel. It proves the degree-one sequence with its extra term (E(A) ∩ GL(I))/E(A, I) made explicit, transfer by restriction of scalars agreeing with the norm, the projection formula, and the DVR boundary ∂(π) = [k].\n- U.6 identifies π₁BGL(A)⁺ with GL(A)/E(A), with loop classes, determinant and transfer. It computes K₁ of ℤ, 𝔽_q, ℤ[1/p] and finite products of fields, and runs the triangular, diag(g, g⁻¹) and uniformiser tests.\nConventions:\n- K₀ is formed from left modules, as in Mathlib and Tau Ceti; Z.1's idempotent e presents the row-vector module Rⁿe.\n- The K₁ class of an automorphism is formed from right modules with column vectors (the K-book's and Bass's convention; in Mathlib, modules over Aᵐᵒᵖ). For commutative rings the two agree and give Mathlib's column convention.\n- The row-vector convention would transpose matrices, which inverts SK₁ classes.\nZ.1, Z.2, U.1 and U.2 are source-decomposed; U.3–U.6 remain partial. Nine gaps record inherited proof boundaries and the independent review’s symbol/topology boundary and the newly routed congruence targets:\n- the class-field-theory inputs of BMS Theorem 3.5;\n- the relative homotopy comparison;\n- the topology behind SK₁ of the real circle ring.\nNothing is formalised; implementationStatus is unchecked throughout.\nThe bounded planning pass is complete at an original budget of 300 nodes, as PROTOCOL §0 prescribes; this is not stage closure or formalisation. Milnor patching, Morita preservation, real-circle algebraic charts and the finite-index containment inputs retain their inherited decompositions. The finite-rank extension is now decomposed through BMS §9, Lemma 9.6: subgroup construction, pointwise conjugation invariance, image transpose and generation conditional on the last swap. The actual §10 swap calculations, finite-level universality, arithmetic congruence defect, completions, Serre SL₂ and the routed cohomology interface remain precise follow-up targets. All eight inherited gaps and eight supplier requests remain, with one additional local-symbol/topology gap from independent review; the signed Bhatt–Scholze inventory and RS-18 ownership are unchanged.\nIndependent review REV-KTheoryLowDegrees--U.1 adds 32 declaration-sized nodes, strengthens principal congruences, restores canonical supplier edges and corrects the relative-comparison proof boundary. The reviewed packet has 332 nodes. Its needs_changes verdict concerns the uncorrected reader document and the unestablished claimed proof routes, not the existence of honest partial stages.",
+  "summary": "Part U.1 of Grothendieck groups, Cartan maps, and Euler forms, Part II: explicit ring and curve K₀ and stable-matrix K₁. RS-18 narrows Z.1 and Z.2 to concrete ring/projective constructions on existing categorical K₀ and stalk-rank carriers. This part covers Z.1, Z.2 and U.1–U.6; the companion part supplies Z.3–Z.6.\nZ.1 supplies idempotent and free-summand presentations, concrete ring K₀, stable equality, scalar extension, restriction, Morita invariance and Milnor patching. Z.2 supplies virtual locally constant ranks and division/local/semilocal/product computations. U.1 supplies stable matrices, elementary groups and Whitehead identities. U.2 supplies classical K₁ and the class calculus of projective automorphisms. U.3 targets determinant, special K₁, semilocal vanishing and the Dieudonné determinant, with the real-circle obstruction conditional on its LieGroups retraction. U.4 targets the S-integer arithmetic theorem and S-unit rank formula, with explicit BMS symbol, reciprocity and topology gaps; the routed congruence proof is decomposed through BMS §9, Lemma 9.6. U.5 supplies relative matrix groups, transfers, projection formulas and the positive valuation boundary. U.6 targets loop/determinant/transfer comparisons and classical examples; its relative homotopy comparison requires an actual relative-plus and degree-two boundary argument.\nK₀ uses left modules and right actions on row vectors; automorphism K₁ uses right modules and left actions on column vectors. S consists of finitely many finite places. The determinant identification of K₁(O_{F,S}) with units is canonical; the S-unit decomposition needs fundamental units. The DVR boundary sends a uniformiser to +[k].\nThe bounded revision is complete with 332 retained nodes and no additions. Z.1, Z.2, U.1 and U.2 are source-decomposed; U.3–U.6 remain partial. Nine gaps and eight supplier requests remain explicit. All implementationStatus values stay unchecked.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -3433,6 +3433,20 @@
         "module": "Mathlib/GroupTheory/GroupAction/Defs.lean",
         "provides": "The native stabilizer for an actual group action; the relative pointwise stabilizer is its conjugation-function adapter.",
         "checked": "Actual statement, hypotheses and adjoining proof read at the exact Mathlib pin on 2026-10-05, lines 507–527; Git blob b1c79cba91c012c4012dcde928bbc63bae4b859f; shared source bytes identical to the pinned blob.; independently reconfirmed name, statement and enclosing hypotheses at this exact pin by REV-KTheoryLowDegrees--U.1 (2026-10-05)"
+      },
+      {
+        "ref": "tauceti:AlgHom.IsArithFrobAt.apply_eq_pow_absNorm_of_pow_eq_one",
+        "kind": "theorem",
+        "module": "TauCeti/NumberTheory/NumberField/Cyclotomic/Frobenius.lean",
+        "provides": "For a number field K, an extension field F, ζ^m=1, a height-one prime 𝔭 of 𝓞_K with m∉𝔭, an ideal Q of 𝓞_F lying over 𝔭 and an arithmetic Frobenius σ at Q: σ(ζ)=ζ^{absNorm(𝔭)}. No chosen Frobenius or number-field hypothesis on F is required.",
+        "checked": "BP-KTheoryLowDegrees--U.1~2, 2026-10-05: actual statement, enclosing variables and proof read by git show at Tau Ceti f790474821cf4256814db967cb154e7af3d0c369; CH-L18 identifies the same baseline inputs."
+      },
+      {
+        "ref": "tauceti:AlgHom.IsArithFrobAt.autToPow_eq_absNorm",
+        "kind": "theorem",
+        "module": "TauCeti/NumberTheory/NumberField/Cyclotomic/Frobenius.lean",
+        "provides": "Under the same number-field, lying-over and arithmetic-Frobenius hypotheses, for a primitive m-th root ζ and m≠0, its cyclotomic character at σ is absNorm(𝔭) in ℤ/mℤ, with the arithmetic orientation.",
+        "checked": "BP-KTheoryLowDegrees--U.1~2, 2026-10-05: actual statement, enclosing variables and proof read by git show at Tau Ceti f790474821cf4256814db967cb154e7af3d0c369; CH-L18 identifies the same baseline inputs."
       }
     ]
   },
@@ -3835,6 +3849,41 @@
       "read": "2026-10-05",
       "sha256": "2f52d05a0f1ff1563d9da85efd8b224d1e110d9f67c940f3d9c0bbd2051184f9",
       "note": "REV-KTheoryLowDegrees--U.1: public PDF hash reconfirmed; cited node passages and recorded proof boundaries checked independently. Read scope and limitations are in the review report."
+    },
+    {
+      "kind": "revision read",
+      "url": "https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf",
+      "read": "2026-10-05",
+      "sha256": "a04f53c9393b20672fab2a6818279b2f9996dbc7cf74735789ed13804b058845",
+      "note": "BP-KTheoryLowDegrees--U.1~2: public PDF hash reconfirmed. Fresh read limited to PDF pp.76–78, 80, 84, 86–88, 190, 193–195, 199, 201–203, 275–276 and 283: split K₀ criteria, product/transfer directions, automorphism classes, relative Whitehead and relative-fibre boundaries. Inherited broader source reads remain their original provenance."
+    },
+    {
+      "kind": "revision read",
+      "url": "http://www.numdam.org/item/10.1007/BF02684689.pdf",
+      "read": "2026-10-05",
+      "sha256": "98bcfa4b38b7e1be99ca380f55138d5b8e6f15ad3c7f4db3d83c4958a2b6da44",
+      "note": "BP-KTheoryLowDegrees--U.1~2: public PDF hash reconfirmed. Fresh read limited to Printed p.32: projective-automorphism presentation independence and multiplicativity; the split U.2 contracts. Inherited broader source reads remain their original provenance."
+    },
+    {
+      "kind": "revision read",
+      "url": "https://www.numdam.org/item/10.24033/bsmf.1345.pdf",
+      "read": "2026-10-05",
+      "sha256": "4173ddea7ff6aa263d05bef78dc1664c8d0b4b37de15d6b8f2935b8bf660eb8e",
+      "note": "BP-KTheoryLowDegrees--U.1~2: public PDF hash reconfirmed. Fresh read limited to Printed p.32: the rank-two F₂ commutator exception, distinct from the quotient-determinant statement. Inherited broader source reads remain their original provenance."
+    },
+    {
+      "kind": "revision read",
+      "url": "http://www.numdam.org/item/10.1007/BF02684586.pdf",
+      "read": "2026-10-05",
+      "sha256": "b455790cdaeba5e3a313f1bd4dddfe2892e8a2035067bcdef434ef717edfb996",
+      "note": "BP-KTheoryLowDegrees--U.1~2: public PDF hash reconfirmed. Fresh read limited to Printed pp.66–68, 75–76, 85–87: near-unit and residue-symbol lemmas, principal-level power reduction, Hilbert-symbol orientation and the higher-unit supplier boundary. Inherited broader source reads remain their original provenance."
+    },
+    {
+      "kind": "revision read",
+      "url": "https://www.numdam.org/item/10.1007/BF02685884.pdf",
+      "read": "2026-10-05",
+      "sha256": "2f52d05a0f1ff1563d9da85efd8b224d1e110d9f67c940f3d9c0bbd2051184f9",
+      "note": "BP-KTheoryLowDegrees--U.1~2: public PDF hash reconfirmed. Fresh read limited to All four printed pages 241–244: withdrawn A.23(b) exponent formula and restored A.23(c) transfer property. Inherited broader source reads remain their original provenance."
     }
   ],
   "nodes": [
@@ -5382,7 +5431,7 @@
       ],
       "title": "Scalar extension on K₀",
       "kind": "construction",
-      "statement": "For f : R →+* S, RingK0.map f := SplitK0.map (the additive functor of Z.1/extend-scalars-finite-projective (d)) : RingK0 R →+ RingK0 S, so map f [P] = [ExtendScalars f P]. It satisfies map (RingHom.id R) = id and map (g.comp f) = (map g).comp (map f); a ring isomorphism gives an additive equivalence mapEquiv; map f [R] = [S]; map f [P(e)] = [P(e.map f)]; and for commutative R, S, map f [P] = [S ⊗[R] P] with Mathlib’s tensor product.",
+      "statement": "For f : R →+* S, RingK0.map f := SplitK0.map (the additive functor of Z.1/extend-scalars-projective-functor) : RingK0 R →+ RingK0 S, so map f [P] = [ExtendScalars f P]. It satisfies map (RingHom.id R) = id and map (g.comp f) = (map g).comp (map f); a ring isomorphism gives an additive equivalence mapEquiv; map f [R] = [S]; map f [P(e)] = [P(e.map f)]; and for commutative R, S, map f [P] = [S ⊗[R] P] with Mathlib’s tensor product.",
       "hypotheses": [
         "R, S, T rings in one universe; f : R →+* S, g : S →+* T.",
         "Modules are left modules, as in Mathlib. The K-book works with right modules; each of its statements is read here over the opposite ring, and for commutative rings the two conventions coincide.",
@@ -5391,7 +5440,7 @@
       "proofSteps": [
         "SplitK0.map for the additive functor, with SplitK0.map_of for the value on classes.",
         "Identity and composites: the objectwise isomorphisms ExtendScalars.functorId and functorComp and SplitK0.map_congr, combined with SplitK0.map_id and SplitK0.map_comp.",
-        "Values: Z.1/extend-scalars-finite-projective (a) for [R] and (c) for [P(e)]; ExtendScalars.isoExtendScalars for the commutative formula.",
+        "Values: Z.1/extend-scalars-finite-projective for [R] and Z.1/extend-scalars-idempotent for [P(e)]; ExtendScalars.isoExtendScalars for the commutative formula.",
         "mapEquiv: map e and map e.symm are mutually inverse by the composition and identity laws."
       ],
       "acceptance": [
@@ -7495,7 +7544,7 @@
       ],
       "title": "Division residue ring of a local ring",
       "kind": "lemma",
-      "statement": "Let R be a ring and m a two-sided ideal with m ≠ R such that every element of R outside m is a unit (the K-book’s local ring; for commutative R this is IsLocalRing R with m its maximal ideal).. R ⧸ m is a division ring",
+      "statement": "Let R be a ring and m a two-sided ideal with m ≠ R such that every element of R outside m is a unit (the K-book’s local ring; for commutative R this is IsLocalRing R with m its maximal ideal). R ⧸ m is a division ring.",
       "hypotheses": [
         "R is an associative unital ring, not necessarily commutative. The zero ring is allowed (the K-book assumes 1 ≠ 0; every statement below is checked to hold, possibly vacuously, for the zero ring).",
         "m is a two-sided ideal (m : Ideal R with [m.IsTwoSided], so that R ⧸ m is a ring by Ideal.Quotient.ring; Ideal.toTwoSided m is the TwoSidedIdeal the Jacobson-radical lemmas take) with m ≠ ⊤ and ∀ x ∉ m, IsUnit x."
@@ -7561,7 +7610,7 @@
       "proofSteps": [
         "Choose a free-summand datum P × Q ≃ R^n (Z.1/free-summand-data).",
         "Extend scalars to D := R ⧸ m (Z.1/extend-scalars, Z.1/extend-scalars-finite-projective): D ⊗ P and D ⊗ Q are finite-dimensional D-vector spaces of dimensions p and q with p + q = n, because D ⊗ R^n ≅ D^n and finrank is additive on products (Module.finrank_pi); vector spaces over a division ring have bases (Module.Basis.ofVectorSpace).",
-        "x ↦ 1 ⊗ x from P onto D ⊗ P is surjective; lift bases to e₁, …, e_p ∈ P and e′₁, …, e′_q ∈ Q. The induced R-linear map φ : R^p × R^q → P × Q ≅ R^n has a matrix whose image mod m is the matrix of the isomorphism D^p × D^q ≅ D ⊗ P × D ⊗ Q ≅ D^n (Z.1/extend-scalars-finite-projective (a)); by Z.2/local-matrix-lift φ is an isomorphism.",
+        "x ↦ 1 ⊗ x from P onto D ⊗ P is surjective; lift bases to e₁, …, e_p ∈ P and e′₁, …, e′_q ∈ Q. The induced R-linear map φ : R^p × R^q → P × Q ≅ R^n has a matrix whose image mod m is the matrix of the isomorphism D^p × D^q ≅ D ⊗ P × D ⊗ Q ≅ D^n (Z.1/extend-scalars-finite-projective); by Z.2/local-invertible-matrix-lift φ is an isomorphism.",
         "φ maps R^p into P and R^q into Q, so it is the product of two maps, each an isomorphism; P ≅ R^p."
       ],
       "acceptance": [
@@ -7732,7 +7781,7 @@
       ],
       "title": "Factors of a finite product are projective",
       "kind": "lemma",
-      "statement": "Let ι be finite with decidable equality, A : ι → Type u rings, R := ∏_i A_i and π_i : R → A_i the projections (Pi.evalRingHom).. Each A_i, as a left R-module through π_i, is finitely generated projective (it is R·e_i for the central idempotent e_i = Pi.single i 1), so Z.1/restrict-scalars-finite-projective applies to π_i.",
+      "statement": "Let ι be finite with decidable equality, A : ι → Type u rings, R := ∏_i A_i and π_i : R → A_i the projections (Pi.evalRingHom). Each A_i, as a left R-module through π_i, is finitely generated projective (it is R·e_i for the central idempotent e_i = Pi.single i 1), so Z.1/restrict-scalars-finite-projective applies to π_i.",
       "hypotheses": [
         "Modules are left modules, as in Mathlib. The K-book works with right modules; each of its statements is read here over the opposite ring, and for commutative rings the two conventions coincide.",
         "R lives in a universe u and the modules considered are in the same universe u (ModuleCat.{u} R).",
@@ -7787,9 +7836,9 @@
         "ι finite with decidable equality; the A_i are arbitrary rings."
       ],
       "proofSteps": [
-        "The forward map is additive (Z.1/ring-k0-map); the backward map uses the transfer along each projection (Z.1/ring-k0-transfer), defined by Z.2/pi-ring-modules (a).",
-        "map π_j ∘ transfer π_i = δ_ij·id: on classes this is Z.2/pi-ring-modules (b); extend by RingK0.hom_ext.",
-        "Σ_i transfer π_i ∘ map π_i = id: on classes this is Z.2/pi-ring-modules (c) with of_pi; extend by RingK0.hom_ext.",
+        "The forward map is additive (Z.1/ring-k0-map); the backward map uses the transfer along each projection (Z.1/ring-k0-transfer), defined by Z.2/pi-ring-modules.",
+        "map π_j ∘ transfer π_i = δ_ij·id: on classes this is Z.2/pi-ring-cross-extension; extend by RingK0.hom_ext.",
+        "Σ_i transfer π_i ∘ map π_i = id: on classes this is Z.2/pi-ring-module-decomposition with of_pi; extend by RingK0.hom_ext.",
         "The binary case: transport along RingEquiv.piFinTwo, or repeat the argument with RingHom.fst and RingHom.snd."
       ],
       "acceptance": [
@@ -10934,7 +10983,7 @@
       ],
       "title": "Projective automorphism presentations exist",
       "kind": "lemma",
-      "statement": "Let P be a finitely generated projective right A-module (Module Aᵐᵒᵖ P with Module.Finite and Module.Projective) and α ∈ Aut(P). A presentation of P is a right module Q with an isomorphism θ : P ⊕ Q ≅ Aⁿ_A; put c(Q, θ; α) := [rightModuleEnd(θ ∘ (α ⊕ 1_Q) ∘ θ⁻¹)] ∈ K₁(A).. presentations exist",
+      "statement": "Let P be a finitely generated projective right A-module (Module Aᵐᵒᵖ P with Module.Finite and Module.Projective) and α ∈ Aut(P). A presentation of P is a right module Q with an isomorphism θ : P ⊕ Q ≅ Aⁿ_A; put c(Q, θ; α) := [rightModuleEnd(θ ∘ (α ⊕ 1_Q) ∘ θ⁻¹)] ∈ K₁(A). presentations exist",
       "hypotheses": [
         "A is an associative unital ring; P is a finitely generated projective right A-module; α, β ∈ Aut(P)."
       ],
@@ -10999,7 +11048,7 @@
         "A is an associative unital ring; P, P′ are finitely generated projective right A-modules; α, β ∈ Aut(P); φ : P ≃ P′."
       ],
       "proofSteps": [
-        "Define [α] as c(Q, θ; α) for the presentation chosen by U.2/automorphism-class-independence (a); by (d) any other presentation gives the same value, and multiplicativity is part of that lemma.",
+        "Define [α] as c(Q, θ; α) for a presentation provided by U.2/automorphism-class-independence. The basis-independent and complement-independent nodes equate all presentation values; U.2/automorphism-class-presentation-multiplicative supplies the homomorphism law.",
         "Transport: if θ : P′ ⊕ Q ≅ Aⁿ then θ ∘ (φ ⊕ 1) is a presentation of P and computes the class of α as that of φαφ⁻¹.",
         "Free case: for P = Aⁿ take Q = 0, θ = id; for P with basis b, take θ the coordinate isomorphism of b.",
         "Commutative case: for commutative A every A-module is a right module through op, and rightModuleEnd agrees with Matrix.GeneralLinearGroup.toLin (U.2/right-module-matrix-equiv), so the construction is the column-convention one."
@@ -11213,7 +11262,7 @@
         "A is an associative unital ring; P′, P″ finitely generated projective right A-modules."
       ],
       "proofSteps": [
-        "Choose presentations P′ ⊕ Q′ ≅ Aⁿ and P″ ⊕ Q″ ≅ Aⁿ with the same n (stabilise the smaller one, U.2/automorphism-class-independence (c)).",
+        "Choose presentations P′ ⊕ Q′ ≅ Aⁿ and P″ ⊕ Q″ ≅ Aⁿ with the same n (stabilise the smaller one, U.2/automorphism-class-free-stabilization).",
         "Then u_γ ⊕ 1_{Q′ ⊕ Q″} corresponds to the block matrix [[1_n, X], [0, 1_n]] in GL_{2n}(A), with X the matrix of γ extended by zero on Q″ and composed with the projection to P′.",
         "[[1, X], [0, 1]] ∈ E_{2n}(A) (U.1/block-unitriangular-elementary), so its class is 1 (U.2/K1-elementary-trivial)."
       ],
@@ -14165,7 +14214,7 @@
       ],
       "title": "Extracting the scalar 1−a",
       "kind": "lemma",
-      "statement": "Let A be a commutative ring, 𝔮 an ideal and (a, b) ∈ W_𝔮.. (a, b) ∼_𝔮 (a, bq) with q = 1 − a ∈ 𝔮.",
+      "statement": "Let A be a commutative ring, 𝔮 an ideal and (a, b) ∈ W_𝔮. (a, b) ∼_𝔮 (a, bq) with q = 1 − a ∈ 𝔮.",
       "hypotheses": [
         "No hypothesis on A (BMS: Lemmas 2.2 and 2.10 'are valid without any hypothesis on A')."
       ],
@@ -14208,7 +14257,7 @@
       "proofSteps": [
         "Pass to B = A/𝔮′ and 𝔟 = 𝔮/𝔮′; B is semilocal (Ideal.finite_factors for 𝔮′).",
         "In B, āB + b̄B = B, so some t̄ ∈ B makes ā + t̄b̄ a unit (the Chinese-remainder remark of BMS §2; U.3/semilocal-unit-lemma).",
-        "Then (ā, b̄) ∼_𝔟 (ā + t̄b̄, b̄) ∼_𝔟 (1, 0) by U.4/q-equivalence-to-base-point over B.",
+        "Then (ā, b̄) ∼_𝔟 (ā + t̄b̄, b̄) ∼_𝔟 (1, 0) by U.4/q-equivalence-near-unit over B.",
         "Lift the moves to A (parameters in 𝔟 lift into 𝔮, parameters in B into A): (a, b) ∼_𝔮 (a′, b′) with (a′, b′) ≡ (1, 0) mod 𝔮′; unimodularity is preserved, so (a′, b′) ∈ W_{𝔮′}."
       ],
       "acceptance": [
@@ -14297,7 +14346,7 @@
       ],
       "acceptance": [
         "Two pairs over ℤ with 𝔮 = ℤ receive a common first entry.",
-        "Used in U.4/mennicke-symbol-residue-map (d): finitely many symbols lie in one image of U(A/aA)."
+        "Used in U.4/mennicke-symbol-common-residue-image: finitely many symbols lie in one image of U(A/aA)."
       ],
       "prerequisites": [
         "KTheoryLowDegrees:U.4/q-equivalence-smaller-ideal",
@@ -14326,12 +14375,12 @@
       ],
       "title": "Mennicke symbols vanish near units",
       "kind": "lemma",
-      "statement": "Let A be a Dedekind domain, 𝔮 a nonzero ideal and [ ] : W_𝔮 → C a function satisfying MS1.. [b/a] = 1 if a is congruent to a unit mod b or b is congruent to a unit mod a.",
+      "statement": "Let A be a Dedekind domain, 𝔮 a nonzero ideal and [ ] : W_𝔮 → C a function satisfying MS1. [b/a] = 1 if a is congruent to a unit mod b or b is congruent to a unit mod a.",
       "hypotheses": [
         "A Dedekind, 𝔮 ≠ 0; only MS1 is assumed (MS2 enters in U.4/mennicke-symbol-residue-homomorphism)."
       ],
       "proofSteps": [
-        "(a) is U.4/q-equivalence-to-base-point (b) with MS1."
+        "Apply U.4/q-equivalence-near-unit and the MS1 invariance of the symbol."
       ],
       "acceptance": [
         "For 𝔮 = A and aA prime, (2.8) is a map from the finite cyclic group (A/aA)^× (K-book Ex. III.1.11's transfer from K₁(A/𝔭) to SK₁(A) is this map for the SK₁ symbol).",
@@ -14378,12 +14427,12 @@
       ],
       "title": "The residue function is a homomorphism",
       "kind": "lemma",
-      "statement": "Let A be a Dedekind domain, 𝔮 a nonzero ideal and [ ] : W_𝔮 → C a Mennicke symbol.. Each map (2.8) U(A/aA) → C is a group homomorphism.",
+      "statement": "Let A be a Dedekind domain, 𝔮 a nonzero ideal and [ ] : W_𝔮 → C a Mennicke symbol. Each map (2.8) U(A/aA) → C is a group homomorphism.",
       "hypotheses": [
         "A Dedekind, 𝔮 ≠ 0, [ ] a Mennicke symbol (MS1 and MS2)."
       ],
       "proofSteps": [
-        "(a) For a ≡ 1 mod qA, [q/a] = 1 by U.4/mennicke-symbol-residue-map (a); so for b₁, b₂ prime to a, MS2 gives [b₁b₂q/a] = [b₁b₂q/a][q/a] = [b₁qb₂q/a] = [b₁q/a][b₂q/a]."
+        "For a ≡ 1 mod qA, [q/a] = 1 by U.4/mennicke-symbol-residue-map; so for b₁, b₂ prime to a, MS2 gives [b₁b₂q/a] = [b₁b₂q/a][q/a] = [b₁qb₂q/a] = [b₁q/a][b₂q/a]."
       ],
       "acceptance": [
         "For aA prime the image of (2.8) is cyclic, the image of the finite cyclic group (A/aA)^×.",
@@ -14428,7 +14477,7 @@
         "κ kills E₂(A) and [E₂(A), SL₂(A)] through diag(·, 1): κ([τ, σ]) = κ(τστ⁻¹)κ(σ)⁻¹ = 1 for τ ∈ E_n(A), and E_n(A) = [E_n(A), E_n(A)] for n ≥ 3 (BMS (5.1); U.1 perfectness). So the value depends only on the first row, and MS1 holds: right multiplication by (1 t; 0 1) ∈ E₂ changes (a, b) to (a, b + ta); conjugation by (1 0; t 1) changes it to (a + tb, b) (BMS Lemma 5.5).",
         "MS2: BMS's explicit computation in SL₃(A): for α_i = (a b_i; c_i d_i), multiplying α₁ε₁α₂ε₁⁻¹ by elementary matrices ε₂, …, ε₅ gives diag(α′, 1) with α′ ∈ SL₂(A) of first row (a, b₁b₂), so κ(α′) = κ(α₁)κ(α₂).",
         "For SK₁: κ : SL₃(A) → SK₁(A) is a homomorphism into an abelian group, trivial on E₃(A) ⊆ E(A), hence conjugation-invariant.",
-        "Symmetry: σ·(0 −1; 1 0) has first row (b, −a), and (0 −1; 1 0) = e₁₂(−1)e₂₁(1)e₁₂(−1) ∈ E₂(A) (K-book Example III.1.2.1), so [b/a] = [−a/b] = [−1/b][a/b] = [a/b], using [−1/b] = 1 (U.4/q-equivalence-to-base-point (b))."
+        "Symmetry: σ·(0 −1; 1 0) has first row (b, −a), and (0 −1; 1 0) = e₁₂(−1)e₂₁(1)e₁₂(−1) ∈ E₂(A) (K-book Example III.1.2.1), so [b/a] = [−a/b] = [−1/b][a/b] = [a/b], using [−1/b] = 1 (U.4/q-equivalence-near-unit)."
       ],
       "acceptance": [
         "For A = ℤ the symbol is trivial (SL₂(ℤ) = E₂(ℤ), Tau Ceti's closure_range_toSpecialLinearGroup_eq_top).",
@@ -14738,7 +14787,7 @@
       "proofSteps": [
         "Let ζ be a primitive m-th root of unity; k(ζ)/k is abelian and σ ≠ 1 exists in its Galois group since ζ ∉ k.",
         "By Chebotarev (Layer 10, requested) infinitely many 𝔭 ∤ m, unramified in k(ζ), have Frobenius σ.",
-        "The Frobenius at 𝔭 ∤ m acts on ζ by ζ ↦ ζ^{N𝔭} (the cyclotomic Frobenius formula, Chebotarev Layer 4, requested); as σ(ζ) ≠ ζ, ζ^{N𝔭} ≠ ζ, i.e. N𝔭 ≢ 1 (mod m) — equivalently ζ ∉ k(𝔭), the residue field."
+        "Transport the Frobenius at 𝔭∤m to an automorphism σ of k(ζ) and an ideal Q of its integer ring lying over 𝔭 (Chebotarev Layer 4). The pinned AlgHom.IsArithFrobAt.apply_eq_pow_absNorm_of_pow_eq_one gives σ(ζ)=ζ^{N𝔭}; autToPow_eq_absNorm is its character form. Since σ≠1 and k(ζ) is generated by ζ over k, σ(ζ)≠ζ. Primitivity therefore gives N𝔭≢1 mod m."
       ],
       "acceptance": [
         "k = ℚ, m = 4: the primes p ≡ 3 (mod 4).",
@@ -14748,7 +14797,9 @@
         "mathlib:Ideal.absNorm",
         "mathlib:NumberField.RingOfIntegers",
         "tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev",
-        "tauceti:TauCetiRoadmap/Chebotarev#layer-4-cyclotomic-galois-characters"
+        "tauceti:TauCetiRoadmap/Chebotarev#layer-4-cyclotomic-galois-characters",
+        "tauceti:AlgHom.IsArithFrobAt.apply_eq_pow_absNorm_of_pow_eq_one",
+        "tauceti:AlgHom.IsArithFrobAt.autToPow_eq_absNorm"
       ],
       "library": {
         "module": "TauCeti/Algebra/KTheory/SInteger",
@@ -14928,7 +14979,7 @@
         "U.4/dirichlet-theorem-arithmetic-type gives a prime b₁A with b₁ ≡ b′ mod a′, b₁ close to v at 𝔭_∞, and close to 1 at all other places of S_∞ and at the primes of F over p; so b₁A is prime to p.",
         "Choose i > 0 with (a′, b₁ / b₁A)_{p^n}·(u, v / 𝔭_∞)_{p^n}^i = 1, and by the same theorem a prime a₁A, prime to p, with a₁ ≡ a′ mod b₁q and a₁ close to u^i at 𝔭_∞.",
         "Reciprocity (A.21) (gap): (b₁/a₁)_{p^n} = ∏_{𝔭 ∤ a₁} (a₁, b₁ / 𝔭)_{p^n}. The conditions on b₁ remove every place of S_∞ except 𝔭_∞ and the primes over p; the tame formula (A.16) (gap) removes the other finite primes except b₁A. So (b₁/a₁)_{p^n} = (a₁, b₁ / b₁A)_{p^n}(a₁, b₁ / 𝔭_∞)_{p^n} = (a′, b₁ / b₁A)_{p^n}(u^i, v / 𝔭_∞)_{p^n} = 1.",
-        "Hence b₁ ≡ c^{p^n} mod a₁ for some c ∈ A, and (a, b) ∼_𝔮 (a′, b′q) ∼_𝔮 (a′, b₁q) ∼_𝔮 (a₁, b₁q) ∼_𝔮 (a₁, c^{p^n}q); a₁ ≡ a′ ≡ 1 mod 𝔮. (BMS print the last pair as (a₂, c^{p^n}q); see sourceIssues.)"
+        "Hence b₁ ≡ c^{p^n} mod a₁ for some c ∈ A, and (a, b) ∼_𝔮 (a′, b′q) ∼_𝔮 (a′, b₁q) ∼_𝔮 (a₁, b₁q) ∼_𝔮 (a₁, c^{p^n}q); a₁ ≡ a′ ≡ 1 mod qA, since a₁ − a′ ∈ b₁qA and (a′, b′q) ∈ W_{qA}. (BMS print the last pair as (a₂, c^{p^n}q); see sourceIssues.)"
       ],
       "acceptance": [
         "If n = 0 (no p-th roots of unity), the conclusion is (a, b) ∼_𝔮 (a₁, cq) with nothing to prove beyond Lemma 2.2.",
@@ -14980,7 +15031,7 @@
         "Choose q ∈ 𝔮 with ord_𝔭(q) = ord_𝔭(𝔮) for all 𝔭 | p and (a′, b′q) ∈ W_{qA} 𝔮-equivalent to (a, b). By U.4/dirichlet-theorem-arithmetic-type take a prime b₁A, prime to 𝔮, with b₁ ≡ b′ mod a′, b₁ close to v at 𝔭₀ and close to 1 at the other 𝔭 | p.",
         "Choose i ≥ 0 with (u, v / 𝔭₀)_{p^n}^i (a′, b₁ / b₁)_{p^n} = 1, and a prime a₁ ≡ a′ mod b₁q close to u^i at 𝔭₀ (compatible because u ≡ 1 mod 𝔭₀^h and b₁ is prime to 𝔮).",
         "Reciprocity (A.21) and the tame formula (A.16) (gaps), with F totally imaginary: (b₁/a₁)_{p^n} = (a₁, b₁ / b₁)_{p^n}(a₁, b₁ / 𝔭₀)_{p^n} = (a′, b₁ / b₁)_{p^n}(u^i, v / 𝔭₀)_{p^n} = 1, using (A.16) to see that (a₁, b₁ / b₁)_{p^n} depends on a₁ only modulo b₁.",
-        "So b₁ is a p^n-th power modulo a₁ and (a₁, b₁q) ∼_𝔮 (a₁, c^{p^n}q); also (a₁, b₁q) ∼_𝔮 (a′, b₁q) ∼_𝔮 (a′, b′q) ∼_𝔮 (a, b)."
+        "So b₁ is a p^n-th power modulo a₁ and (a₁, b₁q) ∼_𝔮 (a₁, c^{p^n}q); also (a₁, b₁q) ∼_𝔮 (a′, b₁q) ∼_𝔮 (a′, b′q) ∼_𝔮 (a, b). The congruence a₁ ≡ a′ mod b₁q also gives a₁ ≡ 1 mod qA."
       ],
       "acceptance": [
         "𝔮 = A: j_p(A) = [−1/(p − 1)]_{[0,n]} = 0 for every p, so the lemma applies to all of W_A.",
@@ -15065,7 +15116,7 @@
         "Conventions of U.4: F is a number field, 𝓞_F = NumberField.RingOfIntegers F, and S is a finite set of nonzero primes of 𝓞_F (S : Set (IsDedekindDomain.HeightOneSpectrum (𝓞 F)), S.Finite) — the finite places; O_{F,S} is Mathlib's Set.integer S F. This is the convention of ArithmeticKTheory N.1 and of K2SymbolsBrauer T.5. Bass–Milnor–Serre's S_∞ is S together with the archimedean places, and their 'Dedekind ring of arithmetic type defined by S_∞' is O_{F,S}; it is 'totally imaginary' exactly when S = ∅ and F is totally complex (Mathlib's NumberField.IsTotallyComplex)."
       ],
       "proofSteps": [
-        "By U.4/mennicke-symbol-residue-map (d), finitely many generators [b_i/a_i] lie in the image of one map (2.8) U(A/aA) → C_𝔮, with a free to vary in a progression a + tcq, c prime to a.",
+        "By U.4/mennicke-symbol-common-residue-image, finitely many generators [b_i/a_i] lie in the image of one map (2.8) U(A/aA) → C_𝔮, with a free to vary in a progression a + tcq, c prime to a.",
         "By U.4/dirichlet-theorem-number-field (𝔞 = A) choose a in that progression with aA prime; then U(A/aA) = (A/aA)^× is the unit group of a finite field, hence cyclic (Mathlib's isCyclic_subgroup_units) and finite.",
         "The map (2.8) is a homomorphism (U.4/mennicke-symbol-residue-homomorphism), so its image is a finite cyclic subgroup containing the given symbols; the symbols generate C_𝔮."
       ],
@@ -15572,13 +15623,13 @@
       ],
       "title": "Specialisation of S-integer K₁ to a residue field",
       "kind": "comparison",
-      "statement": "Let F be a number field, S finite, A = O_{F,S} and 𝔭 a nonzero prime of A (a prime of 𝓞_F outside S, Tau Ceti's IsDedekindDomain.integerHeightOneSpectrumEquiv). Under the determinant identifications, K₁(A) → K₁(A/𝔭) is the reduction of units A^× → (A/𝔭)^× = k(𝔭)^×, with K₁ of the finite residue field cyclic of order N𝔭 − 1 (U.6/K1-finite-field). The reduction map need not be surjective.",
+      "statement": "Let F be a number field, S finite, A = O_{F,S} and 𝔭 a nonzero prime of A (a prime of 𝓞_F outside S, Tau Ceti's IsDedekindDomain.integerHeightOneSpectrumEquiv). Under the determinant identifications, K₁(A) → K₁(A/𝔭) is the reduction of units A^× → (A/𝔭)^× = k(𝔭)^×, with K₁ of the finite residue field cyclic of order N𝔭 − 1 (the pinned finite-field unit-group facts). The reduction map need not be surjective.",
       "hypotheses": [
         "Conventions of U.4: F is a number field, 𝓞_F = NumberField.RingOfIntegers F, and S is a finite set of nonzero primes of 𝓞_F (S : Set (IsDedekindDomain.HeightOneSpectrum (𝓞 F)), S.Finite) — the finite places; O_{F,S} is Mathlib's Set.integer S F. This is the convention of ArithmeticKTheory N.1 and of K2SymbolsBrauer T.5. Bass–Milnor–Serre's S_∞ is S together with the archimedean places, and their 'Dedekind ring of arithmetic type defined by S_∞' is O_{F,S}; it is 'totally imaginary' exactly when S = ∅ and F is totally complex (Mathlib's NumberField.IsTotallyComplex).",
         "Local and semilocal rings have SK₁ = 1 by U.3/SK1-local; finite fields by U.3/SK1-field."
       ],
       "proofSteps": [
-        "The residue field has K₁ equal to its units by U.3/SK1-field. Naturality of determinant identifies reduction with reduction of units; U.6/K1-finite-field gives the order and cyclicity."
+        "The residue field has K₁ equal to its units by U.3/SK1-field. Naturality of stable determinant identifies reduction with reduction of units. Apply Mathlib isCyclic_subgroup_units to the top subgroup of the finite residue field’s units and Fintype.card_units to obtain cyclicity and order N𝔭−1. This uses the baseline finite-field facts directly, so the arithmetic proof does not depend on downstream U.6."
       ],
       "acceptance": [
         "A = ℤ, 𝔭 = (p), p ≥ 5: K₁(ℤ) = {±1} → K₁(𝔽_p) = 𝔽_p^× is the inclusion of {±1}, not surjective.",
@@ -15591,7 +15642,9 @@
         "KTheoryLowDegrees:U.3/SK1-local",
         "KTheoryLowDegrees:U.3/stable-determinant",
         "tauceti:IsDedekindDomain.integerHeightOneSpectrumEquiv",
-        "mathlib:IsDedekindDomain.HeightOneSpectrum.adicCompletionIntegers"
+        "mathlib:IsDedekindDomain.HeightOneSpectrum.adicCompletionIntegers",
+        "mathlib:isCyclic_subgroup_units",
+        "mathlib:Fintype.card_units"
       ],
       "library": {
         "module": "TauCeti/Algebra/KTheory/SInteger",
@@ -16159,12 +16212,12 @@
       ],
       "title": "Relative K₁ of an ideal",
       "kind": "definition",
-      "statement": "For a ring A and a two-sided ideal I, K₁(A, I) := GL(I)/E(A, I), an abelian group (U.5/relative-whitehead-lemma). The inclusion GL(I) ⊆ GL(A) induces ι : K₁(A, I) → K₁(A) (U.2/K1), and a ring homomorphism f : A → B with f(I) ⊆ J induces K₁(A, I) → K₁(B, J). K₁(A, I) is not defined as ker(K₁(A) → K₁(A/I)): ι is not injective in general, and K₁(A, I) depends on A and not only on I.",
+      "statement": "For a ring A and a two-sided ideal I, K₁(A, I) := GL(I)/E(A, I), an abelian group (U.5/relative-elementary-stable-normal and U.5/relative-commutator-containment). The inclusion GL(I) ⊆ GL(A) induces ι : K₁(A, I) → K₁(A) (U.2/K1), and a ring homomorphism f : A → B with f(I) ⊆ J induces K₁(A, I) → K₁(B, J). K₁(A, I) is not defined as ker(K₁(A) → K₁(A/I)): ι is not injective in general, and K₁(A, I) depends on A and not only on I.",
       "hypotheses": [
         "A is an associative unital ring and I a two-sided ideal (Mathlib's I : Ideal A with [I.IsTwoSided], whose quotient ring A ⧸ I is Ideal.Quotient.ring, and Ideal.toTwoSided I its TwoSidedIdeal; for commutative A every ideal is two-sided). GL_n, E_n, GL, E, the stabilisation maps and K₁ are those of U.1 and U.2."
       ],
       "proofSteps": [
-        "Define K₁(A, I) as the quotient of the group GL(I) by its normal subgroup E(A, I) (normal by U.5/relative-whitehead-lemma), with CommGroup structure from (c) of that lemma.",
+        "Define K₁(A, I) as the quotient of the group GL(I) by its normal subgroup E(A, I) (normal by U.5/relative-elementary-stable-normal), with commutative group structure from U.5/relative-commutator-containment.",
         "ι and functoriality: GL(I) → GL(A) maps E(A, I) into E(A), and f maps GL(I) into GL(J) and E(A, I) into E(B, J) (U.5/relative-elementary-subgroup, U.5/congruence-subgroup)."
       ],
       "acceptance": [
@@ -16435,7 +16488,7 @@
       ],
       "proofSteps": [
         "For x = (x_ij) ∈ GL_n(A, I), x_nn ∈ 1 + I is a unit and x_in, x_ni ∈ I for i < n.",
-        "Multiply by diag(1, …, 1, x_nn, x_nn⁻¹) ∈ E_n(A, I) (U.5/relative-whitehead-lemma (a) for n = 1) to get x_nn = 1.",
+        "Multiply by diag(1, …, 1, x_nn, x_nn⁻¹) ∈ E_n(A, I) (U.5/relative-whitehead-lemma for n = 1) to get x_nn = 1.",
         "Left multiplication by the e_in(−x_in) and right multiplication by the e_ni(−x_ni), all in E_n(A, I), reduce the matrix into GL_{n−1}(A, I).",
         "By induction K₁(A, I) is generated by the image of GL₁(I). For commutative A, det ∘ (GL₁(I) → K₁(A, I)) = id, so GL₁(I) → K₁(A, I) is an isomorphism, SK₁(A, I) = 0, and ι composed with det is the inclusion 1 + I ⊆ A^× (U.5/relative-determinant)."
       ],
@@ -16845,7 +16898,7 @@
       ],
       "title": "Transfer on K₁ for a finite projective extension",
       "kind": "construction",
-      "statement": "Let f : A → B be a ring homomorphism making B a finitely generated projective right A-module (b·a = b f(a); for commutative A, B an A-algebra finite projective as an A-module). For g ∈ GL_n(B) = Aut_B(Bⁿ), restriction of scalars makes g an A-linear automorphism res(g) of the finitely generated projective A-module Bⁿ (Z.1/restrict-scalars-finite-projective), and g ↦ [res g] ∈ K₁(A) (U.2/automorphism-class) is a homomorphism compatible with stabilisation; it defines the transfer f_* : K₁(B) → K₁(A). If B is free over A with basis (b₁, …, b_d), then f_* is induced by GL_n(B) → GL_{nd}(A), g ↦ the matrix of res g (Mathlib's LinearMap.restrictScalars_toMatrix: the block matrix of left-multiplication matrices; for n = 1 Tau Ceti's unitsLeftMulMatrix), and the class does not depend on the basis.",
+      "statement": "Let f : A → B be a ring homomorphism making B a finitely generated projective right A-module (b·a = b f(a); for commutative A, B an A-algebra finite projective as an A-module). For g ∈ GL_n(B) = Aut_B(Bⁿ), restriction of scalars makes g an A-linear automorphism res(g) of the finitely generated projective A-module Bⁿ (Z.1/restrict-scalars-finite-projective applied to fᵒᵖ : Aᵐᵒᵖ → Bᵐᵒᵖ), and g ↦ [res g] ∈ K₁(A) (U.2/automorphism-class) is a homomorphism compatible with stabilisation; it defines the transfer f_* : K₁(B) → K₁(A). If B is free over A with basis (b₁, …, b_d), then f_* is induced by GL_n(B) → GL_{nd}(A), g ↦ the matrix of res g (Mathlib's LinearMap.restrictScalars_toMatrix: the block matrix of left-multiplication matrices; for n = 1 Tau Ceti's unitsLeftMulMatrix), and the class does not depend on the basis.",
       "hypotheses": [
         "A, B rings; B f.g. projective as a right A-module via f (U.2's automorphism classes use right modules). No flatness or freeness beyond this is assumed."
       ],
@@ -19159,7 +19212,7 @@
       ],
       "proofSteps": [
         "The inclusion range∂⊆kerΔ is the boundary’s two base-change identities.",
-        "Write x=[P]−n[B] by ring-k0-class-induction. If Δx=0, then P_S and Sⁿ are stably isomorphic, as are P_T and Tⁿ. Take a common free stabilization size m large enough for both isomorphisms.",
+        "Write x=[P]−n[B] by Z.1/ring-k0-free-cofinality. If Δx=0, then P_S and Sⁿ are stably isomorphic, as are P_T and Tⁿ. Take a common free stabilization size m large enough for both isomorphisms.",
         "For P′=P⊕Bᵐ, the chosen chart bases identify the common C-base-change gluing with a matrix a∈GL_{n+m}(C). Projective recovery and change of charts identify P′ with FreePatch(a). Consequently x=∂[a]."
       ],
       "acceptance": [
@@ -19211,7 +19264,7 @@
       ],
       "proofSteps": [
         "The composite dΔ is zero by the commuting ring square and functoriality of K₀.",
-        "Write x=[P]−m[S], y=[Q]−n[T]. Replace the positive terms by P⊕Sⁿ and Q⊕Tᵐ, so both negative terms have rank m+n. Since d(x,y)=0, their C-extensions have the same K₀ class.",
+        "By Z.1/ring-k0-free-cofinality, write x=[P]−m[S], y=[Q]−n[T]. Replace the positive terms by P⊕Sⁿ and Q⊕Tᵐ, so both negative terms have rank m+n. Since d(x,y)=0, their C-extensions have the same K₀ class.",
         "The stable-isomorphism criterion supplies r with (P_C⊕Cⁿ)⊕Cʳ≃(Q_C⊕Cᵐ)⊕Cʳ. This is compatible gluing for P⊕S^{n+r} and Q⊕T^{m+r}. Patch these charts to a finite projective L.",
         "The two canonical base-change theorems imply that Δ([L]−(m+n+r)[B])=(x,y). This is the concrete free-cofinality argument behind Exercise II.1.4."
       ],
@@ -23746,14 +23799,14 @@
       ],
       "title": "Every K₀ class is a difference of projectives",
       "kind": "lemma",
-      "statement": "For an associative unital ring R, using finitely generated projective left modules in the fixed universe, Every x ∈ RingK0 R is [P] − [Q] with P, Q finitely generated projective.",
+      "statement": "For an associative unital ring R, using finitely generated projective left modules in the fixed universe, every x ∈ RingK0 R is [P] − [Q] with P, Q finitely generated projective.",
       "hypotheses": [
         "R is an associative unital ring, not necessarily commutative. The zero ring is allowed (the K-book assumes 1 ≠ 0; every statement below is checked to hold, possibly vacuously, for the zero ring).",
         "Modules are left modules, as in Mathlib. The K-book works with right modules; each of its statements is read here over the opposite ring, and for commutative rings the two conventions coincide.",
         "R lives in a universe u and the modules considered are in the same universe u (ModuleCat.{u} R)."
       ],
       "proofSteps": [
-        "(b) SplitK0.exists_eq_sub (the full subcategory has a zero object)."
+        "SplitK0.exists_eq_sub (the full subcategory has a zero object)."
       ],
       "acceptance": [
         "−[R] = [0] − [R¹].",
@@ -23795,14 +23848,14 @@
       ],
       "title": "Free modules are cofinal in K₀",
       "kind": "lemma",
-      "statement": "For an associative unital ring R, using finitely generated projective left modules in the fixed universe, Every x is [P] − n•[R] = [P] − [R^n] for some finitely generated projective P and n ∈ ℕ.",
+      "statement": "For an associative unital ring R, using finitely generated projective left modules in the fixed universe, every x is [P] − n•[R] = [P] − [R^n] for some finitely generated projective P and n ∈ ℕ.",
       "hypotheses": [
         "R is an associative unital ring, not necessarily commutative. The zero ring is allowed (the K-book assumes 1 ≠ 0; every statement below is checked to hold, possibly vacuously, for the zero ring).",
         "Modules are left modules, as in Mathlib. The K-book works with right modules; each of its statements is read here over the opposite ring, and for commutative rings the two conventions coincide.",
         "R lives in a universe u and the modules considered are in the same universe u (ModuleCat.{u} R)."
       ],
       "proofSteps": [
-        "(c) From x = [P] − [Q], a free-summand datum for Q (Z.1/free-summand-data) gives Q × Q′ ≃ R^n with Q′ finitely generated projective; then x = [P × Q′] − [R^n] by of_prod and of_free. This is the cofinality of free modules."
+        "From x = [P] − [Q], a free-summand datum for Q (Z.1/free-summand-data) gives Q × Q′ ≃ R^n with Q′ finitely generated projective; then x = [P × Q′] − [R^n] by of_prod and of_free. This is the cofinality of free modules."
       ],
       "acceptance": [
         "−[R] = [0] − [R¹].",
@@ -23853,7 +23906,7 @@
       ],
       "proofSteps": [
         "If Module.IsStablyFree R P: Module.IsStablyFree.exist_free_prod gives N finite free with P × N free. P × N is finite and free, so it has a finite basis (Module.finBasis) and P × N ≃ R^m; also N ≃ R^k. Hence [P] = (m − k)•[R].",
-        "Conversely, if [P] = a•[R] with a ∈ ℤ, choose k ≥ 0 with a + k ≥ 0; then [P × R^k] = (a + k)[R] and the first statement gives P × R^{k+j} ≃ R^{a+k+j}; Module.IsStablyFree.of_free_prod applies with N = R^{k+j}."
+        "Conversely, if [P] = a•[R] with a ∈ ℤ, choose k ≥ 0 with a + k ≥ 0; then [P × R^k] = (a + k)[R] and Z.1/stably-free-class gives P × R^{k+j} ≃ R^{a+k+j}; Module.IsStablyFree.of_free_prod applies with N = R^{k+j}."
       ],
       "acceptance": [
         "For P = R^m: [P] = m[R] with k = 0.",
@@ -23904,7 +23957,7 @@
         "InvariantBasisNumber is Mathlib’s left version (R^n ≃ₗ R^m ⇒ n = m); the K-book’s IBP is the right version."
       ],
       "proofSteps": [
-        "(2) Surjectivity of freeClass means every [P] lies in ℤ[R], which is Module.IsStablyFree R P by Z.1/stably-free-class; with (1) this is bijectivity."
+        "Surjectivity of freeClass means every projective class lies in ℤ[R], equivalently every projective is stably free by Z.1/stably-free-free-class. Z.1/free-class-ibn supplies injectivity, so surjectivity is equivalent to bijectivity."
       ],
       "acceptance": [
         "For the zero ring freeClass is not injective and InvariantBasisNumber fails.",
@@ -23959,7 +24012,7 @@
         "Matrices act on row vectors from the right: M ∈ Mat_{m×n}(R) gives the left R-linear map R^m → R^n, v ↦ v·M (Mathlib Matrix.vecMulLinear), so that End_R(R^n) ≅ M_n(R)ᵐᵒᵖ (LinearMap.toMatrixRight'). This is the left-module form of the K-book’s column vectors e(R^n)."
       ],
       "proofSteps": [
-        "(b) A free-summand datum (ι, π) for P (Z.1/free-summand-data) is sent by the functor to maps with π′ ∘ ι′ = id, exhibiting ExtendScalars f P as a retract of S^n: Module.Projective.of_split and Module.Finite.of_surjective."
+        "A free-summand datum (ι, π) for P (Z.1/free-summand-data) is sent by the functor to maps with π′ ∘ ι′ = id, exhibiting ExtendScalars f P as a retract of S^n: Module.Projective.of_split and Module.Finite.of_surjective."
       ],
       "acceptance": [
         "For π : ℤ → 𝔽_p and e = diag(1, 0), ExtendScalars π P(e) ≅ P(diag(1, 0)) over 𝔽_p, of dimension one.",
@@ -24014,7 +24067,7 @@
         "Matrices act on row vectors from the right: M ∈ Mat_{m×n}(R) gives the left R-linear map R^m → R^n, v ↦ v·M (Mathlib Matrix.vecMulLinear), so that End_R(R^n) ≅ M_n(R)ᵐᵒᵖ (LinearMap.toMatrixRight'). This is the left-module form of the K-book’s column vectors e(R^n)."
       ],
       "proofSteps": [
-        "(c) P(e) is the image of the idempotent ρ_e, split by ρ_e itself; an additive functor preserves split images of idempotents, so ExtendScalars f P(e) is the image of the functor applied to ρ_e, which is ρ_{e.map f} by (a)."
+        "P(e) is the image of the idempotent ρ_e, split by ρ_e itself; an additive functor preserves split images of idempotents, so ExtendScalars f P(e) is the image of the functor applied to ρ_e, which is ρ_{e.map f} under the finite-free equivalence of Z.1/extend-scalars-finite-projective."
       ],
       "acceptance": [
         "For π : ℤ → 𝔽_p and e = diag(1, 0), ExtendScalars π P(e) ≅ P(diag(1, 0)) over 𝔽_p, of dimension one.",
@@ -24070,7 +24123,7 @@
         "Matrices act on row vectors from the right: M ∈ Mat_{m×n}(R) gives the left R-linear map R^m → R^n, v ↦ v·M (Mathlib Matrix.vecMulLinear), so that End_R(R^n) ≅ M_n(R)ᵐᵒᵖ (LinearMap.toMatrixRight'). This is the left-module form of the K-book’s column vectors e(R^n)."
       ],
       "proofSteps": [
-        "(d) CategoryTheory.ObjectProperty.lift of ι ⋙ functor f, using (b) for the property; additivity from (a)."
+        "Lift the composite of the finite-projective inclusion and ExtendScalars.functor f with CategoryTheory.ObjectProperty.lift, using Z.1/extend-scalars-projective for the object property. The scalar-extension functor is additive, as constructed in Z.1/extend-scalars, so its restriction is additive."
       ],
       "acceptance": [
         "For π : ℤ → 𝔽_p and e = diag(1, 0), ExtendScalars π P(e) ≅ P(diag(1, 0)) over 𝔽_p, of dimension one.",
@@ -24120,12 +24173,12 @@
       ],
       "title": "Rank and the local K₀ equivalence",
       "kind": "lemma",
-      "statement": "For a commutative ring A, For p ∈ Spec A, (rank x)(p) = localEquiv_{A_p} (map (algebraMap A A_p) x), where localEquiv : RingK0 A_p ≃+ ℤ is Z.2/local-ring-k0.",
+      "statement": "For a commutative ring A, for p ∈ Spec A, (rank x)(p) = localEquiv_{A_p} (map (algebraMap A A_p) x), where localEquiv : RingK0 A_p ≃+ ℤ is Z.2/local-ring-k0.",
       "hypotheses": [
         "A is a commutative unital ring; the zero ring is allowed."
       ],
       "proofSteps": [
-        "(b) Both sides are additive; on [P], map sends [P] to [A_p ⊗[A] P] ≅ [P_p] (LocalizedModule.equivTensorProduct), and localEquiv sends that to finrank_{A_p} P_p = rankAtStalk P p."
+        "Both sides are additive; on [P], map sends [P] to [A_p ⊗[A] P] ≅ [P_p] (LocalizedModule.equivTensorProduct), and localEquiv sends that to finrank_{A_p} P_p = rankAtStalk P p."
       ],
       "acceptance": [
         "For A = k × k: map to A_{p₁} ≅ k sends [k × 0] to 1 and [0 × k] to 0.",
@@ -24174,7 +24227,7 @@
         "A is a commutative unital ring; the zero ring is allowed."
       ],
       "proofSteps": [
-        "(c) By (b), rank x = 0 iff every image vanishes, localEquiv being injective."
+        "By Z.2/rank-at-prime-local-equivalence, rank x=0 iff every local image has zero image under localEquiv. Each localEquiv is injective, so this is equivalent to every local image being zero."
       ],
       "acceptance": [
         "For A = k × k: map to A_{p₁} ≅ k sends [k × 0] to 1 and [0 × k] to 0.",
@@ -24219,13 +24272,13 @@
       ],
       "title": "The local ideal lies in the Jacobson radical",
       "kind": "lemma",
-      "statement": "Let R be a ring and m a two-sided ideal with m ≠ R such that every element of R outside m is a unit (the K-book’s local ring; for commutative R this is IsLocalRing R with m its maximal ideal).. m is contained in the Jacobson radical of R, so 1 + x is a unit for every x ∈ m",
+      "statement": "Let R be a ring and m a two-sided ideal with m ≠ R such that every element of R outside m is a unit (the K-book’s local ring; for commutative R this is IsLocalRing R with m its maximal ideal). m is contained in the Jacobson radical of R, so 1 + x is a unit for every x ∈ m",
       "hypotheses": [
         "R is an associative unital ring, not necessarily commutative. The zero ring is allowed (the K-book assumes 1 ≠ 0; every statement below is checked to hold, possibly vacuously, for the zero ring).",
         "m is a two-sided ideal (m : Ideal R with [m.IsTwoSided], so that R ⧸ m is a ring by Ideal.Quotient.ring; Ideal.toTwoSided m is the TwoSidedIdeal the Jacobson-radical lemmas take) with m ≠ ⊤ and ∀ x ∉ m, IsUnit x."
       ],
       "proofSteps": [
-        "(ii) For x ∈ m and every y, yx ∈ m, so 1 + yx ∉ m (otherwise 1 ∈ m) and 1 + yx is a unit; TwoSidedIdeal.mem_jacobson_iff then gives x ∈ jacobson ⊥. An element 1 + j with j in the Jacobson radical has a left inverse z; z = 1 − zj is again of that form, so z has a left inverse too and 1 + j is a unit."
+        "For x ∈ m and every y, yx ∈ m, so 1 + yx ∉ m (otherwise 1 ∈ m) and 1 + yx is a unit; TwoSidedIdeal.mem_jacobson_iff then gives x ∈ jacobson ⊥. An element 1 + j with j in the Jacobson radical has a left inverse z; z = 1 − zj is again of that form, so z has a left inverse too and 1 + j is a unit."
       ],
       "acceptance": [
         "For R = ℤ_(p) and m = pℤ_(p): A with rows (1, p) and (p, 1) reduces to 1, so it is invertible (its determinant is 1 − p²).",
@@ -24278,13 +24331,13 @@
       ],
       "title": "Invertibility lifts over the local ideal",
       "kind": "lemma",
-      "statement": "Let R be a ring and m a two-sided ideal with m ≠ R such that every element of R outside m is a unit (the K-book’s local ring; for commutative R this is IsLocalRing R with m its maximal ideal).. for every n, a matrix A ∈ M_n(R) whose image in M_n(R ⧸ m) is invertible is invertible in M_n(R).",
+      "statement": "Let R be a ring and m a two-sided ideal with m ≠ R such that every element of R outside m is a unit (the K-book’s local ring; for commutative R this is IsLocalRing R with m its maximal ideal). For every n, a matrix A ∈ M_n(R) whose image in M_n(R ⧸ m) is invertible is invertible in M_n(R).",
       "hypotheses": [
         "R is an associative unital ring, not necessarily commutative. The zero ring is allowed (the K-book assumes 1 ≠ 0; every statement below is checked to hold, possibly vacuously, for the zero ring).",
         "m is a two-sided ideal (m : Ideal R with [m.IsTwoSided], so that R ⧸ m is a ring by Ideal.Quotient.ring; Ideal.toTwoSided m is the TwoSidedIdeal the Jacobson-radical lemmas take) with m ≠ ⊤ and ∀ x ∉ m, IsUnit x."
       ],
       "proofSteps": [
-        "(iii) TwoSidedIdeal.jacobson_matrix with TwoSidedIdeal.matrix_jacobson_bot gives M_n(m) ⊆ M_n(jacobson ⊥) = jacobson of ⊥ in M_n(R). Choose B with ĀB̄ = B̄Ā = 1; AB and BA lie in 1 + M_n(m), hence are units by (ii) in M_n(R), so A has the right inverse B(AB)⁻¹ and the left inverse (BA)⁻¹B and is a unit."
+        "TwoSidedIdeal.jacobson_matrix with TwoSidedIdeal.matrix_jacobson_bot gives M_n(m) ⊆ M_n(jacobson ⊥) = jacobson of ⊥ in M_n(R). Choose B with ĀB̄ = B̄Ā = 1; AB and BA lie in 1 + M_n(m), hence are units by the Jacobson-radical unit criterion in M_n(R), so A has the right inverse B(AB)⁻¹ and the left inverse (BA)⁻¹B and is a unit."
       ],
       "acceptance": [
         "For R = ℤ_(p) and m = pℤ_(p): A with rows (1, p) and (p, 1) reduces to 1, so it is invertible (its determinant is 1 − p²).",
@@ -24338,14 +24391,14 @@
       ],
       "title": "Scalar extension between product factors",
       "kind": "lemma",
-      "statement": "Let ι be finite with decidable equality, A : ι → Type u rings, R := ∏_i A_i and π_i : R → A_i the projections (Pi.evalRingHom).. For a left A_i-module M, ExtendScalars π_j ((π_i)_*M) ≅ M if j = i and = 0 if j ≠ i.",
+      "statement": "Let ι be finite with decidable equality, A : ι → Type u rings, R := ∏_i A_i and π_i : R → A_i the projections (Pi.evalRingHom). For a left A_i-module M, ExtendScalars π_j ((π_i)_*M) ≅ M if j = i and = 0 if j ≠ i.",
       "hypotheses": [
         "Modules are left modules, as in Mathlib. The K-book works with right modules; each of its statements is read here over the opposite ring, and for commutative rings the two conventions coincide.",
         "R lives in a universe u and the modules considered are in the same universe u (ModuleCat.{u} R).",
         "The A_i are arbitrary rings; ι is finite."
       ],
       "proofSteps": [
-        "(b) e_j acts on (π_i)_*M by π_i(e_j) = δ_ij. For j ≠ i, a ⊗ m = a·π_j(e_j) ⊗ m = a ⊗ e_j•m = 0; for j = i, a ⊗ m ↦ a•m is an isomorphism with inverse m ↦ 1 ⊗ m (universal property of Z.1/extend-scalars)."
+        "e_j acts on (π_i)_*M by π_i(e_j) = δ_ij. For j ≠ i, a ⊗ m = a·π_j(e_j) ⊗ m = a ⊗ e_j•m = 0; for j = i, a ⊗ m ↦ a•m is an isomorphism with inverse m ↦ 1 ⊗ m (universal property of Z.1/extend-scalars)."
       ],
       "acceptance": [
         "For R = k × k and P = k × k²: A₁ ⊗ P ≅ k and A₂ ⊗ P ≅ k².",
@@ -24388,14 +24441,14 @@
       ],
       "title": "Module decomposition over a finite product",
       "kind": "lemma",
-      "statement": "Let ι be finite with decidable equality, A : ι → Type u rings, R := ∏_i A_i and π_i : R → A_i the projections (Pi.evalRingHom).. For a left R-module P, P ≅ ∏_i (π_i)_*(ExtendScalars π_i P) as R-modules.",
+      "statement": "Let ι be finite with decidable equality, A : ι → Type u rings, R := ∏_i A_i and π_i : R → A_i the projections (Pi.evalRingHom). For a left R-module P, P ≅ ∏_i (π_i)_*(ExtendScalars π_i P) as R-modules.",
       "hypotheses": [
         "Modules are left modules, as in Mathlib. The K-book works with right modules; each of its statements is read here over the opposite ring, and for commutative rings the two conventions coincide.",
         "R lives in a universe u and the modules considered are in the same universe u (ModuleCat.{u} R).",
         "The A_i are arbitrary rings; ι is finite."
       ],
       "proofSteps": [
-        "(c) The complete orthogonal idempotents e_i decompose P = ⊕_i e_i P (CompleteOrthogonalIdempotents), and e_i P ≅ (π_i)_*(A_i ⊗_R P) by the computation in (b)."
+        "The complete orthogonal idempotents e_i decompose P as the finite direct sum of e_iP. For each i, A_i⊗_R P≅e_iP: send a⊗x to ι_i(a)•x, where ι_i(a) is the element of R supported at coordinate i, and send y∈e_iP to 1⊗y. The balancing relation and e_i y=y prove the inverse identities. These maps are R-linear after restriction along π_i. Finite direct sums agree with finite products, giving the displayed decomposition."
       ],
       "acceptance": [
         "For R = k × k and P = k × k²: A₁ ⊗ P ≅ k and A₂ ⊗ P ≅ k².",
@@ -24495,12 +24548,12 @@
       ],
       "title": "Independence of the presentation basis",
       "kind": "lemma",
-      "statement": "Let P be a finitely generated projective right A-module (Module Aᵐᵒᵖ P with Module.Finite and Module.Projective) and α ∈ Aut(P). A presentation of P is a right module Q with an isomorphism θ : P ⊕ Q ≅ Aⁿ_A; put c(Q, θ; α) := [rightModuleEnd(θ ∘ (α ⊕ 1_Q) ∘ θ⁻¹)] ∈ K₁(A).. for fixed Q, c does not depend on θ",
+      "statement": "Let P be a finitely generated projective right A-module (Module Aᵐᵒᵖ P with Module.Finite and Module.Projective) and α ∈ Aut(P). A presentation of P is a right module Q with an isomorphism θ : P ⊕ Q ≅ Aⁿ_A; put c(Q, θ; α) := [rightModuleEnd(θ ∘ (α ⊕ 1_Q) ∘ θ⁻¹)] ∈ K₁(A). For fixed Q, c does not depend on θ",
       "hypotheses": [
         "A is an associative unital ring; P is a finitely generated projective right A-module; α, β ∈ Aut(P)."
       ],
       "proofSteps": [
-        "(b) Two isomorphisms θ, θ′ : P ⊕ Q ≅ Aⁿ differ by g = θ′θ⁻¹ ∈ Aut(Aⁿ) ≅ GL_n(A) (U.2/right-module-matrix-equiv), so the two matrices are conjugate by rightModuleEnd g, and conjugate elements have the same class (K1.of_conj)."
+        "Two isomorphisms θ, θ′ : P ⊕ Q ≅ Aⁿ differ by g = θ′θ⁻¹ ∈ Aut(Aⁿ) ≅ GL_n(A) (U.2/right-module-matrix-equiv), so the two matrices are conjugate by rightModuleEnd g, and conjugate elements have the same class (K1.of_conj)."
       ],
       "acceptance": [
         "For P = Aⁿ with Q = 0 and θ = id, c is the class of the matrix of α.",
@@ -24557,12 +24610,12 @@
       ],
       "title": "Invariance on adjoining a free complement",
       "kind": "lemma",
-      "statement": "Let P be a finitely generated projective right A-module (Module Aᵐᵒᵖ P with Module.Finite and Module.Projective) and α ∈ Aut(P). A presentation of P is a right module Q with an isomorphism θ : P ⊕ Q ≅ Aⁿ_A; put c(Q, θ; α) := [rightModuleEnd(θ ∘ (α ⊕ 1_Q) ∘ θ⁻¹)] ∈ K₁(A).. c(Q ⊕ A^m, θ ⊕ id; α) = c(Q, θ; α)",
+      "statement": "Let P be a finitely generated projective right A-module (Module Aᵐᵒᵖ P with Module.Finite and Module.Projective) and α ∈ Aut(P). A presentation of P is a right module Q with an isomorphism θ : P ⊕ Q ≅ Aⁿ_A; put c(Q, θ; α) := [rightModuleEnd(θ ∘ (α ⊕ 1_Q) ∘ θ⁻¹)] ∈ K₁(A). c(Q ⊕ A^m, θ ⊕ id; α) = c(Q, θ; α)",
       "hypotheses": [
         "A is an associative unital ring; P is a finitely generated projective right A-module; α, β ∈ Aut(P)."
       ],
       "proofSteps": [
-        "(c) Replacing Q by Q ⊕ A^m replaces the matrix M by M ⊕ 1_m = stabilise M (U.2/K1-stabilisation-invariance)."
+        "Replacing Q by Q ⊕ A^m replaces the matrix M by M ⊕ 1_m = stabilise M (U.2/K1-stabilisation-invariance)."
       ],
       "acceptance": [
         "For P = Aⁿ with Q = 0 and θ = id, c is the class of the matrix of α.",
@@ -24620,12 +24673,12 @@
       ],
       "title": "Independence of the projective complement",
       "kind": "lemma",
-      "statement": "Let P be a finitely generated projective right A-module (Module Aᵐᵒᵖ P with Module.Finite and Module.Projective) and α ∈ Aut(P). A presentation of P is a right module Q with an isomorphism θ : P ⊕ Q ≅ Aⁿ_A; put c(Q, θ; α) := [rightModuleEnd(θ ∘ (α ⊕ 1_Q) ∘ θ⁻¹)] ∈ K₁(A).. c does not depend on (Q, θ).",
+      "statement": "Let P be a finitely generated projective right A-module (Module Aᵐᵒᵖ P with Module.Finite and Module.Projective) and α ∈ Aut(P). A presentation of P is a right module Q with an isomorphism θ : P ⊕ Q ≅ Aⁿ_A; put c(Q, θ; α) := [rightModuleEnd(θ ∘ (α ⊕ 1_Q) ∘ θ⁻¹)] ∈ K₁(A). c does not depend on (Q, θ).",
       "hypotheses": [
         "A is an associative unital ring; P is a finitely generated projective right A-module; α, β ∈ Aut(P)."
       ],
       "proofSteps": [
-        "(d) Given θ : P ⊕ Q ≅ Aⁿ and θ′ : P ⊕ Q′ ≅ A^{n′}, one has Q ⊕ A^{n′} ≅ Q ⊕ P ⊕ Q′ ≅ Aⁿ ⊕ Q′; stabilise both presentations by (c) until the complements are Q ⊕ A^{n′} and Q′ ⊕ Aⁿ, transport one presentation along an isomorphism ψ of complements (replacing θ by θ ∘ (1_P ⊕ ψ), which does not change α ⊕ 1 up to conjugacy), and apply (b)."
+        "Given θ : P ⊕ Q ≅ Aⁿ and θ′ : P ⊕ Q′ ≅ A^{n′}, one has Q ⊕ A^{n′} ≅ Q ⊕ P ⊕ Q′ ≅ Aⁿ ⊕ Q′; stabilise both presentations by U.2/automorphism-class-free-stabilization until the complements are Q ⊕ A^{n′} and Q′ ⊕ Aⁿ, transport one presentation along an isomorphism ψ of complements (replacing θ by θ ∘ (1_P ⊕ ψ), which does not change α ⊕ 1 up to conjugacy), and apply U.2/automorphism-class-basis-independent."
       ],
       "acceptance": [
         "For P = Aⁿ with Q = 0 and θ = id, c is the class of the matrix of α.",
@@ -24684,7 +24737,7 @@
       ],
       "title": "Multiplicativity on a fixed presentation",
       "kind": "lemma",
-      "statement": "Let P be a finitely generated projective right A-module (Module Aᵐᵒᵖ P with Module.Finite and Module.Projective) and α ∈ Aut(P). A presentation of P is a right module Q with an isomorphism θ : P ⊕ Q ≅ Aⁿ_A; put c(Q, θ; α) := [rightModuleEnd(θ ∘ (α ⊕ 1_Q) ∘ θ⁻¹)] ∈ K₁(A).. c(Q,θ;αβ)=c(Q,θ;α)c(Q,θ;β) and c(Q,θ;1)=1.",
+      "statement": "Let P be a finitely generated projective right A-module (Module Aᵐᵒᵖ P with Module.Finite and Module.Projective) and α ∈ Aut(P). A presentation of P is a right module Q with an isomorphism θ : P ⊕ Q ≅ Aⁿ_A; put c(Q, θ; α) := [rightModuleEnd(θ ∘ (α ⊕ 1_Q) ∘ θ⁻¹)] ∈ K₁(A). c(Q,θ;αβ)=c(Q,θ;α)c(Q,θ;β) and c(Q,θ;1)=1.",
       "hypotheses": [
         "A is an associative unital ring; P is a finitely generated projective right A-module; α, β ∈ Aut(P)."
       ],
@@ -24749,13 +24802,13 @@
       ],
       "title": "A near-unit pair is elementary equivalent to the base point",
       "kind": "lemma",
-      "statement": "Let A be a commutative ring, 𝔮 an ideal and (a, b) ∈ W_𝔮.. If a is congruent to a unit modulo b, or b is congruent to a unit modulo a, then (a, b) ∼_𝔮 (1, 0).",
+      "statement": "Let A be a commutative ring, 𝔮 an ideal and (a, b) ∈ W_𝔮. If a is congruent to a unit modulo b, or b is congruent to a unit modulo a, then (a, b) ∼_𝔮 (1, 0).",
       "hypotheses": [
         "No hypothesis on A (BMS: Lemmas 2.2 and 2.10 'are valid without any hypothesis on A')."
       ],
       "proofSteps": [
-        "(b), first case: a = u − tb with u a unit. (a, b) ∼ (a + tb, b) = (u, b) ∼ (u, b + u·u⁻¹(1 − b − u)) = (u, 1 − u) ∼ (1, 1 − u) ∼ (1, 0); the parameters u⁻¹(1 − b − u) and u − 1 lie in 𝔮 because u ≡ a ≡ 1 and b ≡ 0 modulo 𝔮.",
-        "(b), second case: b = u + ta with u a unit, q = 1 − a. Then (a, b) ∼ (a, bq) ∼ (a, bq − a(tq)) = (a, uq) ∼ (a + u⁻¹(uq), uq) = (1, uq) ∼ (1, 0)."
+        ", first case: a = u − tb with u a unit. (a, b) ∼ (a + tb, b) = (u, b) ∼ (u, b + u·u⁻¹(1 − b − u)) = (u, 1 − u) ∼ (1, 1 − u) ∼ (1, 0); the parameters u⁻¹(1 − b − u) and u − 1 lie in 𝔮 because u ≡ a ≡ 1 and b ≡ 0 modulo 𝔮.",
+        ", second case: b = u + ta with u a unit, q = 1 − a. Then (a, b) ∼ (a, bq) ∼ (a, bq − a(tq)) = (a, uq) ∼ (a + u⁻¹(uq), uq) = (1, uq) ∼ (1, 0)."
       ],
       "acceptance": [
         "(5, 2) over ℤ with 𝔮 = ℤ: 5 ≡ 1 = unit mod 2, so (5, 2) ∼ (1, 0).",
@@ -24788,12 +24841,12 @@
       ],
       "title": "Moving a Mennicke symbol into a smaller ideal",
       "kind": "lemma",
-      "statement": "Let A be a Dedekind domain, 𝔮 a nonzero ideal and [ ] : W_𝔮 → C a function satisfying MS1.. For a nonzero 𝔮′ ⊆ 𝔮, every [b/a] equals some [b′/a′] with (a′, b′) ∈ W_{𝔮′}.",
+      "statement": "Let A be a Dedekind domain, 𝔮 a nonzero ideal and [ ] : W_𝔮 → C a function satisfying MS1. For a nonzero 𝔮′ ⊆ 𝔮, every [b/a] equals some [b′/a′] with (a′, b′) ∈ W_{𝔮′}.",
       "hypotheses": [
         "A Dedekind, 𝔮 ≠ 0; only MS1 is assumed (MS2 enters in U.4/mennicke-symbol-residue-homomorphism)."
       ],
       "proofSteps": [
-        "(b) is U.4/q-equivalence-smaller-ideal with MS1."
+        "is U.4/q-equivalence-smaller-ideal with MS1."
       ],
       "acceptance": [
         "For 𝔮 = A and aA prime, (2.8) is a map from the finite cyclic group (A/aA)^× (K-book Ex. III.1.11's transfer from K₁(A/𝔭) to SK₁(A) is this map for the SK₁ symbol).",
@@ -24842,7 +24895,7 @@
       ],
       "title": "The principal-level residue function",
       "kind": "lemma",
-      "statement": "Let A be a Dedekind domain, 𝔮 a nonzero ideal and [ ] : W_𝔮 → C a function satisfying MS1.. If q ∈ 𝔮 and a ≡ 1 mod qA, then b ↦ [bq/a], for b ∈ A prime to a, induces a map U(A/aA) → C (BMS (2.8)) whose composite with U(A) → U(A/aA) is constant 1.",
+      "statement": "Let A be a Dedekind domain, 𝔮 a nonzero ideal and [ ] : W_𝔮 → C a function satisfying MS1. If q ∈ 𝔮 and a ≡ 1 mod qA, then b ↦ [bq/a], for b ∈ A prime to a, induces a map U(A/aA) → C (BMS (2.8)) whose composite with U(A) → U(A/aA) is constant 1.",
       "hypotheses": [
         "A Dedekind, 𝔮 ≠ 0; only MS1 is assumed (MS2 enters in U.4/mennicke-symbol-residue-homomorphism)."
       ],
@@ -24897,7 +24950,7 @@
       ],
       "title": "A common residue image for finitely many symbols",
       "kind": "lemma",
-      "statement": "Let A be a Dedekind domain, 𝔮 a nonzero ideal and [ ] : W_𝔮 → C a function satisfying MS1.. Any finite set of symbols [b_i/a_i] lies in the image of one map (2.8), for suitable q and a, and a can be chosen arbitrarily in a progression a + tcq (t ∈ A) for some c prime to a.",
+      "statement": "Let A be a Dedekind domain, 𝔮 a nonzero ideal and [ ] : W_𝔮 → C a function satisfying MS1. Any finite set of symbols [b_i/a_i] lies in the image of one map (2.8), for suitable q and a, and a can be chosen arbitrarily in a progression a + tcq (t ∈ A) for some c prime to a.",
       "hypotheses": [
         "A Dedekind, 𝔮 ≠ 0; only MS1 is assumed (MS2 enters in U.4/mennicke-symbol-residue-homomorphism)."
       ],
@@ -24953,12 +25006,12 @@
       ],
       "title": "The image of a Mennicke symbol is abelian",
       "kind": "lemma",
-      "statement": "Let A be a Dedekind domain, 𝔮 a nonzero ideal and [ ] : W_𝔮 → C a Mennicke symbol.. The image of W_𝔮 is an abelian subgroup of C.",
+      "statement": "Let A be a Dedekind domain, 𝔮 a nonzero ideal and [ ] : W_𝔮 → C a Mennicke symbol. The image of W_𝔮 is an abelian subgroup of C.",
       "hypotheses": [
         "A Dedekind, 𝔮 ≠ 0, [ ] a Mennicke symbol (MS1 and MS2)."
       ],
       "proofSteps": [
-        "(b) By U.4/mennicke-symbol-residue-map (d) any two symbols lie in the image of one map (2.8), a homomorphic image of the abelian group U(A/aA)."
+        "By U.4/mennicke-symbol-common-residue-image any two symbol values lie in the image of one map (2.8). U.4/mennicke-symbol-residue-homomorphism makes that image an abelian subgroup. Thus the values commute, their product is again a symbol value, and the inverse of each value is a symbol value. The identity is the value at (1, 0), so the full symbol image is an abelian subgroup."
       ],
       "acceptance": [
         "For aA prime the image of (2.8) is cyclic, the image of the finite cyclic group (A/aA)^×.",
@@ -25000,7 +25053,8 @@
         "A is an associative unital ring and I a two-sided ideal (Mathlib's I : Ideal A with [I.IsTwoSided], whose quotient ring A ⧸ I is Ideal.Quotient.ring, and Ideal.toTwoSided I its TwoSidedIdeal; for commutative A every ideal is two-sided). GL_n, E_n, GL, E, the stabilisation maps and K₁ are those of U.1 and U.2."
       ],
       "proofSteps": [
-        "(b) For g ∈ GL_n(A) and h ∈ E_n(A, I): diag(ghg⁻¹, 1) = diag(g, g⁻¹)·diag(h, 1)·diag(g⁻¹, g), and diag(g, g⁻¹) ∈ E_{2n}(A) (U.1/whitehead-diagonal) normalises E_{2n}(A, I) by definition."
+        "The relative root generators lie in GL(I), the kernel of reduction. This kernel is normal in GL(A), so their E(A)-normal closure E(A, I) lies in GL(I).",
+        "For g ∈ GL_n(A) and h ∈ E_n(A, I): diag(ghg⁻¹, 1) = diag(g, g⁻¹)·diag(h, 1)·diag(g⁻¹, g), and diag(g, g⁻¹) ∈ E_{2n}(A) (U.1/whitehead-diagonal) normalises E_{2n}(A, I) by definition."
       ],
       "acceptance": [
         "I = A recovers U.1's Whitehead lemma: [GL(A), GL(A)] ⊆ E(A), E(A) normal.",
@@ -25052,7 +25106,7 @@
         "A is an associative unital ring and I a two-sided ideal (Mathlib's I : Ideal A with [I.IsTwoSided], whose quotient ring A ⧸ I is Ideal.Quotient.ring, and Ideal.toTwoSided I its TwoSidedIdeal; for commutative A every ideal is two-sided). GL_n, E_n, GL, E, the stabilisation maps and K₁ are those of U.1 and U.2."
       ],
       "proofSteps": [
-        "(c) For g, h ∈ GL_n(I): [g, h] = diag(g, g⁻¹)·diag(h, h⁻¹)·diag((hg)⁻¹, hg) in GL_{2n}(A) (K-book (1.3.4)), and each factor lies in E_{2n}(A, I) by (a)."
+        "For g, h ∈ GL_n(I): [g, h] = diag(g, g⁻¹)·diag(h, h⁻¹)·diag((hg)⁻¹, hg) in GL_{2n}(A) (K-book (1.3.4)), and each factor lies in E_{2n}(A, I) by U.5/relative-whitehead-lemma."
       ],
       "acceptance": [
         "I = A recovers U.1's Whitehead lemma: [GL(A), GL(A)] ⊆ E(A), E(A) normal.",
@@ -25205,7 +25259,7 @@
         "The K₀(A)-module structure on K₁ is U.5/K0-action-on-K1."
       ],
       "proofSteps": [
-        "(b) For Q ∈ P(B) and α ∈ GL_n(A): [Q]·f^*α is the class of 1_Q ⊗_B (B ⊗_A α) on Q ⊗_A Aⁿ = Qⁿ; restricted to A it is 1_{res Q} ⊗ α, of class [res Q]·α = f_*[Q]·α."
+        "For Q ∈ P(B) and α ∈ GL_n(A): [Q]·f^*α is the class of 1_Q ⊗_B (B ⊗_A α) on Q ⊗_A Aⁿ = Qⁿ; restricted to A it is 1_{res Q} ⊗ α, of class [res Q]·α = f_*[Q]·α."
       ],
       "acceptance": [
         "L/F fields: N_{L/F}(u) = u^{[L:F]} for u ∈ F^×.",
@@ -25255,7 +25309,7 @@
         "The K₀(A)-module structure on K₁ is U.5/K0-action-on-K1."
       ],
       "proofSteps": [
-        "(c) is (b) with y = [B] ∈ K₀(B), f_*[B] = [B as an A-module]; equivalently res(1_B ⊗ α) = [B]·α as in the K-book's proof of Corollary III.1.7.1. The determinant formula is U.5/K0-action-on-K1."
+        "Apply U.5/projection-formula-transfer-k0 with y = [B] ∈ K₀(B), f_*[B] = [B as an A-module]; equivalently res(1_B ⊗ α) = [B]·α as in the K-book's proof of Corollary III.1.7.1. The determinant formula is U.5/K0-action-on-K1."
       ],
       "acceptance": [
         "L/F fields: N_{L/F}(u) = u^{[L:F]} for u ∈ F^×.",
@@ -25518,7 +25572,7 @@
     {
       "stageId": "KTheoryLowDegrees:Z.1",
       "status": "source_decomposed",
-      "note": "Planned within RS-18’s narrowed scope for Z.1 (accepted): the concrete idempotent/stabilisation classification, splitting and complement data, the ring-carrier instantiation of the existing K₀, class induction and the stable-equality criterion, scalar extension and ring-level Morita functoriality, all on the existing carriers (finiteProjectiveModules, SplitK0, ExactK0); no new categorical K₀ is built. Stage targets and their nodes. (1) Finitely generated projectives = summands of finite free modules, with complement, splitting maps and idempotent matrix: the retract equivalence itself is Mathlib (Module.Finite.exists_comp_eq_id_of_projective, Module.Projective.of_split); the data are Z.1/free-summand-data, on Z.1/idempotent-module and Z.1/idempotent-module-finite-projective. (2) Idempotent matrices up to stabilised equivalence ↔ isomorphism classes: Z.1/stable-idempotent-monoid, Z.1/idempotent-module-conj, Z.1/idempotent-module-block, Z.1/iso-stably-conjugate, Z.1/idempotent-classification, and K₀ as the group completion of Idem(R) (Z.1/ring-k0-idempotent-completion). (3) “A presentation of the actual projective category, not a replacement for it”: K₀ is taken on the module category itself, and Z.1/projective-karoubi identifies the category of finitely generated projectives with the idempotent completion of the finite free modules, morphisms included (K-book II.7.3.1). (4) Ring K₀ via the existing universal property: Z.1/ring-k0. (5) Object-class induction: Z.1/ring-k0-class-induction. (6) Equality of classes by stable isomorphism: Z.1/stable-isomorphism-criterion and Z.1/stably-free-class, with the free-class map and the invariant basis number in Z.1/free-class-ibn (K-book II.2.1, corrected). (7) Scalar extension: Mathlib has extension of scalars only for commutative rings, so Z.1/extend-scalars constructs it for arbitrary ring homomorphisms (left adjoint of restriction), Z.1/extend-scalars-finite-projective and Z.1/ring-k0-map give the functor K₀(A) → K₀(B) with identity and composition laws. (8) Restriction of scalars along a finite projective extension, requested by CA.7: Z.1/restrict-scalars-finite-projective and Z.1/ring-k0-transfer. (9) Morita functoriality: Z.1/equivalence-preserves-finite-projective, Z.1/ring-k0-morita, with the test K₀(M_n(A)) ≅ K₀(A) in Z.1/ring-k0-matrix. (10) Direct-sum relations suffice because short exact sequences of projectives split: Tau Ceti already has finiteProjectiveModulesExactStructure_eq_split and ExactK0.fromSplitEquiv; the ring-level statement is Z.1/ring-k0-exact. Consumers: the CA.7 request (ring K₀ on SplitK0 of finiteProjectiveModules, the class [P], [P] = [Q] ⇔ P ⊕ Λ^k ≅ Q ⊕ Λ^k, scalar extension along Λ → Λ′ and restriction along Λ → Λ′ with Λ′ finitely generated projective over Λ) is supplied by Z.1/ring-k0, Z.1/stable-isomorphism-criterion, Z.1/ring-k0-map with Z.1/extend-scalars, and Z.1/ring-k0-transfer. Conventions: left modules, matrices acting on row vectors from the right, the zero ring allowed. K-book statements proved only as exercises there (Ex. I.2.3) are proved in full in the nodes. Not targets of Z.1 and so not planned here: the Hattori–Stallings trace (II.2.5), nilpotent-ideal invariance (II.2.2), Pierce’s theorem (II.2.2.2), filtered colimits (II.2.1.6, GeneralAlgebraicKTheory K.7), the relative group K₀(T) (II.2.10). Morita preservation is decomposed into compact-element-order-iso, module-equivalence-submodule-order-iso, equivalence-preserves-finite, the retained equivalence-preserves-finite-projective theorem, finite-projective-equivalence and its additive instance. The native Morita split-to-exact square now supplies the finite-dimensional normalization contract, using the existing ExactK0.mapEquiv and object-class uniqueness. No unpublished upstream theorem name or new categorical K₀ is assumed. The proposed Z.1 extension now supplies Milnor patching and Mayer–Vietoris through milnor-patched-module, milnor-free-patch, compatible complements, both canonical base changes, projective recovery, the connecting homomorphism and three exactness nodes.",
+      "note": "Planned within RS-18’s narrowed scope for Z.1 (accepted): the concrete idempotent/stabilisation classification, splitting and complement data, the ring-carrier instantiation of the existing K₀, class induction and the stable-equality criterion, scalar extension and ring-level Morita functoriality, all on the existing carriers (finiteProjectiveModules, SplitK0, ExactK0); no new categorical K₀ is built. Stage targets and their nodes. (1) Finitely generated projectives = summands of finite free modules, with complement, splitting maps and idempotent matrix: the retract equivalence itself is Mathlib (Module.Finite.exists_comp_eq_id_of_projective, Module.Projective.of_split); the data are Z.1/free-summand-data, on Z.1/idempotent-module and Z.1/idempotent-module-finite-projective. (2) Idempotent matrices up to stabilised equivalence ↔ isomorphism classes: Z.1/stable-idempotent-monoid, Z.1/idempotent-module-conj, Z.1/idempotent-module-block, Z.1/iso-stably-conjugate, Z.1/idempotent-classification, and K₀ as the group completion of Idem(R) (Z.1/ring-k0-idempotent-completion). (3) “A presentation of the actual projective category, not a replacement for it”: K₀ is taken on the module category itself, and Z.1/projective-karoubi identifies the category of finitely generated projectives with the idempotent completion of the finite free modules, morphisms included (K-book II.7.3.1). (4) Ring K₀ via the existing universal property: Z.1/ring-k0. (5) Object-class induction: Z.1/ring-k0-class-induction. (6) Equality of classes by stable isomorphism: Z.1/stable-isomorphism-criterion and Z.1/stably-free-class, with the free-class map and the invariant basis number in Z.1/free-class-ibn (K-book II.2.1, corrected). (7) Scalar extension: Mathlib has extension of scalars only for commutative rings, so Z.1/extend-scalars constructs it for arbitrary ring homomorphisms (left adjoint of restriction), Z.1/extend-scalars-finite-projective and Z.1/ring-k0-map give the functor K₀(A) → K₀(B) with identity and composition laws. (8) Restriction of scalars along a finite projective extension, requested by CA.7: Z.1/restrict-scalars-finite-projective and Z.1/ring-k0-transfer. (9) Morita functoriality: Z.1/equivalence-preserves-finite-projective, Z.1/ring-k0-morita, with the test K₀(M_n(A)) ≅ K₀(A) in Z.1/ring-k0-matrix. (10) Direct-sum relations suffice because short exact sequences of projectives split: Tau Ceti already has finiteProjectiveModulesExactStructure_eq_split and ExactK0.fromSplitEquiv; the ring-level statement is Z.1/ring-k0-exact. Consumers: the CA.7 request (ring K₀ on SplitK0 of finiteProjectiveModules, the class [P], [P] = [Q] ⇔ P ⊕ Λ^k ≅ Q ⊕ Λ^k, scalar extension along Λ → Λ′ and restriction along Λ → Λ′ with Λ′ finitely generated projective over Λ) is supplied by Z.1/ring-k0, Z.1/stable-isomorphism-criterion, Z.1/ring-k0-map with Z.1/extend-scalars, and Z.1/ring-k0-transfer. Conventions: left modules, matrices acting on row vectors from the right, the zero ring allowed. K-book statements proved only as exercises there (Ex. I.2.3) are proved in full in the nodes. Not targets of Z.1 and so not planned here: the Hattori–Stallings trace (II.2.5), nilpotent-ideal invariance (II.2.2), Pierce’s theorem (II.2.2.2), filtered colimits (II.2.1.6, GeneralAlgebraicKTheory K.7), the relative group K₀(T) (II.2.10). Morita preservation is decomposed into compact-element-order-iso, module-equivalence-submodule-order-iso, equivalence-preserves-finite, the retained equivalence-preserves-finite-projective theorem, finite-projective-equivalence and its additive instance. The native Morita split-to-exact square now supplies the finite-dimensional normalization contract, using the existing ExactK0.mapEquiv and object-class uniqueness. No unpublished upstream theorem name or new categorical K₀ is assumed. Z.1 supplies Milnor patching and Mayer–Vietoris through milnor-patched-module, milnor-free-patch, compatible complements, both canonical base changes, projective recovery, the connecting homomorphism and three exactness nodes.",
       "remaining": []
     },
     {
@@ -25550,7 +25604,7 @@
     {
       "stageId": "KTheoryLowDegrees:U.4",
       "status": "partial",
-      "note": "S is a finite set of finite places and O_{F,S} = Set.integer S F, as in ArithmeticKTheory N.1 and K2SymbolsBrauer T.5; the rank is r₁ + r₂ + |S| − 1. Targets: SK₁(O_{F,S}) = 0 (U.4/bass-milnor-serre), decomposed as BMS do — stable range of Dedekind domains (U.4/dedekind-stable-range-two, with U.3's stable-range definition and surjective stability), Mennicke symbols and the universal Mennicke group (U.4/mennicke-symbol, universal-mennicke-group, Lemmas 2.1–2.9, the SK₁ symbol of Mennicke's theorem and its surjectivity), and the arithmetic of BMS §3 and the appendix ((A.7), (A.8), (A.10), (A.11), Theorems 3.2, 3.5, 3.6); class-field-theory inputs are requested from Tau Ceti ClassFieldTheory, Chebotarev and GlobalNumberFields with their stated forms; K₁(O_{F,S}) ≅ O_{F,S}^× canonically (K1-S-integers-determinant); Dirichlet's S-unit theorem and fundamental S-units (s-unit-theorem, fundamental-s-units, K1-S-integers-structure); the unit inclusion into K₁(F) and the residue-field and local-ring specialisations. The non-example 'an arbitrary Dedekind-domain SK₁ vanishing theorem is not an acceptable substitute' is U.3/SK1-real-circle-nonzero (K-book III.1.5.4), cited rather than duplicated. The newly routed CG source adds the full congruence-subgroup theorem, so BMS Theorem 4.1(c), the finite-level C_I calculation and Theorem 14.1 now are U.4 targets. Five elementary-containment lemmas supply its algebraic first step; the relative universality, finite arithmetic defect, completion/kernel argument, Serre SL₂ and localized-H¹ interfaces remain explicit target gaps. The separate real-circle Dedekind obligation is supplied by eight declarations: Eisenstein irreducibility, domain, stereographic charts and cover, prime-local Dedekindness, integral closure, dimension bound and the final native Dedekind predicate. Its SK₁ nontriviality still needs the LieGroups retraction. Twenty-three further nodes now decompose Kubota Theorem 6.1 and its genuine relative rank-two reduction inputs. The finite-rank extension and arithmetic defect remain open; neither is replaced by the absolute SK₁ theorem. The relative standard-form continuation supplies §8 through Lemma 8.12. Nineteen further declarations decompose §9 through Lemma 9.6, including H and N, the concrete generator calculations, image-only transpose and the reflected generation argument. The next-rank value remains a function until the §10 last-swap premise is proved. The bounded pass stopped at 300 nodes before the independent review added declaration-sized splits; it does not close this stage.",
+      "note": "For finite S of finite places, U.4 targets SK₁(O_{F,S})=0 via stable range two, the universal Mennicke group, arithmetic prime choice and principal-level power reduction. The determinant identification of K₁ with units is canonical. The S-unit theorem gives rank r₁+r₂+|S|−1 and a decomposition after choosing fundamental S-units. The residue-field, prime-local and completion maps are distinct comparison nodes. The real-circle coordinate ring is shown Dedekind in U.3, with its special K₁ obstruction conditional on the LieGroups retraction; the arithmetic theorem is not generalized to arbitrary Dedekind domains. The CG route adds the finite-rank congruence targets: elementary cofinality and finite-index containment, Kubota’s relative rank-two character, §8 standard forms and §9 multiplier/conjugation subgroups through Lemma 9.6. The next-rank value is a function until the two distinct §10 last-swap proofs establish multiplicativity. The remaining finite-level universality, arithmetic defect and transition maps, completion kernel, Serre SL₂ and localized-H¹ interfaces are target gaps. The local symbol request is cohomological; the degree-m Artin dictionary, power-subgroup topology, reciprocity cycle and higher-unit formulas are explicit proof gaps.",
       "remaining": [
         "Import the tame formula (A.16), the degree-m product formula (A.19) and the reciprocity law (A.21) once the CA.1 → K2SymbolsBrauer:T.7 cycle is removed (gap; restructure).",
         "Source and plan BMS (A.17)–(A.18) (Serre, Corps locaux XIV) for the totally imaginary case (gap).",
@@ -25567,7 +25621,7 @@
       "status": "partial",
       "note": "Targets: congruence subgroups and relative elementary groups (U.5/congruence-subgroup, relative-elementary-subgroup), the Relative Whitehead Lemma and [GL(A), GL(I)] = E(A, I) through the double ring, K₁(A, I) := GL(I)/E(A, I) (not a kernel), the relative determinant, the radical and split cases, the beginning of the relative sequence with its K₂ boundary target identified explicitly as ker(K₁(A, I) → K₁(A)) = (E(A) ∩ GL(I))/E(A, I) (the boundary map itself is K2SymbolsBrauer T.6's, which imports U.5), K₀(I) and the degree-zero ideal sequence; transfer by restriction of scalars for finite projective extensions, its determinant–norm formula, the field norm, base change and the projection formula against K₀ (with the K₀(A)-module structure on K₁); the explicit cokernel-length boundary K₁(L) → K₀(k) of a DVR with ∂ = v ∘ det, the exact sequence 1 → K₁(O) → K₁(L) → K₀(k) → 0, and its comparison with the localisation boundary, which RS-18 gives to SchemeKTheoryOperations S.3 together with the normalisation ∂(π) = [k] (U.5/dvr-boundary-localisation-comparison, citing S.3/dvr-boundary-unit-valuation). The comparison with the homotopy-fibre relative K₁ (GeneralAlgebraicKTheory K.5) needs U.6's π₁BGL⁺ = K₁ and is realised by U.6/relative-K1-homotopy-comparison. The named ideal-boundary and the decomposed Z.1 Milnor theorems close the degree-zero ideal-sequence source gap.",
       "remaining": [
-        "The homotopy-fibre comparison (U.6/relative-K1-homotopy-comparison) awaits K2SymbolsBrauer T.1:plus and T.6, blocked by the T.1 → GeneralAlgebraicKTheory:K.2 dependency (gap; restructure)."
+        "The homotopy-fibre comparison (U.6/relative-K1-homotopy-comparison) requires the actual relative-plus/excision-defect proof and degree-two boundary comparison; the T.1:plus/T.6 supplier route also encounters the T.1 → GeneralAlgebraicKTheory:K.2 dependency (gap; restructure)."
       ]
     },
     {
@@ -25575,7 +25629,7 @@
       "status": "partial",
       "note": "π₁BGL(A)⁺ ≅ GL(A)/E(A) with loop classes, naturality, determinant and transfer (U.6/pi1-plus-construction, pi1-plus-determinant, pi1-plus-transfer), from StableHomotopyKTheory H.1/H.3 and GeneralAlgebraicKTheory K.2:plus node ids; computations K₁(ℤ) = {±1} (Tau Ceti's SL_n(ℤ) generation), K₁(𝔽_q) = 𝔽_q^×, K₁(ℤ[1/p]) = ℤ/2 ⊕ ℤ (by the Euclidean route, cross-checked with U.4), K₁ of a finite product of fields; tests: triangular determinant class, diag(g, g⁻¹) versus diag(g, 1), ∂(π) = 1. These are the computations that KTheoryFiniteLocalFields L.1, ArithmeticKTheory N.8 and GeneralAlgebraicKTheory K.2:low-degree-comparisons consume. The U.1–U.2 lemmas behind the tests (U.2/block-triangular-class, U.1/whitehead-diagonal) are cited, not restated.",
       "remaining": [
-        "Complete U.6/relative-K1-homotopy-comparison (gap: K-book Ex. IV.1.15 is a hint; needs K2SymbolsBrauer T.1:plus and T.6).",
+        "Complete U.6/relative-K1-homotopy-comparison (gap: K-book Ex. IV.1.15 is a hint; needs an actual relative-plus/excision-defect argument and degree-two boundary comparison; the T.1:plus/T.6 route has a stage cycle).",
         "StableHomotopyKTheory H.3/plus-construction-universal-property records an unread proof boundary (obstruction theory); the naturality statements of U.6 rest on it.",
         "Resolve the companion ring-spectrum-det π₁ API and its K.4:construction/H.4/H.5 supplier contracts into the typed coherent determinant-loop comparison; the source inventory names the existing owners and creates no duplicate graded determinant target."
       ]
@@ -25613,7 +25667,7 @@
     },
     {
       "title": "Full relative Mennicke universality and the finite arithmetic congruence defect",
-      "detail": "For A=O_{F,S}, rank≥3 and I≠0, the CG route needs BMS Theorem 4.1(c), Corollary 4.3 and Theorem 14.1. The plan now supplies §§7–9 through Lemma 9.6: next-rank standard-form evaluation, multiplier and conjugation subgroups, diagonal/interior/root invariance, reflected transpose on matrices and im(κ), and GE generation conditional on the final swap. Resume at §10, printed p.115: Lemma 10.2 and the higher-rank swap calculation under Proposition 8.6’s stronger corner stable-range hypotheses; separately the Dedekind rank-two calculation under Proposition 8.5, with its nonzero/pair-choice and Mennicke-symbol argument. Then bundle the actual multiplicative extension, prove its remaining kernel conditions and iterate it. Decompose §11 finite-rank relative universality and the arithmetic r(I) calculation/transition maps with compatible roots-of-unity normalization. No stable SK₁=0 or abstract universal Mennicke group substitutes for these finite-level assertions. This is an open-stage follow-up after the original 300-node bounded pass, not a checkpoint pretending the entire stage closed.",
+      "detail": "For A=O_{F,S}, rank≥3 and I≠0, the CG route needs BMS Theorem 4.1(c), Corollary 4.3 and Theorem 14.1. The plan now supplies §§7–9 through Lemma 9.6: next-rank standard-form evaluation, multiplier and conjugation subgroups, diagonal/interior/root invariance, reflected transpose on matrices and im(κ), and GE generation conditional on the final swap. Resume at §10, printed p.115: Lemma 10.2 and the higher-rank swap calculation under Proposition 8.6’s stronger corner stable-range hypotheses; separately the Dedekind rank-two calculation under Proposition 8.5, with its nonzero/pair-choice and Mennicke-symbol argument. Then bundle the actual multiplicative extension, prove its remaining kernel conditions and iterate it. Decompose §11 finite-rank relative universality and the arithmetic r(I) calculation/transition maps with compatible roots-of-unity normalization. No stable SK₁=0 or abstract universal Mennicke group substitutes for these finite-level assertions. These are open-stage targets; the stage remains partial.",
       "neededBy": [],
       "stageIds": [
         "KTheoryLowDegrees:U.4"
@@ -25622,7 +25676,7 @@
     },
     {
       "title": "The arithmetic and congruence completions and the central kernel",
-      "detail": "From elementary cofinality plus finite index of every nonzero E_n(A,I), identify the arithmetic completion with lim_I SL_n(A)/E_n(A,I), the congruence completion with lim_I SL_n(A)/SL_n(A,I), and the kernel with lim_I SL_n(A,I)/E_n(A,I). Establish the transition maps and compatible central extension on the agreed topological carriers. BMS Theorem 14.1 then gives central kernel μ(F) for totally complex F with S=∅ and the trivial group otherwise. Generic profinite limits and group completions belong to their existing topology owners and must be imported; only the arithmetic specialization belongs here. No new congruence-completion carrier is introduced in this checkpoint.",
+      "detail": "From elementary cofinality plus finite index of every nonzero E_n(A,I), identify the arithmetic completion with lim_I SL_n(A)/E_n(A,I), the congruence completion with lim_I SL_n(A)/SL_n(A,I), and the kernel with lim_I SL_n(A,I)/E_n(A,I). Establish the transition maps and compatible central extension on the agreed topological carriers. BMS Theorem 14.1 then gives central kernel μ(F) for totally complex F with S=∅ and the trivial group otherwise. Generic profinite limits and group completions belong to their existing topology owners and must be imported; only the arithmetic specialization belongs here. No new congruence-completion carrier is introduced in this part.",
       "neededBy": [],
       "stageIds": [
         "KTheoryLowDegrees:U.4"
@@ -25640,7 +25694,7 @@
     },
     {
       "title": "The congruence-kernel-to-localized-H¹ interface for Calegari–Geraghty",
-      "detail": "CG Remark 9.3 uses CSP in the latter two cases GL₂ over a CM quartic and GL₃/ℚ to deduce localized H¹ vanishing and, by duality, localized compactly supported cohomology vanishing. State a precise supplier contract on the relevant arithmetic lattices and Hecke action. Finite congruence kernel alone does not say every mod-p homomorphism factors through the congruence completion when p divides the kernel order; require coprime coefficients or prove separately that its contribution vanishes after the specified non-Eisenstein localization. The passage from SL to GL lattices and the Hecke/Eisenstein argument are also required. General locally symmetric-space and Hecke cohomology belongs to the consumer’s owner, not U.4. This checkpoint screens that boundary and does not assert a proof of Conjecture B.",
+      "detail": "CG Remark 9.3 uses CSP in the latter two cases GL₂ over a CM quartic and GL₃/ℚ to deduce localized H¹ vanishing and, by duality, localized compactly supported cohomology vanishing. State a precise supplier contract on the relevant arithmetic lattices and Hecke action. Finite congruence kernel alone does not say every mod-p homomorphism factors through the congruence completion when p divides the kernel order; require coprime coefficients or prove separately that its contribution vanishes after the specified non-Eisenstein localization. The passage from SL to GL lattices and the Hecke/Eisenstein argument are also required. General locally symmetric-space and Hecke cohomology belongs to the consumer’s owner, not U.4. This part records that boundary and does not assert a proof of Conjecture B.",
       "neededBy": [],
       "stageIds": [
         "KTheoryLowDegrees:U.4"
@@ -25690,7 +25744,7 @@
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/Chebotarev#layer-4-cyclotomic-galois-characters",
-      "need": "For K(ζ_m)/K and 𝔭 ∤ m, the arithmetic Frobenius sends ζ_m to ζ_m^{N𝔭}. Layer 4's text: 'Prove that for 𝔭 ∤ m the arithmetic Frobenius sends ζ_m to ζ_m ^ 𝔑𝔭'.",
+      "need": "The cyclotomic extension K(ζ_m)/K is abelian, with the chosen arithmetic Frobenius at 𝔭∤m transported to an automorphism and an ideal Q of its integer ring lying over 𝔭. The norm-power and character formulas themselves are pinned baseline AlgHom.IsArithFrobAt.apply_eq_pow_absNorm_of_pow_eq_one and autToPow_eq_absNorm, as CH-L18 records; supply their actual IsArithFrobAt and LiesOver hypotheses, rather than re-plan those formulas.",
       "neededBy": [
         "KTheoryLowDegrees:U.4/primes-with-norm-not-one"
       ]
@@ -25765,7 +25819,7 @@
         "KTheoryLowDegrees"
       ],
       "detail": "CA.1's nodes tame-hilbert-symbol-formula, hilbert-product-formula-of-degree-n and power-reciprocity-law cite K2SymbolsBrauer:T.7 only for the local norm-residue symbol; T.7 is downstream of KTheoryLowDegrees U.4 (via ArithmeticKTheory N.5 and K3BlochGroups V.2), so U.4 cannot import CA.1.",
-      "proposal": "CA.1 imports the local symbol from tauceti ClassFieldTheory Layer 5 (localSymbol at kummerCupPairing ζ, with Layer 6's local Artin map for the orientation) instead of K2SymbolsBrauer:T.7; K2SymbolsBrauer T.7 then imports CA.1. With the edge CA.1 → T.7 removed, U.4's nodes power-reduction-non-totally-imaginary and power-reduction-totally-imaginary cite CA.1's three nodes, with BMS's orientation (a, b)_BMS = CA.1's (b, a)_v pinned in U.4."
+      "proposal": "CA.1 imports the named cohomological pairing from ClassFieldTheory layer 5 instead of K2SymbolsBrauer:T.7. A ClassFieldTheory Part II supplier must establish the general degree-m Artin comparison and its BMS/CA.1 transpose dictionary: layer 6 currently promises only the exponent-two comparison. With the CA.1 → T.7 edge removed and that dictionary supplied, U.4 can import CA.1’s three arithmetic nodes, with (a,b)_BMS=(b,a)_CA.1 fixed explicitly. K2SymbolsBrauer T.7 then imports CA.1. These changes are proposals, and the reciprocity gap remains open."
     },
     {
       "kind": "rescope",
@@ -25776,7 +25830,7 @@
         "KTheoryLowDegrees"
       ],
       "detail": "BMS (A.17)–(A.18), the values of the degree-p^n Hilbert symbol on higher unit groups of a p-adic field, have no owner; Tau Ceti's ClassFieldTheory excludes explicit reciprocity laws beyond quadratic reciprocity.",
-      "proposal": "Plan (A.17)–(A.18) with Serre's Corps locaux XIV §3 as source in a 'Class field theory, Part II: explicit Hilbert symbols and power reciprocity' roadmap (or in ClassicalArithmeticCompletion CA.1 once the cycle above is removed); U.4/power-reduction-totally-imaginary imports it."
+      "proposal": "Plan the general degree-m cohomological/Artin dictionary, the BMS/CA.1 orientation, openness and finite index of local power subgroups, including the archimedean cases (A.13)–(A.15), and the higher-unit statements (A.17)–(A.18) in “Class field theory, Part II: explicit Hilbert symbols and power reciprocity”. The higher-unit source is Serre’s Corps locaux XIV §3; it still requires an accessible proof source. CA.1 is an alternative owner once the cycle is removed. U.4 imports the exact contracts instead of assuming these arithmetic consequences from the layer-5 cohomological pairing."
     },
     {
       "kind": "rescope",
@@ -25798,7 +25852,7 @@
         "GeneralAlgebraicKTheory",
         "KTheoryLowDegrees"
       ],
-      "detail": "RS-18 gives U.5 the comparison of K₁(A, I) with K.5's homotopy-fibre relative K₁, and K.5 the generic fibre (owner 35). The comparison needs π₁BGL(A)⁺ = K₁(A), which is U.6's, and π₂ = K₂; U.5 is upstream of U.6, so the comparison cannot be a U.5 node.",
+      "detail": "RS-18 gives U.5 the comparison of K₁(A, I) with K.5's homotopy-fibre relative K₁, and K.5 the generic fibre (owner 35). The comparison needs π₁BGL(A)⁺ = K₁(A), which is U.6's, and π₂ = K₂; U.5 is upstream of U.6, so the comparison cannot be a U.5 node. The actual relative-plus comparison and degree-two boundary compatibility are additional proof obligations; resolving the π₂ supplier alone does not prove that the double-ring comparison is an isomorphism.",
       "proposal": "The comparison is the U.6 node U.6/relative-K1-homotopy-comparison, realising U.5 and U.6, and it imports K.5's fibre. K.5 keeps the fibre and its exact sequence; consumers of the identification with the classical groups cite U.6. K.5 must cite K.2:plus nodes rather than nodes of the combined stage GeneralAlgebraicKTheory:K.2 (such as K.2/functorial-K-theory-of-a-ring): the combined stage requires K.2:low-degree-comparisons, which is downstream of U.6, so such a citation would close the cycle U.6 → K.5 → K.2 → K.2:low-degree-comparisons → U.6. It would also put SchemeKTheoryOperations S.2 and S.3 downstream of U.6 (S.2 requires K.6, which requires K.5), against RS-18's import of the DVR boundary from S.3 into U.5."
     },
     {
@@ -30919,5 +30973,17 @@
         "note": "Added a separate declaration from the checked source/proof route. Checked the relative matrix quotient (not merely an absolute kernel), transfer direction and the stated exactness/boundary normalization. Changes: Extracted a separately proved result or definition from the original bundled node. Source locators checked: Kbook.2013: III.2, The relative group SK1(R, I) (PDF p. 202; book p. 194)."
       }
     ]
+  },
+  "revisionAudit": {
+    "job": "BP-KTheoryLowDegrees--U.1~2",
+    "agent": "Codex",
+    "session": "codex-1lp2cs",
+    "date": "2026-10-05",
+    "status": "complete",
+    "newNodes": 0,
+    "boundary": "The input already exceeds the 300-node budget. Preserve all 332 ids, all review-corrected mathematics and the independent needs_changes review; synchronize coverage, reader, outline and handoff without extending the decomposition.",
+    "reviewCorrections": "Checked all 59 corrected and 32 added node contracts and the four explicit unverifiable boundaries; regenerated the reader from the current packet, including principal congruences, canonical suppliers, the nine gaps, relative SK₁, split nodes, strengthened tests and all 14 source issues.",
+    "baselineReads": "Re-read the pinned projective retract, stalk-rank base change, row-matrix, finiteProjectiveModules and split/exact K₀ signatures relevant to the splits. CH-L18 adds two pinned Frobenius formula citations, not planned nodes.",
+    "validation": "Full-file Lean attempt stops at missing Exact.Functor import before the body; the shared Tau Ceti checkout is not the packet pin. No successful full-file elaboration is claimed. See the revision handoff for reproducible checks."
   }
 }
