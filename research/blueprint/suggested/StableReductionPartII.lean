@@ -5785,3 +5785,47 @@ API: MarkingCotangentLine.pullbackCoherence
 API: MarkingCotangentLine.conormal
   Requires the actual pointed-family, sheaf, Proj or stack-quotient interfaces; this contract is specified, not replaced by a surrogate proposition.
 -/
+
+/- Independent review continuation: codex-0Sbfnu
+MC.4 section-degree positivity uses the line image of generic evaluation,
+not vanishing of H1 on every unstable nodal fibre. MC.5 rational GRR is
+characteristic zero; integral Noether uses Picard injection and torsion freeness.
+Ordered separating determinants have exchange sign (-1)^(g1*g2), and the
+nonseparating residue has its separate branch-exchange sign. Pullbacks of
+universal phi and -phi coincide in characteristic two. Full homogeneous
+level and its fixed symplectic component remain distinct moduli problems.
+Yuan degree-d triples are in section 4.3.2, pages 73-75.
+Additional contracts have no geometric Lean types yet and remain omissions:
+test: SemiCanonicalNoether.characteristicTwo
+  Requires the actual geometric interface; the mathematical guard is recorded in the review report, not encoded as a vacuous proposition.
+API: CurvesCoarseSpace.baseChange
+  Requires the actual family/sheaf/stack interface and the mathematical statement in its node; no surrogate proposition is supplied.
+API: CurveFullLevel.changeFrame
+  Requires the actual family/sheaf/stack interface and the mathematical statement in its node; no surrogate proposition is supplied.
+API: CurveFullLevel.ext
+  Requires the actual family/sheaf/stack interface and the mathematical statement in its node; no surrogate proposition is supplied.
+API: CurveHodgeBundle.mapIso
+  Requires the actual family/sheaf/stack interface and the mathematical statement in its node; no surrogate proposition is supplied.
+API: CurveHodgeBundle.baseChangeCoherence
+  Requires the actual family/sheaf/stack interface and the mathematical statement in its node; no surrogate proposition is supplied.
+API: CurveHodgeLine.exactSequence
+  Requires the actual family/sheaf/stack interface and the mathematical statement in its node; no surrogate proposition is supplied.
+API: CurveBoundary.lineBaseChange
+  Requires the actual family/sheaf/stack interface and the mathematical statement in its node; no surrogate proposition is supplied.
+API: CurveMaximalVariation.fieldExtension
+  Requires the actual family/sheaf/stack interface and the mathematical statement in its node; no surrogate proposition is supplied.
+API: StableCurveCompactification.mapIso
+  Requires the actual family/sheaf/stack interface and the mathematical statement in its node; no surrogate proposition is supplied.
+API: CurveGraphClosure.comparison
+  Requires the actual family/sheaf/stack interface and the mathematical statement in its node; no surrogate proposition is supplied.
+API: CurveTorelli.baseChange
+  Requires the actual family/sheaf/stack interface and the mathematical statement in its node; no surrogate proposition is supplied.
+API: LevelPicardParameter.baseChange
+  Requires the actual family/sheaf/stack interface and the mathematical statement in its node; no surrogate proposition is supplied.
+API: LevelPicardParameter.tensor
+  Requires the actual family/sheaf/stack interface and the mathematical statement in its node; no surrogate proposition is supplied.
+test: LevelPicardParameter.canonicalDegree
+  Requires the actual geometric interface; the mathematical guard is recorded in the review report, not encoded as a vacuous proposition.
+test: CurveGraphClosure.constantDimension
+  Requires the actual geometric interface; the mathematical guard is recorded in the review report, not encoded as a vacuous proposition.
+-/
