@@ -113,6 +113,10 @@ example (c : F) : projectiveEval 0 none
 -- projectiveEvalTests.finite_zero_constant
 example (d : ℕ) (P : Polynomial.degreeLT F (d + 1)) :
     projectiveEval d (some 0) P = (P : Polynomial F).coeff 0 := by sorry
+-- projectiveEvalTests.finite_nonzero_linear
+example : projectiveEval (F := ZMod 3) 2 (some 2)
+    ⟨Polynomial.monomial 1 1,
+      Polynomial.monomial_coe_mem_degreeLT (⟨1, by decide⟩ : Fin 3) 1⟩ = 2 := by sorry
 
 -- Node: projective-two-evaluation-uniform. d ≥ 1, including one infinite point.
 theorem projectiveEval_pair_uniform (d : ℕ) (hd : 1 ≤ d) (x y : Option F) (hxy : x ≠ y) :

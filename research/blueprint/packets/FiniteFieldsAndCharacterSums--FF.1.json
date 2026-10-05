@@ -242,7 +242,7 @@
       "id": "Kowalski-elementary",
       "title": "Exponential sums over finite fields: elementary methods",
       "authors": "Emmanuel Kowalski",
-      "edition": "Public author notes, supplied PDF",
+      "edition": "Public author notes, version of 14 September 2021",
       "url": "https://people.math.ethz.ch/~kowalski/exponential-sums-elementary.pdf",
       "sha256": "ff30b82d143cedcaf76f1ef2f15a49856c0eabc2c95ba7ac0da2e3e43da9a866",
       "accessed": "2026-10-05",
@@ -376,7 +376,6 @@
       ],
       "prerequisites": [
         "FiniteFieldsAndCharacterSums:FF.1/finite-field-fourier-transport",
-        "FiniteFieldsAndCharacterSums:FF.1/fourier-expansion-of-multiplicative-character",
         "FiniteFieldsAndCharacterSums:FF.1/trivial-character-conventions",
         "AdditiveCombinatorics:AC.0/fourier-transform",
         "mathlib:gaussSum_mulShift_eq",
@@ -465,7 +464,7 @@
       "proofSteps": [
         "For m=1 the identity is immediate. Choose a generator ω of the multiplicative character group, with the predecessor’s Teichmuller/prime-above-p convention. Write ρ=ω^{−td}, gcd(t,m)=1, d=(q−1)/m, and χ=ω^{−a}. Permuting j removes t; replacing a by its residue b mod d permutes the numerator and leaves χ^m and χ(m)^m unchanged.",
         "If b=0, χ is a power of ρ, so the numerator is a permutation of all ρ^j factors. As a is a multiple of d, χ^m=1 and χ(m)^m=1. Use g(1,ψ)=−1 to split off the j=0 factor. This case avoids the excluded exponent q−1 endpoint.",
-        "For 0<b<d first use the canonical trace character. Compare all character values inside their cyclotomic coefficient field and its completion at the predecessor’s chosen prime above p, and then transport through an injective complex embedding. Invoke L3/robert-gross-koblitz-comparison ONLY with the actual coefficient-bound and chosen-root splitting inputs requested from RD.6. It gives the source-negative sum −g(ω^{-r},ψ)=π^{s(r)}∏_{i<f}Γ_p(e(r,i)), with compatible π^{p−1}=−p, for 0≤r<q−1. Use the corrected maximal-ideal chosen-root normalization in sourceIssue E750, not the printed congruence modulo p.",
+        "For 0<b<d first use the canonical trace character. Compare all character values inside their cyclotomic coefficient field and its completion at the predecessor’s chosen prime above p, and then transport through an injective complex embedding. Invoke L3/robert-gross-koblitz-comparison ONLY with the actual coefficient-bound and chosen-root splitting inputs requested from RD.6. It gives the source-negative sum −g(ω^{-r},ψ)=π^{s(r)}∏_{i<f}Γ_p(e(r,i)), with compatible π^{p−1}=−p, for 0≤r<q−1. Use the maximal-ideal chosen-root normalization printed in Cohen Lemma 11.7.12: its modulus is the fraktur prime ideal 𝔭, not the rational integer p. The alleged source error E750 is rejected by independent review.",
         "Apply digit-product-distribution to cancel the π powers. The exact L3 Gamma multiplication quotient, with k=mb, equals ω(m)^{mb}=χ(m)^{−m}. There are m source-negative sums on each side, so their signs cancel. Multiplication by χ(m)^m gives the target. This exact prime-to-p Teichmuller identity replaces the predecessor’s insufficient inference from a congruence modulo the cyclotomic prime.",
         "L3 identifies the Gamma quotient by proving its normalized (p−1)st power is 1 and its residue is 1; reduction is injective on these prime-to-p roots. For p=2 the exponent p−1 is 1, so the equality is exact before reduction. No claim that an arbitrary p-power root congruent to 1 must be trivial is used.",
         "For arbitrary primitive ψ, use the predecessor shift parametrisation and gaussSum_mulShift_eq. Both sides acquire the same χ^{-m}(u)∏_{1≤j<m}ρ^{-j}(u) factor. All Gauss factors are nonzero by the native nontrivial theorem or the trivial value −1. This route is arithmetic and p-adic analytic; it does not use étale cohomology or Poincare duality."
@@ -543,7 +542,7 @@
         "mathlib:Polynomial.lcoeff"
       ],
       "acceptance": [
-        "Each of the four named tests is included as an example in the suggested file.",
+        "Each of the five named tests is included as an example in the suggested file.",
         "Changing representatives by λ≠0 scales the section value by λ^d. Consequently the fixed chart is stated explicitly; no canonical scalar evaluation on P¹ is asserted."
       ],
       "library": {
@@ -626,6 +625,12 @@
           "name": "projectiveEvalTests.finite_zero_constant",
           "kind": "compatibility",
           "statement": "For every d and P, E_d(some 0,P)=P.coeff 0, agreeing with native evaluation."
+        },
+        {
+          "name": "projectiveEvalTests.finite_nonzero_linear",
+          "kind": "computation",
+          "statement": "Over ZMod 3 at d=2, E₂(some 2,X)=2. A rule evaluating every finite point at zero fails.",
+          "addedBy": "REV-FiniteFieldsAndCharacterSums--FF.1"
         }
       ],
       "planet": {
@@ -745,9 +750,7 @@
       ],
       "prerequisites": [
         "mathlib:gaussSum",
-        "mathlib:Fintype.prod_sum",
-        "FiniteFieldsAndCharacterSums:FF.1/norm-lift-of-a-multiplicative-character",
-        "FiniteFieldsAndCharacterSums:FF.1/trace-lift-of-an-additive-character"
+        "mathlib:Fintype.prod_sum"
       ],
       "acceptance": [
         "Two components give g_A=g_1g_2 with the native positive-sum sign.",
@@ -783,7 +786,7 @@
     },
     {
       "supplier": "PadicDifferentialEquationsAndRigidCohomology:RD.6",
-      "need": "Export the actual native splitting-value interface in addition to the preceding coefficient-bound request. For p prime, a normalized complete ultrametric nonarchimedean local field K with residueF of cardinalityq=p^f,f>0, an explicit norm-preserving Q_p embedding, chosen primitive p-th rootzeta and compatiblepi^(p−1)=−p, prove ∀u:Fˣ, tsum_n coeff_n(rescale(pi,PowerSeries.exp K)*expand(q,rescale(−pi,PowerSeries.exp K)))*tau(u)^n = (AddChar.zmodChar p zeta.pow_eq_one)(Algebra.trace (ZMod p) F u). Use the actual native TauCeti.teichmuller lift tau inK, actual formal coefficients and existing trace character. Explain chosen-root compatibility: the Dwork rootTheta_p(1) is primitive and congruent1+pi modulo pi², and the normalizedpi associated withzeta must giveTheta_p(1)=zeta. Include p=2 (pi=−2,zeta=−1) and the small-prime checks. The current RD.6/dwork-isocrystal node describes inverse Frobenius trace values but exports no equality between this native coefficient tsum and that additive character; its inverse sign must be converted explicitly. Source: Robert2000 VII2.4 pp.393–397 and Robert2001 Appendix2 p.169, both recorded as fully read by that owner; this continuation imports the precise request, not a new source-reading claim. The consumer already proves summability on‖z‖≤1 from the coefficient bound and proves the actual Teichmuller norm1, so this request does not outsource convergence, finite orthogonality or the Gamma comparison. In this application choose K as the completion of the cyclotomic character-value field at the predecessor’s prime above p; include existence of a compatible pi for the chosen zeta with pi/(zeta−1) ≡ 1 modulo the maximal ideal, equivalently pi ≡ zeta−1 modulo (zeta−1)^2. Cohen-II Lemma 11.7.12 prints a stronger, false modulus p (sourceIssue E750); do not impose it.",
+      "need": "Export the actual native splitting-value interface in addition to the preceding coefficient-bound request. For p prime, a normalized complete ultrametric nonarchimedean local field K with residueF of cardinalityq=p^f,f>0, an explicit norm-preserving Q_p embedding, chosen primitive p-th rootzeta and compatiblepi^(p−1)=−p, prove ∀u:Fˣ, tsum_n coeff_n(rescale(pi,PowerSeries.exp K)*expand(q,rescale(−pi,PowerSeries.exp K)))*tau(u)^n = (AddChar.zmodChar p zeta.pow_eq_one)(Algebra.trace (ZMod p) F u). Use the actual native TauCeti.teichmuller lift tau inK, actual formal coefficients and existing trace character. Explain chosen-root compatibility: the Dwork rootTheta_p(1) is primitive and congruent1+pi modulo pi², and the normalizedpi associated withzeta must giveTheta_p(1)=zeta. Include p=2 (pi=−2,zeta=−1) and the small-prime checks. The current RD.6/dwork-isocrystal node describes inverse Frobenius trace values but exports no equality between this native coefficient tsum and that additive character; its inverse sign must be converted explicitly. Source: Robert2000 VII2.4 pp.393–397 and Robert2001 Appendix2 p.169, both recorded as fully read by that owner; this continuation imports the precise request, not a new source-reading claim. The consumer already proves summability on‖z‖≤1 from the coefficient bound and proves the actual Teichmuller norm1, so this request does not outsource convergence, finite orthogonality or the Gamma comparison. In this application choose K as the completion of the cyclotomic character-value field at the predecessor’s prime above p; include existence of a compatible pi for the chosen zeta with pi/(zeta−1) ≡ 1 modulo the maximal ideal, equivalently pi ≡ zeta−1 modulo (zeta−1)^2. Cohen-II Lemma 11.7.12 already prints the fraktur prime ideal 𝔭 as its modulus, which is this maximal-ideal condition. The allegation that the source prints the rational integer p (sourceIssue E750) is rejected; no source correction is required.",
       "neededBy": [
         "FiniteFieldsAndCharacterSums:FF.1/hasse-davenport-product-completion"
       ],
@@ -818,16 +821,21 @@
       "source": "Cohen-II-public",
       "kind": "misprint",
       "locator": "Lemma 11.7.12, printed p.390 and repeated in its proof p.391, 2007 Springer scan (PDF pp.412–413); page images personally checked",
-      "printed": "π/(ζ_p − 1) ≡ 1 (mod pℤ_K)",
-      "correction": "Require π/(ζ_p−1) ≡ 1 modulo the maximal ideal (ζ_p−1)ℤ_K, equivalently π ≡ ζ_p−1 modulo (ζ_p−1)². Replace the excessive congruence in the comparison proof too; only the resulting cyclotomic-prime congruence is justified there.",
-      "reason": "At p=3 set t=ζ_3−1, so t²=−3(1+t), v_3(t)=1/2 and u=π/t satisfies u²=(1+t)⁻¹. If u−1 were divisible by 3 then u²−1 would be divisible by 3, but u²−1=−t/(1+t) has valuation 1/2. The printed choice therefore cannot exist. The same page’s later remark gives v_π((ζ_p−1)/π−1)=1, consistent with the corrected modulus.",
-      "affects": "a stated result",
-      "known": "new",
+      "printed": "π/(ζ_p − 1) ≡ 1 (mod 𝔭ℤ_K)",
+      "correction": "No correction to the source: the printed modulus is the fraktur prime ideal 𝔭, giving the intended maximal-ideal congruence, equivalently π ≡ ζ_p−1 modulo (ζ_p−1)². Retain this entry only as a rejected allegation.",
+      "reason": "The original packet transcribed the fraktur ideal 𝔭 as the rational integer p. Both occurrences on printed pp.390–391 (PDF pp.412–413) use the EUFM10 fraktur font; ordinary p in π^(p−1)=−p uses the distinct CMMI10 math-italic font. Rendered page images confirm the distinction. The p=3 valuation calculation refutes a stronger rational-prime congruence that the source never states, so it is not evidence of a source misprint.",
+      "affects": "nothing",
+      "known": "Rejected allegation: typographic/transcription confusion in the blueprint, not a published source error.",
       "searched": [
         "Cohen author homepage https://www.math.u-bordeaux.fr/~hecohen/ and current ~cohen alias, accessed 2026-10-05",
         "Author errata https://www.math.u-bordeaux.fr/~cohen/deabookerrata.pdf, dated 2008-11-30: Volume II entries read and whole file searched; no correction at pp.390–391 found",
         "Publisher book record https://link.springer.com/book/10.1007/978-0-387-49894-2 and web search for Lemma 11.7.12 errata; no later correction found"
-      ]
+      ],
+      "review": {
+        "verdict": "rejected",
+        "reason": "The original packet transcribed the fraktur ideal 𝔭 as the rational integer p. Both occurrences on printed pp.390–391 (PDF pp.412–413) use the EUFM10 fraktur font; ordinary p in π^(p−1)=−p uses the distinct CMMI10 math-italic font. Rendered page images confirm the distinction. The p=3 valuation calculation refutes a stronger rational-prime congruence that the source never states, so it is not evidence of a source misprint.",
+        "by": "REV-FiniteFieldsAndCharacterSums--FF.1"
+      }
     },
     {
       "id": "FiniteFieldsAndCharacterSums/E751",
@@ -841,7 +849,12 @@
       "known": "Cohen, Errata, Changes, and Addenda, 2008-11-30, p.4, Volume II p.372 entry: https://www.math.u-bordeaux.fr/~cohen/deabookerrata.pdf",
       "searched": [
         "Author errata PDF, Volume II p.372 entry, personally read 2026-10-05"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The public 2007 scan prints n in the first line of Theorem 11.6.14, while the formula and proof use N. Cohen’s errata dated 30 November 2008, PDF p.4, Volume II p.372 entry, explicitly says to replace n by N twice. The packet already uses the corrected multiplier.",
+        "by": "REV-FiniteFieldsAndCharacterSums--FF.1"
+      }
     }
   ],
   "restructure": [],
@@ -859,5 +872,53 @@
       "read": "2026-10-05",
       "sha256": "e25889069c18eee932088e1b9264c614ce883bb394a03cb3a109f5859ab57ca0"
     }
-  ]
+  ],
+  "review": {
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-FiniteFieldsAndCharacterSums--FF.1",
+    "date": "2026-10-05",
+    "notes": "All 8 nodes, 32 pinned baseline declarations, 5 public source versions, 6 API items, 5 definition tests, 4 planets and confirmed RT-AREA-finitefields/7–10 were checked. Four nodes were corrected in scope; no nodes or baseline citations were added or removed. E750 is rejected because Cohen prints the fraktur prime ideal 𝔭; E751 is confirmed from the author errata. The mathematical packet is a sound complete planning pass with its honest two-input analytic gap. Acceptance is withheld because the input reader still alleges the rejected E750 misprint in its source-audit paragraphs and lists four definition tests rather than the revised five. That reader is not an authorized deliverable of this review; the report supplies the exact correction required before acceptance.",
+    "checked": [
+      {
+        "nodeId": "FiniteFieldsAndCharacterSums:FF.1/finite-field-fourier-transport",
+        "verdict": "verified",
+        "note": "AC.0 supplies normalized dual-indexed inversion and Parseval and the native-basis comparison; the predecessor supplies the primitive-character shift bijection. Reindexing over the actual field is valid, including F₄, and adds no second Fourier transform."
+      },
+      {
+        "nodeId": "FiniteFieldsAndCharacterSums:FF.1/multiplicative-fourier-boundary-coefficients",
+        "verdict": "corrected",
+        "note": "Confirmed the native zero-extension and χ⁻¹(−a) convention. Removed the older nontrivial-only Fourier expansion from direct prerequisites: the proof derives all coefficients from the exact AC.0 comparison and native row/shift lemmas. Compatibility with the older target remains in proofSteps."
+      },
+      {
+        "nodeId": "FiniteFieldsAndCharacterSums:FF.1/digit-product-distribution",
+        "verdict": "verified",
+        "note": "Read Cohen’s cyclic Gamma proof and all four exact L3 suppliers. Padded cyclic digits, precision-one Gamma recurrence and unit factorial reduction give the stated exponent and boundaries. Independently checked 11038 finite digit/factorial cases, including p=2, b=0 and m=1."
+      },
+      {
+        "nodeId": "FiniteFieldsAndCharacterSums:FF.1/hasse-davenport-product-completion",
+        "verdict": "corrected",
+        "note": "Confirmed Conrad (A.6), Cohen Theorem 11.7.16, exact Gamma-quotient orientation, m source-negative signs on each side, character permutation, primitive-shift transport and binary case. Corrected the false E750 source attribution. Both native RD.6 analytic inputs remain explicitly requested; the target is planned, not closed."
+      },
+      {
+        "nodeId": "FiniteFieldsAndCharacterSums:FF.1/projective-polynomial-evaluation",
+        "verdict": "corrected",
+        "note": "The native degreeLT inclusion followed by leval/lcoeff implements the prescribed ambient degree and standard projective representatives. Six API items cover the uses. Added a fifth finite-nonzero-point test and matching suggested example to catch evaluation at zero for every finite point."
+      },
+      {
+        "nodeId": "FiniteFieldsAndCharacterSums:FF.1/projective-two-evaluation-uniform",
+        "verdict": "verified",
+        "note": "For distinct finite points solve the constant and linear coefficients; with infinity solve the degree-d and constant coefficients. This proves surjectivity and fibers q^(d−1) for d≥1, including d=1. Independently enumerated 144 point/degree cases."
+      },
+      {
+        "nodeId": "FiniteFieldsAndCharacterSums:FF.1/projective-two-point-character-sum",
+        "verdict": "verified",
+        "note": "Uniform fibers and native MulChar row sums prove the all-character product formula and its nontrivial vanishing specialization. The BFP all-polynomial interpolation step is covered without claiming its separate squarefree induction; trivial/trivial gives q^(d−1)(q−1)^2."
+      },
+      {
+        "nodeId": "FiniteFieldsAndCharacterSums:FF.1/gauss-sum-finite-product-factorisation",
+        "verdict": "corrected",
+        "note": "Native Gauss sums unfold to Fintype.prod_sum for explicitly factored characters, including an empty index type. Removed norm/trace lifts from direct prerequisites because they are application data, not inputs to this elementary proof; the application remains described in the node."
+      }
+    ]
+  }
 }
