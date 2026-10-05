@@ -140,6 +140,39 @@
       "readSections": [
         "Published pp.635–674, all 40 pages, §§1–5 and references personally read on 2026-10-04. External cited proofs remain separate source obligations."
       ]
+    },
+    {
+      "id": "DemaillyCADG",
+      "title": "Complex Analytic and Differential Geometry",
+      "authors": "Jean-Pierre Demailly",
+      "edition": "Author public manuscript, fetched 2026-10-04",
+      "url": "https://www-fourier.univ-grenoble-alpes.fr/~demailly/manuscripts/agbook.pdf",
+      "sha256": "d7c7654a7417e8322e5dcf8fe8ec818b4c1a18cf280b41f2df5a871b776d89a1",
+      "readSections": [
+        "Chapter II §8.2, (8.7)–(8.10), printed/PDF pp.118–121: theorem statements and their displayed simultaneous-induction/Chow proofs personally read; auxiliary chapters not audited."
+      ]
+    },
+    {
+      "id": "LeFourn19",
+      "title": "A tubular variant of Runge’s method in all dimensions, with applications to integral points on Siegel modular varieties",
+      "authors": "Samuel Le Fourn",
+      "edition": "Algebra & Number Theory 13 (2019), no.1; target pp.180–182",
+      "url": "https://msp.org/ant/2019/13-1/ant-v13-n1-p04-s.pdf",
+      "sha256": "12e8666d4a8cdf2b865000021d79582f6a4dc30ecf4c574a9831b26f1e7b82f0",
+      "readSections": [
+        "§6, Definition–Proposition 6.3, 6.4(a,b), and 6.5, printed pp.180–182 (PDF pp.23–25) personally read; cited Namikawa/Satake proof interiors not read."
+      ]
+    },
+    {
+      "id": "BCCR17",
+      "title": "Cohomology of symplectic groups and Meyer’s signature theorem",
+      "authors": "Dave Benson, Caterina Campagnolo, Andrew Ranicki and Carmen Rovi",
+      "edition": "Author manuscript dated 9 October 2017",
+      "url": "https://webhomes.maths.ed.ac.uk/~v1ranick/papers/paper1.pdf",
+      "sha256": "002d79a072f1accbfe2089853e3eb92f77abc7742f88227618594c916f19cf90",
+      "readSections": [
+        "Title/date p.1 and §2 p.3: symplectic matrix and Igusa subgroup definitions personally read. No cohomology theorem or theta transformation proof is imported."
+      ]
     }
   ],
   "nodes": [
@@ -173,8 +206,8 @@
       "sources": [
         {
           "sourceId": "MZ20",
-          "locator": "§1.1 pp.635–636 and §1.2 p.637",
-          "match": "The cited personally read passage motivates this definition and its displayed formula/conventions. The precise native adapter and proof outline are stated here; external cited proof interiors, missing shared exports and both endpoint gates remain explicit gaps rather than established proofs."
+          "locator": "Published p.636; §1.1 pp.635–636 and §1.2 p.637",
+          "match": "Canonical polarized relative Jacobians, reduced closure in the open moduli space, and unpolarized isogenies are kept distinct. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
       "implementationStatus": "unchecked",
@@ -258,8 +291,8 @@
       "sources": [
         {
           "sourceId": "MZ20",
-          "locator": "§1.1 p.635; §1.2 p.637",
-          "match": "The cited personally read passage motivates this theorem and its displayed formula/conventions. The precise native adapter and proof outline are stated here; external cited proof interiors, missing shared exports and both endpoint gates remain explicit gaps rather than established proofs."
+          "locator": "Published p.637; §1.1 p.635; §1.2 p.637",
+          "match": "Torelli dimension 3g−3 and the strict inequality for g≥4 agree with the introduction; image-dimension proof is gap 0. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
       "implementationStatus": "unchecked"
@@ -292,8 +325,8 @@
       "sources": [
         {
           "sourceId": "MZ20",
-          "locator": "§1.1 pp.635–636; §1.4 p.642",
-          "match": "The cited personally read passage motivates this theorem and its displayed formula/conventions. The precise native adapter and proof outline are stated here; external cited proof interiors, missing shared exports and both endpoint gates remain explicit gaps rather than established proofs."
+          "locator": "Published p.642; §1.1 pp.635–636; §1.4 p.642",
+          "match": "Compact-type component products are distinguished from generalized Jacobians with toric parts; degeneration proof is gap 0. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
       "implementationStatus": "unchecked",
@@ -330,8 +363,8 @@
       "sources": [
         {
           "sourceId": "MZ20",
-          "locator": "§1.1 p.635; §1.2 Corollary 1.2 p.637",
-          "match": "The cited personally read passage motivates this construction and its displayed formula/conventions. The precise native adapter and proof outline are stated here; external cited proof interiors, missing shared exports and both endpoint gates remain explicit gaps rather than established proofs."
+          "locator": "Published p.637; §1.1 p.635; §1.2 Corollary 1.2 p.637",
+          "match": "A proper hypersurface is chosen only for g≥4 and need not descend to Q. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
       "implementationStatus": "unchecked",
@@ -410,8 +443,8 @@
       "sources": [
         {
           "sourceId": "MZ20",
-          "locator": "§4 p.653; Igusa references pp.192–195",
-          "match": "The cited personally read passage motivates this definition and its displayed formula/conventions. The precise native adapter and proof outline are stated here; external cited proof interiors, missing shared exports and both endpoint gates remain explicit gaps rather than established proofs."
+          "locator": "Published p.653; §4 p.653; Igusa references pp.192–195",
+          "match": "The closed reduced Siegel domain keeps its real-part and determinant inequalities; the classical reduction proof is gap 1. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
       "implementationStatus": "unchecked",
@@ -433,6 +466,11 @@
         }
       ],
       "api": [
+        {
+          "name": "TauCeti.NoJacobian.minkowskiDomain.mem_iff",
+          "role": "characterisation",
+          "statement": "For τ∈H_g, membership in F_g is equivalent to Minkowski reduction of Im τ, all |Re τ_ij|≤1/2, and all symplectic-block determinant inequalities |det(cτ+d)|≥1; these retain equality on the boundary."
+        },
         {
           "name": "TauCeti.NoJacobian.minkowskiDomain.orbitMeets",
           "role": "other",
@@ -499,8 +537,8 @@
       "sources": [
         {
           "sourceId": "MZ20",
-          "locator": "§4 (23)–(24) p.653",
-          "match": "The cited personally read passage motivates this theorem and its displayed formula/conventions. The precise native adapter and proof outline are stated here; external cited proof interiors, missing shared exports and both endpoint gates remain explicit gaps rather than established proofs."
+          "locator": "Published p.653; §4 (23)–(24) p.653",
+          "match": "Both matrix comparisons and the ordered diagonal are retained with a dimension-dependent positive δ. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
       "implementationStatus": "unchecked",
@@ -536,8 +574,8 @@
       "sources": [
         {
           "sourceId": "MZ20",
-          "locator": "§4 p.653; §5.1 p.662",
-          "match": "The cited personally read passage motivates this lemma and its displayed formula/conventions. The precise native adapter and proof outline are stated here; external cited proof interiors, missing shared exports and both endpoint gates remain explicit gaps rather than established proofs."
+          "locator": "Published p.653; §4 p.653; §5.1 p.662",
+          "match": "Block products preserve the diagonal matrix comparisons but not the ordered diagonal; this is a routine block specialization. This verifies the planned statement/source boundary, not formal proof closure. This is an explicit adapter or diagnostic motivated by the cited passage, not a theorem proved in that passage."
         }
       ],
       "implementationStatus": "unchecked"
@@ -571,8 +609,8 @@
       "sources": [
         {
           "sourceId": "MZ20",
-          "locator": "§2 Lemma 2.1 p.643",
-          "match": "The cited personally read passage motivates this theorem and its displayed formula/conventions. The precise native adapter and proof outline are stated here; external cited proof interiors, missing shared exports and both endpoint gates remain explicit gaps rather than established proofs."
+          "locator": "Published p.643; §2 Lemma 2.1 p.643",
+          "match": "The integer matrix determinant m and the bound 2m^(3/2) are the exact elliptic source statement. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
       "implementationStatus": "unchecked",
@@ -605,8 +643,8 @@
       "sources": [
         {
           "sourceId": "MZ20",
-          "locator": "§2 p.644; §5.1 Lemma 5.1(b) p.658",
-          "match": "The cited personally read passage motivates this theorem and its displayed formula/conventions. The precise native adapter and proof outline are stated here; external cited proof interiors, missing shared exports and both endpoint gates remain explicit gaps rather than established proofs."
+          "locator": "Published p.644; §2 p.644; §5.1 Lemma 5.1(b) p.658",
+          "match": "The count is cumulative over subgroup orders ≤m, not just order m; its higher-dimensional proof remains gap 2. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
       "implementationStatus": "unchecked",
@@ -622,7 +660,7 @@
       ],
       "title": "Many elliptic isogeny classes",
       "kind": "theorem",
-      "statement": "The curves E_j, j = n1 + in2 with 1 ≤ n1, n2 ≤ N, represent at least C_0^{-1} N²/(log N)⁴ isogeny classes, C_0 > 0 absolute.",
+      "statement": "For every integer N≥2, the curves E_j, j = n1 + in2 with 1 ≤ n1, n2 ≤ N, represent at least C_0^{-1} N²/(log N)⁴ isogeny classes, C_0 > 0 absolute.",
       "hypotheses": [],
       "prerequisites": [
         "AbelianVarietiesIsogenousToNoJacobian:E0/finite-subgroup-count"
@@ -641,8 +679,8 @@
       "sources": [
         {
           "sourceId": "MZ20",
-          "locator": "§2 p.644",
-          "match": "The cited personally read passage motivates this theorem and its displayed formula/conventions. The precise native adapter and proof outline are stated here; external cited proof interiors, missing shared exports and both endpoint gates remain explicit gaps rather than established proofs."
+          "locator": "Published p.644; §2 p.644",
+          "match": "Added N≥2 so the logarithmic denominator is defined and the source box count has its intended range. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
       "implementationStatus": "unchecked"
@@ -655,7 +693,7 @@
       ],
       "title": "Elimination along two modular correspondences",
       "kind": "construction",
-      "statement": "Given f ≠ 0 in C[y1, y2] there is c = c(f) such that for every m there is G_m ≠ 0 in C[x1, x2] of degree at most cψ(m)² with G_m(ξ1, ξ2) = 0 whenever Φ_m(ξ1, η1) = Φ_m(ξ2, η2) = f(η1, η2) = 0.",
+      "statement": "Given f ≠ 0 in C[y1, y2] there is c = c(f) such that for every integer m≥1 there is G_m ≠ 0 in C[x1, x2] of degree at most cψ(m)² with G_m(ξ1, ξ2) = 0 whenever Φ_m(ξ1, η1) = Φ_m(ξ2, η2) = f(η1, η2) = 0.",
       "hypotheses": [],
       "prerequisites": [
         "mathlib:Polynomial.resultant",
@@ -677,8 +715,8 @@
       "sources": [
         {
           "sourceId": "MZ20",
-          "locator": "§3.2 Lemma 3.1 pp.646–647",
-          "match": "The cited personally read passage motivates this construction and its displayed formula/conventions. The precise native adapter and proof outline are stated here; external cited proof interiors, missing shared exports and both endpoint gates remain explicit gaps rather than established proofs."
+          "locator": "Published p.646; §3.2 Lemma 3.1 pp.646–647",
+          "match": "Added m≥1; resultant nonvanishing still requires modular irreducibility and the explicit nesting adapter in gap 4. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
       "implementationStatus": "unchecked",
@@ -765,8 +803,8 @@
       "sources": [
         {
           "sourceId": "MZ20",
-          "locator": "§3.2 Lemma 3.2 p.647; §3.1 p.645",
-          "match": "The cited personally read passage motivates this lemma and its displayed formula/conventions. The precise native adapter and proof outline are stated here; external cited proof interiors, missing shared exports and both endpoint gates remain explicit gaps rather than established proofs."
+          "locator": "Published p.647; §3.2 Lemma 3.2 p.647; §3.1 p.645",
+          "match": "The corrected divisor reordering gives M² and the second-moment sum gives M³ log M for M≥2. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
       "implementationStatus": "unchecked"
@@ -779,7 +817,7 @@
       ],
       "title": "Few small-isogeny elliptic candidates",
       "kind": "theorem",
-      "statement": "Given integers M ≥ 2 and N ≥ 1, there are only ≪_f N M³ log M pairs n = (n1, n2) with 1 ≤ n1, n2 ≤ N such that E_n (j = n1 + in2) is isogenous to its complex conjugate or to some E_c with c ∈ C via an isogeny of degree at most M.",
+      "statement": "Fix a nonzero polynomial f∈Q̄[y1,y2] and the real algebraic curve C={c∈C:f(c,c̄)=0}, with constants depending on f. Given integers M ≥ 2 and N ≥ 1, there are only ≪_f N M³ log M pairs n = (n1, n2) with 1 ≤ n1, n2 ≤ N such that E_n (j = n1 + in2) is isogenous to its complex conjugate or to some E_c with c ∈ C via an isogeny of degree at most M.",
       "hypotheses": [],
       "prerequisites": [
         "AbelianVarietiesIsogenousToNoJacobian:E1/iterated-elimination",
@@ -802,8 +840,8 @@
       "sources": [
         {
           "sourceId": "MZ20",
-          "locator": "§3.2 Lemma 3.2 p.647",
-          "match": "The cited personally read passage motivates this theorem and its displayed formula/conventions. The precise native adapter and proof outline are stated here; external cited proof interiors, missing shared exports and both endpoint gates remain explicit gaps rather than established proofs."
+          "locator": "Published p.647; §3.2 Lemma 3.2 p.647",
+          "match": "Specified the fixed real-curve polynomial in the pair (c,c̄); the invertible real-grid substitution preserves nonzero elimination polynomials. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
       "implementationStatus": "unchecked",
@@ -819,7 +857,7 @@
       ],
       "title": "Large isogenies force large fields",
       "kind": "theorem",
-      "statement": "If E_n is isogenous to Ẽ = E_c with c ∈ C and n outside the exceptions of Lemma 3.2 with M = [(log N)³], then there is an isogeny of degree m̃ ≪ D̃⁷, where D̃ ≥ 2 bounds the degree of a field of definition of Ẽ, and log N ≪ D̃²(log D̃)².",
+      "statement": "For N sufficiently large depending on the fixed f, with M=floor((log N)³)≥2, suppose E_n is isogenous to Ẽ=E_c with c∈C and n is outside the exceptions of Lemma 3.2 at this M. If Ẽ has a model over a number field of degree at most D̃≥2, then there is an isogeny of degree m̃≪D̃⁷ and log N≪D̃²(log D̃)². Constants depend only on the fixed curve.",
       "hypotheses": [],
       "prerequisites": [
         "AbelianVarietiesIsogenousToNoJacobian:E1/small-isogeny-candidates"
@@ -839,8 +877,8 @@
       "sources": [
         {
           "sourceId": "MZ20",
-          "locator": "§3.2 Lemma 3.3 p.648",
-          "match": "The cited personally read passage motivates this theorem and its displayed formula/conventions. The precise native adapter and proof outline are stated here; external cited proof interiors, missing shared exports and both endpoint gates remain explicit gaps rather than established proofs."
+          "locator": "Published p.648; §3.2 Lemma 3.3 p.648",
+          "match": "Added sufficiently large N and floor((log N)^3)≥2 before invoking the small-isogeny lemma; the model field is a number field. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
       "implementationStatus": "unchecked"
@@ -859,7 +897,8 @@
         "AbelianVarietiesIsogenousToNoJacobian:E0/elliptic-matrix",
         "AbelianVarietiesIsogenousToNoJacobian:MZ0/period-matrix-correspondence",
         "AbelianVarietiesIsogenousToNoJacobian:MZ0/minkowski-domain",
-        "ModularCurvesPartII:R12.1"
+        "ModularCurvesPartII:R12.1",
+        "LogicAndDefinabilityInNumberTheory:LD.6"
       ],
       "proofSteps": [
         "Form the product of two instances of the period-matrix correspondence with a common target condition Z.",
@@ -875,8 +914,8 @@
       "sources": [
         {
           "sourceId": "MZ20",
-          "locator": "§3.2 (13)–(18) pp.649–650",
-          "match": "The cited personally read passage motivates this construction and its displayed formula/conventions. The precise native adapter and proof outline are stated here; external cited proof interiors, missing shared exports and both endpoint gates remain explicit gaps rather than established proofs."
+          "locator": "Published p.649; §3.2 (13)–(18) pp.649–650",
+          "match": "Added the early definability supplier directly; the correspondence uses two matrices and both denominators, without a fixed determinant condition. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
       "implementationStatus": "unchecked",
@@ -954,8 +993,8 @@
       "sources": [
         {
           "sourceId": "MZ20",
-          "locator": "§3.2 p.650",
-          "match": "The cited personally read passage motivates this lemma and its displayed formula/conventions. The precise native adapter and proof outline are stated here; external cited proof interiors, missing shared exports and both endpoint gates remain explicit gaps rather than established proofs."
+          "locator": "Published p.650; §3.2 p.650",
+          "match": "The empty algebraic part is claimed for the non-modular paired image, with vertical/horizontal components excluded, not for the matrix fibre. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
       "implementationStatus": "unchecked"
@@ -990,8 +1029,8 @@
       "sources": [
         {
           "sourceId": "MZ20",
-          "locator": "§3.2 pp.649–650",
-          "match": "The cited personally read passage motivates this lemma and its displayed formula/conventions. The precise native adapter and proof outline are stated here; external cited proof interiors, missing shared exports and both endpoint gates remain explicit gaps rather than established proofs."
+          "locator": "Published p.650; §3.2 pp.649–650",
+          "match": "Embeddings fix the coefficient field, the projected orbit has size ≫D̃, and ε<2/21 makes the exponent strictly smaller than one. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
       "implementationStatus": "unchecked"
@@ -1007,7 +1046,8 @@
       "statement": "If the real algebraic curve becomes a modular correspondence Φ_m(j,j̄)=0, any E_n isogenous to a curve on it is isogenous to its own complex conjugate. The number of such n is ≪N(log N)^7; the fixed m changes the implied constant.",
       "hypotheses": [],
       "prerequisites": [
-        "AbelianVarietiesIsogenousToNoJacobian:E1/small-isogeny-candidates"
+        "AbelianVarietiesIsogenousToNoJacobian:E1/small-isogeny-candidates",
+        "AbelianVarietiesIsogenousToNoJacobian:E1/elliptic-large-field"
       ],
       "proofSteps": [
         "Compose the isogeny with its conjugate and the fixed modular isogeny on the curve.",
@@ -1024,8 +1064,8 @@
       "sources": [
         {
           "sourceId": "MZ20",
-          "locator": "§3.2 p.648",
-          "match": "The cited personally read passage motivates this lemma and its displayed formula/conventions. The precise native adapter and proof outline are stated here; external cited proof interiors, missing shared exports and both endpoint gates remain explicit gaps rather than established proofs."
+          "locator": "Published p.648; §3.2 p.648",
+          "match": "Added the direct elliptic large-field/quantitative-estimate route; composing with conjugation reduces the modular case to the small-isogeny count. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
       "implementationStatus": "unchecked"
@@ -1043,10 +1083,12 @@
       "prerequisites": [
         "AbelianVarietiesIsogenousToNoJacobian:E1/elliptic-orbit-collapse",
         "AbelianVarietiesIsogenousToNoJacobian:E1/elliptic-modular-case",
-        "AbelianVarietiesIsogenousToNoJacobian:E1/small-isogeny-candidates"
+        "AbelianVarietiesIsogenousToNoJacobian:E1/small-isogeny-candidates",
+        "AbelianVarietiesIsogenousToNoJacobian:MZ0/coefficient-descent",
+        "AbelianVarietiesIsogenousToNoJacobian:E1/elliptic-large-field"
       ],
       "proofSteps": [
-        "Separate modular components from non-modular components; reduce finitely many curve components and coefficient cases to the source setup.",
+        "Every curve point isogenous to the algebraic E_n has algebraic j. Apply MZ0/coefficient-descent in C² to the (c,c̄) algebraic locus; choose a nonzero Q̄ polynomial containing that locus, then treat its absolutely irreducible components separately. For vertical/horizontal components the algebraic target j is fixed, so the large-field inequality handles it directly. The remaining components are modular or non-modular as in the source argument.",
         "Outside ≪N(log N)^10 candidates, orbit collapse and the large-field inequality contradict sufficiently large N.",
         "CM implies isogeny to the complex conjugate and is therefore included in the counted exceptions; absorb the finitely many small N into C."
       ],
@@ -1060,8 +1102,8 @@
       "sources": [
         {
           "sourceId": "MZ20",
-          "locator": "§1.2 Theorem 1.7 p.640; §3.2 pp.646–651",
-          "match": "The cited personally read passage motivates this theorem and its displayed formula/conventions. The precise native adapter and proof outline are stated here; external cited proof interiors, missing shared exports and both endpoint gates remain explicit gaps rather than established proofs."
+          "locator": "Published p.640; §1.2 Theorem 1.7 p.640; §3.2 pp.646–651",
+          "match": "Added coefficient descent and its direct large-field input; algebraic target points, components and isolated points are treated before counting. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1098,8 +1140,8 @@
       "sources": [
         {
           "sourceId": "MZ20",
-          "locator": "§3.3 p.651",
-          "match": "The cited personally read passage motivates this lemma and its displayed formula/conventions. The precise native adapter and proof outline are stated here; external cited proof interiors, missing shared exports and both endpoint gates remain explicit gaps rather than established proofs."
+          "locator": "Published p.651; §3.3 p.651",
+          "match": "The single-offset obstruction retains ψ(m)≤d and a bound for each m; its branch-locus proof remains gap 6. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
       "implementationStatus": "unchecked"
@@ -1132,8 +1174,8 @@
       "sources": [
         {
           "sourceId": "MZ20",
-          "locator": "§3.3 p.651; verified source diagnostic E10",
-          "match": "The cited personally read passage motivates this theorem and its displayed formula/conventions. The precise native adapter and proof outline are stated here; external cited proof interiors, missing shared exports and both endpoint gates remain explicit gaps rather than established proofs."
+          "locator": "Published p.651; §3.3 p.651; verified source diagnostic E10",
+          "match": "The simultaneous union bound is 2d^4+1. The sharper printed bound is an unresolved proof claim, not refuted by a union bound. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
       "implementationStatus": "unchecked"
@@ -1146,7 +1188,7 @@
       ],
       "title": "The corrected rational Rosati trace",
       "kind": "comparison",
-      "statement": "For a polarized complex A of dimension g and endomorphisms v,w, the rational Rosati Gram entry tr_Q(ρ(v)ερ(w)^tε⁻¹) equals 2 Re tr_C(κ(v)yκ(w)̄^t y⁻¹). In particular ℓ(v)² is the rational expression and is twice the complex self-expression. D(A) is the determinant of the real rational Gram matrix, never of the complex Hermitian matrix.",
+      "statement": "For a principally polarized complex A of dimension g≥1, a symplectic integral homology basis with polarization matrix ε and period τ=x+iy∈H_g, and endomorphisms v,w, the rational Rosati Gram entry tr_Q(ρ(v)ερ(w)^tε⁻¹) equals 2 Re tr_C(κ(v)yκ(w)̄^t y⁻¹). In particular ℓ(v)² is the rational expression and is twice the complex self-expression. D(A) is the determinant of the real rational Gram matrix, never of the complex Hermitian matrix.",
       "hypotheses": [],
       "prerequisites": [
         "AbelianSchemesAndArithmeticModuli:A2/rosati-involution",
@@ -1168,8 +1210,8 @@
       "sources": [
         {
           "sourceId": "MZ20",
-          "locator": "§4 (21)–(22) p.653 and discriminant display p.655; E1/E9",
-          "match": "The cited personally read passage motivates this comparison and its displayed formula/conventions. The precise native adapter and proof outline are stated here; external cited proof interiors, missing shared exports and both endpoint gates remain explicit gaps rather than established proofs."
+          "locator": "Published p.653; §4 (21)–(22) p.653 and discriminant display p.655; E1/E9",
+          "match": "Specified principal polarization and a symplectic integral basis; the rational Gram is 2 Re of the complex expression, including the CM test. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
       "implementationStatus": "unchecked"
@@ -1182,7 +1224,7 @@
       ],
       "title": "Lower-left period-matrix entry bounds",
       "kind": "lemma",
-      "statement": "Under the enlarged genus-g domain hypotheses, |c_ij|≤C(g,δ)ℓ(v)/√(y_i y_j) for the integer rational representation ρ(v)=(a,−b;−c,d).",
+      "statement": "Let g≥1, 0<δ≤1 and τ=x+iy∈H_g be a period of a principally polarized complex A in a symplectic integral basis. Put D_y=diag(y_1,…,y_g), y_i=y_ii, and require δD_y≤y≤δ⁻¹D_y, D_y≥δI and |x_ij|≤δ⁻¹. For v∈End(A) let ρ(v)=(a,−b;−c,d) be its signed integral representation and let ℓ be the rational Rosati length of I0/rational-analytic-trace. Then |c_ij|≤C(g,δ)ℓ(v)/√(y_i y_j).",
       "hypotheses": [],
       "prerequisites": [
         "AbelianVarietiesIsogenousToNoJacobian:I0/rational-analytic-trace",
@@ -1202,8 +1244,8 @@
       "sources": [
         {
           "sourceId": "MZ20",
-          "locator": "§4 Lemma 4.1 pp.654–655",
-          "match": "The cited personally read passage motivates this lemma and its displayed formula/conventions. The precise native adapter and proof outline are stated here; external cited proof interiors, missing shared exports and both endpoint gates remain explicit gaps rather than established proofs."
+          "locator": "Published p.654; §4 Lemma 4.1 pp.654–655",
+          "match": "Expanded all domain hypotheses and the signed integral representation; the c bound follows from the positive trace term with corrected length. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
       "implementationStatus": "unchecked"
@@ -1216,7 +1258,7 @@
       ],
       "title": "Upper-left period-matrix entry bounds",
       "kind": "lemma",
-      "statement": "Under the same hypotheses, |a_ij|≤C(g,δ)√(y_i/y_j)ℓ(v).",
+      "statement": "Let g≥1, 0<δ≤1 and τ=x+iy∈H_g be a period of a principally polarized complex A in a symplectic integral basis. Put D_y=diag(y_1,…,y_g), y_i=y_ii, and require δD_y≤y≤δ⁻¹D_y, D_y≥δI and |x_ij|≤δ⁻¹. For v∈End(A) let ρ(v)=(a,−b;−c,d) be its signed integral representation and let ℓ be the rational Rosati length of I0/rational-analytic-trace. Then |a_ij|≤C(g,δ)√(y_i/y_j)ℓ(v).",
       "hypotheses": [],
       "prerequisites": [
         "AbelianVarietiesIsogenousToNoJacobian:I0/entry-c-bounds",
@@ -1236,8 +1278,8 @@
       "sources": [
         {
           "sourceId": "MZ20",
-          "locator": "§4 Lemma 4.1 p.654",
-          "match": "The cited personally read passage motivates this lemma and its displayed formula/conventions. The precise native adapter and proof outline are stated here; external cited proof interiors, missing shared exports and both endpoint gates remain explicit gaps rather than established proofs."
+          "locator": "Published p.654; §4 Lemma 4.1 p.654",
+          "match": "Expanded all domain hypotheses; inverse-order reversal and the xc correction give the a bound. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
       "implementationStatus": "unchecked"
@@ -1250,7 +1292,7 @@
       ],
       "title": "Lower-right period-matrix entry bounds",
       "kind": "lemma",
-      "statement": "Under the same hypotheses, |d_ij|≤C(g,δ)√(y_j/y_i)ℓ(v).",
+      "statement": "Let g≥1, 0<δ≤1 and τ=x+iy∈H_g be a period of a principally polarized complex A in a symplectic integral basis. Put D_y=diag(y_1,…,y_g), y_i=y_ii, and require δD_y≤y≤δ⁻¹D_y, D_y≥δI and |x_ij|≤δ⁻¹. For v∈End(A) let ρ(v)=(a,−b;−c,d) be its signed integral representation and let ℓ be the rational Rosati length of I0/rational-analytic-trace. Then |d_ij|≤C(g,δ)√(y_j/y_i)ℓ(v).",
       "hypotheses": [],
       "prerequisites": [
         "AbelianVarietiesIsogenousToNoJacobian:I0/entry-c-bounds",
@@ -1270,8 +1312,8 @@
       "sources": [
         {
           "sourceId": "MZ20",
-          "locator": "§4 Lemma 4.1 pp.654–655",
-          "match": "The cited personally read passage motivates this lemma and its displayed formula/conventions. The precise native adapter and proof outline are stated here; external cited proof interiors, missing shared exports and both endpoint gates remain explicit gaps rather than established proofs."
+          "locator": "Published p.654; §4 Lemma 4.1 pp.654–655",
+          "match": "Expanded all domain hypotheses; the κτ identity and inverse imaginary matrix give the d bound. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
       "implementationStatus": "unchecked"
@@ -1284,7 +1326,7 @@
       ],
       "title": "Upper-right period-matrix entry bounds",
       "kind": "lemma",
-      "statement": "Under the same hypotheses, |b_ij|≤C(g,δ)√(y_i y_j)ℓ(v).",
+      "statement": "Let g≥1, 0<δ≤1 and τ=x+iy∈H_g be a period of a principally polarized complex A in a symplectic integral basis. Put D_y=diag(y_1,…,y_g), y_i=y_ii, and require δD_y≤y≤δ⁻¹D_y, D_y≥δI and |x_ij|≤δ⁻¹. For v∈End(A) let ρ(v)=(a,−b;−c,d) be its signed integral representation and let ℓ be the rational Rosati length of I0/rational-analytic-trace. Then |b_ij|≤C(g,δ)√(y_i y_j)ℓ(v).",
       "hypotheses": [],
       "prerequisites": [
         "AbelianVarietiesIsogenousToNoJacobian:I0/entry-d-bounds",
@@ -1304,8 +1346,8 @@
       "sources": [
         {
           "sourceId": "MZ20",
-          "locator": "§4 Lemma 4.1 pp.654–655",
-          "match": "The cited personally read passage motivates this lemma and its displayed formula/conventions. The precise native adapter and proof outline are stated here; external cited proof interiors, missing shared exports and both endpoint gates remain explicit gaps rather than established proofs."
+          "locator": "Published p.654; §4 Lemma 4.1 pp.654–655",
+          "match": "Expanded all domain hypotheses; the b−xd term and preceding bounds give the b bound. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
       "implementationStatus": "unchecked"
@@ -1338,8 +1380,8 @@
       "sources": [
         {
           "sourceId": "MZ20",
-          "locator": "§4 (26)–(28) pp.655–656",
-          "match": "The cited personally read passage motivates this construction and its displayed formula/conventions. The precise native adapter and proof outline are stated here; external cited proof interiors, missing shared exports and both endpoint gates remain explicit gaps rather than established proofs."
+          "locator": "Published p.655; §4 (26)–(28) pp.655–656",
+          "match": "The off-diagonal extraction is Z-linear, has zero diagonal blocks, and uses the product polarization for its Rosati norm bound. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1419,8 +1461,8 @@
       "sources": [
         {
           "sourceId": "MZ20",
-          "locator": "§4 (29) p.656",
-          "match": "The cited personally read passage motivates this lemma and its displayed formula/conventions. The precise native adapter and proof outline are stated here; external cited proof interiors, missing shared exports and both endpoint gates remain explicit gaps rather than established proofs."
+          "locator": "Published p.656; §4 (29) p.656",
+          "match": "The lattice covolume is √D of the real rational Gram; independent minimum witnesses are not claimed to form a Z-basis. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
       "implementationStatus": "unchecked"
@@ -1456,8 +1498,8 @@
       "sources": [
         {
           "sourceId": "MZ20",
-          "locator": "§4 Lemma 4.2 and (30)–(31) pp.655–656",
-          "match": "The cited personally read passage motivates this theorem and its displayed formula/conventions. The precise native adapter and proof outline are stated here; external cited proof interiors, missing shared exports and both endpoint gates remain explicit gaps rather than established proofs."
+          "locator": "Published p.655; §4 Lemma 4.2 and (30)–(31) pp.655–656",
+          "match": "The two maps are isogenies of unpolarized abelian varieties; the degree product is bounded using dimension 2g and length exponent 4g. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1473,7 +1515,7 @@
       ],
       "title": "Imaginary periods bounded by Faltings height",
       "kind": "theorem",
-      "statement": "Given g ≥ 1 and 0 < δ ≤ 1 there is C = C(g, δ) such that if τ = x + iy for A, defined over a number field of degree at most D, satisfies y ≥ δy^{(0)} and y^{(0)} ≥ δι, then y_i ≤ C D max{1, h(A)} for i = 1, …, g.",
+      "statement": "Given g ≥ 1 and 0 < δ ≤ 1 there is C = C(g, δ) such that if τ = x + iy∈H_g represents principally polarized A in a symplectic integral basis, defined over a number field of degree at most D, satisfies y ≥ δy^{(0)} and y^{(0)} ≥ δι, then y_i ≤ C D max{1, h(A)} for i = 1, …, g.",
       "hypotheses": [],
       "prerequisites": [
         "AbelianVarietiesIsogenousToNoJacobian:MZ0/block-product-domain",
@@ -1496,8 +1538,8 @@
       "sources": [
         {
           "sourceId": "MZ20",
-          "locator": "§4 Lemma 4.3 pp.656–657",
-          "match": "The cited personally read passage motivates this theorem and its displayed formula/conventions. The precise native adapter and proof outline are stated here; external cited proof interiors, missing shared exports and both endpoint gates remain explicit gaps rather than established proofs."
+          "locator": "Published p.656; §4 Lemma 4.3 pp.656–657",
+          "match": "Specified the principally polarized period realization; only the lower imaginary comparisons are required and stable height uses max(1,h). This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1535,8 +1577,8 @@
       "sources": [
         {
           "sourceId": "MZ20",
-          "locator": "§5.1 (39)–(42) p.661; E3/E7",
-          "match": "The cited personally read passage motivates this lemma and its displayed formula/conventions. The precise native adapter and proof outline are stated here; external cited proof interiors, missing shared exports and both endpoint gates remain explicit gaps rather than established proofs."
+          "locator": "Published p.661; §5.1 (39)–(42) p.661; E3/E7",
+          "match": "The signed block determinant and period relation imply denominator invertibility; the native statement has no geometric placeholder hypotheses. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
       "implementationStatus": "unchecked"
@@ -1570,8 +1612,8 @@
       "sources": [
         {
           "sourceId": "MZ20",
-          "locator": "§5.1 pp.658 and 663",
-          "match": "The cited personally read passage motivates this comparison and its displayed formula/conventions. The precise native adapter and proof outline are stated here; external cited proof interiors, missing shared exports and both endpoint gates remain explicit gaps rather than established proofs."
+          "locator": "Published p.663; §5.1 pp.658 and 663",
+          "match": "Finite field restrictions and commensurable lattices preserve openness, rather than equality of integral images. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
       "implementationStatus": "unchecked"
@@ -1584,7 +1626,7 @@
       ],
       "title": "Cadoret: p-genericity implies Galois genericity",
       "kind": "theorem",
-      "statement": "For an abelian variety over a number field, p-Galois genericity for a single prime p implies the Galois-generic property in Pink’s convention, using the precise adelic open-image theorem of Cadoret. No Mumford–Tate conjecture is assumed.",
+      "statement": "For a principally polarized abelian variety of positive dimension over a number field, p-Galois genericity for a single prime p implies the Galois-generic property in Pink’s convention, using the precise adelic open-image theorem of Cadoret. No Mumford–Tate conjecture is assumed.",
       "hypotheses": [],
       "prerequisites": [
         "ArithmeticGaloisRepresentations:R01.6",
@@ -1604,8 +1646,8 @@
       "sources": [
         {
           "sourceId": "MZ20",
-          "locator": "§5.1 p.658; Cadoret [5] Theorem 1.2",
-          "match": "The cited personally read passage motivates this theorem and its displayed formula/conventions. The precise native adapter and proof outline are stated here; external cited proof interiors, missing shared exports and both endpoint gates remain explicit gaps rather than established proofs."
+          "locator": "Published p.658; §5.1 p.658; Cadoret [5] Theorem 1.2",
+          "match": "Specified positive-dimensional principally polarized A for the GSp convention; Cadoret's original proof remains the precise gap 9 input. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1643,8 +1685,8 @@
       "sources": [
         {
           "sourceId": "MZ20",
-          "locator": "§1.2 p.637; §5.1 pp.657,663; Pink [36] p.274",
-          "match": "The cited personally read passage motivates this theorem and its displayed formula/conventions. The precise native adapter and proof outline are stated here; external cited proof interiors, missing shared exports and both endpoint gates remain explicit gaps rather than established proofs."
+          "locator": "Published p.663; §1.2 p.637; §5.1 pp.657,663; Pink [36] p.274",
+          "match": "The full Mumford–Tate group follows using the absolute-Hodge comparison leaf, not End=Z alone. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1660,7 +1702,7 @@
       ],
       "title": "Serre open image in the permitted dimensions",
       "kind": "theorem",
-      "statement": "Let A be a dimension-g abelian variety over a number field, with geometric End(A)=Z. If g is odd or g∈{2,6}, A is p-Galois generic for every prime p. No corresponding inference is made for g=4.",
+      "statement": "Let A be a dimension-g principally polarized abelian variety over a number field, with geometric End(A)=Z. If g is odd or g∈{2,6}, A is p-Galois generic for every prime p. No corresponding inference is made for g=4.",
       "hypotheses": [],
       "prerequisites": [
         "ArithmeticGaloisRepresentations:R01.6",
@@ -1680,8 +1722,8 @@
       "sources": [
         {
           "sourceId": "MZ20",
-          "locator": "§5.1 Lemma 5.1(c) p.658; Serre [39] p.35",
-          "match": "The cited personally read passage motivates this theorem and its displayed formula/conventions. The precise native adapter and proof outline are stated here; external cited proof interiors, missing shared exports and both endpoint gates remain explicit gaps rather than established proofs."
+          "locator": "Published p.658; §5.1 Lemma 5.1(c) p.658; Serre [39] p.35",
+          "match": "Specified the principally polarized GSp convention and geometric End; retained exactly odd g or g=2,6, excluding g=4. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1720,8 +1762,8 @@
       "sources": [
         {
           "sourceId": "MZ20",
-          "locator": "§5.1 p.659; Deligne [10] Lemma 4.4.16",
-          "match": "The cited personally read passage motivates this theorem and its displayed formula/conventions. The precise native adapter and proof outline are stated here; external cited proof interiors, missing shared exports and both endpoint gates remain explicit gaps rather than established proofs."
+          "locator": "Published p.659; §5.1 p.659; Deligne [10] Lemma 4.4.16",
+          "match": "The generic arithmetic family, geometric monodromy and cyclotomic similitude are separate parts of the open-image proof. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1737,7 +1779,7 @@
       ],
       "title": "Few endomorphism-specialization exceptions",
       "kind": "theorem",
-      "statement": "For a family whose generic endomorphism ring is Z, the number of integral n ∈ [1, N]^G whose fibre has End ≠ Z is ≪ N^{G−1}(log N)^µ with µ = µ(g) (Masser [23, main theorem]).",
+      "statement": "For the fixed arithmetic finite cover π:Ã⇢A_g and dominant generically finite parameter map Ψ:Ã⇢A^G used in the candidate setup, take the associated polarized family on a specified common regular finite-fibre domain, with generic geometric endomorphism ring Z. For every N≥2, the number of integral n∈[1,N]^G for which some regular projected fibre has geometric End≠Z is ≪N^{G−1}(log N)^µ, µ=µ(g), with constants depending on the fixed family. The fixed algebraic bad locus contributes O(N^{G−1}) separately. This is the source-scoped application of Masser [23], not an assertion for an arbitrary complex family.",
       "hypotheses": [],
       "prerequisites": [
         "PELModuli:M5",
@@ -1757,8 +1799,8 @@
       "sources": [
         {
           "sourceId": "MZ20",
-          "locator": "§5.1 p.658; Masser [23] main theorem",
-          "match": "The cited personally read passage motivates this theorem and its displayed formula/conventions. The precise native adapter and proof outline are stated here; external cited proof interiors, missing shared exports and both endpoint gates remain explicit gaps rather than established proofs."
+          "locator": "Published p.658; §5.1 p.658; Masser [23] main theorem",
+          "match": "Restricted to the fixed finite-cover/arithmetic parameter-family setup, geometric End, and N≥2; Masser's original specialization theorem remains gap 11. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1795,8 +1837,8 @@
       "sources": [
         {
           "sourceId": "MZ20",
-          "locator": "§5.1 p.659",
-          "match": "The cited personally read passage motivates this lemma and its displayed formula/conventions. The precise native adapter and proof outline are stated here; external cited proof interiors, missing shared exports and both endpoint gates remain explicit gaps rather than established proofs."
+          "locator": "Published p.659; §5.1 p.659",
+          "match": "An open Frattini subgroup reduces a compact p-adic image to a finite quotient; full specialization image is supplied through the thin-set route. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
       "implementationStatus": "unchecked"
@@ -1832,8 +1874,8 @@
       "sources": [
         {
           "sourceId": "MZ20",
-          "locator": "§5.1 (32) pp.658–659",
-          "match": "The cited personally read passage motivates this theorem and its displayed formula/conventions. The precise native adapter and proof outline are stated here; external cited proof interiors, missing shared exports and both endpoint gates remain explicit gaps rather than established proofs."
+          "locator": "Published p.658; §5.1 (32) pp.658–659",
+          "match": "The half-saving term remains in general dimension and is omitted only in the stated Serre range; excluded algebraic loci are counted separately. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
       "implementationStatus": "unchecked"
@@ -1846,7 +1888,7 @@
       ],
       "title": "An algebraic hypersurface capturing algebraic points",
       "kind": "lemma",
-      "statement": "For a proper complex algebraic hypersurface H in a quasi-projective variety defined over Q̄, its Q̄-points are contained in a proper Q̄-defined algebraic hypersurface H′. On a finite affine/projective cover, expand defining equations against a finite Q̄-linearly independent coefficient basis; all resulting coefficient equations vanish at algebraic points.",
+      "statement": "For a proper complex algebraic hypersurface H in a geometrically integral quasi-projective variety X defined over Q̄, its Q̄-points are contained in a proper Q̄-defined algebraic hypersurface H′. On a finite affine/projective cover, expand defining equations against a finite Q̄-linearly independent coefficient basis; all resulting coefficient equations vanish at algebraic points.",
       "hypotheses": [],
       "prerequisites": [
         "AlgebraicModuliForArithmeticGeometry:R09.1",
@@ -1854,7 +1896,7 @@
       ],
       "proofSteps": [
         "Decompose each finite coefficient span over Q̄ and evaluate at Q̄-points.",
-        "Choose nonzero coefficient equations, homogenize and combine on the fixed quasi-projective embedding to obtain a proper hypersurface containing the relevant algebraic locus.",
+        "Embed X in projective space over Q̄. Choose a homogeneous equation vanishing on the closure of H but not identically on X_C. Expand its finite coefficient span over Q̄; because X is defined over Q̄, at least one coefficient polynomial is nonzero on X. Its zero set in X is a proper Q̄-defined hypersurface containing H∩X(Q̄).",
         "Use algebraicity of finite isogeny quotients of algebraic A to see that every relevant isogenous B has an algebraic moduli point."
       ],
       "acceptance": [
@@ -1867,8 +1909,8 @@
       "sources": [
         {
           "sourceId": "MZ20",
-          "locator": "§3.2 pp.646–647 and §5.1 p.661 (Galois conjugation setup)",
-          "match": "The cited personally read passage motivates this lemma and its displayed formula/conventions. The precise native adapter and proof outline are stated here; external cited proof interiors, missing shared exports and both endpoint gates remain explicit gaps rather than established proofs."
+          "locator": "Published p.647; §3.2 pp.646–647 and §5.1 p.661 (Galois conjugation setup)",
+          "match": "Specified a geometrically integral Q̄-defined ambient variety; descent contains the algebraic points rather than claiming that H itself descends. This verifies the planned statement/source boundary, not formal proof closure. This is an explicit adapter or diagnostic motivated by the cited passage, not a theorem proved in that passage."
         }
       ],
       "implementationStatus": "unchecked"
@@ -1903,8 +1945,8 @@
       "sources": [
         {
           "sourceId": "MZ20",
-          "locator": "§1.2 (1) p.638; Lemma 5.1(a) p.658",
-          "match": "The cited personally read passage motivates this lemma and its displayed formula/conventions. The precise native adapter and proof outline are stated here; external cited proof interiors, missing shared exports and both endpoint gates remain explicit gaps rather than established proofs."
+          "locator": "Published p.658; §1.2 (1) p.638; Lemma 5.1(a) p.658",
+          "match": "The degree bound is asserted on the common regular finite-fibre domain; coarse moduli versus model fields remain separate in gap 12. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
       "implementationStatus": "unchecked"
@@ -1939,8 +1981,8 @@
       "sources": [
         {
           "sourceId": "MZ20",
-          "locator": "§5.1 p.663 orbit-degree adapter; item /72",
-          "match": "The cited personally read passage motivates this theorem and its displayed formula/conventions. The precise native adapter and proof outline are stated here; external cited proof interiors, missing shared exports and both endpoint gates remain explicit gaps rather than established proofs."
+          "locator": "Published p.663; §5.1 p.663 orbit-degree adapter; item /72",
+          "match": "Fine level-three lifting bounds a model field over the moduli field; the fixed-pairing cyclotomic component or similitude level must be tracked. This verifies the planned statement/source boundary, not formal proof closure. This is an explicit adapter or diagnostic motivated by the cited passage, not a theorem proved in that passage."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1976,8 +2018,8 @@
       "sources": [
         {
           "sourceId": "MZ20",
-          "locator": "§5.1 Lemma 5.1(b) p.658",
-          "match": "The cited personally read passage motivates this lemma and its displayed formula/conventions. The precise native adapter and proof outline are stated here; external cited proof interiors, missing shared exports and both endpoint gates remain explicit gaps rather than established proofs."
+          "locator": "Published p.658; §5.1 Lemma 5.1(b) p.658",
+          "match": "Principal duality reverses an arbitrary isogeny with equal degree; it does not make the original map polarization-preserving. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
       "implementationStatus": "unchecked"
@@ -1990,18 +2032,19 @@
       ],
       "title": "Small-isogeny hypersurface images",
       "kind": "lemma",
-      "statement": "For the fixed H⊂A_g, the union of points connected to H by an isogeny of degree at most M is contained in an algebraic hypersurface whose degree in the fixed parameter model is ≤C M^{2g}. The constant depends on the cover, parameter map, embedding and H, not on M,N.",
+      "statement": "For the fixed algebraic hypersurface H⊂A_g and integer M≥1, the points A with geometric End(A)=Z connected to H by an isogeny of degree at most M are contained in an algebraic hypersurface whose degree in the fixed parameter model is ≤C M^{2g}. Nongeneric points are counted separately in G0/genericity-grid-count. The constant depends on the cover, parameter map, embedding and H, not on M,N. The projective correspondence-degree estimate is the explicit proof obligation in gap Isogeny correspondence degree refinement.",
       "hypotheses": [],
       "prerequisites": [
         "AbelianVarietiesIsogenousToNoJacobian:C0/dual-small-isogeny-correspondence",
         "AbelianVarietiesIsogenousToNoJacobian:E0/finite-subgroup-count",
         "AlgebraicModuliForArithmeticGeometry:R09.1",
-        "PELModuli:M5"
+        "PELModuli:M5",
+        "AbelianVarietiesIsogenousToNoJacobian:G0/galois-to-hodge"
       ],
       "proofSteps": [
-        "Construct the finite isogeny correspondence in the chosen level/embedding presentation.",
-        "Use the subgroup count to bound its relevant degree and intersect with the second-factor hypersurface.",
-        "Push to the first factor and to parameter space, retaining multiplicities and generic finite-degree constants."
+        "For End(A)=Z, every isogenous B also has geometric End(B)=Z. If a principal polarization exists, Hom(B,B∨) is generated by it and positivity selects its unique principal polarization. Thus quotient counting does not silently discard additional polarization choices. Hodge genericity implies End=Z via the Hodge endomorphism comparison; record this adapter with the degree obligation.",
+        "Construct the finite union of polarized isogeny correspondences covering these points. For f:B→A, f*λ_A is a positive integral multiple sλ_B, and deg f=s^g; keep this multiplier when specifying the correspondence.",
+        "Use the cumulative subgroup count to bound fibre degrees. Separately prove the projective push/intersection degree estimate in the chosen embedding, as required by gap Isogeny correspondence degree refinement; a fibre count alone is not that proof."
       ],
       "acceptance": [
         "Retain every dimension, field, domain and nonvanishing hypothesis in the displayed statement; verify the stated source argument through precisely the listed prerequisites."
@@ -2013,8 +2056,8 @@
       "sources": [
         {
           "sourceId": "MZ20",
-          "locator": "§5.1 Lemma 5.1(b) p.658",
-          "match": "The cited personally read passage motivates this lemma and its displayed formula/conventions. The precise native adapter and proof outline are stated here; external cited proof interiors, missing shared exports and both endpoint gates remain explicit gaps rather than established proofs."
+          "locator": "Published p.658; §5.1 Lemma 5.1(b) p.658",
+          "match": "Restricted the hypersurface estimate to geometric End=Z points, where a principal polarization is unique; subgroup counts alone still do not prove projective degree (gap 13). This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
       "implementationStatus": "unchecked"
@@ -2036,9 +2079,9 @@
         "mathlib:MvPolynomial.schwartz_zippel_totalDegree"
       ],
       "proofSteps": [
-        "Count the fixed bad fibre locus by ≪N^{G−1}.",
-        "Count the small-isogeny hypersurface by its degree times N^{G−1}.",
-        "Add the genericity exceptions, keeping the improved dimension range exactly as stated."
+        "Count the fixed bad fibre locus by O(N^{G−1}) and all nongeneric candidates by G0/genericity-grid-count.",
+        "For each remaining Galois-generic candidate, geometric End=Z, so apply C0/small-isogeny-hypersurfaces with its recorded projective-degree obligation and then the polynomial grid bound.",
+        "Add these counts. This covers the union (a)∨(b)∨(c) without requiring the small-isogeny estimate on nongeneric points. Retain the improved dimension range."
       ],
       "acceptance": [
         "Retain every dimension, field, domain and nonvanishing hypothesis in the displayed statement; verify the stated source argument through precisely the listed prerequisites."
@@ -2050,8 +2093,8 @@
       "sources": [
         {
           "sourceId": "MZ20",
-          "locator": "§5.1 Lemma 5.1 (32) pp.658–659",
-          "match": "The cited personally read passage motivates this theorem and its displayed formula/conventions. The precise native adapter and proof outline are stated here; external cited proof interiors, missing shared exports and both endpoint gates remain explicit gaps rather than established proofs."
+          "locator": "Published p.658; §5.1 Lemma 5.1 (32) pp.658–659",
+          "match": "Count nongeneric points first; only then apply the corrected small-isogeny estimate. The union and all source exponents remain unchanged. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2089,8 +2132,8 @@
       "sources": [
         {
           "sourceId": "MZ20",
-          "locator": "§5.1 Lemma 5.2 (34)–(35) p.660",
-          "match": "The cited personally read passage motivates this lemma and its displayed formula/conventions. The precise native adapter and proof outline are stated here; external cited proof interiors, missing shared exports and both endpoint gates remain explicit gaps rather than established proofs."
+          "locator": "Published p.660; §5.1 Lemma 5.2 (34)–(35) p.660",
+          "match": "Stable Faltings height need not be nonnegative; the product Rosati discriminant bound remains a quantitative owner input with the fixed-family height adapter. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
       "implementationStatus": "unchecked"
@@ -2124,8 +2167,8 @@
       "sources": [
         {
           "sourceId": "MZ20",
-          "locator": "§5.1 Lemma 5.2 (33) p.660",
-          "match": "The cited personally read passage motivates this lemma and its displayed formula/conventions. The precise native adapter and proof outline are stated here; external cited proof interiors, missing shared exports and both endpoint gates remain explicit gaps rather than established proofs."
+          "locator": "Published p.660; §5.1 Lemma 5.2 (33) p.660",
+          "match": "The selected isogeny's degree has exponent 2gλ, with constants depending on the fixed arithmetic family. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
       "implementationStatus": "unchecked"
@@ -2158,8 +2201,8 @@
       "sources": [
         {
           "sourceId": "MZ20",
-          "locator": "§5.1 (36) p.660",
-          "match": "The cited personally read passage motivates this lemma and its displayed formula/conventions. The precise native adapter and proof outline are stated here; external cited proof interiors, missing shared exports and both endpoint gates remain explicit gaps rather than established proofs."
+          "locator": "Published p.660; §5.1 (36) p.660",
+          "match": "The logarithmic threshold requires ν>2gλ and sufficiently large N; floor rounding is absorbed only in that range. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
       "implementationStatus": "unchecked"
@@ -2192,8 +2235,8 @@
       "sources": [
         {
           "sourceId": "MZ20",
-          "locator": "§5.1 pp.662–663",
-          "match": "The cited personally read passage motivates this construction and its displayed formula/conventions. The precise native adapter and proof outline are stated here; external cited proof interiors, missing shared exports and both endpoint gates remain explicit gaps rather than established proofs."
+          "locator": "Published p.662; §5.1 pp.662–663",
+          "match": "The positive coordinate blocks and the signed rational representation are explicitly converted; det(cτ+d)≠0 is part of the actual native set. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2284,8 +2327,8 @@
       "sources": [
         {
           "sourceId": "MZ20",
-          "locator": "§5.1 pp.662–663",
-          "match": "The cited personally read passage motivates this lemma and its displayed formula/conventions. The precise native adapter and proof outline are stated here; external cited proof interiors, missing shared exports and both endpoint gates remain explicit gaps rather than established proofs."
+          "locator": "Published p.663; §5.1 pp.662–663",
+          "match": "Restricted uniformization and the algebraic inverse image are definable; the fractional-linear projection is semialgebraic on its denominator domain. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
       "implementationStatus": "unchecked"
@@ -2326,8 +2369,8 @@
       "sources": [
         {
           "sourceId": "MZ20",
-          "locator": "§5.1 (38)–(45) pp.661–662",
-          "match": "The cited personally read passage motivates this lemma and its displayed formula/conventions. The precise native adapter and proof outline are stated here; external cited proof interiors, missing shared exports and both endpoint gates remain explicit gaps rather than established proofs."
+          "locator": "Published p.661; §5.1 (38)–(45) pp.661–662",
+          "match": "The fixed coefficient/model fields are included in the orbit construction and the integral height has polynomial growth in D̃. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
       "implementationStatus": "unchecked"
@@ -2365,8 +2408,8 @@
       "sources": [
         {
           "sourceId": "MZ20",
-          "locator": "§5.1 p.663",
-          "match": "The cited personally read passage motivates this lemma and its displayed formula/conventions. The precise native adapter and proof outline are stated here; external cited proof interiors, missing shared exports and both endpoint gates remain explicit gaps rather than established proofs."
+          "locator": "Published p.663; §5.1 p.663",
+          "match": "It is the connected projected block, not the entire matrix fibre, that must be a point; the weakly-special dichotomy is an explicit shared-source leaf. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
       "implementationStatus": "unchecked"
@@ -2402,8 +2445,8 @@
       "sources": [
         {
           "sourceId": "MZ20",
-          "locator": "§5.1 p.663",
-          "match": "The cited personally read passage motivates this lemma and its displayed formula/conventions. The precise native adapter and proof outline are stated here; external cited proof interiors, missing shared exports and both endpoint gates remain explicit gaps rather than established proofs."
+          "locator": "Published p.663; §5.1 p.663",
+          "match": "The bounded model/moduli degree adapter makes orbit cardinality comparable with D̃; ε<1/λ yields the bounded-degree conclusion. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
       "implementationStatus": "unchecked"
@@ -2442,8 +2485,8 @@
       "sources": [
         {
           "sourceId": "MZ20",
-          "locator": "§1.2 Theorem 1.3 p.638; §5.1 pp.658–663; §5.2 p.666",
-          "match": "The cited personally read passage motivates this theorem and its displayed formula/conventions. The precise native adapter and proof outline are stated here; external cited proof interiors, missing shared exports and both endpoint gates remain explicit gaps rather than established proofs."
+          "locator": "Published p.638; §1.2 Theorem 1.3 p.638; §5.1 pp.658–663; §5.2 p.666",
+          "match": "The exceptional event is existential in each regular fibre; retained g≥2, γ<1/2 and the improved odd/2/6 range, with exact D bookkeeping. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2480,8 +2523,8 @@
       "sources": [
         {
           "sourceId": "MZ20",
-          "locator": "§5.2 p.665",
-          "match": "The cited personally read passage motivates this definition and its displayed formula/conventions. The precise native adapter and proof outline are stated here; external cited proof interiors, missing shared exports and both endpoint gates remain explicit gaps rather than established proofs."
+          "locator": "Published p.665; §5.2 p.665",
+          "match": "Fourier order uses discrete trace support, the half-integral convention and ord(0)=∞; the definition does not assume integral order. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2571,8 +2614,8 @@
       "sources": [
         {
           "sourceId": "MZ20",
-          "locator": "§5.2 p.665",
-          "match": "The cited personally read passage motivates this lemma and its displayed formula/conventions. The precise native adapter and proof outline are stated here; external cited proof interiors, missing shared exports and both endpoint gates remain explicit gaps rather than established proofs."
+          "locator": "Published p.665; §5.2 p.665",
+          "match": "Cancellation cannot lower the minimum trace in a product; only superadditivity is used. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
       "implementationStatus": "unchecked"
@@ -2606,8 +2649,8 @@
       "sources": [
         {
           "sourceId": "MZ20",
-          "locator": "§5.2 Lemma 5.3 pp.664–665",
-          "match": "The cited personally read passage motivates this construction and its displayed formula/conventions. The precise native adapter and proof outline are stated here; external cited proof interiors, missing shared exports and both endpoint gates remain explicit gaps rather than established proofs."
+          "locator": "Published p.664; §5.2 Lemma 5.3 pp.664–665",
+          "match": "Normality, finite index, coset representatives and the left automorphy-factor convention are explicit; nonzero norms have weight nk. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2692,8 +2735,8 @@
       "sources": [
         {
           "sourceId": "MZ20",
-          "locator": "§5.2 Lemma 5.4 proof p.665 and constant bound p.666",
-          "match": "The cited personally read passage motivates this theorem and its displayed formula/conventions. The precise native adapter and proof outline are stated here; external cited proof interiors, missing shared exports and both endpoint gates remain explicit gaps rather than established proofs."
+          "locator": "Published p.665; §5.2 Lemma 5.4 proof p.665 and constant bound p.666",
+          "match": "The full-group bound and the gamma/Minkowski constants match the source, with g≥2 and nonnegative weight. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2709,7 +2752,7 @@
       ],
       "title": "Finite-level order bound",
       "kind": "theorem",
-      "statement": "A nonzero Λ-form ϕ of weight k satisfies ord(ϕ) ≤ κ_g n k/(4π).",
+      "statement": "Let g≥2, k≥0 be an integer and Λ◁Γ=Sp_{2g}(Z) have finite index n=[Γ:Λ]. A nonzero Λ-form ϕ of weight k satisfies ord(ϕ)≤κ_g n k/(4π), with Fourier order and κ_g as in the preceding nodes.",
       "hypotheses": [],
       "prerequisites": [
         "AbelianVarietiesIsogenousToNoJacobian:T0/norm-form",
@@ -2731,8 +2774,8 @@
       "sources": [
         {
           "sourceId": "MZ20",
-          "locator": "§5.2 Lemma 5.4 p.665",
-          "match": "The cited personally read passage motivates this theorem and its displayed formula/conventions. The precise native adapter and proof outline are stated here; external cited proof interiors, missing shared exports and both endpoint gates remain explicit gaps rather than established proofs."
+          "locator": "Published p.665; §5.2 Lemma 5.4 p.665",
+          "match": "Expanded g≥2, normal finite-index Λ, n=[Γ:Λ] and k≥0 so the finite-level bound is a complete standalone statement. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
       "implementationStatus": "unchecked"
@@ -2745,7 +2788,7 @@
       ],
       "title": "Theta constants in the fixed row-vector convention",
       "kind": "definition",
-      "statement": "For symmetric τ∈H_g and real row characteristics m,m*, define θ_{m,m*}(τ)=∑_{h∈Z^g}exp(πi(h+m)τ(h+m)^t+2πi(h+m)m*^t). Define Γ(e,2e) by the source congruence conditions for positive even e. Use the theta family θ_{m,0}(eτ), with m∈e⁻¹Z^g/Z^g and canonical representatives. For the projective model require 8|e and e a square.",
+      "statement": "For symmetric τ∈H_g and real row characteristics m,m*, define θ_{m,m*}(τ)=∑_{h∈Z^g}exp(πi(h+m)τ(h+m)^t+2πi(h+m)m*^t). For positive even integer e, define Γ(e,2e)={γ=(a,b;c,d)∈Sp_{2g}(Z):γ≡I mod e, diag(ab^t)≡diag(cd^t)≡0 mod 2e}. Equivalently use diag(a^tc),diag(b^td) in the second condition. The blocks here have the usual symplectic signs, independent of the signed endomorphism convention. Use the theta family θ_{m,0}(eτ), with m∈e⁻¹Z^g/Z^g and canonical representatives. For the projective model require 8|e and e a square.",
       "hypotheses": [],
       "prerequisites": [
         "ShimuraData:D5",
@@ -2767,8 +2810,13 @@
       "sources": [
         {
           "sourceId": "MZ20",
-          "locator": "§5.2 pp.665–666",
-          "match": "The cited personally read passage motivates this definition and its displayed formula/conventions. The precise native adapter and proof outline are stated here; external cited proof interiors, missing shared exports and both endpoint gates remain explicit gaps rather than established proofs."
+          "locator": "Published p.665; §5.2 pp.665–666",
+          "match": "Replaced the unspecified congruence conditions by an explicit matrix definition checked in BCCR17 §2; the row characteristic and even-level conventions are retained. This verifies the planned statement/source boundary, not formal proof closure."
+        },
+        {
+          "sourceId": "BCCR17",
+          "locator": "§2 p.3, Igusa subgroup definition preceding Definition 2.1",
+          "match": "The same principal-congruence and diagonal divisibility conditions, with the equivalent transposed-block formulation, are stated here. Only this definition is used."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2810,6 +2858,26 @@
           "name": "TauCeti.NoJacobian.thetaConstant.analyticCompatibility",
           "role": "compatibility",
           "statement": "Its holomorphy and slash law are statements in the imported Siegel/AutomorphicBundles types, not a private analytic carrier."
+        },
+        {
+          "name": "TauCeti.NoJacobian.thetaLevel.mem_iff",
+          "role": "characterisation",
+          "statement": "A symplectic integer matrix belongs to Γ(e,2e) iff it is I mod e and both diag(ab^t),diag(cd^t) vanish mod 2e."
+        },
+        {
+          "name": "TauCeti.NoJacobian.thetaLevel.subgroup",
+          "role": "structure",
+          "statement": "The congruence conditions define a subgroup of Sp_{2g}(Z); for positive even e it is normal and has finite index."
+        },
+        {
+          "name": "TauCeti.NoJacobian.thetaLevel.inclusions",
+          "role": "relation",
+          "statement": "Γ(2e)⊆Γ(e,2e)⊆Γ(e), with every level positive."
+        },
+        {
+          "name": "TauCeti.NoJacobian.thetaLevel.transposeCompatibility",
+          "role": "compatibility",
+          "statement": "The diagonal conditions are equivalent to diag(a^tc),diag(b^td)≡0 mod 2e, in the same principal-congruence subgroup."
         }
       ],
       "tests": [
@@ -2827,6 +2895,21 @@
           "name": "TauCeti.NoJacobian.thetaConstant.secondShiftPhase",
           "kind": "non-example",
           "statement": "For m=1/2 in genus one, shifting m* by 1 multiplies the value by −1 and is not ordinary periodicity."
+        },
+        {
+          "name": "TauCeti.NoJacobian.thetaLevel.identity",
+          "kind": "degenerate",
+          "statement": "The identity belongs to Γ(e,2e) for every positive even e."
+        },
+        {
+          "name": "TauCeti.NoJacobian.thetaLevel.principalDoubleLevel",
+          "kind": "compatibility",
+          "statement": "Every matrix congruent to I mod 2e satisfies both diagonal conditions and lies in Γ(e,2e)."
+        },
+        {
+          "name": "TauCeti.NoJacobian.thetaLevel.ellipticShear",
+          "kind": "non-example",
+          "statement": "For g=1 and positive even e, the shear (1,e;0,1) lies in Γ(e) but not Γ(e,2e), since diag(ab^t)=e is not zero mod 2e."
         }
       ]
     },
@@ -2858,8 +2941,8 @@
       "sources": [
         {
           "sourceId": "MZ20",
-          "locator": "§5.2 Lemma 5.5 p.665",
-          "match": "The cited personally read passage motivates this lemma and its displayed formula/conventions. The precise native adapter and proof outline are stated here; external cited proof interiors, missing shared exports and both endpoint gates remain explicit gaps rather than established proofs."
+          "locator": "Published p.665; §5.2 Lemma 5.5 p.665",
+          "match": "The common multiplier is an explicit transformation-law proof obligation; individual squared transformations alone are not treated as sufficient. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
       "implementationStatus": "unchecked"
@@ -2892,8 +2975,8 @@
       "sources": [
         {
           "sourceId": "MZ20",
-          "locator": "§5.2 Lemma 5.5 proof pp.665–666",
-          "match": "The cited personally read passage motivates this lemma and its displayed formula/conventions. The precise native adapter and proof outline are stated here; external cited proof interiors, missing shared exports and both endpoint gates remain explicit gaps rather than established proofs."
+          "locator": "Published p.666; §5.2 Lemma 5.5 proof pp.665–666",
+          "match": "Positive semidefiniteness bounds each off-diagonal entry by diagonal data; the Fourier lattice and real bound are retained without incorrect rounding. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
       "implementationStatus": "unchecked"
@@ -2928,8 +3011,8 @@
       "sources": [
         {
           "sourceId": "MZ20",
-          "locator": "§5.2 Lemma 5.5 (48) pp.665–666; E11",
-          "match": "The cited personally read passage motivates this theorem and its displayed formula/conventions. The precise native adapter and proof outline are stated here; external cited proof interiors, missing shared exports and both endpoint gates remain explicit gaps rather than established proofs."
+          "locator": "Published p.665; §5.2 Lemma 5.5 (48) pp.665–666; E11",
+          "match": "The kernel annihilates coefficients with trace ≤W, giving strict order >W and resolving the equality case in E11. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
       "implementationStatus": "unchecked"
@@ -2962,8 +3045,8 @@
       "sources": [
         {
           "sourceId": "MZ20",
-          "locator": "§5.2 p.666",
-          "match": "The cited personally read passage motivates this lemma and its displayed formula/conventions. The precise native adapter and proof outline are stated here; external cited proof interiors, missing shared exports and both endpoint gates remain explicit gaps rather than established proofs."
+          "locator": "Published p.666; §5.2 p.666",
+          "match": "The strict order comparison forces the relation to vanish identically; converting squared coordinates doubles its homogeneous degree. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
       "implementationStatus": "unchecked"
@@ -2998,8 +3081,8 @@
       "sources": [
         {
           "sourceId": "MZ20",
-          "locator": "§5.2 pp.665–666",
-          "match": "The cited personally read passage motivates this construction and its displayed formula/conventions. The precise native adapter and proof outline are stated here; external cited proof interiors, missing shared exports and both endpoint gates remain explicit gaps rather than established proofs."
+          "locator": "Published p.666; §5.2 pp.665–666",
+          "match": "The complex theta quotient and its Q coordinate model are separate from universal arithmetic full torsion; descent remains gap 18. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3090,8 +3173,8 @@
       "sources": [
         {
           "sourceId": "MZ20",
-          "locator": "§5.2 p.666 degree-of-closure adapter; item /71",
-          "match": "The cited personally read passage motivates this theorem and its displayed formula/conventions. The precise native adapter and proof outline are stated here; external cited proof interiors, missing shared exports and both endpoint gates remain explicit gaps rather than established proofs."
+          "locator": "Published p.666; §5.2 p.666 degree-of-closure adapter; item /71",
+          "match": "Generic projection is birational to a hypersurface with preserved degree; this non-routine adapter is expressly gap 17, not an export of Hilbert projectivity alone. This verifies the planned statement/source boundary, not formal proof closure. This is an explicit adapter or diagnostic motivated by the cited passage, not a theorem proved in that passage."
         }
       ],
       "implementationStatus": "unchecked"
@@ -3127,8 +3210,8 @@
       "sources": [
         {
           "sourceId": "MZ20",
-          "locator": "§5.2 p.666",
-          "match": "The cited personally read passage motivates this theorem and its displayed formula/conventions. The precise native adapter and proof outline are stated here; external cited proof interiors, missing shared exports and both endpoint gates remain explicit gaps rather than established proofs."
+          "locator": "Published p.666; §5.2 p.666",
+          "match": "The intermediate numerical formula and final 2^(16g^4−1) bound are retained as a planned arithmetic inequality, with its all-g proof gap. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3166,8 +3249,8 @@
       "sources": [
         {
           "sourceId": "MZ20",
-          "locator": "§5.2 p.666",
-          "match": "The cited personally read passage motivates this construction and its displayed formula/conventions. The precise native adapter and proof outline are stated here; external cited proof interiors, missing shared exports and both endpoint gates remain explicit gaps rather than established proofs."
+          "locator": "Published p.666; §5.2 p.666",
+          "match": "The rational theta-ratio map is restricted to its regular nonempty domain; its arithmetic forgetful descent is a distinct obligation. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3254,8 +3337,8 @@
       "sources": [
         {
           "sourceId": "MZ20",
-          "locator": "§1.2 Theorem 1.1 p.637; §5.1–5.2",
-          "match": "The cited personally read passage motivates this theorem and its displayed formula/conventions. The precise native adapter and proof outline are stated here; external cited proof interiors, missing shared exports and both endpoint gates remain explicit gaps rather than established proofs."
+          "locator": "Published p.637; §1.2 Theorem 1.1 p.637; §5.1–5.2",
+          "match": "The main existence theorem keeps g≥2, Hodge genericity and model degree ≤2^(16g^4); neither supplementary gate is a prerequisite. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3291,8 +3374,8 @@
       "sources": [
         {
           "sourceId": "MZ20",
-          "locator": "§1.2 Corollary 1.2 p.637",
-          "match": "The cited personally read passage motivates this theorem and its displayed formula/conventions. The precise native adapter and proof outline are stated here; external cited proof interiors, missing shared exports and both endpoint gates remain explicit gaps rather than established proofs."
+          "locator": "Published p.637; §1.2 Corollary 1.2 p.637",
+          "match": "The no-Jacobian consequence requires g≥4 and also excludes compact-type products through the Torelli closure. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3308,16 +3391,19 @@
       ],
       "title": "Many isogeny classes in the parameter box",
       "kind": "theorem",
-      "statement": "The Ψ^{-1}(n), n ∈ [1, N]^G, represent at least C_0^{-1}N^{G−ε} isogeny classes for every ε > 0, C_0 = C_0(Ψ, ε) > 0 (by the isogeny estimates [26] and the subgroup count, as at the end of §2).",
+      "statement": "For every ε>0 there are C_0=C_0(Ψ,ε)>0 and N_0 such that for every N≥N_0, the regular projected points from Ψ^{-1}(n), n∈[1,N]^G, represent at least C_0^{-1}N^{G−ε} isogeny classes. Work on a fixed common nonempty open where Ψ is regular with finite fibres and the forgetful map π is finite, so the parameter-to-moduli multiplicity is uniformly bounded. The bad algebraic domain is discarded separately, not counted with finite multiplicity.",
       "hypotheses": [],
       "prerequisites": [
         "AbelianVarietiesIsogenousToNoJacobian:E0/finite-subgroup-count",
         "AbelianVarietiesIsogenousToNoJacobian:C0/fibre-field-bound",
-        "ArakelovGeometryAndAbelianHeights:R35.3"
+        "ArakelovGeometryAndAbelianHeights:R35.3",
+        "AbelianVarietiesIsogenousToNoJacobian:G0/genericity-grid-count",
+        "AbelianVarietiesIsogenousToNoJacobian:G0/galois-to-hodge"
       ],
       "proofSteps": [
-        "Use the shared general isogeny degree estimate and the fixed-family height bound to bound the number of box candidates in any one isogeny class by a power of log N.",
-        "Include the bounded fibre multiplicity of Ψ, then absorb the logarithmic power into N^ε."
+        "Discard the fixed bad algebraic domain and the nongeneric candidates using G0/genericity-grid-count; for sufficiently large N a positive proportion of the box remains. Hodge genericity implies geometric End=Z.",
+        "Use the shared quantitative isogeny estimate and fixed-family height bound to bound the quotient groups in one isogeny class by a power of log N. End=Z makes its principal polarization unique, so this counts the polarized moduli points as well.",
+        "Use bounded multiplicity on the chosen common finite domain, then absorb the logarithmic factor into N^ε."
       ],
       "acceptance": [
         "Retain every dimension, field, domain and nonvanishing hypothesis in the displayed statement; verify the stated source argument through precisely the listed prerequisites."
@@ -3329,8 +3415,8 @@
       "sources": [
         {
           "sourceId": "MZ20",
-          "locator": "§1.2 p.638 and §5.3 p.666",
-          "match": "The cited personally read passage motivates this theorem and its displayed formula/conventions. The precise native adapter and proof outline are stated here; external cited proof interiors, missing shared exports and both endpoint gates remain explicit gaps rather than established proofs."
+          "locator": "Published p.666; §1.2 p.638 and §5.3 p.666",
+          "match": "Added sufficiently large N and the common regular finite-multiplicity domain; a rational map may have no valid small-box candidates. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
       "implementationStatus": "unchecked"
@@ -3365,8 +3451,8 @@
       "sources": [
         {
           "sourceId": "MZ20",
-          "locator": "§5.3 (49) p.667",
-          "match": "The cited personally read passage motivates this lemma and its displayed formula/conventions. The precise native adapter and proof outline are stated here; external cited proof interiors, missing shared exports and both endpoint gates remain explicit gaps rather than established proofs."
+          "locator": "Published p.667; §5.3 (49) p.667",
+          "match": "The reciprocal transformation has inverse ξ_j+1/(dn_j), stays near ξ for fixed large d, and uses Q(i), hence the factor two in the field bound. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
       "implementationStatus": "unchecked"
@@ -3383,11 +3469,13 @@
       "hypotheses": [],
       "prerequisites": [
         "AbelianVarietiesIsogenousToNoJacobian:A0/quadratic-approximation",
-        "AbelianVarietiesIsogenousToNoJacobian:A0/many-classes"
+        "AbelianVarietiesIsogenousToNoJacobian:A0/many-classes",
+        "AbelianVarietiesIsogenousToNoJacobian:C1/counting-theorem"
       ],
       "proofSteps": [
-        "Run the rational approximation construction with arbitrarily large parameter boxes within the same small open.",
-        "The lower bound for distinct classes grows without bound whereas a prescribed finite union contributes only finitely many classes."
+        "Fix the reciprocal parameter transformation of A0/quadratic-approximation so every sufficiently large parameter box lies in the selected neighbourhood, and fix its common regular finite-multiplicity domain.",
+        "Choose 0<ε<γ with γ allowed by C1/counting-theorem. A0/many-classes gives at least cN^{G−ε} classes, while C1/counting-theorem discards at most CN^{G−γ} bad parameter tuples and hence no more than that many classes.",
+        "Their difference tends to infinity; discard the prescribed finite list of classes. The remaining points have the required field bound, genericity and avoidance."
       ],
       "acceptance": [
         "Retain every dimension, field, domain and nonvanishing hypothesis in the displayed statement; verify the stated source argument through precisely the listed prerequisites."
@@ -3399,8 +3487,8 @@
       "sources": [
         {
           "sourceId": "MZ20",
-          "locator": "§5.3 p.667",
-          "match": "The cited personally read passage motivates this lemma and its displayed formula/conventions. The precise native adapter and proof outline are stated here; external cited proof interiors, missing shared exports and both endpoint gates remain explicit gaps rather than established proofs."
+          "locator": "Published p.667; §5.3 p.667",
+          "match": "Added the direct bad-box count and subtraction argument: choose 0<ε<γ so N^(G−ε) dominates discarded N^(G−γ) candidates. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
       "implementationStatus": "unchecked"
@@ -3434,8 +3522,8 @@
       "sources": [
         {
           "sourceId": "MZ20",
-          "locator": "§1.2 Corollary 1.4 p.638; §5.3 p.667",
-          "match": "The cited personally read passage motivates this theorem and its displayed formula/conventions. The precise native adapter and proof outline are stated here; external cited proof interiors, missing shared exports and both endpoint gates remain explicit gaps rather than established proofs."
+          "locator": "Published p.638; §1.2 Corollary 1.4 p.638; §5.3 p.667",
+          "match": "Recursive choices in a countable Euclidean basis use finite-class avoidance and preserve the uniform model-field bound. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3473,8 +3561,8 @@
       "sources": [
         {
           "sourceId": "MZ20",
-          "locator": "§1.2 Theorem 1.5 p.639; §5.1 p.657",
-          "match": "The cited personally read passage motivates this theorem and its displayed formula/conventions. The precise native adapter and proof outline are stated here; external cited proof interiors, missing shared exports and both endpoint gates remain explicit gaps rather than established proofs."
+          "locator": "Published p.639; §1.2 Theorem 1.5 p.639; §5.1 p.657",
+          "match": "The unirational map is over Q and dominant; retained g=2,3,4,5 and improved γ<1 only for g=2,3,5. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3510,8 +3598,8 @@
       "sources": [
         {
           "sourceId": "MZ20",
-          "locator": "§1.2 Corollary 1.6 p.640",
-          "match": "The cited personally read passage motivates this theorem and its displayed formula/conventions. The precise native adapter and proof outline are stated here; external cited proof interiors, missing shared exports and both endpoint gates remain explicit gaps rather than established proofs."
+          "locator": "Published p.640; §1.2 Corollary 1.6 p.640",
+          "match": "The rational fourfold consequence remains conditional on Q-unirationality, exactly as in the published source. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
       "implementationStatus": "unchecked"
@@ -3522,9 +3610,9 @@
       "realises": [
         "AbelianVarietiesIsogenousToNoJacobian:A0"
       ],
-      "title": "Boundedly many CM candidates",
+      "title": "Boundedly many distinct CM moduli points",
       "kind": "theorem",
-      "statement": "For a fixed parameter family of bounded-degree points, the number of candidate n with a CM projected point is bounded independently of N, using the shared CM Galois-orbit lower bound and bounded-discriminant finiteness. For the 2012 orbit-bound route retain g≤6 unconditionally and GRH for larger g; the accepted averaged-Colmez/Tsimerman Part II supplies the unconditional all-g replacement once proved.",
+      "statement": "For a fixed arithmetic family of points whose model-field degrees have a common bound, the number of distinct CM projected moduli points in A_g is bounded independently of N, using the shared CM orbit lower bound and bounded-discriminant finiteness. A bound on parameter tuples follows only after restriction to a specified common open where Ψ is regular with finite fibres and π is finite; exceptional positive-dimensional fibres are excluded, not included in an O(1) count. For the 2012 orbit-bound route retain 1≤g≤6 unconditionally and GRH for larger g; the accepted averaged-Colmez/Tsimerman Part II supplies the unconditional all-g replacement once proved.",
       "hypotheses": [],
       "prerequisites": [
         "AbelianVarietiesIsogenousToNoJacobian:C0/fibre-field-bound",
@@ -3534,7 +3622,7 @@
       "proofSteps": [
         "Bound the moduli orbit by the common model-field degree.",
         "Apply the quantitative CM orbit theorem to bound the center-order discriminant, then Pila–Tsimerman Lemma 7.4 to obtain finitely many CM moduli points.",
-        "Use fixed finite parameter-map multiplicity, including the discarded exceptional domain explicitly."
+        "Conclude a uniform bound for distinct CM moduli points. On the explicitly finite forgetful/regular-map open, multiply by the fixed finite parameter-to-moduli degree for a parameter count. Outside it, count the bad algebraic parameter locus separately; it need not contribute only O(1)."
       ],
       "acceptance": [
         "The center-order CM discriminant is not the Rosati discriminant D(A) of I0."
@@ -3546,8 +3634,8 @@
       "sources": [
         {
           "sourceId": "MZ20",
-          "locator": "§5.4 p.667",
-          "match": "The cited personally read passage motivates this theorem and its displayed formula/conventions. The precise native adapter and proof outline are stated here; external cited proof interiors, missing shared exports and both endpoint gates remain explicit gaps rather than established proofs."
+          "locator": "Published p.667; §5.4 p.667",
+          "match": "Corrected the uniformly bounded count to distinct CM moduli points; a parameter count needs an explicitly finite forgetful/regular-map domain and excludes exceptional fibres. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
       "implementationStatus": "unchecked"
@@ -3560,7 +3648,7 @@
       ],
       "title": "The genus-four Igusa–Schottky form",
       "kind": "theorem",
-      "statement": "F_g(τ) = 2^g U_g(τ) − V_g(τ)² with U_g = Σ θ_{mm*}(τ)^{16}, V_g = Σ θ_{mm*}(τ)^8 over m, m* ∈ 2^{-1}Z^g/Z^g is a Γ-form of weight 8; it vanishes identically on A_g for g ≤ 3, and for g = 4 its zero locus is the closure of the Jacobian locus (Grushevsky [16, Th. 3.8]).",
+      "statement": "F_g(τ) = 2^g U_g(τ) − V_g(τ)² with U_g = Σ θ_{mm*}(τ)^{16}, V_g = Σ θ_{mm*}(τ)^8 over m, m* ∈ 2^{-1}Z^g/Z^g is a Γ-form of weight 8; it vanishes identically on A_g for 1≤g≤3, and for g = 4 its zero locus is the closure of the Jacobian locus (Grushevsky [16, Th. 3.8]).",
       "hypotheses": [],
       "prerequisites": [
         "AbelianVarietiesIsogenousToNoJacobian:T0/theta-constants",
@@ -3581,8 +3669,8 @@
       "sources": [
         {
           "sourceId": "MZ20",
-          "locator": "§5.4 p.670",
-          "match": "The cited personally read passage motivates this theorem and its displayed formula/conventions. The precise native adapter and proof outline are stated here; external cited proof interiors, missing shared exports and both endpoint gates remain explicit gaps rather than established proofs."
+          "locator": "Published p.670; §5.4 p.670",
+          "match": "Restricted the low-genus identity to 1≤g≤3; the genus-four assertion is the reduced zero locus in A_4, with external Schottky proof gap 21. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3617,8 +3705,8 @@
       "sources": [
         {
           "sourceId": "MZ20",
-          "locator": "§5.4 p.670",
-          "match": "The cited personally read passage motivates this lemma and its displayed formula/conventions. The precise native adapter and proof outline are stated here; external cited proof interiors, missing shared exports and both endpoint gates remain explicit gaps rather than established proofs."
+          "locator": "Published p.670; §5.4 p.670",
+          "match": "Block theta factorization uses normal convergence and the eighth/sixteenth power sums, with characteristics split by both blocks. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
       "implementationStatus": "unchecked"
@@ -3652,8 +3740,8 @@
       "sources": [
         {
           "sourceId": "MZ20",
-          "locator": "§5.4 p.670",
-          "match": "The cited personally read passage motivates this theorem and its displayed formula/conventions. The precise native adapter and proof outline are stated here; external cited proof interiors, missing shared exports and both endpoint gates remain explicit gaps rather than established proofs."
+          "locator": "Published p.670; §5.4 p.670",
+          "match": "For genus splits 2+2 and 1+3 the low-genus identities force F_4=0; this gives Torelli closure membership, not a smooth-curve Jacobian. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3687,8 +3775,8 @@
       "sources": [
         {
           "sourceId": "MZ20",
-          "locator": "§3.3 interpolation (19)–(20) p.652",
-          "match": "The cited personally read passage motivates this construction and its displayed formula/conventions. The precise native adapter and proof outline are stated here; external cited proof interiors, missing shared exports and both endpoint gates remain explicit gaps rather than established proofs."
+          "locator": "Published p.652; §3.3 interpolation (19)–(20) p.652",
+          "match": "The native total sum has a finite evaluation at each injective parameter; entire interpolation requires the displayed summable envelope. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3778,8 +3866,8 @@
       "sources": [
         {
           "sourceId": "MZ20",
-          "locator": "§3.3 interpolation (19)–(20) p.652; §5.4 pp.668–669",
-          "match": "The cited personally read passage motivates this lemma and its displayed formula/conventions. The precise native adapter and proof outline are stated here; external cited proof interiors, missing shared exports and both endpoint gates remain explicit gaps rather than established proofs."
+          "locator": "Published p.652; §3.3 interpolation (19)–(20) p.652; §5.4 pp.668–669",
+          "match": "Positive coefficient tolerances give locally uniform convergence; arbitrary values at accumulating parameters are not claimed interpolable. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
       "implementationStatus": "unchecked"
@@ -3813,8 +3901,8 @@
       "sources": [
         {
           "sourceId": "MZ20",
-          "locator": "§3.3 p.652",
-          "match": "The cited personally read passage motivates this lemma and its displayed formula/conventions. The precise native adapter and proof outline are stated here; external cited proof interiors, missing shared exports and both endpoint gates remain explicit gaps rather than established proofs."
+          "locator": "Published p.652; §3.3 p.652",
+          "match": "Rational translation/scaling preserve isogeny and choose distinct imaginary parameters; the strip gives the displayed j bound. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
       "implementationStatus": "unchecked"
@@ -3850,8 +3938,8 @@
       "sources": [
         {
           "sourceId": "MZ20",
-          "locator": "§3.3 pp.651–652",
-          "match": "The cited personally read passage motivates this construction and its displayed formula/conventions. The precise native adapter and proof outline are stated here; external cited proof interiors, missing shared exports and both endpoint gates remain explicit gaps rather than established proofs."
+          "locator": "Published p.652; §3.3 pp.651–652",
+          "match": "The compact image is a real-analytic parametrized set meeting algebraic elliptic classes; neither embeddedness nor a global complex hypersurface is asserted. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3932,8 +4020,8 @@
       "sources": [
         {
           "sourceId": "MZ20",
-          "locator": "§1.1 p.636; §5.4 pp.668–669",
-          "match": "The cited personally read passage motivates this lemma and its displayed formula/conventions. The precise native adapter and proof outline are stated here; external cited proof interiors, missing shared exports and both endpoint gates remain explicit gaps rather than established proofs."
+          "locator": "Published p.668; §1.1 p.636; §5.4 pp.668–669",
+          "match": "Rational symplectic density plus real transitivity supplies neighbourhood selection; the original density/isogeny proof remains gap 23. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
       "implementationStatus": "unchecked"
@@ -3976,8 +4064,8 @@
       "sources": [
         {
           "sourceId": "MZ20",
-          "locator": "§5.4 interpolation (50)–(60) pp.668–670",
-          "match": "The cited personally read passage motivates this construction and its displayed formula/conventions. The precise native adapter and proof outline are stated here; external cited proof interiors, missing shared exports and both endpoint gates remain explicit gaps rather than established proofs."
+          "locator": "Published p.668; §5.4 interpolation (50)–(60) pp.668–670",
+          "match": "Continuous native Cholesky and real symmetric interpolation give positivity for real parameters; the compact image is kept separate from the false global endpoint. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4076,8 +4164,8 @@
       "sources": [
         {
           "sourceId": "MZ20",
-          "locator": "p.637 supplementary sentence and §5.2 p.666; /73 and E14",
-          "match": "The cited personally read passage motivates this construction and its displayed formula/conventions. The precise native adapter and proof outline are stated here; external cited proof interiors, missing shared exports and both endpoint gates remain explicit gaps rather than established proofs."
+          "locator": "Published p.637; p.637 supplementary sentence and §5.2 p.666; /73 and E14",
+          "match": "The arithmetic comparison cover specifies a universal polarized family, component field and level, but its target degree remains an unresolved gate. This verifies the planned statement/source boundary, not formal proof closure. This is an explicit adapter or diagnostic motivated by the cited passage, not a theorem proved in that passage."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4135,7 +4223,7 @@
       ],
       "title": "Full rational torsion forces cyclotomic containment",
       "kind": "lemma",
-      "statement": "Let (A,λ)/K be principally polarized in characteristic zero. If all A[16](K̄) are K-rational, then μ_16⊆K: choose an exact-order-16 point and use perfection of the alternating Weil pairing to find a partner pairing to a primitive sixteenth root.",
+      "statement": "Let (A,λ)/K be principally polarized of dimension g≥1 in characteristic zero. If all A[16](K̄) are K-rational, then μ_16⊆K: choose an exact-order-16 point and use perfection of the alternating Weil pairing to find a partner pairing to a primitive sixteenth root.",
       "hypotheses": [],
       "prerequisites": [
         "AbelianSchemesAndArithmeticModuli:A3",
@@ -4157,8 +4245,8 @@
       "sources": [
         {
           "sourceId": "MZ20",
-          "locator": "p.637 supplementary claim; §5.2 p.666; E14",
-          "match": "The cited personally read passage motivates this lemma and its displayed formula/conventions. The precise native adapter and proof outline are stated here; external cited proof interiors, missing shared exports and both endpoint gates remain explicit gaps rather than established proofs."
+          "locator": "Published p.637; p.637 supplementary claim; §5.2 p.666; E14",
+          "match": "Added g≥1; perfect equivariant Weil pairing forces a primitive sixteenth root only in positive dimension. Dimension zero is a counterexample without that hypothesis. This verifies the planned statement/source boundary, not formal proof closure. This is an explicit adapter or diagnostic motivated by the cited passage, not a theorem proved in that passage."
         }
       ],
       "implementationStatus": "unchecked"
@@ -4193,8 +4281,8 @@
       "sources": [
         {
           "sourceId": "MZ20",
-          "locator": "§1.2 (1) p.638; §5.2 p.666; /73",
-          "match": "The cited personally read passage motivates this lemma and its displayed formula/conventions. The precise native adapter and proof outline are stated here; external cited proof interiors, missing shared exports and both endpoint gates remain explicit gaps rather than established proofs."
+          "locator": "Published p.638; §1.2 (1) p.638; §5.2 p.666; /73",
+          "match": "All model, coefficient, cyclotomic and torsion degrees must be counted once; φ(16)=8 is an upper bound for only the cyclotomic step. This verifies the planned statement/source boundary, not formal proof closure. This is an explicit adapter or diagnostic motivated by the cited passage, not a theorem proved in that passage."
         }
       ],
       "implementationStatus": "unchecked"
@@ -4229,8 +4317,8 @@
       "sources": [
         {
           "sourceId": "MZ20",
-          "locator": "p.637 after Theorem 1.1; §5.2 closing paragraph p.666",
-          "match": "The cited personally read passage motivates this theorem and its displayed formula/conventions. The precise native adapter and proof outline are stated here; external cited proof interiors, missing shared exports and both endpoint gates remain explicit gaps rather than established proofs."
+          "locator": "Published p.637; p.637 after Theorem 1.1; §5.2 closing paragraph p.666",
+          "match": "The supplementary torsion target is explicitly unestablished and has no path into the main theorem. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4267,9 +4355,9 @@
       },
       "sources": [
         {
-          "sourceId": "MZ20",
-          "locator": "/74, E13; §5.4 pp.668–670",
-          "match": "The cited personally read passage motivates this lemma and its displayed formula/conventions. The precise native adapter and proof outline are stated here; external cited proof interiors, missing shared exports and both endpoint gates remain explicit gaps rather than established proofs."
+          "sourceId": "LeFourn19",
+          "locator": "Definition–Proposition 6.4(a,b), printed p.181 (PDF p.24)",
+          "match": "Replaced the unsupported MZ attribution by Le Fourn Definition–Proposition 6.4(a,b), p.181: boundary codimension g in the normal projective Satake space."
         }
       ],
       "implementationStatus": "unchecked"
@@ -4303,9 +4391,14 @@
       },
       "sources": [
         {
-          "sourceId": "MZ20",
-          "locator": "Verified /74 and E13; Demailly II (8.7),(8.10); Le Fourn §6.4",
-          "match": "The cited personally read passage motivates this theorem and its displayed formula/conventions. The precise native adapter and proof outline are stated here; external cited proof interiors, missing shared exports and both endpoint gates remain explicit gaps rather than established proofs."
+          "sourceId": "DemaillyCADG",
+          "locator": "Chapter II (8.7) p.118, proof pp.118–121; (8.10) p.121",
+          "match": "Replaced the diagnostic-only attribution by Demailly II(8.7),(8.10) and Le Fourn 6.4; the theorem permits a singular complex-space ambient and requires strict local dimension. The singular-space extension theorem is applicable; p=G−g≥0 and every local hypersurface dimension G−1 exceeds p."
+        },
+        {
+          "sourceId": "LeFourn19",
+          "locator": "Definition–Proposition 6.4(a,b), printed p.181 (PDF p.24)",
+          "match": "Provides the compact normal complex space, algebraic boundary of codimension g, and a projective embedding to which Chow applies."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4342,8 +4435,8 @@
       "sources": [
         {
           "sourceId": "MZ20",
-          "locator": "§5.4 pp.668–670; /74 and E13",
-          "match": "The cited personally read passage motivates this theorem and its displayed formula/conventions. The precise native adapter and proof outline are stated here; external cited proof interiors, missing shared exports and both endpoint gates remain explicit gaps rather than established proofs."
+          "locator": "Published p.669; §5.4 pp.668–670; /74 and E13",
+          "match": "Combining algebraicity of a globally closed hypersurface with the main avoidance theorem rules out a class-covering global endpoint for g≥2. This verifies the planned statement/source boundary, not formal proof closure. This is an explicit adapter or diagnostic motivated by the cited passage, not a theorem proved in that passage."
         }
       ],
       "implementationStatus": "unchecked"
@@ -4376,8 +4469,8 @@
       "sources": [
         {
           "sourceId": "MZ20",
-          "locator": "§5.4 pp.669–670; /74",
-          "match": "The cited personally read passage motivates this definition and its displayed formula/conventions. The precise native adapter and proof outline are stated here; external cited proof interiors, missing shared exports and both endpoint gates remain explicit gaps rather than established proofs."
+          "locator": "Published p.670; §5.4 pp.669–670; /74",
+          "match": "The local specification states its actual open domain, relative closedness and compatible equations; it does not assert existence. This verifies the planned statement/source boundary, not formal proof closure. This is an explicit adapter or diagnostic motivated by the cited passage, not a theorem proved in that passage."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4455,8 +4548,8 @@
       "sources": [
         {
           "sourceId": "MZ20",
-          "locator": "§5.4 pp.669–670; /74",
-          "match": "The cited personally read passage motivates this construction and its displayed formula/conventions. The precise native adapter and proof outline are stated here; external cited proof interiors, missing shared exports and both endpoint gates remain explicit gaps rather than established proofs."
+          "locator": "Published p.670; §5.4 pp.669–670; /74",
+          "match": "A local/germwise replacement remains a distinct unresolved construction. Compactness and multiplying equations on different domains do not establish it. This verifies the planned statement/source boundary, not formal proof closure. This is an explicit adapter or diagnostic motivated by the cited passage, not a theorem proved in that passage."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4654,13 +4747,14 @@
     },
     {
       "supplier": "LogicAndDefinabilityInNumberTheory:LD.6",
-      "need": "Only early definability, cell decomposition and uniform counting/blocks: split early counting from downstream arithmetic applications if needed to avoid a cycle. The absent functional-transcendence Part II is an explicit gap.",
+      "need": "The current LD.6 supplies early definability/cell decomposition and counting outside the algebraic part. Uniform connected Pila blocks and their semialgebraic projected images are requested shared-owner extensions, not claimed existing exports. The separate accepted functional-transcendence Part II is unregistered at this base and is recorded as a gap; keep early counting independent of downstream arithmetic applications.",
       "neededBy": [
         "AbelianVarietiesIsogenousToNoJacobian:C1/correspondence-definability",
         "AbelianVarietiesIsogenousToNoJacobian:C1/hodge-generic-zero-images",
         "AbelianVarietiesIsogenousToNoJacobian:C1/orbit-degree-collapse",
         "AbelianVarietiesIsogenousToNoJacobian:E1/elliptic-block-images",
-        "AbelianVarietiesIsogenousToNoJacobian:E1/elliptic-orbit-collapse"
+        "AbelianVarietiesIsogenousToNoJacobian:E1/elliptic-orbit-collapse",
+        "AbelianVarietiesIsogenousToNoJacobian:E1/elliptic-double-correspondence"
       ]
     },
     {
@@ -4811,7 +4905,7 @@
       "status": "planned",
       "remaining": [
         "Arithmetic fibre/model and coefficient-descent adapters: Prove the rational-map regular-domain and coefficient-span reductions, the arithmetic forgetful degree and the polarized model interpretation over each chosen residue field. For /72 give an explicit bounded degree over the coarse moduli field. None of these steps grants rational torsion or identifies coarse points with universal models.",
-        "Isogeny correspondence degree refinement: The subgroup count alone does not prove projective degree of the isogeny-image hypersurface. Construct the finite-level correspondence, dual-degree equality and push/intersection degree estimates in the chosen embedding, with constants independent of M. MZ gives the argument on p.658 but not the native-carrier proof.",
+        "Isogeny correspondence degree refinement: The unpolarized quotient-group count alone does not control principal-polarization choices or projective degree. Restrict the small-isogeny hypersurface step to geometric End=Z points, deducing unique principal polarization and the isogeny multiplier f*λ=sλ. Count all nongeneric candidates separately. Prove the finite-level correspondence and, separately from its fibre degree, the projective push/intersection degree estimate ≤CM^{2g} in the fixed embedding. MZ p.658 sketches this estimate; its full degree proof remains unestablished in this pass.",
         "Height comparison for the parameter family: The stable Faltings height and its isogeny variation are imported; the h(A_n)≪log N comparison for this fixed generically finite model must be proved, including noncompact/bad-locus control. Complete the accepted quantitative Faltings Part II leaf rather than deriving an effective discriminant bound from qualitative semisimplicity.",
         "Theta arithmetic model and forgetful descent: Read the cited public arithmetic theta-model proof in Masser–Wüstholz Periods pp.415/422–423 or a precise replacement. Prove the Q coordinate model, the Q-defined forgetful map, the generic-degree bound and the model-field interpretation. Both varieties having Q models does not prove their morphism is over Q. The main theorem retains its printed bound while this source-to-library boundary remains open; no full torsion conclusion is imported."
       ]
@@ -4836,8 +4930,8 @@
       "stageId": "AbelianVarietiesIsogenousToNoJacobian:A0",
       "status": "planned",
       "remaining": [
-        "Many classes and Euclidean approximation refinement: Complete the general quantitative isogeny supplier, fixed-family height comparison, local regular-fibre inverse argument, and bounded multiplicity on the chosen rational-map domain. Prove the same field bound survives approximation and that arbitrary large boxes remain in the selected open. The source sketches these steps rather than proving each native adapter.",
-        "CM quantitative supplier design: ComplexMultiplicationAndExplicitReciprocityPartII is an accepted paper route but has no definition/stages at this base. Its exact CM orbit bound and bounded-discriminant finiteness, with the GRH/all-g distinction, must be imported after its owner design. CM.0/CM.2 supply orders and reciprocity only; they are not a quantitative orbit bound.",
+        "Many classes and Euclidean approximation refinement: Complete the general quantitative isogeny supplier, fixed-family height comparison, local regular-fibre inverse argument, and bounded multiplicity on the chosen rational-map domain. Prove the same field bound survives approximation and that arbitrary large boxes remain in the selected open. The source sketches these steps rather than proving each native adapter. Restrict the forgetful map and parameter map to a common finite regular domain and discard its algebraic bad locus separately. For class multiplicity first discard nongeneric points, use End=Z to control principal polarizations, and subtract the bad-box count before thinning.",
+        "CM quantitative supplier design: ComplexMultiplicationAndExplicitReciprocityPartII is an accepted paper route but has no definition/stages at this base. Its exact CM orbit bound and bounded-discriminant finiteness, with the GRH/all-g distinction, must be imported after its owner design. CM.0/CM.2 supply orders and reciprocity only; they are not a quantitative orbit bound. The uniform conclusion concerns distinct CM moduli points; parameter multiplicity requires the explicitly finite forgetful/regular-map domain and never includes exceptional positive-dimensional fibres in the O(1) count.",
         "Igusa–Schottky source closure: Acquire and read the public Grushevsky Schottky problem Theorem 3.8 and its referenced proof, then verify low-genus identities, the weight-eight transformation law and the genus-four reduced zero-locus/closure equality. The block factorization uses normal convergence supplied by the theta proof leaf."
       ]
     },
@@ -4860,7 +4954,7 @@
       "stageId": "AbelianVarietiesIsogenousToNoJacobian:X1",
       "status": "planned",
       "remaining": [
-        "Singular Remmert–Stein and Siegel boundary adapters: The reviewed /74 diagnostic and MZ endpoint were read, but the original public Le Fourn §6.4 and Demailly II(8.7)/(8.10) have not yet been independently read in this pass. C5 does not explicitly export the exact G−g boundary specialization and C4 does not export singular-space Remmert–Stein. Register/prove these requested owner extensions and validate their purity/local-dimension hypotheses before formal closure.",
+        "Singular Remmert–Stein and Siegel boundary adapters: The reviewer independently read Demailly II(8.7) and its proof through p.121, II(8.10) and its proof, and Le Fourn Definition–Proposition 6.4(a,b) p.181. These establish the mathematical statement with a possibly singular complex ambient and strict local dimension inequality. The original Namikawa/Satake construction proofs invoked by Le Fourn and native owner exports remain open: C5 does not explicitly export the exact G−g Siegel boundary specialization and C4 does not export singular-space Remmert–Stein. Register/prove those precise owner extensions before formal closure.",
         "Unresolved local analytic replacement: E13 forbids the global closed endpoint for g≥2. A local replacement requires its actual open ambient and compatible extensions of chart equations, or a precise germwise/nonclosed formulation. Existence of such a replacement is unestablished and not used by any main arithmetic theorem."
       ]
     }
@@ -4982,9 +5076,10 @@
       "title": "Isogeny correspondence degree refinement",
       "neededBy": [
         "AbelianVarietiesIsogenousToNoJacobian:C0/dual-small-isogeny-correspondence",
-        "AbelianVarietiesIsogenousToNoJacobian:C0/small-isogeny-hypersurfaces"
+        "AbelianVarietiesIsogenousToNoJacobian:C0/small-isogeny-hypersurfaces",
+        "AbelianVarietiesIsogenousToNoJacobian:A0/many-classes"
       ],
-      "detail": "The subgroup count alone does not prove projective degree of the isogeny-image hypersurface. Construct the finite-level correspondence, dual-degree equality and push/intersection degree estimates in the chosen embedding, with constants independent of M. MZ gives the argument on p.658 but not the native-carrier proof."
+      "detail": "The unpolarized quotient-group count alone does not control principal-polarization choices or projective degree. Restrict the small-isogeny hypersurface step to geometric End=Z points, deducing unique principal polarization and the isogeny multiplier f*λ=sλ. Count all nongeneric candidates separately. Prove the finite-level correspondence and, separately from its fibre degree, the projective push/intersection degree estimate ≤CM^{2g} in the fixed embedding. MZ p.658 sketches this estimate; its full degree proof remains unestablished in this pass."
     },
     {
       "title": "Height comparison for the parameter family",
@@ -5040,14 +5135,14 @@
         "AbelianVarietiesIsogenousToNoJacobian:A0/avoid-finite-isogeny-classes",
         "AbelianVarietiesIsogenousToNoJacobian:A0/unirational-count"
       ],
-      "detail": "Complete the general quantitative isogeny supplier, fixed-family height comparison, local regular-fibre inverse argument, and bounded multiplicity on the chosen rational-map domain. Prove the same field bound survives approximation and that arbitrary large boxes remain in the selected open. The source sketches these steps rather than proving each native adapter."
+      "detail": "Complete the general quantitative isogeny supplier, fixed-family height comparison, local regular-fibre inverse argument, and bounded multiplicity on the chosen rational-map domain. Prove the same field bound survives approximation and that arbitrary large boxes remain in the selected open. The source sketches these steps rather than proving each native adapter. Restrict the forgetful map and parameter map to a common finite regular domain and discard its algebraic bad locus separately. For class multiplicity first discard nongeneric points, use End=Z to control principal polarizations, and subtract the bad-box count before thinning."
     },
     {
       "title": "CM quantitative supplier design",
       "neededBy": [
         "AbelianVarietiesIsogenousToNoJacobian:A0/bounded-cm-count"
       ],
-      "detail": "ComplexMultiplicationAndExplicitReciprocityPartII is an accepted paper route but has no definition/stages at this base. Its exact CM orbit bound and bounded-discriminant finiteness, with the GRH/all-g distinction, must be imported after its owner design. CM.0/CM.2 supply orders and reciprocity only; they are not a quantitative orbit bound."
+      "detail": "ComplexMultiplicationAndExplicitReciprocityPartII is an accepted paper route but has no definition/stages at this base. Its exact CM orbit bound and bounded-discriminant finiteness, with the GRH/all-g distinction, must be imported after its owner design. CM.0/CM.2 supply orders and reciprocity only; they are not a quantitative orbit bound. The uniform conclusion concerns distinct CM moduli points; parameter multiplicity requires the explicitly finite forgetful/regular-map domain and never includes exceptional positive-dimensional fibres in the O(1) count."
     },
     {
       "title": "Igusa–Schottky source closure",
@@ -5090,7 +5185,7 @@
         "AbelianVarietiesIsogenousToNoJacobian:X1/satake-dimension-obstruction",
         "AbelianVarietiesIsogenousToNoJacobian:X1/closed-hypersurface-algebraic"
       ],
-      "detail": "The reviewed /74 diagnostic and MZ endpoint were read, but the original public Le Fourn §6.4 and Demailly II(8.7)/(8.10) have not yet been independently read in this pass. C5 does not explicitly export the exact G−g boundary specialization and C4 does not export singular-space Remmert–Stein. Register/prove these requested owner extensions and validate their purity/local-dimension hypotheses before formal closure."
+      "detail": "The reviewer independently read Demailly II(8.7) and its proof through p.121, II(8.10) and its proof, and Le Fourn Definition–Proposition 6.4(a,b) p.181. These establish the mathematical statement with a possibly singular complex ambient and strict local dimension inequality. The original Namikawa/Satake construction proofs invoked by Le Fourn and native owner exports remain open: C5 does not explicitly export the exact G−g Siegel boundary specialization and C4 does not export singular-space Remmert–Stein. Register/prove those precise owner extensions before formal closure."
     },
     {
       "title": "Unresolved local analytic replacement",
@@ -5107,7 +5202,7 @@
       "kind": "misprint",
       "locator": "§4, (22), p. 653 (published version)",
       "printed": "ℓ(v)² = tr(κyκ̄^t y^{-1}) = tr(ρερ^t ε^{-1})",
-      "correction": "tr(ρερ^tε^{-1}) = 2 tr(κyκ̄^ty^{-1}); with ℓ defined by the rational trace, ℓ(n) = √(2g)n and ℓ(v0) = √(2g) as used on pp. 655–656",
+      "correction": "tr(ρερ^tε^{-1}) = 2 tr(κyκ̄^ty^{-1}); with ℓ defined by the rational trace, ℓ([n]) = √(2g)|n| for integral n and ℓ(v0) = √(2g) as used on pp. 655–656",
       "reason": "Over C the rational representation is κ ⊕ κ̄, so its trace is twice the real complex trace. For v = [n] on an elliptic curve with τ = i the complex expression is n² and the rational one 2n². Lemma 4.1 uses the complex form (25); its constants absorb the factor.",
       "affects": "nothing",
       "known": "Previously recorded and independently confirmed in the paper extraction; no published correction identified there.",
@@ -5115,7 +5210,12 @@
         "Published source and Annals article page personally read on 2026-10-04; no correction link on that page.",
         "Inherited paper-extraction correction search dated 2026-09-29; its diagnostics are used as verified routing constraints, not a new novelty claim."
       ],
-      "source": "MZ20"
+      "source": "MZ20",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed on published p.653 by complexifying ρ as κ⊕κ̄. The self-trace differs by two; the scalar length uses |n| when n is any integer.",
+        "by": "REV-DESIGN-AbelianVarietiesIsogenousToNoJacobian"
+      }
     },
     {
       "id": "AbelianVarietiesIsogenousToNoJacobian/E2",
@@ -5130,7 +5230,12 @@
         "Published source and Annals article page personally read on 2026-10-04; no correction link on that page.",
         "Inherited paper-extraction correction search dated 2026-09-29; its diagnostics are used as verified routing constraints, not a new novelty claim."
       ],
-      "source": "MZ20"
+      "source": "MZ20",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed on p.656: the referenced definition of v is (27); (50) occurs in the later Cholesky discussion.",
+        "by": "REV-DESIGN-AbelianVarietiesIsogenousToNoJacobian"
+      }
     },
     {
       "id": "AbelianVarietiesIsogenousToNoJacobian/E3",
@@ -5145,7 +5250,12 @@
         "Published source and Annals article page personally read on 2026-10-04; no correction link on that page.",
         "Inherited paper-extraction correction search dated 2026-09-29; its diagnostics are used as verified routing constraints, not a new novelty claim."
       ],
-      "source": "MZ20"
+      "source": "MZ20",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed on p.661: denominator invertibility (40) and relation (42) imply period formula (41), not the domain inequalities (23).",
+        "by": "REV-DESIGN-AbelianVarietiesIsogenousToNoJacobian"
+      }
     },
     {
       "id": "AbelianVarietiesIsogenousToNoJacobian/E4",
@@ -5160,7 +5270,12 @@
         "Published source and Annals article page personally read on 2026-10-04; no correction link on that page.",
         "Inherited paper-extraction correction search dated 2026-09-29; its diagnostics are used as verified routing constraints, not a new novelty claim."
       ],
-      "source": "MZ20"
+      "source": "MZ20",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed on p.669: the preceding choices are x̃_1,w̃_1, and the next sentence refers to τ̃_1; the repeated subscript zero is inconsistent.",
+        "by": "REV-DESIGN-AbelianVarietiesIsogenousToNoJacobian"
+      }
     },
     {
       "id": "AbelianVarietiesIsogenousToNoJacobian/E5",
@@ -5175,7 +5290,12 @@
         "Published source and Annals article page personally read on 2026-10-04; no correction link on that page.",
         "Inherited paper-extraction correction search dated 2026-09-29; its diagnostics are used as verified routing constraints, not a new novelty claim."
       ],
-      "source": "MZ20"
+      "source": "MZ20",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed on p.666: substitution W=βD into (48) requires the closing parenthesis and the entire factor raised to G. The counting variable N is distinct from β.",
+        "by": "REV-DESIGN-AbelianVarietiesIsogenousToNoJacobian"
+      }
     },
     {
       "id": "AbelianVarietiesIsogenousToNoJacobian/E6",
@@ -5190,7 +5310,12 @@
         "Published source and Annals article page personally read on 2026-10-04; no correction link on that page.",
         "Inherited paper-extraction correction search dated 2026-09-29; its diagnostics are used as verified routing constraints, not a new novelty claim."
       ],
-      "source": "MZ20"
+      "source": "MZ20",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed against the introduction p.641 and references pp.672–673: [26] is Isogeny estimates and [27] Endomorphism estimates.",
+        "by": "REV-DESIGN-AbelianVarietiesIsogenousToNoJacobian"
+      }
     },
     {
       "id": "AbelianVarietiesIsogenousToNoJacobian/E7",
@@ -5205,7 +5330,12 @@
         "Published source and Annals article page personally read on 2026-10-04; no correction link on that page.",
         "Inherited paper-extraction correction search dated 2026-09-29; its diagnostics are used as verified routing constraints, not a new novelty claim."
       ],
-      "source": "MZ20"
+      "source": "MZ20",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed by block multiplication on p.661. The top-right block has a minus sign; multiplying by a denominator-kernel vector still proves the intended result.",
+        "by": "REV-DESIGN-AbelianVarietiesIsogenousToNoJacobian"
+      }
     },
     {
       "id": "AbelianVarietiesIsogenousToNoJacobian/E8",
@@ -5220,7 +5350,12 @@
         "Published source and Annals article page personally read on 2026-10-04; no correction link on that page.",
         "Inherited paper-extraction correction search dated 2026-09-29; its diagnostics are used as verified routing constraints, not a new novelty claim."
       ],
-      "source": "MZ20"
+      "source": "MZ20",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed on p.645: M=3 gives 8>6. Summing over divisors first gives Σd floor(M/d)≤M², preserving the final bound.",
+        "by": "REV-DESIGN-AbelianVarietiesIsogenousToNoJacobian"
+      }
     },
     {
       "id": "AbelianVarietiesIsogenousToNoJacobian/E9",
@@ -5235,7 +5370,12 @@
         "Published source and Annals article page personally read on 2026-10-04; no correction link on that page.",
         "Inherited paper-extraction correction search dated 2026-09-29; its diagnostics are used as verified routing constraints, not a new novelty claim."
       ],
-      "source": "MZ20"
+      "source": "MZ20",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed on p.655: rational Gram entries equal 2 Re of the complex entries. For Z[i] the complex determinant is zero while the rational determinant is four.",
+        "by": "REV-DESIGN-AbelianVarietiesIsogenousToNoJacobian"
+      }
     },
     {
       "id": "AbelianVarietiesIsogenousToNoJacobian/E10",
@@ -5250,7 +5390,12 @@
         "Published source and Annals article page personally read on 2026-10-04; no correction link on that page.",
         "Inherited paper-extraction correction search dated 2026-09-29; its diagnostics are used as verified routing constraints, not a new novelty claim."
       ],
-      "source": "MZ20"
+      "source": "MZ20",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as a proof gap on p.651. Permissibility must hold for every qualifying m; the displayed argument controls one m. The union bound proves 2d^4+1 and does not disprove 2d³+1.",
+        "by": "REV-DESIGN-AbelianVarietiesIsogenousToNoJacobian"
+      }
     },
     {
       "id": "AbelianVarietiesIsogenousToNoJacobian/E11",
@@ -5265,7 +5410,12 @@
         "Published source and Annals article page personally read on 2026-10-04; no correction link on that page.",
         "Inherited paper-extraction correction search dated 2026-09-29; its diagnostics are used as verified routing constraints, not a new novelty claim."
       ],
-      "source": "MZ20"
+      "source": "MZ20",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed on pp.665–666: killing all coefficients of trace ≤W gives strict >W for a nonzero form. Merely ≥W does not contradict the upper bound at equality.",
+        "by": "REV-DESIGN-AbelianVarietiesIsogenousToNoJacobian"
+      }
     },
     {
       "id": "AbelianVarietiesIsogenousToNoJacobian/E12",
@@ -5280,7 +5430,12 @@
         "Published source and Annals article page personally read on 2026-10-04; no correction link on that page.",
         "Inherited paper-extraction correction search dated 2026-09-29; its diagnostics are used as verified routing constraints, not a new novelty claim."
       ],
-      "source": "MZ20"
+      "source": "MZ20",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed on p.635: the printed phrase has the misplaced word following; this is grammatical and has no mathematical effect.",
+        "by": "REV-DESIGN-AbelianVarietiesIsogenousToNoJacobian"
+      }
     },
     {
       "id": "AbelianVarietiesIsogenousToNoJacobian/E13",
@@ -5295,7 +5450,12 @@
         "Published source and Annals article page personally read on 2026-10-04; no correction link on that page.",
         "Inherited paper-extraction correction search dated 2026-09-29; its diagnostics are used as verified routing constraints, not a new novelty claim."
       ],
-      "source": "MZ20"
+      "source": "MZ20",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed for the globally closed pure analytic hypersurface interpretation. Independently read Demailly II(8.7),(8.10) and Le Fourn 6.4: G−g<G−1 for g≥2, then extension and Chow imply algebraicity. This does not rule out a separately proved local/germwise/nonclosed replacement.",
+        "by": "REV-DESIGN-AbelianVarietiesIsogenousToNoJacobian"
+      }
     },
     {
       "id": "AbelianVarietiesIsogenousToNoJacobian/E14",
@@ -5310,7 +5470,12 @@
         "Published source and Annals article page personally read on 2026-10-04; no correction link on that page.",
         "Inherited paper-extraction correction search dated 2026-09-29; its diagnostics are used as verified routing constraints, not a new novelty claim."
       ],
-      "source": "MZ20"
+      "source": "MZ20",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as a proof gap, not a disproof of the torsion conclusion. The p.666 complex quotient/Q-model inference does not establish the arithmetic fine-level comparison or its total degree. Positive-dimensional principally polarized rational full torsion forces μ_16 by Weil pairing; that necessary condition alone supplies no replacement degree proof.",
+        "by": "REV-DESIGN-AbelianVarietiesIsogenousToNoJacobian"
+      }
     }
   ],
   "sourceVersions": [
@@ -5319,6 +5484,24 @@
       "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v191-n2-p07-s.pdf",
       "read": "2026-10-04",
       "sha256": "8b76bfac88374180701992e242d88f5d38fbe0b0cdb39c6c40c3c3fbbb874b60"
+    },
+    {
+      "kind": "public-author-manuscript",
+      "url": "https://www-fourier.univ-grenoble-alpes.fr/~demailly/manuscripts/agbook.pdf",
+      "read": "2026-10-04",
+      "sha256": "d7c7654a7417e8322e5dcf8fe8ec818b4c1a18cf280b41f2df5a871b776d89a1"
+    },
+    {
+      "kind": "published",
+      "url": "https://msp.org/ant/2019/13-1/ant-v13-n1-p04-s.pdf",
+      "read": "2026-10-04",
+      "sha256": "12e8666d4a8cdf2b865000021d79582f6a4dc30ecf4c574a9831b26f1e7b82f0"
+    },
+    {
+      "kind": "public-author-manuscript",
+      "url": "https://webhomes.maths.ed.ac.uk/~v1ranick/papers/paper1.pdf",
+      "read": "2026-10-04",
+      "sha256": "002d79a072f1accbfe2089853e3eb92f77abc7742f88227618594c916f19cf90"
     }
   ],
   "routedTargets": [
@@ -6066,14 +6249,14 @@
       "errors": 0,
       "warnings": 17,
       "warningKind": "declaration uses admission only",
-      "sourceSha256": "284ac634f272f504513cd664ee030475e3eb08d88038eb86b1a7f13fa5039065",
+      "sourceSha256": "fb3e187fa1ccd12f6858c12f74cc33422caf0d53c714fbed6b25018939c3e5cf",
       "stdoutSha256": "f27220ea322b6f62c06307b30be2ce8e8ab782d013f5d2a42ea97e9c2b0cfbea",
-      "stderrSha256": "4d6f101c811ea552998c815550bb5ee45e718d70c2491336be2988731da4e1e9",
+      "stderrSha256": "bf838ad6d7bf98bb2c36bb2608059bb0915da329a5aed1e0c7d253a2d03834b0",
       "leanCommit": "6a10ac8c22beadecabdbb0919c2b50214762f91d",
       "mathlibCommit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
       "tauSourceCommit": "f790474821cf4256814db967cb154e7af3d0c369",
       "tauCompiled": false,
-      "tauReason": "Available compiled Tau tree differs from the pinned source commit; the native file imports only existing pinned Mathlib modules.",
+      "tauReason": "Suggested file imports only the existing exact-pin Mathlib build; no Tau Ceti import or baseline Tau Ceti build is used.",
       "availableGiB": 35,
       "serialFlags": [
         "-j1",
@@ -6081,7 +6264,7 @@
       ],
       "timeoutSeconds": 1200,
       "elapsed": "0:01.10",
-      "peakRssKiB": 2630068,
+      "peakRssKiB": 2630608,
       "preflight": {
         "preflight": "serial existing pinned build",
         "availableGiB": 35,
@@ -6099,7 +6282,490 @@
         ],
         "leanVersion": "Lean (version 4.34.0-rc2, x86_64-unknown-linux-gnu, commit 6a10ac8c22beadecabdbb0919c2b50214762f91d, Release)"
       },
-      "normalization": "Only diagnostic absolute scratch and toolchain paths are replaced with $SCRATCH and $LEAN; all remaining compiler output is preserved."
+      "normalization": "Only absolute compiler/scratch diagnostic paths replaced by $LEAN/$SCRATCH; other output preserved."
     }
+  },
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-DESIGN-AbelianVarietiesIsogenousToNoJacobian",
+    "date": "2026-10-05",
+    "notes": "Independent target-level audit of all 95 nodes, all 15 pinned baseline declarations and all 14 source issues. Corrected source excerpts/attribution, hypotheses, direct dependencies, generic polarization counting, finite-domain multiplicity, and thinning. Public comparison source statements and their read scopes are recorded. All 12 stages remain planned with 27 explicit gaps; acceptance is of the complete planning pass, not proof closure, implementation or either supplementary gate. The entire suggested file elaborated independently on the existing exact-pin Mathlib build with 17 admission warnings and zero errors; it contains 3 native nodes and 92 explicit omissions, so it does not compile geometric interfaces. Added five API items and three theta-level tests.",
+    "checked": [
+      {
+        "nodeId": "AbelianVarietiesIsogenousToNoJacobian:MZ0/jacobian-locus",
+        "verdict": "corrected",
+        "note": "Canonical polarized relative Jacobians, reduced closure in the open moduli space, and unpolarized isogenies are kept distinct. Its source excerpt and source-boundary annotation were checked and corrected in this review."
+      },
+      {
+        "nodeId": "AbelianVarietiesIsogenousToNoJacobian:MZ0/torelli-dimension",
+        "verdict": "corrected",
+        "note": "Torelli dimension 3g−3 and the strict inequality for g≥4 agree with the introduction; image-dimension proof is gap 0. Its source excerpt and source-boundary annotation were checked and corrected in this review."
+      },
+      {
+        "nodeId": "AbelianVarietiesIsogenousToNoJacobian:MZ0/compact-type-closure",
+        "verdict": "corrected",
+        "note": "Compact-type component products are distinguished from generalized Jacobians with toric parts; degeneration proof is gap 0. Its source excerpt and source-boundary annotation were checked and corrected in this review."
+      },
+      {
+        "nodeId": "AbelianVarietiesIsogenousToNoJacobian:MZ0/jacobian-hypersurface",
+        "verdict": "corrected",
+        "note": "A proper hypersurface is chosen only for g≥4 and need not descend to Q. Its source excerpt and source-boundary annotation were checked and corrected in this review."
+      },
+      {
+        "nodeId": "AbelianVarietiesIsogenousToNoJacobian:MZ0/minkowski-domain",
+        "verdict": "corrected",
+        "note": "The closed reduced Siegel domain keeps its real-part and determinant inequalities; the classical reduction proof is gap 1. Its source excerpt and source-boundary annotation were checked and corrected in this review. Added a membership characterisation so users need not unfold the domain definition."
+      },
+      {
+        "nodeId": "AbelianVarietiesIsogenousToNoJacobian:MZ0/igusa-diagonal-estimates",
+        "verdict": "corrected",
+        "note": "Both matrix comparisons and the ordered diagonal are retained with a dimension-dependent positive δ. Its source excerpt and source-boundary annotation were checked and corrected in this review."
+      },
+      {
+        "nodeId": "AbelianVarietiesIsogenousToNoJacobian:MZ0/block-product-domain",
+        "verdict": "corrected",
+        "note": "Block products preserve the diagonal matrix comparisons but not the ordered diagonal; this is a routine block specialization. Its source excerpt and source-boundary annotation were checked and corrected in this review."
+      },
+      {
+        "nodeId": "AbelianVarietiesIsogenousToNoJacobian:E0/elliptic-matrix",
+        "verdict": "corrected",
+        "note": "The integer matrix determinant m and the bound 2m^(3/2) are the exact elliptic source statement. Its source excerpt and source-boundary annotation were checked and corrected in this review."
+      },
+      {
+        "nodeId": "AbelianVarietiesIsogenousToNoJacobian:E0/finite-subgroup-count",
+        "verdict": "corrected",
+        "note": "The count is cumulative over subgroup orders ≤m, not just order m; its higher-dimensional proof remains gap 2. Its source excerpt and source-boundary annotation were checked and corrected in this review."
+      },
+      {
+        "nodeId": "AbelianVarietiesIsogenousToNoJacobian:E0/elliptic-many-classes",
+        "verdict": "corrected",
+        "note": "Added N≥2 so the logarithmic denominator is defined and the source box count has its intended range. Its source excerpt and source-boundary annotation were checked and corrected in this review."
+      },
+      {
+        "nodeId": "AbelianVarietiesIsogenousToNoJacobian:E1/iterated-elimination",
+        "verdict": "corrected",
+        "note": "Added m≥1; resultant nonvanishing still requires modular irreducibility and the explicit nesting adapter in gap 4. Its source excerpt and source-boundary annotation were checked and corrected in this review."
+      },
+      {
+        "nodeId": "AbelianVarietiesIsogenousToNoJacobian:E1/psi-square-sum",
+        "verdict": "corrected",
+        "note": "The corrected divisor reordering gives M² and the second-moment sum gives M³ log M for M≥2. Its source excerpt and source-boundary annotation were checked and corrected in this review."
+      },
+      {
+        "nodeId": "AbelianVarietiesIsogenousToNoJacobian:E1/small-isogeny-candidates",
+        "verdict": "corrected",
+        "note": "Specified the fixed real-curve polynomial in the pair (c,c̄); the invertible real-grid substitution preserves nonzero elimination polynomials. Its source excerpt and source-boundary annotation were checked and corrected in this review."
+      },
+      {
+        "nodeId": "AbelianVarietiesIsogenousToNoJacobian:E1/elliptic-large-field",
+        "verdict": "corrected",
+        "note": "Added sufficiently large N and floor((log N)^3)≥2 before invoking the small-isogeny lemma; the model field is a number field. Its source excerpt and source-boundary annotation were checked and corrected in this review."
+      },
+      {
+        "nodeId": "AbelianVarietiesIsogenousToNoJacobian:E1/elliptic-double-correspondence",
+        "verdict": "corrected",
+        "note": "Added the early definability supplier directly; the correspondence uses two matrices and both denominators, without a fixed determinant condition. Its source excerpt and source-boundary annotation were checked and corrected in this review."
+      },
+      {
+        "nodeId": "AbelianVarietiesIsogenousToNoJacobian:E1/elliptic-block-images",
+        "verdict": "corrected",
+        "note": "The empty algebraic part is claimed for the non-modular paired image, with vertical/horizontal components excluded, not for the matrix fibre. Its source excerpt and source-boundary annotation were checked and corrected in this review."
+      },
+      {
+        "nodeId": "AbelianVarietiesIsogenousToNoJacobian:E1/elliptic-orbit-collapse",
+        "verdict": "corrected",
+        "note": "Embeddings fix the coefficient field, the projected orbit has size ≫D̃, and ε<2/21 makes the exponent strictly smaller than one. Its source excerpt and source-boundary annotation were checked and corrected in this review."
+      },
+      {
+        "nodeId": "AbelianVarietiesIsogenousToNoJacobian:E1/elliptic-modular-case",
+        "verdict": "corrected",
+        "note": "Added the direct elliptic large-field/quantitative-estimate route; composing with conjugation reduces the modular case to the small-isogeny count. Its source excerpt and source-boundary annotation were checked and corrected in this review."
+      },
+      {
+        "nodeId": "AbelianVarietiesIsogenousToNoJacobian:E1/elliptic-avoidance",
+        "verdict": "corrected",
+        "note": "Added coefficient descent and its direct large-field input; algebraic target points, components and isolated points are treated before counting. Its source excerpt and source-boundary annotation were checked and corrected in this review."
+      },
+      {
+        "nodeId": "AbelianVarietiesIsogenousToNoJacobian:E1/one-parameter-obstruction",
+        "verdict": "corrected",
+        "note": "The single-offset obstruction retains ψ(m)≤d and a bound for each m; its branch-locus proof remains gap 6. Its source excerpt and source-boundary annotation were checked and corrected in this review."
+      },
+      {
+        "nodeId": "AbelianVarietiesIsogenousToNoJacobian:E1/one-parameter-offset",
+        "verdict": "corrected",
+        "note": "The simultaneous union bound is 2d^4+1. The sharper printed bound is an unresolved proof claim, not refuted by a union bound. Its source excerpt and source-boundary annotation were checked and corrected in this review."
+      },
+      {
+        "nodeId": "AbelianVarietiesIsogenousToNoJacobian:I0/rational-analytic-trace",
+        "verdict": "corrected",
+        "note": "Specified principal polarization and a symplectic integral basis; the rational Gram is 2 Re of the complex expression, including the CM test. Its source excerpt and source-boundary annotation were checked and corrected in this review."
+      },
+      {
+        "nodeId": "AbelianVarietiesIsogenousToNoJacobian:I0/entry-c-bounds",
+        "verdict": "corrected",
+        "note": "Expanded all domain hypotheses and the signed integral representation; the c bound follows from the positive trace term with corrected length. Its source excerpt and source-boundary annotation were checked and corrected in this review."
+      },
+      {
+        "nodeId": "AbelianVarietiesIsogenousToNoJacobian:I0/entry-a-bounds",
+        "verdict": "corrected",
+        "note": "Expanded all domain hypotheses; inverse-order reversal and the xc correction give the a bound. Its source excerpt and source-boundary annotation were checked and corrected in this review."
+      },
+      {
+        "nodeId": "AbelianVarietiesIsogenousToNoJacobian:I0/entry-d-bounds",
+        "verdict": "corrected",
+        "note": "Expanded all domain hypotheses; the κτ identity and inverse imaginary matrix give the d bound. Its source excerpt and source-boundary annotation were checked and corrected in this review."
+      },
+      {
+        "nodeId": "AbelianVarietiesIsogenousToNoJacobian:I0/entry-b-bounds",
+        "verdict": "corrected",
+        "note": "Expanded all domain hypotheses; the b−xd term and preceding bounds give the b bound. Its source excerpt and source-boundary annotation were checked and corrected in this review."
+      },
+      {
+        "nodeId": "AbelianVarietiesIsogenousToNoJacobian:I0/off-diagonal-extraction",
+        "verdict": "corrected",
+        "note": "The off-diagonal extraction is Z-linear, has zero diagonal blocks, and uses the product polarization for its Rosati norm bound. Its source excerpt and source-boundary annotation were checked and corrected in this review."
+      },
+      {
+        "nodeId": "AbelianVarietiesIsogenousToNoJacobian:I0/short-independent-family",
+        "verdict": "corrected",
+        "note": "The lattice covolume is √D of the real rational Gram; independent minimum witnesses are not claimed to form a Z-basis. Its source excerpt and source-boundary annotation were checked and corrected in this review."
+      },
+      {
+        "nodeId": "AbelianVarietiesIsogenousToNoJacobian:I0/controlled-length-isogeny",
+        "verdict": "corrected",
+        "note": "The two maps are isogenies of unpolarized abelian varieties; the degree product is bounded using dimension 2g and length exponent 4g. Its source excerpt and source-boundary annotation were checked and corrected in this review."
+      },
+      {
+        "nodeId": "AbelianVarietiesIsogenousToNoJacobian:I0/period-height",
+        "verdict": "corrected",
+        "note": "Specified the principally polarized period realization; only the lower imaginary comparisons are required and stable height uses max(1,h). Its source excerpt and source-boundary annotation were checked and corrected in this review."
+      },
+      {
+        "nodeId": "AbelianVarietiesIsogenousToNoJacobian:I0/denominator-invertible",
+        "verdict": "corrected",
+        "note": "The signed block determinant and period relation imply denominator invertibility; the native statement has no geometric placeholder hypotheses. Its source excerpt and source-boundary annotation were checked and corrected in this review."
+      },
+      {
+        "nodeId": "AbelianVarietiesIsogenousToNoJacobian:G0/p-generic-isogeny",
+        "verdict": "corrected",
+        "note": "Finite field restrictions and commensurable lattices preserve openness, rather than equality of integral images. Its source excerpt and source-boundary annotation were checked and corrected in this review."
+      },
+      {
+        "nodeId": "AbelianVarietiesIsogenousToNoJacobian:G0/p-to-adelic",
+        "verdict": "corrected",
+        "note": "Specified positive-dimensional principally polarized A for the GSp convention; Cadoret's original proof remains the precise gap 9 input. Its source excerpt and source-boundary annotation were checked and corrected in this review."
+      },
+      {
+        "nodeId": "AbelianVarietiesIsogenousToNoJacobian:G0/galois-to-hodge",
+        "verdict": "corrected",
+        "note": "The full Mumford–Tate group follows using the absolute-Hodge comparison leaf, not End=Z alone. Its source excerpt and source-boundary annotation were checked and corrected in this review."
+      },
+      {
+        "nodeId": "AbelianVarietiesIsogenousToNoJacobian:G0/serre-open-image",
+        "verdict": "corrected",
+        "note": "Specified the principally polarized GSp convention and geometric End; retained exactly odd g or g=2,6, excluding g=4. Its source excerpt and source-boundary annotation were checked and corrected in this review."
+      },
+      {
+        "nodeId": "AbelianVarietiesIsogenousToNoJacobian:G0/universal-open-monodromy",
+        "verdict": "corrected",
+        "note": "The generic arithmetic family, geometric monodromy and cyclotomic similitude are separate parts of the open-image proof. Its source excerpt and source-boundary annotation were checked and corrected in this review."
+      },
+      {
+        "nodeId": "AbelianVarietiesIsogenousToNoJacobian:G0/endomorphism-specialization",
+        "verdict": "corrected",
+        "note": "Restricted to the fixed finite-cover/arithmetic parameter-family setup, geometric End, and N≥2; Masser's original specialization theorem remains gap 11. Its source excerpt and source-boundary annotation were checked and corrected in this review."
+      },
+      {
+        "nodeId": "AbelianVarietiesIsogenousToNoJacobian:G0/frattini-specialization",
+        "verdict": "corrected",
+        "note": "An open Frattini subgroup reduces a compact p-adic image to a finite quotient; full specialization image is supplied through the thin-set route. Its source excerpt and source-boundary annotation were checked and corrected in this review."
+      },
+      {
+        "nodeId": "AbelianVarietiesIsogenousToNoJacobian:G0/genericity-grid-count",
+        "verdict": "corrected",
+        "note": "The half-saving term remains in general dimension and is omitted only in the stated Serre range; excluded algebraic loci are counted separately. Its source excerpt and source-boundary annotation were checked and corrected in this review."
+      },
+      {
+        "nodeId": "AbelianVarietiesIsogenousToNoJacobian:MZ0/coefficient-descent",
+        "verdict": "corrected",
+        "note": "Specified a geometrically integral Q̄-defined ambient variety; descent contains the algebraic points rather than claiming that H itself descends. Its source excerpt and source-boundary annotation were checked and corrected in this review."
+      },
+      {
+        "nodeId": "AbelianVarietiesIsogenousToNoJacobian:C0/fibre-field-bound",
+        "verdict": "corrected",
+        "note": "The degree bound is asserted on the common regular finite-fibre domain; coarse moduli versus model fields remain separate in gap 12. Its source excerpt and source-boundary annotation were checked and corrected in this review."
+      },
+      {
+        "nodeId": "AbelianVarietiesIsogenousToNoJacobian:C0/bounded-model-moduli",
+        "verdict": "corrected",
+        "note": "Fine level-three lifting bounds a model field over the moduli field; the fixed-pairing cyclotomic component or similitude level must be tracked. Its source excerpt and source-boundary annotation were checked and corrected in this review."
+      },
+      {
+        "nodeId": "AbelianVarietiesIsogenousToNoJacobian:C0/dual-small-isogeny-correspondence",
+        "verdict": "corrected",
+        "note": "Principal duality reverses an arbitrary isogeny with equal degree; it does not make the original map polarization-preserving. Its source excerpt and source-boundary annotation were checked and corrected in this review."
+      },
+      {
+        "nodeId": "AbelianVarietiesIsogenousToNoJacobian:C0/small-isogeny-hypersurfaces",
+        "verdict": "corrected",
+        "note": "Restricted the hypersurface estimate to geometric End=Z points, where a principal polarization is unique; subgroup counts alone still do not prove projective degree (gap 13). Its source excerpt and source-boundary annotation were checked and corrected in this review."
+      },
+      {
+        "nodeId": "AbelianVarietiesIsogenousToNoJacobian:C0/candidate-count",
+        "verdict": "corrected",
+        "note": "Count nongeneric points first; only then apply the corrected small-isogeny estimate. The union and all source exponents remain unchanged. Its source excerpt and source-boundary annotation were checked and corrected in this review."
+      },
+      {
+        "nodeId": "AbelianVarietiesIsogenousToNoJacobian:C0/height-discriminant",
+        "verdict": "corrected",
+        "note": "Stable Faltings height need not be nonnegative; the product Rosati discriminant bound remains a quantitative owner input with the fixed-family height adapter. Its source excerpt and source-boundary annotation were checked and corrected in this review."
+      },
+      {
+        "nodeId": "AbelianVarietiesIsogenousToNoJacobian:C0/isogeny-degree-height",
+        "verdict": "corrected",
+        "note": "The selected isogeny's degree has exponent 2gλ, with constants depending on the fixed arithmetic family. Its source excerpt and source-boundary annotation were checked and corrected in this review."
+      },
+      {
+        "nodeId": "AbelianVarietiesIsogenousToNoJacobian:C0/log-threshold",
+        "verdict": "corrected",
+        "note": "The logarithmic threshold requires ν>2gλ and sufficiently large N; floor rounding is absorbed only in that range. Its source excerpt and source-boundary annotation were checked and corrected in this review."
+      },
+      {
+        "nodeId": "AbelianVarietiesIsogenousToNoJacobian:MZ0/period-matrix-correspondence",
+        "verdict": "corrected",
+        "note": "The positive coordinate blocks and the signed rational representation are explicitly converted; det(cτ+d)≠0 is part of the actual native set. Its source excerpt and source-boundary annotation were checked and corrected in this review."
+      },
+      {
+        "nodeId": "AbelianVarietiesIsogenousToNoJacobian:C1/correspondence-definability",
+        "verdict": "corrected",
+        "note": "Restricted uniformization and the algebraic inverse image are definable; the fractional-linear projection is semialgebraic on its denominator domain. Its source excerpt and source-boundary annotation were checked and corrected in this review."
+      },
+      {
+        "nodeId": "AbelianVarietiesIsogenousToNoJacobian:C1/galois-period-height",
+        "verdict": "corrected",
+        "note": "The fixed coefficient/model fields are included in the orbit construction and the integral height has polynomial growth in D̃. Its source excerpt and source-boundary annotation were checked and corrected in this review."
+      },
+      {
+        "nodeId": "AbelianVarietiesIsogenousToNoJacobian:C1/hodge-generic-zero-images",
+        "verdict": "corrected",
+        "note": "It is the connected projected block, not the entire matrix fibre, that must be a point; the weakly-special dichotomy is an explicit shared-source leaf. Its source excerpt and source-boundary annotation were checked and corrected in this review."
+      },
+      {
+        "nodeId": "AbelianVarietiesIsogenousToNoJacobian:C1/orbit-degree-collapse",
+        "verdict": "corrected",
+        "note": "The bounded model/moduli degree adapter makes orbit cardinality comparable with D̃; ε<1/λ yields the bounded-degree conclusion. Its source excerpt and source-boundary annotation were checked and corrected in this review."
+      },
+      {
+        "nodeId": "AbelianVarietiesIsogenousToNoJacobian:C1/counting-theorem",
+        "verdict": "corrected",
+        "note": "The exceptional event is existential in each regular fibre; retained g≥2, γ<1/2 and the improved odd/2/6 range, with exact D bookkeeping. Its source excerpt and source-boundary annotation were checked and corrected in this review."
+      },
+      {
+        "nodeId": "AbelianVarietiesIsogenousToNoJacobian:T0/fourier-order",
+        "verdict": "corrected",
+        "note": "Fourier order uses discrete trace support, the half-integral convention and ord(0)=∞; the definition does not assume integral order. Its source excerpt and source-boundary annotation were checked and corrected in this review."
+      },
+      {
+        "nodeId": "AbelianVarietiesIsogenousToNoJacobian:T0/order-superadditive",
+        "verdict": "corrected",
+        "note": "Cancellation cannot lower the minimum trace in a product; only superadditivity is used. Its source excerpt and source-boundary annotation were checked and corrected in this review."
+      },
+      {
+        "nodeId": "AbelianVarietiesIsogenousToNoJacobian:T0/norm-form",
+        "verdict": "corrected",
+        "note": "Normality, finite index, coset representatives and the left automorphy-factor convention are explicit; nonzero norms have weight nk. Its source excerpt and source-boundary annotation were checked and corrected in this review."
+      },
+      {
+        "nodeId": "AbelianVarietiesIsogenousToNoJacobian:T0/igusa-order-bound",
+        "verdict": "corrected",
+        "note": "The full-group bound and the gamma/Minkowski constants match the source, with g≥2 and nonnegative weight. Its source excerpt and source-boundary annotation were checked and corrected in this review."
+      },
+      {
+        "nodeId": "AbelianVarietiesIsogenousToNoJacobian:T0/finite-level-order-bound",
+        "verdict": "corrected",
+        "note": "Expanded g≥2, normal finite-index Λ, n=[Γ:Λ] and k≥0 so the finite-level bound is a complete standalone statement. Its source excerpt and source-boundary annotation were checked and corrected in this review."
+      },
+      {
+        "nodeId": "AbelianVarietiesIsogenousToNoJacobian:T0/theta-constants",
+        "verdict": "corrected",
+        "note": "Replaced the unspecified congruence conditions by an explicit matrix definition checked in BCCR17 §2; the row characteristic and even-level conventions are retained. Its source excerpt and source-boundary annotation were checked and corrected in this review. Added the membership/congruence API; the theta-level definition also has subgroup, inclusion and transpose interfaces with three additional tests."
+      },
+      {
+        "nodeId": "AbelianVarietiesIsogenousToNoJacobian:T0/theta-linear-combinations",
+        "verdict": "corrected",
+        "note": "The common multiplier is an explicit transformation-law proof obligation; individual squared transformations alone are not treated as sufficient. Its source excerpt and source-boundary annotation were checked and corrected in this review."
+      },
+      {
+        "nodeId": "AbelianVarietiesIsogenousToNoJacobian:T0/fourier-index-count",
+        "verdict": "corrected",
+        "note": "Positive semidefiniteness bounds each off-diagonal entry by diagonal data; the Fourier lattice and real bound are retained without incorrect rounding. Its source excerpt and source-boundary annotation were checked and corrected in this review."
+      },
+      {
+        "nodeId": "AbelianVarietiesIsogenousToNoJacobian:T0/theta-coefficient-kernel",
+        "verdict": "corrected",
+        "note": "The kernel annihilates coefficients with trace ≤W, giving strict order >W and resolving the equality case in E11. Its source excerpt and source-boundary annotation were checked and corrected in this review."
+      },
+      {
+        "nodeId": "AbelianVarietiesIsogenousToNoJacobian:T0/theta-relation-vanishing",
+        "verdict": "corrected",
+        "note": "The strict order comparison forces the relation to vanish identically; converting squared coordinates doubles its homogeneous degree. Its source excerpt and source-boundary annotation were checked and corrected in this review."
+      },
+      {
+        "nodeId": "AbelianVarietiesIsogenousToNoJacobian:T0/theta-projective-model",
+        "verdict": "corrected",
+        "note": "The complex theta quotient and its Q coordinate model are separate from universal arithmetic full torsion; descent remains gap 18. Its source excerpt and source-boundary annotation were checked and corrected in this review."
+      },
+      {
+        "nodeId": "AbelianVarietiesIsogenousToNoJacobian:T0/generic-projection-degree",
+        "verdict": "corrected",
+        "note": "Generic projection is birational to a hypersurface with preserved degree; this non-routine adapter is expressly gap 17, not an export of Hilbert projectivity alone. Its source excerpt and source-boundary annotation were checked and corrected in this review."
+      },
+      {
+        "nodeId": "AbelianVarietiesIsogenousToNoJacobian:T0/theta-numerical-degree",
+        "verdict": "corrected",
+        "note": "The intermediate numerical formula and final 2^(16g^4−1) bound are retained as a planned arithmetic inequality, with its all-g proof gap. Its source excerpt and source-boundary annotation were checked and corrected in this review."
+      },
+      {
+        "nodeId": "AbelianVarietiesIsogenousToNoJacobian:T0/theta-degree-map",
+        "verdict": "corrected",
+        "note": "The rational theta-ratio map is restricted to its regular nonempty domain; its arithmetic forgetful descent is a distinct obligation. Its source excerpt and source-boundary annotation were checked and corrected in this review."
+      },
+      {
+        "nodeId": "AbelianVarietiesIsogenousToNoJacobian:A0/hypersurface-avoidance",
+        "verdict": "corrected",
+        "note": "The main existence theorem keeps g≥2, Hodge genericity and model degree ≤2^(16g^4); neither supplementary gate is a prerequisite. Its source excerpt and source-boundary annotation were checked and corrected in this review."
+      },
+      {
+        "nodeId": "AbelianVarietiesIsogenousToNoJacobian:A0/no-jacobian",
+        "verdict": "corrected",
+        "note": "The no-Jacobian consequence requires g≥4 and also excludes compact-type products through the Torelli closure. Its source excerpt and source-boundary annotation were checked and corrected in this review."
+      },
+      {
+        "nodeId": "AbelianVarietiesIsogenousToNoJacobian:A0/many-classes",
+        "verdict": "corrected",
+        "note": "Added sufficiently large N and the common regular finite-multiplicity domain; a rational map may have no valid small-box candidates. Its source excerpt and source-boundary annotation were checked and corrected in this review."
+      },
+      {
+        "nodeId": "AbelianVarietiesIsogenousToNoJacobian:A0/quadratic-approximation",
+        "verdict": "corrected",
+        "note": "The reciprocal transformation has inverse ξ_j+1/(dn_j), stays near ξ for fixed large d, and uses Q(i), hence the factor two in the field bound. Its source excerpt and source-boundary annotation were checked and corrected in this review."
+      },
+      {
+        "nodeId": "AbelianVarietiesIsogenousToNoJacobian:A0/avoid-finite-isogeny-classes",
+        "verdict": "corrected",
+        "note": "Added the direct bad-box count and subtraction argument: choose 0<ε<γ so N^(G−ε) dominates discarded N^(G−γ) candidates. Its source excerpt and source-boundary annotation were checked and corrected in this review."
+      },
+      {
+        "nodeId": "AbelianVarietiesIsogenousToNoJacobian:A0/dense-independent-set",
+        "verdict": "corrected",
+        "note": "Recursive choices in a countable Euclidean basis use finite-class avoidance and preserve the uniform model-field bound. Its source excerpt and source-boundary annotation were checked and corrected in this review."
+      },
+      {
+        "nodeId": "AbelianVarietiesIsogenousToNoJacobian:A0/unirational-count",
+        "verdict": "corrected",
+        "note": "The unirational map is over Q and dominant; retained g=2,3,4,5 and improved γ<1 only for g=2,3,5. Its source excerpt and source-boundary annotation were checked and corrected in this review."
+      },
+      {
+        "nodeId": "AbelianVarietiesIsogenousToNoJacobian:A0/rational-fourfold",
+        "verdict": "corrected",
+        "note": "The rational fourfold consequence remains conditional on Q-unirationality, exactly as in the published source. Its source excerpt and source-boundary annotation were checked and corrected in this review."
+      },
+      {
+        "nodeId": "AbelianVarietiesIsogenousToNoJacobian:A0/bounded-cm-count",
+        "verdict": "corrected",
+        "note": "Corrected the uniformly bounded count to distinct CM moduli points; a parameter count needs an explicitly finite forgetful/regular-map domain and excludes exceptional fibres. Its source excerpt and source-boundary annotation were checked and corrected in this review."
+      },
+      {
+        "nodeId": "AbelianVarietiesIsogenousToNoJacobian:A0/igusa-schottky",
+        "verdict": "corrected",
+        "note": "Restricted the low-genus identity to 1≤g≤3; the genus-four assertion is the reduced zero locus in A_4, with external Schottky proof gap 21. Its source excerpt and source-boundary annotation were checked and corrected in this review."
+      },
+      {
+        "nodeId": "AbelianVarietiesIsogenousToNoJacobian:A0/theta-product-factorization",
+        "verdict": "corrected",
+        "note": "Block theta factorization uses normal convergence and the eighth/sixteenth power sums, with characteristics split by both blocks. Its source excerpt and source-boundary annotation were checked and corrected in this review."
+      },
+      {
+        "nodeId": "AbelianVarietiesIsogenousToNoJacobian:A0/products-in-torelli-closure",
+        "verdict": "corrected",
+        "note": "For genus splits 2+2 and 1+3 the low-genus identities force F_4=0; this gives Torelli closure membership, not a smooth-curve Jacobian. Its source excerpt and source-boundary annotation were checked and corrected in this review."
+      },
+      {
+        "nodeId": "AbelianVarietiesIsogenousToNoJacobian:X0/newton-series",
+        "verdict": "corrected",
+        "note": "The native total sum has a finite evaluation at each injective parameter; entire interpolation requires the displayed summable envelope. Its source excerpt and source-boundary annotation were checked and corrected in this review."
+      },
+      {
+        "nodeId": "AbelianVarietiesIsogenousToNoJacobian:X0/coefficient-envelope",
+        "verdict": "corrected",
+        "note": "Positive coefficient tolerances give locally uniform convergence; arbitrary values at accumulating parameters are not claimed interpolable. Its source excerpt and source-boundary annotation were checked and corrected in this review."
+      },
+      {
+        "nodeId": "AbelianVarietiesIsogenousToNoJacobian:X0/elliptic-period-selection",
+        "verdict": "corrected",
+        "note": "Rational translation/scaling preserve isogeny and choose distinct imaginary parameters; the strip gives the displayed j bound. Its source excerpt and source-boundary annotation were checked and corrected in this review."
+      },
+      {
+        "nodeId": "AbelianVarietiesIsogenousToNoJacobian:X0/elliptic-interpolation-image",
+        "verdict": "corrected",
+        "note": "The compact image is a real-analytic parametrized set meeting algebraic elliptic classes; neither embeddedness nor a global complex hypersurface is asserted. Its source excerpt and source-boundary annotation were checked and corrected in this review."
+      },
+      {
+        "nodeId": "AbelianVarietiesIsogenousToNoJacobian:X0/symplectic-dense-selection",
+        "verdict": "corrected",
+        "note": "Rational symplectic density plus real transitivity supplies neighbourhood selection; the original density/isogeny proof remains gap 23. Its source excerpt and source-boundary annotation were checked and corrected in this review."
+      },
+      {
+        "nodeId": "AbelianVarietiesIsogenousToNoJacobian:X0/matrix-interpolation-image",
+        "verdict": "corrected",
+        "note": "Continuous native Cholesky and real symmetric interpolation give positivity for real parameters; the compact image is kept separate from the false global endpoint. Its source excerpt and source-boundary annotation were checked and corrected in this review."
+      },
+      {
+        "nodeId": "AbelianVarietiesIsogenousToNoJacobian:T1/arithmetic-comparison-cover",
+        "verdict": "corrected",
+        "note": "The arithmetic comparison cover specifies a universal polarized family, component field and level, but its target degree remains an unresolved gate. Its source excerpt and source-boundary annotation were checked and corrected in this review."
+      },
+      {
+        "nodeId": "AbelianVarietiesIsogenousToNoJacobian:T1/rational-torsion-cyclotomic",
+        "verdict": "corrected",
+        "note": "Added g≥1; perfect equivariant Weil pairing forces a primitive sixteenth root only in positive dimension. Dimension zero is a counterexample without that hypothesis. Its source excerpt and source-boundary annotation were checked and corrected in this review."
+      },
+      {
+        "nodeId": "AbelianVarietiesIsogenousToNoJacobian:T1/full-degree-bookkeeping",
+        "verdict": "corrected",
+        "note": "All model, coefficient, cyclotomic and torsion degrees must be counted once; φ(16)=8 is an upper bound for only the cyclotomic step. Its source excerpt and source-boundary annotation were checked and corrected in this review."
+      },
+      {
+        "nodeId": "AbelianVarietiesIsogenousToNoJacobian:T1/supplementary-torsion-target",
+        "verdict": "corrected",
+        "note": "The supplementary torsion target is explicitly unestablished and has no path into the main theorem. Its source excerpt and source-boundary annotation were checked and corrected in this review."
+      },
+      {
+        "nodeId": "AbelianVarietiesIsogenousToNoJacobian:X1/satake-dimension-obstruction",
+        "verdict": "corrected",
+        "note": "Replaced the unsupported MZ attribution by Le Fourn Definition–Proposition 6.4(a,b), p.181: boundary codimension g in the normal projective Satake space. Its source excerpt and source-boundary annotation were checked and corrected in this review."
+      },
+      {
+        "nodeId": "AbelianVarietiesIsogenousToNoJacobian:X1/closed-hypersurface-algebraic",
+        "verdict": "corrected",
+        "note": "Replaced the diagnostic-only attribution by Demailly II(8.7),(8.10) and Le Fourn 6.4; the theorem permits a singular complex-space ambient and requires strict local dimension. Its source excerpt and source-boundary annotation were checked and corrected in this review."
+      },
+      {
+        "nodeId": "AbelianVarietiesIsogenousToNoJacobian:X1/no-global-interpolation-hypersurface",
+        "verdict": "corrected",
+        "note": "Combining algebraicity of a globally closed hypersurface with the main avoidance theorem rules out a class-covering global endpoint for g≥2. Its source excerpt and source-boundary annotation were checked and corrected in this review."
+      },
+      {
+        "nodeId": "AbelianVarietiesIsogenousToNoJacobian:X1/local-hypersurface-specification",
+        "verdict": "corrected",
+        "note": "The local specification states its actual open domain, relative closedness and compatible equations; it does not assert existence. Its source excerpt and source-boundary annotation were checked and corrected in this review."
+      },
+      {
+        "nodeId": "AbelianVarietiesIsogenousToNoJacobian:X1/local-replacement-target",
+        "verdict": "corrected",
+        "note": "A local/germwise replacement remains a distinct unresolved construction. Compactness and multiplying equations on different domains do not establish it. Its source excerpt and source-boundary annotation were checked and corrected in this review."
+      }
+    ]
   }
 }
