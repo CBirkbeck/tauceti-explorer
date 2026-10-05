@@ -4,7 +4,7 @@ The atlas's workers read papers and books line by line to extract and plan their
 
 Collected by `scripts/errata.py` from the paper extractions and blueprint packets (research/blueprint/PROTOCOL.md, section 18); the data is in `data/source-issues.json`.
 
-7091 new mistakes confirmed · 1554 awaiting review · 1431 already corrected in print · 110 rejected on review · 20 extractions and packets not yet checked.
+7092 new mistakes confirmed · 1554 awaiting review · 1431 already corrected in print · 110 rejected on review · 20 extractions and packets not yet checked.
 
 ## New mistakes, confirmed
 
@@ -177,6 +177,10 @@ Collected by `scripts/errata.py` from the paper extractions and blueprint packet
 ### Kiran S. Kedlaya, Counting points on hyperelliptic curves using Monsky–Washnitzer cohomology, arXiv:math/0105031v2 (J. Ramanujan Math. Soc. 16 (2001) 323–338) (`AdicSpacesPartII`)
 
 - **Misprint** at §2, pp. 2–3 (arXiv:math/0105031v2). The source says `fix x1, . . . , xm ∈ A∞ whose images generate A over k. Monsky and Washnitzer define the weak completion A† of A as the subring of A∞ consisting of elements z representable, for some real number c, as Σ∞n=0 anPn(x1, . . . , xn), with an ∈ mn and Pn an n-variate polynomial of total degree at most c(n + 1).`; it should be `Σ_n a_n P_n(x_1, …, x_m) with P_n an m-variate polynomial of total degree at most c(n + 1).`. The generators are x_1, …, x_m; n is the summation index (the exponent of 𝔪 and the degree bound), so P_n(x_1, …, x_n) conflates the two. Confirmed by `REV-AdicSpacesPartII`. Recorded as `AdicSpacesPartII/E60`; looked for an existing correction in: research/errata/REGISTER.md: no entry for this passage (checked by source and locator).
+
+### Minhyong Kim, The motivic fundamental group of P¹ ∖ {0, 1, ∞} and the theorem of Siegel, arXiv:math/0409456v1 (23 Sep 2004), 19 pp.; published in Invent. Math. 161 (2005). Accessed 2026-09-28. (`AnabelianGeometryAndNonabelianChabauty`)
+
+- **Misprint** at arXiv:math/0409456v1, §1, proof of Proposition 3, printed p.10, final displayed product isomorphism (preprint only; version of record not served). The source says `H⁰(G,U_(n+1)^B/U_(n+1)) ≃ H⁰(G,U_n^B/U_n) × I_n`; it should be `H⁰(G,U_(n+1)^B/U_(n+1)) ≃ H⁰(G,V^B/V) × I_n, where V=U^(n+1)/U^(n+2).`. The immediately preceding exact sequence has kernel H⁰(G,V^B/V) and image I_n. Its functorial section trivializes that kernel torsor over I_n. The printed H⁰(G,U_n^B/U_n) is the previous-stage ambient base, not the kernel. Substituting the vector-group kernel restores the intended induction. The display was read in the downloaded PDF and visually checked; no claim is made about the subscription version of record. Confirmed by `REV-AnabelianGeometryAndNonabelianChabauty`. Recorded as `AnabelianGeometryAndNonabelianChabauty/E1`; looked for an existing correction in: 2026-10-05: https://arxiv.org/abs/math/0409456 — submission history lists v1 only.; 2026-10-05: https://www.minhyongkim.net/research/academic-publications — the Siegel paper links to arXiv; no correction for this paper was listed.; 2026-10-05: https://link.springer.com/article/10.1007/s00222-004-0433-9 — publication metadata and subscription preview; no correction shown, full text not served.; 2026-10-05: web searches for the paper title with Proposition 3, erratum/correction, and arXiv identifier with v2 found no correction. This is a scoped search result, not an exhaustive novelty claim..
 
 ### Jean-Benoît Bost and Alain Connes, Hecke algebras, type III factors and phase transitions with spontaneous symmetry breaking in number theory, Selecta Mathematica (N.S.) 1 (1995), no. 3, 411–457; author-hosted scan of the published article on Connes's site (no text layer, read on page images); journal page = PDF page + 410; accessed 2026-09-28 (`AnalyticNumberTheory`)
 
