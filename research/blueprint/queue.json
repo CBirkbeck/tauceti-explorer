@@ -26484,8 +26484,9 @@
    ],
    "avoidAccountOf": "BP-KTheoryLowDegrees--Z.3",
    "prompt": "research/blueprint/prompts/REV-KTheoryLowDegrees--Z.3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #442"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #442",
+   "finishedAt": "2026-10-05T01:08:20Z"
   },
   {
    "id": "BP-KatoEulerSystems",
@@ -27222,7 +27223,8 @@
    ],
    "avoidAccountOf": "BP-NeronModelsAndSemistableAbelianVarieties",
    "prompt": "research/blueprint/prompts/REV-NeronModelsAndSemistableAbelianVarieties.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #457"
   },
   {
    "id": "BP-OrdinaryAutomorphicFormsAndModularityLifting",
