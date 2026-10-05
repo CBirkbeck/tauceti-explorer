@@ -628,7 +628,8 @@
       "remaining": [
         "Discharge the inherited CN.0 algebraic/bit cost, random execution and coefficient-list refinement requests and CN.5 certificate discipline; replace stage references only with exact exported services.",
         "Resolve WC.5 request for general all-extension curve and Betti-number bounds, and supply exact model/point-set comparison before extending the parent elliptic and affine-hyperelliptic certificate algorithms to arbitrary smooth projective varieties.",
-        "Apply the documented foreign ownership and stage-edge corrections in the authorized CN.1/FA.7/restructuring jobs; no foreign files are changed here."
+        "Apply the documented foreign ownership and stage-edge corrections in the authorized CN.1/FA.7/restructuring jobs; no foreign files are changed here.",
+        "Retain the accepted parent Schoof cost gap: source and import an exact quantitative prime-product/Chebyshev estimate excluding char(F), and instantiate the requested CN.0 operational model before closing schoof-algorithm-cost."
       ]
     }
   ],
@@ -674,11 +675,9 @@
     },
     {
       "supplier": "WeilConjectures:WC.5",
-      "need": "For every smooth projective geometrically connected curve C/F_q of genus g and r≥1, |#C(F_{q^r})−(q^r+1)|≤2g q^{r/2}; for a smooth projective geometrically connected variety of dimension d>0, |N_r−(1+q^{dr})|≤Σ_{i=1}^{2d−1} b_i q^{ir/2}. Dimension zero is handled separately. Export the actual rational-point/cohomology comparison and geometric Frobenius sign convention. This is the supplier contract for a general point-count certificate, not a theorem inferred from the elliptic Hasse bound or an affine hyperelliptic sum.",
+      "need": "For every smooth projective geometrically connected curve C/F_q of genus g and r≥1, |#C(F_{q^r})−(q^r+1)|≤2g q^{r/2}; for a smooth projective geometrically connected variety of dimension d>0, |N_r−(1+q^{dr})|≤Σ_{i=1}^{2d−1} b_i q^{ir/2}. Dimension zero is handled separately. Export the actual rational-point/cohomology comparison and geometric Frobenius sign convention. This is the supplier contract for a general point-count certificate, not a theorem inferred from the elliptic Hasse bound or an affine hyperelliptic sum. Scope this request to the general point-bound component proposed below. The existing elliptic root-table certificate uses its elliptic suppliers, and the affine hyperelliptic estimate uses FF.2; neither acquires a compulsory WC.5 prerequisite from this request.",
       "neededBy": [
-        "FiniteFieldsAndCharacterSums:FF.3",
-        "FiniteFieldsAndCharacterSums:FF.3/point-count-certificate",
-        "FiniteFieldsAndCharacterSums:FF.3/weil-error-bound-for-hyperelliptic-counts"
+        "FiniteFieldsAndCharacterSums:FF.3"
       ]
     }
   ],
@@ -689,6 +688,14 @@
         "FiniteFieldsAndCharacterSums:FF.3"
       ],
       "detail": "WC.5 states the required all-extension bounds, but the accepted FF.3 certificate prototype is for affine y²=f and Schoof is elliptic. Extension to arbitrary smooth projective models needs a concrete computable rational-point representation, inclusion of points at infinity and its cardinality comparison with WC.5 N_r. The WC.5 request pins that contract; the parent algorithms are not advertised as general-variety algorithms."
+    },
+    {
+      "title": "Schoof prime-growth estimate and instantiated operational cost model",
+      "neededBy": [
+        "FiniteFieldsAndCharacterSums:FF.3/schoof-algorithm-cost"
+      ],
+      "detail": "Schoof §5 invokes a weak prime-number theorem to obtain O(log q) auxiliary primes of size O(log q). The pinned citations and the precise CN.0 supplier stage do not provide that quantitative prime-product estimate. Import it from its owner or prove/source its exact elementary Chebyshev version, excluding char(F), before closing this cost target. CN.0 is an explicit requested bit/randomness model, not an already exported operation counter; the listed polynomial-time cost remains a target-level contract against that model, not a theorem about an arbitrary supplied count field.",
+      "inheritedFrom": "research/blueprint/packets/FiniteFieldsAndCharacterSums.json"
     }
   ],
   "imports": [
@@ -816,8 +823,8 @@
         "ComputationalNumberTheory",
         "FunctionFieldArithmetic"
       ],
-      "detail": "RT finitefields /1,/11,/12: algorithm imports must not wait for all of FF.2, and CN.1/FA.7 must consume the FF.3 algorithm owner.",
-      "proposal": "Remove the compulsory FF.2→FF.3 algorithm prerequisite; use FF.0 and CA.3 directly. Retain FF.2 only for the affine hyperelliptic character-sum estimate. Add WC.5→FF.3 for general point-count bounds. Replace CN.1/polynomial-factorization-over-finite-fields by imports of the accepted FF.3 square-free, DDF, Cantor–Zassenhaus and Berlekamp correctness/cost nodes; keep its implementation/refinement contract. FA.7 imports the same factorization and point-count certificates, retaining L-polynomial assembly and functional-equation checks. FF.4 takes FF.0/FF.1 directly and FF.2 only for bounds, while FF.5 packages each exact supplying layer. Apply stage depths only after those authorized structural changes. Move the elementary accepted monic-polynomials-of-degree carrier from its present FF.2 placement to FF.0 during assembly, updating its parentStageId and all incoming references consistently without duplicating its declaration; its current stable node id is cited until that move is applied. This prevents the new census imports from reintroducing an all-FF.2 algorithm edge."
+      "detail": "RT finitefields /1,/11,/12: register separate elementary factorization/Hensel and point-count components, so CN.1 imports the elementary owner without inheriting cohomological bounds; preserve FA.7’s other function-field targets.",
+      "proposal": "Register component stages before regenerating the graph: assign the polynomial census and prime-polynomial counts, square-free and distinct-degree decomposition, Cantor–Zassenhaus, Berlekamp, random irreducible generation, irreducibility/factorization certificates and Hensel lifting (including their correctness/cost exports) to an elementary FF.3 component with direct FF.0, CA.3 and the precise CN service inputs. Assign naive elliptic point counts, root-table certificates and Schoof to a point-count component using their elliptic suppliers; keep the affine hyperelliptic bound on its exact FF.2 supplier. Assign general all-extension curve/variety bounds and their model/certificate comparison to the point-bound component importing WC.5. Remove the compulsory all-FF.2 algorithm edge. CN.1 replaces its duplicate polynomial-factorization-over-finite-fields target with the elementary component’s square-free, DDF, Cantor–Zassenhaus and Berlekamp correctness/cost imports, retaining implementation/refinement obligations; it must not import the whole point-bound stage. Merely substituting WC.5 for FF.2 on an unsplit FF.3 stage would preserve the cohomological obstruction. FA.7 imports the elementary factorization component and the relevant point-count certificates, retaining place enumeration, Riemann–Roch computations, ray characters, conductors/local completions, its other certificate exports, and L-polynomial assembly/functional-equation checks. Counts through r=g determine the curve zeta numerator only for a smooth projective geometrically connected genus-g curve, using Newton identities and the normalized functional equation; this does not replace arbitrary Artin/ramified L-polynomial computations. Split FF.4’s elementary constructions (direct FF.0/FF.1 inputs) from bound-dependent applications (their exact FF.2/WC suppliers), allowing a specific FF.3 algorithm import when a consumer needs it. FF.5 packages each exact supplying component. Move the elementary accepted monic-polynomials-of-degree carrier from its present FF.2 placement to FF.0 during assembly, updating parentStageId and all incoming references consistently without duplicating the declaration. Keep current stable node ids until the authorized component/census moves are registered and applied; then recompute depths. No stage split or foreign-file change is applied by this packet."
     }
   ],
   "planetSelection": {
@@ -874,5 +881,53 @@
         }
       ]
     }
-  ]
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-FiniteFieldsAndCharacterSums--FF.3",
+    "date": "2026-10-05",
+    "notes": "Codex — codex-JWkQAv independently reviewed the plan by Codex codex-jYursF (PR #6365); this session wrote none of that plan. Verified every new node against the versioned public BFP/BKK passages, every one of the 12 baseline statements at Mathlib 082e2d3, all 23 unchanged parent imports, construction APIs/tests, source-issue boundary, six retained planets and the six routed verifier findings. Corrected ownership metadata to require a registered elementary/point-count component split, preserve all FA.7 targets and qualify first-g curve counts; removed unrelated elliptic/affine nodes from the general WC.5 request; carried the inherited Schoof quantitative-prime-growth/operational-model gap into this supplement and coverage remaining. No mathematical node or baseline citation changed, no node added. Complete target-level planning pass accepted with four requests and two explicit gaps; FF.3 is planned, not closed. Checker: zero errors/warnings. Suggested file elaborates at the exact Mathlib pin with only admitted-declaration warnings and imports no Tau Ceti modules. Reader synchronization and foreign graph changes remain authorized assembly/restructuring work described in the report.",
+    "checked": [
+      {
+        "nodeId": "FiniteFieldsAndCharacterSums:FF.3/monic-squarefree-polynomial-set",
+        "verdict": "verified",
+        "note": "Verified the p.8 squarefree carrier, finite-field perfectness bridge, unit/zero cases, five API items and four tests; imports the existing monic carrier rather than duplicating it."
+      },
+      {
+        "nodeId": "FiniteFieldsAndCharacterSums:FF.3/unique-monic-squarefree-square-decomposition",
+        "verdict": "verified",
+        "note": "Verified normalized existence and uniqueness by factor multiplicities, reconstruction and monic degree laws; the factors may share an irreducible, including (X,X) for X³. Generic Mathlib existence alone is not misrepresented as uniqueness."
+      },
+      {
+        "nodeId": "FiniteFieldsAndCharacterSums:FF.3/squarefree-square-degree-equivalence",
+        "verdict": "verified",
+        "note": "Verified the finite index enforces 2j≤n, the inverse uses normalized uniqueness and the degree equation, all four API items and three tests; independently enumerated every valid pair in the tested degrees."
+      },
+      {
+        "nodeId": "FiniteFieldsAndCharacterSums:FF.3/monic-squarefree-convolution",
+        "verdict": "verified",
+        "note": "Verified cardinalities of the disjoint degree-indexed equivalence give q^n=Σ s_(n−2j)q^j, including n=0,1; prerequisites supply both the equivalence and monic cardinalities."
+      },
+      {
+        "nodeId": "FiniteFieldsAndCharacterSums:FF.3/monic-squarefree-count-formula",
+        "verdict": "verified",
+        "note": "Verified the n−2 convolution shift gives s_n=q^n−q^(n−1) only for n≥2, with s_0=1 and s_1=q; the elementary argument covers characteristic two."
+      },
+      {
+        "nodeId": "FiniteFieldsAndCharacterSums:FF.3/hyperelliptic-presentation-polynomial-set",
+        "verdict": "verified",
+        "note": "Verified both adjacent degrees, all nonzero leading coefficients, unique scalar/monic representation and five API items/four tests; this is the polynomial carrier, with the source curve interpretation restricted to odd characteristic."
+      },
+      {
+        "nodeId": "FiniteFieldsAndCharacterSums:FF.3/hyperelliptic-presentation-count",
+        "verdict": "verified",
+        "note": "Verified the scalar factor q−1, the exceptional P_0=q²(q−1), and the g≥1 cancellation; direct enumeration confirms the examples without asserting a characteristic-two curve parametrization."
+      },
+      {
+        "nodeId": "FiniteFieldsAndCharacterSums:FF.3/monic-prescribed-constant-count-boundary",
+        "verdict": "verified",
+        "note": "Verified the degree-zero indicator at b=1 and q^(n−1) for n≥1, distinct from irreducible fixed-constant counts; independently confirmed the already-recorded BKK p.20 boundary error, without duplicating parent E734/paper E6."
+      }
+    ]
+  }
 }
