@@ -27,11 +27,12 @@ can converge on names and signatures. Nothing here claims an implementation.
 
 Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174;
 Tau Ceti f790474821cf4256814db967cb154e7af3d0c369. Full file not compiled.
-The earlier Mathlib-only intrinsic-band extraction and the current compatible-
-family category/pullback/fixture fragment elaborate with planning admissions.
-The codex-X10mph local-conjugation, band-lift and prescribed-band inverse
-fragment, including native S3 examples, also elaborates with admissions.
-Their separate validation boundaries are recorded in the review and handoff.
+Independent review codex-kXMhPM checked the complete Mathlib projection: omit
+the Tau Ceti import and injective_boundary_bijective only. It elaborates with
+1039 warnings, all sorry admissions, after closing a missing unnamed section.
+The full file stops at an unavailable Tau Ceti object file; neither full-file
+elaboration nor proof of admitted declarations is claimed. The review gives
+exact source pins, source-statement checks and validation boundaries.
 The final omission ledger names every interface requiring an unavailable
 supplier. No desired theorem is encoded as an unspecified Prop-valued field.
 -/
@@ -1499,6 +1500,8 @@ example (f : R →+* A) {M N : ModuleCat.{uD} R} (h : M ⟶ N) :
       (fun (_ : PUnit) ↦ (CommRingCat.ofHom f).op)).map h).hom PUnit.unit =
       (ModuleCat.extendScalars f).map h := by
   sorry
+
+end
 
 end TauCeti.AlgebraicGeometry.ModuleDescentAllTests
 
@@ -9851,3 +9854,44 @@ example (s : IntrinsicBandSection
       Equiv.swap (0 : Fin 3) 1 := by sorry
 
 end TauCeti.AlgebraicGeometry.IntrinsicBandReviewTests
+
+/-
+Reserved gerbe sample API — independent review REV-AlgebraicModuliForArithmeticGeometry--A0-extension.
+These eight contracts belong to AlgebraicModuliForArithmeticGeometry:key/gerbes.
+The existing same-owner nodes give their mathematical plans. Native declarations
+and tests listed below are OMITTED pending the actual geometric/D0/SF1/SF2
+carriers and comparison morphisms; none is replaced by a desired Prop field.
+The reserved key remains partial and all implementation statuses unchecked.
+
+OMITTED GerbeSampleAPI.classifyingNeutral: For an abelian sheaf A on the chosen site with terminal object S, BA is a neutral A-gerbe and its class in derived H2(S,A) is zero.
+OMITTED GerbeSampleTests.classifyingNeutral: the same reserved sample contract.
+Provided by: AlgebraicModuliForArithmeticGeometry:R09.4/classifying-abelian-gerbe, AlgebraicModuliForArithmeticGeometry:R09.4/neutralization, AlgebraicModuliForArithmeticGeometry:R09.4/h2-classification.
+
+OMITTED GerbeSampleAPI.rootClass: For algebraically closed k, n>1 invertible in k, the nth-root gerbe of O(1) on P1_k has derived Kummer class δ([O(1)]) and has no global object.
+OMITTED GerbeSampleTests.rootClass: the same reserved sample contract.
+Provided by: AlgebraicModuliForArithmeticGeometry:R09.4/root-gerbe, AlgebraicModuliForArithmeticGeometry:R09.4/root-gerbe-class, AlgebraicModuliForArithmeticGeometry:R09.4/root-o1-nonneutral.
+
+OMITTED GerbeSampleAPI.localNotNeutral: For algebraically closed k and n≥2 invertible in k, RootGerbe_n(O(1)) is locally nonempty but not neutral; an nth root would have degree 1/n.
+GerbeTests.rootNotNeutral is the existing omitted geometric test for this contract.
+Provided by: AlgebraicModuliForArithmeticGeometry:R09.4/root-gerbe, AlgebraicModuliForArithmeticGeometry:R09.4/root-o1-nonneutral.
+
+OMITTED GerbeSampleAPI.derivedClassification: For a fixed abelian sheaf A on the chosen site with terminal object and the stated derived-H1 and injective-neutralization inputs, band-preserving equivalence classes of A-gerbes correspond to native derived H2(A); the zero class is exactly the neutral class.
+OMITTED GerbeSampleTests.derivedClassification: the same reserved sample contract.
+Provided by: AlgebraicModuliForArithmeticGeometry:R09.4/torsor-representative-of-class, AlgebraicModuliForArithmeticGeometry:R09.4/class-of-gerbe, AlgebraicModuliForArithmeticGeometry:R09.4/h2-classification.
+
+OMITTED GerbeSampleAPI.pullbackClass: For the geometric morphism and exact inverse-image/cohomology comparison in class-site-pullback, pullback carries A-bandings to f* A-bandings and carries the gerbe class to its change-of-site pullback class.
+OMITTED GerbeSampleTests.pullbackClass: the same reserved sample contract.
+Provided by: AlgebraicModuliForArithmeticGeometry:R09.4/class-site-pullback.
+
+OMITTED GerbeSampleAPI.neutralSelfEquivalences: For a neutral A-gerbe with a chosen neutralization, band-preserving self-equivalences and invertible modifications form a groupoid equivalent to the groupoid of A-torsors and equivariant isomorphisms; composition corresponds to contracted product.
+OMITTED GerbeSampleTests.neutralSelfEquivalences: the same reserved sample contract.
+Provided by: AlgebraicModuliForArithmeticGeometry:R09.4/neutral-self-equivalences.
+
+OMITTED GerbeSampleAPI.compatibleLimit: For the specified small cofiltered finite-gerbe diagram and coherent presentation, an object of its fpqc 2-limit over T consists of finite-stage objects and compatible transition isomorphisms with unit/composition laws; arrows are compatible families, not only isomorphism classes.
+OMITTED GerbeSampleTests.compatibleLimit: the same reserved sample contract.
+Provided by: AlgebraicModuliForArithmeticGeometry:R09.4/compatible-limit-family, AlgebraicModuliForArithmeticGeometry:R09.4/profinite-etale-gerbe.
+
+OMITTED GerbeSampleAPI.profiniteNotFinitePresentation: Over a field k, the fpqc classifying gerbe of G=lim_m (Z/m!Z)_k is a profinite étale gerbe but not an algebraic stack of finite presentation: its trivial-object stabilizer G is not of finite type.
+OMITTED GerbeSampleTests.profiniteNotFinitePresentation: the same reserved sample contract.
+Provided by: AlgebraicModuliForArithmeticGeometry:R09.4/z-hat-gerbe, AlgebraicModuliForArithmeticGeometry:R09.4/z-hat-not-finite-type, AlgebraicModuliForArithmeticGeometry:R09.4/z-hat-not-algebraic-fp.
+-/
