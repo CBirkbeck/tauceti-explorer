@@ -26396,9 +26396,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-KTheoryFiniteLocalFields.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [],
-   "note": "claimed on GitHub issue #763"
+   "note": "released on GitHub issue #763"
   },
   {
    "id": "REV-KTheoryFiniteLocalFields",
@@ -30325,8 +30325,8 @@
    ],
    "avoidAccountOf": "BP-AnalyticNumberTheory--AN.0",
    "prompt": "research/blueprint/prompts/REV-AnalyticNumberTheory--AN.0.md",
-   "state": "pending",
-   "note": "released on GitHub issue #527"
+   "state": "external",
+   "note": "claimed on GitHub issue #527"
   },
   {
    "id": "BP-AnalyticNumberTheory--AN.8",
