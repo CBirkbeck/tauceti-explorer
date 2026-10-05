@@ -1,12 +1,12 @@
 # Coleman power series and the local unit sequence
 
-This plan works with actual local cyclotomic fields, their native integer rings and unit groups, and the existing integral measure carrier. Every proposed declaration is unchecked. The packet is a partial checkpoint: the interpolation equivalence and the arithmetic Coleman composite are specified; completed actions, the principal-unit and coefficient comparisons, and the cyclotomic quotient have explicit remaining work. No stage is closed.
+This plan works with actual local cyclotomic fields, their native integer rings and unit groups, and the existing integral measure carrier. Every proposed declaration is unchecked. The packet is a complete 300-node planning pass: it specifies the interpolation equivalence, the arithmetic Coleman composite, principal-unit actions and exactness, and the local cyclotomic quotient. Native-interface elaboration, completed tensor topology and the unread arithmetic coefficient variant have precise remaining lists. No stage is closed.
 
 Fix a prime p. Choose compatible primitive roots ζ_n of order p^(n+1) in the p-adic algebraic closure. Set K_n=ℚ_p(ζ_n), O_n equal to its native integral closure over ℤ_p, and ϖ_n=ζ_n−1. The degree is d_n=p^n(p−1). This indexing shifts the source's positive level by one. The plan retains the actual inclusions K_n→K_(n+1), rather than silently identifying elements in different fields. The algebraic norm and evaluation statements cover every prime. The unsigned Tate tower and the exact sequence described below require odd p.
 
 Let B=ℤ_p[[T]], with coefficientwise p-adic topology, and Y=1+T. Frobenius substitution is φ(F)=F(Y^p−1). The determinant norm N and integral trace τ use the finite-free Frobenius scalar algebra, whose basis is 1,Y,…,Y^(p−1). The basis identifies the receiving series ring with a rank-p module over its φ-image; this is a different scalar structure from the ordinary rank-one self-module. The root-product identity is an equality after the explicit coefficient extension admitting pth roots of unity. Its Vandermonde determinant is nonzero, and need not be an integral unit. The normalized trace is compared with the existing ψ operator from PadicMeasuresIwasawaAlgebras.
 
-The actual norm-compatible group U∞ is the native subgroup of ∏_n O_nˣ satisfying N_n(u_(n+1))=u_n. Its product/subtype topology makes it compact. Residues are constant along each tower. The principal group U∞,1 is the kernel of the residue homomorphism. Full units retain their multiplicative group structure. Installing a ℤ_p-module structure on principal units requires the upstream pro-p result and its application to this inverse limit. Installing the completed group-algebra action additionally requires the actual continuous Galois action. These hypotheses are explicit remaining work.
+The actual norm-compatible group U∞ is the native subgroup of ∏_n O_nˣ satisfying N_n(u_(n+1))=u_n. Its product/subtype topology makes it compact. Residues are constant along each tower. The principal group U∞,1 is the kernel of the residue homomorphism. Full units retain their multiplicative group structure. Installing a ℤ_p-module structure on principal units requires the upstream pro-p result and its application to this inverse limit. Installing the completed group-algebra action additionally requires the actual continuous Galois action. The arithmetic pro-p, scalar and completed-action adapters verify these hypotheses through precise owner requests. Full units retain the prime-to-p factor.
 
 For F∈B, seriesEvaluation_n(F) is native convergent evaluation at ϖ_n. Arithmetic specialization of the Frobenius basis identifies its determinant with the relative field norm, giving evaluation_n(NF)=N_n(evaluation_(n+1)(F)). Thus evaluation of an actual norm-fixed unit defines a continuous multiplicative map to U∞. It is principal exactly when its constant coefficient has residue 1.
 
@@ -42,15 +42,45 @@ Col₀(u)=0 precisely when the fixed-space boundary on Δ(f_u) vanishes, hence �
 
 The endpoint is cyclotomicMoment(μ)=μ(x↦x), equal to coefficient 1 of the included intrinsic Amice series. It has the continuous linear section z↦zδ_1 and is surjective. It is the first moment, rather than total mass: δ_1−δ_(−1) has mass zero and first moment 2. Its module character is cyclotomic dilation once the completed action is supplied.
 
-The image is exactly the kernel of this endpoint. For an output measure, applying the weighted derivative recovers the fixed-space boundary, whose constant coefficient is zero. Conversely, for a measure with zero first moment, the intrinsic x-weighting comparison places ∂A_Uμ in ker ψ with constant coefficient zero. Lift through the exact boundary range theorem and the supplied surjectivity of the norm-fixed logarithmic derivative. Then H∂A_Uμ=A_Uμ and intrinsic Amice injectivity recover μ. The specialized weighting comparison is an explicit PMIA:L2 request; no missing support theorem is assumed without a named owner boundary.
+The image is exactly the kernel of this endpoint. For an output measure, applying the weighted derivative recovers the fixed-space boundary, whose constant coefficient is zero. Conversely, for a measure with zero first moment, the intrinsic x-weighting comparison places ∂A_Uμ in ker ψ with constant coefficient zero. Lift through the exact boundary range theorem and the supplied surjectivity of the norm-fixed logarithmic derivative. Then H∂A_Uμ=A_Uμ and intrinsic Amice injectivity recover μ. The intrinsic weighting comparison is now an arithmetic consequence of the exact PMIA weight, Amice-weight, clopen support and first-moment nodes. It is a separate Coleman comparison node; the obsolete specialized PMIA:L2 request is removed.
 
-These actual maps give algebraic exactness of the full-unit sequence and closed images with quotient maps onto the images. Compact source and Hausdorff target supply the topology; weak compactness of integral unit measures is imported. The principal-unit sequence additionally needs the norm-compatible Teichmüller splitting. G-equivariance, eligible completed-module structures, finite-flat exactness and completed-tensor comparisons remain explicit obligations on every term, including both Tate factors.
+These actual maps give algebraic exactness of the full-unit sequence and closed images with quotient maps onto the images. Compact source and Hausdorff target supply the topology; weak compactness of integral unit measures is imported. The norm-compatible Teichmüller splitting identifies the principal image with the full image. The principal sequence is therefore 0→ℤ_p(1)→U∞,1→Λ(G)→ℤ_p(1)→0. Its maps are the actual Tate inclusion, principalColeman and first moment. Finite-flat change tensors all four terms. The generic completed-tensor and topology interface remains an owner request; tensoring only the series or measures would not establish this comparison.
 
-## Cyclotomic closure and coefficient targets
+## Arithmetic action and principal modules
 
-L4 remains undecomposed in this checkpoint. Import the actual global cyclotomic-unit subgroups, torsion, real generators and finite index from IntegralIwasawaTheory:L0. Coleman owns their local embeddings and closures, the Teichmüller-adjusted compatible real generator, the ℤ_p-span comparison and compact inverse-limit cyclicity. These feed the actual real principal-unit quotient and its comparison with Λ(G⁺)/(I(G⁺)ζ_p). Finite-flat change must transport the unit quotient as well as the measure quotient.
+The native Teichmüller section supplies the unique scalar lift ω(r) with residue r and ω(r)^(p−1)=1. Its norm is ω(r)^p=ω(r), so the stationary tower teichTower(r) is compatible. The finite-level native section is the same lift by uniqueness. The continuous multiplicative equivalence unitSplit sends u to (red(u),u/teichTower(red(u))) and has inverse (r,v)↦teichTower(r)v.
 
-The published terminal proof requires care: Lemma12.21 has the exponent slip recorded as E73 in the reviewed paper extraction; Lemma12.22 has the false algebraic subgroup equality recorded as E74, requiring a closure argument for the prime-to-p scaling; Theorem12.23 needs the Teichmüller adjustment, the full Tate/real splitting and a justified augmentation-ideal image (E75). These are known source warnings for the continuation, not newly established errata in this checkpoint. The global finite-conductor generators stay with IntegralIwasawaTheory. The unramified or semilocal coefficient variant requires its own explicit tower, norm and Frobenius data; a ℤ_p proof does not automatically extend to arbitrary ramified coefficients.
+The finite automorphism finiteAction_n(a) sends ζ_n to ζ_n raised to the native power residue of a∈G=ℤ_pˣ. It restricts to the actual integral closure. Native norm naturality, with the commuting base and extension automorphisms, proves the adjacent norm square. Thus towerAction acts on U∞ and preserves the principal subgroup. Joint continuity follows because each coordinate action factors through a finite discrete quotient, and each fixed automorphism is continuous. The Tate formula is a·tateTower(b)=tateTower(ab).
+
+The principal inverse limit is a closed subgroup of a product of abelian pro-p groups; coordinate surjectivity is not assumed. ProfiniteProPGroups supplies the functorial topological ℤ_p-module structure after that hypothesis is verified. PMIA supplies the completed action on this verified compact principal module. Its Dirac formula is δ_g·u=towerAction(g)u. Neither construction assigns a ℤ_p-module to full units.
+
+Arithmetic evaluation intertwines finiteAction(a) with F(T)↦F((1+T)^a−1). Interpolation uniqueness gives the same comparison for Coleman series. In the actual raw composite, the logarithmic derivative contributes a and the imported inverse derivative contributes a⁻¹. These factors cancel. Col₀ and Col are G-equivariant without an extra Tate factor, and their principal restrictions are ℤ_p-linear by continuity and density of integer powers. The continuous Λ(G)-linear map principalColeman is the actual sign-adjusted measure map on principal towers.
+
+## Local cyclotomic closures and compatible generators
+
+Import the actual global fields F_n=ℚ(μ_(p^(n+1))), global cyclotomic subgroups D_n and real subgroups D_n⁺, including their generators and cyclic-generation theorem, from IntegralIwasawaTheory:L0. globalLocalEmbedding sends the supplier's root to the chosen local ζ_n, commutes with the field inclusions and intertwines conjugation. This is an algebraic embedding; no continuity from the complex topology to the p-adic topology is asserted. Integrality of a global unit and its inverse gives the actual unit homomorphism globalLocalUnits_n:D_n→O_nˣ.
+
+Define C_n as the topological closure of this global image, and C_n⁺ as the closure of the actual real global image. Define P_n as the native residue-one subgroup and C_(n,1)=C_n∩P_n, C_(n,1)⁺=C_n⁺∩P_n, with the imported finite principal ℤ_p-action. Real means fixed by finiteAction_n(−1). The equality C_n⁺=C_n∩realLocalUnits_n follows from the finite splitting; closure is not assumed to commute with intersection. The actual generator towers show norm stability on the global images, and continuity extends it to all four closed subgroups.
+
+For finitely many principal units g_i, the closure of the integer-power subgroup is the image of the continuous map ℤ_p^r→P_n taking coefficients to the product of scalar powers. That image is compact and closed. Density of integer coefficients gives equality with the finite ℤ_p-span. This is the closure/span lemma; it is not an algebraic equality of global subgroups.
+
+For odd p and a natural integer a prime to p, put γ(a)=tateTower((1−a)/2)c(a). This is a real compatible tower with residue a mod p. The exponent is (1−a)/2, correcting the printed a/2. Set q(a)=teichTower(a mod p)⁻¹γ(a). It is principal, real and norm-compatible, and q(a)^(p−1)=γ(a)^(p−1). Each γ_n(a)^(p−1) belongs to C_(n,1)⁺. Since p−1 is a unit on the closed principal module, its unique principal root q_n(a) also belongs. This does not assume the Teichmüller factor is a global real unit.
+
+If the integral powers of â=a∈G are dense, the exact global cyclic-generation theorem and the finite closure/span lemma give C_(n,1)⁺=ℤ_p[G_n⁺]q_n(a). Retain −1 in the finite real global group. Raising to p−1 removes its prime-to-p contribution. Compactness identifies the closure of the global power image with the power image of C_n⁺; invertibility of p−1 on principal units then gives the stated principal span. No equality between the two algebraic global power subgroups in the printed proof is used.
+
+Define C∞,1 and C∞,1⁺ by the actual coordinate membership conditions inside U∞,1. For u∈C∞,1⁺ the sets of coefficients λ∈Λ(G⁺) with (λq(a))_n=u_n are nonempty closed subsets of the compact coefficient algebra. Finite-coordinate surjectivity belongs to PMIA; it does not require surjectivity of unit projections. The exact generator norm square makes the fibers decreasing. Compact intersection yields one coefficient valid at every level, proving C∞,1⁺=Λ(G⁺)q(a), with its quotient topology.
+
+The global generator decomposition gives C_n=μ_(p^(n+1))×C_n⁺ after local closure: the root factor is finite, so its product with the closed real factor is closed. Intersection is trivial because conjugation inverts a p-power root, while a real root must equal its inverse and p is odd. Restricting to principal units and taking the compatible norm systems gives C∞,1=ℤ_p(1)×C∞,1⁺. The Tate coordinate ranges over all ℤ_p.
+
+## Actual image ideals and quotients
+
+The Tate and Teichmüller factors are killed by Coleman. Hence principalColeman(q(a))=λ_a=([â]−1)ζ_p with the imported Dirichlet normalization; its raw image is −λ_a. The generic plus algebra/pseudomeasure comparison is requested from PMIA and Dirichlet. The plus ideal e⁺Λ(G) has identity e⁺=(1+c)/2; it is not assigned the ambient identity 1.
+
+The generic principal-augmentation theorem applied to the dense integral-power generator gives I(G)=([â]−1)Λ(G), and similarly for G⁺. Thus I(G)ζ_p is the ordinary integral principal ideal generated by λ_a. Its image under continuous multiplication on the compact coefficient algebra is closed. This supplies the closedness argument missing from the source's topological-generation shortcut.
+
+The proved cyclicity and Tate/real splitting identify principalColeman(C∞,1)=I(G)ζ_p and its real image with I(G⁺)ζ_p⁺. Quotienting the actual principal sequence gives 0→U∞,1/C∞,1→Λ(G)/(I(G)ζ_p)→ℤ_p(1)→0. On the real summand the two Tate terms vanish because conjugation acts by −1 and 2 is invertible. The actual unit quotient Q⁺=U∞,1⁺/C∞,1⁺ therefore maps isomorphically, with its quotient topology, to Λ(G⁺)/(I(G⁺)ζ_p⁺).
+
+For a finite free commutative ℤ_p-algebra A, tensor the actual unit submodule sequence and the actual integral image ideal sequence. The resulting comparison is A⊗Q⁺≃(A⊗U∞,1⁺)/im(A⊗C∞,1⁺), followed by the corresponding A-coefficient algebra quotient. The generic finite completed-tensor topology comparison remains requested. The left side is the tensor of the actual unit quotient. This formal finite-flat comparison does not establish an arithmetic unramified or semilocal coefficient tower; that source target remains partial.
 
 ## Sources and library boundary
 
@@ -58,39 +88,36 @@ The mathematical sources are Rodrigues Jacinto–Williams, [An introduction to p
 
 Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 and Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 supply the baseline. Native fields, integral closures, power bases, polynomial divisibility, binomial series, measure/Amice carriers, compactness and subtype topology are reused. LocalFieldsRamification supplies general local-field and unit theory; ProfiniteProPGroups supplies the functorial principal-unit scalars after the pro-p hypotheses are verified. PMIA supplies generic completed actions, bounded operators, preparation and finite-flat exactness. DirichletPadicLFunctions supplies the arithmetic pseudomeasure numerator. PadicHodgeTheory's cyclotomic action is imported only after its coefficient and topology identification with the actual local action. The declaration catalogue gives the precise dependency of each mathematical statement.
 
+
 ## Stage coverage and owner requests
 
 ### ColemanPowerSeries:L0 — partial
 
-- Compare the concrete cyclotomic local fields, integer rings, normalized valuations and intrinsic ramification invariants with the named upstream interfaces.
-- Supply the actual G-action and norm-compatible Teichmüller splitting; prove the principal group is pro-p before importing ℤ_p-scalars and the completed action. Full units are not a ℤ_p-module.
-- The odd-prime Tate inclusion is now specified. Supply the correctly signed dyadic replacement and establish its action comparison.
-- Read and specify the explicitly unramified or semilocal coefficient tower, Frobenius, norm transitions and all receiving-ring instances. No arbitrary ramified extension is justified.
+- Compare all native local-field structures, normalized valuations, ramification invariants and the native Teichmüller section with the upstream canonical interfaces. The exact receiving structures, residue maps and topology diamonds require their declared supplier requests.
+- Typecheck the imported pro-p, ℤ_p-module and completed-action adapters against the owner’s final interfaces; the packet specifies their actual arithmetic hypotheses and does not assume full units are a scalar module.
+- Read and decompose the explicitly unramified/semilocal coefficient tower, Frobenius and norm transitions. Establish the signed dyadic Tate convention separately; none of the odd-prime action/quotient statements is asserted at p=2.
 
 ### ColemanPowerSeries:L1 — partial
 
-- The ℤ_p arithmetic interpolation bijection and continuous inverse are now specified via exact nonzero preparation and compact nested fibers. Specify the unramified coefficient/Frobenius variant with its precise arithmetic tower; the present finite-free basis is over ℤ_p.
+- Read and decompose the original Coleman/unramified coefficient-Frobenius interpolation variant; the actual norm and arithmetic interpolation plan here has ℤ_p coefficients.
 
-### ColemanPowerSeries:L2 — partial
+### ColemanPowerSeries:L2 — planned
 
-- The actual cyclotomic tower and raw Col₀, normalized Col=−Col₀, continuity and signed arithmetic numerator comparison are now specified. Establish principal-unit ℤ_p-linearity and G-equivariance by installing the actual tower action and identifying it with the imported cyclotomic substitution action.
-- Use the exact PMIA inverse-weight-dilation factor a⁻¹ with the weighted-derivative factor a; verify the receiving coefficient and topology interfaces. Finite-flat lattice and operator comparisons remain owner requests.
+- Elaborate the arithmetic action adapters and principal linear-map signatures against the actual prepared supplier modules. Verify the completed-action continuity and Dirac-density interface at PMIA L1.
+- Refine finite-flat operator/lattice comparisons using the declared generic coefficient requests; do not identify arithmetic unramified coefficient towers with formal tensor extensions.
 
-### ColemanPowerSeries:L3 — partial
+### ColemanPowerSeries:L3 — planned
 
-- The full-unit kernel and first-moment range/topological sequence are specified, conditional on the precise intrinsic-weighting supplier interface. Supply the principal-unit sequence using a norm-compatible Teichmüller splitting.
-- Install G-equivariance and the completed module structures on every eligible term. Prove the finite-flat tensor comparison on every term, including the Tate twist and endpoint; do not tensor only the power-series side.
+- Elaborate the pro-p/completed-module and finite-flat exactness signatures after the precise owner interfaces are available; verify both Tate maps and the endpoint topology in the completed tensor comparison.
 
-### ColemanPowerSeries:L4 — partial
+### ColemanPowerSeries:L4 — planned
 
-- Import the actual global cyclotomic subgroups, torsion, real generators and finite index from IntegralIwasawaTheory:L0. These global results remain outside Coleman ownership.
-- Prove local embeddings and closures, the Teichmüller-adjusted compatible real generator, finite-level ℤ_p-span and compact inverse-limit cyclicity. Retain −1 at finite real level where required.
-- Correct the source exponent in Lemma12.21 and the false algebraic equality of Lemma12.22 by a closure argument. Establish the full Tate/real splitting and the augmentation-ideal image with its coefficient topology.
-- Construct the actual odd-prime quotient U_(∞,1)^+/C_(∞,1)^+ and its comparison with Λ(G^+)/(I(G^+)ζ_p); transport the unit quotient itself under finite-flat coefficient extension. This is not the Galois main conjecture.
+- Elaborate the global/local embeddings, the actual finite principal scalar structures and the generic G⁺ completed-algebra interface. Verify the owner’s procyclic augmentation and plus algebra/pseudomeasure comparison, including the identity e⁺ on the plus ideal.
+- Refine the native quotient and finite-flat completed-tensor signatures; retain the actual unit quotient on the left. The global finite-conductor generator and local norm-stability proof use the exact imported global node statements.
 
 **tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-0-local-fields-and-their-finite-extensions** (open). Finite extensions of ℚ_p as local fields with integer-ring/residue-field structures and e·f=[L:K], sufficient to instantiate K_n.
 
-Consumed by: ColemanPowerSeries:L0.
+Consumed by: ColemanPowerSeries:L0, ColemanPowerSeries:L0/teichmuller-tower-section.
 
 **tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-1-units-the-filtration-and-the-multiplicative-group** (open). Finite-level Teichmüller splitting of local units, compact principal units and their pro-p structure; Coleman must still prove norm compatibility of the splitting.
 
@@ -106,31 +133,43 @@ Consumed by: ColemanPowerSeries:L0.
 
 **tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-4-free-pro-p-and-pro-c-groups-on-finite-sets** (open). Functorial continuous ℤ_p-module structure on abelian pro-p groups; apply only after proving the principal-unit inverse limit has that structure.
 
-Consumed by: ColemanPowerSeries:L0.
+Consumed by: ColemanPowerSeries:L0, ColemanPowerSeries:L0/principal-tower-pro-p, ColemanPowerSeries:L0/principal-tower-scalar-adapter, ColemanPowerSeries:L4/principal-local-cyclotomic-units, ColemanPowerSeries:L4/principal-real-local-cyclotomic-units, ColemanPowerSeries:L4/finite-principal-closure-span.
 
-**PadicMeasuresIwasawaAlgebras:L1** (open). Continuous completed-group-algebra action from the verified continuous G-action on the compact principal-unit module, including coefficient change.
+**PadicMeasuresIwasawaAlgebras:L1** (open). Continuous completed-group-algebra action from the verified continuous G-action on the compact principal-unit module, including coefficient change. Supply the completed action on the verified compact principal module, the quotient G⁺=ℤ_pˣ/⟨−1⟩ algebra and weak finite-coordinate compactness/surjectivity, e⁺Λ(G)≃Λ(G⁺) with identity e⁺, and procyclic principal augmentation for the given dense integer-power generator. These generic statements stay at PMIA; Coleman proves their actual arithmetic applications.
 
-Consumed by: ColemanPowerSeries:L0.
+Consumed by: ColemanPowerSeries:L0, ColemanPowerSeries:L0/principal-completed-action-adapter, ColemanPowerSeries:L2/principal-coleman-linear-map, ColemanPowerSeries:L4/real-principal-cyclotomic-limit, ColemanPowerSeries:L4/compatible-cyclotomic-coefficient-fibers, ColemanPowerSeries:L4/augmentation-generator-arithmetic-comparison, ColemanPowerSeries:L4/real-principal-coleman-surjectivity.
 
-**PadicMeasuresIwasawaAlgebras:L2** (open). Receiving finite-extension integer-ring instances and their integral-lattice/scaling and measure-topology comparisons for bounded Amice operators, plus unit-dilation pushforward versus formal binomial substitution. On the actual Z_p domain with Q_p coefficients, the bounded Amice norm isometry, integral image equal to the closed rational-dual unit ball, and common p-power denominators now have exact supplier nodes. General finite-extension compatibility remains required. The actual Z_p-unit-domain/Q_p-coefficient extension, lattice, norm, restriction and common-denominator comparisons now have exact supplier nodes. Coleman supplies its own normalized-trace/psi comparison; The determinant/product comparison is now supplied by exact local nodes; arithmetic-action comparisons remain local obligations. Also supply the precise intrinsic x-weighting comparison ψ(∂A_Uμ)=0 and constantCoeff(∂A_Uμ)=μ(x); use the existing generic weight, Amice-weight, clopen and first-moment results rather than constructing new measures or operators.
+**PadicMeasuresIwasawaAlgebras:L2** (open). Receiving finite-extension integer-ring instances and their integral-lattice/scaling and measure-topology comparisons for bounded Amice operators, plus unit-dilation pushforward versus formal binomial substitution. On the actual Z_p domain with Q_p coefficients, the bounded Amice norm isometry, integral image equal to the closed rational-dual unit ball, and common p-power denominators now have exact supplier nodes. General finite-extension compatibility remains required. The actual Z_p-unit-domain/Q_p-coefficient extension, lattice, norm, restriction and common-denominator comparisons now have exact supplier nodes. Coleman supplies its own normalized-trace/psi comparison; The determinant/product comparison is now supplied by exact local nodes; arithmetic-action comparisons remain local obligations. The specialized intrinsic unit-weighting/first-moment comparison is now supplied by ColemanPowerSeries:L3/intrinsic-unit-weighting-comparison using exact PMIA nodes; it is no longer requested.
 
-Consumed by: ColemanPowerSeries:L1, ColemanPowerSeries:L2, ColemanPowerSeries:L3, ColemanPowerSeries:L3/raw-coleman-range.
+Consumed by: ColemanPowerSeries:L1, ColemanPowerSeries:L2, ColemanPowerSeries:L3.
 
 **PadicMeasuresIwasawaAlgebras:L5** (open). Compact inverse-limit exactness, finite-flat tensor exactness and completed-tensor comparisons with the actual hypotheses used by Theorem 12.17.
 
-Consumed by: ColemanPowerSeries:L3.
+Consumed by: ColemanPowerSeries:L3, ColemanPowerSeries:L3/finite-flat-coleman-sequence, ColemanPowerSeries:L4/full-local-unit-quotient-sequence, ColemanPowerSeries:L4/local-iwasawa-real-quotient-comparison, ColemanPowerSeries:L4/finite-flat-local-unit-quotient-comparison.
 
-**IntegralIwasawaTheory:L0** (open). Global cyclotomic-unit subgroups inside actual number-field units, torsion and real-part conventions, finite-conductor generators and index; local closure and inverse-limit generator proofs remain here.
+**IntegralIwasawaTheory:L0** (open). Elaborate the exact global cyclic-generation and smoothed-cyclotomic-unit interfaces on the actual supplied global carrier; retain their torsion and conductor hypotheses. The global orbit-generation theorem is already an exact supplier node, not a missing theorem to re-plan locally.
 
-Consumed by: ColemanPowerSeries:L4.
+Consumed by: ColemanPowerSeries:L4/finite-real-principal-cyclicity, ColemanPowerSeries:L4/local-cyclotomic-norm-stability.
 
 **PadicMeasuresIwasawaAlgebras:L0** (open). Extend the supplied ambient and actual unit-domain Z_p/Q_p integral-lattice, norm, closed-image and common-denominator comparisons to the finite-flat coefficient lattices required by Coleman, with their restriction/extension and completed-tensor topology comparisons. Do not request the now supplied actual Z_p-unit-domain/Q_p case.
 
 Consumed by: ColemanPowerSeries:L2.
 
+**tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-3-pro-p-groups-the-maximal-pro-p-quotient-frattini-theory-generation** (open). Supply product and closed-subgroup stability of the native IsProP predicate. Apply these to the actual closed norm-compatible subgroup of the product of finite local principal unit groups; coordinate surjectivity is not required. This generic result remains upstream.
+
+Consumed by: ColemanPowerSeries:L0/principal-tower-pro-p.
+
+**PadicMeasuresIwasawaAlgebras:L3** (open). Provide the exact quotient-group plus comparison for the arithmetic pseudomeasure: after e⁺Λ(G)≃Λ(G⁺), the independently normalized ζ_p and all its integral numerators descend compatibly. Generic fraction/plus comparison is not constructed in Coleman.
+
+Consumed by: ColemanPowerSeries:L4/adjusted-generator-coleman-image, ColemanPowerSeries:L4/augmentation-generator-arithmetic-comparison.
+
+**DirichletPadicLFunctions:L1** (open). Supply compatibility of the exact arithmetic numerator λ_a=([a]−1)ζ_p with the generic plus quotient of G and its independently normalized pseudomeasure; the signed numerator on G is already an exact node and is retained.
+
+Consumed by: ColemanPowerSeries:L4/adjusted-generator-coleman-image.
+
 ## Declaration catalogue
 
-Each entry gives its native proposed name, mathematical statement, proof plan and exact prerequisites. Construction API and examples belong to that entry. Their signatures are in the suggested file; no implementation is asserted.
+The statements below are normative planning specifications. Every declaration is unchecked. Sources distinguish source targets from worker deductions, and the prerequisite lists retain the library and owner boundaries.
 
 ### ColemanPowerSeries:L0
 
@@ -150,7 +189,7 @@ Prerequisites: mathlib:Polynomial.cyclotomic_prime_pow_eq_geom_sum.
 
 Acceptance: The value is p at every level, including n=0 and p=2.
 
-Sources: RJW-published, §9 printed161–162 and Lemma10.9 printed167–168; complete printed161–164/PDF62–65 and166–170/PDF67–71 freshly read27 September2026.. The source fixes compatible roots and states the cyclotomic degree; Lemma10.9 uses the relative polynomial X^p−ζ. The explicit local Eisenstein descent, native field construction and dyadic sign extension are worker deductions. The source assumes p odd.
+Sources: RJW-published, §9 printed161–162 and Lemma10.9 printed167–168; complete printed161–164/PDF62–65 and166–170/PDF67–71 freshly read27 September2026.. The source fixes compatible roots and states the cyclotomic degree; Lemma10.9 uses the relative polynomial X^p−ζ. The explicit local Eisenstein descent, native field construction and dyadic sign extension are worker deductions. The source assumes p odd. Literal excerpt: “cyclotomic extension”.
 
 #### Local cyclotomic Eisenstein criterion
 
@@ -169,7 +208,7 @@ Prerequisites: ColemanPowerSeries:L0/shifted-cyclotomic-constant, mathlib:cyclot
 
 Acceptance: Strong Eisenstein does not follow merely by mapping an ideal: the constant coefficient must still avoid the square in ℤ_p.
 
-Sources: RJW-published, §9 printed161–162 and Lemma10.9 printed167–168; complete printed161–164/PDF62–65 and166–170/PDF67–71 freshly read27 September2026.. The source fixes compatible roots and states the cyclotomic degree; Lemma10.9 uses the relative polynomial X^p−ζ. The explicit local Eisenstein descent, native field construction and dyadic sign extension are worker deductions. The source assumes p odd.
+Sources: RJW-published, §9 printed161–162 and Lemma10.9 printed167–168; complete printed161–164/PDF62–65 and166–170/PDF67–71 freshly read27 September2026.. The source fixes compatible roots and states the cyclotomic degree; Lemma10.9 uses the relative polynomial X^p−ζ. The explicit local Eisenstein descent, native field construction and dyadic sign extension are worker deductions. The source assumes p odd. Literal excerpt: “cyclotomic extension”.
 
 #### Local cyclotomic irreducibility
 
@@ -191,7 +230,7 @@ Prerequisites: ColemanPowerSeries:L0/shifted-cyclotomic-eisenstein, mathlib:Poly
 
 Acceptance: Irreducibility over ℚ alone would not imply this conclusion over ℚ_p.
 
-Sources: RJW-published, §9 printed161–162 and Lemma10.9 printed167–168; complete printed161–164/PDF62–65 and166–170/PDF67–71 freshly read27 September2026.. The source fixes compatible roots and states the cyclotomic degree; Lemma10.9 uses the relative polynomial X^p−ζ. The explicit local Eisenstein descent, native field construction and dyadic sign extension are worker deductions. The source assumes p odd.
+Sources: RJW-published, §9 printed161–162 and Lemma10.9 printed167–168; complete printed161–164/PDF62–65 and166–170/PDF67–71 freshly read27 September2026.. The source fixes compatible roots and states the cyclotomic degree; Lemma10.9 uses the relative polynomial X^p−ζ. The explicit local Eisenstein descent, native field construction and dyadic sign extension are worker deductions. The source assumes p odd. Literal excerpt: “cyclotomic extension”.
 
 #### Lifting primitive prime-power roots
 
@@ -210,7 +249,7 @@ Prerequisites: mathlib:IsPrimitiveRoot.pow_ne_one_of_pos_of_lt, mathlib:orderOf_
 
 Acceptance: Any pth-root lift works. Nonprimitive starting roots would not satisfy the conclusion.
 
-Sources: RJW-published, §9 printed161–162 and Lemma10.9 printed167–168; complete printed161–164/PDF62–65 and166–170/PDF67–71 freshly read27 September2026.. The source fixes compatible roots and states the cyclotomic degree; Lemma10.9 uses the relative polynomial X^p−ζ. The explicit local Eisenstein descent, native field construction and dyadic sign extension are worker deductions. The source assumes p odd.
+Sources: RJW-published, §9 printed161–162 and Lemma10.9 printed167–168; complete printed161–164/PDF62–65 and166–170/PDF67–71 freshly read27 September2026.. The source fixes compatible roots and states the cyclotomic degree; Lemma10.9 uses the relative polynomial X^p−ζ. The explicit local Eisenstein descent, native field construction and dyadic sign extension are worker deductions. The source assumes p odd. Literal excerpt: “cyclotomic extension”.
 
 #### A compatible system of cyclotomic roots
 
@@ -243,7 +282,7 @@ Prerequisites: mathlib:HasEnoughRootsOfUnity.exists_primitiveRoot, mathlib:IsAlg
 
 Acceptance: The sequence depends on choices. No equality between independently chosen sequences or unrelated native zeta constants is asserted.
 
-Sources: RJW-published, §9 printed161–162 and Lemma10.9 printed167–168; complete printed161–164/PDF62–65 and166–170/PDF67–71 freshly read27 September2026.. The source fixes compatible roots and states the cyclotomic degree; Lemma10.9 uses the relative polynomial X^p−ζ. The explicit local Eisenstein descent, native field construction and dyadic sign extension are worker deductions. The source assumes p odd.
+Sources: RJW-published, §9 printed161–162 and Lemma10.9 printed167–168; complete printed161–164/PDF62–65 and166–170/PDF67–71 freshly read27 September2026.. The source fixes compatible roots and states the cyclotomic degree; Lemma10.9 uses the relative polynomial X^p−ζ. The explicit local Eisenstein descent, native field construction and dyadic sign extension are worker deductions. The source assumes p odd. Literal excerpt: “cyclotomic extension”.
 
 #### Cyclotomic root compatibility
 
@@ -261,7 +300,7 @@ Prerequisites: ColemanPowerSeries:L0/compatible-cyclotomic-roots, mathlib:IsAlgC
 
 Acceptance: Compatibility uses the actual chosen sequence, not an existence claim for each level separately.
 
-Sources: RJW-published, §9 printed161–162 and Lemma10.9 printed167–168; complete printed161–164/PDF62–65 and166–170/PDF67–71 freshly read27 September2026.. The source fixes compatible roots and states the cyclotomic degree; Lemma10.9 uses the relative polynomial X^p−ζ. The explicit local Eisenstein descent, native field construction and dyadic sign extension are worker deductions. The source assumes p odd.
+Sources: RJW-published, §9 printed161–162 and Lemma10.9 printed167–168; complete printed161–164/PDF62–65 and166–170/PDF67–71 freshly read27 September2026.. The source fixes compatible roots and states the cyclotomic degree; Lemma10.9 uses the relative polynomial X^p−ζ. The explicit local Eisenstein descent, native field construction and dyadic sign extension are worker deductions. The source assumes p odd. Literal excerpt: “cyclotomic extension”.
 
 #### Exact orders of cyclotomic roots
 
@@ -279,7 +318,7 @@ Prerequisites: ColemanPowerSeries:L0/compatible-cyclotomic-roots, ColemanPowerSe
 
 Acceptance: The level n=0 has order p, not one.
 
-Sources: RJW-published, §9 printed161–162 and Lemma10.9 printed167–168; complete printed161–164/PDF62–65 and166–170/PDF67–71 freshly read27 September2026.. The source fixes compatible roots and states the cyclotomic degree; Lemma10.9 uses the relative polynomial X^p−ζ. The explicit local Eisenstein descent, native field construction and dyadic sign extension are worker deductions. The source assumes p odd.
+Sources: RJW-published, §9 printed161–162 and Lemma10.9 printed167–168; complete printed161–164/PDF62–65 and166–170/PDF67–71 freshly read27 September2026.. The source fixes compatible roots and states the cyclotomic degree; Lemma10.9 uses the relative polynomial X^p−ζ. The explicit local Eisenstein descent, native field construction and dyadic sign extension are worker deductions. The source assumes p odd. Literal excerpt: “cyclotomic extension”.
 
 #### The local cyclotomic fields
 
@@ -320,7 +359,7 @@ Prerequisites: ColemanPowerSeries:L0/compatible-cyclotomic-roots, ColemanPowerSe
 
 Acceptance: This is a concrete native field in a common algebraic closure. Separate splitting fields with unrelated roots would not provide these inclusions.
 
-Sources: RJW-published, §9 printed161–162 and Lemma10.9 printed167–168; complete printed161–164/PDF62–65 and166–170/PDF67–71 freshly read27 September2026.. The source fixes compatible roots and states the cyclotomic degree; Lemma10.9 uses the relative polynomial X^p−ζ. The explicit local Eisenstein descent, native field construction and dyadic sign extension are worker deductions. The source assumes p odd.
+Sources: RJW-published, §9 printed161–162 and Lemma10.9 printed167–168; complete printed161–164/PDF62–65 and166–170/PDF67–71 freshly read27 September2026.. The source fixes compatible roots and states the cyclotomic degree; Lemma10.9 uses the relative polynomial X^p−ζ. The explicit local Eisenstein descent, native field construction and dyadic sign extension are worker deductions. The source assumes p odd. Literal excerpt: “cyclotomic extension”.
 
 #### Inclusions in the local cyclotomic tower
 
@@ -346,7 +385,7 @@ Prerequisites: ColemanPowerSeries:L0/local-cyclotomic-level, ColemanPowerSeries:
 
 Acceptance: The relative algebra is the specified inclusion, so norms and minimal polynomials use the intended map.
 
-Sources: RJW-published, §9 printed161–162 and Lemma10.9 printed167–168; complete printed161–164/PDF62–65 and166–170/PDF67–71 freshly read27 September2026.. The source fixes compatible roots and states the cyclotomic degree; Lemma10.9 uses the relative polynomial X^p−ζ. The explicit local Eisenstein descent, native field construction and dyadic sign extension are worker deductions. The source assumes p odd.
+Sources: RJW-published, §9 printed161–162 and Lemma10.9 printed167–168; complete printed161–164/PDF62–65 and166–170/PDF67–71 freshly read27 September2026.. The source fixes compatible roots and states the cyclotomic degree; Lemma10.9 uses the relative polynomial X^p−ζ. The explicit local Eisenstein descent, native field construction and dyadic sign extension are worker deductions. The source assumes p odd. Literal excerpt: “cyclotomic extension”.
 
 #### Absolute degrees of the cyclotomic levels
 
@@ -364,7 +403,7 @@ Prerequisites: ColemanPowerSeries:L0/local-cyclotomic-level, ColemanPowerSeries:
 
 Acceptance: The formula is valid for p=2; the initial dyadic field has degree one.
 
-Sources: RJW-published, §9 printed161–162 and Lemma10.9 printed167–168; complete printed161–164/PDF62–65 and166–170/PDF67–71 freshly read27 September2026.. The source fixes compatible roots and states the cyclotomic degree; Lemma10.9 uses the relative polynomial X^p−ζ. The explicit local Eisenstein descent, native field construction and dyadic sign extension are worker deductions. The source assumes p odd.
+Sources: RJW-published, §9 printed161–162 and Lemma10.9 printed167–168; complete printed161–164/PDF62–65 and166–170/PDF67–71 freshly read27 September2026.. The source fixes compatible roots and states the cyclotomic degree; Lemma10.9 uses the relative polynomial X^p−ζ. The explicit local Eisenstein descent, native field construction and dyadic sign extension are worker deductions. The source assumes p odd. Literal excerpt: “cyclotomic extension”.
 
 #### Relative degrees of consecutive levels
 
@@ -382,7 +421,7 @@ Prerequisites: ColemanPowerSeries:L0/local-cyclotomic-inclusion, ColemanPowerSer
 
 Acceptance: This includes the first dyadic transition K_0→K_1.
 
-Sources: RJW-published, §9 printed161–162 and Lemma10.9 printed167–168; complete printed161–164/PDF62–65 and166–170/PDF67–71 freshly read27 September2026.. The source fixes compatible roots and states the cyclotomic degree; Lemma10.9 uses the relative polynomial X^p−ζ. The explicit local Eisenstein descent, native field construction and dyadic sign extension are worker deductions. The source assumes p odd.
+Sources: RJW-published, §9 printed161–162 and Lemma10.9 printed167–168; complete printed161–164/PDF62–65 and166–170/PDF67–71 freshly read27 September2026.. The source fixes compatible roots and states the cyclotomic degree; Lemma10.9 uses the relative polynomial X^p−ζ. The explicit local Eisenstein descent, native field construction and dyadic sign extension are worker deductions. The source assumes p odd. Literal excerpt: “cyclotomic extension”.
 
 #### The relative cyclotomic power basis
 
@@ -415,7 +454,7 @@ Prerequisites: ColemanPowerSeries:L0/local-cyclotomic-level, ColemanPowerSeries:
 
 Acceptance: Use the native PowerBasis carrier and norm API. No second field or matrix representation is introduced.
 
-Sources: RJW-published, §9 printed161–162 and Lemma10.9 printed167–168; complete printed161–164/PDF62–65 and166–170/PDF67–71 freshly read27 September2026.. The source fixes compatible roots and states the cyclotomic degree; Lemma10.9 uses the relative polynomial X^p−ζ. The explicit local Eisenstein descent, native field construction and dyadic sign extension are worker deductions. The source assumes p odd.
+Sources: RJW-published, §9 printed161–162 and Lemma10.9 printed167–168; complete printed161–164/PDF62–65 and166–170/PDF67–71 freshly read27 September2026.. The source fixes compatible roots and states the cyclotomic degree; Lemma10.9 uses the relative polynomial X^p−ζ. The explicit local Eisenstein descent, native field construction and dyadic sign extension are worker deductions. The source assumes p odd. Literal excerpt: “cyclotomic extension”.
 
 #### The relative power-basis generator
 
@@ -433,7 +472,7 @@ Prerequisites: ColemanPowerSeries:L0/relative-cyclotomic-basis, mathlib:PowerBas
 
 Acceptance: The generator is the actual chosen next root, not an independently chosen primitive root.
 
-Sources: RJW-published, §9 printed161–162 and Lemma10.9 printed167–168; complete printed161–164/PDF62–65 and166–170/PDF67–71 freshly read27 September2026.. The source fixes compatible roots and states the cyclotomic degree; Lemma10.9 uses the relative polynomial X^p−ζ. The explicit local Eisenstein descent, native field construction and dyadic sign extension are worker deductions. The source assumes p odd.
+Sources: RJW-published, §9 printed161–162 and Lemma10.9 printed167–168; complete printed161–164/PDF62–65 and166–170/PDF67–71 freshly read27 September2026.. The source fixes compatible roots and states the cyclotomic degree; Lemma10.9 uses the relative polynomial X^p−ζ. The explicit local Eisenstein descent, native field construction and dyadic sign extension are worker deductions. The source assumes p odd. Literal excerpt: “cyclotomic extension”.
 
 #### The relative power-basis dimension
 
@@ -451,7 +490,7 @@ Prerequisites: ColemanPowerSeries:L0/relative-cyclotomic-basis, ColemanPowerSeri
 
 Acceptance: The exponent in the native norm sign is the relative degree p.
 
-Sources: RJW-published, §9 printed161–162 and Lemma10.9 printed167–168; complete printed161–164/PDF62–65 and166–170/PDF67–71 freshly read27 September2026.. The source fixes compatible roots and states the cyclotomic degree; Lemma10.9 uses the relative polynomial X^p−ζ. The explicit local Eisenstein descent, native field construction and dyadic sign extension are worker deductions. The source assumes p odd.
+Sources: RJW-published, §9 printed161–162 and Lemma10.9 printed167–168; complete printed161–164/PDF62–65 and166–170/PDF67–71 freshly read27 September2026.. The source fixes compatible roots and states the cyclotomic degree; Lemma10.9 uses the relative polynomial X^p−ζ. The explicit local Eisenstein descent, native field construction and dyadic sign extension are worker deductions. The source assumes p odd. Literal excerpt: “cyclotomic extension”.
 
 #### The relative cyclotomic minimal polynomial
 
@@ -470,7 +509,7 @@ Prerequisites: ColemanPowerSeries:L0/relative-cyclotomic-basis, ColemanPowerSeri
 
 Acceptance: The coefficient ζ_n is in the lower field. The relation alone without the degree argument would not identify a minimal polynomial.
 
-Sources: RJW-published, §9 printed161–162 and Lemma10.9 printed167–168; complete printed161–164/PDF62–65 and166–170/PDF67–71 freshly read27 September2026.. The source fixes compatible roots and states the cyclotomic degree; Lemma10.9 uses the relative polynomial X^p−ζ. The explicit local Eisenstein descent, native field construction and dyadic sign extension are worker deductions. The source assumes p odd.
+Sources: RJW-published, §9 printed161–162 and Lemma10.9 printed167–168; complete printed161–164/PDF62–65 and166–170/PDF67–71 freshly read27 September2026.. The source fixes compatible roots and states the cyclotomic degree; Lemma10.9 uses the relative polynomial X^p−ζ. The explicit local Eisenstein descent, native field construction and dyadic sign extension are worker deductions. The source assumes p odd. Literal excerpt: “cyclotomic extension”.
 
 #### Relative norms of the cyclotomic roots
 
@@ -489,7 +528,7 @@ Prerequisites: ColemanPowerSeries:L0/relative-cyclotomic-basis, ColemanPowerSeri
 
 Acceptance: For odd p this is ζ_n; for p=2 it is −ζ_n.
 
-Sources: RJW-published, §9 printed161–162 and Lemma10.9 printed167–168; complete printed161–164/PDF62–65 and166–170/PDF67–71 freshly read27 September2026.. The source fixes compatible roots and states the cyclotomic degree; Lemma10.9 uses the relative polynomial X^p−ζ. The explicit local Eisenstein descent, native field construction and dyadic sign extension are worker deductions. The source assumes p odd.
+Sources: RJW-published, §9 printed161–162 and Lemma10.9 printed167–168; complete printed161–164/PDF62–65 and166–170/PDF67–71 freshly read27 September2026.. The source fixes compatible roots and states the cyclotomic degree; Lemma10.9 uses the relative polynomial X^p−ζ. The explicit local Eisenstein descent, native field construction and dyadic sign extension are worker deductions. The source assumes p odd. Literal excerpt: “cyclotomic extension”.
 
 #### Relative norms of cyclotomic differences
 
@@ -514,7 +553,7 @@ Prerequisites: ColemanPowerSeries:L0/relative-cyclotomic-basis, ColemanPowerSeri
 
 Acceptance: Calling ζ_n−1 a uniformizer requires the outstanding ramification result. For p=2,n=0 the norm is +2 while ζ_0−1=−2. The paper assumes odd p, so this extension creates no source finding.
 
-Sources: RJW-published, §9 printed161–162 and Lemma10.9 printed167–168; complete printed161–164/PDF62–65 and166–170/PDF67–71 freshly read27 September2026.. The source fixes compatible roots and states the cyclotomic degree; Lemma10.9 uses the relative polynomial X^p−ζ. The explicit local Eisenstein descent, native field construction and dyadic sign extension are worker deductions. The source assumes p odd.
+Sources: RJW-published, §9 printed161–162 and Lemma10.9 printed167–168; complete printed161–164/PDF62–65 and166–170/PDF67–71 freshly read27 September2026.. The source fixes compatible roots and states the cyclotomic degree; Lemma10.9 uses the relative polynomial X^p−ζ. The explicit local Eisenstein descent, native field construction and dyadic sign extension are worker deductions. The source assumes p odd. Literal excerpt: “cyclotomic extension”.
 
 #### Integrality of the cyclotomic root
 
@@ -537,7 +576,7 @@ Prerequisites: ColemanPowerSeries:L0/local-cyclotomic-level, mathlib:IsIntegral.
 
 Acceptance: The proof uses integrality over ℤ_p, not merely algebraicity over ℚ_p.
 
-Sources: RJW-published, §9 printed161–163 and §10.1/Lemma10.1 printed163–164; complete printed161–164 freshly reread27 September2026 from the published PDF62–65.. The source uses total ramification, a uniformizer and residue lifting in the finite-level interpolation argument. These algebraic integral-closure, power-basis and quotient adapters are worker deductions from the pinned library. They do not yet establish the source’s valuative assertions. The dyadic tests extend the source’s odd-prime range.
+Sources: RJW-published, §9 printed161–163 and §10.1/Lemma10.1 printed163–164; complete printed161–164 freshly reread27 September2026 from the published PDF62–65.. The source uses total ramification, a uniformizer and residue lifting in the finite-level interpolation argument. These algebraic integral-closure, power-basis and quotient adapters are worker deductions from the pinned library. They do not yet establish the source’s valuative assertions. The dyadic tests extend the source’s odd-prime range. Literal excerpt: “which is a uniformiser”.
 
 #### The integral cyclotomic difference polynomial
 
@@ -556,7 +595,7 @@ Prerequisites: ColemanPowerSeries:L0/cyclotomic-root-integral, ColemanPowerSerie
 
 Acceptance: At p=2,n=0 the polynomial is X+2 and π_0=−2.
 
-Sources: RJW-published, §9 printed161–163 and §10.1/Lemma10.1 printed163–164; complete printed161–164 freshly reread27 September2026 from the published PDF62–65.. The source uses total ramification, a uniformizer and residue lifting in the finite-level interpolation argument. These algebraic integral-closure, power-basis and quotient adapters are worker deductions from the pinned library. They do not yet establish the source’s valuative assertions. The dyadic tests extend the source’s odd-prime range.
+Sources: RJW-published, §9 printed161–163 and §10.1/Lemma10.1 printed163–164; complete printed161–164 freshly reread27 September2026 from the published PDF62–65.. The source uses total ramification, a uniformizer and residue lifting in the finite-level interpolation argument. These algebraic integral-closure, power-basis and quotient adapters are worker deductions from the pinned library. They do not yet establish the source’s valuative assertions. The dyadic tests extend the source’s odd-prime range. Literal excerpt: “which is a uniformiser”.
 
 #### Cyclotomic power-basis denominators
 
@@ -576,7 +615,7 @@ Prerequisites: ColemanPowerSeries:L0/local-cyclotomic-level, mathlib:IsPrimitive
 
 Acceptance: The assertion includes nonintegral x; the exponent is allowed to depend on x. It does not assert that every field element is integral.
 
-Sources: RJW-published, §9 printed161–163 and §10.1/Lemma10.1 printed163–164; complete printed161–164 freshly reread27 September2026 from the published PDF62–65.. The source uses total ramification, a uniformizer and residue lifting in the finite-level interpolation argument. These algebraic integral-closure, power-basis and quotient adapters are worker deductions from the pinned library. They do not yet establish the source’s valuative assertions. The dyadic tests extend the source’s odd-prime range.
+Sources: RJW-published, §9 printed161–163 and §10.1/Lemma10.1 printed163–164; complete printed161–164 freshly reread27 September2026 from the published PDF62–65.. The source uses total ramification, a uniformizer and residue lifting in the finite-level interpolation argument. These algebraic integral-closure, power-basis and quotient adapters are worker deductions from the pinned library. They do not yet establish the source’s valuative assertions. The dyadic tests extend the source’s odd-prime range. Literal excerpt: “which is a uniformiser”.
 
 #### The cyclotomic integral closure
 
@@ -598,7 +637,7 @@ Prerequisites: ColemanPowerSeries:L0/cyclotomic-root-integral, ColemanPowerSerie
 
 Acceptance: This is an algebraic equality in the actual included field. A separate supplier identifies it with the valuation ring.
 
-Sources: RJW-published, §9 printed161–163 and §10.1/Lemma10.1 printed163–164; complete printed161–164 freshly reread27 September2026 from the published PDF62–65.. The source uses total ramification, a uniformizer and residue lifting in the finite-level interpolation argument. These algebraic integral-closure, power-basis and quotient adapters are worker deductions from the pinned library. They do not yet establish the source’s valuative assertions. The dyadic tests extend the source’s odd-prime range.
+Sources: RJW-published, §9 printed161–163 and §10.1/Lemma10.1 printed163–164; complete printed161–164 freshly reread27 September2026 from the published PDF62–65.. The source uses total ramification, a uniformizer and residue lifting in the finite-level interpolation argument. These algebraic integral-closure, power-basis and quotient adapters are worker deductions from the pinned library. They do not yet establish the source’s valuative assertions. The dyadic tests extend the source’s odd-prime range. Literal excerpt: “which is a uniformiser”.
 
 #### The root in the integral closure
 
@@ -630,7 +669,7 @@ Prerequisites: ColemanPowerSeries:L0/cyclotomic-root-integral, mathlib:integralC
 
 Acceptance: The carrier is native integralClosure and the element is the chosen compatible root, not a new abstract integer ring or an independently chosen root.
 
-Sources: RJW-published, §9 printed161–163 and §10.1/Lemma10.1 printed163–164; complete printed161–164 freshly reread27 September2026 from the published PDF62–65.. The source uses total ramification, a uniformizer and residue lifting in the finite-level interpolation argument. These algebraic integral-closure, power-basis and quotient adapters are worker deductions from the pinned library. They do not yet establish the source’s valuative assertions. The dyadic tests extend the source’s odd-prime range.
+Sources: RJW-published, §9 printed161–163 and §10.1/Lemma10.1 printed163–164; complete printed161–164 freshly reread27 September2026 from the published PDF62–65.. The source uses total ramification, a uniformizer and residue lifting in the finite-level interpolation argument. These algebraic integral-closure, power-basis and quotient adapters are worker deductions from the pinned library. They do not yet establish the source’s valuative assertions. The dyadic tests extend the source’s odd-prime range. Literal excerpt: “which is a uniformiser”.
 
 #### The integral cyclotomic power basis
 
@@ -663,7 +702,7 @@ Prerequisites: ColemanPowerSeries:L0/cyclotomic-integral-closure, ColemanPowerSe
 
 Acceptance: Native power-basis finite freeness and coordinate expansion are inherited. No second basis carrier or integral monogenicity theorem for arbitrary local fields is planned.
 
-Sources: RJW-published, §9 printed161–163 and §10.1/Lemma10.1 printed163–164; complete printed161–164 freshly reread27 September2026 from the published PDF62–65.. The source uses total ramification, a uniformizer and residue lifting in the finite-level interpolation argument. These algebraic integral-closure, power-basis and quotient adapters are worker deductions from the pinned library. They do not yet establish the source’s valuative assertions. The dyadic tests extend the source’s odd-prime range.
+Sources: RJW-published, §9 printed161–163 and §10.1/Lemma10.1 printed163–164; complete printed161–164 freshly reread27 September2026 from the published PDF62–65.. The source uses total ramification, a uniformizer and residue lifting in the finite-level interpolation argument. These algebraic integral-closure, power-basis and quotient adapters are worker deductions from the pinned library. They do not yet establish the source’s valuative assertions. The dyadic tests extend the source’s odd-prime range. Literal excerpt: “which is a uniformiser”.
 
 #### The integral basis generator
 
@@ -685,7 +724,7 @@ Prerequisites: ColemanPowerSeries:L0/integral-cyclotomic-basis, mathlib:PowerBas
 
 Acceptance: For p=2,n=0 this generator is −2, although the one-element basis itself consists of one.
 
-Sources: RJW-published, §9 printed161–163 and §10.1/Lemma10.1 printed163–164; complete printed161–164 freshly reread27 September2026 from the published PDF62–65.. The source uses total ramification, a uniformizer and residue lifting in the finite-level interpolation argument. These algebraic integral-closure, power-basis and quotient adapters are worker deductions from the pinned library. They do not yet establish the source’s valuative assertions. The dyadic tests extend the source’s odd-prime range.
+Sources: RJW-published, §9 printed161–163 and §10.1/Lemma10.1 printed163–164; complete printed161–164 freshly reread27 September2026 from the published PDF62–65.. The source uses total ramification, a uniformizer and residue lifting in the finite-level interpolation argument. These algebraic integral-closure, power-basis and quotient adapters are worker deductions from the pinned library. They do not yet establish the source’s valuative assertions. The dyadic tests extend the source’s odd-prime range. Literal excerpt: “which is a uniformiser”.
 
 #### The minimal polynomial inside the integral closure
 
@@ -703,7 +742,7 @@ Prerequisites: ColemanPowerSeries:L0/integral-cyclotomic-root, ColemanPowerSerie
 
 Acceptance: The same polynomial is used in the algebraic integral ring and in the field; no assumption that O_n is a field enters.
 
-Sources: RJW-published, §9 printed161–163 and §10.1/Lemma10.1 printed163–164; complete printed161–164 freshly reread27 September2026 from the published PDF62–65.. The source uses total ramification, a uniformizer and residue lifting in the finite-level interpolation argument. These algebraic integral-closure, power-basis and quotient adapters are worker deductions from the pinned library. They do not yet establish the source’s valuative assertions. The dyadic tests extend the source’s odd-prime range.
+Sources: RJW-published, §9 printed161–163 and §10.1/Lemma10.1 printed163–164; complete printed161–164 freshly reread27 September2026 from the published PDF62–65.. The source uses total ramification, a uniformizer and residue lifting in the finite-level interpolation argument. These algebraic integral-closure, power-basis and quotient adapters are worker deductions from the pinned library. They do not yet establish the source’s valuative assertions. The dyadic tests extend the source’s odd-prime range. Literal excerpt: “which is a uniformiser”.
 
 #### The integral basis dimension
 
@@ -722,7 +761,7 @@ Prerequisites: ColemanPowerSeries:L0/integral-cyclotomic-basis-generator, Colema
 
 Acceptance: There is no n−1 indexing at the bottom level.
 
-Sources: RJW-published, §9 printed161–163 and §10.1/Lemma10.1 printed163–164; complete printed161–164 freshly reread27 September2026 from the published PDF62–65.. The source uses total ramification, a uniformizer and residue lifting in the finite-level interpolation argument. These algebraic integral-closure, power-basis and quotient adapters are worker deductions from the pinned library. They do not yet establish the source’s valuative assertions. The dyadic tests extend the source’s odd-prime range.
+Sources: RJW-published, §9 printed161–163 and §10.1/Lemma10.1 printed163–164; complete printed161–164 freshly reread27 September2026 from the published PDF62–65.. The source uses total ramification, a uniformizer and residue lifting in the finite-level interpolation argument. These algebraic integral-closure, power-basis and quotient adapters are worker deductions from the pinned library. They do not yet establish the source’s valuative assertions. The dyadic tests extend the source’s odd-prime range. Literal excerpt: “which is a uniformiser”.
 
 #### The rational prime in the difference ideal
 
@@ -741,7 +780,7 @@ Prerequisites: ColemanPowerSeries:L0/integral-difference-minpoly, ColemanPowerSe
 
 Acceptance: This does not identify the exponent of ramification or show every nonunit is divisible by ϖ_n.
 
-Sources: RJW-published, §9 printed161–163 and §10.1/Lemma10.1 printed163–164; complete printed161–164 freshly reread27 September2026 from the published PDF62–65.. The source uses total ramification, a uniformizer and residue lifting in the finite-level interpolation argument. These algebraic integral-closure, power-basis and quotient adapters are worker deductions from the pinned library. They do not yet establish the source’s valuative assertions. The dyadic tests extend the source’s odd-prime range.
+Sources: RJW-published, §9 printed161–163 and §10.1/Lemma10.1 printed163–164; complete printed161–164 freshly reread27 September2026 from the published PDF62–65.. The source uses total ramification, a uniformizer and residue lifting in the finite-level interpolation argument. These algebraic integral-closure, power-basis and quotient adapters are worker deductions from the pinned library. They do not yet establish the source’s valuative assertions. The dyadic tests extend the source’s odd-prime range. Literal excerpt: “which is a uniformiser”.
 
 #### Cyclotomic integral reduction
 
@@ -776,7 +815,7 @@ Prerequisites: ColemanPowerSeries:L0/integral-cyclotomic-basis-generator, Colema
 
 Acceptance: Every ring map into ZMod p is surjective by the native theorem. This quotient map is defined algebraically; the canonical valuation residue map is not assumed.
 
-Sources: RJW-published, §9 printed161–163 and §10.1/Lemma10.1 printed163–164; complete printed161–164 freshly reread27 September2026 from the published PDF62–65.. The source uses total ramification, a uniformizer and residue lifting in the finite-level interpolation argument. These algebraic integral-closure, power-basis and quotient adapters are worker deductions from the pinned library. They do not yet establish the source’s valuative assertions. The dyadic tests extend the source’s odd-prime range.
+Sources: RJW-published, §9 printed161–163 and §10.1/Lemma10.1 printed163–164; complete printed161–164 freshly reread27 September2026 from the published PDF62–65.. The source uses total ramification, a uniformizer and residue lifting in the finite-level interpolation argument. These algebraic integral-closure, power-basis and quotient adapters are worker deductions from the pinned library. They do not yet establish the source’s valuative assertions. The dyadic tests extend the source’s odd-prime range. Literal excerpt: “which is a uniformiser”.
 
 #### Reduction of integral scalars
 
@@ -794,7 +833,7 @@ Prerequisites: ColemanPowerSeries:L0/cyclotomic-integral-reduction, mathlib:Powe
 
 Acceptance: The map on constants is fixed; an unspecified residue-field isomorphism would not state this compatibility.
 
-Sources: RJW-published, §9 printed161–163 and §10.1/Lemma10.1 printed163–164; complete printed161–164 freshly reread27 September2026 from the published PDF62–65.. The source uses total ramification, a uniformizer and residue lifting in the finite-level interpolation argument. These algebraic integral-closure, power-basis and quotient adapters are worker deductions from the pinned library. They do not yet establish the source’s valuative assertions. The dyadic tests extend the source’s odd-prime range.
+Sources: RJW-published, §9 printed161–163 and §10.1/Lemma10.1 printed163–164; complete printed161–164 freshly reread27 September2026 from the published PDF62–65.. The source uses total ramification, a uniformizer and residue lifting in the finite-level interpolation argument. These algebraic integral-closure, power-basis and quotient adapters are worker deductions from the pinned library. They do not yet establish the source’s valuative assertions. The dyadic tests extend the source’s odd-prime range. Literal excerpt: “which is a uniformiser”.
 
 #### Reduction of the cyclotomic root
 
@@ -812,7 +851,7 @@ Prerequisites: ColemanPowerSeries:L0/cyclotomic-integral-reduction, ColemanPower
 
 Acceptance: For every n and every prime, including the bottom dyadic level, the primitive p-power root reduces to one.
 
-Sources: RJW-published, §9 printed161–163 and §10.1/Lemma10.1 printed163–164; complete printed161–164 freshly reread27 September2026 from the published PDF62–65.. The source uses total ramification, a uniformizer and residue lifting in the finite-level interpolation argument. These algebraic integral-closure, power-basis and quotient adapters are worker deductions from the pinned library. They do not yet establish the source’s valuative assertions. The dyadic tests extend the source’s odd-prime range.
+Sources: RJW-published, §9 printed161–163 and §10.1/Lemma10.1 printed163–164; complete printed161–164 freshly reread27 September2026 from the published PDF62–65.. The source uses total ramification, a uniformizer and residue lifting in the finite-level interpolation argument. These algebraic integral-closure, power-basis and quotient adapters are worker deductions from the pinned library. They do not yet establish the source’s valuative assertions. The dyadic tests extend the source’s odd-prime range. Literal excerpt: “which is a uniformiser”.
 
 #### The kernel of cyclotomic reduction
 
@@ -832,7 +871,7 @@ Prerequisites: ColemanPowerSeries:L0/integral-cyclotomic-basis-generator, Colema
 
 Acceptance: The proof establishes the full kernel, not just vanishing on the generator. Together with surjectivity it shows this ideal is maximal; it does not yet prove uniqueness of the maximal ideal.
 
-Sources: RJW-published, §9 printed161–163 and §10.1/Lemma10.1 printed163–164; complete printed161–164 freshly reread27 September2026 from the published PDF62–65.. The source uses total ramification, a uniformizer and residue lifting in the finite-level interpolation argument. These algebraic integral-closure, power-basis and quotient adapters are worker deductions from the pinned library. They do not yet establish the source’s valuative assertions. The dyadic tests extend the source’s odd-prime range.
+Sources: RJW-published, §9 printed161–163 and §10.1/Lemma10.1 printed163–164; complete printed161–164 freshly reread27 September2026 from the published PDF62–65.. The source uses total ramification, a uniformizer and residue lifting in the finite-level interpolation argument. These algebraic integral-closure, power-basis and quotient adapters are worker deductions from the pinned library. They do not yet establish the source’s valuative assertions. The dyadic tests extend the source’s odd-prime range. Literal excerpt: “which is a uniformiser”.
 
 #### The cyclotomic difference quotient
 
@@ -865,7 +904,7 @@ Prerequisites: ColemanPowerSeries:L0/cyclotomic-reduction-kernel, ColemanPowerSe
 
 Acceptance: This is a specific quotient of the native algebraic integral closure. Identifying it with 𝓀[K_n] and proving inertia degree one remain supplier-dependent.
 
-Sources: RJW-published, §9 printed161–163 and §10.1/Lemma10.1 printed163–164; complete printed161–164 freshly reread27 September2026 from the published PDF62–65.. The source uses total ramification, a uniformizer and residue lifting in the finite-level interpolation argument. These algebraic integral-closure, power-basis and quotient adapters are worker deductions from the pinned library. They do not yet establish the source’s valuative assertions. The dyadic tests extend the source’s odd-prime range.
+Sources: RJW-published, §9 printed161–163 and §10.1/Lemma10.1 printed163–164; complete printed161–164 freshly reread27 September2026 from the published PDF62–65.. The source uses total ramification, a uniformizer and residue lifting in the finite-level interpolation argument. These algebraic integral-closure, power-basis and quotient adapters are worker deductions from the pinned library. They do not yet establish the source’s valuative assertions. The dyadic tests extend the source’s odd-prime range. Literal excerpt: “which is a uniformiser”.
 
 #### A cyclotomic power lies in the prime ideal
 
@@ -885,7 +924,7 @@ Prerequisites: ColemanPowerSeries:L0/shifted-cyclotomic-eisenstein, ColemanPower
 
 Acceptance: The statement concerns the native algebraic cyclotomic integral ring; no general local-field construction is duplicated.
 
-Sources: RJW-published, §9 printed161–163 and §10.1, Lemma10.1 printed164/PDF65; complete published printed161–164 freshly read27 September2026.. Worker algebraic decomposition of the source’s cyclotomic local ring, uniformizer and finite-level lift. The local/DVR structure is on native algebraic integralClosure. The bounded polynomial lift strengthens the algebraic part of Lemma10.1 using the previously constructed integral power basis. The topological local-field comparison and analytic evaluation of arbitrary infinite series are separate. The dyadic statements extend the source’s odd-prime range.
+Sources: RJW-published, §9 printed161–163 and §10.1, Lemma10.1 printed164/PDF65; complete published printed161–164 freshly read27 September2026.. Worker algebraic decomposition of the source’s cyclotomic local ring, uniformizer and finite-level lift. The local/DVR structure is on native algebraic integralClosure. The bounded polynomial lift strengthens the algebraic part of Lemma10.1 using the previously constructed integral power basis. The topological local-field comparison and analytic evaluation of arbitrary infinite series are separate. The dyadic statements extend the source’s odd-prime range. Literal excerpt: “As u is a unit”.
 
 #### Maximality of the difference ideal
 
@@ -904,7 +943,7 @@ Prerequisites: ColemanPowerSeries:L0/cyclotomic-integral-reduction, ColemanPower
 
 Acceptance: The statement concerns the native algebraic cyclotomic integral ring; no general local-field construction is duplicated.
 
-Sources: RJW-published, §9 printed161–163 and §10.1, Lemma10.1 printed164/PDF65; complete published printed161–164 freshly read27 September2026.. Worker algebraic decomposition of the source’s cyclotomic local ring, uniformizer and finite-level lift. The local/DVR structure is on native algebraic integralClosure. The bounded polynomial lift strengthens the algebraic part of Lemma10.1 using the previously constructed integral power basis. The topological local-field comparison and analytic evaluation of arbitrary infinite series are separate. The dyadic statements extend the source’s odd-prime range.
+Sources: RJW-published, §9 printed161–163 and §10.1, Lemma10.1 printed164/PDF65; complete published printed161–164 freshly read27 September2026.. Worker algebraic decomposition of the source’s cyclotomic local ring, uniformizer and finite-level lift. The local/DVR structure is on native algebraic integralClosure. The bounded polynomial lift strengthens the algebraic part of Lemma10.1 using the previously constructed integral power basis. The topological local-field comparison and analytic evaluation of arbitrary infinite series are separate. The dyadic statements extend the source’s odd-prime range. Literal excerpt: “As u is a unit”.
 
 #### Uniqueness of the cyclotomic maximal ideal
 
@@ -924,7 +963,7 @@ Prerequisites: ColemanPowerSeries:L0/cyclotomic-difference-power, ColemanPowerSe
 
 Acceptance: The statement concerns the native algebraic cyclotomic integral ring; no general local-field construction is duplicated.
 
-Sources: RJW-published, §9 printed161–163 and §10.1, Lemma10.1 printed164/PDF65; complete published printed161–164 freshly read27 September2026.. Worker algebraic decomposition of the source’s cyclotomic local ring, uniformizer and finite-level lift. The local/DVR structure is on native algebraic integralClosure. The bounded polynomial lift strengthens the algebraic part of Lemma10.1 using the previously constructed integral power basis. The topological local-field comparison and analytic evaluation of arbitrary infinite series are separate. The dyadic statements extend the source’s odd-prime range.
+Sources: RJW-published, §9 printed161–163 and §10.1, Lemma10.1 printed164/PDF65; complete published printed161–164 freshly read27 September2026.. Worker algebraic decomposition of the source’s cyclotomic local ring, uniformizer and finite-level lift. The local/DVR structure is on native algebraic integralClosure. The bounded polynomial lift strengthens the algebraic part of Lemma10.1 using the previously constructed integral power basis. The topological local-field comparison and analytic evaluation of arbitrary infinite series are separate. The dyadic statements extend the source’s odd-prime range. Literal excerpt: “As u is a unit”.
 
 #### The cyclotomic integral ring is local
 
@@ -943,7 +982,7 @@ Prerequisites: ColemanPowerSeries:L0/cyclotomic-difference-maximal, ColemanPower
 
 Acceptance: The statement concerns the native algebraic cyclotomic integral ring; no general local-field construction is duplicated.
 
-Sources: RJW-published, §9 printed161–163 and §10.1, Lemma10.1 printed164/PDF65; complete published printed161–164 freshly read27 September2026.. Worker algebraic decomposition of the source’s cyclotomic local ring, uniformizer and finite-level lift. The local/DVR structure is on native algebraic integralClosure. The bounded polynomial lift strengthens the algebraic part of Lemma10.1 using the previously constructed integral power basis. The topological local-field comparison and analytic evaluation of arbitrary infinite series are separate. The dyadic statements extend the source’s odd-prime range.
+Sources: RJW-published, §9 printed161–163 and §10.1, Lemma10.1 printed164/PDF65; complete published printed161–164 freshly read27 September2026.. Worker algebraic decomposition of the source’s cyclotomic local ring, uniformizer and finite-level lift. The local/DVR structure is on native algebraic integralClosure. The bounded polynomial lift strengthens the algebraic part of Lemma10.1 using the previously constructed integral power basis. The topological local-field comparison and analytic evaluation of arbitrary infinite series are separate. The dyadic statements extend the source’s odd-prime range. Literal excerpt: “As u is a unit”.
 
 #### The canonical cyclotomic maximal ideal
 
@@ -962,7 +1001,7 @@ Prerequisites: ColemanPowerSeries:L0/cyclotomic-integers-local, ColemanPowerSeri
 
 Acceptance: The statement concerns the native algebraic cyclotomic integral ring; no general local-field construction is duplicated.
 
-Sources: RJW-published, §9 printed161–163 and §10.1, Lemma10.1 printed164/PDF65; complete published printed161–164 freshly read27 September2026.. Worker algebraic decomposition of the source’s cyclotomic local ring, uniformizer and finite-level lift. The local/DVR structure is on native algebraic integralClosure. The bounded polynomial lift strengthens the algebraic part of Lemma10.1 using the previously constructed integral power basis. The topological local-field comparison and analytic evaluation of arbitrary infinite series are separate. The dyadic statements extend the source’s odd-prime range.
+Sources: RJW-published, §9 printed161–163 and §10.1, Lemma10.1 printed164/PDF65; complete published printed161–164 freshly read27 September2026.. Worker algebraic decomposition of the source’s cyclotomic local ring, uniformizer and finite-level lift. The local/DVR structure is on native algebraic integralClosure. The bounded polynomial lift strengthens the algebraic part of Lemma10.1 using the previously constructed integral power basis. The topological local-field comparison and analytic evaluation of arbitrary infinite series are separate. The dyadic statements extend the source’s odd-prime range. Literal excerpt: “As u is a unit”.
 
 #### Finite Noetherian cyclotomic integers
 
@@ -985,7 +1024,7 @@ Prerequisites: ColemanPowerSeries:L0/integral-cyclotomic-basis, mathlib:PowerBas
 
 Acceptance: The statement concerns the native algebraic cyclotomic integral ring; no general local-field construction is duplicated.
 
-Sources: RJW-published, §9 printed161–163 and §10.1, Lemma10.1 printed164/PDF65; complete published printed161–164 freshly read27 September2026.. Worker algebraic decomposition of the source’s cyclotomic local ring, uniformizer and finite-level lift. The local/DVR structure is on native algebraic integralClosure. The bounded polynomial lift strengthens the algebraic part of Lemma10.1 using the previously constructed integral power basis. The topological local-field comparison and analytic evaluation of arbitrary infinite series are separate. The dyadic statements extend the source’s odd-prime range.
+Sources: RJW-published, §9 printed161–163 and §10.1, Lemma10.1 printed164/PDF65; complete published printed161–164 freshly read27 September2026.. Worker algebraic decomposition of the source’s cyclotomic local ring, uniformizer and finite-level lift. The local/DVR structure is on native algebraic integralClosure. The bounded polynomial lift strengthens the algebraic part of Lemma10.1 using the previously constructed integral power basis. The topological local-field comparison and analytic evaluation of arbitrary infinite series are separate. The dyadic statements extend the source’s odd-prime range. Literal excerpt: “As u is a unit”.
 
 #### Cyclotomic integral discrete valuation ring
 
@@ -1005,7 +1044,7 @@ Prerequisites: ColemanPowerSeries:L0/cyclotomic-integers-local, ColemanPowerSeri
 
 Acceptance: The algebraic DVR has its native algebraic valuation API. This does not install a topological local-field structure on K_n or identify the normalized field valuation.
 
-Sources: RJW-published, §9 printed161–163 and §10.1, Lemma10.1 printed164/PDF65; complete published printed161–164 freshly read27 September2026.. Worker algebraic decomposition of the source’s cyclotomic local ring, uniformizer and finite-level lift. The local/DVR structure is on native algebraic integralClosure. The bounded polynomial lift strengthens the algebraic part of Lemma10.1 using the previously constructed integral power basis. The topological local-field comparison and analytic evaluation of arbitrary infinite series are separate. The dyadic statements extend the source’s odd-prime range.
+Sources: RJW-published, §9 printed161–163 and §10.1, Lemma10.1 printed164/PDF65; complete published printed161–164 freshly read27 September2026.. Worker algebraic decomposition of the source’s cyclotomic local ring, uniformizer and finite-level lift. The local/DVR structure is on native algebraic integralClosure. The bounded polynomial lift strengthens the algebraic part of Lemma10.1 using the previously constructed integral power basis. The topological local-field comparison and analytic evaluation of arbitrary infinite series are separate. The dyadic statements extend the source’s odd-prime range. Literal excerpt: “As u is a unit”.
 
 #### The cyclotomic difference is a prime element
 
@@ -1029,7 +1068,7 @@ Prerequisites: ColemanPowerSeries:L0/cyclotomic-maximal-ideal, ColemanPowerSerie
 
 Acceptance: The statement concerns the native algebraic cyclotomic integral ring; no general local-field construction is duplicated.
 
-Sources: RJW-published, §9 printed161–163 and §10.1, Lemma10.1 printed164/PDF65; complete published printed161–164 freshly read27 September2026.. Worker algebraic decomposition of the source’s cyclotomic local ring, uniformizer and finite-level lift. The local/DVR structure is on native algebraic integralClosure. The bounded polynomial lift strengthens the algebraic part of Lemma10.1 using the previously constructed integral power basis. The topological local-field comparison and analytic evaluation of arbitrary infinite series are separate. The dyadic statements extend the source’s odd-prime range.
+Sources: RJW-published, §9 printed161–163 and §10.1, Lemma10.1 printed164/PDF65; complete published printed161–164 freshly read27 September2026.. Worker algebraic decomposition of the source’s cyclotomic local ring, uniformizer and finite-level lift. The local/DVR structure is on native algebraic integralClosure. The bounded polynomial lift strengthens the algebraic part of Lemma10.1 using the previously constructed integral power basis. The topological local-field comparison and analytic evaluation of arbitrary infinite series are separate. The dyadic statements extend the source’s odd-prime range. Literal excerpt: “As u is a unit”.
 
 #### The canonical cyclotomic residue field
 
@@ -1064,7 +1103,7 @@ Prerequisites: ColemanPowerSeries:L0/cyclotomic-maximal-ideal, ColemanPowerSerie
 
 Acceptance: This is the canonical residue field of the algebraic local ring O_n. Its identification with the residue field of the requested topological local-field structure remains a separate compatibility statement.
 
-Sources: RJW-published, §9 printed161–163 and §10.1, Lemma10.1 printed164/PDF65; complete published printed161–164 freshly read27 September2026.. Worker algebraic decomposition of the source’s cyclotomic local ring, uniformizer and finite-level lift. The local/DVR structure is on native algebraic integralClosure. The bounded polynomial lift strengthens the algebraic part of Lemma10.1 using the previously constructed integral power basis. The topological local-field comparison and analytic evaluation of arbitrary infinite series are separate. The dyadic statements extend the source’s odd-prime range.
+Sources: RJW-published, §9 printed161–163 and §10.1, Lemma10.1 printed164/PDF65; complete published printed161–164 freshly read27 September2026.. Worker algebraic decomposition of the source’s cyclotomic local ring, uniformizer and finite-level lift. The local/DVR structure is on native algebraic integralClosure. The bounded polynomial lift strengthens the algebraic part of Lemma10.1 using the previously constructed integral power basis. The topological local-field comparison and analytic evaluation of arbitrary infinite series are separate. The dyadic statements extend the source’s odd-prime range. Literal excerpt: “As u is a unit”.
 
 #### Cyclotomic units detected by reduction
 
@@ -1083,7 +1122,7 @@ Prerequisites: ColemanPowerSeries:L0/cyclotomic-integers-local, ColemanPowerSeri
 
 Acceptance: The statement concerns the native algebraic cyclotomic integral ring; no general local-field construction is duplicated.
 
-Sources: RJW-published, §9 printed161–163 and §10.1, Lemma10.1 printed164/PDF65; complete published printed161–164 freshly read27 September2026.. Worker algebraic decomposition of the source’s cyclotomic local ring, uniformizer and finite-level lift. The local/DVR structure is on native algebraic integralClosure. The bounded polynomial lift strengthens the algebraic part of Lemma10.1 using the previously constructed integral power basis. The topological local-field comparison and analytic evaluation of arbitrary infinite series are separate. The dyadic statements extend the source’s odd-prime range.
+Sources: RJW-published, §9 printed161–163 and §10.1, Lemma10.1 printed164/PDF65; complete published printed161–164 freshly read27 September2026.. Worker algebraic decomposition of the source’s cyclotomic local ring, uniformizer and finite-level lift. The local/DVR structure is on native algebraic integralClosure. The bounded polynomial lift strengthens the algebraic part of Lemma10.1 using the previously constructed integral power basis. The topological local-field comparison and analytic evaluation of arbitrary infinite series are separate. The dyadic statements extend the source’s odd-prime range. Literal excerpt: “As u is a unit”.
 
 #### Units in cyclotomic polynomial coordinates
 
@@ -1110,7 +1149,7 @@ Prerequisites: ColemanPowerSeries:L0/cyclotomic-unit-reduction, ColemanPowerSeri
 
 Acceptance: The statement concerns the native algebraic cyclotomic integral ring; no general local-field construction is duplicated.
 
-Sources: RJW-published, §9 printed161–163 and §10.1, Lemma10.1 printed164/PDF65; complete published printed161–164 freshly read27 September2026.. Worker algebraic decomposition of the source’s cyclotomic local ring, uniformizer and finite-level lift. The local/DVR structure is on native algebraic integralClosure. The bounded polynomial lift strengthens the algebraic part of Lemma10.1 using the previously constructed integral power basis. The topological local-field comparison and analytic evaluation of arbitrary infinite series are separate. The dyadic statements extend the source’s odd-prime range.
+Sources: RJW-published, §9 printed161–163 and §10.1, Lemma10.1 printed164/PDF65; complete published printed161–164 freshly read27 September2026.. Worker algebraic decomposition of the source’s cyclotomic local ring, uniformizer and finite-level lift. The local/DVR structure is on native algebraic integralClosure. The bounded polynomial lift strengthens the algebraic part of Lemma10.1 using the previously constructed integral power basis. The topological local-field comparison and analytic evaluation of arbitrary infinite series are separate. The dyadic statements extend the source’s odd-prime range. Literal excerpt: “As u is a unit”.
 
 #### A bounded polynomial lift of a cyclotomic unit
 
@@ -1133,7 +1172,7 @@ Prerequisites: ColemanPowerSeries:L0/integral-cyclotomic-basis-generator, Colema
 
 Acceptance: The statement concerns the native algebraic cyclotomic integral ring; no general local-field construction is duplicated.
 
-Sources: RJW-published, §9 printed161–163 and §10.1, Lemma10.1 printed164/PDF65; complete published printed161–164 freshly read27 September2026.. Worker algebraic decomposition of the source’s cyclotomic local ring, uniformizer and finite-level lift. The local/DVR structure is on native algebraic integralClosure. The bounded polynomial lift strengthens the algebraic part of Lemma10.1 using the previously constructed integral power basis. The topological local-field comparison and analytic evaluation of arbitrary infinite series are separate. The dyadic statements extend the source’s odd-prime range.
+Sources: RJW-published, §9 printed161–163 and §10.1, Lemma10.1 printed164/PDF65; complete published printed161–164 freshly read27 September2026.. Worker algebraic decomposition of the source’s cyclotomic local ring, uniformizer and finite-level lift. The local/DVR structure is on native algebraic integralClosure. The bounded polynomial lift strengthens the algebraic part of Lemma10.1 using the previously constructed integral power basis. The topological local-field comparison and analytic evaluation of arbitrary infinite series are separate. The dyadic statements extend the source’s odd-prime range. Literal excerpt: “As u is a unit”.
 
 #### A unit series with a finite polynomial representative
 
@@ -1153,7 +1192,7 @@ Prerequisites: ColemanPowerSeries:L0/cyclotomic-unit-polynomial-lift, mathlib:Po
 
 Acceptance: This is the algebraic part of the finite-level series lift. It neither chooses the norm-compatible Coleman interpolant nor proves analytic evaluation for arbitrary infinite power series.
 
-Sources: RJW-published, §9 printed161–163 and §10.1, Lemma10.1 printed164/PDF65; complete published printed161–164 freshly read27 September2026.. Worker algebraic decomposition of the source’s cyclotomic local ring, uniformizer and finite-level lift. The local/DVR structure is on native algebraic integralClosure. The bounded polynomial lift strengthens the algebraic part of Lemma10.1 using the previously constructed integral power basis. The topological local-field comparison and analytic evaluation of arbitrary infinite series are separate. The dyadic statements extend the source’s odd-prime range.
+Sources: RJW-published, §9 printed161–163 and §10.1, Lemma10.1 printed164/PDF65; complete published printed161–164 freshly read27 September2026.. Worker algebraic decomposition of the source’s cyclotomic local ring, uniformizer and finite-level lift. The local/DVR structure is on native algebraic integralClosure. The bounded polynomial lift strengthens the algebraic part of Lemma10.1 using the previously constructed integral power basis. The topological local-field comparison and analytic evaluation of arbitrary infinite series are separate. The dyadic statements extend the source’s odd-prime range. Literal excerpt: “As u is a unit”.
 
 #### The scalar map preserves the p-adic norm
 
@@ -1172,7 +1211,7 @@ Prerequisites: ColemanPowerSeries:L0/local-cyclotomic-level, ColemanPowerSeries:
 
 Acceptance: The norm is the inherited spectral norm, with no rescaling by the cyclotomic degree.
 
-Sources: RJW-published, §9 printed161–163 and §10.1, Lemma10.1 printed164/PDF65; full published161–164 read afresh on27 September2026.. Worker decomposition of the spectral-norm and convergent-evaluation inputs to the source’s finite-level unit lift. The existing integral power basis gives a bounded polynomial representative. Native topological evaluation then realizes it as a convergent series. The explicit norm proof and dyadic extension are worker deductions; the source assumes p odd.
+Sources: RJW-published, §9 printed161–163 and §10.1, Lemma10.1 printed164/PDF65; full published161–164 read afresh on27 September2026.. Worker decomposition of the spectral-norm and convergent-evaluation inputs to the source’s finite-level unit lift. The existing integral power basis gives a bounded polynomial representative. Native topological evaluation then realizes it as a convergent series. The explicit norm proof and dyadic extension are worker deductions; the source assumes p odd. Literal excerpt: “As u is a unit”.
 
 #### Primitivity of the integral cyclotomic root
 
@@ -1191,7 +1230,7 @@ Prerequisites: ColemanPowerSeries:L0/integral-cyclotomic-root, ColemanPowerSerie
 
 Acceptance: Primitivity is for the specified compatible root, including the dyadic bottom level.
 
-Sources: RJW-published, §9 printed161–163 and §10.1, Lemma10.1 printed164/PDF65; full published161–164 read afresh on27 September2026.. Worker decomposition of the spectral-norm and convergent-evaluation inputs to the source’s finite-level unit lift. The existing integral power basis gives a bounded polynomial representative. Native topological evaluation then realizes it as a convergent series. The explicit norm proof and dyadic extension are worker deductions; the source assumes p odd.
+Sources: RJW-published, §9 printed161–163 and §10.1, Lemma10.1 printed164/PDF65; full published161–164 read afresh on27 September2026.. Worker decomposition of the spectral-norm and convergent-evaluation inputs to the source’s finite-level unit lift. The existing integral power basis gives a bounded polynomial representative. Native topological evaluation then realizes it as a convergent series. The explicit norm proof and dyadic extension are worker deductions; the source assumes p odd. Literal excerpt: “As u is a unit”.
 
 #### Cyclotomic integers have norm at most one
 
@@ -1215,7 +1254,7 @@ Prerequisites: ColemanPowerSeries:L0/cyclotomic-scalar-norm, ColemanPowerSeries:
 
 Acceptance: This proves the inclusion of O_n in the norm-unit ball only; the converse remains part of the local-field comparison.
 
-Sources: RJW-published, §9 printed161–163 and §10.1, Lemma10.1 printed164/PDF65; full published161–164 read afresh on27 September2026.. Worker decomposition of the spectral-norm and convergent-evaluation inputs to the source’s finite-level unit lift. The existing integral power basis gives a bounded polynomial representative. Native topological evaluation then realizes it as a convergent series. The explicit norm proof and dyadic extension are worker deductions; the source assumes p odd.
+Sources: RJW-published, §9 printed161–163 and §10.1, Lemma10.1 printed164/PDF65; full published161–164 read afresh on27 September2026.. Worker decomposition of the spectral-norm and convergent-evaluation inputs to the source’s finite-level unit lift. The existing integral power basis gives a bounded polynomial representative. Native topological evaluation then realizes it as a convergent series. The explicit norm proof and dyadic extension are worker deductions; the source assumes p odd. Literal excerpt: “As u is a unit”.
 
 #### Compact cyclotomic integer rings
 
@@ -1235,7 +1274,7 @@ Prerequisites: ColemanPowerSeries:L0/cyclotomic-scalar-norm, ColemanPowerSeries:
 
 Acceptance: No completeness of the ambient algebraic closure is assumed; compactness comes from finite integral coordinates.
 
-Sources: RJW-published, §9 printed161–163 and §10.1, Lemma10.1 printed164/PDF65; full published161–164 read afresh on27 September2026.. Worker decomposition of the spectral-norm and convergent-evaluation inputs to the source’s finite-level unit lift. The existing integral power basis gives a bounded polynomial representative. Native topological evaluation then realizes it as a convergent series. The explicit norm proof and dyadic extension are worker deductions; the source assumes p odd.
+Sources: RJW-published, §9 printed161–163 and §10.1, Lemma10.1 printed164/PDF65; full published161–164 read afresh on27 September2026.. Worker decomposition of the spectral-norm and convergent-evaluation inputs to the source’s finite-level unit lift. The existing integral power basis gives a bounded polynomial representative. Native topological evaluation then realizes it as a convergent series. The explicit norm proof and dyadic extension are worker deductions; the source assumes p odd. Literal excerpt: “As u is a unit”.
 
 #### Cyclotomic units have norm one
 
@@ -1254,7 +1293,7 @@ Prerequisites: ColemanPowerSeries:L0/cyclotomic-integers-norm-bound, mathlib:Pad
 
 Acceptance: Algebraic invertibility is used here; the converse norm-one criterion is not assumed.
 
-Sources: RJW-published, §9 printed161–163 and §10.1, Lemma10.1 printed164/PDF65; full published161–164 read afresh on27 September2026.. Worker decomposition of the spectral-norm and convergent-evaluation inputs to the source’s finite-level unit lift. The existing integral power basis gives a bounded polynomial representative. Native topological evaluation then realizes it as a convergent series. The explicit norm proof and dyadic extension are worker deductions; the source assumes p odd.
+Sources: RJW-published, §9 printed161–163 and §10.1, Lemma10.1 printed164/PDF65; full published161–164 read afresh on27 September2026.. Worker decomposition of the spectral-norm and convergent-evaluation inputs to the source’s finite-level unit lift. The existing integral power basis gives a bounded polynomial representative. Native topological evaluation then realizes it as a convergent series. The explicit norm proof and dyadic extension are worker deductions; the source assumes p odd. Literal excerpt: “As u is a unit”.
 
 #### The cyclotomic power relation up to a unit
 
@@ -1274,7 +1313,7 @@ Prerequisites: ColemanPowerSeries:L0/shifted-cyclotomic-constant, ColemanPowerSe
 
 Acceptance: The sign is retained: at p=2,n=0, ϖ_0=−2 and the unit factor is−1.
 
-Sources: RJW-published, §9 printed161–163 and §10.1, Lemma10.1 printed164/PDF65; full published161–164 read afresh on27 September2026.. Worker decomposition of the spectral-norm and convergent-evaluation inputs to the source’s finite-level unit lift. The existing integral power basis gives a bounded polynomial representative. Native topological evaluation then realizes it as a convergent series. The explicit norm proof and dyadic extension are worker deductions; the source assumes p odd.
+Sources: RJW-published, §9 printed161–163 and §10.1, Lemma10.1 printed164/PDF65; full published161–164 read afresh on27 September2026.. Worker decomposition of the spectral-norm and convergent-evaluation inputs to the source’s finite-level unit lift. The existing integral power basis gives a bounded polynomial representative. Native topological evaluation then realizes it as a convergent series. The explicit norm proof and dyadic extension are worker deductions; the source assumes p odd. Literal excerpt: “As u is a unit”.
 
 #### The cyclotomic difference norm
 
@@ -1298,7 +1337,7 @@ Prerequisites: ColemanPowerSeries:L0/cyclotomic-difference-power-unit, ColemanPo
 
 Acceptance: Keep the power equation, without introducing a normalization-dependent integer-valued valuation.
 
-Sources: RJW-published, §9 printed161–163 and §10.1, Lemma10.1 printed164/PDF65; full published161–164 read afresh on27 September2026.. Worker decomposition of the spectral-norm and convergent-evaluation inputs to the source’s finite-level unit lift. The existing integral power basis gives a bounded polynomial representative. Native topological evaluation then realizes it as a convergent series. The explicit norm proof and dyadic extension are worker deductions; the source assumes p odd.
+Sources: RJW-published, §9 printed161–163 and §10.1, Lemma10.1 printed164/PDF65; full published161–164 read afresh on27 September2026.. Worker decomposition of the spectral-norm and convergent-evaluation inputs to the source’s finite-level unit lift. The existing integral power basis gives a bounded polynomial representative. Native topological evaluation then realizes it as a convergent series. The explicit norm proof and dyadic extension are worker deductions; the source assumes p odd. Literal excerpt: “As u is a unit”.
 
 #### Strict contraction of the cyclotomic difference
 
@@ -1316,7 +1355,7 @@ Prerequisites: ColemanPowerSeries:L0/cyclotomic-difference-norm-power.
 
 Acceptance: The assertion includes p=2,n=0; there is no odd-prime restriction.
 
-Sources: RJW-published, §9 printed161–163 and §10.1, Lemma10.1 printed164/PDF65; full published161–164 read afresh on27 September2026.. Worker decomposition of the spectral-norm and convergent-evaluation inputs to the source’s finite-level unit lift. The existing integral power basis gives a bounded polynomial representative. Native topological evaluation then realizes it as a convergent series. The explicit norm proof and dyadic extension are worker deductions; the source assumes p odd.
+Sources: RJW-published, §9 printed161–163 and §10.1, Lemma10.1 printed164/PDF65; full published161–164 read afresh on27 September2026.. Worker decomposition of the spectral-norm and convergent-evaluation inputs to the source’s finite-level unit lift. The existing integral power basis gives a bounded polynomial representative. Native topological evaluation then realizes it as a convergent series. The explicit norm proof and dyadic extension are worker deductions; the source assumes p odd. Literal excerpt: “As u is a unit”.
 
 #### The cyclotomic integer-ring linear topology
 
@@ -1335,7 +1374,7 @@ Prerequisites: ColemanPowerSeries:L0/cyclotomic-integers-norm-bound, mathlib:Pad
 
 Acceptance: This ring-linear topology is on O_n. The nondiscrete field K_n does not have this property as a module over itself.
 
-Sources: RJW-published, §9 printed161–163 and §10.1, Lemma10.1 printed164/PDF65; full published161–164 read afresh on27 September2026.. Worker decomposition of the spectral-norm and convergent-evaluation inputs to the source’s finite-level unit lift. The existing integral power basis gives a bounded polynomial representative. Native topological evaluation then realizes it as a convergent series. The explicit norm proof and dyadic extension are worker deductions; the source assumes p odd.
+Sources: RJW-published, §9 printed161–163 and §10.1, Lemma10.1 printed164/PDF65; full published161–164 read afresh on27 September2026.. Worker decomposition of the spectral-norm and convergent-evaluation inputs to the source’s finite-level unit lift. The existing integral power basis gives a bounded polynomial representative. Native topological evaluation then realizes it as a convergent series. The explicit norm proof and dyadic extension are worker deductions; the source assumes p odd. Literal excerpt: “As u is a unit”.
 
 #### Finite-level cyclotomic series evaluation
 
@@ -1375,7 +1414,7 @@ Prerequisites: ColemanPowerSeries:L0/cyclotomic-scalar-norm, ColemanPowerSeries:
 
 Acceptance: The map is a specialization of native evaluation, with all convergence hypotheses discharged. No field-linear-topology instance or independent summation carrier is introduced.
 
-Sources: RJW-published, §9 printed161–163 and §10.1, Lemma10.1 printed164/PDF65; full published161–164 read afresh on27 September2026.. Worker decomposition of the spectral-norm and convergent-evaluation inputs to the source’s finite-level unit lift. The existing integral power basis gives a bounded polynomial representative. Native topological evaluation then realizes it as a convergent series. The explicit norm proof and dyadic extension are worker deductions; the source assumes p odd.
+Sources: RJW-published, §9 printed161–163 and §10.1, Lemma10.1 printed164/PDF65; full published161–164 read afresh on27 September2026.. Worker decomposition of the spectral-norm and convergent-evaluation inputs to the source’s finite-level unit lift. The existing integral power basis gives a bounded polynomial representative. Native topological evaluation then realizes it as a convergent series. The explicit norm proof and dyadic extension are worker deductions; the source assumes p odd. Literal excerpt: “As u is a unit”.
 
 #### Polynomial and convergent cyclotomic evaluation agree
 
@@ -1393,7 +1432,7 @@ Prerequisites: ColemanPowerSeries:L0/cyclotomic-series-evaluation, mathlib:Power
 
 Acceptance: The comparison uses the native polynomial-to-series coercion; no auxiliary lift of coefficients is chosen.
 
-Sources: RJW-published, §9 printed161–163 and §10.1, Lemma10.1 printed164/PDF65; full published161–164 read afresh on27 September2026.. Worker decomposition of the spectral-norm and convergent-evaluation inputs to the source’s finite-level unit lift. The existing integral power basis gives a bounded polynomial representative. Native topological evaluation then realizes it as a convergent series. The explicit norm proof and dyadic extension are worker deductions; the source assumes p odd.
+Sources: RJW-published, §9 printed161–163 and §10.1, Lemma10.1 printed164/PDF65; full published161–164 read afresh on27 September2026.. Worker decomposition of the spectral-norm and convergent-evaluation inputs to the source’s finite-level unit lift. The existing integral power basis gives a bounded polynomial representative. Native topological evaluation then realizes it as a convergent series. The explicit norm proof and dyadic extension are worker deductions; the source assumes p odd. Literal excerpt: “As u is a unit”.
 
 #### Finite-level unit lifting under convergent evaluation
 
@@ -1416,7 +1455,7 @@ Prerequisites: ColemanPowerSeries:L0/cyclotomic-unit-series-polynomial-lift, Col
 
 Acceptance: This establishes the native finite-level interpolation assertion of Lemma10.1, including a bounded polynomial representative. It does not prove a single series interpolates an entire norm-compatible tower.
 
-Sources: RJW-published, §9 printed161–163 and §10.1, Lemma10.1 printed164/PDF65; full published161–164 read afresh on27 September2026.. Worker decomposition of the spectral-norm and convergent-evaluation inputs to the source’s finite-level unit lift. The existing integral power basis gives a bounded polynomial representative. Native topological evaluation then realizes it as a convergent series. The explicit norm proof and dyadic extension are worker deductions; the source assumes p odd.
+Sources: RJW-published, §9 printed161–163 and §10.1, Lemma10.1 printed164/PDF65; full published161–164 read afresh on27 September2026.. Worker decomposition of the spectral-norm and convergent-evaluation inputs to the source’s finite-level unit lift. The existing integral power basis gives a bounded polynomial representative. Native topological evaluation then realizes it as a convergent series. The explicit norm proof and dyadic extension are worker deductions; the source assumes p odd. Literal excerpt: “As u is a unit”.
 
 #### Norm of a unit times a signed uniformizer power
 
@@ -1439,7 +1478,7 @@ Prerequisites: ColemanPowerSeries:L0/cyclotomic-unit-norm, ColemanPowerSeries:L0
 
 Acceptance: For p=2,n=0 the base of the norm powers is 1/2, even though the algebraic uniformizer is −2.
 
-Sources: RJW-published, §9, published161–163, and §10.1 Lemma10.1, published164/PDF65. Complete published161–164 read afresh from the hash-verified version of record.. Worker decomposition of the local cyclotomic integer-ring and norm inputs used in the finite-level lift of Lemma10.1. These explicit norm-valuation comparisons, ideal-power topology and the dyadic extension are deductions from the native baseline and preceding cyclotomic nodes; they are not claimed as separately printed statements. The source assumes p odd.
+Sources: RJW-published, §9, published161–163, and §10.1 Lemma10.1, published164/PDF65. Complete published161–164 read afresh from the hash-verified version of record.. Worker decomposition of the local cyclotomic integer-ring and norm inputs used in the finite-level lift of Lemma10.1. These explicit norm-valuation comparisons, ideal-power topology and the dyadic extension are deductions from the native baseline and preceding cyclotomic nodes; they are not claimed as separately printed statements. The source assumes p odd. Literal excerpt: “As u is a unit”.
 
 #### The cyclotomic spectral norm value group
 
@@ -1459,7 +1498,7 @@ Prerequisites: ColemanPowerSeries:L0/local-cyclotomic-level, ColemanPowerSeries:
 
 Acceptance: Zero is excluded because it has no finite integer exponent. This theorem does not define an additive valuation or install local-field instances.
 
-Sources: RJW-published, §9, published161–163, and §10.1 Lemma10.1, published164/PDF65. Complete published161–164 read afresh from the hash-verified version of record.. Worker decomposition of the local cyclotomic integer-ring and norm inputs used in the finite-level lift of Lemma10.1. These explicit norm-valuation comparisons, ideal-power topology and the dyadic extension are deductions from the native baseline and preceding cyclotomic nodes; they are not claimed as separately printed statements. The source assumes p odd.
+Sources: RJW-published, §9, published161–163, and §10.1 Lemma10.1, published164/PDF65. Complete published161–164 read afresh from the hash-verified version of record.. Worker decomposition of the local cyclotomic integer-ring and norm inputs used in the finite-level lift of Lemma10.1. These explicit norm-valuation comparisons, ideal-power topology and the dyadic extension are deductions from the native baseline and preceding cyclotomic nodes; they are not claimed as separately printed statements. The source assumes p odd. Literal excerpt: “As u is a unit”.
 
 #### Integrality and the cyclotomic norm unit ball
 
@@ -1485,7 +1524,7 @@ Prerequisites: ColemanPowerSeries:L0/cyclotomic-integers-norm-bound, ColemanPowe
 
 Acceptance: Do not reverse the signed exponent inequality: q_n<1, so negative powers have norm greater than one. The zero case is integral.
 
-Sources: RJW-published, §9, published161–163, and §10.1 Lemma10.1, published164/PDF65. Complete published161–164 read afresh from the hash-verified version of record.. Worker decomposition of the local cyclotomic integer-ring and norm inputs used in the finite-level lift of Lemma10.1. These explicit norm-valuation comparisons, ideal-power topology and the dyadic extension are deductions from the native baseline and preceding cyclotomic nodes; they are not claimed as separately printed statements. The source assumes p odd.
+Sources: RJW-published, §9, published161–163, and §10.1 Lemma10.1, published164/PDF65. Complete published161–164 read afresh from the hash-verified version of record.. Worker decomposition of the local cyclotomic integer-ring and norm inputs used in the finite-level lift of Lemma10.1. These explicit norm-valuation comparisons, ideal-power topology and the dyadic extension are deductions from the native baseline and preceding cyclotomic nodes; they are not claimed as separately printed statements. The source assumes p odd. Literal excerpt: “As u is a unit”.
 
 #### The native valuation-integers certificate
 
@@ -1505,7 +1544,7 @@ Prerequisites: ColemanPowerSeries:L0/cyclotomic-integral-iff-norm, ColemanPowerS
 
 Acceptance: General unit and divisibility facts remain native baseline results. Only the cyclotomic certificate is new.
 
-Sources: RJW-published, §9, published161–163, and §10.1 Lemma10.1, published164/PDF65. Complete published161–164 read afresh from the hash-verified version of record.. Worker decomposition of the local cyclotomic integer-ring and norm inputs used in the finite-level lift of Lemma10.1. These explicit norm-valuation comparisons, ideal-power topology and the dyadic extension are deductions from the native baseline and preceding cyclotomic nodes; they are not claimed as separately printed statements. The source assumes p odd.
+Sources: RJW-published, §9, published161–163, and §10.1 Lemma10.1, published164/PDF65. Complete published161–164 read afresh from the hash-verified version of record.. Worker decomposition of the local cyclotomic integer-ring and norm inputs used in the finite-level lift of Lemma10.1. These explicit norm-valuation comparisons, ideal-power topology and the dyadic extension are deductions from the native baseline and preceding cyclotomic nodes; they are not claimed as separately printed statements. The source assumes p odd. Literal excerpt: “As u is a unit”.
 
 #### Equality with the native norm valuation ring
 
@@ -1528,7 +1567,7 @@ Prerequisites: ColemanPowerSeries:L0/cyclotomic-integral-iff-norm, mathlib:Norme
 
 Acceptance: This equality identifies the norm valuation ring. The owning LocalFieldsRamification comparison with its named normalized local-field structures is still required.
 
-Sources: RJW-published, §9, published161–163, and §10.1 Lemma10.1, published164/PDF65. Complete published161–164 read afresh from the hash-verified version of record.. Worker decomposition of the local cyclotomic integer-ring and norm inputs used in the finite-level lift of Lemma10.1. These explicit norm-valuation comparisons, ideal-power topology and the dyadic extension are deductions from the native baseline and preceding cyclotomic nodes; they are not claimed as separately printed statements. The source assumes p odd.
+Sources: RJW-published, §9, published161–163, and §10.1 Lemma10.1, published164/PDF65. Complete published161–164 read afresh from the hash-verified version of record.. Worker decomposition of the local cyclotomic integer-ring and norm inputs used in the finite-level lift of Lemma10.1. These explicit norm-valuation comparisons, ideal-power topology and the dyadic extension are deductions from the native baseline and preceding cyclotomic nodes; they are not claimed as separately printed statements. The source assumes p odd. Literal excerpt: “As u is a unit”.
 
 #### Unit detection by the inherited norm
 
@@ -1547,7 +1586,7 @@ Prerequisites: ColemanPowerSeries:L0/cyclotomic-norm-integers-certificate, mathl
 
 Acceptance: The forward direction recovers the earlier integral-unit norm theorem; the new content is the converse for this actual carrier.
 
-Sources: RJW-published, §9, published161–163, and §10.1 Lemma10.1, published164/PDF65. Complete published161–164 read afresh from the hash-verified version of record.. Worker decomposition of the local cyclotomic integer-ring and norm inputs used in the finite-level lift of Lemma10.1. These explicit norm-valuation comparisons, ideal-power topology and the dyadic extension are deductions from the native baseline and preceding cyclotomic nodes; they are not claimed as separately printed statements. The source assumes p odd.
+Sources: RJW-published, §9, published161–163, and §10.1 Lemma10.1, published164/PDF65. Complete published161–164 read afresh from the hash-verified version of record.. Worker decomposition of the local cyclotomic integer-ring and norm inputs used in the finite-level lift of Lemma10.1. These explicit norm-valuation comparisons, ideal-power topology and the dyadic extension are deductions from the native baseline and preceding cyclotomic nodes; they are not claimed as separately printed statements. The source assumes p odd. Literal excerpt: “As u is a unit”.
 
 #### The maximal ideal and the open unit ball
 
@@ -1566,7 +1605,7 @@ Prerequisites: ColemanPowerSeries:L0/cyclotomic-norm-unit-criterion, ColemanPowe
 
 Acceptance: This is an open ball in O_n; equality of norm to one characterizes its complementary unit group.
 
-Sources: RJW-published, §9, published161–163, and §10.1 Lemma10.1, published164/PDF65. Complete published161–164 read afresh from the hash-verified version of record.. Worker decomposition of the local cyclotomic integer-ring and norm inputs used in the finite-level lift of Lemma10.1. These explicit norm-valuation comparisons, ideal-power topology and the dyadic extension are deductions from the native baseline and preceding cyclotomic nodes; they are not claimed as separately printed statements. The source assumes p odd.
+Sources: RJW-published, §9, published161–163, and §10.1 Lemma10.1, published164/PDF65. Complete published161–164 read afresh from the hash-verified version of record.. Worker decomposition of the local cyclotomic integer-ring and norm inputs used in the finite-level lift of Lemma10.1. These explicit norm-valuation comparisons, ideal-power topology and the dyadic extension are deductions from the native baseline and preceding cyclotomic nodes; they are not claimed as separately printed statements. The source assumes p odd. Literal excerpt: “As u is a unit”.
 
 #### Reduction and strict norm inequalities
 
@@ -1589,7 +1628,7 @@ Prerequisites: ColemanPowerSeries:L0/cyclotomic-reduction-kernel, ColemanPowerSe
 
 Acceptance: The existing algebraic residue map and its ZMod p comparison are preserved; no second reduction map is defined.
 
-Sources: RJW-published, §9, published161–163, and §10.1 Lemma10.1, published164/PDF65. Complete published161–164 read afresh from the hash-verified version of record.. Worker decomposition of the local cyclotomic integer-ring and norm inputs used in the finite-level lift of Lemma10.1. These explicit norm-valuation comparisons, ideal-power topology and the dyadic extension are deductions from the native baseline and preceding cyclotomic nodes; they are not claimed as separately printed statements. The source assumes p odd.
+Sources: RJW-published, §9, published161–163, and §10.1 Lemma10.1, published164/PDF65. Complete published161–164 read afresh from the hash-verified version of record.. Worker decomposition of the local cyclotomic integer-ring and norm inputs used in the finite-level lift of Lemma10.1. These explicit norm-valuation comparisons, ideal-power topology and the dyadic extension are deductions from the native baseline and preceding cyclotomic nodes; they are not claimed as separately printed statements. The source assumes p odd. Literal excerpt: “As u is a unit”.
 
 #### Maximal-ideal powers as closed norm balls
 
@@ -1614,7 +1653,7 @@ Prerequisites: ColemanPowerSeries:L0/cyclotomic-maximal-ideal, ColemanPowerSerie
 
 Acceptance: This is a specialization of the native divisibility API to the actual cyclotomic maximal ideal, not a new generic classification of valuation-ring ideals.
 
-Sources: RJW-published, §9, published161–163, and §10.1 Lemma10.1, published164/PDF65. Complete published161–164 read afresh from the hash-verified version of record.. Worker decomposition of the local cyclotomic integer-ring and norm inputs used in the finite-level lift of Lemma10.1. These explicit norm-valuation comparisons, ideal-power topology and the dyadic extension are deductions from the native baseline and preceding cyclotomic nodes; they are not claimed as separately printed statements. The source assumes p odd.
+Sources: RJW-published, §9, published161–163, and §10.1 Lemma10.1, published164/PDF65. Complete published161–164 read afresh from the hash-verified version of record.. Worker decomposition of the local cyclotomic integer-ring and norm inputs used in the finite-level lift of Lemma10.1. These explicit norm-valuation comparisons, ideal-power topology and the dyadic extension are deductions from the native baseline and preceding cyclotomic nodes; they are not claimed as separately printed statements. The source assumes p odd. Literal excerpt: “As u is a unit”.
 
 #### The rational prime ideal in the cyclotomic integers
 
@@ -1638,7 +1677,7 @@ Prerequisites: ColemanPowerSeries:L0/cyclotomic-difference-power-unit, ColemanPo
 
 Acceptance: Together with the existing residue field ZMod p and field degree d_n this supplies concrete input for the owning ramification comparison; it is not itself a construction of that owner’s e and f.
 
-Sources: RJW-published, §9, published161–163, and §10.1 Lemma10.1, published164/PDF65. Complete published161–164 read afresh from the hash-verified version of record.. Worker decomposition of the local cyclotomic integer-ring and norm inputs used in the finite-level lift of Lemma10.1. These explicit norm-valuation comparisons, ideal-power topology and the dyadic extension are deductions from the native baseline and preceding cyclotomic nodes; they are not claimed as separately printed statements. The source assumes p odd.
+Sources: RJW-published, §9, published161–163, and §10.1 Lemma10.1, published164/PDF65. Complete published161–164 read afresh from the hash-verified version of record.. Worker decomposition of the local cyclotomic integer-ring and norm inputs used in the finite-level lift of Lemma10.1. These explicit norm-valuation comparisons, ideal-power topology and the dyadic extension are deductions from the native baseline and preceding cyclotomic nodes; they are not claimed as separately printed statements. The source assumes p odd. Literal excerpt: “As u is a unit”.
 
 #### The maximal-ideal neighborhood basis
 
@@ -1658,7 +1697,7 @@ Prerequisites: ColemanPowerSeries:L0/cyclotomic-ideal-powers-norm, ColemanPowerS
 
 Acceptance: The basis includes r=0, and its positive powers shrink to zero. The ambient algebraic closure need not be complete.
 
-Sources: RJW-published, §9, published161–163, and §10.1 Lemma10.1, published164/PDF65. Complete published161–164 read afresh from the hash-verified version of record.. Worker decomposition of the local cyclotomic integer-ring and norm inputs used in the finite-level lift of Lemma10.1. These explicit norm-valuation comparisons, ideal-power topology and the dyadic extension are deductions from the native baseline and preceding cyclotomic nodes; they are not claimed as separately printed statements. The source assumes p odd.
+Sources: RJW-published, §9, published161–163, and §10.1 Lemma10.1, published164/PDF65. Complete published161–164 read afresh from the hash-verified version of record.. Worker decomposition of the local cyclotomic integer-ring and norm inputs used in the finite-level lift of Lemma10.1. These explicit norm-valuation comparisons, ideal-power topology and the dyadic extension are deductions from the native baseline and preceding cyclotomic nodes; they are not claimed as separately printed statements. The source assumes p odd. Literal excerpt: “As u is a unit”.
 
 #### Continuity of the actual relative coordinates
 
@@ -1677,7 +1716,7 @@ Prerequisites: ColemanPowerSeries:L0/local-cyclotomic-level, ColemanPowerSeries:
 
 Acceptance: Use the actual carrier, topology and relative scalar inclusion, including p=2.
 
-Sources: RJW-published, Published166–169/PDF67–70, equation(10-1), Lemma10.9, Proposition10.10 and complete10.11–10.13. Complete161–164 and166–170 freshly read28 September2026.. Actual-carrier decomposition of the relative norm transitions and evaluation square. The determinant proof uses specialization of the existing Frobenius and cyclotomic power bases instead of assuming the formal extension is already split. The source assumes p odd; dyadic instances keep the established signs. No norm-compatible inverse-limit carrier or principal-unit module is introduced here.
+Sources: RJW-published, Published166–169/PDF67–70, equation(10-1), Lemma10.9, Proposition10.10 and complete10.11–10.13. Complete161–164 and166–170 freshly read28 September2026.. Actual-carrier decomposition of the relative norm transitions and evaluation square. The determinant proof uses specialization of the existing Frobenius and cyclotomic power bases instead of assuming the formal extension is already split. The source assumes p odd; dyadic instances keep the established signs. No norm-compatible inverse-limit carrier or principal-unit module is introduced here. Literal excerpt: “The following diagram commutes”.
 
 #### Continuity of the relative field norm
 
@@ -1696,7 +1735,7 @@ Prerequisites: ColemanPowerSeries:L0/relative-coordinate-continuity, mathlib:Alg
 
 Acceptance: Use the actual carrier, topology and relative scalar inclusion, including p=2.
 
-Sources: RJW-published, Published166–169/PDF67–70, equation(10-1), Lemma10.9, Proposition10.10 and complete10.11–10.13. Complete161–164 and166–170 freshly read28 September2026.. Actual-carrier decomposition of the relative norm transitions and evaluation square. The determinant proof uses specialization of the existing Frobenius and cyclotomic power bases instead of assuming the formal extension is already split. The source assumes p odd; dyadic instances keep the established signs. No norm-compatible inverse-limit carrier or principal-unit module is introduced here.
+Sources: RJW-published, Published166–169/PDF67–70, equation(10-1), Lemma10.9, Proposition10.10 and complete10.11–10.13. Complete161–164 and166–170 freshly read28 September2026.. Actual-carrier decomposition of the relative norm transitions and evaluation square. The determinant proof uses specialization of the existing Frobenius and cyclotomic power bases instead of assuming the formal extension is already split. The source assumes p odd; dyadic instances keep the established signs. No norm-compatible inverse-limit carrier or principal-unit module is introduced here. Literal excerpt: “The following diagram commutes”.
 
 #### Relative norm on the actual integral closures
 
@@ -1730,7 +1769,7 @@ Prerequisites: ColemanPowerSeries:L0/relative-cyclotomic-degree, ColemanPowerSer
 
 Acceptance: Native Algebra.intNorm is already available for its integral-algebra setup; it is not replanned. This adapter corestricts the specified field norm to these actual subtypes without assuming that additional relative integral-algebra setup.
 
-Sources: RJW-published, Published166–169/PDF67–70, equation(10-1), Lemma10.9, Proposition10.10 and complete10.11–10.13. Complete161–164 and166–170 freshly read28 September2026.. Actual-carrier decomposition of the relative norm transitions and evaluation square. The determinant proof uses specialization of the existing Frobenius and cyclotomic power bases instead of assuming the formal extension is already split. The source assumes p odd; dyadic instances keep the established signs. No norm-compatible inverse-limit carrier or principal-unit module is introduced here.
+Sources: RJW-published, Published166–169/PDF67–70, equation(10-1), Lemma10.9, Proposition10.10 and complete10.11–10.13. Complete161–164 and166–170 freshly read28 September2026.. Actual-carrier decomposition of the relative norm transitions and evaluation square. The determinant proof uses specialization of the existing Frobenius and cyclotomic power bases instead of assuming the formal extension is already split. The source assumes p odd; dyadic instances keep the established signs. No norm-compatible inverse-limit carrier or principal-unit module is introduced here. Literal excerpt: “The following diagram commutes”.
 
 #### The integral norm agrees with the native field norm
 
@@ -1748,7 +1787,7 @@ Prerequisites: ColemanPowerSeries:L0/integral-relative-norm.
 
 Acceptance: Use the actual carrier, topology and relative scalar inclusion, including p=2.
 
-Sources: RJW-published, Published166–169/PDF67–70, equation(10-1), Lemma10.9, Proposition10.10 and complete10.11–10.13. Complete161–164 and166–170 freshly read28 September2026.. Actual-carrier decomposition of the relative norm transitions and evaluation square. The determinant proof uses specialization of the existing Frobenius and cyclotomic power bases instead of assuming the formal extension is already split. The source assumes p odd; dyadic instances keep the established signs. No norm-compatible inverse-limit carrier or principal-unit module is introduced here.
+Sources: RJW-published, Published166–169/PDF67–70, equation(10-1), Lemma10.9, Proposition10.10 and complete10.11–10.13. Complete161–164 and166–170 freshly read28 September2026.. Actual-carrier decomposition of the relative norm transitions and evaluation square. The determinant proof uses specialization of the existing Frobenius and cyclotomic power bases instead of assuming the formal extension is already split. The source assumes p odd; dyadic instances keep the established signs. No norm-compatible inverse-limit carrier or principal-unit module is introduced here. Literal excerpt: “The following diagram commutes”.
 
 #### Continuity of the integral norm transition
 
@@ -1767,7 +1806,7 @@ Prerequisites: ColemanPowerSeries:L0/relative-field-norm-continuity, ColemanPowe
 
 Acceptance: Use the actual carrier, topology and relative scalar inclusion, including p=2.
 
-Sources: RJW-published, Published166–169/PDF67–70, equation(10-1), Lemma10.9, Proposition10.10 and complete10.11–10.13. Complete161–164 and166–170 freshly read28 September2026.. Actual-carrier decomposition of the relative norm transitions and evaluation square. The determinant proof uses specialization of the existing Frobenius and cyclotomic power bases instead of assuming the formal extension is already split. The source assumes p odd; dyadic instances keep the established signs. No norm-compatible inverse-limit carrier or principal-unit module is introduced here.
+Sources: RJW-published, Published166–169/PDF67–70, equation(10-1), Lemma10.9, Proposition10.10 and complete10.11–10.13. Complete161–164 and166–170 freshly read28 September2026.. Actual-carrier decomposition of the relative norm transitions and evaluation square. The determinant proof uses specialization of the existing Frobenius and cyclotomic power bases instead of assuming the formal extension is already split. The source assumes p odd; dyadic instances keep the established signs. No norm-compatible inverse-limit carrier or principal-unit module is introduced here. Literal excerpt: “The following diagram commutes”.
 
 #### Continuous norm transitions on actual units
 
@@ -1801,7 +1840,7 @@ Prerequisites: ColemanPowerSeries:L0/integral-relative-norm, ColemanPowerSeries:
 
 Acceptance: Full units have a topological group structure. No ℤ_p-module or pro-p hypothesis is asserted for them.
 
-Sources: RJW-published, Published166–169/PDF67–70, equation(10-1), Lemma10.9, Proposition10.10 and complete10.11–10.13. Complete161–164 and166–170 freshly read28 September2026.. Actual-carrier decomposition of the relative norm transitions and evaluation square. The determinant proof uses specialization of the existing Frobenius and cyclotomic power bases instead of assuming the formal extension is already split. The source assumes p odd; dyadic instances keep the established signs. No norm-compatible inverse-limit carrier or principal-unit module is introduced here.
+Sources: RJW-published, Published166–169/PDF67–70, equation(10-1), Lemma10.9, Proposition10.10 and complete10.11–10.13. Complete161–164 and166–170 freshly read28 September2026.. Actual-carrier decomposition of the relative norm transitions and evaluation square. The determinant proof uses specialization of the existing Frobenius and cyclotomic power bases instead of assuming the formal extension is already split. The source assumes p odd; dyadic instances keep the established signs. No norm-compatible inverse-limit carrier or principal-unit module is introduced here. Literal excerpt: “The following diagram commutes”.
 
 #### Reduction of finite-level series evaluation
 
@@ -1820,7 +1859,7 @@ Prerequisites: ColemanPowerSeries:L0/cyclotomic-series-evaluation, ColemanPowerS
 
 Acceptance: Use the actual carrier, topology and relative scalar inclusion, including p=2.
 
-Sources: RJW-published, Published166–169/PDF67–70, equation(10-1), Lemma10.9, Proposition10.10 and complete10.11–10.13. Complete161–164 and166–170 freshly read28 September2026.. Actual-carrier decomposition of the relative norm transitions and evaluation square. The determinant proof uses specialization of the existing Frobenius and cyclotomic power bases instead of assuming the formal extension is already split. The source assumes p odd; dyadic instances keep the established signs. No norm-compatible inverse-limit carrier or principal-unit module is introduced here.
+Sources: RJW-published, Published166–169/PDF67–70, equation(10-1), Lemma10.9, Proposition10.10 and complete10.11–10.13. Complete161–164 and166–170 freshly read28 September2026.. Actual-carrier decomposition of the relative norm transitions and evaluation square. The determinant proof uses specialization of the existing Frobenius and cyclotomic power bases instead of assuming the formal extension is already split. The source assumes p odd; dyadic instances keep the established signs. No norm-compatible inverse-limit carrier or principal-unit module is introduced here. Literal excerpt: “The following diagram commutes”.
 
 #### The unit norm preserves the actual residue
 
@@ -1844,7 +1883,7 @@ Prerequisites: ColemanPowerSeries:L0/cyclotomic-unit-series-evaluation-lift, Col
 
 Acceptance: This supplies preservation of the principal-unit condition, not its pro-p proof or a new module structure.
 
-Sources: RJW-published, Published166–169/PDF67–70, equation(10-1), Lemma10.9, Proposition10.10 and complete10.11–10.13. Complete161–164 and166–170 freshly read28 September2026.. Actual-carrier decomposition of the relative norm transitions and evaluation square. The determinant proof uses specialization of the existing Frobenius and cyclotomic power bases instead of assuming the formal extension is already split. The source assumes p odd; dyadic instances keep the established signs. No norm-compatible inverse-limit carrier or principal-unit module is introduced here.
+Sources: RJW-published, Published166–169/PDF67–70, equation(10-1), Lemma10.9, Proposition10.10 and complete10.11–10.13. Complete161–164 and166–170 freshly read28 September2026.. Actual-carrier decomposition of the relative norm transitions and evaluation square. The determinant proof uses specialization of the existing Frobenius and cyclotomic power bases instead of assuming the formal extension is already split. The source assumes p odd; dyadic instances keep the established signs. No norm-compatible inverse-limit carrier or principal-unit module is introduced here. Literal excerpt: “The following diagram commutes”.
 
 #### Continuity of cyclotomic reduction
 
@@ -1863,7 +1902,7 @@ Prerequisites: ColemanPowerSeries:L0/cyclotomic-reduction-norm-kernel, mathlib:I
 
 Acceptance: This uses the fixed residue identification of the actual integral closure, not a newly chosen local-field structure.
 
-Sources: RJW-published, Equations(9-2)–(9-3), published162–163/PDF63–64; Theorem10.2 on164/PDF65 and Propositions10.10–10.12/Theorem10.13 on167–169/PDF68–70. Complete161–164 and168–170 freshly reread28September2026;167 read in preceding norm-transition checkpoint.. Actual-carrier construction of the full and principal compatible unit groups using existing continuous arithmetic norms. Compactness and the evaluation map precede, and do not assert, interpolation bijectivity. The source assumes p odd; dyadic tests keep the signed norm convention. The inherited finding concerning full units and Z_p-module structure remains unchanged.
+Sources: RJW-published, Equations(9-2)–(9-3), published162–163/PDF63–64; Theorem10.2 on164/PDF65 and Propositions10.10–10.12/Theorem10.13 on167–169/PDF68–70. Complete161–164 and168–170 freshly reread28September2026;167 read in preceding norm-transition checkpoint.. Actual-carrier construction of the full and principal compatible unit groups using existing continuous arithmetic norms. Compactness and the evaluation map precede, and do not assert, interpolation bijectivity. The source assumes p odd; dyadic tests keep the signed norm convention. The inherited finding concerning full units and Z_p-module structure remains unchanged. Literal excerpt: “where all limits are taken with respect to the norm maps”.
 
 #### The actual norm-compatible unit group
 
@@ -1898,7 +1937,7 @@ Prerequisites: ColemanPowerSeries:L0/continuous-unit-norm, mathlib:MonoidHom.eqL
 
 Acceptance: Adjacent equations determine the entire sequential norm diagram by iteration. No surjectivity of the finite norm maps or of the coordinate projections is assumed.
 
-Sources: RJW-published, Equations(9-2)–(9-3), published162–163/PDF63–64; Theorem10.2 on164/PDF65 and Propositions10.10–10.12/Theorem10.13 on167–169/PDF68–70. Complete161–164 and168–170 freshly reread28September2026;167 read in preceding norm-transition checkpoint.. Actual-carrier construction of the full and principal compatible unit groups using existing continuous arithmetic norms. Compactness and the evaluation map precede, and do not assert, interpolation bijectivity. The source assumes p odd; dyadic tests keep the signed norm convention. The inherited finding concerning full units and Z_p-module structure remains unchanged.
+Sources: RJW-published, Equations(9-2)–(9-3), published162–163/PDF63–64; Theorem10.2 on164/PDF65 and Propositions10.10–10.12/Theorem10.13 on167–169/PDF68–70. Complete161–164 and168–170 freshly reread28September2026;167 read in preceding norm-transition checkpoint.. Actual-carrier construction of the full and principal compatible unit groups using existing continuous arithmetic norms. Compactness and the evaluation map precede, and do not assert, interpolation bijectivity. The source assumes p odd; dyadic tests keep the signed norm convention. The inherited finding concerning full units and Z_p-module structure remains unchanged. Literal excerpt: “where all limits are taken with respect to the norm maps”.
 
 #### Closedness of the compatible unit locus
 
@@ -1917,7 +1956,7 @@ Prerequisites: ColemanPowerSeries:L0/norm-compatible-units, ColemanPowerSeries:L
 
 Acceptance: Closedness is for the actual product of native unit topologies.
 
-Sources: RJW-published, Equations(9-2)–(9-3), published162–163/PDF63–64; Theorem10.2 on164/PDF65 and Propositions10.10–10.12/Theorem10.13 on167–169/PDF68–70. Complete161–164 and168–170 freshly reread28September2026;167 read in preceding norm-transition checkpoint.. Actual-carrier construction of the full and principal compatible unit groups using existing continuous arithmetic norms. Compactness and the evaluation map precede, and do not assert, interpolation bijectivity. The source assumes p odd; dyadic tests keep the signed norm convention. The inherited finding concerning full units and Z_p-module structure remains unchanged.
+Sources: RJW-published, Equations(9-2)–(9-3), published162–163/PDF63–64; Theorem10.2 on164/PDF65 and Propositions10.10–10.12/Theorem10.13 on167–169/PDF68–70. Complete161–164 and168–170 freshly reread28September2026;167 read in preceding norm-transition checkpoint.. Actual-carrier construction of the full and principal compatible unit groups using existing continuous arithmetic norms. Compactness and the evaluation map precede, and do not assert, interpolation bijectivity. The source assumes p odd; dyadic tests keep the signed norm convention. The inherited finding concerning full units and Z_p-module structure remains unchanged. Literal excerpt: “where all limits are taken with respect to the norm maps”.
 
 #### Compactness of the compatible unit group
 
@@ -1936,7 +1975,7 @@ Prerequisites: ColemanPowerSeries:L0/norm-compatible-units-closed, ColemanPowerS
 
 Acceptance: The resulting compact commutative topological group is not declared a ℤ_p-module.
 
-Sources: RJW-published, Equations(9-2)–(9-3), published162–163/PDF63–64; Theorem10.2 on164/PDF65 and Propositions10.10–10.12/Theorem10.13 on167–169/PDF68–70. Complete161–164 and168–170 freshly reread28September2026;167 read in preceding norm-transition checkpoint.. Actual-carrier construction of the full and principal compatible unit groups using existing continuous arithmetic norms. Compactness and the evaluation map precede, and do not assert, interpolation bijectivity. The source assumes p odd; dyadic tests keep the signed norm convention. The inherited finding concerning full units and Z_p-module structure remains unchanged.
+Sources: RJW-published, Equations(9-2)–(9-3), published162–163/PDF63–64; Theorem10.2 on164/PDF65 and Propositions10.10–10.12/Theorem10.13 on167–169/PDF68–70. Complete161–164 and168–170 freshly reread28September2026;167 read in preceding norm-transition checkpoint.. Actual-carrier construction of the full and principal compatible unit groups using existing continuous arithmetic norms. Compactness and the evaluation map precede, and do not assert, interpolation bijectivity. The source assumes p odd; dyadic tests keep the signed norm convention. The inherited finding concerning full units and Z_p-module structure remains unchanged. Literal excerpt: “where all limits are taken with respect to the norm maps”.
 
 #### A compatible tower has constant residue
 
@@ -1955,7 +1994,7 @@ Prerequisites: ColemanPowerSeries:L0/norm-compatible-units, ColemanPowerSeries:L
 
 Acceptance: This is residue preservation, not a construction of a norm-compatible Teichmüller section.
 
-Sources: RJW-published, Equations(9-2)–(9-3), published162–163/PDF63–64; Theorem10.2 on164/PDF65 and Propositions10.10–10.12/Theorem10.13 on167–169/PDF68–70. Complete161–164 and168–170 freshly reread28September2026;167 read in preceding norm-transition checkpoint.. Actual-carrier construction of the full and principal compatible unit groups using existing continuous arithmetic norms. Compactness and the evaluation map precede, and do not assert, interpolation bijectivity. The source assumes p odd; dyadic tests keep the signed norm convention. The inherited finding concerning full units and Z_p-module structure remains unchanged.
+Sources: RJW-published, Equations(9-2)–(9-3), published162–163/PDF63–64; Theorem10.2 on164/PDF65 and Propositions10.10–10.12/Theorem10.13 on167–169/PDF68–70. Complete161–164 and168–170 freshly reread28September2026;167 read in preceding norm-transition checkpoint.. Actual-carrier construction of the full and principal compatible unit groups using existing continuous arithmetic norms. Compactness and the evaluation map precede, and do not assert, interpolation bijectivity. The source assumes p odd; dyadic tests keep the signed norm convention. The inherited finding concerning full units and Z_p-module structure remains unchanged. Literal excerpt: “where all limits are taken with respect to the norm maps”.
 
 #### The residue of an infinite compatible unit
 
@@ -1988,7 +2027,7 @@ Prerequisites: ColemanPowerSeries:L0/norm-compatible-units, ColemanPowerSeries:L
 
 Acceptance: The target is the fixed native residue unit group. Surjectivity and a continuous section remain unasserted.
 
-Sources: RJW-published, Equations(9-2)–(9-3), published162–163/PDF63–64; Theorem10.2 on164/PDF65 and Propositions10.10–10.12/Theorem10.13 on167–169/PDF68–70. Complete161–164 and168–170 freshly reread28September2026;167 read in preceding norm-transition checkpoint.. Actual-carrier construction of the full and principal compatible unit groups using existing continuous arithmetic norms. Compactness and the evaluation map precede, and do not assert, interpolation bijectivity. The source assumes p odd; dyadic tests keep the signed norm convention. The inherited finding concerning full units and Z_p-module structure remains unchanged.
+Sources: RJW-published, Equations(9-2)–(9-3), published162–163/PDF63–64; Theorem10.2 on164/PDF65 and Propositions10.10–10.12/Theorem10.13 on167–169/PDF68–70. Complete161–164 and168–170 freshly reread28September2026;167 read in preceding norm-transition checkpoint.. Actual-carrier construction of the full and principal compatible unit groups using existing continuous arithmetic norms. Compactness and the evaluation map precede, and do not assert, interpolation bijectivity. The source assumes p odd; dyadic tests keep the signed norm convention. The inherited finding concerning full units and Z_p-module structure remains unchanged. Literal excerpt: “where all limits are taken with respect to the norm maps”.
 
 #### The principal compatible unit subgroup
 
@@ -2021,7 +2060,7 @@ Prerequisites: ColemanPowerSeries:L0/norm-limit-residue, mathlib:MonoidHom.ker.
 
 Acceptance: This realizes the inverse limit of the residue-one unit groups as a subgroup of the full compatible limit; it does not rebuild the owner’s general finite-level principal-unit theory.
 
-Sources: RJW-published, Equations(9-2)–(9-3), published162–163/PDF63–64; Theorem10.2 on164/PDF65 and Propositions10.10–10.12/Theorem10.13 on167–169/PDF68–70. Complete161–164 and168–170 freshly reread28September2026;167 read in preceding norm-transition checkpoint.. Actual-carrier construction of the full and principal compatible unit groups using existing continuous arithmetic norms. Compactness and the evaluation map precede, and do not assert, interpolation bijectivity. The source assumes p odd; dyadic tests keep the signed norm convention. The inherited finding concerning full units and Z_p-module structure remains unchanged.
+Sources: RJW-published, Equations(9-2)–(9-3), published162–163/PDF63–64; Theorem10.2 on164/PDF65 and Propositions10.10–10.12/Theorem10.13 on167–169/PDF68–70. Complete161–164 and168–170 freshly reread28September2026;167 read in preceding norm-transition checkpoint.. Actual-carrier construction of the full and principal compatible unit groups using existing continuous arithmetic norms. Compactness and the evaluation map precede, and do not assert, interpolation bijectivity. The source assumes p odd; dyadic tests keep the signed norm convention. The inherited finding concerning full units and Z_p-module structure remains unchanged. Literal excerpt: “where all limits are taken with respect to the norm maps”.
 
 #### The coordinatewise principal condition
 
@@ -2040,7 +2079,7 @@ Prerequisites: ColemanPowerSeries:L0/principal-norm-compatible-units, ColemanPow
 
 Acceptance: The principal condition is modulo the actual maximal ideal generated by ζ_n−1, not modulo a new choice of coefficient prime power.
 
-Sources: RJW-published, Equations(9-2)–(9-3), published162–163/PDF63–64; Theorem10.2 on164/PDF65 and Propositions10.10–10.12/Theorem10.13 on167–169/PDF68–70. Complete161–164 and168–170 freshly reread28September2026;167 read in preceding norm-transition checkpoint.. Actual-carrier construction of the full and principal compatible unit groups using existing continuous arithmetic norms. Compactness and the evaluation map precede, and do not assert, interpolation bijectivity. The source assumes p odd; dyadic tests keep the signed norm convention. The inherited finding concerning full units and Z_p-module structure remains unchanged.
+Sources: RJW-published, Equations(9-2)–(9-3), published162–163/PDF63–64; Theorem10.2 on164/PDF65 and Propositions10.10–10.12/Theorem10.13 on167–169/PDF68–70. Complete161–164 and168–170 freshly reread28September2026;167 read in preceding norm-transition checkpoint.. Actual-carrier construction of the full and principal compatible unit groups using existing continuous arithmetic norms. Compactness and the evaluation map precede, and do not assert, interpolation bijectivity. The source assumes p odd; dyadic tests keep the signed norm convention. The inherited finding concerning full units and Z_p-module structure remains unchanged. Literal excerpt: “where all limits are taken with respect to the norm maps”.
 
 #### Compactness of principal compatible units
 
@@ -2059,7 +2098,7 @@ Prerequisites: ColemanPowerSeries:L0/principal-norm-compatible-units, ColemanPow
 
 Acceptance: Compactness alone does not supply pro-p or ℤ_p-scalar structure; those hypotheses must be verified separately.
 
-Sources: RJW-published, Equations(9-2)–(9-3), published162–163/PDF63–64; Theorem10.2 on164/PDF65 and Propositions10.10–10.12/Theorem10.13 on167–169/PDF68–70. Complete161–164 and168–170 freshly reread28September2026;167 read in preceding norm-transition checkpoint.. Actual-carrier construction of the full and principal compatible unit groups using existing continuous arithmetic norms. Compactness and the evaluation map precede, and do not assert, interpolation bijectivity. The source assumes p odd; dyadic tests keep the signed norm convention. The inherited finding concerning full units and Z_p-module structure remains unchanged.
+Sources: RJW-published, Equations(9-2)–(9-3), published162–163/PDF63–64; Theorem10.2 on164/PDF65 and Propositions10.10–10.12/Theorem10.13 on167–169/PDF68–70. Complete161–164 and168–170 freshly reread28September2026;167 read in preceding norm-transition checkpoint.. Actual-carrier construction of the full and principal compatible unit groups using existing continuous arithmetic norms. Compactness and the evaluation map precede, and do not assert, interpolation bijectivity. The source assumes p odd; dyadic tests keep the signed norm convention. The inherited finding concerning full units and Z_p-module structure remains unchanged. Literal excerpt: “where all limits are taken with respect to the norm maps”.
 
 #### Continuity of actual cyclotomic series evaluation
 
@@ -2079,7 +2118,7 @@ Prerequisites: ColemanPowerSeries:L0/cyclotomic-series-evaluation, ColemanPowerS
 
 Acceptance: The existing suggested signature is reused byte-for-byte; this promotion gives consuming nodes a precise prerequisite.
 
-Sources: RJW-published, Equations(9-2)–(9-3), published162–163/PDF63–64; Theorem10.2 on164/PDF65 and Propositions10.10–10.12/Theorem10.13 on167–169/PDF68–70. Complete161–164 and168–170 freshly reread28September2026;167 read in preceding norm-transition checkpoint.. Actual-carrier construction of the full and principal compatible unit groups using existing continuous arithmetic norms. Compactness and the evaluation map precede, and do not assert, interpolation bijectivity. The source assumes p odd; dyadic tests keep the signed norm convention. The inherited finding concerning full units and Z_p-module structure remains unchanged.
+Sources: RJW-published, Equations(9-2)–(9-3), published162–163/PDF63–64; Theorem10.2 on164/PDF65 and Propositions10.10–10.12/Theorem10.13 on167–169/PDF68–70. Complete161–164 and168–170 freshly reread28September2026;167 read in preceding norm-transition checkpoint.. Actual-carrier construction of the full and principal compatible unit groups using existing continuous arithmetic norms. Compactness and the evaluation map precede, and do not assert, interpolation bijectivity. The source assumes p odd; dyadic tests keep the signed norm convention. The inherited finding concerning full units and Z_p-module structure remains unchanged. Literal excerpt: “where all limits are taken with respect to the norm maps”.
 
 #### The Tate-module inclusion into local units
 
@@ -2116,7 +2155,287 @@ Prerequisites: ColemanPowerSeries:L0/cyclotomic-root-compatibility, ColemanPower
 
 Acceptance: Constructs the actual subgroup in the root tower; do not replace ℤ_p(1) by exponents ranging only over ℤ_pˣ.
 
-Sources: RJW-published, Definition 12.16 and Theorem 12.17 with proof, printed pp.184–185; Lemmas 12.2–12.3, printed pp.178–179 (published PDF79–80,85–86).. The source supplies the mathematical target or proof step. The stated native-carrier interface and declaration-sized decomposition are worker deductions; unavailable owner interfaces are named as prerequisites and requests.
+Sources: RJW-published, Definition 12.16 and Theorem 12.17 with proof, printed pp.184–185; Lemmas 12.2–12.3, printed pp.178–179 (published PDF79–80,85–86).. The source supplies the mathematical target or proof step. The stated native-carrier interface and declaration-sized decomposition are worker deductions; unavailable owner interfaces are named as prerequisites and requests. Literal excerpt: “Definition 12.16”.
+
+#### The Teichmüller section in the arithmetic tower
+
+**ColemanPowerSeries:L0/teichmuller-tower-section** — construction; proposed declaration **ColemanCyclotomic.teichTower**.
+
+Define teichTower:(𝔽_p)ˣ→U∞ by the stationary tower of the unique c∈ℤ_pˣ with c^(p−1)=1 and toZMod(c)=r. At level n it is the scalar image of c in O_nˣ. This is an arithmetic adapter of the supplied Teichmüller section, not a new general Teichmüller construction.
+
+Hypotheses: p is an odd prime, n≥0 denotes the source level n+1, K_n=ℚ_p(ζ_n), O_n is its native integral closure, U_n=O_nˣ and U∞ is the already constructed native norm-compatible subgroup. G=ℤ_pˣ acts through its power residues, and U∞,1 is the existing residue kernel. All topologies are the native norm/product/subtype topologies.
+
+Proof plan:
+
+1. Use the requested canonical ℚ_p local-field interface and the native integer-ring/residue comparisons to transport TauCeti.teichmuller to ℤ_p and ZMod p. Its characteristic torsion equation and reduction equation determine c uniquely.
+2. The norm of a base scalar is c^p, which equals c as c^(p−1)=1. Thus its stationary scalar tower lies in U∞.
+
+API:
+
+- **ColemanCyclotomic.teichTower_apply** (data): The nth coordinate is the scalar image of the unique lift c of r in O_nˣ.
+- **ColemanCyclotomic.teichTower_residue** (simp): normLimitResidue(teichTower(r))=r.
+- **ColemanCyclotomic.teichTower_pow** (characterisation): teichTower(r)^(p−1)=1; together with its residue this characterizes the lift.
+- **ColemanCyclotomic.teichTower_continuous** (compatibility): teichTower is continuous from the finite discrete residue-unit group.
+
+Tests:
+
+- **TeichTowerTests.one** (degenerate): teichTower(1)=1.
+- **TeichTowerTests.minus_one_three** (computation): At p=3, teichTower(−1) has every coordinate −1.
+- **TeichTowerTests.fifth_power** (characterisation): At p=5, teichTower(2)^4=1 and its residue is 2; the scalar integer 2 fails the fourth-power equation.
+
+Uses: §9, pp.161–163; Lemmas12.2–12.3 and Proposition12.5, pp.178–180: Provides the section used to split full units and to adjust the local real cyclotomic generator. ColemanPowerSeries:L0 and the consuming declarations listed in this packet: Supplies this actual arithmetic object and its named maps, rather than a second supplier carrier.
+
+Prerequisites: ColemanPowerSeries:L0/cyclotomic-residue-field, ColemanPowerSeries:L0/continuous-unit-norm, ColemanPowerSeries:L0/norm-compatible-units, tauceti:TauCeti.teichmuller, tauceti:TauCeti.eq_teichmuller, tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-0-local-fields-and-their-finite-extensions.
+
+Acceptance: Provides the section used to split full units and to adjust the local real cyclotomic generator.
+
+Sources: RJW-published, §9, pp.161–163; Lemmas12.2–12.3 and Proposition12.5, pp.178–180. The cited passage supplies this arithmetic target. The native-carrier adapter and the separate closure/compactness steps are worker deductions. The corrected argument follows the independently reviewed extraction where the printed proof omits a hypothesis or equality. Literal excerpt: “Lemma 12.2. We have U∞ = µ p−1 × U∞,1 .”.
+
+#### Norm compatibility of Teichmüller factors
+
+**ColemanPowerSeries:L0/teichmuller-norm-compatibility** — lemma; proposed declaration **ColemanCyclotomic.unitsNorm_teich**.
+
+For r∈𝔽_pˣ, N_n(ω_(n+1)(r))=ω_n(r), where ω_n is the native finite-level section transported through the canonical O_n/residue comparison.
+
+Hypotheses: p is an odd prime, n≥0 denotes the source level n+1, K_n=ℚ_p(ζ_n), O_n is its native integral closure, U_n=O_nˣ and U∞ is the already constructed native norm-compatible subgroup. G=ℤ_pˣ acts through its power residues, and U∞,1 is the existing residue kernel. All topologies are the native norm/product/subtype topologies.
+
+Proof plan:
+
+1. The relative norm preserves reduction. It also preserves the equation x^(p−1)=1. The unique torsion lift with residue r is ω_n(r).
+2. Compare each ω_n with the scalar c used by teichTower, using the same uniqueness statement.
+
+Prerequisites: ColemanPowerSeries:L0/teichmuller-tower-section, ColemanPowerSeries:L0/unit-norm-residue, tauceti:TauCeti.eq_teichmuller.
+
+Acceptance: The inverse-limit split must use compatible sections, rather than just a family of finite-level splittings.
+
+Sources: RJW-published, §9, pp.161–163; Lemmas12.2–12.3 and Proposition12.5, pp.178–180. The cited passage supplies this arithmetic target. The native-carrier adapter and the separate closure/compactness steps are worker deductions. The corrected argument follows the independently reviewed extraction where the printed proof omits a hypothesis or equality. Literal excerpt: “Lemma 12.2. We have U∞ = µ p−1 × U∞,1 .”.
+
+#### The full and principal unit splitting
+
+**ColemanPowerSeries:L0/teichmuller-unit-splitting** — construction; proposed declaration **ColemanCyclotomic.unitSplit**.
+
+Construct a continuous multiplicative equivalence U∞≃𝔽_pˣ×U∞,1. It sends u to (red(u),u/teichTower(red(u))); its inverse sends (r,v) to teichTower(r)v.
+
+Hypotheses: p is an odd prime, n≥0 denotes the source level n+1, K_n=ℚ_p(ζ_n), O_n is its native integral closure, U_n=O_nˣ and U∞ is the already constructed native norm-compatible subgroup. G=ℤ_pˣ acts through its power residues, and U∞,1 is the existing residue kernel. All topologies are the native norm/product/subtype topologies.
+
+Proof plan:
+
+1. The second coordinate has residue one by the section property. Multiplication commutes because the actual units are abelian.
+2. The two displayed composites are identities. Continuity follows from continuity of residue, teichTower, multiplication and inverse.
+
+API:
+
+- **ColemanCyclotomic.unitSplit_fst** (projection): The first coordinate is normLimitResidue(u).
+- **ColemanCyclotomic.unitSplit_snd** (projection): The second coordinate, as a full tower, is u/teichTower(red(u)).
+- **ColemanCyclotomic.unitSplit_symm** (constructor): The inverse at (r,v) is teichTower(r)v.
+- **ColemanCyclotomic.unitSplit_homeomorph** (compatibility): Both directions are continuous.
+
+Tests:
+
+- **UnitSplitTests.one** (degenerate): unitSplit(1)=(1,1).
+- **UnitSplitTests.principal** (characterisation): If u is principal, unitSplit(u)=(1,u).
+- **UnitSplitTests.minus_one_three** (non-example): At p=3, unitSplit of the stationary −1 tower is (−1,1), not (1,−1).
+
+Uses: §9, pp.161–163; Lemmas12.2–12.3 and Proposition12.5, pp.178–180: Retains the prime-to-p torsion on full units and identifies exactly the principal summand. ColemanPowerSeries:L0 and the consuming declarations listed in this packet: Supplies this actual arithmetic object and its named maps, rather than a second supplier carrier.
+
+Prerequisites: ColemanPowerSeries:L0/teichmuller-tower-section, ColemanPowerSeries:L0/teichmuller-norm-compatibility, ColemanPowerSeries:L0/norm-limit-residue, ColemanPowerSeries:L0/principal-norm-compatible-units.
+
+Acceptance: Retains the prime-to-p torsion on full units and identifies exactly the principal summand.
+
+Sources: RJW-published, §9, pp.161–163; Lemmas12.2–12.3 and Proposition12.5, pp.178–180. The cited passage supplies this arithmetic target. The native-carrier adapter and the separate closure/compactness steps are worker deductions. The corrected argument follows the independently reviewed extraction where the printed proof omits a hypothesis or equality. Literal excerpt: “Lemma 12.2. We have U∞ = µ p−1 × U∞,1 .”.
+
+#### The actual finite cyclotomic automorphisms
+
+**ColemanPowerSeries:L0/finite-cyclotomic-galois-action** — construction; proposed declaration **ColemanCyclotomic.finiteAction**.
+
+Construct finiteAction_n:G→Aut_(ℤ_p)(O_n) by restricting the native ℚ_p-automorphism of K_n with ζ_n↦ζ_n^(a mod p^(n+1)). It is a group homomorphism and depends only on the indicated finite power residue.
+
+Hypotheses: p is an odd prime, n≥0 denotes the source level n+1, K_n=ℚ_p(ζ_n), O_n is its native integral closure, U_n=O_nˣ and U∞ is the already constructed native norm-compatible subgroup. G=ℤ_pˣ acts through its power residues, and U∞,1 is the existing residue kernel. All topologies are the native norm/product/subtype topologies.
+
+Proof plan:
+
+1. Apply native autEquivPow with the actual cyclotomic irreducibility statement and the reduced unit a. Restrict this algebra automorphism and its inverse to integral elements; integrality is preserved because it fixes ℤ_p.
+2. The chosen primitive root generates K_n. Equality on that generator proves the group law and compatibility with inclusion of levels.
+
+API:
+
+- **ColemanCyclotomic.finiteAction_zeta** (simp): finiteAction_n(a)(ζ_n)=ζ_n^(toZModPow(n+1)(a)).
+- **ColemanCyclotomic.finiteAction_scalar** (compatibility): finiteAction_n(a) fixes every scalar from ℤ_p.
+- **ColemanCyclotomic.finiteAction_reduction** (compatibility): Reduction to 𝔽_p is unchanged by finiteAction_n(a).
+- **ColemanCyclotomic.finiteAction_continuous** (compatibility): Each finiteAction_n(a) and its inverse are continuous in the native topology.
+
+Tests:
+
+- **FiniteActionTests.one** (degenerate): finiteAction_n(1)=id.
+- **FiniteActionTests.conjugation** (computation): finiteAction_n(−1)(ζ_n)=ζ_n⁻¹.
+- **FiniteActionTests.ternary_second_level** (non-example): For p=3,n=1, finiteAction_1(4)(ζ_1)=ζ_1^4≠ζ_1 although 4≡1 mod3.
+
+Uses: §9, pp.161–163; Lemmas12.2–12.3 and Proposition12.5, pp.178–180: Makes the Galois action act on the native finite unit groups used by the norm tower. ColemanPowerSeries:L0 and the consuming declarations listed in this packet: Supplies this actual arithmetic object and its named maps, rather than a second supplier carrier.
+
+Prerequisites: ColemanPowerSeries:L0/local-cyclotomic-irreducible, ColemanPowerSeries:L0/local-cyclotomic-level, ColemanPowerSeries:L0/cyclotomic-integral-closure, mathlib:IsCyclotomicExtension.autEquivPow, PadicMeasuresIwasawaAlgebras:L1/unit-reduction-quotient.
+
+Acceptance: Makes the Galois action act on the native finite unit groups used by the norm tower.
+
+Sources: RJW-published, §9, pp.161–163; Lemmas12.2–12.3 and Proposition12.5, pp.178–180. The cited passage supplies this arithmetic target. The native-carrier adapter and the separate closure/compactness steps are worker deductions. The corrected argument follows the independently reviewed extraction where the printed proof omits a hypothesis or equality. Literal excerpt: “Lemma 12.2. We have U∞ = µ p−1 × U∞,1 .”.
+
+#### Galois naturality of the relative norm
+
+**ColemanPowerSeries:L0/galois-action-norm-square** — lemma; proposed declaration **ColemanCyclotomic.unitsNorm_finiteAction**.
+
+N_n(finiteAction_(n+1)(a)(u))=finiteAction_n(a)(N_n(u)) for every u∈O_(n+1)ˣ and a∈G.
+
+Hypotheses: p is an odd prime, n≥0 denotes the source level n+1, K_n=ℚ_p(ζ_n), O_n is its native integral closure, U_n=O_nˣ and U∞ is the already constructed native norm-compatible subgroup. G=ℤ_pˣ acts through its power residues, and U∞,1 is the existing residue kernel. All topologies are the native norm/product/subtype topologies.
+
+Proof plan:
+
+1. Root compatibility makes the pair of field automorphisms commute with the actual inclusion K_n→K_(n+1).
+2. Apply native norm_eq_of_equiv_equiv, with base and extension automorphisms. The field comparison of the existing integral norm and units extensionality give the asserted square.
+
+Prerequisites: ColemanPowerSeries:L0/finite-cyclotomic-galois-action, ColemanPowerSeries:L0/integral-relative-norm-field, mathlib:Algebra.norm_eq_of_equiv_equiv.
+
+Acceptance: Shows that the coordinate action preserves the defining equations of U∞.
+
+Sources: RJW-published, §9, pp.161–163; Lemmas12.2–12.3 and Proposition12.5, pp.178–180. The cited passage supplies this arithmetic target. The native-carrier adapter and the separate closure/compactness steps are worker deductions. The corrected argument follows the independently reviewed extraction where the printed proof omits a hypothesis or equality. Literal excerpt: “Lemma 12.2. We have U∞ = µ p−1 × U∞,1 .”.
+
+#### The continuous Galois action on the unit tower
+
+**ColemanPowerSeries:L0/norm-tower-galois-action** — construction; proposed declaration **ColemanCyclotomic.towerAction**.
+
+Define towerAction:G→Aut(U∞) coordinatewise by finiteAction_n. It preserves U∞,1 and acts trivially on the Teichmüller tower. No ℤ_p-module structure is assigned to the full unit group.
+
+Hypotheses: p is an odd prime, n≥0 denotes the source level n+1, K_n=ℚ_p(ζ_n), O_n is its native integral closure, U_n=O_nˣ and U∞ is the already constructed native norm-compatible subgroup. G=ℤ_pˣ acts through its power residues, and U∞,1 is the existing residue kernel. All topologies are the native norm/product/subtype topologies.
+
+Proof plan:
+
+1. The norm square ensures every transformed sequence remains norm-compatible. The inverse is the action of a⁻¹.
+2. Reduction is fixed; hence principal units are stable. The characteristic scalar description shows every teichTower(r) is fixed.
+
+API:
+
+- **ColemanCyclotomic.towerAction_apply** (data): The nth coordinate of towerAction(a)(u) is the unit map of finiteAction_n(a) applied to u_n.
+- **ColemanCyclotomic.towerAction_principal** (compatibility): towerAction(a)(u) is principal iff u is principal.
+- **ColemanCyclotomic.towerAction_teich** (simp): towerAction(a)(teichTower(r))=teichTower(r).
+- **ColemanCyclotomic.towerAction_tate** (compatibility): towerAction(a)(tateTower(b))=tateTower(a b) for all b∈ℤ_p.
+
+Tests:
+
+- **TowerActionTests.one** (degenerate): towerAction(1)(u)=u.
+- **TowerActionTests.inverse** (characterisation): towerAction(a⁻¹)(towerAction(a)(u))=u.
+- **TowerActionTests.conjugate_tate** (computation): towerAction(−1)(tateTower(1))=tateTower(−1).
+
+Uses: §9, pp.161–163; Lemmas12.2–12.3 and Proposition12.5, pp.178–180: Supplies the actual arithmetic action used in interpolation equivariance and local real subgroups. ColemanPowerSeries:L0 and the consuming declarations listed in this packet: Supplies this actual arithmetic object and its named maps, rather than a second supplier carrier.
+
+Prerequisites: ColemanPowerSeries:L0/finite-cyclotomic-galois-action, ColemanPowerSeries:L0/galois-action-norm-square, ColemanPowerSeries:L0/norm-compatible-units, ColemanPowerSeries:L0/teichmuller-tower-section, ColemanPowerSeries:L0/tate-module-inclusion.
+
+Acceptance: Supplies the actual arithmetic action used in interpolation equivariance and local real subgroups.
+
+Sources: RJW-published, §9, pp.161–163; Lemmas12.2–12.3 and Proposition12.5, pp.178–180. The cited passage supplies this arithmetic target. The native-carrier adapter and the separate closure/compactness steps are worker deductions. The corrected argument follows the independently reviewed extraction where the printed proof omits a hypothesis or equality. Literal excerpt: “Lemma 12.2. We have U∞ = µ p−1 × U∞,1 .”.
+
+#### Joint continuity of the tower action
+
+**ColemanPowerSeries:L0/norm-tower-action-continuity** — theorem; proposed declaration **ColemanCyclotomic.continuous_towerAction**.
+
+The map G×U∞→U∞, (a,u)↦towerAction(a)(u), is jointly continuous, and likewise on the principal subgroup.
+
+Hypotheses: p is an odd prime, n≥0 denotes the source level n+1, K_n=ℚ_p(ζ_n), O_n is its native integral closure, U_n=O_nˣ and U∞ is the already constructed native norm-compatible subgroup. G=ℤ_pˣ acts through its power residues, and U∞,1 is the existing residue kernel. All topologies are the native norm/product/subtype topologies.
+
+Proof plan:
+
+1. At a fixed level the action factors through the finite discrete group G_n. On a neighborhood of a fixed a its power residue is constant; on that neighborhood the coordinate map is one fixed continuous algebra automorphism.
+2. Product continuity and the native subgroup topology yield continuity of the full map. Restriction gives the principal map.
+
+Prerequisites: ColemanPowerSeries:L0/norm-tower-galois-action, ColemanPowerSeries:L0/finite-cyclotomic-galois-action, ColemanPowerSeries:L0/cyclotomic-maximal-ideal-topology, PadicMeasuresIwasawaAlgebras:L1/unit-reduction-quotient.
+
+Acceptance: Joint continuity, not merely continuity at each fixed group element, is needed to import the completed action.
+
+Sources: RJW-published, §9, pp.161–163; Lemmas12.2–12.3 and Proposition12.5, pp.178–180. The cited passage supplies this arithmetic target. The native-carrier adapter and the separate closure/compactness steps are worker deductions. The corrected argument follows the independently reviewed extraction where the printed proof omits a hypothesis or equality. Literal excerpt: “Lemma 12.2. We have U∞ = µ p−1 × U∞,1 .”.
+
+#### The principal inverse limit is pro-p
+
+**ColemanPowerSeries:L0/principal-tower-pro-p** — lemma; proposed declaration **ColemanCyclotomic.principalTower_isProP**.
+
+U∞,1 is an abelian pro-p group, and its coordinate maps to the finite-level principal unit groups are continuous. Surjectivity of those coordinate maps is not assumed.
+
+Hypotheses: p is an odd prime, n≥0 denotes the source level n+1, K_n=ℚ_p(ζ_n), O_n is its native integral closure, U_n=O_nˣ and U∞ is the already constructed native norm-compatible subgroup. G=ℤ_pˣ acts through its power residues, and U∞,1 is the existing residue kernel. All topologies are the native norm/product/subtype topologies.
+
+Proof plan:
+
+1. Compare the native residue-one subgroup of O_nˣ with the upstream unitFiltration(K_n,1), whose finite continuous quotients are p-groups.
+2. The principal compatible group is a closed subgroup of the product of these pro-p groups. Use the supplier’s product and closed-subgroup stability of IsProP. Abelianity is native.
+
+Prerequisites: ColemanPowerSeries:L0/principal-norm-compatible-compact, tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-1-units-the-filtration-and-the-multiplicative-group, tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-3-pro-p-groups-the-maximal-pro-p-quotient-frattini-theory-generation.
+
+Acceptance: Verifies the hypothesis for the upstream continuous ℤ_p exponentiation construction.
+
+Sources: RJW-published, §9, pp.161–163; Lemmas12.2–12.3 and Proposition12.5, pp.178–180. The cited passage supplies this arithmetic target. The native-carrier adapter and the separate closure/compactness steps are worker deductions. The corrected argument follows the independently reviewed extraction where the printed proof omits a hypothesis or equality. Literal excerpt: “Lemma 12.2. We have U∞ = µ p−1 × U∞,1 .”.
+
+#### The principal-unit scalar structure
+
+**ColemanPowerSeries:L0/principal-tower-scalar-adapter** — construction; proposed declaration **ColemanCyclotomic.principalModule**.
+
+Install the supplied topological ℤ_p-module on Additive(U∞,1), using principalTower_isProP. Its scalar action is the continuous extension of integer exponentiation, and is coordinatewise the upstream finite-level action.
+
+Hypotheses: p is an odd prime, n≥0 denotes the source level n+1, K_n=ℚ_p(ζ_n), O_n is its native integral closure, U_n=O_nˣ and U∞ is the already constructed native norm-compatible subgroup. G=ℤ_pˣ acts through its power residues, and U∞,1 is the existing residue kernel. All topologies are the native norm/product/subtype topologies.
+
+Proof plan:
+
+1. Apply the upstream functorial topological module theorem for abelian pro-p groups, rather than defining a second generic exponentiation.
+2. Every continuous coordinate homomorphism is automatically ℤ_p-linear. Integer exponents are dense; this also pins uniqueness of the scalar action.
+
+API:
+
+- **ColemanCyclotomic.principalModule_nat** (compatibility): For k∈ℕ the underlying tower of k•u is u^k.
+- **ColemanCyclotomic.principalModule_coordinate** (data): The nth coordinate of a•u is the scalar power u_n^a in the finite principal group.
+- **ColemanCyclotomic.principalModule_continuous** (compatibility): The scalar action ℤ_p×U∞,1→U∞,1 is jointly continuous.
+- **ColemanCyclotomic.principalModule_action_commutes** (compatibility): towerAction(g)(a•u)=a•towerAction(g)(u).
+
+Tests:
+
+- **PrincipalModuleTests.zero** (degenerate): 0•u is the identity tower.
+- **PrincipalModuleTests.two** (compatibility): 2•u=u² on the multiplicative carrier.
+- **PrincipalModuleTests.tate** (computation): a•tateTower(b)=tateTower(a b).
+
+Uses: §9, pp.161–163; Lemmas12.2–12.3 and Proposition12.5, pp.178–180: Supports finite local closure/span calculations, Coleman ℤ_p-linearity and the module exact sequence. ColemanPowerSeries:L0 and the consuming declarations listed in this packet: Supplies this actual arithmetic object and its named maps, rather than a second supplier carrier.
+
+Prerequisites: ColemanPowerSeries:L0/principal-tower-pro-p, tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-4-free-pro-p-and-pro-c-groups-on-finite-sets, ColemanPowerSeries:L0/norm-tower-galois-action, ColemanPowerSeries:L0/norm-tower-action-continuity, ColemanPowerSeries:L0/tate-module-inclusion.
+
+Acceptance: Supports finite local closure/span calculations, Coleman ℤ_p-linearity and the module exact sequence.
+
+Sources: RJW-published, §9, pp.161–163; Lemmas12.2–12.3 and Proposition12.5, pp.178–180. The cited passage supplies this arithmetic target. The native-carrier adapter and the separate closure/compactness steps are worker deductions. The corrected argument follows the independently reviewed extraction where the printed proof omits a hypothesis or equality. Literal excerpt: “Lemma 12.2. We have U∞ = µ p−1 × U∞,1 .”.
+
+#### The completed action on principal units
+
+**ColemanPowerSeries:L0/principal-completed-action-adapter** — construction; proposed declaration **ColemanCyclotomic.principalCompletedModule**.
+
+Install the supplied continuous Λ(G)-module structure on Additive(U∞,1) extending principalModule and towerAction. The algebra carrier is the supplied convolution ring of integral unit measures with weak topology.
+
+Hypotheses: p is an odd prime, n≥0 denotes the source level n+1, K_n=ℚ_p(ζ_n), O_n is its native integral closure, U_n=O_nˣ and U∞ is the already constructed native norm-compatible subgroup. G=ℤ_pˣ acts through its power residues, and U∞,1 is the existing residue kernel. All topologies are the native norm/product/subtype topologies.
+
+Proof plan:
+
+1. Use commutation of the actual scalar and Galois actions, compactness of the principal module, and the verified joint continuity. Invoke the precise completed-action universal property requested from PMIA L1.
+2. The resulting action is characterized by δ_g•u=towerAction(g)(u) and the scalar restriction. No such action is installed on full local units.
+
+API:
+
+- **ColemanCyclotomic.principalCompletedModule_dirac** (simp): δ_g•u=towerAction(g)(u).
+- **ColemanCyclotomic.principalCompletedModule_scalar** (compatibility): The restriction along ℤ_p→Λ(G) is principalModule.
+- **ColemanCyclotomic.principalCompletedModule_continuous** (compatibility): The action Λ(G)×U∞,1→U∞,1 is jointly continuous for weak Λ topology.
+- **ColemanCyclotomic.principalCompletedModule_unique** (universal-property): Any continuous Λ(G)-action with these scalar and Dirac formulas is this action.
+
+Tests:
+
+- **CompletedUnitTests.zero** (degenerate): 0•u=0 on Additive(U∞,1).
+- **CompletedUnitTests.one** (compatibility): δ_1•u=u.
+- **CompletedUnitTests.minus_one_tate** (non-example): δ_(-1)•tateTower(b)=tateTower(−b), which differs from the trivial action when b≠0.
+
+Uses: §9, pp.161–163; Lemmas12.2–12.3 and Proposition12.5, pp.178–180: Supplies the receiving module for the principal Coleman map and the cyclotomic image ideal. ColemanPowerSeries:L0 and the consuming declarations listed in this packet: Supplies this actual arithmetic object and its named maps, rather than a second supplier carrier.
+
+Prerequisites: ColemanPowerSeries:L0/principal-tower-scalar-adapter, ColemanPowerSeries:L0/norm-tower-galois-action, ColemanPowerSeries:L0/norm-tower-action-continuity, PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L1/unit-measures-weak-topological-ring.
+
+Acceptance: Supplies the receiving module for the principal Coleman map and the cyclotomic image ideal.
+
+Sources: RJW-published, §9, pp.161–163; Lemmas12.2–12.3 and Proposition12.5, pp.178–180. The cited passage supplies this arithmetic target. The native-carrier adapter and the separate closure/compactness steps are worker deductions. The corrected argument follows the independently reviewed extraction where the printed proof omits a hypothesis or equality. Literal excerpt: “Lemma 12.2. We have U∞ = µ p−1 × U∞,1 .”.
 
 ### ColemanPowerSeries:L1
 
@@ -2152,7 +2471,7 @@ Prerequisites: mathlib:PowerSeries.substAlgHom, mathlib:PowerSeries.HasSubst.of_
 
 Acceptance: At p=2, T acting on 1 gives 2T+T².
 
-Sources: RJW-published, Lemma 10.8 and its proof, printed p.167 / PDF 68; finite-free algebra implicit in the degree-p assertion.. The stated basis/coordinate calculation is the explicit proof of the finite-free input used here, or a determinant/trace consequence of it. The source does not state every helper separately. The dyadic signs follow from the displayed multiplication matrix, independently of the sources’ odd-prime arithmetic convention.
+Sources: RJW-published, Lemma 10.8 and its proof, printed p.167 / PDF 68; finite-free algebra implicit in the degree-p assertion.. The stated basis/coordinate calculation is the explicit proof of the finite-free input used here, or a determinant/trace consequence of it. The source does not state every helper separately. The dyadic signs follow from the displayed multiplication matrix, independently of the sources’ odd-prime arithmetic convention. Literal excerpt: “ϕ”.
 
 #### Coordinates modulo p
 
@@ -2172,7 +2491,7 @@ Prerequisites: mathlib:PowerSeries.expand, mathlib:PowerSeries.coeff_expand.
 
 Acceptance: At p=2, T=(1+T)−1 gives coordinates (−1,1); replacing Y^i by T^i would give (0,1).
 
-Sources: RJW-published, Lemma 10.8 and its proof, printed p.167 / PDF 68; finite-free algebra implicit in the degree-p assertion.. The stated basis/coordinate calculation is the explicit proof of the finite-free input used here, or a determinant/trace consequence of it. The source does not state every helper separately. The dyadic signs follow from the displayed multiplication matrix, independently of the sources’ odd-prime arithmetic convention.
+Sources: RJW-published, Lemma 10.8 and its proof, printed p.167 / PDF 68; finite-free algebra implicit in the degree-p assertion.. The stated basis/coordinate calculation is the explicit proof of the finite-free input used here, or a determinant/trace consequence of it. The source does not state every helper separately. The dyadic signs follow from the displayed multiplication matrix, independently of the sources’ odd-prime arithmetic convention. Literal excerpt: “ϕ”.
 
 #### Frobenius coordinate assembly
 
@@ -2207,7 +2526,7 @@ Prerequisites: ColemanPowerSeries:L1/frobenius-scalar-algebra.
 
 Acceptance: The tuple supported at coordinate zero with value T assembles to Y^p−1, not T.
 
-Sources: RJW-published, Lemma 10.8 and its proof, printed p.167 / PDF 68; finite-free algebra implicit in the degree-p assertion.. The stated basis/coordinate calculation is the explicit proof of the finite-free input used here, or a determinant/trace consequence of it. The source does not state every helper separately. The dyadic signs follow from the displayed multiplication matrix, independently of the sources’ odd-prime arithmetic convention.
+Sources: RJW-published, Lemma 10.8 and its proof, printed p.167 / PDF 68; finite-free algebra implicit in the degree-p assertion.. The stated basis/coordinate calculation is the explicit proof of the finite-free input used here, or a determinant/trace consequence of it. The source does not state every helper separately. The dyadic signs follow from the displayed multiplication matrix, independently of the sources’ odd-prime arithmetic convention. Literal excerpt: “ϕ”.
 
 #### Continuity of coordinate assembly
 
@@ -2227,7 +2546,7 @@ Prerequisites: ColemanPowerSeries:L1/frobenius-coordinate-assembly, mathlib:Powe
 
 Acceptance: Continuity uses the p-adic coefficient topology; no discrete coefficient topology is installed.
 
-Sources: RJW-published, Lemma 10.8 and its proof, printed p.167 / PDF 68; finite-free algebra implicit in the degree-p assertion.. The stated basis/coordinate calculation is the explicit proof of the finite-free input used here, or a determinant/trace consequence of it. The source does not state every helper separately. The dyadic signs follow from the displayed multiplication matrix, independently of the sources’ odd-prime arithmetic convention.
+Sources: RJW-published, Lemma 10.8 and its proof, printed p.167 / PDF 68; finite-free algebra implicit in the degree-p assertion.. The stated basis/coordinate calculation is the explicit proof of the finite-free input used here, or a determinant/trace consequence of it. The source does not state every helper separately. The dyadic signs follow from the displayed multiplication matrix, independently of the sources’ odd-prime arithmetic convention. Literal excerpt: “ϕ”.
 
 #### Lifting coordinates modulo p powers
 
@@ -2248,7 +2567,7 @@ Prerequisites: ColemanPowerSeries:L1/residue-coordinate-uniqueness, ColemanPower
 
 Acceptance: The r=0 case is included; no p-adic limit is used for finite-level solvability.
 
-Sources: RJW-published, Lemma 10.8 and its proof, printed p.167 / PDF 68; finite-free algebra implicit in the degree-p assertion.. The stated basis/coordinate calculation is the explicit proof of the finite-free input used here, or a determinant/trace consequence of it. The source does not state every helper separately. The dyadic signs follow from the displayed multiplication matrix, independently of the sources’ odd-prime arithmetic convention.
+Sources: RJW-published, Lemma 10.8 and its proof, printed p.167 / PDF 68; finite-free algebra implicit in the degree-p assertion.. The stated basis/coordinate calculation is the explicit proof of the finite-free input used here, or a determinant/trace consequence of it. The source does not state every helper separately. The dyadic signs follow from the displayed multiplication matrix, independently of the sources’ odd-prime arithmetic convention. Literal excerpt: “ϕ”.
 
 #### Reflection of coordinate divisibility
 
@@ -2268,7 +2587,7 @@ Prerequisites: ColemanPowerSeries:L1/residue-coordinate-uniqueness, ColemanPower
 
 Acceptance: A nonzero residue in any one component cannot disappear by cancellation among the Y-basis terms.
 
-Sources: RJW-published, Lemma 10.8 and its proof, printed p.167 / PDF 68; finite-free algebra implicit in the degree-p assertion.. The stated basis/coordinate calculation is the explicit proof of the finite-free input used here, or a determinant/trace consequence of it. The source does not state every helper separately. The dyadic signs follow from the displayed multiplication matrix, independently of the sources’ odd-prime arithmetic convention.
+Sources: RJW-published, Lemma 10.8 and its proof, printed p.167 / PDF 68; finite-free algebra implicit in the degree-p assertion.. The stated basis/coordinate calculation is the explicit proof of the finite-free input used here, or a determinant/trace consequence of it. The source does not state every helper separately. The dyadic signs follow from the displayed multiplication matrix, independently of the sources’ odd-prime arithmetic convention. Literal excerpt: “ϕ”.
 
 #### Uniqueness of integral coordinates
 
@@ -2288,7 +2607,7 @@ Prerequisites: ColemanPowerSeries:L1/frobenius-coordinate-congruence-reflection,
 
 Acceptance: This is uniqueness of all p components, stronger than injectivity of φ alone.
 
-Sources: RJW-published, Lemma 10.8 and its proof, printed p.167 / PDF 68; finite-free algebra implicit in the degree-p assertion.. The stated basis/coordinate calculation is the explicit proof of the finite-free input used here, or a determinant/trace consequence of it. The source does not state every helper separately. The dyadic signs follow from the displayed multiplication matrix, independently of the sources’ odd-prime arithmetic convention.
+Sources: RJW-published, Lemma 10.8 and its proof, printed p.167 / PDF 68; finite-free algebra implicit in the degree-p assertion.. The stated basis/coordinate calculation is the explicit proof of the finite-free input used here, or a determinant/trace consequence of it. The source does not state every helper separately. The dyadic signs follow from the displayed multiplication matrix, independently of the sources’ odd-prime arithmetic convention. Literal excerpt: “ϕ”.
 
 #### Existence of integral coordinates
 
@@ -2309,7 +2628,7 @@ Prerequisites: ColemanPowerSeries:L1/frobenius-coordinate-congruence-lift, Colem
 
 Acceptance: The finite-level tuples are not presumed compatible; nested compact solution sets supply an exact tuple.
 
-Sources: RJW-published, Lemma 10.8 and its proof, printed p.167 / PDF 68; finite-free algebra implicit in the degree-p assertion.. The stated basis/coordinate calculation is the explicit proof of the finite-free input used here, or a determinant/trace consequence of it. The source does not state every helper separately. The dyadic signs follow from the displayed multiplication matrix, independently of the sources’ odd-prime arithmetic convention.
+Sources: RJW-published, Lemma 10.8 and its proof, printed p.167 / PDF 68; finite-free algebra implicit in the degree-p assertion.. The stated basis/coordinate calculation is the explicit proof of the finite-free input used here, or a determinant/trace consequence of it. The source does not state every helper separately. The dyadic signs follow from the displayed multiplication matrix, independently of the sources’ odd-prime arithmetic convention. Literal excerpt: “ϕ”.
 
 #### Frobenius power basis
 
@@ -2346,7 +2665,7 @@ Prerequisites: ColemanPowerSeries:L1/frobenius-scalar-algebra, ColemanPowerSerie
 
 Acceptance: The scalar T multiplies Y^(p−1) to (Y^p−1)Y^(p−1), not T Y^(p−1) with an ordinary action.
 
-Sources: RJW-published, Lemma 10.8 and its proof, printed p.167 / PDF 68; finite-free algebra implicit in the degree-p assertion.. The stated basis/coordinate calculation is the explicit proof of the finite-free input used here, or a determinant/trace consequence of it. The source does not state every helper separately. The dyadic signs follow from the displayed multiplication matrix, independently of the sources’ odd-prime arithmetic convention.
+Sources: RJW-published, Lemma 10.8 and its proof, printed p.167 / PDF 68; finite-free algebra implicit in the degree-p assertion.. The stated basis/coordinate calculation is the explicit proof of the finite-free input used here, or a determinant/trace consequence of it. The source does not state every helper separately. The dyadic signs follow from the displayed multiplication matrix, independently of the sources’ odd-prime arithmetic convention. Literal excerpt: “ϕ”.
 
 #### Values of the Frobenius basis
 
@@ -2364,7 +2683,7 @@ Prerequisites: ColemanPowerSeries:L1/frobenius-power-basis, mathlib:Module.Basis
 
 Acceptance: The index zero gives 1.
 
-Sources: RJW-published, Lemma 10.8 and its proof, printed p.167 / PDF 68; finite-free algebra implicit in the degree-p assertion.. The stated basis/coordinate calculation is the explicit proof of the finite-free input used here, or a determinant/trace consequence of it. The source does not state every helper separately. The dyadic signs follow from the displayed multiplication matrix, independently of the sources’ odd-prime arithmetic convention.
+Sources: RJW-published, Lemma 10.8 and its proof, printed p.167 / PDF 68; finite-free algebra implicit in the degree-p assertion.. The stated basis/coordinate calculation is the explicit proof of the finite-free input used here, or a determinant/trace consequence of it. The source does not state every helper separately. The dyadic signs follow from the displayed multiplication matrix, independently of the sources’ odd-prime arithmetic convention. Literal excerpt: “ϕ”.
 
 #### Expansion in the Frobenius basis
 
@@ -2383,7 +2702,7 @@ Prerequisites: ColemanPowerSeries:L1/frobenius-basis-values, ColemanPowerSeries:
 
 Acceptance: Coordinates are series in the base variable; coefficients pass through φ before multiplying the vectors.
 
-Sources: RJW-published, Lemma 10.8 and its proof, printed p.167 / PDF 68; finite-free algebra implicit in the degree-p assertion.. The stated basis/coordinate calculation is the explicit proof of the finite-free input used here, or a determinant/trace consequence of it. The source does not state every helper separately. The dyadic signs follow from the displayed multiplication matrix, independently of the sources’ odd-prime arithmetic convention.
+Sources: RJW-published, Lemma 10.8 and its proof, printed p.167 / PDF 68; finite-free algebra implicit in the degree-p assertion.. The stated basis/coordinate calculation is the explicit proof of the finite-free input used here, or a determinant/trace consequence of it. The source does not state every helper separately. The dyadic signs follow from the displayed multiplication matrix, independently of the sources’ odd-prime arithmetic convention. Literal excerpt: “ϕ”.
 
 #### Multiplication matrix in Frobenius coordinates
 
@@ -2403,7 +2722,7 @@ Prerequisites: ColemanPowerSeries:L1/frobenius-basis-expansion, mathlib:Algebra.
 
 Acceptance: At p=2, multiplication by Y is the matrix [[0,Y],[1,0]], not its transpose.
 
-Sources: RJW-published, Lemma 10.8 and its proof, printed p.167 / PDF 68; finite-free algebra implicit in the degree-p assertion.. The stated basis/coordinate calculation is the explicit proof of the finite-free input used here, or a determinant/trace consequence of it. The source does not state every helper separately. The dyadic signs follow from the displayed multiplication matrix, independently of the sources’ odd-prime arithmetic convention.
+Sources: RJW-published, Lemma 10.8 and its proof, printed p.167 / PDF 68; finite-free algebra implicit in the degree-p assertion.. The stated basis/coordinate calculation is the explicit proof of the finite-free input used here, or a determinant/trace consequence of it. The source does not state every helper separately. The dyadic signs follow from the displayed multiplication matrix, independently of the sources’ odd-prime arithmetic convention. Literal excerpt: “ϕ”.
 
 #### Coleman determinant norm
 
@@ -2444,7 +2763,7 @@ Prerequisites: ColemanPowerSeries:L1/frobenius-power-basis, mathlib:Algebra.norm
 
 Acceptance: At p=2, N(Y)=−Y; at odd p, N(Y)=Y.
 
-Sources: RJW-published, Lemma 10.8 and its proof, printed p.167 / PDF 68; finite-free algebra implicit in the degree-p assertion.. The stated basis/coordinate calculation is the explicit proof of the finite-free input used here, or a determinant/trace consequence of it. The source does not state every helper separately. The dyadic signs follow from the displayed multiplication matrix, independently of the sources’ odd-prime arithmetic convention.
+Sources: RJW-published, Lemma 10.8 and its proof, printed p.167 / PDF 68; finite-free algebra implicit in the degree-p assertion.. The stated basis/coordinate calculation is the explicit proof of the finite-free input used here, or a determinant/trace consequence of it. The source does not state every helper separately. The dyadic signs follow from the displayed multiplication matrix, independently of the sources’ odd-prime arithmetic convention. Literal excerpt: “ϕ”.
 
 #### Norm of a Frobenius scalar
 
@@ -2463,7 +2782,7 @@ Prerequisites: ColemanPowerSeries:L1/coleman-determinant-norm, mathlib:Algebra.n
 
 Acceptance: For a=T, this gives N(Y^p−1)=T^p.
 
-Sources: RJW-published, Lemma 10.8 and its proof, printed p.167 / PDF 68; finite-free algebra implicit in the degree-p assertion.. The stated basis/coordinate calculation is the explicit proof of the finite-free input used here, or a determinant/trace consequence of it. The source does not state every helper separately. The dyadic signs follow from the displayed multiplication matrix, independently of the sources’ odd-prime arithmetic convention.
+Sources: RJW-published, Lemma 10.8 and its proof, printed p.167 / PDF 68; finite-free algebra implicit in the degree-p assertion.. The stated basis/coordinate calculation is the explicit proof of the finite-free input used here, or a determinant/trace consequence of it. The source does not state every helper separately. The dyadic signs follow from the displayed multiplication matrix, independently of the sources’ odd-prime arithmetic convention. Literal excerpt: “ϕ”.
 
 #### Norm of a constant
 
@@ -2481,7 +2800,7 @@ Prerequisites: ColemanPowerSeries:L1/coleman-norm-base-scalars.
 
 Acceptance: At p=3, the norm of the constant 2 is 8, so the norm is not an additive ring endomorphism.
 
-Sources: RJW-published, Lemma 10.8 and its proof, printed p.167 / PDF 68; finite-free algebra implicit in the degree-p assertion.. The stated basis/coordinate calculation is the explicit proof of the finite-free input used here, or a determinant/trace consequence of it. The source does not state every helper separately. The dyadic signs follow from the displayed multiplication matrix, independently of the sources’ odd-prime arithmetic convention.
+Sources: RJW-published, Lemma 10.8 and its proof, printed p.167 / PDF 68; finite-free algebra implicit in the degree-p assertion.. The stated basis/coordinate calculation is the explicit proof of the finite-free input used here, or a determinant/trace consequence of it. The source does not state every helper separately. The dyadic signs follow from the displayed multiplication matrix, independently of the sources’ odd-prime arithmetic convention. Literal excerpt: “ϕ”.
 
 #### Norm of one plus the variable
 
@@ -2500,7 +2819,7 @@ Prerequisites: ColemanPowerSeries:L1/coleman-determinant-norm, ColemanPowerSerie
 
 Acceptance: At p=2 the sign is negative; p odd makes it positive.
 
-Sources: RJW-published, Lemma 10.8 and its proof, printed p.167 / PDF 68; finite-free algebra implicit in the degree-p assertion.. The stated basis/coordinate calculation is the explicit proof of the finite-free input used here, or a determinant/trace consequence of it. The source does not state every helper separately. The dyadic signs follow from the displayed multiplication matrix, independently of the sources’ odd-prime arithmetic convention.
+Sources: RJW-published, Lemma 10.8 and its proof, printed p.167 / PDF 68; finite-free algebra implicit in the degree-p assertion.. The stated basis/coordinate calculation is the explicit proof of the finite-free input used here, or a determinant/trace consequence of it. The source does not state every helper separately. The dyadic signs follow from the displayed multiplication matrix, independently of the sources’ odd-prime arithmetic convention. Literal excerpt: “ϕ”.
 
 #### Norm of the variable
 
@@ -2520,7 +2839,7 @@ Prerequisites: ColemanPowerSeries:L1/coleman-determinant-norm, ColemanPowerSerie
 
 Acceptance: The source’s N(T)=T is recovered for odd p; at p=2 it is −T.
 
-Sources: CS-2006, Lemma 2.2.5, printed p.17 / PDF27; odd-prime assumption at §1.1, p.1. The dyadic correction here is the direct determinant computation.. The stated basis/coordinate calculation is the explicit proof of the finite-free input used here, or a determinant/trace consequence of it. The source does not state every helper separately. The dyadic signs follow from the displayed multiplication matrix, independently of the sources’ odd-prime arithmetic convention.
+Sources: CS-2006, Lemma 2.2.5, printed p.17 / PDF27; odd-prime assumption at §1.1, p.1. The dyadic correction here is the direct determinant computation.. The stated basis/coordinate calculation is the explicit proof of the finite-free input used here, or a determinant/trace consequence of it. The source does not state every helper separately. The dyadic signs follow from the displayed multiplication matrix, independently of the sources’ odd-prime arithmetic convention. Literal excerpt: “ϕ”.
 
 #### Integral Coleman trace
 
@@ -2559,7 +2878,7 @@ Prerequisites: ColemanPowerSeries:L1/frobenius-power-basis, mathlib:Algebra.trac
 
 Acceptance: τ(1)=p whereas τ(Y)=0.
 
-Sources: RJW-published, Lemma 10.8 and its proof, printed p.167 / PDF 68; finite-free algebra implicit in the degree-p assertion.. The stated basis/coordinate calculation is the explicit proof of the finite-free input used here, or a determinant/trace consequence of it. The source does not state every helper separately. The dyadic signs follow from the displayed multiplication matrix, independently of the sources’ odd-prime arithmetic convention.
+Sources: RJW-published, Lemma 10.8 and its proof, printed p.167 / PDF 68; finite-free algebra implicit in the degree-p assertion.. The stated basis/coordinate calculation is the explicit proof of the finite-free input used here, or a determinant/trace consequence of it. The source does not state every helper separately. The dyadic signs follow from the displayed multiplication matrix, independently of the sources’ odd-prime arithmetic convention. Literal excerpt: “ϕ”.
 
 #### Trace in Frobenius coordinates
 
@@ -2578,7 +2897,7 @@ Prerequisites: ColemanPowerSeries:L1/coleman-integral-trace, ColemanPowerSeries:
 
 Acceptance: If f=Y^i with 0<i<p, the trace is zero; f=1 gives p.
 
-Sources: RJW-published, Lemma 10.8 and its proof, printed p.167 / PDF 68; finite-free algebra implicit in the degree-p assertion.. The stated basis/coordinate calculation is the explicit proof of the finite-free input used here, or a determinant/trace consequence of it. The source does not state every helper separately. The dyadic signs follow from the displayed multiplication matrix, independently of the sources’ odd-prime arithmetic convention.
+Sources: RJW-published, Lemma 10.8 and its proof, printed p.167 / PDF 68; finite-free algebra implicit in the degree-p assertion.. The stated basis/coordinate calculation is the explicit proof of the finite-free input used here, or a determinant/trace consequence of it. The source does not state every helper separately. The dyadic signs follow from the displayed multiplication matrix, independently of the sources’ odd-prime arithmetic convention. Literal excerpt: “ϕ”.
 
 #### Divisibility of the integral trace
 
@@ -2597,7 +2916,7 @@ Prerequisites: ColemanPowerSeries:L1/coleman-trace-coordinates.
 
 Acceptance: The proof works integrally; p is not inverted in B.
 
-Sources: RJW-published, Lemma 10.8 and its proof, printed p.167 / PDF 68; finite-free algebra implicit in the degree-p assertion.. The stated basis/coordinate calculation is the explicit proof of the finite-free input used here, or a determinant/trace consequence of it. The source does not state every helper separately. The dyadic signs follow from the displayed multiplication matrix, independently of the sources’ odd-prime arithmetic convention.
+Sources: RJW-published, Lemma 10.8 and its proof, printed p.167 / PDF 68; finite-free algebra implicit in the degree-p assertion.. The stated basis/coordinate calculation is the explicit proof of the finite-free input used here, or a determinant/trace consequence of it. The source does not state every helper separately. The dyadic signs follow from the displayed multiplication matrix, independently of the sources’ odd-prime arithmetic convention. Literal excerpt: “ϕ”.
 
 #### Norm-fixed power-series units
 
@@ -2633,7 +2952,7 @@ Prerequisites: ColemanPowerSeries:L1/coleman-determinant-norm, mathlib:Subgroup.
 
 Acceptance: The odd-prime unit with value Y is fixed, but its dyadic analogue is not.
 
-Sources: RJW-published, Lemma 10.8 and Proposition 10.10, printed p.167 / PDF68: multiplicativity and the norm-fixed unit domain.. The stated basis/coordinate calculation is the explicit proof of the finite-free input used here, or a determinant/trace consequence of it. The source does not state every helper separately. The dyadic signs follow from the displayed multiplication matrix, independently of the sources’ odd-prime arithmetic convention.
+Sources: RJW-published, Lemma 10.8 and Proposition 10.10, printed p.167 / PDF68: multiplicativity and the norm-fixed unit domain.. The stated basis/coordinate calculation is the explicit proof of the finite-free input used here, or a determinant/trace consequence of it. The source does not state every helper separately. The dyadic signs follow from the displayed multiplication matrix, independently of the sources’ odd-prime arithmetic convention. Literal excerpt: “N”.
 
 #### Norm-fixed constant units
 
@@ -2652,7 +2971,7 @@ Prerequisites: ColemanPowerSeries:L1/coleman-norm-fixed-units, ColemanPowerSerie
 
 Acceptance: At p=2 only the constant 1 is fixed; at odd p, −1 is fixed. This is not yet the full kernel of the Coleman map.
 
-Sources: RJW-published, Lemma 10.8 and Proposition 10.10, printed p.167 / PDF68: multiplicativity and the norm-fixed unit domain.. The stated basis/coordinate calculation is the explicit proof of the finite-free input used here, or a determinant/trace consequence of it. The source does not state every helper separately. The dyadic signs follow from the displayed multiplication matrix, independently of the sources’ odd-prime arithmetic convention.
+Sources: RJW-published, Lemma 10.8 and Proposition 10.10, printed p.167 / PDF68: multiplicativity and the norm-fixed unit domain.. The stated basis/coordinate calculation is the explicit proof of the finite-free input used here, or a determinant/trace consequence of it. The source does not state every helper separately. The dyadic signs follow from the displayed multiplication matrix, independently of the sources’ odd-prime arithmetic convention. Literal excerpt: “N”.
 
 #### Formula for coordinate assembly
 
@@ -2670,7 +2989,7 @@ Prerequisites: ColemanPowerSeries:L1/frobenius-coordinate-assembly.
 
 Acceptance: The coordinate zero contributes φ(a_0), not a_0.
 
-Sources: RJW-published, Lemma 10.8 and its proof, printed p.167 / PDF 68; finite-free algebra implicit in the degree-p assertion.. The stated basis/coordinate calculation is the explicit proof of the finite-free input used here, or a determinant/trace consequence of it. The source does not state every helper separately. The dyadic signs follow from the displayed multiplication matrix, independently of the sources’ odd-prime arithmetic convention.
+Sources: RJW-published, Lemma 10.8 and its proof, printed p.167 / PDF 68; finite-free algebra implicit in the degree-p assertion.. The stated basis/coordinate calculation is the explicit proof of the finite-free input used here, or a determinant/trace consequence of it. The source does not state every helper separately. The dyadic signs follow from the displayed multiplication matrix, independently of the sources’ odd-prime arithmetic convention. Literal excerpt: “ϕ”.
 
 #### Matrix formula for the Coleman norm
 
@@ -2688,7 +3007,7 @@ Prerequisites: ColemanPowerSeries:L1/coleman-determinant-norm, mathlib:Algebra.n
 
 Acceptance: This formula uses the rank-p Frobenius module.
 
-Sources: RJW-published, Lemma 10.8 and its proof, printed p.167 / PDF 68; finite-free algebra implicit in the degree-p assertion.. The stated basis/coordinate calculation is the explicit proof of the finite-free input used here, or a determinant/trace consequence of it. The source does not state every helper separately. The dyadic signs follow from the displayed multiplication matrix, independently of the sources’ odd-prime arithmetic convention.
+Sources: RJW-published, Lemma 10.8 and its proof, printed p.167 / PDF 68; finite-free algebra implicit in the degree-p assertion.. The stated basis/coordinate calculation is the explicit proof of the finite-free input used here, or a determinant/trace consequence of it. The source does not state every helper separately. The dyadic signs follow from the displayed multiplication matrix, independently of the sources’ odd-prime arithmetic convention. Literal excerpt: “ϕ”.
 
 #### Membership in norm-fixed units
 
@@ -2706,7 +3025,7 @@ Prerequisites: ColemanPowerSeries:L1/coleman-norm-fixed-units.
 
 Acceptance: The norm is evaluated on the underlying series, with no implicit arithmetic interpolation map.
 
-Sources: RJW-published, Proposition 10.10, printed p.167 / PDF68: norm-fixed unit domain.. The stated basis/coordinate calculation is the explicit proof of the finite-free input used here, or a determinant/trace consequence of it. The source does not state every helper separately. The dyadic signs follow from the displayed multiplication matrix, independently of the sources’ odd-prime arithmetic convention.
+Sources: RJW-published, Proposition 10.10, printed p.167 / PDF68: norm-fixed unit domain.. The stated basis/coordinate calculation is the explicit proof of the finite-free input used here, or a determinant/trace consequence of it. The source does not state every helper separately. The dyadic signs follow from the displayed multiplication matrix, independently of the sources’ odd-prime arithmetic convention. Literal excerpt: “ϕ”.
 
 #### Coefficient reduction and divisibility
 
@@ -2729,7 +3048,7 @@ Prerequisites: mathlib:PowerSeries.map, mathlib:PowerSeries.coeff_map, mathlib:P
 
 Acceptance: The condition controls all coefficients, not just the constant coefficient.
 
-Sources: RJW-published, Lemma 10.11(i)–(ii), printed p.168 / PDF69; coefficientwise meaning of its congruences.. An explicit coefficient-kernel helper for the source congruences, proved from the existing residue homomorphism. It is not a new quotient-ring or reduction-map construction.
+Sources: RJW-published, Lemma 10.11(i)–(ii), printed p.168 / PDF69; coefficientwise meaning of its congruences.. An explicit coefficient-kernel helper for the source congruences, proved from the existing residue homomorphism. It is not a new quotient-ring or reduction-map construction. Literal excerpt: “modulo powers of p”.
 
 #### Frobenius congruence reflection
 
@@ -2752,7 +3071,7 @@ Prerequisites: ColemanPowerSeries:L1/frobenius-coordinate-formula, ColemanPowerS
 
 Acceptance: At k=0 both sides are automatic. At p=3, f=1+T satisfies neither side for k=1: φ(f)−1 has a unit coefficient at degree 3.
 
-Sources: RJW-published, Lemma 10.11(i), printed p.168 / PDF69; compare Coates–Sujatha Lemma 2.3.1, printed p.18 / PDF28.. The source implication is strengthened to an equivalence using the already planned integral coordinate reflection; the reverse implication is also immediate from φ fixing p.
+Sources: RJW-published, Lemma 10.11(i), printed p.168 / PDF69; compare Coates–Sujatha Lemma 2.3.1, printed p.18 / PDF28.. The source implication is strengthened to an equivalence using the already planned integral coordinate reflection; the reverse implication is also immediate from φ fixing p. Literal excerpt: “modulo powers of p”.
 
 #### Norm preservation of congruences
 
@@ -2776,7 +3095,7 @@ Prerequisites: ColemanPowerSeries:L1/coleman-norm-matrix, mathlib:Algebra.leftMu
 
 Acceptance: No additive-homomorphism property of N is asserted. For p=3, the inputs 1 and 1+9 are congruent modulo 9, and their norms are 1 and 1000.
 
-Sources: RJW-published, Lemma 10.11(ii)–(iii), printed p.168 / PDF69; norm from Lemma 10.8, p.167 / PDF68.. A determinant-polynomial helper for the source congruences. The generic matrix reduction and determinant functoriality already belong to Mathlib and are imported.
+Sources: RJW-published, Lemma 10.11(ii)–(iii), printed p.168 / PDF69; norm from Lemma 10.8, p.167 / PDF68.. A determinant-polynomial helper for the source congruences. The generic matrix reduction and determinant functoriality already belong to Mathlib and are imported. Literal excerpt: “modulo powers of p”.
 
 #### Coleman norm modulo p
 
@@ -2802,7 +3121,7 @@ Prerequisites: ColemanPowerSeries:L1/coleman-norm-preserves-congruence, ColemanP
 
 Acceptance: For p=3, N(2)=8 and N(2)−2=6 is divisible by 3 but not by 9.
 
-Sources: RJW-published, Lemma 10.11(ii), printed p.168 / PDF69; compare Coates–Sujatha Lemma 2.3.2, pp.18–19 / PDF28–29.. Exactly the RJW assertion for all series. Coates–Sujatha states its norm congruence for units. The finite-free determinant proof supplies the stronger all-series statement without using the unfinished completed-substitution comparison.
+Sources: RJW-published, Lemma 10.11(ii), printed p.168 / PDF69; compare Coates–Sujatha Lemma 2.3.2, pp.18–19 / PDF28–29.. Exactly the RJW assertion for all series. Coates–Sujatha states its norm congruence for units. The finite-free determinant proof supplies the stronger all-series statement without using the unfinished completed-substitution comparison. Literal excerpt: “modulo powers of p”.
 
 #### Coleman norm improvement at one
 
@@ -2829,7 +3148,7 @@ Prerequisites: ColemanPowerSeries:L1/coleman-norm-matrix, ColemanPowerSeries:L1/
 
 Acceptance: The bound k≥1 is essential to this statement: at k=0 the premise holds for f=0, while N(0)−1=−1 is not divisible by p. At p=3, f=4 gives N(f)−1=63, divisible by 9 but not by 27. At p=2, f=3 gives N(f)−1=8, consistent with the required bound 4.
 
-Sources: RJW-published, Lemma 10.11(iii), printed p.168 / PDF69; compare Coates–Sujatha Lemma 2.3.2, pp.18–19 / PDF28–29.. The source conclusion is proved integrally from norm and trace. Its separate unit hypothesis is unnecessary once the hypothesis f≡1 mod p^k, k≥1, is imposed. The argument covers p=2 and avoids the extended-ideal notation issues E4/E11.
+Sources: RJW-published, Lemma 10.11(iii), printed p.168 / PDF69; compare Coates–Sujatha Lemma 2.3.2, pp.18–19 / PDF28–29.. The source conclusion is proved integrally from norm and trace. Its separate unit hypothesis is unnecessary once the hypothesis f≡1 mod p^k, k≥1, is imposed. The argument covers p=2 and avoids the extended-ideal notation issues E4/E11. Literal excerpt: “modulo powers of p”.
 
 #### Iterated norm improvement at one
 
@@ -2852,7 +3171,7 @@ Prerequisites: ColemanPowerSeries:L1/coleman-norm-improves-one-congruence.
 
 Acceptance: For p=3, f=4, k=1 and r=2, N^[2](4)=4⁹=262144, and 27 divides 262143.
 
-Sources: RJW-published, Proof of Lemma 10.11(iv), printed p.168 / PDF69: iterate part (iii).. This makes the induction used in the source proof a reusable declaration, with the initial precision and zero-iterate case explicit.
+Sources: RJW-published, Proof of Lemma 10.11(iv), printed p.168 / PDF69: iterate part (iii).. This makes the induction used in the source proof a reusable declaration, with the initial precision and zero-iterate case explicit. Literal excerpt: “modulo powers of p”.
 
 #### Coleman norm iteration congruence
 
@@ -2880,7 +3199,7 @@ Prerequisites: ColemanPowerSeries:L1/coleman-norm-residue-identity, ColemanPower
 
 Acceptance: At equal indices the difference is zero. For p=3 and the unit 2, k₁=1 and k₂=2 give 512−8=504, divisible by 9 but not by 27. At p=2, N(Y)=−Y and N²(Y)=−Y. The estimate holds despite Y itself not being norm-fixed.
 
-Sources: RJW-published, Lemma 10.11(iv) and its proof, printed p.168 / PDF69; Coates–Sujatha Corollary 2.3.3, printed p.19 / PDF29.. The source statement with explicit iteration and actual units. It is the uniform p-adic estimate used in interpolation, not yet a continuity, convergence or arithmetic-evaluation theorem.
+Sources: RJW-published, Lemma 10.11(iv) and its proof, printed p.168 / PDF69; Coates–Sujatha Corollary 2.3.3, printed p.19 / PDF29.. The source statement with explicit iteration and actual units. It is the uniform p-adic estimate used in interpolation, not yet a continuity, convergence or arithmetic-evaluation theorem. Literal excerpt: “modulo powers of p”.
 
 #### Continuity of Frobenius coordinates
 
@@ -2900,7 +3219,7 @@ Prerequisites: ColemanPowerSeries:L1/frobenius-coordinate-continuity, ColemanPow
 
 Acceptance: The exact Frobenius scalar structure and coefficientwise topology are retained; the statement includes p=2 and does not imply arithmetic interpolation.
 
-Sources: RJW-published, Lemma 10.8, printed167/PDF68; continuity needed in the limiting argument around Proposition10.12, printed168–169/PDF69–70; all three pages read.. Library-level continuity for the existing finite-free algebra. The compact inverse and finite determinant proof make the topology explicit; no root-product comparison is assumed. This is a worker decomposition, not a claim that the paper separately states these helper lemmas.
+Sources: RJW-published, Lemma 10.8, printed167/PDF68; continuity needed in the limiting argument around Proposition10.12, printed168–169/PDF69–70; all three pages read.. Library-level continuity for the existing finite-free algebra. The compact inverse and finite determinant proof make the topology explicit; no root-product comparison is assumed. This is a worker decomposition, not a claim that the paper separately states these helper lemmas. Literal excerpt: “norm operator”.
 
 #### Continuity of the Coleman norm
 
@@ -2920,7 +3239,7 @@ Prerequisites: ColemanPowerSeries:L1/frobenius-coordinates-continuous, ColemanPo
 
 Acceptance: The exact Frobenius scalar structure and coefficientwise topology are retained; the statement includes p=2 and does not imply arithmetic interpolation.
 
-Sources: RJW-published, Lemma 10.8, printed167/PDF68; continuity needed in the limiting argument around Proposition10.12, printed168–169/PDF69–70; all three pages read.. Library-level continuity for the existing finite-free algebra. The compact inverse and finite determinant proof make the topology explicit; no root-product comparison is assumed. This is a worker decomposition, not a claim that the paper separately states these helper lemmas.
+Sources: RJW-published, Lemma 10.8, printed167/PDF68; continuity needed in the limiting argument around Proposition10.12, printed168–169/PDF69–70; all three pages read.. Library-level continuity for the existing finite-free algebra. The compact inverse and finite determinant proof make the topology explicit; no root-product comparison is assumed. This is a worker decomposition, not a claim that the paper separately states these helper lemmas. Literal excerpt: “norm operator”.
 
 #### Continuity of the integral Coleman trace
 
@@ -2939,7 +3258,7 @@ Prerequisites: ColemanPowerSeries:L1/frobenius-coordinates-continuous, ColemanPo
 
 Acceptance: The exact Frobenius scalar structure and coefficientwise topology are retained; the statement includes p=2 and does not imply arithmetic interpolation.
 
-Sources: RJW-published, Lemma 10.8, printed167/PDF68; continuity needed in the limiting argument around Proposition10.12, printed168–169/PDF69–70; all three pages read.. Library-level continuity for the existing finite-free algebra. The compact inverse and finite determinant proof make the topology explicit; no root-product comparison is assumed. This is a worker decomposition, not a claim that the paper separately states these helper lemmas.
+Sources: RJW-published, Lemma 10.8, printed167/PDF68; continuity needed in the limiting argument around Proposition10.12, printed168–169/PDF69–70; all three pages read.. Library-level continuity for the existing finite-free algebra. The compact inverse and finite determinant proof make the topology explicit; no root-product comparison is assumed. This is a worker decomposition, not a claim that the paper separately states these helper lemmas. Literal excerpt: “norm operator”.
 
 #### Cauchy coefficients of iterated norms
 
@@ -2959,7 +3278,7 @@ Prerequisites: ColemanPowerSeries:L1/coleman-norm-iterate-congruence, mathlib:Pa
 
 Acceptance: The exact Frobenius scalar structure and coefficientwise topology are retained; the statement includes p=2 and does not imply arithmetic interpolation.
 
-Sources: CS-2006, Corollary 2.3.4 and its proof, printed p.19 / PDF29, using Corollary 2.3.3 on the same page; surrounding §2.3 printed17–19 / PDF27–29 read in full.. Explicit decomposition of the norm-fixed limit of integral unit series. Continuity of the actual determinant norm and its coordinate inverse, the unit witness, uniform precision and continuity of the limit map are worker elaborations of the source proof. The book fixes odd p; the p=2 extension here follows the preceding independently justified determinant congruences and keeps the dyadic norm sign.
+Sources: CS-2006, Corollary 2.3.4 and its proof, printed p.19 / PDF29, using Corollary 2.3.3 on the same page; surrounding §2.3 printed17–19 / PDF27–29 read in full.. Explicit decomposition of the norm-fixed limit of integral unit series. Continuity of the actual determinant norm and its coordinate inverse, the unit witness, uniform precision and continuity of the limit map are worker elaborations of the source proof. The book fixes odd p; the p=2 extension here follows the preceding independently justified determinant congruences and keeps the dyadic norm sign. Literal excerpt: “Corollary 2.3.4.”.
 
 #### Norm-fixed limit
 
@@ -2998,7 +3317,7 @@ Prerequisites: ColemanPowerSeries:L1/coleman-norm-iterate-coefficient-cauchy, ma
 
 Acceptance: The exact Frobenius scalar structure and coefficientwise topology are retained; the statement includes p=2 and does not imply arithmetic interpolation.
 
-Sources: CS-2006, Corollary 2.3.4 and its proof, printed p.19 / PDF29, using Corollary 2.3.3 on the same page; surrounding §2.3 printed17–19 / PDF27–29 read in full.. Explicit decomposition of the norm-fixed limit of integral unit series. Continuity of the actual determinant norm and its coordinate inverse, the unit witness, uniform precision and continuity of the limit map are worker elaborations of the source proof. The book fixes odd p; the p=2 extension here follows the preceding independently justified determinant congruences and keeps the dyadic norm sign.
+Sources: CS-2006, Corollary 2.3.4 and its proof, printed p.19 / PDF29, using Corollary 2.3.3 on the same page; surrounding §2.3 printed17–19 / PDF27–29 read in full.. Explicit decomposition of the norm-fixed limit of integral unit series. Continuity of the actual determinant norm and its coordinate inverse, the unit witness, uniform precision and continuity of the limit map are worker elaborations of the source proof. The book fixes odd p; the p=2 extension here follows the preceding independently justified determinant congruences and keeps the dyadic norm sign. Literal excerpt: “Corollary 2.3.4.”.
 
 #### Convergence to the norm limit
 
@@ -3017,7 +3336,7 @@ Prerequisites: ColemanPowerSeries:L1/coleman-norm-limit, mathlib:PowerSeries.Wit
 
 Acceptance: The exact Frobenius scalar structure and coefficientwise topology are retained; the statement includes p=2 and does not imply arithmetic interpolation.
 
-Sources: CS-2006, Corollary 2.3.4 and its proof, printed p.19 / PDF29, using Corollary 2.3.3 on the same page; surrounding §2.3 printed17–19 / PDF27–29 read in full.. Explicit decomposition of the norm-fixed limit of integral unit series. Continuity of the actual determinant norm and its coordinate inverse, the unit witness, uniform precision and continuity of the limit map are worker elaborations of the source proof. The book fixes odd p; the p=2 extension here follows the preceding independently justified determinant congruences and keeps the dyadic norm sign.
+Sources: CS-2006, Corollary 2.3.4 and its proof, printed p.19 / PDF29, using Corollary 2.3.3 on the same page; surrounding §2.3 printed17–19 / PDF27–29 read in full.. Explicit decomposition of the norm-fixed limit of integral unit series. Continuity of the actual determinant norm and its coordinate inverse, the unit witness, uniform precision and continuity of the limit map are worker elaborations of the source proof. The book fixes odd p; the p=2 extension here follows the preceding independently justified determinant congruences and keeps the dyadic norm sign. Literal excerpt: “Corollary 2.3.4.”.
 
 #### Uniform precision of the norm limit
 
@@ -3037,7 +3356,7 @@ Prerequisites: ColemanPowerSeries:L1/coleman-norm-limit-convergence, ColemanPowe
 
 Acceptance: At iteration zero, L(u)≡u mod p. At iteration k the exponent is k+1, uniformly over all coefficients and all input units.
 
-Sources: CS-2006, Corollary 2.3.4 and its proof, printed p.19 / PDF29, using Corollary 2.3.3 on the same page; surrounding §2.3 printed17–19 / PDF27–29 read in full.. Explicit decomposition of the norm-fixed limit of integral unit series. Continuity of the actual determinant norm and its coordinate inverse, the unit witness, uniform precision and continuity of the limit map are worker elaborations of the source proof. The book fixes odd p; the p=2 extension here follows the preceding independently justified determinant congruences and keeps the dyadic norm sign.
+Sources: CS-2006, Corollary 2.3.4 and its proof, printed p.19 / PDF29, using Corollary 2.3.3 on the same page; surrounding §2.3 printed17–19 / PDF27–29 read in full.. Explicit decomposition of the norm-fixed limit of integral unit series. Continuity of the actual determinant norm and its coordinate inverse, the unit witness, uniform precision and continuity of the limit map are worker elaborations of the source proof. The book fixes odd p; the p=2 extension here follows the preceding independently justified determinant congruences and keeps the dyadic norm sign. Literal excerpt: “Corollary 2.3.4.”.
 
 #### Norm-fixedness of the limit
 
@@ -3057,7 +3376,7 @@ Prerequisites: ColemanPowerSeries:L1/coleman-norm-continuous, ColemanPowerSeries
 
 Acceptance: The exact Frobenius scalar structure and coefficientwise topology are retained; the statement includes p=2 and does not imply arithmetic interpolation.
 
-Sources: CS-2006, Corollary 2.3.4 and its proof, printed p.19 / PDF29, using Corollary 2.3.3 on the same page; surrounding §2.3 printed17–19 / PDF27–29 read in full.. Explicit decomposition of the norm-fixed limit of integral unit series. Continuity of the actual determinant norm and its coordinate inverse, the unit witness, uniform precision and continuity of the limit map are worker elaborations of the source proof. The book fixes odd p; the p=2 extension here follows the preceding independently justified determinant congruences and keeps the dyadic norm sign.
+Sources: CS-2006, Corollary 2.3.4 and its proof, printed p.19 / PDF29, using Corollary 2.3.3 on the same page; surrounding §2.3 printed17–19 / PDF27–29 read in full.. Explicit decomposition of the norm-fixed limit of integral unit series. Continuity of the actual determinant norm and its coordinate inverse, the unit witness, uniform precision and continuity of the limit map are worker elaborations of the source proof. The book fixes odd p; the p=2 extension here follows the preceding independently justified determinant congruences and keeps the dyadic norm sign. Literal excerpt: “Corollary 2.3.4.”.
 
 #### Multiplicativity of the norm limit
 
@@ -3076,7 +3395,7 @@ Prerequisites: ColemanPowerSeries:L1/coleman-determinant-norm, ColemanPowerSerie
 
 Acceptance: The exact Frobenius scalar structure and coefficientwise topology are retained; the statement includes p=2 and does not imply arithmetic interpolation.
 
-Sources: CS-2006, Corollary 2.3.4 and its proof, printed p.19 / PDF29, using Corollary 2.3.3 on the same page; surrounding §2.3 printed17–19 / PDF27–29 read in full.. Explicit decomposition of the norm-fixed limit of integral unit series. Continuity of the actual determinant norm and its coordinate inverse, the unit witness, uniform precision and continuity of the limit map are worker elaborations of the source proof. The book fixes odd p; the p=2 extension here follows the preceding independently justified determinant congruences and keeps the dyadic norm sign.
+Sources: CS-2006, Corollary 2.3.4 and its proof, printed p.19 / PDF29, using Corollary 2.3.3 on the same page; surrounding §2.3 printed17–19 / PDF27–29 read in full.. Explicit decomposition of the norm-fixed limit of integral unit series. Continuity of the actual determinant norm and its coordinate inverse, the unit witness, uniform precision and continuity of the limit map are worker elaborations of the source proof. The book fixes odd p; the p=2 extension here follows the preceding independently justified determinant congruences and keeps the dyadic norm sign. Literal excerpt: “Corollary 2.3.4.”.
 
 #### The norm limit on a fixed unit
 
@@ -3095,7 +3414,7 @@ Prerequisites: ColemanPowerSeries:L1/coleman-norm-limit-convergence, ColemanPowe
 
 Acceptance: The exact Frobenius scalar structure and coefficientwise topology are retained; the statement includes p=2 and does not imply arithmetic interpolation.
 
-Sources: CS-2006, Corollary 2.3.4 and its proof, printed p.19 / PDF29, using Corollary 2.3.3 on the same page; surrounding §2.3 printed17–19 / PDF27–29 read in full.. Explicit decomposition of the norm-fixed limit of integral unit series. Continuity of the actual determinant norm and its coordinate inverse, the unit witness, uniform precision and continuity of the limit map are worker elaborations of the source proof. The book fixes odd p; the p=2 extension here follows the preceding independently justified determinant congruences and keeps the dyadic norm sign.
+Sources: CS-2006, Corollary 2.3.4 and its proof, printed p.19 / PDF29, using Corollary 2.3.3 on the same page; surrounding §2.3 printed17–19 / PDF27–29 read in full.. Explicit decomposition of the norm-fixed limit of integral unit series. Continuity of the actual determinant norm and its coordinate inverse, the unit witness, uniform precision and continuity of the limit map are worker elaborations of the source proof. The book fixes odd p; the p=2 extension here follows the preceding independently justified determinant congruences and keeps the dyadic norm sign. Literal excerpt: “Corollary 2.3.4.”.
 
 #### Invertibility of the norm limit
 
@@ -3115,7 +3434,7 @@ Prerequisites: ColemanPowerSeries:L1/coleman-norm-limit-multiplication, ColemanP
 
 Acceptance: The inverse witness is L(u⁻¹), supplied by multiplicativity and L(1)=1; convergence of units alone is not used to claim that the limit is a unit.
 
-Sources: CS-2006, Corollary 2.3.4 and its proof, printed p.19 / PDF29, using Corollary 2.3.3 on the same page; surrounding §2.3 printed17–19 / PDF27–29 read in full.. Explicit decomposition of the norm-fixed limit of integral unit series. Continuity of the actual determinant norm and its coordinate inverse, the unit witness, uniform precision and continuity of the limit map are worker elaborations of the source proof. The book fixes odd p; the p=2 extension here follows the preceding independently justified determinant congruences and keeps the dyadic norm sign.
+Sources: CS-2006, Corollary 2.3.4 and its proof, printed p.19 / PDF29, using Corollary 2.3.3 on the same page; surrounding §2.3 printed17–19 / PDF27–29 read in full.. Explicit decomposition of the norm-fixed limit of integral unit series. Continuity of the actual determinant norm and its coordinate inverse, the unit witness, uniform precision and continuity of the limit map are worker elaborations of the source proof. The book fixes odd p; the p=2 extension here follows the preceding independently justified determinant congruences and keeps the dyadic norm sign. Literal excerpt: “Corollary 2.3.4.”.
 
 #### Continuity of the norm limit
 
@@ -3135,7 +3454,7 @@ Prerequisites: ColemanPowerSeries:L1/coleman-norm-continuous, ColemanPowerSeries
 
 Acceptance: The exact Frobenius scalar structure and coefficientwise topology are retained; the statement includes p=2 and does not imply arithmetic interpolation.
 
-Sources: CS-2006, Corollary 2.3.4 and its proof, printed p.19 / PDF29, using Corollary 2.3.3 on the same page; surrounding §2.3 printed17–19 / PDF27–29 read in full.. Explicit decomposition of the norm-fixed limit of integral unit series. Continuity of the actual determinant norm and its coordinate inverse, the unit witness, uniform precision and continuity of the limit map are worker elaborations of the source proof. The book fixes odd p; the p=2 extension here follows the preceding independently justified determinant congruences and keeps the dyadic norm sign.
+Sources: CS-2006, Corollary 2.3.4 and its proof, printed p.19 / PDF29, using Corollary 2.3.3 on the same page; surrounding §2.3 printed17–19 / PDF27–29 read in full.. Explicit decomposition of the norm-fixed limit of integral unit series. Continuity of the actual determinant norm and its coordinate inverse, the unit witness, uniform precision and continuity of the limit map are worker elaborations of the source proof. The book fixes odd p; the p=2 extension here follows the preceding independently justified determinant congruences and keeps the dyadic norm sign. Literal excerpt: “Corollary 2.3.4.”.
 
 #### Trace and Frobenius scalars
 
@@ -3154,7 +3473,7 @@ Prerequisites: ColemanPowerSeries:L1/coleman-integral-trace, ColemanPowerSeries:
 
 Acceptance: With a=Y and F=1, the identity gives τ(Y^p)=pY. Constants a=C(z) give the Z-linearity needed for the polynomial comparison. The suggested signature already exists in the inherited trace API and is reused.
 
-Sources: RJW-published, Sentence immediately following Lemma 10.8, printed p.167 / PDF68, compared with §3.5.5 equation (3-9), printed pp.128–129; arXiv v2 §3.5.5 PDF21.. Worker decomposition of the source’s normalized-trace comparison. The paper writes the trace into the embedded subring φ(B) and applies φ inverse. The existing Coleman trace is already base-valued, so its integral comparison is τ=pψ. Polynomial values and coefficientwise continuity prove the comparison with the independently constructed bounded operator. The dyadic case is proved algebraically; no odd-prime arithmetic theorem is extended by assertion.
+Sources: RJW-published, Sentence immediately following Lemma 10.8, printed p.167 / PDF68, compared with §3.5.5 equation (3-9), printed pp.128–129; arXiv v2 §3.5.5 PDF21.. Worker decomposition of the source’s normalized-trace comparison. The paper writes the trace into the embedded subring φ(B) and applies φ inverse. The existing Coleman trace is already base-valued, so its integral comparison is τ=pψ. Polynomial values and coefficientwise continuity prove the comparison with the independently constructed bounded operator. The dyadic case is proved algebraically; no odd-prime arithmetic theorem is extended by assertion. Literal excerpt: “We similarly have”.
 
 #### Trace on natural powers of one plus T
 
@@ -3179,7 +3498,7 @@ Prerequisites: ColemanPowerSeries:L1/frobenius-scalar-algebra, ColemanPowerSerie
 
 Acceptance: The n=0 value is p. For p=2, τ(Y²)=2Y; for p=3, τ(Y³)=3Y. The output exponent is n/p, not n.
 
-Sources: RJW-published, Sentence immediately following Lemma 10.8, printed p.167 / PDF68, compared with §3.5.5 equation (3-9), printed pp.128–129; arXiv v2 §3.5.5 PDF21.. Worker decomposition of the source’s normalized-trace comparison. The paper writes the trace into the embedded subring φ(B) and applies φ inverse. The existing Coleman trace is already base-valued, so its integral comparison is τ=pψ. Polynomial values and coefficientwise continuity prove the comparison with the independently constructed bounded operator. The dyadic case is proved algebraically; no odd-prime arithmetic theorem is extended by assertion.
+Sources: RJW-published, Sentence immediately following Lemma 10.8, printed p.167 / PDF68, compared with §3.5.5 equation (3-9), printed pp.128–129; arXiv v2 §3.5.5 PDF21.. Worker decomposition of the source’s normalized-trace comparison. The paper writes the trace into the embedded subring φ(B) and applies φ inverse. The existing Coleman trace is already base-valued, so its integral comparison is τ=pψ. Polynomial values and coefficientwise continuity prove the comparison with the independently constructed bounded operator. The dyadic case is proved algebraically; no odd-prime arithmetic theorem is extended by assertion. Literal excerpt: “We similarly have”.
 
 #### Trace and bounded psi on polynomials
 
@@ -3199,7 +3518,7 @@ Prerequisites: ColemanPowerSeries:L1/coleman-trace-natural-powers, ColemanPowerS
 
 Acceptance: For p=2, τ(T)=−2 while ψ(T)=−1; the formula also includes the zero polynomial.
 
-Sources: RJW-published, Sentence immediately following Lemma 10.8, printed p.167 / PDF68, compared with §3.5.5 equation (3-9), printed pp.128–129; arXiv v2 §3.5.5 PDF21.. Worker decomposition of the source’s normalized-trace comparison. The paper writes the trace into the embedded subring φ(B) and applies φ inverse. The existing Coleman trace is already base-valued, so its integral comparison is τ=pψ. Polynomial values and coefficientwise continuity prove the comparison with the independently constructed bounded operator. The dyadic case is proved algebraically; no odd-prime arithmetic theorem is extended by assertion.
+Sources: RJW-published, Sentence immediately following Lemma 10.8, printed p.167 / PDF68, compared with §3.5.5 equation (3-9), printed pp.128–129; arXiv v2 §3.5.5 PDF21.. Worker decomposition of the source’s normalized-trace comparison. The paper writes the trace into the embedded subring φ(B) and applies φ inverse. The existing Coleman trace is already base-valued, so its integral comparison is τ=pψ. Polynomial values and coefficientwise continuity prove the comparison with the independently constructed bounded operator. The dyadic case is proved algebraically; no odd-prime arithmetic theorem is extended by assertion. Literal excerpt: “We similarly have”.
 
 #### Integral trace and bounded psi
 
@@ -3227,7 +3546,7 @@ Prerequisites: ColemanPowerSeries:L1/coleman-trace-psi-polynomials, ColemanPower
 
 Acceptance: For p=3, τ(1)=3 and ψ(1)=1 reject a missing factor p. At F=Y³, τ(F)=3Y differs from 3Y³ and rejects an extra Frobenius. The theorem includes p=2.
 
-Sources: RJW-published, Sentence immediately following Lemma 10.8, printed p.167 / PDF68, compared with §3.5.5 equation (3-9), printed pp.128–129; arXiv v2 §3.5.5 PDF21.. Worker decomposition of the source’s normalized-trace comparison. The paper writes the trace into the embedded subring φ(B) and applies φ inverse. The existing Coleman trace is already base-valued, so its integral comparison is τ=pψ. Polynomial values and coefficientwise continuity prove the comparison with the independently constructed bounded operator. The dyadic case is proved algebraically; no odd-prime arithmetic theorem is extended by assertion.
+Sources: RJW-published, Sentence immediately following Lemma 10.8, printed p.167 / PDF68, compared with §3.5.5 equation (3-9), printed pp.128–129; arXiv v2 §3.5.5 PDF21.. Worker decomposition of the source’s normalized-trace comparison. The paper writes the trace into the embedded subring φ(B) and applies φ inverse. The existing Coleman trace is already base-valued, so its integral comparison is τ=pψ. Polynomial values and coefficientwise continuity prove the comparison with the independently constructed bounded operator. The dyadic case is proved algebraically; no odd-prime arithmetic theorem is extended by assertion. Literal excerpt: “We similarly have”.
 
 #### The zeroth Frobenius coordinate is psi
 
@@ -3250,7 +3569,7 @@ Prerequisites: ColemanPowerSeries:L1/coleman-trace-coordinates, ColemanPowerSeri
 
 Acceptance: For p=3, c₀(Y³)=Y, while for 0<i<p the zeroth coordinate of Y^i is zero. Together with the existing divisibility theorem, this specifies the unique integral normalized trace.
 
-Sources: RJW-published, Sentence immediately following Lemma 10.8, printed p.167 / PDF68, compared with §3.5.5 equation (3-9), printed pp.128–129; arXiv v2 §3.5.5 PDF21.. Worker decomposition of the source’s normalized-trace comparison. The paper writes the trace into the embedded subring φ(B) and applies φ inverse. The existing Coleman trace is already base-valued, so its integral comparison is τ=pψ. Polynomial values and coefficientwise continuity prove the comparison with the independently constructed bounded operator. The dyadic case is proved algebraically; no odd-prime arithmetic theorem is extended by assertion.
+Sources: RJW-published, Sentence immediately following Lemma 10.8, printed p.167 / PDF68, compared with §3.5.5 equation (3-9), printed pp.128–129; arXiv v2 §3.5.5 PDF21.. Worker decomposition of the source’s normalized-trace comparison. The paper writes the trace into the embedded subring φ(B) and applies φ inverse. The existing Coleman trace is already base-valued, so its integral comparison is τ=pψ. Polynomial values and coefficientwise continuity prove the comparison with the independently constructed bounded operator. The dyadic case is proved algebraically; no odd-prime arithmetic theorem is extended by assertion. Literal excerpt: “We similarly have”.
 
 #### The embedded trace as a root sum
 
@@ -3275,7 +3594,7 @@ Prerequisites: ColemanPowerSeries:L1/coleman-trace-psi, PadicMeasuresIwasawaAlge
 
 Acceptance: At F=1 the root sum is p. At F=Y^p it is pY^p; this is the embedded trace, whereas the base-valued trace is pY.
 
-Sources: RJW-published, Sentence immediately following Lemma 10.8, printed p.167 / PDF68, compared with §3.5.5 equation (3-9), printed pp.128–129; arXiv v2 §3.5.5 PDF21.. Worker decomposition of the source’s normalized-trace comparison. The paper writes the trace into the embedded subring φ(B) and applies φ inverse. The existing Coleman trace is already base-valued, so its integral comparison is τ=pψ. Polynomial values and coefficientwise continuity prove the comparison with the independently constructed bounded operator. The dyadic case is proved algebraically; no odd-prime arithmetic theorem is extended by assertion.
+Sources: RJW-published, Sentence immediately following Lemma 10.8, printed p.167 / PDF68, compared with §3.5.5 equation (3-9), printed pp.128–129; arXiv v2 §3.5.5 PDF21.. Worker decomposition of the source’s normalized-trace comparison. The paper writes the trace into the embedded subring φ(B) and applies φ inverse. The existing Coleman trace is already base-valued, so its integral comparison is τ=pψ. Polynomial values and coefficientwise continuity prove the comparison with the independently constructed bounded operator. The dyadic case is proved algebraically; no odd-prime arithmetic theorem is extended by assertion. Literal excerpt: “We similarly have”.
 
 #### Formal derivation and the determinant
 
@@ -3299,7 +3618,7 @@ Prerequisites: mathlib:Derivation, mathlib:Derivation.leibniz, mathlib:DualNumbe
 
 Acceptance: No field, characteristic-zero, analytic derivative, factorial denominator or nonempty index assumption is used. Tau Ceti already has the tangent-at-identity trace theorem; this adapter uses Mathlib first-order determinants directly.
 
-Sources: RJW-published, Definition 12.8 and Lemma 12.10, printed pp.180-181 / PDF81-82; finite-free norm in Lemma10.8, printed p.167 / PDF68. The source proves the norm-fixed image assertion using root products. This checkpoint gives an independent integral matrix derivation from the already constructed Frobenius algebra, exposing the prime factor and basis commutator. The source does not state these matrix helpers separately. CS-2006, Section 2.4, Definition 2.4.4 and Lemma 2.4.5, printed p.22 / PDF32. The image and constant-root kernel targets; the source fixes odd p. The all-prime algebraic statements here are independently derived and do not extend the arithmetic tower theorem.
+Sources: RJW-published, Definition 12.8 and Lemma 12.10, printed pp.180-181 / PDF81-82; finite-free norm in Lemma10.8, printed p.167 / PDF68. The source proves the norm-fixed image assertion using root products. This checkpoint gives an independent integral matrix derivation from the already constructed Frobenius algebra, exposing the prime factor and basis commutator. The source does not state these matrix helpers separately. Literal excerpt: “Lemma 12.10”. CS-2006, Section 2.4, Definition 2.4.4 and Lemma 2.4.5, printed p.22 / PDF32. The image and constant-root kernel targets; the source fixes odd p. The all-prime algebraic statements here are independently derived and do not extend the arithmetic tower theorem. Literal excerpt: “Lemma 2.4.5”.
 
 #### Weighted differentiation of Frobenius coordinates
 
@@ -3319,7 +3638,7 @@ Prerequisites: ColemanPowerSeries:L1/frobenius-basis-expansion, ColemanPowerSeri
 
 Acceptance: The p factor multiplies the derivative of the base coordinate; the basis index i contributes a separate term.
 
-Sources: RJW-published, Definition 12.8 and Lemma 12.10, printed pp.180-181 / PDF81-82; finite-free norm in Lemma10.8, printed p.167 / PDF68. The source proves the norm-fixed image assertion using root products. This checkpoint gives an independent integral matrix derivation from the already constructed Frobenius algebra, exposing the prime factor and basis commutator. The source does not state these matrix helpers separately. CS-2006, Section 2.4, Definition 2.4.4 and Lemma 2.4.5, printed p.22 / PDF32. The image and constant-root kernel targets; the source fixes odd p. The all-prime algebraic statements here are independently derived and do not extend the arithmetic tower theorem.
+Sources: RJW-published, Definition 12.8 and Lemma 12.10, printed pp.180-181 / PDF81-82; finite-free norm in Lemma10.8, printed p.167 / PDF68. The source proves the norm-fixed image assertion using root products. This checkpoint gives an independent integral matrix derivation from the already constructed Frobenius algebra, exposing the prime factor and basis commutator. The source does not state these matrix helpers separately. Literal excerpt: “Lemma 12.10”. CS-2006, Section 2.4, Definition 2.4.4 and Lemma 2.4.5, printed p.22 / PDF32. The image and constant-root kernel targets; the source fixes odd p. The all-prime algebraic statements here are independently derived and do not extend the arithmetic tower theorem. Literal excerpt: “Lemma 2.4.5”.
 
 #### Differentiating the Frobenius multiplication matrix
 
@@ -3343,7 +3662,7 @@ Prerequisites: ColemanPowerSeries:L1/frobenius-coordinate-mahler-derivation, Col
 
 Acceptance: Rows are output coordinates and columns are input basis vectors. Reversing the commutator sign fails on multiplication by Y at p=2.
 
-Sources: RJW-published, Definition 12.8 and Lemma 12.10, printed pp.180-181 / PDF81-82; finite-free norm in Lemma10.8, printed p.167 / PDF68. The source proves the norm-fixed image assertion using root products. This checkpoint gives an independent integral matrix derivation from the already constructed Frobenius algebra, exposing the prime factor and basis commutator. The source does not state these matrix helpers separately. CS-2006, Section 2.4, Definition 2.4.4 and Lemma 2.4.5, printed p.22 / PDF32. The image and constant-root kernel targets; the source fixes odd p. The all-prime algebraic statements here are independently derived and do not extend the arithmetic tower theorem.
+Sources: RJW-published, Definition 12.8 and Lemma 12.10, printed pp.180-181 / PDF81-82; finite-free norm in Lemma10.8, printed p.167 / PDF68. The source proves the norm-fixed image assertion using root products. This checkpoint gives an independent integral matrix derivation from the already constructed Frobenius algebra, exposing the prime factor and basis commutator. The source does not state these matrix helpers separately. Literal excerpt: “Lemma 12.10”. CS-2006, Section 2.4, Definition 2.4.4 and Lemma 2.4.5, printed p.22 / PDF32. The image and constant-root kernel targets; the source fixes odd p. The all-prime algebraic statements here are independently derived and do not extend the arithmetic tower theorem. Literal excerpt: “Lemma 2.4.5”.
 
 #### Structural map of the Frobenius scalar algebra
 
@@ -3361,7 +3680,7 @@ Prerequisites: ColemanPowerSeries:L1/frobenius-scalar-algebra.
 
 Acceptance: Retain the explicitly selected Frobenius algebra; the ordinary identity self-algebra is not used.
 
-Sources: RJW-published, Lemma10.8 and its proof, printed167/PDF68; full surrounding printed166–168/PDF67–69 freshly read.. Worker decomposition of the determinant/product characterization, correcting the receiving-ring/topology gap recorded as ColemanPowerSeries/E2. The native basis, determinant and root translations are reused; the source does not state these individual matrix or topology bridges.
+Sources: RJW-published, Lemma10.8 and its proof, printed167/PDF68; full surrounding printed166–168/PDF67–69 freshly read.. Worker decomposition of the determinant/product characterization, correcting the receiving-ring/topology gap recorded as ColemanPowerSeries/E2. The native basis, determinant and root translations are reused; the source does not state these individual matrix or topology bridges. Literal excerpt: “Lemma 10.8.”.
 
 #### Root translations on Frobenius scalars
 
@@ -3382,7 +3701,7 @@ Prerequisites: ColemanPowerSeries:L1/frobenius-scalar-map, PadicMeasuresIwasawaA
 
 Acceptance: The conclusion holds for any pth root, before primitivity is needed. It concerns the Coleman scalar action on the existing PMIA map and introduces no replacement root translation.
 
-Sources: RJW-published, Lemma10.8 and its proof, printed167/PDF68; full surrounding printed166–168/PDF67–69 freshly read.. Worker decomposition of the determinant/product characterization, correcting the receiving-ring/topology gap recorded as ColemanPowerSeries/E2. The native basis, determinant and root translations are reused; the source does not state these individual matrix or topology bridges.
+Sources: RJW-published, Lemma10.8 and its proof, printed167/PDF68; full surrounding printed166–168/PDF67–69 freshly read.. Worker decomposition of the determinant/product characterization, correcting the receiving-ring/topology gap recorded as ColemanPowerSeries/E2. The native basis, determinant and root translations are reused; the source does not state these individual matrix or topology bridges. Literal excerpt: “Lemma 10.8.”.
 
 #### Root translation of the Frobenius basis expansion
 
@@ -3401,7 +3720,7 @@ Prerequisites: ColemanPowerSeries:L1/root-translation-frobenius-scalars, Coleman
 
 Acceptance: Use the actual phiBasis coordinates, not coefficients of F in the ordinary monomial basis.
 
-Sources: RJW-published, Lemma10.8 and its proof, printed167/PDF68; full surrounding printed166–168/PDF67–69 freshly read.. Worker decomposition of the determinant/product characterization, correcting the receiving-ring/topology gap recorded as ColemanPowerSeries/E2. The native basis, determinant and root translations are reused; the source does not state these individual matrix or topology bridges.
+Sources: RJW-published, Lemma10.8 and its proof, printed167/PDF68; full surrounding printed166–168/PDF67–69 freshly read.. Worker decomposition of the determinant/product characterization, correcting the receiving-ring/topology gap recorded as ColemanPowerSeries/E2. The native basis, determinant and root translations are reused; the source does not state these individual matrix or topology bridges. Literal excerpt: “Lemma 10.8.”.
 
 #### Nonvanishing of the root evaluation determinant
 
@@ -3421,7 +3740,7 @@ Prerequisites: ColemanPowerSeries:L1/frobenius-basis-values, PadicMeasuresIwasaw
 
 Acceptance: The determinant is only asserted nonzero. Differences of p-power roots are generally nonunits in O; no inverse determinant or division by p is introduced.
 
-Sources: RJW-published, Lemma10.8 and its proof, printed167/PDF68; full surrounding printed166–168/PDF67–69 freshly read.. Worker decomposition of the determinant/product characterization, correcting the receiving-ring/topology gap recorded as ColemanPowerSeries/E2. The native basis, determinant and root translations are reused; the source does not state these individual matrix or topology bridges.
+Sources: RJW-published, Lemma10.8 and its proof, printed167/PDF68; full surrounding printed166–168/PDF67–69 freshly read.. Worker decomposition of the determinant/product characterization, correcting the receiving-ring/topology gap recorded as ColemanPowerSeries/E2. The native basis, determinant and root translations are reused; the source does not state these individual matrix or topology bridges. Literal excerpt: “Lemma 10.8.”.
 
 #### Root evaluations intertwine the multiplication matrix
 
@@ -3441,7 +3760,7 @@ Prerequisites: ColemanPowerSeries:L1/root-translated-frobenius-coordinates, Cole
 
 Acceptance: This is an intertwining equality, not a conjugacy over the integral ring. The actual basis and actual multiplication matrix are retained.
 
-Sources: RJW-published, Lemma10.8 and its proof, printed167/PDF68; full surrounding printed166–168/PDF67–69 freshly read.. Worker decomposition of the determinant/product characterization, correcting the receiving-ring/topology gap recorded as ColemanPowerSeries/E2. The native basis, determinant and root translations are reused; the source does not state these individual matrix or topology bridges.
+Sources: RJW-published, Lemma10.8 and its proof, printed167/PDF68; full surrounding printed166–168/PDF67–69 freshly read.. Worker decomposition of the determinant/product characterization, correcting the receiving-ring/topology gap recorded as ColemanPowerSeries/E2. The native basis, determinant and root translations are reused; the source does not state these individual matrix or topology bridges. Literal excerpt: “Lemma 10.8.”.
 
 #### Coleman norm as the product of root translations
 
@@ -3469,7 +3788,7 @@ Prerequisites: ColemanPowerSeries:L1/coleman-determinant-norm, ColemanPowerSerie
 
 Acceptance: Retain iota and phi on the left. Omitting phi confuses the base-valued norm with its embedded product. All primes, including p=2, are included.
 
-Sources: RJW-published, Lemma10.8 and its proof, printed167/PDF68; full surrounding printed166–168/PDF67–69 freshly read.. Worker decomposition of the determinant/product characterization, correcting the receiving-ring/topology gap recorded as ColemanPowerSeries/E2. The native basis, determinant and root translations are reused; the source does not state these individual matrix or topology bridges.
+Sources: RJW-published, Lemma10.8 and its proof, printed167/PDF68; full surrounding printed166–168/PDF67–69 freshly read.. Worker decomposition of the determinant/product characterization, correcting the receiving-ring/topology gap recorded as ColemanPowerSeries/E2. The native basis, determinant and root translations are reused; the source does not state these individual matrix or topology bridges. Literal excerpt: “Lemma 10.8.”.
 
 #### Uniqueness of the root-product norm
 
@@ -3488,7 +3807,7 @@ Prerequisites: ColemanPowerSeries:L1/coleman-norm-root-product, PadicMeasuresIwa
 
 Acceptance: This supplies the uniqueness in Lemma10.8 over Z_p. It does not assert finite-level arithmetic norm compatibility, interpolation, or a ramified-coefficient extension.
 
-Sources: RJW-published, Lemma10.8 and its proof, printed167/PDF68; full surrounding printed166–168/PDF67–69 freshly read.. Worker decomposition of the determinant/product characterization, correcting the receiving-ring/topology gap recorded as ColemanPowerSeries/E2. The native basis, determinant and root translations are reused; the source does not state these individual matrix or topology bridges.
+Sources: RJW-published, Lemma10.8 and its proof, printed167/PDF68; full surrounding printed166–168/PDF67–69 freshly read.. Worker decomposition of the determinant/product characterization, correcting the receiving-ring/topology gap recorded as ColemanPowerSeries/E2. The native basis, determinant and root translations are reused; the source does not state these individual matrix or topology bridges. Literal excerpt: “Lemma 10.8.”.
 
 #### Frobenius substitution and the actual tower evaluation
 
@@ -3508,7 +3827,7 @@ Prerequisites: ColemanPowerSeries:L0/cyclotomic-evaluation-polynomial, ColemanPo
 
 Acceptance: Use the actual carrier, topology and relative scalar inclusion, including p=2.
 
-Sources: RJW-published, Published166–169/PDF67–70, equation(10-1), Lemma10.9, Proposition10.10 and complete10.11–10.13. Complete161–164 and166–170 freshly read28 September2026.. Actual-carrier decomposition of the relative norm transitions and evaluation square. The determinant proof uses specialization of the existing Frobenius and cyclotomic power bases instead of assuming the formal extension is already split. The source assumes p odd; dyadic instances keep the established signs. No norm-compatible inverse-limit carrier or principal-unit module is introduced here.
+Sources: RJW-published, Published166–169/PDF67–70, equation(10-1), Lemma10.9, Proposition10.10 and complete10.11–10.13. Complete161–164 and166–170 freshly read28 September2026.. Actual-carrier decomposition of the relative norm transitions and evaluation square. The determinant proof uses specialization of the existing Frobenius and cyclotomic power bases instead of assuming the formal extension is already split. The source assumes p odd; dyadic instances keep the established signs. No norm-compatible inverse-limit carrier or principal-unit module is introduced here. Literal excerpt: “The following diagram commutes”.
 
 #### Specialization of Frobenius coordinates to the relative basis
 
@@ -3528,7 +3847,7 @@ Prerequisites: ColemanPowerSeries:L1/arithmetic-frobenius-evaluation, ColemanPow
 
 Acceptance: Use the actual carrier, topology and relative scalar inclusion, including p=2.
 
-Sources: RJW-published, Published166–169/PDF67–70, equation(10-1), Lemma10.9, Proposition10.10 and complete10.11–10.13. Complete161–164 and166–170 freshly read28 September2026.. Actual-carrier decomposition of the relative norm transitions and evaluation square. The determinant proof uses specialization of the existing Frobenius and cyclotomic power bases instead of assuming the formal extension is already split. The source assumes p odd; dyadic instances keep the established signs. No norm-compatible inverse-limit carrier or principal-unit module is introduced here.
+Sources: RJW-published, Published166–169/PDF67–70, equation(10-1), Lemma10.9, Proposition10.10 and complete10.11–10.13. Complete161–164 and166–170 freshly read28 September2026.. Actual-carrier decomposition of the relative norm transitions and evaluation square. The determinant proof uses specialization of the existing Frobenius and cyclotomic power bases instead of assuming the formal extension is already split. The source assumes p odd; dyadic instances keep the established signs. No norm-compatible inverse-limit carrier or principal-unit module is introduced here. Literal excerpt: “The following diagram commutes”.
 
 #### Specialization of the actual multiplication matrix
 
@@ -3548,7 +3867,7 @@ Prerequisites: ColemanPowerSeries:L1/arithmetic-frobenius-coordinates, ColemanPo
 
 Acceptance: Use the actual carrier, topology and relative scalar inclusion, including p=2.
 
-Sources: RJW-published, Published166–169/PDF67–70, equation(10-1), Lemma10.9, Proposition10.10 and complete10.11–10.13. Complete161–164 and166–170 freshly read28 September2026.. Actual-carrier decomposition of the relative norm transitions and evaluation square. The determinant proof uses specialization of the existing Frobenius and cyclotomic power bases instead of assuming the formal extension is already split. The source assumes p odd; dyadic instances keep the established signs. No norm-compatible inverse-limit carrier or principal-unit module is introduced here.
+Sources: RJW-published, Published166–169/PDF67–70, equation(10-1), Lemma10.9, Proposition10.10 and complete10.11–10.13. Complete161–164 and166–170 freshly read28 September2026.. Actual-carrier decomposition of the relative norm transitions and evaluation square. The determinant proof uses specialization of the existing Frobenius and cyclotomic power bases instead of assuming the formal extension is already split. The source assumes p odd; dyadic instances keep the established signs. No norm-compatible inverse-limit carrier or principal-unit module is introduced here. Literal excerpt: “The following diagram commutes”.
 
 #### The arithmetic Coleman norm and evaluation square
 
@@ -3573,7 +3892,7 @@ Prerequisites: ColemanPowerSeries:L0/integral-relative-norm-field, ColemanPowerS
 
 Acceptance: The equality holds for all integral power series, including nonunits and zero. No extension of a character across an unrelated total quotient is involved.
 
-Sources: RJW-published, Published166–169/PDF67–70, equation(10-1), Lemma10.9, Proposition10.10 and complete10.11–10.13. Complete161–164 and166–170 freshly read28 September2026.. Actual-carrier decomposition of the relative norm transitions and evaluation square. The determinant proof uses specialization of the existing Frobenius and cyclotomic power bases instead of assuming the formal extension is already split. The source assumes p odd; dyadic instances keep the established signs. No norm-compatible inverse-limit carrier or principal-unit module is introduced here.
+Sources: RJW-published, Published166–169/PDF67–70, equation(10-1), Lemma10.9, Proposition10.10 and complete10.11–10.13. Complete161–164 and166–170 freshly read28 September2026.. Actual-carrier decomposition of the relative norm transitions and evaluation square. The determinant proof uses specialization of the existing Frobenius and cyclotomic power bases instead of assuming the formal extension is already split. The source assumes p odd; dyadic instances keep the established signs. No norm-compatible inverse-limit carrier or principal-unit module is introduced here. Literal excerpt: “The following diagram commutes”.
 
 #### The norm square in actual unit groups
 
@@ -3592,7 +3911,7 @@ Prerequisites: ColemanPowerSeries:L0/continuous-unit-norm, ColemanPowerSeries:L1
 
 Acceptance: Use the actual carrier, topology and relative scalar inclusion, including p=2.
 
-Sources: RJW-published, Published166–169/PDF67–70, equation(10-1), Lemma10.9, Proposition10.10 and complete10.11–10.13. Complete161–164 and166–170 freshly read28 September2026.. Actual-carrier decomposition of the relative norm transitions and evaluation square. The determinant proof uses specialization of the existing Frobenius and cyclotomic power bases instead of assuming the formal extension is already split. The source assumes p odd; dyadic instances keep the established signs. No norm-compatible inverse-limit carrier or principal-unit module is introduced here.
+Sources: RJW-published, Published166–169/PDF67–70, equation(10-1), Lemma10.9, Proposition10.10 and complete10.11–10.13. Complete161–164 and166–170 freshly read28 September2026.. Actual-carrier decomposition of the relative norm transitions and evaluation square. The determinant proof uses specialization of the existing Frobenius and cyclotomic power bases instead of assuming the formal extension is already split. The source assumes p odd; dyadic instances keep the established signs. No norm-compatible inverse-limit carrier or principal-unit module is introduced here. Literal excerpt: “The following diagram commutes”.
 
 #### Norm-fixed units give compatible finite-level evaluations
 
@@ -3611,7 +3930,7 @@ Prerequisites: ColemanPowerSeries:L1/arithmetic-unit-norm-evaluation, ColemanPow
 
 Acceptance: This is the compatibility portion of Proposition10.10. The actual inverse-limit carrier, interpolation injectivity and surjectivity remain explicit work.
 
-Sources: RJW-published, Published166–169/PDF67–70, equation(10-1), Lemma10.9, Proposition10.10 and complete10.11–10.13. Complete161–164 and166–170 freshly read28 September2026.. Actual-carrier decomposition of the relative norm transitions and evaluation square. The determinant proof uses specialization of the existing Frobenius and cyclotomic power bases instead of assuming the formal extension is already split. The source assumes p odd; dyadic instances keep the established signs. No norm-compatible inverse-limit carrier or principal-unit module is introduced here.
+Sources: RJW-published, Published166–169/PDF67–70, equation(10-1), Lemma10.9, Proposition10.10 and complete10.11–10.13. Complete161–164 and166–170 freshly read28 September2026.. Actual-carrier decomposition of the relative norm transitions and evaluation square. The determinant proof uses specialization of the existing Frobenius and cyclotomic power bases instead of assuming the formal extension is already split. The source assumes p odd; dyadic instances keep the established signs. No norm-compatible inverse-limit carrier or principal-unit module is introduced here. Literal excerpt: “The following diagram commutes”.
 
 #### The arithmetic evaluation map into the unit limit
 
@@ -3645,7 +3964,7 @@ Prerequisites: ColemanPowerSeries:L0/norm-compatible-units, ColemanPowerSeries:L
 
 Acceptance: This is the evaluation direction from norm-fixed series to compatible units. No injectivity, surjectivity, inverse or Coleman interpolation bijection is asserted.
 
-Sources: RJW-published, Equations(9-2)–(9-3), published162–163/PDF63–64; Theorem10.2 on164/PDF65 and Propositions10.10–10.12/Theorem10.13 on167–169/PDF68–70. Complete161–164 and168–170 freshly reread28September2026;167 read in preceding norm-transition checkpoint.. Actual-carrier construction of the full and principal compatible unit groups using existing continuous arithmetic norms. Compactness and the evaluation map precede, and do not assert, interpolation bijectivity. The source assumes p odd; dyadic tests keep the signed norm convention. The inherited finding concerning full units and Z_p-module structure remains unchanged.
+Sources: RJW-published, Equations(9-2)–(9-3), published162–163/PDF63–64; Theorem10.2 on164/PDF65 and Propositions10.10–10.12/Theorem10.13 on167–169/PDF68–70. Complete161–164 and168–170 freshly reread28September2026;167 read in preceding norm-transition checkpoint.. Actual-carrier construction of the full and principal compatible unit groups using existing continuous arithmetic norms. Compactness and the evaluation map precede, and do not assert, interpolation bijectivity. The source assumes p odd; dyadic tests keep the signed norm convention. The inherited finding concerning full units and Z_p-module structure remains unchanged. Literal excerpt: “where all limits are taken with respect to the norm maps”.
 
 #### The residue of a norm-fixed evaluation
 
@@ -3664,7 +3983,7 @@ Prerequisites: ColemanPowerSeries:L1/norm-fixed-evaluation-map, ColemanPowerSeri
 
 Acceptance: Only the integral constant coefficient modulo p occurs; no Teichmüller section or scalar decomposition is assumed.
 
-Sources: RJW-published, Equations(9-2)–(9-3), published162–163/PDF63–64; Theorem10.2 on164/PDF65 and Propositions10.10–10.12/Theorem10.13 on167–169/PDF68–70. Complete161–164 and168–170 freshly reread28September2026;167 read in preceding norm-transition checkpoint.. Actual-carrier construction of the full and principal compatible unit groups using existing continuous arithmetic norms. Compactness and the evaluation map precede, and do not assert, interpolation bijectivity. The source assumes p odd; dyadic tests keep the signed norm convention. The inherited finding concerning full units and Z_p-module structure remains unchanged.
+Sources: RJW-published, Equations(9-2)–(9-3), published162–163/PDF63–64; Theorem10.2 on164/PDF65 and Propositions10.10–10.12/Theorem10.13 on167–169/PDF68–70. Complete161–164 and168–170 freshly reread28September2026;167 read in preceding norm-transition checkpoint.. Actual-carrier construction of the full and principal compatible unit groups using existing continuous arithmetic norms. Compactness and the evaluation map precede, and do not assert, interpolation bijectivity. The source assumes p odd; dyadic tests keep the signed norm convention. The inherited finding concerning full units and Z_p-module structure remains unchanged. Literal excerpt: “where all limits are taken with respect to the norm maps”.
 
 #### The principal-image criterion
 
@@ -3683,7 +4002,7 @@ Prerequisites: ColemanPowerSeries:L0/principal-norm-compatible-units, ColemanPow
 
 Acceptance: The criterion characterizes which supplied evaluations are principal; it does not prove that every principal tower is an evaluation.
 
-Sources: RJW-published, Equations(9-2)–(9-3), published162–163/PDF63–64; Theorem10.2 on164/PDF65 and Propositions10.10–10.12/Theorem10.13 on167–169/PDF68–70. Complete161–164 and168–170 freshly reread28September2026;167 read in preceding norm-transition checkpoint.. Actual-carrier construction of the full and principal compatible unit groups using existing continuous arithmetic norms. Compactness and the evaluation map precede, and do not assert, interpolation bijectivity. The source assumes p odd; dyadic tests keep the signed norm convention. The inherited finding concerning full units and Z_p-module structure remains unchanged.
+Sources: RJW-published, Equations(9-2)–(9-3), published162–163/PDF63–64; Theorem10.2 on164/PDF65 and Propositions10.10–10.12/Theorem10.13 on167–169/PDF68–70. Complete161–164 and168–170 freshly reread28September2026;167 read in preceding norm-transition checkpoint.. Actual-carrier construction of the full and principal compatible unit groups using existing continuous arithmetic norms. Compactness and the evaluation map precede, and do not assert, interpolation bijectivity. The source assumes p odd; dyadic tests keep the signed norm convention. The inherited finding concerning full units and Z_p-module structure remains unchanged. Literal excerpt: “where all limits are taken with respect to the norm maps”.
 
 #### Closed image of arithmetic evaluation
 
@@ -3702,7 +4021,7 @@ Prerequisites: ColemanPowerSeries:L1/norm-fixed-evaluation-map, ColemanPowerSeri
 
 Acceptance: Closed image is preparation for the source’s compact interpolation argument, not a replacement for uniqueness or surjectivity.
 
-Sources: RJW-published, Equations(9-2)–(9-3), published162–163/PDF63–64; Theorem10.2 on164/PDF65 and Propositions10.10–10.12/Theorem10.13 on167–169/PDF68–70. Complete161–164 and168–170 freshly reread28September2026;167 read in preceding norm-transition checkpoint.. Actual-carrier construction of the full and principal compatible unit groups using existing continuous arithmetic norms. Compactness and the evaluation map precede, and do not assert, interpolation bijectivity. The source assumes p odd; dyadic tests keep the signed norm convention. The inherited finding concerning full units and Z_p-module structure remains unchanged.
+Sources: RJW-published, Equations(9-2)–(9-3), published162–163/PDF63–64; Theorem10.2 on164/PDF65 and Propositions10.10–10.12/Theorem10.13 on167–169/PDF68–70. Complete161–164 and168–170 freshly reread28September2026;167 read in preceding norm-transition checkpoint.. Actual-carrier construction of the full and principal compatible unit groups using existing continuous arithmetic norms. Compactness and the evaluation map precede, and do not assert, interpolation bijectivity. The source assumes p odd; dyadic tests keep the signed norm convention. The inherited finding concerning full units and Z_p-module structure remains unchanged. Literal excerpt: “where all limits are taken with respect to the norm maps”.
 
 #### Cyclotomic polynomial degree obstruction
 
@@ -3721,7 +4040,7 @@ Prerequisites: ColemanPowerSeries:L0/integral-difference-minpoly, ColemanPowerSe
 
 Acceptance: For p=3,n=0 the polynomial T²+3T+3 vanishes at ϖ_0; the strict degree inequality is essential.
 
-Sources: RJW-published, Lemma 10.7, printed p.166; Proposition 10.12, printed pp.168–169; Theorem 10.13, printed p.169 (published PDF67,69–70).. The source supplies the mathematical target or proof step. The stated native-carrier interface and declaration-sized decomposition are worker deductions; unavailable owner interfaces are named as prerequisites and requests.
+Sources: RJW-published, Lemma 10.7, printed p.166; Proposition 10.12, printed pp.168–169; Theorem 10.13, printed p.169 (published PDF67,69–70).. The source supplies the mathematical target or proof step. The stated native-carrier interface and declaration-sized decomposition are worker deductions; unavailable owner interfaces are named as prerequisites and requests. Literal excerpt: “Weierstrass preparation theorem”.
 
 #### Eventual nonvanishing of cyclotomic evaluation
 
@@ -3741,7 +4060,7 @@ Prerequisites: ColemanPowerSeries:L1/polynomial-evaluation-degree-obstruction, P
 
 Acceptance: F=0 is excluded. For F=T²+3T+3 at p=3, evaluation is zero at n=0 and nonzero at n≥1.
 
-Sources: RJW-published, Lemma 10.7, printed p.166; Proposition 10.12, printed pp.168–169; Theorem 10.13, printed p.169 (published PDF67,69–70).. The source supplies the mathematical target or proof step. The stated native-carrier interface and declaration-sized decomposition are worker deductions; unavailable owner interfaces are named as prerequisites and requests.
+Sources: RJW-published, Lemma 10.7, printed p.166; Proposition 10.12, printed pp.168–169; Theorem 10.13, printed p.169 (published PDF67,69–70).. The source supplies the mathematical target or proof step. The stated native-carrier interface and declaration-sized decomposition are worker deductions; unavailable owner interfaces are named as prerequisites and requests. Literal excerpt: “any nonzero”.
 
 #### Separation by cyclotomic evaluations
 
@@ -3759,7 +4078,7 @@ Prerequisites: ColemanPowerSeries:L1/series-evaluation-eventually-nonzero.
 
 Acceptance: Agreement at one level is insufficient: the zero series and the minimal polynomial of ϖ_n agree at that level.
 
-Sources: RJW-published, Lemma 10.7, printed p.166; Proposition 10.12, printed pp.168–169; Theorem 10.13, printed p.169 (published PDF67,69–70).. The source supplies the mathematical target or proof step. The stated native-carrier interface and declaration-sized decomposition are worker deductions; unavailable owner interfaces are named as prerequisites and requests.
+Sources: RJW-published, Lemma 10.7, printed p.166; Proposition 10.12, printed pp.168–169; Theorem 10.13, printed p.169 (published PDF67,69–70).. The source supplies the mathematical target or proof step. The stated native-carrier interface and declaration-sized decomposition are worker deductions; unavailable owner interfaces are named as prerequisites and requests. Literal excerpt: “Then f = g.”.
 
 #### Injectivity of arithmetic evaluation
 
@@ -3777,7 +4096,7 @@ Prerequisites: ColemanPowerSeries:L1/series-interpolation-separation, ColemanPow
 
 Acceptance: No injectivity of any individual finite-level evaluation map is claimed.
 
-Sources: RJW-published, Lemma 10.7, printed p.166; Proposition 10.12, printed pp.168–169; Theorem 10.13, printed p.169 (published PDF67,69–70).. The source supplies the mathematical target or proof step. The stated native-carrier interface and declaration-sized decomposition are worker deductions; unavailable owner interfaces are named as prerequisites and requests.
+Sources: RJW-published, Lemma 10.7, printed p.166; Proposition 10.12, printed pp.168–169; Theorem 10.13, printed p.169 (published PDF67,69–70).. The source supplies the mathematical target or proof step. The stated native-carrier interface and declaration-sized decomposition are worker deductions; unavailable owner interfaces are named as prerequisites and requests. Literal excerpt: “injective map”.
 
 #### Evaluation preserves integral precision
 
@@ -3795,7 +4114,7 @@ Prerequisites: ColemanPowerSeries:L0/cyclotomic-series-evaluation, ColemanPowerS
 
 Acceptance: For constant F=p^r,G=0 the inequality is equality.
 
-Sources: RJW-published, Lemma 10.7, printed p.166; Proposition 10.12, printed pp.168–169; Theorem 10.13, printed p.169 (published PDF67,69–70).. The source supplies the mathematical target or proof step. The stated native-carrier interface and declaration-sized decomposition are worker deductions; unavailable owner interfaces are named as prerequisites and requests.
+Sources: RJW-published, Lemma 10.7, printed p.166; Proposition 10.12, printed pp.168–169; Theorem 10.13, printed p.169 (published PDF67,69–70).. The source supplies the mathematical target or proof step. The stated native-carrier interface and declaration-sized decomposition are worker deductions; unavailable owner interfaces are named as prerequisites and requests. Literal excerpt: “mod p”.
 
 #### Iterated norms of finite-level lifts
 
@@ -3813,7 +4132,7 @@ Prerequisites: ColemanPowerSeries:L0/cyclotomic-unit-series-evaluation-lift, Col
 
 Acceptance: At m=n the exponent is zero and the conclusion is the original interpolation equality.
 
-Sources: RJW-published, Lemma 10.7, printed p.166; Proposition 10.12, printed pp.168–169; Theorem 10.13, printed p.169 (published PDF67,69–70).. The source supplies the mathematical target or proof step. The stated native-carrier interface and declaration-sized decomposition are worker deductions; unavailable owner interfaces are named as prerequisites and requests.
+Sources: RJW-published, Lemma 10.7, printed p.166; Proposition 10.12, printed pp.168–169; Theorem 10.13, printed p.169 (published PDF67,69–70).. The source supplies the mathematical target or proof step. The stated native-carrier interface and declaration-sized decomposition are worker deductions; unavailable owner interfaces are named as prerequisites and requests. Literal excerpt: “for any k”.
 
 #### Norm-fixed finite-precision interpolation
 
@@ -3833,7 +4152,7 @@ Prerequisites: ColemanPowerSeries:L1/iterated-norm-finite-lift, ColemanPowerSeri
 
 Acceptance: For k=0 this uses a level-0 lift and its norm limit. The error bound is p⁻¹, not zero; higher k impose increasing precision.
 
-Sources: RJW-published, Lemma 10.7, printed p.166; Proposition 10.12, printed pp.168–169; Theorem 10.13, printed p.169 (published PDF67,69–70).. The source supplies the mathematical target or proof step. The stated native-carrier interface and declaration-sized decomposition are worker deductions; unavailable owner interfaces are named as prerequisites and requests.
+Sources: RJW-published, Lemma 10.7, printed p.166; Proposition 10.12, printed pp.168–169; Theorem 10.13, printed p.169 (published PDF67,69–70).. The source supplies the mathematical target or proof step. The stated native-carrier interface and declaration-sized decomposition are worker deductions; unavailable owner interfaces are named as prerequisites and requests. Literal excerpt: “gn”.
 
 #### Compact nested interpolation fibers
 
@@ -3852,7 +4171,7 @@ Prerequisites: ColemanPowerSeries:L1/norm-fixed-finite-precision-approximation, 
 
 Acceptance: A fiber uses closed norm inequalities. Replacing them by strict inequalities would lose the closed-set compact intersection argument.
 
-Sources: RJW-published, Lemma 10.7, printed p.166; Proposition 10.12, printed pp.168–169; Theorem 10.13, printed p.169 (published PDF67,69–70).. The source supplies the mathematical target or proof step. The stated native-carrier interface and declaration-sized decomposition are worker deductions; unavailable owner interfaces are named as prerequisites and requests.
+Sources: RJW-published, Lemma 10.7, printed p.166; Proposition 10.12, printed pp.168–169; Theorem 10.13, printed p.169 (published PDF67,69–70).. The source supplies the mathematical target or proof step. The stated native-carrier interface and declaration-sized decomposition are worker deductions; unavailable owner interfaces are named as prerequisites and requests. Literal excerpt: “compact”.
 
 #### Surjectivity of arithmetic evaluation
 
@@ -3874,7 +4193,7 @@ Prerequisites: ColemanPowerSeries:L1/compact-interpolation-fibers, mathlib:IsCom
 
 Acceptance: The proof interpolates the entire compatible tower, not a finite prefix. The sequence (−1)_n is excluded at p=2 because it is not norm-compatible.
 
-Sources: RJW-published, Lemma 10.7, printed p.166; Proposition 10.12, printed pp.168–169; Theorem 10.13, printed p.169 (published PDF67,69–70).. The source supplies the mathematical target or proof step. The stated native-carrier interface and declaration-sized decomposition are worker deductions; unavailable owner interfaces are named as prerequisites and requests.
+Sources: RJW-published, Lemma 10.7, printed p.166; Proposition 10.12, printed pp.168–169; Theorem 10.13, printed p.169 (published PDF67,69–70).. The source supplies the mathematical target or proof step. The stated native-carrier interface and declaration-sized decomposition are worker deductions; unavailable owner interfaces are named as prerequisites and requests. Literal excerpt: “is surjective.”.
 
 #### The Coleman power-series equivalence
 
@@ -3910,7 +4229,7 @@ Prerequisites: ColemanPowerSeries:L1/norm-fixed-evaluation-injective, ColemanPow
 
 Acceptance: Supplies Theorems 10.2 and 10.13 on actual units with no assumed interpolation inverse.
 
-Sources: RJW-published, Lemma 10.7, printed p.166; Proposition 10.12, printed pp.168–169; Theorem 10.13, printed p.169 (published PDF67,69–70).. The source supplies the mathematical target or proof step. The stated native-carrier interface and declaration-sized decomposition are worker deductions; unavailable owner interfaces are named as prerequisites and requests.
+Sources: RJW-published, Lemma 10.7, printed p.166; Proposition 10.12, printed pp.168–169; Theorem 10.13, printed p.169 (published PDF67,69–70).. The source supplies the mathematical target or proof step. The stated native-carrier interface and declaration-sized decomposition are worker deductions; unavailable owner interfaces are named as prerequisites and requests. Literal excerpt: “unique isomorphism of groups”.
 
 #### Topology of Coleman interpolation
 
@@ -3928,7 +4247,7 @@ Prerequisites: ColemanPowerSeries:L1/coleman-equivalence, ColemanPowerSeries:L1/
 
 Acceptance: This is the coefficientwise topology on series and product/subtype topology on towers, not an assertion about a uniform sup norm on coefficients.
 
-Sources: RJW-published, Lemma 10.7, printed p.166; Proposition 10.12, printed pp.168–169; Theorem 10.13, printed p.169 (published PDF67,69–70).. The source supplies the mathematical target or proof step. The stated native-carrier interface and declaration-sized decomposition are worker deductions; unavailable owner interfaces are named as prerequisites and requests.
+Sources: RJW-published, Lemma 10.7, printed p.166; Proposition 10.12, printed pp.168–169; Theorem 10.13, printed p.169 (published PDF67,69–70).. The source supplies the mathematical target or proof step. The stated native-carrier interface and declaration-sized decomposition are worker deductions; unavailable owner interfaces are named as prerequisites and requests. Literal excerpt: “compact”.
 
 ### ColemanPowerSeries:L2
 
@@ -3973,7 +4292,7 @@ Prerequisites: mathlib:PowerSeries.derivative.
 
 Acceptance: Δ(1+T)=1; omitting the factor Y would instead give Y⁻¹.
 
-Sources: RJW-published, Definition 12.8, printed p.180 / PDF 81; Proposition 12.1, pp.177–178, and Remark 12.4, p.179.. The source gives the ℤ_p formula or argument; the stated arbitrary-commutative-ring algebraic form and the declaration-sized splitting are derived here. No claim that the source states this generality.
+Sources: RJW-published, Definition 12.8, printed p.180 / PDF 81; Proposition 12.1, pp.177–178, and Remark 12.4, p.179.. The source gives the ℤ_p formula or argument; the stated arbitrary-commutative-ring algebraic form and the declaration-sized splitting are derived here. No claim that the source states this generality. Literal excerpt: “T”.
 
 #### Logarithmic derivative of a product
 
@@ -3992,7 +4311,7 @@ Prerequisites: ColemanPowerSeries:L2/logarithmic-derivative, mathlib:Derivation.
 
 Acceptance: The target group is additive: the output is a sum, not a product.
 
-Sources: RJW-published, Definition 12.8, printed p.180 / PDF 81; Proposition 12.1, pp.177–178, and Remark 12.4, p.179.. The source gives the ℤ_p formula or argument; the stated arbitrary-commutative-ring algebraic form and the declaration-sized splitting are derived here. No claim that the source states this generality.
+Sources: RJW-published, Definition 12.8, printed p.180 / PDF 81; Proposition 12.1, pp.177–178, and Remark 12.4, p.179.. The source gives the ℤ_p formula or argument; the stated arbitrary-commutative-ring algebraic form and the declaration-sized splitting are derived here. No claim that the source states this generality. Literal excerpt: “T”.
 
 #### Logarithmic derivative of an inverse
 
@@ -4011,7 +4330,7 @@ Prerequisites: ColemanPowerSeries:L2/logarithmic-derivative-product, mathlib:Pow
 
 Acceptance: For f=Y, the answer is −1.
 
-Sources: RJW-published, Definition 12.8, printed p.180 / PDF 81; Proposition 12.1, pp.177–178, and Remark 12.4, p.179.. The source gives the ℤ_p formula or argument; the stated arbitrary-commutative-ring algebraic form and the declaration-sized splitting are derived here. No claim that the source states this generality.
+Sources: RJW-published, Definition 12.8, printed p.180 / PDF 81; Proposition 12.1, pp.177–178, and Remark 12.4, p.179.. The source gives the ℤ_p formula or argument; the stated arbitrary-commutative-ring algebraic form and the declaration-sized splitting are derived here. No claim that the source states this generality. Literal excerpt: “T”.
 
 #### Integer powers
 
@@ -4030,7 +4349,7 @@ Prerequisites: ColemanPowerSeries:L2/logarithmic-derivative-product, ColemanPowe
 
 Acceptance: n=0 gives zero and n=−1 gives the inverse formula.
 
-Sources: RJW-published, Definition 12.8, printed p.180 / PDF 81; Proposition 12.1, pp.177–178, and Remark 12.4, p.179.. The source gives the ℤ_p formula or argument; the stated arbitrary-commutative-ring algebraic form and the declaration-sized splitting are derived here. No claim that the source states this generality.
+Sources: RJW-published, Definition 12.8, printed p.180 / PDF 81; Proposition 12.1, pp.177–178, and Remark 12.4, p.179.. The source gives the ℤ_p formula or argument; the stated arbitrary-commutative-ring algebraic form and the declaration-sized splitting are derived here. No claim that the source states this generality. Literal excerpt: “T”.
 
 #### Constant units
 
@@ -4049,7 +4368,7 @@ Prerequisites: ColemanPowerSeries:L2/logarithmic-derivative, mathlib:PowerSeries
 
 Acceptance: All constant units, including −1, are killed; this does not assert they are norm-fixed.
 
-Sources: RJW-published, Definition 12.8, printed p.180 / PDF 81; Proposition 12.1, pp.177–178, and Remark 12.4, p.179.. The source gives the ℤ_p formula or argument; the stated arbitrary-commutative-ring algebraic form and the declaration-sized splitting are derived here. No claim that the source states this generality.
+Sources: RJW-published, Definition 12.8, printed p.180 / PDF 81; Proposition 12.1, pp.177–178, and Remark 12.4, p.179.. The source gives the ℤ_p formula or argument; the stated arbitrary-commutative-ring algebraic form and the declaration-sized splitting are derived here. No claim that the source states this generality. Literal excerpt: “T”.
 
 #### Kernel of the logarithmic derivative
 
@@ -4069,7 +4388,7 @@ Prerequisites: ColemanPowerSeries:L2/logarithmic-derivative-constants, mathlib:P
 
 Acceptance: In characteristic 3, f=1+T³ is a nonconstant unit with Δ(f)=0; the omitted-hypothesis variant fails.
 
-Sources: RJW-published, Definition 12.8, printed p.180 / PDF 81; Proposition 12.1, pp.177–178, and Remark 12.4, p.179.. The source gives the ℤ_p formula or argument; the stated arbitrary-commutative-ring algebraic form and the declaration-sized splitting are derived here. No claim that the source states this generality.
+Sources: RJW-published, Definition 12.8, printed p.180 / PDF 81; Proposition 12.1, pp.177–178, and Remark 12.4, p.179.. The source gives the ℤ_p formula or argument; the stated arbitrary-commutative-ring algebraic form and the declaration-sized splitting are derived here. No claim that the source states this generality. Literal excerpt: “T”.
 
 #### Coefficient change
 
@@ -4088,7 +4407,7 @@ Prerequisites: ColemanPowerSeries:L2/logarithmic-derivative, mathlib:PowerSeries
 
 Acceptance: Reduction mod 3 commutes with Δ, but the torsion-free kernel theorem need not survive that reduction.
 
-Sources: RJW-published, Definition 12.8, printed p.180 / PDF 81; Proposition 12.1, pp.177–178, and Remark 12.4, p.179.. The source gives the ℤ_p formula or argument; the stated arbitrary-commutative-ring algebraic form and the declaration-sized splitting are derived here. No claim that the source states this generality.
+Sources: RJW-published, Definition 12.8, printed p.180 / PDF 81; Proposition 12.1, pp.177–178, and Remark 12.4, p.179.. The source gives the ℤ_p formula or argument; the stated arbitrary-commutative-ring algebraic form and the declaration-sized splitting are derived here. No claim that the source states this generality. Literal excerpt: “T”.
 
 #### Weighted chain rule
 
@@ -4108,7 +4427,7 @@ Prerequisites: ColemanPowerSeries:L2/logarithmic-derivative, mathlib:PowerSeries
 
 Acceptance: g=T recovers the identity and g=0 makes the left side zero.
 
-Sources: RJW-published, Proposition 12.5, equation (12-2), printed p.179 / PDF 80; the cross-multiplied general chain rule is the algebraic calculation underlying it.. The source gives the ℤ_p formula or argument; the stated arbitrary-commutative-ring algebraic form and the declaration-sized splitting are derived here. No claim that the source states this generality.
+Sources: RJW-published, Proposition 12.5, equation (12-2), printed p.179 / PDF 80; the cross-multiplied general chain rule is the algebraic calculation underlying it.. The source gives the ℤ_p formula or argument; the stated arbitrary-commutative-ring algebraic form and the declaration-sized splitting are derived here. No claim that the source states this generality. Literal excerpt: “T”.
 
 #### Cyclotomic substitution
 
@@ -4128,7 +4447,7 @@ Prerequisites: ColemanPowerSeries:L2/logarithmic-derivative-substitution, mathli
 
 Acceptance: m=0 and m=1 are required; m=p is the formal Frobenius chain factor p.
 
-Sources: RJW-published, Proposition 12.5, equation (12-2), printed p.179 / PDF 80; natural-exponent specialization.. The source gives the ℤ_p formula or argument; the stated arbitrary-commutative-ring algebraic form and the declaration-sized splitting are derived here. No claim that the source states this generality.
+Sources: RJW-published, Proposition 12.5, equation (12-2), printed p.179 / PDF 80; natural-exponent specialization.. The source gives the ℤ_p formula or argument; the stated arbitrary-commutative-ring algebraic form and the declaration-sized splitting are derived here. No claim that the source states this generality. Literal excerpt: “T”.
 
 #### Cyclotomic finite-sum comparison
 
@@ -4157,7 +4476,7 @@ Prerequisites: DirichletPadicLFunctions:L1/smoothing-denominator, DirichletPadic
 
 Acceptance: f_3=3+3T+T², not (1+T)³−1 and not its logarithm.
 
-Sources: RJW-published, §10.2 between Lemma 10.3 and Proposition 10.4, printed p.165 / PDF 66. The polynomial claim is restricted to natural a; see E3.. The source gives the ℤ_p formula or argument; the stated arbitrary-commutative-ring algebraic form and the declaration-sized splitting are derived here. No claim that the source states this generality. The shared series is imported from DirichletPadicLFunctions:L1; this node only proves its finite geometric-sum formula.
+Sources: RJW-published, §10.2 between Lemma 10.3 and Proposition 10.4, printed p.165 / PDF 66. The polynomial claim is restricted to natural a; see E3.. The source gives the ℤ_p formula or argument; the stated arbitrary-commutative-ring algebraic form and the declaration-sized splitting are derived here. No claim that the source states this generality. The shared series is imported from DirichletPadicLFunctions:L1; this node only proves its finite geometric-sum formula. Literal excerpt: “T”.
 
 #### Multiplication of parameters
 
@@ -4177,7 +4496,7 @@ Prerequisites: DirichletPadicLFunctions:L1/denominator-factorization, mathlib:Po
 
 Acceptance: Either a=0 or b=0 gives zero; a=1 or b=1 gives f of the other parameter.
 
-Sources: RJW-published, §10.2 between Lemma 10.3 and Proposition 10.4, printed p.165 / PDF 66. The polynomial claim is restricted to natural a; see E3.. The source gives the ℤ_p formula or argument; the stated arbitrary-commutative-ring algebraic form and the declaration-sized splitting are derived here. No claim that the source states this generality.
+Sources: RJW-published, §10.2 between Lemma 10.3 and Proposition 10.4, printed p.165 / PDF 66. The polynomial claim is restricted to natural a; see E3.. The source gives the ℤ_p formula or argument; the stated arbitrary-commutative-ring algebraic form and the declaration-sized splitting are derived here. No claim that the source states this generality. Literal excerpt: “T”.
 
 #### Cyclotomic unit series
 
@@ -4215,7 +4534,7 @@ Prerequisites: DirichletPadicLFunctions:L1/denominator-unit, DirichletPadicLFunc
 
 Acceptance: The inverse at a=3 over ℚ has constant coefficient 1/3.
 
-Sources: RJW-published, §10.2 between Lemma 10.3 and Proposition 10.4, printed p.165 / PDF 66. The polynomial claim is restricted to natural a; see E3.. The source gives the ℤ_p formula or argument; the stated arbitrary-commutative-ring algebraic form and the declaration-sized splitting are derived here. No claim that the source states this generality.
+Sources: RJW-published, §10.2 between Lemma 10.3 and Proposition 10.4, printed p.165 / PDF 66. The polynomial claim is restricted to natural a; see E3.. The source gives the ℤ_p formula or argument; the stated arbitrary-commutative-ring algebraic form and the declaration-sized splitting are derived here. No claim that the source states this generality. Literal excerpt: “T”.
 
 #### Underlying cyclotomic series
 
@@ -4233,7 +4552,7 @@ Prerequisites: ColemanPowerSeries:L2/cyclotomic-series-unit.
 
 Acceptance: Changing the proof ha does not change the unit.
 
-Sources: RJW-published, §10.2 between Lemma 10.3 and Proposition 10.4, printed p.165 / PDF 66. The polynomial claim is restricted to natural a; see E3.. The source gives the ℤ_p formula or argument; the stated arbitrary-commutative-ring algebraic form and the declaration-sized splitting are derived here. No claim that the source states this generality.
+Sources: RJW-published, §10.2 between Lemma 10.3 and Proposition 10.4, printed p.165 / PDF 66. The polynomial claim is restricted to natural a; see E3.. The source gives the ℤ_p formula or argument; the stated arbitrary-commutative-ring algebraic form and the declaration-sized splitting are derived here. No claim that the source states this generality. Literal excerpt: “T”.
 
 #### Cyclotomic logarithmic derivative
 
@@ -4252,7 +4571,7 @@ Prerequisites: DirichletPadicLFunctions:L1/denominator-factorization, ColemanPow
 
 Acceptance: No illegal division by the nonunit T occurs.
 
-Sources: RJW-published, Proposition 10.4 and Lemma 10.5, printed p.165 / PDF 66; compare Lemma 4.3, p.136 / PDF 37.. The source gives the ℤ_p formula or argument; the stated arbitrary-commutative-ring algebraic form and the declaration-sized splitting are derived here. No claim that the source states this generality.
+Sources: RJW-published, Proposition 10.4 and Lemma 10.5, printed p.165 / PDF 66; compare Lemma 4.3, p.136 / PDF 37.. The source gives the ℤ_p formula or argument; the stated arbitrary-commutative-ring algebraic form and the declaration-sized splitting are derived here. No claim that the source states this generality. Literal excerpt: “T”.
 
 #### Smoothed logarithmic derivative
 
@@ -4276,7 +4595,7 @@ Prerequisites: ColemanPowerSeries:L2/cyclotomic-logarithmic-derivative-cleared, 
 
 Acceptance: For a=3 over ℚ, F=1−(2/3)T+… and Δ(u_3)=1+(2/3)T+…; reversing the sign fails already in degree one.
 
-Sources: RJW-published, Proposition 10.4 and Lemma 10.5, printed p.165 / PDF 66; compare Lemma 4.3, p.136 / PDF 37.. The source gives the ℤ_p formula or argument; the stated arbitrary-commutative-ring algebraic form and the declaration-sized splitting are derived here. No claim that the source states this generality.
+Sources: RJW-published, Proposition 10.4 and Lemma 10.5, printed p.165 / PDF 66; compare Lemma 4.3, p.136 / PDF 37.. The source gives the ℤ_p formula or argument; the stated arbitrary-commutative-ring algebraic form and the declaration-sized splitting are derived here. No claim that the source states this generality. Literal excerpt: “T”.
 
 #### Integer binomial weighted derivative
 
@@ -4296,7 +4615,7 @@ Prerequisites: mathlib:PowerSeries.binomialSeries, mathlib:PowerSeries.binomialS
 
 Acceptance: At n=−1 the derivative has the negative sign; at n=0 both sides vanish. The identity remains valid in positive characteristic.
 
-Sources: RJW-published, Proposition 12.5, equation (12-2) and its proof, printed pp.179–180/PDF 80–81; Definition 12.8 on p.180.. The source supplies the cyclotomic formula and weighted derivative identity over the stated p-adic coefficients. This node derives the exact integral signed-parameter algebra on the pinned binomial-series carrier and imported natural denominator; the arbitrary-commutative-ring form, including nonunit exponents in the substitution identity, is a generalization justified by the proof outline, not a claim about the source’s stated generality.
+Sources: RJW-published, Proposition 12.5, equation (12-2) and its proof, printed pp.179–180/PDF 80–81; Definition 12.8 on p.180.. The source supplies the cyclotomic formula and weighted derivative identity over the stated p-adic coefficients. This node derives the exact integral signed-parameter algebra on the pinned binomial-series carrier and imported natural denominator; the arbitrary-commutative-ring form, including nonunit exponents in the substitution identity, is a generalization justified by the proof outline, not a claim about the source’s stated generality. Literal excerpt: “power series”.
 
 #### Signed integer substitution and logarithmic derivative
 
@@ -4320,7 +4639,7 @@ Prerequisites: ColemanPowerSeries:L2/integer-binomial-weighted-derivative, Colem
 
 Acceptance: This is the signed-integer algebraic identity. It does not construct the full p-adic-exponent action or prove its continuity.
 
-Sources: RJW-published, Proposition 12.5, equation (12-2) and its proof, printed pp.179–180/PDF 80–81; Definition 12.8 on p.180.. The source supplies the cyclotomic formula and weighted derivative identity over the stated p-adic coefficients. This node derives the exact integral signed-parameter algebra on the pinned binomial-series carrier and imported natural denominator; the arbitrary-commutative-ring form, including nonunit exponents in the substitution identity, is a generalization justified by the proof outline, not a claim about the source’s stated generality.
+Sources: RJW-published, Proposition 12.5, equation (12-2) and its proof, printed pp.179–180/PDF 80–81; Definition 12.8 on p.180.. The source supplies the cyclotomic formula and weighted derivative identity over the stated p-adic coefficients. This node derives the exact integral signed-parameter algebra on the pinned binomial-series carrier and imported natural denominator; the arbitrary-commutative-ring form, including nonunit exponents in the substitution identity, is a generalization justified by the proof outline, not a claim about the source’s stated generality. Literal excerpt: “power series”.
 
 #### Negative cyclotomic quotient formula
 
@@ -4345,7 +4664,7 @@ Prerequisites: DirichletPadicLFunctions:L1/denominator-factorization, mathlib:Po
 
 Acceptance: The a=0 expression is zero. At a=1, the infinitely many nonzero coefficients over ℤ refute the source’s unrestricted polynomial sentence; the existing finding ColemanPowerSeries/E3 already records that sentence.
 
-Sources: RJW-published, Section 10.2, displayed cyclotomic series and Proposition 10.4 with its proof, printed p.165 / PDF 66.. The source supplies the cyclotomic formula and weighted derivative identity over the stated p-adic coefficients. This node derives the exact integral signed-parameter algebra on the pinned binomial-series carrier and imported natural denominator; the arbitrary-commutative-ring form, including nonunit exponents in the substitution identity, is a generalization justified by the proof outline, not a claim about the source’s stated generality.
+Sources: RJW-published, Section 10.2, displayed cyclotomic series and Proposition 10.4 with its proof, printed p.165 / PDF 66.. The source supplies the cyclotomic formula and weighted derivative identity over the stated p-adic coefficients. This node derives the exact integral signed-parameter algebra on the pinned binomial-series carrier and imported natural denominator; the arbitrary-commutative-ring form, including nonunit exponents in the substitution identity, is a generalization justified by the proof outline, not a claim about the source’s stated generality. Literal excerpt: “power series”.
 
 #### Negative cyclotomic constant coefficient
 
@@ -4364,7 +4683,7 @@ Prerequisites: mathlib:PowerSeries.binomialSeries_constantCoeff, DirichletPadicL
 
 Acceptance: At a=0 this gives zero; at a=3 over ℤ it gives −3.
 
-Sources: RJW-published, Section 10.2, displayed cyclotomic series and Proposition 10.4 with its proof, printed p.165 / PDF 66.. The source supplies the cyclotomic formula and weighted derivative identity over the stated p-adic coefficients. This node derives the exact integral signed-parameter algebra on the pinned binomial-series carrier and imported natural denominator; the arbitrary-commutative-ring form, including nonunit exponents in the substitution identity, is a generalization justified by the proof outline, not a claim about the source’s stated generality.
+Sources: RJW-published, Section 10.2, displayed cyclotomic series and Proposition 10.4 with its proof, printed p.165 / PDF 66.. The source supplies the cyclotomic formula and weighted derivative identity over the stated p-adic coefficients. This node derives the exact integral signed-parameter algebra on the pinned binomial-series carrier and imported natural denominator; the arbitrary-commutative-ring form, including nonunit exponents in the substitution identity, is a generalization justified by the proof outline, not a claim about the source’s stated generality. Literal excerpt: “power series”.
 
 #### Negative cyclotomic invertibility criterion
 
@@ -4383,7 +4702,7 @@ Prerequisites: ColemanPowerSeries:L2/negative-cyclotomic-constant, mathlib:Power
 
 Acceptance: Over ℤ/3ℤ the a=3 expression is not a unit. No field or characteristic-zero assumption is introduced.
 
-Sources: RJW-published, Section 10.2, displayed cyclotomic series and Proposition 10.4 with its proof, printed p.165 / PDF 66.. The source supplies the cyclotomic formula and weighted derivative identity over the stated p-adic coefficients. This node derives the exact integral signed-parameter algebra on the pinned binomial-series carrier and imported natural denominator; the arbitrary-commutative-ring form, including nonunit exponents in the substitution identity, is a generalization justified by the proof outline, not a claim about the source’s stated generality.
+Sources: RJW-published, Section 10.2, displayed cyclotomic series and Proposition 10.4 with its proof, printed p.165 / PDF 66.. The source supplies the cyclotomic formula and weighted derivative identity over the stated p-adic coefficients. This node derives the exact integral signed-parameter algebra on the pinned binomial-series carrier and imported natural denominator; the arbitrary-commutative-ring form, including nonunit exponents in the substitution identity, is a generalization justified by the proof outline, not a claim about the source’s stated generality. Literal excerpt: “power series”.
 
 #### Negative cyclotomic logarithmic derivative
 
@@ -4407,7 +4726,7 @@ Prerequisites: ColemanPowerSeries:L2/negative-cyclotomic-unit, ColemanPowerSerie
 
 Acceptance: For a=1 the natural unit is 1 and the negative unit has Δ=−1. The source’s negative parameter requires the shift −a, not just negating the positive logarithmic derivative.
 
-Sources: RJW-published, Section 10.2, displayed cyclotomic series and Proposition 10.4 with its proof, printed p.165 / PDF 66.. The source supplies the cyclotomic formula and weighted derivative identity over the stated p-adic coefficients. This node derives the exact integral signed-parameter algebra on the pinned binomial-series carrier and imported natural denominator; the arbitrary-commutative-ring form, including nonunit exponents in the substitution identity, is a generalization justified by the proof outline, not a claim about the source’s stated generality.
+Sources: RJW-published, Section 10.2, displayed cyclotomic series and Proposition 10.4 with its proof, printed p.165 / PDF 66.. The source supplies the cyclotomic formula and weighted derivative identity over the stated p-adic coefficients. This node derives the exact integral signed-parameter algebra on the pinned binomial-series carrier and imported natural denominator; the arbitrary-commutative-ring form, including nonunit exponents in the substitution identity, is a generalization justified by the proof outline, not a claim about the source’s stated generality. Literal excerpt: “power series”.
 
 #### Transport of the cleared smoothing equation
 
@@ -4426,7 +4745,7 @@ Prerequisites: DirichletPadicLFunctions:L1/denominator-factorization, mathlib:Po
 
 Acceptance: For a=3 over ℚ, F=1−(2/3)T+⋯ becomes F−3=−2−(2/3)T+⋯. The sign of the constant correction is fixed by the displayed equation.
 
-Sources: RJW-published, Section 10.2, displayed cyclotomic series and Proposition 10.4 with its proof, printed p.165 / PDF 66.. The source supplies the cyclotomic formula and weighted derivative identity over the stated p-adic coefficients. This node derives the exact integral signed-parameter algebra on the pinned binomial-series carrier and imported natural denominator; the arbitrary-commutative-ring form, including nonunit exponents in the substitution identity, is a generalization justified by the proof outline, not a claim about the source’s stated generality.
+Sources: RJW-published, Section 10.2, displayed cyclotomic series and Proposition 10.4 with its proof, printed p.165 / PDF 66.. The source supplies the cyclotomic formula and weighted derivative identity over the stated p-adic coefficients. This node derives the exact integral signed-parameter algebra on the pinned binomial-series carrier and imported natural denominator; the arbitrary-commutative-ring form, including nonunit exponents in the substitution identity, is a generalization justified by the proof outline, not a claim about the source’s stated generality. Literal excerpt: “power series”.
 
 #### Negative smoothed logarithmic derivative comparison
 
@@ -4446,7 +4765,7 @@ Prerequisites: ColemanPowerSeries:L2/negative-cyclotomic-logarithmic-derivative,
 
 Acceptance: At a=3 the formula gives Δ(v)=−2+(2/3)T+⋯. It preserves the raw Col₀ versus normalized Col sign convention while making no measure or norm-tower identification.
 
-Sources: RJW-published, Section 10.2, displayed cyclotomic series and Proposition 10.4 with its proof, printed p.165 / PDF 66.. The source supplies the cyclotomic formula and weighted derivative identity over the stated p-adic coefficients. This node derives the exact integral signed-parameter algebra on the pinned binomial-series carrier and imported natural denominator; the arbitrary-commutative-ring form, including nonunit exponents in the substitution identity, is a generalization justified by the proof outline, not a claim about the source’s stated generality.
+Sources: RJW-published, Section 10.2, displayed cyclotomic series and Proposition 10.4 with its proof, printed p.165 / PDF 66.. The source supplies the cyclotomic formula and weighted derivative identity over the stated p-adic coefficients. This node derives the exact integral signed-parameter algebra on the pinned binomial-series carrier and imported natural denominator; the arbitrary-commutative-ring form, including nonunit exponents in the substitution identity, is a generalization justified by the proof outline, not a claim about the source’s stated generality. Literal excerpt: “power series”.
 
 #### P-adic binomial weighted derivative
 
@@ -4471,7 +4790,7 @@ Prerequisites: mathlib:PadicInt.instBinomialRing, mathlib:PadicInt.continuous_ch
 
 Acceptance: The scalar factor is a, not a⁻¹. No continuity of unit inversion or construction of a measure is needed for this identity. The actual Galois action is a separate imported interface.
 
-Sources: RJW-published, Proposition 12.5, equation (12-2), printed p.179 / PDF p.80; Definition 12.8, printed p.180 / PDF p.81.. The source gives the twisted logarithmic-derivative formula for a∈ℤ_pˣ. The weighted binomial derivative supplies the calculation; extending both identities to all a∈ℤ_p is an explicit generalization proved by the listed algebra and density steps. It does not extend the group action to nonunit exponents.
+Sources: RJW-published, Proposition 12.5, equation (12-2), printed p.179 / PDF p.80; Definition 12.8, printed p.180 / PDF p.81.. The source gives the twisted logarithmic-derivative formula for a∈ℤ_pˣ. The weighted binomial derivative supplies the calculation; extending both identities to all a∈ℤ_p is an explicit generalization proved by the listed algebra and density steps. It does not extend the group action to nonunit exponents. Literal excerpt: “an easy calculation on power series”.
 
 #### P-adic substitution and logarithmic derivative
 
@@ -4497,7 +4816,7 @@ Prerequisites: ColemanPowerSeries:L2/padic-binomial-weighted-derivative, Coleman
 
 Acceptance: The scalar factor is a, not a⁻¹. No continuity of unit inversion or construction of a measure is needed for this identity. The actual Galois action is a separate imported interface.
 
-Sources: RJW-published, Proposition 12.5, equation (12-2), printed p.179 / PDF p.80; Definition 12.8, printed p.180 / PDF p.81.. The source gives the twisted logarithmic-derivative formula for a∈ℤ_pˣ. The weighted binomial derivative supplies the calculation; extending both identities to all a∈ℤ_p is an explicit generalization proved by the listed algebra and density steps. It does not extend the group action to nonunit exponents.
+Sources: RJW-published, Proposition 12.5, equation (12-2), printed p.179 / PDF p.80; Definition 12.8, printed p.180 / PDF p.81.. The source gives the twisted logarithmic-derivative formula for a∈ℤ_pˣ. The weighted binomial derivative supplies the calculation; extending both identities to all a∈ℤ_p is an explicit generalization proved by the listed algebra and density steps. It does not extend the group action to nonunit exponents. Literal excerpt: “an easy calculation on power series”.
 
 #### Integral trace of a logarithmic derivative
 
@@ -4521,7 +4840,7 @@ Prerequisites: ColemanPowerSeries:L2/logarithmic-derivative, ColemanPowerSeries:
 
 Acceptance: Keep tau base-valued. An extra phi on the right would change the identity. The prime is multiplied, never inverted in B.
 
-Sources: RJW-published, Definition 12.8 and Lemma 12.10, printed pp.180-181 / PDF81-82; finite-free norm in Lemma10.8, printed p.167 / PDF68. The source proves the norm-fixed image assertion using root products. This checkpoint gives an independent integral matrix derivation from the already constructed Frobenius algebra, exposing the prime factor and basis commutator. The source does not state these matrix helpers separately. CS-2006, Section 2.4, Definition 2.4.4 and Lemma 2.4.5, printed p.22 / PDF32. The image and constant-root kernel targets; the source fixes odd p. The all-prime algebraic statements here are independently derived and do not extend the arithmetic tower theorem.
+Sources: RJW-published, Definition 12.8 and Lemma 12.10, printed pp.180-181 / PDF81-82; finite-free norm in Lemma10.8, printed p.167 / PDF68. The source proves the norm-fixed image assertion using root products. This checkpoint gives an independent integral matrix derivation from the already constructed Frobenius algebra, exposing the prime factor and basis commutator. The source does not state these matrix helpers separately. Literal excerpt: “Lemma 12.10”. CS-2006, Section 2.4, Definition 2.4.4 and Lemma 2.4.5, printed p.22 / PDF32. The image and constant-root kernel targets; the source fixes odd p. The all-prime algebraic statements here are independently derived and do not extend the arithmetic tower theorem. Literal excerpt: “Lemma 2.4.5”.
 
 #### Coleman norm and bounded psi under logarithmic differentiation
 
@@ -4540,7 +4859,7 @@ Prerequisites: ColemanPowerSeries:L2/coleman-trace-logarithmic-derivative, Colem
 
 Acceptance: This algebraic result includes p=2. It establishes no arithmetic interpolation or general ramified coefficient variant.
 
-Sources: RJW-published, Definition 12.8 and Lemma 12.10, printed pp.180-181 / PDF81-82; finite-free norm in Lemma10.8, printed p.167 / PDF68. The source proves the norm-fixed image assertion using root products. This checkpoint gives an independent integral matrix derivation from the already constructed Frobenius algebra, exposing the prime factor and basis commutator. The source does not state these matrix helpers separately. CS-2006, Section 2.4, Definition 2.4.4 and Lemma 2.4.5, printed p.22 / PDF32. The image and constant-root kernel targets; the source fixes odd p. The all-prime algebraic statements here are independently derived and do not extend the arithmetic tower theorem.
+Sources: RJW-published, Definition 12.8 and Lemma 12.10, printed pp.180-181 / PDF81-82; finite-free norm in Lemma10.8, printed p.167 / PDF68. The source proves the norm-fixed image assertion using root products. This checkpoint gives an independent integral matrix derivation from the already constructed Frobenius algebra, exposing the prime factor and basis commutator. The source does not state these matrix helpers separately. Literal excerpt: “Lemma 12.10”. CS-2006, Section 2.4, Definition 2.4.4 and Lemma 2.4.5, printed p.22 / PDF32. The image and constant-root kernel targets; the source fixes odd p. The all-prime algebraic statements here are independently derived and do not extend the arithmetic tower theorem. Literal excerpt: “Lemma 2.4.5”.
 
 #### Norm-fixed units have psi-fixed logarithmic derivatives
 
@@ -4559,7 +4878,7 @@ Prerequisites: ColemanPowerSeries:L2/logarithmic-derivative-norm-psi, ColemanPow
 
 Acceptance: At p=2 the unit -Y is norm-fixed and maps to the series one. The source theorem about arithmetic towers is not used.
 
-Sources: RJW-published, Definition 12.8 and Lemma 12.10, printed pp.180-181 / PDF81-82; finite-free norm in Lemma10.8, printed p.167 / PDF68. The source proves the norm-fixed image assertion using root products. This checkpoint gives an independent integral matrix derivation from the already constructed Frobenius algebra, exposing the prime factor and basis commutator. The source does not state these matrix helpers separately. CS-2006, Section 2.4, Definition 2.4.4 and Lemma 2.4.5, printed p.22 / PDF32. The image and constant-root kernel targets; the source fixes odd p. The all-prime algebraic statements here are independently derived and do not extend the arithmetic tower theorem.
+Sources: RJW-published, Definition 12.8 and Lemma 12.10, printed pp.180-181 / PDF81-82; finite-free norm in Lemma10.8, printed p.167 / PDF68. The source proves the norm-fixed image assertion using root products. This checkpoint gives an independent integral matrix derivation from the already constructed Frobenius algebra, exposing the prime factor and basis commutator. The source does not state these matrix helpers separately. Literal excerpt: “Lemma 12.10”. CS-2006, Section 2.4, Definition 2.4.4 and Lemma 2.4.5, printed p.22 / PDF32. The image and constant-root kernel targets; the source fixes odd p. The all-prime algebraic statements here are independently derived and do not extend the arithmetic tower theorem. Literal excerpt: “Lemma 2.4.5”.
 
 #### Logarithmic derivative on norm-fixed units
 
@@ -4592,7 +4911,7 @@ Prerequisites: ColemanPowerSeries:L2/norm-fixed-logarithmic-derivative-psi-fixed
 
 Acceptance: The codomain is psi=1, not ker psi. The neutral element of its Multiplicative type tag is the zero series.
 
-Sources: RJW-published, Definition 12.8 and Lemma 12.10, printed pp.180-181 / PDF81-82; finite-free norm in Lemma10.8, printed p.167 / PDF68. The source proves the norm-fixed image assertion using root products. This checkpoint gives an independent integral matrix derivation from the already constructed Frobenius algebra, exposing the prime factor and basis commutator. The source does not state these matrix helpers separately. CS-2006, Section 2.4, Definition 2.4.4 and Lemma 2.4.5, printed p.22 / PDF32. The image and constant-root kernel targets; the source fixes odd p. The all-prime algebraic statements here are independently derived and do not extend the arithmetic tower theorem.
+Sources: RJW-published, Definition 12.8 and Lemma 12.10, printed pp.180-181 / PDF81-82; finite-free norm in Lemma10.8, printed p.167 / PDF68. The source proves the norm-fixed image assertion using root products. This checkpoint gives an independent integral matrix derivation from the already constructed Frobenius algebra, exposing the prime factor and basis commutator. The source does not state these matrix helpers separately. Literal excerpt: “Lemma 12.10”. CS-2006, Section 2.4, Definition 2.4.4 and Lemma 2.4.5, printed p.22 / PDF32. The image and constant-root kernel targets; the source fixes odd p. The all-prime algebraic statements here are independently derived and do not extend the arithmetic tower theorem. Literal excerpt: “Lemma 2.4.5”.
 
 #### Continuity of the restricted logarithmic derivative
 
@@ -4612,7 +4931,7 @@ Prerequisites: ColemanPowerSeries:L2/norm-fixed-logarithmic-derivative-map, Cole
 
 Acceptance: No continuity of ring inversion on all of B is asserted, and no coefficient supremum norm is substituted for the topology.
 
-Sources: RJW-published, Definition 12.8 and Lemma 12.10, printed pp.180-181 / PDF81-82; finite-free norm in Lemma10.8, printed p.167 / PDF68. The source proves the norm-fixed image assertion using root products. This checkpoint gives an independent integral matrix derivation from the already constructed Frobenius algebra, exposing the prime factor and basis commutator. The source does not state these matrix helpers separately. CS-2006, Section 2.4, Definition 2.4.4 and Lemma 2.4.5, printed p.22 / PDF32. The image and constant-root kernel targets; the source fixes odd p. The all-prime algebraic statements here are independently derived and do not extend the arithmetic tower theorem.
+Sources: RJW-published, Definition 12.8 and Lemma 12.10, printed pp.180-181 / PDF81-82; finite-free norm in Lemma10.8, printed p.167 / PDF68. The source proves the norm-fixed image assertion using root products. This checkpoint gives an independent integral matrix derivation from the already constructed Frobenius algebra, exposing the prime factor and basis commutator. The source does not state these matrix helpers separately. Literal excerpt: “Lemma 12.10”. CS-2006, Section 2.4, Definition 2.4.4 and Lemma 2.4.5, printed p.22 / PDF32. The image and constant-root kernel targets; the source fixes odd p. The all-prime algebraic statements here are independently derived and do not extend the arithmetic tower theorem. Literal excerpt: “Lemma 2.4.5”.
 
 #### Relative polynomial for a prime-to-p root power
 
@@ -4631,7 +4950,7 @@ Prerequisites: ColemanPowerSeries:L0/relative-cyclotomic-minpoly, ColemanPowerSe
 
 Acceptance: The prime-to-p hypothesis is necessary: a=p makes ζ_(n+1)^a already lie in K_n.
 
-Sources: RJW-published, Lemma 10.3 and Proposition 10.4, printed p.165; Definition 10.14 and Theorem 10.15, printed p.170; Theorem 12.17 proof, printed pp.184–185.. The source supplies the mathematical target or proof step. The stated native-carrier interface and declaration-sized decomposition are worker deductions; unavailable owner interfaces are named as prerequisites and requests.
+Sources: RJW-published, Lemma 10.3 and Proposition 10.4, printed p.165; Definition 10.14 and Theorem 10.15, printed p.170; Theorem 12.17 proof, printed pp.184–185.. The source supplies the mathematical target or proof step. The stated native-carrier interface and declaration-sized decomposition are worker deductions; unavailable owner interfaces are named as prerequisites and requests. Literal excerpt: “minimal polynomial”.
 
 #### Norm of a prime-to-p cyclotomic difference
 
@@ -4650,7 +4969,7 @@ Prerequisites: ColemanPowerSeries:L2/prime-to-p-relative-root-minpoly, ColemanPo
 
 Acceptance: At p=2,a=1,n=0 the norm of ζ_1−1 equals 2=−(ζ_0−1).
 
-Sources: RJW-published, Lemma 10.3 and Proposition 10.4, printed p.165; Definition 10.14 and Theorem 10.15, printed p.170; Theorem 12.17 proof, printed pp.184–185.. The source supplies the mathematical target or proof step. The stated native-carrier interface and declaration-sized decomposition are worker deductions; unavailable owner interfaces are named as prerequisites and requests.
+Sources: RJW-published, Lemma 10.3 and Proposition 10.4, printed p.165; Definition 10.14 and Theorem 10.15, printed p.170; Theorem 12.17 proof, printed pp.184–185.. The source supplies the mathematical target or proof step. The stated native-carrier interface and declaration-sized decomposition are worker deductions; unavailable owner interfaces are named as prerequisites and requests. Literal excerpt: “norm is multiplicative”.
 
 #### Norm compatibility of evaluated cyclotomic units
 
@@ -4669,7 +4988,7 @@ Prerequisites: ColemanPowerSeries:L2/prime-to-p-difference-relative-norm, Colema
 
 Acceptance: Both odd and dyadic ratio towers are norm-compatible; this does not make the dyadic unsigned root tower compatible.
 
-Sources: RJW-published, Lemma 10.3 and Proposition 10.4, printed p.165; Definition 10.14 and Theorem 10.15, printed p.170; Theorem 12.17 proof, printed pp.184–185.. The source supplies the mathematical target or proof step. The stated native-carrier interface and declaration-sized decomposition are worker deductions; unavailable owner interfaces are named as prerequisites and requests.
+Sources: RJW-published, Lemma 10.3 and Proposition 10.4, printed p.165; Definition 10.14 and Theorem 10.15, printed p.170; Theorem 12.17 proof, printed pp.184–185.. The source supplies the mathematical target or proof step. The stated native-carrier interface and declaration-sized decomposition are worker deductions; unavailable owner interfaces are named as prerequisites and requests. Literal excerpt: “c(a)”.
 
 #### Norm-fixedness of the cyclotomic unit series
 
@@ -4687,7 +5006,7 @@ Prerequisites: ColemanPowerSeries:L2/cyclotomic-series-evaluation-norm, ColemanP
 
 Acceptance: This proves membership from arithmetic norms; it is not assumed as input to the interpolation theorem.
 
-Sources: RJW-published, Lemma 10.3 and Proposition 10.4, printed p.165; Definition 10.14 and Theorem 10.15, printed p.170; Theorem 12.17 proof, printed pp.184–185.. The source supplies the mathematical target or proof step. The stated native-carrier interface and declaration-sized decomposition are worker deductions; unavailable owner interfaces are named as prerequisites and requests.
+Sources: RJW-published, Lemma 10.3 and Proposition 10.4, printed p.165; Definition 10.14 and Theorem 10.15, printed p.170; Theorem 12.17 proof, printed pp.184–185.. The source supplies the mathematical target or proof step. The stated native-carrier interface and declaration-sized decomposition are worker deductions; unavailable owner interfaces are named as prerequisites and requests. Literal excerpt: “f c(a)”.
 
 #### The cyclotomic unit tower
 
@@ -4721,7 +5040,7 @@ Prerequisites: ColemanPowerSeries:L2/cyclotomic-series-norm-fixed, ColemanPowerS
 
 Acceptance: Supplies the actual arithmetic input for the corrected explicit reciprocity calculation.
 
-Sources: RJW-published, Lemma 10.3 and Proposition 10.4, printed p.165; Definition 10.14 and Theorem 10.15, printed p.170; Theorem 12.17 proof, printed pp.184–185.. The source supplies the mathematical target or proof step. The stated native-carrier interface and declaration-sized decomposition are worker deductions; unavailable owner interfaces are named as prerequisites and requests.
+Sources: RJW-published, Lemma 10.3 and Proposition 10.4, printed p.165; Definition 10.14 and Theorem 10.15, printed p.170; Theorem 12.17 proof, printed pp.184–185.. The source supplies the mathematical target or proof step. The stated native-carrier interface and declaration-sized decomposition are worker deductions; unavailable owner interfaces are named as prerequisites and requests. Literal excerpt: “c(a)”.
 
 #### The raw Coleman map
 
@@ -4758,7 +5077,7 @@ Prerequisites: ColemanPowerSeries:L1/coleman-equivalence, ColemanPowerSeries:L2/
 
 Acceptance: Implements the composite of Definition 10.14 with its raw sign; subsequent arithmetic comparison does not change ζ_p.
 
-Sources: RJW-published, Lemma 10.3 and Proposition 10.4, printed p.165; Definition 10.14 and Theorem 10.15, printed p.170; Theorem 12.17 proof, printed pp.184–185.. The source supplies the mathematical target or proof step. The stated native-carrier interface and declaration-sized decomposition are worker deductions; unavailable owner interfaces are named as prerequisites and requests.
+Sources: RJW-published, Lemma 10.3 and Proposition 10.4, printed p.165; Definition 10.14 and Theorem 10.15, printed p.170; Theorem 12.17 proof, printed pp.184–185.. The source supplies the mathematical target or proof step. The stated native-carrier interface and declaration-sized decomposition are worker deductions; unavailable owner interfaces are named as prerequisites and requests. Literal excerpt: “Definition 10.14”.
 
 #### Continuity of the raw Coleman map
 
@@ -4777,7 +5096,7 @@ Prerequisites: ColemanPowerSeries:L1/coleman-equivalence-homeomorphism, ColemanP
 
 Acceptance: All topology claims are weak/coefficientwise; no norm topology on integral measures is silently substituted.
 
-Sources: RJW-published, Lemma 10.3 and Proposition 10.4, printed p.165; Definition 10.14 and Theorem 10.15, printed p.170; Theorem 12.17 proof, printed pp.184–185.. The source supplies the mathematical target or proof step. The stated native-carrier interface and declaration-sized decomposition are worker deductions; unavailable owner interfaces are named as prerequisites and requests.
+Sources: RJW-published, Lemma 10.3 and Proposition 10.4, printed p.165; Definition 10.14 and Theorem 10.15, printed p.170; Theorem 12.17 proof, printed pp.184–185.. The source supplies the mathematical target or proof step. The stated native-carrier interface and declaration-sized decomposition are worker deductions; unavailable owner interfaces are named as prerequisites and requests. Literal excerpt: “continuous actions”.
 
 #### The sign-adjusted Coleman map
 
@@ -4809,7 +5128,7 @@ Prerequisites: ColemanPowerSeries:L2/raw-coleman-map.
 
 Acceptance: Keep this map distinct from the raw composite and prove the comparison; do not alter the independent Kubota–Leopoldt pseudomeasure.
 
-Sources: RJW-published, Lemma 10.3 and Proposition 10.4, printed p.165; Definition 10.14 and Theorem 10.15, printed p.170; Theorem 12.17 proof, printed pp.184–185.. The source supplies the mathematical target or proof step. The stated native-carrier interface and declaration-sized decomposition are worker deductions; unavailable owner interfaces are named as prerequisites and requests.
+Sources: RJW-published, Lemma 10.3 and Proposition 10.4, printed p.165; Definition 10.14 and Theorem 10.15, printed p.170; Theorem 12.17 proof, printed pp.184–185.. The source supplies the mathematical target or proof step. The stated native-carrier interface and declaration-sized decomposition are worker deductions; unavailable owner interfaces are named as prerequisites and requests. Literal excerpt: “Theorem 10.15”.
 
 #### The raw cyclotomic numerator and its sign
 
@@ -4830,7 +5149,118 @@ Prerequisites: ColemanPowerSeries:L2/cyclotomic-unit-tower, ColemanPowerSeries:L
 
 Acceptance: For p=3,a=2, twice the second moment of the raw output is −1, whereas twice that of the normalized output is +1. The a=1 boundary is zero.
 
-Sources: RJW-published, Lemma 10.3 and Proposition 10.4, printed p.165; Definition 10.14 and Theorem 10.15, printed p.170; Theorem 12.17 proof, printed pp.184–185.. The source supplies the mathematical target or proof step. The stated native-carrier interface and declaration-sized decomposition are worker deductions; unavailable owner interfaces are named as prerequisites and requests.
+Sources: RJW-published, Lemma 10.3 and Proposition 10.4, printed p.165; Definition 10.14 and Theorem 10.15, printed p.170; Theorem 12.17 proof, printed pp.184–185.. The source supplies the mathematical target or proof step. The stated native-carrier interface and declaration-sized decomposition are worker deductions; unavailable owner interfaces are named as prerequisites and requests. Literal excerpt: “Theorem 10.15”.
+
+#### Cyclotomic evaluation and arithmetic dilation
+
+**ColemanPowerSeries:L2/arithmetic-evaluation-dilation** — lemma; proposed declaration **ColemanCyclotomic.seriesEvaluation_finiteAction**.
+
+For every a∈G, F∈ℤ_p[[T]] and level n, evaluation_n(F(Y^a−1))=finiteAction_n(a)(evaluation_n(F)). Here Y^a is the native binomial series, not an integer-power notation for an arbitrary exponent.
+
+Hypotheses: p is an odd prime, n≥0 denotes the source level n+1, K_n=ℚ_p(ζ_n), O_n is its native integral closure, U_n=O_nˣ and U∞ is the already constructed native norm-compatible subgroup. G=ℤ_pˣ acts through its power residues, and U∞,1 is the existing residue kernel. All topologies are the native norm/product/subtype topologies.
+
+Proof plan:
+
+1. First prove the equality for natural integer exponents prime to p: evaluation is a ring map and the finite automorphism sends ζ_n to its indicated power.
+2. Approximate a by natural integers with its nonzero residue. Coefficientwise continuity of the native binomial coefficients, actual evaluation continuity, and local constancy of the finite power residue pass this equality to a.
+
+Prerequisites: ColemanPowerSeries:L0/finite-cyclotomic-galois-action, ColemanPowerSeries:L0/cyclotomic-series-evaluation, ColemanPowerSeries:L0/cyclotomic-series-evaluation-continuity, PadicMeasuresIwasawaAlgebras:L2/amice-dilation, mathlib:PadicInt.denseRange_natCast.
+
+Acceptance: Fixes the exact action on the series attached to an arithmetic unit tower.
+
+Sources: RJW-published, Proposition12.1, Proposition12.5 and Corollary12.6, pp.178–180. The cited passage supplies this arithmetic target. The native-carrier adapter and the separate closure/compactness steps are worker deductions. The corrected argument follows the independently reviewed extraction where the printed proof omits a hypothesis or equality. Literal excerpt: “Proposition 12.5. The Coleman map Col : U∞ → 3(0) is 0-equivariant.”.
+
+#### Equivariance of Coleman interpolation
+
+**ColemanPowerSeries:L2/coleman-interpolation-equivariance** — lemma; proposed declaration **ColemanCyclotomic.colemanEquiv_towerAction**.
+
+For every a∈G and u∈U∞ the series of towerAction(a)(u) is f_u(Y^a−1). In particular this substituted unit is norm-fixed.
+
+Hypotheses: p is an odd prime, n≥0 denotes the source level n+1, K_n=ℚ_p(ζ_n), O_n is its native integral closure, U_n=O_nˣ and U∞ is the already constructed native norm-compatible subgroup. G=ℤ_pˣ acts through its power residues, and U∞,1 is the existing residue kernel. All topologies are the native norm/product/subtype topologies.
+
+Proof plan:
+
+1. Substitution at a series with zero constant coefficient sends a unit to a unit; its inverse is the inverse substituted unit.
+2. The evaluation/dilation square identifies all its finite-level values with those of the transformed tower. The series of that tower already exists by Coleman interpolation. Separation gives the equality; norm-fixedness follows from it rather than an unstated commutation of norm and substitution.
+
+Prerequisites: ColemanPowerSeries:L2/arithmetic-evaluation-dilation, ColemanPowerSeries:L0/norm-tower-galois-action, ColemanPowerSeries:L1/coleman-equivalence, ColemanPowerSeries:L1/series-interpolation-separation.
+
+Acceptance: The arithmetic action, not a formal action asserted on a separate tower, enters the Coleman composite.
+
+Sources: RJW-published, Proposition12.1, Proposition12.5 and Corollary12.6, pp.178–180. The cited passage supplies this arithmetic target. The native-carrier adapter and the separate closure/compactness steps are worker deductions. The corrected argument follows the independently reviewed extraction where the printed proof omits a hypothesis or equality. Literal excerpt: “Proposition 12.5. The Coleman map Col : U∞ → 3(0) is 0-equivariant.”.
+
+#### Principal-unit linearity of the Coleman map
+
+**ColemanPowerSeries:L2/principal-coleman-scalar-linearity** — theorem; proposed declaration **ColemanCyclotomic.coleman_smul**.
+
+For a∈ℤ_p and u∈U∞,1, Col₀(a•u)=a Col₀(u) and Col(a•u)=a Col(u), on the additive measures and the imported principalModule.
+
+Hypotheses: p is an odd prime, n≥0 denotes the source level n+1, K_n=ℚ_p(ζ_n), O_n is its native integral closure, U_n=O_nˣ and U∞ is the already constructed native norm-compatible subgroup. G=ℤ_pˣ acts through its power residues, and U∞,1 is the existing residue kernel. All topologies are the native norm/product/subtype topologies.
+
+Proof plan:
+
+1. The multiplicative-to-additive homomorphism law proves the equality at natural scalars.
+2. The principal scalar action and the raw map are continuous, so density extends the equality to every p-adic scalar. Negation gives the normalized formula. This avoids inventing a binomial power of a nonprincipal series.
+
+Prerequisites: ColemanPowerSeries:L0/principal-tower-scalar-adapter, ColemanPowerSeries:L2/raw-coleman-map, ColemanPowerSeries:L2/raw-coleman-continuity, ColemanPowerSeries:L2/normalized-coleman-map, mathlib:PadicInt.denseRange_natCast.
+
+Acceptance: The scalar restriction is stated only on principal units. Full-unit prime-to-p torsion remains outside the ℤ_p-module.
+
+Sources: RJW-published, Proposition12.1, Proposition12.5 and Corollary12.6, pp.178–180. The cited passage supplies this arithmetic target. The native-carrier adapter and the separate closure/compactness steps are worker deductions. The corrected argument follows the independently reviewed extraction where the printed proof omits a hypothesis or equality. Literal excerpt: “Proposition 12.5. The Coleman map Col : U∞ → 3(0) is 0-equivariant.”.
+
+#### Galois equivariance and cancellation of twists
+
+**ColemanPowerSeries:L2/raw-coleman-galois-equivariance** — theorem; proposed declaration **ColemanCyclotomic.rawColeman_towerAction**.
+
+For a∈G and u∈U∞, Col₀(towerAction(a)(u))=a_*Col₀(u), where a_* is pushforward under x↦a x on unit measures. The same formula holds for Col=−Col₀.
+
+Hypotheses: p is an odd prime, n≥0 denotes the source level n+1, K_n=ℚ_p(ζ_n), O_n is its native integral closure, U_n=O_nˣ and U∞ is the already constructed native norm-compatible subgroup. G=ℤ_pˣ acts through its power residues, and U∞,1 is the existing residue kernel. All topologies are the native norm/product/subtype topologies.
+
+Proof plan:
+
+1. The arithmetic interpolation comparison reduces the calculation to the source series action S_a. Its logarithmic derivative satisfies Δ(S_a f)=a S_a(Δf).
+2. Unit restriction commutes with dilation. The supplier’s inverse-derivative covariance is H(S_a F)=a⁻¹ S_a(HF), so applying H to a S_a F cancels a with a⁻¹.
+3. Intrinsic Amice intertwines unit pushforward with S_a and is injective. Hence the resulting measures are equal, with no residual Tate factor. Negation commutes with pushforward.
+
+Prerequisites: ColemanPowerSeries:L2/coleman-interpolation-equivariance, ColemanPowerSeries:L2/logarithmic-derivative-padic-substitution, PadicMeasuresIwasawaAlgebras:L2/unit-restriction-dilation, PadicMeasuresIwasawaAlgebras:L2/inverse-mahler-dilation, PadicMeasuresIwasawaAlgebras:L2/unit-measure-amice-kernel-equivalence, ColemanPowerSeries:L2/raw-coleman-map.
+
+Acceptance: Both factors are displayed; omitting division by x would leave an incorrect cyclotomic twist.
+
+Sources: RJW-published, Proposition12.1, Proposition12.5 and Corollary12.6, pp.178–180. The cited passage supplies this arithmetic target. The native-carrier adapter and the separate closure/compactness steps are worker deductions. The corrected argument follows the independently reviewed extraction where the printed proof omits a hypothesis or equality. Literal excerpt: “Proposition 12.5. The Coleman map Col : U∞ → 3(0) is 0-equivariant.”.
+
+#### The principal Coleman module map
+
+**ColemanPowerSeries:L2/principal-coleman-linear-map** — construction; proposed declaration **ColemanCyclotomic.principalColeman**.
+
+Bundle u↦Col(u) as a continuous Λ(G)-linear map principalColeman:Additive(U∞,1)→Λ(G), using the actual principalCompletedModule and the regular convolution action on Λ(G).
+
+Hypotheses: p is an odd prime, n≥0 denotes the source level n+1, K_n=ℚ_p(ζ_n), O_n is its native integral closure, U_n=O_nˣ and U∞ is the already constructed native norm-compatible subgroup. G=ℤ_pˣ acts through its power residues, and U∞,1 is the existing residue kernel. All topologies are the native norm/product/subtype topologies.
+
+Proof plan:
+
+1. The raw map and negation give additivity; principal scalar linearity and G-equivariance give linearity for finite linear combinations of Dirac measures.
+2. Use the requested completed-action uniqueness/density interface and joint weak continuity to extend equality to Λ(G). Bundle the resulting actual map, rather than assume Λ-linearity as data.
+
+API:
+
+- **ColemanCyclotomic.principalColeman_apply** (data): The underlying measure is Col(u) for the full-tower image of u.
+- **ColemanCyclotomic.principalColeman_continuous** (compatibility): principalColeman is continuous for the compact principal topology and weak measure topology.
+- **ColemanCyclotomic.principalColeman_dirac** (functoriality): principalColeman(δ_g•u)=δ_g*principalColeman(u).
+- **ColemanCyclotomic.principalColeman_raw** (compatibility): principalColeman(u)=−Col₀(u).
+
+Tests:
+
+- **PrincipalColemanTests.zero** (degenerate): principalColeman(0)=0.
+- **PrincipalColemanTests.tate** (computation): principalColeman(tateTower(b))=0 for every b∈ℤ_p.
+- **PrincipalColemanTests.twist** (compatibility): principalColeman(δ_g•u)=g_*principalColeman(u), with no extra factor χ(g).
+
+Uses: Proposition12.1, Proposition12.5 and Corollary12.6, pp.178–180: Supplies the exact principal map used in the four-term module sequence and the local quotient. ColemanPowerSeries:L2 and the consuming declarations listed in this packet: Supplies this actual arithmetic object and its named maps, rather than a second supplier carrier.
+
+Prerequisites: ColemanPowerSeries:L0/principal-completed-action-adapter, ColemanPowerSeries:L2/principal-coleman-scalar-linearity, ColemanPowerSeries:L2/raw-coleman-galois-equivariance, ColemanPowerSeries:L2/normalized-coleman-map, PadicMeasuresIwasawaAlgebras:L1.
+
+Acceptance: Supplies the exact principal map used in the four-term module sequence and the local quotient.
+
+Sources: RJW-published, Proposition12.1, Proposition12.5 and Corollary12.6, pp.178–180. The cited passage supplies this arithmetic target. The native-carrier adapter and the separate closure/compactness steps are worker deductions. The corrected argument follows the independently reviewed extraction where the printed proof omits a hypothesis or equality. Literal excerpt: “Proposition 12.5. The Coleman map Col : U∞ → 3(0) is 0-equivariant.”.
 
 ### ColemanPowerSeries:L3
 
@@ -4856,7 +5286,7 @@ Prerequisites: ColemanPowerSeries:L2/norm-fixed-logarithmic-derivative-map, Cole
 
 Acceptance: This is the kernel of the restricted logarithmic derivative, not the full Coleman-map kernel. The image-surjectivity and topological exactness parts of Theorem12.9 remain required. At p=2, the kernel constant is only one; -1 has zero logarithmic derivative on all units but is not norm-fixed.
 
-Sources: RJW-published, Definition 12.8 and Lemma 12.10, printed pp.180-181 / PDF81-82; finite-free norm in Lemma10.8, printed p.167 / PDF68. The source proves the norm-fixed image assertion using root products. This checkpoint gives an independent integral matrix derivation from the already constructed Frobenius algebra, exposing the prime factor and basis commutator. The source does not state these matrix helpers separately. CS-2006, Section 2.4, Definition 2.4.4 and Lemma 2.4.5, printed p.22 / PDF32. The image and constant-root kernel targets; the source fixes odd p. The all-prime algebraic statements here are independently derived and do not extend the arithmetic tower theorem.
+Sources: RJW-published, Definition 12.8 and Lemma 12.10, printed pp.180-181 / PDF81-82; finite-free norm in Lemma10.8, printed p.167 / PDF68. The source proves the norm-fixed image assertion using root products. This checkpoint gives an independent integral matrix derivation from the already constructed Frobenius algebra, exposing the prime factor and basis commutator. The source does not state these matrix helpers separately. Literal excerpt: “Lemma 12.10”. CS-2006, Section 2.4, Definition 2.4.4 and Lemma 2.4.5, printed p.22 / PDF32. The image and constant-root kernel targets; the source fixes odd p. The all-prime algebraic statements here are independently derived and do not extend the arithmetic tower theorem. Literal excerpt: “Lemma 2.4.5”.
 
 #### Iterated cyclotomic substitution
 
@@ -4875,7 +5305,7 @@ Prerequisites: mathlib:PowerSeries.substAlgHom, mathlib:PowerSeries.subst_comp_s
 
 Acceptance: The zeroth iterate is F; the first parameter is Y^p−1. The exponent is p^n, not pn.
 
-Sources: RJW-published, Lemma12.15 and its proof, printed pp.183–184 / PDF84–85; the preceding Lemmas12.12–12.14 were also read in PDF83–84.. Declaration-sized decomposition of the fixed-space exact sequence. The source proof is expanded using coefficientwise binomial continuity and finite substitution coefficients. The independent integral proof includes p=2; it does not extend the arithmetic tower theorems to p=2. The leading-coefficient misprint is recorded as E12.
+Sources: RJW-published, Lemma12.15 and its proof, printed pp.183–184 / PDF84–85; the preceding Lemmas12.12–12.14 were also read in PDF83–84.. Declaration-sized decomposition of the fixed-space exact sequence. The source proof is expanded using coefficientwise binomial continuity and finite substitution coefficients. The independent integral proof includes p=2; it does not extend the arithmetic tower theorems to p=2. The leading-coefficient misprint is recorded as E12. Literal excerpt: “12.15”.
 
 #### Decay of zero-constant Frobenius iterates
 
@@ -4899,7 +5329,7 @@ Prerequisites: ColemanPowerSeries:L3/frobenius-iterate-substitution, mathlib:Pad
 
 Acceptance: The assumption F(0)=0 is essential: phi fixes every constant. This is not T-adic convergence; the linear coefficient of phi^n(T) is the nonzero p^n.
 
-Sources: RJW-published, Lemma12.15 and its proof, printed pp.183–184 / PDF84–85; the preceding Lemmas12.12–12.14 were also read in PDF83–84.. Declaration-sized decomposition of the fixed-space exact sequence. The source proof is expanded using coefficientwise binomial continuity and finite substitution coefficients. The independent integral proof includes p=2; it does not extend the arithmetic tower theorems to p=2. The leading-coefficient misprint is recorded as E12.
+Sources: RJW-published, Lemma12.15 and its proof, printed pp.183–184 / PDF84–85; the preceding Lemmas12.12–12.14 were also read in PDF83–84.. Declaration-sized decomposition of the fixed-space exact sequence. The source proof is expanded using coefficientwise binomial continuity and finite substitution coefficients. The independent integral proof includes p=2; it does not extend the arithmetic tower theorems to p=2. The leading-coefficient misprint is recorded as E12. Literal excerpt: “12.15”.
 
 #### Summability of Frobenius iterates
 
@@ -4919,7 +5349,7 @@ Prerequisites: ColemanPowerSeries:L3/frobenius-iterate-decay, mathlib:PowerSerie
 
 Acceptance: No norm on all coefficient sequences, division by p or analytic radius is assumed.
 
-Sources: RJW-published, Lemma12.15 and its proof, printed pp.183–184 / PDF84–85; the preceding Lemmas12.12–12.14 were also read in PDF83–84.. Declaration-sized decomposition of the fixed-space exact sequence. The source proof is expanded using coefficientwise binomial continuity and finite substitution coefficients. The independent integral proof includes p=2; it does not extend the arithmetic tower theorems to p=2. The leading-coefficient misprint is recorded as E12.
+Sources: RJW-published, Lemma12.15 and its proof, printed pp.183–184 / PDF84–85; the preceding Lemmas12.12–12.14 were also read in PDF83–84.. Declaration-sized decomposition of the fixed-space exact sequence. The source proof is expanded using coefficientwise binomial continuity and finite substitution coefficients. The independent integral proof includes p=2; it does not extend the arithmetic tower theorems to p=2. The leading-coefficient misprint is recorded as E12. Literal excerpt: “12.15”.
 
 #### The Frobenius-iterate sum
 
@@ -4954,7 +5384,7 @@ Prerequisites: ColemanPowerSeries:L3/frobenius-iterate-summability, mathlib:Mult
 
 Acceptance: This is a source-specific convergent-sum adapter on the stated domain. It does not claim a right inverse on series of arbitrary constant term.
 
-Sources: RJW-published, Lemma12.15 and its proof, printed pp.183–184 / PDF84–85; the preceding Lemmas12.12–12.14 were also read in PDF83–84.. Declaration-sized decomposition of the fixed-space exact sequence. The source proof is expanded using coefficientwise binomial continuity and finite substitution coefficients. The independent integral proof includes p=2; it does not extend the arithmetic tower theorems to p=2. The leading-coefficient misprint is recorded as E12.
+Sources: RJW-published, Lemma12.15 and its proof, printed pp.183–184 / PDF84–85; the preceding Lemmas12.12–12.14 were also read in PDF83–84.. Declaration-sized decomposition of the fixed-space exact sequence. The source proof is expanded using coefficientwise binomial continuity and finite substitution coefficients. The independent integral proof includes p=2; it does not extend the arithmetic tower theorems to p=2. The leading-coefficient misprint is recorded as E12. Literal excerpt: “12.15”.
 
 #### Convergence to the Frobenius sum
 
@@ -4972,7 +5402,7 @@ Prerequisites: ColemanPowerSeries:L3/frobenius-sum, ColemanPowerSeries:L3/froben
 
 Acceptance: The target is the actual sum in B, with its existing Hausdorff coefficientwise topology.
 
-Sources: RJW-published, Lemma12.15 and its proof, printed pp.183–184 / PDF84–85; the preceding Lemmas12.12–12.14 were also read in PDF83–84.. Declaration-sized decomposition of the fixed-space exact sequence. The source proof is expanded using coefficientwise binomial continuity and finite substitution coefficients. The independent integral proof includes p=2; it does not extend the arithmetic tower theorems to p=2. The leading-coefficient misprint is recorded as E12.
+Sources: RJW-published, Lemma12.15 and its proof, printed pp.183–184 / PDF84–85; the preceding Lemmas12.12–12.14 were also read in PDF83–84.. Declaration-sized decomposition of the fixed-space exact sequence. The source proof is expanded using coefficientwise binomial continuity and finite substitution coefficients. The independent integral proof includes p=2; it does not extend the arithmetic tower theorems to p=2. The leading-coefficient misprint is recorded as E12. Literal excerpt: “12.15”.
 
 #### The Frobenius sum solves the difference equation
 
@@ -4992,7 +5422,7 @@ Prerequisites: ColemanPowerSeries:L3/frobenius-sum-has-sum, mathlib:HasProd.map,
 
 Acceptance: The boundary is 1−phi; reversing its sign changes the result to −F.
 
-Sources: RJW-published, Lemma12.15 and its proof, printed pp.183–184 / PDF84–85; the preceding Lemmas12.12–12.14 were also read in PDF83–84.. Declaration-sized decomposition of the fixed-space exact sequence. The source proof is expanded using coefficientwise binomial continuity and finite substitution coefficients. The independent integral proof includes p=2; it does not extend the arithmetic tower theorems to p=2. The leading-coefficient misprint is recorded as E12.
+Sources: RJW-published, Lemma12.15 and its proof, printed pp.183–184 / PDF84–85; the preceding Lemmas12.12–12.14 were also read in PDF83–84.. Declaration-sized decomposition of the fixed-space exact sequence. The source proof is expanded using coefficientwise binomial continuity and finite substitution coefficients. The independent integral proof includes p=2; it does not extend the arithmetic tower theorems to p=2. The leading-coefficient misprint is recorded as E12. Literal excerpt: “12.15”.
 
 #### Psi invariance of the Frobenius sum
 
@@ -5012,7 +5442,7 @@ Prerequisites: ColemanPowerSeries:L3/frobenius-sum-has-sum, PadicMeasuresIwasawa
 
 Acceptance: The psi-zero hypothesis is independent of the constant-term hypothesis; both are required for this construction.
 
-Sources: RJW-published, Lemma12.15 and its proof, printed pp.183–184 / PDF84–85; the preceding Lemmas12.12–12.14 were also read in PDF83–84.. Declaration-sized decomposition of the fixed-space exact sequence. The source proof is expanded using coefficientwise binomial continuity and finite substitution coefficients. The independent integral proof includes p=2; it does not extend the arithmetic tower theorems to p=2. The leading-coefficient misprint is recorded as E12.
+Sources: RJW-published, Lemma12.15 and its proof, printed pp.183–184 / PDF84–85; the preceding Lemmas12.12–12.14 were also read in PDF83–84.. Declaration-sized decomposition of the fixed-space exact sequence. The source proof is expanded using coefficientwise binomial continuity and finite substitution coefficients. The independent integral proof includes p=2; it does not extend the arithmetic tower theorems to p=2. The leading-coefficient misprint is recorded as E12. Literal excerpt: “12.15”.
 
 #### The leading coefficient under Frobenius
 
@@ -5035,7 +5465,7 @@ Prerequisites: mathlib:PowerSeries.coeff_subst', mathlib:PowerSeries.le_order_po
 
 Acceptance: Source finding E12 corrects the printed p to p^r. The conclusion does not assume the coefficient at r is nonzero.
 
-Sources: RJW-published, Lemma12.15 and its proof, printed pp.183–184 / PDF84–85; the preceding Lemmas12.12–12.14 were also read in PDF83–84.. Declaration-sized decomposition of the fixed-space exact sequence. The source proof is expanded using coefficientwise binomial continuity and finite substitution coefficients. The independent integral proof includes p=2; it does not extend the arithmetic tower theorems to p=2. The leading-coefficient misprint is recorded as E12.
+Sources: RJW-published, Lemma12.15 and its proof, printed pp.183–184 / PDF84–85; the preceding Lemmas12.12–12.14 were also read in PDF83–84.. Declaration-sized decomposition of the fixed-space exact sequence. The source proof is expanded using coefficientwise binomial continuity and finite substitution coefficients. The independent integral proof includes p=2; it does not extend the arithmetic tower theorems to p=2. The leading-coefficient misprint is recorded as E12. Literal excerpt: “12.15”.
 
 #### Frobenius fixes exactly the constants
 
@@ -5055,7 +5485,7 @@ Prerequisites: ColemanPowerSeries:L3/frobenius-leading-coefficient, mathlib:Powe
 
 Acceptance: The argument includes p=2. No division by r or by p is used.
 
-Sources: RJW-published, Lemma12.15 and its proof, printed pp.183–184 / PDF84–85; the preceding Lemmas12.12–12.14 were also read in PDF83–84.. Declaration-sized decomposition of the fixed-space exact sequence. The source proof is expanded using coefficientwise binomial continuity and finite substitution coefficients. The independent integral proof includes p=2; it does not extend the arithmetic tower theorems to p=2. The leading-coefficient misprint is recorded as E12.
+Sources: RJW-published, Lemma12.15 and its proof, printed pp.183–184 / PDF84–85; the preceding Lemmas12.12–12.14 were also read in PDF83–84.. Declaration-sized decomposition of the fixed-space exact sequence. The source proof is expanded using coefficientwise binomial continuity and finite substitution coefficients. The independent integral proof includes p=2; it does not extend the arithmetic tower theorems to p=2. The leading-coefficient misprint is recorded as E12. Literal excerpt: “12.15”.
 
 #### The fixed-space Frobenius boundary
 
@@ -5090,7 +5520,7 @@ Prerequisites: PadicMeasuresIwasawaAlgebras:L2/psi-series-phi, PadicMeasuresIwas
 
 Acceptance: The domain is psi-fixed series; on arbitrary B the map 1−phi does not land in ker psi.
 
-Sources: RJW-published, Lemma12.15 and its proof, printed pp.183–184 / PDF84–85; the preceding Lemmas12.12–12.14 were also read in PDF83–84.. Declaration-sized decomposition of the fixed-space exact sequence. The source proof is expanded using coefficientwise binomial continuity and finite substitution coefficients. The independent integral proof includes p=2; it does not extend the arithmetic tower theorems to p=2. The leading-coefficient misprint is recorded as E12.
+Sources: RJW-published, Lemma12.15 and its proof, printed pp.183–184 / PDF84–85; the preceding Lemmas12.12–12.14 were also read in PDF83–84.. Declaration-sized decomposition of the fixed-space exact sequence. The source proof is expanded using coefficientwise binomial continuity and finite substitution coefficients. The independent integral proof includes p=2; it does not extend the arithmetic tower theorems to p=2. The leading-coefficient misprint is recorded as E12. Literal excerpt: “12.15”.
 
 #### Kernel of the fixed-space boundary
 
@@ -5109,7 +5539,7 @@ Prerequisites: ColemanPowerSeries:L3/psi-fixed-boundary, ColemanPowerSeries:L3/f
 
 Acceptance: This is exactness at W for the constant inclusion Z→W. It is distinct from the constant-root kernel of the logarithmic derivative on units.
 
-Sources: RJW-published, Lemma12.15 and its proof, printed pp.183–184 / PDF84–85; the preceding Lemmas12.12–12.14 were also read in PDF83–84.. Declaration-sized decomposition of the fixed-space exact sequence. The source proof is expanded using coefficientwise binomial continuity and finite substitution coefficients. The independent integral proof includes p=2; it does not extend the arithmetic tower theorems to p=2. The leading-coefficient misprint is recorded as E12.
+Sources: RJW-published, Lemma12.15 and its proof, printed pp.183–184 / PDF84–85; the preceding Lemmas12.12–12.14 were also read in PDF83–84.. Declaration-sized decomposition of the fixed-space exact sequence. The source proof is expanded using coefficientwise binomial continuity and finite substitution coefficients. The independent integral proof includes p=2; it does not extend the arithmetic tower theorems to p=2. The leading-coefficient misprint is recorded as E12. Literal excerpt: “12.15”.
 
 #### The evaluation obstruction to the Frobenius boundary
 
@@ -5135,7 +5565,7 @@ Prerequisites: ColemanPowerSeries:L3/psi-fixed-boundary, ColemanPowerSeries:L3/f
 
 Acceptance: The target is the zero-evaluation submodule of U; psiFixedBoundary is not surjective onto all U.
 
-Sources: RJW-published, Lemma12.15 and its proof, printed pp.183–184 / PDF84–85; the preceding Lemmas12.12–12.14 were also read in PDF83–84.. Declaration-sized decomposition of the fixed-space exact sequence. The source proof is expanded using coefficientwise binomial continuity and finite substitution coefficients. The independent integral proof includes p=2; it does not extend the arithmetic tower theorems to p=2. The leading-coefficient misprint is recorded as E12.
+Sources: RJW-published, Lemma12.15 and its proof, printed pp.183–184 / PDF84–85; the preceding Lemmas12.12–12.14 were also read in PDF83–84.. Declaration-sized decomposition of the fixed-space exact sequence. The source proof is expanded using coefficientwise binomial continuity and finite substitution coefficients. The independent integral proof includes p=2; it does not extend the arithmetic tower theorems to p=2. The leading-coefficient misprint is recorded as E12. Literal excerpt: “12.15”.
 
 #### Surjectivity of evaluation on the psi kernel
 
@@ -5154,7 +5584,7 @@ Prerequisites: PadicMeasuresIwasawaAlgebras:L2/psi-series, mathlib:LinearMap.ker
 
 Acceptance: Evaluation on U is nonzero, so the final Z in the five-term sequence cannot be omitted.
 
-Sources: RJW-published, Lemma12.15 and its proof, printed pp.183–184 / PDF84–85; the preceding Lemmas12.12–12.14 were also read in PDF83–84.. Declaration-sized decomposition of the fixed-space exact sequence. The source proof is expanded using coefficientwise binomial continuity and finite substitution coefficients. The independent integral proof includes p=2; it does not extend the arithmetic tower theorems to p=2. The leading-coefficient misprint is recorded as E12.
+Sources: RJW-published, Lemma12.15 and its proof, printed pp.183–184 / PDF84–85; the preceding Lemmas12.12–12.14 were also read in PDF83–84.. Declaration-sized decomposition of the fixed-space exact sequence. The source proof is expanded using coefficientwise binomial continuity and finite substitution coefficients. The independent integral proof includes p=2; it does not extend the arithmetic tower theorems to p=2. The leading-coefficient misprint is recorded as E12. Literal excerpt: “12.15”.
 
 #### Topology of the fixed-space sequence
 
@@ -5174,7 +5604,7 @@ Prerequisites: ColemanPowerSeries:L3/psi-fixed-boundary, ColemanPowerSeries:L3/p
 
 Acceptance: Only the fixed-series sequence is asserted here. The logarithmic-derivative surjectivity, arithmetic Coleman sequence, G-action and finite-flat completed-tensor comparisons remain separate gaps.
 
-Sources: RJW-published, Lemma12.15 and its proof, printed pp.183–184 / PDF84–85; the preceding Lemmas12.12–12.14 were also read in PDF83–84.. Declaration-sized decomposition of the fixed-space exact sequence. The source proof is expanded using coefficientwise binomial continuity and finite substitution coefficients. The independent integral proof includes p=2; it does not extend the arithmetic tower theorems to p=2. The leading-coefficient misprint is recorded as E12.
+Sources: RJW-published, Lemma12.15 and its proof, printed pp.183–184 / PDF84–85; the preceding Lemmas12.12–12.14 were also read in PDF83–84.. Declaration-sized decomposition of the fixed-space exact sequence. The source proof is expanded using coefficientwise binomial continuity and finite substitution coefficients. The independent integral proof includes p=2; it does not extend the arithmetic tower theorems to p=2. The leading-coefficient misprint is recorded as E12. Literal excerpt: “12.15”.
 
 #### Compactness of norm-fixed units
 
@@ -5194,7 +5624,7 @@ Prerequisites: ColemanPowerSeries:L1/coleman-norm-fixed-units, ColemanPowerSerie
 
 Acceptance: Compactness uses both coefficientwise topology and the proven continuity of the actual norm. It does not follow merely from the subgroup laws.
 
-Sources: RJW-published, Lemmas12.11–12.12 and their proofs, printed181–182 / PDF82–83; surrounding PDF80–85 freshly read in full.. Declaration-sized expansion of the integral compactness and successive-precision argument. The residue-unit lift is specialized from pinned generic local-ring theorems and the existing Coleman norm limit. All-prime algebra here is independently justified and makes no assertion about arithmetic interpolation at p=2.
+Sources: RJW-published, Lemmas12.11–12.12 and their proofs, printed181–182 / PDF82–83; surrounding PDF80–85 freshly read in full.. Declaration-sized expansion of the integral compactness and successive-precision argument. The residue-unit lift is specialized from pinned generic local-ring theorems and the existing Coleman norm limit. All-prime algebra here is independently justified and makes no assertion about arithmetic interpolation at p=2. Literal excerpt: “12.11”.
 
 #### Closed logarithmic-derivative image
 
@@ -5213,7 +5643,7 @@ Prerequisites: ColemanPowerSeries:L3/norm-fixed-units-compact, ColemanPowerSerie
 
 Acceptance: The ambient closed image is precisely the image of the actual Delta map on S. No surjectivity or choice of a continuous inverse is assumed.
 
-Sources: RJW-published, Lemmas12.11–12.12 and their proofs, printed181–182 / PDF82–83; surrounding PDF80–85 freshly read in full.. Declaration-sized expansion of the integral compactness and successive-precision argument. The residue-unit lift is specialized from pinned generic local-ring theorems and the existing Coleman norm limit. All-prime algebra here is independently justified and makes no assertion about arithmetic interpolation at p=2.
+Sources: RJW-published, Lemmas12.11–12.12 and their proofs, printed181–182 / PDF82–83; surrounding PDF80–85 freshly read in full.. Declaration-sized expansion of the integral compactness and successive-precision argument. The residue-unit lift is specialized from pinned generic local-ring theorems and the existing Coleman norm limit. All-prime algebra here is independently justified and makes no assertion about arithmetic interpolation at p=2. Literal excerpt: “12.11”.
 
 #### Division by powers of p in fixed series
 
@@ -5236,7 +5666,7 @@ Prerequisites: PadicMeasuresIwasawaAlgebras:L2/psi-series, mathlib:PowerSeries.s
 
 Acceptance: At n=0 this is the original fixed condition. Cancellation is integral and does not introduce 1/p in B.
 
-Sources: RJW-published, Lemmas12.11–12.12 and their proofs, printed181–182 / PDF82–83; surrounding PDF80–85 freshly read in full.. Declaration-sized expansion of the integral compactness and successive-precision argument. The residue-unit lift is specialized from pinned generic local-ring theorems and the existing Coleman norm limit. All-prime algebra here is independently justified and makes no assertion about arithmetic interpolation at p=2.
+Sources: RJW-published, Lemmas12.11–12.12 and their proofs, printed181–182 / PDF82–83; surrounding PDF80–85 freshly read in full.. Declaration-sized expansion of the integral compactness and successive-precision argument. The residue-unit lift is specialized from pinned generic local-ring theorems and the existing Coleman norm limit. All-prime algebra here is independently justified and makes no assertion about arithmetic interpolation at p=2. Literal excerpt: “12.11”.
 
 #### Coefficientwise convergence from integral precision
 
@@ -5260,7 +5690,7 @@ Prerequisites: mathlib:PowerSeries.WithPiTopology.tendsto_iff_coeff_tendsto, mat
 
 Acceptance: Even an arbitrary varying integral quotient q_n satisfies p^n q_n→0 coefficientwise.
 
-Sources: RJW-published, Lemmas12.11–12.12 and their proofs, printed181–182 / PDF82–83; surrounding PDF80–85 freshly read in full.. Declaration-sized expansion of the integral compactness and successive-precision argument. The residue-unit lift is specialized from pinned generic local-ring theorems and the existing Coleman norm limit. All-prime algebra here is independently justified and makes no assertion about arithmetic interpolation at p=2.
+Sources: RJW-published, Lemmas12.11–12.12 and their proofs, printed181–182 / PDF82–83; surrounding PDF80–85 freshly read in full.. Declaration-sized expansion of the integral compactness and successive-precision argument. The residue-unit lift is specialized from pinned generic local-ring theorems and the existing Coleman norm limit. All-prime algebra here is independently justified and makes no assertion about arithmetic interpolation at p=2. Literal excerpt: “12.11”.
 
 #### The signed precision correction
 
@@ -5280,7 +5710,7 @@ Prerequisites: ColemanPowerSeries:L1/coleman-norm-fixed-units, ColemanPowerSerie
 
 Acceptance: The error convention is Delta(u)−F. With that convention the exponent must be −p^n. At odd p a positive exponent fails for residual error H=1 and Delta(v)=1.
 
-Sources: RJW-published, Lemmas12.11–12.12 and their proofs, printed181–182 / PDF82–83; surrounding PDF80–85 freshly read in full.. Declaration-sized expansion of the integral compactness and successive-precision argument. The residue-unit lift is specialized from pinned generic local-ring theorems and the existing Coleman norm limit. All-prime algebra here is independently justified and makes no assertion about arithmetic interpolation at p=2.
+Sources: RJW-published, Lemmas12.11–12.12 and their proofs, printed181–182 / PDF82–83; surrounding PDF80–85 freshly read in full.. Declaration-sized expansion of the integral compactness and successive-precision argument. The residue-unit lift is specialized from pinned generic local-ring theorems and the existing Coleman norm limit. All-prime algebra here is independently justified and makes no assertion about arithmetic interpolation at p=2. Literal excerpt: “12.11”.
 
 #### Approximation at every p-adic precision
 
@@ -5305,7 +5735,7 @@ Prerequisites: ColemanPowerSeries:L3/psi-fixed-p-saturation, ColemanPowerSeries:
 
 Acceptance: All n≥0 are included. The hypothesis quantifies over every fixed residual target, including the divided errors arising during induction.
 
-Sources: RJW-published, Lemmas12.11–12.12 and their proofs, printed181–182 / PDF82–83; surrounding PDF80–85 freshly read in full.. Declaration-sized expansion of the integral compactness and successive-precision argument. The residue-unit lift is specialized from pinned generic local-ring theorems and the existing Coleman norm limit. All-prime algebra here is independently justified and makes no assertion about arithmetic interpolation at p=2.
+Sources: RJW-published, Lemmas12.11–12.12 and their proofs, printed181–182 / PDF82–83; surrounding PDF80–85 freshly read in full.. Declaration-sized expansion of the integral compactness and successive-precision argument. The residue-unit lift is specialized from pinned generic local-ring theorems and the existing Coleman norm limit. All-prime algebra here is independently justified and makes no assertion about arithmetic interpolation at p=2. Literal excerpt: “12.11”.
 
 #### Surjectivity from the residual image condition
 
@@ -5325,7 +5755,7 @@ Prerequisites: ColemanPowerSeries:L2/norm-fixed-logarithmic-derivative-map, Cole
 
 Acceptance: This is a conditional lifting theorem. Full Theorem12.9 still requires the characteristic-p image condition; the word surjective does not discharge that separate gap.
 
-Sources: RJW-published, Lemmas12.11–12.12 and their proofs, printed181–182 / PDF82–83; surrounding PDF80–85 freshly read in full.. Declaration-sized expansion of the integral compactness and successive-precision argument. The residue-unit lift is specialized from pinned generic local-ring theorems and the existing Coleman norm limit. All-prime algebra here is independently justified and makes no assertion about arithmetic interpolation at p=2.
+Sources: RJW-published, Lemmas12.11–12.12 and their proofs, printed181–182 / PDF82–83; surrounding PDF80–85 freshly read in full.. Declaration-sized expansion of the integral compactness and successive-precision argument. The residue-unit lift is specialized from pinned generic local-ring theorems and the existing Coleman norm limit. All-prime algebra here is independently justified and makes no assertion about arithmetic interpolation at p=2. Literal excerpt: “12.11”.
 
 #### Norm-fixed lifts of residue-series units
 
@@ -5350,7 +5780,7 @@ Prerequisites: ColemanPowerSeries:L1/coleman-norm-fixed-units, ColemanPowerSerie
 
 Acceptance: This is surjectivity onto all residue-series units, not just those with constant coefficient one. It includes p=2 using the preceding all-prime norm-limit construction.
 
-Sources: RJW-published, Lemma12.12, printed182 / PDF83; the norm-limit input is already decomposed in L1.. Declaration-sized expansion of the integral compactness and successive-precision argument. The residue-unit lift is specialized from pinned generic local-ring theorems and the existing Coleman norm limit. All-prime algebra here is independently justified and makes no assertion about arithmetic interpolation at p=2.
+Sources: RJW-published, Lemma12.12, printed182 / PDF83; the norm-limit input is already decomposed in L1.. Declaration-sized expansion of the integral compactness and successive-precision argument. The residue-unit lift is specialized from pinned generic local-ring theorems and the existing Coleman norm limit. All-prime algebra here is independently justified and makes no assertion about arithmetic interpolation at p=2. Literal excerpt: “12.11”.
 
 #### Reduction to the characteristic-p image calculation
 
@@ -5374,7 +5804,7 @@ Prerequisites: ColemanPowerSeries:L2/norm-fixed-logarithmic-derivative-map, Cole
 
 Acceptance: Retain the existing kernel of constant (p−1)-st roots. The proof of Theorem12.9 prints mu_p where mu_(p−1) is required; E13 records that slip. At p=3, the constant unit −1 detects it. The remaining characteristic-p proof must use a well-defined integral polynomial identity or a separately justified localization. The earlier E8 bounded-psi domain issue is not resolved by applying psi to a pole.
 
-Sources: RJW-published, Lemmas12.11–12.14 and proof of Theorem12.9, printed181–183 / PDF82–84; the kernel label on printed183 was checked in the page image.. Declaration-sized expansion of the integral compactness and successive-precision argument. The residue-unit lift is specialized from pinned generic local-ring theorems and the existing Coleman norm limit. All-prime algebra here is independently justified and makes no assertion about arithmetic interpolation at p=2.
+Sources: RJW-published, Lemmas12.11–12.14 and proof of Theorem12.9, printed181–183 / PDF82–84; the kernel label on printed183 was checked in the page image.. Declaration-sized expansion of the integral compactness and successive-precision argument. The residue-unit lift is specialized from pinned generic local-ring theorems and the existing Coleman norm limit. All-prime algebra here is independently justified and makes no assertion about arithmetic interpolation at p=2. Literal excerpt: “12.11”.
 
 #### Residue logarithmic derivatives are fixed by averaging
 
@@ -5394,7 +5824,7 @@ Prerequisites: ColemanPowerSeries:L3/norm-fixed-unit-residue-surjective, Coleman
 
 Acceptance: This is fixedness of Δ for every residue unit, obtained using the already proved norm-fixed unit lift.
 
-Sources: RJW-published, Lemma12.13, published printed182–183/PDF83–84; full fresh reading, including the Euler-product proof; arXiv2309.15692v2 pp.60–61 collated.. Declaration-sized worker decomposition of the source argument with explicit native carriers and hypotheses. The residue averaging and fixed-error calculation are imported from PMIA; no bounded operator is applied to a pole.
+Sources: RJW-published, Lemma12.13, published printed182–183/PDF83–84; full fresh reading, including the Euler-product proof; arXiv2309.15692v2 pp.60–61 collated.. Declaration-sized worker decomposition of the source argument with explicit native carriers and hypotheses. The residue averaging and fixed-error calculation are imported from PMIA; no bounded operator is applied to a pole. Literal excerpt: “Proof.”.
 
 #### Completion of coefficients along p-power rays
 
@@ -5414,7 +5844,7 @@ Prerequisites: mathlib:Nat.ordCompl_self_pow_mul, mathlib:Nat.ordCompl_eq_self_i
 
 Acceptance: The zero coefficient is fixed to zero separately. The error is divisible by T^p, not merely supported at arbitrary multiples including degree zero.
 
-Sources: RJW-published, Lemma12.14, published printed182–183/PDF83–84; full fresh reading, including the Euler-product proof; arXiv2309.15692v2 pp.60–61 collated.. Declaration-sized worker decomposition of the source argument with explicit native carriers and hypotheses. The residue averaging and fixed-error calculation are imported from PMIA; no bounded operator is applied to a pole.
+Sources: RJW-published, Lemma12.14, published printed182–183/PDF83–84; full fresh reading, including the Euler-product proof; arXiv2309.15692v2 pp.60–61 collated.. Declaration-sized worker decomposition of the source argument with explicit native carriers and hypotheses. The residue averaging and fixed-error calculation are imported from PMIA; no bounded operator is applied to a pole. Literal excerpt: “Proof.”.
 
 #### Logarithmic coefficients of one Euler factor
 
@@ -5439,7 +5869,7 @@ Prerequisites: mathlib:PowerSeries.isUnit_iff_constantCoeff, mathlib:PowerSeries
 
 Acceptance: For m=1,a=2 in F_3, the coefficient at degree one is 1. If p divides m, every logarithmic coefficient vanishes although the factor may be nonconstant.
 
-Sources: RJW-published, Lemma12.14, published printed182–183/PDF83–84; full fresh reading, including the Euler-product proof; arXiv2309.15692v2 pp.60–61 collated.. Declaration-sized worker decomposition of the source argument with explicit native carriers and hypotheses. The residue averaging and fixed-error calculation are imported from PMIA; no bounded operator is applied to a pole.
+Sources: RJW-published, Lemma12.14, published printed182–183/PDF83–84; full fresh reading, including the Euler-product proof; arXiv2309.15692v2 pp.60–61 collated.. Declaration-sized worker decomposition of the source argument with explicit native carriers and hypotheses. The residue averaging and fixed-error calculation are imported from PMIA; no bounded operator is applied to a pole. Literal excerpt: “Proof.”.
 
 #### Frobenius invariance of Euler logarithmic coefficients
 
@@ -5459,7 +5889,7 @@ Prerequisites: ColemanPowerSeries:L3/euler-factor-logarithmic-coefficients, math
 
 Acceptance: The equality uses F_p coefficients; the same unmodified equality is not asserted over an arbitrary characteristic-p coefficient field.
 
-Sources: RJW-published, Lemma12.14, published printed182–183/PDF83–84; full fresh reading, including the Euler-product proof; arXiv2309.15692v2 pp.60–61 collated.. Declaration-sized worker decomposition of the source argument with explicit native carriers and hypotheses. The residue averaging and fixed-error calculation are imported from PMIA; no bounded operator is applied to a pole.
+Sources: RJW-published, Lemma12.14, published printed182–183/PDF83–84; full fresh reading, including the Euler-product proof; arXiv2309.15692v2 pp.60–61 collated.. Declaration-sized worker decomposition of the source argument with explicit native carriers and hypotheses. The residue averaging and fixed-error calculation are imported from PMIA; no bounded operator is applied to a pole. Literal excerpt: “Proof.”.
 
 #### One coefficient correction by an Euler factor
 
@@ -5480,7 +5910,7 @@ Prerequisites: ColemanPowerSeries:L3/euler-factor-logarithmic-coefficients, Cole
 
 Acceptance: Never divide by m when p divides it. At the initial step m=1 the input has zero constant coefficient.
 
-Sources: RJW-published, Lemma12.14, published printed182–183/PDF83–84; full fresh reading, including the Euler-product proof; arXiv2309.15692v2 pp.60–61 collated.. Declaration-sized worker decomposition of the source argument with explicit native carriers and hypotheses. The residue averaging and fixed-error calculation are imported from PMIA; no bounded operator is applied to a pole.
+Sources: RJW-published, Lemma12.14, published printed182–183/PDF83–84; full fresh reading, including the Euler-product proof; arXiv2309.15692v2 pp.60–61 collated.. Declaration-sized worker decomposition of the source argument with explicit native carriers and hypotheses. The residue averaging and fixed-error calculation are imported from PMIA; no bounded operator is applied to a pole. Literal excerpt: “Proof.”.
 
 #### Compatible finite Euler corrections
 
@@ -5501,7 +5931,7 @@ Prerequisites: ColemanPowerSeries:L3/euler-correction-step, ColemanPowerSeries:L
 
 Acceptance: The Nth product uses precisely factors of degrees 1 through N. Later choices do not change already corrected coefficients.
 
-Sources: RJW-published, Lemma12.14, published printed182–183/PDF83–84; full fresh reading, including the Euler-product proof; arXiv2309.15692v2 pp.60–61 collated.. Declaration-sized worker decomposition of the source argument with explicit native carriers and hypotheses. The residue averaging and fixed-error calculation are imported from PMIA; no bounded operator is applied to a pole.
+Sources: RJW-published, Lemma12.14, published printed182–183/PDF83–84; full fresh reading, including the Euler-product proof; arXiv2309.15692v2 pp.60–61 collated.. Declaration-sized worker decomposition of the source argument with explicit native carriers and hypotheses. The residue averaging and fixed-error calculation are imported from PMIA; no bounded operator is applied to a pole. Literal excerpt: “Proof.”.
 
 #### Normalized unit determined by the Euler product
 
@@ -5526,7 +5956,7 @@ Prerequisites: mathlib:PowerSeries.WithPiTopology.multipliable_one_add_of_tendst
 
 Acceptance: The constant coefficient is one, so the limiting series is a unit rather than merely a nonzero series. No norm on all power series is introduced.
 
-Sources: RJW-published, Lemma12.14, published printed182–183/PDF83–84; full fresh reading, including the Euler-product proof; arXiv2309.15692v2 pp.60–61 collated.. Declaration-sized worker decomposition of the source argument with explicit native carriers and hypotheses. The residue averaging and fixed-error calculation are imported from PMIA; no bounded operator is applied to a pole.
+Sources: RJW-published, Lemma12.14, published printed182–183/PDF83–84; full fresh reading, including the Euler-product proof; arXiv2309.15692v2 pp.60–61 collated.. Declaration-sized worker decomposition of the source argument with explicit native carriers and hypotheses. The residue averaging and fixed-error calculation are imported from PMIA; no bounded operator is applied to a pole. Literal excerpt: “Proof.”.
 
 #### Precision of the radial logarithmic derivative
 
@@ -5546,7 +5976,7 @@ Prerequisites: mathlib:PowerSeries.X_pow_dvd_iff, mathlib:PowerSeries.coeff_deri
 
 Acceptance: The factor T is necessary for a precision statement with no lost degree. For the existing weighted Δ, one extra input coefficient is needed.
 
-Sources: RJW-published, Lemma12.14, published printed182–183/PDF83–84; full fresh reading, including the Euler-product proof; arXiv2309.15692v2 pp.60–61 collated.. Declaration-sized worker decomposition of the source argument with explicit native carriers and hypotheses. The residue averaging and fixed-error calculation are imported from PMIA; no bounded operator is applied to a pole.
+Sources: RJW-published, Lemma12.14, published printed182–183/PDF83–84; full fresh reading, including the Euler-product proof; arXiv2309.15692v2 pp.60–61 collated.. Declaration-sized worker decomposition of the source argument with explicit native carriers and hypotheses. The residue averaging and fixed-error calculation are imported from PMIA; no bounded operator is applied to a pole. Literal excerpt: “Proof.”.
 
 #### Logarithmic primitive of a coefficient-invariant series
 
@@ -5570,7 +6000,7 @@ Prerequisites: ColemanPowerSeries:L3/euler-correction-sequence, ColemanPowerSeri
 
 Acceptance: For h=0 the unit one is a valid normalized primitive. Do not impose a torsion-free derivative-kernel theorem over F_p.
 
-Sources: RJW-published, Lemma12.14, published printed182–183/PDF83–84; full fresh reading, including the Euler-product proof; arXiv2309.15692v2 pp.60–61 collated.. Declaration-sized worker decomposition of the source argument with explicit native carriers and hypotheses. The residue averaging and fixed-error calculation are imported from PMIA; no bounded operator is applied to a pole.
+Sources: RJW-published, Lemma12.14, published printed182–183/PDF83–84; full fresh reading, including the Euler-product proof; arXiv2309.15692v2 pp.60–61 collated.. Declaration-sized worker decomposition of the source argument with explicit native carriers and hypotheses. The residue averaging and fixed-error calculation are imported from PMIA; no bounded operator is applied to a pole. Literal excerpt: “Proof.”.
 
 #### Logarithmic decomposition with a pole-free remainder
 
@@ -5591,7 +6021,7 @@ Prerequisites: ColemanPowerSeries:L3/frobenius-coefficient-completion, ColemanPo
 
 Acceptance: This is Lemma12.14 with the source remainder rewritten as Y T^(p−1)H(T^p); it does not ask the bounded averaging operator to act on Y/T.
 
-Sources: RJW-published, Lemma12.14, published printed182–183/PDF83–84; full fresh reading, including the Euler-product proof; arXiv2309.15692v2 pp.60–61 collated.. Declaration-sized worker decomposition of the source argument with explicit native carriers and hypotheses. The residue averaging and fixed-error calculation are imported from PMIA; no bounded operator is applied to a pole.
+Sources: RJW-published, Lemma12.14, published printed182–183/PDF83–84; full fresh reading, including the Euler-product proof; arXiv2309.15692v2 pp.60–61 collated.. Declaration-sized worker decomposition of the source argument with explicit native carriers and hypotheses. The residue averaging and fixed-error calculation are imported from PMIA; no bounded operator is applied to a pole. Literal excerpt: “Proof.”.
 
 #### Logarithmic image of residue averaging invariants
 
@@ -5615,7 +6045,7 @@ Prerequisites: ColemanPowerSeries:L3/residue-logarithmic-decomposition, ColemanP
 
 Acceptance: This derives the stronger statement for all actual residue ψ_0-fixed series; the source only needs reductions of integral fixed series. No lifting of arbitrary residue fixed series is assumed in the argument.
 
-Sources: RJW-published, Lemma12.13, published printed182–183/PDF83–84; full fresh reading, including the Euler-product proof; arXiv2309.15692v2 pp.60–61 collated.. Declaration-sized worker decomposition of the source argument with explicit native carriers and hypotheses. The residue averaging and fixed-error calculation are imported from PMIA; no bounded operator is applied to a pole.
+Sources: RJW-published, Lemma12.13, published printed182–183/PDF83–84; full fresh reading, including the Euler-product proof; arXiv2309.15692v2 pp.60–61 collated.. Declaration-sized worker decomposition of the source argument with explicit native carriers and hypotheses. The residue averaging and fixed-error calculation are imported from PMIA; no bounded operator is applied to a pole. Literal excerpt: “Proof.”.
 
 #### Surjectivity on norm-fixed integral units
 
@@ -5636,7 +6066,7 @@ Prerequisites: ColemanPowerSeries:L3/residue-psi-fixed-logarithmic-image, PadicM
 
 Acceptance: The conclusion concerns the actual previously constructed norm and logarithmic derivative. It does not assert the arithmetic Coleman interpolation or Theorem12.17.
 
-Sources: RJW-published, Lemma12.13–12.14 and completion of Theorem12.9, published printed182–183/PDF83–84; full fresh reading, including the Euler-product proof; arXiv2309.15692v2 pp.60–61 collated.. Declaration-sized worker decomposition of the source argument with explicit native carriers and hypotheses. The residue averaging and fixed-error calculation are imported from PMIA; no bounded operator is applied to a pole.
+Sources: RJW-published, Lemma12.13–12.14 and completion of Theorem12.9, published printed182–183/PDF83–84; full fresh reading, including the Euler-product proof; arXiv2309.15692v2 pp.60–61 collated.. Declaration-sized worker decomposition of the source argument with explicit native carriers and hypotheses. The residue averaging and fixed-error calculation are imported from PMIA; no bounded operator is applied to a pole. Literal excerpt: “Proof.”.
 
 #### Norm-fixed binomial units
 
@@ -5669,7 +6099,7 @@ Prerequisites: ColemanPowerSeries:L1/coleman-norm-Y, ColemanPowerSeries:L1/colem
 
 Acceptance: This identifies the preimage of the constant logarithmic derivatives. At p=2 the unsigned Y is not norm-fixed, so the odd-prime hypothesis is required.
 
-Sources: RJW-published, Definition 12.16 and Theorem 12.17 with proof, printed pp.184–185; Lemmas 12.2–12.3, printed pp.178–179 (published PDF79–80,85–86).. The source supplies the mathematical target or proof step. The stated native-carrier interface and declaration-sized decomposition are worker deductions; unavailable owner interfaces are named as prerequisites and requests.
+Sources: RJW-published, Definition 12.16 and Theorem 12.17 with proof, printed pp.184–185; Lemmas 12.2–12.3, printed pp.178–179 (published PDF79–80,85–86).. The source supplies the mathematical target or proof step. The stated native-carrier interface and declaration-sized decomposition are worker deductions; unavailable owner interfaces are named as prerequisites and requests. Literal excerpt: “(1 + T )a”.
 
 #### Logarithmic derivative of binomial units
 
@@ -5687,7 +6117,7 @@ Prerequisites: ColemanPowerSeries:L3/norm-fixed-binomial-units, ColemanPowerSeri
 
 Acceptance: The exponent a can be nonintegral in ℤ_p. It is not restricted to natural integers.
 
-Sources: RJW-published, Definition 12.16 and Theorem 12.17 with proof, printed pp.184–185; Lemmas 12.2–12.3, printed pp.178–179 (published PDF79–80,85–86).. The source supplies the mathematical target or proof step. The stated native-carrier interface and declaration-sized decomposition are worker deductions; unavailable owner interfaces are named as prerequisites and requests.
+Sources: RJW-published, Definition 12.16 and Theorem 12.17 with proof, printed pp.184–185; Lemmas 12.2–12.3, printed pp.178–179 (published PDF79–80,85–86).. The source supplies the mathematical target or proof step. The stated native-carrier interface and declaration-sized decomposition are worker deductions; unavailable owner interfaces are named as prerequisites and requests. Literal excerpt: “image of”.
 
 #### The full Coleman kernel
 
@@ -5709,7 +6139,7 @@ Prerequisites: ColemanPowerSeries:L2/raw-coleman-map, ColemanPowerSeries:L3/norm
 
 Acceptance: The prime-to-p constant factor is present on full units. At p=3 the stationary −1 tower is a nontrivial kernel element.
 
-Sources: RJW-published, Definition 12.16 and Theorem 12.17 with proof, printed pp.184–185; Lemmas 12.2–12.3, printed pp.178–179 (published PDF79–80,85–86).. The source supplies the mathematical target or proof step. The stated native-carrier interface and declaration-sized decomposition are worker deductions; unavailable owner interfaces are named as prerequisites and requests.
+Sources: RJW-published, Definition 12.16 and Theorem 12.17 with proof, printed pp.184–185; Lemmas 12.2–12.3, printed pp.178–179 (published PDF79–80,85–86).. The source supplies the mathematical target or proof step. The stated native-carrier interface and declaration-sized decomposition are worker deductions; unavailable owner interfaces are named as prerequisites and requests. Literal excerpt: “µ p−1 × Z p (1)”.
 
 #### The cyclotomic-moment endpoint
 
@@ -5745,7 +6175,7 @@ Prerequisites: PadicMeasuresIwasawaAlgebras:L2/ordinary-moment, PadicMeasuresIwa
 
 Acceptance: This is the nonzero cokernel map in Theorem 12.17, and distinguishes the Tate twist from the trivial augmentation character.
 
-Sources: RJW-published, Definition 12.16 and Theorem 12.17 with proof, printed pp.184–185; Lemmas 12.2–12.3, printed pp.178–179 (published PDF79–80,85–86).. The source supplies the mathematical target or proof step. The stated native-carrier interface and declaration-sized decomposition are worker deductions; unavailable owner interfaces are named as prerequisites and requests.
+Sources: RJW-published, Definition 12.16 and Theorem 12.17 with proof, printed pp.184–185; Lemmas 12.2–12.3, printed pp.178–179 (published PDF79–80,85–86).. The source supplies the mathematical target or proof step. The stated native-carrier interface and declaration-sized decomposition are worker deductions; unavailable owner interfaces are named as prerequisites and requests. Literal excerpt: “χ”.
 
 #### Surjectivity of the cyclotomic moment
 
@@ -5763,7 +6193,7 @@ Prerequisites: ColemanPowerSeries:L3/cyclotomic-moment, mathlib:AbstractMeasure.
 
 Acceptance: Unlike this endpoint, the mass map does not give the required exact sequence.
 
-Sources: RJW-published, Definition 12.16 and Theorem 12.17 with proof, printed pp.184–185; Lemmas 12.2–12.3, printed pp.178–179 (published PDF79–80,85–86).. The source supplies the mathematical target or proof step. The stated native-carrier interface and declaration-sized decomposition are worker deductions; unavailable owner interfaces are named as prerequisites and requests.
+Sources: RJW-published, Definition 12.16 and Theorem 12.17 with proof, printed pp.184–185; Lemmas 12.2–12.3, printed pp.178–179 (published PDF79–80,85–86).. The source supplies the mathematical target or proof step. The stated native-carrier interface and declaration-sized decomposition are worker deductions; unavailable owner interfaces are named as prerequisites and requests. Literal excerpt: “compute the cokernel”.
 
 #### The image of the Coleman map
 
@@ -5776,14 +6206,14 @@ Hypotheses: p is an odd prime. B=ℤ_p[[T]], Y=1+T, U∞ is the actual norm-comp
 Proof plan:
 
 1. For an output μ, ∂A_Uμ is the fixed-space boundary on Δ(f_u). Evaluating that boundary at T=0 gives zero, and constantCoeff(∂A_Uμ)=cyclotomicMoment(μ).
-2. Conversely take μ with zero first moment. The requested intrinsic x-weighting comparison places ∂A_Uμ in ker ψ with constant coefficient zero. The exact fixed-space range theorem lifts it to a ψ-fixed series F. Surjectivity of normFixedLogDeriv lifts F to a norm-fixed unit.
+2. Conversely take μ with zero first moment. The intrinsic-unit-weighting-comparison places ∂A_Uμ in ker ψ with constant coefficient zero. The exact fixed-space range theorem lifts it to a ψ-fixed series F. Surjectivity of normFixedLogDeriv lifts F to a norm-fixed unit.
 3. Coleman interpolation gives the arithmetic tower. Since H is the inverse of ∂ on the ψ kernel, its actual Col₀ output has Amice series A_Uμ; intrinsic Amice injectivity gives equality of measures.
 
-Prerequisites: ColemanPowerSeries:L2/raw-coleman-map, ColemanPowerSeries:L3/cyclotomic-moment, ColemanPowerSeries:L3/norm-fixed-logarithmic-derivative-surjective, ColemanPowerSeries:L3/psi-fixed-boundary-range, PadicMeasuresIwasawaAlgebras:L2/mahler-derivative-inverse, PadicMeasuresIwasawaAlgebras:L2/inverse-mahler-derivative, PadicMeasuresIwasawaAlgebras:L2.
+Prerequisites: ColemanPowerSeries:L2/raw-coleman-map, ColemanPowerSeries:L3/cyclotomic-moment, ColemanPowerSeries:L3/norm-fixed-logarithmic-derivative-surjective, ColemanPowerSeries:L3/psi-fixed-boundary-range, PadicMeasuresIwasawaAlgebras:L2/mahler-derivative-inverse, PadicMeasuresIwasawaAlgebras:L2/inverse-mahler-derivative, ColemanPowerSeries:L3/intrinsic-unit-weighting-comparison.
 
-Acceptance: No cardinality argument or dimension count replaces equality of the actual maps and their images. The requested weighting comparison is a precise supplier boundary.
+Acceptance: No cardinality argument or dimension count replaces equality of the actual maps and their images. The specialized weighting comparison resolves to exact PMIA nodes.
 
-Sources: RJW-published, Definition 12.16 and Theorem 12.17 with proof, printed pp.184–185; Lemmas 12.2–12.3, printed pp.178–179 (published PDF79–80,85–86).. The source supplies the mathematical target or proof step. The stated native-carrier interface and declaration-sized decomposition are worker deductions; unavailable owner interfaces are named as prerequisites and requests.
+Sources: RJW-published, Definition 12.16 and Theorem 12.17 with proof, printed pp.184–185; Lemmas 12.2–12.3, printed pp.178–179 (published PDF79–80,85–86).. The source supplies the mathematical target or proof step. The stated native-carrier interface and declaration-sized decomposition are worker deductions; unavailable owner interfaces are named as prerequisites and requests. Literal excerpt: “the third map has cokernel”.
 
 #### Topological exactness of the Coleman sequence
 
@@ -5803,7 +6233,7 @@ Prerequisites: ColemanPowerSeries:L3/raw-coleman-kernel, ColemanPowerSeries:L3/r
 
 Acceptance: The completed-module/G-equivariance and finite-flat tensor comparison are separate dependencies. This node proves topological exactness of these actual maps; it does not assume a module action on full local units.
 
-Sources: RJW-published, Definition 12.16 and Theorem 12.17 with proof, printed pp.184–185; Lemmas 12.2–12.3, printed pp.178–179 (published PDF79–80,85–86).. The source supplies the mathematical target or proof step. The stated native-carrier interface and declaration-sized decomposition are worker deductions; unavailable owner interfaces are named as prerequisites and requests.
+Sources: RJW-published, Definition 12.16 and Theorem 12.17 with proof, printed pp.184–185; Lemmas 12.2–12.3, printed pp.178–179 (published PDF79–80,85–86).. The source supplies the mathematical target or proof step. The stated native-carrier interface and declaration-sized decomposition are worker deductions; unavailable owner interfaces are named as prerequisites and requests. Literal excerpt: “exact sequence”.
 
 #### Binomial interpolation of the Tate inclusion
 
@@ -5822,421 +6252,866 @@ Prerequisites: ColemanPowerSeries:L3/norm-fixed-binomial-units, ColemanPowerSeri
 
 Acceptance: This identifies the direct L0 root-power Tate subgroup with the binomial factor in the full Coleman kernel.
 
-Sources: RJW-published, Definition 12.16 and Theorem 12.17 with proof, printed pp.184–185; Lemmas 12.2–12.3, printed pp.178–179 (published PDF79–80,85–86).. The source supplies the mathematical target or proof step. The stated native-carrier interface and declaration-sized decomposition are worker deductions; unavailable owner interfaces are named as prerequisites and requests.
+Sources: RJW-published, Definition 12.16 and Theorem 12.17 with proof, printed pp.184–185; Lemmas 12.2–12.3, printed pp.178–179 (published PDF79–80,85–86).. The source supplies the mathematical target or proof step. The stated native-carrier interface and declaration-sized decomposition are worker deductions; unavailable owner interfaces are named as prerequisites and requests. Literal excerpt: “power series interpolating”.
+
+#### Intrinsic unit weighting at the endpoint
+
+**ColemanPowerSeries:L3/intrinsic-unit-weighting-comparison** — comparison; proposed declaration **ColemanCyclotomic.unitAmice_weighting**.
+
+For each actual intrinsic unit measure μ, ψ(∂A_Uμ)=0 and constantCoeff(∂A_Uμ)=cyclotomicMoment(μ). These are arithmetic restrictions of the supplied weight/Amice and first-moment identities, not new measure operators.
+
+Hypotheses: p is an odd prime, n≥0 denotes the source level n+1, K_n=ℚ_p(ζ_n), O_n is its native integral closure, U_n=O_nˣ and U∞ is the already constructed native norm-compatible subgroup. G=ℤ_pˣ acts through its power residues, and U∞,1 is the existing residue kernel. All topologies are the native norm/product/subtype topologies.
+
+Proof plan:
+
+1. Write A_Uμ=A(j_Uμ). The projection formula for the unit inclusion identifies weight(x,j_Uμ)=j_U(weight(x|_U,μ)); it is again in the supplied unit-measure kernel of ψ. Transport by the supplied Amice intertwining.
+2. The k=1 ordinary-moment identity evaluates this derivative at zero as (j_Uμ)(x)=μ(x|_U), which is exactly the existing cyclotomicMoment.
+
+Prerequisites: PadicMeasuresIwasawaAlgebras:L2/amice-weight, PadicMeasuresIwasawaAlgebras:L2/weight-pushforward, PadicMeasuresIwasawaAlgebras:L2/unit-measure-amice-kernel-equivalence, PadicMeasuresIwasawaAlgebras:L2/unit-measure-kernel-equivalence, PadicMeasuresIwasawaAlgebras:L2/ordinary-moment, ColemanPowerSeries:L3/cyclotomic-moment.
+
+Acceptance: Discharges the specific weighting leaf of the full Coleman range theorem without reconstructing weights, support or measures.
+
+Sources: RJW-published, Theorem12.17, pp.184–185. The cited passage supplies this arithmetic target. The native-carrier adapter and the separate closure/compactness steps are worker deductions. The corrected argument follows the independently reviewed extraction where the printed proof omits a hypothesis or equality. Literal excerpt: “Theorem 12.17. The Coleman map induces an exact sequence of 0-modules”.
+
+#### Kernel of the principal Coleman map
+
+**ColemanPowerSeries:L3/principal-coleman-kernel** — theorem; proposed declaration **ColemanCyclotomic.principalColeman_kernel**.
+
+For odd p, ker(principalColeman)=tateTower(ℤ_p), with its continuous injective inclusion as a closed Λ(G)-submodule of Additive(U∞,1).
+
+Hypotheses: p is an odd prime, n≥0 denotes the source level n+1, K_n=ℚ_p(ζ_n), O_n is its native integral closure, U_n=O_nˣ and U∞ is the already constructed native norm-compatible subgroup. G=ℤ_pˣ acts through its power residues, and U∞,1 is the existing residue kernel. All topologies are the native norm/product/subtype topologies.
+
+Proof plan:
+
+1. The full kernel factorizes uniquely as a Teichmüller constant times a Tate tower. A principal element has residue one; the Teichmüller factor is therefore one.
+2. The already specified Tate inclusion is injective and continuous. Its arithmetic action is multiplication by the unit character, while scalar powers are multiplication of exponents; the imported completed-action interface gives the Tate Λ action. Compactness makes its image closed.
+
+Prerequisites: ColemanPowerSeries:L2/principal-coleman-linear-map, ColemanPowerSeries:L0/teichmuller-unit-splitting, ColemanPowerSeries:L3/raw-coleman-kernel, ColemanPowerSeries:L0/tate-module-inclusion, ColemanPowerSeries:L0/norm-tower-galois-action, ColemanPowerSeries:L0/principal-tower-scalar-adapter, ColemanPowerSeries:L0/principal-completed-action-adapter.
+
+Acceptance: The μ_(p−1) factor disappears by restriction to principal units, not by assigning it zero as a scalar module.
+
+Sources: RJW-published, Theorem12.17, pp.184–185. The cited passage supplies this arithmetic target. The native-carrier adapter and the separate closure/compactness steps are worker deductions. The corrected argument follows the independently reviewed extraction where the printed proof omits a hypothesis or equality. Literal excerpt: “Theorem 12.17. The Coleman map induces an exact sequence of 0-modules”.
+
+#### The fundamental principal Coleman sequence
+
+**ColemanPowerSeries:L3/principal-coleman-sequence** — theorem; proposed declaration **ColemanCyclotomic.principalColeman_exact**.
+
+Atlas planet: Fundamental Coleman exact sequence.
+
+For odd p, 0→ℤ_p(1)→Additive(U∞,1)→Λ(G)→ℤ_p(1)→0 is exact as Λ(G)-modules and topological modules. The maps are the actual Tate inclusion, principalColeman and cyclotomicMoment. Every kernel/image is closed and each map to its image has the quotient topology.
+
+Hypotheses: p is an odd prime, n≥0 denotes the source level n+1, K_n=ℚ_p(ζ_n), O_n is its native integral closure, U_n=O_nˣ and U∞ is the already constructed native norm-compatible subgroup. G=ℤ_pˣ acts through its power residues, and U∞,1 is the existing residue kernel. All topologies are the native norm/product/subtype topologies.
+
+Proof plan:
+
+1. The full image equals the principal image because the splitting writes every tower as a Teichmüller factor times a principal one and the Teichmüller factor is killed. Combine the actual range theorem, the new intrinsic weighting comparison and principal kernel.
+2. The moment is integration against the unit-value character, and hence equivariant for the cyclotomic endpoint action. Scalar linearity is native; the completed character-integral interface makes it Λ-linear.
+3. Use compact/Hausdorff closed-image and quotient-map arguments for the actual terms, as in the full sequence.
+
+Prerequisites: ColemanPowerSeries:L3/principal-coleman-kernel, ColemanPowerSeries:L2/principal-coleman-linear-map, ColemanPowerSeries:L3/intrinsic-unit-weighting-comparison, ColemanPowerSeries:L3/raw-coleman-range, ColemanPowerSeries:L3/cyclotomic-moment-surjective, ColemanPowerSeries:L3/coleman-sequence-topology, ColemanPowerSeries:L0/teichmuller-unit-splitting, PadicMeasuresIwasawaAlgebras:L1/character-integral-algebra-hom.
+
+Acceptance: Recovers Theorem12.17(ii), including the nontrivial Tate action on the endpoint.
+
+Sources: RJW-published, Theorem12.17, pp.184–185. The cited passage supplies this arithmetic target. The native-carrier adapter and the separate closure/compactness steps are worker deductions. The corrected argument follows the independently reviewed extraction where the printed proof omits a hypothesis or equality. Literal excerpt: “Theorem 12.17. The Coleman map induces an exact sequence of 0-modules”.
+
+#### Finite-flat transport of the entire sequence
+
+**ColemanPowerSeries:L3/finite-flat-coleman-sequence** — comparison; proposed declaration **ColemanCyclotomic.coleman_exact_baseChange**.
+
+Let A be a finite free commutative ℤ_p-algebra with its finite-module topology. Tensor the actual principal sequence by A: 0→A(1)→A⊗_(ℤ_p)Additive(U∞,1)→A⊗_(ℤ_p)Λ(G)→A(1)→0. It is exact, and its continuous maps and quotient topologies agree with the finite completed tensor products under the PMIA L5 comparison. Both endpoint lattices are A with the cyclotomic action.
+
+Hypotheses: p is an odd prime, n≥0 denotes the source level n+1, K_n=ℚ_p(ζ_n), O_n is its native integral closure, U_n=O_nˣ and U∞ is the already constructed native norm-compatible subgroup. G=ℤ_pˣ acts through its power residues, and U∞,1 is the existing residue kernel. All topologies are the native norm/product/subtype topologies.
+
+Proof plan:
+
+1. Use flatness of the finite free coefficient module and the requested generic tensor-exactness result, applied to each of the two short exact sequences cut out by the actual middle image.
+2. With a finite basis of A, tensoring a compact ℤ_p-module is a finite direct sum, equipped with the finite product topology. Check basis-independence and compare algebraic and completed tensors using the precise owner interface.
+3. Transport both Tate maps, principalColeman and the first-moment endpoint; identify A⊗ℤ_p(1) with A(1). Do not substitute an arithmetic A-tower for the tensor module without a separate comparison.
+
+Prerequisites: ColemanPowerSeries:L3/principal-coleman-sequence, PadicMeasuresIwasawaAlgebras:L5, PadicMeasuresIwasawaAlgebras:L0.
+
+Acceptance: Changes all four terms; tensoring only Λ or its series realization is insufficient.
+
+Sources: RJW-published, Theorem12.17, pp.184–185. The cited passage supplies this arithmetic target. The native-carrier adapter and the separate closure/compactness steps are worker deductions. The corrected argument follows the independently reviewed extraction where the printed proof omits a hypothesis or equality. Literal excerpt: “Theorem 12.17. The Coleman map induces an exact sequence of 0-modules”.
 
 ### ColemanPowerSeries:L4
 
-## Inherited source corrections
+#### The root-compatible local embedding
 
-### ColemanPowerSeries/E1
+**ColemanPowerSeries:L4/global-to-local-cyclotomic-embedding** — construction; proposed declaration **ColemanCyclotomic.globalLocalEmbedding**.
 
-RJW-published, Definition 10.14/Theorem 10.15, published p.170 / PDF 71; arXiv v2 p.52; compare published Proposition 10.4/Lemma 10.5 p.165 and Definition 4.10 p.138.
+Construct the unique ℚ-algebra embedding F_n→K_n sending the supplied global ζ_(p^(n+1)) to the chosen local ζ_n. It commutes with consecutive field inclusions and intertwines global complex conjugation with finiteAction_n(−1).
 
-Correction: With the displayed composite call the map Col₀ and write Col₀(c(a))=−θ_a ζ_p. Define Col=−Col₀ for the positive formula; do not renormalize ζ_p.
+Hypotheses: p is an odd prime, n≥0 denotes the source level n+1, K_n=ℚ_p(ζ_n), O_n is its native integral closure, U_n=O_nˣ and U∞ is the already constructed native norm-compatible subgroup. G=ℤ_pˣ acts through its power residues, and U∞,1 is the existing residue kernel. All topologies are the native norm/product/subtype topologies. F_n=TauCeti.CyclotomicTower.Qmu(p^(n+1)); D_n and D_n⁺ are the imported actual global cyclotomic subgroups. Their local images are formed using the fixed root-compatible embedding, not by identifying complex and p-adic elements. Write c=σ_(-1), G_n=(ℤ/p^(n+1)ℤ)ˣ, G_n⁺=G_n/⟨−1⟩ and G⁺=G/⟨−1⟩. Real means fixed by c. When a generator is used, a>1 is a fixed natural integer prime to p whose image â in G topologically generates G: its integral powers are dense in G. Put b=(1−a)/2 in ℤ_p and w=ω(a mod p)⁻¹. Λ(G) is the supplied integral unit-measure convolution ring M=D(G,ℤ_p) with weak topology; Λ(G⁺) is its supplied quotient-group counterpart.
 
-Reason: Δ(f_a)=a−1−F_a. Unit restriction kills constants, so the subsequent linear inverse derivative and Amice inverse give −x⁻¹ Res μ_a=−θ_a ζ_p. The positive formula contradicts these independently fixed definitions. The a=3 expansion checks the algebraic sign; it is not a proof of the measure comparison.
+Proof plan:
 
-Effect: a stated result. The version and bounded prior-art search record are retained in the packet.
+1. Both primitive roots have the same rational cyclotomic minimal polynomial. Its simple-adjoin universal property gives the embedding; injectivity follows for a unital map out of a field.
+2. The primitive root generates F_n, so compatibility with inclusion and conjugation follows by equality on it and on ℚ. No continuity from the complex subspace topology to the p-adic topology is asserted.
 
-### ColemanPowerSeries/E2
+API:
 
-RJW-published, Proof of Lemma 10.8, published p.167 / PDF 68; arXiv v2 p.49.
+- **ColemanCyclotomic.globalLocalEmbedding_zeta** (simp): The global primitive root maps to ζ_n.
+- **ColemanCyclotomic.globalLocalEmbedding_injective** (extensionality): globalLocalEmbedding_n is injective.
+- **ColemanCyclotomic.globalLocalEmbedding_tower** (functoriality): The embedding commutes with the actual consecutive global/local inclusions.
+- **ColemanCyclotomic.globalLocalEmbedding_conjugation** (compatibility): It intertwines global complex conjugation and finiteAction_n(−1).
 
-Correction: Construct the finite-free extension and its determinant norm over ℤ_p first. Identify the product only after adjoining μ_p and using the completed coefficient topology; descend the equality.
+Tests:
 
-Reason: For nontrivial η∈μ_p with odd p, η−1 is not a coefficient in ℤ_p, so T↦η(1+T)−1 is not an endomorphism of ℤ_p[[T]]. Moreover its constant coefficient is topologically nilpotent but not nilpotent; the pinned formal subst API is insufficient even after extending coefficients. The product formula remains a target with the correct base-change and convergence proof.
+- **GlobalLocalTests.one** (degenerate): The global element 1 maps to 1.
+- **GlobalLocalTests.ternary_root** (computation): At p=3,n=0, ζ_3²+ζ_3+1 maps to zero.
+- **GlobalLocalTests.conjugate** (compatibility): The global conjugate of ζ maps to ζ_n⁻¹.
 
-Effect: the proof. The version and bounded prior-art search record are retained in the packet.
+Uses: Definition11.8, p.176; Lemmas12.20–12.22, pp.186–188; Theorem12.23, pp.188–189: Places the imported global subgroups inside the actual local units without constructing new global cyclotomic fields. ColemanPowerSeries:L4 and the consuming declarations listed in this packet: Supplies this actual arithmetic object and its named maps, rather than a second supplier carrier.
 
-### ColemanPowerSeries/E3
+Prerequisites: IntegralIwasawaTheory:L0/compatible-cyclotomic-tower, IntegralIwasawaTheory:L0/real-subfield, ColemanPowerSeries:L0/local-cyclotomic-level, ColemanPowerSeries:L0/cyclotomic-root-primitivity, ColemanPowerSeries:L0/finite-cyclotomic-galois-action.
 
-RJW-published, §10.2 after Lemma 10.3, published p.165 / PDF 66; arXiv v2 p.48.
+Acceptance: Places the imported global subgroups inside the actual local units without constructing new global cyclotomic fields.
 
-Correction: For a>0 the series is the finite geometric sum. For negative integer parameters it is an invertible infinite formal series, with f_(−a)=−Y^(−a)f_a.
+Sources: RJW-published, Definition11.8, p.176; Lemmas12.20–12.22, pp.186–188; Theorem12.23, pp.188–189. The cited passage supplies this arithmetic target. The native-carrier adapter and the separate closure/compactness steps are worker deductions. The corrected argument follows the independently reviewed extraction where the printed proof omits a hypothesis or equality. Literal excerpt: “Theorem 12.23. The Coleman map induces”.
 
-Reason: The source allows any integer a prime to p. At a=−1, f_(−1)=−(1+T)⁻¹ has infinitely many nonzero coefficients over ℤ_p, so is not a polynomial. The finite-sum construction in this packet is explicitly restricted to natural parameters.
+#### The local map on global cyclotomic units
 
-Effect: a stated result. The version and bounded prior-art search record are retained in the packet.
+**ColemanPowerSeries:L4/global-cyclotomic-unit-local-map** — construction; proposed declaration **ColemanCyclotomic.globalLocalUnits**.
 
-### ColemanPowerSeries/E4
+Construct a monoid homomorphism from the supplied subgroup D_n⊂F_nˣ to O_nˣ by globalLocalEmbedding_n. The element and its inverse land in the actual integral closure, so this is a unit map. Real elements map to finiteAction_n(−1)-fixed units.
 
-RJW-published, Proof of Lemma 10.11(iii), published p.168 / PDF 69; arXiv v2 p.50.
+Hypotheses: p is an odd prime, n≥0 denotes the source level n+1, K_n=ℚ_p(ζ_n), O_n is its native integral closure, U_n=O_nˣ and U∞ is the already constructed native norm-compatible subgroup. G=ℤ_pˣ acts through its power residues, and U∞,1 is the existing residue kernel. All topologies are the native norm/product/subtype topologies. F_n=TauCeti.CyclotomicTower.Qmu(p^(n+1)); D_n and D_n⁺ are the imported actual global cyclotomic subgroups. Their local images are formed using the fixed root-compatible embedding, not by identifying complex and p-adic elements. Write c=σ_(-1), G_n=(ℤ/p^(n+1)ℤ)ˣ, G_n⁺=G_n/⟨−1⟩ and G⁺=G/⟨−1⟩. Real means fixed by c. When a generator is used, a>1 is a fixed natural integer prime to p whose image â in G topologically generates G: its integral powers are dense in G. Put b=(1−a)/2 in ℤ_p and w=ω(a mod p)⁻¹. Λ(G) is the supplied integral unit-measure convolution ring M=D(G,ℤ_p) with weak topology; Λ(G⁺) is its supplied quotient-group counterpart.
 
-Correction: Perform the congruences in O_(K₁)[[T]], modulo p₁ p^k O_(K₁)[[T]], then intersect coefficientwise with ℤ_p[[T]].
+Proof plan:
 
-Reason: The ideal p₁ and η−1 belong to the ring of integers of K₁=ℚ_p(μ_p), not ℤ_p. For the descended difference, p₁p^k O_(K₁)∩ℤ_p=p^(k+1)ℤ_p. This repairs the ambient ring without changing the asserted congruence.
+1. A global integral unit and its inverse are integral over ℤ. Transport their monic integral equations through the embedding and the scalar map ℤ→ℤ_p, giving elements of O_n whose product is one.
+2. The global/local conjugation square proves the real assertion. Norm compatibility is proved separately, not inferred from the word cyclotomic.
 
-Effect: the proof. The version and bounded prior-art search record are retained in the packet.
+API:
 
-### ColemanPowerSeries/E5
+- **ColemanCyclotomic.globalLocalUnits_field** (data): Its field value is globalLocalEmbedding_n of the underlying global unit.
+- **ColemanCyclotomic.globalLocalUnits_injective** (extensionality): The local unit map is injective.
+- **ColemanCyclotomic.globalLocalUnits_cUnit** (simp): The image of the imported c_n(a) is evaluation_n(q_a).
+- **ColemanCyclotomic.globalLocalUnits_real** (compatibility): An element of D_n⁺ maps to a conjugation-fixed local unit.
 
-RJW-published, Last displayed geometric-series equality in Proposition 4.4 proof, published p.137 / PDF 38 (rendered); arXiv v2 p.27.
+Tests:
 
-Correction: Insert a minus sign before the sum over n≥1, or use Σ_(n≥1)(−1)^(n+1)T^(n−1)g(T)^n.
+- **GlobalLocalUnitTests.one** (degenerate): The image of the identity unit is 1.
+- **GlobalLocalUnitTests.minus_one** (computation): The image of the global unit −1 is −1.
+- **GlobalLocalUnitTests.ternary_two** (compatibility): At p=3,n=0 the image of c_1(2) is 1+ζ_0.
 
-Reason: Since F=(1−(1+Tg)⁻¹)/T, the geometric tail is subtracted, not added. For a=3, g=1+T/3 and F has constant coefficient +1; the printed series has constant coefficient −1. Integrality remains correct, but the formula cannot define the source's F_a.
+Uses: Definition11.8, p.176; Lemmas12.20–12.22, pp.186–188; Theorem12.23, pp.188–189: Is the exact map whose topological image closure defines local cyclotomic units. ColemanPowerSeries:L4 and the consuming declarations listed in this packet: Supplies this actual arithmetic object and its named maps, rather than a second supplier carrier.
 
-Effect: the proof. The version and bounded prior-art search record are retained in the packet.
+Prerequisites: ColemanPowerSeries:L4/global-to-local-cyclotomic-embedding, IntegralIwasawaTheory:L0/cyclotomic-unit-group, IntegralIwasawaTheory:L0/smoothed-cyclotomic-unit, ColemanPowerSeries:L0/cyclotomic-integral-closure.
 
-### ColemanPowerSeries/E6
+Acceptance: Is the exact map whose topological image closure defines local cyclotomic units.
 
-RJW-published, §4.1 before Lemma 4.2, published p.136 / PDF 37; arXiv v2 p.26.
+Sources: RJW-published, Definition11.8, p.176; Lemmas12.20–12.22, pp.186–188; Theorem12.23, pp.188–189. The cited passage supplies this arithmetic target. The native-carrier adapter and the separate closure/compactness steps are worker deductions. The corrected argument follows the independently reviewed extraction where the printed proof omits a hypothesis or equality. Literal excerpt: “Theorem 12.23. The Coleman map induces”.
 
-Correction: Use a positive integer a (in the analytic Mellin argument) and retain a>1 prime to p in the smoothing supplier. Negative parameters require an independent algebraic power-series argument.
+#### The real local unit subgroup
 
-Reason: The phrase integer coprime to p allows a=−1. Then 1/(e^t−1)+1/(e^(−t)−1)=−1 for positive t, which does not decay. The Mellin-transform hypothesis fails; this does not obstruct the positive-parameter p-adic construction.
+**ColemanPowerSeries:L4/finite-real-local-unit-subgroup** — construction; proposed declaration **ColemanCyclotomic.realLocalUnits**.
 
-Effect: the proof. The version and bounded prior-art search record are retained in the packet.
+Define realLocalUnits_n⊂O_nˣ as the equalizer of the unit automorphism finiteAction_n(−1) and the identity. Its principal part is its intersection with the actual residue-one subgroup.
 
-### ColemanPowerSeries/E7
+Hypotheses: p is an odd prime, n≥0 denotes the source level n+1, K_n=ℚ_p(ζ_n), O_n is its native integral closure, U_n=O_nˣ and U∞ is the already constructed native norm-compatible subgroup. G=ℤ_pˣ acts through its power residues, and U∞,1 is the existing residue kernel. All topologies are the native norm/product/subtype topologies. F_n=TauCeti.CyclotomicTower.Qmu(p^(n+1)); D_n and D_n⁺ are the imported actual global cyclotomic subgroups. Their local images are formed using the fixed root-compatible embedding, not by identifying complex and p-adic elements. Write c=σ_(-1), G_n=(ℤ/p^(n+1)ℤ)ˣ, G_n⁺=G_n/⟨−1⟩ and G⁺=G/⟨−1⟩. Real means fixed by c. When a generator is used, a>1 is a fixed natural integer prime to p whose image â in G topologically generates G: its integral powers are dense in G. Put b=(1−a)/2 in ℤ_p and w=ω(a mod p)⁻¹. Λ(G) is the supplied integral unit-measure convolution ring M=D(G,ℤ_p) with weak topology; Λ(G⁺) is its supplied quotient-group counterpart.
 
-RJW-published, Final sentence in proof of Proposition 4.11, published p.139 / PDF 40; arXiv v2 p.28.
+Proof plan:
 
-Correction: Handle k=1 separately: ζ(0)=−1/2, but the Euler factor 1−p^(k−1) is zero. For odd k>1 the negative-even zeta value is zero; even k has positive sign.
+1. The equalizer is a native subgroup because the automorphism is a group homomorphism. It is closed by continuity and Hausdorffness.
+2. Use the scalar fixedness and cyclotomic root inversion formula to identify the needed constant and root cases.
 
-Reason: The printed iff between nonvanishing of ζ(1−k) and even k misses k=1. The interpolation conclusion remains unchanged because its Euler factor kills that exceptional case.
+API:
 
-Effect: the proof. The version and bounded prior-art search record are retained in the packet.
+- **ColemanCyclotomic.mem_realLocalUnits** (characterisation): u∈realLocalUnits_n iff finiteAction_n(−1)(u)=u.
+- **ColemanCyclotomic.realLocalUnits_closed** (compatibility): The subgroup is closed and compact.
+- **ColemanCyclotomic.realLocalUnits_scalar** (simp): Every scalar unit from ℤ_p is real.
+- **ColemanCyclotomic.realLocalUnits_root** (characterisation): A p-power root of unity in realLocalUnits_n is 1, since p is odd.
 
-### ColemanPowerSeries/E8
+Tests:
 
-RJW-published, Proof of Lemma 4.7, published p.137 / PDF 38; arXiv v2 pp.27–28.
+- **RealLocalTests.one** (degenerate): 1 belongs to realLocalUnits_n.
+- **RealLocalTests.minus_one** (computation): −1 belongs to realLocalUnits_n.
+- **RealLocalTests.root_excluded** (non-example): The primitive root ζ_n does not belong to realLocalUnits_n.
 
-Correction: Either define and compare an extension of the trace operator to a suitable localization, or prove the rational partial-fraction identity after clearing denominators and apply it to the already-integral F_a. Do not apply the bounded-series ψ to 1/T directly.
+Uses: Definition11.8, p.176; Lemmas12.20–12.22, pp.186–188; Theorem12.23, pp.188–189: Pins the meaning of plus on local units independently of the global complex carrier. ColemanPowerSeries:L4 and the consuming declarations listed in this packet: Supplies this actual arithmetic object and its named maps, rather than a second supplier carrier.
 
-Reason: The ψ constructed from bounded measures acts on ℤ_p[[T]], which does not contain T⁻¹. The displayed calculation is a useful rational-function identity, but the asserted domain extension and agreement with bounded ψ are missing. The Dirichlet supplier must discharge this proof interface.
+Prerequisites: ColemanPowerSeries:L0/finite-cyclotomic-galois-action, ColemanPowerSeries:L0/cyclotomic-reduction-continuity.
 
-Effect: the proof. The version and bounded prior-art search record are retained in the packet.
+Acceptance: Pins the meaning of plus on local units independently of the global complex carrier.
 
-### ColemanPowerSeries/E9
+Sources: RJW-published, Definition11.8, p.176; Lemmas12.20–12.22, pp.186–188; Theorem12.23, pp.188–189. The cited passage supplies this arithmetic target. The native-carrier adapter and the separate closure/compactness steps are worker deductions. The corrected argument follows the independently reviewed extraction where the printed proof omits a hypothesis or equality. Literal excerpt: “Theorem 12.23. The Coleman map induces”.
 
-RJW-published, Proof of Proposition 12.1, series immediately preceding (12-1), published p.178 / PDF 79; arXiv v2 p.57.
+#### The closed local cyclotomic units
 
-Correction: The expansion of f_u starts at k=0; retain a₀(u).
+**ColemanPowerSeries:L4/local-cyclotomic-unit-closure** — construction; proposed declaration **ColemanCyclotomic.localCyclotomicUnits**.
 
-Reason: The next line requires a₀(u)≡1 mod p, and a unit series must have a unit constant coefficient. Starting the displayed expansion at k=1 contradicts that. The subsequent separated constant-term calculation uses the intended expansion.
+Atlas planet: Local cyclotomic units.
 
-Effect: nothing. The version and bounded prior-art search record are retained in the packet.
+Define C_n=(range(globalLocalUnits_n)).topologicalClosure inside the native O_nˣ. This is topological closure of the imported integral global subgroup, not the algebraic subgroup generated by local cyclotomic differences.
 
-### ColemanPowerSeries/E10
+Hypotheses: p is an odd prime, n≥0 denotes the source level n+1, K_n=ℚ_p(ζ_n), O_n is its native integral closure, U_n=O_nˣ and U∞ is the already constructed native norm-compatible subgroup. G=ℤ_pˣ acts through its power residues, and U∞,1 is the existing residue kernel. All topologies are the native norm/product/subtype topologies. F_n=TauCeti.CyclotomicTower.Qmu(p^(n+1)); D_n and D_n⁺ are the imported actual global cyclotomic subgroups. Their local images are formed using the fixed root-compatible embedding, not by identifying complex and p-adic elements. Write c=σ_(-1), G_n=(ℤ/p^(n+1)ℤ)ˣ, G_n⁺=G_n/⟨−1⟩ and G⁺=G/⟨−1⟩. Real means fixed by c. When a generator is used, a>1 is a fixed natural integer prime to p whose image â in G topologically generates G: its integral powers are dense in G. Put b=(1−a)/2 in ℤ_p and w=ω(a mod p)⁻¹. Λ(G) is the supplied integral unit-measure convolution ring M=D(G,ℤ_p) with weak topology; Λ(G⁺) is its supplied quotient-group counterpart.
 
-CS-2006, Theorem2.1.3 and the finite-zero sentence immediately following it, printed p.15 / PDF25; definition of distinguished polynomial on p.14.
+Proof plan:
 
-Correction: Require f≠0 in the preparation statement and in the finite-zero assertion; handle the zero series separately.
+1. Use the existing native topological-closure subgroup construction. The finite local unit group is compact Hausdorff, so C_n is a closed compact subgroup.
+2. Global generators map to the indicated local elements; their image is dense in C_n by definition.
 
-Reason: A distinguished polynomial is monic and hence nonzero. In the domain ℤ_p[[T]], a finite power of p times that polynomial times a unit cannot equal zero. The zero series also vanishes at every point of the infinite maximal ideal. The rendered publisher-layout page contains no nonzero qualification.
+API:
 
-Effect: a stated result. The version and bounded prior-art search record are retained in the packet.
-
-### ColemanPowerSeries/E11
-
-CS-2006, Proof of Proposition2.2.3, printed p.16 / PDF26; proof of Lemma2.3.2, printed p.18 / PDF28.
-
-Correction: Read the congruences in O[[T]], where O is the ring of integers of ℚ_p(μ_p), with ideals p₀O[[T]] or p₀p^kO[[T]]. Descend coefficients using p₀∩ℤ_p=pℤ_p (and its p^k multiple).
-
-Reason: The book defines R=ℤ_p[[T]], while p₀ and ξ−1 live in the coefficient extension O. The substitution values already belong to O[[T]], as correctly stated on p.15. Intersecting the extended ideal with ℤ_p yields the intended conclusion, without changing the norm or trace congruence.
-
-Effect: the proof. The version and bounded prior-art search record are retained in the packet.
-
-### ColemanPowerSeries/E12
-
-RJW-published, Proof of Lemma12.15, published p.184/PDF85 (page image checked); also arXiv2309.15692v2 p.62/PDF62.
-
-Correction: The leading nonconstant term is p^r a_r T^r. Choose r as the least positive index with nonzero coefficient. Since 1−p^r is a unit in Z_p, the fixed-series kernel is still exactly the constant series.
-
-Reason: φ substitutes (1+T)^p−1, whose linear coefficient is p. The r-th power therefore has leading term p^r T^r. Already f=T² has coefficient p² at T² after substitution, not p. The exponent does not alter the intended constants-kernel conclusion.
-
-Effect: the proof. The version and bounded prior-art search record are retained in the packet.
-
-### ColemanPowerSeries/E13
-
-RJW-published, Proof of Theorem12.9, published printed183 / PDF84, page image checked; also arXiv2309.15692v2 printed61 / PDF61.
-
-Correction: The kernel is μ_(p−1), as correctly stated in Theorem12.9 and Remark12.4. Only the kernel label in this proof sentence changes.
-
-Reason: A zero logarithmic derivative is a constant series unit c. The actual norm of that constant is c^p, so norm-fixedness is c^(p−1)=1. At p=3 the constant −1 is norm-fixed and has zero logarithmic derivative, but (−1)^3 is not one. Thus μ_p cannot be the intended kernel.
-
-Effect: the proof. The version and bounded prior-art search record are retained in the packet.
-
-## Native baseline declarations
-
-The packet supplies exact pinned modules and inspection provenance. These are imported native statements, not new targets.
-
-- **mathlib:PowerSeries** — The existing univariate formal-series carrier; all coefficients and units in the packet use it.
-- **mathlib:PowerSeries.derivative** — Formal derivative as an R-derivation for commutative semirings.
-- **mathlib:PowerSeries.coeff_derivative** — Coefficient n is coefficient n+1 multiplied by n+1; no characteristic-zero assumption.
-- **mathlib:PowerSeries.derivative.ext** — Equality from derivative and constant coefficient over a commutative additively torsion-free ring.
-- **mathlib:PowerSeries.derivative_inv** — Derivative of a unit inverse over a commutative ring, with the negative square of the inverse.
-- **mathlib:PowerSeries.derivative_C** — Derivative of a constant is zero.
-- **mathlib:PowerSeries.derivative_X** — Derivative of T is one.
-- **mathlib:PowerSeries.derivative_subst** — Formal chain rule when the substituted series has nilpotent constant coefficient.
-- **mathlib:PowerSeries.derivative_pow** — Natural-power derivative n f^(n−1) f'.
-- **mathlib:Derivation.leibniz** — Product rule for a derivation with the explicit algebra/module structures.
-- **mathlib:PowerSeries.isUnit_iff_constantCoeff** — A series over a ring is a unit iff its constant coefficient is a unit.
-- **mathlib:PowerSeries.map** — Coefficient ring homomorphism on formal series; map_id, map_comp and map_X read in the same section.
-- **mathlib:PowerSeries.substAlgHom** — Substitution packaged as an algebra homomorphism under HasSubst.
-- **mathlib:PowerSeries.HasSubst.of_constantCoeff_zero'** — A series with zero constant coefficient is formally substitutable.
-- **mathlib:PowerSeries.X_mul_injective** — Multiplication by T is injective over any coefficient semiring, with no domain hypothesis.
-- **mathlib:Algebra.leftMulMatrix** — The actual multiplication matrix in a specified basis; entry (i,j) is the i-th coordinate of f times the j-th basis vector.
-- **mathlib:Algebra.norm** — Existing determinant norm as a monoid homomorphism, specialized with the explicit Frobenius algebra.
-- **mathlib:Algebra.norm_algebraMap_of_basis** — The norm of a base scalar is its power by the finite basis cardinality.
-- **mathlib:Algebra.norm_eq_matrix_det** — A finite basis computes the norm as the determinant of left multiplication.
-- **mathlib:Algebra.trace** — Existing linear trace of left multiplication, specialized with the explicit Frobenius algebra.
-- **mathlib:Algebra.trace_eq_matrix_trace** — A finite basis computes the trace as the trace of the multiplication matrix.
-- **mathlib:IsCompact.nonempty_iInter_of_sequence_nonempty_isCompact_isClosed** — A decreasing sequence of nonempty closed sets with compact first set has nonempty intersection.
-- **mathlib:Matrix.det_apply** — Leibniz determinant formula, using output row σ(i) and input column i.
-- **mathlib:Module.Basis.mk** — A basis from a linearly independent spanning family in the specified module.
-- **mathlib:Module.Basis.mk_apply** — The constructed basis has the supplied vectors.
-- **mathlib:Module.Basis.sum_repr** — Finite reconstruction as the sum of coordinate-scaled basis vectors.
-- **mathlib:Module.finrank_eq_card_basis** — Over a nontrivial commutative ring, a finite basis identifies finrank with its index cardinality.
-- **mathlib:PadicInt.compactSpace** — Compactness of ℤ_p in its p-adic topology for prime p.
-- **mathlib:PadicInt.ext_of_toZModPow** — All finite residue maps together detect equality in ℤ_p.
-- **mathlib:PadicInt.ker_toZMod** — The residue map kernel is the maximal ideal.
-- **mathlib:PadicInt.ker_toZModPow** — The kernel of reduction modulo p^r is the ideal generated by p^r.
-- **mathlib:PadicInt.maximalIdeal_eq_span_p** — The maximal ideal of ℤ_p is generated by p.
-- **mathlib:PadicInt.toZMod** — The residue ring homomorphism ℤ_p→ZMod p.
-- **mathlib:Pi.compactSpace** — Products of compact spaces are compact, including series coefficients and finite coordinate tuples.
-- **mathlib:PowerSeries.WithPiTopology.continuous_coeff** — Every coefficient map is continuous in the explicitly scoped coefficientwise topology.
-- **mathlib:PowerSeries.coeff_expand** — The coefficient at n is zero unless p divides n, then the coefficient at n/p.
-- **mathlib:PowerSeries.coeff_subst'** — Coefficient formula for substitution; here zero constant term makes the relevant sum finite for each coefficient.
-- **mathlib:PowerSeries.expand** — Substitution by T^p for nonzero p, with the actual coefficient ring retained.
-- **mathlib:PowerSeries.map_subst** — Coefficient homomorphisms commute with valid formal substitution.
-- **mathlib:RingHom.toAlgebra** — Algebra structure with a·x=i(a)x from a ring homomorphism; explicitly handles the warned self-action diamond.
-- **mathlib:Subgroup** — Existing subgroup structure on the actual unit group; no new unit carrier.
-- **mathlib:PowerSeries.binomialSeries** — Existing binomial series; use exponent ring ℤ and coefficient ring R with its canonical ℤ-algebra, not a new family.
-- **mathlib:PowerSeries.binomialSeries_nat** — For natural exponents the existing binomial series is (1+X)^n.
-- **mathlib:PowerSeries.binomialSeries_add** — Adding exponents multiplies their binomial series; in particular opposite exponents multiply to 1.
-- **mathlib:PowerSeries.binomialSeries_zero** — Exponent zero gives the unit series 1.
-- **mathlib:PowerSeries.binomialSeries_constantCoeff** — Every binomial series has constant coefficient1.
-- **mathlib:PowerSeries.derivative_one** — D(1)=0.
-- **mathlib:PowerSeries.rescale_neg_one_invOneSubPow** — Relates the inverse-power series after rescaling by −1 to binomialSeries at a negative integer.
-- **mathlib:PowerSeries.coeff_rescale** — Rescaling by c multiplies coefficient n by cⁿ.
-- **mathlib:PowerSeries.invOneSubPow** — Existing unit inverse of (1−X)^d, with its explicit negative-binomial coefficients; not a newly planned unit constructor.
-- **mathlib:PadicInt.instBinomialRing** — Existing integral binomial-ring instance on the p-adic integers, under Fact p.Prime.
-- **mathlib:PadicInt.continuous_choose** — Each binomial coefficient function a↦choose(a,n) is continuous on ℤ_p.
-- **mathlib:PadicInt.denseRange_natCast** — Natural numbers have dense image in ℤ_p.
-- **mathlib:DenseRange.equalizer** — Two continuous maps into a Hausdorff space agreeing on a dense range agree everywhere.
-- **mathlib:PowerSeries.WithPiTopology.tendsto_iff_coeff_tendsto** — Convergence in the scoped product topology on power series is exactly coefficientwise convergence.
-- **mathlib:PowerSeries.WithPiTopology.continuous_C** — The constant-series map is continuous for the coefficient topology.
-- **mathlib:PowerSeries.binomialSeries_coeff** — Coefficient n of binomialSeries A a is choose(a,n) acting on 1.
-- **mathlib:PowerSeries.coeff_map** — Coefficient n of the existing coefficient map is the coefficient-ring map applied to coefficient n.
-- **mathlib:PowerSeries.coeff_C_mul** — Multiplication by a constant scales every coefficient, used to assemble coefficientwise divisibility witnesses.
-- **mathlib:PowerSeries.expand_apply** — Expansion by a nonzero p is exactly substitution by T^p.
-- **mathlib:PowerSeries.map_frobenius_expand** — Over an ExpChar-p commutative ring, coefficient Frobenius after expansion is the p-th power.
-- **mathlib:ZMod.frobenius_zmod** — Coefficient Frobenius on ZMod p is the identity for prime p.
-- **mathlib:frobenius_inj** — Frobenius is injective in a reduced commutative ring of exponential characteristic p.
-- **mathlib:add_pow_char** — In a commutative semiring of prime characteristic p, (x+y)^p=x^p+y^p.
-- **mathlib:RingHom.map_det** — A ring homomorphism sends a determinant to the determinant of the entrywise mapped matrix.
-- **mathlib:Ideal.Quotient.mk_eq_mk_iff_sub_mem** — Equality in an ideal quotient is equivalent to the difference belonging to the ideal.
-- **mathlib:Ideal.mem_span_singleton** — Membership in a principal ideal of a commutative semiring is divisibility by its generator.
-- **mathlib:Matrix.det_one_add_smul** — Exact expansion det(I+rM)=1+trace(M)r+Q(r)r² over any commutative ring and finite square matrix.
-- **mathlib:Continuous.continuous_symm_of_equiv_compact_to_t2** — The inverse of a continuous equivalence from a compact space to a Hausdorff space is continuous.
-- **mathlib:cauchySeq_tendsto_of_complete** — A Cauchy sequence in a complete uniform space has a limit.
-- **mathlib:PadicInt.norm_p_pow** — The norm of p^n in ℤ_p is p^(−n).
-- **mathlib:PadicInt.norm_le_one** — Every p-adic integer has norm at most one.
-- **mathlib:TendstoUniformly.continuous** — A uniform limit of functions that are frequently continuous is continuous.
-- **mathlib:IsCompact.isClosed** — A compact subset of a Hausdorff space is closed.
-- **mathlib:isCompact_range** — The range of a continuous map from a compact space is compact.
-- **mathlib:IsClosed.mem_of_tendsto** — A limit of a sequence or filter eventually in a closed set belongs to that set, for a nontrivial source filter.
-- **mathlib:Polynomial.induction_on'** — A predicate on polynomials follows from closure under addition and its values on all monomials.
-- **mathlib:Polynomial.taylor_monomial** — Taylor translation of monomial i k is C(k)(X+C(r))^i over any semiring.
-- **mathlib:Polynomial.taylorEquiv** — For a commutative ring, Taylor translation at r is an algebra equivalence with inverse translation at −r. At r=1 its surjectivity reduces polynomial comparison to powers of 1+T.
-- **mathlib:Module.Basis.repr_self_apply** — For a basis b, the j-th coordinate of b_i is 1 if i=j and 0 otherwise; used with the explicit Frobenius module.
-- **mathlib:PowerSeries.smul_eq_C_mul** — Over a semiring, scalar multiplication on power series is multiplication by the constant series C(a).
-- **mathlib:Polynomial.toPowerSeries** — The existing coefficient-preserving inclusion of polynomials into power series.
-- **mathlib:PowerSeries.WithPiTopology.denseRange_toPowerSeries** — For a commutative semiring with a topology, polynomial series are dense in the coefficientwise power-series topology, via truncations.
-- **mathlib:Derivation** — Native linear derivation with a Leibniz rule and vanishing on one.
-- **mathlib:DualNumber** — Native trivial square-zero extension, used only inside the determinant proof.
-- **mathlib:DualNumber.eps_pow_two** — The native epsilon has square zero over a semiring.
-- **mathlib:TrivSqZeroExt.inlHom** — Native inclusion of the coefficient ring into its trivial square-zero extension.
-- **mathlib:Matrix.det_mul** — Determinant multiplicativity for square matrices over a commutative ring, including empty index types.
-- **mathlib:Matrix.trace_mul_comm** — Cyclicity of the trace of a product with compatible finite matrix dimensions.
-- **mathlib:Matrix.trace_mul_cycle** — Cyclic permutation of a three-factor product inside trace.
-- **mathlib:Units.map** — A monoid homomorphism maps actual units to units and retains their inverse witnesses.
-- **mathlib:LinearMap.ker** — Native kernel submodule; applied to psi-id, not to psi.
-- **mathlib:Multiplicative** — Native type tag transporting additive structure to multiplicative notation.
-- **mathlib:Units.continuous_val** — Unit values are continuous in the native induced units topology.
-- **mathlib:Units.continuous_coe_inv** — Inverse unit values are continuous without assuming inversion is continuous on the whole monoid.
-- **mathlib:PowerSeries.subst_comp_subst_apply** — Composition of admissible substitutions, specialized to zero-constant cyclotomic parameters.
-- **mathlib:PadicInt.norm_p** — The norm of the prime in Z_p equals its reciprocal.
-- **mathlib:tendsto_pow_atTop_nhds_zero_of_norm_lt_one** — Powers of a norm-less-than-one ring element tend to zero.
-- **mathlib:PowerSeries.le_order_pow_of_constantCoeff_eq_zero** — A zero-constant series raised to k has order at least k.
-- **mathlib:PowerSeries.coeff_of_lt_order** — Every coefficient below the series order vanishes.
-- **mathlib:PowerSeries.WithPiTopology.summable_iff_summable_coeff** — Summability in the coefficient topology is equivalent to summability of every coefficient family.
-- **mathlib:NonarchimedeanGroup.multipliable_iff_tendsto_cofinite_one** — Its generated additive declaration NonarchimedeanAddGroup.summable_iff_tendsto_cofinite_zero gives unconditional summability in complete nonarchimedean additive groups exactly from cofinite convergence to zero. The additive form compiled in scratch.
-- **mathlib:Nat.cofinite_eq_atTop** — On natural numbers the cofinite and atTop filters agree.
-- **mathlib:Multipliable.hasProd** — Its generated additive Summable.hasSum theorem supplies convergence to the native topological sum.
-- **mathlib:HasProd.map** — Its generated additive HasSum.map theorem transports a sum through a continuous additive homomorphism.
-- **mathlib:hasProd_nat_add_iff** — Its generated additive hasSum_nat_add_iff theorem removes a finite initial segment of a natural-indexed sum.
-- **mathlib:PowerSeries.C_injective** — The native constant-series map is injective.
-- **mathlib:Continuous.isClosedEmbedding** — A continuous injection from compact to Hausdorff is a closed embedding.
-- **mathlib:Topology.IsQuotientMap.of_surjective_continuous** — A continuous surjection from compact to Hausdorff is a quotient map.
-- **mathlib:Units.isClosedEmbedding_embedProduct** — Closed embedding of native units into the ring and its opposite. The immediately following pinned instance gives compactness of units in any compact T1 topological monoid.
-- **mathlib:isClosed_eq** — The equalizer of two continuous maps into a Hausdorff space is closed.
-- **mathlib:isCompact_iff_compactSpace** — A set is compact precisely when its native subtype carries CompactSpace.
-- **mathlib:PowerSeries.map_surjective** — A surjective coefficient ring homomorphism induces a surjective map on formal power series.
-- **mathlib:ZMod.ringHom_surjective** — Any ring homomorphism from a ring into ZMod n is surjective, in particular PadicInt.toZMod.
-- **mathlib:IsLocalHom.of_surjective** — A surjective ring homomorphism from a commutative local ring to a nontrivial commutative ring is a local homomorphism.
-- **mathlib:IsLocalRing.surjective_units_map_of_local_ringHom** — A surjective local homomorphism of semirings induces a surjection on native units.
-- **mathlib:squeeze_zero** — A real-valued function squeezed between zero and a function tending to zero also tends to zero.
-- **mathlib:Nat.ordCompl_self_pow_mul** — For prime p, the native p-free part of p^r n equals that of n, including n=0.
-- **mathlib:Nat.ordCompl_eq_self_iff_zero_or_not_dvd** — The native p-free part of n equals n precisely when n=0 or p does not divide n.
-- **mathlib:PowerSeries.mk** — Construct the native power series from its actual sequence of coefficients.
-- **mathlib:PowerSeries.coeff_mk** — The coefficient of the native coefficient-sequence constructor is the given coefficient.
-- **mathlib:PowerSeries.ext** — Equality of all coefficients gives equality of native series.
-- **mathlib:PowerSeries.coeff_monomial** — The coefficient of a monomial is its scalar at the indicated degree and zero otherwise.
-- **mathlib:PowerSeries.coeff_invOfUnit** — Recursive coefficient formula for the actual inverse series with a chosen unit constant coefficient, over a commutative ring.
-- **mathlib:PowerSeries.mul_invOfUnit** — The inverse-series recursion is a genuine right inverse when the chosen unit is the constant coefficient.
-- **mathlib:PowerSeries.monomial_eq_C_mul_X_pow** — A native monomial of degree n is its constant coefficient multiplied by X^n.
-- **mathlib:PowerSeries.WithPiTopology.multipliable_one_add_of_tendsto_order_atTop_nhds_top** — Over a commutative semiring with a coefficient topology, factors 1+f_i have an unconditional product when their orders tend to infinity. No new Euler-product convergence theorem is planned.
-- **mathlib:PowerSeries.order_monomial** — A monomial has order its degree if its scalar is nonzero, and infinite order otherwise.
-- **mathlib:Multipliable.map_tprod** — A continuous monoid homomorphism to a Hausdorff monoid commutes with a multipliable product.
-- **mathlib:PowerSeries.WithPiTopology.continuous_constantCoeff** — The constant coefficient is continuous for the native coefficientwise topology.
-- **mathlib:HasProd.tendsto_prod_nat** — A product indexed by naturals is the limit of its finite range products.
-- **mathlib:PowerSeries.coeff_mul_X_pow'** — Multiplication by X^m shifts coefficients by m and makes all lower coefficients zero.
-- **mathlib:PowerSeries.X_pow_dvd_iff** — Divisibility by X^N is exactly vanishing of coefficients of degrees less than N.
-- **mathlib:ZMod.pow_card** — Every scalar a in F_p satisfies a^p=a; p is prime.
-- **mathlib:ZMod.natCast_eq_zero_iff** — The image of m in ZMod p is zero exactly when p divides m.
-- **tauceti:PowerSeries.aeval_subst** — A continuous R-algebra homomorphism applied to formal substitution evaluates the source series at the image of the substituted argument. HasSubst and HasEval are explicit; the complete separated linearly topologized target and continuous scalar action are required. No discrete-coefficient hypothesis.
-- **mathlib:PowerSeries.eval₂_C** — Topological evaluation of a constant series is the coefficient ring map, under its stated continuity and evaluation hypotheses.
-- **mathlib:PowerSeries.map_C** — Coefficientwise ring maps send constant series to constant series of the mapped scalar.
-- **mathlib:PowerSeries.WithPiTopology.isTopologicallyNilpotent_of_constantCoeff_zero** — A series with zero constant coefficient is topologically nilpotent in the coefficientwise topology.
-- **mathlib:Matrix.vandermonde** — The native Fin n square matrix whose i,j entry is (v i)^j; reused without a new matrix carrier.
-- **mathlib:Matrix.det_vandermonde_ne_zero_iff** — Over a commutative domain, the Vandermonde determinant is nonzero exactly when its tuple is injective.
-- **mathlib:IsPrimitiveRoot.pow_inj** — For a primitive kth root and i,j<k, equality of the ith and jth powers implies i=j.
-- **mathlib:Algebra.leftMulMatrix_eq_repr_mul** — The i,j entry of multiplication by f in basis b is the ith coordinate of f times b_j.
-- **mathlib:Matrix.det_diagonal** — The determinant of a diagonal matrix over a commutative ring is the finite product of its entries.
-- **mathlib:PowerSeries.map_injective** — An injective scalar ring homomorphism induces an injective coefficientwise map on native power series.
-- **mathlib:Polynomial.cyclotomic_prime_pow_eq_geom_sum** — theorem cyclotomic_prime_pow_eq_geom_sum {R : Type*} [CommRing R] {p n : ℕ} (hp : p.Prime) :
-- **mathlib:Polynomial.cyclotomic.monic** — theorem cyclotomic.monic (n : ℕ) (R : Type*) [Ring R] : (cyclotomic n R).Monic := by
-- **mathlib:cyclotomic_prime_pow_comp_X_add_one_isEisensteinAt** — theorem cyclotomic_prime_pow_comp_X_add_one_isEisensteinAt [hp : Fact p.Prime] (n : ℕ) :
-- **mathlib:Polynomial.IsWeaklyEisensteinAt.map** — theorem map (hf : f.IsWeaklyEisensteinAt 𝓟) {A : Type v} [CommSemiring A] (φ : R →+* A) :
-- **mathlib:Polynomial.Monic.isEisensteinAt_of_mem_of_notMem** — theorem _root_.Polynomial.Monic.isEisensteinAt_of_mem_of_notMem (hf : f.Monic) (h : 𝓟 ≠ ⊤)
-- **mathlib:Polynomial.IsEisensteinAt.irreducible** — theorem irreducible (hf : f.IsEisensteinAt 𝓟) (hprime : 𝓟.IsPrime) (hu : f.IsPrimitive)
-- **mathlib:PadicInt.prime_p** — theorem prime_p : Prime (p : ℤ_[p]) := by
-- **mathlib:Polynomial.Monic.irreducible_iff_irreducible_map_fraction_map** — theorem Monic.irreducible_iff_irreducible_map_fraction_map [IsIntegrallyClosed R] {p : R[X]}
-- **mathlib:Polynomial.algEquivAevalXAddC** — def algEquivAevalXAddC {R : Type*} [CommRing R] (t : R) : R[X] ≃ₐ[R] R[X] :=
-- **mathlib:MulEquiv.irreducible_iff** — lemma MulEquiv.irreducible_iff : Irreducible (f x) ↔ Irreducible x := by
-- **mathlib:IsPrimitiveRoot.pow_ne_one_of_pos_of_lt** — theorem pow_ne_one_of_pos_of_lt (h : IsPrimitiveRoot ζ k) (h0 : l ≠ 0) (hl : l < k) : ζ ^ l ≠ 1 :=
-- **mathlib:orderOf_eq_prime_pow** — theorem orderOf_eq_prime_pow (hnot : ¬x ^ p ^ n = 1) (hfin : x ^ p ^ (n + 1) = 1) :
-- **mathlib:IsPrimitiveRoot.orderOf** — protected theorem orderOf (ζ : M) : IsPrimitiveRoot ζ (orderOf ζ) :=
-- **mathlib:IsAlgClosed.exists_pow_nat_eq** — theorem exists_pow_nat_eq [IsAlgClosed k] (x : k) {n : ℕ} (hn : 0 < n) : ∃ z, z ^ n = x := by
-- **mathlib:HasEnoughRootsOfUnity.exists_primitiveRoot** — lemma exists_primitiveRoot (M : Type*) [CommMonoid M] (n : ℕ) [HasEnoughRootsOfUnity M n] :
-- **mathlib:IsPrimitiveRoot.intermediateField_adjoin_isCyclotomicExtension** — theorem _root_.IsPrimitiveRoot.intermediateField_adjoin_isCyclotomicExtension
-- **mathlib:IntermediateField.inclusion** — def inclusion {E F : IntermediateField K L} (hEF : E ≤ F) : E →ₐ[K] F :=
-- **mathlib:IsCyclotomicExtension.finite** — protected theorem finite [IsDomain B] [h₁ : Finite S] [h₂ : IsCyclotomicExtension S A B] :
-- **mathlib:IsCyclotomicExtension.finrank** — theorem finrank (hirr : Irreducible (cyclotomic n K)) : finrank K L = n.totient := by
-- **mathlib:Nat.totient_prime_pow** — theorem totient_prime_pow {p : ℕ} (hp : p.Prime) {n : ℕ} (hn : 0 < n) :
-- **mathlib:Module.finrank_mul_finrank** — theorem Module.finrank_mul_finrank : finrank F K * finrank K A = finrank F A := by
-- **mathlib:Module.Finite.right** — theorem right [hf : Module.Finite F A] : Module.Finite K A :=
-- **mathlib:IntermediateField.adjoin_eq_top_of_adjoin_eq_top** — theorem adjoin_eq_top_of_adjoin_eq_top [Algebra E K] [IsScalarTower F E K]
-- **mathlib:IntermediateField.adjoin_eq_top_of_algebra** — theorem adjoin_eq_top_of_algebra (hS : Algebra.adjoin F S = ⊤) : adjoin F S = ⊤ :=
-- **mathlib:IsCyclotomicExtension.adjoin_primitive_root_eq_top** — theorem adjoin_primitive_root_eq_top {n : ℕ} [NeZero n] [IsDomain B]
-- **mathlib:PowerBasis.ofAdjoinEqTop** — noncomputable def _root_.PowerBasis.ofAdjoinEqTop {x : S} (hx : IsIntegral K x)
-- **mathlib:PowerBasis.natDegree_minpoly** — theorem natDegree_minpoly [Nontrivial A] (pb : PowerBasis A S) :
-- **mathlib:PowerBasis.finrank** — theorem finrank [StrongRankCondition R] (pb : PowerBasis R S) :
-- **mathlib:Polynomial.eq_of_monic_of_dvd_of_natDegree_le** — lemma eq_of_monic_of_dvd_of_natDegree_le {p q : R[X]} (hp : p.Monic)
-- **mathlib:minpoly.dvd** — theorem dvd {p : A[X]} (hp : Polynomial.aeval x p = 0) : minpoly A x ∣ p := by
-- **mathlib:minpoly.monic** — theorem monic (hx : IsIntegral A x) : Monic (minpoly A x) := by
-- **mathlib:minpoly.add_algebraMap** — theorem add_algebraMap {B : Type*} [CommRing B] [Algebra A B] (x : B)
-- **mathlib:Algebra.PowerBasis.norm_gen_eq_coeff_zero_minpoly** — theorem PowerBasis.norm_gen_eq_coeff_zero_minpoly (pb : PowerBasis R S) :
-- **mathlib:PowerBasis.adjoin_eq_top_of_gen_mem_adjoin** — theorem adjoin_eq_top_of_gen_mem_adjoin {B : PowerBasis R S} {x : S}
-- **mathlib:IsPrimitiveRoot.eq_neg_one_of_two_right** — theorem eq_neg_one_of_two_right [NoZeroDivisors R] {ζ : R} (h : IsPrimitiveRoot ζ 2) : ζ = -1 :=
-- **mathlib:IsPrimitiveRoot.of_map_of_injective** — theorem of_map_of_injective [MonoidHomClass F M N] (h : IsPrimitiveRoot (f ζ) k)
-- **mathlib:minpoly.aeval** — The minimal polynomial of an element evaluates to zero at that element.
-- **mathlib:IsIntegral.of_pow** — Integrality of a positive power implies integrality of the element.
-- **mathlib:IsIntegral.sub** — Integral elements over a commutative base remain integral under subtraction.
-- **mathlib:minpoly.isIntegrallyClosed_eq_field_fractions'** — Over an integrally closed domain, the minimal polynomial of an integral element maps to its fraction-field minimal polynomial.
-- **mathlib:IsPrimitiveRoot.subOnePowerBasis** — Native power basis generated by a primitive root minus one in a cyclotomic extension over a field.
-- **mathlib:IsPrimitiveRoot.minpoly_sub_one_eq_cyclotomic_comp** — Under cyclotomic irreducibility, the minimal polynomial of a primitive root minus one is the shifted cyclotomic polynomial.
-- **mathlib:IsDiscreteValuationRing.exists_units_eq_smul_zpow_of_irreducible** — Every nonzero element of the fraction field of a DVR is a unit scalar times an integer power of a specified irreducible.
-- **mathlib:mem_adjoin_of_smul_prime_pow_smul_of_minpoly_isEisensteinAt** — For an integral power-basis generator with Eisenstein minimal polynomial over an integrally closed domain, p-power denominator clearing puts every such integral element in the adjoin.
-- **mathlib:adjoin_le_integralClosure** — The adjoin of an integral element is contained in the native integral closure.
-- **mathlib:integralClosure** — The subalgebra of elements integral over the specified base.
-- **mathlib:PowerBasis.ofAdjoinEqTop'** — Native power-basis constructor for an integral generator of an algebra over an integrally closed domain, with the domain and torsion-freeness hypotheses.
-- **mathlib:PowerBasis.ofAdjoinEqTop'_gen** — The generator of that native power basis is the specified integral element.
-- **mathlib:PowerBasis.exists_smodEq** — Every element of an algebra with a power basis is congruent to a scalar modulo the ideal generated by its generator.
-- **mathlib:PowerBasis.lift** — A native algebra homomorphism from a power-basis algebra given a root of its generator’s minimal polynomial in the target.
-- **mathlib:PowerBasis.lift_gen** — The native power-basis lift sends the generator to the chosen root.
-- **mathlib:PowerBasis.lift_aeval** — The native power-basis lift commutes with polynomial evaluation at the generator.
-- **mathlib:PowerBasis.algHom_ext** — Algebra homomorphisms out of a power-basis algebra are equal if they agree on its generator.
-- **mathlib:minpoly.algebraMap_eq** — An injective algebra map preserves the minimal polynomial of an element.
-- **mathlib:RingHom.quotientKerEquivOfSurjective** — Native ring equivalence from the quotient by a surjective ring homomorphism’s kernel to its target.
-- **mathlib:Polynomial.natDegree_cyclotomic** — Over a nontrivial coefficient ring, the cyclotomic polynomial has degree equal to the Euler totient.
-- **mathlib:Polynomial.natDegree_comp** — The natural degree of polynomial composition is the product of natural degrees under the native domain hypotheses.
-- **mathlib:Polynomial.X_dvd_iff** — A polynomial is divisible by X precisely when its constant coefficient is zero.
-- **mathlib:Polynomial.IsWeaklyEisensteinAt.pow_natDegree_le_of_aeval_zero_of_monic_mem_map** — A root of a monic weakly Eisenstein polynomial has all powers at least its mapped natural degree in the mapped coefficient ideal.
-- **mathlib:Polynomial.Monic.natDegree_map** — A monic polynomial retains its natural degree after coefficient mapping to a nontrivial semiring.
-- **mathlib:RingHom.ker_isMaximal_of_surjective** — The kernel of a surjective ring homomorphism to a division ring is maximal.
-- **mathlib:Ideal.isMaximal_comap_of_isIntegral_of_isMaximal** — In an integral algebra extension, the contraction of a maximal ideal is maximal.
-- **mathlib:IsLocalRing.eq_maximalIdeal** — Every maximal ideal of a local ring equals its canonical maximal ideal.
-- **mathlib:Ideal.IsPrime.mem_of_pow_mem** — If a power of an element lies in a prime ideal, that element lies in the ideal.
-- **mathlib:IsLocalRing.of_unique_max_ideal** — A commutative semiring with a unique maximal ideal is a native local ring.
-- **mathlib:PowerBasis.finite** — A native power basis supplies a finite module instance.
-- **mathlib:IsNoetherianRing.of_finite** — A module-finite algebra over a Noetherian ring is Noetherian.
-- **mathlib:IsDiscreteValuationRing.TFAE** — For a Noetherian local domain that is not a field, DVR structure is equivalent to a principal maximal ideal and the other listed native conditions.
-- **mathlib:IsLocalRing.isField_iff_maximalIdeal_eq** — A local commutative ring is a field exactly when its maximal ideal is zero.
-- **mathlib:IsPrimitiveRoot.sub_one_ne_zero** — A primitive root of order greater than one has nonzero difference from one.
-- **mathlib:IsDiscreteValuationRing.irreducible_of_span_eq_maximalIdeal** — Every maximal ideal of a local ring equals its canonical maximal ideal.
-- **mathlib:IsLocalRing.ResidueField** — The native residue field of a commutative local ring is its quotient by the canonical maximal ideal.
-- **mathlib:IsLocalRing.residue** — The native quotient homomorphism from a local ring to its residue field.
-- **mathlib:Ideal.quotEquivOfEq** — Equal ideals give canonically equivalent quotient rings.
-- **mathlib:Ideal.quotEquivOfEq_mk** — The equivalence between quotients by equal ideals preserves the class of every representative.
-- **mathlib:IsLocalRing.residue_surjective** — The native residue map is surjective.
-- **mathlib:IsLocalRing.mem_maximalIdeal** — Membership in the maximal ideal of a local ring is equivalent to being a nonunit.
-- **mathlib:PowerBasis.exists_eq_aeval** — A native power basis represents every element by a polynomial of natural degree less than the basis dimension.
-- **mathlib:IsCompact.image** — A continuous image of a compact set is compact.
-- **mathlib:IsCompact.isComplete** — A compact subset of a uniform space is complete.
-- **mathlib:IsLinearTopology.mk_of_hasBasis** — A neighborhood basis consisting of additive submonoids closed under scalar multiplication gives the native linear-topology class.
-- **mathlib:IsOfFinOrder.norm_eq_one** — A finite-order element in a normed ring with multiplicative norm and norm-one property has norm one.
-- **mathlib:IsPrimitiveRoot.isOfFinOrder** — A primitive root of nonzero natural order has finite multiplicative order.
-- **mathlib:Metric.nhds_basis_ball** — Positive-radius open metric balls form a neighborhood basis at every point.
-- **mathlib:PadicAlgCl.isNonarchimedean** — The spectral norm on PadicAlgCl p satisfies the ultrametric sum inequality.
-- **mathlib:PadicAlgCl.norm_extends** — The algebra map from ℚ_p to its native algebraic closure preserves the p-adic norm.
-- **mathlib:PadicAlgCl.normedField** — The native spectral norm on the algebraic closure of ℚ_p, multiplicative and extending the base norm.
-- **mathlib:Polynomial.IsEisensteinAt.coeff_mem** — Every coefficient away from the natural degree of an Eisenstein polynomial lies in its specified ideal.
-- **mathlib:PowerBasis** — The native power-basis structure includes a generator, finite basis and equality of each basis vector to the corresponding generator power.
-- **mathlib:PowerSeries.HasEval** — Native evaluability is topological nilpotence of the target element.
-- **mathlib:PowerSeries.coe_eval₂Hom** — The underlying function of the evaluation homomorphism is native eval₂.
-- **mathlib:PowerSeries.continuous_eval₂** — Continuity of evaluation for the native coefficientwise topology with the full complete Hausdorff linear-topology hypotheses.
-- **mathlib:PowerSeries.eval₂Hom** — Evaluation ring homomorphism for continuous coefficients and a topologically nilpotent target in a complete Hausdorff linearly topologized ring.
-- **mathlib:PowerSeries.eval₂_X** — Native eval₂ sends the series variable to the chosen evaluation point.
-- **mathlib:PowerSeries.eval₂_coe** — Evaluation of a native polynomial image agrees with polynomial eval₂.
-- **mathlib:PowerSeries.eval₂_unique** — A continuous function agreeing on polynomial images is uniquely the native evaluation function under its stated hypotheses.
-- **mathlib:PowerSeries.hasSum_eval₂** — The evaluated monomial series has sum native eval₂ under the evaluation hypotheses.
-- **mathlib:SubfieldClass.toNormedField** — A subfield of a normed field carries its induced subtype normed field structure.
-- **mathlib:SubringClass.toNormedCommRing** — A subring of a normed commutative ring carries its induced subtype normed ring structure.
-- **mathlib:completeSpace_of_isComplete_univ** — Completeness of the universe supplies CompleteSpace for its existing uniformity.
-- **mathlib:isCompact_univ_iff** — Compactness of the universe is equivalent to the native CompactSpace class.
-- **mathlib:norm_zpow** — The norm of any integer power in a normed division ring is the corresponding integer power of the norm.
-- **mathlib:integralClosure.isFractionRing_of_finite_extension** — For a finite field extension of the fraction field of a domain, its integral closure has that extension as fraction field, with the specified scalar tower.
-- **mathlib:zpow_right_strictAnti₀** — For a positive base strictly less than one, integer powers are strictly antitone in the exponent.
-- **mathlib:zpow_le_one_iff_right_of_lt_one₀** — For a positive base strictly less than one, its integer power is at most one exactly when the exponent is nonnegative.
-- **mathlib:NormedField.valuation** — The native multiplicative nonnegative-norm valuation of a field with ultrametric norm.
-- **mathlib:Valuation.Integers** — The native certificate that an algebra map is injective, has valuation bounded by one, and contains every element of valuation at most one in its image.
-- **mathlib:Valuation.mem_integer_iff** — Membership of the native valuation-integer subring is precisely valuation at most one.
-- **mathlib:Valuation.Integers.isUnit_iff_valuation_eq_one** — For a ring certified as the integers of a valuation on a field, an element is a unit exactly when its image has valuation one.
-- **mathlib:Ideal.span_singleton_pow** — Every natural power of a two-sided principal ideal equals the ideal generated by the corresponding power of its generator.
-- **mathlib:Valuation.Integers.dvd_iff_le** — For a ring certified as the integers of a field valuation, x divides y exactly when the valuation of y is at most that of x.
-- **mathlib:Ideal.span_singleton_mul_right_unit** — Multiplying a principal ideal generator on the right by a unit does not change the ideal.
-- **mathlib:Metric.nhds_basis_closedBall_pow** — For any base strictly between zero and one, closed metric balls with radii its natural powers form a neighborhood basis.
-- **mathlib:LinearMap.continuous_of_finiteDimensional** — A linear map from a finite-dimensional Hausdorff topological vector space over a complete nontrivially normed field is continuous, with the stated continuous module actions.
-- **mathlib:Algebra.isIntegral_norm** — The native field norm in a compatible scalar tower preserves integrality over the base commutative ring.
-- **mathlib:Continuous.units_map** — A continuous monoid homomorphism induces a continuous map on native units, controlling the element and inverse coordinates.
-- **mathlib:PowerSeries.eq_X_mul_shift_add_const** — A formal power series equals X times its shifted coefficient series plus its constant series.
-- **mathlib:PowerSeries.WithPiTopology.tendsto_trunc_atTop** — Native polynomial truncations converge to the power series in the coefficient topology over a topological commutative semiring.
-- **mathlib:MonoidHom.eqLocus** — The native subgroup equalizer of two monoid homomorphisms from a group to a monoid.
-- **mathlib:Subgroup.coe_iInf** — The carrier of a native infimum of subgroups is the intersection of their carriers.
-- **mathlib:MonoidHom.ker** — The native kernel subgroup of a group homomorphism, consisting of elements mapped to1.
-- **mathlib:IsLocallyConstant.iff_exists_open** — Local constancy is equivalent to having at each domain point an open neighborhood on which the function has that point’s value.
-- **mathlib:IsLocallyConstant.continuous** — A locally constant function is continuous for any topology on its codomain.
-- **mathlib:isClosed_iInter** — An arbitrary intersection of closed sets is closed.
-- **mathlib:IsClosed.isCompact** — A closed subset of a compact topological space is compact.
-- **mathlib:minpoly.isIntegrallyClosed_dvd** — Over an integrally closed domain with a torsion-free algebra, the minimal polynomial of an integral element divides every polynomial vanishing at it.
-- **mathlib:Polynomial.natDegree_le_of_dvd** — Over a domain, p dividing a nonzero q implies natDegree(p)≤natDegree(q).
-- **mathlib:PadicInt.exists_pow_neg_lt** — For ε>0 there is a natural k with p^(−k)<ε.
-- **mathlib:PadicInt.toZModPow** — The native ring homomorphism from ℤ_p to ZMod(p^n), defined by the p-adic approximation.
-- **mathlib:AbstractMeasure.dirac_apply** — For continuous f:X→R, the existing Dirac measure at x evaluates to f(x), with the native topological ring and continuous scalar hypotheses.
-- **mathlib:PadicInt.cast_toZModPow** — For m≤n, reducing the native residue modulo p^n to modulo p^m gives toZModPow(m).
-- **mathlib:PadicInt.norm_le_pow_iff_mem_span_pow** — For a p-adic integer x, norm(x)≤p^(−n) exactly when x belongs to the ideal generated by p^n.
-- **mathlib:Continuous.dist** — For continuous maps f,g from a topological space to a pseudometric space, b↦dist(f(b),g(b)) is continuous.
+- **ColemanCyclotomic.mem_localCyclotomicUnits** (characterisation): u∈C_n iff u is in the closure of the image of D_n.
+- **ColemanCyclotomic.localCyclotomicUnits_global** (constructor): Every globalLocalUnits_n(d) lies in C_n.
+- **ColemanCyclotomic.localCyclotomicUnits_closed** (compatibility): C_n is closed and compact.
+- **ColemanCyclotomic.localCyclotomicUnits_minimal** (universal-property): It is contained in every closed local subgroup containing the image of D_n.
+
+Tests:
+
+- **LocalCyclotomicTests.one** (degenerate): 1∈C_n.
+- **LocalCyclotomicTests.minus_one** (computation): −1∈C_n.
+- **LocalCyclotomicTests.root** (compatibility): The local primitive root ζ_n lies in C_n, as the image of the global root unit.
+
+Uses: Definition11.8, p.176; Lemmas12.20–12.22, pp.186–188; Theorem12.23, pp.188–189: Provides the local subgroup used by the infinite cyclotomic tower and quotient. ColemanPowerSeries:L4 and the consuming declarations listed in this packet: Supplies this actual arithmetic object and its named maps, rather than a second supplier carrier.
+
+Prerequisites: ColemanPowerSeries:L4/global-cyclotomic-unit-local-map, mathlib:Subgroup.topologicalClosure.
+
+Acceptance: Provides the local subgroup used by the infinite cyclotomic tower and quotient.
+
+Sources: RJW-published, Definition11.8, p.176; Lemmas12.20–12.22, pp.186–188; Theorem12.23, pp.188–189. The cited passage supplies this arithmetic target. The native-carrier adapter and the separate closure/compactness steps are worker deductions. The corrected argument follows the independently reviewed extraction where the printed proof omits a hypothesis or equality. Literal excerpt: “Theorem 12.23. The Coleman map induces”.
+
+#### The real local cyclotomic closure
+
+**ColemanPowerSeries:L4/real-local-cyclotomic-unit-closure** — construction; proposed declaration **ColemanCyclotomic.realLocalCyclotomicUnits**.
+
+Define C_n⁺ as the topological closure inside O_nˣ of the image of the supplied D_n⁺. It lies in realLocalUnits_n. The equality C_n⁺=C_n∩realLocalUnits_n is a conclusion of the finite Tate/real splitting below, not an assumed commutation of closure and intersection.
+
+Hypotheses: p is an odd prime, n≥0 denotes the source level n+1, K_n=ℚ_p(ζ_n), O_n is its native integral closure, U_n=O_nˣ and U∞ is the already constructed native norm-compatible subgroup. G=ℤ_pˣ acts through its power residues, and U∞,1 is the existing residue kernel. All topologies are the native norm/product/subtype topologies. F_n=TauCeti.CyclotomicTower.Qmu(p^(n+1)); D_n and D_n⁺ are the imported actual global cyclotomic subgroups. Their local images are formed using the fixed root-compatible embedding, not by identifying complex and p-adic elements. Write c=σ_(-1), G_n=(ℤ/p^(n+1)ℤ)ˣ, G_n⁺=G_n/⟨−1⟩ and G⁺=G/⟨−1⟩. Real means fixed by c. When a generator is used, a>1 is a fixed natural integer prime to p whose image â in G topologically generates G: its integral powers are dense in G. Put b=(1−a)/2 in ℤ_p and w=ω(a mod p)⁻¹. Λ(G) is the supplied integral unit-measure convolution ring M=D(G,ℤ_p) with weak topology; Λ(G⁺) is its supplied quotient-group counterpart.
+
+Proof plan:
+
+1. Restrict globalLocalUnits_n to the imported real subgroup; this defines its actual image subgroup. Take native topological closure.
+2. The real subgroup is closed and contains that image, so closure minimality places C_n⁺ in it.
+
+API:
+
+- **ColemanCyclotomic.mem_realLocalCyclotomicUnits** (characterisation): Membership is closure of the local image of D_n⁺.
+- **ColemanCyclotomic.realLocalCyclotomicUnits_le** (compatibility): C_n⁺≤realLocalUnits_n and C_n⁺≤C_n.
+- **ColemanCyclotomic.realLocalCyclotomicUnits_closed** (compatibility): C_n⁺ is closed and compact.
+- **ColemanCyclotomic.realLocalCyclotomicUnits_global** (constructor): Every local image of a global real cyclotomic unit lies in C_n⁺.
+
+Tests:
+
+- **RealCyclotomicTests.one** (degenerate): 1∈C_n⁺.
+- **RealCyclotomicTests.minus_one** (computation): −1∈C_n⁺; it must not be discarded at this finite full-unit level.
+- **RealCyclotomicTests.root_excluded** (non-example): ζ_n∉C_n⁺ for odd p.
+
+Uses: Definition11.8, p.176; Lemmas12.20–12.22, pp.186–188; Theorem12.23, pp.188–189: Supplies the real closed subgroup whose principal part is cyclic. ColemanPowerSeries:L4 and the consuming declarations listed in this packet: Supplies this actual arithmetic object and its named maps, rather than a second supplier carrier.
+
+Prerequisites: ColemanPowerSeries:L4/global-cyclotomic-unit-local-map, ColemanPowerSeries:L4/finite-real-local-unit-subgroup, IntegralIwasawaTheory:L0/cyclotomic-unit-group, mathlib:Subgroup.topologicalClosure.
+
+Acceptance: Supplies the real closed subgroup whose principal part is cyclic.
+
+Sources: RJW-published, Definition11.8, p.176; Lemmas12.20–12.22, pp.186–188; Theorem12.23, pp.188–189. The cited passage supplies this arithmetic target. The native-carrier adapter and the separate closure/compactness steps are worker deductions. The corrected argument follows the independently reviewed extraction where the printed proof omits a hypothesis or equality. Literal excerpt: “Theorem 12.23. The Coleman map induces”.
+
+#### The principal local cyclotomic subgroup
+
+**ColemanPowerSeries:L4/principal-local-cyclotomic-units** — construction; proposed declaration **ColemanCyclotomic.principalLocalCyclotomicUnits**.
+
+Define C_(n,1) as C_n intersected with the residue-one local subgroup P_n=ker(Units.map(red_n)). Regard it as a closed submodule of Additive(P_n) using the supplied finite principal-unit ℤ_p-action.
+
+Hypotheses: p is an odd prime, n≥0 denotes the source level n+1, K_n=ℚ_p(ζ_n), O_n is its native integral closure, U_n=O_nˣ and U∞ is the already constructed native norm-compatible subgroup. G=ℤ_pˣ acts through its power residues, and U∞,1 is the existing residue kernel. All topologies are the native norm/product/subtype topologies. F_n=TauCeti.CyclotomicTower.Qmu(p^(n+1)); D_n and D_n⁺ are the imported actual global cyclotomic subgroups. Their local images are formed using the fixed root-compatible embedding, not by identifying complex and p-adic elements. Write c=σ_(-1), G_n=(ℤ/p^(n+1)ℤ)ˣ, G_n⁺=G_n/⟨−1⟩ and G⁺=G/⟨−1⟩. Real means fixed by c. When a generator is used, a>1 is a fixed natural integer prime to p whose image â in G topologically generates G: its integral powers are dense in G. Put b=(1−a)/2 in ℤ_p and w=ω(a mod p)⁻¹. Λ(G) is the supplied integral unit-measure convolution ring M=D(G,ℤ_p) with weak topology; Λ(G⁺) is its supplied quotient-group counterpart.
+
+Proof plan:
+
+1. Form the native subgroup intersection and its subgroupOf P_n; it is closed by continuity of reduction and closedness of C_n.
+2. The supplier’s abelian pro-p action preserves every closed subgroup, so the intersection is a ℤ_p-submodule. It does not assert the global integral subgroup itself is a ℤ_p-module.
+
+API:
+
+- **ColemanCyclotomic.mem_principalLocalCyclotomicUnits** (characterisation): u∈C_(n,1) iff u∈C_n and red_n(u)=1.
+- **ColemanCyclotomic.principalLocalCyclotomicUnits_closed** (compatibility): C_(n,1) is closed and compact.
+- **ColemanCyclotomic.principalLocalCyclotomicUnits_smul** (structure): It is stable under all finite-level ℤ_p scalar powers.
+
+Tests:
+
+- **PrincipalCyclotomicTests.one** (degenerate): 1∈C_(n,1).
+- **PrincipalCyclotomicTests.root** (computation): ζ_n∈C_(n,1).
+- **PrincipalCyclotomicTests.minus_one_excluded** (non-example): For odd p, −1∉C_(n,1) although −1∈C_n.
+
+Uses: Definition11.8, p.176; Lemmas12.20–12.22, pp.186–188; Theorem12.23, pp.188–189: Specifies the full finite principal subgroup whose norm limit is C∞,1. ColemanPowerSeries:L4 and the consuming declarations listed in this packet: Supplies this actual arithmetic object and its named maps, rather than a second supplier carrier.
+
+Prerequisites: ColemanPowerSeries:L4/local-cyclotomic-unit-closure, ColemanPowerSeries:L0/cyclotomic-reduction-continuity, ColemanPowerSeries:L0/principal-tower-pro-p, ColemanPowerSeries:L0/principal-tower-scalar-adapter, tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-4-free-pro-p-and-pro-c-groups-on-finite-sets.
+
+Acceptance: Specifies the full finite principal subgroup whose norm limit is C∞,1.
+
+Sources: RJW-published, Definition11.8, p.176; Lemmas12.20–12.22, pp.186–188; Theorem12.23, pp.188–189. The cited passage supplies this arithmetic target. The native-carrier adapter and the separate closure/compactness steps are worker deductions. The corrected argument follows the independently reviewed extraction where the printed proof omits a hypothesis or equality. Literal excerpt: “Theorem 12.23. The Coleman map induces”.
+
+#### The principal real cyclotomic subgroup
+
+**ColemanPowerSeries:L4/principal-real-local-cyclotomic-units** — construction; proposed declaration **ColemanCyclotomic.principalRealLocalCyclotomicUnits**.
+
+Define C_(n,1)⁺=C_n⁺∩P_n, as a closed ℤ_p-submodule of Additive(P_n). Its elements are both real and principal. This is different from the algebraic subgroup D_n⁺∩P_n.
+
+Hypotheses: p is an odd prime, n≥0 denotes the source level n+1, K_n=ℚ_p(ζ_n), O_n is its native integral closure, U_n=O_nˣ and U∞ is the already constructed native norm-compatible subgroup. G=ℤ_pˣ acts through its power residues, and U∞,1 is the existing residue kernel. All topologies are the native norm/product/subtype topologies. F_n=TauCeti.CyclotomicTower.Qmu(p^(n+1)); D_n and D_n⁺ are the imported actual global cyclotomic subgroups. Their local images are formed using the fixed root-compatible embedding, not by identifying complex and p-adic elements. Write c=σ_(-1), G_n=(ℤ/p^(n+1)ℤ)ˣ, G_n⁺=G_n/⟨−1⟩ and G⁺=G/⟨−1⟩. Real means fixed by c. When a generator is used, a>1 is a fixed natural integer prime to p whose image â in G topologically generates G: its integral powers are dense in G. Put b=(1−a)/2 in ℤ_p and w=ω(a mod p)⁻¹. Λ(G) is the supplied integral unit-measure convolution ring M=D(G,ℤ_p) with weak topology; Λ(G⁺) is its supplied quotient-group counterpart.
+
+Proof plan:
+
+1. Intersect the actual closed real closure with the residue-one condition. The closed subgroup is stable under the supplied finite principal scalar action.
+2. No algebraic equality (p−1)D_n⁺=(p−1)(D_n⁺∩P_n) is used; the source’s false equality is corrected by a compact closure argument in finite cyclicity.
+
+API:
+
+- **ColemanCyclotomic.mem_principalRealLocalCyclotomicUnits** (characterisation): u∈C_(n,1)⁺ iff u∈C_n⁺ and red_n(u)=1.
+- **ColemanCyclotomic.principalRealLocalCyclotomicUnits_closed** (compatibility): C_(n,1)⁺ is closed and compact.
+- **ColemanCyclotomic.principalRealLocalCyclotomicUnits_smul** (structure): It is stable under the supplied ℤ_p scalar action.
+
+Tests:
+
+- **PrincipalRealTests.one** (degenerate): 1∈C_(n,1)⁺.
+- **PrincipalRealTests.minus_one_excluded** (non-example): −1∉C_(n,1)⁺ for odd p.
+- **PrincipalRealTests.ternary_bottom** (computation): For p=3,n=0, C_(0,1)⁺={1}, since the global real field is ℚ and its units are ±1.
+
+Uses: Definition11.8, p.176; Lemmas12.20–12.22, pp.186–188; Theorem12.23, pp.188–189: Provides the finite receiving submodule for the adjusted real generator. ColemanPowerSeries:L4 and the consuming declarations listed in this packet: Supplies this actual arithmetic object and its named maps, rather than a second supplier carrier.
+
+Prerequisites: ColemanPowerSeries:L4/real-local-cyclotomic-unit-closure, ColemanPowerSeries:L4/finite-real-local-unit-subgroup, ColemanPowerSeries:L4/principal-local-cyclotomic-units, ColemanPowerSeries:L0/principal-tower-scalar-adapter, tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-4-free-pro-p-and-pro-c-groups-on-finite-sets.
+
+Acceptance: Provides the finite receiving submodule for the adjusted real generator.
+
+Sources: RJW-published, Definition11.8, p.176; Lemmas12.20–12.22, pp.186–188; Theorem12.23, pp.188–189. The cited passage supplies this arithmetic target. The native-carrier adapter and the separate closure/compactness steps are worker deductions. The corrected argument follows the independently reviewed extraction where the printed proof omits a hypothesis or equality. Literal excerpt: “Theorem 12.23. The Coleman map induces”.
+
+#### Norms preserve the local cyclotomic closures
+
+**ColemanPowerSeries:L4/local-cyclotomic-norm-stability** — lemma; proposed declaration **ColemanCyclotomic.unitsNorm_localCyclotomicUnits**.
+
+N_n maps each of C_(n+1), C_(n+1)⁺, C_(n+1,1), C_(n+1,1)⁺ into its corresponding nth-level group.
+
+Hypotheses: p is an odd prime, n≥0 denotes the source level n+1, K_n=ℚ_p(ζ_n), O_n is its native integral closure, U_n=O_nˣ and U∞ is the already constructed native norm-compatible subgroup. G=ℤ_pˣ acts through its power residues, and U∞,1 is the existing residue kernel. All topologies are the native norm/product/subtype topologies. F_n=TauCeti.CyclotomicTower.Qmu(p^(n+1)); D_n and D_n⁺ are the imported actual global cyclotomic subgroups. Their local images are formed using the fixed root-compatible embedding, not by identifying complex and p-adic elements. Write c=σ_(-1), G_n=(ℤ/p^(n+1)ℤ)ˣ, G_n⁺=G_n/⟨−1⟩ and G⁺=G/⟨−1⟩. Real means fixed by c. When a generator is used, a>1 is a fixed natural integer prime to p whose image â in G topologically generates G: its integral powers are dense in G. Put b=(1−a)/2 in ℤ_p and w=ω(a mod p)⁻¹. Λ(G) is the supplied integral unit-measure convolution ring M=D(G,ℤ_p) with weak topology; Λ(G⁺) is its supplied quotient-group counterpart.
+
+Proof plan:
+
+1. The exact global cyclotomic-unit-generators node expresses D_n as products of the p-power root and real generators. Their local images are coordinates of the actual Tate and realCyclotomicTower constructions. The norm compatibility of those towers sends each generator image to its preceding generator image; no general global-to-local norm comparison is assumed.
+2. The Galois norm square preserves conjugation fixedness and the residue norm preserves residue one. Norm continuity sends each closure into the closed target subgroup. Restrict the already constructed norm maps to the four actual subgroups.
+
+Prerequisites: ColemanPowerSeries:L4/global-cyclotomic-unit-local-map, ColemanPowerSeries:L4/global-to-local-cyclotomic-embedding, ColemanPowerSeries:L4/local-cyclotomic-unit-closure, ColemanPowerSeries:L4/real-local-cyclotomic-unit-closure, ColemanPowerSeries:L4/principal-local-cyclotomic-units, ColemanPowerSeries:L4/principal-real-local-cyclotomic-units, ColemanPowerSeries:L0/continuous-unit-norm, ColemanPowerSeries:L0/unit-norm-residue, IntegralIwasawaTheory:L0/tower-galois-compatibility, IntegralIwasawaTheory:L0/cyclotomic-unit-generators, ColemanPowerSeries:L4/real-cyclotomic-unit-tower, ColemanPowerSeries:L0/tate-module-inclusion, ColemanPowerSeries:L2/cyclotomic-unit-tower, IntegralIwasawaTheory:L0/smoothed-cyclotomic-unit.
+
+Acceptance: Makes the local finite systems actual norm diagrams.
+
+Sources: RJW-published, Definition11.8, p.176; Lemmas12.20–12.22, pp.186–188; Theorem12.23, pp.188–189. The cited passage supplies this arithmetic target. The native-carrier adapter and the separate closure/compactness steps are worker deductions. The corrected argument follows the independently reviewed extraction where the printed proof omits a hypothesis or equality. Literal excerpt: “Theorem 12.23. The Coleman map induces”.
+
+#### Finite principal closure equals the p-adic span
+
+**ColemanPowerSeries:L4/finite-principal-closure-span** — lemma; proposed declaration **ColemanCyclotomic.principal_closure_eq_span**.
+
+For g_1,…,g_r∈P_n, closure of their integer-power subgroup in P_n is exactly {∏_i g_i^(a_i):a_i∈ℤ_p}, the finite ℤ_p-span in Additive(P_n).
+
+Hypotheses: p is an odd prime, n≥0 denotes the source level n+1, K_n=ℚ_p(ζ_n), O_n is its native integral closure, U_n=O_nˣ and U∞ is the already constructed native norm-compatible subgroup. G=ℤ_pˣ acts through its power residues, and U∞,1 is the existing residue kernel. All topologies are the native norm/product/subtype topologies. F_n=TauCeti.CyclotomicTower.Qmu(p^(n+1)); D_n and D_n⁺ are the imported actual global cyclotomic subgroups. Their local images are formed using the fixed root-compatible embedding, not by identifying complex and p-adic elements. Write c=σ_(-1), G_n=(ℤ/p^(n+1)ℤ)ˣ, G_n⁺=G_n/⟨−1⟩ and G⁺=G/⟨−1⟩. Real means fixed by c. When a generator is used, a>1 is a fixed natural integer prime to p whose image â in G topologically generates G: its integral powers are dense in G. Put b=(1−a)/2 in ℤ_p and w=ω(a mod p)⁻¹. Λ(G) is the supplied integral unit-measure convolution ring M=D(G,ℤ_p) with weak topology; Λ(G⁺) is its supplied quotient-group counterpart.
+
+Proof plan:
+
+1. The continuous map ℤ_p^r→P_n taking coefficients to the product of scalar powers has compact image, hence closed image in a Hausdorff target. It contains the integer subgroup, so contains its closure.
+2. Approximate each p-adic coefficient by natural integers and use joint scalar continuity. This gives the converse inclusion. The r=0 case is the identity subgroup.
+
+Prerequisites: ColemanPowerSeries:L0/principal-tower-scalar-adapter, tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-4-free-pro-p-and-pro-c-groups-on-finite-sets, mathlib:PadicInt.denseRange_natCast, mathlib:PadicInt.compactSpace, mathlib:IsCompact.image, mathlib:IsCompact.isClosed.
+
+Acceptance: Supplies Lemma12.20 on the actual local principal module, with a finite compactness argument and no algebraic/topological span confusion.
+
+Sources: RJW-published, Lemma12.20 and proof, pp.186–187. The cited passage supplies this arithmetic target. The native-carrier adapter and the separate closure/compactness steps are worker deductions. The corrected argument follows the independently reviewed extraction where the printed proof omits a hypothesis or equality. Literal excerpt: “Lemma 12.20. Let g1 , . . . , gr ∈ Un,1”.
+
+#### The real cyclotomic unit tower
+
+**ColemanPowerSeries:L4/real-cyclotomic-unit-tower** — construction; proposed declaration **ColemanCyclotomic.realCyclotomicTower**.
+
+For a>1 prime to p define γ(a)=tateTower((1−a)/2)·cyclotomicTower(a) in U∞. Its nth coordinate is the local image of the supplied real γ_(n+1,a). It is fixed by towerAction(−1), but need not be principal.
+
+Hypotheses: p is an odd prime, n≥0 denotes the source level n+1, K_n=ℚ_p(ζ_n), O_n is its native integral closure, U_n=O_nˣ and U∞ is the already constructed native norm-compatible subgroup. G=ℤ_pˣ acts through its power residues, and U∞,1 is the existing residue kernel. All topologies are the native norm/product/subtype topologies. F_n=TauCeti.CyclotomicTower.Qmu(p^(n+1)); D_n and D_n⁺ are the imported actual global cyclotomic subgroups. Their local images are formed using the fixed root-compatible embedding, not by identifying complex and p-adic elements. Write c=σ_(-1), G_n=(ℤ/p^(n+1)ℤ)ˣ, G_n⁺=G_n/⟨−1⟩ and G⁺=G/⟨−1⟩. Real means fixed by c. When a generator is used, a>1 is a fixed natural integer prime to p whose image â in G topologically generates G: its integral powers are dense in G. Put b=(1−a)/2 in ℤ_p and w=ω(a mod p)⁻¹. Λ(G) is the supplied integral unit-measure convolution ring M=D(G,ℤ_p) with weak topology; Λ(G⁺) is its supplied quotient-group counterpart.
+
+Proof plan:
+
+1. Use the existing actual towers and the invertibility of 2 in ℤ_p. Finite power residues of (1−a)/2 give exactly the square-root convention of the global real generator.
+2. Transport the global generator formula through globalLocalEmbedding; global realness and the conjugation square show fixedness. The exponent is (1−a)/2, correcting the printed a/2 in Lemma12.21.
+
+API:
+
+- **ColemanCyclotomic.realCyclotomicTower_apply** (data): The coordinate equals ζ_n^((1−a)/2 mod p^(n+1)) times c_n(a).
+- **ColemanCyclotomic.realCyclotomicTower_global** (compatibility): It is the local image of the imported global γ_(n+1,a).
+- **ColemanCyclotomic.realCyclotomicTower_fixed** (characterisation): towerAction(−1)(γ(a))=γ(a).
+
+Tests:
+
+- **RealTowerTests.one_parameter** (degenerate): The extension of the formula to a=1 gives 1.
+- **RealTowerTests.ternary_two** (computation): At p=3,a=2,n=0, γ(a)_0=−1.
+- **RealTowerTests.fifth_two** (non-example): At p=5,a=2,n=0, γ(a)_0 has residue 2 and is not principal.
+
+Uses: Definition11.8, p.176; Lemmas12.20–12.22, pp.186–188; Theorem12.23, pp.188–189: Supplies the real generator to which the Teichmüller adjustment is applied. ColemanPowerSeries:L4 and the consuming declarations listed in this packet: Supplies this actual arithmetic object and its named maps, rather than a second supplier carrier.
+
+Prerequisites: ColemanPowerSeries:L0/tate-module-inclusion, ColemanPowerSeries:L2/cyclotomic-unit-tower, ColemanPowerSeries:L4/global-cyclotomic-unit-local-map, IntegralIwasawaTheory:L0/smoothed-cyclotomic-unit, ColemanPowerSeries:L0/norm-tower-galois-action.
+
+Acceptance: Supplies the real generator to which the Teichmüller adjustment is applied.
+
+Sources: RJW-published, Definition11.8, p.176; Lemmas12.20–12.22, pp.186–188; Theorem12.23, pp.188–189. The cited passage supplies this arithmetic target. The native-carrier adapter and the separate closure/compactness steps are worker deductions. The corrected argument follows the independently reviewed extraction where the printed proof omits a hypothesis or equality. Literal excerpt: “Lemma 12.21. Let a ∈ Z be a topological generator of Z×p”.
+
+#### The residue of the real generator
+
+**ColemanPowerSeries:L4/real-cyclotomic-generator-residue** — lemma; proposed declaration **ColemanCyclotomic.realCyclotomicTower_residue**.
+
+The residue of γ(a) at every level is a mod p; its root-of-unity factor has residue one.
+
+Hypotheses: p is an odd prime, n≥0 denotes the source level n+1, K_n=ℚ_p(ζ_n), O_n is its native integral closure, U_n=O_nˣ and U∞ is the already constructed native norm-compatible subgroup. G=ℤ_pˣ acts through its power residues, and U∞,1 is the existing residue kernel. All topologies are the native norm/product/subtype topologies. F_n=TauCeti.CyclotomicTower.Qmu(p^(n+1)); D_n and D_n⁺ are the imported actual global cyclotomic subgroups. Their local images are formed using the fixed root-compatible embedding, not by identifying complex and p-adic elements. Write c=σ_(-1), G_n=(ℤ/p^(n+1)ℤ)ˣ, G_n⁺=G_n/⟨−1⟩ and G⁺=G/⟨−1⟩. Real means fixed by c. When a generator is used, a>1 is a fixed natural integer prime to p whose image â in G topologically generates G: its integral powers are dense in G. Put b=(1−a)/2 in ℤ_p and w=ω(a mod p)⁻¹. Λ(G) is the supplied integral unit-measure convolution ring M=D(G,ℤ_p) with weak topology; Λ(G⁺) is its supplied quotient-group counterpart.
+
+Proof plan:
+
+1. The finite geometric sum c_n(a) has a summands all with residue one, so its residue is a. The Tate factor is principal.
+
+Prerequisites: ColemanPowerSeries:L4/real-cyclotomic-unit-tower, ColemanPowerSeries:L0/arithmetic-evaluation-reduction, ColemanPowerSeries:L0/tate-module-inclusion.
+
+Acceptance: Correctly distinguishes the real tower from its principal adjustment.
+
+Sources: RJW-published, Definition11.8, p.176; Lemmas12.20–12.22, pp.186–188; Theorem12.23, pp.188–189. The cited passage supplies this arithmetic target. The native-carrier adapter and the separate closure/compactness steps are worker deductions. The corrected argument follows the independently reviewed extraction where the printed proof omits a hypothesis or equality. Literal excerpt: “Lemma 12.21. Let a ∈ Z be a topological generator of Z×p”.
+
+#### The principal real cyclotomic generator
+
+**ColemanPowerSeries:L4/principal-adjusted-real-generator** — construction; proposed declaration **ColemanCyclotomic.adjustedRealTower**.
+
+Atlas planet: Principal cyclotomic generator.
+
+Define q(a)=teichTower(a mod p)⁻¹·γ(a) in U∞,1. It is real and norm-compatible. The Teichmüller correction is an actual scalar root-of-unity tower, not an omitted normalization.
+
+Hypotheses: p is an odd prime, n≥0 denotes the source level n+1, K_n=ℚ_p(ζ_n), O_n is its native integral closure, U_n=O_nˣ and U∞ is the already constructed native norm-compatible subgroup. G=ℤ_pˣ acts through its power residues, and U∞,1 is the existing residue kernel. All topologies are the native norm/product/subtype topologies. F_n=TauCeti.CyclotomicTower.Qmu(p^(n+1)); D_n and D_n⁺ are the imported actual global cyclotomic subgroups. Their local images are formed using the fixed root-compatible embedding, not by identifying complex and p-adic elements. Write c=σ_(-1), G_n=(ℤ/p^(n+1)ℤ)ˣ, G_n⁺=G_n/⟨−1⟩ and G⁺=G/⟨−1⟩. Real means fixed by c. When a generator is used, a>1 is a fixed natural integer prime to p whose image â in G topologically generates G: its integral powers are dense in G. Put b=(1−a)/2 in ℤ_p and w=ω(a mod p)⁻¹. Λ(G) is the supplied integral unit-measure convolution ring M=D(G,ℤ_p) with weak topology; Λ(G⁺) is its supplied quotient-group counterpart.
+
+Proof plan:
+
+1. The section property and the residue calculation make the product principal. Both factors are real under conjugation.
+2. Norm compatibility is inherited from the existing two actual towers; the dedicated coordinate square is recorded separately.
+
+API:
+
+- **ColemanCyclotomic.adjustedRealTower_coe** (data): As a full tower q(a)=teichTower(a mod p)⁻¹·γ(a).
+- **ColemanCyclotomic.adjustedRealTower_fixed** (characterisation): towerAction(−1)(q(a))=q(a).
+- **ColemanCyclotomic.adjustedRealTower_pow** (relation): q(a)^(p−1)=γ(a)^(p−1).
+- **ColemanCyclotomic.adjustedRealTower_norm** (functoriality): N_n(q(a)_(n+1))=q(a)_n.
+
+Tests:
+
+- **AdjustedRealTests.one_parameter** (degenerate): At a=1 the adjusted formula is 1.
+- **AdjustedRealTests.ternary_bottom** (computation): At p=3,a=2,n=0 the adjusted generator is 1.
+- **AdjustedRealTests.fifth_residue** (compatibility): At p=5,a=2 every coordinate has residue 1, whereas the unadjusted γ has residue 2.
+
+Uses: Definition11.8, p.176; Lemmas12.20–12.22, pp.186–188; Theorem12.23, pp.188–189: Provides the compatible principal generator used in finite and infinite cyclicity and its Coleman image. ColemanPowerSeries:L4 and the consuming declarations listed in this packet: Supplies this actual arithmetic object and its named maps, rather than a second supplier carrier.
+
+Prerequisites: ColemanPowerSeries:L4/real-cyclotomic-unit-tower, ColemanPowerSeries:L4/real-cyclotomic-generator-residue, ColemanPowerSeries:L0/teichmuller-tower-section, ColemanPowerSeries:L0/norm-tower-galois-action, ColemanPowerSeries:L0/principal-norm-compatible-units.
+
+Acceptance: Provides the compatible principal generator used in finite and infinite cyclicity and its Coleman image.
+
+Sources: RJW-published, Definition11.8, p.176; Lemmas12.20–12.22, pp.186–188; Theorem12.23, pp.188–189. The cited passage supplies this arithmetic target. The native-carrier adapter and the separate closure/compactness steps are worker deductions. The corrected argument follows the independently reviewed extraction where the printed proof omits a hypothesis or equality. Literal excerpt: “Lemma 12.21. Let a ∈ Z be a topological generator of Z×p”.
+
+#### Membership of the principal generator in the local closure
+
+**ColemanPowerSeries:L4/adjusted-generator-local-membership** — lemma; proposed declaration **ColemanCyclotomic.adjustedRealTower_mem**.
+
+For each n, q(a)_n∈C_(n,1)⁺, even though its Teichmüller factor need not be a global real unit.
+
+Hypotheses: p is an odd prime, n≥0 denotes the source level n+1, K_n=ℚ_p(ζ_n), O_n is its native integral closure, U_n=O_nˣ and U∞ is the already constructed native norm-compatible subgroup. G=ℤ_pˣ acts through its power residues, and U∞,1 is the existing residue kernel. All topologies are the native norm/product/subtype topologies. F_n=TauCeti.CyclotomicTower.Qmu(p^(n+1)); D_n and D_n⁺ are the imported actual global cyclotomic subgroups. Their local images are formed using the fixed root-compatible embedding, not by identifying complex and p-adic elements. Write c=σ_(-1), G_n=(ℤ/p^(n+1)ℤ)ˣ, G_n⁺=G_n/⟨−1⟩ and G⁺=G/⟨−1⟩. Real means fixed by c. When a generator is used, a>1 is a fixed natural integer prime to p whose image â in G topologically generates G: its integral powers are dense in G. Put b=(1−a)/2 in ℤ_p and w=ω(a mod p)⁻¹. Λ(G) is the supplied integral unit-measure convolution ring M=D(G,ℤ_p) with weak topology; Λ(G⁺) is its supplied quotient-group counterpart.
+
+Proof plan:
+
+1. The element γ_n^(p−1) is a real global unit image and is principal. It therefore lies in C_(n,1)⁺.
+2. Since p−1 is a unit in ℤ_p, its scalar inverse acts on the closed principal submodule. The unique (p−1)st root there is q_n, because q_n is principal and q_n^(p−1)=γ_n^(p−1).
+
+Prerequisites: ColemanPowerSeries:L4/principal-adjusted-real-generator, ColemanPowerSeries:L4/real-cyclotomic-unit-tower, ColemanPowerSeries:L4/real-local-cyclotomic-unit-closure, ColemanPowerSeries:L4/principal-real-local-cyclotomic-units, ColemanPowerSeries:L0/principal-tower-scalar-adapter.
+
+Acceptance: Justifies membership of the adjusted element before declaring it a cyclotomic generator.
+
+Sources: RJW-published, Definition11.8, p.176; Lemmas12.20–12.22, pp.186–188; Theorem12.23, pp.188–189. The cited passage supplies this arithmetic target. The native-carrier adapter and the separate closure/compactness steps are worker deductions. The corrected argument follows the independently reviewed extraction where the printed proof omits a hypothesis or equality. Literal excerpt: “Lemma 12.21. Let a ∈ Z be a topological generator of Z×p”.
+
+#### The compatible principal-generator square
+
+**ColemanPowerSeries:L4/adjusted-generator-norm-square** — lemma; proposed declaration **ColemanCyclotomic.unitsNorm_adjustedRealTower**.
+
+For the coordinate formula q_n=ω(a mod p)⁻¹ζ_n^((1−a)/2)c_n(a), N_n(q_(n+1))=q_n, and q_n∈C_(n,1)⁺.
+
+Hypotheses: p is an odd prime, n≥0 denotes the source level n+1, K_n=ℚ_p(ζ_n), O_n is its native integral closure, U_n=O_nˣ and U∞ is the already constructed native norm-compatible subgroup. G=ℤ_pˣ acts through its power residues, and U∞,1 is the existing residue kernel. All topologies are the native norm/product/subtype topologies. F_n=TauCeti.CyclotomicTower.Qmu(p^(n+1)); D_n and D_n⁺ are the imported actual global cyclotomic subgroups. Their local images are formed using the fixed root-compatible embedding, not by identifying complex and p-adic elements. Write c=σ_(-1), G_n=(ℤ/p^(n+1)ℤ)ˣ, G_n⁺=G_n/⟨−1⟩ and G⁺=G/⟨−1⟩. Real means fixed by c. When a generator is used, a>1 is a fixed natural integer prime to p whose image â in G topologically generates G: its integral powers are dense in G. Put b=(1−a)/2 in ℤ_p and w=ω(a mod p)⁻¹. Λ(G) is the supplied integral unit-measure convolution ring M=D(G,ℤ_p) with weak topology; Λ(G⁺) is its supplied quotient-group counterpart.
+
+Proof plan:
+
+1. The norm of the scalar Teichmüller lift is itself, the norm of the odd-prime root factor is the corresponding previous root power, and the two cyclotomic differences have the same norm sign.
+2. Multiply these three exact adjacent identities. Combine with the proved local membership, so this is a compatibility square of the actual restricted cyclotomic diagram.
+
+Prerequisites: ColemanPowerSeries:L4/principal-adjusted-real-generator, ColemanPowerSeries:L4/adjusted-generator-local-membership, ColemanPowerSeries:L0/teichmuller-norm-compatibility, ColemanPowerSeries:L2/cyclotomic-series-evaluation-norm, ColemanPowerSeries:L0/tate-module-inclusion.
+
+Acceptance: Pins the chosen generator under transition; finite cyclicity without this square is insufficient for inverse-limit cyclicity.
+
+Sources: RJW-published, Definition11.8, p.176; Lemmas12.20–12.22, pp.186–188; Theorem12.23, pp.188–189. The cited passage supplies this arithmetic target. The native-carrier adapter and the separate closure/compactness steps are worker deductions. The corrected argument follows the independently reviewed extraction where the printed proof omits a hypothesis or equality. Literal excerpt: “Lemma 12.21. Let a ∈ Z be a topological generator of Z×p”.
+
+#### Cyclicity of finite principal cyclotomic units
+
+**ColemanPowerSeries:L4/finite-real-principal-cyclicity** — theorem; proposed declaration **ColemanCyclotomic.finiteRealCyclotomic_cyclic**.
+
+Atlas planet: Finite cyclotomic-unit cyclicity.
+
+If â topologically generates G, then C_(n,1)⁺ is the ℤ_p[G_n⁺]-span of q(a)_n for every n.
+
+Hypotheses: p is an odd prime, n≥0 denotes the source level n+1, K_n=ℚ_p(ζ_n), O_n is its native integral closure, U_n=O_nˣ and U∞ is the already constructed native norm-compatible subgroup. G=ℤ_pˣ acts through its power residues, and U∞,1 is the existing residue kernel. All topologies are the native norm/product/subtype topologies. F_n=TauCeti.CyclotomicTower.Qmu(p^(n+1)); D_n and D_n⁺ are the imported actual global cyclotomic subgroups. Their local images are formed using the fixed root-compatible embedding, not by identifying complex and p-adic elements. Write c=σ_(-1), G_n=(ℤ/p^(n+1)ℤ)ˣ, G_n⁺=G_n/⟨−1⟩ and G⁺=G/⟨−1⟩. Real means fixed by c. When a generator is used, a>1 is a fixed natural integer prime to p whose image â in G topologically generates G: its integral powers are dense in G. Put b=(1−a)/2 in ℤ_p and w=ω(a mod p)⁻¹. Λ(G) is the supplied integral unit-measure convolution ring M=D(G,ℤ_p) with weak topology; Λ(G⁺) is its supplied quotient-group counterpart.
+
+Proof plan:
+
+1. Apply the exact global cyclic-generation node: the real global subgroup is the integer G_n⁺-orbit span of γ_n(a), including −1 by the global telescoping identity. The scalar factor −1 is killed by raising to p−1.
+2. Apply finite-principal-closure-span to the conjugates of γ_n(a)^(p−1)=q_n^(p−1). Compactness of C_n⁺ identifies the closure of the (p−1)-power image of D_n⁺ with the (p−1)-power image of C_n⁺.
+3. That image equals C_(n,1)⁺: it is principal, and scalar multiplication by p−1 is invertible on its closed principal subgroup. Replace the span of q_n^(p−1) by that of q_n. Do not assert the false algebraic equality between the two global (p−1)-power subgroups.
+
+Prerequisites: ColemanPowerSeries:L4/adjusted-generator-local-membership, ColemanPowerSeries:L4/adjusted-generator-norm-square, ColemanPowerSeries:L4/finite-principal-closure-span, ColemanPowerSeries:L4/real-local-cyclotomic-unit-closure, ColemanPowerSeries:L4/principal-real-local-cyclotomic-units, IntegralIwasawaTheory:L0/cyclic-generation, IntegralIwasawaTheory:L0/cyclotomic-unit-generators, IntegralIwasawaTheory:L0/smoothed-cyclotomic-unit, ColemanPowerSeries:L0/finite-cyclotomic-galois-action, ColemanPowerSeries:L0/principal-tower-scalar-adapter.
+
+Acceptance: Corrects Lemma12.22 at the level of closures, including the p=5 negative control.
+
+Sources: RJW-published, Lemma12.22(i), p.188; corrected using Lemma12.20, pp.186–187 and reviewed extraction E74. The cited passage supplies this arithmetic target. The native-carrier adapter and the separate closure/compactness steps are worker deductions. The corrected argument follows the independently reviewed extraction where the printed proof omits a hypothesis or equality. Literal excerpt: “Lemma 12.22. Let a ∈ Z be a topological generator of Z×p”.
+
+#### The full principal cyclotomic limit
+
+**ColemanPowerSeries:L4/principal-cyclotomic-limit** — construction; proposed declaration **ColemanCyclotomic.principalCyclotomicLimit**.
+
+Define C∞,1 as the closed subgroup of U∞,1 whose nth coordinate lies in C_(n,1) for every n. Use the restricted native norm diagram, and the principalCompletedModule for its stable submodule structure.
+
+Hypotheses: p is an odd prime, n≥0 denotes the source level n+1, K_n=ℚ_p(ζ_n), O_n is its native integral closure, U_n=O_nˣ and U∞ is the already constructed native norm-compatible subgroup. G=ℤ_pˣ acts through its power residues, and U∞,1 is the existing residue kernel. All topologies are the native norm/product/subtype topologies. F_n=TauCeti.CyclotomicTower.Qmu(p^(n+1)); D_n and D_n⁺ are the imported actual global cyclotomic subgroups. Their local images are formed using the fixed root-compatible embedding, not by identifying complex and p-adic elements. Write c=σ_(-1), G_n=(ℤ/p^(n+1)ℤ)ˣ, G_n⁺=G_n/⟨−1⟩ and G⁺=G/⟨−1⟩. Real means fixed by c. When a generator is used, a>1 is a fixed natural integer prime to p whose image â in G topologically generates G: its integral powers are dense in G. Put b=(1−a)/2 in ℤ_p and w=ω(a mod p)⁻¹. Λ(G) is the supplied integral unit-measure convolution ring M=D(G,ℤ_p) with weak topology; Λ(G⁺) is its supplied quotient-group counterpart.
+
+Proof plan:
+
+1. Take the intersection of the inverse images of the actual closed finite subgroups under continuous coordinate maps. The resulting subgroup is closed and compact.
+2. Global Galois stability, continuity and finite local scalar structure give stability under G and ℤ_p; closedness extends stability to the supplied completed action.
+
+API:
+
+- **ColemanCyclotomic.mem_principalCyclotomicLimit** (characterisation): u∈C∞,1 iff every coordinate u_n∈C_(n,1).
+- **ColemanCyclotomic.principalCyclotomicLimit_closed** (compatibility): C∞,1 is closed and compact.
+- **ColemanCyclotomic.principalCyclotomicLimit_action** (structure): It is stable under the actual Λ(G)-action.
+- **ColemanCyclotomic.principalCyclotomicLimit_tate** (constructor): All tateTower(b), b∈ℤ_p, belong to C∞,1.
+
+Tests:
+
+- **CyclotomicLimitTests.one** (degenerate): 1∈C∞,1.
+- **CyclotomicLimitTests.tate** (computation): tateTower(1)∈C∞,1.
+- **CyclotomicLimitTests.minus_one_excluded** (non-example): The stationary −1 tower does not lie in the principal limit for odd p.
+
+Uses: Definition11.8, p.176; Lemmas12.20–12.22, pp.186–188; Theorem12.23, pp.188–189: Provides the actual full local cyclotomic submodule that is divided out in Theorem12.23(i). ColemanPowerSeries:L4 and the consuming declarations listed in this packet: Supplies this actual arithmetic object and its named maps, rather than a second supplier carrier.
+
+Prerequisites: ColemanPowerSeries:L4/principal-local-cyclotomic-units, ColemanPowerSeries:L4/local-cyclotomic-norm-stability, ColemanPowerSeries:L0/norm-tower-galois-action, ColemanPowerSeries:L0/principal-completed-action-adapter, ColemanPowerSeries:L4/global-cyclotomic-unit-local-map, IntegralIwasawaTheory:L0/cyclotomic-unit-group.
+
+Acceptance: Provides the actual full local cyclotomic submodule that is divided out in Theorem12.23(i).
+
+Sources: RJW-published, Definition11.8, p.176; Lemmas12.20–12.22, pp.186–188; Theorem12.23, pp.188–189. The cited passage supplies this arithmetic target. The native-carrier adapter and the separate closure/compactness steps are worker deductions. The corrected argument follows the independently reviewed extraction where the printed proof omits a hypothesis or equality. Literal excerpt: “Theorem 12.23. The Coleman map induces”.
+
+#### The real principal cyclotomic limit
+
+**ColemanPowerSeries:L4/real-principal-cyclotomic-limit** — construction; proposed declaration **ColemanCyclotomic.realPrincipalCyclotomicLimit**.
+
+Atlas planet: Real cyclotomic-unit limit.
+
+Define C∞,1⁺ as the closed subgroup of U∞,1 whose nth coordinate lies in C_(n,1)⁺ for every n. It is real and has the action through G⁺, so its completed module uses the supplied Λ(G⁺) quotient-group interface.
+
+Hypotheses: p is an odd prime, n≥0 denotes the source level n+1, K_n=ℚ_p(ζ_n), O_n is its native integral closure, U_n=O_nˣ and U∞ is the already constructed native norm-compatible subgroup. G=ℤ_pˣ acts through its power residues, and U∞,1 is the existing residue kernel. All topologies are the native norm/product/subtype topologies. F_n=TauCeti.CyclotomicTower.Qmu(p^(n+1)); D_n and D_n⁺ are the imported actual global cyclotomic subgroups. Their local images are formed using the fixed root-compatible embedding, not by identifying complex and p-adic elements. Write c=σ_(-1), G_n=(ℤ/p^(n+1)ℤ)ˣ, G_n⁺=G_n/⟨−1⟩ and G⁺=G/⟨−1⟩. Real means fixed by c. When a generator is used, a>1 is a fixed natural integer prime to p whose image â in G topologically generates G: its integral powers are dense in G. Put b=(1−a)/2 in ℤ_p and w=ω(a mod p)⁻¹. Λ(G) is the supplied integral unit-measure convolution ring M=D(G,ℤ_p) with weak topology; Λ(G⁺) is its supplied quotient-group counterpart.
+
+Proof plan:
+
+1. Use the native coordinatewise closed subgroup conditions. Every coordinate is fixed by conjugation; hence the whole tower is fixed.
+2. The actual action restricts and factors through G/⟨−1⟩. The generic quotient-group completed-algebra comparison is requested from its owner rather than defining a second Λ.
+
+API:
+
+- **ColemanCyclotomic.mem_realPrincipalCyclotomicLimit** (characterisation): Membership means u_n∈C_(n,1)⁺ for every n.
+- **ColemanCyclotomic.realPrincipalCyclotomicLimit_closed** (compatibility): It is closed and compact.
+- **ColemanCyclotomic.realPrincipalCyclotomicLimit_adjusted** (constructor): q(a) belongs to C∞,1⁺.
+- **ColemanCyclotomic.realPrincipalCyclotomicLimit_factor** (compatibility): Conjugation acts trivially, and the action factors through the native quotient G⁺.
+
+Tests:
+
+- **RealLimitTests.one** (degenerate): 1∈C∞,1⁺.
+- **RealLimitTests.adjusted** (compatibility): q(a)∈C∞,1⁺.
+- **RealLimitTests.tate_excluded** (non-example): tateTower(1)∉C∞,1⁺ for odd p.
+
+Uses: Definition11.8, p.176; Lemmas12.20–12.22, pp.186–188; Theorem12.23, pp.188–189: Defines the receiving compact module for inverse-limit cyclicity. ColemanPowerSeries:L4 and the consuming declarations listed in this packet: Supplies this actual arithmetic object and its named maps, rather than a second supplier carrier.
+
+Prerequisites: ColemanPowerSeries:L4/principal-real-local-cyclotomic-units, ColemanPowerSeries:L4/local-cyclotomic-norm-stability, ColemanPowerSeries:L4/principal-cyclotomic-limit, ColemanPowerSeries:L0/norm-tower-galois-action, ColemanPowerSeries:L0/principal-completed-action-adapter, PadicMeasuresIwasawaAlgebras:L1.
+
+Acceptance: Defines the receiving compact module for inverse-limit cyclicity.
+
+Sources: RJW-published, Definition11.8, p.176; Lemmas12.20–12.22, pp.186–188; Theorem12.23, pp.188–189. The cited passage supplies this arithmetic target. The native-carrier adapter and the separate closure/compactness steps are worker deductions. The corrected argument follows the independently reviewed extraction where the printed proof omits a hypothesis or equality. Literal excerpt: “Theorem 12.23. The Coleman map induces”.
+
+#### Compatible coefficient fibers for the chosen generator
+
+**ColemanPowerSeries:L4/compatible-cyclotomic-coefficient-fibers** — lemma; proposed declaration **ColemanCyclotomic.cyclotomicCoefficient_fibers**.
+
+For u∈C∞,1⁺ let S_n={λ∈Λ(G⁺): the nth coordinate of λ•q(a) equals u_n}. These sets are nonempty, closed subsets of compact Λ(G⁺), and S_(n+1)⊆S_n.
+
+Hypotheses: p is an odd prime, n≥0 denotes the source level n+1, K_n=ℚ_p(ζ_n), O_n is its native integral closure, U_n=O_nˣ and U∞ is the already constructed native norm-compatible subgroup. G=ℤ_pˣ acts through its power residues, and U∞,1 is the existing residue kernel. All topologies are the native norm/product/subtype topologies. F_n=TauCeti.CyclotomicTower.Qmu(p^(n+1)); D_n and D_n⁺ are the imported actual global cyclotomic subgroups. Their local images are formed using the fixed root-compatible embedding, not by identifying complex and p-adic elements. Write c=σ_(-1), G_n=(ℤ/p^(n+1)ℤ)ˣ, G_n⁺=G_n/⟨−1⟩ and G⁺=G/⟨−1⟩. Real means fixed by c. When a generator is used, a>1 is a fixed natural integer prime to p whose image â in G topologically generates G: its integral powers are dense in G. Put b=(1−a)/2 in ℤ_p and w=ω(a mod p)⁻¹. Λ(G) is the supplied integral unit-measure convolution ring M=D(G,ℤ_p) with weak topology; Λ(G⁺) is its supplied quotient-group counterpart.
+
+Proof plan:
+
+1. The requested finite-coordinate projection Λ(G⁺)→ℤ_p[G_n⁺] is surjective. Finite cyclicity gives a coefficient at level n and any lift gives an element of S_n.
+2. Closedness follows from continuous completed action, continuous evaluation and Hausdorffness. The restricted norms commute with scalars and G-action; the exact generator square and u’s compatibility make equality at n+1 imply equality at n.
+3. Use the owner’s weak compactness and finite-coordinate interface for G⁺. No surjectivity of a local-unit coordinate projection is assumed.
+
+Prerequisites: ColemanPowerSeries:L4/finite-real-principal-cyclicity, ColemanPowerSeries:L4/adjusted-generator-norm-square, ColemanPowerSeries:L4/real-principal-cyclotomic-limit, ColemanPowerSeries:L0/principal-completed-action-adapter, PadicMeasuresIwasawaAlgebras:L1.
+
+Acceptance: Replaces the unsupported interchange of inverse limit and cyclic span in the printed proof.
+
+Sources: RJW-published, Definition11.8, p.176; Lemmas12.20–12.22, pp.186–188; Theorem12.23, pp.188–189. The cited passage supplies this arithmetic target. The native-carrier adapter and the separate closure/compactness steps are worker deductions. The corrected argument follows the independently reviewed extraction where the printed proof omits a hypothesis or equality. Literal excerpt: “Lemma 12.22. Let a ∈ Z be a topological generator of Z×p”.
+
+#### Cyclicity of the real cyclotomic limit
+
+**ColemanPowerSeries:L4/inverse-limit-real-cyclicity** — theorem; proposed declaration **ColemanCyclotomic.realPrincipalCyclotomicLimit_cyclic**.
+
+Atlas planet: Inverse-limit cyclotomic cyclicity.
+
+C∞,1⁺=Λ(G⁺)•q(a) for the fixed compatible topological generator â, with the quotient topology from its continuous cyclic coefficient map.
+
+Hypotheses: p is an odd prime, n≥0 denotes the source level n+1, K_n=ℚ_p(ζ_n), O_n is its native integral closure, U_n=O_nˣ and U∞ is the already constructed native norm-compatible subgroup. G=ℤ_pˣ acts through its power residues, and U∞,1 is the existing residue kernel. All topologies are the native norm/product/subtype topologies. F_n=TauCeti.CyclotomicTower.Qmu(p^(n+1)); D_n and D_n⁺ are the imported actual global cyclotomic subgroups. Their local images are formed using the fixed root-compatible embedding, not by identifying complex and p-adic elements. Write c=σ_(-1), G_n=(ℤ/p^(n+1)ℤ)ˣ, G_n⁺=G_n/⟨−1⟩ and G⁺=G/⟨−1⟩. Real means fixed by c. When a generator is used, a>1 is a fixed natural integer prime to p whose image â in G topologically generates G: its integral powers are dense in G. Put b=(1−a)/2 in ℤ_p and w=ω(a mod p)⁻¹. Λ(G) is the supplied integral unit-measure convolution ring M=D(G,ℤ_p) with weak topology; Λ(G⁺) is its supplied quotient-group counterpart.
+
+Proof plan:
+
+1. Compactness and the nonempty closed nested fibers give a single λ in every S_n. Equality of all native coordinates gives u=λ•q(a).
+2. The reverse inclusion follows from the actual submodule stability of C∞,1⁺. A continuous map from compact Λ(G⁺) onto the Hausdorff target is a quotient map.
+
+Prerequisites: ColemanPowerSeries:L4/compatible-cyclotomic-coefficient-fibers, ColemanPowerSeries:L4/real-principal-cyclotomic-limit, ColemanPowerSeries:L4/principal-adjusted-real-generator, PadicMeasuresIwasawaAlgebras:L1, mathlib:IsCompact.nonempty_iInter_of_sequence_nonempty_isCompact_isClosed.
+
+Acceptance: This is Lemma12.22(ii) with an actual generator and a compact compatible-fiber proof.
+
+Sources: RJW-published, Definition11.8, p.176; Lemmas12.20–12.22, pp.186–188; Theorem12.23, pp.188–189. The cited passage supplies this arithmetic target. The native-carrier adapter and the separate closure/compactness steps are worker deductions. The corrected argument follows the independently reviewed extraction where the printed proof omits a hypothesis or equality. Literal excerpt: “Lemma 12.22. Let a ∈ Z be a topological generator of Z×p”.
+
+#### The finite cyclotomic torsion and real splitting
+
+**ColemanPowerSeries:L4/finite-local-tate-real-splitting** — lemma; proposed declaration **ColemanCyclotomic.localCyclotomicUnits_tate_real**.
+
+At each level C_n=μ_(p^(n+1))×C_n⁺ via multiplication, and C_(n,1)=μ_(p^(n+1))×C_(n,1)⁺. Consequently C_n⁺=C_n∩realLocalUnits_n.
+
+Hypotheses: p is an odd prime, n≥0 denotes the source level n+1, K_n=ℚ_p(ζ_n), O_n is its native integral closure, U_n=O_nˣ and U∞ is the already constructed native norm-compatible subgroup. G=ℤ_pˣ acts through its power residues, and U∞,1 is the existing residue kernel. All topologies are the native norm/product/subtype topologies. F_n=TauCeti.CyclotomicTower.Qmu(p^(n+1)); D_n and D_n⁺ are the imported actual global cyclotomic subgroups. Their local images are formed using the fixed root-compatible embedding, not by identifying complex and p-adic elements. Write c=σ_(-1), G_n=(ℤ/p^(n+1)ℤ)ˣ, G_n⁺=G_n/⟨−1⟩ and G⁺=G/⟨−1⟩. Real means fixed by c. When a generator is used, a>1 is a fixed natural integer prime to p whose image â in G topologically generates G: its integral powers are dense in G. Put b=(1−a)/2 in ℤ_p and w=ω(a mod p)⁻¹. Λ(G) is the supplied integral unit-measure convolution ring M=D(G,ℤ_p) with weak topology; Λ(G⁺) is its supplied quotient-group counterpart.
+
+Proof plan:
+
+1. The imported global decomposition D_n=⟨ζ⟩D_n⁺ has trivial intersection: a p-power root fixed by conjugation has square one, hence is one for odd p.
+2. The finite root group times compact C_n⁺ has compact, hence closed, image. It contains the global image and the global real subgroup is dense in C_n⁺; multiplication therefore has image exactly C_n. Uniqueness gives the direct-product equivalence.
+3. All p-power roots are principal. Taking the residue-one subgroup gives the principal split. If a product ζ^b v is real, conjugation forces ζ^(2b)=1, so the root part is one; this proves the intersection description without assuming closure commutes with fixed points.
+
+Prerequisites: ColemanPowerSeries:L4/local-cyclotomic-unit-closure, ColemanPowerSeries:L4/real-local-cyclotomic-unit-closure, ColemanPowerSeries:L4/principal-local-cyclotomic-units, ColemanPowerSeries:L4/principal-real-local-cyclotomic-units, ColemanPowerSeries:L4/finite-real-local-unit-subgroup, IntegralIwasawaTheory:L0/cyclotomic-unit-generators, ColemanPowerSeries:L4/global-cyclotomic-unit-local-map, mathlib:IsCompact.image, mathlib:IsCompact.isClosed.
+
+Acceptance: Retains −1 inside C_n⁺ and distinguishes it from the odd p-power root factor.
+
+Sources: RJW-published, Definition11.8, p.176; Lemmas12.20–12.22, pp.186–188; Theorem12.23, pp.188–189. The cited passage supplies this arithmetic target. The native-carrier adapter and the separate closure/compactness steps are worker deductions. The corrected argument follows the independently reviewed extraction where the printed proof omits a hypothesis or equality. Literal excerpt: “Theorem 12.23. The Coleman map induces”.
+
+#### The full Tate and real cyclotomic splitting
+
+**ColemanPowerSeries:L4/inverse-limit-tate-real-splitting** — theorem; proposed declaration **ColemanCyclotomic.principalCyclotomicLimit_tate_real**.
+
+Multiplication gives a topological Λ(G)-module isomorphism ℤ_p(1)×C∞,1⁺≃C∞,1. The Tate coordinate ranges over all ℤ_p, not just its units.
+
+Hypotheses: p is an odd prime, n≥0 denotes the source level n+1, K_n=ℚ_p(ζ_n), O_n is its native integral closure, U_n=O_nˣ and U∞ is the already constructed native norm-compatible subgroup. G=ℤ_pˣ acts through its power residues, and U∞,1 is the existing residue kernel. All topologies are the native norm/product/subtype topologies. F_n=TauCeti.CyclotomicTower.Qmu(p^(n+1)); D_n and D_n⁺ are the imported actual global cyclotomic subgroups. Their local images are formed using the fixed root-compatible embedding, not by identifying complex and p-adic elements. Write c=σ_(-1), G_n=(ℤ/p^(n+1)ℤ)ˣ, G_n⁺=G_n/⟨−1⟩ and G⁺=G/⟨−1⟩. Real means fixed by c. When a generator is used, a>1 is a fixed natural integer prime to p whose image â in G topologically generates G: its integral powers are dense in G. Put b=(1−a)/2 in ℤ_p and w=ω(a mod p)⁻¹. Λ(G) is the supplied integral unit-measure convolution ring M=D(G,ℤ_p) with weak topology; Λ(G⁺) is its supplied quotient-group counterpart.
+
+Proof plan:
+
+1. The unique finite splitting is preserved by norms: roots use pth-power transition at odd p; the real parts remain real and their scalar principal parts remain principal.
+2. Thus a compatible full element yields a compatible system of p-power roots and a compatible real principal element. The native power residues identify the first inverse limit with ℤ_p through the existing Tate inclusion.
+3. Unique coordinates show bijectivity; multiplication is continuous with compact source and Hausdorff target, hence a homeomorphism. The actual G and scalar formulas give module compatibility through the imported completed action.
+
+Prerequisites: ColemanPowerSeries:L4/finite-local-tate-real-splitting, ColemanPowerSeries:L4/principal-cyclotomic-limit, ColemanPowerSeries:L4/real-principal-cyclotomic-limit, ColemanPowerSeries:L4/local-cyclotomic-norm-stability, ColemanPowerSeries:L0/tate-module-inclusion, ColemanPowerSeries:L0/norm-tower-galois-action, ColemanPowerSeries:L0/principal-tower-scalar-adapter, ColemanPowerSeries:L0/principal-completed-action-adapter.
+
+Acceptance: Supplies the missing full cyclotomic split used by Theorem12.23(i).
+
+Sources: RJW-published, Definition11.8, p.176; Lemmas12.20–12.22, pp.186–188; Theorem12.23, pp.188–189. The cited passage supplies this arithmetic target. The native-carrier adapter and the separate closure/compactness steps are worker deductions. The corrected argument follows the independently reviewed extraction where the printed proof omits a hypothesis or equality. Literal excerpt: “Theorem 12.23. The Coleman map induces”.
+
+#### Coleman on the real principal summand
+
+**ColemanPowerSeries:L4/real-principal-coleman-surjectivity** — lemma; proposed declaration **ColemanCyclotomic.realPrincipalColeman_surjective**.
+
+For odd p, principalColeman maps the real principal subgroup U∞,1⁺ onto the plus summand of Λ(G), identified by the supplied quotient-group algebra comparison with Λ(G⁺), and its kernel on that subgroup is zero.
+
+Hypotheses: p is an odd prime, n≥0 denotes the source level n+1, K_n=ℚ_p(ζ_n), O_n is its native integral closure, U_n=O_nˣ and U∞ is the already constructed native norm-compatible subgroup. G=ℤ_pˣ acts through its power residues, and U∞,1 is the existing residue kernel. All topologies are the native norm/product/subtype topologies. F_n=TauCeti.CyclotomicTower.Qmu(p^(n+1)); D_n and D_n⁺ are the imported actual global cyclotomic subgroups. Their local images are formed using the fixed root-compatible embedding, not by identifying complex and p-adic elements. Write c=σ_(-1), G_n=(ℤ/p^(n+1)ℤ)ˣ, G_n⁺=G_n/⟨−1⟩ and G⁺=G/⟨−1⟩. Real means fixed by c. When a generator is used, a>1 is a fixed natural integer prime to p whose image â in G topologically generates G: its integral powers are dense in G. Put b=(1−a)/2 in ℤ_p and w=ω(a mod p)⁻¹. Λ(G) is the supplied integral unit-measure convolution ring M=D(G,ℤ_p) with weak topology; Λ(G⁺) is its supplied quotient-group counterpart.
+
+Proof plan:
+
+1. Apply the supplied order-two idempotent splitting with e⁺=(1+c)/2 to the actual principal exact sequence. Its two Tate modules have c acting by −1 and hence have zero plus part.
+2. For a plus measure, lift it using principal exactness and project the lift with e⁺. The equivariance square gives the same measure. A real Tate element is zero because 2 is a unit.
+3. Use the supplier’s identification e⁺Λ(G)≃Λ(G⁺), including its identity e⁺. Do not treat e⁺Λ(G) as a unital subring with the ambient identity 1.
+
+Prerequisites: ColemanPowerSeries:L3/principal-coleman-sequence, ColemanPowerSeries:L3/principal-coleman-kernel, ColemanPowerSeries:L0/norm-tower-galois-action, ColemanPowerSeries:L2/principal-coleman-linear-map, PadicMeasuresIwasawaAlgebras:L1.
+
+Acceptance: The Tate cokernel vanishes on the real summand, which is why the plus quotient is an isomorphism.
+
+Sources: RJW-published, Definition11.8, p.176; Lemmas12.20–12.22, pp.186–188; Theorem12.23, pp.188–189. The cited passage supplies this arithmetic target. The native-carrier adapter and the separate closure/compactness steps are worker deductions. The corrected argument follows the independently reviewed extraction where the printed proof omits a hypothesis or equality. Literal excerpt: “Theorem 12.23. The Coleman map induces”.
+
+#### The actual Coleman image of the adjusted generator
+
+**ColemanPowerSeries:L4/adjusted-generator-coleman-image** — comparison; proposed declaration **ColemanCyclotomic.principalColeman_adjustedRealTower**.
+
+principalColeman(q(a))=λ_a=([â]−1)ζ_p for the independently normalized arithmetic pseudomeasure. The raw Col₀ image is −λ_a. Projection to Λ(G⁺) gives ([ā]−1)ζ_p⁺ under the supplied plus pseudomeasure comparison.
+
+Hypotheses: p is an odd prime, n≥0 denotes the source level n+1, K_n=ℚ_p(ζ_n), O_n is its native integral closure, U_n=O_nˣ and U∞ is the already constructed native norm-compatible subgroup. G=ℤ_pˣ acts through its power residues, and U∞,1 is the existing residue kernel. All topologies are the native norm/product/subtype topologies. F_n=TauCeti.CyclotomicTower.Qmu(p^(n+1)); D_n and D_n⁺ are the imported actual global cyclotomic subgroups. Their local images are formed using the fixed root-compatible embedding, not by identifying complex and p-adic elements. Write c=σ_(-1), G_n=(ℤ/p^(n+1)ℤ)ˣ, G_n⁺=G_n/⟨−1⟩ and G⁺=G/⟨−1⟩. Real means fixed by c. When a generator is used, a>1 is a fixed natural integer prime to p whose image â in G topologically generates G: its integral powers are dense in G. Put b=(1−a)/2 in ℤ_p and w=ω(a mod p)⁻¹. Λ(G) is the supplied integral unit-measure convolution ring M=D(G,ℤ_p) with weak topology; Λ(G⁺) is its supplied quotient-group counterpart.
+
+Proof plan:
+
+1. The root factor tateTower((1−a)/2) is killed by the full raw kernel, as is the scalar Teichmüller factor. Thus raw and normalized images equal those of the actual cyclotomicTower(a).
+2. Use the existing signed arithmetic numerator theorem. Transport that equality through the supplied plus algebra/pseudomeasure comparison; ζ_p is not renormalized.
+
+Prerequisites: ColemanPowerSeries:L4/principal-adjusted-real-generator, ColemanPowerSeries:L3/principal-coleman-kernel, ColemanPowerSeries:L0/teichmuller-unit-splitting, ColemanPowerSeries:L2/raw-cyclotomic-numerator, ColemanPowerSeries:L4/real-cyclotomic-unit-tower, ColemanPowerSeries:L2/principal-coleman-linear-map, PadicMeasuresIwasawaAlgebras:L1, DirichletPadicLFunctions:L1.
+
+Acceptance: Computes the genuine compatible principal generator rather than a nonprincipal tower missing its Teichmüller correction.
+
+Sources: RJW-published, Definition11.8, p.176; Lemmas12.20–12.22, pp.186–188; Theorem12.23, pp.188–189. The cited passage supplies this arithmetic target. The native-carrier adapter and the separate closure/compactness steps are worker deductions. The corrected argument follows the independently reviewed extraction where the printed proof omits a hypothesis or equality. Literal excerpt: “Theorem 12.23. The Coleman map induces”.
+
+#### The augmentation image for the chosen generator
+
+**ColemanPowerSeries:L4/augmentation-generator-arithmetic-comparison** — comparison; proposed declaration **ColemanCyclotomic.augmentation_generator_comparison**.
+
+For the topological generator â of G and its image ā in G⁺, the imported principal-augmentation result gives I(G)=([â]−1)Λ(G) and I(G⁺)=([ā]−1)Λ(G⁺). Hence I(G)ζ_p=Λ(G)λ_a and I(G⁺)ζ_p⁺=Λ(G⁺)λ_a⁺ inside the integral algebras; these ideals are closed.
+
+Hypotheses: p is an odd prime, n≥0 denotes the source level n+1, K_n=ℚ_p(ζ_n), O_n is its native integral closure, U_n=O_nˣ and U∞ is the already constructed native norm-compatible subgroup. G=ℤ_pˣ acts through its power residues, and U∞,1 is the existing residue kernel. All topologies are the native norm/product/subtype topologies. F_n=TauCeti.CyclotomicTower.Qmu(p^(n+1)); D_n and D_n⁺ are the imported actual global cyclotomic subgroups. Their local images are formed using the fixed root-compatible embedding, not by identifying complex and p-adic elements. Write c=σ_(-1), G_n=(ℤ/p^(n+1)ℤ)ˣ, G_n⁺=G_n/⟨−1⟩ and G⁺=G/⟨−1⟩. Real means fixed by c. When a generator is used, a>1 is a fixed natural integer prime to p whose image â in G topologically generates G: its integral powers are dense in G. Put b=(1−a)/2 in ℤ_p and w=ω(a mod p)⁻¹. Λ(G) is the supplied integral unit-measure convolution ring M=D(G,ℤ_p) with weak topology; Λ(G⁺) is its supplied quotient-group counterpart.
+
+Proof plan:
+
+1. Request the generic procyclic augmentation/principal-ideal comparison from the completed-algebra owner, and verify the fixed â and ā satisfy its topological-generation hypotheses.
+2. The pseudomeasure numerator λ_a is integral by the imported Dirichlet theorem. Substitution of the principal augmentation formula makes the displayed product an ordinary principal integral ideal.
+3. Multiplication by this integral element is continuous on the compact weak algebra, so its range is compact and closed. Do not multiply a merely topologically generated ideal by an unbounded fraction without justifying closedness.
+
+Prerequisites: PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, ColemanPowerSeries:L4/adjusted-generator-coleman-image.
+
+Acceptance: Repairs the closure leap in Proposition11.5 and makes the entire ideal follow from the fixed generator.
+
+Sources: RJW-published, Proposition11.5, p.176 and proof of Theorem12.23, pp.188–189; generic augmentation input is supplied by PMIA L1/L3. The cited passage supplies this arithmetic target. The native-carrier adapter and the separate closure/compactness steps are worker deductions. The corrected argument follows the independently reviewed extraction where the printed proof omits a hypothesis or equality. Literal excerpt: “Proposition 11.5. The module I (0)ζ p is an ideal in 3(0).”.
+
+#### The full local cyclotomic image ideal
+
+**ColemanPowerSeries:L4/full-cyclotomic-coleman-image** — theorem; proposed declaration **ColemanCyclotomic.principalColeman_cyclotomic_image**.
+
+principalColeman(C∞,1)=I(G)ζ_p as an actual closed Λ(G)-submodule of Λ(G).
+
+Hypotheses: p is an odd prime, n≥0 denotes the source level n+1, K_n=ℚ_p(ζ_n), O_n is its native integral closure, U_n=O_nˣ and U∞ is the already constructed native norm-compatible subgroup. G=ℤ_pˣ acts through its power residues, and U∞,1 is the existing residue kernel. All topologies are the native norm/product/subtype topologies. F_n=TauCeti.CyclotomicTower.Qmu(p^(n+1)); D_n and D_n⁺ are the imported actual global cyclotomic subgroups. Their local images are formed using the fixed root-compatible embedding, not by identifying complex and p-adic elements. Write c=σ_(-1), G_n=(ℤ/p^(n+1)ℤ)ˣ, G_n⁺=G_n/⟨−1⟩ and G⁺=G/⟨−1⟩. Real means fixed by c. When a generator is used, a>1 is a fixed natural integer prime to p whose image â in G topologically generates G: its integral powers are dense in G. Put b=(1−a)/2 in ℤ_p and w=ω(a mod p)⁻¹. Λ(G) is the supplied integral unit-measure convolution ring M=D(G,ℤ_p) with weak topology; Λ(G⁺) is its supplied quotient-group counterpart.
+
+Proof plan:
+
+1. The Tate summand of C∞,1 is killed. Its real part is cyclic over Λ(G⁺), and its actual generator has image λ_a.
+2. Restrict or extend through the supplied plus comparison. The generator image is plus: δ_(-1)λ_a=λ_a. Therefore the Λ(G)-span and the Λ(G⁺)-span of this element agree under that comparison.
+3. The augmentation comparison identifies the resulting principal ideal with I(G)ζ_p, and its compact image is closed.
+
+Prerequisites: ColemanPowerSeries:L4/inverse-limit-tate-real-splitting, ColemanPowerSeries:L4/inverse-limit-real-cyclicity, ColemanPowerSeries:L4/adjusted-generator-coleman-image, ColemanPowerSeries:L4/augmentation-generator-arithmetic-comparison, ColemanPowerSeries:L2/principal-coleman-linear-map, ColemanPowerSeries:L3/principal-coleman-kernel, PadicMeasuresIwasawaAlgebras:L1.
+
+Acceptance: Specifies the image used in the full quotient exact sequence.
+
+Sources: RJW-published, Definition11.8, p.176; Lemmas12.20–12.22, pp.186–188; Theorem12.23, pp.188–189. The cited passage supplies this arithmetic target. The native-carrier adapter and the separate closure/compactness steps are worker deductions. The corrected argument follows the independently reviewed extraction where the printed proof omits a hypothesis or equality. Literal excerpt: “Theorem 12.23. The Coleman map induces”.
+
+#### The real local cyclotomic image ideal
+
+**ColemanPowerSeries:L4/real-cyclotomic-coleman-image** — theorem; proposed declaration **ColemanCyclotomic.principalColeman_real_cyclotomic_image**.
+
+Under the supplied identification of the plus algebra with Λ(G⁺), principalColeman(C∞,1⁺)=I(G⁺)ζ_p⁺ as a closed ideal.
+
+Hypotheses: p is an odd prime, n≥0 denotes the source level n+1, K_n=ℚ_p(ζ_n), O_n is its native integral closure, U_n=O_nˣ and U∞ is the already constructed native norm-compatible subgroup. G=ℤ_pˣ acts through its power residues, and U∞,1 is the existing residue kernel. All topologies are the native norm/product/subtype topologies. F_n=TauCeti.CyclotomicTower.Qmu(p^(n+1)); D_n and D_n⁺ are the imported actual global cyclotomic subgroups. Their local images are formed using the fixed root-compatible embedding, not by identifying complex and p-adic elements. Write c=σ_(-1), G_n=(ℤ/p^(n+1)ℤ)ˣ, G_n⁺=G_n/⟨−1⟩ and G⁺=G/⟨−1⟩. Real means fixed by c. When a generator is used, a>1 is a fixed natural integer prime to p whose image â in G topologically generates G: its integral powers are dense in G. Put b=(1−a)/2 in ℤ_p and w=ω(a mod p)⁻¹. Λ(G) is the supplied integral unit-measure convolution ring M=D(G,ℤ_p) with weak topology; Λ(G⁺) is its supplied quotient-group counterpart.
+
+Proof plan:
+
+1. Apply the actual Λ(G⁺)-linear Coleman map to the proved cyclic module. Its image is Λ(G⁺)λ_a⁺.
+2. The augmentation-generator comparison identifies this span with the required integral image ideal, including its closed topology.
+
+Prerequisites: ColemanPowerSeries:L4/inverse-limit-real-cyclicity, ColemanPowerSeries:L4/adjusted-generator-coleman-image, ColemanPowerSeries:L4/augmentation-generator-arithmetic-comparison, ColemanPowerSeries:L4/real-principal-coleman-surjectivity, ColemanPowerSeries:L2/principal-coleman-linear-map, PadicMeasuresIwasawaAlgebras:L1.
+
+Acceptance: The real ideal is the one that appears in Theorem11.9.
+
+Sources: RJW-published, Definition11.8, p.176; Lemmas12.20–12.22, pp.186–188; Theorem12.23, pp.188–189. The cited passage supplies this arithmetic target. The native-carrier adapter and the separate closure/compactness steps are worker deductions. The corrected argument follows the independently reviewed extraction where the printed proof omits a hypothesis or equality. Literal excerpt: “Theorem 12.23. The Coleman map induces”.
+
+#### The full local cyclotomic quotient sequence
+
+**ColemanPowerSeries:L4/full-local-unit-quotient-sequence** — theorem; proposed declaration **ColemanCyclotomic.cyclotomicQuotient_exact**.
+
+For odd p, the actual Coleman map induces the topologically exact sequence 0→Additive(U∞,1)/C∞,1→Λ(G)/(I(G)ζ_p)→ℤ_p(1)→0 of Λ(G)-modules. The quotient maps are the actual closed-submodule quotients.
+
+Hypotheses: p is an odd prime, n≥0 denotes the source level n+1, K_n=ℚ_p(ζ_n), O_n is its native integral closure, U_n=O_nˣ and U∞ is the already constructed native norm-compatible subgroup. G=ℤ_pˣ acts through its power residues, and U∞,1 is the existing residue kernel. All topologies are the native norm/product/subtype topologies. F_n=TauCeti.CyclotomicTower.Qmu(p^(n+1)); D_n and D_n⁺ are the imported actual global cyclotomic subgroups. Their local images are formed using the fixed root-compatible embedding, not by identifying complex and p-adic elements. Write c=σ_(-1), G_n=(ℤ/p^(n+1)ℤ)ˣ, G_n⁺=G_n/⟨−1⟩ and G⁺=G/⟨−1⟩. Real means fixed by c. When a generator is used, a>1 is a fixed natural integer prime to p whose image â in G topologically generates G: its integral powers are dense in G. Put b=(1−a)/2 in ℤ_p and w=ω(a mod p)⁻¹. Λ(G) is the supplied integral unit-measure convolution ring M=D(G,ℤ_p) with weak topology; Λ(G⁺) is its supplied quotient-group counterpart.
+
+Proof plan:
+
+1. The full Tate kernel lies in C∞,1. Quotient principalColeman by the actual source submodule and its identified image ideal; the resulting first map is injective.
+2. The moment kills I(G)ζ_p because it kills the Coleman image, so it descends; its range is unchanged and its kernel is the image of the new first map.
+3. Use the requested generic quotient exactness and the compact/Hausdorff quotient topologies. These are map identities, not merely an isomorphism of abstract groups.
+
+Prerequisites: ColemanPowerSeries:L3/principal-coleman-sequence, ColemanPowerSeries:L4/inverse-limit-tate-real-splitting, ColemanPowerSeries:L4/full-cyclotomic-coleman-image, ColemanPowerSeries:L2/principal-coleman-linear-map, PadicMeasuresIwasawaAlgebras:L5.
+
+Acceptance: Recovers Theorem12.23(i), including its nonzero Tate cokernel.
+
+Sources: RJW-published, Definition11.8, p.176; Lemmas12.20–12.22, pp.186–188; Theorem12.23, pp.188–189. The cited passage supplies this arithmetic target. The native-carrier adapter and the separate closure/compactness steps are worker deductions. The corrected argument follows the independently reviewed extraction where the printed proof omits a hypothesis or equality. Literal excerpt: “Theorem 12.23. The Coleman map induces”.
+
+#### The real principal unit quotient
+
+**ColemanPowerSeries:L4/real-principal-unit-quotient** — construction; proposed declaration **ColemanCyclotomic.realPrincipalUnitQuotient**.
+
+Form the native module quotient Q⁺=Additive(U∞,1⁺)/C∞,1⁺ with the quotient topology and the supplied Λ(G⁺)-action. U∞,1⁺ is the actual conjugation-fixed subgroup of principal norm-compatible units.
+
+Hypotheses: p is an odd prime, n≥0 denotes the source level n+1, K_n=ℚ_p(ζ_n), O_n is its native integral closure, U_n=O_nˣ and U∞ is the already constructed native norm-compatible subgroup. G=ℤ_pˣ acts through its power residues, and U∞,1 is the existing residue kernel. All topologies are the native norm/product/subtype topologies. F_n=TauCeti.CyclotomicTower.Qmu(p^(n+1)); D_n and D_n⁺ are the imported actual global cyclotomic subgroups. Their local images are formed using the fixed root-compatible embedding, not by identifying complex and p-adic elements. Write c=σ_(-1), G_n=(ℤ/p^(n+1)ℤ)ˣ, G_n⁺=G_n/⟨−1⟩ and G⁺=G/⟨−1⟩. Real means fixed by c. When a generator is used, a>1 is a fixed natural integer prime to p whose image â in G topologically generates G: its integral powers are dense in G. Put b=(1−a)/2 in ℤ_p and w=ω(a mod p)⁻¹. Λ(G) is the supplied integral unit-measure convolution ring M=D(G,ℤ_p) with weak topology; Λ(G⁺) is its supplied quotient-group counterpart.
+
+Proof plan:
+
+1. Conjugation-fixed principal units form a closed stable subgroup of the compact principal module. C∞,1⁺ is its actual closed submodule by the infinite Tate/real comparison.
+2. Form the native submodule quotient and transport the action through G⁺; do not define a substitute unit quotient on the Iwasawa algebra side.
+
+API:
+
+- **ColemanCyclotomic.realPrincipalUnitQuotient_mk** (constructor): The quotient projection sends a real principal tower u to its class [u].
+- **ColemanCyclotomic.realPrincipalUnitQuotient_eq_zero** (characterisation): [u]=0 iff u∈C∞,1⁺.
+- **ColemanCyclotomic.realPrincipalUnitQuotient_eq** (extensionality): [u]=[v] iff u/v∈C∞,1⁺.
+- **ColemanCyclotomic.realPrincipalUnitQuotient_lift** (universal-property): A Λ(G⁺)-linear map killing C∞,1⁺ descends uniquely; a continuous such map descends continuously for the quotient topology.
+
+Tests:
+
+- **RealQuotientTests.one** (degenerate): The identity tower has class zero.
+- **RealQuotientTests.adjusted** (computation): The class of q(a) is zero.
+- **RealQuotientTests.conjugate_tate_excluded** (non-example): A nontrivial Tate tower does not supply a representative in U∞,1⁺.
+
+Uses: Definition11.8, p.176; Lemmas12.20–12.22, pp.186–188; Theorem12.23, pp.188–189: Defines the unit side of the headline local Iwasawa comparison. ColemanPowerSeries:L4 and the consuming declarations listed in this packet: Supplies this actual arithmetic object and its named maps, rather than a second supplier carrier.
+
+Prerequisites: ColemanPowerSeries:L0/norm-tower-galois-action, ColemanPowerSeries:L0/principal-completed-action-adapter, ColemanPowerSeries:L4/real-principal-cyclotomic-limit, ColemanPowerSeries:L4/inverse-limit-tate-real-splitting, PadicMeasuresIwasawaAlgebras:L1.
+
+Acceptance: Defines the unit side of the headline local Iwasawa comparison.
+
+Sources: RJW-published, Definition11.8, p.176; Lemmas12.20–12.22, pp.186–188; Theorem12.23, pp.188–189. The cited passage supplies this arithmetic target. The native-carrier adapter and the separate closure/compactness steps are worker deductions. The corrected argument follows the independently reviewed extraction where the printed proof omits a hypothesis or equality. Literal excerpt: “Theorem 12.23. The Coleman map induces”.
+
+#### Iwasawa’s real local-unit comparison
+
+**ColemanPowerSeries:L4/local-iwasawa-real-quotient-comparison** — comparison; proposed declaration **ColemanCyclotomic.realPrincipalUnitQuotient_equiv**.
+
+The actual principal Coleman map induces a topological Λ(G⁺)-linear equivalence Q⁺≃Λ(G⁺)/(I(G⁺)ζ_p⁺). It maps the class of u to the class of its actual Coleman measure.
+
+Hypotheses: p is an odd prime, n≥0 denotes the source level n+1, K_n=ℚ_p(ζ_n), O_n is its native integral closure, U_n=O_nˣ and U∞ is the already constructed native norm-compatible subgroup. G=ℤ_pˣ acts through its power residues, and U∞,1 is the existing residue kernel. All topologies are the native norm/product/subtype topologies. F_n=TauCeti.CyclotomicTower.Qmu(p^(n+1)); D_n and D_n⁺ are the imported actual global cyclotomic subgroups. Their local images are formed using the fixed root-compatible embedding, not by identifying complex and p-adic elements. Write c=σ_(-1), G_n=(ℤ/p^(n+1)ℤ)ˣ, G_n⁺=G_n/⟨−1⟩ and G⁺=G/⟨−1⟩. Real means fixed by c. When a generator is used, a>1 is a fixed natural integer prime to p whose image â in G topologically generates G: its integral powers are dense in G. Put b=(1−a)/2 in ℤ_p and w=ω(a mod p)⁻¹. Λ(G) is the supplied integral unit-measure convolution ring M=D(G,ℤ_p) with weak topology; Λ(G⁺) is its supplied quotient-group counterpart.
+
+Proof plan:
+
+1. On the real principal group Coleman is injective and surjective onto Λ(G⁺). Its cyclotomic submodule maps exactly to the identified ideal. Apply the native quotient universal property and the requested quotient comparison.
+2. The explicit map and inverse are continuous because the original map is a continuous bijection from a compact space to a Hausdorff space, and the submodules are closed.
+
+Prerequisites: ColemanPowerSeries:L4/real-principal-unit-quotient, ColemanPowerSeries:L4/real-principal-coleman-surjectivity, ColemanPowerSeries:L4/real-cyclotomic-coleman-image, ColemanPowerSeries:L2/principal-coleman-linear-map, PadicMeasuresIwasawaAlgebras:L5.
+
+Acceptance: Recovers Theorem12.23(ii) and Theorem11.9 with the same maps, signs and quotient topology.
+
+Sources: RJW-published, Definition11.8, p.176; Lemmas12.20–12.22, pp.186–188; Theorem12.23, pp.188–189. The cited passage supplies this arithmetic target. The native-carrier adapter and the separate closure/compactness steps are worker deductions. The corrected argument follows the independently reviewed extraction where the printed proof omits a hypothesis or equality. Literal excerpt: “Theorem 12.23. The Coleman map induces”.
+
+#### Finite-flat coefficients on the local unit quotient
+
+**ColemanPowerSeries:L4/finite-flat-local-unit-quotient-comparison** — comparison; proposed declaration **ColemanCyclotomic.realPrincipalUnitQuotient_baseChange**.
+
+For a finite free commutative ℤ_p-algebra A with finite-module topology, A⊗_(ℤ_p)Q⁺ is canonically equivalent to (A⊗U∞,1⁺)/im(A⊗C∞,1⁺), and the actual Coleman comparison identifies it with Λ_A(G⁺)/im(A⊗I(G⁺)ζ_p⁺). The two quotient topologies agree with the completed finite tensor comparisons; the image ideal is A⊗ the actual integral image ideal.
+
+Hypotheses: p is an odd prime, n≥0 denotes the source level n+1, K_n=ℚ_p(ζ_n), O_n is its native integral closure, U_n=O_nˣ and U∞ is the already constructed native norm-compatible subgroup. G=ℤ_pˣ acts through its power residues, and U∞,1 is the existing residue kernel. All topologies are the native norm/product/subtype topologies. F_n=TauCeti.CyclotomicTower.Qmu(p^(n+1)); D_n and D_n⁺ are the imported actual global cyclotomic subgroups. Their local images are formed using the fixed root-compatible embedding, not by identifying complex and p-adic elements. Write c=σ_(-1), G_n=(ℤ/p^(n+1)ℤ)ˣ, G_n⁺=G_n/⟨−1⟩ and G⁺=G/⟨−1⟩. Real means fixed by c. When a generator is used, a>1 is a fixed natural integer prime to p whose image â in G topologically generates G: its integral powers are dense in G. Put b=(1−a)/2 in ℤ_p and w=ω(a mod p)⁻¹. Λ(G) is the supplied integral unit-measure convolution ring M=D(G,ℤ_p) with weak topology; Λ(G⁺) is its supplied quotient-group counterpart.
+
+Proof plan:
+
+1. Apply the generic finite-flat exactness/completed tensor comparison to the short exact sequence C∞,1⁺→U∞,1⁺→Q⁺ and to the integral image ideal sequence.
+2. Tensor the actual equivalence and its actual maps. Use the coefficient-algebra identification A⊗Λ(G⁺)≃Λ_A(G⁺); basis-independence and the finite-product compact topologies are part of the requested generic interface.
+3. No unchanged ℤ_p-unit quotient is identified with an A-coefficient algebra quotient. No arithmetic A-cyclotomic tower is silently substituted for the displayed tensor module.
+
+Prerequisites: ColemanPowerSeries:L4/local-iwasawa-real-quotient-comparison, ColemanPowerSeries:L3/finite-flat-coleman-sequence, PadicMeasuresIwasawaAlgebras:L5, PadicMeasuresIwasawaAlgebras:L0, PadicMeasuresIwasawaAlgebras:L1.
+
+Acceptance: Pins the coefficient extension of both the unit quotient and its algebraic image.
+
+Sources: RJW-published, Definition11.8, p.176; Lemmas12.20–12.22, pp.186–188; Theorem12.23, pp.188–189. The cited passage supplies this arithmetic target. The native-carrier adapter and the separate closure/compactness steps are worker deductions. The corrected argument follows the independently reviewed extraction where the printed proof omits a hypothesis or equality. Literal excerpt: “Theorem 12.23. The Coleman map induces”.
+
+## Source correction references
+
+The inherited source-finding register is unchanged. The additional terminal-proof warnings below belong to the independently reviewed paper extraction; their use here is not a new review verdict.
+
+- **PAPER-RODRIGUES-JACINTO-WILLIAMS-23/E73**, Proof of Lemma 12.21(i), printed p. 187 (PDF 88), Essential Number Theory 4 (2025) version of record; arXiv v2 identical: The independently reviewed paper extraction is the errata owner. This packet uses its corrected convention or proof; no new independent verdict is asserted. Used by: ColemanPowerSeries:L4/real-cyclotomic-unit-tower.
+
+- **PAPER-RODRIGUES-JACINTO-WILLIAMS-23/E74**, Proof of Lemma 12.22(i), printed p. 188 (PDF 89), Essential Number Theory 4 (2025) version of record; arXiv v2 identical: The independently reviewed paper extraction is the errata owner. This packet uses its corrected convention or proof; no new independent verdict is asserted. Used by: ColemanPowerSeries:L4/finite-real-principal-cyclicity.
+
+- **PAPER-RODRIGUES-JACINTO-WILLIAMS-23/E75**, Proof of Theorem 12.23, printed p. 188 (PDF 89), Essential Number Theory 4 (2025) version of record; arXiv v2 identical: The independently reviewed paper extraction is the errata owner. This packet uses its corrected convention or proof; no new independent verdict is asserted. Used by: ColemanPowerSeries:L4/inverse-limit-tate-real-splitting, ColemanPowerSeries:L4/adjusted-generator-coleman-image, ColemanPowerSeries:L4/augmentation-generator-arithmetic-comparison, ColemanPowerSeries:L4/full-local-unit-quotient-sequence.
+
+- **PAPER-RODRIGUES-JACINTO-WILLIAMS-23/E107**, Proof of Proposition 11.5, printed p. 176 (PDF 77), Essential Number Theory 4 (2025) version of record (page image checked); arXiv v2 identical: The independently reviewed paper extraction is the errata owner. This packet uses its corrected convention or proof; no new independent verdict is asserted. Used by: ColemanPowerSeries:L4/augmentation-generator-arithmetic-comparison.
+
+
+The exact inherited findings, source hashes and historical reading records remain in the packet. Current-run validation and the remaining typed-interface omissions are recorded in the handoff.
