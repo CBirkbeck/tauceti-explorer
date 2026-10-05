@@ -31546,7 +31546,8 @@
    ],
    "followUpOf": "BP-K3BlochGroups",
    "prompt": "research/blueprint/prompts/BP-K3BlochGroups--V.2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6382"
   },
   {
    "id": "REV-K3BlochGroups--V.2",
