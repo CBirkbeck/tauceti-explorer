@@ -4,7 +4,7 @@
   "area": "arithmeticgeometry",
   "parent": null,
   "summary": "Bennett and Siksek attach two families of Frey curves to primitive progression products, derive a simultaneous family of quadratic characters, and contradict its large weighted sums by either a smooth-conductor sieve or Granville’s exceptional-modulus method. The endpoint bounds prime exponents effectively and yields finiteness for each fixed sufficiently large length. Generic elliptic, modular, analytic, additive and rational-point inputs remain with their existing owners.",
-  "readme": "# Perfect powers in primitive arithmetic progressions\n\nThis roadmap develops the Bennett–Siksek modular-method treatment of primitive arithmetic-progression products and both of its analytic endgames. Its unconditional endpoint is an effective prime-exponent bound and fixed-length finiteness. It does not prove the stronger Erdős nonexistence conjecture, an effective point-enumeration algorithm or finiteness as the progression length varies.\n\nThe product uses indices 0,...,k-1. Integer gcd is positive. The factors A_i retain all powers of primes below k and are positive; the factors y_i carry signs and use odd exponent ell. Logarithms and exponentials are real; exp(10^k) is not exp(10*k). The half interval is k/2<m<=k. Prime-weighted and von-Mangoldt-weighted sums are distinguished. The character lower bound uses absolute value, the conclusion directly supported by the four-character projection.\n\nThe generic Frey curve, elliptic reduction, torsion, Galois representations and modularity belong to their existing owners. This roadmap constructs only progression-specific coefficients, second-family data and comparison adapters. Generic character, analytic, sieve, Roth, CM and Faltings machinery is imported. The complete declaration specifications are in the associated reader and packet; their recorded source and supplier boundaries are part of the plan.\n\nThe target-level pass contains 48 declaration nodes and a historical statement register. Every stage is planned, not closed. Explicit supplier requests and gaps remain; all declarations are unchecked. The printed quantitative claims are distinguished from the executed certified bounds.\n",
+  "readme": "# Perfect powers in primitive arithmetic progressions\n\nThis roadmap develops the Bennett–Siksek modular-method treatment of primitive arithmetic-progression products and both of its analytic endgames. Its unconditional endpoint is an effective prime-exponent bound and fixed-length finiteness. It does not prove the stronger Erdős nonexistence conjecture, an effective point-enumeration algorithm or finiteness as the progression length varies.\n\nThe product uses indices 0,...,k-1. Integer gcd is positive. The factors A_i retain all powers of primes below k and are positive; the factors y_i carry signs and use odd exponent ell. Logarithms and exponentials are real; exp(10^k) is not exp(10*k). The half interval is k/2<m<=k. Prime-weighted and von-Mangoldt-weighted sums are distinguished. The character lower bound uses absolute value, the conclusion directly supported by the four-character projection.\n\nThe generic Frey curve, elliptic reduction, torsion, Galois representations and modularity belong to their existing owners. This roadmap constructs only progression-specific coefficients, second-family data and comparison adapters. Generic character, analytic, sieve, Roth, CM and Faltings machinery is imported. This inline reader and the packet contain the declaration specifications; their recorded source and supplier boundaries are part of the plan.\n\nThe target-level pass contains 49 declaration nodes and a historical statement register. Every stage is planned, not closed. Explicit supplier requests and gaps remain; all declarations are unchecked. The printed quantitative claims are distinguished from the executed certified bounds.\n\nIndependent review checked the published absolute-value bars and rejected the proposed signed-projection error. The generic sieve API excludes odd conductor primes; the thin-set mass condition excludes2 separately. Zero predicates exclude the principal-character pole. The fixed-exponent adapter uses the corrected Darmon–Granville elimination coefficients. The explicit Stirling upper bound is a local adapter to pinned library results.\n",
   "prerequisites": [
     "AdditiveCombinatorics",
     "AnalyticNumberTheory",
@@ -78,7 +78,7 @@
     {
       "key": "EP.4",
       "title": "Thin-prime sieves and the original proof assembly",
-      "description": "Define survivors avoiding a prime set S of reciprocal mass below 0.17 and the two open-left sieving intervals. Bound the losses, perform maximal-valuation deletion so the surviving A-product divides(k-1)!, and prove the smooth factorial bound and density of A_i<=k^139. At the certified threshold k>=exp(exp(10^7)), use the imported quantitative Roth bound to choose one triple simultaneously avoiding S, with P(N_a)<=k^(7/16), no conductor prime in((log k)^(1-10^-4),10^4log k], and N_a<k^418. Keep the printed 10^6 threshold in the source register with its proof gap, not as an executed estimate. Build the maximal distinct-largest-prime family, prove its reciprocal-mass dichotomy and dispatch the small endpoint with c1=1/20000. This is one complete original-route reduction to an effective bound on k.",
+      "description": "Define survivors avoiding a prime set S of reciprocal mass below 0.17 and the two open-left sieving intervals. Bound the losses, perform maximal-valuation deletion so the surviving A-product divides(k-1)!, and prove the smooth factorial bound and density of A_i<=k^139. At the certified threshold k>=exp(exp(10^7)), use the imported quantitative Roth bound to choose one triple simultaneously avoiding S, with P(N_a)<=k^(7/16), no conductor prime in((log k)^(1-10^-4),10^4log k], and N_a<k^418. Keep the printed 10^6 threshold in the source register with its proof gap, not as an executed estimate. Build the maximal distinct-largest-prime family, prove its reciprocal-mass dichotomy and dispatch the small endpoint with c1=1/20000. This is one complete original-route reduction to an effective bound on k. The generic survivor API controls odd primes; reciprocal mass<0.17 excludes2. Include the explicit Stirling upper adapter to the native sequence and its telescoping bound.",
       "requires": [
         "AdditiveCombinatorics:AC.2",
         "AnalyticNumberTheory:AN.2",
@@ -91,19 +91,20 @@
     {
       "key": "EP.5",
       "title": "Granville exceptional moduli and a single witness",
-      "description": "For a bounded-height Landau-Page constant c>0 define T=exp(c log k/(3log log k)) and the moduli 1<=q<=k^4 having a primitive L-function zero with |Im rho|<=T and Re rho>1-3log log k/log k. Prove the polylogarithmic cardinal bound, minimum modulus>=log k and at-most-one modulus below T. Apply the corrected half-interval explicit formula to primitive nonprincipal characters outside this set. Define the exceptional divisibility indices with r|q and r>=q^(1/3)/2 and prove their sparse cardinal bound with all k/r+1 losses retained. Combine maximal-valuation deletion with disjoint triples to choose one triple that both avoids these indices and satisfies 8A_iA_jA_h<=k^4. Odd-conductor divisibility and the bound N<=8Nodd force that same conductor outside the exceptional set. The resulting contradiction gives an independent effective bound on k without Roth or short-sum cancellation.",
+      "description": "For a bounded-height Landau-Page constant c>0 define T=exp(c log k/(3log log k)) and the moduli 1<=q<=k^4 having a primitive L-function zero with |Im rho|<=T and Re rho>1-3log log k/log k. Prove the polylogarithmic cardinal bound, minimum modulus>=log k and at-most-one modulus below T. Apply the corrected half-interval explicit formula to primitive nonprincipal characters outside this set. Define the exceptional divisibility indices with r|q and r>=q^(1/3)/2 and prove their sparse cardinal bound with all k/r+1 losses retained. Combine maximal-valuation deletion with disjoint triples to choose one triple that both avoids these indices and satisfies 8A_iA_jA_h<=k^4. Odd-conductor divisibility and the bound N<=8Nodd force that same conductor outside the exceptional set. The resulting contradiction gives an independent effective bound on k without Roth or short-sum cancellation. Both analytic zero predicates exclude the principal-character pole at1.",
       "requires": [
         "AnalyticNumberTheory:AN.3",
         "AnalyticNumberTheory:AN.5",
         "ErdosProgressionPowers:EP.0",
         "ErdosProgressionPowers:EP.2",
-        "ErdosProgressionPowers:EP.4"
+        "ErdosProgressionPowers:EP.4",
+        "AnalyticNumberTheory:AN.2"
       ]
     },
     {
       "key": "EP.6",
       "title": "Effective exponent bound and fixed-length finiteness",
-      "description": "Prove the main theorem: an effectively computable absolute k0 exists such that every primitive integer progression product of length k>=k0 with prime exponent ell has y*d=0 or ell<=exp(10^k). Either proof route supplies such a threshold. For each fixed k>=k0, increased to at least5, import Faltings and construct the Darmon-Granville fixed-exponent adapter. Reduce composite exponents to prime divisors and exclude power variables0,1,-1 in nontrivial sufficiently long progressions. Deduce finiteness of positive integer(n,d,y,ell) tuples for each fixed k and all ell>=2, not one finite set over all lengths and not an effective enumeration of points.",
+      "description": "Prove the main theorem: an effectively computable absolute k0 exists such that every primitive integer progression product of length k>=k0 with prime exponent ell has y*d=0 or ell<=exp(10^k). Either proof route supplies such a threshold. For each fixed k>=k0, increased to at least5, import Faltings and construct the Darmon-Granville fixed-exponent adapter. Reduce composite exponents to prime divisors and exclude power variables0,1,-1 in nontrivial sufficiently long progressions. Deduce finiteness of positive integer(n,d,y,ell) tuples for each fixed k and all ell>=2, not one finite set over all lengths and not an effective enumeration of points. Correct equation(2.2) of Darmon–Granville to coefficients j-1 and j-2 with its1-based term indexing.",
       "requires": [
         "ErdosProgressionPowers:EP.0",
         "ErdosProgressionPowers:EP.4",
@@ -132,7 +133,7 @@
       "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v191-n2-p02-s.pdf",
       "sha256": "3920a7524a37870942fe3591ac858db23cb604f4331bccd2a6dc5f11a1671fbf",
       "readSections": [
-        "Published §§1–12 and references, pp.355–392; full text re-read 2026-10-05. Images inspected at pp.357,361,371,384."
+        "Independent review2026-10-05: all38 physical pages, printed355–392, read in the authenticated publisher text; critical images inspected at printed357,361,367,369,371,374,377,380,383,384. Equations(16) and(21) visibly include absolute values."
       ]
     },
     {
@@ -143,7 +144,7 @@
       "url": "https://www.math.mcgill.ca/darmon/pub/Articles/Research/12.Granville/pub12.pdf",
       "sha256": "2a77462524aebdce6a34c540e99afb3913c2c6113b597af9792bed6c82376aca",
       "readSections": [
-        "§2.1, Corollary 2.1 and its complete printed proof, pp.520–521; selected §2 descent setup pp.519–520. Genus formula verified on the p.521 image. No full-paper reading or publisher collation is claimed."
+        "Independent review2026-10-05: physical7–9, printed519–521, complete text; images at520–521 confirm the elimination-index typo and genus calculation. No full-paper reading or publisher-PDF collation claimed."
       ]
     }
   ],
