@@ -54,7 +54,7 @@ The part imports what other roadmaps own and plans nothing twice. The requests s
 - **StableHomotopyKTheory.** H.1 to H.3: classifying spaces, fundamental groups, homotopy fibres and the plus construction with its universal property, used by U.6 only.
 - **The Tau Ceti roadmaps.**
   - For U.4's class-field-theory inputs: ClassFieldTheory (layers 5, 12 and 13), Chebotarev (layers 4 and 10) and GlobalNumberFields (layers 6 and 7).
-  - GrothendieckEulerForms layer 4, for its finite-dimensional Morita statement.
+  - GrothendieckEulerForms supplies the existing categorical K₀ carrier; the native exact-K₀ Morita map already fixes the finite-dimensional normalization.
   - LieGroups layer 9, for the precise continuous retraction of real determinant-one matrices onto the special orthogonal group used by the pinned Spin cover.
 - **The libraries.**
   - Mathlib supplies matrices and GL_n, DirectLimit, transvections, the determinant, Module.rankAtStalk and its API, freeness over local rings, S-integers and the unit theorem.
@@ -512,22 +512,22 @@ Tau Ceti has ring K₀ through SplitK0 of the finite projectives, and both libra
 
 | Layer | Title | Nodes | Planets | Coverage |
 |---|---|---|---|---|
-| Z.1 | Finitely generated projectives and their presentations | 24 | 6 | partial |
+| Z.1 | Finitely generated projectives and their presentations | 46 | 6 | source_decomposed |
 | Z.2 | Rank in the correct generality | 24 | 6 | source_decomposed |
-| U.1 | Stabilisation and elementary groups | 25 | 5 | source_decomposed |
+| U.1 | Stabilisation and elementary groups | 26 | 5 | source_decomposed |
 | U.2 | K₁ and its calculus | 18 | 4 | source_decomposed |
-| U.3 | Determinant, units and SK₁ | 27 | 6 | partial |
-| U.4 | S-integers and the arithmetic theorem | 30 | 6 | partial |
-| U.5 | Relative K₁ and maps | 22 | 6 | partial |
+| U.3 | Determinant, units and SK₁ | 42 | 6 | partial |
+| U.4 | S-integers and the arithmetic theorem | 35 | 6 | partial |
+| U.5 | Relative K₁ and maps | 23 | 6 | partial |
 | U.6 | Homotopy comparison and tests | 14 | 5 | partial |
 
 Each layer section below opens with the layer's coverage record, then states every node: its statement and hypotheses, the proof outline, for definitions and constructions the API and the unit tests, its acceptance checks, its dependencies and its sources.
 
 ## Z.1 — Finitely generated projectives and their presentations
 
-*Coverage: partial.* Planned within RS-18’s narrowed scope for Z.1 (accepted): the concrete idempotent/stabilisation classification, splitting and complement data, the ring-carrier instantiation of the existing K₀, class induction and the stable-equality criterion, scalar extension and ring-level Morita functoriality, all on the existing carriers (finiteProjectiveModules, SplitK0, ExactK0); no new categorical K₀ is built. Stage targets and their nodes. (1) Finitely generated projectives = summands of finite free modules, with complement, splitting maps and idempotent matrix: the retract equivalence itself is Mathlib (Module.Finite.exists_comp_eq_id_of_projective, Module.Projective.of_split); the data are Z.1/free-summand-data, on Z.1/idempotent-module and Z.1/idempotent-module-finite-projective. (2) Idempotent matrices up to stabilised equivalence ↔ isomorphism classes: Z.1/stable-idempotent-monoid, Z.1/idempotent-module-conj, Z.1/idempotent-module-block, Z.1/iso-stably-conjugate, Z.1/idempotent-classification, and K₀ as the group completion of Idem(R) (Z.1/ring-k0-idempotent-completion). (3) “A presentation of the actual projective category, not a replacement for it”: K₀ is taken on the module category itself, and Z.1/projective-karoubi identifies the category of finitely generated projectives with the idempotent completion of the finite free modules, morphisms included (K-book II.7.3.1). (4) Ring K₀ via the existing universal property: Z.1/ring-k0. (5) Object-class induction: Z.1/ring-k0-class-induction. (6) Equality of classes by stable isomorphism: Z.1/stable-isomorphism-criterion and Z.1/stably-free-class, with the free-class map and the invariant basis number in Z.1/free-class-ibn (K-book II.2.1, corrected). (7) Scalar extension: Mathlib has extension of scalars only for commutative rings, so Z.1/extend-scalars constructs it for arbitrary ring homomorphisms (left adjoint of restriction), Z.1/extend-scalars-finite-projective and Z.1/ring-k0-map give the functor K₀(A) → K₀(B) with identity and composition laws. (8) Restriction of scalars along a finite projective extension, requested by CA.7: Z.1/restrict-scalars-finite-projective and Z.1/ring-k0-transfer. (9) Morita functoriality: Z.1/equivalence-preserves-finite-projective, Z.1/ring-k0-morita, with the test K₀(M_n(A)) ≅ K₀(A) in Z.1/ring-k0-matrix. (10) Direct-sum relations suffice because short exact sequences of projectives split: Tau Ceti already has finiteProjectiveModulesExactStructure_eq_split and ExactK0.fromSplitEquiv; the ring-level statement is Z.1/ring-k0-exact. Consumers: the CA.7 request (ring K₀ on SplitK0 of finiteProjectiveModules, the class [P], [P] = [Q] ⇔ P ⊕ Λ^k ≅ Q ⊕ Λ^k, scalar extension along Λ → Λ′ and restriction along Λ → Λ′ with Λ′ finitely generated projective over Λ) is supplied by Z.1/ring-k0, Z.1/stable-isomorphism-criterion, Z.1/ring-k0-map with Z.1/extend-scalars, and Z.1/ring-k0-transfer. Conventions: left modules, matrices acting on row vectors from the right, the zero ring allowed. K-book statements proved only as exercises there (Ex. I.2.3) are proved in full in the nodes. Not targets of Z.1 and so not planned here: the Hattori–Stallings trace (II.2.5), nilpotent-ideal invariance (II.2.2), Pierce’s theorem (II.2.2.2), filtered colimits (II.2.1.6, GeneralAlgebraicKTheory K.7), the relative group K₀(T) (II.2.10). Morita preservation is decomposed into compact-element-order-iso, module-equivalence-submodule-order-iso, equivalence-preserves-finite, the retained equivalence-preserves-finite-projective theorem, finite-projective-equivalence and its additive instance. The independent finite-dimensional comparison request remains open.
+*Coverage: source_decomposed.* Planned within RS-18’s narrowed scope for Z.1 (accepted): the concrete idempotent/stabilisation classification, splitting and complement data, the ring-carrier instantiation of the existing K₀, class induction and the stable-equality criterion, scalar extension and ring-level Morita functoriality, all on the existing carriers (finiteProjectiveModules, SplitK0, ExactK0); no new categorical K₀ is built. Stage targets and their nodes. (1) Finitely generated projectives = summands of finite free modules, with complement, splitting maps and idempotent matrix: the retract equivalence itself is Mathlib (Module.Finite.exists_comp_eq_id_of_projective, Module.Projective.of_split); the data are Z.1/free-summand-data, on Z.1/idempotent-module and Z.1/idempotent-module-finite-projective. (2) Idempotent matrices up to stabilised equivalence ↔ isomorphism classes: Z.1/stable-idempotent-monoid, Z.1/idempotent-module-conj, Z.1/idempotent-module-block, Z.1/iso-stably-conjugate, Z.1/idempotent-classification, and K₀ as the group completion of Idem(R) (Z.1/ring-k0-idempotent-completion). (3) “A presentation of the actual projective category, not a replacement for it”: K₀ is taken on the module category itself, and Z.1/projective-karoubi identifies the category of finitely generated projectives with the idempotent completion of the finite free modules, morphisms included (K-book II.7.3.1). (4) Ring K₀ via the existing universal property: Z.1/ring-k0. (5) Object-class induction: Z.1/ring-k0-class-induction. (6) Equality of classes by stable isomorphism: Z.1/stable-isomorphism-criterion and Z.1/stably-free-class, with the free-class map and the invariant basis number in Z.1/free-class-ibn (K-book II.2.1, corrected). (7) Scalar extension: Mathlib has extension of scalars only for commutative rings, so Z.1/extend-scalars constructs it for arbitrary ring homomorphisms (left adjoint of restriction), Z.1/extend-scalars-finite-projective and Z.1/ring-k0-map give the functor K₀(A) → K₀(B) with identity and composition laws. (8) Restriction of scalars along a finite projective extension, requested by CA.7: Z.1/restrict-scalars-finite-projective and Z.1/ring-k0-transfer. (9) Morita functoriality: Z.1/equivalence-preserves-finite-projective, Z.1/ring-k0-morita, with the test K₀(M_n(A)) ≅ K₀(A) in Z.1/ring-k0-matrix. (10) Direct-sum relations suffice because short exact sequences of projectives split: Tau Ceti already has finiteProjectiveModulesExactStructure_eq_split and ExactK0.fromSplitEquiv; the ring-level statement is Z.1/ring-k0-exact. Consumers: the CA.7 request (ring K₀ on SplitK0 of finiteProjectiveModules, the class [P], [P] = [Q] ⇔ P ⊕ Λ^k ≅ Q ⊕ Λ^k, scalar extension along Λ → Λ′ and restriction along Λ → Λ′ with Λ′ finitely generated projective over Λ) is supplied by Z.1/ring-k0, Z.1/stable-isomorphism-criterion, Z.1/ring-k0-map with Z.1/extend-scalars, and Z.1/ring-k0-transfer. Conventions: left modules, matrices acting on row vectors from the right, the zero ring allowed. K-book statements proved only as exercises there (Ex. I.2.3) are proved in full in the nodes. Not targets of Z.1 and so not planned here: the Hattori–Stallings trace (II.2.5), nilpotent-ideal invariance (II.2.2), Pierce’s theorem (II.2.2.2), filtered colimits (II.2.1.6, GeneralAlgebraicKTheory K.7), the relative group K₀(T) (II.2.10). Morita preservation is decomposed into compact-element-order-iso, module-equivalence-submodule-order-iso, equivalence-preserves-finite, the retained equivalence-preserves-finite-projective theorem, finite-projective-equivalence and its additive instance. The native Morita split-to-exact square now supplies the finite-dimensional normalization contract, using the existing ExactK0.mapEquiv and object-class uniqueness. No unpublished upstream theorem name or new categorical K₀ is assumed.
 
-- Remaining: Once GrothendieckEulerForms layer 4 exists, state and prove that Z.1/ring-k0-morita restricted to finite-dimensional algebras equals that layer’s Morita isomorphism on the common carrier (requests).
+The comparison is now Z.1/morita-split-exact-square. Native object-class uniqueness gives the upstream normalization without awaiting a separately named finite-dimensional theorem.
 
 ### The module of an idempotent matrix
 
@@ -1663,14 +1663,14 @@ For rings A, B in one universe and an equivalence E : ModuleCat A ≌ ModuleCat 
 **Acceptance.**
 
 - For the matrix equivalence of Z.1/ring-k0-matrix with a finite nonempty index type ι, [A] maps to [A^ι].
-- For finite-dimensional algebras over a field it must agree with the Morita invariance of GrothendieckEulerForms layer 4, stated on the same carrier through Z.1/ring-k0-exact (requests).
+- For finite-dimensional algebras over a field, the canonical object-class-normalized exact K₀ Morita map agrees after transport by RingK0.toExactK0, as Z.1/morita-split-exact-square proves; no unpublished upstream theorem name is assumed.
 
 **Used by.**
 
 - Weibel, Corollary II.2.7.1 and Example II.2.7.2: K₀(R) ≅ K₀(S) for Morita equivalent rings; K₀(S) ≅ K₀(M_n(S))
 - KTheoryLowDegrees:Z.1/ring-k0-matrix and Z.2/matrix-division-ring-k0: the matrix-ring computation
 - GeneralAlgebraicKTheory:K.7: the higher Morita invariance is compared with this degree-zero map (RS-18 link Z.1 → K.7)
-- GrothendieckEulerForms layer 4 (Tau Ceti roadmap): its finite-dimensional-algebra Morita invariance is the special case; the two must agree (requests)
+- GrothendieckEulerForms layer 4 (Tau Ceti roadmap): Its finite-dimensional case has the native exact-K₀ class normalization; Z.1/morita-split-exact-square gives the comparison with the general-ring map.
 - Weibel, Example II.2.1.4: K₀ of a semisimple ring through the Artin–Wedderburn decomposition into matrix rings over division rings
 
 **Depends on.**
@@ -2245,7 +2245,7 @@ For φ surjective, range Δ = ker d, where d:K₀(S)×K₀(T)→K₀(C) sends (x
 
 ## Z.2 — Rank in the correct generality
 
-*Coverage: source_decomposed.* Planned within RS-18’s narrowed scope for Z.2 (accepted), reusing Mathlib’s stalk rank and local finite-flat freeness. Stage targets and their nodes. (1) Rank of a finitely generated projective as a locally constant integer-valued function on Spec A: Mathlib’s Module.rankAtStalk and isLocallyConstant_rankAtStalk on modules; the virtual rank on K₀ is Z.2/rank-hom (with local freeness packaged in Z.2/local-freeness). (2) Finite image: API of Z.2/rank-hom (IsLocallyConstant.range_finite). (3) Compatibility with localisation and base change: Z.2/rank-base-change and Z.2/rank-localization. (4) Connected spectrum gives an integer, a disconnected one must not be collapsed: Z.2/rank-connected, Z.2/connected-iff-constant-rank (K-book Ex. I.2.5), the non-examples in Z.2/rank-hom and Z.2/k0-field-product, with the section and splitting K₀ = H⁰ ⊕ K̃₀ (Z.2/componentwise-free, Z.2/rank-section) and the clopen rank-fibre decomposition (Z.2/rank-fibre-decomposition) that the companion part uses. (5) K₀(F) ≅ ℤ for fields and division rings by dimension, identified with the ring K₀ of Z.1: Z.2/division-ring-k0 (transport of the existing SplitK0.finrankEquiv), with Z.2/integer-summand (K-book II.2.1.1), Z.2/pid-k0 and Z.2/matrix-division-ring-k0 (II.2.1.2). (6) Finite-product formula for arbitrary rings: Z.2/pi-ring-modules and Z.2/k0-pi; the test K₀(F × F) ≅ ℤ² through the rank is Z.2/k0-field-product. (7) Local rings: freeness of finitely generated projectives, in the K-book’s generality of possibly noncommutative local rings (Lemma I.2.2, Z.2/local-matrix-lift and Z.2/local-projective-free; the commutative case is Mathlib’s Module.free_of_flat_of_isLocalRing), and K₀ ≅ ℤ (Z.2/local-ring-k0). (8) The semilocal decomposition with its component information: Z.2/semilocal-components-finite, Z.2/semilocal-connected-k0 (K₀ ≅ ℤ for connected spectrum) and Z.2/semilocal-k0 (K₀ ≅ LocallyConstant(Spec A, ℤ) ≅ ℤ^{π₀(Spec A)}, counting components rather than maximal ideals). (9) Non-free projectives: Z.2/nonfree-projective-ideal (the ideal (2, 1 + √−5) of ℤ[√−5], constant rank one, not free) and the componentwise free modules over disconnected rings. The rank is additive here; its multiplicativity as a ring homomorphism needs the ring structure of Z.3 and is proposed there (restructure). Proofs that the K-book leaves as exercises (Ex. I.2.5, I.2.12, II.2.6) and the finiteness of components of a semilocal spectrum are given in full. Z.2/matrix-division-ring-k0 uses Z.1/ring-k0-matrix, whose Morita input carries the Z.1 gap.
+*Coverage: source_decomposed.* Planned within RS-18’s narrowed scope for Z.2 (accepted), reusing Mathlib’s stalk rank and local finite-flat freeness. Stage targets and their nodes. (1) Rank of a finitely generated projective as a locally constant integer-valued function on Spec A: Mathlib’s Module.rankAtStalk and isLocallyConstant_rankAtStalk on modules; the virtual rank on K₀ is Z.2/rank-hom (with local freeness packaged in Z.2/local-freeness). (2) Finite image: API of Z.2/rank-hom (IsLocallyConstant.range_finite). (3) Compatibility with localisation and base change: Z.2/rank-base-change and Z.2/rank-localization. (4) Connected spectrum gives an integer, a disconnected one must not be collapsed: Z.2/rank-connected, Z.2/connected-iff-constant-rank (K-book Ex. I.2.5), the non-examples in Z.2/rank-hom and Z.2/k0-field-product, with the section and splitting K₀ = H⁰ ⊕ K̃₀ (Z.2/componentwise-free, Z.2/rank-section) and the clopen rank-fibre decomposition (Z.2/rank-fibre-decomposition) that the companion part uses. (5) K₀(F) ≅ ℤ for fields and division rings by dimension, identified with the ring K₀ of Z.1: Z.2/division-ring-k0 (transport of the existing SplitK0.finrankEquiv), with Z.2/integer-summand (K-book II.2.1.1), Z.2/pid-k0 and Z.2/matrix-division-ring-k0 (II.2.1.2). (6) Finite-product formula for arbitrary rings: Z.2/pi-ring-modules and Z.2/k0-pi; the test K₀(F × F) ≅ ℤ² through the rank is Z.2/k0-field-product. (7) Local rings: freeness of finitely generated projectives, in the K-book’s generality of possibly noncommutative local rings (Lemma I.2.2, Z.2/local-matrix-lift and Z.2/local-projective-free; the commutative case is Mathlib’s Module.free_of_flat_of_isLocalRing), and K₀ ≅ ℤ (Z.2/local-ring-k0). (8) The semilocal decomposition with its component information: Z.2/semilocal-components-finite, Z.2/semilocal-connected-k0 (K₀ ≅ ℤ for connected spectrum) and Z.2/semilocal-k0 (K₀ ≅ LocallyConstant(Spec A, ℤ) ≅ ℤ^{π₀(Spec A)}, counting components rather than maximal ideals). (9) Non-free projectives: Z.2/nonfree-projective-ideal (the ideal (2, 1 + √−5) of ℤ[√−5], constant rank one, not free) and the componentwise free modules over disconnected rings. The rank is additive here; its multiplicativity as a ring homomorphism needs the ring structure of Z.3 and is proposed there (restructure). Proofs that the K-book leaves as exercises (Ex. I.2.5, I.2.12, II.2.6) and the finiteness of components of a semilocal spectrum are given in full. Z.2/matrix-division-ring-k0 uses Z.1/ring-k0-matrix, whose Morita input has the native split-to-exact square.
 
 ### Finitely generated projectives are locally free of their stalk rank
 
@@ -5938,7 +5938,7 @@ For A=ℝ[x,y]/(x²+y²−1), the class of M with rows (x,−y),(y,x) is a nontr
 
 ## U.4 — S-integers and the arithmetic theorem
 
-*Coverage: partial.* S is a finite set of finite places and O_{F,S} = Set.integer S F, as in ArithmeticKTheory N.1 and K2SymbolsBrauer T.5; the rank is r₁ + r₂ + |S| − 1. Targets: SK₁(O_{F,S}) = 0 (U.4/bass-milnor-serre), decomposed as BMS do — stable range of Dedekind domains (U.4/dedekind-stable-range-two, with U.3's stable-range definition and surjective stability), Mennicke symbols and the universal Mennicke group (U.4/mennicke-symbol, universal-mennicke-group, Lemmas 2.1–2.9, the SK₁ symbol of Mennicke's theorem and its surjectivity), and the arithmetic of BMS §3 and the appendix ((A.7), (A.8), (A.10), (A.11), Theorems 3.2, 3.5, 3.6); class-field-theory inputs are requested from Tau Ceti ClassFieldTheory, Chebotarev and GlobalNumberFields with their stated forms; K₁(O_{F,S}) ≅ O_{F,S}^× canonically (K1-S-integers-determinant); Dirichlet's S-unit theorem and fundamental S-units (s-unit-theorem, fundamental-s-units, K1-S-integers-structure); the unit inclusion into K₁(F) and the residue-field and local-ring specialisations. The non-example 'an arbitrary Dedekind-domain SK₁ vanishing theorem is not an acceptable substitute' is U.3/SK1-real-circle-nonzero (K-book III.1.5.4), cited rather than duplicated. BMS Theorem 4.1(c) (universality of the SK₁ symbol, Kubota's theorem, §§ 8–10) and the full determination C_q ≅ μ_{r(q)} for totally imaginary A are not on the path to SK₁(O_{F,S}) = 0 and are not planned. The separate real-circle Dedekind obligation is supplied by eight declarations: Eisenstein irreducibility, domain, stereographic charts and cover, prime-local Dedekindness, integral closure, dimension bound and the final native Dedekind predicate. Its SK₁ nontriviality still needs the LieGroups retraction.
+*Coverage: partial.* S is a finite set of finite places and O_{F,S} = Set.integer S F, as in ArithmeticKTheory N.1 and K2SymbolsBrauer T.5; the rank is r₁ + r₂ + |S| − 1. Targets: SK₁(O_{F,S}) = 0 (U.4/bass-milnor-serre), decomposed as BMS do — stable range of Dedekind domains (U.4/dedekind-stable-range-two, with U.3's stable-range definition and surjective stability), Mennicke symbols and the universal Mennicke group (U.4/mennicke-symbol, universal-mennicke-group, Lemmas 2.1–2.9, the SK₁ symbol of Mennicke's theorem and its surjectivity), and the arithmetic of BMS §3 and the appendix ((A.7), (A.8), (A.10), (A.11), Theorems 3.2, 3.5, 3.6); class-field-theory inputs are requested from Tau Ceti ClassFieldTheory, Chebotarev and GlobalNumberFields with their stated forms; K₁(O_{F,S}) ≅ O_{F,S}^× canonically (K1-S-integers-determinant); Dirichlet's S-unit theorem and fundamental S-units (s-unit-theorem, fundamental-s-units, K1-S-integers-structure); the unit inclusion into K₁(F) and the residue-field and local-ring specialisations. The non-example 'an arbitrary Dedekind-domain SK₁ vanishing theorem is not an acceptable substitute' is U.3/SK1-real-circle-nonzero (K-book III.1.5.4), cited rather than duplicated. The newly routed CG source adds the full congruence-subgroup theorem, so BMS Theorem 4.1(c), the finite-level C_I calculation and Theorem 14.1 now are U.4 targets. Five elementary-containment lemmas supply its algebraic first step; the relative universality, finite arithmetic defect, completion/kernel argument, Serre SL₂ and localized-H¹ interfaces remain explicit target gaps. The separate real-circle Dedekind obligation is supplied by eight declarations: Eisenstein irreducibility, domain, stereographic charts and cover, prime-local Dedekindness, integral closure, dimension bound and the final native Dedekind predicate. Its SK₁ nontriviality still needs the LieGroups retraction.
 
 - Remaining: Import the tame formula (A.16), the degree-m product formula (A.19) and the reciprocity law (A.21) once the CA.1 → K2SymbolsBrauer:T.7 cycle is removed (gap; restructure).
 - Remaining: Source and plan BMS (A.17)–(A.18) (Serre, Corps locaux XIV) for the totally imaginary case (gap).
@@ -6334,7 +6334,7 @@ Let A be a commutative ring of stable range at most 2 (U.3/stable-range with n =
 **Acceptance.**
 
 - K-book Ex. III.1.10: SK₁(R) is generated by Mennicke symbols when sr(R) ≤ 2.
-- BMS Theorem 4.1(c) states that this surjection is an isomorphism for Dedekind A (universality, via Kubota's theorem and §§ 8–10); the isomorphism is not needed for SK₁(A) = 0 and is not planned.
+- BMS Theorem 4.1(c) upgrades the finite-rank relative symbol to a universal isomorphism for Dedekind A (Kubota and §§8–10). The stable SK₁ vanishing proof here uses only surjectivity. The newly routed CG congruence target requires the stronger relative universality, now recorded as an unplanned U.4 gap.
 
 **Depends on.** this roadmap: `U.3/stable-range-reduction`, `U.3/special-linear-mod-elementary`, `U.4/sk1-mennicke-symbol`, `U.4/universal-mennicke-group`, `U.4/dedekind-stable-range-two`.
 
@@ -6564,7 +6564,7 @@ Let F be totally complex and A = 𝓞_F (S = ∅), p a rational prime, n ≥ 0 m
 
 - Conventions of U.4: F is a number field, 𝓞_F = NumberField.RingOfIntegers F, and S is a finite set of nonzero primes of 𝓞_F (S : Set (IsDedekindDomain.HeightOneSpectrum (𝓞 F)), S.Finite) — the finite places; O_{F,S} is Mathlib's Set.integer S F. This is the convention of ArithmeticKTheory N.1 and of K2SymbolsBrauer T.5. Bass–Milnor–Serre's S_∞ is S together with the archimedean places, and their 'Dedekind ring of arithmetic type defined by S_∞' is O_{F,S}; it is 'totally imaginary' exactly when S = ∅ and F is totally complex (Mathlib's NumberField.IsTotallyComplex).
 - Hilbert symbols (a, b / 𝔭)_m are those of BMS's Appendix (A.13)–(A.19): for a local field containing μ_m, (a, b / k)_m = σ(a^{1/m})/a^{1/m} with σ = (b, k_ab/k) the local reciprocity image of b — the transpose of the orientation (a, b)_v = Art_v(a)(ⁿ√b)/ⁿ√b used by ClassicalArithmeticCompletion CA.1. The local symbol, its nondegeneracy and the openness of k_𝔭^{×m} are requested from Tau Ceti ClassFieldTheory; the tame formula (A.16), the product formula (A.19)/(A.21) and the wild computation (A.17) are gaps (see gaps and restructure).
-- The case j_p(𝔮) > 0, which needs the power residue Mennicke symbol of BMS Proposition 3.1, is not needed for SK₁ and is not planned.
+- This node retains the j_p(𝔮)=0 cases used for stable SK₁. The j_p(𝔮)>0 power-residue Mennicke calculation belongs to the newly required finite-level arithmetic congruence-defect gap; it is not proved by this restricted node.
 
 **Proof.**
 
@@ -6678,7 +6678,7 @@ Let A = O_{F,S}. (a) If A is not totally imaginary (S ≠ ∅ or F has a real pl
 **Hypotheses.**
 
 - Conventions of U.4: F is a number field, 𝓞_F = NumberField.RingOfIntegers F, and S is a finite set of nonzero primes of 𝓞_F (S : Set (IsDedekindDomain.HeightOneSpectrum (𝓞 F)), S.Finite) — the finite places; O_{F,S} is Mathlib's Set.integer S F. This is the convention of ArithmeticKTheory N.1 and of K2SymbolsBrauer T.5. Bass–Milnor–Serre's S_∞ is S together with the archimedean places, and their 'Dedekind ring of arithmetic type defined by S_∞' is O_{F,S}; it is 'totally imaginary' exactly when S = ∅ and F is totally complex (Mathlib's NumberField.IsTotallyComplex).
-- BMS Theorem 3.6 also computes C_𝔮 ≅ μ_{r(𝔮)} for totally imaginary A and all 𝔮 (with r(A) = 1); the lower bound, which needs the power residue symbol of Proposition 3.1, is not needed for SK₁ and is not planned.
+- BMS Theorem 3.6 also determines C_𝔮≅μ_{r(𝔮)} for totally imaginary A and all 𝔮, with r(A)=1. This node keeps the stable SK₁ consequence. The lower bound using the Proposition 3.1 power-residue symbol and its transition compatibility are newly required CG inputs recorded in the finite-level congruence-defect gap.
 
 **Proof.**
 
@@ -6710,7 +6710,7 @@ Let F be a number field and S a finite set of nonzero primes of 𝓞_F. Then SK�
 **Hypotheses.**
 
 - Conventions of U.4: F is a number field, 𝓞_F = NumberField.RingOfIntegers F, and S is a finite set of nonzero primes of 𝓞_F (S : Set (IsDedekindDomain.HeightOneSpectrum (𝓞 F)), S.Finite) — the finite places; O_{F,S} is Mathlib's Set.integer S F. This is the convention of ArithmeticKTheory N.1 and of K2SymbolsBrauer T.5. Bass–Milnor–Serre's S_∞ is S together with the archimedean places, and their 'Dedekind ring of arithmetic type defined by S_∞' is O_{F,S}; it is 'totally imaginary' exactly when S = ∅ and F is totally complex (Mathlib's NumberField.IsTotallyComplex).
-- The finite-rank equality SL_n(O_{F,S}) = E_n(O_{F,S}) for n ≥ 3 (BMS Corollary 4.3(a)) needs BMS's injective stability (Theorem 4.1) and is not planned; the stable statement is what K₁ requires.
+- This node keeps stable SK₁(O_{F,S})=0. The finite-rank equality SL_n(O_{F,S})=E_n(O_{F,S}) for n≥3 (BMS Corollary 4.3(a)) also requires Theorem 4.1's injective stability; it now belongs to the newly routed congruence-source proof boundary and is not a consequence established by this stable node.
 
 **Proof.**
 
@@ -8409,11 +8409,6 @@ Every open subgroup of IdeleClassGroup K contains RaySubgroup 𝔪 for some modu
 
 Needed by: `U.4/idelic-density-theorem`, `U.4/dirichlet-theorem-arithmetic-type`.
 
-### tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-4-finite-dimensional-algebras-and-the-cartan-map
-
-Layer 4’s “Define K₀(proj A) and G₀(mod A) through Layers 2--3. Prove Morita and algebra-equivalence invariance.” for a finite-dimensional algebra A over a field, stated on the existing carrier ExactK0 (finiteProjectiveModulesExactStructure A) (Tau Ceti’s CartanMap.lean), so that KTheoryLowDegrees Z.1 can prove that its general-ring Morita isomorphism RingK0.moritaEquiv (Z.1/ring-k0-morita), transported along RingK0.toExactK0 (Z.1/ring-k0-exact), restricts to layer 4’s isomorphism. RS-18 records layer 4 as the owner of the finite-dimensional Morita case and Z.1 as the owner of the general-ring degree-zero Morita specialisation; the comparison is the only interface between them.
-
-Needed by: `Z.1/ring-k0-morita`.
 
 ### tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-9-the-cartan-iwasawa-and-kak-decompositions
 
@@ -8506,7 +8501,7 @@ The atlas requirements of each layer:
   - The class-field-theory inputs of BMS Theorem 3.5: the tame formula, the Hilbert product formula, the power reciprocity law and the local symbols on higher unit groups.
   - The five-lemma comparison of relative K₁ with the homotopy fibre.
 - **SK₁ of general Dedekind domains.** SK₁ = 0 is asserted only for O_{F,S}, with F a number field and S finite. It is not asserted for an arbitrary Dedekind domain.
-- **Congruence subgroups.** The congruence subgroup theorem of BMS, their Theorem 4.1(c) computing C_𝔮 ≅ μ_r, is not planned, because SK₁ = 0 does not need it.
+- **Congruence subgroups.** The newly routed CG input requires BMS relative Mennicke universality (Theorem 4.1(c)), finite arithmetic defect (Corollary 4.3), and the congruence-kernel theorem (14.1), as well as Serre’s SL₂ case. Their remaining proof contracts are in the October continuation gaps; stable SK₁=0 alone does not provide them.
 - **Formalisation.** Nothing here is formalised. The suggested Lean file names the objects and states what the pinned libraries can express; the rest is recorded there as comments.
 
 ## Morita proof provenance
@@ -8523,7 +8518,7 @@ The order and categorical statements used in the Morita proof are read at Mathli
 
 The patching proof reads Weibel’s author-hosted 29 August 2013 K-book, I.2.6–2.7, Exercises I.2.8–2.9, Exercise II.1.4, II.2.8–2.9 and Exercise II.2.3. The exercise proofs are expanded through explicit chart changes, compatible complements, finite free stabilization and canonical comparison maps. Projective recovery uses a direct retract argument rather than adding a Tor dependency. General exchange formulas from Exercise I.2.9(i) are not required: the free case follows from the displayed block identity.
 
-Mathlib’s existing `RingHom.pullback`, `pullbackFst`, `pullbackSnd` and `pullback_comm_sq` in `Mathlib/RingTheory/LocalRing/Pullback.lean` provide the carrier and projections at the pinned commit. The new plan preserves all inherited node identifiers. The current packet has 214 nodes, 44 planets and 425 baseline declarations. The checker counts 426 definition/construction API items and 222 definition/construction tests; the Spin continuation adds four lemma API statements and three lemma tests. Five source/dependency gaps and nine requests remain. Nothing is formalised; the suggested signatures compile with proof placeholders, as recorded in the handoff.
+Mathlib’s existing `RingHom.pullback`, `pullbackFst`, `pullbackSnd` and `pullback_comm_sq` in `Mathlib/RingTheory/LocalRing/Pullback.lean` provide the carrier and projections at the pinned commit. The new plan preserves all inherited node identifiers. At that historical checkpoint the packet had 214 nodes, 44 planets and 425 baseline declarations. The checker counts 426 definition/construction API items and 222 definition/construction tests; the Spin continuation adds four lemma API statements and three lemma tests. Five source/dependency gaps and nine requests remain. Nothing is formalised; that predecessor’s suggested signatures compiled with proof placeholders. The October continuation did not elaborate, as recorded below and in the current handoff.
 
 ## Circle obstruction: supplier contract and pinned interfaces
 
@@ -8568,7 +8563,7 @@ The complete suggested file elaborates against both pins with zero errors and 72
 
 ## The real-circle Dedekind proof
 
-This continuation supplies the algebraic hypothesis of the real-circle counterexample using the existing quotient A=ℝ[x,y]/(x²+y²−1). It does not establish the outstanding SL-to-SO retraction. There are now 222 nodes, 437 API items, 230 packet tests, 44 planets and 450 baseline citations. Four gaps and nine supplier requests remain; no whole stage is closed.
+This continuation supplies the algebraic hypothesis of the real-circle counterexample using the existing quotient A=ℝ[x,y]/(x²+y²−1). It does not establish the outstanding SL-to-SO retraction. At that September checkpoint there were 222 nodes, 437 API items, 230 packet tests, 44 planets and 450 baseline citations. Four gaps and nine supplier requests remained; no whole stage is closed.
 
 The two chart denominators are 1+x and 1−x. Their sum is the unit 2, so every prime lies in at least one chart. Each chart is ℝ[t,(1+t²)⁻¹], with the exact maps and inverse maps below. No claim identifies A itself with a polynomial ring or a PID. The proof uses Eisenstein irreducibility before applying the domain-sensitive localization theorems. At the zero prime the localization is a field; a nonzero maximal ideal is required for a DVR interpretation.
 
@@ -8837,3 +8832,309 @@ A=ℝ[x,y]/(x²+y²−1) satisfies the actual IsDedekindDomain predicate.
 - `mathlib:Polynomial.Monic.isPrimitive` (Mathlib/RingTheory/Polynomial/Content.lean, line 55): Monic polynomials meet the primitive-polynomial hypothesis of Eisenstein.
 
 The polynomial Euclidean-domain, PID-to-Dedekind and multivariable unique-factorization instances were also read in their pinned source files. They are native infrastructure, not new roadmap declarations. All 425 prior baseline records and all ten prior source findings remain intact.
+
+
+## October 2026 continuation: native comparison and newly routed sources
+
+This checkpoint preserves all 222 inherited node IDs. It adds one ring-specific comparison and five elementary cofinality lemmas. Generic split exactness, exact K₀ Morita invariance, normal cores and SL transvections are already in the pinned libraries and receive no duplicate nodes. Z.1 is source-decomposed; the whole packet remains partial. Nothing is claimed formalized.
+
+The inherited source and implementation evidence remains historical. The new baseline statements were read at both pins and their Git blobs verified. The prescribed lean-check stopped before elaboration: the shared build lacks the object file for the pinned Exact.Functor module.
+
+### Additional native baseline statements
+
+- `tauceti:TauCeti.ExactStructure.isConflationExact_split` (TauCeti/CategoryTheory/Exact/Functor.lean:172): Every additive functor preserves the split exact structures; this supplies both exactness proofs for the restricted module equivalence.
+- `tauceti:TauCeti.ExactK0.hom_ext` (TauCeti/CategoryTheory/GrothendieckGroup/Exact.lean:268): Object classes determine an additive map out of the existing exact K₀; it fixes the upstream Morita normalization uniquely.
+- `tauceti:TauCeti.ExactK0.mapEquiv` (TauCeti/CategoryTheory/GrothendieckGroup/Exact.lean:471): The canonical exact K₀ equivalence induced by an additive equivalence with conflation-exact functor and inverse.
+- `tauceti:TauCeti.ExactK0.mapEquiv_of` (TauCeti/CategoryTheory/GrothendieckGroup/Exact.lean:477): The exact equivalence sends the class of P to the class of the image of P.
+- `tauceti:TauCeti.ExactK0.map_comp_fromSplit` (TauCeti/CategoryTheory/GrothendieckGroup/Exact.lean:633): Naturality of the existing split-to-exact comparison for an additive conflation-exact functor.
+- `tauceti:TauCeti.SplitK0.mapEquiv_toAddMonoidHom` (TauCeti/CategoryTheory/GrothendieckGroup/Split.lean:317): The homomorphism underlying SplitK0.mapEquiv is SplitK0.map of the equivalence functor.
+- `mathlib:Subgroup.normalCore` (Mathlib/Algebra/Group/Subgroup/Basic.lean:716): The subgroup of elements all of whose conjugates lie in H.
+- `mathlib:Subgroup.normalCore_le` (Mathlib/Algebra/Group/Subgroup/Basic.lean:723): The normal core is contained in the original subgroup.
+- `mathlib:Subgroup.normalCore_normal` (Mathlib/Algebra/Group/Subgroup/Basic.lean:728): The normal core is normal in the ambient group.
+- `mathlib:Subgroup.comap_map_eq_self_of_injective` (Mathlib/Algebra/Group/Subgroup/Ker.lean:502): For an injective group homomorphism, pulling back the image of a subgroup recovers that subgroup.
+- `mathlib:CategoryTheory.Equivalence.inverse_additive` (Mathlib/CategoryTheory/Preadditive/AdditiveFunctor.lean:250): The inverse of an additive equivalence is additive; no extra inverse-additivity assumption is needed.
+- `mathlib:Subgroup.finite_quotient_of_finiteIndex` (Mathlib/GroupTheory/Index.lean:730): A finite-index subgroup has a finite coset quotient.
+- `mathlib:Subgroup.finiteIndex_normalCore` (Mathlib/GroupTheory/Index.lean:849): The normal core of a finite-index subgroup has finite index.
+- `mathlib:Matrix.SpecialLinearGroup.toGL_injective` (Mathlib/LinearAlgebra/Matrix/GeneralLinearGroup/Defs.lean:282): The native inclusion of determinant-one matrices into GL is injective.
+- `mathlib:Matrix.SpecialLinearGroup.transvection` (Mathlib/LinearAlgebra/Matrix/SpecialLinearGroup.lean:498): The already existing elementary matrix 1+aE_ij as an element of SL, with i≠j and commutative coefficient ring.
+- `mathlib:Matrix.SpecialLinearGroup.transvection_inv` (Mathlib/LinearAlgebra/Matrix/SpecialLinearGroup.lean:541): The inverse native SL transvection is e_ij(−a).
+- `mathlib:Matrix.SpecialLinearGroup.transvection_add` (Mathlib/LinearAlgebra/Matrix/SpecialLinearGroup.lean:545): The native SL transvection satisfies e_ij(a+b)=e_ij(a)e_ij(b).
+
+### The Morita split-to-exact square
+
+*comparison* · `KTheoryLowDegrees:Z.1/morita-split-exact-square`
+
+For rings A,B in one universe, E:ModuleCat A≌ModuleCat B, and e the existing restricted finite-projective equivalence, let q_A=RingK0.toExactK0 A and q_B=RingK0.toExactK0 B. For any conflation-exactness proofs hF for e.functor and hG for e.inverse, (RingK0.ofEquivalence E).trans q_B = q_A.trans (ExactK0.mapEquiv e hF hG). Both hF and hG are supplied by native split exactness; they are not additional mathematical assumptions. Consequently the finite-dimensional upstream Morita map, normalized by [P]↦[E(P)] on ExactK0, is this same map.
+
+Hypotheses:
+
+- A,B are unital rings, including the zero ring; modules are left modules in the same universe.
+- No finite-dimensionality or field hypothesis is used; imposing those hypotheses gives GrothendieckEulerForms layer 4’s degree-zero case.
+
+Proof:
+
+1. Rewrite the native finiteProjectiveModulesExactStructure at A and B as split exact structures. The inherited additive instance for e.functor and native Equivalence.inverse_additive provide additivity for both directions. Apply native isConflationExact_split in both directions to obtain hF,hG.
+2. Unfold ofEquivalence and toExactK0. Native SplitK0.mapEquiv_toAddMonoidHom and ExactK0.fromSplitEquiv_apply reduce the underlying forward maps to the square in ExactK0.map_comp_fromSplit. Alternatively evaluate both maps on SplitK0.of P using mapEquiv_of and the existing class formulas, then apply native SplitK0.hom_ext.
+3. Equality of forward additive maps gives equality of AddEquiv structures. Native ExactK0.hom_ext shows that any upstream exact-K₀ Morita map with the stated object-class normalization equals ExactK0.mapEquiv; no second finite-dimensional Morita construction is introduced.
+
+Direct prerequisites:
+
+- `KTheoryLowDegrees:Z.1/ring-k0-morita`
+- `KTheoryLowDegrees:Z.1/ring-k0-exact`
+- `KTheoryLowDegrees:Z.1/finite-projective-equivalence`
+- `KTheoryLowDegrees:Z.1/finite-projective-equivalence-additive`
+- `tauceti:TauCeti.finiteProjectiveModulesExactStructure_eq_split`
+- `tauceti:TauCeti.ExactStructure.isConflationExact_split`
+- `mathlib:CategoryTheory.Equivalence.inverse_additive`
+- `tauceti:TauCeti.ExactK0.mapEquiv`
+- `tauceti:TauCeti.ExactK0.mapEquiv_of`
+- `tauceti:TauCeti.ExactK0.map_comp_fromSplit`
+- `tauceti:TauCeti.ExactK0.fromSplitEquiv_apply`
+- `tauceti:TauCeti.ExactK0.hom_ext`
+- `tauceti:TauCeti.SplitK0.mapEquiv_toAddMonoidHom`
+- `tauceti:TauCeti.SplitK0.hom_ext`
+
+Checks and uses:
+
+- The square is instantiated by ModuleCat.matrixEquivalence k (0:Fin 2) on the native finite-projective carriers.
+- The class of every actual object P, rather than only the free class [A], determines the comparison; a Morita equivalence need not preserve [A].
+- Typed test `morita_split_exact_matrix_test` (compatibility): For the k-to-M₂(k) module equivalence, the two composite additive equivalences to exact K₀(M₂(k)) agree.
+- Typed test `morita_split_exact_class_test` (characterisation): ExactK0.mapEquiv sends q_A(SplitK0.of P) to ExactK0.of(e.functor.obj P) for every finite projective P.
+
+Source:
+
+- `Pinned.MoritaCofinality.2026`, Exact.lean:471–480,618–638; Split.lean:317–319; Exact/Functor.lean:172–176; CartanMap.lean:204–207: “(map F hF).comp (fromSplit E) =” — Ring-level specialization of already formalized naturality; the finite-dimensional normalization is inherited from the upstream categorical carrier, not replanned.
+
+### Normal SL membership is independent of the ordered root
+
+*lemma* · `KTheoryLowDegrees:U.4/normal-sl-root-membership`
+
+For a commutative ring R, n≥3, a normal subgroup N≤SL_n(R), ordered pairs i≠j and k≠l, and a∈R, the native SL transvection e_ij(a) is in N if and only if e_kl(a) is in N.
+
+Hypotheses:
+
+- R is commutative and n≥3.
+- N is normal in SL_n(R), not just an arbitrary finite-index subgroup.
+
+Proof:
+
+1. Use the signed elementary transpositions of U.1/signed-transposition. Conjugating 1+aE_ij by such a signed permutation replaces the ordered root by the permuted root, with coefficient a or −a. Choose successively a signed swap moving the first index to k and one moving the second index to l; if a desired first swap exchanges the two indices, reverse their order first. The third available index handles overlap. Equivalently extend the ordered-pair bijection to a permutation and correct its determinant by a diagonal sign at one of the remaining indices. Only the explicit signed-swap coordinate formulas are used, with finite case splits; no classification of normal subgroups is needed.
+2. All these conjugating matrices lie in SL_n(R), so normality transports membership. A possible coefficient sign is removed by inversion using native transvection_inv: e_kl(−a) belongs to N exactly when e_kl(a) does. Reverse the ordered-pair transport for the converse.
+
+Direct prerequisites:
+
+- `KTheoryLowDegrees:U.1/signed-transposition`
+- `KTheoryLowDegrees:U.1/elementary-matrix`
+- `mathlib:Matrix.SpecialLinearGroup.transvection`
+- `mathlib:Matrix.SpecialLinearGroup.transvection_inv`
+
+Checks and uses:
+
+- The coefficient is unchanged in the final membership equivalence even when a signed swap negates it.
+- Without normality, a single root subgroup in SL₃(ℤ) has different coefficient tests at different roots.
+
+Source:
+
+- `BMS.1967`, §7 Theorem 7.5(e), printed p.106; explicit signed-root transport used in the worker deduction: “there is a unique ideal” — Separates the root transport from ideal multiplication in the common-level argument. This is a coordinate proof from inherited U.1, not an attribution of the full classification to this lemma.
+
+### The common root ideal of a normal SL subgroup
+
+*lemma* · `KTheoryLowDegrees:U.4/normal-sl-root-level`
+
+For a commutative ring R, n≥3 and a normal subgroup N≤SL_n(R), there exists an ideal I of R such that for every pair i≠j and a∈R, the native SL transvection e_ij(a) belongs to N if and only if a belongs to I.
+
+Hypotheses:
+
+- R is commutative; no domain, Noetherian, stable-range or finiteness hypothesis is used.
+- n≥3 is needed to choose a third index in the ideal-multiplication argument.
+
+Proof:
+
+1. For fixed i≠j, the coefficient set I_ij={a | e_ij(a)∈N} is an additive subgroup: use native transvection_add, transvection_inv and subgroup membership for zero.
+2. Apply U.4/normal-sl-root-membership to identify all ordered-root coefficient sets. Thus the additive subgroup from the first step has the required membership criterion at every root.
+3. Choose a third index k. If a is in the common coefficient set and b∈R, e_ik(a)∈N. Normality gives [e_ik(a),e_kj(b)]∈N, and U.1/elementary-commutator-chain identifies this with e_ij(ab). The common additive subgroup is therefore an ideal. Its carrier is the required I and the membership equivalences follow from the root transport.
+
+Direct prerequisites:
+
+- `KTheoryLowDegrees:U.1/elementary-matrix`
+- `KTheoryLowDegrees:U.4/normal-sl-root-membership`
+- `KTheoryLowDegrees:U.1/elementary-commutator-chain`
+- `mathlib:Matrix.SpecialLinearGroup.transvection`
+- `mathlib:Matrix.SpecialLinearGroup.transvection_add`
+- `mathlib:Matrix.SpecialLinearGroup.transvection_inv`
+
+Checks and uses:
+
+- For the principal congruence subgroup in SL₃(ℤ) at an ideal J, the membership criterion gives I=J.
+- This only identifies the coefficient ideal: it does not assert N is itself a principal congruence subgroup.
+
+Source:
+
+- `BMS.1967`, §7 Theorem 7.5(e), printed p.106; new elementary deduction for normal SL subgroups: “there is a unique ideal” — The cofinality proof needs the common coefficient ideal. This direct root argument deliberately uses the stronger normality hypothesis and does not claim the full stable-range normal-subgroup classification.
+
+### The root ideal is nonzero at finite index
+
+*lemma* · `KTheoryLowDegrees:U.4/finite-index-root-level-nonzero`
+
+For an infinite commutative ring R, n≥3, a finite-index normal subgroup N≤SL_n(R), and an ideal I satisfying the common-root membership criterion for N, I≠0.
+
+Hypotheses:
+
+- R is infinite as a type, not merely a nonzero ring.
+- N is normal and has finite index, so SL_n(R)/N is a finite group.
+
+Proof:
+
+1. Fix indices 0≠1 in Fin n. If I=0, compose the native additive root homomorphism a↦e_01(a) with the quotient map to SL_n(R)/N.
+2. Equality of two quotient images implies e_01(a−b)∈N; the root membership criterion and I=0 imply a=b. This gives an injection of the infinite set R into the finite quotient, contradicting native finite_quotient_of_finiteIndex.
+
+Direct prerequisites:
+
+- `KTheoryLowDegrees:U.4/normal-sl-root-level`
+- `KTheoryLowDegrees:U.1/elementary-matrix`
+- `mathlib:Matrix.SpecialLinearGroup.transvection`
+- `mathlib:Matrix.SpecialLinearGroup.transvection_add`
+- `mathlib:Matrix.SpecialLinearGroup.transvection_inv`
+- `mathlib:Subgroup.finite_quotient_of_finiteIndex`
+
+Checks and uses:
+
+- For R=ℤ the coefficient ideal of any finite-index normal SL₃ subgroup contains a nonzero integer.
+- Infinite cannot be replaced by Nontrivial: the bottom subgroup of the finite group SL₃(𝔽₂) has coefficient ideal zero.
+
+Source:
+
+- `BMS.1967`, Theorem 14.1 proof, printed pp.129–130, nonzero level in its cofinality step: “are a cofinal family” — Explicit justification for the nonzero ideal in the cofinality argument; the injection proof is a worker deduction from the native finite quotient.
+
+### Root membership contains the relative elementary group
+
+*lemma* · `KTheoryLowDegrees:U.4/root-level-contains-relative-elementary`
+
+For a commutative ring R, any finite n, a normal subgroup N≤SL_n(R) and an ideal I whose elementary coefficients lie in N (in particular the common-root criterion), the comap to SL_n(R) of the existing U.5 relative elementary subgroup E_n(R,I)≤GL_n(R) is contained in N.
+
+Hypotheses:
+
+- E_n(R,I) is the U.5 closure of E_n(R)-conjugates of e_ij(a), a∈I.
+- The ambient normality is in SL_n(R); no unproved normality of E_n(R,I) in GL_n(R) is used.
+
+Proof:
+
+1. Native determinant-one SL transvections map to the existing GL elementary matrices, by their coordinate formulas and Units.ext. Subgroup.closure_induction then shows every τ∈E_n(R) lifts to an element of SL_n(R): generators lift, and products and inverses of lifts give lifts.
+2. Each generator τe_ij(a)τ⁻¹ of U.5/relative-elementary-subgroup is the toGL image of an N element, using a∈I and normality of N under the chosen SL lift of τ.
+3. Apply native Subgroup.closure_le to place the relative elementary closure in N.map toGL. Pull back along toGL and use its native injectivity and Subgroup.comap_map_eq_self_of_injective to recover containment in N.
+
+Direct prerequisites:
+
+- `KTheoryLowDegrees:U.1/elementary-matrix`
+- `KTheoryLowDegrees:U.1/elementary-subgroup`
+- `KTheoryLowDegrees:U.5/relative-elementary-subgroup`
+- `mathlib:Matrix.SpecialLinearGroup.transvection`
+- `mathlib:Matrix.SpecialLinearGroup.toGL_injective`
+- `mathlib:Subgroup.closure_induction`
+- `mathlib:Subgroup.closure_le`
+- `mathlib:Subgroup.comap_map_eq_self_of_injective`
+
+Checks and uses:
+
+- No assertion replaces relative elementary generators by the bare matrices with coefficients in I; the conjugates are retained.
+- The result is also valid for n<3 if its explicit coefficient hypothesis is supplied.
+
+Source:
+
+- `BMS.1967`, §4 notation E_n(A,q), printed p.94; §7 and Theorem 14.1 cofinality step: “write E_q = E_n(A, q)” — Transports the already-owned relative elementary group between native SL and GL carriers; no second relative group is defined.
+
+### Elementary levels inside finite-index SL subgroups
+
+*theorem* · `KTheoryLowDegrees:U.4/finite-index-elementary-cofinality`
+
+For an infinite commutative ring R, n≥3 and a finite-index subgroup H≤SL_n(R), there exists a nonzero ideal I such that the comap to SL_n(R) of U.5’s E_n(R,I) is contained in H.
+
+Hypotheses:
+
+- H need not be normal.
+- This is one direction of cofinality: no finite-index assertion about E_n(R,I) follows for arbitrary R.
+
+Proof:
+
+1. Replace H by its native normalCore N. The native normalCore_normal, finiteIndex_normalCore and normalCore_le provide normality, finite index and N≤H.
+2. Apply normal-sl-root-level to N and finite-index-root-level-nonzero to its common ideal I. Apply root-level-contains-relative-elementary and compose the resulting inclusion with N≤H.
+
+Direct prerequisites:
+
+- `KTheoryLowDegrees:U.4/normal-sl-root-level`
+- `KTheoryLowDegrees:U.4/finite-index-root-level-nonzero`
+- `KTheoryLowDegrees:U.4/root-level-contains-relative-elementary`
+- `mathlib:Subgroup.normalCore`
+- `mathlib:Subgroup.normalCore_normal`
+- `mathlib:Subgroup.finiteIndex_normalCore`
+- `mathlib:Subgroup.normalCore_le`
+
+Checks and uses:
+
+- Specializes to SL_n(O_{F,S}), n≥3, since the S-integer ring of a number field is infinite.
+- To identify the profinite completion, the separate finite-index property of all nonzero E_n(O_{F,S},I) is still required from BMS Corollary 4.3.
+- The finite-ring control rules out deleting Infinite from the hypothesis.
+- Typed test `root_level_principal_congruence_test` (compatibility): For J≤ℤ, i≠j in Fin 3, e_ij(a) belongs to the SL pullback of GL₃(ℤ,J) exactly when a∈J.
+- Typed test `finite_index_elementary_finite_ring_control` (non-example): There is no nonzero ideal I≤𝔽₂ whose relative elementary SL₃ subgroup is contained in the bottom subgroup.
+
+Source:
+
+- `BMS.1967`, Theorem 14.1 proof, printed pp.129–130, citing Theorem 7.5(e): “are a cofinal family” — Only the elementary containment step is decomposed here. Full arithmetic congruence-kernel determination remains an explicitly recorded target gap.
+
+### Congruence subgroup source boundaries
+
+CG Remark 9.3 applies CSP to the latter two cases, GL₂ over a CM quartic and GL₃/ℚ. Its imaginary quadratic case is not a finite-SL₂-kernel assertion. The full routed input now includes finite congruence defects and Serre’s infinite-unit-rank SL₂ theorem; stable SK₁ vanishing alone does not supply either.
+
+
+#### Full relative Mennicke universality and the finite arithmetic congruence defect
+
+New CG route requires BMS Theorem 4.1(c), not just stable SK₁=0. For A=O_{F,S}, n≥3 and I≠0, prove SL_n(A,I)/E_n(A,I) is the universal Mennicke group, then determine it by Corollary 4.3: trivial if F has a real place or S contains a finite place; in the totally complex S=∅ case cyclic of order r(I), with the specified transition maps and inverse limit μ(F). The inherited universal-mennicke-group is abstract; its SK₁-valued symbol does not establish this finite-rank relative universality. Need lemma-level Kubota §6 and extension §§8–10, the arithmetic r(I) formula and compatible roots-of-unity normalization. §4 statements were freshly read; these proofs remain uncompleted. This is an unplanned U.4 target, not a prerequisite of the already closed elementary-containment proof.
+
+#### The arithmetic and congruence completions and the central kernel
+
+From elementary cofinality plus finite index of every nonzero E_n(A,I), identify the arithmetic completion with lim_I SL_n(A)/E_n(A,I), the congruence completion with lim_I SL_n(A)/SL_n(A,I), and the kernel with lim_I SL_n(A,I)/E_n(A,I). Establish the transition maps and compatible central extension on the agreed topological carriers. BMS Theorem 14.1 then gives central kernel μ(F) for totally complex F with S=∅ and the trivial group otherwise. Generic profinite limits and group completions belong to their existing topology owners and must be imported; only the arithmetic specialization belongs here. No new congruence-completion carrier is introduced in this checkpoint.
+
+#### Serre’s SL₂ congruence-kernel theorem at infinite unit rank
+
+For A=O_{F,S} with r₁+r₂+|S|≥2, Serre §2.6 Theorem 2 gives finite central congruence kernel, isomorphic to μ(F) if F is totally complex and S=∅, trivial otherwise. Serre’s S includes infinite places; this packet’s S consists only of finite places. A CM quartic has two complex places and is in scope; SL₂ over an imaginary quadratic field with S=∅ is excluded and has infinite congruence kernel. In SL₂ Serre’s E_I is the normal closure inside SL₂(A) of the root matrices at I, not automatically the inherited U.5 closure under E₂(A). Its identification, the §2 Mennicke/prime-choice arguments and the relative universal-cover classification cited to Moore remain to be sourced and decomposed. Read scope is Introduction/§1.1–1.4 and §2.6 statements/deductions, not the full proof.
+
+#### The congruence-kernel-to-localized-H¹ interface for Calegari–Geraghty
+
+CG Remark 9.3 uses CSP in the latter two cases GL₂ over a CM quartic and GL₃/ℚ to deduce localized H¹ vanishing and, by duality, localized compactly supported cohomology vanishing. State a precise supplier contract on the relevant arithmetic lattices and Hecke action. Finite congruence kernel alone does not say every mod-p homomorphism factors through the congruence completion when p divides the kernel order; require coprime coefficients or prove separately that its contribution vanishes after the specified non-Eisenstein localization. The passage from SL to GL lattices and the Hecke/Eisenstein argument are also required. General locally symmetric-space and Hecke cohomology belongs to the consumer’s owner, not U.4. This checkpoint screens that boundary and does not assert a proof of Conjecture B.
+
+### Bhatt–Scholze: all 21 routed items and their existing owners
+
+The companion packet already plans all graded/Picard/perfect/Witt determinant targets. Its current review needs changes. Node contracts may be cited as plans; their existence does not establish source closure or accepted formalization. The general Picard groupoid remains SF.1; coherent spectra and truncation remain H.5:spectra; the ordinary Picard group normalization also follows the companion’s JacobianChallenge request.
+
+| Source item | Exact owner nodes | Import boundary |
+| --- | --- | --- |
+| D502 | `KTheoryLowDegrees:Z.3/graded-line-groupoid`, `KTheoryLowDegrees:Z.3/koszul-sign`, `KTheoryLowDegrees:Z.3/graded-line-tensor` | Use the exact existing owner nodes; no determinant groupoid or spectrum construction is duplicated in part U.1. |
+| D503 | `KTheoryLowDegrees:Z.3/graded-line-components` | Use the exact existing owner nodes; no determinant groupoid or spectrum construction is duplicated in part U.1. |
+| D504 | `KTheoryLowDegrees:Z.3/graded-line-automorphisms` | Use the exact existing owner nodes; no determinant groupoid or spectrum construction is duplicated in part U.1. |
+| D505 | `KTheoryLowDegrees:Z.3/graded-line-fibre` | Use the exact existing owner nodes; no determinant groupoid or spectrum construction is duplicated in part U.1. |
+| D506 | `KTheoryLowDegrees:Z.3/forget-grade` | Use the exact existing owner nodes; no determinant groupoid or spectrum construction is duplicated in part U.1. |
+| D510 | `KTheoryLowDegrees:Z.6/scheme-spectrum-det` | Use the exact existing owner nodes; no determinant groupoid or spectrum construction is duplicated in part U.1. |
+| D511 | `KTheoryLowDegrees:Z.6/determinant-triangle`, `KTheoryLowDegrees:Z.6/bounded-complex-det` | Use the exact existing owner nodes; no determinant groupoid or spectrum construction is duplicated in part U.1. |
+| D520 | `KTheoryLowDegrees:Z.6/witt-supported-det`, `KTheoryLowDegrees:Z.6/witt-det-uniqueness` | Use the exact existing owner nodes; no determinant groupoid or spectrum construction is duplicated in part U.1. |
+| D521 | `KTheoryLowDegrees:Z.6/witt-filtration-det` | Use the exact existing owner nodes; no determinant groupoid or spectrum construction is duplicated in part U.1. |
+| F616 | `KTheoryLowDegrees:Z.6/finite-length-det-trivial` | Use the exact existing owner nodes; no determinant groupoid or spectrum construction is duplicated in part U.1. |
+| A1201 | `KTheoryLowDegrees:Z.3/graded-self-braiding` | Use the exact existing owner nodes; no determinant groupoid or spectrum construction is duplicated in part U.1. |
+| A1203 | `KTheoryLowDegrees:Z.3/projective-graded-det`, `KTheoryLowDegrees:Z.3/projective-block-swap` | Use the exact existing owner nodes; no determinant groupoid or spectrum construction is duplicated in part U.1. |
+| A1217 | `KTheoryLowDegrees:Z.3/ring-spectrum-det` | Use the exact existing owner nodes; no determinant groupoid or spectrum construction is duplicated in part U.1. |
+| A1218 | `KTheoryLowDegrees:Z.3/local-det-equivalence`, `KTheoryLowDegrees:Z.3/zariski-sheafified-det` | Use the exact existing owner nodes; no determinant groupoid or spectrum construction is duplicated in part U.1. |
+| k-theory-functoriality | `KTheoryLowDegrees:Z.3/projective-graded-det`, `KTheoryLowDegrees:Z.3/ring-spectrum-det` | Generic K-theory functoriality and the agreement of projective group completion with the agreed K model are imported from H.4 and K.4:construction; these nodes own only the determinant consequences. |
+| k0-of-symmetric-monoidal-category | `KTheoryLowDegrees:Z.3/ring-spectrum-det` | The categorical Grothendieck group stays upstream GrothendieckEulerForms layer 2 and the group-completion π₀ comparison stays with H.4/K.4:construction; ring-spectrum-det is the determinant consumer, not a new generic K₀ owner. |
+| low-k-groups-of-local-rings | `KTheoryLowDegrees:Z.2/local-ring-k0`, `KTheoryLowDegrees:U.3/SK1-semilocal`, `KTheoryLowDegrees:U.6/pi1-plus-construction`, `KTheoryLowDegrees:Z.3/local-det-equivalence` | This part supplies the classical local K₀ and K₁ computations and its existing π₁ loop comparison. The companion combines them with graded determinant. Do not make U.3 depend on local-det-equivalence, which already depends on U.3. |
+| pic-z-etale-sheaf | `KTheoryLowDegrees:Z.3/graded-line-fibre` | Use the exact existing owner nodes; no determinant groupoid or spectrum construction is duplicated in part U.1. |
+| locally-constant-functions-v-sheaf | `KTheoryLowDegrees:Z.3/graded-pic-v-descent` | Use the exact existing owner nodes; no determinant groupoid or spectrum construction is duplicated in part U.1. |
+| remark-5-4-det-not-in-pic | `KTheoryLowDegrees:Z.3/graded-self-braiding`, `KTheoryLowDegrees:Z.3/forget-grade`, `KTheoryLowDegrees:Z.3/ring-spectrum-det` | Use the exact existing owner nodes; no determinant groupoid or spectrum construction is duplicated in part U.1. |
+| pic-z-is-sheafified-tau1-k | `KTheoryLowDegrees:Z.6/v-sheafified-first-k`, `KTheoryLowDegrees:Z.6/witt-supported-det`, `KTheoryLowDegrees:Z.6/witt-det-uniqueness` | Use the exact existing owner nodes; no determinant groupoid or spectrum construction is duplicated in part U.1. |
+
+The local-ring K₀, determinant and semilocal K₁ computations flow from this part to the companion’s local determinant equivalence. That equivalence is not an input to U.3. The companion ring-spectrum-det already specifies determinant on automorphism loops; U.6 imports the agreed K-model comparison and its coherence instead of defining a second graded determinant. The ordinary forget-grade functor is not symmetric monoidal in general: the signed braiding prevents factorization as a spectrum map to ungraded Pic.
+
+### Fresh primary-source read scope
+
+- **Modularity lifting beyond the Taylor–Wiles method**, Frank Calegari, David Geraghty, Inventiones Mathematicae 211 (2018), 297–433, author-hosted published pagination. [Public source](https://www.math.uchicago.edu/~fcale/papers/CG.pdf), read 2026-10-05, SHA256 `c0ba8de04d5ee92fe1a967f9487df6cb49295590dfd03762a9150a92838225c5`. Read: Remark 9.3, printed p.415 (physical p.119), including its reference to the latter two cases: GL₂ over a CM quartic and GL₃/ℚ. The imaginary quadratic case is not asserted to have finite SL₂ congruence kernel.
+- **Projectivity of the Witt vector affine Grassmannian**, Bhargav Bhatt, Peter Scholze, Inventiones Mathematicae (2017), 61-page author-hosted version with internal pagination. [Public source](https://people.mpim-bonn.mpg.de/scholze/Witt.pdf), read 2026-10-05, SHA256 `774032c0daee98e339b7be165174185c77714b0e729a39a985ee876ccc7e7b64`. Read: Construction 5.1 and Proposition 5.3/Remark 5.4, pp.18–19; Theorem 5.7 with proof, p.20; Lemma 6.11 and its two determinant arguments, pp.24–25; Example 12.2 and Proposition 12.3, p.55; Corollary 12.17 and Proposition 12.18, p.59
+- **Le problème des groupes de congruence pour SL₂**, Jean-Pierre Serre, Annals of Mathematics 92 (1970), 489–527, author-hosted scan with one cover page. [Public source](https://www.college-de-france.fr/media/jean-pierre-serre/UPL8543926451197744553_Serre_Pb._Congruence_SL2.pdf), read 2026-10-05, SHA256 `2a079cca247de1b4765a4c5cb0d70ef1351ee192115fa34a9cd41c3fa1ec5e37`. Read: Introduction and §1.1–1.4, pp.489–491: S includes all infinite places; infinitely many units means at least two places in S; §2.6 Theorems 1–2 and Corollaries 1–3 with the printed deductions, pp.498–499; the cited Moore classification and the preceding §2 proof are not fully read or decomposed.
+- BMS fresh read: §4 Theorem 4.1/Corollary 4.3, pp.94–96; §7 Theorem 7.5(e), pp.105–106; §14 Theorem 14.1 and proof, pp.129–130. Earlier section-wide reads and source findings remain inherited. The new root-ideal and nonzero-level proofs are explicit worker deductions; they are not claimed to be printed verbatim.
