@@ -6,7 +6,7 @@
     "DirichletPadicLFunctions:L0"
   ],
   "status": "complete",
-  "summary": "A complete target-level planning pass for L0, not a closed formalisation: normalized Mellin and Bernoulli/smoothing contracts, canonical generalized Bernoulli and two-embedding comparisons, the Dedekind Tate-series/germ/residue bridge, rational idelic normalization, and the terminal transcendence obligation. Native zeta, conductor and finite Fourier declarations are reused. Exact missing supplier exports and the L3 routing conflict remain visible.",
+  "summary": "A complete lemma-level planning pass for L0, not a closed formalisation: normalized Mellin and Bernoulli/smoothing contracts, canonical generalized Bernoulli and two-embedding comparisons, the Dedekind Tate-series/germ/residue bridge, rational idelic normalization, and the terminal transcendence obligation. Native zeta, conductor and finite Fourier declarations are reused. Exact missing supplier exports and the L3 routing conflict remain visible.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -16,924 +16,1056 @@
         "kind": "theorem",
         "module": "Mathlib/NumberTheory/LSeries/HurwitzZetaValues.lean",
         "provides": "Existing negative-zeta formula with Bernoulli convention B₁=−1/2, valid also at n=0. Used to check the published-source boundary errors, not re-planned as a node.",
-        "checked": "Statement read at pinned Mathlib 082e2d3, lines 250–255; file blob checked against the pinned Git tree."
+        "checked": "Statement read at pinned Mathlib 082e2d3, lines 250–255; file blob checked against the pinned Git tree.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:bernoulli_one",
         "kind": "theorem",
         "module": "Mathlib/NumberTheory/Bernoulli.lean",
         "provides": "The unprimed Bernoulli convention has B₁=−1/2.",
-        "checked": "Statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, lines 204–205; pinned-source SHA-256 7cd16e918dc753d602fd46c17817535cafba3a488363a7cc451173ba848494c5."
+        "checked": "Statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, lines 204–205; pinned-source SHA-256 7cd16e918dc753d602fd46c17817535cafba3a488363a7cc451173ba848494c5.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:mellin",
         "kind": "def",
         "module": "Mathlib/Analysis/MellinTransform.lean",
         "provides": "Native unnormalized Mellin integral on the positive real half-line.",
-        "checked": "Actual declaration statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; compile reached sources were bytechecked against this pin."
+        "checked": "Actual declaration statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; compile reached sources were bytechecked against this pin.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:MellinConvergent",
         "kind": "def",
         "module": "Mathlib/Analysis/MellinTransform.lean",
         "provides": "Integrability of the native Mellin integrand.",
-        "checked": "Actual declaration statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; compile reached sources were bytechecked against this pin."
+        "checked": "Actual declaration statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; compile reached sources were bytechecked against this pin.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:Complex.norm_cpow_eq_rpow_re_of_pos",
         "kind": "theorem",
         "module": "Mathlib/Analysis/SpecialFunctions/Pow/Real.lean",
         "provides": "For positive real t, the norm of t^s is t^(Re s).",
-        "checked": "Actual declaration statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; compile reached sources were bytechecked against this pin."
+        "checked": "Actual declaration statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; compile reached sources were bytechecked against this pin.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:Asymptotics.IsBigO.of_norm_eventuallyLE",
         "kind": "theorem",
         "module": "Mathlib/Analysis/Asymptotics/Defs.lean",
         "provides": "An eventual norm bound by a real function gives the corresponding Big-O estimate.",
-        "checked": "Actual declaration statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; compile reached sources were bytechecked against this pin."
+        "checked": "Actual declaration statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; compile reached sources were bytechecked against this pin.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:Asymptotics.IsBigO.trans_tendsto",
         "kind": "theorem",
         "module": "Mathlib/Analysis/Asymptotics/Lemmas.lean",
         "provides": "A Big-O bound by a function tending to zero implies convergence to zero, allowing different normed codomains.",
-        "checked": "Actual declaration statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; compile reached sources were bytechecked against this pin."
+        "checked": "Actual declaration statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; compile reached sources were bytechecked against this pin.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:tendsto_rpow_mul_exp_neg_mul_atTop_nhds_zero",
         "kind": "theorem",
         "module": "Mathlib/Analysis/SpecialFunctions/Pow/Asymptotics.lean",
         "provides": "For any real exponent and positive exponential rate, polynomial growth times exponential decay tends to zero.",
-        "checked": "Actual declaration statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; compile reached sources were bytechecked against this pin."
+        "checked": "Actual declaration statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; compile reached sources were bytechecked against this pin.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:Complex.continuousAt_cpow_zero_of_re_pos",
         "kind": "theorem",
         "module": "Mathlib/Analysis/SpecialFunctions/Pow/Continuity.lean",
         "provides": "Joint continuity of complex exponentiation at (0,s) when Re s>0.",
-        "checked": "Actual declaration statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; compile reached sources were bytechecked against this pin."
+        "checked": "Actual declaration statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; compile reached sources were bytechecked against this pin.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:hasDerivAt_ofReal_cpow_const",
         "kind": "theorem",
         "module": "Mathlib/Analysis/SpecialFunctions/Pow/Deriv.lean",
         "provides": "For real x≠0 and complex s≠0, the real derivative of t↦t^s is s x^(s−1). This is a root-namespace theorem.",
-        "checked": "Actual declaration statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; compile reached sources were bytechecked against this pin."
+        "checked": "Actual declaration statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; compile reached sources were bytechecked against this pin.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:MeasureTheory.integral_Ioi_mul_deriv_eq_deriv_mul",
         "kind": "theorem",
         "module": "Mathlib/MeasureTheory/Integral/IntegralEqImproper.lean",
         "provides": "Integration by parts on (a,∞), with separate integrability hypotheses and actual endpoint product limits.",
-        "checked": "Actual declaration statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; compile reached sources were bytechecked against this pin."
+        "checked": "Actual declaration statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; compile reached sources were bytechecked against this pin.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:ContDiffOn.continuousOn_iteratedDerivWithin",
         "kind": "theorem",
         "module": "Mathlib/Analysis/Calculus/IteratedDeriv/Defs.lean",
         "provides": "Smoothness on a unique-differentiability set gives continuity of each derivative of permitted finite order.",
-        "checked": "Actual declaration statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; compile reached sources were bytechecked against this pin."
+        "checked": "Actual declaration statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; compile reached sources were bytechecked against this pin.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:contDiffOn_iff_continuousOn_differentiableOn_deriv",
         "kind": "theorem",
         "module": "Mathlib/Analysis/Calculus/IteratedDeriv/Defs.lean",
         "provides": "The native smoothness criterion in terms of within derivatives; at infinite order all finite iterated derivatives are differentiable on the set.",
-        "checked": "Actual declaration statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; compile reached sources were bytechecked against this pin."
+        "checked": "Actual declaration statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; compile reached sources were bytechecked against this pin.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:iteratedDerivWithin_succ",
         "kind": "theorem",
         "module": "Mathlib/Analysis/Calculus/IteratedDeriv/Defs.lean",
         "provides": "The next native within derivative is the within derivative of the preceding one.",
-        "checked": "Actual declaration statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; compile reached sources were bytechecked against this pin."
+        "checked": "Actual declaration statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; compile reached sources were bytechecked against this pin.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:uniqueDiffOn_Ici",
         "kind": "theorem",
         "module": "Mathlib/Analysis/Calculus/TangentCone/Real.lean",
         "provides": "The real closed upper half-line has unique derivatives within it, including its endpoint.",
-        "checked": "Actual declaration statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; compile reached sources were bytechecked against this pin."
+        "checked": "Actual declaration statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; compile reached sources were bytechecked against this pin.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:ContinuousOn.locallyIntegrableOn",
         "kind": "theorem",
         "module": "Mathlib/MeasureTheory/Function/LocallyIntegrable.lean",
         "provides": "For a measurable set, continuity on that set gives local integrability under a locally finite measure and the stated second-countability hypotheses; these hold for ℝ→ℂ.",
-        "checked": "Actual declaration statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; compile reached sources were bytechecked against this pin."
+        "checked": "Actual declaration statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; compile reached sources were bytechecked against this pin.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:Filter.Tendsto.isBigO_one",
         "kind": "theorem",
         "module": "Mathlib/Analysis/Asymptotics/Lemmas.lean",
         "provides": "A function with a finite limit is Big-O of the constant one function.",
-        "checked": "Actual declaration statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; compile reached sources were bytechecked against this pin."
+        "checked": "Actual declaration statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; compile reached sources were bytechecked against this pin.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:mellinConvergent_of_isBigO_rpow_exp",
         "kind": "theorem",
         "module": "Mathlib/Analysis/MellinTransform.lean",
         "provides": "Local integrability, exponential decay at infinity and an O(t^(−b)) bound at zero give Mellin convergence for Re s>b.",
-        "checked": "Actual declaration statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; compile reached sources were bytechecked against this pin."
+        "checked": "Actual declaration statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; compile reached sources were bytechecked against this pin.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:mellin_differentiableAt_of_isBigO_rpow_exp",
         "kind": "theorem",
         "module": "Mathlib/Analysis/MellinTransform.lean",
         "provides": "The same growth and local-integrability conditions give complex differentiability on the initial Mellin half-plane.",
-        "checked": "Actual declaration statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; compile reached sources were bytechecked against this pin."
+        "checked": "Actual declaration statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; compile reached sources were bytechecked against this pin.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:Complex.Gamma_add_one",
         "kind": "theorem",
         "module": "Mathlib/Analysis/SpecialFunctions/Gamma/Basic.lean",
         "provides": "Γ(s+1)=sΓ(s) for s≠0.",
-        "checked": "Actual declaration statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; compile reached sources were bytechecked against this pin."
+        "checked": "Actual declaration statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; compile reached sources were bytechecked against this pin.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:Complex.Gamma_one",
         "kind": "theorem",
         "module": "Mathlib/Analysis/SpecialFunctions/Gamma/Basic.lean",
         "provides": "Γ(1)=1.",
-        "checked": "Actual declaration statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; compile reached sources were bytechecked against this pin."
+        "checked": "Actual declaration statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; compile reached sources were bytechecked against this pin.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:Complex.differentiable_one_div_Gamma",
         "kind": "theorem",
         "module": "Mathlib/Analysis/SpecialFunctions/Gamma/Beta.lean",
         "provides": "The totalized reciprocal complex Gamma function is entire.",
-        "checked": "Actual declaration statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; compile reached sources were bytechecked against this pin."
+        "checked": "Actual declaration statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; compile reached sources were bytechecked against this pin.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:MeasureTheory.integral_Ioi_of_hasDerivAt_of_tendsto",
         "kind": "theorem",
         "module": "Mathlib/MeasureTheory/Integral/IntegralEqImproper.lean",
         "provides": "FTC on (a,∞): right continuity at a, derivatives on the open half-line, integrability and an actual limit at infinity yield the boundary difference.",
-        "checked": "Actual declaration statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; compile reached sources were bytechecked against this pin."
+        "checked": "Actual declaration statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; compile reached sources were bytechecked against this pin.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:Nat.le_ceil",
         "kind": "theorem",
         "module": "Mathlib/Algebra/Order/Floor/Semiring.lean",
         "provides": "The natural ceiling of a real value bounds it from above, used to choose a positive translated real part.",
-        "checked": "Actual declaration statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; compile reached sources were bytechecked against this pin."
+        "checked": "Actual declaration statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; compile reached sources were bytechecked against this pin.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:DifferentiableAt.congr_of_eventuallyEq",
         "kind": "theorem",
         "module": "Mathlib/Analysis/Calculus/FDeriv/Congr.lean",
         "provides": "Differentiability transfers across equality on a neighborhood.",
-        "checked": "Actual declaration statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; compile reached sources were bytechecked against this pin."
+        "checked": "Actual declaration statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; compile reached sources were bytechecked against this pin.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:DifferentiableOn.analyticOnNhd",
         "kind": "theorem",
         "module": "Mathlib/Analysis/Complex/CauchyIntegral.lean",
         "provides": "Complex differentiability on an open set gives analyticity on a neighborhood at each of its points.",
-        "checked": "Actual declaration statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; compile reached sources were bytechecked against this pin."
+        "checked": "Actual declaration statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; compile reached sources were bytechecked against this pin.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:AnalyticOnNhd.eq_of_eventuallyEq",
         "kind": "theorem",
         "module": "Mathlib/Analysis/Analytic/Uniqueness.lean",
         "provides": "Two analytic functions on a preconnected space that agree on a neighborhood agree everywhere.",
-        "checked": "Actual declaration statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; compile reached sources were bytechecked against this pin."
+        "checked": "Actual declaration statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; compile reached sources were bytechecked against this pin.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:iteratedDerivWithin_congr",
         "kind": "theorem",
         "module": "Mathlib/Analysis/Calculus/IteratedDeriv/Lemmas.lean",
         "provides": "Agreement on a set implies agreement there of all native iterated within derivatives.",
-        "checked": "Actual declaration statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; compile reached sources were bytechecked against this pin."
+        "checked": "Actual declaration statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; compile reached sources were bytechecked against this pin.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:iteratedDerivWithin_add",
         "kind": "theorem",
         "module": "Mathlib/Analysis/Calculus/IteratedDeriv/Lemmas.lean",
         "provides": "Additivity of the nth within derivative at a point of a unique-differentiability set, under finite-order smoothness of both inputs.",
-        "checked": "Actual declaration statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; compile reached sources were bytechecked against this pin."
+        "checked": "Actual declaration statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; compile reached sources were bytechecked against this pin.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:iteratedDerivWithin_const_smul_field",
         "kind": "theorem",
         "module": "Mathlib/Analysis/Calculus/IteratedDeriv/Lemmas.lean",
         "provides": "Compatibility of native iterated within derivatives with scalar multiplication by a division-semiring element, without differentiability hypotheses.",
-        "checked": "Actual declaration statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; compile reached sources were bytechecked against this pin."
+        "checked": "Actual declaration statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; compile reached sources were bytechecked against this pin.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:hasMellin_add",
         "kind": "theorem",
         "module": "Mathlib/Analysis/MellinTransform.lean",
         "provides": "Additivity of the native Mellin transform when both integrands converge.",
-        "checked": "Actual declaration statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; compile reached sources were bytechecked against this pin."
+        "checked": "Actual declaration statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; compile reached sources were bytechecked against this pin.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:mellin_const_smul",
         "kind": "theorem",
         "module": "Mathlib/Analysis/MellinTransform.lean",
         "provides": "Native Mellin transforms commute with multiplication by a normed-field scalar.",
-        "checked": "Actual declaration statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; compile reached sources were bytechecked against this pin."
+        "checked": "Actual declaration statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; compile reached sources were bytechecked against this pin.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:Complex.GammaIntegral_eq_mellin",
         "kind": "theorem",
         "module": "Mathlib/Analysis/SpecialFunctions/Gamma/Deriv.lean",
         "provides": "The native complex GammaIntegral is the Mellin transform of the real exponential exp(−t), viewed in ℂ.",
-        "checked": "Actual declaration statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; compile reached sources were bytechecked against this pin."
+        "checked": "Actual declaration statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; compile reached sources were bytechecked against this pin.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:Complex.Gamma_eq_integral",
         "kind": "theorem",
         "module": "Mathlib/Analysis/SpecialFunctions/Gamma/Basic.lean",
         "provides": "Γ agrees with its defining integral on Re s>0.",
-        "checked": "Actual declaration statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; compile reached sources were bytechecked against this pin."
+        "checked": "Actual declaration statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; compile reached sources were bytechecked against this pin.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:Complex.Gamma_ne_zero_of_re_pos",
         "kind": "theorem",
         "module": "Mathlib/Analysis/SpecialFunctions/Gamma/Beta.lean",
         "provides": "Γ(s) is nonzero on Re s>0, allowing exponential normalization in the initial half-plane.",
-        "checked": "Actual declaration statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; compile reached sources were bytechecked against this pin."
+        "checked": "Actual declaration statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; compile reached sources were bytechecked against this pin.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:Complex.Gamma_zero",
         "kind": "theorem",
         "module": "Mathlib/Analysis/SpecialFunctions/Gamma/Basic.lean",
         "provides": "The library assigns Γ(0)=0 by totalization; this explains the naive-quotient negative control.",
-        "checked": "Actual declaration statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; compile reached sources were bytechecked against this pin."
+        "checked": "Actual declaration statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; compile reached sources were bytechecked against this pin.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:mellin_cpow_smul",
         "kind": "theorem",
         "module": "Mathlib/Analysis/MellinTransform.lean",
         "provides": "Multiplication of an input by t^a shifts its native Mellin transform by a.",
-        "checked": "Actual declaration statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; compile reached sources were bytechecked against this pin."
+        "checked": "Actual declaration statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; compile reached sources were bytechecked against this pin.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:mellin_comp_mul_left",
         "kind": "theorem",
         "module": "Mathlib/Analysis/MellinTransform.lean",
         "provides": "Positive real scaling t↦at multiplies the native Mellin transform by a^(−s).",
-        "checked": "Actual declaration statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; compile reached sources were bytechecked against this pin."
+        "checked": "Actual declaration statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; compile reached sources were bytechecked against this pin.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:Real.summable_pow_mul_exp_neg_nat_mul",
         "kind": "lemma",
         "module": "Mathlib/Analysis/SpecialFunctions/Exp.lean",
         "provides": "Native summability of n^m exp(−tn) for m natural and t>0; the positive-index sum is its shifted tail.",
-        "checked": "Full statement and surrounding hypotheses read at pinned Mathlib082e2d3. Generated additive names are cited through their indexed multiplicative generator."
+        "checked": "Full statement and surrounding hypotheses read at pinned Mathlib082e2d3. Generated additive names are cited through their indexed multiplicative generator.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:multipliable_nat_add_iff",
         "kind": "theorem",
         "module": "Mathlib/Topology/Algebra/InfiniteSum/NatInt.lean",
         "provides": "The additive theorem summable_nat_add_iff is generated here: deleting a finite initial segment preserves summability in an additive topological group.",
-        "checked": "Full statement and surrounding hypotheses read at pinned Mathlib082e2d3. Generated additive names are cited through their indexed multiplicative generator."
+        "checked": "Full statement and surrounding hypotheses read at pinned Mathlib082e2d3. Generated additive names are cited through their indexed multiplicative generator.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:Multipliable.tprod_le_tprod",
         "kind": "theorem",
         "module": "Mathlib/Topology/Algebra/InfiniteSum/Order.lean",
         "provides": "The additive Summable.tsum_le_tsum generated here compares two summable families term by term.",
-        "checked": "Full statement and surrounding hypotheses read at pinned Mathlib082e2d3. Generated additive names are cited through their indexed multiplicative generator."
+        "checked": "Full statement and surrounding hypotheses read at pinned Mathlib082e2d3. Generated additive names are cited through their indexed multiplicative generator.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:hasDerivAt_tsum_of_isPreconnected",
         "kind": "theorem",
         "module": "Mathlib/Analysis/Calculus/SmoothSeries.lean",
         "provides": "Termwise differentiation on a preconnected open set, requiring a summable uniform derivative bound and convergence at one point.",
-        "checked": "Full statement and surrounding hypotheses read at pinned Mathlib082e2d3. Generated additive names are cited through their indexed multiplicative generator."
+        "checked": "Full statement and surrounding hypotheses read at pinned Mathlib082e2d3. Generated additive names are cited through their indexed multiplicative generator.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:Real.hasDerivAt_exp",
         "kind": "theorem",
         "module": "Mathlib/Analysis/SpecialFunctions/ExpDeriv.lean",
         "provides": "The native exponential has derivative exp(t) at every real t.",
-        "checked": "Full statement and surrounding hypotheses read at pinned Mathlib082e2d3. Generated additive names are cited through their indexed multiplicative generator."
+        "checked": "Full statement and surrounding hypotheses read at pinned Mathlib082e2d3. Generated additive names are cited through their indexed multiplicative generator.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:tsum_geometric_of_norm_lt_one",
         "kind": "theorem",
         "module": "Mathlib/Analysis/SpecificLimits/Normed.lean",
         "provides": "The sum of a geometric series with ratio of norm less than one equals the inverse of one minus that ratio.",
-        "checked": "Full statement and surrounding hypotheses read at pinned Mathlib082e2d3. Generated additive names are cited through their indexed multiplicative generator."
+        "checked": "Full statement and surrounding hypotheses read at pinned Mathlib082e2d3. Generated additive names are cited through their indexed multiplicative generator.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:iteratedDeriv_succ",
         "kind": "theorem",
         "module": "Mathlib/Analysis/Calculus/IteratedDeriv/Defs.lean",
         "provides": "The (n+1)st ordinary iterated derivative is the derivative of the nth.",
-        "checked": "Full statement and surrounding hypotheses read at pinned Mathlib082e2d3. Generated additive names are cited through their indexed multiplicative generator."
+        "checked": "Full statement and surrounding hypotheses read at pinned Mathlib082e2d3. Generated additive names are cited through their indexed multiplicative generator.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:Filter.EventuallyEq.deriv_eq",
         "kind": "theorem",
         "module": "Mathlib/Analysis/Calculus/Deriv/Basic.lean",
         "provides": "Functions agreeing on a neighborhood have equal derivatives at its center.",
-        "checked": "Full statement and surrounding hypotheses read at pinned Mathlib082e2d3. Generated additive names are cited through their indexed multiplicative generator."
+        "checked": "Full statement and surrounding hypotheses read at pinned Mathlib082e2d3. Generated additive names are cited through their indexed multiplicative generator.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:HasDerivAt.const_mul",
         "kind": "theorem",
         "module": "Mathlib/Analysis/Calculus/Deriv/Mul.lean",
         "provides": "Multiplication of a differentiable function by a constant multiplies its derivative by that constant.",
-        "checked": "Full statement and surrounding hypotheses read at pinned Mathlib082e2d3. Generated additive names are cited through their indexed multiplicative generator."
+        "checked": "Full statement and surrounding hypotheses read at pinned Mathlib082e2d3. Generated additive names are cited through their indexed multiplicative generator.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:HasDerivAt.mul",
         "kind": "theorem",
         "module": "Mathlib/Analysis/Calculus/Deriv/Mul.lean",
         "provides": "Native product rule for derivatives.",
-        "checked": "Full statement and surrounding hypotheses read at pinned Mathlib082e2d3. Generated additive names are cited through their indexed multiplicative generator."
+        "checked": "Full statement and surrounding hypotheses read at pinned Mathlib082e2d3. Generated additive names are cited through their indexed multiplicative generator.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:HasDerivAt.add",
         "kind": "theorem",
         "module": "Mathlib/Analysis/Calculus/Deriv/Add.lean",
         "provides": "Native sum rule for derivatives.",
-        "checked": "Full statement and surrounding hypotheses read at pinned Mathlib082e2d3. Generated additive names are cited through their indexed multiplicative generator."
+        "checked": "Full statement and surrounding hypotheses read at pinned Mathlib082e2d3. Generated additive names are cited through their indexed multiplicative generator.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:Real.contDiff_exp",
         "kind": "theorem",
         "module": "Mathlib/Analysis/SpecialFunctions/ExpDeriv.lean",
         "provides": "The real exponential is smooth to every order.",
-        "checked": "Full statement and surrounding hypotheses read at pinned Mathlib082e2d3. Generated additive names are cited through their indexed multiplicative generator."
+        "checked": "Full statement and surrounding hypotheses read at pinned Mathlib082e2d3. Generated additive names are cited through their indexed multiplicative generator.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:ContDiffOn.div",
         "kind": "theorem",
         "module": "Mathlib/Analysis/Calculus/ContDiff/Operations.lean",
         "provides": "The quotient of two smooth functions is smooth on a set where the denominator is nonzero.",
-        "checked": "Full statement and surrounding hypotheses read at pinned Mathlib082e2d3. Generated additive names are cited through their indexed multiplicative generator."
+        "checked": "Full statement and surrounding hypotheses read at pinned Mathlib082e2d3. Generated additive names are cited through their indexed multiplicative generator.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:isLittleO_pow_exp_pos_mul_atTop",
         "kind": "theorem",
         "module": "Mathlib/Analysis/SpecialFunctions/Pow/Asymptotics.lean",
         "provides": "Every real polynomial power is little-o of exp(bt) for b>0 at positive infinity.",
-        "checked": "Full statement and surrounding hypotheses read at pinned Mathlib082e2d3. Generated additive names are cited through their indexed multiplicative generator."
+        "checked": "Full statement and surrounding hypotheses read at pinned Mathlib082e2d3. Generated additive names are cited through their indexed multiplicative generator.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:Asymptotics.IsBigO.of_bound",
         "kind": "theorem",
         "module": "Mathlib/Analysis/Asymptotics/Defs.lean",
         "provides": "An eventual explicit norm bound supplies native Big-O.",
-        "checked": "Full statement and surrounding hypotheses read at pinned Mathlib082e2d3. Generated additive names are cited through their indexed multiplicative generator."
+        "checked": "Full statement and surrounding hypotheses read at pinned Mathlib082e2d3. Generated additive names are cited through their indexed multiplicative generator.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:Filter.EventuallyEq.iteratedDerivWithin_eq",
         "kind": "theorem",
         "module": "Mathlib/Analysis/Calculus/IteratedDeriv/Lemmas.lean",
         "provides": "Equality of germs within a set, together with equality at the point, gives equal iterated within derivatives.",
-        "checked": "Full statement and surrounding hypotheses read at pinned Mathlib082e2d3. Generated additive names are cited through their indexed multiplicative generator."
+        "checked": "Full statement and surrounding hypotheses read at pinned Mathlib082e2d3. Generated additive names are cited through their indexed multiplicative generator.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:iteratedDerivWithin_eq_iteratedDeriv",
         "kind": "theorem",
         "module": "Mathlib/Analysis/Calculus/IteratedDeriv/Defs.lean",
         "provides": "At a smooth point in a set with unique derivatives, ordinary and within iterated derivatives agree.",
-        "checked": "Full statement and surrounding hypotheses read at pinned Mathlib082e2d3. Generated additive names are cited through their indexed multiplicative generator."
+        "checked": "Full statement and surrounding hypotheses read at pinned Mathlib082e2d3. Generated additive names are cited through their indexed multiplicative generator.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:HasDerivAt.ofReal_comp",
         "kind": "theorem",
         "module": "Mathlib/Analysis/Complex/RealDeriv.lean",
         "provides": "The real derivative of a real-valued function is preserved when its values are included into the complex numbers.",
-        "checked": "Full statement and surrounding hypotheses read at pinned Mathlib082e2d3. Generated additive names are cited through their indexed multiplicative generator."
+        "checked": "Full statement and surrounding hypotheses read at pinned Mathlib082e2d3. Generated additive names are cited through their indexed multiplicative generator.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:Real.exp_eq_one_iff",
         "kind": "theorem",
         "module": "Mathlib/Analysis/Complex/Exponential.lean",
         "provides": "The real exponential equals one exactly at zero.",
-        "checked": "Full statement and applicable surrounding hypotheses read at pinned Mathlib082e2d3 on27 September2026."
+        "checked": "Full statement and applicable surrounding hypotheses read at pinned Mathlib082e2d3 on27 September2026.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:Complex.ofRealCLM",
         "kind": "def",
         "module": "Mathlib/Analysis/Complex/Basic.lean",
         "provides": "The native inclusion of real into complex numbers as a real continuous linear map.",
-        "checked": "Full statement and applicable surrounding hypotheses read at pinned Mathlib082e2d3 on27 September2026."
+        "checked": "Full statement and applicable surrounding hypotheses read at pinned Mathlib082e2d3 on27 September2026.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:dslope",
         "kind": "def",
         "module": "Mathlib/Analysis/Calculus/DSlope.lean",
         "provides": "Native divided difference extended at its center by the derivative.",
-        "checked": "Full statement and applicable surrounding hypotheses read at pinned Mathlib082e2d3 on27 September2026."
+        "checked": "Full statement and applicable surrounding hypotheses read at pinned Mathlib082e2d3 on27 September2026.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:dslope_same",
         "kind": "theorem",
         "module": "Mathlib/Analysis/Calculus/DSlope.lean",
         "provides": "The extended divided difference at its center equals the native derivative.",
-        "checked": "Full statement and applicable surrounding hypotheses read at pinned Mathlib082e2d3 on27 September2026."
+        "checked": "Full statement and applicable surrounding hypotheses read at pinned Mathlib082e2d3 on27 September2026.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:dslope_of_ne",
         "kind": "theorem",
         "module": "Mathlib/Analysis/Calculus/DSlope.lean",
         "provides": "Away from the center the extended divided difference equals slope.",
-        "checked": "Full statement and applicable surrounding hypotheses read at pinned Mathlib082e2d3 on27 September2026."
+        "checked": "Full statement and applicable surrounding hypotheses read at pinned Mathlib082e2d3 on27 September2026.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:HasFPowerSeriesAt.has_fpower_series_dslope_fslope",
         "kind": "theorem",
         "module": "Mathlib/Analysis/Analytic/IsolatedZeros.lean",
         "provides": "A convergent analytic power series shifts to one for the divided difference at its center.",
-        "checked": "Full statement and applicable surrounding hypotheses read at pinned Mathlib082e2d3 on27 September2026."
+        "checked": "Full statement and applicable surrounding hypotheses read at pinned Mathlib082e2d3 on27 September2026.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:analyticAt_rexp",
         "kind": "theorem",
         "module": "Mathlib/Analysis/SpecialFunctions/ExpDeriv.lean",
         "provides": "The real exponential is real analytic.",
-        "checked": "Full statement and applicable surrounding hypotheses read at pinned Mathlib082e2d3 on27 September2026."
+        "checked": "Full statement and applicable surrounding hypotheses read at pinned Mathlib082e2d3 on27 September2026.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:AnalyticAt.div",
         "kind": "theorem",
         "module": "Mathlib/Analysis/Analytic/Constructions.lean",
         "provides": "Quotients of analytic functions are analytic at nonzero denominators.",
-        "checked": "Full statement and applicable surrounding hypotheses read at pinned Mathlib082e2d3 on27 September2026."
+        "checked": "Full statement and applicable surrounding hypotheses read at pinned Mathlib082e2d3 on27 September2026.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:AnalyticAt.inv",
         "kind": "theorem",
         "module": "Mathlib/Analysis/Analytic/Constructions.lean",
         "provides": "An analytic function has analytic inverse at a point where its value is nonzero.",
-        "checked": "Full statement and applicable surrounding hypotheses read at pinned Mathlib082e2d3 on27 September2026."
+        "checked": "Full statement and applicable surrounding hypotheses read at pinned Mathlib082e2d3 on27 September2026.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:AnalyticAt.congr",
         "kind": "theorem",
         "module": "Mathlib/Analysis/Analytic/Basic.lean",
         "provides": "Equality of germs preserves analyticity.",
-        "checked": "Full statement and applicable surrounding hypotheses read at pinned Mathlib082e2d3 on27 September2026."
+        "checked": "Full statement and applicable surrounding hypotheses read at pinned Mathlib082e2d3 on27 September2026.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:AnalyticOnNhd.contDiff",
         "kind": "theorem",
         "module": "Mathlib/Analysis/Calculus/ContDiff/Defs.lean",
         "provides": "A function analytic on neighborhoods of all points is smooth to every order.",
-        "checked": "Full statement and applicable surrounding hypotheses read at pinned Mathlib082e2d3 on27 September2026."
+        "checked": "Full statement and applicable surrounding hypotheses read at pinned Mathlib082e2d3 on27 September2026.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:iteratedDeriv_mul",
         "kind": "lemma",
         "module": "Mathlib/Analysis/Calculus/IteratedDeriv/Lemmas.lean",
         "provides": "The native higher product rule with binomial coefficients.",
-        "checked": "Full statement and applicable surrounding hypotheses read at pinned Mathlib082e2d3 on27 September2026."
+        "checked": "Full statement and applicable surrounding hypotheses read at pinned Mathlib082e2d3 on27 September2026.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:iteratedDeriv_sub",
         "kind": "lemma",
         "module": "Mathlib/Analysis/Calculus/IteratedDeriv/Lemmas.lean",
         "provides": "Higher derivatives of a difference are differences of derivatives under the smoothness hypotheses.",
-        "checked": "Full statement and applicable surrounding hypotheses read at pinned Mathlib082e2d3 on27 September2026."
+        "checked": "Full statement and applicable surrounding hypotheses read at pinned Mathlib082e2d3 on27 September2026.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:iteratedDeriv_const",
         "kind": "theorem",
         "module": "Mathlib/Analysis/Calculus/IteratedDeriv/Defs.lean",
         "provides": "The zeroth derivative of a constant is that constant; every positive derivative is zero.",
-        "checked": "Full statement and applicable surrounding hypotheses read at pinned Mathlib082e2d3 on27 September2026."
+        "checked": "Full statement and applicable surrounding hypotheses read at pinned Mathlib082e2d3 on27 September2026.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:iteratedDeriv_fun_id_zero",
         "kind": "lemma",
         "module": "Mathlib/Analysis/Calculus/IteratedDeriv/Lemmas.lean",
         "provides": "The nth derivative of the identity at zero is one exactly for n=1 and zero otherwise.",
-        "checked": "Full statement and applicable surrounding hypotheses read at pinned Mathlib082e2d3 on27 September2026."
+        "checked": "Full statement and applicable surrounding hypotheses read at pinned Mathlib082e2d3 on27 September2026.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:Real.iter_deriv_exp",
         "kind": "theorem",
         "module": "Mathlib/Analysis/SpecialFunctions/ExpDeriv.lean",
         "provides": "Every iterated derivative of the real exponential is the real exponential.",
-        "checked": "Full statement and applicable surrounding hypotheses read at pinned Mathlib082e2d3 on27 September2026."
+        "checked": "Full statement and applicable surrounding hypotheses read at pinned Mathlib082e2d3 on27 September2026.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:iteratedDeriv_eq_iterate",
         "kind": "theorem",
         "module": "Mathlib/Analysis/Calculus/IteratedDeriv/Defs.lean",
         "provides": "The native iterated derivative equals iteration of deriv.",
-        "checked": "Full statement and applicable surrounding hypotheses read at pinned Mathlib082e2d3 on27 September2026."
+        "checked": "Full statement and applicable surrounding hypotheses read at pinned Mathlib082e2d3 on27 September2026.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:sum_bernoulli",
         "kind": "theorem",
         "module": "Mathlib/NumberTheory/Bernoulli.lean",
         "provides": "The rational Bernoulli recurrence sums choose(n,k) B_k for k<n, giving one for n=1 and zero otherwise.",
-        "checked": "Full statement and applicable surrounding hypotheses read at pinned Mathlib082e2d3 on27 September2026."
+        "checked": "Full statement and applicable surrounding hypotheses read at pinned Mathlib082e2d3 on27 September2026.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:bernoulli_zero",
         "kind": "theorem",
         "module": "Mathlib/NumberTheory/Bernoulli.lean",
         "provides": "The ordinary Bernoulli number B_0 is one.",
-        "checked": "Full statement and applicable surrounding hypotheses read at pinned Mathlib082e2d3 on27 September2026."
+        "checked": "Full statement and applicable surrounding hypotheses read at pinned Mathlib082e2d3 on27 September2026.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:bernoulli_two",
         "kind": "theorem",
         "module": "Mathlib/NumberTheory/Bernoulli.lean",
         "provides": "The ordinary Bernoulli number B_2 is one-sixth.",
-        "checked": "Full statement and applicable surrounding hypotheses read at pinned Mathlib082e2d3 on27 September2026."
+        "checked": "Full statement and applicable surrounding hypotheses read at pinned Mathlib082e2d3 on27 September2026.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:ContDiff.continuousLinearMap_comp",
         "kind": "theorem",
         "module": "Mathlib/Analysis/Calculus/ContDiff/Basic.lean",
         "provides": "Composition on the left with a continuous linear map preserves smoothness.",
-        "checked": "Full statement and applicable surrounding hypotheses read at pinned Mathlib082e2d3 on27 September2026."
+        "checked": "Full statement and applicable surrounding hypotheses read at pinned Mathlib082e2d3 on27 September2026.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:ContinuousLinearMap.iteratedFDeriv_comp_left",
         "kind": "theorem",
         "module": "Mathlib/Analysis/Calculus/ContDiff/Basic.lean",
         "provides": "Composition on the left with a continuous linear map commutes with iterated Frechet derivatives under the smoothness/order hypotheses.",
-        "checked": "Full statement and applicable surrounding hypotheses read at pinned Mathlib082e2d3 on27 September2026."
+        "checked": "Full statement and applicable surrounding hypotheses read at pinned Mathlib082e2d3 on27 September2026.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:hasSum_mellin",
         "kind": "lemma",
         "module": "Mathlib/NumberTheory/LSeries/MellinEqDirichlet.lean",
         "provides": "Native Gamma-weighted Mellin/Dirichlet HasSum theorem, with positive frequencies and an explicit absolutely summable coefficient majorant; it already proves scaled integrability and norm-summable sum/integral interchange.",
-        "checked": "Full exact declaration and relevant surrounding hypotheses read at pinned Mathlib082e2d3 on27 September2026."
+        "checked": "Full exact declaration and relevant surrounding hypotheses read at pinned Mathlib082e2d3 on27 September2026.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:hasSum_geometric_of_norm_lt_one",
         "kind": "theorem",
         "module": "Mathlib/Analysis/SpecificLimits/Normed.lean",
         "provides": "The geometric series HasSum theorem in a normed division ring.",
-        "checked": "Full exact declaration and relevant surrounding hypotheses read at pinned Mathlib082e2d3 on27 September2026."
+        "checked": "Full exact declaration and relevant surrounding hypotheses read at pinned Mathlib082e2d3 on27 September2026.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:Complex.exp_nat_mul",
         "kind": "theorem",
         "module": "Mathlib/Analysis/Complex/Exponential.lean",
         "provides": "Native exponential of a natural multiple equals the corresponding natural power.",
-        "checked": "Full exact declaration and relevant surrounding hypotheses read at pinned Mathlib082e2d3 on27 September2026."
+        "checked": "Full exact declaration and relevant surrounding hypotheses read at pinned Mathlib082e2d3 on27 September2026.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:Real.summable_one_div_nat_add_rpow",
         "kind": "lemma",
         "module": "Mathlib/Analysis/PSeries.lean",
         "provides": "The shifted real p-series is summable exactly when its exponent exceeds one.",
-        "checked": "Full exact declaration and relevant surrounding hypotheses read at pinned Mathlib082e2d3 on27 September2026."
+        "checked": "Full exact declaration and relevant surrounding hypotheses read at pinned Mathlib082e2d3 on27 September2026.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:zeta_eq_tsum_one_div_nat_add_one_cpow",
         "kind": "theorem",
         "module": "Mathlib/NumberTheory/LSeries/RiemannZeta.lean",
         "provides": "The native positive-index Dirichlet series for Riemann zeta on Re(s)>1.",
-        "checked": "Full exact declaration and relevant surrounding hypotheses read at pinned Mathlib082e2d3 on27 September2026."
+        "checked": "Full exact declaration and relevant surrounding hypotheses read at pinned Mathlib082e2d3 on27 September2026.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:differentiableAt_riemannZeta",
         "kind": "theorem",
         "module": "Mathlib/NumberTheory/LSeries/RiemannZeta.lean",
         "provides": "Native complex differentiability of Riemann zeta away from one.",
-        "checked": "Full exact declaration and relevant surrounding hypotheses read at pinned Mathlib082e2d3 on27 September2026."
+        "checked": "Full exact declaration and relevant surrounding hypotheses read at pinned Mathlib082e2d3 on27 September2026.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:AnalyticOnNhd.eqOn_of_preconnected_of_eventuallyEq",
         "kind": "theorem",
         "module": "Mathlib/Analysis/Analytic/Uniqueness.lean",
         "provides": "Native identity principle on a preconnected set for functions analytic on neighborhoods and equal near one point.",
-        "checked": "Full exact declaration and relevant surrounding hypotheses read at pinned Mathlib082e2d3 on27 September2026."
+        "checked": "Full exact declaration and relevant surrounding hypotheses read at pinned Mathlib082e2d3 on27 September2026.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:isConnected_compl_singleton_of_one_lt_rank",
         "kind": "theorem",
         "module": "Mathlib/Analysis/Normed/Module/Connected.lean",
         "provides": "The complement of a singleton is connected in a real vector space of dimension greater than one.",
-        "checked": "Full exact declaration and relevant surrounding hypotheses read at pinned Mathlib082e2d3 on27 September2026."
+        "checked": "Full exact declaration and relevant surrounding hypotheses read at pinned Mathlib082e2d3 on27 September2026.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:Complex.rank_real_complex",
         "kind": "theorem",
         "module": "Mathlib/LinearAlgebra/Complex/FiniteDimensional.lean",
         "provides": "The real module rank of the complex numbers is two.",
-        "checked": "Full exact declaration and relevant surrounding hypotheses read at pinned Mathlib082e2d3 on27 September2026."
+        "checked": "Full exact declaration and relevant surrounding hypotheses read at pinned Mathlib082e2d3 on27 September2026.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:sub_smul_dslope",
         "kind": "theorem",
         "module": "Mathlib/Analysis/Calculus/DSlope.lean",
         "provides": "Multiplication of the extended divided difference by its displacement recovers the function difference, including the center.",
-        "checked": "Full exact statement and applicable surrounding hypotheses read at Mathlib082e2d3 on27 September2026."
+        "checked": "Full exact statement and applicable surrounding hypotheses read at Mathlib082e2d3 on27 September2026.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:AnalyticAt.comp",
         "kind": "theorem",
         "module": "Mathlib/Analysis/Analytic/Composition.lean",
         "provides": "Analyticity is preserved by composition at compatible points.",
-        "checked": "Full exact statement and applicable surrounding hypotheses read at Mathlib082e2d3 on27 September2026."
+        "checked": "Full exact statement and applicable surrounding hypotheses read at Mathlib082e2d3 on27 September2026.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:AnalyticAt.sub",
         "kind": "theorem",
         "module": "Mathlib/Analysis/Analytic/Constructions.lean",
         "provides": "Analyticity is preserved by subtraction.",
-        "checked": "Full exact statement and applicable surrounding hypotheses read at Mathlib082e2d3 on27 September2026."
+        "checked": "Full exact statement and applicable surrounding hypotheses read at Mathlib082e2d3 on27 September2026.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:ContDiff.comp",
         "kind": "theorem",
         "module": "Mathlib/Analysis/Calculus/ContDiff/Comp.lean",
         "provides": "Smoothness of a fixed order is preserved by composition.",
-        "checked": "Full exact statement and applicable surrounding hypotheses read at Mathlib082e2d3 on27 September2026."
+        "checked": "Full exact statement and applicable surrounding hypotheses read at Mathlib082e2d3 on27 September2026.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:iteratedDeriv_comp_const_mul",
         "kind": "theorem",
         "module": "Mathlib/Analysis/Calculus/IteratedDeriv/Lemmas.lean",
         "provides": "For a globally smooth scalar-valued function, dilation by c multiplies its nth derivative by c^n.",
-        "checked": "Full exact statement and applicable surrounding hypotheses read at Mathlib082e2d3 on27 September2026."
+        "checked": "Full exact statement and applicable surrounding hypotheses read at Mathlib082e2d3 on27 September2026.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:HasDerivAt.comp",
         "kind": "theorem",
         "module": "Mathlib/Analysis/Calculus/Deriv/Comp.lean",
         "provides": "The native scalar chain rule at a point.",
-        "checked": "Full exact statement and applicable surrounding hypotheses read at Mathlib082e2d3 on27 September2026."
+        "checked": "Full exact statement and applicable surrounding hypotheses read at Mathlib082e2d3 on27 September2026.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:hasDerivAt_const_mul",
         "kind": "theorem",
         "module": "Mathlib/Analysis/Calculus/Deriv/Mul.lean",
         "provides": "The derivative of multiplication by a scalar c is c.",
-        "checked": "Full exact statement and applicable surrounding hypotheses read at Mathlib082e2d3 on27 September2026."
+        "checked": "Full exact statement and applicable surrounding hypotheses read at Mathlib082e2d3 on27 September2026.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:HasDerivAt.sub",
         "kind": "theorem",
         "module": "Mathlib/Analysis/Calculus/Deriv/Add.lean",
         "provides": "The derivative of a difference is the difference of derivatives.",
-        "checked": "Full exact statement and applicable surrounding hypotheses read at Mathlib082e2d3 on27 September2026."
+        "checked": "Full exact statement and applicable surrounding hypotheses read at Mathlib082e2d3 on27 September2026.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:MellinConvergent.comp_mul_left",
         "kind": "theorem",
         "module": "Mathlib/Analysis/MellinTransform.lean",
         "provides": "Positive real dilation preserves native Mellin convergence at a fixed complex exponent.",
-        "checked": "Full exact statement and surrounding hypotheses read at pinned Mathlib082e2d3 on27 September2026."
+        "checked": "Full exact statement and surrounding hypotheses read at pinned Mathlib082e2d3 on27 September2026.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:hasMellin_sub",
         "kind": "theorem",
         "module": "Mathlib/Analysis/MellinTransform.lean",
         "provides": "Subtraction of two Mellin-convergent functions has the difference of their Mellin transforms.",
-        "checked": "Full exact statement and surrounding hypotheses read at pinned Mathlib082e2d3 on27 September2026."
+        "checked": "Full exact statement and surrounding hypotheses read at pinned Mathlib082e2d3 on27 September2026.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:HasDerivAt.const_cpow",
         "kind": "theorem",
         "module": "Mathlib/Analysis/SpecialFunctions/Pow/Deriv.lean",
         "provides": "The derivative of a fixed nonzero complex base to a variable complex exponent, by the native chain rule.",
-        "checked": "Full exact statement and surrounding hypotheses read at pinned Mathlib082e2d3 on27 September2026."
+        "checked": "Full exact statement and surrounding hypotheses read at pinned Mathlib082e2d3 on27 September2026.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:hasDerivAt_iff_tendsto_slope",
         "kind": "theorem",
         "module": "Mathlib/Analysis/Calculus/Deriv/Slope.lean",
         "provides": "A derivative equals the punctured limit of the difference quotient; the following alias supplies HasDerivAt.tendsto_slope.",
-        "checked": "Full exact statement and surrounding hypotheses read at pinned Mathlib082e2d3 on27 September2026."
+        "checked": "Full exact statement and surrounding hypotheses read at pinned Mathlib082e2d3 on27 September2026.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:riemannZeta_residue_one",
         "kind": "lemma",
         "module": "Mathlib/NumberTheory/LSeries/RiemannZeta.lean",
         "provides": "The punctured limit of (s−1)ζ(s) at one equals one.",
-        "checked": "Full exact statement and surrounding hypotheses read at pinned Mathlib082e2d3 on27 September2026."
+        "checked": "Full exact statement and surrounding hypotheses read at pinned Mathlib082e2d3 on27 September2026.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:Complex.ofReal_log",
         "kind": "theorem",
         "module": "Mathlib/Analysis/SpecialFunctions/Complex/Log.lean",
         "provides": "For nonnegative real a, its real logarithm included into ℂ equals the native complex logarithm.",
-        "checked": "Full exact statement and surrounding hypotheses read at pinned Mathlib082e2d3 on27 September2026."
+        "checked": "Full exact statement and surrounding hypotheses read at pinned Mathlib082e2d3 on27 September2026.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:tendsto_nhds_unique",
         "kind": "theorem",
         "module": "Mathlib/Topology/Separation/Hausdorff.lean",
         "provides": "Limits in a Hausdorff space along a nontrivial filter are unique.",
-        "checked": "Full exact statement and surrounding hypotheses read at pinned Mathlib082e2d3 on27 September2026."
+        "checked": "Full exact statement and surrounding hypotheses read at pinned Mathlib082e2d3 on27 September2026.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:PowerSeries.constantCoeff_iterate_derivative",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/PowerSeries/Derivative.lean",
         "provides": "The constant coefficient of the kth ordinary formal derivative is k! times the kth original coefficient; used to distinguish ordinary differentiation from the imported Mahler derivation in the concrete test.",
-        "checked": "Full statement and surrounding commutative-semiring hypotheses read at pinned Mathlib082e2d3 on27 September2026, lines49–79; exact name checked in the unmodified index."
+        "checked": "Full statement and surrounding commutative-semiring hypotheses read at pinned Mathlib082e2d3 on27 September2026, lines49–79; exact name checked in the unmodified index.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:MellinConvergent.const_smul",
         "kind": "theorem",
         "module": "Mathlib/Analysis/MellinTransform.lean",
         "provides": "A bounded commuting scalar action preserves Mellin convergence; here the scalar field and codomain are ℂ.",
-        "checked": "Statement and surrounding hypotheses read at pinned Mathlib082e2d3 on3 October2026."
+        "checked": "Statement and surrounding hypotheses read at pinned Mathlib082e2d3 on3 October2026.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:Complex.cpow_add",
         "kind": "theorem",
         "module": "Mathlib/Analysis/SpecialFunctions/Pow/Complex.lean",
         "provides": "For nonzero complex x, x^(y+z)=x^y x^z.",
-        "checked": "Statement and surrounding hypotheses read at pinned Mathlib082e2d3 on3 October2026."
+        "checked": "Statement and surrounding hypotheses read at pinned Mathlib082e2d3 on3 October2026.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:Complex.cpow_one",
         "kind": "theorem",
         "module": "Mathlib/Analysis/SpecialFunctions/Pow/Complex.lean",
         "provides": "Every complex x satisfies x^1=x.",
-        "checked": "Statement and surrounding hypotheses read at pinned Mathlib082e2d3 on3 October2026."
+        "checked": "Statement and surrounding hypotheses read at pinned Mathlib082e2d3 on3 October2026.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:Complex.mul_cpow_ofReal_nonneg",
         "kind": "theorem",
         "module": "Mathlib/Analysis/SpecialFunctions/Pow/Complex.lean",
         "provides": "For nonnegative real a,b and any complex r, ((a:ℂ)(b:ℂ))^r=(a:ℂ)^r(b:ℂ)^r.",
-        "checked": "Statement and surrounding hypotheses read at pinned Mathlib082e2d3 on3 October2026."
+        "checked": "Statement and surrounding hypotheses read at pinned Mathlib082e2d3 on3 October2026.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:Real.log_mul",
         "kind": "theorem",
         "module": "Mathlib/Analysis/SpecialFunctions/Log/Basic.lean",
         "provides": "For nonzero real a,b, native real log(ab)=log(a)+log(b).",
-        "checked": "Statement and surrounding hypotheses read at pinned Mathlib082e2d3 on3 October2026."
+        "checked": "Statement and surrounding hypotheses read at pinned Mathlib082e2d3 on3 October2026.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:NumberField.dedekindZeta",
         "module": "Mathlib/NumberTheory/NumberField/DedekindZeta.lean",
         "kind": "def",
         "provides": "Existing norm-regrouped complex LSeries, not a meromorphic continuation.",
-        "checked": "Own actual declaration statement and relevant hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on4October2026; compiler/index check recorded in handoff."
+        "checked": "Own actual declaration statement and relevant hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on4October2026; compiler/index check recorded in handoff.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:NumberField.dedekindZeta_residue_def",
         "module": "Mathlib/NumberTheory/NumberField/DedekindZeta.lean",
         "kind": "theorem",
         "provides": "Existing explicit real class-number expression.",
-        "checked": "Own actual declaration statement and relevant hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on4October2026; compiler/index check recorded in handoff."
+        "checked": "Own actual declaration statement and relevant hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on4October2026; compiler/index check recorded in handoff.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:NumberField.dedekindZeta_residue_ne_zero",
         "module": "Mathlib/NumberTheory/NumberField/DedekindZeta.lean",
         "kind": "theorem",
         "provides": "Positive residue is nonzero for every number field.",
-        "checked": "Own actual declaration statement and relevant hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on4October2026; compiler/index check recorded in handoff."
+        "checked": "Own actual declaration statement and relevant hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on4October2026; compiler/index check recorded in handoff.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:NumberField.tendsto_sub_one_mul_dedekindZeta_nhdsGT",
         "module": "Mathlib/NumberTheory/NumberField/DedekindZeta.lean",
         "kind": "theorem",
         "provides": "One-sided real approach to1, with complex codomain.",
-        "checked": "Own actual declaration statement and relevant hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on4October2026; compiler/index check recorded in handoff."
+        "checked": "Own actual declaration statement and relevant hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on4October2026; compiler/index check recorded in handoff.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:meromorphicOrderAt_eq_int_iff",
         "module": "Mathlib/Analysis/Meromorphic/Order.lean",
         "kind": "lemma",
         "provides": "Native local analytic/nonzero factor characterization of integer meromorphic order.",
-        "checked": "Own actual declaration statement and relevant hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on4October2026; compiler/index check recorded in handoff."
+        "checked": "Own actual declaration statement and relevant hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on4October2026; compiler/index check recorded in handoff.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:IsAlgebraic.algHom",
         "module": "Mathlib/RingTheory/Algebraic/Basic.lean",
         "kind": "theorem",
         "provides": "Algebraicity transports through an algebra homomorphism.",
-        "checked": "Own actual declaration statement and relevant hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on4October2026; compiler/index check recorded in handoff."
+        "checked": "Own actual declaration statement and relevant hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on4October2026; compiler/index check recorded in handoff.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:Algebra.isAlgebraic_def",
         "module": "Mathlib/RingTheory/Algebraic/Defs.lean",
         "kind": "lemma",
         "provides": "Native elementwise characterization of algebraic extensions; exposes the algebraicity class field.",
-        "checked": "Own actual declaration statement and relevant hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on4October2026; compiler/index check recorded in handoff."
+        "checked": "Own actual declaration statement and relevant hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on4October2026; compiler/index check recorded in handoff.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:DirichletCharacter.LFunction",
         "module": "Mathlib/NumberTheory/LSeries/DirichletContinuation.lean",
         "kind": "def",
         "provides": "Existing complex continuation of a Dirichlet character.",
-        "checked": "Own actual declaration statement and relevant hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on4October2026; compiler/index check recorded in handoff."
+        "checked": "Own actual declaration statement and relevant hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on4October2026; compiler/index check recorded in handoff.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:DirichletCharacter.LFunction_changeLevel",
         "module": "Mathlib/NumberTheory/LSeries/DirichletContinuation.lean",
         "kind": "lemma",
         "provides": "Exact imprimitive Euler deletion for nonprincipal characters or s≠1.",
-        "checked": "Own actual declaration statement and relevant hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on4October2026; compiler/index check recorded in handoff."
+        "checked": "Own actual declaration statement and relevant hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on4October2026; compiler/index check recorded in handoff.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:DirichletCharacter.LFunction_apply_one_ne_zero",
         "module": "Mathlib/NumberTheory/LSeries/Nonvanishing.lean",
         "kind": "theorem",
         "provides": "Nonprincipal character L-value at1 is nonzero.",
-        "checked": "Own actual declaration statement and relevant hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on4October2026; compiler/index check recorded in handoff."
+        "checked": "Own actual declaration statement and relevant hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on4October2026; compiler/index check recorded in handoff.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:DirichletCharacter.changeLevel",
         "module": "Mathlib/NumberTheory/DirichletCharacter/Basic.lean",
         "kind": "def",
         "provides": "Native unit-reduction conductor/level change.",
-        "checked": "Own actual declaration statement and relevant hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on4October2026; compiler/index check recorded in handoff."
+        "checked": "Own actual declaration statement and relevant hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on4October2026; compiler/index check recorded in handoff.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:DirichletCharacter.conductor",
         "module": "Mathlib/NumberTheory/DirichletCharacter/Basic.lean",
         "kind": "def",
         "provides": "Minimum native character level.",
-        "checked": "Own actual declaration statement and relevant hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on4October2026; compiler/index check recorded in handoff."
+        "checked": "Own actual declaration statement and relevant hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on4October2026; compiler/index check recorded in handoff.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:DirichletCharacter.primitiveCharacter",
         "module": "Mathlib/NumberTheory/DirichletCharacter/Basic.lean",
         "kind": "def",
         "provides": "Existing associated primitive character.",
-        "checked": "Own actual declaration statement and relevant hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on4October2026; compiler/index check recorded in handoff."
+        "checked": "Own actual declaration statement and relevant hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on4October2026; compiler/index check recorded in handoff.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:gaussSum_mulShift_of_isPrimitive",
         "module": "Mathlib/NumberTheory/DirichletCharacter/GaussSum.lean",
         "kind": "lemma",
         "provides": "Primitive Gauss inversion including nonunits at composite level.",
-        "checked": "Own actual declaration statement and relevant hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on4October2026; compiler/index check recorded in handoff."
+        "checked": "Own actual declaration statement and relevant hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on4October2026; compiler/index check recorded in handoff.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:DirichletCharacter.IsPrimitive.fourierTransform_eq_inv_mul_gaussSum",
         "module": "Mathlib/Analysis/Fourier/ZMod.lean",
         "kind": "lemma",
         "provides": "Native Fourier/Gauss comparison with sign−k.",
-        "checked": "Own actual declaration statement and relevant hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on4October2026; compiler/index check recorded in handoff."
+        "checked": "Own actual declaration statement and relevant hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on4October2026; compiler/index check recorded in handoff.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:MulChar.sum_eq_zero_of_ne_one",
         "module": "Mathlib/NumberTheory/MulChar/Basic.lean",
         "kind": "lemma",
         "provides": "Native nonprincipal character mean zero.",
-        "checked": "Own actual declaration statement and relevant hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on4October2026; compiler/index check recorded in handoff."
+        "checked": "Own actual declaration statement and relevant hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on4October2026; compiler/index check recorded in handoff.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:MulChar.pow_card_eq_one",
         "module": "Mathlib/NumberTheory/MulChar/Basic.lean",
         "kind": "lemma",
         "provides": "Finite character has finite order.",
-        "checked": "Own actual declaration statement and relevant hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on4October2026; compiler/index check recorded in handoff."
+        "checked": "Own actual declaration statement and relevant hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on4October2026; compiler/index check recorded in handoff.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:IsAlgebraic.of_pow",
         "module": "Mathlib/RingTheory/Algebraic/Basic.lean",
         "kind": "theorem",
         "provides": "Positive power algebraic implies algebraicity.",
-        "checked": "Own actual declaration statement and relevant hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on4October2026; compiler/index check recorded in handoff."
+        "checked": "Own actual declaration statement and relevant hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on4October2026; compiler/index check recorded in handoff.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:mem_algebraicClosure_iff",
         "module": "Mathlib/FieldTheory/AlgebraicClosure.lean",
         "kind": "theorem",
         "provides": "Algebraic complex numbers form the native intermediate field.",
-        "checked": "Own actual declaration statement and relevant hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on4October2026; compiler/index check recorded in handoff."
+        "checked": "Own actual declaration statement and relevant hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on4October2026; compiler/index check recorded in handoff.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:gaussSum",
         "module": "Mathlib/NumberTheory/GaussSum.lean",
         "kind": "def",
         "provides": "Existing finite character sum.",
-        "checked": "Own actual declaration statement and relevant hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on4October2026; compiler/index check recorded in handoff."
+        "checked": "Own actual declaration statement and relevant hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on4October2026; compiler/index check recorded in handoff.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:AnalyticAt.continuousAt",
         "module": "Mathlib/Analysis/Analytic/Basic.lean",
         "kind": "theorem",
         "provides": "Analyticity of a complex germ gives continuity at the base point.",
-        "checked": "Own actual declaration statement and relevant hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on4October2026; compiler/index check recorded in handoff."
+        "checked": "Own actual declaration statement and relevant hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on4October2026; compiler/index check recorded in handoff.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:IsPrimitiveRoot.pow_ne_one_of_pos_of_lt",
         "module": "Mathlib/RingTheory/RootsOfUnity/PrimitiveRoots.lean",
         "kind": "theorem",
         "provides": "Primitive root has nontrivial powers strictly between zero and its positive order.",
-        "checked": "Own actual declaration statement and relevant hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on4October2026; compiler/index check recorded in handoff."
+        "checked": "Own actual declaration statement and relevant hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on4October2026; compiler/index check recorded in handoff.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:AddChar.zmodChar",
         "module": "Mathlib/NumberTheory/LegendreSymbol/AddCharacter.lean",
         "kind": "def",
         "provides": "Existing additive character constructed from an Nth root certificate.",
-        "checked": "Own actual declaration statement and relevant hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on4October2026; compiler/index check recorded in handoff."
+        "checked": "Own actual declaration statement and relevant hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on4October2026; compiler/index check recorded in handoff.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       },
       {
         "ref": "mathlib:AddChar.zmodChar_primitive_of_primitive_root",
         "module": "Mathlib/NumberTheory/LegendreSymbol/AddCharacter.lean",
         "kind": "theorem",
         "provides": "The native additive character is primitive for a primitive root.",
-        "checked": "Own actual declaration statement and relevant hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on4October2026; compiler/index check recorded in handoff."
+        "checked": "Own actual declaration statement and relevant hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on4October2026; compiler/index check recorded in handoff.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
       }
     ]
   },
@@ -1957,10 +2089,12 @@
       ],
       "proofSteps": [
         "Use native dslope for exp centered at zero and take its pointwise reciprocal in ℝ. This introduces one function, with no custom analytic, derivative or Bernoulli carrier.",
-        "The following evaluation, analyticity and derivative nodes provide its operational API. Native ordinary Bernoulli numbers and their recurrence remain baseline material."
+        "The following evaluation, analyticity and derivative nodes provide its operational API. Native ordinary Bernoulli numbers and their recurrence remain baseline material.",
+        "For uniqueness, cancel on the punctured real line using smooth-bernoulli-away. Continuity of both functions and uniqueness of the right-hand limit determine the value at zero. This is an API lemma, not a prerequisite of an existing node."
       ],
       "prerequisites": [
-        "mathlib:dslope"
+        "mathlib:dslope",
+        "mathlib:tendsto_nhds_unique"
       ],
       "acceptance": [
         "The real field uses totalized inverse. Its value at the origin is verified by the derivative of exp, so the defining expression is not the totalized quotient t/(exp(t)−1)."
@@ -1975,7 +2109,7 @@
           "sourceId": "RJW-published",
           "locator": "§2.3, Theorem2.4, the Bernoulli generating-function paragraph and Remark2.5, printed110–111 / PDF11–12; complete surrounding printed110–114 freshly read27 September2026.",
           "excerpt": "generating function",
-          "match": "The source specifies the smooth kernel and its Bernoulli Taylor coefficients. The native divided-difference construction, Leibniz recurrence and real-to-complex endpoint adapters are worker deductions supplying its removable-value justification. The final two declarations instantiate the already decomposed Theorem2.4; they do not assert the unproved Lemma2.7 zeta comparison."
+          "match": "The source specifies the smooth kernel and its Bernoulli Taylor coefficients. The native divided-difference construction, Leibniz recurrence and real-to-complex endpoint adapters are worker deductions supplying its removable-value justification. The final two declarations instantiate the already decomposed Theorem2.4; the separate nodes bernoulli-mellin-dirichlet-sum through bernoulli-mellin-zeta-comparison establish the Lemma2.7 comparison."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1994,6 +2128,11 @@
           "name": "SuggestedBernoulliOriginTests.literal_quotient_mismatch",
           "kind": "non-example",
           "statement": "β(0) differs from the literal totalized quotient 0/(exp(0)−1), which is zero."
+        },
+        {
+          "name": "SuggestedReviewKernelTests.bernoulli_negative_log_two",
+          "kind": "computation",
+          "statement": "β(−log(2))=2log(2), testing the negative half-line of the globally real analytic extension."
         }
       ],
       "api": [
@@ -2066,6 +2205,11 @@
           "name": "smoothBernoulliKernel_normalizedMellin_eq_zeta",
           "role": "compatibility",
           "statement": "For every s∈ℂ with s≠0, L(s)=sζ(s+1). At the removable point the existing Bernoulli value gives L(0)=1; the raw totalized expression 0·ζ(1) is zero and is not asserted equal to it."
+        },
+        {
+          "name": "smoothBernoulliKernel_unique",
+          "role": "universal-property",
+          "statement": "If u:ℝ→ℝ is continuous and u(t)=t/(exp(t)−1) for every nonzero t, then u=β. Continuity forces the origin value; agreement only on the positive half-line would not determine the negative half-line."
         }
       ],
       "uses": [
@@ -2119,7 +2263,7 @@
           "sourceId": "RJW-published",
           "locator": "§2.3, Theorem2.4, the Bernoulli generating-function paragraph and Remark2.5, printed110–111 / PDF11–12; complete surrounding printed110–114 freshly read27 September2026.",
           "excerpt": "generating function",
-          "match": "The source specifies the smooth kernel and its Bernoulli Taylor coefficients. The native divided-difference construction, Leibniz recurrence and real-to-complex endpoint adapters are worker deductions supplying its removable-value justification. The final two declarations instantiate the already decomposed Theorem2.4; they do not assert the unproved Lemma2.7 zeta comparison."
+          "match": "The source specifies the smooth kernel and its Bernoulli Taylor coefficients. The native divided-difference construction, Leibniz recurrence and real-to-complex endpoint adapters are worker deductions supplying its removable-value justification. The final two declarations instantiate the already decomposed Theorem2.4; the separate nodes bernoulli-mellin-dirichlet-sum through bernoulli-mellin-zeta-comparison establish the Lemma2.7 comparison."
         }
       ],
       "implementationStatus": "unchecked"
@@ -2157,7 +2301,7 @@
           "sourceId": "RJW-published",
           "locator": "§2.3, Theorem2.4, the Bernoulli generating-function paragraph and Remark2.5, printed110–111 / PDF11–12; complete surrounding printed110–114 freshly read27 September2026.",
           "excerpt": "generating function",
-          "match": "The source specifies the smooth kernel and its Bernoulli Taylor coefficients. The native divided-difference construction, Leibniz recurrence and real-to-complex endpoint adapters are worker deductions supplying its removable-value justification. The final two declarations instantiate the already decomposed Theorem2.4; they do not assert the unproved Lemma2.7 zeta comparison."
+          "match": "The source specifies the smooth kernel and its Bernoulli Taylor coefficients. The native divided-difference construction, Leibniz recurrence and real-to-complex endpoint adapters are worker deductions supplying its removable-value justification. The final two declarations instantiate the already decomposed Theorem2.4; the separate nodes bernoulli-mellin-dirichlet-sum through bernoulli-mellin-zeta-comparison establish the Lemma2.7 comparison."
         }
       ],
       "implementationStatus": "unchecked"
@@ -2204,7 +2348,7 @@
           "sourceId": "RJW-published",
           "locator": "§2.3, Theorem2.4, the Bernoulli generating-function paragraph and Remark2.5, printed110–111 / PDF11–12; complete surrounding printed110–114 freshly read27 September2026.",
           "excerpt": "generating function",
-          "match": "The source specifies the smooth kernel and its Bernoulli Taylor coefficients. The native divided-difference construction, Leibniz recurrence and real-to-complex endpoint adapters are worker deductions supplying its removable-value justification. The final two declarations instantiate the already decomposed Theorem2.4; they do not assert the unproved Lemma2.7 zeta comparison."
+          "match": "The source specifies the smooth kernel and its Bernoulli Taylor coefficients. The native divided-difference construction, Leibniz recurrence and real-to-complex endpoint adapters are worker deductions supplying its removable-value justification. The final two declarations instantiate the already decomposed Theorem2.4; the separate nodes bernoulli-mellin-dirichlet-sum through bernoulli-mellin-zeta-comparison establish the Lemma2.7 comparison."
         }
       ],
       "implementationStatus": "unchecked"
@@ -2241,7 +2385,7 @@
           "sourceId": "RJW-published",
           "locator": "§2.3, Theorem2.4, the Bernoulli generating-function paragraph and Remark2.5, printed110–111 / PDF11–12; complete surrounding printed110–114 freshly read27 September2026.",
           "excerpt": "generating function",
-          "match": "The source specifies the smooth kernel and its Bernoulli Taylor coefficients. The native divided-difference construction, Leibniz recurrence and real-to-complex endpoint adapters are worker deductions supplying its removable-value justification. The final two declarations instantiate the already decomposed Theorem2.4; they do not assert the unproved Lemma2.7 zeta comparison."
+          "match": "The source specifies the smooth kernel and its Bernoulli Taylor coefficients. The native divided-difference construction, Leibniz recurrence and real-to-complex endpoint adapters are worker deductions supplying its removable-value justification. The final two declarations instantiate the already decomposed Theorem2.4; the separate nodes bernoulli-mellin-dirichlet-sum through bernoulli-mellin-zeta-comparison establish the Lemma2.7 comparison."
         }
       ],
       "implementationStatus": "unchecked"
@@ -2278,7 +2422,7 @@
           "sourceId": "RJW-published",
           "locator": "§2.3, Theorem2.4, the Bernoulli generating-function paragraph and Remark2.5, printed110–111 / PDF11–12; complete surrounding printed110–114 freshly read27 September2026.",
           "excerpt": "generating function",
-          "match": "The source specifies the smooth kernel and its Bernoulli Taylor coefficients. The native divided-difference construction, Leibniz recurrence and real-to-complex endpoint adapters are worker deductions supplying its removable-value justification. The final two declarations instantiate the already decomposed Theorem2.4; they do not assert the unproved Lemma2.7 zeta comparison."
+          "match": "The source specifies the smooth kernel and its Bernoulli Taylor coefficients. The native divided-difference construction, Leibniz recurrence and real-to-complex endpoint adapters are worker deductions supplying its removable-value justification. The final two declarations instantiate the already decomposed Theorem2.4; the separate nodes bernoulli-mellin-dirichlet-sum through bernoulli-mellin-zeta-comparison establish the Lemma2.7 comparison."
         }
       ],
       "implementationStatus": "unchecked"
@@ -2324,7 +2468,7 @@
           "sourceId": "RJW-published",
           "locator": "§2.3, Theorem2.4, the Bernoulli generating-function paragraph and Remark2.5, printed110–111 / PDF11–12; complete surrounding printed110–114 freshly read27 September2026.",
           "excerpt": "generating function",
-          "match": "The source specifies the smooth kernel and its Bernoulli Taylor coefficients. The native divided-difference construction, Leibniz recurrence and real-to-complex endpoint adapters are worker deductions supplying its removable-value justification. The final two declarations instantiate the already decomposed Theorem2.4; they do not assert the unproved Lemma2.7 zeta comparison."
+          "match": "The source specifies the smooth kernel and its Bernoulli Taylor coefficients. The native divided-difference construction, Leibniz recurrence and real-to-complex endpoint adapters are worker deductions supplying its removable-value justification. The final two declarations instantiate the already decomposed Theorem2.4; the separate nodes bernoulli-mellin-dirichlet-sum through bernoulli-mellin-zeta-comparison establish the Lemma2.7 comparison."
         }
       ],
       "implementationStatus": "unchecked"
@@ -2366,7 +2510,7 @@
           "sourceId": "RJW-published",
           "locator": "§2.3, Theorem2.4, the Bernoulli generating-function paragraph and Remark2.5, printed110–111 / PDF11–12; complete surrounding printed110–114 freshly read27 September2026.",
           "excerpt": "generating function",
-          "match": "The source specifies the smooth kernel and its Bernoulli Taylor coefficients. The native divided-difference construction, Leibniz recurrence and real-to-complex endpoint adapters are worker deductions supplying its removable-value justification. The final two declarations instantiate the already decomposed Theorem2.4; they do not assert the unproved Lemma2.7 zeta comparison."
+          "match": "The source specifies the smooth kernel and its Bernoulli Taylor coefficients. The native divided-difference construction, Leibniz recurrence and real-to-complex endpoint adapters are worker deductions supplying its removable-value justification. The final two declarations instantiate the already decomposed Theorem2.4; the separate nodes bernoulli-mellin-dirichlet-sum through bernoulli-mellin-zeta-comparison establish the Lemma2.7 comparison."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2416,7 +2560,7 @@
           "sourceId": "RJW-published",
           "locator": "§2.3, Theorem2.4, the Bernoulli generating-function paragraph and Remark2.5, printed110–111 / PDF11–12; complete surrounding printed110–114 freshly read27 September2026.",
           "excerpt": "generating function",
-          "match": "The source specifies the smooth kernel and its Bernoulli Taylor coefficients. The native divided-difference construction, Leibniz recurrence and real-to-complex endpoint adapters are worker deductions supplying its removable-value justification. The final two declarations instantiate the already decomposed Theorem2.4; they do not assert the unproved Lemma2.7 zeta comparison."
+          "match": "The source specifies the smooth kernel and its Bernoulli Taylor coefficients. The native divided-difference construction, Leibniz recurrence and real-to-complex endpoint adapters are worker deductions supplying its removable-value justification. The final two declarations instantiate the already decomposed Theorem2.4; the separate nodes bernoulli-mellin-dirichlet-sum through bernoulli-mellin-zeta-comparison establish the Lemma2.7 comparison."
         }
       ],
       "implementationStatus": "unchecked"
@@ -2459,7 +2603,7 @@
           "sourceId": "RJW-published",
           "locator": "§2.3, Theorem2.4, the Bernoulli generating-function paragraph and Remark2.5, printed110–111 / PDF11–12; complete surrounding printed110–114 freshly read27 September2026.",
           "excerpt": "generating function",
-          "match": "The source specifies the smooth kernel and its Bernoulli Taylor coefficients. The native divided-difference construction, Leibniz recurrence and real-to-complex endpoint adapters are worker deductions supplying its removable-value justification. The final two declarations instantiate the already decomposed Theorem2.4; they do not assert the unproved Lemma2.7 zeta comparison."
+          "match": "The source specifies the smooth kernel and its Bernoulli Taylor coefficients. The native divided-difference construction, Leibniz recurrence and real-to-complex endpoint adapters are worker deductions supplying its removable-value justification. The final two declarations instantiate the already decomposed Theorem2.4; the separate nodes bernoulli-mellin-dirichlet-sum through bernoulli-mellin-zeta-comparison establish the Lemma2.7 comparison."
         }
       ],
       "implementationStatus": "unchecked"
@@ -2499,7 +2643,7 @@
           "sourceId": "RJW-published",
           "locator": "§2.3, Theorem2.4, the Bernoulli generating-function paragraph and Remark2.5, printed110–111 / PDF11–12; complete surrounding printed110–114 freshly read27 September2026.",
           "excerpt": "generating function",
-          "match": "The source specifies the smooth kernel and its Bernoulli Taylor coefficients. The native divided-difference construction, Leibniz recurrence and real-to-complex endpoint adapters are worker deductions supplying its removable-value justification. The final two declarations instantiate the already decomposed Theorem2.4; they do not assert the unproved Lemma2.7 zeta comparison."
+          "match": "The source specifies the smooth kernel and its Bernoulli Taylor coefficients. The native divided-difference construction, Leibniz recurrence and real-to-complex endpoint adapters are worker deductions supplying its removable-value justification. The final two declarations instantiate the already decomposed Theorem2.4; the separate nodes bernoulli-mellin-dirichlet-sum through bernoulli-mellin-zeta-comparison establish the Lemma2.7 comparison."
         }
       ],
       "implementationStatus": "unchecked"
@@ -2540,7 +2684,7 @@
           "sourceId": "RJW-published",
           "locator": "§2.3, Theorem2.4, the Bernoulli generating-function paragraph and Remark2.5, printed110–111 / PDF11–12; complete surrounding printed110–114 freshly read27 September2026.",
           "excerpt": "generating function",
-          "match": "The source specifies the smooth kernel and its Bernoulli Taylor coefficients. The native divided-difference construction, Leibniz recurrence and real-to-complex endpoint adapters are worker deductions supplying its removable-value justification. The final two declarations instantiate the already decomposed Theorem2.4; they do not assert the unproved Lemma2.7 zeta comparison."
+          "match": "The source specifies the smooth kernel and its Bernoulli Taylor coefficients. The native divided-difference construction, Leibniz recurrence and real-to-complex endpoint adapters are worker deductions supplying its removable-value justification. The final two declarations instantiate the already decomposed Theorem2.4; the separate nodes bernoulli-mellin-dirichlet-sum through bernoulli-mellin-zeta-comparison establish the Lemma2.7 comparison."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2812,11 +2956,13 @@
       "proofSteps": [
         "The difference β(x)−β(ax) vanishes at x=0. Apply native dslope centered at zero to that function. This is a real function built from the existing β, not a new analytic-function carrier.",
         "The following origin, punctured quotient, smoothness and derivative declarations give its operational API. At a=1 the difference is identically zero, so the kernel vanishes.",
-        "For a≠0 and t≠0, substitution of the existing Bernoulli quotient recovers the source f_a. Positivity is imposed when using decay and Mellin continuation, as required by the preserved source finding E3."
+        "For a≠0 and t≠0, substitution of the existing Bernoulli quotient recovers the source f_a. Positivity is imposed when using decay and Mellin continuation, as required by the preserved source finding E3.",
+        "The continuous product-identity API characterizes h_a: cancel t at nonzero points and use continuity at zero. The parameter a=0 is included; no forbidden division by a is used."
       ],
       "prerequisites": [
         "DirichletPadicLFunctions:L0/smooth-bernoulli-kernel",
-        "mathlib:dslope"
+        "mathlib:dslope",
+        "mathlib:tendsto_nhds_unique"
       ],
       "acceptance": [
         "Do not define h_a by the raw totalized reciprocal-exponential difference: that expression is zero at t=0, while h_a(0)=(a−1)/2. The real parameter a=0 is admitted in the definition but not in the decay application."
@@ -2850,6 +2996,11 @@
           "name": "SuggestedSmoothedKernelTests.two_at_log_two",
           "kind": "computation",
           "statement": "h_2(log(2))=1/3, agreeing with 1/(exp(t)+1)."
+        },
+        {
+          "name": "SuggestedReviewKernelTests.smoothed_zero_parameter",
+          "kind": "degenerate",
+          "statement": "h_0(0)=−1/2; a=0 is a valid construction parameter although its decay hypothesis fails."
         }
       ],
       "api": [
@@ -2987,6 +3138,11 @@
           "name": "smoothedMellinKernel_normalized_cocycle",
           "role": "compatibility",
           "statement": "For a,b>0 and every s∈ℂ, L_(ab)(s)=L_a(s)+a^(1−s)L_b(s), where L_a is the already constructed normalizedMellinContinuation of g_a. Promoted to DirichletPadicLFunctions:L0/smoothed-normalized-cocycle."
+        },
+        {
+          "name": "smoothedMellinKernel_unique",
+          "role": "universal-property",
+          "statement": "For any real a, if u:ℝ→ℝ is continuous and t u(t)=β(t)−β(at) for all t, then u=h_a. Cancellation determines nonzero inputs; continuity determines zero. No positivity or nonzero assumption on a is needed."
         }
       ],
       "uses": [
@@ -4244,7 +4400,8 @@
       "statement": "For χ≠1 with complex coefficients and n≥1, χ.LFunction(1−n)=−B_(n,χ)/n.",
       "hypotheses": [
         "D≥1; χ is a native DirichletCharacter E D over a characteristic-zero field E. The canonical generalized Bernoulli quantity is imported from ModularForms Layer0, never defined here.",
-        "For n≥1 pin the imported normalization B_(n,χ)=D^(n−1)∑_(a=1)^D χ(a) B_n(a/D), where B_n is the native rational Bernoulli polynomial transported to E. The final representative is a=D, not0. At D=1,n=1 this is B_1(1)=+1/2."
+        "For n≥1 pin the imported normalization B_(n,χ)=D^(n−1)∑_(a=1)^D χ(a) B_n(a/D), where B_n is the native rational Bernoulli polynomial transported to E. The final representative is a=D, not0. At D=1,n=1 this is B_1(1)=+1/2.",
+        "For this complex comparison specialize the coefficient field to ℂ; the two later embedding nodes start with a number-field-valued character and transport it along the specified embedding."
       ],
       "proofSteps": [
         "For n≥2 instantiate the imported periodic-L-value formula at r=n−1. Its interval1,…,D and rational Bernoulli normalization match the canonical supplier expression.",
@@ -4266,8 +4423,8 @@
       "sources": [
         {
           "sourceId": "RJW-published",
-          "locator": "§2.3, Corollary2.8, printed112; §5.2, Lemma5.9, printed144. Read4October2026.",
-          "excerpt": "L-functions",
+          "locator": "§2.3, Corollary2.8, printed112 / physical13; §5.2, Lemma5.9, printed144 / physical45.",
+          "excerpt": "Lemma 5.9.",
           "match": "Domain-specific comparison of the supplier finite Bernoulli formula with the complex L-values motivated by these passages; not a formula printed in RJW."
         }
       ],
@@ -4311,8 +4468,8 @@
       "sources": [
         {
           "sourceId": "RJW-published",
-          "locator": "§2.3, Corollary2.8, printed112; §4.2 and §5.2, printed138,143–144.",
-          "excerpt": "L-functions",
+          "locator": "§2.3, Corollary2.8, printed112 / physical13; §5.2, Lemma5.9, printed144 / physical45.",
+          "excerpt": "Corollary 2.8.",
           "match": "Worker endpoint comparison with the existing zeta and conductor-change results. Native ordinary B_1 is not substituted for B_1(1)."
         }
       ],
@@ -4359,8 +4516,8 @@
       "sources": [
         {
           "sourceId": "RJW-published",
-          "locator": "§2.4.1, printed112–113; §5.2, Theorem5.7 and Remark5.8(2), printed143.",
-          "excerpt": "L-functions",
+          "locator": "§2.4.1, printed112–113 / physical13–14; §5.2, Theorem5.7 and Remark5.8(2), printed143 / physical44.",
+          "excerpt": "finite extension",
           "match": "Makes the source special-value comparison arithmetic through a single number-field element and explicit embeddings."
         }
       ],
@@ -4406,8 +4563,8 @@
       "sources": [
         {
           "sourceId": "RJW-published",
-          "locator": "§2.4.1, printed112–113; §5.2, Remark5.8(2), printed143.",
-          "excerpt": "L-functions",
+          "locator": "§2.4.1, printed112–113 / physical13–14; §5.2, Remark5.8(2), printed143 / physical44.",
+          "excerpt": "finite extension",
           "match": "Worker algebraic-number comparison; no identification of the complex and p-adic ambient fields and no uncorrected Euler-factor claim."
         }
       ],
@@ -4450,8 +4607,8 @@
       "sources": [
         {
           "sourceId": "RJW-published",
-          "locator": "§2.1, printed106; Theorem2.2, printed108.",
-          "excerpt": "L-functions",
+          "locator": "§2.1, printed106 / physical7; §2.2.1, Theorem2.2, printed108 / physical9.",
+          "excerpt": "nonzero ideals",
           "match": "Worker explicit norm-coefficient comparison needed to apply the existing one-sided class-number limit."
         }
       ],
@@ -4493,8 +4650,8 @@
       "sources": [
         {
           "sourceId": "RJW-published",
-          "locator": "Theorem2.2, printed108; §2.4.2, printed113–115.",
-          "excerpt": "L-functions",
+          "locator": "§2.2.1, Theorem2.2, printed108 / physical9; §2.4.2, printed113–115 / physical14–16.",
+          "excerpt": "simple pole",
           "match": "The missing analytic instance is obtained from the existing Tate owner, not inferred from a one-sided real limit."
         }
       ],
@@ -4535,8 +4692,8 @@
       "sources": [
         {
           "sourceId": "RJW-published",
-          "locator": "Theorem2.2, printed108.",
-          "excerpt": "L-functions",
+          "locator": "§2.2.1, Theorem2.2, printed108 / physical9.",
+          "excerpt": "residue",
           "match": "Native-limit transport, a worker adapter rather than a fresh class-number proof."
         }
       ],
@@ -4575,8 +4732,8 @@
       "sources": [
         {
           "sourceId": "RJW-published",
-          "locator": "Theorem2.2, printed108.",
-          "excerpt": "L-functions",
+          "locator": "§2.2.1, Theorem2.2, printed108 / physical9.",
+          "excerpt": "residue",
           "match": "Worker comparison of the analytic germ coefficient with the pre-existing arithmetic limit; it does not assert that the native totalized series is analytic at the pole."
         }
       ],
@@ -4616,8 +4773,8 @@
       "sources": [
         {
           "sourceId": "RJW-published",
-          "locator": "Theorem2.2, printed108.",
-          "excerpt": "L-functions",
+          "locator": "§2.2.1, Theorem2.2, printed108 / physical9.",
+          "excerpt": "simple pole",
           "match": "Worker simple-pole proof from imported analytic continuation plus the native positive residue."
         }
       ],
@@ -4659,8 +4816,8 @@
       "sources": [
         {
           "sourceId": "RJW-published",
-          "locator": "Theorem2.2, printed108.",
-          "excerpt": "L-functions",
+          "locator": "§2.2.1, Theorem2.2, printed108 / physical9.",
+          "excerpt": "class number",
           "match": "Worker distinction between a complex meromorphic residue and the native real one-sided limit."
         }
       ],
@@ -4700,8 +4857,8 @@
       "sources": [
         {
           "sourceId": "RJW-published",
-          "locator": "§2.4.2, Proposition2.9(i) and Proposition2.11, printed113–114.",
-          "excerpt": "L-functions",
+          "locator": "§2.4.2, Propositions2.9(i) and2.11, printed113–114 / physical14–15.",
+          "excerpt": "continuous characters",
           "match": "Source-specific evaluation adapter for the imported rational dictionary."
         }
       ],
@@ -4745,8 +4902,8 @@
       "sources": [
         {
           "sourceId": "RJW-published",
-          "locator": "§2.4.2, Proposition2.9(ii) and Proposition2.11, printed113–114.",
-          "excerpt": "L-functions",
+          "locator": "§2.4.2, Propositions2.9(ii) and2.11, printed113–114 / physical14–15.",
+          "excerpt": "continuous characters",
           "match": "Source-specific comparison; classification and connectedness remain with the upstream owners."
         }
       ],
@@ -4790,8 +4947,8 @@
       "sources": [
         {
           "sourceId": "RJW-published",
-          "locator": "§2.4.2, Proposition2.9 and Proposition2.11, printed113–114.",
-          "excerpt": "L-functions",
+          "locator": "§2.4.2, Propositions2.9 and2.11, printed113–114 / physical14–15.",
+          "excerpt": "continuous characters",
           "match": "Worker sign bookkeeping for the canonical dictionary; no second infinity-type classification."
         }
       ],
@@ -4839,8 +4996,8 @@
       "sources": [
         {
           "sourceId": "RJW-published",
-          "locator": "§2.4.2, Proposition2.11, printed114; §2.1, printed106.",
-          "excerpt": "L-functions",
+          "locator": "§2.4.2, Proposition2.11, printed114 / physical15; §2.1, printed106 / physical7.",
+          "excerpt": "Dirichlet characters",
           "match": "Worker derivation checked against AL.1’s explicit χ(𝔭)=ω_v(ϖ_v) convention. RJW does not pin the arithmetic ideal-character orientation."
         }
       ],
@@ -4890,8 +5047,8 @@
       "sources": [
         {
           "sourceId": "RJW-published",
-          "locator": "§6, Theorem6.1(i) and footnote10, printed149–150.",
-          "excerpt": "L-functions",
+          "locator": "§6, Theorem6.1(i) and footnote10, printed149–150 / physical50–51.",
+          "excerpt": "Baker’s theorem",
           "match": "Worker algebraic-input decomposition of the terminal corollary; Baker’s theorem itself is imported."
         }
       ],
@@ -4931,8 +5088,8 @@
       "sources": [
         {
           "sourceId": "RJW-published",
-          "locator": "§6, footnote10, printed149.",
-          "excerpt": "L-functions",
+          "locator": "§6, footnote10, printed149 / physical50.",
+          "excerpt": "Baker’s theorem",
           "match": "Domain-specific application; generic basis reduction is requested from the existing transcendence owner, not redefined here."
         }
       ],
@@ -4971,8 +5128,8 @@
       "sources": [
         {
           "sourceId": "RJW-published",
-          "locator": "§6, footnote10 and Theorem6.1(i), printed149–150.",
-          "excerpt": "L-functions",
+          "locator": "§6, footnote10 and Theorem6.1(i), printed149–150 / physical50–51.",
+          "excerpt": "Baker’s theorem",
           "match": "Terminal source obligation with an explicitly unresolved routing gap; neither its proof nor L0 closure is claimed."
         }
       ],
@@ -5141,7 +5298,12 @@
         "The journal article page https://msp.org/ent/2025/4-1/p03.xhtml, and Crossref DOI 10.2140/ent.2025.4.101 metadata, checked in this worker session on 26 September 2026; no correction link or update-to/updated-by relation found. The journal XHTML was read through a direct HTTP fetch because the browser text tool rejected that content type.",
         "Authors’ publication pages https://sites.google.com/site/joaquinrj/home and https://chriswilliams1404.wixsite.com/website/publications-preprints, rechecked 26 September 2026; no correction linked for this paper.",
         "Targeted searches for the authors/title plus errata/correction and for Proposition 4.4 and Corollary 2.8, 26 September 2026; no correcting publication located. The campaign/accepted RS-14 already warns about ζ(0) and the k=1 Euler-factor endpoint; these are acknowledged prior roadmap observations, not claims of first discovery. This bounded search does not prove that no correction exists."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-DirichletPadicLFunctions--L0",
+        "reason": "Printed136 explicitly permits any integer coprime to p before asserting rapid decrease; a=−1 gives the constant−1. Printed165 also calls the same allowed-parameter quotient a polynomial, contradicted by−1/(1+T). Positive a repairs the claimed decay and polynomial aside; the algebraic kernel still allows all real a."
+      }
     },
     {
       "id": "DirichletPadicLFunctions/E5",
@@ -5159,7 +5321,12 @@
         "The journal article page https://msp.org/ent/2025/4-1/p03.xhtml, and Crossref DOI 10.2140/ent.2025.4.101 metadata, checked in this worker session on 26 September 2026; no correction link or update-to/updated-by relation found. The journal XHTML was read through a direct HTTP fetch because the browser text tool rejected that content type.",
         "Authors’ publication pages https://sites.google.com/site/joaquinrj/home and https://chriswilliams1404.wixsite.com/website/publications-preprints, rechecked 26 September 2026; no correction linked for this paper.",
         "Targeted searches for the authors/title plus errata/correction and for Proposition 4.4 and Corollary 2.8, 26 September 2026; no correcting publication located. The campaign/accepted RS-14 already warns about ζ(0) and the k=1 Euler-factor endpoint; these are acknowledged prior roadmap observations, not claims of first discovery. This bounded search does not prove that no correction exists."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-DirichletPadicLFunctions--L0",
+        "reason": "Printed111 fixes B₁=−1/2 and printed112 states its minus-sign formula for n≥0. At n=0 it gives+1/2, contradicted by the exact pinned negative-zeta theorem. The recorded all-n alternating-sign correction is valid."
+      }
     },
     {
       "id": "DirichletPadicLFunctions/E2",
@@ -5177,7 +5344,12 @@
         "The journal article page https://msp.org/ent/2025/4-1/p03.xhtml, and Crossref DOI 10.2140/ent.2025.4.101 metadata, checked in this worker session on 26 September 2026; no correction link or update-to/updated-by relation found. The journal XHTML was read through a direct HTTP fetch because the browser text tool rejected that content type.",
         "Authors’ publication pages https://sites.google.com/site/joaquinrj/home and https://chriswilliams1404.wixsite.com/website/publications-preprints, rechecked 26 September 2026; no correction linked for this paper.",
         "Targeted searches for the authors/title plus errata/correction and for Proposition 4.4 and Corollary 2.8, 26 September 2026; no correcting publication located. The campaign/accepted RS-14 already warns about ζ(0) and the k=1 Euler-factor endpoint; these are acknowledged prior roadmap observations, not claims of first discovery. This bounded search does not prove that no correction exists."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-DirichletPadicLFunctions--L0",
+        "reason": "Printed136 equates ζ(−k) with the kth derivative of the unsmoothed Bernoulli kernel. Its zeroth value is1, whereas native ζ(0)=−1/2. The corrected (−1)^k times the (k+1)st derivative divided by k+1 has the stated Bernoulli normalization."
+      }
     },
     {
       "id": "DirichletPadicLFunctions/E28",
@@ -5194,7 +5366,12 @@
         "Journal article page https://msp.org/ent/2025/4-1/p03.xhtml: direct HTTP200; no errata/corrigendum/correction term or correction link found4October2026.",
         "https://arxiv.org/abs/2309.15692 version listing, and author publication pages https://sites.google.com/site/joaquinrj/home and https://chriswilliams1404.wixsite.com/website/publications-preprints checked4October2026: no correcting publication located.",
         "Bounded title/author errata search4October2026 found no correction. This is not proof that no correction exists."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-DirichletPadicLFunctions--L0",
+        "reason": "Printed114 calls the displayed restricted product of multiplicative local groups a topological ring. The principal ideles1 and−1 sum to the nonunit0. The object is a topological multiplicative group, as Proposition2.11 uses."
+      }
     },
     {
       "id": "DirichletPadicLFunctions/E29",
@@ -5212,7 +5389,12 @@
         "https://arxiv.org/abs/2309.15692 version listing, and author publication pages https://sites.google.com/site/joaquinrj/home and https://chriswilliams1404.wixsite.com/website/publications-preprints checked4October2026: no correcting publication located.",
         "Bounded title/author errata search4October2026 found no correction. This is not proof that no correction exists.",
         "The current public source-issue register was screened for finite-indicator/orthogonality findings. PAPER-RODRIGUES-JACINTO-WILLIAMS-23/E42 and ColemanIntegration/E20 already record the distinct modD/modN typo in the preceding display; ColemanIntegration/E23 records the distinct boundary-series gap. Those records were read and credited, not duplicated. No correction to this unit-index display was located."
-      ]
+      ],
+      "review": {
+        "verdict": "rejected",
+        "by": "REV-DirichletPadicLFunctions--L0",
+        "reason": "The hash-authenticated version-of-record PDF, printed149 / physical50, was independently extracted with CFF-font support and visually rendered. The additive indicator is indexed by c∈(ℤ/Nℤ), with no unit superscript. The unit superscript occurs on a in the preceding L-series expression, not on c in this display. The proposed N=3 witness would refute a units-only identity, but that identity is not printed here. Retain this record as rejected history; do not issue an erratum."
+      }
     }
   ],
   "provenance": {
@@ -5238,6 +5420,156 @@
         "ColemanIntegration/E23",
         "DirichletPadicLFunctions/E16"
       ]
+    },
+    "inheritedChecks": {
+      "validation": {
+        "checkerBase": "de4fc56ae4f891fe2abd21e11c014672ce432c90",
+        "checkerSha256": "fec911c86c77bae602d6b4c0dd2d342b1b86aa2360b5795edcaa2e21d25ad5b9",
+        "indexSha256": "86649a7d5f35d1178a45fe7aa4713741d03d43ff3b37bb8c91a1da1c794c8ce1",
+        "packetSummary": {
+          "packet": "research/blueprint/packets/DirichletPadicLFunctions--L0.json",
+          "roadmap": "DirichletPadicLFunctions",
+          "status": "complete",
+          "nodes": 80,
+          "kinds": {
+            "comparison": 12,
+            "lemma": 44,
+            "construction": 3,
+            "theorem": 21
+          },
+          "apiItems": 51,
+          "unitTests": 12,
+          "planets": 6,
+          "baselineDeclarations": 132,
+          "prerequisites": {
+            "baseline": 218,
+            "node (this packet)": 129,
+            "node (blueprint)": 10,
+            "stage": 16
+          },
+          "gaps": 7,
+          "requests": 7,
+          "stagesInScope": 1,
+          "stagesClosed": 0,
+          "stagesPlanned": 1
+        },
+        "errors": [],
+        "warnings": [],
+        "errataErrors": [],
+        "preservedNodes": 63,
+        "preservedApiItems": 51,
+        "preservedTests": 42,
+        "signatureMissing": [],
+        "signatureOmissions": [
+          "DirichletPadicLFunctions:L0/generalized-bernoulli-nonprincipal",
+          "DirichletPadicLFunctions:L0/generalized-bernoulli-principal",
+          "DirichletPadicLFunctions:L0/dedekind-series-comparison",
+          "DirichletPadicLFunctions:L0/dedekind-pole-clearing",
+          "DirichletPadicLFunctions:L0/rational-idele-finite-normalization",
+          "DirichletPadicLFunctions:L0/rational-idele-norm-power",
+          "DirichletPadicLFunctions:L0/rational-idele-parity",
+          "DirichletPadicLFunctions:L0/rational-idele-euler-normalization"
+        ],
+        "signatureExamples": 42,
+        "signatureDeclarations": 80,
+        "graph": {
+          "reachableNodes": 408,
+          "edges": 677,
+          "leaves": {
+            "baseline": 243,
+            "stage/request": 8
+          },
+          "cycles": [],
+          "scope": "Own80 nodes and their exact reachable fine supplier prerequisites; stage and request references remain leaves, not closure proofs."
+        },
+        "assembler": {
+          "files": [
+            "DirichletPadicLFunctions--L0",
+            "DirichletPadicLFunctions--L1"
+          ],
+          "documents": [
+            "research/blueprint/readmes/DirichletPadicLFunctions--L0.md"
+          ],
+          "declarations": 94,
+          "planets": 8,
+          "kinds": {
+            "comparison": 12,
+            "construction": 4,
+            "definition": 1,
+            "lemma": 55,
+            "theorem": 22
+          },
+          "skippedLinks": [],
+          "ownLayerDeclarations": 80,
+          "ownLayerPlanets": 6
+        },
+        "elapsedSeconds": 1.77,
+        "maxRssKiB": 2220500,
+        "supplierPackets": {
+          "DirichletPadicLFunctions--L1": "431e9305fea2a102e548a9b53a1ea59088f02266ab1ee4f3434481f1974bce68",
+          "PadicMeasuresIwasawaAlgebras": "f2c7f88b83d78f2d3525aa9180b8b0050d1d6105035828a4bac9baaf5aabd1f8",
+          "QSeriesPartitionsAndMockModularForms": "dfaccc8379da9e72e678ee954ac4b76d8cb624fc787b702256cc98e5a2c41cec",
+          "AutomorphicLFunctionsAndLocalFactors": "fee11fa52d59cfe257555d700c3475efe7b59a578058ebf6a9a5f9541188c4e5",
+          "DiophantineApproximationAndTranscendence": "dabd6a505faf952bfeef73db27d44c783bf8b640be17ce33b4d5f5287370473f"
+        }
+      },
+      "lean": {
+        "sourceSha256": "6b521b2625fe7235c156c4c1ccb7f527a4fc366b9b34164ed181b437812690ea",
+        "logSha256": "5ac35c210c8fbd51e885b63509fd40e0e0de2f5ea7956fdf0f82d59569eda904",
+        "availableGiBBefore": 35,
+        "elapsedSeconds": 2.86,
+        "maxRssKiB": 4011956,
+        "exitStatus": 0,
+        "errors": 0,
+        "warnings": 123,
+        "admissionWarnings": 123,
+        "axiomAudits": 0,
+        "sorryAxReferences": 0,
+        "leanVersion": "Lean (version 4.34.0-rc2, x86_64-unknown-linux-gnu, commit 6a10ac8c22beadecabdbb0919c2b50214762f91d, Release)"
+      },
+      "finiteConventions": {
+        "method": "Exact rational arithmetic of B₁(x)=x−1/2 with representatives1,…,D; Gaussian rational pairs distinguish χ from its inverse. The last control is χ(2)⁻¹ for χ(2)=i. These are finite convention controls, not L-function proofs.",
+        "passed": 6,
+        "values": {
+          "principal_modulus_one": [
+            "-1/2",
+            "0"
+          ],
+          "principal_modulus_two": [
+            "0",
+            "0"
+          ],
+          "odd_quadratic_modulus_three": [
+            "1/3",
+            "0"
+          ],
+          "quartic_modulus_five": [
+            "3/5",
+            "1/5"
+          ],
+          "inverse_quartic_modulus_five": [
+            "3/5",
+            "-1/5"
+          ],
+          "uniformizer_two_source_finite_value": [
+            "0",
+            "-1"
+          ]
+        }
+      },
+      "scope": "Target-level complete pass, L0 planned and not closed. Actual checker and assembler receipts do not resolve the two explicitly recorded stage-order gaps. Lean replay elaborates only the documented native signatures and admission bodies, not omitted supplier carriers or proofs."
+    },
+    "independentReview": {
+      "job": "REV-DirichletPadicLFunctions--L0",
+      "agent": "Codex",
+      "session": "codex-J6LwjP",
+      "base": "7804cc3b616197aee6a55d5cf985d2ee9318bdc6",
+      "date": "2026-10-05",
+      "primaryReading": "Own authenticated version-of-record passages: printed106–108,110–115,136–139,143–144,149–150,165. Printed149 indicator visually rendered; no full-paper or upstream-primary-proof reading claimed.",
+      "styleDocuments": [
+        "content/tau-ceti/ArithmeticDirichletSeries/README.md",
+        "content/tau-ceti/GlobalNumberFields/README.md"
+      ]
     }
   },
   "requestResolutions": [],
@@ -5255,13 +5587,420 @@
       "note": "Retained exact L1 comparison imports need stage-order reconciliation. They are not duplicated or silently moved; G-inherited-formal-stage-order records the remaining placement."
     }
   ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-DirichletPadicLFunctions--L0",
+    "date": "2026-10-05",
+    "notes": "Independent lemma-level review of all 80 nodes, 132 actual pinned declarations,seven direct fine suppliers,seven requests,three construction APIs and every test. Corrected source locators/excerpts, coefficient-field scope and stale annotations; extended two kernel APIs/tests and made all three suggested data definitions explicit. Four source findings confirmed; E29 rejected after visual inspection of the actual full-residue indicator. One planned stage, zero closed stages; seven exact gaps including two stage-placement issues remain visible. No implementation or supplier-primary-proof certification is claimed.",
+    "checked": [
+      {
+        "nodeId": "DirichletPadicLFunctions:L0/smoothed-value-complex",
+        "verdict": "verified",
+        "note": "Native negative-zeta rewrite, rational casting and smoothing sign verified."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L0/mellin-infinity-boundary",
+        "verdict": "verified",
+        "note": "All complex exponents at infinity follow from the norm/cpow and polynomial-exponential limits."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L0/mellin-zero-boundary",
+        "verdict": "verified",
+        "note": "Right-continuous germ multiplied by t^s tends to zero precisely when Re(s)>0."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L0/mellin-derivative-shift",
+        "verdict": "verified",
+        "note": "Integration by parts has both integrable products and both endpoint limits."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L0/normalized-mellin-derivative-shift",
+        "verdict": "verified",
+        "note": "Smooth within derivatives satisfy the b=0 convergence criterion; Γ recurrence cancels on Re(s)>0."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L0/mellin-derivative-at-one",
+        "verdict": "verified",
+        "note": "FTC gives the negative right endpoint after decay and integrability."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L0/mellin-shift-coherence",
+        "verdict": "verified",
+        "note": "Adjacent admissible shifts telescope; ordering the two integers proves coherence."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L0/normalized-mellin-continuation",
+        "verdict": "corrected",
+        "note": "Chosen natural ceiling is admissible; all ten API contracts and six separating tests checked. Suggested data body now spells out its actual formula."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L0/normalized-mellin-admissible-shift",
+        "verdict": "verified",
+        "note": "Comparison of the chosen shift with any admissible shift uses coherence."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L0/normalized-mellin-initial-halfplane",
+        "verdict": "verified",
+        "note": "Zeroth within derivative gives the initial-half-plane expression."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L0/normalized-mellin-entire",
+        "verdict": "verified",
+        "note": "Fixed local admissible shift, differentiable Mellin integral and entire reciprocal Γ prove entirety."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L0/normalized-mellin-negative-values",
+        "verdict": "verified",
+        "note": "Shift n+1 and Γ(1)=1 yield the alternating endpoint value, including n=0."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L0/weighted-exponential-halfline-bound",
+        "verdict": "verified",
+        "note": "Positive-index summability and the (n−1)(t−δ) inequality give the uniform majorant."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L0/weighted-exponential-derivative",
+        "verdict": "verified",
+        "note": "The summable derivative bound holds on the open connected half-line t/2<y."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L0/reciprocal-exponential-geometric",
+        "verdict": "verified",
+        "note": "Positive geometric series has sum1/(exp(t)−1); no value at zero is inferred."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L0/reciprocal-exponential-iterated-derivative",
+        "verdict": "verified",
+        "note": "Derivative induction uses equality of germs and the weighted-series derivative."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L0/bernoulli-positive-derivative-formula",
+        "verdict": "verified",
+        "note": "Product-rule induction gives coefficient m+1 and the next alternating sign."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L0/bernoulli-ordinary-derivative-decay",
+        "verdict": "verified",
+        "note": "A linear factor is absorbed by half the exponential rate; rate one is correctly rejected."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L0/bernoulli-within-derivative-decay",
+        "verdict": "verified",
+        "note": "Local equality on t>0 and ordinary/within comparison transfer decay without claiming continuity at zero."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L0/smooth-bernoulli-kernel",
+        "verdict": "corrected",
+        "note": "Native divided difference gives the removable extension. Added global continuous-extension uniqueness and a negative-half-line test; data body is explicit."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L0/smooth-bernoulli-zero",
+        "verdict": "corrected",
+        "note": "dslope at its center is exp′(0)=1."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L0/smooth-bernoulli-away",
+        "verdict": "corrected",
+        "note": "Inverting the punctured divided difference gives the quotient on both real half-lines."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L0/smooth-bernoulli-analytic",
+        "verdict": "corrected",
+        "note": "dslope is analytic at its center and a quotient elsewhere; its exponential denominator never vanishes."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L0/smooth-bernoulli-smooth",
+        "verdict": "corrected",
+        "note": "Native analytic-to-smooth conversion supplies all finite orders."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L0/smooth-bernoulli-product",
+        "verdict": "corrected",
+        "note": "Cancellation away from zero and the separate zero case give the global product."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L0/smooth-bernoulli-derivative-recurrence",
+        "verdict": "corrected",
+        "note": "Higher Leibniz at order n+1 leaves exactly the binomial recurrence through k=n."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L0/smooth-bernoulli-derivatives",
+        "verdict": "corrected",
+        "note": "Strong induction and nonzero coefficient n+1 compare the actual derivatives with native Bernoulli recurrence."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L0/smooth-bernoulli-complex-smooth",
+        "verdict": "corrected",
+        "note": "Real continuous-linear inclusion preserves smoothness; scalar field remains ℝ."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L0/smooth-bernoulli-within-values",
+        "verdict": "corrected",
+        "note": "Unique derivatives within the closed half-line include its endpoint; continuous-linear composition transports values."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L0/bernoulli-mellin-entire",
+        "verdict": "corrected",
+        "note": "Actual smoothness and all-order half-rate decay instantiate the existing entire continuation."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L0/bernoulli-mellin-values",
+        "verdict": "corrected",
+        "note": "The endpoint values give (−1)^n B_n; this is distinct from negative zeta."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L0/bernoulli-mellin-convergent",
+        "verdict": "verified",
+        "note": "The actual complex kernel supplies local integrability, a bounded right germ and exponential decay."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L0/bernoulli-mellin-dirichlet-sum",
+        "verdict": "verified",
+        "note": "Native hasSum_mellin applies at s+1 with positive frequencies and a summable p-series majorant."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L0/bernoulli-mellin-gamma-zeta",
+        "verdict": "verified",
+        "note": "Taking the convergent sum and factoring Γ(s+1) gives the positive-index zeta series."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L0/bernoulli-mellin-normalized-halfplane",
+        "verdict": "verified",
+        "note": "Γ recurrence and Γ nonvanishing produce the indispensable factor s."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L0/bernoulli-mellin-zeta-comparison",
+        "verdict": "verified",
+        "note": "Analytic uniqueness on the punctured complex plane extends the half-plane equality; the origin remains1."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L0/smoothed-mellin-kernel",
+        "verdict": "corrected",
+        "note": "Actual divided difference is globally real analytic. Added continuous product-identity uniqueness and the a=0 origin test; data body is explicit."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L0/smoothed-kernel-away",
+        "verdict": "verified",
+        "note": "Both a and t must be nonzero for the reciprocal-exponential formula."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L0/smoothed-kernel-analytic",
+        "verdict": "verified",
+        "note": "Analytic divided difference at zero and analytic quotient elsewhere work for every real parameter."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L0/smoothed-kernel-smooth",
+        "verdict": "verified",
+        "note": "Native analytic-to-smooth conversion has no positivity restriction."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L0/smoothed-kernel-product",
+        "verdict": "verified",
+        "note": "The global displacement-times-dslope identity includes t=0 and a=0."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L0/smoothed-kernel-origin-derivatives",
+        "verdict": "verified",
+        "note": "Order n+1 Leibniz and dilation give the denominator n+1 and Bernoulli index n+1."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L0/smoothed-kernel-positive-derivatives",
+        "verdict": "verified",
+        "note": "Termwise derivative and the dilation chain rule supply a^(m+1)."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L0/smoothed-kernel-derivative-decay",
+        "verdict": "verified",
+        "note": "Uniform bounds after max(1,1/a) give the positive rate min(1,a), with no parameter-uniform constant."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L0/smoothed-kernel-complex-smooth",
+        "verdict": "verified",
+        "note": "The inclusion is smooth over ℝ with complex codomain."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L0/smoothed-kernel-within-values",
+        "verdict": "verified",
+        "note": "Native ordinary/within and continuous-linear derivative comparisons preserve the exact endpoint value."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L0/smoothed-kernel-within-decay",
+        "verdict": "verified",
+        "note": "Ordinary-to-within eventual equality preserves the same positive decay rate."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L0/smoothed-kernel-mellin-entire",
+        "verdict": "verified",
+        "note": "Actual closed-half-line smoothness and all-order decay instantiate entirety."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L0/smoothed-kernel-mellin-values",
+        "verdict": "verified",
+        "note": "Alternating normalized value and unsigned real derivative are kept distinct."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L0/smoothed-mellin-convergent",
+        "verdict": "verified",
+        "note": "Smoothed Mellin convergence needs only Re(s)>0."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L0/smoothed-mellin-gamma-zeta",
+        "verdict": "verified",
+        "note": "Splitting the two Bernoulli integrals is valid on Re(s)>1; dilation contributes a^(1−s)."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L0/smoothed-mellin-normalized-halfplane",
+        "verdict": "verified",
+        "note": "Initial-half-plane comparison and nonzero Γ cancel exactly."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L0/smoothed-mellin-zeta-comparison",
+        "verdict": "verified",
+        "note": "Fixed positive-base powers are analytic; identity principle excludes the raw pole."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L0/smoothed-zeta-pole-limit",
+        "verdict": "verified",
+        "note": "Derivative of1−a^(1−s) at1 is+log(a); multiplying the native residue proves the punctured limit."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L0/smoothed-mellin-value-one",
+        "verdict": "verified",
+        "note": "Continuity and uniqueness of limits give log(a) at1; Γ(1)=1 also identifies the convergent integral."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L0/smoothed-kernel-formal-derivatives",
+        "verdict": "verified",
+        "note": "Exact L1 rational Mahler constant and coefficient recurrence match the real derivative; ordinary derivative negative control checked. Stage placement remains an explicit gap."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L0/smoothed-mellin-formal-values",
+        "verdict": "verified",
+        "note": "Exact L1 rational value matches the signed complex Mellin value. Stage placement remains an explicit gap."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L0/smoothed-kernel-zero",
+        "verdict": "verified",
+        "note": "Zeroth origin derivative gives (a−1)/2 for all real a."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L0/smoothed-kernel-cocycle",
+        "verdict": "verified",
+        "note": "Cancel the global product identity for t≠0 and use the separate origin values; no division by a."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L0/smoothed-kernel-commute",
+        "verdict": "verified",
+        "note": "Two cocycles and commutative multiplication prove independence of smoothing order."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L0/smoothed-origin-derivative-cocycle",
+        "verdict": "verified",
+        "note": "The Bernoulli coefficient identity gives a^(n+1), including the concrete third-derivative weight16."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L0/smoothed-mellin-cocycle",
+        "verdict": "verified",
+        "note": "Convergent additivity, dilation and scalar multiplication give a^(1−s), including s=1."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L0/smoothed-normalized-cocycle",
+        "verdict": "verified",
+        "note": "Punctured zeta products give the cocycle; the separate s=1 case uses log(ab)."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L0/generalized-bernoulli-nonprincipal",
+        "verdict": "corrected",
+        "note": "Read both QM.5 supplier statements. r≥1 and mean-zero r=0 are separated; coefficient field now explicitly specialized toℂ. Canonical carrier gap remains."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L0/generalized-bernoulli-principal",
+        "verdict": "corrected",
+        "note": "Principal modulus1 uses B₁(1)=+1/2; Euler deletion gives the imprimitive boundary. Canonical distribution contract remains requested."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L0/normalized-value-complex-embedding",
+        "verdict": "corrected",
+        "note": "The same number-field element is transported by an explicit complex embedding; supplier scalar-extension gap is honest."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L0/normalized-value-padic-embedding",
+        "verdict": "corrected",
+        "note": "The p-adic image and its compatible extension use the identical element; no ambient-field identification or interpolation theorem is asserted."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L0/dedekind-series-comparison",
+        "verdict": "corrected",
+        "note": "AL.1 ideal-character and absolutely convergent partial-series contract matches the arithmetic norm regrouping. Exact trivial-instance adapter remains requested."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L0/dedekind-pole-clearing",
+        "verdict": "corrected",
+        "note": "Read AL.1 Tate continuation and explicit pole terms; archimedean clearing/nonvanishing is an exact instance gap, not inferred from the real limit."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L0/dedekind-real-residue-limit",
+        "verdict": "corrected",
+        "note": "Native real one-sided residue limit transfers along equality on Re(s)>1."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L0/dedekind-cleared-value",
+        "verdict": "corrected",
+        "note": "Continuity of analytic G along the real approach determines G(1)."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L0/dedekind-simple-pole",
+        "verdict": "corrected",
+        "note": "Nonzero arithmetic residue and native integer-order characterization force order−1."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L0/dedekind-complex-residue",
+        "verdict": "corrected",
+        "note": "The analytic pole-clearing germ supplies a punctured complex limit with the native class-number expression."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L0/rational-idele-finite-normalization",
+        "verdict": "corrected",
+        "note": "GN layers6,9,10 are read; rational normal form and the native finite-unit dictionary are exact requested exports."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L0/rational-idele-norm-power",
+        "verdict": "corrected",
+        "note": "Finite units have norm1, principal normalization preserves global norm, and the real-positive exponent is complex."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L0/rational-idele-parity",
+        "verdict": "corrected",
+        "note": "Negative real input normalizes by q=−1 and supplies χ(−1); finite-order connectedness is correctly scoped."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L0/rational-idele-euler-normalization",
+        "verdict": "corrected",
+        "note": "Read AL.1 orientation ω_v(ϖ_v). Normalizing the finite uniformizer yields χ(ℓ)⁻¹ℓ^(−s); arithmetic χ corresponds to source χ⁻¹."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L0/cyclotomic-log-algebraic-inputs",
+        "verdict": "corrected",
+        "note": "Native primitive-root and finite-character facts put the arguments and Gauss coefficients in the algebraic closure, with nonzero arguments."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L0/cyclotomic-log-baker-application",
+        "verdict": "corrected",
+        "note": "Read DT.3 independent-logarithm theorem; the precise arbitrary-family basis-reduction corollary is requested, not assumed."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L0/dirichlet-one-transcendental",
+        "verdict": "corrected",
+        "note": "The native nonvanishing theorem and Baker application give the consequence conditional on the log identity. Its L3 placement remains an explicit gap, with no backward edge."
+      }
+    ]
+  },
   "checks": {
-    "validation": {
-      "checkerBase": "de4fc56ae4f891fe2abd21e11c014672ce432c90",
-      "checkerSha256": "fec911c86c77bae602d6b4c0dd2d342b1b86aa2360b5795edcaa2e21d25ad5b9",
-      "indexSha256": "86649a7d5f35d1178a45fe7aa4713741d03d43ff3b37bb8c91a1da1c794c8ce1",
-      "packetSummary": {
-        "packet": "research/blueprint/packets/DirichletPadicLFunctions--L0.json",
+    "independentReview": {
+      "base": "7804cc3b616197aee6a55d5cf985d2ee9318bdc6",
+      "report": "research/blueprint/reviews/REV-DirichletPadicLFunctions--L0.md",
+      "checker": {
+        "packet": "Candidate.json",
         "roadmap": "DirichletPadicLFunctions",
         "status": "complete",
         "nodes": 80,
@@ -5271,12 +6010,12 @@
           "construction": 3,
           "theorem": 21
         },
-        "apiItems": 51,
-        "unitTests": 12,
+        "apiItems": 53,
+        "unitTests": 14,
         "planets": 6,
         "baselineDeclarations": 132,
         "prerequisites": {
-          "baseline": 218,
+          "baseline": 220,
           "node (this packet)": 129,
           "node (blueprint)": 10,
           "stage": 16
@@ -5289,108 +6028,136 @@
       },
       "errors": [],
       "warnings": [],
-      "errataErrors": [],
-      "preservedNodes": 63,
-      "preservedApiItems": 51,
-      "preservedTests": 42,
-      "signatureMissing": [],
-      "signatureOmissions": [
-        "DirichletPadicLFunctions:L0/generalized-bernoulli-nonprincipal",
-        "DirichletPadicLFunctions:L0/generalized-bernoulli-principal",
-        "DirichletPadicLFunctions:L0/dedekind-series-comparison",
-        "DirichletPadicLFunctions:L0/dedekind-pole-clearing",
-        "DirichletPadicLFunctions:L0/rational-idele-finite-normalization",
-        "DirichletPadicLFunctions:L0/rational-idele-norm-power",
-        "DirichletPadicLFunctions:L0/rational-idele-parity",
-        "DirichletPadicLFunctions:L0/rational-idele-euler-normalization"
-      ],
-      "signatureExamples": 42,
-      "signatureDeclarations": 80,
-      "graph": {
-        "reachableNodes": 408,
-        "edges": 677,
-        "leaves": {
-          "baseline": 243,
-          "stage/request": 8
-        },
-        "cycles": [],
-        "scope": "Own80 nodes and their exact reachable fine supplier prerequisites; stage and request references remain leaves, not closure proofs."
+      "lean": {
+        "sourceSha256": "4dbcf3cb98166bcce58c2d183c9396140247488edfbda05567a7b9a1cc3a1de4",
+        "logSha256": "bed24bb99dd552c886b3c82c637305bd4d3d376c18c36b960126bfd9c154dd8f",
+        "exitStatus": 0,
+        "errors": 0,
+        "warnings": 124,
+        "admissionWarnings": 124,
+        "availableGiBBefore": 34,
+        "elapsedSeconds": 3.0,
+        "maxRssKiB": 4034308,
+        "leanVersion": "Lean (version 4.34.0-rc2, x86_64-unknown-linux-gnu, commit 6a10ac8c22beadecabdbb0919c2b50214762f91d, Release)",
+        "mathlibPin": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+        "dependenciesVerifiedAgainstManifest": [
+          "plausible",
+          "LeanSearchClient",
+          "importGraph",
+          "proofwidgets",
+          "aesop",
+          "Qq",
+          "batteries"
+        ],
+        "omittedBuildDependency": [
+          "Cli: no compiled library directory; not in either checked import cone"
+        ],
+        "tauCetiCompilation": "Not attempted: no existing build at f790474 was found; this file imports Mathlib only.",
+        "command": "timeout 1200 \"$LEAN\" -j1 -M8192 \"$SCRATCH/Published.lean\"",
+        "scope": "Typing replay with admitted proofs, not theorem verification."
       },
-      "assembler": {
-        "files": [
-          "DirichletPadicLFunctions--L0",
-          "DirichletPadicLFunctions--L1"
-        ],
-        "documents": [
-          "research/blueprint/readmes/DirichletPadicLFunctions--L0.md"
-        ],
-        "declarations": 94,
-        "planets": 8,
-        "kinds": {
-          "comparison": 12,
-          "construction": 4,
-          "definition": 1,
-          "lemma": 55,
-          "theorem": 22
+      "assembly": {
+        "ownBlueprint": {
+          "files": [
+            "DirichletPadicLFunctions--L0"
+          ],
+          "documents": [],
+          "declarations": 80,
+          "planets": 6,
+          "kinds": {
+            "comparison": 12,
+            "construction": 3,
+            "lemma": 44,
+            "theorem": 21
+          },
+          "skippedLinks": []
         },
-        "skippedLinks": [],
-        "ownLayerDeclarations": 80,
-        "ownLayerPlanets": 6
+        "stageDAG": {
+          "vertices": 3139,
+          "edges": 8854,
+          "acyclic": true,
+          "blockedVertices": []
+        },
+        "pendingLinks": [],
+        "foreignMathematicalPayloadsPreserved": true,
+        "newStageEdges": [
+          [
+            "DiophantineApproximationAndTranscendence:DT.3",
+            "DirichletPadicLFunctions:L0"
+          ],
+          [
+            "DirichletPadicLFunctions:L0/normalized-mellin-continuation",
+            "DirichletPadicLFunctions:L0/bernoulli-mellin-zeta-comparison"
+          ],
+          [
+            "DirichletPadicLFunctions:L0/normalized-mellin-continuation",
+            "DirichletPadicLFunctions:L0/normalized-mellin-negative-values"
+          ],
+          [
+            "DirichletPadicLFunctions:L0/normalized-mellin-negative-values",
+            "DirichletPadicLFunctions:L0/bernoulli-mellin-zeta-comparison"
+          ],
+          [
+            "DirichletPadicLFunctions:L0/smooth-bernoulli-kernel",
+            "DirichletPadicLFunctions:L0/bernoulli-mellin-zeta-comparison"
+          ],
+          [
+            "DirichletPadicLFunctions:L0/smooth-bernoulli-kernel",
+            "DirichletPadicLFunctions:L0/smoothed-mellin-kernel"
+          ],
+          [
+            "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-1-norm-fibres-and-mathlib-lseries",
+            "DirichletPadicLFunctions:L0"
+          ],
+          [
+            "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-6-additive-strong-approximation-and-ideles",
+            "DirichletPadicLFunctions:L0"
+          ]
+        ],
+        "removedStageEdges": []
       },
-      "elapsedSeconds": 1.77,
-      "maxRssKiB": 2220500,
-      "supplierPackets": {
-        "DirichletPadicLFunctions--L1": "431e9305fea2a102e548a9b53a1ea59088f02266ab1ee4f3434481f1974bce68",
-        "PadicMeasuresIwasawaAlgebras": "f2c7f88b83d78f2d3525aa9180b8b0050d1d6105035828a4bac9baaf5aabd1f8",
-        "QSeriesPartitionsAndMockModularForms": "dfaccc8379da9e72e678ee954ac4b76d8cb624fc787b702256cc98e5a2c41cec",
-        "AutomorphicLFunctionsAndLocalFactors": "fee11fa52d59cfe257555d700c3475efe7b59a578058ebf6a9a5f9541188c4e5",
-        "DiophantineApproximationAndTranscendence": "dabd6a505faf952bfeef73db27d44c783bf8b640be17ce33b4d5f5287370473f"
-      }
-    },
-    "lean": {
-      "sourceSha256": "6b521b2625fe7235c156c4c1ccb7f527a4fc366b9b34164ed181b437812690ea",
-      "logSha256": "5ac35c210c8fbd51e885b63509fd40e0e0de2f5ea7956fdf0f82d59569eda904",
-      "availableGiBBefore": 35,
-      "elapsedSeconds": 2.86,
-      "maxRssKiB": 4011956,
-      "exitStatus": 0,
-      "errors": 0,
-      "warnings": 123,
-      "admissionWarnings": 123,
-      "axiomAudits": 0,
-      "sorryAxReferences": 0,
-      "leanVersion": "Lean (version 4.34.0-rc2, x86_64-unknown-linux-gnu, commit 6a10ac8c22beadecabdbb0919c2b50214762f91d, Release)"
-    },
-    "finiteConventions": {
-      "method": "Exact rational arithmetic of B₁(x)=x−1/2 with representatives1,…,D; Gaussian rational pairs distinguish χ from its inverse. The last control is χ(2)⁻¹ for χ(2)=i. These are finite convention controls, not L-function proofs.",
-      "passed": 6,
-      "values": {
-        "principal_modulus_one": [
-          "-1/2",
-          "0"
-        ],
-        "principal_modulus_two": [
-          "0",
-          "0"
-        ],
-        "odd_quadratic_modulus_three": [
-          "1/3",
-          "0"
-        ],
-        "quartic_modulus_five": [
-          "3/5",
-          "1/5"
-        ],
-        "inverse_quartic_modulus_five": [
-          "3/5",
-          "-1/5"
-        ],
-        "uniformizer_two_source_finite_value": [
-          "0",
-          "-1"
+      "fineDAG": {
+        "vertices": 160,
+        "edges": 284,
+        "acyclic": true,
+        "blockedVertices": [],
+        "baselineLeaves": 248,
+        "stageLeaves": [
+          "AdelicAlgebraicGroups:AA.0",
+          "DiophantineApproximationAndTranscendence:DT.3",
+          "SmoothRepresentationsOfLocalGroups:SR.1"
         ]
+      },
+      "ownDAG": {
+        "vertices": 80,
+        "edges": 129,
+        "acyclic": true,
+        "blockedVertices": []
+      },
+      "contracts": {
+        "nodes": 80,
+        "reviewedNodes": 80,
+        "apiItems": 53,
+        "allTests": 44,
+        "constructionTests": 14,
+        "missingNames": [],
+        "nativeNodeSignatures": 72,
+        "omittedNodes": [
+          "DirichletPadicLFunctions:L0/generalized-bernoulli-nonprincipal",
+          "DirichletPadicLFunctions:L0/generalized-bernoulli-principal",
+          "DirichletPadicLFunctions:L0/dedekind-series-comparison",
+          "DirichletPadicLFunctions:L0/dedekind-pole-clearing",
+          "DirichletPadicLFunctions:L0/rational-idele-finite-normalization",
+          "DirichletPadicLFunctions:L0/rational-idele-norm-power",
+          "DirichletPadicLFunctions:L0/rational-idele-parity",
+          "DirichletPadicLFunctions:L0/rational-idele-euler-normalization"
+        ],
+        "partialEmbeddingSignatures": 2,
+        "sourceIssueVerdicts": {
+          "confirmed": 4,
+          "rejected": 1
+        }
       }
-    },
-    "scope": "Target-level complete pass, L0 planned and not closed. Actual checker and assembler receipts do not resolve the two explicitly recorded stage-order gaps. Lean replay elaborates only the documented native signatures and admission bodies, not omitted supplier carriers or proofs."
+    }
   }
 }

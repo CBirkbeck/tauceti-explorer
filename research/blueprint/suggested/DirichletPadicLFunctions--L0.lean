@@ -24,7 +24,9 @@ here claims an implementation. Mathlib 082e2d3 / Tau Ceti f790474.
 /-!
 # Dirichlet L0: normalized Mellin continuation and smoothing
 Suggested declarations only, at Mathlib 082e2d3 / Tau Ceti f790474.
-All 63 inherited node contracts, 51 API entries and 42 tests remain represented.
+The 80 reviewed node contracts retain 72 native signatures and eight exact
+omission comments. Two embedding signatures are partial. Construction data
+use the explicit native formulas; all theorem and example proofs are admitted.
 The two L1 arithmetic suppliers and PMIA's Mahler operator are expressed by
 local notation for their exact native formulas at the final interface below.
 Those notations export no definition and make no second ownership claim.
@@ -81,8 +83,9 @@ theorem normalizedMellin_shift_coherence (hf : ContDiffOn ℝ (⊤ : ℕ∞) f (
       (-1 : ℂ)^m * (mellin (iteratedDerivWithin m f (Ici 0)) (s+m) / Complex.Gamma (s+m)) := sorry
 
 -- DirichletPadicLFunctions:L0/normalized-mellin-continuation
-def normalizedMellinContinuation (f : ℝ → ℂ) (s : ℂ) :
-    ℂ := sorry
+def normalizedMellinContinuation (f : ℝ → ℂ) (s : ℂ) : ℂ :=
+  let n := Nat.ceil |s.re| + 1
+  (-1 : ℂ)^n * (mellin (iteratedDerivWithin n f (Ici 0)) (s+n) / Complex.Gamma (s+n))
 
 theorem normalizedMellinContinuation_def (f : ℝ → ℂ) (s : ℂ) :
     normalizedMellinContinuation f s =
@@ -222,7 +225,7 @@ noncomputable section
 open Filter Asymptotics Set
 open scoped Topology
 
-def smoothBernoulliKernel (t : ℝ) : ℝ := by sorry
+def smoothBernoulliKernel (t : ℝ) : ℝ := (dslope Real.exp 0 t)⁻¹
 
 theorem smoothBernoulliKernel_def (t : ℝ) :
     smoothBernoulliKernel t = (dslope Real.exp 0 t)⁻¹ := by sorry
@@ -328,7 +331,8 @@ noncomputable section
 open Set Filter Asymptotics
 open scoped Topology
 
-def smoothedMellinKernel (a t : ℝ) : ℝ := by sorry
+def smoothedMellinKernel (a t : ℝ) : ℝ :=
+  dslope (fun x => smoothBernoulliKernel x - smoothBernoulliKernel (a*x)) 0 t
 
 theorem smoothedMellinKernel_def (a t : ℝ) :
     smoothedMellinKernel a t =
@@ -638,8 +642,8 @@ end Cyclotomic
 end DirichletPadic
 
 /- Shared supplier carriers unavailable at the pins; these eight comparisons
-+are deliberately not replaced by fabricated Prop fields or new object types:
-+  DirichletPadicLFunctions:L0/generalized-bernoulli-nonprincipal
+are deliberately not replaced by fabricated Prop fields or new object types:
+  DirichletPadicLFunctions:L0/generalized-bernoulli-nonprincipal
   G-Bernoulli-carrier: ModularForms Layer0 owns the canonical generalized Bernoulli data, but no named native carrier/export with the requested finite-sum normalization was found at either pin. Do not substitute an arbitrary function for that carrier.
   DirichletPadicLFunctions:L0/generalized-bernoulli-principal
   G-Bernoulli-carrier: ModularForms Layer0 owns the canonical generalized Bernoulli data, but no named native carrier/export with the requested finite-sum normalization was found at either pin. Do not substitute an arbitrary function for that carrier.
@@ -656,3 +660,20 @@ end DirichletPadic
   DirichletPadicLFunctions:L0/rational-idele-euler-normalization
   G-rational-dictionary: the shared GN rational normal-form equivalence and its component evaluation exports are planned, not pinned native declarations; no duplicate idele or Hecke-character type is inserted in Lean.
 -/
+
+
+namespace DirichletPadic
+-- API: continuous extensions are unique on the entire real line.
+theorem smoothBernoulliKernel_unique (u : ℝ → ℝ) (hu : Continuous u)
+    (haway : ∀ t : ℝ, t ≠ 0 → u t = t / (Real.exp t - 1)) :
+    u = smoothBernoulliKernel := sorry
+
+theorem smoothedMellinKernel_unique (a : ℝ) (u : ℝ → ℝ) (hu : Continuous u)
+    (hproduct : ∀ t : ℝ, t * u t = smoothBernoulliKernel t - smoothBernoulliKernel (a*t)) :
+    u = smoothedMellinKernel a := sorry
+
+-- SuggestedReviewKernelTests.bernoulli_negative_log_two
+example : smoothBernoulliKernel (-Real.log 2) = 2 * Real.log 2 := sorry
+-- SuggestedReviewKernelTests.smoothed_zero_parameter
+example : smoothedMellinKernel 0 0 = -1/2 := sorry
+end DirichletPadic
