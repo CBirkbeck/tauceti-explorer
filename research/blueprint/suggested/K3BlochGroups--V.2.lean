@@ -25,6 +25,17 @@ import Mathlib.GroupTheory.Torsion
 import Mathlib.Data.ZMod.Basic
 import Mathlib.NumberTheory.NumberField.InfinitePlace.Basic
 
+-- Independent review: check the nine baseline names, including generated additive names.
+#check QuotientAddGroup.mk'
+#check QuotientAddGroup.liftEquiv
+#check QuotientAddGroup.map
+#check NumberField.InfinitePlace.nrRealPlaces
+#check NumberField.InfinitePlace.nrComplexPlaces
+#check NumberField.InfinitePlace.embedding_of_isReal
+#check NumberField.InfinitePlace.denseRange_algebraMap_pi
+#check Function.Exact
+#check AddCommGroup.torsion
+
 noncomputable section
 open scoped BigOperators
 namespace TauCeti.K3.V2
@@ -117,6 +128,12 @@ example (j : M →+ A) (hj : Function.Injective j) (sigma : M ≃+ (Unit → ZMo
 example (j : M →+ A) (hj : Function.Injective j) (sigma : M ≃+ (Empty → ZMod 2))
     (x : M) : j x = 0 := by sorry
 
+/-- Test `decomposableSignature_coordinate`: the equivalence preserves each labelled coordinate. -/
+example (j : M →+ A) (hj : Function.Injective j) (sigma : M ≃+ (R → ZMod 2))
+    (v : R) :
+    decomposableSignature j hj sigma
+      ⟨j (realBasis sigma v), ⟨realBasis sigma v, rfl⟩⟩ = Pi.single v 1 := by sorry
+
 /-! K3BlochGroups:V.2/totally-imaginary-quotient-equivalence.
 `hD` is precisely the consequence of the imported Bass–Tate theorem with no real
 places. This is a general quotient construction, not an assumed quotient equivalence. -/
@@ -178,6 +195,11 @@ example (j : M →+ A) (h : A →+ H) (hs : Function.Surjective h)
 /-- Test `stableHurewiczQuotient_kernel`: the stable kernel is the actual quotient kernel. -/
 example (j : M →+ A) (h : A →+ H) (hs : Function.Surjective h)
     (hk : j.range = h.ker) (x : A) : h x = 0 ↔ q j x = 0 := by sorry
+
+/-- Test `stableHurewiczQuotient_representative`: the canonical map uses the supplied Hurewicz map. -/
+example (j : M →+ A) (h : A →+ H) (hs : Function.Surjective h)
+    (hk : j.range = h.ker) (x : A) :
+    stableHurewiczQuotientEquiv j h hs hk (q j x) = h x := by sorry
 
 /-! K3BlochGroups:V.2/weight-two-mod-two-obstruction-zero: not stated;
 needs actual integral motivic complexes, coefficient triangle and degree-zero
