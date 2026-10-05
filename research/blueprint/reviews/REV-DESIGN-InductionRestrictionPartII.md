@@ -47,3 +47,57 @@ Assign the generic integral homology/UCT/transfer/LHS supplier once, and assign 
 The legacy reader should be regenerated from the accepted packet under an issue that authorizes its path; in particular, its routing-only generic request, invalid marking example and unrestricted outside-involution parameter should not be copied as current contracts. The existing promotion script copies that historical reader as-is, so readers should use this correction report and the reviewed packet until that synchronization is authorized. No change to a foreign roadmap, the library audit or the promotion machinery was made.
 
 The retained evidence and recovery instructions below are the handoff for this review. Verification does not execute Lean or prove admitted statements.
+
+## Public recovery and handoff
+
+Archive commit `ac450c443e8a11640a7b744cec6f5cf3e256a666` is an ancestor changing only the allowed suggested file. It contains 33 inert named artifacts, including 9 exact Python helpers. Manifest SHA256 `72be98ffed9a2d97a11a5c53fac18d5f14d5f722dc29c095c5c62f8708c389a3`; payload SHA256 `e6d5c0c4a782fe4f517c6dda5654f413b760571a47632e46e908aa84d632af67`. The final suggested file contains no archive payload.
+
+The retained evidence comprises the incoming packet, definition, suggested file, historical reader and author handoff; the claim receipt and input guards; public-source hashes, 109 source checks, 30 baseline checks and corrections; the compiler preflight, 2,137-module source audit, log and typing receipt; the finite checks; both immutable repository verification reports; the reviewed deliverables; and the helper scripts. Full source PDFs, temporary search output and local checkout paths are not part of this archive. The editing helpers document the changes; replaying them additionally needs the publicly linked PDFs and their extracted page texts. The verification helper does not need those texts or a Lean installation.
+
+Save the final Python fence as recover.py and run `python3 recover.py REPLAY_DIR FULL_PR_HEAD_SHA`. It downloads the immutable public archive and all four final deliverables, authenticates every named artifact, and checks its own bytes against this report. Keep REPLAY_DIR outside a repository checkout. Inspect the recovered helpers, then from an existing repository checkout run `PYTHONDONTWRITEBYTECODE=1 python3 REPLAY_DIR/verify.py REPLAY_DIR DECLARATION_INDEX`. Use the pinned declarations.tsv, SHA256 `86649a7d5f35d1178a45fe7aa4713741d03d43ff3b37bb8c91a1da1c794c8ce1`. Output must equal Verification.json. Set ROOT_ACTION_VALIDATE_BASE to the commit in base.txt to reproduce MathematicalVerification.json; both commits must exist locally.
+
+The verifier checks all node-review and source-review records, retained input hashes, complete API/test name coverage (including honest omissions), the exact recorded excerpt and compiler log, and unchanged paper routing. It reruns the finite calculations and the actual immutable packet, source-issue, intake and atlas-assembly checks. It neither recompiles Lean nor proves admitted statements. The public recovery and both report comparisons were exercised byte for byte before submission. All helper files are included in the authenticated archive; no hidden scratch dependency is needed for verification.
+
+## Script: recover.py
+
+```python
+"""Recover authenticated review evidence; never execute Lean."""
+from pathlib import Path
+import base64,hashlib,json,re,sys,urllib.request,zlib
+S=Path(sys.argv[1]).resolve();S.mkdir(parents=True,exist_ok=True)
+HEAD=sys.argv[2];assert re.fullmatch('[0-9a-f]{40}',HEAD)
+ROOT='https://raw.githubusercontent.com/CBirkbeck/tauceti-explorer/'
+STEM='InductionRestrictionPartII'
+ARCHIVE='ac450c443e8a11640a7b744cec6f5cf3e256a666'
+MANIFEST_SHA='72be98ffed9a2d97a11a5c53fac18d5f14d5f722dc29c095c5c62f8708c389a3'
+PAYLOAD_SHA='e6d5c0c4a782fe4f517c6dda5654f413b760571a47632e46e908aa84d632af67'
+EXPECTED={'packets': '0db4b3e80ab6e85338b576ea40139b9cde93c466049c714d359abb50181af1a2', 'roadmaps': '610f6d9d6d58360ee2e0f342c5a27188ba677510f9f294f621675be04172ed16', 'suggested': '0f8c318090ffa4bf911777e6e908c9db84d4a122089c84761d0bb7bc3f625acd'}
+sha=lambda b:hashlib.sha256(b).hexdigest()
+def fetch(ref,path):
+ with urllib.request.urlopen(ROOT+ref+'/'+path,timeout=30)as r:return r.read()
+raw=fetch(ARCHIVE,'research/blueprint/suggested/'+STEM+'.lean').decode()
+pb=raw.rsplit('/- BEGIN ARCHIVED REVIEW EVIDENCE\n',1)[1].split('END ARCHIVED REVIEW EVIDENCE -/',1)[0].encode()
+assert sha(pb)==PAYLOAD_SHA;payload=json.loads(pb)
+def unpack(name):
+ b=zlib.decompress(base64.b64decode(payload[name]['data']));assert sha(b)==payload[name]['sha256'],name
+ return b
+mb=unpack('artifact-manifest.json');assert sha(mb)==MANIFEST_SHA;meta=json.loads(mb)
+assert set(payload)==set(meta)|{'artifact-manifest.json'}
+for name,m in meta.items():
+ assert Path(name).name==name and name not in {'.','..'}
+ b=unpack(name);assert sha(b)==m['sha256']and len(b)==m['bytes']and len(b.splitlines())==m['lines'],name
+ (S/name).write_bytes(b)
+(S/'artifact-manifest.json').write_bytes(mb)
+public={}
+for folder,ext,name in [('packets','json','Candidate.json'),('roadmaps','json','Definition.json'),('suggested','lean','Suggested.lean'),('reviews','md','PublicReport.md')]:
+ path='research/blueprint/'+folder+'/'+('REV-DESIGN-'if folder=='reviews'else'')+STEM+'.'+ext
+ b=fetch(HEAD,path)
+ if folder in EXPECTED:assert sha(b)==EXPECTED[folder]and b==(S/name).read_bytes(),path
+ (S/name).write_bytes(b);public[path]=sha(b)
+report=(S/'PublicReport.md').read_text();assert report.startswith((S/'ReportBase.md').read_text())
+tag='\n## Script: recover.py\n\n'+chr(96)*3+'python\n'
+a=report.rindex(tag)+len(tag);b=report.index('\n'+chr(96)*3,a);code=report[a:b]+'\n'
+assert code==Path(__file__).read_text();(S/'recover.py').write_text(code)
+receipt=dict(head=HEAD,archive=ARCHIVE,artifactsVerified=len(meta),archivedHelpersVerified=sum(n.endswith('.py')for n in meta),publicDeliverables=public,recoverySha256=sha(code.encode()),LeanExecuted=False)
+(S/'public-recovery.json').write_text(json.dumps(receipt,indent=2)+'\n');print(json.dumps(receipt,indent=2))
+```
