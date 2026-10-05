@@ -131,7 +131,7 @@ Statement: For a free R-module M, the diagonal divided tensors extend to a grade
 
 /- Omitted AbelianSchemesAndArithmeticModuliPartII:P0/multigrading
 The actual relative sheaf/group/connection, analytic Betti bundle, Dieudonné, number-field or source-proof interface in this statement is not available as a verified native carrier. A replacement Prop field or synthetic carrier would obscure its hypotheses.
-Statement: For a finite direct-sum decomposition M=⊕σ Mσ, TSym^k(M)≃⊕_{|α|=k}⊗σ TSym^{α(σ)}(Mσ), and v^[α] is the tensor of its component divided powers.
+Statement: For a finite family of finitely generated projective R-modules Mσ and M=⊕σ Mσ, there is a natural multigraded isomorphism TSym^k(M)≃⊕_{|α|=k}⊗σ TSym^{α(σ)}(Mσ). For a vector v with components vσ, its α-component is ⊗σ vσ^[α(σ)]. The corresponding sheaf statement holds for finite locally free summands. No such isomorphism for arbitrary nonflat summands is asserted.
 -/
 
 /- Omitted AbelianSchemesAndArithmeticModuliPartII:P1/universal-vector-extension
@@ -153,7 +153,7 @@ Statement: Lie(A♮/S)≃H¹_dR(A/S) identifies 0→ω_A→Lie(A♮)→Lie(A∨)
 
 /- Omitted AbelianSchemesAndArithmeticModuliPartII:P2/group-moment-map
 The actual relative sheaf/group/connection, analytic Betti bundle, Dieudonné, number-field or source-proof interface in this statement is not available as a verified native carrier. A replacement Prop field or synthetic carrier would obscure its hypotheses.
-Statement: For a smooth commutative group G/S, its unit ideal J has J^n/J^(n+1)≃Sym^n(ω_G). Iterating the coproduct and projecting each factor O_G/J²→ω_G gives mom_n:O_G/J^(n+1)→⊕_{b≤n}TSym^b(ω_G), compatible with truncation; their inverse limit lands in degree completion. Over a Q-algebra the moment maps are isomorphisms.
+Statement: For a separated smooth commutative group G/S of finite presentation, with closed unit section e, its unit ideal J has J^n/J^(n+1)≃Sym^n(ω_G). Iterating the coproduct and projecting each factor O_G/J²→ω_G gives mom_n:O_G/J^(n+1)→⊕_{b≤n}TSym^b(ω_G), compatible with truncation; their inverse limit lands in degree completion. Over a Q-algebra the moment maps are isomorphisms.
 API omitted AbelianArithmetic.momentMap_truncate: Projection from the n-th to the m-th formal neighborhood commutes with moments for m≤n.
 API omitted AbelianArithmetic.momentMap_degree_one: The degree-one component is the canonical projection O_G/J²→ω_G.
 API omitted AbelianArithmetic.momentMap_functorial: A homomorphism of smooth commutative groups commutes with moments through its invariant cotangent map.
@@ -179,12 +179,12 @@ Statement: Over C, for the Hodge/CM component conventions of §3.1, ν is the id
 
 /- Omitted AbelianSchemesAndArithmeticModuliPartII:P4/ordinary-completed-base-change
 The actual relative sheaf/group/connection, analytic Betti bundle, Dieudonné, number-field or source-proof interface in this statement is not available as a verified native carrier. A replacement Prop field or synthetic carrier would obscure its hypotheses.
-Statement: Start with the noetherian CM model of Notation 5.1 and an ordinary CM type at p. Base change and complete over O_Cp; its ordinary connected p-divisible subgroup is the formal part used in the infinitesimal trivialization. No noetherian assertion about O_Cp is used.
+Statement: Start with the noetherian CM model (A/R,Σ,ω(A),ω(A∨),x) of Notation5.1: Frac(R) is a number field containing L^Gal, p is prime and not a unit in R, d_L is a unit, Σ_p and conjugate Σ_p are disjoint, and x is killed by an ideal prime to p. Fix the indicated map R→O_Cp, base change and complete. The ordinary connected p-divisible subgroup is the formal part used by the infinitesimal trivialization; no noetherian assertion about O_Cp is used.
 -/
 
 /- Omitted AbelianSchemesAndArithmeticModuliPartII:B0/period-coordinate-trivialization
 The actual relative sheaf/group/connection, analytic Betti bundle, Dieudonné, number-field or source-proof interface in this statement is not available as a verified native carrier. A replacement Prop field or synthetic carrier would obscure its hypotheses.
-Statement: For a polarized abelian scheme A→S of relative dimension g over C, choose connected simply connected U⊂S^an and a symplectic lattice frame of polarization type D=diag(d₁,…,d_g). Its period matrix Z gives (a,b,s)↦(Da+Z(s)b,s), and the inverse induces (b_U,π):A_U^an≃(R/Z)^(2g)×U as real analytic manifolds. b_U alone is projection to the torus.
+Statement: For a polarized abelian scheme A→S of relative dimension g over a smooth irreducible quasi-projective complex variety S, choose connected simply connected U⊂S^an and a symplectic lattice frame of polarization type D=diag(d₁,…,d_g). Its period matrix Z gives (a,b,s)↦(Da+Z(s)b,s), and the inverse induces (b_U,π):A_U^an≃(R/Z)^(2g)×U as real analytic manifolds. b_U alone is projection to the torus.
 API omitted AbelianArithmetic.periodCoordinates_betti: b_U is the torus-coordinate projection, excluding the base coordinate.
 API omitted AbelianArithmetic.periodCoordinates_fibre: The restriction b_U:A_s^an→(R/Z)^(2g) is an analytic group isomorphism.
 API omitted AbelianArithmetic.periodCoordinates_leaf: For fixed torus coordinate β, s↦(b_U,π)^−1(β,s) is holomorphic.
@@ -196,14 +196,14 @@ Test omitted AbelianArithmetic.periodCoordinates_base_not_counted: On a constant
 
 /- Omitted AbelianSchemesAndArithmeticModuliPartII:B1/betti-form
 The actual relative sheaf/group/connection, analytic Betti bundle, Dieudonné, number-field or source-proof interface in this statement is not available as a verified native carrier. A replacement Prop field or synthetic carrier would obscure its hypotheses.
-Statement: For a principal polarization upstairs on C^g×H_g set Y=Im Z and ω_hat=i∂∂bar(2(Im w)^tY^−1(Im w)). In real coordinates w=a+Zb it equals 2∑ da_j∧db_j. It descends under the arithmetic semidirect action to the universal family and pulls back to A/S. For type D the alternating polarization form is transported in the D-coordinate convention.
+Statement: For a principal polarization upstairs on C^g×H_g set Y=Im Z and ω_hat=i∂∂bar(2(Im w)^tY^−1(Im w)). In real coordinates w=a+Zb it equals 2∑ da_j∧db_j. It descends under the arithmetic semidirect action to the universal family and pulls back to A/S. For type D, in coordinates w=Da+Zb, the same calculation gives ω=2∑ d_j da_j∧db_j. On each fibre this is twice the translation-invariant form representing the polarization class; retain this factor-two normalization.
 API omitted AbelianArithmetic.bettiForm_pullback: The form on A is the pullback of the universal Betti form in the chosen polarization type.
 API omitted AbelianArithmetic.bettiForm_closed: dω=0 and ω has type (1,1).
 API omitted AbelianArithmetic.bettiForm_nonnegative: ω is semipositive on each complex tangent space.
 API omitted AbelianArithmetic.bettiForm_scale: For every N∈Z, [N]^*ω=N²ω.
 Test omitted AbelianArithmetic.bettiForm_elliptic: For w=a+τb, the principal elliptic Betti form is 2 da∧db.
 Test omitted AbelianArithmetic.bettiForm_zero_multiplication: [0]^*ω=0, while [−1]^*ω=ω.
-Test omitted AbelianArithmetic.bettiForm_single_fibre: On a single fibre the form agrees with the translation-invariant positive (1,1) form of its imported principal polarization.
+Test omitted AbelianArithmetic.bettiForm_single_fibre: On a single fibre, with the source normalization, ω is twice the translation-invariant positive (1,1) form representing the principal polarization class.
 -/
 
 /- Omitted AbelianSchemesAndArithmeticModuliPartII:B1/betti-form-kernel
@@ -213,7 +213,7 @@ Statement: At a smooth point x of a complex subvariety X, ker(ω|T_xX)=ker(db_U|
 
 /- Omitted AbelianSchemesAndArithmeticModuliPartII:B1/non-degenerate
 The actual relative sheaf/group/connection, analytic Betti bundle, Dieudonné, number-field or source-proof interface in this statement is not available as a verified native carrier. A replacement Prop field or synthetic carrier would obscure its hypotheses.
-Statement: An irreducible complex X⊂A is non-degenerate if at some x∈X^sm(C), rank_R(db_U|X)_x=2 dim_C X. Equivalently the top restricted Betti form is nonzero somewhere. The dimension is total complex dimension, including base directions. For Qbar varieties use the fixed embedding into C.
+Statement: For a polarized abelian scheme A→S over an irreducible quasi-projective complex variety, an irreducible X⊂A is non-degenerate if there are a Betti neighborhood U⊂(S^sm)^an and x∈X^sm∩A_U with rank_R(db_U|X)_x=2 dim_C X. Equivalently the top restricted Betti form is nonzero somewhere on this regular-base locus. The dimension is total complex dimension, including base directions. For Qbar varieties use the fixed embedding into C. No condition is inferred for a subvariety entirely over the singular locus from a nonexistent manifold trivialization there.
 API omitted AbelianArithmetic.nonDegenerate_rank: Non-degeneracy iff generic real Betti rank equals twice total complex dimension.
 API omitted AbelianArithmetic.nonDegenerate_form: Non-degeneracy iff ω^dim_CX is nonzero on X^sm.
 API omitted AbelianArithmetic.nonDegenerate_smooth_point: A non-degenerate X has a smooth nonvanishing point over a smooth point of π(X).
@@ -229,7 +229,7 @@ Statement: A birational base change between irreducible complex bases identifies
 
 /- Omitted AbelianSchemesAndArithmeticModuliPartII:B2/curve-degenerate
 The actual relative sheaf/group/connection, analytic Betti bundle, Dieudonné, number-field or source-proof interface in this statement is not available as a verified native carrier. A replacement Prop field or synthetic carrier would obscure its hypotheses.
-Statement: For an irreducible subvariety Y⊂A over a smooth irreducible complex curve S, x is a degenerate point when it is not isolated in the local fibre of b_U|Y. Y is curve-degenerate when its degenerate points contain a nonempty relatively open subset. This is the GH convention, not a definition using only generic relative dimension.
+Statement: For an irreducible closed subvariety Y⊂A over a smooth irreducible complex curve S, a smooth point x∈Y^sm∩A_U is degenerate when it is not isolated in the local fibre of b_U restricted to Y^sm∩A_U. Y is curve-degenerate when these points contain a nonempty relatively open subset of this smooth locus. This extends the GH definition to vertical subvarieties solely for the non-example test; any curve-degenerate Y necessarily dominates S.
 API omitted AbelianArithmetic.curveDegenerate_point: DegenerateAt(x) iff x is nonisolated in its local Betti fibre.
 API omitted AbelianArithmetic.curveDegenerate_open: CurveDegenerate(Y) iff a nonempty open subset of Y consists of degenerate points.
 API omitted AbelianArithmetic.curveDegenerate_rank: On the smooth generic constant-rank locus curve degeneracy is the failure of the total-dimension Betti rank criterion.
@@ -240,7 +240,7 @@ Test omitted AbelianArithmetic.curveDegenerate_full_family: A constant abelian f
 
 /- Omitted AbelianSchemesAndArithmeticModuliPartII:B2/function-field-trace
 The actual relative sheaf/group/connection, analytic Betti bundle, Dieudonné, number-field or source-proof interface in this statement is not available as a verified native carrier. A replacement Prop field or synthetic carrier would obscure its hypotheses.
-Statement: For K=C(S) and an abelian variety A/K, a C-trace is an abelian variety T/C with a K-homomorphism τ:T_K→A universal among maps from constant abelian varieties. In characteristic zero τ has finite kernel. Its image has a complementary abelian subvariety up to isogeny by imported Poincaré reducibility. Universal equivariant Hom, not all fibrewise Hom, detects this trace.
+Statement: For K=C(S) and an abelian variety A/K, a C-trace is an abelian variety T/C with a K-homomorphism τ:T_K→A universal among maps from constant abelian varieties. In characteristic zero τ has finite kernel. Its image has a complementary abelian subvariety up to isogeny by imported Poincaré reducibility. Universal equivariant Hom, not all fibrewise Hom, detects this trace. Also construct the trace over Kbar/C for a chosen algebraic closure Kbar of K. The latter is the geometric trace used in Definition1.2; it can grow after finite extension and is not identified with the K/C trace without an explicit descent argument.
 API omitted AbelianArithmetic.functionFieldTrace_map: τ:T_K→A is the universal homomorphism from the constant trace.
 API omitted AbelianArithmetic.functionFieldTrace_universal: For every B/C, Hom_C(B,T)→Hom_K(B_K,A), f↦τ∘f_K, is a bijection.
 API omitted AbelianArithmetic.functionFieldTrace_complement: In characteristic zero there is an abelian complement B and a K-isogeny T_K×B→A.
@@ -261,46 +261,46 @@ Statement: Let Γ⊂GL_n(Z) be freely generated by two matrices. Fix c>1 boundin
 
 /- Omitted AbelianSchemesAndArithmeticModuliPartII:B2/fixed-homology-trace
 The actual relative sheaf/group/connection, analytic Betti bundle, Dieudonné, number-field or source-proof interface in this statement is not available as a verified native carrier. A replacement Prop field or synthetic carrier would obscure its hypotheses.
-Statement: For an extendable polarized integral weight-one variation of an abelian scheme over a smooth curve, a nonzero integer homology class fixed by a finite-index monodromy subgroup yields a nonzero constant part over its finite étale cover. The invariant-to-geometric map is equivariant Hom, not all Hom of Hodge fibres.
+Statement: For an abelian scheme over a smooth irreducible complex algebraic curve, apply the fixed-part theorem to its polarized integral homology variation of weight −1 (equivalently the dual cohomology variation of weight +1). A nonzero integral homology class fixed by a finite-index monodromy subgroup yields a nonzero constant part over the corresponding connected finite étale cover. Use the equivariant Hodge-Hom comparison to algebraize the fixed substructure; unrestricted Hom of a single Hodge fibre is insufficient.
 -/
 
 /- Omitted AbelianSchemesAndArithmeticModuliPartII:B2/generically-special
 The actual relative sheaf/group/connection, analytic Betti bundle, Dieudonné, number-field or source-proof interface in this statement is not available as a verified native carrier. A replacement Prop field or synthetic carrier would obscure its hypotheses.
-Statement: Over the geometric generic point of a complex curve, a GH generically special subvariety is a finite union of translates τ(Z_Kbar)+B+t, where Z is an algebraic subvariety of the constant trace T over C, B is an abelian subvariety and t is torsion. A Gao special-generically subvariety, used for degeneracy loci, instead uses a constant section and an abelian subgroup, not a general constant Z.
+Statement: For an irreducible closed Y⊂A dominating the smooth complex curve S, Y is GH generically special if its geometric generic fibre is a finite union of τ(Z_Kbar)+B+t, where τ is the Kbar/C geometric trace, Z is a closed irreducible subvariety of that constant trace over C, B is an abelian subvariety of A_Kbar and t is torsion. A Gao special-generically subvariety, used for degeneracy loci, instead uses a constant section and an abelian subgroup, not a general constant Z.
 API omitted AbelianArithmetic.genericallySpecial_components: Each geometric generic irreducible component has the stated constant-variety plus torsion-coset description.
 API omitted AbelianArithmetic.genericallySpecial_constant: A constant subvariety of a constant abelian family is generically special.
 API omitted AbelianArithmetic.genericallySpecial_torsion: A torsion translate of an abelian subvariety is generically special.
 Test omitted AbelianArithmetic.genericallySpecial_constant_curve: A constant genus≥2 curve in its constant Jacobian is GH generically special but is not itself a torsion coset.
-Test omitted AbelianArithmetic.genericallySpecial_torsion_point: A torsion point is a zero-dimensional generically special subvariety.
+Test omitted AbelianArithmetic.genericallySpecial_torsion_point: A torsion point of the geometric generic fibre gives a generically special torsion multisection after closure; its generic fibre is zero-dimensional, while its total dimension is one.
 Test omitted AbelianArithmetic.genericallySpecial_trace: For a constant family with identity trace, every subvariety defined over C is supplied by the imported trace map.
 -/
 
 /- Omitted AbelianSchemesAndArithmeticModuliPartII:B3/mixed-ax-growth
 The actual relative sheaf/group/connection, analytic Betti bundle, Dieudonné, number-field or source-proof interface in this statement is not available as a verified native carrier. A replacement Prop field or synthetic carrier would obscure its hypotheses.
-Statement: For the graph component in Gao Theorem 4.1, the definable incidence set Θ has polynomially many arithmetic points of bounded height along an unbounded sequence; prove both zero-horizontal and positive-horizontal cases, then the bounded/unbounded vertical dichotomy.
+Statement: Let M=Γ\X⁺ be a connected Kuga mixed Shimura variety with uniformization u, Δ=graph(u), and Z an irreducible analytic component of B∩Δ where B=Z^Zar. Replace the ambient datum (P,X⁺) by the smallest Kuga subdatum containing pr_X⁺Z. Assume dim pr_X⁺Z>0. For the definable fundamental set F of §4.1 put Θ={p∈P(R):dim(p⁻¹B∩(F×M)∩Δ)=dim Z}. There are ε>0 and T_i→∞ such that for each i a connected semialgebraic block in Θ contains at least T_i^ε points of Γ of height at most T_i.
 -/
 
 /- Omitted AbelianSchemesAndArithmeticModuliPartII:B3/mixed-ax-stabilizer
 The actual relative sheaf/group/connection, analytic Betti bundle, Dieudonné, number-field or source-proof interface in this statement is not available as a verified native carrier. A replacement Prop field or synthetic carrier would obscure its hypotheses.
-Statement: Unless the mixed Ax–Schanuel dimension inequality already holds, the identity component of the rational Zariski stabilizer of the ambient algebraic graph closure has positive dimension.
+Statement: Let M=Γ\X⁺ be a connected Kuga mixed Shimura variety with uniformization u, Δ=graph(u), and Z an irreducible analytic component of B∩Δ where B=Z^Zar. Replace the ambient datum (P,X⁺) by the smallest Kuga subdatum containing pr_X⁺Z. Put H=(Γ∩Stab_{P(R)⁺}(B))^{Zar,0}, with rational Zariski closure. Either dim B−dim Z≥dim(pr_X⁺Z)^biZar, or dim H>0.
 -/
 
 /- Omitted AbelianSchemesAndArithmeticModuliPartII:B3/mixed-ax-normality
 The actual relative sheaf/group/connection, analytic Betti bundle, Dieudonné, number-field or source-proof interface in this statement is not available as a verified native carrier. A replacement Prop field or synthetic carrier would obscure its hypotheses.
-Statement: After the Hilbert-family and very-general-fibre reduction, the rational stabilizer is normal in the Kuga group: its vector part is a Hodge-stable G-module and its reductive part acts trivially on the quotient; quotienting gives the final dimension inequality.
+Statement: Let M=Γ\X⁺ be a connected Kuga mixed Shimura variety with uniformization u, Δ=graph(u), and Z an irreducible analytic component of B∩Δ where B=Z^Zar. Replace the ambient datum (P,X⁺) by the smallest Kuga subdatum containing pr_X⁺Z. For the purpose of proving the dimension inequality one may replace (B,Z) by a very general pair in its Hilbert family, with no larger dimension defect and the same bi-algebraic closure, so that its rational stabilizer H is normal in P. The vector part V∩H is a G=P/V module and the reductive part acts trivially on V/(V∩H). Quotient by H and compare generic fibre dimensions to obtain the Ax–Schanuel inequality. Normality is not asserted for every original pair without this reduction.
 -/
 
 /- Omitted AbelianSchemesAndArithmeticModuliPartII:B3/mixed-ax-finite-data
 The actual relative sheaf/group/connection, analytic Betti bundle, Dieudonné, number-field or source-proof interface in this statement is not available as a verified native carrier. A replacement Prop field or synthetic carrier would obscure its hypotheses.
-Statement: For a fixed algebraic subvariety of a Kuga mixed Shimura variety, weakly optimal subvarieties have weakly special closures from a finite set of rational subdata and connected normal subgroups with semisimple reductive parts.
+Statement: For a fixed algebraic subvariety of a Kuga mixed Shimura variety, weakly optimal subvarieties have weakly special closures from a finite set of rational subdata and connected normal subgroups with semisimple reductive parts. Explicitly δ_ws(Z)=dim Z^biZar−dim Z, and Z⊂Y is weakly optimal if every larger irreducible closed Z′⊂Y has δ_ws(Z′)>δ_ws(Z). A finite list ((Q,Y⁺),N) suffices so that each Z^biZar=u(N(R)⁺y) for some y∈Y⁺. The points y need not come from a finite set.
 -/
 
 /- Omitted AbelianSchemesAndArithmeticModuliPartII:B3/degeneracy-locus
 The actual relative sheaf/group/connection, analytic Betti bundle, Dieudonné, number-field or source-proof interface in this statement is not available as a verified native carrier. A replacement Prop field or synthetic carrier would obscure its hypotheses.
-Statement: For irreducible X⊂A→S and t∈Z, define X^deg(t) as the union of positive-dimensional irreducible Y⊂X with dim⟨Y⟩_sg−dimπ(Y)<dimY+t. Here ⟨Y⟩_sg is the smallest special-generically closure: torsion plus constant section plus abelian subscheme after finite cover. X^deg(t) is a set before its Zariski closedness theorem.
+Statement: For closed irreducible X in an abelian scheme A→S over an irreducible complex quasi-projective variety and t∈Z, define X^deg(t) as the union of positive-dimensional closed irreducible Y⊂X with dim⟨Y⟩_sg−dimπ(Y)<dimY+t. Here ⟨Y⟩_sg is the smallest special-generically closure inside A restricted to the reduced closure of π(Y): torsion plus constant section plus abelian subscheme after finite cover. X^deg(t) is a set before its Zariski closedness theorem.
 API omitted AbelianArithmetic.degeneracyLocus_member: x∈X^deg(t) iff x lies on a positive-dimensional Y satisfying the strict dimension inequality.
 API omitted AbelianArithmetic.degeneracyLocus_mono: For t≤u, X^deg(t)⊂X^deg(u).
-API omitted AbelianArithmetic.degeneracyLocus_zero: The non-degenerate open is X minus the 0-th degeneracy locus once closedness is proved.
+API omitted AbelianArithmetic.degeneracyLocus_zero: Once closedness is proved, X minus X^deg(0) is a Zariski-open complement of algebraic degeneracy. It is not asserted to be exactly the pointwise full-Betti-rank locus.
 Test omitted AbelianArithmetic.degeneracyLocus_point: For a zero-dimensional X all t-degeneracy loci are empty because no positive-dimensional Y exists.
 Test omitted AbelianArithmetic.degeneracyLocus_torsion_section: A torsion section over a positive-dimensional base belongs to its 0-th degeneracy locus.
 Test omitted AbelianArithmetic.degeneracyLocus_strict: If dim⟨Y⟩_sg−dimπY=dimY+t, that Y is excluded; replacing < with ≤ changes the definition.
@@ -308,7 +308,7 @@ Test omitted AbelianArithmetic.degeneracyLocus_strict: If dim⟨Y⟩_sg−dimπY
 
 /- Omitted AbelianSchemesAndArithmeticModuliPartII:B3/degeneracy-closed
 The actual relative sheaf/group/connection, analytic Betti bundle, Dieudonné, number-field or source-proof interface in this statement is not available as a verified native carrier. A replacement Prop field or synthetic carrier would obscure its hypotheses.
-Statement: For every t∈Z, X^deg(t) is Zariski closed. On the universal modular image it is a finite union of fibre-dimension-jump loci for the finite normal quotient data; on an arbitrary family use Lemma 9.1 with the relative dimension r of its modular map.
+Statement: For an abelian scheme A→S over an irreducible complex quasi-projective base and closed irreducible X⊂A, the target theorem is that X^deg(t) is Zariski closed for every integer t. On the universal modular image it is obtained from finite normal quotient data and fibre-dimension loci. The general-family proof must also account for jumping fibres of the modular map; an unrestricted pullback formula using only its generic relative dimension is not asserted.
 -/
 
 /- Omitted AbelianSchemesAndArithmeticModuliPartII:B3/betti-rank-quotient
@@ -323,17 +323,17 @@ Statement: For dominant irreducible X,Y⊂A→S with geometrically irreducible g
 
 /- Omitted AbelianSchemesAndArithmeticModuliPartII:B4/fibre-power-induction
 The actual relative sheaf/group/connection, analytic Betti bundle, Dieudonné, number-field or source-proof interface in this statement is not available as a verified native carrier. A replacement Prop field or synthetic carrier would obscure its hypotheses.
-Statement: For X→S dominant with geometrically irreducible generic fibre, positive relative dimension, generating fibres and finite generic stabilizer, the quotient-rank criterion applied to X^[m] for m≥dimS and generically finite modular map cannot yield a deficient rank.
+Statement: Let A→S be an abelian scheme over an irreducible complex quasi-projective variety, and X⊂A closed irreducible and dominant, with geometrically irreducible generic fibre, positive relative dimension, generating fibres and finite geometric generic stabilizer. For m≥1: (i) if m≥dim S and the modular map on X^[m] is generically finite, X^[m] has full total-dimension Betti rank; (ii) if m≥dim X and the modular map on D_m(X^[m+1]) is generically finite, that difference image has full total-dimension Betti rank. The exact dimension induction for both statements is the target.
 -/
 
 /- Omitted AbelianSchemesAndArithmeticModuliPartII:F0/compact-preimages
 The actual relative sheaf/group/connection, analytic Betti bundle, Dieudonné, number-field or source-proof interface in this statement is not available as a verified native carrier. A replacement Prop field or synthetic carrier would obscure its hypotheses.
-Statement: If compact nonempty closed sets of preimages in a fixed compact polarized parameter space form a nested inverse system, their intersection is nonempty. This proves equality of the lattice image with the limiting isotropic subspace only after the compatible preimages are constructed.
+Statement: Let L be a finite free Z_ℓ-lattice and u_j∈End_Zℓ(L) converge to u, with the compact images L_j=u_j(L) forming a decreasing sequence. Then u(L)=⋂_j L_j. In Tate Proposition1, after passing to infinitely many isomorphic fixed-polarization models, L=X_n, L_j=X_j=(T∩W)+ℓ^jT along a cofinal subsequence, and u belongs to the closed finite-dimensional algebra E_ℓ. Finiteness of the models is a separate hypothesis, established over finite fields using polarized moduli.
 -/
 
 /- Omitted AbelianSchemesAndArithmeticModuliPartII:F0/split-prime-tate
 The actual relative sheaf/group/connection, analytic Betti bundle, Dieudonné, number-field or source-proof interface in this statement is not available as a verified native carrier. A replacement Prop field or synthetic carrier would obscure its hypotheses.
-Statement: For ℓ≠p where the separable Frobenius factors split, Tate Proposition 2 and the isotropic image lemma identify the geometric Hom space with the Frobenius commutant; the dimension is independent of ℓ and the integral image is saturated.
+Statement: For abelian varieties over a finite field k of characteristic p and a prime ℓ≠p splitting the étale algebra Q[π] generated by Frobenius, Tate Proposition2 identifies End_k(A)⊗Q_ℓ with the Frobenius commutant. Its dimension is ∑_P m_P² deg P and is independent of ℓ. Off-diagonal blocks give Hom_k(A,B)⊗Q_ℓ; the integral inclusion has torsion-free cokernel. These are k-rational Hom spaces, not unrestricted geometric Hom.
 -/
 
 /- Omitted AbelianSchemesAndArithmeticModuliPartII:F2/shifted-factor-slope
@@ -343,17 +343,17 @@ Statement: Let O be a DVR, R,S monic with gcd(R,S)=1 over Frac(O), d=degR>0, and
 
 /- Omitted AbelianSchemesAndArithmeticModuliPartII:F2/resultant-recognition
 The actual relative sheaf/group/connection, analytic Betti bundle, Dieudonné, number-field or source-proof interface in this statement is not available as a verified native carrier. A replacement Prop field or synthetic carrier would obscure its hypotheses.
-Statement: If monic P,Q∈O[X] have equal valuations of every common nonzero resultant with monic polynomials lifted from D, and D→O is surjective modulo each π^N, then P=Q. Equal degree, completeness, separability, characteristic zero and finite residue field are unnecessary.
+Statement: Let O be a nonfield discrete valuation ring with uniformizer π and normalized valuation on its nonzero elements, and let D be a commutative ring with a unital map to O. If monic P,Q∈O[X] have equal valuations of every common nonzero resultant with monic polynomials lifted from D, and D→O is surjective modulo each π^N, then P=Q. Equal degree, completeness, separability, characteristic zero and finite residue field are unnecessary.
 -/
 
 /- Omitted AbelianSchemesAndArithmeticModuliPartII:F1/dieudonne-degree-length
 The actual relative sheaf/group/connection, analytic Betti bundle, Dieudonné, number-field or source-proof interface in this statement is not available as a verified native carrier. A replacement Prop field or synthetic carrier would obscure its hypotheses.
-Statement: For an isogeny f:A→B over a perfect field, the contravariant map C(f):C(B)→C(A) is injective and length_W coker C(f)=v_p(deg f). For an endomorphism its determinant valuation gives the same value.
+Statement: For an isogeny f:A→B of abelian varieties over a perfect field k of characteristic p>0, the contravariant map C(f):C(B)→C(A) is injective and length_W coker C(f)=v_p(deg f). For an endomorphism its determinant valuation gives the same value.
 -/
 
 /- Omitted AbelianSchemesAndArithmeticModuliPartII:F1/p-characteristic-polynomial
 The actual relative sheaf/group/connection, analytic Betti bundle, Dieudonné, number-field or source-proof interface in this statement is not available as a verified native carrier. A replacement Prop field or synthetic carrier would obscure its hypotheses.
-Statement: For every u∈End(A), the W(k)-linear map C(u) has characteristic polynomial in Z_p[X] equal to the imported integer characteristic polynomial of u. No semisimplicity of arbitrary u is assumed.
+Statement: For an abelian variety A over a perfect field k of characteristic p>0 and every u∈End_k(A), the W(k)-linear map C(u) on its contravariant Dieudonné module has characteristic polynomial in Z_p[X] equal to the image of the imported integer characteristic polynomial of u. No semisimplicity of arbitrary u is assumed.
 -/
 
 /- Omitted AbelianSchemesAndArithmeticModuliPartII:F1/p-tate-proof
@@ -379,7 +379,7 @@ Test omitted AbelianArithmetic.completedPoincare_base: At every finite level the
 
 /- Omitted AbelianSchemesAndArithmeticModuliPartII:F0/frobenius-polynomial
 The actual relative sheaf/group/connection, analytic Betti bundle, Dieudonné, number-field or source-proof interface in this statement is not available as a verified native carrier. A replacement Prop field or synthetic carrier would obscure its hypotheses.
-Statement: For A/F_q of dimension g, P_A(X)=det(X−Frob_q|V_ℓA) is a monic polynomial in Z[X] of degree 2g, independent of ℓ, with all complex roots of absolute value √q and coefficients satisfying a_(2g−i)=q^(g−i)a_i. Coefficients a_i are indexed in descending powers: P_A=∑_(i=0)^(2g) a_i X^(2g−i), with a_0=1 and a_(2g)=q^g.
+Statement: For A/F_q of dimension g, P_A(X)=det(X−Frob_q|V_ℓA) is a monic polynomial in Z[X] of degree 2g, independent of ℓ, with all complex roots of absolute value √q and coefficients satisfying a_(2g−i)=q^(g−i)a_i for 0≤i≤g. Coefficients a_i are indexed in descending powers: P_A=∑_(i=0)^(2g) a_i X^(2g−i), with a_0=1 and a_(2g)=q^g.
 API omitted AbelianArithmetic.frobeniusPolynomial_integral: P_A∈Z[X] is independent of ℓ≠p and has degree 2 dim A.
 API omitted AbelianArithmetic.frobeniusPolynomial_reciprocal: Writing P_A=∑a_i X^(2g−i), a_(2g−i)=q^(g−i)a_i for 0≤i≤g, a_0=1 and a_(2g)=q^g.
 API omitted AbelianArithmetic.frobeniusPolynomial_product: P_(A×B)=P_A P_B.
@@ -391,11 +391,11 @@ Test omitted AbelianArithmetic.frobeniusPolynomial_native: For ℓ≠p its image
 
 /- Omitted AbelianSchemesAndArithmeticModuliPartII:F3/marked-lattice-space
 The actual relative sheaf/group/connection, analytic Betti bundle, Dieudonné, number-field or source-proof interface in this statement is not available as a verified native carrier. A replacement Prop field or synthetic carrier would obscure its hypotheses.
-Statement: X^p is the restricted product of Frob-stable full Z_ℓ-lattices in V_ℓ(A₀), equal to T_ℓ(A₀) almost everywhere; X_p is the set of W(F_q)-lattices in D(A₀) stable under both F and V.
+Statement: Fix A₀/F_q. X^p is the restricted product of Frobenius-stable full Z_ℓ-lattices in V_ℓ(A₀), equal to T_ℓ(A₀) almost everywhere. X_p consists of full W(F_q)-lattices in C(A₀)[1/p] stable under F and V, where C is the contravariant Dieudonné functor. For Γ=End⁰_Fq(A₀)^× use the left action α·(Λ_p,(Λ_ℓ))=(C(α)⁻¹Λ_p,(α_ℓΛ_ℓ)).
 API omitted AbelianArithmetic.markedLattice_primeToP: For each ℓ≠p choose a Frobenius-stable full Z_ℓ-lattice in V_ℓA equal to T_ℓA at all but finitely many ℓ.
-API omitted AbelianArithmetic.markedLattice_p: At p choose a full W(k)-lattice in the p-realization stable under F and V, in the stated variance convention.
-API omitted AbelianArithmetic.markedLattice_action: End⁰(A)^× acts on the tuple through its realization, with the contravariant or linear-dual transport specified.
-Test omitted AbelianArithmetic.markedLattice_identity: The identity marking gives precisely the imported T_ℓA and C(A) (or its stated linear dual).
+API omitted AbelianArithmetic.markedLattice_p: At p choose a full F,V-stable W(F_q)-lattice in the contravariant isocrystal C(A₀)[1/p].
+API omitted AbelianArithmetic.markedLattice_action: The left action of Γ is α_ℓ at ℓ≠p and C(α)⁻¹ at p. Contravariance reverses composition; taking inverses restores the left action.
+Test omitted AbelianArithmetic.markedLattice_identity: The identity marking gives exactly T_ℓ(A₀) at ℓ≠p and C(A₀) at p.
 Test omitted AbelianArithmetic.markedLattice_zero: The zero-dimensional abelian variety has one lattice tuple.
 Test omitted AbelianArithmetic.markedLattice_support: A tuple differing from the standard lattice at infinitely many primes is excluded from the finite-support space.
 -/
@@ -408,7 +408,7 @@ API omitted AbelianArithmetic.adelicClassSet_equiv: g,h have the same class iff 
 API omitted AbelianArithmetic.adelicClassSet_stabilizer: K is the restricted product of the automorphism groups of the chosen local lattices, including the p-component.
 Test omitted AbelianArithmetic.adelicClassSet_rational: Any rational unit e∈E^×(Q) has the identity class.
 Test omitted AbelianArithmetic.adelicClassSet_compact: Changing a local lattice by conjugation replaces K by its conjugate and induces the corresponding class-set bijection.
-Test omitted AbelianArithmetic.adelicClassSet_notPic: For a nonmaximal order include nonprojective full lattices; its class set is not identified with Pic(R).
+Test omitted AbelianArithmetic.adelicClassSet_notPic: For a nonmaximal order R the entire full-lattice class monoid can include nonprojective lattices and need not be Pic(R). A single fixed local genus may have its own double-coset class set; in the commutative genus of R itself this is Pic(R).
 -/
 
 /- Omitted AbelianSchemesAndArithmeticModuliPartII:F1/frobenius-block-algebra
@@ -444,7 +444,7 @@ Statement: There are canonical 𝒫^{(n+m)} → 𝒫^{(n)} ⊗_{𝒪_𝒜} 𝒫^
 
 /- Omitted AbelianSchemesAndArithmeticModuliPartII:P2/completed-cohomology
 The actual relative sheaf/group/connection, analytic Betti bundle, Dieudonné, number-field or source-proof interface in this statement is not available as a verified native carrier. A replacement Prop field or synthetic carrier would obscure its hypotheses.
-Statement: R^iπ_*(𝒫̂ ⊗ Ω^d_{𝒜/𝒮}) ≅ 𝒪_𝒮 for i = d and 0 for i ≠ d (from the known higher direct images of the Poincaré bundle); a similar result holds for 𝒫^♮ over a field of characteristic zero (Scheider, Theorem 1.2.1; Remark 2.16).
+Statement: For an abelian scheme π:A→S of constant relative dimension d over a noetherian base, R^iπ_*(P_hat⊗Ω^d_A/S)≃O_S when i=d and is zero for i≠d, compatibly with the rigidification. This is the completed ordinary Poincaré sheaf. The connection/logarithm variant mentioned in Remark 2.16 is a separate comparison obligation; it is not asserted to have this identical underlying coherent-cohomology formula.
 -/
 
 /- Omitted AbelianSchemesAndArithmeticModuliPartII:P3/logarithm-comparison
@@ -454,17 +454,17 @@ Statement: For 𝒮 = Spec k with k of characteristic zero: the first logarithm 
 
 /- Omitted AbelianSchemesAndArithmeticModuliPartII:P3/smooth-dolbeault
 The actual relative sheaf/group/connection, analytic Betti bundle, Dieudonné, number-field or source-proof interface in this statement is not available as a verified native carrier. A replacement Prop field or synthetic carrier would obscure its hypotheses.
-Statement: Over ℂ, with ℂ-bases (ū_1, …, ū_d, u_1, …, u_d) of ℋ ≅ conj(Lie(𝒜/ℂ)) ⊕ Lie(𝒜/ℂ) dual to ∂/∂z̄_i, ∂/∂z_i (Definition 3.3), ν = ν^{1,0} + ν^{0,1} ∈ ℋ ⊗ (ω ⊕ ω̄) the identity (Definition 3.2), and the smooth pro-bundles 𝒫^{(n)}, 𝒫^{♮(n)} ⊗ 𝒞^∞ (Notation 3.4): there is a compatible system of horizontal isomorphisms (𝒫^{♮(n)}, ∇_{𝒞^∞}) ≅ (⊕_{k≤n} TSym^k(ℋ), d + ν) restricting to 𝒫^{(n)} ≅ ⊕_{k≤n} TSym^k(ℋ(Σ̄)) and compatible with the moment map along e. Corollary 3.6: 𝒫^{(n),an}[0] ≅ (𝒫^{(n)} ⊗ ℰ^{0,•}, ∇″) and (𝒫^{(n),an} ⊗ Ω^p)[0] ≅ (𝒫^{(n)} ⊗ ℰ^{p,•}, ∇″) (Dolbeault resolutions).
+Statement: Over ℂ, with ℂ-bases (ū_1, …, ū_d, u_1, …, u_d) of ℋ ≅ conj(Lie(𝒜/ℂ)) ⊕ Lie(𝒜/ℂ) corresponding to ∂/∂z̄_i, ∂/∂z_i (the differential forms are the dual basis) (Definition 3.3), ν = ν^{1,0} + ν^{0,1} ∈ ℋ ⊗ (ω ⊕ ω̄) the identity (Definition 3.2), and the smooth pro-bundles 𝒫^{(n)}, 𝒫^{♮(n)} ⊗ 𝒞^∞ (Notation 3.4): there is a compatible system of horizontal isomorphisms (𝒫^{♮(n)}, ∇_{𝒞^∞}) ≅ (⊕_{k≤n} TSym^k(ℋ), d + ν) restricting to 𝒫^{(n)} ≅ ⊕_{k≤n} TSym^k(ℋ(Σ̄)) and compatible with the moment map along e. Corollary 3.6: 𝒫^{(n),an}[0] ≅ (𝒫^{(n)} ⊗ ℰ^{0,•}, ∇″) and (𝒫^{(n),an} ⊗ Ω^p)[0] ≅ (𝒫^{(n)} ⊗ ℰ^{p,•}, ∇″) (Dolbeault resolutions).
 -/
 
 /- Omitted AbelianSchemesAndArithmeticModuliPartII:P4/ordinary-infinitesimal-trivialization
 The actual relative sheaf/group/connection, analytic Betti bundle, Dieudonné, number-field or source-proof interface in this statement is not available as a verified native carrier. A replacement Prop field or synthetic carrier would obscure its hypotheses.
-Statement: For 𝒜 over 𝒪_{ℂ_p} as in Notation 5.1 (CM by 𝒪_L with p-ordinary CM type), let C_n = 𝒜[𝔭_Σ^n], so that lim C_n = 𝒜̂; since [𝔭_Σ^n]^∨ is étale, the splitting principle applied to the diagonal section of 𝒜 × C_n gives a canonical isomorphism 𝒫̂|_{𝒜̂} ≅ 𝒪_{(𝒜×𝒜^∨)^∧} (Proposition 5.9, after Norman's p-adic theta functions). Hence 𝒫^{(1)}|_{𝒜̂} ≅ 𝒪_{𝒜̂} ⊗ (𝒪_{ℂ_p} ⊕ ω_{𝒜^∨}), 𝒫^{♮(1)}|_{𝒜̂} ≅ 𝒪_{𝒜̂} ⊗ (𝒪_{ℂ_p} ⊕ ℋ) and injections 𝒫̂^♮|_{𝒜̂} ↪ 𝒪_{𝒜̂} ⊗̂ TSym^̂(ℋ), 𝒫̂|_{𝒜̂} ↪ 𝒪_{𝒜̂} ⊗̂ TSym^̂(ω_{𝒜^∨}) (equations (5.2.1)–(5.2.4)). On the generic fibre A (Notation 5.10), Lemma 5.11: these become isomorphisms, the splitting of the Hodge filtration gives an 𝒪_Â-linear retraction p of i : 𝒫̂_{ℂ_p}|_Â ↪ 𝒫̂^♮_{ℂ_p}|_Â, and p ∘ ∇ ∘ i corresponds to d ⊗ id on 𝒪_{(A×A^∨)^∧} (equation (5.2.5)); the proof shows the ℋ(Σ)-component η_Σ of ∇(e^{(1)}) satisfies p^2η_Σ = pη_Σ, using [p]_♯.
+Statement: For 𝒜 over 𝒪_{ℂ_p} as in Notation 5.1 (CM by 𝒪_L with p-ordinary CM type), let C_n = 𝒜[𝔭_Σ^n], whose filtered union as formal functors is 𝒜̂ (coordinate rings form an inverse limit); since [𝔭_Σ^n]^∨ is étale, the splitting principle applied to the diagonal section of 𝒜 × C_n gives a canonical isomorphism 𝒫̂|_{𝒜̂} ≅ 𝒪_{(𝒜×𝒜^∨)^∧} (Proposition 5.9, after Norman's p-adic theta functions). Hence 𝒫^{(1)}|_{𝒜̂} ≅ 𝒪_{𝒜̂} ⊗ (𝒪_{ℂ_p} ⊕ ω_{𝒜^∨}), 𝒫^{♮(1)}|_{𝒜̂} ≅ 𝒪_{𝒜̂} ⊗ (𝒪_{ℂ_p} ⊕ ℋ) and injections 𝒫̂^♮|_{𝒜̂} ↪ 𝒪_{𝒜̂} ⊗̂ TSym^̂(ℋ), 𝒫̂|_{𝒜̂} ↪ 𝒪_{𝒜̂} ⊗̂ TSym^̂(ω_{𝒜^∨}) (equations (5.2.1)–(5.2.4)). On the generic fibre A (Notation 5.10), Lemma 5.11: these become isomorphisms, the splitting of the Hodge filtration gives an 𝒪_Â-linear retraction p of i : 𝒫̂_{ℂ_p}|_Â ↪ 𝒫̂^♮_{ℂ_p}|_Â, and p ∘ ∇ ∘ i corresponds to d ⊗ id on 𝒪_{(A×A^∨)^∧} (equation (5.2.5)); the proof shows the ℋ(Σ)-component η_Σ of ∇(e^{(1)}) satisfies p^2η_Σ = pη_Σ, using [p]_♯.
 -/
 
 /- Omitted AbelianSchemesAndArithmeticModuliPartII:P4/translation-trivialization
 The actual relative sheaf/group/connection, analytic Betti bundle, Dieudonné, number-field or source-proof interface in this statement is not available as a verified native carrier. A replacement Prop field or synthetic carrier would obscure its hypotheses.
-Statement: For y ∈ 𝒜(𝒪_{ℂ_p}) in the kernel of an isogeny φ with étale dual, T_y^*𝒫̂ ≅ 𝒫̂ (always on the generic fibre; Lemma 5.12), and ϱ̂_y : T_y^*𝒫̂|_{𝒜̂} ≅ 𝒫̂|_{𝒜̂} ≅ 𝒪_{(𝒜×𝒜^∨)^∧} (Definition 5.13). Lemma 5.14: (1) mom_{Â^∨} ∘ e^*ϱ̂_y = ϱ_y; (2) ϱ̂_y ∘ p ∘ ∇ ∘ i = d_Â ∘ ϱ̂_y; (3) for s ∈ 𝒜̂[p^n](𝒪_{ℂ_p}) = 𝒜[𝔭_Σ^n](𝒪_{ℂ_p}), translation by s intertwines ϱ̂_y and ϱ̂_{y+s} with (T_s × id)^* (integrally). Integral translation assumes y killed by an isogeny with étale dual; the generic-fibre extension here is for torsion y, not for every point.
+Statement: For y ∈ 𝒜(𝒪_{ℂ_p}) in the kernel of an isogeny φ with étale dual, T_y^*𝒫̂ ≅ 𝒫̂ (always on the generic fibre; Lemma 5.12), and ϱ̂_y : T_y^*𝒫̂|_{𝒜̂} ≅ 𝒫̂|_{𝒜̂} ≅ 𝒪_{(𝒜×𝒜^∨)^∧} (Definition 5.13). Lemma 5.14: (1) mom_{Â^∨} ∘ e^*ϱ̂_y = mom_{Â^∨} ∘ ϱ_y = ϱmom_y; (2) ϱ̂_y ∘ p ∘ ∇ ∘ i = d_Â ∘ ϱ̂_y; (3) for s ∈ 𝒜̂[p^n](𝒪_{ℂ_p}) = 𝒜[𝔭_Σ^n](𝒪_{ℂ_p}), translation by s intertwines ϱ̂_y and ϱ̂_{y+s} with (T_s × id)^* (integrally). Integral translation assumes y killed by an isogeny with étale dual; the generic-fibre extension here is for torsion y, not for every point.
 -/
 
 /- Omitted AbelianSchemesAndArithmeticModuliPartII:B1/dgh-22
@@ -479,7 +479,7 @@ Statement: Let S be an irreducible variety over ℚ̄ with a quasi-finite morphi
 
 /- Omitted AbelianSchemesAndArithmeticModuliPartII:B2/definable-ax-set
 The actual relative sheaf/group/connection, analytic Betti bundle, Dieudonné, number-field or source-proof interface in this statement is not available as a verified native carrier. A replacement Prop field or synthetic carrier would obscure its hypotheses.
-Statement: Let X ⊆ T^n be closed, definable and of Ax-type, and Γ ⊆ GL_n(ℤ) free on two generators with γ(X) = X for all γ ∈ Γ. Then either X lies in a finite union of proper closed subgroups of T^n, or there are a non-empty open U ⊆ X and a closed connected infinite subgroup G with U + G ⊆ X.
+Statement: Let X ⊆ T^n be closed, definable and of Ax-type, and Γ ⊆ GL_n(ℤ) free on two generators with γ(X) = X for all γ ∈ Γ. Then either X lies in a finite union of proper closed subgroups of T^n, or there are a non-empty open U ⊆ X and a closed connected infinite subgroup G with U + G ⊆ X. Here definable means that the lift X̃=exp⁻¹(X)∩[0,1]^n is definable in the fixed o-minimal structure. Ax-type means that every continuous semialgebraic y:[0,1]→X̃, real analytic on (0,1), has exp(y([0,1])) contained in exp(y(0))+G⊆X for some closed subgroup G.
 -/
 
 /- Omitted AbelianSchemesAndArithmeticModuliPartII:B2/monodromy-invariant-variety
@@ -489,7 +489,7 @@ Statement: Let A be a complex abelian variety and Γ ⊆ GL_{2g}(ℤ) act contin
 
 /- Omitted AbelianSchemesAndArithmeticModuliPartII:B2/monodromy-transport
 The actual relative sheaf/group/connection, analytic Betti bundle, Dieudonné, number-field or source-proof interface in this statement is not available as a verified native carrier. A replacement Prop field or synthetic carrier would obscure its hypotheses.
-Statement: Glueing Betti maps along loops gives a homomorphism ρ̃ : π₁(S^an, s) → {homeomorphic group automorphisms of 𝒜_s^an} with ρ̃(h)_* = ρ(h), the monodromy on H₁(𝒜_s^an, ℤ). (i) If P ∈ Y^an over s is not isolated in its Betti fibre in Y, then ρ̃(h)(P) ∈ Y^an for all h, and if P has order N then dim_P Y ∩ 𝒜[N] ≥ 1. (ii) ρ̃ commutes with homomorphisms of abelian schemes.
+Statement: Let A→S be an abelian scheme of relative dimension g≥1 over a smooth irreducible complex algebraic curve, and let Y⊂A be irreducible and closed. Glueing Betti maps along loops gives a homomorphism ρ̃ : π₁(S^an, s) → {homeomorphic group automorphisms of 𝒜_s^an} with ρ̃(h)_* = ρ(h), the monodromy on H₁(𝒜_s^an, ℤ). (i) If P ∈ Y^an over s is not isolated in its Betti fibre in Y, then ρ̃(h)(P) ∈ Y^an for all h, and if P has order N then dim_P Y ∩ 𝒜[N] ≥ 1. (ii) ρ̃ commutes with homomorphisms of abelian schemes.
 -/
 
 /- Omitted AbelianSchemesAndArithmeticModuliPartII:B2/tits-free-subgroups
@@ -499,27 +499,27 @@ Statement: A subgroup of GL_n over a field of characteristic 0 that is not virtu
 
 /- Omitted AbelianSchemesAndArithmeticModuliPartII:B2/free-monodromy
 The actual relative sheaf/group/connection, analytic Betti bundle, Dieudonné, number-field or source-proof interface in this statement is not available as a verified native carrier. A replacement Prop field or synthetic carrier would obscure its hypotheses.
-Statement: If G⁰_s is non-trivial, every finite-index subgroup of Γ_s = ρ(π₁(S^an, s)) contains a free subgroup on two generators.
+Statement: For an abelian scheme over a smooth irreducible complex algebraic curve, let Γ_s be its integral H₁ monodromy image and G_s its Zariski closure over Q. If G_s⁰ is nontrivial, every finite-index subgroup of Γ_s contains a free subgroup on two generators.
 -/
 
 /- Omitted AbelianSchemesAndArithmeticModuliPartII:B2/invariant-homology-trace
 The actual relative sheaf/group/connection, analytic Betti bundle, Dieudonné, number-field or source-proof interface in this statement is not available as a verified native carrier. A replacement Prop field or synthetic carrier would obscure its hypotheses.
-Statement: If H₁(𝒜_s^an, ℤ) has a non-zero monodromy-invariant element, then the ℂ(S)/ℂ-trace of the generic fibre is non-zero (over ℂ(S) itself, as Lemma 5.8 needs).
+Statement: For an abelian scheme A→S over a smooth irreducible complex algebraic curve, if H₁(A_s^an,Z) has a nonzero monodromy-invariant element, the C(S)/C-trace of its generic fibre is nonzero over C(S) itself.
 -/
 
 /- Omitted AbelianSchemesAndArithmeticModuliPartII:B2/virtual-invariant-kernel
 The actual relative sheaf/group/connection, analytic Betti bundle, Dieudonné, number-field or source-proof interface in this statement is not available as a verified native carrier. A replacement Prop field or synthetic carrier would obscure its hypotheses.
-Statement: Let Y ⊆ 𝒜 be irreducible closed dominating S, virtually monodromy invariant (some component of Y_s is ρ̃-stable under a finite-index subgroup) above every point of an uncountable set of extendable points, and suppose the generic fibre of 𝒜 ×_S S′ has trivial trace for every finite étale S′ → S. Then there is a homomorphism 𝒜 → 𝒞 of abelian schemes over S whose kernel contains Y and has dimension dim Y.
+Statement: Let A→S be an abelian scheme of relative dimension g≥1 over a smooth irreducible complex algebraic curve. Let Y ⊆ 𝒜 be irreducible closed dominating S, virtually monodromy invariant (some component of Y_s is ρ̃-stable under a finite-index subgroup) above every point of an uncountable set of extendable points, and suppose the generic fibre of 𝒜 ×_S S′ has trivial trace for every finite étale S′ → S. Then there is a homomorphism 𝒜 → 𝒞 of abelian schemes over S whose kernel contains Y and has dimension dim Y. Here extendable means that every abelian subvariety of A_s is the fibre of an abelian subscheme, understood as the image of an endomorphism of A. All kernel dimensions in this assertion are total dimensions, including the base.
 -/
 
 /- Omitted AbelianSchemesAndArithmeticModuliPartII:B2/degenerate-generically-special
 The actual relative sheaf/group/connection, analytic Betti bundle, Dieudonné, number-field or source-proof interface in this statement is not available as a verified native carrier. A replacement Prop field or synthetic carrier would obscure its hypotheses.
-Statement: Over a smooth irreducible complex curve S, an irreducible closed subvariety of 𝒜 that is degenerate is generically special.
+Statement: For an abelian scheme over a smooth irreducible complex algebraic curve S, an irreducible closed subvariety Y dominating S which is curve-degenerate is GH generically special.
 -/
 
 /- Omitted AbelianSchemesAndArithmeticModuliPartII:B2/full-rank-algebraic-point
 The actual relative sheaf/group/connection, analytic Betti bundle, Dieudonné, number-field or source-proof interface in this statement is not available as a verified native carrier. A replacement Prop field or synthetic carrier would obscure its hypotheses.
-Statement: If X ⊆ 𝒜, defined over F and dominating S, is not generically special, there is P ∈ X^{sm}(F) with π(P) ∈ Δ and P ∈ (X_{π(P)})^{sm} such that dim im T_P(b|_{X^{sm,an} ∩ 𝒜_Δ}) = 2 dim X (6.1).
+Statement: Let F⊂C be algebraically closed, S/F a smooth irreducible curve, A→S an abelian scheme, and X⊂A an irreducible closed subvariety dominating S. If X is not GH generically special and Δ⊂S^an is any nonempty Betti neighborhood, there exists P∈X^sm(F) with π(P)∈Δ and P∈(X_{π(P)})^sm(F) such that rank_R d(b|X)_P=2 dim_C X.
 -/
 
 /- Omitted AbelianSchemesAndArithmeticModuliPartII:B2/invariance-of-domain
@@ -534,7 +534,7 @@ Statement: For a C^k map f:M^m→N^n of finite-dimensional real manifolds, 1≤k
 
 /- Omitted AbelianSchemesAndArithmeticModuliPartII:B2/closed-torus-subgroups
 The actual relative sheaf/group/connection, analytic Betti bundle, Dieudonné, number-field or source-proof interface in this statement is not available as a verified native carrier. A replacement Prop field or synthetic carrier would obscure its hypotheses.
-Statement: Every closed subgroup H⊆(ℝ/ℤ)^n is the common kernel of a subgroup Λ≤ℤ^n of integer characters: H={x: m·x=0 in ℝ/ℤ for every m∈Λ}. Since Λ is finitely generated, finitely many integer equations suffice, and the set of closed subgroups of this finite-dimensional torus is countable.
+Statement: Every closed subgroup H⊆(ℝ/ℤ)^n is the common kernel of a subgroup Λ≤ℤ^n of integer characters: H={x: m·x=0 in ℝ/ℤ for every m∈Λ}. Since Λ is finitely generated, finitely many integer equations suffice, and the set of closed subgroups of this finite-dimensional torus is countable. This is the routed theorem export of B2/torus-annihilators, with no second carrier or independent character-duality implementation.
 -/
 
 /- Omitted AbelianSchemesAndArithmeticModuliPartII:B2/riemann-good-cover
@@ -544,12 +544,12 @@ Statement: Every open cover of a second-countable Hausdorff Riemann surface has 
 
 /- Omitted AbelianSchemesAndArithmeticModuliPartII:B4/gao-fibre-power
 The actual relative sheaf/group/connection, analytic Betti bundle, Dieudonné, number-field or source-proof interface in this statement is not available as a verified native carrier. A replacement Prop field or synthetic carrier would obscure its hypotheses.
-Statement: Let A → S be an abelian scheme over an irreducible base and X ⊆ A an irreducible subvariety dominating S with (a) relative dimension ≥ 1, (b) X_s generating A_s for all s, (c) X_η of finite stabilizer. If m ≥ dim S and ι^{[m]}|_{X^{[m]}} (the moduli map to 𝔄_g^{[m]}) is generically finite, then X^{[m]} ⊆ A^{[m]} is non-degenerate. Work with a geometrically irreducible generic fibre, or select a dominating component after the quasi-finite étale cover in survey footnote 6; the whole reducible fibre product is not called irreducible.
+Statement: Let A → S be an abelian scheme over an irreducible complex quasi-projective base and X ⊆ A an irreducible subvariety dominating S with (a) relative dimension ≥ 1, (b) X_s generating A_s for all s, (c) X_η of finite stabilizer. If m ≥ 1, m ≥ dim S and ι^{[m]}|_{X^{[m]}} (the moduli map to 𝔄_g^{[m]}) is generically finite, then X^{[m]} ⊆ A^{[m]} is non-degenerate. Work with a geometrically irreducible generic fibre, or select a dominating component after the quasi-finite étale cover in survey footnote 6; the whole reducible fibre product is not called irreducible.
 -/
 
 /- Omitted AbelianSchemesAndArithmeticModuliPartII:B1/nonzero-smooth-point
 The actual relative sheaf/group/connection, analytic Betti bundle, Dieudonné, number-field or source-proof interface in this statement is not available as a verified native carrier. A replacement Prop field or synthetic carrier would obscure its hypotheses.
-Statement: If X ⊆ A → S is non-degenerate, there is a smooth point z ∈ X^{sm}(ℂ), which may be taken over a smooth point of S, with (ω|_X)^{∧ dim X}_z ≠ 0 (an open condition).
+Statement: Let X⊂A→S be non-degenerate in the regular-base sense of DefinitionB.4. Then there is z∈X^sm(C) over S^sm with (ω|_X)^(∧dim_C X)_z≠0. One may also choose π(z) in the regular locus of the reduced closure of π(X). The latter choice uses that X dominates this image and the maximal-rank locus meets its dense open preimage.
 -/
 
 /- Omitted AbelianSchemesAndArithmeticModuliPartII:B4/difference-product
@@ -635,7 +635,7 @@ Statement: In the preceding simple F_p-isogeny class, every order R in Q(Frob) c
 
 /- Omitted AbelianSchemesAndArithmeticModuliPartII:F3/marked-quasi-isogeny
 The actual relative sheaf/group/connection, analytic Betti bundle, Dieudonné, number-field or source-proof interface in this statement is not available as a verified native carrier. A replacement Prop field or synthetic carrier would obscure its hypotheses.
-Statement: Isomorphism classes of pairs (A,f:A→A₀ a rational quasi-isogeny) correspond to X_p×X^p via covariant realization transport.
+Statement: Isomorphism classes of pairs (B,f:B→A₀ a rational quasi-isogeny over F_q), with (B,f)≅(B′,f′) when f′u=f for an F_q-isomorphism u:B→B′, correspond to X_p×X^p by Λ_ℓ=f_ℓ(T_ℓB) and Λ_p=C(f)⁻¹(C(B)). This bijection is equivariant for postcomposition on f and the action specified in marked-lattice-space.
 -/
 
 /- Omitted AbelianSchemesAndArithmeticModuliPartII:F3/rational-orbits
@@ -660,7 +660,7 @@ Statement: For A₀/F_p, the transport map is a bijection from isomorphism class
 
 /- Omitted AbelianSchemesAndArithmeticModuliPartII:F4/adelic-stabilizers
 The actual relative sheaf/group/connection, analytic Betti bundle, Dieudonné, number-field or source-proof interface in this statement is not available as a verified native carrier. A replacement Prop field or synthetic carrier would obscure its hypotheses.
-Statement: For A₀/F_p and the prime-field lattice space X, use Tate full faithfulness at all primes to identify G(Q_ℓ), G=End⁰_Fp(A₀)^×, with the linear Frobenius centralizer. Let D_* be L8’s unequal-root-occurrence discriminant product. There is a compact open K₀=∏H₀,ℓ of G(A_f) such that every M∈X has Stab(M)=∏S_M,ℓ contained in a conjugate K_M=a_M K₀a_M^(−1), with a_M∈G(A_f) supported at finitely many places, S_M,ℓ=H_M,ℓ almost everywhere, and [K_M:Stab(M)]≤D_*. Moreover #G(A_f)\X≤D_*².
+Statement: For A₀/F_p and the prime-field lattice space X, use Tate full faithfulness at all primes to identify G(Q_ℓ), G the Q-algebraic unit group of End⁰_Fp(A₀), with the linear Frobenius centralizer. If λ₁,…,λ_m are all Frobenius root occurrences, let D_*=|∏_{i,j:λ_i≠λ_j}(λ_i−λ_j)|, a positive integer; equal values are omitted and unequal values retain their occurrence multiplicities. There is a compact open K₀=∏H₀,ℓ of G(A_f) such that every M∈X has Stab(M)=∏S_M,ℓ contained in a conjugate K_M=a_M K₀a_M^(−1), with a_M∈G(A_f) supported at finitely many places, S_M,ℓ=H_M,ℓ almost everywhere, and [K_M:Stab(M)]≤D_*. Moreover #G(A_f)\X≤D_*².
 -/
 
 /- Omitted AbelianSchemesAndArithmeticModuliPartII:F4/prime-p-centralizer
@@ -675,7 +675,7 @@ Statement: Let K₀=Q(√p), D₀/K₀ the quaternion algebra ramified at both r
 
 /- Omitted AbelianSchemesAndArithmeticModuliPartII:F4/ordered-root-discriminant
 The actual relative sheaf/group/connection, analytic Betti bundle, Dieudonné, number-field or source-proof interface in this statement is not available as a verified native carrier. A replacement Prop field or synthetic carrier would obscure its hypotheses.
-Statement: If K=Q(π), π is an integral p-Weil number of degree d, then |D_K|≤|disc minpoly(π)|≤(2√p)^(d(d−1)).
+Statement: If K=Q(π), π is an integral p-Weil number of degree d, then |D_K|≤|disc minpoly(π)|≤(2√p)^(d(d−1)). More generally, for a monic integral polynomial of degree m all of whose root occurrences λ_i have modulus √p, the positive integer D_*=|∏_{i,j:λ_i≠λ_j}(λ_i−λ_j)| satisfies D_*≤(2√p)^{m(m−1)}. Unequal root values retain occurrence multiplicities; the ordinary discriminant may vanish.
 -/
 
 /- Omitted AbelianSchemesAndArithmeticModuliPartII:F4/conditional-orbit-bound
@@ -700,12 +700,12 @@ Statement: Let L/K be a cyclic extension of number fields of prime degree. There
 
 /- Omitted AbelianSchemesAndArithmeticModuliPartII:F5/squarefree-polarization-bound
 The actual relative sheaf/group/connection, analytic Betti bundle, Dieudonné, number-field or source-proof interface in this statement is not available as a verified native carrier. A replacement Prop field or synthetic carrier would obscure its hypotheses.
-Statement: For A/F_p of dimension g with no repeated simple isogeny factor and P_A coprime to X²−p, the source proves n_A≪p^(C g²) for some absolute C.
+Statement: For A/F_p of dimension g, with no repeated simple F_p-isogeny factor and Frobenius polynomial coprime to X²−p, let n_A be the number of F_p-isomorphism classes of principal polarizations on A. There are absolute positive constants C₀,C with n_A≤C₀p^(Cg²). If A admits no principal polarization set n_A=0.
 -/
 
 /- Omitted AbelianSchemesAndArithmeticModuliPartII:F5/nine-cm-split-density
 The actual relative sheaf/group/connection, analytic Betti bundle, Dieudonné, number-field or source-proof interface in this statement is not available as a verified native carrier. A replacement Prop field or synthetic carrier would obscure its hypotheses.
-Statement: The nine imaginary quadratic fields of class number one have independent square classes; outside their finite ramified-prime set, the primes splitting in at least one have natural density 1−2^(−9).
+Statement: For the nine fields Q(√−d), d∈{1,2,3,7,11,19,43,67,163}, each of class number one, the defining square classes are independent in Q×/(Q×)². Outside the finite ramified-prime set, the rational primes splitting in at least one field have natural density 1−2^(−9).
 -/
 
 /- Omitted AbelianSchemesAndArithmeticModuliPartII:F5/cm-elliptic-existence
@@ -725,7 +725,7 @@ Statement: For A/F_q, #A(F_(q^r))=det(1−Frob_q^r|V_ℓA), so point counts are 
 
 /- Omitted AbelianSchemesAndArithmeticModuliPartII:F6/weil-polynomial-count
 The actual relative sheaf/group/connection, analytic Betti bundle, Dieudonné, number-field or source-proof interface in this statement is not available as a verified native carrier. A replacement Prop field or synthetic carrier would obscure its hypotheses.
-Statement: For q≥2 and g≥1, the number of monic reciprocal integer polynomials of degree 2g with constant q^g and all roots of absolute value √q is at most (4g+1)^g q^(g(g+1)/4).
+Statement: For q≥2 and g≥1, the number of monic q-reciprocal integer polynomials (q^gP(X)=X^(2g)P(q/X)) of degree 2g with constant q^g and all roots of absolute value √q is at most (4g+1)^g q^(g(g+1)/4).
 -/
 
 /- Omitted AbelianSchemesAndArithmeticModuliPartII:F6/isogeny-class-asymptotic
@@ -740,7 +740,7 @@ Statement: For every positive integer n and prime power q, the number #O(q,n) of
 
 /- Omitted AbelianSchemesAndArithmeticModuliPartII:F6/repaired-unpolarized-count
 The actual relative sheaf/group/connection, analytic Betti bundle, Dieudonné, number-field or source-proof interface in this statement is not available as a verified native carrier. A replacement Prop field or synthetic carrier would obscure its hypotheses.
-Statement: Fix a prime p and let B(p,g) count isomorphism classes of g-dimensional abelian varieties over F_p. Then log B(p,g)=O_p(g²). The argument corrected in Lee arXiv:2002.04420v3 §3.1 gives B(p,g)≤2^(34g²)·p^((69/4)g²(1+o(1))) (Theorem 1.1). The printed 17/2 exponent is not established (E21). Lee states B(p,g)≤p^((45/4)g²(1+o(1))) in Theorems 1.4/3.4, but the cited v3 proof uses the false repeated-root estimate (11), recorded in E22; that sharper bound is not a verified target on this proof evidence.
+Statement: Fix a prime p and let B(p,g) count F_p-isomorphism classes of g-dimensional abelian varieties. The coarse target is log B(p,g)=O_p(g²). Separately, if a uniform per-isogeny-class estimate I_p(g)≤2^(34g²)·p^(17g²(1+o(1))) is supplied, then B(p,g)≤2^(34g²)·p^((69/4)g²(1+o(1))). This is the conditional numerical specialization reported in Lee v3 §3.1; its exact quantitative inputs remain open. Neither the printed17/2 exponent nor Lee’s45/4 refinement is asserted from the presently checked proof inputs.
 -/
 
 /- Omitted AbelianSchemesAndArithmeticModuliPartII:F5/elliptic-power-polarizations
@@ -762,3 +762,9 @@ Statement: For a monic degree2g integer polynomial satisfying q-reciprocity in d
 No compiled Tau Ceti build at its pinned commit supplies the binary comparison import.
 Statement: Under the native PiTensorProduct binary tensor equivalence, TSym²_R(M) is TauCeti.symmetricTensors R M, the eqLocus of TensorProduct.comm and identity. This compares invariant submodules; it does not identify the invariant lattice with the coinvariant SymmetricPower quotient integrally.
 -/
+
+/- Test omitted AbelianArithmetic.bettiForm_nonprincipal_type: For polarization type diag(1,2), in the corresponding period coordinates the two coordinate real two-tori have ω-periods 2 and 4; replacing D by the identity fails.
+The native relative geometric signature remains an explicit omission. -/
+
+/- Test omitted AbelianArithmetic.degeneracyLocus_ramified_graph: For a nonconstant branched map f:C→E from a smooth curve to an elliptic curve, its graph X⊂E×C has X^deg(0)=∅, while db|X vanishes at ramification points. Algebraic degeneracy does not equal the pointwise rank-drop set.
+The native relative geometric signature remains an explicit omission. -/
