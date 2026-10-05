@@ -5910,3 +5910,20 @@ test: LevelPicardParameter.canonicalDegree
 test: CurveGraphClosure.constantDimension
   Requires the actual geometric interface; the mathematical guard is recorded in the review report, not encoded as a vacuous proposition.
 -/
+
+/-
+Review continuation codex-LwkQQl: exact Picard supplier imports and scope.
+MC.6/jacobian-hodge-comparison is the moduli-specific full-level Torelli
+Hodge pullback, importing JC6 on integral Noetherian components; it does
+not re-plan the generic Picard Lie/duality comparison. All existing geometric
+node omissions remain omissions.
+API: LevelPicardParameter.liftFiber
+  Requires the actual relative Picard sheaf, H²_fppf Leray boundary and free
+  Pic(T) action on line-class lifts under universal global functions.
+test: LevelPicardParameter.baseTwist
+  Over C×P¹, L and L tensor the base O(1) are distinct actual line classes
+  with the same relative degree-d Picard point; actual geometric types needed.
+test: LevelPicardParameter.dualNumbers
+  Fixed genus-two curve/level3 line deformations over C[ε]/(ε²) have tangent
+  H¹(O), dimension two; actual infinitesimal Picard and cohomology types needed.
+-/

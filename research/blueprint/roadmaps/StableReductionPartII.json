@@ -3,7 +3,7 @@
   "title": "Stable reduction of curves and stable maps, Part II: moduli of curves and stable compactifications",
   "area": "arithmeticgeometry",
   "parent": "tauceti:TauCetiRoadmap/StableReduction",
-  "summary": "Planning pass complete at 528 declarations under PROTOCOL section 0 and NODE_BUDGET 300; no declarations are added. All eight geometric stages MC.0–MC.7 and the general pointed moduli key remain partial with explicit remaining work. The plan retains polynomial nodal section coordinates, dual and bidual, arbitrary original-coefficient Hom/Ext calculations, finite two-base tensor comparisons, completed coefficient actions, finite-projective tensor/limit interchange and the actual Hom_R compatible-family comparison. The reusable relative stable-reflexivity interface, two-base completion for arbitrary completed coefficients, completed-ring Hom/Ext, faithful reflection, pointed hull, sheaf descent, arbitrary-base approximation and all stack geometry remain required. All 528 node objects, 276 baseline declarations, 145 requests, 14 source findings, 21 consumer routes and the six-consumer reserved key are preserved. The entire existing suggested Lean file elaborates; 248 inherited geometric prototype omissions remain. Completion concerns this planning pass and its independent review, not mathematical closure.",
+  "summary": "Planning pass complete at 528 declarations under PROTOCOL section 0 and NODE_BUDGET 300; independent review remains incomplete. All eight geometric stages and the six-consumer moduli-curves key remain partial. The plan preserves the inherited nodal polynomial Hom/Ext and finite-projective completion adapters, importing exact Noetherian relative Picard/Jacobian, H²_fppf obstruction and stable Hodge targets from JacobianChallengePartII and stable semiabelian degeneration from NeronModelsAndSemistableAbelianVarieties. Hodge comparison here is the full-level Torelli pullback application, not duplicated generic Lie/duality theory. Arbitrary-base polarized descent, reusable relative stable reflexivity/two-base completed Hom/Ext, pointed hull/sheaf descent, strong Torelli, component topology and all-characteristic compactified Torelli remain explicit owner boundaries. Six bounded consumer/export checks retain stack/coarse/fine distinctions, including Chen’s existing pointed genus-one coarse-space export. Geometric API/test additions are explicit prototype omissions; the Mathlib-only sketches are not a formalization of moduli geometry.",
   "readme": "The reader document research/blueprint/readmes/StableReductionPartII.md specifies conventions, source scope, APIs, tests and unresolved supplier boundaries. Stable maps remain in the parent; no stable-map moduli construction is asserted here.",
   "prerequisites": [
     "tauceti:TauCetiRoadmap/StableReduction",
@@ -12,7 +12,9 @@
     "tauceti:TauCetiRoadmap/JacobianChallenge",
     "AbelianSchemesAndArithmeticModuli",
     "PELModuli",
-    "ShimuraCompactifications"
+    "ShimuraCompactifications",
+    "JacobianChallengePartII",
+    "NeronModelsAndSemistableAbelianVarieties"
   ],
   "stages": [
     {
@@ -69,7 +71,7 @@
     {
       "key": "MC.4",
       "title": "Coarse moduli, projectivity and full level",
-      "description": "Construct coarse algebraic spaces separately from the stacks. For g≥2 prove projectivity of the unpointed stable coarse space over Z using pluricanonical direct-image nefness and the ampleness lemma. Obtain a finite surjective normal projective scheme cover. Construct smooth-curve symplectic-similitude level N≥3 over Z[1/N], with a fixed pairing component over Z[1/N,ζ_N]; prove representability, regularity, quasi-projectivity, connectedness and dimension 3g−3, and its smooth projective universal curve. Normalize a chosen projective cover for a stable compactification; never declare naive full level on every nodal curve fine. Retain the homogeneous-level multiplier morphism and the exact fixed symplectic subfunctor; forgetting the pairing choice does not identify the two moduli problems. Section-degree positivity uses the generically surjective evaluation image, without special-fibre vanishing on unstable nodal curves. Fix the determinant degree on the single integral parameter family by relative Serre generation/vanishing before applying fibrewise ampleness and fixed-line openness over Z.",
+      "description": "Construct coarse algebraic spaces separately from the stacks. For g≥2 prove projectivity of the unpointed stable coarse space over Z using pluricanonical direct-image nefness and the ampleness lemma. Obtain a finite surjective normal projective scheme cover. Construct smooth-curve symplectic-similitude level N≥3 over Z[1/N], with a fixed pairing component over Z[1/N,ζ_N]; prove representability, regularity, quasi-projectivity, connectedness and dimension 3g−3, and its smooth projective universal curve. Normalize a chosen projective cover for a stable compactification; never declare naive full level on every nodal curve fine. Retain the homogeneous-level multiplier morphism and the exact fixed symplectic subfunctor; forgetting the pairing choice does not identify the two moduli problems. Section-degree positivity uses the generically surjective evaluation image, without special-fibre vanishing on unstable nodal curves. Fix the determinant degree on the single integral parameter family by relative Serre generation/vanishing before applying fibrewise ampleness and fixed-line openness over Z. Import relative Jacobian, polarization and arbitrary pullback from JC1 on the Noetherian tricanonical atlas; the exact polarized-abelian atlas descent and étale cup-product dual/twist comparison remain separate supplier obligations.",
       "requires": [
         "StableReductionPartII:MC.1",
         "StableReductionPartII:MC.3",
@@ -77,7 +79,8 @@
         "AlgebraicModuliForArithmeticGeometry:R09.5",
         "SchemeAndStackFoundations:SF.5",
         "AbelianSchemesAndArithmeticModuli:A3",
-        "PELModuli:M6"
+        "PELModuli:M6",
+        "JacobianChallengePartII:JC1"
       ]
     },
     {
@@ -95,7 +98,7 @@
     {
       "key": "MC.6",
       "title": "Stable compactifications and Torelli",
-      "description": "For an integral quasi-projective S over Z or a field with a stable genus-g family (g≥2), produce a dominant finite cover S′→S and a projective integral compactification carrying a stable extension, by retaining the base in a graph closure. Construct the smooth full-level Torelli map and its Cartesian universal-Jacobian comparison, finite fibres with the ±level ambiguity and the genus-two exception. Construct the compactified Torelli map to the minimal Siegel compactification and its Hodge pullback. For maximal variation deduce nefness and bigness of the pulled-back Hodge line, using generic finiteness rather than a globally finite smooth Torelli morphism.",
+      "description": "For an integral quasi-projective S over Z or a field with a stable genus-g family (g≥2), produce a dominant finite cover S′→S and a projective integral compactification carrying a stable extension, by retaining the base in a graph closure. Construct the smooth full-level Torelli map and its Cartesian universal-Jacobian comparison, finite fibres with the ±level ambiguity and the genus-two exception. Construct the compactified Torelli map to the minimal Siegel compactification and its Hodge pullback. For maximal variation deduce nefness and bigness of the pulled-back Hodge line, using generic finiteness rather than a globally finite smooth Torelli morphism. Import early JC1 family constructions and JC6 Hodge comparisons; the Hodge node is the moduli-specific smooth Torelli pullback, obtained on integral components of the regular Noetherian fine scheme and then pulled back. Stable boundary Picard/abelian quotients use exact R11.4 targets, with their transitive atlas and normalization gaps retained.",
       "requires": [
         "StableReductionPartII:MC.4",
         "StableReductionPartII:MC.5",
@@ -104,18 +107,22 @@
         "PELModuli:M5",
         "PELModuli:M6",
         "ShimuraCompactifications:C4",
-        "ShimuraCompactifications:C5"
+        "ShimuraCompactifications:C5",
+        "JacobianChallengePartII:JC1",
+        "JacobianChallengePartII:JC6",
+        "NeronModelsAndSemistableAbelianVarieties:R11.4"
       ]
     },
     {
       "key": "MC.7",
       "title": "Level Picard parameters and consumer interfaces",
-      "description": "For a fixed genus g≥2, level N≥3 invertible and degree d∈Z define the level-Picard parameter functor and compare it with relative Picᵈ of the universal smooth curve. Keep the fppf-sheafified Picard functor distinct from globally existing line bundles; identify triples only over algebraically closed fields or under the explicit Brauer-obstruction vanishing condition. Export the moduli and family interfaces to the six key-definition consumers, without rebuilding their Hurwitz stacks, mapping-class groups or tautological Chow rings.",
+      "description": "For a fixed genus g≥2, level N≥3 invertible and degree d∈Z define the level-Picard parameter functor and compare it with relative Picᵈ of the universal smooth curve. Keep the fppf-sheafified Picard functor distinct from globally existing line bundles; identify triples only over algebraically closed fields or under the explicit Brauer-obstruction vanishing condition. Export the moduli and family interfaces to the six key-definition consumers, without rebuilding their Hurwitz stacks, mapping-class groups or tautological Chow rings. Import degree components, representability and torsors from JC0 and the exact JC4 obstruction under universal global functions. Lifts form a Pic(T)-torsor; base twists and dual-number tangent deformations discriminate the definition. Consumer exports retain their exact genus/base/stack ranges, and Chen’s pointed coarse M_{1,1} scheme is supplied by the existing all-stable-pairs coarse-space node.",
       "requires": [
         "StableReductionPartII:MC.0",
         "StableReductionPartII:MC.6",
-        "SchemeAndStackFoundations:SF.3",
-        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-d-the-relative-picard-functor-and-the-jacobian-scheme"
+        "JacobianChallengePartII:JC0",
+        "JacobianChallengePartII:JC4",
+        "AlgebraicModuliForArithmeticGeometry:A0-extension"
       ]
     }
   ],
@@ -239,6 +246,54 @@
       "readSections": [
         "PDF6,23–24,§§1.2,6.1; only the two routed moduli items"
       ]
+    },
+    {
+      "id": "blr-relative-picard-LwkQQl",
+      "title": "Néron Models",
+      "authors": "Siegfried Bosch; Werner Lütkebohmert; Michel Raynaud",
+      "edition": "Springer, 1990; public scan of printed pp.170–261, selected passages only",
+      "url": "https://archive.math.arizona.edu/cais/scans/BLR-Neron_Models/neron4.pdf",
+      "readSections": [
+        "§8.1 Leray discussion pp.202–203 and Proposition4 with rigidification proof pp.204–205 (scan PDF17–18); §8.4 Theorem1(a) and proof pp.231–232, Proposition2 p.232 (PDF31–32); §9.3 Theorem1 and proof p.252 (PDF42); §9.4 Proposition4 and proof pp.260–261 (PDF46). Other BLR sections and cited transitive proofs were not read in this pass."
+      ],
+      "sha256": "88610c3ffba4eeaec738bb635a54a12c7fd6f4c69597045914feb6f33da284aa",
+      "accessDate": "2026-10-05"
+    },
+    {
+      "id": "av-moduli-consumer-LwkQQl",
+      "title": "Symplectic L-functions and symplectic Reidemeister torsion (mod squares)",
+      "authors": "Amina Abdurrahman; Akshay Venkatesh",
+      "edition": "arXiv:2303.13436v1, 23 March2023 as stamped on downloaded copy; no published2025 collation",
+      "url": "https://arxiv.org/pdf/2303.13436",
+      "readSections": [
+        "§5 opening and §5.1–5.2, PDF/printed pp.39–41; Hurwitz groupoid, Examples5.1–5.2, twisted stack and universal curve. Source mathematics beyond the moduli interface is owned by the consumer."
+      ],
+      "sha256": "3e2736beea70ba3467ad30a24b518d82cf589d9ddd4a06f6b0684c7bfd7d6306",
+      "accessDate": "2026-10-05"
+    },
+    {
+      "id": "chen-moduli-consumer-LwkQQl",
+      "title": "Nonabelian level structures, Nielsen equivalence, and Markoff triples",
+      "authors": "William Y. Chen",
+      "edition": "arXiv:2011.12940v2; preprint, no publisher collation",
+      "url": "https://arxiv.org/pdf/2011.12940v2",
+      "readSections": [
+        "Introduction pp.2–3 only: smooth pointed stack, Hurwitz covers and specialization to M_{1,1}, explicitly distinguished from its coarse scheme."
+      ],
+      "sha256": "f60283b0b406554c064e3135b18d4446617aed05eb74f7b8d7b66a2f453980cc",
+      "accessDate": "2026-10-05"
+    },
+    {
+      "id": "ll-moduli-consumer-LwkQQl",
+      "title": "Canonical representations of surface groups",
+      "authors": "Aaron Landesman; Daniel Litt",
+      "edition": "arXiv:2205.15352v4; preprint, no publisher collation",
+      "url": "https://arxiv.org/pdf/2205.15352v4",
+      "readSections": [
+        "§1.10 Notation1.10.1–1.10.3, PDF/printed pp.10–11: stable range, complex marked families, dominant étale versal maps, punctures and analytic stack fundamental group."
+      ],
+      "sha256": "4cb511ba40675aa6899b351f2ee27eb9487b4a21f65ec8000c1f2cc1a5107ceb",
+      "accessDate": "2026-10-05"
     }
   ],
   "status": "draft"
