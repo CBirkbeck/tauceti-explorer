@@ -30510,7 +30510,8 @@
    ],
    "avoidAccountOf": "BP-ClassicalArithmeticCompletion",
    "prompt": "research/blueprint/prompts/REV-ClassicalArithmeticCompletion.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #532"
   },
   {
    "id": "BP-ComputationalNumberTheory",
@@ -30784,8 +30785,9 @@
    ],
    "avoidAccountOf": "BP-GeometryOfNumbersAndQuadraticArithmetic",
    "prompt": "research/blueprint/prompts/REV-GeometryOfNumbersAndQuadraticArithmetic.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #537"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #537",
+   "finishedAt": "2026-10-05T02:19:05Z"
   },
   {
    "id": "BP-HeightsRationalPointsAndObstructions",
