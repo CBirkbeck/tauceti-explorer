@@ -1,5 +1,93 @@
 # REV-DESIGN-StableReductionPartII: continuing review checkpoint
 
+Issue [#3619](https://github.com/CBirkbeck/tauceti-explorer/issues/3619). Reviewer: Codex (GPT-6), session `codex-G2QhrF`. Date: 2026-10-05.
+
+**Incomplete independent review; no final verdict.** This continues the checkpoints merged in [#6172](https://github.com/CBirkbeck/tauceti-explorer/pull/6172) and [#6177](https://github.com/CBirkbeck/tauceti-explorer/pull/6177). Fresh checks cover source statements, hypotheses and local proof routes for 21 more MC.2/MC.3 nodes, seven complete pinned declarations for their selected algebraic uses, and the described API/supplier slice. Transitive closure, every other node and every consumer remain pending. There is deliberately no top-level `review`. Historical evidence below retains its original attribution.
+
+## Counts and scope
+
+The packet still has 528 nodes: 8 definitions, 109 constructions, 342 lemmas, 67 theorems, 1 application and 1 comparison. Its 117 definitions/constructions carry 447 API items and 400 tests; all-node totals are 448 APIs and 427 tests. This session adds ten API items and one test, no nodes. There are 35 planets, 268 baseline declarations, 141 requests (five added), 19 gaps (two added), 31 sources (two added), and 228 prototype omissions (eleven added). The inherited expressed inventory of 414 nodes/277 APIs/280 tests was not fully rematched here. All eight stages remain `partial`; `status: complete` means the budgeted planning pass ended.
+
+Read the full binding instructions, the full parent StableReduction and JacobianChallenge upstream reader documents, relevant parent library-coverage entries (layers 1,2,3,9), and supplier briefs SF.0/SF.1/SF.5 and R09.1/R09.4/R09.5/R09.6. The parent owns curve pushouts, weighted graphs and coherent duality; this packet imports them. Locally Noetherian proof inputs do not silently extend to arbitrary bases. No all-library absence claim or whole-packet API/planet validation is made.
+
+## Fresh node checks and corrections
+
+Ids below are relative to `StableReductionPartII:`. These are bounded source/hypothesis/local-route checks, not `verified` verdicts.
+
+| Nodes | Checked statement and result | Primary source |
+| --- | --- | --- |
+| `MC.2/binary-node-form`, `small-extension-coordinate-correction`, `pointed-node-normal-form` | Checked the unit-discriminant quadratic form including characteristic two, the square-zero coordinate identity, and the complete-local pointed hull with its two tangent parameters. A hull is not a fine representing scheme. Complete-local/algebraic-family comparison remains separate. | Knudsen 2012 §§1–2, pp.4–10. |
+| `MC.2/node-matrix-factorization`, `node-factorization-products`, `node-factorization-exact` | Read the actual signed matrices and quotient-ring exactness argument. Polynomial products need no discriminant assumption; monicity makes the pre-quotient relation regular even over a general coefficient ring. This does not prove the completed-ring or relative stable-reflexivity packages. | Knudsen 2012 §3, pp.11–12. |
+| `MC.2/dual-section-ideal` | Read the polynomial dual presentation and locally Noetherian Main Lemma; specify flat finitely presented nodal families, reduced geometric pure one-dimensional fibres, and arbitrary sections. Base change of this theorem is distinct from extending its starting base class. The Appendix citation and larger prerequisite chain are inherited, not freshly fully audited. | Knudsen 2012 Proposition 3.1, Corollary 3.2, §4, pp.12–13. |
+| `MC.2/expansion` | Specify the diagonal cokernel K and its two quotient sheaves, with the distinct old-mark and extra-mark invertible quotients. K need not be locally free. Add the relative Proj quotient universal property and isomorphism/base-change coherence APIs. R09.1 projective bundles do not supply this general Proj. | Knudsen II Definition 2.3/Theorem 2.4, pp.176–177; Knudsen 2012 pp.2–3,13–16. |
+| `MC.2/expansion-flat`, `expansion-stable` | State the two affine rings, monic free basis and flat open cover precisely. A general family additionally requires completion of the relative Proj/cokernel model and faithful-flat reflection. Old-mark collision is the separate Cartier-section case, not just the nodal chart. Retain the three-special-flag tail/bridge tests. | Knudsen 2012 Theorem 5.1 proof, pp.14–16; Knudsen II Theorem 2.4 Case II, p.177. |
+| `MC.2/higher-genus-pointed` | Universal-curve induction uses the formal map t→xy for source smoothness. The new boundary is the old boundary inverse image **union old-section collision divisors**. Properness of the universal curve alone does not prove its source smooth. Add direct universal-curve/forget prerequisites. | Knudsen II Theorem 2.7 proof, p.179. |
+| `MC.2/rigid-triangle-embedding`, `genus-one-base` | Correct three imposed smoothing branches to **four**: the triangle's three internal nodes plus its attachment. A nodal genus-one input gives a fifth branch, free on the image and cutting out its boundary. Add direct versal-parameter/normal-crossing dependencies and correct supplier requests/MC.2 scope. Family recovery and the specific closed immersion remain an explicit gap. | Knudsen II Theorem 2.7 proof/Figure 4, p.179. |
+| `MC.3/separating-clutching`, `nonseparating-clutching` | Read the ordered stack maps and scheme pushout construction. Keep parent ownership and arbitrary-base extension visible. Add isomorphism/pushout and base-change universal-property APIs, and exact parent graph-genus requests. General separating clutching is not a closed immersion. | Knudsen II Definition 3.8, p.190; Theorem 3.4, pp.181–183. |
+| `MC.3/clutching-finite-unramified` | Persistent-node choices are unramified, generally not flat or étale in a smoothing. Injective stabilizers require the actual DM representability criterion; proper source/separated target and quasi-finiteness give finiteness. Family node-choice representability remains an exact open contract. | Knudsen II §§3.4–3.5, pp.181–185; Corollary 3.9(a), p.190. |
+| `MC.3/boundary-types`, `boundary-normalization` | Use stable graph valence including loop flags and compactified vertex products modulo constant graph groups. Add quotient descent API and the empty genus-zero three-point boundary test. Check groupoids/étale atlas normalization, not only geometric points or coarse spaces. Hacking's normalization description is characteristic zero; CLP's normalized-boundary cohomology is consumer evidence. The integral stack theorem remains a gap. | Knudsen II p.190; Hacking pp.813–814 with p.810 scope; CLP §2.1 pp.4–5. |
+| `MC.3/cotangent-line`, `forget-cotangent-line` | L_i is the pullback of the relative dualizing sheaf, canonically the section conormal; its normal is the dual. Add pullback cocycle/conormal APIs. Check the transverse ideal sequence proving π*L_i=L_i(−D), with a multiplicity-one collision divisor; add the expansion/contraction dependency. | Knudsen III definition (d), p.201; Theorem 4.1(c), p.202 and proof p.203. |
+| `MC.3/node-conormal` | Replace the irrelevant glued-curve torsion-differential citation by Hacking Lemma 4.2. Conormal is L_a⊗L_b; normal is its dual. Arbitrary higher-order coordinate changes and integral graph/atlas descent remain a precise contract. Branch exchange is unsigned on smoothing, unlike the torsion differential. | Hacking Lemma 4.2 p.814, deformation/Ext discussion p.811, characteristic-zero scope p.810. |
+
+The first six algebraic nodes needed no signature correction. Their deeper prerequisite chains and every use elsewhere still need review. This session does not certify all definitions/constructions or all 268 baseline entries. E1–E11 retain the historical source-issue verdicts without a fresh whole-list or publisher collation. The triangle count was a planning error: Knudsen's original passage already says four/fifth, so it is not a new paper erratum.
+
+## Independent mathematical guards
+
+For a smooth genus-one F attached to the rational triangle, V=4 and E=4: b₁=1 and vertex genera sum to 1, giving genus 2. For nodal F, V=4 and E=5 with genus-zero normalization vertices: b₁=2, again genus 2. The ambient dimension 3·2−3+2=5 minus four smoothing equations is 1. Three equations would leave dimension 2; imposing the fifth would restrict to the elliptic boundary. Labelled fibre rigidity does not itself prove the family closed immersion.
+
+In the expansion chart R₀, reduction by its monic vy² term leaves precisely vⁱyʲ with i=0 or j<2. On R₁, inverting h=δx²−γx+1 eliminates u. Since h(0)=1, V(h) lies where x is invertible and hence in the other Proj chart. This proves the **polynomial** model's flat cover, before the still-open formal comparison to the actual family. No symbolic software check is claimed.
+
+The smoothing xy=t has relative singular scheme Spec k[t]/(t) over Spec k[t]. It is finite unramified, but t-torsion makes it nonflat; a finite-étale field theorem cannot be reused as an étale family statement. For branch scaling x′=ux, y′=vy, the conormal generator transforms by uv and the dual normal by (uv)⁻¹. Exchange preserves xy. In the special-fibre differentials y dx+x dy=0, exchange sends x dy to y dx=−x dy. This detects why Knudsen II Theorem 3.5's torsion sheaf is not the smoothing conormal without an additional comparison.
+
+A stable one-edge genus-zero graph must have two genus-zero vertices with at least two legs each. Three legs therefore give no boundary type; four give the three 2+2 partitions. This also checks the induction boundary formula: M̄₀,₃ has empty boundary, while its universal curve M̄₀,₄ has three collision boundary points.
+
+## Baseline statements, APIs and supplier frontier
+
+At Mathlib commit `082e2d37e8b0463410cdb532e111cd43d5a66174`, read complete declarations and surrounding binders for these selected MC.2 uses:
+
+| Declaration | Exact location | Applicable scope |
+| --- | --- | --- |
+| `CommRing` | [Algebra/Ring/Defs.lean:414](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Ring/Defs.lean#L414) | Ring and commutative-monoid operations; no Noetherian assumption. |
+| `RingHom` | [Algebra/Ring/Hom/Defs.lean:296](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Ring/Hom/Defs.lean#L296) | Actual additive/multiplicative/unit-preserving homomorphisms. |
+| `IsUnit` | [Algebra/Group/Units/Defs.lean:364](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Group/Units/Defs.lean#L364) | Existence of a bundled unit, as used for the discriminant. |
+| `Matrix`, `Matrix.of` | [LinearAlgebra/Matrix/Defs.lean:57](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/LinearAlgebra/Matrix/Defs.lean#L57), same file:88 | Function-valued matrices and the explicit-matrix/Pi equivalence; distinct multiplicative instances. |
+| `Matrix.scalar` | [Data/Matrix/Basic.lean:187](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Data/Matrix/Basic.lean#L187) | Semiring, finite decidable index; diagonal ring homomorphism. |
+| `Matrix.mul_apply` | [Data/Matrix/Mul.lean:298](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Data/Matrix/Mul.lean#L298) | Finite middle index, multiplication and additive commutative monoid; sum of products. |
+
+No baseline entry was added, removed or replaced. These seven selected-use checks, together with the earlier two, are not all-consumer confirmations of nine entries. Every entry needs its actual consumer-level check before final acceptance.
+
+Ten added APIs are `PointedExpansion.projLift`, `mapIso`, `baseChangeCoherence`; `SeparatingClutching.mapIso`, `pushout`; `NonseparatingClutching.baseChange`, `pushout`; `BoundaryType.quotientDescent`; `MarkingCotangentLine.pullbackCoherence`, `conormal`. The added test is `BoundaryType.zeroThreeEmpty`. All eleven are explicit prototype omissions and corresponding suggested-file comments. No new executable Lean signatures or proof bodies are provided.
+
+The two new gaps are **Expansion formal-Proj and flatness transfer** and **Integral boundary normalization and deformation-line descent**. Narrowed requests distinguish relative Proj Sym of K from projective bundles, field branch choices from family node choices, torsion differentials from moduli conormal, and characteristic-zero descriptions from integral stack descent. Five new requests target SF.0, R09.6, parent Layer 2, and parent Layer 1 twice. The rigid-locus and arbitrary-base gaps remain open; no supplier's general brief is credited with an unstated exact theorem. Existing geometric type omissions remain.
+
+## Fresh source receipts
+
+Hashes identify the actually downloaded public PDFs. Scopes are fresh and bounded; none is a full-paper reading claim.
+
+| Source | SHA-256 | Read scope |
+| --- | --- | --- |
+| [Knudsen II](https://journals.msp.org/mscand/article/download/1622/1621/1653) | `18e04bbf5c24a460ff10e965ebf665ea0229378c6a9521bd279909476012e230` | Visually read printed pp.174–185/PDF14–25 and p.190/PDF30; not the Appendix. |
+| [Knudsen 2012 v2](https://arxiv.org/pdf/1106.1588v2) | `de9f73f25a4fbe03dbe2865ebc5932412b5bf3aa7f02734c04de05013da44d36` | Text and selected formula renders, pp.2–3 and 4–16; §§1–5. Completed-algebra closure is not certified. |
+| [Knudsen III](https://journals.msp.org/mscand/article/download/1623/1622/1654) | `97c2d29246b5aeff4820b4f7e74aaf8ad2e32eb72c25d05acfb7b2cbd8f017f2` | Visually read printed pp.200–203/PDF1–4; no fresh projectivity proof reading. |
+| [Hacking, published 2008](https://msp.org/ant/2008/2-7/ant-v2-n7-p03-s.pdf) | `0a3fcd9f580248481aceea54333ffa0fe2829603a98a0d449e6e72d9fdc6cea6` | Selected §§2–4 pp.810–811,813–814, including characteristic-zero scope. |
+| [Canning–Larson–Payne, arXiv v3](https://arxiv.org/pdf/2307.08830v3) | `fa320b35fc8b063ac09335da85ed133329dfbef1357b78f22d0a8d58ad5107a1` | §2.1 opening and normalized-boundary graph-invariant proof passage, PDF4–5 only; no publisher collation. |
+
+## Validation and resumption
+
+`lean-check research/blueprint/suggested/StableReductionPartII.lean` completed with exit 0, zero errors and 870 intentional `sorry` warnings, no other warnings. Memory beforehand: 89 GiB available. File: 5,787 lines; SHA-256 `3293445542849eded8d8cf42d08c2a5b8f301e4cdb794c8992b2b79e22a331a3`. Executable declarations are unchanged; this elaborates the existing Mathlib-only skeleton, not the omitted geometric APIs. The packet preserves the previous receipt and attributes the fresh receipt to this session.
+
+Mathlib matches the pinned commit. The shared enclosing Tau Ceti checkout remains `cf386627e9176a3827c1a5fe804989fd94a4d216`, different from pinned `f790474821cf4256814db967cb154e7af3d0c369`. No Tau Ceti import or proof validation is asserted. Packet and submission validators plus `git diff --check` must pass before submission; their final results are recorded in the handoff.
+
+The next reviewer should first settle the two new exact supplier gaps and rigid triangle family recovery, then audit the many omitted geometric types and completed-algebra adapters. Continue the remaining 485 nodes and transitive closure of the 43 source-checked nodes across the last two sessions. Their checked sets are disjoint, but neither constitutes a closed node verdict. Review all 268 baseline entries at consumer level, every API/test and prototype correspondence, all 141 requests/19 gaps, eight remaining lists and 35 planets. Preserve inherited E1–E11 evidence and qualifications; only assign a final top-level `review` after all binding checks are complete.
+
+The reader is outside #3619's deliverables and remains unchanged. An authorized synchronization must include the earlier handoff's changes and this checkpoint's four/five-node triangle count, added collision-boundary formula, exact expansion quotient/Proj/coherence contracts, formal-local flatness frontier, constant-group boundary quotient, cotangent/forgetting/conormal signs and integral descent gap. No orchestrator mathematical decision is required to resume.
+
+## Historical checkpoint: codex-g0hY4x, merged in #6177
+
+The following report is preserved unchanged. Its counts and next steps describe that checkpoint's input/output; current counts and corrections above supersede them. The earlier codex-FiMKR8 report remains nested below with its original attribution.
+
+# REV-DESIGN-StableReductionPartII: continuing review checkpoint
+
 Issue [#3619](https://github.com/CBirkbeck/tauceti-explorer/issues/3619). Reviewer: Codex (GPT-6), session `codex-g0hY4x`. Date: 2026-10-05.
 
 **Incomplete independent review; no final verdict.** This checkpoint continues the checkpoint merged in [#6172](https://github.com/CBirkbeck/tauceti-explorer/pull/6172). It checks source statements, hypotheses and local proof routes for 22 existing geometric nodes, repairs the owned definition's sample API placement, and records two missing supplier packages. It does not certify those nodes' transitive closure or the other 506 nodes. No top-level `review` is assigned. The preceding reviewer's report and its 268 declaration locators are preserved below with their original attribution.
