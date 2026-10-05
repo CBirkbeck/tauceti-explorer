@@ -785,6 +785,17 @@
     "data/blueprints/K3BlochGroups--V.3.md"
    ]
   },
+  "research/blueprint/packets/K3BlochGroups--V.5.json": {
+   "promotedAt": "2026-10-05T23:48:27Z",
+   "review": "9d8211aece1038d5",
+   "reviewDate": "2026-10-05",
+   "reviewer": "independent-review-REV-K3BlochGroups--V.5",
+   "sha256": "9c3ba37f9798e5f101b4870ef4d62c61d2fd073051629ad81ba751377a06fa90",
+   "to": [
+    "data/blueprints/K3BlochGroups--V.5.json",
+    "data/blueprints/K3BlochGroups--V.5.md"
+   ]
+  },
   "research/blueprint/packets/K3BlochGroups.json": {
    "promotedAt": "2026-10-01T20:54:46Z",
    "review": "2e423d798136b2c9",

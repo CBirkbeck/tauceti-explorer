@@ -3472,8 +3472,8 @@
     "declarationLevel": {
      "source": "blueprint",
      "reviewed": true,
-     "declarations": 126,
-     "missingDeclarations": 126,
+     "declarations": 144,
+     "missingDeclarations": 144,
      "depth": 18,
      "layersCovered": 6,
      "layers": 6,
