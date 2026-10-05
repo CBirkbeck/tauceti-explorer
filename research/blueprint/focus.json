@@ -1,0 +1,111 @@
+{
+ "purpose": "The roadmaps the maintainer wants finished next (2026-10-05): every roadmap covering these areas. Their planning, review, assembly and fix issues carry the label `focus`, and workers take `focus` issues first (WORKERS.md). Edit this file to change the focus; the next intake sync relabels the issues.",
+ "areas": {
+  "Habiro rings and Habiro cohomology": [
+   "HabiroRings",
+   "HabiroNumberFields",
+   "HabiroCyclotomicCompletions",
+   "HabiroNahmSeries",
+   "HabiroCohomologyFoundations",
+   "ArithmeticQuantumTopology",
+   "QWittVectors",
+   "SolidAnalyticRings",
+   "AnalyticHabiroStack",
+   "RingStacksAndTransmutation",
+   "AnalyticStacks"
+  ],
+  "K-theory": [
+   "GeneralAlgebraicKTheory",
+   "KTheoryLowDegrees",
+   "K2SymbolsBrauer",
+   "K3BlochGroups",
+   "Polylogarithms",
+   "BorelRegulators",
+   "ArithmeticKTheory",
+   "KTheoryFiniteLocalFields",
+   "EllipticKTheory",
+   "EllipticRegulators",
+   "SchemeKTheoryOperations",
+   "StableHomotopyKTheory",
+   "MotivicEtaleKTheory",
+   "RefinedTraceMethods",
+   "PadicHodgeRegulators",
+   "SpecialValuesBirchTate"
+  ],
+  "Serre modularity": [
+   "ClassicalSerreModularity",
+   "SmallRamificationAndAbelianVarietyBaseCases",
+   "AlgebraicModularFormsAndSerreWeights",
+   "GL2ModularityLifting",
+   "PotentialModularityAndCompatibleSystems",
+   "EllipticCurveModularity",
+   "EllipticModularityEffectiveComparisons"
+  ],
+  "BSD in rank 0 and 1": [
+   "RankZeroOneBSD",
+   "GrossZagierAndArithmeticHeights",
+   "HeegnerPointEulerSystems",
+   "EulerSystemsAndKolyvaginSystems",
+   "KatoEulerSystems",
+   "GeneralizedHeegnerCycles"
+  ],
+  "Weil conjectures": [
+   "WeilConjectures",
+   "DeligneWeightsAndPurity",
+   "WeightsInEtaleCohomology",
+   "LefschetzPencilsAndVanishingCycles",
+   "EtaleDualityAndPerverseSheaves"
+  ],
+  "Fargues–Scholze": [
+   "FarguesFontaineDiamonds",
+   "RelativeFarguesFontaine",
+   "VectorBundlesAndIsocrystals",
+   "PerfectoidSpaces",
+   "AdicEtaleGeometry",
+   "ClassicalAdicEtaleCohomology",
+   "AdicCoefficientsAndComparisons",
+   "DiamondsAndVStacks",
+   "DiamondEtaleCohomology",
+   "DiamondSixOperations",
+   "VStackSheavesAndLisseCategories",
+   "BunGAndNewtonStrata",
+   "GeometricSatakeAndFusion",
+   "HeckeStacksAndLocalShtukas",
+   "ExcursionOperatorsAndSpectralAction",
+   "LanglandsParameterStacks"
+  ],
+  "Bhatt–Scholze": [
+   "PrismaticCohomology",
+   "AInfCohomology",
+   "PerfectoidQuotients",
+   "DerivedDeRhamCohomology",
+   "CrystallineCohomology",
+   "CohomologyComparisons"
+  ],
+  "Shimura varieties": [
+   "ShimuraData",
+   "ShimuraVarieties",
+   "ShimuraCompactifications",
+   "PELModuli",
+   "HilbertModularVarietiesAndShimuraCurves",
+   "PerfectoidShimuraVarieties",
+   "IgusaVarietiesAndTorsionConcentration",
+   "HodgeTateAndCanonicalSubgroups",
+   "ComplexMultiplicationAndExplicitReciprocity"
+  ],
+  "Automorphic forms": [
+   "AdelicAlgebraicGroups",
+   "AutomorphicFormsOnReductiveGroups",
+   "AutomorphicSpectralTheory",
+   "AutomorphicLFunctionsAndLocalFactors",
+   "AutomorphicBundles",
+   "GL2AutomorphicRepresentationsAndTransfer",
+   "ArithmeticLocallySymmetricSpaces",
+   "MetaplecticAutomorphicForms",
+   "OverconvergentAutomorphicForms",
+   "AutomorphicGaloisRepresentations",
+   "AutomorphicGaloisRepresentationsPartII",
+   "ModularityAndLanglandsExtensions"
+  ]
+ }
+}

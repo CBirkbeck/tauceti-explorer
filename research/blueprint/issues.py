@@ -36,7 +36,7 @@ KIND_TITLE = {"blueprint": "Blueprint", "design": "New roadmap", "link": "Links"
 LOCAL_ONLY = {"PLAN-HABIRO", "REV-PLAN-HABIRO"}
 LABEL_COLOURS = {"swarm": "5b6b7a", "state:available": "2da44e", "state:blocked": "c5c9ce", "state:claimed": "bf8700",
                  "state:running": "1f6feb", "state:submitted": "8250df", "state:done": "57606a", "local-only": "b60205",
-                 "owns-key-definitions": "0e8a16"}
+                 "owns-key-definitions": "0e8a16", "focus": "d93f0b"}
 
 
 def publicize(text):
@@ -247,6 +247,16 @@ def body(job, jobs, roadmaps, stages):
 
 
 def title(job, roadmaps):
+    """The issue title. A revision round of a plan, and the review of one, say which round they are."""
+    text = _title(job, roadmaps)
+    plan = job["id"] if job["kind"] in ("blueprint", "design") else (job.get("after") or [""])[0] if job["kind"] == "review" else ""
+    base, _, round_no = plan.partition("~")
+    if round_no.isdigit() and base.startswith(("BP-", "DESIGN-")):
+        text = f"{text} (revision {round_no})"
+    return text
+
+
+def _title(job, roadmaps):
     kind = KIND_TITLE.get(job["kind"], job["kind"])
     jid = job["id"]
     rid = (job.get("roadmapIds") or [None])[0]
@@ -335,6 +345,26 @@ def key_definition_owners():
         return set()
 
 
+def focus_roadmaps():
+    """The roadmaps the maintainer wants finished next (research/blueprint/focus.json)."""
+    try:
+        areas = json.loads((BP / "focus.json").read_text()).get("areas", {})
+    except (OSError, ValueError):
+        return set()
+    return {rid for ids in areas.values() for rid in ids}
+
+
+def is_focus(job, focus=None):
+    """Whether a job helps finish a focus roadmap: its plans, assembly and fixes, and their reviews. Red teams
+    and their reviews check finished work, so they keep their turn."""
+    focus = focus_roadmaps() if focus is None else focus
+    if job["kind"] not in ("blueprint", "design", "assembly", "fix", "review"):
+        return False
+    if job["kind"] == "review" and not (job.get("after") or [""])[0].startswith(("BP-", "DESIGN-", "FIX-", "ASM-")):
+        return False
+    return any(rid in focus for rid in job.get("roadmapIds") or [])
+
+
 def labels_for(job, roadmaps, by_id):
     rid = (job.get("roadmapIds") or [None])[0]
     group = roadmaps[rid].get("group") if rid in roadmaps else job.get("area")
@@ -348,6 +378,8 @@ def labels_for(job, roadmaps, by_id):
         out.append(f"area:{group}")
     if job["id"] in key_definition_owners():
         out.append("owns-key-definitions")
+    if is_focus(job):
+        out.append("focus")
     return out
 
 
@@ -597,13 +629,23 @@ def set_state(number, wanted, current):
     return subprocess.run(command, capture_output=True, text=True, cwd=REPO).returncode == 0
 
 
+# A change to focus.json relabels many issues; sync spreads the edits over its runs.
+FOCUS_EDITS_PER_SYNC = 60
+
+
+def set_focus(number, wanted):
+    command = ["gh", "issue", "edit", str(number), "--add-label" if wanted else "--remove-label", "focus"]
+    return subprocess.run(command, capture_output=True, text=True, cwd=REPO).returncode == 0
+
+
 def sync(mapping):
     """Claims flow from GitHub into the queue; local progress flows back as labels."""
     import fcntl
     issues = {item["number"]: item for item in list_issues("swarm", "all")}
     lock = open(BP / ".queue.lock", "a+")
     fcntl.flock(lock, fcntl.LOCK_EX)
-    changed_queue, edits, closed = 0, 0, 0
+    changed_queue, edits, closed, focus_edits = 0, 0, 0, 0
+    focus = focus_roadmaps()
     try:
         queue = json.loads((BP / "queue.json").read_text())
         by_id = {j["id"]: j for j in queue["jobs"]}
@@ -624,6 +666,10 @@ def sync(mapping):
                     job["finishedAt"] = __import__("datetime").datetime.now(__import__("datetime").timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
             if wanted and wanted not in labels:
                 edits += set_state(number, wanted, labels)
+            if (item["state"] == "OPEN" and wanted != "state:done" and focus_edits < FOCUS_EDITS_PER_SYNC
+                    and is_focus(job, focus) != ("focus" in labels)):
+                focus_edits += 1
+                edits += set_focus(number, "focus" not in labels)
             if wanted == "state:done" and item["state"] == "OPEN":
                 note = "Finished by the local swarm." if job.get("account") else "Finished."
                 subprocess.run(["gh", "issue", "close", str(number), "--comment", note], capture_output=True, cwd=REPO)

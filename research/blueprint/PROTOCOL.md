@@ -57,7 +57,10 @@ then records each stage's coverage honestly, with a precise `remaining` list for
 every stage it leaves open, and sets the packet's status to `complete`. A
 complete packet goes to its independent review. Once the review accepts it,
 each stage the packet left open becomes a follow-up job with its own packet and
-review, and an assembly job joins the parts into one roadmap.
+review, and an assembly job joins the parts into one roadmap. A packet accepted
+as `partial` before the node budget existed hands on its open stages the same
+way. A plan its review does not accept is revised in place by a revision round
+(`<job>~2`, at most three rounds), and a new independent review checks it.
 
 Read at least two upstream documents in or near your area before writing, for
 example `content/tau-ceti/ModularForms/README.md`,

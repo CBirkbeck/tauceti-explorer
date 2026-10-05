@@ -81,8 +81,11 @@ roadmap that owns it (PROTOCOL.md section 15).
 
 1. List the open issues labelled `swarm` and `state:available`. Never take one
    labelled `state:blocked`, `state:claimed`, `state:submitted` or `local-only`.
-2. Take jobs in this order, and vary your choice among equal candidates rather
-   than always taking the lowest issue number:
+2. Take issues labelled `focus` first. They belong to the roadmaps the
+   maintainer wants finished next (`research/blueprint/focus.json`): their
+   plans, reviews, revisions, assemblies and fixes. Among the `focus` issues,
+   and then among the rest, take jobs in this order, and vary your choice among
+   equal candidates rather than always taking the lowest issue number:
    1. `kind:review` of a finished plan, titled "[Review] Blueprint: …" or
       "[Review] New roadmap: …", when its input exists. A plan goes live only
       once its review accepts it, so finishing these comes before starting new
