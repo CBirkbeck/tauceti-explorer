@@ -3942,6 +3942,18 @@ lemma connectedAut_mul (x : ConnectedFibre I G) (g h : G) :
 lemma connectedIso_hom_inv_id (x y : ConnectedFibre I G) :
     (connectedIso I G x y).hom ≫ (connectedIso I G x y).inv = 𝟙 x := by sorry
 
+-- ConnectedEquivTests.emptyFibreCollapse: no coefficient recovery without a fibre object.
+example : let a : Subgroup.center (Multiplicative (ZMod 3)) :=
+      ⟨Multiplicative.ofAdd 1, by rw [CommGroup.center_eq_top]; trivial⟩
+    a ≠ 1 ∧ connectedCenterUnit Empty (Multiplicative (ZMod 3)) a =
+      connectedCenterUnit Empty (Multiplicative (ZMod 3)) 1 := by sorry
+
+-- ConnectedBandTests.emptyFibreNotGerbe: stack descent does not imply local nonemptiness.
+example : (constantDiagram (Discrete PUnit)
+      (ConnectedFibre Empty (Multiplicative (ZMod 3)))).IsStack ⊥ ∧
+    ¬ IsGerbe (constantDiagram (Discrete PUnit)
+      (ConnectedFibre Empty (Multiplicative (ZMod 3)))) ⊥ := by sorry
+
 end TauCeti.AlgebraicGeometry.ConnectedBandFixtures
 
 /-! Nonconstant restriction-band continuation. The actual diagram and bottom-topology sheaf wrappers use built primitives; all other new mathematical declarations remain planning admissions. The checked proof archive is recorded in the handoff. No stage or general gerbe key closes. -/

@@ -2020,6 +2020,42 @@
         "module": "Mathlib/CategoryTheory/Skeletal.lean",
         "provides": "The induced category on isomorphism classes, whose objects can be a subsingleton while its Hom types retain nontrivial automorphisms.",
         "checked": "Statement read at exact pinned Mathlib on 2026-10-05; local module bytes compared with git show at the pin."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Discrete",
+        "kind": "structure",
+        "module": "Mathlib/CategoryTheory/Discrete/Basic.lean",
+        "sourceLine": 55,
+        "sourceSha256": "991b2b47f290004ad22760c7bc244b2258b68e4befd4f03a8f19dfab14b9e8b8",
+        "provides": "The native discrete category carrier retains its actual labels; no distinct-label morphism is introduced.",
+        "checked": "Declaration, ambient binders and defining fields read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex codex-weV8Bp on 2026-10-05; file matched the pinned git object."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.discreteCategory",
+        "kind": "instance",
+        "module": "Mathlib/CategoryTheory/Discrete/Basic.lean",
+        "sourceLine": 100,
+        "sourceSha256": "991b2b47f290004ad22760c7bc244b2258b68e4befd4f03a8f19dfab14b9e8b8",
+        "provides": "The native small-category instance on Discrete has equality witnesses as morphisms and singleton endomorphism types.",
+        "checked": "Declaration, ambient binders and defining fields read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex codex-weV8Bp on 2026-10-05; file matched the pinned git object."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Discrete.eq_of_hom",
+        "kind": "theorem",
+        "module": "Mathlib/CategoryTheory/Discrete/Basic.lean",
+        "sourceLine": 153,
+        "sourceSha256": "991b2b47f290004ad22760c7bc244b2258b68e4befd4f03a8f19dfab14b9e8b8",
+        "provides": "A morphism between two discrete objects gives equality of their underlying labels, ruling out the false-to-true fibre arrow.",
+        "checked": "Declaration, ambient binders and defining fields read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex codex-weV8Bp on 2026-10-05; file matched the pinned git object."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Pseudofunctor.IsStackFor",
+        "kind": "structure",
+        "module": "Mathlib/CategoryTheory/Sites/Descent/DescentData.lean",
+        "sourceLine": 507,
+        "sourceSha256": "2292153f538142a8c3879094fed08f38a619a6dd13af91ab1c2f29448fb5e13e",
+        "provides": "Effective descent relative to a presieve is the equivalence predicate for the actual canonical descent functor, with its native arrow indexing.",
+        "checked": "Declaration, ambient binders and defining fields read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex codex-weV8Bp on 2026-10-05; file matched the pinned git object."
       }
     ]
   },
@@ -14437,7 +14473,10 @@
         "mathlib:CategoryTheory.Functor.toPseudofunctor'",
         "mathlib:CategoryTheory.Cat.of",
         "mathlib:CategoryTheory.SingleObj.category",
-        "mathlib:CategoryTheory.SingleObj.groupoid"
+        "mathlib:CategoryTheory.SingleObj.groupoid",
+        "mathlib:CategoryTheory.Discrete",
+        "mathlib:CategoryTheory.discreteCategory",
+        "mathlib:CategoryTheory.Discrete.eq_of_hom"
       ],
       "proofSteps": [
         "Use the native discrete and product category carriers; no groupoid or centre is redefined.",
@@ -14988,14 +15027,12 @@
         "Point-site stack and positive gerbe statements specialize C to Discrete(PUnit) with bottom Grothendieck topology. The positive gerbe uses I=PUnit. Disconnected obstructions use I=Bool; noninjectivity also assumes an actual g unequal to identity."
       ],
       "prerequisites": [
-        "mathlib:CategoryTheory.Functor.const",
-        "mathlib:CategoryTheory.Functor.toPseudofunctor'",
-        "mathlib:CategoryTheory.Cat.of",
-        "mathlib:CategoryTheory.SingleObj.category",
-        "mathlib:CategoryTheory.SingleObj.groupoid"
+        "mathlib:CategoryTheory.discreteCategory",
+        "mathlib:CategoryTheory.Discrete.eq_of_hom",
+        "mathlib:CategoryTheory.SingleObj.category"
       ],
       "proofSteps": [
-        "The first component of any proposed isomorphism hom would be a discrete morphism from false to true, and therefore an impossible equality of those two labels."
+        "Project the hom of a proposed product isomorphism to its discrete factor. The native discrete-category equality theorem forces false = true, a contradiction."
       ],
       "acceptance": [
         "Use the actual inherited compatible-centre subgroup, restriction and automorphism evaluation, with no opaque replacement of descent or equality.",
@@ -15084,13 +15121,19 @@
         "mathlib:CategoryTheory.Functor.toPseudofunctor'",
         "mathlib:CategoryTheory.Cat.of",
         "mathlib:CategoryTheory.SingleObj.category",
-        "mathlib:CategoryTheory.SingleObj.groupoid"
+        "mathlib:CategoryTheory.SingleObj.groupoid",
+        "mathlib:CategoryTheory.discreteCategory",
+        "mathlib:CategoryTheory.Pseudofunctor.DescentData",
+        "mathlib:CategoryTheory.Pseudofunctor.DescentData.ofObj",
+        "mathlib:CategoryTheory.Pseudofunctor.toDescentData",
+        "mathlib:CategoryTheory.Pseudofunctor.DescentData.hom_ext",
+        "mathlib:CategoryTheory.Pseudofunctor.IsStackFor"
       ],
       "proofSteps": [
         "Every covering sieve is maximal. Its native arrow-index category has just one object: all point objects and point morphisms are equal, and the sieve-membership proof is irrelevant. Retain the identity-arrow index.",
         "The actual canonical descent functor is fully faithful: recover each descent morphism at the identity index, and use equality of indices for its map-preimage and preimage-map laws.",
         "For an actual native descent object choose its value at that index. Native DescentData.isoMk compares the canonical object with it by equality transport at every index. Its compatibility reduces to the native self-transition identity.",
-        "These are actual full, faithful and essentially-surjective instances of the canonical functor. Invoke the pinned stack constructor."
+        "Use the actual fully faithful and essentially-surjective instances of the canonical descent functor to construct the native IsStackFor witness for each covering sieve. Invoke IsStack.of_isStackFor. The native DescentData self-transition field and canonical ofObj comparison retain the pseudofunctor identity/composition constraints; no local-nonemptiness assumption is needed."
       ],
       "acceptance": [
         "Use the actual inherited compatible-centre subgroup, restriction and automorphism evaluation, with no opaque replacement of descent or equality.",
@@ -15657,7 +15700,8 @@
       ],
       "prerequisites": [
         "AlgebraicModuliForArithmeticGeometry:R09.4/connected-band-fixture-connected-center",
-        "mathlib:CategoryTheory.CatCenter.ext"
+        "mathlib:CategoryTheory.CatCenter.ext",
+        "mathlib:CategoryTheory.Prod.hom_ext"
       ],
       "proofSteps": [
         "Construct both natural endomorphisms using a and its inverse in the native subgroup.",
@@ -15739,11 +15783,14 @@
       "prerequisites": [
         "AlgebraicModuliForArithmeticGeometry:R09.4/connected-band-fixture-connected-center-unit",
         "mathlib:CategoryTheory.CatCenter.naturality",
-        "mathlib:Subgroup.mem_center_iff"
+        "mathlib:Subgroup.mem_center_iff",
+        "mathlib:CategoryTheory.Codiscrete.iso",
+        "mathlib:CategoryTheory.CatCenter.ext",
+        "mathlib:CategoryTheory.Prod.hom_ext"
       ],
       "proofSteps": [
         "Naturality against every loop at (i,star) proves that the recovered group element is central.",
-        "Naturality against the actual arrow (identity,1) from each object to (i,star) forces every component to have that same value.",
+        "For an arbitrary fibre object x, use the actual unique codiscrete comparison morphism from x.first to the label i, paired with the group identity as a morphism between the unique SingleObj objects. Naturality along this cross-object arrow forces the group component at x to equal the component at (i,star). The first factor is a comparison morphism, not an identity of x.first when the labels differ.",
         "Prove both inverse equations by subtype, unit and natural-transformation extensionality, and multiplication by evaluation."
       ],
       "acceptance": [
@@ -15801,6 +15848,11 @@
           "name": "ConnectedEquivTests.everyObject",
           "kind": "compatibility",
           "statement": "The centre equivalence has the same specified coefficient at every actual object."
+        },
+        {
+          "name": "ConnectedEquivTests.emptyFibreCollapse",
+          "kind": "non-example",
+          "statement": "For I empty and G the multiplicative group of Z/3Z, the distinct central coefficients given by additive 1 and additive 0 define the same categorical-centre unit. Hence the chosen member i is necessary for the asserted centre equivalence."
         }
       ]
     },
@@ -16040,7 +16092,8 @@
       ],
       "prerequisites": [
         "AlgebraicModuliForArithmeticGeometry:R09.4/connected-band-fixture-connected-sections-equiv",
-        "AlgebraicModuliForArithmeticGeometry:R09.4/connected-band-fixture-connected-sections-equiv-eval"
+        "AlgebraicModuliForArithmeticGeometry:R09.4/connected-band-fixture-connected-sections-equiv-eval",
+        "mathlib:CategoryTheory.Prod.hom_ext"
       ],
       "proofSteps": [
         "For a section use the inverse equivalence to recover its central coefficient.",
@@ -16089,7 +16142,9 @@
       "prerequisites": [
         "mathlib:CategoryTheory.SingleObj.category",
         "mathlib:CategoryTheory.Codiscrete",
-        "mathlib:CategoryTheory.isIso_prod_iff"
+        "mathlib:CategoryTheory.isIso_prod_iff",
+        "mathlib:CategoryTheory.SingleObj.comp_as_mul",
+        "mathlib:CategoryTheory.Aut"
       ],
       "proofSteps": [
         "Construct a native categorical isomorphism.",
@@ -16313,13 +16368,19 @@
         "mathlib:CategoryTheory.GrothendieckTopology.bot_covering",
         "mathlib:CategoryTheory.Functor.const",
         "mathlib:CategoryTheory.Functor.toPseudofunctor'",
-        "mathlib:CategoryTheory.Cat.of"
+        "mathlib:CategoryTheory.Cat.of",
+        "mathlib:CategoryTheory.discreteCategory",
+        "mathlib:CategoryTheory.Pseudofunctor.DescentData",
+        "mathlib:CategoryTheory.Pseudofunctor.DescentData.ofObj",
+        "mathlib:CategoryTheory.Pseudofunctor.toDescentData",
+        "mathlib:CategoryTheory.Pseudofunctor.DescentData.hom_ext",
+        "mathlib:CategoryTheory.Pseudofunctor.IsStackFor"
       ],
       "proofSteps": [
         "A covering sieve is top. Its actual arrow category has a single object and singleton hom types.",
         "For the native canonical descent functor, construct full faithfulness by reading a morphism at the identity arrow.",
         "Read a descent object at the identity arrow and use native DescentData.isoMk and its self-coherence equation to construct the essential-surjectivity isomorphism.",
-        "Apply the existing IsStack constructor. This generalizes the incoming point-fixture proof in its fibre parameter; it does not build a second general stack carrier."
+        "Use the actual fully faithful and essentially-surjective instances of the canonical descent functor to construct the native IsStackFor witness for each covering sieve. Invoke IsStack.of_isStackFor. The native DescentData self-transition field and canonical ofObj comparison retain the pseudofunctor identity/composition constraints; no local-nonemptiness assumption is needed."
       ],
       "acceptance": [
         "Use actual native categories, arrows, automorphisms, centre units and compatible sections.",
@@ -16406,6 +16467,11 @@
           "name": "NonabelianBandTests.oneObject",
           "kind": "degenerate",
           "statement": "The S3 fixture has a subsingleton actual object type, so its obstruction does not arise from disconnected objects."
+        },
+        {
+          "name": "ConnectedBandTests.emptyFibreNotGerbe",
+          "kind": "non-example",
+          "statement": "On the one-object point site with bottom topology, the constant diagram with fibre Codiscrete(empty) times SingleObj(C3) is a stack but is not a gerbe: its maximal covering sieve contains the identity arrow and its fibre has no object."
         }
       ]
     },
