@@ -12,9 +12,10 @@ import Mathlib.LinearAlgebra.Matrix.Notation
 import Mathlib.LinearAlgebra.ExteriorAlgebra.Basic
 
 /-!
-This file is not the roadmap and is not exhaustive. BorelRegulators.md is
-definitive. The statements suggest Lean forms so contributors and reviewers
-converge on names and signatures. Every declaration remains unchecked.
+This file is not the roadmap and is not exhaustive. The packet and reader must
+agree before acceptance; REV-BorelRegulators records the pending reader revision.
+The statements suggest Lean forms so contributors and reviewers converge on names
+and signatures. Every declaration remains unchecked.
 
 The native prototypes below use existing Mathlib carriers. The complete
 mathematical signature register at the end supplies every packet name, API
@@ -429,12 +430,11 @@ end TauCeti.Borel
 /-!
 Complete mathematical signature register
 
-Each entry below is an exact packet interface. Where a native component
-above elaborates, the entry gives its full arithmetic specialization.
-For unavailable canonical higher objects, these are mathematical
-signatures and example specifications, not hidden Lean axioms.
-They become declarations with proofs only after the listed owner
-exports its actual types, maps and comparison hypotheses.
+Each entry is an exact packet interface. Native components above elaborate;
+unavailable canonical higher objects remain mathematical signatures and example
+specifications, not Lean axioms. Replace comments only after their owners export
+the actual types and maps. Review corrections await the reader revision described
+in REV-BorelRegulators; this register follows the corrected packet.
 
 R.1
 ============================================================
@@ -504,14 +504,14 @@ BorelRegulators:R.1/quillen-finiteness-interface
 TauCeti.Borel.quillenRankFiltration_finitenessInput :
 For a maximal order O in a central division number algebra, the category of projective O-modules of rank at most n has only finitely many isomorphism classes in rank n (Jordan–Zassenhaus). Quillen’s rank-filtration relative homology is assembled from H_{i−n}(Aut_O(P),St_D(P⊗D)) over those classes. Thus every finite-rank filtration step has finitely generated integral homology; ArithmeticKTheory:N.3:finite-generation owns stabilization, plus/Q comparison and K_i(O) finite generation. Extension of this argument to a nonmaximal order requires an additional order-comparison theorem and is not inferred from Quillen’s hereditary-order filtration.
 Hypotheses: O is maximal; projective-module exact category and Q construction imported from GeneralAlgebraicKTheory.
-Prerequisites: BorelRegulators:R.1/steinberg-duality-finiteness, ArithmeticKTheory:N.3:finite-generation, GeneralAlgebraicKTheory:K.2
+Prerequisites: BorelRegulators:R.1/steinberg-duality-finiteness, ArithmeticKTheory:N.3:finite-generation, GeneralAlgebraicKTheory:K.2:plus
 Theorem/application acceptance: This node does not duplicate the final finite-generation theorem in N.3.
 
 BorelRegulators:R.1/finite-type-plus-consequences
 TauCeti.Borel.arithmeticPlus_finiteType :
 For a maximal order O, the arithmetic plus/Q model of K(O), supplied by K.2 with H.3–H.4, is a connected homotopy-associative H-space on its positive component, with the correct K_1 fundamental group, trivial π1 action on higher homotopy and finite-type integral homology in each degree. Its higher homotopy groups are finitely generated using the finite-type H-space theorem; the arithmetic finite-generation endpoint is imported from N.3. Rational rank calculations for all orders use only the finite-dimensional rational comparison and do not depend on this integral endpoint.
 Hypotheses: Use the genuine local-coefficient-acyclic plus construction and the cofinal-projective comparison; simple connectedness of BGL+ is not assumed.
-Prerequisites: BorelRegulators:R.1/quillen-finiteness-interface, StableHomotopyKTheory:H.3, StableHomotopyKTheory:H.4, GeneralAlgebraicKTheory:K.2, ArithmeticKTheory:N.3:finite-generation
+Prerequisites: BorelRegulators:R.1/quillen-finiteness-interface, StableHomotopyKTheory:H.3, StableHomotopyKTheory:H.4, GeneralAlgebraicKTheory:K.2:plus, ArithmeticKTheory:N.3:finite-generation
 Theorem/application acceptance: BGL+ has π1=K1, which need not vanish; no simply connected substitution is admissible.
 
 R.2
@@ -535,9 +535,9 @@ TauCeti.Borel.arithmeticRestriction_degree_two : The degree-two discrete compari
 
 BorelRegulators:R.2/arithmetic-invariant-form-map
 TauCeti.Borel.arithmeticInvariantFormMap :
-For a connected semisimple real algebraic group G, maximal compact K, torsion-free arithmetic Γ and X=K\G(R), j_Γ:H^q(g,k;R)→H^q(Γ,R) sends a relative Lie class to its G-invariant differential form descended to X/Γ and then to its singular cohomology class. For general Γ use the finite-index torsion-free subgroup and real-coefficient invariant descent. Via van Est it equals arithmeticRestriction. Component-group invariants are retained when G(R) is disconnected.
-Hypotheses: Invariant forms, van Est and the early Betti/de Rham comparison are supplied by AF.1a and ALS.5:finite-level-duality.
-Prerequisites: BorelRegulators:R.2/arithmetic-restriction, AutomorphicFormsOnReductiveGroups:AF.1a, ArithmeticLocallySymmetricSpaces:ALS.5:finite-level-duality, ArithmeticLocallySymmetricSpaces:ALS.2
+For a connected semisimple real algebraic group G, maximal compact K, torsion-free arithmetic Γ and X=K\G(R), j_Γ:(H^q(g,k;R))^{K/K°}→H^q(Γ,R) sends a full-K-invariant relative Lie class to its G(R)-invariant differential form descended to X/Γ and then to its singular cohomology class. Equivalently the source is H^q(g,K;R), with the K-component action retained. For general Γ use a torsion-free normal finite-index subgroup and real-coefficient invariant descent. Via van Est it equals arithmeticRestriction. If G(R) is connected, the component restriction reduces to the usual connected relative comparison.
+Hypotheses: AF.1a supplies the full (g,K) convention and van Est; the nonautomorphic Betti/de Rham part of ALS.5 must be split into an early comparison export. ALS.5:finite-level-duality alone does not supply this extra comparison.
+Prerequisites: BorelRegulators:R.2/arithmetic-restriction, AutomorphicFormsOnReductiveGroups:AF.1a, ArithmeticLocallySymmetricSpaces:ALS.5, ArithmeticLocallySymmetricSpaces:ALS.2
 API lemma signatures:
 TauCeti.Borel.arithmeticInvariantFormMap_vanEst : jΓ=resΓ∘vanEst⁻¹ for the AF.1a convention on relative cochains.
 TauCeti.Borel.arithmeticInvariantFormMap_descent : Its pullback to a torsion-free finite-index Γ′ equals the invariant form on X/Γ′.
@@ -547,13 +547,13 @@ TauCeti.Borel.arithmeticInvariantFormMap_coeff : Extension R→C commutes with t
 Named example specifications:
 TauCeti.Borel.arithmeticInvariantFormMap_unit : The constant invariant 0-form 1 maps to the unit cohomology class.
 TauCeti.Borel.arithmeticInvariantFormMap_point : If X/Γ is a point then every positive-degree class maps to zero.
-TauCeti.Borel.arithmeticInvariantFormMap_component_invariants : For disconnected G(R), replacing the invariant source by unrestricted connected-component cohomology is disallowed whenever the component action is nontrivial.
+TauCeti.Borel.arithmeticInvariantFormMap_component_invariants : For G=PGL₂ over R, K=PO₂ and compact dual S² for the identity component, the nonidentity K-component reverses the two-dimensional tangent orientation. It acts by −1 on H²(S²;R), so the full-K-invariant degree-two source is zero although H²(S²;R)=R.
 
 BorelRegulators:R.2/block-comparison-naturality
 TauCeti.Borel.arithmeticComparison_block_natural :
 For an injective real algebraic homomorphism f:G→G′ taking Γ into Γ′, choose K′ containing f(K). The invariant-form restriction, relative Lie pullback, continuous-cohomology pullback and arithmetic-group pullback form commuting squares with jΓ and jΓ′. In the order system this holds for every diag(g,I_r) and commutes with coefficient extension R→C. The induced compact-dual pullback is independent of compatible maximal-compact choices up to the canonical conjugacy identifications.
 Hypotheses: Groups, arithmetic subgroups and compact duals satisfy the R.2 comparison hypotheses.
-Prerequisites: BorelRegulators:R.2/arithmetic-invariant-form-map, BorelRegulators:R.1/order-arithmetic-system, AutomorphicFormsOnReductiveGroups:AF.1a, ArithmeticLocallySymmetricSpaces:ALS.5:finite-level-duality, tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-9-the-cartan-iwasawa-and-kak-decompositions
+Prerequisites: BorelRegulators:R.2/arithmetic-invariant-form-map, BorelRegulators:R.1/order-arithmetic-system, AutomorphicFormsOnReductiveGroups:AF.1a, ArithmeticLocallySymmetricSpaces:ALS.5, tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-9-the-cartan-iwasawa-and-kak-decompositions
 Theorem/application acceptance: Composing two block inclusions gives the same comparison square as their single block inclusion.
 
 BorelRegulators:R.2/stable-hopf-compatibility
@@ -575,7 +575,7 @@ Theorem/application acceptance: The quaternionic quotient has USp_{ne}, not SO_{
 
 BorelRegulators:R.3/compact-dual-cohomology
 TauCeti.Borel.compactDual_stableExterior :
-With real coefficients, the degreewise stable cohomology rings are H*(SU)=Λ(x_3,x_5,x_7,…), H*(SU/SO)=Λ(y_5,y_9,y_13,…) and H*(SU/USp)=Λ(z_5,z_9,z_13,…). The named generators are primitive for stable block sum. The finite-dimensional groups and homogeneous spaces have their own unstable relations; the displayed infinite exterior algebras assert only degreewise stable cohomology.
+With real coefficients, the degreewise stable cohomology rings are H*(SU)=Λ(x_3,x_5,x_7,…), H*(SU/SO)=Λ(y_5,y_9,y_13,…) and H*(SU/USp)=Λ(z_5,z_9,z_13,…). The named generators are primitive for stable block sum. The finite-dimensional groups and homogeneous spaces have their own unstable relations; the displayed infinite exterior algebras assert only degreewise stable cohomology. For finite ranks m≥1, H*(SU_m;R)=Λ(x_3,x_5,…,x_{2m−1}); H*(SU_{2m+1}/SO_{2m+1};R)=Λ(y_5,y_9,…,y_{4m+1}); H*(SU_{2m}/SO_{2m};R)=Λ(y_5,y_9,…,y_{4m−3})⊗R[e_{2m}]/(e_{2m}²); and H*(SU_{2m}/USp_{2m};R)=Λ(z_5,z_9,…,z_{4m−3}), with empty generator ranges interpreted as R. Block pullback preserves the named transgressed odd generators wherever they occur; the even-rank Euler class is unstable.
 Hypotheses: Stability maps come from the compatible classical block inclusions.
 Prerequisites: BorelRegulators:R.3/classical-compact-duals, mathlib:ExteriorAlgebra, tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent, tauceti:TauCetiRoadmap/AlgebraicTopology#stage-6-cohomology-products-and-manifold-duality
 Theorem/application acceptance: H³(SU/SO;R)=H³(SU/USp;R)=0, while H³(SU;R)=R. Finite-size cohomology is not replaced by the stable ring without a degree bound.
@@ -605,7 +605,7 @@ BorelRegulators:R.3/gl-sl-primitive-comparison
 TauCeti.Borel.stableGL_SL_primitiveComparison :
 For O as above and i≥2, the stable elementary-group plus model and BGL(O)+ have the same rational higher-homotopy primitive contribution. The determinant/reduced-norm quotient contributes the K1 component and degree-one classes; it does not add primitive generators in degrees i≥2. Under the K.2 plus/Q comparison, K_i(O)⊗R identifies with primitive degree-i homology of the stable arithmetic system computed by SL, with its stable block-sum structure.
 Hypotheses: Use the stable perfect elementary subgroup and the connected homotopy-associative K-space supplied by K.2/H.3/H.4. The assertion is about higher primitive homology, not equality of the full SL and GL cohomology rings.
-Prerequisites: BorelRegulators:R.3/stable-arithmetic-exterior, GeneralAlgebraicKTheory:K.2, StableHomotopyKTheory:H.3, StableHomotopyKTheory:H.4
+Prerequisites: BorelRegulators:R.3/stable-arithmetic-exterior, GeneralAlgebraicKTheory:K.2:plus, StableHomotopyKTheory:H.3, StableHomotopyKTheory:H.4
 Theorem/application acceptance: For i=1 the statement is not asserted; real units can contribute there.
 
 BorelRegulators:R.3/cartan-serre-application
@@ -638,6 +638,7 @@ TauCeti.Borel.borelRankTheorem_Q_two : dim_Q(K3(Z)⊗Q)=0.
 TauCeti.Borel.borelRankTheorem_Q_three : dim_Q(K5(Z)⊗Q)=1.
 TauCeti.Borel.borelRankTheorem_imaginary_quadratic : For [F:Q]=2, r1=0 and j≥2, the odd K-group rank is one.
 TauCeti.Borel.borelRankTheorem_units_excluded : The theorem cannot be applied at j=1: rank K1(O_F)=r1+r2−1.
+Theorem/application acceptance: For F=Q, j=2 gives rank zero and j=3 gives rank one. For an imaginary quadratic F, every j≥2 gives rank one.
 
 BorelRegulators:R.3/s-integer-rank-import
 TauCeti.Borel.borelRank_sIntegers :
@@ -672,7 +673,7 @@ Choose one complex embedding above each complex infinite place; real places have
 Hypotheses: The selection is explicit data; changing a complex representative changes its coordinate by (−1)^{j−1}.
 Prerequisites: BorelRegulators:R.4/archimedean-target, mathlib:NumberField.InfinitePlace.mk_eq_iff, mathlib:IsZLattice, mathlib:ZLattice.covolume
 API lemma signatures:
-TauCeti.Borel.targetCoordinates_apply : The v-coordinate is evaluation at the selected embedding σ_v divided by the fixed Tate generator.
+TauCeti.Borel.targetCoordinates_apply : In the native real-function model, c_j(x)(v)=x(σ_v). Starting from the complex Tate model, first use archimedeanTarget_twist to divide by the fixed generator (2πi)^{j−1} exactly once, then evaluate; no second division occurs in c_j.
 TauCeti.Borel.targetCoordinates_symm : Reconstruction uses x_v at σ_v and (−1)^{j−1}x_v at σ̄_v, with zero at even-weight real places.
 TauCeti.Borel.targetCoordinates_inverse : Evaluation and reconstruction are mutually inverse real linear maps.
 TauCeti.Borel.targetCoordinates_change : Changing selected representatives gives a diagonal matrix with entries ±1 and absolute determinant one.
@@ -727,7 +728,7 @@ BorelRegulators:R.4/borel-regulator
 TauCeti.Borel.borelRegulator :
 For a number field F and j≥2 define r_Bo,F:K_{2j−1}(F)→V_j(F) by each σ:F→C: apply σ* on K-theory, the genuine plus-space Hurewicz map, continuous-to-discrete restriction of Bo_j, and the homology/cohomology pairing in R(j−1). Conjugation gives the simultaneous fixed-subspace condition. The reserved arithmetic map r_Bo,O_F:K_{2j−1}(O_F)→V_j(F) is composition with the localization map O_F→F. Burgos’s renormalized convention is used, not Borel’s original lattice convention.
 Hypotheses: j≥2; localization and plus/Q comparison are actual maps supplied by K.2 and N.3:ranks.
-Prerequisites: BorelRegulators:R.4/universal-borel-class, BorelRegulators:R.4/archimedean-target, BorelRegulators:R.2/arithmetic-restriction, GeneralAlgebraicKTheory:K.2, StableHomotopyKTheory:H.3, ArithmeticKTheory:N.3:ranks, tauceti:TauCetiRoadmap/AlgebraicTopology#stage-2-relative-singular-chains-and-homology
+Prerequisites: BorelRegulators:R.4/universal-borel-class, BorelRegulators:R.4/archimedean-target, BorelRegulators:R.2/arithmetic-restriction, GeneralAlgebraicKTheory:K.2:plus, StableHomotopyKTheory:H.3, ArithmeticKTheory:N.3:ranks, tauceti:TauCetiRoadmap/AlgebraicTopology#stage-2-relative-singular-chains-and-homology
 API lemma signatures:
 TauCeti.Borel.borelRegulator_embedding : The σ-component equals r_Bo,C∘K(σ).
 TauCeti.Borel.borelRegulator_add : r_Bo is an additive homomorphism; it kills every torsion element.
@@ -762,7 +763,7 @@ BorelRegulators:R.4/regulator-transfer
 TauCeti.Borel.borelRegulator_transfer :
 For a finite number-field extension f:F→E and j≥2, r_E∘f*=pull_f∘r_F and r_F∘f_*=Tr_f∘r_E on higher K-groups of fields, where f_* is restriction-of-scalars transfer. Thus r_F∘f_*∘f*=[E:F]r_F. The same formula for rings of integers uses their finite projective transfer and compatibility with localization; no unramified hypothesis is added to this field-level formula.
 Hypotheses: Transfer is the genuine exact-category transfer, compatible with field localization; its embedding Mackey/base-change formula is requested from K.2.
-Prerequisites: BorelRegulators:R.4/borel-regulator, BorelRegulators:R.4/embedding-pull-trace, GeneralAlgebraicKTheory:K.2, ArithmeticKTheory:N.3:ranks
+Prerequisites: BorelRegulators:R.4/borel-regulator, BorelRegulators:R.4/embedding-pull-trace, GeneralAlgebraicKTheory:K.2:plus, ArithmeticKTheory:N.3:ranks, GeneralAlgebraicKTheory:K.3
 Theorem/application acceptance: An even-weight real target receives the sum of a conjugate pair, which is zero.
 
 BorelRegulators:R.4/regulator-adams-products
@@ -860,11 +861,18 @@ Hypotheses: j≥2; completed-zeta convention and exact zero order fixed.
 Prerequisites: BorelRegulators:R.5/zeta-leading-coefficient, BorelRegulators:R.5/completed-zeta-conventions, AutomorphicLFunctionsAndLocalFactors:AL.1/archimedean-local-theory, mathlib:riemannZeta_neg_nat_eq_bernoulli
 Theorem/application acceptance: For Q,j=2 the formula gives ζ(−1)=−1/12.
 
+BorelRegulators:R.5/compact-factor-comparison
+TauCeti.Borel.arithmeticCompactFactorComparison :
+Let F be a number field, N odd, G_N=SL_N(F⊗R), K_N its standard maximal compact, Γ⊂SL_N(F) a torsion-free arithmetic subgroup, Y_N=Γ\G_N and X_N=Γ\G_N/K_N. Put g=Lie(G_N)⊗C, k=Lie(K_N)⊗C and let G_u be the compact real form with compact dual X_u=G_u/K_N. Absolute invariant forms give β:H*(g;C)→H*(Y_N;C), and relative invariant forms give j:H*(g,k;C)→H*(X_N;C). The compact-form isomorphisms α:H*(g;C)≅H*(G_u;C) and α_rel:H*(g,k;C)≅H*(X_u;C) commute with relative-to-absolute inclusion and quotient pullback: β∘incl=p*∘j. The corresponding three compact-fiber spectral sequences commute. For odd N the restriction H*(G_u;C)→H*(K_N;C) is onto, these spectral sequences degenerate, and H*(G_u;C)=Λ(P_base⊕P_K), where quotient pullback identifies Λ(P_base) with H*(X_u;C) and restriction identifies Λ(P_K) with H*(K_N;C). Whenever the arithmetic relative comparison is an isomorphism in degrees ≤q, so is β in degrees ≤q. In those degrees the decomposition induces the compact/base primitive determinant-line factorization used in the period theorem; comparisons of its algebraic and singular rational structures retain Borel’s coefficient-conversion table.
+Hypotheses: N odd is essential for the real SO_N compact fiber to be totally nonhomologous to zero; N even is not asserted. Γ is torsion-free for the manifold bundle; real/complex finite-index descent is applied separately. A sufficient arithmetic bound is N−1>4[F:Q]q.
+Prerequisites: BorelRegulators:R.2/arithmetic-invariant-form-map, BorelRegulators:R.3/classical-compact-duals, BorelRegulators:R.3/compact-dual-cohomology, BorelRegulators:R.3/arithmetic-stable-range, AutomorphicFormsOnReductiveGroups:AF.1a, ArithmeticLocallySymmetricSpaces:ALS.5, tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent, tauceti:TauCetiRoadmap/AlgebraicTopology#stage-6-cohomology-products-and-manifold-duality
+Theorem/application acceptance: For a complex place the compact-dual group is SU_N×SU_N and the diagonal SU_N fiber restricts surjectively; the base primitive is the difference of the two factor primitives. The degree-one real SO₂ fiber in SU₂ is not onto on H¹; the odd-rank hypothesis cannot be dropped. The period theorem uses β on the full arithmetic quotient, while the stable-rank theorem uses j on the symmetric-space quotient. Their commuting diagram is required before determinant splitting.
+
 BorelRegulators:R.5/borel-positive-zeta-period
 TauCeti.Borel.borel_positiveZetaPeriod :
 Let F have degree d, j≥2 and N odd with N−1>4d(2j−1). Let Y_N=SL_N(O_F)\SL_N(F⊗R), with the quotient orientation and coefficient conventions of Borel 1977. The top exterior product of the d algebraic primitive classes of degree 2j−1 maps to ζ_F(j) times the corresponding rational cohomology determinant line of Y_N, up to Q× (Theorem 5.5 with m=j−1). After passage through the compact-factor determinant splitting and the corrected restriction-of-scalars normalization, the compact-dual arithmetic indecomposable determinant is scaled, up to Q×, by |D_F|^{1/2}π^{−dj}ζ_F(j). Signed discriminant phases are handled by the 1980 erratum; this line comparison does not yet fix an integral K-basis.
 Hypotheses: The specialized norm-one Tamagawa volumes and compact period cycles of R.6 are proved first; all determinant spaces here have their stated rational structures.
-Prerequisites: BorelRegulators:R.6/compact-period-cycles, BorelRegulators:R.6/norm-one-volume, BorelRegulators:R.6/restriction-scalars-form, BorelRegulators:R.3/arithmetic-stable-range, BorelRegulators:R.3/compact-dual-cohomology, tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent, tauceti:TauCetiRoadmap/AlgebraicTopology#stage-6-cohomology-products-and-manifold-duality
+Prerequisites: BorelRegulators:R.6/compact-period-cycles, BorelRegulators:R.6/norm-one-volume, BorelRegulators:R.6/restriction-scalars-form, BorelRegulators:R.3/arithmetic-stable-range, BorelRegulators:R.3/compact-dual-cohomology, tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent, tauceti:TauCetiRoadmap/AlgebraicTopology#stage-6-cohomology-products-and-manifold-duality, BorelRegulators:R.5/compact-factor-comparison, BorelRegulators:R.6/adelic-period-pairing
 Theorem/application acceptance: The period proof includes a nonzero-cycle argument; rationality of Haar measure alone does not prove regulator proportionality.
 
 BorelRegulators:R.5/borel-zeta-proportionality
@@ -926,7 +934,7 @@ BorelRegulators:R.6/compact-period-cycles
 TauCeti.Borel.compactPeriodCycle :
 For an archimedean-split central division F-algebra D of degree e, choose a neat arithmetic Γ_D⊂SL_1(D)(F). The quotient Z_D=Γ_D\SL_1(D)(F⊗R) is a compact oriented manifold of real dimension [F:Q](e²−1). The left regular F-representation on D gives SL_1(D)→SL_{e²}; after a lattice choice and finite-index passage it maps Γ_D into SL_N(O_F) for every sufficiently large N. Its compact fundamental cycle defines a period functional on the ambient arithmetic cohomology. Pullback of each algebraic SL_N primitive generator of weight 2≤j≤e is e times the corresponding standard SL_e generator under the archimedean splitting, and the relevant top exterior pairing is nonzero.
 Hypotheses: Choose N≥e² and large enough for the primitive-degree arithmetic comparison; torsion-free/neat descent is imported from ALS.2.
-Prerequisites: BorelRegulators:R.6/archimedean-split-division, BorelRegulators:R.6/norm-one-volume, BorelRegulators:R.3/compact-dual-cohomology, AdelicAlgebraicGroups:AA.1, ArithmeticLocallySymmetricSpaces:ALS.2, tauceti:TauCetiRoadmap/AlgebraicTopology#stage-6-cohomology-products-and-manifold-duality
+Prerequisites: BorelRegulators:R.6/archimedean-split-division, BorelRegulators:R.6/norm-one-volume, BorelRegulators:R.3/compact-dual-cohomology, AdelicAlgebraicGroups:AA.1, ArithmeticLocallySymmetricSpaces:ALS.2, tauceti:TauCetiRoadmap/AlgebraicTopology#stage-6-cohomology-products-and-manifold-duality, BorelRegulators:R.5/compact-factor-comparison
 API lemma signatures:
 TauCeti.Borel.compactPeriodCycle_fundamental : Z_D has its integral fundamental class in top degree with the selected orientation.
 TauCeti.Borel.compactPeriodCycle_map : The cycle map comes from the left regular representation followed by block inclusion.
@@ -941,19 +949,21 @@ TauCeti.Borel.compactPeriodCycle_split_algebra_wrong : Replacing division D by M
 
 BorelRegulators:R.6/adelic-period-pairing
 TauCeti.Borel.adelicPeriodPairing :
-For the compact cycle Z_D, a rational invariant top form η and compact-open U with Γ_D=H(F)∩H_∞U, define I_D(η,U)=∫_{Z_D}η using the chosen orientation. After the restriction-of-scalars normalization, its absolute value is the corresponding positive archimedean quotient volume. The product-measure equation |I_D(η,U)|vol_f(U)=τ(H) includes the explicit conversion from η to the AA.2 Tamagawa form. For primitive wedge forms this integral is the singular/de Rham cohomology pairing with [Z_D]. This is the specialized period interface needed in Bloch’s Tamagawa formulation.
-Hypotheses: The top form is nonzero, the quotient is compact, and all local measure choices are made compatibly; the absolute value formula includes the conversion scalar.
-Prerequisites: BorelRegulators:R.6/compact-period-cycles, BorelRegulators:R.6/restriction-scalars-form, BorelRegulators:R.6/norm-one-volume, AdelicAlgebraicGroups:AA.2, ArithmeticLocallySymmetricSpaces:ALS.5:finite-level-duality, tauceti:TauCetiRoadmap/AlgebraicTopology#stage-6-cohomology-products-and-manifold-duality
+For the compact oriented cycle Z_D and compact-open U with Γ_D=H(F)∩H_∞U, define I_D(η,U)=∫_{Z_D}η for every real-valued rational invariant top form η, including zero. For nonzero η let c_η>0 be the explicitly computed conversion scalar satisfying μ_∞^Tam=c_η|η| in the fixed AA.2 normalization. Then μ_∞^Tam(Z_D)=c_η|I_D(η,U)| and c_η|I_D(η,U)|vol_f(U)=τ(H). The scalar is obtained from the differential-form and restriction-of-scalars conventions, rather than assumed equal to one. For primitive wedge forms this integral equals the singular/de Rham pairing with [Z_D]. This is the specialized period interface needed in Bloch’s Tamagawa formulation.
+Hypotheses: The quotient is compact and oriented. The integration map is defined for zero; c_η and the volume formula require η≠0. All local measures and the selected rational Tamagawa form are fixed compatibly.
+Prerequisites: BorelRegulators:R.6/compact-period-cycles, BorelRegulators:R.6/restriction-scalars-form, BorelRegulators:R.6/norm-one-volume, AdelicAlgebraicGroups:AA.2, ArithmeticLocallySymmetricSpaces:ALS.5, tauceti:TauCetiRoadmap/AlgebraicTopology#stage-6-cohomology-products-and-manifold-duality
 API lemma signatures:
 TauCeti.Borel.adelicPeriodPairing_linear : I_D is linear in the top form for a fixed orientation and quotient.
 TauCeti.Borel.adelicPeriodPairing_cohomology : For a closed top form, I_D equals the de Rham/singular pairing with the fundamental class.
-TauCeti.Borel.adelicPeriodPairing_volume : After exact form-to-measure conversion, |I_D| is the positive archimedean quotient volume.
+TauCeti.Borel.adelicPeriodPairing_volume : For η≠0, μ_∞^Tam(Z_D)=c_η|I_D(η,U)| and c_η|I_D(η,U)|vol_f(U)=τ(H), with c_η specified by the actual form-to-measure equality.
 TauCeti.Borel.adelicPeriodPairing_local_rescale : Rescaling local measures by a_v, all but finitely many one, rescales the total measure by ∏a_v; the archimedean/finite product equation changes accordingly.
 TauCeti.Borel.adelicPeriodPairing_cover : Finite cover of degree a multiplies the integral by a.
+TauCeti.Borel.adelicPeriodPairing_form_rescale : With measures fixed and a∈Q×, I_D(aη,U)=aI_D(η,U) and c_{aη}=c_η/|a|. Thus the converted quotient volume is unchanged.
 Named example specifications:
 TauCeti.Borel.adelicPeriodPairing_zero_form : The integral of the zero top form is zero.
 TauCeti.Borel.adelicPeriodPairing_sign : Replacing η by −η negates I_D but leaves its absolute volume unchanged.
 TauCeti.Borel.adelicPeriodPairing_rescale : Doubling one finite local measure doubles the finite product; the normalization equation cannot stay unchanged without its compensating global conversion.
+TauCeti.Borel.adelicPeriodPairing_double_form : With all Tamagawa measures fixed, replacing nonzero η by 2η doubles I_D and halves c_η; the unconverted equation |I_D|vol_f(U)=τ(H) cannot hold for both forms.
 
 BorelRegulators:R.6/bloch-borel-interface
 TauCeti.Borel.bloch_borelPairingComparison :
@@ -1002,10 +1012,10 @@ Theorem/application acceptance: The Pauli test Φ3=−2i detects a trace normali
 
 BorelRegulators:R.7/number-field-small-cases
 TauCeti.Borel.borelRegulator_smallFields :
-For Q and every even j≥2, V_j(Q)=0, the rational odd K-group is zero and its arithmetic regulator covolume is 1. For an imaginary quadratic F and j=2, V_2(F) is one-dimensional with components (a,−a); the arithmetic regulator image is a full rank-one lattice and changes sign when the selected embedding is conjugated. For F=Q(√−3), the Bloch class of ζ_6=(1+√−3)/2 has zero boundary because 1−ζ_6=ζ_6^{-1}, and its Bloch–Wigner value is positive at the upper-half-plane embedding. The exact numerical conversion to the adopted Borel coordinate uses the unresolved λ_BW test, while rank one and nonzero image follow independently from the real regulator isomorphism.
+For Q and every even j≥2, V_j(Q)=0, the rational odd K-group is zero and its arithmetic regulator covolume is 1. For an imaginary quadratic F and j=2, V_2(F) is one-dimensional with components (a,−a); the arithmetic regulator image is a full rank-one lattice and changes sign when the selected embedding is conjugated. For F=Q(√−3), put ζ_6=(1+√−3)/2. With Suslin’s antisymmetric tensor quotient, ∂[ζ_6]=−ζ_6⊗ζ_6 can be nonzero 2-torsion; consequently 2[ζ_6] is an integral Bloch element and [ζ_6] is a rational Bloch element. This follows from 1−ζ_6=ζ_6^{-1} and 2(ζ_6⊗ζ_6)=0. The Bloch–Wigner values D(ζ_6) and 2D(ζ_6) are positive at the upper-half-plane embedding. The exact numerical conversion to the adopted Borel coordinate uses the unresolved λ_BW test, while rank one and nonzero image follow independently from the real regulator isomorphism.
 Hypotheses: j≥2; ζ_6 is tested in the rationalized Suslin/Bloch comparison, with the stated boundary convention.
-Prerequisites: BorelRegulators:R.3/borel-rank-theorem, BorelRegulators:R.4/target-coordinates, BorelRegulators:R.4/regulator-lattice, BorelRegulators:R.4/regulator-covolume, BorelRegulators:R.7/weight-two-bloch-wigner, Polylogarithms:P.1/bloch-wigner-positivity, Polylogarithms:P.2/bloch-wigner-descent, K3BlochGroups:V.4/suslin-exact-sequence
-Theorem/application acceptance: At Q,j=2 the zeta value is nonzero although the rational K3 rank is zero. At an imaginary quadratic field switching embedding changes orientation but preserves absolute determinant.
+Prerequisites: BorelRegulators:R.3/borel-rank-theorem, BorelRegulators:R.4/target-coordinates, BorelRegulators:R.4/regulator-lattice, BorelRegulators:R.4/regulator-covolume, BorelRegulators:R.7/weight-two-bloch-wigner, Polylogarithms:P.1/bloch-wigner-positivity, Polylogarithms:P.2/bloch-wigner-descent, K3BlochGroups:V.4/suslin-exact-sequence, K3BlochGroups:V.3/antisymmetric-tensor-quotient, K3BlochGroups:V.3/bloch-boundary, K3BlochGroups:V.3/bloch-group
+Theorem/application acceptance: At Q,j=2 the zeta value is nonzero although the rational K3 rank is zero. At an imaginary quadratic field switching embedding changes orientation but preserves absolute determinant. The integral test is 2[ζ_6]; replacing the antisymmetric tensor quotient by an exterior square would incorrectly kill every diagonal tensor. The rationalized test may use [ζ_6].
 
 BorelRegulators:R.7/extension-matrix
 TauCeti.Borel.embeddingMatrices :
