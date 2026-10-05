@@ -3042,23 +3042,32 @@ variable (A : Type*) [CommRing A] [IsDomain A] [IsNoetherianRing A] [IsIntegrall
 
 /-- `L4/characteristic-ideal`: the divisor of a finitely generated torsion module, `𝔭 ↦ length_{A_𝔭} M_𝔭` at the
 height-one primes (zero elsewhere). -/
-noncomputable def charDivisor (𝔭 : PrimeSpectrum A) : ℕ∞ :=
-  if 𝔭.asIdeal.height = 1 then
-    Module.length (Localization.AtPrime 𝔭.asIdeal) (LocalizedModule 𝔭.asIdeal.primeCompl M)
-  else 0
+noncomputable def charDivisor [Module.Finite A M]
+    (hM : Module.IsTorsion A M) : PrimeSpectrum A →₀ ℕ := sorry
+
+/-- The finite-support and finite-length inputs are review gaps, not consequences of a name search. -/
+theorem charDivisor_spec [Module.Finite A M] (hM : Module.IsTorsion A M)
+    (𝔭 : PrimeSpectrum A) :
+    charDivisor A M hM 𝔭 =
+      if 𝔭.asIdeal.height = 1 then
+        (Module.length (Localization.AtPrime 𝔭.asIdeal)
+          (LocalizedModule 𝔭.asIdeal.primeCompl M)).toNat
+      else 0 := sorry
 
 /-- `L4/characteristic-ideal`: over a unique factorisation domain the divisor is principal; `charIdeal` is the
 ideal it generates. -/
-noncomputable def charIdeal [UniqueFactorizationMonoid A] (M : Type*) [AddCommGroup M] [Module A M] : Ideal A :=
+noncomputable def charIdeal [UniqueFactorizationMonoid A] (M : Type*) [AddCommGroup M]
+    [Module A M] [Module.Finite A M] (hM : Module.IsTorsion A M) : Ideal A :=
   sorry
 
 /-- `L4/characteristic-ideal`: the value on a cyclic module. -/
 theorem charIdeal_quotient_span [UniqueFactorizationMonoid A] (f : A) (hf : f ≠ 0) :
-    charIdeal A (A ⧸ Ideal.span {f}) = Ideal.span {f} := sorry
+    charIdeal A (A ⧸ Ideal.span {f}) (by sorry) = Ideal.span {f} := sorry
 
 /-- `L4/characteristic-ideal`: finite modules over a two-dimensional local ring have unit characteristic ideal. -/
-theorem charIdeal_eq_top_of_isPseudoNull [UniqueFactorizationMonoid A] (h : IsPseudoNull A M) :
-    charIdeal A M = ⊤ := sorry
+theorem charIdeal_eq_top_of_isPseudoNull [UniqueFactorizationMonoid A]
+    [Module.Finite A M] (h : IsPseudoNull A M) :
+    charIdeal A M (h.isTorsion) = ⊤ := sorry
 
 end CharacteristicIdeal
 
@@ -3068,14 +3077,17 @@ variable (p : ℕ) [Fact p.Prime] (M : Type*) [AddCommGroup M] [Module (PowerSer
   [Module.Finite (PowerSeries ℤ_[p]) M]
 
 /-- `L4/iwasawa-invariants`: the μ-invariant (NSW (5.3.9)). -/
-noncomputable def muInvariant (M : Type*) [AddCommGroup M] [Module (PowerSeries ℤ_[p]) M] : ℕ := sorry
+noncomputable def muInvariant (M : Type*) [AddCommGroup M]
+    [Module (PowerSeries ℤ_[p]) M] [Module.Finite (PowerSeries ℤ_[p]) M] : ℕ := sorry
 
 /-- `L4/iwasawa-invariants`: the λ-invariant (NSW (5.3.9)). -/
-noncomputable def lambdaInvariant (M : Type*) [AddCommGroup M] [Module (PowerSeries ℤ_[p]) M] : ℕ := sorry
+noncomputable def lambdaInvariant (M : Type*) [AddCommGroup M]
+    [Module (PowerSeries ℤ_[p]) M] [Module.Finite (PowerSeries ℤ_[p]) M] : ℕ := sorry
 
 /-- `L4/iwasawa-invariants`: the characteristic polynomial `F_{M,γ}`, a product of irreducible distinguished
 polynomials (NSW (5.3.9)). -/
-noncomputable def charPoly (M : Type*) [AddCommGroup M] [Module (PowerSeries ℤ_[p]) M] : ℤ_[p][X] := sorry
+noncomputable def charPoly (M : Type*) [AddCommGroup M]
+    [Module (PowerSeries ℤ_[p]) M] [Module.Finite (PowerSeries ℤ_[p]) M] : ℤ_[p][X] := sorry
 
 theorem charPoly_isDistinguishedAt :
     (charPoly p M).IsDistinguishedAt (IsLocalRing.maximalIdeal ℤ_[p]) := sorry
@@ -3086,7 +3098,10 @@ theorem finite_iff_mu_lambda (hM : Module.IsTorsion (PowerSeries ℤ_[p]) M) :
 
 end IwasawaInvariants
 
-/-! ### Unit tests (checked) -/
+/-! ### L4 arithmetic controls
+
+These examples test the displayed identities. They do not test the missing module interfaces,
+and the independent review has not freshly elaborated this file. -/
 
 namespace L4Tests
 
@@ -3117,7 +3132,7 @@ example : padicNorm 3 (-3 : ℚ) = 1 / 3 := by
   exact h
 
 /-- `L4/iwasawa-invariants` (non-example): the characteristic polynomial depends on γ. For `M = Λ/(T − p)`
-(γ acting by `1 + p`), the generator `γ²` acts by `(1 + p)² = 1 + (2p + p²)`, so `F_{M,γ²} = T − (2p + p²)`. -/
+(γ acting by `1 + p`), for odd prime p the generator `γ²` acts by `(1 + p)² = 1 + (2p + p²)`, so `F_{M,γ²} = T − (2p + p²)`. -/
 example (p : ℤ) : (1 + p) ^ 2 - 1 = 2 * p + p ^ 2 := by ring
 
 /-- `L4/character-decomposition` (`|H| = 2`, `p` odd): `e_± = (1 ± h)/2` are orthogonal idempotents. -/
@@ -3139,8 +3154,20 @@ end L4Tests
 end TauCeti.Iwasawa
 
 /-!
-The planning pass is complete under the 300-node budget rule. All 369 inherited
-node contracts remain unchecked. L0, L1, L2, L3 and L4 remain partial; L0a, L5
-and L6 retain their source-decomposition gaps. Coverage and the handoff distinguish
-current validation from historical compiler and source-reading evidence.
+Independent review REV-PadicMeasuresIwasawaAlgebras: needs_changes.
+The packet has 436 declaration records after 67 required L4 splits. All implementation statuses
+remain unchecked; no proof has been formalised. Historical elaboration applies to the inherited
+file only. No suitable existing build of both pinned Tau Ceti imports was available for a fresh
+full-file elaboration; no project or cache was set up.
+
+The review report lists every declaration/API name absent from this file. In particular the
+common fraction-vector-space embeddings for dual intersections, completed-algebra comparisons,
+finite formal characteristic divisor support, integral character projectors, native exact
+resolutions, delta/cyclotomic submodules, growth and Euler determinant interfaces remain gaps.
+The characteristic divisor now has the native finitely supported natural-valued carrier with
+explicit finite-generation and torsion inputs. Its finite-support/length proof is still admitted.
+The invariant definitions retain their actual Z_p coefficient scope, while the packet requires
+general complete DVR coefficients; this mismatch is a blocking finding. The packet uses
+continuous homology H_0=coinvariants and H_1=invariants in all three minimal-resolution ranks.
+Do not replace these absent interfaces with untyped propositions or new duplicate carriers.
 -/
