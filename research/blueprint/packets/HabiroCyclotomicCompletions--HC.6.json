@@ -16,119 +16,119 @@
         "kind": "def",
         "module": "Mathlib/Algebra/Polynomial/Eval/Defs.lean",
         "provides": "Evaluation of a polynomial at an element of its coefficient ring.",
-        "checked": "Actual declaration and hypotheses read on 2026-10-05 in the existing Mathlib checkout at 082e2d37e8b0463410cdb532e111cd43d5a66174; suggested-file use elaborated at that commit."
+        "checked": "Independently read the declaration, enclosing namespace and hypotheses at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05 for REV-HabiroCyclotomicCompletions--HC.6; statement supplies the finite-polynomial use recorded here. The suggested file independently elaborated at this exact Mathlib commit."
       },
       {
         "ref": "mathlib:Polynomial.taylor",
         "kind": "def",
         "module": "Mathlib/Algebra/Polynomial/Taylor.lean",
         "provides": "The linear map f ↦ f.comp (X + C r), defining integral Taylor coefficients without factorial denominators.",
-        "checked": "Actual declaration and hypotheses read on 2026-10-05 in the existing Mathlib checkout at 082e2d37e8b0463410cdb532e111cd43d5a66174; suggested-file use elaborated at that commit."
+        "checked": "Independently read the declaration, enclosing namespace and hypotheses at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05 for REV-HabiroCyclotomicCompletions--HC.6; statement supplies the finite-polynomial use recorded here. The suggested file independently elaborated at this exact Mathlib commit."
       },
       {
         "ref": "mathlib:Polynomial.taylor_coeff",
         "kind": "theorem",
         "module": "Mathlib/Algebra/Polynomial/Taylor.lean",
         "provides": "Coefficient n of taylor r f equals evaluation at r of hasseDeriv n f, over a semiring.",
-        "checked": "Actual declaration and hypotheses read on 2026-10-05 in the existing Mathlib checkout at 082e2d37e8b0463410cdb532e111cd43d5a66174; suggested-file use elaborated at that commit."
+        "checked": "Independently read the declaration, enclosing namespace and hypotheses at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05 for REV-HabiroCyclotomicCompletions--HC.6; statement supplies the finite-polynomial use recorded here. The suggested file independently elaborated at this exact Mathlib commit."
       },
       {
         "ref": "mathlib:Polynomial.taylor_coeff_zero",
         "kind": "theorem",
         "module": "Mathlib/Algebra/Polynomial/Taylor.lean",
         "provides": "Constant Taylor coefficient equals polynomial evaluation.",
-        "checked": "Actual declaration and hypotheses read on 2026-10-05 in the existing Mathlib checkout at 082e2d37e8b0463410cdb532e111cd43d5a66174; suggested-file use elaborated at that commit."
+        "checked": "Independently read the declaration, enclosing namespace and hypotheses at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05 for REV-HabiroCyclotomicCompletions--HC.6; statement supplies the finite-polynomial use recorded here. The suggested file independently elaborated at this exact Mathlib commit."
       },
       {
         "ref": "mathlib:Polynomial.modByMonic",
         "kind": "def",
         "module": "Mathlib/Algebra/Polynomial/Div.lean",
         "provides": "Monic polynomial remainder. For a nonmonic divisor it returns the original polynomial, so the P_4 test uses an even precision.",
-        "checked": "Actual declaration and hypotheses read on 2026-10-05 in the existing Mathlib checkout at 082e2d37e8b0463410cdb532e111cd43d5a66174; suggested-file use elaborated at that commit."
+        "checked": "Independently read the declaration, enclosing namespace and hypotheses at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05 for REV-HabiroCyclotomicCompletions--HC.6; statement supplies the finite-polynomial use recorded here. The suggested file independently elaborated at this exact Mathlib commit."
       },
       {
         "ref": "mathlib:Polynomial.cyclotomic",
         "kind": "def",
         "module": "Mathlib/RingTheory/Polynomial/Cyclotomic/Basic.lean",
         "provides": "Cyclotomic polynomial over any ring, obtained by mapping the integral polynomial; the zeroth polynomial is 1.",
-        "checked": "Actual declaration and hypotheses read on 2026-10-05 in the existing Mathlib checkout at 082e2d37e8b0463410cdb532e111cd43d5a66174; suggested-file use elaborated at that commit."
+        "checked": "Independently read the declaration, enclosing namespace and hypotheses at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05 for REV-HabiroCyclotomicCompletions--HC.6; statement supplies the finite-polynomial use recorded here. The suggested file independently elaborated at this exact Mathlib commit."
       },
       {
         "ref": "mathlib:Polynomial.cyclotomic_one",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/Polynomial/Cyclotomic/Basic.lean",
         "provides": "Φ_1 = X − 1 over any ring.",
-        "checked": "Actual declaration and hypotheses read on 2026-10-05 in the existing Mathlib checkout at 082e2d37e8b0463410cdb532e111cd43d5a66174; suggested-file use elaborated at that commit."
+        "checked": "Independently read the declaration, enclosing namespace and hypotheses at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05 for REV-HabiroCyclotomicCompletions--HC.6; statement supplies the finite-polynomial use recorded here. The suggested file independently elaborated at this exact Mathlib commit."
       },
       {
         "ref": "mathlib:Polynomial.cyclotomic_two",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/Polynomial/Cyclotomic/Basic.lean",
         "provides": "Φ_2 = X + 1 over any ring.",
-        "checked": "Actual declaration and hypotheses read on 2026-10-05 in the existing Mathlib checkout at 082e2d37e8b0463410cdb532e111cd43d5a66174; suggested-file use elaborated at that commit."
+        "checked": "Independently read the declaration, enclosing namespace and hypotheses at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05 for REV-HabiroCyclotomicCompletions--HC.6; statement supplies the finite-polynomial use recorded here. The suggested file independently elaborated at this exact Mathlib commit."
       },
       {
         "ref": "mathlib:Polynomial.cyclotomic_three",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/Polynomial/Cyclotomic/Basic.lean",
         "provides": "Φ_3 = X² + X + 1 over any ring.",
-        "checked": "Actual declaration and hypotheses read on 2026-10-05 in the existing Mathlib checkout at 082e2d37e8b0463410cdb532e111cd43d5a66174; suggested-file use elaborated at that commit."
+        "checked": "Independently read the declaration, enclosing namespace and hypotheses at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05 for REV-HabiroCyclotomicCompletions--HC.6; statement supplies the finite-polynomial use recorded here. The suggested file independently elaborated at this exact Mathlib commit."
       },
       {
         "ref": "mathlib:AdjoinRoot",
         "kind": "def",
         "module": "Mathlib/RingTheory/AdjoinRoot.lean",
         "provides": "R[X] modulo the principal ideal generated by f, over a commutative ring R.",
-        "checked": "Actual declaration and hypotheses read on 2026-10-05 in the existing Mathlib checkout at 082e2d37e8b0463410cdb532e111cd43d5a66174; suggested-file use elaborated at that commit."
+        "checked": "Independently read the declaration, enclosing namespace and hypotheses at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05 for REV-HabiroCyclotomicCompletions--HC.6; statement supplies the finite-polynomial use recorded here. The suggested file independently elaborated at this exact Mathlib commit."
       },
       {
         "ref": "mathlib:AdjoinRoot.mk",
         "kind": "def",
         "module": "Mathlib/RingTheory/AdjoinRoot.lean",
         "provides": "The quotient ring homomorphism sending a polynomial to its class.",
-        "checked": "Actual declaration and hypotheses read on 2026-10-05 in the existing Mathlib checkout at 082e2d37e8b0463410cdb532e111cd43d5a66174; suggested-file use elaborated at that commit."
+        "checked": "Independently read the declaration, enclosing namespace and hypotheses at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05 for REV-HabiroCyclotomicCompletions--HC.6; statement supplies the finite-polynomial use recorded here. The suggested file independently elaborated at this exact Mathlib commit."
       },
       {
         "ref": "mathlib:AdjoinRoot.root",
         "kind": "def",
         "module": "Mathlib/RingTheory/AdjoinRoot.lean",
         "provides": "The class of X in AdjoinRoot f.",
-        "checked": "Actual declaration and hypotheses read on 2026-10-05 in the existing Mathlib checkout at 082e2d37e8b0463410cdb532e111cd43d5a66174; suggested-file use elaborated at that commit."
+        "checked": "Independently read the declaration, enclosing namespace and hypotheses at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05 for REV-HabiroCyclotomicCompletions--HC.6; statement supplies the finite-polynomial use recorded here. The suggested file independently elaborated at this exact Mathlib commit."
       },
       {
         "ref": "mathlib:AdjoinRoot.mk_eq_mk",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/AdjoinRoot.lean",
         "provides": "Equality of polynomial classes is equivalent to divisibility of their difference by f.",
-        "checked": "Actual declaration and hypotheses read on 2026-10-05 in the existing Mathlib checkout at 082e2d37e8b0463410cdb532e111cd43d5a66174; suggested-file use elaborated at that commit."
+        "checked": "Independently read the declaration, enclosing namespace and hypotheses at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05 for REV-HabiroCyclotomicCompletions--HC.6; statement supplies the finite-polynomial use recorded here. The suggested file independently elaborated at this exact Mathlib commit."
       },
       {
         "ref": "mathlib:IsLocalization.Away",
         "kind": "abbrev",
         "module": "Mathlib/RingTheory/Localization/Away/Basic.lean",
         "provides": "Localization at powers of a specified ring element, expressed by the existing localization typeclass.",
-        "checked": "Actual declaration and hypotheses read on 2026-10-05 in the existing Mathlib checkout at 082e2d37e8b0463410cdb532e111cd43d5a66174; suggested-file use elaborated at that commit."
+        "checked": "Independently read the declaration, enclosing namespace and hypotheses at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05 for REV-HabiroCyclotomicCompletions--HC.6; statement supplies the finite-polynomial use recorded here. The suggested file independently elaborated at this exact Mathlib commit."
       },
       {
         "ref": "mathlib:IsLocalization.Away.invSelf",
         "kind": "def",
         "module": "Mathlib/RingTheory/Localization/Away/Basic.lean",
         "provides": "The inverse of the algebra-map image of the inverted element in any localization away from it.",
-        "checked": "Actual declaration and hypotheses read on 2026-10-05 in the existing Mathlib checkout at 082e2d37e8b0463410cdb532e111cd43d5a66174; suggested-file use elaborated at that commit."
+        "checked": "Independently read the declaration, enclosing namespace and hypotheses at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05 for REV-HabiroCyclotomicCompletions--HC.6; statement supplies the finite-polynomial use recorded here. The suggested file independently elaborated at this exact Mathlib commit."
       },
       {
         "ref": "mathlib:IsLocalization.Away.mul_invSelf",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/Localization/Away/Basic.lean",
         "provides": "algebraMap R S x multiplied by invSelf x equals 1.",
-        "checked": "Actual declaration and hypotheses read on 2026-10-05 in the existing Mathlib checkout at 082e2d37e8b0463410cdb532e111cd43d5a66174; suggested-file use elaborated at that commit."
+        "checked": "Independently read the declaration, enclosing namespace and hypotheses at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05 for REV-HabiroCyclotomicCompletions--HC.6; statement supplies the finite-polynomial use recorded here. The suggested file independently elaborated at this exact Mathlib commit."
       },
       {
         "ref": "mathlib:ZMod",
         "kind": "def",
         "module": "Mathlib/Data/ZMod/Defs.lean",
         "provides": "The existing modular coefficient ring; ZMod 2 is used for the characteristic-two CRT test.",
-        "checked": "Actual declaration and hypotheses read on 2026-10-05 in the existing Mathlib checkout at 082e2d37e8b0463410cdb532e111cd43d5a66174; suggested-file use elaborated at that commit."
+        "checked": "Independently read the declaration, enclosing namespace and hypotheses at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05 for REV-HabiroCyclotomicCompletions--HC.6; statement supplies the finite-polynomial use recorded here. The suggested file independently elaborated at this exact Mathlib commit."
       }
     ]
   },
@@ -252,7 +252,7 @@
       "acceptance": "The odd-order idempotent over Z[1/2] has the parent representatives modulo P_2 and P_3. The rational element (q−1)e_1 is nonzero with every root value zero. Modulo 2, q^5+q+1 is idempotent modulo P_3 with the specified two CRT components."
     },
     {
-      "target": "Source ledger and executable suggested-file boundary",
+      "target": "Source ledger and suggested Lean signatures",
       "suppliedBy": [
         "HabiroCyclotomicCompletions:HC.6/the-exported-interface",
         "HabiroCyclotomicCompletions:HC.6/the-acceptance-examples",
@@ -330,7 +330,7 @@
       "stageId": "HabiroCyclotomicCompletions:HC.6",
       "status": "closed",
       "remaining": [],
-      "note": "The three imported HC.6 nodes in the accepted parent realise all retained classical targets (see imports and targetCoverage). Accepted RS-10, reviewed 2026-09-29, resolves the sole remaining parent coverage item by assigning the arithmetic comparison to HB.6. AUDIT-17 classifies this as a process/interface stage; no new mathematics or planets. Closure concerns HC.6 only, not unresolved HC.4 refinements elsewhere."
+      "note": "The three imported HC.6 nodes in the accepted parent realise all retained classical targets (see imports and targetCoverage). Accepted RS-10, reviewed 2026-09-29, resolves the sole remaining parent coverage item by assigning the arithmetic comparison to HB.6. AUDIT-17 classifies this as a process/interface stage; no new mathematics or planets. Closure concerns HC.6 only, not unresolved HC.4 refinements elsewhere. The generic exports retain their suppliers' recorded boundaries: in particular the parent non-Noetherian Taylor-injectivity gap is not discharged here. The integral acceptance cases use R = Z and Z[ζ], which are Noetherian; the ordinary-versus-derived comparison is an imported HR.2 interface, not a new construction or a proof that HR.2 is closed."
     }
   ],
   "implementationStatus": "unchecked",
@@ -338,6 +338,40 @@
     "packetCheck": "python3 scripts/check_blueprint.py research/blueprint/packets/HabiroCyclotomicCompletions--HC.6.json",
     "suggestedFile": "research/blueprint/suggested/HabiroCyclotomicCompletions--HC.6.lean",
     "lean": "Elaborated via lean-check at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; 39 expected placeholder-proof warnings and no other diagnostics. Only Mathlib imports are used.",
-    "arithmetic": "Exact integer/rational polynomial calculations independently checked root values at orders 1–6, Taylor coefficients, q inverse and multiplication, and the localized/rational/mod-2 CRT representatives."
+    "arithmetic": "Exact integer/rational polynomial calculations independently checked root values at orders 1–6, Taylor coefficients, q inverse and multiplication, and the localized/rational/mod-2 CRT representatives.",
+    "independentReview": {
+      "job": "REV-HabiroCyclotomicCompletions--HC.6",
+      "agent": "Codex",
+      "session": "codex-6EzLTP",
+      "baselineDeclarationsConfirmed": 17,
+      "targetSuppliersRead": 26,
+      "finiteExampleSignatures": 39,
+      "exactArithmeticChecks": 75,
+      "lean": "Independently elaborated with lean-check at exact pinned Mathlib; exit 0, 39 placeholder-proof warnings and no other diagnostics. The file imports no Tau Ceti module; no assertion is made about compilation with the newer shared Tau Ceti source.",
+      "packet": "Final check_blueprint.py run: 0 errors, 0 warnings."
+    }
+  },
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-HabiroCyclotomicCompletions--HC.6",
+    "date": "2026-10-05",
+    "notes": "Independent review by Codex, session codex-6EzLTP (not the author session codex-I5hn5G). Read both exact source versions and all three imported HC.6 statements, checked the 26 named target suppliers and accepted RS-10 boundary, independently confirmed all 17 Mathlib baseline declarations, and verified the four canonical errata references at their source passages. A separate exact rational/integer/mod-2 calculation passed 75 checks. lean-check elaborated all 39 example signatures with only the 39 expected placeholder-proof warnings. No mathematical statement, hypothesis, source finding, prerequisite or suggested signature required correction. Updated baseline verification records, described the suggested-file target as signatures rather than executable mathematics, and clarified that HC.6 closure does not discharge the parent generic Taylor-injectivity gaps or the imported HR.2 derived theory. No new node or duplicate planet is needed for this reviewed process/interface layer. See the review report for per-target checks and source locators.",
+    "checked": [
+      {
+        "nodeId": "HabiroCyclotomicCompletions:HC.6/the-exported-interface",
+        "verdict": "verified",
+        "note": "Imported from the independently accepted parent, not copied into this packet. Its object-to-supplier matching is substantiated by targetCoverage; the 26 referenced suppliers exist and their statements were read. Complete-ring projections, normalization, root/Taylor naturality and exact polynomial-module completion are owned by HC.1–HC.5. The HR.2 derived comparison and parent general-domain proof boundaries remain with their suppliers. Accepted RS-10 assigns the arithmetic F=Q comparison to HB.6, without making QT.4 depend on it. Source: Habiro §7.3 and Conjecture 6.1; GSWZ §§1.3–1.4, 5.1. APIs, tests and mathematical planets remain with their definition owners."
+      },
+      {
+        "nodeId": "HabiroCyclotomicCompletions:HC.6/the-acceptance-examples",
+        "verdict": "verified",
+        "note": "Checked Habiro introduction, Theorem 5.2, Proposition 7.1 and proof of Proposition 7.4(1); GSWZ Example 5.6 (334); OEIS A022493 data/formula. Independently calculated root values at orders 1–6, ten Taylor coefficients at 1, seven at -1, three at a cube root, finite q inverse and normalized multiplication. The positive-order precision statements follow by counting the factors whose exponent is a multiple of d and hold even in a commutative ring; exact vanishing order needs characteristic zero and primitivity. The unit/non-unit and non-Cauchy examples follow from the stated finite quotient maps. The general non-Noetherian issue is unnecessary for the specified integral cases. All corresponding suggested signatures elaborate."
+      },
+      {
+        "nodeId": "HabiroCyclotomicCompletions:HC.6/inverted-prime-and-rational-examples",
+        "verdict": "verified",
+        "note": "Checked Habiro §7.5 and GSWZ Example 5.7 (338)–(339). Exact division checks establish compatibility, idempotence and the specified CRT components of e2/e3 over Z[1/2], of e1 and t over Q, and of X^5+X+1 modulo 2. Division by the monic associates introduces no odd denominator, so the localization tests hold in the stated ring. The full families are supplied by HC.5 CRT, not inferred from a single representative. Rational coefficients are distinct from HB.6's arithmetic rational-field ring. Polynomial-module exactness justifies reduction modulo 2. All corresponding suggested signatures elaborate."
+      }
+    ]
   }
 }
