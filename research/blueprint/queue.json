@@ -26455,9 +26455,10 @@
     "REV-RS-18"
    ],
    "prompt": "research/blueprint/prompts/BP-KTheoryLowDegrees--U.1.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #764"
+   "note": "deliverables arrived from an external worker on issue #764",
+   "finishedAt": "2026-10-05T18:13:41Z"
   },
   {
    "id": "REV-KTheoryLowDegrees--U.1",
@@ -30333,8 +30334,9 @@
    ],
    "avoidAccountOf": "BP-AnalyticNumberTheory--AN.0",
    "prompt": "research/blueprint/prompts/REV-AnalyticNumberTheory--AN.0.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #527"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #527",
+   "finishedAt": "2026-10-05T18:13:43Z"
   },
   {
    "id": "BP-AnalyticNumberTheory--AN.8",
@@ -32912,7 +32914,8 @@
    ],
    "followUpOf": "BP-FiniteFieldsAndCharacterSums",
    "prompt": "research/blueprint/prompts/BP-FiniteFieldsAndCharacterSums--FF.3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6350"
   },
   {
    "id": "REV-FiniteFieldsAndCharacterSums--FF.3",
