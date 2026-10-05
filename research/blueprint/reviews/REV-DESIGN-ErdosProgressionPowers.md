@@ -90,3 +90,53 @@ The packet checker, source-version checks, actual intake path/independence check
 ## Remaining owner decisions
 
 Designate the missing EllipticLegendreCharacterInterfaces supplier named by the reviewed paper route. Close the native conductor/residual/Serre-weight interfaces and quantitative analytic certificates in their owners. The signed diagonal-curve adapter must still prove smoothness, geometric connectedness, genus identification and primitive-lift finiteness. These are recorded planning gaps, not unresolved contradictions in the reviewed statements. The mandatory endpoint is positive-solution finiteness for each fixed sufficiently large length; there is no finiteness claim over varying lengths and no effective enumeration of Faltings points.
+
+## Public recovery
+
+Archive commit `43aa4849cff6a03c84be67f8663e5d39db1360e1` is an ancestor changing only the allowed suggested file. It contains 40 inert artifacts, including 5 replay helpers. Manifest SHA256 `1fda06c26d83da733d6b42daac915c6b3db40c19ca91744d2e245d12dc612f2b`; payload SHA256 `02e38e6325a4579ba19323d97def492cc3e88ffd852d1bf124d961b18fcfa866`. The final suggested file contains no archive payload.
+
+The archive retains incoming/reviewed files; all node, baseline, source-finding, target and supplier checks; source/version acquisition receipts; final Mathlib compilation hashes, source authentication and log; finite checks; the immutable repository verification report; and the verifier, graph, finite-check, packaging helpers. PDFs and temporary extracted source texts are excluded. Source reading is a reviewer judgment with bounded locators, not something these scripts prove.
+
+Save the final Python fence as recover.py and run `python3 recover.py REPLAY_DIR FULL_PR_HEAD_SHA`. Keep REPLAY_DIR outside a repository checkout. After inspecting the recovered helpers, run from an existing repository checkout: `PYTHONDONTWRITEBYTECODE=1 python3 REPLAY_DIR/verify.py REPLAY_DIR DECLARATION_INDEX`. Use the pinned declarations.tsv, SHA256 `86649a7d5f35d1178a45fe7aa4713741d03d43ff3b37bb8c91a1da1c794c8ce1`. Its output must equal Verification.json. The recorded publication-base commit must exist locally.
+
+Recovery authenticates every artifact and the four final public deliverables. Verification checks the complete review ledger, API/test inventory, rejected findings, exact final source/log hashes, input guards and the reconciled supplier update, finite calculations and immutable packet/source-issue/intake/atlas checks. It does not execute Lean or verify admitted proofs. Public HTTP recovery and byte-identical replay of the verification report were exercised before opening the PR.
+
+## Script: recover.py
+
+```python
+"""Recover authenticated review evidence; do not run Lean."""
+from pathlib import Path
+import base64,hashlib,json,re,sys,urllib.request,zlib
+S=Path(sys.argv[1]).resolve();S.mkdir(parents=True,exist_ok=True)
+HEAD=sys.argv[2];assert re.fullmatch('[0-9a-f]{40}',HEAD)
+ROOT='https://raw.githubusercontent.com/CBirkbeck/tauceti-explorer/'
+RID='ErdosProgressionPowers'
+ARCHIVE='43aa4849cff6a03c84be67f8663e5d39db1360e1'
+MANIFEST_SHA='1fda06c26d83da733d6b42daac915c6b3db40c19ca91744d2e245d12dc612f2b'
+PAYLOAD_SHA='02e38e6325a4579ba19323d97def492cc3e88ffd852d1bf124d961b18fcfa866'
+EXPECTED={'packets': '59cb5889367c4d8bb5fe0ac4920d7f9042b10abd22b2d237ad6c4c77b2979c3c', 'roadmaps': '98585384723f4c1baf2746a8b245f602916b416f80aed06b20836a2d8c250c24', 'suggested': '0fa93662503c08df51e5bb73390a4297ad6afd047d6977e56fa1af24c2607fa4'}
+sha=lambda b:hashlib.sha256(b).hexdigest()
+def fetch(ref,path):
+ with urllib.request.urlopen(ROOT+ref+'/'+path,timeout=40)as r:return r.read()
+raw=fetch(ARCHIVE,'research/blueprint/suggested/'+RID+'.lean').decode()
+pb=raw.rsplit('/- BEGIN ARCHIVED REVIEW EVIDENCE\n',1)[1].split('END ARCHIVED REVIEW EVIDENCE -/',1)[0].encode()
+assert sha(pb)==PAYLOAD_SHA;payload=json.loads(pb)
+def unpack(name):
+ b=zlib.decompress(base64.b64decode(payload[name]['data']));assert sha(b)==payload[name]['sha256'],name
+ return b
+mb=unpack('artifact-manifest.json');assert sha(mb)==MANIFEST_SHA;meta=json.loads(mb);assert set(payload)==set(meta)|{'artifact-manifest.json'}
+for name,m in meta.items():
+ assert Path(name).name==name and name not in {'.','..'}
+ b=unpack(name);assert sha(b)==m['sha256']and len(b)==m['bytes']and len(b.splitlines())==m['lines'],name
+ (S/name).write_bytes(b)
+(S/'artifact-manifest.json').write_bytes(mb);public={}
+for folder,ext,name in [('packets','json','Candidate.json'),('roadmaps','json','CandidateRoadmap.json'),('suggested','lean','Suggested.lean'),('reviews','md','PublicReport.md')]:
+ path='research/blueprint/'+folder+'/'+('REV-DESIGN-'if folder=='reviews'else'')+RID+'.'+ext;b=fetch(HEAD,path)
+ if folder in EXPECTED:assert sha(b)==EXPECTED[folder]and b==(S/name).read_bytes(),path
+ (S/name).write_bytes(b);public[path]=sha(b)
+report=(S/'PublicReport.md').read_text();assert report.startswith((S/'ReportBase.md').read_text())
+tag='\n## Script: recover.py\n\n'+chr(96)*3+'python\n';a=report.rindex(tag)+len(tag);b=report.index('\n'+chr(96)*3,a);code=report[a:b]+'\n'
+assert code==Path(__file__).read_text();(S/'recover.py').write_text(code)
+receipt=dict(head=HEAD,archive=ARCHIVE,artifactsVerified=len(meta),publicDeliverables=public,recoverySha256=sha(code.encode()),LeanExecuted=False)
+(S/'public-recovery.json').write_text(json.dumps(receipt,indent=2)+'\n');print(json.dumps(receipt,indent=2))
+```
