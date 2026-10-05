@@ -335,7 +335,7 @@ variable (K : Type*) [NontriviallyNormedField K] [IsUltrametricDist K]
 two-sided sequences with `‖aₙ‖ ρⁿ → 0` as `|n| → ∞` for every `ρ ∈ (r, s)`. A differential
 `f dz` is recorded by the coefficients of `f`. -/
 def annulusLaurent (r s : ℝ) : Submodule K (ℤ → K) where
-  carrier := {a | ∀ ρ : ℝ, r < ρ → ρ < s → Tendsto (fun n : ℤ => ‖a n‖ * ρ ^ n) cofinite (𝓝 0)}
+  carrier := {a | ∀ ρ : ℝ, 0 < ρ → r < ρ → ρ < s → Tendsto (fun n : ℤ => ‖a n‖ * ρ ^ n) cofinite (𝓝 0)}
   add_mem' := by sorry
   zero_mem' := by sorry
   smul_mem' := by sorry
@@ -418,12 +418,12 @@ example (r s : ℝ) (c : K) (hc : s ≤ ‖c‖) (hs : 0 < s) :
       annulusResidue r s ⟨_, h⟩ = (0 : K) := by sorry
 
 /-- `ColemanIntegration:L0/annulus-exact-iff-residue-zero`. -/
-theorem exists_annulusDeriv_eq_iff [CharZero K] [CompleteSpace K] (r s : ℝ) (hrs : r < s)
+theorem exists_annulusDeriv_eq_iff [CharZero K] [CompleteSpace K] (r s : ℝ) (hr : 0 ≤ r) (hrs : r < s)
     (ω : annulusLaurent K r s) :
     (∃ g, annulusDeriv r s g = ω) ↔ annulusResidue r s ω = 0 := by
   sorry
 
-theorem annulusDeriv_eq_zero_iff [CharZero K] (r s : ℝ) (hrs : r < s) (g : annulusLaurent K r s) :
+theorem annulusDeriv_eq_zero_iff [CharZero K] (r s : ℝ) (hr : 0 ≤ r) (hrs : r < s) (g : annulusLaurent K r s) :
     annulusDeriv r s g = 0 ↔ ∀ n : ℤ, n ≠ 0 → (g : ℤ → K) n = 0 := by
   sorry
 
@@ -1067,7 +1067,8 @@ end WordAlgebra
 -- tube version for the punctured line is part of `IsColemanFamily` below.
 
 /-- `constantTerm` on the logarithmic ring over formal Laurent series: the constant coefficient of
-the `l`-free part (the tangential normalisation at an end, for expansions of algebraic origin). -/
+the `l`-free part. It is linear, but not multiplicative on Laurent coefficients;
+tangential word normalization uses the nonnegative-power regular-log subalgebra. -/
 def constantTerm {K : Type*} [Field K] (F : Polynomial (LaurentSeries K)) : K :=
   (F.coeff 0).coeff 0
 
@@ -1075,6 +1076,15 @@ def constantTerm {K : Type*} [Field K] (F : Polynomial (LaurentSeries K)) : K :=
 the value at `0`. -/
 example {K : Type*} [Field K] (f : PowerSeries K) :
     constantTerm (Polynomial.C (HahnSeries.ofPowerSeries ℤ K f)) = PowerSeries.constantCoeff f := by
+  sorry
+
+/-- Test `constantTerm_not_multiplicative_laurent`: negative powers prohibit an algebra map. -/
+example {K : Type*} [Field K] :
+    constantTerm (Polynomial.C (HahnSeries.single (-1 : ℤ) (1 : K))) = 0 ∧
+    constantTerm (Polynomial.C (HahnSeries.single (1 : ℤ) (1 : K))) = 0 ∧
+    constantTerm (Polynomial.C
+      ((HahnSeries.single (-1 : ℤ) (1 : K) : LaurentSeries K) *
+        HahnSeries.single (1 : ℤ) (1 : K))) = 1 := by
   sorry
 
 -- frobeniusWord, frobeniusWord_dagger, frobeniusWord_D, frobeniusWord_L_single, frobeniusWord_top,
@@ -1358,6 +1368,19 @@ end PuncturedLine
 
 end PartA
 
+/-! Independent-review conventions for the L1 punctured-line prototype:
+The analytic `z ↦ z^p` map and its permutation of `μ_N` above are auxiliary C_p-valued data.
+For K_N=Q_p(μ_N), arithmetic K_N-linear Frobenius is `z ↦ z^q`, q=#k_N=p^f,
+with cohomology matrix q I. When f>1 the auxiliary p-map is not IsArithFrobAt over O_N;
+its f-fold iterate recovers the q-map. The generic `FrobeniusLift` carrier uses the actual
+residue cardinality. The packet spells out both formulas.
+Tangential CT is linear on Laurent-log germs, multiplicative only on the nonnegative-power
+regular-log word subalgebra; CT(t^-1)=CT(t)=0 but CT(t^-1*t)=1. End normalization therefore
+requires the packet's simple-pole and CT-pullback hypotheses. Higher poles remain a gap.
+Taylor and functoriality statements require the integral etale coordinate and uniform
+same-reduction cross-map estimates requested from AdicSpacesPartII:F1.
+-/
+
 /-! ## Layer L2: polylogarithms -/
 
 section PartB
@@ -1622,6 +1645,11 @@ theorem padicPolylog_map {b : ℂ_[p]} {L' : ℂ_[p] → ℂ_[p]} (hL : IsLogBra
     σ (padicPolylog p hL k z) = padicPolylog p hL' k (σ z) := by
   sorry
 
+/-- Independent-review sign control: `-log_a(1-1/p)=a-log(1-p)`. -/
+example (hL : IsLogBranch p a L) :
+    padicPolylog p hL 1 ((p : ℂ_[p])⁻¹) = a - L (1 - (p : ℂ_[p])) := by
+  sorry
+
 /-! ### ColemanIntegration:L2/value-at-one -/
 
 theorem tendsto_padicPolylog_one (hL : IsLogBranch p a L) {k : ℕ} (hk : 2 ≤ k) :
@@ -1713,7 +1741,9 @@ theorem modPolylogLimit_reduction (k : ℤ) {z : ℂ_[p]} (hz : ‖z‖ ≤ 1) (
   sorry
 
 theorem modPolylogLimit_distribution (k : ℤ) {m : ℕ} (hm : 0 < m) (hpm : ¬ p ∣ m)
-    {ζ : ℂ_[p]} (hζ : IsPrimitiveRoot ζ m) {z : ℂ_[p]} (hz : ‖z‖ ≤ 1) (hz1 : ‖z - 1‖ = 1) :
+    {ζ : ℂ_[p]} (hζ : IsPrimitiveRoot ζ m) {z : ℂ_[p]} (hz : ‖z‖ ≤ 1) (hz1 : ‖z - 1‖ = 1)
+    (hargs : ∀ i ∈ Finset.range m, 1 ≤ ‖ζ ^ i * z - 1‖)
+    (hpow : 1 ≤ ‖z ^ m - 1‖) :
     ∑ i ∈ Finset.range m, modPolylogLimit p k (ζ ^ i * z) =
       ((m : ℂ_[p]) ^ k)⁻¹ * (m : ℂ_[p]) * modPolylogLimit p k (z ^ m) := by
   sorry
@@ -1737,6 +1767,8 @@ example (hp2 : p ≠ 2) (hL : IsLogBranch p a L) :
     modPolylogLimit p 1 (-1) ≠ padicPolylog p hL 1 (-1) := by
   sorry
 
+-- Restrictedness below is for the globally glued integral ell_k. The whole completed
+-- localization is not restricted in s: t=s/(1+s) has coefficients alternating ±1.
 /-- Test `modPolylogLimit_isRestricted` (compatibility): the expansion of `ℓ_k` in
 `s = t/(1 - t)` is a restricted power series with `ℤ_[p]` coefficients. -/
 example (k : ℤ) : ∃ f : PowerSeries ℤ_[p], PowerSeries.IsRestricted 1 f ∧
@@ -2120,7 +2152,7 @@ open scoped AbstractMeasure _root_.PowerSeries
 
 variable {p : ℕ} [hp : Fact p.Prime]
 variable {K : Type*} [NontriviallyNormedField K] [CompleteSpace K] [IsUltrametricDist K]
-  [Algebra ℤ_[p] K] [ContinuousSMul ℤ_[p] K]
+  [CharZero K] [Algebra ℤ_[p] K] [ContinuousSMul ℤ_[p] K]
 
 /-! ### Power series on the open unit disc -/
 
@@ -2234,10 +2266,11 @@ example (ζ : K) (hζ : IsPrimitiveRoot ζ p) (hζ1 : ‖ζ - 1‖ < 1) :
 def polylogPrimitive (Li : ℕ → K → K) (w : K) (k : ℕ) : K⟦X⟧ :=
   PowerSeries.mk fun n => iteratedDeriv n (fun t => Li k (w * (1 + t))) 0 / (n.factorial : K)
 
-/-- `Li₀(z) = z/(1 - z)` and `z d/dz Li_k = Li_{k-1}` off the residue disc of `1`. -/
+/-- `Li₀(z) = z/(1 - z)` and `z d/dz Li_k = Li_{k-1}` at every `z ≠ 0,1`.
+The recursion on the punctured disc of 1 is needed by the smoothing theorems. -/
 def SatisfiesPolylogODE (Li : ℕ → K → K) : Prop :=
   (∀ z : K, z ≠ 1 → Li 0 z = z / (1 - z)) ∧
-    ∀ k : ℕ, 1 ≤ k → ∀ z : K, z ≠ 0 → ‖z‖ ≤ 1 → ‖z - 1‖ = 1 →
+    ∀ k : ℕ, 1 ≤ k → ∀ z : K, z ≠ 0 → z ≠ 1 →
       HasDerivAt (Li k) (Li (k - 1) z / z) z
 
 /-- On every residue disc of a point `w` with `‖w‖ ≤ 1`, `‖w - 1‖ = 1`, `Li k` is one power
@@ -2258,9 +2291,16 @@ def SatisfiesDistributionRelation (Li : ℕ → K → K) : Prop :=
 `Li_k(z) = -(log z)^{k-1}/(k-1)! · log(1 - z) + h_k(z)` with `h_k` analytic on the disc
 (ColemanIntegration:L2/polylogarithms-on-the-punctured-residue-discs, residue disc of `1`). -/
 def HasLocalFormAtOne (Li : ℕ → K → K) (plog : K → K) : Prop :=
+  -- The logarithm assumptions are explicit: an arbitrary function `plog` would not suffice.
+  (∀ x y : K, x ≠ 0 → y ≠ 0 → plog (x * y) = plog x + plog y) ∧
+  (∀ x : K, x ≠ 0 → HasDerivAt plog x⁻¹ x) ∧
+  (∀ t : K, ‖t‖ < 1 →
+    HasSum (fun n : ℕ => (-1 : K) ^ n * t ^ (n + 1) / (n + 1)) (plog (1 + t))) ∧
   ∀ k : ℕ, 1 ≤ k → ∃ h : K → K, AnalyticOnNhd K h (Metric.ball 1 1) ∧
-    ∀ z ∈ Metric.ball (1 : K) 1, z ≠ 1 →
-      Li k z = -(plog z) ^ (k - 1) / ((k - 1).factorial : K) * plog (1 - z) + h z
+    (∀ z ∈ Metric.ball (1 : K) 1, z ≠ 1 →
+      Li k z = -(plog z) ^ (k - 1) / ((k - 1).factorial : K) * plog (1 - z) + h z) ∧
+    (2 ≤ k → Li k 1 = h 1) ∧
+    (k = 1 → ∀ z ∈ Metric.ball (1 : K) 1, h z = 0)
 
 /-! ### Taylor expansions on residue discs (ColemanIntegration:L3/polylog-primitive-on-residue-disc) -/
 
@@ -2307,7 +2347,7 @@ example (hLi0 : ∀ k : ℕ, Li k 0 = 0) (k : ℕ) : polylogPrimitive Li 0 k = 0
 
 /-- Test `polylogPrimitive_weight_one` (computation), with `Li₁(z) = -log(1 - z)`. -/
 example (plog : K → K) (hLi1 : ∀ z : K, z ≠ 1 → Li 1 z = -plog (1 - z))
-    (hexp : HasResidueDiscExpansions Li) (w : K) (hw : ‖w‖ ≤ 1) (hw1 : ‖w - 1‖ = 1) (m : ℕ) :
+    (hODE : SatisfiesPolylogODE Li) (hexp : HasResidueDiscExpansions Li) (w : K) (hw : ‖w‖ ≤ 1) (hw1 : ‖w - 1‖ = 1) (m : ℕ) :
     PowerSeries.coeff (m + 1) (polylogPrimitive Li w 1) = (w / (1 - w)) ^ (m + 1) / ((m + 1 : ℕ) : K) :=
   sorry
 
@@ -2809,6 +2849,8 @@ end Regulator
 -- padicBeilinson_dirichletMotives (ColemanIntegration:L3/padic-beilinson-for-dirichlet-motives)
 --   and colemanFormula_syntomicRegulator
 --   (ColemanIntegration:L3/coleman-formula-as-syntomic-regulator-formula): not stated; same reason.
+-- The decomposed Dirichlet-motive comparison currently assumes p odd. The full BBdJR
+-- Proposition 4.17 includes p=2; its dyadic L-function normalization is a recorded packet gap.
 
 end PositiveIntegerValues
 
