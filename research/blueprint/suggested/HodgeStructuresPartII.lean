@@ -8,6 +8,7 @@
 
 
 import Mathlib.LinearAlgebra.Dual.BaseChange
+import Mathlib.Algebra.Algebra.Bilinear
 import Mathlib.RingTheory.TensorProduct.Basic
 
 import Mathlib.LinearAlgebra.Contraction
@@ -1037,6 +1038,20 @@ example :
 noncomputable def affineOrderedStep (θ : E →ₗ[R] E ⊗[R] Q) (n : ℕ) :
     (E ⊗[R] (⨂[R]^n Q)) →ₗ[R] E ⊗[R] (⨂[R]^(n+1) Q) := sorry
 
+-- API: TwistedHiggsBundle.affineOrderedStep_tmul
+-- This formula determines the step even when Q's dual does not separate points.
+theorem affineOrderedStep_tmul (θ : E →ₗ[R] E ⊗[R] Q) (n : ℕ)
+    (e : E) (t : TensorPower R n Q) :
+    let prepend :=
+      ((TensorProduct.congr
+        (PiTensorProduct.subsingletonEquiv (R := R) (s := fun _ : Fin 1 => Q) 0).symm
+        (LinearEquiv.refl R (TensorPower R n Q))).trans
+          (TensorPower.mulEquiv (n := 1) (m := n))).trans
+            (TensorPower.cast R Q (Nat.one_add n))
+    affineOrderedStep θ n (e ⊗ₜ[R] t) =
+      TensorProduct.map (LinearMap.id : E →ₗ[R] E) prepend.toLinearMap
+        (TensorProduct.assoc R E Q (TensorPower R n Q) (θ e ⊗ₜ[R] t)) := sorry
+
 noncomputable def affineOrderedIterate (θ : E →ₗ[R] E ⊗[R] Q) :
     (n : ℕ) → E →ₗ[R] E ⊗[R] (⨂[R]^n Q) := sorry
 
@@ -1109,6 +1124,14 @@ example [Subsingleton Q] (θ : E →ₗ[R] E ⊗[R] Q) (n : ℕ) :
 -- test: TwistedHiggsBundle.affineOrderedStep.test_scalar_nonzero
 example [Nontrivial R] (n : ℕ) :
     affineOrderedStep ((TensorProduct.rid R R).symm.toLinearMap) n ≠ 0 := sorry
+
+-- test: TwistedHiggsBundle.affineOrderedStep.test_torsion_coefficients
+-- Hom_Z(Z/2,Z)=0: contraction tests alone cannot determine the arbitrary-Q step.
+example :
+    let θ : ℤ →ₗ[ℤ] ℤ ⊗[ℤ] ZMod 2 :=
+      (TensorProduct.mk ℤ ℤ (ZMod 2)).flip (1 : ZMod 2)
+    (∀ v : Module.Dual ℤ (ZMod 2), affineContractions θ v = 0) ∧
+      affineOrderedStep θ 0 ≠ 0 := sorry
 
 /-- Affine adapter for the existing symmetric algebra, into actual endomorphisms.
 Global sheaf algebra/endomorphism and restriction coherence are supplied by E1.
@@ -1309,6 +1332,28 @@ theorem symmetricProjection_charTwo_action_counterexample :
     charTwoShiftX * charTwoShiftY + charTwoShiftY * charTwoShiftX = 0 ∧
     ∀ word : Fin 3 → Fin 2,
       ((List.ofFn word).map (fun i => if i = 0 then charTwoShiftX else charTwoShiftY)).prod = 0 := sorry
+
+-- test: TwistedHiggsBundle.symmetricProjection.test_ordered_square
+-- Test the actual field and tensor-valued iterate, as well as its matrix contractions.
+example :
+    let q₀ : Fin 2 → ZMod 2 := Pi.single 0 1
+    let q₁ : Fin 2 → ZMod 2 := Pi.single 1 1
+    let X := Matrix.toLin' charTwoShiftX
+    let Y := Matrix.toLin' charTwoShiftY
+    let θ : (Fin 2 × Fin 2 → ZMod 2) →ₗ[ZMod 2]
+        (Fin 2 × Fin 2 → ZMod 2) ⊗[ZMod 2] (Fin 2 → ZMod 2) :=
+      ((TensorProduct.mk (ZMod 2) _ _).flip q₀).comp X +
+        ((TensorProduct.mk (ZMod 2) _ _).flip q₁).comp Y
+    let π : ((Fin 2 → ZMod 2) ⊗[ZMod 2] (Fin 2 → ZMod 2)) →ₗ[ZMod 2]
+        SymmetricAlgebra (ZMod 2) (Fin 2 → ZMod 2) :=
+      (LinearMap.mul' (ZMod 2) _).comp
+        (TensorProduct.map (SymmetricAlgebra.ι (ZMod 2) (Fin 2 → ZMod 2))
+          (SymmetricAlgebra.ι (ZMod 2) (Fin 2 → ZMod 2)))
+    affineOrderedSquare θ (Pi.single (0, 0) 1) =
+        Pi.single (1, 1) 1 ⊗ₜ[ZMod 2] (q₀ ⊗ₜ[ZMod 2] q₁ + q₁ ⊗ₜ[ZMod 2] q₀) ∧
+      affineOrderedSquare θ ≠ 0 ∧
+      (TensorProduct.map (LinearMap.id : (Fin 2 × Fin 2 → ZMod 2) →ₗ[ZMod 2]
+        (Fin 2 × Fin 2 → ZMod 2)) π).comp (affineOrderedSquare θ) = 0 := sorry
 
 end TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle
 

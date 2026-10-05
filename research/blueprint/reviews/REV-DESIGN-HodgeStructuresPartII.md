@@ -1,5 +1,14 @@
 # Independent review checkpoint: Hodge structures, Part II
 
+Latest continuation: Codex session `codex-4io8Xn`, 5 October 2026, issue
+#3548. The appended continuation records 41 further node inspections and 91
+additional pinned baseline statement checks. Resume at array index 88. This
+remains a partial review with no top-level `review` verdict. The initial
+checkpoint below is preserved as a historical receipt; its counts and resume
+point are superseded by the continuation and current handoff.
+
+## Initial checkpoint — codex-tUuT7s
+
 Job `REV-DESIGN-HodgeStructuresPartII`, issue #3548. Codex, session
 `codex-tUuT7s`, 5 October 2026. This is a **partial review**, not acceptance or
 a finished `needs_changes` verdict. No top-level `review` object has been added.
@@ -197,3 +206,247 @@ Mathlib pin. It elaborates with admitted statements; only the expected
 `declaration uses sorry` warnings are permitted. The final hash and diagnostic
 count are recorded in the handoff after the check finishes. These checks do
 not prove the mathematical statements or fill the omitted global signatures.
+
+
+## Continuation checkpoint — codex-4io8Xn
+
+Codex, session `codex-4io8Xn`, 5 October 2026. Confirmed claim on issue #3548.
+This continuation inspects array indices **47–87**, 41 nodes, from
+`H.0/determinant-coordinate` through `H.0/affine-ordered-iterate-zero-field`.
+The previous 47-node receipt is inherited, not attributed to this session.
+There are now conditional inspections of a prefix of 88 nodes, with **481
+nodes remaining**. These are mathematical and signature checks under the
+listed inputs, not final verified verdicts on that prefix or on the packet.
+In particular the large API on `affine-ordered-iterate` points forward to
+naturality, base change and mixed-word nodes which this continuation has not
+reviewed. Its later API/test contracts remain conditional on those nodes.
+
+The complete declarations and ambient hypotheses of original baseline array
+indices **15–104**, inclusive, were independently read at the exact packet
+pins. A new citation of `LinearMap.mul′` was also read. This adds **91**
+statement receipts to the earlier 15: **106 of 280** baseline entries now have
+an independent receipt for this review job, leaving **174**. The index check
+validates the other names/modules only. Tau Ceti statements were read with
+`git show` at `f790474821cf4256814db967cb154e7af3d0c369`; the shared Tau Ceti
+working tree is not used as evidence of that pin. Mathlib was read at
+`082e2d37e8b0463410cdb532e111cd43d5a66174`.
+
+### Corrections in this continuation
+
+1. Added the direct `Matrix.det_mul` dependency of `determinant-gauge-matrix`
+   and `Matrix.det_apply′` dependency of `determinant-alternating-operator`.
+   The latter's final step now unfolds the already specified line operator
+   rather than consuming a separate unpromoted API lemma. Its substantive
+   row/column replacement argument is retained.
+2. Added `RingCon.liftₐ_mk`, `TensorAlgebra.lift_ι_apply` and
+   `SymmetricAlgebra.algebraMapInv` to `affine-symmetric-action`, whose proof
+   already explicitly uses these declarations. The target remains the
+   actual associative, possibly noncommutative algebra `End(E)`.
+3. Added `affineOrderedStep_tmul` to the step construction's projection API
+   and suggested file. The pure-tensor formula specifies the actual
+   associator/singleton/multiplication/cast composite for arbitrary Q.
+   Contraction equations alone do not determine this map unless the dual
+   separates the relevant tensors. Added a named non-example over ℤ with
+   E=ℤ, Q=ℤ/2 and θ(e)=e⊗1: all dual contractions vanish but the degree-zero
+   successor step is nonzero. The codomain is the native tensor power,
+   rather than a replacement carrier with a stipulated property.
+4. Added the actual ordered-square regression to the `affine-ordered-square`
+   tests and suggested file. The incoming characteristic-two witnesses
+   separately stated the matrix identities and a tensor-algebra word. They
+   did not state the asserted failure on θ's ordered tensor map. The new
+   example constructs θ on the four-basis module, computes θ²(1), states
+   nonvanishing of the actual ordered square, and states vanishing of its
+   entire symmetric projection. It uses native linear multiplication
+   `LinearMap.mul′`, now cited in the baseline and relevant prerequisite
+   lists. The main named tensor-algebra witness remains a smaller auxiliary
+   statement; the ordered map is covered by this supplementary example,
+   not by interpreting that auxiliary witness as the whole theorem.
+5. Changed the degree-zero iterate test kind from `boundary` to `degenerate`
+   and the ℤ/4 square-zero test kind from `boundary` to `computation`, the
+   categories actually listed in PROTOCOL §12. This bounded correction does
+   not certify the categories or contracts of uninspected tests elsewhere.
+6. Repointed 26 Heuer citations in this inspected block to a new scoped
+   published-HTML receipt, `Heuer25-review-4io8Xn`, using section locators
+   rather than pagination not freshly verified. Earlier source receipts are
+   preserved. Fresh EG author-copy and LZ v3 reading receipts are appended
+   without overwriting the previous reviewer's receipts.
+
+No declaration nodes were added or removed, no second key owner was created,
+and no roadmap/reader/data file was edited. The reserved
+`key/higgs-parameter-connections` node and its “Higgs and λ-connections”
+planet remain unchanged. The checker counts **569 nodes, 541 API entries,
+493 tests, six planets, 280 baseline declarations, five requests and 13
+gaps**. The API/test counts are for definitions and constructions, as in the
+checker; counting all node kinds gives 549 API entries and 508 tests.
+`implementationStatus` remains `unchecked` for every node. The packet has no
+final top-level `review` object.
+
+### Mathematical inspection ledger
+
+All identifiers in the following table are in H.0. A check establishes only
+its stated algebraic route or identifies the remaining boundary; it does not
+supply a global sheaf signature or verify later dependencies by implication.
+
+| Index | Node | Check or remaining boundary |
+| --- | --- | --- |
+| 47 | `determinant-coordinate` | The line coefficient is tr(A), not det(A); λ is preserved. Empty rank gives the unit line. The actual local operator API and rank-zero/rank-one/scalar/no-converse tests were compared with the suggested signatures. Global top-wedge descent is outside this model. |
+| 48 | `determinant-matrix` | The sole matrix entry is the defining trace. |
+| 49 | `determinant-curvature` | Trace moves through the finite derivative sum; tr[A_i,A_j]=0. This yields the trace of the original curvature, with no rank-scaled λ. |
+| 50 | `determinant-flat` | Zero original curvature implies zero scalar curvature. The converse is false: E12,E21 have a nonzero traceless commutator over ℚ. |
+| 51 | `determinant-dual` | The coefficient is −tr(Aᵀ)=−tr(A), with unchanged parameter. |
+| 52 | `determinant-tensor` | The Kronecker sum has trace rank(W)tr(A)+rank(V)tr(B), including zero ranks and all characteristics. No inverse of a rank is used. |
+| 53 | `gauge-curvature` | With s′=Gs, expand A′=GAG⁻¹−λ(δG)G⁻¹. Differentiating GG⁻¹=1 cancels the mixed terms; commuting directions and δλ=0 leave GκG⁻¹. |
+| 54 | `determinant-gauge-curvature` | Trace of unit conjugation preserves the scalar curvature, even though the determinant connection coefficient need not be invariant. |
+| 55 | `determinant-derivation-rows` | Apply Leibniz to the permutation expansion and sum over the differentiated entry. The proof works for singular S and empty rank; δ of the integer sign is zero. |
+| 56 | `determinant-row-action` | Multilinearity gives tr(A)det(S); off-diagonal row replacements have duplicate rows and vanish in characteristic two as well. The pinned Tau Ceti column-weight identity is only a near miss. |
+| 57 | `determinant-gauge-matrix` | Trace of the gauge derivative correction agrees with det(G⁻¹)δ(det G) by the existing ColemanPowerSeries unit-Jacobi contract. Its statement and dual-number proof route were read in that supplier packet. This is a statement-fit check, not a fresh review of the supplier's implementation. Added det multiplicativity as a direct dependency. |
+| 58 | `determinant-gauge` | Determinant of the unit matrix is a scalar unit via detMonoidHom; the rank-one gauge formula has the same negative logarithmic derivative term. |
+| 59 | `determinant-alternating-operator` | For a row-family S, applying A to each column-vector row gives H=SAᵀ. Permutation expansion equates replacement-row and replacement-column sums; transposing reduces to the left row-action identity. No flatness or invertibility of S is needed. |
+| 60 | `affine-contractions` | Contract the Q slot, then use the right tensor unit. This is a linear map from Q∨ to the actual composition algebra End(E), with no finite basis on E or Q. |
+| 61 | `affine-symmetric-action` | TensorAlgebra.lift permits End(E). Pairwise commutation kills the SymRel congruence, so RingCon.liftₐ descends the action. Direct SymmetricAlgebra.lift would require a commutative target at this pin. Generator, uniqueness and zero-action APIs and the noncommuting/ambient-ideal tests retain this distinction. |
+| 62 | `affine-symmetric-commuting` | An action sends commuting symmetric generators to commuting endomorphisms; the converse uses the preceding associative-target construction. |
+| 63 | `symmetric-action-word` | The algebra map preserves the ordered list product; endomorphisms are not reordered. |
+| 64 | `symmetric-action-morphism` | Generator intertwining extends by scalar, generator, sum and product induction, with linear scalar compatibility. Restriction to generators proves the reverse implication. |
+| 65 | `ordered-coordinate-vanishing` | Finite local bases distinguish all ordered coefficient tuples, including degree zero. The later affine coordinate/vanishing statements were inspected here, but the global sheaf tensor-power, restriction and equality-detection inputs remain open E1 requests; its signature is explicitly omitted. |
+| 66 | `augmentation-power-generators` | The built Hopf augmentation identifies I with the source symmetric algebra's degree-one span. Repeated span multiplication gives all length-N words; N=0 is the span of 1, hence the top ideal. |
+| 67 | `augmentation-power-words` | α kills I^N exactly when it kills the length-N generators of that ideal. The kernel is formed in Sym(Q∨), not as an ambient ideal in End(E). |
+| 68 | `ordered-augmentation-nilpotence` | On finite charts the ordered coefficient criterion and source ideal-word criterion have the same bound N, without projecting to Sym^N(Q). Global restriction/quotient-action coherence remains an E1 input and no actual global signature is present. |
+| 69 | `truncated-symmetric-action` | Native Ideal.Quotient.liftₐ accepts the associative End(E) target when I^N lies in the kernel. Surjectivity gives uniqueness. N=0 is allowed exactly on the zero module; the nonzero scalar-unit action fails every positive bound. |
+| 70 | `symmetric-projection-counterexample` | Over F₂, X²=Y²=0, XY=YX≠0, and θ²(1)=xy⊗(q₀⊗q₁+q₁⊗q₀)≠0. The symmetric quotient merges the mixed tuples and kills their sum; all cubic words vanish. Added an actual tensor-map example. The optional F₃ refinement in its proof outline has not been separately checked in this continuation. |
+| 71 | `affine-contractions-reconstruction` | Finite basis of Q suffices to recover a tensor via its dual coordinates; E is arbitrary. The proof uses tensor induction and the native basis expansion, not dual separation for arbitrary Q. |
+| 72 | `affine-ordered-square` | The associator composite applies θ again to E and places its newly created Q factor on the left. No integrability premise is needed. The E12/E21 order test distinguishes XY from YX; the new F₂ test detects loss under symmetric projection. |
+| 73 | `affine-ordered-square-contraction` | Contracting by (v,w) gives a(v)a(w), with w applied first. |
+| 74 | `affine-ordered-square-vanishing` | Reconstruct over the finite basis of Q; all pair coefficients vanish iff the actual ordered square vanishes. Arbitrary E is retained. |
+| 75 | `affine-ordered-step` | Native singleton equivalence, tensor multiplication and 1+n=n+1 cast preserve the new factor on the left. Added the direct pure-tensor API and torsion-dual non-example. Naturality API points to the next uninspected node. |
+| 76 | `affine-ordered-iterate` | I₀ is the tensor-unit isomorphism and I_(n+1)=S_n I_n, for arbitrary Q. The core unit/zero/scalar/ℤ4 tests match the local signatures. The many later naturality, flatness, base-change and mixed-word APIs/tests are listed but remain unverified pending their later nodes. |
+| 77 | `affine-contractions-apply` | The right-unit contraction is the actual map value; no stronger dual-separation assertion is made. |
+| 78 | `affine-contractions-zero` | Contracting a zero tensor map gives the zero endomorphism. |
+| 79 | `affine-ordered-iterate-unit` | The degree-zero iterate sends e to e⊗1₀. Its empty pairing is id_E, including E=0. |
+| 80 | `affine-ordered-iterate-succ` | The stated recurrence is the defining one, with the degree cast included in S. |
+| 81 | `affine-ordered-step-zero` | Tensor mapping of the zero field gives the zero step. |
+| 82 | `affine-ordered-step-add` | Tensor mapping is additive in θ; the fixed reassociation and degree equivalences preserve that equality. |
+| 83 | `affine-ordered-step-contraction` | Tensor induction gives a(v) times the old tuple contraction in that order. Fin.prod_univ_succ is used only for the commutative scalar pairing; endomorphism products use List.prod. |
+| 84 | `affine-ordered-iterate-contraction` | Induct with the unit case and successor contraction: pairing against an n-tuple equals its ordered contraction word. No integrability or finite basis is required. |
+| 85 | `affine-tensor-power-coordinate` | On pure tuples the native tensor-basis coordinate and dual tuple pairing are the same product of scalar basis coordinates. Native tensor extensionality extends equality. |
+| 86 | `affine-ordered-iterate-vanishing` | Reconstruct using the finite tensor basis of Q and arbitrary-E tensor-coordinate reconstruction. I_n=0 iff all ordered n-word coefficients are zero, including the unit case n=0. |
+| 87 | `affine-ordered-iterate-zero-field` | At every positive degree the zero successor step kills the previous iterate. Degree zero remains the unit map. |
+
+### Additional pinned baseline receipts
+
+The original declaration array indices 15–104 and the added multiplication
+map are grouped below. Each has a packet `independentCheck` receipt from this
+session. Ambient hypotheses and statements were read, rather than inferred
+from names or the supplied index.
+
+| Pinned module | Independently read declarations |
+| --- | --- |
+| `Mathlib/LinearAlgebra/Matrix/Trace.lean` | `Matrix.trace`, `Matrix.trace_mul_comm`, `AddMonoidHom.map_trace`, `Matrix.trace_transpose`, `Matrix.trace_neg`, `Matrix.trace_one`, `Matrix.trace_units_conj`, `Matrix.trace_fin_zero`, `Matrix.trace_fin_one`, `Matrix.trace_zero`, `Matrix.trace_add`, `Matrix.trace_sub`, `Matrix.trace_smul` |
+| `Mathlib/LinearAlgebra/Matrix/Kronecker.lean` | `Matrix.trace_kronecker` |
+| `Mathlib/LinearAlgebra/Matrix/Determinant/Basic.lean` | `Matrix.detRowAlternating`, `Matrix.det_apply'`, `Matrix.det_updateRow_add`, `Matrix.det_updateRow_smul`, `Matrix.det_updateRow_eq_zero`, `Matrix.det_transpose`, `Matrix.det_mul`, `Matrix.detMonoidHom` |
+| `Mathlib/Data/Matrix/Basic.lean` | `Matrix.scalar` |
+| `Mathlib/Algebra/Group/Units/Hom.lean` | `Units.map`, `Units.coe_map` |
+| `Mathlib/RingTheory/Derivation/Basic.lean` | `Derivation.map_intCast`, `Derivation.map_one_eq_zero` |
+| `TauCeti/LinearAlgebra/Determinant.lean` | `Matrix.sum_det_updateRow_mul_row` |
+| `Mathlib/LinearAlgebra/Dual/Defs.lean` | `Module.Dual` |
+| `Mathlib/LinearAlgebra/TensorProduct/Map.lean` | `TensorProduct.map`, `TensorProduct.map_add_right`, `TensorProduct.map_smul_right`, `TensorProduct.map_tmul`, `TensorProduct.congr`, `TensorProduct.congr_tmul`, `TensorProduct.map_add_left` |
+| `Mathlib/LinearAlgebra/TensorProduct/Associator.lean` | `TensorProduct.rid`, `TensorProduct.assoc`, `TensorProduct.assoc_tmul` |
+| `Mathlib/LinearAlgebra/TensorAlgebra/Basic.lean` | `TensorAlgebra.lift`, `TensorAlgebra.hom_ext`, `TensorAlgebra.lift_ι_apply` |
+| `Mathlib/LinearAlgebra/SymmetricAlgebra/Basic.lean` | `TensorAlgebra.SymRel`, `SymmetricAlgebra.algHom`, `SymmetricAlgebra.induction`, `SymmetricAlgebra.algebraMapInv`, `SymmetricAlgebra.algebraMapInv_ι` |
+| `Mathlib/RingTheory/Congruence/Basic.lean` | `RingCon.ringConGen_le` |
+| `Mathlib/RingTheory/Congruence/Hom.lean` | `RingCon.liftₐ`, `RingCon.liftₐ_mk`, `RingCon.Quotient.hom_extₐ` |
+| `Mathlib/RingTheory/Bialgebra/SymmetricAlgebra.lean` | `SymmetricAlgebra.counitAlgHom_eq` |
+| `Mathlib/RingTheory/Ideal/Operations.lean` | `Ideal.span_mul_span`, `Ideal.pow_mem_pow` |
+| `Mathlib/RingTheory/Ideal/Quotient/Operations.lean` | `Ideal.Quotient.liftₐ`, `Ideal.Quotient.liftₐ_comp` |
+| `TauCeti/Algebra/HopfAlgebra/HopfIdeal/Augmentation.lean` | `TauCeti.HopfIdeal.mem_augmentation`, `TauCeti.HopfIdeal.augmentation_toIdeal` |
+| `TauCeti/Algebra/HopfAlgebra/SymmetricAlgebra/Augmentation.lean` | `TauCeti.SymmetricAlgebra.augmentation_toIdeal_eq_span_range_ι` |
+| `Mathlib/RingTheory/Ideal/Quotient/Defs.lean` | `Ideal.Quotient.mk_surjective`, `Ideal.Quotient.eq_zero_iff_mem` |
+| `Mathlib/Algebra/Algebra/Operations.lean` | `Submodule.span_pow` |
+| `Mathlib/Algebra/Group/Pointwise/Set/ListOfFn.lean` | `Set.mem_pow` |
+| `Mathlib/RingTheory/Ideal/Span.lean` | `Ideal.span_le` |
+| `Mathlib/LinearAlgebra/Matrix/ToLin.lean` | `Matrix.toLin'` |
+| `Mathlib/LinearAlgebra/Basis/Defs.lean` | `Module.Basis.sum_repr`, `Module.Basis.coord` |
+| `Mathlib/LinearAlgebra/TensorProduct/Defs.lean` | `TensorProduct.induction_on`, `TensorProduct.tmul_sum`, `TensorProduct.sum_tmul` |
+| `Mathlib/LinearAlgebra/PiTensorProduct/Basis.lean` | `Basis.piTensorProduct`, `Basis.piTensorProduct_repr_tprod_apply` |
+| `Mathlib/Data/Fin/Tuple/Basic.lean` | `Fin.append_left_eq_cons` |
+| `Mathlib/Algebra/BigOperators/Fin.lean` | `Fin.prod_univ_succ` |
+| `Mathlib/Algebra/Module/LinearMap/End.lean` | `Module.End.one_eq_id` |
+| `Mathlib/LinearAlgebra/PiTensorProduct/Basic.lean` | `PiTensorProduct.ext`, `PiTensorProduct.induction_on`, `PiTensorProduct.subsingletonEquiv`, `PiTensorProduct.subsingletonEquiv_symm_apply'` |
+| `Mathlib/LinearAlgebra/TensorPower/Basic.lean` | `TensorPower`, `TensorPower.algebraMap₀`, `TensorPower.algebraMap₀_one`, `TensorPower.cast`, `TensorPower.cast_tprod`, `TensorPower.gMul_def`, `TensorPower.gOne_def`, `TensorPower.mulEquiv`, `TensorPower.tprod_mul_tprod` |
+| `Mathlib/LinearAlgebra/TensorPower/Pairing.lean` | `TensorPower.multilinearMapToDual_apply_tprod`, `TensorPower.multilinearMapToDual` |
+| `Mathlib/Algebra/Algebra/Bilinear.lean` | `LinearMap.mul'` |
+
+Important fit boundaries: the symmetric source algebra is commutative, so
+Ideal.span_mul_span's two-sidedness condition is available; its endomorphism
+target need not be commutative. TensorAlgebra.lift, RingCon.liftₐ and
+Ideal.Quotient.liftₐ support that target. Submodule.span_pow is specialized
+with the symmetric algebra itself as scalar ring; Set.mem_pow gives finite
+ordered words. The Hopf augmentation citations supply the existing source
+ideal, without replanning a second augmentation carrier. Native tensor
+pairing requires no basis; only reconstruction and the converse vanishing
+criterion require the stated finite coefficient basis.
+
+### Source evidence for this continuation
+
+- The [EG author PDF](https://www.mi.fu-berlin.de/users/esnault/preprints/helene/126_esn_gro.pdf)
+  was freshly retrieved and its SHA-256 matches
+  `0bfa00b7dbae7a59c193d3523028df826741f15d3e88cb50526f8656a7fb8e35`.
+  Complete selected printed pp.2, 5–6, 23–24 were read, including the short
+  proofs of Lemmas 2.1 and 4.9. The fixed-determinant, trace-zero and parameter
+  formulas motivate the determinant block; the arbitrary-ring matrix
+  deductions are not alleged named results of the paper. No new published
+  Acta collation or source-issue verdict is made.
+- The [published Heuer HTML](https://link.springer.com/article/10.1007/s00222-025-01321-4)
+  was independently read at full Definition 1.2(2), Definition 4.1 and
+  Remark 4.2. It explicitly retains the Tate-twisted coefficient sheaf and
+  the contraction/symmetric image algebra. The general affine formulas in
+  this block are authored deductions. The PDF endpoint yielded HTML in this
+  session: no fresh PDF hash or printed pagination is claimed. This does
+  not invalidate a previous worker's successful historical PDF retrieval.
+- The [Liu–Zhu v3 PDF](https://arxiv.org/pdf/1602.06282v3) was freshly retrieved
+  at matching SHA-256
+  `8b11e55bffbfb1835a6da8975272670c9465601c08640e06f3a566a459a1da79`.
+  The complete selected Theorem 2.1 and associated-graded paragraph on
+  printed p.7, and Lemma 2.15 with its printed proof on pp.18–19, were read.
+  Its logarithm/cyclotomic characteristic-polynomial argument motivates
+  nilpotence. It does not state these arbitrary-N affine word criteria.
+
+The parent HodgeStructures library audit was retained as the existing base;
+the entire HodgeStructures and AdicSpaces upstream documents were read in this
+session. No parent work was replanned. The selected local symmetric algebra
+and tensor carriers build on the exact pinned libraries. The open E1 sheaf
+interfaces are not discharged by their affine prototypes.
+
+### Validation and resume boundary
+
+The pinned-index packet checker reports **0 errors, 0 warnings**. The complete
+edited suggested file was elaborated once with `lean-check` in the existing
+shared build: **exit 0, 0 errors, 950 warnings, all `declaration uses sorry`**.
+This is signature elaboration with admitted proofs. It is not an
+implementation audit, and the Mathlib-only imports do not compile Tau Ceti's
+pinned declarations. Suggested-file SHA-256:
+`0f8be02bb30863536c9e3cff5eb2286ff34e155405b41b6a719056e7a4d4ccd1`.
+Diagnostic-log SHA-256:
+`629c9a44c5437fbc57b4b4b063933c983d0b91667f4ec63d8e54a18db59a5e9a`.
+No language server, library build, cache download or second concurrent Lean
+process was started. The check completed before submission.
+
+A separate exhaustive F₂ finite computation checked X²=Y²=0, XY=YX≠0,
+the nonzero xy coefficient of the ordered square, zero symmetric projection
+on all four basis vectors, and vanishing of all eight words of length three.
+It multiplies the exact 4×4 matrices in the suggested fixture modulo 2 and
+groups the four ordered coefficient tuples by their degree-two monomials.
+This supports the regression's mathematics; it does not prove its admitted
+Lean statement. The torsion example follows from Hom_ℤ(ℤ/2,ℤ)=0 and the
+native tensor-unit isomorphisms, which send the displayed step to reduction
+modulo 2 and hence show it is nonzero.
+
+Resume at **array index 88**, `H.0/affine-ordered-step-natural`, and at original
+baseline index **105**, `mathlib:PiTensorProduct.map`. The appended
+`LinearMap.mul′` baseline is already checked. Review later consumers before
+turning the conditional prefix into verified node verdicts. Still complete
+the roadmap definition, routed-source/coverage/duplication/planet screen,
+unvisited sources, exact global suppliers, both source-issue version checks
+and reader synchronization under an authorized follow-up. The inherited CR.1
+and Rees gaps remain open. The 481 remaining nodes and 174 baseline statements
+have no new independent verification from this continuation. Keep the packet
+unpromoted until the complete independent review issues its final verdict.
