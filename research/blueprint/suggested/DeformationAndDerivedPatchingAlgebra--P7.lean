@@ -18,6 +18,7 @@ import TauCeti.Algebra.DirectSum.Internal
 import Mathlib.RingTheory.GradedAlgebra.Homogeneous.Submodule
 import Mathlib.RingTheory.MvPolynomial.Homogeneous
 import Mathlib.Algebra.Polynomial.Roots
+import Mathlib.Algebra.Group.ForwardDiff
 import Mathlib.Algebra.Polynomial.Degree.SmallDegree
 import Mathlib.Order.Interval.Set.Infinite
 import Mathlib.Data.Nat.Choose.Cast
@@ -520,6 +521,11 @@ theorem polynomial_zero [Subsingleton M] (q : Ideal A)
     (hq : q.radical = IsLocalRing.maximalIdeal A) :
     polynomial (M := M) q hq = 0 := by sorry
 
+/-- Zero polynomial degree retains bottom, independently of natDegree. -/
+theorem polynomial_degree_eq_bot [Subsingleton M] (q : Ideal A)
+    (hq : q.radical = IsLocalRing.maximalIdeal A) :
+    (polynomial (M := M) q hq).degree = ⊥ := by sorry
+
 theorem polynomial_congr {N : Type*} [AddCommGroup N] [Module A N] [Module.Finite A N]
     (e : M ≃ₗ[A] N) (q : Ideal A)
     (hq : q.radical = IsLocalRing.maximalIdeal A) :
@@ -575,6 +581,13 @@ theorem multiplicityInDegree_eq_coeff (q : Ideal A)
     (hq : q.radical = IsLocalRing.maximalIdeal A) (d : ℕ) :
     multiplicityInDegree (M := M) q hq d =
       (d.factorial : ℚ) * (polynomial (M := M) q hq).coeff d := by rfl
+
+/-- Every indexed coefficient is invariant under an actual module equivalence. -/
+theorem multiplicityInDegree_congr {N : Type*} [AddCommGroup N] [Module A N]
+    [Module.Finite A N] (e : M ≃ₗ[A] N) (q : Ideal A)
+    (hq : q.radical = IsLocalRing.maximalIdeal A) (d : ℕ) :
+    multiplicityInDegree (M := M) q hq d =
+      multiplicityInDegree (M := N) q hq d := by sorry
 
 /-- Degree-indexed extractor API; meaningful regardless of whether M is zero. -/
 theorem multiplicityInDegree_eq_zero_of_lt (q : Ideal A)
@@ -640,7 +653,9 @@ theorem multiplicityInDegree_associativity
 
 end FiniteLocal
 
-/-- R03.3/top-coefficient-finite-difference: ordinary rational polynomial algebra. -/
+/-- R03.3/top-coefficient-finite-difference: translate the pinned forward-difference
+binomial formula to y=t-d and reflect range(d+1). Mathlib already supplies the
+factorial and higher-difference vanishing theorems; their calculus is not rebuilt. -/
 theorem top_coefficient_finite_difference (p : Polynomial ℚ) (d : ℕ)
     (hd : p.natDegree ≤ d) (t : ℚ) :
     ∑ i ∈ Finset.range (d + 1), (-1 : ℚ) ^ i * (Nat.choose d i : ℚ) *
@@ -700,7 +715,8 @@ example (k : Type*) [Field k] [IsNoetherianRing (EmbeddedRing k)]
 example (A : Type*) [CommRing A] [IsNoetherianRing A] [IsLocalRing A]
     (q : Ideal A) (hq : q.radical = IsLocalRing.maximalIdeal A) :
     polynomial (M := Fin 0 → A) q hq = 0 ∧
-      (polynomial (M := Fin 0 → A) q hq).degree = ⊥ := by sorry
+      (polynomial (M := Fin 0 → A) q hq).degree = ⊥ ∧
+      Module.supportDim A (Fin 0 → A) = ⊥ := by sorry
 
 -- test: HilbertSamuelTest.multiplicity_field
 example (k : Type*) [Field k] (r : ℕ)
@@ -759,6 +775,22 @@ example (k : Type*) [Field k]
       IsLocalRing.maximalIdeal (MvPowerSeries (Fin 2) k)) :
     polynomial (M := MvPowerSeries (Fin 2) k) _ hq = (X + 1) * (X + 2) * C (1 / 2) ∧
       multiplicityInDegree (M := MvPowerSeries (Fin 2) k) _ hq 2 = 1 := by sorry
+
+/-- The index-zero extractor below one-dimensional support is negative.
+The quotient is actual; this specializes the existing plane-curve polynomial
+strand to the finite-order equation x^4, with no reducedness assumption. -/
+-- test: HilbertSamuelTest.inDegree_below_support
+example (k : Type*) [Field k]
+    [IsNoetherianRing (MvPowerSeries (Fin 2) k ⧸ Ideal.span
+      {(MvPowerSeries.X 0 : MvPowerSeries (Fin 2) k) ^ 4})]
+    [IsLocalRing (MvPowerSeries (Fin 2) k ⧸ Ideal.span
+      {(MvPowerSeries.X 0 : MvPowerSeries (Fin 2) k) ^ 4})] :
+    let B := MvPowerSeries (Fin 2) k ⧸ Ideal.span
+      {(MvPowerSeries.X 0 : MvPowerSeries (Fin 2) k) ^ 4}
+    ∃ hq : (IsLocalRing.maximalIdeal B).radical = IsLocalRing.maximalIdeal B,
+      polynomial (M := B) _ hq = C 4 * X - C 2 ∧
+        multiplicityInDegree (M := B) _ hq 0 = -2 ∧
+        multiplicity (M := B) _ hq = 4 := by sorry
 
 end HilbertSamuelTest
 
@@ -1159,8 +1191,8 @@ end TauCeti.LocalPerfect
 
 /- Positivity continuation by codex-rtOQ9t. All four added forms use the actual
 native polynomial and quotient-length types. They do not prove existence of
-the cumulative polynomial or its degree/dimension comparison. NOT COMPILED;
-the successful historical receipt above covers only the preceding file. -/
+the cumulative polynomial or its degree/dimension comparison. The admitted
+Mathlib-prefix receipt and full-file boundary are recorded in the review handoff. -/
 namespace TauCeti.HilbertSamuel
 
 open Polynomial
