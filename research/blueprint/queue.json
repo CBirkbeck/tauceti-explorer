@@ -34377,7 +34377,8 @@
    ],
    "avoidAccountOf": "BP-HabiroNahmSeries--HB.3",
    "prompt": "research/blueprint/prompts/REV-HabiroNahmSeries--HB.3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6458"
   },
   {
    "id": "BP-HabiroNahmSeries--HB.4",
@@ -35753,8 +35754,9 @@
     "BP-KTheoryLowDegrees--U.1~2"
    ],
    "prompt": "research/blueprint/prompts/REV-KTheoryLowDegrees--U.1~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6455"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6455",
+   "finishedAt": "2026-10-05T22:47:02Z"
   },
   {
    "kind": "blueprint",
