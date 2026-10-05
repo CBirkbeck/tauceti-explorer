@@ -116,10 +116,14 @@ implementation, and `implementationStatus` stays `"unchecked"` for every node.
 Pinned commits: Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti
 `f790474821cf4256814db967cb154e7af3d0c369`.
 
-Compiled with `lean` against the pinned commits (Mathlib `082e2d3` from a Lake project's packages,
-and the imported Tau Ceti modules compiled from the pinned `f790474` sources with `lean -o` into a
-directory placed first on `LEAN_PATH`); the only warnings are uses of `sorry`, also with
-`autoImplicit` off and Mathlib's standard linter set switched on.
+An earlier checkpoint reported compilation of its then-current file against these pins.
+That historical result does not validate later continuations. In this run the prescribed
+`lean-check` stops at import loading: the shared build lacks
+`TauCeti.CategoryTheory.Exact.Functor.olean`, so the complete file did not elaborate.
+The new Kubota section elaborates separately against the pinned Mathlib with exact inherited
+carrier definitions extracted into a scratch harness, with `autoImplicit` disabled. Its
+proof placeholders give expected `sorry` warnings. This checks the new signatures and typed
+tests, not the complete file or mathematical proofs. No library build was started.
 
 ## Pinned conventions
 
@@ -7667,3 +7671,324 @@ example : ¬ ∃ I : Ideal (ZMod 2), I ≠ ⊥ ∧
   sorry
 
 end TauCeti.KTheory
+
+
+/-! ## Kubota continuation (Codex codex-Px3FlU)
+Uses the actual inherited carriers and definitions. Proofs remain placeholders;
+this section does not assume multiplicativity of its initially defined value. -/
+
+namespace TauCeti.MennickeSymbol
+
+open TauCeti.KTheory TauCeti.RelativeK1
+variable {A : Type u} [CommRing A] {I J : Ideal A}
+variable {C : Type v} [Group C] {D : Type w} [Group D]
+
+
+/-- Restriction of the inherited congruence kernel along ideal inclusion. -/
+def levelInclusion (h : J ≤ I) : congruenceSubgroup (Fin 2) J →* congruenceSubgroup (Fin 2) I where
+  toFun g := ⟨g.val, by sorry⟩
+  map_one' := by rfl
+  map_mul' _ _ := by rfl
+
+/-- Packaging the native normal-kernel conjugation, with no new matrix formula. -/
+def levelConjugate (τ : GL (Fin 2) A) (g : congruenceSubgroup (Fin 2) I) : congruenceSubgroup (Fin 2) I :=
+  ⟨τ * g.val * τ⁻¹, by sorry⟩
+
+/-- `KTheoryLowDegrees:U.4/relative-first-row-completion`. -/
+theorem relative_first_row_completion {a b : A} (h : (a,b) ∈ W I) :
+    ∃ g : Matrix.SpecialLinearGroup (Fin 2) A,
+      Matrix.SpecialLinearGroup.toGL g ∈ congruenceSubgroup (Fin 2) I ∧ g 0 0 = a ∧ g 0 1 = b := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.4/relative-first-row-fibre`. -/
+theorem relative_first_row_fibre (g h : congruenceSubgroup (Fin 2) I)
+    (hrow : (g.val 0 0, g.val 0 1) = (h.val 0 0, h.val 0 1)) :
+    ∃ t : A, ∃ u : Aˣ, t ∈ I ∧ (u : A) - 1 ∈ I ∧
+      ((h.val * g.val⁻¹ : GL (Fin 2) A) : Matrix (Fin 2) (Fin 2) A) =
+        !![1, 0; t, (u : A)] ∧
+      (Matrix.GeneralLinearGroup.det g.val = 1 →
+        Matrix.GeneralLinearGroup.det h.val = 1 → u = 1) := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.4/relative-first-row-map`: actual first-row data. -/
+def firstRow (g : congruenceSubgroup (Fin 2) I) : W I :=
+  ⟨(g.val 0 0, g.val 0 1), by sorry⟩
+
+@[simp] theorem firstRow_apply (g : congruenceSubgroup (Fin 2) I) :
+    (firstRow g).val = (g.val 0 0, g.val 0 1) := rfl
+
+theorem firstRow_surjective : Function.Surjective (firstRow (I := I)) := by
+  sorry
+
+theorem firstRow_restrict (h : J ≤ I) (g : congruenceSubgroup (Fin 2) J) :
+    (firstRow (levelInclusion h g)).val = (firstRow g).val := rfl
+
+-- test firstRow_bot_test
+example (g : congruenceSubgroup (Fin 2) (⊥ : Ideal A)) : (firstRow g).val = (1,0) := by
+  sorry
+
+-- test firstRow_integer_level_test
+example : ∃ g : Matrix.SpecialLinearGroup (Fin 2) ℤ,
+    (g : Matrix (Fin 2) (Fin 2) ℤ) = !![5,2;12,5] ∧
+      ∃ h : Matrix.SpecialLinearGroup.toGL g ∈ congruenceSubgroup (Fin 2) (Ideal.span {(2 : ℤ)}),
+        (firstRow ⟨Matrix.SpecialLinearGroup.toGL g, h⟩).val = (5,2) := by
+  sorry
+
+-- test firstRow_level_control_test
+example : IsCoprime (3 : ℤ) 2 ∧
+    ¬ ((3 : ℤ), (2 : ℤ)) ∈ W (Ideal.span {(4 : ℤ)}) := by
+  sorry
+
+-- test firstRow_native_row_test
+example (g : Matrix.SpecialLinearGroup (Fin 2) A)
+    (hg : Matrix.SpecialLinearGroup.toGL g ∈ congruenceSubgroup (Fin 2) I) :
+    (firstRow ⟨Matrix.SpecialLinearGroup.toGL g,hg⟩).property.2.2 =
+      Matrix.SpecialLinearGroup.isCoprime_row g 0 := by
+  rfl
+
+/-- `KTheoryLowDegrees:U.4/kubota-value`: a function, not yet a homomorphism. -/
+def kubotaValue (s : MennickeSymbol A I C) (g : congruenceSubgroup (Fin 2) I) : C := s.toFun (firstRow g)
+
+theorem kubotaValue_one (s : MennickeSymbol A I C) : kubotaValue s 1 = 1 := by
+  sorry
+
+theorem kubotaValue_comp (s : MennickeSymbol A I C) (φ : C →* D) (g : congruenceSubgroup (Fin 2) I) :
+    kubotaValue (s.comp φ) g = φ (kubotaValue s g) := rfl
+
+theorem kubotaValue_restrict (h : J ≤ I) (s : MennickeSymbol A I C) (g : congruenceSubgroup (Fin 2) J) :
+    kubotaValue (s.restrict h) g = kubotaValue s (levelInclusion h g) := rfl
+
+theorem kubotaValue_diagonal (s : MennickeSymbol A I C) (u v : Aˣ)
+    (hd : diagUnit ![u,v] ∈ congruenceSubgroup (Fin 2) I) : kubotaValue s ⟨diagUnit ![u,v],hd⟩ = 1 := by
+  sorry
+
+-- test kubotaValue_one_test
+example (s : MennickeSymbol A I C) : kubotaValue s 1 = 1 := kubotaValue_one s
+
+-- test kubotaValue_integer_diagonal_test
+example (s : MennickeSymbol ℤ (Ideal.span {(2 : ℤ)}) C) :
+    ∃ h : (diagUnit ![-1,1] : GL (Fin 2) ℤ) ∈ congruenceSubgroup (Fin 2) (Ideal.span {(2 : ℤ)}),
+      kubotaValue s ⟨diagUnit ![-1,1],h⟩ = 1 ∧
+        Matrix.GeneralLinearGroup.det (diagUnit ![-1,1] : GL (Fin 2) ℤ) = -1 := by
+  sorry
+
+-- test kubotaValue_first_row_test
+example (s : MennickeSymbol A I C) (g h : congruenceSubgroup (Fin 2) I)
+    (hr : (firstRow g).val = (firstRow h).val) : kubotaValue s g = kubotaValue s h := by
+  exact congrArg s.toFun (Subtype.ext hr)
+
+-- test kubotaValue_comp_test
+example (s : MennickeSymbol A I C) (φ : C →* D) (g : congruenceSubgroup (Fin 2) I) :
+    kubotaValue (s.comp φ) g = φ (kubotaValue s g) := kubotaValue_comp s φ g
+
+variable [IsDedekindDomain A]
+
+/-- `KTheoryLowDegrees:U.4/mennicke-kervaire-reciprocity`. -/
+theorem mennicke_kervaire_reciprocity (hI : I ≠ ⊥) (s : MennickeSymbol A I C)
+    {a d q : A} (hq : q ∈ I) (ha : a-1 ∈ Ideal.span {q})
+    (hd : d-1 ∈ Ideal.span {q}) (had : IsCoprime a d)
+    (h₁ : (d,a*q) ∈ W I) (h₂ : (a,d*q) ∈ W I) :
+    s.toFun ⟨(d,a*q),h₁⟩ = s.toFun ⟨(a,d*q),h₂⟩ := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.4/mennicke-denominator-common-level`. -/
+theorem mennicke_denominator_common_level (hI : I ≠ ⊥) (s : MennickeSymbol A I C)
+    {a₁ a₂ b q : A} (hq : q ∈ I) (ha₁ : a₁-1 ∈ Ideal.span {q})
+    (ha₂ : a₂-1 ∈ Ideal.span {q})
+    (h₁ : (a₁,b) ∈ W I) (h₂ : (a₂,b) ∈ W I) (h : (a₁*a₂,b) ∈ W I) :
+    s.toFun ⟨(a₁*a₂,b),h⟩ = s.toFun ⟨(a₁,b),h₁⟩ * s.toFun ⟨(a₂,b),h₂⟩ := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.4/mennicke-denominator-multiplication`. -/
+theorem mennicke_denominator_multiplication (hI : I ≠ ⊥) (s : MennickeSymbol A I C)
+    {a₁ a₂ b : A} (h₁ : (a₁,b) ∈ W I) (h₂ : (a₂,b) ∈ W I)
+    (h : (a₁*a₂,b) ∈ W I) :
+    s.toFun ⟨(a₁*a₂,b),h⟩ = s.toFun ⟨(a₁,b),h₁⟩ * s.toFun ⟨(a₂,b),h₂⟩ := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.4/kubota-opposite-row`. -/
+theorem kubota_opposite_row (hI : I ≠ ⊥) (s : MennickeSymbol A I C) (g : congruenceSubgroup (Fin 2) I) :
+    ∃ hr : (g.val 1 1,g.val 1 0) ∈ W I,
+      kubotaValue s g = s.toFun ⟨(g.val 1 1,g.val 1 0),hr⟩ ∧
+      ∀ h : congruenceSubgroup (Fin 2) I, (h.val : Matrix (Fin 2) (Fin 2) A) =
+          (g.val : Matrix (Fin 2) (Fin 2) A).transpose →
+        kubotaValue s h = (kubotaValue s g)⁻¹ := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.4/kubota-elementary-conjugation`. -/
+theorem kubota_elementary_conjugation (hI : I ≠ ⊥) (s : MennickeSymbol A I C)
+    (τ : GL (Fin 2) A) (hτ : τ ∈ elementarySubgroup (Fin 2) A) (g : congruenceSubgroup (Fin 2) I) :
+    kubotaValue s (levelConjugate τ g) = kubotaValue s g := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.4/kubota-diagonal-conjugation`. -/
+theorem kubota_diagonal_conjugation (hI : I ≠ ⊥) (s : MennickeSymbol A I C)
+    (u v : Aˣ) (g : congruenceSubgroup (Fin 2) I) :
+    kubotaValue s (levelConjugate (diagUnit ![u,v]) g) = kubotaValue s g := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.4/kubota-relative-elementary-invariance`. -/
+theorem kubota_relative_elementary_invariance (hI : I ≠ ⊥) (s : MennickeSymbol A I C)
+    (ε : GL (Fin 2) A) (hε : ε ∈ relElementary (Fin 2) I) :
+    ∃ hi : ε ∈ congruenceSubgroup (Fin 2) I, ∀ g : congruenceSubgroup (Fin 2) I,
+      kubotaValue s (g * ⟨ε,hi⟩) = kubotaValue s g ∧
+        kubotaValue s (⟨ε,hi⟩ * g) = kubotaValue s g := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.4/kubota-relative-diagonal-invariance`. -/
+theorem kubota_relative_diagonal_invariance (hI : I ≠ ⊥) (s : MennickeSymbol A I C)
+    (u v : Aˣ) (hd : diagUnit ![u,v] ∈ congruenceSubgroup (Fin 2) I) (g : congruenceSubgroup (Fin 2) I) :
+    kubotaValue s (g * ⟨diagUnit ![u,v],hd⟩) = kubotaValue s g ∧
+      kubotaValue s (⟨diagUnit ![u,v],hd⟩ * g) = kubotaValue s g := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.4/kubota-conditional-multiplication`: order is g′g. -/
+theorem kubota_conditional_multiplication (hI : I ≠ ⊥) (s : MennickeSymbol A I C)
+    (g g' : congruenceSubgroup (Fin 2) I) {q : A} (hq : q ∈ I)
+    (hd : g.val 1 1-1 ∈ Ideal.span {q}) (ha' : g'.val 0 0-1 ∈ Ideal.span {q})
+    (hcop : IsCoprime (g.val 1 1) (g'.val 0 0)) :
+    kubotaValue s (g' * g) = kubotaValue s g' * kubotaValue s g := by
+  sorry
+
+end TauCeti.MennickeSymbol
+
+namespace TauCeti.MennickeSymbol
+open TauCeti.KTheory TauCeti.RelativeK1
+variable {A : Type u} [CommRing A] {I J : Ideal A}
+
+/-- `KTheoryLowDegrees:U.4/relative-unit-diagonal-elementary` (no Dedekind assumption). -/
+theorem relative_unit_diagonal_elementary (u : Aˣ) (hu : (u : A)-1 ∈ I) :
+    diagUnit ![u,u⁻¹] ∈ relElementary (Fin 2) I := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.4/relative-stable-range-one-sl2`. -/
+theorem relative_stable_range_one_sl2 (hsr : HasStableRange A 1)
+    (g : Matrix.SpecialLinearGroup (Fin 2) A)
+    (hg : Matrix.SpecialLinearGroup.toGL g ∈ congruenceSubgroup (Fin 2) I) :
+    Matrix.SpecialLinearGroup.toGL g ∈ relElementary (Fin 2) I := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.4/relative-elementary-quotient-lifting`. -/
+theorem relative_elementary_quotient_lifting (hJI : J ≤ I)
+    (hsr : HasStableRange (A ⧸ J) 1)
+    (g : Matrix.SpecialLinearGroup (Fin 2) (A ⧸ J))
+    (hg : Matrix.SpecialLinearGroup.toGL g ∈
+      congruenceSubgroup (Fin 2) (I.map (Ideal.Quotient.mk J))) :
+    ∃ ε ∈ relElementary (Fin 2) I, glMap (Ideal.Quotient.mk J) ε =
+      Matrix.SpecialLinearGroup.toGL g := by
+  sorry
+
+variable [IsDedekindDomain A]
+
+/-- `KTheoryLowDegrees:U.4/dedekind-principal-quotient-semilocal`. -/
+theorem dedekind_principal_quotient_semilocal {q : A} (hq : q ≠ 0) :
+    Finite (MaximalSpectrum (A ⧸ Ideal.span {q})) ∧
+      HasStableRange (A ⧸ Ideal.span {q}) 1 := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.4/sl2-principal-reduction`. -/
+theorem sl2_principal_reduction {q : A} (hq : q ∈ I) (hq0 : q ≠ 0)
+    (g : Matrix.SpecialLinearGroup (Fin 2) A)
+    (hg : Matrix.SpecialLinearGroup.toGL g ∈ congruenceSubgroup (Fin 2) I) :
+    ∃ ε ∈ relElementary (Fin 2) I,
+      Matrix.SpecialLinearGroup.toGL g * ε ∈ congruenceSubgroup (Fin 2) (Ideal.span {q}) ∧
+        Matrix.GeneralLinearGroup.det ε = 1 := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.4/dedekind-coprime-square-adjustment`. -/
+theorem dedekind_coprime_square_adjustment {a c d : A} (ha : a ≠ 0)
+    (hcd : IsCoprime d c) : ∃ t : A, IsCoprime (d+t*c^2) a := by
+  sorry
+
+variable {C : Type v} [Group C] {D : Type w} [Group D]
+
+/-- `KTheoryLowDegrees:U.4/kubota-multiplicativity` includes I=0 and a′=0. -/
+theorem kubota_multiplicativity (s : MennickeSymbol A I C) (g g' : congruenceSubgroup (Fin 2) I) :
+    kubotaValue s (g' * g) = kubotaValue s g' * kubotaValue s g := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.4/kubota-hom`: a real definition from the value and theorem. -/
+def kubotaHom (s : MennickeSymbol A I C) : congruenceSubgroup (Fin 2) I →* C where
+  toFun := kubotaValue s
+  map_one' := kubotaValue_one s
+  map_mul' g h := kubota_multiplicativity s h g
+
+@[simp] theorem kubotaHom_apply (s : MennickeSymbol A I C) (g : congruenceSubgroup (Fin 2) I) :
+    kubotaHom s g = s.toFun (firstRow g) := rfl
+
+theorem kubotaHom_unique (s : MennickeSymbol A I C) (f : congruenceSubgroup (Fin 2) I →* C)
+    (hf : ∀ g, f g = s.toFun (firstRow g)) : f = kubotaHom s := by
+  ext g
+  exact hf g
+
+theorem kubotaHom_comp (s : MennickeSymbol A I C) (φ : C →* D) :
+    kubotaHom (s.comp φ) = φ.comp (kubotaHom s) := by
+  rfl
+
+theorem kubotaHom_restrict (h : J ≤ I) (s : MennickeSymbol A I C) :
+    kubotaHom (s.restrict h) = (kubotaHom s).comp (levelInclusion h) := by
+  rfl
+
+theorem kubotaHom_relative_kernel (s : MennickeSymbol A I C) :
+    (∀ (ε : GL (Fin 2) A) (hε : ε ∈ relElementary (Fin 2) I)
+      (hi : ε ∈ congruenceSubgroup (Fin 2) I), kubotaHom s ⟨ε,hi⟩ = 1) ∧
+      ∀ (u v : Aˣ) (hd : diagUnit ![u,v] ∈ congruenceSubgroup (Fin 2) I),
+        kubotaHom s ⟨diagUnit ![u,v],hd⟩ = 1 := by
+  sorry
+
+theorem kubotaHom_commutator_kernel (s : MennickeSymbol A I C) :
+    (∀ (τ : GL (Fin 2) A), τ ∈ elementarySubgroup (Fin 2) A → ∀ g : congruenceSubgroup (Fin 2) I,
+      kubotaHom s (levelConjugate τ g * g⁻¹) = 1) ∧
+      ∀ (u v : Aˣ) (g : congruenceSubgroup (Fin 2) I),
+        kubotaHom s (levelConjugate (diagUnit ![u,v]) g * g⁻¹) = 1 := by
+  sorry
+
+-- test kubotaHom_mul_test
+example (s : MennickeSymbol A I C) (g h : congruenceSubgroup (Fin 2) I) :
+    kubotaHom s (g*h) = s.toFun (firstRow g) * s.toFun (firstRow h) := by
+  exact (kubotaHom s).map_mul g h
+
+-- test kubotaHom_integer_diagonal_test
+example (s : MennickeSymbol ℤ (Ideal.span {(2 : ℤ)}) C) :
+    ∃ h : (diagUnit ![-1,1] : GL (Fin 2) ℤ) ∈ congruenceSubgroup (Fin 2) (Ideal.span {(2 : ℤ)}),
+      kubotaHom s ⟨diagUnit ![-1,1],h⟩ = 1 ∧
+        Matrix.GeneralLinearGroup.det (diagUnit ![-1,1] : GL (Fin 2) ℤ) = -1 := by
+  sorry
+
+-- test kubotaHom_bot_test
+example (s : MennickeSymbol A (⊥ : Ideal A) C) : kubotaHom s = 1 := by
+  sorry
+
+-- test kubotaHom_restriction_test
+example (h : J ≤ I) (s : MennickeSymbol A I C) :
+    kubotaHom (s.restrict h) = (kubotaHom s).comp (levelInclusion h) :=
+  kubotaHom_restrict h s
+
+-- test kubotaHom_relative_word_test
+example (s : MennickeSymbol ℤ (Ideal.span {(2 : ℤ)}) C) :
+    let ε : GL (Fin 2) ℤ :=
+      elementary (by decide : (1 : Fin 2) ≠ 0) 1 *
+        elementary (by decide : (0 : Fin 2) ≠ 1) 2 *
+          elementary (by decide : (1 : Fin 2) ≠ 0) (-1)
+    (ε : Matrix (Fin 2) (Fin 2) ℤ) = !![-1,2;-2,3] ∧
+      ∃ hi : ε ∈ congruenceSubgroup (Fin 2) (Ideal.span {(2 : ℤ)}), kubotaHom s ⟨ε,hi⟩ = 1 := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.4/kubota-ideal-image`: determinant-one deeper levels. -/
+theorem kubota_ideal_image (h : J ≤ I) (hJ : J ≠ ⊥) (s : MennickeSymbol A I C) :
+    {z : C | ∃ g : Matrix.SpecialLinearGroup (Fin 2) A,
+      ∃ hg : Matrix.SpecialLinearGroup.toGL g ∈ congruenceSubgroup (Fin 2) J,
+        z = kubotaHom s (levelInclusion h ⟨Matrix.SpecialLinearGroup.toGL g,hg⟩)} =
+      Set.range (kubotaHom s) := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.4/kubota-noncongruence-kernel`: arbitrary J, intersected with I. -/
+theorem kubota_noncongruence_kernel (s : MennickeSymbol A I C)
+    (hs : ∃ x : W I, s.toFun x ≠ 1) (J : Ideal A) (hJ : J ≠ ⊥) :
+    ∃ g : Matrix.SpecialLinearGroup (Fin 2) A,
+      Matrix.SpecialLinearGroup.toGL g ∈ congruenceSubgroup (Fin 2) J ∧
+        ∃ hi : Matrix.SpecialLinearGroup.toGL g ∈ congruenceSubgroup (Fin 2) I,
+          kubotaHom s ⟨Matrix.SpecialLinearGroup.toGL g,hi⟩ ≠ 1 := by
+  sorry
+
+end TauCeti.MennickeSymbol

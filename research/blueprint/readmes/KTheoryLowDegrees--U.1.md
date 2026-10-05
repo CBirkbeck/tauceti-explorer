@@ -9138,3 +9138,452 @@ The local-ring K₀, determinant and semilocal K₁ computations flow from this 
 - **Projectivity of the Witt vector affine Grassmannian**, Bhargav Bhatt, Peter Scholze, Inventiones Mathematicae (2017), 61-page author-hosted version with internal pagination. [Public source](https://people.mpim-bonn.mpg.de/scholze/Witt.pdf), read 2026-10-05, SHA256 `774032c0daee98e339b7be165174185c77714b0e729a39a985ee876ccc7e7b64`. Read: Construction 5.1 and Proposition 5.3/Remark 5.4, pp.18–19; Theorem 5.7 with proof, p.20; Lemma 6.11 and its two determinant arguments, pp.24–25; Example 12.2 and Proposition 12.3, p.55; Corollary 12.17 and Proposition 12.18, p.59
 - **Le problème des groupes de congruence pour SL₂**, Jean-Pierre Serre, Annals of Mathematics 92 (1970), 489–527, author-hosted scan with one cover page. [Public source](https://www.college-de-france.fr/media/jean-pierre-serre/UPL8543926451197744553_Serre_Pb._Congruence_SL2.pdf), read 2026-10-05, SHA256 `2a079cca247de1b4765a4c5cb0d70ef1351ee192115fa34a9cd41c3fa1ec5e37`. Read: Introduction and §1.1–1.4, pp.489–491: S includes all infinite places; infinitely many units means at least two places in S; §2.6 Theorems 1–2 and Corollaries 1–3 with the printed deductions, pp.498–499; the cited Moore classification and the preceding §2 proof are not fully read or decomposed.
 - BMS fresh read: §4 Theorem 4.1/Corollary 4.3, pp.94–96; §7 Theorem 7.5(e), pp.105–106; §14 Theorem 14.1 and proof, pp.129–130. Earlier section-wide reads and source findings remain inherited. The new root-ideal and nonzero-level proofs are explicit worker deductions; they are not claimed to be printed verbatim.
+
+
+## Kubota continuation — Codex codex-Px3FlU, 5 October 2026
+
+This partial checkpoint adds twenty-three U.4 declarations, preserving all 228 inherited node objects and all planets. The next uncompleted target is BMS Proposition 8.5, followed by Proposition 8.6 and the finite arithmetic defect. Reading a section is not claimed to finish its decomposition. The constructions below use the existing GL congruence kernel, relative elementary closure and Mennicke-symbol carrier. C is any group: only the symbol image is forced to commute.
+
+Fresh sources: [Bass–Milnor–Serre, public published scan](https://www.numdam.org/item/10.1007/BF02684586.pdf), §2 pp.65–69 and §§4–11 pp.94–120, with the §6 calculation inspected in the image; [Bass, public published scan](https://www.numdam.org/item/10.1007/BF02684689.pdf), pp.16–20, especially Proposition 5.1(a) and Corollary 5.2. The hashes agree with the recorded inherited versions. Source versions and exact read scope are in the packet. No new source error is asserted.
+
+Native pinned inputs freshly read include SpecialLinearGroup.map and isCoprime_row, ideal-comap maximality and injectivity, and finite_factors. The unconstrained native coprime-row completion remains a comparison input, not a substitute for congruence-level completion. Searches at both pins found no Mennicke/Kubota or relative stable-range theorem. Upstream GrothendieckEulerForms and Chebotarev were read in full for granularity and ownership; the five touching link entries were checked, including the out-of-part Z.5 endpoint.
+
+
+
+### KTheoryLowDegrees:U.4/relative-first-row-completion — Complete a relative unimodular row
+
+For (a,b)∈W_I there is g∈SL₂(A) with first row (a,b) and toGL(g)∈GL₂(A,I).
+
+Hypotheses: A is any commutative unital ring, including the zero ring; I is any ideal.
+
+Proof outline:
+
+- Choose x,y with ax+by=1. Set c=−b y² and d=x+bxy. Then ad−bc=ax+by(ax+by)=1.
+- Because b∈I and a≡1 mod I, x≡1 mod I. Thus c∈I and d≡1 mod I; all four entries have the required principal-level congruence.
+- Package the concrete matrix [[a,b],[c,d]] in native SpecialLinearGroup and use U.5 entrywise membership. Native IsCoprime.exists_SL2_row alone supplies an unconstrained completion and is insufficient for this relative assertion.
+
+Prerequisites: KTheoryLowDegrees:U.4/mennicke-symbol, KTheoryLowDegrees:U.5/congruence-subgroup, mathlib:IsCoprime.exists_SL2_row, mathlib:IsCoprime.
+
+Source: BMS.1967, §5 Lemma 5.3, printed p.102; §6 first-row map. Implementation remains unchecked.
+
+### KTheoryLowDegrees:U.4/relative-first-row-fibre — Matrices with the same first row
+
+If g,h∈GL₂(A,I) have equal first rows then h g⁻¹ has matrix [[1,0],[t,u]] with t∈I, u∈Aˣ and u−1∈I. If both determinants are one then u=1.
+
+Hypotheses: A is any commutative unital ring, including the zero ring; I is any ideal.
+
+Proof outline:
+
+- Multiply the common row of h by g⁻¹: it is the first row of gg⁻¹=(1,0). Consequently h g⁻¹ is lower triangular with first diagonal entry one.
+- Its bottom diagonal entry is a unit, since its determinant is that entry. The subgroup law puts h g⁻¹ at level I, giving t∈I and u−1∈I.
+- Determinants multiply, so determinant-one inputs give u=1. Conversely left multiplication by such a lower triangular matrix preserves the first row.
+
+Prerequisites: KTheoryLowDegrees:U.5/congruence-subgroup, mathlib:Matrix.GeneralLinearGroup.det.
+
+Source: BMS.1967, §5 Lemma 5.3 and §6 first-row map; explicit fibre calculation. Implementation remains unchecked.
+
+### KTheoryLowDegrees:U.4/relative-first-row-map — The relative first-row map
+
+Define firstRow_I:GL₂(A,I)→W_I by g↦(g₀₀,g₀₁). It is surjective, already on determinant-one matrices, and compatible with shrinking the ideal.
+
+Hypotheses: A is any commutative unital ring, including the zero ring; I is any ideal.
+
+Proof outline:
+
+- Entrywise congruence gives g₀₀−1∈I and g₀₁∈I. The first column of g⁻¹ gives a Bézout identity for the first row of g.
+- Apply relative-first-row-completion for surjectivity; relative-first-row-fibre gives its precise fibres. Ideal inclusion changes only the membership proof.
+
+Prerequisites: KTheoryLowDegrees:U.4/relative-first-row-completion, KTheoryLowDegrees:U.4/relative-first-row-fibre, KTheoryLowDegrees:U.4/mennicke-symbol, KTheoryLowDegrees:U.5/congruence-subgroup.
+
+Source: BMS.1967, §5 Lemma 5.3; §6 Theorem 6.1. Implementation remains unchecked.
+
+Uses:
+
+- kubota-value: Defines the value on each actual principal-level matrix.
+- kubota-ideal-image: Realizes every deeper symbol by a determinant-one matrix at that same deeper level.
+
+API:
+
+- firstRow: The first-row function with its W_I membership proof.
+- firstRow_apply: Its two coordinates are g₀₀ and g₀₁.
+- firstRow_surjective: Every W_I pair is the first row of a determinant-one matrix at level I.
+- firstRow_restrict: For J≤I, firstRow_I on a J-level matrix is the inclusion of firstRow_J.
+
+Tests:
+
+- firstRow_bot_test: At I=0 the only matrix is one and its first row is (1,0).
+- firstRow_integer_level_test: The actual matrix [[5,2],[12,5]] has determinant one, lies at level 2 in ℤ, and maps to (5,2).
+- firstRow_level_control_test: The coprime pair (3,2) has an SL₂(ℤ) completion but is not in W_(4); no completion at level 4 exists.
+- firstRow_native_row_test: For native SL₂ matrices the coprimality certificate agrees, by proof irrelevance, with isCoprime_row g 0.
+
+### KTheoryLowDegrees:U.4/kubota-value — Evaluate a Mennicke symbol on the first row
+
+For any commutative A, ideal I and Mennicke symbol s:W_I→C, define κ_s(g)=s(firstRow_I(g)). This is initially a function; multiplicativity is a separate theorem.
+
+Hypotheses: A is any commutative unital ring, including the zero ring; I is any ideal. C is any group; s satisfies MS1 and MS2.
+
+Proof outline:
+
+- Compose the actual first-row map with the symbol function. Normalization follows from MS1 on (1,0).
+- Composition in C and restriction of ideals are literal evaluations of the inherited symbol operations. No homomorphism assumption is introduced.
+
+Prerequisites: KTheoryLowDegrees:U.4/relative-first-row-map, KTheoryLowDegrees:U.4/mennicke-symbol.
+
+Source: BMS.1967, §6 Theorem 6.1, printed p.103. Implementation remains unchecked.
+
+Uses:
+
+- kubota-conditional-multiplication: Keeps the first-row formula visible while proving the two-matrix identity.
+- kubota-hom: The homomorphism has exactly this underlying function.
+
+API:
+
+- kubotaValue: The composite first-row evaluation.
+- kubotaValue_one: κ_s(1)=1.
+- kubotaValue_comp: κ_(φ∘s)(g)=φ(κ_s(g)) for any group homomorphism φ.
+- kubotaValue_restrict: Restricting s to J≤I gives the same value on any J-level matrix.
+- kubotaValue_diagonal: A level-I diagonal matrix has κ-value one, even if its determinant is nonidentity.
+
+Tests:
+
+- kubotaValue_one_test: The identity evaluates to one for every symbol.
+- kubotaValue_integer_diagonal_test: At ideal 2 in ℤ, diag(−1,1) evaluates to one although its determinant is −1.
+- kubotaValue_first_row_test: Two level matrices with the same first row have equal κ-values.
+- kubotaValue_comp_test: Changing the value group by a homomorphism commutes with evaluation.
+
+### KTheoryLowDegrees:U.4/mennicke-kervaire-reciprocity — Kervaire reciprocity for a common principal level
+
+If q∈I, a≡1≡d mod qA and IsCoprime(a,d), then s(d,aq)=s(a,dq).
+
+Hypotheses: A is a commutative Dedekind domain, I≠0 and C is any group; s is a Mennicke symbol on W_I.
+
+Proof outline:
+
+- Write d−a=qx. Both (a,q) and (d,q) have trivial symbol because q differs from zero by an allowed move into a numerator congruent to a unit modulo the denominator.
+- MS1 gives s(a,dq)=s(a,xq²); MS2 removes one q factor and gives s(a,xq). The second move changes its denominator a to a+xq=d.
+- Similarly s(d,aq)=s(d,−xq²)=s(d,−xq). Multiplication of the numerator by the global unit −1 does not change its symbol, by the residue-map identity. Thus the two sides agree. For q=0 they are both one.
+
+Prerequisites: KTheoryLowDegrees:U.4/mennicke-symbol-residue-map, KTheoryLowDegrees:U.4/mennicke-symbol-residue-homomorphism, KTheoryLowDegrees:U.4/q-equivalence-to-base-point.
+
+Source: BMS.1967, §2 Lemma 2.10 and proof, printed p.68. Implementation remains unchecked.
+
+### KTheoryLowDegrees:U.4/mennicke-denominator-common-level — Denominator multiplication at a common principal level
+
+If q∈I, a₁≡1≡a₂ mod qA and (a₁,b),(a₂,b)∈W_I, then s(a₁a₂,b)=s(a₁,b)s(a₂,b).
+
+Hypotheses: A is a commutative Dedekind domain, I≠0 and C is any group; s is a Mennicke symbol on W_I.
+
+Proof outline:
+
+- The symbols s(a_i,q) and s(a₁a₂,q) are one. MS2 therefore replaces b by bq on both sides.
+- Only b modulo a₁a₂ affects the bq symbols. Choose this representative coprime to q by avoiding the finitely many primes of (q); each a_i is already coprime to q. If q=0, each a_i=1 and the assertion is trivial.
+- Choose b′ by CRT with bb′≡1 mod q and b′≡1 mod a₁a₂. Residue-map multiplicativity implies s(a₁a₂,bb′q)=s(a₁a₂,bq), and similarly at a_i. All bb′ denominators in the following reciprocity step are coprime to a_i.
+- Apply Kervaire reciprocity to a₁a₂ and bb′, then use MS2 in the numerator to split a₁a₂q into a₁q and a₂q (insert a q with symbol one). Apply Kervaire reciprocity back separately to a_i and bb′. This gives precisely the ordered product of the bq symbols; their image commutes by the inherited residue lemma.
+
+Prerequisites: KTheoryLowDegrees:U.4/mennicke-kervaire-reciprocity, KTheoryLowDegrees:U.4/mennicke-symbol-residue-map, KTheoryLowDegrees:U.4/mennicke-symbol-residue-homomorphism, mathlib:Ideal.finite_factors, mathlib:Ideal.quotientInfRingEquivPiQuotient.
+
+Source: BMS.1967, §2 Lemma 2.11, Case 1, printed pp.68–69. Implementation remains unchecked.
+
+### KTheoryLowDegrees:U.4/mennicke-denominator-multiplication — Lam denominator multiplication for Mennicke symbols
+
+If (a₁,b),(a₂,b)∈W_I then s(a₁a₂,b)=s(a₁,b)s(a₂,b). In particular, multiplying a denominator by a unit congruent to one modulo I leaves the symbol unchanged.
+
+Hypotheses: A is a commutative Dedekind domain, I≠0 and C is any group; s is a Mennicke symbol on W_I.
+
+Proof outline:
+
+- Put q=1−a₁. If q=0 then a₁=1 and the assertion follows from normalization and q-equivalence-to-base-point.
+- Choose t∈I so that b₁=b+t a₁a₂ and q together generate I. At each prime dividing (q), if b already has the valuation of I choose t sufficiently divisible to preserve it. Otherwise a₁ is a unit there; coprimality of a₂ and b makes a₂ a unit there as well, so choose t with exactly the valuation of I. Ideal approximation/CRT joins the finitely many choices. Outside the primes of (q), the equality follows from q generating the localized unit ideal. The adjustment is a multiple of a₁a₂ with coefficient in I, so MS1 preserves all three symbols directly.
+- Write a₂−1=r b₁+s q because (q,b₁)=I. Replace a₂ by a₂−r b₁=1+s q. The product denominator a₁a₂ changes by a multiple of b₁ as well, so second moves preserve every symbol. Both new denominators are one modulo (q); apply mennicke-denominator-common-level.
+- For a unit u≡1 mod I, the pair (u,b) has symbol one by q-equivalence-to-base-point. Substitute a₂=u in the formula.
+
+Prerequisites: KTheoryLowDegrees:U.4/mennicke-denominator-common-level, KTheoryLowDegrees:U.4/mennicke-symbol, KTheoryLowDegrees:U.4/q-equivalence-to-base-point, KTheoryLowDegrees:U.4/mennicke-newman-common-entry, mathlib:IsDedekindDomain.exists_forall_sub_mem_ideal, mathlib:Ideal.finite_factors.
+
+Source: BMS.1967, §2 Lemma 2.11, general case, printed p.69. Implementation remains unchecked.
+
+### KTheoryLowDegrees:U.4/kubota-opposite-row — Opposite-row and transpose identities
+
+For g=[[a,b],[c,d]]∈GL₂(A,I), κ_s(g)=s(d,c). If h is the transpose matrix as a GL₂(A,I) element then κ_s(h)=κ_s(g)⁻¹.
+
+Hypotheses: A is a commutative Dedekind domain; I is a nonzero ideal; C is any group, not assumed abelian; s is a Mennicke symbol on W_I.
+
+Proof outline:
+
+- Write u=ad−bc∈Aˣ. Denominator multiplication gives s(ad,b)=s(a,b)s(d,b)=1 since ad≡u modulo b. Similarly MS2 gives s(d,bc)=s(d,b)s(d,c)=1 since bc≡−u modulo d. Therefore κ_s(g)=s(a,b)=s(d,c).
+- MS2 also gives s(a,bc)=s(a,b)s(a,c)=1 because bc≡−u modulo a. Hence s(a,c)=s(a,b)⁻¹, which is the first-row value of the transpose.
+- Bézout identities from g and its inverse ensure the rows and columns are coprime. All pairs retain level-I congruences. The inherited residue lemma supplies commutativity when rearranging products.
+
+Prerequisites: KTheoryLowDegrees:U.4/kubota-value, KTheoryLowDegrees:U.4/mennicke-symbol-residue-map, KTheoryLowDegrees:U.4/mennicke-symbol-residue-homomorphism, KTheoryLowDegrees:U.4/q-equivalence-to-base-point, KTheoryLowDegrees:U.4/mennicke-denominator-multiplication.
+
+Source: BMS.1967, §6 Theorem 6.1 and proof, printed pp.103–105. Implementation remains unchecked.
+
+### KTheoryLowDegrees:U.4/kubota-elementary-conjugation — Elementary conjugation preserves the value
+
+For τ∈E₂(A), g∈GL₂(A,I), κ_s(τ g τ⁻¹)=κ_s(g).
+
+Hypotheses: A is a commutative Dedekind domain; I is a nonzero ideal; C is any group, not assumed abelian; s is a Mennicke symbol on W_I.
+
+Proof outline:
+
+- For τ=e₂₁(t), the first row changes to (a−tb,b), an allowed second move. For τ=e₁₂(t), the opposite row changes to (c,d−tc); use the opposite-row identity and the analogous move on (d,c).
+- The congruence subgroup is a normal kernel, so every conjugate remains at level I. Closure induction on E₂(A), with composition of conjugations and inverses, extends the two generator calculations.
+
+Prerequisites: KTheoryLowDegrees:U.4/kubota-opposite-row, KTheoryLowDegrees:U.4/mennicke-symbol, KTheoryLowDegrees:U.1/elementary-subgroup, KTheoryLowDegrees:U.1/elementary-matrix, KTheoryLowDegrees:U.5/congruence-subgroup, mathlib:Subgroup.closure_induction.
+
+Source: BMS.1967, §6 Theorem 6.1 and proof, printed pp.103–105. Implementation remains unchecked.
+
+### KTheoryLowDegrees:U.4/kubota-diagonal-conjugation — Diagonal conjugation preserves the value
+
+For any u,v∈Aˣ and g∈GL₂(A,I), conjugation by diag(u,v) leaves κ_s(g) unchanged.
+
+Hypotheses: A is a commutative Dedekind domain; I is a nonzero ideal; C is any group, not assumed abelian; s is a Mennicke symbol on W_I.
+
+Proof outline:
+
+- The first row becomes (a,u v⁻¹ b). Put q=1−a∈I. The first move identifies s(a,b) with s(a,bq).
+- Use the inherited quotient-unit homomorphism b↦s(a,bq), which is trivial on units of A. Multiplication by u v⁻¹ therefore has no effect.
+- This uses the inherited residue map with q, not an invalid application of MS2 to a numerator outside I.
+
+Prerequisites: KTheoryLowDegrees:U.4/kubota-value, KTheoryLowDegrees:U.4/mennicke-symbol-residue-map, KTheoryLowDegrees:U.4/mennicke-symbol-residue-homomorphism, KTheoryLowDegrees:U.4/q-equivalence-to-base-point, KTheoryLowDegrees:U.1/general-linear-map.
+
+Source: BMS.1967, §6 Theorem 6.1 and proof, printed pp.103–105. Implementation remains unchecked.
+
+### KTheoryLowDegrees:U.4/kubota-relative-elementary-invariance — Relative elementary multiplication preserves the value
+
+For ε∈E₂(A,I) and g∈GL₂(A,I), κ_s(gε)=κ_s(g)=κ_s(εg).
+
+Hypotheses: A is a commutative Dedekind domain; I is a nonzero ideal; C is any group, not assumed abelian; s is a Mennicke symbol on W_I.
+
+Proof outline:
+
+- Bare e₁₂(t), t∈I, acts on the first row by the first move. Bare e₂₁(t), t∈I, acts by the second move.
+- Let H={ε∈GL₂(A,I) | ∀g,κ_s(gε)=κ_s(g)}. It is a subgroup by substitution, including inverses; no multiplicativity of κ is used.
+- Elementary-conjugation invariance shows H is normalized by E₂(A). It therefore contains the U.5 closure of all E₂(A)-conjugates of bare I-level transvections.
+- For left invariance, first bare elementary factors satisfy κ(εg)=κ(gε) by elementary conjugation. The same substitution/closure argument works for relative conjugates. Equivalently κ(εg)=κ(gε) follows because E₂(A,I)⊆E₂(A).
+
+Prerequisites: KTheoryLowDegrees:U.4/kubota-elementary-conjugation, KTheoryLowDegrees:U.4/mennicke-symbol, KTheoryLowDegrees:U.5/relative-elementary-subgroup, mathlib:Subgroup.closure_induction.
+
+Source: BMS.1967, §6 Theorem 6.1 and proof, printed pp.103–105. Implementation remains unchecked.
+
+### KTheoryLowDegrees:U.4/kubota-relative-diagonal-invariance — Relative diagonal multiplication preserves the value
+
+If D=diag(u,v)∈GL₂(A,I) then κ_s(gD)=κ_s(g)=κ_s(Dg) for all g∈GL₂(A,I).
+
+Hypotheses: A is a commutative Dedekind domain; I is a nonzero ideal; C is any group, not assumed abelian; s is a Mennicke symbol on W_I.
+
+Proof outline:
+
+- For right multiplication by diag(u,v), the first row is (au,bv). Since u≡1 mod I, denominator multiplication gives s(au,bv)=s(a,bv)s(u,bv), whose last factor is one because u is a unit.
+- Put q=1−a. The first move replaces b and bv by bq and bvq. The quotient-unit homomorphism trivial on global units removes v, giving s(a,bv)=s(a,b). This avoids applying MS2 to v outside I.
+- Left invariance follows from diagonal-conjugation invariance: κ(Dg)=κ(gD). No multiplicativity of κ is assumed.
+
+Prerequisites: KTheoryLowDegrees:U.4/kubota-opposite-row, KTheoryLowDegrees:U.4/kubota-diagonal-conjugation, KTheoryLowDegrees:U.4/mennicke-symbol-residue-map, KTheoryLowDegrees:U.4/mennicke-symbol-residue-homomorphism, KTheoryLowDegrees:U.4/mennicke-denominator-multiplication.
+
+Source: BMS.1967, §6 Theorem 6.1 and proof, printed pp.103–105. Implementation remains unchecked.
+
+### KTheoryLowDegrees:U.4/kubota-conditional-multiplication — Conditional two-matrix multiplication
+
+Let g=[[a,b],[c,d]] and g′=[[a′,b′],[c′,d′]] belong to GL₂(A,I). If q∈I, d≡1≡a′ mod qA and IsCoprime(d,a′), then κ_s(g′g)=κ_s(g′)κ_s(g).
+
+Hypotheses: A is a commutative Dedekind domain; I is a nonzero ideal; C is any group, not assumed abelian; s is a Mennicke symbol on W_I.
+
+Proof outline:
+
+- For x,y prime to a′ with y∈I, use q′=1−a′ and the identity s(a′,xy)=s(a′,xq′)s(a′,y). This follows by inserting q′, whose symbol is one, and applying MS2 twice. Also use the version exchanging x and y. Quotient-unit homomorphisms handle the inserted q factors.
+- Write B=a′b+b′d, D=a′a+b′c and u=ad−bc. Begin with s(D,B). The common coprime entry d and the residue identities give s(Dd,B)s(d,B)⁻¹.
+- Since Dd=a′u+cB and B≡a′b mod d, this equals s(a′u,B)s(d,a′b)⁻¹. The preceding inserted-q identity splits the second factor into s(d,a′q)⁻¹ s(d,b)⁻¹. The opposite-row identity replaces s(d,b)⁻¹ by κ_s(g).
+- Reduce B modulo a′u and split s(a′u,b′d) as s(u,b′d)s(a′,b′)s(a′,dq), using the same inserted-q rule. The first term is one because u is a unit. Lemma 2.10 cancels s(a′,dq) against s(d,a′q). This is the printed §6 step 4 calculation with multiplication order g′g preserved.
+
+Prerequisites: KTheoryLowDegrees:U.4/kubota-opposite-row, KTheoryLowDegrees:U.4/mennicke-symbol-residue-map, KTheoryLowDegrees:U.4/mennicke-symbol-residue-homomorphism, KTheoryLowDegrees:U.4/q-equivalence-to-base-point, KTheoryLowDegrees:U.4/mennicke-symbol, KTheoryLowDegrees:U.4/mennicke-denominator-multiplication, KTheoryLowDegrees:U.4/mennicke-kervaire-reciprocity.
+
+Source: BMS.1967, §6 Theorem 6.1 and proof, printed pp.103–105. Implementation remains unchecked.
+
+### KTheoryLowDegrees:U.4/relative-unit-diagonal-elementary — Relative unit diagonals are elementary
+
+For any commutative A and unit u with u−1∈I, diag(u,u⁻¹) lies in E₂(A,I).
+
+Hypotheses: A is any commutative unital ring, including the zero ring; I is any ideal.
+
+Proof outline:
+
+- Let w(u)=e₁₂(u)e₂₁(−u⁻¹)e₁₂(u). Coordinate multiplication gives w(u)w(1)⁻¹=diag(u,u⁻¹).
+- Modulo the normal closure of I-coefficient transvections in E₂(A), each factor of w(u) equals its counterpart in w(1), since u−1 and u⁻¹−1 are in I.
+- To avoid quotienting by an unproved GL-normal subgroup, telescope the two three-factor words into products of E₂(A)-conjugates of their factor differences. Each factor difference is an I-level transvection, precisely a generator of U.5 relative E.
+
+Prerequisites: KTheoryLowDegrees:U.1/elementary-matrix, KTheoryLowDegrees:U.1/elementary-subgroup, KTheoryLowDegrees:U.5/relative-elementary-subgroup.
+
+Source: Bass.1964, Proposition 5.1(a), printed p.18. Implementation remains unchecked.
+
+### KTheoryLowDegrees:U.4/relative-stable-range-one-sl2 — Relative SL₂ reduction in stable range one
+
+If A is commutative and HasStableRange A 1, then each g∈SL₂(A) at level I has toGL(g)∈E₂(A,I).
+
+Hypotheses: A is any commutative unital ring, including the zero ring; I is any ideal. HasStableRange A 1 is assumed.
+
+Proof outline:
+
+- For the first row (a,b), coprimality gives IsCoprime(a,b²). Stable range one supplies s with u=a+s b² a unit. Right multiply by e₂₁(sb), whose coefficient belongs to I.
+- The new first row is (u,b). Right multiply by e₁₂(−u⁻¹b) and left multiply by e₂₁(−c₁u⁻¹) to clear the off-diagonal entries; c₁ is the new lower-left entry and is in I.
+- The resulting determinant-one diagonal is diag(u,u⁻¹), with u≡1 mod I. Apply relative-unit-diagonal-elementary and undo all level-I factors. This proves the relative assertion directly; the inherited absolute SL=E theorem alone cannot be substituted.
+
+Prerequisites: KTheoryLowDegrees:U.4/relative-unit-diagonal-elementary, KTheoryLowDegrees:U.3/stable-range, KTheoryLowDegrees:U.5/relative-elementary-subgroup, KTheoryLowDegrees:U.5/congruence-subgroup, mathlib:Matrix.SpecialLinearGroup.isCoprime_row.
+
+Source: Bass.1964, Proposition 5.1(a), printed p.18. Implementation remains unchecked.
+
+### KTheoryLowDegrees:U.4/relative-elementary-quotient-lifting — Lift relative elementary words through a quotient
+
+For ideals J≤I, if A/J has stable range one, every g∈SL₂(A/J) at level image(I) is the image of some ε∈E₂(A,I).
+
+Hypotheses: A is any commutative unital ring, including the zero ring; I is any ideal. J≤I and HasStableRange (A/J) 1.
+
+Proof outline:
+
+- Apply relative-stable-range-one-sl2 over A/J. Write g as a finite product of relative elementary conjugates and their inverses using closure induction.
+- The coefficient in image(I) lifts to an element of I because the quotient is surjective; lift the conjugating element of E₂(A/J) using U.1 elementary-surjective-map.
+- Map the product of those lifted relative generators. The lifted product is determinant one and lies at level I. No surjectivity claim for SL₂(A) over arbitrary ring quotients is used.
+
+Prerequisites: KTheoryLowDegrees:U.4/relative-stable-range-one-sl2, KTheoryLowDegrees:U.1/elementary-surjective-map, KTheoryLowDegrees:U.5/relative-elementary-subgroup, mathlib:Matrix.SpecialLinearGroup.map, mathlib:Ideal.Quotient.mk_surjective.
+
+Source: Bass.1964, Corollary 5.2 and its proof, printed p.18. Implementation remains unchecked.
+
+### KTheoryLowDegrees:U.4/dedekind-principal-quotient-semilocal — Nonzero principal quotients of Dedekind domains are semilocal
+
+For A a Dedekind domain and q≠0, MaximalSpectrum(A/(q)) is finite, hence the quotient has stable range one.
+
+Hypotheses: A is a commutative Dedekind domain; q is nonzero.
+
+Proof outline:
+
+- Comap along the surjective quotient sends a maximal ideal to a maximal ideal containing the nonzero principal ideal (q), and is injective on ideals.
+- Such comaps are nonzero primes, hence height-one primes of the Dedekind domain. Ideal containment is divisibility in the Dedekind ideal monoid, so the native finite_factors theorem bounds their number.
+- If (q)=A the quotient is the zero ring and has no maximal ideals; retain that case. Apply the inherited semilocal-stable-range-one theorem.
+
+Prerequisites: mathlib:Ideal.finite_factors, mathlib:Ideal.comap_isMaximal_of_surjective, mathlib:Ideal.comap_injective_of_surjective, mathlib:Ideal.Quotient.mk_surjective, KTheoryLowDegrees:U.3/semilocal-stable-range-one.
+
+Source: BMS.1967, §2 remark preceding Lemma 2.2, printed p.66; §6 step 5, printed p.105. Implementation remains unchecked.
+
+### KTheoryLowDegrees:U.4/sl2-principal-reduction — Reduce a relative SL₂ matrix to a deeper principal level
+
+If q∈I is nonzero and g∈SL₂(A) is at level I, some ε∈E₂(A,I) makes toGL(g)ε lie at level (q).
+
+Hypotheses: A is a commutative Dedekind domain; I is a nonzero ideal; C is any group, not assumed abelian; s is a Mennicke symbol on W_I.
+
+Proof outline:
+
+- Let J=(q)≤I. The quotient A/J is semilocal by dedekind-principal-quotient-semilocal.
+- The native image of g in SL₂(A/J) is at level image(I). Lift its inverse by relative-elementary-quotient-lifting to ε∈E₂(A,I). Then the product reduces to one modulo J.
+- Both factors have determinant one; record determinant one of the product for the next row calculation.
+
+Prerequisites: KTheoryLowDegrees:U.4/dedekind-principal-quotient-semilocal, KTheoryLowDegrees:U.4/relative-elementary-quotient-lifting, KTheoryLowDegrees:U.5/congruence-subgroup, mathlib:Matrix.SpecialLinearGroup.map.
+
+Source: BMS.1967, §6 Theorem 6.1 and proof, printed pp.103–105. Implementation remains unchecked.
+
+### KTheoryLowDegrees:U.4/dedekind-coprime-square-adjustment — Choose a coprime lower diagonal entry
+
+For a≠0 in a Dedekind domain and IsCoprime(d,c), there exists t such that IsCoprime(d+t c²,a).
+
+Hypotheses: A is a commutative Dedekind domain; a≠0 and IsCoprime(d,c).
+
+Proof outline:
+
+- The same Bézout identity, or squaring it, gives IsCoprime(d,c²). Reduce this pair modulo (a).
+- The quotient is semilocal; stable range one provides t making the image of d+t c² a unit. Lift t through the surjective quotient.
+- A unit modulo (a) is exactly a Bézout equation with a: lift its inverse and the equality modulo (a), then write the difference as a multiple of a. This also works when a is a unit (zero quotient). The a≠0 hypothesis is essential to the semilocal argument.
+
+Prerequisites: KTheoryLowDegrees:U.4/dedekind-principal-quotient-semilocal, KTheoryLowDegrees:U.3/stable-range, mathlib:IsCoprime, mathlib:Ideal.Quotient.mk_surjective.
+
+Source: BMS.1967, §2 remark before Lemma 2.2, printed p.66; §6 step 5, printed p.105. Implementation remains unchecked.
+
+### KTheoryLowDegrees:U.4/kubota-multiplicativity — Kubota multiplicativity on relative GL₂
+
+For every ideal I of a Dedekind domain and every Mennicke symbol s, κ_s(g′g)=κ_s(g′)κ_s(g) for g,g′∈GL₂(A,I).
+
+Hypotheses: A is a commutative Dedekind domain; I is any ideal; C is any group and s is a Mennicke symbol.
+
+Proof outline:
+
+- If I=0 then GL₂(A,I)={1}; conclude by normalization. Otherwise use the preceding invariance lemmas.
+- If a′=0 then det(g′)=−b′c′ is a unit, so b′ and c′ are units and I=A. Left multiply g′ and g′g simultaneously by e₁₂((c′)⁻¹); this replaces a′ by 1 and leaves both κ-values unchanged. This supplies the nonzero-entry normalization implicit in the printed proof.
+- Right multiply g by diag(det(g)⁻¹,1) to make it determinant one. This diagonal is at level I since det(g)≡1 mod I, and relative-diagonal invariance preserves κ(g) and κ(g′g).
+- Put q=a′−1∈I. If q=0 then a′=1 and the conditional multiplication lemma applies immediately. Otherwise use sl2-principal-reduction to make g principal-level at (q) by right relative elementary multiplication.
+- Write its lower row as (c₁,d₁). Apply dedekind-coprime-square-adjustment to nonzero a′. Right multiply by e₁₂(t c₁); since c₁∈(q), this factor is in E₂(A,(q))⊆E₂(A,I). Its new d is d₁+t c₁², still 1 modulo (q), and coprime to a′.
+- The conditional multiplication lemma now applies. Undo every normalization using right/left invariance. No SL₂ normality in GL₂, absolute SK₁ vanishing, or arithmetic input appears.
+
+Prerequisites: KTheoryLowDegrees:U.4/kubota-conditional-multiplication, KTheoryLowDegrees:U.4/kubota-relative-elementary-invariance, KTheoryLowDegrees:U.4/kubota-relative-diagonal-invariance, KTheoryLowDegrees:U.4/sl2-principal-reduction, KTheoryLowDegrees:U.4/dedekind-coprime-square-adjustment, KTheoryLowDegrees:U.4/kubota-value, KTheoryLowDegrees:U.5/congruence-subgroup.
+
+Source: BMS.1967, §6 Theorem 6.1 and proof, printed pp.103–105. Implementation remains unchecked.
+
+### KTheoryLowDegrees:U.4/kubota-hom — The Kubota homomorphism
+
+Package κ_s as a group homomorphism GL₂(A,I)→C for A Dedekind and any I. It kills E₂(A,I), relative unit diagonals and commutators of GL₂(A,I) with elementary matrices or global unit diagonals.
+
+Hypotheses: A is a commutative Dedekind domain; I is any ideal; C is any group and s is a Mennicke symbol.
+
+Proof outline:
+
+- Use exactly kubotaValue as toFun, its normalization for map_one and kubota-multiplicativity for map_mul.
+- Right invariance at g=1 gives the relative kernel assertions. Conjugation invariance and multiplicativity give triviality on τgτ⁻¹g⁻¹ for elementary τ and for global unit diagonals.
+- The universal property is uniqueness among homomorphisms with the first-row evaluation formula. Composition and ideal restriction commute by extensionality. C need not be abelian: the inherited residue lemma says the actual image is abelian.
+
+Prerequisites: KTheoryLowDegrees:U.4/kubota-multiplicativity, KTheoryLowDegrees:U.4/kubota-relative-elementary-invariance, KTheoryLowDegrees:U.4/kubota-relative-diagonal-invariance, KTheoryLowDegrees:U.4/kubota-elementary-conjugation, KTheoryLowDegrees:U.4/kubota-diagonal-conjugation.
+
+Source: BMS.1967, §6 Theorem 6.1 and proof, printed pp.103–105. Implementation remains unchecked.
+
+Uses:
+
+- BMS Proposition 8.5, future continuation: The exact rank-two input to the extension to rank three, including its prescribed kernel conditions.
+- kubota-ideal-image and kubota-noncongruence-kernel: Compares images at deeper levels and detects failure of principal congruence containment.
+
+API:
+
+- kubotaHom: The homomorphism with underlying function κ_s.
+- kubotaHom_apply: Its value is s applied to the first row.
+- kubotaHom_unique: Any homomorphism satisfying the first-row formula equals kubotaHom.
+- kubotaHom_comp: Changing the target group by φ gives φ∘kubotaHom.
+- kubotaHom_restrict: Restriction to a smaller ideal commutes with kubotaHom.
+- kubotaHom_relative_kernel: Relative elementary and relative diagonal matrices are in its kernel.
+- kubotaHom_commutator_kernel: Its kernel contains τgτ⁻¹g⁻¹ for elementary τ and for global unit diagonals.
+
+Tests:
+
+- kubotaHom_mul_test: Evaluation on a product gives the ordered product of the two first-row symbols.
+- kubotaHom_integer_diagonal_test: At integer level 2, diag(−1,1) is killed although determinant is −1.
+- kubotaHom_bot_test: The homomorphism at the zero ideal is the trivial homomorphism.
+- kubotaHom_restriction_test: For J≤I the restricted homomorphism equals the one obtained from the restricted symbol.
+- kubotaHom_relative_word_test: At ideal 2 in ℤ it kills e₂₁(1)e₁₂(2)e₂₁(−1), with matrix [[−1,2],[−2,3]].
+
+### KTheoryLowDegrees:U.4/kubota-ideal-image — Kubota images agree at deeper nonzero levels
+
+For J≠0 with J≤I, the image of κ_s on determinant-one J-level matrices equals its image on all GL₂(A,I).
+
+Hypotheses: A is a commutative Dedekind domain; J≤I and J≠0; C is any group and s is a Mennicke symbol.
+
+Proof outline:
+
+- Every J-level determinant-one matrix is also an I-level matrix, giving one inclusion.
+- Given g at level I, use q-equivalence-smaller-ideal to replace its first row by a J-level pair with the same s-value.
+- Use relative-first-row-completion at J to realize that pair by native SL₂(A) at level J. This gives the reverse inclusion, retaining determinant one and the exact deeper ideal.
+
+Prerequisites: KTheoryLowDegrees:U.4/kubota-hom, KTheoryLowDegrees:U.4/q-equivalence-smaller-ideal, KTheoryLowDegrees:U.4/relative-first-row-completion, KTheoryLowDegrees:U.4/mennicke-symbol.
+
+Source: BMS.1967, §6 Theorem 6.1 and proof, printed pp.103–105. Implementation remains unchecked.
+
+### KTheoryLowDegrees:U.4/kubota-noncongruence-kernel — A nontrivial Mennicke symbol has no principal SL₂ level in its kernel
+
+If s is nontrivial, then for every nonzero ideal J there is g∈SL₂(A) with toGL(g)∈GL₂(A,J)∩GL₂(A,I) and κ_s(g)≠1. In particular no nonzero principal SL₂ congruence subgroup lies in the kernel.
+
+Hypotheses: A is a commutative Dedekind domain; s has a value different from one.
+
+Proof outline:
+
+- If s is nontrivial then I≠0, since W_0={(1,0)}. For arbitrary J≠0 the product ideal I·J is nonzero in the domain and is contained in both I and J.
+- Surjectivity of firstRow realizes a nonidentity symbol in the I-level κ-image. Apply kubota-ideal-image to I·J to realize it by a determinant-one matrix at that deeper level.
+- Retain the GL₂(A,I) membership required for the domain of κ. The conclusion concerns principal SL₂ levels and does not assert the arithmetic congruence-kernel classification.
+
+Prerequisites: KTheoryLowDegrees:U.4/kubota-ideal-image, KTheoryLowDegrees:U.4/relative-first-row-map, KTheoryLowDegrees:U.4/mennicke-symbol.
+
+Source: BMS.1967, §6 Theorem 6.1 and proof, printed pp.103–105. Implementation remains unchecked.
+
+The three §2 lemmas supply Kervaire reciprocity and Lam denominator multiplication explicitly; they are no longer hidden assumptions in Kubota. The homomorphism kills relative elementary and relative diagonal matrices, and commutators against global elementary and unit diagonal matrices, hence the generated GE subgroups in BMS’s statement. All eight gaps, eight supplier requests and 44 planets survive. The next proof boundary is Proposition 8.5, then Proposition 8.6 and §§8–10.
+
+Validation for this continuation: the indexed packet checker has zero errors and warnings. All 228 inherited node objects and 467 baseline records are preserved. The internal dependency graph is acyclic. Every new node, API name and definition test has a corresponding typed suggested declaration or example. The full suggested file does not elaborate because the shared build lacks the TauCeti.CategoryTheory.Exact.Functor object file. A harness made from the exact inherited definitions and new section elaborates against pinned Mathlib with autoImplicit disabled and thirteen typed examples, with expected sorry warnings. This is signature validation, not proof checking or validation of the complete suggested file.

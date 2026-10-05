@@ -13,7 +13,7 @@
     "KTheoryLowDegrees:U.5",
     "KTheoryLowDegrees:U.6"
   ],
-  "summary": "Part U.1 of the roadmap KTheoryLowDegrees: stages Z.1, Z.2 and U.1–U.6. The companion part KTheoryLowDegrees--Z.3 holds Z.3–Z.6. The plan follows Weibel's K-book (I.1–I.3, II.1–II.2, II.7.3, III.1–III.2, IV.1), Bass's \"K-theory and stable algebra\" (1964), Dieudonné's \"Les déterminants sur un corps non commutatif\" (1943) and Bass–Milnor–Serre (1967).\n- Z.1 presents finitely generated projectives through free-summand data and idempotent matrices, classifies them by stabilised conjugacy, and defines ring K₀ as Tau Ceti's SplitK0 of finiteProjectiveModules. It also proves the stable-isomorphism criterion and builds scalar extension along any ring map, restriction along finite projective extensions and Morita invariance.\n- Z.2 gives the rank as a locally constant function on Spec A, never collapsed to one integer on a disconnected spectrum. It covers localisation and base change, K₀ of division, local and semilocal rings, the product formula and K₀(F × F) ≅ ℤ², with a non-free rank-one ideal of ℤ[√−5].\n- U.1 builds the stable GL(A) as a direct limit, elementary matrices over any ring, E(A), the commutator identities, perfectness for n ≥ 3 and Whitehead's lemma. The explicit non-examples E₂(𝔽₂) and E₂(𝔽₃) keep the stable theorem away from rank 2.\n- U.2 defines K₁(A) = GL(A)/E(A) = GL(A)^ab with its functoriality and the class of an automorphism of a projective. The class is independent of the complement, additive along filtrations and compatible with sums and scalar extension.\n- U.3 gives the stable determinant, SK₁ and the natural splitting K₁(A) ≅ Aˣ × SK₁(A). SK₁ vanishes for fields and for commutative semilocal rings by stable range one. It adds the Dieudonné determinant with K₁(D) ≅ D^×ab, and non-examples showing K₁(A) = Aˣ is not a general rule.\n- U.4 proves SK₁(O_{F,S}) = 0 along the Bass–Milnor–Serre route (stable range two, Mennicke symbols and the arithmetic Dirichlet and power-reduction theorems) and identifies K₁(O_{F,S}) ≅ O_{F,S}ˣ ≅ μ(F) ⊕ ℤ^{r₁+r₂+|S|−1}. S is a finite set of finite places; the determinant is canonical and the splitting depends on fundamental S-units.\n- U.5 builds the relative groups GL(I), E(A, I) and K₁(A, I) = GL(I)/E(A, I), not a kernel. It proves the degree-one sequence with its extra term (E(A) ∩ GL(I))/E(A, I) made explicit, transfer by restriction of scalars agreeing with the norm, the projection formula, and the DVR boundary ∂(π) = [k].\n- U.6 identifies π₁BGL(A)⁺ with GL(A)/E(A), with loop classes, determinant and transfer. It computes K₁ of ℤ, 𝔽_q, ℤ[1/p] and finite products of fields, and runs the triangular, diag(g, g⁻¹) and uniformiser tests.\nConventions:\n- K₀ is formed from left modules, as in Mathlib and Tau Ceti; Z.1's idempotent e presents the row-vector module Rⁿe.\n- The K₁ class of an automorphism is formed from right modules with column vectors (the K-book's and Bass's convention; in Mathlib, modules over Aᵐᵒᵖ). For commutative rings the two agree and give Mathlib's column convention.\n- The row-vector convention would transpose matrices, which inverts SK₁ classes.\nZ.1, Z.2, U.1 and U.2 are source-decomposed; U.3–U.6 remain partial. Eight gaps record inherited proof boundaries and the newly routed congruence targets:\n- the class-field-theory inputs of BMS Theorem 3.5;\n- the relative homotopy comparison;\n- the topology behind SK₁ of the real circle ring.\nNothing is formalised; implementationStatus is unchecked throughout.\nThe categorical Morita preservation proof is now sourced to checked pinned declarations and decomposed into separate order transport, finite-generation and restricted-equivalence declarations. Bass II.3 has not been read. That checkpoint retained its then-current four unrelated gaps and eight supplier requests; the current totals below supersede those historical counts.\nMilnor patching over arbitrary rings is now decomposed through compatible complements, canonical base-change maps, projective recovery, and all three Mayer–Vietoris exactness positions. U.5 uses a named ideal boundary. This closes the Milnor source gap without claiming formal proofs or closing the other gaps. The real-circle detection argument has an explicit coordinate map, finite elementary matrix homotopy and based contraction reduction. Four application lemmas now decompose its coordinate frame, stabilized Spin comparison, nonclosing lift and SO contraction obstruction. The LieGroups SL-to-SO retraction is still an open request; the Dedekind assertion is now decomposed by the explicit chart argument. Before this October continuation there were four gaps and nine supplier requests; the current packet has eight gaps and eight requests. Weibel's displayed rotation is the inverse of the packet's positive column rotation; this convention translation does not alter nontriviality. This continuation adds eight declarations proving the real-circle Dedekind property from the pinned algebra/localization baseline, with four chart tests and an exact predicate test; no whole layer is closed. The October 2026 checkpoint gives the native Morita comparison and five elementary finite-index containment lemmas, screens all 21 newly routed BS determinant items against their existing owners, and records the full BMS/Serre congruence and localized-cohomology proof boundaries. The pass remains partial.",
+  "summary": "Part U.1 of the roadmap KTheoryLowDegrees: stages Z.1, Z.2 and U.1–U.6. The companion part KTheoryLowDegrees--Z.3 holds Z.3–Z.6. The plan follows Weibel's K-book (I.1–I.3, II.1–II.2, II.7.3, III.1–III.2, IV.1), Bass's \"K-theory and stable algebra\" (1964), Dieudonné's \"Les déterminants sur un corps non commutatif\" (1943) and Bass–Milnor–Serre (1967).\n- Z.1 presents finitely generated projectives through free-summand data and idempotent matrices, classifies them by stabilised conjugacy, and defines ring K₀ as Tau Ceti's SplitK0 of finiteProjectiveModules. It also proves the stable-isomorphism criterion and builds scalar extension along any ring map, restriction along finite projective extensions and Morita invariance.\n- Z.2 gives the rank as a locally constant function on Spec A, never collapsed to one integer on a disconnected spectrum. It covers localisation and base change, K₀ of division, local and semilocal rings, the product formula and K₀(F × F) ≅ ℤ², with a non-free rank-one ideal of ℤ[√−5].\n- U.1 builds the stable GL(A) as a direct limit, elementary matrices over any ring, E(A), the commutator identities, perfectness for n ≥ 3 and Whitehead's lemma. The explicit non-examples E₂(𝔽₂) and E₂(𝔽₃) keep the stable theorem away from rank 2.\n- U.2 defines K₁(A) = GL(A)/E(A) = GL(A)^ab with its functoriality and the class of an automorphism of a projective. The class is independent of the complement, additive along filtrations and compatible with sums and scalar extension.\n- U.3 gives the stable determinant, SK₁ and the natural splitting K₁(A) ≅ Aˣ × SK₁(A). SK₁ vanishes for fields and for commutative semilocal rings by stable range one. It adds the Dieudonné determinant with K₁(D) ≅ D^×ab, and non-examples showing K₁(A) = Aˣ is not a general rule.\n- U.4 proves SK₁(O_{F,S}) = 0 along the Bass–Milnor–Serre route (stable range two, Mennicke symbols and the arithmetic Dirichlet and power-reduction theorems) and identifies K₁(O_{F,S}) ≅ O_{F,S}ˣ ≅ μ(F) ⊕ ℤ^{r₁+r₂+|S|−1}. S is a finite set of finite places; the determinant is canonical and the splitting depends on fundamental S-units.\n- U.5 builds the relative groups GL(I), E(A, I) and K₁(A, I) = GL(I)/E(A, I), not a kernel. It proves the degree-one sequence with its extra term (E(A) ∩ GL(I))/E(A, I) made explicit, transfer by restriction of scalars agreeing with the norm, the projection formula, and the DVR boundary ∂(π) = [k].\n- U.6 identifies π₁BGL(A)⁺ with GL(A)/E(A), with loop classes, determinant and transfer. It computes K₁ of ℤ, 𝔽_q, ℤ[1/p] and finite products of fields, and runs the triangular, diag(g, g⁻¹) and uniformiser tests.\nConventions:\n- K₀ is formed from left modules, as in Mathlib and Tau Ceti; Z.1's idempotent e presents the row-vector module Rⁿe.\n- The K₁ class of an automorphism is formed from right modules with column vectors (the K-book's and Bass's convention; in Mathlib, modules over Aᵐᵒᵖ). For commutative rings the two agree and give Mathlib's column convention.\n- The row-vector convention would transpose matrices, which inverts SK₁ classes.\nZ.1, Z.2, U.1 and U.2 are source-decomposed; U.3–U.6 remain partial. Eight gaps record inherited proof boundaries and the newly routed congruence targets:\n- the class-field-theory inputs of BMS Theorem 3.5;\n- the relative homotopy comparison;\n- the topology behind SK₁ of the real circle ring.\nNothing is formalised; implementationStatus is unchecked throughout.\nThe categorical Morita preservation proof is now sourced to checked pinned declarations and decomposed into separate order transport, finite-generation and restricted-equivalence declarations. Bass II.3 has not been read. That checkpoint retained its then-current four unrelated gaps and eight supplier requests; the current totals below supersede those historical counts.\nMilnor patching over arbitrary rings is now decomposed through compatible complements, canonical base-change maps, projective recovery, and all three Mayer–Vietoris exactness positions. U.5 uses a named ideal boundary. This closes the Milnor source gap without claiming formal proofs or closing the other gaps. The real-circle detection argument has an explicit coordinate map, finite elementary matrix homotopy and based contraction reduction. Four application lemmas now decompose its coordinate frame, stabilized Spin comparison, nonclosing lift and SO contraction obstruction. The LieGroups SL-to-SO retraction is still an open request; the Dedekind assertion is now decomposed by the explicit chart argument. Before this October continuation there were four gaps and nine supplier requests; the current packet has eight gaps and eight requests. Weibel's displayed rotation is the inverse of the packet's positive column rotation; this convention translation does not alter nontriviality. This continuation adds eight declarations proving the real-circle Dedekind property from the pinned algebra/localization baseline, with four chart tests and an exact predicate test; no whole layer is closed. The October 2026 checkpoint gives the native Morita comparison and five elementary finite-index containment lemmas, screens all 21 newly routed BS determinant items against their existing owners, and records the full BMS/Serre congruence and localized-cohomology proof boundaries. The pass remains partial. The codex-Px3FlU continuation adds twenty-three U.4 nodes for Kubota’s relative GL₂ homomorphism and its same-image/noncongruence conclusions. All 228 inherited nodes remain byte-for-byte equivalent as JSON objects; the finite-rank extension and arithmetic congruence calculations remain explicit gaps.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -3345,6 +3345,38 @@
         "lines": "545",
         "provides": "The native SL transvection satisfies e_ij(a+b)=e_ij(a)e_ij(b).",
         "checked": "Actual statement and hypotheses read at the packet pin on 2026-10-05; source Git blob and shared source bytes verified."
+      },
+      {
+        "ref": "mathlib:Matrix.SpecialLinearGroup.map",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/Matrix/SpecialLinearGroup.lean",
+        "lines": "225",
+        "provides": "Native determinant-one group map induced by a commutative ring homomorphism.",
+        "checked": "Actual statement, hypotheses and adjoining proof read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05; Git blob and shared source bytes verified."
+      },
+      {
+        "ref": "mathlib:Matrix.SpecialLinearGroup.isCoprime_row",
+        "kind": "lemma",
+        "module": "Mathlib/LinearAlgebra/Matrix/SpecialLinearGroup.lean",
+        "lines": "404",
+        "provides": "A row of native SL₂ is coprime.",
+        "checked": "Actual statement, hypotheses and adjoining proof read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05; Git blob and shared source bytes verified."
+      },
+      {
+        "ref": "mathlib:Ideal.comap_isMaximal_of_surjective",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Ideal/Maps.lean",
+        "lines": "623",
+        "provides": "Comap of a maximal ideal along a surjective ring map is maximal.",
+        "checked": "Actual statement, hypotheses and adjoining proof read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05; Git blob and shared source bytes verified."
+      },
+      {
+        "ref": "mathlib:Ideal.comap_injective_of_surjective",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Ideal/Maps.lean",
+        "lines": "327",
+        "provides": "Comap of ideals along a surjective ring map is injective.",
+        "checked": "Actual statement, hypotheses and adjoining proof read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05; Git blob and shared source bytes verified."
       }
     ]
   },
@@ -3415,7 +3447,8 @@
       "readSections": [
         "Chapter I, §§ 1–5 (pp. 8–18): Lemmas 1.1, 1.2, 1.6, 1.7, Corollaries 1.3–1.5, 1.8, 1.9, § 2 to Corollary 2.4, Theorem 3.1, § 4 (definition of stable range, Lemma 4.1, Theorem 4.2 with proof), Proposition 5.1 and Corollary 5.2",
         "Chapter II, § 6 (pp. 19–21): definition of semi-local rings, Lemma 6.1–6.4, Corollaries 6.5–6.8",
-        "Chapter III, § 12 and the beginning of § 13 (pp. 31–36): K¹(A, q) as a universal problem, Proposition 12.1, Theorem 13.1"
+        "Chapter III, § 12 and the beginning of § 13 (pp. 31–36): K¹(A, q) as a universal problem, Proposition 12.1, Theorem 13.1",
+        "Fresh Codex codex-Px3FlU continuation, 2026-10-05: printed pp.16–20, especially Proposition 5.1(a), Corollary 5.2 and the semilocal hypotheses. Relative rank-two word and reduction spelled out here."
       ]
     },
     {
@@ -3447,7 +3480,8 @@
         "§5 The theorem of Mennicke (5.1)–(5.5), pp. 101–103 (PDF 44–46)",
         "§6 Kubota's theorem, pp. 103–105 (PDF 46–48)",
         "§7 Review of the stable structure of GL_n(A), (7.1)–(7.5), pp. 105–106 (PDF 48–49)",
-        "Fresh continuation read, 2026-10-05: §4 Theorem 4.1 and Corollary 4.3, pp.94–96; §7 Theorem 7.5(e), pp.105–106; §14 congruence-kernel statement and Theorem 14.1 with proof, pp.129–130. §§8–10 and the finite-level arithmetic calculation are an uncompleted proof boundary for this continuation."
+        "Fresh continuation read, 2026-10-05: §4 Theorem 4.1 and Corollary 4.3, pp.94–96; §7 Theorem 7.5(e), pp.105–106; §14 congruence-kernel statement and Theorem 14.1 with proof, pp.129–130. §§8–10 and the finite-level arithmetic calculation are an uncompleted proof boundary for this continuation.",
+        "Fresh Codex codex-Px3FlU continuation, 2026-10-05: §2 pp.65–69 and §4–§11 pp.94–120 read; §6 pp.103–105 proof inspected also in scan. This checkpoint decomposes §6 and its relative rank-two inputs; §§8–10 extension and §11 arithmetic relations remain unplanned proof boundaries despite having been read."
       ]
     },
     {
@@ -3640,6 +3674,20 @@
       "read": "2026-10-05",
       "sha256": "b455790cdaeba5e3a313f1bd4dddfe2892e8a2035067bcdef434ef717edfb996",
       "note": "Fresh §4/§7/§14 read only, as recorded in sources; older section-wide evidence remains inherited."
+    },
+    {
+      "kind": "published",
+      "url": "https://www.numdam.org/item/10.1007/BF02684586.pdf",
+      "read": "2026-10-05",
+      "sha256": "b455790cdaeba5e3a313f1bd4dddfe2892e8a2035067bcdef434ef717edfb996",
+      "note": "Fresh scope and decomposition boundary are recorded under sources for Codex codex-Px3FlU; scan hash agrees with the inherited version."
+    },
+    {
+      "kind": "published",
+      "url": "https://www.numdam.org/item/10.1007/BF02684689.pdf",
+      "read": "2026-10-05",
+      "sha256": "98bcfa4b38b7e1be99ca380f55138d5b8e6f15ad3c7f4db3d83c4958a2b6da44",
+      "note": "Fresh read printed pp.16–20; inherited scan hash confirmed."
     }
   ],
   "nodes": [
@@ -19711,6 +19759,1154 @@
           "statement": "There is no nonzero ideal I≤𝔽₂ whose relative elementary SL₃ subgroup is contained in the bottom subgroup."
         }
       ]
+    },
+    {
+      "id": "KTheoryLowDegrees:U.4/relative-first-row-completion",
+      "parentStageId": "KTheoryLowDegrees:U.4",
+      "realises": [
+        "KTheoryLowDegrees:U.4"
+      ],
+      "kind": "lemma",
+      "title": "Complete a relative unimodular row",
+      "statement": "For (a,b)∈W_I there is g∈SL₂(A) with first row (a,b) and toGL(g)∈GL₂(A,I).",
+      "hypotheses": [
+        "A is any commutative unital ring, including the zero ring; I is any ideal."
+      ],
+      "proofSteps": [
+        "Choose x,y with ax+by=1. Set c=−b y² and d=x+bxy. Then ad−bc=ax+by(ax+by)=1.",
+        "Because b∈I and a≡1 mod I, x≡1 mod I. Thus c∈I and d≡1 mod I; all four entries have the required principal-level congruence.",
+        "Package the concrete matrix [[a,b],[c,d]] in native SpecialLinearGroup and use U.5 entrywise membership. Native IsCoprime.exists_SL2_row alone supplies an unconstrained completion and is insufficient for this relative assertion."
+      ],
+      "prerequisites": [
+        "KTheoryLowDegrees:U.4/mennicke-symbol",
+        "KTheoryLowDegrees:U.5/congruence-subgroup",
+        "mathlib:IsCoprime.exists_SL2_row",
+        "mathlib:IsCoprime"
+      ],
+      "acceptance": [
+        "Use the existing U.5 congruence and relative elementary subgroups; no finite-rank normality or congruence-kernel theorem is assumed."
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/Congruence/Kubota",
+        "namespace": "TauCeti.MennickeSymbol",
+        "declaration": "relative_first_row_completion"
+      },
+      "sources": [
+        {
+          "sourceId": "BMS.1967",
+          "locator": "§5 Lemma 5.3, printed p.102; §6 first-row map",
+          "match": "Freshly read proof decomposed on the existing packet carriers; explicit boundary cases and coordinate computations are worker deductions.",
+          "excerpt": "Mennicke"
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "KTheoryLowDegrees:U.4/relative-first-row-fibre",
+      "parentStageId": "KTheoryLowDegrees:U.4",
+      "realises": [
+        "KTheoryLowDegrees:U.4"
+      ],
+      "kind": "lemma",
+      "title": "Matrices with the same first row",
+      "statement": "If g,h∈GL₂(A,I) have equal first rows then h g⁻¹ has matrix [[1,0],[t,u]] with t∈I, u∈Aˣ and u−1∈I. If both determinants are one then u=1.",
+      "hypotheses": [
+        "A is any commutative unital ring, including the zero ring; I is any ideal."
+      ],
+      "proofSteps": [
+        "Multiply the common row of h by g⁻¹: it is the first row of gg⁻¹=(1,0). Consequently h g⁻¹ is lower triangular with first diagonal entry one.",
+        "Its bottom diagonal entry is a unit, since its determinant is that entry. The subgroup law puts h g⁻¹ at level I, giving t∈I and u−1∈I.",
+        "Determinants multiply, so determinant-one inputs give u=1. Conversely left multiplication by such a lower triangular matrix preserves the first row."
+      ],
+      "prerequisites": [
+        "KTheoryLowDegrees:U.5/congruence-subgroup",
+        "mathlib:Matrix.GeneralLinearGroup.det"
+      ],
+      "acceptance": [
+        "Use the existing U.5 congruence and relative elementary subgroups; no finite-rank normality or congruence-kernel theorem is assumed."
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/Congruence/Kubota",
+        "namespace": "TauCeti.MennickeSymbol",
+        "declaration": "relative_first_row_fibre"
+      },
+      "sources": [
+        {
+          "sourceId": "BMS.1967",
+          "locator": "§5 Lemma 5.3 and §6 first-row map; explicit fibre calculation",
+          "match": "Freshly read proof decomposed on the existing packet carriers; explicit boundary cases and coordinate computations are worker deductions.",
+          "excerpt": "Mennicke"
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "KTheoryLowDegrees:U.4/relative-first-row-map",
+      "parentStageId": "KTheoryLowDegrees:U.4",
+      "realises": [
+        "KTheoryLowDegrees:U.4"
+      ],
+      "kind": "construction",
+      "title": "The relative first-row map",
+      "statement": "Define firstRow_I:GL₂(A,I)→W_I by g↦(g₀₀,g₀₁). It is surjective, already on determinant-one matrices, and compatible with shrinking the ideal.",
+      "hypotheses": [
+        "A is any commutative unital ring, including the zero ring; I is any ideal."
+      ],
+      "proofSteps": [
+        "Entrywise congruence gives g₀₀−1∈I and g₀₁∈I. The first column of g⁻¹ gives a Bézout identity for the first row of g.",
+        "Apply relative-first-row-completion for surjectivity; relative-first-row-fibre gives its precise fibres. Ideal inclusion changes only the membership proof."
+      ],
+      "prerequisites": [
+        "KTheoryLowDegrees:U.4/relative-first-row-completion",
+        "KTheoryLowDegrees:U.4/relative-first-row-fibre",
+        "KTheoryLowDegrees:U.4/mennicke-symbol",
+        "KTheoryLowDegrees:U.5/congruence-subgroup"
+      ],
+      "acceptance": [
+        "Use the existing U.5 congruence and relative elementary subgroups; no finite-rank normality or congruence-kernel theorem is assumed."
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/Congruence/Kubota",
+        "namespace": "TauCeti.MennickeSymbol",
+        "declaration": "firstRow"
+      },
+      "sources": [
+        {
+          "sourceId": "BMS.1967",
+          "locator": "§5 Lemma 5.3; §6 Theorem 6.1",
+          "match": "Freshly read proof decomposed on the existing packet carriers; explicit boundary cases and coordinate computations are worker deductions.",
+          "excerpt": "Mennicke"
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "kubota-value",
+          "how": "Defines the value on each actual principal-level matrix."
+        },
+        {
+          "where": "kubota-ideal-image",
+          "how": "Realizes every deeper symbol by a determinant-one matrix at that same deeper level."
+        }
+      ],
+      "api": [
+        {
+          "name": "firstRow",
+          "role": "constructor",
+          "statement": "The first-row function with its W_I membership proof."
+        },
+        {
+          "name": "firstRow_apply",
+          "role": "characterisation",
+          "statement": "Its two coordinates are g₀₀ and g₀₁."
+        },
+        {
+          "name": "firstRow_surjective",
+          "role": "universal-property",
+          "statement": "Every W_I pair is the first row of a determinant-one matrix at level I."
+        },
+        {
+          "name": "firstRow_restrict",
+          "role": "functoriality",
+          "statement": "For J≤I, firstRow_I on a J-level matrix is the inclusion of firstRow_J."
+        }
+      ],
+      "tests": [
+        {
+          "name": "firstRow_bot_test",
+          "kind": "degenerate",
+          "statement": "At I=0 the only matrix is one and its first row is (1,0)."
+        },
+        {
+          "name": "firstRow_integer_level_test",
+          "kind": "computation",
+          "statement": "The actual matrix [[5,2],[12,5]] has determinant one, lies at level 2 in ℤ, and maps to (5,2)."
+        },
+        {
+          "name": "firstRow_level_control_test",
+          "kind": "non-example",
+          "statement": "The coprime pair (3,2) has an SL₂(ℤ) completion but is not in W_(4); no completion at level 4 exists."
+        },
+        {
+          "name": "firstRow_native_row_test",
+          "kind": "compatibility",
+          "statement": "For native SL₂ matrices the coprimality certificate agrees, by proof irrelevance, with isCoprime_row g 0."
+        }
+      ]
+    },
+    {
+      "id": "KTheoryLowDegrees:U.4/kubota-value",
+      "parentStageId": "KTheoryLowDegrees:U.4",
+      "realises": [
+        "KTheoryLowDegrees:U.4"
+      ],
+      "kind": "construction",
+      "title": "Evaluate a Mennicke symbol on the first row",
+      "statement": "For any commutative A, ideal I and Mennicke symbol s:W_I→C, define κ_s(g)=s(firstRow_I(g)). This is initially a function; multiplicativity is a separate theorem.",
+      "hypotheses": [
+        "A is any commutative unital ring, including the zero ring; I is any ideal.",
+        "C is any group; s satisfies MS1 and MS2."
+      ],
+      "proofSteps": [
+        "Compose the actual first-row map with the symbol function. Normalization follows from MS1 on (1,0).",
+        "Composition in C and restriction of ideals are literal evaluations of the inherited symbol operations. No homomorphism assumption is introduced."
+      ],
+      "prerequisites": [
+        "KTheoryLowDegrees:U.4/relative-first-row-map",
+        "KTheoryLowDegrees:U.4/mennicke-symbol"
+      ],
+      "acceptance": [
+        "Use the existing U.5 congruence and relative elementary subgroups; no finite-rank normality or congruence-kernel theorem is assumed."
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/Congruence/Kubota",
+        "namespace": "TauCeti.MennickeSymbol",
+        "declaration": "kubotaValue"
+      },
+      "sources": [
+        {
+          "sourceId": "BMS.1967",
+          "locator": "§6 Theorem 6.1, printed p.103",
+          "match": "Freshly read proof decomposed on the existing packet carriers; explicit boundary cases and coordinate computations are worker deductions.",
+          "excerpt": "Mennicke"
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "kubota-conditional-multiplication",
+          "how": "Keeps the first-row formula visible while proving the two-matrix identity."
+        },
+        {
+          "where": "kubota-hom",
+          "how": "The homomorphism has exactly this underlying function."
+        }
+      ],
+      "api": [
+        {
+          "name": "kubotaValue",
+          "role": "constructor",
+          "statement": "The composite first-row evaluation."
+        },
+        {
+          "name": "kubotaValue_one",
+          "role": "relation",
+          "statement": "κ_s(1)=1."
+        },
+        {
+          "name": "kubotaValue_comp",
+          "role": "functoriality",
+          "statement": "κ_(φ∘s)(g)=φ(κ_s(g)) for any group homomorphism φ."
+        },
+        {
+          "name": "kubotaValue_restrict",
+          "role": "functoriality",
+          "statement": "Restricting s to J≤I gives the same value on any J-level matrix."
+        },
+        {
+          "name": "kubotaValue_diagonal",
+          "role": "characterisation",
+          "statement": "A level-I diagonal matrix has κ-value one, even if its determinant is nonidentity."
+        }
+      ],
+      "tests": [
+        {
+          "name": "kubotaValue_one_test",
+          "kind": "degenerate",
+          "statement": "The identity evaluates to one for every symbol."
+        },
+        {
+          "name": "kubotaValue_integer_diagonal_test",
+          "kind": "non-example",
+          "statement": "At ideal 2 in ℤ, diag(−1,1) evaluates to one although its determinant is −1."
+        },
+        {
+          "name": "kubotaValue_first_row_test",
+          "kind": "characterisation",
+          "statement": "Two level matrices with the same first row have equal κ-values."
+        },
+        {
+          "name": "kubotaValue_comp_test",
+          "kind": "compatibility",
+          "statement": "Changing the value group by a homomorphism commutes with evaluation."
+        }
+      ]
+    },
+    {
+      "id": "KTheoryLowDegrees:U.4/mennicke-kervaire-reciprocity",
+      "parentStageId": "KTheoryLowDegrees:U.4",
+      "realises": [
+        "KTheoryLowDegrees:U.4"
+      ],
+      "kind": "lemma",
+      "title": "Kervaire reciprocity for a common principal level",
+      "statement": "If q∈I, a≡1≡d mod qA and IsCoprime(a,d), then s(d,aq)=s(a,dq).",
+      "hypotheses": [
+        "A is a commutative Dedekind domain, I≠0 and C is any group; s is a Mennicke symbol on W_I."
+      ],
+      "proofSteps": [
+        "Write d−a=qx. Both (a,q) and (d,q) have trivial symbol because q differs from zero by an allowed move into a numerator congruent to a unit modulo the denominator.",
+        "MS1 gives s(a,dq)=s(a,xq²); MS2 removes one q factor and gives s(a,xq). The second move changes its denominator a to a+xq=d.",
+        "Similarly s(d,aq)=s(d,−xq²)=s(d,−xq). Multiplication of the numerator by the global unit −1 does not change its symbol, by the residue-map identity. Thus the two sides agree. For q=0 they are both one."
+      ],
+      "prerequisites": [
+        "KTheoryLowDegrees:U.4/mennicke-symbol-residue-map",
+        "KTheoryLowDegrees:U.4/mennicke-symbol-residue-homomorphism",
+        "KTheoryLowDegrees:U.4/q-equivalence-to-base-point"
+      ],
+      "acceptance": [
+        "Keep the second coordinate on top in the source convention; all symbol pairs lie in W_I."
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/Congruence/Kubota",
+        "namespace": "TauCeti.MennickeSymbol",
+        "declaration": "mennicke_kervaire_reciprocity"
+      },
+      "sources": [
+        {
+          "sourceId": "BMS.1967",
+          "locator": "§2 Lemma 2.10 and proof, printed p.68",
+          "excerpt": "reciprocity",
+          "match": "Fresh proof read in the public scan; split off to make the Kubota prerequisites explicit."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "KTheoryLowDegrees:U.4/mennicke-denominator-common-level",
+      "parentStageId": "KTheoryLowDegrees:U.4",
+      "realises": [
+        "KTheoryLowDegrees:U.4"
+      ],
+      "kind": "lemma",
+      "title": "Denominator multiplication at a common principal level",
+      "statement": "If q∈I, a₁≡1≡a₂ mod qA and (a₁,b),(a₂,b)∈W_I, then s(a₁a₂,b)=s(a₁,b)s(a₂,b).",
+      "hypotheses": [
+        "A is a commutative Dedekind domain, I≠0 and C is any group; s is a Mennicke symbol on W_I."
+      ],
+      "proofSteps": [
+        "The symbols s(a_i,q) and s(a₁a₂,q) are one. MS2 therefore replaces b by bq on both sides.",
+        "Only b modulo a₁a₂ affects the bq symbols. Choose this representative coprime to q by avoiding the finitely many primes of (q); each a_i is already coprime to q. If q=0, each a_i=1 and the assertion is trivial.",
+        "Choose b′ by CRT with bb′≡1 mod q and b′≡1 mod a₁a₂. Residue-map multiplicativity implies s(a₁a₂,bb′q)=s(a₁a₂,bq), and similarly at a_i. All bb′ denominators in the following reciprocity step are coprime to a_i.",
+        "Apply Kervaire reciprocity to a₁a₂ and bb′, then use MS2 in the numerator to split a₁a₂q into a₁q and a₂q (insert a q with symbol one). Apply Kervaire reciprocity back separately to a_i and bb′. This gives precisely the ordered product of the bq symbols; their image commutes by the inherited residue lemma."
+      ],
+      "prerequisites": [
+        "KTheoryLowDegrees:U.4/mennicke-kervaire-reciprocity",
+        "KTheoryLowDegrees:U.4/mennicke-symbol-residue-map",
+        "KTheoryLowDegrees:U.4/mennicke-symbol-residue-homomorphism",
+        "mathlib:Ideal.finite_factors",
+        "mathlib:Ideal.quotientInfRingEquivPiQuotient"
+      ],
+      "acceptance": [
+        "Keep the second coordinate on top in the source convention; all symbol pairs lie in W_I."
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/Congruence/Kubota",
+        "namespace": "TauCeti.MennickeSymbol",
+        "declaration": "mennicke_denominator_common_level"
+      },
+      "sources": [
+        {
+          "sourceId": "BMS.1967",
+          "locator": "§2 Lemma 2.11, Case 1, printed pp.68–69",
+          "excerpt": "Mennicke",
+          "match": "Fresh proof read in the public scan; split off to make the Kubota prerequisites explicit."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "KTheoryLowDegrees:U.4/mennicke-denominator-multiplication",
+      "parentStageId": "KTheoryLowDegrees:U.4",
+      "realises": [
+        "KTheoryLowDegrees:U.4"
+      ],
+      "kind": "lemma",
+      "title": "Lam denominator multiplication for Mennicke symbols",
+      "statement": "If (a₁,b),(a₂,b)∈W_I then s(a₁a₂,b)=s(a₁,b)s(a₂,b). In particular, multiplying a denominator by a unit congruent to one modulo I leaves the symbol unchanged.",
+      "hypotheses": [
+        "A is a commutative Dedekind domain, I≠0 and C is any group; s is a Mennicke symbol on W_I."
+      ],
+      "proofSteps": [
+        "Put q=1−a₁. If q=0 then a₁=1 and the assertion follows from normalization and q-equivalence-to-base-point.",
+        "Choose t∈I so that b₁=b+t a₁a₂ and q together generate I. At each prime dividing (q), if b already has the valuation of I choose t sufficiently divisible to preserve it. Otherwise a₁ is a unit there; coprimality of a₂ and b makes a₂ a unit there as well, so choose t with exactly the valuation of I. Ideal approximation/CRT joins the finitely many choices. Outside the primes of (q), the equality follows from q generating the localized unit ideal. The adjustment is a multiple of a₁a₂ with coefficient in I, so MS1 preserves all three symbols directly.",
+        "Write a₂−1=r b₁+s q because (q,b₁)=I. Replace a₂ by a₂−r b₁=1+s q. The product denominator a₁a₂ changes by a multiple of b₁ as well, so second moves preserve every symbol. Both new denominators are one modulo (q); apply mennicke-denominator-common-level.",
+        "For a unit u≡1 mod I, the pair (u,b) has symbol one by q-equivalence-to-base-point. Substitute a₂=u in the formula."
+      ],
+      "prerequisites": [
+        "KTheoryLowDegrees:U.4/mennicke-denominator-common-level",
+        "KTheoryLowDegrees:U.4/mennicke-symbol",
+        "KTheoryLowDegrees:U.4/q-equivalence-to-base-point",
+        "KTheoryLowDegrees:U.4/mennicke-newman-common-entry",
+        "mathlib:IsDedekindDomain.exists_forall_sub_mem_ideal",
+        "mathlib:Ideal.finite_factors"
+      ],
+      "acceptance": [
+        "Keep the second coordinate on top in the source convention; all symbol pairs lie in W_I."
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/Congruence/Kubota",
+        "namespace": "TauCeti.MennickeSymbol",
+        "declaration": "mennicke_denominator_multiplication"
+      },
+      "sources": [
+        {
+          "sourceId": "BMS.1967",
+          "locator": "§2 Lemma 2.11, general case, printed p.69",
+          "excerpt": "Mennicke",
+          "match": "Fresh proof read in the public scan; split off to make the Kubota prerequisites explicit."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "KTheoryLowDegrees:U.4/kubota-opposite-row",
+      "parentStageId": "KTheoryLowDegrees:U.4",
+      "realises": [
+        "KTheoryLowDegrees:U.4"
+      ],
+      "kind": "lemma",
+      "title": "Opposite-row and transpose identities",
+      "statement": "For g=[[a,b],[c,d]]∈GL₂(A,I), κ_s(g)=s(d,c). If h is the transpose matrix as a GL₂(A,I) element then κ_s(h)=κ_s(g)⁻¹.",
+      "hypotheses": [
+        "A is a commutative Dedekind domain; I is a nonzero ideal; C is any group, not assumed abelian; s is a Mennicke symbol on W_I."
+      ],
+      "proofSteps": [
+        "Write u=ad−bc∈Aˣ. Denominator multiplication gives s(ad,b)=s(a,b)s(d,b)=1 since ad≡u modulo b. Similarly MS2 gives s(d,bc)=s(d,b)s(d,c)=1 since bc≡−u modulo d. Therefore κ_s(g)=s(a,b)=s(d,c).",
+        "MS2 also gives s(a,bc)=s(a,b)s(a,c)=1 because bc≡−u modulo a. Hence s(a,c)=s(a,b)⁻¹, which is the first-row value of the transpose.",
+        "Bézout identities from g and its inverse ensure the rows and columns are coprime. All pairs retain level-I congruences. The inherited residue lemma supplies commutativity when rearranging products."
+      ],
+      "prerequisites": [
+        "KTheoryLowDegrees:U.4/kubota-value",
+        "KTheoryLowDegrees:U.4/mennicke-symbol-residue-map",
+        "KTheoryLowDegrees:U.4/mennicke-symbol-residue-homomorphism",
+        "KTheoryLowDegrees:U.4/q-equivalence-to-base-point",
+        "KTheoryLowDegrees:U.4/mennicke-denominator-multiplication"
+      ],
+      "acceptance": [
+        "Use the existing U.5 congruence and relative elementary subgroups; no finite-rank normality or congruence-kernel theorem is assumed."
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/Congruence/Kubota",
+        "namespace": "TauCeti.MennickeSymbol",
+        "declaration": "kubota_opposite_row"
+      },
+      "sources": [
+        {
+          "sourceId": "BMS.1967",
+          "locator": "§6 Theorem 6.1 and proof, printed pp.103–105",
+          "match": "Freshly read proof decomposed on the existing packet carriers; explicit boundary cases and coordinate computations are worker deductions.",
+          "excerpt": "Mennicke"
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "KTheoryLowDegrees:U.4/kubota-elementary-conjugation",
+      "parentStageId": "KTheoryLowDegrees:U.4",
+      "realises": [
+        "KTheoryLowDegrees:U.4"
+      ],
+      "kind": "lemma",
+      "title": "Elementary conjugation preserves the value",
+      "statement": "For τ∈E₂(A), g∈GL₂(A,I), κ_s(τ g τ⁻¹)=κ_s(g).",
+      "hypotheses": [
+        "A is a commutative Dedekind domain; I is a nonzero ideal; C is any group, not assumed abelian; s is a Mennicke symbol on W_I."
+      ],
+      "proofSteps": [
+        "For τ=e₂₁(t), the first row changes to (a−tb,b), an allowed second move. For τ=e₁₂(t), the opposite row changes to (c,d−tc); use the opposite-row identity and the analogous move on (d,c).",
+        "The congruence subgroup is a normal kernel, so every conjugate remains at level I. Closure induction on E₂(A), with composition of conjugations and inverses, extends the two generator calculations."
+      ],
+      "prerequisites": [
+        "KTheoryLowDegrees:U.4/kubota-opposite-row",
+        "KTheoryLowDegrees:U.4/mennicke-symbol",
+        "KTheoryLowDegrees:U.1/elementary-subgroup",
+        "KTheoryLowDegrees:U.1/elementary-matrix",
+        "KTheoryLowDegrees:U.5/congruence-subgroup",
+        "mathlib:Subgroup.closure_induction"
+      ],
+      "acceptance": [
+        "Use the existing U.5 congruence and relative elementary subgroups; no finite-rank normality or congruence-kernel theorem is assumed."
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/Congruence/Kubota",
+        "namespace": "TauCeti.MennickeSymbol",
+        "declaration": "kubota_elementary_conjugation"
+      },
+      "sources": [
+        {
+          "sourceId": "BMS.1967",
+          "locator": "§6 Theorem 6.1 and proof, printed pp.103–105",
+          "match": "Freshly read proof decomposed on the existing packet carriers; explicit boundary cases and coordinate computations are worker deductions.",
+          "excerpt": "Mennicke"
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "KTheoryLowDegrees:U.4/kubota-diagonal-conjugation",
+      "parentStageId": "KTheoryLowDegrees:U.4",
+      "realises": [
+        "KTheoryLowDegrees:U.4"
+      ],
+      "kind": "lemma",
+      "title": "Diagonal conjugation preserves the value",
+      "statement": "For any u,v∈Aˣ and g∈GL₂(A,I), conjugation by diag(u,v) leaves κ_s(g) unchanged.",
+      "hypotheses": [
+        "A is a commutative Dedekind domain; I is a nonzero ideal; C is any group, not assumed abelian; s is a Mennicke symbol on W_I."
+      ],
+      "proofSteps": [
+        "The first row becomes (a,u v⁻¹ b). Put q=1−a∈I. The first move identifies s(a,b) with s(a,bq).",
+        "Use the inherited quotient-unit homomorphism b↦s(a,bq), which is trivial on units of A. Multiplication by u v⁻¹ therefore has no effect.",
+        "This uses the inherited residue map with q, not an invalid application of MS2 to a numerator outside I."
+      ],
+      "prerequisites": [
+        "KTheoryLowDegrees:U.4/kubota-value",
+        "KTheoryLowDegrees:U.4/mennicke-symbol-residue-map",
+        "KTheoryLowDegrees:U.4/mennicke-symbol-residue-homomorphism",
+        "KTheoryLowDegrees:U.4/q-equivalence-to-base-point",
+        "KTheoryLowDegrees:U.1/general-linear-map"
+      ],
+      "acceptance": [
+        "Use the existing U.5 congruence and relative elementary subgroups; no finite-rank normality or congruence-kernel theorem is assumed."
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/Congruence/Kubota",
+        "namespace": "TauCeti.MennickeSymbol",
+        "declaration": "kubota_diagonal_conjugation"
+      },
+      "sources": [
+        {
+          "sourceId": "BMS.1967",
+          "locator": "§6 Theorem 6.1 and proof, printed pp.103–105",
+          "match": "Freshly read proof decomposed on the existing packet carriers; explicit boundary cases and coordinate computations are worker deductions.",
+          "excerpt": "Mennicke"
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "KTheoryLowDegrees:U.4/kubota-relative-elementary-invariance",
+      "parentStageId": "KTheoryLowDegrees:U.4",
+      "realises": [
+        "KTheoryLowDegrees:U.4"
+      ],
+      "kind": "lemma",
+      "title": "Relative elementary multiplication preserves the value",
+      "statement": "For ε∈E₂(A,I) and g∈GL₂(A,I), κ_s(gε)=κ_s(g)=κ_s(εg).",
+      "hypotheses": [
+        "A is a commutative Dedekind domain; I is a nonzero ideal; C is any group, not assumed abelian; s is a Mennicke symbol on W_I."
+      ],
+      "proofSteps": [
+        "Bare e₁₂(t), t∈I, acts on the first row by the first move. Bare e₂₁(t), t∈I, acts by the second move.",
+        "Let H={ε∈GL₂(A,I) | ∀g,κ_s(gε)=κ_s(g)}. It is a subgroup by substitution, including inverses; no multiplicativity of κ is used.",
+        "Elementary-conjugation invariance shows H is normalized by E₂(A). It therefore contains the U.5 closure of all E₂(A)-conjugates of bare I-level transvections.",
+        "For left invariance, first bare elementary factors satisfy κ(εg)=κ(gε) by elementary conjugation. The same substitution/closure argument works for relative conjugates. Equivalently κ(εg)=κ(gε) follows because E₂(A,I)⊆E₂(A)."
+      ],
+      "prerequisites": [
+        "KTheoryLowDegrees:U.4/kubota-elementary-conjugation",
+        "KTheoryLowDegrees:U.4/mennicke-symbol",
+        "KTheoryLowDegrees:U.5/relative-elementary-subgroup",
+        "mathlib:Subgroup.closure_induction"
+      ],
+      "acceptance": [
+        "Use the existing U.5 congruence and relative elementary subgroups; no finite-rank normality or congruence-kernel theorem is assumed."
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/Congruence/Kubota",
+        "namespace": "TauCeti.MennickeSymbol",
+        "declaration": "kubota_relative_elementary_invariance"
+      },
+      "sources": [
+        {
+          "sourceId": "BMS.1967",
+          "locator": "§6 Theorem 6.1 and proof, printed pp.103–105",
+          "match": "Freshly read proof decomposed on the existing packet carriers; explicit boundary cases and coordinate computations are worker deductions.",
+          "excerpt": "Mennicke"
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "KTheoryLowDegrees:U.4/kubota-relative-diagonal-invariance",
+      "parentStageId": "KTheoryLowDegrees:U.4",
+      "realises": [
+        "KTheoryLowDegrees:U.4"
+      ],
+      "kind": "lemma",
+      "title": "Relative diagonal multiplication preserves the value",
+      "statement": "If D=diag(u,v)∈GL₂(A,I) then κ_s(gD)=κ_s(g)=κ_s(Dg) for all g∈GL₂(A,I).",
+      "hypotheses": [
+        "A is a commutative Dedekind domain; I is a nonzero ideal; C is any group, not assumed abelian; s is a Mennicke symbol on W_I."
+      ],
+      "proofSteps": [
+        "For right multiplication by diag(u,v), the first row is (au,bv). Since u≡1 mod I, denominator multiplication gives s(au,bv)=s(a,bv)s(u,bv), whose last factor is one because u is a unit.",
+        "Put q=1−a. The first move replaces b and bv by bq and bvq. The quotient-unit homomorphism trivial on global units removes v, giving s(a,bv)=s(a,b). This avoids applying MS2 to v outside I.",
+        "Left invariance follows from diagonal-conjugation invariance: κ(Dg)=κ(gD). No multiplicativity of κ is assumed."
+      ],
+      "prerequisites": [
+        "KTheoryLowDegrees:U.4/kubota-opposite-row",
+        "KTheoryLowDegrees:U.4/kubota-diagonal-conjugation",
+        "KTheoryLowDegrees:U.4/mennicke-symbol-residue-map",
+        "KTheoryLowDegrees:U.4/mennicke-symbol-residue-homomorphism",
+        "KTheoryLowDegrees:U.4/mennicke-denominator-multiplication"
+      ],
+      "acceptance": [
+        "Use the existing U.5 congruence and relative elementary subgroups; no finite-rank normality or congruence-kernel theorem is assumed."
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/Congruence/Kubota",
+        "namespace": "TauCeti.MennickeSymbol",
+        "declaration": "kubota_relative_diagonal_invariance"
+      },
+      "sources": [
+        {
+          "sourceId": "BMS.1967",
+          "locator": "§6 Theorem 6.1 and proof, printed pp.103–105",
+          "match": "Freshly read proof decomposed on the existing packet carriers; explicit boundary cases and coordinate computations are worker deductions.",
+          "excerpt": "Mennicke"
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "KTheoryLowDegrees:U.4/kubota-conditional-multiplication",
+      "parentStageId": "KTheoryLowDegrees:U.4",
+      "realises": [
+        "KTheoryLowDegrees:U.4"
+      ],
+      "kind": "lemma",
+      "title": "Conditional two-matrix multiplication",
+      "statement": "Let g=[[a,b],[c,d]] and g′=[[a′,b′],[c′,d′]] belong to GL₂(A,I). If q∈I, d≡1≡a′ mod qA and IsCoprime(d,a′), then κ_s(g′g)=κ_s(g′)κ_s(g).",
+      "hypotheses": [
+        "A is a commutative Dedekind domain; I is a nonzero ideal; C is any group, not assumed abelian; s is a Mennicke symbol on W_I."
+      ],
+      "proofSteps": [
+        "For x,y prime to a′ with y∈I, use q′=1−a′ and the identity s(a′,xy)=s(a′,xq′)s(a′,y). This follows by inserting q′, whose symbol is one, and applying MS2 twice. Also use the version exchanging x and y. Quotient-unit homomorphisms handle the inserted q factors.",
+        "Write B=a′b+b′d, D=a′a+b′c and u=ad−bc. Begin with s(D,B). The common coprime entry d and the residue identities give s(Dd,B)s(d,B)⁻¹.",
+        "Since Dd=a′u+cB and B≡a′b mod d, this equals s(a′u,B)s(d,a′b)⁻¹. The preceding inserted-q identity splits the second factor into s(d,a′q)⁻¹ s(d,b)⁻¹. The opposite-row identity replaces s(d,b)⁻¹ by κ_s(g).",
+        "Reduce B modulo a′u and split s(a′u,b′d) as s(u,b′d)s(a′,b′)s(a′,dq), using the same inserted-q rule. The first term is one because u is a unit. Lemma 2.10 cancels s(a′,dq) against s(d,a′q). This is the printed §6 step 4 calculation with multiplication order g′g preserved."
+      ],
+      "prerequisites": [
+        "KTheoryLowDegrees:U.4/kubota-opposite-row",
+        "KTheoryLowDegrees:U.4/mennicke-symbol-residue-map",
+        "KTheoryLowDegrees:U.4/mennicke-symbol-residue-homomorphism",
+        "KTheoryLowDegrees:U.4/q-equivalence-to-base-point",
+        "KTheoryLowDegrees:U.4/mennicke-symbol",
+        "KTheoryLowDegrees:U.4/mennicke-denominator-multiplication",
+        "KTheoryLowDegrees:U.4/mennicke-kervaire-reciprocity"
+      ],
+      "acceptance": [
+        "Use the existing U.5 congruence and relative elementary subgroups; no finite-rank normality or congruence-kernel theorem is assumed."
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/Congruence/Kubota",
+        "namespace": "TauCeti.MennickeSymbol",
+        "declaration": "kubota_conditional_multiplication"
+      },
+      "sources": [
+        {
+          "sourceId": "BMS.1967",
+          "locator": "§6 Theorem 6.1 and proof, printed pp.103–105",
+          "match": "Freshly read proof decomposed on the existing packet carriers; explicit boundary cases and coordinate computations are worker deductions.",
+          "excerpt": "Mennicke"
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "KTheoryLowDegrees:U.4/relative-unit-diagonal-elementary",
+      "parentStageId": "KTheoryLowDegrees:U.4",
+      "realises": [
+        "KTheoryLowDegrees:U.4"
+      ],
+      "kind": "lemma",
+      "title": "Relative unit diagonals are elementary",
+      "statement": "For any commutative A and unit u with u−1∈I, diag(u,u⁻¹) lies in E₂(A,I).",
+      "hypotheses": [
+        "A is any commutative unital ring, including the zero ring; I is any ideal."
+      ],
+      "proofSteps": [
+        "Let w(u)=e₁₂(u)e₂₁(−u⁻¹)e₁₂(u). Coordinate multiplication gives w(u)w(1)⁻¹=diag(u,u⁻¹).",
+        "Modulo the normal closure of I-coefficient transvections in E₂(A), each factor of w(u) equals its counterpart in w(1), since u−1 and u⁻¹−1 are in I.",
+        "To avoid quotienting by an unproved GL-normal subgroup, telescope the two three-factor words into products of E₂(A)-conjugates of their factor differences. Each factor difference is an I-level transvection, precisely a generator of U.5 relative E."
+      ],
+      "prerequisites": [
+        "KTheoryLowDegrees:U.1/elementary-matrix",
+        "KTheoryLowDegrees:U.1/elementary-subgroup",
+        "KTheoryLowDegrees:U.5/relative-elementary-subgroup"
+      ],
+      "acceptance": [
+        "Use the existing U.5 congruence and relative elementary subgroups; no finite-rank normality or congruence-kernel theorem is assumed."
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/Congruence/Kubota",
+        "namespace": "TauCeti.MennickeSymbol",
+        "declaration": "relative_unit_diagonal_elementary"
+      },
+      "sources": [
+        {
+          "sourceId": "Bass.1964",
+          "locator": "Proposition 5.1(a), printed p.18",
+          "match": "Relative determinant-one reduction; the six-factor word is supplied here.",
+          "excerpt": "Proposition (5.1)."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "KTheoryLowDegrees:U.4/relative-stable-range-one-sl2",
+      "parentStageId": "KTheoryLowDegrees:U.4",
+      "realises": [
+        "KTheoryLowDegrees:U.4"
+      ],
+      "kind": "lemma",
+      "title": "Relative SL₂ reduction in stable range one",
+      "statement": "If A is commutative and HasStableRange A 1, then each g∈SL₂(A) at level I has toGL(g)∈E₂(A,I).",
+      "hypotheses": [
+        "A is any commutative unital ring, including the zero ring; I is any ideal.",
+        "HasStableRange A 1 is assumed."
+      ],
+      "proofSteps": [
+        "For the first row (a,b), coprimality gives IsCoprime(a,b²). Stable range one supplies s with u=a+s b² a unit. Right multiply by e₂₁(sb), whose coefficient belongs to I.",
+        "The new first row is (u,b). Right multiply by e₁₂(−u⁻¹b) and left multiply by e₂₁(−c₁u⁻¹) to clear the off-diagonal entries; c₁ is the new lower-left entry and is in I.",
+        "The resulting determinant-one diagonal is diag(u,u⁻¹), with u≡1 mod I. Apply relative-unit-diagonal-elementary and undo all level-I factors. This proves the relative assertion directly; the inherited absolute SL=E theorem alone cannot be substituted."
+      ],
+      "prerequisites": [
+        "KTheoryLowDegrees:U.4/relative-unit-diagonal-elementary",
+        "KTheoryLowDegrees:U.3/stable-range",
+        "KTheoryLowDegrees:U.5/relative-elementary-subgroup",
+        "KTheoryLowDegrees:U.5/congruence-subgroup",
+        "mathlib:Matrix.SpecialLinearGroup.isCoprime_row"
+      ],
+      "acceptance": [
+        "Use the existing U.5 congruence and relative elementary subgroups; no finite-rank normality or congruence-kernel theorem is assumed."
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/Congruence/Kubota",
+        "namespace": "TauCeti.MennickeSymbol",
+        "declaration": "relative_stable_range_one_sl2"
+      },
+      "sources": [
+        {
+          "sourceId": "Bass.1964",
+          "locator": "Proposition 5.1(a), printed p.18",
+          "match": "Freshly read relative assertion, decomposed in rank two with explicit I-level factors.",
+          "excerpt": "Proposition (5.1)."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "KTheoryLowDegrees:U.4/relative-elementary-quotient-lifting",
+      "parentStageId": "KTheoryLowDegrees:U.4",
+      "realises": [
+        "KTheoryLowDegrees:U.4"
+      ],
+      "kind": "lemma",
+      "title": "Lift relative elementary words through a quotient",
+      "statement": "For ideals J≤I, if A/J has stable range one, every g∈SL₂(A/J) at level image(I) is the image of some ε∈E₂(A,I).",
+      "hypotheses": [
+        "A is any commutative unital ring, including the zero ring; I is any ideal.",
+        "J≤I and HasStableRange (A/J) 1."
+      ],
+      "proofSteps": [
+        "Apply relative-stable-range-one-sl2 over A/J. Write g as a finite product of relative elementary conjugates and their inverses using closure induction.",
+        "The coefficient in image(I) lifts to an element of I because the quotient is surjective; lift the conjugating element of E₂(A/J) using U.1 elementary-surjective-map.",
+        "Map the product of those lifted relative generators. The lifted product is determinant one and lies at level I. No surjectivity claim for SL₂(A) over arbitrary ring quotients is used."
+      ],
+      "prerequisites": [
+        "KTheoryLowDegrees:U.4/relative-stable-range-one-sl2",
+        "KTheoryLowDegrees:U.1/elementary-surjective-map",
+        "KTheoryLowDegrees:U.5/relative-elementary-subgroup",
+        "mathlib:Matrix.SpecialLinearGroup.map",
+        "mathlib:Ideal.Quotient.mk_surjective"
+      ],
+      "acceptance": [
+        "Use the existing U.5 congruence and relative elementary subgroups; no finite-rank normality or congruence-kernel theorem is assumed."
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/Congruence/Kubota",
+        "namespace": "TauCeti.MennickeSymbol",
+        "declaration": "relative_elementary_quotient_lifting"
+      },
+      "sources": [
+        {
+          "sourceId": "Bass.1964",
+          "locator": "Corollary 5.2 and its proof, printed p.18",
+          "match": "Freshly read lifting argument specialized to determinant-one rank two.",
+          "excerpt": "Corollary (5.2)."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "KTheoryLowDegrees:U.4/dedekind-principal-quotient-semilocal",
+      "parentStageId": "KTheoryLowDegrees:U.4",
+      "realises": [
+        "KTheoryLowDegrees:U.4"
+      ],
+      "kind": "lemma",
+      "title": "Nonzero principal quotients of Dedekind domains are semilocal",
+      "statement": "For A a Dedekind domain and q≠0, MaximalSpectrum(A/(q)) is finite, hence the quotient has stable range one.",
+      "hypotheses": [
+        "A is a commutative Dedekind domain; q is nonzero."
+      ],
+      "proofSteps": [
+        "Comap along the surjective quotient sends a maximal ideal to a maximal ideal containing the nonzero principal ideal (q), and is injective on ideals.",
+        "Such comaps are nonzero primes, hence height-one primes of the Dedekind domain. Ideal containment is divisibility in the Dedekind ideal monoid, so the native finite_factors theorem bounds their number.",
+        "If (q)=A the quotient is the zero ring and has no maximal ideals; retain that case. Apply the inherited semilocal-stable-range-one theorem."
+      ],
+      "prerequisites": [
+        "mathlib:Ideal.finite_factors",
+        "mathlib:Ideal.comap_isMaximal_of_surjective",
+        "mathlib:Ideal.comap_injective_of_surjective",
+        "mathlib:Ideal.Quotient.mk_surjective",
+        "KTheoryLowDegrees:U.3/semilocal-stable-range-one"
+      ],
+      "acceptance": [
+        "Use the existing U.5 congruence and relative elementary subgroups; no finite-rank normality or congruence-kernel theorem is assumed."
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/Congruence/Kubota",
+        "namespace": "TauCeti.MennickeSymbol",
+        "declaration": "dedekind_principal_quotient_semilocal"
+      },
+      "sources": [
+        {
+          "sourceId": "BMS.1967",
+          "locator": "§2 remark preceding Lemma 2.2, printed p.66; §6 step 5, printed p.105",
+          "match": "Freshly read proof decomposed on the existing packet carriers; explicit boundary cases and coordinate computations are worker deductions.",
+          "excerpt": "Mennicke"
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "KTheoryLowDegrees:U.4/sl2-principal-reduction",
+      "parentStageId": "KTheoryLowDegrees:U.4",
+      "realises": [
+        "KTheoryLowDegrees:U.4"
+      ],
+      "kind": "lemma",
+      "title": "Reduce a relative SL₂ matrix to a deeper principal level",
+      "statement": "If q∈I is nonzero and g∈SL₂(A) is at level I, some ε∈E₂(A,I) makes toGL(g)ε lie at level (q).",
+      "hypotheses": [
+        "A is a commutative Dedekind domain; I is a nonzero ideal; C is any group, not assumed abelian; s is a Mennicke symbol on W_I."
+      ],
+      "proofSteps": [
+        "Let J=(q)≤I. The quotient A/J is semilocal by dedekind-principal-quotient-semilocal.",
+        "The native image of g in SL₂(A/J) is at level image(I). Lift its inverse by relative-elementary-quotient-lifting to ε∈E₂(A,I). Then the product reduces to one modulo J.",
+        "Both factors have determinant one; record determinant one of the product for the next row calculation."
+      ],
+      "prerequisites": [
+        "KTheoryLowDegrees:U.4/dedekind-principal-quotient-semilocal",
+        "KTheoryLowDegrees:U.4/relative-elementary-quotient-lifting",
+        "KTheoryLowDegrees:U.5/congruence-subgroup",
+        "mathlib:Matrix.SpecialLinearGroup.map"
+      ],
+      "acceptance": [
+        "Use the existing U.5 congruence and relative elementary subgroups; no finite-rank normality or congruence-kernel theorem is assumed."
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/Congruence/Kubota",
+        "namespace": "TauCeti.MennickeSymbol",
+        "declaration": "sl2_principal_reduction"
+      },
+      "sources": [
+        {
+          "sourceId": "BMS.1967",
+          "locator": "§6 Theorem 6.1 and proof, printed pp.103–105",
+          "match": "Freshly read proof decomposed on the existing packet carriers; explicit boundary cases and coordinate computations are worker deductions.",
+          "excerpt": "Mennicke"
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "KTheoryLowDegrees:U.4/dedekind-coprime-square-adjustment",
+      "parentStageId": "KTheoryLowDegrees:U.4",
+      "realises": [
+        "KTheoryLowDegrees:U.4"
+      ],
+      "kind": "lemma",
+      "title": "Choose a coprime lower diagonal entry",
+      "statement": "For a≠0 in a Dedekind domain and IsCoprime(d,c), there exists t such that IsCoprime(d+t c²,a).",
+      "hypotheses": [
+        "A is a commutative Dedekind domain; a≠0 and IsCoprime(d,c)."
+      ],
+      "proofSteps": [
+        "The same Bézout identity, or squaring it, gives IsCoprime(d,c²). Reduce this pair modulo (a).",
+        "The quotient is semilocal; stable range one provides t making the image of d+t c² a unit. Lift t through the surjective quotient.",
+        "A unit modulo (a) is exactly a Bézout equation with a: lift its inverse and the equality modulo (a), then write the difference as a multiple of a. This also works when a is a unit (zero quotient). The a≠0 hypothesis is essential to the semilocal argument."
+      ],
+      "prerequisites": [
+        "KTheoryLowDegrees:U.4/dedekind-principal-quotient-semilocal",
+        "KTheoryLowDegrees:U.3/stable-range",
+        "mathlib:IsCoprime",
+        "mathlib:Ideal.Quotient.mk_surjective"
+      ],
+      "acceptance": [
+        "Use the existing U.5 congruence and relative elementary subgroups; no finite-rank normality or congruence-kernel theorem is assumed."
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/Congruence/Kubota",
+        "namespace": "TauCeti.MennickeSymbol",
+        "declaration": "dedekind_coprime_square_adjustment"
+      },
+      "sources": [
+        {
+          "sourceId": "BMS.1967",
+          "locator": "§2 remark before Lemma 2.2, printed p.66; §6 step 5, printed p.105",
+          "match": "Freshly read proof decomposed on the existing packet carriers; explicit boundary cases and coordinate computations are worker deductions.",
+          "excerpt": "Mennicke"
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "KTheoryLowDegrees:U.4/kubota-multiplicativity",
+      "parentStageId": "KTheoryLowDegrees:U.4",
+      "realises": [
+        "KTheoryLowDegrees:U.4"
+      ],
+      "kind": "theorem",
+      "title": "Kubota multiplicativity on relative GL₂",
+      "statement": "For every ideal I of a Dedekind domain and every Mennicke symbol s, κ_s(g′g)=κ_s(g′)κ_s(g) for g,g′∈GL₂(A,I).",
+      "hypotheses": [
+        "A is a commutative Dedekind domain; I is any ideal; C is any group and s is a Mennicke symbol."
+      ],
+      "proofSteps": [
+        "If I=0 then GL₂(A,I)={1}; conclude by normalization. Otherwise use the preceding invariance lemmas.",
+        "If a′=0 then det(g′)=−b′c′ is a unit, so b′ and c′ are units and I=A. Left multiply g′ and g′g simultaneously by e₁₂((c′)⁻¹); this replaces a′ by 1 and leaves both κ-values unchanged. This supplies the nonzero-entry normalization implicit in the printed proof.",
+        "Right multiply g by diag(det(g)⁻¹,1) to make it determinant one. This diagonal is at level I since det(g)≡1 mod I, and relative-diagonal invariance preserves κ(g) and κ(g′g).",
+        "Put q=a′−1∈I. If q=0 then a′=1 and the conditional multiplication lemma applies immediately. Otherwise use sl2-principal-reduction to make g principal-level at (q) by right relative elementary multiplication.",
+        "Write its lower row as (c₁,d₁). Apply dedekind-coprime-square-adjustment to nonzero a′. Right multiply by e₁₂(t c₁); since c₁∈(q), this factor is in E₂(A,(q))⊆E₂(A,I). Its new d is d₁+t c₁², still 1 modulo (q), and coprime to a′.",
+        "The conditional multiplication lemma now applies. Undo every normalization using right/left invariance. No SL₂ normality in GL₂, absolute SK₁ vanishing, or arithmetic input appears."
+      ],
+      "prerequisites": [
+        "KTheoryLowDegrees:U.4/kubota-conditional-multiplication",
+        "KTheoryLowDegrees:U.4/kubota-relative-elementary-invariance",
+        "KTheoryLowDegrees:U.4/kubota-relative-diagonal-invariance",
+        "KTheoryLowDegrees:U.4/sl2-principal-reduction",
+        "KTheoryLowDegrees:U.4/dedekind-coprime-square-adjustment",
+        "KTheoryLowDegrees:U.4/kubota-value",
+        "KTheoryLowDegrees:U.5/congruence-subgroup"
+      ],
+      "acceptance": [
+        "Use the existing U.5 congruence and relative elementary subgroups; no finite-rank normality or congruence-kernel theorem is assumed."
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/Congruence/Kubota",
+        "namespace": "TauCeti.MennickeSymbol",
+        "declaration": "kubota_multiplicativity"
+      },
+      "sources": [
+        {
+          "sourceId": "BMS.1967",
+          "locator": "§6 Theorem 6.1 and proof, printed pp.103–105",
+          "match": "Freshly read proof decomposed on the existing packet carriers; explicit boundary cases and coordinate computations are worker deductions.",
+          "excerpt": "Mennicke"
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "KTheoryLowDegrees:U.4/kubota-hom",
+      "parentStageId": "KTheoryLowDegrees:U.4",
+      "realises": [
+        "KTheoryLowDegrees:U.4"
+      ],
+      "kind": "construction",
+      "title": "The Kubota homomorphism",
+      "statement": "Package κ_s as a group homomorphism GL₂(A,I)→C for A Dedekind and any I. It kills E₂(A,I), relative unit diagonals and commutators of GL₂(A,I) with elementary matrices or global unit diagonals.",
+      "hypotheses": [
+        "A is a commutative Dedekind domain; I is any ideal; C is any group and s is a Mennicke symbol."
+      ],
+      "proofSteps": [
+        "Use exactly kubotaValue as toFun, its normalization for map_one and kubota-multiplicativity for map_mul.",
+        "Right invariance at g=1 gives the relative kernel assertions. Conjugation invariance and multiplicativity give triviality on τgτ⁻¹g⁻¹ for elementary τ and for global unit diagonals.",
+        "The universal property is uniqueness among homomorphisms with the first-row evaluation formula. Composition and ideal restriction commute by extensionality. C need not be abelian: the inherited residue lemma says the actual image is abelian."
+      ],
+      "prerequisites": [
+        "KTheoryLowDegrees:U.4/kubota-multiplicativity",
+        "KTheoryLowDegrees:U.4/kubota-relative-elementary-invariance",
+        "KTheoryLowDegrees:U.4/kubota-relative-diagonal-invariance",
+        "KTheoryLowDegrees:U.4/kubota-elementary-conjugation",
+        "KTheoryLowDegrees:U.4/kubota-diagonal-conjugation"
+      ],
+      "acceptance": [
+        "Use the existing U.5 congruence and relative elementary subgroups; no finite-rank normality or congruence-kernel theorem is assumed."
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/Congruence/Kubota",
+        "namespace": "TauCeti.MennickeSymbol",
+        "declaration": "kubotaHom"
+      },
+      "sources": [
+        {
+          "sourceId": "BMS.1967",
+          "locator": "§6 Theorem 6.1 and proof, printed pp.103–105",
+          "match": "Freshly read proof decomposed on the existing packet carriers; explicit boundary cases and coordinate computations are worker deductions.",
+          "excerpt": "Mennicke"
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "BMS Proposition 8.5, future continuation",
+          "how": "The exact rank-two input to the extension to rank three, including its prescribed kernel conditions."
+        },
+        {
+          "where": "kubota-ideal-image and kubota-noncongruence-kernel",
+          "how": "Compares images at deeper levels and detects failure of principal congruence containment."
+        }
+      ],
+      "api": [
+        {
+          "name": "kubotaHom",
+          "role": "constructor",
+          "statement": "The homomorphism with underlying function κ_s."
+        },
+        {
+          "name": "kubotaHom_apply",
+          "role": "characterisation",
+          "statement": "Its value is s applied to the first row."
+        },
+        {
+          "name": "kubotaHom_unique",
+          "role": "universal-property",
+          "statement": "Any homomorphism satisfying the first-row formula equals kubotaHom."
+        },
+        {
+          "name": "kubotaHom_comp",
+          "role": "functoriality",
+          "statement": "Changing the target group by φ gives φ∘kubotaHom."
+        },
+        {
+          "name": "kubotaHom_restrict",
+          "role": "functoriality",
+          "statement": "Restriction to a smaller ideal commutes with kubotaHom."
+        },
+        {
+          "name": "kubotaHom_relative_kernel",
+          "role": "relation",
+          "statement": "Relative elementary and relative diagonal matrices are in its kernel."
+        },
+        {
+          "name": "kubotaHom_commutator_kernel",
+          "role": "relation",
+          "statement": "Its kernel contains τgτ⁻¹g⁻¹ for elementary τ and for global unit diagonals."
+        }
+      ],
+      "tests": [
+        {
+          "name": "kubotaHom_mul_test",
+          "kind": "characterisation",
+          "statement": "Evaluation on a product gives the ordered product of the two first-row symbols."
+        },
+        {
+          "name": "kubotaHom_integer_diagonal_test",
+          "kind": "non-example",
+          "statement": "At integer level 2, diag(−1,1) is killed although determinant is −1."
+        },
+        {
+          "name": "kubotaHom_bot_test",
+          "kind": "degenerate",
+          "statement": "The homomorphism at the zero ideal is the trivial homomorphism."
+        },
+        {
+          "name": "kubotaHom_restriction_test",
+          "kind": "compatibility",
+          "statement": "For J≤I the restricted homomorphism equals the one obtained from the restricted symbol."
+        },
+        {
+          "name": "kubotaHom_relative_word_test",
+          "kind": "computation",
+          "statement": "At ideal 2 in ℤ it kills e₂₁(1)e₁₂(2)e₂₁(−1), with matrix [[−1,2],[−2,3]]."
+        }
+      ]
+    },
+    {
+      "id": "KTheoryLowDegrees:U.4/kubota-ideal-image",
+      "parentStageId": "KTheoryLowDegrees:U.4",
+      "realises": [
+        "KTheoryLowDegrees:U.4"
+      ],
+      "kind": "theorem",
+      "title": "Kubota images agree at deeper nonzero levels",
+      "statement": "For J≠0 with J≤I, the image of κ_s on determinant-one J-level matrices equals its image on all GL₂(A,I).",
+      "hypotheses": [
+        "A is a commutative Dedekind domain; J≤I and J≠0; C is any group and s is a Mennicke symbol."
+      ],
+      "proofSteps": [
+        "Every J-level determinant-one matrix is also an I-level matrix, giving one inclusion.",
+        "Given g at level I, use q-equivalence-smaller-ideal to replace its first row by a J-level pair with the same s-value.",
+        "Use relative-first-row-completion at J to realize that pair by native SL₂(A) at level J. This gives the reverse inclusion, retaining determinant one and the exact deeper ideal."
+      ],
+      "prerequisites": [
+        "KTheoryLowDegrees:U.4/kubota-hom",
+        "KTheoryLowDegrees:U.4/q-equivalence-smaller-ideal",
+        "KTheoryLowDegrees:U.4/relative-first-row-completion",
+        "KTheoryLowDegrees:U.4/mennicke-symbol"
+      ],
+      "acceptance": [
+        "Use the existing U.5 congruence and relative elementary subgroups; no finite-rank normality or congruence-kernel theorem is assumed."
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/Congruence/Kubota",
+        "namespace": "TauCeti.MennickeSymbol",
+        "declaration": "kubota_ideal_image"
+      },
+      "sources": [
+        {
+          "sourceId": "BMS.1967",
+          "locator": "§6 Theorem 6.1 and proof, printed pp.103–105",
+          "match": "Freshly read proof decomposed on the existing packet carriers; explicit boundary cases and coordinate computations are worker deductions.",
+          "excerpt": "Mennicke"
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "KTheoryLowDegrees:U.4/kubota-noncongruence-kernel",
+      "parentStageId": "KTheoryLowDegrees:U.4",
+      "realises": [
+        "KTheoryLowDegrees:U.4"
+      ],
+      "kind": "theorem",
+      "title": "A nontrivial Mennicke symbol has no principal SL₂ level in its kernel",
+      "statement": "If s is nontrivial, then for every nonzero ideal J there is g∈SL₂(A) with toGL(g)∈GL₂(A,J)∩GL₂(A,I) and κ_s(g)≠1. In particular no nonzero principal SL₂ congruence subgroup lies in the kernel.",
+      "hypotheses": [
+        "A is a commutative Dedekind domain; s has a value different from one."
+      ],
+      "proofSteps": [
+        "If s is nontrivial then I≠0, since W_0={(1,0)}. For arbitrary J≠0 the product ideal I·J is nonzero in the domain and is contained in both I and J.",
+        "Surjectivity of firstRow realizes a nonidentity symbol in the I-level κ-image. Apply kubota-ideal-image to I·J to realize it by a determinant-one matrix at that deeper level.",
+        "Retain the GL₂(A,I) membership required for the domain of κ. The conclusion concerns principal SL₂ levels and does not assert the arithmetic congruence-kernel classification."
+      ],
+      "prerequisites": [
+        "KTheoryLowDegrees:U.4/kubota-ideal-image",
+        "KTheoryLowDegrees:U.4/relative-first-row-map",
+        "KTheoryLowDegrees:U.4/mennicke-symbol"
+      ],
+      "acceptance": [
+        "Use the existing U.5 congruence and relative elementary subgroups; no finite-rank normality or congruence-kernel theorem is assumed."
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/Congruence/Kubota",
+        "namespace": "TauCeti.MennickeSymbol",
+        "declaration": "kubota_noncongruence_kernel"
+      },
+      "sources": [
+        {
+          "sourceId": "BMS.1967",
+          "locator": "§6 Theorem 6.1 and proof, printed pp.103–105",
+          "match": "Freshly read proof decomposed on the existing packet carriers; explicit boundary cases and coordinate computations are worker deductions.",
+          "excerpt": "Mennicke"
+        }
+      ],
+      "implementationStatus": "unchecked"
     }
   ],
   "coverage": [
@@ -19749,7 +20945,7 @@
     {
       "stageId": "KTheoryLowDegrees:U.4",
       "status": "partial",
-      "note": "S is a finite set of finite places and O_{F,S} = Set.integer S F, as in ArithmeticKTheory N.1 and K2SymbolsBrauer T.5; the rank is r₁ + r₂ + |S| − 1. Targets: SK₁(O_{F,S}) = 0 (U.4/bass-milnor-serre), decomposed as BMS do — stable range of Dedekind domains (U.4/dedekind-stable-range-two, with U.3's stable-range definition and surjective stability), Mennicke symbols and the universal Mennicke group (U.4/mennicke-symbol, universal-mennicke-group, Lemmas 2.1–2.9, the SK₁ symbol of Mennicke's theorem and its surjectivity), and the arithmetic of BMS §3 and the appendix ((A.7), (A.8), (A.10), (A.11), Theorems 3.2, 3.5, 3.6); class-field-theory inputs are requested from Tau Ceti ClassFieldTheory, Chebotarev and GlobalNumberFields with their stated forms; K₁(O_{F,S}) ≅ O_{F,S}^× canonically (K1-S-integers-determinant); Dirichlet's S-unit theorem and fundamental S-units (s-unit-theorem, fundamental-s-units, K1-S-integers-structure); the unit inclusion into K₁(F) and the residue-field and local-ring specialisations. The non-example 'an arbitrary Dedekind-domain SK₁ vanishing theorem is not an acceptable substitute' is U.3/SK1-real-circle-nonzero (K-book III.1.5.4), cited rather than duplicated. The newly routed CG source adds the full congruence-subgroup theorem, so BMS Theorem 4.1(c), the finite-level C_I calculation and Theorem 14.1 now are U.4 targets. Five elementary-containment lemmas supply its algebraic first step; the relative universality, finite arithmetic defect, completion/kernel argument, Serre SL₂ and localized-H¹ interfaces remain explicit target gaps. The separate real-circle Dedekind obligation is supplied by eight declarations: Eisenstein irreducibility, domain, stereographic charts and cover, prime-local Dedekindness, integral closure, dimension bound and the final native Dedekind predicate. Its SK₁ nontriviality still needs the LieGroups retraction.",
+      "note": "S is a finite set of finite places and O_{F,S} = Set.integer S F, as in ArithmeticKTheory N.1 and K2SymbolsBrauer T.5; the rank is r₁ + r₂ + |S| − 1. Targets: SK₁(O_{F,S}) = 0 (U.4/bass-milnor-serre), decomposed as BMS do — stable range of Dedekind domains (U.4/dedekind-stable-range-two, with U.3's stable-range definition and surjective stability), Mennicke symbols and the universal Mennicke group (U.4/mennicke-symbol, universal-mennicke-group, Lemmas 2.1–2.9, the SK₁ symbol of Mennicke's theorem and its surjectivity), and the arithmetic of BMS §3 and the appendix ((A.7), (A.8), (A.10), (A.11), Theorems 3.2, 3.5, 3.6); class-field-theory inputs are requested from Tau Ceti ClassFieldTheory, Chebotarev and GlobalNumberFields with their stated forms; K₁(O_{F,S}) ≅ O_{F,S}^× canonically (K1-S-integers-determinant); Dirichlet's S-unit theorem and fundamental S-units (s-unit-theorem, fundamental-s-units, K1-S-integers-structure); the unit inclusion into K₁(F) and the residue-field and local-ring specialisations. The non-example 'an arbitrary Dedekind-domain SK₁ vanishing theorem is not an acceptable substitute' is U.3/SK1-real-circle-nonzero (K-book III.1.5.4), cited rather than duplicated. The newly routed CG source adds the full congruence-subgroup theorem, so BMS Theorem 4.1(c), the finite-level C_I calculation and Theorem 14.1 now are U.4 targets. Five elementary-containment lemmas supply its algebraic first step; the relative universality, finite arithmetic defect, completion/kernel argument, Serre SL₂ and localized-H¹ interfaces remain explicit target gaps. The separate real-circle Dedekind obligation is supplied by eight declarations: Eisenstein irreducibility, domain, stereographic charts and cover, prime-local Dedekindness, integral closure, dimension bound and the final native Dedekind predicate. Its SK₁ nontriviality still needs the LieGroups retraction. Twenty-three further nodes now decompose Kubota Theorem 6.1 and its genuine relative rank-two reduction inputs. The finite-rank extension and arithmetic defect remain open; neither is replaced by the absolute SK₁ theorem.",
       "remaining": [
         "Import the tame formula (A.16), the degree-m product formula (A.19) and the reciprocity law (A.21) once the CA.1 → K2SymbolsBrauer:T.7 cycle is removed (gap; restructure).",
         "Source and plan BMS (A.17)–(A.18) (Serre, Corps locaux XIV) for the totally imaginary case (gap).",
@@ -19811,7 +21007,7 @@
     },
     {
       "title": "Full relative Mennicke universality and the finite arithmetic congruence defect",
-      "detail": "New CG route requires BMS Theorem 4.1(c), not just stable SK₁=0. For A=O_{F,S}, n≥3 and I≠0, prove SL_n(A,I)/E_n(A,I) is the universal Mennicke group, then determine it by Corollary 4.3: trivial if F has a real place or S contains a finite place; in the totally complex S=∅ case cyclic of order r(I), with the specified transition maps and inverse limit μ(F). The inherited universal-mennicke-group is abstract; its SK₁-valued symbol does not establish this finite-rank relative universality. Need lemma-level Kubota §6 and extension §§8–10, the arithmetic r(I) formula and compatible roots-of-unity normalization. §4 statements were freshly read; these proofs remain uncompleted. This is an unplanned U.4 target, not a prerequisite of the already closed elementary-containment proof.",
+      "detail": "New CG route requires BMS Theorem 4.1(c), not just stable SK₁=0. For A=O_{F,S}, n≥3 and I≠0, prove SL_n(A,I)/E_n(A,I) is the universal Mennicke group, then determine it by Corollary 4.3: trivial if F has a real place or S contains a finite place; in the totally complex S=∅ case cyclic of order r(I), with the specified transition maps and inverse limit μ(F). The inherited universal-mennicke-group is abstract; its SK₁-valued symbol does not establish this finite-rank relative universality. Kubota §6 is now decomposed into 23 nodes, through relative row completion, invariance, semilocal relative reduction, multiplicativity and deeper-level images. Resume at Proposition 8.5 (rank-two-to-three extension), Proposition 8.6 (higher-rank induction), §§8–10; then §11 and the arithmetic r(I) formula and compatible roots-of-unity normalization. These sections were read in this continuation, but their lemma-level decomposition remains uncompleted. This is an unplanned U.4 target, not a prerequisite of the already closed elementary-containment proof.",
       "neededBy": [],
       "stageIds": [
         "KTheoryLowDegrees:U.4"
@@ -20158,198 +21354,102 @@
   ],
   "continuationAudit": {
     "agent": "Codex",
-    "session": "codex-xyXwzy",
+    "session": "codex-Px3FlU",
     "issue": 764,
     "date": "2026-10-05",
-    "claim": 5995504026,
-    "winningBot": 5995506472,
-    "scope": "Native Morita carrier comparison; elementary cofinality; newly routed source ownership and exact unresolved arithmetic contracts. No renewed full-source verification of inherited nodes.",
+    "claim": 5996617184,
+    "winningBot": 5996620419,
+    "scope": "BMS §6 Kubota theorem, relative row completion, relative semilocal rank-two reduction, deeper-level images and the noncongruence conclusion. Inherited source evidence is preserved, not freshly re-audited in full.",
     "newNodes": [
-      "KTheoryLowDegrees:Z.1/morita-split-exact-square",
-      "KTheoryLowDegrees:U.4/normal-sl-root-membership",
-      "KTheoryLowDegrees:U.4/normal-sl-root-level",
-      "KTheoryLowDegrees:U.4/finite-index-root-level-nonzero",
-      "KTheoryLowDegrees:U.4/root-level-contains-relative-elementary",
-      "KTheoryLowDegrees:U.4/finite-index-elementary-cofinality"
+      "KTheoryLowDegrees:U.4/relative-first-row-completion",
+      "KTheoryLowDegrees:U.4/relative-first-row-fibre",
+      "KTheoryLowDegrees:U.4/relative-first-row-map",
+      "KTheoryLowDegrees:U.4/kubota-value",
+      "KTheoryLowDegrees:U.4/mennicke-kervaire-reciprocity",
+      "KTheoryLowDegrees:U.4/mennicke-denominator-common-level",
+      "KTheoryLowDegrees:U.4/mennicke-denominator-multiplication",
+      "KTheoryLowDegrees:U.4/kubota-opposite-row",
+      "KTheoryLowDegrees:U.4/kubota-elementary-conjugation",
+      "KTheoryLowDegrees:U.4/kubota-diagonal-conjugation",
+      "KTheoryLowDegrees:U.4/kubota-relative-elementary-invariance",
+      "KTheoryLowDegrees:U.4/kubota-relative-diagonal-invariance",
+      "KTheoryLowDegrees:U.4/kubota-conditional-multiplication",
+      "KTheoryLowDegrees:U.4/relative-unit-diagonal-elementary",
+      "KTheoryLowDegrees:U.4/relative-stable-range-one-sl2",
+      "KTheoryLowDegrees:U.4/relative-elementary-quotient-lifting",
+      "KTheoryLowDegrees:U.4/dedekind-principal-quotient-semilocal",
+      "KTheoryLowDegrees:U.4/sl2-principal-reduction",
+      "KTheoryLowDegrees:U.4/dedekind-coprime-square-adjustment",
+      "KTheoryLowDegrees:U.4/kubota-multiplicativity",
+      "KTheoryLowDegrees:U.4/kubota-hom",
+      "KTheoryLowDegrees:U.4/kubota-ideal-image",
+      "KTheoryLowDegrees:U.4/kubota-noncongruence-kernel"
     ],
     "pinReads": {
-      "TauCeti/Algebra/Category/ModuleCat/CartanMap.lean": {
-        "blob": "2fee1cb54d9c3b880174857c3bc0a4169c25ab51",
-        "ranges": [
-          [
-            202,
-            213
-          ]
-        ]
-      },
-      "TauCeti/CategoryTheory/Exact/Functor.lean": {
-        "blob": "d3a96d4b092ef9ba5fd60531bbc9f182e6433f47",
-        "ranges": [
-          [
-            170,
-            181
-          ]
-        ]
-      },
-      "TauCeti/CategoryTheory/GrothendieckGroup/Exact.lean": {
-        "blob": "a3d0c61c6e04e0a08585714e6af20b9b6e51b003",
-        "ranges": [
-          [
-            266,
-            277
-          ],
-          [
-            469,
-            480
-          ],
-          [
-            475,
-            486
-          ],
-          [
-            616,
-            627
-          ],
-          [
-            631,
-            642
-          ]
-        ]
-      },
-      "TauCeti/CategoryTheory/GrothendieckGroup/Split.lean": {
-        "blob": "5ade332aeed31e3692249c203963a0adfb01a3ea",
-        "ranges": [
-          [
-            315,
-            326
-          ]
-        ]
-      },
-      "Mathlib/Algebra/Group/Subgroup/Basic.lean": {
-        "blob": "e5e4f4febdacfcd9055276f4632df153795b6122",
-        "ranges": [
-          [
-            714,
-            725
-          ],
-          [
-            721,
-            732
-          ],
-          [
-            726,
-            737
-          ]
-        ]
-      },
-      "Mathlib/Algebra/Group/Subgroup/Ker.lean": {
-        "blob": "38b2a6e4490e28926948c0188cac9d0921097c9c",
-        "ranges": [
-          [
-            500,
-            511
-          ]
-        ]
-      },
-      "Mathlib/Algebra/Group/Subgroup/Lattice.lean": {
-        "blob": "39795007baa68c35eac387377724294f9d37ec05",
-        "ranges": [
-          [
-            353,
-            364
-          ],
-          [
-            373,
-            384
-          ]
-        ]
-      },
-      "Mathlib/CategoryTheory/Preadditive/AdditiveFunctor.lean": {
-        "blob": "3a46a2de0806d05f40929a497d339f8c23e2404f",
-        "ranges": [
-          [
-            248,
-            259
-          ]
-        ]
-      },
-      "Mathlib/GroupTheory/Index.lean": {
-        "blob": "dc6b3e1c308c9c415704deaacb4dfd4bcad1e015",
-        "ranges": [
-          [
-            728,
-            739
-          ],
-          [
-            847,
-            858
-          ]
-        ]
-      },
-      "Mathlib/LinearAlgebra/Matrix/GeneralLinearGroup/Defs.lean": {
-        "blob": "144bfedfb2910bac26eb05c87c72cda6f782c6f0",
-        "ranges": [
-          [
-            280,
-            291
-          ]
-        ]
-      },
       "Mathlib/LinearAlgebra/Matrix/SpecialLinearGroup.lean": {
         "blob": "d914df37d8f5cc56decaa61e4c4d66345ce4c4a3",
         "ranges": [
           [
-            496,
-            507
+            218,
+            235
           ],
           [
-            539,
-            550
-          ],
-          [
-            543,
-            554
+            380,
+            454
           ]
         ]
+      },
+      "Mathlib/RingTheory/Ideal/Maps.lean": {
+        "blob": "d3597ae968d410972c69f585a2d41b79585ccca4",
+        "ranges": [
+          [
+            305,
+            334
+          ],
+          [
+            615,
+            643
+          ]
+        ]
+      },
+      "Mathlib/RingTheory/DedekindDomain/Factorization.lean": {
+        "ranges": [
+          [
+            65,
+            97
+          ]
+        ],
+        "blob": "58edc929beae2649176c27fca724bdd3db9ff3fb"
       }
     },
-    "resolvedRequest": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-4-finite-dimensional-algebras-and-the-cartan-map",
-    "lean": "lean-check stops before elaboration because the shared build lacks TauCeti.CategoryTheory.Exact.Functor.olean. No library build, repository copy or language server was started.",
     "verification": {
+      "allInheritedIdsPreserved": true,
+      "unchangedInheritedNodes": 228,
+      "changedInheritedNodes": [],
       "counts": {
-        "nodes": 228,
+        "nodes": 251,
         "kinds": {
           "definition": 16,
-          "lemma": 94,
-          "construction": 38,
-          "theorem": 61,
+          "lemma": 111,
+          "construction": 41,
+          "theorem": 64,
           "comparison": 9,
           "application": 10
         },
-        "apiItems": 437,
-        "packetTests": 234,
-        "typedExamples": 244,
+        "apiItems": 453,
+        "packetTests": 247,
+        "typedExamples": 257,
         "planets": 44,
-        "baseline": 467,
+        "baseline": 471,
         "sourceFindings": 10,
         "gaps": 8,
         "requests": 8
       },
-      "allInheritedIdsPreserved": true,
-      "unchangedInheritedNodes": 217,
-      "changedInheritedNodes": [
-        "KTheoryLowDegrees:Z.1/ring-k0-morita",
-        "KTheoryLowDegrees:U.4/sk1-generated-by-mennicke-symbols",
-        "KTheoryLowDegrees:U.4/power-reduction-totally-imaginary",
-        "KTheoryLowDegrees:U.4/arithmetic-mennicke-symbols-trivial",
-        "KTheoryLowDegrees:U.4/bass-milnor-serre"
-      ],
-      "internalEdges": 649,
-      "allEdges": 1380,
+      "internalEdges": 733,
+      "allEdges": 1483,
       "newReaderContractParity": true,
-      "routedSourceItems": 21,
-      "signedConjugationIntegerChecks": 1740,
-      "leanSha256": "0d82793183d625d16e1eb4fbf4072a70153f781f519a02779e5440e80522f98d",
+      "newLeanApiTestNameParity": true,
+      "graphAcyclic": true,
       "packetCheck": {
         "indexed": true,
         "errors": 0,
@@ -20359,11 +21459,24 @@
         "compiled": false,
         "phase": "import loading",
         "missingModule": "TauCeti.CategoryTheory.Exact.Functor",
-        "buildMissingObject": true,
-        "declarationsChecked": false
+        "declarationsChecked": false,
+        "newSection": {
+          "elaborated": true,
+          "autoImplicit": false,
+          "typedExamples": 13,
+          "context": "Exact inherited carrier and symbol definitions extracted into a scratch harness with pinned Mathlib imports; no substitute axioms or carriers.",
+          "proofs": "Proof placeholders; expected placeholder warnings."
+        }
+      },
+      "leanSha256": "9f105cccb681d80f2e902f8a3df71ef2f447f3f0e4aad38de98279f18b1b00db",
+      "coordinates": {
+        "relativeBezoutCompletions": 1710,
+        "relativeUnitDiagonalWords": 906,
+        "integerRelativeWord": true,
+        "formalProof": false
       }
     },
-    "publicationBase": "6417f4eae40e972d6bb80ea2b3e5e6a4be553524"
+    "publicationBase": "191364dff75f3ee36bd2ee867ae3843c8148e8e6"
   },
   "previousContinuationAudits": [
     {
@@ -21423,6 +22536,215 @@
         "intake": "4 files, zero problems",
         "newIdsUnreserved": true
       }
+    },
+    {
+      "agent": "Codex",
+      "session": "codex-xyXwzy",
+      "issue": 764,
+      "date": "2026-10-05",
+      "claim": 5995504026,
+      "winningBot": 5995506472,
+      "scope": "Native Morita carrier comparison; elementary cofinality; newly routed source ownership and exact unresolved arithmetic contracts. No renewed full-source verification of inherited nodes.",
+      "newNodes": [
+        "KTheoryLowDegrees:Z.1/morita-split-exact-square",
+        "KTheoryLowDegrees:U.4/normal-sl-root-membership",
+        "KTheoryLowDegrees:U.4/normal-sl-root-level",
+        "KTheoryLowDegrees:U.4/finite-index-root-level-nonzero",
+        "KTheoryLowDegrees:U.4/root-level-contains-relative-elementary",
+        "KTheoryLowDegrees:U.4/finite-index-elementary-cofinality"
+      ],
+      "pinReads": {
+        "TauCeti/Algebra/Category/ModuleCat/CartanMap.lean": {
+          "blob": "2fee1cb54d9c3b880174857c3bc0a4169c25ab51",
+          "ranges": [
+            [
+              202,
+              213
+            ]
+          ]
+        },
+        "TauCeti/CategoryTheory/Exact/Functor.lean": {
+          "blob": "d3a96d4b092ef9ba5fd60531bbc9f182e6433f47",
+          "ranges": [
+            [
+              170,
+              181
+            ]
+          ]
+        },
+        "TauCeti/CategoryTheory/GrothendieckGroup/Exact.lean": {
+          "blob": "a3d0c61c6e04e0a08585714e6af20b9b6e51b003",
+          "ranges": [
+            [
+              266,
+              277
+            ],
+            [
+              469,
+              480
+            ],
+            [
+              475,
+              486
+            ],
+            [
+              616,
+              627
+            ],
+            [
+              631,
+              642
+            ]
+          ]
+        },
+        "TauCeti/CategoryTheory/GrothendieckGroup/Split.lean": {
+          "blob": "5ade332aeed31e3692249c203963a0adfb01a3ea",
+          "ranges": [
+            [
+              315,
+              326
+            ]
+          ]
+        },
+        "Mathlib/Algebra/Group/Subgroup/Basic.lean": {
+          "blob": "e5e4f4febdacfcd9055276f4632df153795b6122",
+          "ranges": [
+            [
+              714,
+              725
+            ],
+            [
+              721,
+              732
+            ],
+            [
+              726,
+              737
+            ]
+          ]
+        },
+        "Mathlib/Algebra/Group/Subgroup/Ker.lean": {
+          "blob": "38b2a6e4490e28926948c0188cac9d0921097c9c",
+          "ranges": [
+            [
+              500,
+              511
+            ]
+          ]
+        },
+        "Mathlib/Algebra/Group/Subgroup/Lattice.lean": {
+          "blob": "39795007baa68c35eac387377724294f9d37ec05",
+          "ranges": [
+            [
+              353,
+              364
+            ],
+            [
+              373,
+              384
+            ]
+          ]
+        },
+        "Mathlib/CategoryTheory/Preadditive/AdditiveFunctor.lean": {
+          "blob": "3a46a2de0806d05f40929a497d339f8c23e2404f",
+          "ranges": [
+            [
+              248,
+              259
+            ]
+          ]
+        },
+        "Mathlib/GroupTheory/Index.lean": {
+          "blob": "dc6b3e1c308c9c415704deaacb4dfd4bcad1e015",
+          "ranges": [
+            [
+              728,
+              739
+            ],
+            [
+              847,
+              858
+            ]
+          ]
+        },
+        "Mathlib/LinearAlgebra/Matrix/GeneralLinearGroup/Defs.lean": {
+          "blob": "144bfedfb2910bac26eb05c87c72cda6f782c6f0",
+          "ranges": [
+            [
+              280,
+              291
+            ]
+          ]
+        },
+        "Mathlib/LinearAlgebra/Matrix/SpecialLinearGroup.lean": {
+          "blob": "d914df37d8f5cc56decaa61e4c4d66345ce4c4a3",
+          "ranges": [
+            [
+              496,
+              507
+            ],
+            [
+              539,
+              550
+            ],
+            [
+              543,
+              554
+            ]
+          ]
+        }
+      },
+      "resolvedRequest": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-4-finite-dimensional-algebras-and-the-cartan-map",
+      "lean": "lean-check stops before elaboration because the shared build lacks TauCeti.CategoryTheory.Exact.Functor.olean. No library build, repository copy or language server was started.",
+      "verification": {
+        "counts": {
+          "nodes": 228,
+          "kinds": {
+            "definition": 16,
+            "lemma": 94,
+            "construction": 38,
+            "theorem": 61,
+            "comparison": 9,
+            "application": 10
+          },
+          "apiItems": 437,
+          "packetTests": 234,
+          "typedExamples": 244,
+          "planets": 44,
+          "baseline": 467,
+          "sourceFindings": 10,
+          "gaps": 8,
+          "requests": 8
+        },
+        "allInheritedIdsPreserved": true,
+        "unchangedInheritedNodes": 217,
+        "changedInheritedNodes": [
+          "KTheoryLowDegrees:Z.1/ring-k0-morita",
+          "KTheoryLowDegrees:U.4/sk1-generated-by-mennicke-symbols",
+          "KTheoryLowDegrees:U.4/power-reduction-totally-imaginary",
+          "KTheoryLowDegrees:U.4/arithmetic-mennicke-symbols-trivial",
+          "KTheoryLowDegrees:U.4/bass-milnor-serre"
+        ],
+        "internalEdges": 649,
+        "allEdges": 1380,
+        "newReaderContractParity": true,
+        "routedSourceItems": 21,
+        "signedConjugationIntegerChecks": 1740,
+        "leanSha256": "0d82793183d625d16e1eb4fbf4072a70153f781f519a02779e5440e80522f98d",
+        "packetCheck": {
+          "indexed": true,
+          "errors": 0,
+          "warnings": 0
+        },
+        "lean": {
+          "compiled": false,
+          "phase": "import loading",
+          "missingModule": "TauCeti.CategoryTheory.Exact.Functor",
+          "buildMissingObject": true,
+          "declarationsChecked": false
+        }
+      },
+      "publicationBase": "6417f4eae40e972d6bb80ea2b3e5e6a4be553524"
     }
   ],
   "resolvedRequests": [
