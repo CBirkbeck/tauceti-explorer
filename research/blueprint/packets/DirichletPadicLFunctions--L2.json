@@ -5,8 +5,8 @@
   "scope": [
     "DirichletPadicLFunctions:L2"
   ],
-  "status": "partial",
-  "summary": "Layer L2 (All Dirichlet characters) of the Dirichlet p-adic L-functions blueprint: 248 nodes, split on 2026-10-02 from the whole-roadmap packet of BP-DirichletPadicLFunctions (issue #713). What remains open is listed in this layer's coverage record and gaps.",
+  "status": "complete",
+  "summary": "All Dirichlet characters: arithmetic twists, roots-of-unity and Gauss calculations, integral tame measures, primitive-conductor interpolation and uniqueness, coefficient-field descent and conductor change. The L2 planning pass is complete with two precise PMIA supplier gaps; all declarations remain unchecked.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -2271,6 +2271,27 @@
         "module": "Mathlib/GroupTheory/OrderOfElement.lean",
         "provides": "The existing element-order operation and its generated additive order, with zero reserved for infinite order.",
         "checked": "Complete declaration, hypotheses and proof read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 1 October 2026, including the generated additive declaration sites and the AddCircle positive-period context. The retained reading note records exact files and the routine pinned-toolchain arithmetic used."
+      },
+      {
+        "ref": "mathlib:DirichletCharacter.IsPrimitive",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/DirichletCharacter/Basic.lean",
+        "provides": "Primitivity is equality of conductor and level.",
+        "checked": "Statement freshly read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; source excerpts and file hash retained."
+      },
+      {
+        "ref": "mathlib:DirichletCharacter.conductor_changeLevel",
+        "kind": "lemma",
+        "module": "Mathlib/NumberTheory/DirichletCharacter/Basic.lean",
+        "provides": "Increasing a positive character level preserves its conductor.",
+        "checked": "Statement freshly read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; source excerpts and file hash retained."
+      },
+      {
+        "ref": "mathlib:DirichletCharacter.conductor_mul_dvd_lcm_conductor",
+        "kind": "lemma",
+        "module": "Mathlib/NumberTheory/DirichletCharacter/Basic.lean",
+        "provides": "The conductor of a product divides the least common multiple of the two conductors; equality is not asserted.",
+        "checked": "Statement freshly read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; source excerpts and file hash retained."
       }
     ]
   },
@@ -18261,6 +18282,222 @@
       "acceptance": [
         "No independent ℤ_p action on O is introduced and no measure-space or integral-ring carrier is duplicated."
       ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L2/tame-wild-product-primitive",
+      "parentStageId": "DirichletPadicLFunctions:L2",
+      "realises": [
+        "DirichletPadicLFunctions:L2"
+      ],
+      "title": "Primitivity of the tame and wild product",
+      "kind": "lemma",
+      "statement": "The native product-level character θ has conductor N, hence is primitive.",
+      "hypotheses": [
+        "p is a prime, including 2; D>1, n≥0, and p∤D. Put M=p^n and N=DM. E is a characteristic-zero field with Algebra Q E. The native characters η:DirichletCharacter E D and χ:DirichletCharacter E M are primitive at their stated levels. Let θ=η.changeLevel(D∣N)·χ.changeLevel(M∣N). All values at integers use the native zero extension at the specified level. D and M are coprime."
+      ],
+      "proofSteps": [
+        "Write α=changeLevel η and β=changeLevel χ at level N. Native conductor_changeLevel and the two primitive hypotheses give cond(α)=D and cond(β)=M.",
+        "Set c=cond(αβ). Apply conductor_mul_dvd_lcm_conductor to (αβ,β⁻¹), simplify (αβ)β⁻¹=α, and use conductor_inv. This gives D∣lcm(c,M), hence D∣cM. Coprimality gives D∣c. Apply the same argument to ((αβ),α⁻¹) to get M∣c.",
+        "Coprimality implies DM∣c. The native conductor_dvd_level gives c∣DM, so equality follows. This proof uses no unsupported equality for arbitrary products of characters with intersecting conductors."
+      ],
+      "prerequisites": [
+        "mathlib:DirichletCharacter.IsPrimitive",
+        "mathlib:DirichletCharacter.conductor_changeLevel",
+        "mathlib:DirichletCharacter.conductor_inv",
+        "mathlib:DirichletCharacter.conductor_mul_dvd_lcm_conductor",
+        "mathlib:DirichletCharacter.conductor_dvd_level"
+      ],
+      "acceptance": [
+        "Keep the actual native characters and measure carriers, all coefficient embeddings, and the positive-degree restriction. No implementation or supplier completion is asserted."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/PrimitiveInterpolation",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.tameWildProduct_isPrimitive"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Theorem 5.7 and Remark 5.8, printed 143 / physical PDF 44; proof, Lemmas 5.9–5.12 and Definition 5.13, printed 144–146 / physical PDF 45–47. Version of record freshly read 5 October 2026.",
+          "excerpt": "unique measure",
+          "match": "Worker decomposition of the primitive-conductor and uniqueness clauses. The integral construction and common-field moment identity are inherited nodes. The primitive-product conductor argument is derived from the pinned native conductor inequalities. Coefficient-general positive-moment separation is requested from its existing PMIA owner, not asserted to follow from the narrower Z_p-coefficient theorem."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedPrimitiveInterpolationTests.quadratic_product_conductor",
+          "kind": "computation",
+          "statement": "For primitive quadratic characters of levels 3 and 4, the product at level 12 has conductor 12."
+        },
+        {
+          "name": "SuggestedPrimitiveInterpolationTests.zero_level_product",
+          "kind": "degenerate",
+          "statement": "For n=0 the primitive level-one character gives conductor D for the product."
+        },
+        {
+          "name": "SuggestedPrimitiveInterpolationTests.overlapping_conductors_fail",
+          "kind": "non-example",
+          "statement": "The square of the nontrivial quadratic character modulo 3 has conductor 1, not 9 or 3."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L2/primitive-tame-wild-euler-value",
+      "parentStageId": "DirichletPadicLFunctions:L2",
+      "realises": [
+        "DirichletPadicLFunctions:L2"
+      ],
+      "title": "The primitive Euler value at p",
+      "kind": "lemma",
+      "statement": "At the primitive conductor of θ, θ.primitiveCharacter(p)=η(p)χ(p). It is η(p) when n=0 and zero when n≥1. Thus the factor is 1−η(p)p^(k−1) in the trivial wild case and 1 in positive primitive wild conductor.",
+      "hypotheses": [
+        "p is a prime, including 2; D>1, n≥0, and p∤D. Put M=p^n and N=DM. E is a characteristic-zero field with Algebra Q E. The native characters η:DirichletCharacter E D and χ:DirichletCharacter E M are primitive at their stated levels. Let θ=η.changeLevel(D∣N)·χ.changeLevel(M∣N). All values at integers use the native zero extension at the specified level. D and M are coprime."
+      ],
+      "proofSteps": [
+        "The preceding conductor equality says θ already has its primitive level. changeLevel_primitiveCharacter, specialized to that level equality, identifies its primitive character pointwise with θ; no evaluation at a nonunit is transported across a genuine enlargement of level.",
+        "For n=0, the native modulus-one character is identically 1 and the level D product is η. For n≥1, p is a nonunit modulo p^n and N, so native character zero extension makes both χ(p) and θ(p) zero.",
+        "The level-positive principal character is not primitive and is outside these hypotheses. For p=2 and η quadratic modulo 3, the induced character at level 6 has value zero at 2, whereas its primitive character at level 3 has value −1. This prevents replacing primitive-conductor evaluation by an arbitrary chosen modulus."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L2/tame-wild-product-primitive",
+        "DirichletPadicLFunctions:L2/prime-power-character",
+        "mathlib:DirichletCharacter.changeLevel_primitiveCharacter",
+        "mathlib:MulChar.map_nonunit"
+      ],
+      "acceptance": [
+        "Keep the actual native characters and measure carriers, all coefficient embeddings, and the positive-degree restriction. No implementation or supplier completion is asserted."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/PrimitiveInterpolation",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.tameWildProduct_primitive_eval_prime"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Theorem 5.7 and Remark 5.8, printed 143 / physical PDF 44; proof, Lemmas 5.9–5.12 and Definition 5.13, printed 144–146 / physical PDF 45–47. Version of record freshly read 5 October 2026.",
+          "excerpt": "unique measure",
+          "match": "Worker decomposition of the primitive-conductor and uniqueness clauses. The integral construction and common-field moment identity are inherited nodes. The primitive-product conductor argument is derived from the pinned native conductor inequalities. Coefficient-general positive-moment separation is requested from its existing PMIA owner, not asserted to follow from the narrower Z_p-coefficient theorem."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedPrimitiveInterpolationTests.principal_inflation_changes_euler_value",
+          "kind": "non-example",
+          "statement": "For η quadratic modulo 3 inflated to level 6, the level-6 value at 2 is 0 while the primitive-conductor value is −1."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L2/primitive-integral-interpolation",
+      "parentStageId": "DirichletPadicLFunctions:L2",
+      "realises": [
+        "DirichletPadicLFunctions:L2"
+      ],
+      "title": "Primitive character interpolation for the integral tame measure",
+      "kind": "theorem",
+      "statement": "For k≥1 let b=(1−θ.primitiveCharacter(p)p^(k−1))·(−N^(k−1)/k)Σ_(a mod N)θ(a)B_k(a.val/N) in E. Its complex image is (1−ιC(θ.primitiveCharacter(p))p^(k−1))L(θ.ringHomComp ιC,1−k), and its K-image is the inclusion of ζO,U(κO_(n,χK,k)). In particular b has integral image in K. The Euler value is computed at the primitive conductor, including n=0.",
+      "hypotheses": [
+        "p is a prime, including 2; D>1, n≥0, and p∤D. Put M=p^n and N=DM. E is a characteristic-zero field with Algebra Q E. The native characters η:DirichletCharacter E D and χ:DirichletCharacter E M are primitive at their stated levels. Let θ=η.changeLevel(D∣N)·χ.changeLevel(M∣N). All values at integers use the native zero extension at the specified level. D and M are coprime.",
+        "K is a complete nontrivially normed ultrametric characteristic-zero field, with Algebra Z_p K, IsBoundedSMul Z_p K and Algebra Q K. Fix field homomorphisms ιC:E→C and ιK:E→K. The image of D is a unit. Let O be the existing norm-valuation integer subring of K, ζO,U the existing intrinsicIntegralTameZetaMeasure for ηK=η.ringHomComp ιK, and κO_(n,χK,k) the existing integralPrimePowerArithmeticCharacter."
+      ],
+      "proofSteps": [
+        "Primitivity of η and D>1 imply η≠1 using native conductor_one. The existing intrinsic integral common-character-value comparison applies with the same native product character and separate embeddings.",
+        "The primitive-product lemma and its evaluation comparison replace only θ(p) by θ.primitiveCharacter(p) in that existing common algebraic value. No map C→K is introduced, and the finite Bernoulli expression remains at the now primitive level N.",
+        "The integral-character comparison identifies the field-valued arithmetic moment with the included O-valued native measure evaluation. Membership in O follows from that inclusion. Apply the preceding Euler-value lemma for n=0 and n≥1.",
+        "For an imprimitive input use the existing native conductor-change and primitive-measure comparison nodes, keeping their distinct-prime Euler factors. Do not apply this primitive theorem to an arbitrarily inflated principal character."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L2/tame-wild-product-primitive",
+        "DirichletPadicLFunctions:L2/primitive-tame-wild-euler-value",
+        "DirichletPadicLFunctions:L2/intrinsic-integral-tame-common-value",
+        "mathlib:DirichletCharacter.conductor_one"
+      ],
+      "acceptance": [
+        "Keep the actual native characters and measure carriers, all coefficient embeddings, and the positive-degree restriction. No implementation or supplier completion is asserted."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/PrimitiveInterpolation",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.intrinsicIntegralTameZetaMeasure_primitive_interpolation"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Theorem 5.7 and Remark 5.8, printed 143 / physical PDF 44; proof, Lemmas 5.9–5.12 and Definition 5.13, printed 144–146 / physical PDF 45–47. Version of record freshly read 5 October 2026.",
+          "excerpt": "unique measure",
+          "match": "Worker decomposition of the primitive-conductor and uniqueness clauses. The integral construction and common-field moment identity are inherited nodes. The primitive-product conductor argument is derived from the pinned native conductor inequalities. Coefficient-general positive-moment separation is requested from its existing PMIA owner, not asserted to follow from the narrower Z_p-coefficient theorem."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedPrimitiveInterpolationTests.dyadic_trivial_wild_first_value",
+          "kind": "computation",
+          "statement": "At p=2, η quadratic modulo 3, n=0 and k=1, the moment is 2/3, including the Euler factor 1−η(2)=2."
+        },
+        {
+          "name": "SuggestedPrimitiveInterpolationTests.quadratic_wild_weight_two",
+          "kind": "computation",
+          "statement": "At p=2, η quadratic modulo 3, χ quadratic modulo 4 and k=2, the moment is −2."
+        },
+        {
+          "name": "SuggestedPrimitiveInterpolationTests.quadratic_wild_weight_four",
+          "kind": "computation",
+          "statement": "With the same primitive characters and k=4, the moment is 46."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L2/tame-integral-interpolation-unique",
+      "parentStageId": "DirichletPadicLFunctions:L2",
+      "realises": [
+        "DirichletPadicLFunctions:L2"
+      ],
+      "title": "Uniqueness from positive arithmetic moments",
+      "kind": "theorem",
+      "statement": "Let ν be an O-valued native measure on U=(Z_p)ˣ. If, for every k≥1, its value on κO_(0,1,k) equals that of ζO,U, then ν=ζO,U. Consequently an integral measure satisfying all primitive interpolation identities above is unique: already the trivial wild character and all positive weights determine it.",
+      "hypotheses": [
+        "p is a prime, including 2; D>1, n≥0, and p∤D. Put M=p^n and N=DM. E is a characteristic-zero field with Algebra Q E. The native characters η:DirichletCharacter E D and χ:DirichletCharacter E M are primitive at their stated levels. Let θ=η.changeLevel(D∣N)·χ.changeLevel(M∣N). All values at integers use the native zero extension at the specified level. D and M are coprime.",
+        "K is a complete nontrivially normed ultrametric characteristic-zero field, with Algebra Z_p K, IsBoundedSMul Z_p K and Algebra Q K. Fix field homomorphisms ιC:E→C and ιK:E→K. The image of D is a unit. Let O be the existing norm-valuation integer subring of K, ζO,U the existing intrinsicIntegralTameZetaMeasure for ηK=η.ringHomComp ιK, and κO_(n,χK,k) the existing integralPrimePowerArithmeticCharacter."
+      ],
+      "proofSteps": [
+        "Subtract ζO,U from ν in the existing O-valued measure module. The zero-level arithmetic-character formula identifies κO_(0,1,k) with u↦(algebraMap(Z_p,K)(u))^k, lifted to O through its norm bound.",
+        "Apply the requested PMIA L2 separation theorem for actual O-valued unit measures and all positive ordinary moments to the difference, then cancel subtraction. The existing PMIA L3 theorem supplies only Z_p-valued measures; no coefficient-general conclusion is inferred from it.",
+        "If both measures satisfy primitive interpolation, take n=0, χ=1 and each k≥1. The preceding common-field comparison and injectivity O→K give the required equalities. No degree-zero interpolation formula and no equality of arbitrary test values are assumed."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L2/primitive-integral-interpolation",
+        "DirichletPadicLFunctions:L2/integral-arithmetic-character",
+        "DirichletPadicLFunctions:L2/arithmetic-character-zero-level",
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "acceptance": [
+        "Keep the actual native characters and measure carriers, all coefficient embeddings, and the positive-degree restriction. No implementation or supplier completion is asserted."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/PrimitiveInterpolation",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.intrinsicIntegralTameZetaMeasure_unique_positive_moments"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Theorem 5.7 and Remark 5.8, printed 143 / physical PDF 44; proof, Lemmas 5.9–5.12 and Definition 5.13, printed 144–146 / physical PDF 45–47. Version of record freshly read 5 October 2026.",
+          "excerpt": "unique measure",
+          "match": "Worker decomposition of the primitive-conductor and uniqueness clauses. The integral construction and common-field moment identity are inherited nodes. The primitive-product conductor argument is derived from the pinned native conductor inequalities. Coefficient-general positive-moment separation is requested from its existing PMIA owner, not asserted to follow from the narrower Z_p-coefficient theorem."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedPrimitiveInterpolationTests.even_weights_insufficient",
+          "kind": "non-example",
+          "statement": "The nonzero native O-valued measure δ_1−δ_(−1) on U kills all even power tests, including for p=2; all positive degrees are required."
+        }
+      ]
     }
   ],
   "requests": [
@@ -18271,23 +18508,26 @@
         "DirichletPadicLFunctions:L2/pseudomeasure-common-character-value"
       ],
       "need": "For every prime p, U=Z_pˣ, M=D(U,Z_p), complete ultrametric normed characteristic-zero field K with a Z_p-algebra structure and bounded scalar action, and native continuous monoid homomorphism κ:U→K, supply a canonical ring homomorphism fκ:M→K whose value at μ is extendIntegralUnitCoefficients(μ)(κ.toContinuousMap), sending δ_u to κ(u). Prove the required compatibility with multiplicative convolution and the Z_p scalar action; the existing coefficient-extension function only supplies additive, scalar and Dirac APIs, while characterIntegralAlgHom uses matching measure/character coefficients. For κ≠1, use the existing generic admissible evaluator to supply an additive map from the actual Iwasawa.pseudomeasures(diracHom,FractionRing M) to K with ratio I_U,K(n_u(z))(κ)/(κ(u)−1) whenever κ(u)≠1. Include independence of u, integral-measure agreement, numerator and integral-measure scalar laws, and agreement with the existing Z_p-valued-character/Q_p-output evaluator after the specified compatible coefficient embeddings. This belongs to PMIA L3 with its own L1/L2 coefficient-integration support; do not assume a ring-map extension on all of FractionRing M. The consuming signatures currently retain an explicit ring map and its concrete evaluation equality, so they do not pretend this canonical construction exists."
+    },
+    {
+      "supplier": "PadicMeasuresIwasawaAlgebras:L2",
+      "need": "For every prime p and complete nontrivially normed ultrametric characteristic-zero field K with Algebra Z_p K and IsBoundedSMul Z_p K, let O be its native norm-valuation integer subring and U=(Z_p)ˣ. Supply positive ordinary-moment separation on the actual AbstractMeasure U O O: a measure μ with μ(t_k)=0 for every k≥1 is zero, where t_k(u) is the canonical integral lift of (algebraMap Z_p K (u:Z_p))^k. Build the canonical scalar action on O from the given bounded embedding; do not require a separately chosen incompatible action. Include injectivity after O→K, transport to the native integral arithmetic tests, and the finite-extension case of RJW Theorem5.7. The existing L3/unit-positive-moment-separation has coefficients Z_p only, so does not discharge this request. This generic separation theorem belongs to PMIA; Dirichlet L2 uses it only to identify its already constructed arithmetic measure.",
+      "neededBy": [
+        "DirichletPadicLFunctions:L2/tame-integral-interpolation-unique"
+      ]
     }
   ],
   "coverage": [
     {
       "stageId": "DirichletPadicLFunctions:L2",
-      "status": "partial",
+      "status": "planned",
       "remaining": [
-        "The actual tame primitive Gauss normalization is now planned with a complete native derivation of its norm-one and integral-unit certificates; its field/integral series comparisons no longer assume a separate nonzero Gauss scalar. Next apply the norm-one certificate to the existing quantitative logarithmic coefficient bounds, or assess the exact common-field special-value dependencies. Generic complex Gauss/local epsilon-factor theories, analytic branches, degree-zero interpolation and supplier pseudomeasure requests remain with their existing owners and remain open where previously recorded."
+        "Discharge the PMIA L2 positive-moment separation request on the native coefficient integer ring to complete interpolation uniqueness.",
+        "Discharge the PMIA L3 canonical coefficient-field character evaluation request for actual pseudomeasures; the existing arithmetic ratio signatures retain their explicit evaluation homomorphism."
       ]
     }
   ],
   "gaps": [
-    {
-      "title": "L2 remaining source decomposition and interfaces",
-      "neededBy": [],
-      "detail": "The actual tame primitive Gauss normalization is now planned with a complete native derivation of its norm-one and integral-unit certificates; its field/integral series comparisons no longer assume a separate nonzero Gauss scalar. Next apply the norm-one certificate to the existing quantitative logarithmic coefficient bounds, or assess the exact common-field special-value dependencies. Generic complex Gauss/local epsilon-factor theories, analytic branches, degree-zero interpolation and supplier pseudomeasure requests remain with their existing owners and remain open where previously recorded."
-    },
     {
       "title": "Canonical coefficient-field character evaluation of actual pseudomeasures",
       "neededBy": [
@@ -18295,6 +18535,13 @@
         "DirichletPadicLFunctions:L2/pseudomeasure-common-character-value"
       ],
       "detail": "For every prime p, U=Z_pˣ, M=D(U,Z_p), complete ultrametric normed characteristic-zero field K with a Z_p-algebra structure and bounded scalar action, and native continuous monoid homomorphism κ:U→K, supply a canonical ring homomorphism fκ:M→K whose value at μ is extendIntegralUnitCoefficients(μ)(κ.toContinuousMap), sending δ_u to κ(u). Prove the required compatibility with multiplicative convolution and the Z_p scalar action; the existing coefficient-extension function only supplies additive, scalar and Dirac APIs, while characterIntegralAlgHom uses matching measure/character coefficients. For κ≠1, use the existing generic admissible evaluator to supply an additive map from the actual Iwasawa.pseudomeasures(diracHom,FractionRing M) to K with ratio I_U,K(n_u(z))(κ)/(κ(u)−1) whenever κ(u)≠1. Include independence of u, integral-measure agreement, numerator and integral-measure scalar laws, and agreement with the existing Z_p-valued-character/Q_p-output evaluator after the specified compatible coefficient embeddings. This belongs to PMIA L3 with its own L1/L2 coefficient-integration support; do not assume a ring-map extension on all of FractionRing M. The consuming signatures currently retain an explicit ring map and its concrete evaluation equality, so they do not pretend this canonical construction exists."
+    },
+    {
+      "title": "Positive-moment separation for the native coefficient integer ring",
+      "detail": "For every prime p and complete nontrivially normed ultrametric characteristic-zero field K with Algebra Z_p K and IsBoundedSMul Z_p K, let O be its native norm-valuation integer subring and U=(Z_p)ˣ. Supply positive ordinary-moment separation on the actual AbstractMeasure U O O: a measure μ with μ(t_k)=0 for every k≥1 is zero, where t_k(u) is the canonical integral lift of (algebraMap Z_p K (u:Z_p))^k. Build the canonical scalar action on O from the given bounded embedding; do not require a separately chosen incompatible action. Include injectivity after O→K, transport to the native integral arithmetic tests, and the finite-extension case of RJW Theorem5.7. The existing L3/unit-positive-moment-separation has coefficients Z_p only, so does not discharge this request. This generic separation theorem belongs to PMIA; Dirichlet L2 uses it only to identify its already constructed arithmetic measure.",
+      "neededBy": [
+        "DirichletPadicLFunctions:L2/tame-integral-interpolation-unique"
+      ]
     }
   ],
   "sourceIssues": [
@@ -18352,398 +18599,484 @@
     }
   ],
   "checks": {
-    "blueprint": "The indexed blueprint checker reports zero errors and 26 advisory short-API warnings, including 26 inherited warnings. No new short-API warning is introduced.",
-    "intake": "Exactly four authorized deliverables; zero problems.",
-    "sourceIssues": "All 27 earlier source findings and eight source versions remain whole. No new source issue, independent review verdict or stage closure is added.",
-    "validation": {
-      "nodes": 2271,
-      "kinds": {
-        "definition": 22,
-        "lemma": 1433,
-        "construction": 250,
-        "theorem": 359,
-        "comparison": 207
-      },
-      "api": 1530,
-      "packetTests": 3962,
-      "definitionConstructionTests": 1025,
-      "typedExamples": 3965,
-      "planets": 24,
-      "baseline": 1289,
-      "preservedWholeNodes": 2258,
-      "preservedBaseline": 1285,
-      "preservedSourceIssues": 27,
-      "newSourceIssues": 0,
-      "newNodes": 13,
-      "newNamedDeclarations": 13,
-      "newTypedTests": 18,
-      "requests": 16,
-      "gaps": 18,
-      "closedStages": 0,
-      "reachableNodes": 2533,
-      "dependencyEdges": 10116,
-      "acyclic": true,
-      "baselineLeaves": 1455,
-      "stageRequestLeaves": [
-        "AdicSpacesPartII:F1",
-        "AdicSpacesPartII:R2",
-        "ColemanIntegration:L0",
-        "LocallyAnalyticDistributions:L0",
-        "LocallyAnalyticDistributions:L1",
-        "PadicDifferentialEquationsAndRigidCohomology:RD.0",
-        "PadicDifferentialEquationsAndRigidCohomology:RD.4",
-        "PadicDifferentialEquationsAndRigidCohomology:RD.6",
-        "PadicHodgeTheory:P7:annulus-foundations",
-        "PadicMeasuresIwasawaAlgebras:L1",
-        "PadicMeasuresIwasawaAlgebras:L2",
-        "PadicMeasuresIwasawaAlgebras:L3"
-      ],
-      "readerWords": 1168597,
-      "scopedMutationCheck": true,
-      "correctedPredecessorNodes": 0,
-      "fullSuggestedCompiled": false,
-      "compilerErrors": null,
-      "compilerWarnings": null,
-      "lastCompiledPredecessor": {
-        "pr": 4773,
-        "result": {
-          "exitCode": 0,
-          "sourceSha256": "b94dc075211b100a37fbc4af775dc518cfcf92b90d0aa2a40a3ad7a5ad8a73ef",
-          "modules": 3573,
-          "warnings": 1803,
-          "errors": 0
-        }
-      },
-      "supplierNodes": 332,
-      "currentSupplierNodes": 369,
-      "supplierArtifactAvailable": true,
-      "supplierArtifactUsedForCurrentCompile": false,
-      "pinnedMathlibSourceModules": 3915,
-      "requiredPinnedTauSourceModules": 32,
-      "availablePinnedTauArtifacts": 31,
-      "missingPinnedTauArtifacts": [
-        "TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum"
-      ],
-      "scratchCompleteDefinitions": 192,
-      "scratchCompleteLemmas": 1555,
-      "scratchMathlibModules": 3282,
-      "scratchTauModules": 10,
-      "scratchErrors": 0,
-      "scratchWarnings": 0,
-      "scratchPlaceholders": 0,
-      "finiteControls": {
-        "levels": 36,
-        "primaryKernelEquivalences": 53,
-        "primaryUnitCoordinates": 361,
-        "subsetProducts": 109,
-        "uniquePrimaryTuples": 583,
-        "productCoefficients": 1167
-      },
-      "numericalControlsCertified": false,
-      "newRoutesStageLeaves": [],
-      "partialSignatures": {
-        "exitCode": 0,
-        "sourceSha256": "bc1ec71501dc8d5af4628922a0f214df0262d207f723bcd87741703e8e2fde7d",
-        "modules": 3914,
-        "warnings": 6581,
-        "errors": 0,
-        "scope": "The separate partial signature file also compiled with zero errors and 6,581 expected placeholder warnings across 3,914 pinned source modules. It includes all 13 new named declarations and 18 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: bc1ec71501dc8d5af4628922a0f214df0262d207f723bcd87741703e8e2fde7d.",
-        "fullSuggestedFile": false,
-        "documentedOmissionsRetained": true
-      },
-      "blueprintWarnings": [
-        "warning DirichletPadicLFunctions:L3/kubert-parity-lift: api outline has only 2 item(s)",
-        "warning DirichletPadicLFunctions:L3/kubert-orbit-relations: api outline has only 2 item(s)",
-        "warning DirichletPadicLFunctions:L3/kubert-normalized-lift: api outline has only 2 item(s)",
-        "warning DirichletPadicLFunctions:L3/kubert-primary-primary-component-equiv: api outline has only 2 item(s)",
-        "warning DirichletPadicLFunctions:L3/kubert-generator-product-exceptional-primitive: api outline has only 2 item(s)",
-        "warning DirichletPadicLFunctions:L3/kubert-presentation-source-to-global: api outline has only 2 item(s)",
-        "warning DirichletPadicLFunctions:L3/kubert-congruence-level-coordinates: api outline has only 2 item(s)",
-        "warning DirichletPadicLFunctions:L3/kubert-congruence-primitive-level-equiv: api outline has only 2 item(s)",
-        "warning DirichletPadicLFunctions:L3/kubert-congruence-circle-level-module: api outline has only 2 item(s)",
-        "warning DirichletPadicLFunctions:L3/kubert-cartan-equivariance-cartan-norm-intertwining: api outline has only 2 item(s)",
-        "warning DirichletPadicLFunctions:L3/kubert-cartan-products-cartan-product-intertwining: api outline has only 2 item(s)",
-        "warning DirichletPadicLFunctions:L3/kubert-cartan-limit-cartan-witt-representation: api outline has only 2 item(s)",
-        "warning DirichletPadicLFunctions:L3/kubert-cartan-inverse-limit-cartan-prime-power-cone: api outline has only 2 item(s)",
-        "warning DirichletPadicLFunctions:L3/kubert-cartan-group-limit-cartan-unit-cone-ring: api outline has only 2 item(s)",
-        "warning DirichletPadicLFunctions:L3/kubert-cartan-padic-cartan-degree-one-padic-units-equiv: api outline has only 2 item(s)",
-        "warning DirichletPadicLFunctions:L3/kubert-profinite-cartan-finite-group: api outline has only 1 item(s)",
-        "warning DirichletPadicLFunctions:L3/kubert-profinite-cartan-factorial-diagram: api outline has only 1 item(s)",
-        "warning DirichletPadicLFunctions:L3/kubert-profinite-cartan-to-profinite-limit: api outline has only 2 item(s)",
-        "warning DirichletPadicLFunctions:L3/kubert-profinite-cartan-profinite-continuous-equiv: api outline has only 2 item(s)",
-        "warning DirichletPadicLFunctions:L3/kubert-degree-one-finite-cartan-degree-one-finite-equiv: api outline has only 2 item(s)",
-        "warning DirichletPadicLFunctions:L3/kubert-all-root-level-root-equiv: api outline has only 2 item(s)",
-        "warning DirichletPadicLFunctions:L3/kubert-direct-limit-cartan-factorial-norm: api outline has only 1 item(s)",
-        "warning DirichletPadicLFunctions:L3/kubert-direct-limit-cartan-factorial-of: api outline has only 1 item(s)",
-        "warning DirichletPadicLFunctions:L3/kubert-tate-periodicity-sign-group-h1-neg-one-equiv: api outline has only 2 item(s)",
-        "warning DirichletPadicLFunctions:L3/kubert-rational-factors-rational-prime-coset-sum: api outline has only 2 item(s)",
-        "warning DirichletPadicLFunctions:L3/kubert-corrected-quotient-rational-cartan-quotient-linear: api outline has only 2 item(s)"
-      ]
-    },
-    "lean": {
-      "status": "NOT COMPILED: required pinned native artifact unavailable",
-      "compiled": false,
-      "errors": null,
-      "warnings": null,
-      "sha256": "ce75c4bd3e586fa3ec16ad470aecaa1ba5a8c946998e48e7be1880ff17f31e9f",
-      "missingNativeArtifacts": [
-        "TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum"
-      ],
-      "lastCompiledPredecessor": {
-        "pr": 4773,
-        "result": {
-          "exitCode": 0,
-          "sourceSha256": "b94dc075211b100a37fbc4af775dc518cfcf92b90d0aa2a40a3ad7a5ad8a73ef",
-          "modules": 3573,
-          "warnings": 1803,
-          "errors": 0
-        }
-      },
-      "nativeProbe": {
-        "completeLemmas": 1555,
-        "errors": 0,
-        "warnings": 0,
-        "placeholders": 0,
-        "sha256": "ee34b78d27769ca0074a30921ae05cb719238aa271f7d5959eb81f14cfe2d9b3"
-      },
-      "sourceAndAvailableArtifactAudit": {
-        "compiledSupplierNodes": 332,
-        "currentSupplierNodes": 369,
-        "supplierWarnings": 707,
-        "supplierFreshlyElaborated": false,
-        "hashes": {
-          "source": "f50d6790f3f03e302b3622fe57b99d2bd81ed0c722a9274d2875c3886864ebf4",
-          "olean": "4b34a19961eec73bfa90a280566521896e8ecbc1ec706982525962146a7b7f88",
-          "log": "d16ae7a3163aed649ee9eba01e7d6837831e42797c510a6bdd861be97cddce75"
-        },
-        "wholeOldBodyPreserved": true,
-        "currentSupplierSourceSha256": "e3779c11b149f5e5b14b11ba3b95e881d2ccd9b0e5fd61bdbae3dfaaf896a6cf",
-        "nativeTauModules": 32,
-        "nativeMathlibModules": 3915,
-        "artifactSha256": {
-          "TauCeti.RepresentationTheory.Homological.TateCohomology.Periodic": "12472d3b8c087b652c77291cb9b0b8ec36a5e961ff2b50aefdbd8735ac73e61a",
-          "TauCeti.RepresentationTheory.Invariants": "03476a68f9db4fd8f2db1141345454e2b9718d4533e2231a58bd15ebb375548c",
-          "TauCeti.RepresentationTheory.Homological.TateCohomology.LowDegree": "a56f08707f38195f10fbda1879a21c2d2284e46f6e09d184c3366d75f4446bf7",
-          "TauCeti.NumberTheory.LocalField.Teichmuller": "a74c88f4967df4fe74aeed816517e7a5bf6acc47f0c447ee2ba11d8a02cf5cc0",
-          "TauCeti.FieldTheory.Finite.RootsOfUnity": "55425bfffb80e87ce5eb1241deba5c4c68275c4b8850f1f14148fc50908bd3d9",
-          "TauCeti.NumberTheory.LocalField.Henselian": "a4b847bed872748f4ba8845f64842827d89b014d40e42055fe52fe8636b5efd7",
-          "TauCeti.RingTheory.RootsOfUnity.Henselian": "ab80e76fb323bae19c2b319961acccb4e47bc50ae734ad071dcc735365fd6e3b",
-          "TauCeti.RingTheory.RootsOfUnity.LocalRing": "dd1501ef55b87c428a001470b5eabcfe94bf37bba3b5e4bccf61772e8bd7856e",
-          "TauCeti.RingTheory.RootsOfUnity.Basic": "9e11cb5dee5c493b9b515336c152483dc8da12f33e23b1cca2bdfbc123189e9d",
-          "TauCeti.RingTheory.RootsOfUnity.ValuativeRel": "0504ce2dd3d6092368fffc9ec18bbe15adf7ab3500af9064715f7e8293f31940",
-          "TauCeti.NumberTheory.ModularForms.Degeneracy": "2016655e67266e5582e3bddcd93a5ed68af362af30b64c88734ec2e748764d72",
-          "TauCeti.Data.ZMod.Divisibility": "8751616831392059bebd4351279bc07fc8a02b3687d28d1c815d0b904473ecfb",
-          "TauCeti.Algebra.GroupWithZero.Divisibility": "d8f4bf8a1728da45f6c53fbb8286c5b895d7047cd08d9fcd81b64b2505889f84",
-          "TauCeti.NumberTheory.ModularForms.Basic": "23899f59f71dc847a8e2cc6bc8e6fef776dcbef1c538aa5d9fd0b3e5d3f5929d",
-          "TauCeti.Analysis.Complex.UpperHalfPlane.MoebiusAction": "35132289eb0fe82abae95efcdb82c26d34adc763bb74f2a9fa8fd50d6267a3a6",
-          "TauCeti.NumberTheory.ModularForms.CongruenceSubgroups.Units": "a65d2c3defc8a95cd90dd7b8f43f41658852796d48f07b9c5b8ffa6e57106c47",
-          "TauCeti.NumberTheory.ModularForms.CongruenceSubgroups.Basic": "b50d612d695c8ebc257b7f401492ccc81f0da0da760434d2f2474ff214ea0eb6",
-          "TauCeti.LinearAlgebra.Matrix.SpecialLinearGroup.Basic": "43f818e123177d26034bf712256845a86d470751829665e2c0861c981cb8d139",
-          "TauCeti.Data.ZMod.Units": "851735abe5f1587518dc31c25d6e8fdc68bc24ac70f610d37582c6476649f0f2",
-          "TauCeti.NumberTheory.ModularForms.DiamondOperators": "25e75934b43aaf1b6399341ce62e404762eeb64e5a03e65e6399616c340499fd",
-          "TauCeti.NumberTheory.ModularForms.SlashActionRat": "03a81db422f21dabda08a5e8d7d8229cf6b861f0fc6dd95fd1daa6db58d8753e",
-          "TauCeti.NumberTheory.HeckeRing.GLn.Basic": "e509998eda8d398e9f141bbc6fe3e256179342c9a4d5f8c3b7d37c6839620cfd",
-          "TauCeti.LinearAlgebra.Matrix.GeneralLinearGroup.DoubleCoset": "9b1098ef93027f0455e3be9d88879f194716b5ecb045f7d5830438af95e8dccc",
-          "TauCeti.LinearAlgebra.Matrix.GeneralLinearGroup.Diagonal.Basic": "c924051ab73a640801b370eea23b81f03fee7e6f772bfbcea91189d68af72d16",
-          "TauCeti.Algebra.Group.Subgroup.Centralizer": "4d86210849b3b8c4752b76f32658a419b4419e82955a0288a9c2a57bba91474e",
-          "TauCeti.RingTheory.PowerSeries.Support": "9834a0db712ca2c2512559efad99b5c027e374069de17a1266fdc0457488a67f",
-          "TauCeti.Analysis.Complex.UpperHalfPlane.Manifold": "e595b347e823cb1e4b9340a4800cce7c61b72a523169f9545983666b47bc0e0f",
-          "TauCeti.Topology.DiscreteSeparation": "b52d85d020754b97a57c629ca49e6dc747752971bb48b8ba87b31eab37e09433",
-          "TauCeti.NumberTheory.ModularForms.Cusps.Basic": "4fc5f585625b3f687d57e6dc2a136f20f232d2a374a99d9914c4ef696be306d2",
-          "TauCeti.Topology.Algebra.Group.LocallyConstant": "e66f653b6b7dc52ed9b1d01616246f9197bc3677f7861cdb459788d889edc800",
-          "TauCeti.NumberTheory.LocalField.UnitFiltration.Basic": "dd5e0cf19ea201a93a943cb43a135eaa20b7a2a23585fb4697ebb55080aa6ed8"
-        },
-        "nativeLogSha256": {
-          "TauCeti.RepresentationTheory.Homological.TateCohomology.LowDegree": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-          "TauCeti.NumberTheory.LocalField.Teichmuller": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-          "TauCeti.FieldTheory.Finite.RootsOfUnity": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-          "TauCeti.NumberTheory.LocalField.Henselian": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-          "TauCeti.RingTheory.RootsOfUnity.Henselian": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-          "TauCeti.RingTheory.RootsOfUnity.LocalRing": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-          "TauCeti.RingTheory.RootsOfUnity.Basic": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-          "TauCeti.RingTheory.RootsOfUnity.ValuativeRel": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-          "TauCeti.NumberTheory.ModularForms.Degeneracy": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-          "TauCeti.Data.ZMod.Divisibility": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-          "TauCeti.Algebra.GroupWithZero.Divisibility": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-          "TauCeti.NumberTheory.ModularForms.Basic": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-          "TauCeti.Analysis.Complex.UpperHalfPlane.MoebiusAction": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-          "TauCeti.NumberTheory.ModularForms.CongruenceSubgroups.Units": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-          "TauCeti.NumberTheory.ModularForms.CongruenceSubgroups.Basic": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-          "TauCeti.LinearAlgebra.Matrix.SpecialLinearGroup.Basic": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-          "TauCeti.Data.ZMod.Units": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-          "TauCeti.NumberTheory.ModularForms.DiamondOperators": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-          "TauCeti.NumberTheory.ModularForms.SlashActionRat": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-          "TauCeti.NumberTheory.HeckeRing.GLn.Basic": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-          "TauCeti.LinearAlgebra.Matrix.GeneralLinearGroup.DoubleCoset": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-          "TauCeti.LinearAlgebra.Matrix.GeneralLinearGroup.Diagonal.Basic": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-          "TauCeti.Algebra.Group.Subgroup.Centralizer": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-          "TauCeti.RingTheory.PowerSeries.Support": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-          "TauCeti.Analysis.Complex.UpperHalfPlane.Manifold": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-          "TauCeti.Topology.DiscreteSeparation": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-          "TauCeti.NumberTheory.ModularForms.Cusps.Basic": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-          "TauCeti.Topology.Algebra.Group.LocallyConstant": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-          "TauCeti.NumberTheory.LocalField.UnitFiltration.Basic": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
-        },
-        "supplierNativeArtifacts": {
-          "TauCeti.Topology.Algebra.Group.LocallyConstant": "e66f653b6b7dc52ed9b1d01616246f9197bc3677f7861cdb459788d889edc800",
-          "TauCeti.NumberTheory.LocalField.UnitFiltration.Basic": "dd5e0cf19ea201a93a943cb43a135eaa20b7a2a23585fb4697ebb55080aa6ed8"
-        },
-        "nativeArtifactFileCount": 152,
-        "scope": "Source closure only for the current full suggested module. The compiled 332-node PMIA artifact and 31 existing Tau artifacts remain hash-verified available dependencies, across 152 artifact files. The required native TwistedDivisorSum artifact is unavailable at the compatible pins. The full current file was NOT COMPILED. The current 369-node PMIA source preserves the 332-node artifact interface; no compilation against the 369-node source is claimed. Seven Teichmuller source/object/log receipts from an existing native build are verified. PR4773 alone retains its successful full-module compiler result. No library build, Lake setup, update or cache fetch occurred. The existing native low-degree Tate module source, object and empty compiler log are also hash-verified; four existing artifact files are reused without a native build. Two further existing native periodicity/invariants modules and eight artifact files are verified against archived pinned sources, import metadata and the archived report/toolchain provenance, with the byte-identical LowDegree artifact as an independent anchor. Separate original compiler logs for those two modules were not located; no empty-log claim is made for them. The current complete native probe supplies a fresh compatibility check with zero errors or warnings. The historical build script was read only and was never executed.",
-        "currentModuleCompiled": false,
-        "requiredNativeTauModules": 32,
-        "availableNativeTauModules": 31,
-        "missingNativeArtifacts": [
-          "TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum"
-        ],
-        "lastCompiledPredecessor": {
-          "pr": 4773,
-          "result": {
-            "exitCode": 0,
-            "sourceSha256": "b94dc075211b100a37fbc4af775dc518cfcf92b90d0aa2a40a3ad7a5ad8a73ef",
-            "modules": 3573,
-            "warnings": 1803,
-            "errors": 0
-          }
-        },
-        "teichmullerReuse": {
-          "TauCeti.NumberTheory.LocalField.Teichmuller": {
-            "sourceSha256": "4964e5ff0f74c7f93baa0c8831640e027d4a33ecfaa6f4b1b8651e08632b2b68",
-            "objectSha256": "a74c88f4967df4fe74aeed816517e7a5bf6acc47f0c447ee2ba11d8a02cf5cc0",
-            "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    "inheritedCombinedHistory": {
+      "scope": "Historical own-session combined-packet checks, not checks of the current L2 split.",
+      "record": {
+        "blueprint": "The indexed blueprint checker reports zero errors and 26 advisory short-API warnings, including 26 inherited warnings. No new short-API warning is introduced.",
+        "intake": "Exactly four authorized deliverables; zero problems.",
+        "sourceIssues": "All 27 earlier source findings and eight source versions remain whole. No new source issue, independent review verdict or stage closure is added.",
+        "validation": {
+          "nodes": 2271,
+          "kinds": {
+            "definition": 22,
+            "lemma": 1433,
+            "construction": 250,
+            "theorem": 359,
+            "comparison": 207
           },
-          "TauCeti.FieldTheory.Finite.RootsOfUnity": {
-            "sourceSha256": "a0d276296236b6731ae0a452987a0430298994df3ff2f0d821796b81e6815be8",
-            "objectSha256": "55425bfffb80e87ce5eb1241deba5c4c68275c4b8850f1f14148fc50908bd3d9",
-            "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
-          },
-          "TauCeti.NumberTheory.LocalField.Henselian": {
-            "sourceSha256": "1d4094ebe8b8aeca2a388b396a26796fc05463ce6c499a8a729431d9e71e4d8c",
-            "objectSha256": "a4b847bed872748f4ba8845f64842827d89b014d40e42055fe52fe8636b5efd7",
-            "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
-          },
-          "TauCeti.RingTheory.RootsOfUnity.Henselian": {
-            "sourceSha256": "0888d26e6a8fe1f87a55bceb4cfe5542925ec0169fe765fdeea2cac76bf54b90",
-            "objectSha256": "ab80e76fb323bae19c2b319961acccb4e47bc50ae734ad071dcc735365fd6e3b",
-            "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
-          },
-          "TauCeti.RingTheory.RootsOfUnity.LocalRing": {
-            "sourceSha256": "438dcee46cedb9ac8b484d7a049d8fee67d0b88ffd507548668fb87255e22cfe",
-            "objectSha256": "dd1501ef55b87c428a001470b5eabcfe94bf37bba3b5e4bccf61772e8bd7856e",
-            "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
-          },
-          "TauCeti.RingTheory.RootsOfUnity.Basic": {
-            "sourceSha256": "5501edec3a11e4e228543c8fd76fc07bccf6bd6fdd9573d8ec2549946c0e559c",
-            "objectSha256": "9e11cb5dee5c493b9b515336c152483dc8da12f33e23b1cca2bdfbc123189e9d",
-            "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
-          },
-          "TauCeti.RingTheory.RootsOfUnity.ValuativeRel": {
-            "sourceSha256": "4429ab4b1ae3ab1c28752aad06896e5cdb94a0c3959d32d1209a10e1ea99df83",
-            "objectSha256": "0504ce2dd3d6092368fffc9ec18bbe15adf7ab3500af9064715f7e8293f31940",
-            "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
-          }
-        },
-        "tateLowDegreeReuse": {
-          "module": "TauCeti.RepresentationTheory.Homological.TateCohomology.LowDegree",
-          "sourceSha256": "1c896a85d09d70431a5cb128f6e6548b6738d0bebe9f61c4b538cc5f6f6591be",
-          "objectSha256": "a56f08707f38195f10fbda1879a21c2d2284e46f6e09d184c3366d75f4446bf7",
-          "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-          "existingArtifactsOnly": true,
-          "nativeBuildPerformed": false
-        },
-        "periodicityReuse": {
-          "modules": {
-            "TauCeti.RepresentationTheory.Invariants": {
-              "sourceSha256": "4cc9f3134b6eb6b316351d5152aac92486f359e9a519e78acf2a2043dd8f4454",
-              "objectSha256": "03476a68f9db4fd8f2db1141345454e2b9718d4533e2231a58bd15ebb375548c",
-              "ileanSha256": "68e0afaa184b5ce6c61dcc9132cc27ba4a2f12518faf7d9e813a3b7222138a0c",
-              "directImports": [
-                [
-                  "Mathlib.RepresentationTheory.Invariants",
-                  false,
-                  false,
-                  false
-                ]
-              ],
-              "artifactSha256": {
-                "TauCeti/RepresentationTheory/Invariants.olean": "03476a68f9db4fd8f2db1141345454e2b9718d4533e2231a58bd15ebb375548c",
-                "TauCeti/RepresentationTheory/Invariants.olean.private": "a1171bf7929e92d2d1e224ae4caca168801bb921c253ea2921cf22f3c63a221d",
-                "TauCeti/RepresentationTheory/Invariants.olean.server": "501cf116ad51eff68690b5a65e38e06ca5a91d83cc8b101de6ed46583c48936a",
-                "TauCeti/RepresentationTheory/Invariants.ir": "5796b9934b9d5e161c5894c96f87014f1abad473e44d8c9ce6a999111f9411b3"
-              },
-              "originalNativeCompilerLogAvailable": false
-            },
-            "TauCeti.RepresentationTheory.Homological.TateCohomology.Periodic": {
-              "sourceSha256": "8f66af553223d424e750de5521dcb28a30071d92a55096bdca45de3a24436c22",
-              "objectSha256": "12472d3b8c087b652c77291cb9b0b8ec36a5e961ff2b50aefdbd8735ac73e61a",
-              "ileanSha256": "74ec59328f3b6d1ea30b6b189ce1407074029abec7482c8001fc7dc902292e1b",
-              "directImports": [
-                [
-                  "Mathlib.RepresentationTheory.Homological.GroupCohomology.FiniteCyclic",
-                  false,
-                  false,
-                  false
-                ],
-                [
-                  "Mathlib.RepresentationTheory.Homological.GroupHomology.FiniteCyclic",
-                  false,
-                  false,
-                  false
-                ],
-                [
-                  "TauCeti.RepresentationTheory.Invariants",
-                  false,
-                  false,
-                  false
-                ],
-                [
-                  "TauCeti.RepresentationTheory.Homological.TateCohomology.LowDegree",
-                  false,
-                  false,
-                  false
-                ]
-              ],
-              "artifactSha256": {
-                "TauCeti/RepresentationTheory/Homological/TateCohomology/Periodic.olean": "12472d3b8c087b652c77291cb9b0b8ec36a5e961ff2b50aefdbd8735ac73e61a",
-                "TauCeti/RepresentationTheory/Homological/TateCohomology/Periodic.olean.private": "5a62fca1003f6e2a6cc303d8cb2787250a13a4b42f025fa8557a011aa915f8a4",
-                "TauCeti/RepresentationTheory/Homological/TateCohomology/Periodic.olean.server": "9bc4891ad0b58ef0e192894b9ef940f2b1b0e4bfaaa68a8a9a5ea2eb492d32b2",
-                "TauCeti/RepresentationTheory/Homological/TateCohomology/Periodic.ir": "09fab25e03a7daa4c20c553e7e214bf0f7834d6b21957cd660bd82a53aeb7922"
-              },
-              "originalNativeCompilerLogAvailable": false
+          "api": 1530,
+          "packetTests": 3962,
+          "definitionConstructionTests": 1025,
+          "typedExamples": 3965,
+          "planets": 24,
+          "baseline": 1289,
+          "preservedWholeNodes": 2258,
+          "preservedBaseline": 1285,
+          "preservedSourceIssues": 27,
+          "newSourceIssues": 0,
+          "newNodes": 13,
+          "newNamedDeclarations": 13,
+          "newTypedTests": 18,
+          "requests": 16,
+          "gaps": 18,
+          "closedStages": 0,
+          "reachableNodes": 2533,
+          "dependencyEdges": 10116,
+          "acyclic": true,
+          "baselineLeaves": 1455,
+          "stageRequestLeaves": [
+            "AdicSpacesPartII:F1",
+            "AdicSpacesPartII:R2",
+            "ColemanIntegration:L0",
+            "LocallyAnalyticDistributions:L0",
+            "LocallyAnalyticDistributions:L1",
+            "PadicDifferentialEquationsAndRigidCohomology:RD.0",
+            "PadicDifferentialEquationsAndRigidCohomology:RD.4",
+            "PadicDifferentialEquationsAndRigidCohomology:RD.6",
+            "PadicHodgeTheory:P7:annulus-foundations",
+            "PadicMeasuresIwasawaAlgebras:L1",
+            "PadicMeasuresIwasawaAlgebras:L2",
+            "PadicMeasuresIwasawaAlgebras:L3"
+          ],
+          "readerWords": 1168597,
+          "scopedMutationCheck": true,
+          "correctedPredecessorNodes": 0,
+          "fullSuggestedCompiled": false,
+          "compilerErrors": null,
+          "compilerWarnings": null,
+          "lastCompiledPredecessor": {
+            "pr": 4773,
+            "result": {
+              "exitCode": 0,
+              "sourceSha256": "b94dc075211b100a37fbc4af775dc518cfcf92b90d0aa2a40a3ad7a5ad8a73ef",
+              "modules": 3573,
+              "warnings": 1803,
+              "errors": 0
             }
           },
-          "anchorLowDegreeObjectSha256": "a56f08707f38195f10fbda1879a21c2d2284e46f6e09d184c3366d75f4446bf7",
-          "reportSha256": "eb513550b7fea3ef65eb4420f9455f584a6ea8ebff16e435c6a5dca2e78130ec",
-          "checkScriptSha256": "43c188dc1d97ff6c1070ee7e694e5fe909e1747bf2f2ddb14b372082b06eccb6",
-          "historicalBuildScriptSha256": "02fc2a51bd33cc6107700fbb9e2071b6b55e34472ec7b2f7f98165632e5d888a",
-          "lakePathsSha256": "a58c45c1f6dbb9a63f6ecf935c4886a5388ce3ad8965721a57abb0da8c6e29a8",
-          "nativeBuildPerformed": false,
-          "existingArtifactsOnly": true,
-          "provenance": "Archived source bytes match the exact pinned Tau files. The old report/check script identifies both baseline commits and the old lake path identifies Lean4.34rc2. The imported LowDegree object is byte-identical to the separately verified existing receipt. Original separate native compiler logs were not located, so no empty-log claim is made for these two reused modules. The old build script was read only; never executed."
-        }
-      },
-      "partialSignatures": {
-        "exitCode": 0,
-        "sourceSha256": "bc1ec71501dc8d5af4628922a0f214df0262d207f723bcd87741703e8e2fde7d",
-        "modules": 3914,
-        "warnings": 6581,
-        "errors": 0,
-        "scope": "The separate partial signature file also compiled with zero errors and 6,581 expected placeholder warnings across 3,914 pinned source modules. It includes all 13 new named declarations and 18 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: bc1ec71501dc8d5af4628922a0f214df0262d207f723bcd87741703e8e2fde7d.",
-        "fullSuggestedFile": false,
-        "documentedOmissionsRetained": true
+          "supplierNodes": 332,
+          "currentSupplierNodes": 369,
+          "supplierArtifactAvailable": true,
+          "supplierArtifactUsedForCurrentCompile": false,
+          "pinnedMathlibSourceModules": 3915,
+          "requiredPinnedTauSourceModules": 32,
+          "availablePinnedTauArtifacts": 31,
+          "missingPinnedTauArtifacts": [
+            "TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum"
+          ],
+          "scratchCompleteDefinitions": 192,
+          "scratchCompleteLemmas": 1555,
+          "scratchMathlibModules": 3282,
+          "scratchTauModules": 10,
+          "scratchErrors": 0,
+          "scratchWarnings": 0,
+          "scratchPlaceholders": 0,
+          "finiteControls": {
+            "levels": 36,
+            "primaryKernelEquivalences": 53,
+            "primaryUnitCoordinates": 361,
+            "subsetProducts": 109,
+            "uniquePrimaryTuples": 583,
+            "productCoefficients": 1167
+          },
+          "numericalControlsCertified": false,
+          "newRoutesStageLeaves": [],
+          "partialSignatures": {
+            "exitCode": 0,
+            "sourceSha256": "bc1ec71501dc8d5af4628922a0f214df0262d207f723bcd87741703e8e2fde7d",
+            "modules": 3914,
+            "warnings": 6581,
+            "errors": 0,
+            "scope": "The separate partial signature file also compiled with zero errors and 6,581 expected placeholder warnings across 3,914 pinned source modules. It includes all 13 new named declarations and 18 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: bc1ec71501dc8d5af4628922a0f214df0262d207f723bcd87741703e8e2fde7d.",
+            "fullSuggestedFile": false,
+            "documentedOmissionsRetained": true
+          },
+          "blueprintWarnings": [
+            "warning DirichletPadicLFunctions:L3/kubert-parity-lift: api outline has only 2 item(s)",
+            "warning DirichletPadicLFunctions:L3/kubert-orbit-relations: api outline has only 2 item(s)",
+            "warning DirichletPadicLFunctions:L3/kubert-normalized-lift: api outline has only 2 item(s)",
+            "warning DirichletPadicLFunctions:L3/kubert-primary-primary-component-equiv: api outline has only 2 item(s)",
+            "warning DirichletPadicLFunctions:L3/kubert-generator-product-exceptional-primitive: api outline has only 2 item(s)",
+            "warning DirichletPadicLFunctions:L3/kubert-presentation-source-to-global: api outline has only 2 item(s)",
+            "warning DirichletPadicLFunctions:L3/kubert-congruence-level-coordinates: api outline has only 2 item(s)",
+            "warning DirichletPadicLFunctions:L3/kubert-congruence-primitive-level-equiv: api outline has only 2 item(s)",
+            "warning DirichletPadicLFunctions:L3/kubert-congruence-circle-level-module: api outline has only 2 item(s)",
+            "warning DirichletPadicLFunctions:L3/kubert-cartan-equivariance-cartan-norm-intertwining: api outline has only 2 item(s)",
+            "warning DirichletPadicLFunctions:L3/kubert-cartan-products-cartan-product-intertwining: api outline has only 2 item(s)",
+            "warning DirichletPadicLFunctions:L3/kubert-cartan-limit-cartan-witt-representation: api outline has only 2 item(s)",
+            "warning DirichletPadicLFunctions:L3/kubert-cartan-inverse-limit-cartan-prime-power-cone: api outline has only 2 item(s)",
+            "warning DirichletPadicLFunctions:L3/kubert-cartan-group-limit-cartan-unit-cone-ring: api outline has only 2 item(s)",
+            "warning DirichletPadicLFunctions:L3/kubert-cartan-padic-cartan-degree-one-padic-units-equiv: api outline has only 2 item(s)",
+            "warning DirichletPadicLFunctions:L3/kubert-profinite-cartan-finite-group: api outline has only 1 item(s)",
+            "warning DirichletPadicLFunctions:L3/kubert-profinite-cartan-factorial-diagram: api outline has only 1 item(s)",
+            "warning DirichletPadicLFunctions:L3/kubert-profinite-cartan-to-profinite-limit: api outline has only 2 item(s)",
+            "warning DirichletPadicLFunctions:L3/kubert-profinite-cartan-profinite-continuous-equiv: api outline has only 2 item(s)",
+            "warning DirichletPadicLFunctions:L3/kubert-degree-one-finite-cartan-degree-one-finite-equiv: api outline has only 2 item(s)",
+            "warning DirichletPadicLFunctions:L3/kubert-all-root-level-root-equiv: api outline has only 2 item(s)",
+            "warning DirichletPadicLFunctions:L3/kubert-direct-limit-cartan-factorial-norm: api outline has only 1 item(s)",
+            "warning DirichletPadicLFunctions:L3/kubert-direct-limit-cartan-factorial-of: api outline has only 1 item(s)",
+            "warning DirichletPadicLFunctions:L3/kubert-tate-periodicity-sign-group-h1-neg-one-equiv: api outline has only 2 item(s)",
+            "warning DirichletPadicLFunctions:L3/kubert-rational-factors-rational-prime-coset-sum: api outline has only 2 item(s)",
+            "warning DirichletPadicLFunctions:L3/kubert-corrected-quotient-rational-cartan-quotient-linear: api outline has only 2 item(s)"
+          ]
+        },
+        "lean": {
+          "status": "NOT COMPILED: required pinned native artifact unavailable",
+          "compiled": false,
+          "errors": null,
+          "warnings": null,
+          "sha256": "ce75c4bd3e586fa3ec16ad470aecaa1ba5a8c946998e48e7be1880ff17f31e9f",
+          "missingNativeArtifacts": [
+            "TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum"
+          ],
+          "lastCompiledPredecessor": {
+            "pr": 4773,
+            "result": {
+              "exitCode": 0,
+              "sourceSha256": "b94dc075211b100a37fbc4af775dc518cfcf92b90d0aa2a40a3ad7a5ad8a73ef",
+              "modules": 3573,
+              "warnings": 1803,
+              "errors": 0
+            }
+          },
+          "nativeProbe": {
+            "completeLemmas": 1555,
+            "errors": 0,
+            "warnings": 0,
+            "placeholders": 0,
+            "sha256": "ee34b78d27769ca0074a30921ae05cb719238aa271f7d5959eb81f14cfe2d9b3"
+          },
+          "sourceAndAvailableArtifactAudit": {
+            "compiledSupplierNodes": 332,
+            "currentSupplierNodes": 369,
+            "supplierWarnings": 707,
+            "supplierFreshlyElaborated": false,
+            "hashes": {
+              "source": "f50d6790f3f03e302b3622fe57b99d2bd81ed0c722a9274d2875c3886864ebf4",
+              "olean": "4b34a19961eec73bfa90a280566521896e8ecbc1ec706982525962146a7b7f88",
+              "log": "d16ae7a3163aed649ee9eba01e7d6837831e42797c510a6bdd861be97cddce75"
+            },
+            "wholeOldBodyPreserved": true,
+            "currentSupplierSourceSha256": "e3779c11b149f5e5b14b11ba3b95e881d2ccd9b0e5fd61bdbae3dfaaf896a6cf",
+            "nativeTauModules": 32,
+            "nativeMathlibModules": 3915,
+            "artifactSha256": {
+              "TauCeti.RepresentationTheory.Homological.TateCohomology.Periodic": "12472d3b8c087b652c77291cb9b0b8ec36a5e961ff2b50aefdbd8735ac73e61a",
+              "TauCeti.RepresentationTheory.Invariants": "03476a68f9db4fd8f2db1141345454e2b9718d4533e2231a58bd15ebb375548c",
+              "TauCeti.RepresentationTheory.Homological.TateCohomology.LowDegree": "a56f08707f38195f10fbda1879a21c2d2284e46f6e09d184c3366d75f4446bf7",
+              "TauCeti.NumberTheory.LocalField.Teichmuller": "a74c88f4967df4fe74aeed816517e7a5bf6acc47f0c447ee2ba11d8a02cf5cc0",
+              "TauCeti.FieldTheory.Finite.RootsOfUnity": "55425bfffb80e87ce5eb1241deba5c4c68275c4b8850f1f14148fc50908bd3d9",
+              "TauCeti.NumberTheory.LocalField.Henselian": "a4b847bed872748f4ba8845f64842827d89b014d40e42055fe52fe8636b5efd7",
+              "TauCeti.RingTheory.RootsOfUnity.Henselian": "ab80e76fb323bae19c2b319961acccb4e47bc50ae734ad071dcc735365fd6e3b",
+              "TauCeti.RingTheory.RootsOfUnity.LocalRing": "dd1501ef55b87c428a001470b5eabcfe94bf37bba3b5e4bccf61772e8bd7856e",
+              "TauCeti.RingTheory.RootsOfUnity.Basic": "9e11cb5dee5c493b9b515336c152483dc8da12f33e23b1cca2bdfbc123189e9d",
+              "TauCeti.RingTheory.RootsOfUnity.ValuativeRel": "0504ce2dd3d6092368fffc9ec18bbe15adf7ab3500af9064715f7e8293f31940",
+              "TauCeti.NumberTheory.ModularForms.Degeneracy": "2016655e67266e5582e3bddcd93a5ed68af362af30b64c88734ec2e748764d72",
+              "TauCeti.Data.ZMod.Divisibility": "8751616831392059bebd4351279bc07fc8a02b3687d28d1c815d0b904473ecfb",
+              "TauCeti.Algebra.GroupWithZero.Divisibility": "d8f4bf8a1728da45f6c53fbb8286c5b895d7047cd08d9fcd81b64b2505889f84",
+              "TauCeti.NumberTheory.ModularForms.Basic": "23899f59f71dc847a8e2cc6bc8e6fef776dcbef1c538aa5d9fd0b3e5d3f5929d",
+              "TauCeti.Analysis.Complex.UpperHalfPlane.MoebiusAction": "35132289eb0fe82abae95efcdb82c26d34adc763bb74f2a9fa8fd50d6267a3a6",
+              "TauCeti.NumberTheory.ModularForms.CongruenceSubgroups.Units": "a65d2c3defc8a95cd90dd7b8f43f41658852796d48f07b9c5b8ffa6e57106c47",
+              "TauCeti.NumberTheory.ModularForms.CongruenceSubgroups.Basic": "b50d612d695c8ebc257b7f401492ccc81f0da0da760434d2f2474ff214ea0eb6",
+              "TauCeti.LinearAlgebra.Matrix.SpecialLinearGroup.Basic": "43f818e123177d26034bf712256845a86d470751829665e2c0861c981cb8d139",
+              "TauCeti.Data.ZMod.Units": "851735abe5f1587518dc31c25d6e8fdc68bc24ac70f610d37582c6476649f0f2",
+              "TauCeti.NumberTheory.ModularForms.DiamondOperators": "25e75934b43aaf1b6399341ce62e404762eeb64e5a03e65e6399616c340499fd",
+              "TauCeti.NumberTheory.ModularForms.SlashActionRat": "03a81db422f21dabda08a5e8d7d8229cf6b861f0fc6dd95fd1daa6db58d8753e",
+              "TauCeti.NumberTheory.HeckeRing.GLn.Basic": "e509998eda8d398e9f141bbc6fe3e256179342c9a4d5f8c3b7d37c6839620cfd",
+              "TauCeti.LinearAlgebra.Matrix.GeneralLinearGroup.DoubleCoset": "9b1098ef93027f0455e3be9d88879f194716b5ecb045f7d5830438af95e8dccc",
+              "TauCeti.LinearAlgebra.Matrix.GeneralLinearGroup.Diagonal.Basic": "c924051ab73a640801b370eea23b81f03fee7e6f772bfbcea91189d68af72d16",
+              "TauCeti.Algebra.Group.Subgroup.Centralizer": "4d86210849b3b8c4752b76f32658a419b4419e82955a0288a9c2a57bba91474e",
+              "TauCeti.RingTheory.PowerSeries.Support": "9834a0db712ca2c2512559efad99b5c027e374069de17a1266fdc0457488a67f",
+              "TauCeti.Analysis.Complex.UpperHalfPlane.Manifold": "e595b347e823cb1e4b9340a4800cce7c61b72a523169f9545983666b47bc0e0f",
+              "TauCeti.Topology.DiscreteSeparation": "b52d85d020754b97a57c629ca49e6dc747752971bb48b8ba87b31eab37e09433",
+              "TauCeti.NumberTheory.ModularForms.Cusps.Basic": "4fc5f585625b3f687d57e6dc2a136f20f232d2a374a99d9914c4ef696be306d2",
+              "TauCeti.Topology.Algebra.Group.LocallyConstant": "e66f653b6b7dc52ed9b1d01616246f9197bc3677f7861cdb459788d889edc800",
+              "TauCeti.NumberTheory.LocalField.UnitFiltration.Basic": "dd5e0cf19ea201a93a943cb43a135eaa20b7a2a23585fb4697ebb55080aa6ed8"
+            },
+            "nativeLogSha256": {
+              "TauCeti.RepresentationTheory.Homological.TateCohomology.LowDegree": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "TauCeti.NumberTheory.LocalField.Teichmuller": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "TauCeti.FieldTheory.Finite.RootsOfUnity": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "TauCeti.NumberTheory.LocalField.Henselian": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "TauCeti.RingTheory.RootsOfUnity.Henselian": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "TauCeti.RingTheory.RootsOfUnity.LocalRing": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "TauCeti.RingTheory.RootsOfUnity.Basic": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "TauCeti.RingTheory.RootsOfUnity.ValuativeRel": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "TauCeti.NumberTheory.ModularForms.Degeneracy": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "TauCeti.Data.ZMod.Divisibility": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "TauCeti.Algebra.GroupWithZero.Divisibility": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "TauCeti.NumberTheory.ModularForms.Basic": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "TauCeti.Analysis.Complex.UpperHalfPlane.MoebiusAction": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "TauCeti.NumberTheory.ModularForms.CongruenceSubgroups.Units": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "TauCeti.NumberTheory.ModularForms.CongruenceSubgroups.Basic": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "TauCeti.LinearAlgebra.Matrix.SpecialLinearGroup.Basic": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "TauCeti.Data.ZMod.Units": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "TauCeti.NumberTheory.ModularForms.DiamondOperators": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "TauCeti.NumberTheory.ModularForms.SlashActionRat": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "TauCeti.NumberTheory.HeckeRing.GLn.Basic": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "TauCeti.LinearAlgebra.Matrix.GeneralLinearGroup.DoubleCoset": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "TauCeti.LinearAlgebra.Matrix.GeneralLinearGroup.Diagonal.Basic": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "TauCeti.Algebra.Group.Subgroup.Centralizer": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "TauCeti.RingTheory.PowerSeries.Support": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "TauCeti.Analysis.Complex.UpperHalfPlane.Manifold": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "TauCeti.Topology.DiscreteSeparation": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "TauCeti.NumberTheory.ModularForms.Cusps.Basic": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "TauCeti.Topology.Algebra.Group.LocallyConstant": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "TauCeti.NumberTheory.LocalField.UnitFiltration.Basic": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "supplierNativeArtifacts": {
+              "TauCeti.Topology.Algebra.Group.LocallyConstant": "e66f653b6b7dc52ed9b1d01616246f9197bc3677f7861cdb459788d889edc800",
+              "TauCeti.NumberTheory.LocalField.UnitFiltration.Basic": "dd5e0cf19ea201a93a943cb43a135eaa20b7a2a23585fb4697ebb55080aa6ed8"
+            },
+            "nativeArtifactFileCount": 152,
+            "scope": "Source closure only for the current full suggested module. The compiled 332-node PMIA artifact and 31 existing Tau artifacts remain hash-verified available dependencies, across 152 artifact files. The required native TwistedDivisorSum artifact is unavailable at the compatible pins. The full current file was NOT COMPILED. The current 369-node PMIA source preserves the 332-node artifact interface; no compilation against the 369-node source is claimed. Seven Teichmuller source/object/log receipts from an existing native build are verified. PR4773 alone retains its successful full-module compiler result. No library build, Lake setup, update or cache fetch occurred. The existing native low-degree Tate module source, object and empty compiler log are also hash-verified; four existing artifact files are reused without a native build. Two further existing native periodicity/invariants modules and eight artifact files are verified against archived pinned sources, import metadata and the archived report/toolchain provenance, with the byte-identical LowDegree artifact as an independent anchor. Separate original compiler logs for those two modules were not located; no empty-log claim is made for them. The current complete native probe supplies a fresh compatibility check with zero errors or warnings. The historical build script was read only and was never executed.",
+            "currentModuleCompiled": false,
+            "requiredNativeTauModules": 32,
+            "availableNativeTauModules": 31,
+            "missingNativeArtifacts": [
+              "TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum"
+            ],
+            "lastCompiledPredecessor": {
+              "pr": 4773,
+              "result": {
+                "exitCode": 0,
+                "sourceSha256": "b94dc075211b100a37fbc4af775dc518cfcf92b90d0aa2a40a3ad7a5ad8a73ef",
+                "modules": 3573,
+                "warnings": 1803,
+                "errors": 0
+              }
+            },
+            "teichmullerReuse": {
+              "TauCeti.NumberTheory.LocalField.Teichmuller": {
+                "sourceSha256": "4964e5ff0f74c7f93baa0c8831640e027d4a33ecfaa6f4b1b8651e08632b2b68",
+                "objectSha256": "a74c88f4967df4fe74aeed816517e7a5bf6acc47f0c447ee2ba11d8a02cf5cc0",
+                "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+              },
+              "TauCeti.FieldTheory.Finite.RootsOfUnity": {
+                "sourceSha256": "a0d276296236b6731ae0a452987a0430298994df3ff2f0d821796b81e6815be8",
+                "objectSha256": "55425bfffb80e87ce5eb1241deba5c4c68275c4b8850f1f14148fc50908bd3d9",
+                "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+              },
+              "TauCeti.NumberTheory.LocalField.Henselian": {
+                "sourceSha256": "1d4094ebe8b8aeca2a388b396a26796fc05463ce6c499a8a729431d9e71e4d8c",
+                "objectSha256": "a4b847bed872748f4ba8845f64842827d89b014d40e42055fe52fe8636b5efd7",
+                "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+              },
+              "TauCeti.RingTheory.RootsOfUnity.Henselian": {
+                "sourceSha256": "0888d26e6a8fe1f87a55bceb4cfe5542925ec0169fe765fdeea2cac76bf54b90",
+                "objectSha256": "ab80e76fb323bae19c2b319961acccb4e47bc50ae734ad071dcc735365fd6e3b",
+                "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+              },
+              "TauCeti.RingTheory.RootsOfUnity.LocalRing": {
+                "sourceSha256": "438dcee46cedb9ac8b484d7a049d8fee67d0b88ffd507548668fb87255e22cfe",
+                "objectSha256": "dd1501ef55b87c428a001470b5eabcfe94bf37bba3b5e4bccf61772e8bd7856e",
+                "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+              },
+              "TauCeti.RingTheory.RootsOfUnity.Basic": {
+                "sourceSha256": "5501edec3a11e4e228543c8fd76fc07bccf6bd6fdd9573d8ec2549946c0e559c",
+                "objectSha256": "9e11cb5dee5c493b9b515336c152483dc8da12f33e23b1cca2bdfbc123189e9d",
+                "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+              },
+              "TauCeti.RingTheory.RootsOfUnity.ValuativeRel": {
+                "sourceSha256": "4429ab4b1ae3ab1c28752aad06896e5cdb94a0c3959d32d1209a10e1ea99df83",
+                "objectSha256": "0504ce2dd3d6092368fffc9ec18bbe15adf7ab3500af9064715f7e8293f31940",
+                "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+              }
+            },
+            "tateLowDegreeReuse": {
+              "module": "TauCeti.RepresentationTheory.Homological.TateCohomology.LowDegree",
+              "sourceSha256": "1c896a85d09d70431a5cb128f6e6548b6738d0bebe9f61c4b538cc5f6f6591be",
+              "objectSha256": "a56f08707f38195f10fbda1879a21c2d2284e46f6e09d184c3366d75f4446bf7",
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "existingArtifactsOnly": true,
+              "nativeBuildPerformed": false
+            },
+            "periodicityReuse": {
+              "modules": {
+                "TauCeti.RepresentationTheory.Invariants": {
+                  "sourceSha256": "4cc9f3134b6eb6b316351d5152aac92486f359e9a519e78acf2a2043dd8f4454",
+                  "objectSha256": "03476a68f9db4fd8f2db1141345454e2b9718d4533e2231a58bd15ebb375548c",
+                  "ileanSha256": "68e0afaa184b5ce6c61dcc9132cc27ba4a2f12518faf7d9e813a3b7222138a0c",
+                  "directImports": [
+                    [
+                      "Mathlib.RepresentationTheory.Invariants",
+                      false,
+                      false,
+                      false
+                    ]
+                  ],
+                  "artifactSha256": {
+                    "TauCeti/RepresentationTheory/Invariants.olean": "03476a68f9db4fd8f2db1141345454e2b9718d4533e2231a58bd15ebb375548c",
+                    "TauCeti/RepresentationTheory/Invariants.olean.private": "a1171bf7929e92d2d1e224ae4caca168801bb921c253ea2921cf22f3c63a221d",
+                    "TauCeti/RepresentationTheory/Invariants.olean.server": "501cf116ad51eff68690b5a65e38e06ca5a91d83cc8b101de6ed46583c48936a",
+                    "TauCeti/RepresentationTheory/Invariants.ir": "5796b9934b9d5e161c5894c96f87014f1abad473e44d8c9ce6a999111f9411b3"
+                  },
+                  "originalNativeCompilerLogAvailable": false
+                },
+                "TauCeti.RepresentationTheory.Homological.TateCohomology.Periodic": {
+                  "sourceSha256": "8f66af553223d424e750de5521dcb28a30071d92a55096bdca45de3a24436c22",
+                  "objectSha256": "12472d3b8c087b652c77291cb9b0b8ec36a5e961ff2b50aefdbd8735ac73e61a",
+                  "ileanSha256": "74ec59328f3b6d1ea30b6b189ce1407074029abec7482c8001fc7dc902292e1b",
+                  "directImports": [
+                    [
+                      "Mathlib.RepresentationTheory.Homological.GroupCohomology.FiniteCyclic",
+                      false,
+                      false,
+                      false
+                    ],
+                    [
+                      "Mathlib.RepresentationTheory.Homological.GroupHomology.FiniteCyclic",
+                      false,
+                      false,
+                      false
+                    ],
+                    [
+                      "TauCeti.RepresentationTheory.Invariants",
+                      false,
+                      false,
+                      false
+                    ],
+                    [
+                      "TauCeti.RepresentationTheory.Homological.TateCohomology.LowDegree",
+                      false,
+                      false,
+                      false
+                    ]
+                  ],
+                  "artifactSha256": {
+                    "TauCeti/RepresentationTheory/Homological/TateCohomology/Periodic.olean": "12472d3b8c087b652c77291cb9b0b8ec36a5e961ff2b50aefdbd8735ac73e61a",
+                    "TauCeti/RepresentationTheory/Homological/TateCohomology/Periodic.olean.private": "5a62fca1003f6e2a6cc303d8cb2787250a13a4b42f025fa8557a011aa915f8a4",
+                    "TauCeti/RepresentationTheory/Homological/TateCohomology/Periodic.olean.server": "9bc4891ad0b58ef0e192894b9ef940f2b1b0e4bfaaa68a8a9a5ea2eb492d32b2",
+                    "TauCeti/RepresentationTheory/Homological/TateCohomology/Periodic.ir": "09fab25e03a7daa4c20c553e7e214bf0f7834d6b21957cd660bd82a53aeb7922"
+                  },
+                  "originalNativeCompilerLogAvailable": false
+                }
+              },
+              "anchorLowDegreeObjectSha256": "a56f08707f38195f10fbda1879a21c2d2284e46f6e09d184c3366d75f4446bf7",
+              "reportSha256": "eb513550b7fea3ef65eb4420f9455f584a6ea8ebff16e435c6a5dca2e78130ec",
+              "checkScriptSha256": "43c188dc1d97ff6c1070ee7e694e5fe909e1747bf2f2ddb14b372082b06eccb6",
+              "historicalBuildScriptSha256": "02fc2a51bd33cc6107700fbb9e2071b6b55e34472ec7b2f7f98165632e5d888a",
+              "lakePathsSha256": "a58c45c1f6dbb9a63f6ecf935c4886a5388ce3ad8965721a57abb0da8c6e29a8",
+              "nativeBuildPerformed": false,
+              "existingArtifactsOnly": true,
+              "provenance": "Archived source bytes match the exact pinned Tau files. The old report/check script identifies both baseline commits and the old lake path identifies Lean4.34rc2. The imported LowDegree object is byte-identical to the separately verified existing receipt. Original separate native compiler logs were not located, so no empty-log claim is made for these two reused modules. The old build script was read only; never executed."
+            }
+          },
+          "partialSignatures": {
+            "exitCode": 0,
+            "sourceSha256": "bc1ec71501dc8d5af4628922a0f214df0262d207f723bcd87741703e8e2fde7d",
+            "modules": 3914,
+            "warnings": 6581,
+            "errors": 0,
+            "scope": "The separate partial signature file also compiled with zero errors and 6,581 expected placeholder warnings across 3,914 pinned source modules. It includes all 13 new named declarations and 18 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: bc1ec71501dc8d5af4628922a0f214df0262d207f723bcd87741703e8e2fde7d.",
+            "fullSuggestedFile": false,
+            "documentedOmissionsRetained": true
+          }
+        },
+        "publication": {
+          "base": "fcbc9decd8e2b4e2cb51d562fc3de0f023d2031e",
+          "unchangedInputs": 79,
+          "unchangedOutputs": 4,
+          "sameSessionFollowupAfterMerge": true,
+          "lastClaimConfirmation": 5854791937,
+          "reviewIssue": 390,
+          "reviewUnclaimed": true
+        },
+        "closure": "Partial: 18 gaps, 16 requests (PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3, LocallyAnalyticDistributions:L1, AdicSpacesPartII:F1, AdicSpacesPartII:R2, PadicDifferentialEquationsAndRigidCohomology:RD.0, PadicDifferentialEquationsAndRigidCohomology:RD.4, PadicHodgeTheory:P7:annulus-foundations, PadicMeasuresIwasawaAlgebras:L2, LocallyAnalyticDistributions:L1, LocallyAnalyticDistributions:L0, LocallyAnalyticDistributions:L0, ColemanIntegration:L0, PadicDifferentialEquationsAndRigidCohomology:RD.6, PadicDifferentialEquationsAndRigidCohomology:RD.6), zero closed stages; every implementation status unchecked.",
+        "split": "Split by layer on 2026-10-02 from the whole-roadmap packet; these checks describe that packet, so the next worker re-runs them on this part."
       }
     },
-    "publication": {
-      "base": "fcbc9decd8e2b4e2cb51d562fc3de0f023d2031e",
-      "unchangedInputs": 79,
-      "unchangedOutputs": 4,
-      "sameSessionFollowupAfterMerge": true,
-      "lastClaimConfirmation": 5854791937,
-      "reviewIssue": 390,
-      "reviewUnclaimed": true
-    },
-    "closure": "Partial: 18 gaps, 16 requests (PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3, LocallyAnalyticDistributions:L1, AdicSpacesPartII:F1, AdicSpacesPartII:R2, PadicDifferentialEquationsAndRigidCohomology:RD.0, PadicDifferentialEquationsAndRigidCohomology:RD.4, PadicHodgeTheory:P7:annulus-foundations, PadicMeasuresIwasawaAlgebras:L2, LocallyAnalyticDistributions:L1, LocallyAnalyticDistributions:L0, LocallyAnalyticDistributions:L0, ColemanIntegration:L0, PadicDifferentialEquationsAndRigidCohomology:RD.6, PadicDifferentialEquationsAndRigidCohomology:RD.6), zero closed stages; every implementation status unchecked.",
-    "split": "Split by layer on 2026-10-02 from the whole-roadmap packet; these checks describe that packet, so the next worker re-runs them on this part."
+    "currentL2": {
+      "counts": {
+        "nodes": 252,
+        "inherited": 248,
+        "new": 4,
+        "kinds": {
+          "construction": 20,
+          "lemma": 85,
+          "comparison": 84,
+          "theorem": 62,
+          "definition": 1
+        },
+        "API": 162,
+        "tests": 543,
+        "definitionConstructionTests": 89,
+        "planets": 6,
+        "baseline": 326,
+        "gaps": 2,
+        "requests": 2
+      },
+      "allImplementationUnchecked": true,
+      "inheritedNodesPreservedWhole": 248,
+      "fullSuggestedCompiled": false,
+      "typing": {
+        "checks": [
+          {
+            "source": "PrimitiveProbe.lean",
+            "sha256": "7466fca267b0d6969f9ae823f16c43159baf8ad968e9d4092eca39aa9ff324e7",
+            "log": "PrimitiveProbe.public.log",
+            "logSha256": "3bfe5a3bf1c0861b9b6c15461aa030db0fa622d31c995440ad5dcdb34fe35196",
+            "exitCode": 0,
+            "errors": 0,
+            "sorryWarnings": 0,
+            "otherWarnings": 0,
+            "scope": "Actual native conductor proof without placeholders."
+          },
+          {
+            "source": "PrimitiveSignatures.lean",
+            "sha256": "c91dff5d6b9848f7baef412e61327fb46bbc2d9b6c5806f2f1ea36a6e5e0b345",
+            "log": "PrimitiveSignatures.public.log",
+            "logSha256": "f18e0f3daa64834893c698f264d8ff3c0743e3568b11f119ee9daf6394f2a92e",
+            "exitCode": 0,
+            "errors": 0,
+            "sorryWarnings": 6,
+            "otherWarnings": 0,
+            "scope": "Two primitive-product signatures and four examples only; excludes measure-valued interpolation and uniqueness signatures."
+          }
+        ],
+        "fullSuggestedCompiled": false,
+        "reason": "The L1 split prototype module is absent, and no matching compiled current supplier modules were found. No library build is allowed by WORKERS.md.",
+        "compiler": "Lean 4.34.0-rc2 / 6a10ac8c22beadecabdbb0919c2b50214762f91d",
+        "sourceModules": 1402
+      },
+      "finiteControls": {
+        "exactAssertions": 252,
+        "coprimePrimitivePairs": 29,
+        "characterLevels": [
+          1,
+          3,
+          4,
+          5,
+          7,
+          8
+        ],
+        "quadraticProductMoments": {
+          "weight2": -2,
+          "weight4": 46
+        },
+        "trivialWildFirstMoment": "2/3",
+        "inflationCounterexample": {
+          "level": 6,
+          "conductor": 3,
+          "valueAt2AtLevel": 0,
+          "valueAt2AtConductor": -1
+        },
+        "scope": "Exact finite conductor and Bernoulli controls, not a measure construction, separation proof, or numerical approximation."
+      },
+      "sourceReading": "Published §§5.1–5.2 freshly read at the recorded digest; three inherited source issues retained unchanged.",
+      "baseline": "326 native records;323 inherited own-session statement reads retained,3 new statements freshly read. All126 cited source files authenticated at the pin.",
+      "closure": "Two precisely requested PMIA inputs remain; stage planned, not closed."
+    }
   },
   "provenance": {
     "split": {
@@ -32078,6 +32411,16 @@
         "fullSuggestedFile": false,
         "documentedOmissionsRetained": true
       }
+    },
+    "l2TargetCompletion": {
+      "worker": "Codex — codex-7e92bd",
+      "issue": 5880,
+      "date": "2026-10-05",
+      "inheritedNodes": 248,
+      "newNodes": 4,
+      "scope": "Historical provenance entries above describe the combined same-worker packet. Current split checks replace the historical checks object. No independent review is claimed.",
+      "newReading": "RJW published physical PDF40–48, printed139–147, all of §§5.1–5.2; same authenticated digest. Inherited statement-read and source records are retained as historical own-session evidence, not a claim of freshly rereading every inherited node or all ten sources.",
+      "historicalFrontierCorrection": "The old next log-coefficient task is owned by L3. L2 now covers each stated target and stops at252 nodes with two exact supplier requests."
     }
   },
   "requestResolutions": [
