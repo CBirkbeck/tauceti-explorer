@@ -3269,6 +3269,123 @@
         "module": "Mathlib/Algebra/MvPolynomial/Equiv.lean",
         "provides": "Existing algebra equivalence from polynomials in an empty variable type to the coefficient ring.",
         "checked": "Actual whole statement and proof/construction with ambient hypotheses personally read on2026-10-04 by Codex — codex-7e92bd at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174, line265. Exact declaration index checked."
+      },
+      {
+        "ref": "mathlib:Order.le_krullDim_iff",
+        "kind": "lemma",
+        "module": "Mathlib/Order/KrullDimension.lean",
+        "provides": "For a partially ordered type and n : Nat, n <= Order.krullDim is equivalent to the existence of an LTSeries of length n. Used on the primes above p to attain the finite quotient dimension.",
+        "checked": "Declaration statement, namespace and relevant ambient assumptions read at the exact Mathlib pin on 2026-10-05 by Codex — codex-81tv4x; consumer use recorded in the independent review checkpoint.",
+        "sourceFile": "Mathlib/Order/KrullDimension.lean",
+        "sourceSha256": "8dd31d58fe8f992b5197f150ea31a5687311e24821c99aeb06f52ed69355132c"
+      },
+      {
+        "ref": "mathlib:RelSeries.cons",
+        "kind": "def",
+        "module": "Mathlib/Order/RelSeries.lean",
+        "provides": "Prepend a new head related to the old head; the length increases by one. For LTSeries the relation is strict order.",
+        "checked": "Declaration statement, namespace and relevant ambient assumptions read at the exact Mathlib pin on 2026-10-05 by Codex — codex-81tv4x; consumer use recorded in the independent review checkpoint.",
+        "sourceFile": "Mathlib/Order/RelSeries.lean",
+        "sourceSha256": "bd84035f0bf2725f2eebd2c610d3f6ed2209cb2da5c411d66b3eb2c62e7d8396"
+      },
+      {
+        "ref": "mathlib:RelSeries.snoc",
+        "kind": "def",
+        "module": "Mathlib/Order/RelSeries.lean",
+        "provides": "Append a new last term related to the old last term; the length increases by one. For LTSeries the relation is strict order.",
+        "checked": "Declaration statement, namespace and relevant ambient assumptions read at the exact Mathlib pin on 2026-10-05 by Codex — codex-81tv4x; consumer use recorded in the independent review checkpoint.",
+        "sourceFile": "Mathlib/Order/RelSeries.lean",
+        "sourceSha256": "bd84035f0bf2725f2eebd2c610d3f6ed2209cb2da5c411d66b3eb2c62e7d8396"
+      },
+      {
+        "ref": "mathlib:IsLocalRing.le_maximalIdeal_of_isPrime",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/LocalRing/MaximalIdeal/Basic.lean",
+        "provides": "Every prime ideal of a commutative local ring lies below its maximal ideal. This supplies the upper endpoint when extending maximal-length prime chains.",
+        "checked": "Declaration statement, namespace and relevant ambient assumptions read at the exact Mathlib pin on 2026-10-05 by Codex — codex-81tv4x; consumer use recorded in the independent review checkpoint.",
+        "sourceFile": "Mathlib/RingTheory/LocalRing/MaximalIdeal/Basic.lean",
+        "sourceSha256": "8f5770a00a7ea607e9c897d289a7fa212a4ba61c54d3df2e9ba6f9d0ade241b7"
+      },
+      {
+        "ref": "mathlib:IsRegularLocalRing.of_spanFinrank_maximalIdeal_le",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/RegularLocalRing/Defs.lean",
+        "provides": "For a Noetherian local ring, an upper bound spanFinrank(maximalIdeal) <= ringKrullDim gives IsRegularLocalRing; the opposite inequality is already native. Apply after bounding quotient generators.",
+        "checked": "Declaration statement, namespace and relevant ambient assumptions read at the exact Mathlib pin on 2026-10-05 by Codex — codex-81tv4x; consumer use recorded in the independent review checkpoint.",
+        "sourceFile": "Mathlib/RingTheory/RegularLocalRing/Defs.lean",
+        "sourceSha256": "6ca40a9a028dbe37b0e6d35f519e15fb40bd243ba89a07bbe3689aea9c6deaf6"
+      },
+      {
+        "ref": "mathlib:RingTheory.Sequence.isRegular_cons_iff'",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/Regular/RegularSequence.lean",
+        "provides": "Regularity of r :: rs on M is equivalent to r acting regularly and the images of rs being regular on QuotSMulTop r M over R/(r). It supplies the change of base ring in the regular-local induction.",
+        "checked": "Declaration statement, namespace and relevant ambient assumptions read at the exact Mathlib pin on 2026-10-05 by Codex — codex-81tv4x; consumer use recorded in the independent review checkpoint.",
+        "sourceFile": "Mathlib/RingTheory/Regular/RegularSequence.lean",
+        "sourceSha256": "7dcd6ed099c7711c3ccd5dedb7d5cc6a6fa08717126d24d71d41df5ed05a4bda"
+      },
+      {
+        "ref": "mathlib:TensorProduct.quotTensorEquivQuotSMul",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/TensorProduct/Quotient.lean",
+        "provides": "For a commutative ring, an arbitrary module M and ideal I, (R/I) tensor_R M is R-linearly equivalent to M/(I times top). No finite-free hypothesis is required.",
+        "checked": "Declaration statement, namespace and relevant ambient assumptions read at the exact Mathlib pin on 2026-10-05 by Codex — codex-81tv4x; consumer use recorded in the independent review checkpoint.",
+        "sourceFile": "Mathlib/LinearAlgebra/TensorProduct/Quotient.lean",
+        "sourceSha256": "e821f77d3c2742cd7d127ef823844f7cadc3912c05f4af72a4d22e88d741c007"
+      },
+      {
+        "ref": "mathlib:TensorProduct.quotTensorEquivQuotSMul_comp_mk",
+        "kind": "lemma",
+        "module": "Mathlib/LinearAlgebra/TensorProduct/Quotient.lean",
+        "provides": "Composing x -> 1 tensor x with quotTensorEquivQuotSMul gives the native quotient map M -> M/(I times top). This identifies its kernel and tests when a reduced differential is zero.",
+        "checked": "Declaration statement, namespace and relevant ambient assumptions read at the exact Mathlib pin on 2026-10-05 by Codex — codex-81tv4x; consumer use recorded in the independent review checkpoint.",
+        "sourceFile": "Mathlib/LinearAlgebra/TensorProduct/Quotient.lean",
+        "sourceSha256": "e821f77d3c2742cd7d127ef823844f7cadc3912c05f4af72a4d22e88d741c007"
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Limits.sigmaObj",
+        "kind": "abbrev",
+        "module": "Mathlib/CategoryTheory/Limits/Shapes/Products.lean",
+        "provides": "The categorical coproduct of a family with HasCoproduct, defined as colimit of Discrete.functor; notation is the coproduct symbol. Used for the actual family of canceled identity disks.",
+        "checked": "Declaration statement, namespace and relevant ambient assumptions read at the exact Mathlib pin on 2026-10-05 by Codex — codex-81tv4x; consumer use recorded in the independent review checkpoint.",
+        "sourceFile": "Mathlib/CategoryTheory/Limits/Shapes/Products.lean",
+        "sourceSha256": "563d804fe0bc708b48eb65178a627f9bd5abc205009f949d261194596bb2f0b7"
+      },
+      {
+        "ref": "mathlib:HomologicalComplex.coconeOfHasColimitEval",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Homology/HomologicalComplexLimits.lean",
+        "provides": "For a diagram of complexes whose evaluations have colimits, constructs a cocone with the evaluated colimit in each degree and induced differentials.",
+        "checked": "Declaration statement, namespace and relevant ambient assumptions read at the exact Mathlib pin on 2026-10-05 by Codex — codex-81tv4x; consumer use recorded in the independent review checkpoint.",
+        "sourceFile": "Mathlib/Algebra/Homology/HomologicalComplexLimits.lean",
+        "sourceSha256": "24def4b9b56bc4ecc1b231c2013df68e86c030ccee7e89077781c694a3ec8150"
+      },
+      {
+        "ref": "mathlib:HomologicalComplex.isColimitCoconeOfHasColimitEval",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Homology/HomologicalComplexLimits.lean",
+        "provides": "Certifies the termwise cocone as a colimit, yielding the native complex colimit and evaluation-preservation instances. Used to interpret the disk coproduct degreewise.",
+        "checked": "Declaration statement, namespace and relevant ambient assumptions read at the exact Mathlib pin on 2026-10-05 by Codex — codex-81tv4x; consumer use recorded in the independent review checkpoint.",
+        "sourceFile": "Mathlib/Algebra/Homology/HomologicalComplexLimits.lean",
+        "sourceSha256": "24def4b9b56bc4ecc1b231c2013df68e86c030ccee7e89077781c694a3ec8150"
+      },
+      {
+        "ref": "mathlib:ModuleCat.hasColimitsOfShape",
+        "kind": "instance",
+        "module": "Mathlib/Algebra/Category/ModuleCat/Colimits.lean",
+        "provides": "ModuleCat has colimits of a shape whenever AddCommGrpCat at the carrier universe does. Together with complex colimits, this supplies the disk-family coproduct.",
+        "checked": "Declaration statement, namespace and relevant ambient assumptions read at the exact Mathlib pin on 2026-10-05 by Codex — codex-81tv4x; consumer use recorded in the independent review checkpoint.",
+        "sourceFile": "Mathlib/Algebra/Category/ModuleCat/Colimits.lean",
+        "sourceSha256": "1b0f8444d65e663763a92d92f1dda5faa2f78acf041e3a6105c545f2861c0bec"
+      },
+      {
+        "ref": "mathlib:ModuleCat.projective_of_categoryTheory_projective",
+        "kind": "instance",
+        "module": "Mathlib/Algebra/Category/ModuleCat/Projective.lean",
+        "provides": "Despite its name, this instance takes Module.Projective R P and supplies CategoryTheory.Projective P for P : ModuleCat R. It connects finite-free module terms with the categorical K-projective hypothesis.",
+        "checked": "Declaration statement, namespace and relevant ambient assumptions read at the exact Mathlib pin on 2026-10-05 by Codex — codex-81tv4x; consumer use recorded in the independent review checkpoint.",
+        "sourceFile": "Mathlib/Algebra/Category/ModuleCat/Projective.lean",
+        "sourceSha256": "7f6555e360106839ee41cc1201308c5dfc7c3411b4f1a115c8c75e4aa765de4b"
       }
     ]
   },
@@ -3456,14 +3573,14 @@
       "id": "STACKS-CATENARY-REGULAR",
       "title": "Catenary rings and regular local rings",
       "authors": "The Stacks Project Authors",
-      "edition": "Online, Algebra §§10.105, 10.106, 10.110 and 10.119, read 28 September 2026",
+      "edition": "Online, Algebra §§10.105, 10.106, 10.110 and Examples §110.19, read 28 September 2026",
       "url": "https://stacks.math.columbia.edu/tag/00NH",
       "accessDate": "2026-09-28",
       "readSections": [
         "§10.105 Catenary rings: Definition 10.105.1 (00NI), Lemmas 10.105.4 (00NJ), 10.105.7 (00NK) and 10.105.10 (0ECF) with its proof via Topology Lemmas 5.20.2 and 5.20.4",
         "§10.106 Regular local rings: statements of Lemmas 10.106.1–10.106.8 (00NO–00NU, 07DX); proofs of 10.106.3 (00NQ) and 10.106.6 (00NT)",
         "Proposition 10.110.1 (00O7) with its proof citing 00NT, 00NG and 065T; Lemma 10.104.9 (00NG)",
-        "§10.119, tag 02JE: Nagata's non-catenary Noetherian local ring A[x]_{m'} and its maximal chain of length 2 in dimension 3"
+        "Examples §110.19, tag 02JE: Nagata's non-catenary Noetherian local ring A[x]_{m'} and its maximal chain of length 2 in dimension 3"
       ]
     },
     {
@@ -4823,6 +4940,16 @@
       ],
       "api": [
         {
+          "name": "Ring.IsCatenary.chainLengthBound",
+          "role": "projection",
+          "statement": "For p <= q, a catenary ring supplies a natural-number upper bound for every strict prime chain with head p and last q."
+        },
+        {
+          "name": "Ring.IsCatenary.saturated_length_eq",
+          "role": "projection",
+          "statement": "Two strict prime chains with the same specified endpoints and covering relations at every step have equal lengths in a catenary ring."
+        },
+        {
           "name": "Ring.IsCatenary.of_ringEquiv",
           "role": "compatibility",
           "statement": "If R ≃+* S and R is catenary, then S is catenary."
@@ -4864,7 +4991,7 @@
         },
         {
           "sourceId": "STACKS-CATENARY-REGULAR",
-          "locator": "§10.119, tag 02JE",
+          "locator": "Examples, §110.19, tag 02JE",
           "match": "The non-example test."
         }
       ],
@@ -4888,7 +5015,7 @@
         "The right-hand side is exactly the hypothesis hcat of R03.6's NearlyFaithful.of_quotient_of_isSMulRegular."
       ],
       "proofSteps": [
-        "For a prime p, dim A/p is the Krull dimension of the poset V(p) of primes containing p (Mathlib ringKrullDim_quotient), and it is finite because dim A/p ≤ dim A < ∞ (Mathlib ringKrullDim_quotient_le and ringKrullDim_lt_top, the FiniteRingKrullDim instance for Noetherian local rings in KrullsHeightTheorem). So every chain of primes starting at p has length at most dim A/p (Mathlib Order.LTSeries.length_le_krullDim), and some chain of length dim A/p starts at p; since m contains every prime, it may be taken to end at m.",
+        "For a prime p, dim A/p is the Krull dimension of V(p), the poset of primes containing p (Mathlib ringKrullDim_quotient). It is finite by ringKrullDim_quotient_le and ringKrullDim_lt_top, using the existing FiniteRingKrullDim instance for Noetherian local rings. Order.LTSeries.length_le_krullDim bounds all such chains. Order.le_krullDim_iff attains the finite dimension by an LTSeries in V(p). Its head must be p: otherwise RelSeries.cons prepends p and exceeds the dimension bound. Its last must be m: every prime lies below m by IsLocalRing.le_maximalIdeal_of_isPrime, and otherwise RelSeries.snoc appends m and again exceeds the bound. These endpoint extensions stay in V(p).",
         "A chain of maximal length between two primes is saturated: otherwise inserting a prime strictly between two consecutive terms (Mathlib RelSeries.insertNth) gives a longer chain. Hence there is a saturated chain from p to m of length dim A/p.",
         "(⇒) Let p ⋖ q. By the second step there is a saturated chain from q to m of length dim A/q; putting p in front gives a saturated chain from p to m of length dim A/q + 1. There is also a saturated chain from p to m of length dim A/p. By the equal-length clause of catenary, dim A/p = dim A/q + 1.",
         "(⇐) Boundedness: by the first step, any chain from p to q has length at most dim A/p < ∞. Equal lengths: along a saturated chain p = p_0 ⋖ p_1 ⋖ ... ⋖ p_e = q the hypothesis gives dim A/p_i = dim A/p_{i+1} + 1, so e = dim A/p − dim A/q, which does not depend on the chain."
@@ -4913,7 +5040,11 @@
         "mathlib:Order.LTSeries.length_le_krullDim",
         "mathlib:RelSeries.insertNth",
         "mathlib:PrimeSpectrum.zeroLocus",
-        "mathlib:CovBy"
+        "mathlib:CovBy",
+        "mathlib:Order.le_krullDim_iff",
+        "mathlib:RelSeries.cons",
+        "mathlib:RelSeries.snoc",
+        "mathlib:IsLocalRing.le_maximalIdeal_of_isPrime"
       ],
       "sources": [
         {
@@ -4942,8 +5073,8 @@
       ],
       "proofSteps": [
         "Induction on d. For d = 0 the empty sequence works.",
-        "For d > 0, A is a domain (gap: Stacks 00NP, via the associated graded ring of 00NO), so x_1 ≠ 0 is a nonzerodivisor; x_1 ∈ m.",
-        "Mathlib ringKrullDim_quotient_span_singleton_succ_eq_ringKrullDim_of_mem_nonZeroDivisors gives dim A/(x_1) = d − 1, and the images of x_2, ..., x_d generate the maximal ideal of A/(x_1). So A/(x_1) is regular local of dimension d − 1 (Mathlib isRegularLocalRing_iff: a Noetherian local ring whose maximal ideal is generated by dim elements), and by induction x_2, ..., x_d is A/(x_1)-regular. Hence x_1, ..., x_d is A-regular (RingTheory.Sequence.IsRegular unfolds as x_1 regular followed by a regular sequence on the quotient)."
+        "For d > 0, A is a domain (existing gap: Stacks 00NP, via the associated graded ring of 00NO). Minimality of the generating list implies x_1 is nonzero; hence it is a nonzerodivisor, and x_1 belongs to m.",
+        "Mathlib ringKrullDim_quotient_span_singleton_succ_eq_ringKrullDim_of_mem_nonZeroDivisors gives dim A/(x_1) = d - 1. The images of the remaining generators generate the quotient maximal ideal, so its spanFinrank is at most d - 1. Apply IsRegularLocalRing.of_spanFinrank_maximalIdeal_le to conclude regularity, rather than assuming that this generating bound is already an equality. Induction gives regularity of the image list over A/(x_1). RingTheory.Sequence.isRegular_cons_iff' supplies the explicit quotient-base-ring comparison, then regularity of the whole list over A. The regular-local-domain gap is unchanged."
       ],
       "acceptance": [
         "Regularity is needed: A = k⟦x, y⟧/(x², xy) is Noetherian local of dimension 1, but the nonzero element x is killed by the whole maximal ideal (x, y), so every element of m is a zero divisor and A has no regular sequence of length 1.",
@@ -4961,7 +5092,9 @@
         "mathlib:isRegularLocalRing_iff",
         "mathlib:ringKrullDim_quotient_span_singleton_succ_eq_ringKrullDim_of_mem_nonZeroDivisors",
         "mathlib:RingTheory.Sequence.IsRegular",
-        "mathlib:IsLocalRing.maximalIdeal"
+        "mathlib:IsLocalRing.maximalIdeal",
+        "mathlib:IsRegularLocalRing.of_spanFinrank_maximalIdeal_le",
+        "mathlib:RingTheory.Sequence.isRegular_cons_iff'"
       ],
       "sources": [
         {
@@ -6202,12 +6335,13 @@
       ],
       "title": "Minimal complexes over local rings",
       "kind": "definition",
-      "statement": "For a local commutative ring (R,m,κ), a cochain complex C is minimal if every differential has image contained in m C^{i+1}. The predicate itself asserts neither finiteness, freeness nor boundedness. On finite-free complexes this is equivalently zero differentials after tensoring with κ, and equivalently all matrix entries lie in m in any chosen bases.",
+      "statement": "For a local commutative ring (R,m,κ), a cochain complex C is minimal if every differential has image contained in m C^{i+1}. The predicate itself asserts neither finiteness, freeness nor boundedness. For arbitrary terms this is equivalently zero differentials after tensoring with κ. When bases are chosen it is also equivalent to all matrix entries lying in m; the matrix equivalence does not itself require finite bases.",
       "hypotheses": [
         "R local; m is IsLocalRing.maximalIdeal R. Use LinearMap.range and ideal action on the actual ModuleCat carriers."
       ],
       "proofSteps": [
-        "Define IsMinimal C by range(d_i) ≤ m • top; linearity gives the condition at every integer degree."
+        "Define IsMinimal C by range(d_i) ≤ m • top; linearity gives the condition at every integer degree.",
+        "For the residual criterion use κ = R/m and TensorProduct.quotTensorEquivQuotSMul, whose composition with x ↦ 1 tensor x is the native quotient map. A reduced map is zero exactly when the original map has image in m times the target. This argument needs neither freeness nor finiteness. The separate extendScalars Additive adapter is still an admitted proof obligation in the suggested file."
       ],
       "acceptance": [
         "[R --π→R] over a DVR is minimal, but [R --1→R] is not.",
@@ -6215,7 +6349,9 @@
       ],
       "prerequisites": [
         "mathlib:Homotopy",
-        "mathlib:ModuleCat.extendScalars"
+        "mathlib:ModuleCat.extendScalars",
+        "mathlib:TensorProduct.quotTensorEquivQuotSMul",
+        "mathlib:TensorProduct.quotTensorEquivQuotSMul_comp_mk"
       ],
       "sources": [
         {
@@ -6253,7 +6389,7 @@
         {
           "name": "TauCeti.LocalPerfect.IsMinimal.iff_matrix",
           "role": "characterisation",
-          "statement": "In finite bases, minimality iff every differential coefficient belongs to m."
+          "statement": "In arbitrary chosen bases, minimality iff every differential coefficient belongs to m; no finite-basis assumption is needed for this equivalence."
         }
       ],
       "tests": [
@@ -6349,12 +6485,16 @@
       ],
       "acceptance": [
         "C=[R --1→R] has M=0.",
-        "C=[R --π→R] over a DVR is already minimal; both ranks survive even though only H^0(C) is nonzero.",
+        "C=[R --π→R] placed in degrees -1 and 0 over a DVR is already minimal; both ranks survive even though only H^0(C) is nonzero.",
         "Over k[ε]/ε², the infinite resolution of k stays bounded above and minimal but not bounded below."
       ],
       "prerequisites": [
         "DeformationAndDerivedPatchingAlgebra:P7/minimal-complex",
-        "DeformationAndDerivedPatchingAlgebra:P7/unit-pivot-cancellation"
+        "DeformationAndDerivedPatchingAlgebra:P7/unit-pivot-cancellation",
+        "mathlib:CategoryTheory.Limits.sigmaObj",
+        "mathlib:HomologicalComplex.coconeOfHasColimitEval",
+        "mathlib:HomologicalComplex.isColimitCoconeOfHasColimitEval",
+        "mathlib:ModuleCat.hasColimitsOfShape"
       ],
       "sources": [
         {
@@ -6387,7 +6527,12 @@
         {
           "name": "TauCeti.LocalPerfect.minimalRepresentative.disk_part",
           "role": "data",
-          "statement": "The discarded part is a locally finite sum of identity disks, with a specified contraction."
+          "statement": "For finite-free C with upper bound b, choose the minimal finite-free M and r : ℤ → ℕ with r(i)=0 for i≥b. Let D be the actual coproduct, indexed by Σ i, Fin(r(i)), of cones of identity maps on the stalk R in degree i+1. Then C ≅ M ⊞ D and the identity of D is homotopic to zero. Only disk indices i=n-1 and i=n meet degree n, so this family is degreewise finite."
+        },
+        {
+          "name": "TauCeti.LocalPerfect.minimalRepresentative.identity_disk_contractible",
+          "role": "compatibility",
+          "statement": "The identity on the cone of the identity of the stalk R in degree i+1 is homotopic to zero. This is an auxiliary single-disk contraction, distinct from the family-decomposition API."
         },
         {
           "name": "TauCeti.LocalPerfect.minimalRepresentative.quasiIso",
@@ -6415,6 +6560,11 @@
           "name": "TauCeti.LocalPerfect.minimal_rep_already_minimal",
           "kind": "degenerate",
           "statement": "When C is minimal the identity HomotopyEquiv C C is an admissible representative."
+        },
+        {
+          "name": "TauCeti.LocalPerfect.minimal_rep_identity_disk",
+          "kind": "degenerate",
+          "statement": "The cone of the identity on the stalk R in degree i+1 has the zero complex as a minimal representative, with a homotopy equivalence to zero. Both original nonzero terms are removed."
         }
       ],
       "uses": [
@@ -6483,7 +6633,7 @@
         "Apply homotopy-residue-equality to the composites fg and gf. Their residual component maps are mutually inverse in every degree.",
         "Apply Module.IsLocalRing.linearCombination_bijective_of_flat in finite bases (or its split-injection form plus residual surjectivity) to each component. A finite-free local map invertible residually is invertible.",
         "Assemble component inverses; f_i d_D=d_C f_{i+1} implies the inverse chain identities by multiplying with these inverses.",
-        "For a derived isomorphism between bounded above projective representatives, use isKProjective_of_projective and Qh_map_bijective, then quasiIso_iff, to obtain the required homotopy equivalence."
+        "For a derived isomorphism between bounded above projective representatives, first use ModuleCat.projective_of_categoryTheory_projective to obtain categorical projectivity from the module-theoretic instances on the terms. Then isKProjective_of_projective, Qh_map_bijective and quasiIso_iff give the required homotopy equivalence."
       ],
       "acceptance": [
         "A homotopy equivalence 0→[R --1→R] is not a strict isomorphism; minimality is indispensable.",
@@ -6494,7 +6644,8 @@
         "mathlib:Module.IsLocalRing.linearCombination_bijective_of_flat",
         "mathlib:CochainComplex.isKProjective_of_projective",
         "mathlib:CochainComplex.IsKProjective.Qh_map_bijective",
-        "mathlib:CochainComplex.IsKProjective.quasiIso_iff"
+        "mathlib:CochainComplex.IsKProjective.quasiIso_iff",
+        "mathlib:ModuleCat.projective_of_categoryTheory_projective"
       ],
       "sources": [
         {
@@ -30222,7 +30373,7 @@
         "DeformationAndDerivedPatchingAlgebra:P7/pseudo-coherent-residual-nakayama",
         "DeformationAndDerivedPatchingAlgebra:P7/bounded-residual-acyclic-contractible"
       ],
-      "detail": "The P7 signatures retain inherited admitted Mathlib-projection elaboration evidence. The current suggested file imports pinned Tau modules and is not compiled as a whole; only the isolated projection with authenticated source replay was checked. Disk rank equations, locally finite disk-family decomposition, generic derived base change and the derived-object Nakayama signature retain explicit omission notes. Finite-free cancellation does not cover completed infinite-rank or geometric applications. All routed-source and implementation obligations remain unchecked."
+      "detail": "The suggested file imports pinned Tau modules and has no whole-file elaboration receipt. The independent review continuation adds and checks the actual locally finite disk-family decomposition signature in the Mathlib-only prefix; its cancellation and assembly proofs remain admitted. Disk rank equations, generic derived base change and the derived-object Nakayama signature still retain explicit omissions. The extendScalars Additive adapter remains a proof obligation. Finite-free cancellation does not cover completed infinite-rank or geometric applications. Routed-source and implementation obligations remain unchecked."
     },
     {
       "title": "Filtered-colimit comparison signatures and scheme globalization",
@@ -32299,6 +32450,125 @@
       "sha256": "53f45f8be3b3c7de19f42417920d34a809e908412826490ebed90f07c8e86ed4",
       "read": "2026-10-05",
       "kind": "author copy"
+    },
+    {
+      "kind": "published",
+      "url": "https://stacks.math.columbia.edu/tag/00NI",
+      "read": "2026-10-05",
+      "sha256": "ab6c56499a53b360ca9481d60c93fd12a7eed7cbbf49ff84449a0df6e3a556ee",
+      "reviewSession": "codex-81tv4x"
+    },
+    {
+      "kind": "published",
+      "url": "https://stacks.math.columbia.edu/tag/00NJ",
+      "read": "2026-10-05",
+      "sha256": "1215731fc19764a74f26359ed431f2d7085836adecf5d85bf43f5c9363987eaa",
+      "reviewSession": "codex-81tv4x"
+    },
+    {
+      "kind": "published",
+      "url": "https://stacks.math.columbia.edu/tag/00NK",
+      "read": "2026-10-05",
+      "sha256": "58332b19ab454dda77e541549d209509c7760adee7864c9863f4eb83c20854a0",
+      "reviewSession": "codex-81tv4x"
+    },
+    {
+      "kind": "published",
+      "url": "https://stacks.math.columbia.edu/tag/0ECF",
+      "read": "2026-10-05",
+      "sha256": "dd3b0e4f3b308515a5165b83b32d91307a91002f4995f99e4ce8bf753b758e61",
+      "reviewSession": "codex-81tv4x"
+    },
+    {
+      "kind": "published",
+      "url": "https://stacks.math.columbia.edu/tag/02JE",
+      "read": "2026-10-05",
+      "sha256": "b8eed825d9ffece84da0bf4dfa87c05d8790aa55fec70e68003aa96605d7374f",
+      "reviewSession": "codex-81tv4x"
+    },
+    {
+      "kind": "published",
+      "url": "https://stacks.math.columbia.edu/tag/00NP",
+      "read": "2026-10-05",
+      "sha256": "5e8fc76f202b603711e5dcd02dbfe673b7452a02be4fed0320e35468e5a60ccd",
+      "reviewSession": "codex-81tv4x"
+    },
+    {
+      "kind": "published",
+      "url": "https://stacks.math.columbia.edu/tag/00NQ",
+      "read": "2026-10-05",
+      "sha256": "28e8c01c12a52b05820c32d5a1dfc3f5f8d4e79776d2507b5588bcee0f4ffeac",
+      "reviewSession": "codex-81tv4x"
+    },
+    {
+      "kind": "published",
+      "url": "https://stacks.math.columbia.edu/tag/00NT",
+      "read": "2026-10-05",
+      "sha256": "d82dbc17550466debe08b9d189a2e0e4f6f3abb62215c8f117e7f5e5d43f7d66",
+      "reviewSession": "codex-81tv4x"
+    },
+    {
+      "kind": "published",
+      "url": "https://stacks.math.columbia.edu/tag/00O7",
+      "read": "2026-10-05",
+      "sha256": "ac4bf1b5ce74d46ce2be6a8d7010f8adc3d35b9a687fda51972084b4b3f859ea",
+      "reviewSession": "codex-81tv4x"
+    },
+    {
+      "kind": "published",
+      "url": "https://stacks.math.columbia.edu/tag/00N6",
+      "read": "2026-10-05",
+      "sha256": "7023c69c1a92851917c51dfec2ce36473383e10db6b4d5607923c4ecd17b681c",
+      "reviewSession": "codex-81tv4x"
+    },
+    {
+      "kind": "published",
+      "url": "https://stacks.math.columbia.edu/tag/00K4",
+      "read": "2026-10-05",
+      "sha256": "e3d86d2fc7e6a9df48e73e4e8d12629cdb08f9e0fb9d15e35472d7bc21629932",
+      "reviewSession": "codex-81tv4x"
+    },
+    {
+      "kind": "published",
+      "url": "https://stacks.math.columbia.edu/tag/00IU",
+      "read": "2026-10-05",
+      "sha256": "418363ef436c9d4fad059bf24be2cd832947c9dcaa8623db885f93f126804232",
+      "reviewSession": "codex-81tv4x"
+    },
+    {
+      "kind": "published",
+      "url": "https://stacks.math.columbia.edu/tag/00J0",
+      "read": "2026-10-05",
+      "sha256": "18165b061f5ce7acafb49b5ca9f1ac2adeda94f032d2abf157c691aa337b336e",
+      "reviewSession": "codex-81tv4x"
+    },
+    {
+      "kind": "published",
+      "url": "https://stacks.math.columbia.edu/tag/0657",
+      "read": "2026-10-05",
+      "sha256": "5bb2f697193af15a15fe94f5545e4c9d1b1ef1c73dae9ace8d1689f9655b98f1",
+      "reviewSession": "codex-81tv4x"
+    },
+    {
+      "kind": "published",
+      "url": "https://stacks.math.columbia.edu/tag/064N",
+      "read": "2026-10-05",
+      "sha256": "ac5fecdf62e128808008622e84fece915bf463629d35cc5cf8de58e31eea3e29",
+      "reviewSession": "codex-81tv4x"
+    },
+    {
+      "kind": "published",
+      "url": "https://stacks.math.columbia.edu/tag/00MT",
+      "read": "2026-10-05",
+      "sha256": "d4938e69d2e82cfb41f8b03985de60f37fb44cc7a7070094933aaa5767489477",
+      "reviewSession": "codex-81tv4x"
+    },
+    {
+      "kind": "published",
+      "url": "https://stacks.math.columbia.edu/tag/0BCC",
+      "read": "2026-10-05",
+      "sha256": "92f9f27af692f2f5ad03dcca454f4c473d77a9ebfb8789164038d2ba4db3800e",
+      "reviewSession": "codex-81tv4x"
     }
   ],
   "gradedAnnihilatorContinuation": {
@@ -32379,9 +32649,9 @@
   "reviewCheckpoint": {
     "status": "partial",
     "reviewer": "independent-review-REV-DeformationAndDerivedPatchingAlgebra--P7",
-    "session": "codex-6GrZZA",
+    "session": "codex-81tv4x",
     "date": "2026-10-05",
-    "notes": "Independent review checkpoint, not an acceptance or needs_changes verdict. All 449 Mathlib baseline names resolve at the pin. The 11 Tau citations were read in their three pinned source modules; full consumer closure and the remaining Mathlib statement/use audit are unfinished. Source issue E3 is confirmed. Thirteen baseline module paths were normalized, the missing regular-local regular-sequence signature was supplied, four anonymous catenary examples were linked to their packet names, and three invalid catenary test-kind values were corrected. The handoff gives the exact resume boundary.",
+    "notes": "Partial independent review continuation, with no final verdict. Sixteen more node statements, source passages and direct baseline uses were inspected, with component-level limits in the continuation record and report. Corrected the Nagata section locator; supplied catenarity projection APIs, chain-attainment/endpoint and regular-quotient prerequisites, the arbitrary-module residual criterion, the actual disk-family prototype and identity-disk test, and the module/category projective bridge. Prior checkpoint evidence and E3 verdict are preserved with session provenance. The remaining API/source/closure/ownership audit is unfinished; implementation statuses remain unchecked.",
     "baselineNamesResolved": 449,
     "tauSourceStatementsRead": 11,
     "normalizedBaselineModules": [
@@ -32402,10 +32672,12 @@
     "fullSuggestedCompiled": false,
     "fullSuggestedBoundary": "lean-check stopped at the unavailable TauCeti.RingTheory.GradedAlgebra.Homogeneous.Quotient compiled object. No full-file elaboration is certified.",
     "remaining": [
-      "Read every remaining node source locator and excerpt; the initial source inspection and baseline-name screen do not verify all 478 nodes.",
-      "Check all 460 baseline statements against their actual consumers, cross-roadmap suppliers, every proof step, API item and unit test.",
-      "Finish the suggested-file correspondence, key-definition sample API and ownership audits; add a final review object only after the independent review is complete.",
-      "The current reader/historical planning handoff call the retained source issue E1; the actual packet id is E3. Those documents are outside this review issue's edit allowlist. Reconcile the cross-reference through an authorized document follow-up."
+      "Complete source-locator, excerpt, proof-step and dependency review for the nodes outside the sixteen-node continuation and the earlier five-node opening strand; previous source reads alone are not node verdicts.",
+      "Finish all baseline consumer matches and the finer API/test checks, including the sixteen inspected nodes. The raw Hilbert–Samuel quotient/scalar and stabilization APIs were not audited through their downstream supplier proofs.",
+      "Keep the regular-local-domain prerequisite gap open. The integrated depth/Auslander–Buchsbaum supplier statement was checked, but its own complete source proof audit is outstanding.",
+      "Verify unit-cancellation rank equations, degreewise disk assembly, numerical residual-rank transport and generic derived tensor/Nakayama interfaces; the successful prefix checks only admitted signatures.",
+      "Finish cross-roadmap and key-definition ownership, maintained multiplicity sample API, all planets, requests and remaining suggested-file correspondence before writing a final review object.",
+      "Through an authorized document follow-up, reconcile the reader and historical planning handoff E1 reference with actual E3, and synchronize the revised catenarity/minimal-complex API and source locator. Those documents are outside this review allowlist."
     ],
     "mathlibModulePresenceScreen": {
       "declarations": 449,
@@ -32419,33 +32691,338 @@
       "mathlib:Algebra.IsIntegral.inv_mem",
       "mathlib:Algebra.IsIntegral.tower_top",
       "mathlib:Algebra.finite_iff_isIntegral_and_finiteType",
+      "mathlib:CategoryTheory.Functor.mapHomotopy",
+      "mathlib:CategoryTheory.Functor.mapHomotopyEquiv",
+      "mathlib:CategoryTheory.Limits.sigmaObj",
+      "mathlib:CochainComplex.IsKProjective.Qh_map_bijective",
+      "mathlib:CochainComplex.IsKProjective.quasiIso_iff",
+      "mathlib:CochainComplex.isKProjective_of_projective",
+      "mathlib:CovBy",
+      "mathlib:DerivedCategory.Q",
+      "mathlib:HomologicalComplex.coconeOfHasColimitEval",
+      "mathlib:HomologicalComplex.isColimitCoconeOfHasColimitEval",
+      "mathlib:Homotopy",
+      "mathlib:HomotopyEquiv",
+      "mathlib:Ideal.IsMaximal.eq_of_le",
+      "mathlib:Ideal.IsPrime.isRadical",
+      "mathlib:Ideal.IsRadical.radical_le_iff",
+      "mathlib:Ideal.Quotient.isNoetherianRing",
+      "mathlib:Ideal.krullDimLE_zero_quotient_iff_forall_minimalPrimes_isMaximal",
+      "mathlib:Ideal.le_radical",
+      "mathlib:Ideal.radical_pow",
       "mathlib:IsAlgClosed.lift",
       "mathlib:IsArtinianRing.isMaximal_of_isPrime",
       "mathlib:IsArtinianRing.of_finite",
+      "mathlib:IsArtinianRing.tfae",
       "mathlib:IsDiscreteValuationRing.exists_irreducible",
       "mathlib:IsDiscreteValuationRing.iff_pid_with_one_nonzero_prime",
       "mathlib:IsDiscreteValuationRing.irreducible_iff_uniformizer",
       "mathlib:IsDiscreteValuationRing.length_quotient_pow_maximalIdeal",
       "mathlib:IsIntegralClosure.finite",
       "mathlib:IsLocalHom.of_surjective",
+      "mathlib:IsLocalRing.le_maximalIdeal_of_isPrime",
+      "mathlib:IsLocalRing.maximalIdeal",
+      "mathlib:IsLocalRing.maximalIdeal.isMaximal",
+      "mathlib:IsNoetherianRing.isArtinianRing_of_krullDimLE_zero",
+      "mathlib:IsRegularLocalRing",
+      "mathlib:IsRegularLocalRing.of_spanFinrank_maximalIdeal_le",
+      "mathlib:LTSeries",
+      "mathlib:LinearMap.isArtinian_iff_of_bijective",
       "mathlib:Module.Finite.exists_fin'",
+      "mathlib:Module.Finite.of_restrictScalars_finite",
+      "mathlib:Module.Flat.of_projective",
+      "mathlib:Module.Free",
+      "mathlib:Module.IsLocalRing.linearCombination_bijective_of_flat",
+      "mathlib:Module.IsTorsionBySet.isScalarTower",
+      "mathlib:Module.IsTorsionBySet.module",
+      "mathlib:Module.IsTorsionBySet.semilinearMap",
+      "mathlib:Module.Projective",
+      "mathlib:Module.free_of_flat_of_isLocalRing",
+      "mathlib:Module.isTorsionBySet_iff_subset_annihilator",
+      "mathlib:Module.isTorsionBySet_quotient_ideal_smul",
+      "mathlib:Module.length",
+      "mathlib:Module.length_eq_zero",
       "mathlib:Module.length_ne_top_iff",
+      "mathlib:ModuleCat.extendScalars",
+      "mathlib:ModuleCat.hasColimitsOfShape",
+      "mathlib:ModuleCat.projective_of_categoryTheory_projective",
+      "mathlib:Order.LTSeries.length_le_krullDim",
+      "mathlib:Order.krullDim",
+      "mathlib:Order.le_krullDim_iff",
+      "mathlib:PrimeSpectrum.zeroLocus",
+      "mathlib:RelSeries.cons",
+      "mathlib:RelSeries.insertNth",
+      "mathlib:RelSeries.snoc",
       "mathlib:Ring.krullDimLE_iff",
       "mathlib:Ring.krullDimLE_zero_iff",
       "mathlib:RingHom.IsIntegral.isLocalHom",
       "mathlib:RingHom.isLocalHom_comp",
+      "mathlib:RingTheory.Sequence.IsRegular",
+      "mathlib:RingTheory.Sequence.IsRegular.nontrivial",
+      "mathlib:RingTheory.Sequence.isRegular_cons_iff'",
+      "mathlib:Submodule.annihilator_top",
+      "mathlib:Submodule.le_annihilator_iff",
+      "mathlib:Submodule.smul_eq_map₂",
+      "mathlib:TensorProduct.quotTensorEquivQuotSMul",
+      "mathlib:TensorProduct.quotTensorEquivQuotSMul_comp_mk",
       "mathlib:integralClosure.isIntegral",
       "mathlib:isArtinian_of_tower",
       "mathlib:isFiniteLength_iff_isNoetherian_isArtinian",
-      "mathlib:nilpotent_iff_mem_prime"
+      "mathlib:isNoetherian_of_isNoetherianRing_of_finite",
+      "mathlib:isRegularLocalRing_iff",
+      "mathlib:nilpotent_iff_mem_prime",
+      "mathlib:ringKrullDim_lt_top",
+      "mathlib:ringKrullDim_quotient",
+      "mathlib:ringKrullDim_quotient_le",
+      "mathlib:ringKrullDim_quotient_span_singleton_succ_eq_ringKrullDim_of_mem_nonZeroDivisors"
     ],
     "suggestedPrefixCheck": {
-      "boundary": "Take the prefix before the positivity-continuation comment, removing the two TauCeti imports; no declaration is substituted. The prefix includes the newly added regular-local signature.",
-      "lines": 1123,
+      "boundary": "Take the suggested file before the comment beginning Positivity continuation by codex-rtOQ9t, removing only the two TauCeti import lines. The temporary extraction is written to the authorized suggested path, checked with lean-check, and the complete file is restored byte for byte. No source declaration is replaced.",
+      "lines": 1157,
       "exitCode": 0,
       "errors": 0,
-      "admittedProofWarnings": 113,
-      "note": "An isolated Mathlib-only prefix check; it does not elaborate the full suggested file or certify admitted mathematics."
-    }
+      "admittedProofWarnings": 117,
+      "restoredByteForByte": true,
+      "fullFileSha256": "3db9de4fac2e27af150a7910401cfbb8e645ff80b03dc9a68e1b6e9de8f474b3",
+      "prefixSha256": "faff3b8f67054ec34cc20aadfdd796a859070a5717777f9dd7fad3c6c3ef09a5",
+      "session": "codex-81tv4x",
+      "date": "2026-10-05",
+      "note": "Mathlib-only admitted-prefix elaboration, including the catenarity projections, actual disk-family decomposition and identity-disk cancellation test. All warnings concern admitted proofs. No full-file or admitted-mathematics certification."
+    },
+    "priorSessionEvidence": {
+      "session": "codex-6GrZZA",
+      "date": "2026-10-05",
+      "notes": "Independent review checkpoint, not an acceptance or needs_changes verdict. All 449 Mathlib baseline names resolve at the pin. The 11 Tau citations were read in their three pinned source modules; full consumer closure and the remaining Mathlib statement/use audit are unfinished. Source issue E3 is confirmed. Thirteen baseline module paths were normalized, the missing regular-local regular-sequence signature was supplied, four anonymous catenary examples were linked to their packet names, and three invalid catenary test-kind values were corrected. The handoff gives the exact resume boundary.",
+      "baselineNamesResolved": 449,
+      "sourceFitInspected": [
+        "mathlib:Algebra.IsIntegral.inv_mem",
+        "mathlib:Algebra.IsIntegral.tower_top",
+        "mathlib:Algebra.finite_iff_isIntegral_and_finiteType",
+        "mathlib:IsAlgClosed.lift",
+        "mathlib:IsArtinianRing.isMaximal_of_isPrime",
+        "mathlib:IsArtinianRing.of_finite",
+        "mathlib:IsDiscreteValuationRing.exists_irreducible",
+        "mathlib:IsDiscreteValuationRing.iff_pid_with_one_nonzero_prime",
+        "mathlib:IsDiscreteValuationRing.irreducible_iff_uniformizer",
+        "mathlib:IsDiscreteValuationRing.length_quotient_pow_maximalIdeal",
+        "mathlib:IsIntegralClosure.finite",
+        "mathlib:IsLocalHom.of_surjective",
+        "mathlib:Module.Finite.exists_fin'",
+        "mathlib:Module.length_ne_top_iff",
+        "mathlib:Ring.krullDimLE_iff",
+        "mathlib:Ring.krullDimLE_zero_iff",
+        "mathlib:RingHom.IsIntegral.isLocalHom",
+        "mathlib:RingHom.isLocalHom_comp",
+        "mathlib:integralClosure.isIntegral",
+        "mathlib:isArtinian_of_tower",
+        "mathlib:isFiniteLength_iff_isNoetherian_isArtinian",
+        "mathlib:nilpotent_iff_mem_prime"
+      ],
+      "suggestedPrefixCheck": {
+        "boundary": "Take the prefix before the positivity-continuation comment, removing the two TauCeti imports; no declaration is substituted. The prefix includes the newly added regular-local signature.",
+        "lines": 1123,
+        "exitCode": 0,
+        "errors": 0,
+        "admittedProofWarnings": 113,
+        "note": "An isolated Mathlib-only prefix check; it does not elaborate the full suggested file or certify admitted mathematics."
+      },
+      "boundary": "Inherited checkpoint evidence from PR #6165; not independently repeated wholesale in session codex-81tv4x. The 449-name screen predates the 13 baseline additions in this continuation."
+    },
+    "sessions": [
+      "codex-6GrZZA",
+      "codex-81tv4x"
+    ],
+    "baselineNameScreenBoundary": "The inherited 449-name presence diagnostic covers the original Mathlib references; the 13 new references were read directly at the exact pin, not added to that historical diagnostic.",
+    "continuations": [
+      {
+        "session": "codex-81tv4x",
+        "date": "2026-10-05",
+        "status": "partial",
+        "nodesInspected": [
+          "DeformationAndDerivedPatchingAlgebra:R03.3/catenary",
+          "DeformationAndDerivedPatchingAlgebra:R03.3/catenary-iff-dimension-function",
+          "DeformationAndDerivedPatchingAlgebra:R03.3/regular-local-cohen-macaulay",
+          "DeformationAndDerivedPatchingAlgebra:R03.3/free-of-maximal-depth-regular-local",
+          "DeformationAndDerivedPatchingAlgebra:R03.3/hilbert-samuel-function",
+          "DeformationAndDerivedPatchingAlgebra:R03.3/finite-length-of-maximal-power-annihilation",
+          "DeformationAndDerivedPatchingAlgebra:R03.3/finite-adic-quotient-length",
+          "DeformationAndDerivedPatchingAlgebra:P7/perfect-object",
+          "DeformationAndDerivedPatchingAlgebra:P7/pseudo-coherent-object",
+          "DeformationAndDerivedPatchingAlgebra:P7/minimal-complex",
+          "DeformationAndDerivedPatchingAlgebra:P7/unit-pivot-cancellation",
+          "DeformationAndDerivedPatchingAlgebra:P7/minimal-representative",
+          "DeformationAndDerivedPatchingAlgebra:P7/homotopy-residue-equality",
+          "DeformationAndDerivedPatchingAlgebra:P7/minimal-homotopy-equivalence-is-iso",
+          "DeformationAndDerivedPatchingAlgebra:P7/minimal-residual-ranks",
+          "DeformationAndDerivedPatchingAlgebra:R03.3/finite-length-of-primary-annihilation"
+        ],
+        "directBaselineRefsInspected": [
+          "mathlib:CategoryTheory.Functor.mapHomotopy",
+          "mathlib:CategoryTheory.Functor.mapHomotopyEquiv",
+          "mathlib:CategoryTheory.Limits.sigmaObj",
+          "mathlib:CochainComplex.IsKProjective.Qh_map_bijective",
+          "mathlib:CochainComplex.IsKProjective.quasiIso_iff",
+          "mathlib:CochainComplex.isKProjective_of_projective",
+          "mathlib:CovBy",
+          "mathlib:DerivedCategory.Q",
+          "mathlib:HomologicalComplex.coconeOfHasColimitEval",
+          "mathlib:HomologicalComplex.isColimitCoconeOfHasColimitEval",
+          "mathlib:Homotopy",
+          "mathlib:HomotopyEquiv",
+          "mathlib:Ideal.IsMaximal.eq_of_le",
+          "mathlib:Ideal.IsPrime.isRadical",
+          "mathlib:Ideal.IsRadical.radical_le_iff",
+          "mathlib:Ideal.Quotient.isNoetherianRing",
+          "mathlib:Ideal.krullDimLE_zero_quotient_iff_forall_minimalPrimes_isMaximal",
+          "mathlib:Ideal.le_radical",
+          "mathlib:Ideal.radical_pow",
+          "mathlib:IsArtinianRing.tfae",
+          "mathlib:IsLocalRing.le_maximalIdeal_of_isPrime",
+          "mathlib:IsLocalRing.maximalIdeal",
+          "mathlib:IsLocalRing.maximalIdeal.isMaximal",
+          "mathlib:IsNoetherianRing.isArtinianRing_of_krullDimLE_zero",
+          "mathlib:IsRegularLocalRing",
+          "mathlib:IsRegularLocalRing.of_spanFinrank_maximalIdeal_le",
+          "mathlib:LTSeries",
+          "mathlib:LinearMap.isArtinian_iff_of_bijective",
+          "mathlib:Module.Finite.of_restrictScalars_finite",
+          "mathlib:Module.Flat.of_projective",
+          "mathlib:Module.Free",
+          "mathlib:Module.IsLocalRing.linearCombination_bijective_of_flat",
+          "mathlib:Module.IsTorsionBySet.isScalarTower",
+          "mathlib:Module.IsTorsionBySet.module",
+          "mathlib:Module.IsTorsionBySet.semilinearMap",
+          "mathlib:Module.Projective",
+          "mathlib:Module.free_of_flat_of_isLocalRing",
+          "mathlib:Module.isTorsionBySet_iff_subset_annihilator",
+          "mathlib:Module.isTorsionBySet_quotient_ideal_smul",
+          "mathlib:Module.length",
+          "mathlib:Module.length_eq_zero",
+          "mathlib:Module.length_ne_top_iff",
+          "mathlib:ModuleCat.extendScalars",
+          "mathlib:ModuleCat.hasColimitsOfShape",
+          "mathlib:ModuleCat.projective_of_categoryTheory_projective",
+          "mathlib:Order.LTSeries.length_le_krullDim",
+          "mathlib:Order.krullDim",
+          "mathlib:Order.le_krullDim_iff",
+          "mathlib:PrimeSpectrum.zeroLocus",
+          "mathlib:RelSeries.cons",
+          "mathlib:RelSeries.insertNth",
+          "mathlib:RelSeries.snoc",
+          "mathlib:RingTheory.Sequence.IsRegular",
+          "mathlib:RingTheory.Sequence.IsRegular.nontrivial",
+          "mathlib:RingTheory.Sequence.isRegular_cons_iff'",
+          "mathlib:Submodule.annihilator_top",
+          "mathlib:Submodule.le_annihilator_iff",
+          "mathlib:Submodule.smul_eq_map₂",
+          "mathlib:TensorProduct.quotTensorEquivQuotSMul",
+          "mathlib:TensorProduct.quotTensorEquivQuotSMul_comp_mk",
+          "mathlib:isFiniteLength_iff_isNoetherian_isArtinian",
+          "mathlib:isNoetherian_of_isNoetherianRing_of_finite",
+          "mathlib:isRegularLocalRing_iff",
+          "mathlib:ringKrullDim_lt_top",
+          "mathlib:ringKrullDim_quotient",
+          "mathlib:ringKrullDim_quotient_le",
+          "mathlib:ringKrullDim_quotient_span_singleton_succ_eq_ringKrullDim_of_mem_nonZeroDivisors"
+        ],
+        "newBaselineRefs": [
+          "mathlib:Order.le_krullDim_iff",
+          "mathlib:RelSeries.cons",
+          "mathlib:RelSeries.snoc",
+          "mathlib:IsLocalRing.le_maximalIdeal_of_isPrime",
+          "mathlib:IsRegularLocalRing.of_spanFinrank_maximalIdeal_le",
+          "mathlib:RingTheory.Sequence.isRegular_cons_iff'",
+          "mathlib:TensorProduct.quotTensorEquivQuotSMul",
+          "mathlib:TensorProduct.quotTensorEquivQuotSMul_comp_mk",
+          "mathlib:CategoryTheory.Limits.sigmaObj",
+          "mathlib:HomologicalComplex.coconeOfHasColimitEval",
+          "mathlib:HomologicalComplex.isColimitCoconeOfHasColimitEval",
+          "mathlib:ModuleCat.hasColimitsOfShape",
+          "mathlib:ModuleCat.projective_of_categoryTheory_projective"
+        ],
+        "componentBoundary": "Statement/source and direct-use inspection only; no node-level acceptance or full API/closure certification. Read boundaries and remaining supplier proofs are itemized in the report.",
+        "nodeFindings": [
+          {
+            "nodes": [
+              "DeformationAndDerivedPatchingAlgebra:R03.3/catenary",
+              "DeformationAndDerivedPatchingAlgebra:R03.3/catenary-iff-dimension-function"
+            ],
+            "finding": "Catenary boundedness and saturated equal lengths match 00NI; 00NJ/00NK transfers and 0ECF read. 02JE is Examples §110.19. Native attainment and endpoint extensions now make the local chain proof explicit. Geometric and polynomial unit-test proof dependencies still need their complete closure check."
+          },
+          {
+            "nodes": [
+              "DeformationAndDerivedPatchingAlgebra:R03.3/regular-local-cohen-macaulay",
+              "DeformationAndDerivedPatchingAlgebra:R03.3/free-of-maximal-depth-regular-local"
+            ],
+            "finding": "00NQ and 00NT/00O7 statements and proofs read. The regular-local-domain gap remains. The quotient generator bound now uses the native regularity constructor and quotient-base-ring regular-sequence comparison. The integrated Auslander–Buchsbaum supplier statement is suitable, but its full proof audit and miracle-flatness parameter adapter remain outstanding."
+          },
+          {
+            "nodes": [
+              "DeformationAndDerivedPatchingAlgebra:R03.3/hilbert-samuel-function",
+              "DeformationAndDerivedPatchingAlgebra:R03.3/finite-length-of-maximal-power-annihilation",
+              "DeformationAndDerivedPatchingAlgebra:R03.3/finite-adic-quotient-length",
+              "DeformationAndDerivedPatchingAlgebra:R03.3/finite-length-of-primary-annihilation"
+            ],
+            "finding": "Raw n+1 cumulative length and finite quotient hypotheses match 00K4/00J0. The native primary-annihilation proof uses Artinian A/q and the actual surjective scalar map to the same carrier. Exponent zero and finite generation are correctly separated. All downstream quotient/scalar and eventual-stabilization API proof chains are still unaudited."
+          },
+          {
+            "nodes": [
+              "DeformationAndDerivedPatchingAlgebra:P7/perfect-object",
+              "DeformationAndDerivedPatchingAlgebra:P7/pseudo-coherent-object",
+              "DeformationAndDerivedPatchingAlgebra:P7/minimal-complex"
+            ],
+            "finding": "Perfect and pseudo-coherent definitions match 0657 and Definition 15.66.1/ Lemma 15.66.5, respectively, using a derived isomorphism to an actual representative. Minimality is intrinsic; its residual and matrix criteria need no finite-free assumption. Native quotient/tensor declarations supply the residual criterion. Triangle/summand closure and source proof dependencies outside the read sections remain open."
+          },
+          {
+            "nodes": [
+              "DeformationAndDerivedPatchingAlgebra:P7/unit-pivot-cancellation",
+              "DeformationAndDerivedPatchingAlgebra:P7/minimal-representative"
+            ],
+            "finding": "00MT unit-pivot proof read and reindexed to cochains. The family decomposition is an alternate degreewise cancellation route, not the lifting proof of 0BCC. The suggested family API now uses a genuine native coproduct and strict complex isomorphism, with a separate single-disk contraction and cancellation-to-zero test. Rank equations and assembly proofs remain admitted."
+          },
+          {
+            "nodes": [
+              "DeformationAndDerivedPatchingAlgebra:P7/homotopy-residue-equality",
+              "DeformationAndDerivedPatchingAlgebra:P7/minimal-homotopy-equivalence-is-iso",
+              "DeformationAndDerivedPatchingAlgebra:P7/minimal-residual-ranks"
+            ],
+            "finding": "0BCC residual uniqueness argument and signed native homotopy/K-projective comparison statements read. First strict-uniqueness assertion needs no bound; passage from a derived isomorphism needs bounded-above projectivity. Native module-to-category projectivity bridge added. Full numerical rank and generic derived-tensor signatures are still omitted."
+          }
+        ],
+        "sourceReadBoundary": {
+          "fullTaggedStatementsAndProofs": [
+            "00NI",
+            "00NJ",
+            "00NK",
+            "0ECF",
+            "02JE",
+            "00NP",
+            "00NQ",
+            "00NT",
+            "00O7",
+            "00N6",
+            "00J0",
+            "0657",
+            "00MT",
+            "0BCC"
+          ],
+          "sections": [
+            {
+              "tag": "00K4",
+              "read": "Section 10.59, including cumulative/graded conventions and finite-quotient paragraph; chained polynomial/degree proofs not recursively audited."
+            },
+            {
+              "tag": "00IU",
+              "read": "Definitions and Lemmas 10.52.1–10.52.7; not the whole length section."
+            },
+            {
+              "tag": "064N",
+              "read": "Definition 15.66.1 and Lemma 15.66.5 with proof; not the whole pseudo-coherence section."
+            }
+          ],
+          "sourceIssueE3": "Previous scoped confirmation preserved; source-error novelty and complete version collation not repeated in this continuation."
+        }
+      }
+    ]
   }
 }

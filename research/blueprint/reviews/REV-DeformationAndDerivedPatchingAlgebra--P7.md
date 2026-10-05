@@ -1,12 +1,12 @@
 # Independent review checkpoint: commutative algebra and derived patching, P7
 
-Reviewer: Codex — codex-6GrZZA. Job `REV-DeformationAndDerivedPatchingAlgebra--P7`, issue #142. Date: 5 October 2026.
+Reviewers: Codex — codex-6GrZZA (initial checkpoint, PR #6165); Codex — codex-81tv4x (continuation below). Job `REV-DeformationAndDerivedPatchingAlgebra--P7`, issue #142. Date: 5 October 2026.
 
 **Partial review; no acceptance or needs-changes verdict.** The packet remains a complete *planning pass*, with unfinished mathematical stages. This checkpoint records independently inspected evidence and clear corrections. It does not certify every node. The packet has no final top-level `review`; `reviewCheckpoint.status` is `partial`, so intake must release the review for continuation.
 
 ## Inventory and coverage
 
-The checker reports 478 nodes: 11 definitions, 66 constructions, 385 lemmas and 16 theorems. There are 359 API entries, 295 definition/construction test entries, 13 planets, 460 baseline citations, 15 gaps and two requests. Counting tests on all node kinds gives 389 entries, with 374 distinct names; the API has 349 distinct names. These counts describe the packet, not the amount independently verified.
+At the initial checkpoint the checker reported 478 nodes: 11 definitions, 66 constructions, 385 lemmas and 16 theorems; 359 API entries, 295 definition/construction test entries, 13 planets, 460 baseline citations, 15 gaps and two requests. Counting tests on all node kinds gave 389 entries, with 374 distinct names; the API had 349 distinct names. The current continuation's inventory is below. These counts describe the packet, not the amount independently verified.
 
 | Stage | Packet coverage |
 | --- | --- |
@@ -67,3 +67,61 @@ An isolated 1,123-line Mathlib-only prefix, ending before the positivity-continu
 `python3 scripts/check_blueprint.py research/blueprint/packets/DeformationAndDerivedPatchingAlgebra--P7.json` reports zero errors and zero warnings. All 478 implementation statuses remain `unchecked`.
 
 Resume using the handoff for this review job. Finish the node-by-node source and dependency audit, the remaining baseline statement/use matches, API/test correspondence, cross-roadmap ownership, planets and key-definition sample API. Only then add the protocol's final `review` object. This checkpoint supplies no promotion authorization.
+
+## Continuation: Codex — codex-81tv4x
+
+This continuation follows the bot-confirmed claim on issue #142 and inspects sixteen further node statements and their direct prerequisites. It supplies corrections and reading evidence, not sixteen node-level acceptance verdicts. The earlier evidence above remains attributed to codex-6GrZZA; its complete name diagnostic, Tau-source audit and source-issue novelty check were not repeated wholesale. The packet preserves that provenance in `reviewCheckpoint.priorSessionEvidence` and records the current component boundaries in `reviewCheckpoint.continuations`.
+
+The current packet still has 478 nodes with the same kind counts, thirteen planets, fifteen gaps and two requests. It now has **473 baseline citations** (462 Mathlib and eleven Tau), **362 API entries**, and **296 definition/construction tests** (390 entries across all node kinds). No node, planet, stage closure or implementation status was added. The thirteen new baseline entries record their source files and SHA-256 values at the exact Mathlib pin. All 67 direct Mathlib references used by the sixteen inspected nodes were read as statements with the relevant ambient assumptions. The cumulative source-fit list has 87 names, combining this work with the earlier 22-name inspection; this is distinct from the inherited 449-name presence diagnostic.
+
+### Statement and prerequisite inspection
+
+Node suffixes in this table are relative to `DeformationAndDerivedPatchingAlgebra:`. The table gives the actual inspection boundary; it does not certify all associated APIs, tests or downstream uses.
+
+| Nodes | Finding and remaining boundary |
+| --- | --- |
+| `R03.3/catenary`; `R03.3/catenary-iff-dimension-function` | Boundedness and equality of saturated chain lengths match 00NI. Localization and quotient transfer statements and proofs in 00NJ/00NK were read. The direct chain proof of 0ECF needs attainment, not just a chain-length upper bound. `Order.le_krullDim_iff` supplies attainment in the primes above p; native prepend/append operations force the endpoints p and m. The polynomial and geometric examples still require a complete prerequisite audit. |
+| `R03.3/regular-local-cohen-macaulay`; `R03.3/free-of-maximal-depth-regular-local` | The source regular-sequence and maximal-depth statements match 00NQ and 00NT. Quotient generators give an upper bound on the quotient embedding dimension; the native regular-local constructor supplies equality. The quotient-base-ring regular-sequence comparison is explicit. The domain argument in 00NP was read, but its planned associated-graded prerequisites remain the existing gap. The integrated depth/Auslander–Buchsbaum supplier's statement was read and fits; its source proof closure and the miracle-flatness parameter adapter remain unaudited. |
+| `R03.3/hilbert-samuel-function`; `R03.3/finite-length-of-maximal-power-annihilation`; `R03.3/finite-adic-quotient-length`; `R03.3/finite-length-of-primary-annihilation` | The raw extended-natural length uses the genuine quotient with exponent n+1. The finite-quotient passage in 00K4 and finite-generation hypothesis of 00J0 match the packet. The alternate primary-annihilation proof correctly equips the same carrier with an A/q action, makes A/q Artinian, and transports Artinianity through the surjective quotient homomorphism. The r=0 case is separate from `Ideal.radical_pow`, which requires a positive exponent. The quotient/scalar and eventual-stabilization API supplier chains were not fully audited. |
+| `P7/perfect-object`; `P7/pseudo-coherent-object` | 0657 and the relevant 064N passages distinguish a derived object from its bounded finite-projective or bounded-above finite-free representative. The suggested predicates use an isomorphism in the native derived category. Neither merely bounded cohomology nor arbitrary finite terms replace these hypotheses. Triangle/summand closure and the unread source proof dependencies remain open. |
+| `P7/minimal-complex` | The image condition imposes no finite-free or boundedness assumption. Its residual-differential criterion holds for arbitrary terms: the native quotient/tensor equivalence identifies the kernel with m times the target. The matrix criterion also works in arbitrary chosen bases. The additive scalar-extension adapter remains an admitted proof, rather than a claimed existing instance. |
+| `P7/unit-pivot-cancellation`; `P7/minimal-representative` | The full unit-pivot proof in 00MT was read and its chain indexing compared with cochains. A unit, rather than an arbitrary nonzero coefficient, is required. Top-down cancellation with stabilized terms is the packet's alternate route; 0BCC itself constructs the representative by lifting. The suggested disk-family decomposition now describes an actual coproduct. The explicit rank equations and the cancellation/assembly proofs remain unfinished. |
+| `P7/homotopy-residue-equality`; `P7/minimal-homotopy-equivalence-is-iso`; `P7/minimal-residual-ranks` | Signed native homotopies reduce to equality for minimal complexes. Finite-free residual invertibility supplies termwise invertibility without a bound. Passage from a derived isomorphism to a homotopy equivalence needs bounded-above projectivity. The native module-to-category projective instance supplies the missing bridge. The numerical rank equation and generic derived-tensor interface are still absent from the suggested signature. |
+
+The reviewed library-audit entries for R03.3 and P7 were consulted before these additions. Native regular sequences, tensor quotients, homotopies, derived categories, projectivity and complex colimits are reused. No parallel definition of these objects was planned. The current worker read the complete upstream AdicSpaces and AlgebraicTopology roadmap documents for the density and dependency standard; this does not extend any packet source-review verdict.
+
+### Corrections supplied in this continuation
+
+1. Corrected the Nagata source locator from Algebra §10.119 to **Examples §110.19**, keeping stable tag [02JE](https://stacks.math.columbia.edu/tag/02JE). Its noncatenary example is the three-dimensional local ring A[x] at the indicated maximal ideal; A itself is the earlier non-universally-catenary ring.
+2. Added `Ring.IsCatenary.chainLengthBound` and `Ring.IsCatenary.saturated_length_eq` to the API and suggested file, so the two definition clauses can be used without unfolding the predicate.
+3. Added four exact native prerequisites for chain attainment and endpoint extension, and made those steps explicit in the catenarity dimension-function proof. The quotient dimension identifies the interval above p; maximal chain length forces both endpoints and saturation.
+4. Added the regular-local constructor from the generator upper bound and `RingTheory.Sequence.isRegular_cons_iff'`. The latter handles the image list over the quotient base ring. The regular-local-domain gap is retained.
+5. Added the native quotient/tensor equivalence and its composition equation, and clarified that the residual and matrix minimality criteria do not require finite freeness.
+6. Replaced the misleading single-disk `minimalRepresentative.disk_part` signature with the actual family decomposition. It chooses multiplicities `r : ℤ → ℕ` and uses a coproduct indexed by `Σ i, Fin (r i)` of identity cones on stalks in degree i+1. Only indices n-1 and n meet degree n. The statement supplies a strict decomposition into a minimal part and that coproduct, and a contraction of the coproduct. The previous primitive contraction has its own name, `identity_disk_contractible`.
+7. Added the identity-disk-to-zero representative test and corresponding packet entry. Specified degrees -1 and 0 in the DVR acceptance example so its assertion about H^0 has an unambiguous convention.
+8. Added four native coproduct/termwise-colimit prerequisites and the module-theoretic to categorical projective instance. The latter's actual direction is opposite what its name might suggest; its statement was inspected directly.
+9. Updated the current P7 omission ledger: the disk-family **signature** is now supplied, while its proof, rank equations and generic derived interfaces remain open. Added seventeen source-byte receipts and component-level partial-review metadata. The earlier E3 verdict remains unchanged and attributed to the previous checkpoint.
+
+No baseline reference was removed. No new node required an `addedBy` field because these are additional APIs, native prerequisites and corrections to existing nodes.
+
+### Source reading receipts
+
+All links below are public Stacks sources read on 5 October 2026. Their downloaded HTML SHA-256 values are retained in the packet's `sourceVersions` with `reviewSession: codex-81tv4x`; the downloaded files themselves are disposable. A tag read does not certify every lemma cited in its proof.
+
+| Source | Passage actually read |
+| --- | --- |
+| [00NI](https://stacks.math.columbia.edu/tag/00NI), [00NJ](https://stacks.math.columbia.edu/tag/00NJ), [00NK](https://stacks.math.columbia.edu/tag/00NK), [0ECF](https://stacks.math.columbia.edu/tag/0ECF) | Catenary definition; full localization, quotient and local dimension-function statements and proofs. |
+| [02JE](https://stacks.math.columbia.edu/tag/02JE) | Full Nagata example, including the dimension-three ring and saturated chain of length two. |
+| [00NP](https://stacks.math.columbia.edu/tag/00NP), [00NQ](https://stacks.math.columbia.edu/tag/00NQ), [00NT](https://stacks.math.columbia.edu/tag/00NT), [00O7](https://stacks.math.columbia.edu/tag/00O7), [00N6](https://stacks.math.columbia.edu/tag/00N6) | Tagged domain, regular-sequence, maximal-depth/free-module, resolution-bound and parameter-sequence statements and proofs. The referenced associated-graded and depth foundations were not recursively audited. |
+| [00K4](https://stacks.math.columbia.edu/tag/00K4) | Section 10.59, including cumulative/graded indexing and finite quotients; not a recursive audit of the polynomial and degree suppliers. |
+| [00IU](https://stacks.math.columbia.edu/tag/00IU), [00J0](https://stacks.math.columbia.edu/tag/00J0) | Definitions and Lemmas 10.52.1–10.52.7, then the full 10.52.8 statement and proof. The entire length section was not read. |
+| [0657](https://stacks.math.columbia.edu/tag/0657), [064N](https://stacks.math.columbia.edu/tag/064N) | Perfect definition and its representative-direction clarification; pseudo-coherent Definition 15.66.1 and Lemma 15.66.5 with proof. The full pseudo-coherence section was not read. |
+| [00MT](https://stacks.math.columbia.edu/tag/00MT), [0BCC](https://stacks.math.columbia.edu/tag/0BCC) | Complete unit-pivot and residual-rank/minimal-representative statements and proofs. The lifting lemma invoked by 0BCC was not independently audited. |
+
+### Current validation and resume boundary
+
+The packet checker passes with **zero errors and zero warnings** at the current counts above. The full suggested file again stops at the missing compiled Tau graded-quotient import; no library build or update was attempted. The current **1,157-line prefix** elaborates with **zero errors and 117 warnings, all for admitted `sorry` proofs**. Its receipt, including the added family statement and test, is recorded in `reviewCheckpoint.suggestedPrefixCheck` and the handoff. It certifies admitted signatures only.
+
+Continue with the Hilbert–Samuel polynomial, degree and general multiplicity strand (nodes immediately following `finite-adic-quotient-length`), then P7's remaining residual-perfectness, Nakayama and filtered-colimit interfaces. Return to the precise API/supplier boundaries listed above before issuing any node verdict. The reserved multiplicity sample API, coherent-duality ownership, all remaining source routes, native replay receipts, baseline consumers, requests and planets still need review.
+
+The definitive reader and earlier planning handoff are outside #142's file allowlist. They still need an authorized E1-to-E3 cross-reference correction and synchronization of this continuation's source locator and API changes. No final review object is added. Submit this work as a checkpoint and release it through intake for the next worker.
