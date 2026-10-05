@@ -12754,8 +12754,9 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-ErdosProgressionPowers.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1693"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1693",
+   "finishedAt": "2026-10-05T07:23:27Z"
   },
   {
    "id": "REV-DESIGN-ErdosProgressionPowers",
@@ -31124,12 +31125,12 @@
     "REV-RS-07"
    ],
    "prompt": "research/blueprint/prompts/BP-SieveMethodsAndPrimePatterns.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-AnalyticNumberTheory--AN.0",
     "BP-AnalyticNumberTheory--AN.8"
    ],
-   "note": "released on GitHub issue #1036"
+   "note": "claimed on GitHub issue #1036"
   },
   {
    "id": "REV-SieveMethodsAndPrimePatterns",
