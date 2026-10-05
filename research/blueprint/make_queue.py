@@ -939,6 +939,17 @@ The original instructions follow.
 """
 MAX_RS_ROUNDS = 3
 
+PLAN_REVISION = """REVISION ROUND {ROUND} of the plan {BASE}.
+The independent review {REVIEW} did not accept the plan: read its report, research/blueprint/reviews/{REVIEW}.md, and the "review" object in {PACKET}.
+Revise the plan in place: make every correction the review asks for, check each correction the reviewer made in place, and keep what it accepted, with its node ids. Then carry the plan on as the instructions below say, until the packet's status is "complete" again. Leave the "review" object in place: the next reviewer replaces it. Say in research/blueprint/handoff/{JOB}.md what this round changed.
+The original instructions follow; you are job {JOB}.
+
+"""
+PLAN_REVISION_REVIEW = """This reviews REVISION ROUND {ROUND} of the plan {BASE}, which revised it after the review {EARLIER} did not accept it. Read that review's report, research/blueprint/reviews/{EARLIER}.md, and check that every correction it asked for has been made, as well as everything below.
+
+"""
+MAX_PLAN_ROUNDS = 3
+
 
 def restructuring_note(rs):
     """What a family member's blueprint takes from its family's restructuring (PROTOCOL.md section 15)."""
@@ -996,11 +1007,20 @@ def accepted_pass(job, prior):
         packet = json.loads((REPO / path).read_text()) if path else None
     except (OSError, ValueError):
         return None
-    # Only a pass finished under the node budget hands on its open stages. Packets accepted while
-    # "partial" under the earlier rule keep their gaps and requests for the red-team and fix rounds.
-    if not isinstance(packet, dict) or packet.get("status") != "complete" or (packet.get("review") or {}).get("status") != "accepted":
+    # A pass finished under the node budget hands on its open stages, and so does a packet accepted while
+    # "partial" under the earlier rule: red teams and fixes correct what a plan has, but plan no missing stage.
+    if (not isinstance(packet, dict) or packet.get("status") not in ("complete", "partial")
+            or (packet.get("review") or {}).get("status") != "accepted"):
         return None
     return path, packet
+
+
+def plan_sent_back(packet_path, reviewed_by, state):
+    """Whether the review job `reviewed_by`, finished, did not accept the plan in `packet_path`: its verdict
+    there is needs_changes or rejected, and names it. A later review (a fix's, say) is not this one's verdict."""
+    review = review_of(packet_path)
+    return (state == "done" and review.get("status") in ("needs_changes", "rejected")
+            and review.get("reviewer") == f"independent-review-{reviewed_by}")
 
 
 def split_note(rid, output):
@@ -1305,6 +1325,8 @@ def main():
 
     bp_jobs_of = defaultdict(list)
     parts_of = defaultdict(list)
+    # Each plan's prompt (template and fields) and its review's fields, from which a revision round is written.
+    plan_prompts, plan_reviews = {}, {}
 
     # The families of overlapping roadmaps, restructured before they are blueprinted.
     family_of = {}
@@ -1326,18 +1348,21 @@ def main():
             output = f"research/blueprint/packets/{file_id(rid)}" + (f"--{key}" if multi else "") + ".json"
             readme = f"research/blueprint/readmes/{file_id(rid)}" + (f"--{key}" if multi else "") + ".md"
             suggested = f"research/blueprint/suggested/{file_id(rid)}" + (f"--{key}" if multi else "") + ".lean"
-            text = BP_TEMPLATE.format(**fill, JOB=job_id, ROADMAP=rid, TITLE=title, README=readme, SUGGESTED=suggested, DETAIL=DETAIL[level(rid)],
-                                      PARTNOTE=f", part {i + 1} of {len(groups)}" if multi else "",
-                                      STAGES=stage_lines(group), OUTPUT=output, PART=json.dumps(part),
-                                      EXTRA=extra + (split_note(rid, output) if rid in ONE_LAYER_PER_PART else ""),
-                                      FILE=file_id(rid), EDITABLE=output)
+            fields = dict(JOB=job_id, ROADMAP=rid, TITLE=title, README=readme, SUGGESTED=suggested, DETAIL=DETAIL[level(rid)],
+                          PARTNOTE=f", part {i + 1} of {len(groups)}" if multi else "",
+                          STAGES=stage_lines(group), OUTPUT=output, PART=json.dumps(part),
+                          EXTRA=extra + (split_note(rid, output) if rid in ONE_LAYER_PER_PART else ""),
+                          FILE=file_id(rid), EDITABLE=output)
+            text = BP_TEMPLATE.format(**fill, **fields)
+            plan_prompts[job_id] = (BP_TEMPLATE, fields)
             add({"id": job_id, "kind": "blueprint", "priority": priority, "order": order * 100 + i,
                  "roadmapIds": [rid], "scope": [s["id"] for s in group], "outputs": [output, readme, suggested],
                  "after": list(after)}, text)
             bp_jobs_of[rid].append(job_id)
             parts_of[rid].append((job_id, output, readme, suggested))
             review_id = "REV-" + job_id[3:]
-            rtext = REVIEW_TEMPLATE.format(**fill, JOB=review_id, LEVEL=f"{level(rid)} level", TARGETS=f"the blueprint packet {output} and its suggested Lean file {suggested} (roadmap {rid}, stages: {', '.join(s['id'] for s in group)})")
+            plan_reviews[review_id] = dict(JOB=review_id, LEVEL=f"{level(rid)} level", TARGETS=f"the blueprint packet {output} and its suggested Lean file {suggested} (roadmap {rid}, stages: {', '.join(s['id'] for s in group)})")
+            rtext = REVIEW_TEMPLATE.format(**fill, **plan_reviews[review_id])
             add({"id": review_id, "kind": "review", "priority": 2, "order": order * 100 + i,
                  "roadmapIds": [rid], "outputs": [f"research/blueprint/reviews/{review_id}.md", output, suggested],
                  "after": [job_id], "avoidAccountOf": job_id}, rtext)
@@ -1405,14 +1430,17 @@ def main():
     for position, (job_id, rid, group, brief, name) in enumerate(designs, 1):
         output = f"research/blueprint/packets/{rid}.json"
         suggested = f"research/blueprint/suggested/{rid}.lean"
-        text = DESIGN_TEMPLATE.format(**fill, JOB=job_id, ROADMAP=rid, GROUP=group, BRIEF=brief, OUTPUT=output, DETAIL=DETAIL[level(rid)],
-                                      README=f"research/blueprint/readmes/{rid}.md", SUGGESTED=suggested,
-                                      FILE=rid, EDITABLE=f"research/blueprint/roadmaps/{rid}.json and {output}")
+        fields = dict(JOB=job_id, ROADMAP=rid, GROUP=group, BRIEF=brief, OUTPUT=output, DETAIL=DETAIL[level(rid)],
+                      README=f"research/blueprint/readmes/{rid}.md", SUGGESTED=suggested,
+                      FILE=rid, EDITABLE=f"research/blueprint/roadmaps/{rid}.json and {output}")
+        text = DESIGN_TEMPLATE.format(**fill, **fields)
+        plan_prompts[job_id] = (DESIGN_TEMPLATE, fields)
         add({"id": job_id, "kind": "design", "priority": 1, "order": position, "roadmapIds": [rid], **({"name": name} if name else {}),
              "outputs": [f"research/blueprint/roadmaps/{rid}.json", output, f"research/blueprint/readmes/{rid}.md", suggested],
              "after": ["DESIGN-BCGP18"] if job_id == "DESIGN-BCGP25" else [], "timeout": 8 * 3600}, text)
         review_id = "REV-" + job_id
-        rtext = REVIEW_TEMPLATE.format(**fill, JOB=review_id, LEVEL=f"{level(rid)} level", TARGETS=f"the new roadmap definition research/blueprint/roadmaps/{rid}.json, its blueprint packet {output} and its suggested Lean file {suggested}")
+        plan_reviews[review_id] = dict(JOB=review_id, LEVEL=f"{level(rid)} level", TARGETS=f"the new roadmap definition research/blueprint/roadmaps/{rid}.json, its blueprint packet {output} and its suggested Lean file {suggested}")
+        rtext = REVIEW_TEMPLATE.format(**fill, **plan_reviews[review_id])
         add({"id": review_id, "kind": "review", "priority": 2, "order": 1, "roadmapIds": [rid], **({"name": name} if name else {}),
              "outputs": [f"research/blueprint/reviews/{review_id}.md", f"research/blueprint/roadmaps/{rid}.json", output, suggested],
              "after": [job_id], "avoidAccountOf": job_id, "timeout": 8 * 3600}, rtext)
@@ -1539,15 +1567,18 @@ def main():
                     f"alone. Start from the coverage record for {sid} in {packet_path}, which says what remains"
                     + (f" ({'; '.join(str(r) for r in remaining)[:600]})" if remaining else "") +
                     f". Cite that packet's nodes by id wherever they apply, give your nodes ids it does not use, and do not edit it.\n")
-            text = BP_TEMPLATE.format(**fill, JOB=fid, ROADMAP=rid, TITLE=title, README=readme, SUGGESTED=suggested, DETAIL=DETAIL[level(rid)],
-                                      PARTNOTE=f", stage {key}, a follow-up of {job['id']}",
-                                      STAGES=f"- {sid} — {stage_titles.get(sid, sid)}", OUTPUT=output, PART=json.dumps(part),
-                                      EXTRA=note, FILE=file_id(rid), EDITABLE=output)
+            fields = dict(JOB=fid, ROADMAP=rid, TITLE=title, README=readme, SUGGESTED=suggested, DETAIL=DETAIL[level(rid)],
+                          PARTNOTE=f", stage {key}, a follow-up of {job['id']}",
+                          STAGES=f"- {sid} — {stage_titles.get(sid, sid)}", OUTPUT=output, PART=json.dumps(part),
+                          EXTRA=note, FILE=file_id(rid), EDITABLE=output)
+            text = BP_TEMPLATE.format(**fill, **fields)
+            plan_prompts[fid] = (BP_TEMPLATE, fields)
             follow = {"id": fid, "kind": "blueprint", "priority": job.get("priority", 3), "order": job.get("order", 0),
                       "roadmapIds": [rid], "scope": [sid], "outputs": [output, readme, suggested], "after": [review_id],
                       "followUpOf": job["id"]}
             add(follow, text)
-            rtext = REVIEW_TEMPLATE.format(**fill, JOB=review_job(fid), LEVEL=f"{level(rid)} level", TARGETS=f"the blueprint packet {output} and its suggested Lean file {suggested} (roadmap {rid}, stage {sid}, a follow-up of {job['id']})")
+            plan_reviews[review_job(fid)] = dict(JOB=review_job(fid), LEVEL=f"{level(rid)} level", TARGETS=f"the blueprint packet {output} and its suggested Lean file {suggested} (roadmap {rid}, stage {sid}, a follow-up of {job['id']})")
+            rtext = REVIEW_TEMPLATE.format(**fill, **plan_reviews[review_job(fid)])
             add({"id": review_job(fid), "kind": "review", "priority": 2, "order": job.get("order", 0), "roadmapIds": [rid],
                  "outputs": [f"research/blueprint/reviews/{review_job(fid)}.md", output, suggested], "after": [fid],
                  "avoidAccountOf": fid}, rtext)
@@ -1557,6 +1588,37 @@ def main():
                 parts_of[rid].insert(0, own)
             parts_of[rid].append((fid, output, readme, suggested))
             worklist.append(follow)
+    # Revision rounds (PROTOCOL.md section 8): a plan its own review did not accept is revised in place and
+    # reviewed again, by an agent that did none of the work on it, for at most MAX_PLAN_ROUNDS rounds.
+    latest_review = {}
+    by_job = {j["id"]: j for j in jobs}
+    for job in [j for j in jobs if j["kind"] in ("blueprint", "design") and j["id"] in plan_prompts]:
+        packet_path = next((o for o in job["outputs"] if o.startswith("research/blueprint/packets/")), None)
+        first_review = review_job(job["id"])
+        if not packet_path or first_review not in plan_reviews or first_review not in by_job:
+            continue
+        template, fields = plan_prompts[job["id"]]
+        reviewed_by, earlier = first_review, [job["id"]]
+        for round_no in range(2, MAX_PLAN_ROUNDS + 1):
+            revision = f"{job['id']}~{round_no}"
+            if revision not in prior and not plan_sent_back(packet_path, reviewed_by, prior.get(reviewed_by, {}).get("state")):
+                break
+            # The plan is revised in place, so its files exist from the start: the round's own
+            # deliverable is the handoff note saying what it changed.
+            add({**{k: job[k] for k in ("kind", "priority", "order", "roadmapIds", "scope", "name", "timeout") if k in job},
+                 "id": revision, "outputs": job["outputs"] + [f"research/blueprint/handoff/{revision}.md"],
+                 "after": [reviewed_by], "revisionOf": job["id"]},
+                PLAN_REVISION.format(ROUND=round_no, BASE=job["id"], REVIEW=reviewed_by, PACKET=packet_path, JOB=revision)
+                + template.format(**fill, **{**fields, "JOB": revision}))
+            review, first = review_job(revision), by_job[first_review]
+            add({**{k: first[k] for k in ("priority", "order", "roadmapIds", "name", "timeout") if k in first},
+                 "id": review, "kind": "review", "outputs": [f"research/blueprint/reviews/{review}.md"] + first["outputs"][1:],
+                 "after": [revision], "avoidAccountOf": revision, "independentOf": earlier + [revision]},
+                PLAN_REVISION_REVIEW.format(ROUND=round_no, BASE=job["id"], EARLIER=reviewed_by)
+                + REVIEW_TEMPLATE.format(**fill, **{**plan_reviews[first_review], "JOB": review}))
+            earlier.append(revision)
+            reviewed_by = review
+        latest_review[job["id"]] = reviewed_by
     # Assembly of multi-part roadmaps, after every part is reviewed.
     for rid, parts in parts_of.items():
         if len(parts) < 2:
@@ -1574,7 +1636,8 @@ def main():
         # document and suggested file may be a part's own, which would make the job look finished.
         add({"id": job_id, "kind": "assembly", "priority": 2, "order": 5000, "roadmapIds": [rid],
              "outputs": [readme, suggested, f"research/blueprint/handoff/{job_id}.md"],
-             "after": [review_job(p[0]) for p in parts]}, text)
+             # A part sent back by its review is joined once its latest revision is reviewed.
+             "after": [latest_review.get(p[0], review_job(p[0])) for p in parts]}, text)
     # Priority 1: name the planets drawn today (research/expansion/naming/PLANETS.json).
     planets_index = BP.parent / "expansion" / "naming" / "PLANETS.json"
     for number, batch in enumerate(json.loads(planets_index.read_text())["jobs"] if planets_index.exists() else [], 1):
