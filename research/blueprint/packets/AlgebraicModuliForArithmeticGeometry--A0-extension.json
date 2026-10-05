@@ -2006,6 +2006,20 @@
         "module": "Mathlib/AlgebraicGeometry/Modules/Sheaf.lean",
         "provides": "The right unit equation for pullbackComp and pullbackId, with the functor right unitor explicit.",
         "checked": "Statement and ambient binders read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05; working file compared byte-for-byte with git show at that commit."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.IsCofiltered",
+        "kind": "class",
+        "module": "Mathlib/CategoryTheory/Filtered/Basic.lean",
+        "provides": "Nonempty ordinary cofiltered categories: pairwise cones and equalizers of parallel arrows; not the distinct Boolean cofiltered 2-category convention.",
+        "checked": "Statement read at exact pinned Mathlib on 2026-10-05; local module bytes compared with git show at the pin."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Skeleton",
+        "kind": "def",
+        "module": "Mathlib/CategoryTheory/Skeletal.lean",
+        "provides": "The induced category on isomorphism classes, whose objects can be a subsingleton while its Hom types retain nontrivial automorphisms.",
+        "checked": "Statement read at exact pinned Mathlib on 2026-10-05; local module bytes compared with git show at the pin."
       }
     ]
   },
@@ -5139,12 +5153,17 @@
       "kind": "definition",
       "statement": "Fix a small cofiltered partially ordered index set I and a pseudofunctor Γ from I to fpqc stacks. An object of its 2-limit over T is a family xi∈Γi(T) and isomorphisms θa:Γa(xj)≅xi for each a:j→i, with unit and composition equations using the pseudofunctor constraints. A morphism is a family of component isomorphisms commuting with every θa. For the alternate Boolean cofiltered 2-category presentation also impose compatibility with every index 2-arrow; never identify that notion with an arbitrary ordinary cofiltered category by assertion.",
       "hypotheses": [
-        "A specified site (C,J), with fixed object and morphism universes; all stacks have groupoid fibres."
+        "A specified site (C,J), with fixed object and morphism universes; all geometric stack fibres are groupoids.",
+        "A small ordinary cofiltered index category (in particular a cofiltered poset) for the native compatible-family carrier. The separate Boolean 2-category model additionally needs index 2-arrow coherence."
       ],
       "prerequisites": [
         "mathlib:CategoryTheory.Pseudofunctor.StrongTrans",
         "mathlib:CategoryTheory.Pseudofunctor.StrongTrans.Modification",
-        "mathlib:CategoryTheory.Pseudofunctor"
+        "mathlib:CategoryTheory.Pseudofunctor",
+        "mathlib:CategoryTheory.IsCofiltered",
+        "mathlib:CategoryTheory.SingleObj.category",
+        "mathlib:CategoryTheory.SingleObj.groupoid",
+        "mathlib:CategoryTheory.Skeleton"
       ],
       "proofSteps": [
         "Define the object data with transitions, unit and compositional coherence.",
@@ -5185,24 +5204,44 @@
         {
           "name": "GerbeLimitFamily.pullback",
           "role": "functoriality",
-          "statement": "Restriction along T′→T applies to objects, transitions and arrows with inherited coherence."
+          "statement": "A supplied strong transformation η:Φ⇒Ψ between same-universe index diagrams induces a functor on compatible families, applying η at every component and using its naturality isomorphisms on transitions. Site restriction T′→T must first supply this strong transformation; constructing that geometric diagram and its coherence is a separate obligation."
+        },
+        {
+          "name": "GerbeLimitFamily.category",
+          "role": "structure",
+          "statement": "Compatible component arrows form a category with componentwise identity and composition; its Hom type is the displayed compatibility-square carrier."
+        },
+        {
+          "name": "GerbeLimitFamily.evaluation",
+          "role": "functoriality",
+          "statement": "Evaluation at i is a functor to Φ(i), taking objects and arrows to their i-components."
+        },
+        {
+          "name": "GerbeLimitFamily.isIso_of_components",
+          "role": "characterisation",
+          "statement": "A compatible-family arrow is invertible when every component is invertible; its inverse is the componentwise inverse in the same category."
+        },
+        {
+          "name": "GerbeLimitFamily.pullback_component",
+          "role": "simp",
+          "statement": "The i-component of the family induced by η is exactly η_i(x_i)."
         }
       ],
       "tests": [
         {
           "name": "LimitFamilyTests.singleton",
           "kind": "degenerate",
-          "statement": "For a singleton index, the groupoid of compatible families is equivalent to the sole stack fibre."
+          "statement": "For any native pseudofunctor on LocallyDiscrete(Discrete PUnit), its compatible-family category is equivalent to the sole fibre, including the pseudofunctor unit constraint."
         },
         {
           "name": "LimitFamilyTests.identityTower",
           "kind": "compatibility",
-          "statement": "For the constant identity system BA, its compatible-family groupoid is equivalent to BA(T), retaining A(T) automorphisms."
+          "statement": "For a nonempty cofiltered ordinary index category and the native constant identity diagram SingleObj G, with G a group, its compatible-family category is equivalent to SingleObj G. This retains G automorphisms. The corresponding BA(T) formulation additionally requires the geometric classifying-stack fibre comparison."
         },
         {
           "name": "LimitFamilyTests.classesInsufficient",
           "kind": "non-example",
-          "statement": "For the constant identity system B(Z/3Z) over an algebraically closed point, the inverse system of singleton isomorphism-class sets has no record of the three automorphisms of a compatible object."
+          "statement": "For the singleton constant diagram SingleObj(Multiplicative(ZMod 3)), compatible families are nonempty, their Skeleton is a subsingleton, and every object has exactly three endomorphisms. Passing only to the singleton set of isomorphism classes loses those arrows. Comparing this model to B(C3) over an algebraically closed point is a separate geometric input."
         }
       ],
       "uses": [
@@ -5276,7 +5315,7 @@
       "proofSteps": [
         "For two compatible objects, their Isom functor is the inverse limit of the affine finite-stage Isom schemes.",
         "The inverse-limit affines and faithful-flatness input makes this Isom scheme affine faithfully flat, giving local isomorphisms.",
-        "The nonempty X chart and these Isom schemes make X→limΓ an fpqc cover, giving local objects."
+        "Choose a point of the nonempty k-scheme X and restrict the compatible object to Spec L for its residue field L. The field extension L/k is faithfully flat. For any affine test scheme with a compatible object, the fibre product with Spec L is the affine faithfully flat Isom limit over its base change to L. Thus Spec L→lim Γ gives the required fpqc chart and local objects; no k-rational object is inferred."
       ],
       "acceptance": [
         "The conclusion is invariant under equivalence over the fixed site and retains all stated hypotheses."
@@ -5552,13 +5591,15 @@
       "kind": "lemma",
       "statement": "Let Γ→lim_iΔi be a morphism of affine fpqc gerbes. If each Γ→Δi is locally full, then Γ→lim_iΔi is locally full.",
       "hypotheses": [
+        "A field k and a small nonempty cofiltered index category (or cofiltered poset), so the coordinate-ring diagram is filtered after taking opposites.",
         "Both Γ and the compatible limit are already affine fpqc gerbes.",
         "The affine-group Hopf-algebra faithful-flatness criterion is supplied."
       ],
       "prerequisites": [
         "AlgebraicModuliForArithmeticGeometry:R09.4/locally-full",
         "AlgebraicModuliForArithmeticGeometry:R09.4/nonempty-affine-limit-gerbe",
-        "SchemeAndStackFoundations:SF.1"
+        "SchemeAndStackFoundations:SF.1",
+        "mathlib:CategoryTheory.IsCofiltered"
       ],
       "proofSteps": [
         "After choosing an object over a field extension, write the stabilizer H of the limit as lim Hi.",
@@ -6172,7 +6213,8 @@
       "prerequisites": [
         "AlgebraicModuliForArithmeticGeometry:R09.4/locally-full",
         "mathlib:CategoryTheory.Pseudofunctor.StrongTrans",
-        "mathlib:CategoryTheory.Pseudofunctor.StrongTrans.Modification"
+        "mathlib:CategoryTheory.Pseudofunctor.StrongTrans.Modification",
+        "mathlib:MonoidHom.toFunctor"
       ],
       "proofSteps": [
         "Use the existing strong-transformation and modification carriers.",
@@ -6224,7 +6266,7 @@
         {
           "name": "CanonicalFactorTests.notTarget",
           "kind": "non-example",
-          "statement": "The inclusion B1→B(Z/2Z) cannot have E=B(Z/2Z), because its first map is not locally full."
+          "statement": "The inclusion B1→B(C2) cannot have E=B(C2), because its first map is not locally full. With trivial stabilizer kernel the actual middle gerbe is B1; at the trivial object the quotient source Isom sheaf has one arrow while the final-target Isom sheaf has two. The native SingleObj PUnit→SingleObj(Multiplicative(ZMod 2)) fixture is faithful but not full and has these Hom cardinalities; its geometric comparison remains required."
         }
       ],
       "uses": [
@@ -6274,7 +6316,7 @@
         {
           "sourceId": "BV19",
           "locator": "Proposition3.9 and proof, pp.8–9",
-          "match": "The groupoid-quotient proof avoids the source’s expressly dubious unrestricted fpqc stackification."
+          "match": "The groupoid-quotient proof avoids the source’s expressly dubious unrestricted fpqc stackification. The quotient-Hom identification in the uniqueness paragraph incorrectly uses f in the final target; use g in the middle gerbe (E12)."
         }
       ],
       "implementationStatus": "unchecked",
@@ -6287,7 +6329,7 @@
         {
           "name": "AffineKernelRigidification.homSheaf",
           "role": "characterisation",
-          "statement": "For source objects x,y the target Isom sheaf is IsomΓ(x,y)/Kx."
+          "statement": "For f≅h∘g and source objects x,y, Isom_E(gx,gy) is the fpqc quotient Isom_Γ(x,y)/Kx, compatibly with composition. It is generally only a subfunctor of Isom_Δ(fx,fy), not equal to that final-target sheaf."
         },
         {
           "name": "AffineKernelRigidification.neutral",
@@ -6341,7 +6383,7 @@
       ],
       "proofSteps": [
         "Both first maps kill precisely the stabilizer kernel K of f because the second maps are faithful.",
-        "Their Isom sheaves are the same quotient IsomΓ/K.",
+        "Local fullness of the first maps identifies each middle-gerbe sheaf Isom_E(gx,gy) with Isom_Γ(x,y)/Kx. Faithfulness of the second maps embeds it in Isom_Δ(fx,fy), and does not make that embedding surjective.",
         "Identify both middle gerbes with the quotient presentation and obtain the equivalence with its compatibility modifications."
       ],
       "acceptance": [
@@ -6355,7 +6397,7 @@
         {
           "sourceId": "BV19",
           "locator": "Proposition3.9, uniqueness proof, pp.8–9",
-          "match": "The quotient Isom sheaf, not only its cardinality, identifies the middle factor."
+          "match": "The quotient Isom sheaf, not only its cardinality, identifies the middle factor. Correct the printed f-images to g-images (E12); the B1→B(C2) fixture distinguishes the two sheaves."
         }
       ],
       "implementationStatus": "unchecked"
@@ -7739,18 +7781,22 @@
       "kind": "definition",
       "statement": "For f:X→B, define PicX/B as the fppf sheafification on Sch/B of T↦Pic(XT), where Pic denotes invertible modules up to isomorphism. Equivalently sheafify the quotient presheaf Pic(XT)/fT*Pic(T), since every line bundle on T is locally trivial. Tensor product supplies the abelian group law. This does not identify its T-points with actual line bundles modulo pullback without a separate descent theorem.",
       "hypotheses": [
-        "A specified morphism of algebraic spaces over a scheme S; Picard objects use invertible modules on the small étale site."
+        "A scheme S, algebraic spaces X and B over S, and a specified S-morphism f:X→B.",
+        "Test objects are schemes T→B in a fixed-universe model of Sch/B with the fppf topology; X_T=X×_B T and f_T:X_T→T. Pic uses invertible modules on the small étale ringed sites."
       ],
       "prerequisites": [
         "AlgebraicModuliForArithmeticGeometry:R09.3/space-quasicoherent-modules",
         "tauceti:TauCeti.AlgebraicGeometry.LineBundleClass",
-        "DiamondsAndVStacks:D0/stackification",
         "SchemeAndStackFoundations:SF.1",
-        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-a-line-bundles-divisors-picard-group-degree"
+        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-a-line-bundles-divisors-picard-group-degree",
+        "mathlib:CategoryTheory.HasSheafify",
+        "mathlib:CategoryTheory.presheafToSheaf",
+        "mathlib:CategoryTheory.sheafifyLift",
+        "mathlib:CategoryTheory.sheafifyLift_unique"
       ],
       "proofSteps": [
         "On schemes reuse the pinned line-bundle-class carrier, importing its Picard-group completion rather than rebuilding it.",
-        "Form the presheaf by pullback and fppf sheafify as an abelian group.",
+        "Form the pullback presheaf of Picard groups. Use the pinned ordinary Type-valued sheafification in the chosen site/universe, and its finite-product compatibility to descend tensor, inverse and their abelian-group equations. An equivalent abelian-group-valued sheafification requires its own HasSheafify instance. No generic stackification or representability claim supplies this construction.",
         "Show that the base line bundles vanish locally, giving the quotient-presheaf comparison."
       ],
       "acceptance": [
@@ -7787,7 +7833,7 @@
         {
           "name": "RelativePicard.quotientSheaf",
           "role": "compatibility",
-          "statement": "Sheafifying Pic(XT)/Pic(T) gives the same fppf sheaf."
+          "statement": "Sheafifying T↦Pic(X_T)/im(f_T*:Pic(T)→Pic(X_T)) gives the same fppf sheaf as sheafifying T↦Pic(X_T); injectivity of f_T* is not presumed."
         }
       ],
       "tests": [
@@ -7831,7 +7877,8 @@
       "kind": "lemma",
       "statement": "For a scheme T→B, the restriction of PicX/B to Sch/T is naturally PicXT/T. Equivalently it is the fibre product of the relative Picard sheaf over B with T.",
       "hypotheses": [
-        "A specified morphism of algebraic spaces over a scheme S; Picard objects use invertible modules on the small étale site."
+        "A scheme S, algebraic spaces X and B over S, and a specified S-morphism f:X→B.",
+        "Test objects are schemes T→B in a fixed-universe model of Sch/B with the fppf topology; X_T=X×_B T and f_T:X_T→T. Pic uses invertible modules on the small étale ringed sites."
       ],
       "prerequisites": [
         "AlgebraicModuliForArithmeticGeometry:A0-extension/relative-picard-sheaf"
@@ -7867,7 +7914,9 @@
       "kind": "lemma",
       "statement": "If OT→fT*OXT is an isomorphism for every scheme T→B, then 0→Pic(T)→Pic(XT)→PicX/B(T) is exact. No surjectivity at the last arrow is asserted.",
       "hypotheses": [
-        "The universal global-functions isomorphism for all T→B."
+        "A scheme S, algebraic spaces X and B over S, and a specified S-morphism f:X→B.",
+        "Test objects are schemes T→B in a fixed-universe model of Sch/B with the fppf topology; X_T=X×_B T and f_T:X_T→T. Pic uses invertible modules on the small étale ringed sites.",
+        "For every scheme T→B, the canonical map of sheaves of rings O_T→(f_T)_*O_(X_T) is an isomorphism; the compatible comparison on global units is supplied."
       ],
       "prerequisites": [
         "AlgebraicModuliForArithmeticGeometry:A0-extension/relative-picard-sheaf",
@@ -7907,13 +7956,16 @@
       "kind": "definition",
       "statement": "For a section σ:B→X, a rigidified Picard object over T is an invertible sheaf L on XT and an isomorphism α:OT≅σT*L. An arrow is an isomorphism of line bundles preserving α. Under universal OT≅fT*OXT every such object has only the identity automorphism, and its isomorphism class lies in ker(σT*:Pic(XT)→Pic(T)). The trivialization is retained in the object, not discarded before descent.",
       "hypotheses": [
-        "A specified morphism of algebraic spaces over a scheme S; Picard objects use invertible modules on the small étale site."
+        "A scheme S, algebraic spaces X and B over S, and a specified S-morphism f:X→B.",
+        "Test objects are schemes T→B in a fixed-universe model of Sch/B with the fppf topology; X_T=X×_B T and f_T:X_T→T. Pic uses invertible modules on the small étale ringed sites.",
+        "A specified S-morphism σ:B→X with f∘σ=id_B and its induced sections σ_T:T→X_T.",
+        "The universal structure-sheaf isomorphism is required only for the asserted trivial-automorphism conclusion, not for defining the rigidified groupoid."
       ],
       "prerequisites": [
         "AlgebraicModuliForArithmeticGeometry:R09.3/space-quasicoherent-modules",
         "tauceti:TauCeti.SheafOfModules.IsInvertible",
         "tauceti:TauCeti.AlgebraicGeometry.InvertibleSheaf",
-        "DiamondsAndVStacks:D0/groupoid-quotients-and-two-fibre-products"
+        "SchemeAndStackFoundations:SF.1"
       ],
       "proofSteps": [
         "Use the core of the existing invertible-module category on charts.",
@@ -7931,7 +7983,7 @@
         {
           "sourceId": "SP0D24",
           "locator": "Definition before Lemma99.11.5, Lemma99.11.7",
-          "match": "The setoid conclusion uses the universal global-functions hypothesis, not just the existence of σ."
+          "match": "The setoid conclusion uses the universal global-functions hypothesis, not just the existence of σ. In the definition of a varying-base arrow, g′ must run X_T→X_T′, so that (g′)*L′ is on X_T (E14)."
         }
       ],
       "implementationStatus": "unchecked",
@@ -7949,7 +8001,27 @@
         {
           "name": "RigidifiedPicard.pullback",
           "role": "functoriality",
-          "statement": "Pullback of rigidified objects retains its unit and composition constraints."
+          "statement": "For q:T′→T over B, pull back L and α along X_(T′)→X_T and q, using the structure-sheaf unit and σ-square comparison. Identity and composite pullbacks satisfy the inherited module-pseudofunctor constraints."
+        },
+        {
+          "name": "RigidifiedPicard.mk",
+          "role": "constructor",
+          "statement": "An invertible sheaf L on X_T and an isomorphism α:O_T≅σ_T*L construct a rigidified object, without a universal global-functions hypothesis."
+        },
+        {
+          "name": "RigidifiedPicard.hom",
+          "role": "characterisation",
+          "statement": "In the fixed T-fibre an arrow (L,α)→(M,β) is a sheaf isomorphism φ:L≅M satisfying σ_T*(φ)∘α=β. Identity and composition are those of the underlying sheaf isomorphisms."
+        },
+        {
+          "name": "RigidifiedPicard.hom_ext",
+          "role": "extensionality",
+          "statement": "Two rigidified arrows are equal exactly when their underlying sheaf isomorphisms agree."
+        },
+        {
+          "name": "RigidifiedPicard.trivial",
+          "role": "constructor",
+          "statement": "The structure sheaf O_(X_T), with the canonical pullback unit isomorphism O_T≅σ_T*O_(X_T), is the trivial rigidified object."
         }
       ],
       "tests": [
@@ -7990,7 +8062,10 @@
       "kind": "lemma",
       "statement": "Under universal OT≅fT*OXT, an automorphism of (L,α) is identity. Any two choices of α for the same L give isomorphic rigidified objects, because their ratio is a base unit.",
       "hypotheses": [
-        "σ is a section and the universal global-functions isomorphism holds."
+        "A scheme S, algebraic spaces X and B over S, and a specified S-morphism f:X→B.",
+        "Test objects are schemes T→B in a fixed-universe model of Sch/B with the fppf topology; X_T=X×_B T and f_T:X_T→T. Pic uses invertible modules on the small étale ringed sites.",
+        "For every scheme T→B, the canonical map of sheaves of rings O_T→(f_T)_*O_(X_T) is an isomorphism; the compatible comparison on global units is supplied.",
+        "A specified S-morphism σ:B→X with f∘σ=id_B and its induced sections σ_T:T→X_T."
       ],
       "prerequisites": [
         "AlgebraicModuliForArithmeticGeometry:A0-extension/section-rigidified-picard",
@@ -8027,7 +8102,10 @@
       "kind": "theorem",
       "statement": "If σ:B→X is a section and OT→fT*OXT is an isomorphism for all T→B, then 0→Pic(T)→Pic(XT)→PicX/B(T)→0 is split exact, with retraction σT*. Equivalently PicX/B(T)≅ker σT*, naturally in T.",
       "hypotheses": [
-        "A section and the universal global-functions isomorphism."
+        "A scheme S, algebraic spaces X and B over S, and a specified S-morphism f:X→B.",
+        "Test objects are schemes T→B in a fixed-universe model of Sch/B with the fppf topology; X_T=X×_B T and f_T:X_T→T. Pic uses invertible modules on the small étale ringed sites.",
+        "For every scheme T→B, the canonical map of sheaves of rings O_T→(f_T)_*O_(X_T) is an isomorphism; the compatible comparison on global units is supplied.",
+        "A specified S-morphism σ:B→X with f∘σ=id_B and its induced sections σ_T:T→X_T."
       ],
       "prerequisites": [
         "AlgebraicModuliForArithmeticGeometry:A0-extension/relative-picard-kernel",
@@ -8039,7 +8117,7 @@
       "proofSteps": [
         "The section gives σT*fT*=id, splitting Pic(XT) into base classes and the kernel.",
         "For locally matching kernel classes choose trivializations along σ and overlap isomorphisms.",
-        "Scale each overlap isomorphism by its base-unit discrepancy along σ.",
+        "On T_ij normalize the overlap map φ_ij by the base unit measured by α_j⁻¹∘σ*φ_ij∘α_i. Pull back the inverse of that unit to scale φ_ij. The inverse on α_j is necessary for this composite to be well typed (E13).",
         "The triple cocycle discrepancy restricts to1; the universal global-functions condition makes it1, so actual invertible-sheaf descent applies.",
         "Descend the trivializations as compatible maps and verify their inverses; this supplies the source’s small omitted detail.",
         "The kernel presheaf is thus an fppf sheaf and equals the relative Picard sheaf."
@@ -8056,7 +8134,7 @@
         {
           "sourceId": "SP0D24",
           "locator": "Lemma99.11.4 and proof",
-          "match": "The proof needs normalized isomorphisms and their actual cocycle, not merely matching local Picard classes."
+          "match": "The proof needs normalized isomorphisms and their actual cocycle, not merely matching local Picard classes. Its displayed normalization composite needs α_j inverse (E13)."
         }
       ],
       "implementationStatus": "unchecked"
@@ -40215,7 +40293,8 @@
       "supplier": "SchemeAndStackFoundations:SF.1",
       "need": "On the small étale site of algebraic spaces, supply invertible-sheaf pullback and its tensor/dual group laws, with comparison to the pinned scheme line-bundle-class commutative monoid. The relative Picard sheaf construction is owned here; do not replace it by a Picard set without base-change maps.",
       "neededBy": [
-        "AlgebraicModuliForArithmeticGeometry:A0-extension/relative-picard-sheaf"
+        "AlgebraicModuliForArithmeticGeometry:A0-extension/relative-picard-sheaf",
+        "AlgebraicModuliForArithmeticGeometry:A0-extension/section-rigidified-picard"
       ]
     },
     {
@@ -40478,6 +40557,40 @@
         "AlgebraicModuliForArithmeticGeometry:R09.3/space-quasicoherent-modules",
         "AlgebraicModuliForArithmeticGeometry:R09.3/space-fpqc-quasicoherent-descent"
       ]
+    },
+    {
+      "title": "Affine group theorem ownership beyond finite type",
+      "detail": "The SF.1 requests currently combine geometric fpqc descent with arbitrary affine-group theorems (injective coordinate Hopf maps iff faithfully flat; affine normal closed-subgroup quotient with faithfully flat projection). The read SF.1 stage does not plan those group theorems. Upstream ReductiveGroups Layer 3 owns subgroup/quotient group theory but its standing scope is finite type; this packet also needs arbitrary affine/profinite stabilizers. Pinned TauCeti affine image factoring has no general faithful-flatness conclusion, and its fppf quotient sheaf constructs no affine representability theorem. The orchestrator must separate SF.1 descent from the group theorem and request an explicit ReductiveGroups extension/Part II with the required generality. The incoming supplier requests are retained as unresolved obligations, not certified imports. Do not replace fpqc by fppf without a comparison.",
+      "neededBy": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/locally-full-isom-epi",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/locally-full-limit",
+        "AlgebraicModuliForArithmeticGeometry:R09.5/affine-kernel-rigidification",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/finite-etale-image"
+      ]
+    },
+    {
+      "title": "Relative and rigidified Picard native interfaces and discriminating fixture",
+      "detail": "Ordinary sheafification is an existing pinned Mathlib interface; the chosen fixed-universe Sch/B fppf site and finite-product/abelian-group comparison still require native instantiation. Build the algebraic-space invertible-module pullback, unit/section-square constraints, group inverse and units dictionary before transcribing the exact Picard and rigidified signatures; all are still in the omission ledger. PicardSheafTests.needSheafification is currently a general warning rather than an explicit worked non-example: supply a public-source-checked example with an actual sheaf point and proved absence of a global line-bundle representative, or record the resulting obstruction. The existing identity and P1 fixtures also need native proofs/comparisons. No generic stackification or groupoid-quotient carrier is a prerequisite for forming the fixed-base rigidified groupoid.",
+      "neededBy": [
+        "AlgebraicModuliForArithmeticGeometry:A0-extension/relative-picard-sheaf",
+        "AlgebraicModuliForArithmeticGeometry:A0-extension/relative-picard-base-change",
+        "AlgebraicModuliForArithmeticGeometry:A0-extension/relative-picard-kernel",
+        "AlgebraicModuliForArithmeticGeometry:A0-extension/section-rigidified-picard",
+        "AlgebraicModuliForArithmeticGeometry:A0-extension/rigidified-picard-setoid",
+        "AlgebraicModuliForArithmeticGeometry:A0-extension/section-picard-split"
+      ]
+    },
+    {
+      "title": "Compatible-family geometric diagrams and affine-factor fixture",
+      "detail": "The suggested native compatible-family category, evaluation, componentwise invertibility, strong-transformation pullback and three tests use actual Mathlib categories. Construct the index/site two-variable diagram, its restriction strong transformations and unit/composition coherence, then compare with the geometric stack limit. The cofiltered constant one-object group example does not by itself prove the BA(T) comparison over arbitrary T. The SingleObj PUnit→SingleObj(C2) calculation detects the final-target Hom error E12, but the geometric B1→B(C2) canonical factorization fixture and affine quotient supplier remain omitted. No existing implementation status is promoted.",
+      "neededBy": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/compatible-limit-family",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/limit-stack-descent",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/nonempty-affine-limit-gerbe",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/canonical-affine-factorization",
+        "AlgebraicModuliForArithmeticGeometry:R09.5/affine-kernel-rigidification",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/canonical-factorization-unique"
+      ]
     }
   ],
   "sourceIssues": [
@@ -40723,6 +40836,78 @@
         "reason": "Checked both formulas in the live HTML and the public TeX source; their correction follows from the explicitly defined refinement objects. This is a bounded check for existing corrections, not an exhaustive novelty claim.",
         "by": "REV-AlgebraicModuliForArithmeticGeometry--A0-extension"
       }
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry/E12",
+      "source": "BV19P",
+      "kind": "error",
+      "locator": "Published Fundamental gerbes, Proposition 3.9 uniqueness paragraph, printed p.539 (PDF9); same formula in arXiv:1610.07341v3 p.9. Both versions independently read 2026-10-05.",
+      "printed": "Hom_A(ξ,η)/K_A(ξ) ≃ Hom_A(f(ξ),f(η))",
+      "correction": "Replace the right side by Hom in the middle gerbe at g(ξ),g(η), for Γ --g→ E --h→ Δ. The induced map to the original final-target Hom sheaf need only be injective, because h is faithful.",
+      "reason": "Take f:B1→B(C2) over a field, and the trivial object. Its stabilizer kernel is trivial. The source quotient Hom sheaf has one section over an algebraically closed field, whereas Hom_Δ(fξ,fξ) is the constant group C2 and has two. The canonical middle gerbe is B1 and its Hom sheaf has one. The corrected formula gives the intended uniqueness argument; the proposition is not refuted.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Version-of-record PDF from MSP, Proposition 3.9 pp.538–540; publisher article listing was inaccessible to the browser tool.",
+        "Latest arXiv v3 PDF, Proposition 3.9, and arXiv abstract submission history (v3 last revised 2017-06-20).",
+        "Bounded title/Proposition 3.9 erratum/corrigendum searches, including site:msp.org, on 2026-10-05: no separate correction located."
+      ],
+      "affectedNodes": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/canonical-affine-factorization",
+        "AlgebraicModuliForArithmeticGeometry:R09.5/affine-kernel-rigidification",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/canonical-factorization-unique"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked at the stated source locator and by the displayed typed calculation/counterexample. This is bounded evidence from an unfinished independent review; no overall acceptance or exhaustive novelty claim.",
+        "by": "REV-AlgebraicModuliForArithmeticGeometry--A0-extension"
+      }
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry/E13",
+      "source": "SP0D24",
+      "kind": "misprint",
+      "locator": "Stacks Tag 0D24, Lemma 99.11.4 proof, displayed normalization composite; live HTML and public quot.tex on 2026-10-05.",
+      "printed": "\\alpha_j|_{T_i \\times_T T_j} \\circ \\sigma_{T_i \\times_T T_j}^*\\varphi_{ij} \\circ \\alpha_i|_{T_i \\times_T T_j}",
+      "correction": "Use α_j inverse on the left: α_j⁻¹∘σ*φ_ij∘α_i is an automorphism of the overlap structure sheaf.",
+      "reason": "Both α_i and α_j map the structure sheaf to the corresponding pulled-back line bundle. After σ*φ_ij∘α_i the codomain is σ*L_j, so α_j cannot follow it; its inverse can. Scaling by the resulting base unit inverse and the cocycle proof then work as intended.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Tag 0D24 live page, including its zero-comment list.",
+        "stacks/stacks-project master quot.tex, lemma-pic-functor-section normalization proof; the missing inverse remains."
+      ],
+      "affectedNodes": [
+        "AlgebraicModuliForArithmeticGeometry:A0-extension/section-picard-split"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked at the stated source locator and by the displayed typed calculation/counterexample. This is bounded evidence from an unfinished independent review; no overall acceptance or exhaustive novelty claim.",
+        "by": "REV-AlgebraicModuliForArithmeticGeometry--A0-extension"
+      }
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry/E14",
+      "source": "SP0D24",
+      "kind": "misprint",
+      "locator": "Stacks Tag 0D24, rigidified Picard category definition immediately after Lemma 99.11.4; live HTML and public quot.tex on 2026-10-05.",
+      "printed": "g' : X_{T'} \\to X_T",
+      "correction": "For g:T→T′, its base change is g′:X_T→X_T′.",
+      "reason": "The specified arrow includes (g′)*L′→L with L′ on X_T′ and L on X_T. This pullback has the required domain only with the corrected direction; the displayed section equation confirms it.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Tag 0D24 live page, including its zero-comment list.",
+        "stacks/stacks-project master quot.tex, definition of Picardstack_(X/B,σ); the reversed arrow remains."
+      ],
+      "affectedNodes": [
+        "AlgebraicModuliForArithmeticGeometry:A0-extension/section-rigidified-picard"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked at the stated source locator and by the displayed typed calculation/counterexample. This is bounded evidence from an unfinished independent review; no overall acceptance or exhaustive novelty claim.",
+        "by": "REV-AlgebraicModuliForArithmeticGeometry--A0-extension"
+      }
     }
   ],
   "keyDefinitions": [
@@ -40809,6 +40994,30 @@
       "citation": "The Stacks Project public TeX source, proposition-fpqc-descent-quasi-coherent",
       "read": "2026-10-05",
       "sha256": "49483b3bcb36427a607a8227f4ea67730fcddf1eeccb8e992ca61915ace3b31d"
+    },
+    {
+      "kind": "published",
+      "url": "https://msp.org/ant/2019/13-3/ant-v13-n3-p01-s.pdf",
+      "read": "2026-10-05",
+      "sha256": "64fca3767f3c6cbd02fbf84f1fb456c7fda30c7bc95ddc8c8c84cd3bd8629111"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1610.07341v3",
+      "read": "2026-10-05",
+      "sha256": "820bc690bb5753e990b580716b93aff2326d873ae03b7bf2aee8e9e935e55ed6"
+    },
+    {
+      "kind": "published",
+      "url": "https://stacks.math.columbia.edu/tag/0D24",
+      "read": "2026-10-05",
+      "sha256": "d0d28a2cc8b6be6b6d0874c36e7ce653c25484bb337af1b67253eb6c71c2e3e7"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://raw.githubusercontent.com/stacks/stacks-project/master/quot.tex",
+      "read": "2026-10-05",
+      "sha256": "dd8e6fe1c77fbc372252abbfc7f449a5d9a344d1e83acabcc55a53edf3f750e0"
     }
   ],
   "routedItems": [

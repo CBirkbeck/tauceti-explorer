@@ -1,27 +1,35 @@
 # REV-AlgebraicModuliForArithmeticGeometry--A0-extension: checkpoint handoff
 
-Codex — codex-BTpcaN, 2026-10-05. Refs #346. Claim 5994365139 was confirmed by bot reply 5994367586. Input commit `0fbbbfccdad9e3c5e0db40cd5e401ea500b23b65`; branch `codex-BTpcaN-review-346`.
+Codex — codex-tBJmUU, 2026-10-05. Refs #346. Claim comment 5994904624 was confirmed by bot reply 5994907736. Input commit `47691b70c799f852c05c363ec26dd72468741503`; branch `codex-tBJmUU-review-346`.
 
-**The review is unfinished.** No top-level packet review or overall verdict is recorded. The completion classifier returns false. Keep the planning status/coverage and unchecked implementation statuses; this checkpoint does not promote or reject the packet. This run claims no second job.
+**The review remains unfinished.** No top-level packet review, overall verdict, final checked disposition, promotion or stage/implementation-status change. The intake completion classifier returns false. The complete planning pass may retain its honest partial/not_read coverage. This run takes no second job.
 
-The first section of `research/blueprint/reviews/REV-AlgebraicModuliForArithmeticGeometry--A0-extension.md` records this session's work and evidence. The two preceding reports are preserved below a historical heading and retain their authorship and limitations.
+The report's new first section records fresh readings, exact source/module hashes, corrections and validation. All preceding reports are preserved below a historical heading; their evidence is not recertified by this session.
 
-## Changes saved
+## Saved work
 
-Five existing node objects change (incoming indices 57, 58, 60, 63, 78): actual affine tilde/global-sections adjunction prerequisites; native scheme-module coherence prerequisites; explicit faithfully flat ring hypotheses; correct named common-refinement members; and the scheme-chart fibre products needed for algebraic-space descent. Five baseline objects, one precise native-comparison gap and E11 are added. E11 concerns two notation slips in Stacks 023T; it has a bounded independent confirmation and two source-version records.
+Twelve existing nodes change: incoming indices 33, 35, 40, 50–52 and 79–84. The compatible-family carrier now has a native category, evaluation, componentwise invertibility, strong-transformation pullback and three arrow-sensitive tests. A fourth partial native C2 fixture distinguishes the source/middle Hom sheaf from the final target. The nonempty affine-limit proof selects a residue-field chart; locally-full limits explicitly require cofilteredness.
 
-The suggested file now states affine pullback naturality, the infinite-free field example including non-finite generation, the actual tilde noninvertible arrow and the monomorphism lost under Z→Z/2Z pullback. Three corresponding omissions are removed. The remaining omissions and the older adapter gap remain. No added nodes; all 660 ids, sources, requests, stage/key statuses, planets and implementation statuses remain unchanged. Counts: 253 baseline declarations, 12 gaps, 11 source findings, 597/589 raw API/tests (589/556 checker-normalized).
+The six Picard nodes have precise base/test/section/functions hypotheses. Ordinary sheafification imports pinned Mathlib, with its site/universe/group-structure instantiation still required. Fixed-base rigidified objects no longer depend on a quotient-stack construction; their added API includes constructor, exact arrow equation, extensionality and trivial object. The omitted geometric signatures and new API clauses are synchronized with the packet.
 
-## Where to resume
+E12 corrects BV19 Proposition 3.9's quotient Hom identification to the middle gerbe. E13/E14 correct Stacks 0D24's missing inverse and reversed base-change arrow; public quot.tex confirms both. New source/version records give the exact texts, hashes and bounded existing-correction searches. These are provisional bounded source confirmations until the full independent review is finished.
 
-This session examined statements, principal-source proof routes and API/test text for 38 objects: indices 56–65, 75–78, 85–108. The exact suffix list and source hashes are in the report. This is not final verification of every secondary locator, recursive prerequisite or suggested signature. Earlier checkpoints cover 57 different objects at their bounded reading level, so 565 objects still lack that reading pass. All 660 need a reconciled final checked disposition. Nineteen Mathlib and one Tau Ceti baseline statements were freshly read; authentication of additional module bytes is not verification of their unread declarations.
+Two native baseline entries and eight API clauses are added. Three gaps retain arbitrary affine-group ownership, the missing explicit Picard obstruction example/native interfaces, and geometric compatible-limit comparisons. All 660 ids, 72 sources, 22 requests, coverage/key rows and ten planets survive. The invertible-module pullback request now also names the rigidified consumer. Final counts: 255 baseline entries, 605/589 raw API/tests, 597/556 normalized API/tests, 15 gaps, 14 source findings.
 
-Recheck the five edits, new gap, E11 and suggested signatures. Finish the structure-sheaf pullback unit and slice restriction comparisons, Gamma/pushforward/restrictScalars transport, affine identity/composition/localization examples and restricted QCoh constraint checks. Read all chosen-overlap adapter baseline declarations and build its native carriers before accepting effective descent. SF.1 requests remain supplier obligations, not proven interfaces. Then finish all other nodes, recursive closure, baseline hypotheses, source passages, APIs/tests, suggested file, planets, stage target coverage and ownership. Earlier H2 sign/quotient/two-inverse, reserved gerbe sample API and coherent-duality boundaries remain open.
+## Resume frontier
 
-The reader is outside this issue's allowed files. An authorized job must synchronize the five affected passages and signature-omission summary; do not edit it here or promote the packet.
+Fresh full-object readings: 24 nodes, indices 32–43, 50–55 and 79–84; 18 overlap the prior gerbe frontier, six Picard nodes are new. Combined historical bounded frontier: 101 distinct ids, indices 0–65, 67 and 75–108. Remaining 559: 66, 68–74 and 109–659. Every one of the 660 still needs a final reconciled disposition; this bounded reading does not certify recursive closure, all secondary locators or native signatures. Seventeen final baseline declarations were freshly read, leaving 238 unread in this session.
 
-## Checks and Lean limit
+First recheck the twelve edits, E12–E14 and the fragment. Resolve arbitrary affine/profinite-group theorems: SF.1 has the descent direction, while upstream ReductiveGroups Layer 3 is finite type and needs an explicit extension/Part II for the requested generality. Its normal-quotient direction is not already a generic profinite theorem. Pinned Tau's fppf quotient is a sheaf without a representability result, and its affine image factoring does not establish general faithful flatness.
 
-Packet checker: zero errors/warnings. Source issue/version schemas, intake scope, preservation and whitespace checks pass; actual completion classifier leaves this as a checkpoint. Serial final `lean-check` fails before elaboration at the missing Tau Ceti SheafCohomology.LongExactSequence object. Available memory was 95 GB. Shared Mathlib is pinned; shared Tau Ceti is cf386627 rather than f790474. No full-file or new-signature compilation is claimed. Use only an already built exact-pin environment; never build/update/fetch caches or start a language server.
+Build the geometric compatible-family diagram/restriction coherence and the classifying-stack fibre comparisons. Build algebraic-space Picard group/pullback/units, the structure-sheaf/section-square transports, and a source-checked actual relative sheaf point without a global line-bundle representative. Then finish all other baseline/source/closure/API/test/planet/stage/ownership checks. Earlier H2 inverse/sign/quotient, reserved gerbe sample API and coherent-duality boundaries remain open.
 
-Disposable HTML, TeX and logs are removed after submission. Public URLs, hashes, exact reading boundaries and committed statements in the report are all resumption evidence; no next worker needs this run's scratch directory.
+The reader is outside this job's allowed paths. A separately authorized orchestrator edit must synchronize these twelve passages, APIs, source findings and the omission summary; do not edit it here.
+
+## Validation limits
+
+Packet checker: zero errors/warnings. Source issue/version schemas, intake file scope/private-path check, preservation and whitespace checks pass; classifier says unfinished.
+
+The final isolated Mathlib-only native fragment elaborates with twelve `sorry` warnings. Exact SHA256 and reconstruction boundary are in the report. It was checked at the authorized suggested-file path and the full bytes restored afterward; earlier erroneous scratch Lean files were removed. The full suggested file fails before elaboration at the missing TauCeti SheafCohomology.LongExactSequence object. Memory available before both final checks: 95 GB. Shared Mathlib is the exact pin; shared Tau is cf386627 rather than f790474. No full-file or exact-Tau compilation is claimed. Use only an already built pinned environment, never builds/updates/cache fetches or language servers.
+
+Public URLs, hashes, committed statements and this reading frontier replace disposable scratch evidence. Scratch is deleted after the PR opens; no continuation depends on it. No background Lean process remains.
