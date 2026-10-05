@@ -23905,7 +23905,8 @@
    ],
    "avoidAccountOf": "BP-DirichletPadicLFunctions--L4",
    "prompt": "research/blueprint/prompts/REV-DirichletPadicLFunctions--L4.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5877"
   },
   {
    "id": "BP-EllipticCurveModularity",
@@ -31307,14 +31308,15 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-ProbabilisticAndMetricNumberTheory.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [
     "BP-AnalyticNumberTheory--AN.0",
     "BP-AnalyticNumberTheory--AN.8",
     "BP-ExponentialSumsAndCircleMethod",
     "BP-GeometryOfNumbersAndQuadraticArithmetic"
    ],
-   "note": "claimed on GitHub issue #1041"
+   "note": "deliverables arrived from an external worker on issue #1041",
+   "finishedAt": "2026-10-05T00:23:50Z"
   },
   {
    "id": "REV-ProbabilisticAndMetricNumberTheory",
