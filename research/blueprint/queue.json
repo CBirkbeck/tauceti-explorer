@@ -13174,8 +13174,8 @@
    "avoidAccountOf": "DESIGN-FunctionFieldArithmeticPartII",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-FunctionFieldArithmeticPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3533"
+   "state": "pending",
+   "note": "released on GitHub issue #3533"
   },
   {
    "id": "DESIGN-ProbabilisticAndMetricNumberTheoryPartII",
@@ -30515,8 +30515,9 @@
    ],
    "avoidAccountOf": "BP-ClassicalArithmeticCompletion",
    "prompt": "research/blueprint/prompts/REV-ClassicalArithmeticCompletion.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #532"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #532",
+   "finishedAt": "2026-10-05T04:32:26Z"
   },
   {
    "id": "BP-ComputationalNumberTheory",
@@ -31282,7 +31283,7 @@
     "REV-RS-03"
    ],
    "prompt": "research/blueprint/prompts/BP-ExponentialSumsAndCircleMethod.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-AnalyticNumberTheory--AN.0",
     "BP-AnalyticNumberTheory--AN.8",
@@ -31290,7 +31291,7 @@
     "BP-FoundationsAndLibraryIntegration",
     "BP-SieveMethodsAndPrimePatterns"
    ],
-   "note": "released on GitHub issue #1040"
+   "note": "claimed on GitHub issue #1040"
   },
   {
    "id": "REV-ExponentialSumsAndCircleMethod",
