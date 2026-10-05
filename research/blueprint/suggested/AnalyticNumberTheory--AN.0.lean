@@ -32,6 +32,7 @@ import Mathlib.Analysis.SpecialFunctions.Complex.Analytic
 import Mathlib.Analysis.SpecialFunctions.Complex.LogBounds
 import Mathlib.Analysis.SpecialFunctions.Gamma.Digamma
 import Mathlib.NumberTheory.LSeries.Dirichlet
+import Mathlib.NumberTheory.DirichletCharacter.Orthogonality
 import Mathlib.Tactic
 
 /-!
@@ -59,13 +60,18 @@ weight signatures, finite representation examples and exact half-cardinality gua
 The full independent mathematical review is still unfinished.
 Continuation codex-btapUd supplies the Weil test predicate with pinned BV/one-sided-limit
 APIs and every API/test signature, and strict-cutoff squarefree counting forms.
-Five canonical-carrier definitions remain omitted.
+Four canonical-carrier definitions remain omitted after the codex-LO9Eha continuation.
 Continuation codex-45ZB12 expands the Hadamard/xi and explicit-formula signatures,
 uses multiplicities and an inclusive positive Riemann–von Mangoldt count, and adds
 finite Artin-factor and prescribed-root disc signatures. Canonical Artin carriers
 remain explicit omissions. Compilation checks signatures with admitted proofs;
 it supplies no mathematical certification. The packet/report give the exact
 fresh source, baseline and incomplete-review scopes.
+Continuation codex-LO9Eha states the concrete Halász coefficient class and witness
+API, its integral bound and prime-weighted mean square, regularized PNT boundaries,
+and Dickman delay/continuity plus finite-prime smooth-number adapters. The shared
+pinned Mathlib check had 270 admitted-proof warnings and no errors. Four imported
+definition carriers and the independent mathematical review remain unfinished.
 Other statements requiring those carriers or unacquired higher-genus/covering
 interfaces are listed mathematically at the end. They are not executable signatures.
 -/
@@ -463,9 +469,32 @@ example : smooth_count 8 2 = 4 := by sorry
 example : smooth_count 6 3 = 5 := by sorry
 -- smooth_count.zero
 example (x y : ℝ) : 0 ∉ Nat.smoothNumbersUpTo (Nat.floor x) (Nat.floor y + 1) := by sorry
+-- smooth_count.empty
+example : smooth_count 0 2 = 0 := by sorry
+
+lemma smooth_largest_prime_decomposition (x y : ℝ) (hx : 1 ≤ x) (hy : 2 ≤ y) :
+    smooth_count x y +
+      ∑ p ∈ (Finset.Icc 1 (Nat.floor x)).filter (fun p : ℕ => p.Prime ∧ y < p),
+        smooth_count (x / p) p = Nat.floor x := by sorry
+
+lemma smooth_finite_euler_series (y σ : ℝ) (hy : 2 ≤ y) (hσ : 0 < σ) :
+    Summable (fun n : ℕ =>
+      if n ∈ Nat.smoothNumbers (Nat.floor y + 1) then (n : ℝ) ^ (-σ) else 0) ∧
+    (∑' n : ℕ,
+      if n ∈ Nat.smoothNumbers (Nat.floor y + 1) then (n : ℝ) ^ (-σ) else 0) =
+      ∏ p ∈ (Finset.range (Nat.floor y + 1)).filter Nat.Prime,
+        (1 - (p : ℝ) ^ (-σ))⁻¹ := by sorry
 
 /-- Recursive integral construction on consecutive unit intervals. -/
 def dickman_function : ℝ → ℝ := by sorry
+lemma dickman_function.negative (u : ℝ) (hu : u < 0) :
+    dickman_function u = 0 := by sorry
+lemma dickman_function.continuous :
+    ContinuousOn dickman_function (Set.Ici 0) := by sorry
+lemma dickman_function.delay (u : ℝ) (hu : 1 < u) :
+    HasDerivAt dickman_function (-dickman_function (u - 1) / u) u := by sorry
+lemma dickman_function.interval_identity (u : ℝ) :
+    u * dickman_function u = ∫ v in (u - 1)..u, dickman_function v := by sorry
 lemma dickman_function.initial (u : ℝ) (hu : u ∈ Set.Icc 0 1) :
     dickman_function u = 1 := by sorry
 lemma dickman_function.recursion (u : ℝ) (hu : 1 ≤ u) :
@@ -524,6 +553,123 @@ example (P : beurling_prime_system) (x : ℝ) (hx : 1 ≤ x) (hp : x < P.prime 0
     beurling_integer_count P x = 1 ∧ beurling_prime_count P x = 0 := by sorry
 -- beurling_prime_system.invalid
 example (P : beurling_prime_system) : P.prime 0 ≠ 1 := by sorry
+
+/-! Explicit C(κ) uses the pinned zero-extended arithmetic-function carrier. -/
+def halasz_coefficient_class (f : ArithmeticFunction ℂ) (κ : ℝ) : Prop :=
+  0 < κ ∧ f.IsMultiplicative ∧ ∃ b : ArithmeticFunction ℂ,
+    (∀ n : ℕ, ‖b n‖ ≤ κ * ArithmeticFunction.vonMangoldt n) ∧
+    ∀ s : ℂ, 1 < s.re →
+      LSeriesSummable (f : ℕ → ℂ) s ∧
+      LSeriesSummable (b : ℕ → ℂ) s ∧
+      LSeriesSummable (fun n => b n / (Real.log n : ℂ)) s ∧
+      LSeries (f : ℕ → ℂ) s =
+        Complex.exp (LSeries (fun n => b n / (Real.log n : ℂ)) s) ∧
+      -deriv (LSeries (f : ℕ → ℂ)) s / LSeries (f : ℕ → ℂ) s =
+        LSeries (b : ℕ → ℂ) s
+
+def halasz_coefficient_class.log_coeff (f : ArithmeticFunction ℂ) (κ : ℝ)
+    (h : halasz_coefficient_class f κ) : ArithmeticFunction ℂ :=
+  Classical.choose h.2.2
+
+lemma halasz_coefficient_class.constructor (f b : ArithmeticFunction ℂ) (κ : ℝ)
+    (hκ : 0 < κ) (hf : f.IsMultiplicative)
+    (hb : ∀ n : ℕ, ‖b n‖ ≤ κ * ArithmeticFunction.vonMangoldt n)
+    (hseries : ∀ s : ℂ, 1 < s.re →
+      LSeriesSummable (f : ℕ → ℂ) s ∧
+      LSeriesSummable (b : ℕ → ℂ) s ∧
+      LSeriesSummable (fun n => b n / (Real.log n : ℂ)) s ∧
+      LSeries (f : ℕ → ℂ) s =
+        Complex.exp (LSeries (fun n => b n / (Real.log n : ℂ)) s) ∧
+      -deriv (LSeries (f : ℕ → ℂ)) s / LSeries (f : ℕ → ℂ) s =
+        LSeries (b : ℕ → ℂ) s) : halasz_coefficient_class f κ := by sorry
+
+lemma halasz_coefficient_class.log_coeff_unique (f : ArithmeticFunction ℂ) (κ : ℝ)
+    (h : halasz_coefficient_class f κ) (b : ArithmeticFunction ℂ)
+    (hb : ∀ s : ℂ, 1 < s.re → LSeriesSummable (b : ℕ → ℂ) s ∧
+      -deriv (LSeries (f : ℕ → ℂ)) s / LSeries (f : ℕ → ℂ) s =
+        LSeries (b : ℕ → ℂ) s) :
+    halasz_coefficient_class.log_coeff f κ h = b := by sorry
+
+lemma halasz_coefficient_class.majorant (f : ArithmeticFunction ℂ) (κ : ℝ)
+    (h : halasz_coefficient_class f κ) (n : ℕ) :
+    ‖halasz_coefficient_class.log_coeff f κ h n‖ ≤
+      κ * ArithmeticFunction.vonMangoldt n := by sorry
+lemma halasz_coefficient_class.nonzero (f : ArithmeticFunction ℂ) (κ : ℝ)
+    (h : halasz_coefficient_class f κ) (s : ℂ) (hs : 1 < s.re) :
+    LSeries (f : ℕ → ℂ) s ≠ 0 := by sorry
+lemma halasz_coefficient_class.mono (f : ArithmeticFunction ℂ) (κ κ' : ℝ)
+    (h : halasz_coefficient_class f κ) (hκ : κ ≤ κ') :
+    halasz_coefficient_class f κ' := by sorry
+
+-- halasz_coefficient_class.one: f is the complex cast of the native arithmetic zeta.
+example (f : ArithmeticFunction ℂ)
+    (hf : ∀ n, f n = (ArithmeticFunction.zeta n : ℂ)) :
+    ∃ h : halasz_coefficient_class f 1,
+      ∀ n, halasz_coefficient_class.log_coeff f 1 h n =
+        (ArithmeticFunction.vonMangoldt n : ℂ) := by sorry
+-- halasz_coefficient_class.mobius
+example (f : ArithmeticFunction ℂ)
+    (hf : ∀ n, f n = (ArithmeticFunction.moebius n : ℂ)) :
+    ∃ h : halasz_coefficient_class f 1,
+      ∀ n, halasz_coefficient_class.log_coeff f 1 h n =
+        -(ArithmeticFunction.vonMangoldt n : ℂ) := by sorry
+-- halasz_coefficient_class.twist: zero extension is carried by ArithmeticFunction.
+example (t : ℝ) (f : ArithmeticFunction ℂ)
+    (hf : ∀ n : ℕ, 0 < n → f n = Complex.exp (Complex.I * t * Real.log n)) :
+    ∃ h : halasz_coefficient_class f 1,
+      ∀ n, halasz_coefficient_class.log_coeff f 1 h n =
+        f n * (ArithmeticFunction.vonMangoldt n : ℂ) := by sorry
+-- halasz_coefficient_class.growth
+example (f : ArithmeticFunction ℂ) (hf : ∀ n : ℕ, f n = (n : ℂ)) :
+    ∀ κ : ℝ, ¬halasz_coefficient_class f κ := by sorry
+
+theorem halasz_integral_bound (κ : ℝ) (hκ : 0 < κ) :
+    ∃ C x₀ : ℝ, 0 < C ∧ 3 ≤ x₀ ∧ ∀ f : ArithmeticFunction ℂ,
+      halasz_coefficient_class f κ → ∀ x : ℝ, x₀ ≤ x →
+      ‖∑ n ∈ Finset.Icc 1 (Nat.floor x), f n‖ ≤
+        C * x / Real.log x *
+          (∫ σ in (1 / Real.log x)..1,
+            sSup {r : ℝ | ∃ t : ℝ, |t| ≤ (Real.log x) ^ κ ∧
+              r = ‖LSeries (f : ℕ → ℂ) ((1 + σ : ℝ) + t * Complex.I) /
+                ((1 + σ : ℝ) + t * Complex.I)‖} / σ) +
+        C * x * (Real.log (Real.log x)) ^ κ / Real.log x := by sorry
+
+lemma unit_disc_product_distance (z w : ℂ) (hz : ‖z‖ ≤ 1) (hw : ‖w‖ ≤ 1) :
+    Real.sqrt (1 - (z * w).re) ≤
+      Real.sqrt (1 - z.re) + Real.sqrt (1 - w.re) := by sorry
+lemma pretentious_product_triangle (f₁ f₂ g₁ g₂ : ℕ → ℂ) (x : ℝ)
+    (hf₁ : ∀ p : ℕ, p.Prime → (p : ℝ) ≤ x → ‖f₁ p‖ ≤ 1)
+    (hf₂ : ∀ p : ℕ, p.Prime → (p : ℝ) ≤ x → ‖f₂ p‖ ≤ 1)
+    (hg₁ : ∀ p : ℕ, p.Prime → (p : ℝ) ≤ x → ‖g₁ p‖ ≤ 1)
+    (hg₂ : ∀ p : ℕ, p.Prime → (p : ℝ) ≤ x → ‖g₂ p‖ ≤ 1) :
+    pretentious_distance (fun n => f₁ n * f₂ n) (fun n => g₁ n * g₂ n) x ≤
+      pretentious_distance f₁ g₁ x + pretentious_distance f₂ g₂ x := by sorry
+lemma mangoldt_polynomial_mean_square :
+    ∃ C : ℝ, 0 < C ∧ ∀ T x : ℝ, 1 ≤ T → 1 ≤ x → ∀ a : ℕ → ℂ,
+      (∫ t in -T..T,
+        ‖∑ n ∈ (Finset.Icc 1 (Nat.floor x)).filter (fun n : ℕ => T ^ 2 ≤ (n : ℝ)),
+          a n * (ArithmeticFunction.vonMangoldt n : ℂ) *
+            Complex.exp (-Complex.I * t * Real.log n)‖ ^ 2) ≤
+        C * ∑ n ∈ (Finset.Icc 1 (Nat.floor x)).filter (fun n : ℕ => T ^ 2 ≤ (n : ℝ)),
+          (n : ℝ) * ‖a n‖ ^ 2 * ArithmeticFunction.vonMangoldt n := by sorry
+
+lemma rational_mangoldt_boundary :
+    ∃ G : ℂ → ℂ, ContinuousOn G {s : ℂ | 1 ≤ s.re} ∧
+      ∀ s : ℂ, 1 < s.re →
+        G s = -deriv riemannZeta s / riemannZeta s - 1 / (s - 1) := by sorry
+lemma progression_mangoldt_boundary (q : ℕ) [NeZero q] (a : ZMod q) (ha : IsUnit a) :
+    ∃ G : ℂ → ℂ, ContinuousOn G {s : ℂ | 1 ≤ s.re} ∧
+      ∀ s : ℂ, 1 < s.re →
+        LSeriesSummable
+          (fun n => if (n : ZMod q) = a then (ArithmeticFunction.vonMangoldt n : ℂ) else 0) s ∧
+        LSeries
+          (fun n => if (n : ZMod q) = a then (ArithmeticFunction.vonMangoldt n : ℂ) else 0) s =
+          (Nat.totient q : ℂ)⁻¹ *
+            ∑ χ : DirichletCharacter ℂ q,
+              (χ a)⁻¹ * (-deriv χ.LFunction s / χ.LFunction s) ∧
+        G s = LSeries
+          (fun n => if (n : ZMod q) = a then (ArithmeticFunction.vonMangoldt n : ℂ) else 0) s -
+          (Nat.totient q : ℂ)⁻¹ / (s - 1) := by sorry
 
 /-! AN.7: initial series on the actual complex domain. -/
 
@@ -1298,17 +1444,21 @@ TEST artin_euler_series.zero: The zero representation gives1.
 TEST artin_euler_series.ramified: A one-dimensional character ramified at p contributes local factor1 there.
 
 AnalyticNumberTheory:AN.5/halasz-coefficient-class
-For κ>0, C(κ) consists of multiplicative arithmetic functions f with f(1)=1 for which F(s)=Σf(n)n^−s, an Euler-compatible logF series and −F′/F(s)=ΣΛ_f(n)n^−s converge absolutely on Re s>1, and |Λ_f(n)|≤κΛ(n). The logarithm is the branch fixed by the Euler expansion and tends to0 as real s→∞.
+For κ>0, C(κ) is a predicate on the pinned ArithmeticFunction C, with its fixed value f(0)=0 and ordinary coprime multiplicativity f(1)=1. Membership is witnessed by an ArithmeticFunction C coefficient b=Λ_f with |b(n)|≤κΛ(n) for every n, including0,1. For every Re s>1 the three series F(s)=LSeries f s, LSeries b s and H(s)=LSeries (n↦b(n)/log n) s are absolutely convergent, F(s)=exp(H(s)), and −F′(s)/F(s)=LSeries b s. Division at n=0,1 is totalized to0, since b(0)=b(1)=0. This exponential identity fixes the Euler logarithm branch; it is not an arbitrary Prop field or an unrelated logarithm. Coefficient uniqueness follows from the logarithmic derivative and pinned LSeries uniqueness, including the normalized zero coefficient.
 
-Signature withheld until its recorded canonical supplier interface exists.
+Native predicate, every API item and unit test appear above. Proofs remain admitted.
 
-API halasz_coefficient_class.log_coeff: The coefficients Λ_f are uniquely determined by their absolutely convergent Dirichlet series.
+API halasz_coefficient_class.log_coeff: Given h:f∈C(κ), expose the uniquely determined zero-extended arithmetic function Λ_f together with its summability and logarithmic-derivative identity. Any two membership witnesses choose the same Λ_f.
 
 API halasz_coefficient_class.majorant: |Λ_f(n)|≤κΛ(n) for every n, hence they vanish away from prime powers.
 
 API halasz_coefficient_class.nonzero: The Euler-compatible exponential identity gives F(s)≠0 on Re s>1.
 
 API halasz_coefficient_class.mono: If κ≤κ′, C(κ)⊆C(κ′).
+
+API halasz_coefficient_class.log_coeff_unique: If a zero-extended b has an absolutely convergent LSeries on Re s>1 equal there to −F′/F, it equals the exposed Λ_f. The zero coefficient is fixed; LSeries itself ignores it.
+
+API halasz_coefficient_class.constructor: Coprime-multiplicative f and a coefficient b with the stated majorant, three summability conditions, exponential identity and logarithmic-derivative identity produce membership in C(κ), for κ>0.
 
 TEST halasz_coefficient_class.one: f(n)=1 belongs to C(1), with Λ_f=Λ.
 
@@ -1317,7 +1467,6 @@ TEST halasz_coefficient_class.mobius: μ belongs to C(1), with Λ_f=−Λ.
 TEST halasz_coefficient_class.twist: f(n)=n^(it) belongs to C(1), with Λ_f(n)=n^(it)Λ(n).
 
 TEST halasz_coefficient_class.growth: f(n)=n belongs to no fixed C(κ), since |Λ_f(p)|=p log p.
-
 
 ## Named targets still requiring native interface refinement
 
@@ -1693,4 +1842,72 @@ For d∈N,0≤m≤d,0≤t≤θ<1 and α₁,…,α_m∈C with |α_j|=1, put A(z)=
 AnalyticNumberTheory:AN.4/artin-ramified-induction-polynomial
 For L/K finite Galois with group G,H≤G,F=L^H and σ a finite-dimensional complex representation of H, at every nonzero prime p of K, P_{p,Ind_H^Gσ}(T)=∏_{q|p in F}P_{q,σ}(T^{f(q/p)}). The right polynomials are defined from Gal(L/F)=H, their own inertia invariants and arithmetic Frobenius modulo inertia.
 
+
+## Additional lemma specifications exposed by codex-LO9Eha
+
+AnalyticNumberTheory:AN.2/rational-mangoldt-boundary
+There exists G:C→C continuous on {s:Re s≥1} such that, for Re s>1, G(s)=−ζ′(s)/ζ(s)−1/(s−1). Together with the pinned absolutely convergent Λ LSeries identity, this is the exact residue-1 Wiener–Ikehara boundary input. G(1) is the analytic extension’s value, not the junk-valued subtraction.
+
+AnalyticNumberTheory:AN.2/progression-mangoldt-boundary
+For fixed q≥1 and a unit residue a modulo q, put b(n)=Λ(n)1_{n≡a modq}≥0 with b(0)=0. Its LSeries converges absolutely for Re s>1 and equals F(s)=φ(q)^−1∑_χ χ(a)^−1(−L′(s,χ)/L(s,χ)), where χ ranges over all characters modulo q, including the principal and imprimitive ones. There exists G continuous on Re s≥1 with G(s)=F(s)−φ(q)^−1/(s−1) for Re s>1.
+
+AnalyticNumberTheory:AN.5/unit-disc-product-distance
+For complex z,w with |z|,|w|≤1, sqrt(1−Re(zw))≤sqrt(1−Re z)+sqrt(1−Re w).
+
+AnalyticNumberTheory:AN.5/mangoldt-polynomial-mean-square
+There is an absolute C>0 such that for T≥1, x≥1 and any complex coefficients a(n), the integral from −T to T of |∑_{T²≤n≤x}a(n)Λ(n)exp(−it log n)|² is at most C∑_{T²≤n≤x}n|a(n)|²Λ(n). The finite sums use inclusive real cutoffs. If x<T² they are empty.
+
 -/
+
+/- API dickman_function.negative: ρ(u)=0 for u<0; no continuity across0 is asserted. -/
+
+/- API dickman_function.continuous: ContinuousOn ρ[0,∞). -/
+
+/- API dickman_function.delay: For u>1, HasDerivAt ρ(−ρ(u−1)/u) u; do not claim differentiability at1. -/
+
+/- API dickman_function.interval_identity: For every real u, uρ(u)=∫_{u−1}^uρ(v)dv, with the fixed negative extension. -/
+
+/- AnalyticNumberTheory:AN.5/smooth-largest-prime-decomposition
+For x≥1,y≥2, Ψ(x,y)+∑_{y<p≤x, p prime}Ψ(x/p,p)=floor x. Each positive non-y-smooth integer has a unique largest prime divisor p>y, and dividing by one copy of p leaves a p-smooth integer. Repeated largest primes are permitted. -/
+
+/- AnalyticNumberTheory:AN.5/smooth-finite-euler-series
+For y≥2 and σ>0, the nonnegative real series ∑_{n≥1, n y-smooth}n^(−σ) is summable and equals ∏_{p≤y}(1−p^(−σ))^(−1). This is a finite-prime identity valid for every positive σ, even σ≤1. -/
+
+/-! Reviewed mathematical specifications; canonical Dedekind/Hecke carrier
+adapters remain gaps, while the other native forms are given above. -/
+
+/- AnalyticNumberTheory:AN.4/dedekind-completed-functional-equation
+For a number field K with absolute discriminant D_K, r₁ real places and r₂ conjugate pairs of complex places, let Γ_R(s)=π^(−s/2)Γ(s/2) and Γ_C(s)=2(2π)^(−s)Γ(s), the pinned Complex.Gammaℝ and Complex.Gammaℂ. The canonical continuation supplied by Tate has Λ_K(s)=|D_K|^(s/2)Γ_R(s)^r₁Γ_C(s)^r₂ζ_K^cont(s), and Λ_K(1−s)=Λ_K(s) as meromorphic functions. No equality of totalized values at poles is asserted. -/
+
+/- AnalyticNumberTheory:AN.4/dedekind-negative-even-zero
+For a number field K and every integer n≥1, the canonical holomorphic Dedekind continuation at −2n has a zero of exact order r₁+r₂, where r₁ and r₂ are its real-place and complex-pair counts. In particular ζ_K^cont(−2n)=0, since r₁+r₂≥1. This evaluates the continuation, not the pinned totalized ideal LSeries. -/
+
+/- AnalyticNumberTheory:AN.4/imprimitive-hecke-factors
+Let χ be the ray ideal character modulo a modulus m induced from a primitive finite-order Hecke character χ₀ of conductor f₀ dividing m. If m_fin is the finite part, then L_m^cont(s,χ)=L^cont(s,χ₀)∏_{p|m_fin, p∤f₀_fin}(1−χ₀(p)exp(−s log Np)). Each prime occurs once even if its exponent in m grows; real-place conditions enter the conductor dictionary but do not delete finite Euler factors. Equality is meromorphic. -/
+
+/- AnalyticNumberTheory:AN.2/rational-prime-number-theorem
+As x→∞, Chebyshev.psi(x)∼x. The corresponding θ and π asymptotics are supplied by the separate transfer comparison. -/
+
+/- AnalyticNumberTheory:AN.2/fixed-progression-prime-number-theorem
+For fixed q≥1 and a coprime to q, θ(x;a,q)∼x/φ(q) and π(x;a,q)∼Li(x)/φ(q) as x→∞. The modulus is fixed; constants in qualitative convergence can depend on q. -/
+
+/- AnalyticNumberTheory:AN.2/rational-pnt-error
+There are absolute effective c,C>0 such that |ψ(x)−x|≤C x exp(−c√log x) for all sufficiently large x; ψ is the inclusive pinned function. -/
+
+/- AnalyticNumberTheory:AN.5/pretentious-distance
+For complex-valued f,g on positive integers and x≥1, D(f,g;x)=sqrt(Σ_{p≤x}(1−Re(f(p)conj(g(p))))/p), used under |f(p)|,|g(p)|≤1. This is a distance on prime data, not a metric on all multiplicative functions: D(f,f;x) can be positive if |f(p)|<1. -/
+
+/- AnalyticNumberTheory:AN.5/pretentious-product-triangle
+For |f_j(p)|,|g_j(p)|≤1, D(f₁f₂,g₁g₂;x)≤D(f₁,g₁;x)+D(f₂,g₂;x). If all g_j have unit modulus on the primes, this gives the usual triangle inequality for prime data. -/
+
+/- AnalyticNumberTheory:AN.5/smooth-count
+For x≥1,y≥2, Ψ(x,y)=#{1≤n≤floor x:every prime factor of n is≤y}. Express the set using Nat.smoothNumbers(floor y+1); the pinned carrier uses prime factors strictly below its cutoff. -/
+
+/- AnalyticNumberTheory:AN.5/dickman-function
+ρ:R→R is0 for u<0, equals1 for0≤u≤1, is continuous on[0,∞), and satisfies uρ′(u)=−ρ(u−1) on u>1. Construct it recursively on intervals[k,k+1] by integration; the value at0 is1, so no continuity across negative u is claimed. -/
+
+/- AnalyticNumberTheory:AN.5/dickman-fixed-u
+For each fixed u>0, Ψ(x,x^(1/u))/x→ρ(u) as x→∞. This statement is not uniform for u tending to infinity. -/
+
+/- AnalyticNumberTheory:AN.5/smooth-rankin-bound
+For x≥1,y≥2 and σ>0, Ψ(x,y)≤x^σ∏_{p≤y}(1−p^−σ)^−1. The finite-prime Euler product is finite and each geometric series converges. -/
