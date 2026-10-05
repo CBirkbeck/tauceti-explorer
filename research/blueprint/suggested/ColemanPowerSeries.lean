@@ -386,10 +386,11 @@ example (u : (PadicInt 3)ˣ) (hu : (u : PadicInt 3) = 2) :
 end FrobeniusTests
 
 /-
-The actual norm-fixed subgroup is now specified above. Its arithmetic unit-tower
-identification remains required. No cyclotomic field tower, bounded psi, unit
-restriction, inverse derivative, Coleman measure map or zeta pseudomeasure is
-postulated here. The natural-parameter chain rule is not p-adic equivariance.
+The preceding fragment specifies the actual norm-fixed subgroup. Subsequent
+fragments give its arithmetic tower identification and Coleman maps, consuming
+the imported bounded psi, unit restriction, inverse derivative and independently
+normalized zeta pseudomeasure. The arithmetic equivariance comparison appears
+separately below.
 -/
 end TauCetiRoadmap.Campaign.ColemanPowerSeries
 
@@ -989,8 +990,9 @@ end TauCetiRoadmap.Campaign.ColemanPowerSeries
 
 /-! ## Compact lifting for the logarithmic-derivative image
 
-The mod-p image hypothesis remains explicit. No characteristic-p image
-calculation or arithmetic interpolation theorem is assumed implicitly.
+The lifting theorem in this fragment keeps the mod-p image hypothesis explicit.
+The following characteristic-p fragment supplies it by the Euler-product and
+native residue-remainder calculation. Arithmetic interpolation is treated later.
 -/
 namespace TauCetiRoadmap.Campaign.ColemanPowerSeries
 open Filter Topology
@@ -2615,7 +2617,7 @@ lemma augmentation_generator_comparison (a : Zˣ)
 private def realCyclotomicSubmodule : Submodule M (realPrincipalUnits p) :=
     { carrier := {u | u.val ∈ realPrincipalCyclotomicLimit p}
       zero_mem' := sorry, add_mem' := sorry, smul_mem' := sorry }
-def realPrincipalUnitQuotient : Type :=
+abbrev realPrincipalUnitQuotient : Type :=
     realPrincipalUnits p ⧸ realCyclotomicSubmodule p
 private abbrev realQuotientMap : realPrincipalUnits p →ₗ[M] realPrincipalUnitQuotient p :=
     (realCyclotomicSubmodule p).mkQ
