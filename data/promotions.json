@@ -651,6 +651,17 @@
     "data/blueprints/HabiroCohomologyFoundations--HQ.1.md"
    ]
   },
+  "research/blueprint/packets/HabiroCyclotomicCompletions--HC.6.json": {
+   "promotedAt": "2026-10-05T23:01:41Z",
+   "review": "433d603e87137521",
+   "reviewDate": "2026-10-05",
+   "reviewer": "independent-review-REV-HabiroCyclotomicCompletions--HC.6",
+   "sha256": "82131cad84d4f13959b9d7b8a38b1ccb605967a60eb47f54804df51245e2a946",
+   "to": [
+    "data/blueprints/HabiroCyclotomicCompletions--HC.6.json",
+    "data/blueprints/HabiroCyclotomicCompletions--HC.6.md"
+   ]
+  },
   "research/blueprint/packets/HabiroCyclotomicCompletions.json": {
    "promotedAt": "2026-09-25T14:41:24Z",
    "review": "0e009156d6289d53",
@@ -660,6 +671,17 @@
    "to": [
     "data/blueprints/HabiroCyclotomicCompletions.json",
     "data/blueprints/HabiroCyclotomicCompletions.md"
+   ]
+  },
+  "research/blueprint/packets/HabiroNahmSeries--HB.3.json": {
+   "promotedAt": "2026-10-05T23:01:41Z",
+   "review": "14f2132554ac8f92",
+   "reviewDate": "2026-10-05",
+   "reviewer": "independent-review-REV-HabiroNahmSeries--HB.3",
+   "sha256": "1eb1f858c20df30b49253c9bf0a0cdbad5fd0ed29b579fe8c9ec972f08309918",
+   "to": [
+    "data/blueprints/HabiroNahmSeries--HB.3.json",
+    "data/blueprints/HabiroNahmSeries--HB.3.md"
    ]
   },
   "research/blueprint/packets/HabiroNahmSeries.json": {

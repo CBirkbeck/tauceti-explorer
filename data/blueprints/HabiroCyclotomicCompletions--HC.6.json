@@ -1,0 +1,377 @@
+{
+  "roadmapId": "HabiroCyclotomicCompletions",
+  "protocol": "blueprint-v1",
+  "part": "HC.6",
+  "scope": [
+    "HabiroCyclotomicCompletions:HC.6"
+  ],
+  "status": "complete",
+  "summary": "Close the classical interface and acceptance stage by importing its three accepted parent nodes and following accepted RS-10. HC.6 is audited as process, so no new mathematical node or planet is introduced. The late arithmetic rational-field comparison is owned by HB.6; all retained classical targets are covered by the parent exports and the explicit finite-precision acceptance specifications.",
+  "baseline": {
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "declarations": [
+      {
+        "ref": "mathlib:Polynomial.eval",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Polynomial/Eval/Defs.lean",
+        "provides": "Evaluation of a polynomial at an element of its coefficient ring.",
+        "checked": "Independently read the declaration, enclosing namespace and hypotheses at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05 for REV-HabiroCyclotomicCompletions--HC.6; statement supplies the finite-polynomial use recorded here. The suggested file independently elaborated at this exact Mathlib commit."
+      },
+      {
+        "ref": "mathlib:Polynomial.taylor",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Polynomial/Taylor.lean",
+        "provides": "The linear map f ↦ f.comp (X + C r), defining integral Taylor coefficients without factorial denominators.",
+        "checked": "Independently read the declaration, enclosing namespace and hypotheses at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05 for REV-HabiroCyclotomicCompletions--HC.6; statement supplies the finite-polynomial use recorded here. The suggested file independently elaborated at this exact Mathlib commit."
+      },
+      {
+        "ref": "mathlib:Polynomial.taylor_coeff",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Polynomial/Taylor.lean",
+        "provides": "Coefficient n of taylor r f equals evaluation at r of hasseDeriv n f, over a semiring.",
+        "checked": "Independently read the declaration, enclosing namespace and hypotheses at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05 for REV-HabiroCyclotomicCompletions--HC.6; statement supplies the finite-polynomial use recorded here. The suggested file independently elaborated at this exact Mathlib commit."
+      },
+      {
+        "ref": "mathlib:Polynomial.taylor_coeff_zero",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Polynomial/Taylor.lean",
+        "provides": "Constant Taylor coefficient equals polynomial evaluation.",
+        "checked": "Independently read the declaration, enclosing namespace and hypotheses at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05 for REV-HabiroCyclotomicCompletions--HC.6; statement supplies the finite-polynomial use recorded here. The suggested file independently elaborated at this exact Mathlib commit."
+      },
+      {
+        "ref": "mathlib:Polynomial.modByMonic",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Polynomial/Div.lean",
+        "provides": "Monic polynomial remainder. For a nonmonic divisor it returns the original polynomial, so the P_4 test uses an even precision.",
+        "checked": "Independently read the declaration, enclosing namespace and hypotheses at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05 for REV-HabiroCyclotomicCompletions--HC.6; statement supplies the finite-polynomial use recorded here. The suggested file independently elaborated at this exact Mathlib commit."
+      },
+      {
+        "ref": "mathlib:Polynomial.cyclotomic",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/Polynomial/Cyclotomic/Basic.lean",
+        "provides": "Cyclotomic polynomial over any ring, obtained by mapping the integral polynomial; the zeroth polynomial is 1.",
+        "checked": "Independently read the declaration, enclosing namespace and hypotheses at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05 for REV-HabiroCyclotomicCompletions--HC.6; statement supplies the finite-polynomial use recorded here. The suggested file independently elaborated at this exact Mathlib commit."
+      },
+      {
+        "ref": "mathlib:Polynomial.cyclotomic_one",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Polynomial/Cyclotomic/Basic.lean",
+        "provides": "Φ_1 = X − 1 over any ring.",
+        "checked": "Independently read the declaration, enclosing namespace and hypotheses at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05 for REV-HabiroCyclotomicCompletions--HC.6; statement supplies the finite-polynomial use recorded here. The suggested file independently elaborated at this exact Mathlib commit."
+      },
+      {
+        "ref": "mathlib:Polynomial.cyclotomic_two",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Polynomial/Cyclotomic/Basic.lean",
+        "provides": "Φ_2 = X + 1 over any ring.",
+        "checked": "Independently read the declaration, enclosing namespace and hypotheses at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05 for REV-HabiroCyclotomicCompletions--HC.6; statement supplies the finite-polynomial use recorded here. The suggested file independently elaborated at this exact Mathlib commit."
+      },
+      {
+        "ref": "mathlib:Polynomial.cyclotomic_three",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Polynomial/Cyclotomic/Basic.lean",
+        "provides": "Φ_3 = X² + X + 1 over any ring.",
+        "checked": "Independently read the declaration, enclosing namespace and hypotheses at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05 for REV-HabiroCyclotomicCompletions--HC.6; statement supplies the finite-polynomial use recorded here. The suggested file independently elaborated at this exact Mathlib commit."
+      },
+      {
+        "ref": "mathlib:AdjoinRoot",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/AdjoinRoot.lean",
+        "provides": "R[X] modulo the principal ideal generated by f, over a commutative ring R.",
+        "checked": "Independently read the declaration, enclosing namespace and hypotheses at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05 for REV-HabiroCyclotomicCompletions--HC.6; statement supplies the finite-polynomial use recorded here. The suggested file independently elaborated at this exact Mathlib commit."
+      },
+      {
+        "ref": "mathlib:AdjoinRoot.mk",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/AdjoinRoot.lean",
+        "provides": "The quotient ring homomorphism sending a polynomial to its class.",
+        "checked": "Independently read the declaration, enclosing namespace and hypotheses at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05 for REV-HabiroCyclotomicCompletions--HC.6; statement supplies the finite-polynomial use recorded here. The suggested file independently elaborated at this exact Mathlib commit."
+      },
+      {
+        "ref": "mathlib:AdjoinRoot.root",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/AdjoinRoot.lean",
+        "provides": "The class of X in AdjoinRoot f.",
+        "checked": "Independently read the declaration, enclosing namespace and hypotheses at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05 for REV-HabiroCyclotomicCompletions--HC.6; statement supplies the finite-polynomial use recorded here. The suggested file independently elaborated at this exact Mathlib commit."
+      },
+      {
+        "ref": "mathlib:AdjoinRoot.mk_eq_mk",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/AdjoinRoot.lean",
+        "provides": "Equality of polynomial classes is equivalent to divisibility of their difference by f.",
+        "checked": "Independently read the declaration, enclosing namespace and hypotheses at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05 for REV-HabiroCyclotomicCompletions--HC.6; statement supplies the finite-polynomial use recorded here. The suggested file independently elaborated at this exact Mathlib commit."
+      },
+      {
+        "ref": "mathlib:IsLocalization.Away",
+        "kind": "abbrev",
+        "module": "Mathlib/RingTheory/Localization/Away/Basic.lean",
+        "provides": "Localization at powers of a specified ring element, expressed by the existing localization typeclass.",
+        "checked": "Independently read the declaration, enclosing namespace and hypotheses at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05 for REV-HabiroCyclotomicCompletions--HC.6; statement supplies the finite-polynomial use recorded here. The suggested file independently elaborated at this exact Mathlib commit."
+      },
+      {
+        "ref": "mathlib:IsLocalization.Away.invSelf",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/Localization/Away/Basic.lean",
+        "provides": "The inverse of the algebra-map image of the inverted element in any localization away from it.",
+        "checked": "Independently read the declaration, enclosing namespace and hypotheses at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05 for REV-HabiroCyclotomicCompletions--HC.6; statement supplies the finite-polynomial use recorded here. The suggested file independently elaborated at this exact Mathlib commit."
+      },
+      {
+        "ref": "mathlib:IsLocalization.Away.mul_invSelf",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Localization/Away/Basic.lean",
+        "provides": "algebraMap R S x multiplied by invSelf x equals 1.",
+        "checked": "Independently read the declaration, enclosing namespace and hypotheses at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05 for REV-HabiroCyclotomicCompletions--HC.6; statement supplies the finite-polynomial use recorded here. The suggested file independently elaborated at this exact Mathlib commit."
+      },
+      {
+        "ref": "mathlib:ZMod",
+        "kind": "def",
+        "module": "Mathlib/Data/ZMod/Defs.lean",
+        "provides": "The existing modular coefficient ring; ZMod 2 is used for the characteristic-two CRT test.",
+        "checked": "Independently read the declaration, enclosing namespace and hypotheses at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05 for REV-HabiroCyclotomicCompletions--HC.6; statement supplies the finite-polynomial use recorded here. The suggested file independently elaborated at this exact Mathlib commit."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "Habiro.CyclotomicCompletions.2004",
+      "title": "Cyclotomic Completions of Polynomial Rings",
+      "authors": "Kazuo Habiro",
+      "edition": "Publications of the Research Institute for Mathematical Sciences 40 (2004), 1127–1146, publisher version of record; printed page numbering.",
+      "url": "https://ems.press/content/serial-article-files/40881",
+      "sha256": "f56094672ada5ba71bbce69785be8c9d1377807c937b1011b1004f51dbf3071f",
+      "accessed": "2026-10-05",
+      "readSections": [
+        "§1, pp.1127–1128: cyclotomic completion, factorial expansion and roots-of-unity values.",
+        "§3.1 and opening of §3.2, pp.1130–1132: monic quotients and cofinal chains.",
+        "Theorem 5.2 and its proof, pp.1137–1138: Taylor injectivity.",
+        "Conjecture 6.1 and §7.1–§7.5, pp.1141–1146: q inverse, modules, non-surjectivity and the rational Chinese remainder decomposition."
+      ]
+    },
+    {
+      "id": "GSWZ.HabiroNumberField.v2",
+      "title": "The Habiro ring of a number field",
+      "authors": "Stavros Garoufalidis, Peter Scholze, Campbell Wheeler, Don Zagier",
+      "edition": "arXiv:2412.04241v2, 27 August 2025, 73 pages; printed PDF pages.",
+      "url": "https://arxiv.org/pdf/2412.04241v2",
+      "sha256": "308d1dd1c42bd979e5d5c31d9d95215a1808f604031b49c0ce2a1eb767273de9",
+      "accessed": "2026-10-05",
+      "readSections": [
+        "§1.3, pp.4–6: original Habiro ring, Taylor coordinates and arithmetic gluing; corrected using the canonical errata references.",
+        "§1.4, pp.6–7: Definition 1.1 and (13)–(14), to distinguish the arithmetic rational-field target owned by HB.6 from classical rational coefficients.",
+        "§5.1, pp.59–62: finite filtration, factorial/Taylor coordinates and the coordinate matrix; finite-level base change only.",
+        "§5.3, p.66: the continuation of Example 5.6 including (334), and Example 5.7 including (339)."
+      ]
+    }
+  ],
+  "nodes": [],
+  "imports": [
+    {
+      "nodeId": "HabiroCyclotomicCompletions:HC.6/the-exported-interface",
+      "packet": "research/blueprint/packets/HabiroCyclotomicCompletions.json",
+      "role": "comparison",
+      "checked": "Statement and prerequisites read; parent accepted by independent-review-REV-HabiroCyclotomicCompletions. Reused without a duplicate node."
+    },
+    {
+      "nodeId": "HabiroCyclotomicCompletions:HC.6/the-acceptance-examples",
+      "packet": "research/blueprint/packets/HabiroCyclotomicCompletions.json",
+      "role": "application",
+      "checked": "Statement and prerequisites read; parent accepted by independent-review-REV-HabiroCyclotomicCompletions. Reused without a duplicate node."
+    },
+    {
+      "nodeId": "HabiroCyclotomicCompletions:HC.6/inverted-prime-and-rational-examples",
+      "packet": "research/blueprint/packets/HabiroCyclotomicCompletions.json",
+      "role": "application",
+      "checked": "Statement and prerequisites read; parent accepted by independent-review-REV-HabiroCyclotomicCompletions. Reused without a duplicate node."
+    }
+  ],
+  "targetCoverage": [
+    {
+      "target": "Complete rings, finite quotients, projections and coefficient/restriction maps",
+      "suppliedBy": [
+        "HabiroCyclotomicCompletions:HC.6/the-exported-interface",
+        "HabiroCyclotomicCompletions:HC.1/the-cyclotomic-completion",
+        "HabiroCyclotomicCompletions:HC.1/the-quotients-of-the-completion",
+        "HabiroCyclotomicCompletions:HC.1/topology-completeness-and-universal-property",
+        "HabiroCyclotomicCompletions:HC.1/functoriality-in-the-ring-and-in-the-order-set"
+      ],
+      "acceptance": "Compatible classes modulo P_N; P_0=1 gives the zero precision quotient; projections are surjective with the recorded principal kernels. Completion topology and universal property retain the supplier hypotheses."
+    },
+    {
+      "target": "Normalised factorial expansion and finite-precision ring arithmetic",
+      "suppliedBy": [
+        "HabiroCyclotomicCompletions:HC.1/the-factorial-polynomials",
+        "HabiroCyclotomicCompletions:HC.1/cofinality-of-the-factorial-products",
+        "HabiroCyclotomicCompletions:HC.2/factorial-expansions",
+        "HabiroCyclotomicCompletions:HC.2/algorithms-on-expansions",
+        "HabiroCyclotomicCompletions:HC.2/invertibility-of-q",
+        "HabiroCyclotomicCompletions:HC.6/the-acceptance-examples"
+      ],
+      "acceptance": "F_N=sum_{n<N}P_n; q U_N=1−P_N; multiplication of F by q inverse and F squared renormalizes as in the parent node. For Mathlib remainder use the monic associate (−1)^N P_N, not P_N at odd N."
+    },
+    {
+      "target": "Evaluation, Taylor coefficients, coefficient naturality and p-adic re-expansion",
+      "suppliedBy": [
+        "HabiroCyclotomicCompletions:HC.3/evaluation-at-a-root-of-unity",
+        "HabiroCyclotomicCompletions:HC.3/the-taylor-map",
+        "HabiroCyclotomicCompletions:HC.3/naturality-and-re-expansion",
+        "HabiroCyclotomicCompletions:HC.3/p-adic-re-expansion",
+        "HabiroCyclotomicCompletions:HC.3/re-expansion-of-taylor-expansions",
+        "HabiroCyclotomicCompletions:HC.6/the-acceptance-examples"
+      ],
+      "acceptance": "At order d>0, values use N≥d and Taylor coefficients through degree k use N≥d(k+1). F(1)=1, F(−1)=3, F(ω)=5−ω. Equal values at 1 do not force equal Taylor series. P-adic re-expansion requires a complete separated coefficient ring and a topologically nilpotent shift, not formal substitution with an arbitrary nonzero constant."
+    },
+    {
+      "target": "Classical injectivity and non-surjectivity with exact hypotheses",
+      "suppliedBy": [
+        "HabiroCyclotomicCompletions:HC.4/rootwise-taylor-injectivity",
+        "HabiroCyclotomicCompletions:HC.4/evaluation-uniqueness-and-its-exact-hypothesis",
+        "HabiroCyclotomicCompletions:HC.4/non-surjectivity",
+        "HabiroCyclotomicCompletions:HC.4/taylor-maps-are-not-surjective",
+        "HabiroCyclotomicCompletions:HC.6/the-acceptance-examples"
+      ],
+      "acceptance": "The Taylor maps at 1 and −1 of the full integral Habiro ring are injective, not surjective. Evaluation uniqueness uses the parent adjacency hypothesis, never arbitrary infinitude. Inverting 2 and rational coefficients give the explicit failure cases below."
+    },
+    {
+      "target": "Ordinary module completion and the interface to derived completion",
+      "suppliedBy": [
+        "HabiroCyclotomicCompletions:HC.5/the-completed-module",
+        "HabiroCyclotomicCompletions:HC.5/ordinary-versus-derived-completion",
+        "HabiroCyclotomicCompletions:HC.6/the-exported-interface"
+      ],
+      "acceptance": "M ↦ M[q]^S is exact for coefficient modules M. The derived identification is imported only for Laurent polynomial modules M[q,q^−1]; arbitrary torsion modules belong to HabiroRings HR.2."
+    },
+    {
+      "target": "Localized, rational and characteristic-two examples",
+      "suppliedBy": [
+        "HabiroCyclotomicCompletions:HC.5/chinese-remainder-for-disconnected-collections",
+        "HabiroCyclotomicCompletions:HC.5/the-rational-case",
+        "HabiroCyclotomicCompletions:HC.5/inverting-a-prime-and-the-rational-case",
+        "HabiroCyclotomicCompletions:HC.6/inverted-prime-and-rational-examples"
+      ],
+      "acceptance": "The odd-order idempotent over Z[1/2] has the parent representatives modulo P_2 and P_3. The rational element (q−1)e_1 is nonzero with every root value zero. Modulo 2, q^5+q+1 is idempotent modulo P_3 with the specified two CRT components."
+    },
+    {
+      "target": "Source ledger and suggested Lean signatures",
+      "suppliedBy": [
+        "HabiroCyclotomicCompletions:HC.6/the-exported-interface",
+        "HabiroCyclotomicCompletions:HC.6/the-acceptance-examples",
+        "HabiroCyclotomicCompletions:HC.6/inverted-prime-and-rational-examples"
+      ],
+      "acceptance": "Two exact primary-source versions and four canonical errata are recorded. The suggested file contains 39 finite polynomial example specifications against the pinned Mathlib; it introduces no stand-in completion type."
+    }
+  ],
+  "ownershipBoundary": {
+    "proposal": "research/blueprint/restructure/RS-10.result.json",
+    "reviewer": "independent-review-REV-RS-10~2",
+    "reviewDate": "2026-09-29",
+    "action": "narrow",
+    "keeps": "Classical completion acceptance cases, finite precision, value-versus-Taylor checks, source ledger and suggested-file boundary.",
+    "suppliedBy": [
+      "HabiroNumberFields:HB.6/ring-operations-and-the-classical-comparison"
+    ],
+    "reason": "Accepted RS-10 moves only the late arithmetic F=Q comparison to HB.6. HC.6 imports no number-field prerequisite. Classical coefficients Q remain an HC.5/HC.6 acceptance case. This supersedes the parent coverage note written before acceptance; the parent packet is not edited."
+  },
+  "sourceIssues": [],
+  "sourceIssueReferences": [
+    {
+      "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/E74",
+      "packet": "research/blueprint/papers/PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24.result.json",
+      "sourceId": "GSWZ.HabiroNumberField.v2",
+      "locator": "§1.3, p.4",
+      "correctionUsed": "Use n≥m for vanishing of (q;q)_n at an order-m root; the printed inequality is reversed.",
+      "note": "Existing independently confirmed finding reused by identifier; no duplicate finding or new review is issued here."
+    },
+    {
+      "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/E77",
+      "packet": "research/blueprint/papers/PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24.result.json",
+      "sourceId": "GSWZ.HabiroNumberField.v2",
+      "locator": "§1.3, p.5",
+      "correctionUsed": "Do not identify p-adic completion with tensoring by Z_p when p is inverted; the former is zero for Z[1/p].",
+      "note": "Existing independently confirmed finding reused by identifier; no duplicate finding or new review is issued here."
+    },
+    {
+      "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/E82",
+      "packet": "research/blueprint/papers/PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24.result.json",
+      "sourceId": "GSWZ.HabiroNumberField.v2",
+      "locator": "§5.1, p.61",
+      "correctionUsed": "Base change of these coordinate modules is asserted at finite precision only; no tensor/inverse-limit interchange is used.",
+      "note": "Existing independently confirmed finding reused by identifier; no duplicate finding or new review is issued here."
+    },
+    {
+      "id": "HabiroNumberFields/E22",
+      "packet": "research/blueprint/packets/HabiroNumberFields.json",
+      "sourceId": "GSWZ.HabiroNumberField.v2",
+      "locator": "§1.3, p.5",
+      "correctionUsed": "Habiro supplies injectivity, not the stated gluing-image characterization. HB.6 owns the arithmetic comparison and its proof.",
+      "note": "Existing independently confirmed finding reused by identifier; no duplicate finding or new review is issued here."
+    }
+  ],
+  "sourceVersions": [
+    {
+      "kind": "published",
+      "url": "https://ems.press/content/serial-article-files/40881",
+      "read": "2026-10-05",
+      "sha256": "f56094672ada5ba71bbce69785be8c9d1377807c937b1011b1004f51dbf3071f"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/2412.04241v2",
+      "read": "2026-10-05",
+      "sha256": "308d1dd1c42bd979e5d5c31d9d95215a1808f604031b49c0ce2a1eb767273de9"
+    }
+  ],
+  "requests": [],
+  "gaps": [],
+  "restructure": [],
+  "upstreamNotes": [],
+  "coverage": [
+    {
+      "stageId": "HabiroCyclotomicCompletions:HC.6",
+      "status": "closed",
+      "remaining": [],
+      "note": "The three imported HC.6 nodes in the accepted parent realise all retained classical targets (see imports and targetCoverage). Accepted RS-10, reviewed 2026-09-29, resolves the sole remaining parent coverage item by assigning the arithmetic comparison to HB.6. AUDIT-17 classifies this as a process/interface stage; no new mathematics or planets. Closure concerns HC.6 only, not unresolved HC.4 refinements elsewhere. The generic exports retain their suppliers' recorded boundaries: in particular the parent non-Noetherian Taylor-injectivity gap is not discharged here. The integral acceptance cases use R = Z and Z[ζ], which are Noetherian; the ordinary-versus-derived comparison is an imported HR.2 interface, not a new construction or a proof that HR.2 is closed."
+    }
+  ],
+  "implementationStatus": "unchecked",
+  "validation": {
+    "packetCheck": "python3 scripts/check_blueprint.py research/blueprint/packets/HabiroCyclotomicCompletions--HC.6.json",
+    "suggestedFile": "research/blueprint/suggested/HabiroCyclotomicCompletions--HC.6.lean",
+    "lean": "Elaborated via lean-check at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; 39 expected placeholder-proof warnings and no other diagnostics. Only Mathlib imports are used.",
+    "arithmetic": "Exact integer/rational polynomial calculations independently checked root values at orders 1–6, Taylor coefficients, q inverse and multiplication, and the localized/rational/mod-2 CRT representatives.",
+    "independentReview": {
+      "job": "REV-HabiroCyclotomicCompletions--HC.6",
+      "agent": "Codex",
+      "session": "codex-6EzLTP",
+      "baselineDeclarationsConfirmed": 17,
+      "targetSuppliersRead": 26,
+      "finiteExampleSignatures": 39,
+      "exactArithmeticChecks": 75,
+      "lean": "Independently elaborated with lean-check at exact pinned Mathlib; exit 0, 39 placeholder-proof warnings and no other diagnostics. The file imports no Tau Ceti module; no assertion is made about compilation with the newer shared Tau Ceti source.",
+      "packet": "Final check_blueprint.py run: 0 errors, 0 warnings."
+    }
+  },
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-HabiroCyclotomicCompletions--HC.6",
+    "date": "2026-10-05",
+    "notes": "Independent review by Codex, session codex-6EzLTP (not the author session codex-I5hn5G). Read both exact source versions and all three imported HC.6 statements, checked the 26 named target suppliers and accepted RS-10 boundary, independently confirmed all 17 Mathlib baseline declarations, and verified the four canonical errata references at their source passages. A separate exact rational/integer/mod-2 calculation passed 75 checks. lean-check elaborated all 39 example signatures with only the 39 expected placeholder-proof warnings. No mathematical statement, hypothesis, source finding, prerequisite or suggested signature required correction. Updated baseline verification records, described the suggested-file target as signatures rather than executable mathematics, and clarified that HC.6 closure does not discharge the parent generic Taylor-injectivity gaps or the imported HR.2 derived theory. No new node or duplicate planet is needed for this reviewed process/interface layer. See the review report for per-target checks and source locators.",
+    "checked": [
+      {
+        "nodeId": "HabiroCyclotomicCompletions:HC.6/the-exported-interface",
+        "verdict": "verified",
+        "note": "Imported from the independently accepted parent, not copied into this packet. Its object-to-supplier matching is substantiated by targetCoverage; the 26 referenced suppliers exist and their statements were read. Complete-ring projections, normalization, root/Taylor naturality and exact polynomial-module completion are owned by HC.1–HC.5. The HR.2 derived comparison and parent general-domain proof boundaries remain with their suppliers. Accepted RS-10 assigns the arithmetic F=Q comparison to HB.6, without making QT.4 depend on it. Source: Habiro §7.3 and Conjecture 6.1; GSWZ §§1.3–1.4, 5.1. APIs, tests and mathematical planets remain with their definition owners."
+      },
+      {
+        "nodeId": "HabiroCyclotomicCompletions:HC.6/the-acceptance-examples",
+        "verdict": "verified",
+        "note": "Checked Habiro introduction, Theorem 5.2, Proposition 7.1 and proof of Proposition 7.4(1); GSWZ Example 5.6 (334); OEIS A022493 data/formula. Independently calculated root values at orders 1–6, ten Taylor coefficients at 1, seven at -1, three at a cube root, finite q inverse and normalized multiplication. The positive-order precision statements follow by counting the factors whose exponent is a multiple of d and hold even in a commutative ring; exact vanishing order needs characteristic zero and primitivity. The unit/non-unit and non-Cauchy examples follow from the stated finite quotient maps. The general non-Noetherian issue is unnecessary for the specified integral cases. All corresponding suggested signatures elaborate."
+      },
+      {
+        "nodeId": "HabiroCyclotomicCompletions:HC.6/inverted-prime-and-rational-examples",
+        "verdict": "verified",
+        "note": "Checked Habiro §7.5 and GSWZ Example 5.7 (338)–(339). Exact division checks establish compatibility, idempotence and the specified CRT components of e2/e3 over Z[1/2], of e1 and t over Q, and of X^5+X+1 modulo 2. Division by the monic associates introduces no odd denominator, so the localization tests hold in the stated ring. The full families are supplied by HC.5 CRT, not inferred from a single representative. Rational coefficients are distinct from HB.6's arithmetic rational-field ring. Polynomial-module exactness justifies reduction modulo 2. All corresponding suggested signatures elaborate."
+      }
+    ]
+  }
+}
