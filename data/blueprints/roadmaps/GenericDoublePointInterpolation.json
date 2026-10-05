@@ -1,0 +1,105 @@
+{
+  "id": "GenericDoublePointInterpolation",
+  "title": "Generic double-point interpolation in characteristic zero",
+  "area": "algebraicgeometry",
+  "parent": null,
+  "summary": "This roadmap proves the generic first-jet interpolation interface used in Couveignes’s compact models. It begins with native bounded multivariate polynomials and squared point ideals, passes through residual and trace sequences, curvilinear reduction, cubic base certificates and differential Horace, and ends with a nonempty affine Zariski-open locus and bounded integer specialization. Low-degree exceptions and missing geometric supplier interfaces remain explicit; implementation is unchecked.",
+  "readme": "See research/blueprint/readmes/GenericDoublePointInterpolation.md for conventions, all six layer contracts, declaration outlines, API/tests, source scope, certificates and unresolved supplier inputs. The endpoint concerns ordered distinct tuples over an algebraically closed field of characteristic zero, degree at least5. It supplies EffectiveBoundsCompactModels. General projective/Hilbert foundations are imported from their owners; Waring classifications and positive-characteristic interpolation are outside this route.",
+  "prerequisites": [
+    "SchemeAndStackFoundations",
+    "AlgebraicModuliForArithmeticGeometry"
+  ],
+  "stages": [
+    {
+      "key": "GI.0",
+      "title": "Bounded forms and coefficient geometry",
+      "description": "Reuse the native restricted monomial basis of MvPolynomial.restrictTotalDegree. Count its finite index set as choose(r+d,d); construct fixed-degree homogenization to the native homogeneous submodule, its H⁰(P^r,O(d)) comparison, coefficient lattice and the positive coefficient Gram form whose coordinate map is an isometry for the transported Euclidean metric.",
+      "requires": [
+        "AlgebraicModuliForArithmeticGeometry:R09.1"
+      ]
+    },
+    {
+      "key": "GI.1",
+      "title": "Double points and first jets",
+      "description": "Use squared point ideals and the existing square-zero extension and Chinese remainder theorem to compare the affine double-point quotient with n copies of k⊕k^r. Prove its length n(r+1), identify projective restriction with the bounded-polynomial first-jet linear map, and expose values, derivatives on the value kernel, the vertically stacked monomial matrix and its surjectivity/rank criterion.",
+      "requires": [
+        "GenericDoublePointInterpolation:GI.0",
+        "SchemeAndStackFoundations:SF.0",
+        "AlgebraicModuliForArithmeticGeometry:R09.1"
+      ]
+    },
+    {
+      "key": "GI.2",
+      "title": "Residual, trace and curvilinear degeneration",
+      "description": "Specialize the ideal-sheaf residual/trace sequence to distinct double points and prove the dimension inequality and ordinary Horace criterion. Define restriction rank for a finite scheme and a linear system, prove the one-point and many-point curvilinear reduction, and import actual flat moving-point, proper incidence-limit and semicontinuity interfaces for the differential argument.",
+      "requires": [
+        "GenericDoublePointInterpolation:GI.1",
+        "SchemeAndStackFoundations:SF.0",
+        "AlgebraicModuliForArithmeticGeometry:R09.2"
+      ]
+    },
+    {
+      "key": "GI.3",
+      "title": "Plane, cubic and quartic inputs",
+      "description": "Plan the Veronese/contact-locus route to plane interpolation, the elementary quadric calculation, and the codimension-three cubic recursion of BO5.2–5.4. Supply exact integer matrices with modular-rank certificates for all finite bases used here. Separate the cubic remainder scheme and the exceptional P⁴ cubic counts. Obtain the quartic dimension5 certificate and near-exception inputs for dimensions2–4; do not assert independence at the exceptional counts.",
+      "requires": [
+        "GenericDoublePointInterpolation:GI.2",
+        "SchemeAndStackFoundations:SF.5",
+        "SchemeAndStackFoundations:SF.0"
+      ]
+    },
+    {
+      "key": "GI.4",
+      "title": "Differential Horace and generic interpolation",
+      "description": "Split the three inequalities of BO6.3 and every rank step of BO6.4. Handle underfilled and overfilled critical counts by proper limits of curvilinear failures; keep transverse and tangent ranks separate. Complete the quartic dimension6–9 and large-dimension induction, then prove an exception-avoiding induction and then the characteristic-zero generic maximal-rank theorem in degree at least5, including the arbitrary-distinct univariate case.",
+      "requires": [
+        "GenericDoublePointInterpolation:GI.3",
+        "GenericDoublePointInterpolation:GI.2",
+        "AlgebraicModuliForArithmeticGeometry:R09.2"
+      ]
+    },
+    {
+      "key": "GI.5",
+      "title": "Affine open locus and integer specialization",
+      "description": "Intersect the projective generic locus with the dense affine chart and ordered-distinct locus. Construct the universal first-jet matrix, a nonzero maximal-minor polynomial and its genuine principal-open comparison. Export the nonempty Zariski-open affine theorem for r,n≥1,d≥5,n(r+1)≤choose(r+d,d). Bound minor degrees and use the built box nonvanishing lemma to choose bounded integer coordinates after any polynomial parameter pullback proved nonzero.",
+      "requires": [
+        "GenericDoublePointInterpolation:GI.4",
+        "GenericDoublePointInterpolation:GI.1",
+        "SchemeAndStackFoundations:SF.0"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "BO",
+      "title": "On the Alexander-Hirschowitz Theorem",
+      "authors": "Maria Chiara Brambilla and Giorgio Ottaviani",
+      "edition": "arXiv:math/0701409v2, 10 September 2007",
+      "url": "https://arxiv.org/pdf/math/0701409v2",
+      "readSections": [
+        "Sections1–6, printed pp1–19, independently read in full; additionally the opening univariate paragraph of §7.1 p19 only. Other historical/Waring material is outside this route."
+      ],
+      "accessed": "2026-10-04",
+      "sha256": "7d3dd9e6268431f4be53740bbf57ebf46d9a76b13c3472d6911d7f6deb530aa7"
+    },
+    {
+      "id": "COU",
+      "title": "Enumerating number fields",
+      "authors": "Jean-Marc Couveignes",
+      "edition": "Annals of Mathematics192 (2020), 487–497, version of record",
+      "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v192-n2-p04-s.pdf",
+      "readSections": [
+        "Section3, printed pp491–493: bounded forms, squared ideal, first jets, generic interpolation, integral parameter grid and coefficient metric"
+      ],
+      "accessed": "2026-10-04",
+      "sha256": "8d63bd3a14f0d61f421695f1d93559d18fb674240c6dee872c23bf5902e1a104"
+    }
+  ],
+  "status": "draft",
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-DESIGN-GenericDoublePointInterpolation",
+    "date": "2026-10-04",
+    "notes": "Six layers ordered correctly; local interpolation specializations do not duplicate the four general supplier stages. Acceptance is of the complete target-level planning pass, not proof closure or formalization. See the packet review and independent report for precise open interfaces."
+  }
+}

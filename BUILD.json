@@ -1,8 +1,8 @@
 {
-  "roadmaps": 221,
-  "stages": 3029,
-  "originalStages": 2025,
-  "sourceRefinements": 1004,
+  "roadmaps": 223,
+  "stages": 3104,
+  "originalStages": 2043,
+  "sourceRefinements": 1061,
   "reviewedDecompositions": [
     {
       "roadmap": "AInfCohomology",
@@ -327,7 +327,7 @@
       "deferredLinks": 0
     }
   ],
-  "terminalTargets": 1953,
+  "terminalTargets": 1971,
   "groups": 27,
   "retiredRoadmaps": [
     "FoundationsAndLibraryIntegration"
@@ -336,7 +336,7 @@
   "estimatedRoadmaps": 0,
   "distanceBases": {
     "judged": 203,
-    "measured": 1,
+    "measured": 3,
     "built": 7,
     "children": 1
   },
@@ -344,20 +344,26 @@
   "unmappedAreas": 0,
   "areasWithRoadmaps": 27,
   "additionalRegions": 0,
-  "mathematicalSummaries": 221,
+  "mathematicalSummaries": 223,
   "editedRoadmapSummaries": 181,
   "curatedStagePresentations": 339,
   "administrativeStages": 101,
-  "mathematicalStars": 2928,
+  "mathematicalStars": 3003,
   "plainTextPlanetLabels": 398,
   "hiddenPlanets": 600,
   "mappedStageStatuses": 350,
   "libraryAuditStatuses": 35,
   "bibliographicSources": 46,
-  "roadmapEdges": 1773,
-  "stageEdges": 8712,
+  "roadmapEdges": 1792,
+  "stageEdges": 8851,
   "reviewedLinkPackets": 25,
   "promotedBlueprints": [
+    {
+      "file": "AbelianVarietiesIsogenousToNoJacobian",
+      "roadmap": "AbelianVarietiesIsogenousToNoJacobian",
+      "nodes": 95,
+      "reviewer": "independent-review-REV-DESIGN-AbelianVarietiesIsogenousToNoJacobian"
+    },
     {
       "file": "AdicEtaleGeometry",
       "roadmap": "AdicEtaleGeometry",
@@ -443,6 +449,12 @@
       "reviewer": "independent-review-REV-GeneralAlgebraicKTheory--K.6"
     },
     {
+      "file": "GenericDoublePointInterpolation",
+      "roadmap": "GenericDoublePointInterpolation",
+      "nodes": 77,
+      "reviewer": "independent-review-REV-DESIGN-GenericDoublePointInterpolation"
+    },
+    {
       "file": "GlobalGaloisDeformations",
       "roadmap": "GlobalGaloisDeformations",
       "nodes": 66,
@@ -510,8 +522,8 @@
     }
   ],
   "sourceDocuments": 296,
-  "htmlBytes": 30757991,
-  "htmlSha256": "8b0ea6c2f5c0f2d596171261078d33af7e68447f0c6148200fd90d93f87a59a4",
+  "htmlBytes": 30957638,
+  "htmlSha256": "eea598364d9648035e58d0c7c0475ac79d73b684881a2bbaeab029b97e7758b0",
   "networkDependencies": 0,
   "localProgressOverridesIncluded": false,
   "assets": {
@@ -542,8 +554,8 @@
     "data/roadmap-summaries.json": "c8bdd0a9105f5d3c4a858c8b635990729f8e94497dee784a71fae659b8c05b9f",
     "data/roadmap-classification.json": "2641dbc97eb2566c715162d011b46890d1635629181ef8126ac7aed9e24a3b13",
     "data/classification-estimates.json": "625d35fe6121bf099dc5de9e6a9111793596f9b664e3fbd439841434bb4a57d6",
-    "data/roadmap-distances.json": "31a64a5a50d03300a83ba66a93cec8e7c0fcf1016600d650a4ccd5adbdd8f01c",
-    "data/galaxy-layout.json": "1abc1f32e084ffc02cdc02f94d83b21a4b84c75913451e0cae64b81a8e6e8d5f",
+    "data/roadmap-distances.json": "375c0a00ae284e7efabda829fbed3ac79946c9d7f88b0cf3edbd0e7dddcc3776",
+    "data/galaxy-layout.json": "b86eb40fef14c658e809ddf39dac8281c0e6dfefc62e80cc6a8dfeb978213090",
     "data/bibliography.json": "bef230a41fad22d6b790c7564061c4d05c2ae5b78cab53d005eb404afab2b122",
     "NOTICE": "a285b95d5adbf5c2bcc82db36e2a77b797f84a2c5cbb30292efd0bae17cc4f34",
     "LICENSE": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1",
@@ -600,6 +612,8 @@
     "data/decompositions/VectorBundlesAndIsocrystals.json": "fdbac76db40806c39866334c8b06f46f938a7c806c886caa06b0020a8172dd9f",
     "data/decompositions/WeightsInEtaleCohomology.json": "4a41151244faf21477866c23a4cd43d5a212e2fbafac8a6b5504f0e19d5f3b43",
     "data/decompositions/WeilConjectures.json": "532f2a6f1ccd3188a4ed372133937f0cc0057236fd5a981d640a0295c7566d41",
+    "data/blueprints/AbelianVarietiesIsogenousToNoJacobian.json": "9de60585cfbbd64b4668c4a9697e673e9f0307ba3e97085eff0c30d38a6f13c3",
+    "data/blueprints/AbelianVarietiesIsogenousToNoJacobian.md": "9258a7772a96c3e40de4c254235abe86727cede0ae9d75feb41a06cd94580143",
     "data/blueprints/AdicEtaleGeometry.json": "99497353570273dc940038827e1a5eef68adcf05099ff390767a11a2f7cc8d45",
     "data/blueprints/AdicEtaleGeometry.md": "d580cd34ef211625d8012c497854b46ee450aa7ac374676e1bf668406e0d86cc",
     "data/blueprints/AdicSpacesPartII.json": "e45a2b12a1dba869acdbe200a2e6034876ace6c72b51a1fa40114c27c12ea6c4",
@@ -628,6 +642,8 @@
     "data/blueprints/GeneralAlgebraicKTheory--K.1.md": "0897b3b7abb9bdfd592bc3324b70acc5cc9905d85d84c923d90a8d3c033d29f0",
     "data/blueprints/GeneralAlgebraicKTheory--K.6.json": "14d13811cf26d920957a5b5791e6eec18d834bf2a991c96e4b781bdcf8a64370",
     "data/blueprints/GeneralAlgebraicKTheory--K.6.md": "acccd72a10a82d52e7b0981a1975476cefb9578c8a2b876a1491e53c808a8f8f",
+    "data/blueprints/GenericDoublePointInterpolation.json": "6b2d11b9013fe9fc19322c11361357ca7210f074ab175b2aa701702ee7ee09c8",
+    "data/blueprints/GenericDoublePointInterpolation.md": "6f2fe26ae4640d325cf3d0fb4606ac6a34fd9181552699655c4c22dc0009d454",
     "data/blueprints/GlobalGaloisDeformations.json": "31cbc73148a71345a8573de74fde1a1e01cc909b37ad94469327c9b23546846a",
     "data/blueprints/GlobalGaloisDeformations.md": "4f917fe4c79aa4e3221ea7b4a2ffbaa562c8d034e3f66d80268642ae3e83fa02",
     "data/blueprints/HabiroCohomologyFoundations--HQ.1.json": "b0c8f42d8d1bfce1a87085fc717eb06658de3f72500d771a68f637513b690eb7",
@@ -650,6 +666,8 @@
     "data/blueprints/SemisimpleAlgebrasPartII.md": "7d72aa9a82427470a96a523a502fdd12fee1268a581dd08fd02e94d143bec247",
     "data/blueprints/SmallRamificationAndAbelianVarietyBaseCases.json": "fb0daca4a0b888dfad1d7bb862a800af846fc2f9553abe9f9cd2e61567e6d3a7",
     "data/blueprints/SmallRamificationAndAbelianVarietyBaseCases.md": "bf5bb37e33b91d56f46879172730f6ced43c4f448c1ff01efeec27bc66d0141e",
+    "data/blueprints/roadmaps/AbelianVarietiesIsogenousToNoJacobian.json": "2bf1f5bf267748898edb5c660f847da5daca1f83422fc4f0bb5cdb5b842d0414",
+    "data/blueprints/roadmaps/GenericDoublePointInterpolation.json": "bea51793a161eba89a41cd1b9296431a0feec87374a8009e0ee3c9f008f0ddaf",
     "data/blueprints/roadmaps/SemisimpleAlgebrasPartII.json": "deab3aab287fec5e5304f5ca49ea05c149e532c66341477eff5c83ea6ac9d4fc",
     "data/links/tauceti_Completed_EffectiveBounds.json": "a1493c80585e5e41a95005979315013c4406ce3be31b57b9fd2fb8bc9c278805",
     "data/links/tauceti_Completed_OrthogonalL2Bases.json": "34ad7cad18dde976767ba8df3183e3b3ec9586ddb040ecff1654dbdd2bec5a46",

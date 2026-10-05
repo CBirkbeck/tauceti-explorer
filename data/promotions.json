@@ -260,6 +260,18 @@
     "data/links/tauceti_TauCetiRoadmap_ZigzagPreprojective.json"
    ]
   },
+  "research/blueprint/packets/AbelianVarietiesIsogenousToNoJacobian.json": {
+   "promotedAt": "2026-10-05T00:15:57Z",
+   "review": "e4cc8a974c350ad3",
+   "reviewDate": "2026-10-05",
+   "reviewer": "independent-review-REV-DESIGN-AbelianVarietiesIsogenousToNoJacobian",
+   "sha256": "9de60585cfbbd64b4668c4a9697e673e9f0307ba3e97085eff0c30d38a6f13c3",
+   "to": [
+    "data/blueprints/AbelianVarietiesIsogenousToNoJacobian.json",
+    "data/blueprints/AbelianVarietiesIsogenousToNoJacobian.md",
+    "data/blueprints/roadmaps/AbelianVarietiesIsogenousToNoJacobian.json"
+   ]
+  },
   "research/blueprint/packets/AdicEtaleGeometry.json": {
    "promotedAt": "2026-10-02T04:47:29Z",
    "review": "3799ea1e23ceff17",
@@ -412,6 +424,18 @@
    "to": [
     "data/blueprints/GeneralAlgebraicKTheory--K.6.json",
     "data/blueprints/GeneralAlgebraicKTheory--K.6.md"
+   ]
+  },
+  "research/blueprint/packets/GenericDoublePointInterpolation.json": {
+   "promotedAt": "2026-10-05T00:15:57Z",
+   "review": "8c809a4b798c858b",
+   "reviewDate": "2026-10-04",
+   "reviewer": "independent-review-REV-DESIGN-GenericDoublePointInterpolation",
+   "sha256": "6b2d11b9013fe9fc19322c11361357ca7210f074ab175b2aa701702ee7ee09c8",
+   "to": [
+    "data/blueprints/GenericDoublePointInterpolation.json",
+    "data/blueprints/GenericDoublePointInterpolation.md",
+    "data/blueprints/roadmaps/GenericDoublePointInterpolation.json"
    ]
   },
   "research/blueprint/packets/GlobalGaloisDeformations.json": {
