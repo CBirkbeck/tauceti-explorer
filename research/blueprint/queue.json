@@ -12052,7 +12052,8 @@
    "avoidAccountOf": "DESIGN-ClassicalGroupsPartII",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-ClassicalGroupsPartII.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3507"
   },
   {
    "id": "DESIGN-IntegralHeckeAndGaloisDeterminantsPartII",
@@ -32853,8 +32854,9 @@
    ],
    "avoidAccountOf": "BP-FiniteFieldsAndCharacterSums--FF.1",
    "prompt": "research/blueprint/prompts/REV-FiniteFieldsAndCharacterSums--FF.1.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6305"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6305",
+   "finishedAt": "2026-10-05T19:22:26Z"
   },
   {
    "id": "BP-FiniteFieldsAndCharacterSums--FF.2",
@@ -32968,7 +32970,8 @@
    ],
    "followUpOf": "BP-FiniteFieldsAndCharacterSums",
    "prompt": "research/blueprint/prompts/BP-FiniteFieldsAndCharacterSums--FF.4.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6351"
   },
   {
    "id": "REV-FiniteFieldsAndCharacterSums--FF.4",
