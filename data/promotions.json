@@ -651,6 +651,17 @@
     "data/blueprints/HabiroCohomologyFoundations--HQ.1.md"
    ]
   },
+  "research/blueprint/packets/HabiroCyclotomicCompletions--HC.4.json": {
+   "promotedAt": "2026-10-05T23:07:06Z",
+   "review": "401c1740aa841260",
+   "reviewDate": "2026-10-05",
+   "reviewer": "independent-review-REV-HabiroCyclotomicCompletions--HC.4",
+   "sha256": "53d6ae5a158df492465829c0d271cfaeb00df95f5efccf1bbddd156cada22cf3",
+   "to": [
+    "data/blueprints/HabiroCyclotomicCompletions--HC.4.json",
+    "data/blueprints/HabiroCyclotomicCompletions--HC.4.md"
+   ]
+  },
   "research/blueprint/packets/HabiroCyclotomicCompletions--HC.6.json": {
    "promotedAt": "2026-10-05T23:01:41Z",
    "review": "433d603e87137521",
