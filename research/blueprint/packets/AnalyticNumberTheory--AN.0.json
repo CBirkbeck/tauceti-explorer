@@ -397,6 +397,90 @@
         "module": "Mathlib/NumberTheory/SmoothNumbers.lean",
         "provides": "Finite inclusive natural cutoff of the existing strict-smoothness carrier.",
         "checked": "Full defining statement read at the exact Mathlib pin in the current pass, 2026-10-05."
+      },
+      {
+        "ref": "mathlib:ArithmeticFunction.vonMangoldt",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/ArithmeticFunction/VonMangoldt.lean",
+        "provides": "Real-valued arithmetic function, zero at 0; log(minFac n) at a prime power and zero otherwise. The integer extension reuses it.",
+        "checked": "Defining/theorem statement and surrounding parameters read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 in continuation codex-KI4dsy, 2026-10-05."
+      },
+      {
+        "ref": "mathlib:ArithmeticFunction.moebius",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/ArithmeticFunction/Moebius.lean",
+        "provides": "Integer-valued arithmetic function: (-1)^cardFactors n for squarefree n, zero otherwise; includes value zero at 0.",
+        "checked": "Defining/theorem statement and surrounding parameters read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 in continuation codex-KI4dsy, 2026-10-05."
+      },
+      {
+        "ref": "mathlib:ArithmeticFunction.sum_moebius_mul_log_eq",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/ArithmeticFunction/VonMangoldt.lean",
+        "provides": "For every natural n, the divisor sum Σ_{d∈n.divisors} μ(d)log d equals −vonMangoldt(n). At n=0 the native divisor finset is empty; this does not identify a finite cutoff over divisors of the integer zero.",
+        "checked": "Defining/theorem statement and surrounding parameters read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 in continuation codex-KI4dsy, 2026-10-05."
+      },
+      {
+        "ref": "mathlib:ArithmeticFunction.vonMangoldt_sum",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/ArithmeticFunction/VonMangoldt.lean",
+        "provides": "For every natural n, Σ_{d∈n.divisors} vonMangoldt(d)=log n; summing over positive n gives the log=Λ∗1 identity used in the elementary Mertens proof.",
+        "checked": "Defining/theorem statement and surrounding parameters read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 in continuation codex-KI4dsy, 2026-10-05."
+      },
+      {
+        "ref": "mathlib:Chebyshev.psi_le_const_mul_self",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/Chebyshev.lean",
+        "provides": "For real x≥0, psi(x)≤(log 4+4)x; psi has an inclusive floor cutoff. Supplies the floor-error bound, without assuming PNT.",
+        "checked": "Defining/theorem statement and surrounding parameters read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 in continuation codex-KI4dsy, 2026-10-05."
+      },
+      {
+        "ref": "mathlib:Nat.primeFactors_prod",
+        "kind": "lemma",
+        "module": "Mathlib/Data/Nat/Squarefree.lean",
+        "provides": "If every member of a finite set s of naturals is prime, primeFactors(∏_{p∈s}p)=s. Recovering s from its product proves injectivity.",
+        "checked": "Defining/theorem statement and surrounding parameters read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 in continuation codex-KI4dsy, 2026-10-05."
+      },
+      {
+        "ref": "mathlib:Finset.card_image_of_injOn",
+        "kind": "theorem",
+        "module": "Mathlib/Data/Finset/Card.lean",
+        "provides": "For a function injective on a finite set s, card(image f s)=card s.",
+        "checked": "Defining/theorem statement and surrounding parameters read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 in continuation codex-KI4dsy, 2026-10-05."
+      },
+      {
+        "ref": "mathlib:Finset.card_powersetCard",
+        "kind": "theorem",
+        "module": "Mathlib/Data/Finset/Powerset.lean",
+        "provides": "For n natural and finite s, card(powersetCard n s)=Nat.choose(card s,n).",
+        "checked": "Defining/theorem statement and surrounding parameters read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 in continuation codex-KI4dsy, 2026-10-05."
+      },
+      {
+        "ref": "mathlib:isEquivalent_choose",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/SpecialFunctions/Choose.lean",
+        "provides": "For fixed natural k, (n.choose k:ℝ) is asymptotically equivalent atTop on ℕ to n^k/k!. The statement is in the root namespace and includes k=0.",
+        "checked": "Defining/theorem statement and surrounding parameters read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 in continuation codex-KI4dsy, 2026-10-05."
+      },
+      {
+        "ref": "mathlib:sum_mul_eq_sub_sub_integral_mul",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/AbelSummation.lean",
+        "provides": "Abel identity on real 0≤a≤b for a differentiable weight whose derivative is integrable on [a,b]; the sum is over floor(a)<k≤floor(b), with both endpoint terms and the integral of derivative times the inclusive coefficient sum.",
+        "checked": "Defining/theorem statement and surrounding parameters read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 in continuation codex-KI4dsy, 2026-10-05."
+      },
+      {
+        "ref": "mathlib:ArithmeticFunction.mul_apply",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/ArithmeticFunction/Defs.lean",
+        "provides": "For semiring-valued arithmetic functions f,g, (f*g)(n)=Σ_{(a,b)∈divisorsAntidiagonal n}f(a)g(b); this is Dirichlet convolution, not pointwise multiplication.",
+        "checked": "Defining/theorem statement and surrounding parameters read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 in continuation codex-KI4dsy, 2026-10-05."
+      },
+      {
+        "ref": "mathlib:Nat.totient_eq_mul_prod_factors",
+        "kind": "theorem",
+        "module": "Mathlib/Data/Nat/Totient.lean",
+        "provides": "For all natural n, the rational equality (totient n:ℚ)=n∏_{p∈primeFactors n}(1−1/p). Transfer to ℝ before division; n≥3 gives a positive denominator.",
+        "checked": "Defining/theorem statement and surrounding parameters read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 in continuation codex-KI4dsy, 2026-10-05."
       }
     ]
   },
@@ -1146,6 +1230,56 @@
       "accessed": "2026-10-05",
       "readSections": [
         "codex-ws2Gd5: §§2A–2C, printed pp.1140–1142, through Lemma2.4; pp.1140 and 1142 inspected as images. Rademacher’s cited proof of Lemma2.3 was not read."
+      ]
+    },
+    {
+      "id": "bkk-primary-v3",
+      "title": "Irreducibility of random polynomials: general measures",
+      "authors": "Lior Bary-Soroker, Dimitris Koukoulopoulos and Gady Kozma",
+      "edition": "arXiv:2007.14567v3, final preprint, 2023; not the published Inventiones version",
+      "url": "https://arxiv.org/pdf/2007.14567v3",
+      "sha256": "adb1359df46f92d608009b32f45939672e08b1e3fe052587b035431e70d5d3e1",
+      "accessed": "2026-10-05",
+      "readSections": [
+        "Selected passages only: §3.3 p.21 Mertens use; §3.5 p.25 prime interval; §3.6 p.26 definition and (3.4); Lemma7.3 and proof p.37; §12.1 pp.60–61 Mertens product use."
+      ]
+    },
+    {
+      "id": "ss-primary-published",
+      "title": "Schinzel Hypothesis on average and rational points",
+      "authors": "Alexei N. Skorobogatov and Efthymios Sofos",
+      "edition": "Inventiones Mathematicae 231 (2023), 673–739, published PDF deposited by the University of Glasgow",
+      "url": "https://eprints.gla.ac.uk/292484/1/292484.pdf",
+      "sha256": "8499680e907e06bf0b1eeae0c1bc7d46e5cbe93411388b17e843f3b8c6a0e9b1",
+      "accessed": "2026-10-05",
+      "readSections": [
+        "§3.1, pp.690–691: Lemma3.2, definitions and Corollary3.3; Lemma3.11 and (3.6)–(3.7), p.699; Lemma4.3 and full proof, pp.705–706; Lemma4.5 and full proof, pp.708–709.",
+        "Selected Mertens applications in the proofs of Lemma4.9 p.713 and Lemma4.11 p.716. The external Davenport, Iwaniec–Kowalski and Montgomery–Vaughan proofs were not read."
+      ]
+    },
+    {
+      "id": "kouk-primary-preliminary",
+      "title": "The Distribution of Prime Numbers",
+      "authors": "Dimitris Koukoulopoulos",
+      "edition": "Author preliminary version provided with AMS permission, acquired 2026-10-05; published GSM203 (2019) text not inspected",
+      "url": "https://dms.umontreal.ca/~koukoulo/documents/publications/primes.pdf",
+      "sha256": "1445e107bba9c89db6529aeb4bca3ecf01170fc2854a675f5ca6f288c77ea0a8",
+      "accessed": "2026-10-05",
+      "readSections": [
+        "Theorem3.4 and proof, printed pp.40–41; Exercise5.4(a)–(d), printed p.61, additionally checked as a rendered page.",
+        "Selected preceding hyperbola calculation and Theorem3.3, printed pp.38–39. Exercise5.4 is a proof worklist, not a completed proof of its estimates."
+      ]
+    },
+    {
+      "id": "smati-primary-1992",
+      "title": "Evaluation effective du nombre d’entiers n tels que φ(n) ≤ x",
+      "authors": "A. Smati",
+      "edition": "Acta Arithmetica LXI.2 (1992), 143–159, publisher scan",
+      "url": "https://matwbn.icm.edu.pl/ksiazki/aa/aa61/aa6124.pdf",
+      "sha256": "ab083496b4f9d3847e0d66ed5fca98ebf8c58f2ab107f445bcceb018b70f1ed2",
+      "accessed": "2026-10-05",
+      "readSections": [
+        "Introduction pp.143–145, including the stated effective theorem; opening of p.146 explaining its computational boundary. The later proof is unread."
       ]
     }
   ],
@@ -4450,12 +4584,17 @@
         "Parameters, ranges, character normalization and constant dependence are those in the displayed statement."
       ],
       "proofSteps": [
-        "Use partial summation and the unconditional rational prime-number estimates.",
-        "Keep one prime Mertens constant B for the whole real range x≥2."
+        "Replace the strict endpoint in Mertens first theorem by the inclusive one; a possible endpoint contributes at most log x/x, hence a bounded change. Set R(t)=Σ_{p≤t}log p/p−log t, which is bounded for t≥2.",
+        "Apply pinned Abel summation with weight 1/log t and coefficient (log p)/p at primes, zero otherwise. Obtain Σ_{p≤x}1/p=log log x+B+R(x)/log x−∫_x^∞R(t)/(t(log t)^2)dt, for a single real B.",
+        "The improper integral defining B converges absolutely; the remaining integral is bounded by sup|R|/log x. This yields the claimed real range x≥2."
       ],
-      "prerequisites": [],
+      "prerequisites": [
+        "AnalyticNumberTheory:AN.2/mertens-first-theorem",
+        "mathlib:sum_mul_eq_sub_sub_integral_mul"
+      ],
       "acceptance": [
-        "Check every endpoint and the stated dependence of constants; no conjectural input is implicit."
+        "One B and one absolute error constant work for every real x≥2.",
+        "At x=2 the prime 2 is included; changing the endpoint convention only changes the bounded remainder."
       ],
       "uses": [
         {
@@ -4470,10 +4609,10 @@
       },
       "sources": [
         {
-          "sourceId": "reviewed-paper-barysoroker-koukoulopoulos-kozma-23",
-          "locator": "arXiv v3, §3.3 p. 21 and §12.1 pp. 60–61, citing[22] Theorem 3.4(b,c)",
-          "excerpt": "Mertens sum and product inputs",
-          "match": "Literal title and precise corrected statement of accepted extraction PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23/128. The original external proof is not certified by its acceptance."
+          "sourceId": "kouk-primary-preliminary",
+          "locator": "Theorem3.4(b) and its proof, printed pp.40–41",
+          "excerpt": "Mertens’ three estimates",
+          "match": "Direct source statement and bounded-remainder Abel proof; no quantitative PNT is used."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4494,8 +4633,9 @@
         "Parameters, ranges, character normalization and constant dependence are those in the displayed statement."
       ],
       "proofSteps": [
-        "Expand log ∏(1−1/p)^−1 into its prime-power series, bounding the k≥2 tail absolutely.",
-        "Identify the constant with e^γ using the Euler product near 1, and retain the O(1) additive error."
+        "Use the reciprocal-prime theorem and the Taylor remainder −log(1−u)−u=O(u²), uniformly for 0≤u≤1/2. Its prime tail is O(1/x). Thus log∏_{p≤x}(1−1/p)^−1=log log x+κ+O(1/log x).",
+        "Identify κ with γ using the real Euler product at s=1+ε/log x and the corrected integral in Exercise5.4(c)–(d). The uniform tilted-product/tail estimates and the Euler-constant integral comparison are explicit unresolved inputs in the Mertens constant gap.",
+        "After κ=γ, exponentiate the O(1/log x) logarithmic error; multiplication by log x gives an additive O(1). This step is not supplied by a mere two-sided comparison."
       ],
       "prerequisites": [
         "AnalyticNumberTheory:AN.2/mertens-prime-reciprocal"
@@ -4516,10 +4656,10 @@
       },
       "sources": [
         {
-          "sourceId": "reviewed-paper-barysoroker-koukoulopoulos-kozma-23",
-          "locator": "arXiv v3, §3.3 p. 21 and §12.1 pp. 60–61, citing[22] Theorem 3.4(b,c)",
-          "excerpt": "Mertens sum and product inputs",
-          "match": "Literal title and precise corrected statement of accepted extraction PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23/128. The original external proof is not certified by its acceptance."
+          "sourceId": "kouk-primary-preliminary",
+          "locator": "Theorem3.4(c), (3.6), printed pp.40–41; Exercise5.4, printed p.61",
+          "excerpt": "It remains to show that κ = γ.",
+          "match": "The source supplies the logarithmic product proof and explicitly identifies the remaining constant calculation. Exercise5.4(c) has the sign slip recorded as E19; use the corrected sign. The detailed uniform estimates remain gaps."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4538,14 +4678,21 @@
       "statement": "For x≥2 and m≥0, N_m(x) is the finite set of natural products over m-element subsets of {p prime:x/2≤p≤x}. N_0(x)={1}; subsets are unordered and primes are distinct.",
       "hypotheses": [],
       "proofSteps": [
-        "Construct the displayed object on the specified domain using the existing carriers; prove the listed API before its analytic applications."
+        "Form the finite prime set P_x={p∈ℕ: p prime, x/2≤p≤x} using the inclusive floor cutoff, and take the image of its m-element subsets under their natural product.",
+        "Use Nat.primeFactors_prod to recover a subset from its product, hence prove injection. Pinned finite-image and powersetCard cardinality theorems supply the card API; no second factorization theory is needed.",
+        "The product over an empty subset is 1. The support and squarefree APIs follow from the same finite prime product and its recovered factor set."
       ],
-      "prerequisites": [],
+      "prerequisites": [
+        "mathlib:Nat.primeFactors_prod",
+        "mathlib:Finset.card_powersetCard",
+        "mathlib:Finset.card_image_of_injOn"
+      ],
       "acceptance": [
         "N_0(10)={1}.",
         "N_1(10)={5,7}.",
         "N_2(10)={35} and N_3(10)=∅.",
-        "25∉N_2(10), excluding repeated primes and ordered-tuple multiplicity."
+        "25∉N_2(10), excluding repeated primes and ordered-tuple multiplicity.",
+        "N_1(4)={2,3}; an open lower cutoff would omit 2 and fails this test."
       ],
       "uses": [
         {
@@ -4560,10 +4707,10 @@
       },
       "sources": [
         {
-          "sourceId": "reviewed-paper-barysoroker-koukoulopoulos-kozma-23",
-          "locator": "arXiv v3, §3.6 (3.4), p. 26",
-          "excerpt": "Products of distinct medium primes",
-          "match": "Exact target or stated specialization; unresolved proof inputs are named in the gap ledger."
+          "sourceId": "bkk-primary-v3",
+          "locator": "§3.6, definition immediately preceding (3.4), p.26",
+          "excerpt": "the product of m distinct primes",
+          "match": "The closed interval [x/2,x], distinct unordered primes and the m=0 empty product are explicit in the source."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4587,6 +4734,16 @@
           "name": "medium_prime_products.support",
           "role": "projection",
           "statement": "Every prime factor lies in the closed interval [x/2,x]."
+        },
+        {
+          "name": "medium_prime_products.zero",
+          "role": "simp",
+          "statement": "For every x≥2, N_0(x)={1}."
+        },
+        {
+          "name": "medium_prime_products.size_bounds",
+          "role": "projection",
+          "statement": "For x≥2, m≥0 and n∈N_m(x), (x/2)^m≤n≤x^m, with the natural n cast to the reals."
         }
       ],
       "tests": [
@@ -4609,6 +4766,11 @@
           "name": "medium_prime_products.distinct",
           "kind": "computation",
           "statement": "25∉N_2(10), excluding repeated primes and ordered-tuple multiplicity."
+        },
+        {
+          "name": "medium_prime_products.closed_lower_endpoint",
+          "kind": "computation",
+          "statement": "N_1(4)={2,3}; the prime 2 at the lower endpoint is included."
         }
       ]
     },
@@ -4646,10 +4808,10 @@
       },
       "sources": [
         {
-          "sourceId": "reviewed-paper-barysoroker-koukoulopoulos-kozma-23",
-          "locator": "arXiv v3, §3.5 p. 25; (3.4) p. 26",
-          "excerpt": "Prime-number input",
-          "match": "Literal title and precise corrected statement of accepted extraction PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23/55. The original external proof is not certified by its acceptance."
+          "sourceId": "bkk-primary-v3",
+          "locator": "§3.5, proof of Theorem2, p.25",
+          "excerpt": "the set of primes in (x, 3x]",
+          "match": "The exact bounds including the additive 4 are printed; they follow from the rational PNT with a sufficiently large threshold."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4668,13 +4830,14 @@
       "statement": "For fixed integer m≥0, #N_m(x)∼(x/log x)^m/(2^m m!) as x→∞; m is fixed, not uniform in m.",
       "hypotheses": [],
       "proofSteps": [
-        "Use the N_m cardinality API, promoted below, and PNT at x and x/2.",
-        "Use binomial(k,m)∼k^m/m! for fixed m; m=0 is exact."
+        "Apply the rational PNT at x and x/2 to obtain k(x)=#P_x∼x/(2log x); the closed lower endpoint differs from π(x)−π(x/2) by at most one prime. In particular k(x)→∞.",
+        "Use the distinct-product cardinality node and compose pinned isEquivalent_choose(m) with k(x)→∞. This includes m=0 exactly, and yields (x/log x)^m/(2^m m!)."
       ],
       "prerequisites": [
         "AnalyticNumberTheory:AN.5/medium-prime-products",
         "AnalyticNumberTheory:AN.2/chebyshev-prime-count-transfer",
-        "AnalyticNumberTheory:AN.5/medium-prime-product-card"
+        "AnalyticNumberTheory:AN.5/medium-prime-product-card",
+        "mathlib:isEquivalent_choose"
       ],
       "acceptance": [
         "Check every endpoint and the stated dependence of constants; no conjectural input is implicit."
@@ -4692,10 +4855,10 @@
       },
       "sources": [
         {
-          "sourceId": "reviewed-paper-barysoroker-koukoulopoulos-kozma-23",
-          "locator": "arXiv v3, §3.5 p. 25; (3.4) p. 26",
-          "excerpt": "Prime-number input",
-          "match": "Exact target or stated specialization; unresolved proof inputs are named in the gap ledger."
+          "sourceId": "bkk-primary-v3",
+          "locator": "§3.6 (3.4), p.26",
+          "excerpt": "by a simple application of the Prime Number Theorem",
+          "match": "The fixed-m specialization follows from the exact cardinality and pinned isEquivalent_choose; no moving-m estimate is asserted."
         }
       ],
       "implementationStatus": "unchecked"
@@ -4733,10 +4896,10 @@
       },
       "sources": [
         {
-          "sourceId": "reviewed-paper-barysoroker-koukoulopoulos-kozma-23",
-          "locator": "arXiv v3, Lemma 7.3 p. 37, citing Smati[37]",
-          "excerpt": "Inverse-totient counting input",
-          "match": "Literal title and precise corrected statement of accepted extraction PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23/65. The original external proof is not certified by its acceptance."
+          "sourceId": "smati-primary-1992",
+          "locator": "Introduction pp.143–145; stated effective theorem p.145",
+          "excerpt": "Ce nombre est fini",
+          "match": "The source defines the finite inverse-totient count and states a stronger effective asymptotic. The O(x) target follows from that stated theorem; the later proof and computational boundary have not been audited, so its proof gap remains."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4801,7 +4964,9 @@
       "proofSteps": [
         "Construct the displayed object on the specified domain using the existing carriers; prove the listed API before its analytic applications."
       ],
-      "prerequisites": [],
+      "prerequisites": [
+        "mathlib:ArithmeticFunction.vonMangoldt"
+      ],
       "acceptance": [
         "Λ_even(0)=0.",
         "Λ_even(−2)=log 2.",
@@ -4820,10 +4985,10 @@
       },
       "sources": [
         {
-          "sourceId": "reviewed-paper-skorobogatov-sofos-23",
-          "locator": "Published §3.1 p. 691",
-          "excerpt": "Even von Mangoldt function and its truncation on ℤ",
-          "match": "Exact target or stated specialization; unresolved proof inputs are named in the gap ledger."
+          "sourceId": "ss-primary-published",
+          "locator": "§3.1, definitions preceding Corollary3.3, published p.691",
+          "excerpt": "truncated von Mangoldt function",
+          "match": "The published definitions are on positive integers. The even integer extension and its finite cutoff at zero are specified here; the native identity is used only at |n|>0. At zero the positive-divisor cutoff is evaluated directly."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4873,10 +5038,14 @@
       "statement": "For real z≥1 and n∈Z, Λ_z(n)=−Σ_{d∈N,1≤d≤z,d|n} μ(d)log d. Divisibility of zero includes every positive d; the sum is finite by its cutoff.",
       "hypotheses": [],
       "proofSteps": [
-        "Construct the displayed object on the specified domain using the existing carriers; prove the listed API before its analytic applications."
+        "Take the finite sum over positive naturals d≤floor z whose integer cast divides n; retain all positive d at n=0 rather than substituting the empty native divisors(0).",
+        "For n≠0 and z≥|n|, identify this finite set with Nat.divisors(n.natAbs). Apply ArithmeticFunction.sum_moebius_mul_log_eq at n.natAbs and negate.",
+        "Divisibility is invariant under n↦−n. Evaluate z=1, the prime cutoff and z=2,n=0 directly; these require no analytic cancellation theorem."
       ],
       "prerequisites": [
-        "AnalyticNumberTheory:AN.5/even-von-mangoldt"
+        "AnalyticNumberTheory:AN.5/even-von-mangoldt",
+        "mathlib:ArithmeticFunction.moebius",
+        "mathlib:ArithmeticFunction.sum_moebius_mul_log_eq"
       ],
       "acceptance": [
         "Λ_2(0)=log 2, so truncation is not zero at zero.",
@@ -4896,10 +5065,10 @@
       },
       "sources": [
         {
-          "sourceId": "reviewed-paper-skorobogatov-sofos-23",
-          "locator": "Published §3.1 p. 691",
-          "excerpt": "Even von Mangoldt function and its truncation on ℤ",
-          "match": "Exact target or stated specialization; unresolved proof inputs are named in the gap ledger."
+          "sourceId": "ss-primary-published",
+          "locator": "§3.1, definitions preceding Corollary3.3, published p.691",
+          "excerpt": "truncated von Mangoldt function",
+          "match": "The published definitions are on positive integers. The even integer extension and its finite cutoff at zero are specified here; the native identity is used only at |n|>0. At zero the positive-divisor cutoff is evaluated directly."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4954,7 +5123,9 @@
       "statement": "E_z(n)=Λ_even(n)−Λ_z(n), for n∈Z and z≥1.",
       "hypotheses": [],
       "proofSteps": [
-        "Construct the displayed object on the specified domain using the existing carriers; prove the listed API before its analytic applications."
+        "Subtract the two real-valued functions on ℤ. Their evenness yields evenness of E_z.",
+        "At n=0 use vonMangoldt(0)=0 and the finite cutoff sum, giving E_z(0)=Σ_{1≤d≤z}μ(d)log d.",
+        "At n≠0 and z≥|n| use the pinned divisor identity through truncated_von_mangoldt.large_cutoff, giving E_z(n)=0."
       ],
       "prerequisites": [
         "AnalyticNumberTheory:AN.5/even-von-mangoldt",
@@ -4978,10 +5149,10 @@
       },
       "sources": [
         {
-          "sourceId": "reviewed-paper-skorobogatov-sofos-23",
-          "locator": "Published §3.1 p. 691",
-          "excerpt": "Even von Mangoldt function and its truncation on ℤ",
-          "match": "Exact target or stated specialization; unresolved proof inputs are named in the gap ledger."
+          "sourceId": "ss-primary-published",
+          "locator": "§3.1, definitions preceding Corollary3.3, published p.691",
+          "excerpt": "truncated von Mangoldt function",
+          "match": "The published definitions are on positive integers. The even integer extension and its finite cutoff at zero are specified here; the native identity is used only at |n|>0. At zero the positive-divisor cutoff is evaluated directly."
         }
       ],
       "implementationStatus": "unchecked",
@@ -5036,7 +5207,9 @@
         "Use Davenport’s original uniform exponential-sum theorem; α ranges over all real values.",
         "Retain arbitrary logarithmic power A and y≥2."
       ],
-      "prerequisites": [],
+      "prerequisites": [
+        "mathlib:ArithmeticFunction.moebius"
+      ],
       "acceptance": [
         "Check every endpoint and the stated dependence of constants; no conjectural input is implicit."
       ],
@@ -5053,10 +5226,10 @@
       },
       "sources": [
         {
-          "sourceId": "reviewed-paper-skorobogatov-sofos-23",
-          "locator": "Published Lemma 3.2 p. 690",
-          "excerpt": "Davenport uniform Möbius exponential cancellation",
-          "match": "Literal title and precise corrected statement of accepted extraction PAPER-SKOROBOGATOV-SOFOS-23/29. The original external proof is not certified by its acceptance."
+          "sourceId": "ss-primary-published",
+          "locator": "Lemma3.2 and proof reference, published p.690",
+          "excerpt": "the implied constant depends only on A.",
+          "match": "The displayed uniform estimate is checked for the packet’s smaller range y≥2. The paper refers its proof to Davenport1937 or Iwaniec–Kowalski13.10; neither external proof was read."
         }
       ],
       "implementationStatus": "unchecked",
@@ -5080,7 +5253,9 @@
         "Use a coprimality Euler factor and a conductor-uniform Möbius PNT.",
         "Prove q≤T^4 uniformity with a sufficiently large logarithmic power before replacing it by A."
       ],
-      "prerequisites": [],
+      "prerequisites": [
+        "mathlib:ArithmeticFunction.moebius"
+      ],
       "acceptance": [
         "Check every endpoint and the stated dependence of constants; no conjectural input is implicit."
       ],
@@ -5097,10 +5272,10 @@
       },
       "sources": [
         {
-          "sourceId": "reviewed-paper-skorobogatov-sofos-23",
-          "locator": "(3.6) in the proof of Lemma 3.11, p. 699, citing [51, Ex. 17, p. 185]; used again in the proof of Lemma 3.14, p. 703",
-          "excerpt": "Coprime Möbius sums from the prime number theorem ((3.6))",
-          "match": "Literal title and precise corrected statement of accepted extraction PAPER-SKOROBOGATOV-SOFOS-23/36. The original external proof is not certified by its acceptance."
+          "sourceId": "ss-primary-published",
+          "locator": "Equation(3.6), proof of Lemma3.11, published p.699",
+          "excerpt": "consequences of the prime number theorem",
+          "match": "Both displayed sums and the cited exercise are present. The displayed (3.6) does not state the q≤T^4 uniform range required by these nodes; that strengthened supplier is an explicit unresolved proof obligation, not a source-verification receipt."
         }
       ],
       "implementationStatus": "unchecked",
@@ -5121,14 +5296,20 @@
         "Parameters, ranges, character normalization and constant dependence are those in the displayed statement."
       ],
       "proofSteps": [
-        "Expand the prime-divisor product as 1∗g with squarefree g and g(p)=(1+f(p))^n−1.",
-        "Prove Σ |g(d)|/√d<∞ uniformly in n,c, then use the floor-sum identity."
+        "On positive integers set g(d)=|μ(d)|∏_{p|d}((1+f(p))^n−1), with g(1)=1 and canonical zero extension. Finite expansion gives a(t)=Σ_{d|t}g(d) using the pinned Dirichlet-convolution carrier.",
+        "The binomial formula gives |g(p)|≤K_{n,c}/p with K_{n,c}≥1. For squarefree d, |g(d)|≤K_{n,c}^{ω(d)}/d≤τ(d)^α/d with a fixed α=max(1,log K_{n,c}/log2). The existing uniform divisor-subpower bound with exponent 1/(4α) gives |g(d)|≤B_{n,c}d^(−3/4).",
+        "Consequently M=Σ_{d≥1}|g(d)|/sqrt d is finite, uniformly in f after n,c are fixed. The squarefree-series/Euler-product comparison needed to identify C=Σg(d)/d with the stated product is recorded precisely in the scoped mean gap.",
+        "Swap finite sums to obtain Σ_{t≤x}a(t)=Σ_{d≤x}g(d)floor(x/d). The floor error is at most sqrt x M; replacing the truncated Σg(d)/d by C costs at most sqrt x M again. These finite identities avoid a new generic Wintner export from the upstream Abel layer."
       ],
       "prerequisites": [
-        "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-6-abel-and-perron-summation"
+        "mathlib:ArithmeticFunction.mul_apply",
+        "mathlib:ArithmeticFunction.moebius",
+        "AnalyticNumberTheory:AN.5/uniform-divisor-subpower-bound"
       ],
       "acceptance": [
-        "Check every endpoint and the stated dependence of constants; no conjectural input is implicit."
+        "For n=0, a(t)=1 and C=1; the discrepancy is floor(x)−x, of absolute value at most 1.",
+        "For n=1 with f(2)=1/2 and f(p)=0 for all odd primes, C=5/4 and the exact sum is floor(x)+(1/2)floor(x/2).",
+        "For complex f(p), all error estimates use absolute values and the constant depends only on n,c, not on the particular function f."
       ],
       "uses": [
         {
@@ -5143,10 +5324,10 @@
       },
       "sources": [
         {
-          "sourceId": "reviewed-paper-skorobogatov-sofos-23",
-          "locator": "Published Lemma 4.3 pp. 705–706",
-          "excerpt": "Wintner-type mean over prime divisors",
-          "match": "Literal title and precise corrected statement of accepted extraction PAPER-SKOROBOGATOV-SOFOS-23/41. The original external proof is not certified by its acceptance."
+          "sourceId": "ss-primary-published",
+          "locator": "Lemma4.3 and full proof, published pp.705–706, equations(4.2)–(4.3)",
+          "excerpt": "Wintner’s theorem",
+          "match": "The full proof gives the stronger pointwise Cx+O(sqrt x) estimate before integrating. The complex extension follows from the same convolution expansions and absolute-value bounds; it is not asserted to be an extra printed theorem."
         }
       ],
       "implementationStatus": "unchecked",
@@ -5162,17 +5343,20 @@
       ],
       "title": "Gamma Euler-product truncation",
       "kind": "theorem",
-      "statement": "For fixed n∈N and x≥e², ∏_{p>log x}(1−1/p+p^(n−1)/(p−1)^n)=1+O_n(1/log x). The same bound holds after omitting any subset of primes.",
+      "statement": "For fixed n∈ℕ and real x≥e², define γ_n(p)=1−1/p+(1+1/(p−1))^n/p for each rational prime p. The convergent product over p>log x is 1+O_n(1/log x), uniformly after retaining any subset of those primes. In particular γ_0(p)=1; the equivalent expression p^(n−1)/(p−1)^n uses an integer exponent n−1, never truncated natural subtraction.",
       "hypotheses": [
         "Parameters, ranges, character normalization and constant dependence are those in the displayed statement."
       ],
       "proofSteps": [
-        "Expand the fixed-n local factor, obtaining 1≤γ_n(p)≤1+C_n/(p(p−1)).",
-        "Bound the absolutely convergent logarithmic tail beyond log x; x≥e² avoids log-zero notation."
+        "For p>log x≥2, use 0<1/(p−1)<1 and the finite binomial expansion to obtain 1≤γ_n(p)≤1+K_n/(p(p−1)); n=0 gives equality 1 directly.",
+        "For any finite prime subset in this range, 0≤Σlog γ_n(p)≤K_nΣ_{k>log x}1/(k(k−1))≤2K_n/log x. Exponentiation bounds the finite product minus 1 by a constant depending only on n divided by log x.",
+        "Pass from finite products to the convergent product using the summable nonnegative logarithms. The required infinite-product API and local bound are specified in the scoped mean gap; the finite bound is uniform in the retained subset."
       ],
       "prerequisites": [],
       "acceptance": [
-        "Check every endpoint and the stated dependence of constants; no conjectural input is implicit."
+        "n=0 gives product 1; n=1 has local factor 1+1/(p(p−1)).",
+        "For any retained subset, the product is at least 1 and obeys the same upper error bound, with no subset-dependent constant.",
+        "At x=e² the tail excludes the prime 2; no strict inequality is applied at 1/(2−1)=1."
       ],
       "uses": [
         {
@@ -5187,10 +5371,10 @@
       },
       "sources": [
         {
-          "sourceId": "reviewed-paper-skorobogatov-sofos-23",
-          "locator": "Lemma 4.5 pp. 708–709",
-          "excerpt": "Gamma Euler-product truncation",
-          "match": "Literal title and precise corrected statement of accepted extraction PAPER-SKOROBOGATOV-SOFOS-23/42. The original external proof is not certified by its acceptance."
+          "sourceId": "ss-primary-published",
+          "locator": "Lemma4.5 and full proof, published pp.708–709",
+          "excerpt": "Exponentiating gives",
+          "match": "The paper proves its bound by a local binomial estimate and an integer telescoping tail. The packet restricts to x≥e², where p>log x excludes p=2 and the strict binomial inequality applies. Subproducts use the same positive bounds."
         }
       ],
       "implementationStatus": "unchecked",
@@ -5218,7 +5402,8 @@
         "AnalyticNumberTheory:AN.2/mertens-prime-product"
       ],
       "acceptance": [
-        "Check every endpoint and the stated dependence of constants; no conjectural input is implicit."
+        "For y=2 the product is 1/2; extend the eventual comparison to y≥2 using its finitely many values below any fixed threshold.",
+        "Removing a fixed finite set of primes multiplies the product by finitely many positive inverse factors; the resulting constants may depend on that set."
       ],
       "uses": [
         {
@@ -5233,10 +5418,16 @@
       },
       "sources": [
         {
-          "sourceId": "reviewed-paper-skorobogatov-sofos-23",
-          "locator": "Published proof of Lemma 4.9 p. 713 ('which follows from Mertens' theorem', upper bound ∏_{ℓ≤log x}(1−1/ℓ)^{−n} ≪ (log log x)^n) and proof of Lemma 4.11 p. 716 ('By Mertens' estimate', lower bound)",
-          "excerpt": "Mertens product input",
-          "match": "Literal title and precise corrected statement of accepted extraction PAPER-SKOROBOGATOV-SOFOS-23/50. The original external proof is not certified by its acceptance."
+          "sourceId": "kouk-primary-preliminary",
+          "locator": "Theorem3.4(c), printed pp.40–41",
+          "excerpt": "Mertens’ three estimates",
+          "match": "Two-sided comparison follows from the verified target’s positive main term and a finite starting range. Original application locators were checked in the published paper; no particular numerical constant is claimed."
+        },
+        {
+          "sourceId": "ss-primary-published",
+          "locator": "Proof of Lemma4.9 p.713 and proof of Lemma4.11 p.716",
+          "excerpt": "By Mertens’ estimate",
+          "match": "The published paper uses upper and lower Mertens comparisons; no source-specific numerical constant is inferred."
         }
       ],
       "implementationStatus": "unchecked",
@@ -5252,13 +5443,13 @@
       ],
       "title": "Shifted coprime Möbius sum",
       "kind": "theorem",
-      "statement": "For every A>0 and uniformly 1≤q≤√T as T→∞, Σ_{t≤T/q,(t,q)=1}μ(t)log(qt)/t=−q/φ(q)+O_A((log T)^{-A}). This is the exactLemma3.11 form used in the Euler-factor calculation; the original PNT-with-coprimality supplier must establish its uniformity.",
+      "statement": "For every A>0 there are constants C_A>0 and T_A≥2 such that for every real T≥T_A and every positive integer 1≤q≤√T, |Σ_{1≤t≤T/q,(t,q)=1}μ(t)log(qt)/t+q/φ(q)|≤C_A(log T)^(−A). The constants are independent of q.",
       "hypotheses": [
         "Parameters, ranges, character normalization and constant dependence are those in the displayed statement."
       ],
       "proofSteps": [
-        "Expand log(qt)=log q+log t.",
-        "Apply both coprime Möbius sums at T/q≥√T, with q≤√T, and increase the logarithmic power to absorb log q."
+        "Set U=T/q≥√T. Then q≤U, hence q≤U^4, so the two coprime Möbius supplier statements apply at U, with logarithmic exponent A+1.",
+        "Expand log(qt)=log q+log t. Bound log q≤(log T)/2 and log U≥(log T)/2 to absorb the first sum into O_A((log T)^−A)."
       ],
       "prerequisites": [
         "AnalyticNumberTheory:AN.5/coprime-mobius-log-sum",
@@ -5280,10 +5471,10 @@
       },
       "sources": [
         {
-          "sourceId": "reviewed-paper-skorobogatov-sofos-23",
-          "locator": "Published Lemma 3.11 p. 699",
-          "excerpt": "Shifted coprime Möbius sum",
-          "match": "Literal title and precise corrected statement of accepted extraction PAPER-SKOROBOGATOV-SOFOS-23/89. The original external proof is not certified by its acceptance."
+          "sourceId": "ss-primary-published",
+          "locator": "Lemma3.11 and proof, published p.699",
+          "excerpt": "the implied constants depend only on A.",
+          "match": "The lemma explicitly has 1≤q≤T^(1/2). Its proof uses both (3.6) sums; the node’s q≤T^4 suppliers still need their own uniform proof."
         }
       ],
       "implementationStatus": "unchecked",
@@ -5304,11 +5495,14 @@
         "Parameters, ranges, character normalization and constant dependence are those in the displayed statement."
       ],
       "proofSteps": [
-        "Use n/φ(n)=∏_{p|n}(1−1/p)^−1.",
-        "Split at log n and use Mertens for small primes and a bounded logarithmic tail for large primes."
+        "Use pinned Nat.totient_eq_mul_prod_factors, transfer the rational product equality to ℝ, and divide only at n≥3, where φ(n)>0. Thus n/φ(n)=∏_{p|n}(1−1/p)^−1.",
+        "For sufficiently large n split at y=log n. The small-prime factor is at most the full reciprocal Mertens product through y, hence O(log log n).",
+        "If r distinct prime divisors exceed y, then y^r≤n, so r≤log n/log y. Since −log(1−1/p)≤2/p for p≥2, their log product is at most 2r/y≤2/log y, hence uniformly bounded.",
+        "Absorb the finitely many integers 3≤n below the chosen threshold into the positive constant C. No estimate at log log1 or log log2 is used."
       ],
       "prerequisites": [
-        "AnalyticNumberTheory:AN.2/mertens-prime-product"
+        "AnalyticNumberTheory:AN.2/mertens-prime-product",
+        "mathlib:Nat.totient_eq_mul_prod_factors"
       ],
       "acceptance": [
         "Check every endpoint and the stated dependence of constants; no conjectural input is implicit."
@@ -5326,10 +5520,10 @@
       },
       "sources": [
         {
-          "sourceId": "reviewed-paper-skorobogatov-sofos-23",
-          "locator": "Published (3.7) p. 699, citing Montgomery–Vaughan Theorems 2.9 and 2.11",
-          "excerpt": "Size of 1/φ(n) and of the divisor function (3.7)",
-          "match": "Literal title and precise corrected statement of accepted extraction PAPER-SKOROBOGATOV-SOFOS-23/96. The original external proof is not certified by its acceptance."
+          "sourceId": "ss-primary-published",
+          "locator": "Equation(3.7), published p.699; cited Montgomery–Vaughan Theorem2.9",
+          "excerpt": "standard bounds",
+          "match": "The source states the order bound; the elementary small/large-prime proof below uses the pinned Euler-totient product and the Mertens-product node instead of assuming the cited book’s proof was read."
         }
       ],
       "implementationStatus": "unchecked",
@@ -5373,10 +5567,10 @@
       },
       "sources": [
         {
-          "sourceId": "reviewed-paper-skorobogatov-sofos-23",
-          "locator": "Published Corollary 3.3 p. 691, citing Iwaniec–Kowalski (19.17)",
-          "excerpt": "Uniform cancellation of the truncation error E_z (Corollary 3.3)",
-          "match": "Literal title and precise corrected statement of accepted extraction PAPER-SKOROBOGATOV-SOFOS-23/97. The original external proof is not certified by its acceptance."
+          "sourceId": "ss-primary-published",
+          "locator": "Corollary3.3 and proof reference, published p.691",
+          "excerpt": "the implied constant depends only on A.",
+          "match": "The displayed positive-integer estimate is checked on y,z≥2. Its full proof is cited to Iwaniec–Kowalski(19.17) and remains unread; this is not a proof-completion receipt."
         }
       ],
       "implementationStatus": "unchecked",
@@ -5399,7 +5593,9 @@
       "proofSteps": [
         "Use the same uniform coprimality Euler factor argument as the logarithmic sum, with one extra partial summation."
       ],
-      "prerequisites": [],
+      "prerequisites": [
+        "mathlib:ArithmeticFunction.moebius"
+      ],
       "acceptance": [
         "Check every endpoint and the stated dependence of constants; no conjectural input is implicit."
       ],
@@ -5416,10 +5612,10 @@
       },
       "sources": [
         {
-          "sourceId": "reviewed-paper-skorobogatov-sofos-23",
-          "locator": "(3.6) in the proof of Lemma 3.11, p. 699, citing [51, Ex. 17, p. 185]; used again in the proof of Lemma 3.14, p. 703",
-          "excerpt": "Coprime Möbius sums from the prime number theorem ((3.6))",
-          "match": "Literal title and precise corrected statement of accepted extraction PAPER-SKOROBOGATOV-SOFOS-23/36. The original external proof is not certified by its acceptance."
+          "sourceId": "ss-primary-published",
+          "locator": "Equation(3.6), proof of Lemma3.11, published p.699",
+          "excerpt": "consequences of the prime number theorem",
+          "match": "Both displayed sums and the cited exercise are present. The displayed (3.6) does not state the q≤T^4 uniform range required by these nodes; that strengthened supplier is an explicit unresolved proof obligation, not a source-verification receipt."
         }
       ],
       "implementationStatus": "unchecked",
@@ -5438,7 +5634,8 @@
       "statement": "With a,C as in the prime-divisor mean lemma, ∫_0^T Σ_{1≤t≤x}a(t)dx=Σ_{1≤t≤T}(T−t)a(t)=CT²/2+O_{n,c}(T^(3/2)), T≥1.",
       "hypotheses": [],
       "proofSteps": [
-        "Integrate the finite step sum exactly, then integrate the √x remainder."
+        "For every t≥1 integrate its indicator over 0≤x≤T: the integral is T−t when t≤T and zero otherwise. Interchange only the finitely many nonzero terms.",
+        "Integrate the mean estimate on [1,T]; on [0,1) the count is zero and the integral of Cx is bounded by a constant depending only on n,c. The remainder integral is at most a fixed multiple of T^(3/2)."
       ],
       "prerequisites": [
         "AnalyticNumberTheory:AN.5/prime-divisor-product-mean"
@@ -5459,10 +5656,10 @@
       },
       "sources": [
         {
-          "sourceId": "reviewed-paper-skorobogatov-sofos-23",
-          "locator": "Published Lemma 4.3 pp. 705–706",
-          "excerpt": "Wintner-type mean over prime divisors",
-          "match": "Exact target or stated specialization; unresolved proof inputs are named in the gap ledger."
+          "sourceId": "ss-primary-published",
+          "locator": "Lemma4.3, published pp.705–706",
+          "excerpt": "which concludes the proof.",
+          "match": "After its pointwise mean estimate the paper obtains the integrated formula. The exact finite step-sum identity and the sqrt remainder integration also justify the complex-valued extension."
         }
       ],
       "implementationStatus": "unchecked"
@@ -5484,10 +5681,12 @@
       "prerequisites": [
         "AnalyticNumberTheory:AN.3/positive-truncation-error-cancellation",
         "AnalyticNumberTheory:AN.5/mangoldt-truncation-error",
-        "AnalyticNumberTheory:AN.3/davenport-mobius-cancellation"
+        "AnalyticNumberTheory:AN.3/davenport-mobius-cancellation",
+        "mathlib:sum_mul_eq_sub_sub_integral_mul"
       ],
       "acceptance": [
-        "Check every endpoint and the stated dependence of constants; no conjectural input is implicit."
+        "At z=2 the separate zero term is −log2, so omitting it gives an incorrect two-sided identity.",
+        "For each real α, use two positive estimates at α and −α; do not replace a general complex exponential sum by twice itself."
       ],
       "uses": [
         {
@@ -5502,10 +5701,10 @@
       },
       "sources": [
         {
-          "sourceId": "reviewed-paper-skorobogatov-sofos-23",
-          "locator": "Published Corollary 3.3 p. 691, citing Iwaniec–Kowalski (19.17)",
-          "excerpt": "Uniform cancellation of the truncation error E_z (Corollary 3.3)",
-          "match": "Exact target or stated specialization; unresolved proof inputs are named in the gap ledger."
+          "sourceId": "ss-primary-published",
+          "locator": "§3.1 definitions and Corollary3.3, published p.691",
+          "excerpt": "truncated von Mangoldt function",
+          "match": "The two-sided extension is a derived statement: apply the positive theorem at α and −α, retain the finite zero term separately, and bound it from Davenport at α=0 by Abel summation. It is not printed as Corollary3.3."
         }
       ],
       "implementationStatus": "unchecked"
@@ -5927,10 +6126,16 @@
         "Parameters, ranges, character normalization and constant dependence are those in the displayed statement."
       ],
       "proofSteps": [
-        "Apply partial summation to the weighted prime-counting function.",
-        "Keep the endpoint convention p<X; a single endpoint contributes a bounded term."
+        "Sum the pinned identity log n=Σ_{d|n}Λ(d) over 1≤n≤x and interchange the finite sums: Σlog n=Σ_{d≤x}Λ(d)floor(x/d). Chebyshev psi(x)=O(x) bounds the floor replacement error by O(x).",
+        "Use the log-summatory estimate Σ_{n≤x}log n=x log x−x+O(log x); its precise Abel/integral-comparison input is retained in the Mertens first theorem gap. Divide by x to obtain Σ_{d≤x}Λ(d)/d=log x+O(1).",
+        "The higher-prime-power contribution Σ_pΣ_{k≥2}log p/p^k is bounded by the convergent integer majorant Σ_{m≥2}log m/(m(m−1)). Its convergence/comparison input is also named in that gap.",
+        "Remove higher prime powers and pass from p≤x to p<x; an endpoint contributes at most log x/x, uniformly bounded for x≥2."
       ],
-      "prerequisites": [],
+      "prerequisites": [
+        "mathlib:ArithmeticFunction.vonMangoldt_sum",
+        "mathlib:Chebyshev.psi_le_const_mul_self",
+        "mathlib:sum_mul_eq_sub_sub_integral_mul"
+      ],
       "acceptance": [
         "Check every endpoint and the stated dependence of constants; no conjectural input is implicit."
       ],
@@ -5947,10 +6152,10 @@
       },
       "sources": [
         {
-          "sourceId": "reviewed-paper-shankar-shankar-tang-etal-22",
-          "locator": "Proof of Proposition 5.2, p.27",
-          "excerpt": "Mertens's first theorem and Σ_{p | N} log p/p = O(log log N)",
-          "match": "Literal title and precise corrected statement of accepted extraction PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/63. The original external proof is not certified by its acceptance."
+          "sourceId": "kouk-primary-preliminary",
+          "locator": "Theorem3.4(a) and proof, printed p.40",
+          "excerpt": "the identity log = Λ ∗ 1",
+          "match": "The elementary proof uses the convolution identity, Chebyshev upper bound and a log-summatory estimate, not merely qualitative PNT. The strict endpoint differs by a uniformly bounded single term."
         }
       ],
       "implementationStatus": "unchecked",
@@ -11920,13 +12125,17 @@
       "statement": "For x≥2,m≥0, #N_m(x)=binomial(#{p prime:x/2≤p≤x},m).",
       "hypotheses": [],
       "proofSteps": [
-        "Unfold the stated definition and apply the finite algebraic, positivity or convergent geometric-series computation."
+        "For two m-element subsets s,t of P_x with the same product, apply Nat.primeFactors_prod to both sides to get s=t.",
+        "Apply Finset.card_image_of_injOn and Finset.card_powersetCard to the image defining N_m(x)."
       ],
       "prerequisites": [
-        "AnalyticNumberTheory:AN.5/medium-prime-products"
+        "AnalyticNumberTheory:AN.5/medium-prime-products",
+        "mathlib:Nat.primeFactors_prod",
+        "mathlib:Finset.card_powersetCard",
+        "mathlib:Finset.card_image_of_injOn"
       ],
       "acceptance": [
-        "Check every endpoint and the stated dependence of constants; no conjectural input is implicit."
+        "At x=4 the prime set is {2,3}; #N_0=1, #N_1=2, #N_2=1, and #N_3=0."
       ],
       "uses": [
         {
@@ -11941,10 +12150,10 @@
       },
       "sources": [
         {
-          "sourceId": "reviewed-paper-barysoroker-koukoulopoulos-kozma-23",
-          "locator": "arXiv v3, §3.6 (3.4), p. 26",
-          "excerpt": "Distinct-product cardinality",
-          "match": "Exact target or stated specialization; unresolved proof inputs are named in the gap ledger."
+          "sourceId": "bkk-primary-v3",
+          "locator": "§3.6, definition and (3.4), p.26",
+          "excerpt": "m distinct primes",
+          "match": "The finite-cardinality identity is the elementary intermediate step of the stated asymptotic; its complete justification uses pinned prime-factor recovery and finite cardinalities."
         }
       ],
       "implementationStatus": "unchecked"
@@ -12120,14 +12329,6 @@
         "AnalyticNumberTheory:AN.4/mixed-genus-cm-period",
         "AnalyticNumberTheory:AN.4/real-odd-partial-zeta-period",
         "AnalyticNumberTheory:AN.3/eisenstein-weyl-lvalue-bound"
-      ]
-    },
-    {
-      "supplier": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-6-abel-and-perron-summation",
-      "need": "For any arithmetic function g and any monotonic bounded h: [0,∞) → ℝ, for all x ≥ 1: Σ_{t≤x}(g∗h)(t) = ∫_0^x (Σ_{t≤y} (g(t)/t) h(y/t)) dy + O(Σ_{t≤x}|g(t)|), where g∗h is the Dirichlet convolution (h restricted to ℕ) and the implied constant depends on sup|h|.",
-      "neededBy": [
-        "AnalyticNumberTheory:AN.5/prime-divisor-product-mean",
-        "AnalyticNumberTheory:AN.5/prime-divisor-integrated-mean"
       ]
     },
     {
@@ -12346,7 +12547,6 @@
       "stageId": "AnalyticNumberTheory:AN.5",
       "status": "planned",
       "remaining": [
-        "Integer truncation supplier identities",
         "Halász proof decomposition",
         "Dickman construction and limiting recursion",
         "Divisor-average source and harmonic constant",
@@ -12354,13 +12554,13 @@
         "Beurling Tauberian remainder proof",
         "Certified numerical analytic inputs",
         "Fixed-degree arithmetic analytic estimates",
-        "Medium-prime combinatorics",
         "Inverse-totient count",
         "Divisor maximal order",
         "Möbius and multiplicative-mean uniformity",
         "Landau and Selberg–Delange counts",
         "Koymans–Pagano analytic suppliers",
-        "Native signatures for imported analytic carriers"
+        "Native signatures for imported analytic carriers",
+        "Squarefree mean and positive Euler-tail interfaces"
       ],
       "note": "All stage targets have declarations or explicit supplier requests. This is a complete planning pass under PROTOCOL§0, not source_decomposed or gap-free closure."
     },
@@ -12382,15 +12582,6 @@
     }
   ],
   "gaps": [
-    {
-      "title": "Integer truncation supplier identities",
-      "neededBy": [
-        "AnalyticNumberTheory:AN.5/even-von-mangoldt",
-        "AnalyticNumberTheory:AN.5/truncated-von-mangoldt",
-        "AnalyticNumberTheory:AN.5/mangoldt-truncation-error"
-      ],
-      "detail": "Verify the pinned von Mangoldt/Möbius convolution identity and finite divisibility API before exporting the large-cutoff comparison. The definitions themselves are finite and their zero convention is exact."
-    },
     {
       "title": "Canonical-product analytic foundations",
       "neededBy": [
@@ -12667,21 +12858,14 @@
       "neededBy": [
         "AnalyticNumberTheory:AN.2/mertens-prime-product"
       ],
-      "detail": "The e^γ constant identification and quantitative prime-power-tail proof are still missing named lemmas. The weaker comparison alone does not prove the additive O(1) error."
-    },
-    {
-      "title": "Medium-prime combinatorics",
-      "neededBy": [
-        "AnalyticNumberTheory:AN.5/medium-prime-cardinality"
-      ],
-      "detail": "Promote the finite-product injection and binomial cardinality API to a lemma node and supply the fixed-m binomial asymptotic. No uniform moving-m asymptotic is asserted."
+      "detail": "The preliminary Koukoulopoulos proof pp.40–41 and Exercise5.4 p.61 were read. Supply the uniform tilted finite-product comparison, its prime-tail integral comparison, the positive-real Euler-product/pole adapter at 1+ε/log x and the Euler-constant integral identity. Correct Exercise5.4(c) to κ=∫(1_[0,1](u)−exp(−u))/u du; E19 records the sign in the author PDF. These estimates still need named lemma-level inputs before the constant calculation is closed."
     },
     {
       "title": "Inverse-totient count",
       "neededBy": [
         "AnalyticNumberTheory:AN.5/inverse-totient-count"
       ],
-      "detail": "Acquire and decompose Smati’s original O(x) inverse-totient count; the conventional n/φ(n) bound only gives a weaker count and is not a proof."
+      "detail": "Smati’s publisher scan was acquired; pp.143–145 state the stronger effective asymptotic and p.146 identifies a computer-check boundary. The later analytic/elementary proof and computational verification were not read. Acquire/decompose that proof or justify an independent O(x) proof; the stated theorem alone is not a proof-closure receipt."
     },
     {
       "title": "Divisor maximal order",
@@ -12695,14 +12879,10 @@
       "neededBy": [
         "AnalyticNumberTheory:AN.3/davenport-mobius-cancellation",
         "AnalyticNumberTheory:AN.5/coprime-mobius-log-sum",
-        "AnalyticNumberTheory:AN.5/prime-divisor-product-mean",
-        "AnalyticNumberTheory:AN.5/gamma-prime-product-tail",
-        "AnalyticNumberTheory:AN.2/mertens-product-comparison",
         "AnalyticNumberTheory:AN.5/shifted-coprime-mobius-sum",
-        "AnalyticNumberTheory:AN.5/totient-reciprocal-bound",
         "AnalyticNumberTheory:AN.3/positive-truncation-error-cancellation"
       ],
-      "detail": "Use Davenport’s original uniform exponential-sum theorem; α ranges over all real values.; Retain arbitrary logarithmic power A and y≥2. Read the original cited proof and split its uniform remainder estimates; the source’s unquantified q range is not treated as a proof. Use a coprimality Euler factor and a conductor-uniform Möbius PNT.; Prove q≤T^4 uniformity with a sufficiently large logarithmic power before replacing it by A. Read the original cited proof and split its uniform remainder estimates; the source’s unquantified q range is not treated as a proof. Expand the prime-divisor product as 1∗g with squarefree g and g(p)=(1+f(p))^n−1.; Prove Σ |g(d)|/√d<∞ uniformly in n,c, then use the floor-sum identity. Read the original cited proof and split its uniform remainder estimates; the source’s unquantified q range is not treated as a proof. Expand the fixed-n local factor, obtaining 1≤γ_n(p)≤1+C_n/(p(p−1)).; Bound the absolutely convergent logarithmic tail beyond log x; x≥e² avoids log-zero notation. Read the original cited proof and split its uniform remainder estimates; the source’s unquantified q range is not treated as a proof. Use the reciprocal Mertens product asymptotic and positivity.; Extend the two-sided comparison over the compact starting range y≥2. Read the original cited proof and split its uniform remainder estimates; the source’s unquantified q range is not treated as a proof. Expand log(qt)=log q+log t.; Apply both coprime Möbius sums at T/q≥√T, with q≤√T, and increase the logarithmic power to absorb log q. Read the original cited proof and split its uniform remainder estimates; the source’s unquantified q range is not treated as a proof. Use n/φ(n)=∏_{p|n}(1−1/p)^−1.; Split at log n and use Mertens for small primes and a bounded logarithmic tail for large primes. Read the original cited proof and split its uniform remainder estimates; the source’s unquantified q range is not treated as a proof. Apply the source positive-integer Fourier argument using Davenport cancellation and the finite cutoff.; Keep y,z≥2 so no negative power of log1 occurs. Read the original cited proof and split its uniform remainder estimates; the source’s unquantified q range is not treated as a proof."
+      "detail": "The published SS Lemma3.2, Corollary3.3 and Lemma3.11/(3.6) were freshly read, but the external proofs in Davenport1937, Iwaniec–Kowalski13.10/(19.17), and Montgomery–Vaughan Exercise17 p.185 remain unread. In particular prove the two coprime Möbius estimates uniformly for q≤T^4, which (3.6) itself does not quantify. The shifted q≤√T deduction then uses U=T/q and exponent A+1. Supply the actual long-divisor/bilinear Fourier proof of positive truncation cancellation; the separate zero-term bound follows from Davenport Möbius cancellation at α=0 and Abel summation, not from a bound for the positive E_z sum."
     },
     {
       "title": "Landau and Selberg–Delange counts",
@@ -12733,7 +12913,7 @@
       "neededBy": [
         "AnalyticNumberTheory:AN.2/mertens-first-theorem"
       ],
-      "detail": "Complete the Abel-summation proof of the O(1) weighted reciprocal-prime error with an adequate prime-number remainder. Mere π(x)∼x/log x does not by itself justify that O(1) bound."
+      "detail": "The pinned convolution identity and Chebyshev upper bound have been read and listed as prerequisites. Supply the named log-summatory estimate Σ_{n≤x}log n=x log x−x+O(log x) from Abel/integral comparison and the convergent log(m)/(m(m−1)) majorant for higher prime powers. No quantitative PNT remainder is needed for the elementary source proof."
     },
     {
       "title": "Mestre source and contour formula",
@@ -12789,6 +12969,15 @@
         "AnalyticNumberTheory:AN.4/quadratic-hecke-log-functional-equation"
       ],
       "detail": "The CM hypotheses and conductor identity are now explicit. Import global Artin reciprocity including the real-place sign, GNF finite-order primitive characters and infinity types, CFT conductor–discriminant, and AL.1 entire continuation for the nontrivial finite-order character. Match these exact carriers to the conductor-normalized AN completion; the upstream contracts are plans and do not make this adapter formalized. The Rademacher convexity proof and bounded-degree Brauer–Siegel original proof remain unread."
+    },
+    {
+      "title": "Squarefree mean and positive Euler-tail interfaces",
+      "neededBy": [
+        "AnalyticNumberTheory:AN.5/prime-divisor-product-mean",
+        "AnalyticNumberTheory:AN.5/prime-divisor-integrated-mean",
+        "AnalyticNumberTheory:AN.5/gamma-prime-product-tail"
+      ],
+      "detail": "The published SS proofs pp.705–706 and708–709 were read and their finite calculations retained. At lemma level supply the squarefree expansion a=1∗g, the uniformly summable |g(d)|/sqrt d majorant and the exact Euler-product identity C=Σg(d)/d; verify the pinned generic Euler-product API against these nonstandard summability bounds. For γ_n supply the local binomial bound and the HasProd/positive-log summability adapter passing the telescoping bound from all finite subproducts to every retained infinite subset. These missing declarations are not replaced by an unjustified generic Wintner request to ADS layer6."
     }
   ],
   "sourceIssues": [
@@ -13037,6 +13226,27 @@
         "reason": "Direct page-image check and the coefficient comparison at N=1, n=2 confirm the omitted divisor. This checkpoint does not finish the review job, so the verdict does not yet count as a completed independent review.",
         "by": "REV-AnalyticNumberTheory--AN.0"
       }
+    },
+    {
+      "id": "AnalyticNumberTheory/E19",
+      "source": "kouk-primary-preliminary",
+      "kind": "misprint",
+      "locator": "Author preliminary PDF, printed p.61 (PDFp72), Exercise5.4(c); Theorem3.4(c)/(3.6), pp.40–41. Published GSM203 text not inspected.",
+      "printed": "κ = ∫_0^∞ u^−1 (e^−u − 1_[0,1](u)) du.",
+      "correction": "Reverse the integrand: κ = ∫_0^∞ u^−1 (1_[0,1](u) − e^−u) du = γ.",
+      "reason": "The same page’s Exercise5.4(d) gives γ as the negative of the displayed(c) integral; Theorem3.4(c) and its proof require κ=γ. More directly (a),(b) and logζ(1+ε/log x)=log log x−log ε+o(1) yield κ=lim_(ε→0+)(−log ε−∫_ε^∞e^−u/u du), which is exactly the corrected integrand. The rendered page confirms both signs; this is not a text-extraction artifact.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Author’s book/home page https://dms.umontreal.ca/~koukoulo/index.html, opened2026-10-05: preliminary PDF supplied, no correction linked.",
+        "AMS book page https://bookstore.ams.org/gsm-203, attempted2026-10-05 but unavailable to the browser; no published-text or version-of-record finding is asserted.",
+        "Web searches on2026-10-05 for the author site with errata/5.4 and for the book title with Exercise5.4/errata returned no relevant correction. Search is bounded, not a claim of exhaustive novelty."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in the acquired preliminary author PDF and rendered p.61 by the opposite integrals in(c),(d) and the corrected positive-real Euler-product calculation. Scoped exclusively to that preliminary PDF. This local finding is not a completed review verdict.",
+        "by": "REV-AnalyticNumberTheory--AN.0"
+      }
     }
   ],
   "provenance": {
@@ -13214,6 +13424,27 @@
         "suggestedFileElaborates": true,
         "readerLimitation": "Reader document is not an issue deliverable and was not fully independently read; corrections requiring synchronization are recorded in the report and handoff.",
         "elaboration": "lean-check at the Mathlib pin; exit0,159 admitted-proof warnings,0 errors. Six omitted carrier definitions remain comments."
+      },
+      {
+        "job": "REV-AnalyticNumberTheory--AN.0",
+        "session": "codex-KI4dsy",
+        "date": "2026-10-05",
+        "inputCommit": "f7af18783e675e67940130a78c1b25b4bcc1ad57",
+        "status": "partial; no final review verdict",
+        "payloadReading": "Fresh full payload reading of zero-based indices66–86 plus96 and221; later indices87–95 were inspected but not audited against their primary sources.",
+        "sourceReading": "Selected primary BKKv3, published SS, Koukoulopoulos preliminary pp40–41/61 and Smati pp143–146; exact reading limits and hashes in sources and report.",
+        "baselineReading": "Twelve added declarations read at the exact Mathlib pin; existing full baseline-consumer matching remains unfinished.",
+        "sourceIssuesAdded": [
+          "AnalyticNumberTheory/E19"
+        ],
+        "readerLimitation": "Reader is not an issue deliverable; synchronization and full independent reading remain required before acceptance.",
+        "validation": {
+          "packet": "Pinned declaration-index checker: 0 errors, 0 warnings.",
+          "suggestedLean": "lean-check completed in the shared Mathlib-only build: 0 errors, 169 admitted-proof warnings; no other warnings.",
+          "suggestedLeanSha256": "f4d7ed37ca08a301b30aa7e7eaf51bec1d2495bfa482945ae5955c3418b8c522",
+          "availableMemoryBeforeLean": "102 GiB",
+          "noFinalVerdict": true
+        }
       }
     ]
   },
@@ -13459,6 +13690,34 @@
       "read": "2026-10-05",
       "sha256": "b02ed5cbe5e6443a59360551cd41048ebb1e589d3c4cbe89f7fcbbbec50fc111",
       "citation": "Annals186(2017), AppendixB.1 pp901–903"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/2007.14567v3",
+      "read": "2026-10-05",
+      "sha256": "adb1359df46f92d608009b32f45939672e08b1e3fe052587b035431e70d5d3e1",
+      "citation": "arXiv:2007.14567v3, final preprint, 2023; not the published Inventiones version; reading limited to the sections listed in sources."
+    },
+    {
+      "kind": "published",
+      "url": "https://eprints.gla.ac.uk/292484/1/292484.pdf",
+      "read": "2026-10-05",
+      "sha256": "8499680e907e06bf0b1eeae0c1bc7d46e5cbe93411388b17e843f3b8c6a0e9b1",
+      "citation": "Inventiones Mathematicae 231 (2023), 673–739, published PDF deposited by the University of Glasgow; reading limited to the sections listed in sources."
+    },
+    {
+      "kind": "author copy",
+      "url": "https://dms.umontreal.ca/~koukoulo/documents/publications/primes.pdf",
+      "read": "2026-10-05",
+      "sha256": "1445e107bba9c89db6529aeb4bca3ecf01170fc2854a675f5ca6f288c77ea0a8",
+      "citation": "Author preliminary version provided with AMS permission, acquired 2026-10-05; published GSM203 (2019) text not inspected; reading limited to the sections listed in sources."
+    },
+    {
+      "kind": "published",
+      "url": "https://matwbn.icm.edu.pl/ksiazki/aa/aa61/aa6124.pdf",
+      "read": "2026-10-05",
+      "sha256": "ab083496b4f9d3847e0d66ed5fca98ebf8c58f2ab107f445bcceb018b70f1ed2",
+      "citation": "Acta Arithmetica LXI.2 (1992), 143–159, publisher scan; reading limited to the sections listed in sources."
     }
   ],
   "links": [],
