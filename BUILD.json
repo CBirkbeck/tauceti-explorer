@@ -338,7 +338,7 @@
   "plainTextPlanetLabels": 398,
   "hiddenPlanets": 600,
   "mappedStageStatuses": 350,
-  "libraryAuditStatuses": 32,
+  "libraryAuditStatuses": 19,
   "bibliographicSources": 46,
   "roadmapEdges": 1844,
   "stageEdges": 9374,
@@ -616,8 +616,8 @@
     }
   ],
   "sourceDocuments": 296,
-  "htmlBytes": 32025321,
-  "htmlSha256": "da206f3b5b1714156a486cf1881072ccf8c6ee73e6bd93cc85360ed04cbd547b",
+  "htmlBytes": 32014672,
+  "htmlSha256": "276209ee91784c590c42aa05b51d8d6a3e4d3b3b1ae252a07284b1b474d1c231",
   "networkDependencies": 0,
   "localProgressOverridesIncluded": false,
   "assets": {
@@ -636,7 +636,7 @@
     "src/app.js": "2edab54d4b58f8061ad287d88e17074ca69ec6967f4d3c05263b95ca688f6945",
     "data/atlas.json": "62ab6c2ccb94ee9c4d99813da02b69656941721d30fc29384e2b7e6e86361c56",
     "data/status.json": "7b9fe0072201b427ed600ee7066bd729d34b2632450823e1f877a8d5d3f7ad2e",
-    "data/tauceti-progress.json": "c761316ddc30137812d0733d14f58974fb4da9e0d7257db931d412d8037ba0a4",
+    "data/tauceti-progress.json": "97c455d876603c904d116918e45e9ac7f62d1704f08ed0fc2273152e333835c7",
     "data/tauceti-new-roadmaps.json": "3e835f30fa5a79a1c330723f39fe01accce0879dfa8d5cfa65397c16fe2e9f18",
     "data/galaxies.json": "90d5131f4073e762260faa5614e53cbe41f194012b424f81db67afac16610599",
     "data/roadmap-retirements.json": "d572bc6f66332331ea507db17f12bdad008f73228b2dc9b5197f7e4c86334c9f",
@@ -898,14 +898,14 @@
     "data/restructure/RS-33.result.json": "f9e95d0edcb3f28b9821335eb9d879a57466bed358835b428b338deb97b4369f"
   },
   "taucetiProgress": {
-    "exportedAt": "2026-10-05T06:00:44Z",
+    "exportedAt": "2026-10-05T15:05:35Z",
     "roadmaps": 69,
     "unplaced": 0,
     "layers": {
-      "done": 266,
-      "partial": 224,
-      "untouched": 68,
-      "unassessed": 21,
+      "done": 286,
+      "partial": 223,
+      "untouched": 70,
+      "unassessed": 0,
       "total": 579
     },
     "added": [
