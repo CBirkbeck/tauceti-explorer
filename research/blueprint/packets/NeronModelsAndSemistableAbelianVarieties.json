@@ -153,7 +153,7 @@
       "sha256": "a4e4c3d79e0912b62961a4b45b08e1e5c6957b0b64af7da74647c8ff9361e11e",
       "accessed": "2026-10-04",
       "readSections": [
-        "§3.1.3 and Lemma3.4 pp.43–44; Lemma4.9 proof p.76. Not the August2024 author manuscript or the final journal version"
+        "§3.1.3 and Lemma3.4 pp.43–44; Lemma4.9 proof p.75. Not the August2024 author manuscript or the final journal version"
       ]
     },
     {
@@ -201,7 +201,7 @@
       "sha256": "8833a226eea99eab7e48b90de7d747fa535eafe032d5c62fd50812d38ad4c4f2",
       "accessed": "2026-10-04",
       "readSections": [
-        "Introduction; §3 pp.9–11, generalized Jacobian, Proposition22 and boundary/cup-product paragraph. Not journal collation"
+        "Introduction; §3 pp.9–12, generalized Jacobian, Proposition22 and boundary/cup-product paragraph. Not journal collation"
       ]
     },
     {
@@ -306,7 +306,7 @@
       "read": "2026-10-04",
       "sha256": "a4e4c3d79e0912b62961a4b45b08e1e5c6957b0b64af7da74647c8ff9361e11e",
       "scope": [
-        "§3.1.3 and Lemma3.4 pp.43–44; Lemma4.9 proof p.76. Not the August2024 author manuscript or the final journal version"
+        "§3.1.3 and Lemma3.4 pp.43–44; Lemma4.9 proof p.75. Not the August2024 author manuscript or the final journal version"
       ]
     },
     {
@@ -346,7 +346,7 @@
       "read": "2026-10-04",
       "sha256": "8833a226eea99eab7e48b90de7d747fa535eafe032d5c62fd50812d38ad4c4f2",
       "scope": [
-        "Introduction; §3 pp.9–11, generalized Jacobian, Proposition22 and boundary/cup-product paragraph. Not journal collation"
+        "Introduction; §3 pp.9–12, generalized Jacobian, Proposition22 and boundary/cup-product paragraph. Not journal collation"
       ]
     },
     {
@@ -405,7 +405,12 @@
         "The actual author-hosted2011 PDF, hash in sourceVersions",
         "Targeted author-domain searches for SemistableReduction corank/errata on2026-10-04",
         "Search returned the author mordellsem/Notes/L13.pdf with the same expression; no correction located. This is a bounded negative search, not proof of priority."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-NeronModelsAndSemistableAbelianVarieties",
+        "reason": "Own p.18 text and image agree; rank t+2a and g=t+a give the corrected corank."
+      }
     },
     {
       "id": "NeronModelsAndSemistableAbelianVarieties/E2",
@@ -421,13 +426,18 @@
         "arXiv2502.20645 submission history checked2026-10-04: only v1 listed",
         "Author-hosted Modular.pdf selected p.191 search result contains the same paragraph; no byte collation claimed",
         "Targeted primary-source author/arXiv title+erratum and9.1.8 correction searches; no correction found. No version-of-record claim for this preprint."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-NeronModelsAndSemistableAbelianVarieties",
+        "reason": "Own p.191 text and image omit the toric subscript; the whole surface Tate module has rank4 rather than the sought rank2."
+      }
     },
     {
       "id": "NeronModelsAndSemistableAbelianVarieties/E3",
       "source": "YUAN-ARXIV",
       "kind": "misprint",
-      "locator": "Lemma4.9 proof, arXiv2108.05625v4 p.76",
+      "locator": "Lemma4.9 proof, arXiv2108.05625v4 printed p.75 (PDF75); original packet page76 was incorrect.",
       "printed": "Here J is the Jacobian variety of X over K",
       "correction": "J is the Jacobian of C over K.",
       "reason": "The lemma introduces C and subsequently applies the curve criterion to C; no X is introduced here.",
@@ -437,7 +447,12 @@
       "searched": [
         "Own selected arXivv4 p.76 compared with the already confirmed extraction PAPER-YUAN-26/E18",
         "Selected author URL refused the connection on2026-10-04; no author or journal collation claimed by this worker"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-NeronModelsAndSemistableAbelianVarieties",
+        "reason": "Own v4 printed75 text and image contain X although the lemma names C; confirms the variable correction and corrects the packet locator."
+      }
     },
     {
       "id": "NeronModelsAndSemistableAbelianVarieties/E4",
@@ -453,7 +468,12 @@
       "searched": [
         "Own selected arXivv3 and published pp.194–195 collation",
         "Already confirmed extraction E19 checked against these selected passages; this is not an independent novelty claim"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-NeronModelsAndSemistableAbelianVarieties",
+        "reason": "Own arXivv3 p.36 and published p.194 text/image contain dim X; the statement introduces A."
+      }
     },
     {
       "id": "NeronModelsAndSemistableAbelianVarieties/E5",
@@ -469,7 +489,34 @@
       "searched": [
         "Own published p.549 and author Erratum5.pdf selected opening",
         "The already reviewed extraction identifies the published erratum; the final2023 PDF is not collated here"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-NeronModelsAndSemistableAbelianVarieties",
+        "reason": "Own published549 proof and author erratum1–2 agree: general exact Néron functoriality is withdrawn and the replacement has a CM graph-kernel hypothesis."
+      }
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarieties/E6",
+      "source": "CONRAD-SR",
+      "kind": "error",
+      "locator": "Proof of Theorem5.8, printed p.21, paragraph immediately following Lemma5.9; own text and page image checked.",
+      "printed": "The claimed equality A[ℓⁿ](K)=A[ℓⁿ](K′) for every n is inferred from equality of Vℓ(A) fixed spaces.",
+      "correction": "Keep the equality of rational fixed spaces and their intersections with the integral Tate lattice. Descend the corresponding compatible divisible torsion subsystem; do not infer equality of all finite-level rational torsion points. The integral/divisible descent argument must be supplied.",
+      "reason": "Equal rational fixed spaces need not give equal invariants modulo ℓⁿ. On Zℓ², a generator with matrix [[1,ℓ],[0,1]] and its ℓ-th power [[1,ℓ²],[0,1]] have the same Qℓ fixed line y=0. Modulo ℓ², (0,1) is fixed by the latter but not the former. A split Tate curve with parameter of valuation ℓ over a strictly henselian DVR of residue characteristic different from ℓ realizes this pattern: adjoining an ℓ-th root of the uniformizer adds ℓ²-torsion without changing the rational fixed line. This is a flaw in the displayed intermediate inference, not a counterexample to the monodromy criterion.",
+      "affects": "the proof",
+      "known": "No correction located in a bounded primary-author search; no novelty claim.",
+      "addedBy": "REV-NeronModelsAndSemistableAbelianVarieties",
+      "searched": [
+        "Own authenticated2011 PDF printed21 and finite invariant counts for ℓ=3,5,7, checked2026-10-05.",
+        "Primary author-domain searches for SemistableReduction Lemma5.9 and semistable reduction errata torsion,2026-10-05.",
+        "The author seminar copy https://virtualmath1.stanford.edu/~conrad/mordellsem/Notes/L13.pdf has the identical SHA256 and same paragraph. This bounded search does not prove that no correction exists."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-NeronModelsAndSemistableAbelianVarieties",
+        "reason": "The page21 image contains the stated finite-level implication; exact mod ℓ² controls refute that implication. Retain the missing integral/divisible descent as an explicit proof boundary."
+      }
     }
   ],
   "nodes": [
@@ -881,7 +928,7 @@
       "statement": "The canonical extensions between two models are inverse morphisms.",
       "hypotheses": [
         "S and eta are Mathlib schemes in one universe; j:eta→S is a fixed scheme morphism; all objects and morphisms are in Over S or Over eta. This abstract prefix does not assert existence for arbitrary j.",
-        "Y→S is smooth."
+        "M and N are marked Néron models of the same A over the same j; their model morphisms are smooth by their structure."
       ],
       "proofSteps": [
         "Unpack the parent construction and compare actual generic restrictions.",
@@ -1121,14 +1168,14 @@
       ],
       "proofSteps": [
         "Use properness to obtain bounded A(K_sh).",
-        "Invoke the G-existence sequence: weak-model blowups, defect decrease, extension of multiplication, group-model saturation and Criterion 9. Do not infer full NMP from bijection on R-points."
+        "Use the open G-existence sequence from BLR §§1.3 and 3–6: weak-model blowups, defect decrease, rational multiplication, group-model saturation and Criterion 1.2/9. The construction of a group weak model is an unresolved input here; the already-full-NMP group-law theorem cannot construct it without circularity. Do not infer full NMP from bijection on R-points."
       ],
       "acceptance": [
         "Must cover non-proper smooth test Y and positive residue characteristic, not only generic proper points."
       ],
       "prerequisites": [
         "NeronModelsAndSemistableAbelianVarieties:R11.1/weak-model",
-        "NeronModelsAndSemistableAbelianVarieties:R11.1/group-law"
+        "AbelianSchemesAndArithmeticModuli:A1"
       ],
       "sources": [
         {
@@ -1290,7 +1337,7 @@
       "sources": [
         {
           "sourceId": "BLR-CH1",
-          "locator": "§1.2 Lemma 5; §1.4 Proposition 1 and Theorem 3, printed pp.14,18–20",
+          "locator": "§1.2 Lemma5, printed pp.13–14; §1.4 Proposition1 and Theorem3, printed pp.18–20",
           "excerpt": "Néron mapping property",
           "match": "This node paraphrases the specified passage with the hypotheses and conventions stated here; any unread proof input is separately recorded as a gap."
         }
@@ -1363,7 +1410,7 @@
       "acceptance": [
         "The zero abelian variety has zero differential module and trivial determinant.",
         "Over a DVR with good elliptic reduction the minimal differential is a basis of omega_M.",
-        "Over a Dedekind ring permit a nonprincipal invertible determinant; do not assert a global basis."
+        "For S=Spec R, if the invertible determinant det omega_M has a nonzero class in Pic(R), then the finite projective module omega_M is not free. Thus a global free-module carrier would fail whenever this input occurs."
       ],
       "prerequisites": [
         "NeronModelsAndSemistableAbelianVarieties:R11.1/group-law",
@@ -1372,8 +1419,8 @@
       "sources": [
         {
           "sourceId": "YZ",
-          "locator": "§1.1, printed pp.534–535",
-          "excerpt": "Neron models",
+          "locator": "§1.1, printed p.534 (PDF2); identity-model differential determinant and semistable base-change context",
+          "excerpt": "invariant",
           "match": "This node paraphrases the specified passage with the hypotheses and conventions stated here; any unread proof input is separately recorded as a gap."
         }
       ],
@@ -1434,7 +1481,7 @@
         {
           "name": "NeronDifferentials.affine_colie",
           "role": "compatibility",
-          "statement": "On an affine group chart at e, omega identifies with ker epsilon/(ker epsilon)^2; this local comparison is not a global affine-model assertion."
+          "statement": "For S=Spec R, an affine open chart U=Spec B containing the identity section gives an R-algebra augmentation epsilon:B→R. Its conormal module ker epsilon/(ker epsilon)^2 identifies with omega_M. The chart need not be an affine group scheme or carry a Hopf algebra; the comparison is local near the identity."
         }
       ],
       "tests": [
@@ -1451,7 +1498,7 @@
         {
           "name": "NeronDifferentials.projective_test",
           "kind": "non-example",
-          "statement": "Over a Dedekind ring permit a nonprincipal invertible determinant; do not assert a global basis."
+          "statement": "For S=Spec R, if the invertible determinant det omega_M has a nonzero class in Pic(R), then the finite projective module omega_M is not free. Thus a global free-module carrier would fail whenever this input occurs."
         }
       ],
       "uses": [
@@ -1485,7 +1532,7 @@
       "acceptance": [
         "A good elliptic model has the entire special fibre as its identity component.",
         "For split multiplicative elliptic reduction M_k^0 is G_m although the proper regular fibre has several components when n>1.",
-        "For a positive-dimensional good abelian variety the proper special fibre must not be treated as affine."
+        "For a positive-dimensional abelian variety with good reduction, the special fibre M_k is not affine: it is a proper connected smooth k-group of positive dimension."
       ],
       "prerequisites": [
         "NeronModelsAndSemistableAbelianVarieties:R11.1/group-law"
@@ -1494,7 +1541,7 @@
         {
           "sourceId": "SGA7",
           "locator": "Exposé IX §1.1, printed pp.321–322",
-          "excerpt": "accouplement de monodromie",
+          "excerpt": "composante",
           "match": "This node paraphrases the specified passage with the hypotheses and conventions stated here; any unread proof input is separately recorded as a gap."
         }
       ],
@@ -1572,7 +1619,7 @@
         {
           "name": "NeronIdentity.nonaffine_test",
           "kind": "non-example",
-          "statement": "For a positive-dimensional good abelian variety the proper special fibre must not be treated as affine."
+          "statement": "For a positive-dimensional abelian variety with good reduction, the special fibre M_k is not affine: it is a proper connected smooth k-group of positive dimension."
         }
       ],
       "uses": [
@@ -1602,7 +1649,7 @@
       "acceptance": [
         "Good reduction gives Phi_A=0, not one nonzero component class.",
         "For split Tate parameter q with ord(q)=n>0, Phi_E(k_sep)=Z/nZ.",
-        "For nonsplit multiplicative reduction, Frobenius acts by minus one on Z/nZ; its fixed subgroup can be smaller than n."
+        "When k is finite and E has nonsplit multiplicative reduction with geometric component group Z/nZ, residue Frobenius acts by −1. Thus Phi_E(k) has order 1 for odd n and 2 for even n, rather than always n."
       ],
       "prerequisites": [
         "NeronModelsAndSemistableAbelianVarieties:R11.2/identity-component"
@@ -1611,7 +1658,7 @@
         {
           "sourceId": "SGA7",
           "locator": "Exposé IX §§1.1–1.2, printed pp.322–323",
-          "excerpt": "accouplement de monodromie",
+          "excerpt": "composantes",
           "match": "This node paraphrases the specified passage with the hypotheses and conventions stated here; any unread proof input is separately recorded as a gap."
         }
       ],
@@ -1689,7 +1736,7 @@
         {
           "name": "NeronComponents.nonsplit_test",
           "kind": "compatibility",
-          "statement": "For nonsplit multiplicative reduction, Frobenius acts by minus one on Z/nZ; its fixed subgroup can be smaller than n."
+          "statement": "When k is finite and E has nonsplit multiplicative reduction with geometric component group Z/nZ, residue Frobenius acts by −1. Thus Phi_E(k) has order 1 for odd n and 2 for even n, rather than always n."
         }
       ],
       "uses": [
@@ -1730,8 +1777,8 @@
       "sources": [
         {
           "sourceId": "CONRAD-SR",
-          "locator": "§2 Theorem 2.3 and discussion; §3",
-          "excerpt": "semi-abelian",
+          "locator": "§2 Theorem 2.6, printed pp.3–4; Proposition 2.16, printed p.6; §3 Theorem 3.1, printed pp.7–8",
+          "excerpt": "perfect field",
           "match": "This node paraphrases the specified passage with the hypotheses and conventions stated here; any unread proof input is separately recorded as a gap."
         }
       ],
@@ -1755,22 +1802,27 @@
         "S is a connected Dedekind scheme with generic point eta and fraction field K; A/K is an abelian variety. Local statements specify the DVR and any excellence/henselian hypothesis separately."
       ],
       "proofSteps": [
-        "Restrict f to identity fibres and their maximal tori.",
+        "The smooth semiabelian identity fibre has its unique torus and abelian quotient over k even if k is imperfect, by Conrad Theorem3.1 (printed7–8). Restrict a model homomorphism to this torus; do not apply the perfect-field Chevalley node directly over arbitrary k.",
         "Apply the existing torus character anti-equivalence, retaining the Galois action; G-semiabelian-prefix retains the absent abstract supplier carrier."
       ],
       "acceptance": [
         "For split G_m, X*=Z; an isogeny [m] pulls characters back by multiplication by m."
       ],
       "prerequisites": [
-        "NeronModelsAndSemistableAbelianVarieties:R11.2/identity-component",
-        "NeronModelsAndSemistableAbelianVarieties:R11.2/chevalley"
+        "NeronModelsAndSemistableAbelianVarieties:R11.2/identity-component"
       ],
       "sources": [
         {
           "sourceId": "SGA7",
-          "locator": "Exposé IX §1.1; §§10.4–11.6",
-          "excerpt": "accouplement de monodromie",
+          "locator": "Exposé IX §11.6.1, printed p.456; §10.4, printed p.444",
+          "excerpt": "caractères",
           "match": "This node paraphrases the specified passage with the hypotheses and conventions stated here; any unread proof input is separately recorded as a gap."
+        },
+        {
+          "sourceId": "CONRAD-SR",
+          "locator": "Theorem3.1 and proof, printed pp.7–8; Proposition2.16, printed p.6",
+          "excerpt": "unique short exact sequence",
+          "match": "The semiabelian torus descends to the actual residue field without perfectness; G-semiabelian-prefix records the absent carrier/character API."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1794,7 +1846,7 @@
       ],
       "proofSteps": [
         "Use NeronModelsAndSemistableAbelianVarieties:R11.1/group-law and the universal property of NeronModelsAndSemistableAbelianVarieties:R11.2/component-group.",
-        "For the identity-fibre assertion use the dimension/finite-kernel argument of Conrad Theorem 4.1, with Chevalley and multiplication-by-n.",
+        "For the identity-fibre assertion use the finite-kernel and dimension argument of Conrad Proposition4.1 (printed8–9). Apply Chevalley only after geometric base change, where the field is perfect; the semiabelian structure descends by Theorem3.1. A dual isogeny bounds the kernel by finite multiplication-by-n on the semiabelian fibre.",
         "Respect the published counterexample cited by YZ-ERR; G-isogeny-sequences records any consumer-specific exactness input."
       ],
       "acceptance": [
@@ -1808,9 +1860,15 @@
       "sources": [
         {
           "sourceId": "CONRAD-SR",
-          "locator": "Theorem 4.1; YZ erratum introduction",
+          "locator": "Proposition4.1 and proof, printed pp.8–9",
           "excerpt": "semi-abelian",
           "match": "This node paraphrases the specified passage with the hypotheses and conventions stated here; any unread proof input is separately recorded as a gap."
+        },
+        {
+          "sourceId": "YZ-ERR",
+          "locator": "Introduction, printed p.1",
+          "excerpt": "exact",
+          "match": "Confirms the failure of general Néron-model exactness; not a proof of isogeny rank invariance."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1874,14 +1932,14 @@
       ],
       "proofSteps": [
         "Import the pointed minimal regular model, not arbitrary torsor minimality.",
-        "Use BLR §1.5 Proposition 1; G-minimal-regular-NMP retains the cited desingularization proof and all wild cases."
+        "Apply BLR §1.5 Proposition1 to the given minimal regular model: properness first gives the weak extension property, translation and omega-minimality yield the group/full mapping-property upgrade. G-Kodaira-resolution retains the referenced proof leaves. This argument does not require the excellent-DVR existence node as an input."
       ],
       "acceptance": [
         "A component of multiplicity greater than one is not wholly in the relative smooth locus."
       ],
       "prerequisites": [
-        "NeronModelsAndSemistableAbelianVarieties:R11.1/local-existence",
-        "tauceti:TauCetiRoadmap/StableReduction#layer-5-regular-and-minimal-models"
+        "tauceti:TauCetiRoadmap/StableReduction#layer-5-regular-and-minimal-models",
+        "NeronModelsAndSemistableAbelianVarieties:R11.1/mapping-property"
       ],
       "sources": [
         {
@@ -1957,15 +2015,14 @@
       ],
       "proofSteps": [
         "Use NeronModelsAndSemistableAbelianVarieties:R11.2/kodaira-geometric-configurations to select the multiplicity-one components meeting the smooth locus.",
-        "Compute their group law via the reduction map; G-Kodaira-resolution includes the proof of the table."
+        "Compute the geometric component law from the smooth-locus group model and Tate §6 table, with G-Kodaira-resolution retaining the proof and any completion/descent comparison. Do not apply the complete-DVR rational filtration node directly to an arbitrary strictly henselian DVR."
       ],
       "acceptance": [
         "I0* has group (Z/2)^2 despite five regular-fibre components; I1 has trivial geometric component group."
       ],
       "prerequisites": [
         "NeronModelsAndSemistableAbelianVarieties:R11.2/kodaira-geometric-configurations",
-        "NeronModelsAndSemistableAbelianVarieties:R11.2/component-group",
-        "NeronModelsAndSemistableAbelianVarieties:R11.2/elliptic-filtration"
+        "NeronModelsAndSemistableAbelianVarieties:R11.2/component-group"
       ],
       "sources": [
         {
@@ -2035,7 +2092,8 @@
       ],
       "proofSteps": [
         "Use the semi-abelian predicate/extension carrier owned by C4; G-semiabelian-prefix records its absent early carrier.",
-        "Apply it to the actual identity fibre, not to the whole disconnected fibre."
+        "Apply it to the actual identity fibre, not to the whole disconnected fibre.",
+        "The geometric semiabelian condition and Theorem3.1 descend its torus/abelian quotient even for imperfect k. The perfect-field Chevalley node is used only for the separately qualified no-unipotent API, after geometric base change when needed."
       ],
       "acceptance": [
         "A good elliptic curve has t=0,a=1.",
@@ -2049,7 +2107,7 @@
       "sources": [
         {
           "sourceId": "CONRAD-SR",
-          "locator": "§3 Definition 3.1; §4",
+          "locator": "§3 introductory semiabelian definition and Theorem3.1, printed pp.6–8; §4 definition of semistability, printed p.9",
           "excerpt": "semi-abelian",
           "match": "This node paraphrases the specified passage with the hypotheses and conventions stated here; any unread proof input is separately recorded as a gap."
         }
@@ -2169,7 +2227,7 @@
       "sources": [
         {
           "sourceId": "CONRAD-SR",
-          "locator": "Theorem 4.1",
+          "locator": "Proposition4.1 and proof, printed pp.8–9",
           "excerpt": "semi-abelian",
           "match": "This node paraphrases the specified passage with the hypotheses and conventions stated here; any unread proof input is separately recorded as a gap."
         }
@@ -2194,20 +2252,19 @@
         "S is a connected Dedekind scheme with generic point eta and fraction field K; A/K is an abelian variety. Local statements specify the DVR and any excellence/henselian hypothesis separately."
       ],
       "proofSteps": [
-        "Use Conrad Proposition 4.4: a semi-abelian Rprime-model with abelian generic fibre is the identity model.",
-        "Apply uniqueness to the base-changed identity model and N^0; keep G-semiabelian-open-immersion for the Zariski-main proof."
+        "Base change the semiabelian identity group and apply Conrad Theorem4.4 (printed10–16) to its canonical map into the full Néron model over Rprime.",
+        "The open immersion has the entire connected special identity fibre and the entire abelian generic fibre, so its image is exactly N^0, as in Corollary4.5. Retain G-semiabelian-open-immersion for the geometric inputs. Neither identity model generally has the full NMP, so uniqueness of full marked Néron models cannot prove this assertion."
       ],
       "acceptance": [
         "For split I_n and ramification e, identity fibres remain G_m while components become Z/(en)."
       ],
       "prerequisites": [
-        "NeronModelsAndSemistableAbelianVarieties:R11.3/semistable-reduction",
-        "NeronModelsAndSemistableAbelianVarieties:R11.1/unique-iso"
+        "NeronModelsAndSemistableAbelianVarieties:R11.3/semistable-reduction"
       ],
       "sources": [
         {
           "sourceId": "CONRAD-SR",
-          "locator": "Proposition 4.4, Corollary 4.5 and Example 4.6",
+          "locator": "Theorem4.4 and its proof, printed pp.10–16; Corollary4.5 and Example4.6, printed pp.11–12",
           "excerpt": "semi-abelian",
           "match": "This node paraphrases the specified passage with the hypotheses and conventions stated here; any unread proof input is separately recorded as a gap."
         }
@@ -2247,8 +2304,8 @@
       "sources": [
         {
           "sourceId": "CONRAD-SR",
-          "locator": "Example 4.6",
-          "excerpt": "semi-abelian",
+          "locator": "Example4.6, printed pp.11–12",
+          "excerpt": "component",
           "match": "This node paraphrases the specified passage with the hypotheses and conventions stated here; any unread proof input is separately recorded as a gap."
         }
       ],
@@ -2291,8 +2348,8 @@
       "sources": [
         {
           "sourceId": "CONRAD-SR",
-          "locator": "§5 Lemma 5.4, printed p.18",
-          "excerpt": "semi-abelian",
+          "locator": "Lemma5.4 and surrounding finite-part definitions, printed pp.17–18",
+          "excerpt": "saturated",
           "match": "This node paraphrases the specified passage with the hypotheses and conventions stated here; any unread proof input is separately recorded as a gap."
         }
       ],
@@ -2331,8 +2388,8 @@
       "sources": [
         {
           "sourceId": "CONRAD-SR",
-          "locator": "§5 Theorem 5.5 and proof",
-          "excerpt": "semi-abelian",
+          "locator": "Theorem5.5 and proof, printed pp.18–20",
+          "excerpt": "orthogonal",
           "match": "This node paraphrases the specified passage with the hypotheses and conventions stated here; any unread proof input is separately recorded as a gap."
         }
       ],
@@ -2370,8 +2427,8 @@
       "sources": [
         {
           "sourceId": "CONRAD-SR",
-          "locator": "Remark 5.6",
-          "excerpt": "semi-abelian",
+          "locator": "Remark5.6, printed p.18",
+          "excerpt": "unipotent",
           "match": "This node paraphrases the specified passage with the hypotheses and conventions stated here; any unread proof input is separately recorded as a gap."
         }
       ],
@@ -2397,7 +2454,8 @@
       ],
       "proofSteps": [
         "Forward: NeronModelsAndSemistableAbelianVarieties:R11.3/inertia-square-zero.",
-        "Converse: Conrad Theorem 5.8/SGA7 IX criterion; G-monodromy-converse records the unresolved proof leaf separately."
+        "Converse: Conrad Theorem 5.8/SGA7 IX criterion; G-monodromy-converse records the unresolved proof leaf separately.",
+        "In the converse, descend the saturated integral invariant Tate subsystem and its compatible divisible torsion groups. Do not use Conrad printed21’s equality of all finite-level rational torsion points: E6 refutes that inference; the corrected descent remains in G-monodromy-converse."
       ],
       "acceptance": [
         "No such unipotent-inertia criterion at ell=char(k); finite-level triviality is not full unramifiedness."
@@ -2409,8 +2467,8 @@
       "sources": [
         {
           "sourceId": "CONRAD-SR",
-          "locator": "Theorem 5.8; SGA7 IX introduction and §3.5",
-          "excerpt": "semi-abelian",
+          "locator": "Theorem5.8 and proof, printed pp.20–22; E6 corrects a finite-level inference",
+          "excerpt": "unipotent",
           "match": "This node paraphrases the specified passage with the hypotheses and conventions stated here; any unread proof input is separately recorded as a gap."
         }
       ],
@@ -2438,7 +2496,7 @@
       ],
       "proofSteps": [
         "Apply quasi-unipotence from R01.2 to restrict inertia to an open unipotent subgroup.",
-        "Use NeronModelsAndSemistableAbelianVarieties:R11.3/monodromy-criterion at each valuation. Alternatively Conrad reduces through Jacobians; that curve proof is not duplicated here.",
+        "Apply an independently established monodromy criterion at each valuation. This is a conditional reduction route: Conrad Theorem5.8 itself assumes Theorem4.2, so replaying that proof and then using it here would be circular. G-monodromy-converse records the required independent criterion proof or a reorganized curve/Picard proof order.",
         "Keep the normalisation/finite-DVR-extension proof G-valuations explicit."
       ],
       "acceptance": [
@@ -2451,8 +2509,8 @@
       "sources": [
         {
           "sourceId": "CONRAD-SR",
-          "locator": "Theorems 4.2 and 5.8",
-          "excerpt": "semi-abelian",
+          "locator": "Theorem4.2 and Lemma4.3, printed pp.9–10; §7, printed pp.24–35; Theorem5.8, printed pp.20–22, is conditional on potential semistability",
+          "excerpt": "semistable",
           "match": "This node paraphrases the specified passage with the hypotheses and conventions stated here; any unread proof input is separately recorded as a gap."
         }
       ],
@@ -2479,7 +2537,7 @@
         "S is a connected Dedekind scheme with generic point eta and fraction field K; A/K is an abelian variety. Local statements specify the DVR and any excellence/henselian hypothesis separately."
       ],
       "proofSteps": [
-        "Use the square-zero/unipotent criterion and the torsion-freeness of the level-N kernel as in Conrad Theorem 6.5.",
+        "Use R01.2 quasi-unipotence to make a power of each inertia matrix unipotent. The level-N congruence bounds eigenvalues in the valuation ring of Q_ell algebraic closure: at an odd prime divisor of N they lie in 1+ell O, or for the 2-primary case in 1+4 O. No nontrivial root of unity satisfies those bounds, so every eigenvalue is1; apply the monodromy criterion. Torsion-freeness of a scalar unit group alone is not the full matrix argument.",
         "Keep G-level-kernel for the integral matrix argument; finite-level unramifiedness need not kill monodromy."
       ],
       "acceptance": [
@@ -2487,12 +2545,13 @@
       ],
       "prerequisites": [
         "NeronModelsAndSemistableAbelianVarieties:R11.3/monodromy-criterion",
-        "ArithmeticGaloisRepresentations:R01.6"
+        "ArithmeticGaloisRepresentations:R01.6",
+        "ArithmeticGaloisRepresentations:R01.2"
       ],
       "sources": [
         {
           "sourceId": "CONRAD-SR",
-          "locator": "Theorem 6.5; Raynaud94 Proposition 4.7.1",
+          "locator": "Proposition6.5 and proof, printed pp.23–24",
           "excerpt": "semi-abelian",
           "match": "This node paraphrases the specified passage with the hypotheses and conventions stated here; any unread proof input is separately recorded as a gap."
         }
@@ -2532,8 +2591,8 @@
       "sources": [
         {
           "sourceId": "RAYNAUD94",
-          "locator": "§4.2, Theorem 4.2.2 and Remark 4.2.3",
-          "excerpt": "monodromie",
+          "locator": "§4.2(i–iv), printed pp.302–303; Theorem4.2.2, p.304 and Definition4.2.3, p.305",
+          "excerpt": "formel",
           "match": "This node paraphrases the specified passage with the hypotheses and conventions stated here; any unread proof input is separately recorded as a gap."
         }
       ],
@@ -2559,7 +2618,7 @@
       ],
       "proofSteps": [
         "Use NeronModelsAndSemistableAbelianVarieties:R11.3/raynaud-extension-comparison and the strict 1-motive supplied by C4.",
-        "Apply Raynaud94 Theorem 4.2.2 for the analytic covering/kernel and §§4.3,4.7 for the valuation/polarization conditions.",
+        "Apply Raynaud94 Theorem4.2.2 and §4.2(iv) for the analytic covering and lattice kernel, and §4.3 for valuation data. Polarized symmetry and positivity are a separate SGA7 IX Theorem10.4 / G-polarized-effectivity input; §4.7 gives finite monodromy and eigenvalues, not a positivity proof.",
         "Use G-Raynaud-algebraization for the unread BL construction leaves and G-polarized-effectivity for the positivity/effectivity proof."
       ],
       "acceptance": [
@@ -2572,9 +2631,15 @@
       "sources": [
         {
           "sourceId": "RAYNAUD94",
-          "locator": "§§4.2–4.3 and 4.7; SGA7 IX Theorem 10.4",
+          "locator": "§4.2(i–iv) and Theorem4.2.2, printed pp.302–304; §4.3, printed pp.308–309",
           "excerpt": "monodromie",
-          "match": "This node paraphrases the specified passage with the hypotheses and conventions stated here; any unread proof input is separately recorded as a gap."
+          "match": "Raynaud gives the covering/lattice and valuation construction; its cited Bosch–Lütkebohmert inputs and polarized positivity remain G-Raynaud-algebraization/G-polarized-effectivity. Positivity is not proved in §4.7."
+        },
+        {
+          "sourceId": "SGA7",
+          "locator": "Exposé IX Theorem10.4(b), printed p.444",
+          "excerpt": "positive",
+          "match": "Supplies the polarized positivity statement; the rigorous compatibility with uniformisation remains G-polarized-effectivity."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2601,7 +2666,7 @@
       ],
       "proofSteps": [
         "Import the Picard sheafification/rigidification carrier from JacobianChallenge D; this packet supplies the singular-fibre identity-component theorem.",
-        "Use Conrad Theorems 7.12–7.14 and G-Picard-Raynaud for representability/separatedness and base change."
+        "Use Conrad Theorem7.12 (Artin), Theorem7.13 (Raynaud), Proposition7.14 and G-Picard-Raynaud for representability/separatedness and fibre comparison."
       ],
       "acceptance": [
         "A smooth fibre has no toric part and recovers its Jacobian.",
@@ -2614,8 +2679,8 @@
       "sources": [
         {
           "sourceId": "CONRAD-SR",
-          "locator": "Theorems 7.12–7.14",
-          "excerpt": "semi-abelian",
+          "locator": "Theorem7.12 (Artin), Theorem7.13 (Raynaud), Proposition7.14, printed pp.34–35",
+          "excerpt": "Picard",
           "match": "This node paraphrases the specified passage with the hypotheses and conventions stated here; any unread proof input is separately recorded as a gap."
         }
       ],
@@ -2735,8 +2800,8 @@
       "sources": [
         {
           "sourceId": "SGA7",
-          "locator": "Exposé IX §12.3, formulas 12.3.6–12.3.14, printed pp.471–473",
-          "excerpt": "accouplement de monodromie",
+          "locator": "Exposé IX §12.3, printed pp.469–473; formulas12.3.1–12.3.14",
+          "excerpt": "tore",
           "match": "This node paraphrases the specified passage with the hypotheses and conventions stated here; any unread proof input is separately recorded as a gap."
         }
       ],
@@ -2757,7 +2822,7 @@
       "kind": "theorem",
       "statement": "There is a canonical isomorphism X*(T_Gamma)≅ker(partial:Z^Edges→Z^Vertices)=H_1(Gamma,Z). It is independent of orientation after the corresponding sign changes, and equivariant for automorphisms/Galois descent. The dual quotient is H^1, not the character group itself.",
       "hypotheses": [
-        "S is a connected Dedekind scheme with generic point eta and fraction field K; A/K is an abelian variety. Local statements specify the DVR and any excellence/henselian hypothesis separately."
+        "C is a proper connected nodal curve over algebraically closed k; normalized components are smooth proper curves."
       ],
       "proofSteps": [
         "Dualize the vertex/node scalar quotient of NeronModelsAndSemistableAbelianVarieties:R11.4/normalization-exact-sequence.",
@@ -2774,8 +2839,8 @@
       "sources": [
         {
           "sourceId": "SGA7",
-          "locator": "Exposé IX formulas 12.3.7 and 12.3.11–12.3.14, printed pp.472–473",
-          "excerpt": "accouplement de monodromie",
+          "locator": "Exposé IX formula12.3.7 and formulas12.3.11–12.3.14, printed pp.472–473",
+          "excerpt": "caractères",
           "match": "This node paraphrases the specified passage with the hypotheses and conventions stated here; any unread proof input is separately recorded as a gap."
         }
       ],
@@ -2797,27 +2862,26 @@
       ],
       "title": "Picard identity and Néron identity comparison",
       "kind": "theorem",
-      "statement": "For the regular semistable curve X/R of ch, Pic^0_(X/R) is canonically the identity open subgroup of the Néron model of Jac(X_K). The full model includes its component group and is obtained from the degree-zero part of the quotient of the relative Picard functor by the closure of the generic identity.",
+      "statement": "For the regular semistable curve X/R with the stated hypotheses, Pic^0_(X/R) is canonically the identity open subgroup of the Néron model of Jac(X_K). The full model includes its component group and is obtained from the degree-zero part of the quotient of the relative Picard functor by the closure of the generic identity.",
       "hypotheses": [
-        "S is a connected Dedekind scheme with generic point eta and fraction field K; A/K is an abelian variety. Local statements specify the DVR and any excellence/henselian hypothesis separately."
+        "R is a strictly henselian DVR with algebraically closed residue field; X/R is a proper flat regular curve with geometrically connected smooth generic fibre and geometrically reduced nodal special fibre. Extra projectivity, section or complete-base hypotheses are stated when used."
       ],
       "proofSteps": [
         "SGA7 IX Theorem 12.1 quotients the relative Picard by the vertical divisor/identity closure subgroup.",
         "For reduced regular semistable fibres, gcd multiplicity is one and Pic^0 is separated; apply its identity-component isomorphism.",
-        "Use NeronModelsAndSemistableAbelianVarieties:R11.1/unique-iso for canonical markings; retain G-Picard-Raynaud for representability/NMP."
+        "Apply full-model uniqueness only to the degree-zero quotient P/E, whose NMP has first been established, and the full Néron model. Restrict that comparison to identity open subgroups. Pic^0 itself has no full NMP when components are nontrivial; G-Picard-Raynaud retains representability and the quotient NMP."
       ],
       "acceptance": [
         "A split I_n model has Pic^0 special fibre G_m while the full Jacobian model has n geometric components."
       ],
       "prerequisites": [
         "NeronModelsAndSemistableAbelianVarieties:R11.4/picard-zero",
-        "NeronModelsAndSemistableAbelianVarieties:R11.1/local-existence",
         "NeronModelsAndSemistableAbelianVarieties:R11.1/unique-iso"
       ],
       "sources": [
         {
           "sourceId": "SGA7",
-          "locator": "Exposé IX Theorem 12.1(b–d), formulas 12.1.5–12.1.10, printed pp.466–467",
+          "locator": "Exposé IX Theorem12.1(a–d), printed pp.465–467; §12.1.11, printed p.468",
           "excerpt": "cohomologiquement plat",
           "match": "This node paraphrases the specified passage with the hypotheses and conventions stated here; any unread proof input is separately recorded as a gap."
         }
@@ -2843,7 +2907,7 @@
         "A is semistable; R henselian."
       ],
       "proofSteps": [
-        "Use the dual/Poincaré extension data of G-semiabelian-prefix and its valuation trivialization.",
+        "Construct the pairing directly over the henselian trait from the dual/Poincaré data in G-semiabelian-prefix and SGA7 IX §§9–10. The complete positive-residue-characteristic analytic uniformisation is a comparison, not a prerequisite capable of proving this general henselian statement.",
         "Apply SGA7 IX Theorem 10.4 to compare the integral pairing to all prime-adic monodromy pairings; G-integral-pairing retains its proof."
       ],
       "acceptance": [
@@ -2853,12 +2917,12 @@
       ],
       "prerequisites": [
         "NeronModelsAndSemistableAbelianVarieties:R11.2/toric-character",
-        "NeronModelsAndSemistableAbelianVarieties:R11.3/rigid-uniformisation"
+        "AbelianSchemesAndArithmeticModuli:A3"
       ],
       "sources": [
         {
           "sourceId": "SGA7",
-          "locator": "Exposé IX Theorem 10.4, printed p.444",
+          "locator": "Exposé IX Theorem10.4, printed p.444",
           "excerpt": "accouplement de monodromie",
           "match": "This node paraphrases the specified passage with the hypotheses and conventions stated here; any unread proof input is separately recorded as a gap."
         }
@@ -2999,7 +3063,7 @@
       "kind": "theorem",
       "statement": "For a semistable abelian variety over a henselian DVR, the finite cokernel of u#:X_dual→Hom(X_A,Z), viewed with its residue Galois descent, is canonically the finite étale component group Phi_A. Its ell-primary part is the cokernel after tensoring with Z_ell for every prime ell, with the source-qualified p-divisible interpretation at the residue prime.",
       "hypotheses": [
-        "S is a connected Dedekind scheme with generic point eta and fraction field K; A/K is an abelian variety. Local statements specify the DVR and any excellence/henselian hypothesis separately."
+        "R is a henselian DVR; A/K is semistable; X_A and X_dual are geometric toric character lattices with their residue Galois action; residue-prime comparison uses the source p-divisible construction."
       ],
       "proofSteps": [
         "Use SGA7 IX Theorem 11.5 and integral Theorem 10.4, not only a rational monodromy operator.",
@@ -3015,8 +3079,8 @@
       "sources": [
         {
           "sourceId": "SGA7",
-          "locator": "Exposé IX Theorem 11.5 and §11.6, printed pp.455–456",
-          "excerpt": "accouplement de monodromie",
+          "locator": "Exposé IX Theorem11.5, Remark11.5.2(b) and §11.6 opening, printed pp.455–456",
+          "excerpt": "conoyau",
           "match": "This node paraphrases the specified passage with the hypotheses and conventions stated here; any unread proof input is separately recorded as a gap."
         }
       ],
@@ -3059,8 +3123,8 @@
       "sources": [
         {
           "sourceId": "SGA7",
-          "locator": "Exposé IX §§1.2–1.3 and Theorem 11.5, printed pp.323–324,455",
-          "excerpt": "accouplement de monodromie",
+          "locator": "Exposé IX §§1.2–1.3, printed pp.323–324; Theorem11.5, printed p.455",
+          "excerpt": "accouplement",
           "match": "This node paraphrases the specified passage with the hypotheses and conventions stated here; any unread proof input is separately recorded as a gap."
         }
       ],
@@ -3166,7 +3230,7 @@
         "R strictly henselian with algebraically closed residue field; X is regular proper flat, smooth geometrically connected generic curve; f_*O_X=O_R and gcd component multiplicity=1."
       ],
       "proofSteps": [
-        "Use the vertical-divisor quotient in SGA7 IX Theorem 12.1 under the stated index/cohomological hypotheses.",
+        "Use the general regular-curve Picard quotient P/E in SGA7 IX Theorem12.1, deriving d=d^t=1 from algebraically closed k and gcd multiplicity1 and f_*O_X=O_R. The reduced semistable identity comparison alone cannot prove this possibly nonreduced regular-fibre statement. G-Picard-Raynaud and G-intersection-comparison retain the general quotient and multidegree proof.",
         "Apply the existing numerical intersection construction from SR6, then identify its degree-zero quotient with the component group using G-intersection-comparison.",
         "The relation I m=0 ensures image(I)⊂ker d; finiteness depends on the rank-one kernel and connectedness, not just formal quotient syntax."
       ],
@@ -3174,14 +3238,14 @@
         "For a tree of reduced components the quotient is zero; for a cycle of n it is Z/n; gcd multiplicity greater than one is excluded here."
       ],
       "prerequisites": [
-        "NeronModelsAndSemistableAbelianVarieties:R11.4/picard-neron-identity",
-        "NeronModelsAndSemistableAbelianVarieties:R11.4/component-cokernel",
+        "NeronModelsAndSemistableAbelianVarieties:R11.2/component-group",
+        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-d-the-relative-picard-functor-and-the-jacobian-scheme",
         "tauceti:TauCetiRoadmap/StableReduction#layer-6-numerical-types-and-picard-torsion"
       ],
       "sources": [
         {
           "sourceId": "SGA7",
-          "locator": "Exposé IX Theorem 12.1 and §12.4",
+          "locator": "Exposé IX Theorem12.1(a–d), printed pp.465–467; reduced nodal comparison §§12.4–12.5, printed pp.473–475",
           "excerpt": "cohomologiquement plat",
           "match": "This node paraphrases the specified passage with the hypotheses and conventions stated here; any unread proof input is separately recorded as a gap."
         }
@@ -3221,8 +3285,8 @@
       "sources": [
         {
           "sourceId": "BGW",
-          "locator": "§3, printed pp.9–10",
-          "excerpt": "generalized Jacobian",
+          "locator": "§3 curve and pinch construction, printed pp.9–10",
+          "excerpt": "ordinary double point",
           "match": "This node paraphrases the specified passage with the hypotheses and conventions stated here; any unread proof input is separately recorded as a gap."
         }
       ],
@@ -3299,8 +3363,8 @@
       "sources": [
         {
           "sourceId": "BGW",
-          "locator": "§3 Proposition 22, printed p.11",
-          "excerpt": "generalized Jacobian",
+          "locator": "§3 Proposition22, printed p.11; divisor proof printed p.12",
+          "excerpt": "2-torsion",
           "match": "This node paraphrases the specified passage with the hypotheses and conventions stated here; any unread proof input is separately recorded as a gap."
         }
       ],
@@ -3336,8 +3400,8 @@
       "sources": [
         {
           "sourceId": "BGW",
-          "locator": "§3 rational Picard classes, printed p.10",
-          "excerpt": "generalized Jacobian",
+          "locator": "§3 Picard/Brauer comparison, printed pp.10–11",
+          "excerpt": "Brauer",
           "match": "This node paraphrases the specified passage with the hypotheses and conventions stated here; any unread proof input is separately recorded as a gap."
         }
       ],
@@ -3362,20 +3426,20 @@
       ],
       "proofSteps": [
         "Use the source-qualified stable Picard representability theorem cited by Yuan §3.1.3 and keep G-stable-Picard explicit.",
-        "Apply relative duality/tangent Picard identification for the determinant isomorphism, with the same normalization as the smooth relative Jacobian."
+        "Use relative cotangent sheaves and Lie/Picard deformation theory over the stated general integral Noetherian S, followed by relative duality and determinants. The DVR/Dedekind Néron differential lattice is not a general-base supplier; G-stable-Picard retains these sheaf-level comparisons."
       ],
       "acceptance": [
         "A stable nodal family xy=pi^m with m>1 may have a singular total space; do not use it directly as the regular Néron-comparison model."
       ],
       "prerequisites": [
-        "NeronModelsAndSemistableAbelianVarieties:R11.4/picard-zero",
-        "NeronModelsAndSemistableAbelianVarieties:R11.1/differential-lattice"
+        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-d-the-relative-picard-functor-and-the-jacobian-scheme",
+        "AbelianSchemesAndArithmeticModuli:A1"
       ],
       "sources": [
         {
           "sourceId": "YUAN-ARXIV",
-          "locator": "§3.1.3 and Lemma 3.4, arXiv v4 printed pp.43–44",
-          "excerpt": "semistable",
+          "locator": "§3.1.3 and Lemma3.4 with proof, arXivv4 printed pp.43–44",
+          "excerpt": "semi-abelian",
           "match": "This node paraphrases the specified passage with the hypotheses and conventions stated here; any unread proof input is separately recorded as a gap."
         }
       ],
@@ -3416,9 +3480,15 @@
       "sources": [
         {
           "sourceId": "CONRAD-SR",
-          "locator": "§4 discussion preceding Lemma 4.3; §5 Theorem 5.8; SGA7 IX Theorem 10.4",
-          "excerpt": "semi-abelian",
+          "locator": "§4 discussion before Lemma4.3, printed pp.9–10; Theorem5.8, printed pp.20–22",
+          "excerpt": "unramified",
           "match": "This node paraphrases the specified passage with the hypotheses and conventions stated here; any unread proof input is separately recorded as a gap."
+        },
+        {
+          "sourceId": "SGA7",
+          "locator": "Exposé IX Theorem10.4, printed p.444",
+          "excerpt": "séparant",
+          "match": "Provides the nondegenerate integral pairing statement; its identification with the actual inertia operator remains G-NOS-monodromy-bridge."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3441,11 +3511,12 @@
       "kind": "theorem",
       "statement": "Isogenous abelian varieties over K have good reduction at the same DVRs. The rational Tate-module representations are isomorphic even when the isogeny degree is divisible by ell; integral Tate lattices need not be equal.",
       "hypotheses": [
-        "S is a connected Dedekind scheme with generic point eta and fraction field K; A/K is an abelian variety. Local statements specify the DVR and any excellence/henselian hypothesis separately."
+        "A and B are isogenous abelian varieties over the fraction field of a DVR; localize through henselization with descent of good models, or assume the DVR henselian when applying NOS directly."
       ],
       "proofSteps": [
         "Use the rational isogeny compatibility from R01.6.",
-        "Apply NeronModelsAndSemistableAbelianVarieties:R11.5/neron-ogg-shafarevich to unramifiedness of the rational representation; compare full inertia on the torsion-free lattice with its rationalization."
+        "Apply NeronModelsAndSemistableAbelianVarieties:R11.5/neron-ogg-shafarevich to unramifiedness of the rational representation; compare full inertia on the torsion-free lattice with its rationalization.",
+        "For a nonhenselian DVR, justify descent of the abelian-model good-reduction predicate from henselization; record it in G-NOS-monodromy-bridge rather than applying the henselian theorem unqualified."
       ],
       "acceptance": [
         "A p-power isogeny over a local field is not a prime-to-p étale isomorphism of integral models."
@@ -3457,8 +3528,8 @@
       "sources": [
         {
           "sourceId": "CONRAD-SR",
-          "locator": "Theorem 4.1 and good-reduction discussion; §5",
-          "excerpt": "semi-abelian",
+          "locator": "Proposition4.1, printed pp.8–9; good-reduction discussion printed pp.9–10",
+          "excerpt": "isogeny",
           "match": "This node paraphrases the specified passage with the hypotheses and conventions stated here; any unread proof input is separately recorded as a gap."
         }
       ],
@@ -3518,7 +3589,7 @@
       "kind": "comparison",
       "statement": "Define the conductor of A through the supplied actual H^1/Tate representation with its local monodromy, using R01.3 Artin and Swan conductors; keep tame codimension and wild Swan terms. This is a geometric comparison/export, not a second conductor definition.",
       "hypotheses": [
-        "S is a connected Dedekind scheme with generic point eta and fraction field K; A/K is an abelian variety. Local statements specify the DVR and any excellence/henselian hypothesis separately."
+        "K is a nonarchimedean local field with finite residue field; ell is different from the residue characteristic; use the full characteristic-zero cohomological or dual Tate representation with a specified convention."
       ],
       "proofSteps": [
         "Use the R01.6 representation and dual convention.",
@@ -3574,8 +3645,14 @@
       "sources": [
         {
           "sourceId": "CG",
-          "locator": "Appendix Lemma A.7 proof; Conrad Lemma 5.4",
+          "locator": "Appendix LemmaA.7 proof, author-copy p.89",
           "excerpt": "conductor",
+          "match": "CG states the surface residual-conductor application; the dimension formula for all semistable abelian varieties is supplied by Conrad Lemma5.4 plus the imported Artin/Swan formula."
+        },
+        {
+          "sourceId": "CONRAD-SR",
+          "locator": "Lemma5.4 and surrounding finite-part definitions, printed pp.17–18",
+          "excerpt": "saturated",
           "match": "This node paraphrases the specified passage with the hypotheses and conventions stated here; any unread proof input is separately recorded as a gap."
         }
       ],
@@ -3596,8 +3673,7 @@
       "kind": "theorem",
       "statement": "For finite residue field of size q, use H^1_et(A_Ksep,Q_ell) with geometric Frobenius F, and P_v(T)=det(1−T F | H^1^I). Under the actual Weil–Deligne comparison use ker N inside the appropriate Weil-invariant space. Inertia semisimplification alone loses N and does not determine this polynomial.",
       "hypotheses": [
-        "R is a DVR with fraction field K and residue field k; A/K is an abelian variety with its finite-type Néron group M/R. State perfectness or geometric base change where used.",
-        "k finite of cardinal q; ell≠char(k); H^1 is the dual of the homological rational Tate module."
+        "K is a nonarchimedean local field with complete DVR R and finite residue field k of cardinal q; ell≠char(k); H^1 is dual to the homological rational Tate module and F is geometric Frobenius."
       ],
       "proofSteps": [
         "Use R01.2/R01.6 to identify the cohomological dual and Frobenius convention.",
@@ -3615,9 +3691,9 @@
       "sources": [
         {
           "sourceId": "RAYNAUD94",
-          "locator": "§4.6 Proposition 4.6.1 and §4.7 Proposition 4.7.4",
+          "locator": "Proposition4.6.1, printed p.315 (PDF22); Proposition4.7.4, printed p.317 (PDF24)",
           "excerpt": "monodromie",
-          "match": "This node paraphrases the specified passage with the hypotheses and conventions stated here; any unread proof input is separately recorded as a gap."
+          "match": "Source acts on the homological realization with arithmetic Frobenius; the cohomological dual, geometric Frobenius and inertia/ker N adapter are explicit G-Euler-comparison obligations."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3723,7 +3799,7 @@
       "kind": "comparison",
       "statement": "Given actual homomorphisms between semistable modular Jacobians supplied by the modular-curve owner, extend them to Néron models and export the contravariant character maps, covariant component maps, dual adjoints and their monodromy/component-pairing commutative diagrams. No level-lowering theorem or generic Néron exactness is assumed.",
       "hypotheses": [
-        "S is a connected Dedekind scheme with generic point eta and fraction field K; A/K is an abelian variety. Local statements specify the DVR and any excellence/henselian hypothesis separately."
+        "R is a henselian DVR; given homomorphisms of semistable abelian varieties, their duals and genuine Néron models. Modular degeneracy maps are additional supplied maps, not consequences of NMP."
       ],
       "proofSteps": [
         "Use NeronModelsAndSemistableAbelianVarieties:R11.1/group-law for extensions and NeronModelsAndSemistableAbelianVarieties:R11.2/toric-character for variance.",
@@ -3742,8 +3818,8 @@
       "sources": [
         {
           "sourceId": "SGA7",
-          "locator": "Exposé IX §10.2 functoriality and §1.2 pairing",
-          "excerpt": "accouplement de monodromie",
+          "locator": "Exposé IX §10.2.6–10.2.8, printed p.441; §1.2, printed p.323",
+          "excerpt": "caractères",
           "match": "This node paraphrases the specified passage with the hypotheses and conventions stated here; any unread proof input is separately recorded as a gap."
         }
       ],
@@ -3764,7 +3840,7 @@
       "kind": "comparison",
       "statement": "For a supplied exact sequence of special-fibre tori 0→T1→T→T2→0, export 0→X*(T2)→X*(T)→X*(T1)→0 and its monodromy-induced component sequence with all lattice cokernels. To apply to modular degeneracy maps, first prove this torus sequence and its saturation; a generic exact abelian-variety sequence does not supply it.",
       "hypotheses": [
-        "S is a connected Dedekind scheme with generic point eta and fraction field K; A/K is an abelian variety. Local statements specify the DVR and any excellence/henselian hypothesis separately."
+        "The tori T1,T,T2 form an actual exact sequence over the residue field; compatible integral monodromy maps are supplied for the component comparison. Modular applications must establish these hypotheses separately."
       ],
       "proofSteps": [
         "Dualize the actual torus sequence using the supplier character anti-equivalence.",
@@ -3781,9 +3857,15 @@
       "sources": [
         {
           "sourceId": "SGA7",
-          "locator": "Exposé IX §§10–11; YZ-ERR introduction",
-          "excerpt": "accouplement de monodromie",
+          "locator": "Exposé IX §10.2.6–10.2.8, printed p.441; Theorem11.5, printed p.455",
+          "excerpt": "caractères",
           "match": "This node paraphrases the specified passage with the hypotheses and conventions stated here; any unread proof input is separately recorded as a gap."
+        },
+        {
+          "sourceId": "YZ-ERR",
+          "locator": "Introduction, printed p.1",
+          "excerpt": "exact",
+          "match": "Records failure of automatic Néron-model exactness; does not itself construct the conditional exact torus sequence."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3803,7 +3885,7 @@
       "kind": "comparison",
       "statement": "For a semistable abelian variety over a Dedekind number-field base and a finite number-field extension, the pullback of its integral invariant-differential lattice identifies with the lattice of the new identity Néron model at all finite places, including ramified ones. This identity-model theorem, not full-model base change, underlies the stable Faltings-height export.",
       "hypotheses": [
-        "S is a connected Dedekind scheme with generic point eta and fraction field K; A/K is an abelian variety. Local statements specify the DVR and any excellence/henselian hypothesis separately."
+        "K is a number field, S its ring-of-integers Dedekind base (or localization), A/K is semistable at every retained finite place, and Kprime/K is a finite number-field extension."
       ],
       "proofSteps": [
         "Use NeronModelsAndSemistableAbelianVarieties:R11.3/semistable-identity-basechange place by place and NeronModelsAndSemistableAbelianVarieties:R11.1/differential-lattice localization.",
@@ -3819,8 +3901,8 @@
       "sources": [
         {
           "sourceId": "YZ",
-          "locator": "§1.1, printed pp.534–535",
-          "excerpt": "Neron models",
+          "locator": "§1.1, printed p.534 (PDF2); identity-model differential determinant and semistable base-change context",
+          "excerpt": "invariant",
           "match": "This node paraphrases the specified passage with the hypotheses and conventions stated here; any unread proof input is separately recorded as a gap."
         }
       ],
@@ -3859,9 +3941,9 @@
       "sources": [
         {
           "sourceId": "YZ-ERR",
-          "locator": "Introduction and Theorem 1 (selected opening)",
-          "excerpt": "exact sequences",
-          "match": "This node paraphrases the specified passage with the hypotheses and conventions stated here; any unread proof input is separately recorded as a gap."
+          "locator": "Introduction, printed p.1; weakened Theorem1 and Theorem2 statements, printed p.2",
+          "excerpt": "exact",
+          "match": "The erratum withdraws general exactness and supplies a specialized CM graph-kernel repair; it does not prove a general isogeny local-length formula."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3885,7 +3967,8 @@
       ],
       "proofSteps": [
         "Read the native hasGoodReduction_iff_isElliptic_reduction statement.",
-        "Use the proper smooth pointed Weierstrass presentation and NeronModelsAndSemistableAbelianVarieties:R11.1/abelian-scheme-model; G-Weierstrass-scheme connects equation and scheme carriers."
+        "Use the proper smooth pointed Weierstrass presentation and NeronModelsAndSemistableAbelianVarieties:R11.1/abelian-scheme-model; G-Weierstrass-scheme connects equation and scheme carriers.",
+        "Where a geometric supplier is stated only over a strictly henselian DVR, first base change there and establish the appropriate descent of the equation/scheme comparison; do not apply the strict-henselian smooth-locus result directly over an arbitrary DVR. This is included in G-Weierstrass-scheme/G-Kodaira-resolution."
       ],
       "acceptance": [
         "Multiplicative valuation Delta=1 is good; it must not be misread as ord(Delta)=1."
@@ -3926,7 +4009,8 @@
       ],
       "proofSteps": [
         "Use the native c4/Delta predicates and residual nodal tangent computation.",
-        "Apply NeronModelsAndSemistableAbelianVarieties:R11.2/kodaira-geometric-configurations and NeronModelsAndSemistableAbelianVarieties:R11.2/elliptic-filtration; preserve nonsplit residue descent."
+        "Apply NeronModelsAndSemistableAbelianVarieties:R11.2/kodaira-geometric-configurations and NeronModelsAndSemistableAbelianVarieties:R11.2/elliptic-filtration; preserve nonsplit residue descent.",
+        "Where a geometric supplier is stated only over a strictly henselian DVR, first base change there and establish the appropriate descent of the equation/scheme comparison; do not apply the strict-henselian smooth-locus result directly over an arbitrary DVR. This is included in G-Weierstrass-scheme/G-Kodaira-resolution."
       ],
       "acceptance": [
         "The good/multiplicative cases cannot overlap; splitness is a residue-field statement, not merely a geometric torus identification."
@@ -3966,7 +4050,8 @@
       ],
       "proofSteps": [
         "Import invariance under changes between minimal equations.",
-        "Use NeronModelsAndSemistableAbelianVarieties:R11.2/kodaira-geometric-configurations and NeronModelsAndSemistableAbelianVarieties:R11.2/wild-kodaira-comparison to compare the resolved fibre; retain G-Kodaira-resolution for proof leaves."
+        "Use NeronModelsAndSemistableAbelianVarieties:R11.2/kodaira-geometric-configurations and NeronModelsAndSemistableAbelianVarieties:R11.2/wild-kodaira-comparison to compare the resolved fibre; retain G-Kodaira-resolution for proof leaves.",
+        "Where a geometric supplier is stated only over a strictly henselian DVR, first base change there and establish the appropriate descent of the equation/scheme comparison; do not apply the strict-henselian smooth-locus result directly over an arbitrary DVR. This is included in G-Weierstrass-scheme/G-Kodaira-resolution."
       ],
       "acceptance": [
         "I0,I1,II have the same component count but discriminant valuations 0,1,2 in the tame case."
@@ -4005,7 +4090,7 @@
       ],
       "proofSteps": [
         "Use NeronModelsAndSemistableAbelianVarieties:R11.6/equation-discriminant-comparison and the geometric component count, not the group order.",
-        "Consume R01.3/EC4 Ogg comparison with its wild correction; G-Ogg-geometry records the general source proof and its scheme adapter."
+        "EC4 supplies the algorithmic exponent and the point-index comparison. R01.3 supplies the ramification-theoretic elliptic conductor comparison. G-Ogg-geometry retains the full wild Ogg/Saito proof and the scheme adapter; EC4 itself explicitly treats that deeper proof as a separate project."
       ],
       "acceptance": [
         "For I0*, m=5 but #Phi=4; substituting component-group order for m gives the wrong Ogg exponent."
@@ -4084,7 +4169,8 @@
       ],
       "proofSteps": [
         "Use the actual integral formal differential calculation in Tate Theorem 4.2.",
-        "Use NeronModelsAndSemistableAbelianVarieties:R11.2/minimal-regular-smooth-locus and NeronModelsAndSemistableAbelianVarieties:R11.1/differential-lattice to compare the smooth-locus identity pullback; G-Weierstrass-scheme retains the chart/gluing proof."
+        "Use NeronModelsAndSemistableAbelianVarieties:R11.2/minimal-regular-smooth-locus and NeronModelsAndSemistableAbelianVarieties:R11.1/differential-lattice to compare the smooth-locus identity pullback; G-Weierstrass-scheme retains the chart/gluing proof.",
+        "Where a geometric supplier is stated only over a strictly henselian DVR, first base change there and establish the appropriate descent of the equation/scheme comparison; do not apply the strict-henselian smooth-locus result directly over an arbitrary DVR. This is included in G-Weierstrass-scheme/G-Kodaira-resolution."
       ],
       "acceptance": [
         "At residue 2 or 3 use the complementary chart expression rather than dividing by a vanishing denominator; changing a minimal equation scales by a unit."
@@ -4097,9 +4183,9 @@
       "sources": [
         {
           "sourceId": "TATE",
-          "locator": "Theorem 4.2, printed pp.42–43",
-          "excerpt": "canonical filtration",
-          "match": "This node paraphrases the specified passage with the hypotheses and conventions stated here; any unread proof input is separately recorded as a gap."
+          "locator": "Theorem4.2 and differential computation, printed pp.42–43",
+          "excerpt": "formal group",
+          "match": "This passage gives the formal integral differential; the global smooth-locus chart/gluing comparison is G-Weierstrass-scheme, not already established by formal power series."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4292,8 +4378,8 @@
       "sources": [
         {
           "sourceId": "BCGP25",
-          "locator": "Lemma 9.2.2, arXiv v1 p.192",
-          "excerpt": "semistable ordinary reduction",
+          "locator": "Lemma9.2.2 and proof, arXivv1 printed p.192",
+          "excerpt": "unramified",
           "match": "This node paraphrases the specified passage with the hypotheses and conventions stated here; any unread proof input is separately recorded as a gap."
         }
       ],
@@ -4315,9 +4401,10 @@
       ],
       "title": "Full level extension for curve semistability",
       "kind": "theorem",
-      "statement": "For the function-field setting of Yuan Lemma 4.9, choose N≥3 prime to char(K), J=Jac(C), and Kprime=K(J[N]). The full torsion extension gives semistable J at the relevant valuations; the source-qualified curve/Jacobian criterion gives semistable C. The Galois group injects into GSp_2g(Z/N), giving the rough degree bound [Kprime:K]<N^(4g²). No non-isotrivial height lower bound is proved here.",
+      "statement": "For the function-field setting of Yuan Lemma 4.9, choose N≥3 prime to char(K), J=Jac(C), and Kprime=K(J[N]). The full torsion extension gives semistable J at the relevant valuations; conditional on the imported curve/Jacobian criterion with its exact residue/base hypotheses, C is semistable. The Galois group injects into GSp_2g(Z/N), giving the rough degree bound [Kprime:K]<N^(4g²). No non-isotrivial height lower bound is proved here.",
       "hypotheses": [
-        "K is a one-variable function field over k; C/K smooth projective geometrically integral of genus g>1; N≥3 prime to char(K); relevant valuations trivial on k."
+        "K is a one-variable function field over k; C/K smooth projective geometrically integral of genus g>1; N≥3 prime to char(K); relevant valuations trivial on k.",
+        "The curve/Jacobian step consumes the Deligne–Mumford criterion with its verified residue/base hypotheses as an explicit supplier input. Extending that input to arbitrary imperfect k remains G-Yuan-valuation-scope; the general-field passage in Yuan is not a proof of those hypotheses."
       ],
       "proofSteps": [
         "Use NeronModelsAndSemistableAbelianVarieties:R11.3/finite-torsion-semistability at prime-to-N valuations.",
@@ -4336,7 +4423,7 @@
       "sources": [
         {
           "sourceId": "YUAN-ARXIV",
-          "locator": "Lemma 4.9 proof, arXiv v4 p.76",
+          "locator": "Lemma4.9 and full-level-extension paragraph, arXivv4 printed p.75 (PDF75)",
           "excerpt": "semistable",
           "match": "This node paraphrases the specified passage with the hypotheses and conventions stated here; any unread proof input is separately recorded as a gap."
         }
@@ -4356,9 +4443,9 @@
       ],
       "title": "Good, split, nonsplit and nodal acceptance suite",
       "kind": "application",
-      "statement": "Compute the good elliptic model as an abelian scheme with zero Phi; split multiplicative I_n as nonproper Néron identity G_m with geometric Phi=Z/n; nonsplit multiplicative as a nonsplit torus with Frobenius −1 on components; and a nodal curve with more than one component via its normalization sequence and cycle lattice. Check a rational tree versus a two-edge cycle and ramified n→en.",
+      "statement": "Compute the good elliptic model as an abelian scheme with zero Phi; split multiplicative I_n as nonproper Néron identity special fibre G_m with geometric Phi=Z/n; nonsplit multiplicative as a nonsplit torus over finite residue field with Frobenius −1 on components; and a nodal curve with more than one component via its normalization sequence and cycle lattice. Check a rational tree versus a two-edge cycle and ramified n→en.",
       "hypotheses": [
-        "S is a connected Dedekind scheme with generic point eta and fraction field K; A/K is an abelian variety. Local statements specify the DVR and any excellence/henselian hypothesis separately."
+        "For elliptic rational-component computations R is a complete DVR with finite residue field. For nodal graph computations use a regular projective semistable curve over a strictly henselian DVR with algebraically closed residue field. These are separate examples."
       ],
       "proofSteps": [
         "Combine NeronModelsAndSemistableAbelianVarieties:R11.1/abelian-scheme-model, NeronModelsAndSemistableAbelianVarieties:R11.2/kodaira-component-groups, NeronModelsAndSemistableAbelianVarieties:R11.6/equation-component-comparison and NeronModelsAndSemistableAbelianVarieties:R11.3/ramified-tate-counterexample.",
@@ -4378,9 +4465,9 @@
       "sources": [
         {
           "sourceId": "TATE",
-          "locator": "§§4–6; SGA7 IX §12",
+          "locator": "§§4–6, printed pp.41–46",
           "excerpt": "canonical filtration",
-          "match": "This node paraphrases the specified passage with the hypotheses and conventions stated here; any unread proof input is separately recorded as a gap."
+          "match": "Tate supplies elliptic controls; the nodal graph controls use the separate SGA7 §§12.3–12.5 nodes, not a passage in Tate."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4455,8 +4542,8 @@
       "sources": [
         {
           "sourceId": "BGW",
-          "locator": "End of §3, printed p.11",
-          "excerpt": "generalized Jacobian",
+          "locator": "End of §3, boundary/cup-product paragraph, printed p.12 (PDF12)",
+          "excerpt": "cup product",
           "match": "This node paraphrases the specified passage with the hypotheses and conventions stated here; any unread proof input is separately recorded as a gap."
         }
       ],
@@ -4473,7 +4560,11 @@
       "supplier": "AbelianSchemesAndArithmeticModuli:A1",
       "need": "Group objects in Over S, products, smoothness and pointed rigidity for abelian schemes; the abelian variety/scheme carrier and its base change, without any Néron existence theorem.",
       "neededBy": [
-        "NeronModelsAndSemistableAbelianVarieties:R11.1/group-law"
+        "NeronModelsAndSemistableAbelianVarieties:R11.1/group-law",
+        "NeronModelsAndSemistableAbelianVarieties:R11.1/smoothening",
+        "NeronModelsAndSemistableAbelianVarieties:R11.1/spread-abelian",
+        "NeronModelsAndSemistableAbelianVarieties:R11.1/abelian-scheme-model",
+        "NeronModelsAndSemistableAbelianVarieties:R11.4/stable-family-picard"
       ]
     },
     {
@@ -4520,7 +4611,8 @@
       "supplier": "ArithmeticGaloisRepresentations:R01.2",
       "need": "Quasi-unipotence for continuous ell-adic representations with ell different from residue characteristic, tame characters, the actual Weil–Deligne pair and its Frobenius conventions.",
       "neededBy": [
-        "NeronModelsAndSemistableAbelianVarieties:R11.3/finite-separable-semistable-extension"
+        "NeronModelsAndSemistableAbelianVarieties:R11.3/finite-separable-semistable-extension",
+        "NeronModelsAndSemistableAbelianVarieties:R11.3/finite-torsion-semistability"
       ]
     },
     {
@@ -4534,7 +4626,9 @@
       "supplier": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-d-the-relative-picard-functor-and-the-jacobian-scheme",
       "need": "Relative Picard fppf sheafification, rigidification and the smooth proper Jacobian carrier with generic base change. The singular semistable identity component and Néron comparison are not assumed.",
       "neededBy": [
-        "NeronModelsAndSemistableAbelianVarieties:R11.4/picard-zero"
+        "NeronModelsAndSemistableAbelianVarieties:R11.4/picard-zero",
+        "NeronModelsAndSemistableAbelianVarieties:R11.4/intersection-component-quotient",
+        "NeronModelsAndSemistableAbelianVarieties:R11.4/stable-family-picard"
       ]
     },
     {
@@ -4580,7 +4674,8 @@
         "NeronModelsAndSemistableAbelianVarieties:R11.3/toric-finite-filtration",
         "NeronModelsAndSemistableAbelianVarieties:R11.3/orthogonality",
         "NeronModelsAndSemistableAbelianVarieties:R11.4/bgw-two-torsion",
-        "NeronModelsAndSemistableAbelianVarieties:R11.6/yuan-full-level-extension"
+        "NeronModelsAndSemistableAbelianVarieties:R11.6/yuan-full-level-extension",
+        "NeronModelsAndSemistableAbelianVarieties:R11.4/integral-monodromy-pairing"
       ]
     },
     {
@@ -4761,13 +4856,15 @@
       "detail": "C4 owns generic semi-abelian schemes, character lattices, biextensions and polarized 1-motive algebraization. Its full stage also includes modular-cusp dependencies; no whole-C4 backward edge is inserted. Request an independently named early carrier/extension/duality prefix before filling the omitted Lean signatures.",
       "neededBy": [
         "NeronModelsAndSemistableAbelianVarieties:R11.2/toric-character",
-        "NeronModelsAndSemistableAbelianVarieties:R11.3/semistable-reduction"
+        "NeronModelsAndSemistableAbelianVarieties:R11.3/semistable-reduction",
+        "NeronModelsAndSemistableAbelianVarieties:R11.4/integral-monodromy-pairing",
+        "NeronModelsAndSemistableAbelianVarieties:R11.4/stable-family-picard"
       ]
     },
     {
       "id": "NeronModelsAndSemistableAbelianVarieties/G-semiabelian-open-immersion",
       "title": "semiabelian open immersion",
-      "detail": "Conrad Proposition 4.4 uses its Zariski Main Theorem 4.7, smooth/étale lifting and the density of integral sections. The detailed source proof is read but its general scheme-theoretic prerequisites are not decomposed in this pass.",
+      "detail": "Conrad Theorem 4.4 uses its Zariski Main Theorem 4.7, smooth/étale lifting and the density of integral sections. The detailed source proof is read but its general scheme-theoretic prerequisites are not decomposed in this pass. The identity model does not generally have full NMP; use the open-immersion argument, not uniqueness of full models.",
       "neededBy": [
         "NeronModelsAndSemistableAbelianVarieties:R11.3/semistable-identity-basechange"
       ]
@@ -4791,9 +4888,10 @@
     {
       "id": "NeronModelsAndSemistableAbelianVarieties/G-monodromy-converse",
       "title": "monodromy converse",
-      "detail": "The original SGA7 IX converse requires the geometric structure/finite-flat torsion argument; only its statement and Conrad discussion are decomposed here. This is a theorem proof gap, not the semi-abelian predicate itself.",
+      "detail": "The original SGA7 IX converse requires the geometric structure/finite-flat torsion argument; only its statement and Conrad discussion are decomposed here. This is a theorem proof gap, not the semi-abelian predicate itself. The selected Conrad proof on printed21 also contains the invalid finite-level inference recorded in E6. Supply the integral/divisible descent of the saturated invariant Tate subsystem; equality of rational fixed spaces alone does not imply equality of every A[ℓⁿ](K) and A[ℓⁿ](K′). Resolve proof order as well: Conrad Theorem5.8 assumes potential semistability from Theorem4.2, so its proof cannot then establish Theorem4.2 by quasi-unipotence. Supply an independent criterion proof, or first establish potential semistability via the curve/Jacobian and singular Picard route with exact early suppliers. No circular proof is certified by the present acyclic planning graph.",
       "neededBy": [
-        "NeronModelsAndSemistableAbelianVarieties:R11.3/monodromy-criterion"
+        "NeronModelsAndSemistableAbelianVarieties:R11.3/monodromy-criterion",
+        "NeronModelsAndSemistableAbelianVarieties:R11.3/finite-separable-semistable-extension"
       ]
     },
     {
@@ -4834,7 +4932,9 @@
       "title": "Picard Raynaud",
       "detail": "Conrad §§7.12–7.14 and SGA7 IX Theorem 12.1 cite Raynaud/Artin representability and Picard quotient proofs not read in their original sources; singular-fibre sheaf, smoothness and separatedness proofs remain open. General sheafification is an import, not duplicate work.",
       "neededBy": [
-        "NeronModelsAndSemistableAbelianVarieties:R11.4/picard-zero"
+        "NeronModelsAndSemistableAbelianVarieties:R11.4/picard-zero",
+        "NeronModelsAndSemistableAbelianVarieties:R11.4/picard-neron-identity",
+        "NeronModelsAndSemistableAbelianVarieties:R11.4/intersection-component-quotient"
       ]
     },
     {
@@ -4874,7 +4974,7 @@
     {
       "id": "NeronModelsAndSemistableAbelianVarieties/G-intersection-comparison",
       "title": "intersection comparison",
-      "detail": "The actual vertical-divisor/multidegree comparison and Raynaud component quotient need the cited Picard theorem and local intersection proof. The existing numerical Pic(T) by itself does not provide a Néron component group. Multiple-fibre/index defects stay in Part II.",
+      "detail": "The actual vertical-divisor/multidegree comparison and Raynaud component quotient need the cited Picard theorem and local intersection proof. The existing numerical Pic(T) by itself does not provide a Néron component group. Multiple-fibre/index defects stay in Part II. The general regular possibly nonreduced-fibre quotient uses Theorem12.1 with d=d^t=1; neither the semistable Picard identity theorem nor a semistable monodromy cokernel supplies this generality.",
       "neededBy": [
         "NeronModelsAndSemistableAbelianVarieties:R11.4/intersection-component-quotient"
       ]
@@ -4898,7 +4998,7 @@
     {
       "id": "NeronModelsAndSemistableAbelianVarieties/G-stable-Picard",
       "title": "stable Picard",
-      "detail": "Yuan arXiv v4 cites BLR §9.4 Theorem 1; that chapter and the full relative duality proof have not been independently read. The selected author URL refused access, so no author-copy or version-of-record collation is claimed.",
+      "detail": "Yuan arXiv v4 cites BLR §9.4 Theorem 1; that chapter and the full relative duality proof have not been independently read. The selected author URL refused access, so no author-copy or version-of-record collation is claimed. Relative cotangent, Lie/Picard deformation and duality are required over the general integral Noetherian base; no reduction to the Dedekind Néron differential lattice is asserted.",
       "neededBy": [
         "NeronModelsAndSemistableAbelianVarieties:R11.4/stable-family-picard"
       ]
@@ -4906,7 +5006,7 @@
     {
       "id": "NeronModelsAndSemistableAbelianVarieties/G-NOS-monodromy-bridge",
       "title": "NOS monodromy bridge",
-      "detail": "The bridge from the canonical nondegenerate integral character pairing to the actual inertia operator needs SGA7 IX §§9–10 and the good-model finite étale torsion comparison. NOS is planned, not formalized or source-closed.",
+      "detail": "The bridge from the canonical nondegenerate integral character pairing to the actual inertia operator needs SGA7 IX §§9–10 and the good-model finite étale torsion comparison. NOS is planned, not formalized or source-closed. For nonhenselian local applications, descend the good model from henselization with the exact hypotheses.",
       "neededBy": [
         "NeronModelsAndSemistableAbelianVarieties:R11.5/neron-ogg-shafarevich"
       ]
@@ -4947,7 +5047,7 @@
     {
       "id": "NeronModelsAndSemistableAbelianVarieties/G-Weierstrass-scheme",
       "title": "Weierstrass scheme",
-      "detail": "The existing pointed scheme/Weierstrass presentation and differential charts need their scheme-level comparison, not just a point group or a formal series. Preserve public native minimal/reduction/differential names; no equation-side replacement is introduced.",
+      "detail": "The existing pointed scheme/Weierstrass presentation and differential charts need their scheme-level comparison, not just a point group or a formal series. Preserve public native minimal/reduction/differential names; no equation-side replacement is introduced. Include strict-henselian base change and descent whenever the smooth-locus comparison is only stated geometrically.",
       "neededBy": [
         "NeronModelsAndSemistableAbelianVarieties:R11.6/equation-good-comparison",
         "NeronModelsAndSemistableAbelianVarieties:R11.6/equation-multiplicative-comparison",
@@ -4957,7 +5057,7 @@
     {
       "id": "NeronModelsAndSemistableAbelianVarieties/G-Ogg-geometry",
       "title": "Ogg geometry",
-      "detail": "EC4 and R01.3 own the conductor/Ogg theorem, including wild primes. The scheme adapter must prove that the algorithm geometric component count is the actual regular-fibre count. Tate p.46 alone proves only the tame displayed table.",
+      "detail": "EC4 supplies the algorithmic exponent and point-index theorem, while R01.3 plans the ramification-theoretic comparison. EC4 explicitly leaves the deeper full Ogg/Saito conductor proof as a separate project. Its exact wild proof leaves and the geometric component-count adapter remain unresolved; Tate p.46 only displays the tame table.",
       "neededBy": [
         "NeronModelsAndSemistableAbelianVarieties:R11.6/equation-conductor-comparison"
       ]
@@ -5420,9 +5520,9 @@
       "tests": [],
       "reason": "The native Over/Scheme prefix cannot yet state the exact Dedekind local-to-global construction interface: its geometric/group/representation carriers and comparisons require the listed transitive imports and unresolved proof inputs. No raw proposition field substitutes for them.",
       "blockingGaps": [
+        "NeronModelsAndSemistableAbelianVarieties/G-Weil-extension",
         "NeronModelsAndSemistableAbelianVarieties/G-existence",
-        "NeronModelsAndSemistableAbelianVarieties/G-spreading",
-        "NeronModelsAndSemistableAbelianVarieties/G-Weil-extension"
+        "NeronModelsAndSemistableAbelianVarieties/G-spreading"
       ],
       "requiredImports": [
         "AbelianSchemesAndArithmeticModuli:A1"
@@ -5459,10 +5559,10 @@
       ],
       "reason": "The native Over/Scheme prefix cannot yet state the exact Invariant-differential lattice interface: its geometric/group/representation carriers and comparisons require the listed transitive imports and unresolved proof inputs. No raw proposition field substitutes for them.",
       "blockingGaps": [
-        "NeronModelsAndSemistableAbelianVarieties/G-existence",
-        "NeronModelsAndSemistableAbelianVarieties/G-spreading",
         "NeronModelsAndSemistableAbelianVarieties/G-Weil-extension",
-        "NeronModelsAndSemistableAbelianVarieties/G-relative-differentials"
+        "NeronModelsAndSemistableAbelianVarieties/G-existence",
+        "NeronModelsAndSemistableAbelianVarieties/G-relative-differentials",
+        "NeronModelsAndSemistableAbelianVarieties/G-spreading"
       ],
       "requiredImports": [
         "AbelianSchemesAndArithmeticModuli:A1"
@@ -5531,8 +5631,8 @@
       "tests": [],
       "reason": "The native Over/Scheme prefix cannot yet state the exact Chevalley decomposition with field hypotheses interface: its geometric/group/representation carriers and comparisons require the listed transitive imports and unresolved proof inputs. No raw proposition field substitutes for them.",
       "blockingGaps": [
-        "NeronModelsAndSemistableAbelianVarieties/G-components",
-        "NeronModelsAndSemistableAbelianVarieties/G-Chevalley"
+        "NeronModelsAndSemistableAbelianVarieties/G-Chevalley",
+        "NeronModelsAndSemistableAbelianVarieties/G-components"
       ],
       "requiredImports": [
         "AbelianSchemesAndArithmeticModuli:A1"
@@ -5546,7 +5646,6 @@
       "reason": "The native Over/Scheme prefix cannot yet state the exact Toric character lattice interface interface: its geometric/group/representation carriers and comparisons require the listed transitive imports and unresolved proof inputs. No raw proposition field substitutes for them.",
       "blockingGaps": [
         "NeronModelsAndSemistableAbelianVarieties/G-components",
-        "NeronModelsAndSemistableAbelianVarieties/G-Chevalley",
         "NeronModelsAndSemistableAbelianVarieties/G-semiabelian-prefix"
       ],
       "requiredImports": [
@@ -5560,8 +5659,8 @@
       "tests": [],
       "reason": "The native Over/Scheme prefix cannot yet state the exact Isogeny functoriality without false exactness interface: its geometric/group/representation carriers and comparisons require the listed transitive imports and unresolved proof inputs. No raw proposition field substitutes for them.",
       "blockingGaps": [
-        "NeronModelsAndSemistableAbelianVarieties/G-components",
         "NeronModelsAndSemistableAbelianVarieties/G-Chevalley",
+        "NeronModelsAndSemistableAbelianVarieties/G-components",
         "NeronModelsAndSemistableAbelianVarieties/G-isogeny-sequences"
       ],
       "requiredImports": [
@@ -5575,8 +5674,8 @@
       "tests": [],
       "reason": "The native Over/Scheme prefix cannot yet state the exact Elliptic reduction filtration comparison interface: its geometric/group/representation carriers and comparisons require the listed transitive imports and unresolved proof inputs. No raw proposition field substitutes for them.",
       "blockingGaps": [
-        "NeronModelsAndSemistableAbelianVarieties/G-components",
-        "NeronModelsAndSemistableAbelianVarieties/G-Lang-lifting"
+        "NeronModelsAndSemistableAbelianVarieties/G-Lang-lifting",
+        "NeronModelsAndSemistableAbelianVarieties/G-components"
       ],
       "requiredImports": [
         "AbelianSchemesAndArithmeticModuli:A1",
@@ -5590,11 +5689,9 @@
       "tests": [],
       "reason": "The native Over/Scheme prefix cannot yet state the exact Smooth locus of the elliptic minimal regular model interface: its geometric/group/representation carriers and comparisons require the listed transitive imports and unresolved proof inputs. No raw proposition field substitutes for them.",
       "blockingGaps": [
-        "NeronModelsAndSemistableAbelianVarieties/G-existence",
         "NeronModelsAndSemistableAbelianVarieties/G-Kodaira-resolution"
       ],
       "requiredImports": [
-        "AbelianSchemesAndArithmeticModuli:A1",
         "tauceti:TauCetiRoadmap/StableReduction#layer-5-regular-and-minimal-models"
       ]
     },
@@ -5605,11 +5702,9 @@
       "tests": [],
       "reason": "The native Over/Scheme prefix cannot yet state the exact Geometric Kodaira configurations interface: its geometric/group/representation carriers and comparisons require the listed transitive imports and unresolved proof inputs. No raw proposition field substitutes for them.",
       "blockingGaps": [
-        "NeronModelsAndSemistableAbelianVarieties/G-existence",
         "NeronModelsAndSemistableAbelianVarieties/G-Kodaira-resolution"
       ],
       "requiredImports": [
-        "AbelianSchemesAndArithmeticModuli:A1",
         "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
         "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces",
         "tauceti:TauCetiRoadmap/StableReduction#layer-5-regular-and-minimal-models",
@@ -5623,10 +5718,8 @@
       "tests": [],
       "reason": "The native Over/Scheme prefix cannot yet state the exact Geometric component groups by Kodaira type interface: its geometric/group/representation carriers and comparisons require the listed transitive imports and unresolved proof inputs. No raw proposition field substitutes for them.",
       "blockingGaps": [
-        "NeronModelsAndSemistableAbelianVarieties/G-existence",
-        "NeronModelsAndSemistableAbelianVarieties/G-components",
-        "NeronModelsAndSemistableAbelianVarieties/G-Lang-lifting",
-        "NeronModelsAndSemistableAbelianVarieties/G-Kodaira-resolution"
+        "NeronModelsAndSemistableAbelianVarieties/G-Kodaira-resolution",
+        "NeronModelsAndSemistableAbelianVarieties/G-components"
       ],
       "requiredImports": [
         "AbelianSchemesAndArithmeticModuli:A1",
@@ -5643,10 +5736,8 @@
       "tests": [],
       "reason": "The native Over/Scheme prefix cannot yet state the exact Wild primes retained in elliptic comparison interface: its geometric/group/representation carriers and comparisons require the listed transitive imports and unresolved proof inputs. No raw proposition field substitutes for them.",
       "blockingGaps": [
-        "NeronModelsAndSemistableAbelianVarieties/G-existence",
-        "NeronModelsAndSemistableAbelianVarieties/G-components",
-        "NeronModelsAndSemistableAbelianVarieties/G-Lang-lifting",
-        "NeronModelsAndSemistableAbelianVarieties/G-Kodaira-resolution"
+        "NeronModelsAndSemistableAbelianVarieties/G-Kodaira-resolution",
+        "NeronModelsAndSemistableAbelianVarieties/G-components"
       ],
       "requiredImports": [
         "AbelianSchemesAndArithmeticModuli:A1",
@@ -5678,8 +5769,8 @@
       ],
       "reason": "The native Over/Scheme prefix cannot yet state the exact Semistable reduction predicate interface: its geometric/group/representation carriers and comparisons require the listed transitive imports and unresolved proof inputs. No raw proposition field substitutes for them.",
       "blockingGaps": [
-        "NeronModelsAndSemistableAbelianVarieties/G-components",
         "NeronModelsAndSemistableAbelianVarieties/G-Chevalley",
+        "NeronModelsAndSemistableAbelianVarieties/G-components",
         "NeronModelsAndSemistableAbelianVarieties/G-semiabelian-prefix"
       ],
       "requiredImports": [
@@ -5693,8 +5784,8 @@
       "tests": [],
       "reason": "The native Over/Scheme prefix cannot yet state the exact Semistability under isogeny interface: its geometric/group/representation carriers and comparisons require the listed transitive imports and unresolved proof inputs. No raw proposition field substitutes for them.",
       "blockingGaps": [
-        "NeronModelsAndSemistableAbelianVarieties/G-components",
         "NeronModelsAndSemistableAbelianVarieties/G-Chevalley",
+        "NeronModelsAndSemistableAbelianVarieties/G-components",
         "NeronModelsAndSemistableAbelianVarieties/G-isogeny-sequences",
         "NeronModelsAndSemistableAbelianVarieties/G-semiabelian-prefix"
       ],
@@ -5709,10 +5800,10 @@
       "tests": [],
       "reason": "The native Over/Scheme prefix cannot yet state the exact Semistable identity-model base change interface: its geometric/group/representation carriers and comparisons require the listed transitive imports and unresolved proof inputs. No raw proposition field substitutes for them.",
       "blockingGaps": [
-        "NeronModelsAndSemistableAbelianVarieties/G-components",
         "NeronModelsAndSemistableAbelianVarieties/G-Chevalley",
-        "NeronModelsAndSemistableAbelianVarieties/G-semiabelian-prefix",
-        "NeronModelsAndSemistableAbelianVarieties/G-semiabelian-open-immersion"
+        "NeronModelsAndSemistableAbelianVarieties/G-components",
+        "NeronModelsAndSemistableAbelianVarieties/G-semiabelian-open-immersion",
+        "NeronModelsAndSemistableAbelianVarieties/G-semiabelian-prefix"
       ],
       "requiredImports": [
         "AbelianSchemesAndArithmeticModuli:A1"
@@ -5725,11 +5816,11 @@
       "tests": [],
       "reason": "The native Over/Scheme prefix cannot yet state the exact Ramified Tate component calculation interface: its geometric/group/representation carriers and comparisons require the listed transitive imports and unresolved proof inputs. No raw proposition field substitutes for them.",
       "blockingGaps": [
-        "NeronModelsAndSemistableAbelianVarieties/G-components",
         "NeronModelsAndSemistableAbelianVarieties/G-Chevalley",
         "NeronModelsAndSemistableAbelianVarieties/G-Lang-lifting",
-        "NeronModelsAndSemistableAbelianVarieties/G-semiabelian-prefix",
-        "NeronModelsAndSemistableAbelianVarieties/G-semiabelian-open-immersion"
+        "NeronModelsAndSemistableAbelianVarieties/G-components",
+        "NeronModelsAndSemistableAbelianVarieties/G-semiabelian-open-immersion",
+        "NeronModelsAndSemistableAbelianVarieties/G-semiabelian-prefix"
       ],
       "requiredImports": [
         "AbelianSchemesAndArithmeticModuli:A1",
@@ -5743,10 +5834,10 @@
       "tests": [],
       "reason": "The native Over/Scheme prefix cannot yet state the exact Toric and finite Tate submodules interface: its geometric/group/representation carriers and comparisons require the listed transitive imports and unresolved proof inputs. No raw proposition field substitutes for them.",
       "blockingGaps": [
-        "NeronModelsAndSemistableAbelianVarieties/G-components",
         "NeronModelsAndSemistableAbelianVarieties/G-Chevalley",
-        "NeronModelsAndSemistableAbelianVarieties/G-semiabelian-prefix",
-        "NeronModelsAndSemistableAbelianVarieties/G-finite-torsion"
+        "NeronModelsAndSemistableAbelianVarieties/G-components",
+        "NeronModelsAndSemistableAbelianVarieties/G-finite-torsion",
+        "NeronModelsAndSemistableAbelianVarieties/G-semiabelian-prefix"
       ],
       "requiredImports": [
         "AbelianSchemesAndArithmeticModuli:A1",
@@ -5761,11 +5852,11 @@
       "tests": [],
       "reason": "The native Over/Scheme prefix cannot yet state the exact Weil orthogonality of the filtration interface: its geometric/group/representation carriers and comparisons require the listed transitive imports and unresolved proof inputs. No raw proposition field substitutes for them.",
       "blockingGaps": [
-        "NeronModelsAndSemistableAbelianVarieties/G-components",
         "NeronModelsAndSemistableAbelianVarieties/G-Chevalley",
-        "NeronModelsAndSemistableAbelianVarieties/G-semiabelian-prefix",
+        "NeronModelsAndSemistableAbelianVarieties/G-components",
         "NeronModelsAndSemistableAbelianVarieties/G-finite-torsion",
-        "NeronModelsAndSemistableAbelianVarieties/G-pdiv-orthogonality"
+        "NeronModelsAndSemistableAbelianVarieties/G-pdiv-orthogonality",
+        "NeronModelsAndSemistableAbelianVarieties/G-semiabelian-prefix"
       ],
       "requiredImports": [
         "AbelianSchemesAndArithmeticModuli:A1",
@@ -5780,11 +5871,11 @@
       "tests": [],
       "reason": "The native Over/Scheme prefix cannot yet state the exact Semistable inertia is unipotent of height two interface: its geometric/group/representation carriers and comparisons require the listed transitive imports and unresolved proof inputs. No raw proposition field substitutes for them.",
       "blockingGaps": [
-        "NeronModelsAndSemistableAbelianVarieties/G-components",
         "NeronModelsAndSemistableAbelianVarieties/G-Chevalley",
-        "NeronModelsAndSemistableAbelianVarieties/G-semiabelian-prefix",
+        "NeronModelsAndSemistableAbelianVarieties/G-components",
         "NeronModelsAndSemistableAbelianVarieties/G-finite-torsion",
-        "NeronModelsAndSemistableAbelianVarieties/G-pdiv-orthogonality"
+        "NeronModelsAndSemistableAbelianVarieties/G-pdiv-orthogonality",
+        "NeronModelsAndSemistableAbelianVarieties/G-semiabelian-prefix"
       ],
       "requiredImports": [
         "AbelianSchemesAndArithmeticModuli:A1",
@@ -5799,12 +5890,12 @@
       "tests": [],
       "reason": "The native Over/Scheme prefix cannot yet state the exact Grothendieck semistability criterion interface: its geometric/group/representation carriers and comparisons require the listed transitive imports and unresolved proof inputs. No raw proposition field substitutes for them.",
       "blockingGaps": [
-        "NeronModelsAndSemistableAbelianVarieties/G-components",
         "NeronModelsAndSemistableAbelianVarieties/G-Chevalley",
-        "NeronModelsAndSemistableAbelianVarieties/G-semiabelian-prefix",
+        "NeronModelsAndSemistableAbelianVarieties/G-components",
         "NeronModelsAndSemistableAbelianVarieties/G-finite-torsion",
+        "NeronModelsAndSemistableAbelianVarieties/G-monodromy-converse",
         "NeronModelsAndSemistableAbelianVarieties/G-pdiv-orthogonality",
-        "NeronModelsAndSemistableAbelianVarieties/G-monodromy-converse"
+        "NeronModelsAndSemistableAbelianVarieties/G-semiabelian-prefix"
       ],
       "requiredImports": [
         "AbelianSchemesAndArithmeticModuli:A1",
@@ -5819,12 +5910,12 @@
       "tests": [],
       "reason": "The native Over/Scheme prefix cannot yet state the exact Semistable reduction after finite extension interface: its geometric/group/representation carriers and comparisons require the listed transitive imports and unresolved proof inputs. No raw proposition field substitutes for them.",
       "blockingGaps": [
-        "NeronModelsAndSemistableAbelianVarieties/G-components",
         "NeronModelsAndSemistableAbelianVarieties/G-Chevalley",
-        "NeronModelsAndSemistableAbelianVarieties/G-semiabelian-prefix",
+        "NeronModelsAndSemistableAbelianVarieties/G-components",
         "NeronModelsAndSemistableAbelianVarieties/G-finite-torsion",
-        "NeronModelsAndSemistableAbelianVarieties/G-pdiv-orthogonality",
         "NeronModelsAndSemistableAbelianVarieties/G-monodromy-converse",
+        "NeronModelsAndSemistableAbelianVarieties/G-pdiv-orthogonality",
+        "NeronModelsAndSemistableAbelianVarieties/G-semiabelian-prefix",
         "NeronModelsAndSemistableAbelianVarieties/G-valuations"
       ],
       "requiredImports": [
@@ -5841,17 +5932,18 @@
       "tests": [],
       "reason": "The native Over/Scheme prefix cannot yet state the exact Prime-to-residue full level forces semistability interface: its geometric/group/representation carriers and comparisons require the listed transitive imports and unresolved proof inputs. No raw proposition field substitutes for them.",
       "blockingGaps": [
-        "NeronModelsAndSemistableAbelianVarieties/G-components",
         "NeronModelsAndSemistableAbelianVarieties/G-Chevalley",
-        "NeronModelsAndSemistableAbelianVarieties/G-semiabelian-prefix",
+        "NeronModelsAndSemistableAbelianVarieties/G-components",
         "NeronModelsAndSemistableAbelianVarieties/G-finite-torsion",
-        "NeronModelsAndSemistableAbelianVarieties/G-pdiv-orthogonality",
+        "NeronModelsAndSemistableAbelianVarieties/G-level-kernel",
         "NeronModelsAndSemistableAbelianVarieties/G-monodromy-converse",
-        "NeronModelsAndSemistableAbelianVarieties/G-level-kernel"
+        "NeronModelsAndSemistableAbelianVarieties/G-pdiv-orthogonality",
+        "NeronModelsAndSemistableAbelianVarieties/G-semiabelian-prefix"
       ],
       "requiredImports": [
         "AbelianSchemesAndArithmeticModuli:A1",
         "AbelianSchemesAndArithmeticModuli:A3",
+        "ArithmeticGaloisRepresentations:R01.2",
         "ArithmeticGaloisRepresentations:R01.6"
       ]
     },
@@ -5862,10 +5954,10 @@
       "tests": [],
       "reason": "The native Over/Scheme prefix cannot yet state the exact Raynaud formal extension comparison interface: its geometric/group/representation carriers and comparisons require the listed transitive imports and unresolved proof inputs. No raw proposition field substitutes for them.",
       "blockingGaps": [
-        "NeronModelsAndSemistableAbelianVarieties/G-components",
         "NeronModelsAndSemistableAbelianVarieties/G-Chevalley",
-        "NeronModelsAndSemistableAbelianVarieties/G-semiabelian-prefix",
-        "NeronModelsAndSemistableAbelianVarieties/G-Raynaud-algebraization"
+        "NeronModelsAndSemistableAbelianVarieties/G-Raynaud-algebraization",
+        "NeronModelsAndSemistableAbelianVarieties/G-components",
+        "NeronModelsAndSemistableAbelianVarieties/G-semiabelian-prefix"
       ],
       "requiredImports": [
         "AbelianSchemesAndArithmeticModuli:A1",
@@ -5879,11 +5971,11 @@
       "tests": [],
       "reason": "The native Over/Scheme prefix cannot yet state the exact Polarized lattice uniformisation comparison interface: its geometric/group/representation carriers and comparisons require the listed transitive imports and unresolved proof inputs. No raw proposition field substitutes for them.",
       "blockingGaps": [
-        "NeronModelsAndSemistableAbelianVarieties/G-components",
         "NeronModelsAndSemistableAbelianVarieties/G-Chevalley",
-        "NeronModelsAndSemistableAbelianVarieties/G-semiabelian-prefix",
         "NeronModelsAndSemistableAbelianVarieties/G-Raynaud-algebraization",
-        "NeronModelsAndSemistableAbelianVarieties/G-polarized-effectivity"
+        "NeronModelsAndSemistableAbelianVarieties/G-components",
+        "NeronModelsAndSemistableAbelianVarieties/G-polarized-effectivity",
+        "NeronModelsAndSemistableAbelianVarieties/G-semiabelian-prefix"
       ],
       "requiredImports": [
         "AbelianSchemesAndArithmeticModuli:A1",
@@ -5940,11 +6032,10 @@
       "tests": [],
       "reason": "The native Over/Scheme prefix cannot yet state the exact Characters are integral graph cycles interface: its geometric/group/representation carriers and comparisons require the listed transitive imports and unresolved proof inputs. No raw proposition field substitutes for them.",
       "blockingGaps": [
-        "NeronModelsAndSemistableAbelianVarieties/G-components",
-        "NeronModelsAndSemistableAbelianVarieties/G-Chevalley",
-        "NeronModelsAndSemistableAbelianVarieties/G-semiabelian-prefix",
         "NeronModelsAndSemistableAbelianVarieties/G-Picard-Raynaud",
-        "NeronModelsAndSemistableAbelianVarieties/G-normalization-cohomology"
+        "NeronModelsAndSemistableAbelianVarieties/G-components",
+        "NeronModelsAndSemistableAbelianVarieties/G-normalization-cohomology",
+        "NeronModelsAndSemistableAbelianVarieties/G-semiabelian-prefix"
       ],
       "requiredImports": [
         "AbelianSchemesAndArithmeticModuli:A1",
@@ -5959,11 +6050,9 @@
       "tests": [],
       "reason": "The native Over/Scheme prefix cannot yet state the exact Picard identity and Néron identity comparison interface: its geometric/group/representation carriers and comparisons require the listed transitive imports and unresolved proof inputs. No raw proposition field substitutes for them.",
       "blockingGaps": [
-        "NeronModelsAndSemistableAbelianVarieties/G-existence",
         "NeronModelsAndSemistableAbelianVarieties/G-Picard-Raynaud"
       ],
       "requiredImports": [
-        "AbelianSchemesAndArithmeticModuli:A1",
         "tauceti:TauCetiRoadmap/JacobianChallenge#layer-d-the-relative-picard-functor-and-the-jacobian-scheme"
       ]
     },
@@ -5990,15 +6079,12 @@
       "reason": "The native Over/Scheme prefix cannot yet state the exact Integral monodromy pairing interface: its geometric/group/representation carriers and comparisons require the listed transitive imports and unresolved proof inputs. No raw proposition field substitutes for them.",
       "blockingGaps": [
         "NeronModelsAndSemistableAbelianVarieties/G-components",
-        "NeronModelsAndSemistableAbelianVarieties/G-Chevalley",
-        "NeronModelsAndSemistableAbelianVarieties/G-semiabelian-prefix",
-        "NeronModelsAndSemistableAbelianVarieties/G-Raynaud-algebraization",
-        "NeronModelsAndSemistableAbelianVarieties/G-polarized-effectivity",
-        "NeronModelsAndSemistableAbelianVarieties/G-integral-pairing"
+        "NeronModelsAndSemistableAbelianVarieties/G-integral-pairing",
+        "NeronModelsAndSemistableAbelianVarieties/G-semiabelian-prefix"
       ],
       "requiredImports": [
         "AbelianSchemesAndArithmeticModuli:A1",
-        "AdicSpacesPartII:F0"
+        "AbelianSchemesAndArithmeticModuli:A3"
       ]
     },
     {
@@ -6008,20 +6094,16 @@
       "tests": [],
       "reason": "The native Over/Scheme prefix cannot yet state the exact Graph formula for Jacobian monodromy interface: its geometric/group/representation carriers and comparisons require the listed transitive imports and unresolved proof inputs. No raw proposition field substitutes for them.",
       "blockingGaps": [
-        "NeronModelsAndSemistableAbelianVarieties/G-existence",
-        "NeronModelsAndSemistableAbelianVarieties/G-components",
-        "NeronModelsAndSemistableAbelianVarieties/G-Chevalley",
-        "NeronModelsAndSemistableAbelianVarieties/G-semiabelian-prefix",
-        "NeronModelsAndSemistableAbelianVarieties/G-Raynaud-algebraization",
-        "NeronModelsAndSemistableAbelianVarieties/G-polarized-effectivity",
         "NeronModelsAndSemistableAbelianVarieties/G-Picard-Raynaud",
-        "NeronModelsAndSemistableAbelianVarieties/G-normalization-cohomology",
+        "NeronModelsAndSemistableAbelianVarieties/G-components",
         "NeronModelsAndSemistableAbelianVarieties/G-integral-pairing",
+        "NeronModelsAndSemistableAbelianVarieties/G-normalization-cohomology",
+        "NeronModelsAndSemistableAbelianVarieties/G-semiabelian-prefix",
         "NeronModelsAndSemistableAbelianVarieties/G-thickness-resolution"
       ],
       "requiredImports": [
         "AbelianSchemesAndArithmeticModuli:A1",
-        "AdicSpacesPartII:F0",
+        "AbelianSchemesAndArithmeticModuli:A3",
         "tauceti:TauCetiRoadmap/JacobianChallenge#layer-d-the-relative-picard-functor-and-the-jacobian-scheme",
         "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs"
       ]
@@ -6033,17 +6115,14 @@
       "tests": [],
       "reason": "The native Over/Scheme prefix cannot yet state the exact Component group from monodromy cokernel interface: its geometric/group/representation carriers and comparisons require the listed transitive imports and unresolved proof inputs. No raw proposition field substitutes for them.",
       "blockingGaps": [
+        "NeronModelsAndSemistableAbelianVarieties/G-component-cokernel",
         "NeronModelsAndSemistableAbelianVarieties/G-components",
-        "NeronModelsAndSemistableAbelianVarieties/G-Chevalley",
-        "NeronModelsAndSemistableAbelianVarieties/G-semiabelian-prefix",
-        "NeronModelsAndSemistableAbelianVarieties/G-Raynaud-algebraization",
-        "NeronModelsAndSemistableAbelianVarieties/G-polarized-effectivity",
         "NeronModelsAndSemistableAbelianVarieties/G-integral-pairing",
-        "NeronModelsAndSemistableAbelianVarieties/G-component-cokernel"
+        "NeronModelsAndSemistableAbelianVarieties/G-semiabelian-prefix"
       ],
       "requiredImports": [
         "AbelianSchemesAndArithmeticModuli:A1",
-        "AdicSpacesPartII:F0"
+        "AbelianSchemesAndArithmeticModuli:A3"
       ]
     },
     {
@@ -6068,17 +6147,14 @@
       ],
       "reason": "The native Over/Scheme prefix cannot yet state the exact Grothendieck component pairing interface: its geometric/group/representation carriers and comparisons require the listed transitive imports and unresolved proof inputs. No raw proposition field substitutes for them.",
       "blockingGaps": [
+        "NeronModelsAndSemistableAbelianVarieties/G-component-cokernel",
         "NeronModelsAndSemistableAbelianVarieties/G-components",
-        "NeronModelsAndSemistableAbelianVarieties/G-Chevalley",
-        "NeronModelsAndSemistableAbelianVarieties/G-semiabelian-prefix",
-        "NeronModelsAndSemistableAbelianVarieties/G-Raynaud-algebraization",
-        "NeronModelsAndSemistableAbelianVarieties/G-polarized-effectivity",
         "NeronModelsAndSemistableAbelianVarieties/G-integral-pairing",
-        "NeronModelsAndSemistableAbelianVarieties/G-component-cokernel"
+        "NeronModelsAndSemistableAbelianVarieties/G-semiabelian-prefix"
       ],
       "requiredImports": [
         "AbelianSchemesAndArithmeticModuli:A1",
-        "AdicSpacesPartII:F0"
+        "AbelianSchemesAndArithmeticModuli:A3"
       ]
     },
     {
@@ -6088,20 +6164,12 @@
       "tests": [],
       "reason": "The native Over/Scheme prefix cannot yet state the exact Intersection matrix component description interface: its geometric/group/representation carriers and comparisons require the listed transitive imports and unresolved proof inputs. No raw proposition field substitutes for them.",
       "blockingGaps": [
-        "NeronModelsAndSemistableAbelianVarieties/G-existence",
-        "NeronModelsAndSemistableAbelianVarieties/G-components",
-        "NeronModelsAndSemistableAbelianVarieties/G-Chevalley",
-        "NeronModelsAndSemistableAbelianVarieties/G-semiabelian-prefix",
-        "NeronModelsAndSemistableAbelianVarieties/G-Raynaud-algebraization",
-        "NeronModelsAndSemistableAbelianVarieties/G-polarized-effectivity",
         "NeronModelsAndSemistableAbelianVarieties/G-Picard-Raynaud",
-        "NeronModelsAndSemistableAbelianVarieties/G-integral-pairing",
-        "NeronModelsAndSemistableAbelianVarieties/G-component-cokernel",
+        "NeronModelsAndSemistableAbelianVarieties/G-components",
         "NeronModelsAndSemistableAbelianVarieties/G-intersection-comparison"
       ],
       "requiredImports": [
         "AbelianSchemesAndArithmeticModuli:A1",
-        "AdicSpacesPartII:F0",
         "tauceti:TauCetiRoadmap/JacobianChallenge#layer-d-the-relative-picard-functor-and-the-jacobian-scheme",
         "tauceti:TauCetiRoadmap/StableReduction#layer-6-numerical-types-and-picard-torsion"
       ]
@@ -6140,9 +6208,9 @@
       "tests": [],
       "reason": "The native Over/Scheme prefix cannot yet state the exact BGW finite two-torsion comparison interface: its geometric/group/representation carriers and comparisons require the listed transitive imports and unresolved proof inputs. No raw proposition field substitutes for them.",
       "blockingGaps": [
+        "NeronModelsAndSemistableAbelianVarieties/G-BGW-divisors",
         "NeronModelsAndSemistableAbelianVarieties/G-Picard-Raynaud",
-        "NeronModelsAndSemistableAbelianVarieties/G-normalization-cohomology",
-        "NeronModelsAndSemistableAbelianVarieties/G-BGW-divisors"
+        "NeronModelsAndSemistableAbelianVarieties/G-normalization-cohomology"
       ],
       "requiredImports": [
         "AbelianSchemesAndArithmeticModuli:A3",
@@ -6159,9 +6227,9 @@
       "tests": [],
       "reason": "The native Over/Scheme prefix cannot yet state the exact BGW rational classes versus rational divisors interface: its geometric/group/representation carriers and comparisons require the listed transitive imports and unresolved proof inputs. No raw proposition field substitutes for them.",
       "blockingGaps": [
+        "NeronModelsAndSemistableAbelianVarieties/G-Brauer-Picard",
         "NeronModelsAndSemistableAbelianVarieties/G-Picard-Raynaud",
-        "NeronModelsAndSemistableAbelianVarieties/G-normalization-cohomology",
-        "NeronModelsAndSemistableAbelianVarieties/G-Brauer-Picard"
+        "NeronModelsAndSemistableAbelianVarieties/G-normalization-cohomology"
       ],
       "requiredImports": [
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/global-existence",
@@ -6176,11 +6244,7 @@
       "tests": [],
       "reason": "The native Over/Scheme prefix cannot yet state the exact Stable-family Picard and Hodge comparison interface: its geometric/group/representation carriers and comparisons require the listed transitive imports and unresolved proof inputs. No raw proposition field substitutes for them.",
       "blockingGaps": [
-        "NeronModelsAndSemistableAbelianVarieties/G-existence",
-        "NeronModelsAndSemistableAbelianVarieties/G-spreading",
-        "NeronModelsAndSemistableAbelianVarieties/G-Weil-extension",
-        "NeronModelsAndSemistableAbelianVarieties/G-relative-differentials",
-        "NeronModelsAndSemistableAbelianVarieties/G-Picard-Raynaud",
+        "NeronModelsAndSemistableAbelianVarieties/G-semiabelian-prefix",
         "NeronModelsAndSemistableAbelianVarieties/G-stable-Picard"
       ],
       "requiredImports": [
@@ -6195,22 +6259,19 @@
       "tests": [],
       "reason": "The native Over/Scheme prefix cannot yet state the exact Néron–Ogg–Shafarevich interface: its geometric/group/representation carriers and comparisons require the listed transitive imports and unresolved proof inputs. No raw proposition field substitutes for them.",
       "blockingGaps": [
+        "NeronModelsAndSemistableAbelianVarieties/G-Chevalley",
+        "NeronModelsAndSemistableAbelianVarieties/G-NOS-monodromy-bridge",
         "NeronModelsAndSemistableAbelianVarieties/G-Weil-extension",
         "NeronModelsAndSemistableAbelianVarieties/G-components",
-        "NeronModelsAndSemistableAbelianVarieties/G-Chevalley",
-        "NeronModelsAndSemistableAbelianVarieties/G-semiabelian-prefix",
         "NeronModelsAndSemistableAbelianVarieties/G-finite-torsion",
-        "NeronModelsAndSemistableAbelianVarieties/G-pdiv-orthogonality",
-        "NeronModelsAndSemistableAbelianVarieties/G-monodromy-converse",
-        "NeronModelsAndSemistableAbelianVarieties/G-Raynaud-algebraization",
-        "NeronModelsAndSemistableAbelianVarieties/G-polarized-effectivity",
         "NeronModelsAndSemistableAbelianVarieties/G-integral-pairing",
-        "NeronModelsAndSemistableAbelianVarieties/G-NOS-monodromy-bridge"
+        "NeronModelsAndSemistableAbelianVarieties/G-monodromy-converse",
+        "NeronModelsAndSemistableAbelianVarieties/G-pdiv-orthogonality",
+        "NeronModelsAndSemistableAbelianVarieties/G-semiabelian-prefix"
       ],
       "requiredImports": [
         "AbelianSchemesAndArithmeticModuli:A1",
         "AbelianSchemesAndArithmeticModuli:A3",
-        "AdicSpacesPartII:F0",
         "ArithmeticGaloisRepresentations:R01.6"
       ]
     },
@@ -6221,22 +6282,19 @@
       "tests": [],
       "reason": "The native Over/Scheme prefix cannot yet state the exact Good reduction is isogeny invariant interface: its geometric/group/representation carriers and comparisons require the listed transitive imports and unresolved proof inputs. No raw proposition field substitutes for them.",
       "blockingGaps": [
+        "NeronModelsAndSemistableAbelianVarieties/G-Chevalley",
+        "NeronModelsAndSemistableAbelianVarieties/G-NOS-monodromy-bridge",
         "NeronModelsAndSemistableAbelianVarieties/G-Weil-extension",
         "NeronModelsAndSemistableAbelianVarieties/G-components",
-        "NeronModelsAndSemistableAbelianVarieties/G-Chevalley",
-        "NeronModelsAndSemistableAbelianVarieties/G-semiabelian-prefix",
         "NeronModelsAndSemistableAbelianVarieties/G-finite-torsion",
-        "NeronModelsAndSemistableAbelianVarieties/G-pdiv-orthogonality",
-        "NeronModelsAndSemistableAbelianVarieties/G-monodromy-converse",
-        "NeronModelsAndSemistableAbelianVarieties/G-Raynaud-algebraization",
-        "NeronModelsAndSemistableAbelianVarieties/G-polarized-effectivity",
         "NeronModelsAndSemistableAbelianVarieties/G-integral-pairing",
-        "NeronModelsAndSemistableAbelianVarieties/G-NOS-monodromy-bridge"
+        "NeronModelsAndSemistableAbelianVarieties/G-monodromy-converse",
+        "NeronModelsAndSemistableAbelianVarieties/G-pdiv-orthogonality",
+        "NeronModelsAndSemistableAbelianVarieties/G-semiabelian-prefix"
       ],
       "requiredImports": [
         "AbelianSchemesAndArithmeticModuli:A1",
         "AbelianSchemesAndArithmeticModuli:A3",
-        "AdicSpacesPartII:F0",
         "ArithmeticGaloisRepresentations:R01.6"
       ]
     },
@@ -6247,9 +6305,9 @@
       "tests": [],
       "reason": "The native Over/Scheme prefix cannot yet state the exact p-adic reduction comparisons are imported interface: its geometric/group/representation carriers and comparisons require the listed transitive imports and unresolved proof inputs. No raw proposition field substitutes for them.",
       "blockingGaps": [
+        "NeronModelsAndSemistableAbelianVarieties/G-Chevalley",
         "NeronModelsAndSemistableAbelianVarieties/G-Weil-extension",
         "NeronModelsAndSemistableAbelianVarieties/G-components",
-        "NeronModelsAndSemistableAbelianVarieties/G-Chevalley",
         "NeronModelsAndSemistableAbelianVarieties/G-semiabelian-prefix"
       ],
       "requiredImports": [
@@ -6276,11 +6334,11 @@
       "tests": [],
       "reason": "The native Over/Scheme prefix cannot yet state the exact Semistable conductor equals toric rank interface: its geometric/group/representation carriers and comparisons require the listed transitive imports and unresolved proof inputs. No raw proposition field substitutes for them.",
       "blockingGaps": [
-        "NeronModelsAndSemistableAbelianVarieties/G-components",
         "NeronModelsAndSemistableAbelianVarieties/G-Chevalley",
-        "NeronModelsAndSemistableAbelianVarieties/G-semiabelian-prefix",
+        "NeronModelsAndSemistableAbelianVarieties/G-components",
         "NeronModelsAndSemistableAbelianVarieties/G-finite-torsion",
-        "NeronModelsAndSemistableAbelianVarieties/G-pdiv-orthogonality"
+        "NeronModelsAndSemistableAbelianVarieties/G-pdiv-orthogonality",
+        "NeronModelsAndSemistableAbelianVarieties/G-semiabelian-prefix"
       ],
       "requiredImports": [
         "AbelianSchemesAndArithmeticModuli:A1",
@@ -6296,13 +6354,13 @@
       "tests": [],
       "reason": "The native Over/Scheme prefix cannot yet state the exact Full-monodromy local Euler polynomial interface: its geometric/group/representation carriers and comparisons require the listed transitive imports and unresolved proof inputs. No raw proposition field substitutes for them.",
       "blockingGaps": [
-        "NeronModelsAndSemistableAbelianVarieties/G-components",
         "NeronModelsAndSemistableAbelianVarieties/G-Chevalley",
-        "NeronModelsAndSemistableAbelianVarieties/G-semiabelian-prefix",
-        "NeronModelsAndSemistableAbelianVarieties/G-finite-torsion",
+        "NeronModelsAndSemistableAbelianVarieties/G-Euler-comparison",
         "NeronModelsAndSemistableAbelianVarieties/G-Raynaud-algebraization",
+        "NeronModelsAndSemistableAbelianVarieties/G-components",
+        "NeronModelsAndSemistableAbelianVarieties/G-finite-torsion",
         "NeronModelsAndSemistableAbelianVarieties/G-polarized-effectivity",
-        "NeronModelsAndSemistableAbelianVarieties/G-Euler-comparison"
+        "NeronModelsAndSemistableAbelianVarieties/G-semiabelian-prefix"
       ],
       "requiredImports": [
         "AbelianSchemesAndArithmeticModuli:A1",
@@ -6318,14 +6376,14 @@
       "tests": [],
       "reason": "The native Over/Scheme prefix cannot yet state the exact Elliptic polynomial preserves the native definition interface: its geometric/group/representation carriers and comparisons require the listed transitive imports and unresolved proof inputs. No raw proposition field substitutes for them.",
       "blockingGaps": [
-        "NeronModelsAndSemistableAbelianVarieties/G-components",
         "NeronModelsAndSemistableAbelianVarieties/G-Chevalley",
+        "NeronModelsAndSemistableAbelianVarieties/G-Euler-comparison",
         "NeronModelsAndSemistableAbelianVarieties/G-Lang-lifting",
-        "NeronModelsAndSemistableAbelianVarieties/G-semiabelian-prefix",
-        "NeronModelsAndSemistableAbelianVarieties/G-finite-torsion",
         "NeronModelsAndSemistableAbelianVarieties/G-Raynaud-algebraization",
+        "NeronModelsAndSemistableAbelianVarieties/G-components",
+        "NeronModelsAndSemistableAbelianVarieties/G-finite-torsion",
         "NeronModelsAndSemistableAbelianVarieties/G-polarized-effectivity",
-        "NeronModelsAndSemistableAbelianVarieties/G-Euler-comparison"
+        "NeronModelsAndSemistableAbelianVarieties/G-semiabelian-prefix"
       ],
       "requiredImports": [
         "AbelianSchemesAndArithmeticModuli:A1",
@@ -6342,20 +6400,17 @@
       "tests": [],
       "reason": "The native Over/Scheme prefix cannot yet state the exact Residual conductor and dual components interface: its geometric/group/representation carriers and comparisons require the listed transitive imports and unresolved proof inputs. No raw proposition field substitutes for them.",
       "blockingGaps": [
-        "NeronModelsAndSemistableAbelianVarieties/G-components",
         "NeronModelsAndSemistableAbelianVarieties/G-Chevalley",
-        "NeronModelsAndSemistableAbelianVarieties/G-semiabelian-prefix",
-        "NeronModelsAndSemistableAbelianVarieties/G-finite-torsion",
-        "NeronModelsAndSemistableAbelianVarieties/G-Raynaud-algebraization",
-        "NeronModelsAndSemistableAbelianVarieties/G-polarized-effectivity",
-        "NeronModelsAndSemistableAbelianVarieties/G-integral-pairing",
         "NeronModelsAndSemistableAbelianVarieties/G-component-cokernel",
-        "NeronModelsAndSemistableAbelianVarieties/G-residual-invariants"
+        "NeronModelsAndSemistableAbelianVarieties/G-components",
+        "NeronModelsAndSemistableAbelianVarieties/G-finite-torsion",
+        "NeronModelsAndSemistableAbelianVarieties/G-integral-pairing",
+        "NeronModelsAndSemistableAbelianVarieties/G-residual-invariants",
+        "NeronModelsAndSemistableAbelianVarieties/G-semiabelian-prefix"
       ],
       "requiredImports": [
         "AbelianSchemesAndArithmeticModuli:A1",
         "AbelianSchemesAndArithmeticModuli:A3",
-        "AdicSpacesPartII:F0",
         "ArithmeticGaloisRepresentations:R01.3",
         "ArithmeticGaloisRepresentations:R01.6"
       ]
@@ -6367,18 +6422,15 @@
       "tests": [],
       "reason": "The native Over/Scheme prefix cannot yet state the exact Degeneracy maps and monodromy adjoints interface: its geometric/group/representation carriers and comparisons require the listed transitive imports and unresolved proof inputs. No raw proposition field substitutes for them.",
       "blockingGaps": [
-        "NeronModelsAndSemistableAbelianVarieties/G-components",
-        "NeronModelsAndSemistableAbelianVarieties/G-Chevalley",
-        "NeronModelsAndSemistableAbelianVarieties/G-semiabelian-prefix",
-        "NeronModelsAndSemistableAbelianVarieties/G-Raynaud-algebraization",
-        "NeronModelsAndSemistableAbelianVarieties/G-polarized-effectivity",
-        "NeronModelsAndSemistableAbelianVarieties/G-integral-pairing",
         "NeronModelsAndSemistableAbelianVarieties/G-component-cokernel",
-        "NeronModelsAndSemistableAbelianVarieties/G-modular-character-exactness"
+        "NeronModelsAndSemistableAbelianVarieties/G-components",
+        "NeronModelsAndSemistableAbelianVarieties/G-integral-pairing",
+        "NeronModelsAndSemistableAbelianVarieties/G-modular-character-exactness",
+        "NeronModelsAndSemistableAbelianVarieties/G-semiabelian-prefix"
       ],
       "requiredImports": [
         "AbelianSchemesAndArithmeticModuli:A1",
-        "AdicSpacesPartII:F0"
+        "AbelianSchemesAndArithmeticModuli:A3"
       ]
     },
     {
@@ -6388,18 +6440,15 @@
       "tests": [],
       "reason": "The native Over/Scheme prefix cannot yet state the exact Character exact sequences require verified kernels interface: its geometric/group/representation carriers and comparisons require the listed transitive imports and unresolved proof inputs. No raw proposition field substitutes for them.",
       "blockingGaps": [
-        "NeronModelsAndSemistableAbelianVarieties/G-components",
-        "NeronModelsAndSemistableAbelianVarieties/G-Chevalley",
-        "NeronModelsAndSemistableAbelianVarieties/G-semiabelian-prefix",
-        "NeronModelsAndSemistableAbelianVarieties/G-Raynaud-algebraization",
-        "NeronModelsAndSemistableAbelianVarieties/G-polarized-effectivity",
-        "NeronModelsAndSemistableAbelianVarieties/G-integral-pairing",
         "NeronModelsAndSemistableAbelianVarieties/G-component-cokernel",
-        "NeronModelsAndSemistableAbelianVarieties/G-modular-character-exactness"
+        "NeronModelsAndSemistableAbelianVarieties/G-components",
+        "NeronModelsAndSemistableAbelianVarieties/G-integral-pairing",
+        "NeronModelsAndSemistableAbelianVarieties/G-modular-character-exactness",
+        "NeronModelsAndSemistableAbelianVarieties/G-semiabelian-prefix"
       ],
       "requiredImports": [
         "AbelianSchemesAndArithmeticModuli:A1",
-        "AdicSpacesPartII:F0"
+        "AbelianSchemesAndArithmeticModuli:A3"
       ]
     },
     {
@@ -6409,14 +6458,14 @@
       "tests": [],
       "reason": "The native Over/Scheme prefix cannot yet state the exact Semistable differential base change interface: its geometric/group/representation carriers and comparisons require the listed transitive imports and unresolved proof inputs. No raw proposition field substitutes for them.",
       "blockingGaps": [
-        "NeronModelsAndSemistableAbelianVarieties/G-existence",
-        "NeronModelsAndSemistableAbelianVarieties/G-spreading",
-        "NeronModelsAndSemistableAbelianVarieties/G-Weil-extension",
-        "NeronModelsAndSemistableAbelianVarieties/G-relative-differentials",
-        "NeronModelsAndSemistableAbelianVarieties/G-components",
         "NeronModelsAndSemistableAbelianVarieties/G-Chevalley",
+        "NeronModelsAndSemistableAbelianVarieties/G-Weil-extension",
+        "NeronModelsAndSemistableAbelianVarieties/G-components",
+        "NeronModelsAndSemistableAbelianVarieties/G-existence",
+        "NeronModelsAndSemistableAbelianVarieties/G-relative-differentials",
+        "NeronModelsAndSemistableAbelianVarieties/G-semiabelian-open-immersion",
         "NeronModelsAndSemistableAbelianVarieties/G-semiabelian-prefix",
-        "NeronModelsAndSemistableAbelianVarieties/G-semiabelian-open-immersion"
+        "NeronModelsAndSemistableAbelianVarieties/G-spreading"
       ],
       "requiredImports": [
         "AbelianSchemesAndArithmeticModuli:A1"
@@ -6429,26 +6478,23 @@
       "tests": [],
       "reason": "The native Over/Scheme prefix cannot yet state the exact Isogeny-height integral lattice export interface: its geometric/group/representation carriers and comparisons require the listed transitive imports and unresolved proof inputs. No raw proposition field substitutes for them.",
       "blockingGaps": [
-        "NeronModelsAndSemistableAbelianVarieties/G-existence",
-        "NeronModelsAndSemistableAbelianVarieties/G-spreading",
-        "NeronModelsAndSemistableAbelianVarieties/G-Weil-extension",
-        "NeronModelsAndSemistableAbelianVarieties/G-relative-differentials",
-        "NeronModelsAndSemistableAbelianVarieties/G-components",
         "NeronModelsAndSemistableAbelianVarieties/G-Chevalley",
-        "NeronModelsAndSemistableAbelianVarieties/G-semiabelian-prefix",
-        "NeronModelsAndSemistableAbelianVarieties/G-finite-torsion",
-        "NeronModelsAndSemistableAbelianVarieties/G-pdiv-orthogonality",
-        "NeronModelsAndSemistableAbelianVarieties/G-monodromy-converse",
-        "NeronModelsAndSemistableAbelianVarieties/G-Raynaud-algebraization",
-        "NeronModelsAndSemistableAbelianVarieties/G-polarized-effectivity",
-        "NeronModelsAndSemistableAbelianVarieties/G-integral-pairing",
         "NeronModelsAndSemistableAbelianVarieties/G-NOS-monodromy-bridge",
-        "NeronModelsAndSemistableAbelianVarieties/G-isogeny-differentials"
+        "NeronModelsAndSemistableAbelianVarieties/G-Weil-extension",
+        "NeronModelsAndSemistableAbelianVarieties/G-components",
+        "NeronModelsAndSemistableAbelianVarieties/G-existence",
+        "NeronModelsAndSemistableAbelianVarieties/G-finite-torsion",
+        "NeronModelsAndSemistableAbelianVarieties/G-integral-pairing",
+        "NeronModelsAndSemistableAbelianVarieties/G-isogeny-differentials",
+        "NeronModelsAndSemistableAbelianVarieties/G-monodromy-converse",
+        "NeronModelsAndSemistableAbelianVarieties/G-pdiv-orthogonality",
+        "NeronModelsAndSemistableAbelianVarieties/G-relative-differentials",
+        "NeronModelsAndSemistableAbelianVarieties/G-semiabelian-prefix",
+        "NeronModelsAndSemistableAbelianVarieties/G-spreading"
       ],
       "requiredImports": [
         "AbelianSchemesAndArithmeticModuli:A1",
         "AbelianSchemesAndArithmeticModuli:A3",
-        "AdicSpacesPartII:F0",
         "ArithmeticGaloisRepresentations:R01.6"
       ]
     },
@@ -6459,10 +6505,9 @@
       "tests": [],
       "reason": "The native Over/Scheme prefix cannot yet state the exact Equation versus abelian-scheme good reduction interface: its geometric/group/representation carriers and comparisons require the listed transitive imports and unresolved proof inputs. No raw proposition field substitutes for them.",
       "blockingGaps": [
-        "NeronModelsAndSemistableAbelianVarieties/G-existence",
-        "NeronModelsAndSemistableAbelianVarieties/G-Weil-extension",
         "NeronModelsAndSemistableAbelianVarieties/G-Kodaira-resolution",
-        "NeronModelsAndSemistableAbelianVarieties/G-Weierstrass-scheme"
+        "NeronModelsAndSemistableAbelianVarieties/G-Weierstrass-scheme",
+        "NeronModelsAndSemistableAbelianVarieties/G-Weil-extension"
       ],
       "requiredImports": [
         "AbelianSchemesAndArithmeticModuli:A1",
@@ -6477,11 +6522,10 @@
       "tests": [],
       "reason": "The native Over/Scheme prefix cannot yet state the exact Equation versus toric elliptic reduction interface: its geometric/group/representation carriers and comparisons require the listed transitive imports and unresolved proof inputs. No raw proposition field substitutes for them.",
       "blockingGaps": [
-        "NeronModelsAndSemistableAbelianVarieties/G-existence",
-        "NeronModelsAndSemistableAbelianVarieties/G-components",
-        "NeronModelsAndSemistableAbelianVarieties/G-Lang-lifting",
         "NeronModelsAndSemistableAbelianVarieties/G-Kodaira-resolution",
-        "NeronModelsAndSemistableAbelianVarieties/G-Weierstrass-scheme"
+        "NeronModelsAndSemistableAbelianVarieties/G-Lang-lifting",
+        "NeronModelsAndSemistableAbelianVarieties/G-Weierstrass-scheme",
+        "NeronModelsAndSemistableAbelianVarieties/G-components"
       ],
       "requiredImports": [
         "AbelianSchemesAndArithmeticModuli:A1",
@@ -6498,10 +6542,8 @@
       "tests": [],
       "reason": "The native Over/Scheme prefix cannot yet state the exact Minimal discriminant and regular-fibre geometry interface: its geometric/group/representation carriers and comparisons require the listed transitive imports and unresolved proof inputs. No raw proposition field substitutes for them.",
       "blockingGaps": [
-        "NeronModelsAndSemistableAbelianVarieties/G-existence",
-        "NeronModelsAndSemistableAbelianVarieties/G-components",
-        "NeronModelsAndSemistableAbelianVarieties/G-Lang-lifting",
-        "NeronModelsAndSemistableAbelianVarieties/G-Kodaira-resolution"
+        "NeronModelsAndSemistableAbelianVarieties/G-Kodaira-resolution",
+        "NeronModelsAndSemistableAbelianVarieties/G-components"
       ],
       "requiredImports": [
         "AbelianSchemesAndArithmeticModuli:A1",
@@ -6518,11 +6560,9 @@
       "tests": [],
       "reason": "The native Over/Scheme prefix cannot yet state the exact Ogg exponent and full conductor comparison interface: its geometric/group/representation carriers and comparisons require the listed transitive imports and unresolved proof inputs. No raw proposition field substitutes for them.",
       "blockingGaps": [
-        "NeronModelsAndSemistableAbelianVarieties/G-existence",
-        "NeronModelsAndSemistableAbelianVarieties/G-components",
-        "NeronModelsAndSemistableAbelianVarieties/G-Lang-lifting",
         "NeronModelsAndSemistableAbelianVarieties/G-Kodaira-resolution",
-        "NeronModelsAndSemistableAbelianVarieties/G-Ogg-geometry"
+        "NeronModelsAndSemistableAbelianVarieties/G-Ogg-geometry",
+        "NeronModelsAndSemistableAbelianVarieties/G-components"
       ],
       "requiredImports": [
         "AbelianSchemesAndArithmeticModuli:A1",
@@ -6541,10 +6581,9 @@
       "tests": [],
       "reason": "The native Over/Scheme prefix cannot yet state the exact Tamagawa number uses rational components interface: its geometric/group/representation carriers and comparisons require the listed transitive imports and unresolved proof inputs. No raw proposition field substitutes for them.",
       "blockingGaps": [
-        "NeronModelsAndSemistableAbelianVarieties/G-existence",
-        "NeronModelsAndSemistableAbelianVarieties/G-components",
+        "NeronModelsAndSemistableAbelianVarieties/G-Kodaira-resolution",
         "NeronModelsAndSemistableAbelianVarieties/G-Lang-lifting",
-        "NeronModelsAndSemistableAbelianVarieties/G-Kodaira-resolution"
+        "NeronModelsAndSemistableAbelianVarieties/G-components"
       ],
       "requiredImports": [
         "AbelianSchemesAndArithmeticModuli:A1",
@@ -6561,12 +6600,12 @@
       "tests": [],
       "reason": "The native Over/Scheme prefix cannot yet state the exact Minimal differential equals Néron lattice basis interface: its geometric/group/representation carriers and comparisons require the listed transitive imports and unresolved proof inputs. No raw proposition field substitutes for them.",
       "blockingGaps": [
-        "NeronModelsAndSemistableAbelianVarieties/G-existence",
-        "NeronModelsAndSemistableAbelianVarieties/G-spreading",
-        "NeronModelsAndSemistableAbelianVarieties/G-Weil-extension",
-        "NeronModelsAndSemistableAbelianVarieties/G-relative-differentials",
         "NeronModelsAndSemistableAbelianVarieties/G-Kodaira-resolution",
-        "NeronModelsAndSemistableAbelianVarieties/G-Weierstrass-scheme"
+        "NeronModelsAndSemistableAbelianVarieties/G-Weierstrass-scheme",
+        "NeronModelsAndSemistableAbelianVarieties/G-Weil-extension",
+        "NeronModelsAndSemistableAbelianVarieties/G-existence",
+        "NeronModelsAndSemistableAbelianVarieties/G-relative-differentials",
+        "NeronModelsAndSemistableAbelianVarieties/G-spreading"
       ],
       "requiredImports": [
         "AbelianSchemesAndArithmeticModuli:A1",
@@ -6581,18 +6620,18 @@
       "tests": [],
       "reason": "The native Over/Scheme prefix cannot yet state the exact Abelian cohomology compatible-system export interface: its geometric/group/representation carriers and comparisons require the listed transitive imports and unresolved proof inputs. No raw proposition field substitutes for them.",
       "blockingGaps": [
+        "NeronModelsAndSemistableAbelianVarieties/G-Chevalley",
+        "NeronModelsAndSemistableAbelianVarieties/G-Euler-comparison",
+        "NeronModelsAndSemistableAbelianVarieties/G-Raynaud-algebraization",
         "NeronModelsAndSemistableAbelianVarieties/G-Weil-extension",
         "NeronModelsAndSemistableAbelianVarieties/G-components",
-        "NeronModelsAndSemistableAbelianVarieties/G-Chevalley",
-        "NeronModelsAndSemistableAbelianVarieties/G-semiabelian-prefix",
         "NeronModelsAndSemistableAbelianVarieties/G-finite-torsion",
-        "NeronModelsAndSemistableAbelianVarieties/G-pdiv-orthogonality",
         "NeronModelsAndSemistableAbelianVarieties/G-monodromy-converse",
-        "NeronModelsAndSemistableAbelianVarieties/G-valuations",
-        "NeronModelsAndSemistableAbelianVarieties/G-Raynaud-algebraization",
+        "NeronModelsAndSemistableAbelianVarieties/G-pdiv-orthogonality",
         "NeronModelsAndSemistableAbelianVarieties/G-polarized-effectivity",
-        "NeronModelsAndSemistableAbelianVarieties/G-Euler-comparison",
-        "NeronModelsAndSemistableAbelianVarieties/G-strict-compatibility"
+        "NeronModelsAndSemistableAbelianVarieties/G-semiabelian-prefix",
+        "NeronModelsAndSemistableAbelianVarieties/G-strict-compatibility",
+        "NeronModelsAndSemistableAbelianVarieties/G-valuations"
       ],
       "requiredImports": [
         "AbelianSchemesAndArithmeticModuli:A1",
@@ -6610,12 +6649,12 @@
       "tests": [],
       "reason": "The native Over/Scheme prefix cannot yet state the exact Semistable ordinary reduction adapter interface: its geometric/group/representation carriers and comparisons require the listed transitive imports and unresolved proof inputs. No raw proposition field substitutes for them.",
       "blockingGaps": [
-        "NeronModelsAndSemistableAbelianVarieties/G-components",
         "NeronModelsAndSemistableAbelianVarieties/G-Chevalley",
-        "NeronModelsAndSemistableAbelianVarieties/G-semiabelian-prefix",
+        "NeronModelsAndSemistableAbelianVarieties/G-components",
         "NeronModelsAndSemistableAbelianVarieties/G-finite-torsion",
+        "NeronModelsAndSemistableAbelianVarieties/G-ordinary-prefix",
         "NeronModelsAndSemistableAbelianVarieties/G-pdiv-orthogonality",
-        "NeronModelsAndSemistableAbelianVarieties/G-ordinary-prefix"
+        "NeronModelsAndSemistableAbelianVarieties/G-semiabelian-prefix"
       ],
       "requiredImports": [
         "AbelianSchemesAndArithmeticModuli:A1",
@@ -6630,12 +6669,12 @@
       "tests": [],
       "reason": "The native Over/Scheme prefix cannot yet state the exact Ordinary surface isotropic filtration export interface: its geometric/group/representation carriers and comparisons require the listed transitive imports and unresolved proof inputs. No raw proposition field substitutes for them.",
       "blockingGaps": [
-        "NeronModelsAndSemistableAbelianVarieties/G-components",
         "NeronModelsAndSemistableAbelianVarieties/G-Chevalley",
-        "NeronModelsAndSemistableAbelianVarieties/G-semiabelian-prefix",
+        "NeronModelsAndSemistableAbelianVarieties/G-components",
         "NeronModelsAndSemistableAbelianVarieties/G-finite-torsion",
+        "NeronModelsAndSemistableAbelianVarieties/G-ordinary-prefix",
         "NeronModelsAndSemistableAbelianVarieties/G-pdiv-orthogonality",
-        "NeronModelsAndSemistableAbelianVarieties/G-ordinary-prefix"
+        "NeronModelsAndSemistableAbelianVarieties/G-semiabelian-prefix"
       ],
       "requiredImports": [
         "AbelianSchemesAndArithmeticModuli:A1",
@@ -6650,13 +6689,13 @@
       "tests": [],
       "reason": "The native Over/Scheme prefix cannot yet state the exact BCGP ordinary residual point export interface: its geometric/group/representation carriers and comparisons require the listed transitive imports and unresolved proof inputs. No raw proposition field substitutes for them.",
       "blockingGaps": [
-        "NeronModelsAndSemistableAbelianVarieties/G-components",
         "NeronModelsAndSemistableAbelianVarieties/G-Chevalley",
-        "NeronModelsAndSemistableAbelianVarieties/G-semiabelian-prefix",
+        "NeronModelsAndSemistableAbelianVarieties/G-components",
         "NeronModelsAndSemistableAbelianVarieties/G-finite-torsion",
-        "NeronModelsAndSemistableAbelianVarieties/G-pdiv-orthogonality",
         "NeronModelsAndSemistableAbelianVarieties/G-ordinary-prefix",
-        "NeronModelsAndSemistableAbelianVarieties/G-residual-image"
+        "NeronModelsAndSemistableAbelianVarieties/G-pdiv-orthogonality",
+        "NeronModelsAndSemistableAbelianVarieties/G-residual-image",
+        "NeronModelsAndSemistableAbelianVarieties/G-semiabelian-prefix"
       ],
       "requiredImports": [
         "AbelianSchemesAndArithmeticModuli:A1",
@@ -6671,17 +6710,18 @@
       "tests": [],
       "reason": "The native Over/Scheme prefix cannot yet state the exact Unramified three-torsion at two gives semistability interface: its geometric/group/representation carriers and comparisons require the listed transitive imports and unresolved proof inputs. No raw proposition field substitutes for them.",
       "blockingGaps": [
-        "NeronModelsAndSemistableAbelianVarieties/G-components",
         "NeronModelsAndSemistableAbelianVarieties/G-Chevalley",
-        "NeronModelsAndSemistableAbelianVarieties/G-semiabelian-prefix",
+        "NeronModelsAndSemistableAbelianVarieties/G-components",
         "NeronModelsAndSemistableAbelianVarieties/G-finite-torsion",
-        "NeronModelsAndSemistableAbelianVarieties/G-pdiv-orthogonality",
+        "NeronModelsAndSemistableAbelianVarieties/G-level-kernel",
         "NeronModelsAndSemistableAbelianVarieties/G-monodromy-converse",
-        "NeronModelsAndSemistableAbelianVarieties/G-level-kernel"
+        "NeronModelsAndSemistableAbelianVarieties/G-pdiv-orthogonality",
+        "NeronModelsAndSemistableAbelianVarieties/G-semiabelian-prefix"
       ],
       "requiredImports": [
         "AbelianSchemesAndArithmeticModuli:A1",
         "AbelianSchemesAndArithmeticModuli:A3",
+        "ArithmeticGaloisRepresentations:R01.2",
         "ArithmeticGaloisRepresentations:R01.6"
       ]
     },
@@ -6692,18 +6732,19 @@
       "tests": [],
       "reason": "The native Over/Scheme prefix cannot yet state the exact Full level extension for curve semistability interface: its geometric/group/representation carriers and comparisons require the listed transitive imports and unresolved proof inputs. No raw proposition field substitutes for them.",
       "blockingGaps": [
-        "NeronModelsAndSemistableAbelianVarieties/G-components",
         "NeronModelsAndSemistableAbelianVarieties/G-Chevalley",
-        "NeronModelsAndSemistableAbelianVarieties/G-semiabelian-prefix",
+        "NeronModelsAndSemistableAbelianVarieties/G-Yuan-valuation-scope",
+        "NeronModelsAndSemistableAbelianVarieties/G-components",
         "NeronModelsAndSemistableAbelianVarieties/G-finite-torsion",
-        "NeronModelsAndSemistableAbelianVarieties/G-pdiv-orthogonality",
-        "NeronModelsAndSemistableAbelianVarieties/G-monodromy-converse",
         "NeronModelsAndSemistableAbelianVarieties/G-level-kernel",
-        "NeronModelsAndSemistableAbelianVarieties/G-Yuan-valuation-scope"
+        "NeronModelsAndSemistableAbelianVarieties/G-monodromy-converse",
+        "NeronModelsAndSemistableAbelianVarieties/G-pdiv-orthogonality",
+        "NeronModelsAndSemistableAbelianVarieties/G-semiabelian-prefix"
       ],
       "requiredImports": [
         "AbelianSchemesAndArithmeticModuli:A1",
         "AbelianSchemesAndArithmeticModuli:A3",
+        "ArithmeticGaloisRepresentations:R01.2",
         "ArithmeticGaloisRepresentations:R01.6",
         "tauceti:TauCetiRoadmap/StableReduction#layer-7-semistable-reduction"
       ]
@@ -6715,24 +6756,21 @@
       "tests": [],
       "reason": "The native Over/Scheme prefix cannot yet state the exact Good, split, nonsplit and nodal acceptance suite interface: its geometric/group/representation carriers and comparisons require the listed transitive imports and unresolved proof inputs. No raw proposition field substitutes for them.",
       "blockingGaps": [
-        "NeronModelsAndSemistableAbelianVarieties/G-existence",
+        "NeronModelsAndSemistableAbelianVarieties/G-Chevalley",
+        "NeronModelsAndSemistableAbelianVarieties/G-Kodaira-resolution",
+        "NeronModelsAndSemistableAbelianVarieties/G-Lang-lifting",
+        "NeronModelsAndSemistableAbelianVarieties/G-Picard-Raynaud",
         "NeronModelsAndSemistableAbelianVarieties/G-Weil-extension",
         "NeronModelsAndSemistableAbelianVarieties/G-components",
-        "NeronModelsAndSemistableAbelianVarieties/G-Chevalley",
-        "NeronModelsAndSemistableAbelianVarieties/G-Lang-lifting",
-        "NeronModelsAndSemistableAbelianVarieties/G-Kodaira-resolution",
-        "NeronModelsAndSemistableAbelianVarieties/G-semiabelian-prefix",
-        "NeronModelsAndSemistableAbelianVarieties/G-semiabelian-open-immersion",
-        "NeronModelsAndSemistableAbelianVarieties/G-Raynaud-algebraization",
-        "NeronModelsAndSemistableAbelianVarieties/G-polarized-effectivity",
-        "NeronModelsAndSemistableAbelianVarieties/G-Picard-Raynaud",
-        "NeronModelsAndSemistableAbelianVarieties/G-normalization-cohomology",
         "NeronModelsAndSemistableAbelianVarieties/G-integral-pairing",
+        "NeronModelsAndSemistableAbelianVarieties/G-normalization-cohomology",
+        "NeronModelsAndSemistableAbelianVarieties/G-semiabelian-open-immersion",
+        "NeronModelsAndSemistableAbelianVarieties/G-semiabelian-prefix",
         "NeronModelsAndSemistableAbelianVarieties/G-thickness-resolution"
       ],
       "requiredImports": [
         "AbelianSchemesAndArithmeticModuli:A1",
-        "AdicSpacesPartII:F0",
+        "AbelianSchemesAndArithmeticModuli:A3",
         "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
         "tauceti:TauCetiRoadmap/JacobianChallenge#layer-d-the-relative-picard-functor-and-the-jacobian-scheme",
         "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs",
@@ -6748,10 +6786,10 @@
       "tests": [],
       "reason": "The native Over/Scheme prefix cannot yet state the exact BGW odd-factor torsors interface: its geometric/group/representation carriers and comparisons require the listed transitive imports and unresolved proof inputs. No raw proposition field substitutes for them.",
       "blockingGaps": [
-        "NeronModelsAndSemistableAbelianVarieties/G-Picard-Raynaud",
-        "NeronModelsAndSemistableAbelianVarieties/G-normalization-cohomology",
         "NeronModelsAndSemistableAbelianVarieties/G-BGW-divisors",
-        "NeronModelsAndSemistableAbelianVarieties/G-Brauer-Picard"
+        "NeronModelsAndSemistableAbelianVarieties/G-Brauer-Picard",
+        "NeronModelsAndSemistableAbelianVarieties/G-Picard-Raynaud",
+        "NeronModelsAndSemistableAbelianVarieties/G-normalization-cohomology"
       ],
       "requiredImports": [
         "AbelianSchemesAndArithmeticModuli:A3",
@@ -6768,11 +6806,11 @@
       "tests": [],
       "reason": "The native Over/Scheme prefix cannot yet state the exact BGW two-torsion connecting class interface: its geometric/group/representation carriers and comparisons require the listed transitive imports and unresolved proof inputs. No raw proposition field substitutes for them.",
       "blockingGaps": [
-        "NeronModelsAndSemistableAbelianVarieties/G-Picard-Raynaud",
-        "NeronModelsAndSemistableAbelianVarieties/G-normalization-cohomology",
+        "NeronModelsAndSemistableAbelianVarieties/G-BGW-cup-product",
         "NeronModelsAndSemistableAbelianVarieties/G-BGW-divisors",
         "NeronModelsAndSemistableAbelianVarieties/G-Brauer-Picard",
-        "NeronModelsAndSemistableAbelianVarieties/G-BGW-cup-product"
+        "NeronModelsAndSemistableAbelianVarieties/G-Picard-Raynaud",
+        "NeronModelsAndSemistableAbelianVarieties/G-normalization-cohomology"
       ],
       "requiredImports": [
         "AbelianSchemesAndArithmeticModuli:A3",
@@ -6806,6 +6844,457 @@
     {
       "where": "LefschetzPencilsAndVanishingCycles:LPV.7:semistable-curves",
       "note": "Use only its weight-independent normalization/node specialization prefix when refining the graph/monodromy comparison. Do not import the weight-theoretic invariant-cycle suffix or assume a higher-dimensional weight-monodromy theorem."
+    },
+    {
+      "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/global-existence",
+      "note": "The exact finite-pinching supplier contract is present in the queued PartII packet and was read as an input boundary. Its coarse G.0 stage is not promoted at this review base, so the current atlas has no G.0→R11.4 stage path. Conditional read-only assembly with that unchanged supplier packet/definition represents this path and stays acyclic. This job does not review or promote the supplier; its own independent review remains required."
     }
-  ]
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-NeronModelsAndSemistableAbelianVarieties",
+    "date": "2026-10-05",
+    "notes": "Complete independent target-level review of78 nodes,9 pinned baseline declarations,13 authenticated primary source copies,110 API entries,33 unit-test statements,23 planets,30 target rows,9 routed items,14 requests and39 gaps. Corrected source locators, exact hypotheses, variance/proof boundaries and omission transitive lists. Added and confirmed E6 (finite-level torsion inference); confirmed E1–E5. All six stages remain planned and every implementation unchecked. Mathematical/source/carrier gaps remain explicit; no proof closure, Tau Ceti build or omitted signature compilation is claimed. Reader regeneration from corrected packet is required. The queued Ferrand supplier lacks its current coarse-stage path; conditional unchanged-supplier assembly passes. No independent supplier review is claimed.",
+    "checked": [
+      {
+        "nodeId": "NeronModelsAndSemistableAbelianVarieties:R11.1/mapping-property",
+        "verdict": "verified",
+        "reason": "Full NMP quantifies over all smooth schemes; restriction is actually a morphism-valued map."
+      },
+      {
+        "nodeId": "NeronModelsAndSemistableAbelianVarieties:R11.1/marked-model",
+        "verdict": "verified",
+        "reason": "Marked Over-model retains generic isomorphism, smoothness, separatedness and finite type via quasi-compactness."
+      },
+      {
+        "nodeId": "NeronModelsAndSemistableAbelianVarieties:R11.1/extend",
+        "verdict": "corrected",
+        "reason": "Extension is an actual chosen morphism from unique existence; identity/composition/inverse interfaces agree."
+      },
+      {
+        "nodeId": "NeronModelsAndSemistableAbelianVarieties:R11.1/marked-model-hom-ext",
+        "verdict": "verified",
+        "reason": "Hom extensionality uses a smooth test scheme and cancellation of the generic marking."
+      },
+      {
+        "nodeId": "NeronModelsAndSemistableAbelianVarieties:R11.1/extend-extend-inverse-model",
+        "verdict": "corrected",
+        "reason": "Remove extraneous Y hypothesis: the inverse comparison is between two marked models of the same A."
+      },
+      {
+        "nodeId": "NeronModelsAndSemistableAbelianVarieties:R11.1/unique-iso",
+        "verdict": "verified",
+        "reason": "Unique marked model isomorphism follows by extending both markings and hom extensionality."
+      },
+      {
+        "nodeId": "NeronModelsAndSemistableAbelianVarieties:R11.1/group-law",
+        "verdict": "verified",
+        "reason": "Group law extends by NMP on smooth products; generic isogeny is not claimed finite flat after extension."
+      },
+      {
+        "nodeId": "NeronModelsAndSemistableAbelianVarieties:R11.1/weak-model",
+        "verdict": "verified",
+        "reason": "Weak model uses étale tests, retaining its generic marking and finite-type convention."
+      },
+      {
+        "nodeId": "NeronModelsAndSemistableAbelianVarieties:R11.1/smoothening",
+        "verdict": "corrected",
+        "reason": "A group law on an already-full model cannot construct the weak model; expose rational-law/saturation construction in G-existence."
+      },
+      {
+        "nodeId": "NeronModelsAndSemistableAbelianVarieties:R11.1/local-existence",
+        "verdict": "verified",
+        "reason": "Excellent-DVR existence is a genuine boundedness/smoothening target, not a derived implemented theorem."
+      },
+      {
+        "nodeId": "NeronModelsAndSemistableAbelianVarieties:R11.1/spread-abelian",
+        "verdict": "verified",
+        "reason": "BLR defines Dedekind schemes noetherian; dense-open complement is finite and full scheme/group data spread."
+      },
+      {
+        "nodeId": "NeronModelsAndSemistableAbelianVarieties:R11.1/abelian-scheme-model",
+        "verdict": "verified",
+        "reason": "Abelian-scheme NMP requires the cited Weil extension argument, explicitly G-Weil-extension."
+      },
+      {
+        "nodeId": "NeronModelsAndSemistableAbelianVarieties:R11.1/dedekind-gluing",
+        "verdict": "corrected",
+        "reason": "Local models glue through generic markings and finite-presentation spreading; correct Lemma5 page span."
+      },
+      {
+        "nodeId": "NeronModelsAndSemistableAbelianVarieties:R11.1/etale-basechange",
+        "verdict": "verified",
+        "reason": "Étale base change composes smooth tests; ramified full-model compatibility is excluded."
+      },
+      {
+        "nodeId": "NeronModelsAndSemistableAbelianVarieties:R11.1/differential-lattice",
+        "verdict": "corrected",
+        "reason": "Differentials are sheaf-level, finite projective on affine base; chart conormal need not be a Hopf subgroup; conditional nonfree test is precise."
+      },
+      {
+        "nodeId": "NeronModelsAndSemistableAbelianVarieties:R11.2/identity-component",
+        "verdict": "corrected",
+        "reason": "Geometric identity subgroup need not be affine; good positive-dimensional special fibre gives the nonaffine control."
+      },
+      {
+        "nodeId": "NeronModelsAndSemistableAbelianVarieties:R11.2/component-group",
+        "verdict": "corrected",
+        "reason": "Finite étale quotient retains residue descent; nonsplit Frobenius fixed order needs finite k and parity of n."
+      },
+      {
+        "nodeId": "NeronModelsAndSemistableAbelianVarieties:R11.2/chevalley",
+        "verdict": "corrected",
+        "reason": "Chevalley uses perfect fields; repair Theorem2.6 locator and preserve imperfect-field refinements as supplier proof gaps."
+      },
+      {
+        "nodeId": "NeronModelsAndSemistableAbelianVarieties:R11.2/toric-character",
+        "verdict": "corrected",
+        "reason": "Canonical torus and its character lattice descend over arbitrary k via Theorem3.1, without a false perfect-field requirement."
+      },
+      {
+        "nodeId": "NeronModelsAndSemistableAbelianVarieties:R11.2/isogeny-components",
+        "verdict": "corrected",
+        "reason": "Isogeny rank comparison is geometric Chevalley plus dual isogeny; source is Proposition4.1 and general exactness is excluded."
+      },
+      {
+        "nodeId": "NeronModelsAndSemistableAbelianVarieties:R11.2/elliptic-filtration",
+        "verdict": "verified",
+        "reason": "Complete DVR filtration, formal-group kernel and finite-residue Lang lifting are separately qualified."
+      },
+      {
+        "nodeId": "NeronModelsAndSemistableAbelianVarieties:R11.2/minimal-regular-smooth-locus",
+        "verdict": "corrected",
+        "reason": "Given minimal regular model over strictly henselian DVR has Néron smooth locus; remove excellent-only existence as a prerequisite."
+      },
+      {
+        "nodeId": "NeronModelsAndSemistableAbelianVarieties:R11.2/kodaira-geometric-configurations",
+        "verdict": "verified",
+        "reason": "Kodaira geometry keeps types, multiplicities and intersection distinctions; tame numeric restriction applies below the table divider."
+      },
+      {
+        "nodeId": "NeronModelsAndSemistableAbelianVarieties:R11.2/kodaira-component-groups",
+        "verdict": "corrected",
+        "reason": "Compute geometric groups from smooth-locus group law; restricted rational filtration is not a proof over arbitrary strictly henselian DVR."
+      },
+      {
+        "nodeId": "NeronModelsAndSemistableAbelianVarieties:R11.2/wild-kodaira-comparison",
+        "verdict": "verified",
+        "reason": "Wild algorithm adapter remains an EC4/G-Kodaira-resolution import; tame table is insufficient."
+      },
+      {
+        "nodeId": "NeronModelsAndSemistableAbelianVarieties:R11.3/semistable-reduction",
+        "verdict": "corrected",
+        "reason": "Semiabelian identity predicate uses the canonical torus over arbitrary fields; perfect-field no-unipotent API is separately qualified."
+      },
+      {
+        "nodeId": "NeronModelsAndSemistableAbelianVarieties:R11.3/semistability-isogeny",
+        "verdict": "corrected",
+        "reason": "Isogeny invariance is Proposition4.1 with finite-kernel rank comparison, not an exact Néron functor."
+      },
+      {
+        "nodeId": "NeronModelsAndSemistableAbelianVarieties:R11.3/semistable-identity-basechange",
+        "verdict": "corrected",
+        "reason": "Use Theorem4.4 open immersion into the full model and identity fibre image; identity models lack full NMP."
+      },
+      {
+        "nodeId": "NeronModelsAndSemistableAbelianVarieties:R11.3/ramified-tate-counterexample",
+        "verdict": "corrected",
+        "reason": "Ramified Tate n to en changes components while preserving the semistable identity comparison."
+      },
+      {
+        "nodeId": "NeronModelsAndSemistableAbelianVarieties:R11.3/toric-finite-filtration",
+        "verdict": "corrected",
+        "reason": "Finite/toric saturated Tate filtration has ranks t and t+2a; inertia-fixed description is prime-to-residue only."
+      },
+      {
+        "nodeId": "NeronModelsAndSemistableAbelianVarieties:R11.3/orthogonality",
+        "verdict": "corrected",
+        "reason": "Orthogonality needs Weil twist and the qualified residue-prime p-divisible interpretation; G-pdiv-orthogonality remains."
+      },
+      {
+        "nodeId": "NeronModelsAndSemistableAbelianVarieties:R11.3/inertia-square-zero",
+        "verdict": "corrected",
+        "reason": "Unipotent operators act trivially on finite part and land in toric part, yielding square zero; correct short excerpt."
+      },
+      {
+        "nodeId": "NeronModelsAndSemistableAbelianVarieties:R11.3/monodromy-criterion",
+        "verdict": "corrected",
+        "reason": "Theorem5.8 has an invalid finite-level inference on p.21; E6 and the integral/divisible descent gap prevent false closure."
+      },
+      {
+        "nodeId": "NeronModelsAndSemistableAbelianVarieties:R11.3/finite-separable-semistable-extension",
+        "verdict": "corrected",
+        "reason": "Potential semistability cannot be deduced from the cited proof of a criterion that already assumes it; independent proof order remains explicit."
+      },
+      {
+        "nodeId": "NeronModelsAndSemistableAbelianVarieties:R11.3/finite-torsion-semistability",
+        "verdict": "corrected",
+        "reason": "Level-N argument needs quasi-unipotence and eigenvalue valuations over the algebraic closure; retain N≥3 prime-to-residue and the N=2 boundary."
+      },
+      {
+        "nodeId": "NeronModelsAndSemistableAbelianVarieties:R11.3/raynaud-extension-comparison",
+        "verdict": "corrected",
+        "reason": "Formal Raynaud algebraization is complete positive-residue-characteristic; 4.2.3 is a Definition and BL proofs remain open."
+      },
+      {
+        "nodeId": "NeronModelsAndSemistableAbelianVarieties:R11.3/rigid-uniformisation",
+        "verdict": "corrected",
+        "reason": "Separate the covering/lattice and valuation from polarized positivity; §4.7 is not a positivity proof."
+      },
+      {
+        "nodeId": "NeronModelsAndSemistableAbelianVarieties:R11.4/picard-zero",
+        "verdict": "corrected",
+        "reason": "Picard identity is separated semiabelian under regular semistable hypotheses; 7.14 is Proposition, not Theorem."
+      },
+      {
+        "nodeId": "NeronModelsAndSemistableAbelianVarieties:R11.4/normalization-exact-sequence",
+        "verdict": "corrected",
+        "reason": "Normalization exact sequence gives torus plus component Jacobians; units/cohomology proof boundary remains explicit."
+      },
+      {
+        "nodeId": "NeronModelsAndSemistableAbelianVarieties:R11.4/characters-graph-homology",
+        "verdict": "corrected",
+        "reason": "Characters are integral H1, with loops and parallel edges retained; replace unrelated Dedekind hypothesis."
+      },
+      {
+        "nodeId": "NeronModelsAndSemistableAbelianVarieties:R11.4/picard-neron-identity",
+        "verdict": "corrected",
+        "reason": "Use full Picard quotient NMP first, then restrict the marked full-model comparison to identity groups; no full NMP for Pic0."
+      },
+      {
+        "nodeId": "NeronModelsAndSemistableAbelianVarieties:R11.4/integral-monodromy-pairing",
+        "verdict": "corrected",
+        "reason": "Construct integral pairing directly over henselian trait; complete analytic uniformisation cannot supply the stated generality."
+      },
+      {
+        "nodeId": "NeronModelsAndSemistableAbelianVarieties:R11.4/graph-monodromy",
+        "verdict": "verified",
+        "reason": "Regular nodal graph has unit edge lengths; weighted thick-node version requires regular subdivision."
+      },
+      {
+        "nodeId": "NeronModelsAndSemistableAbelianVarieties:R11.4/component-cokernel",
+        "verdict": "corrected",
+        "reason": "Integral finite cokernel with descent, not rational lattice isomorphism, gives Phi; qualify all-prime p-divisible comparison."
+      },
+      {
+        "nodeId": "NeronModelsAndSemistableAbelianVarieties:R11.4/component-pairing",
+        "verdict": "corrected",
+        "reason": "Canonical obstruction pairing and semistable discriminant duality agree; no general perfectness conjecture is asserted."
+      },
+      {
+        "nodeId": "NeronModelsAndSemistableAbelianVarieties:R11.4/intersection-component-quotient",
+        "verdict": "corrected",
+        "reason": "General regular nonreduced fibre quotient uses Picard quotient and multiplicity gcd1, not semistable identity or monodromy alone."
+      },
+      {
+        "nodeId": "NeronModelsAndSemistableAbelianVarieties:R11.4/bgw-nodal-pinch",
+        "verdict": "corrected",
+        "reason": "Ferrand finite pinching supplier provides pushout, not genus computation; split quadratic algebra is K×K."
+      },
+      {
+        "nodeId": "NeronModelsAndSemistableAbelianVarieties:R11.4/bgw-generalized-jacobian",
+        "verdict": "verified",
+        "reason": "Res_D Gm/Gm identifies with norm-one torus as schemes; naive K-point quotient is not used."
+      },
+      {
+        "nodeId": "NeronModelsAndSemistableAbelianVarieties:R11.4/bgw-two-torsion",
+        "verdict": "corrected",
+        "reason": "Two-torsion ranks and diagonal quotient agree with Proposition22; divisor proof is on p.12 and Galois fixed points require care."
+      },
+      {
+        "nodeId": "NeronModelsAndSemistableAbelianVarieties:R11.4/bgw-brauer-descent",
+        "verdict": "corrected",
+        "reason": "Picard rational classes carry Brauer obstruction; the quadratic splitting algebra kills it, and split case has rational points."
+      },
+      {
+        "nodeId": "NeronModelsAndSemistableAbelianVarieties:R11.4/stable-family-picard",
+        "verdict": "corrected",
+        "reason": "Stable-family Picard over general integral Noetherian base needs general cotangent/duality input; Dedekind Néron lattice is not its supplier."
+      },
+      {
+        "nodeId": "NeronModelsAndSemistableAbelianVarieties:R11.5/neron-ogg-shafarevich",
+        "verdict": "corrected",
+        "reason": "NOS uses full prime-to-residue Tate action, monodromy criterion and the nondegenerate integral pairing, retaining the bridge gap."
+      },
+      {
+        "nodeId": "NeronModelsAndSemistableAbelianVarieties:R11.5/good-isogeny",
+        "verdict": "corrected",
+        "reason": "Good isogeny invariance uses rational representation and torsion-free lattice; henselization/descent is explicit outside henselian bases."
+      },
+      {
+        "nodeId": "NeronModelsAndSemistableAbelianVarieties:R11.5/padic-comparison-import",
+        "verdict": "verified",
+        "reason": "Crystalline/semistable p-adic comparison is an R06.6 import; BCGP provides a consumer context rather than the foundational proof."
+      },
+      {
+        "nodeId": "NeronModelsAndSemistableAbelianVarieties:R11.5/conductor-import",
+        "verdict": "corrected",
+        "reason": "Artin/Swan definitions and dual convention stay R01.3/R01.6; require local-field setting."
+      },
+      {
+        "nodeId": "NeronModelsAndSemistableAbelianVarieties:R11.5/semistable-conductor-rank",
+        "verdict": "corrected",
+        "reason": "Conductor equals toric rank by t+2a fixed rank and wild inertia vanishing; add correctly attributed Conrad support to CG surface application."
+      },
+      {
+        "nodeId": "NeronModelsAndSemistableAbelianVarieties:R11.5/local-euler-polynomial",
+        "verdict": "corrected",
+        "reason": "Use cohomological dual with geometric Frobenius and full inertia/ker N; Raynaud homological arithmetic convention needs the adapter."
+      },
+      {
+        "nodeId": "NeronModelsAndSemistableAbelianVarieties:R11.5/elliptic-local-polynomial",
+        "verdict": "verified",
+        "reason": "Native finite-residue localPolynomial is preserved; split/nonsplit/additive cases and finite cardinal requirement match Tate p.44."
+      },
+      {
+        "nodeId": "NeronModelsAndSemistableAbelianVarieties:R11.5/residual-conductor-components",
+        "verdict": "verified",
+        "reason": "Residual conductor needs dual geometric component order and saturated integral invariants; rational Phi(k) is insufficient."
+      },
+      {
+        "nodeId": "NeronModelsAndSemistableAbelianVarieties:R11.6/degeneracy-functoriality",
+        "verdict": "corrected",
+        "reason": "Degeneracy naturality is conditional on actual homomorphisms; character variance and dual adjoints are correctly oriented."
+      },
+      {
+        "nodeId": "NeronModelsAndSemistableAbelianVarieties:R11.6/character-exact-sequences",
+        "verdict": "corrected",
+        "reason": "Actual exact tori dualize integrally; modular saturation and all snake-lemma defects remain, with erratum separately attributed."
+      },
+      {
+        "nodeId": "NeronModelsAndSemistableAbelianVarieties:R11.6/semistable-differential-basechange",
+        "verdict": "corrected",
+        "reason": "Number-field semistability gives identity differential base change at ramified finite places; full components still change."
+      },
+      {
+        "nodeId": "NeronModelsAndSemistableAbelianVarieties:R11.6/isogeny-differential-export",
+        "verdict": "corrected",
+        "reason": "Isogeny differential inclusion is characteristic-zero and same rank; local p-primary corrections and CM erratum scope remain."
+      },
+      {
+        "nodeId": "NeronModelsAndSemistableAbelianVarieties:R11.6/equation-good-comparison",
+        "verdict": "corrected",
+        "reason": "Native multiplicative valuation Delta=1 is ordinal valuation zero; strict-henselian geometric adapter needs descent."
+      },
+      {
+        "nodeId": "NeronModelsAndSemistableAbelianVarieties:R11.6/equation-multiplicative-comparison",
+        "verdict": "corrected",
+        "reason": "Native c4/Delta and residual tangent splitness compare with the torus; carry residue descent rather than geometric splitness only."
+      },
+      {
+        "nodeId": "NeronModelsAndSemistableAbelianVarieties:R11.6/equation-discriminant-comparison",
+        "verdict": "corrected",
+        "reason": "Minimal discriminant table uses tame restriction, with wild algorithm separate; descent of geometric comparison is explicit."
+      },
+      {
+        "nodeId": "NeronModelsAndSemistableAbelianVarieties:R11.6/equation-conductor-comparison",
+        "verdict": "corrected",
+        "reason": "EC4 only supplies algorithmic exponent; R01.3 and unresolved full Ogg/Saito proof supply actual conductor including wild terms."
+      },
+      {
+        "nodeId": "NeronModelsAndSemistableAbelianVarieties:R11.6/equation-component-comparison",
+        "verdict": "verified",
+        "reason": "Tamagawa number is rational component order, with finite k Lang lifting; nonsplit I_n parity control is correct."
+      },
+      {
+        "nodeId": "NeronModelsAndSemistableAbelianVarieties:R11.6/equation-minimal-differential",
+        "verdict": "corrected",
+        "reason": "Formal differential source is not the full global chart comparison; charts, gluing and strict-henselian descent remain G-Weierstrass-scheme."
+      },
+      {
+        "nodeId": "NeronModelsAndSemistableAbelianVarieties:R11.6/strict-compatible-system-export",
+        "verdict": "verified",
+        "reason": "Strict cohomology compatibility uses full WD and coefficient-prime descent; correct dim X to A and multiplier epsilon inverse."
+      },
+      {
+        "nodeId": "NeronModelsAndSemistableAbelianVarieties:R11.6/semistable-ordinary-adapter",
+        "verdict": "verified",
+        "reason": "Ordinary condition is on semistable abelian residue quotient; zero abelian part qualifies without p-inertia fixed-point substitution."
+      },
+      {
+        "nodeId": "NeronModelsAndSemistableAbelianVarieties:R11.6/ordinary-isotropic-filtration",
+        "verdict": "verified",
+        "reason": "Saturated rank-two isotropic submodule uses T_t in purely toric case, not rank-four T2; verify missing subscript on actual page image."
+      },
+      {
+        "nodeId": "NeronModelsAndSemistableAbelianVarieties:R11.6/ordinary-residual-point-export",
+        "verdict": "verified",
+        "reason": "Fixed S6/S5(b) convention and Siegel intersection are finite-group supplier inputs; resulting 2-group fixes a nonzero F2 vector."
+      },
+      {
+        "nodeId": "NeronModelsAndSemistableAbelianVarieties:R11.6/unramified-three-torsion-at-two",
+        "verdict": "corrected",
+        "reason": "Unramified mod3 at2 gives semistability, not good reduction; q=8 Tate example separates them."
+      },
+      {
+        "nodeId": "NeronModelsAndSemistableAbelianVarieties:R11.6/yuan-full-level-extension",
+        "verdict": "corrected",
+        "reason": "Full-level torsion extension argument is on p.75; curve/Jacobian step explicitly consumes qualified criterion and leaves imperfect-field scope unresolved."
+      },
+      {
+        "nodeId": "NeronModelsAndSemistableAbelianVarieties:R11.6/acceptance-examples",
+        "verdict": "corrected",
+        "reason": "Separate finite-residue elliptic examples from geometric nodal examples; Gm is the identity special fibre, not the whole generic elliptic model."
+      },
+      {
+        "nodeId": "NeronModelsAndSemistableAbelianVarieties:R11.4/bgw-odd-factor-torsors",
+        "verdict": "verified",
+        "reason": "Degree-one odd-factor objects are torsors without canonical zero; conjugate unordered factors differ from rational factors."
+      },
+      {
+        "nodeId": "NeronModelsAndSemistableAbelianVarieties:R11.4/bgw-boundary-cup-product",
+        "verdict": "corrected",
+        "reason": "Connecting class is cup product with W[2], with original Proposition10.3 proof gap; actual boundary paragraph is on p.12."
+      }
+    ],
+    "baselineChecked": [
+      {
+        "ref": "mathlib:WeierstrassCurve.localPolynomial",
+        "verdict": "verified",
+        "reason": "Native good/split/nonsplit/additive local polynomial with finite-residue hypothesis added in comparisons."
+      },
+      {
+        "ref": "mathlib:WeierstrassCurve.HasGoodReduction",
+        "verdict": "verified",
+        "reason": "Minimal Weierstrass good reduction, multiplicative valuation Delta=1."
+      },
+      {
+        "ref": "mathlib:WeierstrassCurve.hasGoodReduction_iff_isElliptic_reduction",
+        "verdict": "verified",
+        "reason": "Actual minimal-model good reduction iff elliptic reduced equation."
+      },
+      {
+        "ref": "mathlib:WeierstrassCurve.HasMultiplicativeReduction",
+        "verdict": "verified",
+        "reason": "Minimal multiplicative reduction, v(Delta)<1 and v(c4)=1."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Etale",
+        "verdict": "verified",
+        "reason": "Étale scheme morphisms, defined by the affine ring-map property; an actual native test condition."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.QuasiCompact",
+        "verdict": "verified",
+        "reason": "Quasi-compact scheme morphisms; not a separate FiniteType class."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.IsSeparated",
+        "verdict": "verified",
+        "reason": "Relative separatedness via closed diagonal."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Smooth",
+        "verdict": "verified",
+        "reason": "Smooth scheme morphisms; affine ring maps smooth."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Over.pullback",
+        "verdict": "verified",
+        "reason": "The native Over pullback functor on actual objects and morphisms."
+      }
+    ],
+    "sourceIssuesChecked": 6,
+    "readerRegenerationRequired": true
+  }
 }
