@@ -405,6 +405,17 @@
     "data/blueprints/ColemanIntegration.md"
    ]
   },
+  "research/blueprint/packets/ColemanPowerSeries.json": {
+   "promotedAt": "2026-10-05T18:42:16Z",
+   "review": "0efc986cedcd16b7",
+   "reviewDate": "2026-10-05",
+   "reviewer": "independent-review-REV-ColemanPowerSeries",
+   "sha256": "62c7cb25dace9158df52a3041e77b11a32914a2c47d46656e9c10a89d1349f95",
+   "to": [
+    "data/blueprints/ColemanPowerSeries.json",
+    "data/blueprints/ColemanPowerSeries.md"
+   ]
+  },
   "research/blueprint/packets/ComputationalNumberTheory.json": {
    "promotedAt": "2026-10-05T01:53:35Z",
    "review": "5efee3fa44a58f2b",
