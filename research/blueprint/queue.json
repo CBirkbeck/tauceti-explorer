@@ -26481,8 +26481,9 @@
    ],
    "avoidAccountOf": "BP-KTheoryLowDegrees--U.1",
    "prompt": "research/blueprint/prompts/REV-KTheoryLowDegrees--U.1.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #441"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #441",
+   "finishedAt": "2026-10-05T19:46:28Z"
   },
   {
    "id": "BP-KTheoryLowDegrees--Z.3",
