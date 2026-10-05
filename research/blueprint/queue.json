@@ -13680,7 +13680,8 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-MultiquadraticPartII.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3416"
   },
   {
    "id": "REV-DESIGN-MultiquadraticPartII",
@@ -31499,8 +31500,9 @@
    ],
    "followUpOf": "BP-DeformationAndDerivedPatchingAlgebra--P7",
    "prompt": "research/blueprint/prompts/BP-DeformationAndDerivedPatchingAlgebra--P7-2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6317"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6317",
+   "finishedAt": "2026-10-05T20:27:56Z"
   },
   {
    "id": "REV-DeformationAndDerivedPatchingAlgebra--P7-2",
@@ -31629,7 +31631,8 @@
    ],
    "followUpOf": "BP-DeformationAndDerivedPatchingAlgebra--P7",
    "prompt": "research/blueprint/prompts/BP-DeformationAndDerivedPatchingAlgebra--R03.1.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6320"
   },
   {
    "id": "REV-DeformationAndDerivedPatchingAlgebra--R03.1",
@@ -31758,7 +31761,8 @@
    ],
    "followUpOf": "BP-DeformationAndDerivedPatchingAlgebra--P7",
    "prompt": "research/blueprint/prompts/BP-DeformationAndDerivedPatchingAlgebra--R03.4.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6323"
   },
   {
    "id": "REV-DeformationAndDerivedPatchingAlgebra--R03.4",
