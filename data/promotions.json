@@ -306,6 +306,17 @@
     "data/blueprints/AdicSpacesPartII.md"
    ]
   },
+  "research/blueprint/packets/AnabelianGeometryAndNonabelianChabauty.json": {
+   "promotedAt": "2026-10-05T15:38:39Z",
+   "review": "589e2645aee81f7e",
+   "reviewDate": "2026-10-05",
+   "reviewer": "independent-review-REV-AnabelianGeometryAndNonabelianChabauty",
+   "sha256": "b352c47493d33e2d8334c6617d2f64d4ae43c0fc2a50031fb692f0f81231b868",
+   "to": [
+    "data/blueprints/AnabelianGeometryAndNonabelianChabauty.json",
+    "data/blueprints/AnabelianGeometryAndNonabelianChabauty.md"
+   ]
+  },
   "research/blueprint/packets/ArithmeticKTheory--N.1.json": {
    "promotedAt": "2026-10-01T20:54:46Z",
    "review": "3cc5d8650f02afb9",
