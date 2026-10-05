@@ -1,3 +1,5 @@
+import Mathlib.GroupTheory.Index
+import TauCeti.CategoryTheory.Exact.Functor
 import Mathlib.Algebra.MvPolynomial.Equiv
 import Mathlib.RingTheory.Polynomial.Eisenstein.Criterion
 import Mathlib.RingTheory.Polynomial.UniqueFactorization
@@ -7547,5 +7549,121 @@ theorem circleRing_dedekind : IsDedekindDomain CircleRing := by sorry
 
 -- circleRing_dedekind_test
 example : IsNoetherianRing CircleRing ∧ IsDomain CircleRing ∧ IsIntegrallyClosed CircleRing := by sorry
+
+end TauCeti.KTheory
+
+/-! ## October 2026 continuation: the native Morita square and elementary cofinality
+
+The exactness hypotheses below are supplied by the pinned
+`finiteProjectiveModulesExactStructure_eq_split` and `isConflationExact_split`.
+The congruence lemmas use Mathlib's existing determinant-one transvections;
+they introduce neither a second elementary group nor a congruence completion.
+-/
+
+namespace TauCeti.RingK0
+
+variable {A B : Type u} [Ring A] [Ring B]
+
+/-- `Z.1/morita-split-exact-square`: the ring Morita map agrees with the canonical
+exact Grothendieck-group map, under the native split-to-exact comparison. -/
+theorem morita_split_exact_square (E : ModuleCat.{u} A ≌ ModuleCat.{u} B)
+    (hF : (finiteProjectiveModulesExactStructure A).IsConflationExact
+      (finiteProjectiveModulesExactStructure B) (finiteProjectiveEquivalence E).functor)
+    (hG : (finiteProjectiveModulesExactStructure B).IsConflationExact
+      (finiteProjectiveModulesExactStructure A) (finiteProjectiveEquivalence E).inverse) :
+    (ofEquivalence E).trans (toExactK0 B) =
+      (toExactK0 A).trans (ExactK0.mapEquiv (finiteProjectiveEquivalence E) hF hG) := by
+  sorry
+
+-- The finite-dimensional special case uses exactly the same two native carriers.
+-- morita_split_exact_matrix_test
+example (k : Type u) [Field k] :
+    let E := ModuleCat.matrixEquivalence k (0 : Fin 2)
+    let hF : (finiteProjectiveModulesExactStructure k).IsConflationExact
+      (finiteProjectiveModulesExactStructure (Matrix (Fin 2) (Fin 2) k))
+      (finiteProjectiveEquivalence E).functor := by
+      simpa only [finiteProjectiveModulesExactStructure_eq_split] using
+        ExactStructure.isConflationExact_split (finiteProjectiveEquivalence E).functor
+    let hG : (finiteProjectiveModulesExactStructure (Matrix (Fin 2) (Fin 2) k)).IsConflationExact
+      (finiteProjectiveModulesExactStructure k) (finiteProjectiveEquivalence E).inverse := by
+      simpa only [finiteProjectiveModulesExactStructure_eq_split] using
+        ExactStructure.isConflationExact_split (finiteProjectiveEquivalence E).inverse
+    (ofEquivalence E).trans (toExactK0 (Matrix (Fin 2) (Fin 2) k)) =
+      (toExactK0 k).trans (ExactK0.mapEquiv (finiteProjectiveEquivalence E) hF hG) := by
+  sorry
+
+-- morita_split_exact_class_test: normalization on actual object classes, not on [A].
+example (E : ModuleCat.{u} A ≌ ModuleCat.{u} B)
+    (hF : (finiteProjectiveModulesExactStructure A).IsConflationExact
+      (finiteProjectiveModulesExactStructure B) (finiteProjectiveEquivalence E).functor)
+    (hG : (finiteProjectiveModulesExactStructure B).IsConflationExact
+      (finiteProjectiveModulesExactStructure A) (finiteProjectiveEquivalence E).inverse)
+    (P : (finiteProjectiveModules A).FullSubcategory) :
+    ExactK0.mapEquiv (finiteProjectiveEquivalence E) hF hG
+      (toExactK0 A (SplitK0.of P)) =
+        ExactK0.of ((finiteProjectiveEquivalence E).functor.obj P) := by
+  sorry
+
+end TauCeti.RingK0
+
+namespace TauCeti.KTheory
+
+variable {R : Type u} [CommRing R] {n : ℕ}
+
+/-- `U.4/normal-sl-root-membership`: signed elementary permutations transport
+the membership test between ordered roots in a normal SL subgroup. -/
+theorem normal_sl_root_membership (hn : 3 ≤ n)
+    (N : Subgroup (Matrix.SpecialLinearGroup (Fin n) R)) [N.Normal]
+    (i j k l : Fin n) (hij : i ≠ j) (hkl : k ≠ l) (a : R) :
+    Matrix.SpecialLinearGroup.transvection hij a ∈ N ↔
+      Matrix.SpecialLinearGroup.transvection hkl a ∈ N := by
+  sorry
+
+/-- `U.4/normal-sl-root-level`: all root subgroups cut out the same ideal in a
+normal subgroup of `SL_n(R)`, for `n ≥ 3`. -/
+theorem normal_sl_root_level (hn : 3 ≤ n)
+    (N : Subgroup (Matrix.SpecialLinearGroup (Fin n) R)) [N.Normal] :
+    ∃ I : Ideal R, ∀ (i j : Fin n) (hij : i ≠ j) (a : R),
+      Matrix.SpecialLinearGroup.transvection hij a ∈ N ↔ a ∈ I := by
+  sorry
+
+/-- `U.4/finite-index-root-level-nonzero`: an infinite coefficient ring prevents
+the common root ideal of a finite-index normal subgroup from being zero. -/
+theorem finite_index_root_level_ne_bot [Infinite R] (hn : 3 ≤ n)
+    (N : Subgroup (Matrix.SpecialLinearGroup (Fin n) R)) [N.Normal] [N.FiniteIndex]
+    (I : Ideal R)
+    (hI : ∀ (i j : Fin n) (hij : i ≠ j) (a : R),
+      Matrix.SpecialLinearGroup.transvection hij a ∈ N ↔ a ∈ I) : I ≠ ⊥ := by
+  sorry
+
+/-- `U.4/root-level-contains-relative-elementary`: the relative group here is
+the existing `U.5` closure of conjugates by `E_n(R)`. -/
+theorem root_level_contains_relative_elementary
+    (N : Subgroup (Matrix.SpecialLinearGroup (Fin n) R)) [N.Normal] (I : Ideal R)
+    (hI : ∀ (i j : Fin n) (hij : i ≠ j) (a : R),
+      Matrix.SpecialLinearGroup.transvection hij a ∈ N ↔ a ∈ I) :
+    (RelativeK1.relElementary (Fin n) I).comap Matrix.SpecialLinearGroup.toGL ≤ N := by
+  sorry
+
+/-- `U.4/finite-index-elementary-cofinality`: the algebraic first step of BMS
+Theorem 14.1. This does not assert containment of a principal congruence subgroup. -/
+theorem finite_index_contains_relative_elementary [Infinite R] (hn : 3 ≤ n)
+    (H : Subgroup (Matrix.SpecialLinearGroup (Fin n) R)) [H.FiniteIndex] :
+    ∃ I : Ideal R, I ≠ ⊥ ∧
+      (RelativeK1.relElementary (Fin n) I).comap Matrix.SpecialLinearGroup.toGL ≤ H := by
+  sorry
+
+-- root_level_principal_congruence_test
+example (I : Ideal ℤ) (i j : Fin 3) (hij : i ≠ j) (a : ℤ) :
+    Matrix.SpecialLinearGroup.transvection hij a ∈
+      (RelativeK1.congruenceSubgroup (Fin 3) I).comap Matrix.SpecialLinearGroup.toGL ↔
+        a ∈ I := by
+  sorry
+
+-- finite_index_elementary_finite_ring_control: the Infinite hypothesis is needed.
+example : ¬ ∃ I : Ideal (ZMod 2), I ≠ ⊥ ∧
+    (RelativeK1.relElementary (Fin 3) I).comap Matrix.SpecialLinearGroup.toGL ≤
+      (⊥ : Subgroup (Matrix.SpecialLinearGroup (Fin 3) (ZMod 2))) := by
+  sorry
 
 end TauCeti.KTheory
