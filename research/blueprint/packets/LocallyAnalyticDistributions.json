@@ -10,7 +10,7 @@
     "LocallyAnalyticDistributions:L3",
     "LocallyAnalyticDistributions:L4"
   ],
-  "summary": "Partial fixed-characteristic spectral checkpoint: construct the spectral polynomial for entire functional input and a fixed normalized polynomial characteristic input, through the native monic remainder. Prove coefficient and all-radius Gauss convergence, exact rank padding, polynomial factor multiplicativity and linear evaluation. The growing-degree estimates for general entire characteristic input and infinite-operator transport remain explicit. A later checkpoint plans L0 (locally analytic Banach spaces, Amice's Mahler theorem, the finer LF topology, distributions, F- versus ℚ_p-analyticity), L1 (the Amice transform and the distribution toolbox with division by x) and one-variable L2 (C^r, distributions of order r, measures, Amice–Vélu–Vishik).",
+  "summary": "Partial fixed-characteristic spectral checkpoint: construct the spectral polynomial for entire functional input and a fixed normalized polynomial characteristic input, through the native monic remainder. Prove coefficient and all-radius Gauss convergence, exact rank padding, polynomial factor multiplicativity and linear evaluation. The growing-degree estimates for general entire characteristic input and infinite-operator transport remain explicit. A later checkpoint plans L0 (locally analytic Banach spaces, Amice's Mahler theorem, the finer LF topology, distributions, F- versus ℚ_p-analyticity), L1 (the Amice transform and the distribution toolbox with division by x) and one-variable L2 (C^r, distributions of order r, measures, Amice–Vélu–Vishik). This checkpoint adds one-variable native scalar-series evaluation adapters, bounded-measure Mellin components on imported finite-character charts, unshifted arithmetic branches and guarded meromorphic clearing expressions. It preserves earlier nodes. The unbounded-distribution Mellin equivalence, weight derivatives, twists, multivariable/ray-class functoriality and geometric comparison are still explicit work.",
   "conventions": {
     "banach": "Unless a node states weaker hypotheses, K is complete for a nontrivial nonarchimedean absolute value; A is a nonzero commutative Noetherian K-Banach algebra with a compatible submultiplicative ultrametric norm. Modules are complete Hausdorff ultrametric Banach A-modules, also normed K-spaces, with compatible bounded A-action. A is not assumed to be a field, reduced, or affinoid. The zero algebra case is separated as a degenerate case.",
     "operators": "Operator norms of continuous A-linear maps are norms after restriction of scalars to K. Finite rank means image contained in a finitely generated A-submodule, not finite-dimensional over K and not necessarily free. Completely continuous means operator-norm approximable by such maps. It is not identified with Mathlib IsCompactOperator without a comparison theorem.",
@@ -1569,6 +1569,139 @@
         "module": "Mathlib/NumberTheory/Padics/MahlerBasis.lean",
         "provides": "Mahler's theorem: C(ℤ_p, E) ≃ₗᵢ C₀(ℕ, E) by forward differences at 0, with inverse the Mahler series.",
         "checked": "name, kind and module confirmed in the pinned declaration index; signature read in the pinned Mathlib 082e2d3 source (2026-09-28)"
+      },
+      {
+        "ref": "mathlib:FormalMultilinearSeries.ofScalars",
+        "kind": "def",
+        "module": "Mathlib/Analysis/Analytic/OfScalars.lean",
+        "provides": "Native scalar coefficients as a formal multilinear series.",
+        "checked": "Statement and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05."
+      },
+      {
+        "ref": "mathlib:FormalMultilinearSeries.ofScalars_norm",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Analytic/OfScalars.lean",
+        "provides": "For a norm-one normed algebra, the nth scalar multilinear term has norm equal to the nth scalar coefficient norm.",
+        "checked": "Statement and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05."
+      },
+      {
+        "ref": "mathlib:FormalMultilinearSeries.ofScalars_sum_eq",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Analytic/OfScalars.lean",
+        "provides": "Native scalar-series sum is the sum of c_n times x^n.",
+        "checked": "Statement and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05."
+      },
+      {
+        "ref": "mathlib:FormalMultilinearSeries.le_radius_of_bound",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Analytic/ConvergenceRadius.lean",
+        "provides": "A uniform bound on ||p_n||R^n gives radius at least R.",
+        "checked": "Statement and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05."
+      },
+      {
+        "ref": "mathlib:FormalMultilinearSeries.analyticOnNhd",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Analytic/ChangeOrigin.lean",
+        "provides": "The sum is analytic on the extended-metric ball of its radius, with complete target.",
+        "checked": "Statement and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05."
+      },
+      {
+        "ref": "mathlib:NonarchimedeanGroup.multipliable_of_tendsto_cofinite_one",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Algebra/InfiniteSum/Nonarchimedean.lean",
+        "provides": "Indexed generating declaration; the additive counterpart NonarchimedeanAddGroup.summable_of_tendsto_cofinite_zero gives summability of terms tending to zero in a complete nonarchimedean additive group.",
+        "checked": "Statement and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05."
+      },
+      {
+        "ref": "mathlib:PowerSeries.map",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/PowerSeries/Basic.lean",
+        "provides": "Native coefficientwise ring homomorphism.",
+        "checked": "Statement and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05."
+      },
+      {
+        "ref": "mathlib:PowerSeries.coeff_map",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/PowerSeries/Basic.lean",
+        "provides": "The nth coefficient after mapping is the image of the nth original coefficient.",
+        "checked": "Statement and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05."
+      },
+      {
+        "ref": "mathlib:AbstractMeasure",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/Padics/Measure/Basic.lean",
+        "provides": "Native continuous linear functional on continuous maps, as a type synonym.",
+        "checked": "Statement and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05."
+      },
+      {
+        "ref": "mathlib:AbstractMeasure.dirac",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/Padics/Measure/Basic.lean",
+        "provides": "Dirac evaluation on a native continuous function.",
+        "checked": "Statement and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05."
+      },
+      {
+        "ref": "mathlib:mahler",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/Padics/MahlerBasis.lean",
+        "provides": "Native continuous Z_p-valued binomial polynomial.",
+        "checked": "Statement and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05."
+      },
+      {
+        "ref": "mathlib:AbstractMeasure.amiceTransform",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/Padics/Measure/AmiceTransform.lean",
+        "provides": "Native R-linear Amice transform with coefficients given by measure application to Mahler functions, for a continuous Z_p-algebra action.",
+        "checked": "Statement and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05."
+      },
+      {
+        "ref": "mathlib:AbstractMeasure.coeff_amiceTransform",
+        "kind": "lemma",
+        "module": "Mathlib/NumberTheory/Padics/Measure/AmiceTransform.lean",
+        "provides": "Exact native coefficient formula for the Amice transform.",
+        "checked": "Statement and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05."
+      },
+      {
+        "ref": "mathlib:PadicInt.norm_mahler_eq",
+        "kind": "lemma",
+        "module": "Mathlib/NumberTheory/Padics/MahlerBasis.lean",
+        "provides": "Each Mahler function has sup norm one.",
+        "checked": "Statement and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05."
+      },
+      {
+        "ref": "mathlib:PadicInt.addChar_of_value_at_one",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/Padics/AddChar.lean",
+        "provides": "Continuous additive character constructed from the Mahler series of powers of a topologically nilpotent element.",
+        "checked": "Statement and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05."
+      },
+      {
+        "ref": "mathlib:PadicInt.coe_addChar_of_value_at_one",
+        "kind": "lemma",
+        "module": "Mathlib/NumberTheory/Padics/AddChar.lean",
+        "provides": "Underlying function of the native additive character is its Mahler series.",
+        "checked": "Statement and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05."
+      },
+      {
+        "ref": "mathlib:PadicInt.addChar_of_value_at_one_def",
+        "kind": "lemma",
+        "module": "Mathlib/NumberTheory/Padics/AddChar.lean",
+        "provides": "The native additive character at 1 is 1+q.",
+        "checked": "Statement and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05."
+      },
+      {
+        "ref": "mathlib:PadicInt.hasSum_mahlerSeries",
+        "kind": "lemma",
+        "module": "Mathlib/NumberTheory/Padics/MahlerBasis.lean",
+        "provides": "Mahler terms converge in the continuous-function sup norm when their coefficients tend to zero.",
+        "checked": "Statement and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05."
+      },
+      {
+        "ref": "mathlib:ContinuousLinearMap.map_tsum",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Algebra/InfiniteSum/Module.lean",
+        "provides": "A continuous semilinear map commutes with the sum of a summable family into a Hausdorff target.",
+        "checked": "Statement and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05."
       }
     ]
   },
@@ -1662,8 +1795,10 @@
         "§I.4 (analytic functions on closed discs, LA_h, Amice's Theorem I.4.7, Corollary I.4.8), pp. 13–16",
         "§I.5.1 (functions of class C^r), and the statements of Propositions I.5.13, I.5.16, I.5.19, Theorems I.5.14, I.5.17, Corollary I.5.18, pp. 18–25",
         "§II.1–II.3 (R⁺ and R⁺_r, Lemma II.1.1, Theorem II.2.2, Proposition II.3.1, measures, Theorem II.3.2 with proof, Proposition II.3.3), pp. 29–34",
-        "§II.4.1–II.4.6 (operations on distributions, Proposition II.4.1, Lemma II.4.2, and the statements of II.4.3–II.4.6), pp. 34–37"
-      ]
+        "§II.4.1–II.4.6 (operations on distributions, Proposition II.4.1, Lemma II.4.2, and the statements of II.4.3–II.4.6), pp. 34–37",
+        "Codex codex-yAUVaO, 5 October 2026: freshly downloaded hash-identical author PDF; §I.6 pp. 27–28, §II.2 with Lemma II.2.1 and proof of Theorem II.2.2 p. 30, §II.4.1–II.4.6 pp. 34–36; local-character and evaluation boundary checked."
+      ],
+      "accessDate": "2026-10-05"
     },
     {
       "id": "RJW-2024",
@@ -1675,8 +1810,10 @@
       "read": "2026-09-28",
       "readSections": [
         "§3.7 (Definitions 3.40, 3.42, Remarks 3.39, 3.41, 3.44–3.46, Theorem 3.43), pp. 23–25",
-        "Appendix B.2.1 (Theorem B.1 and the remarks after it), pp. 79–80"
-      ]
+        "Appendix B.2.1 (Theorem B.1 and the remarks after it), pp. 79–80",
+        "Codex codex-yAUVaO, 5 October 2026: freshly downloaded hash-identical v2; full §§3.7–3.8 pp. 23–26 and full §5.3 pp. 34–35. New lemmas are explicit worker decompositions of scalar Mellin evaluation; no full-paper read is claimed."
+      ],
+      "accessDate": "2026-10-05"
     },
     {
       "id": "SCHNEIDER-TEITELBAUM-2001",
@@ -11165,6 +11302,799 @@
         }
       ],
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L1/open-disc-native-radius",
+      "parentStageId": "LocallyAnalyticDistributions:L1",
+      "realises": [
+        "LocallyAnalyticDistributions:L1"
+      ],
+      "title": "Open-disc series and the native analytic radius",
+      "kind": "comparison",
+      "statement": "For an open-disc series F, the native scalar formal multilinear series ofScalars(K,coeff(F)) has radius at least 1. E(F,t) is therefore the sum of this native analytic series on ||t||<1. This is an adapter between two existing library encodings, not a second definition of summation or of analyticity.",
+      "hypotheses": [
+        "K is a finite extension of Q_p with its normalized nonarchimedean absolute value; the elementary series lemmas also hold over any complete nontrivially normed ultrametric field.",
+        "An open-disc series F means a native power series with ||a_n|| R^n tending to zero for every real 0<R<1. Write E(F,t) for the native FormalMultilinearSeries.ofScalarsSum of its coefficients; analytic uses require ||t||<1. No convergence claim is made at ||t||=1."
+      ],
+      "proofSteps": [
+        "For each 0<S<1, the native restrictedness criterion makes ||a_n||S^n bounded.",
+        "The native ofScalars_norm identifies the multilinear coefficient norm with ||a_n||. Apply le_radius_of_bound at S.",
+        "Take the supremum over S<1 to obtain radius at least 1. The native ofScalars_sum_eq identifies the scalar sums."
+      ],
+      "acceptance": [
+        "For F=1/(1−T) in the formal sense, the radius is 1, not infinity.",
+        "Polynomial series have the same evaluation as their native polynomial evaluation."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L1/amice-transform",
+        "mathlib:PowerSeries.isRestricted_iff'",
+        "mathlib:FormalMultilinearSeries.ofScalars",
+        "mathlib:FormalMultilinearSeries.ofScalars_norm",
+        "mathlib:FormalMultilinearSeries.le_radius_of_bound",
+        "mathlib:FormalMultilinearSeries.ofScalars_sum_eq"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Mellin",
+        "namespace": "TauCeti.Mellin"
+      },
+      "sources": [
+        {
+          "sourceId": "COLMEZ-FONCTIONS-2010",
+          "locator": "§II.2, Lemma II.2.1 and Theorem II.2.2 with proofs, author PDF p. 30",
+          "match": "Worker decomposition of the evaluation and radius estimates used here; the source does not assign separate numbers to these elementary adapters."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L1/open-disc-summability",
+      "parentStageId": "LocallyAnalyticDistributions:L1",
+      "realises": [
+        "LocallyAnalyticDistributions:L1"
+      ],
+      "title": "Summability inside the open disc",
+      "kind": "lemma",
+      "statement": "For every open-disc series F and t∈K with ||t||<1, the series Σ_n a_n t^n is summable in K.",
+      "hypotheses": [
+        "K is a finite extension of Q_p with its normalized nonarchimedean absolute value; the elementary series lemmas also hold over any complete nontrivially normed ultrametric field.",
+        "An open-disc series F means a native power series with ||a_n|| R^n tending to zero for every real 0<R<1. Write E(F,t) for the native FormalMultilinearSeries.ofScalarsSum of its coefficients; analytic uses require ||t||<1. No convergence claim is made at ||t||=1."
+      ],
+      "proofSteps": [
+        "Choose real S with ||t||<S<1.",
+        "The term norms are bounded by ||a_n||S^n (||t||/S)^n and tend to zero.",
+        "Apply the native complete nonarchimedean summability criterion, with the natural cofinite filter equal to the at-top filter."
+      ],
+      "acceptance": [
+        "The geometric series sums at every ||t||<1.",
+        "At t=1 its terms do not tend to zero, so the open-disc hypothesis on t is essential."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L1/amice-transform",
+        "mathlib:PowerSeries.isRestricted_iff'",
+        "mathlib:NonarchimedeanGroup.multipliable_of_tendsto_cofinite_one"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Mellin",
+        "namespace": "TauCeti.Mellin"
+      },
+      "sources": [
+        {
+          "sourceId": "COLMEZ-FONCTIONS-2010",
+          "locator": "§II.2, Lemma II.2.1 and Theorem II.2.2 with proofs, author PDF p. 30",
+          "match": "Worker decomposition of the evaluation and radius estimates used here; the source does not assign separate numbers to these elementary adapters."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L1/open-disc-uniform-tail",
+      "parentStageId": "LocallyAnalyticDistributions:L1",
+      "realises": [
+        "LocallyAnalyticDistributions:L1"
+      ],
+      "title": "Uniform geometric tails on a smaller disc",
+      "kind": "lemma",
+      "statement": "Let 0<R<S<1, M≥0, and ||a_n||S^n≤M for every n. For ||t||≤R and N≥0, ||E(F,t)−Σ_{n<N}a_n t^n||≤M(R/S)^N. Thus truncations converge uniformly on the closed radius-R disc; this is a coefficient estimate, with no compactness assumption on that disc.",
+      "hypotheses": [
+        "K is a finite extension of Q_p with its normalized nonarchimedean absolute value; the elementary series lemmas also hold over any complete nontrivially normed ultrametric field.",
+        "An open-disc series F means a native power series with ||a_n|| R^n tending to zero for every real 0<R<1. Write E(F,t) for the native FormalMultilinearSeries.ofScalarsSum of its coefficients; analytic uses require ||t||<1. No convergence claim is made at ||t||=1."
+      ],
+      "proofSteps": [
+        "Use open-disc-summability to identify the remainder with the tail starting at N.",
+        "Every tail term has norm at most M(R/S)^n≤M(R/S)^N.",
+        "The ultrametric inequality passes the bound from finite tail sums to their limit."
+      ],
+      "acceptance": [
+        "N=0 bounds the whole value by M.",
+        "For F=T^N the coefficient tail starts exactly at N."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L1/open-disc-summability"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Mellin",
+        "namespace": "TauCeti.Mellin"
+      },
+      "sources": [
+        {
+          "sourceId": "COLMEZ-FONCTIONS-2010",
+          "locator": "§II.2, Lemma II.2.1 and Theorem II.2.2 with proofs, author PDF p. 30",
+          "match": "Worker decomposition of the evaluation and radius estimates used here; the source does not assign separate numbers to these elementary adapters."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L1/open-disc-evaluation-analytic",
+      "parentStageId": "LocallyAnalyticDistributions:L1",
+      "realises": [
+        "LocallyAnalyticDistributions:L1"
+      ],
+      "title": "Analytic evaluation of an open-disc series",
+      "kind": "theorem",
+      "statement": "For every open-disc series F, the function E(F,−):K→K is analytic at every t with ||t||<1, using Mathlib’s AnalyticOnNhd. This does not identify an arbitrary function on C_p-valued points with a rigid analytic function.",
+      "hypotheses": [
+        "K is a finite extension of Q_p with its normalized nonarchimedean absolute value; the elementary series lemmas also hold over any complete nontrivially normed ultrametric field.",
+        "An open-disc series F means a native power series with ||a_n|| R^n tending to zero for every real 0<R<1. Write E(F,t) for the native FormalMultilinearSeries.ofScalarsSum of its coefficients; analytic uses require ||t||<1. No convergence claim is made at ||t||=1."
+      ],
+      "proofSteps": [
+        "Use open-disc-native-radius and the native FormalMultilinearSeries.analyticOnNhd theorem.",
+        "The open unit disc lies in the extended-metric ball of the native radius. Restrict the native theorem to it."
+      ],
+      "acceptance": [
+        "The geometric series gives the analytic function (1−t) inverse on ||t||<1."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L1/open-disc-native-radius",
+        "mathlib:FormalMultilinearSeries.analyticOnNhd"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Mellin",
+        "namespace": "TauCeti.Mellin"
+      },
+      "sources": [
+        {
+          "sourceId": "COLMEZ-FONCTIONS-2010",
+          "locator": "§II.2, Lemma II.2.1 and Theorem II.2.2 with proofs, author PDF p. 30",
+          "match": "Worker decomposition of the evaluation and radius estimates used here; the source does not assign separate numbers to these elementary adapters."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L1/open-disc-evaluation-mul",
+      "parentStageId": "LocallyAnalyticDistributions:L1",
+      "realises": [
+        "LocallyAnalyticDistributions:L1"
+      ],
+      "title": "Evaluation preserves products inside the disc",
+      "kind": "lemma",
+      "statement": "For open-disc series F,H and ||t||<1, E(FH,t)=E(F,t)E(H,t). The corresponding additivity and scalar-linearity follow from summability.",
+      "hypotheses": [
+        "K is a finite extension of Q_p with its normalized nonarchimedean absolute value; the elementary series lemmas also hold over any complete nontrivially normed ultrametric field.",
+        "An open-disc series F means a native power series with ||a_n|| R^n tending to zero for every real 0<R<1. Write E(F,t) for the native FormalMultilinearSeries.ofScalarsSum of its coefficients; analytic uses require ||t||<1. No convergence claim is made at ||t||=1."
+      ],
+      "proofSteps": [
+        "Apply the native nonarchimedean product-of-sums theorem to the summable sequences a_i t^i and b_j t^j.",
+        "Partition the double index set by i+j=n; each fibre is finite, and its sum is the native Cauchy-product coefficient."
+      ],
+      "acceptance": [
+        "E(1,t)=1.",
+        "E((1−T)(Σ_n T^n),t)=1 for ||t||<1."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L1/open-disc-summability",
+        "mathlib:HasSum.mul_of_nonarchimedean"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Mellin",
+        "namespace": "TauCeti.Mellin"
+      },
+      "sources": [
+        {
+          "sourceId": "COLMEZ-FONCTIONS-2010",
+          "locator": "§II.2, Lemma II.2.1 and Theorem II.2.2 with proofs, author PDF p. 30",
+          "match": "Worker decomposition of the evaluation and radius estimates used here; the source does not assign separate numbers to these elementary adapters."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L1/open-disc-evaluation-map",
+      "parentStageId": "LocallyAnalyticDistributions:L1",
+      "realises": [
+        "LocallyAnalyticDistributions:L1"
+      ],
+      "title": "Evaluation commutes with an isometric coefficient extension",
+      "kind": "lemma",
+      "statement": "For an isometric field homomorphism φ:K→K′ into a complete ultrametric field, an open-disc series F and ||t||<1, E(map(φ,F),φ(t))=φ(E(F,t)). The coefficient map is the native PowerSeries.map; no arbitrary C_p-point function or completed distribution-family object is introduced.",
+      "hypotheses": [
+        "K is a finite extension of Q_p with its normalized nonarchimedean absolute value; the elementary series lemmas also hold over any complete nontrivially normed ultrametric field.",
+        "An open-disc series F means a native power series with ||a_n|| R^n tending to zero for every real 0<R<1. Write E(F,t) for the native FormalMultilinearSeries.ofScalarsSum of its coefficients; analytic uses require ||t||<1. No convergence claim is made at ||t||=1."
+      ],
+      "proofSteps": [
+        "The isometry preserves all coefficient-radius estimates.",
+        "It preserves the term a_n t^n. By continuity, apply φ to the limits of the finite partial sums from open-disc-summability."
+      ],
+      "acceptance": [
+        "φ=id recovers identical values.",
+        "Successive isometric field extensions compose because the native coefficient maps compose."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L1/open-disc-summability",
+        "mathlib:PowerSeries.map",
+        "mathlib:PowerSeries.coeff_map"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Mellin",
+        "namespace": "TauCeti.Mellin"
+      },
+      "sources": [
+        {
+          "sourceId": "COLMEZ-FONCTIONS-2010",
+          "locator": "§II.2, Lemma II.2.1 and Theorem II.2.2 with proofs, author PDF p. 30",
+          "match": "Worker decomposition of the evaluation and radius estimates used here; the source does not assign separate numbers to these elementary adapters."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L3/finite-character-component-mellin",
+      "parentStageId": "LocallyAnalyticDistributions:L3",
+      "realises": [
+        "LocallyAnalyticDistributions:L3"
+      ],
+      "title": "Mellin series on a finite-character component",
+      "kind": "construction",
+      "statement": "Let G be compact and let H:G≃Δ×Z_p be an imported character chart, Δ a finite discrete set. Let ν:Δ→K be the finite-character value function (the formula also makes sense for any ν). For a native bounded measure μ on G define F_{μ,ν,H}(T)=Σ_{n≥0} μ(g↦ν(H(g)_Δ) binom(H(g)_Z,n)) T^n. Multiplication uses K, with the native algebra map Z_p→K on binomial values. This is the Mellin series adapter on the imported component; it does not construct Δ, H, the character functor or its representing space.",
+      "hypotheses": [
+        "K is a finite extension of Q_p with its normalized nonarchimedean absolute value; the elementary series lemmas also hold over any complete nontrivially normed ultrametric field.",
+        "An open-disc series F means a native power series with ||a_n|| R^n tending to zero for every real 0<R<1. Write E(F,t) for the native FormalMultilinearSeries.ofScalarsSum of its coefficients; analytic uses require ||t||<1. No convergence claim is made at ||t||=1."
+      ],
+      "proofSteps": [
+        "Each test function is a native continuous map: Δ is finite discrete and the native Mahler polynomial is continuous.",
+        "Apply μ and use the native power-series coefficient constructor.",
+        "Linearity, Dirac values and mass follow directly from the native measure API."
+      ],
+      "acceptance": [
+        "A Dirac mass at H inverse(δ,0) gives the constant ν(δ).",
+        "A Dirac mass at H inverse(δ,1) gives ν(δ)(1+T).",
+        "The trivial finite factor gives the existing native bounded Amice transform."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L0a",
+        "mathlib:AbstractMeasure",
+        "mathlib:AbstractMeasure.dirac",
+        "mathlib:mahler",
+        "mathlib:AbstractMeasure.amiceTransform",
+        "mathlib:AbstractMeasure.coeff_amiceTransform"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Mellin",
+        "namespace": "TauCeti.Mellin"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-2024",
+          "locator": "Remark 3.47, pp. 25–26; §5.3, pp. 34–35 (formula immediately before Remark 5.22)",
+          "match": "Component evaluation and the branch parameterization; this adapter uses imported character charts and retains the source’s odd-prime convention where that specialization is discussed."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Component Mellin transform"
+      },
+      "api": [
+        {
+          "name": "TauCeti.Mellin.componentMellin",
+          "role": "constructor",
+          "statement": "Let G be compact and let H:G≃Δ×Z_p be an imported character chart, Δ a finite discrete set. Let ν:Δ→K be the finite-character value function (the formula also makes sense for any ν). For a native bounded measure μ on G define F_{μ,ν,H}(T)=Σ_{n≥0} μ(g↦ν(H(g)_Δ) binom(H(g)_Z,n)) T^n. Multiplication uses K, with the native algebra map Z_p→K on binomial values. This is the Mellin series adapter on the imported component; it does not construct Δ, H, the character functor or its representing space."
+        },
+        {
+          "name": "TauCeti.Mellin.componentMellin_coeff",
+          "role": "projection",
+          "statement": "The nth coefficient is μ(ν∘H_Δ times binom(H_Z,n))."
+        },
+        {
+          "name": "TauCeti.Mellin.componentMellin_add",
+          "role": "functoriality",
+          "statement": "F_{μ+η,ν,H}=F_{μ,ν,H}+F_{η,ν,H}."
+        },
+        {
+          "name": "TauCeti.Mellin.componentMellin_smul",
+          "role": "functoriality",
+          "statement": "F_{aμ,ν,H}=aF_{μ,ν,H}."
+        },
+        {
+          "name": "TauCeti.Mellin.componentMellin_dirac",
+          "role": "simp",
+          "statement": "F_{δ_g,ν,H}=ν(H_Δg)Σ_n binom(H_Zg,n)T^n."
+        },
+        {
+          "name": "TauCeti.Mellin.componentMellin_mass",
+          "role": "simp",
+          "statement": "coeff_0 F=μ(ν∘H_Δ)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "ComponentMellinTests.zero",
+          "kind": "degenerate",
+          "statement": "F_{0,ν,H}=0."
+        },
+        {
+          "name": "ComponentMellinTests.finite_atom",
+          "kind": "computation",
+          "statement": "F_{δ_(δ,0),ν,H}=ν(δ) as a constant series."
+        },
+        {
+          "name": "ComponentMellinTests.generator_atom",
+          "kind": "computation",
+          "statement": "F_{δ_(δ,1),ν,H}=ν(δ)(1+T)."
+        },
+        {
+          "name": "ComponentMellinTests.native_amice",
+          "kind": "compatibility",
+          "statement": "For G=Z_p, Δ a singleton, its canonical product chart and ν=1, componentMellin μ equals the native AbstractMeasure.amiceTransform μ."
+        }
+      ],
+      "uses": [
+        {
+          "where": "RJW Remark 3.47",
+          "how": "Realizes bounded-measure evaluation on a prescribed finite-character component."
+        },
+        {
+          "where": "DirichletPadicLFunctions:L3; AutomorphicPadicLFunctions:L0",
+          "how": "Supplies the scalar Mellin output on imported one-variable character charts."
+        }
+      ]
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L3/component-mellin-coefficient-bound",
+      "parentStageId": "LocallyAnalyticDistributions:L3",
+      "realises": [
+        "LocallyAnalyticDistributions:L3"
+      ],
+      "title": "Bounded component Mellin coefficients",
+      "kind": "lemma",
+      "statement": "Under the component-Mellin hypotheses, if C≥0 and ||ν(δ)||≤C for every δ, then ||coeff_n F_{μ,ν,H}||≤||μ||C for every n, where ||μ|| is the native continuous-linear-functional operator norm. For finite characters in a splitting field one may take C=1.",
+      "hypotheses": [
+        "K is a finite extension of Q_p with its normalized nonarchimedean absolute value; the elementary series lemmas also hold over any complete nontrivially normed ultrametric field.",
+        "An open-disc series F means a native power series with ||a_n|| R^n tending to zero for every real 0<R<1. Write E(F,t) for the native FormalMultilinearSeries.ofScalarsSum of its coefficients; analytic uses require ||t||<1. No convergence claim is made at ||t||=1."
+      ],
+      "proofSteps": [
+        "The native Mahler function has norm one. The bounded Z_p-action implies its K-valued realization has norm at most one.",
+        "The test function is therefore bounded by C uniformly on G. Apply the operator-norm inequality to μ."
+      ],
+      "acceptance": [
+        "A finite-character weighted atom has coefficient bound ||ν(δ)||.",
+        "Changing ν to a scalar multiple scales the bound."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L3/finite-character-component-mellin",
+        "mathlib:PadicInt.norm_mahler_eq"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Mellin",
+        "namespace": "TauCeti.Mellin"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-2024",
+          "locator": "Remark 3.47, pp. 25–26; §5.3, pp. 34–35 (formula immediately before Remark 5.22)",
+          "match": "Component evaluation and the branch parameterization; this adapter uses imported character charts and retains the source’s odd-prime convention where that specialization is discussed."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L3/component-mellin-open-disc",
+      "parentStageId": "LocallyAnalyticDistributions:L3",
+      "realises": [
+        "LocallyAnalyticDistributions:L3"
+      ],
+      "title": "Bounded component series are analytic on the disc",
+      "kind": "theorem",
+      "statement": "For every μ,ν,H as above, the component series is open-disc analytic and has uniformly bounded coefficients. It is therefore a bounded rigid function when transported to the imported component. This forward comparison does not by itself prove that every bounded rigid function comes from a measure.",
+      "hypotheses": [
+        "K is a finite extension of Q_p with its normalized nonarchimedean absolute value; the elementary series lemmas also hold over any complete nontrivially normed ultrametric field.",
+        "An open-disc series F means a native power series with ||a_n|| R^n tending to zero for every real 0<R<1. Write E(F,t) for the native FormalMultilinearSeries.ofScalarsSum of its coefficients; analytic uses require ||t||<1. No convergence claim is made at ||t||=1."
+      ],
+      "proofSteps": [
+        "Finiteness of Δ gives C bounding ν.",
+        "Apply component-mellin-coefficient-bound. For every R<1, multiply the coefficient bound by R^n tending to zero.",
+        "Apply the native restrictedness criterion and open-disc-evaluation-analytic."
+      ],
+      "acceptance": [
+        "The generator atom gives the bounded polynomial ν(δ)(1+T)."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L3/component-mellin-coefficient-bound",
+        "LocallyAnalyticDistributions:L1/open-disc-evaluation-analytic",
+        "mathlib:PowerSeries.isRestricted_iff'"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Mellin",
+        "namespace": "TauCeti.Mellin"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-2024",
+          "locator": "Remark 3.47, pp. 25–26; §5.3, pp. 34–35 (formula immediately before Remark 5.22)",
+          "match": "Component evaluation and the branch parameterization; this adapter uses imported character charts and retains the source’s odd-prime convention where that specialization is discussed."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L3/component-mellin-evaluation",
+      "parentStageId": "LocallyAnalyticDistributions:L3",
+      "realises": [
+        "LocallyAnalyticDistributions:L3"
+      ],
+      "title": "Character evaluation equals the component Mellin value",
+      "kind": "theorem",
+      "statement": "For ||t||<1 let κ_t:Z_p→K be the native additive character with κ_t(1)=1+t. Then E(F_{μ,ν,H},t)=μ(g↦ν(H_Δg)κ_t(H_Zg)). If H is a group chart and ν a finite character, its right side is the scalar character integral on the imported component. The statement uses continuous maps and genuine coefficient-field points.",
+      "hypotheses": [
+        "K is a finite extension of Q_p with its normalized nonarchimedean absolute value; the elementary series lemmas also hold over any complete nontrivially normed ultrametric field.",
+        "An open-disc series F means a native power series with ||a_n|| R^n tending to zero for every real 0<R<1. Write E(F,t) for the native FormalMultilinearSeries.ofScalarsSum of its coefficients; analytic uses require ||t||<1. No convergence claim is made at ||t||=1."
+      ],
+      "proofSteps": [
+        "The native additive character is the Mahler series with coefficients t^n.",
+        "Its weighted pullback through H is the uniform sum of the component’s continuous test functions multiplied by t^n. Uniform convergence follows from the sup-norm bound C||t||^n.",
+        "Use the native ContinuousLinearMap.map_tsum on μ, then componentMellin_coeff and native scalar-series evaluation."
+      ],
+      "acceptance": [
+        "t=0 gives the finite-character mass μ(ν∘H_Δ).",
+        "For a generator atom the value is ν(δ)(1+t)."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L3/finite-character-component-mellin",
+        "LocallyAnalyticDistributions:L3/component-mellin-open-disc",
+        "LocallyAnalyticDistributions:L1/open-disc-summability",
+        "mathlib:PadicInt.addChar_of_value_at_one",
+        "mathlib:PadicInt.coe_addChar_of_value_at_one",
+        "mathlib:PadicInt.hasSum_mahlerSeries",
+        "mathlib:ContinuousLinearMap.map_tsum"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Mellin",
+        "namespace": "TauCeti.Mellin"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-2024",
+          "locator": "Remark 3.47, pp. 25–26; §5.3, pp. 34–35 (formula immediately before Remark 5.22)",
+          "match": "Component evaluation and the branch parameterization; this adapter uses imported character charts and retains the source’s odd-prime convention where that specialization is discussed."
+        },
+        {
+          "sourceId": "COLMEZ-FONCTIONS-2010",
+          "locator": "§II.2, Lemma II.2.1 and Theorem II.2.2 with proofs, author PDF p. 30",
+          "match": "Worker decomposition of the evaluation and radius estimates used here; the source does not assign separate numbers to these elementary adapters."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L3/branch-mellin",
+      "parentStageId": "LocallyAnalyticDistributions:L3",
+      "realises": [
+        "LocallyAnalyticDistributions:L3"
+      ],
+      "title": "Mellin branches in an arithmetic parameter",
+      "kind": "construction",
+      "statement": "For an open-disc series F, q∈K with ||q||<1, and s∈Z_p, put B_{F,q}(s)=E(F,κ_q(s)−1), using the native κ_q(1)=1+q. In the standard odd-prime unit chart, γ=1+p, q=γ−1, and ν=ω^i, this is Mel_{μ,i}(s)=∫ω(x)^i〈x〉^s dμ. At p=2 the imported chart is {±1}×(1+4Z_2), with γ=5; the odd-prime chart is not used there.",
+      "hypotheses": [
+        "K is a finite extension of Q_p with its normalized nonarchimedean absolute value; the elementary series lemmas also hold over any complete nontrivially normed ultrametric field.",
+        "An open-disc series F means a native power series with ||a_n|| R^n tending to zero for every real 0<R<1. Write E(F,t) for the native FormalMultilinearSeries.ofScalarsSum of its coefficients; analytic uses require ||t||<1. No convergence claim is made at ||t||=1."
+      ],
+      "proofSteps": [
+        "Use the already constructed native κ_q; no new exponentiation is defined.",
+        "Apply branch-coordinate-domain to ensure the argument is inside the disc.",
+        "Evaluate the component series; component-mellin-evaluation gives its character-integral interpretation when the imported chart is the standard unit chart."
+      ],
+      "acceptance": [
+        "s=0 gives coeff_0(F).",
+        "s=1 evaluates F at q.",
+        "For F=1+T, the branch is κ_q(s), rather than its inverse or a shifted branch."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L3/branch-coordinate-domain",
+        "LocallyAnalyticDistributions:L3/component-mellin-evaluation",
+        "mathlib:PadicInt.addChar_of_value_at_one",
+        "PadicMeasuresIwasawaAlgebras:L0a"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Mellin",
+        "namespace": "TauCeti.Mellin"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-2024",
+          "locator": "Remark 3.47, pp. 25–26; §5.3, pp. 34–35 (formula immediately before Remark 5.22)",
+          "match": "Component evaluation and the branch parameterization; this adapter uses imported character charts and retains the source’s odd-prime convention where that specialization is discussed."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Mellin branch"
+      },
+      "api": [
+        {
+          "name": "TauCeti.Mellin.branchMellin",
+          "role": "constructor",
+          "statement": "For an open-disc series F, q∈K with ||q||<1, and s∈Z_p, put B_{F,q}(s)=E(F,κ_q(s)−1), using the native κ_q(1)=1+q. In the standard odd-prime unit chart, γ=1+p, q=γ−1, and ν=ω^i, this is Mel_{μ,i}(s)=∫ω(x)^i〈x〉^s dμ. At p=2 the imported chart is {±1}×(1+4Z_2), with γ=5; the odd-prime chart is not used there."
+        },
+        {
+          "name": "TauCeti.Mellin.branchMellin_def",
+          "role": "characterisation",
+          "statement": "B_{F,q}(s)=E(F,κ_q(s)−1)."
+        },
+        {
+          "name": "TauCeti.Mellin.branchMellin_zero",
+          "role": "simp",
+          "statement": "B_{F,q}(0)=coeff_0 F."
+        },
+        {
+          "name": "TauCeti.Mellin.branchMellin_one",
+          "role": "simp",
+          "statement": "B_{F,q}(1)=E(F,q)."
+        },
+        {
+          "name": "TauCeti.Mellin.branchMellin_add",
+          "role": "functoriality",
+          "statement": "B_{F+H,q}(s)=B_{F,q}(s)+B_{H,q}(s) for two open-disc series."
+        }
+      ],
+      "tests": [
+        {
+          "name": "BranchMellinTests.zero",
+          "kind": "degenerate",
+          "statement": "B_{0,q}(s)=0."
+        },
+        {
+          "name": "BranchMellinTests.constant",
+          "kind": "computation",
+          "statement": "B_{a,q}(s)=a for a constant series."
+        },
+        {
+          "name": "BranchMellinTests.linear_at_one",
+          "kind": "computation",
+          "statement": "B_{T,q}(1)=q."
+        },
+        {
+          "name": "BranchMellinTests.generator_at_zero",
+          "kind": "computation",
+          "statement": "B_{1+T,q}(0)=1."
+        }
+      ],
+      "uses": [
+        {
+          "where": "RJW §5.3, formula before Remark 5.22",
+          "how": "Pins the unshifted scalar Mellin parameter s; arithmetic zeta-function normalization s↦1−s belongs to DirichletPadicLFunctions:L3."
+        }
+      ]
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L3/branch-coordinate-domain",
+      "parentStageId": "LocallyAnalyticDistributions:L3",
+      "realises": [
+        "LocallyAnalyticDistributions:L3"
+      ],
+      "title": "Arithmetic branches stay inside the character disc",
+      "kind": "lemma",
+      "statement": "For q∈K with ||q||<1 and s∈Z_p, ||κ_q(s)−1||≤||q||<1.",
+      "hypotheses": [
+        "K is a finite extension of Q_p with its normalized nonarchimedean absolute value; the elementary series lemmas also hold over any complete nontrivially normed ultrametric field.",
+        "An open-disc series F means a native power series with ||a_n|| R^n tending to zero for every real 0<R<1. Write E(F,t) for the native FormalMultilinearSeries.ofScalarsSum of its coefficients; analytic uses require ||t||<1. No convergence claim is made at ||t||=1."
+      ],
+      "proofSteps": [
+        "Expand κ_q by its native Mahler series; its constant term is one.",
+        "For n≥1, ||binom(s,n)q^n||≤||q||^n≤||q||, using native Mahler norm one and bounded scalar action.",
+        "Pass the ultrametric bound to the convergent sum."
+      ],
+      "acceptance": [
+        "s=0 gives zero.",
+        "s=1 gives equality with ||q||."
+      ],
+      "prerequisites": [
+        "mathlib:PadicInt.addChar_of_value_at_one",
+        "mathlib:PadicInt.coe_addChar_of_value_at_one",
+        "mathlib:PadicInt.hasSum_mahlerSeries",
+        "mathlib:PadicInt.norm_mahler_eq"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Mellin",
+        "namespace": "TauCeti.Mellin"
+      },
+      "sources": [
+        {
+          "sourceId": "COLMEZ-FONCTIONS-2010",
+          "locator": "§II.2, Lemma II.2.1 and Theorem II.2.2 with proofs, author PDF p. 30",
+          "match": "Worker decomposition of the evaluation and radius estimates used here; the source does not assign separate numbers to these elementary adapters."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L3/branch-integer-evaluation",
+      "parentStageId": "LocallyAnalyticDistributions:L3",
+      "realises": [
+        "LocallyAnalyticDistributions:L3"
+      ],
+      "title": "Mellin evaluation at integral weights",
+      "kind": "lemma",
+      "statement": "For n≥0, B_{F,q}(n)=E(F,(1+q)^n−1). This pins integral specialization of a branch independently of arithmetic L-value interpolation. In the canonical unit chart, recovering x^k additionally requires the finite character ν=ω^i with k≡i modulo p−1 for odd p, and the corresponding parity branch at p=2; those coordinate comparisons are a remaining supplier interface.",
+      "hypotheses": [
+        "K is a finite extension of Q_p with its normalized nonarchimedean absolute value; the elementary series lemmas also hold over any complete nontrivially normed ultrametric field.",
+        "An open-disc series F means a native power series with ||a_n|| R^n tending to zero for every real 0<R<1. Write E(F,t) for the native FormalMultilinearSeries.ofScalarsSum of its coefficients; analytic uses require ||t||<1. No convergence claim is made at ||t||=1."
+      ],
+      "proofSteps": [
+        "The native additive-character law gives κ_q(n)=κ_q(1)^n=(1+q)^n.",
+        "Substitute into branchMellin_def."
+      ],
+      "acceptance": [
+        "n=0 gives F(0).",
+        "n=1 gives F(q); no 1−n shift is inserted."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L3/branch-mellin",
+        "mathlib:PadicInt.addChar_of_value_at_one_def"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Mellin",
+        "namespace": "TauCeti.Mellin"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-2024",
+          "locator": "Remark 3.47, pp. 25–26; §5.3, pp. 34–35 (formula immediately before Remark 5.22)",
+          "match": "Component evaluation and the branch parameterization; this adapter uses imported character charts and retains the source’s odd-prime convention where that specialization is discussed."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L3/meromorphic-mellin-clearing",
+      "parentStageId": "LocallyAnalyticDistributions:L3",
+      "realises": [
+        "LocallyAnalyticDistributions:L3"
+      ],
+      "title": "Mellin evaluation on a clearing-factor domain",
+      "kind": "construction",
+      "statement": "For open-disc numerator F and denominator D define Q_{F,D}(t)=E(F,t)/E(D,t) only as a meromorphic chart expression. All evaluation theorems require ||t||<1 and E(D,t)≠0. For a pseudomeasure λ imported from PMIA L3 and a genuine clearing numerator μ=([a]−[1])λ, F is the component Mellin series of μ and D represents κ_t(a)−1. A quotient’s total value at a zero denominator has no meromorphic meaning; no extension of the pseudomeasure’s value is asserted there.",
+      "hypotheses": [
+        "K is a finite extension of Q_p with its normalized nonarchimedean absolute value; the elementary series lemmas also hold over any complete nontrivially normed ultrametric field.",
+        "An open-disc series F means a native power series with ||a_n|| R^n tending to zero for every real 0<R<1. Write E(F,t) for the native FormalMultilinearSeries.ofScalarsSum of its coefficients; analytic uses require ||t||<1. No convergence claim is made at ||t||=1."
+      ],
+      "proofSteps": [
+        "Use component-mellin-evaluation for the numerator and native scalar evaluation for the denominator.",
+        "Divide on the nonvanishing locus.",
+        "The source’s generator case gives a possible simple pole at the trivial character; a general clearing element may vanish at more characters, so its entire nonvanishing locus is kept explicit."
+      ],
+      "acceptance": [
+        "The denominator 1 recovers ordinary analytic evaluation.",
+        "F=1,D=T gives 1/t for t≠0.",
+        "F=D=T gives 1 on the punctured disc; this is a removable expression, not a value assigned to λ at the trivial character."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L3/component-mellin-evaluation",
+        "LocallyAnalyticDistributions:L1/open-disc-evaluation-mul",
+        "PadicMeasuresIwasawaAlgebras:L3"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Mellin",
+        "namespace": "TauCeti.Mellin"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-2024",
+          "locator": "Remark 3.47, pp. 25–26; §5.3, pp. 34–35 (formula immediately before Remark 5.22)",
+          "match": "Component evaluation and the branch parameterization; this adapter uses imported character charts and retains the source’s odd-prime convention where that specialization is discussed."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Meromorphic Mellin evaluation"
+      },
+      "api": [
+        {
+          "name": "TauCeti.Mellin.quotientMellin",
+          "role": "constructor",
+          "statement": "For open-disc numerator F and denominator D define Q_{F,D}(t)=E(F,t)/E(D,t) only as a meromorphic chart expression. All evaluation theorems require ||t||<1 and E(D,t)≠0. For a pseudomeasure λ imported from PMIA L3 and a genuine clearing numerator μ=([a]−[1])λ, F is the component Mellin series of μ and D represents κ_t(a)−1. A quotient’s total value at a zero denominator has no meromorphic meaning; no extension of the pseudomeasure’s value is asserted there."
+        },
+        {
+          "name": "TauCeti.Mellin.quotientMellin_def",
+          "role": "characterisation",
+          "statement": "Q_{F,D}(t)=E(F,t)/E(D,t); meaningful use is guarded by the nonvanishing condition."
+        },
+        {
+          "name": "TauCeti.Mellin.quotientMellin_clear",
+          "role": "relation",
+          "statement": "E(D,t)Q_{F,D}(t)=E(F,t) when E(D,t)≠0."
+        },
+        {
+          "name": "TauCeti.Mellin.quotientMellin_one",
+          "role": "compatibility",
+          "statement": "Q_{F,1}(t)=E(F,t)."
+        },
+        {
+          "name": "TauCeti.Mellin.quotientMellin_zero",
+          "role": "simp",
+          "statement": "A zero numerator yields zero on every admissible domain."
+        }
+      ],
+      "tests": [
+        {
+          "name": "QuotientMellinTests.no_denominator",
+          "kind": "compatibility",
+          "statement": "Q_{F,1}(t)=E(F,t)."
+        },
+        {
+          "name": "QuotientMellinTests.simple_pole",
+          "kind": "computation",
+          "statement": "Q_{1,T}(t)=t inverse for t≠0."
+        },
+        {
+          "name": "QuotientMellinTests.removable_on_punctured_disc",
+          "kind": "computation",
+          "statement": "Q_{T,T}(t)=1 for t≠0."
+        },
+        {
+          "name": "QuotientMellinTests.trivial_character_excluded",
+          "kind": "non-example",
+          "statement": "E(T,0)=0, so the chart domain for denominator T excludes the trivial character."
+        }
+      ],
+      "uses": [
+        {
+          "where": "RJW Remark 3.47, last paragraph",
+          "how": "Realizes pseudomeasures as analytic quotients on legitimate clearing domains; avoids silently evaluating a pole."
+        },
+        {
+          "where": "DirichletPadicLFunctions:L3",
+          "how": "Supplies analytic quotient evaluation, while that consumer owns zeta-specific pole and residue formulas."
+        }
+      ]
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L3/meromorphic-clearing-independence",
+      "parentStageId": "LocallyAnalyticDistributions:L3",
+      "realises": [
+        "LocallyAnalyticDistributions:L3"
+      ],
+      "title": "Agreement of Mellin clearing expressions",
+      "kind": "lemma",
+      "statement": "If F,D,F′,D′ are open-disc series with FD′=F′D, then Q_{F,D}(t)=Q_{F′,D′}(t) at every ||t||<1 for which both denominator values are nonzero. Applied to the algebraic clearing compatibility imported from PMIA L3 this proves independence on chart overlaps; it does not construct a total-fraction-ring character homomorphism.",
+      "hypotheses": [
+        "K is a finite extension of Q_p with its normalized nonarchimedean absolute value; the elementary series lemmas also hold over any complete nontrivially normed ultrametric field.",
+        "An open-disc series F means a native power series with ||a_n|| R^n tending to zero for every real 0<R<1. Write E(F,t) for the native FormalMultilinearSeries.ofScalarsSum of its coefficients; analytic uses require ||t||<1. No convergence claim is made at ||t||=1."
+      ],
+      "proofSteps": [
+        "Apply open-disc-evaluation-mul to the cross-product identity.",
+        "Cancel the two nonzero denominator values in K. The algebraic pseudomeasure compatibility is supplied by its existing owner, not assumed to hold at arbitrary denominator zeros."
+      ],
+      "acceptance": [
+        "The presentations (T,T) and (1,1) agree for t≠0.",
+        "No assertion is made at a zero of either chosen denominator."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L3/meromorphic-mellin-clearing",
+        "LocallyAnalyticDistributions:L1/open-disc-evaluation-mul",
+        "PadicMeasuresIwasawaAlgebras:L3"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Mellin",
+        "namespace": "TauCeti.Mellin"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-2024",
+          "locator": "Remark 3.47, pp. 25–26; §5.3, pp. 34–35 (formula immediately before Remark 5.22)",
+          "match": "Component evaluation and the branch parameterization; this adapter uses imported character charts and retains the source’s odd-prime convention where that specialization is discussed."
+        }
+      ],
+      "implementationStatus": "unchecked"
     }
   ],
   "links": [
@@ -11269,15 +12199,19 @@
       "stageId": "LocallyAnalyticDistributions:L0",
       "status": "partial",
       "remaining": [
-        "Several variables: for X a finite product of local integer rings, the uniform radius, independence of charts and LA(X × Y) = LA(X) ⊗̂ LA(Y); Colmez treats ℤ_p, and Schneider–Teitelbaum 𝒪_F as a one-dimensional F-analytic group."
+        "Several variables: for X a finite product of local integer rings, the uniform radius, independence of charts and LA(X × Y) = LA(X) ⊗̂ LA(Y); Colmez treats ℤ_p, and Schneider–Teitelbaum 𝒪_F as a one-dimensional F-analytic group.",
+        "Read Colmez–Nizioł (2025), Appendix A: specify the relevant nonarchimedean locally convex/left-heart framework and the Banach, Fréchet and compact-type three-space results with the spherical-completeness or outer-term separability hypotheses. These assigned inputs were not read in this checkpoint."
       ],
       "notes": "One-variable content planned in 6 nodes within RS-16's keeps (Colmez §I.4, RJW §3.7, Schneider–Teitelbaum §1): Gauss-norm Banach spaces on closed discs, LA_h with its orthonormal basis, scalar extension and the uniform radius, the inductive-limit topology and its strictness over the C⁰ topology, Amice's Mahler-coefficient theorem, the Fréchet dual with the bounded-measure injection (measures imported from PadicMeasuresIwasawaAlgebras L0), and the F-analytic versus ℚ_p-analytic distinction on 𝒪_F."
     },
     {
       "stageId": "LocallyAnalyticDistributions:L1",
-      "status": "source_decomposed",
-      "remaining": [],
-      "notes": "Planned in 3 nodes within RS-16's keeps (Colmez §§II.1–II.2, II.4; RJW Theorem 3.43): the Fréchet isomorphism D ≅ R⁺ with radius estimates and its compatibility with the bounded transform; the continuous extension of the toolbox (Dirac, multiplication, restriction, derivative, σ_a, φ, ψ, convolution); division by x with unit-supported uniqueness, the log-polynomial ambiguity of ∂^{−k} and its cancellation at p-power roots of unity, and primitives only modulo the closure of locally constant functions."
+      "status": "partial",
+      "remaining": [
+        "Refine the inherited composite distribution-operations and division/primitives nodes and their APIs to individual declarations and typed signatures, retaining the exact logarithmic cancellation and locally constant ambiguity.",
+        "Read Colmez–Nizioł Appendix A and Kohlhaase’s invoked result for the derivative surjection on LA(Z_p) without continuous section and the equivalent tR+ extension. The prior source_decomposed label covered the original one-variable targets but not this added source obligation."
+      ],
+      "notes": "Planned in 3 nodes within RS-16's keeps (Colmez §§II.1–II.2, II.4; RJW Theorem 3.43): the Fréchet isomorphism D ≅ R⁺ with radius estimates and its compatibility with the bounded transform; the continuous extension of the toolbox (Dirac, multiplication, restriction, derivative, σ_a, φ, ψ, convolution); division by x with unit-supported uniqueness, the log-polynomial ambiguity of ∂^{−k} and its cancellation at p-power roots of unity, and primitives only modulo the closure of locally constant functions. New native scalar-series radius, summability, uniform-tail, analyticity, multiplication and isometric-coefficient-map adapters are planned. The added Appendix A source obligation and inherited composite signature work make the full current scope partial."
     },
     {
       "stageId": "LocallyAnalyticDistributions:L2",
@@ -11289,12 +12223,16 @@
     },
     {
       "stageId": "LocallyAnalyticDistributions:L3",
-      "status": "not_read",
+      "status": "partial",
       "remaining": [
-        "Import scalar character-space representability, universal characters, generator changes and odd/dyadic components from PadicMeasuresIwasawaAlgebras:L0a, as RS-16 requires; do not duplicate that construction.",
-        "Decompose scalar Mellin evaluation under coefficient extension, twists, weight derivatives and ray-class functoriality; distinguish analytic, bounded and meromorphic domains.",
-        "Specify the adic/power-series comparison using affinoid and open-gluing interfaces. Diamonds are not required."
-      ]
+        "Consume the requested PMIA L0a group charts and finite-character decomposition, with odd-p p−1 components and the dyadic ±1 / 1+4Z_2 chart. This packet’s new component construction takes a chart as input and does not construct it.",
+        "Promote L0’s clopen/analytic-chart pullback and finite-factor distribution decomposition to individual lemmas, then derive the unbounded distribution Mellin isomorphism from L1/amice-transform. State and prototype its Fréchet topology comparison. Prove the converse bounded-functions/measure equivalence by the exact PMIA L2/field-bounded-amice-isometry node and finite-character inversion.",
+        "Prove local analyticity of branch coordinates, differentiation in arithmetic weight with the log(γ) factor, analytic twists with their component changes, and normalization at locally algebraic characters. Import the existing PMIA Mahler derivation and L1 operator formulas instead of rebuilding them.",
+        "Read a multivariable/ray-class source (Loeffler arXiv:1304.4042 is a lead), then state the full vector-radius functoriality and scalar-extension theorem. The native scalar-series field-extension lemma here does not construct scalar extension of locally analytic duals.",
+        "Build the analytic-versus-adic model comparison against the owning AdicSpaces Layer 5 open-disc/gluing interface. No geometric identification is provided by testing only K-valued points.",
+        "Identify genuine PMIA L3 clearing numerators and their analytic denominators on each character component, prove meromorphic gluing and its pole bounds. The new quotient overlap lemma is conditional on the exact cross-product relation and does not assert a value at a zero denominator."
+      ],
+      "notes": "Bounded one-variable component series, coefficient bound, analytic evaluation, scalar-series coefficient extension, arithmetic branch coordinates and clearing-expression overlap independence are now decomposed. Imported character representability/charts remain a request, and no locally analytic distribution equivalence or generic family action is claimed."
     },
     {
       "stageId": "LocallyAnalyticDistributions:L4",
@@ -11315,7 +12253,8 @@
         "The unrestricted finite matrix identity is now decomposed through native generic matrices, independent universal polynomial coefficients, a rational specialization detecting the generic discriminant, an eigenbasis over the algebraic closure of the universal fraction field, faithful descent and arbitrary-ring specialization. Continue with the entire-input definition and limit of D, quantitative coefficient estimates, Coleman A3.8(11) and the infinite-operator A3.9 transport. Preserve the distinction between fixed-rank finite mapping (no B(0)=0 hypothesis) and rank padding or infinite compact-operator transport (B(0)=0 required). Canonical finite-module topology, completed tensor products, determinant/rank over nonreduced coefficients and actual distribution families remain separate gaps.",
         "The scalar truncation equality in Coleman A3.8(11) is now decomposed: native Sylvester reflection/swap gives the finite reciprocal identity; convergent monic-quotient tails give remainder coefficient convergence; fixed-size resultant continuity gives Res(Q,F_n)→Res(Q,F); and normalization gives the simultaneous spectral scalar limit. Construct the general entire D(B,P), prove convergence with quantitative coefficient estimates in an entire topology that makes evaluation continuous, and then identify its value at1 using the supplied scalar limit. Prove A3.8(10) and the infinite-operator A3.9 transport. Do not infer evaluation continuity from coefficientwise convergence or identify a scalar limit with an unconstructed series. The canonical finite-module topology, finite-projective determinants/rank over nonreduced coefficients, completed tensors and actual distribution families remain separate gaps.",
         "Native Gauss norms and restrictedness now supply explicit two-radius truncation estimates, uniform-bound coefficient limits, all-radius Cauchy completeness, uniform evaluation on closed balls, multiplication convergence and continuity of fixed monic entire division. Construct the general spectral series D(B,P) by proving the missing quantitative coefficient estimates for its simultaneous finite truncations; then use these convergence criteria and the supplied scalar resultant limit for A3.8(11). Prove A3.8(10) and the infinite-operator A3.9 transport. No coefficientwise limit is sufficient by itself, and no topology or completed carrier is silently introduced. Canonical finite-module topology, nonreduced determinant/rank, completed tensors and actual distribution families remain separate gaps.",
-        "Entire B with normalized polynomial P now has an actual native spectral polynomial via the fixed monic remainder, coefficient and all-radius Gauss limits, simultaneous truncation convergence when B(0)=0, exact rank padding, polynomial factor multiplicativity and linear evaluation. For general entire P, prove bounds uniform in its unbounded truncation degree; a fixed-degree coefficient argument cannot supply this. Then construct the general D(B,P), identify A3.8(11) through the supplied scalar limit, prove A3.8(10) for entire factors, and transport A3.9 to infinite operators. Other finite-module topology, nonreduced determinant/rank, completed-tensor and distribution-family gaps remain."
+        "Entire B with normalized polynomial P now has an actual native spectral polynomial via the fixed monic remainder, coefficient and all-radius Gauss limits, simultaneous truncation convergence when B(0)=0, exact rank padding, polynomial factor multiplicativity and linear evaluation. For general entire P, prove bounds uniform in its unbounded truncation degree; a fixed-degree coefficient argument cannot supply this. Then construct the general D(B,P), identify A3.8(11) through the supplied scalar limit, prove A3.8(10) for entire factors, and transport A3.9 to infinite operators. Other finite-module topology, nonreduced determinant/rank, completed-tensor and distribution-family gaps remain.",
+        "RT-AREA-iwasawa-2/5 is unresolved: read Pilloni §13, BCGP (2021) §6.1.1 and BCGP (2025) §§2.2,4.6, then add projective Banach complexes, representative-wise compact endomorphisms, the source’s nonalternating characteristic-series product, derived finite-slope localization and Stein/quasi-Stein exhaustions. Preserve corrected slope endpoint inequalities and keep solid-module functional analysis outside this layer. Read Pan (2026) Example 2.2.2 for the routed Tate-algebra compactness input."
       ]
     }
   ],
@@ -11359,6 +12298,23 @@
         "LocallyAnalyticDistributions:L4/completely-continuous"
       ],
       "detail": "AdicSpacesPartII:R3/completely-continuous-map owns the approximation predicate and ideal/closure API. Its current mathematical statement assumes affinoid coefficients, although its prototype predicate is more general. Request its ordinary complete-continuity contract over the present Noetherian K-Banach algebras, and promote the consumed composition/closure API. The finite-image convention comparison is proved here; no strict-complete-continuity theorem is imported."
+    },
+    {
+      "title": "Mellin equivalence, topology and geometric model beyond scalar adapters",
+      "neededBy": [
+        "LocallyAnalyticDistributions:L3/finite-character-component-mellin",
+        "LocallyAnalyticDistributions:L3/branch-mellin",
+        "LocallyAnalyticDistributions:L3/meromorphic-mellin-clearing"
+      ],
+      "detail": "The new typed construction acts on native bounded measures using supplied continuous charts. The full L3 target acts on locally analytic strong duals; clopen analytic chart continuity, finite-factor decomposition, inverse bounded comparison, local branch analyticity, weight differentiation, twists, multivariable/ray-class functoriality and adic gluing are not established by this checkpoint. Read the sources and promote exact L0/L1/supplier APIs before asserting an equivalence. All missing actions are itemized in L3 coverage; conditional clearing expressions are not a pseudomeasure construction."
+    },
+    {
+      "title": "Assigned functional-analysis and derived finite-slope sources remain unexamined",
+      "neededBy": [
+        "LocallyAnalyticDistributions:L0/locally-analytic-distributions",
+        "LocallyAnalyticDistributions:L4/finite-slope-summands"
+      ],
+      "detail": "The issue adds Colmez–Nizioł Appendix A and Pilloni/BCGP/Pan inputs beyond the inherited packet. Their target contracts are recorded in L0,L1,L4 remaining lists. RT-AREA-iwasawa-2/5 is not discharged by module-level Fredholm theory: projective Banach complexes, representative-wise compactness, their characteristic series, derived localization and Stein/quasi-Stein exhaustions must receive source-read nodes. Do not treat the existing composite layer coverage as a read of these papers."
     }
   ],
   "requests": [
@@ -11372,11 +12328,19 @@
     },
     {
       "supplier": "PadicMeasuresIwasawaAlgebras:L0a",
-      "need": "Scalar character-space functor, representability, universal character, generator changes and odd-p/dyadic components under RS-16. Distribution-valued coefficient actions and uniform local radii are retained in L4, not sent back to this supplier."
+      "need": "Scalar character-space functor, representability, universal character, generator changes and odd-p/dyadic components under RS-16. Distribution-valued coefficient actions and uniform local radii are retained in L4, not sent back to this supplier. Specifically provide a locally analytic group chart H:G≃Δ×Z_p (and its finite-dimensional product version), ν-component points κ_(ν,t)(g)=ν(H_Δg)(1+t)^(H_Zg), finite-character inversion over a splitting field with |Δ| invertible, generator changes, and the canonical odd/dyadic unit-coordinate formulas. These are supplier data, not definitions repeated by this packet.",
+      "neededBy": [
+        "LocallyAnalyticDistributions:L3/finite-character-component-mellin",
+        "LocallyAnalyticDistributions:L3/branch-mellin"
+      ]
     },
     {
       "supplier": "PadicMeasuresIwasawaAlgebras:L3",
-      "need": "Pseudo-measures and the precise evaluation/inversion domains for the meromorphic comparison in L3."
+      "need": "Pseudo-measures and the precise evaluation/inversion domains for the meromorphic comparison in L3. Identify the genuine clearing numerator for ([a]−[1])λ and prove cross-product compatibility of two clearings on their nonvanishing character domains. The exact existing pointwise numerator/ratio nodes can supply the algebraic part; analytic meromorphic gluing belongs here.",
+      "neededBy": [
+        "LocallyAnalyticDistributions:L3/meromorphic-mellin-clearing",
+        "LocallyAnalyticDistributions:L3/meromorphic-clearing-independence"
+      ]
     },
     {
       "supplier": "AdicSpacesPartII:R3",
@@ -11433,95 +12397,40 @@
   "restructure": [],
   "libraryReview": {
     "status": "discovery_only",
-    "scope": "All five LAD rows in the reviewed aggregate AUDIT-25, integrated decomposition/review, RS-16 LAD ownership, and all applicable link records were read. The inherited nine baseline declarations and eighteen additions were inspected in byte-verified pinned sources. This is a targeted continuation, not a new exhaustive library audit. Lean elaboration checks signatures only."
+    "scope": "All five LAD rows in the reviewed aggregate AUDIT-25, integrated decomposition/review, RS-16 LAD ownership, and all applicable link records were read. The inherited nine baseline declarations and eighteen additions were inspected in byte-verified pinned sources. This is a targeted continuation, not a new exhaustive library audit. Lean elaboration checks signatures only. The scalar-Mellin continuation reread all five audited rows and inspected the newly cited Mathlib declarations at the pin; it makes no new Tau Ceti baseline additions."
   },
   "review": {
     "status": "pending",
-    "notes": "Codex codex-hjdg0j continuation of the ChatGPT checkpoint. The accepted review covers the integrated thirteen-node decomposition, not this blueprint or this extension."
+    "notes": "Codex codex-hjdg0j continuation of the ChatGPT checkpoint. The accepted review covers the integrated thirteen-node decomposition, not this blueprint or this extension. Codex codex-yAUVaO adds a partial scalar-Mellin checkpoint; no independent review or full-plan completion is asserted."
   },
   "checks": {
-    "agent": "Codex — codex-7e92bd",
-    "date": "2026-09-28",
-    "checkpoint": "entire functional input and fixed polynomial characteristic input",
+    "agent": "Codex — codex-yAUVaO",
+    "date": "2026-10-05",
+    "checkpoint": "Bounded scalar Mellin components and native open-disc evaluation adapters",
     "validation": {
-      "nodes": 186,
-      "kinds": {
-        "comparison": 20,
-        "construction": 18,
-        "definition": 3,
-        "lemma": 112,
-        "theorem": 33
-      },
-      "api": 92,
-      "definitionConstructionAPI": 88,
-      "packetTests": 123,
-      "definitionConstructionTests": 76,
-      "typedExamples": 123,
-      "planets": 6,
-      "baseline": 228,
-      "newNodes": 12,
-      "preservedWholeNodes": 174,
-      "preservedBaseline": 228,
-      "preservedFindings": 2,
-      "newFindings": 0,
-      "reachableNodes": 186,
-      "dependencyEdges": 782,
-      "baselineLeaves": 223,
-      "stageLeaves": [
-        "AdicSpacesPartII:R3"
-      ],
-      "acyclic": true,
-      "pinnedMathlibModules": 2213,
-      "pinnedTauCetiModules": 4,
-      "actualSupplierModules": 0,
-      "nativeModulesBuilt": 0,
-      "gaps": 8,
-      "requests": 5,
-      "closedStages": 0,
-      "suggestedFileSha256": "4047ee503601accdd99b790ce2ae654187de293b52c6bf8fca4258daf33bd96c",
-      "sourceAuditSha256": "4d6143b39491bf2433f5d4089ff74f8e0b9b33046f5d8837bc9a821317d44a17",
-      "compileCompleted": true,
-      "compilerExit": 0,
-      "compileStatus": "full file elaborated at pinned baseline",
-      "compilerErrors": 0,
-      "compilerWarnings": 367,
-      "warningsOnlyPlaceholders": true
+      "nodes": 214,
+      "newNodes": 15,
+      "preservedWholeNodes": 199,
+      "apiItems": 122,
+      "definitionConstructionTests": 103,
+      "planets": 15,
+      "baselineDeclarations": 248,
+      "gaps": 10,
+      "requests": 6,
+      "stagesPlanned": 0,
+      "stagesClosed": 0,
+      "packetErrors": 0,
+      "packetWarnings": 0,
+      "newAPIAndTestsHaveTypedForms": true
     },
-    "arithmetic": {
-      "remainderSpectralIdentities": 24,
-      "outputDegreeBounds": 24,
-      "rankPaddingIdentities": 24,
-      "polynomialFactorProducts": 24,
-      "modularCoefficientComparisons": 336,
-      "fixedRankGaussTailBounds": 384,
-      "nilpotentCoefficientCases": 3,
-      "emptyRankCases": 24,
-      "families": 24,
-      "primes": [
-        2,
-        3,
-        5,
-        7
-      ],
-      "source": "Exact integer and rational arithmetic; explicit native-convention Sylvester determinants and monic reduction, nilpotents modulo4/8/9, and truncations of the superexponential entire model sum p^(k²) X^k. The Gauss tail comparisons keep characteristic degree fixed and include roots of norm greater than1. They do not prove general entire-characteristic uniform bounds.",
-      "scriptSha256": "c5a2e1e9215cfbb03b5b41a1ce3e1f91c36dcbdb7445d86ff131c1e91c4fd122"
+    "lean": {
+      "newSection": "Elaborated with lean-check against Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; zero errors, 48 warnings, all omitted-proof warnings.",
+      "fullSuggestedFile": "Attempted with lean-check; stopped at the inherited TauCeti.RingTheory.Polynomial.Resultant.AdjoinRoot import because its compiled object is absent in the shared build. Full-file elaboration is not confirmed in this run.",
+      "sharedTauCetiSourceHead": "cf386627e9176a3827c1a5fe804989fd94a4d216",
+      "pinnedTauCeti": "f790474821cf4256814db967cb154e7af3d0c369",
+      "buildChanges": "None. No build, cache download, language server or parallel Lean run was started. The independently checked new section imports Mathlib only."
     },
-    "publication": {
-      "base": "62319b2642d123c2409499d5ceefb94d8d61976d",
-      "publicationMain": "2566939af56e4177dfd642feeb41fa7f4785e279",
-      "guardedInputs": 48,
-      "unchangedInputs": 47,
-      "inputChanges": {
-        "research/blueprint/packets/PadicMeasuresIwasawaAlgebras.json": {
-          "before": "6756916ff826c8340ba3db789f6061c619a7f401",
-          "now": "16c6d308ee7a0d3a3c06cf9940a8611a3998ee4a"
-        }
-      },
-      "predecessorOutputChanges": [],
-      "unchangedIssueBody": true,
-      "claimConfirmation": 5861271520
-    },
-    "status": "Full compilation, indexed checker, intake, errata, whitespace, graph, preservation and reader/declaration/API/test parity all passed."
+    "status": "Partial checkpoint; all implementation statuses are unchecked; source and topology gaps remain."
   },
   "provenance": {
     "adjugateContinuation": {
@@ -13494,6 +14403,106 @@
         "closure": "Partial: eight gaps,five requests,zero closed stages. Every implementation status remains unchecked."
       },
       "sourceBoundary": "Entire functional input, normalized polynomial characteristic input, explicit finite rank. Complete published435–436 freshly read; earlier432–436 retained. No general entire-characteristic limit is inferred."
+    },
+    "inheritedChecksBeforeMellin": {
+      "agent": "Codex — codex-7e92bd",
+      "date": "2026-09-28",
+      "checkpoint": "entire functional input and fixed polynomial characteristic input",
+      "validation": {
+        "nodes": 186,
+        "kinds": {
+          "comparison": 20,
+          "construction": 18,
+          "definition": 3,
+          "lemma": 112,
+          "theorem": 33
+        },
+        "api": 92,
+        "definitionConstructionAPI": 88,
+        "packetTests": 123,
+        "definitionConstructionTests": 76,
+        "typedExamples": 123,
+        "planets": 6,
+        "baseline": 228,
+        "newNodes": 12,
+        "preservedWholeNodes": 174,
+        "preservedBaseline": 228,
+        "preservedFindings": 2,
+        "newFindings": 0,
+        "reachableNodes": 186,
+        "dependencyEdges": 782,
+        "baselineLeaves": 223,
+        "stageLeaves": [
+          "AdicSpacesPartII:R3"
+        ],
+        "acyclic": true,
+        "pinnedMathlibModules": 2213,
+        "pinnedTauCetiModules": 4,
+        "actualSupplierModules": 0,
+        "nativeModulesBuilt": 0,
+        "gaps": 8,
+        "requests": 5,
+        "closedStages": 0,
+        "suggestedFileSha256": "4047ee503601accdd99b790ce2ae654187de293b52c6bf8fca4258daf33bd96c",
+        "sourceAuditSha256": "4d6143b39491bf2433f5d4089ff74f8e0b9b33046f5d8837bc9a821317d44a17",
+        "compileCompleted": true,
+        "compilerExit": 0,
+        "compileStatus": "full file elaborated at pinned baseline",
+        "compilerErrors": 0,
+        "compilerWarnings": 367,
+        "warningsOnlyPlaceholders": true
+      },
+      "arithmetic": {
+        "remainderSpectralIdentities": 24,
+        "outputDegreeBounds": 24,
+        "rankPaddingIdentities": 24,
+        "polynomialFactorProducts": 24,
+        "modularCoefficientComparisons": 336,
+        "fixedRankGaussTailBounds": 384,
+        "nilpotentCoefficientCases": 3,
+        "emptyRankCases": 24,
+        "families": 24,
+        "primes": [
+          2,
+          3,
+          5,
+          7
+        ],
+        "source": "Exact integer and rational arithmetic; explicit native-convention Sylvester determinants and monic reduction, nilpotents modulo4/8/9, and truncations of the superexponential entire model sum p^(k²) X^k. The Gauss tail comparisons keep characteristic degree fixed and include roots of norm greater than1. They do not prove general entire-characteristic uniform bounds.",
+        "scriptSha256": "c5a2e1e9215cfbb03b5b41a1ce3e1f91c36dcbdb7445d86ff131c1e91c4fd122"
+      },
+      "publication": {
+        "base": "62319b2642d123c2409499d5ceefb94d8d61976d",
+        "publicationMain": "2566939af56e4177dfd642feeb41fa7f4785e279",
+        "guardedInputs": 48,
+        "unchangedInputs": 47,
+        "inputChanges": {
+          "research/blueprint/packets/PadicMeasuresIwasawaAlgebras.json": {
+            "before": "6756916ff826c8340ba3db789f6061c619a7f401",
+            "now": "16c6d308ee7a0d3a3c06cf9940a8611a3998ee4a"
+          }
+        },
+        "predecessorOutputChanges": [],
+        "unchangedIssueBody": true,
+        "claimConfirmation": 5861271520
+      },
+      "status": "Full compilation, indexed checker, intake, errata, whitespace, graph, preservation and reader/declaration/API/test parity all passed."
+    },
+    "scalarMellin": {
+      "agent": "Codex — codex-yAUVaO",
+      "date": "2026-10-05",
+      "issue": 641,
+      "claimComment": 5999079305,
+      "claimConfirmation": 5999082090,
+      "reading": "Whole issue before and after claim; WORKERS, both binding protocols, UPSTREAM_GUIDE; upstream AdicSpaces and ModularForms documents; reviewed LAD L0–L4 library audit, accepted RS-16 LAD boundary, integrated L4 decomposition and touching link records; PMIA L0a and relevant L2/L3 supplier nodes. Fresh source passages are precisely enumerated in the two updated sources, with their previously recorded hashes independently reproduced. Other sources retain inherited provenance; the newly assigned Appendix A and derived finite-slope papers remain unexamined.",
+      "preservation": "All 199 prior node objects are unchanged; 15 new nodes, 19 new indexed baseline references, 16 new API items and 12 new construction tests. All new construction APIs and tests have typed forms in the suggested file. Three new L3 planets, no layer exceeds six.",
+      "sourceHashes": {
+        "RJW-2024": "efa1e10168fb092ffb072bbf147f85f07bea72d2a8f4907d6e9e4fd559c039c4",
+        "COLMEZ-FONCTIONS-2010": "a18e1b0f96033dbc6d27d39dd330974bed63808286092c11d5c8d232d412c380"
+      },
+      "signatureSha256": "e759e66fe643aa5d669349053de029828e9d632e94d8bc9e2b906be5b6f1af2f",
+      "absenceClaim": "Targeted pinned-source searches and the reviewed audit distinguish scalar adapters from missing character geometry. No global library-absence claim is made.",
+      "sourceIssues": "No new source erratum is claimed; the two inherited findings are preserved."
     }
   },
   "sourceVersions": [
