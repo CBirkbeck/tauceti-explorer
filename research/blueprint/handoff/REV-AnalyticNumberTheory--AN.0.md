@@ -1,5 +1,46 @@
 # REV-AnalyticNumberTheory--AN.0 — current checkpoint
 
+Issue [#527](https://github.com/CBirkbeck/tauceti-explorer/issues/527), Codex — `codex-btapUd`,2026-10-05. Claim confirmed by [bot comment5994710524](https://github.com/CBirkbeck/tauceti-explorer/issues/527#issuecomment-5994710524). Input commit `87bd33694d5c627634d560b7e7e37abddb02ea50`; branch `codex-btapUd/review-analytic-527`.
+
+**Partial independent review; no final verdict or top-level packet `review` object.** The inherited `status: complete` describes the author's plan. Intake must classify this review as incomplete. Preserve this session's local corrections and all four historical receipts below, each at its stated scope. No node has newly received a final verified verdict.
+
+## Saved work
+
+- Fresh scoped source audit of zero-based nodes98–111; all14 existing payloads changed. No node or planet added/deleted. Nodes112–133 were inspected, but their fresh adjudication was not completed; **resume at112**.
+- Weil predicate and transform now use the pinned BV, one-sided-limit and integrability carriers, with symmetric exponential weight and a quotient totalized to0 at0. Different quotient one-sided limits are permitted; exp(−|x|) is a valid example. Added monotonicity in c and continuity/global quotient-bound APIs, kink and asymmetric-tail tests, and all native API/test signatures. Five canonical-carrier definition omissions remain, rather than six.
+- **New locally confirmed source issue E20:** Mestre's general asymmetric statement prints a one-signed decay condition. The continuous F(x)=exp(x/4) for x<0, exp(−2x) for x≥0 satisfies it at c=0,ε=1/4 and has a BV quotient, but its required transform at s=0 diverges. Both tails are necessary; Chenevier–Taïbi's even specialization is unaffected. Published pp.212–214 viewed. Bounded novelty search only; no exhaustive novelty claim or final review verdict.
+- Mestre gamma kernels retain the combined subtractions. Zero slopes contribute0 only after removing finite nonzero constant gamma factors. Poitou, safe heights in the whole required strip, Fourier limits, residues and symmetric zero-sum convergence remain open.
+- Strict squarefree D(X) cutoff, Euler factors and explicit positive Landau constant; finite D(14) and r=1,2 examples. Selberg–Delange transfer remains open. KPv1's all-fixed-A Sathe–Selberg range is wider than the stated CKMPv1 p.13 range; reconcile versions/full proof before certification.
+- Exceptional squareclasses may be empty/finite. Conductor-aware square-growth deduction uses log(Q_dQ_e)≤5log(|d|+4), c_Landau≤3c_star/5, conditional on the unaudited strict two-real-zero supplier. Prime-interval endpoint/ramification/effective-constant and exceptional-zero conventions are explicit; Abel/higher-power/envelope work and effective class-number/derivative separation remain open.
+- Heilbronn's complete four-page virtual-character proof read. Aramata–Brauer quotients and exact finite-character/parity machinery remain required; no global Artin holomorphy or upstream qualitative Chebotarev supplier is assumed.
+- Gross–Zagier: negative fundamental discriminants, primitive half-sum and half-units; reuse existing completed CM identity at53 for the normalization comparison. Arithmetic genus classification is distinct from the existing analytic factorization. Pinned genus/class-group construction hypotheses were checked but do not prove the entire classification. Reuse Mathlib Dirichlet completion, adding the conductor power; root+1 still needs the quadratic arithmetic adapter/Dedekind comparison. Special values use pinned gamma/residue statements after imaginary-quadratic regulator/embedding specialization.
+- Six fresh primary-source/version records and eight baseline declarations added. Exact URLs, passages, hashes, acquisition exceptions and unread boundaries are in the latest [review-report section](../reviews/REV-AnalyticNumberTheory--AN.0.md). No departing-worker scratch file is needed; reacquire sources there. Gross–Zagier's96-page published scan differs from the inherited97-page cover scan. CKMP's acquired PDF is arXivv1.
+- Two actual native definitions, six admitted Weil API/integrability lemmas, eight admitted examples and two admitted restricted-count theorems added. Packet totals:224 nodes,93 APIs,79 planned tests,26 planets,80 baseline declarations,43 gaps,32 requests, six ownership proposals,18 source issues. No general Dirichlet continuation or CM construction is duplicated.
+
+## Validation
+
+`lean-check` in the shared pinned Mathlib build: exit0,0 errors,208 warnings, all `sorry`; available memory94 GiB. After this check only the explanatory header comment changed. Final suggested-file SHA256 `57ed531cc1a71a7e6e8f21a1ef3f6a0e2b3149c5d9965332fdc24d9003919ac0`. Mathlib pin `082e2d37e8b0463410cdb532e111cd43d5a66174`; Tau Ceti statements read with `git show` at `f790474821cf4256814db967cb154e7af3d0c369`. No Tau Ceti compilation, builds, cache operations, language server or background Lean process.
+
+Pinned packet checker:0 errors,0 warnings. Source-issue/version schemas, submission paths, whitespace and intake incomplete-review classification checked before PR. Only the three issue deliverables and this handoff changed. Elaboration, arithmetic examples and schemas do not prove the mathematics. Scratch is deleted after opening the PR; the handoff and report retain everything needed to continue.
+
+## Resume after a fresh claim
+
+1. Read #527, binding protocols, the latest report and all historical handoffs. Start the next sequential primary-source audit at **112**, but retain historical node72 and every prior gap. All224 nodes still need explicit final verdicts and a complete baseline-consumer audit.
+2. For112–132, reacquire Kedlaya's author PDF (hash in report). §§8.1–8.2 pp.47–49 and selected§8.4 exercises were read; p.49 viewed, but no new node/source-issue verdict applied. Check genus-one sign E6, absolute-log growth gap E7 and xi-integral estimate E16. Derive three-range lower product bounds and bounded-gap good radii; the source leaves estimates as exercises. Use Borel–Carathéodory/Cauchy for affine logarithms. Upgrade a supplied continuous logarithm locally via an analytic logarithm; simply connected log existence alone does not prove analyticity on arbitrary open U. Ensure the native Hadamard signature actually expresses local uniform convergence and finite multiplicities, including finite/empty zero products. General finite-order133 and Yun–Zhang Appendix B still need their original sources.
+3. Revisit98–111: Poitou/safe-height/transform/contour inputs; positive-product Selberg–Delange transfer and all-A Sathe–Selberg range; original two-real-zero/weighted PNT/effective derivative bounds; Brauer/Aramata and finite virtual-character lemmas; genus classification and canonical quadratic-conductor/root-sign/regulator adapters. Gaps36–40 describe these exact boundaries. Source E20 has only a scoped local confirmed receipt; complete the independent source-issue audit.
+4. Retain all earlier source, maximal-divisor-order, Mertens, arithmetic coefficient, contour, density, shifted-intersection, effective prime and Zaman35/40 worklists below. Earlier scoped audits are not automatic final verified-node verdicts.
+5. Complete remaining source families, all26 planets, APIs/tests/native signatures, closure, supplier precision, ownership/current-tree dependency checks and all named red-team routes: arithmetic-scheme Chebotarev, AC.4 growing W(N), maximal divisor order, classical zero-free region and AN.2→AC.4.
+6. The reader file is outside this issue's deliverables. It still needs authorized synchronization of historical and current corrections and an independent reading. Do not edit it under this claim. Do not accept the packet while reader/proof/interface/node/source obligations are unfinished.
+7. Only once the entire review is complete, record per-node verdicts and the final top-level review naming `independent-review-REV-AnalyticNumberTheory--AN.0`. Run packet/submission checks and Lean as appropriate; no manual promotion, merging, labels or closing.
+
+No maintainer decision is required to continue. This worker submits this checkpoint and stops after one job.
+
+---
+
+# Historical checkpoint — Codex `codex-BdrTzT`
+
+# REV-AnalyticNumberTheory--AN.0 — current checkpoint
+
 Issue [#527](https://github.com/CBirkbeck/tauceti-explorer/issues/527), Codex — `codex-BdrTzT`,2026-10-05. Claim confirmed by [bot comment5993995699](https://github.com/CBirkbeck/tauceti-explorer/issues/527#issuecomment-5993995699). Input commit `52c598cfaf84f788f32722b4617206fa2fe44b8b`; branch `codex-BdrTzT/review-analytic-527`.
 
 **Partial independent review; no final verdict or top-level packet `review` object.** The inherited `status: complete` describes the author's plan. This is a checkpoint; intake must classify the review as incomplete. Preserve this session's local corrections and all three historical checkpoint receipts below, each at its recorded scope. No node is newly certified as finally verified.
