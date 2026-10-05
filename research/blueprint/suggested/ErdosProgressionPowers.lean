@@ -11,6 +11,7 @@ import Mathlib.NumberTheory.LSeries.DirichletContinuation
 import Mathlib.NumberTheory.ArithmeticFunction.VonMangoldt
 import Mathlib.Data.Nat.MaxPrimeFac
 import Mathlib.Analysis.SpecialFunctions.Pow.Real
+import Mathlib.Analysis.SpecialFunctions.Stirling
 import Mathlib.Tactic
 
 /-!
@@ -338,7 +339,7 @@ lemma thin_prime_survivors_conductor {n d : ℤ} {k : ℕ} {y : ℤ} {ell : ℕ}
     (hi : a.val.1 ∈ thin_prime_survivors n d k s)
     (hj : a.val.2.1 ∈ thin_prime_survivors n d k s)
     (hh : a.val.2.2 ∈ thin_prime_survivors n d k s) :
-    (∀ p ∈ s ∪ Upr k, p.Prime → ¬ p ∣ familyN n d k y ell a) ∧
+    (∀ p ∈ s ∪ Upr k, p.Prime → p ≠ 2 → ¬ p ∣ familyN n d k y ell a) ∧
       ((familyN n d k y ell a).maxPrimeFac : ℝ) ≤ (k : ℝ)^(7/16 : ℝ) := by sorry
 -- TauCeti.ProgressionPowers.thin_prime_survivors_zero
 example (n d : ℤ) (s : Finset ℕ) : thin_prime_survivors n d 0 s = ∅ := by sorry
@@ -387,6 +388,10 @@ def J2 (n d : ℤ) (k ell : ℕ) (s : Finset ℕ) : Finset ℕ := by
 def certifiedThreshold (k : ℕ) : Prop := (k : ℝ) ≥ Real.exp (Real.exp (10^7))
 def thinSet (k : ℕ) (s : Finset ℕ) : Prop :=
   (∀ p ∈ s, p.Prime ∧ p ≤ k) ∧ (∑ p ∈ s, 1/(p : ℝ)) < (17/100 : ℝ)
+theorem stirling_upper_adapter (m : ℕ) (hm : 1 ≤ m) :
+    (m.factorial : ℝ) ≤ Real.sqrt (2 * Real.pi * m) *
+      ((m : ℝ) / Real.exp 1)^m * Real.exp (1 / (12 * (m : ℝ))) := by sorry
+
 theorem survivor_density {n d : ℤ} {k : ℕ} {y : ℤ} {ell : ℕ}
     (hH : Hplus n d k y ell) (hk : certifiedThreshold k) (s : Finset ℕ) (hs : thinSet k s) :
     (((Tpr k).biUnion (divisibility_indices n d k)).card : ℝ) ≤ (k : ℝ)*Real.log (16/7) ∧
@@ -466,7 +471,7 @@ theorem original_route_bound : ∃ K : ℕ, ∀ (n d : ℤ) (k : ℕ) (y : ℤ) 
 def zeroHeight (k : ℕ) (c : ℝ) : ℝ := Real.exp (c*Real.log k/(3*Real.log (Real.log k)))
 def zeroWithin {q : ℕ} [NeZero q] (k : ℕ) (c : ℝ)
     (χ : DirichletCharacter ℂ q) (ρ : ℂ) : Prop :=
-  χ.IsPrimitive ∧ χ.LFunction ρ = 0 ∧ |ρ.im| ≤ zeroHeight k c ∧
+  χ.IsPrimitive ∧ (ρ ≠ 1 ∨ χ ≠ 1) ∧ χ.LFunction ρ = 0 ∧ |ρ.im| ≤ zeroHeight k c ∧
     1-3*Real.log (Real.log k)/Real.log k < ρ.re
 def hasZeroWithin (k : ℕ) (c : ℝ) (q : ℕ) : Prop :=
   ∃ hq : NeZero q, ∃ χ : DirichletCharacter ℂ q, ∃ ρ : ℂ, @zeroWithin q hq k c χ ρ
@@ -489,11 +494,15 @@ example (k q : ℕ) (c : ℝ) (h : k^4 < q) : q ∉ exceptional_moduli k c := by
 example {k q : ℕ} {c : ℝ} [NeZero q] (χ : DirichletCharacter ℂ q) (ρ : ℂ)
     (h : zeroHeight k c < |ρ.im|) : ¬ zeroWithin k c χ ρ := by sorry
 
+-- TauCeti.ProgressionPowers.exceptional_moduli_principal_pole
+example {k q : ℕ} {c : ℝ} [NeZero q] :
+    ¬ zeroWithin k c (1 : DirichletCharacter ℂ q) 1 := by sorry
+
 -- This explicit native predicate is notation for the requested bounded-height
 -- Landau-Page input, not an assumed conclusion or a new zero-free theorem.
 def pageException (c T : ℝ) (q : ℕ) : Prop :=
   ∃ hq : NeZero q, ∃ χ : DirichletCharacter ℂ q, ∃ ρ : ℂ,
-    χ.IsPrimitive ∧ @DirichletCharacter.LFunction q hq χ ρ = 0 ∧
+    χ.IsPrimitive ∧ (ρ ≠ 1 ∨ χ ≠ 1) ∧ @DirichletCharacter.LFunction q hq χ ρ = 0 ∧
       |ρ.im| ≤ T ∧ 1-c/Real.log T ≤ ρ.re
 def boundedPage (c : ℝ) : Prop :=
   ∀ T : ℝ, 2 ≤ T → ∀ q r : ℕ, (q : ℝ) ≤ T → (r : ℝ) ≤ T →
