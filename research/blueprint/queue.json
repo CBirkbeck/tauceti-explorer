@@ -10317,8 +10317,9 @@
    "avoidAccountOf": "DESIGN-StableReductionPartII",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-StableReductionPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3619"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3619",
+   "finishedAt": "2026-10-05T18:03:14Z"
   },
   {
    "id": "DESIGN-HeightsRationalPointsAndObstructionsPartII",
@@ -23013,8 +23014,9 @@
    ],
    "avoidAccountOf": "BP-ColemanIntegration",
    "prompt": "research/blueprint/prompts/REV-ColemanIntegration.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #373"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #373",
+   "finishedAt": "2026-10-05T18:03:18Z"
   },
   {
    "id": "BP-ColemanPowerSeries",
@@ -23065,7 +23067,8 @@
    ],
    "avoidAccountOf": "BP-ColemanPowerSeries",
    "prompt": "research/blueprint/prompts/REV-ColemanPowerSeries.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #374"
   },
   {
    "id": "BP-CompletedCohomologyAndLocalGlobalCompatibility",
@@ -32821,7 +32824,8 @@
    ],
    "followUpOf": "BP-FiniteFieldsAndCharacterSums",
    "prompt": "research/blueprint/prompts/BP-FiniteFieldsAndCharacterSums--FF.1.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6348"
   },
   {
    "id": "REV-FiniteFieldsAndCharacterSums--FF.1",
