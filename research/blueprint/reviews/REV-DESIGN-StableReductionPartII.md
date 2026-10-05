@@ -1,3 +1,123 @@
+# REV-DESIGN-StableReductionPartII: geometry and polynomial-core checkpoint
+
+Issue [#3619](https://github.com/CBirkbeck/tauceti-explorer/issues/3619). Reviewer: Codex (GPT-6), session `codex-0Sbfnu`. Date: 2026-10-05. Continues [#6172](https://github.com/CBirkbeck/tauceti-explorer/pull/6172), [#6177](https://github.com/CBirkbeck/tauceti-explorer/pull/6177) and [#6183](https://github.com/CBirkbeck/tauceti-explorer/pull/6183).
+
+**Incomplete independent review checkpoint; no final acceptance.** This session checks 60 nodes at source/hypothesis/local-proof/API level: all 40 MC.4–MC.7 nodes and 20 MC.2 polynomial-core nodes. It also reopens 51 complete pinned declaration statements and their surrounding binders for the selected algebraic uses. It does not certify their every consumer or the transitive closure of the packet. There is no top-level `review`. Earlier reports below retain their attribution; inherited source-issue verdicts E1–E11 are not fresh whole-list confirmations.
+
+The three previous sessions checked 43 distinct nodes locally; this session adds 60 disjoint local checks, leaving 425 nodes without those review receipts. The union of selected baseline statement checks is 60 of 268 entries, leaving 208 without such receipts. These counts are a worklist, not a count of fully verified nodes or baseline consumers. The remaining algebra, completion, derived Ext and geometric source collation cannot be certified at the depth of this bounded pass, so it is submitted with a precise handoff.
+
+## Counts and boundaries
+
+Still 528 nodes: 8 definitions, 109 constructions, 342 lemmas, 67 theorems, one application and one comparison. The 117 definitions/constructions have 460 API items and 403 tests; all-node totals are 461 API items and 430 tests. This session adds thirteen APIs and three tests, no nodes. There remain 35 planets and 268 baseline declarations; no declaration is removed or renamed. Requests increase from 141 to 143, gaps from 19 to 20, source issues from eleven to thirteen, and explicit prototype omissions from 228 to 244. The 31-source bibliography is unchanged. All eight stages remain partial; packet `complete` is the inherited finished planning pass, not closure or acceptance.
+
+Read the binding worker/protocol/expansion/upstream instructions, prior review/handoff, relevant reviewed library-coverage entries, JacobianChallenge reader and selected parent StableReduction sections, and relevant SF.0/SF.1/SF.3/SF.5, R09.1/R09.2/R09.4/R09.5/R09.6, A1/A3, PEL M5/M6 and Shimura C4/C5 supplier briefs. A stage brief is not a built theorem. In particular SF.5 intersection/GRR does not itself supply nef vector bundles or determinant/Deligne pairing; good-prime Siegel compactification does not imply the all-characteristic unlevel boundary extension. No parent roadmap or generic library theory is replanned here.
+
+## Corrections and mathematical checks
+
+Ids in this section are relative to `StableReductionPartII:`. Exact sixty-node ids are in the packet's last `reviewCheckpoints` record.
+
+| Nodes | Result of fresh bounded check |
+| --- | --- |
+| MC.4 coarse space, determinant ampleness, projectivity and finite cover | Retain proper coarse algebraic spaces and qualified coarse base change, rather than smoothness or arbitrary-base universality. The ampleness node now states the actual fixed-degree quotient/equation criterion, followed by its eventual consequence. Add a direct `finite-degree-equations` prerequisite to integral projectivity: choose one degree on the integral parameter family **before** applying the fibrewise ampleness lemma. |
+| MC.4 nefness and its four auxiliary nodes | Repair section-degree proof using the generically surjective evaluation image I=L(-D), a locally free nef quotient on the smooth base curve. Then deg L=deg I+deg D. State the positive surface cohomology twist used by Mumford–Ekedahl, including the bound at characteristic two, m=2. Keep resolution/contraction comparisons and genus-zero/one surface suppliers open. Do not assert special-fibre vanishing for arbitrary unstable nodal fibres. Correct Corollary 6.6 to p.25, Proposition 6.7 to pp.25–27, and Lemma 6.8/Proposition 6.9 to pp.27–28. |
+| MC.4 full level, rigidity, fine scheme and connectedness | Distinguish homogeneous Jacobi level over Z[1/N] from the fixed-root exact symplectic component over Z[1/N,ζ_N]; they are distinct moduli problems. Preserve the Tate-twist/pairing convention request. Serre rigidity and Teichmüller/tame-cover proofs remain source/owner gaps. Split DM and DGH locators instead of assigning both papers' passages to one source id. |
+| MC.5 Hodge, forgetting, separating and nonseparating clutching | Split Knudsen III's line/descent passage from Yuan's bundle/line distinction. The ordered separating determinant comparison has exchange sign (-1)^(g₁g₂); the nonseparating residue changes sign under branch exchange. These actions are distinct from the unsigned smoothing-conormal symmetry. Correct Theorem 4.2(a) to printed p.203. |
+| MC.5 rational/integral Noether, Picard and units | Narrow the source's rational GRR route to the complex universal stack. Use complex Picard torsion freeness and integral-to-complex Picard injection to deduce the integral line identity, then pull back a chosen universal isomorphism. Do not infer this from mixed-characteristic rational Chow GRR on an arbitrary family. Determinant/Deligne-pairing and topological inputs stay open. Universal units are ±1; their pullbacks coincide in characteristic two. |
+| MC.5 boundary divisor and thickness | Add qualified line-with-section pullback, retaining the distinction between pullback of O(Δ) and an effective Cartier divisor after an arbitrary classifying map. Preserve node thickness and residue-degree multiplicities. |
+| MC.6 maximal variation, graph compactification, Torelli and Hodge positivity | Keep W→S×V finite rather than monic: W carries curve isomorphism data. The compactification retains the base coordinate and K(W₀), so a constant family over a curve still has a one-dimensional compactified base. Milne's Torelli statement is p.38; its reconstruction proof is a separate unread dependency in this session. Finite geometric Torelli fibres do not prove finiteness of the morphism. Separate Knudsen III's characteristic-zero Satake argument from Yuan's all-field citation and retain the supplier gap. |
+| MC.7 relative Picard parameter/triples | Correct Yuan §4.5 to **§4.3.2, pp.73–75**. Keep the fppf Picard sheaf, triple groupoid and Brauer obstruction distinct on general bases. Tensor changes degree additively. The universal canonical line gives a degree 2g-2 class, not a section of every Picard degree component. |
+| MC.2 polynomial core, twenty nodes | Read Knudsen 2012 §3 pp.11–12, including actual signed matrices, monic normal form, dual generator and residue; compare the twenty statements, direct proof sketches, APIs and tests. They are explicit arbitrary-ring deductions, not an attribution of that stronger range to the noetherian/unit-discriminant source proposition. Retain zero-ring handling, A-linearity of normal coordinates, R-linearity of presentations, coker Ψ=J and coker Φ=D with the second dual basis class -ε. No signature correction was needed. Their deeper coordinate/presentation/tensor prerequisites still require review. |
+
+The twenty polynomial-core ids are `polynomial-node-model`, `polynomial-relation-regular`, `polynomial-normal-form`, `section-coordinate-regular`, `section-evaluation-kernel`, `section-evaluation-split`, `section-ideal-cokernel`, `section-dual-generator`, `section-dual-normal-form`, `section-dual-normal-equivalence`, `section-dual-cokernel`, `section-dual-residue`, `section-dual-scalar-correction`, `section-dual-scalar-action`, `section-ideal-coefficient-flat`, `section-dual-coefficient-flat`, `section-coefficient-map`, `section-ring-base-change`, `section-ideal-base-change`, `section-dual-base-change`, all in MC.2.
+
+Changed statements are synchronized in their `uses` entries. The MC.4/MC.5 roadmap descriptions also record the positivity/level and characteristic-zero/integral distinctions. The reader is not an authorized deliverable; its required synchronization is in the handoff.
+
+## Two additional source findings
+
+**E12, scoped proof error.** The 2021 CLM Corollary 6.6 proof p.25 and NSF Corollary 1.39 p.33 claim vanishing of R¹f_*(ω^m(-s)) for their whole nodal-family range. Blow up a smooth constant genus-g≥2 family at a point of one fibre. The strict transform of the constant section meets the new P¹ tail away from the attachment. On that tail ω^m(-s) has degree -m-1, so H¹ has dimension m; the normalization sequence gives nonzero special-fibre H¹ while generic H¹ is zero. Dimension-one cohomology/base change forces nonzero R¹f_* there. The **conclusion** about section degree survives via the evaluation-image argument now in the packet. This guard is in the acceptance criteria, not a fictitious Lean geometric test.
+
+**E13, scoped proof gap with repaired packet route.** CLM Theorem 7.2 p.31 and NSF Theorem 1.45 p.41 take a maximum of fibrewise bounds after using openness. [Stacks tag 0D2N](https://stacks.math.columbia.edu/tag/0D2N) fixes the invertible sheaf before constructing its open neighbourhood; those neighbourhoods may depend on the changing determinant degree. Repair the packet as follows. On the single proper finite-type scheme cover over Z, relative Serre generation/vanishing supplies a common degree for the tricanonical embedding ideal. The ideal is flat over the base, since both the ambient projective bundle and stable family are flat, so the equations remain generators on every fibre. Stable pluricanonical base change gives the multiplication criterion there. Apply the explicit fixed-degree ampleness lemma fibrewise, then fixed-line openness to this one determinant. Its exact supplier interfaces remain a named gap/request, rather than an unexplained maximum argument. This does not refute integral projectivity.
+
+Both findings carry this review job's own scoped verdict; these verdicts do not count as final independent acceptance until the review job finishes. Bounded title/author/erratum/corollary/theorem searches and the Cheng/Murayama/Lian publication pages found no exact correction. The Cambridge DOI did not serve a publisher text; novelty and publisher collation are not certified. Existing E1–E11 retain their previous verdicts and qualifications.
+
+## APIs, tests and suggested file
+
+Added APIs: `CurvesCoarseSpace.baseChange`; `CurveFullLevel.changeFrame`, `.ext`; `CurveHodgeBundle.mapIso`, `.baseChangeCoherence`; `CurveHodgeLine.exactSequence`; `CurveBoundary.lineBaseChange`; `CurveMaximalVariation.fieldExtension`; `StableCurveCompactification.mapIso`; `CurveGraphClosure.comparison`; `CurveTorelli.baseChange`; `LevelPicardParameter.baseChange`, `.tensor`.
+
+Added tests: `SemiCanonicalNoether.characteristicTwo` (two universal signs become equal after characteristic-two pullback), `LevelPicardParameter.canonicalDegree` (canonical line yields degree 2g-2), `CurveGraphClosure.constantDimension` (constant genus-g family over A¹ retains a curve base after graph closure). The separating-Hodge acceptance condition also checks the negative exchange sign for g₁=g₂=1. A dominating-component qualification is explicit in the maximal-variation field-extension API. No test invents an unavailable moduli object.
+
+All sixteen new contracts have explicit prototype omissions and corresponding Lean comments. No executable Lean declaration or archived proof body changes. The suggested file's inherited expressed inventory of 414 nodes/277 APIs/280 tests is not fully rematched by this pass. Ordinary reflexivity, original-ring Hom compatible families and finite-projective tensor/limit adapters are not the missing arbitrary-completed-coefficient geometric theorem; selected later completion statements were read for orientation, not added to the verified-node count.
+
+## Pinned declaration statements
+
+Freshly reopened 51 full statements/binders at Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`, for the selected polynomial-core, duality and finite-projective retraction/limit uses. The exact references follow. No baseline entry was removed or corrected.
+
+- `mathlib:Polynomial.divByMonic`
+- `mathlib:Polynomial.modByMonic`
+- `mathlib:Polynomial.Monic.isRegular`
+- `mathlib:Matrix.mulVecLin`
+- `mathlib:Submodule.Quotient.mk`
+- `mathlib:AdjoinRoot`
+- `mathlib:AdjoinRoot.of`
+- `mathlib:AdjoinRoot.root`
+- `mathlib:AdjoinRoot.lift`
+- `mathlib:AdjoinRoot.map`
+- `mathlib:AdjoinRoot.map_comp_map`
+- `mathlib:Module.Flat`
+- `mathlib:Module.Flat.of_retract`
+- `mathlib:Module.Flat.of_linearEquiv`
+- `mathlib:Module.Flat.of_free`
+- `mathlib:Module.Flat.lTensor_preserves_injective_linearMap`
+- `mathlib:AdjoinRoot.powerBasis'`
+- `mathlib:Polynomial.Monic.free_adjoinRoot`
+- `mathlib:AdjoinRoot.ringHom_ext`
+- `mathlib:AdjoinRoot.map_of`
+- `mathlib:AdjoinRoot.map_root`
+- `mathlib:AdjoinRoot.eval₂_root`
+- `mathlib:AdjoinRoot.induction_on`
+- `mathlib:AdjoinRoot.lift_mk`
+- `mathlib:AdjoinRoot.algebraMap_eq'`
+- `mathlib:AdjoinRoot.mk_ne_zero_of_natDegree_lt`
+- `mathlib:AdjoinRoot.mk_self`
+- `mathlib:LinearMap.restrictScalars`
+- `mathlib:AdjoinRoot.algebraMap_eq`
+- `mathlib:LinearMap.map_smul_of_tower`
+- `mathlib:LinearEquiv.ofBijective`
+- `mathlib:LinearMap.snd`
+- `mathlib:Module.Projective.of_split`
+- `mathlib:Module.Free.of_equiv`
+- `mathlib:Module.Free.prod`
+- `mathlib:Module.Flat.of_projective`
+- `mathlib:LinearMap.quotKerEquivOfSurjective`
+- `mathlib:LinearMap.quotKerEquivOfSurjective_apply_mk`
+- `mathlib:Submodule.quotEquivOfEq`
+- `mathlib:Submodule.quotEquivOfEq_mk`
+- `mathlib:Matrix.mulVecLin_apply`
+- `mathlib:Module.Dual`
+- `mathlib:Module.Dual.eval`
+- `mathlib:Module.IsReflexive`
+- `mathlib:Module.evalEquiv`
+- `mathlib:Module.Dual.instIsReflecive`
+- `mathlib:LinearMap.restrictScalars_apply`
+- `mathlib:ModuleCat.projective_of_categoryTheory_projective`
+- `mathlib:ModuleCat.hasLimits`
+- `mathlib:Module.Finite.exists_comp_eq_id_of_projective`
+- `mathlib:ModuleCat.sectionsSubmodule`
+
+The important constraints are: monic division and regularity permit arbitrary coefficient rings; `powerBasis'` has dimension `natDegree`, so the degree-two coordinate use must retain its nontrivial-ring case and separately handle the zero ring; scalar restriction requires compatible actions (supplied by the displayed towers); quotient equivalences require the actual kernel equality/surjectivity; free/projective/flat conclusions here are over **A**, not R; `Module.evalEquiv` requires an independently established reflexivity instance; the literally misspelled pinned `Module.Dual.instIsReflecive` then gives reflexivity of the dual. `ModuleCat.projective_of_categoryTheory_projective` actually takes module-theoretic projectivity and supplies categorical projectivity. Finite-projective completion assembly uses finite projectivity over **Â**, with a genuine finite-free retraction; generic `sectionsSubmodule`/limits do not prove arbitrary tensor–limit interchange. Existence/name-index checks do not establish these mathematical matches.
+
+## Source receipts and validation
+
+The packet's new `sourceReadReceipts` carry primary URLs, SHA-256 hashes and precise fresh scopes for CLM, its later NSF author copy, Knudsen III, Mumford 1977, DM, Milne, Yuan's dated author manuscript, DGH v3 and Knudsen 2012. They distinguish OCR from rendered-page checks and fresh readings from inherited §13/topological/Appendix proofs. No next-worker evidence depends on deleted scratch files. All acquired hashes match the inherited bibliography/version hashes.
+
+Fresh `lean-check research/blueprint/suggested/StableReductionPartII.lean`: exit 0, zero errors, 870 intentional admission warnings, zero other warnings. Memory available beforehand: 95 GiB. Suggested file: 5,831 lines, SHA-256 `ef4be33b04e9279cbf6ee0ccb7ac7f1867a7b84ca07c25d50021aa5952bc5d75`. It imports only pinned Mathlib. The shared enclosing Tau Ceti checkout is `cf386627e9176a3827c1a5fe804989fd94a4d216`, different from the packet pin `f790474821cf4256814db967cb154e7af3d0c369`; no Tau Ceti import/proof validation is claimed. Elaboration checks expressed signatures, not omitted geometry or the corrected source arguments.
+
+`check_blueprint.py` with an index freshly scanned from the existing pinned Mathlib sources (246,008 declarations) reports zero errors and warnings. Every packet baseline reference is Mathlib; no new checkout or source copy was made. The index is approximate and is used only as a search/name check. Final submission-path and whitespace checks are recorded in the handoff.
+
+No maintainer mathematical decision is needed to resume. Complete the remaining node, baseline-consumer, source-issue and transitive-closure checks before writing a final top-level verdict. Honest partial-stage supplier gaps alone are not grounds to reject a finished planning pass.
+
+---
+
 # REV-DESIGN-StableReductionPartII: continuing review checkpoint
 
 Issue [#3619](https://github.com/CBirkbeck/tauceti-explorer/issues/3619). Reviewer: Codex (GPT-6), session `codex-G2QhrF`. Date: 2026-10-05.
