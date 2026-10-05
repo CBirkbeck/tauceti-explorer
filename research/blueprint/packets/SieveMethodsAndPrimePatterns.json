@@ -11,7 +11,7 @@
     "SieveMethodsAndPrimePatterns:SV.5"
   ],
   "status": "partial",
-  "summary": "Partial sieve roadmap. SV.0 and SV.2 plan finite sieve identities, Gram and large-sieve inequalities, the finite Vaughan decomposition and primitive-character bilinear bounds. SV.4 now decomposes Maynard's 'Small gaps between primes' completely: admissible tuples, the prime k-tuples conjecture, the W-trick, multidimensional sieve weights, the variational quantity M_k, Lemmas 5.1–6.3, Propositions 4.1–4.3 and Theorems 1.1–1.4. SV.3 gains the level-of-distribution interface and its Bombieri–Vinogradov instance, and SV.1 gains GGPY's dimension-one diagonal sums. The proof of Bombieri–Vinogradov, the dimension-one Selberg asymptotic's cited proof, and Mertens/PNT from AN.2 remain open; every node is unchecked.",
+  "summary": "Partial continuation preserving the 106-node sieve and Maynard checkpoint. Adds explicit logarithmic/product sieve dimensions, strict absolute remainder mass, a quantitative family level, finite weighted Rankin/Euler estimates and their dimension-controlled applications, a conditional mass-and-cutoff Eratosthenes bound, the corrected Brun combinatorial sieve and an endpoint-safe roughness-to-almost-prime transfer. All six stages have a reconciled target inventory including the added paper routes, but the full target-level pass is unfinished; no stage is closed and every node is unchecked.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -1156,6 +1156,69 @@
         "module": "Mathlib/Analysis/SpecialFunctions/Gamma/Beta.lean",
         "provides": "Γ(s)Γ(t) = Γ(s+t)·B(s,t) for Re s, Re t > 0; at positive integers this gives the Beta integral a!b!/(a+b+1)!.",
         "checked": "Statement read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-29."
+      },
+      {
+        "ref": "mathlib:Real.log",
+        "kind": "def",
+        "module": "Mathlib/Analysis/SpecialFunctions/Log/Basic.lean",
+        "provides": "The real logarithm of the absolute value via the inverse exponential order isomorphism on positive reals, totalized as zero at zero.",
+        "checked": "Statement personally read in the clean source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05; the index is only a search aid."
+      },
+      {
+        "ref": "mathlib:BoundingSieve.prod_primeFactors_nu",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/SelbergSieve.lean",
+        "provides": "For d dividing the squarefree sieve prime product, the product of nu(p) over prime factors of d equals nu(d).",
+        "checked": "Statement personally read in the clean source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05; the index is only a search aid."
+      },
+      {
+        "ref": "mathlib:BoundingSieve.nu_pos_of_dvd_prodPrimes",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/SelbergSieve.lean",
+        "provides": "nu(d)>0 for every positive divisor of the sieve prime product, including d=1.",
+        "checked": "Statement personally read in the clean source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05; the index is only a search aid."
+      },
+      {
+        "ref": "mathlib:Nat.sum_divisors_filter_squarefree",
+        "kind": "theorem",
+        "module": "Mathlib/Data/Nat/Squarefree.lean",
+        "provides": "For n nonzero, the sum over its squarefree divisors is a sum over subsets of its distinct normalized prime factors.",
+        "checked": "Statement personally read in the clean source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05; the index is only a search aid."
+      },
+      {
+        "ref": "mathlib:Finset.sort",
+        "kind": "def",
+        "module": "Mathlib/Data/Finset/Sort.lean",
+        "provides": "Sort a finite set under a decidable transitive antisymmetric total relation; using ≥ gives the descending prime list.",
+        "checked": "Statement personally read in the clean source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05; the index is only a search aid."
+      },
+      {
+        "ref": "mathlib:Real.prod_one_add_le_exp_sum",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Complex/Exponential.lean",
+        "provides": "For a globally nonnegative real function, product (1+f(i)) over a finite set is at most exp of its finite sum.",
+        "checked": "Statement personally read in the clean source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05; the index is only a search aid."
+      },
+      {
+        "ref": "mathlib:Nat.IsAtMostAlmostPrime",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/AlmostPrime.lean",
+        "provides": "n is nonzero and cardFactors(n)≤k; factors are counted with multiplicity. This is distinct from the exact-k IsAlmostPrime predicate.",
+        "checked": "Statement personally read in the clean source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05; the index is only a search aid."
+      },
+      {
+        "ref": "mathlib:ArithmeticFunction.cardFactors",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/ArithmeticFunction/Misc.lean",
+        "provides": "The length of the natural prime factor list; zero and one both have value zero.",
+        "checked": "Statement personally read in the clean source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05; the index is only a search aid."
+      },
+      {
+        "ref": "mathlib:Nat.prod_primeFactorsList",
+        "kind": "theorem",
+        "module": "Mathlib/Data/Nat/Factors.lean",
+        "provides": "The product of the prime factor list of a nonzero natural is the natural itself, with multiplicities retained.",
+        "checked": "Statement personally read in the clean source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05; the index is only a search aid."
       }
     ]
   },
@@ -1186,7 +1249,8 @@
       "readSections": [
         "Chapter 11 in full, sections 11.1-11.6 including proofs and exercises.",
         "Chapters 12-21 not read for this packet.",
-        "Continuation: §11.2 weighted inclusion-exclusion proof and Definition 11.6 freshly reread; fresh author HTML byte-identical to the previously read complete chapter."
+        "Continuation: §11.2 weighted inclusion-exclusion proof and Definition 11.6 freshly reread; fresh author HTML byte-identical to the previously read complete chapter.",
+        "2026-10-05: complete Chapter 11 reread, including exercises; fresh HTML byte-identical to the prior source. The conditional mass-cutoff estimate is explicitly stronger-hypothesis work, not an unqualified repair of Theorem 11.9 or E7."
       ]
     },
     {
@@ -1269,6 +1333,18 @@
       "accessed": "2026-09-29",
       "readSections": [
         "2026-09-29 (cc-39fac3): §2, Lemmas 1–4 with (2.1)–(2.6), pp. 9–10, read. Lemma 3 is cited there to Halberstam–Richert, Lemmas 5.3–5.4, which was not read (gap)."
+      ]
+    },
+    {
+      "id": "KED-ANT-12",
+      "title": "Notes on analytic number theory, Chapter 12: Brun’s combinatorial sieve",
+      "authors": "Kiran S. Kedlaya",
+      "edition": "Live author HTML acquired 5 October 2026; no dated print version identified or collated.",
+      "url": "https://kskedlaya.org/ant/chap-brun.html",
+      "sha256": "4393be46bef6d62296c05f07358ee0cec6581130c434a0579c6b21a749087ad3",
+      "accessed": "2026-10-05",
+      "readSections": [
+        "Complete §12.1–§12.6, including proof discussion, applications and exercises. The applications are not accepted as complete proofs: E34 and the missing modulus-uniform input remain explicit. Chapters 13–14 were not read in this continuation."
       ]
     }
   ],
@@ -5023,10 +5099,6 @@
         {
           "where": "SieveMethodsAndPrimePatterns:SV.3/bombieri-vinogradov-level",
           "how": "The conclusion of Bombieri–Vinogradov in this form."
-        },
-        {
-          "where": "RS-07 link SV.3 → AdditiveCombinatorics:AC.4",
-          "how": "The recorded prime-distribution input, stated as a hypothesis wherever it is not proved."
         }
       ],
       "planet": {
@@ -6699,6 +6771,1032 @@
         }
       ],
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SieveMethodsAndPrimePatterns:SV.0/log-sieve-dimension",
+      "parentStageId": "SieveMethodsAndPrimePatterns:SV.0",
+      "realises": [
+        "SieveMethodsAndPrimePatterns:SV.0"
+      ],
+      "title": "Logarithmic sieve dimension",
+      "kind": "definition",
+      "statement": "HasLogSieveDimension(P,g,κ,C) means: for every real z≥2, Σ_{p∈P, p prime, p≤z} g(p) log p ≤ κ log z+C. The sum is finite. P is a fixed set of naturals and g is a fixed real function; constants do not depend on z or on an application population.",
+      "hypotheses": [
+        "The predicate records only the displayed inequality. Positivity of g, κ and C are separate theorem hypotheses; it does not assert a local density or any distribution estimate. In Chapter 11 g(p)=ω(p)/p."
+      ],
+      "prerequisites": [
+        "mathlib:Real.log"
+      ],
+      "proofSteps": [
+        "Use the finite prime set obtained by filtering naturals up to floor z. Quantify the bound over every real z≥2, not merely a single cutoff."
+      ],
+      "acceptance": [
+        "A finite set at a single cutoff does not supply constants uniform across a varying prime family."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Sieve/Dimension",
+        "namespace": "SieveQuantitative",
+        "name": "HasLogSieveDimension"
+      },
+      "sources": [
+        {
+          "sourceId": "KED-ANT-11",
+          "locator": "§11.4, (11.4.1)",
+          "excerpt": "sieve",
+          "match": "A quantified version of the source logarithmic condition; explicit C replaces its bounded additive term."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "SieveQuantitative.hasLogSieveDimension_iff",
+          "role": "characterisation",
+          "statement": "Equivalent to the displayed bound for every z≥2."
+        },
+        {
+          "name": "SieveQuantitative.HasLogSieveDimension.mono_constant",
+          "role": "functoriality",
+          "statement": "Increase C and retain the same dimension bound."
+        },
+        {
+          "name": "SieveQuantitative.HasLogSieveDimension.mono_dimension",
+          "role": "functoriality",
+          "statement": "Increasing κ preserves the condition because log z≥0 on the quantified domain."
+        },
+        {
+          "name": "SieveQuantitative.HasLogSieveDimension.mono_density",
+          "role": "functoriality",
+          "statement": "If h(p)≤g(p) at all selected primes, the bound for g implies the same bound for h."
+        },
+        {
+          "name": "SieveQuantitative.hasLogSieveDimension_empty",
+          "role": "simp",
+          "statement": "For empty P and nonnegative κ,C the predicate holds."
+        }
+      ],
+      "tests": [
+        {
+          "name": "dimension_empty",
+          "kind": "degenerate",
+          "statement": "P empty, κ=C=0 satisfies the bound with sum zero."
+        },
+        {
+          "name": "dimension_negative_constant",
+          "kind": "non-example",
+          "statement": "P empty, κ=0,C=−1 does not satisfy the bound."
+        },
+        {
+          "name": "dimension_single_prime",
+          "kind": "computation",
+          "statement": "P={2}, g(2)=1/2, κ=0,C=log 2/2 satisfies the bound exactly at z=2."
+        },
+        {
+          "name": "dimension_single_cutoff_not_uniform",
+          "kind": "non-example",
+          "statement": "A bound checked only at z=2 is not the all-z predicate; an unbounded density at later primes is not constrained by that check."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Kedlaya Lemma 11.7 and Exercise 11.6.1",
+          "how": "Control the tilted finite Euler product in Rankin’s trick."
+        },
+        {
+          "where": "SV.0/eratosthenes-mass-cutoff",
+          "how": "Keep every analytic constant fixed independently of the population."
+        }
+      ]
+    },
+    {
+      "id": "SieveMethodsAndPrimePatterns:SV.0/product-sieve-dimension",
+      "parentStageId": "SieveMethodsAndPrimePatterns:SV.0",
+      "realises": [
+        "SieveMethodsAndPrimePatterns:SV.0"
+      ],
+      "title": "Euler-product sieve dimension",
+      "kind": "definition",
+      "statement": "HasProductSieveDimension(P,g,κ,K) means: for every real 2≤w≤z, ∏_{p∈P, p prime, w≤p<z}(1−g(p))⁻¹ ≤ K (log z/log w)^κ.",
+      "hypotheses": [
+        "All endpoint choices are part of the definition: p=w is included and p=z is excluded. The predicate alone does not require g(p)<1; every sieve theorem requires 0≤g(p)<1 separately."
+      ],
+      "prerequisites": [
+        "mathlib:Real.log"
+      ],
+      "proofSteps": [
+        "Take the finite product over primes below ceil z and filter by w≤p. Use real powers and the strictly positive logarithm of w."
+      ],
+      "acceptance": [
+        "Do not infer this product-ratio condition from the logarithmic condition without controlling primes with g(p) near one."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Sieve/Dimension",
+        "namespace": "SieveQuantitative",
+        "name": "HasProductSieveDimension"
+      },
+      "sources": [
+        {
+          "sourceId": "KED-ANT-12",
+          "locator": "§12.3, (12.3.1)",
+          "excerpt": "combinatorial sieve",
+          "match": "The source’s dimension condition with a valid explicit logarithmic domain."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "SieveQuantitative.hasProductSieveDimension_iff",
+          "role": "characterisation",
+          "statement": "Unfold to the exact interval product and logarithmic ratio."
+        },
+        {
+          "name": "SieveQuantitative.HasProductSieveDimension.mono_constant",
+          "role": "functoriality",
+          "statement": "K≤K′ preserves the bound since the logarithmic power is nonnegative."
+        },
+        {
+          "name": "SieveQuantitative.HasProductSieveDimension.mono_dimension",
+          "role": "functoriality",
+          "statement": "For K≥0 and κ≤κ′ increase the exponent of a ratio at least one."
+        },
+        {
+          "name": "SieveQuantitative.HasProductSieveDimension.interval_bound",
+          "role": "relation",
+          "statement": "Apply the predicate on any explicit interval with 2≤w≤z."
+        },
+        {
+          "name": "SieveQuantitative.hasProductSieveDimension_zero_density",
+          "role": "example",
+          "statement": "For g identically zero and κ≥0,K≥1 every product is one, so the predicate holds."
+        }
+      ],
+      "tests": [
+        {
+          "name": "product_dimension_zero",
+          "kind": "degenerate",
+          "statement": "Zero density with κ=0,K=1 satisfies the condition."
+        },
+        {
+          "name": "product_dimension_diagonal",
+          "kind": "computation",
+          "statement": "At w=z the empty product is one and the logarithmic ratio is one; K<1 cannot satisfy the predicate."
+        },
+        {
+          "name": "product_dimension_endpoint",
+          "kind": "computation",
+          "statement": "For P={2},g(2)=1/2, the interval [2,2) has product 1, whereas [2,3) has product 2."
+        },
+        {
+          "name": "product_dimension_unit_density",
+          "kind": "non-example",
+          "statement": "g(2)=1 is forbidden by the sieve theorem even if the totalized inverse in the bare predicate is zero."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Kedlaya §12.4, Theorem 12.2",
+          "how": "Bound the ratio V(z_n)/V(z) in the first-failure sums."
+        },
+        {
+          "where": "SV.1 applications and Khayutin §8 route inventory",
+          "how": "Require the actual uniform dimension condition; no conic-density estimate is asserted by this predicate."
+        }
+      ],
+      "planet": {
+        "name": "Sieve dimension"
+      }
+    },
+    {
+      "id": "SieveMethodsAndPrimePatterns:SV.0/remainder-mass",
+      "parentStageId": "SieveMethodsAndPrimePatterns:SV.0",
+      "realises": [
+        "SieveMethodsAndPrimePatterns:SV.0"
+      ],
+      "title": "Truncated remainder mass",
+      "kind": "definition",
+      "statement": "For an existing BoundingSieve s and real D, remainderMass(s,D)=Σ_{d|s.prodPrimes, d<D}|s.rem(d)|. Divisors are positive; the cutoff is strict.",
+      "hypotheses": [
+        "D can be any real. The sum is zero if D≤1. If D>1 it includes d=1 and hence the mass-normalization error."
+      ],
+      "prerequisites": [
+        "mathlib:BoundingSieve",
+        "mathlib:BoundingSieve.rem"
+      ],
+      "proofSteps": [
+        "Filter the native positive divisor finset and sum absolute values of the existing remainder."
+      ],
+      "acceptance": [
+        "This is not SelbergSieve.level, and signed cancellation cannot reduce it."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Sieve/Dimension",
+        "namespace": "SieveQuantitative",
+        "name": "remainderMass"
+      },
+      "sources": [
+        {
+          "sourceId": "KED-ANT-12",
+          "locator": "§12.2, display R(x,y) preceding §12.3",
+          "excerpt": "combinatorial sieve",
+          "match": "Native-carrier version of the source truncated absolute remainder sum."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "SieveQuantitative.remainderMass_nonneg",
+          "role": "relation",
+          "statement": "Every remainder mass is nonnegative."
+        },
+        {
+          "name": "SieveQuantitative.remainderMass_mono",
+          "role": "functoriality",
+          "statement": "D≤E implies remainderMass(s,D)≤remainderMass(s,E)."
+        },
+        {
+          "name": "SieveQuantitative.remainderMass_of_le_one",
+          "role": "simp",
+          "statement": "D≤1 implies remainderMass(s,D)=0."
+        },
+        {
+          "name": "SieveQuantitative.remainderMass_eq_of_remainders",
+          "role": "extensionality",
+          "statement": "The same prime product and equal remainders on its divisors give equal remainder masses."
+        },
+        {
+          "name": "SieveQuantitative.errSum_le_remainderMass",
+          "role": "relation",
+          "statement": "Coefficients of modulus≤L on divisors, vanishing for d≥D, have errSum≤L remainderMass(s,D), for L≥0."
+        }
+      ],
+      "tests": [
+        {
+          "name": "remainder_mass_endpoint",
+          "kind": "computation",
+          "statement": "P=6 and all four remainders equal one give masses 0 at D=1, 1 at D=2, 2 at D=3, 3 at D=6 and 4 at D=7."
+        },
+        {
+          "name": "remainder_mass_signed",
+          "kind": "computation",
+          "statement": "R_2=1 and R_3=−1 contribute 2 once D>3, not zero."
+        },
+        {
+          "name": "remainder_mass_mass_error",
+          "kind": "characterisation",
+          "statement": "P=1,D=2 gives |A_1−X|."
+        },
+        {
+          "name": "remainder_mass_negative_cutoff",
+          "kind": "degenerate",
+          "statement": "D=−3 gives zero even if zero belongs to the sample support."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Kedlaya (12.2.2) and Theorem 12.2",
+          "how": "Replace each signed Brun error by the same absolute divisor sum."
+        },
+        {
+          "where": "SV.0/family-sieve-level",
+          "how": "Specify a genuine average error estimate for a changing population."
+        }
+      ]
+    },
+    {
+      "id": "SieveMethodsAndPrimePatterns:SV.0/family-sieve-level",
+      "parentStageId": "SieveMethodsAndPrimePatterns:SV.0",
+      "realises": [
+        "SieveMethodsAndPrimePatterns:SV.0"
+      ],
+      "title": "Level of distribution of a sieve family",
+      "kind": "definition",
+      "statement": "HasSieveLevel(F,θ) for a fixed family F:real→BoundingSieve means θ>0, X_F(x)≥0 for all x≥2, and: for every A>0 there exist B>0,C>0,x₀≥2 such that for all x≥x₀, remainderMass(F(x), x^θ/(log x)^B)≤ C X_F(x)/(log x)^A.",
+      "hypotheses": [
+        "F and θ are fixed before A is chosen. B,C,x₀ may depend on F,θ,A, not on the varying x. This is a weighted sieve-family predicate, not Maynard’s π-centred prime-distribution predicate."
+      ],
+      "prerequisites": [
+        "SieveMethodsAndPrimePatterns:SV.0/remainder-mass",
+        "mathlib:BoundingSieve"
+      ],
+      "proofSteps": [
+        "Write out the order of quantifiers. Retain the absolute divisor sum, its strict cutoff and its mass-normalization remainder."
+      ],
+      "acceptance": [
+        "An arbitrary coefficient level, a pointwise error without summed uniformity, or a negative approximate mass is not this condition."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Sieve/Dimension",
+        "namespace": "SieveQuantitative",
+        "name": "HasSieveLevel"
+      },
+      "sources": [
+        {
+          "sourceId": "KED-ANT-12",
+          "locator": "§12.1 remainder discussion and §12.2 R(x,y)",
+          "excerpt": "combinatorial sieve",
+          "match": "A worker-specified quantitative family interface for the source’s distribution requirement; the logarithmic parametrization is explicit, not attributed as a definition in the source."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "SieveQuantitative.hasSieveLevel_iff",
+          "role": "characterisation",
+          "statement": "Equivalent to the full quantified family estimate with positivity conditions."
+        },
+        {
+          "name": "SieveQuantitative.HasSieveLevel.bound",
+          "role": "relation",
+          "statement": "For a specified A>0 obtain one B,C,x₀ uniform for every x≥x₀."
+        },
+        {
+          "name": "SieveQuantitative.HasSieveLevel.mono",
+          "role": "functoriality",
+          "statement": "If 0<η≤θ a family of level θ has level η, using monotonicity of remainder mass and x≥2."
+        },
+        {
+          "name": "SieveQuantitative.HasSieveLevel.mass_nonneg",
+          "role": "projection",
+          "statement": "Every x≥2 has nonnegative approximate mass."
+        },
+        {
+          "name": "SieveQuantitative.hasSieveLevel_of_zero_remainders",
+          "role": "example",
+          "statement": "A nonnegative-mass family with every divisor remainder zero has every positive level."
+        }
+      ],
+      "tests": [
+        {
+          "name": "family_level_exact",
+          "kind": "characterisation",
+          "statement": "A nonnegative-mass family with all remainders zero satisfies the condition at θ=1."
+        },
+        {
+          "name": "family_level_zero",
+          "kind": "non-example",
+          "statement": "θ=0 fails the stated positive-level predicate even for an exact family."
+        },
+        {
+          "name": "family_level_fixed_mass_error",
+          "kind": "non-example",
+          "statement": "A family with X=1 and |R_1|=1 for every x≥2 has no positive level: the cutoff eventually exceeds 1 but no logarithmic saving controls R_1."
+        },
+        {
+          "name": "family_level_zero_mass",
+          "kind": "degenerate",
+          "statement": "The empty exact family X=0 is permitted and has every positive level."
+        }
+      ],
+      "uses": [
+        {
+          "where": "SV.1 fundamental lemma and applications",
+          "how": "An application must supply a uniform absolute remainder estimate, independently of the coefficient construction."
+        },
+        {
+          "where": "Bary-Soroker–Koukoulopoulos–Kozma and Khayutin sieve route inventory",
+          "how": "Track the error-uniformity obligation; this scalar interface is not claimed to replace their vector or binary-domain local data."
+        }
+      ]
+    },
+    {
+      "id": "SieveMethodsAndPrimePatterns:SV.0/coefficient-error-remainder-mass",
+      "parentStageId": "SieveMethodsAndPrimePatterns:SV.0",
+      "realises": [
+        "SieveMethodsAndPrimePatterns:SV.0"
+      ],
+      "title": "Coefficient error controlled by remainder mass",
+      "kind": "lemma",
+      "statement": "If L≥0, |c(d)|≤L on the divisors of P and c(d)=0 on every divisor d≥D, then s.errSum(c)≤L remainderMass(s,D).",
+      "hypotheses": [
+        "s is a BoundingSieve; D is real and the cutoff is strict. This promotes the remainderMass API item used by Brun’s estimate."
+      ],
+      "prerequisites": [
+        "SieveMethodsAndPrimePatterns:SV.0/remainder-mass",
+        "mathlib:BoundingSieve.errSum"
+      ],
+      "proofSteps": [
+        "Split the finite divisor sum by d<D. The complementary coefficients vanish. Bound each remaining nonnegative term by L|R_d| and factor the constant out."
+      ],
+      "acceptance": [
+        "D≤1 forces every contributing coefficient to vanish; L=0 gives zero error."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Sieve/Dimension",
+        "namespace": "SieveQuantitative",
+        "name": "errSum_le_remainderMass"
+      },
+      "sources": [
+        {
+          "sourceId": "KED-ANT-12",
+          "locator": "§12.2, error estimate for R±",
+          "excerpt": "combinatorial sieve",
+          "match": "Exact coefficient-sensitive native form, without a claim that truncation proves distribution."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SieveMethodsAndPrimePatterns:SV.0/density-euler-moment",
+      "parentStageId": "SieveMethodsAndPrimePatterns:SV.0",
+      "realises": [
+        "SieveMethodsAndPrimePatterns:SV.0"
+      ],
+      "title": "Finite tilted density Euler product",
+      "kind": "lemma",
+      "statement": "For any real a and BoundingSieve s, Σ_{d|P} ν(d)d^a = ∏_{p|P}(1+ν(p)p^a).",
+      "hypotheses": [
+        "P=s.prodPrimes is nonzero squarefree; all powers have positive natural bases, including d=1."
+      ],
+      "prerequisites": [
+        "mathlib:BoundingSieve",
+        "mathlib:BoundingSieve.prod_primeFactors_nu",
+        "mathlib:Nat.sum_divisors_filter_squarefree"
+      ],
+      "proofSteps": [
+        "Use the native squarefree-divisor/subset correspondence. Multiplicativity of ν and real powers on positive products identify each subset term. Expand the finite product by choosing either 1 or ν(p)p^a at each prime."
+      ],
+      "acceptance": [
+        "P=1 gives 1=1 for every a; a=0 gives Σν(d)=∏(1+ν(p))."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Sieve/Dimension",
+        "namespace": "SieveQuantitative",
+        "name": "density_euler_moment"
+      },
+      "sources": [
+        {
+          "sourceId": "KED-ANT-11",
+          "locator": "§11.3, Rankin proof; Exercise 11.6.1",
+          "excerpt": "Rankin",
+          "match": "The squarefree weighted analogue of the Euler-product expansion, derived on the existing carrier."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SieveMethodsAndPrimePatterns:SV.0/rankin-weighted-prefix",
+      "parentStageId": "SieveMethodsAndPrimePatterns:SV.0",
+      "realises": [
+        "SieveMethodsAndPrimePatterns:SV.0"
+      ],
+      "title": "Weighted Rankin cutoff bound",
+      "kind": "theorem",
+      "statement": "For x>0 and σ≥0, Σ_{d|P, d≤x} dν(d) ≤ x^σ ∏_{p|P}(1+ν(p)p^(1−σ)).",
+      "hypotheses": [
+        "s is a BoundingSieve. The inclusive cutoff is explicit; x<1 gives an empty sum."
+      ],
+      "prerequisites": [
+        "SieveMethodsAndPrimePatterns:SV.0/density-euler-moment",
+        "mathlib:BoundingSieve.nu_pos_of_dvd_prodPrimes"
+      ],
+      "proofSteps": [
+        "For d≤x compare d^σ≤x^σ, multiply by ν(d)d^(1−σ), and sum. Extend the sum by nonnegative terms and apply the finite Euler-moment identity with exponent 1−σ."
+      ],
+      "acceptance": [
+        "σ=0 remains valid; x=1 retains the d=1 contribution; do not include d=0."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Sieve/Dimension",
+        "namespace": "SieveQuantitative",
+        "name": "rankin_weighted_prefix"
+      },
+      "sources": [
+        {
+          "sourceId": "KED-ANT-11",
+          "locator": "§11.3, Rankin proof; §11.4, Lemma 11.7 and Exercise 11.6.1",
+          "excerpt": "Rankin",
+          "match": "Explicit finite weighted Rankin inequality; no smooth-number carrier or asymptotic estimate is redefined."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SieveMethodsAndPrimePatterns:SV.0/rankin-weighted-tail",
+      "parentStageId": "SieveMethodsAndPrimePatterns:SV.0",
+      "realises": [
+        "SieveMethodsAndPrimePatterns:SV.0"
+      ],
+      "title": "Weighted Rankin remainder-tail bound",
+      "kind": "theorem",
+      "statement": "For x>0 and a≥0, Σ_{d|P, x<d} ν(d) ≤ x^(−a) ∏_{p|P}(1+ν(p)p^a).",
+      "hypotheses": [
+        "s is a BoundingSieve; the tail is strict."
+      ],
+      "prerequisites": [
+        "SieveMethodsAndPrimePatterns:SV.0/density-euler-moment",
+        "mathlib:BoundingSieve.nu_pos_of_dvd_prodPrimes"
+      ],
+      "proofSteps": [
+        "On the tail use 1≤(d/x)^a, retain nonnegative ν(d), and extend to all divisors. Apply the Euler-moment identity."
+      ],
+      "acceptance": [
+        "At x=P the tail is empty; x<1 includes d=1; a=0 gives the full density sum as an upper bound."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Sieve/Dimension",
+        "namespace": "SieveQuantitative",
+        "name": "rankin_weighted_tail"
+      },
+      "sources": [
+        {
+          "sourceId": "KED-ANT-11",
+          "locator": "§11.3, Rankin proof; §11.4, Lemma 11.8",
+          "excerpt": "Rankin",
+          "match": "A finite Rankin replacement for the integral tail route, with all parameters and endpoints explicit."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SieveMethodsAndPrimePatterns:SV.0/log-dimension-euler-bound",
+      "parentStageId": "SieveMethodsAndPrimePatterns:SV.0",
+      "realises": [
+        "SieveMethodsAndPrimePatterns:SV.0"
+      ],
+      "title": "Tilted Euler-product estimate from logarithmic dimension",
+      "kind": "theorem",
+      "statement": "Fix a set P and function g, with κ>0,C≥0, nonnegative g(p) for selected primes and HasLogSieveDimension(P,g,κ,C). There exist K>0,z₀≥exp(2) such that for every z≥z₀, ∏_{p∈P,p prime,p≤z}(1+g(p)p^(1/log z)) ≤ K(log z)^κ.",
+      "hypotheses": [
+        "All data P,g,κ,C are fixed before K,z₀ are chosen. The constants are independent of z and of every application population."
+      ],
+      "prerequisites": [
+        "SieveMethodsAndPrimePatterns:SV.0/log-sieve-dimension",
+        "mathlib:sum_mul_eq_sub_sub_integral_mul",
+        "mathlib:Real.prod_one_add_le_exp_sum"
+      ],
+      "proofSteps": [
+        "Set A(t)=Σ_{p≤t,p∈P}g(p)log p. Apply the native Abel formula on [2,z] to 1/log t, isolating p=2, to obtain Σg(p)≤κ log log z+O_{κ,C}(1). Its derivative is −1/(t(log t)²), integrable on this domain.",
+        "For α=1/log z and 2≤p≤z, use exp(u)−1≤exp(1)u for 0≤u=α log p≤1. Thus Σg(p)(p^α−1)≤exp(1)(κ+C/log z), uniformly bounded.",
+        "Extend the finite summand by zero off the selected primes before using Real.prod_one_add_le_exp_sum, whose input is globally nonnegative. Exponentiate the two bounds and absorb only fixed constants in K."
+      ],
+      "acceptance": [
+        "The lower endpoint is at least exp(2), so 0<1−1/log z<1 in the cutoff applications. No Mertens theorem is required when the logarithmic condition is given."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Sieve/Dimension",
+        "namespace": "SieveQuantitative",
+        "name": "log_dimension_euler_bound"
+      },
+      "sources": [
+        {
+          "sourceId": "KED-ANT-11",
+          "locator": "§11.4, Lemma 11.7; Exercise 11.6.1",
+          "excerpt": "sieve",
+          "match": "Explicit proof route for the Euler product used in the weighted Rankin exercise; the proof is specified, not implemented."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SieveMethodsAndPrimePatterns:SV.0/dimension-divisor-count",
+      "parentStageId": "SieveMethodsAndPrimePatterns:SV.0",
+      "realises": [
+        "SieveMethodsAndPrimePatterns:SV.0"
+      ],
+      "title": "Dimension-controlled weighted divisor count",
+      "kind": "theorem",
+      "statement": "For fixed data of log-dimension-euler-bound, there exist K>0,z₀≥exp(2) such that for every z≥z₀, every x>0 and every BoundingSieve s whose prime factors are exactly the selected primes p≤z and whose ν(p)=g(p), Σ_{d|P_s,d≤x}dν(d) ≤ K x(log z)^κ exp(−log x/log z).",
+      "hypotheses": [
+        "Constants are uniform in x and s; all density data and dimension constants are fixed. This implies the strict-cutoff version of source Lemma 11.7."
+      ],
+      "prerequisites": [
+        "SieveMethodsAndPrimePatterns:SV.0/rankin-weighted-prefix",
+        "SieveMethodsAndPrimePatterns:SV.0/log-dimension-euler-bound"
+      ],
+      "proofSteps": [
+        "Apply weighted Rankin with σ=1−1/log z, then bound its finite Euler product by the preceding theorem. Rewrite x^σ as x exp(−log x/log z)."
+      ],
+      "acceptance": [
+        "The inclusive cutoff is a stronger conclusion than the source’s d<x; x<1 gives an empty divisor sum."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Sieve/Dimension",
+        "namespace": "SieveQuantitative",
+        "name": "dimension_divisor_count"
+      },
+      "sources": [
+        {
+          "sourceId": "KED-ANT-11",
+          "locator": "§11.4, Lemma 11.7 and Exercise 11.6.1",
+          "excerpt": "sieve",
+          "match": "Same weighted sum with ω(d)=dν(d); preserves every uniform parameter."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SieveMethodsAndPrimePatterns:SV.0/dimension-divisor-tail",
+      "parentStageId": "SieveMethodsAndPrimePatterns:SV.0",
+      "realises": [
+        "SieveMethodsAndPrimePatterns:SV.0"
+      ],
+      "title": "Dimension-controlled divisor-density tail",
+      "kind": "theorem",
+      "statement": "For the same fixed data there exist K>0,z₀≥exp(2) such that for every z≥z₀,x>0 and matching sieve s, Σ_{d|P_s,x<d}ν(d) ≤ K(log z)^κ exp(−log x/log z).",
+      "hypotheses": [
+        "For a fixed L>0 replace x by Lx and absorb the bounded factor L^(−1/log z) in K."
+      ],
+      "prerequisites": [
+        "SieveMethodsAndPrimePatterns:SV.0/rankin-weighted-tail",
+        "SieveMethodsAndPrimePatterns:SV.0/log-dimension-euler-bound"
+      ],
+      "proofSteps": [
+        "Use weighted Rankin with a=1/log z and the tilted Euler-product estimate. This avoids integration of a divisor-count bound and so removes the extra log z loss of the source integral argument."
+      ],
+      "acceptance": [
+        "This is a worker-derived stronger finite-tail estimate, not a quotation of the source’s (log z)^(κ+1) bound. No infinite divisor tail is asserted."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Sieve/Dimension",
+        "namespace": "SieveQuantitative",
+        "name": "dimension_divisor_tail"
+      },
+      "sources": [
+        {
+          "sourceId": "KED-ANT-11",
+          "locator": "§11.4, Lemma 11.8 and (11.4.2)",
+          "excerpt": "sieve",
+          "match": "The same finite tail, bounded directly by Rankin instead of the stated integral route."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SieveMethodsAndPrimePatterns:SV.0/eratosthenes-mass-cutoff",
+      "parentStageId": "SieveMethodsAndPrimePatterns:SV.0",
+      "realises": [
+        "SieveMethodsAndPrimePatterns:SV.0"
+      ],
+      "title": "Eratosthenes estimate with a justified mass and divisor cutoff",
+      "kind": "theorem",
+      "statement": "Let x>0,c,M≥0 and 0<σ<1. If 0≤X≤Mx, |R_d|≤c dν(d) for divisors d≤x, and A_d=0 for divisors d>x, then |S−X∏_{p|P}(1−ν(p))|≤(c+M)x^σ∏_{p|P}(1+ν(p)p^(1−σ)).",
+      "hypotheses": [
+        "s is the native BoundingSieve; A_d is its weighted multSum. The mass bound and the divisor cutoff are assumptions to prove in an application, never consequences of the residue-label representation."
+      ],
+      "prerequisites": [
+        "SieveMethodsAndPrimePatterns:SV.0/legendre-error",
+        "SieveMethodsAndPrimePatterns:SV.0/rankin-weighted-prefix",
+        "SieveMethodsAndPrimePatterns:SV.0/rankin-weighted-tail",
+        "mathlib:BoundingSieve.multSum_eq_main_err"
+      ],
+      "proofSteps": [
+        "Split the native absolute Legendre remainder into d≤x and d>x. Bound the first piece by c times the weighted prefix. On the tail, A_d=0 gives |R_d|=Xν(d); apply weighted Rankin with a=1−σ and X≤Mx. Combine the common Euler product.",
+        "With σ=1−1/log z and the dimension estimate obtain O_{fixed data,c,M}(x(log z)^κ exp(−log x/log z))."
+      ],
+      "acceptance": [
+        "This conditional statement does not claim the exact advertised Theorem 11.9 under its weaker printed hypotheses, nor does it fix the two-residue cutoff gap E7 in the Brun application."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Sieve/Dimension",
+        "namespace": "SieveQuantitative",
+        "name": "eratosthenes_mass_cutoff"
+      },
+      "sources": [
+        {
+          "sourceId": "KED-ANT-11",
+          "locator": "§11.4, Theorem 11.9 and Exercise 11.6.3; proof of Theorem 11.11",
+          "excerpt": "sieve",
+          "match": "A mass-controlled, explicitly conditional variant derived from finite identities. The exact source statement and the twin-prime application remain gaps."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SieveMethodsAndPrimePatterns:SV.1/brun-coefficients",
+      "parentStageId": "SieveMethodsAndPrimePatterns:SV.1",
+      "realises": [
+        "SieveMethodsAndPrimePatterns:SV.1"
+      ],
+      "title": "Brun combinatorial coefficients",
+      "kind": "construction",
+      "statement": "For squarefree P, y>1, β>1 and parity ε∈{0,1}, put λ_ε(d)=μ(d) if d|P and the decreasing prime factors p₁>⋯>p_r of d satisfy p_m<(y/(p₁⋯p_m))^(1/β) for every 1≤m≤r with m≡ε mod 2; otherwise put λ_ε(d)=0. Put λ⁺=λ₁ and λ⁻=λ₀. The empty prime list makes λ⁺(1)=λ⁻(1)=1.",
+      "hypotheses": [
+        "Only positive divisors contribute. Prefix p₁⋯p_m includes p_m. Both coefficient systems retain every admissible prefix, not just divisors whose whole number of prime factors has one parity."
+      ],
+      "prerequisites": [
+        "mathlib:BoundingSieve",
+        "mathlib:Finset.sort",
+        "mathlib:ArithmeticFunction.moebius"
+      ],
+      "proofSteps": [
+        "Sort the native finite prime-factor set decreasingly. Test the specified one-based prefix constraints, then use the existing Möbius coefficient with its sign. Define zero outside the positive divisor finset."
+      ],
+      "acceptance": [
+        "For P=6,y=100,β=2, both systems retain d=1,2,3,6 and agree with μ on those divisors. For P=6,y=4,β=2,z=4, λ⁺ retains only 1 whereas λ⁻ retains 1,2,3; the first-order lower sum is negative on the two-prime obstruction."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Sieve/Brun",
+        "namespace": "SieveBrun",
+        "name": "brunCoefficients"
+      },
+      "sources": [
+        {
+          "sourceId": "KED-ANT-12",
+          "locator": "§12.2 definition of D± and §12.3 parameter choice",
+          "excerpt": "combinatorial sieve",
+          "match": "The exact prefix-dependent construction; the source’s informal parity wording is interpreted as constraints at each position, not a restriction to even/odd divisors."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "SieveBrun.brunCoefficients_one",
+          "role": "simp",
+          "statement": "P squarefree,y>1 implies both coefficients at 1 are one."
+        },
+        {
+          "name": "SieveBrun.brunCoefficients_of_not_dvd",
+          "role": "simp",
+          "statement": "The coefficient is zero outside the positive divisors of P, including d=0."
+        },
+        {
+          "name": "SieveBrun.abs_brunCoefficients_le_one",
+          "role": "relation",
+          "statement": "Each coefficient has modulus at most one."
+        },
+        {
+          "name": "SieveBrun.brunCoefficients_eq_moebius",
+          "role": "characterisation",
+          "statement": "On a divisor, the coefficient equals μ(d) exactly when every required prefix constraint holds; failure makes it zero."
+        },
+        {
+          "name": "SieveBrun.brunCoefficients_support_lt",
+          "role": "relation",
+          "statement": "If all primes of P are <z≤y, y>1,β>1, every nonzero coefficient satisfies d<y."
+        }
+      ],
+      "tests": [
+        {
+          "name": "brun_no_primes",
+          "kind": "degenerate",
+          "statement": "P=1,y=2,β=2: both coefficients are 1 at d=1 and zero elsewhere."
+        },
+        {
+          "name": "brun_prefix_retained",
+          "kind": "computation",
+          "statement": "P=6,y=100,β=2: both coefficient lists at 1,2,3,6 are 1,−1,−1,1."
+        },
+        {
+          "name": "brun_lower_parity",
+          "kind": "non-example",
+          "statement": "P=6,y=4,β=2,z=4: λ⁻(1)=1, λ⁻(2)=λ⁻(3)=−1, λ⁻(6)=0; its full divisor sum is −1."
+        },
+        {
+          "name": "brun_strict_boundary",
+          "kind": "computation",
+          "statement": "For P=2,β=2,y=8 the positive coefficient at 2 is zero: 2³=8 fails the strict prefix constraint."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Kedlaya Lemma 12.1 and Theorem 12.2",
+          "how": "Supply the first-failure expansion and its finite support."
+        },
+        {
+          "where": "Bary-Soroker–Koukoulopoulos–Kozma Brun route inventory",
+          "how": "The scalar coefficient system is an input, not an assertion of independent polynomial reductions."
+        }
+      ],
+      "planet": {
+        "name": "Brun combinatorial sieve"
+      }
+    },
+    {
+      "id": "SieveMethodsAndPrimePatterns:SV.1/brun-divisor-brackets",
+      "parentStageId": "SieveMethodsAndPrimePatterns:SV.1",
+      "realises": [
+        "SieveMethodsAndPrimePatterns:SV.1"
+      ],
+      "title": "Brun pointwise divisor brackets",
+      "kind": "theorem",
+      "statement": "For the Brun construction and every r|P, Σ_{d|r}λ⁻(d) ≤ 1_{r=1} ≤ Σ_{d|r}λ⁺(d). Hence Σ_{d|P}λ⁻(d)A_d≤S≤Σ_{d|P}λ⁺(d)A_d for nonnegative sample weights.",
+      "hypotheses": [
+        "P squarefree,y>1,β>1; no distribution estimate is assumed."
+      ],
+      "prerequisites": [
+        "SieveMethodsAndPrimePatterns:SV.1/brun-coefficients",
+        "SieveMethodsAndPrimePatterns:SV.0/weighted-divisor-interchange",
+        "SieveMethodsAndPrimePatterns:SV.0/lower-sieve-sum"
+      ],
+      "proofSteps": [
+        "Use the decreasing-prime first-failure expansion of source Lemma 12.1 with the consistent strict prime cutoff and left-limit product at the last prime (E35), specialized to density one on the factors of r. Finite inclusion-exclusion leaves a sum of nonnegative first-failure contributions with the required parity sign. The combinatorial identity is polynomial and does not require the analytic strict-density hypothesis when specialized to one.",
+        "Apply the native-carrier weighted divisor interchange at each sample. Multiply both brackets by its nonnegative weight and sum."
+      ],
+      "acceptance": [
+        "For r=1 both brackets equal one; for P=6,y=4,β=2 and r=6 the lower sum is −1, indicator zero and upper sum one."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Sieve/Brun",
+        "namespace": "SieveBrun",
+        "name": "brun_divisor_brackets"
+      },
+      "sources": [
+        {
+          "sourceId": "KED-ANT-12",
+          "locator": "Lemma 12.1, its specialization after the proof, and (12.2.1)–(12.2.2)",
+          "excerpt": "combinatorial sieve",
+          "match": "Exact pointwise and weighted inequalities, preserving signs and the r=1 case."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SieveMethodsAndPrimePatterns:SV.1/brun-coefficient-bound",
+      "parentStageId": "SieveMethodsAndPrimePatterns:SV.1",
+      "realises": [
+        "SieveMethodsAndPrimePatterns:SV.1"
+      ],
+      "title": "Brun coefficient modulus bound",
+      "kind": "lemma",
+      "statement": "For every P,y,β,ε and d, |λ_ε(d)|≤1.",
+      "hypotheses": [
+        "The assertion is valid even outside the analytic parameter range: each coefficient is zero or the existing Möbius value."
+      ],
+      "prerequisites": [
+        "SieveMethodsAndPrimePatterns:SV.1/brun-coefficients",
+        "mathlib:ArithmeticFunction.abs_moebius_le_one"
+      ],
+      "proofSteps": [
+        "Split by the explicit coefficient condition and apply the native Möbius modulus bound after casting to the reals."
+      ],
+      "acceptance": [
+        "No positivity of λ is claimed: selected one-prime divisors have coefficient −1."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Sieve/Brun",
+        "namespace": "SieveBrun",
+        "name": "abs_brunCoefficients_le_one"
+      },
+      "sources": [
+        {
+          "sourceId": "KED-ANT-12",
+          "locator": "§12.2 definition of λ± and error estimate",
+          "excerpt": "combinatorial sieve",
+          "match": "Promoted coefficient API for the fundamental estimate."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SieveMethodsAndPrimePatterns:SV.1/brun-coefficient-support",
+      "parentStageId": "SieveMethodsAndPrimePatterns:SV.1",
+      "realises": [
+        "SieveMethodsAndPrimePatterns:SV.1"
+      ],
+      "title": "Strict Brun coefficient support",
+      "kind": "lemma",
+      "statement": "For squarefree P,y>1,β>1 and ε∈{0,1}, if every prime of P is <z≤y, then λ_ε(d)≠0 implies d<y.",
+      "hypotheses": [
+        "The single-prime lower-coefficient exception is controlled by p<z≤y. The unit needs y>1."
+      ],
+      "prerequisites": [
+        "SieveMethodsAndPrimePatterns:SV.1/brun-coefficients"
+      ],
+      "proofSteps": [
+        "For a nonempty decreasing list with last position of the required parity, its last prefix condition directly bounds the full product. Otherwise use the penultimate prefix condition and p_r<p_{r−1}≤p_{r−1}^β. Handle a one-prime lower list using the explicit prime cutoff; handle the empty list by y>1."
+      ],
+      "acceptance": [
+        "The result is a strict d<y bound; a large single prime in λ⁻ without the prime cutoff would be a counterexample."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Sieve/Brun",
+        "namespace": "SieveBrun",
+        "name": "brunCoefficients_support_lt"
+      },
+      "sources": [
+        {
+          "sourceId": "KED-ANT-12",
+          "locator": "§12.3, support exception for single primes in D−",
+          "excerpt": "combinatorial sieve",
+          "match": "Promoted support API, with the source’s exception retained explicitly."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SieveMethodsAndPrimePatterns:SV.1/brun-main-term-bounds",
+      "parentStageId": "SieveMethodsAndPrimePatterns:SV.1",
+      "realises": [
+        "SieveMethodsAndPrimePatterns:SV.1"
+      ],
+      "title": "Dimension-controlled Brun main terms",
+      "kind": "theorem",
+      "statement": "Let κ>0,K>1, β=9κ+1, u≥β,y>1,z=y^(1/u), all primes of P satisfy p<z, and g(p)=ν(p) on P and zero off P. Under HasProductSieveDimension(P,g,κ,K), with V=∏_{p|P}(1−ν(p)) and δ=exp(β−u)K^10, (1−δ)V ≤ mainSum(λ⁻) ≤ V ≤ mainSum(λ⁺) ≤ (1+δ)V.",
+      "hypotheses": [
+        "P in the dimension predicate means the set of its prime factors. Strict prime-density bounds are supplied by BoundingSieve. The displayed non-strict inequalities include every degenerate empty-prime case."
+      ],
+      "prerequisites": [
+        "SieveMethodsAndPrimePatterns:SV.1/brun-coefficients",
+        "SieveMethodsAndPrimePatterns:SV.0/product-sieve-dimension",
+        "mathlib:BoundingSieve",
+        "mathlib:BoundingSieve.mainSum"
+      ],
+      "proofSteps": [
+        "Use the finite first-failure expansion with strict prime cutoffs and the last-prime left-limit product (E35): V⁺−V is the sum of odd-length failure masses, and V−V⁻ the sum of even-length failure masses. Each summand is nonnegative.",
+        "The prefix constraints give p_n≥z_n=z^(1−1/β)^n. Enlarge each summation domain; an ordered distinct-prime sum is at most the n-th power of the unrestricted prime sum divided by n!. The product-dimension bound controls V(z_n)/V(z); if z_n<2 use the identical empty-prime interval or the interval starting at 2.",
+        "Use the source’s b=9, a=exp(1+1/9)/9<exp(−1), its factorial bound n!≥exp(1)(n/exp(1))^n, and vanishing for n+β≤u. Sum the geometric tail to obtain δ. The lower main term has 1−δ, not the source display’s 1+δ (E33)."
+      ],
+      "acceptance": [
+        "δ may exceed one; then the lower bound can be negative and asserts no positive prime lower bound. Empty P gives V⁺=V⁻=V=1."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Sieve/Brun",
+        "namespace": "SieveBrun",
+        "name": "brun_main_term_bounds"
+      },
+      "sources": [
+        {
+          "sourceId": "KED-ANT-12",
+          "locator": "§12.4 and Theorem 12.2, first two displays",
+          "excerpt": "combinatorial sieve",
+          "match": "Source estimate with the lower sign corrected from its first-failure proof."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SieveMethodsAndPrimePatterns:SV.1/brun-fundamental-estimate",
+      "parentStageId": "SieveMethodsAndPrimePatterns:SV.1",
+      "realises": [
+        "SieveMethodsAndPrimePatterns:SV.1"
+      ],
+      "title": "Brun fundamental sieve estimate",
+      "kind": "theorem",
+      "statement": "Under the Brun main-term hypotheses and X≥0, (1−δ)V X−remainderMass(s,y) ≤ S ≤ (1+δ)V X+remainderMass(s,y), where β=9κ+1,u≥β,z=y^(1/u), δ=exp(β−u)K^10.",
+      "hypotheses": [
+        "This is the proved parameter range of this elementary combinatorial sieve. It is not a sharp beta-sieve theorem, a parity-breaking input or a Chen theorem."
+      ],
+      "prerequisites": [
+        "SieveMethodsAndPrimePatterns:SV.1/brun-main-term-bounds",
+        "SieveMethodsAndPrimePatterns:SV.1/brun-divisor-brackets",
+        "SieveMethodsAndPrimePatterns:SV.0/coefficient-error-remainder-mass",
+        "SieveMethodsAndPrimePatterns:SV.1/brun-coefficient-bound",
+        "SieveMethodsAndPrimePatterns:SV.1/brun-coefficient-support",
+        "mathlib:BoundingSieve.multSum_eq_main_err"
+      ],
+      "proofSteps": [
+        "Expand A_d=ν(d)X+R_d in both weighted brackets. The promoted modulus and support lemmas give |λ±|≤1 and support d<y. Apply the promoted remainder-mass error lemma, then multiply the main-term inequalities by nonnegative X."
+      ],
+      "acceptance": [
+        "The range u≥9κ+1 and positivity of X are explicit. A positive sifted lower bound requires both δ<1 and a sufficiently small actual remainder mass."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Sieve/Brun",
+        "namespace": "SieveBrun",
+        "name": "brun_fundamental_estimate"
+      },
+      "sources": [
+        {
+          "sourceId": "KED-ANT-12",
+          "locator": "Theorem 12.2, consequence display",
+          "excerpt": "combinatorial sieve",
+          "match": "Exact weighted native-carrier form of the corrected combinatorial estimate."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Brun fundamental sieve estimate"
+      }
+    },
+    {
+      "id": "SieveMethodsAndPrimePatterns:SV.5/rough-to-at-most-almost-prime",
+      "parentStageId": "SieveMethodsAndPrimePatterns:SV.5",
+      "realises": [
+        "SieveMethodsAndPrimePatterns:SV.5"
+      ],
+      "title": "From roughness to an almost-prime bound",
+      "kind": "theorem",
+      "statement": "Let natural z≥2, n≠0 and k≥0. If every prime p dividing n satisfies z≤p and n<z^(k+1), then Nat.IsAtMostAlmostPrime(k,n).",
+      "hypotheses": [
+        "Prime factors are counted with multiplicity. The upper bound is strict and the unit n=1 is allowed."
+      ],
+      "prerequisites": [
+        "mathlib:Nat.IsAtMostAlmostPrime",
+        "mathlib:ArithmeticFunction.cardFactors",
+        "mathlib:Nat.prod_primeFactorsList"
+      ],
+      "proofSteps": [
+        "Every entry of the native prime factor list is at least z. Hence n, its product, is at least z raised to the list length Ω(n). If Ω(n)≥k+1, monotonicity of natural powers contradicts the strict upper bound. Use the existing at-most predicate, not the exact-k or distinct-factor predicate."
+      ],
+      "acceptance": [
+        "n=8,z=2,k=2 violates the strict cutoff and has Ω=3 although it has only one distinct prime factor; n=1 gives Ω=0; n=0 is excluded."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Sieve/AlmostPrime",
+        "namespace": "SieveAlmostPrime",
+        "name": "rough_to_at_most_almost_prime"
+      },
+      "sources": [
+        {
+          "sourceId": "KED-ANT-11",
+          "locator": "§11.1 rough-number observation",
+          "excerpt": "sieve",
+          "match": "Exact endpoint-safe form of the source’s elementary prime-factor transfer. It supplies no sifted count or advanced-sieve analytic input."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Roughness and almost primes"
+      }
     }
   ],
   "links": [],
@@ -6715,6 +7813,14 @@
         "SieveMethodsAndPrimePatterns:SV.4/s2-asymptotic"
       ],
       "status": "open"
+    },
+    {
+      "supplier": "AnalyticNumberTheory:AN.5",
+      "need": "Generic Rankin smooth-number bound: for N≥0, integer z≥0 and δ>0, #Nat.smoothNumbersUpTo(N,z+1) ≤ N^δ ∏_{p prime,p≤z}(1−p^(−δ))⁻¹, with N=0 handled separately. This is Kedlaya Lemma 11.5 with the native strict smoothness threshold z+1 and positive integers only; provide the finite-geometric/positive Euler-product proof, not the native weaker 2^π(z)√N count. SV.0 defines no competing smooth-number carrier and its finite squarefree weighted Rankin theorems do not depend on this generic-count request.",
+      "neededBy": [
+        "SieveMethodsAndPrimePatterns:SV.0"
+      ],
+      "status": "open"
     }
   ],
   "coverage": [
@@ -6723,18 +7829,19 @@
       "status": "partial",
       "remaining": [
         "The general finite-family/residue bridge is now decomposed, including repeated labels, empty local classes and full-residue obstruction. Concrete polynomial root sets, CRT counts and interval discrepancy bounds still require application-specific proofs; the prime-product labels supply no linear cutoff.",
-        "State sieve dimension with its exact logarithmic inequalities and uniform constants, then decompose the selected Rankin and remainder-tail estimates.",
-        "Define and prove the actual family-level remainder distribution estimates; the finite cutoff inequality and SelbergSieve.level alone do not supply them.",
-        "Decompose Kedlaya Chapter 11 Lemmas 11.5, 11.7, 11.8, Theorem 11.9 and the properly justified Brun application in Theorem 11.11; audit their analytic prerequisites."
+        "Khayutin 2019 §8 and local-conic appendix: multiplicative-function class, polynomial local densities, singular corrections, conic normal forms and exact prime-2 hypotheses; Bary-Soroker–Koukoulopoulos–Kozma 2023 vector densities and Bonferroni.",
+        "The logarithmic/product dimensions and quantitative family-level predicate are specified. Prove actual application-family distribution bounds; they are not consequences of the predicate or SelbergSieve.level. The generic Rankin smooth-number count is requested from AN.5, not redefined here. Establish the exact printed Theorem 11.9 under its stated hypotheses or repair them; the new mass-controlled version does not remove E7. Complete the two-residue Brun application and reciprocal convergence."
       ]
     },
     {
       "stageId": "SieveMethodsAndPrimePatterns:SV.1",
       "status": "partial",
       "remaining": [
-        "Read Kedlaya Chapters 12-14 and the remaining Heath-Brown Selberg proof; the source boundary read through Lemma 2.1 is not complete coverage.",
-        "Import existing lambdaSquared upper coefficients and main-term diagonalization; plan only missing optimization, Brun combinatorial weights, fundamental lemmas, applications and parity limitations.",
-        "GGPY Lemmas 3–4 in dimension one are planned (SV.1/selberg-diagonal-sum-dimension-one, SV.1/selberg-smooth-diagonal-sum); the proof of Lemma 3 rests on the unread Halberstam–Richert Lemmas 5.3–5.4 (gap), and the dimension-κ version remains."
+        "Read Kedlaya Chapters 13-14 and the remaining Heath-Brown Selberg proof; the source boundary read through Lemma 2.1 is not complete coverage.",
+        "Import existing lambdaSquared upper coefficients and main-term diagonalization; plan only missing Selberg optimization, the remaining sieve estimates and applications, and explicit parity limitations. The elementary Chapter 12 Brun system is specified in this continuation.",
+        "GGPY Lemmas 3–4 in dimension one are planned (SV.1/selberg-diagonal-sum-dimension-one, SV.1/selberg-smooth-diagonal-sum); the proof of Lemma 3 rests on the unread Halberstam–Richert Lemmas 5.3–5.4 (gap), and the dimension-κ version remains.",
+        "Khayutin §8 convex-domain/divisibility sieve, level and decoupling estimates; Bary-Soroker–Koukoulopoulos–Kozma Brun bound with the exclusion set.",
+        "Chapter 12 combinatorial coefficients, pointwise brackets, main-term bound and fundamental estimate are specified. Its prime-shift example and twenty-factor application still need a correct residue-class setup and a justified uniform prime-distribution input; no unconditional conclusion is inferred from that paragraph."
       ]
     },
     {
@@ -6746,7 +7853,8 @@
         "Chapter 16 was read completely, but §16.3 Theorem 16.4, Lemma 16.5 and Linnik’s Theorem 16.7, the least-nonresidue definition, and §16.4 exercises remain undecomposed. Repair the recorded vanishing-support, CRT, theorem-reference, prime-two and smooth-number multiplicity issues before using that application.",
         "The finite diagonal/off-diagonal bound abstracts Bennett–Siksek (34)–(35) but does not supply their arithmetic family, individual character-correlation estimate, von Mangoldt norm estimate or sufficiently-large-parameter threshold. Keep those arithmetic owners distinct.",
         "Resolve the exact quadratic-symbol bilinear large-sieve need of ArithmeticStatistics:ST.5 and polynomial Farey large-sieve need of FiniteFieldsAndCharacterSums:FF.1; neither is the finite Gram theorem.",
-        "Follow RS-07 ownership SV.2→AnalyticNumberTheory:AN.3, not the obsolete reverse edge."
+        "The accepted 30 September RS-07 result withholds the non-atomic edge replacement: retain AN.3→SV.2; do not install SV.2→AN.3. Mathematical ownership and the exact supplier request are distinct from the unapplied edge change.",
+        "BS20 finite Gram theorem already present; retain separate arithmetic correlations. Khayutin binary-form large sieve and averaging lemmas; Bary-Soroker–Koukoulopoulos–Kozma additive/polynomial Farey inequalities. Heath-Brown 1995 Corollary 4 for Skorobogatov–Sofos has its own quadratic-character family and norms. Jutila 1975 Lemma 3/Smith Proposition 6.6 for Koymans–Pagano is distinct, not a Heath-Brown quadratic-large-sieve citation."
       ]
     },
     {
@@ -6756,21 +7864,27 @@
         "Chapter 18 is read; the large-r primitive rectangular subargument of Theorem 18.3 now imports six explicit SV.2 nodes, with the J loss retained. Definition 18.1 discrepancy API; Lemma 18.2; conductor reduction and small-r estimates in Theorem 18.3; the totient-weighted s summation; Theorems 18.4–18.5; Corollary 18.6 and Exercises 18.4.3–5 remain work.",
         "E20 has a weaker finite replacement, not a proof of the source's advertised uniform aggregate bound: account for its J factor in every downstream loss. E19 and E21–E26 still require repairs before use. The exact Vaughan identity and primitive rectangular bound do not establish the missing hyperbola coverage or final balancing.",
         "State every A>0, a corresponding B and sufficiently large x, the range Q≤sqrt(x)/(log x)^B, weighted moduli sums and maxima over reduced residues. Import precisely stated small-modulus/zero-density inputs from AN.3 and the existing arithmetic Dirichlet-series owners. Stronger distribution remains an explicit hypothesis.",
-        "The level-of-distribution definition (Maynard (1.3)), the Elliott–Halberstam hypothesis and the Bombieri–Vinogradov level θ<1/2 are planned; the latter's input, Kedlaya Theorem 18.4, is still to be decomposed."
+        "The level-of-distribution definition (Maynard (1.3)), the Elliott–Halberstam hypothesis and the Bombieri–Vinogradov level θ<1/2 are planned; the latter's input, Kedlaya Theorem 18.4, is still to be decomposed.",
+        "RT-AREA-combinatorics/9: propose deleting the obsolete SV.3→AdditiveCombinatorics:AC.4 edge; actual consumers use SV.1/AN.3 for modulus-uniform majorants and SV.2/AN.3 for AC.5. No other packet or atlas-data file is edited.",
+        "Complete exact averaged-prime discrepancy proof; retain analytic suppliers and all maximum, conductor, cofactor, dyadic and logarithmic losses."
       ]
     },
     {
       "stageId": "SieveMethodsAndPrimePatterns:SV.4",
-      "status": "source_decomposed",
-      "remaining": [],
-      "note": "Maynard's paper (Ann. of Math. 2015) is decomposed completely: §§1–8, 27 nodes. Its outside inputs are Bombieri–Vinogradov (SV.3/bombieri-vinogradov-level), GGPY Lemma 3 (SV.1, with a gap for its cited proof) and Mertens/PNT (request to AN.2)."
+      "status": "partial",
+      "remaining": [
+        "Preserve the Maynard checkpoint. Add the owned Bouniakowsky and Schinzel-H predicates of Skorobogatov–Sofos with positive leading coefficients and no fixed prime divisor; consumer Part II imports them."
+      ],
+      "note": "The incoming 27-node Maynard source decomposition is preserved. It is not complete coverage of the subsequently added polynomial-prime predicates."
     },
     {
       "stageId": "SieveMethodsAndPrimePatterns:SV.5",
-      "status": "not_read",
+      "status": "partial",
       "remaining": [
         "Select and read original beta/weighted-sieve, Chen and affine-sieve sources separately.",
-        "State each route's own bilinear/parity-breaking or expansion hypotheses, orbit/local-obstruction assumptions and number of prime factors counted with multiplicity; import existing almost-prime predicates."
+        "State each route's own bilinear/parity-breaking or expansion hypotheses, orbit/local-obstruction assumptions and number of prime factors counted with multiplicity; import existing almost-prime predicates.",
+        "Select original beta/weighted, Chen and affine sources independently. Koymans–Milovic 2021 source sieve conversion FIMR Proposition 5.2, Type I/II and conditional spin-oscillation targets; generic number-field fundamental domains belong to TauGlobalNumberFieldsLayer3C, and C_{|S|n}/Corollary 2.2 are explicit supplier hypotheses, not unconditional theorems.",
+        "The elementary roughness-to-Ω transfer is specified; no beta/weighted, Chen, affine or spin-sieve analytic theorem is supplied by it."
       ]
     }
   ],
@@ -6780,21 +7894,21 @@
       "neededBy": [
         "SieveMethodsAndPrimePatterns:SV.0"
       ],
-      "detail": "The general finite-family/residue bridge is now decomposed, including repeated labels, empty local classes and full-residue obstruction. Concrete polynomial root sets, CRT counts and interval discrepancy bounds still require application-specific proofs; the prime-product labels supply no linear cutoff. State sieve dimension with its exact logarithmic inequalities and uniform constants, then decompose the selected Rankin and remainder-tail estimates. Define and prove the actual family-level remainder distribution estimates; the finite cutoff inequality and SelbergSieve.level alone do not supply them. Decompose Kedlaya Chapter 11 Lemmas 11.5, 11.7, 11.8, Theorem 11.9 and the properly justified Brun application in Theorem 11.11; audit their analytic prerequisites."
+      "detail": "The general finite-family/residue bridge is now decomposed, including repeated labels, empty local classes and full-residue obstruction. Concrete polynomial root sets, CRT counts and interval discrepancy bounds still require application-specific proofs; the prime-product labels supply no linear cutoff. Khayutin 2019 §8 and local-conic appendix: multiplicative-function class, polynomial local densities, singular corrections, conic normal forms and exact prime-2 hypotheses; Bary-Soroker–Koukoulopoulos–Kozma 2023 vector densities and Bonferroni. The logarithmic/product dimensions and quantitative family-level predicate are specified. Prove actual application-family distribution bounds; they are not consequences of the predicate or SelbergSieve.level. The generic Rankin smooth-number count is requested from AN.5, not redefined here. Establish the exact printed Theorem 11.9 under its stated hypotheses or repair them; the new mass-controlled version does not remove E7. Complete the two-residue Brun application and reciprocal convergence."
     },
     {
       "title": "SV.1 remaining source decomposition",
       "neededBy": [
         "SieveMethodsAndPrimePatterns:SV.1"
       ],
-      "detail": "Read Kedlaya Chapters 12-14 and the remaining Heath-Brown Selberg proof; the source boundary read through Lemma 2.1 is not complete coverage. Import existing lambdaSquared upper coefficients and main-term diagonalization; plan only missing optimization, Brun combinatorial weights, fundamental lemmas, applications and parity limitations. Two dimension-one Selberg diagonal-sum lemmas (GGPY Lemmas 3–4) are now planned for SV.4; the general dimension-κ estimate, the optimizer and the remaining SV.1 sources are still open."
+      "detail": "Read Kedlaya Chapters 13-14 and the remaining Heath-Brown Selberg proof; the source boundary read through Lemma 2.1 is not complete coverage. Import existing lambdaSquared upper coefficients and main-term diagonalization; plan only missing Selberg optimization, the remaining sieve estimates and applications, and explicit parity limitations. The elementary Chapter 12 Brun system is specified in this continuation. GGPY Lemmas 3–4 in dimension one are planned (SV.1/selberg-diagonal-sum-dimension-one, SV.1/selberg-smooth-diagonal-sum); the proof of Lemma 3 rests on the unread Halberstam–Richert Lemmas 5.3–5.4 (gap), and the dimension-κ version remains. Khayutin §8 convex-domain/divisibility sieve, level and decoupling estimates; Bary-Soroker–Koukoulopoulos–Kozma Brun bound with the exclusion set. Chapter 12 combinatorial coefficients, pointwise brackets, main-term bound and fundamental estimate are specified. Its prime-shift example and twenty-factor application still need a correct residue-class setup and a justified uniform prime-distribution input; no unconditional conclusion is inferred from that paragraph."
     },
     {
       "title": "SV.2 remaining source decomposition",
       "neededBy": [
         "SieveMethodsAndPrimePatterns:SV.2"
       ],
-      "detail": "Bombieri’s H+2/δ additive theorem and the primitive-character reduction with H+2Q² are decomposed. The sharp H−1+1/δ additive and H−1+Q² multiplicative versions still require the Chapter 15 input; this continuation does not claim those constants. The exact Vaughan cutoff identity, incomplete logarithm, arbitrary-weight hyperbola/Type I–II decomposition and coefficient energies are decomposed, as are the rectangular primitive-character dyadic block estimate and finite large-modulus summation with its explicit J loss. The dependent hyperbola-to-rectangle reduction and source-specific Type I/II estimates remain open. Read Chapter 15 for the sharp additive input and squared-inequality duality adapter; native operator-norm duality is already built. Chapter 16 was read completely, but §16.3 Theorem 16.4, Lemma 16.5 and Linnik’s Theorem 16.7, the least-nonresidue definition, and §16.4 exercises remain undecomposed. Repair the recorded vanishing-support, CRT, theorem-reference, prime-two and smooth-number multiplicity issues before using that application. The finite diagonal/off-diagonal bound abstracts Bennett–Siksek (34)–(35) but does not supply their arithmetic family, individual character-correlation estimate, von Mangoldt norm estimate or sufficiently-large-parameter threshold. Keep those arithmetic owners distinct. Resolve the exact quadratic-symbol bilinear large-sieve need of ArithmeticStatistics:ST.5 and polynomial Farey large-sieve need of FiniteFieldsAndCharacterSums:FF.1; neither is the finite Gram theorem. Follow RS-07 ownership SV.2→AnalyticNumberTheory:AN.3, not the obsolete reverse edge."
+      "detail": "Bombieri’s H+2/δ additive theorem and the primitive-character reduction with H+2Q² are decomposed. The sharp H−1+1/δ additive and H−1+Q² multiplicative versions still require the Chapter 15 input; this continuation does not claim those constants. The exact Vaughan cutoff identity, incomplete logarithm, arbitrary-weight hyperbola/Type I–II decomposition and coefficient energies are decomposed, as are the rectangular primitive-character dyadic block estimate and finite large-modulus summation with its explicit J loss. The dependent hyperbola-to-rectangle reduction and source-specific Type I/II estimates remain open. Read Chapter 15 for the sharp additive input and squared-inequality duality adapter; native operator-norm duality is already built. Chapter 16 was read completely, but §16.3 Theorem 16.4, Lemma 16.5 and Linnik’s Theorem 16.7, the least-nonresidue definition, and §16.4 exercises remain undecomposed. Repair the recorded vanishing-support, CRT, theorem-reference, prime-two and smooth-number multiplicity issues before using that application. The finite diagonal/off-diagonal bound abstracts Bennett–Siksek (34)–(35) but does not supply their arithmetic family, individual character-correlation estimate, von Mangoldt norm estimate or sufficiently-large-parameter threshold. Keep those arithmetic owners distinct. Resolve the exact quadratic-symbol bilinear large-sieve need of ArithmeticStatistics:ST.5 and polynomial Farey large-sieve need of FiniteFieldsAndCharacterSums:FF.1; neither is the finite Gram theorem. The accepted 30 September RS-07 result withholds the non-atomic edge replacement: retain AN.3→SV.2; do not install SV.2→AN.3. Mathematical ownership and the exact supplier request are distinct from the unapplied edge change. BS20 finite Gram theorem already present; retain separate arithmetic correlations. Khayutin binary-form large sieve and averaging lemmas; Bary-Soroker–Koukoulopoulos–Kozma additive/polynomial Farey inequalities. Heath-Brown 1995 Corollary 4 for Skorobogatov–Sofos has its own quadratic-character family and norms. Jutila 1975 Lemma 3/Smith Proposition 6.6 for Koymans–Pagano is distinct, not a Heath-Brown quadratic-large-sieve citation."
     },
     {
       "title": "SV.3 remaining source decomposition",
@@ -6802,14 +7916,14 @@
         "SieveMethodsAndPrimePatterns:SV.3",
         "SieveMethodsAndPrimePatterns:SV.3/bombieri-vinogradov-level"
       ],
-      "detail": "Chapter 18 is read; the large-r primitive rectangular subargument of Theorem 18.3 now imports six explicit SV.2 nodes, with the J loss retained. Definition 18.1 discrepancy API; Lemma 18.2; conductor reduction and small-r estimates in Theorem 18.3; the totient-weighted s summation; Theorems 18.4–18.5; Corollary 18.6 and Exercises 18.4.3–5 remain work. E20 has a weaker finite replacement, not a proof of the source's advertised uniform aggregate bound: account for its J factor in every downstream loss. E19 and E21–E26 still require repairs before use. The exact Vaughan identity and primitive rectangular bound do not establish the missing hyperbola coverage or final balancing. State every A>0, a corresponding B and sufficiently large x, the range Q≤sqrt(x)/(log x)^B, weighted moduli sums and maxima over reduced residues. Import precisely stated small-modulus/zero-density inputs from AN.3 and the existing arithmetic Dirichlet-series owners. Stronger distribution remains an explicit hypothesis. The level-of-distribution interface (SV.3/level-of-distribution) and its Bombieri–Vinogradov instance (SV.3/bombieri-vinogradov-level) are now planned; the latter takes Kedlaya Theorem 18.4 as its input, and the decomposition of that theorem is exactly this gap."
+      "detail": "Chapter 18 is read; the large-r primitive rectangular subargument of Theorem 18.3 now imports six explicit SV.2 nodes, with the J loss retained. Definition 18.1 discrepancy API; Lemma 18.2; conductor reduction and small-r estimates in Theorem 18.3; the totient-weighted s summation; Theorems 18.4–18.5; Corollary 18.6 and Exercises 18.4.3–5 remain work. E20 has a weaker finite replacement, not a proof of the source's advertised uniform aggregate bound: account for its J factor in every downstream loss. E19 and E21–E26 still require repairs before use. The exact Vaughan identity and primitive rectangular bound do not establish the missing hyperbola coverage or final balancing. State every A>0, a corresponding B and sufficiently large x, the range Q≤sqrt(x)/(log x)^B, weighted moduli sums and maxima over reduced residues. Import precisely stated small-modulus/zero-density inputs from AN.3 and the existing arithmetic Dirichlet-series owners. Stronger distribution remains an explicit hypothesis. The level-of-distribution definition (Maynard (1.3)), the Elliott–Halberstam hypothesis and the Bombieri–Vinogradov level θ<1/2 are planned; the latter's input, Kedlaya Theorem 18.4, is still to be decomposed. RT-AREA-combinatorics/9: propose deleting the obsolete SV.3→AdditiveCombinatorics:AC.4 edge; actual consumers use SV.1/AN.3 for modulus-uniform majorants and SV.2/AN.3 for AC.5. No other packet or atlas-data file is edited. Complete exact averaged-prime discrepancy proof; retain analytic suppliers and all maximum, conductor, cofactor, dyadic and logarithmic losses."
     },
     {
       "title": "SV.5 remaining source decomposition",
       "neededBy": [
         "SieveMethodsAndPrimePatterns:SV.5"
       ],
-      "detail": "Select and read original beta/weighted-sieve, Chen and affine-sieve sources separately. State each route's own bilinear/parity-breaking or expansion hypotheses, orbit/local-obstruction assumptions and number of prime factors counted with multiplicity; import existing almost-prime predicates."
+      "detail": "Select and read original beta/weighted-sieve, Chen and affine-sieve sources separately. State each route's own bilinear/parity-breaking or expansion hypotheses, orbit/local-obstruction assumptions and number of prime factors counted with multiplicity; import existing almost-prime predicates. Select original beta/weighted, Chen and affine sources independently. Koymans–Milovic 2021 source sieve conversion FIMR Proposition 5.2, Type I/II and conditional spin-oscillation targets; generic number-field fundamental domains belong to TauGlobalNumberFieldsLayer3C, and C_{|S|n}/Corollary 2.2 are explicit supplier hypotheses, not unconditional theorems. The elementary roughness-to-Ω transfer is specified; no beta/weighted, Chen, affine or spin-sieve analytic theorem is supplied by it."
     },
     {
       "title": "Proof of GGPY Lemma 3 (Halberstam–Richert Lemmas 5.3–5.4) not read",
@@ -6817,6 +7931,13 @@
         "SieveMethodsAndPrimePatterns:SV.1/selberg-diagonal-sum-dimension-one"
       ],
       "detail": "GGPY prove Lemma 3 by citing Halberstam–Richert, Sieve Methods (1974), Lemmas 5.3 and 5.4, which is not freely readable and was not read. The node's proof steps are a worker outline (Levin–Fainleib integral relation and the Dirichlet-series identification of c_γ), not a decomposition of the cited proof. An open source for the dimension-one asymptotic Σ_{d<z} μ²(d)g(d) = c_γ log z + O(c_γL), with uniformity in L, is needed."
+    },
+    {
+      "title": "SV.4 added polynomial-prime predicate route",
+      "neededBy": [
+        "SieveMethodsAndPrimePatterns:SV.4"
+      ],
+      "detail": "Read the exact owned Bouniakowsky and Schinzel-H predicate contracts of Skorobogatov–Sofos and plan them once with positive leading coefficients and no fixed prime divisor. The incoming Maynard nodes do not define these polynomial predicates."
     }
   ],
   "sourceIssues": [
@@ -7323,11 +8444,56 @@
         "2026-09-29: arXiv:1311.4600 v1, v2 and v3 all contain the passage unchanged; v3's 'corrected typos' revision does not touch it.",
         "2026-09-29: the Annals article page (annals.math.princeton.edu/2015/181-1/p07) lists no erratum; a web search for an erratum or corrigendum to the paper found none. This is not an exhaustive novelty claim."
       ]
+    },
+    {
+      "id": "SieveMethodsAndPrimePatterns/E33",
+      "source": "KED-ANT-12",
+      "kind": "misprint",
+      "locator": "Live author HTML Chapter 12, Theorem 12.2, second inequality; acquired 2026-10-05, SHA-256 4393be46bef6d62296c05f07358ee0cec6581130c434a0579c6b21a749087ad3.",
+      "printed": "V⁻(z) > (1 + exp(β−s) K^10) V(z)",
+      "correction": "V⁻(z) > (1 − exp(β−s) K^10) V(z). The planned theorem uses non-strict endpoint-safe bounds.",
+      "reason": "Lemma 12.1 gives V−V⁻ as a sum of nonnegative even first-failure masses, so V⁻≤V. The printed inequality forces V⁻>V because exp(β−s)K^10>0 and V>0. Empty P already has V⁻=V=1. The very next consequence display has the correct minus sign.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "2026-10-05: examined the live author Chapter 12 and its proof/consequence displays; the latter gives the correction internally.",
+        "2026-10-05: web searches for Kedlaya combinatorial-sieve errata and Theorem 12.2 correction found no identified erratum; no historical print-edition collation or exhaustive novelty claim."
+      ]
+    },
+    {
+      "id": "SieveMethodsAndPrimePatterns/E34",
+      "source": "KED-ANT-12",
+      "kind": "error",
+      "locator": "Live author HTML §12.1, paragraph beginning with the all-prime specialization, and the prime-indicator example before §12.2; acquired 2026-10-05.",
+      "printed": "For z≥x^(1/2), S(x,z)=Σ_{p≤x}f(p). With the prime indicator, S(x,x^(1/2)) counts twin primes.",
+      "correction": "With the displayed divisibility setup and P(z)=∏_{p≤z}p, in the range sqrt(x)≤z≤x and positive samples, S(x,z)=f(1)+Σ_{z<p≤x}f(p). For twin primes use bad classes n≡−2 modulo p and explicitly account for primes p+2≤z and the shifted size bound; the unshifted prime-indicator sieve does not count twins.",
+      "reason": "At x=25,z=5 and f the prime indicator, the displayed coprimality sieve retains 7,11,13,17,19,23, so S=6. There are nine primes≤25, and four primes p≤25 with p+2 prime (3,5,11,17). The prime 13 survives the displayed sieve though 15 is composite. For general f, the unit also survives.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "2026-10-05: inspected the live author Chapter 12 definition of S and P and the prime-indicator paragraph; no shift is present there.",
+        "2026-10-05: web searches for Kedlaya combinatorial-sieve errata and Theorem 12.2 correction found no identified list; no historical print-edition accusation is made."
+      ]
+    },
+    {
+      "id": "SieveMethodsAndPrimePatterns/E35",
+      "source": "KED-ANT-12",
+      "kind": "error",
+      "locator": "Live author HTML §12.1 inclusive P(z) definition versus Lemma 12.1 V(p_n) and p₁<z, and Exercise 12.6.1 hint; acquired 2026-10-05.",
+      "printed": "P(z)=∏_{p≤z,p∈P}p; V(z)=∏_{p|P(z)}(1−g(p)). The hint uses V(z)=1−Σ_{p<z}g(p)V(p).",
+      "correction": "Use the strict convention P(z)=∏_{p<z,p∈P}p and V(p)=∏_{q<p,q∈P}(1−g(q)) consistently throughout the first-failure identity. Alternatively retain inclusive P(z), replace the outer cutoff by p≤z, and use the left-limit product V(p−) in each summand. The planned Brun system uses strict prime cutoffs; it is not silently identified with Chapter 11’s inclusive convention.",
+      "reason": "For selected primes {2},g(2)=1/2,z=3 the printed inclusive V(z)=1/2 and V(2)=1/2, whereas the hinted right-hand side is 1−(1/2)(1/2)=3/4. In Lemma 12.1 with y=2,β=2, the upper coefficient at 2 vanishes; V⁺=1 and the printed first-failure term g(2)V(2)=1/4 also gives the wrong V=3/4. The strict left-limit factor V(2−)=1 restores 1/2. At prime z the mismatch also omits the outer boundary prime.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "2026-10-05: checked the live Chapter 12 definitions, Lemma 12.1 and its exercise hint; their inclusive/strict formulas are unchanged in this acquisition.",
+        "2026-10-05: the bounded Kedlaya sieve-errata searches found no identified correction list; no historical print-edition collation or exhaustive novelty claim."
+      ]
     }
   ],
   "checks": {
     "leanCompiled": true,
-    "lean": "Lean 4.34.0-rc2: 75 main signatures, 17 additional API signatures and 86 typed examples; exactly 178 expected proof-placeholder warnings, no errors or other warnings. The current dependency scan checks 3,362 Mathlib source files against the clean pinned baseline; existing oleans only, no library build.",
+    "lean": "Current continuation: suggested file checked serially against the existing Mathlib 082e2d3 build with Lean 4.34.0-rc2; zero errors, 308 expected admission warnings, zero other warnings. No compiled Tau Ceti f790474 build was available: this is a native Mathlib prototype, not a full combined-library check.",
     "proofProbes": "A separate scratch-only Lean file proves the signed dyadic partition, pointwise scalar kernel estimate and finite kernel sum, plus six examples: zero errors or warnings, and printed axiom lists omit the proof-placeholder axiom. This does not prove any primitive-character estimate. The prior Vaughan-probe limitation remains historical evidence.",
     "exactRationalRegressions": {
       "weightedDivisorInterchange": 1280,
@@ -7365,7 +8531,7 @@
       "diagonalBounds": 19680
     },
     "gramRegressionCoverage": "Exact Gaussian-rational arithmetic, not floating-point checks: 0–3 vectors in dimension two drawn from {-1,0,1}² and multiplied by four indexed complex phase patterns; six test vectors, including rational complex coordinates; four rational complex coefficient families. Zero/repeated/dependent vectors, empty index sets, sharp weighted examples and the corrected-versus-printed coefficient witnesses are included.",
-    "inheritedCheckScope": "Earlier finite-sieve, residue, Gram, taper, separation, multiplicative and Vaughan regression fields are historical evidence and are not claimed rerun by this dyadic continuation.",
+    "inheritedCheckScope": "All prior check fields are historical, retained without a rerun claim. Current receipt fields are in continuation20261005 and supersede conflicting compile/inventory summaries.",
     "taperRegressions": {
       "conditionalRowBounds": 1280,
       "diagonalMass": 110,
@@ -7459,70 +8625,196 @@
       "exactArithmetic": "Maynard (8.17) recomputed exactly (I₅ = 29509/1222452000, ratio 1417255/708216) by direct Dirichlet-integral expansion and by corrected Lemma 8.2; (8.15) recomputed (largest eigenvalue 4.00206976…) with an exact rational certificate ratio > 4 at k = 105 over the 42 monomials b + 2c ≤ 11; the printed G of Lemma 8.1 gives 26784/17753 at k = 5 (E31).",
       "tuples": "Engelsma's H₁₀₅ (typed from arXiv v3, matching the published list) is admissible with diameter 600; {0,2,6,8,12} is admissible; the first k primes above k are admissible for k < 60; the unit-test values of the admissible, prime-translate, W-trick and discrepancy tests were recomputed.",
       "excerpts": "Every new source excerpt is contained, letters only, in the text layer of the source it cites."
-    }
+    },
+    "continuation20261005": {
+      "newNodes": 19,
+      "incomingNodes": 106,
+      "incomingMathematicsPreserved": true,
+      "changedIncomingUseMetadata": [
+        "SieveMethodsAndPrimePatterns:SV.3/level-of-distribution"
+      ],
+      "sourceExcerpts": "New short excerpts checked against both acquired source text layers; all new mathematical proofs are specifications, not implementations.",
+      "officialValidation": {
+        "validationBase": "3a98a37da9242f48f2146b742cc4f18012b14c75",
+        "check": "Unmodified official check_blueprint.py and check_errata.py with fixed read-only Git-object world",
+        "elapsedSeconds": 1.67,
+        "maxRssKiB": 699660,
+        "errors": [],
+        "warnings": [],
+        "summary": {
+          "packet": "research/blueprint/packets/SieveMethodsAndPrimePatterns.json",
+          "roadmap": "SieveMethodsAndPrimePatterns",
+          "status": "partial",
+          "nodes": 125,
+          "kinds": {
+            "lemma": 70,
+            "theorem": 39,
+            "construction": 8,
+            "definition": 8
+          },
+          "apiItems": 96,
+          "unitTests": 68,
+          "planets": 23,
+          "baselineDeclarations": 172,
+          "prerequisites": {
+            "baseline": 243,
+            "node (this packet)": 175,
+            "stage": 6
+          },
+          "gaps": 7,
+          "requests": 2,
+          "stagesInScope": 6,
+          "stagesClosed": 0,
+          "stagesPlanned": 0
+        },
+        "moduleIndexMismatches": [],
+        "errataErrors": []
+      },
+      "suggested": {
+        "source": "Suggested.lean",
+        "sourceSha256": "e725d5f93978b6d05c3de37aa9ac9c9696a37509a3e00c0e5e208f9e7211aa92",
+        "exitCode": 0,
+        "elapsedSeconds": 5.511,
+        "availableGiBBefore": 38,
+        "maxRssKiB": 3843612,
+        "errors": 0,
+        "admissionWarnings": 308,
+        "otherWarnings": 0,
+        "logSha256": "bfa8f7fffddc82d32c3134d403516bbf7623838c9e2d46482ec1cefa0b4283bd"
+      },
+      "finiteKernelExamples": {
+        "source": "NativeFinite.lean",
+        "sourceSha256": "43f5fd56c598d90e2ccce8bc7bb63f42accc53d49619cab78e767d22b6160a96",
+        "exitCode": 0,
+        "elapsedSeconds": 0.907,
+        "availableGiBBefore": 39,
+        "maxRssKiB": 1882772,
+        "errors": 0,
+        "admissionWarnings": 0,
+        "otherWarnings": 0,
+        "logSha256": "f79fe94b234a901fd0980caed6d9098cf78aac060f0d0d4244c53244a246475a"
+      },
+      "finiteKernelExampleCount": 24,
+      "exactRegressions": {
+        "counts": {
+          "pointwiseBrunBrackets": 7776,
+          "BrunCoefficientBounds": 15552,
+          "BrunStrictSupport": 3921,
+          "firstFailureIdentities": 6144,
+          "EulerMoments": 480,
+          "weightedRankinPrefixes": 1728,
+          "weightedRankinTails": 1728,
+          "strictRemainderCertificates": 672,
+          "roughnessCertificates": 7931
+        },
+        "rejectedMutations": {
+          "whole_divisor_parity": true,
+          "lower_plus_sign": true,
+          "strict_prefix_boundary": true,
+          "signed_error_cancellation": true,
+          "inclusive_remainder_cutoff": true,
+          "distinct_not_multiplicity": true,
+          "roughness_endpoint": true,
+          "unshifted_prime_indicator": true,
+          "totalized_density_inverse": true,
+          "inclusive_first_failure_factor": true
+        },
+        "sourceWitness": {
+          "primeIndicatorSifted": [
+            7,
+            11,
+            13,
+            17,
+            19,
+            23
+          ],
+          "primeCount": 9,
+          "twinStarts": [
+            3,
+            5,
+            11,
+            17
+          ]
+        },
+        "arithmetic": "Exact integer/Fraction arithmetic. Brun β=2,3,10,19, 32 prime sets and eight positive integer cutoffs; three rational density families. Integer-exponent Rankin checks do not test the analytic real-exponent dimension estimate, the uniform family-level predicate or an unconditional prime-count theorem."
+      },
+      "nativeBoundary": "The 19 new target declarations are typed. Of 25 new API items, three are promoted main lemma signatures and eighteen are additional signatures. Four characterisation API names are not separately declared: HasLogSieveDimension iff, HasProductSieveDimension iff, HasSieveLevel iff and brunCoefficients selection iff; their predicates and selection conditions are concrete bodies, not admitted opaque packages. All 20 new definition/construction test labels and four extra roughness examples are typed. No suggested theorem is claimed proved."
+    },
+    "previousSuggestedSummary": "Lean 4.34.0-rc2: 75 main signatures, 17 additional API signatures and 86 typed examples; exactly 178 expected proof-placeholder warnings, no errors or other warnings. The current dependency scan checks 3,362 Mathlib source files against the clean pinned baseline; existing oleans only, no library build."
   },
   "provenance": {
     "issue": 1036,
-    "agent": "Claude Code",
-    "session": "cc-39fac3",
-    "date": "2026-09-29",
-    "base": "f200d619c0b83664429ba13b1bd249f78f3f73ee",
-    "claimComment": 5885197775,
-    "reviewedAudit": "data/library-coverage.json",
-    "ownership": "Accepted RS-07: SV.4 owns admissible tuples, Maynard's weights and asymptotics, the finite-gap theorems and the prime-tuple conjecture statement (formerly AN.6); SV.3 owns Bombieri–Vinogradov and the explicitly conditional distribution hypotheses (Elliott–Halberstam). AC.4's W-trick and Goldston–Yıldırım majorant are left to AC.4.",
+    "agent": "Codex",
+    "session": "codex-a71f92",
+    "date": "2026-10-05",
+    "base": "84cf1ef9cd08d6cce7f8f42d60f77a1d51a4ef9c",
+    "claimComment": 5989965056,
+    "claimConfirmation": 5989967331,
+    "reviewedAudit": "data/library-coverage.json at 84cf1ef9cd08d6cce7f8f42d60f77a1d51a4ef9c",
     "inherited": {
       "issue": 1036,
-      "agent": "Codex",
-      "session": "codex-a71f92",
-      "date": "2026-09-28",
-      "base": "78f60a3ba09116b78c0bb5cd513d59c43d7ddb2b",
-      "claimComment": 5868440951,
-      "claimConfirmation": 5868443281,
+      "agent": "Claude Code",
+      "session": "cc-39fac3",
+      "date": "2026-09-29",
+      "base": "f200d619c0b83664429ba13b1bd249f78f3f73ee",
+      "claimComment": 5885197775,
       "reviewedAudit": "data/library-coverage.json",
-      "ownership": "Accepted RS-07 assigns the large-sieve and source-scoped bilinear estimates to SV.2; SV.3 consumes this finite large-r primitive-character result. The new bound is not the quadratic-symbol or polynomial-function-field estimate requested by other consumers.",
+      "ownership": "Accepted RS-07: SV.4 owns admissible tuples, Maynard's weights and asymptotics, the finite-gap theorems and the prime-tuple conjecture statement (formerly AN.6); SV.3 owns Bombieri–Vinogradov and the explicitly conditional distribution hypotheses (Elliott–Halberstam). AC.4's W-trick and Goldston–Yıldırım majorant are left to AC.4.",
       "inherited": {
         "issue": 1036,
         "agent": "Codex",
         "session": "codex-a71f92",
-        "date": "2026-09-27",
-        "base": "f850a8a3d451af3b9a6f87f3ad4adc113c494920",
-        "claimComment": 5855780173,
-        "claimConfirmation": 5855781035,
-        "reviewedAudit": "research/blueprint/audit/AUDIT-07.result.json",
-        "auditReview": "research/blueprint/reviews/REV-AUDIT-07.md",
-        "ownership": "RS-07 makes SV.2 the single Vaughan/Type I–II owner, consumed by SV.3, AN.3 and ES.4. Reuse native ArithmeticFunction, convolution, Möbius and von Mangoldt rather than recreating AN.0's retired library imports. The weighted finite adapter is new; generic unweighted convolution summation is already implemented.",
+        "date": "2026-09-28",
+        "base": "78f60a3ba09116b78c0bb5cd513d59c43d7ddb2b",
+        "claimComment": 5868440951,
+        "claimConfirmation": 5868443281,
+        "reviewedAudit": "data/library-coverage.json",
+        "ownership": "Accepted RS-07 assigns the large-sieve and source-scoped bilinear estimates to SV.2; SV.3 consumes this finite large-r primitive-character result. The new bound is not the quadratic-symbol or polynomial-function-field estimate requested by other consumers.",
         "inherited": {
           "issue": 1036,
           "agent": "Codex",
-          "session": "codex-hjdg0j",
+          "session": "codex-a71f92",
           "date": "2026-09-27",
-          "base": "4d7e00c2bd4c4ba97e2e5e3c61c391ee1e609a59",
-          "claimComment": 5855373546,
-          "claimConfirmation": 5855374359,
+          "base": "f850a8a3d451af3b9a6f87f3ad4adc113c494920",
+          "claimComment": 5855780173,
+          "claimConfirmation": 5855781035,
           "reviewedAudit": "research/blueprint/audit/AUDIT-07.result.json",
           "auditReview": "research/blueprint/reviews/REV-AUDIT-07.md",
-          "ownership": "RS-07 keeps SV.2 as the large-sieve supplier to AN.3. Native characters and DFT are imported. The CA.2 Farey sequence includes both endpoints and is not recreated: this proof uses native residue units and rational uniqueness. FF.1 finite-field and FF.2 squarefree polynomial-residue Gauss norms are different statements from the composite integer-modulus argument here.",
+          "ownership": "RS-07 makes SV.2 the single Vaughan/Type I–II owner, consumed by SV.3, AN.3 and ES.4. Reuse native ArithmeticFunction, convolution, Möbius and von Mangoldt rather than recreating AN.0's retired library imports. The weighted finite adapter is new; generic unweighted convolution summation is already implemented.",
           "inherited": {
             "issue": 1036,
             "agent": "Codex",
-            "session": "codex-a71f92",
+            "session": "codex-hjdg0j",
             "date": "2026-09-27",
-            "base": "2cee3d5fe1b34a6ff392721488e843e2808f5856",
-            "claimComment": 5855112199,
-            "claimConfirmation": 5855113056,
+            "base": "4d7e00c2bd4c4ba97e2e5e3c61c391ee1e609a59",
+            "claimComment": 5855373546,
+            "claimConfirmation": 5855374359,
             "reviewedAudit": "research/blueprint/audit/AUDIT-07.result.json",
             "auditReview": "research/blueprint/reviews/REV-AUDIT-07.md",
-            "ownership": "Accepted RS-07. Preserve all 39 old nodes; twelve additions finish the native-circle additive large sieve within SV.2. Native UnitAddCircle, rounding, EuclideanSpace, Fourier character, Basel sum and Jordan inequality are reused. No arithmetic character estimate or generic circle theory is replanned.",
-            "continuation": "Whole issue reread after confirmed claim. Six reviewed audit rows read before planning. All consulted SV4 inputs and 28 matching links were byte-identical at the initial fresh snapshot; no AGENTS.md. The complete Bombieri scan was reread visually; nineteen additional pinned statements were read. Bounded upstream PR search for large sieve returned zero; a Zulip search located Selberg-sieve discussion, not a supplier for this additive theorem."
+            "ownership": "RS-07 keeps SV.2 as the large-sieve supplier to AN.3. Native characters and DFT are imported. The CA.2 Farey sequence includes both endpoints and is not recreated: this proof uses native residue units and rational uniqueness. FF.1 finite-field and FF.2 squarefree polynomial-residue Gauss norms are different statements from the composite integer-modulus argument here.",
+            "inherited": {
+              "issue": 1036,
+              "agent": "Codex",
+              "session": "codex-a71f92",
+              "date": "2026-09-27",
+              "base": "2cee3d5fe1b34a6ff392721488e843e2808f5856",
+              "claimComment": 5855112199,
+              "claimConfirmation": 5855113056,
+              "reviewedAudit": "research/blueprint/audit/AUDIT-07.result.json",
+              "auditReview": "research/blueprint/reviews/REV-AUDIT-07.md",
+              "ownership": "Accepted RS-07. Preserve all 39 old nodes; twelve additions finish the native-circle additive large sieve within SV.2. Native UnitAddCircle, rounding, EuclideanSpace, Fourier character, Basel sum and Jordan inequality are reused. No arithmetic character estimate or generic circle theory is replanned.",
+              "continuation": "Whole issue reread after confirmed claim. Six reviewed audit rows read before planning. All consulted SV4 inputs and 28 matching links were byte-identical at the initial fresh snapshot; no AGENTS.md. The complete Bombieri scan was reread visually; nineteen additional pinned statements were read. Bounded upstream PR search for large sieve returned zero; a Zulip search located Selberg-sieve discussion, not a supplier for this additive theorem."
+            },
+            "continuation": "All 51 inherited node objects, 101 baseline entries, eleven findings and four source-version objects are preserved. Fresh Chapter 16 reading and pinned declarations supply eight additions. Three temporary independent Lean proofs have no proof-placeholder axiom; no implementation is submitted."
           },
-          "continuation": "All 51 inherited node objects, 101 baseline entries, eleven findings and four source-version objects are preserved. Fresh Chapter 16 reading and pinned declarations supply eight additions. Three temporary independent Lean proofs have no proof-placeholder axiom; no implementation is submitted."
+          "continuation": "Ten new nodes after fresh source, audit and pinned-API reading. All 59 inherited mathematical node fields are preserved; only the tapered-row-large-sieve planet is reassigned to Vaughan's identity to keep SV.2 at six planets. Preserve all 122 baseline entries, 18 findings and five source versions. AS/ES consumer objects referring to SV are unchanged at the snapshot; no new request is invented for an already owned downstream gap."
         },
-        "continuation": "Ten new nodes after fresh source, audit and pinned-API reading. All 59 inherited mathematical node fields are preserved; only the tapered-row-large-sieve planet is reassigned to Vaughan's identity to keep SV.2 at six planets. Preserve all 122 baseline entries, 18 findings and five source versions. AS/ES consumer objects referring to SV are unchanged at the snapshot; no new request is invented for an already owned downstream gap."
-      },
-      "continuation": "Six nodes added; all 69 inherited node objects, 137 baseline objects, 26 source findings, seven source-version objects and eleven planets preserved. No new construction, carrier or bound predicate. Only the four authorized deliverables are staged in scratch; the shared clone's other worker checkout is untouched."
-    }
+        "continuation": "Six nodes added; all 69 inherited node objects, 137 baseline objects, 26 source findings, seven source-version objects and eleven planets preserved. No new construction, carrier or bound predicate. Only the four authorized deliverables are staged in scratch; the shared clone's other worker checkout is untouched."
+      }
+    },
+    "continuation": "Preserve all incoming mathematical node fields. Only the level-of-distribution node’s verified obsolete AC.4 use metadata is removed. Reconcile all six stage worklists with the added papers before writing new targets. The pass remains partial, below the node budget; added-paper proof decompositions and the generic analytic suppliers are not claimed complete."
   },
-  "sourceIssueScope": "E1–E11 and their original version scopes are preserved. Seven new unreviewed findings E12–E18 concern only the acquired live author Chapter 16 HTML. The eight new nodes use §§16.1–16.2 with the explicit weaker additive constant. The separate §16.3 application remains a gap; no assertion is made that its intended large-sieve or Linnik theorem is false. Bounded correction searches are recorded without an exhaustive novelty claim. E19–E26 are new, unreviewed findings scoped to the live Chapter 18 and collated 2007 author handout. No author contact or assertion of exhaustive novelty. Finite Vaughan nodes do not depend on the defective later analytic argument. E27–E32 are new, unreviewed findings of the cc-39fac3 checkpoint against Maynard's published paper (Ann. of Math. 181 (2015)); each is also present in arXiv v1–v3. E31 corrects a formula whose literal use changes a numerical result, but the paper's stated numbers are correct. No author contact and no exhaustive novelty claim.",
+  "sourceIssueScope": "E1–E11 and their original version scopes are preserved. Seven new unreviewed findings E12–E18 concern only the acquired live author Chapter 16 HTML. The eight new nodes use §§16.1–16.2 with the explicit weaker additive constant. The separate §16.3 application remains a gap; no assertion is made that its intended large-sieve or Linnik theorem is false. Bounded correction searches are recorded without an exhaustive novelty claim. E19–E26 are new, unreviewed findings scoped to the live Chapter 18 and collated 2007 author handout. No author contact or assertion of exhaustive novelty. Finite Vaughan nodes do not depend on the defective later analytic argument. E27–E32 are new, unreviewed findings of the cc-39fac3 checkpoint against Maynard's published paper (Ann. of Math. 181 (2015)); each is also present in arXiv v1–v3. E31 corrects a formula whose literal use changes a numerical result, but the paper's stated numbers are correct. No author contact and no exhaustive novelty claim. E33–E35 are new unreviewed findings scoped only to the 5 October 2026 live author Chapter 12 HTML. No dated print edition was collated. The lower-sign slip is internally corrected by the source’s consequence display; the unshifted prime-sieve paragraph and inclusive-versus-strict first-failure convention have finite counterexamples. Earlier findings remain inherited evidence, not fresh independent verdicts.",
   "sourceVersions": [
     {
       "kind": "preprint",
@@ -7621,6 +8913,24 @@
       "read": "2026-09-29",
       "sha256": "9bd73d12d648dc61a5c09804bbee04992cb8108b15858146688ac7ae9b69f523",
       "citation": "Kedlaya Chapter 18, reread for the statement of Theorem 18.4; byte-identical to the earlier acquisitions."
+    },
+    {
+      "kind": "author copy",
+      "url": "https://kskedlaya.org/ant/chap-eratosthenes.html",
+      "read": "2026-10-05",
+      "sha256": "22aa9faaeeddc83be43cd8eb339c7c1655711e0b9f522429e741b709192e05b9",
+      "citation": "Kiran S. Kedlaya, live author Chapter 11, read completely including exercises; findings against Chapter 12 are scoped only to this author HTML."
+    },
+    {
+      "kind": "author copy",
+      "url": "https://kskedlaya.org/ant/chap-brun.html",
+      "read": "2026-10-05",
+      "sha256": "4393be46bef6d62296c05f07358ee0cec6581130c434a0579c6b21a749087ad3",
+      "citation": "Kiran S. Kedlaya, live author Chapter 12, read completely including exercises; findings against Chapter 12 are scoped only to this author HTML."
     }
-  ]
+  ],
+  "ownershipReconciliation": {
+    "RS-07": "Accepted REV-FIX-RT-RS-07 of 30 September 2026 withholds the non-atomic edge replacement: retain the existing AN.3→SV.2 edge. Do not add the intended reverse SV.2→AN.3 edge. Mathematical SV.2 ownership remains distinct from that withheld graph operation.",
+    "RT-AREA-combinatorics/9": "The confirmed obsolete SV.3→AdditiveCombinatorics:AC.4 edge has no exact consuming route. Deletion is proposed for maintainer/RS-07 reconciliation only; no atlas edge or other roadmap packet is edited. AC.4 needs SV.1 and the exact AN.3 modulus-uniform majorant input; AC.5 uses its distinct SV.2/AN.3 analytic inputs."
+  }
 }
