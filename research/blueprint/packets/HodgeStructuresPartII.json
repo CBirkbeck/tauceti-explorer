@@ -23,91 +23,196 @@
         "ref": "mathlib:Derivation",
         "module": "Mathlib/RingTheory/Derivation/Basic.lean",
         "provides": "k-linear derivations with a Leibniz field.",
-        "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, not inferred from its indexed name."
+        "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, not inferred from its indexed name.",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-tUuT7s",
+          "date": "2026-10-05",
+          "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "result": "Statement and ambient hypotheses read in the cited pinned module. k-linear derivations with a Leibniz field."
+        }
       },
       {
         "ref": "mathlib:Derivation.leibniz",
         "module": "Mathlib/RingTheory/Derivation/Basic.lean",
         "provides": "D(ab)=aD(b)+bD(a), with the algebra/module structures in this commutative-ring model.",
-        "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, not inferred from its indexed name."
+        "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, not inferred from its indexed name.",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-tUuT7s",
+          "date": "2026-10-05",
+          "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "result": "Statement and ambient hypotheses read in the cited pinned module. D(ab)=aD(b)+bD(a), with the algebra/module structures in this commutative-ring model."
+        }
       },
       {
         "ref": "mathlib:MvPolynomial.pderiv",
         "module": "Mathlib/Algebra/MvPolynomial/PDeriv.lean",
         "provides": "Partial derivative as a derivation of a multivariate polynomial algebra; generator and constant evaluation.",
-        "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, not inferred from its indexed name."
+        "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, not inferred from its indexed name.",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-tUuT7s",
+          "date": "2026-10-05",
+          "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "result": "Statement and ambient hypotheses read in the cited pinned module. Partial derivative as a derivation of a multivariate polynomial algebra; generator and constant evaluation."
+        }
       },
       {
         "ref": "mathlib:MvPolynomial.derivation_ext",
         "module": "Mathlib/Algebra/MvPolynomial/Derivation.lean",
         "provides": "Polynomial derivations agreeing on variables are equal; not an already-proved partial-derivative commutation theorem.",
-        "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, not inferred from its indexed name."
+        "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, not inferred from its indexed name.",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-tUuT7s",
+          "date": "2026-10-05",
+          "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "result": "Statement and ambient hypotheses read in the cited pinned module. Polynomial derivations agreeing on variables are equal; not an already-proved partial-derivative commutation theorem."
+        }
       },
       {
         "ref": "mathlib:Matrix.single",
         "module": "Mathlib/Data/Matrix/Basis.lean",
         "provides": "An elementary matrix, used in noncommutation and nilpotence tests.",
-        "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, not inferred from its indexed name."
+        "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, not inferred from its indexed name.",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-tUuT7s",
+          "date": "2026-10-05",
+          "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "result": "Statement and ambient hypotheses read in the cited pinned module. An elementary matrix, used in noncommutation and nilpotence tests."
+        }
       },
       {
         "ref": "mathlib:Matrix.mulVec",
         "module": "Mathlib/Data/Matrix/Mul.lean",
         "provides": "Matrix action on a finite coordinate vector.",
-        "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, not inferred from its indexed name."
+        "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, not inferred from its indexed name.",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-tUuT7s",
+          "date": "2026-10-05",
+          "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "result": "Statement and ambient hypotheses read in the cited pinned module. Matrix action on a finite coordinate vector."
+        }
       },
       {
         "ref": "mathlib:Matrix.mulVec_mulVec",
         "module": "Mathlib/Data/Matrix/Mul.lean",
         "provides": "Composition of matrix actions equals action of their matrix product.",
-        "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, not inferred from its indexed name."
+        "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, not inferred from its indexed name.",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-tUuT7s",
+          "date": "2026-10-05",
+          "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "result": "Statement and ambient hypotheses read in the cited pinned module. Composition of matrix actions equals action of their matrix product."
+        }
       },
       {
         "ref": "mathlib:Matrix.kronecker",
         "module": "Mathlib/LinearAlgebra/Matrix/Kronecker.lean",
         "provides": "Kronecker product on paired finite index types.",
-        "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, not inferred from its indexed name."
+        "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, not inferred from its indexed name.",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-tUuT7s",
+          "date": "2026-10-05",
+          "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "result": "Statement and ambient hypotheses read in the cited pinned module. Kronecker product on paired finite index types."
+        }
       },
       {
         "ref": "mathlib:Matrix.transpose",
         "module": "Mathlib/LinearAlgebra/Matrix/Defs.lean",
         "provides": "Matrix transposition for the finite free coordinate dual.",
-        "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, not inferred from its indexed name."
+        "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, not inferred from its indexed name.",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-tUuT7s",
+          "date": "2026-10-05",
+          "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "result": "Statement and ambient hypotheses read in the cited pinned module. Matrix transposition for the finite free coordinate dual."
+        }
       },
       {
         "ref": "mathlib:SheafOfModules",
         "module": "Mathlib/Algebra/Category/ModuleCat/Sheaf.lean",
         "provides": "Module sheaves over a sheaf of rings on a Grothendieck site.",
-        "checked": "Actual defining statement and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02."
+        "checked": "Actual defining statement and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02.",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-tUuT7s",
+          "date": "2026-10-05",
+          "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "result": "Statement and ambient hypotheses read in the cited pinned module. Module sheaves over a sheaf of rings on a Grothendieck site."
+        }
       },
       {
         "ref": "mathlib:SheafOfModules.IsLocallyFree",
         "module": "Mathlib/Algebra/Category/ModuleCat/Sheaf/LocallyFree.lean",
         "provides": "Local freeness via local generator data; finiteness of local generator types remains an explicit extra hypothesis.",
-        "checked": "Actual defining statement and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02."
+        "checked": "Actual defining statement and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02.",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-tUuT7s",
+          "date": "2026-10-05",
+          "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "result": "Statement and ambient hypotheses read in the cited pinned module. Local freeness via local generator data; finiteness of local generator types remains an explicit extra hypothesis."
+        }
       },
       {
         "ref": "mathlib:PresheafOfModules.Monoidal.tensorObj",
         "module": "Mathlib/Algebra/Category/ModuleCat/Presheaf/Monoidal.lean",
         "provides": "Objectwise presheaf tensor and its restriction maps; not a sheaf tensor theorem.",
-        "checked": "Actual defining statement and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02."
+        "checked": "Actual defining statement and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02.",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-tUuT7s",
+          "date": "2026-10-05",
+          "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "result": "Statement and ambient hypotheses read in the cited pinned module. Objectwise presheaf tensor and its restriction maps; not a sheaf tensor theorem."
+        }
       },
       {
         "ref": "mathlib:KaehlerDifferential.D",
         "module": "Mathlib/RingTheory/Kaehler/Basic.lean",
         "provides": "Universal relative derivation, used by algebraic local instances.",
-        "checked": "Actual defining statement and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02."
+        "checked": "Actual defining statement and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02.",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-tUuT7s",
+          "date": "2026-10-05",
+          "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "result": "Statement and ambient hypotheses read in the cited pinned module. Universal relative derivation, used by algebraic local instances."
+        }
       },
       {
         "ref": "mathlib:TensorProduct.liftAddHom",
         "module": "Mathlib/LinearAlgebra/TensorProduct/Basic.lean",
         "provides": "Descend a biadditive R-balanced map to an additive map on the tensor; no R-linearity requirement.",
-        "checked": "Actual defining statement and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02."
+        "checked": "Actual defining statement and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02.",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-tUuT7s",
+          "date": "2026-10-05",
+          "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "result": "Statement and ambient hypotheses read in the cited pinned module. Descend a biadditive R-balanced map to an additive map on the tensor; no R-linearity requirement."
+        }
       },
       {
         "ref": "mathlib:TensorProduct.liftAddHom_tmul",
         "module": "Mathlib/LinearAlgebra/TensorProduct/Basic.lean",
         "provides": "Evaluation of the balanced additive lift on elementary tensors.",
-        "checked": "Actual defining statement and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02."
+        "checked": "Actual defining statement and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02.",
+        "independentCheck": {
+          "by": "REV-DESIGN-HodgeStructuresPartII",
+          "session": "codex-tUuT7s",
+          "date": "2026-10-05",
+          "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "result": "Statement and ambient hypotheses read in the cited pinned module. Evaluation of the balanced additive lift on elementary tensors."
+        }
       },
       {
         "ref": "mathlib:Matrix.trace",
@@ -2262,7 +2367,13 @@
       ],
       "readingExtent": "Selected passages only; no correspondence or general nilpotence theorem established here.",
       "continuationReading": "Same public bytes freshly retrieved on 2026-10-02 at the recorded SHA-256. EG: PDF pp.6,29–30 definitions/graded passage. LZ: PDF pp.5,7,20–22,24 selected definitions/API/transversality. Heuer: PDF pp.2,7,37 definitions; only those passages reread, not the correspondence proofs.",
-      "actionReading": "Fresh arXiv v3 Theorem 2.1 full statement with setup on printed pp.6–8 and full short Lemma 2.15 proof on pp.18–19. PDF bytes freshly retrieved at SHA-256 8b11e55bffbfb1835a6da8975272670c9465601c08640e06f3a566a459a1da79. No complete theorem proof or p-adic nilpotence proof claimed."
+      "actionReading": "Fresh arXiv v3 Theorem 2.1 full statement with setup on printed pp.6–8 and full short Lemma 2.15 proof on pp.18–19. PDF bytes freshly retrieved at SHA-256 8b11e55bffbfb1835a6da8975272670c9465601c08640e06f3a566a459a1da79. No complete theorem proof or p-adic nilpotence proof claimed.",
+      "independentReading": {
+        "by": "REV-DESIGN-HodgeStructuresPartII",
+        "session": "codex-tUuT7s",
+        "date": "2026-10-05",
+        "extent": "Conventions and §2.1 setup, printed pp.5–8, full Theorem 2.1(i)–(v), equations (2.4)–(2.5), associated-graded Higgs paragraph and Remark 1.10. PDF hash matches the recorded hash. No correspondence proof checked."
+      }
     },
     {
       "id": "Heuer25",
@@ -2277,7 +2388,13 @@
       ],
       "readingExtent": "Definition and introduction only, not the correspondence proof.",
       "continuationReading": "Same public bytes freshly retrieved on 2026-10-02 at the recorded SHA-256. EG: PDF pp.6,29–30 definitions/graded passage. LZ: PDF pp.5,7,20–22,24 selected definitions/API/transversality. Heuer: PDF pp.2,7,37 definitions; only those passages reread, not the correspondence proofs.",
-      "actionReading": "Fresh publisher HTML Definition 1.2(2) and complete Definition 4.1/Remark 4.2 formulas. Published 52-page PDF freshly retrieved at SHA-256 7608fff18ccbc47b96bd54cfe01f31f8ccd9953889834cc9f6c39787563175cd; selected reading was HTML, not a new whole-PDF reading."
+      "actionReading": "Fresh publisher HTML Definition 1.2(2) and complete Definition 4.1/Remark 4.2 formulas. Published 52-page PDF freshly retrieved at SHA-256 7608fff18ccbc47b96bd54cfe01f31f8ccd9953889834cc9f6c39787563175cd; selected reading was HTML, not a new whole-PDF reading.",
+      "independentReading": {
+        "by": "REV-DESIGN-HodgeStructuresPartII",
+        "session": "codex-tUuT7s",
+        "date": "2026-10-05",
+        "extent": "Published Definition 1.2(2), printed p.262; full Definition 4.1, printed pp.297–298, including contraction, symmetric action, canonical section and twisting paragraph; Remark 4.2. PDF hash matches the recorded hash. No correspondence proof checked."
+      }
     },
     {
       "id": "StacksConnection",
@@ -2289,7 +2406,13 @@
       "readSections": [
         "Opening ordinary connection, extension and integrability definitions; Lemma 60.15.1 and full proof read."
       ],
-      "readingExtent": "Only this section; the crystal equivalence is neither claimed nor replanned."
+      "readingExtent": "Only this section; the crystal equivalence is neither claimed nor replanned.",
+      "independentReading": {
+        "by": "REV-DESIGN-HodgeStructuresPartII",
+        "session": "codex-tUuT7s",
+        "date": "2026-10-05",
+        "extent": "Current complete tag 07J5 definition, extension formula, Lemma 60.15.1 and displayed proof/comments. Linked proofs not recursively checked."
+      }
     },
     {
       "id": "EG-author-2026",
@@ -2303,7 +2426,13 @@
         "Fresh reading by codex-J6LwjP: §1 p.2 opening fixed-determinant paragraph, Definition 1.1/Remark 1.2; §2.1 pp.5–6 complete selected Higgs/trace-zero definitions and Lemma 2.1 proof; §4.2 pp.23–24 parameter definition and Lemma 4.9 with its printed proof."
       ],
       "readingExtent": "Selected passages only. Published PDF retrieval returned HTTP 403; its historical source receipt is preserved. No new correspondence proof, erratum or version-independent theorem claim.",
-      "continuationReading": "Codex codex-a71f92 freshly retrieved identical 44-page author bytes at the recorded SHA-256 and personally read §1 p.2 fixed-determinant opening/Definition 1.1/Remark 1.2, §2.1 pp.5–6 definitions and complete printed Lemma 2.1 proof, §4.2 pp.23–24 parameter definition and complete printed Lemma 4.9 proof. That proof cites Simpson results not freshly proved here. No complete edition collation, new erratum or full-paper reading."
+      "continuationReading": "Codex codex-a71f92 freshly retrieved identical 44-page author bytes at the recorded SHA-256 and personally read §1 p.2 fixed-determinant opening/Definition 1.1/Remark 1.2, §2.1 pp.5–6 definitions and complete printed Lemma 2.1 proof, §4.2 pp.23–24 parameter definition and complete printed Lemma 4.9 proof. That proof cites Simpson results not freshly proved here. No complete edition collation, new erratum or full-paper reading.",
+      "independentReading": {
+        "by": "REV-DESIGN-HodgeStructuresPartII",
+        "session": "codex-tUuT7s",
+        "date": "2026-10-05",
+        "extent": "Selected complete definition paragraphs in §2.1 pp.5–6 and §4.2 pp.23–24; full printed Lemma 4.9 statement/proof, not the cited Simpson results. Author PDF hash matches the recorded hash. Published Acta URL returned HTTP 403; no published-copy collation."
+      }
     },
     {
       "id": "Heuer25-5ebb6f-square",
@@ -3014,9 +3143,9 @@
       },
       "sources": [
         {
-          "sourceId": "EG20",
-          "locator": "§4.2, printed p.131, definition of λ-connection",
-          "match": "The source defines the parameter Leibniz rule and flatness. This node is a free commuting-coordinate model or elementary matrix calculation derived from that rule; the general sheaf carrier and its proof are not claimed supplied."
+          "sourceId": "EG-author-2026",
+          "locator": "Author-hosted 44-page copy, §4.2 printed pp.23–24, parameter Leibniz equation and zero/one fibers; §2.1 printed pp.5–6, Higgs integrability equation",
+          "match": "The source gives the parameter Leibniz equation and Higgs/ordinary specializations. Its opening definition allows a regular-function parameter; this node uses the explicitly stated relatively constant restriction. The arbitrary-ring or ringed-site construction is an authored algebraic deduction, not a source theorem at that generality."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3050,6 +3179,11 @@
           "name": "Frame.one_delta",
           "role": "simp",
           "statement": "The one-parameter frame has the input directions."
+        },
+        {
+          "name": "Frame.ext",
+          "role": "extensionality",
+          "statement": "For fixed k,R,d,λ, two frames with the same derivation in each direction are equal; commutation and relative constancy are proof fields."
         }
       ],
       "tests": [
@@ -3067,6 +3201,11 @@
           "name": "Frame.test_identity_not_derivation",
           "kind": "non-example",
           "statement": "Over Q, 1≠1·1+1·1; the identity map cannot satisfy the derivation Leibniz rule."
+        },
+        {
+          "name": "Frame.test_variable_parameter",
+          "kind": "non-example",
+          "statement": "Over Q[X] with λ=X, no frame can have δ₀=∂/∂X, because δ₀(λ)=1≠0. This tests the constant-parameter field itself."
         }
       ],
       "uses": [
@@ -3113,9 +3252,9 @@
       },
       "sources": [
         {
-          "sourceId": "EG20",
-          "locator": "§4.2, printed p.131, definition of λ-connection",
-          "match": "The source defines the parameter Leibniz rule and flatness. This node is a free commuting-coordinate model or elementary matrix calculation derived from that rule; the general sheaf carrier and its proof are not claimed supplied."
+          "sourceId": "EG-author-2026",
+          "locator": "Author-hosted 44-page copy, §4.2 printed pp.23–24, parameter Leibniz equation and zero/one fibers; §2.1 printed pp.5–6, Higgs integrability equation",
+          "match": "The source gives the parameter Leibniz equation and Higgs/ordinary specializations. Its opening definition allows a regular-function parameter; this node uses the explicitly stated relatively constant restriction. The arbitrary-ring or ringed-site construction is an authored algebraic deduction, not a source theorem at that generality."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3204,9 +3343,9 @@
       },
       "sources": [
         {
-          "sourceId": "EG20",
-          "locator": "§4.2, printed p.131, definition of λ-connection",
-          "match": "The source defines the parameter Leibniz rule and flatness. This node is a free commuting-coordinate model or elementary matrix calculation derived from that rule; the general sheaf carrier and its proof are not claimed supplied."
+          "sourceId": "EG-author-2026",
+          "locator": "Author-hosted 44-page copy, §4.2 printed pp.23–24, parameter Leibniz equation and zero/one fibers; §2.1 printed pp.5–6, Higgs integrability equation",
+          "match": "The source gives the parameter Leibniz equation and Higgs/ordinary specializations. Its opening definition allows a regular-function parameter; this node uses the explicitly stated relatively constant restriction. The arbitrary-ring or ringed-site construction is an authored algebraic deduction, not a source theorem at that generality."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3294,9 +3433,9 @@
       },
       "sources": [
         {
-          "sourceId": "EG20",
-          "locator": "§4.2, printed p.131, definition of λ-connection",
-          "match": "The source defines the parameter Leibniz rule and flatness. This node is a free commuting-coordinate model or elementary matrix calculation derived from that rule; the general sheaf carrier and its proof are not claimed supplied."
+          "sourceId": "EG-author-2026",
+          "locator": "Author-hosted 44-page copy, §4.2 printed pp.23–24, parameter Leibniz equation and zero/one fibers; §2.1 printed pp.5–6, Higgs integrability equation",
+          "match": "The source gives the parameter Leibniz equation and Higgs/ordinary specializations. Its opening definition allows a regular-function parameter; this node uses the explicitly stated relatively constant restriction. The arbitrary-ring or ringed-site construction is an authored algebraic deduction, not a source theorem at that generality."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3381,9 +3520,9 @@
       },
       "sources": [
         {
-          "sourceId": "EG20",
-          "locator": "§4.2, printed p.131, definition of λ-connection",
-          "match": "The source defines the parameter Leibniz rule and flatness. This node is a free commuting-coordinate model or elementary matrix calculation derived from that rule; the general sheaf carrier and its proof are not claimed supplied."
+          "sourceId": "EG-author-2026",
+          "locator": "Author-hosted 44-page copy, §4.2 printed pp.23–24, parameter Leibniz equation and zero/one fibers; §2.1 printed pp.5–6, Higgs integrability equation",
+          "match": "The source gives the parameter Leibniz equation and Higgs/ordinary specializations. Its opening definition allows a regular-function parameter; this node uses the explicitly stated relatively constant restriction. The arbitrary-ring or ringed-site construction is an authored algebraic deduction, not a source theorem at that generality."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3423,9 +3562,9 @@
       },
       "sources": [
         {
-          "sourceId": "EG20",
-          "locator": "§4.2, printed p.131, definition of λ-connection",
-          "match": "The source defines the parameter Leibniz rule and flatness. This node is a free commuting-coordinate model or elementary matrix calculation derived from that rule; the general sheaf carrier and its proof are not claimed supplied."
+          "sourceId": "EG-author-2026",
+          "locator": "Author-hosted 44-page copy, §4.2 printed pp.23–24, parameter Leibniz equation and zero/one fibers; §2.1 printed pp.5–6, Higgs integrability equation",
+          "match": "The source gives the parameter Leibniz equation and Higgs/ordinary specializations. Its opening definition allows a regular-function parameter; this node uses the explicitly stated relatively constant restriction. The arbitrary-ring or ringed-site construction is an authored algebraic deduction, not a source theorem at that generality."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3517,9 +3656,9 @@
       },
       "sources": [
         {
-          "sourceId": "EG20",
-          "locator": "§4.2, printed p.131, definition of λ-connection",
-          "match": "The source defines the parameter Leibniz rule and flatness. The displayed local transport formula is derived algebraically; it is not claimed to be the paper's general carrier or a verbatim source theorem."
+          "sourceId": "EG-author-2026",
+          "locator": "Author-hosted 44-page copy, §4.2 printed pp.23–24, parameter Leibniz equation and zero/one fibers; §2.1 printed pp.5–6, Higgs integrability equation",
+          "match": "The source gives the parameter Leibniz equation and Higgs/ordinary specializations. Its opening definition allows a regular-function parameter; this node uses the explicitly stated relatively constant restriction. The arbitrary-ring or ringed-site construction is an authored algebraic deduction, not a source theorem at that generality."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3606,9 +3745,9 @@
       },
       "sources": [
         {
-          "sourceId": "EG20",
-          "locator": "§4.2, printed p.131, definition of λ-connection",
-          "match": "The source defines the parameter Leibniz rule and flatness. The displayed local transport formula is derived algebraically; it is not claimed to be the paper's general carrier or a verbatim source theorem."
+          "sourceId": "EG-author-2026",
+          "locator": "Author-hosted 44-page copy, §4.2 printed pp.23–24, parameter Leibniz equation and zero/one fibers; §2.1 printed pp.5–6, Higgs integrability equation",
+          "match": "The source gives the parameter Leibniz equation and Higgs/ordinary specializations. Its opening definition allows a regular-function parameter; this node uses the explicitly stated relatively constant restriction. The arbitrary-ring or ringed-site construction is an authored algebraic deduction, not a source theorem at that generality."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3693,9 +3832,9 @@
       },
       "sources": [
         {
-          "sourceId": "EG20",
-          "locator": "§4.2, printed p.131, definition of λ-connection",
-          "match": "The source defines the parameter Leibniz rule and flatness. The displayed local transport formula is derived algebraically; it is not claimed to be the paper's general carrier or a verbatim source theorem."
+          "sourceId": "EG-author-2026",
+          "locator": "Author-hosted 44-page copy, §4.2 printed pp.23–24, parameter Leibniz equation and zero/one fibers; §2.1 printed pp.5–6, Higgs integrability equation",
+          "match": "The source gives the parameter Leibniz equation and Higgs/ordinary specializations. Its opening definition allows a regular-function parameter; this node uses the explicitly stated relatively constant restriction. The arbitrary-ring or ringed-site construction is an authored algebraic deduction, not a source theorem at that generality."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3782,9 +3921,9 @@
       },
       "sources": [
         {
-          "sourceId": "EG20",
-          "locator": "§4.2, printed p.131, definition of λ-connection",
-          "match": "The source defines the parameter Leibniz rule and flatness. The displayed local transport formula is derived algebraically; it is not claimed to be the paper's general carrier or a verbatim source theorem."
+          "sourceId": "EG-author-2026",
+          "locator": "Author-hosted 44-page copy, §4.2 printed pp.23–24, parameter Leibniz equation and zero/one fibers; §2.1 printed pp.5–6, Higgs integrability equation",
+          "match": "The source gives the parameter Leibniz equation and Higgs/ordinary specializations. Its opening definition allows a regular-function parameter; this node uses the explicitly stated relatively constant restriction. The arbitrary-ring or ringed-site construction is an authored algebraic deduction, not a source theorem at that generality."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3865,9 +4004,9 @@
       },
       "sources": [
         {
-          "sourceId": "EG20",
-          "locator": "§4.2, printed p.131, definition of λ-connection",
-          "match": "The source defines the parameter Leibniz rule and flatness. The displayed local transport formula is derived algebraically; it is not claimed to be the paper's general carrier or a verbatim source theorem."
+          "sourceId": "EG-author-2026",
+          "locator": "Author-hosted 44-page copy, §4.2 printed pp.23–24, parameter Leibniz equation and zero/one fibers; §2.1 printed pp.5–6, Higgs integrability equation",
+          "match": "The source gives the parameter Leibniz equation and Higgs/ordinary specializations. Its opening definition allows a regular-function parameter; this node uses the explicitly stated relatively constant restriction. The arbitrary-ring or ringed-site construction is an authored algebraic deduction, not a source theorem at that generality."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3997,9 +4136,9 @@
       },
       "sources": [
         {
-          "sourceId": "EG20",
-          "locator": "§4.2 p.131, parameter Leibniz definition; §2.1 p.108, Higgs specialization",
-          "match": "The source states the sheaf Leibniz and integrability equations. General ringed-site transport is the elementary algebra developed here from those equations; no Simpson or crystal comparison is asserted."
+          "sourceId": "EG-author-2026",
+          "locator": "Author-hosted 44-page copy, §4.2 printed pp.23–24, parameter Leibniz equation and zero/one fibers; §2.1 printed pp.5–6, Higgs integrability equation",
+          "match": "The source gives the parameter Leibniz equation and Higgs/ordinary specializations. Its opening definition allows a regular-function parameter; this node uses the explicitly stated relatively constant restriction. The arbitrary-ring or ringed-site construction is an authored algebraic deduction, not a source theorem at that generality."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4226,9 +4365,9 @@
       },
       "sources": [
         {
-          "sourceId": "EG20",
-          "locator": "§4.2 p.131, parameter Leibniz definition; §2.1 p.108, Higgs specialization",
-          "match": "The source states the sheaf Leibniz and integrability equations. General ringed-site transport is the elementary algebra developed here from those equations; no Simpson or crystal comparison is asserted."
+          "sourceId": "EG-author-2026",
+          "locator": "Author-hosted 44-page copy, §4.2 printed pp.23–24, parameter Leibniz equation and zero/one fibers; §2.1 printed pp.5–6, Higgs integrability equation",
+          "match": "The source gives the parameter Leibniz equation and Higgs/ordinary specializations. Its opening definition allows a regular-function parameter; this node uses the explicitly stated relatively constant restriction. The arbitrary-ring or ringed-site construction is an authored algebraic deduction, not a source theorem at that generality."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4333,9 +4472,9 @@
       },
       "sources": [
         {
-          "sourceId": "EG20",
-          "locator": "§4.2 p.131, parameter Leibniz definition; §2.1 p.108, Higgs specialization",
-          "match": "The source states the sheaf Leibniz and integrability equations. General ringed-site transport is the elementary algebra developed here from those equations; no Simpson or crystal comparison is asserted."
+          "sourceId": "EG-author-2026",
+          "locator": "Author-hosted 44-page copy, §4.2 printed pp.23–24, parameter Leibniz equation and zero/one fibers; §2.1 printed pp.5–6, Higgs integrability equation",
+          "match": "The source gives the parameter Leibniz equation and Higgs/ordinary specializations. Its opening definition allows a regular-function parameter; this node uses the explicitly stated relatively constant restriction. The arbitrary-ring or ringed-site construction is an authored algebraic deduction, not a source theorem at that generality."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4373,9 +4512,9 @@
       },
       "sources": [
         {
-          "sourceId": "EG20",
-          "locator": "§4.2 p.131, parameter Leibniz definition; §2.1 p.108, Higgs specialization",
-          "match": "The source states the sheaf Leibniz and integrability equations. General ringed-site transport is the elementary algebra developed here from those equations; no Simpson or crystal comparison is asserted."
+          "sourceId": "EG-author-2026",
+          "locator": "Author-hosted 44-page copy, §4.2 printed pp.23–24, parameter Leibniz equation and zero/one fibers; §2.1 printed pp.5–6, Higgs integrability equation",
+          "match": "The source gives the parameter Leibniz equation and Higgs/ordinary specializations. Its opening definition allows a regular-function parameter; this node uses the explicitly stated relatively constant restriction. The arbitrary-ring or ringed-site construction is an authored algebraic deduction, not a source theorem at that generality."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4399,7 +4538,7 @@
         "Tensor products here are sheaf tensor products; elementary-section formulas are verified locally and glued. Tensor of global section modules is not identified with global sections of the sheaf tensor."
       ],
       "proofSteps": [
-        "Take E in the native sheaf category with a finite local trivializing cover. Require finite local bases, not a single global rank or a global basis.",
+        "Take E in the native sheaf category with a covering family on which E has a finite basis. The family need not be finite, and the finite local rank may vary between its members. Do not require a finite trivializing cover, a globally bounded rank, or a global basis.",
         "Bundle actual additive D with its Leibniz proof and its defined curvature equality.",
         "Use the extension-square theorem to give a genuine complex. λ=1 comparisons use the CR.1 carrier; general Higgs structure is the zero fiber of the same definition."
       ],
@@ -4417,9 +4556,9 @@
       },
       "sources": [
         {
-          "sourceId": "EG20",
-          "locator": "§4.2 p.131, parameter Leibniz definition; §2.1 p.108, Higgs specialization",
-          "match": "The source states the sheaf Leibniz and integrability equations. General ringed-site transport is the elementary algebra developed here from those equations; no Simpson or crystal comparison is asserted."
+          "sourceId": "EG-author-2026",
+          "locator": "Author-hosted 44-page copy, §4.2 printed pp.23–24, parameter Leibniz equation and zero/one fibers; §2.1 printed pp.5–6, Higgs integrability equation",
+          "match": "The source gives the parameter Leibniz equation and Higgs/ordinary specializations. Its opening definition allows a regular-function parameter; this node uses the explicitly stated relatively constant restriction. The arbitrary-ring or ringed-site construction is an authored algebraic deduction, not a source theorem at that generality."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4451,13 +4590,43 @@
           "name": "LambdaBundle.restrict",
           "role": "functoriality",
           "statement": "Restriction to a slice/open subsite retains the same parameter and integrability."
+        },
+        {
+          "name": "LambdaBundle.test_criterion_nilpotence",
+          "role": "example",
+          "statement": "On A¹_Q the Higgs line θ=dx is integrable and satisfies θ^[N](1)=1⊗dx^⊗N≠0 for each N>0. Integrability is not ordered tensor nilpotence."
+        },
+        {
+          "name": "LambdaBundle.rescale_equiv",
+          "role": "equivalence",
+          "statement": "For invertible λ with dλ=0, λ⁻¹D is an ordinary integrable connection. Scaling by λ and λ⁻¹ are inverse functors; supplied by H.0/intrinsic-rescale."
+        },
+        {
+          "name": "LambdaBundle.tensor_leibniz",
+          "role": "compatibility",
+          "statement": "Same-λ tensor uses D_E⊗1+1⊗D_F and has scalar correction λ(e⊗f)⊗da, with one λ; supplied by H.0/intrinsic-tensor."
+        },
+        {
+          "name": "LambdaBundle.dual_eval",
+          "role": "compatibility",
+          "statement": "(D∨φ)(e)=λd(φ(e))−φ(D(e)); for dλ=0 the dual is integrable, supplied by H.0/intrinsic-dual and H.0/dual-curvature."
+        },
+        {
+          "name": "LambdaBundle.pullback_apply",
+          "role": "functoriality",
+          "statement": "For a differential-site morphism with compatible exterior map, D_Y(b⊗e)=λ_Y e⊗d_Yb+b df(D_Xe), and integrability is preserved; supplied by H.0/intrinsic-pullback."
+        },
+        {
+          "name": "GriffithsFiltration.gradedHiggs_linear",
+          "role": "compatibility",
+          "statement": "For a flat ordinary bundle with the bounded Griffiths filtration of H.0/griffiths-filtration, θ_p([e])=[∇e] is O-linear and its exterior square is zero; supplied by H.0/graded-higgs and H.0/graded-higgs-integrable."
         }
       ],
       "tests": [
         {
           "name": "LambdaBundle.test_affine_unit",
           "kind": "computation",
-          "statement": "On A¹_k, (O,d) is a nonzero rank-one flat connection; at λ=0 θ=dx gives an integrable rank-one Higgs object."
+          "statement": "For a field k, on A¹_k the ordinary differential (O,d) is a nonzero rank-one flat connection; at λ=0 the field θ=dx is an integrable rank-one Higgs object."
         },
         {
           "name": "LambdaBundle.test_parameter_unit",
@@ -4473,6 +4642,36 @@
           "name": "LambdaBundle.test_zero_module",
           "kind": "degenerate",
           "statement": "The zero sheaf with its unique operator is admitted, with local rank zero."
+        },
+        {
+          "name": "LambdaBundle.test_integrable_not_nilpotent",
+          "kind": "non-example",
+          "statement": "On A¹_Q the Higgs line θ=dx is integrable, but θ^[N](1)=1⊗dx^⊗N≠0 for every N>0."
+        },
+        {
+          "name": "LambdaBundle.test_rescale_two",
+          "kind": "computation",
+          "statement": "On Q[x], λ=2 and D=2d give a flat bundle; λ⁻¹D=d and evaluates x to dx."
+        },
+        {
+          "name": "LambdaBundle.test_same_parameter_tensor",
+          "kind": "compatibility",
+          "statement": "On Q[x], tensoring the two unit λ=2 flat lines gives the unit λ=2 line, whose operator on x is 2dx, not 4dx."
+        },
+        {
+          "name": "LambdaBundle.test_dual_pullback",
+          "kind": "computation",
+          "statement": "The Higgs line dx over Q[x] has dual field −dx. Along x=y², the original pulls back to 2y dy and its dual pulls back to −2y dy; both are integrable Higgs lines."
+        },
+        {
+          "name": "LambdaBundle.test_graded_higgs",
+          "kind": "computation",
+          "statement": "On Q[x], ∇=d+E21dx on O² with F¹=Oe₁, F⁰=O² and zero F² gives θ([e₁])=[e₂]dx, θ([e₂])=0. The graded Higgs field is integrable and has ordered bound 2."
+        },
+        {
+          "name": "LambdaBundle.test_locally_varying_rank",
+          "kind": "non-example",
+          "statement": "On the discrete space N with constant ring Q, zero differential calculus and λ=0, the sheaf with stalk Q^n at n and zero Higgs operator is finite locally free and integrable. It has no finite cover by free constant-rank charts because its ranks are unbounded."
         }
       ],
       "uses": [
@@ -4482,7 +4681,7 @@
         }
       ],
       "planet": {
-        "name": "Integrable parameter bundles"
+        "name": "Higgs and λ-connections"
       }
     },
     {
@@ -4514,9 +4713,9 @@
       },
       "sources": [
         {
-          "sourceId": "EG20",
-          "locator": "§4.2 p.131, parameter Leibniz definition; §2.1 p.108, Higgs specialization",
-          "match": "The source states the sheaf Leibniz and integrability equations. General ringed-site transport is the elementary algebra developed here from those equations; no Simpson or crystal comparison is asserted."
+          "sourceId": "EG-author-2026",
+          "locator": "Author-hosted 44-page copy, §4.2 printed pp.23–24, parameter Leibniz equation and zero/one fibers; §2.1 printed pp.5–6, Higgs integrability equation",
+          "match": "The source gives the parameter Leibniz equation and Higgs/ordinary specializations. Its opening definition allows a regular-function parameter; this node uses the explicitly stated relatively constant restriction. The arbitrary-ring or ringed-site construction is an authored algebraic deduction, not a source theorem at that generality."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4601,9 +4800,9 @@
       },
       "sources": [
         {
-          "sourceId": "EG20",
-          "locator": "§4.2 p.131, parameter Leibniz definition; §2.1 p.108, Higgs specialization",
-          "match": "The source states the sheaf Leibniz and integrability equations. General ringed-site transport is the elementary algebra developed here from those equations; no Simpson or crystal comparison is asserted."
+          "sourceId": "EG-author-2026",
+          "locator": "Author-hosted 44-page copy, §4.2 printed pp.23–24, parameter Leibniz equation and zero/one fibers; §2.1 printed pp.5–6, Higgs integrability equation",
+          "match": "The source gives the parameter Leibniz equation and Higgs/ordinary specializations. Its opening definition allows a regular-function parameter; this node uses the explicitly stated relatively constant restriction. The arbitrary-ring or ringed-site construction is an authored algebraic deduction, not a source theorem at that generality."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4682,9 +4881,9 @@
       },
       "sources": [
         {
-          "sourceId": "EG20",
-          "locator": "§4.2 p.131, parameter Leibniz definition; §2.1 p.108, Higgs specialization",
-          "match": "The source states the sheaf Leibniz and integrability equations. General ringed-site transport is the elementary algebra developed here from those equations; no Simpson or crystal comparison is asserted."
+          "sourceId": "EG-author-2026",
+          "locator": "Author-hosted 44-page copy, §4.2 printed pp.23–24, parameter Leibniz equation and zero/one fibers; §2.1 printed pp.5–6, Higgs integrability equation",
+          "match": "The source gives the parameter Leibniz equation and Higgs/ordinary specializations. Its opening definition allows a regular-function parameter; this node uses the explicitly stated relatively constant restriction. The arbitrary-ring or ringed-site construction is an authored algebraic deduction, not a source theorem at that generality."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4723,9 +4922,9 @@
       },
       "sources": [
         {
-          "sourceId": "EG20",
-          "locator": "§4.2 p.131, parameter Leibniz definition; §2.1 p.108, Higgs specialization",
-          "match": "The source states the sheaf Leibniz and integrability equations. General ringed-site transport is the elementary algebra developed here from those equations; no Simpson or crystal comparison is asserted."
+          "sourceId": "EG-author-2026",
+          "locator": "Author-hosted 44-page copy, §4.2 printed pp.23–24, parameter Leibniz equation and zero/one fibers; §2.1 printed pp.5–6, Higgs integrability equation",
+          "match": "The source gives the parameter Leibniz equation and Higgs/ordinary specializations. Its opening definition allows a regular-function parameter; this node uses the explicitly stated relatively constant restriction. The arbitrary-ring or ringed-site construction is an authored algebraic deduction, not a source theorem at that generality."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4767,9 +4966,9 @@
       },
       "sources": [
         {
-          "sourceId": "EG20",
-          "locator": "§4.2 p.131, parameter Leibniz definition; §2.1 p.108, Higgs specialization",
-          "match": "The source states the sheaf Leibniz and integrability equations. General ringed-site transport is the elementary algebra developed here from those equations; no Simpson or crystal comparison is asserted."
+          "sourceId": "EG-author-2026",
+          "locator": "Author-hosted 44-page copy, §4.2 printed pp.23–24, parameter Leibniz equation and zero/one fibers; §2.1 printed pp.5–6, Higgs integrability equation",
+          "match": "The source gives the parameter Leibniz equation and Higgs/ordinary specializations. Its opening definition allows a regular-function parameter; this node uses the explicitly stated relatively constant restriction. The arbitrary-ring or ringed-site construction is an authored algebraic deduction, not a source theorem at that generality."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4838,9 +5037,9 @@
       },
       "sources": [
         {
-          "sourceId": "EG20",
-          "locator": "§4.2 p.131, parameter Leibniz definition; §2.1 p.108, Higgs specialization",
-          "match": "The source states the sheaf Leibniz and integrability equations. General ringed-site transport is the elementary algebra developed here from those equations; no Simpson or crystal comparison is asserted."
+          "sourceId": "EG-author-2026",
+          "locator": "Author-hosted 44-page copy, §4.2 printed pp.23–24, parameter Leibniz equation and zero/one fibers; §2.1 printed pp.5–6, Higgs integrability equation",
+          "match": "The source gives the parameter Leibniz equation and Higgs/ordinary specializations. Its opening definition allows a regular-function parameter; this node uses the explicitly stated relatively constant restriction. The arbitrary-ring or ringed-site construction is an authored algebraic deduction, not a source theorem at that generality."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4936,9 +5135,9 @@
       },
       "sources": [
         {
-          "sourceId": "EG20",
-          "locator": "§4.2 p.131, parameter Leibniz definition; §2.1 p.108, Higgs specialization",
-          "match": "The source states the sheaf Leibniz and integrability equations. General ringed-site transport is the elementary algebra developed here from those equations; no Simpson or crystal comparison is asserted."
+          "sourceId": "EG-author-2026",
+          "locator": "Author-hosted 44-page copy, §4.2 printed pp.23–24, parameter Leibniz equation and zero/one fibers; §2.1 printed pp.5–6, Higgs integrability equation",
+          "match": "The source gives the parameter Leibniz equation and Higgs/ordinary specializations. Its opening definition allows a regular-function parameter; this node uses the explicitly stated relatively constant restriction. The arbitrary-ring or ringed-site construction is an authored algebraic deduction, not a source theorem at that generality."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4977,9 +5176,9 @@
       },
       "sources": [
         {
-          "sourceId": "EG20",
-          "locator": "§4.2 p.131, parameter Leibniz definition; §2.1 p.108, Higgs specialization",
-          "match": "The source states the sheaf Leibniz and integrability equations. General ringed-site transport is the elementary algebra developed here from those equations; no Simpson or crystal comparison is asserted."
+          "sourceId": "EG-author-2026",
+          "locator": "Author-hosted 44-page copy, §4.2 printed pp.23–24, parameter Leibniz equation and zero/one fibers; §2.1 printed pp.5–6, Higgs integrability equation",
+          "match": "The source gives the parameter Leibniz equation and Higgs/ordinary specializations. Its opening definition allows a regular-function parameter; this node uses the explicitly stated relatively constant restriction. The arbitrary-ring or ringed-site construction is an authored algebraic deduction, not a source theorem at that generality."
         }
       ],
       "implementationStatus": "unchecked",
@@ -5059,9 +5258,9 @@
       },
       "sources": [
         {
-          "sourceId": "EG20",
-          "locator": "§4.2 p.131, parameter Leibniz definition; §2.1 p.108, Higgs specialization",
-          "match": "The source states the sheaf Leibniz and integrability equations. General ringed-site transport is the elementary algebra developed here from those equations; no Simpson or crystal comparison is asserted."
+          "sourceId": "EG-author-2026",
+          "locator": "Author-hosted 44-page copy, §4.2 printed pp.23–24, parameter Leibniz equation and zero/one fibers; §2.1 printed pp.5–6, Higgs integrability equation",
+          "match": "The source gives the parameter Leibniz equation and Higgs/ordinary specializations. Its opening definition allows a regular-function parameter; this node uses the explicitly stated relatively constant restriction. The arbitrary-ring or ringed-site construction is an authored algebraic deduction, not a source theorem at that generality."
         }
       ],
       "implementationStatus": "unchecked",
@@ -5114,9 +5313,9 @@
       },
       "sources": [
         {
-          "sourceId": "EG20",
-          "locator": "§4.2 p.131, parameter Leibniz definition; §2.1 p.108, Higgs specialization",
-          "match": "The source states the sheaf Leibniz and integrability equations. General ringed-site transport is the elementary algebra developed here from those equations; no Simpson or crystal comparison is asserted."
+          "sourceId": "EG-author-2026",
+          "locator": "Author-hosted 44-page copy, §4.2 printed pp.23–24, parameter Leibniz equation and zero/one fibers; §2.1 printed pp.5–6, Higgs integrability equation",
+          "match": "The source gives the parameter Leibniz equation and Higgs/ordinary specializations. Its opening definition allows a regular-function parameter; this node uses the explicitly stated relatively constant restriction. The arbitrary-ring or ringed-site construction is an authored algebraic deduction, not a source theorem at that generality."
         }
       ],
       "implementationStatus": "unchecked",
@@ -5210,9 +5409,9 @@
       },
       "sources": [
         {
-          "sourceId": "EG20",
-          "locator": "§4.2 p.131, parameter Leibniz definition; §2.1 p.108, Higgs specialization",
-          "match": "The source states the sheaf Leibniz and integrability equations. General ringed-site transport is the elementary algebra developed here from those equations; no Simpson or crystal comparison is asserted."
+          "sourceId": "EG-author-2026",
+          "locator": "Author-hosted 44-page copy, §4.2 printed pp.23–24, parameter Leibniz equation and zero/one fibers; §2.1 printed pp.5–6, Higgs integrability equation",
+          "match": "The source gives the parameter Leibniz equation and Higgs/ordinary specializations. Its opening definition allows a regular-function parameter; this node uses the explicitly stated relatively constant restriction. The arbitrary-ring or ringed-site construction is an authored algebraic deduction, not a source theorem at that generality."
         }
       ],
       "implementationStatus": "unchecked",
@@ -5259,9 +5458,9 @@
       },
       "sources": [
         {
-          "sourceId": "EG20",
-          "locator": "§4.2 p.131, parameter Leibniz definition; §2.1 p.108, Higgs specialization",
-          "match": "The source states the sheaf Leibniz and integrability equations. General ringed-site transport is the elementary algebra developed here from those equations; no Simpson or crystal comparison is asserted."
+          "sourceId": "EG-author-2026",
+          "locator": "Author-hosted 44-page copy, §4.2 printed pp.23–24, parameter Leibniz equation and zero/one fibers; §2.1 printed pp.5–6, Higgs integrability equation",
+          "match": "The source gives the parameter Leibniz equation and Higgs/ordinary specializations. Its opening definition allows a regular-function parameter; this node uses the explicitly stated relatively constant restriction. The arbitrary-ring or ringed-site construction is an authored algebraic deduction, not a source theorem at that generality."
         }
       ],
       "implementationStatus": "unchecked",
@@ -5300,9 +5499,9 @@
       },
       "sources": [
         {
-          "sourceId": "LZ17",
-          "locator": "Theorem 2.1(i),(iii),(iv), PDF p.7; Remark 1.10 p.5",
-          "match": "The source requires twisted fields, tensor, dual and pullback. This packet supplies their generic algebra, not the source correspondence or its nilpotence proof."
+          "sourceId": "EG-author-2026",
+          "locator": "Author-hosted 44-page copy, §4.2 printed p.24, first displayed formula in the proof of Lemma 4.9",
+          "match": "The nonzero-parameter family is obtained by scaling an ordinary connection by λ. The arbitrary-ring inverse scaling and curvature calculation here additionally require λ invertible and dλ=0; those hypotheses are explicit. Liu–Zhu Theorem 2.1 is not the source for this rescaling."
         }
       ],
       "implementationStatus": "unchecked",
@@ -5989,9 +6188,9 @@
       },
       "sources": [
         {
-          "sourceId": "EG20",
-          "locator": "Lemma 4.9 p.132, displayed associated graded and transversality",
-          "match": "The filtration-to-Higgs algebra is isolated from the separately unproved rigid-moduli/Simpson assertions in Lemma 4.9."
+          "sourceId": "EG-author-2026",
+          "locator": "Author-hosted 44-page copy, Lemma 4.9, printed p.24, displayed filtration and associated graded",
+          "match": "The displayed filtration and associated-graded map motivate the generic quotient-symbol calculation. The ringed-site statement is an authored deduction under the listed supplier contracts, not the rigid-moduli theorem or its cited Simpson inputs."
         }
       ],
       "implementationStatus": "unchecked",
@@ -6080,9 +6279,9 @@
       },
       "sources": [
         {
-          "sourceId": "EG20",
-          "locator": "Lemma 4.9 p.132, displayed associated graded and transversality",
-          "match": "The filtration-to-Higgs algebra is isolated from the separately unproved rigid-moduli/Simpson assertions in Lemma 4.9."
+          "sourceId": "EG-author-2026",
+          "locator": "Author-hosted 44-page copy, Lemma 4.9, printed p.24, displayed filtration and associated graded",
+          "match": "The displayed filtration and associated-graded map motivate the generic quotient-symbol calculation. The ringed-site statement is an authored deduction under the listed supplier contracts, not the rigid-moduli theorem or its cited Simpson inputs."
         }
       ],
       "implementationStatus": "unchecked",
@@ -6172,9 +6371,9 @@
       },
       "sources": [
         {
-          "sourceId": "EG20",
-          "locator": "Lemma 4.9 p.132, displayed associated graded and transversality",
-          "match": "The filtration-to-Higgs algebra is isolated from the separately unproved rigid-moduli/Simpson assertions in Lemma 4.9."
+          "sourceId": "EG-author-2026",
+          "locator": "Author-hosted 44-page copy, Lemma 4.9, printed p.24, displayed filtration and associated graded",
+          "match": "The displayed filtration and associated-graded map motivate the generic quotient-symbol calculation. The ringed-site statement is an authored deduction under the listed supplier contracts, not the rigid-moduli theorem or its cited Simpson inputs."
         }
       ],
       "implementationStatus": "unchecked",
@@ -33957,6 +34156,23 @@
       ],
       "detail": "Native affine endomorphism-action and ideal-power forms are supplied; global tensor-power, sheaf symmetric algebra, endomorphism/augmentation quotient and gluing remain with E1. The coordinate lemma needs no integrability. The latest predecessor handoff also proves commuting-nilpotent field and reduced-ring rank bounds, finite image-algebra spanning and base-change counterexamples; these are retained as continuation leads, not silently counted as canonical nodes. Spectral image/coherence/twisting belong to the named p-adic Simpson consumer. Nonflat scalar extension need not preserve the image algebra, and nilpotence kernels need not be subbundles. A separate native affine prototype proves reconstruction and the arbitrary-N ordered coefficient criterion, including the tensor unit at N=0, without integrability. The current affine continuation supplies change-of-module/coefficient-map naturality, same-bound transport under two isomorphisms and degree-one/two native comparisons. Arbitrary scalar extension across coefficient rings, restriction and equality detection/gluing of sheaf morphisms, global uniformity and rank bounds remain open. The latest mathematical handoff proves candidate scalar-extension/locality/rank routes; these are inherited leads, not newly elaborated canonical signatures. The cross-ring affine continuation now supplies actual scalar extension and ordered-word comparisons, plus fixed-exponent preservation and faithful-flat reflection with a finite basis of Q and arbitrary E. General arbitrary-Q tensor-power comparison, finite-projective chart restriction and actual sheaf gluing remain open; no global pullback, exterior-integrability or nilpotence-kernel base-change assertion follows. Native coefficient-change formulas and left-inverse reflection are now explicit for arbitrary modules; no unconditional injective-map reflection is asserted. This does not discharge sheaf restriction/gluing or the exterior-integrability comparison. Current codex-a71f92 checkpoint supplies actual native arbitrary-Q affine cross-ring unit/prepend/step/iterate equations and all-degree same-exponent preservation and faithfully-flat reflection, including n=0; earlier affine missing-work wording above is retained as checkpoint history. Finite-projective chart restriction, sheaf tensor-power comparison/equality detection/gluing, exterior-integrability transport, globally uniform versus locally varying exponents, rank bounds and all global/source/supplier obligations remain open. This does not identify sheaf tensor sections with tensors of global sections or assert kernel/image base-change compatibility.",
       "previousDetail": "Native affine endomorphism-action and ideal-power forms are supplied; global tensor-power, sheaf symmetric algebra, endomorphism/augmentation quotient and gluing remain with E1. The coordinate lemma needs no integrability. The latest predecessor handoff also proves commuting-nilpotent field and reduced-ring rank bounds, finite image-algebra spanning and base-change counterexamples; these are retained as continuation leads, not silently counted as canonical nodes. Spectral image/coherence/twisting belong to the named p-adic Simpson consumer. Nonflat scalar extension need not preserve the image algebra, and nilpotence kernels need not be subbundles. A separate native affine prototype proves reconstruction and the arbitrary-N ordered coefficient criterion, including the tensor unit at N=0, without integrability. The current affine continuation supplies change-of-module/coefficient-map naturality, same-bound transport under two isomorphisms and degree-one/two native comparisons. Arbitrary scalar extension across coefficient rings, restriction and equality detection/gluing of sheaf morphisms, global uniformity and rank bounds remain open. The latest mathematical handoff proves candidate scalar-extension/locality/rank routes; these are inherited leads, not newly elaborated canonical signatures."
+    },
+    {
+      "title": "Independent-review boundary: ordinary-connection supplier generality",
+      "neededBy": [
+        "HodgeStructuresPartII:H.0/intrinsic-preconnection",
+        "HodgeStructuresPartII:key/higgs-parameter-connections",
+        "HodgeStructuresPartII:H.0/ordinary-fiber"
+      ],
+      "detail": "CR.1 was read independently: its stated connection comparison concerns integrable quasi-nilpotent connections on suitable smooth/formally smooth crystalline lifts. It does not explicitly supply the requested arbitrary ringed differential-site ordinary-connection carrier. The request is open; do not count its broader generality as an established supplier statement. Reconcile ownership and give an exact supplier declaration or an explicit extension of the supplier scope before accepting the ordinary-fiber comparison. The underlying λ-Leibniz definition itself is meaningful with the given differential calculus and must not acquire crystalline quasi-nilpotence conditions."
+    },
+    {
+      "title": "Independent-review boundary: Rees source and supplier contract",
+      "neededBy": [
+        "HodgeStructuresPartII:H.0/rees-parameter",
+        "HodgeStructuresPartII:H.0/rees-specialization"
+      ],
+      "detail": "Liu–Zhu Theorem 2.1 and Remark 1.10 were read: they state nilpotent Higgs functoriality, not the finite split Rees construction or its fibers. The t∇ and fiber formulas here are plausible authored algebraic deductions, but this citation does not establish their Rees input. DD.1 states enhanced filtered modules and Rees descriptions where applicable; no exact finite module-sheaf Rees declaration supplying local freeness and both fiber identifications was found in the supplier stage statement. Read a primary finite Rees source, check the sheaf version and replace this motivational locator with a supporting one; obtain the exact supplier contract. Do not treat the existing LZ locator as a source verification of these two nodes."
     }
   ],
   "sourceIssues": [
@@ -33976,7 +34192,9 @@
       "affectedNodes": [
         "HodgeStructuresPartII:H.0/twisted-higgs",
         "HodgeStructuresPartII:H.0/zero-fiber"
-      ]
+      ],
+      "source": "EG20",
+      "independentCheckBoundary": "codex-tUuT7s read the same integrality/Ω_X slips in the author-hosted copy, §2.1 pp.5–6. The published URL returned HTTP 403. This checkpoint does not add a published-version confirmation verdict; finish that version-specific check before issuing the final review."
     },
     {
       "id": "HodgeStructuresPartII/ErtOQ9t07J5Delta",
@@ -33992,7 +34210,12 @@
         "https://stacks.math.columbia.edu/tag/07J5",
         "https://github.com/stacks/stacks-project/commit/d90e73b0eb86c47faa4724d04a3f06a810a83d36.patch",
         "Complete current displayed section and both comments; complete one-line correction patch. No whole historical crystalline.tex or full-paper version collation."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-DESIGN-HodgeStructuresPartII",
+        "reason": "The complete authors correction patch d90e73b0eb86c47faa4724d04a3f06a810a83d36 replaces Delta with i in precisely this proof reference. Current tag 07J5 and its two comments agree; the historical notation error is already corrected, not a defect in the current proof."
+      }
     }
   ],
   "routeManifest": [
