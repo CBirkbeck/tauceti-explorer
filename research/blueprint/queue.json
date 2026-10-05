@@ -20974,8 +20974,9 @@
    ],
    "avoidAccountOf": "BP-DeformationAndDerivedPatchingAlgebra--P7",
    "prompt": "research/blueprint/prompts/REV-DeformationAndDerivedPatchingAlgebra--P7.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #142"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #142",
+   "finishedAt": "2026-10-05T14:43:26Z"
   },
   {
    "id": "BP-DeformationAndDerivedPatchingAlgebra--R03.6",
