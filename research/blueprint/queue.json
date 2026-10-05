@@ -23910,8 +23910,9 @@
    ],
    "avoidAccountOf": "BP-DirichletPadicLFunctions--L4",
    "prompt": "research/blueprint/prompts/REV-DirichletPadicLFunctions--L4.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5877"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5877",
+   "finishedAt": "2026-10-05T01:02:20Z"
   },
   {
    "id": "BP-EllipticCurveModularity",
@@ -30558,7 +30559,8 @@
    ],
    "avoidAccountOf": "BP-ComputationalNumberTheory",
    "prompt": "research/blueprint/prompts/REV-ComputationalNumberTheory.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #533"
   },
   {
    "id": "BP-DiophantineApproximationAndTranscendence",
