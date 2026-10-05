@@ -21,6 +21,8 @@ import Mathlib.Analysis.SpecialFunctions.Choose
 import Mathlib.NumberTheory.SumTwoSquares
 import Mathlib.Order.Interval.Set.Nat
 import Mathlib.Data.Set.Card
+import Mathlib.Topology.EMetricSpace.BoundedVariation
+import Mathlib.Topology.Order.LeftRightLim
 import Mathlib.Tactic
 
 /-!
@@ -32,8 +34,8 @@ Review checkpoint codex-7e92bd (2026-10-05): the full file elaborates in an
 existing build using Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, with
 158 warnings, all `declaration uses sorry`, and no errors. This file imports
 Mathlib only; it does not compile Tau Ceti modules. The mathematical review is
-incomplete. The native-signature gap records six definition blocks whose canonical
-imported carriers cannot yet be stated. Their mathematical specifications and all
+incomplete. At that checkpoint the native-signature gap recorded six definition
+blocks whose canonical imported carriers could not yet be stated. Their mathematical specifications and all
 API/test names are retained below, rather than introducing substitute Prop fields.
 Continuation codex-ws2Gd5: added a conditional positive exceptional-zero test
 and corrected the mathematical CM/period specifications; the executable section
@@ -46,6 +48,9 @@ integrand; use κ=∫(1_[0,1](u)−exp(−u))/u du=γ as recorded in source issu
 Continuation codex-BdrTzT adds native Landau/support count and prime-divisor
 weight signatures, finite representation examples and exact half-cardinality guards.
 The full independent mathematical review is still unfinished.
+Continuation codex-btapUd supplies the Weil test predicate with pinned BV/one-sided-limit
+APIs and every API/test signature, and strict-cutoff squarefree counting forms.
+Five canonical-carrier definitions remain omitted.
 Other statements requiring those carriers or unacquired higher-genus/covering
 interfaces are listed mathematically at the end. They are not executable signatures.
 -/
@@ -769,6 +774,98 @@ example (a : ℕ) (ha : 1 ≤ a) :
     (∑ p ∈ ((2 : ℕ) ^ a).primeFactors, Real.log (p : ℝ) / (p : ℝ)) = Real.log 2 / 2 := by sorry
 example : Real.log (Real.log 2) < 0 := by sorry
 
+/-! AN.3: two-sided Weil tests, using the pinned variation and one-sided limits. -/
+
+def weil_test_function (c : ℝ) (F : ℝ → ℝ) : Prop :=
+  0 ≤ c ∧
+    (∃ ε : ℝ, 0 < ε ∧
+      MeasureTheory.Integrable (fun x : ℝ => F x * Real.exp ((1 / 2 + c + ε) * |x|)) ∧
+      BoundedVariationOn (fun x : ℝ => F x * Real.exp ((1 / 2 + c + ε) * |x|)) Set.univ) ∧
+    (∀ x : ℝ, F x = (Function.leftLim F x + Function.rightLim F x) / 2) ∧
+    BoundedVariationOn (fun x : ℝ => (F x - F 0) / x) Set.univ
+
+-- weil_test_function.transform
+-- This totalized value is accompanied by a separate integrability signature.
+def weil_test_function.transform (F : ℝ → ℝ) (s : ℂ) : ℂ :=
+  ∫ x : ℝ, (F x : ℂ) * Complex.exp ((s - 1 / 2) * (x : ℂ))
+lemma weil_test_function.transform_integrable (c : ℝ) (F : ℝ → ℝ)
+    (hF : weil_test_function c F) (s : ℂ) (hl : -c ≤ s.re) (hr : s.re ≤ 1 + c) :
+    MeasureTheory.Integrable (fun x : ℝ =>
+      (F x : ℂ) * Complex.exp ((s - 1 / 2) * (x : ℂ))) := by sorry
+lemma weil_test_function.reflection (c : ℝ) (F : ℝ → ℝ)
+    (hF : weil_test_function c F) :
+    weil_test_function c (fun x => F (-x)) := by sorry
+lemma weil_test_function.add (c : ℝ) (F G : ℝ → ℝ) (a b : ℝ)
+    (hF : weil_test_function c F) (hG : weil_test_function c G) :
+    weil_test_function c (fun x => a * F x + b * G x) := by sorry
+lemma weil_test_function.normalization (c : ℝ) (F : ℝ → ℝ)
+    (hF : weil_test_function c F) (x : ℝ) :
+    F x = (Function.leftLim F x + Function.rightLim F x) / 2 := by sorry
+lemma weil_test_function.mono (c c' : ℝ) (F : ℝ → ℝ)
+    (hF : weil_test_function c F) (hc' : 0 ≤ c') (hcc : c' ≤ c) :
+    weil_test_function c' F := by sorry
+lemma weil_test_function.continuous_at_zero (c : ℝ) (F : ℝ → ℝ)
+    (hF : weil_test_function c F) :
+    ContinuousAt F 0 ∧ ∃ C : ℝ, 0 ≤ C ∧
+      ∀ x : ℝ, |F x - F 0| ≤ C * |x| := by sorry
+
+-- weil_test_function.zero
+example (c : ℝ) (hc : 0 ≤ c) :
+    weil_test_function c (fun _ => 0) ∧
+      ∀ s : ℂ, weil_test_function.transform (fun _ => 0) s = 0 := by sorry
+-- weil_test_function.gaussian
+example (c : ℝ) (hc : 0 ≤ c) :
+    weil_test_function c (fun x => Real.exp (-(x ^ 2))) ∧
+      weil_test_function.transform (fun x => Real.exp (-(x ^ 2))) (1 / 2) =
+        (Real.sqrt Real.pi : ℂ) := by sorry
+-- weil_test_function.one_tail
+example (c : ℝ) (hc : 0 ≤ c) :
+    ¬ weil_test_function c (fun x => Real.exp (-2 * x)) := by sorry
+-- weil_test_function.kink
+example : weil_test_function 0 (fun x => Real.exp (-|x|)) ∧
+    Function.leftLim (fun x : ℝ => (Real.exp (-|x|) - 1) / x) 0 = 1 ∧
+    Function.rightLim (fun x : ℝ => (Real.exp (-|x|) - 1) / x) 0 = -1 := by sorry
+-- weil_test_function.asymmetric_tail
+-- Ordinary nonintegrability, not an asserted value of a divergent totalized integral.
+example : let F : ℝ → ℝ := fun x => if x < 0 then Real.exp (x / 4) else Real.exp (-2 * x)
+    MeasureTheory.Integrable (fun x : ℝ => F x * Real.exp ((3 / 4 : ℝ) * x)) ∧
+    BoundedVariationOn (fun x : ℝ => F x * Real.exp ((3 / 4 : ℝ) * x)) Set.univ ∧
+    (∀ x : ℝ, F x = (Function.leftLim F x + Function.rightLim F x) / 2) ∧
+    BoundedVariationOn (fun x : ℝ => (F x - F 0) / x) Set.univ ∧
+    ¬ weil_test_function 0 F ∧
+    ¬ MeasureTheory.Integrable (fun x : ℝ =>
+      (F x : ℂ) * Complex.exp ((0 - 1 / 2 : ℂ) * (x : ℂ))) := by sorry
+
+/-! AN.5: squarefree half-prime counts with the original strict cutoff. -/
+
+theorem restricted_squarefree_landau_count :
+    ∃ C : ℝ, 0 < C ∧ Asymptotics.IsBigO Filter.atTop
+      (fun X : ℝ =>
+        ((((Finset.range (Nat.ceil X)).filter (fun n : ℕ =>
+          0 < n ∧ Squarefree n ∧ ∀ p ∈ n.primeFactors, p = 2 ∨ (p : ZMod 4) = 1)).card : ℕ) : ℝ)
+          - C * X / Real.sqrt (Real.log X))
+      (fun X : ℝ => X / (Real.log X) ^ (3 / 2 : ℝ)) := by sorry
+
+theorem restricted_sathe_selberg_count :
+    ∀ A : ℝ, 0 < A → ∃ C₁ C₂ N₀ : ℝ, 0 < C₁ ∧ 0 < C₂ ∧ 3 ≤ N₀ ∧
+      ∀ (N : ℝ) (r : ℕ), N₀ ≤ N → 1 ≤ r → (r : ℝ) ≤ A * Real.log (Real.log N) →
+        let count : ℝ :=
+          (((Finset.range (Nat.ceil N)).filter (fun n : ℕ =>
+            0 < n ∧ Squarefree n ∧ (∀ p ∈ n.primeFactors, p = 2 ∨ (p : ZMod 4) = 1) ∧
+            n.primeFactors.card = r)).card : ℕ)
+        let main := N / Real.log N * (Real.log (Real.log N) / 2) ^ (r - 1) / (r - 1).factorial
+        C₁ * main ≤ count ∧ count ≤ C₂ * main := by sorry
+
+example : ((Finset.range 14).filter (fun n : ℕ =>
+    0 < n ∧ Squarefree n ∧ ∀ p ∈ n.primeFactors, p = 2 ∨ (p : ZMod 4) = 1)) =
+      {1, 2, 5, 10, 13} := by sorry
+example : ((Finset.range 14).filter (fun n : ℕ =>
+    0 < n ∧ Squarefree n ∧ (∀ p ∈ n.primeFactors, p = 2 ∨ (p : ZMod 4) = 1) ∧
+    n.primeFactors.card = 1)).card = 3 := by sorry
+example : ((Finset.range 14).filter (fun n : ℕ =>
+    0 < n ∧ Squarefree n ∧ (∀ p ∈ n.primeFactors, p = 2 ∨ (p : ZMod 4) = 1) ∧
+    n.primeFactors.card = 2)).card = 1 := by sorry
+
 end TauCeti.AnalyticNumberTheory
 
 /-!
@@ -795,26 +892,6 @@ TEST partial_ideal_zeta.unit: a_A(1)=1 for the principal class and 0 otherwise.
 TEST partial_ideal_zeta.no_generators: The unit ideal contributes once, even when the unit group is infinite.
 
 TEST partial_ideal_zeta.zero: The zero ideal contributes to no coefficient; no norm-zero negative power occurs.
-
-AnalyticNumberTheory:AN.3/weil-test-function
-
-For c≥0, an admissible real F:R→R has, for some ε>0, F(x)exp((1/2+c+ε)|x|) integrable with bounded variation on each half-line; F is the mean of its one-sided limits, and (F(x)−F(0))/x has bounded variation with a removable value at 0. These two-tail hypotheses imply the one-sided condition printed in the extraction and make both F(k log p) and F(−k log p) summable.
-
-Signature withheld until its recorded canonical supplier interface exists.
-
-API weil_test_function.transform: Φ(s)=∫_R F(x)exp((s−1/2)x)dx is defined absolutely for −c≤Re s≤1+c.
-
-API weil_test_function.reflection: x↦F(−x) is admissible with the same c,ε.
-
-API weil_test_function.add: Real linear combinations of admissible functions are admissible, after decreasing ε if needed.
-
-API weil_test_function.normalization: F equals the mean of its two one-sided limits, fixing boundary values in the summation formula.
-
-TEST weil_test_function.zero: F=0 is admissible and Φ=0.
-
-TEST weil_test_function.gaussian: F(x)=exp(−x²) is admissible for every c≥0.
-
-TEST weil_test_function.one_tail: F(x)=exp(−2x) on all R satisfies neither two-tail integrability nor the required Fourier transform; a one-tail test is rejected.
 
 AnalyticNumberTheory:AN.2/exceptional-squareclasses
 
@@ -1133,34 +1210,34 @@ AnalyticNumberTheory:AN.2/mertens-first-theorem
 For X≥2, Σ_{p<X}(log p)/p=log X+O(1), with an absolute implied constant.
 
 AnalyticNumberTheory:AN.3/mestre-weil-explicit-formula
-Let A, B > 0, a_i, a′_i ≥ 0 (1 ≤ i ≤ M) with Σ a_i = Σ a′_i, b_i, b′_i ∈ C with non-negative real parts, and Λ_1, Λ_2 meromorphic on C with (i) Λ_1(1 − s) = wΛ_2(s) for some w ∈ C^×; (ii) finitely many poles; (iii) Λ_i minus its singular parts bounded in every vertical strip of finite width; (iv) for some c ≥ 0 and Re s > 1 + c, Λ_1(s) = A^s Π_{i=1}^M Γ(a_i s + b_i) Π_p Π_{i=1}^{M′} (1 − α_i(p)p^{−s})^{−1} and Λ_2(s) = B^s Π_{i=1}^M Γ(a′_i s + b′_i) Π_p Π_{i=1}^{M′} (1 − β_i(p)p^{−s})^{−1} with |α_i(p)|, |β_i(p)| ≤ p^c. Let F: R → R be such that, for some ε > 0, F(x) exp((1/2 + c + ε)x) is integrable and of bounded variation (with F(x) the mean of its one-sided limits), and (F(x) − F(0))/x is of bounded variation. Then Σ_ρ Φ(ρ) − Σ_μ Φ(μ) + Σ_{i=1}^M I(a_i, b_i) + Σ_{i=1}^M J(a′_i, b′_i) = F(0) log(AB) − Σ_{p,i,k≥1} (α_i(p)^k F(k log p) + β_i(p)^k F(−k log p)) log p / p^{k/2}, where ρ (resp. μ) runs over the zeros (resp. poles) of Λ_1 with −c ≤ Re ≤ 1 + c, with multiplicity, Σ_ρ Φ(ρ) = lim_{T→∞} Σ_{|Im ρ|<T} Φ(ρ), Φ(s) = ∫_R F(x) e^{(s−1/2)x} dx, I(a, b) = a ∫_0^∞ (F(ax) e^{−(a/2+b)x}/(1 − e^{−x}) − F(0) e^{−x}/x) dx and J(a, b) is the same with F(−ax). In this packet F additionally satisfies the two-tail admissibility predicate, so both directions of the prime-power series converge.
+Let A, B > 0, a_i, a′_i ≥ 0 (1 ≤ i ≤ M) with Σ a_i = Σ a′_i, b_i, b′_i ∈ C with non-negative real parts, and Λ_1, Λ_2 meromorphic on C with (i) Λ_1(1 − s) = wΛ_2(s) for some w ∈ C^×; (ii) finitely many poles; (iii) Λ_i minus its singular parts bounded in every vertical strip of finite width; (iv) for some c ≥ 0 and Re s > 1 + c, Λ_1(s) = A^s Π_{i=1}^M Γ(a_i s + b_i) Π_p Π_{i=1}^{M′} (1 − α_i(p)p^{−s})^{−1} and Λ_2(s) = B^s Π_{i=1}^M Γ(a′_i s + b′_i) Π_p Π_{i=1}^{M′} (1 − β_i(p)p^{−s})^{−1} with |α_i(p)|, |β_i(p)| ≤ p^c. Let F satisfy weil_test_function(c,F). For every zero gamma slope a_i=0 (respectively a′_i=0), assume b_i≠0 (respectively b′_i≠0), so its constant gamma factor is finite and nonzero. Then Σ_ρ Φ(ρ) − Σ_μ Φ(μ) + Σ_{i=1}^M I(a_i, b_i) + Σ_{i=1}^M J(a′_i, b′_i) = F(0) log(AB) − Σ_{p,i,k≥1} (α_i(p)^k F(k log p) + β_i(p)^k F(−k log p)) log p / p^{k/2}, where ρ (resp. μ) runs over the zeros (resp. poles) of Λ_1 with −c ≤ Re ≤ 1 + c, with multiplicity, Σ_ρ Φ(ρ) = lim_{T→∞} Σ_{|Im ρ|<T} Φ(ρ), Φ(s) = ∫_R F(x) e^{(s−1/2)x} dx, I(a, b) = a ∫_0^∞ (F(ax) e^{−(a/2+b)x}/(1 − e^{−x}) − F(0) e^{−x}/x) dx and J(a, b) is the same with F(−ax). For a>0 the displayed I,J are ordinary convergent combined integrals (do not integrate the two individually divergent subtraction terms separately). For a=0 set I(0,b)=J(0,b)=0 after removing its constant gamma factor; this is not0 times an undefined integral.
 
 AnalyticNumberTheory:AN.5/restricted-squarefree-landau-count
-For D(X)={1≤n≤X:n squarefree and every odd prime factor p satisfies p≡1 mod4}, #D(X)=C X/√log X·(1+O(1/log X)) for some C>0.
+For D(X)={n∈N:1≤n<X, n squarefree, every odd prime factor p satisfies p≡1 mod4}, there is a positive absolute C_D such that #D(X)=C_D X/√log X·(1+O(1/log X)) as X→∞. The cutoff is strict, as in KP§1. C_D=(3/(4√2))∏_{p≡1(4)}(1−p^(−2))∏_{p≡3(4)}(1−p^(−2))^(1/2), with positive convergent products.
 
 AnalyticNumberTheory:AN.5/restricted-sathe-selberg-count
-For every A > 0 there are C₁, C₂, N₀ > 0 such that for all integers 1 ≤ r ≤ A log log N and all N ≥ N₀: C₁ · (N / log N) · (½ log log N)^{r−1} / (r − 1)! ≤ |𝒟_r(N)| ≤ C₂ · (N / log N) · (½ log log N)^{r−1} / (r − 1)!.
+Let D_r(N)={n∈D(N):ω(n)=r}, with D(N) the strict-cutoff squarefree family defined in restricted_squarefree_landau_count and ω(n) the number of distinct prime divisors. For every fixed A>0 there are C₁,C₂>0 and N₀≥3, depending only on A, such that for every real N≥N₀ and integer1≤r≤A log log N, C₁(N/log N)(½ log log N)^(r−1)/(r−1)!≤#D_r(N)≤C₂(N/log N)(½ log log N)^(r−1)/(r−1)!. No r=0 or varying-A uniformity is asserted.
 
 AnalyticNumberTheory:AN.2/squareclass-exceptional-repulsion
-There is c_Landau > 0 such that, if 𝒮(c_Landau) = {d₁, d₂, …} is listed with |d₁| ≤ |d₂| ≤ ⋯, then |d_i|² ≤ |d_{i+1}| for all i.
+There is an effective absolute0<c_Landau<1/2 such that distinct d,e∈S(c_Landau) with |d|≤|e| satisfy |d|²≤|e|. This pairwise form applies to every existing finite ordered segment; no infinitude of S(c_Landau) is asserted.
 
 AnalyticNumberTheory:AN.2/quadratic-prime-character-interval
-Let D ≠ 1 be squarefree, let χ be the quadratic character of Gal(ℚ(√D)/ℚ), and let β be the exceptional real zero of L(s, χ_D) if there is one. Then Σ_{s_i < p < t_i} χ(Frob_p) ≪ t_i^β + t_i · exp(−c log t_i / (√(log t_i) + log|D|)) · (log t_i|D|)⁴ for an absolute constant c > 0. The t_i^β term is absent when there is no exceptional zero.
+There are positive absolute effective constants c,C such that for every nonzero squarefree integer D≠1, its primitive field character χ_D of conductor Q_D=|Disc(Q(√D))|, and real2≤u<v, |Σ_{u<p<v, p prime, p∤Q_D}χ_D(p)|≤C[E_D(v)+v exp(−c log v/(√log v+log Q_D))(log(vQ_D))⁴]. Here E_D(v)=v^β if the conductor-uniform zero-free region singles out a simple real exceptional zero β∈(1/2,1), and E_D(v)=0 otherwise. Equivalently extend χ_D by0 at ramified primes and sum over all primes. This is an upper bound, not an asymptotic for short intervals.
 
 AnalyticNumberTheory:AN.2/effective-quadratic-zero-separation
-For every ε > 0 there is an effectively computable c(ε) > 0 such that, if D ≠ 1 is squarefree and β is a real zero of L(s, χ_D), then 1 − β ≥ c(ε) |D|^{−1/2−ε}.
+For every ε>0 there is an effectively computable c_ε>0, fixed before D and β, such that for every nonzero squarefree integer D≠1 and real zero β∈(1/2,1) of the canonical continued primitive field-character L(s,χ_D), 1−β≥c_ε |D|^(−1/2−ε). The conductor is Q_D=|Disc(Q(√D))|, with |D|≤Q_D≤4|D|; conductor/radicand conversion only changes c_ε effectively.
 
 AnalyticNumberTheory:AN.4/heilbronn-simple-real-zero
-If K/Q is finite Galois and the continued ζ_K has a simple real zero β with 0<β<1, then some quadratic subfield k⊆K has ζ_k(β)=0.
+If K/Q is finite Galois and the canonical continued ζ_K has a simple real zero β with0<β<1, then a quadratic subfield k⊆K satisfies ζ_k(β)=0. The conclusion uses meromorphic Artin continuation and the Aramata–Brauer entire-quotient theorem, not Artin holomorphy.
 
 AnalyticNumberTheory:AN.4/gross-zagier-cm-eisenstein-comparison
-Let τ_A ∈ 𝔥 be a root of a primitive positive-definite binary quadratic form of discriminant D (K = ℚ(√D), u = #O_K^×/2) in the class A, and E(z, s) as in PAPER-GROSS-ZAGIER-86/94. For Re s > 1: E(τ_A, s) = 2^{−s} |D|^{s/2} u ζ(2s)^{−1} ζ_K(A, s); equivalently 2^s ζ(2s) E(τ_A, s) = u |D|^{s/2} ζ_K(A, s).
+Let D<0 be a fundamental discriminant, K=Q(√D), u=#O_K^×/2 and A an ordinary ideal class. Choose its CM lattice point τ_A in the upper half-plane from a primitive positive-definite binary quadratic form of discriminant D. Let E(z,s)=(1/2)Σ_{gcd(c,d)=1}(Im z)^s/|cz+d|^(2s), the uncompleted level-one Eisenstein series. For Re s>1, E(τ_A,s)=2^(−s)|D|^(s/2)u ζ(2s)^(−1)ζ_K(A,s), equivalently2^s ζ(2s)E(τ_A,s)=u|D|^(s/2)ζ_K(A,s). All positive-base powers use the real logarithm. Changing A to A^(−1) leaves its partial zeta unchanged.
 
 AnalyticNumberTheory:AN.4/imaginary-genus-character-dictionary
-Standing data of Chap. IV (p. 267): K imaginary quadratic of discriminant D, ε = ε_D = (D/·), Cl_K its class group. A genus character is a character χ: Cl_K → {±1}. Such characters correspond bijectively to the unordered decompositions {D₁, D₂} of D as a product D = D₁·D₂ of two fundamental discriminants, one positive and one negative (D₁ = 1 is allowed and gives the trivial character). The character χ_{D₁·D₂} is characterized by χ(𝔞) = ε_{D₁}(N𝔞) = ε_{D₂}(N𝔞) for integral ideals 𝔞 prime to D, where ε_{D_i} is the Dirichlet character of ℚ(√D_i) (ε_1 = 1).
+For an imaginary quadratic field K of fundamental discriminant D<0, genus characters are homomorphisms Cl_K→{±1}, including the trivial homomorphism. They correspond bijectively to unordered fundamental-discriminant factorizations{D₁,D₂}, D=D₁D₂, one positive and one negative; permit the trivial discriminant1 with ε_1=1. For an integral ideal a prime to D, χ_{D₁,D₂}(a)=ε_{D₁}(N a)=ε_{D₂}(N a). This node is the arithmetic classification/compatibility dictionary. The analytic equality L_K(s,χ)=L(s,ε_{D₁})L(s,ε_{D₂}) is supplied by the existing genus_lseries_factorization node, not proved again here.
 
 AnalyticNumberTheory:AN.4/imaginary-quadratic-root-number-one
-Let ε = (D/·) with D < 0 a fundamental discriminant, δ = |D|. Then Λ(s, ε) := (δ/π)^{(s+1)/2} Γ((s+1)/2) L(s, ε) extends to an entire function and Λ(1−s, ε) = Λ(s, ε). (Used in §4 to swap the two brackets of e*_s(0,y) under s ↦ 2−2k−s, and in §5 to rewrite the n = 0 term of b_{m,r}: ‘We have used the functional equation of L(s, ε)’, p. 290.)
+For negative fundamental D, put δ=|D| and let ε_D be the canonical primitive odd Dirichlet character of Q(√D), of conductorδ. On Re s>1, Λ(s,ε_D)=(δ/π)^((s+1)/2)Γ((s+1)/2)L(s,ε_D). Its canonical entire continuation is δ^((s+1)/2)·DirichletCharacter.completedLFunction(ε_D,s). The new quadratic normalization assertion is that the root number is+1 and Λ(1−s,ε_D)=Λ(s,ε_D). Entire continuation of a nontrivial Dirichlet completed function is already in Mathlib; no duplicate continuation construction is planned.
 
 AnalyticNumberTheory:AN.4/imaginary-quadratic-lvalue-one
 For an imaginary quadratic field of fundamental discriminant D<0, δ=|D|, class number h and w=2u roots of unity, L(1,ε_D)=πh/(u√δ).
