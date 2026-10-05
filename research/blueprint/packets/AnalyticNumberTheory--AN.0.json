@@ -481,6 +481,48 @@
         "module": "Mathlib/Data/Nat/Totient.lean",
         "provides": "For all natural n, the rational equality (totient n:ℚ)=n∏_{p∈primeFactors n}(1−1/p). Transfer to ℝ before division; n≥3 gives a positive denominator.",
         "checked": "Defining/theorem statement and surrounding parameters read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 in continuation codex-KI4dsy, 2026-10-05."
+      },
+      {
+        "ref": "mathlib:Nat.eq_sq_add_sq_iff",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/SumTwoSquares.lean",
+        "provides": "For every natural n, n is a sum of two natural squares iff every prime q in n.primeFactors with q mod4=3 has even padicValNat q n; includes the totalized n=0 case.",
+        "checked": "Full statement and ambient parameters freshly read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex codex-BdrTzT, 2026-10-05."
+      },
+      {
+        "ref": "mathlib:Nat.le_sqrt'",
+        "kind": "lemma",
+        "module": "Mathlib/Data/Nat/Sqrt.lean",
+        "provides": "For natural m,n, m≤Nat.sqrt n iff m²≤n.",
+        "checked": "Full statement and ambient parameters freshly read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex codex-BdrTzT, 2026-10-05."
+      },
+      {
+        "ref": "mathlib:Set.InjOn.ncard_image",
+        "kind": "theorem",
+        "module": "Mathlib/Data/Set/Card.lean",
+        "provides": "An injective-on-set map preserves natural cardinality of its image; finite bounded sets are used here.",
+        "checked": "Full statement and ambient parameters freshly read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex codex-BdrTzT, 2026-10-05."
+      },
+      {
+        "ref": "mathlib:Set.ncard_Iic_nat",
+        "kind": "lemma",
+        "module": "Mathlib/Order/Interval/Set/Nat.lean",
+        "provides": "The natural interval {0,…,b} has natural cardinality b+1.",
+        "checked": "Full statement and ambient parameters freshly read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex codex-BdrTzT, 2026-10-05."
+      },
+      {
+        "ref": "mathlib:Nat.prod_primeFactors_dvd",
+        "kind": "theorem",
+        "module": "Mathlib/Data/Nat/Factorization/Basic.lean",
+        "provides": "The product of the distinct prime factors of n divides n. The n=0 case is totalized; logarithmic estimates use n≥2.",
+        "checked": "Full statement and ambient parameters freshly read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex codex-BdrTzT, 2026-10-05."
+      },
+      {
+        "ref": "mathlib:Real.log_prod",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/SpecialFunctions/Log/Basic.lean",
+        "provides": "For a finite product of nonzero real factors, the logarithm of the product is the sum of their logarithms.",
+        "checked": "Full statement and ambient parameters freshly read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex codex-BdrTzT, 2026-10-05."
       }
     ]
   },
@@ -1267,7 +1309,8 @@
       "accessed": "2026-10-05",
       "readSections": [
         "Theorem3.4 and proof, printed pp.40–41; Exercise5.4(a)–(d), printed p.61, additionally checked as a rendered page.",
-        "Selected preceding hyperbola calculation and Theorem3.3, printed pp.38–39. Exercise5.4 is a proof worklist, not a completed proof of its estimates."
+        "Selected preceding hyperbola calculation and Theorem3.3, printed pp.38–39. Exercise5.4 is a proof worklist, not a completed proof of its estimates.",
+        "codex-BdrTzT, 2026-10-05: Chapter13 pp.130–135 through the initial Corollary13.4 argument, and Exercise13.4 p.140. Theorem13.2 statement/initial discussion read; remaining proof pp.135–140 not audited. Exercise13.4 states Landau, with the exact prime-factor criterion already in Mathlib."
       ]
     },
     {
@@ -1281,6 +1324,59 @@
       "readSections": [
         "Introduction pp.143–145, including the stated effective theorem; opening of p.146 explaining its computational boundary. The later proof is unread."
       ]
+    },
+    {
+      "id": "gs-primary-v3",
+      "title": "Integral points on Markoff type cubic surfaces",
+      "authors": "Amit Ghosh and Peter Sarnak",
+      "edition": "arXiv:1706.06712v3, 30 May 2022; preprint final version, not the separately typeset published article",
+      "url": "https://arxiv.org/pdf/1706.06712v3",
+      "sha256": "e4ddc7a115ad4afd61f0063d0b931baf85792eee2267d1d5c232bece11d3163d",
+      "accessed": "2026-10-05",
+      "readSections": [
+        "Introduction p.3, exceptional families and asserted union asymptotic; §4.1 pp.12–13, exceptional-set upper bound; §8 pp.22–25, Propositions8.1–8.3 and selected proofs. No original Landau or intersection-count proof read."
+      ],
+      "readingScope": "Selected passages freshly read by Codex codex-BdrTzT. No full-paper or original external-proof verification is claimed."
+    },
+    {
+      "id": "lt-primary-v1-residue",
+      "title": "How large is A_g(F_q)?",
+      "authors": "Michael Lipnowski and Jacob Tsimerman",
+      "edition": "arXiv:1511.02212v1, 6 November 2015; published numbering/content not identified",
+      "url": "https://arxiv.org/pdf/1511.02212v1",
+      "sha256": "5ceed8168ce37b75da67699189e7e8730527c31f3339dce979a1a1901243f81a",
+      "accessed": "2026-10-05",
+      "readSections": [
+        "§3.2.2, printed p.14, (22)–(24), and reference[18]. The original Louboutin proof remains unread."
+      ],
+      "readingScope": "Selected passages freshly read by Codex codex-BdrTzT. No full-paper or original external-proof verification is claimed."
+    },
+    {
+      "id": "low-primary-published",
+      "title": "The average size of 3-torsion in class groups of 2-extensions",
+      "authors": "Robert Lemke Oliver, Jiuya Wang and Melanie Matchett Wood",
+      "edition": "Forum of Mathematics, Pi13 (2025), e19, published open-access version",
+      "url": "https://doi.org/10.1017/S2050508625000009",
+      "sha256": "d5051ab0d37f9985f1adea5cbfee2263812ce96de2b354598448765411344ce5",
+      "accessed": "2026-10-05",
+      "readSections": [
+        "§4, printed pp.19–22, Lemma4.1, Theorem4.2, full proof of Lemma4.3, Lemma4.4 and its discussion; bibliography entries IK04, Pas17, TZ21, Zam17. The cited density/zero estimates are not proved by this reading."
+      ],
+      "readingScope": "Selected passages freshly read by Codex codex-BdrTzT. No full-paper or original external-proof verification is claimed.",
+      "pdfUrl": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/6AABE169B5BA8192FE036455DE4F806F/S2050508625000009a.pdf/div-class-title-the-average-size-of-3-torsion-in-class-groups-of-2-extensions-div.pdf"
+    },
+    {
+      "id": "zaman-primary-thesis",
+      "title": "Analytic estimates for the Chebotarev Density Theorem and their applications",
+      "authors": "Asif Ali Zaman",
+      "edition": "PhD thesis, University of Toronto, 2017",
+      "url": "https://www.math.toronto.edu/zaman/files/thesis.pdf",
+      "sha256": "03e075ae749209d319a8b6f3e2b121fca4aa3e27a62d90285a15e26895804c06",
+      "accessed": "2026-10-05",
+      "readSections": [
+        "§1.3.1 pp.11–12, Theorem1.3.1; §1.5 pp.26–27, constant conventions and proof roadmap; §7.2.1 pp.159–160; selected §7.2.4 pp.166–169, including B≥35 in the final case. Not a full Chapter7 or zero-repulsion proof read."
+      ],
+      "readingScope": "Selected passages freshly read by Codex codex-BdrTzT. No full-paper or original external-proof verification is claimed."
     }
   ],
   "nodes": [
@@ -5609,19 +5705,25 @@
       "realises": [
         "AnalyticNumberTheory:AN.5"
       ],
-      "title": "Landau-type counts",
+      "title": "Landau–Ramanujan count of sums of two squares",
       "kind": "theorem",
       "statement": "For K→∞, #{1≤k≤K:k=u²+v² for some integers u,v}∼C_L K/√log K with the positive Landau–Ramanujan constant C_L.",
       "hypotheses": [
-        "Parameters, ranges, character normalization and constant dependence are those in the displayed statement."
+        "K tends to infinity through positive real cutoffs; u,v are integers and represented integers are counted once, not by representation multiplicity."
       ],
       "proofSteps": [
-        "Factor the indicator Dirichlet series by residue classes of primes modulo 4.",
-        "Apply the square-root Selberg–Delange singularity theorem with its positive constant."
+        "Convert integer-square witnesses to natural-square witnesses and use the pinned Nat.eq_sq_add_sq_iff; no new arithmetic representation criterion is planned.",
+        "For the 0/1 indicator b, the Euler factors are (1−p^(−s))^(−1) for p=2 or p≡1 mod4, and (1−p^(−2s))^(−1) for p≡3 mod4. Thus B(s)²=ζ(s)L(s,χ_−4)(1−2^(−s))^(−1)∏_{p≡3 mod4}(1−p^(−2s))^(−1) on Re s>1.",
+        "Use fixed-modulus Siegel–Walfisz to verify the weighted-prime input (13.1) with κ=1/2; b≤1 satisfies (13.2). Apply the missing Selberg–Delange interface of Theorem13.2 and evaluate c₀/Γ(1/2). Its proof and constant/product convergence are recorded in the Landau gap."
       ],
-      "prerequisites": [],
+      "prerequisites": [
+        "mathlib:Nat.eq_sq_add_sq_iff",
+        "AnalyticNumberTheory:AN.2/siegel-walfisz"
+      ],
       "acceptance": [
-        "Check every endpoint and the stated dependence of constants; no conjectural input is implicit."
+        "C_L=(1/√2)∏_{p≡3 mod4}(1−p^(−2))^(−1/2), with a convergent positive product; this explicit constant evaluation remains part of the recorded proof gap.",
+        "At K=1 the count is1; at K=5 it is4 (1,2,4,5). The count at K=3 is2, so3 is excluded.",
+        "9=0²+3² is counted: the forbidden prime3 may occur to an even power. Counting only integers supported on p=2 or p≡1 mod4 would fail this test."
       ],
       "uses": [
         {
@@ -5639,6 +5741,16 @@
           "sourceId": "reviewed-paper-ghosh-sarnak-22",
           "locator": "§1, p.3; §4.1, pp.12–13; §8, p.24, arXiv:1706.06712v3 (final version)",
           "match": "Literal title and precise corrected statement of accepted extraction PAPER-GHOSH-SARNAK-22/40. The original external proof is not certified by its acceptance."
+        },
+        {
+          "sourceId": "kouk-primary-preliminary",
+          "locator": "Chapter13, (13.1)–(13.2), Theorem13.2 pp.130–134 and Exercise13.4 p.140",
+          "match": "The exercise gives this exact indicator asymptotic and prime-factor criterion. Theorem13.2 supplies the reusable multiplicative-mean route, whose proof is not closed here."
+        },
+        {
+          "sourceId": "gs-primary-v3",
+          "locator": "Introduction p.3, exceptional families; §4.1 pp.12–13",
+          "match": "Fresh source support for the three exceptional families and the asserted union asymptotic; the paper does not supply the individual Landau proofs or the shifted intersection estimate."
         }
       ],
       "implementationStatus": "unchecked",
@@ -5652,19 +5764,24 @@
       "realises": [
         "AnalyticNumberTheory:AN.5"
       ],
-      "title": "Landau-type counts",
+      "title": "Landau upper bound for shifted Eisenstein norms",
       "kind": "theorem",
-      "statement": "The number of positive k≤K with 4(k−1)=u²+3v² is O(K/√log K), with an absolute constant.",
+      "statement": "For real K≥2, the count of positive integers k≤K with 4(k−1)=u²+3v² for some integers u,v is at most C K/√log K for one absolute C>0; the k=1 norm-zero case is counted once.",
       "hypotheses": [
-        "Parameters, ranges, character normalization and constant dependence are those in the displayed statement."
+        "K≥2 is a real cutoff; integer witnesses include0 and signs; count represented k, not pairs(u,v)."
       ],
       "proofSteps": [
-        "Use the local representation criterion for u²+3v² and the affine substitution 4(k−1).",
-        "Apply the compatible residue-class multiplicative counting theorem to the exact criterion."
+        "Put m=k−1≥0. The equation forces u and v to have the same parity. The integral change a=(u+v)/2, b=v gives m=a²−ab+b², and conversely u=2a−b, v=b.",
+        "For positive m use the exact Eisenstein-norm criterion: every prime p≡2 mod3 has even valuation, including p=2. That arithmetic criterion is not a consequence of the sum-of-two-squares theorem and remains a supplier gap.",
+        "Apply the fixed-modulus multiplicative-mean theorem with κ=1/2, supplied prime distribution, and the positive residual Euler factor. The norm-zero case contributes1 and the shift by1 preserves the stated upper bound."
       ],
-      "prerequisites": [],
+      "prerequisites": [
+        "AnalyticNumberTheory:AN.2/siegel-walfisz"
+      ],
       "acceptance": [
-        "Check every endpoint and the stated dependence of constants; no conjectural input is implicit."
+        "k=1 and2 are counted (norms0,1). k=3 is excluded because2 has odd valuation at the inert prime2.",
+        "k=4 is counted (u,v)=(3,1), although k−1=3 is not a sum of two integer squares.",
+        "k=5 is counted (u,v)=(4,0), exercising the even exponent of2."
       ],
       "uses": [
         {
@@ -5682,6 +5799,11 @@
           "sourceId": "reviewed-paper-ghosh-sarnak-22",
           "locator": "§1, p.3; §4.1, pp.12–13; §8, p.24, arXiv:1706.06712v3 (final version)",
           "match": "Literal title and precise corrected statement of accepted extraction PAPER-GHOSH-SARNAK-22/40. The original external proof is not certified by its acceptance."
+        },
+        {
+          "sourceId": "gs-primary-v3",
+          "locator": "Introduction p.3, exceptional families; §4.1 pp.12–13",
+          "match": "Fresh source support for the three exceptional families and the asserted union asymptotic; the paper does not supply the individual Landau proofs or the shifted intersection estimate."
         }
       ],
       "implementationStatus": "unchecked",
@@ -5695,19 +5817,26 @@
       "realises": [
         "AnalyticNumberTheory:AN.5"
       ],
-      "title": "Landau-type counts",
+      "title": "Elementary shifted-square count",
       "kind": "theorem",
       "statement": "#{1≤k≤K:k−4 is an integer square}≤1+√max(K−4,0), for K≥1.",
       "hypotheses": [
-        "Parameters, ranges, character normalization and constant dependence are those in the displayed statement."
+        "K≥1 is a real cutoff; k is a positive integer and the square witness is an integer."
       ],
       "proofSteps": [
-        "For each k=u²+4, choose u≥0; the map u↦u²+4 is injective.",
-        "Count integers 0≤u≤√(K−4) for K≥4."
+        "For K<4 the set is empty. For K≥4, replace each integer square witness by its nonnegative absolute value; k↦u is inverse to the injective map u↦u²+4.",
+        "For an integer cutoff N≥4, Nat.le_sqrt' identifies the witness interval 0≤u≤Nat.sqrt(N−4); Set.InjOn.ncard_image and Set.ncard_Iic_nat give its exact cardinality Nat.sqrt(N−4)+1.",
+        "For a real cutoff use N=floor K and the real square-root comparison to get the displayed upper bound. The finite/real floor adapter is routine; the k=4, u=0 point must be retained."
       ],
-      "prerequisites": [],
+      "prerequisites": [
+        "mathlib:Nat.le_sqrt'",
+        "mathlib:Set.InjOn.ncard_image",
+        "mathlib:Set.ncard_Iic_nat"
+      ],
       "acceptance": [
-        "Check every endpoint and the stated dependence of constants; no conjectural input is implicit."
+        "For integer N, the count is0 when N<4 and Nat.sqrt(N−4)+1 when N≥4.",
+        "At K=3 the count is0; at K=4 it is1; at K=5 it is2; at K=13 it is4 (4,5,8,13).",
+        "At K=4 the bound is exactly1, so the square-zero case is included."
       ],
       "uses": [
         {
@@ -5725,6 +5854,11 @@
           "sourceId": "reviewed-paper-ghosh-sarnak-22",
           "locator": "§1, p.3; §4.1, pp.12–13; §8, p.24, arXiv:1706.06712v3 (final version)",
           "match": "Literal title and precise corrected statement of accepted extraction PAPER-GHOSH-SARNAK-22/40. The original external proof is not certified by its acceptance."
+        },
+        {
+          "sourceId": "gs-primary-v3",
+          "locator": "Introduction p.3, exceptional families; §4.1 pp.12–13",
+          "match": "Fresh source support for the three exceptional families and the asserted union asymptotic; the paper does not supply the individual Landau proofs or the shifted intersection estimate."
         }
       ],
       "implementationStatus": "unchecked",
@@ -5738,15 +5872,16 @@
       "realises": [
         "AnalyticNumberTheory:AN.5"
       ],
-      "title": "Landau-type counts",
+      "title": "Asymptotic count of the three exceptional families",
       "kind": "theorem",
       "statement": "The union of k=u²+v², 4(k−1)=u²+3v² and k−4=u², with k positive and ≤K, has cardinality ∼C′ K/√log K for a positive C′.",
       "hypotheses": [
-        "Parameters, ranges, character normalization and constant dependence are those in the displayed statement."
+        "Count positive integers k≤K satisfying at least one of the three integer-representation predicates; K→∞; no representation multiplicity."
       ],
       "proofSteps": [
-        "Use the three individual counts for the upper bound.",
-        "Read the source intersection counts before asserting the positive asymptotic constant for the union."
+        "Use the individual counts and the elementary shifted-square count to obtain a two-sided comparison with K/√log K. These inputs alone do not imply a limit constant.",
+        "To obtain the asserted asymptotic, supply an asymptotic for the Eisenstein-norm family and an o(K/√log K) bound for its intersection with the sum-of-two-squares family. The latter is a shifted correlation of representation indicators, not a single multiplicative Euler product.",
+        "Apply finite-set inclusion-exclusion and absorb the shifted-square family, which is O(√K). Ghosh–Sarnak p.3 asserts the union asymptotic, whereas §4.1 only uses the upper bound. The stronger inputs remain an explicit gap."
       ],
       "prerequisites": [
         "AnalyticNumberTheory:AN.5/landau-sum-two-squares-count",
@@ -5754,7 +5889,9 @@
         "AnalyticNumberTheory:AN.5/shifted-square-count"
       ],
       "acceptance": [
-        "Check every endpoint and the stated dependence of constants; no conjectural input is implicit."
+        "The source asymptotic must be proved independently of the elementary upper/lower comparison; no positive limit is inferred solely from those bounds.",
+        "At integer cutoff13, the union is {1,2,4,5,8,9,10,13}, of cardinality8; overlaps must be subtracted.",
+        "Removing k=0 changes a count by at most1, with no effect on the asymptotic."
       ],
       "uses": [
         {
@@ -5772,6 +5909,11 @@
           "sourceId": "reviewed-paper-ghosh-sarnak-22",
           "locator": "§1, p.3; §4.1, pp.12–13; §8, p.24, arXiv:1706.06712v3 (final version)",
           "match": "Literal title and precise corrected statement of accepted extraction PAPER-GHOSH-SARNAK-22/40. The original external proof is not certified by its acceptance."
+        },
+        {
+          "sourceId": "gs-primary-v3",
+          "locator": "Introduction p.3, exceptional families; §4.1 pp.12–13",
+          "match": "Fresh source support for the three exceptional families and the asserted union asymptotic; the paper does not supply the individual Landau proofs or the shifted intersection estimate."
         }
       ],
       "implementationStatus": "unchecked",
@@ -5785,19 +5927,29 @@
       "realises": [
         "AnalyticNumberTheory:AN.5"
       ],
-      "title": "Landau-type counts",
+      "title": "Counts supported on half the reduced prime classes",
       "kind": "theorem",
-      "statement": "Fix M≥1 and R⊆(ZMod M)^× with #R=φ(M)/2, and omit the finitely many primes dividing M. Let H be the subgroup of (ZMod M)^× generated by R. For every a∈H, the count of 1≤ν≤X with all prime factors in R modulo M and ν≡a mod M is comparable to X/√log X, with positive constants depending on M,R,a. Classes a∉H have count zero.",
+      "statement": "Fix a positive modulus M and R⊆(ZMod M)^× with 2#R=φ(M); primes dividing M are excluded. Let H be the subgroup generated by R. For each fixed a∈H there are C₁,C₂>0 and X₀≥2, depending only on M,R,a, such that for all X≥X₀ the count of positive ν≤X with every prime factor lying in R modulo M and ν≡a mod M lies between C₁ X/√log X and C₂ X/√log X. If a∉H, that count is0. The empty factorization ofν=1 is included only in the identity class.",
       "hypotheses": [
-        "Parameters, ranges, character normalization and constant dependence are those in the displayed statement."
+        "M,R,a are fixed before X tends to infinity; the exact half-cardinality condition is2#R=φ(M), with no rounded integer division.",
+        "All prime factors are tested, including repeated factors and the primes dividing M, which are forbidden; ν≥1."
       ],
       "proofSteps": [
-        "Use fixed congruence classes R in the reduced residue classes modulo M, with #R=φ(M)/2.",
-        "Factor the multiplicative indicator Dirichlet series and apply Selberg–Delange with a compatible residue class."
+        "Form the multiplicative 0/1 indicator with Euler factors (1−p^(−s))^(−1) only at allowed primes; do not replace it by a squarefree indicator.",
+        "Use finite Dirichlet-character orthogonality to select ν≡a modM. For each twist χ the weighted prime mean is κ_χ=φ(M)^(−1)Σ_{r∈R}χ(r), supplied by fixed-modulus Siegel–Walfisz.",
+        "The maximal real part is1/2 exactly for characters trivial on H. Their twists equal the untwisted indicator on every supported integer; for a∈H the leading terms therefore add rather than cancel. All other twists have a strict real-exponent gap because M and R are fixed.",
+        "Apply the missing complex-κ Selberg–Delange interface of Theorem13.2, then prove positivity of the untwisted residual factor using fixed-modulus Dirichlet nonvanishing and the convergent higher-power factors. The character decomposition, branch/product estimate and positivity are recorded as gaps.",
+        "Products of allowed unit classes lie in H, giving the zero count outside H, including the ν=1 identity-class convention."
       ],
-      "prerequisites": [],
+      "prerequisites": [
+        "AnalyticNumberTheory:AN.2/siegel-walfisz",
+        "mathlib:DirichletCharacter.LFunction_ne_zero_of_one_le_re"
+      ],
       "acceptance": [
-        "Check every endpoint and the stated dependence of constants; no conjectural input is implicit."
+        "For M=4, R={1}, H={1}; class3 has count0. Allowing arbitrary reduced classes would give a false positive count.",
+        "For M=4, R={3}, H={1,3}; both classes have positive asymptotic-sized counts; the identity class includesν=1 and products of an even number of3 mod4 primes.",
+        "9 is allowed when M=4,R={3}, whereas3 is forbidden for R={1}; this distinguishes the unrestricted-support and squarefree indicators.",
+        "The exact half-cardinality condition has no solution for M=1 or2, sinceφ(M)=1; roundingφ(M)/2 would falsely admit the empty prime family."
       ],
       "uses": [
         {
@@ -5815,6 +5967,16 @@
           "sourceId": "reviewed-paper-ghosh-sarnak-22",
           "locator": "§1, p.3; §4.1, pp.12–13; §8, p.24, arXiv:1706.06712v3 (final version)",
           "match": "Literal title and precise corrected statement of accepted extraction PAPER-GHOSH-SARNAK-22/40. The original external proof is not certified by its acceptance."
+        },
+        {
+          "sourceId": "gs-primary-v3",
+          "locator": "§8, Proposition8.1 and ensuing density discussion, pp.22–24",
+          "match": "The fixed quadratic residue-support families motivate the target. The arbitrary M,R,a formulation is a generalization requiring the separately recorded multiplicative-mean proof, not a literal theorem of this paper."
+        },
+        {
+          "sourceId": "kouk-primary-preliminary",
+          "locator": "Chapter13 (13.1)–(13.2), Theorem13.2 pp.130–134",
+          "match": "The theorem gives the complex-κ multiplicative-mean framework after prime distribution and divisor domination have been checked. This checkpoint has not read its whole proof."
         }
       ],
       "implementationStatus": "unchecked",
@@ -5830,9 +5992,9 @@
       ],
       "title": "Explicit residue bound for Dedekind zeta functions (Louboutin)",
       "kind": "theorem",
-      "statement": "For degree d>1 the source quotes Res_(s=1) ζ_K(s)≤(e log|D_K|/(2(d−1)))^(d−1).",
+      "statement": "For every number field K of degree d>1 and absolute discriminant D_K, the residue κ_K of the continued Dedekind zeta function satisfies κ_K≤(e log D_K/(2(d−1)))^(d−1).",
       "hypotheses": [
-        "Parameters, ranges, character normalization and constant dependence are those in the displayed statement."
+        "K is a number field; d=[K:ℚ]>1; D_K is the positive absolute discriminant; κ_K is the residue of the complex continuation at1, matched to the pinned real residue limit."
       ],
       "proofSteps": [
         "Apply the original Louboutin upper bound to the continued Dedekind residue.",
@@ -5860,6 +6022,11 @@
           "sourceId": "reviewed-paper-lipnowski-tsimerman-18",
           "locator": "§3.2.2 (24), [18]; used again in §5.4.2 (49)",
           "match": "Literal title and precise corrected statement of accepted extraction PAPER-LIPNOWSKI-TSIMERMAN-18/residue-source. The original external proof is not certified by its acceptance."
+        },
+        {
+          "sourceId": "lt-primary-v1-residue",
+          "locator": "§3.2.2, (24), printed p.14; reference[18]",
+          "match": "The exact quoted target and exponent are freshly read in arXivv1. This is not an independent read of Louboutin JNT85 (2000), whose proof remains the Explicit Dedekind estimates gap."
         }
       ],
       "implementationStatus": "unchecked",
@@ -5873,17 +6040,21 @@
       "realises": [
         "AnalyticNumberTheory:AN.3"
       ],
-      "title": "Theorem 4.2 (zero-density estimate for ray class L-functions)",
+      "title": "Ray-class L-function zero-density estimate",
       "kind": "theorem",
       "statement": "There is c = c([k : ℚ]) > 0 such that for Q, T > 1, 1/2 ≤ σ < 1 and ε > 0, Σ_{Nm 𝔮≤Q}Σ*_{χ mod 𝔮}N_χ(σ, T) ≪_{[k:ℚ],ε} (Disc(k)QT)^{c(1−σ)+ε}, the inner sum over primitive ray class characters of conductor 𝔮 and N_χ(σ, T) counting zeros with ℜρ ∈ (σ, 1), |ℑρ| ≤ T.",
       "hypotheses": [
-        "Parameters, ranges, character normalization and constant dependence are those in the displayed statement."
+        "k is a number field of fixed degree n; D_k is its absolute discriminant; Q,T>1; 1/2≤σ<1; ε>0.",
+        "Count nontrivial zeros with analytic multiplicity and strict σ<Reρ<1, inclusive |Imρ|≤T. Sum once over each primitive finite-order ray class character of exact conductor ideal𝔮, including its infinity component."
       ],
       "proofSteps": [
-        "Count primitive ray-class characters by conductor norm.",
-        "Apply the Thorner–Zaman density estimate, retaining the ε exponent: this is not a log-free estimate."
+        "Use the canonical finite-order ray-class/Hecke carrier and its continued L-function; form a locally finite zero multiset with analytic multiplicities, rather than an unweighted set of zero locations.",
+        "Specialize the original family-density theorem to the trivial GL1 base representation and retain the ε exponent. The degree dependence and full character/conductor family must match LOW Theorem4.2. The original Pasten appendix/Thorner–Zaman proof and zero-multiset construction remain gaps."
       ],
-      "prerequisites": [],
+      "prerequisites": [
+        "AnalyticNumberTheory:AN.4/hecke-primitive-functional-equation",
+        "AnalyticNumberTheory:AN.4/hecke-nonvanishing-on-line-one"
+      ],
       "acceptance": [
         "Check every endpoint and the stated dependence of constants; no conjectural input is implicit."
       ],
@@ -5903,6 +6074,11 @@
           "sourceId": "reviewed-paper-lemkeoliver-wang-wood-25",
           "locator": "Theorem 4.2, p.20, citing Lemke Oliver–Thorner [Pas17, Proposition A.2] and Thorner–Zaman [TZ21, Theorem 1.2], Forum Math. Pi 13 (2025), e19",
           "match": "Literal title and precise corrected statement of accepted extraction PAPER-LEMKEOLIVER-WANG-WOOD-25/17. The original external proof is not certified by its acceptance."
+        },
+        {
+          "sourceId": "low-primary-published",
+          "locator": "§4, Theorem4.2, printed p.20",
+          "match": "Freshly read published theorem preserves Q,T>1, the strict real-part interval and the ε exponent. It is a recalled consequence, not a proof of the original density theorem."
         }
       ],
       "implementationStatus": "unchecked",
@@ -5916,21 +6092,33 @@
       "realises": [
         "AnalyticNumberTheory:AN.4"
       ],
-      "title": "Lemma 4.3 (most quadratic extensions have many small split primes)",
+      "title": "Many split primes outside a small quadratic exception set",
       "kind": "theorem",
       "statement": "For ε₁ > 0 and X ≥ 2 there is E = E(k, X, ε₁) ⊂ {F/k quadratic, Disc(F/k) ≤ X} with |E| ≪_{[k:ℚ],ε₁} Disc(k)^{ε₁}X^{ε₁}, such that for F ∉ E and 4 ≤ Y ≤ X, π_k(Y; F, e) ≥ (1/8)π_k(Y/2) − C_{[k:ℚ],ε₁}Y^{σ₁}log²(X Disc(k)) with σ₁ = max(1 − ε₁/(4c), 1/2). E consists of the F whose character χ_{F/k} has a zero with ℜρ > σ₁, |ℑρ| ≤ X^{1/2}; the proof is the explicit formula with Lemma 4.1.",
       "hypotheses": [
-        "Parameters, ranges, character normalization and constant dependence are those in the displayed statement."
+        "k is a number field of fixed degree n, D_k its absolute discriminant; quadratic F/k have relative discriminant norm≤X; ε₁>0 and X≥2.",
+        "Take one positive degree-dependent c from the density theorem and σ₁=max(1−ε₁/(4c),1/2). E is fixed before Y ranges over4≤Y≤X, and a single constant C_{n,ε₁} works for all eligible k,F,X,Y. All prime-ideal counts include the norm endpoint."
       ],
       "proofSteps": [
-        "Define the exceptional extension set by zeros in the displayed rectangle.",
-        "Use the ray-class density bound and the quadratic character prime-count comparison from Chebotarev, retaining σ₁ and the whole range 4≤Y≤X."
+        "Use the unique primitive quadratic ray character of conductor the relative discriminant; define E by its nontrivial zeros with σ₁<Reρ<1 and |Imρ|≤√X. The density bound with Q=X,T=√X and an exponent parameter small relative toε₁ gives #E≪_{n,ε₁}D_k^ε₁X^ε₁; bound conjugate infinity types by degree.",
+        "For F outside E, use the ideal von Mangoldt coefficient and the nonnegative weight (1−N𝔞/Y). Away from ramification, (1+χ(𝔭))/2 is the split-prime indicator. Ramified primes and higher powers require their separate counting estimates.",
+        "The Hecke logarithmic-derivative series and smoothed Perron give the kernel Y^s/(s(s+1)). Shift at safe heights, accounting for all trivial/nontrivial zeros and double-pole residues at0 and−1; the literal source claim about every vertical line is not used as an integrability lemma.",
+        "LOW Lemma4.1 supplies the required unit-height zero count and local logarithmic-derivative targets. At T=√X, high zeros contribute O_n(Y log(XD_kT)/T) and low zeros O_{n,ε₁}(Y^σ₁ log(XD_kT)); use Y≤X. Original IK estimates, good-height selection, smoothed contour and residue calculations remain an explicit gap.",
+        "Use the imported inclusive counting carriers and partial summation to remove higher powers/ramification and the log norm weight, producing the stated1/8 lower bound with one uniform error constant. The exact quantitative adapter, stronger than qualitative PNT transfer, remains a gap."
       ],
       "prerequisites": [
-        "AnalyticNumberTheory:AN.3/ray-class-zero-density"
+        "AnalyticNumberTheory:AN.3/ray-class-zero-density",
+        "AnalyticNumberTheory:AN.4/quadratic-zeta-factorization",
+        "AnalyticNumberTheory:AN.4/hecke-primitive-functional-equation",
+        "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-4-counting-carriers-and-local-finiteness",
+        "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-6-abel-and-perron-summation",
+        "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-5-ideal-and-prime-estimates",
+        "AnalyticNumberTheory:AN.4/hecke-nonvanishing-on-line-one"
       ],
       "acceptance": [
-        "Check every endpoint and the stated dependence of constants; no conjectural input is implicit."
+        "The same set E and one degree/ε₁-dependent constant work simultaneously for every4≤Y≤X; allowing Y-dependent constants would make the target empty.",
+        "When X<4 there are no eligible Y, but the exceptional-set cardinality assertion is still required.",
+        "The source weights all prime powers before transferring to split unramified primes; its1/8 main factor cannot be replaced by1/2 without a separate argument."
       ],
       "uses": [
         {
@@ -5948,6 +6136,11 @@
           "sourceId": "reviewed-paper-lemkeoliver-wang-wood-25",
           "locator": "Lemma 4.3 and proof, pp.20–22, Forum Math. Pi 13 (2025), e19",
           "match": "Literal title and precise corrected statement of accepted extraction PAPER-LEMKEOLIVER-WANG-WOOD-25/18. The original external proof is not certified by its acceptance."
+        },
+        {
+          "sourceId": "low-primary-published",
+          "locator": "§4, Lemma4.3 and full proof, printed pp.20–22",
+          "match": "Fresh published statement and proof route, with the smoothed kernel, endpoint residues, height√X and dependence onσ₁; invoked Lemma4.1/IK inputs remain open."
         }
       ],
       "implementationStatus": "unchecked",
@@ -5965,13 +6158,16 @@
       "kind": "theorem",
       "statement": "For every fixed degree n there is a positive effective c_n and an absolute effective D₀ such that π_k(Y)≥c_n D_k^(−19)Y/log Y whenever [k:Q]=n, D_k≥D₀ and Y≥D_k^35.",
       "hypotheses": [
-        "Parameters, ranges, character normalization and constant dependence are those in the displayed statement."
+        "Fix n=[k:ℚ]≥1; D_k is the absolute discriminant; one absolute effective threshold D₀≥2 and an effective c_n>0 precede all k,Y; Y≥D_k^35.",
+        "π_k counts nonzero prime ideals of norm≤Y. The caseD_k=1 is outside the discriminant threshold, not a counterexample."
       ],
       "proofSteps": [
         "Apply the degree-uniform effective Zaman prime-ideal bound with β=35 and γ=19.",
         "Retain a discriminant threshold and Y≥D^35."
       ],
-      "prerequisites": [],
+      "prerequisites": [
+        "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-4-counting-carriers-and-local-finiteness"
+      ],
       "acceptance": [
         "Check every endpoint and the stated dependence of constants; no conjectural input is implicit."
       ],
@@ -5991,6 +6187,16 @@
           "sourceId": "reviewed-paper-lemkeoliver-wang-wood-25",
           "locator": "Lemma 4.4, p.22, citing [Zam17], Forum Math. Pi 13 (2025), e19",
           "match": "Literal title and precise corrected statement of accepted extraction PAPER-LEMKEOLIVER-WANG-WOOD-25/19. The original external proof is not certified by its acceptance."
+        },
+        {
+          "sourceId": "low-primary-published",
+          "locator": "§4, Lemma4.4 and ensuing discussion, printed p.22",
+          "match": "The published discussion explicitly gives β=35,γ=19 and degree-dependent implied lower-bound constants."
+        },
+        {
+          "sourceId": "zaman-primary-thesis",
+          "locator": "Theorem1.3.1, pp.11–12; conventions §1.5 p.26; selected §7.2.1 pp.159–160 and §7.2.4 pp.166–169",
+          "match": "The theorem gives the stronger general Galois count; the target specializes the identity extension k/k. Only selected proof passages read. Lemma7.2.3 prints threshold40 while the theorem and final weight case use35; the reduction must be reconciled before proof certification."
         }
       ],
       "implementationStatus": "unchecked",
@@ -6056,17 +6262,24 @@
       "title": "Logarithmic weight of prime divisors",
       "kind": "lemma",
       "statement": "For every integer N≥2, Σ_{p|N}(log p)/p≤log log N+C for one absolute real C.",
-      "hypotheses": [],
+      "hypotheses": [
+        "N is a natural integer≥2; sum over distinct prime divisors; one absolute C precedes allN."
+      ],
       "proofSteps": [
-        "For N sufficiently large, split at X=log N. Use Mertens’s first theorem for the small primes.",
-        "For the large primes use 1/p≤1/log N and Σ_{p|N}log p≤log N, so their total is ≤1.",
-        "Absorb the finitely many small N into C; log log N is permitted to be negative."
+        "For N≥e² split the distinct primes at X=log N≥2. Apply Mertens’s first theorem to p<X; primes at the endpoint belong to the large-prime group.",
+        "Nat.prod_primeFactors_dvd gives a positive squarefree kernel at mostN. Apply Real.log_prod and Real.log_le_log to get Σ_{p|N}log p≤log N; no divisor-product equality withN is assumed.",
+        "For p≥X use1/p≤1/X, so that Σ_{p|N,p≥X}log p/p≤1. Combine the groups; for2≤N<e² absorb the finite many values intoC, retaining possible negative log logN."
       ],
       "prerequisites": [
-        "AnalyticNumberTheory:AN.2/mertens-first-theorem"
+        "AnalyticNumberTheory:AN.2/mertens-first-theorem",
+        "mathlib:Nat.prod_primeFactors_dvd",
+        "mathlib:Real.log_prod",
+        "mathlib:Real.log_le_log"
       ],
       "acceptance": [
-        "Check every endpoint and the stated dependence of constants; no conjectural input is implicit."
+        "N=2 is included even though log log2<0; the constant must absorb that value.",
+        "For N=2^a witha≥1, the left side islog2/2, independent ofa; primes must be counted distinctly.",
+        "A prime at p=log N is assigned to the large-prime group by the half-open split, so no endpoint is lost."
       ],
       "uses": [
         {
@@ -12227,6 +12440,28 @@
       "neededBy": [
         "AnalyticNumberTheory:AN.4/partial-ideal-zeta"
       ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-4-counting-carriers-and-local-finiteness",
+      "need": "Canonical locally finite inclusive counts of nonzero prime ideals via HeightOneSpectrum, including norm cutoffs; supply the carrier/local finiteness only, not the degree-uniform analytic lower bound.",
+      "neededBy": [
+        "AnalyticNumberTheory:AN.4/most-quadratic-many-split-primes",
+        "AnalyticNumberTheory:AN.4/effective-prime-ideal-lower"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-6-abel-and-perron-summation",
+      "need": "Specialize the existing absolute-convergence/Perron and Abel infrastructure to the quadratic Hecke logarithmic-derivative coefficients and the smoothing1−N𝔞/Y. The kernel isY^s/(s(s+1)); zero-height contour shifts and quantitative residues are AN.3/4 proof gaps, not an asserted generic supplier output.",
+      "neededBy": [
+        "AnalyticNumberTheory:AN.4/most-quadratic-many-split-primes"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-5-ideal-and-prime-estimates",
+      "need": "Canonical inclusive prime counts, ideal von Mangoldt coefficients, higher-prime-power and finite ramification-discard estimates for quadratic splitting. Match the exact degree/discriminant-dependent errors needed in LOW Lemma4.3; qualitative PNT asymptotics alone do not supply these errors.",
+      "neededBy": [
+        "AnalyticNumberTheory:AN.4/most-quadratic-many-split-primes"
+      ]
     }
   ],
   "coverage": [
@@ -12644,10 +12879,12 @@
     {
       "title": "Landau and Selberg–Delange counts",
       "neededBy": [
+        "AnalyticNumberTheory:AN.5/landau-sum-two-squares-count",
+        "AnalyticNumberTheory:AN.5/landau-three-square-form-count",
         "AnalyticNumberTheory:AN.5/landau-exception-union",
         "AnalyticNumberTheory:AN.5/half-density-prime-support-count"
       ],
-      "detail": "Read the exact representation criteria, product singularity and intersection counts in the original cited Landau/GS sources. Positive prime density alone is insufficient; the target uses fixed congruence classes with compatible residue restrictions. Decompose the Selberg–Delange theorem and verify nonvanishing of the residual factor in the fixed congruence family. No uniform modulus bound is asserted."
+      "detail": "Fresh Ghosh–Sarnakv3 reading confirms the asserted union asymptotic on p.3 and only the upper bound in §4.1. Mathlib already supplies the sum-of-two-squares parity criterion. Still needed: a reusable complex-κ Selberg–Delange theorem with (13.1) weighted-prime mean, (13.2) divisor domination, branches and residual factor at1 (Koukoulopoulos Theorem13.2 proof not yet read); positive Landau constant/product evaluation; the Eisenstein integer-norm criterion and its positive asymptotic; and a proved o(K/√log K) intersection estimate for b_{−4}(k)b_{−3}(k−1). For the fixed M,R family, prove the finite-character expansion, maximal-exponent selection, residual positivity and outside-H zero count. The arbitrary half-class formulation is not printed in GS and is not certified merely by its applications. All four consumers are now explicitly attached to this gap. No uniform varying-modulus estimate is asserted."
     },
     {
       "title": "Explicit Dedekind estimates",
@@ -12663,7 +12900,7 @@
         "AnalyticNumberTheory:AN.4/most-quadratic-many-split-primes",
         "AnalyticNumberTheory:AN.4/effective-prime-ideal-lower"
       ],
-      "detail": "Count primitive ray-class characters by conductor norm.; Apply the Thorner–Zaman density estimate, retaining the ε exponent: this is not a log-free estimate. Original TZ/Zaman source reading and lemma decomposition, with discriminant/degree uniformity, remain required. Define the exceptional extension set by zeros in the displayed rectangle.; Use the ray-class density bound and the quadratic character prime-count comparison from Chebotarev, retaining σ₁ and the whole range 4≤Y≤X. Original TZ/Zaman source reading and lemma decomposition, with discriminant/degree uniformity, remain required. Apply the degree-uniform effective Zaman prime-ideal bound with β=35 and γ=19.; Retain a discriminant threshold and Y≥D^35. Original TZ/Zaman source reading and lemma decomposition, with discriminant/degree uniformity, remain required."
+      "detail": "Fresh published LOW §4 pp.19–22 reading verifies the three target statements and reads Lemma4.3’s complete argument. Still required: original family zero-density proof (Pasten appendix Prop.A.2 / TZ21 Thm1.2); locally finite primitive-Hecke zero counts with multiplicities, the unit-height count and local logarithmic-derivative lemma (IK Prop5.7, including continuation to−3/2); quantitative smoothed ideal Perron with kernelY^s/(s(s+1)), safe-height/left-edge limits, endpoint residues, and uniform low/high-zero bounds; conductor–discriminant and quadratic-character dictionary; and the exact weighted-to-split-prime transfer including ramification/higher powers. Zaman Theorem1.3.1 states35/19, but its full proof is not read: selected §7.2 reading finds40 in Lemma7.2.3 versus35 in the theorem and the final weight case, which needs reconciliation before certification. No general analytic Chebotarev theorem is duplicated; this packet targets the identity-extension prime-ideal specialization."
     },
     {
       "title": "Mertens first theorem",
@@ -13202,6 +13439,25 @@
           "availableMemoryBeforeLean": "102 GiB",
           "noFinalVerdict": true
         }
+      },
+      {
+        "job": "REV-AnalyticNumberTheory--AN.0",
+        "session": "codex-BdrTzT",
+        "date": "2026-10-05",
+        "inputCommit": "52c598cfaf84f788f32722b4617206fa2fe44b8b",
+        "status": "partial; no final review verdict",
+        "payloadReading": "Scoped fresh primary-source audit of indices87–97, retaining the previous node96 corrections. Ten changed nodes:87–95 and97. Inspected98–105 without source certification. No node is promoted to a final verified verdict.",
+        "sourceReading": "Ghosh–Sarnak arXivv3 selected introduction/§4.1/§8; Lipnowski–Tsimerman arXivv1 §3.2.2(22)–(24); published Lemke Oliver–Wang–Wood §4 including the full Lemma4.3 proof; selected Zaman thesis statement and §7.2 proof passages; preliminary Koukoulopoulos Ch13 pp.130–135 and Exercise13.4 p.140. Exact hashes and unread boundaries are in sources and the review report. No original Louboutin, zero-density or full Zaman proof certification.",
+        "baselineReading": "Six added declarations freshly read at Mathlib082e2d3: Nat.eq_sq_add_sq_iff, Nat.le_sqrt', Set.InjOn.ncard_image, Set.ncard_Iic_nat, Nat.prod_primeFactors_dvd, Real.log_prod; existing Real.log_le_log also read. Not a fresh audit of all72 baseline entries.",
+        "sourceIssuesAdded": [],
+        "readerLimitation": "Reader is not an issue deliverable. Authorized synchronization of all checkpoint corrections is still required before acceptance.",
+        "validation": {
+          "packet": "Pinned declaration-index checker:0 errors and0 warnings. Submission paths and checkpoint classification checked before PR.",
+          "suggestedLean": "lean-check in the shared pinned Mathlib build: exit0,192 warnings, all admitted-proof warnings; zero errors. Six new theorem signatures and17 examples are admitted, not proofs.",
+          "suggestedLeanSha256": "acc7af3403169d1e7bab1b2b812d29f54f69b0fd74cf4b75f73cfc05913a3a2c",
+          "availableMemoryBeforeLean": "103 GiB",
+          "noFinalVerdict": true
+        }
       }
     ]
   },
@@ -13475,6 +13731,34 @@
       "read": "2026-10-05",
       "sha256": "ab083496b4f9d3847e0d66ed5fca98ebf8c58f2ab107f445bcceb018b70f1ed2",
       "citation": "Acta Arithmetica LXI.2 (1992), 143–159, publisher scan; reading limited to the sections listed in sources."
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1706.06712v3",
+      "read": "2026-10-05",
+      "sha256": "e4ddc7a115ad4afd61f0063d0b931baf85792eee2267d1d5c232bece11d3163d",
+      "citation": "arXiv:1706.06712v3, 30 May 2022; preprint final version, not the separately typeset published article; reading limited to the passages listed in sources."
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1511.02212v1",
+      "read": "2026-10-05",
+      "sha256": "5ceed8168ce37b75da67699189e7e8730527c31f3339dce979a1a1901243f81a",
+      "citation": "arXiv:1511.02212v1, 6 November 2015; published numbering/content not identified; reading limited to the passages listed in sources."
+    },
+    {
+      "kind": "published",
+      "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/6AABE169B5BA8192FE036455DE4F806F/S2050508625000009a.pdf/div-class-title-the-average-size-of-3-torsion-in-class-groups-of-2-extensions-div.pdf",
+      "read": "2026-10-05",
+      "sha256": "d5051ab0d37f9985f1adea5cbfee2263812ce96de2b354598448765411344ce5",
+      "citation": "Forum of Mathematics, Pi13 (2025), e19, published open-access version; reading limited to the passages listed in sources."
+    },
+    {
+      "kind": "author copy",
+      "url": "https://www.math.toronto.edu/zaman/files/thesis.pdf",
+      "read": "2026-10-05",
+      "sha256": "03e075ae749209d319a8b6f3e2b121fca4aa3e27a62d90285a15e26895804c06",
+      "citation": "PhD thesis, University of Toronto, 2017; reading limited to the passages listed in sources."
     }
   ],
   "links": [],
