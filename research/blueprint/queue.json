@@ -34346,7 +34346,8 @@
    ],
    "followUpOf": "BP-HabiroNahmSeries",
    "prompt": "research/blueprint/prompts/BP-HabiroNahmSeries--HB.3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6506"
   },
   {
    "id": "REV-HabiroNahmSeries--HB.3",
@@ -35715,8 +35716,9 @@
    ],
    "revisionOf": "BP-KTheoryLowDegrees--U.1",
    "prompt": "research/blueprint/prompts/BP-KTheoryLowDegrees--U.1~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6503"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6503",
+   "finishedAt": "2026-10-05T21:59:30Z"
   },
   {
    "priority": 2,
