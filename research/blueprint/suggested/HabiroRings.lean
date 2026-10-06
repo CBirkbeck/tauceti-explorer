@@ -1,30 +1,29 @@
-/- FIX-RT-AREA-etale~2 ownership update (2026-09-30).
-RS-10 round 2 is accepted, while QWittVectors is uninstalled. The HR.1 Λ/Adams
-interfaces and HR.4 degree-zero big/q-Witt, ghost and no-restriction interfaces
-below remain the interim suppliers. Transfer them atomically to QW.1–4 on
-promotion; no duplicate owner is installed by this proposal. HR.1 retains its
-étale p-complete Frobenius lifts and HR.4 its finite Habiro rings and complete
-étale lifting. HQ.4 imports HR.4's restriction obstruction. HR.6 retains the
-degree-zero identification of the independent coefficient ring, consuming HQ.5's
-generic cohomology/completion export; the rejected duplicate finding /36 is not
-applied. The previous review's elaboration result is historical. This change was
-not compiled against the pinned libraries; all current suggestions are unchecked.
--/
+import Mathlib.Algebra.Algebra.Prod
 import Mathlib.Algebra.Category.Ring.Constructions
 import Mathlib.Algebra.CharP.Lemmas
 import Mathlib.Algebra.Colimit.Ring
+import Mathlib.Algebra.Homology.DerivedCategory.Basic
+import Mathlib.Algebra.MvPolynomial.Eval
 import Mathlib.Algebra.MvPolynomial.Expand
+import Mathlib.Algebra.Polynomial.BigOperators
 import Mathlib.Algebra.Polynomial.Expand
 import Mathlib.Algebra.Polynomial.Laurent
+import Mathlib.AlgebraicTopology.Quasicategory.Nerve
 import Mathlib.Analysis.SpecialFunctions.Complex.Circle
+import Mathlib.CategoryTheory.Category.Preorder
 import Mathlib.CategoryTheory.Functor.Basic
+import Mathlib.Condensed.Light.Module
+import Mathlib.Data.Nat.Factorization.Basic
 import Mathlib.FieldTheory.Finite.GaloisField
-import Mathlib.LinearAlgebra.FreeModule.Basic
 import Mathlib.LinearAlgebra.Finsupp.LinearCombination
+import Mathlib.LinearAlgebra.FreeModule.Basic
+import Mathlib.LinearAlgebra.Matrix.NonsingularInverse
+import Mathlib.LinearAlgebra.TensorProduct.Quotient
 import Mathlib.NumberTheory.Divisors
 import Mathlib.NumberTheory.NumberField.Discriminant.Defs
 import Mathlib.NumberTheory.NumberField.Discriminant.Different
 import Mathlib.NumberTheory.Padics.PadicIntegers
+import Mathlib.NumberTheory.Padics.PadicVal.Basic
 import Mathlib.NumberTheory.Padics.RingHoms
 import Mathlib.NumberTheory.Zsqrtd.GaussianInt
 import Mathlib.RingTheory.AdicCompletion.Completeness
@@ -32,28 +31,34 @@ import Mathlib.RingTheory.AdicCompletion.RingHom
 import Mathlib.RingTheory.AdjoinRoot
 import Mathlib.RingTheory.Etale.Basic
 import Mathlib.RingTheory.Flat.FaithfullyFlat.Basic
+import Mathlib.RingTheory.Flat.Localization
 import Mathlib.RingTheory.Flat.TorsionFree
 import Mathlib.RingTheory.Ideal.Quotient.Operations
+import Mathlib.RingTheory.Localization.AtPrime.Basic
 import Mathlib.RingTheory.Localization.Away.Basic
+import Mathlib.RingTheory.Nakayama
 import Mathlib.RingTheory.PicardGroup
 import Mathlib.RingTheory.Polynomial.Cyclotomic.Basic
 import Mathlib.RingTheory.Polynomial.Cyclotomic.Roots
 import Mathlib.RingTheory.PowerSeries.Basic
+import Mathlib.RingTheory.PowerSeries.Inverse
 import Mathlib.RingTheory.RingHom.Etale
 import Mathlib.RingTheory.RingHom.FaithfullyFlat
 import Mathlib.RingTheory.RingHom.Flat
 import Mathlib.RingTheory.RootsOfUnity.PrimitiveRoots
 import Mathlib.RingTheory.Smooth.AdicCompletion
 import Mathlib.RingTheory.Smooth.Fiber
+import Mathlib.RingTheory.Smooth.Flat
+import Mathlib.RingTheory.Smooth.StandardSmoothOfFree
 import Mathlib.RingTheory.Spectrum.Prime.Basic
 import Mathlib.RingTheory.TensorProduct.Basic
+import Mathlib.RingTheory.TensorProduct.Quotient
 import Mathlib.RingTheory.Unramified.Basic
 import Mathlib.RingTheory.Unramified.Locus
 import Mathlib.RingTheory.WittVector.Frobenius
 import Mathlib.RingTheory.WittVector.Teichmuller
 import Mathlib.RingTheory.WittVector.Truncated
 import Mathlib.RingTheory.WittVector.Verschiebung
-import TauCeti.RingTheory.Cyclotomic.Lift
 
 /-!
 # Suggested Lean forms for `HabiroRings` (stages HR.1–HR.7, with HR.5-number-field-comparison)
@@ -66,9 +71,43 @@ implementation, and `implementationStatus` stays `"unchecked"` for every node.
 Pinned commits: Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti
 `f790474821cf4256814db967cb154e7af3d0c369`.
 
-Compiled with `lean` against Mathlib `082e2d3` (the `lake env` paths of a project pinned to it) and
-the imported `TauCeti.RingTheory.Cyclotomic` modules built from the pinned `f790474` sources onto
-`LEAN_PATH`; the only warnings are uses of `sorry`.
+## The parts joined here
+
+The roadmap is planned in six reviewed packets, and this file joins their six suggested files,
+with one note, one import block and one namespace, `TauCeti.Habiro`.
+
+* `HabiroRings.json` (stages HR.1–HR.7): the body of the file, in layer order.
+* `HabiroRings--HR.1.json`: section `HR1FollowUp`, the big Witt comonad, Λ-rings as big Witt
+  coalgebras, Wilkerson's comparison and free Λ-rings. It stands after the truncated big Witt
+  vectors of HR.4, which it uses.
+* `HabiroRings--HR.2.json`: section `HR2FollowUp`, at the end of HR.2.
+* `HabiroRings--HR.3.json`: section `HR3FollowUp`, at the end of HR.3.
+* `HabiroRings--HR.4.json`: section `HR4FollowUp`, at the end of HR.4.
+* `HabiroRings--HR.6.json`: section `HR6FollowUp`, at the end of HR.6.
+
+Joining changed these things, and nothing else:
+
+* The HR.1 part's adapters are replaced by the first part's objects, as that part asked. Its
+  `BigWitt A` is `BigWittVector TruncationSet.univ A`, read with `ℕ+`-indexed `coeff`, `ofCoeff`,
+  `ghost`, `map` and `teichmuller`; its `Adams A` is `LambdaRing A`, with `Adams.Hom` the Λ-maps
+  and `Adams.integer` the structure `LambdaRing.trivialInt`; `Adams.toWitt` is
+  `LambdaRing.toBigWitt`; and its local `Via` is the prelude's.
+* The HR.2 part's local `factorialPolynomial n` is the prelude's `factorialPoly ℤ n`, the stand-in
+  for HC.1's factorial polynomial (the same product, indexed from `1`).
+* The HR.3 part's `CyclotomicIndex.primeChain m d p` is the first part's `divisorChain m d p`.
+* The HR.1 and HR.6 parts' namespaces, `HabiroHR1` and `TauCeti.HabiroCoefficients`, become
+  `TauCeti.Habiro`; every relative name is unchanged.
+* No Tau Ceti module is imported. The first part's file imported
+  `TauCeti.RingTheory.Cyclotomic.Lift` for two clauses of `phi_five_over_f_eleven`; the shared
+  build at the pins in which this file is elaborated does not contain that module. The two
+  clauses are restated over Mathlib through `phiFiveResidues`, the residue map at the four roots
+  `3, 4, 5, 9` of `Φ_5` modulo `11`, whose surjectivity and kernel `(11, Φ_5)` give the reduction
+  `ℤ[ζ_5]/11 ≅ 𝔽_11^4`. The pinned Tau Ceti has this map as
+  `TauCeti.Cyclotomic.conjugateResiduesRingHom` (`TauCeti/RingTheory/Cyclotomic/Lift.lean`), with
+  surjectivity `TauCeti.Cyclotomic.conjugateResidues_lift`, and an implementation should use it.
+
+Every node id, API name and unit-test name of the six packets appears in this file. The file
+elaborates with `lake env lean` at Mathlib `082e2d3`, with `sorry` as its only warning.
 
 ## Pinned conventions
 
@@ -77,6 +116,11 @@ the imported `TauCeti.RingTheory.Cyclotomic` modules built from the pinned `f790
   `ψ^p(x) ≡ x^p mod p` — **not** `ψ^p ≡ id mod p`, which excludes the toric `ℤ[x]`
   (`LambdaRing`, test `LambdaRing.toric_congruence`). "Λ-ring" is the arithmetic λ-ring, never an
   Iwasawa algebra. Levels `m` and the indices of the Adams operations are positive integers `ℕ+`.
+  The big Witt coalgebra form (`LambdaCoalgebra`) is equivalent on torsion-free rings
+  (`wilkersonComparison`).
+* **Big Witt vectors** `W_S(R)` are indexed by truncation sets `S` (`BigWittVector`); `W_m(R)` is
+  `W_{T_m}(R)` for the divisors `T_m` of `m` (`WittLevel`), and `W(R)` is the full truncation set
+  (`BigWitt`).
 * **The Habiro ring** of `A` is `lim_m A[q]^∧_{(q^m - 1)}` over the positive integers ordered by
   divisibility, equivalently `lim_N A[q]/((q;q)_N)`; completion is not inverting the `q^m - 1`.
   Its ring-level carrier is the stand-in `HabiroRing A = CycloCompletion A Set.univ` of
@@ -87,33 +131,34 @@ the imported `TauCeti.RingTheory.Cyclotomic` modules built from the pinned `f790
   restriction operator on q-Witt vectors (there is none: `QWittVector.no_restriction_map`).
 * **Numbering**: statements of the q-Witt paper follow arXiv:2410.23078**v5** (for example
   Lemma 2.46, Proposition 2.48, Corollaries 2.51 and 2.52; v4's numbering differs), and those of
-  Wagner's q-Hodge paper follow arXiv:2510.04782**v2**.
+  Wagner's q-Hodge paper follow arXiv:2510.04782**v2**. Hesselholt's big de Rham–Witt paper, the
+  HR.1 follow-up's source, is cited by its published numbering.
 * The coefficient algebras of the Taylor factors are the full `(R ⊗_{A,ψ^m} A)[x]/Φ_m(x)`, never a
   quotient through one embedding of `ζ_m`; `Φ_m` is separable, not irreducible, modulo `ℓ ∤ m`
   (`phi_five_over_f_eleven`).
 
 ## Library declarations imported and reused
 
-* Tau Ceti: `TauCeti.Cyclotomic` and `TauCeti.Cyclotomic.conjugateResiduesRingHom`
-  (`TauCeti/RingTheory/Cyclotomic/Basic.lean`, `Lift.lean`), in `phi_five_over_f_eleven`; the
-  surjectivity clause there is `TauCeti.Cyclotomic.conjugateResidues_lift`.
-* Mathlib, in signatures: `IsAddTorsionFree`; `MvPolynomial.expand` (the toric `ψ^m`);
-  `Polynomial.cyclotomic`; `RingHom.FaithfullyFlat`, `RingHom.Flat`, `RingHom.Etale`,
-  `Module.Basis`, `Module.Flat`; `Ring.DirectLimit` with `of` and `map` (the colimit perfection);
+* Mathlib, in signatures: `IsAddTorsionFree`; `MvPolynomial.expand` (the toric `ψ^m`) and
+  `MvPolynomial.eval₂Hom`; `Polynomial.cyclotomic`; `RingHom.FaithfullyFlat`, `RingHom.Flat`,
+  `RingHom.Etale`, `Module.Basis`, `Module.Flat`, `Module.Finite`, `Module.Invertible`;
+  `Ring.DirectLimit` with `of` and `map` (the colimit perfection);
   `AddMonoidAlgebra.mapDomainRingHom`; `AdicCompletion` with `liftRingHom`, `evalₐ`, `evalOneₐ`;
-  `Ideal.quotientMap`, `Ideal.Quotient.factor`, `Ideal.radical`, `PrimeSpectrum.zeroLocus`;
-  `Algebra.Etale` (with `Algebra.Etale.baseChange` and the localisation instance);
-  `Algebra.TensorProduct` (`lift`, `includeLeftRingHom`, `includeRight`, `lmul'`); `frobenius`,
-  `CharP`; `LaurentPolynomial` (`T`, `eval₂`, `Polynomial.toLaurent`); `Localization`,
-  `IsLocalization.mk'`, `IsLocalization.Away`; `Finsupp.linearCombination`, `Function.Exact`;
-  `WittVector.ghostComponent`, `TruncatedWittVector` (`out`); `PowerSeries` (`map`, `C`, `X`,
-  `constantCoeff`); `PadicInt` (`PadicInt.toZMod`), `ZMod`, `GaloisField`, `AdjoinRoot`,
-  `GaussianInt`; `NumberField.RingOfIntegers`, `NumberField.discr`; `IsPrimitiveRoot`
-  (`eq_pow_of_pow_eq_one`), `Complex.exp`; `RingHom.eqLocus` (whose universal property is
-  `CommRingCat.equalizerForkIsLimit`), `RingHom.pi`, `Pi.evalRingHom`, `RingHom.codRestrict`,
-  `Subring`, `Subalgebra`; `CommRing.Pic.mapAlgebra`; `CategoryTheory.Category`,
-  `CategoryTheory.Functor`.
-* Mathlib, as proof inputs named in docstrings (from the packet's baseline): the adic lifting
+  `IsAdicComplete`; `Ideal.quotientMap`, `Ideal.Quotient.factor`, `Ideal.radical`,
+  `PrimeSpectrum.zeroLocus`; `Algebra.Etale` (with `Algebra.Etale.baseChange` and the localisation
+  instance); `Algebra.TensorProduct` (`lift`, `map`, `includeLeftRingHom`, `includeRight`,
+  `lmul'`); `TensorProduct.lid`; `frobenius`, `CharP`; `LaurentPolynomial` (`T`, `eval₂`,
+  `Polynomial.toLaurent`); `Localization`, `IsLocalization.mk'`, `IsLocalization.Away`;
+  `Finsupp.linearCombination`, `Function.Exact`; `WittVector.ghostComponent`,
+  `TruncatedWittVector` (`out`); `PowerSeries` (`map`, `C`, `X`, `coeff`, `constantCoeff`);
+  `PadicInt` (`PadicInt.toZMod`), `ZMod`, `GaloisField`, `AdjoinRoot`, `GaussianInt`;
+  `NumberField.RingOfIntegers`, `NumberField.discr`; `IsPrimitiveRoot` (`eq_pow_of_pow_eq_one`),
+  `Complex.exp`; `RingHom.eqLocus` (whose universal property is
+  `CommRingCat.equalizerForkIsLimit`), `RingHom.pi`, `Pi.evalRingHom`,
+  `RingHom.codRestrict`, `Subring`, `Subalgebra`; `CommRing.Pic.mapAlgebra`,
+  `CommRing.Pic.mapRingHom`; `SSet.Quasicategory` and `CategoryTheory.nerve` (of the finite
+  descent index only); `CategoryTheory.Category`, `CategoryTheory.Functor`.
+* Mathlib, as proof inputs named in docstrings (from the packets' baselines): the adic lifting
   lemmas `Algebra.FormallySmooth.exists_mkₐ_comp_eq_of_isAdicComplete` and
   `Algebra.FormallyUnramified.ext_of_iInf`, `IsAdicComplete.liftRingHom`,
   `Polynomial.prod_cyclotomic_eq_X_pow_sub_one`, `Polynomial.cyclotomic.dvd_X_pow_sub_one`,
@@ -121,8 +166,12 @@ the imported `TauCeti.RingTheory.Cyclotomic` modules built from the pinned `f790
   `Polynomial.cyclotomic.irreducible_rat`, `Ideal.quotientInfRingEquivPiQuotient`,
   `Algebra.FormallyEtale.iff_comp_bijective`, `Algebra.Etale.of_isLocalizationAway`,
   `Algebra.Etale.of_formallyUnramified_of_flat`, `Algebra.formallyUnramified_iff_forall`,
-  `IsDedekindDomain.flat_iff_torsion_eq_bot`, `NumberField.not_dvd_discr_iff_isUnramifiedIn`, and
-  the scheme-theoretic inputs of the relative Frobenius lemma.
+  `IsDedekindDomain.flat_iff_torsion_eq_bot`, `NumberField.not_dvd_discr_iff_isUnramifiedIn`, the
+  flatness and localisation lemmas of the free Λ-ring cover, Nakayama's lemma, and the
+  scheme-theoretic inputs of the relative Frobenius lemma.
+* Tau Ceti: `TauCeti.Cyclotomic.conjugateResiduesRingHom` and
+  `TauCeti.Cyclotomic.conjugateResidues_lift`, named in `phi_five_over_f_eleven`, not imported (see
+  above).
 
 ## Stand-ins, helpers and omissions
 
@@ -131,15 +180,20 @@ are in neither library; they are planned by this roadmap and defined here honest
 
 * `LambdaRing` is a real structure (the congruence is a field), with real `delta`, `IsPerfect`,
   `IsPerfectlyCovered`, `trivialInt`, `toric` and the colimit perfection as a `Ring.DirectLimit`.
+  `LambdaCoalgebra` is the big Witt coalgebra form, with its axioms as actual ring-map equalities.
 * `BigWittVector S R` has the real carrier `R^S`, real ghost maps, restrictions, Teichmüller lifts
   and functoriality; its ring structure (Dwork's lemma) is a `sorry` instance whose construction is
   `HabiroRings:HR.4/truncated-big-witt-vectors`'s work. `QWittVector R m` is the honest quotient
   `W_m(R)[q]/I_m` of q-Witt Lemma 2.9, and `RelQWittVector Λ R m` the honest quotient of
   `q-W_m(R) ⊗_{q-W_m(A), c_m} A[q]/(q^m - 1)` of Lemma 2.41.
+* `FreeLambdaRing I` is the polynomial ring on the Witt coordinates `(i, n)`, with its coaction
+  given by the comultiplication of the universal points.
 * `RelHabiroStage` is the ordinary ring of glued families `(x_d)_{d ∣ m}` in
   `∏ (R ⊗_{A,ψ^d} A)[q]^∧_{Φ_d(q)}` (the ordinary limit over the poset of Corollary 2.4, which is
   the whole `E∞`-algebra by the staticity of Theorem 2.9), and `HabiroRings.relativeHabiro` the
   ordinary limit of these along the transitions; ring-level statements are made about them.
+* `EtaleDeformation I D` is an étale `B`-algebra with a marking of its reduction modulo `I`, and
+  `CompletedEtaleLift I L` its `I`-adic completion, both over actual Mathlib carriers.
 * Stand-ins for other roadmaps: `IsPDerivation` for the δ-rings of `PrismaticCohomology:PR.0`;
   `factorialPoly`, `cycloIndex`, `CycloCompletion`, `HabiroRing`, `kontsevichSeries` for
   `HabiroCyclotomicCompletions:HC.1`, named as that roadmap's suggested file names them.
@@ -148,11 +202,11 @@ are in neither library; they are planned by this roadmap and defined here honest
   carriers, each characterised by the theorems that follow it.
 
 Derived ∞-categories, Habiro-completeness and Habiro completion of complexes, `E∞`-algebras,
-solid spectra, `K_3` and the Habiro–Hodge complex are in neither library. A statement that needs
-them is left out, and a comment `<name>: not stated here; needs … (supplier: …)` records it in
-place; where a test has an honest ring-level part, that part is stated and the rest is recorded
-the same way. Every packet name appears in this file. Unit tests are `example`s preceded by
-`-- test <name> (<kind>)`.
+spectra and solid spectra, `Pr^L_st` and operadic sections, `K_3` and the Habiro–Hodge complex are
+in neither library. A statement that needs them is left out, and a comment records it in place,
+with its exact name, mathematical statement and supplier; where a test has an honest ring-level
+part, that part is stated and the rest is recorded the same way. Unit tests are `example`s
+preceded by a comment naming them.
 -/
 
 noncomputable section
@@ -1270,6 +1324,149 @@ end MonoidalStructureTests
 -- test toSolid_sum_ne_discrete (non-example): not stated here; needs `toSolid` and
 -- `IsHabiroCompleteSolid` (same gaps).
 
+section HR2FollowUp
+
+/-! ### HR.2, continued: the spherical and solid follow-up
+
+The nodes of the HR.2 follow-up packet: the spherical cyclotomic localization, the spectral Habiro
+completion, and the three solid nodes of the proposed sub-layer HR.2:solid. The pins have no
+spectra, spectral module categories or light solid hypersheaves (packet gap G-signatures), so
+the ledger below is an exact mathematical specification of their declarations, API and tests, as
+comments; it does not elaborate. No spectrum carrier, `Prop`-valued field or private solid
+category is introduced. Only the polynomial and proper-profile statements at the end are typed;
+they use the prelude's `factorialPoly`, the stand-in for HC.1's factorial polynomials. The
+spectral signatures replace the ledger once the StableHomotopyKTheory H.5, EnhancedDerivedSheaves
+E5 and light-solid suppliers exist. -/
+
+/-
+HabiroRings:HR.2/spherical-rational-localization
+Spherical cyclotomic localization
+Put R = S[Z] = S[q±1], the commutative spherical group ring, and P_n = ∏_{i=1}^n(1−q^i), with P_0=1. Construct the E∞ R-algebra T = R[(q^m−1)^{-1} : m≥1] as the sequential telescope R --(1−q)--> R --(1−q²)--> R --(1−q³)--> … on underlying modules, with coherent localization multiplication. T is idempotent: T⊗_R T ≃ T. Its π_0 is the ordinary localization Rr = Z[q±1,{(q^m−1)^{-1}}_{m≥1}]. This is a spherical localization, not the Eilenberg–Mac Lane spectrum of Rr.
+Proposed constructor SphericalCyclotomicLocalization: The commutative R-algebra T with its unit R→T.
+Proposed universal-property SphericalCyclotomicLocalization.map: For a commutative R-algebra B in which every q^m−1, m≥1, is invertible, the space of R-algebra maps T→B is contractible; otherwise it is empty.
+Proposed simp SphericalCyclotomicLocalization.invert: Multiplication by q^m−1 on T is an equivalence for every m≥1.
+Proposed characterisation SphericalCyclotomicLocalization.idempotent: The multiplication T⊗_R T→T is an equivalence of commutative R-algebras.
+Proposed equivalence SphericalCyclotomicLocalization.fibre: fib(R→T) ≃ Σ^{-1}colim_{n≥1}R/P_n with transition multiplication by 1−q^{n+1}.
+Proposed compatibility SphericalCyclotomicLocalization.pi: π_kT ≅ π_kR[{(q^m−1)^{-1}}_{m≥1}], naturally as Z[q±1]-modules.
+Proposed example SphericalCyclotomicLocalization.pi_zero (compatibility): π_0T ≅ Rr as Z[q±1]-algebras.
+Proposed example SphericalCyclotomicLocalization.first_transition (computation): The first transition R/P_1→R/P_2 is induced by 1−q², so P_2=P_1(1−q²).
+Proposed example SphericalCyclotomicLocalization.cyclotomic_tensor_zero (degenerate): T⊗_R(R/(q^m−1)) ≃ 0 for every positive m.
+-/
+
+/-
+HabiroRings:HR.2/spectral-habiro-completion
+Spectral Habiro completion
+For M∈Mod_R(Sp), define L_H M = RHom_R(fib(R→T),M). The unit M→L_H M is a reflection onto the full subcategory C_H where RHom_R(T,M)=0. There are natural equivalences L_H M ≃ lim_{n≥1}cofib(P_n:M→M) ≃ lim_{m≥1}M^∧_{(q^m−1)}, where the second limit uses divisibility in m and principal derived completions. Put SH=L_H R. The kernel is the T-local module category; it is a tensor ideal. Hence C_H has tensor L_H(M⊗_RN), unit SH and coherent symmetric monoidal structure. Completeness is equivalent to Habiro completeness of every π_kM as a Z[q±1]-module. Derived cyclotomic reductions jointly detect zero and each homotopy degree on C_H. These are spectral extensions of the accepted algebraic nodes, not a second theory of derived completion.
+Proposed constructor SpectralHabiroCompletion: M↦L_HM with a natural unit η_M:M→L_HM and SH=L_HR.
+Proposed equivalence SpectralHabiroCompletion.factorial: L_HM ≃ lim_{n≥1}M/P_n, with transition induced by P_n | P_{n+1}.
+Proposed universal-property SpectralHabiroCompletion.adjunction: For complete N, Map_R(L_HM,N)→Map_R(M,N) is an equivalence.
+Proposed simp SpectralHabiroCompletion.idempotent: η_{L_HM} and L_H(η_M) are equivalences, agreeing under the reflection coherence.
+Proposed structure SpectralHabiroCompletion.tensor: The tensor on C_H is L_H(M⊗_RN); its unit is SH, with associativity, unit and symmetry inherited via monoidal localization.
+Proposed characterisation SpectralHabiroCompletion.homotopy_exact: 0→Ext¹_{Z[q±1]}(Rr,π_{k+1}M)→π_kRHom_R(T,M)→Hom_{Z[q±1]}(Rr,π_kM)→0, naturally in M and k∈Z.
+Proposed characterisation SpectralHabiroCompletion.complete_iff_pi: M is complete iff each π_kM is complete in the accepted algebraic sense.
+Proposed characterisation SpectralHabiroCompletion.nakayama: If M is complete and M/Φ_m=0 for every positive m, then M=0.
+Proposed characterisation SpectralHabiroCompletion.detect_degree: For complete M and k∈Z, π_k(M/Φ_m)=0 for all positive m implies π_kM=0.
+Proposed compatibility SpectralHabiroCompletion.restrict_HZ: Under Mod_{HZ[q±1]}≃D(Z[q±1]), restriction along R→HZ[q±1] commutes with L_H. The tensor comparison uses the HZ[q±1]-relative tensor followed by completion; restriction to R-modules is only lax monoidal.
+Proposed functoriality SpectralHabiroCompletion.map: For an R-linear map u:M→N, L_H(u):L_HM→L_HN is the induced map between the reflections.
+Proposed simp SpectralHabiroCompletion.map_id: L_H(id_M)=id_{L_HM}, with the canonical functor coherence.
+Proposed functoriality SpectralHabiroCompletion.map_comp: L_H(v∘u)=L_H(v)∘L_H(u), coherently for composable R-linear maps.
+Proposed compatibility SpectralHabiroCompletion.unit_naturality: L_H(u)∘η_M=η_N∘u for every R-linear u:M→N.
+Proposed example SpectralHabiroCompletion.zero (degenerate): L_H0≃0.
+Proposed example SpectralHabiroCompletion.local_zero (non-example): L_HT≃0 although π_0T=Rr≠0; localization and completion are different functors.
+Proposed example SpectralHabiroCompletion.cyclotomic_fixed (characterisation): η_{R/(q−1)} is an equivalence; its homotopy groups are complete because 1−q acts by zero.
+Proposed example SpectralHabiroCompletion.integral_unit (compatibility): L_H(HZ[q±1]) ≃ H(H), where H is HC.1’s classical integral Habiro ring. Surjective transition maps and finite-free polynomial quotients eliminate higher derived limits in this case.
+-/
+
+/-
+HabiroRings:HR.2/solid-habiro-unit-idempotence
+Solid idempotence of the Habiro unit
+In light solid spectra, regard SH as the condensed factorial limit lim_n R/P_n. Then multiplication SH⊗■_RSH→SH is an equivalence of commutative algebras. Moreover (∏_NS)⊗■SH≃∏_NSH, and shifts of ∏_NSH compactly generate Mod_SH(Sp■). The comparison identifies this SH with the image of the spherical complete unit under the accepted B.7 embedding.
+Proposed theorem SolidHabiroUnit.idempotent: In light solid spectra, regard SH as the condensed factorial limit lim_n R/P_n. Then multiplication SH⊗■_RSH→SH is an equivalence of commutative algebras. Moreover (∏_NS)⊗■SH≃∏_NSH, and shifts of ∏_NSH compactly generate Mod_SH(Sp■). The comparison identifies this SH with the image of the spherical complete unit under the accepted B.7 embedding.
+Finite-stage convention: divide by the monic associate (−1)^nP_n. The quotient here is a module cofiber; its sphere basis is proved on all π_k, and the tower splittings are S-linear.
+-/
+
+/-
+HabiroRings:HR.2/completed-countable-free-solid-modules
+Completed countable free solid modules
+For a sequence of countable sets I_n, put F_I=⊕_{n∈N}∏_{i∈I_n}SH in Mod_SH(Sp■), and C_I=L_HF_I. Let W consist of f:N→N tending to infinity: for every k, f(n)≥k for all sufficiently large n. Give W reverse pointwise order: an arrow f→g means f(n)≥g(n) for all n. Define J_r=fib(SH→SH/P_r), equivalently the principal ideal with specified multiplication map P_r:SH→SH, and J_0=SH. Then C_I ≃ colim_{f∈W}∏_n∏_{i∈I_n}J_{f(n)}, with arrows the ideal inclusions. This is an equivalence of complete solid SH-modules, natural in SH-linear finite-support block maps as specified in the map API. The ideal notation denotes fibre objects and maps, not an untyped subset of a spectrum.
+Proposed constructor CountableSolidHabiroFree: For a countable block family I, construct C_I=L_H(⊕_n∏_{i∈I_n}SH).
+Proposed data CountableSolidHabiroFree.ideal: J_r is fib(SH→SH/P_r), with transition J_s→J_r for r≤s induced by P_r | P_s.
+Proposed equivalence CountableSolidHabiroFree.null_family: C_I ≃ colim_{f→∞}∏_{n,i∈I_n}J_{f(n)}, natural in finite-support block maps.
+Proposed constructor CountableSolidHabiroFree.inclusion: The nth block map ∏_{i∈I_n}SH→C_I is the completed coproduct injection.
+Proposed extensionality CountableSolidHabiroFree.ext: For complete Q, restriction to the block inclusions gives Map(C_I,Q)≃∏_n Map(∏_{i∈I_n}SH,Q).
+Proposed characterisation CountableSolidHabiroFree.complete: RHom_R(T,C_I)=0, and C_I→lim_r C_I/P_r is an equivalence.
+Proposed functoriality CountableSolidHabiroFree.transition: If f≥g pointwise, the profile transition is ∏J_{f(n)}→∏J_{g(n)}; min(f,g) gives a common target.
+Proposed functoriality CountableSolidHabiroFree.map: For an SH-linear finite-support block map u:F_I→F_J, define C(u)=L_H(u):C_I→C_J. A finite-support block map means each input block map factors through a finite subcoproduct of output blocks.
+Proposed simp CountableSolidHabiroFree.map_id: C(id_{F_I})=id_{C_I}.
+Proposed functoriality CountableSolidHabiroFree.map_comp: C(v∘u)=C(v)∘C(u) for composable finite-support block maps, with the reflection coherence.
+Proposed compatibility CountableSolidHabiroFree.inclusion_naturality: For such u, C(u)∘η_{F_I}∘ι_n=η_{F_J}∘u∘ι_n, where ι_n includes the nth input block.
+Proposed example CountableSolidHabiroFree.empty (degenerate): If every I_n is empty then C_I=0.
+Proposed example CountableSolidHabiroFree.one_block (computation): If I_0 is a singleton and every other I_n is empty then C_I≃SH.
+Proposed example CountableSolidHabiroFree.constant_not_null (non-example): For singleton blocks, the constant family (1,1,…) in ∏_NSH is not in the image of C_I→∏_NSH: modulo P_1=1−q (the same ideal as q−1) it is nonzero in infinitely many coordinates.
+Proposed example CountableSolidHabiroFree.decaying_family (characterisation): For singleton blocks the maps P_n:SH→SH in the nth coordinate assemble to a map SH→C_I, since n↦n is a proper weight.
+B.7 comparison: finite blocks only without an additional theorem. The discrete functor does not preserve arbitrary countable products; the infinite product-block model remains a solid construction conditional on G-solid.
+-/
+
+/-
+HabiroRings:HR.2/countable-solid-habiro-tensor
+Countable solid Habiro tensor comparison
+For countable block families I,J, the canonical map C_I⊗■_SHC_J→L_H(F_I⊗■_SHF_J) is an equivalence; its target is the completed countable family indexed by (m,n) with blocks I_m×J_n. Thus this tensor is Habiro-complete. Combined with the supplier’s uniformly bounded-below resolution and ω₁-filtered-colimit compatibility, this discharges the accepted B.8 target for all bounded-below complete spectra: e(M)⊗■_SHe(N)≃e(L_H(M⊗_RN)), where e is the accepted B.7 embedding. There is no assertion for arbitrary unbounded objects.
+Proposed theorem CountableSolidHabiroTensor.comparison: For countable block families I,J, the canonical map C_I⊗■_SHC_J→L_H(F_I⊗■_SHF_J) is an equivalence; its target is the completed countable family indexed by (m,n) with blocks I_m×J_n. Thus this tensor is Habiro-complete. Combined with the supplier’s uniformly bounded-below resolution and ω₁-filtered-colimit compatibility, this discharges the accepted B.8 target for all bounded-below complete spectra: e(M)⊗■_SHe(N)≃e(L_H(M⊗_RN)), where e is the accepted B.7 embedding. There is no assertion for arbitrary unbounded objects.
+Proposed equivalence CountableSolidHabiroTensor.comparison: C_I⊗■_SHC_J ≃ L_H(F_I⊗■_SHF_J), naturally in countable block families.
+Proposed compatibility CountableSolidHabiroTensor.bounded_below: For bounded-below complete M,N, e(M)⊗■_SHe(N)≃e(L_H(M⊗_RN)); this is the accepted B.8 target, with G-solid’s resolution hypothesis discharged by its future supplier.
+-/
+
+namespace CountableSolidHabiroTensor
+
+/-- Import the Gaussian-polynomial identity from QM.0; this is its HR.2 use. -/
+theorem factorial_mul_dvd (a b : ℕ) :
+    factorialPoly ℤ a * factorialPoly ℤ b ∣ factorialPoly ℤ (a + b) := by
+  sorry
+
+/-- The weights used in B.8. Properness is stated explicitly, not an opaque field. -/
+theorem separable_weights (h : ℕ → ℕ → ℕ)
+    (hh : ∀ k : ℕ, ∃ B : ℕ, ∀ m n : ℕ, B ≤ m + n → k ≤ h m n) :
+    ∃ f g : ℕ → ℕ,
+      (∀ k : ℕ, ∃ B : ℕ, ∀ n : ℕ, B ≤ n → k ≤ f n) ∧
+      (∀ k : ℕ, ∃ B : ℕ, ∀ n : ℕ, B ≤ n → k ≤ g n) ∧
+      (∀ m n : ℕ, f m + g n ≤ h m n) := by
+  sorry
+
+/-- The other cofinal containment requires this radial proper profile. -/
+theorem radial_max (f g : ℕ → ℕ)
+    (hf : ∀ k : ℕ, ∃ B : ℕ, ∀ n : ℕ, B ≤ n → k ≤ f n)
+    (hg : ∀ k : ℕ, ∃ B : ℕ, ∀ n : ℕ, B ≤ n → k ≤ g n) :
+    ∀ k : ℕ, ∃ B : ℕ, ∀ m n : ℕ, B ≤ m + n → k ≤ max (f m) (g n) := by
+  sorry
+
+end CountableSolidHabiroTensor
+
+-- Concrete acceptance signatures for the typable polynomial/profile fragment.
+example : factorialPoly ℤ 0 = 1 := by
+  sorry
+
+example : factorialPoly ℤ 1 = (1 - (X : Polynomial ℤ)) := by
+  sorry
+
+example : factorialPoly ℤ 2 =
+    factorialPoly ℤ 1 ^ 2 * (1 + (X : Polynomial ℤ)) := by
+  sorry
+
+example (n : ℕ) : factorialPoly ℤ (n + 1) =
+    factorialPoly ℤ n * (1 - (X : Polynomial ℤ) ^ (n + 1)) := by
+  sorry
+
+example : ∀ k : ℕ, ∃ B : ℕ, ∀ m n : ℕ, B ≤ m + n → k ≤ m + n := by
+  sorry
+
+example : ∀ m n : ℕ, (m + n : ℕ) ≤ m + n := by
+  sorry
+
+example : ¬ (∀ k : ℕ, ∃ B : ℕ, ∀ m n : ℕ, B ≤ m + n → k ≤ (0 : ℕ)) := by
+  sorry
+
+end HR2FollowUp
+
 /-! ## HR.3 — finite cyclotomic descent
 
 Only the arithmetic of the divisor poset is ring-level; the descent statements are equivalences
@@ -1382,6 +1579,240 @@ descent principle'; supplier: EnhancedDerivedSheaves:E0, E3, E5:presentability, 
 `fracture_square_pieces` (`HabiroRings:HR.3/the-fracture-square-pieces`, Remark 2.5): not stated
 here; needs the glued `E∞`-algebra of Corollary 2.4 (supplier: EnhancedDerivedSheaves:E5:abstract,
 DerivedDeRhamCohomology:DD.1). Its arithmetic input is part (e) above. -/
+
+section HR3FollowUp
+
+/-! ### HR.3, continued: the finite descent index, the coherent diagram and reconstruction
+
+The nodes of the HR.3 follow-up packet. Only the finite index can be stated against the pins: the
+enhanced derived completion categories, `Pr^L_st`, operadic sections and their mapping spaces are
+not available. Their exact declaration names, mathematical signatures, tests and suppliers are
+recorded below as comments; these omissions are packet gaps. No `Prop` field, opaque category
+carrier or theorem asserting `True` replaces them. The nerve of the ordinary indexing poset is
+appropriate here; the nerve of the ordinary homotopy category of complexes is not the required
+enhanced derived category and is never used as a substitute. -/
+
+/-! `HabiroRings:HR.3/finite-descent-index`, with the lemmas
+`HabiroRings:HR.3/finite-index-height-one` and `HabiroRings:HR.3/prime-edge-factorisation`. -/
+
+namespace CyclotomicIndex
+
+/-- The source's maximal chain `T_{d,p}`, before imposing the prime and divisor hypotheses: the
+chain `divisorChain m d p` of `HabiroRings:HR.3/the-divisor-poset-and-its-intersections`. -/
+def primeChain (m d p : ℕ) : Finset ℕ :=
+  divisorChain m d p
+
+/-- Singletons and maximal chains. Prime factors of `m` suffice for the nontrivial chains. -/
+noncomputable def vertices (m : ℕ) : Finset (Finset ℕ) := by
+  classical
+  exact (m.divisors.image fun d => {d}) ∪
+    m.primeFactors.biUnion (fun p =>
+      (m.divisors.filter fun d => ¬ p ∣ d).image fun d => primeChain m d p)
+
+/-- The actual full subposet of finite subsets, not tagged copies of chains. -/
+abbrev Index (m : ℕ) := {S : Finset ℕ // S ∈ vertices m}
+
+noncomputable instance (m : ℕ) : Fintype (Index m) :=
+  Fintype.ofFinset (vertices m) (by intro S; rfl)
+
+/-- The membership API fixes which subsets are vertices. -/
+theorem mem_vertices {m : ℕ} (hm : 0 < m) (S : Finset ℕ) :
+    S ∈ vertices m ↔
+      (∃ d ∈ m.divisors, S = {d}) ∨
+      ∃ p ∈ m.primeFactors, ∃ d ∈ m.divisors, ¬ p ∣ d ∧ S = primeChain m d p := by
+  sorry
+
+theorem vertex_subset {m : ℕ} (hm : 0 < m) (S : Index m) :
+    S.val ⊆ m.divisors := by
+  sorry
+
+theorem vertex_nonempty {m : ℕ} (hm : 0 < m) (S : Index m) :
+    S.val.Nonempty := by
+  sorry
+
+/-- The index uses the inherited inclusion order, not divisibility of members. -/
+theorem le_iff_subset {m : ℕ} (S U : Index m) : S ≤ U ↔ S.val ⊆ U.val := by
+  sorry
+
+/-- `HabiroRings:HR.3/finite-index-height-one`: every strict comparison has singleton source. -/
+theorem height_one {m : ℕ} (hm : 0 < m) (S U V : Index m)
+    (hSU : S.val ⊆ U.val) (hUV : U.val ⊆ V.val) : S = U ∨ U = V := by
+  sorry
+
+/-- `HabiroRings:HR.3/prime-edge-factorisation`: unique consecutive-chain coordinates. -/
+theorem primeEdge_factorisation {m p d : ℕ} (hm : 0 < m) (hp : p.Prime)
+    (hpd : p * d ∣ m) :
+    ∃! t : ℕ × ℕ,
+      ¬ p ∣ t.1 ∧ t.1 ∣ m ∧ t.2 < m.factorization p ∧ d = t.1 * p ^ t.2 := by
+  sorry
+
+/-- Reuse Mathlib's quasicategory instance for an ordinary-category nerve. -/
+theorem nerve_quasicategory (m : ℕ) :
+    SSet.Quasicategory (CategoryTheory.nerve (Index m)) := by
+  sorry
+
+/-- Unit test `CyclotomicIndex.test_one`. -/
+example : vertices 1 = {{1}} := by
+  sorry
+
+/-- Unit test `CyclotomicIndex.test_four`: the nonconsecutive pair is not a vertex. -/
+example : vertices 4 = {{1}, {2}, {4}, {1, 2, 4}} := by
+  sorry
+
+/-- Unit test `CyclotomicIndex.test_six`: eight vertices, with an incidence cycle. -/
+example : vertices 6 = {{1}, {2}, {3}, {6}, {1, 2}, {3, 6}, {1, 3}, {2, 6}} := by
+  sorry
+
+/-- Unit test `CyclotomicIndex.test_not_pair_four`: surviving intersection ≠ index vertex. -/
+example : ({1, 4} : Finset ℕ) ∉ vertices 4 := by
+  sorry
+
+/-- Unit test `CyclotomicIndex.test_incomparable_singletons`: 1 ∣ 2 gives no index arrow. -/
+example (S U : Index 2) (hS : S.val = {1}) (hU : U.val = {2}) :
+    ¬ S ≤ U ∧ ¬ U ≤ S := by
+  sorry
+
+end CyclotomicIndex
+
+/-!
+## Signatures requiring the enhanced categorical suppliers
+
+The packet's construction `HabiroRings:HR.3/coherent-completion-diagram` has
+proposed namespace `CyclotomicCompletionDiagram`.
+
+For a commutative ring A and m > 0, B = A[q], Q the poset of nonempty subsets
+of Nat.divisors m, and I_S = (Polynomial.cyclotomic d A : d ∈ S), construct
+F : N(Q) → CAlg(Pr^L_st). Its value is the full enhanced I_S-complete category
+D_S in D(B), and its transition S ⊆ U is I_U-completion restricted to D_S.
+
+Exact omitted signatures/API names:
+* `CyclotomicCompletionDiagram.obj`: F(S) = D_S with tensor
+  L_(I_S)(M tensor^L_B N).
+* `CyclotomicCompletionDiagram.map`: F(S) → F(U) is L_(I_U)|D_S.
+* `CyclotomicCompletionDiagram.map_id`: transition at S = U is naturally
+  equivalent to identity, via the localization counit.
+* `CyclotomicCompletionDiagram.map_comp`: for S ⊆ U ⊆ V, transitions compose
+  coherently to L_(I_V)|D_S; include associativity and higher unit coherence.
+* `CyclotomicCompletionDiagram.unit`: the tensor unit is L_(I_S)(B).
+* `CyclotomicCompletionDiagram.chain`: at primeChain m d p, for p prime
+  dividing m and p-free d dividing m, the value is D_hat_(p,Phi_d)(B).
+  Each map from {p^i d} is p-completion on Phi_(p^i d)-complete objects.
+* `CyclotomicCompletionDiagram.algebraSections`: the infinity-category
+  lim_(S in P) CAlg(D_S), with its section evaluation and mapping spaces.
+
+Exact omitted tests:
+* `CyclotomicCompletionDiagram.test_one`: m = 1 gives the single enhanced
+  (q-1)-complete category.
+* `CyclotomicCompletionDiagram.test_four`: at m = 4 every full-cube subset
+  of cardinality >= 2 gives D_hat_(2,q-1)(B); P has one such chain vertex.
+* `CyclotomicCompletionDiagram.test_six_empty`: at m = 6 the value at {1,6}
+  in Q is the zero stable category (CAlg terminal), but {1,2} has the
+  D_hat_(2,q-1)(B) value.
+
+Missing carriers: enhanced D(B), its derived Koszul-completion localization,
+Pr^L_st and CAlg of a symmetric monoidal quasicategory. Suppliers:
+DerivedDeRhamCohomology:DD.1; EnhancedDerivedSheaves:E0/E3/E5:abstract/E5:presentability.
+The finite index above alone does not supply any of those carriers.
+
+## `HabiroRings:HR.3/finite-localisation-contract`
+
+For f = q^m - 1 and all nonempty divisor subsets S:
+(i) L_(Phi_d), d dividing m, are jointly conservative on D_hat_f(B).
+(ii) M → lim_Q L_(I_S)(M) is an equivalence for every f-complete M.
+(iii) A coherent section (M_S) has f-complete finite limit M; each canonical
+L_(I_S)(M) → M_S is an equivalence.
+These are natural on enhanced diagram categories. The proof uses the
+factorization already in Mathlib, the DD.1 completion-unit comparison
+N/(g_1,...,g_r) equivalent to (L_I N)/(g_1,...,g_r) for derived Koszul
+reductions, repeated derived cofibres, derived Nakayama,
+L_(Phi_a)L_(I_S) equivalent to L_(I_(S union {a})), exact finite-limit
+preservation and the stable cubical contraction requested from E0.
+No underived quotient or infinite-limit-preservation assertion replaces it.
+Reduction invariance supplies N/Phi_d equivalent to (L_(Phi_d) N)/Phi_d;
+only then does joint conservativity use Nakayama on the f-complete N.
+
+Missing signature: the complete enhanced category and its natural-transformation
+and equivalence API, supplied by DD.1 and E0/E3. The parent general descent
+principle and right-Kan reduction are imported by node id.
+
+## `HabiroRings:HR.3/reconstruction-functor`
+
+Proposed namespace `CyclotomicReconstruction`.
+R : lim_(S in P) CAlg(D_S) → CAlg(D_hat_f(B)) extends a coherent section
+from P to Q and takes its finite homotopy limit in ambient E-infinity
+B-algebras, using the lax monoidal inclusions of the complete categories.
+
+Exact omitted signatures/API names:
+* `CyclotomicReconstruction.ofSection`: s ↦ the f-complete algebra lim_Q s_S.
+* `CyclotomicReconstruction.complete`: L_(Phi_d)(R(s)) equivalent to s_{d},
+  naturally and respecting every prime-edge equivalence.
+* `CyclotomicReconstruction.map`: a coherent section morphism induces a map
+  of the reconstructed E-infinity B-algebras.
+* `CyclotomicReconstruction.map_id`: reconstruction preserves identity.
+* `CyclotomicReconstruction.map_comp`: reconstruction preserves composition
+  with its coherent functor laws.
+* `CyclotomicReconstruction.unit`: E → R(C(E)) is a natural equivalence,
+  where C is the cyclotomic completion comparison.
+* `CyclotomicReconstruction.counit`: C(R(s)) → s is a natural equivalence;
+  unit and counit satisfy the triangle homotopies.
+* `CyclotomicReconstruction.solutionSpace`: for fixed s, the space of pairs
+  (E, an equivalence C(E) ≃ s) is contractible.
+
+Exact omitted tests:
+* `CyclotomicReconstruction.test_one`: R(E_1) equivalent to E_1 at m = 1,
+  with its specified completion counit.
+* `CyclotomicReconstruction.test_prime`: m = p prime gives the homotopy
+  pullback E_1 ×_(E_1^hat_p) E_p; the second arrow is h composed with the
+  completion unit. This is natural on objects and morphisms.
+* `CyclotomicReconstruction.test_unit`: canonical local completions of B
+  reconstruct B^hat_(q^m-1) as a complete E-infinity B-algebra.
+* `CyclotomicReconstruction.test_four`: the {1,4} comparison at m = 4 is
+  h_(2,1) composed with h_(2,2), with no third independent gluing datum.
+
+The fixed-category underlying-object limit criterion is HA 3.2.2.4, obtained
+from HA 3.2.2.3 with D^tensor = O^tensor; it is distinct from commuting CAlg
+with a limit of varying monoidal categories.
+
+Missing carriers: coherent algebra sections, enhanced finite homotopy limits,
+complete E-infinity algebras, functors, adjunction data and contractible solution
+spaces; supplied by E0/E3/E5:abstract and DD.1. An ordinary CommRingCat limit
+would test only the static specialization, not this required statement.
+
+## `HabiroRings:HR.3/prime-edge-mapping-spaces`
+
+Proposed theorem `cyclotomicPrimeEdgeMappingSpace`:
+for complete E,F and their given prime-edge presentations, define
+V = product_(d dividing m) Map(E_d,F_d),
+W = product_(p prime, pd dividing m) Map(E_pd^hat_p,F_d^hat_p).
+The two maps V → W are
+u(f)_(p,d) = f_d^hat_p composed with h^E_(p,d),
+v(f)_(p,d) = h^F_(p,d) composed with f_pd^hat_p.
+Then Map(E,F) is naturally equivalent to the homotopy equalizer
+V ×_(W×W) W^(Delta^1), using endpoint evaluation on the path space.
+The E0 supplier must furnish mapping spaces in coherent-section limits and
+the height-one incidence formula, with specified paths and higher simplices;
+eliminating each chain-component map leaves successive prime-edge paths.
+A reconstructed map is an equivalence iff all singleton components are.
+At m = 1, W is terminal and the formula is Map(E_1,F_1).
+At m = p it includes one path; at m = 6 it includes four independent edge
+paths and no extra equation around the incidence cycle.
+Missing carriers: enhanced algebra mapping spaces, path spaces and coherent
+section transformations, supplied by E0 and E5:abstract. Equality of ordinary
+ring maps cannot replace this homotopy equalizer.
+
+## Imported theorem nodes, not redefined
+
+`HabiroRings:HR.3/the-divisor-poset-and-its-intersections` supplies the
+cyclotomic ideal arithmetic, including the surviving {1,4} intersection.
+`HabiroRings:HR.3/the-general-descent-principle` supplies Wagner 2.1–2.2.
+`HabiroRings:HR.3/the-morphism-level-statement` supplies the equivalence with
+the P-indexed limit and its right-Kan-extension reductions.
+`HabiroRings:HR.3/the-complete-descent-corollary` supplies Corollary 2.4.
+`HabiroRings:HR.3/the-fracture-square-pieces` supplies Remark 2.5.
+Their original suggested forms and omissions are in HabiroRings.lean.
+-/
+
+end HR3FollowUp
 
 /-! ## HR.4 — big Witt vectors, q-Witt vectors, relative q-Witt rings and the finite stages
 
@@ -1689,6 +2120,458 @@ example : Function.Bijective (ghost _ R 1 (one_mem_divisors 1)) ∧
   sorry
 
 end BigWittTests
+
+/-! ### HR.1, continued: big Witt coalgebras, Wilkerson's comparison and free Λ-rings
+
+The nodes of the HR.1 follow-up packet. They use the truncated big Witt vectors of
+`HabiroRings:HR.4/truncated-big-witt-vectors` just above, at the full truncation set, which is why
+they stand here rather than in the HR.1 section; the node graph is acyclic, since that HR.4 node
+uses only `HabiroRings:HR.1/lambda-rings-with-commuting-adams-operations`. The HR.1 part's
+adapters are replaced by the first part's objects: `BigWitt A` is `BigWittVector TruncationSet.univ A`
+read with `ℕ+`-indexed coordinates, `Adams A` is `LambdaRing A`, and `Adams.toWitt` is
+`LambdaRing.toBigWitt`. -/
+
+section HR1FollowUp
+
+/-- The big Witt ring `W(A) = W_{ℕ>0}(A)`: the truncated big Witt vectors of
+`HabiroRings:HR.4/truncated-big-witt-vectors` at the full truncation set, read with coordinates and
+ghost components indexed by `ℕ+`. -/
+abbrev BigWitt (A : Type u) : Type u := BigWittVector TruncationSet.univ A
+
+namespace BigWitt
+variable {A : Type u} {B : Type v} {C : Type w}
+variable [CommRing A] [CommRing B] [CommRing C]
+
+/-- The coordinate `a_n` of `a ∈ W(A)`, `n ∈ ℕ+`. -/
+def coeff (a : BigWitt A) (n : ℕ+) : A := BigWittVector.coeff a ⟨n, n.pos⟩
+
+/-- The big Witt vector with coordinates `f`. -/
+def ofCoeff (f : ℕ+ → A) : BigWitt A := ⟨fun n => f ⟨n.1, n.2⟩⟩
+
+/-- The ghost component `gh_n(a) = ∑_{d ∣ n} d · a_d^{n/d}`. -/
+def ghost (n : ℕ+) : BigWitt A →+* A := BigWittVector.ghost TruncationSet.univ A n n.pos
+
+/-- Functoriality, coordinatewise. -/
+def map (f : A →+* B) : BigWitt A →+* BigWitt B := BigWittVector.map TruncationSet.univ A f
+
+/-- The Teichmüller lift `(a, 0, 0, …)`. -/
+def teichmuller (a : A) : BigWitt A := BigWittVector.teichmuller TruncationSet.univ A a
+
+/-- The Frobenius `F_m : W(A) → W(A)`, with `gh_n ∘ F_m = gh_{mn}` (`frobenius_ghost`); on the
+finite levels it is `BigWittVector.frobenius`. -/
+def frobenius (m : ℕ+) : BigWitt A →+* BigWitt A := sorry
+
+theorem ghost_injective [IsAddTorsionFree A] :
+    Function.Injective (fun a : BigWitt A => fun n => ghost n a) := by sorry
+end BigWitt
+
+/-- Torsion-free Adams data: the Λ-rings of
+`HabiroRings:HR.1/lambda-rings-with-commuting-adams-operations`. -/
+abbrev Adams (A : Type u) [CommRing A] : Type u := LambdaRing A
+
+namespace Adams
+variable {A : Type u} {B : Type v} [CommRing A] [CommRing B]
+
+/-- Maps of Adams data are Λ-maps. -/
+abbrev Hom (s : Adams A) (t : Adams B) : Type (max u v) := LambdaRing.Hom s t
+
+/-- `ℤ` with every `ψ^m` the identity. -/
+abbrev integer : Adams ℤ := LambdaRing.trivialInt
+end Adams
+
+/-! `HabiroRings:HR.1/dwork-ghost-image` -/
+theorem dwork_ghost_image {A : Type u} [CommRing A] [IsAddTorsionFree A]
+    (φ : ℕ+ → A →+* A)
+    (hφ : ∀ p : ℕ+, (p : ℕ).Prime → ∀ a : A,
+      φ p a - a ^ (p : ℕ) ∈ Ideal.span {((p : ℕ) : A)}) (y : ℕ+ → A) :
+    (∃! a : BigWitt A, ∀ n, BigWitt.ghost n a = y n) ↔
+      ∀ p k : ℕ+, (p : ℕ).Prime →
+        y (p * k) - φ p (y k) ∈
+          Ideal.span {((p : ℕ) : A) ^ padicValNat (p : ℕ) (p * k : ℕ+)} := by sorry
+
+/-! `HabiroRings:HR.1/universal-frobenius-polynomials` -/
+namespace BigWitt
+abbrev Universal := MvPolynomial ℕ+ ℤ
+
+def frobeniusPoly (m n : ℕ+) : Universal := sorry
+
+def evalPoly {A : Type u} [CommRing A] (a : ℕ+ → A) : Universal →+* A :=
+  MvPolynomial.eval₂Hom (Int.castRingHom A) a
+
+theorem frobenius_ghost {A : Type u} [CommRing A] (m n : ℕ+) (a : BigWitt A) :
+    ghost n (frobenius m a) = ghost (m * n) a := by sorry
+
+theorem frobenius_poly_ghost (m : ℕ+) (a : BigWitt Universal)
+    (ha : ∀ n, a.coeff n = MvPolynomial.X n) (n : ℕ+) :
+    ghost n (ofCoeff fun d => frobeniusPoly m d) = ghost (m * n) a := by sorry
+
+def weight (d : ℕ+ →₀ ℕ) : ℕ := d.sum fun n r => (n : ℕ) * r
+
+theorem frobenius_polynomials (m n : ℕ+) :
+    (∀ {A : Type u} [CommRing A] (a : BigWitt A),
+      (frobenius m a).coeff n = evalPoly a.coeff (frobeniusPoly m n)) ∧
+    (∀ d, (frobeniusPoly m n).coeff d ≠ 0 → weight d = (m : ℕ) * (n : ℕ)) ∧
+    (∀ j ∈ (frobeniusPoly m n).vars, (j : ℕ) ≤ (m : ℕ) * (n : ℕ)) := by sorry
+
+theorem frobenius_poly_prime (p n : ℕ+) (hp : (p : ℕ).Prime) :
+    (∃ P : Universal, frobeniusPoly p n = ((p : ℕ) : Universal) * MvPolynomial.X (p * n) + P ∧
+      ∀ j ∈ P.vars, (j : ℕ) < (p : ℕ) * (n : ℕ)) ∧
+    frobeniusPoly p n - MvPolynomial.X n ^ (p : ℕ) ∈
+      Ideal.span {((p : ℕ) : Universal)} := by sorry
+
+example : frobeniusPoly 2 1 = MvPolynomial.X 1 ^ 2 + 2 * MvPolynomial.X 2 ∧
+    frobeniusPoly 2 2 = 2 * MvPolynomial.X 4 -
+      2 * MvPolynomial.X 1 ^ 2 * MvPolynomial.X 2 - MvPolynomial.X 2 ^ 2 := by sorry
+
+/-! `HabiroRings:HR.1/witt-ring-frobenius-congruence`: divisibility in the Witt ring itself. -/
+theorem frobenius_witt_congruence {A : Type u} [CommRing A]
+    (p : ℕ+) (hp : (p : ℕ).Prime) (a : BigWitt A) :
+    frobenius p a - a ^ (p : ℕ) ∈ Ideal.span {((p : ℕ) : BigWitt A)} := by sorry
+
+/-! `HabiroRings:HR.1/big-witt-comonad` -/
+def comul {A : Type u} [CommRing A] : BigWitt A →+* BigWitt (BigWitt A) := sorry
+
+theorem comul_ghost {A : Type u} [CommRing A] (n : ℕ+) :
+    (ghost n).comp (comul (A := A)) = frobenius n := by sorry
+
+theorem comul_natural {A : Type u} {B : Type v} [CommRing A] [CommRing B]
+    (f : A →+* B) :
+    (map (map f)).comp comul = comul.comp (map f) := by sorry
+
+theorem comul_counit_left {A : Type u} [CommRing A] :
+    (ghost 1).comp (comul (A := A)) = RingHom.id _ := by sorry
+
+theorem comul_counit_right {A : Type u} [CommRing A] :
+    (map (ghost 1)).comp (comul (A := A)) = RingHom.id _ := by sorry
+
+theorem comul_assoc {A : Type u} [CommRing A] :
+    (comul (A := BigWitt A)).comp comul = (map comul).comp (comul (A := A)) := by sorry
+
+theorem comul_unique {A : Type u} [CommRing A] [IsAddTorsionFree A]
+    (g : BigWitt A →+* BigWitt (BigWitt A))
+    (hg : ∀ n, (ghost n).comp g = frobenius n) : g = comul := by sorry
+
+theorem comul_teichmuller {A : Type u} [CommRing A] (a : A) :
+    comul (teichmuller a) = teichmuller (teichmuller a) := by sorry
+
+/-! `HabiroRings:HR.1/big-witt-comonad-laws`: the promoted simultaneous identities. -/
+theorem comonad_laws {A : Type u} [CommRing A] :
+    (∀ n, (ghost n).comp (comul (A := A)) = frobenius n) ∧
+    (ghost 1).comp (comul (A := A)) = RingHom.id _ ∧
+    (map (ghost 1)).comp (comul (A := A)) = RingHom.id _ ∧
+    (comul (A := BigWitt A)).comp comul = (map comul).comp (comul (A := A)) ∧
+    ∀ {B : Type v} [CommRing B] (f : A →+* B),
+      (map (map f)).comp comul = comul.comp (map f) := by sorry
+
+-- test BigWitt.comul_teichmuller_test (compatibility)
+example {A : Type u} [CommRing A] (a : A) :
+    comul (teichmuller a) = teichmuller (teichmuller a) := by sorry
+-- test BigWitt.comul_zero_test (degenerate)
+example : comul (0 : BigWitt (ZMod 4)) = 0 := by sorry
+-- test BigWitt.comul_ghost_six_test (computation)
+example (a : BigWitt ℤ) : ghost 2 (ghost 3 (comul a)) = ghost 6 a := by sorry
+end BigWitt
+
+/-! `HabiroRings:HR.1/lambda-coalgebra`: the conditions are actual ring-map equalities. -/
+structure LambdaCoalgebra (A : Type u) [CommRing A] where
+  coaction : A →+* BigWitt A
+  counit : (BigWitt.ghost 1).comp coaction = RingHom.id A
+  coassoc : BigWitt.comul.comp coaction = (BigWitt.map coaction).comp coaction
+
+namespace LambdaCoalgebra
+variable {A : Type u} {B : Type v} {C : Type w}
+variable [CommRing A] [CommRing B] [CommRing C]
+def adams (s : LambdaCoalgebra A) (n : ℕ+) : A →+* A :=
+  (BigWitt.ghost n).comp s.coaction
+
+def coord (s : LambdaCoalgebra A) (n : ℕ+) (a : A) : A := (s.coaction a).coeff n
+
+theorem ext (s t : LambdaCoalgebra A) (h : s.coaction = t.coaction) : s = t := by sorry
+
+theorem ext_coords (s t : LambdaCoalgebra A) (h : ∀ n a, s.coord n a = t.coord n a) :
+    s = t := by sorry
+
+structure Hom (s : LambdaCoalgebra A) (t : LambdaCoalgebra B) extends A →+* B where
+  compatible : (BigWitt.map toRingHom).comp s.coaction = t.coaction.comp toRingHom
+
+namespace Hom
+def id (s : LambdaCoalgebra A) : Hom s s := sorry
+
+def comp {s : LambdaCoalgebra A} {t : LambdaCoalgebra B} {r : LambdaCoalgebra C}
+    (g : Hom t r) (f : Hom s t) : Hom s r := sorry
+
+theorem ext {s : LambdaCoalgebra A} {t : LambdaCoalgebra B}
+    (f g : Hom s t) (h : f.toRingHom = g.toRingHom) : f = g := by sorry
+
+theorem comp_toRingHom {s : LambdaCoalgebra A} {t : LambdaCoalgebra B}
+    {r : LambdaCoalgebra C} (g : Hom t r) (f : Hom s t) :
+    (comp g f).toRingHom = g.toRingHom.comp f.toRingHom := by sorry
+
+theorem id_toRingHom (s : LambdaCoalgebra A) :
+    (id s).toRingHom = RingHom.id A := by sorry
+
+theorem adams {s : LambdaCoalgebra A} {t : LambdaCoalgebra B}
+    (f : Hom s t) (n : ℕ+) :
+    f.toRingHom.comp (s.adams n) = (t.adams n).comp f.toRingHom := by sorry
+end Hom
+
+-- test LambdaCoalgebra.adams_one_test (degenerate)
+example (s : LambdaCoalgebra A) : s.adams 1 = RingHom.id A := by sorry
+-- test LambdaCoalgebra.adams_two_coord_test (computation)
+example (s : LambdaCoalgebra A) (a : A) :
+    s.adams 2 a = (s.coaction a).coeff 1 ^ 2 + 2 * (s.coaction a).coeff 2 := by sorry
+-- test LambdaCoalgebra.hom_adams_test (compatibility)
+example {s : LambdaCoalgebra A} {t : LambdaCoalgebra B} (f : Hom s t) :
+    f.toRingHom.comp (s.adams 6) = (t.adams 6).comp f.toRingHom := by sorry
+
+/-! `HabiroRings:HR.1/coalgebra-adams-laws` -/
+theorem adams_laws (s : LambdaCoalgebra A) :
+    s.adams 1 = RingHom.id A ∧
+    (∀ m n, s.adams (m * n) = (s.adams m).comp (s.adams n)) ∧
+    ∀ p : ℕ+, (p : ℕ).Prime → ∀ a : A,
+      s.adams p a - a ^ (p : ℕ) ∈ Ideal.span {((p : ℕ) : A)} := by sorry
+end LambdaCoalgebra
+
+namespace Adams
+variable {A : Type u} {B : Type v} [CommRing A] [CommRing B]
+/-! `HabiroRings:HR.1/adams-to-witt-section` -/
+def toWitt (s : Adams A) : A →+* BigWitt A := s.toBigWitt
+
+theorem toWitt_ghost (s : Adams A) (n : ℕ+) :
+    (BigWitt.ghost n).comp s.toWitt = s.adams n := by sorry
+
+theorem toWitt_coord_one (s : Adams A) (a : A) : (s.toWitt a).coeff 1 = a := by sorry
+
+theorem toWitt_coord_recursion (s : Adams A) (n : ℕ+) (a : A) :
+    ((n : ℕ) : A) * (s.toWitt a).coeff n = s.adams n a -
+      ∑ d ∈ (n : ℕ).divisors.attach,
+        if d.1 < (n : ℕ) then
+          (d.1 : A) * (s.toWitt a).coeff ⟨d.1, Nat.pos_of_mem_divisors d.2⟩ ^
+            ((n : ℕ) / d.1)
+        else 0 := by sorry
+
+theorem toWitt_unique (s : Adams A) (f : A →+* BigWitt A)
+    (h : ∀ n, (BigWitt.ghost n).comp f = s.adams n) : f = s.toWitt := by sorry
+
+theorem toWitt_natural {s : Adams A} {t : Adams B} (f : Hom s t) :
+    (BigWitt.map f.toRingHom).comp s.toWitt = t.toWitt.comp f.toRingHom := by sorry
+
+/-! `HabiroRings:HR.1/adams-witt-section-laws`: the promoted identities used in Wilkerson. -/
+theorem toWitt_laws {s : Adams A} {t : Adams B} (f : Hom s t) :
+    (∀ n, (BigWitt.ghost n).comp s.toWitt = s.adams n) ∧
+    (∀ g : A →+* BigWitt A, (∀ n, (BigWitt.ghost n).comp g = s.adams n) → g = s.toWitt) ∧
+    (BigWitt.map f.toRingHom).comp s.toWitt = t.toWitt.comp f.toRingHom := by sorry
+
+-- test Adams.toWitt_integer_two_test (computation)
+example : (integer.toWitt 2).coeff 2 = -1 ∧ (integer.toWitt 2).coeff 3 = -2 := by sorry
+-- test Adams.toWitt_zero_test (degenerate)
+example (s : Adams A) : s.toWitt 0 = 0 := by sorry
+-- test Adams.toWitt_prime_delta_test (compatibility)
+example (s : Adams A) (p : ℕ+) (hp : (p : ℕ).Prime) (a : A) :
+    (p : ℕ) * (s.toWitt a).coeff p = s.adams p a - a ^ (p : ℕ) := by sorry
+end Adams
+
+/-! `HabiroRings:HR.1/wilkerson-comparison` -/
+def wilkersonComparison (A : Type u) [CommRing A] [IsAddTorsionFree A] :
+    LambdaCoalgebra A ≃ Adams A := sorry
+
+theorem wilkersonComparison_forward {A : Type u} [CommRing A] [IsAddTorsionFree A]
+    (s : LambdaCoalgebra A) (n : ℕ+) :
+    (wilkersonComparison A s).adams n = s.adams n := by sorry
+
+theorem wilkersonComparison_inverse {A : Type u} [CommRing A] [IsAddTorsionFree A]
+    (s : Adams A) : ((wilkersonComparison A).symm s).coaction = s.toWitt := by sorry
+
+theorem wilkerson_morphism_iff {A : Type u} {B : Type v} [CommRing A] [CommRing B]
+    [IsAddTorsionFree A] [IsAddTorsionFree B] (s : LambdaCoalgebra A)
+    (t : LambdaCoalgebra B) (f : A →+* B) :
+    (BigWitt.map f).comp s.coaction = t.coaction.comp f ↔
+    ∀ n, f.comp (s.adams n) = (t.adams n).comp f := by sorry
+
+/-! `HabiroRings:HR.1/big-witt-cofree-adjunction` -/
+def BigWitt.cofree (A : Type u) [CommRing A] : LambdaCoalgebra (BigWitt A) :=
+  ⟨BigWitt.comul, BigWitt.comul_counit_left, BigWitt.comul_assoc⟩
+
+def cofreeAdjunction {A : Type u} {B : Type v} [CommRing A] [CommRing B]
+    (s : LambdaCoalgebra B) :
+    (B →+* A) ≃ LambdaCoalgebra.Hom s (BigWitt.cofree A) := sorry
+
+theorem cofreeAdjunction_transpose {A : Type u} {B : Type v} [CommRing A] [CommRing B]
+    (s : LambdaCoalgebra B) (f : B →+* A) :
+    (cofreeAdjunction s f).toRingHom = (BigWitt.map f).comp s.coaction := by sorry
+
+theorem cofreeAdjunction_inverse {A : Type u} {B : Type v} [CommRing A] [CommRing B]
+    (s : LambdaCoalgebra B) (f : LambdaCoalgebra.Hom s (BigWitt.cofree A)) :
+    (cofreeAdjunction s).symm f = (BigWitt.ghost 1).comp f.toRingHom := by sorry
+
+theorem BigWitt.map_ghost_comul {A : Type u} [CommRing A] (m : ℕ+) :
+    (BigWitt.map (BigWitt.ghost m)).comp BigWitt.comul = BigWitt.frobenius (A := A) m := by sorry
+
+/-! `HabiroRings:HR.1/witt-product-addition`: the finite coefficient form of Hesselholt Proposition 1.14.
+The source's product coefficient condition is i₁+⋯+iᵣ=k; its weighted condition
+is a misprint recorded in the packet. No infinite product is used in this signature.
+-/
+theorem BigWitt.product_add {A : Type u} [CommRing A] (a b : BigWitt A)
+    (N k : ℕ) (hk : k ≤ N) :
+    PowerSeries.coeff k (∏ d ∈ Finset.range N,
+      (1 - PowerSeries.C ((a + b).coeff ⟨d+1, Nat.succ_pos d⟩) *
+        PowerSeries.X ^ (d+1))) =
+    PowerSeries.coeff k
+      ((∏ d ∈ Finset.range N,
+        (1 - PowerSeries.C (a.coeff ⟨d+1, Nat.succ_pos d⟩) * PowerSeries.X ^ (d+1))) *
+       (∏ d ∈ Finset.range N,
+        (1 - PowerSeries.C (b.coeff ⟨d+1, Nat.succ_pos d⟩) * PowerSeries.X ^ (d+1)))) := by sorry
+
+/-! `HabiroRings:HR.1/exterior-operations` -/
+namespace LambdaCoalgebra
+variable {A : Type u} {B : Type v} [CommRing A] [CommRing B]
+def exterior (s : LambdaCoalgebra A) (n : ℕ) (a : A) : A :=
+  PowerSeries.coeff n (∏ d ∈ Finset.range n,
+    (1 - PowerSeries.C ((s.coaction a).coeff ⟨d+1, Nat.succ_pos d⟩) *
+      (-PowerSeries.X) ^ (d+1)))
+
+theorem exterior_zero (s : LambdaCoalgebra A) (a : A) : s.exterior 0 a = 1 := by sorry
+
+theorem exterior_one (s : LambdaCoalgebra A) (a : A) : s.exterior 1 a = a := by sorry
+
+theorem exterior_two (s : LambdaCoalgebra A) (a : A) :
+    s.exterior 2 a = -(s.coaction a).coeff 2 := by sorry
+
+theorem exterior_three (s : LambdaCoalgebra A) (a : A) :
+    s.exterior 3 a = (s.coaction a).coeff 3 -
+      (s.coaction a).coeff 1 * (s.coaction a).coeff 2 := by sorry
+
+theorem exterior_zero_element (s : LambdaCoalgebra A) (n : ℕ) (hn : 0 < n) :
+    s.exterior n 0 = 0 := by sorry
+
+theorem exterior_add (s : LambdaCoalgebra A) (n : ℕ) (a b : A) :
+    s.exterior n (a+b) = ∑ i ∈ Finset.range (n+1), s.exterior i a * s.exterior (n-i) b := by sorry
+
+theorem exterior_natural {s : LambdaCoalgebra A} {t : LambdaCoalgebra B}
+    (f : Hom s t) (n : ℕ) (a : A) : f.toRingHom (s.exterior n a) = t.exterior n (f.toRingHom a) := by sorry
+
+def integer : LambdaCoalgebra ℤ := (wilkersonComparison ℤ).symm Adams.integer
+
+-- test LambdaCoalgebra.exterior_integer_two_test (computation)
+example : integer.exterior 2 2 = 1 ∧ integer.exterior 3 2 = 0 := by sorry
+-- test LambdaCoalgebra.exterior_zero_element_test (degenerate)
+example (s : LambdaCoalgebra A) (n : ℕ) (hn : 0 < n) : s.exterior n 0 = 0 := by sorry
+-- test LambdaCoalgebra.exterior_witt_sign_test (non-example)
+example : integer.exterior 2 2 = -(integer.coaction 2).coeff 2 ∧
+    integer.exterior 2 2 ≠ (integer.coaction 2).coeff 2 := by sorry
+end LambdaCoalgebra
+
+/-! `HabiroRings:HR.1/free-lambda-ring` -/
+abbrev FreeLambdaRing (I : Type u) := MvPolynomial (I × ℕ+) ℤ
+namespace FreeLambdaRing
+variable {I : Type u} {J : Type v} {K : Type w}
+def coord (i : I) (n : ℕ+) : FreeLambdaRing I := MvPolynomial.X (i,n)
+def gen (i : I) : FreeLambdaRing I := coord i 1
+
+def universalPoint (i : I) : BigWitt (FreeLambdaRing I) :=
+  BigWitt.ofCoeff fun n => coord i n
+
+def coaction (I : Type u) : FreeLambdaRing I →+* BigWitt (FreeLambdaRing I) :=
+  MvPolynomial.eval₂Hom (Int.castRingHom _) fun j =>
+    (BigWitt.comul (universalPoint j.1)).coeff j.2
+
+def coalgebra (I : Type u) : LambdaCoalgebra (FreeLambdaRing I) where
+  coaction := coaction I
+  counit := by sorry
+  coassoc := by sorry
+
+theorem coaction_gen (i : I) : coaction I (gen i) = universalPoint i := by sorry
+
+def adams (I : Type u) (m : ℕ+) : FreeLambdaRing I →+* FreeLambdaRing I :=
+  (coalgebra I).adams m
+
+theorem adams_coord (i : I) (m n : ℕ+) :
+    adams I m (coord i n) = BigWitt.evalPoly (coord i) (BigWitt.frobeniusPoly m n) := by sorry
+
+def reindex (r : I → J) : LambdaCoalgebra.Hom (coalgebra I) (coalgebra J) where
+  toRingHom := MvPolynomial.eval₂Hom (Int.castRingHom _) fun j => coord (r j.1) j.2
+  compatible := by sorry
+
+theorem reindex_id : (reindex (id : I → I)).toRingHom = RingHom.id _ := by sorry
+
+theorem reindex_comp (r : I → J) (q : J → K) :
+    (reindex (q ∘ r)).toRingHom = (reindex q).toRingHom.comp (reindex r).toRingHom := by sorry
+
+-- test FreeLambdaRing.adams_two_generator_test (computation)
+example (i : I) : adams I 2 (gen i) = gen i ^ 2 + 2 * coord i 2 := by sorry
+-- test FreeLambdaRing.empty_adams_test (degenerate)
+example : ∃ e : FreeLambdaRing Empty ≃+* ℤ,
+    ∀ n a, e (adams Empty n a) = e a := by sorry
+-- test FreeLambdaRing.exterior_newton_three_test (compatibility)
+example (i : I) : adams I 3 (gen i) = gen i ^ 3 -
+    3 * gen i * (coalgebra I).exterior 2 (gen i) +
+    3 * (coalgebra I).exterior 3 (gen i) := by sorry
+-- test FreeLambdaRing.not_toric_test (non-example)
+example : adams Unit 2 (gen ()) ≠ gen () ^ 2 := by sorry
+
+/-! `HabiroRings:HR.1/free-lambda-universal-property` -/
+def lift {A : Type v} [CommRing A] (s : LambdaCoalgebra A) (g : I → A) :
+    LambdaCoalgebra.Hom (coalgebra I) s where
+  toRingHom := MvPolynomial.eval₂Hom (Int.castRingHom A) fun j => (s.coaction (g j.1)).coeff j.2
+  compatible := by sorry
+
+def universalProperty {A : Type v} [CommRing A] (s : LambdaCoalgebra A) :
+    (I → A) ≃ LambdaCoalgebra.Hom (coalgebra I) s := sorry
+
+theorem universalProperty_apply {A : Type v} [CommRing A] (s : LambdaCoalgebra A)
+    (g : I → A) : universalProperty s g = lift s g := by sorry
+
+theorem lift_gen {A : Type v} [CommRing A] (s : LambdaCoalgebra A) (g : I → A) (i : I) :
+    (lift s g).toRingHom (gen i) = g i := by sorry
+
+theorem lift_unique {A : Type v} [CommRing A] (s : LambdaCoalgebra A) (g : I → A)
+    (f : LambdaCoalgebra.Hom (coalgebra I) s) (hf : ∀ i, f.toRingHom (gen i) = g i) :
+    f = lift s g := by sorry
+
+example : (lift LambdaCoalgebra.integer (fun _ : Unit => (2 : ℤ))).toRingHom
+    (coord () 2) = -1 := by sorry
+
+/-! Real coefficient localization and Adams scalar twist used in local presentations. -/
+abbrev Over (I : Type u) (R : Type v) [CommRing R] := MvPolynomial (I × ℕ+) R
+
+def adamsOver (I : Type u) (R : Type v) [CommRing R] (m : ℕ+) : Over I R →+* Over I R :=
+  MvPolynomial.eval₂Hom MvPolynomial.C fun j =>
+    MvPolynomial.eval₂Hom (Int.castRingHom _) (fun n => MvPolynomial.X (j.1,n))
+      (BigWitt.frobeniusPoly m j.2)
+
+abbrev RestrictedExponents (I : Type u) (p : ℕ+) :=
+  {r : (I × ℕ+) →₀ ℕ // ∀ j, r j < (p : ℕ)}
+abbrev PrimeToIndices (I : Type u) (p : ℕ+) := {j : I × ℕ+ // ¬ (p : ℕ) ∣ (j.2 : ℕ)}
+
+/-! `HabiroRings:HR.1/free-adams-local-presentations`: actual bases/isomorphisms, not a flag. -/
+-- The IsPrime instance for (p) is redundant mathematical data following from hp;
+-- it supplies the typeclass required by Ideal.primeCompl in this signature.
+theorem adams_local_basis (I : Type u) (p : ℕ+) (hp : (p : ℕ).Prime)
+    (R : Type v) [CommRing R] [Algebra ℤ R]
+    [(Ideal.span {((p : ℕ) : ℤ)}).IsPrime]
+    [IsLocalization (Ideal.span {((p : ℕ) : ℤ)}).primeCompl R] :
+    ∃ b : Module.Basis (RestrictedExponents I p) (Over I R) (Via (adamsOver I R p)),
+      ∀ r, b r = MvPolynomial.monomial r.1 (1 : R) := by sorry
+
+theorem adams_away_presentation (I : Type u) (p : ℕ+) (hp : (p : ℕ).Prime)
+    (R : Type v) [CommRing R] [Algebra ℤ R] [IsLocalization.Away ((p : ℕ) : ℤ) R] :
+    ∃ e : MvPolynomial (PrimeToIndices I p) (Over I R) ≃ₐ[Over I R] Via (adamsOver I R p),
+      ∀ j, e (MvPolynomial.X j) = MvPolynomial.X j.1 := by sorry
+
+/-! `HabiroRings:HR.1/free-lambda-perfect-cover`. The last clause uses the parent’s exact colimit
+perfection/covering equivalence. This existence statement is the concrete cover
+contract, and does not stand in for an unspecified perfectly-covered predicate. -/
+theorem adams_faithfullyFlat (I : Type u) (m : ℕ+) : (adams I m).FaithfullyFlat := by sorry
+
+example : ¬ Function.Surjective (adams Unit 2) := by sorry
+
+theorem perfectlyCovered (I : Type u) :
+    ∃ (B : Type u) (_ : CommRing B) (s : LambdaCoalgebra B)
+      (f : LambdaCoalgebra.Hom (coalgebra I) s),
+      f.toRingHom.FaithfullyFlat ∧ ∀ m, Function.Bijective (s.adams m) := by sorry
+end FreeLambdaRing
+
+end HR1FollowUp
 
 /-! ### `HabiroRings:HR.4/q-witt-vectors` -/
 
@@ -2764,6 +3647,256 @@ EnhancedDerivedSheaves:E0; the detection result `HabiroRings:HR.2/the-detection-
 ordinary limit of the rings `RelHabiroStage` is `HabiroRings.relativeHabiro` below; that it is the
 derived limit is exactly this node. -/
 
+section HR4FollowUp
+
+/-! ### HR.4, continued: marked étale deformations and their completions
+
+The nodes of the HR.4 follow-up packet. They introduce no other big Witt, q-Witt, Λ-ring or
+derived-completion carrier: the ordinary deformation signatures use pinned Mathlib, and the two
+enhanced statements at the end await actual supplier carriers. Those are recorded as mathematical
+omissions, not proposition-valued substitutes, and elaboration does not check them. -/
+
+variable {B : Type u} [CommRing B] (I : Ideal B)
+
+/-- The actual scalar-extension map, also used for complete algebras. -/
+def baseChangeMap {E : Type v} {F : Type w} [CommRing E] [CommRing F]
+    [Algebra B E] [Algebra B F] (g : E →ₐ[B] F) :
+    (B ⧸ I) ⊗[B] E →ₐ[B ⧸ I] (B ⧸ I) ⊗[B] F :=
+  Algebra.TensorProduct.map (AlgHom.id (B ⧸ I) (B ⧸ I)) g
+
+/-! `HabiroRings:HR.4/marked-etale-deformation` -/
+
+/-- An algebra object lift with its reduction identification. Etale means
+formally etale and finitely presented, not finite as a module. -/
+structure EtaleDeformation (D : Type v) [CommRing D] [Algebra (B ⧸ I) D] where
+  carrier : Type (max u v)
+  [commRing : CommRing carrier]
+  [algebra : Algebra B carrier]
+  [etale : Algebra.Etale B carrier]
+  marking : (B ⧸ I) ⊗[B] carrier ≃ₐ[B ⧸ I] D
+
+attribute [instance] EtaleDeformation.commRing EtaleDeformation.algebra
+  EtaleDeformation.etale
+
+namespace EtaleDeformation
+
+variable {I} {D : Type v} [CommRing D] [Algebra (B ⧸ I) D]
+
+def ofAlgebra (E : Type (max u v)) [CommRing E] [Algebra B E]
+    [Algebra.Etale B E] (e : (B ⧸ I) ⊗[B] E ≃ₐ[B ⧸ I] D) :
+    EtaleDeformation I D := by sorry
+
+theorem carrier_etale (L : EtaleDeformation I D) :
+    Algebra.Etale B L.carrier := by sorry
+
+theorem reduction_etale (L : EtaleDeformation I D) :
+    Algebra.Etale (B ⧸ I) D := by sorry
+
+def transportMarking {D' : Type v} [CommRing D'] [Algebra (B ⧸ I) D']
+    (L : EtaleDeformation I D) (e : D ≃ₐ[B ⧸ I] D') :
+    EtaleDeformation I D' := by sorry
+
+def reduceMap {D' : Type v} [CommRing D'] [Algebra (B ⧸ I) D']
+    (L : EtaleDeformation I D) (M : EtaleDeformation I D')
+    (g : L.carrier →ₐ[B] M.carrier) : D →ₐ[B ⧸ I] D' :=
+  M.marking.toAlgHom.comp ((baseChangeMap I g).comp L.marking.symm.toAlgHom)
+
+theorem reduceMap_id (L : EtaleDeformation I D) :
+    reduceMap L L (AlgHom.id B L.carrier) = AlgHom.id (B ⧸ I) D := by sorry
+
+theorem reduceMap_comp {D' D'' : Type v} [CommRing D'] [CommRing D'']
+    [Algebra (B ⧸ I) D'] [Algebra (B ⧸ I) D'']
+    (L : EtaleDeformation I D) (M : EtaleDeformation I D')
+    (N : EtaleDeformation I D'') (g : L.carrier →ₐ[B] M.carrier)
+    (h : M.carrier →ₐ[B] N.carrier) :
+    reduceMap L N (h.comp g) = (reduceMap M N h).comp (reduceMap L M g) := by sorry
+
+def unit : EtaleDeformation I (B ⧸ I) := by sorry
+
+def split : EtaleDeformation I ((B ⧸ I) × (B ⧸ I)) := by sorry
+
+def localisation (a : B) :
+    EtaleDeformation I ((B ⧸ I) ⊗[B] Localization.Away a) := by sorry
+
+-- EtaleDeformation.test_unit
+example : Nonempty ((unit (I := I)).carrier ≃ₐ[B] B) := by sorry
+
+-- EtaleDeformation.test_split_swap: the reduction marking detects automorphisms.
+example [Nontrivial (B ⧸ I)] :
+    ∃ (s : (split (I := I)).carrier ≃ₐ[B] (split (I := I)).carrier),
+      reduceMap (split (I := I)) (split (I := I)) s.toAlgHom =
+        (AlgHom.snd (B ⧸ I) (B ⧸ I) (B ⧸ I)).prod
+          (AlgHom.fst (B ⧸ I) (B ⧸ I) (B ⧸ I)) ∧
+      reduceMap (split (I := I)) (split (I := I)) s.toAlgHom ≠
+        AlgHom.id (B ⧸ I) ((B ⧸ I) × (B ⧸ I)) := by sorry
+
+-- EtaleDeformation.test_localisation: an etale lift need not be module-finite.
+example :
+    Nonempty ((localisation (I := (⊥ : Ideal ℤ)) (2 : ℤ)).carrier ≃ₐ[ℤ]
+      Localization.Away (2 : ℤ)) ∧
+    ¬ Module.Finite ℤ (localisation (I := (⊥ : Ideal ℤ)) (2 : ℤ)).carrier := by sorry
+
+end EtaleDeformation
+
+/-- `HabiroRings:HR.4/etale-quotient-lift`. Object lifting, distinct from lifting a map out of a fixed algebra. The
+proof lifts a relative-dimension-zero Jacobian presentation and inverts its
+Jacobian determinant. No nilpotence assumption on I is needed for existence. -/
+theorem etale_quotient_lift (D : Type v) [CommRing D] [Algebra (B ⧸ I) D]
+    [Algebra.Etale (B ⧸ I) D] : Nonempty (EtaleDeformation I D) := by sorry
+
+/-- `HabiroRings:HR.4/nilpotent-deformation-rigidity`. Full faithfulness at a nilpotent thickening; together with object lifting
+this gives equivalence of the categories of etale algebras. -/
+theorem nilpotent_deformation_rigidity (hI : IsNilpotent I)
+    {D D' : Type v} [CommRing D] [CommRing D']
+    [Algebra (B ⧸ I) D] [Algebra (B ⧸ I) D']
+    (L : EtaleDeformation I D) (M : EtaleDeformation I D') :
+    Function.Bijective (EtaleDeformation.reduceMap L M) := by sorry
+
+/- Complete-target map lifting uses the existing
+Algebra.FormallySmooth.exists_mkₐ_comp_eq_of_isAdicComplete and
+Algebra.FormallyUnramified.ext_of_iInf. Their combination is not a new roadmap
+target. The ideal in those statements is an ideal of the target ring and may
+have several generators. -/
+
+/-! `HabiroRings:HR.4/completed-etale-deformation` -/
+
+/-- Ordinary completion of an etale object lift; this reuses Mathlib completion.
+The construction's quotient/complete/map API requires I finitely generated.
+Its principal regular derived upgrade is the separate enhanced theorem. -/
+def CompletedEtaleLift {D : Type v} [CommRing D] [Algebra (B ⧸ I) D]
+    (L : EtaleDeformation I D) : Type (max u v) :=
+  AdicCompletion (I.map (algebraMap B L.carrier)) L.carrier
+
+namespace CompletedEtaleLift
+
+variable {I} {D : Type v} [CommRing D] [Algebra (B ⧸ I) D]
+  (L : EtaleDeformation I D)
+
+instance instCommRing : CommRing (CompletedEtaleLift I L) := by sorry
+instance instAlgebra : Algebra B (CompletedEtaleLift I L) := by sorry
+
+def of : L.carrier →ₐ[B] CompletedEtaleLift I L := by sorry
+
+theorem complete (hI : I.FG) :
+    IsAdicComplete (I.map (algebraMap B (CompletedEtaleLift I L)))
+      (CompletedEtaleLift I L) := by sorry
+
+def reductionEquiv (hI : I.FG) :
+    (B ⧸ I) ⊗[B] CompletedEtaleLift I L ≃ₐ[B ⧸ I] D := by sorry
+
+theorem reduction_of (hI : I.FG) :
+    (reductionEquiv L hI).toAlgHom.comp (baseChangeMap I (of L)) =
+      L.marking.toAlgHom := by sorry
+
+/-- `HabiroRings:HR.4/completed-deformation-map-equivalence`, promoted from the API: reduction is the
+actual natural hom-set equivalence, after extension over the completion unit. -/
+def homEquiv (hI : I.FG) (C : Type w) [CommRing C] [Algebra B C]
+    [IsAdicComplete (I.map (algebraMap B C)) C] :
+    (CompletedEtaleLift I L →ₐ[B] C) ≃
+      (D →ₐ[B ⧸ I] (B ⧸ I) ⊗[B] C) where
+  toFun g := (baseChangeMap I g).comp (reductionEquiv L hI).symm.toAlgHom
+  invFun := by sorry
+  left_inv := by sorry
+  right_inv := by sorry
+
+def map (hI : I.FG) {D' : Type v} [CommRing D'] [Algebra (B ⧸ I) D']
+    (M : EtaleDeformation I D') (g : D →ₐ[B ⧸ I] D') :
+    CompletedEtaleLift I L →ₐ[B] CompletedEtaleLift I M := by sorry
+
+theorem map_reduction (hI : I.FG) {D' : Type v} [CommRing D']
+    [Algebra (B ⧸ I) D'] (M : EtaleDeformation I D') (g : D →ₐ[B ⧸ I] D') :
+    (reductionEquiv M hI).toAlgHom.comp (baseChangeMap I (map L hI M g)) =
+      g.comp (reductionEquiv L hI).toAlgHom := by sorry
+
+theorem map_id (hI : I.FG) :
+    map L hI L (AlgHom.id (B ⧸ I) D) = AlgHom.id B (CompletedEtaleLift I L) := by sorry
+
+theorem map_comp (hI : I.FG) {D' D'' : Type v} [CommRing D'] [CommRing D'']
+    [Algebra (B ⧸ I) D'] [Algebra (B ⧸ I) D'']
+    (M : EtaleDeformation I D') (N : EtaleDeformation I D'')
+    (g : D →ₐ[B ⧸ I] D') (h : D' →ₐ[B ⧸ I] D'') :
+    map L hI N (h.comp g) = (map M hI N h).comp (map L hI M g) := by sorry
+
+def equivOfMarking (hI : I.FG) (M : EtaleDeformation I D) :
+    CompletedEtaleLift I L ≃ₐ[B] CompletedEtaleLift I M := by sorry
+
+theorem equivOfMarking_reduction (hI : I.FG) (M : EtaleDeformation I D) :
+    (reductionEquiv M hI).toAlgHom.comp
+      (baseChangeMap I (equivOfMarking L hI M).toAlgHom) =
+        (reductionEquiv L hI).toAlgHom := by sorry
+
+theorem equivOfMarking_trans (hI : I.FG) (M N : EtaleDeformation I D) :
+    (equivOfMarking L hI M).trans (equivOfMarking M hI N) =
+      equivOfMarking L hI N := by sorry
+
+-- CompletedEtaleLift.test_zero_ideal
+example {D : Type u} [CommRing D] [Algebra B D]
+    [Algebra (B ⧸ (⊥ : Ideal B)) D] [IsScalarTower B (B ⧸ (⊥ : Ideal B)) D]
+    (L : EtaleDeformation (⊥ : Ideal B) D) :
+    Nonempty (CompletedEtaleLift (⊥ : Ideal B) L ≃ₐ[B] D) := by sorry
+
+-- CompletedEtaleLift.test_nilpotent: the canonical completion unit is invertible.
+example (hI : IsNilpotent I) :
+    Function.Bijective (of L) := by sorry
+
+-- CompletedEtaleLift.test_split_swap: preserving the marking matters.
+example (hI : I.FG) [Nontrivial (B ⧸ I)] :
+    map (EtaleDeformation.split (I := I)) hI (EtaleDeformation.split (I := I))
+      ((AlgHom.snd (B ⧸ I) (B ⧸ I) (B ⧸ I)).prod
+        (AlgHom.fst (B ⧸ I) (B ⧸ I) (B ⧸ I))) ≠
+      AlgHom.id B (CompletedEtaleLift I (EtaleDeformation.split (I := I))) := by sorry
+
+-- CompletedEtaleLift.test_localisation_series: completion after localization,
+-- with no uniform bound on powers of 2 in the coefficients' denominators.
+example :
+    let W := CompletedEtaleLift (Ideal.span {(Polynomial.X : Polynomial ℤ)})
+      (EtaleDeformation.localisation (I := Ideal.span {(Polynomial.X : Polynomial ℤ)})
+        (2 : Polynomial ℤ))
+    ∃ e : W ≃+* PowerSeries (Localization.Away (2 : ℤ)),
+      e.toRingHom.comp (algebraMap (Polynomial ℤ) W) =
+        (Polynomial.aeval
+          (PowerSeries.X : PowerSeries (Localization.Away (2 : ℤ)))).toRingHom := by sorry
+
+end CompletedEtaleLift
+
+/- Enhanced omissions, with exact proposed names (packet nodes 6 and 7).
+
+complete_principal_deformation_universality (`HabiroRings:HR.4/complete-principal-deformation-universality`):
+  B commutative, f a nonzerodivisor, D etale over B/(f). Let L be an etale
+  object lift and W=CompletedEtaleLift ((f)) L. W is static, f is regular on W,
+  and W/(f) DERIVED is D. For every derived f-complete E-infinity B-algebra C,
+  the space of equivalences W~C inducing a fixed C/(f)~D is contractible.
+  A homological proof first uses the cofiber triangles for successive powers,
+  their surjective H_0 tower and the Milnor exact sequence to show that C is
+  static and f-regular. Ordinary adic map rigidity then constructs the marked
+  comparison. DD.1 supplies the derived completion/staticity/regularity and
+  reduction detection; E1/E5:abstract supplies actual enhanced carriers and
+  the fully faithful embedding of ordinary rings, including mapping spaces.
+  No claim of flatness of W over B or finite etaleness of W over completed B.
+
+cyclotomic_ghost_lift_coherence (`HabiroRings:HR.4/cyclotomic-ghost-lift-coherence`):
+  A perfectly covered Lambda-ring, R etale over A, m>0. Write f=q^m-1,
+  D=qW_m(R/A), W its marked complete lift and
+  E_d=((R tensor_{A,psi^d} A)[q])^completion_{Phi_d}. The relative ghosts give
+  marked equivalences alpha_d:W^completion_{Phi_d}~E_d. At each prime edge
+  pd|m the square with alpha_pd, alpha_d and the comparison maps on the two
+  p-completed components has a canonical path. Reduce to (p,Phi_d), use the
+  actual QW.4 relative ghost/Frobenius base-change square and HR.1 relative
+  Frobenius, then lift uniquely through its nilpotent ideal powers. For m=6
+  this supplies the four edge paths of HR.3; it imposes no extra cycle equation.
+  HR.3 reconstruction yields W~H_(R/A,m); its full mapping-space theorem gives
+  naturality and coherence. QW.3/QW.4, HR.1/HR.3, DD.1 and E1/E5:abstract must
+  expose the missing q-Witt, twisted, enhanced and completed diagram carriers.
+
+The twelve accepted HR.4 targets remain imports by id. In particular their
+relative q-Witt construction, no-restriction theorem, finite relative Habiro
+ring, Theorem 2.9, quotient Frobenius transitions and static inverse limit are
+not restated with a private placeholder API here. The reader and packet give
+their precise supplier contracts and the finite-stage proof refinement.
+-/
+
+end HR4FollowUp
+
 /-! ## HR.5 — the relative Habiro ring
 
 `H_{R/A} = lim_m H_{R/A,m}` over the positive integers ordered by divisibility (2.7 with (2.1)). Its
@@ -3536,6 +4669,167 @@ isomorphism `κ` (HabiroNumberFields:HB.6); gap 'The vanishing of the regulator 
 `K_3(F) → Pic(H_{R/ℤ}) → Pic(R[[q - 1]])` (the second map `CommRing.Pic.mapAlgebra` along
 `qMinusOneCompletion`) is trivial. -/
 
+section HR6FollowUp
+
+/-! ### HR.6, continued: the order-one fibre and the completed regulator
+
+The nodes of the HR.6 follow-up packet. The typed ordinary-module interfaces below apply to the
+actual transported HabiroNumberFields HB.7 lines once that supplier provides them: `H` is the
+relative Habiro ring, `M` its transported line and `R = O_F[1/Δ]`. The `R`-algebra structure over
+`H` comes from evaluation, never from constant coefficient families in `H`. -/
+
+open TensorProduct
+
+/-! `HabiroRings:HR.6/followup-order-one-fibre` -/
+
+namespace OrderOneFibre
+
+variable {H R M : Type*} [CommRing H] [CommRing R] [Algebra H R]
+  [AddCommGroup M] [Module H M] [Module.Invertible H M]
+
+/-- For the actual line, e(r tensor f) = r * f_1(0).
+The finite inverse-tensor certificate supplies hunit. -/
+def trivialization (e : (R ⊗[H] M) →ₗ[R] R)
+    (hunit : ∃ x, e x = 1) : (R ⊗[H] M) ≃ₗ[R] R := by
+  sorry
+
+lemma map_eq_eval (e : (R ⊗[H] M) →ₗ[R] R) (hunit : ∃ x, e x = 1)
+    (x : R ⊗[H] M) : trivialization e hunit x = e x := by
+  sorry
+
+lemma inverse_one (e : (R ⊗[H] M) →ₗ[R] R) (hunit : ∃ x, e x = 1) :
+    e ((trivialization e hunit).symm 1) = 1 := by
+  sorry
+
+lemma coordinates (e : (R ⊗[H] M) →ₗ[R] R) (hunit : ∃ x, e x = 1)
+    (x : R ⊗[H] M) :
+    e x • (trivialization e hunit).symm 1 = x := by
+  sorry
+
+lemma unique (e : (R ⊗[H] M) →ₗ[R] R) (hunit : ∃ x, e x = 1)
+    (t : (R ⊗[H] M) ≃ₗ[R] R) (ht : ∀ x, t x = e x) :
+    t = trivialization e hunit := by
+  sorry
+
+lemma rescale (e : (R ⊗[H] M) →ₗ[R] R) (hunit : ∃ x, e x = 1)
+    (u : Rˣ)
+    (hu : ∃ x, (((u : R) • e) : (R ⊗[H] M) →ₗ[R] R) x = 1)
+    (x : R ⊗[H] M) :
+    trivialization ((u : R) • e) hu x = (u : R) * trivialization e hunit x := by
+  sorry
+
+/-- Evaluation-compatible semilinear maps preserve the normalized fibre coordinates.
+For field pullback, HB.7 must supply the actual map u and the equality heval. -/
+lemma naturality
+    {H' S N : Type*} [CommRing H'] [CommRing S] [Algebra H' S]
+    [AddCommGroup N] [Module H' N] [Module.Invertible H' N]
+    (f : R →+* S)
+    (e : (R ⊗[H] M) →ₗ[R] R) (hunit : ∃ x, e x = 1)
+    (e' : (S ⊗[H'] N) →ₗ[S] S) (hunit' : ∃ x, e' x = 1)
+    (u : (R ⊗[H] M) →ₛₗ[f] (S ⊗[H'] N))
+    (heval : ∀ x, e' (u x) = f (e x)) (x : R ⊗[H] M) :
+    trivialization e' hunit' (u x) = f (trivialization e hunit x) := by
+  sorry
+
+end OrderOneFibre
+
+namespace OrderOneFibreTests
+
+-- OrderOneFibreTests.identity: the degree-zero/unit-line case agrees with Mathlib's tensor unit.
+example {R : Type*} [CommRing R] (r : R)
+    (hunit : ∃ x, (TensorProduct.lid R R).toLinearMap x = 1) :
+    OrderOneFibre.trivialization (TensorProduct.lid R R).toLinearMap hunit
+      (1 ⊗ₜ[R] r) = r := by
+  sorry
+
+-- OrderOneFibreTests.negativeUnit: forgetting evaluation's normalization would miss this sign.
+example (hunit : ∃ x,
+    (- (TensorProduct.lid ℤ ℤ).toLinearMap) x = 1) :
+    OrderOneFibre.trivialization (- (TensorProduct.lid ℤ ℤ).toLinearMap) hunit
+      (1 ⊗ₜ[ℤ] (3 : ℤ)) = -3 := by
+  sorry
+
+-- OrderOneFibreTests.inverseGenerator: one evaluated section generates the whole fibre, not M over H.
+example {H R M : Type*} [CommRing H] [CommRing R] [Algebra H R]
+    [AddCommGroup M] [Module H M] [Module.Invertible H M]
+    (e : (R ⊗[H] M) →ₗ[R] R) (hunit : ∃ x, e x = 1) (r : R) :
+    (OrderOneFibre.trivialization e hunit)
+      (r • (OrderOneFibre.trivialization e hunit).symm 1) = r := by
+  sorry
+
+-- OrderOneFibreTests.zeroEvaluation: an arbitrary/zero evaluation is not enough for a fibre isomorphism.
+example : ¬ ∃ x : ℤ ⊗[ℤ] ℤ, (0 : (ℤ ⊗[ℤ] ℤ) →ₗ[ℤ] ℤ) x = 1 := by
+  sorry
+
+end OrderOneFibreTests
+
+section CompletedLine
+
+variable {R : Type*} [CommRing R]
+
+local instance coeffAlgebra : Algebra (PowerSeries R) R :=
+  (PowerSeries.constantCoeff (R := R)).toAlgebra
+
+/-- `HabiroRings:HR.6/followup-completed-regulator-triviality`: the ordinary-module core of
+completedRegulatorTriviality: apply this to
+P = R[[X]] tensor_H M and the order-one fibre isomorphism. No assumption
+that R is local, and no global trivialization of M, is used. -/
+theorem completedRegulatorTriviality
+    {P : Type*} [AddCommGroup P] [Module (PowerSeries R) P]
+    [Module.Invertible (PowerSeries R) P]
+    (h : Nonempty
+      ((P ⧸ ((Ideal.span {PowerSeries.X (R := R)}) •
+        (⊤ : Submodule (PowerSeries R) P))) ≃ₗ[PowerSeries R] R)) :
+    Nonempty (P ≃ₗ[PowerSeries R] PowerSeries R) := by
+  sorry
+
+-- A nonconstant unit changes a lifted trivialization while fixing its first fibre.
+example : IsUnit (1 + PowerSeries.X (R := ℤ)) ∧
+    PowerSeries.constantCoeff (1 + PowerSeries.X (R := ℤ)) = 1 ∧
+    (1 + PowerSeries.X (R := ℤ)) ≠ 1 := by
+  sorry
+
+-- X itself cannot replace a lift of a fibre generator.
+example : ¬ IsUnit (PowerSeries.X (R := ℤ)) := by
+  sorry
+
+end CompletedLine
+
+/-!
+Exact signatures omitted because the imported carriers do not exist at the pins:
+
+* OrderOneFibre.eval: for the actual transported HB.7 line M_xi, the
+  R-linear map R tensor_H M_xi -> R sending r tensor f to r*f_1(0).
+  Its H-semilinear input and compatibility with graded multiplication are
+  requested from HB.7. This is a supplier interface, not a new HR.6 definition.
+* completedRegulatorTriviality_actual: for F a number field and positive Delta
+  divisible by 6*abs(disc F), c:H_{R/Z}->R[[X]], and xi in K3(F),
+  c^* M_xi is isomorphic to R[[X]], conditional on HB.7 effective descent
+  and its inverse tensor certificate. Equivalently Pic.mapRingHom c(rho xi)=1.
+* regulatorScalarSquare: for F->E, common Delta divisible by both
+  6*abs(discriminants), transport the actual HB.7 scalar equivalence through
+  the Taylor-compatible kappas: H_{S/Z} tensor_{H_{R/Z}} M_xi is isomorphic
+  to M_{res xi}; its fibre square and completed square commute. Hypotheses
+  are precisely HB.7 effective descent and arithmetic naturality.
+
+The inherited degree-zero E-infinity comparison, Habiro-complete derived
+scalar extension/perfect interfaces, and ring-kernel witness keep the parent
+packet's names/signatures. Their enhanced objects await HR.2/HR.4/HQ/DD/E5,
+so no private replacement category or proposition-valued stand-in is introduced.
+-/
+
+-- `HabiroRings:HR.6/followup-regulator-scalar-square`: the actual Mathlib form of the Picard
+-- square used by regulatorScalarSquare.
+theorem regulatorScalarSquare_of_ringSquare
+    {H H' K K' : Type*} [CommRing H] [CommRing H'] [CommRing K] [CommRing K']
+    (a : H →+* H') (b : K →+* K') (k : H →+* K) (k' : H' →+* K')
+    (h : k'.comp a = b.comp k) (l : CommRing.Pic H) :
+    CommRing.Pic.mapRingHom k' (CommRing.Pic.mapRingHom a l) =
+      CommRing.Pic.mapRingHom b (CommRing.Pic.mapRingHom k l) := by
+  sorry
+
+end HR6FollowUp
+
 /-! ## HR.7 — the acceptance tests
 
 The generic equaliser universal property that the HR.7 stage text mentions is Mathlib's
@@ -3544,17 +4838,24 @@ restated; `HabiroRings.equaliser_presentation` instantiates it with `can` and `�
 
 /-! ### `HabiroRings:HR.7/phi-five-over-f-eleven` -/
 
+/-- The residue map `ℤ[q] → 𝔽_11^4` at the four roots `3, 4, 5, 9` of `Φ_5` modulo `11`
+(a real definition; the Mathlib form of Tau Ceti's conjugate-residue map at `α = 3`). -/
+def phiFiveResidues : ℤ[X] →+* (Fin 4 → ZMod 11) :=
+  RingHom.pi fun i => eval₂RingHom (Int.castRingHom (ZMod 11)) (![3, 4, 5, 9] i)
+
 /-- `HabiroRings:HR.7/phi-five-over-f-eleven`: `Φ_5 = (q - 3)(q - 4)(q - 5)(q - 9)` over `𝔽_11`, so
-`𝔽_11[q]/Φ_5 ≅ 𝔽_11^4` is finite étale but not a field; the conjugate-residue map
-`ℤ[ζ_5] → 𝔽_11^4` at `α = 3` (Tau Ceti) is the reduction modulo `11`; `ℤ_11 ⊗ ℤ[ζ_5] ≅ ℤ_11^4`,
+`𝔽_11[q]/Φ_5 ≅ 𝔽_11^4` is finite étale but not a field; the residue map
+`ℤ[q] → 𝔽_11^4`, `f ↦ (f(3), f(4), f(5), f(9)) mod 11`, is surjective with kernel `(11, Φ_5)`, so
+it induces the reduction `ℤ[ζ_5]/11 ≅ 𝔽_11^4` (Tau Ceti's `TauCeti.Cyclotomic.conjugateResiduesRingHom`
+at `α = 3`, which the pinned Tau Ceti has; see the module note); `ℤ_11 ⊗ ℤ[ζ_5] ≅ ℤ_11^4`,
 and `ℤ_11[q]^∧_{(11, Φ_5)} ≅ ∏_{i=1}^4 ℤ_11[[q - ω_i]]`. This refutes the p. 18 claim that `Φ_m`
 is irreducible modulo every `ℓ ∤ m` (source issue `HabiroRings/E5`). -/
 theorem phi_five_over_f_eleven [Fact (Nat.Prime 11)] (h3 : IsPrimitiveRoot (3 : ZMod 11) 5) :
     cyclotomic 5 (ZMod 11) = (X - C 3) * (X - C 4) * (X - C 5) * (X - C 9) ∧
     Nonempty ((ZMod 11)[X] ⧸ Ideal.span {cyclotomic 5 (ZMod 11)} ≃+* (Fin 4 → ZMod 11)) ∧
     ¬ IsField ((ZMod 11)[X] ⧸ Ideal.span {cyclotomic 5 (ZMod 11)}) ∧
-    Function.Surjective (TauCeti.Cyclotomic.conjugateResiduesRingHom h3) ∧
-    RingHom.ker (TauCeti.Cyclotomic.conjugateResiduesRingHom h3) = Ideal.span {11} ∧
+    Function.Surjective (phiFiveResidues) ∧
+    RingHom.ker phiFiveResidues = Ideal.span {C 11, cyclotomic 5 ℤ} ∧
     Nonempty (ℤ_[11][X] ⧸ Ideal.span {cyclotomic 5 ℤ_[11]} ≃+* (Fin 4 → ℤ_[11])) ∧
     Nonempty (AdicCompletion (Ideal.span {C (11 : ℤ_[11]), cyclotomic 5 ℤ_[11]}) ℤ_[11][X] ≃+*
       (Fin 4 → PowerSeries ℤ_[11])) := by
