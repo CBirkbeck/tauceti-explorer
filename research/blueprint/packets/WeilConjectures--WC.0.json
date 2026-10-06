@@ -538,7 +538,8 @@
       "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/196",
       "accessed": "2026-10-06",
       "readSections": [
-        "FrobeniusGeometry Layers4–5 complete; EllAdicRealization Layers4–10 complete; TraceFormula Layers13–15 complete; EtaleBaseChange Layers7–9 complete; ComplexComparison Layers10–12 complete. These are mathematical suppliers, not baseline implementations. Their layer IDs are absent from the current atlas."
+        "FrobeniusGeometry Layers4–5 complete; EllAdicRealization Layers4–10 complete; TraceFormula Layers13–15 complete; EtaleBaseChange Layers7–9 complete; ComplexComparison Layers10–12 complete. These are mathematical suppliers, not baseline implementations. Their layer IDs are absent from the current atlas.",
+        "Read again by the independent review REV-WeilConjectures--WC.0 at the same head on 6 October 2026: FrobeniusGeometry Layers 3–7 (Layer 7 is the cohomological convention bridge), TraceFormula Layers 5–15, EllAdicRealization Layers 7–10, EtaleBaseChange Layer 8, ComplexComparison Layer 10 and the family README’s successor note."
       ]
     },
     {
@@ -612,6 +613,13 @@
       "url": "https://kskedlaya.org/weil-cohom/chapter-5.html",
       "read": "2026-10-06",
       "citation": "Online Lecture5, Math206A,14October2019; the displayed source was read through the web tool. A direct HTML download returned406, so no file hash is claimed."
+    },
+    {
+      "kind": "author copy",
+      "url": "https://kskedlaya.org/weil-cohom/chapter-5.html",
+      "read": "2026-10-06",
+      "sha256": "d87e898142aa11e9d96044cd25ff2d0a7ed2a1a9f85acd14cdec323f7482877f",
+      "citation": "Fetched by the independent review REV-WeilConjectures--WC.0 with browser request headers (the plain request is refused with 406); the hash is of the HTML served that day."
     }
   ],
   "nodes": [
@@ -651,7 +659,7 @@
         {
           "sourceId": "mathlib-vandermonde-pin",
           "locator": "Vandermonde.lean: det_vandermonde_ne_zero_iff; NonsingularInverse.lean: mul_nonsing_inv",
-          "excerpt": "det_vandermonde_ne_zero_iff",
+          "excerpt": "theorem det_vandermonde_ne_zero_iff [IsDomain R] {v : Fin n → R} : det (vandermonde v) ≠ 0 ↔ Function.Injective v",
           "match": "The pinned algebraic input. This node applies the existing inverse to consecutive moments; it does not rebuild the Vandermonde theorem."
         }
       ],
@@ -691,7 +699,7 @@
         {
           "sourceId": "mathlib-vandermonde-pin",
           "locator": "Vandermonde.lean: det_vandermonde_ne_zero_iff; NonsingularInverse.lean: mul_nonsing_inv",
-          "excerpt": "det_vandermonde_ne_zero_iff",
+          "excerpt": "theorem det_vandermonde_ne_zero_iff [IsDomain R] {v : Fin n → R} : det (vandermonde v) ≠ 0 ↔ Function.Injective v",
           "match": "The pinned algebraic input. This node applies the existing inverse to consecutive moments; it does not rebuild the Vandermonde theorem."
         }
       ],
@@ -737,7 +745,7 @@
         {
           "sourceId": "yu-2022-app-c",
           "locator": "Appendix C, unnumbered lemma and proof, printed p. 81",
-          "excerpt": "Lemme.",
+          "excerpt": "Soient γ1, . . . , γr ∈ Z̄p deux à deux distincts de valuation p-adique vp(γi) > 0, i = 1, . . . , r. Alors il existe k ∈ N∗, tel que Σ ci γi^(−k) ∉ Z̄p.",
           "match": "Source motivation and nonarchimedean special case. The precise normed-field generalization and proof below are supplied explicitly by this worker; Yu uses successive elimination."
         }
       ],
@@ -776,7 +784,7 @@
         {
           "sourceId": "yu-2022-app-c",
           "locator": "Appendix C, unnumbered lemma and proof, printed p. 81",
-          "excerpt": "Lemme.",
+          "excerpt": "Soient γ1, . . . , γr ∈ Z̄p deux à deux distincts de valuation p-adique vp(γi) > 0, i = 1, . . . , r. Alors il existe k ∈ N∗, tel que Σ ci γi^(−k) ∉ Z̄p.",
           "match": "Source motivation and nonarchimedean special case. The precise normed-field generalization and proof below are supplied explicitly by this worker; Yu uses successive elimination."
         }
       ],
@@ -818,7 +826,7 @@
         {
           "sourceId": "yu-2022-app-c",
           "locator": "Appendix C, unnumbered lemma and proof, printed p. 81",
-          "excerpt": "Lemme.",
+          "excerpt": "Soient γ1, . . . , γr ∈ Z̄p deux à deux distincts de valuation p-adique vp(γi) > 0, i = 1, . . . , r. Alors il existe k ∈ N∗, tel que Σ ci γi^(−k) ∉ Z̄p.",
           "match": "Source motivation and nonarchimedean special case. The precise normed-field generalization and proof below are supplied explicitly by this worker; Yu uses successive elimination."
         }
       ],
@@ -858,7 +866,7 @@
         {
           "sourceId": "yu-2022-app-c",
           "locator": "Appendix C, unnumbered lemma and proof, printed p. 81",
-          "excerpt": "Lemme.",
+          "excerpt": "Soient γ1, . . . , γr ∈ Z̄p deux à deux distincts de valuation p-adique vp(γi) > 0, i = 1, . . . , r. Alors il existe k ∈ N∗, tel que Σ ci γi^(−k) ∉ Z̄p.",
           "match": "Source motivation and nonarchimedean special case. The precise normed-field generalization and proof below are supplied explicitly by this worker; Yu uses successive elimination."
         }
       ],
@@ -898,7 +906,7 @@
         {
           "sourceId": "yu-2022-app-c",
           "locator": "Appendix C, unnumbered lemma and proof, printed p. 81",
-          "excerpt": "Lemme.",
+          "excerpt": "Soient γ1, . . . , γr ∈ Z̄p deux à deux distincts de valuation p-adique vp(γi) > 0, i = 1, . . . , r. Alors il existe k ∈ N∗, tel que Σ ci γi^(−k) ∉ Z̄p.",
           "match": "Source motivation and nonarchimedean special case. The precise normed-field generalization and proof below are supplied explicitly by this worker; Yu uses successive elimination."
         }
       ],
@@ -941,8 +949,15 @@
         {
           "sourceId": "milne-lec",
           "locator": "§27, Lemma 27.5 and proof, printed pp. 155–156",
-          "excerpt": "27.",
+          "excerpt": "Define the characteristic polynomial of an endomorphism φ: V → V of a vector space over a field k to be Pφ(t) = det(1 − φt | V).",
           "match": "Milne supplies the trace/power-sum identity and, in characteristic zero, a formal logarithmic expression. This weighted geometric-series calculation is a separate explicit worker argument using the pinned library; it does not import the logarithmic formula over an arbitrary field or any geometric cohomology theorem."
+        },
+        {
+          "sourceId": "mustata-zeta",
+          "locator": "Proof of Lemma 3.8, equations (3.11)–(3.12), p.21",
+          "excerpt": "Note that (3.11) implies that the rational function Σ_{m≥1} a_m t^r has a pole at t = 1/ωi. The estimate in (3.12) implies that 1/|ωi| ≥ q^{−1/2}, as required.",
+          "match": "The rational generating function of power sums and the exclusion of poles from the disc of convergence; the weighted, grouped and normed-field form is the packet’s own argument.",
+          "addedBy": "REV-WeilConjectures--WC.0"
         }
       ],
       "implementationStatus": "unchecked"
@@ -978,8 +993,15 @@
         {
           "sourceId": "milne-lec",
           "locator": "§27, Lemma 27.5 and proof, printed pp. 155–156",
-          "excerpt": "27.",
+          "excerpt": "Define the characteristic polynomial of an endomorphism φ: V → V of a vector space over a field k to be Pφ(t) = det(1 − φt | V).",
           "match": "Milne supplies the trace/power-sum identity and, in characteristic zero, a formal logarithmic expression. This weighted geometric-series calculation is a separate explicit worker argument using the pinned library; it does not import the logarithmic formula over an arbitrary field or any geometric cohomology theorem."
+        },
+        {
+          "sourceId": "mustata-zeta",
+          "locator": "Proof of Lemma 3.8, equations (3.11)–(3.12), p.21",
+          "excerpt": "Note that (3.11) implies that the rational function Σ_{m≥1} a_m t^r has a pole at t = 1/ωi. The estimate in (3.12) implies that 1/|ωi| ≥ q^{−1/2}, as required.",
+          "match": "The rational generating function of power sums and the exclusion of poles from the disc of convergence; the weighted, grouped and normed-field form is the packet’s own argument.",
+          "addedBy": "REV-WeilConjectures--WC.0"
         }
       ],
       "implementationStatus": "unchecked"
@@ -998,7 +1020,7 @@
         {
           "sourceId": "mathlib-formal-series-pin",
           "locator": "PowerSeries/WellKnown.lean: mk_one_mul_one_sub_eq_one; LaurentSeries.lean: RatFunc.coe_coe and algebraMap_apply_div",
-          "excerpt": "mk_one_mul_one_sub_eq_one",
+          "excerpt": "theorem mk_one_mul_one_sub_eq_one : (mk 1 : S⟦X⟧) * (1 - X) = 1",
           "match": "Existing formal geometric series and embeddings; the weighted finite-sum specialization and denominator clearing are the explicit argument supplied here."
         }
       ],
@@ -1048,7 +1070,7 @@
         {
           "sourceId": "mathlib-formal-series-pin",
           "locator": "PowerSeries/WellKnown.lean: mk_one_mul_one_sub_eq_one; LaurentSeries.lean: RatFunc.coe_coe and algebraMap_apply_div",
-          "excerpt": "mk_one_mul_one_sub_eq_one",
+          "excerpt": "theorem mk_one_mul_one_sub_eq_one : (mk 1 : S⟦X⟧) * (1 - X) = 1",
           "match": "Existing formal geometric series and embeddings; the weighted finite-sum specialization and denominator clearing are the explicit argument supplied here."
         }
       ],
@@ -1118,8 +1140,15 @@
         {
           "sourceId": "milne-lec",
           "locator": "§27, Lemma 27.5 and proof, printed pp. 155–156",
-          "excerpt": "27.",
+          "excerpt": "Define the characteristic polynomial of an endomorphism φ: V → V of a vector space over a field k to be Pφ(t) = det(1 − φt | V).",
           "match": "Milne supplies the trace/power-sum identity and, in characteristic zero, a formal logarithmic expression. This weighted geometric-series calculation is a separate explicit worker argument using the pinned library; it does not import the logarithmic formula over an arbitrary field or any geometric cohomology theorem."
+        },
+        {
+          "sourceId": "mustata-zeta",
+          "locator": "Proof of Lemma 3.8, equations (3.11)–(3.12), p.21",
+          "excerpt": "Note that (3.11) implies that the rational function Σ_{m≥1} a_m t^r has a pole at t = 1/ωi. The estimate in (3.12) implies that 1/|ωi| ≥ q^{−1/2}, as required.",
+          "match": "The rational generating function of power sums and the exclusion of poles from the disc of convergence; the weighted, grouped and normed-field form is the packet’s own argument.",
+          "addedBy": "REV-WeilConjectures--WC.0"
         }
       ],
       "implementationStatus": "unchecked"
@@ -1159,8 +1188,15 @@
         {
           "sourceId": "milne-lec",
           "locator": "§27, Lemma 27.5 and proof, printed pp. 155–156",
-          "excerpt": "27.",
+          "excerpt": "Define the characteristic polynomial of an endomorphism φ: V → V of a vector space over a field k to be Pφ(t) = det(1 − φt | V).",
           "match": "Milne supplies the trace/power-sum identity and, in characteristic zero, a formal logarithmic expression. This weighted geometric-series calculation is a separate explicit worker argument using the pinned library; it does not import the logarithmic formula over an arbitrary field or any geometric cohomology theorem."
+        },
+        {
+          "sourceId": "mustata-zeta",
+          "locator": "Proof of Lemma 3.8, equations (3.11)–(3.12), p.21",
+          "excerpt": "Note that (3.11) implies that the rational function Σ_{m≥1} a_m t^r has a pole at t = 1/ωi. The estimate in (3.12) implies that 1/|ωi| ≥ q^{−1/2}, as required.",
+          "match": "The rational generating function of power sums and the exclusion of poles from the disc of convergence; the weighted, grouped and normed-field form is the packet’s own argument.",
+          "addedBy": "REV-WeilConjectures--WC.0"
         }
       ],
       "implementationStatus": "unchecked"
@@ -1200,10 +1236,10 @@
       "declarationName": "TauCeti.FiniteSpectrum.norm_eq_of_reciprocal_pairing",
       "sources": [
         {
-          "sourceId": "yu-2022-app-c",
-          "locator": "Appendix C, unnumbered lemma and proof, printed p. 81",
-          "excerpt": "Lemme.",
-          "match": "Source motivation and nonarchimedean special case. The precise normed-field generalization and proof below are supplied explicitly by this worker; Yu uses successive elimination."
+          "sourceId": "mustata-zeta",
+          "locator": "Remark 3.7, p.21",
+          "excerpt": "since the multiset {ω1, . . . , ω2g} is invariant by the map x → q/x (see Remark 3.4) we conclude that we also have |ωi| ≥ q^{1/2}, hence |ωi| = q^{1/2} for every i.",
+          "match": "The upper bound plus the reciprocal pairing α ↦ q/α forces equality; the node states this for an abstract permutation pairing in each complex embedding."
         }
       ],
       "implementationStatus": "unchecked"
@@ -1242,14 +1278,14 @@
       "sources": [
         {
           "sourceId": "deligne-i",
-          "locator": "(1.1.1) and §1.2–1.3 pp.273–274",
-          "excerpt": "Frobenius",
-          "match": "Actual finite-extension counts, not points of a topological space."
+          "locator": "(1.4) a)–d) and (1.4.1), pp.274–275",
+          "excerpt": "b) De même, l'ensemble X^{F^n} des points fermés de X fixes sous le n-ième itéré de F s'identifie à X₀(F_{q^n}).",
+          "match": "Extension counts are fixed points of iterated Frobenius, identified with the actual finite-extension point sets."
         },
         {
           "sourceId": "pr196",
-          "locator": "FrobeniusGeometry Layers4–5",
-          "excerpt": "Layer",
+          "locator": "FrobeniusGeometry Layers 4–5",
+          "excerpt": "Prove that the rational-point type of a finite-type scheme over a finite field is finite, by reduction to a finite affine cover and finiteness of solutions in finite coordinate rings",
           "match": "Supplier constructs the point carriers and finiteness; WC exports their notation and choice comparison."
         }
       ],
@@ -1293,14 +1329,14 @@
       "sources": [
         {
           "sourceId": "deligne-i",
-          "locator": "(1.1.1) and §1.2–1.3",
-          "excerpt": "Frobenius",
+          "locator": "(1.4) c)–d), p.275",
+          "excerpt": "c) L'ensemble |X₀| des points fermés de X₀ s'identifie à l'ensemble |X|_F des orbites de F (ou de φ) dans |X|. Le degré deg(x) de x∈|X₀| est le nombre d'éléments de l'orbite correspondante.",
           "match": "Comparison with the already-owned orbit decomposition."
         },
         {
           "sourceId": "pr196",
           "locator": "TraceFormula Layer13; FrobeniusGeometry Layer4",
-          "excerpt": "Layer",
+          "excerpt": "Build the combinatorics relating rational points over extensions to closed points and Frobenius orbits.",
           "match": "Orbit combinatorics belongs to these suppliers, not a second closed-point theory."
         }
       ],
@@ -1321,7 +1357,7 @@
       "statement": "For separated finite-type X/k and a prime ℓ≠p, identify the WC degree-i space with the imported finite-dimensional rational ℓ-adic H_c^i(X_k̄,Q_ℓ), and with H^i for proper X. Identify its WC operator with continuous geometric Galois Frobenius, inverse to the arithmetic generator, and with pullback by the scheme q-Frobenius under the supplied convention bridge. After degree-r base extension the operator is F_q^r. The geometric action on Q_ℓ(1) is q⁻¹ and on Q_ℓ(−d) is q^d. Coefficient extensions preserve characteristic polynomials by scalar extension, dimensions and traces; no rational space is inferred merely from an integral derived carrier.",
       "hypotheses": [],
       "proofSteps": [
-        "Consume EllAdicRealization Layers4–10, including perfect finite rational cohomology and the continuous Galois action, and the FrobeniusGeometry pullback/Galois bridge.",
+        "Consume EllAdicRealization Layers4–10, including perfect finite rational cohomology and the continuous Galois action, and the FrobeniusGeometry Layer 7 bridge between scheme q-Frobenius pullback, the arithmetic descent action and geometric Frobenius (consumed by EllAdicRealization Layer 8).",
         "Compose these supplied identifications with the WC notation; apply their scalar-extension, restriction and proper-support comparisons.",
         "Keep the coefficient prime, cohomological degree, structural map and choice of geometric point visible."
       ],
@@ -1342,15 +1378,15 @@
       "sources": [
         {
           "sourceId": "deligne-i",
-          "locator": "(1.4)–(1.5) and §2.1",
-          "excerpt": "Frobenius",
-          "match": "The compact-support trace convention and top Tate action."
+          "locator": "(1.15) p.279; (2.2) p.281",
+          "excerpt": "Ceci amène à définir le Frobenius géométrique F∈Gal(F̄_q/F_q) comme étant φ⁻¹.",
+          "match": "Geometric Frobenius is the inverse of the arithmetic substitution; (2.2) fixes its action on Q_ℓ(1)."
         },
         {
           "sourceId": "pr196",
-          "locator": "EllAdicRealization Layers4–10",
-          "excerpt": "Layer",
-          "match": "Constructed rational coefficients and Galois action are inputs, not assumptions bearing the final Weil conclusion."
+          "locator": "EllAdicRealization Layers 4–10 (Layer 8: continuous Galois and Frobenius actions); FrobeniusGeometry Layer 7 (convention bridge)",
+          "excerpt": "Prove the pinned Tate-twist convention: geometric Frobenius acts on \\(\\mathbf Q_\\ell(1)\\) by \\(q^{-1}\\), with the arithmetic-Frobenius formulation given explicitly.",
+          "match": "Constructed rational coefficients and Galois action are inputs; the pullback/descent/geometric-Frobenius conversion is FrobeniusGeometry Layer 7, consumed by EllAdicRealization Layer 8."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1374,7 +1410,7 @@
       "hypotheses": [],
       "proofSteps": [
         "Transport the upstream TraceFormula Layer13 exponential/Euler equality along the WC.0 point and degree comparisons.",
-        "Use the supplier’s locally finite integral construction to preserve coefficients in Z; the exponential formulation is only over characteristic-zero coefficients.",
+        "PR196 Layer 13 defines Z over Q by the exponential and proves the Euler product. Each factor (1−T^deg x)⁻¹ lies in 1+T·Z[[T]] and only finitely many closed points have each degree, so the product is coefficientwise a finite product in Z[[T]] and the coefficients are integers; the exponential formulation is only over characteristic-zero coefficients.",
         "Transport the supplier’s decomposition and extension identities; normalization removes a multiplicative constant.",
         "For the arithmetic comparison import the finite-residue-field/bounded-norm finiteness and actual norm-Euler Dirichlet construction with its convergence theorem. Reindex the finite-field specialization by residue degree, then use equality of convergent Euler factors to identify ζ_X(s) with Z_X(q^(−s)). This does not substitute a complex scalar into an arbitrary formal power series outside its convergence domain."
       ],
@@ -1397,15 +1433,15 @@
       "sources": [
         {
           "sourceId": "deligne-i",
-          "locator": "(1.1.1)–(1.3) pp.273–274",
-          "excerpt": "Frobenius",
-          "match": "Finite-field zeta specialization and arithmetic notation."
+          "locator": "(1.1)–(1.1.3), pp.273–274",
+          "excerpt": "Soient X un schéma de type fini sur Z, |X| l'ensemble des points fermés de X et, pour x∈|X|, soit N(x) le nombre d'éléments du corps résiduel k(x) de X en x.",
+          "match": "The arithmetic Hasse–Weil zeta (1.1.1) and its finite-field specialization (1.1.2)–(1.1.3)."
         },
         {
           "sourceId": "pr196",
           "locator": "TraceFormula Layer13",
-          "excerpt": "Layer",
-          "match": "Reuse exponential/Euler zeta and all its general functorial identities."
+          "excerpt": "as a formal power series over \\(\\mathbf Q\\), and prove the equivalent Euler product",
+          "match": "PR196 defines Z over Q by the exponential and proves the Euler product and decomposition/extension laws; integrality of coefficients follows from the Euler product."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1446,14 +1482,14 @@
       "sources": [
         {
           "sourceId": "deligne-i",
-          "locator": "(1.2)–(1.3)",
-          "excerpt": "Frobenius",
-          "match": "The point/orbit relation; Möbius inversion is the WC arithmetic export."
+          "locator": "(1.4) d) and (1.4.1), p.275",
+          "excerpt": "(pour x∈|X₀| et deg(x)|n, x définit deg(x) points à coordonnées dans F_{q^n}, tous conjugués sur F_q).",
+          "match": "The relation N_r = Σ_{m|r} m a_m; Möbius inversion is the WC arithmetic export."
         },
         {
           "sourceId": "baseline-wc-interfaces",
           "locator": "ArithmeticFunction.sum_eq_iff_sum_smul_moebius_eq",
-          "excerpt": "theorem",
+          "excerpt": "theorem sum_eq_iff_sum_smul_moebius_eq [AddCommGroup R] {f g : ℕ → R} :",
           "match": "Use the existing general inversion theorem."
         }
       ],
@@ -1501,15 +1537,15 @@
       "sources": [
         {
           "sourceId": "deligne-i",
-          "locator": "(1.5) and §1.15 pp.274–275,279",
-          "excerpt": "Frobenius",
+          "locator": "(1.5)–(1.5.4), pp.275–276; (1.15), p.279",
+          "excerpt": "Cette formule est l'interprétation cohomologique de Grothendieck de la fonction Z.",
           "match": "Trace formula gives the determinant expression."
         },
         {
           "sourceId": "pr196",
-          "locator": "TraceFormula Layer14",
-          "excerpt": "Layer",
-          "match": "General trace and rationality theorem remains upstream."
+          "locator": "TraceFormula Layers 12–13 (constant coefficients: point count and zeta determinant formula); Layer 14 (sheaf coefficients)",
+          "excerpt": "Using Grothendieck--Lefschetz and the determinant identity, prove",
+          "match": "General trace and determinant/rationality theorem remains upstream; Layer 13 is the constant-sheaf zeta formula."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1554,14 +1590,14 @@
       "sources": [
         {
           "sourceId": "milne-lec",
-          "locator": "27.9 pp.157–158 full proof",
-          "excerpt": "27.",
+          "locator": "Lemma 27.9 and proof, pp.156–157",
+          "excerpt": "Let k ⊂ K be fields, and let f(t) ∈ k[[t]]; if f(t) ∈ K(t), then f(t) ∈ k(t).",
           "match": "Rationality descends along a field extension."
         },
         {
           "sourceId": "deligne-i",
-          "locator": "(1.5)–(1.7) pp.275–277",
-          "excerpt": "Frobenius",
+          "locator": "Preuve de (1.7) ⇒ (1.6), p.276",
+          "excerpt": "Cette nullité est vraie dans Q_ℓ si et seulement si elle l'est dans Q",
           "match": "Hankel rationality descent used in Weil I."
         }
       ],
@@ -1609,8 +1645,8 @@
       "sources": [
         {
           "sourceId": "milne-lec",
-          "locator": "27.10 p.158 full proof",
-          "excerpt": "27.",
+          "locator": "Lemma 27.10 and proof, p.158",
+          "excerpt": "If g and h are relatively prime, then they have coefficients in Zℓ.",
           "match": "Corrected local integrality argument, including ℓ=p."
         }
       ],
@@ -1655,14 +1691,14 @@
       "sources": [
         {
           "sourceId": "milne-lec",
-          "locator": "27.11 p.158 full proof",
-          "excerpt": "27.",
+          "locator": "Proposition 27.11 and proof, p.158",
+          "excerpt": "The hypotheses of the preceding lemma hold for all primes ℓ (including p).",
           "match": "Global integrality from all primes."
         },
         {
           "sourceId": "deligne-i",
-          "locator": "(1.6)–(1.7) pp.276–277",
-          "excerpt": "Frobenius",
+          "locator": "Preuve de (1.7) ⇒ (1.6), p.276",
+          "excerpt": "D'après un lemme de Fatou, que Z(X₀, t) soit dans Z[[t]] et de terme constant un implique que les termes constants de P et Q sont 1.",
           "match": "Integral normalized reduced presentation precedes weight extraction."
         }
       ],
@@ -1706,8 +1742,8 @@
       "sources": [
         {
           "sourceId": "bfp",
-          "locator": "Proposition 1.3 and the preceding definition pp.2–3",
-          "excerpt": "cohomology",
+          "locator": "§1, the displayed definition of #X(F_q) before Proposition 1.3, p.2",
+          "excerpt": "Recall that if X is an algebraic stack and Fq is the finite field with q elements, then X(Fq) is a finite groupoid.",
           "match": "The numerical weighted count; stack and quotient geometry remain suppliers."
         }
       ],
@@ -1740,6 +1776,18 @@
           "name": "TauCeti.PointCounting.groupoidMass_product",
           "role": "compatibility",
           "statement": "For finite-mass groupoids C,D, mass(C×D)=mass(C)mass(D)."
+        },
+        {
+          "name": "TauCeti.PointCounting.groupoidMass_sum",
+          "role": "relation",
+          "statement": "For finite-mass groupoids C and D, mass(C ⊕ D)=mass(C)+mass(D); this is the additivity used for a finite locally closed stratification of a stack.",
+          "addedBy": "REV-WeilConjectures--WC.0"
+        },
+        {
+          "name": "TauCeti.PointCounting.groupoidMass_actionCategory",
+          "role": "compatibility",
+          "statement": "For a finite group G acting on a finite type Y, the mass of Mathlib’s action groupoid ActionCategory G Y is #Y/#G (orbit–stabiliser); this is the numerical content of the quotient-stack count #Y(F_q)/#G(F_q).",
+          "addedBy": "REV-WeilConjectures--WC.0"
         }
       ],
       "tests": [
@@ -1762,6 +1810,12 @@
           "name": "TauCeti.PointCounting.groupoidMass_cyclic_two_not_one",
           "kind": "non-example",
           "statement": "The same groupoid’s mass is not its number1 of isomorphism classes."
+        },
+        {
+          "name": "TauCeti.PointCounting.groupoidMass_regular_action",
+          "kind": "non-example",
+          "statement": "For G=Multiplicative(ZMod 2) acting on itself by left multiplication, ActionCategory G G has two objects but mass 1, not 2: summing over objects instead of isomorphism classes is wrong.",
+          "addedBy": "REV-WeilConjectures--WC.0"
         }
       ],
       "uses": [
@@ -1772,6 +1826,11 @@
         {
           "where": "BFP §7 and §9; MotivicStructuresInModuliOfCurves",
           "how": "Transfers additive counts and automorphism weights to sieve and equivariant applications."
+        },
+        {
+          "where": "BFP Proposition 1.3(i)–(ii)",
+          "how": "Stratification additivity and the quotient formula #X(F_q)/#G(F_q) are additivity of mass and the action-groupoid mass.",
+          "addedBy": "REV-WeilConjectures--WC.0"
         }
       ],
       "suggestedLean": {
@@ -1814,8 +1873,8 @@
       "sources": [
         {
           "sourceId": "bfp",
-          "locator": "Proposition 1.3(i)–(iv)",
-          "excerpt": "cohomology",
+          "locator": "Proposition 1.3(i)–(iv), p.2",
+          "excerpt": "If X is a quotient stack [X/G], where X is a scheme and G is a connected linear algebraic group, then",
           "match": "Numerical applications of independently constructed stack theory."
         }
       ],
@@ -1842,7 +1901,8 @@
       ],
       "prerequisites": [
         "WeilConjectures:WC.0/finite-extension-point-tower-comparison",
-        "WeilConjectures:WC.1/cohomological-formula-from-the-trace-formula"
+        "WeilConjectures:WC.1/cohomological-formula-from-the-trace-formula",
+        "SchemeAndStackFoundations:SF.1"
       ],
       "acceptance": [
         "σ=1 gives ordinary counts.",
@@ -1857,15 +1917,15 @@
       "sources": [
         {
           "sourceId": "bfp",
-          "locator": "Definition 9.1 and §9.1 pp.21–22",
-          "excerpt": "cohomology",
-          "match": "Twisted point counts; geometric construction is imported."
+          "locator": "§9.1, pp.21–22 (published p.1351)",
+          "excerpt": "Then there is a unique twisted form of X, denoted X^σ with an isomorphism",
+          "match": "Twisted point counts; existence needs σ of finite order and effective descent (source issue E-WC0-12); the geometric construction is imported."
         },
         {
           "sourceId": "pr196",
-          "locator": "TraceFormula Layer15",
-          "excerpt": "Layer",
-          "match": "Twisted and isotypic trace interfaces are owned upstream."
+          "locator": "TraceFormula Layer 11 (compatibility with finite group actions) and Layer 14 (finite group equivariance and isotypic factors)",
+          "excerpt": "finite group equivariance and isotypic factors when the coefficient field permits them.",
+          "match": "Group-action trace compatibility is upstream. The read PR196 head does not construct the twisted forms X^σ themselves; that descent input stays in the gap ledger."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1905,8 +1965,8 @@
       "sources": [
         {
           "sourceId": "bfp",
-          "locator": "§7, definition preceding Proposition 7.4 pp.10–11",
-          "excerpt": "cohomology",
+          "locator": "§7, formula (8) and Definition 7.3, pp.11–12",
+          "excerpt": "be the coefficient of t^d in the inverse Hasse–Weil zeta function of Y.",
           "match": "The weighted configuration coefficient used by the inverse-zeta sieve."
         }
       ],
@@ -1934,6 +1994,18 @@
           "name": "TauCeti.PointCounting.signedConfigurationCoefficient_above_card",
           "role": "simp",
           "statement": "For finite A and n>#A, c_n(σ)=0."
+        },
+        {
+          "name": "TauCeti.PointCounting.signedConfigurationCoefficient_sumCongr",
+          "role": "structure",
+          "statement": "For permutations σ of A and τ of B, c_n(σ⊕τ)=Σ_{i+j=n} c_i(σ)c_j(τ): the coefficients multiply as polynomials under disjoint union, matching BFP (9).",
+          "addedBy": "REV-WeilConjectures--WC.0"
+        },
+        {
+          "name": "TauCeti.PointCounting.signedConfigurationCoefficient_generating",
+          "role": "characterisation",
+          "statement": "For finite A, Σ_{n≤#A} c_n(σ)T^n=∏_{O orbit of σ}(1−T^{#O}) in Z[T]; this is the finite form of the inverse-zeta Euler product.",
+          "addedBy": "REV-WeilConjectures--WC.0"
         }
       ],
       "tests": [
@@ -2006,8 +2078,8 @@
       "sources": [
         {
           "sourceId": "bfp",
-          "locator": "§7 before Proposition 7.4",
-          "excerpt": "cohomology",
+          "locator": "§7, formula (8) (Vakil–Wood), p.11",
+          "excerpt": "where #Y(λ) denotes the number of Frobenius-stable subsets of Y(F̄q) with orbit type λ",
           "match": "Vakil–Wood inverse-zeta formula as used in the paper."
         }
       ],
@@ -2049,9 +2121,9 @@
       "sources": [
         {
           "sourceId": "bfp",
-          "locator": "Proposition 7.4 p.11 full proof",
-          "excerpt": "cohomology",
-          "match": "Finite termination and sum at1; nonempty qualification made explicit."
+          "locator": "Proposition 7.4 and proof, p.12",
+          "excerpt": "Let Y be a nonempty algebraic variety (possibly reducible or disconnected) that is proper over Fq",
+          "match": "Finite termination and sum at 1, for nonempty Y as in the source."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2071,7 +2143,7 @@
       ],
       "title": "Hasse–Weil sieve",
       "kind": "theorem",
-      "statement": "Let a finite-type parameter scheme V/F_q carry a flat surjective family of curves, allowing nonreduced fibres, with each scheme-theoretic singular locus proper of finite type and having no odd rational cohomology. The loci may have positive dimension. For v∈V(F_q), let s_d(v)=c_d(F_q on Sing(C_v)); set S_d=Σ_v s_d(v) and B=max_v Σ_even dim H^i(Sing(C_v)), taking B=0 if V(F_q) is empty. Then #V_smooth(F_q)=#V(F_q)+Σ_(d=1)^B S_d. For k<B, the truncated expression #V(F_q)+Σ_(d=1)^k S_d has exact error Σ_(d=k+1)^B S_d; the tail is supported only on fibres whose even Betti sum exceeds k. Finite type gives finitely many Frobenius-stable configurations of each fixed degree, without a finite geometric point-set assumption. The reduced-curve finite-singular-locus case is a specialization. All terms and weights are explicit; no uniform asymptotic constant is asserted without a supplied bound on these tail configurations.",
+      "statement": "Let a finite-type parameter scheme V/F_q carry a surjective family of curves, allowing nonreduced fibres, with each scheme-theoretic singular locus proper of finite type and having no odd rational cohomology. The loci may have positive dimension. For v∈V(F_q), let s_d(v)=c_d(F_q on Sing(C_v)); set S_d=Σ_v s_d(v) and B=max_v Σ_even dim H^i(Sing(C_v)), taking B=0 if V(F_q) is empty. Then #V_smooth(F_q)=#V(F_q)+Σ_(d=1)^B S_d. For k<B, the truncated expression #V(F_q)+Σ_(d=1)^k S_d has exact error Σ_(d=k+1)^B S_d; the tail is supported only on fibres whose even Betti sum exceeds k. Finite type gives finitely many Frobenius-stable configurations of each fixed degree, without a finite geometric point-set assumption. The reduced-curve finite-singular-locus case is a specialization. All terms and weights are explicit; no uniform asymptotic constant is asserted without a supplied bound on these tail configurations.",
       "hypotheses": [],
       "proofSteps": [
         "For a smooth fibre the singular locus is empty and its total signed coefficient sum is1. For every singular fibre the nonempty inverse-zeta termination theorem makes that total0.",
@@ -2099,7 +2171,7 @@
         {
           "sourceId": "bfp",
           "locator": "Propositions 7.1,7.5 and Remark 7.6 pp.10–13 full proofs",
-          "excerpt": "cohomology",
+          "excerpt": "Suppose H^odd_ét((C_v^sing)_F̄q, Qℓ) = 0, for all v ∈ V(Fq).",
           "match": "General sieve tools only; genus-four model counts belong to MotivicStructuresInModuliOfCurves."
         }
       ],
@@ -2146,14 +2218,14 @@
       "sources": [
         {
           "sourceId": "deligne-i",
-          "locator": "(2.1)–(2.6) pp.280–282",
-          "excerpt": "Frobenius",
+          "locator": "(2.3)–(2.6), pp.281–282",
+          "excerpt": "Si les (α_j) sont les valeurs propres du Frobenius géométrique F agissant sur H^i(X, Q_ℓ), les valeurs propres de F agissant sur H^{2n−i}(X, Q_ℓ) sont donc les (q^n α_j^{−1}).",
           "match": "Actual duality and exact multiplier before shorthand signs."
         },
         {
           "sourceId": "milne-lec",
-          "locator": "27.12 pp.158–159",
-          "excerpt": "27.",
+          "locator": "Theorem 27.12 and proof, p.158",
+          "excerpt": "Therefore, the eigenvalues of F* acting on H^r(X) are the same as the eigenvalues of F acting on H^{2d−r}(X).",
           "match": "Functional-equation consequence of reciprocal pairing."
         }
       ],
@@ -2199,14 +2271,14 @@
       "sources": [
         {
           "sourceId": "deligne-i",
-          "locator": "(2.3)–(2.6)",
-          "excerpt": "Frobenius",
+          "locator": "(2.6), p.281",
+          "excerpt": "Si n est impair, la forme Tr(x∪y) sur H^n(X, Q_ℓ) est alternée; l'entier nχ(X) est donc toujours pair.",
           "match": "Parity and middle-form sign."
         },
         {
           "sourceId": "milne-lec",
-          "locator": "27.12–27.13",
-          "excerpt": "27.",
+          "locator": "Theorem 27.12 p.158 and Remark 27.13 p.159",
+          "excerpt": "The sign is + if d is odd or q^{d/2} occurs an even number of times as an eigenvalue of F acting on H^d(X, Qℓ)",
           "match": "Usual half-exponent and its sign require this justification."
         }
       ],
@@ -2254,14 +2326,14 @@
       "sources": [
         {
           "sourceId": "deligne-i",
-          "locator": "(2.6)",
-          "excerpt": "Frobenius",
+          "locator": "(2.6), pp.281–282",
+          "excerpt": "Si n est pair, notons N la multiplicité de la valeur propre q^{n/2} de F* agissant sur H^n(X, Q_ℓ) (i.e. la dimension du sous-espace propre généralisé correspondant).",
           "match": "Exact sign through the middle determinant."
         },
         {
           "sourceId": "milne-lec",
-          "locator": "27.13 p.159",
-          "excerpt": "27.",
+          "locator": "Remark 27.13, p.159",
+          "excerpt": "The sign is + if d is odd or q^{d/2} occurs an even number of times as an eigenvalue of F acting on H^d(X, Qℓ)",
           "match": "Multiplicity of +q^(d/2), not an unspecified sign."
         }
       ],
@@ -2306,8 +2378,8 @@
       "sources": [
         {
           "sourceId": "deligne-i",
-          "locator": "(2.6) with §1.2–1.5",
-          "excerpt": "Frobenius",
+          "locator": "(2.6) pp.281–282, with (7.2)⇒(1.7) assertion a), p.301",
+          "excerpt": "étendre les scalaires revient à remplacer α par α^n et q par q^n.",
           "match": "Assembly with the already supplied extension operator."
         }
       ],
@@ -2353,15 +2425,15 @@
       "sources": [
         {
           "sourceId": "deligne-i",
-          "locator": "(1.7)⇒(1.6) pp.276–277 full proof",
-          "excerpt": "Frobenius",
+          "locator": "Preuve de (1.7) ⇒ (1.6), pp.276–277",
+          "excerpt": "Les racines de P_i(t) sont celles des racines de R(t) ayant la propriété que tous leurs conjugués complexes sont de valeur absolue q^{−i/2}. Cet ensemble est stable sous Gal(K/Q).",
           "match": "All-conjugates Galois-stable extraction with multiplicities."
         },
         {
           "sourceId": "milne-lec",
-          "locator": "27.14(c)–(d) p.159",
-          "excerpt": "27.",
-          "match": "The algebraic inference is completed by explicit rational descent."
+          "locator": "27.14(c)–(d) and their proof, p.159",
+          "excerpt": "Therefore the inverse roots of Pr,ℓ(t) are algebraic integers, which implies that Pr,ℓ(t) ∈ 1 + tZ[t], whence (c).",
+          "match": "Milne’s shorthand inference (source issue E-WC0-3) is completed here by the Galois-stability descent of Deligne I."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2407,8 +2479,8 @@
       "sources": [
         {
           "sourceId": "deligne-i",
-          "locator": "(1.6)–(1.7)",
-          "excerpt": "Frobenius",
+          "locator": "Théorème (1.6) and Lemme (1.7), p.276",
+          "excerpt": "Pour chaque i, le polynôme caractéristique det(t.1 − F*, H^i(X, Q_ℓ)) est à coefficients entiers indépendants de ℓ (ℓ≠p).",
           "match": "Geometric projective application of the generic extractor, preserving its integrated ID."
         }
       ],
@@ -2453,14 +2525,14 @@
       "sources": [
         {
           "sourceId": "milne-lec",
-          "locator": "27.14(e), with §20.5 and §25.1",
-          "excerpt": "27.",
+          "locator": "27.14(e), p.159, with §20.5 and §25.1",
+          "excerpt": "and if X0 lifts to a variety X1 in characteristic zero, then the βr are the Betti numbers of X1 considered as a variety over the complex numbers.",
           "match": "Comparison only through an actual family."
         },
         {
           "sourceId": "pr196",
           "locator": "EtaleBaseChange Layers7–8; ComplexComparison Layers10–12; EllAdicRealization Layer10",
-          "excerpt": "Layer",
+          "excerpt": "After choosing an étale path \\(\\gamma:\\bar s_0\\leadsto\\bar s_1\\), construct the transport isomorphism",
           "match": "Transport and Artin equivalences are supplied, not reconstructed."
         }
       ],
@@ -2511,9 +2583,9 @@
       "sources": [
         {
           "sourceId": "bfp",
-          "locator": "Definition 9.1 and §9.1",
-          "excerpt": "cohomology",
-          "match": "The character-valued point count uses Kisin–Lehrer, whose source must be collated."
+          "locator": "§9.2, Definition 9.1, p.22 (published p.1351)",
+          "excerpt": "The G-equivariant point count #_G X(Fq) is the element of the representation ring of G associated to the class function σ ↦ #X^σ(Fq).",
+          "match": "The character-valued point count; its integrality qualification is source issue E-WC0-10; Kisin–Lehrer must be collated."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2558,8 +2630,8 @@
       "sources": [
         {
           "sourceId": "bfp",
-          "locator": "Proposition 9.3 pp.21–22 full proof",
-          "excerpt": "cohomology",
+          "locator": "Proposition 9.3 and proof, p.22",
+          "excerpt": "Moreover, if we write P_V = Σ_i P_{V,i} t^i then P_{V,i} is the multiplicity of V in H^{2i}(X_C, Q).",
           "match": "Equivariant arithmetic consequence of polynomial count and comparison."
         }
       ],
@@ -2605,7 +2677,7 @@
         {
           "sourceId": "bfp",
           "locator": "Remark 9.4 p.22",
-          "excerpt": "cohomology",
+          "excerpt": "When X is irreducible of relative dimension d over Z, equivariant Poincaré duality tells us that P_{V∨}(t) = t^d P_V(t^{−1}).",
           "match": "Representation-valued duality, with self-duality qualification."
         }
       ],
@@ -2652,14 +2724,14 @@
       "sources": [
         {
           "sourceId": "deligne-i",
-          "locator": "(1.5) and §2.1",
-          "excerpt": "Frobenius",
+          "locator": "(1.5)–(1.5.4), pp.275–276",
+          "excerpt": "Une formule analogue vaut pour les itérés de F",
           "match": "Trace/rationality and curve degree interfaces without RH."
         },
         {
           "sourceId": "mustata-zeta",
           "locator": "Remark3.7 and equations(3.8)–(3.10), p.21",
-          "excerpt": "Theorem",
+          "excerpt": "It follows from the definition of the zeta function and from (3.8) that",
           "match": "Normalized integral curve numerator and positive power sums; correct the source’s g/q typos in Lemma3.8."
         }
       ],
@@ -2694,21 +2766,21 @@
         "For a single root0<R and nonzero coefficient the conclusion is strict."
       ],
       "library": {
-        "module": "TauCeti/FiniteSpectrum",
+        "module": "TauCeti/Analysis/ExponentialSum/FiniteSpectrum",
         "namespace": "TauCeti.FiniteSpectrum"
       },
       "declarationName": "TauCeti.FiniteSpectrum.norm_lt_of_moments_little_o",
       "sources": [
         {
           "sourceId": "vdbe",
-          "locator": "Lemma 4.1 proof, §4 pp.7–9",
-          "excerpt": "cohomology",
+          "locator": "§4, Lemma 4.1 and its proof, pp.6–7",
+          "excerpt": "Then di = 0 for i ≥ d odd, Pi = 0 for i > r/2, while for d/2 ≤ i ≤ r/2 we have Pi = d2i ; for these i also α2i,j = p^i.",
           "match": "Worker’s inverse-Vandermonde proof of its numerical vanishing step; no geometric purity theorem enters."
         },
         {
-          "sourceId": "baseline-wc-interfaces",
-          "locator": "Matrix.vandermonde",
-          "excerpt": "theorem",
+          "sourceId": "mathlib-vandermonde-pin",
+          "locator": "Vandermonde.lean: vandermonde",
+          "excerpt": "def vandermonde (v : Fin n → R) : Matrix (Fin n) (Fin n) R := .of fun i j ↦ (v i) ^ j.1",
           "match": "Reuse the existing moment recovery."
         }
       ],
@@ -2747,21 +2819,21 @@
         "Coefficients strictly below s/2 may change without changing the hypothesis."
       ],
       "library": {
-        "module": "TauCeti/FiniteSpectrum",
+        "module": "TauCeti/Analysis/ExponentialSum/FiniteSpectrum",
         "namespace": "TauCeti.FiniteSpectrum"
       },
       "declarationName": "TauCeti.FiniteSpectrum.graded_polynomial_approximation",
       "sources": [
         {
           "sourceId": "vdbe",
-          "locator": "Lemma 4.1, full statement and proof",
-          "excerpt": "cohomology",
+          "locator": "§4, Lemma 4.1 and its proof, pp.6–7",
+          "excerpt": "Let us be given the following integers: d ≥ 0, d ≤ r ≤ 2d, and for 0 ≤ i ≤ r also di ≥ 0.",
           "match": "The explicit numerical lemma supporting both the global theorem and BFP’s larger cutoff."
         },
         {
           "sourceId": "bfp",
-          "locator": "Proposition 3.1 proof p.6",
-          "excerpt": "cohomology",
+          "locator": "Proposition 3.1 proof, p.6 (published p.1330)",
+          "excerpt": "Then [vdBE05, Lemma 4.1] tells us that di = 0 for all odd i ≥ s",
           "match": "Apply the cutoff s, correcting the printed d in the error term."
         }
       ],
@@ -2808,8 +2880,8 @@
       "sources": [
         {
           "sourceId": "deligne-i",
-          "locator": "(1.7) and (8.1)",
-          "excerpt": "Frobenius",
+          "locator": "Lemme (1.7), p.276; Théorème (8.1) and proof, pp.301–302",
+          "excerpt": "les valeurs propres de l'endomorphisme F* de H^i(X, Q_ℓ) sont des nombres algébriques dont tous les conjugués complexes α sont de valeur absolue |α| = q^{i/2}.",
           "match": "Point-count consequence of degreewise purity."
         }
       ],
@@ -2855,9 +2927,9 @@
       "sources": [
         {
           "sourceId": "deligne-i",
-          "locator": "(1.2)–(1.5) and §2.1",
-          "excerpt": "Frobenius",
-          "match": "Permutation endpoints with the dimension-zero boundary separated."
+          "locator": "(1.4)–(1.5), pp.274–275; (2.5), p.281",
+          "excerpt": "(2.5) Supposons pour simplifier X connexe.",
+          "match": "Deligne simplifies to connected X; the node keeps the Frobenius permutation of geometric components and separates dimension zero."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2904,14 +2976,14 @@
       "sources": [
         {
           "sourceId": "milne-lec",
-          "locator": "27.15 and curve specialization",
-          "excerpt": "27.",
+          "locator": "Theorem 27.15, p.159, specialized to curves",
+          "excerpt": "Let X0 be a nonsingular projective variety over Fq. Then the eigenvalues of F acting on H^r(X, Qℓ) are algebraic numbers, all of whose complex conjugates have absolute value q^{r/2}",
           "match": "Compatibility application of already-owned curve and elliptic estimates."
         },
         {
           "sourceId": "mustata-zeta",
-          "locator": "Example3.10 pp.22–23",
-          "excerpt": "Theorem",
+          "locator": "Example 3.10, pp.22–23",
+          "excerpt": "Consider the case when X is an elliptic curve (that is, g = 1).",
           "match": "Curve numerator and elliptic trace convention."
         }
       ],
@@ -2957,14 +3029,14 @@
       "sources": [
         {
           "sourceId": "milne-lec",
-          "locator": "27.5–27.6",
-          "excerpt": "27.",
+          "locator": "Lemma 27.5 p.155 and Theorem 27.6, p.156",
+          "excerpt": "If Pφ(t) = Π(1 − ci t), then Tr(φ^m|V) = Σ ci^m.",
           "match": "Characteristic-power series and extension traces; new export is the canonical count recurrence."
         },
         {
           "sourceId": "deligne-i",
-          "locator": "(1.5) and §1.15",
-          "excerpt": "Frobenius",
+          "locator": "(1.5.3), pp.275–276; (1.15), p.279",
+          "excerpt": "le vérifier pour dim(V)=1, et observer que les deux membres sont additifs en V dans une suite exacte courte",
           "match": "Trace/determinant conversion applied to canonical factors."
         }
       ],
@@ -3011,8 +3083,8 @@
       "sources": [
         {
           "sourceId": "deligne-i",
-          "locator": "(8.1) pp.301–302 full proof",
-          "excerpt": "Frobenius",
+          "locator": "Théorème (8.1) and proof, pp.301–302",
+          "excerpt": "Soit b′ le n-ième nombre de Betti des intersections complètes non singulières complexes, de mêmes dimension et multidegré. Posons b = b′ pour n impair, et b = b′ − 1 pour n pair.",
           "match": "Requested worked corollary with precise primitive Betti constant."
         }
       ],
@@ -3055,14 +3127,14 @@
       "sources": [
         {
           "sourceId": "bfp",
-          "locator": "§1–§3 polynomial point count; Proposition 9.3",
-          "excerpt": "cohomology",
+          "locator": "§1, p.2 (polynomial point count property); Proposition 9.3, p.22",
+          "excerpt": "We will be especially interested in stacks with the polynomial point count property, i.e., the property that #X(Fq) is a polynomial in q.",
           "match": "The exact arithmetic predicate used by the cited cohomology consequences."
         },
         {
           "sourceId": "vdbe",
-          "locator": "Theorem 2.1",
-          "excerpt": "cohomology",
+          "locator": "Theorem 2.1, hypothesis (∗), p.3",
+          "excerpt": "there exists a polynomial P(t) = Σ_{i≥0} Pi t^i, with Pi ∈ Q, such that #X(F_{p^n}) = P(p^n) + o(p^{nd/2}) (n → ∞) for all p ∈ S.",
           "match": "Distinguish exact polynomial count from its weaker approximate hypothesis."
         }
       ],
@@ -3183,14 +3255,14 @@
       "sources": [
         {
           "sourceId": "bfp",
-          "locator": "Proposition 3.1 p.6 statement and full proof",
-          "excerpt": "cohomology",
+          "locator": "Proposition 3.1, statement and proof, p.6 (published p.1330)",
+          "excerpt": "Fix an integer s ≥ d and assume there is a polynomial P(t) = Σ_i Pi t^i with rational coefficients such that #X(F_{p^m}) = P(p^m) + o(p^{ms/2}) as m → ∞.",
           "match": "Exact cutoff s≥d; the imported extraction already confirmed its d→s misprint."
         },
         {
           "sourceId": "vdbe",
-          "locator": "Lemma 4.1",
-          "excerpt": "cohomology",
+          "locator": "§4, Lemma 4.1, p.6",
+          "excerpt": "Let us be given the following integers: d ≥ 0, d ≤ r ≤ 2d, and for 0 ≤ i ≤ r also di ≥ 0.",
           "match": "Numerical core of the argument."
         }
       ],
@@ -3239,8 +3311,8 @@
       "sources": [
         {
           "sourceId": "vdbe",
-          "locator": "Theorem 2.1 and §4 full proof",
-          "excerpt": "cohomology",
+          "locator": "Theorem 2.1, p.3, and §4 proof, pp.6–9",
+          "excerpt": "Here H^i(X_{Q̄,ét}, Q_l)^ss denotes the semi-simplification of H^i(X_{Q̄,ét}, Q_l).",
           "match": "The v3 open-U statement gives semisimplification; the corrected input-polynomial interpretation preserves its exact conclusion."
         }
       ],
@@ -3288,14 +3360,14 @@
       "sources": [
         {
           "sourceId": "vdbe",
-          "locator": "Theorem 2.1 last clause and §4 Lemma4.2/full proof",
-          "excerpt": "cohomology",
+          "locator": "Theorem 2.1 last clause, p.3; §4, Lemma 4.2 and the end of the proof, pp.8–10",
+          "excerpt": "If U = Spec Z, then H^i(X_{Q̄,ét}, Q_l)^ss ≃ H^i(X_{Q̄,ét}, Q_l).",
           "match": "The all-Spec-Z full Tate conclusion and its local/global splitting inputs."
         },
         {
           "sourceId": "bfp",
-          "locator": "§3 and Proposition 9.3",
-          "excerpt": "cohomology",
+          "locator": "§3, p.6; Proposition 9.3, p.22",
+          "excerpt": "Suppose X is smooth and proper over Z and has polynomial point count.",
           "match": "The global cohomology consequence needed for equivariant counts."
         }
       ],
@@ -3341,8 +3413,8 @@
       "sources": [
         {
           "sourceId": "mustata-zeta",
-          "locator": "Theorem3.6 full proof and Proposition3.9, p.22",
-          "excerpt": "Theorem",
+          "locator": "Proof of Theorem 3.6 and Proposition 3.9, p.22",
+          "excerpt": "Since this holds for all integer (or rational) a and b, it follows that (q + 1 − N1)² ≤ 4qg².",
           "match": "Complete graph/adjunction/Hodge-index calculation read; the whole intersection proof remains owned by SF.5."
         }
       ],
@@ -3391,8 +3463,8 @@
       "sources": [
         {
           "sourceId": "mustata-zeta",
-          "locator": "Remark3.7, Lemma3.8 and Theorem3.6, pp.21–22",
-          "excerpt": "Theorem",
+          "locator": "Remark 3.7, Lemma 3.8 and Theorem 3.6, pp.21–22",
+          "excerpt": "since the multiset {ω1, . . . , ω2g} is invariant by the map x → q/x (see Remark 3.4) we conclude that we also have |ωi| ≥ q^{1/2}",
           "match": "Independent numerical converse combined with the imported surface proof; source typos corrected."
         }
       ],
@@ -3416,11 +3488,12 @@
     },
     {
       "supplier": "SchemeAndStackFoundations:SF.1",
-      "need": "The actual finite-type rational-point carrier/finiteness, finite étale residue extensions and component objects needed by the consuming point comparison; PR196 retains ownership of point/Frobenius/zeta constructions. For the stack-mass comparison supply actual quotient stacks[Y/G], their F_q-point torsor/action groupoids, equivalence with the action groupoid when H¹(F_q,G)=1, and finite locally closed stratification compatibility. This quotient construction is separate from the unregistered DM cohomology Part II. Also supply finite residue fields of closed points of finite-type Z-schemes and finiteness of closed points with bounded residue norm, for the arithmetic Euler-product comparison.",
+      "need": "The actual finite-type rational-point carrier/finiteness, finite étale residue extensions and component objects needed by the consuming point comparison; PR196 retains ownership of point/Frobenius/zeta constructions. For the stack-mass comparison supply actual quotient stacks[Y/G], their F_q-point torsor/action groupoids, equivalence with the action groupoid when H¹(F_q,G)=1, and finite locally closed stratification compatibility. This quotient construction is separate from the unregistered DM cohomology Part II. Also supply finite residue fields of closed points of finite-type Z-schemes and finiteness of closed points with bounded residue norm, for the arithmetic Euler-product comparison. Also supply effective Galois descent along F_{q^n}/F_q for quasi-projective F_q-schemes with a finite-order descent datum, so that the twisted form X^σ of a quasi-projective X by a finite-order F_q-automorphism σ exists with X^σ⊗F̄_q≅X⊗F̄_q carrying geometric Frobenius to σF, and is unique up to isomorphism (added by the independent review REV-WeilConjectures--WC.0; no infinite-order σ: see source issue E-WC0-12).",
       "neededBy": [
         "WeilConjectures:WC.1/stack-count-comparison",
         "WeilConjectures:WC.1/inverse-zeta-configuration-formula",
-        "WeilConjectures:WC.1/zeta-function-euler-product-and-point-counts"
+        "WeilConjectures:WC.1/zeta-function-euler-product-and-point-counts",
+        "WeilConjectures:WC.1/twisted-frobenius-point-comparison"
       ]
     },
     {
@@ -3562,7 +3635,7 @@
     },
     {
       "title": "PR196 point, orbit and twist interface registration",
-      "detail": "PR196 at head4bd72379658126cbe9be935656396f0c9dac4de0 owns FrobeniusGeometry Layers4–5: finite Hom over Spec k point sets, same-degree extension transport, arithmetic/geometric Frobenius conventions, closed-point/orbit equivalence and residue degree. TraceFormula Layers13,15 own the Euler/exponential zeta, decomposition/tower laws and effective finite-order twists. Register their stable atlas identifiers, then replace this gap by exact prerequisite links. For twists supply effective descent data (e.g. quasiprojective X), not universal effectiveness. DeligneI(1.1.1) also needs the global finite-type-over-Z norm-Euler/Dirichlet zeta and its convergence interface. The read PR196 TraceFormula Layer13 only supplies the finite-field series. Request this arithmetic extension from that same zeta owner, with actual Dirichlet/analytic carriers and a proved right half-plane of convergence; do not infer it from the finite-field construction.",
+      "detail": "PR196 at head4bd72379658126cbe9be935656396f0c9dac4de0 owns FrobeniusGeometry Layers4–5: finite Hom over Spec k point sets, same-degree extension transport, arithmetic/geometric Frobenius conventions, closed-point/orbit equivalence and residue degree. TraceFormula Layer13 owns the Euler/exponential zeta and its decomposition/tower laws; Layers11 and 14 own trace compatibility with finite group actions (equivariance, isotypic factors). The read PR196 head does not construct twisted forms X^σ: effective finite Galois descent for a finite-order σ is requested from SchemeAndStackFoundations:SF.1 (ModularCurves 0E proves effective descent only for affine schemes, polarised relative curves and its other listed cases). Register their stable atlas identifiers, then replace this gap by exact prerequisite links. For twists supply effective descent data (e.g. quasiprojective X), not universal effectiveness. DeligneI(1.1.1) also needs the global finite-type-over-Z norm-Euler/Dirichlet zeta and its convergence interface. The read PR196 TraceFormula Layer13 only supplies the finite-field series. Request this arithmetic extension from that same zeta owner, with actual Dirichlet/analytic carriers and a proved right half-plane of convergence; do not infer it from the finite-field construction.",
       "neededBy": [
         "WeilConjectures:WC.0/finite-extension-point-tower-comparison",
         "WeilConjectures:WC.0/closed-point-degree-comparison",
@@ -3573,7 +3646,7 @@
     },
     {
       "title": "PR196 rational realization and trace interface registration",
-      "detail": "EllAdicRealization Layers4–10 own actual Q_ℓ cohomology, bounded finite dimensions, proper/compact support comparison, continuous Galois actions, Tate twists and rational scalar extensions. TraceFormula Layers8,14–15 own trace/determinant/rationality and curve/Jacobian endpoint/dimension comparisons. Register exact identifiers and supply these actual carriers/maps, not abstract spaces assuming Weil conclusions.",
+      "detail": "EllAdicRealization Layers4–10 own actual Q_ℓ cohomology, bounded finite dimensions, proper/compact support comparison, continuous Galois actions, Tate twists and rational scalar extensions; FrobeniusGeometry Layer7 owns the conversion between scheme q-Frobenius pullback, the arithmetic descent action and geometric Frobenius. TraceFormula Layers8,12–15 own trace/determinant/rationality and curve/Jacobian endpoint/dimension comparisons. Register exact identifiers and supply these actual carriers/maps, not abstract spaces assuming Weil conclusions.",
       "neededBy": [
         "WeilConjectures:WC.0/geometric-frobenius-realization-comparison",
         "WeilConjectures:WC.1/cohomological-formula-from-the-trace-formula",
@@ -3630,7 +3703,12 @@
         "Author’s current LEC.pdf: v2.21 dated 22 March 2013; pp. 155–156 inspected as images on 26 September 2026.",
         "https://www.jmilne.org/math/CourseNotes/ — current LEC version listing checked on 26 September 2026.",
         "https://www.jmilne.org/math/CourseNotes/errata.html — complete LEC v2.21 section read on 26 September 2026; no correction to Lemma 27.5’s coefficient characteristic is listed. The 1980 published book is a different text, not the subject of this finding."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at LEC v2.21 Lemma 27.5, p.155: the lemma is stated over an arbitrary field k and its displayed identity divides by m; for k = F_p the coefficient at m = p is undefined. The trace/power-sum statement Tr(φ^m) = Σ c_i^m holds in every characteristic, and Deligne I (1.5.3) gives the division-free logarithmic-derivative form.",
+        "by": "REV-WeilConjectures--WC.0"
+      }
     },
     {
       "id": "WeilConjectures/E-WC0-2",
@@ -3645,7 +3723,12 @@
       "searched": [
         "LEC.pdf v2.21 printed pp.158–159 checked as images, 6 October 2026.",
         "https://www.jmilne.org/math/CourseNotes/errata.html LEC v2.21 section read 6 October 2026; neither correction is listed."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at LEC v2.21 Lemma 27.10 proof, p.158: “Therefore |c_i|_ℓ < 1” follows an argument that only excludes |c_i| > 1; f = 1/(1 − t) has h = 1 − t with |c| = 1. The conclusion h ∈ Z_ℓ[t] needs only ≤ 1.",
+        "by": "REV-WeilConjectures--WC.0"
+      }
     },
     {
       "id": "WeilConjectures/E-WC0-3",
@@ -3660,7 +3743,12 @@
       "searched": [
         "LEC.pdf v2.21 printed pp.158–159 checked as images, 6 October 2026.",
         "https://www.jmilne.org/math/CourseNotes/errata.html LEC v2.21 section read 6 October 2026; neither correction is listed."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at LEC v2.21 27.14(c) proof, p.159. Pairwise coprimality and Proposition 27.11 give integrality of the reciprocal roots, not rationality of each P_r: if √2 ∈ Q_ℓ (e.g. ℓ = 7), 1 − √2t and 1 + √2t are coprime with product 1 − 2t². Part (d) is sound once the weight-r roots are seen to be Galois-stable, as in Deligne I p.277; (c) as stated needs that extra input.",
+        "by": "REV-WeilConjectures--WC.0"
+      }
     },
     {
       "id": "WeilConjectures/E-WC0-4",
@@ -3675,22 +3763,32 @@
       "searched": [
         "research/blueprint/papers/PAPER-BERGSTROM-FABER-PAYNE-24.result.json sourceIssues and independent review read.",
         "Author-hosted version of record Proposition3.1 full proof collated, 6 October 2026; the same d-for-s typo persists."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in arXiv v2 p.6 and in the author-hosted version of record p.1330, both read: the proposition assumes o(p^{ms/2}) while the proof writes o(p^{md/2}). Agrees with the already confirmed PAPER-BERGSTROM-FABER-PAYNE-24/E2.",
+        "by": "REV-WeilConjectures--WC.0"
+      }
     },
     {
       "id": "WeilConjectures/E-WC0-5",
       "source": "mustata-zeta",
       "kind": "misprint",
-      "locator": "Author-hosted zeta_book.pdf printed p.21, equation3.10 and Lemma3.8 statement/proof; SHA recorded",
+      "locator": "Author-hosted zeta_book.pdf printed p.21, Lemma 3.8 statement and proof; SHA recorded",
       "printed": "|ω_i|≤g^(1/2); |a_m|≤2g^(m/2)",
-      "correction": "In Lemma3.8 use q^(1/2) for g^(1/2) and2g q^(m/2) for2g^(m/2). Equation3.10 needs a minus before the sum of numerator-factor logarithms.",
-      "reason": "The stated root criterion and following triangle estimate use q, as confirmed by equations3.8,3.9,3.11–3.12. For genus0 the correct condition is vacuous; for genus1,q=4, a root of norm2 violates the printed norm≤1 while obeying the intended bound. log Z=Σ positive count terms follows from minus the numerator logarithms. Printed page inspected as an image.",
+      "correction": "In Lemma3.8 use q^(1/2) for g^(1/2) and2g q^(m/2) for2g^(m/2).",
+      "reason": "The stated root criterion and following triangle estimate use q, as confirmed by equations3.8,3.9,3.11–3.12. For genus0 the correct condition is vacuous; for genus1,q=4, a root of norm2 violates the printed norm≤1 while obeying the intended bound. Printed page inspected as an image.",
       "affects": "a stated result",
       "known": "new",
       "searched": [
         "Author notes PDF p.21 inspected as an image, 6 October 2026.",
         "https://websites.umich.edu/~mmustata/ notes listing and targeted author-site errata search checked 6 October 2026; no corresponding erratum found."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed for Lemma 3.8 at the page image of p.21: the statement prints |ω_i| ≤ g^{1/2} and the proof prints |a_m| ≤ 2g^{m/2}, where q is meant. Rejected and removed from the entry: the claim that equation (3.10) needs a minus sign. The printed (3.10), Σ N_m t^m/m = Σ_i log(1 − ω_i t) − log(1 − t) − log(1 − qt) = Σ_m (1/m)(1 + q^m − Σ_i ω_i^m) t^m, is correct, since log of the numerator ∏(1 − ω_i t) enters with a plus sign.",
+        "by": "REV-WeilConjectures--WC.0"
+      }
     },
     {
       "id": "WeilConjectures/E-WC0-6",
@@ -3705,7 +3803,12 @@
       "searched": [
         "https://kskedlaya.org/weil-cohom/chapter-5.html accessed 6 October 2026; displayed statements and proof read.",
         "https://kskedlaya.org/math206a-fall19/ course notes listing and targeted author-site errata search checked; no separate correction found."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at the course page (HTML read 6 October 2026, SHA-256 d87e898142aa11e9d96044cd25ff2d0a7ed2a1a9f85acd14cdec323f7482877f): the α_i are defined by α_i^{-1} being roots of P, yet the proof concludes |α_i| ≥ q^{-1/2} and |α_i| = q^{-1/2}, writes α_{2g−i} = α_i/q, uses partner index 2g − i for indices 1..2g, and starts the logarithmic sum at N = 0. With reciprocal roots, pole exclusion gives |α_i| ≤ q^{1/2} and the pairing is α ↦ q/α.",
+        "by": "REV-WeilConjectures--WC.0"
+      }
     },
     {
       "id": "WeilConjectures/E-WC0-7",
@@ -3720,7 +3823,12 @@
       "searched": [
         "https://kskedlaya.org/weil-cohom/chapter-5.html accessed 6 October 2026; displayed statements and proof read.",
         "https://kskedlaya.org/math206a-fall19/ course notes listing and targeted author-site errata search checked; no separate correction found."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed: expanding the source’s preceding inequality 0 ≤ 2(a+b)(qa+b) − a²q(2−2g) − b²(2−2g) − 2ab#X gives 2gq a² + 2(q+1−N)ab + 2g b². The printed matrix has entries depending on a, b and diagonal q(2g−1), 2g−1, which are negative for g = 0, and its final inequality would give |q+1−N| ≤ (2g−1)√q/2: for y² = x³ + 2x over F_5 one has N = 2, |q+1−N| = 4 > √5/2.",
+        "by": "REV-WeilConjectures--WC.0"
+      }
     },
     {
       "id": "WeilConjectures/E-WC0-8",
@@ -3735,7 +3843,12 @@
       "searched": [
         "https://kskedlaya.org/weil-cohom/chapter-5.html accessed 6 October 2026; displayed statements and proof read.",
         "https://kskedlaya.org/math206a-fall19/ course notes listing and targeted author-site errata search checked; no separate correction found."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed: with σ(1,0), σ(0,1) pullbacks of a degree-e hyperplane section, numerically eA and eB, the degree-one inequality D² ≤ 2(D·A)(D·B) gives D² ≤ 2(D·σ(1,0))(D·σ(0,1))/e². The printed form fails for D = A − B and e = 2 (−2 ≤ −8 is false), and the subsequent intersections Δ·σ(1,0) = 1 are degree-one values. Equality in Hodge index is numerical equivalence.",
+        "by": "REV-WeilConjectures--WC.0"
+      }
     },
     {
       "id": "WeilConjectures/E-WC0-9",
@@ -3750,7 +3863,12 @@
       "searched": [
         "https://kskedlaya.org/weil-cohom/chapter-5.html accessed 6 October 2026; displayed statements and proof read.",
         "https://kskedlaya.org/math206a-fall19/ course notes listing and targeted author-site errata search checked; no separate correction found."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed: the printed range q + g√q/(g+1) < l < √q is empty for q > 1. With the Riemann–Roch bound dim H_l ≥ l + 1 − g stated just before, m = √q + 2g and p^μ = √q, positivity of (l+1−g)(m+1−g) − (l√q + m + 1 − g) is l(g+1) > g(√q + g + 1), i.e. g + g√q/(g+1) < l. The packet does not use this proof.",
+        "by": "REV-WeilConjectures--WC.0"
+      }
     },
     {
       "id": "WeilConjectures/E-WC0-10",
@@ -3766,22 +3884,354 @@
         "Published Definition9.1 and full Proposition9.3 proof collated against arXivv2, 6 October 2026; no generic integrality qualification is added.",
         "The accepted extraction sourceIssues contains no finding about Definition9.1.",
         "Author-hosted published copy and author/publication search checked; publication collation result is recorded in sources. No separate corresponding erratum found."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at arXiv v2 p.22 and published p.1351. Besides the packet’s C₃ deck-group example, a geometrically irreducible example: E: y² = x³ + 1 over F_7 with C₃ acting by x ↦ 2x; its three cubic twists y² = x³ + c, c ∈ {1, 2, 4}, have 12, 9 and 3 points, so the class function takes different integer values on ρ and ρ², which no integral virtual character of C₃ does. Proposition 9.3 is unaffected, since there the coordinates are Betti multiplicities.",
+        "by": "REV-WeilConjectures--WC.0"
+      }
+    },
+    {
+      "id": "WeilConjectures/E-WC0-11",
+      "source": "mustata-zeta",
+      "kind": "misprint",
+      "locator": "Author-hosted zeta_book.pdf, printed p.22, proof of Theorem 3.6, the display after “After simplifying, we get”",
+      "printed": "ga² − ab(q + 1 − N1) + gqb² ≥ 0",
+      "correction": "ga² + ab(q + 1 − N1) + gqb² ≥ 0.",
+      "reason": "Expanding the preceding display −a²(2g−2) − qb²(2g−2) + 2abN1 ≤ 2(a+bq)(a+b) gives 2ga² + 2ab(q+1−N1) + 2gqb² ≥ 0. Since the inequality is used for all integers a,b, replacing b by −b shows the conclusion (q+1−N1)² ≤ 4qg² is unaffected.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Author-hosted zeta_book.pdf (SHA-256 d83d5617b180d490de60286ca61f07d349c2dadba6d0b61eac1af2f628253b45) p.22 inspected as a page image, 6 October 2026; the notes carry no errata section.",
+        "https://public.websites.umich.edu/~mmustata/ requested 6 October 2026; the page was behind a browser challenge and could not be read."
+      ],
+      "addedBy": "REV-WeilConjectures--WC.0",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Found and checked by the independent review at the page image; the derivation is reproduced in the reason.",
+        "by": "REV-WeilConjectures--WC.0"
+      }
+    },
+    {
+      "id": "WeilConjectures/E-WC0-12",
+      "source": "bfp-published",
+      "kind": "error",
+      "locator": "Published Annals 199 (2024), §9.1, printed p.1351 (also arXiv 2206.07759v2 §9.1, p.21)",
+      "printed": "Let X be a variety over Fq with σ ∈ Aut(X). Then there is a unique twisted form of X, denoted X^σ",
+      "correction": "Require σ to have finite order and X to admit effective descent along F_{q^n}/F_q (for example X quasi-projective); then X^σ exists and is unique up to isomorphism. For σ in a finite group G, as in §9.2 and every application in the paper, nothing changes.",
+      "reason": "An identification X^σ ⊗ F̄q ≅ X ⊗ F̄q is defined over some F_{q^n}, so it intertwines the n-th powers of the Frobenii: (σF)^n = σ^n F^n = F^n, forcing σ^n = 1. The automorphism σ(x,y) = (y, x + y²) of A² over Fq (inverse (x,y) ↦ (y − x², x)) has iterates of degree 2^{n−1}, so it has infinite order and no twisted form X^σ exists.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "arXiv 2206.07759 version listing (v1, and v2 of 17 October 2023, the latest) checked 6 October 2026; v2 has the same sentence.",
+        "Author-hosted version of record (SHA-256 9843c296d6f775472ca718be1520c2152d13f5a37dd6928e8e454c2b2d134bd3) p.1351 read 6 October 2026: same sentence.",
+        "Annals article page https://annals.math.princeton.edu/2024/199-3/p07 checked 6 October 2026: no erratum or corrigendum listed."
+      ],
+      "addedBy": "REV-WeilConjectures--WC.0",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Found and checked by the independent review; the obstruction argument and the explicit infinite-order automorphism are in the reason.",
+        "by": "REV-WeilConjectures--WC.0"
+      }
     }
   ],
   "restructure": [],
   "upstreamNotes": [
     {
-      "target": "DeligneWeightsAndPurity:DWP.0/characteristic-power-series-and-traces",
-      "note": "The logarithmic determinant/trace formulation requires characteristic zero; its division-free derivative/product form works in arbitrary characteristic. This packet uses the former only over Q_ℓ. Record at the owner, do not edit that job here."
+      "roadmaps": [
+        "tauceti:TauCetiRoadmap/CohomologicalPointCounting (open pull request 196)"
+      ],
+      "note": "Exact public owner README contracts were read at head4bd72379658126cbe9be935656396f0c9dac4de0; their identifiers are absent from this atlas index and reserved-ids.json. Register the actual owner layers before replacing the precise gaps by prerequisite links. Twisted forms X^σ of a variety by a finite-order automorphism are used by the equivariant count but are not constructed in the read head; the family should say whether its descent API covers them."
     },
     {
-      "target": "TauCetiProject/TauCetiRoadmap/pull/196",
-      "note": "Exact public owner README contracts were read at head4bd72379658126cbe9be935656396f0c9dac4de0; their identifiers are absent from this atlas index and reserved-ids.json. Register the actual owner layers before replacing the precise gaps by prerequisite links."
+      "roadmaps": [
+        "DeligneWeightsAndPurity"
+      ],
+      "note": "Atlas-internal, for the owner of DeligneWeightsAndPurity:DWP.0/characteristic-power-series-and-traces: The logarithmic determinant/trace formulation requires characteristic zero; its division-free derivative/product form works in arbitrary characteristic. This packet uses the former only over Q_ℓ. Record at the owner, do not edit that job here."
     },
     {
-      "target": "WeilConjectures:WC.6",
-      "note": "Outside this job. Retain its integrated identifier and proper/nonprojective input; it consumes the generic WC.3 pure-factor extraction, while DWP.7 owns proper-smooth purity. Do not strengthen WC.3 geometric projective application to proper cases without that input."
+      "roadmaps": [
+        "WeilConjectures"
+      ],
+      "note": "Atlas-internal, for WeilConjectures:WC.6: Outside this job. Retain its integrated identifier and proper/nonprojective input; it consumes the generic WC.3 pure-factor extraction, while DWP.7 owns proper-smooth purity. Do not strengthen WC.3 geometric projective application to proper cases without that input."
     }
-  ]
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-WeilConjectures--WC.0",
+    "date": "2026-10-06",
+    "notes": "Independent target-level review (Claude, session claude-bN4pb9) of all 54 nodes (10 verified, 44 corrected, none added), all 57 baseline declarations (read at Mathlib 082e2d3 and Tau Ceti f790474: all exist and provide what their nodes use), the 12 requests and 7 gaps against the suppliers’ stage texts and the PR196 head, the 10 source issues at their locators, the reviewed library audit and RS-17 scope. Every source excerpt was a one-word placeholder; each is replaced by a literal excerpt read at the cited locator, and wrong page/layer locators are corrected (Milne 27.9, BFP 7.4, vdBE 4.1, PR196 FrobeniusGeometry Layer 7 and TraceFormula Layers 11–14). Corrected: the claim that PR196 owns twisted forms (it does not; the effective-descent input is now requested from SF.1 and gap 2 says so), the zeta integrality step, an unsourced flatness hypothesis in the sieve, and the reciprocal-pairing source. Source issues: E1–E4 and E6–E10 confirmed; E5 confirmed for Lemma 3.8 but its equation-(3.10) claim rejected and removed; E-WC0-11 (Mustață sign) and E-WC0-12 (BFP §9.1 twisted-form existence) added and confirmed. Added four API items and one unit test to the two finite combinatorial definitions. The suggested file, with these additions, elaborates at the pinned Mathlib with only proof-placeholder warnings. Stage statuses (seven planned, the numerical child closed) and packet status complete are correct; the gaps are precise. The reader document is outside this review’s edit paths and does not yet list the added API.",
+    "checked": [
+      {
+        "nodeId": "WeilConjectures:WC.5:power-sum-converse/recover-consecutive-moments",
+        "verdict": "verified",
+        "note": "Checked VA=I orientation (rows = roots) and the β=(2,−2) inverse [[1/2,1/2],[1/4,−1/4]]; the identity follows from mul_nonsing_inv after det_vandermonde_ne_zero_iff. The placeholder excerpt was replaced by a literal one."
+      },
+      {
+        "nodeId": "WeilConjectures:WC.5:power-sum-converse/consecutive-moment-bound",
+        "verdict": "verified",
+        "note": "Norm bound follows termwise from the recovery identity; the β=(2,−2) constant 1/2+R/4 recomputed. The placeholder excerpt was replaced by a literal one."
+      },
+      {
+        "nodeId": "WeilConjectures:WC.5:power-sum-converse/distinct-spectrum-bound",
+        "verdict": "verified",
+        "note": "Both R>0 (Archimedean growth of (‖β_k‖/R)^n) and R=0 (window of zero moments) cases checked. Yu p.81 read; the normed-field proof is the packet’s own, as recorded. The placeholder excerpt was replaced by a literal one."
+      },
+      {
+        "nodeId": "WeilConjectures:WC.5:power-sum-converse/grouped-spectrum-bound",
+        "verdict": "verified",
+        "note": "Grouping by the finite image preserves every moment; the nonzero-fibre-weight hypothesis is the right one. The placeholder excerpt was replaced by a literal one."
+      },
+      {
+        "nodeId": "WeilConjectures:WC.5:power-sum-converse/power-sum-converse",
+        "verdict": "verified",
+        "note": "Characteristic zero is exactly what keeps fibre multiplicities nonzero; the F_p counterexample is correct. The placeholder excerpt was replaced by a literal one."
+      },
+      {
+        "nodeId": "WeilConjectures:WC.5:power-sum-converse/power-sum-bound-iff",
+        "verdict": "verified",
+        "note": "Reverse direction with C=d checked, including d=0 and R=0. The placeholder excerpt was replaced by a literal one."
+      },
+      {
+        "nodeId": "WeilConjectures:WC.5:power-sum-converse/reciprocal-moments-escape-unit-ball",
+        "verdict": "verified",
+        "note": "Statement is stronger than Yu’s lemma (arbitrary nonzero coefficients, arbitrarily large exponents) and follows from distinct-spectrum-bound with β=γ⁻¹, C=R=1. Yu Appendix C p.81 read. The placeholder excerpt was replaced by a literal one."
+      },
+      {
+        "nodeId": "WeilConjectures:WC.5:power-sum-converse/power-sum-generating-series",
+        "verdict": "corrected",
+        "note": "Geometric series plus finite-sum rule; correct. Added Mustață (3.11), the actual generating-function identity, as a source."
+      },
+      {
+        "nodeId": "WeilConjectures:WC.5:power-sum-converse/generating-numerator-denominator",
+        "verdict": "corrected",
+        "note": "Algebraic identity checked, including the (b,b) example. Added Mustață (3.11) as a source."
+      },
+      {
+        "nodeId": "WeilConjectures:WC.5:power-sum-converse/formal-power-sum-product",
+        "verdict": "verified",
+        "note": "Division-free identity over any commutative ring checked against the cited PowerSeries lemmas; characteristic-two cancellation example correct. The placeholder excerpt was replaced by a literal one."
+      },
+      {
+        "nodeId": "WeilConjectures:WC.5:power-sum-converse/formal-rational-comparison",
+        "verdict": "verified",
+        "note": "Laurent-series comparison route through RatFunc.coe_coe and algebraMap_apply_div checked; coefficients 6,12,24 for b=2,c=3 recomputed. The placeholder excerpt was replaced by a literal one."
+      },
+      {
+        "nodeId": "WeilConjectures:WC.5:power-sum-converse/pole-cancellation-criterion",
+        "verdict": "corrected",
+        "note": "N(β_k⁻¹)=c_k∏_{j≠k}(1−β_j/β_k) recomputed; simple zero of D. Added Mustață (3.11)–(3.12) as a source."
+      },
+      {
+        "nodeId": "WeilConjectures:WC.5:power-sum-converse/no-pole-in-bounded-disc",
+        "verdict": "corrected",
+        "note": "Non-circular: the root bound comes first, the denominator condition second. Added Mustață (3.12) as a source."
+      },
+      {
+        "nodeId": "WeilConjectures:WC.5:power-sum-converse/reciprocal-pairing-forces-equality",
+        "verdict": "corrected",
+        "note": "Product of norms equals R² with both ≤R forces equality. Source replaced: the argument is Mustață Remark 3.7, not Yu’s negative-power lemma."
+      },
+      {
+        "nodeId": "WeilConjectures:WC.0/finite-extension-point-tower-comparison",
+        "verdict": "corrected",
+        "note": "Supplier contract matches PR196 FrobeniusGeometry Layers 4–5 (point type, finiteness, Nat.card). Locator moved to Deligne I (1.4) b), where extension counts are fixed points of F^n."
+      },
+      {
+        "nodeId": "WeilConjectures:WC.0/closed-point-degree-comparison",
+        "verdict": "corrected",
+        "note": "Orbit/degree dictionary is Deligne I (1.4) c)–d); natCard_algHom_of_finrank_dvd gives the fibre count m. Locator corrected."
+      },
+      {
+        "nodeId": "WeilConjectures:WC.0/geometric-frobenius-realization-comparison",
+        "verdict": "corrected",
+        "note": "Conventions (geometric = φ⁻¹, q⁻¹ on Q_ℓ(1), q^d on Q_ℓ(−d)) checked against Deligne I (1.15), (2.2). The pullback/descent/geometric-Frobenius bridge is FrobeniusGeometry Layer 7, not Layers 4–5: proof step, locator and gap corrected."
+      },
+      {
+        "nodeId": "WeilConjectures:WC.1/zeta-function-euler-product-and-point-counts",
+        "verdict": "corrected",
+        "note": "PR196 Layer 13 defines Z over Q by the exponential; the proof step claiming a supplier ‘integral construction’ is corrected to derive integrality from the locally finite Euler product. Arithmetic ζ_X (Deligne (1.1.1)) and its specialization checked."
+      },
+      {
+        "nodeId": "WeilConjectures:WC.1/closed-point-counts-mobius-inversion",
+        "verdict": "corrected",
+        "note": "Mathlib’s sum_eq_iff_sum_smul_moebius_eq applies with f(m)=m·a_m, g=N; A¹/F₄ values 4, 6, 20 recomputed."
+      },
+      {
+        "nodeId": "WeilConjectures:WC.1/cohomological-formula-from-the-trace-formula",
+        "verdict": "corrected",
+        "note": "Correct; locator for PR196 corrected to TraceFormula Layers 12–13 (constant-sheaf count and zeta determinant formula), Layer 14 being sheaf L-functions. The DWP.0 node used supplies traces/determinants as stated."
+      },
+      {
+        "nodeId": "WeilConjectures:WC.1/rationality-over-q-via-hankel-determinants",
+        "verdict": "corrected",
+        "note": "Field descent of rationality is Milne Lemma 27.9 (printed p.156, proof p.157; locator corrected) and Deligne I p.276."
+      },
+      {
+        "nodeId": "WeilConjectures:WC.1/local-fatou-normalization",
+        "verdict": "corrected",
+        "note": "Pole argument re-derived; the non-strict ≤1 correction of Milne 27.10 is confirmed (E-WC0-2)."
+      },
+      {
+        "nodeId": "WeilConjectures:WC.1/normalized-integral-zeta-presentation",
+        "verdict": "corrected",
+        "note": "Milne 27.11 and Deligne I p.276 (Fatou) read; integrality from all primes including p is correct."
+      },
+      {
+        "nodeId": "WeilConjectures:WC.1/finite-groupoid-mass",
+        "verdict": "corrected",
+        "note": "Definition and API correct against the pinned CategoryTheory declarations. Added API: groupoidMass_sum (stratification additivity, BFP 1.3(i)) and groupoidMass_actionCategory (orbit–stabiliser, BFP 1.3(ii)); added the non-example test groupoidMass_regular_action, which catches summing over objects."
+      },
+      {
+        "nodeId": "WeilConjectures:WC.1/stack-count-comparison",
+        "verdict": "corrected",
+        "note": "BFP Proposition 1.3 read; the node’s hypotheses (smooth connected G, bounded DM cohomology) are the correct sharpenings. B(C₂) and [A¹/G_m] masses recomputed. Lang’s theorem request to RG2.3 follows the accepted PAPER-LIPNOWSKI-TSIMERMAN-18 routing."
+      },
+      {
+        "nodeId": "WeilConjectures:WC.1/twisted-frobenius-point-comparison",
+        "verdict": "corrected",
+        "note": "Statement correct (finite group, effective descent). PR196 locator corrected: Layer 15 is the curve factorization; group-action traces are TraceFormula Layers 11 and 14, and PR196 does not construct twisted forms. Added prerequisite SchemeAndStackFoundations:SF.1 with a precise request for effective finite-order Galois descent of quasi-projective schemes; gap 2 corrected. BFP §9.1’s unrestricted existence claim recorded as E-WC0-12."
+      },
+      {
+        "nodeId": "WeilConjectures:WC.1/signed-frobenius-configuration-coefficient",
+        "verdict": "corrected",
+        "note": "Definition matches BFP Definition 7.3 via Vakil–Wood (8); test values recomputed. Added API: signedConfigurationCoefficient_sumCongr and signedConfigurationCoefficient_generating (product over orbits), the forms the inverse-zeta node uses."
+      },
+      {
+        "nodeId": "WeilConjectures:WC.1/inverse-zeta-configuration-formula",
+        "verdict": "corrected",
+        "note": "Expansion of ∏(1−T^{deg x}) checked; locator made precise."
+      },
+      {
+        "nodeId": "WeilConjectures:WC.1/inverse-zeta-even-cohomology-termination",
+        "verdict": "corrected",
+        "note": "BFP Proposition 7.4 is on p.12, not p.11 (corrected); nonemptiness is already in the source; the H⁰ fixed vector argument is right."
+      },
+      {
+        "nodeId": "WeilConjectures:WC.1/hasse-weil-sieve-for-curve-families",
+        "verdict": "corrected",
+        "note": "BFP 7.5 needs no flatness; the proof is fibrewise over V(F_q). The added word “flat” narrowed the source statement and was removed. Nonreduced double-line example recomputed."
+      },
+      {
+        "nodeId": "WeilConjectures:WC.2/signed-zeta-functional-equation",
+        "verdict": "corrected",
+        "note": "Re-derived P_i(1/(q^dT))=(−1)^{b_i}det(F_i)q^{−db_i}T^{−b_i}P_{2d−i}(T), the multiplier (−1)^χΔT^χ and Δ²=q^{dχ}; examples (point, two-cycle, genus two) recomputed."
+      },
+      {
+        "nodeId": "WeilConjectures:WC.2/middle-degree-parity",
+        "verdict": "corrected",
+        "note": "Alternating middle pairing for odd d gives b_d even and hence χ even; the ℓ=2 remark is right (coefficients have characteristic zero)."
+      },
+      {
+        "nodeId": "WeilConjectures:WC.2/functional-equation-multiplier-descent",
+        "verdict": "corrected",
+        "note": "Re-derived ε=(−1)^{b_d}(det F_d/q^{db_d/2})^{(−1)^d}: +1 for odd d and (−1)^{N₊} for even d, N₊ the generalized multiplicity of +q^{d/2}; agrees with Deligne (2.6) and Milne 27.13."
+      },
+      {
+        "nodeId": "WeilConjectures:WC.2/functional-equation-base-extension",
+        "verdict": "corrected",
+        "note": "ε_r=(−1)^{(r+1)χ}ε^r re-derived; locator adds Deligne’s base-extension remark p.301."
+      },
+      {
+        "nodeId": "WeilConjectures:WC.3/degreewise-pure-factor-extraction",
+        "verdict": "corrected",
+        "note": "Galois-stability plus Gauss-lemma descent checked against Deligne I pp.276–277; this is exactly what Milne 27.14(c) omits (E-WC0-3)."
+      },
+      {
+        "nodeId": "WeilConjectures:WC.3/integral-factors-and-ell-independence-from-purity",
+        "verdict": "corrected",
+        "note": "Correct application of the generic extractor to DWP.4’s purity; locator made precise."
+      },
+      {
+        "nodeId": "WeilConjectures:WC.4/betti-comparison-in-a-supplied-family",
+        "verdict": "corrected",
+        "note": "Supplier layers (EtaleBaseChange 7–8, ComplexComparison 10–12, EllAdicRealization 10) read and match."
+      },
+      {
+        "nodeId": "WeilConjectures:WC.1/equivariant-count-character-lattice",
+        "verdict": "corrected",
+        "note": "Integer-coordinate criterion is right; confirmed with a second, geometrically irreducible example (E-WC0-10 review)."
+      },
+      {
+        "nodeId": "WeilConjectures:WC.4/equivariant-polynomial-point-counts",
+        "verdict": "corrected",
+        "note": "BFP Proposition 9.3 read; Schur-index caveat and quadric examples correct."
+      },
+      {
+        "nodeId": "WeilConjectures:WC.2/equivariant-polynomial-duality",
+        "verdict": "verified",
+        "note": "BFP Remark 9.4 read; dual pairing of non-self-dual characters retained. The placeholder excerpt was replaced by a literal one."
+      },
+      {
+        "nodeId": "WeilConjectures:WC.1/curve-zeta-numerator-without-rh",
+        "verdict": "corrected",
+        "note": "Root-bound-free numerator from TraceFormula Layers 8, 15 and the trace formula; Mustață (3.8)–(3.10) read (the printed (3.10) is correct)."
+      },
+      {
+        "nodeId": "WeilConjectures:WC.5:power-sum-converse/little-o-visible-root-vanishing",
+        "verdict": "corrected",
+        "note": "Inverse-Vandermonde little-o argument checked. vdBE locator corrected to Lemma 4.1 pp.6–7; Lean citation moved to the Vandermonde source; library module made consistent with the other FiniteSpectrum nodes."
+      },
+      {
+        "nodeId": "WeilConjectures:WC.5:power-sum-converse/graded-polynomial-approximation-lemma",
+        "verdict": "corrected",
+        "note": "Grouping by modulus re-derived; agrees with vdBE Lemma 4.1 in its range d≤r≤2d. Library module made consistent."
+      },
+      {
+        "nodeId": "WeilConjectures:WC.5/all-extension-point-count-bound",
+        "verdict": "corrected",
+        "note": "Triangle inequality with weights; P² example recomputed. Locator made precise."
+      },
+      {
+        "nodeId": "WeilConjectures:WC.5/components-and-dimension-zero",
+        "verdict": "corrected",
+        "note": "Endpoint traces c_r(1+q^{dr}) and dimension-zero Euler product checked."
+      },
+      {
+        "nodeId": "WeilConjectures:WC.5/curve-and-elliptic-bound-comparison",
+        "verdict": "corrected",
+        "note": "Pinned pointCount, pointCount_eq_card_point and frobeniusTrace read; S₂=a²−2q recomputed."
+      },
+      {
+        "nodeId": "WeilConjectures:WC.5/extension-count-recurrence",
+        "verdict": "corrected",
+        "note": "Recurrence and Newton identities re-derived, including the n=b_i overlap and S₀=b_i."
+      },
+      {
+        "nodeId": "WeilConjectures:WC.5/complete-intersection-point-count",
+        "verdict": "corrected",
+        "note": "Deligne I Théorème (8.1) read at the page image; b=b′ or b′−1 and the all-extension upgrade are right."
+      },
+      {
+        "nodeId": "WeilConjectures:WC.5/polynomial-point-count",
+        "verdict": "corrected",
+        "note": "Predicate, uniqueness via 2^n and tests checked."
+      },
+      {
+        "nodeId": "WeilConjectures:WC.5/local-polynomial-count-cutoff",
+        "verdict": "corrected",
+        "note": "Matches BFP Proposition 3.1 with the s/d correction (E-WC0-4); locators made precise."
+      },
+      {
+        "nodeId": "WeilConjectures:WC.5/approximate-counts-and-tate-semisimplification",
+        "verdict": "corrected",
+        "note": "Matches vdBE Theorem 2.1, including the freedom in coefficients below d/2 and the empty case."
+      },
+      {
+        "nodeId": "WeilConjectures:WC.5/polynomial-counts-over-z-and-tate-cohomology",
+        "verdict": "corrected",
+        "note": "Matches vdBE Theorem 2.1 last clause with Lemma 4.2 and the Minkowski step; the R06.2 request generalizes Lemma 4.2 correctly (all slopes zero forces N=0)."
+      },
+      {
+        "nodeId": "WeilConjectures:WC.5:surface-alternative/surface-all-extension-bound-comparison",
+        "verdict": "corrected",
+        "note": "All intersection numbers, D², E², D·E and orthogonality to A+B recomputed; the Hodge-index Cauchy inequality gives the 2g bound. Found and recorded Mustață’s sign misprint (E-WC0-11)."
+      },
+      {
+        "nodeId": "WeilConjectures:WC.5:surface-alternative/curve-rh-from-surface-bound",
+        "verdict": "corrected",
+        "note": "Non-circular: ancestors avoid DWP.1/DWP.4/WC.3/WC.5; power-sum converse plus reciprocal pairing give |α|=√q for every root of the integral numerator."
+      }
+    ]
+  }
 }
