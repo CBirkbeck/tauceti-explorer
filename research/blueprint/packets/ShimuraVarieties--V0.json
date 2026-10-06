@@ -3129,14 +3129,14 @@
       ],
       "title": "Central separation by noncompact roots",
       "kind": "theorem",
-      "statement": "In the CM-split simple case, Z(G)=∩_α Z(H_α), where α ranges over roots noncompact at some real place. With barred groups modulo Z(G), ∩_α Z(H̄_α)(A_f)/Z(H̄_α)(Q)=1 in the adelic adjoint quotient. These identities force the residual adelic central adjustment in the marked comparison to be rational.",
+      "statement": "In the CM-split simple case, let Z_α=Z(H_α), with α ranging over roots noncompact at some real place. Then Z(G)=∩_α Z_α. Put Tbar=T/Z(G) and Zbar_α=Z_α/Z(G). Regard Zbar_α(A_f)/Zbar_α(Q) as subgroups of the abelian quotient Tbar(A_f)/Tbar(Q); their intersection is trivial. These identities force the residual adelic central adjustment in the marked comparison to be rational.",
       "hypotheses": [
         "Pure datum means D4/shimura-datum; all additional hypotheses in this statement are mandatory."
       ],
       "proofSteps": [
-        "Use irreducibility of the absolute root system and Galois action to show the relevant noncompact roots span the root lattice as required by Lemma 4.3.",
+        "Use irreducibility of the absolute root system and Galois action to show the relevant noncompact roots span the root lattice as required by Proposition 4.3.",
         "Compute each subgroup centre by vanishing of its root characters.",
-        "Apply Lemma 4.4 to their adelic intersections with the rational quotient retained."
+        "Apply Corollary 4.4 to their adelic intersections with the rational quotient retained."
       ],
       "prerequisites": [
         "ShimuraVarieties:V7/rank-one-subdata",
@@ -3145,9 +3145,9 @@
       "sources": [
         {
           "sourceId": "action",
-          "locator": "Lemmas 4.3–4.4, p.254",
-          "excerpt": "Z(G)",
-          "match": "The passage supplies the stated target; the proof sketch identifies specializations and explicit gaps rather than treating the source as an axiom."
+          "locator": "Proposition 4.3 and Corollary 4.4, p.254",
+          "excerpt": "as a subgroup of",
+          "match": "Corollary 4.4 places the intersection in Tbar(A_f)/Tbar(Q), an abelian quotient; no quotient group by a nonnormal subgroup of an adjoint group is used."
         }
       ],
       "acceptance": [

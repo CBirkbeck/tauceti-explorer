@@ -1332,13 +1332,13 @@ Source: [J. S. Milne, The action of an automorphism of C on a Shimura variety an
 
 Declaration **TauCeti.Shimura.rank_one_central_separation** (theorem), node `ShimuraVarieties:V7/rank-one-central-separation`.
 
-In the CM-split simple case, Z(G)=∩_α Z(H_α), where α ranges over roots noncompact at some real place. With barred groups modulo Z(G), ∩_α Z(H̄_α)(A_f)/Z(H̄_α)(Q)=1 in the adelic adjoint quotient. These identities force the residual adelic central adjustment in the marked comparison to be rational.
+In the CM-split simple case, let Z_α=Z(H_α), with α ranging over roots noncompact at some real place. Then Z(G)=∩_α Z_α. Put Tbar=T/Z(G) and Zbar_α=Z_α/Z(G). Regard Zbar_α(A_f)/Zbar_α(Q) as subgroups of the abelian quotient Tbar(A_f)/Tbar(Q); their intersection is trivial. These identities force the residual adelic central adjustment in the marked comparison to be rational.
 
 The construction or proof follows this route:
 
-1. Use irreducibility of the absolute root system and Galois action to show the relevant noncompact roots span the root lattice as required by Lemma 4.3.
+1. Use irreducibility of the absolute root system and Galois action to show the relevant noncompact roots span the root lattice as required by Proposition 4.3.
 2. Compute each subgroup centre by vanishing of its root characters.
-3. Apply Lemma 4.4 to their adelic intersections with the rational quotient retained.
+3. Apply Corollary 4.4 to their adelic intersections with the rational quotient retained.
 
 Direct inputs: `ShimuraVarieties:V7/rank-one-subdata`, `tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory`.
 
@@ -1346,7 +1346,7 @@ Acceptance checks:
 
 - The claim is the explicit centre intersection, not a stronger rational-generation theorem.
 
-Source: [J. S. Milne, The action of an automorphism of C on a Shimura variety and its special points](https://jmilne.org/math/articles/1983a.pdf), Lemmas 4.3–4.4, p.254.
+Source: [J. S. Milne, The action of an automorphism of C on a Shimura variety and its special points](https://jmilne.org/math/articles/1983a.pdf), Proposition 4.3 and Corollary 4.4, p.254.
 
 ### Marked conjugated Shimura datum
 
