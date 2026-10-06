@@ -16,56 +16,56 @@
         "kind": "definition",
         "module": "Mathlib/AlgebraicGeometry/EllipticCurve/LFunction.lean",
         "provides": "W.LSeries(s)=LSeries((↑)∘W.LFunction,s), where LFunction is the product of the local reduction factors, including additive factor1.",
-        "checked": "Actual declaration and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06."
+        "checked": "Actual declaration and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06. Independently re-read and confirmed by REV-EllipticRegulators--ER.5 (Codex codex-PVOz7e)."
       },
       {
         "ref": "mathlib:ZMod.stdAddChar",
         "kind": "definition",
         "module": "Mathlib/Analysis/SpecialFunctions/Complex/CircleAddChar.lean",
         "provides": "ZMod C additive character exp(2πij/C), used for the concrete dual-first coordinate adapter.",
-        "checked": "Actual declaration and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06."
+        "checked": "Actual declaration and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06. Independently re-read and confirmed by REV-EllipticRegulators--ER.5 (Codex codex-PVOz7e)."
       },
       {
         "ref": "mathlib:cot_series_rep",
         "kind": "theorem",
         "module": "Mathlib/Analysis/SpecialFunctions/Trigonometric/Cotangent.lean",
         "provides": "For z not an integer, πcot(πz)=1/z+Σ_{n:ℕ+}(1/(z−n)+1/(z+n)); paired partial fraction summation.",
-        "checked": "Actual declaration and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06."
+        "checked": "Actual declaration and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06. Independently re-read and confirmed by REV-EllipticRegulators--ER.5 (Codex codex-PVOz7e)."
       },
       {
         "ref": "tauceti:TauCeti.MultiplicativeIdealWeight",
         "kind": "definition",
         "module": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Weight.lean",
         "provides": "Ideal(O K)→*₀ℂ with only finitely many height-one primes killed; existing carrier for ψ extended by zero at the conductor.",
-        "checked": "Actual declaration and hypotheses read at Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 via git show on 2026-10-06."
+        "checked": "Actual declaration and hypotheses read at Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 via git show on 2026-10-06. Independently re-read and confirmed by REV-EllipticRegulators--ER.5 (Codex codex-PVOz7e)."
       },
       {
         "ref": "tauceti:TauCeti.norm_idealTerm",
         "kind": "theorem",
         "module": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Regroup.lean",
         "provides": "For I a nonzero ideal, ‖idealTerm K f s I‖=‖f I‖/(absNorm I:ℝ)^Re(s).",
-        "checked": "Actual declaration and hypotheses read at Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 via git show on 2026-10-06."
+        "checked": "Actual declaration and hypotheses read at Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 via git show on 2026-10-06. Independently re-read and confirmed by REV-EllipticRegulators--ER.5 (Codex codex-PVOz7e)."
       },
       {
         "ref": "tauceti:TauCeti.LSeries_normCoeff",
         "kind": "theorem",
         "module": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Regroup.lean",
-        "provides": "Summable(idealTerm K f s) implies LSeries(normCoeff K f,s)=Σ_I idealTerm K f s I.",
-        "checked": "Actual declaration and hypotheses read at Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 via git show on 2026-10-06."
+        "provides": "For f:IdealArithmeticFunction K and I ranging over (Ideal(O K))⁰, Summable(idealTerm K f s) implies LSeries(normCoeff K f,s)=Σ_I idealTerm K f s I. The sum is over nonzero integral ideals.",
+        "checked": "Actual declaration and hypotheses read at Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 via git show on 2026-10-06. Independently re-read and confirmed by REV-EllipticRegulators--ER.5 (Codex codex-PVOz7e)."
       },
       {
         "ref": "tauceti:TauCeti.summable_absNorm_rpow_ideal_iff",
         "kind": "theorem",
         "module": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Convergence.lean",
         "provides": "For a number field K and real t, Summable(I≠0↦(absNorm I:ℝ)^(−t)) iff1<t.",
-        "checked": "Actual declaration and hypotheses read at Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 via git show on 2026-10-06."
+        "checked": "Actual declaration and hypotheses read at Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 via git show on 2026-10-06. Independently re-read and confirmed by REV-EllipticRegulators--ER.5 (Codex codex-PVOz7e)."
       },
       {
         "ref": "tauceti:TauCeti.MultiplicativeIdealWeight.LSeries_ne_zero_of_summable_idealTerm",
         "kind": "theorem",
         "module": "TauCeti/NumberTheory/ArithmeticDirichletSeries/EulerProduct/Analytic.lean",
         "provides": "For ψ:MultiplicativeIdealWeight K, Summable(idealTerm K ψ.toIdealArithmeticFunction s) implies LSeries(normCoeff K ψ.toIdealArithmeticFunction,s)≠0, with no separate real-part hypothesis.",
-        "checked": "Actual declaration and hypotheses read at Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 via git show on 2026-10-06."
+        "checked": "Actual declaration and hypotheses read at Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 via git show on 2026-10-06. Independently re-read and confirmed by REV-EllipticRegulators--ER.5 (Codex codex-PVOz7e)."
       }
     ]
   },
@@ -74,9 +74,9 @@
       "id": "Bloch.CRM11.public",
       "title": "Higher Regulators, Algebraic K-Theory, and Zeta Functions of Elliptic Curves",
       "authors": "Spencer J. Bloch",
-      "edition": "CRM Monograph Series 11, AMS 2000; public digitization of the licensed ebook/reprint text. Overlines are lost in the text layer; no page-image or private-scan verification is claimed.",
+      "edition": "CRM Monograph Series 11, AMS 2000; public HTML text-layer transcription containing AMS reprint page labels. Overlines and some glyphs are lost; no publisher PDF, page-image, licence or private-scan verification is claimed.",
       "url": "https://dokumen.pub/higher-regulators-algebraic-k-theory-and-zeta-functions-of-elliptic-curves-0821821148.html",
-      "sha256": "c6922f3650cd46f68f1237284668079bd89b6d35baf4f42137cc303fc0ad9d1f",
+      "sha256": "f6f64f09e412c623adccec9744c052df811a8fb420f0fb1e7d319237937abc75",
       "accessed": "2026-10-06",
       "readSections": [
         "Lecture11 §§11.1–11.2, printed pp.87–93, all lemmas, corollaries, construction and Theorem11.2.1.",
@@ -85,7 +85,7 @@
     },
     {
       "id": "Brunault.These.2005.public",
-      "title": "Valeur en 2 de fonctions L de courbes elliptiques",
+      "title": "Étude de la valeur en s = 2 de la fonction L d’une courbe elliptique",
       "authors": "François Brunault",
       "edition": "Paris 7 thesis, 2005; arXiv math/0602186v1.",
       "url": "https://arxiv.org/pdf/math/0602186v1",
@@ -193,6 +193,11 @@
           "statement": "Γ_C(F,g)=g·C⁻¹Σ_x F(x)B(ḡ,x)."
         },
         {
+          "name": "cmGaussCoefficient_congr",
+          "role": "extensionality",
+          "statement": "If F(x)=G(x) for every x∈O/CO, then Γ_C(F,g)=Γ_C(G,g), for the same g and level C."
+        },
+        {
           "name": "cmGaussCoefficient_zero",
           "role": "simp",
           "statement": "Γ_C(0,g)=0 for every g."
@@ -272,6 +277,11 @@
           "name": "cmGaussCoefficient_imprimitive",
           "kind": "non-example",
           "statement": "At τ=i,C=4,f=2+2i,g=1−i, the trivial character on units mod f extended by zero has H(1+i)=0 and Γ=0; the underlying trivial unit character has conductor (1), while its nonunit-zero extension is an indicator prime to (1+i), and it does not restrict to μ as the embedding."
+        },
+        {
+          "name": "cmGaussCoefficient_changeGenerator_Qi",
+          "kind": "compatibility",
+          "statement": "At τ=i,C=4, replacing f=2+2i by if=−2+2i and g=1−i by −ig=−1−i changes the Fourier input from (1,1) to (3,1) but preserves Γ=2."
         }
       ]
     },
@@ -484,7 +494,7 @@
         "CM.4 and GlobalNumberFields layer10 supply |ψ(I)|=N(I)^(1/2) on ideals prime to f and zero otherwise, as a MultiplicativeIdealWeight κ.",
         "TauCeti.norm_idealTerm bounds the norm by N(I)^(−(Re s−1/2)). TauCeti.summable_absNorm_rpow_ideal_iff at Re s−1/2>1 proves the summability by norm comparison.",
         "Apply TauCeti.MultiplicativeIdealWeight.LSeries_ne_zero_of_summable_idealTerm. The existing theorem supplies the reciprocal Euler-product argument, including prevention of a product of nonzero factors converging to zero.",
-        "CM.4 identifies the curve’s pinned WeierstrassCurve.LSeries including bad additive factors1. Specialize to2. The parent nonvanishing node then gives R_q(U)≠0 and U≠0 once the corrected scalar is in place."
+        "Use the existing AL.1 unramified/ramified local-factor conventions, at unramified primes with unitary parameter ψ(P)/N(P)^(1/2) and argument s−1/2, so the unramified factor is (1−ψ(P)N(P)^(−s))⁻¹ and the ramified local-character factor is1. The ideal coefficient ψ(P)=0 at conductor primes is a zero-extension convention; it is not a value of a local quasi-character on a uniformizer. CM.4 supplies the equality of all these factors with the curve’s pinned WeierstrassCurve.LSeries, including additive factors1. Specialize to2. The parent nonvanishing node then gives R_q(U)≠0 and U≠0 once the corrected scalar is in place."
       ],
       "prerequisites": [
         "ComplexMultiplicationAndExplicitReciprocity:CM.4",
@@ -493,7 +503,9 @@
         "tauceti:TauCeti.summable_absNorm_rpow_ideal_iff",
         "tauceti:TauCeti.MultiplicativeIdealWeight.LSeries_ne_zero_of_summable_idealTerm",
         "mathlib:WeierstrassCurve.LSeries",
-        "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-10-archimedean-characters-infinity-types-and-cyclotomic-arithmetic"
+        "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-10-archimedean-characters-infinity-types-and-cyclotomic-arithmetic",
+        "AutomorphicLFunctionsAndLocalFactors:AL.1/unramified-local-theory",
+        "AutomorphicLFunctionsAndLocalFactors:AL.1/ramified-local-theory"
       ],
       "sources": [
         {
@@ -522,7 +534,7 @@
       ],
       "kind": "theorem",
       "title": "Normalization certificate for Bloch’s CM formula",
-      "statement": "The same weighted sum satisfies A_C=|μ|Γ_C(χ,g)R_q(U) and A_C=(iy²C⁴/π)|μ|L(2,ψ). Cancelling |μ|>0 proves the accepted parent theorem with coefficient πΓ_C(χ,g)/(iy²C⁴). With the printed opposite kernel its coefficient is −πΓ/(iy²C⁴), where Γ denotes the dual-first coefficient. Thus the printed factor |μ| is spurious. For the rational class U, R_q(U)=iC³Σ_{W/μ}D_q(exp(2πixχ̄(x)/C)), and L(E,2)=πΓ/(y²C)ΣD_q.",
+      "statement": "The same weighted sum satisfies A_C=|μ|Γ_C(χ,g)R_q(U) and A_C=(iy²C⁴/π)|μ|L(2,ψ). Cancelling |μ|>0 proves the accepted parent theorem with coefficient πΓ_C(χ,g)/(iy²C⁴). If Γ_op denotes g times the transform formed with the printed opposite kernel, then Γ_op=−Γ_C(χ,g); the SAME theorem is L(2,ψ)=−πΓ_op/(iy²C⁴)·R_q(U)=πΓ_C(χ,g)/(iy²C⁴)·R_q(U). Changing Fourier convention does not change the L-value or the coefficient after both signs are accounted for. Thus the printed factor |μ| is spurious. For the rational class U, R_q(U)=iC³Σ_{W/μ}D_q(exp(2πixχ̄(x)/C)), and L(E,2)=πΓ/(y²C)ΣD_q.",
       "hypotheses": [
         "E/ℚ has CM by the maximal order O=ℤ+ℤτ of an imaginary quadratic field κ of class number one; the embedding has y=Im τ>0. CM.1/CM.4 supply this datum and ψ, not ER.5.",
         "The imported primitive finite character χ:(O/fO)×→μ restricts to the chosen embedding on μ=O×, satisfies χ(x̄)=χ̄(x), and (f̄)=(f). C≥1 is a rational integer, C=fg, f,g≠0 in O. Equality of conjugate conductor ideals does not mean f̄=f as elements.",
@@ -537,12 +549,14 @@
       ],
       "prerequisites": [
         "EllipticRegulators:ER.5/dual-first-fourier-comparison",
+        "EllipticRegulators:ER.5/conductor-fiber-regulator-evaluation",
         "EllipticRegulators:ER.5/unit-orbit-regulator-count",
         "EllipticRegulators:ER.5/principal-generator-L-series-comparison",
         "EllipticRegulators:ER.5/primitive-gauss-normalization",
         "EllipticRegulators:ER.4/the-regulator-of-the-corrected-classes",
         "EllipticRegulators:ER.5/the-class-U",
-        "EllipticRegulators:ER.1/all-embeddings-and-the-conjugation-action"
+        "EllipticRegulators:ER.1/all-embeddings-and-the-conjugation-action",
+        "EllipticRegulators:ER.5/cm-ideal-series-at-two"
       ],
       "sources": [
         {
@@ -550,12 +564,19 @@
           "locator": "(11.2.1)–(11.2.4), pp.91–92; Corollary 11.2.3, p.93",
           "excerpt": "Theorem 11.2.1.",
           "match": "This is an independent scalar certificate for the parent corrected theorem, using accepted E7/E8/E9, rather than a new identifier for that theorem. The printed final formula and the printed kernel cannot be combined unchanged."
+        },
+        {
+          "sourceId": "Brunault.These.2005.public",
+          "locator": "Remarque 20, p.22; Proposition 26 and its proof, pp.26–27, (1.64)",
+          "excerpt": "(1.64)",
+          "match": "The selected real-period uniformization transports conjugation to the natural coordinate action. The orientation-reversing substitution then makes the real-point regulator pure imaginary. Its conversion to Bloch’s R_q is imported from ER.4; no factor of two is inferred from this excerpt alone."
         }
       ],
       "acceptance": [
         "Gaussian Γ=2, y=1,C=4 gives L(E,2)=π/2·ΣD_q.",
         "Eisenstein Γ=3,y²=3/4,C=6 gives coefficient2π/3; √−7 Γ=7,y²=7/4,C=7 gives4π/7.",
-        "The regulator is Bloch’s complex R_q. The Deligne regulator is ½ conjugate R_q from ER.4; those scalars cannot be interchanged."
+        "The regulator is Bloch’s complex R_q. The Deligne regulator is ½ conjugate R_q from ER.4; those scalars cannot be interchanged.",
+        "For the Gaussian example Γ=2 and Γ_op=−2. Both πΓ/(iy²C⁴) and −πΓ_op/(iy²C⁴) give the same positive L-value; −πΓ/(iy²C⁴) with dual-first Γ is false."
       ],
       "implementationStatus": "unchecked",
       "library": {
@@ -583,14 +604,16 @@
         "Compute the finite transform and orbit image, checking |W|=8,18,42 and |μ|=4,6,2.",
         "For √−7, H(ḡ)=Σ_{t mod7}Legendre(t,7)exp(2πit/7)=2i[sin(2π/7)+sin(4π/7)−sin(6π/7)]. The primitive norm gives absolute value √7; sin(2π/7)>sin(π/7)=sin(6π/7) makes its imaginary part positive, fixing H(ḡ)=i√7 and Γ=7. At C=14 four residue lifts and the factor1/14 give twice this Gauss sum, hence Γ=28.",
         "Evaluate the absolutely convergent direct q-orbit regulator series at canonical lifts. The summed real companion vanishes; retain C³ in the class regulator.",
-        "Independently check the Gaussian ideal L-series using the alternating bilateral-row evaluation: L(2,ψ)=Σ_{a≥1 odd}(−1)^((a−1)/2)[π/(4a²)csch(πa/2)+π²/(8a)csch(πa/2)coth(πa/2)]. This comes from χ(a+bi)=sin(πa/2)cos(πb/2)+i cos(πa/2)sin(πb/2), regrouping the absolutely convergent Gaussian lattice sum, and differentiating the paired cotangent partial fraction series."
+        "Independently check the Gaussian ideal L-series using the alternating bilateral-row evaluation: L(2,ψ)=Σ_{a≥1 odd}(−1)^((a−1)/2)[π/(4a²)csch(πa/2)+π²/(8a)csch(πa/2)coth(πa/2)]. This comes from χ(a+bi)=sin(πa/2)cos(πb/2)+i cos(πa/2)sin(πb/2), regrouping the absolutely convergent Gaussian lattice sum, and differentiating the paired cotangent partial fraction series. To make the row calculation explicit, unit symmetry gives L(2,ψ)=Σ_{a>0 odd}(−1)^((a−1)/2)a·Σ_{n∈ℤ}(−1)^n/(a²+4n²)². The paired cotangent expansion gives Σ_n(−1)^n/(a²+4n²)=π csch(πa/2)/(2a); differentiating this equality and multiplying by −1/(2a) yields the displayed row. Both quadratic-denominator series and their differentiated series converge locally uniformly for real a>0, by bounds on compact sets away from the poles, which justifies termwise differentiation."
       ],
       "prerequisites": [
         "EllipticRegulators:ER.5/unit-factor-cancellation-certificate",
         "EllipticRegulators:ER.5/cm-gauss-coefficient",
         "EllipticRegulators:ER.5/the-class-U",
         "EllipticRegulators:ER.4/direct-series-convergence",
-        "mathlib:cot_series_rep"
+        "mathlib:cot_series_rep",
+        "EllipticRegulators:ER.5/primitive-gauss-normalization",
+        "ComplexMultiplicationAndExplicitReciprocity:CM.4"
       ],
       "sources": [
         {
@@ -697,6 +720,16 @@
       "id": "EllipticRegulators:ER.5/fourier-transform-of-the-character",
       "from": "research/blueprint/packets/EllipticRegulators.json",
       "purpose": "Retain conductor support/covariance; primitive norm and exact support are supplied here."
+    },
+    {
+      "id": "AutomorphicLFunctionsAndLocalFactors:AL.1/unramified-local-theory",
+      "from": "research/blueprint/packets/AutomorphicLFunctionsAndLocalFactors.json",
+      "purpose": "Use the existing planned GL1 local-factor convention in the CM comparison. At primes away from the conductor, for ψ(P) of norm N(P)^(1/2), use the unitary parameter ψ(P)/N(P)^(1/2) at s−1/2. The full elliptic/Hecke comparison and bad-prime conductor theorem remain CM.4’s request; no independent-review acceptance of the AL packet is asserted."
+    },
+    {
+      "id": "AutomorphicLFunctionsAndLocalFactors:AL.1/ramified-local-theory",
+      "from": "research/blueprint/packets/AutomorphicLFunctionsAndLocalFactors.json",
+      "purpose": "Use the existing planned GL1 local-factor convention in the CM comparison. At primes away from the conductor, for ψ(P) of norm N(P)^(1/2), use the unitary parameter ψ(P)/N(P)^(1/2) at s−1/2. The full elliptic/Hecke comparison and bad-prime conductor theorem remain CM.4’s request; no independent-review acceptance of the AL packet is asserted."
     }
   ],
   "requests": [
@@ -726,13 +759,6 @@
       ]
     },
     {
-      "supplier": "AutomorphicLFunctionsAndLocalFactors:AL.1",
-      "need": "Import the ideal/rank-one Hecke local factor convention (1−ψ(P)N(P)^(-s))^-1, and comparison of split/inert factors with the rank-two elliptic local polynomial. CM.4 owns the elliptic Frobenius/conductor theorem; AL.1 supplies its generic conventions, not a second Deuring proof.",
-      "neededBy": [
-        "EllipticRegulators:ER.5/the-CM-setup-and-the-hecke-character"
-      ]
-    },
-    {
       "supplier": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-9-hecke-and-ray-class-characters",
       "need": "Import finite ray characters with exact conductor and zero extension, finite quotient cardinalities, reduction of units modulo a multiple ideal onto conductor units by CRT, and their conductor-primitivity interface. Keep the idelic character owner and its ideal-weight comparison; no generic conductor theory is planned here.",
       "neededBy": [
@@ -753,10 +779,13 @@
     {
       "stageId": "EllipticRegulators:ER.5",
       "status": "planned",
-      "note": "Every ER.5 target is imported by its accepted id; ten new declarations account for the missing normalization proof and examples. Chains terminate in pinned declarations, accepted parent/supplier nodes, or the six explicit owner requests. No unrecorded local mathematical gap remains.",
+      "note": "All eight parent ER.5 targets retain their identifiers, with the explicit contract qualifications recorded in imports. Ten new declarations account for the missing normalization proof and examples. Prerequisite chains terminate in pinned declarations, existing parent/supplier nodes, or the five explicit owner requests. Existing AL.1 local-factor nodes are imported directly rather than requested again. No unrecorded local mathematical gap remains; assembly wiring is listed separately.",
       "remaining": [
-        "Supplier requests to CM.1/CM.2/CM.4, AL.1 and GlobalNumberFields9/10 must be fulfilled with the exact stated interfaces; this stage is planned rather than library-closed.",
-        "Assembly must retain the parent ids, connect their scalar proof to unit-factor-cancellation-certificate and their nonvanishing proof to the pinned ideal Euler result, and apply the stage-text correction proposal."
+        "Fulfil the five supplier requests to CM.1/CM.2/CM.4 and GlobalNumberFields9/10 with the exact stated interfaces; the stage is planned rather than library-closed.",
+        "Assembly: retain the eight parent ids and their API/tests; connect the parent L-value theorem to unit-factor-cancellation-certificate and nonvanishing to cm-ideal-series-at-two and the pinned ideal Euler theorem. Remove the obsolete natural-number Euler-product near miss from the imported parent nonvanishing proof.",
+        "Assembly: replace the parent CM conductor API’s element equality f̄=f by the ideal equality f̄O=fO. Add the selected-uniformization conjugation compatibility explicitly to the parent class-U descent contract and its tests; retain the actual torsion-field Galois-image qualification.",
+        "Assembly: replace the parent CM setup’s broad AL.1 edge/request by the two imported AL.1 local-factor nodes. Use the norm-half unitary twist when comparing their conventions with ψ; the Deuring theorem remains owned by CM.4.",
+        "Assembly: correct the read-only ER.5 reader paragraph following the boxed L-value formula. If Γ_op=−Γ, write −πΓ_op/(iy²C⁴)=πΓ/(iy²C⁴); the actual coefficient is unchanged. Retain the complete stage-text correction proposal and W index set."
       ]
     }
   ],
@@ -812,8 +841,9 @@
     {
       "kind": "published",
       "url": "https://dokumen.pub/higher-regulators-algebraic-k-theory-and-zeta-functions-of-elliptic-curves-0821821148.html",
-      "citation": "Bloch CRM11, public text-layer digitization; source collation limited to this version.",
-      "read": "2026-10-06"
+      "citation": "Bloch CRM11, public HTML text-layer transcription; independent source collation is limited to this public transcription, not the publisher page images.",
+      "read": "2026-10-06",
+      "sha256": "f6f64f09e412c623adccec9744c052df811a8fb420f0fb1e7d319237937abc75"
     },
     {
       "kind": "preprint",
@@ -828,34 +858,112 @@
       "id": "EllipticRegulators/E7",
       "from": "research/blueprint/packets/EllipticRegulators.json",
       "status": "confirmed by REV-EllipticRegulators; used here without a duplicate erratum record",
-      "handling": "Dual-first kernel exp2πi(aℓ−bk)/C; opposite printed kernel is negative on odd inputs."
+      "handling": "Dual-first kernel exp2πi(aℓ−bk)/C; opposite printed kernel is negative on odd inputs.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed mathematically: coordinate reindexing gives H=C fhat₁₀ at the same output; an odd input changes sign under the opposite kernel. Exact Gaussian Gauss sums give 1+i versus −1−i. The public §11.1 labels and proof are checked, but lost overlines are not certified from OCR.",
+        "by": "REV-EllipticRegulators--ER.5"
+      }
     },
     {
       "id": "EllipticRegulators/E8",
       "from": "research/blueprint/packets/EllipticRegulators.json",
       "status": "confirmed by REV-EllipticRegulators; used here without a duplicate erratum record",
-      "handling": "The element/ideal factor |μ| cancels the residue/orbit factor; final coefficient has no |μ|."
+      "handling": "The element/ideal factor |μ| cancels the residue/orbit factor; final coefficient has no |μ|.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed: class-number-one element-to-ideal fibers have |μ| generators and free W-to-orbit fibers have the same |μ|. These cancel. Independently evaluated Gaussian, Eisenstein and √−7 data yield the corrected coefficients π/2, 2π/3, 4π/7.",
+        "by": "REV-EllipticRegulators--ER.5"
+      }
     },
     {
       "id": "EllipticRegulators/E9",
       "from": "research/blueprint/packets/EllipticRegulators.json",
       "status": "confirmed by REV-EllipticRegulators; used here without a duplicate erratum record",
-      "handling": "Use W invertible modulo conductor, or explicitly impose primes(g)⊆primes(f)."
+      "handling": "Use W invertible modulo conductor, or explicitly impose primes(g)⊆primes(f).",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed: conductor fibers partition W, not full-level units. Exact cyclotomic/ring arithmetic at √−7, C=14 gives 168 versus 42 residues and 84 versus 21 orbits. Separate 60-digit regulator diagnostics reproduce the factor-two discrepancy; that decimal comparison is not an exact proof.",
+        "by": "REV-EllipticRegulators--ER.5"
+      }
     }
   ],
   "upstreamNotes": [
     {
-      "roadmap": "ComplexMultiplicationAndExplicitReciprocity:CM.4",
-      "detail": "The consumer needs the existing TauCeti.MultiplicativeIdealWeight carrier and all-local-factor Deuring comparison including additive bad primes. The stage’s good-prime Frobenius identity alone is not enough; extend its owner interface rather than reconstructing it in ER.5."
+      "roadmaps": [
+        "ComplexMultiplicationAndExplicitReciprocity:CM.4"
+      ],
+      "note": "The consumer needs the existing TauCeti.MultiplicativeIdealWeight carrier and all-local-factor Deuring comparison including additive bad primes. The stage’s good-prime Frobenius identity alone is not enough; extend its owner interface rather than reconstructing it in ER.5."
     },
     {
-      "roadmap": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-9-hecke-and-ray-class-characters",
-      "detail": "Import conductor/finite-character carriers and their ideal-weight comparison. A natural-number DirichletCharacter is not the character of (O/fO)× and cannot be substituted even in class number one."
+      "roadmaps": [
+        "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-9-hecke-and-ray-class-characters"
+      ],
+      "note": "Import conductor/finite-character carriers and their ideal-weight comparison. A natural-number DirichletCharacter is not the character of (O/fO)× and cannot be substituted even in class number one."
     },
     {
-      "roadmap": "ComplexMultiplicationAndExplicitReciprocity:CM.2",
-      "detail": "Natural complex conjugation in coordinates ℂ/O is a normalization hypothesis, not a consequence of an abstract homothety E(ℂ)≅ℂ/ΩO. The CM.1/2 real-structure interface must certify it for the chosen Bloch model; a rotated period lattice of another ℚ-twist requires transport. The rational descent/pure-imaginary statements in this part are explicitly conditional on that compatibility."
+      "roadmaps": [
+        "ComplexMultiplicationAndExplicitReciprocity:CM.2"
+      ],
+      "note": "Natural complex conjugation in coordinates ℂ/O is a normalization hypothesis, not a consequence of an abstract homothety E(ℂ)≅ℂ/ΩO. The CM.1/2 real-structure interface must certify it for the chosen Bloch model; a rotated period lattice of another ℚ-twist requires transport. The rational descent/pure-imaginary statements in this part are explicitly conditional on that compatibility."
     }
   ],
-  "review": null
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-EllipticRegulators--ER.5",
+    "date": "2026-10-06",
+    "notes": "Independent target-level review by Codex session codex-PVOz 7e. All 10 new nodes, 8 parent imports, 2 finer AL imports, 8 pinned baseline statements, public source locators/excerpts, inherited E7/E8/E9, RT-AREA-ktheory-2/5, APIs/tests, planets and owner boundaries checked. Corrected the opposite-kernel Γ convention, direct prerequisites, source provenance/title and upstream-note schema; added congruence API/generator test and discharged the redundant AL.1 request through existing nodes. Accepted as one complete planned pass, with 5 owner requests and precise read-only parent/reader assembly instructions; no library implementation or closed coverage is claimed. Suggested Mathlib-only file elaborates with expected proof-placeholder warnings; unavailable Tau Ceti object files and CM/K₂ carriers are stated honestly. Final checks are recorded in the review report.",
+    "checked": [
+      {
+        "nodeId": "EllipticRegulators:ER.5/dual-first-fourier-comparison",
+        "verdict": "verified",
+        "note": "The literal §11.1 anchors match the public text. Reindexing the reviewed direct ER.4 identity preserves the output and supplies the C then C³ factors; oddness explains the opposite sign. No ER.5 theorem is an analytic premise."
+      },
+      {
+        "nodeId": "EllipticRegulators:ER.5/cm-gauss-coefficient",
+        "verdict": "corrected",
+        "note": "Finite scalar definition and all eight original APIs/six original tests verified. Added pointwise congruence API and a seventh generator-change test, derived and checked in exact cyclotomic arithmetic. Raw-weight linearity is separate from primitive-character norm/reality."
+      },
+      {
+        "nodeId": "EllipticRegulators:ER.5/primitive-gauss-normalization",
+        "verdict": "verified",
+        "note": "Support/covariance use the imported primitive-conductor lemma and CRT unit lifting. Counting Parseval yields |H(ḡ)|²=N(g); conjugation plus f̄O=fO makes Γ real. Checked all support norms and every unit generator change in four finite examples; the sign remains explicit."
+      },
+      {
+        "nodeId": "EllipticRegulators:ER.5/conductor-fiber-regulator-evaluation",
+        "verdict": "verified",
+        "note": "Corollary 11.1.6 at factorization C=f̄ḡ gives prefactor g and full conductor fibers at the same C. The W index and conjugate factor are retained even when primes(g) are not contained in primes(f)."
+      },
+      {
+        "nodeId": "EllipticRegulators:ER.5/unit-orbit-regulator-count",
+        "verdict": "verified",
+        "note": "Freeness follows by inverting x modulo f and using χ|μ; the index map is orbit-constant and injective on orbits. Unit covariance gives the |μ| factor. Descent remains conditional on the actual CM.2 Galois action/real structure and the rational norm inverse from E.7."
+      },
+      {
+        "nodeId": "EllipticRegulators:ER.5/principal-generator-L-series-comparison",
+        "verdict": "verified",
+        "note": "The principal-ideal law identifies each lattice term with ψ((a))/N((a))². Absolute convergence permits regrouping over the |μ| generator fibers; the pinned LSeries_normCoeff statement sums over nonzero ideals. No primes introduced solely by C are omitted."
+      },
+      {
+        "nodeId": "EllipticRegulators:ER.5/cm-ideal-series-at-two",
+        "verdict": "corrected",
+        "note": "All four cited ideal carrier/norm/convergence/nonvanishing declarations were independently read at the Tau Ceti pin. The exponent is Re s−1/2>1. Replaced the whole-stage AL.1 request with existing finer local-factor nodes and made the half-norm unitary twist explicit; all-prime elliptic comparison is still supplied by CM.4."
+      },
+      {
+        "nodeId": "EllipticRegulators:ER.5/unit-factor-cancellation-certificate",
+        "verdict": "corrected",
+        "note": "Corrected the opposite-kernel statement to use Γ_op=−Γ, preserving the actual coefficient. Added direct conductor-fiber and ideal-nonvanishing prerequisites named in its proof. Scalar cancellation, same-level C³ dilogarithm conversion and the real-structure hypothesis are explicit; added a Lean convention diagnostic."
+      },
+      {
+        "nodeId": "EllipticRegulators:ER.5/three-CM-normalization-examples",
+        "verdict": "corrected",
+        "note": "Exact ideal-congruence character tables reproduce Γ=2, 3, 7 and orbit images. Added direct primitive-norm and CM.4 prerequisites. Expanded the Gaussian row derivation with locally uniform differentiation; its independent 60-digit arithmetic sum agrees with the regulator to better than 10⁻⁵⁰. Decimal values remain diagnostics."
+      },
+      {
+        "nodeId": "EllipticRegulators:ER.5/extra-prime-level-counterexample",
+        "verdict": "verified",
+        "note": "Exact finite ring/cyclotomic checks reproduce Γ=28, 168 W residues/84 orbits and 42 full units/21 orbits at C=14. Independent q-series diagnostics reproduce both stated regulator values and ratio 2. The exact set mismatch and numerical evidence are distinguished."
+      }
+    ]
+  }
 }
