@@ -18284,8 +18284,12 @@
         "KTheoryLowDegrees:Z.3/determinant-truncation",
         "KTheoryLowDegrees:Z.3/graded-line-components",
         "KTheoryLowDegrees:Z.3/graded-line-automorphisms",
-        "KTheoryLowDegrees:Z.2",
-        "KTheoryLowDegrees:U.3",
+        "KTheoryLowDegrees:Z.2/local-projective-free",
+        "KTheoryLowDegrees:Z.2/local-ring-k0",
+        "KTheoryLowDegrees:Z.2/rank-connected",
+        "KTheoryLowDegrees:U.3/SK1-local",
+        "KTheoryLowDegrees:U.6/pi1-plus-construction",
+        "KTheoryLowDegrees:U.6/pi1-plus-determinant",
         "StableHomotopyKTheory:H.5:spectra"
       ],
       "acceptance": [
@@ -20372,13 +20376,6 @@
       "neededBy": [
         "KTheoryLowDegrees:Z.6/witt-supported-input",
         "KTheoryLowDegrees:Z.6/witt-regular-perfection-comparison"
-      ]
-    },
-    {
-      "supplier": "KTheoryLowDegrees:U.3",
-      "need": "Local-ring K₁=units via determinant and SK₁ vanishing supplies BS17 Prop.12.18 π₁ calculation; U.6 compares this loop map with the agreed homotopy K model. This Z-part plans only the common graded determinant and imports the K₁ calculation.",
-      "neededBy": [
-        "KTheoryLowDegrees:Z.3/local-det-equivalence"
       ]
     },
     {
