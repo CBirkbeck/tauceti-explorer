@@ -32,6 +32,12 @@ contributors and reviewers converge on names and signatures. Every proof of a ne
 
 Pinned baseline: Mathlib `082e2d3`, Tau Ceti `f790474`. This file imports Mathlib only.
 
+Fix revision (round 3): Claude claude-c9TlsS, 6 October 2026, Refs #5870. The determinant comparison is divided
+between `R04.1/determinant-comparison` (the determinant map and its non-injectivity) and the new
+`R04.2/determinant-comparison-isomorphism` (bijectivity for absolutely irreducible residual representations);
+both are in the comment block of supplier-dependent sketches below, which is not elaborated. The file
+elaborates at the pinned Mathlib with `sorry` as its only warning.
+
 Fix revision: Codex codex-5ebb6f, 30 September 2026, Refs #5142. Independent REV-FIX records needs_changes (2 October 2026, Refs #5143).
 The earlier revision did not claim compilation. FIX-RT-BP-GlobalGaloisDeformations (#5719)
 repairs the signatures and adds the regressions below; its fresh elaboration receipt is in the fixes report.
@@ -265,7 +271,13 @@ theorem Lift.proRepresentable (hG : PhiP G p) : (Lift n ρbar).IsProRepresentabl
 theorem Def.proRepresentable (hG : PhiP G p) (hS : IsSchur n ρbar) : (Def n ρbar).IsProRepresentable (C 𝒪)
 -- R04.1/determinant-deformation-functor (determinants from IHG.0)
 def DetDef (Dbar : Determinant 𝔽 G n) : ArtO ⥤ Type
-theorem Def.toDetDef_bijective (habs : AbsolutelyIrreducible ρbar) : Function.Bijective (Def.toDetDef …)
+-- R04.1/determinant-comparison: the determinant map only (no irreducibility hypothesis, nothing from R04.2)
+def Def.toDetDef : Def n ρbar ⟶ DetDef (Determinant.ofRep ρbar)
+theorem Def.toDetDef_not_injective_of_ext (hext : 1 < finrank 𝔽 (Ext¹ χ₂ χ₁)) (hρ : ρbar.IsNonsplitExtension χ₂ χ₁) :
+    ¬ Function.Injective ((Def.toDetDef (ρbar := ρbar)).app 𝔽[ε])
+-- R04.2/determinant-comparison-isomorphism (Chenevier 2.22(i) from IHG.0, and R04.2/carayol-trace-theorem)
+theorem Def.toDetDef_bijective (habs : AbsolutelyIrreducible ρbar) (A : ArtO) :
+    Function.Bijective ((Def.toDetDef (ρbar := ρbar)).app A)
 -- R04.4/restriction-ring-map and restriction-finiteness (Σ open in Γ, ρ̄|Σ absolutely irreducible)
 def resRing (ι : Σ →* Γ) : Runiv (ρbar.comp ι) →ₐ[𝒪] Runiv ρbar
 theorem resRing_finite (hΣ : IsOpen (Set.range ι)) (habs : AbsolutelyIrreducible (ρbar.comp ι)) :

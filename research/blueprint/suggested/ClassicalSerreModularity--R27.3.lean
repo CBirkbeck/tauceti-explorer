@@ -1,11 +1,28 @@
 import Mathlib.Algebra.Ring.Parity
+import Mathlib.Analysis.Complex.Basic
 import Mathlib.Data.ZMod.Basic
+import Mathlib.FieldTheory.IsAlgClosed.AlgebraicClosure
+import Mathlib.FieldTheory.KrullTopology
+import Mathlib.GroupTheory.Solvable
+import Mathlib.LinearAlgebra.Dimension.Finrank
+import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Defs
 import Mathlib.LinearAlgebra.Matrix.Notation
+import Mathlib.LinearAlgebra.Matrix.Trace
+import Mathlib.LinearAlgebra.TensorProduct.Tower
+import Mathlib.NumberTheory.DirichletCharacter.Basic
 import Mathlib.NumberTheory.ModularForms.Basic
+import Mathlib.NumberTheory.NumberField.Basic
+import Mathlib.NumberTheory.NumberField.DirichletDensity
+import Mathlib.NumberTheory.NumberField.InfinitePlace.Embeddings
 import Mathlib.Order.Interval.Finset.Nat
+import Mathlib.RingTheory.DiscreteValuationRing.Basic
+import Mathlib.RingTheory.Frobenius
+import Mathlib.RingTheory.LocalRing.ResidueField.Basic
 import Mathlib.Tactic.NormNum.GCD
 import Mathlib.Tactic.NormNum.Prime
 import Mathlib.Tactic.Ring
+import Mathlib.Topology.Algebra.Constructions
+import Mathlib.Topology.Instances.Matrix
 
 /-!
 # Suggested Lean forms: ClassicalSerreModularity, part R27.3 (R27.3–R27.6, R33.1–R33.4)
@@ -19,30 +36,45 @@ The analytic carriers are in the pinned libraries and are reused, not restated: 
 `HeckeRing.GL2.Newform N k` (`TauCeti/NumberTheory/ModularForms/Newforms/Newform.lean`: a good Hecke
 eigenform in the new subspace with `a₁ = 1`). What the pins lack is the arithmetic interface: Galois
 representations attached to newforms, Serre's weight and level `k(ρ̄)`, `N(ρ̄)`, compatible systems,
-local Weil–Deligne types and the modularity comparison. Statements needing those are comments below.
+local Weil–Deligne types and the modularity comparison. Statements needing those are comments below,
+except for six nodes of R27.1 and R27.6, which the last part of the file states as Lean theorems
+against typed stand-ins (its section "Imported interfaces").
 The checked examples test the arithmetic of the Khare–Wintenberger and Dieulefait–Pacetti arguments,
 including an exact check of the two integral lattices of Lemma 2.3 over `ℤ[ζ]`.
 
 Pinned baseline: Mathlib `082e2d3`, Tau Ceti `f790474`.
 
 Fix revision: Codex codex-5ebb6f, 30 September 2026, Refs #5142. Independent REV-FIX records needs_changes (2 October 2026, Refs #5143).
-No compilation was performed: no existing build was found at the pins. Historical compilation
-in reviewHistory is not a check of this revision. Supplier signature sketches below are comments.
+No compilation was performed for that revision: no existing build was found at the pins. Historical
+compilation in reviewHistory is not a check of it. Supplier signature sketches in the block below are
+comments.
 Lemma 8.2 imports the early R01.3/R01.4 definitions/classification; no level-one theorem or R15.6.
 Its stage-component promotion is still a maintainer gap, not an implemented stage split.
 
 Red-team fix FIX-RT-BP-ClassicalSerreModularity--R27.3: Claude claude-eZ1A2V, 6 October 2026, Refs #5715.
 It ties the residual of `dihedralType` to its standard lattice, chooses the lattice of Lemma 2.3 by the
-residual case at 2, and bounds the dyadic conductor in Theorem 3.4. This revision was elaborated with
+residual case at 2, and bounds the dyadic conductor in Theorem 3.4. That revision was elaborated with
 `lake env lean` against Mathlib `082e2d3`, with no errors or warnings. Tau Ceti is named in comments only
 and is not imported, because the shared build is not at the Tau Ceti pin.
 
+Fix revision (round 3): Claude claude-c9TlsS, 6 October 2026, Refs #5870. It adds Lean statements, each
+proved by `sorry`, for six nodes that had none: R27.1 Lemma 8.2 (`lemma_8_2`, `lemma_8_2_trace_eq_zero`)
+and, in R27.6, the reductions of an Artin representation (`artin_reduction_ker_eq`,
+`artin_reduction_finrank_fixedVectors`, `artin_reduction_isAbsIrreducible`, `artin_reduction_conductor`),
+weight one for residual representations unramified at `ℓ` (`unramified_residual_arises_in_weight_one`),
+the reduction of Katz forms of weight one (`weight_one_reduction_bijective`), Khare's descent
+(`weight_one_descent`, `weight_one_descent_galoisRep`) and odd Artin representations
+(`odd_artin_weight_one`). A Galois representation is a homomorphism from `Gal(ℚ̄/ℚ)` to `GL (Fin 2) k`;
+Frobenius elements, inertia groups, complex conjugations and the Dirichlet density are Mathlib's. The
+Artin conductor, Katz cusp forms with their operators, newforms of weight one and the Deligne–Serre
+representation are opaque stand-ins for objects of other roadmaps. Each docstring says what it leaves
+out of its node. Nothing is formalised: these are suggested signatures. The file elaborates with
+`lake env lean` against Mathlib `082e2d3` with no errors, and its only warnings are
+`declaration uses sorry`.
+
 ```
--- R27.1/lemma-8-2-chebotarev-choice-of-auxiliary-primes  (𝔽_p coefficients, not 𝔽̄_p)
-theorem lemma_8_2 {p : ℕ} [Fact p.Prime] (hp : p % 4 = 1) (ρ̄ : GaloisRep ℚ (ZMod p) 2)
-    (hS : IsSType ρ̄) (hns : ¬ IsSolvable (image ρ̄)) :
-    ∃ Q : Set ℕ, 0 < dirichletDensity Q ∧ ∀ q ∈ Q, q.Prime ∧ IsUnramifiedAt ρ̄ q ∧
-      ProjFrobConjComplexConj ρ̄ q ∧ (∀ ℓ, ℓ.Prime → ℓ ≤ p - 1 → q % ℓ = 1) ∧ q % 8 = 1 ∧ q % p = p - 1
+-- R27.1/lemma-8-2-chebotarev-choice-of-auxiliary-primes  (𝔽_p coefficients, not 𝔽̄_p):
+-- stated in Lean at the end of the file (`lemma_8_2`, `lemma_8_2_trace_eq_zero`).
 -- R27.3/double-induction-assembly and R27.3/d0-from-all-lr
 theorem hypL_all : ∀ r ≥ 1, HypL r
 theorem hypD_zero : HypD 0
@@ -66,8 +98,7 @@ theorem serre_strong (ρ̄ : GaloisRep ℚ (F̄ p) 2) (hodd : IsOdd ρ̄) (hirr 
 -- R27.6/odd-artin-weight-one-modularity: explicit Corollary 10.2(ii) export for ML.1.
 -- The early Gross/Coleman–Voloch/Khare descent input is an open proof contract.
 -- Do not import all of ML.1 in reverse, and do not treat weight >= 2 as weight-one modularity.
-theorem odd_artin_weight_one (ρ : ComplexArtinRep ℚ 2) (hodd : IsOdd ρ)
-    (hirr : IsIrreducible ρ) : ∃ f : WeightOneCuspidalNewform, Nonempty (deligneSerreRep f ≃ ρ)
+-- Stated in Lean at the end of the file (`odd_artin_weight_one`), with the four nodes of R27.6 it uses.
 -- R33.2/dp-lift-existence-and-good-dihedral-insertion is ONLY Paso 2:
 -- apply R24.3's general Theorem 1.9(4), after the Paso 1 weight-two system and
 -- Lemma 1.15 prime-field conditions select its crystalline-at-q alternative.
@@ -117,6 +148,8 @@ theorem serre_weak_odd {p : ℕ} (hp : p ≠ 2) (ρ̄ : GaloisRep ℚ (F̄ p) 2)
     (hirr : IsIrreducible ρ̄) : IsModular ρ̄
 ```
 -/
+
+set_option autoImplicit false
 
 namespace TauCeti.SerreConjecture.SuggestedTest
 
@@ -312,3 +345,361 @@ function on the upper half-plane; the attached Galois representation is what the
 example (Γ : Subgroup (GL (Fin 2) ℝ)) (k : ℤ) (f : CuspForm Γ k) : ℍ → ℂ := f
 
 end TauCeti.SerreConjecture.SuggestedTest
+
+/-! ## Statements for R27.1 Lemma 8.2 and the weight-one nodes of R27.6
+
+Suggested signatures, each proved by `sorry`. -/
+
+noncomputable section
+
+namespace TauCeti.SerreConjecture
+
+open NumberField
+open scoped TensorProduct
+
+universe u
+
+/-! ## Conventions -/
+
+/-- `ClassicalSerreModularity:R27.1/lemma-8-2-chebotarev-choice-of-auxiliary-primes` and the nodes of R27.6 below
+(convention): the absolute Galois group `G_ℚ = Gal(ℚ̄/ℚ)`, with Mathlib's Krull topology. -/
+abbrev GQ : Type := AlgebraicClosure ℚ ≃ₐ[ℚ] AlgebraicClosure ℚ
+
+/-- `ClassicalSerreModularity:R27.1/lemma-8-2-chebotarev-choice-of-auxiliary-primes` (convention): the ring `ℤ̄` of
+algebraic integers, on which `G_ℚ` acts. -/
+abbrev IntBar : Type := 𝓞 (AlgebraicClosure ℚ)
+
+/-- `ClassicalSerreModularity:R27.1/lemma-8-2-chebotarev-choice-of-auxiliary-primes` (convention): `σ` is an
+arithmetic Frobenius element at some prime of `ℤ̄` containing `r`, that is, `σ x ≡ x ^ r` modulo
+that prime for every algebraic integer `x`. For a prime number `r` these are the elements `Frob_r`
+of the sources, for all choices of a prime above `r` and of a lift from the residue field. -/
+def IsFrobAt (σ : GQ) (r : ℕ) : Prop :=
+  ∃ Q : Ideal IntBar, Q.IsPrime ∧ (r : IntBar) ∈ Q ∧ IsArithFrobAt ℤ σ Q
+
+/-- `ClassicalSerreModularity:R27.1/lemma-8-2-chebotarev-choice-of-auxiliary-primes` (convention): `ρ` is unramified
+at `r`, that is, trivial on the inertia group of every prime of `ℤ̄` containing `r`. -/
+def IsUnramifiedAt {H : Type*} [Group H] (ρ : GQ →* H) (r : ℕ) : Prop :=
+  ∀ Q : Ideal IntBar, Q.IsPrime → (r : IntBar) ∈ Q → Q.toAddSubgroup.inertia GQ ≤ ρ.ker
+
+/-- `ClassicalSerreModularity:R27.6/odd-artin-weight-one-modularity` (convention): `ρ` is odd, that is,
+`det ρ(c) = −1` for every complex conjugation `c`: every `c` which some embedding `φ : ℚ̄ → ℂ`
+carries to complex conjugation. All such `c` are conjugate in `G_ℚ`, so one of them suffices. -/
+def IsOdd {k : Type*} [CommRing k] (ρ : GQ →* GL (Fin 2) k) : Prop :=
+  ∀ (φ : AlgebraicClosure ℚ →+* ℂ) (c : GQ), ComplexEmbedding.IsConj φ c →
+    Matrix.det (ρ c : Matrix (Fin 2) (Fin 2) k) = -1
+
+/-- `ClassicalSerreModularity:R27.6/odd-artin-weight-one-modularity` (convention): irreducibility of a
+two-dimensional representation, as no line of `k²` being stable. Over an algebraically closed
+field this is absolute irreducibility. -/
+def IsIrreducible {G k : Type*} [Group G] [Field k] (ρ : G →* GL (Fin 2) k) : Prop :=
+  ∀ v : Fin 2 → k, v ≠ 0 → ∃ g : G, ∀ a : k, (ρ g : Matrix (Fin 2) (Fin 2) k).mulVec v ≠ a • v
+
+/-- `ClassicalSerreModularity:R27.6/artin-reductions-of-serre-type` (convention): absolute irreducibility in
+Burnside's form, the matrices `ρ(g)` span `M₂(k)`. This is equivalent to irreducibility over every
+extension field of `k`. -/
+def IsAbsIrreducible {G k : Type*} [Group G] [Field k] (ρ : G →* GL (Fin 2) k) : Prop :=
+  Submodule.span k (Set.range fun g : G => (ρ g : Matrix (Fin 2) (Fin 2) k)) = ⊤
+
+/-- `ClassicalSerreModularity:R27.1/lemma-8-2-chebotarev-choice-of-auxiliary-primes` (convention): `ρ_proj(a)` and
+`ρ_proj(b)` are conjugate in the projective image `ρ_proj(G)`, that is, `ρ(a)` is a scalar multiple
+of `ρ(τ b τ⁻¹)` for some `τ`. The scalar is a unit because `ρ(a)` is invertible. -/
+def IsProjConj {G k : Type*} [Group G] [CommRing k] (ρ : G →* GL (Fin 2) k) (a b : G) : Prop :=
+  ∃ (τ : G) (z : k),
+    (ρ a : Matrix (Fin 2) (Fin 2) k) = z • (ρ (τ * b * τ⁻¹) : Matrix (Fin 2) (Fin 2) k)
+
+/-- `ClassicalSerreModularity:R27.6/artin-reductions-of-serre-type` (convention): the vectors of `R²` fixed
+by a subgroup `H`. -/
+def fixedVectors {G R : Type*} [Group G] [CommRing R] (ρ : G →* GL (Fin 2) R) (H : Subgroup G) :
+    Submodule R (Fin 2 → R) where
+  carrier := {v | ∀ h ∈ H, (ρ h : Matrix (Fin 2) (Fin 2) R).mulVec v = v}
+  add_mem' hv hw h hh := by rw [Matrix.mulVec_add, hv h hh, hw h hh]
+  zero_mem' h _ := Matrix.mulVec_zero _
+  smul_mem' a v hv h hh := by rw [Matrix.mulVec_smul, hv h hh]
+
+/-- `ClassicalSerreModularity:R27.6/artin-reductions-of-serre-type` (convention): the reduction of a
+representation over a local ring modulo the maximal ideal. -/
+def residualRep {G O : Type*} [Group G] [CommRing O] [IsLocalRing O] (ρ : G →* GL (Fin 2) O) :
+    G →* GL (Fin 2) (IsLocalRing.ResidueField O) :=
+  (Matrix.GeneralLinearGroup.map (IsLocalRing.residue O)).comp ρ
+
+/-- `ClassicalSerreModularity:R27.6/artin-reductions-of-serre-type` (convention): the representation over
+the fraction field. -/
+def genericRep {G O : Type*} [Group G] [CommRing O] [IsDomain O] (ρ : G →* GL (Fin 2) O) :
+    G →* GL (Fin 2) (FractionRing O) :=
+  (Matrix.GeneralLinearGroup.map (algebraMap O (FractionRing O))).comp ρ
+
+/-- `ClassicalSerreModularity:R27.1/lemma-8-2-chebotarev-choice-of-auxiliary-primes` (convention): the nonzero
+primes of `ℤ = 𝓞 ℚ` generated by an element of a set `S` of natural numbers, the form in which
+Mathlib's Dirichlet density takes a set of rational primes. -/
+def primesOfRat (S : Set ℕ) : Set (IsDedekindDomain.HeightOneSpectrum (𝓞 ℚ)) :=
+  {v | Ideal.absNorm v.asIdeal ∈ S}
+
+/-- `ClassicalSerreModularity:R27.6/weight-one-descent-from-infinitely-many-primes` (convention): the level
+`N′` of the weight-one statements, `N` if `N ≥ 5` and `5N` otherwise. -/
+def auxLevel (N : ℕ) : ℕ := if 5 ≤ N then N else 5 * N
+
+/-! ## Imported interfaces
+
+Nothing in this section is planned by this packet. Each declaration stands in for an object that
+another roadmap (named in its docstring) owns; the owner's definition governs. An opaque `def` is a
+data type, a number or a map whose body is `sorry`; no condition is a `Prop`-valued placeholder. -/
+
+section ImportedInterfaces
+
+/-- `ClassicalSerreModularity:R27.6/artin-reductions-of-serre-type`, imported from
+ArithmeticGaloisRepresentations R01.3 (stand-in, opaque): the Artin conductor of a two-dimensional representation of `G_ℚ` with open kernel over a field `k`, taken away from the
+characteristic of `k`: `∏ r ^ n(r, ρ)` over the primes `r ≠ char k`, with
+`n(r, ρ) = ∑_{i ≥ 0} [G₀ : Gᵢ]⁻¹ dim V / V^{Gᵢ}`. In characteristic zero it is the Artin conductor,
+and in characteristic `ℓ` it is Serre's level `N(ρ̄)`. Only `CommRing k` is asked for, so that the
+fraction field and the residue field of a local ring are accepted without unfolding instances. -/
+def artinConductor {k : Type*} [CommRing k] (ρ : GQ →* GL (Fin 2) k) : ℕ := sorry
+
+/-- `ClassicalSerreModularity:R27.6/weight-one-reduction-is-onto-for-almost-all-primes`, imported from
+AlgebraicModularFormsAndSerreWeights R15.1 (stand-in, opaque): Katz cusp forms
+`S_k(Γ₁(N); A)` of level `N` and weight `k` with coefficients in a ring `A` in which `N` is
+invertible. For `N ≥ 5` this is `H⁰(X₁(N)_A, ω^k ⊗ 𝒪(−cusps))`. -/
+def KatzCuspForms (N : ℕ) (k : ℤ) (A : Type u) [CommRing A] : Type u := sorry
+
+/-- `ClassicalSerreModularity:R27.6/weight-one-reduction-is-onto-for-almost-all-primes`, imported from R15.1
+(opaque): the addition of Katz cusp forms. -/
+instance (N : ℕ) (k : ℤ) (A : Type u) [CommRing A] : AddCommGroup (KatzCuspForms N k A) := sorry
+
+/-- `ClassicalSerreModularity:R27.6/weight-one-reduction-is-onto-for-almost-all-primes`, imported from R15.1
+(opaque): the `A`-module structure of Katz cusp forms. -/
+instance (N : ℕ) (k : ℤ) (A : Type u) [CommRing A] : Module A (KatzCuspForms N k A) := sorry
+
+/-- `ClassicalSerreModularity:R27.6/weight-one-reduction-is-onto-for-almost-all-primes`, imported from
+R15.1–R15.2 (stand-in, opaque): the Hecke operator `T_r` on Katz cusp forms, for a prime `r`
+not dividing `N` and invertible in `A`. The operators at the other primes are not used. -/
+def katzHecke (N : ℕ) (k : ℤ) (A : Type u) [CommRing A] (r : ℕ) :
+    KatzCuspForms N k A →ₗ[A] KatzCuspForms N k A := sorry
+
+/-- `ClassicalSerreModularity:R27.6/weight-one-reduction-is-onto-for-almost-all-primes`, imported from
+R15.1–R15.2 (stand-in, opaque): the diamond operator `⟨d⟩` on Katz cusp forms, for a unit `d` of
+`ℤ/N`. -/
+def katzDiamond (N : ℕ) (k : ℤ) (A : Type u) [CommRing A] (d : ZMod N) :
+    KatzCuspForms N k A →ₗ[A] KatzCuspForms N k A := sorry
+
+/-- `ClassicalSerreModularity:R27.6/weight-one-reduction-is-onto-for-almost-all-primes`, imported from R15.2
+(stand-in, opaque): the base-change map `B ⊗_A S_k(Γ₁(N); A) → S_k(Γ₁(N); B)`. -/
+def katzBaseChange (N : ℕ) (k : ℤ) (A B : Type u) [CommRing A] [CommRing B] [Algebra A B] :
+    B ⊗[A] KatzCuspForms N k A →ₗ[B] KatzCuspForms N k B := sorry
+
+/-- `ClassicalSerreModularity:R27.6/weight-one-descent-from-infinitely-many-primes`, imported from Tau Ceti
+ModularForms, Layer 4 (stand-in, opaque): the normalised cuspidal newforms of weight one, of all levels and characters. At the Tau Ceti pin the type is
+`Σ N, HeckeRing.GL2.Newform N 1`. -/
+def WeightOneNewform : Type := sorry
+
+namespace WeightOneNewform
+
+/-- `ClassicalSerreModularity:R27.6/weight-one-descent-from-infinitely-many-primes` (imported, opaque): the
+level of the newform. -/
+def level (f : WeightOneNewform) : ℕ := sorry
+
+/-- `ClassicalSerreModularity:R27.6/weight-one-descent-from-infinitely-many-primes` (imported, opaque): the
+character of the newform, a Dirichlet character modulo its level. -/
+def character (f : WeightOneNewform) : DirichletCharacter ℂ f.level := sorry
+
+/-- `ClassicalSerreModularity:R27.6/weight-one-descent-from-infinitely-many-primes` (imported, opaque): the
+Fourier coefficient `a_n(f)`; for a prime `r` it is the eigenvalue of `T_r`. -/
+def coeff (f : WeightOneNewform) (n : ℕ) : ℂ := sorry
+
+/-- `ClassicalSerreModularity:R27.6/odd-artin-weight-one-modularity`, imported from
+AutomorphicGaloisRepresentations R19.1 (stand-in, opaque): the Deligne–Serre representation
+`ρ_f : G_ℚ → GL₂(ℂ)`, in a chosen basis. Only its conjugacy class is determined by `f`. -/
+def galoisRep (f : WeightOneNewform) : GQ →* GL (Fin 2) ℂ := sorry
+
+end WeightOneNewform
+
+end ImportedInterfaces
+
+/-! ## R27.1: Lemma 8.2 -/
+
+/-- `ClassicalSerreModularity:R27.1/lemma-8-2-chebotarev-choice-of-auxiliary-primes`: the primes of the lemma for
+`ρ̄` and a complex conjugation `c`, namely the primes `q` at which `ρ̄` is unramified, such that (i) `ρ̄_proj(Frob_q)` and `ρ̄_proj(c)` are conjugate in the projective image,
+(ii) `q ≡ 1` modulo every prime `ℓ ≤ p − 1` and modulo `8`, and (iii) `q ≡ −1` modulo `p`. -/
+def auxiliaryPrimes {p : ℕ} (ρ : GQ →* GL (Fin 2) (ZMod p)) (c : GQ) : Set ℕ :=
+  {q | q.Prime ∧ IsUnramifiedAt ρ q ∧ (∃ σ : GQ, IsFrobAt σ q ∧ IsProjConj ρ σ c) ∧
+    (∀ ℓ : ℕ, ℓ.Prime → ℓ ≤ p - 1 → q % ℓ = 1) ∧ q % 8 = 1 ∧ q % p = p - 1}
+
+/-- `ClassicalSerreModularity:R27.1/lemma-8-2-chebotarev-choice-of-auxiliary-primes` (KW I Lemma 8.2,
+Dieulefait–Pacetti Lemma 1.15): for `p ≡ 1 mod 4` and `ρ̄ : G_ℚ → GL₂(𝔽_p)` continuous (open
+kernel), odd and of non-solvable image, the set of primes `q` satisfying (i)–(iii) has a positive
+Dirichlet density. The coefficients are the prime field `ZMod p`. Absolute irreducibility, the third
+condition of S-type, is not a hypothesis because a non-solvable subgroup of `GL₂(𝔽_p)` stabilises
+no line over `𝔽̄_p`. The node asks for some set of positive density; this states it for the set of
+all such primes. Left out: the description of `ρ̄|_{D_q}` as an unramified twist of `diag(χ̄_p, 1)`
+(the trace-zero consequence is the next statement). -/
+theorem lemma_8_2 {p : ℕ} [Fact p.Prime] (hp : p % 4 = 1) (ρ : GQ →* GL (Fin 2) (ZMod p))
+    (hcont : IsOpen (ρ.ker : Set GQ)) (hns : ¬ Group.IsSolvable ρ.range)
+    {φ : AlgebraicClosure ℚ →+* ℂ} {c : GQ} (hc : ComplexEmbedding.IsConj φ c)
+    (hodd : Matrix.det (ρ c : Matrix (Fin 2) (Fin 2) (ZMod p)) = -1) :
+    ∃ δ : ℝ, 0 < δ ∧ NumberField.Set.HasDirichletDensity (primesOfRat (auxiliaryPrimes ρ c)) δ := by
+  sorry
+
+/-- `ClassicalSerreModularity:R27.1/lemma-8-2-chebotarev-choice-of-auxiliary-primes`, the
+consequences: at a prime `q` of Lemma 8.2 every Frobenius element has trace zero, and `p ∣ q + 1`. -/
+theorem lemma_8_2_trace_eq_zero {p : ℕ} [Fact p.Prime] (ρ : GQ →* GL (Fin 2) (ZMod p))
+    {φ : AlgebraicClosure ℚ →+* ℂ} {c : GQ} (hc : ComplexEmbedding.IsConj φ c)
+    (hodd : Matrix.det (ρ c : Matrix (Fin 2) (Fin 2) (ZMod p)) = -1) {q : ℕ}
+    (hq : q ∈ auxiliaryPrimes ρ c) {σ : GQ} (hσ : IsFrobAt σ q) :
+    Matrix.trace (ρ σ : Matrix (Fin 2) (Fin 2) (ZMod p)) = 0 ∧ p ∣ q + 1 := by
+  sorry
+
+/-! ## R27.6: reductions of an Artin representation -/
+
+/-- `ClassicalSerreModularity:R27.6/artin-reductions-of-serre-type`, part (b), faithfulness: for a
+finite group `G` whose order is invertible in the residue field of a local ring `O`, reduction
+modulo the maximal ideal does not change the kernel of `ρ : G → GL₂(O)`. So the reduction cuts out
+the same field. -/
+theorem artin_reduction_ker_eq {G O : Type*} [Group G] [Finite G] [CommRing O] [IsLocalRing O]
+    (hG : (Nat.card G : IsLocalRing.ResidueField O) ≠ 0) (ρ : G →* GL (Fin 2) O) :
+    (residualRep ρ).ker = ρ.ker := by
+  sorry
+
+/-- `ClassicalSerreModularity:R27.6/artin-reductions-of-serre-type`, part (b), invariants: under the
+same hypothesis, for every subgroup `H` the invariants `(O²)^H` are free of rank
+`dim (k²)^H` (`dim (ρ̄_λ)^H = dim ρ^H`). -/
+theorem artin_reduction_finrank_fixedVectors {G O : Type*} [Group G] [Finite G] [CommRing O]
+    [IsLocalRing O] (hG : (Nat.card G : IsLocalRing.ResidueField O) ≠ 0) (ρ : G →* GL (Fin 2) O)
+    (H : Subgroup G) :
+    Module.Free O (fixedVectors ρ H) ∧
+      Module.finrank (IsLocalRing.ResidueField O) (fixedVectors (residualRep ρ) H) =
+        Module.finrank O (fixedVectors ρ H) := by
+  sorry
+
+/-- `ClassicalSerreModularity:R27.6/artin-reductions-of-serre-type`, part (b), irreducibility: for a
+discrete valuation ring `O`, if the order of `G` is invertible in the residue field and `ρ` is
+absolutely irreducible over the fraction field, then its reduction is absolutely irreducible. -/
+theorem artin_reduction_isAbsIrreducible {G O : Type*} [Group G] [Finite G] [CommRing O] [IsDomain O]
+    [IsDiscreteValuationRing O] (hG : (Nat.card G : IsLocalRing.ResidueField O) ≠ 0)
+    (ρ : G →* GL (Fin 2) O) (hirr : IsAbsIrreducible (genericRep ρ)) :
+    IsAbsIrreducible (residualRep ρ) := by
+  sorry
+
+/-- `ClassicalSerreModularity:R27.6/artin-reductions-of-serre-type`, part (c), ramification and
+conductor: for a representation of `G_ℚ` with open kernel over a discrete valuation ring `O` of
+characteristic zero and residue characteristic `ℓ`, with `ℓ` prime to the order of the image and to
+the Artin conductor `N`, the reduction is unramified at `ℓ` and has conductor `N`.
+
+Left out of the node by the four statements: part (a) (a model over a number field `E` and a stable
+lattice at each place; here the lattice is the given `O²`, and the Frobenius identities of (a) are
+the reduction of a trace and of a determinant), the independence of the lattice, the character
+`ε(ρ̄_λ) = ε mod λ`, Serre's weight `k(ρ̄_λ) = ℓ` and Edixhoven's weight `1`
+(AlgebraicModularFormsAndSerreWeights R15.4), and part (d) (the density `|C| / |G|` of the set
+`P_c`, an instance of the Chebotarev density theorem, and the eigenvalues `1, −1` of
+`ρ̄_λ(Frob_ℓ)` for `ℓ ∈ P_c`). Oddness of the reduction for odd `ℓ` is immediate. -/
+theorem artin_reduction_conductor {O : Type*} [CommRing O] [IsDomain O] [IsDiscreteValuationRing O]
+    [CharZero O] {ℓ : ℕ} (hℓ : ℓ.Prime) [CharP (IsLocalRing.ResidueField O) ℓ]
+    (ρ : GQ →* GL (Fin 2) O) (hcont : IsOpen (ρ.ker : Set GQ)) (hG : ¬ ℓ ∣ Nat.card ρ.range)
+    (hN : ¬ ℓ ∣ artinConductor (genericRep ρ)) :
+    IsUnramifiedAt (residualRep ρ) ℓ ∧
+      artinConductor (residualRep ρ) = artinConductor (genericRep ρ) := by
+  sorry
+
+/-! ## R27.6: weight one -/
+
+/-- `ClassicalSerreModularity:R27.6/unramified-residual-representations-arise-in-weight-one`: for an
+odd prime `ℓ`, a representation `ρ̄ : G_ℚ → GL₂(𝔽̄_ℓ)` that is continuous (open kernel), irreducible,
+odd and unramified at `ℓ`, and whose Frobenius at `ℓ` has two distinct eigenvalues
+(`tr² ≠ 4 det`), arises from a nonzero Katz cusp form `h` of weight one and level `N(ρ̄)` over
+`𝔽̄_ℓ`: `T_r h = tr ρ̄(Frob_r) h` and `⟨r⟩ h = det ρ̄(Frob_r) h` for every prime `r ∤ N(ρ̄) ℓ`. The
+second equation says that the diamond operators act through `ε = det ρ̄`, since every unit class
+modulo `N(ρ̄)` contains such a prime. Left out: the remark that the hypothesis on the Frobenius at
+`ℓ` can be dropped for `ℓ > 2`. -/
+theorem unramified_residual_arises_in_weight_one {ℓ : ℕ} [Fact ℓ.Prime] (hℓ : ℓ ≠ 2)
+    (ρ : GQ →* GL (Fin 2) (AlgebraicClosure (ZMod ℓ))) (hcont : IsOpen (ρ.ker : Set GQ))
+    (hirr : IsIrreducible ρ) (hodd : IsOdd ρ) (hur : IsUnramifiedAt ρ ℓ) {σ : GQ}
+    (hσ : IsFrobAt σ ℓ)
+    (hdist : Matrix.trace (ρ σ : Matrix (Fin 2) (Fin 2) (AlgebraicClosure (ZMod ℓ))) ^ 2 ≠
+      4 * Matrix.det (ρ σ : Matrix (Fin 2) (Fin 2) (AlgebraicClosure (ZMod ℓ)))) :
+    ∃ h : KatzCuspForms (artinConductor ρ) 1 (AlgebraicClosure (ZMod ℓ)), h ≠ 0 ∧
+      ∀ r : ℕ, r.Prime → ¬ r ∣ artinConductor ρ * ℓ → ∀ τ : GQ, IsFrobAt τ r →
+        katzHecke _ 1 _ r h =
+            Matrix.trace (ρ τ : Matrix (Fin 2) (Fin 2) (AlgebraicClosure (ZMod ℓ))) • h ∧
+          katzDiamond _ 1 _ (r : ZMod (artinConductor ρ)) h =
+            Matrix.det (ρ τ : Matrix (Fin 2) (Fin 2) (AlgebraicClosure (ZMod ℓ))) • h := by
+  sorry
+
+/-- `ClassicalSerreModularity:R27.6/weight-one-reduction-is-onto-for-almost-all-primes`: for
+`N ≥ 5` there is a finite set `B` of primes such that, for every prime `ℓ ∤ N` outside `B` and
+every discrete valuation ring `O` of characteristic zero (flat over `ℤ_(ℓ)`) with residue field `k`
+of characteristic `ℓ`, the base-change map `k ⊗_O S₁(N; O) → S₁(N; k)` is bijective and commutes
+with `T_r` for the primes `r ∤ Nℓ` and with the diamond operators. Left out: that `B` can be taken
+to be the set of primes `ℓ` with `H¹(X₁(N), ω ⊗ 𝒪(−cusps))[ℓ] ≠ 0`. -/
+theorem weight_one_reduction_bijective (N : ℕ) (hN : 5 ≤ N) :
+    ∃ B : Finset ℕ, ∀ ℓ : ℕ, ℓ.Prime → ¬ ℓ ∣ N → ℓ ∉ B →
+      ∀ (O : Type u) [CommRing O] [IsDomain O] [IsDiscreteValuationRing O] [CharZero O]
+        [CharP (IsLocalRing.ResidueField O) ℓ],
+        Function.Bijective (katzBaseChange N 1 O (IsLocalRing.ResidueField O)) ∧
+        (∀ r : ℕ, r.Prime → ¬ r ∣ N * ℓ → ∀ x,
+          katzBaseChange N 1 O (IsLocalRing.ResidueField O)
+              ((katzHecke N 1 O r).baseChange (IsLocalRing.ResidueField O) x) =
+            katzHecke N 1 (IsLocalRing.ResidueField O) r
+              (katzBaseChange N 1 O (IsLocalRing.ResidueField O) x)) ∧
+        ∀ d : ZMod N, IsUnit d → ∀ x,
+          katzBaseChange N 1 O (IsLocalRing.ResidueField O)
+              ((katzDiamond N 1 O d).baseChange (IsLocalRing.ResidueField O) x) =
+            katzDiamond N 1 (IsLocalRing.ResidueField O) d
+              (katzBaseChange N 1 O (IsLocalRing.ResidueField O) x) := by
+  sorry
+
+/-- `ClassicalSerreModularity:R27.6/weight-one-descent-from-infinitely-many-primes`: the hypothesis of
+Khare's descent at one prime `ℓ`, namely a place `λ ∣ ℓ` of `E` with an embedding of
+its residue field in `𝔽̄_ℓ`, given together as a ring homomorphism `χ : 𝓞_E → 𝔽̄_ℓ`, and a nonzero
+Katz cusp form `h` of type `(N, 1, ε mod λ)` over `𝔽̄_ℓ` with `T_r h = (t_r mod λ) h` for every
+prime `r ∤ Nℓ`. -/
+def OccursInWeightOneModulo (N : ℕ) {E : Type*} [Field E] [NumberField E]
+    (ε : DirichletCharacter (𝓞 E) N) (t : ℕ → 𝓞 E) (ℓ : ℕ) [Fact ℓ.Prime] : Prop :=
+  ∃ (χ : 𝓞 E →+* AlgebraicClosure (ZMod ℓ)) (h : KatzCuspForms N 1 (AlgebraicClosure (ZMod ℓ))),
+    h ≠ 0 ∧ (∀ d : ZMod N, IsUnit d → katzDiamond N 1 _ d h = χ (ε d) • h) ∧
+      ∀ r : ℕ, r.Prime → ¬ r ∣ N * ℓ → katzHecke N 1 _ r h = χ (t r) • h
+
+/-- `ClassicalSerreModularity:R27.6/weight-one-descent-from-infinitely-many-primes` (Khare's
+descent): let `N ≥ 1`, `E ⊂ ℂ` a number field, `ε` a Dirichlet character modulo `N` with values in
+`𝓞_E` and `(t_r)` a family in `𝓞_E`. If for infinitely many primes `ℓ` the family occurs in weight
+one modulo `ℓ`, there is a normalised newform `f` of weight one, of level dividing `N′`, with
+character induced by `ε` (the two characters agree on the integers prime to `N′`) and with
+`a_r(f) = t_r` for every prime `r ∤ N′`. The family is indexed by all natural numbers; only its
+values at the primes `r ∤ N` are used. The last sentence of the node is the next statement. -/
+theorem weight_one_descent (N : ℕ) (hN : 0 < N) {E : Type*} [Field E] [NumberField E]
+    (ι : E →+* ℂ) (ε : DirichletCharacter (𝓞 E) N) (t : ℕ → 𝓞 E)
+    (h : {ℓ : ℕ | ∃ _ : Fact ℓ.Prime, OccursInWeightOneModulo N ε t ℓ}.Infinite) :
+    ∃ f : WeightOneNewform, f.level ∣ auxLevel N ∧
+      (∀ d : ℕ, d.Coprime (auxLevel N) → f.character (d : ZMod f.level) = ι (ε (d : ZMod N))) ∧
+      ∀ r : ℕ, r.Prime → ¬ r ∣ auxLevel N → f.coeff r = ι (t r) := by
+  sorry
+
+/-- `ClassicalSerreModularity:R27.6/weight-one-descent-from-infinitely-many-primes`, the last
+sentence: if moreover `ρ : G_ℚ → GL₂(ℂ)` is continuous and unramified outside `N` with
+`tr ρ(Frob_r) = t_r` and `det ρ(Frob_r) = ε(r)` for the primes `r ∤ N`, then `ρ` is isomorphic to
+the Deligne–Serre representation of such an `f`. Semisimplicity is not a hypothesis: a continuous
+`ρ` has finite image. -/
+theorem weight_one_descent_galoisRep (N : ℕ) (hN : 0 < N) {E : Type*} [Field E] [NumberField E]
+    (ι : E →+* ℂ) (ε : DirichletCharacter (𝓞 E) N) (t : ℕ → 𝓞 E)
+    (h : {ℓ : ℕ | ∃ _ : Fact ℓ.Prime, OccursInWeightOneModulo N ε t ℓ}.Infinite)
+    (ρ : GQ →* GL (Fin 2) ℂ) (hcont : Continuous ρ)
+    (hρ : ∀ r : ℕ, r.Prime → ¬ r ∣ N → IsUnramifiedAt ρ r ∧ ∀ τ : GQ, IsFrobAt τ r →
+      Matrix.trace (ρ τ : Matrix (Fin 2) (Fin 2) ℂ) = ι (t r) ∧
+        Matrix.det (ρ τ : Matrix (Fin 2) (Fin 2) ℂ) = ι (ε (r : ZMod N))) :
+    ∃ f : WeightOneNewform, f.level ∣ auxLevel N ∧
+      (∀ d : ℕ, d.Coprime (auxLevel N) → f.character (d : ZMod f.level) = ι (ε (d : ZMod N))) ∧
+      (∀ r : ℕ, r.Prime → ¬ r ∣ auxLevel N → f.coeff r = ι (t r)) ∧
+      ∃ g : GL (Fin 2) ℂ, ∀ σ : GQ, f.galoisRep σ = g * ρ σ * g⁻¹ := by
+  sorry
+
+/-- `ClassicalSerreModularity:R27.6/odd-artin-weight-one-modularity` (KW I Corollary 10.2(ii)): a
+continuous, odd, irreducible `ρ : G_ℚ → GL₂(ℂ)` is isomorphic to the Deligne–Serre representation of
+a normalised cuspidal newform `f` of weight one, of level dividing `N′` for `N` the Artin conductor
+of `ρ`, whose character is `det ρ` (`ε_f(r) = det ρ(Frob_r)` for the primes `r ∤ N′`). -/
+theorem odd_artin_weight_one (ρ : GQ →* GL (Fin 2) ℂ) (hcont : Continuous ρ)
+    (hirr : IsIrreducible ρ) (hodd : IsOdd ρ) :
+    ∃ f : WeightOneNewform, f.level ∣ auxLevel (artinConductor ρ) ∧
+      (∀ r : ℕ, r.Prime → ¬ r ∣ auxLevel (artinConductor ρ) → ∀ τ : GQ, IsFrobAt τ r →
+        f.character (r : ZMod f.level) = Matrix.det (ρ τ : Matrix (Fin 2) (Fin 2) ℂ)) ∧
+      ∃ g : GL (Fin 2) ℂ, ∀ σ : GQ, f.galoisRep σ = g * ρ σ * g⁻¹ := by
+  sorry
+
+end TauCeti.SerreConjecture
+
+end

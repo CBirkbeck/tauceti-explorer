@@ -13,7 +13,7 @@
     "GL2ModularityLifting:R32.2"
   ],
   "status": "partial",
-  "summary": "Blueprint for GL₂ modularity lifting (part 1: R22.1–R22.6, R32.1–R32.2), within RS-08 (accepted). Checkpoint 1 plans R22.1 and R22.2 from KW II §§7 and 9 and Gee §5. R22.1 covers the minimal-level data (definite quaternion algebra, level, weight and non-Eisenstein 𝔪 from a π fitting the lifting data), the identification of the local problem satisfied by every Hecke eigensystem at each place of S, the deformation-to-Hecke map R̄^ψ_S → 𝕋_ψ(U)_𝔪, its surjectivity from Frobenius traces, and the framed Hecke algebra and module. R22.2 covers auxiliary levels at Taylor–Wiles places with Δ_v = Δ′_v/(N-torsion) for the isotropy exponent N, Hecke algebras at level Q with the eigenvalue choice, agreement of the diamond and Galois actions of Δ_Q, freeness over 𝒪[Δ_Q] with control back to level U, the module system for patching, and the p = 2 twists of forms. Quaternionic forms, the freeness criterion and the dyadic twist are imported from HilbertModularVarietiesAndShimuraCurves (R18.3 via R18.6), Galois representations over Hecke algebras from AutomorphicGaloisRepresentations R19.6, and the global rings from GlobalGaloisDeformations R04.4–R04.6. Checkpoint 2 plans R22.3 (patching data, patched ring and module, support by depth, finiteness of the minimal ring, generic-fibre R = T; KW II Proposition 9.2 and Gee §5.6) and R22.4 (Taylor's Ihara-avoidance pair, transfer of support mod λ, modularity from full support, integral R = T for smooth or Cohen–Macaulay local rings), reusing DeformationAndDerivedPatchingAlgebra R03.6. Checkpoint 3 plans R22.5 (7 nodes: residual hypotheses (α)/(β), solvable base change, KW II Theorem 9.7 for odd p, Kisin's component patching and potentially Barsotti–Tate theorem, Gee's Fontaine–Laffaille theorem, the ordinary overlap with R21.4) and R22.6 (8 nodes: oddness at 2, KW II's dyadic patching with its torus, torsor and R = T, Theorem 9.7 at p = 2, Kisin's 2-adic component criterion and Barsotti–Tate theorem, and Hypothesis (H)). Checkpoint 4 plans R32.1 and R32.2 from Dieulefait–Pacetti §1.2, Kisin's Fontaine–Mazur paper (with Gee–Kisin's errata), Emerton, Paškūnas, Hu–Tan and Tung. R32.1 is a statement table: the four lifting theorems of the modern proof as propositions, the elementary implications between residual-image, twist and oddness formulations, which forms assume residual modularity, and the local exclusions at p. R32.2 proves the odd-prime de Rham lifting theorem for every odd p, p = 3 included, through Kisin's multiplicity criterion and the Breuil–Mézard input (requested from PadicLocalLanglandsForGL2Qp R30.6), and checks its hypotheses at every use in Dieulefait–Pacetti's proof. Independent review (2026-09-30) corrects mathematical statements, splits fourteen declarations, records fifteen explicit gaps, and returns needs_changes; the elementary suggested-file checks do not constitute the missing typed APIs.",
+  "summary": "Blueprint for GL₂ modularity lifting (part 1: R22.1–R22.6, R32.1–R32.2), within RS-08 (accepted). Checkpoint 1 plans R22.1 and R22.2 from KW II §§7 and 9 and Gee §5. R22.1 covers the minimal-level data (definite quaternion algebra, level, weight and non-Eisenstein 𝔪 from a π fitting the lifting data), the identification of the local problem satisfied by every Hecke eigensystem at each place of S, the deformation-to-Hecke map R̄^ψ_S → 𝕋_ψ(U)_𝔪, its surjectivity from Frobenius traces, and the framed Hecke algebra and module. R22.2 covers auxiliary levels at Taylor–Wiles places with Δ_v = Δ′_v/(N-torsion) for the isotropy exponent N, Hecke algebras at level Q with the eigenvalue choice, agreement of the diamond and Galois actions of Δ_Q, freeness over 𝒪[Δ_Q] with control back to level U, the module system for patching, and the p = 2 twists of forms. Quaternionic forms, the freeness criterion and the dyadic twist are imported from HilbertModularVarietiesAndShimuraCurves (R18.3 via R18.6), Galois representations over Hecke algebras from AutomorphicGaloisRepresentations R19.6, and the global rings from GlobalGaloisDeformations R04.4–R04.6. Checkpoint 2 plans R22.3 (patching data, patched ring and module, support by depth, finiteness of the minimal ring, generic-fibre R = T; KW II Proposition 9.2 and Gee §5.6) and R22.4 (Taylor's Ihara-avoidance pair, transfer of support mod λ, modularity from full support, integral R = T for smooth or Cohen–Macaulay local rings), reusing DeformationAndDerivedPatchingAlgebra R03.6. Checkpoint 3 plans R22.5 (7 nodes: residual hypotheses (α)/(β), solvable base change, KW II Theorem 9.7 for odd p, Kisin's component patching and potentially Barsotti–Tate theorem, Gee's Fontaine–Laffaille theorem, the ordinary overlap with R21.4) and R22.6 (8 nodes: oddness at 2, KW II's dyadic patching with its torus, torsor and R = T, Theorem 9.7 at p = 2, Kisin's 2-adic component criterion and Barsotti–Tate theorem, and Hypothesis (H)). Checkpoint 4 plans R32.1 and R32.2 from Dieulefait–Pacetti §1.2, Kisin's Fontaine–Mazur paper (with Gee–Kisin's errata), Emerton, Paškūnas, Hu–Tan and Tung. R32.1 is a statement table: the four lifting theorems of the modern proof as propositions, the elementary implications between residual-image, twist and oddness formulations, which forms assume residual modularity, and the local exclusions at p. R32.2 proves the odd-prime de Rham lifting theorem for every odd p, p = 3 included, through Kisin's multiplicity criterion and the Breuil–Mézard input (requested from PadicLocalLanglandsForGL2Qp R30.6), and checks its hypotheses at every use in Dieulefait–Pacetti's proof. Independent review (2026-09-30) corrects mathematical statements, splits fourteen declarations, records fifteen explicit gaps, and returns needs_changes; the elementary suggested-file checks do not constitute the missing typed APIs. Area fix FIX-RT-AREA-langlands-2~3 (Claude claude-c9TlsS, 6 October 2026): the existence of allowable base changes with prescribed completions is planned (from Clozel–Harris–Taylor's Lemma 4.1.2, requested from PotentialModularityAndCompatibleSystems R23.1 with its exact statement) together with the transport of (α) and (β), and the §8 nodes cite them, which closes the gap on the field supplier; KW I Theorem 4.1 is an output of R22.5 (odd p) and R22.6 (p = 2), with the passage from 'ρ̄ modular' to (α), (β); the Theorem 1.4 contract of R32.2 no longer has a prerequisite in ClassicalSerreModularity; and the suggested file gives typed forms of the §7.6/§8 definitions over stand-ins for the suppliers' objects.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -106,7 +106,8 @@
         "§3.1, Proposition 3.3 (odd lifts at the infinite places), pp. 19–20",
         "§8 opening, Lemma 8.1, §8.2 (hypotheses (α), (β)) and Theorem 8.2 (statement), pp. 69–72",
         "§9.1.3, Proposition 9.3 and its proof (the set-up and the end, with Lemmas 9.4–9.6), pp. 83–84 and 87–89; §9.2, Theorem 9.7 and its proof, pp. 89–90",
-        "§10.1 (Theorem 10.1, statement) and §10.2, pp. 90–92"
+        "§10.1 (Theorem 10.1, statement) and §10.2, pp. 90–92",
+        "2026-10-06 (Claude claude-c9TlsS, FIX-RT-AREA-langlands-2~3): §7.6.2–7.6.3 (Definition 7.9 and the paragraph after it, Lemma 7.10 with its proof), pp. 68–69; §8.1–8.4 (Lemma 8.1, Theorem 8.2 with its proof, the lifting data of §8.3, Theorem 8.4 and the tower of its proof), pp. 69–77; Theorem 9.7 with the first part of its proof, pp. 89–90; §10.2, p. 92; and the solvable-image paragraph of the proof of Theorem 6.1, p. 54."
       ]
     },
     {
@@ -272,6 +273,18 @@
       "sha256": "2a133808911a1819ea9480bea0bfc18846035f961e866ddec4d05d69b093e0f8",
       "readSections": [
         "Theorem1.4 and its proof, p.4; Lemma1.13 and proof, p.8; publication metadata p.1; independently read2026-09-30"
+      ]
+    },
+    {
+      "id": "CHT-2008",
+      "title": "Automorphy for some l-adic lifts of automorphic mod l Galois representations",
+      "authors": "Laurent Clozel, Michael Harris and Richard Taylor",
+      "edition": "Publ. Math. Inst. Hautes Études Sci. 108 (2008), 1–181, published version from Numdam. Printed page = PDF page.",
+      "url": "https://www.numdam.org/item/10.1007/s10240-008-0016-1.pdf",
+      "sha256": "9d3b7079440d8cd3167812bb11c25ae4b51ada973b2e98f0928624254a60156c",
+      "read": "2026-10-06",
+      "readSections": [
+        "§4.1, Lemmas 4.1.1 and 4.1.2 with their proofs, pp. 116–117 (Claude claude-c9TlsS, FIX-RT-AREA-langlands-2~3). Nothing else of the paper was read."
       ]
     }
   ],
@@ -1680,8 +1693,16 @@
           "how": "the residual input for p = 2."
         },
         {
-          "where": "PotentialModularityAndCompatibleSystems:R24.4",
-          "how": "KW I Theorem 4.1, where 'ρ̄ modular' is converted into (α) and (β)."
+          "where": "GL2ModularityLifting:R22.5/alpha-beta-from-modularity-over-q",
+          "how": "KW I Theorem 4.1, where 'ρ̄ modular' over ℚ is converted into (α) and (β) over an allowable F."
+        },
+        {
+          "where": "GL2ModularityLifting:R22.1/alpha-beta-under-allowable-base-change",
+          "how": "Transport of the witnesses along allowable base changes."
+        },
+        {
+          "where": "GL2ModularityLifting:R22.1/theorem-8-2-minimal-modular-lifts",
+          "how": "The hypotheses of Theorem 8.2 and Theorem 8.4."
         }
       ],
       "tests": [
@@ -1713,12 +1734,12 @@
       "kind": "lemma",
       "statement": "Let ρ : G_F → GL_2(𝒪) be continuous with F totally real, S a finite set of places of F, and L_v/F_v finite Galois for v ∈ S (real L_v at the infinite places). There is a finite solvable Galois totally real extension F′/F with F′_w ≅ L_v for every w | v ∈ S; it can be chosen linearly disjoint from any given finite extension, so that ρ̄|G_{F′} keeps a non-solvable image, and ρ̄|G_{F′(ζ_p)} stays absolutely irreducible when ρ̄|G_{F(ζ_p)} is. Then ρ is modular if and only if ρ|G_{F′} is modular. In particular one may assume: [F′ : ℚ] even, ρ|G_{F′} semistable with unipotent inertia at every place away from p where it ramifies, ρ̄|G_{F′} unramified away from p, and the prescribed splitting at p.",
       "hypotheses": [
-        "Taylor's local-prescription lemma (Gee Fact 4.27) and the descent of modularity along solvable extensions (Gee Proposition 4.25, from Langlands' cyclic base change and strong multiplicity one) are requested from GL2AutomorphicRepresentationsAndTransfer R17.4.",
+        "Existence of the field is not an automorphic statement: it is Clozel–Harris–Taylor's Lemma 4.1.2 (requested from PotentialModularityAndCompatibleSystems R23.1; Gee quotes it as Fact 4.27), and in the allowable case R22.1/allowable-base-change-existence. The descent of modularity along soluble extensions (Gee Proposition 4.25, from Langlands' cyclic base change and strong multiplicity one) is requested from GL2AutomorphicRepresentationsAndTransfer R17.4.",
         "KW II call such extensions allowable base changes; Kisin calls them admissible extensions.",
         "For the modularity equivalence impose that ρ|G_{F′} is irreducible, as in Gee Proposition 4.25 (automatic under the retained residual-image hypotheses used here). Local prescription and preservation of the residual image require separate finite splitting conditions."
       ],
       "proofSteps": [
-        "For local prescription use Gee Fact 4.27. To preserve a specified finite Galois image, choose auxiliary unramified places outside the prescribed set whose Frobenius elements generate that image, and require them to split in F′. The restricted image then contains those generators. The simultaneous arbitrary linear-disjointness refinement needs an exact supplier statement (recorded as a gap), not merely local prescription.",
+        "Existence: Clozel–Harris–Taylor's Lemma 4.1.2 with the real places of F in the prescribed set (E_v = ℝ) gives a totally real soluble Galois F′/F with F′_w ≅ L_v, linearly disjoint from a given finite Galois extension; taking that extension to contain the field cut out by ρ̄ and μ_p keeps the residual image and cyclotomic irreducibility, as in R22.1/allowable-base-change-existence, which adds evenness and the conditions at p.",
         "Modularity descends: for a cyclic step E/F, if ρ|G_E ≅ ρ_π then π ∘ σ ≅ π by strong multiplicity one, so π is a base change from F, and ρ ≅ ρ_{π′} ⊗ χ for a character χ by Schur's lemma; induct along the solvable tower.",
         "Unipotent inertia: by Grothendieck's monodromy theorem ρ|I_v acts unipotently on an open subgroup of I_v, which a finite L_v cuts out."
       ],
@@ -1729,6 +1750,8 @@
       ],
       "prerequisites": [
         "GL2ModularityLifting:R22.1/minimal-level-data",
+        "GL2ModularityLifting:R22.1/allowable-base-change-existence",
+        "PotentialModularityAndCompatibleSystems:R23.1",
         "GL2AutomorphicRepresentationsAndTransfer:R17.4"
       ],
       "library": {
@@ -1755,7 +1778,7 @@
       "statement": "Let p > 2, F totally real and unramified at p, split at p if ρ̄|_{D_p} is irreducible or k(ρ̄) = p + 1, with ρ̄_F = ρ̄|G_F such that ρ̄|G_{F(μ_p)} is absolutely irreducible and ρ̄_F satisfies (α) and (β). Let ρ_F : G_F → GL_2(𝒪) lift ρ̄_F, be ramified at finitely many places, totally odd, and at every place above p of one of the types (A) crystalline of weight k with 2 ≤ k ≤ p + 1 (when k = p + 1, with k(ρ̄) = p + 1), (B) of weight 2 and crystalline over ℚ_p^{nr}(μ_p), or (C) semistable non-crystalline of weight 2 of the form (γ_vχ_p ∗; 0 γ_v) with γ_v unramified. Then ρ_F is modular. This formulation uses no finiteness of deformation rings from KW II §10 and no potential modularity.",
       "hypotheses": [
         "F is totally real and ρ̄ : G_F → GL_2(𝔽) is as in KW II §8, with lifting data and determinant character ψ (GlobalGaloisDeformations R04.6/kw-deformation-data; the local conditions are LocalGaloisDeformationRings R08.6/kw-local-conditions).",
-        "The residual input is (α) and (β) of kw-residual-modularity, not 'ρ̄ is modular'. KW I Theorem 4.1(2), stated with 'ρ̄ modular', is assembled in PotentialModularityAndCompatibleSystems R24.4 from this theorem, the weight part of Serre's conjecture and kisin-potentially-bt-lifting.",
+        "The residual input is (α) and (β) of kw-residual-modularity, not 'ρ̄ is modular'. KW I Theorem 4.1(2), stated with 'ρ̄ modular', is the output R22.5/kw-i-theorem-4-1-odd-prime of this layer, derived from this theorem, the weight part of Serre's conjecture and the cited cases as in KW II §10.2.",
         "Case (B) of weight two is only the part of the potentially Barsotti–Tate case that becomes semistable over ℚ_p(μ_p) (KW II §10.2, remark). The general potentially Barsotti–Tate case is kisin-potentially-bt-lifting."
       ],
       "proofSteps": [
@@ -1801,6 +1824,133 @@
       "implementationStatus": "unchecked",
       "planet": {
         "name": "Khare–Wintenberger lifting theorem for odd p"
+      }
+    },
+    {
+      "id": "GL2ModularityLifting:R22.5/alpha-beta-from-modularity-over-q",
+      "parentStageId": "GL2ModularityLifting:R22.5",
+      "realises": [
+        "GL2ModularityLifting:R22.5"
+      ],
+      "title": "From 'ρ̄ modular' over ℚ to the residual hypotheses (α) and (β)",
+      "kind": "lemma",
+      "statement": "Let ρ̄ : G_ℚ → GL₂(𝔽) be of S-type and modular, normalised by a twist so that 2 ≤ k(ρ̄) ≤ p + 1 when p > 2. (1) For p > 2, ρ̄ arises from S_{k(ρ̄)}(Γ₁(N)) for some N prime to p, and from S₂(Γ₁(Np)). For p = 2, ρ̄ arises from S₂(Γ₁(N)) with N odd when k(ρ̄) = 2, and from a weight-two form whose level has 2-adic valuation at most 1 in both cases k(ρ̄) = 2, 4. (2) Let F be a totally real field with a soluble tower over ℚ, unramified at p, with ρ̄|_{G_F} absolutely irreducible. Then ρ̄|_{G_F} satisfies (α) and (β) of KW II §8.2 if p > 2; if p = 2 it satisfies (β), and (α) when k(ρ̄) = 2.",
+      "hypotheses": [
+        "'Modular' is in the sense of KW I §1: ρ̄ arises from a newform of some weight k ≥ 2 and some level.",
+        "The optimal prime-to-p level N(ρ̄) is not needed, only some level prime to p; this is why Gross's hypothesis N > 4 is harmless (KW II §10.2).",
+        "This is the weight part of Serre's conjecture, imported from SerreWeightAndLevelOptimisation: Edixhoven's theorem (weight k(ρ̄) at a level prime to p, from Gross's Theorem 13.10 and Coleman–Voloch), removal of the p-part of the level, and the passage to weight 2 at level Np (Gross's Propositions 8.13 and 8.18; Ribet). The supplier nodes for p = 2 and p = 3 have restrictions (ℓ ≥ 3 for the level step, ℓ > 3 or N > 3 for weight two); the cases they leave are requested from R20.6.",
+        "No potential modularity (KW II Theorem 6.1) and no finiteness of deformation rings (Theorem 10.1) enter.",
+        "Edixhoven's theorem produces a Katz form in characteristic p, while (α) and (β) ask for automorphic representations; the lift to characteristic zero in weight ≥ 2 is a step of the proof, not part of the weight theorem."
+      ],
+      "proofSteps": [
+        "Level prime to p: ρ̄ arises from Γ₁(Np^a) for some a ≥ 0, hence from Γ₁(N) in some weight (SerreWeightAndLevelOptimisation R20.4/strip-ell-power-from-level, for p ≥ 3; R20.6 for p = 2).",
+        "Weight k(ρ̄) at level N: Edixhoven's theorem (R20.3/edixhoven-weight-theorem), with the normalisation 2 ≤ k(ρ̄) ≤ p + 1, gives a Katz eigenform over 𝔽̄_p of type (N, k(ρ̄), ε). Lift it to characteristic zero: after enlarging N to a multiple N ≥ 5 prime to p, the reduction map on cusp forms of weight k(ρ̄) ≥ 2 is onto (AlgebraicModularFormsAndSerreWeights R15.2/integral-lattice-and-reduction-image; the cusp-sheaf H¹ has no torsion in weight ≥ 2), and the Deligne–Serre lemma gives a characteristic-zero eigenform with the same eigenvalues modulo p, hence a newform of weight k(ρ̄) and level dividing N from which ρ̄ arises (R15.5/reduction-to-weight-at-least-two-and-to-a-true-eigenform). This is where the hypothesis N > 4 of KW II §10.2 enters.",
+        "Weight 2 at level Np: R20.4/weight-two-at-level-n-ell (p > 3 or N > 3; enlarge N by an auxiliary prime if N ≤ 3). The p-component of the resulting newform has conductor exponent at most 1.",
+        "Over F: take the cuspidal automorphic representations of GL₂(𝔸_ℚ) of these newforms and base-change them along the soluble tower (GL2AutomorphicRepresentationsAndTransfer R17.4); they stay cuspidal because ρ̄|_{G_F} is irreducible, their weights are parallel k(ρ̄), resp. 2, and above p they are unramified, resp. of conductor exponent at most 1, because F is unramified at p. These are witnesses for (α) and (β)."
+      ],
+      "acceptance": [
+        "ρ̄ = E[p] for an elliptic curve E/ℚ of conductor prime to p, p ≥ 5, with E[p] irreducible: k(ρ̄) = 2, and the newform of E is at once the (α)- and the (β)-witness over ℚ.",
+        "k(ρ̄) = p + 1 (très ramifiée): the (α)-witness has weight p + 1 and level prime to p, the (β)-witness has weight 2 and is Steinberg at p.",
+        "For p = 2 and k(ρ̄) = 4 no (α) is asserted, as in KW II."
+      ],
+      "prerequisites": [
+        "GL2ModularityLifting:R22.5/kw-residual-modularity",
+        "GL2ModularityLifting:R22.5/kw-residual-modularity-beta",
+        "SerreWeightAndLevelOptimisation:R20.3/edixhoven-weight-theorem",
+        "SerreWeightAndLevelOptimisation:R20.4/strip-ell-power-from-level",
+        "SerreWeightAndLevelOptimisation:R20.4/weight-two-at-level-n-ell",
+        "SerreWeightAndLevelOptimisation:R20.6",
+        "AlgebraicModularFormsAndSerreWeights:R15.6/s-type-arises-from-and-modular",
+        "AlgebraicModularFormsAndSerreWeights:R15.2/integral-lattice-and-reduction-image",
+        "AlgebraicModularFormsAndSerreWeights:R15.5/reduction-to-weight-at-least-two-and-to-a-true-eigenform",
+        "GL2AutomorphicRepresentationsAndTransfer:R17.4"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/ModularityLifting/Lifting",
+        "namespace": "TauCeti.ModularityLifting"
+      },
+      "sources": [
+        {
+          "sourceId": "KW2-2009",
+          "locator": "§10.2, p. 92",
+          "match": "From 'ρ̄ modular' to (α) and (β); [27] is Gross, [12] Coleman–Voloch."
+        },
+        {
+          "sourceId": "KW2-2009",
+          "locator": "Proof of Theorem 6.1, solvable-image paragraph, p. 54",
+          "match": "The classical form of (α) and (β) over ℚ."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "GL2ModularityLifting:R22.5/kw-i-theorem-4-1-odd-prime",
+      "parentStageId": "GL2ModularityLifting:R22.5",
+      "realises": [
+        "GL2ModularityLifting:R22.5"
+      ],
+      "title": "KW I Theorem 4.1(2): modularity lifting over ℚ for odd p",
+      "kind": "theorem",
+      "statement": "Let p > 2 and ρ̄ : G_ℚ → GL₂(𝔽), 𝔽 a finite field of characteristic p, with ρ̄|_{ℚ(μ_p)} absolutely irreducible, and assume that ρ̄ is modular. Let ρ be a lift of ρ̄ to a p-adic representation, unramified outside a finite set of primes, that is either (i) crystalline of weight k at p with 2 ≤ k ≤ p + 1, or (ii) potentially semistable at p of weight 2. Then ρ is modular. This is an output of R22.5. Its proof, KW II §10.2, uses Theorem 9.7 (R22.5/kw-odd-prime-lifting), the weight part of Serre's conjecture and, for the cases outside Theorem 9.7, lifting theorems from the literature; it uses neither potential modularity (KW II Theorem 6.1) nor finiteness of deformation rings (KW II Theorem 10.1).",
+      "hypotheses": [
+        "Weight k means Hodge–Tate weights (k − 1, 0). The lift is odd because ρ̄ is and p is odd.",
+        "Cases given by Theorem 9.7 (KW II §10.2, Remark): (i) for 2 ≤ k ≤ p, and for k = p + 1 when k(ρ̄) = p + 1 (type (A)); (ii) when ρ restricted to ℚ_p(μ_p) is semistable of weight 2, that is, crystalline over ℚ_p^{nr}(μ_p) (type (B)) or semistable non-crystalline (type (C)).",
+        "Cases KW II take from the literature: (i) with k = p + 1 and k(ρ̄) = 2 (Kisin's Durham paper when the lift is non-ordinary at p, Diamond's Annals paper when it is ordinary); (ii) potentially Barsotti–Tate (Kisin, R22.5/kisin-pbt-lifting-over-q); and the semistable weight-two case 'goes back to' Wiles, Taylor–Wiles and Diamond. For k ≤ p − 1 they also cite Diamond–Flach–Guo, which Theorem 9.7 covers again.",
+        "Case (ii) is covered completely. A potentially semistable lift of weight 2 is either potentially crystalline, hence potentially Barsotti–Tate (Kisin's theorem), or its Weil–Deligne representation has N ≠ 0; then ρ|_{D_p} is the twist of a semistable non-crystalline representation by a character η of finite order on inertia, η|_{I_p} is the restriction of a Dirichlet character of p-power conductor, and twisting ρ and ρ̄ by its inverse preserves the hypotheses and the conclusion and gives type (C). KW II do not print this reduction.",
+        "Not planned in this packet and recorded as a gap: case (i) with k = p + 1 and k(ρ̄) = 2 for a lift non-ordinary at p (Kisin's Durham paper).",
+        "PotentialModularityAndCompatibleSystems R24.4 is a consumer layer for this theorem: its nodes R24.4/kw-theorem-4-1 and R24.4/alpha-beta-from-residual-modularity bind the exports of R22.5 and R22.6 to KW I's hypotheses, and that packet requests the full Theorem 4.1(2) from R22.5. This node is that export. The request includes k = p + 1 with residual weight 2; for a lift non-ordinary at p that case is the gap recorded here."
+      ],
+      "proofSteps": [
+        "Residual input. ρ̄ modular gives (α) and (β) over every soluble totally real F unramified at p on which ρ̄ stays absolutely irreducible (R22.5/alpha-beta-from-modularity-over-q).",
+        "Base change. Choose an allowable F/ℚ (R22.1/allowable-base-change-existence), split at p when ρ̄|_{D_p} is irreducible or k(ρ̄) = p + 1, over which ρ|_{G_F} has the uniform shape that the proof of Theorem 9.7 starts from (R22.5/solvable-base-change-reduction).",
+        "Theorem 9.7 (R22.5/kw-odd-prime-lifting) makes ρ|_{G_F} modular in the cases of types (A), (B), (C).",
+        "Descent along the soluble tower returns to ℚ (GL2AutomorphicRepresentationsAndTransfer R17.4, through R22.5/solvable-base-change-reduction).",
+        "Remaining cases: potentially crystalline lifts of weight 2 are potentially Barsotti–Tate and are R22.5/kisin-pbt-lifting-over-q; potentially semistable lifts with N ≠ 0 are reduced to type (C) by a twist by a Dirichlet character of p-power conductor; ordinary crystalline lifts of weight p + 1 with k(ρ̄) = 2 are covered by the ordinary lifting theorem (OrdinaryAutomorphicFormsAndModularityLifting R21.4, requested; KW II cite Diamond for this case); the non-ordinary lifts of weight p + 1 with k(ρ̄) = 2 are the gap."
+      ],
+      "acceptance": [
+        "p = 3, ρ the 3-adic Tate module of 11a1: crystalline of weight 2, residual image GL₂(𝔽₃), absolutely irreducible over ℚ(μ₃); the theorem recovers its modularity through type (A).",
+        "Crystalline of weight p + 2 is outside (i).",
+        "The Tate module of an elliptic curve with additive, potentially multiplicative reduction at p ≥ 5: potentially semistable with N ≠ 0, and its quadratic twist has multiplicative reduction, type (C)."
+      ],
+      "prerequisites": [
+        "GL2ModularityLifting:R22.5/alpha-beta-from-modularity-over-q",
+        "GL2ModularityLifting:R22.5/kw-odd-prime-lifting",
+        "GL2ModularityLifting:R22.5/solvable-base-change-reduction",
+        "GL2ModularityLifting:R22.1/allowable-base-change-existence",
+        "GL2ModularityLifting:R22.1/alpha-beta-under-allowable-base-change",
+        "GL2ModularityLifting:R22.5/kisin-pbt-lifting-over-q",
+        "OrdinaryAutomorphicFormsAndModularityLifting:R21.4",
+        "GL2AutomorphicRepresentationsAndTransfer:R17.4"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/ModularityLifting/Lifting",
+        "namespace": "TauCeti.ModularityLifting"
+      },
+      "sources": [
+        {
+          "sourceId": "KW2-2009",
+          "locator": "§10.2, p. 92",
+          "match": "The proof of KW I Theorem 4.1 ends with Theorem 9.7; neither Theorem 6.1 nor Theorem 10.1 is used."
+        },
+        {
+          "sourceId": "KW2-2009",
+          "locator": "§10.2, p. 92",
+          "match": "The cases taken from the literature and the cases proved in KW II."
+        },
+        {
+          "sourceId": "KW2-2009",
+          "locator": "§10.2, Remark, p. 92",
+          "match": "Exactly which cases Theorem 9.7 gives."
+        },
+        {
+          "sourceId": "KW1-2009",
+          "locator": "Theorem 4.1, p. 7",
+          "match": "The residual hypothesis of KW I Theorem 4.1; part 2 is the statement for p > 2."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "KW I Theorem 4.1 for odd p"
       }
     },
     {
@@ -2220,7 +2370,7 @@
       ],
       "title": "The Khare–Wintenberger 2-adic lifting theorem",
       "kind": "theorem",
-      "statement": "Let p = 2 and F totally real, unramified at 2 and split at 2 if ρ̄|D_2 is irreducible, with ρ̄_F = ρ̄|G_F of non-solvable image, satisfying (α) if k(ρ̄) = 2, and (β). Let ρ_F : G_F → GL_2(𝒪) lift ρ̄_F, be ramified at finitely many places and totally odd, and at every place above 2 be either crystalline of weight 2, or semistable non-crystalline of weight 2 (the latter only when ρ̄ is not finite at the places above 2). Then ρ_F is modular. This is the 2-adic lifting result KW I Theorem 4.1(1) needs, with residual input (α), (β) in place of 'ρ̄ modular'.",
+      "statement": "Let p = 2 and F totally real, unramified at 2 and split at 2 if ρ̄|D_2 is irreducible, with ρ̄_F = ρ̄|G_F of non-solvable image, satisfying (α) if k(ρ̄) = 2, and (β). Let ρ_F : G_F → GL_2(𝒪) lift ρ̄_F, be ramified at finitely many places and totally odd, and at every place above 2 be either crystalline of weight 2, or semistable non-crystalline of weight 2 (the latter only when ρ̄ is not finite at the places above 2). Then ρ_F is modular. This is the 2-adic lifting result KW I Theorem 4.1(1) needs, with residual input (α), (β) in place of 'ρ̄ modular'; Theorem 4.1(1) itself is R22.6/kw-i-theorem-4-1-dyadic.",
       "hypotheses": [
         "F is totally real and ρ̄ : G_F → GL_2(𝔽) is as in KW II §8, with lifting data and determinant character ψ (GlobalGaloisDeformations R04.6/kw-deformation-data; the local conditions are LocalGaloisDeformationRings R08.6/kw-local-conditions).",
         "Oddness is imposed on the lift, through the archimedean rings of odd lifts (dyadic-oddness); it cannot be read off ρ̄(c).",
@@ -2262,12 +2412,73 @@
         {
           "sourceId": "KW1-2009",
           "locator": "Theorem 4.1(1), p. 7",
-          "match": "The form KW I states (with 'ρ̄ modular', assembled in PotentialModularityAndCompatibleSystems R24.4)."
+          "match": "The form KW I states (with 'ρ̄ modular'), which is the output R22.6/kw-i-theorem-4-1-dyadic of this layer."
         }
       ],
       "implementationStatus": "unchecked",
       "planet": {
         "name": "Khare–Wintenberger 2-adic lifting theorem"
+      }
+    },
+    {
+      "id": "GL2ModularityLifting:R22.6/kw-i-theorem-4-1-dyadic",
+      "parentStageId": "GL2ModularityLifting:R22.6",
+      "realises": [
+        "GL2ModularityLifting:R22.6"
+      ],
+      "title": "KW I Theorem 4.1(1): 2-adic modularity lifting over ℚ",
+      "kind": "theorem",
+      "statement": "Let ρ̄ : G_ℚ → GL₂(𝔽), 𝔽 a finite field of characteristic 2, have non-solvable image, and assume that ρ̄ is modular. Let ρ be an odd lift of ρ̄ to a 2-adic representation, unramified outside a finite set of primes, that is either crystalline of weight 2 at 2, or semistable of weight 2 at 2, the latter case being considered only when k(ρ̄) = 4. Then ρ is modular. This is an output of R22.6, proved as in KW II §10.2 from Theorem 9.7 at p = 2 (R22.6/kw-dyadic-lifting) and the weight part of Serre's conjecture, with no use of potential modularity or of finiteness of deformation rings.",
+      "hypotheses": [
+        "Oddness is a hypothesis on the lift: det ρ(c) = −1. It cannot be read off ρ̄ in characteristic 2 (R22.6/dyadic-oddness).",
+        "k(ρ̄) = 4 exactly when ρ̄ is not finite at 2; this matches the condition of Theorem 9.7 that the semistable non-crystalline case is considered only when the residual representation is not finite at the places above 2.",
+        "The residual input over ℚ is 'ρ̄ modular'; it gives (β), and (α) when k(ρ̄) = 2, by R22.5/alpha-beta-from-modularity-over-q.",
+        "KW II remark that some results towards this statement are due to Dickinson; they are not used."
+      ],
+      "proofSteps": [
+        "(β), and (α) if k(ρ̄) = 2, over every soluble totally real F unramified at 2 on which the image stays non-solvable (R22.5/alpha-beta-from-modularity-over-q).",
+        "An allowable F/ℚ (R22.1/allowable-base-change-existence) over which ρ|_{G_F} has the shape required at the start of the proof of Theorem 9.7 (R22.5/solvable-base-change-reduction); the non-solvable image is preserved.",
+        "Theorem 9.7 at p = 2 (R22.6/kw-dyadic-lifting): ρ|_{G_F} is modular.",
+        "Descent to ℚ along the soluble tower (GL2AutomorphicRepresentationsAndTransfer R17.4)."
+      ],
+      "acceptance": [
+        "ρ̄ with image SL₂(𝔽₄) ≅ A₅, modular, and an odd crystalline lift of weight 2: covered.",
+        "A semistable non-crystalline lift when ρ̄ is finite at 2 (k(ρ̄) = 2) is not covered.",
+        "An even lift is not covered, whatever ρ̄(c) is."
+      ],
+      "prerequisites": [
+        "GL2ModularityLifting:R22.5/alpha-beta-from-modularity-over-q",
+        "GL2ModularityLifting:R22.6/kw-dyadic-lifting",
+        "GL2ModularityLifting:R22.6/dyadic-oddness",
+        "GL2ModularityLifting:R22.5/solvable-base-change-reduction",
+        "GL2ModularityLifting:R22.1/allowable-base-change-existence",
+        "GL2ModularityLifting:R22.1/alpha-beta-under-allowable-base-change",
+        "GL2AutomorphicRepresentationsAndTransfer:R17.4"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/ModularityLifting/Dyadic",
+        "namespace": "TauCeti.ModularityLifting"
+      },
+      "sources": [
+        {
+          "sourceId": "KW2-2009",
+          "locator": "§10.2, p. 92",
+          "match": "The proof of KW I Theorem 4.1 ends with Theorem 9.7; neither Theorem 6.1 nor Theorem 10.1 is used."
+        },
+        {
+          "sourceId": "KW2-2009",
+          "locator": "§10.2, p. 92",
+          "match": "From 'ρ̄ modular' to (α) and (β); [27] is Gross, [12] Coleman–Voloch."
+        },
+        {
+          "sourceId": "KW1-2009",
+          "locator": "Theorem 4.1, p. 7",
+          "match": "The image hypothesis of KW I Theorem 4.1 at p = 2; part 1 is the statement."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "KW I Theorem 4.1 at p = 2"
       }
     },
     {
@@ -2505,7 +2716,7 @@
       "kind": "lemma",
       "statement": "Let p be an odd prime and ρ̄ : G_ℚ → GL₂(𝔽̄_p) continuous and odd. Then ρ̄|G_{ℚ(√p*)} is irreducible if and only if ρ̄|G_{ℚ(ζ_p)} is irreducible. The coefficients are algebraically closed, so irreducible means absolutely irreducible. Statement (a) of the table therefore agrees with the hypothesis 'ρ̄|G_{ℚ(ζ_p)} absolutely irreducible' used by Kisin, Hu–Tan and Tung.",
       "hypotheses": [
-        "Dickson's classification of the finite subgroups of PGL₂(𝔽̄_p) is ClassicalSerreModularity R27.1/dickson-and-the-dyadic-solvable-refinement.",
+        "Dickson's classification of the finite subgroups of PGL₂(𝔽̄_p) is cited from its owner, ArithmeticGaloisRepresentations R01.4/dickson-classification-and-the-dyadic-refinement. The mixed KW I §6 node of ClassicalSerreModularity R27.1 is not a prerequisite, so this layer of the modern route does not rest on R27.1.",
         "For p = 3, ℚ(√−3) = ℚ(ζ₃) and there is nothing to prove."
       ],
       "proofSteps": [
@@ -2522,7 +2733,7 @@
       ],
       "prerequisites": [
         "GL2ModularityLifting:R32.1/lifting-statement-table",
-        "ClassicalSerreModularity:R27.1/dickson-and-the-dyadic-solvable-refinement",
+        "ArithmeticGaloisRepresentations:R01.4/dickson-classification-and-the-dyadic-refinement",
         "GL2ModularityLifting:R32.1/p-star"
       ],
       "library": {
@@ -3071,15 +3282,16 @@
       "realises": [
         "GL2ModularityLifting:R32.2"
       ],
-      "title": "The hypotheses of Theorem 1.4 at each use in Dieulefait–Pacetti's proof",
+      "title": "What an application of Theorem 1.4 must verify, and where Dieulefait–Pacetti's proof applies it",
       "kind": "application",
-      "statement": "Dieulefait–Pacetti apply Theorem 1.4 at: w in Paso 1; q in Paso 2; each odd p_i of the ramification set in Paso 3, which may be 3; 3 in Lemma 2.3; N in Paso 5; 5 in Paso 6; and odd characteristic in the final step. At each use the hypotheses of OddPrimeLifting hold. (i) Residual image. In Paso 1, w > 2k and Lemma 1.14 (a bad dihedral ρ̄_w needs w ∈ {2k(ρ̄) − 3, 2k(ρ̄) − 1}). In Pasos 2–3, the good-dihedral prime N (Lemma 2.1). In Lemma 2.3, non-solvable image (R32.1/non-solvable-residual-image). In Pasos 5–6, the case split 'irreducible and not bad-dihedral'. R32.1/quadratic-cyclotomic-irreducibility turns each into the ℚ(ζ_p) form. (ii) Weights. The members have Hodge–Tate weights {0, k − 1}, or {0, 1} for the weight-two lifts, which need not be crystalline at the coefficient prime: they are only de Rham, as in Paso 1 and Paso 3. (iii) Determinant. Only oddness is needed; for det ρ = ψε^{k−1}, oddness requires ψ(c)=(-1)^k at complex conjugation c. Finite order of ψ alone does not imply that parity. (iv) Ordinarity. There is no requirement, because the odd-prime theorem has no local restriction at p. (v) Residual modularity comes from the congruent member already known to be modular, or from Langlands–Tunnell (Theorem 1.3) when the image is solvable. In the residually reducible case at w, Theorem 1.6 applies, since w > 2k ≥ 4 gives w ≥ 5. At p = 3 (Paso 3, Lemma 2.3), the de Rham weight-two lifts need not be potentially Barsotti–Tate, and ρ̄|G_{ℚ₃} may be a twist of an extension of 1 by ω. This is where the p = 3 theorem of Tung is used.",
+      "statement": "An application of Theorem 1.4 (R32.2/odd-prime-statement-over-q) to a pair of congruent p-adic representations ρ, ρ′ of G_ℚ, p odd, has to verify the following, and nothing else. (i) Residual image: ρ̄|_{G_{ℚ(√p*)}} is absolutely irreducible; R32.1/quadratic-cyclotomic-irreducibility turns this into the ℚ(ζ_p) form, and non-solvable image implies it (R32.1/non-solvable-residual-image). (ii) Weights: both are de Rham at p with Hodge–Tate weights {0, k − 1}, k ≥ 2 (possibly different k); they need not be crystalline, and no bound on k in terms of p is required. (iii) Determinant: only oddness is needed; for det ρ = ψε^{k−1} this is ψ(c) = (−1)^k at complex conjugation c, and finite order of ψ alone does not give that parity. (iv) Ordinarity: no requirement, because the odd-prime theorem has no local restriction at p. (v) Residual modularity: one of the two is modular, or ρ̄ has solvable image and Langlands–Tunnell applies (Theorem 1.3). Dieulefait–Pacetti apply Theorem 1.4 at w in Paso 1; at q in Paso 2; at each odd p_i of the ramification set in Paso 3, which may be 3; at 3 in Lemma 2.3; at N in Paso 5; at 5 in Paso 6; and in odd characteristic in the final step. For (i) the source supplies: in Paso 1, w > 2k and Lemma 1.14 (a bad dihedral ρ̄_w needs w ∈ {2k(ρ̄) − 3, 2k(ρ̄) − 1}); in Pasos 2–3 and Lemma 2.3, the good-dihedral prime N (Lemma 2.1); in Pasos 5–6, the case split 'irreducible and not bad dihedral'. In the residually reducible case at w, Theorem 1.6 applies, since w > 2k ≥ 4 gives w ≥ 5. At p = 3 (Paso 3, Lemma 2.3) the de Rham weight-two lifts need not be potentially Barsotti–Tate and ρ̄|_{G_{ℚ₃}} may be a twist of an extension of 1 by ω; this is where Tung's p = 3 theorem is needed. The verification at each use belongs to the nodes of ClassicalSerreModularity R33.1–R33.5 that apply the theorem; they cite this node, and this node cites none of them.",
       "hypotheses": [
-        "The compatible systems and their local behaviour at the coefficient prime are PotentialModularityAndCompatibleSystems R24.5–R24.6; the uses themselves are planned in ClassicalSerreModularity R33.1–R33.3."
+        "The compatible systems and their local behaviour at the coefficient prime are PotentialModularityAndCompatibleSystems R24.5–R24.6; the uses themselves are planned in ClassicalSerreModularity R33.1–R33.5.",
+        "The list of uses is read from Dieulefait–Pacetti §2 and serves as a table of locators. It is not a prerequisite on the nodes of R33: the dependency runs from this layer to R33 (ClassicalSerreModularity R33.1/dp-modularity-lifting-inputs cites this node)."
       ],
       "proofSteps": [
-        "List every appeal to Theorem 1.4 in §2 (pp. 10–15).",
-        "For each, check (i)–(v) against the lemma or case split it cites."
+        "(i)–(v) are the hypotheses of R32.2/odd-prime-statement-over-q, with the reformulations of R32.1 (quadratic versus cyclotomic irreducibility, non-solvable image, the dyadic, residually reducible and ordinary-three propositions for the neighbouring Theorems 1.5–1.7).",
+        "List every appeal to Theorem 1.4 in §2 (pp. 10–15) with the lemma or case split the source cites for (i)."
       ],
       "acceptance": [
         "k = 3, w = 7: 7 ∉ {3, 5}, so ρ̄₇ is not bad dihedral.",
@@ -3090,7 +3302,6 @@
         "GL2ModularityLifting:R32.2/odd-prime-statement-over-q",
         "GL2ModularityLifting:R32.1/quadratic-cyclotomic-irreducibility",
         "GL2ModularityLifting:R32.1/non-solvable-residual-image",
-        "ClassicalSerreModularity:R33.3/dp-dyadic-transition-and-the-order-three-type",
         "GL2ModularityLifting:R32.1/dyadic-lifting-proposition",
         "GL2ModularityLifting:R32.1/residually-reducible-lifting-proposition",
         "GL2ModularityLifting:R32.1/ordinary-three-lifting-proposition"
@@ -3118,8 +3329,8 @@
       ],
       "uses": [
         {
-          "where": "ClassicalSerreModularity:R33.1",
-          "how": "the hypothesis check at each congruence of the modern proof"
+          "where": "ClassicalSerreModularity:R33.1/dp-modularity-lifting-inputs",
+          "how": "the contract each application of Theorem 1.4 in the modern proof verifies"
         }
       ],
       "implementationStatus": "unchecked"
@@ -3188,8 +3399,16 @@
           "how": "the residual input for p = 2."
         },
         {
-          "where": "PotentialModularityAndCompatibleSystems:R24.4",
-          "how": "KW I Theorem 4.1, where 'ρ̄ modular' is converted into (α) and (β)."
+          "where": "GL2ModularityLifting:R22.5/alpha-beta-from-modularity-over-q",
+          "how": "KW I Theorem 4.1, where 'ρ̄ modular' over ℚ is converted into (α) and (β) over an allowable F."
+        },
+        {
+          "where": "GL2ModularityLifting:R22.1/alpha-beta-under-allowable-base-change",
+          "how": "Transport of the witnesses along allowable base changes."
+        },
+        {
+          "where": "GL2ModularityLifting:R22.1/theorem-8-2-minimal-modular-lifts",
+          "how": "The hypotheses of Theorem 8.2 and Theorem 8.4."
         }
       ],
       "tests": [
@@ -3972,18 +4191,24 @@
       ],
       "title": "Allowable base change for the KW residual problem",
       "kind": "definition",
-      "statement": "For the residual representation of KW II §7.6.2 over totally real F, an allowable base change is a totally real solvable extension F′/F of even degree, unramified above p and split above p when ρ̄|D_p is irreducible, preserving im(ρ̄_F) = im(ρ̄_{F′}) and absolute irreducibility of ρ̄|G_{F′(μ_p)}. For p = 2 retain the non-solvable image condition. This is a property of actual field-extension and representation data; existence with specified completions is a separate theorem.",
+      "statement": "Let ρ̄ : G_ℚ → GL₂(𝔽) be continuous, absolutely irreducible and totally odd, and F a totally real number field, unramified at p and split at p if ρ̄|_{D_p} is irreducible, with ρ̄|_{G_F} of non-solvable image if p = 2 and ρ̄|_{G_{F(μ_p)}} absolutely irreducible if p > 2 (KW II §7.6.2). An allowable base change is a finite extension F′/F that is (1) totally real; (2) soluble, in the sense that there is a tower F = F₀ ⊂ F₁ ⊂ … ⊂ F_n = F′ with every F_{i+1}/F_i Galois with soluble group; (3) of even degree; (4) unramified at the places above p, and split at them if ρ̄|_{D_p} is irreducible; (5) such that im ρ̄|_{G_{F′}} = im ρ̄|_{G_F} and ρ̄|_{G_{F′(μ_p)}} is absolutely irreducible. It is a property of an actual extension and of the restricted representation. That such extensions exist with prescribed completions is R22.1/allowable-base-change-existence, and extra splitting conditions in an application are stated there, not here.",
       "hypotheses": [
-        "F is unramified at p, split at p if the original local residual representation is irreducible; p = 2 uses non-solvable residual image, p > 2 cyclotomic absolute irreducibility."
+        "F is unramified at p, and split at p if the local residual representation is irreducible; p = 2 uses non-solvable residual image, p > 2 cyclotomic absolute irreducibility.",
+        "KW II do not define 'solvable extension'. The tower form is what their uses need and what their constructions give: Langlands' base change and descent are applied one cyclic step at a time, and the field F_r of the proof of Theorem 8.4 is a tower of quadratic extensions that need not be Galois over F. A Galois extension with soluble group is the case n = 1.",
+        "For p = 2 condition (5) keeps the image non-solvable; the absolute irreducibility over F′(μ₂) = F′ is then automatic.",
+        "'ρ̄|_{D_p} is irreducible' means absolutely irreducible, as everywhere in KW II §§7–8. An unramified ρ̄|_{D_p} has cyclic image and is reducible over 𝔽̄_p, although it can be irreducible over 𝔽; read over 𝔽, Lemma 8.1 would ask for a field both split at p and making ρ̄ trivial there.",
+        "Definition 7.9 prints im(ρ̄) = im(ρ̄|_{F′}). Condition (5) is the relative form ρ̄(G_{F′}) = ρ̄(G_F), which is what the paragraph after the definition proves (linear disjointness from the fixed field of the kernel of ρ̄|_F) and what composition needs; for the fields KW II construct the two agree, since ρ̄(G_F) = ρ̄(G_ℚ)."
       ],
       "proofSteps": [
-        "Use KW II Definition 7.9 with the actual restriction maps.",
-        "Separate additional splitting requirements in each application from the definition itself."
+        "KW II Definition 7.9, with the restriction maps G_{F′} ⊂ G_F ⊂ G_ℚ and the tower form of solubility.",
+        "Composition: if F′/F is allowable for ρ̄ and F″/F′ is allowable for ρ̄ (over the base F′, which again satisfies the conditions of §7.6.2), then F″/F is allowable: the towers concatenate, degrees multiply, and conditions (1), (4), (5) are transitive.",
+        "Additional splitting requirements of an application are separate from the definition."
       ],
       "acceptance": [
-        "Odd degree fails the even-degree condition.",
-        "A solvable extension on which the residual image shrinks fails the definition.",
-        "For p > 2, Theorem 8.2 explicitly adds splitting at all places above p."
+        "An extension of odd degree is not allowable.",
+        "A soluble totally real extension of even degree on which the residual image shrinks is not allowable.",
+        "A non-normal cubic extension is not allowable even if its Galois closure has group S₃: it has odd degree, and it is not the top of a tower of Galois steps.",
+        "For p > 2, Theorem 8.2 asks in addition that the allowable base change be split at all places above p."
       ],
       "prerequisites": [
         "ArithmeticGaloisRepresentations:R01.3",
@@ -3994,6 +4219,11 @@
           "sourceId": "KW2-2009",
           "locator": "Definition 7.9, p. 68",
           "match": "Even degree, unramified/split-at-p and residual image/irreducibility conditions."
+        },
+        {
+          "sourceId": "KW2-2009",
+          "locator": "§7.6.2, after Definition 7.9, p. 68",
+          "match": "Why allowable base changes are harmless: base change transports the automorphic witnesses."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4009,13 +4239,21 @@
         {
           "where": "GL2ModularityLifting:R22.1/theorem-8-4-prescribed-modular-lifts",
           "how": "The field change allowed in the prescribed-lift construction."
+        },
+        {
+          "where": "GL2ModularityLifting:R22.1/allowable-base-change-existence",
+          "how": "The existence theorem produces extensions satisfying this definition, with prescribed completions."
+        },
+        {
+          "where": "GL2ModularityLifting:R22.1/alpha-beta-under-allowable-base-change",
+          "how": "The residual hypotheses (α) and (β) are transported along such extensions."
         }
       ],
       "api": [
         {
           "name": "TauCeti.ModularityLifting.KW.AllowableBaseChange.toExtension",
           "role": "projection",
-          "statement": "Return F′/F with its embedding and restriction map."
+          "statement": "The extension F′/F, as an intermediate field of a fixed algebraic closure of F, with the inclusion G_{F′} ⊂ G_F."
         },
         {
           "name": "TauCeti.ModularityLifting.KW.AllowableBaseChange.degree_even",
@@ -4025,31 +4263,154 @@
         {
           "name": "TauCeti.ModularityLifting.KW.AllowableBaseChange.image_eq",
           "role": "compatibility",
-          "statement": "Restriction preserves the residual image and cyclotomic absolute irreducibility."
+          "statement": "ρ̄(G_{F′}) = ρ̄(G_F), and ρ̄|_{G_{F′(μ_p)}} is absolutely irreducible."
         },
         {
           "name": "TauCeti.ModularityLifting.KW.AllowableBaseChange.comp",
           "role": "functoriality",
-          "statement": "The composite of two allowable extensions is allowable; extra split sets are preserved when both extensions split there."
+          "statement": "If F′/F is allowable and F″/F′ is allowable (over the base F′), then F″/F is allowable."
+        },
+        {
+          "name": "TauCeti.ModularityLifting.KW.AllowableBaseChange.solubleTower",
+          "role": "projection",
+          "statement": "A tower F = F₀ ⊂ … ⊂ F_n = F′ in which every step is Galois with soluble group; for F′/F Galois with soluble group the tower has one step."
+        },
+        {
+          "name": "TauCeti.ModularityLifting.KW.AllowableBaseChange.totallyReal",
+          "role": "projection",
+          "statement": "F′ is totally real."
         }
       ],
       "tests": [
         {
           "name": "allowable_odd_degree",
           "kind": "non-example",
-          "statement": "Degree 3 cannot be allowable."
+          "statement": "If [F′ : F] = 3 then F′/F is not an allowable base change, whatever ρ̄ is."
         },
         {
           "name": "allowable_image_loss",
           "kind": "non-example",
-          "statement": "An extension killing a nontrivial residual image fails image preservation even if it is totally real and quadratic."
+          "statement": "If ρ̄(G_{F′}) is a proper subgroup of ρ̄(G_F), then F′/F is not allowable, even if F′/F is totally real and quadratic."
         },
         {
           "name": "allowable_comp_degree",
           "kind": "example",
-          "statement": "Two successive allowable quadratic extensions have total degree 4; both preserve the relevant local and residual conditions."
+          "statement": "If F′/F and F″/F′ are allowable then F″/F is allowable; for two quadratic steps [F″ : F] = 4."
+        },
+        {
+          "name": "allowable_trivial_extension",
+          "kind": "degenerate",
+          "statement": "The trivial extension F′ = F is not allowable: its degree 1 is odd."
         }
       ]
+    },
+    {
+      "id": "GL2ModularityLifting:R22.1/allowable-base-change-existence",
+      "parentStageId": "GL2ModularityLifting:R22.1",
+      "realises": [
+        "GL2ModularityLifting:R22.1"
+      ],
+      "title": "Existence of allowable base changes with prescribed completions",
+      "kind": "lemma",
+      "statement": "Let F and ρ̄ be as in KW II §7.6.2 (F totally real, unramified at p, split at p if ρ̄|_{D_p} is irreducible; ρ̄|_{G_F} of non-solvable image if p = 2, and ρ̄|_{G_{F(μ_p)}} absolutely irreducible if p > 2). Let S₀ be a finite set of finite places of F containing the places above p, and for v ∈ S₀ let E_v/F_v be a finite Galois extension, unramified if v | p and equal to F_v if v | p and ρ̄|_{D_p} is irreducible. Let L/F be a finite extension. Then there is a finite Galois extension F′/F with soluble Galois group such that: (1) F′ is totally real; (2) [F′ : F] is even; (3) F′_w ≅ E_v over F_v for every v ∈ S₀ and every place w | v of F′, so that F′/F is unramified above p, split at each v with E_v = F_v, and split above p when ρ̄|_{D_p} is irreducible; (4) F′ is linearly disjoint over F from L, from the fixed field K of ker ρ̄|_{G_F} and from K(μ_p), so that ρ̄(G_{F′}) = ρ̄(G_F) and ρ̄(G_{F′(μ_p)}) = ρ̄(G_{F(μ_p)}). (5) If every E_v, v ∈ S₀, has degree at most 2 over F_v, then F′ can be taken quadratic over F. In particular F′/F is an allowable base change (R22.1/allowable-base-change) with the prescribed completions at S₀. The base F′ again satisfies the conditions of §7.6.2, so the statement can be applied repeatedly, and the resulting towers are allowable over F.",
+      "hypotheses": [
+        "At a place above p only an unramified E_v may be prescribed, and only the trivial one when ρ̄|_{D_p} is irreducible. A nontrivial unramified E_v above p occurs in Lemma 8.1 (to make ρ̄ trivial above p when it is unramified there), in the dyadic branch with k(ρ̄) = 4 and in type (C) with k(ρ̄) = 2, the two cases in which Theorem 8.4 does not promise splitting at p.",
+        "Evenness comes from one auxiliary place with the unramified quadratic extension prescribed, not from the places of S₀; without it F′ = F would satisfy (1), (3) and (4).",
+        "KW II's second criterion, for dihedral projective image (a prime split in the field cut out by the projective image and inert in F(μ_p)), is not needed: disjointness from K(μ_p) preserves the image over the cyclotomic field.",
+        "KW II cite Lemma 2.2 of Taylor's 'On icosahedral Artin representations II' for this; that paper was not read. The statement is derived here from Clozel–Harris–Taylor's Lemma 4.1.2, which was read and is requested from PotentialModularityAndCompatibleSystems R23.1.",
+        "No automorphic input is used: this is existence of a field, not GL2AutomorphicRepresentationsAndTransfer R17.4's base change.",
+        "'ρ̄|_{D_p} is irreducible' means absolutely irreducible (see R22.1/allowable-base-change).",
+        "Clause (5) matters: Lemma 4.1.2 controls the completions but not the global degree, and the proof of Theorem 8.4 needs extensions of degree exactly 2 (KW II p. 77: each F_i/F_{i−1} is quadratic, with one place above v_i's neighbours and two above v_i). For exponent 2 no class field theory is needed, only weak approximation."
+      ],
+      "proofSteps": [
+        "Auxiliary place. Choose a finite place u of F outside S₀, not above p, and let E_u be the unramified quadratic extension of F_u.",
+        "Apply Clozel–Harris–Taylor's Lemma 4.1.2 (requested from PotentialModularityAndCompatibleSystems R23.1) to F, to D the Galois closure over F of L·K(μ_p), and to the set S = S₀ ∪ {u} ∪ {real places of F}, with the given E_v at S₀, E_u at u and E_v = F_v = ℝ at the real places. It gives a finite soluble Galois F′/F, linearly disjoint from D, with F′_w ≅ E_v for all w | v ∈ S.",
+        "Totally real: every real place of F splits completely in F′. Even degree: F′/F is Galois, so the local degree [F′_w : F_u] = 2 divides [F′ : F]. The conditions at p are read off (3).",
+        "Images. F′ is linearly disjoint from K(μ_p) over F, so restriction is an isomorphism Gal(F′K(μ_p)/F′) ≅ Gal(K(μ_p)/F) carrying the subgroup that fixes μ_p to the subgroup that fixes μ_p. Hence ρ̄(G_{F′}) = ρ̄(G_F) and ρ̄(G_{F′(μ_p)}) = ρ̄(G_{F(μ_p)}); absolute irreducibility over F′(μ_p), and non-solvability at p = 2, are properties of these images (ArithmeticGaloisRepresentations R01.4).",
+        "Quadratic case (5). Write E_v = F_v(√d_v) with d_v ∈ F_v^× (d_v = 1 if E_v = F_v). Choose a finite place z of F outside S₀, not above 2, that splits completely in D (Chebotarev for the trivial class; Tau Ceti Chebotarev, Layer 10), and a non-square unit d_z of F_z. The squares are open in each F_v^×, so by weak approximation there is d ∈ F^× that is totally positive, lies in d_v·(F_v^×)² for v ∈ S₀ and in d_z·(F_z^×)². Put F′ = F(√d). It is totally real, quadratic (z is inert), with completions E_v at S₀; and F′ is not contained in D, because z is inert in F′ and splits completely in D, so F′ ∩ D = F. No auxiliary place u is needed, since the degree is 2.",
+        "Iteration. F′ is totally real, unramified at p and split at p when required, with the same residual images, so §7.6.2 holds over F′; a tower of such steps is allowable over F by the composition property of R22.1/allowable-base-change."
+      ],
+      "acceptance": [
+        "F = ℚ, p = 5, S₀ = {5} with E₅ = ℚ₅, u = 3: ℚ(√11) is real quadratic, 5 splits in it (11 ≡ 1 mod 5) and 3 is inert (11 ≡ 2 mod 3). Disjointness from K is a further condition, which is why D enters the construction.",
+        "With S₀ = {v | p} and every E_v = F_v the lemma gives the allowable base changes 'split at p' of Theorem 8.2.",
+        "Prescribing the unramified extension of degree m at the places of a finite set makes the p-part of the residue-field unit groups there as large as required; this is the use in the proof of Theorem 8.2 (order divisible by the p-part of 2p(4N_w)).",
+        "Over the field F_{i−1} of the proof of Theorem 8.4, clause (5) with the trivial extension at the places above v_i and the unramified quadratic extension at the places above the other v_j gives a quadratic F_i, with v_j inert for j ≠ i and split for j = i. Without clause (5) the degree of F_i could be a larger even number, and the count of places above v_1, …, v_i in the proof would be wrong.",
+        "Without the real places in S the extension could be totally complex, and the Hilbert modular setting would be lost."
+      ],
+      "prerequisites": [
+        "GL2ModularityLifting:R22.1/allowable-base-change",
+        "PotentialModularityAndCompatibleSystems:R23.1",
+        "ArithmeticGaloisRepresentations:R01.4",
+        "tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/ModularityLifting/ModularLifts",
+        "namespace": "TauCeti.ModularityLifting.KW"
+      },
+      "sources": [
+        {
+          "sourceId": "CHT-2008",
+          "locator": "Lemma 4.1.2, p. 116",
+          "match": "The existence theorem applied; S may contain real places."
+        },
+        {
+          "sourceId": "KW2-2009",
+          "locator": "§7.6.2, paragraph after Definition 7.9, p. 68",
+          "match": "KW II's sufficient condition for the image conditions; the node proves it and strengthens it to disjointness from the field cut out with the p-th roots of unity."
+        },
+        {
+          "sourceId": "KW2-2009",
+          "locator": "§7.6.2, p. 68",
+          "match": "The existence statement is left to the reader in the source (the spelling is the source's)."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "GL2ModularityLifting:R22.1/alpha-beta-under-allowable-base-change",
+      "parentStageId": "GL2ModularityLifting:R22.1",
+      "realises": [
+        "GL2ModularityLifting:R22.1"
+      ],
+      "title": "The residual hypotheses (α) and (β) persist under allowable base change",
+      "kind": "lemma",
+      "statement": "Let F and ρ̄ be as in KW II §7.6.2 and F′/F an allowable base change. If ρ̄|_{G_F} satisfies (α) with witness π, then ρ̄|_{G_{F′}} satisfies (α) with witness the base change π_{F′}; likewise for (β). More precisely π_{F′} is cuspidal, it is discrete series of the same parallel weight at every infinite place of F′, ρ̄_{π_{F′}} ≅ ρ̄_π|_{G_{F′}}, and for places w | v | p: π_{F′,w} is unramified if π_v is, and its conductor exponent is at most 1 if that of π_v is.",
+      "hypotheses": [
+        "The tower form of solubility in R22.1/allowable-base-change is what is used: base change is applied along each cyclic step of prime degree.",
+        "Cuspidality of each base change uses that the restriction of ρ̄ stays absolutely irreducible (condition (5) of the definition): a cuspidal π whose base change along a cyclic extension is not cuspidal is automorphically induced from that extension, and then ρ_π restricted to it is reducible.",
+        "F′/F is unramified above p, and for an unramified local extension the conductor exponent of the local base change equals that of π_v.",
+        "The definitions of (α) and (β) do not contain this transport; KW II use it without comment whenever they 'reinitialise' the base field."
+      ],
+      "proofSteps": [
+        "Refine the tower of R22.1/allowable-base-change to cyclic steps of prime degree, each Galois over the previous field and totally real.",
+        "For one cyclic step apply Langlands' base change (GL2AutomorphicRepresentationsAndTransfer R17.4): it exists, is compatible with local base change at every place, and is cuspidal by the irreducibility remark above.",
+        "Local behaviour. At infinite places the extension of completions is ℝ/ℝ and the weight is unchanged. At w | v | p the extension F′_w/F_v is unramified: an unramified principal series stays unramified, and the conductor exponent is unchanged in general.",
+        "Galois side. ρ_{π_{F′}} ≅ ρ_π|_{G_{F′}} by comparison of Frobenius traces at the unramified places (AutomorphicGaloisRepresentations R19.2), hence the same for the residual representations."
+      ],
+      "acceptance": [
+        "F′/F quadratic, π unramified at v | p inert in F′: π_{F′,w} is unramified, so an (α)-witness base-changes to an (α)-witness.",
+        "A Steinberg component at v | p (conductor exponent 1) base-changes along an unramified extension to a Steinberg component: a (β)-witness stays a (β)-witness and does not become an (α)-witness.",
+        "If the residual image shrank over F′ so that ρ̄|_{G_{F′}} were reducible, π_{F′} could fail to be cuspidal; this is excluded by the definition of allowable."
+      ],
+      "prerequisites": [
+        "GL2ModularityLifting:R22.5/kw-residual-modularity",
+        "GL2ModularityLifting:R22.5/kw-residual-modularity-beta",
+        "GL2ModularityLifting:R22.1/allowable-base-change",
+        "GL2AutomorphicRepresentationsAndTransfer:R17.4",
+        "AutomorphicGaloisRepresentations:R19.2"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/ModularityLifting/ModularLifts",
+        "namespace": "TauCeti.ModularityLifting.KW"
+      },
+      "sources": [
+        {
+          "sourceId": "KW2-2009",
+          "locator": "§7.6.2, after Definition 7.9, p. 68",
+          "match": "Why allowable base changes are harmless: base change transports the automorphic witnesses."
+        }
+      ],
+      "implementationStatus": "unchecked"
     },
     {
       "id": "GL2ModularityLifting:R22.1/lemma-8-1-residual-field-choice",
@@ -4064,9 +4425,10 @@
         "The representation and residual image hypotheses are those of the opening of KW II §8, p. 69."
       ],
       "proofSteps": [
-        "Choose local extensions killing the inertia image away from p, and unramified extensions killing unramified residual Frobenius at p when needed. Coordinate split-at-p and even-degree requirements.",
-        "Apply the early soluble prescribed-completion/disjointness theorem proposed as R23.1:soluble-extensions; it is not yet a live or reserved stage and is recorded as an exact gap. Local finite Galois groups of number-field completions are soluble (wild inertia is a p-group, tame inertia and unramified quotients are cyclic), so the cyclic-tower argument is compatible with these local prescriptions.",
-        "Use disjointness from the residual and cyclotomic fields to retain the image hypotheses. KW omits the proof; no routine-step claim is made for the field construction."
+        "Local prescriptions over ℚ. At each prime q ≠ p where ρ̄ is ramified let E_q be the extension of ℚ_q cut out by ρ̄|_{D_q}, a finite Galois extension over which ρ̄ becomes trivial. At p let E_p be the unramified extension of degree the order of ρ̄(Frob_p) if ρ̄|_{D_p} is unramified, and E_p = ℚ_p otherwise; in particular E_p = ℚ_p when ρ̄|_{D_p} is absolutely irreducible or k(ρ̄) = p + 1, since ρ̄|_{D_p} is then ramified.",
+        "Apply R22.1/allowable-base-change-existence over the base ℚ, with S₀ the set of these primes. The base ℚ satisfies §7.6.2 by the residual hypotheses at the opening of §8. The output F/ℚ is soluble and Galois, totally real, of even degree, unramified at p and split at p in the two cases required, with the prescribed completions.",
+        "Unramified away from p: at a place above q the completion of F contains E_q, over which ρ̄ is trivial. Trivial above p when ρ̄|_{D_p} is unramified: the completion is E_p, which the Frobenius of order the order of ρ̄(Frob_p) cuts out.",
+        "The image hypotheses over F and F(μ_p) are conclusion (4) of the existence lemma. KW II omit the proof of Lemma 8.1; this is the construction it leaves to the reader."
       ],
       "acceptance": [
         "Distinguish unramified at p from split at p.",
@@ -4074,6 +4436,7 @@
         "Do not promote the subsequent assumed ψ to a conclusion of this lemma."
       ],
       "prerequisites": [
+        "GL2ModularityLifting:R22.1/allowable-base-change-existence",
         "ArithmeticGaloisRepresentations:R01.3",
         "ArithmeticGaloisRepresentations:R01.4"
       ],
@@ -4156,14 +4519,29 @@
         {
           "name": "TauCeti.ModularityLifting.KW.kindsI_II_at_two",
           "role": "compatibility",
-          "statement": "Kinds (i) and (ii) give the same trivial local character at weight 2."
+          "statement": "At k(ρ̄) = 2 kinds (i) and (ii) are the same condition on ψ: trivial on the units above p."
+        },
+        {
+          "name": "TauCeti.ModularityLifting.KW.IsKindI",
+          "role": "characterisation",
+          "statement": "ψ is of kind (i): its restriction to the units above p is u ↦ N(u)^{2−k(ρ̄)}, N the product of the local norms to ℤ_p^×."
+        },
+        {
+          "name": "TauCeti.ModularityLifting.KW.IsKindII",
+          "role": "characterisation",
+          "statement": "ψ is of kind (ii): its restriction to the units above p is u ↦ τ(N(u))^{k(ρ̄)−2}, τ the Teichmüller character of ℤ_p^×; this is the character corresponding to ω_p^{k(ρ̄)−2}."
+        },
+        {
+          "name": "TauCeti.ModularityLifting.KW.IsKindIII",
+          "role": "characterisation",
+          "statement": "ψ is of kind (iii): k(ρ̄) = 2 and the restriction of ψ to the units above p is u ↦ N(u)^{1−p}."
         }
       ],
       "tests": [
         {
           "name": "determinant_overlap_weight_two",
           "kind": "example",
-          "statement": "Kinds (i) and (ii) have exponent 0 at k = 2."
+          "statement": "At k = 2 the exponents of kinds (i) and (ii) are both 0, and ψ is of kind (i) if and only if it is of kind (ii)."
         },
         {
           "name": "determinant_negative_exponent",
@@ -4173,7 +4551,7 @@
         {
           "name": "determinant_third_needs_weight_two",
           "kind": "non-example",
-          "statement": "Kind (iii) cannot be requested at residual weight 4."
+          "statement": "At residual weight 4 no ψ is of kind (iii): the predicate contains k(ρ̄) = 2."
         }
       ]
     },
@@ -4187,19 +4565,26 @@
       "kind": "lemma",
       "statement": "Let ψ, ψ′ be arithmetic characters with the same reduction and equal restrictions to an open subgroup of 𝒪*_{F_p}; assume their restrictions to 𝒪*_{F_v} agree for a finite set V of finite places. After enlarging coefficients, there is a finite-order p-power character ζ, unramified at V, and a totally real solvable extension F′/F, disjoint from any prescribed finite extension and split at V, such that ζ²|_{F′} ψ_{F′} = ψ′_{F′}. For odd p take the unique square root of ψ′/ψ in its p-primary finite-order character group and F′ = F. The dyadic branch needs a local-character extension theorem followed by a split extension; it is not an unrestricted global square-root assertion.",
       "hypotheses": [
-        "The ratio ψ′/ψ is finite order, p-primary and totally even. Both local compatibility hypotheses are essential."
+        "The ratio ψ′/ψ is of finite order, p-primary and totally even. Both local compatibility hypotheses are essential.",
+        "KW II's convention: characters of F*\\(𝔸_F^∞)*, that is, idele class characters trivial at the infinite places.",
+        "KW II appeal to the Grunwald–Wang theorem (Artin–Tate, Chapter 10, Theorem 5) for p = 2. What the argument uses is the extension of finitely many local characters of 2-power order to a global character of 2-power order; no global character of prescribed exact order is needed, so the special case of Grunwald–Wang does not arise. It is supplied by Clozel–Harris–Taylor's Lemma 4.1.1 with the 2-primary projection."
       ],
       "proofSteps": [
-        "For odd p, squaring is invertible on a finite p-group of characters.",
-        "For p = 2, prescribe local square roots at V and at Frobenius-generator primes for the disjointness field; use the early local-character extension input, then kill the remaining ratio by a totally real soluble extension split there. The exact supplier is recorded as a gap."
+        "For odd p, squaring is an automorphism of the finite p-group of characters generated by ψ′/ψ; take ζ its square root there and F′ = F.",
+        "For p = 2, fix a finite Galois L/F from which F′ is to be disjoint and a finite set W of places, unramified in L and for ψ, ψ′, whose Frobenius elements meet every conjugacy class of Gal(L/F). At v ∈ V ∪ W the character (ψ′/ψ)_v is unramified of 2-power order (the restrictions to the local units agree), so after enlarging 𝒪 it has an unramified square root ζ_v of 2-power order.",
+        "Extend. By Clozel–Harris–Taylor's Lemma 4.1.1 (requested from PotentialModularityAndCompatibleSystems R23.1) applied to S = V ∪ W ∪ {real places}, with ζ_v at V ∪ W and the trivial character at the real places, there is a finite-order idele class character with these local components; its 2-primary component ζ has 2-power order and the same local components, because they have 2-power order. ζ is unramified at V and trivial at the infinite places.",
+        "The field. ζ²ψ/ψ′ is a finite-order character of 2-power order, trivial at the real places and on F_v* for v ∈ V ∪ W. By global class field theory (Tau Ceti ClassFieldTheory, Layer 12) its kernel cuts out a cyclic extension F′/F, totally real and split at V ∪ W, over which ζ²ψ and ψ′ agree. F′ ∩ L is Galois over F and split at W, so every Frobenius class of Gal(F′ ∩ L/F) is trivial and F′ ∩ L = F: F′ is linearly disjoint from L."
       ],
       "acceptance": [
-        "For p = 2 a quadratic character has no automatic square root in the same finite character group.",
-        "Prescribed splitting at V is retained.",
-        "F′ = F in the odd-p argument is allowed here; this lemma does not itself assert that F′/F has the even degree in Definition 7.9."
+        "For p = 2 a quadratic character has no square root in the group it generates; this is why a field extension is needed.",
+        "Prescribed splitting at V is retained, and ζ is unramified at V.",
+        "F′ = F in the odd-p argument is allowed here; this lemma does not assert that F′/F has the even degree of Definition 7.9. In its uses it is followed by an allowable base change (R22.1/allowable-base-change-existence).",
+        "The global character produced by Lemma 4.1.1 may have order divisible by odd primes; only its 2-primary component is used."
       ],
       "prerequisites": [
         "GL2ModularityLifting:R22.1/determinant-character-kinds",
+        "PotentialModularityAndCompatibleSystems:R23.1",
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-12-separate-arithmetic-global-existence-the-norm-index-and-the-global-correspondence",
         "ArithmeticGaloisRepresentations:R01.3"
       ],
       "sources": [
@@ -4207,6 +4592,11 @@
           "sourceId": "KW2-2009",
           "locator": "Lemma 7.10 and proof, p. 69",
           "match": "Finite-order determinant adjustment, extra splitting and disjointness."
+        },
+        {
+          "sourceId": "CHT-2008",
+          "locator": "Lemma 4.1.1, p. 116",
+          "match": "The character-extension lemma: a finite-order character of the product of the local multiplicative groups at S extends to a continuous idele class character."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4230,7 +4620,7 @@
         "The extra weight-p+1 branch at residual weight 2, and Lemma 8.3, are not used later in KW II (Remark, p. 71)."
       ],
       "proofSteps": [
-        "Choose even-degree field extensions split at Σ, p and an auxiliary w, increasing the p-parts of residue-unit groups at unwanted ramified places relative to the §7.2 isotropy exponent. The early field-choice supplier remains a gap.",
+        "Choose even-degree allowable extensions split at Σ, at the places above p and at an auxiliary w, in which the p-parts of the residue-field unit groups at the unwanted ramified places are large relative to the isotropy exponent of §7.2. They exist by R22.1/allowable-base-change-existence, prescribing unramified extensions of suitable degree at those places, and the witnesses for (α), (β) follow the base change by R22.1/alpha-beta-under-allowable-base-change.",
         "Transfer to the definite quaternion algebra by Jacquet–Langlands. Apply R18.3’s Lemmas 7.3/7.4 to choose nontrivial p-power characters at unwanted places, of order divisible by 4 at p = 2; compare mod-p coefficient modules, obtain a ramified principal-series lift and kill its tame character by further base change.",
         "Import KW Lemma 7.7 from R19.5 for the precise behavior above p. Use lemma-8-3-weight-two-to-p-plus-one only for the unused extra branch, with the integral weight-module surjection supplied by R18.3.",
         "Use lemma-7-10-determinant-adjustment to arrange central character ψ. At p = 2 and k = 4 use further split field choice to arrange the specified U-eigenvalue."
@@ -4243,6 +4633,8 @@
       ],
       "prerequisites": [
         "GL2ModularityLifting:R22.1/allowable-base-change",
+        "GL2ModularityLifting:R22.1/allowable-base-change-existence",
+        "GL2ModularityLifting:R22.1/alpha-beta-under-allowable-base-change",
         "GL2ModularityLifting:R22.1/determinant-character-kinds",
         "GL2ModularityLifting:R22.1/lemma-7-10-determinant-adjustment",
         "GL2ModularityLifting:R22.5/kw-residual-modularity",
@@ -4319,7 +4711,7 @@
       "statement": "In the tower F₀ ⊂ ⋯ ⊂ F_r used on p. 77 of KW II, at the i-th step take the definite algebra ramified at infinity and the already treated places above v₁,…,v_i, and a non-Eisenstein modular witness with maximal compact level at the next place w_{i+1}. The mod-p kernel of the two degeneracy maps to U₀(w_{i+1}) is Eisenstein. Ribet’s level-raising argument supplies a congruent cuspidal π_i Steinberg at the old and new ramified places; base change to F_{i+1} and Jacquet–Langlands give the next definite-quaternion witness. The conclusion retains residual representation, prescribed central character and p-adic coefficient type.",
       "hypotheses": [
         "When w_{i+1} lies above p in type (C) with residual weight 2, the weight is 2, precisely the p-adic hypothesis of KW Lemma 7.1.",
-        "The field tower is quadratic at each step, split at the selected place and inert at the other prescribed places, with residual image/cyclotomic irreducibility preserved; its existence is an explicit early-field-selection gap."
+        "The field tower F = F₀ ⊂ … ⊂ F_r is quadratic at each step: every place of F_{i−1} above v_i splits in F_i, and every place above v_j, j ≠ i, is inert, with the residual image and cyclotomic irreducibility preserved. Each step exists by the quadratic clause (5) of R22.1/allowable-base-change-existence over F_{i−1}, prescribing the trivial extension at the places above v_i and the unramified quadratic extension at the places above the other v_j; F_r need not be Galois over F, and it is allowable in the tower sense of R22.1/allowable-base-change."
       ],
       "proofSteps": [
         "Apply the R18.3 Ihara-type degeneracy lemma after non-Eisenstein localization; its integral cokernel has no p-torsion at this ideal.",
@@ -4336,7 +4728,8 @@
         "AutomorphicGaloisRepresentations:R19.4",
         "GL2AutomorphicRepresentationsAndTransfer:R17.3",
         "GL2AutomorphicRepresentationsAndTransfer:R17.4",
-        "GL2ModularityLifting:R22.1/allowable-base-change"
+        "GL2ModularityLifting:R22.1/allowable-base-change",
+        "GL2ModularityLifting:R22.1/allowable-base-change-existence"
       ],
       "sources": [
         {
@@ -4367,7 +4760,7 @@
       "proofSteps": [
         "Use theorem-8-2-minimal-modular-lifts with cases (a)/(b)/(c) matching A/B/C; its unused extra weight-p+1 branch at residual weight 2 is excluded here.",
         "Apply prescribed-level-raising-step successively at the ramified lifting places, using the exact split/inert quadratic tower. Reapply Theorem 8.2 to remove the auxiliary neatness place.",
-        "Use R19.5 Lemma 7.7 for compatibility at p. Remove the residual unramified quadratic sign discrepancies in the prescribed γ_v by further allowable base change, with the precise split-at-p exceptions retained."
+        "Use R19.5 Lemma 7.7 for compatibility at p. Remove the residual unramified quadratic sign discrepancies in the prescribed γ_v by further allowable base change, with the precise split-at-p exceptions retained. Every base change in the proof is supplied by R22.1/allowable-base-change-existence; the quadratic tower uses its clause (5)."
       ],
       "acceptance": [
         "Type B is not arbitrary potentially Barsotti–Tate type.",
@@ -4379,6 +4772,7 @@
         "GL2ModularityLifting:R22.1/theorem-8-2-minimal-modular-lifts",
         "GL2ModularityLifting:R22.1/prescribed-level-raising-step",
         "GL2ModularityLifting:R22.1/allowable-base-change",
+        "GL2ModularityLifting:R22.1/allowable-base-change-existence",
         "GL2ModularityLifting:R22.1/determinant-character-kinds",
         "GlobalGaloisDeformations:R04.6/kw-deformation-data",
         "AutomorphicGaloisRepresentations:R19.5"
@@ -4466,6 +4860,7 @@
       "supplier": "OrdinaryAutomorphicFormsAndModularityLifting:R21.4",
       "need": "The ordinary lifting theorem over totally real F for p > 2: ρ : G_F → GL_2(𝒪) ordinary at every v | p (ρ|D_v ≅ (χ₁γ₁ ∗; 0 γ₂), γ_i unramified), with residual cyclotomic absolute irreducibility and an ordinary residually modular Hilbert eigenform, is modular; with its determinant, ramification, distinguishedness and character hypotheses stated individually.",
       "neededBy": [
+        "GL2ModularityLifting:R22.5/kw-i-theorem-4-1-odd-prime",
         "GL2ModularityLifting:R22.5/ordinary-overlap"
       ],
       "status": "open",
@@ -4506,9 +4901,11 @@
     },
     {
       "supplier": "GL2AutomorphicRepresentationsAndTransfer:R17.4",
-      "need": "For solvable totally real E/F and continuous r:G_F→GL₂(ℚ̄_p) with r|G_E irreducible, automorphy of r is equivalent to automorphy of r|G_E (Gee Proposition4.25). Supply the exact local-prescription extension theorem of Gee Fact4.27, including preservation of absolute residual image/cyclotomic irreducibility and any asserted linear disjointness from a prescribed finite extension; these refinements cannot be inferred solely from the word solvable.",
+      "need": "For solvable totally real E/F (a tower of Galois steps with soluble groups) and continuous r : G_F → GL₂(ℚ̄_p) with r|G_E irreducible, automorphy of r is equivalent to automorphy of r|G_E (Gee Proposition 4.25, from Langlands' cyclic base change and strong multiplicity one). Existence of the field E with prescribed completions is not requested here: it is Clozel–Harris–Taylor's Lemma 4.1.2, requested from PotentialModularityAndCompatibleSystems R23.1 and applied in R22.1/allowable-base-change-existence.",
       "neededBy": [
-        "GL2ModularityLifting:R22.5/solvable-base-change-reduction"
+        "GL2ModularityLifting:R22.5/kw-i-theorem-4-1-odd-prime",
+        "GL2ModularityLifting:R22.5/solvable-base-change-reduction",
+        "GL2ModularityLifting:R22.6/kw-i-theorem-4-1-dyadic"
       ],
       "status": "open",
       "note": "Every lifting theorem of R22.5–R22.6 starts with such a base change."
@@ -4558,6 +4955,7 @@
       "supplier": "AutomorphicGaloisRepresentations:R19.2",
       "need": "Cuspidal Hilbert automorphic representation, weight/conductor invariants and its residual attached representation, for the existential α/β witness predicates before KW II §8 constructs minimal-level data.",
       "neededBy": [
+        "GL2ModularityLifting:R22.1/alpha-beta-under-allowable-base-change",
         "GL2ModularityLifting:R22.5/kw-residual-modularity",
         "GL2ModularityLifting:R22.5/kw-residual-modularity-beta"
       ],
@@ -4576,9 +4974,10 @@
     },
     {
       "supplier": "ArithmeticGaloisRepresentations:R01.4",
-      "need": "The S-type residual representation and its restriction/image hypotheses for KW II §8, with coefficient field visible; finite-subgroup consequences only, no modularity or weight-one theorem.",
+      "need": "The S-type residual representation and its restriction/image hypotheses for KW II §8, with coefficient field visible; finite-subgroup consequences only, no modularity or weight-one theorem. For R22.1/allowable-base-change-existence: the image of ρ̄ restricted to G_{F′} is the subgroup of Gal(K/F) fixing F′ ∩ K, so linear disjointness of F′ from K(μ_p) preserves the image over F′ and over F′(μ_p).",
       "neededBy": [
         "GL2ModularityLifting:R22.1/allowable-base-change",
+        "GL2ModularityLifting:R22.1/allowable-base-change-existence",
         "GL2ModularityLifting:R22.1/lemma-8-1-residual-field-choice"
       ],
       "status": "open"
@@ -4594,10 +4993,12 @@
     },
     {
       "supplier": "GL2AutomorphicRepresentationsAndTransfer:R17.4",
-      "need": "Solvable automorphic base change with local behavior and cuspidality of the witnesses in KW II §8. This is automorphic transfer, not existence of a field with prescribed completions.",
+      "need": "Solvable automorphic base change for cuspidal automorphic representations of GL₂ over totally real fields, along a cyclic extension of prime degree: existence, compatibility with local base change at every place (so that weights at infinity, unramifiedness and conductor exponents along unramified local extensions are preserved), and cuspidality of the base change when the attached Galois representation stays irreducible. This is automorphic transfer, not existence of a field with prescribed completions.",
       "neededBy": [
+        "GL2ModularityLifting:R22.1/alpha-beta-under-allowable-base-change",
+        "GL2ModularityLifting:R22.1/prescribed-level-raising-step",
         "GL2ModularityLifting:R22.1/theorem-8-2-minimal-modular-lifts",
-        "GL2ModularityLifting:R22.1/prescribed-level-raising-step"
+        "GL2ModularityLifting:R22.5/alpha-beta-from-modularity-over-q"
       ],
       "status": "open"
     },
@@ -4617,6 +5018,41 @@
         "GL2ModularityLifting:R22.1/theorem-8-4-prescribed-modular-lifts"
       ],
       "status": "open"
+    },
+    {
+      "supplier": "PotentialModularityAndCompatibleSystems:R23.1",
+      "need": "Clozel–Harris–Taylor, Lemmas 4.1.1 and 4.1.2 (Publ. Math. IHÉS 108 (2008), pp. 116–117), which belong to R23.1's field selection. Lemma 4.1.1: for a number field F, a finite set S of places and a continuous character χ_S : ∏_{v∈S} F_v^× → ℚ̄^× of finite order, there is a continuous character χ : F^×\\𝔸_F^× → ℚ̄^× with χ|_{∏_{v∈S} F_v^×} = χ_S. Lemma 4.1.2: for a number field F, a finite Galois extension D/F, a finite set S of places of F (real places allowed) and finite Galois extensions E_v/F_v for v ∈ S, there is a finite soluble Galois extension E/F, linearly disjoint from D, such that E_w/F_v ≅ E_v/F_v for every v ∈ S and every place w | v of E. Three refinements used here: (a) when the local characters all have p-power order, the p-primary component of χ has p-power order and the same restriction to ∏_{v∈S} F_v^× (χ itself need not have p-power order); (b) E is totally real when F is totally real and E_v = F_v at every real place; (c) weak approximation in the form: for a finite set S of places, F^× → ∏_{v∈S} F_v^×/(F_v^×)² is surjective, which gives quadratic extensions with prescribed completions without class field theory. The proofs use that every subgroup of finite index of the unit group is a congruence subgroup, local class field theory and global existence (Tau Ceti ClassFieldTheory, Layers 8, 11, 12), and, for the disjointness from D, places not split completely in the simple quotients of Gal(D/F) (Chebotarev). There is no automorphic input.",
+      "neededBy": [
+        "GL2ModularityLifting:R22.1/allowable-base-change-existence",
+        "GL2ModularityLifting:R22.1/lemma-7-10-determinant-adjustment",
+        "GL2ModularityLifting:R22.5/solvable-base-change-reduction"
+      ],
+      "status": "open",
+      "note": "R23.1 has no ancestor in GL2ModularityLifting: its only stage requirement is AlgebraicModuliForArithmeticGeometry R09.3. On the stage edges of data/atlas.json it has three ancestors (R09.1–R09.3), and sixteen once the accepted restructuring links and the link maps are added; none is a consumer of R22.1, so the link R23.1 → R22.1 is acyclic. The R23.1 packet has not yet planned these lemmas; when it does, the stage prerequisite becomes their node ids."
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-12-separate-arithmetic-global-existence-the-norm-index-and-the-global-correspondence",
+      "need": "Global class field theory in the form used by KW II Lemma 7.10: a continuous finite-order idele class character of a number field F cuts out a finite cyclic extension F′/F, in which a place v of F splits completely if and only if the character is trivial on F_v^×; in particular F′ is totally real when F is and the character is trivial at the real places. This is the existing Layer 12 contract of Tau Ceti's ClassFieldTheory roadmap (with Layer 11 for reciprocity), not a new declaration.",
+      "neededBy": [
+        "GL2ModularityLifting:R22.1/lemma-7-10-determinant-adjustment"
+      ],
+      "status": "open"
+    },
+    {
+      "supplier": "SerreWeightAndLevelOptimisation:R20.6",
+      "need": "For R22.5/alpha-beta-from-modularity-over-q at the small primes: (a) p = 2: a modular ρ̄ of non-solvable image arises from S₂(Γ₁(N)) with N odd when k(ρ̄) = 2, and from a weight-two form of level with 2-adic valuation at most 1 when k(ρ̄) = 4 (R20.5's Buzzard nodes and the dyadic rows of R20.6/strong-form-case-table); (b) p = 3: removal of the 3-part of the level and weight two at level 3N when N ≤ 3, where R20.4/weight-two-at-level-n-ell requires ℓ > 3 or N > 3 (enlarging N by an auxiliary prime is allowed, since only some level prime to p is needed).",
+      "neededBy": [
+        "GL2ModularityLifting:R22.5/alpha-beta-from-modularity-over-q"
+      ],
+      "status": "open"
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev",
+      "need": "For R22.1/allowable-base-change-existence, clause (5): a finite Galois extension D/F of number fields has infinitely many places of F that split completely (the Chebotarev density theorem for the trivial class). This is the existing Layer 10 contract of Tau Ceti's Chebotarev roadmap.",
+      "neededBy": [
+        "GL2ModularityLifting:R22.1/allowable-base-change-existence"
+      ],
+      "status": "open"
     }
   ],
   "coverage": [
@@ -4627,11 +5063,9 @@
         "Typed suggested signatures and tests are incomplete",
         "Declaration granularity and API promotion still required",
         "Finite presentation needed for framed tensor and support descent",
-        "Prescribed-type modular witnesses not established by the existing Q-only exports",
-        "Early soluble field and character selection supplier",
-        "New §8 signatures require the actual field/automorphic supplier types"
+        "Prescribed-type modular witnesses not established by the existing Q-only exports"
       ],
-      "notes": "The five original finite-level nodes are retained; eight new KW II §7.6/§8 nodes specify allowable fields, the given determinant, determinant adjustment, Lemma 8.1, simultaneous Theorem 8.2, Lemma 8.3, a level-raising step and Theorem 8.4. The witness now belongs here. Existing independent-review gaps remain, with the new early-field/typed-supplier gaps explicit."
+      "notes": "The five original finite-level nodes are retained; ten KW II §7.6/§8 nodes specify allowable fields and their existence with prescribed completions, the transport of (α) and (β), the given determinant, determinant adjustment, Lemma 8.1, simultaneous Theorem 8.2, Lemma 8.3, a level-raising step and Theorem 8.4. The witness belongs here. Field existence rests on Clozel–Harris–Taylor's Lemmas 4.1.1–4.1.2, requested from PotentialModularityAndCompatibleSystems R23.1 with their exact statements; the earlier gap on the field supplier is closed. Existing independent-review gaps remain."
     },
     {
       "stageId": "GL2ModularityLifting:R22.2",
@@ -4673,9 +5107,10 @@
         "Solvable base change and image-preserving local prescription",
         "Type and determinant transport of Barsotti–Tate components",
         "Prescribed-type modular witnesses not established by the existing Q-only exports",
-        "Ordinary-three predicate transport and external references after splits"
+        "Ordinary-three predicate transport and external references after splits",
+        "One case of KW I Theorem 4.1(2) is taken from an unread paper"
       ],
-      "notes": "Independent review: targets are represented, but the exact closure/API work in remaining prevents source-decomposed or closed certification. Planned in 7 nodes, within RS-08's keeps. The residual input is KW II's (α)/(β); solvable base change; KW II Theorem 9.7 for odd p (types (A) crystalline 2 ≤ k ≤ p + 1, (B) weight 2 over ℚ_p^{nr}(μ_p), (C) semistable weight 2); Kisin's patching on a chosen component and his potentially Barsotti–Tate theorem (Annals (3.5.5), (3.5.7), (3.5.8)); Gee's Fontaine–Laffaille theorem 5.2; and the exact ordinary overlap with OrdinaryAutomorphicFormsAndModularityLifting R21.4 (requested). None of these uses KW II Theorem 10.1 or potential modularity; KW I Theorem 4.1 is assembled in PotentialModularityAndCompatibleSystems R24.4."
+      "notes": "Independent review: targets are represented, but the exact closure/API work in remaining prevents source-decomposed or closed certification. Planned in 7 nodes, within RS-08's keeps. The residual input is KW II's (α)/(β); solvable base change; KW II Theorem 9.7 for odd p (types (A) crystalline 2 ≤ k ≤ p + 1, (B) weight 2 over ℚ_p^{nr}(μ_p), (C) semistable weight 2); Kisin's patching on a chosen component and his potentially Barsotti–Tate theorem (Annals (3.5.5), (3.5.7), (3.5.8)); Gee's Fontaine–Laffaille theorem 5.2; and the exact ordinary overlap with OrdinaryAutomorphicFormsAndModularityLifting R21.4 (requested). None of these uses KW II Theorem 10.1 or potential modularity; KW I Theorem 4.1(2) is an output of this layer (kw-i-theorem-4-1-odd-prime, with alpha-beta-from-modularity-over-q), derived as in KW II §10.2; PotentialModularityAndCompatibleSystems R24.4 may import it."
     },
     {
       "stageId": "GL2ModularityLifting:R22.6",
@@ -4689,7 +5124,7 @@
         "Prescribed-type modular witnesses not established by the existing Q-only exports",
         "Dyadic dimension, regularity and integral faithfulness bridges"
       ],
-      "notes": "Independent review: targets are represented, but the exact closure/API work in remaining prevents source-decomposed or closed certification. Planned in 8 nodes, within RS-08's keeps. Oddness at p = 2 as a condition on lifts; KW II's dyadic patching with the torus action, the T[2]-torsor, regularity and faithfulness (Proposition 9.3, Lemmas 9.4–9.6), R = T after inverting 2, and Theorem 9.7 at p = 2 (KW I Theorem 4.1(1)); Kisin's dyadic component criterion (3.2.9) and 2-adic Barsotti–Tate theorem (3.3.5)/(0.1); and Hypothesis (H) at p = 2, derived from (0.1). Barsotti–Tate component geometry and the dyadic local calculations are requested from LocalGaloisDeformationRings R08.4 and R08.5. The version read prints (0.9)(2) as 'Barsotti-Tate' (sourceIssues E1)."
+      "notes": "Independent review: targets are represented, but the exact closure/API work in remaining prevents source-decomposed or closed certification. Planned in 8 nodes, within RS-08's keeps. Oddness at p = 2 as a condition on lifts; KW II's dyadic patching with the torus action, the T[2]-torsor, regularity and faithfulness (Proposition 9.3, Lemmas 9.4–9.6), R = T after inverting 2, and Theorem 9.7 at p = 2 (KW I Theorem 4.1(1)); Kisin's dyadic component criterion (3.2.9) and 2-adic Barsotti–Tate theorem (3.3.5)/(0.1); and Hypothesis (H) at p = 2, derived from (0.1). Barsotti–Tate component geometry and the dyadic local calculations are requested from LocalGaloisDeformationRings R08.4 and R08.5. The version read prints (0.9)(2) as 'Barsotti-Tate' (sourceIssues E1). KW I Theorem 4.1(1) is an output of this layer (kw-i-theorem-4-1-dyadic)."
     },
     {
       "stageId": "GL2ModularityLifting:R32.1",
@@ -4730,17 +5165,15 @@
         "GL2ModularityLifting:R22.2/dyadic-twists-of-forms",
         "GL2ModularityLifting:R22.3/arithmetic-patching-data",
         "GL2ModularityLifting:R22.4/ihara-avoidance-comparison",
-        "GL2ModularityLifting:R22.5/kw-residual-modularity",
         "GL2ModularityLifting:R22.6/dyadic-patched-ring",
         "GL2ModularityLifting:R32.1/lifting-statement-table",
-        "GL2ModularityLifting:R22.5/kw-residual-modularity-beta",
         "GL2ModularityLifting:R22.5/strong-residual-modularity",
         "GL2ModularityLifting:R32.1/p-star",
         "GL2ModularityLifting:R32.1/dyadic-lifting-proposition",
         "GL2ModularityLifting:R32.1/residually-reducible-lifting-proposition",
         "GL2ModularityLifting:R32.1/ordinary-three-lifting-proposition"
       ],
-      "detail": "The suggested file's high-level objects were comments using undeclared supplier types, not elaborated signatures. Apart from the elementary pStar definition added by this review, the APIs and packet-named tests of these definitions/constructions are not all present as typed Lean declarations/examples. Supply the actual types from the owners and explicit signatures; do not use arbitrary Prop-valued fields, vacuous tests or placeholder predicates to make the file compile. Compilation of arithmetic regression examples is not compliance with PROTOCOL §13."
+      "detail": "Typed in the suggested file, over stand-ins for the suppliers' objects (an 'Imported interfaces' section of definitions built from Mathlib and of data types and functions without a body): R22.1/allowable-base-change, R22.1/determinant-character-kinds, R22.5/kw-residual-modularity and R22.5/kw-residual-modularity-beta, each with every API item and unit test of the packet under its packet name, and R32.1/p-star. Still comment sketches with undeclared supplier types: the definitions and constructions listed in neededBy. Supply the actual types from the owners and explicit signatures; do not use arbitrary Prop-valued fields, vacuous tests or placeholder predicates to make the file compile. Among the theorems, KW II Theorems 8.2 and 8.4, the dyadic branch of Lemma 7.10 and KW I Theorem 4.1 are sketches too, because their local conditions at p (crystalline, semistable, Weil–Deligne types) have no statable form at the pinned libraries."
     },
     {
       "title": "Declaration granularity and API promotion still required",
@@ -4804,7 +5237,7 @@
         "GL2ModularityLifting:R22.5/kisin-nonordinary-pbt-lifting",
         "GL2ModularityLifting:R22.5/kisin-pbt-lifting-over-q"
       ],
-      "detail": "Gee Proposition4.25 requires irreducibility after restriction. The finite Frobenius-generator argument explains how splitting selected primes can preserve residual image, but the single extension with every asserted local prescription, parity and disjointness condition must be supplied by an exact theorem. State any restriction on the prescribed extension and the separate weight/level transport; residual α/β preservation is not part of their definitions. The new early-field-selection gap gives the designated component and precise CHT statements. R17.4 retains only automorphic base change/descent; it is not credited with constructing the field."
+      "detail": "Existence of the field is now planned: R22.1/allowable-base-change-existence derives the extension with every prescribed completion, even degree, the conditions at p and linear disjointness from Clozel–Harris–Taylor's Lemma 4.1.2 (requested from PotentialModularityAndCompatibleSystems R23.1), and R22.1/alpha-beta-under-allowable-base-change transports the residual witnesses. Still open: Gee Proposition 4.25 requires irreducibility after restriction and is requested from GL2AutomorphicRepresentationsAndTransfer R17.4, which supplies automorphic base change and descent only; Taylor's Lemma 2.2 ('On icosahedral Artin representations II'), which KW II cite for the field, was not read; and each lifting theorem of R22.5–R22.6 must state the local extensions it prescribes at the places of ramification of the given lift."
     },
     {
       "title": "Type and determinant transport of Barsotti–Tate components",
@@ -4858,7 +5291,7 @@
         "GL2ModularityLifting:R32.1/exceptional-local-cases",
         "GL2ModularityLifting:R32.2/odd-prime-de-rham-lifting"
       ],
-      "detail": "To cover all p>2, including p=3, combine the appropriate local Breuil–Mézard statements with Hu–Tan Lemma6.1/Proposition6.2 and Tung's automorphy-of-components argument, stating their distinct hypotheses. Local multiplicities alone do not remove the exclusion in Gee–Kisin B.5.2. The R31.5 request and R31.6 independence audit for all auxiliary globalisations remain open. Emerton §7.4's CM-induced example was checked directly but is not a proof of independence for the whole chain. The pre-existing R32.2/application-requirements imports CSM R33.3/dp-dyadic-transition-and-the-order-three-type. Coarsened to stages this gives R33.3 → R32.2, while R32.2 → R32.3 → R32.4 → R32.5 → R32.6 → R33.2 → R33.3 already exists. The concrete graph remains acyclic; the early refinement/consumer placement must be settled before whole-stage promotion. This repair does not assert global route independence."
+      "detail": "To cover all p>2, including p=3, combine the appropriate local Breuil–Mézard statements with Hu–Tan Lemma6.1/Proposition6.2 and Tung's automorphy-of-components argument, stating their distinct hypotheses. Local multiplicities alone do not remove the exclusion in Gee–Kisin B.5.2. The R31.5 request and R31.6 independence audit for all auxiliary globalisations remain open. Emerton §7.4's CM-induced example was checked directly but is not a proof of independence for the whole chain. R32.2/application-requirements no longer imports a node of ClassicalSerreModularity R33: it is the contract that R33.1/dp-modularity-lifting-inputs cites, so the dependency between the two roadmaps runs from R32.2 to R33 only. No claim of independence of the whole modern route is made here."
     },
     {
       "title": "Prescribed-type modular witnesses not established by the existing Q-only exports",
@@ -4873,7 +5306,7 @@
         "GL2ModularityLifting:R22.5/kisin-pbt-lifting-over-q",
         "GL2ModularityLifting:R32.2/patched-graded-piece-bound"
       ],
-      "detail": "The KW II §8 witness is now planned by the new R22.1 nodes, with explicit early-field-selection and R18/R19 supplier inputs; it no longer lands at R20.6. This does not close the distinct Kisin quaternionic type/level-change, Gee prescribed-weight and Gee §4.6 contracts. The original Gee prescribed-types paper is still not newly read in this fix."
+      "detail": "The KW II §8 witness is now planned by the new R22.1 nodes, with the field existence of R22.1/allowable-base-change-existence and explicit R18/R19 supplier inputs; it no longer lands at R20.6. This does not close the distinct Kisin quaternionic type/level-change, Gee prescribed-weight and Gee §4.6 contracts. The original Gee prescribed-types paper is still not newly read in this fix."
     },
     {
       "title": "Ordinary-three predicate transport and external references after splits",
@@ -4895,24 +5328,11 @@
       "detail": "KW II Lemmas9.5 and9.6 are now separate declarations. Supply the precise formal-torus quotient dimension theorem, regularity descent along the formally smooth torsor, transitivity of T[2] on generic-fibre components, and extension of compatible finite-level twist actions to the inverse limit. The 𝒪-flatness argument is essential for integral faithfulness, not only support after inverting2."
     },
     {
-      "title": "Early soluble field and character selection supplier",
+      "title": "One case of KW I Theorem 4.1(2) is taken from an unread paper",
       "neededBy": [
-        "GL2ModularityLifting:R22.1/lemma-8-1-residual-field-choice",
-        "GL2ModularityLifting:R22.1/lemma-7-10-determinant-adjustment",
-        "GL2ModularityLifting:R22.1/theorem-8-2-minimal-modular-lifts",
-        "GL2ModularityLifting:R22.1/prescribed-level-raising-step",
-        "GL2ModularityLifting:R22.1/theorem-8-4-prescribed-modular-lifts",
-        "GL2ModularityLifting:R22.5/solvable-base-change-reduction"
+        "GL2ModularityLifting:R22.5/kw-i-theorem-4-1-odd-prime"
       ],
-      "detail": "Proposed owner PotentialModularityAndCompatibleSystems:R23.1:soluble-extensions is neither live nor reserved at this base. Needed precisely: CHT Lemma 4.1.1 (extension of finite-order local characters, p-primary component, congruence-subgroup input for units) and Lemma 4.1.2 (soluble Galois extension with prescribed finite Galois completions, disjoint from a given finite Galois field), plus the even-degree, p-unramified/split and Frobenius-generator refinements used in KW pp. 68–78. They are read in the published CHT PDF pp. 116–117. A whole R23.1 import would put potential modularity before its lifting input and is deliberately absent. Until the maintainer creates/reserves the early component, this is an explicit missing prerequisite, not a completed import."
-    },
-    {
-      "title": "New §8 signatures require the actual field/automorphic supplier types",
-      "neededBy": [
-        "GL2ModularityLifting:R22.1/allowable-base-change",
-        "GL2ModularityLifting:R22.1/determinant-character-kinds"
-      ],
-      "detail": "The suggested file includes concrete integer determinant exponents, admissibility tests and arithmetic degree regressions. The full field-extension, idele character and automorphic representations are not in the pinned baseline; their proposed signatures are comments, not elaborated APIs. Supply the owners’ types and replace the commented signatures before a closure/typed-API claim. No arbitrary Prop fields or invented axiom are used to simulate these imports."
+      "detail": "Verified: KW II §10.2 (p. 92) with its Remark, which says that Theorem 9.7 treats every case of Theorem 4.1(2)(i) except k = p + 1 with k(ρ̄) = 2, and case (2)(ii) when ρ restricted to ℚ_p(μ_p) is semistable of weight 2. Planned or requested: potentially Barsotti–Tate lifts (R22.5/kisin-pbt-lifting-over-q); the reduction of the remaining lifts of case (ii) to type (C) by a twist; and the ordinary crystalline lift of weight p + 1 with k(ρ̄) = 2 through the atlas's ordinary lifting theorem (OrdinaryAutomorphicFormsAndModularityLifting R21.4, requested), where KW II cite Diamond, On deformation rings and Hecke rings; whether R21.4's hypotheses cover that case is for its blueprint to confirm. Not planned and not read: Kisin, Modularity of some geometric Galois representations (Durham 2004), cited for k = p + 1 with k(ρ̄) = 2 and a lift non-ordinary at p. Next source action: read it for the exact statement used and plan it in R22.5."
     }
   ],
   "sourceIssues": [
@@ -5195,6 +5615,33 @@
         "pp. 116–117"
       ],
       "note": "Fresh selected-passage check for FIX-RT-AREA-langlands-2~2; no new whole-paper reading claimed."
+    },
+    {
+      "kind": "author copy",
+      "url": "https://www.math.ucla.edu/~shekhar/papers/proofs.pdf",
+      "citation": "KW II author final, 98 pages; pp. 54, 68–77, 89–90 and 92.",
+      "read": "2026-10-06",
+      "sha256": "53f45f8be3b3c7de19f42417920d34a809e908412826490ebed90f07c8e86ed4",
+      "worker": "Claude — claude-c9TlsS",
+      "readSections": [
+        "p. 54",
+        "pp. 68–77",
+        "pp. 89–90",
+        "p. 92"
+      ],
+      "note": "Selected-passage reading for FIX-RT-AREA-langlands-2~3, fetched with ordinary certificate validation. New excerpts come from the text layer extracted with pdftotext -raw (poppler), which prints ρ̄ where earlier excerpts have ¯ρ and prints a prime as 0 (F0 for F′); excerpts were chosen to avoid primes. The Inventiones printing was not collated."
+    },
+    {
+      "kind": "published",
+      "url": "https://www.numdam.org/item/10.1007/s10240-008-0016-1.pdf",
+      "citation": "Clozel–Harris–Taylor, Publ. Math. IHÉS 108 (2008), 1–181; Lemmas 4.1.1–4.1.2 with proofs, pp. 116–117.",
+      "read": "2026-10-06",
+      "sha256": "9d3b7079440d8cd3167812bb11c25ae4b51ada973b2e98f0928624254a60156c",
+      "worker": "Claude — claude-c9TlsS",
+      "readSections": [
+        "pp. 116–117"
+      ],
+      "note": "The version of record, fetched with ordinary certificate validation; two lemmas only."
     }
   ],
   "review": {
@@ -5515,6 +5962,17 @@
     {
       "status": "pending",
       "notes": "FIX-RT-AREA-langlands-2~2 by Codex codex-5ebb6f; independent REV-FIX required. Previous reviews are preserved verbatim in reviewHistory. Partial status, unchecked implementation and existing gaps are retained."
+    }
+  ],
+  "restructure": [
+    {
+      "action": "rescope",
+      "roadmaps": [
+        "GL2ModularityLifting",
+        "PotentialModularityAndCompatibleSystems"
+      ],
+      "detail": "KW I Theorem 4.1 and the passage from 'ρ̄ modular' to the hypotheses (α), (β) are stated in two layers. This packet proves them in R22.5 and R22.6 (R22.5/alpha-beta-from-modularity-over-q, R22.5/kw-i-theorem-4-1-odd-prime, R22.6/kw-i-theorem-4-1-dyadic), where KW II §10.2 derives them from Theorem 9.7 without potential modularity or finiteness of deformation rings (confirmed finding RT-AREA-langlands-2/12). The packet PotentialModularityAndCompatibleSystems--R24.3 treats R24.4 as a consumer layer, with nodes PotentialModularityAndCompatibleSystems:R24.4/kw-theorem-4-1 and R24.4/alpha-beta-from-residual-modularity that restate the two statements and a request to R22.5 for the full Theorem 4.1(2); those nodes cite Theorem 9.7 (R22.5/kw-odd-prime-lifting, R22.6/kw-dyadic-lifting), not the export nodes, which did not exist when they were written. The atlas layer R24.4 still follows R24.3, and the texts of R22.5 and of the RS-08 keeps still say that the theorem is assembled in R24. Consumers are split: four nodes of ClassicalSerreModularity part R27.3 cite the R22.5/R22.6 nodes, while R26.6/corollary-8-1-ii-and-the-statement-W1 and R27.2/theorem-3-2-weight-reduction of part R26.1 cite R24.4/kw-theorem-4-1.",
+      "proposal": "One owner, as both packets intend: GL2ModularityLifting R22.5 owns KW I Theorem 4.1(2) and the passage to (α), (β), and R22.6 owns Theorem 4.1(1). The two nodes of PotentialModularityAndCompatibleSystems R24.4 cite the three export nodes of this packet (which answers that packet's request to R22.5, except for the gap case k = p + 1 with residual weight 2 and a lift non-ordinary at p). The sentence 'The KW I Theorem 4.1 formulation is assembled in R24 after its full KW II §10 inputs' leaves the R22.5 text and the RS-08 keeps, and R24.4 no longer requires R24.3 for this theorem. Consumers may cite either layer's node; citing the R22.5/R22.6 nodes keeps them independent of R23 and R24.1–R24.3."
     }
   ]
 }

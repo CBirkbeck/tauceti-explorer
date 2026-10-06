@@ -1,5 +1,14 @@
 # Global Galois deformation rings — blueprint
 
+**Area fix, round 3, 6 October 2026 — Claude claude-c9TlsS, Refs #5870 (FIX-RT-AREA-langlands-2~3).**
+The determinant comparison is now divided between its two layers: the determinant map and its
+non-injectivity stay in R04.1, and the isomorphism for absolutely irreducible ρ̄, which uses Carayol's
+theorem, is the new R04.2 node `determinant-comparison-isomorphism` (67 nodes). No R04.1 declaration
+has a prerequisite in R04.2 any more, and the gap that recorded this is closed. The relative-tangent
+constant in this document is #T − 1, as in the packet (corrected by the fix of 2 October). The
+earlier area-2 fixes (/15, /22, /37) are unchanged. An independent REV-FIX-RT-AREA-langlands-2~3
+checks this round.
+
 **Confirmed red-team fixes proposed, 2 October 2026 — Codex codex-a71f92, Refs #5719.**
 Findings /1–/3 are addressed below and in the native prototypes. All 66 stable node IDs,
 19 open supplier requests, existing source issues and the stage-coarsening gap are retained.
@@ -14,7 +23,7 @@ This blueprint covers stages R04.1–R04.6, G7 and G8, within the boundaries of 
 blueprint now plans **R04.1 (deformation functors)**, **R04.2 (representability and universal representations)**,
 **R04.3 (local conditions and global presentations)**, **R04.4 (restriction, twisting and change of problem)** and
 **R04.5 (Taylor–Wiles auxiliary primes)**, **R04.6 (exports for patching)**, **G7 (polarized problems)** and **G8
-(variable-determinant problems)**. R04.1 is partial because of the explicit stage-coarsening gap; the other seven coverage records remain source-decomposed with open supplier requests. The whole packet is partial.
+(variable-determinant problems)**. All eight coverage records are source-decomposed with open supplier requests; the stage-coarsening gap of the earlier rounds is closed by the division of the determinant comparison described above. The whole packet is partial.
 
 The second-round Langlands-area fix adds one shared selection lemma, giving 66 nodes.
 Its accepted `REV-FIX-RT-AREA-langlands-1~2` is retained in reviewHistory; that acceptance
@@ -145,10 +154,15 @@ from IHG.0. This is a separate functor.
 - The residue point.
 - The functor depends only on the semisimplification of ρ̄.
 
-**Theorem: determinant comparison** (node `determinant-comparison`; planet; Chenevier Example 3.4 via Theorem 2.22).
-- ρ ↦ det∘ρ gives a natural transformation Def_ρ̄ → Def_{D̄}.
-- It is an isomorphism for absolutely irreducible ρ̄: surjective by Chenevier Theorem 2.22, and injective by Carayol.
-- It is not injective in general (Kisin Exercise 3).
+**Theorem: the determinant map** (node `determinant-comparison`; planet; Chenevier Example 3.4, Kisin Exercise 3).
+- ρ ↦ det∘ρ gives a natural transformation δ : Def_ρ̄ → Def_{D̄}, compatible with change of coefficients and with
+  restriction to a closed subgroup. It is well defined on strict equivalence classes because det(aρa⁻¹) = det ρ.
+- It is not injective in general: for ρ̄ = (χ₁ b; 0 χ₂) a non-split extension with dim Ext¹(χ₂, χ₁) > 1 and a class e
+  outside the line 𝔽·[b], the deformation (χ₁ b + εe; 0 χ₂) to 𝔽[ε] has the determinant of the constant deformation and
+  is not strictly equivalent to it (Kisin Exercise 3). Conjugation by 1 + εA moves the class only inside 𝔽·[b], so the
+  failure of injectivity is measured in Ext¹(χ₂, χ₁)/𝔽·[b].
+- No irreducibility hypothesis is made here, and the node has no prerequisite in R04.2. That δ is an isomorphism for
+  absolutely irreducible ρ̄ is the R04.2 theorem `determinant-comparison-isomorphism`.
 
 **Lemma: tangent spaces** (node `tangent-spaces`; Kisin Lemma 1.3.1, Gee 3.11–3.12).
 - Lift(𝔽[ε]) ≅ Z¹(G, ad ρ̄), via φ ↦ (1 + εφ)ρ̄.
@@ -157,6 +171,21 @@ from IHG.0. This is a separate functor.
 - With fixed determinant and p ∤ n, ad is replaced by ad⁰.
 
 ## Layer R04.2: representability and universal representations
+
+**Theorem: the determinant map is an isomorphism for absolutely irreducible ρ̄** (node
+`determinant-comparison-isomorphism`; Chenevier Example 3.4 via Theorem 2.22(i), with Carayol's theorem below).
+- Let ρ̄ be absolutely irreducible. Then δ : Def_ρ̄ → Def_{det∘ρ̄} of R04.1 is an isomorphism of functors on Art_𝒪,
+  and on C_𝒪 by passage to the limit; when R_ρ̄ exists it also represents the determinant deformation functor, with
+  universal determinant det∘ρ^univ.
+- Surjectivity. For A Artinian (hence henselian) and a continuous determinant D lifting det∘ρ̄, whose residue is
+  split and absolutely irreducible, Chenevier's Theorem 2.22(i) gives ρ_D : A[G] → M_n(A) with det∘ρ_D = D. Its
+  reduction has determinant det∘ρ̄ and is conjugate to ρ̄ by the uniqueness part of the same theorem over 𝔽; conjugate
+  by a lift of that matrix. Continuity: ρ_D(A[G]) = M_n(A) by Burnside and Nakayama, and ρ_D(g) is determined through
+  the perfect trace pairing by finitely many functions g ↦ tr ρ_D(g g_i), which are coefficients of D.
+- Injectivity. Equal determinants give equal traces, and Carayol's theorem, part (2), gives strict equivalence.
+- Dependencies: `determinant-comparison` (R04.1), `carayol-trace-theorem`, `universal-deformation-ring`, and
+  Chenevier's determinants from IntegralHeckeAndGaloisDeterminants IHG.0 (requested).
+- Acceptance: for ρ̄ = χ₁ ⊕ χ₂ the theorem does not apply, and the R04.1 node gives the failure of injectivity.
 
 Library module: `TauCeti/NumberTheory/GaloisDeformation/Representability`.
 
@@ -666,9 +695,9 @@ The author-final KW II version (98 pages; printed page equals PDF page) has Lemm
 
 G8/variable-determinant-problem, representability and presentation now name PA.3 as their arithmetic consumer. PA.3 imports these actual rings and Galois cohomology inputs, together with L7/L8 component data; abstract P9 keeps its arithmetic data as hypotheses. The G8 → PA.3 and L7/L8 → PA.3 stage edges are maintainer handoffs, not edits to the atlas by this packet. The original fixed-versus-variable determinant hypotheses and arbitrary-rank conventions remain unchanged.
 
-### Stage-coarsening obstruction retained for review
+### The determinant comparison is divided between R04.1 and R04.2
 
-The declaration graph is acyclic, but R04.1/determinant-comparison imports R04.2/carayol-trace-theorem. On the current coarse atlas that becomes R04.2 → R04.1, against R04.1 → R04.2. This already occurs in the original accepted packet. The gap records the exact need for an early/late declaration assignment before whole-stage promotion; it neither deletes a valid concrete prerequisite nor silently claims acyclic stage closure.
+Until round 3 of the area fix, R04.1/determinant-comparison imported R04.2/carayol-trace-theorem, a prerequisite from a later layer of the same roadmap. The declaration is now divided. R04.1/determinant-comparison keeps the determinant map δ and its non-injectivity for reducible ρ̄, which is all that the layer's stated target asks for ("not automatically equivalent to representation deformations"), and its prerequisites are in R04.1 and IHG.0. The isomorphism for absolutely irreducible ρ̄ is R04.2/determinant-comparison-isomorphism, next to Carayol's theorem and the universal deformation ring that it uses. Every prerequisite between the two layers now runs from R04.1 to R04.2, and the gap that recorded the obstruction is closed.
 
 - The round-2 repair selectively read the [published ACC+ PDF](https://www.math.uchicago.edu/~fcale/papers/Ramanujan.pdf),
   physical pp. 135–137, 143–145 and 148–151, and [Calegari–Geraghty](https://www.math.uchicago.edu/~fcale/papers/CG.pdf),
