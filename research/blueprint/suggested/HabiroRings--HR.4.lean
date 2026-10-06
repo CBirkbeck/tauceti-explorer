@@ -67,7 +67,8 @@ def transportMarking {D' : Type v} [CommRing D'] [Algebra (B ⧸ I) D']
 
 def reduceMap {D' : Type v} [CommRing D'] [Algebra (B ⧸ I) D']
     (L : EtaleDeformation I D) (M : EtaleDeformation I D')
-    (g : L.carrier →ₐ[B] M.carrier) : D →ₐ[B ⧸ I] D' := by sorry
+    (g : L.carrier →ₐ[B] M.carrier) : D →ₐ[B ⧸ I] D' :=
+  M.marking.toAlgHom.comp ((baseChangeMap I g).comp L.marking.symm.toAlgHom)
 
 theorem reduceMap_id (L : EtaleDeformation I D) :
     reduceMap L L (AlgHom.id B L.carrier) = AlgHom.id (B ⧸ I) D := by sorry
@@ -159,7 +160,11 @@ actual natural hom-set equivalence, after extension over the completion unit. -/
 def homEquiv (hI : I.FG) (C : Type w) [CommRing C] [Algebra B C]
     [IsAdicComplete (I.map (algebraMap B C)) C] :
     (CompletedEtaleLift I L →ₐ[B] C) ≃
-      (D →ₐ[B ⧸ I] (B ⧸ I) ⊗[B] C) := by sorry
+      (D →ₐ[B ⧸ I] (B ⧸ I) ⊗[B] C) where
+  toFun g := (baseChangeMap I g).comp (reductionEquiv L hI).symm.toAlgHom
+  invFun := by sorry
+  left_inv := by sorry
+  right_inv := by sorry
 
 def map (hI : I.FG) {D' : Type v} [CommRing D'] [Algebra (B ⧸ I) D']
     (M : EtaleDeformation I D') (g : D →ₐ[B ⧸ I] D') :
@@ -197,9 +202,9 @@ example {D : Type u} [CommRing D] [Algebra B D]
     (L : EtaleDeformation (⊥ : Ideal B) D) :
     Nonempty (CompletedEtaleLift (⊥ : Ideal B) L ≃ₐ[B] D) := by sorry
 
--- CompletedEtaleLift.test_nilpotent: nilpotent classical completion is unchanged.
+-- CompletedEtaleLift.test_nilpotent: the canonical completion unit is invertible.
 example (hI : IsNilpotent I) :
-    Nonempty (L.carrier ≃ₐ[B] CompletedEtaleLift I L) := by sorry
+    Function.Bijective (of L) := by sorry
 
 -- CompletedEtaleLift.test_split_swap: preserving the marking matters.
 example (hI : I.FG) [Nontrivial (B ⧸ I)] :
@@ -210,10 +215,14 @@ example (hI : I.FG) [Nontrivial (B ⧸ I)] :
 
 -- CompletedEtaleLift.test_localisation_series: completion after localization,
 -- with no uniform bound on powers of 2 in the coefficients' denominators.
-example : Nonempty
-    (CompletedEtaleLift (Ideal.span {(Polynomial.X : Polynomial ℤ)})
+example :
+    let W := CompletedEtaleLift (Ideal.span {(Polynomial.X : Polynomial ℤ)})
       (EtaleDeformation.localisation (I := Ideal.span {(Polynomial.X : Polynomial ℤ)})
-        (2 : Polynomial ℤ)) ≃+* PowerSeries (Localization.Away (2 : ℤ))) := by sorry
+        (2 : Polynomial ℤ))
+    ∃ e : W ≃+* PowerSeries (Localization.Away (2 : ℤ)),
+      e.toRingHom.comp (algebraMap (Polynomial ℤ) W) =
+        (Polynomial.aeval
+          (PowerSeries.X : PowerSeries (Localization.Away (2 : ℤ)))).toRingHom := by sorry
 
 end CompletedEtaleLift
 
