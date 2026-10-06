@@ -26760,9 +26760,10 @@
     "REV-RS-17"
    ],
    "prompt": "research/blueprint/prompts/BP-LefschetzPencilsAndVanishingCycles--LPV.7.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #769"
+   "note": "deliverables arrived from an external worker on issue #769",
+   "finishedAt": "2026-10-06T17:12:57Z"
   },
   {
    "id": "REV-LefschetzPencilsAndVanishingCycles--LPV.7",
@@ -28133,12 +28134,12 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-PotentialModularityAndCompatibleSystems--R24.3.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-DeformationAndDerivedPatchingAlgebra--P7",
     "BP-DeformationAndDerivedPatchingAlgebra--R03.6"
    ],
-   "note": "released on GitHub issue #977"
+   "note": "claimed on GitHub issue #977"
   },
   {
    "id": "REV-PotentialModularityAndCompatibleSystems--R24.3",
@@ -29443,7 +29444,8 @@
    ],
    "avoidAccountOf": "BP-VectorBundlesAndIsocrystals--VB3",
    "prompt": "research/blueprint/prompts/REV-VectorBundlesAndIsocrystals--VB3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #501"
   },
   {
    "id": "BP-WeightsInEtaleCohomology",
