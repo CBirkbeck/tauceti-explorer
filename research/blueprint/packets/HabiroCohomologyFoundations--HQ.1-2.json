@@ -1,0 +1,769 @@
+{
+  "roadmapId": "HabiroCohomologyFoundations",
+  "protocol": "blueprint-v1",
+  "part": "HQ.1-2",
+  "scope": [
+    "HabiroCohomologyFoundations:HQ.1"
+  ],
+  "status": "complete",
+  "summary": "Follow-up to the accepted HQ.1 packet: establish étale Čech descent and coherent framed descent of Wagner’s global q-de Rham functor, extend it to a sheaf on smooth schemes, and supply the algebraic derived torus comparison for modified q-connections by importing enhanced quotient-stack descent. Earlier arithmetic gluing, framed calculus and ordinary connection definitions are reused by id. Generic completion, ordinary de Rham descent, enhanced sheaves and quotient-stack theory are requested from their owners. No analytic Habiro-stack equivalence or coordinate independence of the category of ordinary q-connections is asserted.",
+  "baseline": {
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "declarations": [
+      {
+        "ref": "mathlib:AddMonoidAlgebra",
+        "kind": "structure",
+        "module": "Mathlib/Algebra/MonoidAlgebra/Defs.lean",
+        "provides": "Finite coefficient sums with convolution multiplication. For the additive group Z^d this is the Laurent torus algebra; its carrier is reused.",
+        "checked": "Statement read at the pinned commit, lines 59–69."
+      },
+      {
+        "ref": "mathlib:AlgEquiv",
+        "kind": "structure",
+        "module": "Mathlib/Algebra/Algebra/Equiv.lean",
+        "provides": "Invertible ring maps commuting with the coefficient algebra map; the target type of the torus scaling, not a new equivalence carrier.",
+        "checked": "Statement read at the pinned commit, lines 28–35."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "wagner-v2",
+      "title": "q-Hodge complexes over the Habiro ring",
+      "authors": "Ferdinand Wagner",
+      "edition": "arXiv:2510.04782v2",
+      "url": "https://arxiv.org/pdf/2510.04782v2",
+      "sha256": "591d0bdf2c48d12f91d6c9a4beec32978bc1e9a9448b04ef0efdc4a84315373b",
+      "accessed": "2026-10-06",
+      "readSections": [
+        "Appendix A, Theorem A.1, printed p.69 and proof pp.74–75",
+        "A.11–A.14, printed pp.74–76"
+      ]
+    },
+    {
+      "id": "scholze",
+      "title": "Canonical q-deformations in arithmetic geometry",
+      "authors": "Peter Scholze",
+      "edition": "arXiv:1606.01796, public PDF accessed 2026-10-06",
+      "url": "https://arxiv.org/pdf/1606.01796",
+      "sha256": "ce060b41e28fef16c011d3d3455c53a8bdc11cd8c98dc4dc6c2be178e1567273",
+      "accessed": "2026-10-06",
+      "readSections": [
+        "Section 7, Definition 7.3, Remark 7.4 and Conjecture 7.5, printed pp.15–16"
+      ]
+    },
+    {
+      "id": "dag-viii",
+      "title": "Derived Algebraic Geometry VIII: Quasi-Coherent Sheaves and Tannaka Duality Theorems",
+      "authors": "Jacob Lurie",
+      "edition": "November 5, 2011",
+      "url": "https://people.math.harvard.edu/~lurie/papers/DAG-VIII.pdf",
+      "sha256": "c9f1b4bb3fab1624c2c5d97e0c1701352912fc0ffda752e8345ab11bb70e0523",
+      "accessed": "2026-10-06",
+      "readSections": [
+        "Section 2.7, Construction 2.7.4, Proposition 2.7.6, Definition 2.7.8, Remarks 2.7.10–12, Proposition 2.7.14 and Remark 2.7.15, printed pp.69–72",
+        "Propositions 2.7.17–18, printed pp.72–73 (2.7.18 is not the theorem used for the infinite-group quotient)"
+      ]
+    },
+    {
+      "id": "stacks-completion",
+      "title": "The Stacks Project: Derived Completion",
+      "authors": "The Stacks Project Authors",
+      "edition": "Tags 091N and Lemma 15.93.20, public text on 2026-10-06",
+      "url": "https://stacks.math.columbia.edu/tag/091N",
+      "accessed": "2026-10-06",
+      "readSections": [
+        "Definition 15.93.4 and following closure under products/homotopy limits",
+        "Lemma 15.93.20 and its proof"
+      ]
+    },
+    {
+      "id": "stacks-etale",
+      "title": "The Stacks Project: Cohomology of quasi-coherent sheaves",
+      "authors": "The Stacks Project Authors",
+      "edition": "Tag 03OY, public text on 2026-10-06",
+      "url": "https://stacks.math.columbia.edu/tag/03OY",
+      "accessed": "2026-10-06",
+      "readSections": [
+        "Lemma 59.22.1, Theorem 59.22.4 and its proof for affine schemes; Amitsur argument in the proof"
+      ]
+    },
+    {
+      "id": "stacks-quotient",
+      "title": "The Stacks Project: Quasi-coherent sheaves and presentations",
+      "authors": "The Stacks Project Authors",
+      "edition": "Proposition 96.14.3, tag 06WT, public text on 2026-10-06",
+      "url": "https://stacks.math.columbia.edu/tag/06WT",
+      "accessed": "2026-10-06",
+      "readSections": [
+        "Proposition 96.14.3 and proof, including the groupoid descent cocycle"
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "HabiroCohomologyFoundations:HQ.1/descent-global-etale",
+      "declarationName": "qOmega.etaleCechDescent",
+      "parentStageId": "HabiroCohomologyFoundations:HQ.1",
+      "realises": [
+        "HabiroCohomologyFoundations:HQ.1"
+      ],
+      "title": "Étale descent for the global q-de Rham complex",
+      "kind": "theorem",
+      "statement": "Let A be a torsion-free arithmetic Λ-ring, h=q−1 and B=A[[h]]. If S is a smooth finitely presented A-algebra and S→T is faithfully flat, étale and finitely presented, the augmentation qΩ_{S/A}→Tot_{[n]∈Δ} qΩ_{T^{⊗_S(n+1)}/A} is an equivalence in derived h-complete E∞ B-algebras. More generally this holds for a finite jointly surjective family of finitely presented étale S-algebras, with the Čech terms the products over all multi-indices of the values on the corresponding tensor products. Tot is the enhanced limit, with the functorial augmentation and all simplicial maps.",
+      "hypotheses": [
+        "Only A carries a Λ-structure; S, T and the overlaps need no compatible Adams operations. Perfectly covered bases are an admitted subclass, not an additional requirement of Theorem A.1.",
+        "Use the existing global functor and its natural reduction modulo h, not a tensor product of qΩ over S: the de Rham differential is A-linear rather than S-linear.",
+        "h is a nonzerodivisor in A[[h]], even if A has zero divisors. The ordinary smooth de Rham complexes have a common finite range of form degrees on this étale nerve."
+      ],
+      "proofSteps": [
+        "Import qΩ, its derived h-completeness and the natural equivalence qΩ/h≃Ω* from the accepted global-complex and properties nodes (Wagner A.1(a)). Every overlap is smooth over A.",
+        "Import the DD.1 enhanced completion interface: arbitrary limits and fibres of complete objects are complete, and reduction modulo h detects equivalences between them. Thus the fibre of the augmentation is complete.",
+        "The two-term finite-free resolution B --h--> B of B/h identifies reduction with cofib(h). In a stable enhanced module category finite colimits are finite limits; hence cofib(h) commutes with every limit, including this infinite totalization. This is a property of this regular principal reduction, not of arbitrary tensor products.",
+        "Use DD.2 ordinary smooth étale descent: Ω^j_{T^{⊗(n+1)}/A} identifies with Ω^j_{S/A}⊗_S T^{⊗(n+1)}. Each augmented Amitsur row is exact by faithful flatness. The differential between rows is only A-linear. The finite range of form degrees makes totalization converge, giving Ω*_{S/A}≃Tot Ω*_{T•/A}.",
+        "The reduced augmentation is therefore an equivalence; derived complete conservativity annihilates its fibre. The forgetful functor from E∞ algebras creates limits and detects equivalences, proving the multiplicative statement.",
+        "For finite families, first prove qΩ_{∏ S_i/A}≃∏ qΩ_{S_i/A} by the same complete/reduction argument and the product identity for ordinary de Rham. The algebra T=∏ T_i is faithfully flat and étale over S; expand its Čech nerve as the finite disjoint union of the multi-index overlaps. This also proves the Zariski version by finite principal-open refinements."
+      ],
+      "prerequisites": [
+        "HabiroCohomologyFoundations:HQ.1/the-global-q-de-rham-complex",
+        "HabiroCohomologyFoundations:HQ.1/what-the-global-complex-satisfies",
+        "HabiroRings:HR.1/lambda-rings-with-commuting-adams-operations",
+        "DerivedDeRhamCohomology:DD.1",
+        "DerivedDeRhamCohomology:DD.2"
+      ],
+      "sources": [
+        {
+          "sourceId": "wagner-v2",
+          "locator": "Theorem A.1(a), printed p.69",
+          "excerpt": "agrees with the usual de Rham complex functor",
+          "match": "Input only. This descent theorem is a derived consequence proved by the six steps, not a theorem stated in Appendix A."
+        },
+        {
+          "sourceId": "stacks-completion",
+          "locator": "Definition 15.93.4, subsequent closure assertion; Lemma 15.93.20",
+          "excerpt": "homotopy limits",
+          "match": "Completion closure and derived Nakayama are imported from DD.1."
+        },
+        {
+          "sourceId": "stacks-etale",
+          "locator": "Theorem 59.22.4, proof for affine U, and Lemma 59.22.1",
+          "excerpt": "faithfully flat",
+          "match": "The Amitsur-row argument supplies ordinary de Rham descent through DD.2; the extension to the bounded complex is spelled out here."
+        }
+      ],
+      "acceptance": [
+        "The identity cover is an equivalence; a finite disjoint cover has the product Čech terms.",
+        "For S=Z[x], the principal opens D(x), D(1−x) give the stated complete derived descent diagram.",
+        "Modulo h the augmentation is ordinary de Rham descent. No interchange of rationalization with an infinite totalization is used."
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Étale descent for q-de Rham cohomology"
+      }
+    },
+    {
+      "id": "HabiroCohomologyFoundations:HQ.1/descent-coherent-framed",
+      "declarationName": "qOmegaFramed.etaleCechDescent",
+      "parentStageId": "HabiroCohomologyFoundations:HQ.1",
+      "realises": [
+        "HabiroCohomologyFoundations:HQ.1"
+      ],
+      "title": "Coherent framed Čech comparisons",
+      "kind": "comparison",
+      "statement": "Choose an étale framing □_U for S and for each multi-index overlap U in a finite affine étale Čech nerve whenever such a framing exists. Let e_U:qΩ_{U/A}≃qΩ*_{U/A,□_U} be the accepted underlying enhanced equivalence. Transport the entire qΩ Čech diagram through these equivalences: for a ring map f:U→V its arrow is e_V qΩ(f) e_U⁻¹. The transported augmented diagram satisfies all identities and higher coherences and has limit qΩ*_{S/A,□_S}. For another family e′_U, the objectwise comparisons e′_U e_U⁻¹ form an equivalence of augmented diagrams; three choices satisfy the inherited cocycle coherently.",
+      "hypotheses": [
+        "The comparison is in the enhanced derived category of B-modules. No equality of strict differentials or commutative dg-algebra structure on the displayed framed Koszul complex is asserted.",
+        "A cover need not admit one global framing on each overlap; refine by framed affine opens when necessary. The chart-free descent theorem itself requires no framing.",
+        "The transported equivalence is relative to the chosen equivalence data e_U. It does not assert that arbitrary pointwise equivalences determine a unique natural transformation."
+      ],
+      "proofSteps": [
+        "Import the framed-description equivalence and the accepted two-/three-framing comparison node. Fix equivalence data in the enhanced category, including their inverses and inverse homotopies.",
+        "Transport a functor along objectwise equivalences in the enhanced category. Composition coherences, degeneracies, faces and their higher compatibility data are transported together. Use the imported E0 coherent-diagram classification for Δ, intervals and refinement shapes to carry this transport, with its fibrewise naturality and mapping-space universal properties.",
+        "Apply the preceding global étale descent theorem; limits are invariant under equivalence of diagrams. Repeat the transport for e′ and obtain the comparison of diagrams; the three-choice cocycle is induced by composition with the same chart-free functor.",
+        "Distinguish this from applying a coordinate substitution to a q-differential: the latter need not be a chain map. It also says nothing about coordinate independence of ordinary q-connection categories (Scholze Conjecture 7.5)."
+      ],
+      "prerequisites": [
+        "HabiroCohomologyFoundations:HQ.1/descent-global-etale",
+        "HabiroCohomologyFoundations:HQ.1/the-framed-description-of-the-global-complex",
+        "HabiroCohomologyFoundations:HQ.1/framing-independence-and-the-cocycle-identity",
+        "EnhancedDerivedSheaves:E0/cocartesian-fibrations-and-restricted-straightening",
+        "EnhancedDerivedSheaves:E0/limits-colimits-and-slices"
+      ],
+      "sources": [
+        {
+          "sourceId": "wagner-v2",
+          "locator": "Theorem A.1(d), printed p.69; proof printed p.75",
+          "excerpt": "underlying object",
+          "match": "Input framed equivalences only. Čech coherence is a formal enhanced transport argument, explicitly not attributed to the source."
+        },
+        {
+          "sourceId": "scholze",
+          "locator": "Conjecture 7.5, printed p.16",
+          "excerpt": "independent of the choice",
+          "match": "Identifies the separate, unproved connection-category statement that this comparison does not establish."
+        }
+      ],
+      "acceptance": [
+        "Face-face and face-degeneracy relations hold with their coherent homotopies.",
+        "Changing three families of framings gives the cocycle of diagram equivalences.",
+        "For the identity cover and a fixed e_S the augmentation is the identity, with no coordinate substitution formula required."
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "HabiroCohomologyFoundations:HQ.1/descent-etale-sheaf",
+      "declarationName": "qOmegaEtale",
+      "parentStageId": "HabiroCohomologyFoundations:HQ.1",
+      "realises": [
+        "HabiroCohomologyFoundations:HQ.1"
+      ],
+      "title": "The étale sheaf of global q-de Rham algebras",
+      "kind": "construction",
+      "statement": "For a smooth separated finitely presented A-scheme X over a torsion-free Λ-ring A, qOmegaEtale(X/A) is the sheaf of derived h-complete E∞ B-algebras on X_et whose value on an affine étale object U=Spec S of finite presentation is qΩ_{S/A}. It is the unique extension, up to equivalence, of this sheaf on the affine basis. Write qOmegaEtale.sections(X)=RΓ(X_et,qOmegaEtale). For a finite affine open cover of X, sections are the limit of the affine Čech diagram; all finite intersections are affine by separatedness. Its derived reduction modulo h is RΓ(X,Ω*_{X/A}).",
+      "hypotheses": [
+        "A, h and B have the conventions of the global descent theorem. This is a sheaf of B-algebras; its underlying complex is not claimed to be O_X-linear.",
+        "The finite-presentation affine étale objects form a basis; arbitrary objects are evaluated by basis extension. RΓ is an enhanced limit, not a degreewise kernel.",
+        "The construction states Čech sheaf descent. It makes no unrestricted hyperdescent claim for arbitrary unbounded sheaves."
+      ],
+      "proofSteps": [
+        "Restrict the existing smooth affine qΩ functor to the affine étale basis. The global étale descent theorem supplies the covering condition on this basis.",
+        "Import the E2 basis-extension and sheaf-limit construction in the complete enhanced target. Limits of complete objects remain complete by DD.1. The extension is unique as an extension of the given basis functor.",
+        "Define global sections by the enhanced limit. Use a finite affine open cover for a concrete model; intersections are smooth affine A-schemes, and the sheaf condition identifies the model independently of the cover and its refinements.",
+        "Reduction modulo h commutes with these limits by the regular principal calculation in global-etale. Reduce the affine values using the accepted natural qΩ/h equivalence and use DD.2 ordinary de Rham descent/hypercohomology."
+      ],
+      "prerequisites": [
+        "HabiroCohomologyFoundations:HQ.1/descent-global-etale",
+        "HabiroCohomologyFoundations:HQ.1/the-global-q-de-rham-complex",
+        "EnhancedDerivedSheaves:E2",
+        "DerivedDeRhamCohomology:DD.1",
+        "DerivedDeRhamCohomology:DD.2"
+      ],
+      "sources": [
+        {
+          "sourceId": "wagner-v2",
+          "locator": "Theorem A.1(a), printed p.69",
+          "excerpt": "de Rham complex functor",
+          "match": "Specifies the affine functor and reduction. The sheaf construction is this application of the imported basis-extension theorem."
+        },
+        {
+          "sourceId": "stacks-etale",
+          "locator": "Theorem 59.22.4, including the separated affine-cover proof",
+          "excerpt": "quasi-coherent",
+          "match": "Each ordinary form sheaf is quasi-coherent; its bounded complex computes de Rham hypercohomology by the affine Čech argument."
+        }
+      ],
+      "acceptance": [
+        "The affine-value equivalence intertwines all restrictions and reductions.",
+        "The section object and its multiplicative structure are independent of the cover as enhanced objects."
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "qOmegaEtale",
+          "role": "constructor",
+          "statement": "The complete E∞ B-algebra sheaf determined by U=Spec S ↦ qΩ_{S/A} on the affine étale basis."
+        },
+        {
+          "name": "qOmegaEtale.affine",
+          "role": "equivalence",
+          "statement": "For affine étale U=Spec S, RΓ(U_et,qOmegaEtale|_U)≃qΩ_{S/A}, naturally in U."
+        },
+        {
+          "name": "qOmegaEtale.sections",
+          "role": "projection",
+          "statement": "The enhanced global-section object RΓ(X_et,qOmegaEtale)."
+        },
+        {
+          "name": "qOmegaEtale.cech",
+          "role": "characterisation",
+          "statement": "For a finite affine open cover of separated X, global sections are Tot of the products of the affine qΩ values on intersections; compatible with refinement."
+        },
+        {
+          "name": "qOmegaEtale.modH",
+          "role": "compatibility",
+          "statement": "The derived reduction of the sheaf is the ordinary de Rham sheaf complex, and sections/h≃RΓ(X,Ω*_{X/A})."
+        }
+      ],
+      "uses": [
+        {
+          "where": "HabiroCohomologyFoundations:HQ.1 stage target: descent including cocycles",
+          "how": "Gives the chart-free global object on schemes, with a concrete Čech model."
+        },
+        {
+          "where": "HabiroCohomologyFoundations:HQ.2 and HQ.8",
+          "how": "Provides the complete smooth affine/scheme descent interface; animated singular extensions and trace applications keep their own hypotheses."
+        }
+      ],
+      "tests": [
+        {
+          "name": "qOmegaEtale.identityCover",
+          "kind": "degenerate",
+          "statement": "For X=Spec S and its identity affine cover, sections identify with qΩ_{S/A} and the restriction is identity."
+        },
+        {
+          "name": "qOmegaEtale.disjointCover",
+          "kind": "computation",
+          "statement": "For X=Spec S₁ ⊔ Spec S₂, sections are qΩ_{S₁/A}×qΩ_{S₂/A}; cross intersections contribute the zero-ring value."
+        },
+        {
+          "name": "qOmegaEtale.principalCoverReduction",
+          "kind": "compatibility",
+          "statement": "For Spec Z[x] covered by D(x), D(1−x), the section object modulo h is the ordinary de Rham Čech totalization, equivalent to Ω*_{Z[x]/Z}."
+        }
+      ]
+    },
+    {
+      "id": "HabiroCohomologyFoundations:HQ.1/descent-torus-scaling",
+      "declarationName": "torusScale",
+      "parentStageId": "HabiroCohomologyFoundations:HQ.1",
+      "realises": [
+        "HabiroCohomologyFoundations:HQ.1"
+      ],
+      "title": "Integer coordinate scaling on the torus",
+      "kind": "construction",
+      "statement": "Let B be any commutative ring, q a unit in B and d≥0. Reuse the native additive monoid algebra C=B[Z^d], equivalently B[x₁^{±1},…,x_d^{±1}]. For a∈Z^d define the B-algebra automorphism torusScale(q,a)=σ_a by σ_a(r x^m)=r q^{⟨a,m⟩}x^m, where ⟨a,m⟩=Σ_{i=1}^d a_i m_i∈Z. Thus σ_0=id, σ_{a+b}=σ_aσ_b and σ_{−a}=σ_a⁻¹. This packages the previously defined commuting coordinate automorphisms into the complete discrete group action, including negative powers.",
+      "hypotheses": [
+        "q is a unit; integer powers are powers in B× followed by coercion to B. No inversion of h=q−1 and no Λ-structure or completeness of B is required.",
+        "Z^d is the discrete lattice with additive notation. Its constant group sheaf is the coproduct of copies of Spec B, not Spec of the product function ring and not a finite constant group.",
+        "This is the action for the accepted modified-q-connection definition. It does not define another framed q-derivative or Koszul complex."
+      ],
+      "proofSteps": [
+        "Use AddMonoidAlgebra for C and its single-monomial multiplication. The map m↦q^{⟨a,m⟩} is a multiplicative character of the exponent lattice because the pairing is additive in m.",
+        "Multiply each finitely supported coefficient by that character. The convolution computation single m r · single n s = single (m+n) (r·s) proves multiplicativity; σ_a fixes coefficient monomials r x^0. The inverse is obtained by the opposite character, giving the native AlgEquiv.",
+        "Additivity in a proves the action law and negative-power identity on monomials, then on finite sums. Equality of coefficient-linear maps on every monomial gives uniqueness.",
+        "Compare σ_{e_i} with the existing coordinate-scaling automorphisms on the same Laurent algebra. This is a packaging/extension to all integer labels, not a new owner for the coordinate calculus."
+      ],
+      "prerequisites": [
+        "mathlib:AddMonoidAlgebra",
+        "mathlib:AlgEquiv",
+        "HabiroCohomologyFoundations:HQ.1/modified-q-connections-on-a-torus"
+      ],
+      "sources": [
+        {
+          "sourceId": "scholze",
+          "locator": "Definition 7.3 and its reference back to coordinate γ_i, printed p.15",
+          "excerpt": "q-Leibniz rule",
+          "match": "Motivates the existing coordinate-scaling operators. The Laurent integer-lattice action is proved by the displayed character construction, not stated in this source."
+        }
+      ],
+      "acceptance": [
+        "For each standard basis e_i, σ_{e_i}(x_j)=q^{δ_ij}x_j and σ_{e_i}(x_i⁻¹)=q⁻¹x_i⁻¹.",
+        "The action remains meaningful at q=1 and at roots of unity; it is not assumed faithful."
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "torusScale",
+          "role": "constructor",
+          "statement": "The native B-algebra automorphism σ_a of AddMonoidAlgebra B (Fin d→Z)."
+        },
+        {
+          "name": "torusScale_single",
+          "role": "simp",
+          "statement": "σ_a(single m r)=single m (r·q^{Σ_i a_i m_i}), with integer powers of the unit q."
+        },
+        {
+          "name": "torusScale_zero",
+          "role": "simp",
+          "statement": "σ_0 is the identity B-algebra equivalence."
+        },
+        {
+          "name": "torusScale_add",
+          "role": "functoriality",
+          "statement": "σ_{a+b}(f)=σ_a(σ_b(f)) for every Laurent polynomial f."
+        },
+        {
+          "name": "torusScale_neg",
+          "role": "relation",
+          "statement": "σ_{−a} equals the inverse equivalence σ_a⁻¹."
+        },
+        {
+          "name": "torusScale_unique",
+          "role": "extensionality",
+          "statement": "Any B-algebra automorphism with the same single-monomial formula equals σ_a."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Derived torus quotient comparison in this packet",
+          "how": "Supplies all labels and the action law for the groupoid nerve."
+        },
+        {
+          "where": "Accepted HQ.1 modified-q-connections-on-a-torus and torus-descent-for-modified-q-connections",
+          "how": "Identifies integer iterates of the generator actions and pins the inverse convention."
+        }
+      ],
+      "tests": [
+        {
+          "name": "torusScale_rankZero",
+          "kind": "degenerate",
+          "statement": "For d=0 every σ_a is the identity, using the native B[Z^0] carrier."
+        },
+        {
+          "name": "torusScale_qOne",
+          "kind": "computation",
+          "statement": "For q=1 and any d,a, σ_a is identity. The group of labels still exists."
+        },
+        {
+          "name": "torusScale_negativeExponent",
+          "kind": "computation",
+          "statement": "For d=1, a=(1), m=(−1), σ_a(single m 1)=single m q⁻¹."
+        },
+        {
+          "name": "torusScale_twoCoordinates",
+          "kind": "computation",
+          "statement": "For d=2, a=(2,−1) and m=(−1,3), σ_a(single m 1)=single m q⁻⁵."
+        }
+      ]
+    },
+    {
+      "id": "HabiroCohomologyFoundations:HQ.1/descent-derived-modified",
+      "declarationName": "derivedModifiedQConnections",
+      "parentStageId": "HabiroCohomologyFoundations:HQ.1",
+      "realises": [
+        "HabiroCohomologyFoundations:HQ.1"
+      ],
+      "title": "Derived modified q-connections on a torus",
+      "kind": "definition",
+      "statement": "For C=B[Z^d], let F_a:D(C)→D(C) be pullback along Spec σ_a, namely C⊗^L_{C,σ_a}(−). Under its canonical identification with the same underlying complex, the C-action is twisted by σ_a⁻¹. The action law gives a coherent functor BZ^d→Cat∞. Define derivedModifiedQConnections(B,q,d)=lim_{BZ^d} D(C), using the enhanced unbounded derived module category. An object has an underlying M, equivalences θ_a:M≃F_a(M), and the full homotopy-coherent group-law data. A strict degree-zero θ_a is an invertible additive map Γ_a with Γ_a(fm)=σ_a(f)Γ_a(m). Morphisms include all coherent equivariance data; they are not just maps commuting in the homotopy category.",
+      "hypotheses": [
+        "The lattice is discrete. Only the arbitrary-group part of the imported coherent-group-actions node is used; its statements about profinite continuity are not used.",
+        "All modules/complexes are permitted. Finite locally free and perfect subcategories are restrictions imposed by the heart/perfect comparison, not part of this definition.",
+        "The notation is an enhanced limit, not a replacement of the previously defined ordinary ModifiedQConnection structure. The latter is its heart."
+      ],
+      "proofSteps": [
+        "Apply the imported LP1 enhanced affine-module pullback construction to the explicit σ action. For an automorphism this pullback is exact and its ordinary tensor model agrees with derived tensor.",
+        "Identify C⊗_{C,σ_a}M with the underlying abelian object by c⊗m↦σ_a⁻¹(c)m. Thus a C-linear map M→F_a(M) corresponds exactly to positive σ_a-semilinearity of Γ_a; pin this inverse in scalar twisting.",
+        "Apply the existing E5 coherent-action/homotopy-fixed-point construction. Use its full limit and the compatible objectwise derived tensor products to obtain a B-linear stable symmetric monoidal category. This last enhanced monoidal interface is requested from LP1, not constructed generically in HQ.1.",
+        "Evaluation at the unique base object gives a conservative exact forgetful functor. The unit is C with Γ_a=σ_a; the tensor action is diagonal, respecting the balanced C-tensor relation. Mapping spectra are the limit of the equivariant mapping diagram, retaining higher group cohomology.",
+        "For the higher-cohomology test at q=1,d=1, unit endomorphisms are the cochains RΓ(Z,C) with trivial action. The free two-term C[t^{±1}]-resolution with differential t−1 is exact: augmentation evaluates t=1, and elementary Laurent coefficient calculation identifies its kernel with (t−1). Applying Hom gives C in degrees 0 and 1 with zero differential, whereas Ext_C^1(C,C)=0. This computes the test without importing or rebuilding a generic Koszul complex."
+      ],
+      "prerequisites": [
+        "HabiroCohomologyFoundations:HQ.1/descent-torus-scaling",
+        "EnhancedDerivedSheaves:E5:presentability/coherent-group-actions",
+        "LanglandsParameterStacks:LP1",
+        "HabiroCohomologyFoundations:HQ.1/modified-q-connections-on-a-torus"
+      ],
+      "sources": [
+        {
+          "sourceId": "dag-viii",
+          "locator": "Section 2.7 opening, printed pp.69–70; Definition 2.7.8 and Remarks 2.7.10–12, printed pp.71–72",
+          "excerpt": "up to coherent homotopy",
+          "match": "Enhanced module and pullback convention. Applying them to the action gives this specialized category; generic homotopy fixed points are imported from E5."
+        }
+      ],
+      "acceptance": [
+        "The convention θ_a:M→F_a(M) gives Γ_a(fm)=σ_a(f)Γ_a(m), rather than its inverse.",
+        "Strict semilinear complexes give examples, but no equivalence with their localization is assumed or needed."
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "derivedModifiedQConnections",
+          "role": "constructor",
+          "statement": "The enhanced limit of the explicit discrete lattice action on D(C)."
+        },
+        {
+          "name": "derivedModifiedQConnections.forget",
+          "role": "projection",
+          "statement": "Conservative exact evaluation functor to D(C)."
+        },
+        {
+          "name": "derivedModifiedQConnections.unit",
+          "role": "data",
+          "statement": "The tensor unit has underlying C and generator actions σ_{e_i}."
+        },
+        {
+          "name": "derivedModifiedQConnections.tensor",
+          "role": "structure",
+          "statement": "The derived C-tensor with diagonal coherent action; on flat strict representatives Γ_i(m⊗n)=Γ_i(m)⊗Γ_i(n)."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Derived quotient-stack comparison and heart/perfect comparison in this packet",
+          "how": "Names the exact enhanced category being compared, removing the earlier coherent-equivariance gap."
+        },
+        {
+          "where": "AnalyticHabiroStack:HS.1 and HS.3 (draft); HabiroCohomologyFoundations:HQ.6",
+          "how": "Exports the algebraic discrete-torus category, with no claim that it is the solid or analytic completed category."
+        }
+      ],
+      "tests": [
+        {
+          "name": "derivedModifiedQConnections.rankZero",
+          "kind": "degenerate",
+          "statement": "For d=0 the category is D(B) via the native B[Z^0]≃B identification and the trivial group."
+        },
+        {
+          "name": "derivedModifiedQConnections.unitGenerators",
+          "kind": "compatibility",
+          "statement": "For the unit, Γ_i(x^m)=q^{m_i}x^m, agreeing with the accepted ordinary modified connection."
+        },
+        {
+          "name": "derivedModifiedQConnections.higherCohomology",
+          "kind": "non-example",
+          "statement": "For B=Q, q=1, d=1 and C=Q[x^{±1}], Hom(unit,unit[1])≅C, whereas the mapping group in D(C) is zero. The Z action has not been discarded."
+        }
+      ]
+    },
+    {
+      "id": "HabiroCohomologyFoundations:HQ.1/descent-derived-quotient",
+      "declarationName": "modifiedQConnection.torusQuotientEquivalence",
+      "parentStageId": "HabiroCohomologyFoundations:HQ.1",
+      "realises": [
+        "HabiroCohomologyFoundations:HQ.1"
+      ],
+      "title": "Derived torus quotient comparison",
+      "kind": "theorem",
+      "statement": "Let Q=[Spec C/Z^d] be the fpqc sheafification of the discrete action prestack of σ, using the generic quotient-functor construction of LP1. Then QCoh∞(Q)≃derivedModifiedQConnections(B,q,d), naturally and as B-linear stable symmetric monoidal categories, with pullback to Spec C corresponding to forget. Explicitly QCoh∞(Q)≃Tot_{[n]∈Δ} ∏_{(a₁,…,a_n)∈(Z^d)^n} D(C), with the action-twisted face maps, identity degeneracies and their coherent compatibilities. Thus the algebraic meaning of QCoh∞((G_m/q^Z)^d) is the action quotient, with its stabilizers.",
+      "hypotheses": [
+        "The enhanced QCoh functor is the functor-of-points construction of DAG VIII §2.7, which works for this arbitrary discrete-group quotient. No finite-type, affine-diagonal or perfect-stack theorem is substituted.",
+        "The action nerve in degree n is the coproduct over (Z^d)^n of Spec C. For d>0 this is an infinite coproduct, not an affine scheme whose coordinate ring is an infinite product.",
+        "The map Spec C→Q is a torsor under an infinite discrete constant group after base change; it need not be a quasi-compact fpqc morphism. The proof uses sheafification invariance and the prestack colimit, not the assertion that this single map is an fpqc affine cover.",
+        "No freeness or genericity of q is assumed. At q=1 the quotient is Spec C×BZ^d. If q has finite order N, the subgroup NZ^d is retained as stabilizer."
+      ],
+      "proofSteps": [
+        "Import from LP1 the action prestack, its fpqc sheafification and the QCoh∞ functor of DAG VIII Definition 2.7.8. The action prestack is the geometric realization of the simplicial action nerve.",
+        "Proposition 2.7.6 and the right Kan construction make QCoh∞ send prestack colimits to category limits. Proposition 2.7.14 / Remark 2.7.15 identify the QCoh categories before and after fpqc sheafification. These general assertions are the LP1 request, not new HQ nodes.",
+        "On each component of the nerve use QCoh∞(Spec C)=D(C); a coproduct of affine functors gives a product of these categories. Identify the face restrictions using F_a and the fixed scalar-twist convention. The resulting bar totalization is exactly the E5 homotopy fixed points in derived-modified.",
+        "Pullback and tensor products are pointwise in the cartesian-module description, so the equivalence is B-linear symmetric monoidal and commutes with pullback to Spec C. Apply the nerve description to q=1 or finite order to verify the retained stabilizers."
+      ],
+      "prerequisites": [
+        "HabiroCohomologyFoundations:HQ.1/descent-torus-scaling",
+        "HabiroCohomologyFoundations:HQ.1/descent-derived-modified",
+        "LanglandsParameterStacks:LP1",
+        "EnhancedDerivedSheaves:E5:presentability/coherent-group-actions"
+      ],
+      "sources": [
+        {
+          "sourceId": "dag-viii",
+          "locator": "Proposition 2.7.6, Definition 2.7.8, Remark 2.7.10, Proposition 2.7.14 and Remark 2.7.15, printed pp.71–72",
+          "excerpt": "sheafification",
+          "match": "These general QCoh results imply the quotient comparison by the action-nerve argument above. Proposition 2.7.18 alone, for spectral Deligne–Mumford stacks, is not used as a substitute."
+        }
+      ],
+      "acceptance": [
+        "For d=0 the comparison is the affine equivalence QCoh∞(Spec B)≃D(B).",
+        "For q=1,d=1,B=Q the quotient still has Z stabilizer and the unit has Hom to its shift by 1 equal to Q[x^{±1}].",
+        "Degree-one descent is σ-semilinear with inverses. Higher nerve degrees impose coherent compatibility rather than merely equality of isomorphism classes.",
+        "The equivalence makes no analytic, solid, Habiro-complete, or ordinary connection-category assertion."
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Derived torus quotient comparison"
+      }
+    },
+    {
+      "id": "HabiroCohomologyFoundations:HQ.1/descent-heart-perfect",
+      "declarationName": "modifiedQConnection.torusHeartAndPerfect",
+      "parentStageId": "HabiroCohomologyFoundations:HQ.1",
+      "realises": [
+        "HabiroCohomologyFoundations:HQ.1"
+      ],
+      "title": "The heart, vector bundles and perfect complexes",
+      "kind": "comparison",
+      "statement": "The quotient equivalence is compatible with the t-structures detected after pullback to Spec C. Its heart identifies ordinary QCoh(Q) with the accepted category of all C-modules with commuting invertible σ_i-semilinear Γ_i, equivalently C⋊Z^d-modules. It restricts to vector bundles precisely when the underlying C-module is finite projective. It restricts to perfect complexes precisely when the underlying object of D(C) is perfect. Perfect here means locally a bounded complex of finite projectives; it is not asserted to equal the compact objects of the equivariant category.",
+      "hypotheses": [
+        "Use the pullback-detected t-structure: each F_a is t-exact. Ordinary modified connections have no Γ_i≡id mod(q−1) restriction.",
+        "The heart comparison and skew-group-ring multiplication are already owned by the accepted torus-descent-for-modified-q-connections node and are imported rather than reconstructed.",
+        "Perfectness and finite local freeness descend under the quotient sheaf’s flat local presentations, supplied by LP1. No derived-category-of-the-heart equivalence is inferred."
+      ],
+      "proofSteps": [
+        "The t-exact coherent action gives the componentwise t-structure on its limit: pointwise truncations preserve the descent data. The quotient QCoh t-structure agrees by the imported cartesian-module description.",
+        "Mapping spaces between heart objects are discrete, so the higher coherent data reduces to the ordinary group-law cocycle. Apply the accepted heart/skew-ring correspondence. Stacks Proposition 96.14.3 independently verifies the ordinary quotient-groupoid interpretation.",
+        "Pullback to the affine torus detects finite local freeness and perfectness by the LP1 local-property descent interface. Over an affine scheme these are respectively finite projective modules and perfect derived objects.",
+        "At q=1 the trivial geometric action still permits arbitrary commuting invertible C-linear Γ_i. Over Q[x^{±1}] the rank-one action Γ=2·id is a vector bundle on the quotient and is not the trivial linearization. For formal q=1+h its version Γ=2σ is not congruent to identity modulo h and does not arise from an ordinary q-connection."
+      ],
+      "prerequisites": [
+        "HabiroCohomologyFoundations:HQ.1/descent-derived-quotient",
+        "HabiroCohomologyFoundations:HQ.1/torus-descent-for-modified-q-connections",
+        "HabiroCohomologyFoundations:HQ.1/modified-q-connections-on-a-torus",
+        "LanglandsParameterStacks:LP1"
+      ],
+      "sources": [
+        {
+          "sourceId": "stacks-quotient",
+          "locator": "Proposition 96.14.3 (tag 06WT), statement and groupoid cocycle proof",
+          "excerpt": "quotient stack",
+          "match": "Ordinary QCoh/groupoid descent only; the derived step comes from the preceding theorem and imported LP1 interfaces."
+        },
+        {
+          "sourceId": "dag-viii",
+          "locator": "Definition 2.7.8, Remark 2.7.12, printed pp.71–72",
+          "excerpt": "equivalence",
+          "match": "The cartesian-module description provides the local detection framework; specialized heart/perfect restrictions are proved in the displayed steps."
+        }
+      ],
+      "acceptance": [
+        "Finite projectives are the vector-bundle subcategory, not the entire heart.",
+        "At q=1 the rank-one linearizations Γ=1 and Γ=2 over Q are distinct equivariant objects.",
+        "Underlying perfection is preserved under the comparison; no compact-generation theorem for this infinite-group quotient is claimed."
+      ],
+      "implementationStatus": "unchecked"
+    }
+  ],
+  "requests": [
+    {
+      "supplier": "DerivedDeRhamCohomology:DD.1",
+      "need": "For B=A[[h]] with h regular, the enhanced derived h-complete module category is closed under arbitrary limits and fibres; reduction M↦M⊗^L_B B/h detects equivalences between complete objects. Its two-term finite-free resolution identifies reduction with cofib(h), so it commutes with all enhanced limits. Provide the forgetful creation/detection of limits/equivalences for complete E∞ B-algebras. This is the principal regular case of DD.1, not an arbitrary ordinary I-adic tower formula.",
+      "neededBy": [
+        "HabiroCohomologyFoundations:HQ.1/descent-global-etale",
+        "HabiroCohomologyFoundations:HQ.1/descent-etale-sheaf"
+      ]
+    },
+    {
+      "supplier": "DerivedDeRhamCohomology:DD.2",
+      "need": "For smooth finitely presented A-algebras and finite affine étale covers, ordinary Ω*_{S/A}→Tot Ω*_{T•/A} is an equivalence in the enhanced derived A-category. Use étale base change of each Ω^j, faithful-flat Amitsur exactness and the common finite range of form degrees; include finite-product compatibility and the affine Čech computation of de Rham hypercohomology on smooth separated finite-presentation schemes. No S-linearity of the de Rham differential is presumed.",
+      "neededBy": [
+        "HabiroCohomologyFoundations:HQ.1/descent-global-etale",
+        "HabiroCohomologyFoundations:HQ.1/descent-etale-sheaf"
+      ]
+    },
+    {
+      "supplier": "EnhancedDerivedSheaves:E2",
+      "need": "Sheaves valued in a complete enhanced stable module category and its E∞-algebra category extend uniquely from the affine étale basis by covering Čech descent, with section objects given by limits; a finite affine open cover of a separated scheme computes sections. No unrestricted unbounded hyperdescent is needed.",
+      "neededBy": [
+        "HabiroCohomologyFoundations:HQ.1/descent-etale-sheaf"
+      ]
+    },
+    {
+      "supplier": "LanglandsParameterStacks:LP1",
+      "need": "Apply LP1’s generic fpqc quotient and quasi-coherent descent prefix to an arbitrary discrete group G acting on a commutative affine ring C, including infinite G=Z^d. Define QCoh∞ on prestacks by cartesian enhanced modules (DAG VIII 2.7.8), affine value D(C), send prestack colimits/coproducts to category limits/products, and prove fpqc sheafification invariance (2.7.14). Supply pullback, its symmetric monoidal coherence and limit mapping spectra, plus the pullback-detected t-structure and flat local detection of finite local freeness/perfectness. Do not require the atlas Spec C→[Spec C/G] to be a quasi-compact fpqc morphism or use an affine finite constant-group scheme in place of the discrete sheaf.",
+      "neededBy": [
+        "HabiroCohomologyFoundations:HQ.1/descent-derived-modified",
+        "HabiroCohomologyFoundations:HQ.1/descent-derived-quotient",
+        "HabiroCohomologyFoundations:HQ.1/descent-heart-perfect"
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "HabiroCohomologyFoundations:HQ.1",
+      "status": "planned",
+      "remaining": [
+        "Resolve the exact DD.1, DD.2, E2 and LP1 supplier interfaces in requests, replacing stage pointers with declaration ids when supplied. Both earlier mathematical gaps now have explicit proofs conditional on these generic inputs.",
+        "The enhanced qΩ/sheaf and derived quotient declarations cannot yet be expressed at the pinned baseline; their names and precise mathematical forms are documented as omissions in the suggested file, under PROTOCOL section 13.",
+        "Assembly preserves the accepted HQ.1 ids; coordinate independence of ordinary q-connection categories and unread V5A4 analytic identifications remain outside the theorem claims, as in the accepted input."
+      ]
+    }
+  ],
+  "gaps": [],
+  "sourceIssues": [],
+  "inheritedCoverage": [
+    {
+      "packet": "research/blueprint/packets/HabiroCohomologyFoundations--HQ.1.json",
+      "stageId": "HabiroCohomologyFoundations:HQ.1",
+      "review": "independent-review-REV-FIX-RT-AREA-etale~2",
+      "targets": [
+        {
+          "target": "Global arithmetic construction; rational and primewise comparisons; coherent framing independence",
+          "nodes": [
+            "HabiroCohomologyFoundations:HQ.1/the-global-q-de-rham-complex",
+            "HabiroCohomologyFoundations:HQ.1/what-the-global-complex-satisfies",
+            "HabiroCohomologyFoundations:HQ.1/the-framed-description-of-the-global-complex",
+            "HabiroCohomologyFoundations:HQ.1/framing-independence-and-the-cocycle-identity",
+            "HabiroCohomologyFoundations:HQ.1/base-change-for-the-global-complex"
+          ]
+        },
+        {
+          "target": "Framed q-difference calculus and ordinary/modified q-connection definitions; ordinary torus descent heart",
+          "nodes": [
+            "HabiroCohomologyFoundations:HQ.1/the-coordinate-dependent-q-de-rham-complex",
+            "HabiroCohomologyFoundations:HQ.1/modules-with-framed-q-connection",
+            "HabiroCohomologyFoundations:HQ.1/modified-q-connections-on-a-torus",
+            "HabiroCohomologyFoundations:HQ.1/torus-descent-for-modified-q-connections"
+          ]
+        }
+      ]
+    }
+  ],
+  "targetCoverage": [
+    {
+      "target": "Étale/Zariski descent and its framed cocycle compatibility",
+      "nodes": [
+        "HabiroCohomologyFoundations:HQ.1/descent-global-etale",
+        "HabiroCohomologyFoundations:HQ.1/descent-coherent-framed",
+        "HabiroCohomologyFoundations:HQ.1/descent-etale-sheaf"
+      ]
+    },
+    {
+      "target": "Derived quotient-stack comparison for modified q-connections",
+      "nodes": [
+        "HabiroCohomologyFoundations:HQ.1/descent-torus-scaling",
+        "HabiroCohomologyFoundations:HQ.1/descent-derived-modified",
+        "HabiroCohomologyFoundations:HQ.1/descent-derived-quotient",
+        "HabiroCohomologyFoundations:HQ.1/descent-heart-perfect"
+      ]
+    }
+  ],
+  "restructure": [
+    {
+      "action": "rescope",
+      "roadmaps": [
+        "QWittVectors",
+        "PrismaticCohomology",
+        "HabiroCohomologyFoundations"
+      ],
+      "detail": "RT-AREA-etale/28: retain the accepted interim framing owner at HQ.1 while QWittVectors is absent from the assembled atlas; no parallel prefix is planned here.",
+      "proposal": "On promotion, split QW.6 into an independent QW.6:framings prefix, preceding QW.5, and a q-Witt-consuming remainder. The prefix owns coordinate automorphisms, regular division, twisted Leibniz, commuting operators, framed q-de Rham/q-Hodge Koszul complexes and their reduction for I-completely étale framings with I=(q−1) or (p,q−1), with complete flatness/regularity hypotheses. Transfer the existing HQ.1 framing node once, with forwarding ids; HQ.1 and PR.6 import this single prefix, and PR.6 takes its (p,q−1)-complete specialization. PR.6 keeps q-PD envelopes, the q-crystalline site and the Frobenius-twisted comparison with prism ideal [p]_q. Do not give the prefix a QW.5 dependency."
+    },
+    {
+      "action": "rescope",
+      "roadmaps": [
+        "HabiroRings",
+        "HabiroCohomologyFoundations",
+        "QWittVectors"
+      ],
+      "detail": "RT-AREA-etale/32 and accepted RS-10: Λ-ring ownership has a current holder and one promotion destination.",
+      "proposal": "Keep the declaration edge HabiroRings:HR.1/lambda-rings-with-commuting-adams-operations→HQ.1 now. On promotion of QWittVectors replace it with QW.1 and forward the HR.1 id atomically; HR.1 keeps its étale Frobenius applications. Do not plan a second Λ-ring carrier or cite the unpromoted QW.1 as a present atlas supplier."
+    },
+    {
+      "action": "rescope",
+      "roadmaps": [
+        "EnhancedDerivedSheaves"
+      ],
+      "detail": "The specialized qΩ sheaf needs a generic enhanced affine-basis Čech extension, within the direction of E2 cartesian cohomological descent.",
+      "proposal": "EnhancedDerivedSheaves, Part II: if the existing E2 cartesian-descent interface does not cover this target, extend that same owner with affine-basis extension for sheaves valued in complete enhanced module/E∞-algebra categories and its finite Čech section formula. State covering descent separately from unbounded hyperdescent; do not require repleteness for this sheaf-basis construction. HQ.1 only applies that interface."
+    }
+  ],
+  "findingResolutions": [
+    {
+      "finding": "RT-AREA-etale/28",
+      "resolution": "Uses the accepted interim framed complex by id and records the independent shared-prefix transfer; there are no new q-derivative/Koszul nodes."
+    },
+    {
+      "finding": "RT-AREA-etale/29",
+      "resolution": "Imports the ordinary connection definitions and torus heart; adds the coherent derived torus category and quotient comparison. HQ.4 owns the distinct framed Habiro ring/Koszul construction and HQ.3 its descent/comparison and twisted q-dR applications under RS-10; those targets are not duplicated here. Unpublished V5A4 equivalences remain unread and unasserted."
+    },
+    {
+      "finding": "RT-AREA-etale/32",
+      "resolution": "The global descent node explicitly imports the HR.1 Λ-ring node; RS-10’s current-holder and atomic QW.1-promotion convention is recorded."
+    }
+  ],
+  "leanNotes": {
+    "standard": "The suggested file prototypes the torus scaling construction against native pinned Mathlib. A comment inventory gives every other proposed name and full mathematical form; unstatable enhanced conditions are omitted, never replaced by arbitrary propositions.",
+    "baselineAudit": "The reviewed HQ.1 audit reports missing global q-de Rham infrastructure. Pinned source/index searches find no q-connection, quotient-stack, homotopy-fixed-point or derived-completion declarations. Ordinary DerivedCategory and SheafOfModules.IsQuasicoherent do exist and are not replanned; the latter’s local presentation predicate (read in Quasicoherent.lean, lines 204–254) does not supply enhanced quotient descent. TauCeti.ConstantGroup.functionAlgEquiv (read in ConstantGroup/Basic.lean, lines 46–85) assumes a finite group, so it cannot model the discrete lattice group sheaf.",
+    "omittedNodes": [
+      "HabiroCohomologyFoundations:HQ.1/descent-global-etale",
+      "HabiroCohomologyFoundations:HQ.1/descent-coherent-framed",
+      "HabiroCohomologyFoundations:HQ.1/descent-etale-sheaf",
+      "HabiroCohomologyFoundations:HQ.1/descent-derived-modified",
+      "HabiroCohomologyFoundations:HQ.1/descent-derived-quotient",
+      "HabiroCohomologyFoundations:HQ.1/descent-heart-perfect"
+    ]
+  },
+  "planetSelection": {
+    "scope": "HabiroCohomologyFoundations:HQ.1",
+    "selected": [
+      "HabiroCohomologyFoundations:HQ.1/rationalised-q-crystalline-comparison",
+      "HabiroCohomologyFoundations:HQ.1/the-global-q-de-rham-complex",
+      "HabiroCohomologyFoundations:HQ.1/the-coordinate-dependent-q-de-rham-complex",
+      "HabiroCohomologyFoundations:HQ.1/modules-with-framed-q-connection",
+      "HabiroCohomologyFoundations:HQ.1/descent-global-etale",
+      "HabiroCohomologyFoundations:HQ.1/descent-derived-quotient"
+    ],
+    "assemblyInstruction": "The two new planets join these four inherited planets for six in the assembled HQ.1 layer. Keep the inherited properties and derived-commutative-lift nodes as declarations but do not display them as additional planets in the assembly. This follow-up does not edit their accepted packet."
+  }
+}
