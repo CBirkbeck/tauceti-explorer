@@ -1,5 +1,5 @@
 import Mathlib.NumberTheory.Divisors
-import Mathlib.Data.Nat.Factorization.Defs
+import Mathlib.Data.Nat.Factorization.Basic
 import Mathlib.CategoryTheory.Category.Preorder
 import Mathlib.AlgebraicTopology.Quasicategory.Nerve
 import Mathlib.RingTheory.Polynomial.Cyclotomic.Basic
@@ -63,12 +63,16 @@ theorem vertex_nonempty {m : ℕ} (hm : 0 < m) (S : Index m) :
     S.val.Nonempty := by
   sorry
 
-/-- Every strict comparison has singleton source and maximal-chain target. -/
+/-- The index uses the inherited inclusion order, not divisibility of members. -/
+theorem le_iff_subset {m : ℕ} (S U : Index m) : S ≤ U ↔ S.val ⊆ U.val := by
+  sorry
+
+/-- Packet lemma `finite-index-height-one`: every strict comparison has singleton source. -/
 theorem height_one {m : ℕ} (hm : 0 < m) (S U V : Index m)
     (hSU : S.val ⊆ U.val) (hUV : U.val ⊆ V.val) : S = U ∨ U = V := by
   sorry
 
-/-- Each prime edge lies in exactly one maximal chain and is consecutive there. -/
+/-- Packet lemma `prime-edge-factorisation`: unique consecutive-chain coordinates. -/
 theorem primeEdge_factorisation {m p d : ℕ} (hm : 0 < m) (hp : p.Prime)
     (hpd : p * d ∣ m) :
     ∃! t : ℕ × ℕ,
@@ -94,6 +98,11 @@ example : vertices 6 = {{1}, {2}, {3}, {6}, {1, 2}, {3, 6}, {1, 3}, {2, 6}} := b
 
 /-- Unit test `CyclotomicIndex.test_not_pair_four`: surviving intersection ≠ index vertex. -/
 example : ({1, 4} : Finset ℕ) ∉ vertices 4 := by
+  sorry
+
+/-- Unit test `CyclotomicIndex.test_incomparable_singletons`: 1 ∣ 2 gives no index arrow. -/
+example (S U : Index 2) (hS : S.val = {1}) (hU : U.val = {2}) :
+    ¬ S ≤ U ∧ ¬ U ≤ S := by
   sorry
 
 end CyclotomicIndex
@@ -146,10 +155,14 @@ For f = q^m - 1 and all nonempty divisor subsets S:
 (iii) A coherent section (M_S) has f-complete finite limit M; each canonical
 L_(I_S)(M) → M_S is an equivalence.
 These are natural on enhanced diagram categories. The proof uses the
-factorization already in Mathlib, repeated derived cofibres, derived Nakayama,
+factorization already in Mathlib, the DD.1 completion-unit comparison
+N/(g_1,...,g_r) equivalent to (L_I N)/(g_1,...,g_r) for derived Koszul
+reductions, repeated derived cofibres, derived Nakayama,
 L_(Phi_a)L_(I_S) equivalent to L_(I_(S union {a})), exact finite-limit
 preservation and the stable cubical contraction requested from E0.
 No underived quotient or infinite-limit-preservation assertion replaces it.
+Reduction invariance supplies N/Phi_d equivalent to (L_(Phi_d) N)/Phi_d;
+only then does joint conservativity use Nakayama on the f-complete N.
 
 Missing signature: the complete enhanced category and its natural-transformation
 and equivalence API, supplied by DD.1 and E0/E3. The parent general descent
@@ -189,6 +202,10 @@ Exact omitted tests:
 * `CyclotomicReconstruction.test_four`: the {1,4} comparison at m = 4 is
   h_(2,1) composed with h_(2,2), with no third independent gluing datum.
 
+The fixed-category underlying-object limit criterion is HA 3.2.2.4, obtained
+from HA 3.2.2.3 with D^tensor = O^tensor; it is distinct from commuting CAlg
+with a limit of varying monoidal categories.
+
 Missing carriers: coherent algebra sections, enhanced finite homotopy limits,
 complete E-infinity algebras, functors, adjunction data and contractible solution
 spaces; supplied by E0/E3/E5:abstract and DD.1. An ordinary CommRingCat limit
@@ -205,6 +222,9 @@ u(f)_(p,d) = f_d^hat_p composed with h^E_(p,d),
 v(f)_(p,d) = h^F_(p,d) composed with f_pd^hat_p.
 Then Map(E,F) is naturally equivalent to the homotopy equalizer
 V ×_(W×W) W^(Delta^1), using endpoint evaluation on the path space.
+The E0 supplier must furnish mapping spaces in coherent-section limits and
+the height-one incidence formula, with specified paths and higher simplices;
+eliminating each chain-component map leaves successive prime-edge paths.
 A reconstructed map is an equivalence iff all singleton components are.
 At m = 1, W is terminal and the formula is Map(E_1,F_1).
 At m = p it includes one path; at m = 6 it includes four independent edge
