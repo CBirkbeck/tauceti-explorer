@@ -1,107 +1,145 @@
-# Handoff: BP-DerivedDeRhamCohomology
+# BP-DerivedDeRhamCohomology — completed planning pass
 
-Agent: Codex — codex-7e92bd. Refs #708.
-Winning claim: 5850278899; bot confirmation: 5850279973.
-The entire issue was read before and after confirmation. No git commands used.
+Issue #708, claimed by Codex with session `codex-4pmoDm` on 6 October 2026.
+This is one job and a complete target-level planning pass, not a checkpoint.
+The independent review has not been performed. No declaration is implemented.
 
-## Checkpoint, not completion
+## Deliverables and coverage
 
-The packet retains all seven reviewed decomposition IDs and all DD.0–DD.6.
-It contains 27 nodes, 30 API entries, 31 tests,
-7 planets and 27 source-checked baseline declarations.
-Twenty new nodes give the ordinary symbol presentation, base-linear differential,
-its square-zero and graded Leibniz proofs, semilinear pullbacks, functorial
-complex maps and Frobenius scalar linearity. There are 8 gaps,
-1 exact supplier request and 3 proposed source findings.
+The packet, reader and suggested file cover DD.0–DD.6 under the accepted RS-01
+ownership. All 27 checkpoint node IDs are retained. Every scoped target is
+assigned to a declaration family in `targetCoverage`; every stage is `planned`.
+None is `closed`: 12 precise proof/signature gaps and 12 supplier requests remain.
+The protocol's target-level stop condition is met; proof-lemma decomposition is
+follow-up work rather than an unfinished breadth-first pass.
 
-DD.2/DD.3 are partial. DD.0/DD.1/DD.4/DD.5/DD.6 are not_read in the sense
-that their full target proofs were not source-decomposed. Their owner text,
-audit leads and applicable author errata were read; no scoped target is dropped.
-The existing seven nodes are enriched with dependencies, API/tests and explicit
-limits. The polynomial Cartier node is classified as a theorem for its canonical
-isomorphism statement and planet; its ID and mathematical target are retained.
-The old independent review is provenance only, not approval of this packet.
+The packet contains 132 nodes: 16 definitions, 34 constructions, 14 lemmas,
+13 comparisons, 50 theorems and 5 applications. It contains 190 API items,
+151 unit tests, 39 planets and 45 pinned baseline declarations. Each definition
+and construction has uses, API contracts and at least three tests. The reader
+includes every statement, prerequisite, source, proof route, API and test.
 
-## Read evidence
+The suggested file contains all declaration/API/test names. Twenty inherited
+ordinary differential-algebra nodes keep their precise Kähler/exterior-power
+forms. The remaining 112 nodes have underlying ordinary derived-category,
+complex, ring, monoid or scheme forms, with their full mathematical contracts
+in comments. The completed reader explicitly distinguishes these carrier views
+from the full enhanced contracts.
 
-- The entire owner README, all seven exact atlas descriptions, integrated
-  decomposition (all nodes, links, gaps and review), identical expansion draft,
-  applicable RS-01 result and its relevant ownership report, and all 69 relevant
-  link-screen entries were read. The full RS-01 prose report was not newly read.
-- The reviewed library coverage has no direct DD entries. All seven DD records
-  of pending AUDIT-36 were read as unreviewed leads, followed by the actual pinned
-  statements used in this packet. The absence of a reviewed DD audit is explicit.
-- GrothendieckEulerForms and JacobianChallenge upstream documents were previously
-  read completely and byte-matched unchanged. Binding protocols were also
-  byte-matched to the previously read copies.
-- Bhatt arXiv:1204.6560v1 printed pp.3–8 were read in full, including proofs.
-  Pages 5–7 were visually inspected. The PDF hash is in the packet; the earlier
-  decomposition's extraction hash is a different artifact. The BMS1 source entry
-  is inherited provenance, not a new reading claim.
-- Stacks 0FKF was read completely, including both lemmas and comments; 0H1C
-  was read and its omitted proof noted. All 432 lines of Riou's proposed
-  DeRham.lean at head 5888c0081ba867ede5c60d3060f2d674d932b53c were read.
-  Its generic presentation additions are not in the pinned baseline.
-- All pages of Illusie I/II author errata and the BO 2013 erratum were read,
-  hashed and made binding in the continuation. The full original books were
-  not read. Three Bhatt mathematical misprints are scoped to the rendered v1;
-  arXiv history/author page/correction searches found no correction, but novelty
-  is unestablished. The findings require independent review.
+## Checks and compilation
 
-## Typed coverage and checks
+- `python3 scripts/check_blueprint.py research/blueprint/packets/DerivedDeRhamCohomology.json --json`:
+  0 errors and 0 warnings, with the supplied pinned declaration index.
+- Recursive fine-node dependency audit: 162 reachable nodes, 779 edges,
+  78 baseline leaves; no unresolved reference and no fine-node cycle. Stage
+  requests are scoped leaves, not an assertion that an entire supplier is closed.
+- All new downloaded-source excerpts matched their literal source text.
+  Index/sign and log-base-change findings were also inspected at their locators.
+- Retained-ID, target-family, API/test-name, unchecked-status, planet and
+  authorized-file checks passed. Packet and reader contain mathematical
+  specifications and no implementation code.
+- The final `lean-check research/blueprint/suggested/DerivedDeRhamCohomology.lean`
+  passed: 0 errors, 463 admitted-declaration warnings and no other warnings.
+  The final concrete tests include dual numbers, the non-lci square-zero
+  quotient, Laurent polynomials and the existing p-adic integers.
 
-The twenty new nodes, twenty-one API entries and twenty-two tests are typed.
-The seven inherited nodes, nine APIs and nine tests are only mathematical
-continuation comments. Their missing enhanced/animated/filtered carriers are
-not replaced by `Prop` fields, opaque fake carriers or assumed comparison maps.
-The suggested file uses `sorry` for every proposed proof and remains unchecked.
+Compilation used the pre-existing pinned Mathlib build, with the pre-existing
+Tau Ceti semilinear Kähler object in a read-only search path. The default shared
+Tau Ceti build lacks that object. No Lake project, dependency update, cache
+fetch, library build or language server was started. The exact pinned Mathlib
+commit is `082e2d37e8b0463410cdb532e111cd43d5a66174`; relevant Tau Ceti
+sources were compared with `f790474821cf4256814db967cb154e7af3d0c369`.
+The pre-existing `MapSemilinear.lean` source SHA-256 is
+`45f031ab561bf5bd7904b60ffc8bd649efdcc85211198aab6e7732e4614f3b7d`;
+its object SHA-256 is
+`ea1c064564095c6ee21ecaed521ab3db38822d5055a2f27e2194f6c0131e49d8`.
+A future elaboration should use the existing pinned shared artifacts, with
+that object visible, rather than rebuild the libraries.
 
-The complete suggested file compiled with Lean 4.34.0-rc2: zero errors and
-63 warnings, all declarations using `sorry`. The twenty ordinary nodes,
-twenty-one API items and twenty-two tests are the typed portion. The imported
-Tau Ceti Kähler module was freshly built from f790474; all 2,066 reached
-Mathlib source files were byte-matched to 082e2d3.
+## Binding corrections and owner boundaries
 
-The blueprint checker reports zero errors/warnings; four-file intake reports
-zero problems. Source-finding/version checks pass. The internal graph is acyclic
-with 56 edges. Traversing explicit supplier-node paths found no return to this
-packet; this is not a global stage-cycle certificate. All API/test names agree
-between packet, reader and typed declarations or clearly labelled omissions.
-Snapshot mutation audit found no changes outside the authorized deliverables.
+DD.4 alone owns the natural filtered derived-to-classical crystalline/PD
+comparison and its flat/lci isomorphism range. CR.0/CR.2 provide ordinary PD
+and site/Poincaré inputs; CR.4 supplies only its early classical smooth
+WΩ/Nygaard prefix. DD.5 provides the QRSP covers and Čech calculation needed
+by DD.4. DD.3 provides Cartier control used by DD.5. DD.4 supplies RT.6.
 
-Final publication guard matched all 52 captured inputs at main
-`e5406e227bdad9e82b8d66e3036473bb7041077b` after the reviewed register refresh. It also confirmed the unchanged
-issue body, winning bot claim and absence of all four output files. The refreshed
-register's two known Bhatt pp.32–33 findings were imported without claiming a
-fresh source reading. The current M.5d consumer packet matched the previously
-read submitted file byte for byte. Its absolute-base comparison remains a gap.
+RT-padic-2/35 is handled by the explicit Q0 → DD.5 prerequisite. The early Q0
+fine node with the historical slug
+`semiperfectoid-quasisyntomic-and-qrsp-rings` supplies integral perfectoid rings
+only after RS-01. DD.5 owns QSyn and QRSP. Its elementary root cover is
+independent of Q3 and of the later animated perfectoid applications.
 
-## Resume at the exact gaps
+The confirmed RT-padic-2/7 correction is incorporated: a strict quotient alone
+is not G-lci. The log-smooth Cartier factor must be followed locally by a
+strict **regular-sequence** quotient, with flat nilpotent-p endpoints in the
+finite comparison theorem. Filtered extensions need compatible regular
+presentations. RT-padic-2/36's single-comparison ownership is respected.
 
-1. Complete the direct symbol-presentation proof on the pinned modules. Show
-   both kernel inclusions; derive cross-term antisymmetry by polarizing diagonal
-   relations, including characteristic two. The restriction-of-scalars
-   presentation combinator exists, but the lifting data must be supplied.
-2. Extend the fixed-base pullback to arbitrary commutative base-ring squares,
-   prove the ordinary tensor-base-change comparison and the polynomial Künneth
-   decomposition with signs (Stacks 10.132.1; Bhatt 2.7). The current complex
-   map is for A-algebra homomorphisms, and does not claim that larger scope.
-3. Use EDS E5:animation's precise request and its existing enhanced-tensor and
-   Kan-extension nodes. Build DD.0 cotangent/derived powers and DD.1 filtered
-   completion independently; no reverse dependency on DD applications.
-4. Split polynomial Cartier into its one-coordinate calculation, W₂ lift and
-   p-division, tensor products, filtered colimits and independence of lift.
-   Read its cited Illusie/Deligne–Illusie proof interiors. Then prove the smooth
-   and arbitrary-field scope required by M.5d; the inherited polynomial theorem
-   alone does not discharge that consumer.
-5. Finish filtered realization, resolution independence, Hodge graded and
-   completed comparison, descent and convergence. Preserve the Q[t,t⁻¹]
-   counterexample to unrestricted uncompleted smooth comparison.
-6. Read and decompose all remaining Bhatt, BMS1/BMS2, Bhatt–Lurie and log source
-   targets listed for DD.0–DD.6. DD.4 comparison retains lci/flatness; DD.5 uses
-   the independent elementary compatible-root covers; DD.6 imports CR.5's early
-   log algebra and retains G-lci/Cartier-type hypotheses and Example 7.23.
+Hodge and conjugate graded pieces both carry [−i], with unshifted derived
+powers. Full de Rham complexes are base-linear, not target-linear. BMS2's
+filtered grading, Beilinson Ext shift and Nygaard **graded** injection are
+corrected. The log tensor expression is corrected over the original base.
 
-The reader gives every scoped target and the same gap inventory. No other job's
-files are deliverables. Open a checkpoint PR with only this packet, reader,
-suggested file and handoff; opening it ends the claim, so do not unclaim afterward.
+## Source review and limits
+
+The packet records 24 sources and their actual read sections. This run read
+Bhatt pp.4–38, the routed cotangent/completion and algebraization arguments,
+BMS2's relevant completion, filtered, PD/derived-Witt and descent sections,
+Bhatt–Lurie's appendices, Gwilliam–Pavlov, the relevant Stacks sections,
+Avramov/Iyengar, and Koshikawa–Yao §§2–3. The CMM p-basis locator is PDF
+pp.39–40, not p.52. The two upstream roadmap documents read were
+GrothendieckEulerForms and JacobianChallenge.
+
+There are 11 `sourceIssues`: three inherited, the binding G-lci correction,
+and seven further index/sign/base-change or naming findings. New findings
+await independent verification. BMS2 findings were collated with the Numdam
+version of record and arXiv v2. Bhatt's affected author-copy passages retain
+the regular-quotient and Wilson-sign slips.
+
+Koshikawa–Yao's published 2025 PDF was not served. Its three §2 findings are
+scoped only to arXiv v1. The October 2026 corrigendum metadata/abstract names
+later Theorems 7.35–7.36; its unavailable full text is not asserted to settle
+those §2 findings. Original Illusie/Berthelot–Ogus book proofs were not fully
+available. Inherited author-erratum fingerprints/access dates remain identified;
+no book-proof coverage or novelty claim is manufactured.
+
+## Where the open-stage follow-ups resume
+
+Read each stage's `remaining` list and the exact affected nodes in `gaps`.
+Resolve suppliers in their owners, preserving the early-prefix order.
+
+1. **DD.0:** Cohen-factorization/lci converse interiors, integral derived-power
+   décalage with the Illusie corrections, and SAG's reverse F-finiteness theorem.
+2. **DD.1:** full Noetherian Artin–Rees pro-zero proof and any explicitly
+   hypothesised weak-proregular extension.
+3. **DD.2–DD.3:** corrected arbitrary-resolution and rational Hodge-comparison
+   interiors, enhanced coherent filtered structures, and full convergence forms.
+4. **DD.4:** Scholze–Weinstein's PD root-torsion input, regular-ring
+   perfection/Popescu–Kunz route, and exact early CR.0/CR.2/CR.4/AI.0/period
+   suppliers. Keep inversion inside the finite Hodge quotients before taking
+   the rational period limit. Reuse registered torsion corrections E17/E18.
+5. **DD.5:** perfect lifting of compatible finite-p perfect systems and the
+   nonnoetherian coherent-cohomology/formal-geometry supplier contracts.
+   Uncompleted p-de Rham descent retains its relative-QSyn or specified
+   Z_p/integral-perfectoid big-slice hypotheses.
+6. **DD.6:** original Gabber–Olsson and exactification/PD proofs, compatible
+   filtered G-lci/Fontaine presentations, and the two-sort completed log-root
+   descent argument. Preserve general prelog monoids and the actual
+   P-flat → P/P× surjectivity requirement.
+7. **Every stage:** replace the deliberately smaller prototype views by full
+   signatures once EDS/CR suppliers can express them. Ordinary Hom sets give
+   only π₀ of mapping spaces. Filtered diagrams omit enhanced coherence.
+   Tensor, scalar extension and PD/site/period operators are actual-data
+   parameters with their missing identification hypotheses omitted. QSyn's
+   prototype shows amplitude only, QRSP adds mod-p semiperfectness only, and
+   corrected G-lci shows only the regular-kernel clause. The negative Z_p/QRSP
+   test uses its missing p-th root of p; it never falsely excludes Z_p from
+   the weaker amplitude predicate. Universal-property views retain only their
+   expressible uniqueness/evaluation components.
+
+Review the 31 accepted-target groups and all 11 source findings first. The
+pass is ready for its independent mathematical review; open-stage work follows
+that review rather than a second claim by this session. The scratch research
+and generators are disposable: all persistent mathematical inputs, limitations,
+checks and resume points are in these four deliverables.
