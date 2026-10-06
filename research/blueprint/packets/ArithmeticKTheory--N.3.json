@@ -6,7 +6,7 @@
     "ArithmeticKTheory:N.3"
   ],
   "status": "complete",
-  "summary": "Finished target-level number-field pass following the accepted N.1 packet. Reuses all six finiteness/rank endpoints and the rank filtration/building machinery. Adds seven missing declarations for finite-rank homology, precise stabilization, stable finite type, finite localization defects and the specified rational comparison with extension/transfer coherence. N.3 is planned, not closed: two precise topology supplier requests remain; inherited supplier implementations and review boundaries are explicit. No function-field targets are added.",
+  "summary": "Finished target-level number-field pass following the accepted N.1 packet. Reuses all six finiteness/rank endpoints and the rank filtration/building machinery. Adds seven missing declarations for finite-rank homology, precise stabilization, stable finite type, finite localization defects and the specified rational comparison with extension/transfer coherence. N.3 is planned, not closed: one precise topology supplier request and explicit finite-type ownership and suggested-signature gaps remain; inherited supplier implementations and review boundaries are explicit. No function-field targets are added.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -123,6 +123,7 @@
       "accessed": "2026-10-06",
       "readSections": [
         "IV.1.12–1.18, book pp.269–271, finite-field table and order/number-field Borel ranks.",
+        "IV.6.3–6.3.3, book pp.320–321, natural-isomorphism invariance and the distinction between projective K-transfer and coherent G-transfer.",
         "IV.6.8–6.9, book p.325, Quillen finite-generation criterion.",
         "IV.7.1–7.2, book pp.328–329, Q/plus comparison statement and comparison proof setup (generic comparison remains imported).",
         "V.6.1–6.1.3, book p.406, finite localization exact sequence.",
@@ -228,7 +229,7 @@
         },
         {
           "sourceId": "Kahn.2014",
-          "locator": "§§4.3.3–4.3.4, pp. 17–18, with §2.4.1",
+          "locator": "§§4.3.3–4.3.4, p. 17 (Vogel proof continues on p. 18), with §2.4.1",
           "match": "Kahn identifies the E¹ terms and compares the relative exact sequences to Quillen’s. His notation is translated using zero in negative group-homology degrees."
         }
       ],
@@ -554,8 +555,8 @@
       "sources": [
         {
           "sourceId": "Weibel.2013",
-          "locator": "V.6.6.3–6.6.4, book p. 410 (PDF p. 418); IV.6.3.3 transfer functor",
-          "match": "The source constructs the transfer square from compatible exact functors. Applying the same finite-projective restriction functors to the finite-S localization square proves the displayed rational refinement; extension is tensor associativity."
+          "locator": "V.6.6.3–6.6.4, book p. 410 (PDF p. 418); IV.6.3–6.3.2, book p. 320 (PDF p. 328), natural-isomorphism invariance and projective-module transfer",
+          "match": "V.6.6.3–6.6.4 constructs the localization transfer square from compatible exact functors. IV.6.3.2 supplies restriction-of-scalars transfer for finite-projective ring extensions; IV.6.3 says naturally isomorphic exact functors induce the same K-map. Apply these to the finite-S base-change square; extension uses tensor associativity. IV.6.3.3 alone is the coherent-module G-transfer, not the projective-module transfer needed here."
         }
       ],
       "library": {
@@ -618,6 +619,10 @@
     {
       "supplier": "KTheoryFiniteLocalFields:L.1/quillen-k-groups",
       "note": "Use the exact finite-field computation node, not a duplicated computation here. Its packet has no recorded independent acceptance; this is a planned supplier, not a baseline theorem."
+    },
+    {
+      "supplier": "K2SymbolsBrauer:T.5/k2-of-the-integers",
+      "note": "Only the integral side of the degree-two test imports K₂(ℤ) ≃ ℤ/2. That supplier records an unread Milnor §10 upper-bound input; this test is planned, not compiled or established by the present packet. Rational vanishing does not compute the integral torsion."
     }
   ],
   "requests": [
@@ -628,29 +633,46 @@
         "ArithmeticKTheory:N.3/rank-filtration-homology-stability",
         "ArithmeticKTheory:N.3/stable-Q-homology-finite-type"
       ]
-    },
-    {
-      "supplier": "StableHomotopyKTheory:H.3",
-      "need": "StableHomotopyKTheory, Part II: for a connected pointed CW-type homotopy associative H-space with homotopy unit, prove simplicity (abelian π₁, trivial action on higher π), and that all-degree integral homology finite generation implies all π_j, j≥1, finitely generated. Nonzero π₁ must be allowed. Supply the Postnikov/Serre-class proof using the upstream CW, covering, Hurewicz and Serre inputs. This extends H.3’s plus/simple-space direction rather than claiming its current stage already states the theorem. It corrects the parent’s old H.6 request, which is outside the narrowed H.6 scope.",
-      "neededBy": [
-        "ArithmeticKTheory:N.3:finite-generation/quillen-finiteness-criterion",
-        "ArithmeticKTheory:N.3:finite-generation/quillen-finite-generation-theorem"
-      ]
     }
   ],
   "coverage": [
     {
       "stageId": "ArithmeticKTheory:N.3",
       "status": "planned",
-      "note": "Every number-field target in N.3 and its finite-generation/ranks descriptions is supplied by a reused parent node or precise supplier, with this packet refining the missing key homology and map-level steps. The two topology requests prevent closure; all declarations remain implementationStatus unchecked.",
+      "note": "The six inherited number-field endpoints and seven refinements give a finished target-level planning pass. The H.1 request, unassigned generic H-space extension and missing typed suggested declarations prevent closure. The parent’s stale H.6 edge remains an explicitly recorded external boundary. All declarations remain implementationStatus unchecked; review needs_changes concerns §13, not an assertion that the seven mathematical statements are false.",
       "remaining": [
         "Obtain H.1’s natural integral homology comparison for the filtered union, then replace the stage prerequisite by its declaration node.",
         "Obtain the proposed StableHomotopyKTheory Part II finite-type theorem with possibly nonzero π₁; reconcile the parent’s stale H.6 edge through the authorized integration/review process.",
-        "Close inherited parent supplier requests using reviewed nodes: Borel R.1 Steinberg finite type, R.3 order ranks, K.1/K.2:plus genuine carriers, K.3 localization/transfer, low-degree projective classification and K₁/S-unit identification. The present follow-up does not edit those packets."
+        "Close inherited parent supplier requests using reviewed nodes: Borel R.1 Steinberg finite type, R.3 order ranks, K.1/K.2:plus genuine carriers, K.3 localization/transfer, low-degree projective classification and K₁/S-unit identification. The present follow-up does not edit those packets.",
+        "Replace the comment-only signature register by the actual typed declarations, API signatures and examples required by §13, without surrogate carriers; reconcile the reader in an authorized revision."
       ]
     }
   ],
-  "gaps": [],
+  "gaps": [
+    {
+      "title": "Unassigned finite-type connected H-space extension",
+      "neededBy": [
+        "ArithmeticKTheory:N.3:finite-generation/quillen-finiteness-criterion",
+        "ArithmeticKTheory:N.3:finite-generation/quillen-finite-generation-theorem"
+      ],
+      "detail": "Needed statement: StableHomotopyKTheory, Part II: for a connected pointed CW-type homotopy associative H-space with homotopy unit, prove simplicity (abelian π₁, trivial action on higher π), and that all-degree integral homology finite generation implies all π_j, j≥1, finitely generated. Nonzero π₁ must be allowed. Supply the Postnikov/Serre-class proof using the upstream CW, covering, Hurewicz and Serre inputs. This extends H.3’s plus/simple-space direction rather than claiming its current stage already states the theorem. It corrects the parent’s old H.6 request, which is outside the narrowed H.6 scope. RS-33 H.3 currently owns plus constructions, not this general finite-type theorem. Consequently H.3 is not a valid supplier request under §3, and no supplying declaration or assigned extension stage is available. This review records the need as a gap and retains the Part II proposal; it does not assign a new stage. The parent criterion still lists H.6, which also fails to cover this need after RS-33. That parent edge and its request require a separate authorized revision. Until then the six reused endpoints retain this explicit unresolved proof boundary.",
+      "addedBy": "REV-ArithmeticKTheory--N.3"
+    },
+    {
+      "title": "Typed suggested declarations, API and examples are missing",
+      "neededBy": [
+        "ArithmeticKTheory:N.3/finite-rank-Q-homology",
+        "ArithmeticKTheory:N.3/rank-filtration-homology-stability",
+        "ArithmeticKTheory:N.3/stable-Q-homology-finite-type",
+        "ArithmeticKTheory:N.3/finite-S-localisation-defect",
+        "ArithmeticKTheory:N.3/canonical-rational-S-integer-equivalence",
+        "ArithmeticKTheory:N.3/canonical-rational-equivalence-map",
+        "ArithmeticKTheory:N.3/rational-localisation-extension-transfer"
+      ],
+      "detail": "All seven planned declarations, the construction’s eight API entries and five arithmetic examples appear only in a block comment. The nine compiled native examples do not state them. PROTOCOL §13 requires actual typed declarations and examples with honest proof placeholders. Genuine Q-filtration homology and higher-K carriers/maps are not supplied by the pinned libraries. A revision must prototype using the owning interfaces, omit only genuinely unstatable conditions with an explanation, and preserve the actual maps and arithmetic meaning; arbitrary replacement modules, opaque K-types or proposition-valued stand-ins are not a remedy. If the owning carrier cannot be used within the revision, obtain a specific protocol decision rather than claiming comments satisfy §13.",
+      "addedBy": "REV-ArithmeticKTheory--N.3"
+    }
+  ],
   "restructure": [
     {
       "action": "rescope",
@@ -662,8 +684,102 @@
     }
   ],
   "upstreamNotes": [],
-  "sourceIssues": [],
+  "sourceIssues": [
+    {
+      "id": "ArithmeticKTheory/E25",
+      "source": "Kahn.2014",
+      "kind": "misprint",
+      "locator": "arXiv:1108.2441v3, Proposition 4.2.4 proof, p. 16, paragraph beginning On the other hand; rendered page checked.",
+      "printed": "j*E = j*(E ∩ j*F)",
+      "correction": "j*F = j*(E ∩ j*F)",
+      "reason": "The preceding generic-fibre calculation gives (E ∩ V)_K = V. With V = F_K this is (E ∩ F_K)_K = F_K, not E_K. For E = O_X and the pure subsheaf F = 0, the printed left side is K and the right side is 0. Replacing E by F makes the next exactness step proving the quotient has zero generic fibre valid.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "arXiv https://arxiv.org/abs/1108.2441 submission history: v3 dated 2 July 2014 is the latest listed version, checked 6 October 2026.",
+        "Author-hosted https://webusers.imj-prg.fr/~bruno.kahn/preprints/Quillen-Dedekind3.pdf, dated 9 August 2011: earlier numbering; §3.2.4 still has the generic-fibre index slip; its Vogel paragraph has no Serre-fibration replacement sentence.",
+        "Author publication page and web searches for Around Quillen’s theorem A errata and the generic-fibre correction; no correction located.",
+        "Existing blueprint packets and source-issue register searched for these two passages; neither already recorded."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The rendered v3 page contains E; the zero pure subsheaf disproves the printed equality and the preceding calculation supplies the intended F equality. The proposition and downstream rank comparison remain valid.",
+        "by": "REV-ArithmeticKTheory--N.3"
+      }
+    },
+    {
+      "id": "ArithmeticKTheory/E26",
+      "source": "Kahn.2014",
+      "kind": "misprint",
+      "locator": "arXiv:1108.2441v3, §4.3.4 Vogel argument, p. 18, first paragraph; rendered page checked.",
+      "printed": "The source names the construction a Serre “fibtration”.",
+      "correction": "Serre fibration",
+      "reason": "The argument replaces the map by a Serre fibration and immediately uses its fibration of pairs and the Leray–Serre spectral sequence. The printed word is a spelling slip, not a different construction.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "arXiv https://arxiv.org/abs/1108.2441 submission history: v3 dated 2 July 2014 is the latest listed version, checked 6 October 2026.",
+        "Author-hosted https://webusers.imj-prg.fr/~bruno.kahn/preprints/Quillen-Dedekind3.pdf, dated 9 August 2011: earlier numbering; §3.2.4 still has the generic-fibre index slip; its Vogel paragraph has no Serre-fibration replacement sentence.",
+        "Author publication page and web searches for Around Quillen’s theorem A errata and the generic-fibre correction; no correction located.",
+        "Existing blueprint packets and source-issue register searched for these two passages; neither already recorded."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The rendered v3 page and extracted text both contain fibtration; the subsequent fibration-of-pairs argument identifies the intended word.",
+        "by": "REV-ArithmeticKTheory--N.3"
+      }
+    }
+  ],
   "review": {
-    "status": "unreviewed"
-  }
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-ArithmeticKTheory--N.3",
+    "date": "2026-10-06",
+    "notes": "Completed independent review of all seven nodes, six reused endpoints, fourteen exact-pin baseline statements, sources, supplier contracts, closure boundaries, eight API entries, five tests, two planets and the reviewed library audit. Corrected the Kahn excerpt and projective-transfer locator; converted the out-of-scope H.3 request to an explicit ownership gap; recorded and confirmed two harmless preprint misprints. Mathematical statements are verified or corrected. Return for §13: all seven planned declarations and arithmetic API/tests are comments, so compilation of nine native examples does not validate their signatures. Packet complete/planned is a finished pass, not closure. See research/blueprint/reviews/REV-ArithmeticKTheory--N.3.md.",
+    "checked": [
+      {
+        "nodeId": "ArithmeticKTheory:N.3/finite-rank-Q-homology",
+        "verdict": "verified",
+        "note": "Quillen pp.184–185, finite Pic plus rank/determinant classification, and the integral Steinberg-homology supplier give finite-rank homology. Nonfree projectives and rank one are retained."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.3/rank-filtration-homology-stability",
+        "verdict": "corrected",
+        "note": "Verified the primary rendered p.182 bounds m≥i for surjectivity and m≥i+1 for isomorphism. Corrected the nonliteral Kahn excerpt and locator. Passage to BQ remains the precise H.1 request."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.3/stable-Q-homology-finite-type",
+        "verdict": "verified",
+        "note": "Stabilization at rank i+1 gives finite stable integral homology, not an unjustified finitely generated filtered colimit. The subsequent H-space-to-homotopy theorem is a separate recorded ownership gap."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.3/finite-S-localisation-defect",
+        "verdict": "corrected",
+        "note": "Finite-S localization and finite-field groups give finite defects for n≥2 and even injectivity. Degree one is excluded. Made the actual integer-linear localization map explicit in the suggested register; no typed arithmetic declaration is yet supplied."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.3/canonical-rational-S-integer-equivalence",
+        "verdict": "verified",
+        "note": "Flat rationalization kills finite defects of the specified map; native LinearEquiv.ofBijective retains that map. Eight API entries and five discriminating mathematical tests are sound, but remain comments in the suggested file."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.3/canonical-rational-equivalence-map",
+        "verdict": "verified",
+        "note": "Native ofBijective evaluation plus extensionality proves the forward-map identification. Promotion to a lemma node is justified by the naturality consumer."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.3/rational-localisation-extension-transfer",
+        "verdict": "corrected",
+        "note": "Finite-projective base change and naturally isomorphic exact functors prove both actual map squares, including ramification. Corrected the transfer citation from coherent G-transfer IV.6.3.3 to projective K-transfer IV.6.3.2 and natural-isomorphism invariance IV.6.3."
+      }
+    ]
+  },
+  "sourceVersions": [
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1108.2441v3",
+      "read": "2026-10-06",
+      "sha256": "71b5da651ba9feca4c1abcc58f566afbf11019dda465cbc3a95aace7cb1e2406",
+      "citation": "Bruno Kahn, Around Quillen’s theorem A, arXiv:1108.2441v3 (2 July 2014). Both findings are scoped to this preprint, not an uninspected published version."
+    }
+  ]
 }

@@ -3,6 +3,9 @@ This file is not the roadmap and is not exhaustive. The definitive document is
 research/blueprint/readmes/ArithmeticKTheory--N.3.md. These statements suggest Lean
 forms so contributors and reviewers can converge on names and signatures.
 Every new arithmetic declaration, API item and test is registered below.
+This is an incomplete §13 prototype: the arithmetic register is comment-only,
+so the required typed declarations, API signatures and examples are missing.
+The independent review returns needs_changes for that defect.
 Implementation status is unchecked throughout.
 
 Pins: Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174;
@@ -108,6 +111,8 @@ arbitrary interpretations. Shorthand, fixed only when suppliers are defined:
   QH∞(A,i) = integral singular homology of BQ(P(A))
   hIncl(A,m,i) : QH(A,m,i) →ₗ[ℤ] QH∞(A,i)
   hStep(A,m,i) : QH(A,m,i) →ₗ[ℤ] QH(A,m+1,i)
+  jInt(F,S,T,n) : K(n,S.integer F) →ₗ[ℤ] K(n,T.integer F)
+    = the genuine higher-K map induced by S ⊆ T
   loc(F,S,n) : V(n,𝓞 F) →ₗ[ℚ] V(n,S.integer F)
   locST(F,S,T,n) = rationalized higher-K map of S.integer F → T.integer F
   fieldMap(F,S,n) = rationalized higher-K map of S.integer F → F
@@ -139,11 +144,12 @@ variable (S T : Set (IsDedekindDomain.HeightOneSpectrum (𝓞 F)))
      Function.Bijective (hIncl(𝓞 F,i+1,i)) := by sorry
 
 -- ArithmeticKTheory:N.3/finite-S-localisation-defect
--- j is the genuine higher-K integer-linear map induced by S ⊆ T.
+-- jInt is the genuine higher-K integer-linear map induced by S ⊆ T.
  theorem finite_localisation_defect [Finite S] [Finite T] (hST : S ⊆ T)
      (n : ℕ) (hn : 2 ≤ n) :
-     Finite (LinearMap.ker j) ∧ Finite (K(n,T.integer F) ⧸ LinearMap.range j) ∧
-     (Even n → Function.Injective j) := by sorry
+     Finite (LinearMap.ker (jInt(F,S,T,n))) ∧
+     Finite (K(n,T.integer F) ⧸ LinearMap.range (jInt(F,S,T,n))) ∧
+     (Even n → Function.Injective (jInt(F,S,T,n))) := by sorry
 
 -- ArithmeticKTheory:N.3/canonical-rational-S-integer-equivalence
  noncomputable def rationalSIntegerEquiv [Finite S] (n : ℕ) (hn : 2 ≤ n) :
