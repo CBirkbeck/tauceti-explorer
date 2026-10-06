@@ -47,6 +47,12 @@ Mathlib baseline: 082e2d37e8b0463410cdb532e111cd43d5a66174.
 Tau Ceti baseline: f790474821cf4256814db967cb154e7af3d0c369 (no Tau Ceti module is imported).
 Elaborated with `lake env lean` at the pinned Mathlib; `sorry` is the only warning.
 
+Independent review REV-PELModuli (Codex, codex-FSdtsO, 2026-10-06): needs_changes.
+Elaboration checks syntax and types of admitted statements; it does not establish that they
+express the source mathematics. See the packet review and semantic-fidelity gap. This file
+still contains weakened interfaces requiring repair, notably quasi-isogenies, levels,
+neatness, CM/analytic comparison, universal families and the pinned Tau Ceti carrier imports.
+
 This file is not the roadmap and is not exhaustive. The roadmap document
 `research/blueprint/readmes/PELModuli.md` is definitive. The statements suggest Lean forms so
 that contributors and reviewers converge on names and signatures. They are unproved interfaces,
@@ -117,15 +123,11 @@ structure StarOrder (B : Type*) [Ring B] [Algebra ℚ B] [StarRing B] where
   spans : Submodule.span ℚ (carrier : Set B) = ⊤
   star_mem : ∀ x ∈ carrier, star x ∈ carrier
 
--- TauCeti.PEL.tests.positiveInvolution_rat
-example : PositiveInvolution ℚ := sorry
--- TauCeti.PEL.tests.positiveInvolution_transpose
-example (n : ℕ) : PositiveInvolution (Matrix (Fin n) (Fin n) ℚ) := sorry
--- TauCeti.PEL.tests.not_positiveInvolution_adjugate
-example : ¬ ∀ x : Matrix (Fin 2) (Fin 2) ℚ, x ≠ 0 →
+theorem _root_.TauCeti.PEL.tests.positiveInvolution_rat : PositiveInvolution ℚ := sorry
+theorem _root_.TauCeti.PEL.tests.positiveInvolution_transpose (n : ℕ) : PositiveInvolution (Matrix (Fin n) (Fin n) ℚ) := sorry
+theorem _root_.TauCeti.PEL.tests.not_positiveInvolution_adjugate : ¬ ∀ x : Matrix (Fin 2) (Fin 2) ℚ, x ≠ 0 →
     0 < lmulTrace (Matrix (Fin 2) (Fin 2) ℚ) (x * x.adjugate) := sorry
--- TauCeti.PEL.tests.not_positiveInvolution_id_imaginary
-example : ¬ ∀ x : AdjoinRoot (Polynomial.X ^ 2 + 1 : Polynomial ℚ), x ≠ 0 →
+theorem _root_.TauCeti.PEL.tests.not_positiveInvolution_id_imaginary : ¬ ∀ x : AdjoinRoot (Polynomial.X ^ 2 + 1 : Polynomial ℚ), x ≠ 0 →
     0 < lmulTrace (AdjoinRoot (Polynomial.X ^ 2 + 1 : Polynomial ℚ)) (x * x) := sorry
 
 /-- Albert types of simple factors with positive involution (`M0/albert-types`). -/
@@ -181,13 +183,10 @@ theorem map_star [StarRing B] (O : StarOrder B) (x : B) (hx : x ∈ O.carrier) :
 
 end Order
 
--- TauCeti.PEL.tests.Order.disc_numberField_quadratic
-example : Order.disc ![(1 : AdjoinRoot (Polynomial.X ^ 2 + 1 : Polynomial ℚ)), AdjoinRoot.root _] =
+theorem _root_.TauCeti.PEL.tests.Order.disc_numberField_quadratic : Order.disc ![(1 : AdjoinRoot (Polynomial.X ^ 2 + 1 : Polynomial ℚ)), AdjoinRoot.root _] =
     -4 := sorry
--- TauCeti.PEL.tests.Order.disc_matrix
-example : |Order.disc (fun ij : Fin 2 × Fin 2 => Matrix.single ij.1 ij.2 (1 : ℚ))| = 1 := sorry
--- TauCeti.PEL.tests.Order.disc_nonmaximal
-example : Order.disc ![(1 : AdjoinRoot (Polynomial.X ^ 2 + 1 : Polynomial ℚ)),
+theorem _root_.TauCeti.PEL.tests.Order.disc_matrix : |Order.disc (fun ij : Fin 2 × Fin 2 => Matrix.single ij.1 ij.2 (1 : ℚ))| = 1 := sorry
+theorem _root_.TauCeti.PEL.tests.Order.disc_nonmaximal : Order.disc ![(1 : AdjoinRoot (Polynomial.X ^ 2 + 1 : Polynomial ℚ)),
     2 * AdjoinRoot.root _] = -16 := sorry
 
 /-! ### Symplectic O-lattices and PEL data -/
@@ -196,6 +195,7 @@ example : Order.disc ![(1 : AdjoinRoot (Polynomial.X ^ 2 + 1 : Polynomial ℚ)),
 (`ℤ(1)` identified with `ℤ` by a choice of `√−1`) for which `b` and `b*` are adjoint. -/
 structure SymplecticOLattice (O : Type*) [Ring O] [StarRing O] (L : Type*) [AddCommGroup L]
     [Module O L] where
+  finite : Module.Finite ℤ L
   form : LinearMap.BilinForm ℤ L
   isAlt : form.IsAlt
   nondeg : form.Nondegenerate
@@ -241,19 +241,15 @@ noncomputable def baseChange (R : Type*) [CommRing R] : LinearMap.BilinForm R (R
 
 end SymplecticOLattice
 
--- TauCeti.PEL.tests.SymplecticOLattice.dual_standard
-example (Λ : SymplecticOLattice ℤ (Fin 2 → ℤ))
+theorem _root_.TauCeti.PEL.tests.SymplecticOLattice.dual_standard (Λ : SymplecticOLattice ℤ (Fin 2 → ℤ))
     (h : LinearMap.BilinForm.toMatrix (Pi.basisFun ℤ (Fin 2)) Λ.form = !![0, 1; -1, 0]) :
     Λ.dualIndex = 1 := sorry
--- TauCeti.PEL.tests.SymplecticOLattice.index_type
-example (d : ℤ) (Λ : SymplecticOLattice ℤ (Fin 4 → ℤ))
+theorem _root_.TauCeti.PEL.tests.SymplecticOLattice.index_type (d : ℤ) (Λ : SymplecticOLattice ℤ (Fin 4 → ℤ))
     (h : LinearMap.BilinForm.toMatrix (Pi.basisFun ℤ (Fin 4)) Λ.form =
       !![0, 1, 0, 0; -1, 0, 0, 0; 0, 0, 0, d; 0, 0, -d, 0]) :
     (Λ.dualIndex : ℤ) = d ^ 2 := sorry
--- TauCeti.PEL.tests.SymplecticOLattice.zero
-example (Λ : SymplecticOLattice ℤ (Fin 0 → ℤ)) : Λ.dualIndex = 1 := sorry
--- TauCeti.PEL.tests.SymplecticOLattice.not_symmetric
-example (Λ : SymplecticOLattice ℤ ℤ) : Λ.form ≠ LinearMap.mul ℤ ℤ := by
+theorem _root_.TauCeti.PEL.tests.SymplecticOLattice.zero (Λ : SymplecticOLattice ℤ (Fin 0 → ℤ)) : Λ.dualIndex = 1 := sorry
+theorem _root_.TauCeti.PEL.tests.SymplecticOLattice.not_symmetric (Λ : SymplecticOLattice ℤ ℤ) : Λ.form ≠ LinearMap.mul ℤ ℤ := by
   intro h; have := Λ.isAlt 1; rw [h] at this; simp at this
 
 /-- An integral PEL datum: a symplectic `O`-lattice with a complex structure `J = h(√−1)` on
@@ -285,18 +281,14 @@ theorem ofSubOrder {O' : Type*} [Ring O'] [StarRing O'] (φ : O' →+* O)
 
 end IntegralPELDatum
 
--- TauCeti.PEL.tests.IntegralPELDatum.siegel
-example (g : ℕ) : ∃ D : IntegralPELDatum ℤ (Fin g ⊕ Fin g → ℤ),
+theorem _root_.TauCeti.PEL.tests.IntegralPELDatum.siegel (g : ℕ) : ∃ D : IntegralPELDatum ℤ (Fin g ⊕ Fin g → ℤ),
     LinearMap.BilinForm.toMatrix (Pi.basisFun ℤ (Fin g ⊕ Fin g)) D.form = -Matrix.J (Fin g) ℤ ∧
       D.dualIndex = 1 := sorry
--- TauCeti.PEL.tests.IntegralPELDatum.zero
-example (D : IntegralPELDatum ℤ (Fin 0 → ℤ)) : D.dualIndex = 1 := sorry
--- TauCeti.PEL.tests.IntegralPELDatum.wrong_sign
-example {L : Type*} [AddCommGroup L] (D : IntegralPELDatum ℤ L) (x : ℝ ⊗[ℤ] L) (hx : x ≠ 0) :
+theorem _root_.TauCeti.PEL.tests.IntegralPELDatum.zero (D : IntegralPELDatum ℤ (Fin 0 → ℤ)) : D.dualIndex = 1 := sorry
+theorem _root_.TauCeti.PEL.tests.IntegralPELDatum.wrong_sign {L : Type*} [AddCommGroup L] (D : IntegralPELDatum ℤ L) (x : ℝ ⊗[ℤ] L) (hx : x ≠ 0) :
     D.baseChange ℝ x ((-D.J) x) < 0 := by
   have := D.pos x hx; rw [LinearMap.neg_apply, map_neg]; linarith
--- TauCeti.PEL.tests.IntegralPELDatum.compatible_iff
-example {L : Type*} [AddCommGroup L] (D : IntegralPELDatum ℤ L) (x : ℝ ⊗[ℤ] L) (hx : x ≠ 0) :
+theorem _root_.TauCeti.PEL.tests.IntegralPELDatum.compatible_iff {L : Type*} [AddCommGroup L] (D : IntegralPELDatum ℤ L) (x : ℝ ⊗[ℤ] L) (hx : x ≠ 0) :
     0 < D.baseChange ℝ x (D.J x) := D.pos x hx
 
 /-! ### Rational and p-integral data, the similitude group, good primes -/
@@ -308,6 +300,10 @@ abbrev bAct {B : Type*} [Ring B] [Algebra ℚ B] {V : Type*} [AddCommGroup V] [M
 /-- A rational PEL datum `(B, *, V, ⟨·,·⟩, h)` with `J = h(√−1)` on `ℝ ⊗ V`. -/
 structure RationalPELDatum (B : Type*) [Ring B] [Algebra ℚ B] [StarRing B] (V : Type*)
     [AddCommGroup V] [Module ℚ V] [Module B V] [IsScalarTower ℚ B V] where
+  finite_B : Module.Finite ℚ B
+  semisimple_B : IsSemisimpleRing B
+  positive_B : ∀ b : B, b ≠ 0 → 0 < reducedTrace B (b * star b)
+  finite_V : Module.Finite ℚ V
   form : LinearMap.BilinForm ℚ V
   isAlt : form.IsAlt
   nondeg : form.Nondegenerate
@@ -316,6 +312,8 @@ structure RationalPELDatum (B : Type*) [Ring B] [Algebra ℚ B] [StarRing B] (V 
   J : (ℝ ⊗[ℚ] V) →ₗ[ℝ] (ℝ ⊗[ℚ] V)
   J_sq : J ∘ₗ J = -LinearMap.id
   J_comm : ∀ b : B, J ∘ₗ (bAct (V := V) b).baseChange ℝ = (bAct (V := V) b).baseChange ℝ ∘ₗ J
+  h_adjoint : ∀ x y, LinearMap.BilinForm.baseChange ℝ form (J x) (J y) =
+    LinearMap.BilinForm.baseChange ℝ form x y
   pos : ∀ x : ℝ ⊗[ℚ] V, x ≠ 0 → 0 < LinearMap.BilinForm.baseChange ℝ form x (J x)
 
 /-- A `p`-integral PEL datum: a rational datum with a `*`-stable order maximal at `p` and a
@@ -339,7 +337,11 @@ def toRational (D : IntegralPELDatum O L) : LinearMap.BilinForm ℚ (ℚ ⊗[ℤ
 /-- The rational PEL datum `(B, *, L ⊗ ℚ, ⟨·,·⟩, h)`, for `B = O ⊗ ℚ` given with its action on
 `L ⊗ ℚ` extending that of `O`. -/
 def rationalize (_D : IntegralPELDatum O L) (B : Type*) [Ring B] [Algebra ℚ B] [StarRing B]
-    [Module B (ℚ ⊗[ℤ] L)] [IsScalarTower ℚ B (ℚ ⊗[ℤ] L)] (ι : O →+* B)
+    [Module B (ℚ ⊗[ℤ] L)] [IsScalarTower ℚ B (ℚ ⊗[ℤ] L)]
+    [FaithfulSMul B (ℚ ⊗[ℤ] L)] [Module.Finite ℚ B] [IsSemisimpleRing B]
+    (hBpos : ∀ b : B, b ≠ 0 → 0 < reducedTrace B (b * star b))
+    (ι : O →+* B) (hspan : Submodule.span ℚ (Set.range ι) = ⊤)
+    (hstar : ∀ b : O, ι (star b) = star (ι b))
     (_hι : ∀ (b : O) (x : L), ι b • ((1 : ℚ) ⊗ₜ[ℤ] x) = (1 : ℚ) ⊗ₜ[ℤ] (b • x)) :
     RationalPELDatum B (ℚ ⊗[ℤ] L) := sorry
 
@@ -365,21 +367,17 @@ def centralizer (_D : RationalPELDatum B V) : Subalgebra ℚ (Module.End ℚ V) 
 
 end RationalPELDatum
 
--- TauCeti.PEL.tests.RationalPELDatum.siegel_pIntegral
-example (p : ℕ) [Fact p.Prime] (D : IntegralPELDatum ℤ (Fin 2 → ℤ))
+theorem _root_.TauCeti.PEL.tests.RationalPELDatum.siegel_pIntegral (p : ℕ) [Fact p.Prime] (D : IntegralPELDatum ℤ (Fin 2 → ℤ))
     (h : LinearMap.BilinForm.toMatrix (Pi.basisFun ℤ (Fin 2)) D.form = !![0, 1; -1, 0]) :
     D.toSymplecticOLattice.IsSelfDualAt p := sorry
--- TauCeti.PEL.tests.IntegralPELDatum.toPIntegral_type
-example (p : ℕ) [Fact p.Prime] (D : IntegralPELDatum ℤ (Fin 4 → ℤ))
+theorem _root_.TauCeti.PEL.tests.IntegralPELDatum.toPIntegral_type (p : ℕ) [Fact p.Prime] (D : IntegralPELDatum ℤ (Fin 4 → ℤ))
     (h : LinearMap.BilinForm.toMatrix (Pi.basisFun ℤ (Fin 4)) D.form =
       !![0, 1, 0, 0; -1, 0, 0, 0; 0, 0, 0, (p : ℤ); 0, 0, -(p : ℤ), 0]) :
     ¬ D.toSymplecticOLattice.IsSelfDualAt p := sorry
--- TauCeti.PEL.tests.RationalPELDatum.zero
-example {B : Type*} [Ring B] [Algebra ℚ B] [StarRing B] [Nontrivial B] {V : Type*}
+theorem _root_.TauCeti.PEL.tests.RationalPELDatum.zero {B : Type*} [Ring B] [Algebra ℚ B] [StarRing B] [Nontrivial B] {V : Type*}
     [AddCommGroup V] [Module ℚ V] [Module B V] [IsScalarTower ℚ B V] [Subsingleton V]
     (D : RationalPELDatum B V) : False := sorry
--- TauCeti.PEL.tests.IntegralPELDatum.toRational_injective_fails
-example : ∃ D₁ D₂ : IntegralPELDatum ℤ (Fin 2 → ℤ), D₁.dualIndex = 1 ∧ D₂.dualIndex = 4 ∧
+theorem _root_.TauCeti.PEL.tests.IntegralPELDatum.toRational_injective_fails : ∃ D₁ D₂ : IntegralPELDatum ℤ (Fin 2 → ℤ), D₁.dualIndex = 1 ∧ D₂.dualIndex = 4 ∧
     ∃ e : ℚ ⊗[ℤ] (Fin 2 → ℤ) ≃ₗ[ℚ] ℚ ⊗[ℤ] (Fin 2 → ℤ),
       ∀ x y, D₁.toRational (e x) (e y) = D₂.toRational x y := sorry
 
@@ -426,19 +424,15 @@ theorem similitudeGroup.ofZero (D : RationalPELDatum B V) (R : Type*) [CommRing 
 
 end PELDatum
 
--- TauCeti.PEL.tests.similitudeGroup_siegel_one
-example (A : Matrix (Fin 1 ⊕ Fin 1) (Fin 1 ⊕ Fin 1) ℤ) :
+theorem _root_.TauCeti.PEL.tests.similitudeGroup_siegel_one (A : Matrix (Fin 1 ⊕ Fin 1) (Fin 1 ⊕ Fin 1) ℤ) :
     A.transpose * Matrix.J (Fin 1) ℤ * A = A.det • Matrix.J (Fin 1) ℤ := sorry
--- TauCeti.PEL.tests.similitudeGroup_zero
-example {B : Type*} [Ring B] [Algebra ℚ B] [StarRing B] {V : Type*} [AddCommGroup V]
+theorem _root_.TauCeti.PEL.tests.similitudeGroup_zero {B : Type*} [Ring B] [Algebra ℚ B] [StarRing B] {V : Type*} [AddCommGroup V]
     [Module ℚ V] [Module B V] [IsScalarTower ℚ B V] [Subsingleton V] (D : RationalPELDatum B V)
     (r : ℚˣ) : (LinearEquiv.refl ℚ (ℚ ⊗[ℚ] V), r) ∈ PELDatum.similitudeGroup D ℚ :=
   PELDatum.similitudeGroup.ofZero D ℚ r
--- TauCeti.PEL.tests.isometryGroup_siegel
-example (A : Matrix (Fin 1 ⊕ Fin 1) (Fin 1 ⊕ Fin 1) ℚ) (hA : A ∈ Matrix.symplecticGroup (Fin 1) ℚ) :
+theorem _root_.TauCeti.PEL.tests.isometryGroup_siegel (A : Matrix (Fin 1 ⊕ Fin 1) (Fin 1 ⊕ Fin 1) ℚ) (hA : A ∈ Matrix.symplecticGroup (Fin 1) ℚ) :
     A.det = 1 := sorry
--- TauCeti.PEL.tests.similitudeGroup_not_isometry
-example : (Matrix.diagonal (fun i : Fin 1 ⊕ Fin 1 => Sum.elim (fun _ => (2 : ℚ)) (fun _ => 1) i)) ∉
+theorem _root_.TauCeti.PEL.tests.similitudeGroup_not_isometry : (Matrix.diagonal (fun i : Fin 1 ⊕ Fin 1 => Sum.elim (fun _ => (2 : ℚ)) (fun _ => 1) i)) ∉
     Matrix.symplecticGroup (Fin 1) ℚ := sorry
 
 /-- Kottwitz Lemma 7.1 (the conjugacy part of `M0/similitude-group-structure`): over an
@@ -485,17 +479,13 @@ theorem IsGoodPrime.unramified_reflex {n iBad disc dualIndex p : ℕ}
 
 end PELDatum
 
--- TauCeti.PEL.tests.goodPrime_siegel
-example (p : ℕ) (hp : p.Prime) : PELDatum.IsGoodPrime 3 1 1 1 p ↔ p ≠ 3 := sorry
--- TauCeti.PEL.tests.goodPrime_type
-example : ¬ PELDatum.IsGoodPrime 1 1 1 36 2 ∧ ¬ PELDatum.IsGoodPrime 1 1 1 36 3 ∧
+theorem _root_.TauCeti.PEL.tests.goodPrime_siegel (p : ℕ) (hp : p.Prime) : PELDatum.IsGoodPrime 3 1 1 1 p ↔ p ≠ 3 := sorry
+theorem _root_.TauCeti.PEL.tests.goodPrime_type : ¬ PELDatum.IsGoodPrime 1 1 1 36 2 ∧ ¬ PELDatum.IsGoodPrime 1 1 1 36 3 ∧
     PELDatum.IsGoodPrime 1 1 1 36 5 := by
   simp only [PELDatum.IsGoodPrime, PELDatum.badPrimeInteger]; decide
--- TauCeti.PEL.tests.goodPrime_typeD_two
-example : ¬ PELDatum.IsGoodPrime 1 2 9 1 2 := by
+theorem _root_.TauCeti.PEL.tests.goodPrime_typeD_two : ¬ PELDatum.IsGoodPrime 1 2 9 1 2 := by
   simp only [PELDatum.IsGoodPrime, PELDatum.badPrimeInteger]; decide
--- TauCeti.PEL.tests.goodBase_empty
-example (F : Type) [Field F] : PELDatum.goodBase F = Spec (CommRingCat.of F) := rfl
+theorem _root_.TauCeti.PEL.tests.goodBase_empty (F : Type) [Field F] : PELDatum.goodBase F = Spec (CommRingCat.of F) := rfl
 
 /-! ### The Hodge structure, the Shimura datum, signatures -/
 
@@ -570,38 +560,30 @@ theorem hodgeStructureOfDatum {B : Type*} [Ring B] [Algebra ℚ B] [StarRing B] 
     ∀ x ∈ D.V₀, ∀ y ∈ D.V₀,
       LinearMap.BilinForm.baseChange ℂ (LinearMap.BilinForm.baseChange ℝ D.form) x y = 0 := sorry
 
--- TauCeti.PEL.tests.pelShimuraDatum_siegel
-example (g : ℕ) (A : Matrix (Fin g ⊕ Fin g) (Fin g ⊕ Fin g) ℝ)
+theorem _root_.TauCeti.PEL.tests.pelShimuraDatum_siegel (g : ℕ) (A : Matrix (Fin g ⊕ Fin g) (Fin g ⊕ Fin g) ℝ)
     (hA : A ∈ Matrix.symplecticGroup (Fin g) ℝ) :
     A * Matrix.J (Fin g) ℝ * A⁻¹ * (A * Matrix.J (Fin g) ℝ * A⁻¹) = -1 := sorry
--- TauCeti.PEL.tests.pelShimuraDatum_definite
-example {B : Type*} [Ring B] [Algebra ℚ B] [StarRing B] {V : Type*} [AddCommGroup V]
+theorem _root_.TauCeti.PEL.tests.pelShimuraDatum_definite {B : Type*} [Ring B] [Algebra ℚ B] [StarRing B] {V : Type*} [AddCommGroup V]
     [Module ℚ V] [Module B V] [IsScalarTower ℚ B V] (D : RationalPELDatum B V)
     (hcentral : ∀ g : PELDatum.similitudeGroup D ℝ,
       ((g : ((ℝ ⊗[ℚ] V) ≃ₗ[ℝ] (ℝ ⊗[ℚ] V)) × ℝˣ).1 : (ℝ ⊗[ℚ] V) →ₗ[ℝ] (ℝ ⊗[ℚ] V)) ∘ₗ D.J =
         D.J ∘ₗ ((g : ((ℝ ⊗[ℚ] V) ≃ₗ[ℝ] (ℝ ⊗[ℚ] V)) × ℝˣ).1 : (ℝ ⊗[ℚ] V) →ₗ[ℝ] (ℝ ⊗[ℚ] V))) :
     D.domain = {D.J} := sorry
--- TauCeti.PEL.tests.pelShimuraDatum_typeD
-example : ¬ _root_.IsConnected ({x : ℝ | x ^ 2 = 1}) := sorry
--- TauCeti.PEL.tests.pelShimuraDatum_gl2
-example (A : Matrix (Fin 1 ⊕ Fin 1) (Fin 1 ⊕ Fin 1) ℝ) :
+theorem _root_.TauCeti.PEL.tests.pelShimuraDatum_typeD : ¬ _root_.IsConnected ({x : ℝ | x ^ 2 = 1}) := sorry
+theorem _root_.TauCeti.PEL.tests.pelShimuraDatum_gl2 (A : Matrix (Fin 1 ⊕ Fin 1) (Fin 1 ⊕ Fin 1) ℝ) :
     A ∈ Matrix.symplecticGroup (Fin 1) ℝ ↔ A.det = 1 := sorry
 
--- TauCeti.PEL.tests.signature_siegel
-example {V : Type*} [AddCommGroup V] [Module ℚ V] (D : RationalPELDatum ℚ V) (g : ℕ)
+theorem _root_.TauCeti.PEL.tests.signature_siegel {V : Type*} [AddCommGroup V] [Module ℚ V] (D : RationalPELDatum ℚ V) (g : ℕ)
     (hV : Module.finrank ℚ V = 2 * g) : D.signature ℚ (algebraMap ℚ ℂ) = (g, g) := sorry
--- TauCeti.PEL.tests.signature_picard
-example {V : Type*} [AddCommGroup V] [Module ℚ V] (K : Type*) [Field K] [NumberField K]
+theorem _root_.TauCeti.PEL.tests.signature_picard {V : Type*} [AddCommGroup V] [Module ℚ V] (K : Type*) [Field K] [NumberField K]
     [StarRing K] [Module K V] [IsScalarTower ℚ K V] (D : RationalPELDatum K V) (τ : K →+* ℂ)
     (h : D.signature K τ = (2, 1)) :
     D.signature K (NumberField.ComplexEmbedding.conjugate τ) = (1, 2) := by
   rw [D.signature_conj, h]; rfl
--- TauCeti.PEL.tests.signature_zero
-example {B : Type*} [Ring B] [Algebra ℚ B] [StarRing B] {V : Type*} [AddCommGroup V]
+theorem _root_.TauCeti.PEL.tests.signature_zero {B : Type*} [Ring B] [Algebra ℚ B] [StarRing B] {V : Type*} [AddCommGroup V]
     [Module ℚ V] [Module B V] [IsScalarTower ℚ B V] [Subsingleton V] (D : RationalPELDatum B V)
     (F : Type*) [Field F] [Algebra F B] (τ : F →+* ℂ) : D.signature F τ = (0, 0) := sorry
--- TauCeti.PEL.tests.signature_not_free
-example {B : Type*} [Ring B] [Algebra ℚ B] [StarRing B] {V : Type*} [AddCommGroup V]
+theorem _root_.TauCeti.PEL.tests.signature_not_free {B : Type*} [Ring B] [Algebra ℚ B] [StarRing B] {V : Type*} [AddCommGroup V]
     [Module ℚ V] [Module B V] [IsScalarTower ℚ B V] (D : RationalPELDatum B V) (F : Type*)
     [Field F] [Algebra F B] (τ : F →+* ℂ) (h : D.signature F τ = (2, 0)) :
     D.signature F (NumberField.ComplexEmbedding.conjugate τ) ≠ (2, 0) := by
@@ -641,17 +623,13 @@ theorem detPoly_eq_polyCharpoly (a : ι → Module.End R M)
 
 end DetPoly
 
--- TauCeti.PEL.tests.detPoly_int
-example (r : ℕ) : detPoly (R := ℤ) (M := Fin r → ℤ) (ι := Unit) (fun _ => LinearMap.id) =
+theorem _root_.TauCeti.PEL.tests.detPoly_int (r : ℕ) : detPoly (R := ℤ) (M := Fin r → ℤ) (ι := Unit) (fun _ => LinearMap.id) =
     MvPolynomial.X () ^ r := sorry
--- TauCeti.PEL.tests.detPoly_gaussian
-example : detPoly (R := ℂ) (M := ℂ) (ι := Fin 2) ![LinearMap.id, Complex.I • LinearMap.id] =
+theorem _root_.TauCeti.PEL.tests.detPoly_gaussian : detPoly (R := ℂ) (M := ℂ) (ι := Fin 2) ![LinearMap.id, Complex.I • LinearMap.id] =
     MvPolynomial.X 0 + MvPolynomial.C Complex.I * MvPolynomial.X 1 := sorry
--- TauCeti.PEL.tests.detPoly_eval_charpoly
-example (f : Module.End ℚ (Fin 2 → ℚ)) :
+theorem _root_.TauCeti.PEL.tests.detPoly_eval_charpoly (f : Module.End ℚ (Fin 2 → ℚ)) :
     MvPolynomial.eval ![(1 : ℚ)] (detPoly (ι := Fin 1) ![f]) = LinearMap.det f := sorry
--- TauCeti.PEL.tests.detPoly_not_trace
-example : ∃ t : Fin 3 → Fin 2 → ZMod 3, (∑ k, t k 1) = 0 ∧
+theorem _root_.TauCeti.PEL.tests.detPoly_not_trace : ∃ t : Fin 3 → Fin 2 → ZMod 3, (∑ k, t k 1) = 0 ∧
     detPoly (R := ZMod 3) (M := Fin 3 → ZMod 3) (ι := Fin 2)
       (fun i => LinearMap.pi fun k => t k i • LinearMap.proj k) ≠
     detPoly (R := ZMod 3) (M := Fin 3 → ZMod 3) (ι := Fin 2)
@@ -660,7 +638,8 @@ example : ∃ t : Fin 3 → Fin 2 → ZMod 3, (∑ k, t k 1) = 0 ∧
 /-- Over a field, the determinant polynomial classifies modules over a semisimple algebra
 (`M0/determinant-classifies`; separability of the centre is a packet hypothesis). -/
 theorem determinantClassifies {K : Type*} [Field K] {C : Type*} [Ring C] [Algebra K C]
-    [IsSemisimpleRing C] {ι : Type*} [Fintype ι] [DecidableEq ι] (α : ι → C)
+    [IsSemisimpleRing C] [FiniteDimensional K C] {ι : Type*} [Fintype ι] [DecidableEq ι]
+    (α : ι → C) (hα : Submodule.span K (Set.range α) = ⊤)
     {M₁ M₂ : Type*} [AddCommGroup M₁] [Module K M₁] [FiniteDimensional K M₁]
     [AddCommGroup M₂] [Module K M₂] [FiniteDimensional K M₂]
     (ρ₁ : C →ₐ[K] Module.End K M₁) (ρ₂ : C →ₐ[K] Module.End K M₂) :
@@ -704,20 +683,16 @@ theorem reflexField_siegel (D : RationalPELDatum ℚ V) : D.reflexField = ⊥ :=
 
 end RationalPELDatum
 
--- TauCeti.PEL.tests.reflexField_siegel
-example {V : Type*} [AddCommGroup V] [Module ℚ V] (D : RationalPELDatum ℚ V) : D.reflexField = ⊥ :=
+theorem _root_.TauCeti.PEL.tests.reflexField_siegel {V : Type*} [AddCommGroup V] [Module ℚ V] (D : RationalPELDatum ℚ V) : D.reflexField = ⊥ :=
   D.reflexField_siegel
--- TauCeti.PEL.tests.reflexField_picard
-example {V : Type*} [AddCommGroup V] [Module ℚ V] (K : Type*) [Field K] [NumberField K] [StarRing K]
+theorem _root_.TauCeti.PEL.tests.reflexField_picard {V : Type*} [AddCommGroup V] [Module ℚ V] (K : Type*) [Field K] [NumberField K] [StarRing K]
     [Module K V] [IsScalarTower ℚ K V] (D : RationalPELDatum K V) (τ : K →+* ℂ)
     (hV₀ : ∀ b : K, D.traceV₀ b = 2 * τ b + starRingEnd ℂ (τ b)) (a : K)
     (ha : τ a ≠ starRingEnd ℂ (τ a)) : D.reflexField ≠ ⊥ := sorry
--- TauCeti.PEL.tests.reflexField_U11
-example {V : Type*} [AddCommGroup V] [Module ℚ V] (K : Type*) [Field K] [NumberField K] [StarRing K]
+theorem _root_.TauCeti.PEL.tests.reflexField_U11 {V : Type*} [AddCommGroup V] [Module ℚ V] (K : Type*) [Field K] [NumberField K] [StarRing K]
     [Module K V] [IsScalarTower ℚ K V] (D : RationalPELDatum K V) (τ : K →+* ℂ)
     (hV₀ : ∀ b : K, D.traceV₀ b = τ b + starRingEnd ℂ (τ b)) : D.reflexField = ⊥ := sorry
--- TauCeti.PEL.tests.reflexField_not_center
-example {V : Type*} [AddCommGroup V] [Module ℚ V] (F : Type*) [Field F] [NumberField F] [StarRing F]
+theorem _root_.TauCeti.PEL.tests.reflexField_not_center {V : Type*} [AddCommGroup V] [Module ℚ V] (F : Type*) [Field F] [NumberField F] [StarRing F]
     [Module F V] [IsScalarTower ℚ F V] (D : RationalPELDatum F V)
     (hV₀ : ∀ b : F, D.traceV₀ b = algebraMap ℚ ℂ (Algebra.trace ℚ F b))
     (hF : 1 < Module.finrank ℚ F) : D.reflexField = ⊥ := sorry
@@ -770,33 +745,32 @@ theorem unitary {κ : Type*} [Fintype κ] [DecidableEq κ] (t : κ → ι → R)
 
 end SatisfiesDetCondition
 
--- TauCeti.PEL.tests.detCondition_siegel
-example (g : ℕ) (M : Type) [AddCommGroup M] [Module ℤ M] [Module.Free ℤ M] [Module.Finite ℤ M] :
+theorem _root_.TauCeti.PEL.tests.detCondition_siegel (g : ℕ) (M : Type) [AddCommGroup M] [Module ℤ M] [Module.Free ℤ M] [Module.Finite ℤ M] :
     SatisfiesDetCondition (ι := Unit) (fun _ => (LinearMap.id : Module.End ℤ M))
       (MvPolynomial.X () ^ g) ↔ Module.finrank ℤ M = g := sorry
--- TauCeti.PEL.tests.detCondition_char3_signature
-example (t t' : Fin 3 → Fin 2 → ZMod 3) (ht : ∀ k, t k = ![1, 1]) (ht' : ∀ k, t' k = ![1, -1])
+theorem _root_.TauCeti.PEL.tests.detCondition_char3_signature (t t' : Fin 3 → Fin 2 → ZMod 3) (ht : ∀ k, t k = ![1, 1]) (ht' : ∀ k, t' k = ![1, -1])
     (htr : (∑ k, t k 1) = ∑ k, t' k 1) :
     ¬ SatisfiesDetCondition (M := Fin 3 → ZMod 3)
       (fun i => LinearMap.pi fun k => t k i • LinearMap.proj k)
       (∏ k, ∑ i, MvPolynomial.C (t' k i) * MvPolynomial.X i) := sorry
--- TauCeti.PEL.tests.detCondition_zero
-example (M : Type) [AddCommGroup M] [Module ℤ M] [Module.Free ℤ M] [Module.Finite ℤ M] :
+theorem _root_.TauCeti.PEL.tests.detCondition_zero (M : Type) [AddCommGroup M] [Module ℤ M] [Module.Free ℤ M] [Module.Finite ℤ M] :
     SatisfiesDetCondition (ι := Unit) (fun _ => (LinearMap.id : Module.End ℤ M)) 1 ↔
       Module.finrank ℤ M = 0 := sorry
--- TauCeti.PEL.tests.detCondition_baseChange_C
-example {ι : Type} [Fintype ι] [DecidableEq ι] (M₁ M₂ : Type) [AddCommGroup M₁] [Module ℂ M₁]
+theorem _root_.TauCeti.PEL.tests.detCondition_baseChange_C {ι : Type} [Fintype ι] [DecidableEq ι] (M₁ M₂ : Type) [AddCommGroup M₁] [Module ℂ M₁]
     [FiniteDimensional ℂ M₁] [AddCommGroup M₂] [Module ℂ M₂] [FiniteDimensional ℂ M₂]
-    (C : Type) [Ring C] [Algebra ℂ C] [IsSemisimpleRing C] (α : ι → C)
+    (C : Type) [Ring C] [Algebra ℂ C] [IsSemisimpleRing C] [FiniteDimensional ℂ C]
+    (α : ι → C) (hα : Submodule.span ℂ (Set.range α) = ⊤)
     (ρ₁ : C →ₐ[ℂ] Module.End ℂ M₁) (ρ₂ : C →ₐ[ℂ] Module.End ℂ M₂) :
     SatisfiesDetCondition (fun i => ρ₁ (α i)) (detPoly fun i => ρ₂ (α i)) ↔
       ∃ e : M₁ ≃ₗ[ℂ] M₂, ∀ c, (e : M₁ →ₗ[ℂ] M₂) ∘ₗ ρ₁ c = ρ₂ c ∘ₗ e :=
-  (determinantClassifies α ρ₁ ρ₂).symm
+  (determinantClassifies α hα ρ₁ ρ₂).symm
 
 /-- Over an algebraically closed field of characteristic prime to `Disc`, the determinant
 condition says `M ≅ L₀ ⊗ k` (`M0/determinant-condition-splitting`). -/
 theorem determinantConditionSplitting {k : Type*} [Field k] [IsAlgClosed k] {C : Type*} [Ring C]
-    [Algebra k C] [IsSemisimpleRing C] {ι : Type*} [Fintype ι] [DecidableEq ι] (α : ι → C)
+    [Algebra k C] [IsSemisimpleRing C] [FiniteDimensional k C]
+    {ι : Type*} [Fintype ι] [DecidableEq ι] (α : ι → C)
+    (hα : Submodule.span k (Set.range α) = ⊤)
     {M L₀ : Type*} [AddCommGroup M] [Module k M] [FiniteDimensional k M] [AddCommGroup L₀]
     [Module k L₀] [FiniteDimensional k L₀] (ρ : C →ₐ[k] Module.End k M)
     (ρ₀ : C →ₐ[k] Module.End k L₀) :
@@ -867,17 +841,13 @@ theorem unitaryGroup_matrix (n : Type*) [Fintype n] [DecidableEq n] (U : Matrix 
 
 end HermitianSpace
 
--- TauCeti.PEL.tests.hermitianSpace_sharp_rank
-example {A : Type*} [CommRing A] [StarRing A] {V : Type*} [AddCommGroup V] [Module A V]
+theorem _root_.TauCeti.PEL.tests.hermitianSpace_sharp_rank {A : Type*} [CommRing A] [StarRing A] {V : Type*} [AddCommGroup V] [Module A V]
     (H : HermitianSpace A V) (x : V) (a : A) :
     H.sharp.pairing (x, a) (0, 1) = a ∧ H.sharp.pairing (x, 0) (x, 0) = H.pairing x x := sorry
--- TauCeti.PEL.tests.hermitianSpace_unitary_matrix
-example (n : ℕ) (U : Matrix (Fin n) (Fin n) ℂ) :
+theorem _root_.TauCeti.PEL.tests.hermitianSpace_unitary_matrix (n : ℕ) (U : Matrix (Fin n) (Fin n) ℂ) :
     U ∈ Matrix.unitaryGroup (Fin n) ℂ ↔ star U * U = 1 := Matrix.mem_unitaryGroup_iff'
--- TauCeti.PEL.tests.hermitianSpace_not_symmetric
-example (H : HermitianSpace ℂ ℂ) (a x y : ℂ) : H.pairing x (a • y) = star a * H.pairing x y := sorry
--- TauCeti.PEL.tests.hermitianSpace_trace_dictionary
-example (H : HermitianSpace ℂ ℂ) (tr : ℂ →ₗ[ℤ] ℤ) (htr : ∀ z, tr (star z) = tr z) (x y : ℂ) :
+theorem _root_.TauCeti.PEL.tests.hermitianSpace_not_symmetric (H : HermitianSpace ℂ ℂ) (a x y : ℂ) : H.pairing x (a • y) = star a * H.pairing x y := sorry
+theorem _root_.TauCeti.PEL.tests.hermitianSpace_trace_dictionary (H : HermitianSpace ℂ ℂ) (tr : ℂ →ₗ[ℤ] ℤ) (htr : ∀ z, tr (star z) = tr z) (x y : ℂ) :
     H.toSkewHermitian Complex.I tr x y = -H.toSkewHermitian Complex.I tr y x := sorry
 
 /-- A rational skew-hermitian space over `O_F ⊗ R`: an `R`-bilinear skew-symmetric perfect pairing
@@ -935,19 +905,15 @@ def cmTorus (R : Type*) [CommRing R] (A : Type*) [CommRing A] [StarRing A] [Alge
     refine ⟨r⁻¹, ?_⟩
     sorry
 
--- TauCeti.PEL.tests.cmTorus_points_imagQuad
-example (a : ℂˣ) : a ∈ cmTorus ℝ ℂ := sorry
--- TauCeti.PEL.tests.gu_rankOne_multiplier
-example (S : SkewHermitianSpace ℝ ℂ ℂ) (a : ℂˣ) (c : ℝˣ)
+theorem _root_.TauCeti.PEL.tests.cmTorus_points_imagQuad (a : ℂˣ) : a ∈ cmTorus ℝ ℂ := sorry
+theorem _root_.TauCeti.PEL.tests.gu_rankOne_multiplier (S : SkewHermitianSpace ℝ ℂ ℂ) (a : ℂˣ) (c : ℝˣ)
     (hc : algebraMap ℝ ℂ c = (a : ℂ) * star (a : ℂ)) :
     (LinearEquiv.smulOfUnit a, c) ∈ S.GU := S.gu_rankOne a c hc
--- TauCeti.PEL.tests.skewHermitian_type_flip
-example (S : SkewHermitianSpace ℚ ℚ ℚ) (posImag : Set ℚ) (_hS : S.HasType posImag)
+theorem _root_.TauCeti.PEL.tests.skewHermitian_type_flip (S : SkewHermitianSpace ℚ ℚ ℚ) (posImag : Set ℚ) (_hS : S.HasType posImag)
     (a : ℚ) (ha : a ∈ posImag) (x : ℚ) (hx : 0 < S.pairing (a • x) x) :
     ¬ (∀ a ∈ posImag, ∀ x, 0 ≤ -S.pairing (a • x) x) := fun h => by
   have := h a ha x; linarith
--- TauCeti.PEL.tests.skewHermitian_zero
-example (S : SkewHermitianSpace ℚ ℚ (Fin 0 → ℚ)) (c : ℚˣ) :
+theorem _root_.TauCeti.PEL.tests.skewHermitian_zero (S : SkewHermitianSpace ℚ ℚ (Fin 0 → ℚ)) (c : ℚˣ) :
     (LinearEquiv.refl ℚ (Fin 0 → ℚ), c) ∈ S.GU := sorry
 
 /-- Similarity classes of rank-one skew-hermitian spaces everywhere locally similar to `S` (data). -/
@@ -992,20 +958,18 @@ theorem reflexField_eq_pel (Ψ : GeneralizedCMType F N) (σ : ℂ ≃+* ℂ) (h�
     (z : ℂ) (hz : z ∈ Ψ.reflexField) : σ z = z := hz σ hσ
 
 /-- `Ψ = NΦ − τ_∞ + τ_∞^c` (LTXZZ Lemma 4.2.1 signature). -/
-def nPhi_sub (_Φ : GeneralizedCMType F 1) (_τ : F →+* ℂ) (N : ℕ) : GeneralizedCMType F N := sorry
+def nPhi_sub (Φ : GeneralizedCMType F 1) (τ : F →+* ℂ) (N : ℕ)
+    (hN : 1 ≤ N) (hτ : Φ.coeff τ = 1) : GeneralizedCMType F N := sorry
 
 end GeneralizedCMType
 
--- TauCeti.PEL.tests.gcmType_reflex_imagQuad
-example {F : Type*} [Field F] (Ψ : GeneralizedCMType F 3) (τ : F →+* ℂ) (h : Ψ.coeff τ = 2) :
+theorem _root_.TauCeti.PEL.tests.gcmType_reflex_imagQuad {F : Type*} [Field F] (Ψ : GeneralizedCMType F 3) (τ : F →+* ℂ) (h : Ψ.coeff τ = 2) :
     Ψ.coeff (NumberField.ComplexEmbedding.conjugate τ) = 1 := by
   have := Ψ.sum_conj τ; omega
--- TauCeti.PEL.tests.gcmType_cm_rank1
-example {F : Type*} [Field F] (Ψ : GeneralizedCMType F 1) (τ : F →+* ℂ) :
+theorem _root_.TauCeti.PEL.tests.gcmType_cm_rank1 {F : Type*} [Field F] (Ψ : GeneralizedCMType F 1) (τ : F →+* ℂ) :
     Ψ.IsCMType ∧ (Ψ.coeff τ = 0 ∨ Ψ.coeff τ = 1) := by
   refine ⟨rfl, ?_⟩; have := Ψ.sum_conj τ; omega
--- TauCeti.PEL.tests.gcmType_not
-example {F : Type*} [Field F] (N : ℕ) (c : (F →+* ℂ) →₀ ℕ) (τ₁ : F →+* ℂ)
+theorem _root_.TauCeti.PEL.tests.gcmType_not {F : Type*} [Field F] (N : ℕ) (c : (F →+* ℂ) →₀ ℕ) (τ₁ : F →+* ℂ)
     (h₁ : c τ₁ + c (NumberField.ComplexEmbedding.conjugate τ₁) = 2) (h₂ : N = 3) :
     ¬ ∃ Ψ : GeneralizedCMType F N, Ψ.coeff = c := by
   rintro ⟨Ψ, rfl⟩; have := Ψ.sum_conj τ₁; omega
@@ -1039,14 +1003,11 @@ theorem reflexiveClosure_le_galoisClosure (F G : Subfield ℂ) (S : Set (Subfiel
 
 end CMField
 
--- TauCeti.PEL.tests.reflexiveClosure_imagQuad
-example (F : Subfield ℂ) : CMField.reflexiveClosure F {F} = F :=
+theorem _root_.TauCeti.PEL.tests.reflexiveClosure_imagQuad (F : Subfield ℂ) : CMField.reflexiveClosure F {F} = F :=
   CMField.reflexiveClosure_eq_of_imagQuad F F {F} rfl le_rfl
--- TauCeti.PEL.tests.reflexiveClosure_galois
-example (F : Subfield ℂ) (S : Set (Subfield ℂ)) (h : ∀ K ∈ S, K ≤ F) (hS : S.Nonempty) :
+theorem _root_.TauCeti.PEL.tests.reflexiveClosure_galois (F : Subfield ℂ) (S : Set (Subfield ℂ)) (h : ∀ K ∈ S, K ≤ F) (hS : S.Nonempty) :
     CMField.reflexiveClosure F S = F := CMField.reflexiveClosure_eq_of_galois F S h hS
--- TauCeti.PEL.tests.reflexiveClosure_not_intersection_alone
-example (F K₁ K₂ : Subfield ℂ) (h : K₁ ⊓ K₂ = ⊥) (hK : K₁ ≤ F) :
+theorem _root_.TauCeti.PEL.tests.reflexiveClosure_not_intersection_alone (F K₁ K₂ : Subfield ℂ) (h : K₁ ⊓ K₂ = ⊥) (hK : K₁ ≤ F) :
     CMField.reflexiveClosure F {K₁, K₂} = F ∧ sInf ({K₁, K₂} : Set (Subfield ℂ)) = ⊥ := by
   refine ⟨CMField.reflexiveClosure_eq_of_imagQuad F K₁ _ (by simp) hK, by rw [sInf_pair, h]⟩
 
@@ -1088,20 +1049,16 @@ theorem tauPart_frobeniusTwist {OF k : Type*} [CommRing OF] [Field k] (p : ℕ) 
     [CharP k p] (τ : OF →+* k) (a : OF) :
     frobeniusOnEmbeddings p τ a = τ a ^ p := rfl
 
--- TauCeti.PEL.tests.tauField_split
-example (p : ℕ) [Fact p.Prime] {F : Type*} [Field F] (τ : F →+* AlgebraicClosure ℚ_[p])
+theorem _root_.TauCeti.PEL.tests.tauField_split (p : ℕ) [Fact p.Prime] {F : Type*} [Field F] (τ : F →+* AlgebraicClosure ℚ_[p])
     (h : ∀ a, τ a ∈ Set.range (algebraMap ℚ_[p] (AlgebraicClosure ℚ_[p]))) :
     tauField p τ = ⊥ := sorry
--- TauCeti.PEL.tests.tauField_inert
-example (p : ℕ) [Fact p.Prime] {F : Type*} [Field F] (τ : F →+* AlgebraicClosure ℚ_[p])
+theorem _root_.TauCeti.PEL.tests.tauField_inert (p : ℕ) [Fact p.Prime] {F : Type*} [Field F] (τ : F →+* AlgebraicClosure ℚ_[p])
     (x : F) (hx : x ^ 2 = -1) (hp : ¬ ∃ y : ℚ_[p], y ^ 2 = -1) :
     Module.finrank ℚ_[p] (tauField p τ) = 2 := sorry
--- TauCeti.PEL.tests.tauPart_ramified
-example {R OF : Type*} [CommRing R] [CommRing OF] {M : Type*} [AddCommGroup M] [Module R M]
+theorem _root_.TauCeti.PEL.tests.tauPart_ramified {R OF : Type*} [CommRing R] [CommRing OF] {M : Type*} [AddCommGroup M] [Module R M]
     [Module OF M] (τ : OF →+* R) (π : OF) (m : M) (hπ : τ π = 0) (hm : π • m ≠ 0) :
     m ∉ tauPart (R := R) (M := M) τ := fun h => hm (by rw [h π, hπ, zero_smul])
--- TauCeti.PEL.tests.tauPart_zero
-example {R OF : Type*} [CommRing R] [CommRing OF] (τ : OF →+* R) :
+theorem _root_.TauCeti.PEL.tests.tauPart_zero {R OF : Type*} [CommRing R] [CommRing OF] (τ : OF →+* R) :
     tauPart (R := R) (M := PUnit) τ = ⊤ := by ext; simp [tauPart]
 
 end M0
@@ -1196,17 +1153,13 @@ theorem inv_pos (pol' : BoxPolarization 𝒜 box A) : 0 < pol'.toQuasiIsogeny.de
 
 end BoxPolarization
 
--- TauCeti.PEL.tests.quasiIsogeny_mulBy
-example (A : AbelianScheme (Spec R)) (n : ℕ) (box : Set ℕ) (hn : ∀ p ∈ box, ¬ p ∣ n)
+theorem _root_.TauCeti.PEL.tests.quasiIsogeny_mulBy (A : AbelianScheme (Spec R)) (n : ℕ) (box : Set ℕ) (hn : ∀ p ∈ box, ¬ p ∣ n)
     (hn0 : 0 < n) : (⟨𝒜.mulBy A n, n, hn0⟩ : QuasiIsogeny A A).IsPrimeTo box := hn
--- TauCeti.PEL.tests.quasiIsogeny_id
-example (A : AbelianScheme (Spec R)) (f : A.Hom A) (box : Set ℕ) :
+theorem _root_.TauCeti.PEL.tests.quasiIsogeny_id (A : AbelianScheme (Spec R)) (f : A.Hom A) (box : Set ℕ) :
     (QuasiIsogeny.ofIsogeny f).IsPrimeTo box := sorry
--- TauCeti.PEL.tests.quasiIsogeny_frobenius_not_primeTo
-example (A B : AbelianScheme (Spec R)) (f : A.Hom B) (p : ℕ) (hp : p.Prime) :
+theorem _root_.TauCeti.PEL.tests.quasiIsogeny_frobenius_not_primeTo (A B : AbelianScheme (Spec R)) (f : A.Hom B) (p : ℕ) (hp : p.Prime) :
     ¬ (⟨f, p, hp.pos⟩ : QuasiIsogeny A B).IsPrimeTo {p} := fun h => h p rfl dvd_rfl
--- TauCeti.PEL.tests.boxPolarization_neg
-example (A : AbelianScheme (Spec R)) (box : Set ℕ) (pol' : BoxPolarization 𝒜 box A) :
+theorem _root_.TauCeti.PEL.tests.boxPolarization_neg (A : AbelianScheme (Spec R)) (box : Set ℕ) (pol' : BoxPolarization 𝒜 box A) :
     0 < pol'.toQuasiIsogeny.den := pol'.inv_pos
 
 /-- A PEL triple `(A, λ, i)` over `Spec R`: `i : O → End(A)` with the Rosati condition
@@ -1257,22 +1210,18 @@ theorem toAbelianVariety (T : PELTriple 𝒜 O box α detV₀) : IsProper T.A.π
 
 end PELTriple
 
--- TauCeti.PEL.tests.pelTriple_siegel
-example (T : PELTriple 𝒜 ℤ ∅ (fun _ : Unit => (1 : ℤ)) (MvPolynomial.X () ^ 2)) :
+theorem _root_.TauCeti.PEL.tests.pelTriple_siegel (T : PELTriple 𝒜 ℤ ∅ (fun _ : Unit => (1 : ℤ)) (MvPolynomial.X () ^ 2)) :
     T.detCondition ↔ (letI := T.lieFree; letI := T.lieFinite; Module.finrank R (𝒜.lie T.A) = 2) :=
   T.siegel
--- TauCeti.PEL.tests.pelTriple_rosati_fails
-example (box : Set ℕ) (α : Fin 2 → GaussianInt) (detV₀ : MvPolynomial (Fin 2) R)
+theorem _root_.TauCeti.PEL.tests.pelTriple_rosati_fails (box : Set ℕ) (α : Fin 2 → GaussianInt) (detV₀ : MvPolynomial (Fin 2) R)
     (T : PELTriple 𝒜 GaussianInt box α detV₀) :
     𝒜.comp T.pol.toQuasiIsogeny.num (𝒜.dualHom (T.i ⟨0, 1⟩)) =
       𝒜.comp (T.i ⟨0, -1⟩) T.pol.toQuasiIsogeny.num := T.rosati ⟨0, 1⟩
--- TauCeti.PEL.tests.pelTriple_zero
-example (T : PELTriple 𝒜 ℤ ∅ (fun _ : Unit => (1 : ℤ)) 1) [Nontrivial R] (h : T.detCondition) :
+theorem _root_.TauCeti.PEL.tests.pelTriple_zero (T : PELTriple 𝒜 ℤ ∅ (fun _ : Unit => (1 : ℤ)) 1) [Nontrivial R] (h : T.detCondition) :
     (letI := T.lieFree; letI := T.lieFinite; Module.finrank R (𝒜.lie T.A)) = 0 := by
   let _ := T.lieFree; let _ := T.lieFinite
   exact SatisfiesDetCondition.rank h 0 (MvPolynomial.isHomogeneous_one _ _) one_ne_zero
--- TauCeti.PEL.tests.pelTriple_det_picard
-example {O : Type*} [Ring O] [StarRing O] {box : Set ℕ} {ι : Type*} [Fintype ι] [DecidableEq ι]
+theorem _root_.TauCeti.PEL.tests.pelTriple_det_picard {O : Type*} [Ring O] [StarRing O] {box : Set ℕ} {ι : Type*} [Fintype ι] [DecidableEq ι]
     {α : ι → O} {detV₀ : MvPolynomial ι R} (T : PELTriple 𝒜 O box α detV₀) [Nontrivial R]
     (hd : detV₀.IsHomogeneous 3) (h0 : detV₀ ≠ 0) (h : T.detCondition) :
     Module.finrank R (𝒜.lie T.A) = 3 := T.relDim 3 hd h0 h
@@ -1338,25 +1287,21 @@ def toPELTriple (X : UnitaryOFAbelianScheme 𝒜 OF) (box : Set ℕ) (hbox : X.p
 
 end UnitaryOFAbelianScheme
 
--- TauCeti.PEL.tests.signatureType_cm_elliptic
-example {OF : Type*} [CommRing OF] (X : OFAbelianScheme R OF) [Module.Free R (𝒜.lie X.A)]
+theorem _root_.TauCeti.PEL.tests.signatureType_cm_elliptic {OF : Type*} [CommRing OF] (X : OFAbelianScheme R OF) [Module.Free R (𝒜.lie X.A)]
     [Module.Finite R (𝒜.lie X.A)] (τ : OF →+* R) :
     OFAbelianScheme.HasSignatureType 𝒜 X (fun _ : Fin 1 => τ) (fun _ => 1) ↔
       ∀ a, LinearMap.charpoly (𝒜.lieAct (X.i a)) = Polynomial.X - Polynomial.C (τ a) := by
   simp [OFAbelianScheme.HasSignatureType]
--- TauCeti.PEL.tests.signatureType_conj
-example {OF : Type*} [CommRing OF] (X : OFAbelianScheme R OF) [Module.Free R (𝒜.lie X.A)]
+theorem _root_.TauCeti.PEL.tests.signatureType_conj {OF : Type*} [CommRing OF] (X : OFAbelianScheme R OF) [Module.Free R (𝒜.lie X.A)]
     [Module.Finite R (𝒜.lie X.A)] [Nontrivial R] (τ τ' : OF →+* R)
     (h : OFAbelianScheme.HasSignatureType 𝒜 X (fun _ : Fin 1 => τ) (fun _ => 1))
     (h' : OFAbelianScheme.HasSignatureType 𝒜 X (fun _ : Fin 1 => τ') (fun _ => 1)) : τ = τ' := sorry
--- TauCeti.PEL.tests.signatureType_iff_det
-example {OF : Type*} [CommRing OF] (X : OFAbelianScheme R OF) [Module.Free R (𝒜.lie X.A)]
+theorem _root_.TauCeti.PEL.tests.signatureType_iff_det {OF : Type*} [CommRing OF] (X : OFAbelianScheme R OF) [Module.Free R (𝒜.lie X.A)]
     [Module.Finite R (𝒜.lie X.A)] (τ : Fin 2 → OF →+* R) (r : Fin 2 → ℕ) (α : Fin 2 → OF) :
     OFAbelianScheme.HasSignatureType 𝒜 X τ r ↔ SatisfiesDetCondition (fun j => 𝒜.lieAct (X.i (α j)))
       (∏ s, (∑ j, MvPolynomial.C (τ s (α j)) * MvPolynomial.X j) ^ r s) :=
   HasSignatureType.iff_detCondition 𝒜 X τ r α
--- TauCeti.PEL.tests.unitary_zero
-example {OF : Type*} [CommRing OF] (X : OFAbelianScheme R OF) [Module.Free R (𝒜.lie X.A)]
+theorem _root_.TauCeti.PEL.tests.unitary_zero {OF : Type*} [CommRing OF] (X : OFAbelianScheme R OF) [Module.Free R (𝒜.lie X.A)]
     [Module.Finite R (𝒜.lie X.A)] [Nontrivial R] (τ : Fin 2 → OF →+* R)
     (h : OFAbelianScheme.HasSignatureType 𝒜 X τ 0) : Module.finrank R (𝒜.lie X.A) = 0 := by
   rw [HasSignatureType.dim 𝒜 X τ 0 h]; simp
@@ -1423,8 +1368,7 @@ theorem symplecticIsomSheaf.baseChange (n : ℕ) (σ : 𝒯.torsion n ≃+ 𝒯.
 
 end SymplecticIsomSheaf
 
--- TauCeti.PEL.tests.symplecticIsom_siegel_points
-example (𝒯 : TorsionSupplier.{u}) (n : ℕ) [NeZero n]
+theorem _root_.TauCeti.PEL.tests.symplecticIsom_siegel_points (𝒯 : TorsionSupplier.{u}) (n : ℕ) [NeZero n]
     (p : ((ZMod n ⊗[ℤ] (Fin 2 ⊕ Fin 2 → ℤ)) ≃+ 𝒯.torsion n) × (ZMod n)ˣ)
     (hp : p ∈ symplecticIsomSheaf 𝒯 (Matrix.toBilin' (Matrix.J (Fin 2) ℤ)) n) :
     Nat.card (symplecticIsomSheaf 𝒯 (Matrix.toBilin' (Matrix.J (Fin 2) ℤ)) n) =
@@ -1433,8 +1377,7 @@ example (𝒯 : TorsionSupplier.{u}) (n : ℕ) [NeZero n]
           (gr.1 x) (gr.1 y) = (gr.2 : ZMod n) *
             LinearMap.BilinForm.baseChange (ZMod n) (Matrix.toBilin' (Matrix.J (Fin 2) ℤ)) x y} :=
   sorry
--- TauCeti.PEL.tests.symplecticIsom_multiplier
-example (𝒯 : TorsionSupplier.{u}) {L : Type*} [AddCommGroup L] (form : LinearMap.BilinForm ℤ L)
+theorem _root_.TauCeti.PEL.tests.symplecticIsom_multiplier (𝒯 : TorsionSupplier.{u}) {L : Type*} [AddCommGroup L] (form : LinearMap.BilinForm ℤ L)
     (n : ℕ) (g : (ZMod n ⊗[ℤ] L) ≃+ (ZMod n ⊗[ℤ] L)) (r : (ZMod n)ˣ)
     (hg : ∀ x y, LinearMap.BilinForm.baseChange (ZMod n) form (g x) (g y) =
       (r : ZMod n) * LinearMap.BilinForm.baseChange (ZMod n) form x y)
@@ -1444,12 +1387,10 @@ example (𝒯 : TorsionSupplier.{u}) {L : Type*} [AddCommGroup L] (form : Linear
   refine ⟨fun x y => ?_, rfl⟩
   simp only [symplecticIsomSheaf.act, AddEquiv.trans_apply, Units.val_mul]
   rw [hp (g x) (g y), hg]; ring
--- TauCeti.PEL.tests.symplecticIsom_empty
-example (𝒯 : TorsionSupplier.{u}) {L : Type*} [AddCommGroup L] (form : LinearMap.BilinForm ℤ L)
+theorem _root_.TauCeti.PEL.tests.symplecticIsom_empty (𝒯 : TorsionSupplier.{u}) {L : Type*} [AddCommGroup L] (form : LinearMap.BilinForm ℤ L)
     (n : ℕ) (hform : ∀ x y, LinearMap.BilinForm.baseChange (ZMod n) form x y = 0)
     (hweil : ∃ a b, 𝒯.weil n a b ≠ 0) : symplecticIsomSheaf 𝒯 form n = ∅ := sorry
--- TauCeti.PEL.tests.symplecticIsom_zero
-example (𝒯 : TorsionSupplier.{u}) (n : ℕ) [NeZero n] [Subsingleton (𝒯.torsion n)]
+theorem _root_.TauCeti.PEL.tests.symplecticIsom_zero (𝒯 : TorsionSupplier.{u}) (n : ℕ) [NeZero n] [Subsingleton (𝒯.torsion n)]
     (form : LinearMap.BilinForm ℤ (Fin 0 → ℤ)) :
     Nat.card (symplecticIsomSheaf 𝒯 form n) = Nat.totient n := sorry
 
@@ -1503,19 +1444,15 @@ theorem multiplier_data (P Q : PrincipalLevel 𝒯 form n) (h : P.α = Q.α)
 
 end PrincipalLevel
 
--- TauCeti.PEL.tests.principalLevel_siegel_symplectic
-example (𝒯 : TorsionSupplier.{u}) (P : PrincipalLevel 𝒯 (Matrix.toBilin' !![0, 1; -1, 0]) 3) :
+theorem _root_.TauCeti.PEL.tests.principalLevel_siegel_symplectic (𝒯 : TorsionSupplier.{u}) (P : PrincipalLevel 𝒯 (Matrix.toBilin' !![0, 1; -1, 0]) 3) :
     𝒯.weil 3 (P.α (1 ⊗ₜ Pi.single 0 1)) (P.α (1 ⊗ₜ Pi.single 1 1)) = P.ν := sorry
--- TauCeti.PEL.tests.principalLevel_multiplier_scaled
-example (𝒯 : TorsionSupplier.{u}) (ℓ : ℕ)
+theorem _root_.TauCeti.PEL.tests.principalLevel_multiplier_scaled (𝒯 : TorsionSupplier.{u}) (ℓ : ℕ)
     (P Q : PrincipalLevel 𝒯 ((ℓ : ℤ) • Matrix.toBilin' !![0, 1; -1, 0]) ℓ) (h : P.α = Q.α) :
     (P.α, Q.ν) ∈ symplecticIsomSheaf 𝒯 ((ℓ : ℤ) • Matrix.toBilin' !![0, 1; -1, 0]) ℓ :=
   PrincipalLevel.multiplier_data P Q h (fun x y => sorry)
--- TauCeti.PEL.tests.principalLevel_n_one
-example (𝒯 : TorsionSupplier.{u}) {L : Type*} [AddCommGroup L] (form : LinearMap.BilinForm ℤ L)
+theorem _root_.TauCeti.PEL.tests.principalLevel_n_one (𝒯 : TorsionSupplier.{u}) {L : Type*} [AddCommGroup L] (form : LinearMap.BilinForm ℤ L)
     (P Q : PrincipalLevel 𝒯 form 1) : P.ν = Q.ν := Subsingleton.elim _ _
--- TauCeti.PEL.tests.principalLevel_zero
-example (𝒯 : TorsionSupplier.{u}) (n : ℕ) [NeZero n] [Subsingleton (𝒯.torsion n)]
+theorem _root_.TauCeti.PEL.tests.principalLevel_zero (𝒯 : TorsionSupplier.{u}) (n : ℕ) [NeZero n] [Subsingleton (𝒯.torsion n)]
     (form : LinearMap.BilinForm ℤ (Fin 0 → ℤ)) :
     Nat.card (PrincipalLevel 𝒯 form n) = Nat.totient n := sorry
 
@@ -1590,22 +1527,18 @@ def changeLevel {H' H : Subgroup ((V ≃ₗ[ℚ] V) × ℚˣ)} (_h : H' ≤ H)
 
 end RationalLevel
 
--- TauCeti.PEL.tests.level_full_unique
-example {𝒯 : TorsionSupplier.{u}} {L : Type*} [AddCommGroup L] {form : LinearMap.BilinForm ℤ L}
+theorem _root_.TauCeti.PEL.tests.level_full_unique {𝒯 : TorsionSupplier.{u}} {L : Type*} [AddCommGroup L] {form : LinearMap.BilinForm ℤ L}
     {n : ℕ} (I J : IntegralLevel 𝒯 form n ⊤) : I.orbit = J.orbit := sorry
--- TauCeti.PEL.tests.level_principal_eq
-example {𝒯 : TorsionSupplier.{u}} {L : Type*} [AddCommGroup L]
+theorem _root_.TauCeti.PEL.tests.level_principal_eq {𝒯 : TorsionSupplier.{u}} {L : Type*} [AddCommGroup L]
     {form : LinearMap.BilinForm ℤ L} {n : ℕ} (P : PrincipalLevel 𝒯 form n) :
     (IntegralLevel.ofPrincipal P).rep = P := rfl
--- TauCeti.PEL.tests.rationalLevel_not_integral
-example (ℓ : ℕ) (hℓ : ℓ.Prime) (p : (Fin 2 → ℚ) ≃ₗ[ℚ] (Fin 2 → ℚ)) (ν : ℚˣ)
+theorem _root_.TauCeti.PEL.tests.rationalLevel_not_integral (ℓ : ℕ) (hℓ : ℓ.Prime) (p : (Fin 2 → ℚ) ≃ₗ[ℚ] (Fin 2 → ℚ)) (ν : ℚˣ)
     (hp : (p, ν) ∈ symplecticIsomSheaf.rational _ _ (Matrix.toBilin' !![0, 1; -1, 0])
       ((ℓ : ℚ) • Matrix.toBilin' !![0, 1; -1, 0]))
     (hΛ : (Submodule.span ℤ (Set.range (Pi.basisFun ℚ (Fin 2)))).map
       (p.toLinearMap.restrictScalars ℤ) = Submodule.span ℤ (Set.range (Pi.basisFun ℚ (Fin 2)))) :
     (ν : ℚ) = ℓ ∨ (ν : ℚ) = -ℓ := sorry
--- TauCeti.PEL.tests.rationalLevel_change_compose
-example {V T : Type*} [AddCommGroup V] [Module ℚ V] [AddCommGroup T] [Module ℚ T]
+theorem _root_.TauCeti.PEL.tests.rationalLevel_change_compose {V T : Type*} [AddCommGroup V] [Module ℚ V] [AddCommGroup T] [Module ℚ T]
     {formV : LinearMap.BilinForm ℚ V} {formT : LinearMap.BilinForm ℚ T}
     {H'' H' H : Subgroup ((V ≃ₗ[ℚ] V) × ℚˣ)} (h₁ : H'' ≤ H') (h₂ : H' ≤ H)
     (Rl : RationalLevel V T formV formT H'') :
@@ -1675,8 +1608,7 @@ end PELModuli.moduliProblem
 
 end ModuliProblem
 
--- TauCeti.PEL.tests.moduliProblem_siegel_g1
-example (𝒜 : ∀ R : CommRingCat.{u}, AbelianSchemeSupplier R) (box : Set ℕ) {L : Type*}
+theorem _root_.TauCeti.PEL.tests.moduliProblem_siegel_g1 (𝒜 : ∀ R : CommRingCat.{u}, AbelianSchemeSupplier R) (box : Set ℕ) {L : Type*}
     [AddCommGroup L] (form : LinearMap.BilinForm ℤ L) (n : ℕ)
     (Hn : Subgroup (((ZMod n ⊗[ℤ] L) ≃ₗ[ZMod n] (ZMod n ⊗[ℤ] L)) × (ZMod n)ˣ))
     (x : PELModuli.moduliProblem 𝒜 ℤ box (fun _ : Unit => (1 : ℤ)) (fun _ => MvPolynomial.X () ^ 1)
@@ -1684,20 +1616,17 @@ example (𝒜 : ∀ R : CommRingCat.{u}, AbelianSchemeSupplier R) (box : Set ℕ
     (letI := x.triple.lieFree; letI := x.triple.lieFinite;
       Module.finrank x.R ((𝒜 x.R).lie x.triple.A)) = 1 :=
   PELModuli.moduliProblem.siegel 𝒜 box form n Hn 1 x
--- TauCeti.PEL.tests.moduliProblem_isoClasses_not_sheaf
-example : ∃ E E' : WeierstrassCurve ℚ, E.Δ ≠ 0 ∧ E.c₄ ^ 3 * E'.Δ = E'.c₄ ^ 3 * E.Δ ∧
+theorem _root_.TauCeti.PEL.tests.moduliProblem_isoClasses_not_sheaf : ∃ E E' : WeierstrassCurve ℚ, E.Δ ≠ 0 ∧ E.c₄ ^ 3 * E'.Δ = E'.c₄ ^ 3 * E.Δ ∧
     (¬ ∃ C : WeierstrassCurve.VariableChange ℚ, C • E = E') ∧
     ∃ C : WeierstrassCurve.VariableChange ℂ,
       C • E.map (algebraMap ℚ ℂ) = E'.map (algebraMap ℚ ℂ) := sorry
--- TauCeti.PEL.tests.moduliProblem_zero
-example (𝒜 : ∀ R : CommRingCat.{u}, AbelianSchemeSupplier R) (box : Set ℕ) (n : ℕ)
+theorem _root_.TauCeti.PEL.tests.moduliProblem_zero (𝒜 : ∀ R : CommRingCat.{u}, AbelianSchemeSupplier R) (box : Set ℕ) (n : ℕ)
     (Hn : Subgroup (((ZMod n ⊗[ℤ] (Fin 0 → ℤ)) ≃ₗ[ZMod n] (ZMod n ⊗[ℤ] (Fin 0 → ℤ))) × (ZMod n)ˣ))
     (x : PELModuli.moduliProblem 𝒜 ℤ box (fun _ : Unit => (1 : ℤ)) (fun _ => 1)
       (0 : LinearMap.BilinForm ℤ (Fin 0 → ℤ)) n Hn) [Nontrivial x.R] :
     (letI := x.triple.lieFree; letI := x.triple.lieFinite;
       Module.finrank x.R ((𝒜 x.R).lie x.triple.A)) = 0 := sorry
--- TauCeti.PEL.tests.moduliProblem_det_matters
-example : ¬ SatisfiesDetCondition (M := Fin 3 → ℂ) (ι := Fin 2)
+theorem _root_.TauCeti.PEL.tests.moduliProblem_det_matters : ¬ SatisfiesDetCondition (M := Fin 3 → ℂ) (ι := Fin 2)
     (fun i => LinearMap.pi fun k =>
       (![![1, Complex.I], ![1, -Complex.I], ![1, -Complex.I]] k i) • LinearMap.proj k)
     (∏ k : Fin 3, ∑ i, MvPolynomial.C (![![1, Complex.I], ![1, Complex.I], ![1, -Complex.I]] k i) *
@@ -1741,8 +1670,7 @@ def changeLevel {H' : Subgroup ((V ≃ₗ[ℚ] V) × ℚˣ)} (h : H' ≤ H)
 
 end PELModuli.ratModuliProblem
 
--- TauCeti.PEL.tests.ratModuli_scalar_iso
-example {V T : Type*} [AddCommGroup V] [Module ℚ V] [AddCommGroup T] [Module ℚ T]
+theorem _root_.TauCeti.PEL.tests.ratModuli_scalar_iso {V T : Type*} [AddCommGroup V] [Module ℚ V] [AddCommGroup T] [Module ℚ T]
     {formV : LinearMap.BilinForm ℚ V} {formT : LinearMap.BilinForm ℚ T}
     {H : Subgroup ((V ≃ₗ[ℚ] V) × ℚˣ)} (Rl : RationalLevel V T formV formT H) (m : ℚˣ) :
     (fun p : (V ≃ₗ[ℚ] T) × ℚˣ => ((LinearEquiv.smulOfUnit m).trans p.1, m ^ 2 * p.2)) '' Rl.orbit =
@@ -1772,8 +1700,7 @@ def hecke {V T : Type*} [AddCommGroup V] [Module ℚ V] [AddCommGroup T] [Module
 
 end PELModuli.adelicModuli
 
--- TauCeti.PEL.tests.adelicModuli_full_level_p
-example {𝒜 : ∀ R : CommRingCat.{u}, AbelianSchemeSupplier R} {O : Type*} [Ring O] [StarRing O]
+def _root_.TauCeti.PEL.tests.adelicModuli_full_level_p {𝒜 : ∀ R : CommRingCat.{u}, AbelianSchemeSupplier R} {O : Type*} [Ring O] [StarRing O]
     {ι : Type*} [Fintype ι] [DecidableEq ι] {α : ι → O}
     {detV₀ : ∀ R : CommRingCat.{u}, MvPolynomial ι R} {V T : Type*} [AddCommGroup V] [Module ℚ V]
     [AddCommGroup T] [Module ℚ T] {formV : LinearMap.BilinForm ℚ V}
@@ -1781,14 +1708,12 @@ example {𝒜 : ∀ R : CommRingCat.{u}, AbelianSchemeSupplier R} {O : Type*} [R
     (x : PELModuli.ratModuliProblem 𝒜 O ∅ α detV₀ V T formV formT H) :
     PELModuli.adelicModuli 𝒜 O ∅ α detV₀ V T formV formT H :=
   PELModuli.adelicModuli.ofRational x
--- TauCeti.PEL.tests.adelicModuli_not_integral
-example (𝒯 : TorsionSupplier.{u}) {L : Type*} [AddCommGroup L] [Module.Free ℤ L]
+theorem _root_.TauCeti.PEL.tests.adelicModuli_not_integral (𝒯 : TorsionSupplier.{u}) {L : Type*} [AddCommGroup L] [Module.Free ℤ L]
     [Module.Finite ℤ L] (form : LinearMap.BilinForm ℤ L) (p : ℕ) [Fact p.Prime]
     (hL : 0 < Module.finrank ℤ L)
     (hord : Nat.card (𝒯.torsion p) = p ^ (Module.finrank ℤ L / 2)) :
     IsEmpty (PrincipalLevel 𝒯 form p) := sorry
--- TauCeti.PEL.tests.adelicModuli_zero
-example (n : ℕ) [NeZero n] (K : Subgroup (ZMod n)ˣ) :
+theorem _root_.TauCeti.PEL.tests.adelicModuli_zero (n : ℕ) [NeZero n] (K : Subgroup (ZMod n)ˣ) :
     Nat.card ((ZMod n)ˣ ⧸ K) * Nat.card K = Nat.totient n := sorry
 
 /-- Isomorphism classes of `M^rat_H` over `R`. -/
@@ -1852,16 +1777,14 @@ theorem isoIsogenyComparison (𝒜 : ∀ R : CommRingCat.{u}, AbelianSchemeSuppl
     Nonempty (PELModuli.moduliProblem.isoClasses 𝒜 O box α detV₀ form n Hn R ≃
       PELModuli.ratModuliProblem.isoClasses 𝒜 O box α detV₀ V T formV formT H R) := sorry
 
--- TauCeti.PEL.tests.ratModuli_siegel_kottwitz
-example (𝒜 : ∀ R : CommRingCat.{u}, AbelianSchemeSupplier R) (p : ℕ) (g : ℕ) (V T : Type*)
+theorem _root_.TauCeti.PEL.tests.ratModuli_siegel_kottwitz (𝒜 : ∀ R : CommRingCat.{u}, AbelianSchemeSupplier R) (p : ℕ) (g : ℕ) (V T : Type*)
     [AddCommGroup V] [Module ℚ V] [AddCommGroup T] [Module ℚ T] (formV : LinearMap.BilinForm ℚ V)
     (formT : LinearMap.BilinForm ℚ T) (H : Subgroup ((V ≃ₗ[ℚ] V) × ℚˣ)) (R : CommRingCat.{u}) :
     Nonempty (PELModuli.ratModuliProblem.isoClasses 𝒜 ℤ {p} (fun _ : Unit => (1 : ℤ))
       (fun _ => MvPolynomial.X () ^ g) V T formV formT H R ≃
         PELModuli.kottwitzQuadruples p V T formV formT H R) :=
   PELModuli.ratModuliProblem.kottwitz 𝒜 p _ V T formV formT H R
--- TauCeti.PEL.tests.ratModuli_lattice_indep
-example (𝒜 : ∀ R : CommRingCat.{u}, AbelianSchemeSupplier R) (box : Set ℕ) (n : ℕ)
+theorem _root_.TauCeti.PEL.tests.ratModuli_lattice_indep (𝒜 : ∀ R : CommRingCat.{u}, AbelianSchemeSupplier R) (box : Set ℕ) (n : ℕ)
     (Hn₁ Hn₂ : Subgroup (((ZMod n ⊗[ℤ] (Fin 2 → ℤ)) ≃ₗ[ZMod n] (ZMod n ⊗[ℤ] (Fin 2 → ℤ))) × (ZMod n)ˣ))
     (e₁ e₂ : ℚ ⊗[ℤ] (Fin 2 → ℤ) ≃ₗ[ℚ] (Fin 2 → ℚ)) (H : Subgroup (((Fin 2 → ℚ) ≃ₗ[ℚ] (Fin 2 → ℚ)) × ℚˣ))
     (h₁ : H = PELModuli.ratLevelGroup e₁ Hn₁) (h₂ : H = PELModuli.ratLevelGroup e₂ Hn₂)
@@ -1951,19 +1874,16 @@ theorem heckeTranslate_integral {H : Subgroup ((V ≃ₗ[ℚ] V) × ℚˣ)} (g :
 
 end PELModuli
 
--- TauCeti.PEL.tests.heckeTranslate_id
-example {V T : Type*} [AddCommGroup V] [Module ℚ V] [AddCommGroup T] [Module ℚ T]
+theorem _root_.TauCeti.PEL.tests.heckeTranslate_id {V T : Type*} [AddCommGroup V] [Module ℚ V] [AddCommGroup T] [Module ℚ T]
     {formV : LinearMap.BilinForm ℚ V} {formT : LinearMap.BilinForm ℚ T}
     {H : Subgroup ((V ≃ₗ[ℚ] V) × ℚˣ)} (Rl : RationalLevel V T formV formT H) :
     PELModuli.heckeTranslate (LinearEquiv.refl ℚ V, 1) Rl = Rl.orbit :=
   PELModuli.heckeTranslate_central Rl
--- TauCeti.PEL.tests.heckeTranslate_siegel_scalar
-example {V T : Type*} [AddCommGroup V] [Module ℚ V] [AddCommGroup T] [Module ℚ T]
+theorem _root_.TauCeti.PEL.tests.heckeTranslate_siegel_scalar {V T : Type*} [AddCommGroup V] [Module ℚ V] [AddCommGroup T] [Module ℚ T]
     {formV : LinearMap.BilinForm ℚ V} {formT : LinearMap.BilinForm ℚ T}
     {H : Subgroup ((V ≃ₗ[ℚ] V) × ℚˣ)} (Rl : RationalLevel V T formV formT H) (ℓ : ℚˣ) (hRl : ∀ p ∈ Rl.orbit, (p.1.trans (LinearEquiv.smulOfUnit ℓ), ℓ ^ 2 * p.2) ∈ Rl.orbit) :
     PELModuli.heckeTranslate (LinearEquiv.smulOfUnit ℓ, ℓ ^ 2) Rl ⊆ Rl.orbit := sorry
--- TauCeti.PEL.tests.heckeTranslate_not_left
-example {V T : Type*} [AddCommGroup V] [Module ℚ V] [AddCommGroup T] [Module ℚ T]
+theorem _root_.TauCeti.PEL.tests.heckeTranslate_not_left {V T : Type*} [AddCommGroup V] [Module ℚ V] [AddCommGroup T] [Module ℚ T]
     {formV : LinearMap.BilinForm ℚ V} {formT : LinearMap.BilinForm ℚ T}
     {H : Subgroup ((V ≃ₗ[ℚ] V) × ℚˣ)} (Rl : RationalLevel V T formV formT H) (g : (V ≃ₗ[ℚ] V) × ℚˣ) :
     PELModuli.heckeTranslate g Rl = (fun p => (g.1.trans p.1, g.2 * p.2)) '' Rl.orbit := rfl
@@ -2008,20 +1928,17 @@ def prod {O O' : Type*} [Ring O] [StarRing O] [Ring O'] [StarRing O'] {L L' : Ty
 
 end PELModuli
 
--- TauCeti.PEL.tests.mapOfDatum_id
-example {R : CommRingCat.{u}} {𝒜 : AbelianSchemeSupplier R} {O : Type*} [Ring O] [StarRing O]
+theorem _root_.TauCeti.PEL.tests.mapOfDatum_id {R : CommRingCat.{u}} {𝒜 : AbelianSchemeSupplier R} {O : Type*} [Ring O] [StarRing O]
     {box : Set ℕ} {ι : Type*} [Fintype ι] [DecidableEq ι] {α : ι → O} {detV₀ : MvPolynomial ι R}
     (T : PELTriple 𝒜 O box (fun j => (RingHom.id O) (α j)) detV₀) :
     (PELModuli.mapOfDatum (RingHom.id O) (fun _ => rfl) T).A = T.A := rfl
--- TauCeti.PEL.tests.toSiegel_g1
-example {R : CommRingCat.{u}} {𝒜 : AbelianSchemeSupplier R} {O : Type*} [Ring O] [StarRing O]
+theorem _root_.TauCeti.PEL.tests.toSiegel_g1 {R : CommRingCat.{u}} {𝒜 : AbelianSchemeSupplier R} {O : Type*} [Ring O] [StarRing O]
     {box : Set ℕ} [Nontrivial R] (T : PELTriple 𝒜 O box (fun _ => (1 : O)) (MvPolynomial.X () ^ 1))
     (h : (PELModuli.toSiegel T).detCondition) :
     (letI := (PELModuli.toSiegel T).lieFree; letI := (PELModuli.toSiegel T).lieFinite;
       Module.finrank R (𝒜.lie (PELModuli.toSiegel T).A)) = 1 :=
   PELTriple.relDim _ 1 (MvPolynomial.isHomogeneous_X_pow _ _) (by rw [pow_one]; exact MvPolynomial.X_ne_zero _) h
--- TauCeti.PEL.tests.toSiegel_not_injective_on_objects
-example {R : CommRingCat.{u}} {𝒜 : AbelianSchemeSupplier R} {O : Type*} [Ring O] [StarRing O]
+theorem _root_.TauCeti.PEL.tests.toSiegel_not_injective_on_objects {R : CommRingCat.{u}} {𝒜 : AbelianSchemeSupplier R} {O : Type*} [Ring O] [StarRing O]
     {box : Set ℕ} {detV₀ : MvPolynomial Unit R} (T T' : PELTriple 𝒜 O box (fun _ => (1 : O)) detV₀)
     (hA : T.A = T'.A) : (PELModuli.toSiegel T).A = (PELModuli.toSiegel T').A := by
   rw [PELModuli.toSiegel_fiber, PELModuli.toSiegel_fiber, hA]
@@ -2074,16 +1991,13 @@ theorem isNeat_principalCongruence {N : ℕ} (p : ℕ) [Fact p.Prime] (k : ℕ) 
     (hH : ∀ g ∈ H, ∀ i j, (p : ℤ_[p]) ^ k ∣ (g : Matrix (Fin N) (Fin N) ℤ_[p]) i j -
       (1 : Matrix (Fin N) (Fin N) ℤ_[p]) i j) : IsNeat p H := sorry
 
--- TauCeti.PEL.tests.isNeat_U3
-example (N : ℕ) (H : Subgroup (GL (Fin N) ℤ_[3]))
+theorem _root_.TauCeti.PEL.tests.isNeat_U3 (N : ℕ) (H : Subgroup (GL (Fin N) ℤ_[3]))
     (hH : ∀ g ∈ H, ∀ i j, (3 : ℤ_[3]) ^ 1 ∣ (g : Matrix (Fin N) (Fin N) ℤ_[3]) i j -
       (1 : Matrix (Fin N) (Fin N) ℤ_[3]) i j) : IsNeat 3 H :=
   isNeat_principalCongruence 3 1 (by norm_num) H hH
--- TauCeti.PEL.tests.not_isNeat_minus_one
-example (p : ℕ) [Fact p.Prime] (hp : p ≠ 2) :
+theorem _root_.TauCeti.PEL.tests.not_isNeat_minus_one (p : ℕ) [Fact p.Prime] (hp : p ≠ 2) :
     ¬ IsNeatElement p (-1 : Matrix (Fin 1) (Fin 1) ℤ_[p]) := sorry
--- TauCeti.PEL.tests.isNeat_mono
-example {N : ℕ} (p : ℕ) [Fact p.Prime] (H H' : Subgroup (GL (Fin N) ℤ_[p])) (h : H' ≤ H)
+theorem _root_.TauCeti.PEL.tests.isNeat_mono {N : ℕ} (p : ℕ) [Fact p.Prime] (H H' : Subgroup (GL (Fin N) ℤ_[p])) (h : H' ≤ H)
     (hH : IsNeat p H) : IsNeat p H' := IsNeat.mono h hH
 
 /-- Lan Corollary 1.4.1.11: at neat level, objects have no automorphisms (an automorphism of
@@ -2186,23 +2100,19 @@ theorem universal_siegel [Nontrivial R]
 
 end PELModuli
 
--- TauCeti.PEL.tests.universal_g1
-example {R : CommRingCat.{u}} (𝒜 : AbelianSchemeSupplier R) (box : Set ℕ) [Nontrivial R]
+theorem _root_.TauCeti.PEL.tests.universal_g1 {R : CommRingCat.{u}} (𝒜 : AbelianSchemeSupplier R) (box : Set ℕ) [Nontrivial R]
     (h : (PELModuli.universal 𝒜 box (fun _ : Unit => (1 : ℤ)) (MvPolynomial.X () ^ 1)).detCondition) :
     (letI := (PELModuli.universal 𝒜 box (fun _ : Unit => (1 : ℤ)) (MvPolynomial.X () ^ 1)).lieFree
      letI := (PELModuli.universal 𝒜 box (fun _ : Unit => (1 : ℤ)) (MvPolynomial.X () ^ 1)).lieFinite
      Module.finrank R (𝒜.lie (PELModuli.universal 𝒜 box (fun _ : Unit => (1 : ℤ))
        (MvPolynomial.X () ^ 1)).A)) = 1 := PELModuli.universal_siegel 𝒜 box h
--- TauCeti.PEL.tests.universal_classify_self
-example {R : CommRingCat.{u}} (𝒜 : AbelianSchemeSupplier R) {O : Type*} [Ring O] [StarRing O]
+theorem _root_.TauCeti.PEL.tests.universal_classify_self {R : CommRingCat.{u}} (𝒜 : AbelianSchemeSupplier R) {O : Type*} [Ring O] [StarRing O]
     (box : Set ℕ) {ι : Type*} [Fintype ι] [DecidableEq ι] (α : ι → O) (detV₀ : MvPolynomial ι R) :
     (PELModuli.classify 𝒜 box α detV₀ (PELModuli.universal 𝒜 box α detV₀)).f.f ≫
       (PELModuli.universal 𝒜 box α detV₀).A.π = (PELModuli.universal 𝒜 box α detV₀).A.π :=
   PELModuli.classify_pullback 𝒜 box α detV₀ _
--- TauCeti.PEL.tests.universal_nonneat
-example (p : ℕ) [Fact p.Prime] (hp : p ≠ 2) : ¬ IsNeat p (⊤ : Subgroup (GL (Fin 1) ℤ_[p])) := sorry
--- TauCeti.PEL.tests.universal_zero
-example {R : CommRingCat.{u}} (𝒜 : AbelianSchemeSupplier R) (box : Set ℕ) [Nontrivial R]
+theorem _root_.TauCeti.PEL.tests.universal_nonneat (p : ℕ) [Fact p.Prime] (hp : p ≠ 2) : ¬ IsNeat p (⊤ : Subgroup (GL (Fin 1) ℤ_[p])) := sorry
+theorem _root_.TauCeti.PEL.tests.universal_zero {R : CommRingCat.{u}} (𝒜 : AbelianSchemeSupplier R) (box : Set ℕ) [Nontrivial R]
     (h : (PELModuli.universal 𝒜 box (fun _ : Unit => (1 : ℤ)) 1).detCondition) :
     (letI := (PELModuli.universal 𝒜 box (fun _ : Unit => (1 : ℤ)) 1).lieFree
      letI := (PELModuli.universal 𝒜 box (fun _ : Unit => (1 : ℤ)) 1).lieFinite
@@ -2257,11 +2167,13 @@ def ordinaryLocus {B : Type*} [Ring B] [Algebra ℚ B] [StarRing B] {V : Type*} 
     (n : ℕ) : Set (PELModuli.representingChart D S₀ n).1 := sorry
 
 /-- Wedhorn 1999, 1.6.3 (`M2/wedhorn-ordinary-density`): the ordinary locus is dense in the
-special fibre iff `p` splits completely in the reflex field (all residue degrees equal `1`). -/
+special fibre at the chosen place `v` iff `E_v = ℚ_p`; at good reduction this
+is equivalent to the residue degree at that place being `1`. The numerical argument below
+is still not linked to a place of the actual reflex field (review gap). -/
 theorem wedhornOrdinaryDensity {B : Type*} [Ring B] [Algebra ℚ B] [StarRing B] {V : Type*}
     [AddCommGroup V] [Module ℚ V] [Module B V] [IsScalarTower ℚ B V] (D : RationalPELDatum B V)
-    (S₀ : Scheme.{u}) (n : ℕ) (residueDegrees : List ℕ) :
-    Dense (ordinaryLocus D S₀ n) ↔ ∀ f ∈ residueDegrees, f = 1 := sorry
+    (S₀ : Scheme.{u}) (n : ℕ) (localResidueDegree : ℕ) :
+    Dense (ordinaryLocus D S₀ n) ↔ localResidueDegree = 1 := sorry
 
 end M2
 
@@ -2346,18 +2258,14 @@ def uniformization_siegel (n : ℕ) (τ : UpperHalfPlane) : ℂ × ℂ × ℂ :=
 
 end PELModuli
 
--- TauCeti.PEL.tests.uniformization_g1
-example (n : ℕ) (hn : 0 < n) (τ : UpperHalfPlane) :
+theorem _root_.TauCeti.PEL.tests.uniformization_g1 (n : ℕ) (hn : 0 < n) (τ : UpperHalfPlane) :
     (PELModuli.uniformization_siegel n τ).2.1 * n = 1 := sorry
--- TauCeti.PEL.tests.uniformization_bijective_points
-example (D : RationalPELDatum B V) (i : PELModuli.ker1 D) (K : Subgroup (PELDatum.similitudeGroup D (IsDedekindDomain.FiniteAdeleRing ℤ ℚ))) :
+theorem _root_.TauCeti.PEL.tests.uniformization_bijective_points (D : RationalPELDatum B V) (i : PELModuli.ker1 D) (K : Subgroup (PELDatum.similitudeGroup D (IsDedekindDomain.FiniteAdeleRing ℤ ℚ))) :
     Function.Injective (PELModuli.uniformization D i K) := PELModuli.uniformization_openClosed D i K
--- TauCeti.PEL.tests.uniformization_not_single
-example (D : RationalPELDatum B V) (K : Subgroup (PELDatum.similitudeGroup D (IsDedekindDomain.FiniteAdeleRing ℤ ℚ)))
+theorem _root_.TauCeti.PEL.tests.uniformization_not_single (D : RationalPELDatum B V) (K : Subgroup (PELDatum.similitudeGroup D (IsDedekindDomain.FiniteAdeleRing ℤ ℚ)))
     (i : PELModuli.ker1 D) (h : Nat.card (PELModuli.ker1 D) = 2) :
     ¬ Function.Surjective (PELModuli.uniformization D i K) := sorry
--- TauCeti.PEL.tests.uniformization_zero
-example (D : RationalPELDatum B V) [Subsingleton V]
+theorem _root_.TauCeti.PEL.tests.uniformization_zero (D : RationalPELDatum B V) [Subsingleton V]
     (K : Subgroup (PELDatum.similitudeGroup D (IsDedekindDomain.FiniteAdeleRing ℤ ℚ)))
     (i : PELModuli.ker1 D) : Function.Bijective (PELModuli.uniformization D i K) := sorry
 
@@ -2399,21 +2307,17 @@ theorem hermitianHom_complex {A : Type*} [CommRing A] [StarRing A] {M₀ M : Typ
     [AddCommGroup M₀] [Module A M₀] [AddCommGroup M] [Module A M] :
     hermitianHom (A := A) M₀ M = (M₀ →ₗ[A] M) := rfl
 
--- TauCeti.PEL.tests.hermitianHom_rank_one
-example : Module.finrank ℂ (hermitianHom (A := ℂ) ℂ ℂ) = 1 := sorry
--- TauCeti.PEL.tests.hermitianHom_scaling
-example {A : Type*} [CommRing A] [StarRing A] {M₀ M : Type*} [AddCommGroup M₀] [Module A M₀]
+theorem _root_.TauCeti.PEL.tests.hermitianHom_rank_one : Module.finrank ℂ (hermitianHom (A := ℂ) ℂ ℂ) = 1 := sorry
+theorem _root_.TauCeti.PEL.tests.hermitianHom_scaling {A : Type*} [CommRing A] [StarRing A] {M₀ M : Type*} [AddCommGroup M₀] [Module A M₀]
     [AddCommGroup M] [Module A M] (h₀ : HermitianSpace A M₀) (h h' : HermitianSpace A M) (c : A)
     (hc : ∀ x y, h'.pairing x y = c * h.pairing x y) (x y : hermitianHom (A := A) M₀ M) :
     hermitianHom.pairing h₀ h' x y = c * hermitianHom.pairing h₀ h x y := sorry
--- TauCeti.PEL.tests.hermitianHom_not_symmetric_bilinear
-example {A : Type*} [CommRing A] [StarRing A] {M₀ M : Type*} [AddCommGroup M₀] [Module A M₀]
+theorem _root_.TauCeti.PEL.tests.hermitianHom_not_symmetric_bilinear {A : Type*} [CommRing A] [StarRing A] {M₀ M : Type*} [AddCommGroup M₀] [Module A M₀]
     [AddCommGroup M] [Module A M] (h₀ : HermitianSpace A M₀) (h : HermitianSpace A M) (a : A)
     (x y : hermitianHom (A := A) M₀ M) :
     hermitianHom.pairing h₀ h (a • x) y = a * hermitianHom.pairing h₀ h x y ∧
       hermitianHom.pairing h₀ h x (a • y) = star a * hermitianHom.pairing h₀ h x y := sorry
--- TauCeti.PEL.tests.hermitianHom_zero
-example {A : Type*} [CommRing A] [StarRing A] (M₀ : Type*) [AddCommGroup M₀] [Module A M₀] :
+theorem _root_.TauCeti.PEL.tests.hermitianHom_zero {A : Type*} [CommRing A] [StarRing A] (M₀ : Type*) [AddCommGroup M₀] [Module A M₀] :
     Subsingleton (hermitianHom (A := A) M₀ (Fin 0 → A)) := sorry
 
 /-- The complex points of `A_{g,n}` (data). -/
@@ -2486,13 +2390,11 @@ theorem twist_trivial (T : PELTriple 𝒜 O box α detV₀) : twist T 1 (by simp
 
 end PELModuli
 
--- TauCeti.PEL.tests.twist_identity
-example {R : CommRingCat.{u}} {𝒜 : AbelianSchemeSupplier R} {O : Type*} [Ring O] [StarRing O]
+theorem _root_.TauCeti.PEL.tests.twist_identity {R : CommRingCat.{u}} {𝒜 : AbelianSchemeSupplier R} {O : Type*} [Ring O] [StarRing O]
     {box : Set ℕ} {ι : Type*} [Fintype ι] [DecidableEq ι] {α : ι → O} {detV₀ : MvPolynomial ι R}
     (T : PELTriple 𝒜 O box α detV₀) : PELModuli.twist T 1 (by simp) (by simp) = T :=
   PELModuli.twist_trivial T
--- TauCeti.PEL.tests.twist_polarization_positive
-example {R : CommRingCat.{u}} {𝒜 : AbelianSchemeSupplier R} {O : Type*} [Ring O] [StarRing O]
+theorem _root_.TauCeti.PEL.tests.twist_polarization_positive {R : CommRingCat.{u}} {𝒜 : AbelianSchemeSupplier R} {O : Type*} [Ring O] [StarRing O]
     {box : Set ℕ} {ι : Type*} [Fintype ι] [DecidableEq ι] {α : ι → O} {detV₀ : MvPolynomial ι R}
     (T : PELTriple 𝒜 O box α detV₀) (a : O) (ha : star a = a) (hpos : ∀ φ : O →+* ℝ, 0 < φ a)
     (b : O) :
@@ -2501,8 +2403,7 @@ example {R : CommRingCat.{u}} {𝒜 : AbelianSchemeSupplier R} {O : Type*} [Ring
       𝒜.comp ((PELModuli.twist T a ha hpos).i (star b))
         (PELModuli.twist T a ha hpos).pol.toQuasiIsogeny.num :=
   (PELModuli.twist T a ha hpos).rosati b
--- TauCeti.PEL.tests.twist_needs_positivity
-example : ¬ ∀ φ : ℤ →+* ℝ, 0 < φ (-1) := fun h => by
+theorem _root_.TauCeti.PEL.tests.twist_needs_positivity : ¬ ∀ φ : ℤ →+* ℝ, 0 < φ (-1) := fun h => by
   have := h (Int.castRingHom ℝ); norm_num at this
 
 /-- Functoriality (`M4/canonical-model-functoriality`): the Galois action commutes with level
@@ -2545,16 +2446,13 @@ theorem normalizedModel_good (hnormal : ∀ x : 𝔐, IsIntegrallyClosed (𝔐.p
 
 end PELModuli
 
--- TauCeti.PEL.tests.normalizedModel_good_level
-example (𝔐 : Scheme.{u}) : Nonempty (PELModuli.normalizedModel (𝟙 𝔐) ⟶ 𝔐) :=
+theorem _root_.TauCeti.PEL.tests.normalizedModel_good_level (𝔐 : Scheme.{u}) : Nonempty (PELModuli.normalizedModel (𝟙 𝔐) ⟶ 𝔐) :=
   ⟨PELModuli.normalizedModel_toGood (𝟙 𝔐)⟩
--- TauCeti.PEL.tests.normalizedModel_gamma0p_not_smooth
-example (k : Type*) [Field k] :
+theorem _root_.TauCeti.PEL.tests.normalizedModel_gamma0p_not_smooth (k : Type*) [Field k] :
     ¬ Algebra.FormallySmooth k
       (MvPolynomial (Fin 2) k ⧸
         (Ideal.span {MvPolynomial.X 0 * MvPolynomial.X 1} : Ideal (MvPolynomial (Fin 2) k))) := sorry
--- TauCeti.PEL.tests.normalizedModel_generic_g1
-example {Y 𝔐 : Scheme.{u}} (f : Y ⟶ 𝔐) [QuasiCompact f] [QuasiSeparated f] :
+theorem _root_.TauCeti.PEL.tests.normalizedModel_generic_g1 {Y 𝔐 : Scheme.{u}} (f : Y ⟶ 𝔐) [QuasiCompact f] [QuasiSeparated f] :
     PELModuli.normalizedModel_generic f ≫ PELModuli.normalizedModel_toGood f = f := sorry
 
 /-- `M4/normalization-finite-normal-flat`: the normalization is integral (finite under Nagata
@@ -2606,19 +2504,15 @@ def cmModuli_eq_pel {𝒜 : ∀ R : CommRingCat.{u}, AbelianSchemeSupplier R} {O
 /-- The groupoid `𝔗` of `Γ = T₀(𝔸^{∞,p})/T₀(ℤ_(p))K^p₀`: one object, automorphisms `Γ`. -/
 abbrev torusGroupoid (Γ : Type*) [Group Γ] := CategoryTheory.SingleObj Γ
 
--- TauCeti.PEL.tests.cmModuli_imagQuad_points
-example (𝒜 : ∀ R : CommRingCat.{u}, AbelianSchemeSupplier R) (p : ℕ) (ker1T0 : Type) (W₀ : ker1T0)
+theorem _root_.TauCeti.PEL.tests.cmModuli_imagQuad_points (𝒜 : ∀ R : CommRingCat.{u}, AbelianSchemeSupplier R) (p : ℕ) (ker1T0 : Type) (W₀ : ker1T0)
     (Γ : Type) [Group Γ] [Finite Γ] (x₀ : cmModuli 𝒜 GaussianInt p ker1T0 W₀) :
     Nat.card (cmModuli 𝒜 GaussianInt p ker1T0 W₀) = Nat.card Γ := sorry
--- TauCeti.PEL.tests.cmModuli_relDim_zero
-example {F : Type*} [Field F] (Φ : GeneralizedCMType F 1) (S : Finset (F →+* ℂ)) :
+theorem _root_.TauCeti.PEL.tests.cmModuli_relDim_zero {F : Type*} [Field F] (Φ : GeneralizedCMType F 1) (S : Finset (F →+* ℂ)) :
     ∑ τ ∈ S, Φ.coeff τ * Φ.coeff (NumberField.ComplexEmbedding.conjugate τ) = 0 :=
   Finset.sum_eq_zero fun τ _ => Nat.mul_eq_zero.mpr (by have := Φ.sum_conj τ; omega)
--- TauCeti.PEL.tests.cmModuli_not_principal
-example {R : CommRingCat.{u}} {A : AbelianScheme (Spec R)} (f : A.Hom A) (p : ℕ) (hp : p.Prime) :
+theorem _root_.TauCeti.PEL.tests.cmModuli_not_principal {R : CommRingCat.{u}} {A : AbelianScheme (Spec R)} (f : A.Hom A) (p : ℕ) (hp : p.Prime) :
     ¬ QuasiIsogeny.IsQuasiP p (⟨f, p, hp.pos⟩ : QuasiIsogeny A A) := fun h => h dvd_rfl
--- TauCeti.PEL.tests.cmModuli_empty_type
-example (S : SkewHermitianSpace ℚ ℚ ℚ) (P : Set ℚ) (a : ℚ) (ha : a ∈ P) (x : ℚ)
+theorem _root_.TauCeti.PEL.tests.cmModuli_empty_type (S : SkewHermitianSpace ℚ ℚ ℚ) (P : Set ℚ) (a : ℚ) (ha : a ∈ P) (x : ℚ)
     (hneg : S.pairing (a • x) x < 0) : ¬ S.HasType P := fun h => absurd (h a ha x) (not_le.mpr hneg)
 
 /-- `T_p → Spec(O_{F_Φ} ⊗ ℤ_(p))` is Galois with group `Γ` (`M4/cm-moduli-galois`): the action
@@ -2654,13 +2548,12 @@ theorem torusTrace_indep {C Hc L : Type*} [AddCommMonoid L] (reps reps' : Finset
 theorem torusTrace_trivial {C Hc L : Type*} [AddCommMonoid L] (c : C) (tr : C → Hc → L) (x : Hc) :
     torusTrace {c} tr x = tr c x := by simp [torusTrace]
 
--- TauCeti.PEL.tests.torusTrace_trivial_group
-example (tr : Unit → ℚ → ℚ) (x : ℚ) : torusTrace {()} tr x = tr () x := torusTrace_trivial () tr x
--- TauCeti.PEL.tests.torusTrace_two_orbits
-example (tr : Bool → ℚ → ℚ) (x : ℚ) : torusTrace {true} tr x = tr true x := torusTrace_trivial _ _ _
--- TauCeti.PEL.tests.torusTrace_not_average
-example (tr : Bool → ℚ → ℚ) (x : ℚ) (hsame : tr true x = tr false x) (h : tr true x ≠ 0) :
-    torusTrace {true} tr x ≠ torusTrace {true, false} tr x := sorry
+theorem _root_.TauCeti.PEL.tests.torusTrace_trivial_group (tr : Unit → ℚ → ℚ) (x : ℚ) : torusTrace {()} tr x = tr () x := torusTrace_trivial () tr x
+theorem _root_.TauCeti.PEL.tests.torusTrace_two_orbits (tr : Bool → ℚ → ℚ) (x : ℚ) : torusTrace {true} tr x = tr true x := torusTrace_trivial _ _ _
+theorem _root_.TauCeti.PEL.tests.torusTrace_not_average : torusTrace {true} (fun (_ : Bool) (_ : Unit) => (1 : ZMod 2)) () = 1 ∧
+    torusTrace {true, false} (fun (_ : Bool) (_ : Unit) => (1 : ZMod 2)) () = 0 := by
+  simp [torusTrace]
+  decide
 
 end M4
 
@@ -2708,18 +2601,14 @@ theorem siegelDatum_type (g : ℕ) (d : Fin g → ℤ) (hd : ∀ i, d i ≠ 0) :
 
 end M5
 
--- TauCeti.PEL.tests.siegelDatum_index_12
-example : (siegelGram 2 ![1, 2]).det = 4 ∧ ¬ PELDatum.IsGoodPrime 3 1 1 4 2 ∧
+theorem _root_.TauCeti.PEL.tests.siegelDatum_index_12 : (siegelGram 2 ![1, 2]).det = 4 ∧ ¬ PELDatum.IsGoodPrime 3 1 1 4 2 ∧
     ¬ PELDatum.IsGoodPrime 3 1 1 4 3 ∧ PELDatum.IsGoodPrime 3 1 1 4 5 := sorry
--- TauCeti.PEL.tests.siegelDatum_principal_good
-example (p : ℕ) (hp : p.Prime) : PELDatum.IsGoodPrime 1 1 1 1 p := by
+theorem _root_.TauCeti.PEL.tests.siegelDatum_principal_good (p : ℕ) (hp : p.Prime) : PELDatum.IsGoodPrime 1 1 1 1 p := by
   simp [PELDatum.IsGoodPrime, PELDatum.badPrimeInteger, hp.ne_one]
--- TauCeti.PEL.tests.siegelDatum_shimura_indep
-example : ∃ P : Matrix (Fin 2 ⊕ Fin 2) (Fin 2 ⊕ Fin 2) ℚ, IsUnit P.det ∧
+theorem _root_.TauCeti.PEL.tests.siegelDatum_shimura_indep : ∃ P : Matrix (Fin 2 ⊕ Fin 2) (Fin 2 ⊕ Fin 2) ℚ, IsUnit P.det ∧
     P.transpose * (siegelGram 2 ![1, 2]).map (Int.cast : ℤ → ℚ) * P =
       (siegelGram 2 ![1, 1]).map (Int.cast : ℤ → ℚ) := sorry
--- TauCeti.PEL.tests.siegelDatum_not_type_unordered
-example : ∃ P : Matrix (Fin 2 ⊕ Fin 2) (Fin 2 ⊕ Fin 2) ℤ, IsUnit P.det ∧
+theorem _root_.TauCeti.PEL.tests.siegelDatum_not_type_unordered : ∃ P : Matrix (Fin 2 ⊕ Fin 2) (Fin 2 ⊕ Fin 2) ℤ, IsUnit P.det ∧
     P.transpose * siegelGram 2 ![2, 1] * P = siegelGram 2 ![1, 2] := sorry
 
 /-- Siegel moduli `A_{g,D,n}` (`M5/siegel-moduli`): smooth of relative dimension `g(g+1)/2`, the
@@ -2802,17 +2691,13 @@ theorem unitaryDatum_ker1 {B : Type*} [Ring B] [Algebra ℚ B] [StarRing B] {V :
     Subsingleton (PELModuli.ker1 D) :=
   hassePrincipleCases D {AlbertType.A} (by simp) 1 n hB hV (fun _ => hn)
 
--- TauCeti.PEL.tests.unitaryDatum_picard_reflex
-example : (2, 1) ≠ (1, 2) ∧ Module.finrank ℂ (Matrix (Fin 2) (Fin 1) ℂ) = 2 :=
+theorem _root_.TauCeti.PEL.tests.unitaryDatum_picard_reflex : (2, 1) ≠ (1, 2) ∧ Module.finrank ℂ (Matrix (Fin 2) (Fin 1) ℂ) = 2 :=
   ⟨fun h => absurd ((unitaryDatum_reflex 2 1).mp h) (by decide), unitaryDatum_relDim 2 1⟩
--- TauCeti.PEL.tests.unitaryDatum_U11
-example : (1, 1) = (1, 1) ∧ Module.finrank ℂ (Matrix (Fin 1) (Fin 1) ℂ) = 1 :=
+theorem _root_.TauCeti.PEL.tests.unitaryDatum_U11 : (1, 1) = (1, 1) ∧ Module.finrank ℂ (Matrix (Fin 1) (Fin 1) ℂ) = 1 :=
   ⟨(unitaryDatum_reflex 1 1).mpr rfl, unitaryDatum_relDim 1 1⟩
--- TauCeti.PEL.tests.unitaryDatum_definite
-example (n : ℕ) : Module.finrank ℂ (Matrix (Fin n) (Fin 0) ℂ) = 0 :=
+theorem _root_.TauCeti.PEL.tests.unitaryDatum_definite (n : ℕ) : Module.finrank ℂ (Matrix (Fin n) (Fin 0) ℂ) = 0 :=
   (unitaryDatum_shimura n 0).mpr (mul_zero n)
--- TauCeti.PEL.tests.unitaryDatum_wrong_delta
-example {K : Type*} [Field K] [NumberField K] [StarRing K] {W : Type*} [AddCommGroup W]
+theorem _root_.TauCeti.PEL.tests.unitaryDatum_wrong_delta {K : Type*} [Field K] [NumberField K] [StarRing K] {W : Type*} [AddCommGroup W]
     [Module K W] (H : HermitianSpace K W) (δ : K) (x : W) (hpos : 0 < unitaryDatum H δ x x) :
     unitaryDatum H (-δ) x x < 0 := by
   rw [unitaryDatum.neg_delta]; linarith
@@ -2900,11 +2785,11 @@ variable {k K : Type*} [Field k] [Field K] [Algebra k K] {Cl : Type*} [MulAction
 
 /-- `k(ξ)` is the field of definition of the coarse point: the fixed field of the stabilizer of
 the class. -/
-theorem fieldOfModuli_eq_residue (x : Cl) :
+theorem fieldOfModuli_eq_residue [FiniteDimensional k K] [IsGalois k K] (x : Cl) :
     (fieldOfModuli (k := k) (K := K) x).fixingSubgroup = MulAction.stabilizer (K ≃ₐ[k] K) x :=
   sorry
 
-theorem fieldOfModuli_le_of_model (x : Cl) (k₁ : IntermediateField k K)
+theorem fieldOfModuli_le_of_model [FiniteDimensional k K] [IsGalois k K] (x : Cl) (k₁ : IntermediateField k K)
     (hmodel : ∀ σ ∈ k₁.fixingSubgroup, σ • x = x) : fieldOfModuli (k := k) (K := K) x ≤ k₁ := sorry
 
 theorem fieldOfModuli_galois (x : Cl) (σ : K ≃ₐ[k] K) :
@@ -2921,18 +2806,14 @@ theorem fieldOfModuli_fine (x : Cl) (hfine : ∀ σ : K ≃ₐ[k] K, σ • x = 
 
 end FieldOfModuli
 
--- TauCeti.PEL.tests.fieldOfModuli_elliptic
-example : (WeierstrassCurve.ofJ (1728 : ℚ)).j = 1728 := WeierstrassCurve.ofJ_j 1728
--- TauCeti.PEL.tests.fieldOfModuli_le
-example {k K : Type*} [Field k] [Field K] [Algebra k K] {Cl : Type*} [MulAction (K ≃ₐ[k] K) Cl]
+theorem _root_.TauCeti.PEL.tests.fieldOfModuli_elliptic : (WeierstrassCurve.ofJ (1728 : ℚ)).j = 1728 := WeierstrassCurve.ofJ_j 1728
+theorem _root_.TauCeti.PEL.tests.fieldOfModuli_le {k K : Type*} [Field k] [Field K] [Algebra k K] [FiniteDimensional k K] [IsGalois k K] {Cl : Type*} [MulAction (K ≃ₐ[k] K) Cl]
     (x : Cl) (k₁ : IntermediateField k K) (hmodel : ∀ σ ∈ k₁.fixingSubgroup, σ • x = x) :
     fieldOfModuli (k := k) (K := K) x ≤ k₁ := fieldOfModuli_le_of_model x k₁ hmodel
--- TauCeti.PEL.tests.fieldOfModuli_twist
-example (c₄ Δ d : ℚ) (hΔ : Δ ≠ 0) (hd : d ≠ 0) :
+theorem _root_.TauCeti.PEL.tests.fieldOfModuli_twist (c₄ Δ d : ℚ) (hΔ : Δ ≠ 0) (hd : d ≠ 0) :
     (d ^ 2 * c₄) ^ 3 / (d ^ 6 * Δ) = c₄ ^ 3 / Δ := by
   field_simp
--- TauCeti.PEL.tests.fieldOfModuli_base
-example {k K : Type*} [Field k] [Field K] [Algebra k K] {Cl : Type*} [MulAction (K ≃ₐ[k] K) Cl]
+theorem _root_.TauCeti.PEL.tests.fieldOfModuli_base {k K : Type*} [Field k] [Field K] [Algebra k K] {Cl : Type*} [MulAction (K ≃ₐ[k] K) Cl]
     (x : Cl) (h : ∀ σ : K ≃ₐ[k] K, σ • x = x) :
     fieldOfModuli (k := k) (K := K) x = IntermediateField.fixedField ⊤ := fieldOfModuli_fine x h
 
@@ -3019,20 +2900,16 @@ theorem hodgeLine_product (k : Type*) [Field k] (a b : ℕ) :
     Nonempty ((⋀[k]^(a + b) ((Fin a → k) × (Fin b → k))) ≃ₗ[k]
       ((⋀[k]^a (Fin a → k)) ⊗[k] (⋀[k]^b (Fin b → k)))) := sorry
 
--- TauCeti.PEL.tests.hodgeLine_g1
-example {R : CommRingCat.{u}} (𝒜 : AbelianSchemeSupplier R) (A : AbelianScheme (Spec R))
+theorem _root_.TauCeti.PEL.tests.hodgeLine_g1 {R : CommRingCat.{u}} (𝒜 : AbelianSchemeSupplier R) (A : AbelianScheme (Spec R))
     [Module.Free R (𝒜.lie A)] [Module.Finite R (𝒜.lie A)] (h : Module.finrank R (𝒜.lie A) = 1) :
     Nonempty (hodgeLine 𝒜 A ≅ hodgeBundle 𝒜 A) := sorry
--- TauCeti.PEL.tests.hodgeLine_product_test
-example (k : Type*) [Field k] :
+theorem _root_.TauCeti.PEL.tests.hodgeLine_product_test (k : Type*) [Field k] :
     Nonempty ((⋀[k]^(1 + 1) ((Fin 1 → k) × (Fin 1 → k))) ≃ₗ[k]
       ((⋀[k]^1 (Fin 1 → k)) ⊗[k] (⋀[k]^1 (Fin 1 → k)))) := hodgeLine_product k 1 1
--- TauCeti.PEL.tests.hodgeBundle_frobenius_not_iso
-example {R : CommRingCat.{u}} (𝒜 : AbelianSchemeSupplier R) [Nontrivial R]
+theorem _root_.TauCeti.PEL.tests.hodgeBundle_frobenius_not_iso {R : CommRingCat.{u}} (𝒜 : AbelianSchemeSupplier R) [Nontrivial R]
     {A B : AbelianScheme (Spec R)} (φ : A.Hom B) [Module.Free R (𝒜.lie B)]
     [Nontrivial (𝒜.lie B)] (hφ : 𝒜.lieMap φ = 0) : ¬ Function.Bijective (𝒜.lieMap φ).dualMap := sorry
--- TauCeti.PEL.tests.hodgeBundle_zero
-example {R : CommRingCat.{u}} (𝒜 : AbelianSchemeSupplier R) (A : AbelianScheme (Spec R))
+theorem _root_.TauCeti.PEL.tests.hodgeBundle_zero {R : CommRingCat.{u}} (𝒜 : AbelianSchemeSupplier R) (A : AbelianScheme (Spec R))
     [Subsingleton (𝒜.lie A)] :
     Subsingleton (hodgeBundle 𝒜 A) ∧ Nonempty (hodgeLine 𝒜 A ≅ ModuleCat.of R R) := sorry
 
@@ -3071,18 +2948,14 @@ def export_siegel {R : CommRingCat.{u}} (𝒜 : AbelianSchemeSupplier R) (box : 
 
 end PELModuli
 
--- TauCeti.PEL.tests.export_classify_universal
-example {R : CommRingCat.{u}} (𝒜 : AbelianSchemeSupplier R) {O : Type*} [Ring O] [StarRing O]
+theorem _root_.TauCeti.PEL.tests.export_classify_universal {R : CommRingCat.{u}} (𝒜 : AbelianSchemeSupplier R) {O : Type*} [Ring O] [StarRing O]
     (box : Set ℕ) {ι : Type*} [Fintype ι] [DecidableEq ι] (α : ι → O) (detV₀ : MvPolynomial ι R) :
     (PELModuli.classifyingMap 𝒜 box α detV₀ (PELModuli.universal 𝒜 box α detV₀)).f.f = 𝟙 _ :=
   sorry
--- TauCeti.PEL.tests.export_g1_point
-example : (WeierstrassCurve.ofJ (1728 : ℚ)).j = 1728 := WeierstrassCurve.ofJ_j 1728
--- TauCeti.PEL.tests.export_not_family
-example : ∃ E E' : WeierstrassCurve ℚ, E.Δ ≠ 0 ∧ E.c₄ ^ 3 * E'.Δ = E'.c₄ ^ 3 * E.Δ ∧
+theorem _root_.TauCeti.PEL.tests.export_g1_point : (WeierstrassCurve.ofJ (1728 : ℚ)).j = 1728 := WeierstrassCurve.ofJ_j 1728
+theorem _root_.TauCeti.PEL.tests.export_not_family : ∃ E E' : WeierstrassCurve ℚ, E.Δ ≠ 0 ∧ E.c₄ ^ 3 * E'.Δ = E'.c₄ ^ 3 * E.Δ ∧
     ¬ ∃ C : WeierstrassCurve.VariableChange ℚ, C • E = E' := sorry
--- TauCeti.PEL.tests.export_trivial_level
-example {k K : Type*} [Field k] [Field K] [Algebra k K] {Lv : Type*} [MulAction (K ≃ₐ[k] K) Lv]
+theorem _root_.TauCeti.PEL.tests.export_trivial_level {k K : Type*} [Field k] [Field K] [Algebra k K] {Lv : Type*} [MulAction (K ≃ₐ[k] K) Lv]
     (x : Lv) (h : ∀ σ : K ≃ₐ[k] K, σ • x = x) :
     PELModuli.rigidifyingExtension (k := k) (K := K) x = IntermediateField.fixedField ⊤ :=
   fieldOfModuli_fine x h
@@ -3100,3 +2973,12 @@ theorem nonemptyExamples (d : ℤ) : (siegelGram 2 ![1, d]).det = d ^ 2 := by
 end M6
 
 end TauCeti.PEL
+
+/-! The integral form 5J vanishes after reduction to F5, so two distinct units both
+scale it identically. Tests the missing flatness hypothesis without a fake integral-group carrier. -/
+namespace TauCeti.PEL.tests
+theorem similitudeGroup_multiplier_nonflat :
+    let P : Matrix (Fin 2) (Fin 2) (ZMod 5) := (5 : ZMod 5) • !![0, 1; -1, 0]
+    P = (1 : ZMod 5) • P ∧ P = (2 : ZMod 5) • P ∧ (1 : ZMod 5) ≠ 2 := by
+  decide
+end TauCeti.PEL.tests
