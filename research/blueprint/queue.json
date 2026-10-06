@@ -22800,9 +22800,10 @@
     "REV-RS-06"
    ],
    "prompt": "research/blueprint/prompts/BP-ClassicalSerreModularity--R26.1.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #694"
+   "note": "deliverables arrived from an external worker on issue #694",
+   "finishedAt": "2026-10-06T06:54:50Z"
   },
   {
    "id": "REV-ClassicalSerreModularity--R26.1",
@@ -24768,8 +24769,9 @@
     "REV-RS-20~3"
    ],
    "prompt": "research/blueprint/prompts/BP-FarguesFontaineDiamonds.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "external",
+   "suppliers": [],
+   "note": "claimed on GitHub issue #730"
   },
   {
    "id": "REV-FarguesFontaineDiamonds",
