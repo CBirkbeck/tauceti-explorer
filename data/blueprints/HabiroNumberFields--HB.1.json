@@ -1,0 +1,1129 @@
+{
+  "roadmapId": "HabiroNumberFields",
+  "protocol": "blueprint-v1",
+  "part": "HB.1",
+  "scope": [
+    "HabiroNumberFields:HB.1"
+  ],
+  "status": "complete",
+  "summary": "Follow-up of the accepted HB.1 plan: supply the missing cyclotomic Picard-to-unit descent and the equivariant logarithmic character calculation, importing integral Bloch conventions from V.3 and generic finite Chern classes from their single owner. Every parent target is retained by reference; new nodes refine its two open proof chains.",
+  "baseline": {
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "declarations": [
+      {
+        "ref": "mathlib:NumberField.Units.logEmbedding",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/NumberField/Units/DirichletTheorem.lean",
+        "provides": "The weighted real logarithm of a unit, with one infinite-place coordinate omitted. This is not itself a Galois representation because the omitted place is chosen.",
+        "checked": "Statement read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; generality and conventions compared with the consuming node. Independently re-read at the recorded pin for REV-HabiroNumberFields--HB.1 on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:NumberField.Units.dirichletUnitTheorem.sum_logEmbedding_component",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/NumberField/Units/DirichletTheorem.lean",
+        "provides": "The sum of retained weighted coordinates equals −mult(w₀)·log|u|_{w₀}; this reconstructs the omitted weighted coordinate.",
+        "checked": "Statement read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; generality and conventions compared with the consuming node. Independently re-read at the recorded pin for REV-HabiroNumberFields--HB.1 on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:NumberField.Units.logEmbeddingEquiv",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/NumberField/Units/DirichletTheorem.lean",
+        "provides": "An integral linear equivalence from units modulo torsion, with Additive tag, onto the logarithmic lattice.",
+        "checked": "Statement read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; generality and conventions compared with the consuming node. Independently re-read at the recorded pin for REV-HabiroNumberFields--HB.1 on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:NumberField.Units.dirichletUnitTheorem.unitLattice_span_eq_top",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/NumberField/Units/DirichletTheorem.lean",
+        "provides": "The logarithmic lattice spans the real logSpace. Used to recover the full hyperplane, rather than to reprove Dirichlet.",
+        "checked": "Statement read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; generality and conventions compared with the consuming node. Independently re-read at the recorded pin for REV-HabiroNumberFields--HB.1 on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:NumberField.Units.torsion",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/NumberField/Units/Basic.lean",
+        "provides": "The subgroup CommGroup.torsion of integral units, with the accompanying Finite and IsCyclic instances in this module for number fields. The absolute-value characterization is cited separately as mem_torsion.",
+        "checked": "Statement read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; generality and conventions compared with the consuming node. Independently re-read at the recorded pin for REV-HabiroNumberFields--HB.1 on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:NumberField.Units.sum_mult_mul_log",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/NumberField/Units/Basic.lean",
+        "provides": "The sum of weighted logarithms over all infinite places is zero for every integral unit.",
+        "checked": "Statement read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; generality and conventions compared with the consuming node. Independently re-read at the recorded pin for REV-HabiroNumberFields--HB.1 on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:NumberField.InfinitePlace.mult",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/NumberField/InfinitePlace/Basic.lean",
+        "provides": "Weight one at real places and two at complex places.",
+        "checked": "Statement read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; generality and conventions compared with the consuming node. Independently re-read at the recorded pin for REV-HabiroNumberFields--HB.1 on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:NumberField.InfinitePlace.nrComplexPlaces",
+        "kind": "abbrev",
+        "module": "Mathlib/NumberTheory/NumberField/InfinitePlace/Basic.lean",
+        "provides": "The number r₂ of complex infinite places of a number field.",
+        "checked": "Statement read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; generality and conventions compared with the consuming node. Independently re-read at the recorded pin for REV-HabiroNumberFields--HB.1 on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:NumberField.InfinitePlace.smul_apply",
+        "kind": "lemma",
+        "module": "Mathlib/NumberTheory/NumberField/InfinitePlace/Ramification.lean",
+        "provides": "The Galois action is (σ•w)(x)=w(σ⁻¹(x)); this fixes the inverse in the logarithmic permutation action.",
+        "checked": "Statement read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; generality and conventions compared with the consuming node. Independently re-read at the recorded pin for REV-HabiroNumberFields--HB.1 on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:NumberField.InfinitePlace.orbitRelEquiv",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/NumberField/InfinitePlace/Ramification.lean",
+        "provides": "For a Galois extension, the Galois orbits of infinite places correspond to infinite places of the base.",
+        "checked": "Statement read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; generality and conventions compared with the consuming node. Independently re-read at the recorded pin for REV-HabiroNumberFields--HB.1 on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:NumberField.InfinitePlace.IsUnramified.stabilizer_eq_bot",
+        "kind": "lemma",
+        "module": "Mathlib/NumberTheory/NumberField/InfinitePlace/Ramification.lean",
+        "provides": "The stabilizer of an unramified infinite place is trivial; this applies over a complex base place.",
+        "checked": "Statement read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; generality and conventions compared with the consuming node. Independently re-read at the recorded pin for REV-HabiroNumberFields--HB.1 on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:NumberField.ComplexEmbedding.IsConj.coe_stabilizer_mk",
+        "kind": "lemma",
+        "module": "Mathlib/NumberTheory/NumberField/InfinitePlace/Ramification.lean",
+        "provides": "A conjugation automorphism identifies the stabilizer of an infinite place with the set consisting of one and that automorphism.",
+        "checked": "Statement read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; generality and conventions compared with the consuming node. Independently re-read at the recorded pin for REV-HabiroNumberFields--HB.1 on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:NumberField.RingOfIntegers.mapRingHom",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/NumberField/Basic.lean",
+        "provides": "Restriction of a field homomorphism to its integer rings, with the value formula. Units.map gives the natural action on units.",
+        "checked": "Statement read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; generality and conventions compared with the consuming node. Independently re-read at the recorded pin for REV-HabiroNumberFields--HB.1 on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:NumberField.not_dvd_discr_iff_isUnramifiedIn",
+        "kind": "lemma",
+        "module": "Mathlib/NumberTheory/NumberField/Discriminant/Different.lean",
+        "provides": "A rational prime not dividing the discriminant is unramified in the number field, with the actual Algebra.IsUnramifiedIn carrier.",
+        "checked": "Statement read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; generality and conventions compared with the consuming node. Independently re-read at the recorded pin for REV-HabiroNumberFields--HB.1 on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:cyclotomic_prime_pow_comp_X_add_one_isEisensteinAt",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Polynomial/Eisenstein/IsIntegral.lean",
+        "provides": "For p prime, Φ_{p^(k+1)}(X+1) over the integers is Eisenstein at (p).",
+        "checked": "Statement read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; generality and conventions compared with the consuming node. Independently re-read at the recorded pin for REV-HabiroNumberFields--HB.1 on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:IsPrimitiveRoot.autToPow",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/RootsOfUnity/PrimitiveRoots.lean",
+        "provides": "The modular cyclotomic character of automorphisms, taking σ to the unit exponent by which it sends the specified primitive root.",
+        "checked": "Statement read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; generality and conventions compared with the consuming node. Independently re-read at the recorded pin for REV-HabiroNumberFields--HB.1 on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:IsPrimitiveRoot.autToPow_injective",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/Cyclotomic/Gal.lean",
+        "provides": "Faithfulness of the root-exponent character in an actual cyclotomic extension, not in an arbitrary ambient extension.",
+        "checked": "Statement read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; generality and conventions compared with the consuming node. Independently re-read at the recorded pin for REV-HabiroNumberFields--HB.1 on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:Representation",
+        "kind": "abbrev",
+        "module": "Mathlib/RepresentationTheory/Basic.lean",
+        "provides": "A monoid homomorphism into linear endomorphisms. Used directly in the exact-map eigenclass signature.",
+        "checked": "Statement read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; generality and conventions compared with the consuming node. Independently re-read at the recorded pin for REV-HabiroNumberFields--HB.1 on 2026-10-06."
+      },
+      {
+        "ref": "tauceti:IsDedekindDomain.selmerGroup.fromSUnitLift_injective",
+        "kind": "theorem",
+        "module": "TauCeti/RingTheory/DedekindDomain/SInteger/SelmerGroup/Basic.lean",
+        "provides": "O_Sˣ/n injects into K(S, n).",
+        "checked": "Statement read at Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 on 2026-10-06. These provide the algebraic S-unit/Selmer/class-group exact sequence; they do not provide an étale-cohomology identification. Independently re-read at the recorded pin for REV-HabiroNumberFields--HB.1 on 2026-10-06."
+      },
+      {
+        "ref": "tauceti:IsDedekindDomain.selmerGroup.ker_toClassGroup",
+        "kind": "theorem",
+        "module": "TauCeti/RingTheory/DedekindDomain/SInteger/SelmerGroup/Basic.lean",
+        "provides": "A Selmer class with trivial n-th-root ideal class is an S-unit class (exactness in the middle).",
+        "checked": "Statement read at Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 on 2026-10-06. These provide the algebraic S-unit/Selmer/class-group exact sequence; they do not provide an étale-cohomology identification. Independently re-read at the recorded pin for REV-HabiroNumberFields--HB.1 on 2026-10-06."
+      },
+      {
+        "ref": "tauceti:IsDedekindDomain.selmerGroup.range_toClassGroup",
+        "kind": "theorem",
+        "module": "TauCeti/RingTheory/DedekindDomain/SInteger/SelmerGroup/Basic.lean",
+        "provides": "The image in the S-class group is its n-torsion.",
+        "checked": "Statement read at Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 on 2026-10-06. These provide the algebraic S-unit/Selmer/class-group exact sequence; they do not provide an étale-cohomology identification. Independently re-read at the recorded pin for REV-HabiroNumberFields--HB.1 on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:Ideal.ramificationIdx",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/RamificationInertia/Ramification.lean",
+        "provides": "The ramification index of a prime P relative to a base ring, using length after localization; the actual carrier in the cyclotomic prime signature.",
+        "checked": "Statement read at the pinned Mathlib commit on 2026-10-06. Independently re-read at the recorded pin for REV-HabiroNumberFields--HB.1 on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:Ideal.inertiaDeg",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/RamificationInertia/Inertia.lean",
+        "provides": "The inertia degree of P relative to a base ring, using residue fields; the actual carrier in the cyclotomic prime signature.",
+        "checked": "Statement read at the pinned Mathlib commit on 2026-10-06. Independently re-read at the recorded pin for REV-HabiroNumberFields--HB.1 on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:NumberField.Units.instZLattice_unitLattice",
+        "kind": "instance",
+        "module": "Mathlib/NumberTheory/NumberField/Units/DirichletTheorem.lean",
+        "provides": "The logarithmic unit subgroup is a discrete full real lattice; this supplies the hypothesis for scalar-extending a lattice basis.",
+        "checked": "Statement and hypotheses read in the pinned source on 2026-10-06. Independently re-read at the recorded pin for REV-HabiroNumberFields--HB.1 on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:NumberField.Units.unitLattice_rank",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/NumberField/Units/DirichletTheorem.lean",
+        "provides": "Its integral rank equals Units.rank, the real dimension of the omitted-coordinate logSpace.",
+        "checked": "Statement and hypotheses read in the pinned source on 2026-10-06. Independently re-read at the recorded pin for REV-HabiroNumberFields--HB.1 on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:Module.Basis.ofZLatticeBasis",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Module/ZLattice/Basic.lean",
+        "provides": "An integral basis of an IsZLattice is a basis of the ambient real space. Used for injectivity as well as surjectivity of the real tensor logarithmic map.",
+        "checked": "Statement and hypotheses read in the pinned source on 2026-10-06. Independently re-read at the recorded pin for REV-HabiroNumberFields--HB.1 on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:NumberField.RingOfIntegers.instFintypeClassGroup",
+        "kind": "instance",
+        "module": "Mathlib/NumberTheory/NumberField/ClassNumber.lean",
+        "provides": "The ordinary integer-ring ideal class group of a number field is finite.",
+        "checked": "Statement and hypotheses read in the pinned source on 2026-10-06. Independently re-read at the recorded pin for REV-HabiroNumberFields--HB.1 on 2026-10-06."
+      },
+      {
+        "ref": "tauceti:IsDedekindDomain.finite_integer_classGroup",
+        "kind": "instance",
+        "module": "TauCeti/RingTheory/DedekindDomain/SInteger/ClassGroup.lean",
+        "provides": "For a Dedekind fraction field, the class group of any ring of S-integers is finite when the ordinary class group is finite, via the surjective extension homomorphism.",
+        "checked": "Statement and hypotheses read in the pinned source on 2026-10-06. Independently re-read at the recorded pin for REV-HabiroNumberFields--HB.1 on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:NumberField.Units.mem_torsion",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/NumberField/Units/Basic.lean",
+        "provides": "A unit is in torsion if and only if its absolute value is one at every infinite place; this kills its full logarithm.",
+        "checked": "Statement, namespace and hypotheses independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 for REV-HabiroNumberFields--HB.1 on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:NumberField.InfinitePlace.exists_isConj_of_isRamified",
+        "kind": "lemma",
+        "module": "Mathlib/NumberTheory/NumberField/InfinitePlace/Ramification.lean",
+        "provides": "For a Galois extension, a ramified complex embedding admits a conjugation automorphism. Combined with coe_stabilizer_mk, this supplies the actual two-element real-place stabilizer.",
+        "checked": "Statement, namespace and hypotheses independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 for REV-HabiroNumberFields--HB.1 on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:NumberField.Units.basisModTorsion",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/NumberField/Units/DirichletTheorem.lean",
+        "provides": "An integral Basis (Fin (Units.rank L)) of Additive ((𝓞 L)ˣ ⧸ torsion L). In particular the quotient is free of finite rank, so its p-torsion is zero.",
+        "checked": "Statement, namespace and hypotheses independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 for REV-HabiroNumberFields--HB.1 on 2026-10-06."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "CGZ.BlochUnits.Published.2023",
+      "title": "Bloch groups, algebraic K-theory, units, and Nahm’s conjecture",
+      "authors": "Frank Calegari, Stavros Garoufalidis, Don Zagier",
+      "edition": "Annales scientifiques de l’École normale supérieure 56 (2023), 383–426, DOI 10.24033/asens.2537; published author-hosted PDF",
+      "url": "https://www.math.uchicago.edu/~fcale/papers/CGZ.pdf",
+      "sha256": "8003ee09bfec725127f4b5c2058c5516834a91a160d9c4428d962b1e5a1f0212",
+      "accessed": "2026-10-06",
+      "readSections": [
+        "§§2.4–2.6, pp.396–399; convention boundary and Proposition 2.12",
+        "§§3.1–3.5, pp.400–403, read in full",
+        "§1.2, Theorem 1.5 and Remark 1.4, pp.385–386"
+      ]
+    },
+    {
+      "id": "CGZ.BlochUnits.ArXivV3.2021",
+      "title": "Bloch groups, algebraic K-theory, units, and Nahm’s conjecture",
+      "authors": "Frank Calegari, Stavros Garoufalidis, Don Zagier",
+      "edition": "arXiv:1712.04887v3 (2021), used to collate the accepted parent",
+      "url": "https://arxiv.org/pdf/1712.04887v3",
+      "sha256": "024317c20a1d8b66234e608af46941093a675b6399ef480dfedd52a31dcd7bf5",
+      "accessed": "2026-10-06",
+      "readSections": [
+        "§1.2 and Remark 1.4",
+        "§2.6, pp.16–17",
+        "§§3.1–3.5, pp.18–21"
+      ]
+    },
+    {
+      "id": "Sutherland.HerbrandUnits.2021",
+      "title": "18.785 Lecture 24: Artin reciprocity in the unramified case",
+      "authors": "Andrew V. Sutherland",
+      "edition": "MIT 18.785, Fall 2021, Lecture 24, Herbrand unit theorem passage",
+      "url": "https://math.mit.edu/classes/18.785/2021fa/LectureNotes24.pdf",
+      "sha256": "0f7fc7d3382375d34b52c3689fe97066184b10b181da87724bbb67945642de8d",
+      "accessed": "2026-10-06",
+      "readSections": [
+        "Definitions 24.4–24.5, pp.2–3",
+        "Theorem 24.6 and proof, pp.3–4",
+        "Lemma 24.7, p.4"
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "HabiroNumberFields:HB.1/finite-endomorphism-obstruction-criterion",
+      "parentStageId": "HabiroNumberFields:HB.1",
+      "realises": [
+        "HabiroNumberFields:HB.1"
+      ],
+      "title": "Finite endomorphisms and torsion obstructions",
+      "kind": "lemma",
+      "declarationName": "TauCeti.HabiroNumberFields.finiteEndomorphism_torsionKernel_eq_zero",
+      "statement": "Let A be a finite abelian group, f:A→A an additive endomorphism and n a natural number. If every x∈A has x=f(y)+n·z for some y,z∈A, then ker(f)∩A[n]=0. For a finite class group A with cyclic G-action and a generator γ, take f=γ−a on A, where a is an integer lift of χ(γ)⁻¹ modulo n. The χ⁻¹-twisted coinvariants of A/n vanish precisely when this surjectivity hypothesis holds, and then (A[n])^{χ⁻¹}=0.",
+      "hypotheses": [
+        "A is finite, not just finitely generated.",
+        "The first assertion holds even for n=0. In the application n=p^m>0 and G is cyclic; the finite endomorphism argument does not require |G| to be invertible."
+      ],
+      "proofSteps": [
+        "For each prime q dividing n, restrict f to the finite q-primary subgroup A_q. Surjectivity on A/n implies A_q=f(A_q)+nA_q. Iteration gives A_q=f(A_q)+n^kA_q=f(A_q) for k sufficiently large, because n is nilpotent on A_q.",
+        "A surjective endomorphism of a finite group is injective. Thus no q-primary element of ker(f) is killed by n. Summing primary components gives the first assertion; for n=0 the assumption is surjectivity of f itself.",
+        "On A/n, the relations for a cyclic generator γ generate all the relations σx−χ(σ)⁻¹x, by the geometric-sum identity and inverses. On A[n], the γ-eigenrelation implies every σ-eigenrelation. This proves the vanishing implication used by CGZ without identifying Pic[n] with Pic/n or choosing an isomorphism between invariants and coinvariants."
+      ],
+      "acceptance": [
+        "A=ℤ/9, n=9, f(x)=2x: the hypothesis holds and the kernel is zero.",
+        "A=ℤ/9, n=3, f=0: the hypothesis fails and A[3] is nonzero.",
+        "Finiteness is essential: on A=ℚ/ℤ, f(x)=3x is surjective but has nonzero 3-torsion kernel."
+      ],
+      "prerequisites": [
+        "HabiroNumberFields:HB.1/cyclotomic-character-and-eigenspaces"
+      ],
+      "sources": [
+        {
+          "sourceId": "CGZ.BlochUnits.Published.2023",
+          "locator": "§3.4, proof of Lemma 3.5, p.402",
+          "match": "The finite-module vanishing assertion is proved here using a cyclic generator and primary decomposition; only its needed direction is used."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Habiro/FiniteChern/Units",
+        "namespace": "TauCeti.HabiroNumberFields"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "HabiroNumberFields:HB.1/keune-picard-eigen-obstruction",
+      "parentStageId": "HabiroNumberFields:HB.1",
+      "realises": [
+        "HabiroNumberFields:HB.1"
+      ],
+      "title": "Vanishing of the cyclotomic Picard obstruction",
+      "kind": "application",
+      "declarationName": "TauCeti.HabiroNumberFields.picard_inverseCyclotomicEigen_torsion_eq_zero",
+      "statement": "Let F be a number field, p an odd prime, m≥1, n=p^m, L=F(ζ_n), G=Gal(L/F) and χ:G→(ℤ/n)ˣ its root-exponent character. Assume p∤disc(F) and p∤#K₂(𝓞 F). Subject to the exact Keune supplier contract, (Pic(𝓞 L[1/p])[n])^{χ⁻¹}=0. This is the actual right-hand obstruction in the Kummer sequence.",
+      "hypotheses": [
+        "The class group of 𝓞 L[1/p] is finite, using the pinned integer-ring Fintype and finite_integer_classGroup for the S-integers at primes over p.",
+        "Import ArithmeticKTheory:N.6/keune-cyclotomic-picard-injection. Its original proof and exact hypothesis translation have an open source gap in that packet; this application is conditional on that contract."
+      ],
+      "proofSteps": [
+        "The K₂ group is finite and has order prime to p, so multiplication by p^m is an automorphism and K₂(𝓞 F)/p^m=0.",
+        "Apply the N.6 injection (Pic(𝓞 L[1/p])/p^m)_{χ⁻¹}↪K₂(𝓞 F)/p^m. Therefore the twisted coinvariant quotient is zero.",
+        "By cyclotomic-prime-valuation-action, χ identifies G with (ℤ/p^m)ˣ, a cyclic group for p odd. Apply finite-endomorphism-obstruction-criterion to a cyclic generator on the p-primary part of the finite Picard group. This gives zero for Pic[p^m] eigenvectors, the group appearing in Kummer."
+      ],
+      "acceptance": [
+        "No injection of Pic[p^m] directly into K₂ is asserted.",
+        "The p^m step uses cyclicity and finiteness, including m>1; it never divides by p−1 times p^(m−1).",
+        "If p divides #K₂, the target quotient need not vanish and this conclusion is unavailable."
+      ],
+      "prerequisites": [
+        "HabiroNumberFields:HB.1/finite-endomorphism-obstruction-criterion",
+        "HabiroNumberFields:HB.1/cyclotomic-prime-valuation-action",
+        "ArithmeticKTheory:N.6/keune-cyclotomic-picard-injection",
+        "ArithmeticKTheory:N.3/finiteness-and-ranks-combined",
+        "mathlib:NumberField.RingOfIntegers.instFintypeClassGroup",
+        "tauceti:IsDedekindDomain.finite_integer_classGroup"
+      ],
+      "sources": [
+        {
+          "sourceId": "CGZ.BlochUnits.Published.2023",
+          "locator": "§3.4, Lemma 3.5, p.402",
+          "match": "CGZ supplies the application and quoted injection; the original Keune theorem is owned and source-gapped at N.6."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Habiro/FiniteChern/Units",
+        "namespace": "TauCeti.HabiroNumberFields"
+      },
+      "implementationStatus": "unchecked",
+      "refines": [
+        "HabiroNumberFields:HB.1/units-realise-c-zeta"
+      ]
+    },
+    {
+      "id": "HabiroNumberFields:HB.1/cyclotomic-prime-valuation-action",
+      "parentStageId": "HabiroNumberFields:HB.1",
+      "realises": [
+        "HabiroNumberFields:HB.1"
+      ],
+      "title": "Cyclotomic ramification and the valuation action",
+      "kind": "theorem",
+      "declarationName": "TauCeti.HabiroNumberFields.cyclotomic_primePrimes_fixed",
+      "statement": "Let F be a number field, p an odd prime unramified in F, m≥1, n=p^m and L=F(ζ_n). Then [L:F]=φ(n) and χ:G≃(ℤ/n)ˣ. Each prime 𝔭 of 𝓞 F above p has a unique prime 𝔓 of 𝓞 L above it, with e(𝔓/𝔭)=φ(n) and f(𝔓/𝔭)=1. Thus G fixes every prime above p and acts trivially on the integer valuation group ℤ^{S_p} and on its sublattice D=ord_{S_p}(𝓞 L[1/p]ˣ).",
+      "hypotheses": [
+        "p∤disc(F); no assumption on the Galois closure of F.",
+        "L is the field generated over F by a specified primitive n-th root; S_p is the finite set of primes of 𝓞 L above p."
+      ],
+      "proofSteps": [
+        "Use not_dvd_discr_iff_isUnramifiedIn to know that every completion F_𝔭/ℚ_p is unramified. Thus p is a uniformizer in F_𝔭.",
+        "The pinned cyclotomic_prime_pow_comp_X_add_one_isEisensteinAt gives Φ_n(X+1) Eisenstein over ℤ at p. Its coefficients remain Eisenstein over 𝓞_{F_𝔭}: the constant p has valuation one and all other non-leading coefficients have positive valuation. Use LocalFieldsRamification layer 3 to get F_𝔭(ζ_n)/F_𝔭 totally ramified of degree φ(n).",
+        "The global degree is at most φ(n), while every such completed factor has degree φ(n). The NumberFieldArithmetic layer 5 product/decomposition dictionary forces global degree φ(n), one completed factor above each 𝔭 and residue degree one. Faithfulness of autToPow and equality of finite orders give χ an isomorphism.",
+        "The unique-prime statement makes each valuation coordinate invariant. The image lattice D inherits the trivial G-action. This is a cyclotomic application of the two existing local/global roadmaps, not a new general ramification theory."
+      ],
+      "acceptance": [
+        "F=ℚ, n=9: degree and ramification index are 6; the valuation action is trivial although 3 divides |G|.",
+        "F=ℚ(∛2), p=5: the conclusion holds without a hypothesis on the Galois closure.",
+        "For p dividing disc(F) the Eisenstein argument over F_𝔭 is not justified and the statement makes no claim."
+      ],
+      "prerequisites": [
+        "mathlib:NumberField.not_dvd_discr_iff_isUnramifiedIn",
+        "mathlib:cyclotomic_prime_pow_comp_X_add_one_isEisensteinAt",
+        "mathlib:IsPrimitiveRoot.autToPow",
+        "mathlib:IsPrimitiveRoot.autToPow_injective",
+        "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-3-ramification-the-tame-and-wild-cases-and-the-filtration",
+        "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-5-the-global-local-dictionary-at-finite-places",
+        "mathlib:Ideal.ramificationIdx",
+        "mathlib:Ideal.inertiaDeg"
+      ],
+      "sources": [
+        {
+          "sourceId": "CGZ.BlochUnits.Published.2023",
+          "locator": "§3.4, proof of Lemma 3.5, pp.402–403",
+          "match": "The assertion is expanded through the actual Eisenstein and completion suppliers, with the unique prime and fixed valuation lattice made explicit."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Habiro/FiniteChern/Units",
+        "namespace": "TauCeti.HabiroNumberFields"
+      },
+      "implementationStatus": "unchecked",
+      "refines": [
+        "HabiroNumberFields:HB.1/units-realise-c-zeta"
+      ],
+      "planet": {
+        "name": "Cyclotomic ramification"
+      }
+    },
+    {
+      "id": "HabiroNumberFields:HB.1/injective-exact-map-eigenclass-lift",
+      "parentStageId": "HabiroNumberFields:HB.1",
+      "realises": [
+        "HabiroNumberFields:HB.1"
+      ],
+      "title": "Unique eigenclass lifts through an exact map",
+      "kind": "lemma",
+      "declarationName": "TauCeti.HabiroNumberFields.eigenclass_existsUnique_lift",
+      "statement": "Let R be a commutative ring, G a group, and U,M,C R-linear representations with an injective equivariant map i:U→M and equivariant δ:M→C satisfying im(i)=ker(δ). Let η:G→Rˣ be a character and suppose C^η=0. For every x∈M^η there is a unique u∈U^η with i(u)=x. This uses no inverse of |G| and holds for an infinite G as well.",
+      "hypotheses": [
+        "Injectivity, middle exactness and equivariance are required; surjectivity of δ is not.",
+        "Eigenvectors mean simultaneous equations ρ(g)x=η(g)x for every g."
+      ],
+      "proofSteps": [
+        "Equivariance sends δ(x) to an η-eigenvector, so δ(x)=0.",
+        "Middle exactness produces u with i(u)=x. For each g, i(ρ_U(g)u−η(g)u)=0. Injectivity forces the eigenrelation on u.",
+        "Injectivity also proves uniqueness. This argument establishes only the left-kernel lift; it does not claim that taking eigenspaces is right exact."
+      ],
+      "acceptance": [
+        "Apply to the Kummer inclusion U_p/n↪H¹_ét with C=Pic[n].",
+        "Apply again to U/n↪U_p/n with C=D/n when a character value differs from one by a unit.",
+        "For n=9 the lemma still applies to G=(ℤ/9)ˣ without a projector or a division by 6."
+      ],
+      "prerequisites": [
+        "mathlib:Representation",
+        "HabiroNumberFields:HB.1/cyclotomic-character-and-eigenspaces"
+      ],
+      "sources": [
+        {
+          "sourceId": "CGZ.BlochUnits.Published.2023",
+          "locator": "§3.4, proof of Lemma 3.5, p.402",
+          "match": "Supplies a precise elementary lifting argument for the passage to eigenclasses; no unjustified exact eigenfunctor is used."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Habiro/FiniteChern/Units",
+        "namespace": "TauCeti.HabiroNumberFields"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "HabiroNumberFields:HB.1/ordinary-unit-eigenclass-lift",
+      "parentStageId": "HabiroNumberFields:HB.1",
+      "realises": [
+        "HabiroNumberFields:HB.1"
+      ],
+      "title": "Ordinary unit lifts of cyclotomic étale eigenclasses",
+      "kind": "application",
+      "declarationName": "TauCeti.HabiroNumberFields.etale_inverseCyclotomicEigen_unitLift",
+      "statement": "Under the hypotheses of keune-picard-eigen-obstruction, every χ⁻¹-eigenclass of H¹_ét(𝓞 L[1/p],μ_n) has a unique preimage in (𝓞 Lˣ/(𝓞 Lˣ)^n)^{χ⁻¹} under the Kummer map followed by inclusion. Hence the inherited Chern map c_ζ, whose twisted restriction is such an étale eigenclass, factors through ordinary unit classes. The conclusion is about unit classes, not eigenunit representatives.",
+      "hypotheses": [
+        "F number field, p odd, n=p^m with m≥1; p∤disc(F) and p∤#K₂(𝓞 F).",
+        "Use the G-equivariant étale Kummer exact sequence at 𝓞 L[1/p], and the compatibility of restriction and the Tate trivialization from the parent.",
+        "The Keune source gap is inherited; the Chern consequence also needs the requested early finite-Chern supplier prefix."
+      ],
+      "proofSteps": [
+        "Kummer gives 0→U_p/n→H¹_ét(𝓞 L[1/p],μ_n)→Pic(𝓞 L[1/p])[n]→0. Use keune-picard-eigen-obstruction and injective-exact-map-eigenclass-lift to obtain a unique χ⁻¹ class in U_p/n.",
+        "Let U=𝓞 Lˣ and D=ord_{S_p}(U_p)⊂ℤ^{S_p}. There is an exact sequence 0→U→U_p→D→0. D is a free finite-rank abelian group, so reduction gives 0→U/n→U_p/n→D/n→0. Work with D/n itself: the map D/n→ℤ^{S_p}/n need not be injective without a saturation argument. In the reduced sequence, the map to D/n is surjective. A putative zero kernel element has valuation in nD, so choose a p-unit realizing its valuation divided by n, subtract its n-th power and obtain an ordinary unit. This gives an elementwise check of the exactness without a chosen splitting.",
+        "By cyclotomic-prime-valuation-action, G acts trivially on D/n. Choose σ with χ(σ) mod p different from one, possible since χ is surjective and p>2. Then χ(σ)⁻¹−1 is a unit in ℤ/p^m, hence (D/n)^{χ⁻¹}=0. Apply the exact-map lift again.",
+        "Compose the two injective maps to get uniqueness of the ordinary unit class. For a composite good order, the inherited units-realise-c-zeta node assembles the prime-power cases using its Chinese remainder and field-extension compatibility. No uniform S for all n is inferred."
+      ],
+      "acceptance": [
+        "At n=9, |G|=6 is noninvertible modulo 9, but χ(σ)−1 is invertible for a σ reducing to a nonidentity element of (ℤ/3)ˣ.",
+        "Taking D=3ℤ inside ℤ shows why D/3D→ℤ/3ℤ can have a kernel; the proof retains D instead.",
+        "The lift is unique modulo n-th powers. It gives no canonical choice of an actual unit and no equality σu=u^{χ(σ)⁻¹} before passing to classes."
+      ],
+      "prerequisites": [
+        "HabiroNumberFields:HB.1/keune-picard-eigen-obstruction",
+        "HabiroNumberFields:HB.1/cyclotomic-prime-valuation-action",
+        "HabiroNumberFields:HB.1/injective-exact-map-eigenclass-lift",
+        "HabiroNumberFields:HB.1/the-chern-class-map-c-zeta",
+        "HabiroNumberFields:HB.1/quillen-lichtenbaum-degree-three",
+        "ArithmeticKTheory:N.1/S-integers-as-a-localisation",
+        "tauceti:IsDedekindDomain.selmerGroup.fromSUnitLift_injective",
+        "tauceti:IsDedekindDomain.selmerGroup.ker_toClassGroup",
+        "tauceti:IsDedekindDomain.selmerGroup.range_toClassGroup",
+        "MotivicEtaleKTheory:M.1",
+        "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-9-the-galois-interface-hilbert-90-and-kummer-theory"
+      ],
+      "sources": [
+        {
+          "sourceId": "CGZ.BlochUnits.Published.2023",
+          "locator": "§3.4, Lemma 3.5 and proof, pp.402–403",
+          "match": "The needed conclusion is recovered with the actual valuation-image lattice and two injective lifts. Generic Kummer/cohomology and Chern constructions are imported."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Habiro/FiniteChern/Units",
+        "namespace": "TauCeti.HabiroNumberFields"
+      },
+      "implementationStatus": "unchecked",
+      "refines": [
+        "HabiroNumberFields:HB.1/units-realise-c-zeta"
+      ]
+    },
+    {
+      "id": "HabiroNumberFields:HB.1/odd-cyclotomic-unit-multiplicity",
+      "parentStageId": "HabiroNumberFields:HB.1",
+      "realises": [
+        "HabiroNumberFields:HB.1"
+      ],
+      "title": "Odd-character multiplicity of ordinary units",
+      "kind": "theorem",
+      "declarationName": "TauCeti.HabiroNumberFields.oddCharacter_unitMultiplicity",
+      "statement": "Let L/F be a finite Galois extension of number fields, L totally complex, and η:G→ℂˣ a nontrivial one-dimensional character. Suppose η(c_w)=−1 for the nonidentity stabilizer element c_w at every infinite place w of L over a real place of F. For the natural action on U_L=(𝓞 L)ˣ and trivial action on ℂ, dim_ℂ(ℂ⊗_ℤ Additive(U_L))^η=r₂(F). In particular this gives the required rank for L=F(ζ_p), p odd, and the inverse Teichmüller character after embedding its finite roots of unity in ℂ. It uses no assertion about the disjointness of the Galois closure of F.",
+      "hypotheses": [
+        "η must be a genuine complex character; χ valued in (ℤ/n)ˣ is not itself a complex character for arbitrary composite n.",
+        "The action on places is Mathlib’s σ•w=w∘σ⁻¹. The action on units is Units.map of the restricted ring automorphism.",
+        "If F has no real places the oddness condition is vacuous, but η must still be nontrivial."
+      ],
+      "proofSteps": [
+        "Start with Mathlib logEmbeddingEquiv and unitLattice_span_eq_top. Restore the omitted coordinate by sum_logEmbedding_component, obtaining the full weighted logarithm in H={f:S_∞(L)→ℝ | Σ_w f(w)=0}. The baseline instZLattice_unitLattice and Module.Basis.ofZLatticeBasis make an integral lattice basis a real basis; equivalently unitLattice_rank equals the real dimension. Therefore tensoring the integral unit quotient with ℝ gives an isomorphism onto H, rather than merely a surjection. Finite torsion disappears under tensoring.",
+        "Check equivariance on each coordinate: λ(σu)(w)=mult(w)log|σu|_w=λ(u)(σ⁻¹•w). Multiplicity is unchanged by an automorphism. Thus the logarithmic isomorphism is equivariant for the actual baseline action even though logEmbedding with its omitted place is not.",
+        "Complexify. The permutation module on infinite places is H_ℂ plus the constant line; the sum map splits equivariantly in characteristic zero. A nontrivial η has zero component in that line. Do not apply this splitting over ℤ/n when |G| is noninvertible.",
+        "Use orbitRelEquiv to decompose places by base infinite places. On a transitive orbit G/G_w, an η-eigenfunction is determined by one value; it has one free parameter exactly when η is trivial on G_w, and otherwise it is zero. Over a complex base place, IsUnramified.stabilizer_eq_bot gives G_w=1. Over a real place, exists_isConj_of_isRamified supplies c_w, and the IsConj stabilizer formula gives G_w={1,c_w}, and oddness gives zero. There are precisely r₂(F) complex base places.",
+        "For L=F(ζ_p) with p∤disc(F), cyclotomic-prime-valuation-action gives full G=(ℤ/p)ˣ. Its inverse Teichmüller lift is nontrivial and has value −1 on every real-place conjugation. Use the integral lattice comparison, not a chosen isomorphism ℂ≃ℚ_p, for the p-adic rank application."
+      ],
+      "acceptance": [
+        "F=ℚ, L=ℚ(ζ_5), inverse cyclotomic character: multiplicity zero.",
+        "F=ℚ(∛2), L=F(ζ_3), sign character: multiplicity one=r₂(F), although the Galois closure contains ζ_3.",
+        "For the trivial character, invariants have dimension r₁(F)+r₂(F)−1; the nontrivial hypothesis detects the missing constant-line subtraction."
+      ],
+      "prerequisites": [
+        "HabiroNumberFields:HB.1/cyclotomic-character-and-eigenspaces",
+        "mathlib:NumberField.Units.logEmbedding",
+        "mathlib:NumberField.Units.dirichletUnitTheorem.sum_logEmbedding_component",
+        "mathlib:NumberField.Units.logEmbeddingEquiv",
+        "mathlib:NumberField.Units.dirichletUnitTheorem.unitLattice_span_eq_top",
+        "mathlib:NumberField.Units.sum_mult_mul_log",
+        "mathlib:NumberField.Units.torsion",
+        "mathlib:NumberField.InfinitePlace.mult",
+        "mathlib:NumberField.InfinitePlace.smul_apply",
+        "mathlib:NumberField.InfinitePlace.orbitRelEquiv",
+        "mathlib:NumberField.InfinitePlace.IsUnramified.stabilizer_eq_bot",
+        "mathlib:NumberField.ComplexEmbedding.IsConj.coe_stabilizer_mk",
+        "mathlib:NumberField.RingOfIntegers.mapRingHom",
+        "mathlib:NumberField.InfinitePlace.nrComplexPlaces",
+        "mathlib:NumberField.Units.instZLattice_unitLattice",
+        "mathlib:NumberField.Units.unitLattice_rank",
+        "mathlib:Module.Basis.ofZLatticeBasis",
+        "HabiroNumberFields:HB.1/cyclotomic-prime-valuation-action",
+        "mathlib:NumberField.Units.mem_torsion",
+        "mathlib:NumberField.InfinitePlace.exists_isConj_of_isRamified"
+      ],
+      "sources": [
+        {
+          "sourceId": "CGZ.BlochUnits.Published.2023",
+          "locator": "§2.6, Proposition 2.12(a) and proof, p.399",
+          "match": "The character calculation motivates the node; its Galois-closure product argument is replaced by the direct logarithmic action and orbit calculation (E6)."
+        },
+        {
+          "sourceId": "Sutherland.HerbrandUnits.2021",
+          "locator": "Theorem 24.6, pp.3–4",
+          "match": "An independent source for the permutation-module description of units modulo a single relation. The proof here consumes pinned Dirichlet, rather than planning another unit theorem."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Habiro/FiniteChern/Units",
+        "namespace": "TauCeti.HabiroNumberFields"
+      },
+      "implementationStatus": "unchecked",
+      "refines": [
+        "HabiroNumberFields:HB.1/equivariant-unit-rank"
+      ],
+      "planet": {
+        "name": "Odd-character unit multiplicity"
+      }
+    },
+    {
+      "id": "HabiroNumberFields:HB.1/prime-unit-torsion-exact-sequence",
+      "parentStageId": "HabiroNumberFields:HB.1",
+      "realises": [
+        "HabiroNumberFields:HB.1"
+      ],
+      "title": "The torsion correction in the prime unit eigenspace",
+      "kind": "theorem",
+      "declarationName": "TauCeti.HabiroNumberFields.unit_inverseCyclotomicEigen_torsionSequence",
+      "statement": "Let F be a number field, p odd and p∤disc(F), L=F(ζ_p), G=Gal(L/F), χ:G≃(ℤ/p)ˣ, U=(𝓞 L)ˣ and T=NumberField.Units.torsion L. The canonical maps give an exact sequence 0→(T/T^p)^{χ⁻¹}→(U/U^p)^{χ⁻¹}→((U/T)/(U/T)^p)^{χ⁻¹}→0 of ℤ/p-vector spaces. The right term has dimension r₂(F); the left term has dimension 1 for p=3 and 0 for p≥5. Therefore dim(U/U^p)^{χ⁻¹}=r₂(F)+[p=3].",
+      "hypotheses": [
+        "Unramifiedness gives full G of order p−1 and μ_{p^∞}(L)=μ_p. In particular χ=χ⁻¹ exactly for p=3 in this regime.",
+        "T/T^p injects into U/U^p because U/T is free; replacing it by a torsion-free quotient of U too soon loses the correction.",
+        "The complex multiplicity computation alone does not justify reduction modulo p."
+      ],
+      "proofSteps": [
+        "The pinned basisModTorsion gives the free finite-rank integral quotient U/T. Tensor its exact sequence with ℤ/p: its p-torsion vanishes, giving 0→T/T^p→U/U^p→(U/T)/p→0.",
+        "Since |G|=p−1 is invertible in ℤ_p and ℤ/p, the inverse-Teichmüller idempotent is defined and exact on these modules. Promote only this legitimate projector specialization of the parent, never one for p^m with m>1.",
+        "The characteristic-zero character multiplicity of the integral representation U/T is computed by odd-cyclotomic-unit-multiplicity. Its matrices have integral traces. Evaluate the character idempotent in the field of (p−1)-st roots of unity and then in ℤ_p; trace, and hence the rank of the idempotent summand, is r₂(F). As a direct summand of a finite free ℤ_p-module it is free, and reduction has the same dimension.",
+        "The local degree statement for m=1 and m=2 shows L cannot contain ζ_{p²}; otherwise its p-adic completion of degree p−1 would contain a subextension of degree p(p−1). Thus the p-primary part of T is μ_p. It carries χ, so its inverse-character part contributes precisely when χ²=1. Full G gives p=3.",
+        "This supplies the corrected cardinality on the unit side of the inherited cgz-theorem-1-5. The K₃-side torsion count remains the imported parent comparison, not a fresh K₃ computation."
+      ],
+      "acceptance": [
+        "F=ℚ, p=3: U=μ_6, U/U³≅ℤ/3 in the χ=χ⁻¹ eigenspace, although r₂(ℚ)=0.",
+        "F=ℚ, p=5: the inverse-character eigenspace is zero.",
+        "For a field containing ζ_p the full-G hypothesis fails; χ may be trivial and the stated δ_{p,3} formula does not apply."
+      ],
+      "prerequisites": [
+        "HabiroNumberFields:HB.1/odd-cyclotomic-unit-multiplicity",
+        "HabiroNumberFields:HB.1/cyclotomic-prime-valuation-action",
+        "HabiroNumberFields:HB.1/the-eigenspace-and-division-by-a-group-order",
+        "mathlib:NumberField.Units.torsion",
+        "mathlib:NumberField.Units.logEmbeddingEquiv",
+        "HabiroNumberFields:HB.1/quillen-lichtenbaum-degree-three",
+        "mathlib:NumberField.Units.basisModTorsion"
+      ],
+      "sources": [
+        {
+          "sourceId": "CGZ.BlochUnits.Published.2023",
+          "locator": "§2.6, Proposition 2.12(b), p.399; §3.5, p.403",
+          "match": "Makes the integral-to-residual comparison and the exceptional μ₃ term explicit. The printed uniform count in §3.5 is corrected (E2)."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Habiro/FiniteChern/Units",
+        "namespace": "TauCeti.HabiroNumberFields"
+      },
+      "implementationStatus": "unchecked",
+      "refines": [
+        "HabiroNumberFields:HB.1/eigenspace-of-units-mod-p",
+        "HabiroNumberFields:HB.1/cgz-theorem-1-5"
+      ]
+    }
+  ],
+  "requests": [
+    {
+      "supplier": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-3-ramification-the-tame-and-wild-cases-and-the-filtration",
+      "need": "For a finite local-field extension, an Eisenstein polynomial of degree d generates a totally ramified extension of degree d with residue degree one. Apply to Φ_{p^m}(X+1) over the unramified completion F_𝔭. Consume the existing Layer 3 construction and its local carrier.",
+      "neededBy": [
+        "HabiroNumberFields:HB.1/cyclotomic-prime-valuation-action"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-5-the-global-local-dictionary-at-finite-places",
+      "need": "For the canonical completion algebras, supply the global/local e and f identifications (Layer 5.5), including the consequence that p∤disc(F) makes F_𝔭/ℚ_p unramified. Use the semilocal completion product (Layer 5.3): [L:F]=Σ_{𝔓|𝔭}[L_𝔓:F_𝔭]. A completed factor of degree φ(p^m), with global degree at most φ(p^m), then gives the unique prime above each 𝔭. All local scalar structures are the canonical ones from Layer 5.2.",
+      "neededBy": [
+        "HabiroNumberFields:HB.1/cyclotomic-prime-valuation-action"
+      ]
+    },
+    {
+      "supplier": "MotivicEtaleKTheory:M.1",
+      "need": "At the M.1 realization/Kummer-localization interface, supply the G-equivariant étale Kummer sequence at A=𝓞 L[1/p], with n=p^m invertible in A: 0→Aˣ/n→H¹_ét(A,μ_n)→Pic(A)[n]→0. Identify its unit inclusion, connecting map and restriction to H¹(L,μ_n) with the existing algebraic S-unit/Selmer sequence and the field Galois Kummer map. M.3 is the degree-two K₂ comparison and does not supply this weight-one sequence; it also does not substitute for Keune.",
+      "neededBy": [
+        "HabiroNumberFields:HB.1/ordinary-unit-eigenclass-lift"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-9-the-galois-interface-hilbert-90-and-kummer-theory",
+      "need": "The Galois Kummer isomorphism and its naturality on the field L, compatible with the algebraic S-unit/Selmer and étale Kummer maps. The algebraic maps at the pin do not on their own give this cohomology identification.",
+      "neededBy": [
+        "HabiroNumberFields:HB.1/ordinary-unit-eigenclass-lift"
+      ]
+    },
+    {
+      "supplier": "MotivicEtaleKTheory:M.8",
+      "need": "Split and accept the early finite-Chern prefix of M.8 before using it as a dependency. Export Soulé finite classes c̄_{i,k}:K_{2i−k}(R;ℤ/n)→H^k_ét(R,μ_n^{⊗i}) for n invertible, including the coefficient/restriction/K₁ normalizations and product formula. Its prerequisites are M.7; HB.1, HB.2 and D.2 consume that prefix. Current late M.8 comparisons with D.2/R.7 are outside this input. This request is not an edge from all of M.8.",
+      "neededBy": [
+        "HabiroNumberFields:HB.1/ordinary-unit-eigenclass-lift",
+        "HabiroNumberFields:HB.1/finite-coefficient-K3-and-the-chern-class",
+        "HabiroNumberFields:HB.1/the-chern-class-map-c-zeta",
+        "HabiroNumberFields:HB.1/hutchinson-chern-class-agrees"
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "HabiroNumberFields:HB.1",
+      "status": "planned",
+      "note": "All HB.1 targets are accounted for by the 16 accepted parent nodes and the targetCoverage table. Seven additions supply the finite Picard obstruction, the local cyclotomic valuation action, the actual eigenclass descent and the direct logarithmic character calculation with integral torsion correction. The equivariant-unit-rank gap is supplied by the pinned Dirichlet and infinite-place declarations, without re-planning a generic unit theorem. Keune is imported at its existing owner; generic finite Chern construction remains at its early supplier request. This is a completed target-level pass, not a claim of supplier closure or formalization.",
+      "remaining": [
+        "Read and verify the original Keune theorem at ArithmeticKTheory:N.6, including the exact finite-level hypotheses; then discharge the propagated source gap.",
+        "Accept the M.8 early-prefix split, supply its actual node IDs, and reconcile the inherited coefficient/Chern interfaces without a whole-M.8 edge.",
+        "During assembly, attach the refines inputs to the accepted parent targets and replace its ambiguous composite-n complex χ notation by actual characters; use V.3’s published convention exports.",
+        "During implementation, replace the three commented suggested-file contracts by signatures using the real supplier K-theory, étale-cohomology and residual eigenspace interfaces."
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "title": "Keune original-source and exact-hypothesis verification at the existing owner",
+      "neededBy": [
+        "HabiroNumberFields:HB.1/keune-picard-eigen-obstruction",
+        "HabiroNumberFields:HB.1/ordinary-unit-eigenclass-lift",
+        "HabiroNumberFields:HB.1/units-realise-c-zeta"
+      ],
+      "detail": "The exact injection is imported from ArithmeticKTheory:N.6/keune-cyclotomic-picard-injection in ArithmeticKTheory--N.1.json. CGZ published Lemma 3.5, pp.402–403, has been read. The original Keune K-Theory 2 (1989), 625–645, DOI 10.1007/BF00535049, could not be accessed through the publisher DOI/PDF and no public author copy was obtained. The supplier explicitly leaves its original proof and hypothesis translation open. Verify them in N.6; do not count this citation as a completed proof or replace it by the M.3 K₂ comparison."
+    },
+    {
+      "title": "Early finite-Chern supplier prefix is not yet an accepted stage",
+      "neededBy": [
+        "HabiroNumberFields:HB.1/ordinary-unit-eigenclass-lift",
+        "HabiroNumberFields:HB.1/finite-coefficient-K3-and-the-chern-class",
+        "HabiroNumberFields:HB.1/the-chern-class-map-c-zeta",
+        "HabiroNumberFields:HB.1/hutchinson-chern-class-agrees"
+      ],
+      "detail": "The accepted owner M.8 still carries late D.2/R.7 inputs. Its requested early prefix must be split/accepted and its precise node IDs substituted at the inherited interfaces. No new stage ID and no whole-M.8 prerequisite edge is fabricated in this packet."
+    }
+  ],
+  "imports": [
+    {
+      "nodeId": "HabiroNumberFields:HB.1/bloch-group-conventions",
+      "role": "Inherited HB.1 target or input; its definitions, API and tests are owned by the accepted parent.",
+      "refinementNodes": []
+    },
+    {
+      "nodeId": "HabiroNumberFields:HB.1/cyclotomic-character-and-eigenspaces",
+      "role": "Inherited HB.1 target or input; its definitions, API and tests are owned by the accepted parent.",
+      "refinementNodes": []
+    },
+    {
+      "nodeId": "HabiroNumberFields:HB.1/the-eigenspace-and-division-by-a-group-order",
+      "role": "Inherited HB.1 target or input; its definitions, API and tests are owned by the accepted parent.",
+      "refinementNodes": []
+    },
+    {
+      "nodeId": "HabiroNumberFields:HB.1/sahs-lemma",
+      "role": "Inherited HB.1 target or input; its definitions, API and tests are owned by the accepted parent.",
+      "refinementNodes": []
+    },
+    {
+      "nodeId": "HabiroNumberFields:HB.1/the-excluded-primes",
+      "role": "Inherited HB.1 target or input; its definitions, API and tests are owned by the accepted parent.",
+      "refinementNodes": []
+    },
+    {
+      "nodeId": "HabiroNumberFields:HB.1/finite-coefficient-K3-and-the-chern-class",
+      "role": "Inherited HB.1 target or input; its definitions, API and tests are owned by the accepted parent.",
+      "refinementNodes": []
+    },
+    {
+      "nodeId": "HabiroNumberFields:HB.1/inflation-restriction-injectivity",
+      "role": "Inherited HB.1 target or input; its definitions, API and tests are owned by the accepted parent.",
+      "refinementNodes": []
+    },
+    {
+      "nodeId": "HabiroNumberFields:HB.1/the-chern-class-map-c-zeta",
+      "role": "Inherited HB.1 target or input; its definitions, API and tests are owned by the accepted parent.",
+      "refinementNodes": []
+    },
+    {
+      "nodeId": "HabiroNumberFields:HB.1/hutchinson-chern-class-agrees",
+      "role": "Inherited HB.1 target or input; its definitions, API and tests are owned by the accepted parent.",
+      "refinementNodes": []
+    },
+    {
+      "nodeId": "HabiroNumberFields:HB.1/quillen-lichtenbaum-degree-three",
+      "role": "Inherited HB.1 target or input; its definitions, API and tests are owned by the accepted parent.",
+      "refinementNodes": []
+    },
+    {
+      "nodeId": "HabiroNumberFields:HB.1/injectivity-of-c-zeta",
+      "role": "Inherited HB.1 target or input; its definitions, API and tests are owned by the accepted parent.",
+      "refinementNodes": []
+    },
+    {
+      "nodeId": "HabiroNumberFields:HB.1/s-units-realise-c-zeta",
+      "role": "Inherited HB.1 target or input; its definitions, API and tests are owned by the accepted parent.",
+      "refinementNodes": []
+    },
+    {
+      "nodeId": "HabiroNumberFields:HB.1/units-realise-c-zeta",
+      "role": "Inherited HB.1 target or input; its definitions, API and tests are owned by the accepted parent.",
+      "refinementNodes": [
+        "HabiroNumberFields:HB.1/keune-picard-eigen-obstruction",
+        "HabiroNumberFields:HB.1/cyclotomic-prime-valuation-action",
+        "HabiroNumberFields:HB.1/ordinary-unit-eigenclass-lift"
+      ]
+    },
+    {
+      "nodeId": "HabiroNumberFields:HB.1/equivariant-unit-rank",
+      "role": "Inherited HB.1 target or input; its definitions, API and tests are owned by the accepted parent.",
+      "refinementNodes": [
+        "HabiroNumberFields:HB.1/odd-cyclotomic-unit-multiplicity"
+      ]
+    },
+    {
+      "nodeId": "HabiroNumberFields:HB.1/eigenspace-of-units-mod-p",
+      "role": "Inherited HB.1 target or input; its definitions, API and tests are owned by the accepted parent.",
+      "refinementNodes": [
+        "HabiroNumberFields:HB.1/prime-unit-torsion-exact-sequence"
+      ]
+    },
+    {
+      "nodeId": "HabiroNumberFields:HB.1/cgz-theorem-1-5",
+      "role": "Inherited HB.1 target or input; its definitions, API and tests are owned by the accepted parent.",
+      "refinementNodes": [
+        "HabiroNumberFields:HB.1/prime-unit-torsion-exact-sequence"
+      ]
+    }
+  ],
+  "supplierInterfaces": [
+    {
+      "owner": "K3BlochGroups:V.3",
+      "nodes": [
+        "K3BlochGroups:V.3/cgz-published-bloch-group",
+        "K3BlochGroups:V.3/cgz-published-lemma-two-two",
+        "K3BlochGroups:V.3/cgz-published-to-older",
+        "K3BlochGroups:V.3/convention-coefficient-exports"
+      ],
+      "need": "Use the published negative-tensor-kernel B_new and its specified comparison maps. For number fields and odd n, the canonical B(F)/n→B_new(F)/n→B_old(F)/n maps are isomorphisms. The additional Suslin–K₃ comparison retains the parent torsion/coprimality restrictions. HB.1 defines no Bloch-group presentation or correction.",
+      "consumers": [
+        "HabiroNumberFields:HB.1/bloch-group-conventions",
+        "HabiroNumberFields:HB.1/cgz-theorem-1-5"
+      ]
+    },
+    {
+      "owner": "MotivicEtaleKTheory:M.8",
+      "need": "A separately approved early prefix, requiring only M.7, exports finite étale Chern classes, finite-to-integral coefficient compatibility, restriction, the K₁ Kummer normalization and the product formula. The whole current M.8 is not a prerequisite of this packet.",
+      "consumers": [
+        "HabiroNumberFields:HB.1/finite-coefficient-K3-and-the-chern-class",
+        "HabiroNumberFields:HB.1/the-chern-class-map-c-zeta",
+        "HabiroNumberFields:HB.1/hutchinson-chern-class-agrees"
+      ]
+    },
+    {
+      "owner": "StableHomotopyKTheory:H.6",
+      "need": "The cofiber/Bockstein exact sequence 0→K₃(F)/n→K₃(F;ℤ/n)→K₂(F)[n]→0. This is inherited; K₃(F)/n is never identified with all finite coefficient K₃ without controlling K₂[n].",
+      "consumers": [
+        "HabiroNumberFields:HB.1/finite-coefficient-K3-and-the-chern-class"
+      ]
+    }
+  ],
+  "targetCoverage": [
+    {
+      "target": "Integral Bloch conventions and comparison",
+      "providedBy": [
+        "HabiroNumberFields:HB.1/bloch-group-conventions",
+        "K3BlochGroups:V.3/cgz-published-bloch-group",
+        "K3BlochGroups:V.3/convention-coefficient-exports"
+      ],
+      "note": "Imported. The revised published V.3 convention is authoritative; no raw/extended Bloch carrier is introduced."
+    },
+    {
+      "target": "Cyclotomic χ⁻¹ eigenspace and legitimate projectors",
+      "providedBy": [
+        "HabiroNumberFields:HB.1/cyclotomic-character-and-eigenspaces",
+        "HabiroNumberFields:HB.1/the-eigenspace-and-division-by-a-group-order",
+        "HabiroNumberFields:HB.1/injective-exact-map-eigenclass-lift"
+      ],
+      "note": "Kernel equations for every n; averaging only when the relevant group order is a unit."
+    },
+    {
+      "target": "Finite coefficient K₃, c_ζ and normalization comparison",
+      "providedBy": [
+        "HabiroNumberFields:HB.1/finite-coefficient-K3-and-the-chern-class",
+        "HabiroNumberFields:HB.1/the-chern-class-map-c-zeta",
+        "HabiroNumberFields:HB.1/hutchinson-chern-class-agrees"
+      ],
+      "note": "The inherited specializations import H.6, M.7 and the explicitly source-gapped early M.8 prefix. Generic Soulé maps and products have one owner."
+    },
+    {
+      "target": "Excluded orders and Chern injectivity",
+      "providedBy": [
+        "HabiroNumberFields:HB.1/the-excluded-primes",
+        "HabiroNumberFields:HB.1/sahs-lemma",
+        "HabiroNumberFields:HB.1/inflation-restriction-injectivity",
+        "HabiroNumberFields:HB.1/quillen-lichtenbaum-degree-three",
+        "HabiroNumberFields:HB.1/injectivity-of-c-zeta"
+      ],
+      "note": "M_F=6|disc F|#K₂(𝓞 F); M′_F=2|disc F|#K₂(𝓞 F) with 9∤n. Square-prime divisors impose the w₂ restriction."
+    },
+    {
+      "target": "S-unit and ordinary unit images",
+      "providedBy": [
+        "HabiroNumberFields:HB.1/s-units-realise-c-zeta",
+        "HabiroNumberFields:HB.1/units-realise-c-zeta",
+        "HabiroNumberFields:HB.1/finite-endomorphism-obstruction-criterion",
+        "HabiroNumberFields:HB.1/keune-picard-eigen-obstruction",
+        "HabiroNumberFields:HB.1/cyclotomic-prime-valuation-action",
+        "HabiroNumberFields:HB.1/injective-exact-map-eigenclass-lift",
+        "HabiroNumberFields:HB.1/ordinary-unit-eigenclass-lift"
+      ],
+      "note": "The S-unit set may depend on (F,n). The missing ordinary-unit proof chain is fully decomposed, conditional on the recorded N.6 source gap."
+    },
+    {
+      "target": "Equivariant unit rank and the finite unit count",
+      "providedBy": [
+        "HabiroNumberFields:HB.1/equivariant-unit-rank",
+        "HabiroNumberFields:HB.1/eigenspace-of-units-mod-p",
+        "HabiroNumberFields:HB.1/odd-cyclotomic-unit-multiplicity",
+        "HabiroNumberFields:HB.1/prime-unit-torsion-exact-sequence"
+      ],
+      "note": "Direct full-logarithm proof supplies the rank; an actual complex character and the integral comparison are stated. The μ₃ correction is retained."
+    },
+    {
+      "target": "Theorem 1.5 and the interface consumed by HB.2",
+      "providedBy": [
+        "HabiroNumberFields:HB.1/cgz-theorem-1-5",
+        "HabiroNumberFields:HB.1/ordinary-unit-eigenclass-lift",
+        "HabiroNumberFields:HB.1/prime-unit-torsion-exact-sequence"
+      ],
+      "note": "The accepted parent injectivity and square-free isomorphism have the two added proof inputs and the corrected count; no HB.2 regulator is planned."
+    }
+  ],
+  "restructure": [
+    {
+      "action": "rescope",
+      "roadmaps": [
+        "HabiroNumberFields",
+        "K3BlochGroups"
+      ],
+      "detail": "RT-AREA-ktheory-2/17 and the updated V.3 published packet settle the ownership of the integral CGZ conventions. RS-10 is now accepted, contrary to the issue text’s historical description, but its HB.1 wording must be interpreted as use, not a second construction.",
+      "proposal": "V.3 owns P¹(F) degenerate symbols, the negative-tensor target, every integral comparison and published Lemma 2.2. HB.1 imports these along a direct V.3→HB.1 edge. Reconcile PLAN-HABIRO §4.2 and the HB.1 stage description through the owning restructure/assembly job; these files are outside this job’s deliverables."
+    },
+    {
+      "action": "split",
+      "roadmaps": [
+        "MotivicEtaleKTheory",
+        "HabiroNumberFields",
+        "PadicHodgeRegulators",
+        "BorelRegulators"
+      ],
+      "detail": "RT-AREA-ktheory-2/18: the generic finite étale Chern classes and product formula belong to M.8 under accepted RS-08; the whole stage has D.2/R.7 inputs and cannot be imported early without a cycle.",
+      "proposal": "Retain one generic construction in an early part of MotivicEtaleKTheory requiring only M.7, with late regulator comparisons in the existing late part. HB.1 keeps only c_ζ and χ⁻¹ identification; HB.2 and D.2 import the same early product formula. A restructuring owner chooses and approves the real stage IDs. No prerequisite on the whole current M.8 is added."
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "HabiroNumberFields/E1",
+      "source": "CGZ.BlochUnits.Published.2023",
+      "kind": "misprint",
+      "locator": "Published §3.1, p.401, sentence before (31); also arXiv v3 p.18 before (29)",
+      "printed": "ζ⊗n",
+      "correction": "The trivialization sends ζ to ζ⊗m in μ_n^{⊗m}.",
+      "reason": "Its target is the m-th Tate twist; the printed subsequent transformation t_{ζ^k}=k^{m−1}t_ζ and (31) require the m-th tensor power. The error is present in the published PDF read for this pass.",
+      "affects": "nothing",
+      "known": "Already recorded and confirmed in the accepted HabiroNumberFields parent, E1; this pass collates the published version.",
+      "searched": [
+        "Accepted parent sourceIssues E1",
+        "Published author-hosted CGZ PDF, §3.1",
+        "arXiv:1712.04887v3"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in the rendered published p.401 as well as arXiv v3: the target is the m-th Tate twist, so ζ must map to ζ⊗m. The adjacent k^(m−1) root-change law independently determines that exponent.",
+        "by": "REV-HabiroNumberFields--HB.1"
+      }
+    },
+    {
+      "id": "HabiroNumberFields/E2",
+      "source": "CGZ.BlochUnits.Published.2023",
+      "kind": "error",
+      "locator": "Published §3.5, p.403, the count in the proof of Theorem 1.5; also arXiv v3 pp.20–21",
+      "printed": "(ℤ/nℤ)^{r₂(F)}",
+      "correction": "For good square-free n, the p-component has dimension r₂(F)+[p=3], on both the K₃ and the unit side.",
+      "reason": "For F=ℚ and n=3, K₃(ℚ)/3 and the units of ℤ[ζ₃] modulo cubes both have order 3, whereas r₂(ℚ)=0. Proposition 2.12(b) itself requires χ and χ⁻¹ distinct, which fails at p=3. The isomorphism conclusion survives the corrected count.",
+      "affects": "the proof",
+      "known": "Already recorded and independently confirmed in the accepted parent E2; still present in the published version read here.",
+      "searched": [
+        "Accepted parent E2",
+        "Published CGZ §§2.6 and 3.5",
+        "arXiv:1712.04887v3",
+        "Garoufalidis publication list and arXiv abstract page searched for a correction on 2026-10-06"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in published p.403 and arXiv v3. Proposition 2.12(b) explicitly needs χ≠χ⁻¹. At F=ℚ,p=3 the unit quotient μ₆/μ₆³ has order 3 and inverse character χ, while r₂=0; the imported K₃(ℚ)/3 also has order 3. Add the μ₃ dimension on both sides, retaining the square-free isomorphism.",
+        "by": "REV-HabiroNumberFields--HB.1"
+      }
+    },
+    {
+      "id": "HabiroNumberFields/E6",
+      "source": "CGZ.BlochUnits.Published.2023",
+      "kind": "gap",
+      "locator": "Published Proposition 2.12(a) proof, p.399; also arXiv v3 pp.16–17",
+      "printed": "Γ×G=Γ×(ℤ/nℤ)ˣ",
+      "correction": "The product decomposition requires the Galois closure of F, not merely F, to be disjoint from ℚ(ζ_n). Use the relative logarithmic G-action and actual character stabilizers instead.",
+      "reason": "F=ℚ(∛2), n=3 is disjoint from ℚ(ζ₃), but its Galois closure contains ζ₃. The displayed product would assert a group of order 12 in place of S₃ of order 6. The direct odd-character theorem in this packet proves the rank without this assumption.",
+      "affects": "the proof",
+      "known": "Already recorded and independently confirmed in the accepted parent E6; the product step remains in the published proof.",
+      "searched": [
+        "Accepted parent E6",
+        "Published CGZ §2.6",
+        "arXiv:1712.04887v3",
+        "Garoufalidis publication list and arXiv abstract page searched for a correction on 2026-10-06"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in published p.399 and arXiv v3. For F=ℚ(∛2), n=3, F∩ℚ(ζ₃)=ℚ but its Galois closure is F(ζ₃) with group S₃ of order 6; the proposed Γ×G has order 12. The direct relative logarithmic action proves the needed multiplicity without this product.",
+        "by": "REV-HabiroNumberFields--HB.1"
+      }
+    },
+    {
+      "id": "HabiroNumberFields/E7",
+      "source": "CGZ.BlochUnits.Published.2023",
+      "kind": "gap",
+      "locator": "Published proof of Lemma 3.1, p.400; also arXiv v3 p.18",
+      "printed": "The source asserts an equivalence in both directions.",
+      "correction": "Sah gives the necessary implication using χ(g)^m−1 for g∈G. It does not give the converse, nor allow replacement of the image of χ by every unit residue.",
+      "reason": "The injectivity proof uses only this necessary implication. The parent Sah/inflation node is imported with that correction, and no stronger equivalence is used here.",
+      "affects": "the proof",
+      "known": "Already recorded in the accepted parent E7; published collation performed in this pass.",
+      "searched": [
+        "Accepted parent E7",
+        "Published CGZ §3.1",
+        "arXiv:1712.04887v3"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in published p.400 and arXiv v3. Sah supplies annihilators χ(g)^m−1 and only a necessary condition. For F=ℚ,n=3,m=2, H¹(C₂,ℤ/3(2))=0 since 2 is invertible modulo 3, although a²−1=0 modulo 3 for every unit a. This disproves the printed converse even with full χ image; replacing the actual image by all unit residues needs separate justification.",
+        "by": "REV-HabiroNumberFields--HB.1"
+      }
+    }
+  ],
+  "sourceVersions": [
+    {
+      "kind": "published",
+      "url": "https://www.math.uchicago.edu/~fcale/papers/CGZ.pdf",
+      "citation": "Ann. Sci. ENS 56 (2023), 383–426; DOI 10.24033/asens.2537",
+      "read": "2026-10-06",
+      "sha256": "8003ee09bfec725127f4b5c2058c5516834a91a160d9c4428d962b1e5a1f0212"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1712.04887v3",
+      "read": "2026-10-06",
+      "sha256": "024317c20a1d8b66234e608af46941093a675b6399ef480dfedd52a31dcd7bf5"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://math.mit.edu/classes/18.785/2021fa/LectureNotes24.pdf",
+      "read": "2026-10-06",
+      "sha256": "0f7fc7d3382375d34b52c3689fe97066184b10b181da87724bbb67945642de8d"
+    }
+  ],
+  "readingLog": {
+    "upstreamDocuments": [
+      "content/tau-ceti/Multiquadratic/README.md, read in full",
+      "content/tau-ceti/ArithmeticDirichletSeries/README.md, read in full"
+    ],
+    "audit": "data/library-coverage.json, reviewed HB.1 entry (AUDIT-28)",
+    "parent": "research/blueprint/packets/HabiroNumberFields.json, HB.1 nodes, coverage and gaps; accepted REV-HabiroNumberFields",
+    "suppliers": [
+      "research/blueprint/packets/ArithmeticKTheory--N.1.json, Keune node and N.1 unit/localisation boundary",
+      "research/blueprint/packets/K3BlochGroups--V.3.json, published convention nodes",
+      "accepted RS-08 and RS-10 ownership decisions",
+      "LocalFieldsRamification layer 3 and NumberFieldArithmetic layer 5 descriptions"
+    ]
+  },
+  "suggestedLean": {
+    "file": "research/blueprint/suggested/HabiroNumberFields--HB.1.lean",
+    "activeSignatures": [
+      "TauCeti.HabiroNumberFields.finiteEndomorphism_torsionKernel_eq_zero",
+      "TauCeti.HabiroNumberFields.eigenclass_existsUnique_lift",
+      "TauCeti.HabiroNumberFields.oddCharacter_unitMultiplicity",
+      "TauCeti.HabiroNumberFields.cyclotomic_primePrimes_fixed"
+    ],
+    "contractComments": [
+      "TauCeti.HabiroNumberFields.picard_inverseCyclotomicEigen_torsion_eq_zero",
+      "TauCeti.HabiroNumberFields.etale_inverseCyclotomicEigen_unitLift",
+      "TauCeti.HabiroNumberFields.unit_inverseCyclotomicEigen_torsionSequence"
+    ],
+    "note": "The three mathematical contract comments depend on real supplier K-theory, étale-cohomology and residual eigenspace interfaces. They are not elaborated theorem declarations. No proposition-valued replacement carrier is introduced."
+  },
+  "links": [
+    {
+      "source": "K3BlochGroups:V.3",
+      "target": "HabiroNumberFields:HB.1",
+      "reason": "Direct import of the published CGZ Bloch convention and specified odd-coefficient comparison maps from their V.3 owner; specializes the existing parent convention interface without duplicating it.",
+      "sources": [
+        {
+          "sourceId": "CGZ.BlochUnits.Published.2023",
+          "locator": "§2.1, Lemma 2.2 and §3.1; imported through the published V.3 convention nodes."
+        }
+      ]
+    }
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-HabiroNumberFields--HB.1",
+    "date": "2026-10-06",
+    "notes": "All seven nodes, all 31 baseline declarations (28 inherited and three added), all four sourceIssues, inherited target/API/test interfaces, HB.1 audit and RT-AREA-ktheory-2/14,17,18 checked. Corrected a missing rank dependency, explicit Mathlib proof inputs, the Kummer supplier request, canonical completion wording and the ordinary-unit planet name. Target-level planning is accepted with coverage planned; the two recorded supplier gaps and parent assembly tasks remain. The suggested file checks four signatures only, with three unavailable arithmetic interfaces retained as honest mathematical contract comments. See the independent report for the out-of-scope reader synchronization and validation results.",
+    "checked": [
+      {
+        "nodeId": "HabiroNumberFields:HB.1/finite-endomorphism-obstruction-criterion",
+        "verdict": "verified",
+        "note": "Primary decomposition proves the needed vanishing implication, including n=0; cyclic generator relations match twisted coinvariants. Finiteness is essential."
+      },
+      {
+        "nodeId": "HabiroNumberFields:HB.1/keune-picard-eigen-obstruction",
+        "verdict": "verified",
+        "note": "The finite target K₂/n vanishes and the preceding criterion passes from Pic/n coinvariants to Pic[n] eigenvectors. Verified conditional on the explicitly source-gapped N.6 injection, not an independently verified Keune theorem."
+      },
+      {
+        "nodeId": "HabiroNumberFields:HB.1/cyclotomic-prime-valuation-action",
+        "verdict": "corrected",
+        "note": "Verified via the pinned Eisenstein theorem and the actual local/global suppliers. Made the canonical completion structure and unramifiedness translation explicit in the Layer 5 request."
+      },
+      {
+        "nodeId": "HabiroNumberFields:HB.1/injective-exact-map-eigenclass-lift",
+        "verdict": "verified",
+        "note": "Middle exactness and injectivity give the unique eigenclass lift over any commutative ring and any group, without averaging or right exactness of eigenspaces."
+      },
+      {
+        "nodeId": "HabiroNumberFields:HB.1/ordinary-unit-eigenclass-lift",
+        "verdict": "corrected",
+        "note": "Verified the two lifts using Pic[n] and the valuation image D/n, including p-power orders. Corrected the weight-one Kummer interface request from degree-two M.3 to M.1; the Keune and early-Chern gaps remain explicit."
+      },
+      {
+        "nodeId": "HabiroNumberFields:HB.1/odd-cyclotomic-unit-multiplicity",
+        "verdict": "corrected",
+        "note": "Verified the full weighted logarithm, integral-lattice scalar extension, natural inverse place action and orbit character count. Added the cyclotomic specialization and conjugation-existence/torsion inputs; named the theorem and planet for ordinary units."
+      },
+      {
+        "nodeId": "HabiroNumberFields:HB.1/prime-unit-torsion-exact-sequence",
+        "verdict": "corrected",
+        "note": "Verified legitimate p−1 projectors, integral-to-residual ranks and μ₃ correction. Added the existing integral quotient basis as the explicit freeness input; no new unit or K₃ construction is planned."
+      }
+    ]
+  }
+}
