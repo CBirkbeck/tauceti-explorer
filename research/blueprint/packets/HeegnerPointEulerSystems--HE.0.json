@@ -94,7 +94,7 @@
       "sha256": "42962ab1de00924170e7cc02f95a0ebb967ec979a76823298014eb8511243d04",
       "accessed": "2026-10-06",
       "readSections": [
-        "Introduction pp.1–3, conditionCR and §6.2–6.8 pp.18–23: localized character groups, monodromy/component presentation, degrees, definite pairing and squarefree congruence-period identity. No claim that this preprint proves Zhang’s nonsquarefree extension."
+        "Introduction pp.1–3, conditionCR and §§6.2–6.5 pp.18–21 (Theorem6.8 is in §6.5): localized character groups, monodromy/component presentation, degrees, definite pairing and squarefree congruence-period identity. No claim that this preprint proves Zhang’s nonsquarefree extension."
       ]
     },
     {
@@ -507,25 +507,33 @@
         "ref": "mathlib:DihedralGroup.sr_mul_r",
         "module": "Mathlib/GroupTheory/SpecificGroups/Dihedral.lean",
         "provides": "Existing dihedral rotation/reflection algebra, statement and Group/ZMod context read at the exact Mathlib pin, lines100–101. Used only to transport a cyclic quotient of the arithmetic conjugation action.",
-        "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/GroupTheory/SpecificGroups/Dihedral.lean"
+        "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/GroupTheory/SpecificGroups/Dihedral.lean",
+        "kind": "theorem",
+        "checked": "Statement, Group and ZMod context independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by REV-HeegnerPointEulerSystems--HE.0~2."
       },
       {
         "ref": "mathlib:DihedralGroup.sr_mul_sr",
         "module": "Mathlib/GroupTheory/SpecificGroups/Dihedral.lean",
         "provides": "Existing dihedral rotation/reflection algebra, statement and Group/ZMod context read at the exact Mathlib pin, lines104–105. Used only to transport a cyclic quotient of the arithmetic conjugation action.",
-        "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/GroupTheory/SpecificGroups/Dihedral.lean"
+        "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/GroupTheory/SpecificGroups/Dihedral.lean",
+        "kind": "theorem",
+        "checked": "Statement, Group and ZMod context independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by REV-HeegnerPointEulerSystems--HE.0~2."
       },
       {
         "ref": "mathlib:DihedralGroup.inv_r",
         "module": "Mathlib/GroupTheory/SpecificGroups/Dihedral.lean",
         "provides": "Existing dihedral rotation/reflection algebra, statement and Group/ZMod context read at the exact Mathlib pin, lines108–109. Used only to transport a cyclic quotient of the arithmetic conjugation action.",
-        "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/GroupTheory/SpecificGroups/Dihedral.lean"
+        "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/GroupTheory/SpecificGroups/Dihedral.lean",
+        "kind": "theorem",
+        "checked": "Statement, Group and ZMod context independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by REV-HeegnerPointEulerSystems--HE.0~2."
       },
       {
         "ref": "mathlib:DihedralGroup.inv_sr",
         "module": "Mathlib/GroupTheory/SpecificGroups/Dihedral.lean",
         "provides": "Existing dihedral rotation/reflection algebra, statement and Group/ZMod context read at the exact Mathlib pin, lines112–113. Used only to transport a cyclic quotient of the arithmetic conjugation action.",
-        "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/GroupTheory/SpecificGroups/Dihedral.lean"
+        "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/GroupTheory/SpecificGroups/Dihedral.lean",
+        "kind": "theorem",
+        "checked": "Statement, Group and ZMod context independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by REV-HeegnerPointEulerSystems--HE.0~2."
       }
     ]
   },
@@ -786,7 +794,7 @@
       "sources": [
         {
           "sourceId": "gross",
-          "locator": "§3 p.239",
+          "locator": "§3, printed p.238 (conjugation action); Lemma4.3 proof p.242 (dihedral quotient).",
           "match": "The passage gives the stated construction or result; the proof outline separates imported general theory from its arithmetic application."
         }
       ],
@@ -1552,9 +1560,9 @@
       ],
       "title": "Quaternionic CM reduction and specialization",
       "kind": "theorem",
-      "statement": "For Zhang’s m∈Λ′+ and an admissible q∤m, reduction of x_m(n) at q is x_mq(n) in the definite Shimura set, using the matched optimal embedding and supersingular identification. For q|m, specialization is x_m/q(n) on the chosen vertex copy of the semistable reduction graph. Both formulas require the same CM/basepoint identifications and q splitting completely in the fields of definition used.",
+      "statement": "For Zhang’s m∈Λ′+ and an admissible q∤m, reduction of x_m(n) at q is x_mq(n) in the definite Shimura set, using the matched optimal embedding and supersingular identification. For q|m, specialization is x_m/q(n) on the chosen vertex copy of the semistable reduction graph. Both formulas require the same CM/basepoint identifications and the prime λ=qO_K splitting completely in the CM fields of definition over K (in particular K[n]/K, since q∤n). Rational q is inert in K/Q; reduction uses residue field F_q².",
       "hypotheses": [
-        "The hypotheses in the statement are part of the declaration; the conventions in the reader apply."
+        "The hypotheses in the statement are part of the declaration; q is an admissible prime, n∈Λ and m∈Λ′+, so q∤n by disjointness of Λ and Λ′. The chosen prime above λ and the reader conventions are fixed."
       ],
       "proofSteps": [
         "Import Cerednik–Drinfeld and good-reduction moduli models, not re-prove them.",
@@ -1576,7 +1584,7 @@
         {
           "sourceId": "zhang",
           "locator": "§§3.4–3.6, pp.207–211, Theorem3.1",
-          "match": "The passage gives the stated construction or result; the proof outline separates imported general theory from its arithmetic application."
+          "match": "Zhang3.5 says the prime (q)⊂O_K splits over K in the CM fields. Theorem3.1 supplies both formulas; q itself is an inert rational prime, and the residue field is F_q²."
         }
       ],
       "library": {
@@ -2033,7 +2041,7 @@
       "sources": [
         {
           "sourceId": "gross",
-          "locator": "Lemma4.3 pp.242–243; Howard Lemma1.7.1 proof p.20",
+          "locator": "Lemma4.3, statement p.241 and proof p.242; Howard Lemma1.7.1 proof p.20.",
           "match": "The passage gives the stated construction or result; the proof outline separates imported general theory from its arithmetic application."
         }
       ],
@@ -2176,7 +2184,7 @@
       "sources": [
         {
           "sourceId": "gross",
-          "locator": "Proposition4.7 and explicit formula, p.243; Howard Lemma1.7.2 p.20",
+          "locator": "Explicit cocycle (4.6) and Proposition4.7, printed p.242; Howard Lemma1.7.2 p.20.",
           "match": "The passage gives the stated construction or result; the proof outline separates imported general theory from its arithmetic application."
         }
       ],
@@ -2218,7 +2226,7 @@
       "sources": [
         {
           "sourceId": "gross",
-          "locator": "§4, note after Proposition4.7, printed p.242; Howard §1.7 p.20; Zhang(3.22) p.213",
+          "locator": "Definition(4.1), printed p.241, and note after Proposition4.7 p.242; Howard §1.7 p.20; Zhang(3.22) p.213.",
           "match": "The passage gives the stated construction or result; the proof outline separates imported general theory from its arithmetic application."
         }
       ],
@@ -2448,7 +2456,7 @@
       "sources": [
         {
           "sourceId": "howard",
-          "locator": "Proposition1.7.4 pp.20–21; published p.1458",
+          "locator": "Proposition1.7.4, preprint p.21; published pp.1457–1458.",
           "match": "The passage gives the stated construction or result; the proof outline separates imported general theory from its arithmetic application."
         }
       ],
@@ -3341,7 +3349,7 @@
         },
         {
           "sourceId": "pollack-weston",
-          "locator": "§§6.2–6.8, preprint pp.18–23, especially Theorem6.8",
+          "locator": "§§6.2–6.5, preprint pp.18–21: Theorem6.2, Propositions6.3–6.7 and Theorem6.8.",
           "match": "The squarefree identity is derived from the character group and modular-degree comparison; Zhang6.4 supplies the precise nonsquarefree variant through its additional cited degree/multiplicity-one results."
         }
       ],
@@ -3394,7 +3402,7 @@
         {
           "sourceId": "zhang",
           "locator": "Lemma8.4 and proof, pp.236–239",
-          "match": "The passage gives the stated construction or result; the proof outline separates imported general theory from its arithmetic application."
+          "match": "The passage gives the stated construction or result; the proof outline separates imported general theory from its arithmetic application. The final opposite-sign detector in the published proof uses ℓ_(2ν+1); the subscript misprint is recorded in E8."
         }
       ],
       "library": {
@@ -3640,7 +3648,7 @@
       "sources": [
         {
           "sourceId": "nekovar",
-          "locator": "§1.19 pp.14–15; §§4.8–4.13 pp.25–27; §§5.8–5.12 pp.29–30; §§5.15–5.18 pp.31–33; §7.2.1 p.43; locators use the 53-page author preprint, not published pagination.",
+          "locator": "§1.19 pp.14–15; §§4.8–4.13 pp.25–27; §§5.8–5.12 pp.29–30; §§5.15–5.18 pp.31–33; §7.2.1 p.44; locators use the 53-page author preprint, not published pagination.",
           "match": "The cited proof supplies the integral arithmetic construction and uniform estimates; reusable representation, linear algebra and descent results are imported through their owners."
         }
       ],
@@ -3787,7 +3795,7 @@
       "sources": [
         {
           "sourceId": "nekovar",
-          "locator": "§3.5 p.19; §7.1.2 pp.43–44; Theorem7.3 and proof pp.45–47; locators use the 53-page author preprint, not published pagination.",
+          "locator": "§3.5 p.19; §7.1.2 p.43; Theorem7.3 and proof pp.45–47; locators use the 53-page author preprint, not published pagination.",
           "match": "The cited proof supplies the integral arithmetic construction and uniform estimates; reusable representation, linear algebra and descent results are imported through their owners."
         }
       ],
@@ -4161,7 +4169,7 @@
       "sources": [
         {
           "sourceId": "zhang",
-          "locator": "§8.1, equation(8.1), p.234; equation(3.24), p.212",
+          "locator": "§8.1, equation(8.1), printed p.235; equation(3.24), printed p.213.",
           "match": "The finite/transverse relation and parity are explicitly imposed on the actual rational Heegner family."
         }
       ],
@@ -4982,8 +4990,8 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "E1: the published proof explicitly uses ℓ≠p; local Euler characteristic at p has the extra two-dimensional term. The additive-prime application stays away from p.",
-        "by": "REV-HeegnerPointEulerSystems--HE.0"
+        "by": "REV-HeegnerPointEulerSystems--HE.0~2",
+        "reason": "Published pp.222–223 independently read: the proof explicitly assumes ℓ≠p. At p, the self-dual two-dimensional local Euler characteristic gives dim H¹=2 dim H⁰+2. The away-from-p additive application is unchanged."
       }
     },
     {
@@ -5003,8 +5011,8 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "E2: G_Qℓ invariants do not imply inertia invariants vanish. The stated local Tate-twist diagnostic refutes this proof step; the repair is restricted to split additive places with V^G_Kℓ=0. No global counterexample to every standing hypothesis is asserted.",
-        "by": "REV-HeegnerPointEulerSystems--HE.0"
+        "by": "REV-HeegnerPointEulerSystems--HE.0~2",
+        "reason": "Published p.228 independently read: decomposition invariants do not imply inertia invariants vanish. The unramified quadratic Tate twist over Q_7 with I_5 reduction has mod-five inertia trivial and Frobenius eigenvalues −1,−7; neither is1. The repaired finite-residue argument is restricted to split additive places with V^G_Kℓ=0, and no global counterexample to all newform hypotheses is asserted."
       }
     },
     {
@@ -5022,8 +5030,8 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "E3: under the stated Euclidean normalization the unit-disc area squared is π²; Remark2.5 prints 1. Existing extraction E7 agrees.",
-        "by": "REV-HeegnerPointEulerSystems--HE.0"
+        "by": "REV-HeegnerPointEulerSystems--HE.0~2",
+        "reason": "Published Definition2.4/Remark2.5 p.166 independently read. Under the printed Euclidean area-squared normalization the unit disc gives π². Existing extraction E7 records the same slip."
       }
     },
     {
@@ -5041,8 +5049,8 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "E4: the printed nonunit intersection contains a scalar prime without its inverse; the compact stabilizer is the unit intersection. Existing extraction E8 agrees.",
-        "by": "REV-HeegnerPointEulerSystems--HE.0"
+        "by": "REV-HeegnerPointEulerSystems--HE.0~2",
+        "reason": "Published Remark2.7 p.167 independently read. The nonunit intersection contains the scalar local prime without its inverse, whereas the class-group stabilizer requires the unit subgroup of the covering torus. Existing extraction E8 agrees."
       }
     },
     {
@@ -5063,8 +5071,68 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "by": "REV-HeegnerPointEulerSystems--HE.0",
-        "reason": "The explicit split Z_3-order calculation above refutes the literal field-norm equality in both inspected versions; the corrected valuation is the convention used in node HE.0/local-different-discriminant."
+        "by": "REV-HeegnerPointEulerSystems--HE.0~2",
+        "reason": "Published Lemma5.8/Remark5.9 p.184 and arXiv v3 p.36 independently read. In the split conductor-three order the trace Gram determinant is9 and the different generator (3,−3) has norm−9. Every unit norm is1 modulo3, so no generator has norm+9. The ideal/valuation comparison and principal invertibility remain valid."
+      }
+    },
+    {
+      "id": "HeegnerPointEulerSystems/E6",
+      "source": "gross",
+      "kind": "misprint",
+      "locator": "Published Proposition8.1(2), printed p.248, scanned article version of record.",
+      "printed": "The source refers to (2.3) for the pairing ⟨,⟩.",
+      "correction": "Replace the equation reference (2.3) by (7.3), the local Tate pairing defined on p.247.",
+      "reason": "Proposition2.3 on p.238 is the global Selmer-generation theorem and defines no pairing. Equation(7.3), explicitly used in Proposition7.5 and §8, is the intended local Tate pairing.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Gross author preprint list https://people.math.harvard.edu/~gross/preprints/ read 2026-10-06: no correction of this reference listed.",
+        "Primary-domain correction search on math.harvard.edu, cambridge.org and wstein.org, 2026-10-06: no relevant correction found; the published scan was checked."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-HeegnerPointEulerSystems--HE.0~2",
+        "reason": "Proposition2.3 on p.238 is the global Selmer-generation theorem and defines no pairing. Equation(7.3), explicitly used in Proposition7.5 and §8, is the intended local Tate pairing."
+      }
+    },
+    {
+      "id": "HeegnerPointEulerSystems/E7",
+      "source": "nekovar",
+      "kind": "misprint",
+      "locator": "Author preprint dated23 May2007, §7.2.1, PDF p.44; scope is this 53-page preprint, not the uninspected published version.",
+      "printed": "The source places the definition of C1,v(p) in 5.2.",
+      "correction": "Replace 5.2 by 5.12, the proposition defining the bounded local component errors.",
+      "reason": "Section5.2 defines the strong auxiliary prime set S1(M). Proposition5.12 on p.30 introduces C1,v(p) and its almost-all vanishing. Section7.2.1 immediately applies Proposition5.12 to the corrected classes.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Primary-domain Nekovář Euler systems correction search on imj-prg.fr, cambridge.org and arxiv.org, 2026-10-06: no relevant correction found.",
+        "Author publication directory https://webusers.imj-prg.fr/~jan.nekovar/pu/ attempted 2026-10-06, returned403; archived euler.pdf was read. Published text was not obtained, so this finding makes no claim about its wording."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-HeegnerPointEulerSystems--HE.0~2",
+        "reason": "Section5.2 defines the strong auxiliary prime set S1(M). Proposition5.12 on p.30 introduces C1,v(p) and its almost-all vanishing. Section7.2.1 immediately applies Proposition5.12 to the corrected classes."
+      }
+    },
+    {
+      "id": "HeegnerPointEulerSystems/E8",
+      "source": "zhang",
+      "kind": "misprint",
+      "locator": "Published Lemma8.4 proof, printed p.239, final opposite-eigenspace argument, version of record.",
+      "printed": "loc_{ℓ_{ν+1}} d ≠ 0, loc_{ℓ_{ν+1}} c(n_{ν+1}) ≠ 0",
+      "correction": "Both displayed detector subscripts are ℓ_{2ν+1}, the prime just re-chosen in the preceding sentence.",
+      "reason": "The preceding dimension count kills loc_{ℓ_{ν+i}}d for1≤i≤ν. For ν≥1 this includes ℓ_{ν+1}, so the printed nonvanishing there contradicts that choice. Lemma8.1 instead re-chooses ℓ_{2ν+1} to detect both d and c(n_{ν+1}); pairing with c(n_{ν+1}ℓ_{2ν+1}) supplies the one surviving local term. At ν=0 the two indices coincide.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Wei Zhang publication page https://math.mit.edu/~wz2113/math/pub.html read 2026-10-06: no correction attached to this paper.",
+        "Primary-domain title plus erratum search on intlpress.com, math.mit.edu and arxiv.org, 2026-10-06: no relevant correction found; the International Press version-of-record PDF was checked."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-HeegnerPointEulerSystems--HE.0~2",
+        "reason": "The preceding dimension count kills loc_{ℓ_{ν+i}}d for1≤i≤ν. For ν≥1 this includes ℓ_{ν+1}, so the printed nonvanishing there contradicts that choice. Lemma8.1 instead re-chooses ℓ_{2ν+1} to detect both d and c(n_{ν+1}); pairing with c(n_{ν+1}ℓ_{2ν+1}) supplies the one surviving local term. At ν=0 the two indices coincide."
       }
     }
   ],
@@ -5260,6 +5328,86 @@
       "citation": "Algebraic Geometry, Lecture Notes in Mathematics1479 (1991), pp.94–121; scanned published article",
       "read": "2026-10-06",
       "sha256": "ab9126cb2e0147753ca3f1a354f591b516b84f48c5b0882b9a55e87a60edefc9"
+    },
+    {
+      "kind": "published",
+      "url": "https://www.wstein.org/papers/bib/gross-kolyvagins_work_on_modular_elliptic_curves.pdf",
+      "read": "2026-10-06",
+      "sha256": "60b310c58a3494860c5967a03569a7d30033e9074d9d3d9a0d5bc2dfedd46b32",
+      "by": "REV-HeegnerPointEulerSystems--HE.0~2",
+      "detail": "Independent retrieval and cited-passage/hypothesis check; historical receipts are retained. All printed pp.235–256 read visually from the twelve scanned PDF pages."
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1202.6340",
+      "read": "2026-10-06",
+      "sha256": "d2d06e851d6aa1fdc33a932b69b5c06a8c56dc2d9e05fb10d97c0358d6d6ea9a",
+      "by": "REV-HeegnerPointEulerSystems--HE.0~2",
+      "detail": "Independent retrieval and cited-passage/hypothesis check; historical receipts are retained. No independent whole-paper reading claim."
+    },
+    {
+      "kind": "published",
+      "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/1BF8414258216C1575963BBDA814CB2F/S0010437X04000569a.pdf/the-heegner-point-kolyvagin-system.pdf",
+      "read": "2026-10-06",
+      "sha256": "89082beb9117b111558f1c62356a0610602781ec2a2b3487ce561920cf4d78d7",
+      "by": "REV-HeegnerPointEulerSystems--HE.0~2",
+      "detail": "Independent retrieval and cited-passage/hypothesis check; historical receipts are retained. Bytes differ from the historical publisher receipt; title, DOI10.1112/S0010437X04000569 and Proposition1.7.4/Theorem1.7.5 on pp.1457–1458 agree with the preprint."
+    },
+    {
+      "kind": "published",
+      "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v189-n1-p04-s.pdf",
+      "read": "2026-10-06",
+      "sha256": "f22691429c27058fabd47fe12c6a901e7feffffad7a0c52e1a936da645166d6f",
+      "by": "REV-HeegnerPointEulerSystems--HE.0~2",
+      "detail": "Independent retrieval and cited-passage/hypothesis check; historical receipts are retained. No independent whole-paper reading claim."
+    },
+    {
+      "kind": "preprint",
+      "url": "https://personal.math.ubc.ca/~vatsal/research/part1.pdf",
+      "read": "2026-10-06",
+      "sha256": "bdf258c742a88ce4328dcf3ef1df0dfe1235f1640c06bd66eeaaef2c1c6625e1",
+      "by": "REV-HeegnerPointEulerSystems--HE.0~2",
+      "detail": "Independent retrieval and cited-passage/hypothesis check; historical receipts are retained. No independent whole-paper reading claim."
+    },
+    {
+      "kind": "published",
+      "url": "https://archive.intlpress.com/site/pub/files/_fulltext/journals/cjm/2014/0002/0002/CJM-2014-0002-0002-a002.pdf",
+      "read": "2026-10-06",
+      "sha256": "698eb8a6d2297684c683c4c3f43a195cac1d8752ef0c8362ab90c74f5b3792ec",
+      "by": "REV-HeegnerPointEulerSystems--HE.0~2",
+      "detail": "Independent retrieval and cited-passage/hypothesis check; historical receipts are retained. No independent whole-paper reading claim."
+    },
+    {
+      "kind": "preprint",
+      "url": "https://web.archive.org/web/20221115094729id_/https://webusers.imj-prg.fr/~jan.nekovar/pu/euler.pdf",
+      "read": "2026-10-06",
+      "sha256": "05c8debf4783f4604afe71a0b4367554ac62d52a6a462daa5e2e8c2ed6bfd26a",
+      "by": "REV-HeegnerPointEulerSystems--HE.0~2",
+      "detail": "Independent retrieval and cited-passage/hypothesis check; historical receipts are retained. 53-page author preprint, 23 May2007; cited §§3–7 (especially the entire quadratic-character §7.5 proof) checked. Published wording/pagination not claimed."
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/math/0610694v1",
+      "read": "2026-10-06",
+      "sha256": "42962ab1de00924170e7cc02f95a0ebb967ec979a76823298014eb8511243d04",
+      "by": "REV-HeegnerPointEulerSystems--HE.0~2",
+      "detail": "Independent retrieval and cited-passage/hypothesis check; historical receipts are retained. No independent whole-paper reading claim."
+    },
+    {
+      "kind": "published",
+      "url": "https://www.wstein.org/papers/bib/kolyvagin-structure_of_sha.pdf",
+      "read": "2026-10-06",
+      "sha256": "ab9126cb2e0147753ca3f1a354f591b516b84f48c5b0882b9a55e87a60edefc9",
+      "by": "REV-HeegnerPointEulerSystems--HE.0~2",
+      "detail": "Independent retrieval and cited-passage/hypothesis check; historical receipts are retained. No independent whole-paper reading claim."
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1710.04557v3",
+      "read": "2026-10-06",
+      "sha256": "f740c4200434b0989bb6f728e4a385769b669320eec94ee8ace0e34279a53eb9",
+      "by": "REV-HeegnerPointEulerSystems--HE.0~2",
+      "detail": "Independent retrieval and cited-passage/hypothesis check; historical receipts are retained. Only Lemma5.8/Remark5.9, PDF p.36, checked for E5."
     }
   ],
   "supplierAudit": {
@@ -5292,6 +5440,11 @@
     "revision": {
       "date": "2026-10-06",
       "detail": "Re-read the existing fine-node imports, prior review and relevant owner contracts. General Nekovář image, maximal-order pairing and finite-Selmer arguments are requested from R28/R01/CM, ES.4 and SelmerL0; only their actual CM-point arithmetic specialization is planned here. BSD.3a is proposed independently rather than imported from circular BSD.5."
+    },
+    "round2IndependentReview": {
+      "by": "REV-HeegnerPointEulerSystems--HE.0~2",
+      "date": "2026-10-06",
+      "detail": "Independently read all 17 imported fine-node statements and the 37 proposed supplier-stage contracts, plus eight upstream stage anchors. The 64 request contracts remain requests where the supplier lacks the exact export. Checked full-image versus residual hypotheses, arithmetic versus geometric Frobenius, finite-flat versus away-from-p local conditions, component rationality, exact local-type level raising and the independent early period export."
     }
   },
   "verification": {
@@ -5517,363 +5670,514 @@
         "files": 4,
         "problems": 0
       }
+    },
+    "independentReview": {
+      "date": "2026-10-06",
+      "job": "REV-HeegnerPointEulerSystems--HE.0~2",
+      "agent": "Codex — codex-73oRGW",
+      "sourceRetrieval": [
+        {
+          "sourceId": "gross",
+          "url": "https://www.wstein.org/papers/bib/gross-kolyvagins_work_on_modular_elliptic_curves.pdf",
+          "sha256": "60b310c58a3494860c5967a03569a7d30033e9074d9d3d9a0d5bc2dfedd46b32",
+          "matchesHistoricalReceipt": true
+        },
+        {
+          "sourceId": "howard",
+          "url": "https://arxiv.org/pdf/1202.6340",
+          "sha256": "d2d06e851d6aa1fdc33a932b69b5c06a8c56dc2d9e05fb10d97c0358d6d6ea9a",
+          "matchesHistoricalReceipt": true
+        },
+        {
+          "sourceId": "howard-published",
+          "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/1BF8414258216C1575963BBDA814CB2F/S0010437X04000569a.pdf/the-heegner-point-kolyvagin-system.pdf",
+          "sha256": "89082beb9117b111558f1c62356a0610602781ec2a2b3487ce561920cf4d78d7",
+          "matchesHistoricalReceipt": false
+        },
+        {
+          "sourceId": "khayutin",
+          "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v189-n1-p04-s.pdf",
+          "sha256": "f22691429c27058fabd47fe12c6a901e7feffffad7a0c52e1a936da645166d6f",
+          "matchesHistoricalReceipt": true
+        },
+        {
+          "sourceId": "cornut-vatsal",
+          "url": "https://personal.math.ubc.ca/~vatsal/research/part1.pdf",
+          "sha256": "bdf258c742a88ce4328dcf3ef1df0dfe1235f1640c06bd66eeaaef2c1c6625e1",
+          "matchesHistoricalReceipt": true
+        },
+        {
+          "sourceId": "zhang",
+          "url": "https://archive.intlpress.com/site/pub/files/_fulltext/journals/cjm/2014/0002/0002/CJM-2014-0002-0002-a002.pdf",
+          "sha256": "698eb8a6d2297684c683c4c3f43a195cac1d8752ef0c8362ab90c74f5b3792ec",
+          "matchesHistoricalReceipt": true
+        },
+        {
+          "sourceId": "nekovar",
+          "url": "https://web.archive.org/web/20221115094729id_/https://webusers.imj-prg.fr/~jan.nekovar/pu/euler.pdf",
+          "sha256": "05c8debf4783f4604afe71a0b4367554ac62d52a6a462daa5e2e8c2ed6bfd26a",
+          "matchesHistoricalReceipt": true
+        },
+        {
+          "sourceId": "pollack-weston",
+          "url": "https://arxiv.org/pdf/math/0610694v1",
+          "sha256": "42962ab1de00924170e7cc02f95a0ebb967ec979a76823298014eb8511243d04",
+          "matchesHistoricalReceipt": true
+        },
+        {
+          "sourceId": "kolyvagin-structure",
+          "url": "https://www.wstein.org/papers/bib/kolyvagin-structure_of_sha.pdf",
+          "sha256": "ab9126cb2e0147753ca3f1a354f591b516b84f48c5b0882b9a55e87a60edefc9",
+          "matchesHistoricalReceipt": true
+        },
+        {
+          "sourceId": "khayutin-v3",
+          "url": "https://arxiv.org/pdf/1710.04557v3",
+          "sha256": "f740c4200434b0989bb6f728e4a385769b669320eec94ee8ace0e34279a53eb9",
+          "matchesHistoricalReceipt": true
+        }
+      ],
+      "baseline": "All 13 declarations independently read at the exact Mathlib pin; no Tau Ceti declaration is cited as a baseline. Tau Ceti source pin inspected through the existing checkout.",
+      "nameCoverage": {
+        "nodes": 78,
+        "apiItems": 24,
+        "unitTests": 18,
+        "missing": []
+      },
+      "checks": {
+        "packetChecker": {
+          "command": "python3 scripts/check_blueprint.py research/blueprint/packets/HeegnerPointEulerSystems--HE.0.json",
+          "errors": 0,
+          "warnings": 0,
+          "index": "declaration index from the exact pinned baseline"
+        },
+        "sourceIssueChecker": {
+          "result": "ok",
+          "method": "check_errata.py on an errata-v1 scratch projection of all eight findings and 20 sourceVersions; no standalone errata deliverable added"
+        },
+        "intakeFiles": {
+          "files": 4,
+          "problems": 0
+        },
+        "lean": {
+          "result": "elaborated",
+          "command": "lean-check research/blueprint/suggested/HeegnerPointEulerSystems--HE.0.lean",
+          "exitCode": 0,
+          "errors": 0,
+          "warnings": 114,
+          "warningKind": "admission only",
+          "version": "4.34.0-rc2",
+          "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "taucetiSource": "f790474821cf4256814db967cb154e7af3d0c369",
+          "availableMemoryGB": 112,
+          "sha256": "013c264d196c7b070aea7390cc72444f8f882c03699beab022a0b791399e6977",
+          "limitations": "Mathlib-only prototype elaboration at the exact pin. No Tau Ceti olean compilation claimed. Arithmetic hypotheses and carrier identifications remain explicitly omitted under section13; elaboration checks signatures, not arithmetic validity."
+        },
+        "nameCoverage": {
+          "nodes": 78,
+          "apiItems": 24,
+          "unitTests": 18,
+          "missing": [],
+          "mathematicalStatementComments": "All 78 packet statements present"
+        }
+      }
     }
   },
   "review": {
-    "status": "needs_changes",
-    "reviewer": "independent-review-REV-HeegnerPointEulerSystems--HE.0",
-    "date": "2026-10-05",
-    "notes": "Finished independent review of all 70 nodes, seven original baseline citations and two added citations, six definition/construction APIs and 18 tests. Corrected source/hypothesis/dependency errors and confirmed E1–E4 plus new E5. HE.6/HE.7 remain partial: the independent period export, actual GL₂-type residual arithmetic interface and separate CM/RM proof routes are unresolved. Lean admission-only elaboration is not arithmetic verification.",
+    "status": "accepted",
+    "reviewer": "independent-review-REV-HeegnerPointEulerSystems--HE.0~2",
+    "date": "2026-10-06",
+    "notes": "Independent target-level review of all 78 nodes and every correction requested by the first review. All 13 pinned baseline statements, 17 imported fine-node statements, 37 proposed supplier-stage contracts and eight upstream stage anchors, 64 requests, 21 gaps, six APIs/18 tests, 43 planets, source issues and assigned red-team findings checked. Clarified the quaternionic splitting prime; corrected source locators/excerpts; confirmed five existing and three new source findings. HE.0–HE.7 remain planned, packet complete, implementation unchecked. Supplier gaps and original cardinality-proof acquisition remain honest open work. Detailed evidence, reader clarification and verification are in the review report.",
     "checked": [
       {
         "nodeId": "HeegnerPointEulerSystems:HE.0/local-toral-order",
-        "verdict": "corrected",
-        "note": "Corrected the order locator to Definition2.1/Proposition2.2/Lemma2.3 pp.165–166 and made the excerpt literal."
+        "verdict": "verified",
+        "note": "Khayutin2.1–2.3 gives a quadratic local order and conductor; import the general order/lattice API, including the split étale case."
       },
       {
         "nodeId": "HeegnerPointEulerSystems:HE.0/transported-global-order",
-        "verdict": "corrected",
-        "note": "Definition2.6 and the lattice paragraph, pp.166–167, support the transported order; replaced a nonexistent quotation."
+        "verdict": "verified",
+        "note": "Khayutin2.6 transports and intersects local orders in E(Q); the global order and local completion conventions agree."
       },
       {
         "nodeId": "HeegnerPointEulerSystems:HE.0/idele-ideal-class-comparison",
-        "verdict": "corrected",
-        "note": "Checked the covering-torus quotient and proper invertible ideal carrier; unit stabilizer uses confirmed E4."
+        "verdict": "verified",
+        "note": "Khayutin2.4.3/2.7 supplies the covering-torus quotient by unit stabilizers and invertible proper ideals; E4 is retained."
       },
       {
         "nodeId": "HeegnerPointEulerSystems:HE.0/conductor-change-kernel",
-        "verdict": "corrected",
-        "note": "Corrected the successive-unit-quotient locator to p.24; distinguished the GN11-derived first-step formula from the quoted local calculation."
+        "verdict": "verified",
+        "note": "The GN11 requested Picard exact sequence gives the first-step kernel; Cornut–Vatsal2.3 supplies the repeated local unit quotient and unit-index correction."
       },
       {
         "nodeId": "HeegnerPointEulerSystems:HE.0/ring-class-tower-quotients",
         "verdict": "verified",
-        "note": "Source statement/excerpt and target-level proof dependencies checked at gross: §3 pp.238–240; Cornut–Vatsal §2 pp.20–23. Existing supplier/prototype gaps are limitations, not implemented results."
+        "note": "Gross3 and Cornut–Vatsal2 give the actual relative tower restriction and conductor quotients; unit factors are retained."
       },
       {
         "nodeId": "HeegnerPointEulerSystems:HE.0/dihedral-conjugation",
-        "verdict": "verified",
-        "note": "Source statement/excerpt and target-level proof dependencies checked at gross: §3 p.239. Existing supplier/prototype gaps are limitations, not implemented results."
+        "verdict": "corrected",
+        "note": "Gross p.238 conjugates each ideal class to its inverse; fixed the locator/excerpt. The pinned DihedralGroup algebra models cyclic quotients only."
       },
       {
         "nodeId": "HeegnerPointEulerSystems:HE.0/relative-cm-conductor-tower",
-        "verdict": "corrected",
-        "note": "Specified the residue characteristic p and routed the quaternionic level request to R18.1."
+        "verdict": "verified",
+        "note": "Cornut–Vatsal2.1–2.9 gives the finite torsion quotient and eventual q-degree tower; residue characteristic and quaternionic supplier are explicit."
       },
       {
         "nodeId": "HeegnerPointEulerSystems:HE.0/norm-reciprocity-level-compatibility",
         "verdict": "verified",
-        "note": "Source statement/excerpt and target-level proof dependencies checked at cornut-vatsal: §1.7 p.19, §2.1 pp.20–21, §3.8 p.35. Existing supplier/prototype gaps are limitations, not implemented results."
+        "note": "Cornut–Vatsal1.7 explicitly uses geometric Frobenius; norm/base-change/level maps agree after reversing the arithmetic Artin convention."
       },
       {
         "nodeId": "HeegnerPointEulerSystems:HE.0/local-different-discriminant",
-        "verdict": "corrected",
-        "note": "Corrected §5.2/p.184 and recorded the previously unregistered exact-field-norm error as E5."
+        "verdict": "verified",
+        "note": "Khayutin5.7–5.8 gives the trace dual and principal different. Use norm ideals/valuations, with E5 excluding an exact signed-generator norm."
       },
       {
         "nodeId": "HeegnerPointEulerSystems:HE.1/cm-cyclic-isogeny-pair",
-        "verdict": "corrected",
-        "note": "Replaced cyclic subgroup by the actual cyclic N-isogeny excerpt on Gross p.238."
+        "verdict": "verified",
+        "note": "Gross p.238 constructs the cyclic N-isogeny from the invertible order ideal; (n,N)=1 and the Heegner splitting hypothesis are required."
       },
       {
         "nodeId": "HeegnerPointEulerSystems:HE.1/optimal-embedding-cm-points",
-        "verdict": "corrected",
-        "note": "H4/H5 do not supply quaternionic optimal embeddings; use the R18.1 curve contract and request its exact embedding export."
+        "verdict": "verified",
+        "note": "Cornut–Vatsal3.8 and Zhang3.2 give optimal embeddings/CM cosets; imported R18 geometry and CM canonical reciprocity have distinct roles."
       },
       {
         "nodeId": "HeegnerPointEulerSystems:HE.1/canonical-model-cm-descent",
         "verdict": "verified",
-        "note": "Source statement/excerpt and target-level proof dependencies checked at cornut-vatsal: §3.8 p.35; Howard §1.7 p.19. Existing supplier/prototype gaps are limitations, not implemented results."
+        "note": "Cornut–Vatsal3.8/Howard1.7 descend CM points to the actual class fields; the canonical-model supplier is requested, not reproved."
       },
       {
         "nodeId": "HeegnerPointEulerSystems:HE.1/jacobian-basepoint-denominators",
         "verdict": "verified",
-        "note": "Source statement/excerpt and target-level proof dependencies checked at cornut-vatsal: §3.5 pp.29–32; Zhang Remark6 pp.205–206. Existing supplier/prototype gaps are limitations, not implemented results."
+        "note": "Cornut–Vatsal3.5 gives degree-one Hodge data, while the rational divisor/quotient has fixed denominators; this is separate from a rational cusp."
       },
       {
         "nodeId": "HeegnerPointEulerSystems:HE.1/heegner-points-of-conductor-m-and-the-modular-parametrisation",
         "verdict": "verified",
-        "note": "Source statement/excerpt and target-level proof dependencies checked at howard: §1.7 p.19; Gross §1 p.236; Zhang §3.7 p.213. Existing supplier/prototype gaps are limitations, not implemented results."
+        "note": "Howard1.7 composes the CM point with the modular quotient; the constructor/postcomposition/equivariance API and three tests fit the uses."
       },
       {
         "nodeId": "HeegnerPointEulerSystems:HE.1/parameter-choice-and-degree",
         "verdict": "verified",
-        "note": "Source statement/excerpt and target-level proof dependencies checked at gross: §1 pp.236–237; §5 pp.243–244; Zhang Remarks6–7. Existing supplier/prototype gaps are limitations, not implemented results."
+        "note": "Gross fixes the parametrisation and Manin constant and discusses I/c; quotient degree and torsion/denominator effects stay explicit."
       },
       {
         "nodeId": "HeegnerPointEulerSystems:HE.2/cm-hecke-conductor-classification",
-        "verdict": "corrected",
-        "note": "Routed the quaternionic lattice/Hecke supplier to R18.4 rather than Hilbert H5; local appendix classification checked."
+        "verdict": "verified",
+        "note": "Cornut–Vatsal6.1–6.2 classifies ascending/descending neighbors of quadratic local lattices before the trace identities."
       },
       {
         "nodeId": "HeegnerPointEulerSystems:HE.2/norm-relation-and-reduction-congruence",
         "verdict": "verified",
-        "note": "Source statement/excerpt and target-level proof dependencies checked at gross: Proposition3.7(i), pp.240–241; Howard §1.7 p.19. Existing supplier/prototype gaps are limitations, not implemented results."
+        "note": "Gross3.7(1) and Howard1.7 give the inert first-step trace aℓ times the predecessor under the actual tower hypothesis."
       },
       {
         "nodeId": "HeegnerPointEulerSystems:HE.2/split-ramified-first-step-recurrence",
         "verdict": "verified",
-        "note": "Source statement/excerpt and target-level proof dependencies checked at cornut-vatsal: Corollary6.6, p.64. Existing supplier/prototype gaps are limitations, not implemented results."
+        "note": "Cornut–Vatsal6.6 retains the split two-Frobenius and ramified one-Frobenius first-step corrections with the stated convention."
       },
       {
         "nodeId": "HeegnerPointEulerSystems:HE.2/repeated-conductor-predecessor-recurrence",
         "verdict": "verified",
-        "note": "Source statement/excerpt and target-level proof dependencies checked at cornut-vatsal: Corollary6.6, p.64. Existing supplier/prototype gaps are limitations, not implemented results."
+        "note": "Cornut–Vatsal6.6 gives the repeated-conductor recurrence and the appropriate predecessor/scalar term; it is distinct from the first step."
       },
       {
         "nodeId": "HeegnerPointEulerSystems:HE.2/nonmaximal-level-distribution",
-        "verdict": "corrected",
-        "note": "Routed the P-new/nonmaximal-level interface to quaternionic R18.4; source restricts the good types and δ≥2."
+        "verdict": "verified",
+        "note": "Cornut–Vatsal6.11/6.14 gives −pr in the P-new δ=1 quotient and zero for δ≥2 typeI/II; typeIII is excluded."
       },
       {
         "nodeId": "HeegnerPointEulerSystems:HE.2/inert-reduction-frobenius-congruence",
         "verdict": "verified",
-        "note": "Source statement/excerpt and target-level proof dependencies checked at gross: Proposition3.7(ii) and proof, pp.240–241. Existing supplier/prototype gaps are limitations, not implemented results."
+        "note": "Gross3.7(2) uses λ splitting over K, then total ramification in the next conductor field, and the Eichler–Shimura congruence."
       },
       {
         "nodeId": "HeegnerPointEulerSystems:HE.2/quaternionic-reduction-specialization",
         "verdict": "corrected",
-        "note": "Added R18.2/R18.3/R18.5 for the actual good/semistable model, definite target and two vertex copies."
+        "note": "Zhang3.5/3.1 supplies both double-coset maps. Clarified that λ=qO_K splits over K; rational q is inert and reduction is over F_q²."
       },
       {
         "nodeId": "HeegnerPointEulerSystems:HE.3/kummer-classes-and-the-modified-selmer-conditions",
         "verdict": "verified",
-        "note": "Source statement/excerpt and target-level proof dependencies checked at howard: §§1.1,1.7 pp.5–8,19–21; Gross §4 pp.241–243. Existing supplier/prototype gaps are limitations, not implemented results."
+        "note": "Howard1.1/1.7 and Gross4 use the elliptic finite/p-adic Kummer maps and modified conditions. The missing EC7/L0 exports remain requests."
       },
       {
         "nodeId": "HeegnerPointEulerSystems:HE.3/good-place-kummer-unramified",
         "verdict": "verified",
-        "note": "Source statement/excerpt and target-level proof dependencies checked at gross: §7 pp.247–249. Existing supplier/prototype gaps are limitations, not implemented results."
+        "note": "Gross7 derives unramified good-place Kummer conditions using reduction and p≠residue characteristic; finite-flat p is treated separately."
       },
       {
         "nodeId": "HeegnerPointEulerSystems:HE.3/bad-place-component-obstruction",
         "verdict": "verified",
-        "note": "Source statement/excerpt and target-level proof dependencies checked at gross: Proposition6.2 and proof, pp.244–247. Existing supplier/prototype gaps are limitations, not implemented results."
+        "note": "Gross6.2 controls the actual Heegner component images, including bad places, rather than inferring vanishing from residual image alone."
       },
       {
         "nodeId": "HeegnerPointEulerSystems:HE.3/coefficient-prime-local-condition",
         "verdict": "verified",
-        "note": "Source statement/excerpt and target-level proof dependencies checked at howard: §1.6, Theorem1.6.5 proof, pp.18–19. Existing supplier/prototype gaps are limitations, not implemented results."
+        "note": "Howard1.6.5 checks the p-place finite condition at good p. Finite-flat/crystalline and integral Kummer comparison remain precise suppliers."
       },
       {
         "nodeId": "HeegnerPointEulerSystems:HE.3/saturated-integral-kummer-lattice",
         "verdict": "verified",
-        "note": "Source statement/excerpt and target-level proof dependencies checked at howard: Introduction pp.1–3; §1.6 pp.18–19. Existing supplier/prototype gaps are limitations, not implemented results."
+        "note": "Howard finite/p-adic Kummer sequences give the saturated integral rank-one lattice; Sha index is distinguished from the full torsion index."
       },
       {
         "nodeId": "HeegnerPointEulerSystems:HE.3/archimedean-tate-correction",
         "verdict": "verified",
-        "note": "Source statement/excerpt and target-level proof dependencies checked at gross: Proposition6.2, p.245; §8 p.249. Existing supplier/prototype gaps are limitations, not implemented results."
+        "note": "Odd-p real Tate terms vanish; the dyadic correction is owned by HE.7 and its integral duality supplier."
       },
       {
         "nodeId": "HeegnerPointEulerSystems:HE.4/heegner-coefficient-ideal",
-        "verdict": "corrected",
-        "note": "The ideal-sum/minimum convention and three tests are correct; added the exact pinned nonzero-ideal and nonzero-element valuation declarations."
+        "verdict": "verified",
+        "note": "I_n is the sum of the (aℓ,ℓ+1) ideals, with empty sum0. The pinned DVR theorems require nonzero inputs; zero cases and gcd tests are correct."
       },
       {
         "nodeId": "HeegnerPointEulerSystems:HE.4/differentiated-point-invariance",
         "verdict": "verified",
-        "note": "Source statement/excerpt and target-level proof dependencies checked at howard: Lemma1.7.1 pp.19–20; Gross §4 pp.241–243. Existing supplier/prototype gaps are limitations, not implemented results."
+        "note": "Howard1.7.1 and Gross3.6 combine derivative identities and trace divisibility before taking full tower coset sums."
       },
       {
         "nodeId": "HeegnerPointEulerSystems:HE.4/ring-class-torsion-invariants",
-        "verdict": "verified",
-        "note": "Source statement/excerpt and target-level proof dependencies checked at gross: Lemma4.3 pp.242–243; Howard Lemma1.7.1 proof p.20. Existing supplier/prototype gaps are limitations, not implemented results."
+        "verdict": "corrected",
+        "note": "Gross4.3 excludes rational p-torsion via the dihedral tower and full residual image. Corrected the page and excerpt to the actual statement/proof."
       },
       {
         "nodeId": "HeegnerPointEulerSystems:HE.4/kolyvagin-derivative-classes-and-descent-to-K",
         "verdict": "verified",
-        "note": "Source statement/excerpt and target-level proof dependencies checked at gross: §4 pp.242–243; Howard Lemmas1.7.1–1.7.2 p.20; Zhang(3.21) p.213. Existing supplier/prototype gaps are limitations, not implemented results."
+        "note": "The torsion-invariant vanishing gives the restriction isomorphism and its unique inverse. The inverse/equivariance/uniqueness API and tests are valid."
       },
       {
         "nodeId": "HeegnerPointEulerSystems:HE.4/explicit-cocycle-divisibility",
-        "verdict": "verified",
-        "note": "Source statement/excerpt and target-level proof dependencies checked at gross: Proposition4.7 and explicit formula, p.243; Howard Lemma1.7.2 p.20. Existing supplier/prototype gaps are limitations, not implemented results."
+        "verdict": "corrected",
+        "note": "Gross(4.6)/4.7 and Howard1.7.2 give the divided-point cocycle with its correction. Corrected Gross page243 to242 and used a literal excerpt."
       },
       {
         "nodeId": "HeegnerPointEulerSystems:HE.4/bottom-trace-class",
         "verdict": "corrected",
-        "note": "Corrected the Gross bottom-class locator from p.243 to p.242 and used his actual P1 = yK notation; Howard’s norm convention and Zhang(3.22) agree after the stated trace normalization."
+        "note": "Gross(4.1) and the note after4.7 give P1=yK and the bottom Kummer class. Added the construction page241 alongside the existing note page242."
       },
       {
         "nodeId": "HeegnerPointEulerSystems:HE.4/generator-tensor-choice-independence",
-        "verdict": "verified",
-        "note": "Source statement/excerpt and target-level proof dependencies checked at howard: Theorem1.7.5 pp.20–21; Gross §4 p.242. Existing supplier/prototype gaps are limitations, not implemented results."
+        "verdict": "corrected",
+        "note": "Howard1.7.5 uses commuting χℓ and tensor generators; replaced the inaccurate tensor excerpt by the actual commuting-map phrase."
       },
       {
         "nodeId": "HeegnerPointEulerSystems:HE.4/coefficient-and-prime-set-compatibility",
         "verdict": "verified",
-        "note": "Source statement/excerpt and target-level proof dependencies checked at zhang: §3.7 pp.211–213; Howard §1.7 pp.19–21. Existing supplier/prototype gaps are limitations, not implemented results."
+        "note": "Zhang3.7 fixes M≤M(n), compatible reductions and prime sets. The zero/bottom coefficient convention remains explicit."
       },
       {
         "nodeId": "HeegnerPointEulerSystems:HE.4/complex-conjugation-parity",
-        "verdict": "corrected",
-        "note": "Corrected the root-number sign to w(−1)^(ν(n)+1); the dyadic warning is retained."
+        "verdict": "verified",
+        "note": "Gross5.4 uses the Fricke sign; Zhang(3.24) converts the root-number convention to w_g(−1)^(ν+1), including the bottom minus sign."
       },
       {
         "nodeId": "HeegnerPointEulerSystems:HE.5/heegner-transverse-local-condition",
         "verdict": "verified",
-        "note": "Source statement/excerpt and target-level proof dependencies checked at howard: Lemma1.7.3 and proof, pp.20–21. Existing supplier/prototype gaps are limitations, not implemented results."
+        "note": "Howard1.7.3 checks transverse localization via the ramified ring-class extension and the local cocycle; not the finite subgroup at support primes."
       },
       {
         "nodeId": "HeegnerPointEulerSystems:HE.5/local-heegner-chi-automorphism",
-        "verdict": "verified",
-        "note": "Source statement/excerpt and target-level proof dependencies checked at howard: Proposition1.7.4 pp.20–21; published p.1458. Existing supplier/prototype gaps are limitations, not implemented results."
+        "verdict": "corrected",
+        "note": "Howard1.7.4 constructs the actual local χℓ using the p-primary reduction eigencomponents. Corrected the published locator to1457–1458."
       },
       {
         "nodeId": "HeegnerPointEulerSystems:HE.5/finite-singular-comparison-and-the-corrected-kolyvagin-system",
-        "verdict": "verified",
-        "note": "Source statement/excerpt and target-level proof dependencies checked at howard: Theorem1.7.5 pp.20–21 and published p.1458. Existing supplier/prototype gaps are limitations, not implemented results."
+        "verdict": "corrected",
+        "note": "Howard1.7.5 corrects by χ_n inverse and tensors compatible generators, fixing κ1. The global localization gap is honest; corrected the excerpt."
       },
       {
         "nodeId": "HeegnerPointEulerSystems:HE.5/actual-tate-hypotheses-h0-h2",
-        "verdict": "corrected",
-        "note": "Corrected Howard’s auxiliary field to K(E[p∞]); Q(E[p∞]) need not contain K as H2 requires."
+        "verdict": "verified",
+        "note": "Howard H0/H1 use free rank2/full image. H2 uses F containing K and the scalar cohomology argument, not Q(E[p∞]) alone."
       },
       {
         "nodeId": "HeegnerPointEulerSystems:HE.5/actual-local-hypotheses-h3-h5",
         "verdict": "verified",
-        "note": "Source statement/excerpt and target-level proof dependencies checked at howard: H.3–H.5 pp.8–9, Theorem1.6.5 proof pp.18–19. Existing supplier/prototype gaps are limitations, not implemented results."
+        "note": "Howard H3–H5 verify cartesian local conditions, symmetric twisted pairing and the residual conjugation identity for the actual T."
       },
       {
         "nodeId": "HeegnerPointEulerSystems:HE.5/residual-kummer-field-pairing",
         "verdict": "verified",
-        "note": "Source statement/excerpt and target-level proof dependencies checked at gross: §9 pp.250–252, Lemma9.1 and Proposition9.3. Existing supplier/prototype gaps are limitations, not implemented results."
+        "note": "Gross9 proves the Kummer evaluation equivalence on sums of the standard simple module; no semisimplicity of all group-algebra modules is asserted."
       },
       {
         "nodeId": "HeegnerPointEulerSystems:HE.5/chebotarev-heegner-class-detection",
         "verdict": "verified",
-        "note": "Source statement/excerpt and target-level proof dependencies checked at gross: Propositions9.5–9.6 and Claims10.1/10.3, pp.251–254. Existing supplier/prototype gaps are limitations, not implemented results."
+        "note": "Gross9.5–9.6 gives auxiliary detection with finite avoidance. This classical elliptic detector is not substituted for Zhang’s V/k₀ detector."
       },
       {
         "nodeId": "HeegnerPointEulerSystems:HE.5/arithmetic-local-error-comparison",
         "verdict": "verified",
-        "note": "Source statement/excerpt and target-level proof dependencies checked at howard: §1.1 pp.5–8; Gross Proposition6.2 pp.244–247. Existing supplier/prototype gaps are limitations, not implemented results."
+        "note": "Local condition comparison separates component, local torsion and finite-flat defects; the generic ES.4 error theorem is imported."
       },
       {
         "nodeId": "HeegnerPointEulerSystems:HE.5/tamagawa-and-local-torsion-tests",
         "verdict": "verified",
-        "note": "Source statement/excerpt and target-level proof dependencies checked at zhang: §6.3 pp.228–229, local monodromy/Tamagawa description. Existing supplier/prototype gaps are limitations, not implemented results."
+        "note": "Zhang6.3 identifies geometric component length at inert multiplicative primes and inertia depth. E1/E2 corrections prevent unsupported additive deductions."
       },
       {
         "nodeId": "HeegnerPointEulerSystems:HE.6/clean-rank-one-descent-theorem-A",
         "verdict": "verified",
-        "note": "Source statement/excerpt and target-level proof dependencies checked at howard: TheoremA pp.1–2, Theorem1.6.5 pp.18–19. Existing supplier/prototype gaps are limitations, not implemented results."
+        "note": "Howard TheoremA follows from the corrected actual system and H0–H5 via the requested generic ES.5 theorem, not a duplicate abstract theorem in HE."
       },
       {
         "nodeId": "HeegnerPointEulerSystems:HE.6/gross-clean-mod-p-descent",
-        "verdict": "corrected",
-        "note": "Added the two eigenspace targets explicitly and replaced the stronger integral lattice input by finite Kummer and Mordell–Weil."
+        "verdict": "verified",
+        "note": "Gross2.3,10.1,10.3 gives the clean mod-p result with full residual image and yK indivisible; no stronger full-Tate/good-p hypothesis is inserted."
       },
       {
         "nodeId": "HeegnerPointEulerSystems:HE.6/gross-opposite-eigenspace-vanishing",
-        "verdict": "corrected",
-        "note": "Added Gross d-class support, explicit divisibility and reduction inputs required by the reciprocal local pairing proof."
+        "verdict": "verified",
+        "note": "Gross8.2/10.1 uses an opposite-sign detector and one nonzero local term; the global Tate sum forces that eigenspace to vanish."
       },
       {
         "nodeId": "HeegnerPointEulerSystems:HE.6/gross-same-eigenspace-generation",
-        "verdict": "corrected",
-        "note": "Removed the stronger Howard χ hypothesis and used Gross6.2/8.1/8.2 with simultaneous field detection."
+        "verdict": "verified",
+        "note": "Gross10.3 uses disjoint Kummer extensions to detect a class outside the bottom line, then reciprocity forces its absence."
       },
       {
         "nodeId": "HeegnerPointEulerSystems:HE.6/sha-square-index-bound",
-        "verdict": "corrected",
-        "note": "The factor-two square-index inequality is supported by HowardA and the Kummer sequence; p.3 inequality(1) is an Iwasawa formula and was removed from this locator."
+        "verdict": "verified",
+        "note": "Howard TheoremA length bound and the finite/p-adic Kummer sequences give the clean square-index bound for Sha; the source is not Iwasawa inequality(1)."
       },
       {
         "nodeId": "HeegnerPointEulerSystems:HE.6/primitivity-versus-nonzero",
-        "verdict": "corrected",
-        "note": "Separated Howard’s upper-bound source from Zhang’s M∞=0 source; sharpness stays conditional on the requested ES.5 theorem."
+        "verdict": "verified",
+        "note": "Nonzero gives an upper bound, not sharpness. ES.5 primitivity is conditional and Zhang9.3 supplies separate arithmetic indivisibility."
       },
       {
         "nodeId": "HeegnerPointEulerSystems:HE.6/zhang-cohomological-congruence",
         "verdict": "verified",
-        "note": "Source statement/excerpt and target-level proof dependencies checked at zhang: Theorem4.3 and proof, pp.218–221; Lemma3.3 p.215. Existing supplier/prototype gaps are limitations, not implemented results."
+        "note": "Zhang4.3/3.3 matches good reduction and bad component specialization after exact level raising/Ihara/multiplicity-one imports; unit normalization is common."
       },
       {
         "nodeId": "HeegnerPointEulerSystems:HE.6/zhang-local-conditions-rank-lowering",
         "verdict": "verified",
-        "note": "Source statement/excerpt and target-level proof dependencies checked at zhang: Lemma5.1, Theorem5.2, Proposition5.4, pp.222–225. Existing supplier/prototype gaps are limitations, not implemented results."
+        "note": "Zhang5.2/5.4 changes the local condition at an admissible prime and lowers Selmer rank; E1 keeps the additive computation away from p."
       },
       {
         "nodeId": "HeegnerPointEulerSystems:HE.6/zhang-rank-zero-over-K",
         "verdict": "verified",
-        "note": "Source statement/excerpt and target-level proof dependencies checked at zhang: Theorem7.1 and proof, pp.231–232. Existing supplier/prototype gaps are limitations, not implemented results."
+        "note": "Zhang7.1 is over K for A_g. The g/g_K ordinary main-conjecture, Kato and Selmer-control contracts are requested directly, without BSD6."
       },
       {
         "nodeId": "HeegnerPointEulerSystems:HE.6/zhang-jochnowitz-special-value",
-        "verdict": "corrected",
-        "note": "Restored the even ν(N−) standing hypothesis of Zhang Theorem6.5."
+        "verdict": "verified",
+        "note": "Zhang6.1–6.4 relates the indefinite local class to a definite algebraic special value after raising level; even original N− parity is retained."
       },
       {
         "nodeId": "HeegnerPointEulerSystems:HE.6/ribet-takahashi-tamagawa-comparison",
-        "verdict": "unverifiable",
-        "note": "Corrected the definite/indefinite mismatch and BSD.5 cycle; an independent early GL₂-type degree/period export is still missing."
+        "verdict": "corrected",
+        "note": "Zhang6.4 has odd definite N− parity and full ♥, including the nonsquarefree alternatives. The early period export is requested without a BSD5 prerequisite. Fixed Pollack–Weston subsection range."
       },
       {
         "nodeId": "HeegnerPointEulerSystems:HE.6/zhang-triangular-selmer-basis",
-        "verdict": "unverifiable",
-        "note": "Restored even ν(N−), fixed the parity exponent, and removed inapplicable Gross/Howard/classical elliptic prerequisites. Actual GL₂-type local/parity interfaces remain missing."
+        "verdict": "corrected",
+        "note": "Zhang8.4 uses the four actual residual interfaces, ν+1 basis elements and2ν+1 detectors; relaxed base-locus terms vanish. Recorded the source’s final detector-index typo as E8."
       },
       {
         "nodeId": "HeegnerPointEulerSystems:HE.6/zhang-indivisibility",
         "verdict": "verified",
-        "note": "Source statement/excerpt and target-level proof dependencies checked at zhang: Theorems1.1,9.1–9.3 and proofs, pp.195,240–243. Existing supplier/prototype gaps are limitations, not implemented results."
+        "note": "Zhang9.1–9.3 combines rank lowering, level congruence and the basis argument to give M∞=0 under the actual hypotheses; the suggested nonzero-localization premise prevents the prior zero-family counterexample."
       },
       {
         "nodeId": "HeegnerPointEulerSystems:HE.7/non-torsion-point-prime-divisibility",
         "verdict": "verified",
-        "note": "Source statement/excerpt and target-level proof dependencies checked at gross: §2 pp.237–238; §1 pp.236–237. Existing supplier/prototype gaps are limitations, not implemented results."
+        "note": "A non-torsion point in a finitely generated abelian group fails prime divisibility outside a finite set; both essential hypotheses occur in the signature."
       },
       {
         "nodeId": "HeegnerPointEulerSystems:HE.7/non-cm-open-image-application",
         "verdict": "verified",
-        "note": "Source statement/excerpt and target-level proof dependencies checked at gross: §2 p.237; §12 pp.254–256. Existing supplier/prototype gaps are limitations, not implemented results."
+        "note": "Gross2/12 applies the requested Serre/Ribet image theorem. R01.4/R28.4 alone do not assert the theorem; the R28.7 extension remains open."
       },
       {
         "nodeId": "HeegnerPointEulerSystems:HE.7/almost-all-primary-sha-vanishing",
-        "verdict": "verified",
-        "note": "Source statement/excerpt and target-level proof dependencies checked at gross: §2 pp.237–238 and Proposition2.1. Existing supplier/prototype gaps are limitations, not implemented results."
+        "verdict": "corrected",
+        "note": "Nekovář3.5/6.1–6.2/7.4 makes all integral errors zero almost everywhere, including the CM-disjoint branch. Replaced the unrelated theorem-title excerpt."
       },
       {
         "nodeId": "HeegnerPointEulerSystems:HE.7/bounded-arithmetic-derivative-denominators",
-        "verdict": "unverifiable",
-        "note": "The proposed uniform arithmetic errors are not proved by the quoted Gross theorem; restricted the image-dependent branch to non-CM E."
+        "verdict": "corrected",
+        "note": "Nekovář5.9 constructs finite cocycles directly from divisible coefficients, without H0=0;5.12 supplies geometric component errors. Corrected the excerpt and7.2.1 page."
       },
       {
         "nodeId": "HeegnerPointEulerSystems:HE.7/dyadic-integral-conjugation-descent",
-        "verdict": "unverifiable",
-        "note": "The non-CM dyadic route has an explicit source-acquisition gap; integral 1±τ does not establish the needed uniform estimates by itself."
+        "verdict": "corrected",
+        "note": "Nekovář7.5 uses integral1±ρ, fixed powers of2 and two primes; no division by2 or odd-prime-only eigenspace decomposition is used. Corrected the excerpt."
       },
       {
         "nodeId": "HeegnerPointEulerSystems:HE.7/cm-character-error-descent",
-        "verdict": "unverifiable",
-        "note": "Removed the non-CM bound as a CM prerequisite; CM.4 characters do not supply the missing CM uniform-error/rank argument."
+        "verdict": "corrected",
+        "note": "Nekovář condition(?) holds over the disjoint Heegner field for a classical CM curve; Burnside/image errors use the semilinear recombination, not full GL2 image. Corrected the excerpt."
       },
       {
         "nodeId": "HeegnerPointEulerSystems:HE.7/exceptional-primary-sha-bound",
-        "verdict": "unverifiable",
-        "note": "Uniform exceptional-primary exponent bounds remain unsourced arithmetic targets, including the unresolved CM route."
+        "verdict": "corrected",
+        "note": "Nekovář7.3/7.5 bounds S/Opκ1 uniformly in M; the finite-level Kummer sequence turns the explicit bound into a primary annihilator. Corrected locator/excerpt."
       },
       {
         "nodeId": "HeegnerPointEulerSystems:HE.7/classical-full-sha-finiteness",
-        "verdict": "unverifiable",
-        "note": "Gross states the endpoint, but the CM rank-one/almost-all-vanishing prerequisite is missing; full finiteness cannot yet be deduced from this graph."
+        "verdict": "corrected",
+        "note": "Uniform primary exponent plus finite fixed-level Selmer and almost-all vanishing proves whole-Sha finiteness; Gross1.3 is only the quoted endpoint. Corrected Nekovář excerpt."
       },
       {
         "nodeId": "HeegnerPointEulerSystems:HE.7/admissible-rm-kolyvagin-logachev",
-        "verdict": "unverifiable",
-        "note": "Specified analytic rank over K and corrected the nonexistent excerpt; exact admissible RM/quaternionic hypotheses and proof remain unavailable."
+        "verdict": "corrected",
+        "note": "Nekovář3.1–3.2 specifies totally real F, quaternion parity, F-simple RM quotient and no CM acquired over K; α=1 gives RM rank1 and finite Sha. The analytic certificate stays conditional. Corrected excerpt."
       },
       {
         "nodeId": "HeegnerPointEulerSystems:HE.6/heegner-vanishing-order",
-        "verdict": "verified",
-        "note": "Source statement/excerpt and target-level proof dependencies checked at zhang: Definition8.3, published p.236, PDF46; Lemma8.4 and proof pp.236–239.. Existing supplier/prototype gaps are limitations, not implemented results."
+        "verdict": "corrected",
+        "note": "Zhang8.3 defines minimal distinct conductor-prime count, with ∞ for the zero family. The bottom/support API and three tests discriminate the intended definition. Corrected excerpt."
       },
       {
         "nodeId": "HeegnerPointEulerSystems:HE.6/heegner-base-locus",
+        "verdict": "verified",
+        "note": "Zhang8.3 quantifies over every n and all good primes away from DKNp; the tests detect a constant-zero definition or a conductor-only base locus."
+      },
+      {
+        "nodeId": "HeegnerPointEulerSystems:HE.6/zhang-residual-local-pairing",
         "verdict": "corrected",
-        "note": "Used the literal base-locus excerpt and replaced copied vanishing-order acceptance text with the all-good-primes/dependent-localization contract."
+        "note": "Zhang8.1 gives dimensions4/2/1 and same-sign perfect finite/transverse pairings on actual V/k₀ under Notations/♥. Corrected the literal excerpt."
+      },
+      {
+        "nodeId": "HeegnerPointEulerSystems:HE.6/zhang-residual-heegner-relations",
+        "verdict": "corrected",
+        "note": "Zhang(8.1)/(3.24) gives the actual derivative relation and root-number parity with the local conditions. Corrected both printed page numbers and excerpt."
+      },
+      {
+        "nodeId": "HeegnerPointEulerSystems:HE.6/zhang-two-class-prime-detection",
+        "verdict": "corrected",
+        "note": "Zhang8.1 uses two k₀-independent classes with full residual image and positive density, allowing finite avoidance. Corrected the excerpt to its actual wording."
+      },
+      {
+        "nodeId": "HeegnerPointEulerSystems:HE.6/zhang-prescribed-ramification-class",
+        "verdict": "corrected",
+        "note": "Zhang8.2 allows unrestricted localization at the distinguished prime; orthogonal-complement dimension gives a nonzero class and reciprocity forces singular nonvanishing in the basis argument. Corrected excerpt."
+      },
+      {
+        "nodeId": "HeegnerPointEulerSystems:HE.7/integral-tate-image-errors",
+        "verdict": "corrected",
+        "note": "Nekovář6.1–6.2 gives C2 by homotheties/Sah and C3 by absolute irreducibility/Burnside, uniform in M and zero almost everywhere. The precise general exports are requested. Corrected excerpt."
+      },
+      {
+        "nodeId": "HeegnerPointEulerSystems:HE.7/integral-cm-prime-detection",
+        "verdict": "corrected",
+        "note": "Nekovář5.2/6.3–6.5 uses K(x)(A[p^(M+M0)]), strong congruences, the generated Op-lattice and conjugation-compatible Frobenius selection with integral2 loss. Corrected excerpt."
+      },
+      {
+        "nodeId": "HeegnerPointEulerSystems:HE.7/cm-heegner-field-disjointness",
+        "verdict": "corrected",
+        "note": "Nekovář3.2/6.2.1 and the requested CM conductor dictionary show |D_M| divides N, hence M≠K; the rational G_K representation is absolutely irreducible. Corrected excerpt."
+      },
+      {
+        "nodeId": "HeegnerPointEulerSystems:HE.7/classical-square-index-error-bound",
+        "verdict": "verified",
+        "note": "Kolyvagin Structure TheoremA states the stronger d_E I_K² order bound with full torsion index and CM-linear full Tate image. Its original proof is a recorded ES.4 source-acquisition gap; it is not deduced from an exponent estimate."
       }
     ]
   }
