@@ -33947,7 +33947,8 @@
    ],
    "avoidAccountOf": "BP-HabiroCohomologyFoundations--HQ.1-2",
    "prompt": "research/blueprint/prompts/REV-HabiroCohomologyFoundations--HQ.1-2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6442"
   },
   {
    "id": "BP-HabiroCohomologyFoundations--HQ.3",
@@ -34338,8 +34339,9 @@
    ],
    "followUpOf": "BP-HabiroRings",
    "prompt": "research/blueprint/prompts/BP-HabiroRings--HR.4.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6500"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6500",
+   "finishedAt": "2026-10-06T03:56:58Z"
   },
   {
    "id": "REV-HabiroRings--HR.4",
