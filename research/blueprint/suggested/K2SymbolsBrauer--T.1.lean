@@ -685,3 +685,106 @@ theorem transgression_natural (q : E →* Q) (q' : E' →* Q')
 
 end GroupQuotient
 end TauCeti.Steinberg
+
+/- Packet names with no Lean signature in this file yet (FIX-RT-AREA-ktheory-1~2,
+claude-HJaFqR, 2026-10-06). PROTOCOL section 13 asks for every definition, API item and
+unit test of the packet under the packet's name; these are listed with their packet
+statements so that the names agree, and a contributor gives each its signature (or an
+`example`) next to its node above.
+
+Steinberg.hom_ext (API, extensionality; K2SymbolsBrauer:T.1/steinberg-group-finite-rank): Two homomorphisms agreeing on every generator are equal.
+x_inverse (test, ; K2SymbolsBrauer:T.1/steinberg-group-finite-rank): x_01(r)^-1=x_01(-r).
+forward_product (test, ; K2SymbolsBrauer:T.1/steinberg-group-finite-rank): [x_01(r),x_12(s)]=x_02(r*s).
+reverse_product_order (test, ; K2SymbolsBrauer:T.1/steinberg-group-finite-rank): Over R=M_2(Z), [x_01(r),x_20(s)]=x_21(-(s*r)); choose noncommuting r=E12 and s=E21 to distinguish s*r from r*s.
+disjoint (test, ; K2SymbolsBrauer:T.1/steinberg-group-finite-rank): [x_01(r),x_02(s)]=1; the opposite-root case x_01,x_10 is not assigned this relation.
+StableSteinberg.phi_surjective (API, characterisation; K2SymbolsBrauer:T.1/stabilisation): That surjection is onto.
+StableSteinberg.hom_ext (API, extensionality; K2SymbolsBrauer:T.1/stabilisation): Homomorphisms agreeing on every finite-stage generator are equal.
+rank_three_generator (test, ; K2SymbolsBrauer:T.1/stabilisation): The rank-three generator x_01(2) maps to the stable generator with the same parameter.
+relation_survives (test, ; K2SymbolsBrauer:T.1/stabilisation): The image of [x_01(r),x_12(s)] is x_02(r*s) after any common stabilization.
+finite_word_lift (test, ; K2SymbolsBrauer:T.1/stabilisation): A stable elementary word represented at rank five is the image of the corresponding rank-five Steinberg word.
+K2.subtype (API, coercion; K2SymbolsBrauer:T.1/k2-definition): Its inclusion into St(R).
+K2.mem_iff (API, characterisation; K2SymbolsBrauer:T.1/k2-definition): An element lies in K_2(R) exactly when its image in E(R) is trivial.
+K2.ext (API, extensionality; K2SymbolsBrauer:T.1/k2-definition): Kernel elements are equal exactly when their values in St(R) are equal.
+zero_ring (test, ; K2SymbolsBrauer:T.1/k2-definition): K_2 of the zero ring is trivial.
+integers (test, ; K2SymbolsBrauer:T.1/k2-definition): K_2(Z) is cyclic of order two.
+not_by_definition_abelian (test, ; K2SymbolsBrauer:T.1/k2-definition): Abelianness is a theorem, not part of the definition: a definition that assumes it assumes Steinberg's theorem.
+IsCentralExtension (API, characterisation; K2SymbolsBrauer:T.1/central-extension): The predicate that an extension is central.
+CentralExtension.Equiv (API, structure; K2SymbolsBrauer:T.1/central-extension): Equivalence of two extensions of G by A.
+CentralExtension.section_equiv (API, equivalence; K2SymbolsBrauer:T.1/central-extension): A homomorphic section gives an extension equivalence to A x G, with formula (a,g) -> inl(a)*section(g).
+product_extension (test, ; K2SymbolsBrauer:T.1/central-extension): For A=C2 and G=C2, the product projection is central and split.
+cyclic_nonsplit (test, ; K2SymbolsBrauer:T.1/central-extension): The quotient C4 -> C2 modulo two is central but has no homomorphic section.
+marked_kernel (test, ; K2SymbolsBrauer:T.1/central-extension): For C9 -> C3 modulo three, kernel inclusions C3 -> C9 given by 1 -> 3 and 1 -> 6 give inequivalent extensions although both total groups are C9: a map over C3 has multiplier 1 mod 3, whereas preserving these marked kernels would require multiplier 2 mod 3.
+uce_unique (API, characterisation; K2SymbolsBrauer:T.1/universal-central-extension): Uniqueness up to isomorphism over G.
+uce_hom (API, constructor; K2SymbolsBrauer:T.1/universal-central-extension): The unique homomorphism to any central extension.
+uce_hom_unique (API, characterisation; K2SymbolsBrauer:T.1/universal-central-extension): Its uniqueness.
+UCE.equiv_over (API, equivalence; K2SymbolsBrauer:T.1/universal-central-extension): Two universal central extensions of G have a unique equivalence commuting with their projections.
+trivial_uce (test, ; K2SymbolsBrauer:T.1/universal-central-extension): The identity extension of the trivial group is universal: its unique map to any group is over the trivial quotient.
+cyclic_obstruction (test, ; K2SymbolsBrauer:T.1/universal-central-extension): The identity C2 -> C2 is not universal; it has two different lifts to C2 x C2 -> C2, given by the zero and identity first coordinates.
+split_target (test, ; K2SymbolsBrauer:T.1/universal-central-extension): For a universal extension X -> G and abelian A, its map to A x G -> G is (1,p(x)); perfectness forces every map X -> A to be trivial.
+starProduct (API, constructor; K2SymbolsBrauer:T.2/star-product): The star product of two commuting elements of E(R).
+starProduct_lift_indep (API, characterisation; K2SymbolsBrauer:T.2/star-product): It does not depend on the chosen lifts.
+starProduct_conj (API, relation; K2SymbolsBrauer:T.2/star-product): Invariance under simultaneous conjugation by an element of GL(R).
+starProduct_skew (API, relation; K2SymbolsBrauer:T.2/star-product): Skew-symmetry.
+starProduct_mul_left (API, relation; K2SymbolsBrauer:T.2/star-product): For A1,A2,B in E(R), if each Ai commutes with B then (A1*A2) star B=(A1 star B)*(A2 star B). No mutual commutation of A1 and A2 is required.
+starProduct_mul_right (API, relation; K2SymbolsBrauer:T.2/star-product): For A commuting with B1 and B2 in E(R), A star (B1*B2)=(A star B1)*(A star B2).
+forward_vs_star (test, ; K2SymbolsBrauer:T.2/star-product): Over Z in rank three, e_01(1) and e_12(1) do not commute; their lifted commutator maps to e_02(1), so it cannot be a K2-valued star input.
+nontrivial_diagonal (test, ; K2SymbolsBrauer:T.2/star-product): Over Z, diag(-1,-1,1) star diag(-1,1,-1) is {-1,-1}, the nontrivial K2(Z) class once T.5 supplies that computation.
+multiply_commuting_inputs (test, ; K2SymbolsBrauer:T.2/star-product): For A1,A2 each commuting with B, the product rule holds; omit either commutation proof and the construction is ill-typed.
+steinbergSymbol (API, constructor; K2SymbolsBrauer:T.2/steinberg-symbol): The symbol of two commuting units.
+steinbergSymbol_eq_commutator (API, characterisation; K2SymbolsBrauer:T.2/steinberg-symbol): It is the commutator of h_ij(r) and h_ik(s).
+steinbergSymbol_one (API, simp; K2SymbolsBrauer:T.2/steinberg-symbol): The symbol with a one entry is trivial.
+steinbergSymbol_mul_left (API, relation; K2SymbolsBrauer:T.2/steinberg-symbol): Bilinearity for a pairwise commuting triple r1,r2,s of units. Over a commutative ring the commuting hypotheses are automatic.
+steinbergSymbol_skew (API, relation; K2SymbolsBrauer:T.2/steinberg-symbol): Skew-symmetry.
+steinbergSymbol_index_indep (API, characterisation; K2SymbolsBrauer:T.2/steinberg-symbol): Independence of the chosen indices.
+steinbergSymbol_map (API, functoriality; K2SymbolsBrauer:T.2/steinberg-symbol): Unital ring homomorphisms preserve the commuting-unit symbol and its indexed commutator formula.
+one_entry (test, ; K2SymbolsBrauer:T.2/steinberg-symbol): The symbol with a one entry is trivial.
+minus_one_integers (test, ; K2SymbolsBrauer:T.2/steinberg-symbol): For the integers the symbol of minus one with itself is the nontrivial element of K_2(Z).
+bilinear (test, ; K2SymbolsBrauer:T.2/steinberg-symbol): The product rule holds for pairwise commuting units r1,r2,s; in a commutative field it has no extra condition.
+not_alternating_integrally (test, ; K2SymbolsBrauer:T.2/steinberg-symbol): The symbol of a with itself is not trivial in general, which the next node computes.
+milnorK (API, data; K2SymbolsBrauer:T.2/milnor-k-theory): The graded ring, and its degree-n part.
+milnorK.symbol_mul (API, relation; K2SymbolsBrauer:T.2/milnor-k-theory): Multiplicativity in each entry.
+milnorK.symbol_steinberg (API, relation; K2SymbolsBrauer:T.2/milnor-k-theory): Vanishing when two consecutive entries sum to one.
+milnorK.hom_ext (API, extensionality; K2SymbolsBrauer:T.2/milnor-k-theory): Graded ring maps agreeing on degree-one units are equal, since products of these generate.
+milnorK.map_id_comp (API, simp; K2SymbolsBrauer:T.2/milnor-k-theory): Field maps induce graded maps respecting identity and composition on every symbol.
+milnorK.symbol_product (API, structure; K2SymbolsBrauer:T.2/milnor-k-theory): Concatenating two tuples gives the product of their symbols with degree addition.
+degree_zero_one (test, ; K2SymbolsBrauer:T.2/milnor-k-theory): Degree zero is the integers and degree one is the unit group.
+not_alternating_by_fiat (test, ; K2SymbolsBrauer:T.2/milnor-k-theory): The alternating property is a theorem, proved from skew-symmetry in degree two, not an axiom.
+milnorToQuillen_one (API, simp; K2SymbolsBrauer:T.2/graded-map): Degree one is the identity on the unit group.
+milnorToQuillen_two (API, characterisation; K2SymbolsBrauer:T.2/graded-map): Under product-symbol compatibility and Matsumoto, the component K2^M(F)->Quillen K2(F) is an isomorphism.
+milnorToQuillen_map (API, functoriality; K2SymbolsBrauer:T.2/graded-map): Naturality in the field.
+milnorToQuillen_graded (API, structure; K2SymbolsBrauer:T.2/graded-map): It is a map of graded rings.
+milnorToQuillen_unique (API, extensionality; K2SymbolsBrauer:T.2/graded-map): A graded map with the same degree-one unit classes is equal by the Milnor universal property.
+degree_zero (test, ; K2SymbolsBrauer:T.2/graded-map): The degree-zero map Z->Quillen K0(F) sends 1 to the class of the one-dimensional vector space.
+degree_one (test, ; K2SymbolsBrauer:T.2/graded-map): For F=Q, the unit 2 maps to its K1 unit class, corresponding to 2 under determinant.
+degree_two_symbol (test, ; K2SymbolsBrauer:T.2/graded-map): {a,1-a} maps to zero, and {-1,-1} maps to the classical symbol under the K2 comparison.
+degree_three_Q (test, ; K2SymbolsBrauer:T.2/graded-map): For F=Q the integral component is injective Z/2->Z/48 and is not onto; this computation is an external VI.5.2.1 test, not a new owned theorem.
+toElementary_map (API, functoriality; K2SymbolsBrauer:T.1:classical/to-elementary): The square for a unital ring homomorphism commutes on each generator.
+generator_image (test, ; K2SymbolsBrauer:T.1:classical/to-elementary): x_01(2) maps to I+2E_01 over Z.
+elementary_word (test, ; K2SymbolsBrauer:T.1:classical/to-elementary): e_01(r)*e_12(s) is the image of x_01(r)*x_12(s).
+not_whole_gl (test, ; K2SymbolsBrauer:T.1:classical/to-elementary): Over Q, diag(2,1,1) has determinant 2 and is outside the image; surjectivity concerns E_3, not GL_3.
+HomOver.mk (API, constructor; K2SymbolsBrauer:T.1:classical/central-extension-hom): A homomorphism and proof of the projection square give a morphism.
+HomOver.ext (API, extensionality; K2SymbolsBrauer:T.1:classical/central-extension-hom): Equality of underlying homomorphisms implies equality of morphisms.
+HomOver.id_comp (API, simp; K2SymbolsBrauer:T.1:classical/central-extension-hom): Identity and composition retain the projection square; unit and associativity laws hold.
+reject_projection_error (test, ; K2SymbolsBrauer:T.1:classical/central-extension-hom): For nontrivial G, the constant homomorphism G->A x G is not over id:G->G.
+relatorProjection (API, constructor; K2SymbolsBrauer:T.1:classical/relation-central-extension): The induced quotient projection E/[N,E]→E/N for any normal N in E.
+relatorProjection_kernel (API, characterisation; K2SymbolsBrauer:T.1:classical/relation-central-extension): Its kernel is canonically N/[N,E] and lies in the centre.
+relatorProjection_map (API, functoriality; K2SymbolsBrauer:T.1:classical/relation-central-extension): A map of presentations preserving relators induces a commuting map of extensions.
+no_relators (test, ; K2SymbolsBrauer:T.1:classical/relation-central-extension): If S=1, the extension is the identity F->F and its kernel is trivial.
+cyclic_relation (test, ; K2SymbolsBrauer:T.1:classical/relation-central-extension): If F=Z and S=mZ with m>=2, the extension is Z->Z/m with kernel mZ, which is nontrivial.
+redundant_generator (test, ; K2SymbolsBrauer:T.1:classical/relation-central-extension): For Free(a,b)->Z killing b, the relation kernel is nonzero, detected by the b-exponent sum.
+commutatorProjection_kernel (API, characterisation; K2SymbolsBrauer:T.1:classical/commutator-central-extension): Its kernel is the intersection quotient.
+commutatorProjection_perfect (API, compatibility; K2SymbolsBrauer:T.1:classical/commutator-central-extension): For perfect G the quotient [G,G] identifies with G, preserving the projection.
+free_presentation (test, ; K2SymbolsBrauer:T.1:classical/commutator-central-extension): For S=1 the map [F,F]->[F,F] is the identity, with trivial kernel.
+cyclic_quotient (test, ; K2SymbolsBrauer:T.1:classical/commutator-central-extension): For F=Z, S=mZ, its source and target commutator groups are trivial even though the larger relation kernel is mZ.
+abelian_rank_two (test, ; K2SymbolsBrauer:T.1:classical/commutator-central-extension): For G=Z^2 presented by F(a,b) with S=[F,F], the quotient target is trivial and the kernel [F,F]/[[F,F],F] is nontrivial; detect [a,b] in the integral Heisenberg quotient.
+w_phi (API, compatibility; K2SymbolsBrauer:T.2:symbols/diagonal-lift-words): phi(w_ij(r)) has r,-r^-1 in the two off-diagonal positions.
+w_map (API, functoriality; K2SymbolsBrauer:T.2:symbols/diagonal-lift-words): Unital ring homomorphisms preserve the indexed word and its elementary image.
+unit_sign (test, ; K2SymbolsBrauer:T.2:symbols/diagonal-lift-words): w_01(1) has block [[0,1],[-1,0]].
+negative_unit (test, ; K2SymbolsBrauer:T.2:symbols/diagonal-lift-words): w_01(-1) has block [[0,-1],[1,0]].
+indexed_inverse (test, ; K2SymbolsBrauer:T.2:symbols/diagonal-lift-words): Over Q, w_12(2) has off-diagonal entries 2 and -1/2 in positions (1,2),(2,1), and entry 1 at (0,0).
+h_phi (API, compatibility; K2SymbolsBrauer:T.2:symbols/diagonal-lift): The image is diag(r,r^-1) on coordinates i,j.
+h_map (API, functoriality; K2SymbolsBrauer:T.2:symbols/diagonal-lift): Ring homomorphisms preserve h_ij(r), retaining the two indices.
+identity_image (test, ; K2SymbolsBrauer:T.2:symbols/diagonal-lift): h_01(1) has identity elementary image.
+inverse_parameter (test, ; K2SymbolsBrauer:T.2:symbols/diagonal-lift): Over Q, h_01(2) has diagonal image (2,1/2,1).
+indexed_positions (test, ; K2SymbolsBrauer:T.2:symbols/diagonal-lift): Over Q, h_12(2) has diagonal image (1,2,1/2).
+-/

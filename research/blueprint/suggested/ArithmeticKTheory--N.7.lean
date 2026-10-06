@@ -480,3 +480,26 @@ end TauCeti.ArithKTheory
 REV-FIX-RT-BP-ArithmeticKTheory--N.7 kept the packet open for that reason. FIX-RT-BP-
 ArithmeticKTheory--N.7~2 supplies both span proofs, independently of the Birch–Tate formula; the
 lower bound 4 for ℚ(√5) is the pair of real sign characters, as before. -/
+
+/- Packet names with no Lean signature in this file yet (FIX-RT-AREA-ktheory-1~2,
+claude-HJaFqR, 2026-10-06). PROTOCOL section 13 asks for every definition, API item and
+unit test of the packet under the packet's name; these are listed with their packet
+statements so that the names agree, and a contributor gives each its signature (or an
+`example`) next to its node above.
+
+bernoulliArith (API, data; ArithmeticKTheory:N.7/bernoulli-conventions): The arithmetic Bernoulli numbers: Mathlib's bernoulli, used directly (no new definition).
+bernoulli_one_arith (API, simp; ArithmeticKTheory:N.7/bernoulli-conventions): bernoulli 1 = −1/2 (Mathlib's bernoulli_one).
+b_one (test, computation; ArithmeticKTheory:N.7/bernoulli-conventions): bernoulli 1 = −1/2 and bernoulli' 1 = +1/2.
+agree_away_from_one (test, compatibility; ArithmeticKTheory:N.7/bernoulli-conventions): For every index other than one, bernoulli and bernoulli' agree.
+w_two_rat (test, computation; ArithmeticKTheory:N.7/w-invariant): w_2(Q) = 24 = denominator of (1/6)/4.
+w_odd (test, computation; ArithmeticKTheory:N.7/w-invariant): For odd i, w_i(Q) = 2.
+w_gaussian (test, computation; ArithmeticKTheory:N.7/w-invariant): w_2(Q(i)) = 24.
+prime_divisibility (test, computation; ArithmeticKTheory:N.7/w-invariant): 7 divides w_6(Q) = 504, since 6 is divisible by 6.
+IsRegularPrime.iff_not_dvd_classNumber (API, characterisation; ArithmeticKTheory:N.7/regular-prime): The definition: the prime does not divide the class number of the cyclotomic field.
+IsRegularPrime.iwasawa (API, characterisation; ArithmeticKTheory:N.7/regular-prime): p is regular iff for all ν ≥ 1, p does not divide the class number of Q(μ_{p^ν}).
+IsRegularPrime.decidable (API, instance; ArithmeticKTheory:N.7/regular-prime): Decidability for a given prime, once the class number is known.
+thirty_seven_irregular (test, computation; ArithmeticKTheory:N.7/regular-prime): The prime 37 is irregular, so the predicate fails there.
+small_primes_regular (test, computation; ArithmeticKTheory:N.7/regular-prime): Every prime below 37 is regular.
+not_vandiver (test, non-example; ArithmeticKTheory:N.7/regular-prime): The predicate is about the full cyclotomic class number, not about the real subfield; a definition that used the real subfield would be Vandiver’s condition and is a different predicate.
+decidable_instance (test, degenerate; ArithmeticKTheory:N.7/regular-prime): For a given prime the predicate is decidable once the class number is computed.
+-/

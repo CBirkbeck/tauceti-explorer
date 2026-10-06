@@ -2725,3 +2725,15 @@ theorem regulator_agreement (F : Type) [Field F] [NumberField F] :
 -- K₃(L)/pᵐ and the p-adic dilogarithm on the Bloch-group model (PadicHodgeRegulators D.2).
 
 end TauCeti.BlochGroup
+
+/- Packet names with no Lean signature in this file yet (FIX-RT-AREA-ktheory-1~2,
+claude-HJaFqR, 2026-10-06). PROTOCOL section 13 asks for every definition, API item and
+unit test of the packet under the packet's name; these are listed with their packet
+statements so that the names agree, and a contributor gives each its signature (or an
+`example`) next to its node above.
+
+finite_field_bloch_comparison_1 (test, characterisation; K3BlochGroups:V.5/finite-field-bloch-comparison): At q=5, integral H₃(SL₂(F₅),ℤ) has characteristic-primary information that is excluded by ℤ[1/5]; do not identify the integral group with ℤ/24.
+finite_field_bloch_comparison_2 (test, characterisation; K3BlochGroups:V.5/finite-field-bloch-comparison): q=2 and q=3 remain outside this Bloch convention’s finite-field order formula.
+nonsplit_cartan_mod_n_1 (test, characterisation; K3BlochGroups:V.5/nonsplit-cartan-mod-n): q=5,n=3 and q=11,n=3 satisfy the hypotheses; q=7,n=3 does not.
+nonsplit_cartan_mod_n_2 (test, characterisation; K3BlochGroups:V.5/nonsplit-cartan-mod-n): A different cyclic generator must transform the bar-cycle image accordingly.
+-/

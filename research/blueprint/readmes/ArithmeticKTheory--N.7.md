@@ -113,14 +113,17 @@ Vandiver.
 
 *definition* · planet **The arithmetic Bernoulli convention**
 
-Fix the ARITHMETIC convention: the Bernoulli numbers are defined by the generating series
-t/(e^t - 1), so that B_1 = -1/2. Mathlib's bernoulli is this convention and its bernoulli' is
-the other one, with B_1 = +1/2, the two agreeing in every index other than one, which is the
-content of the pinned lemma relating them. Every statement of this layer names the convention
-it uses, and the conversion is stated once and used by name. Record also the classical facts
-about the denominator: it is squarefree, divisible by six, and equal to the product of the
-primes p with p - 1 dividing 2k; and if p - 1 does not divide 2k then p does not divide the
-denominator of B_k/k even when p divides k.
+Fix the ARITHMETIC convention: Mathlib's bernoulli, defined by the generating series t/(e^t −
+1), so B_1 = −1/2, B_2 = 1/6 and B_n = 0 for odd n > 1. Mathlib's bernoulli' (B_1 = +1/2)
+differs from it only at index one (bernoulli_eq_bernoulli'_of_ne_one). The SOURCE uses neither:
+Weibel's K-book uses the topologists' numbers B_k^top = (−1)^(k+1) B_{2k} = |B_{2k}| (k ≥ 1),
+all positive, with B_1^top = 1/6, B_5^top = 5/66 and B_6^top = 691/2730. Every formula quoted
+from the source is therefore re-indexed here by k ↦ 2k: the source's B_k is the arithmetic
+B_{2k} up to sign. The denominator facts are von Staudt–Clausen, which the pinned Mathlib
+proves: for k ≥ 1 the denominator of B_{2k} is the product of the primes p with (p − 1) | 2k,
+hence squarefree and divisible by 6 (Bernoulli.vonStaudt_clausen, dvd_den_bernoulli,
+not_sq_dvd_den_bernoulli); and if (p − 1) ∤ 2k then p does not divide the denominator of
+B_{2k}/k even when p | k.
 
 **Hypotheses.**
 
@@ -147,22 +150,28 @@ denominator of B_k/k even when p divides k.
 
 | name | role | statement |
 | --- | --- | --- |
-| `bernoulliArith` | data | The arithmetic Bernoulli numbers, which are Mathlib's bernoulli. |
-| `bernoulliTop` | data | The other convention, which is Mathlib's bernoulli'. |
-| `bernoulli_convert` | characterisation | The two agree away from index one, and differ in sign there. |
-| `bernoulli_one_arith` | simp | B_1 is minus one half in the arithmetic convention. |
-| `bernoulli_denominator` | characterisation | The denominator is the product of the primes p with p - 1 dividing 2k. |
-| `bernoulli_denominator_squarefree` | characterisation | The denominator is squarefree and divisible by six. |
+| `bernoulliArith` | data | The arithmetic Bernoulli numbers: Mathlib's bernoulli, used directly (no new definition). |
+| `bernoulliTop` | data | The source's topologists' numbers, bernoulliTop k := (−1)^(k+1) * bernoulli (2k), a named translation used only when quoting Weibel. |
+| `bernoulliTop_eq_abs` | characterisation | For k ≥ 1, bernoulliTop k = |bernoulli (2k)| > 0. |
+| `bernoulli_convert` | compatibility | bernoulli n = bernoulli' n for n ≠ 1 (Mathlib's bernoulli_eq_bernoulli'_of_ne_one); bernoulli' is NOT the source's convention. |
+| `bernoulli_one_arith` | simp | bernoulli 1 = −1/2 (Mathlib's bernoulli_one). |
+| `bernoulli_denominator` | compatibility | For k ≥ 1, (bernoulli (2k)).den = ∏_{p prime, (p−1) | 2k} p: von Staudt–Clausen with dvd_den_bernoulli and not_sq_dvd_den_bernoulli, all in the pinned Mathlib. |
+| `bernoulli_denominator_squarefree` | compatibility | For k ≥ 1, (bernoulli (2k)).den is squarefree and divisible by 6 (2 and 3 always qualify). |
 
-**Used by.** *N.7, the invariant w*: The invariant is the denominator of B_k/4k, so the convention must be fixed before it is defined. *N.7, Kummer's criterion*: The criterion is about the numerators, and the numerator is convention-independent away from index one. *The Handbook comparison*: Parts of the K-theory literature use the other numbering, and a translated statement must say which one it is in.
+**Used by.** *N.7, the invariant w*: w_{2k}(Q) is the denominator of B_{2k}/4k in the arithmetic convention (the source's B_k/4k), so the re-indexing must be fixed first. *N.7, Kummer's criterion*: The criterion concerns the numerators of B_2, B_4, …, B_{p−3} (the source's B_1, …, B_{(p−3)/2}). *The Handbook comparison*: Parts of the K-theory literature use the topologists' numbering; a translated statement says which one it is in.
 
 **Unit tests.**
 
-- `b_one` — B_1 is minus one half here and plus one half in the other convention.
-- `b_six_denominator` — The denominator of B_6 is 2730 = 2 . 3 . 5 . 7 . 13.
-- `agree_away_from_one` — For every index other than one the two conventions agree.
-- `five_divides_b_five` — Five divides B_5 but does not divide the numerator of B_5/5, which is
-  the source’s example.
+- `b_one` — bernoulli 1 = −1/2 and bernoulli' 1 = +1/2.
+- `b_twelve_denominator` — The denominator of bernoulli 12 = −691/2730 is 2730 = 2·3·5·7·13,
+  the source's 'B_6 = 691/2730'; the arithmetic bernoulli 6 = 1/42. A statement that read the
+  source's B_6 as bernoulli 6 fails.
+- `agree_away_from_one` — For every index other than one, bernoulli and bernoulli' agree.
+- `five_divides_top_b_five` — The source's B_5 = 5/66 is bernoulli 10: 5 divides it but not the
+  numerator of bernoulli 10 / 5 = 1/66. The arithmetic bernoulli 5 is 0, so reading the
+  source's example with the arithmetic index is vacuous.
+- `top_not_primed` — bernoulliTop 1 = 1/6 while bernoulli' 1 = 1/2: the source's convention is
+  not Mathlib's bernoulli'.
 
 **Acceptance.**
 
@@ -173,16 +182,26 @@ denominator of B_k/k even when p divides k.
 - The numerator has no analogous description, and a formalisation that treats it as computable
   by a closed formula is wrong.
 
-**Depends on.** **libraries** `mathlib:bernoulli`, `mathlib:bernoulli'`, `mathlib:bernoulli_eq_bernoulli'_of_ne_one`, `mathlib:bernoulli_one`, `mathlib:bernoulli'_one`, `mathlib:Polynomial.bernoulli`.
+**Depends on.** **libraries** `mathlib:bernoulli`, `mathlib:bernoulli'`, `mathlib:bernoulli_eq_bernoulli'_of_ne_one`, `mathlib:bernoulli_one`, `mathlib:bernoulli'_one`, `mathlib:Polynomial.bernoulli`, `mathlib:Bernoulli.vonStaudt_clausen`, `mathlib:Bernoulli.dvd_den_bernoulli`, `mathlib:Bernoulli.not_sq_dvd_den_bernoulli`, `mathlib:bernoulli_eq_zero_of_odd`, `mathlib:bernoulli_two`.
 
-**Source.** Kbook.2013, VI.2.4, before the lemma (PDF p. 465): “B_1 = -1/2, B_2 = 1/6, B_4 =
--1/30 ... The denominator of B_k is always squarefree, divisible by 6, and equal to the product
-of all primes with (p-1) | 2k. Moreover, if (p-1) does not divide 2k then p is not in the
-denominator of B_k/k even if p | k.” — The convention and the denominator facts, verbatim.
+**Source.** Kbook.2013, VI.2, the paragraph 'Bernoulli numbers' before Lemma 2.4, printed p.
+472 (PDF p. 480): “(We use the topologists' Bk from [135], all of which are positive. Number
+theorists would write it as (−1)^{k+1} B_{2k}.) The first few Bernoulli numbers are: B1 = 1/6,
+B2 = 1/30, B3 = 1/42, B4 = 1/30, B5 = 5/66, B6 = 691/2730, B7 = 7/6, B8 = 3617/510.” — The
+source's convention and its first values, verbatim; the node re-indexes them. Prose verbatim
+from the text layer of the author-hosted PDF; formulas transcribed.
 
-**Source.** Kbook.2013, VI.2.4.1 (PDF p. 466): “By Kummer's congruences, p does not divide the
-numerator of any B_k/k (but 5 divides B_5). Thus only irregular primes can divide the numerator
-of B_k/k.” — The refinement with its example, verbatim.
+**Source.** Kbook.2013, VI.2, same paragraph, printed p. 472 (PDF p. 480): “The denominator of
+Bk is always squarefree, divisible by 6, and equal to the product of all primes with (p −
+1)|2k. Moreover, if (p − 1) ∤ 2k then p is not in the denominator of Bk/k even if p|k; see
+[135].” — The denominator facts, in the source's indexing (its B_k = arithmetic B_{2k}). Prose
+verbatim from the text layer of the author-hosted PDF; formulas transcribed.
+
+**Source.** Kbook.2013, VI.2.4.1, printed p. 472 (PDF p. 480): “By Kummer's congruences ([216,
+5.14]), a regular prime p does not divide the numerator of any Bk/k (but 5|B5). Thus only
+irregular primes can divide the numerator of Bk/k.” — The Kummer-congruence refinement and the
+example 5 | B_5 (arithmetic B_10 = 5/66). Prose verbatim from the text layer of the
+author-hosted PDF; formulas transcribed.
 
 ### `w-invariant` — The invariant w_i(F), and its value over the rationals ★
 
@@ -191,11 +210,12 @@ of B_k/k.” — The refinement with its example, verbatim.
 For a number field F and a positive integer i, the invariant w_i(F) is the largest integer m
 such that the absolute Galois group acts trivially on the i-th Tate twist of the m-th roots of
 unity; equivalently, the order of the group of roots of unity in the fixed field of that
-action. Over the rationals it is 2 for odd i, and for i = 2k it is the DENOMINATOR of B_k/4k; a
-prime divides w_i(Q) exactly when it is one more than a divisor of i. The invariant is what the
-torsion of the odd K-groups of a ring of integers is measured by, so it is the arithmetic half
-of the connection between Bernoulli numbers and K-theory that this layer exists to make
-precise.
+action. Over the rationals it is 2 for odd i, and for i = 2k it is the DENOMINATOR of B_{2k}/4k
+in the arithmetic convention (the source's 'B_k/4k' with its topologists' B_k); so w_2(Q) = 24
+and w_4(Q) = 240; a prime divides w_i(Q) exactly when it is one more than a divisor of i. The
+invariant is what the torsion of the odd K-groups of a ring of integers is measured by, so it
+is the arithmetic half of the connection between Bernoulli numbers and K-theory that this layer
+exists to make precise.
 
 **Hypotheses.**
 
@@ -226,7 +246,7 @@ precise.
 | `wInvariant` | data | The invariant w_i(F). |
 | `wInvariant_even` | characterisation | The invariant is even. |
 | `wInvariant_odd_rat` | example | Over the rationals it is two for odd i. |
-| `wInvariant_even_rat` | characterisation | Over the rationals at i = 2k it is the denominator of B_k/4k. |
+| `wInvariant_even_rat` | characterisation | Over the rationals, for k ≥ 1, w_{2k}(Q) = the denominator of bernoulli (2k) / 4k. |
 | `wInvariant_prime_divides` | characterisation | A prime divides it exactly when one less than the prime divides i. |
 | `wInvariant_two_rat` | example | Its value at i = 2 over the rationals is 24. |
 
@@ -234,29 +254,29 @@ precise.
 
 **Unit tests.**
 
-- `w_two_rat` — The invariant at i = 2 over the rationals is 24.
-- `w_odd` — For odd i over the rationals the invariant is 2.
-- `w_gaussian` — For the Gaussian rationals the invariant at i = 2 is 24.
-- `prime_divisibility` — The prime 7 divides the invariant at i = 6 over the rationals, since 6
-  is divisible by 6.
+- `w_two_rat` — w_2(Q) = 24 = denominator of (1/6)/4.
+- `w_odd` — For odd i, w_i(Q) = 2.
+- `w_gaussian` — w_2(Q(i)) = 24.
+- `prime_divisibility` — 7 divides w_6(Q) = 504, since 6 is divisible by 6.
+- `w_four_rat` — w_4(Q) = 240 = denominator of bernoulli 4 / 8 = −1/240; the unconverted
+  formula with bernoulli 2 = 1/6 would give 48.
 
 **Acceptance.**
 
 - Over the rationals the invariant at i = 2 is 24, which is the denominator of B_1/8 in the
   arithmetic convention and is the number that appears in the Birch-Tate formula.
-- For odd i over the rationals the invariant is 2, so the odd twists contribute only two-
-  torsion.
+- For odd i over the rationals the invariant is 2, so the odd twists contribute only
+  two-torsion.
 - For the Gaussian rationals the invariant at i = 2 is again 24, which is what makes the third
   K-group of that field have a cyclic summand of order 24.
 
 **Depends on.** **inside this packet** `bernoulli-conventions`; **other roadmaps** `K2SymbolsBrauer:T.7`; **libraries** `mathlib:rootsOfUnity`, `mathlib:IsPrimitiveRoot`, `mathlib:NumberField`.
 
-**Source.** Kbook.2013, VI.2.4 (PDF p. 465): “Lemma 2.4. If i = 2k is even then w_i(Q) is the
-denominator of B_k/4k. The prime l divides w_i(Q) exactly when (l-1) divides i.” — The value
-over the rationals, verbatim.
-
-**Source.** Kbook.2013, VI.2.1.2, quoted at VI.2.4 (PDF p. 465): “Recall from 2.1.2 that w_i(Q)
-= 2 when i is odd.” — The odd case, verbatim.
+**Source.** Kbook.2013, VI.2.4 (Lemma 2.4) and the recall of 2.1.2 before it, printed p. 472
+(PDF p. 480): “Recall from 2.1.2 that wi(Q) = 2 when i is odd. Lemma 2.4. If i = 2k is even
+then wi(Q) is the denominator of Bk/4k. The prime ℓ divides wi(Q) exactly when (ℓ − 1) divides
+i.” — The value over the rationals, verbatim, in the source's indexing. Prose verbatim from the
+text layer of the author-hosted PDF; formulas transcribed.
 
 ### `regular-prime` — Regular and irregular primes ★
 
@@ -264,12 +284,13 @@ over the rationals, verbatim.
 
 A prime p is IRREGULAR when it divides the class number of the p-th cyclotomic field, that is
 the order of the Picard group of the ring of integers of the field obtained by adjoining a
-primitive p-th root of unity; otherwise p is REGULAR. Iwasawa's equivalent form: p is regular
-exactly when that Picard group has no p-power torsion at all. The smallest irregular primes are
-37, 59, 67, 101, 103, 131 and 149, and Siegel conjectured that asymptotically about 39 per cent
-of primes are irregular, a proportion the numerical evidence up to four million matches. The
-definition is about the class number and nothing else: no statement of this roadmap may fold
-Vandiver's conjecture, or any other class-group hypothesis, into the word regular.
+primitive p-th root of unity; otherwise p is REGULAR. Iwasawa's equivalent form concerns the
+whole cyclotomic tower: p is regular exactly when, for every ν ≥ 1, the Picard group of the
+ring of integers of Q(μ_{p^ν}) has no p-torsion. The smallest irregular primes are 37, 59, 67,
+101, 103, 131 and 149, and Siegel conjectured that asymptotically about 39 per cent of primes
+are irregular, a proportion the numerical evidence up to four million matches. The definition
+is about the class number and nothing else: no statement of this roadmap may fold Vandiver's
+conjecture, or any other class-group hypothesis, into the word regular.
 
 **Hypotheses.**
 
@@ -300,7 +321,7 @@ Vandiver's conjecture, or any other class-group hypothesis, into the word regula
 | --- | --- | --- |
 | `IsRegularPrime` | data | The predicate on a prime. |
 | `IsRegularPrime.iff_not_dvd_classNumber` | characterisation | The definition: the prime does not divide the class number of the cyclotomic field. |
-| `IsRegularPrime.iwasawa` | characterisation | Iwasawa’s form: no p-power torsion in the Picard group. |
+| `IsRegularPrime.iwasawa` | characterisation | p is regular iff for all ν ≥ 1, p does not divide the class number of Q(μ_{p^ν}). |
 | `IsRegularPrime.decidable` | instance | Decidability for a given prime, once the class number is known. |
 | `not_isRegularPrime_37` | example | The prime 37 is irregular. |
 | `isRegularPrime_of_lt_37` | example | Every prime below 37 is regular. |
@@ -326,22 +347,23 @@ Vandiver's conjecture, or any other class-group hypothesis, into the word regula
 - The definition is decidable for a given prime, which is what makes the certified examples of
   N.8 possible.
 
-**Depends on.** **inside this packet** `bernoulli-conventions`; **libraries** `mathlib:NumberField.classNumber`, `mathlib:IsCyclotomicExtension`, `mathlib:ClassGroup`, `mathlib:NumberField.RingOfIntegers`, `mathlib:Nat.Prime`.
+**Depends on.** **inside this packet** `bernoulli-conventions`; **libraries** `mathlib:NumberField.classNumber`, `mathlib:IsCyclotomicExtension`, `mathlib:ClassGroup`, `mathlib:NumberField.RingOfIntegers`, `mathlib:Nat.Prime`, `mathlib:CyclotomicField`.
 
-**Source.** Kbook.2013, VI.2.4.1 (PDF p. 466): “A prime p is called irregular if p divides the
-order h_p of Pic(Z[zeta_p]); if p is not irregular it is called regular. Iwasawa proved that a
-prime p is regular if and only if Pic(Z[zeta_p]) has no p^nu-torsion for all nu. The smallest
-irregular primes are 37, 59, 67, 101, 103, 131 and 149. Siegel conjectured that asymptotically
-about 39% of all primes are irregular; about 39% of the ...” — The definition, the equivalent
-form and the data, verbatim.
+**Source.** Kbook.2013, VI.2.4.1 (Example 2.4.1, Irregular Primes), printed p. 472 (PDF p.
+480): “A prime p is called irregular if p divides the order hp of Pic(Z[µp]); if p is not
+irregular it is called regular. Iwasawa proved that a prime p is regular if and only if
+Pic(Z[µ_{p^ν}]) has no p-torsion for all ν. The smallest irregular primes are 37, 59, 67, 101,
+103, 131 and 149.” — The definition, Iwasawa's equivalent form and the list, verbatim. Prose
+verbatim from the text layer of the author-hosted PDF; formulas transcribed.
 
 ### `kummer-criterion` — Kummer's criterion, and what the numerators can be ★
 
 *theorem* · planet **Kummer's criterion**
 
-A prime p is irregular exactly when it divides the numerator of one of the Bernoulli numbers
-B_k with k at most (p-3)/2. Consequently only irregular primes divide the numerator of any
-B_k/k, by Kummer's congruences. The criterion converts a class-number condition into a finite
+An odd prime p is irregular exactly when it divides the numerator of one of the Bernoulli
+numbers B_2, B_4, …, B_{p−3} (arithmetic convention; the source's B_k with k ≤ (p−3)/2).
+Consequently, by Kummer's congruences, a regular prime divides the numerator of no B_{2k}/k:
+only irregular primes can. The criterion converts a class-number condition into a finite
 arithmetic check, which is what makes the regularity of a given prime decidable in practice and
 what ties this layer's two halves together.
 
@@ -360,7 +382,8 @@ what ties this layer's two halves together.
 1. Record the direction that is used in practice: to certify that a prime is regular it
    suffices to check that it divides no numerator in the finite range.
 1. Record the consequence through Kummer's congruences: a prime divides the numerator of B_k/k
-   only if it is irregular, and the example 5 dividing B_5 but not the numerator of B_5/5.
+   only if it is irregular, and the example that 5 divides the source's B_5 = B_10 = 5/66 but
+   not the numerator of B_10/5.
 1. Record the status: the criterion is quoted from the source, which cites Washington for the
    proof, and this packet does the same and records the gap.
 1. Record the historical use the source records, Kummer's proof of the first case of Fermat's
@@ -368,8 +391,8 @@ what ties this layer's two halves together.
 
 **Acceptance.**
 
-- For p = 37 the criterion is satisfied at k = 16, which is why 37 is the first irregular
-  prime; the source records the same fact from the K-theoretic side.
+- For p = 37 the criterion is satisfied at B_32 (the source's k = 16), which is why 37 is the
+  first irregular prime; the source records the same fact from the K-theoretic side.
 - For a prime below 37 the finite check finds no numerator divisibility, which certifies
   regularity.
 - The criterion is an equivalence, so it may be used in both directions, but the proof is
@@ -377,20 +400,23 @@ what ties this layer's two halves together.
 
 **Depends on.** **inside this packet** `regular-prime`, `bernoulli-conventions`.
 
-**Source.** Kbook.2013, VI.2.4.1 (PDF p. 466): “Kummer proved that p is irregular if and only
-if p divides the numerator of one of the Bernoulli numbers B_k, k at most (p-3)/2 (see
-Washington).” — The criterion, verbatim, with the source’s own reference for the proof.
+**Source.** Kbook.2013, VI.2.4.1, printed p. 472 (PDF p. 480): “Kummer proved that p is
+irregular if and only if p divides the numerator of one of the Bernoulli numbers Bk, k ≤ (p −
+3)/2 (see Washington [216, 5.34]).” — The criterion, verbatim, in the source's indexing, with
+its reference for the proof. Prose verbatim from the text layer of the author-hosted PDF;
+formulas transcribed.
 
-**Source.** Kbook.2013, VI.2.4.1, the sentence after the criterion (PDF p. 466): “By Kummer's
-congruences, p does not divide the numerator of any B_k/k (but 5 divides B_5). Thus only
-irregular primes can divide the numerator of B_k/k.” — Its consequence through Kummer's
-congruences, verbatim, with the source's reference.
+**Source.** Kbook.2013, VI.2.4.1, the sentence after the criterion, printed p. 472 (PDF p.
+480): “By Kummer's congruences ([216, 5.14]), a regular prime p does not divide the numerator
+of any Bk/k (but 5|B5). Thus only irregular primes can divide the numerator of Bk/k.” — Its
+consequence through Kummer's congruences, verbatim, with the source's reference. Prose verbatim
+from the text layer of the author-hosted PDF; formulas transcribed.
 
-**Source.** Kbook.2013, VI.2.4.1, the historical remark (PDF p. 466): “The historical interest
-in regular primes is Kummer's 1847 proof of Fermat's Last Theorem (case I) for regular primes:
-x^p + y^p = z^p has no solution in which p does not divide xyz. For us, certain calculations of
-K-groups become easier at regular primes.” — The context, verbatim; the second sentence is what
-this layer is about.
+**Source.** Kbook.2013, VI.2.4.1, the historical remark, printed p. 472 (PDF p. 480): “The
+historical interest in regular primes is Kummer's 1847 proof of Fermat's Last Theorem (case I)
+for regular primes: x^p + y^p = z^p has no solution in which p ∤ xyz. For us, certain
+calculations of K-groups become easier at regular primes.” — The context, verbatim. Prose
+verbatim from the text layer of the author-hosted PDF; formulas transcribed.
 
 ### `eigenspaces-and-herbrand-ribet` — Character eigenspaces of the cyclotomic class group, and the Herbrand-Ribet theorem
 
@@ -400,13 +426,12 @@ Let l be an odd prime, G the Galois group of the l-th cyclotomic field over the 
 which is cyclic of order l-1, and P the Picard group of the ring of integers with the prime
 inverted, modulo l. Since l-1 is invertible modulo l, the group algebra of G over the field
 with l elements splits into the eigenspaces of the powers of the cyclotomic character, and P
-decomposes accordingly. The Herbrand-Ribet theorem identifies the eigenspaces that can be non-
-zero: for 1 ≤ k ≤ (l−3)/2, l divides the numerator of the arithmetic B_{2k}
-exactly when the eigenspace of index l−2k is non-zero. Among irregular
-primes below four thousand this happens for at most three values of k. The projectors are the
-usual idempotents of the group algebra, and their denominators are exactly the factor l-1,
-which is invertible; a statement that uses them must say so, since over the integers they do
-not exist.
+decomposes accordingly. The Herbrand-Ribet theorem identifies the eigenspaces that can be
+non-zero: for 1 ≤ k ≤ (l−3)/2, l divides the numerator of B_{2k} (arithmetic convention; the
+source's B_k) exactly when the eigenspace of index l−2k is non-zero. Among irregular primes
+below four thousand this happens for at most three values of k. The projectors are the usual
+idempotents of the group algebra, and their denominators are exactly the factor l-1, which is
+invertible; a statement that uses them must say so, since over the integers they do not exist.
 
 **Hypotheses.**
 
@@ -424,8 +449,8 @@ not exist.
    character, and record the denominator l-1 and its invertibility modulo l.
 1. Decompose the modulo-l Picard group into eigenspaces and prove that the decomposition is
    natural in the module.
-1. State the Herbrand-Ribet theorem in the converted arithmetic convention: divisibility of the numerator of B_{2k} by l is
-   equivalent to non-vanishing of the eigenspace of index l-2k.
+1. State the Herbrand-Ribet theorem in the form the source gives: divisibility of the numerator
+   of B_{2k} by l is equivalent to non-vanishing of the eigenspace of index l-2k.
 1. Record the numerical statement: among irregular primes below four thousand at most three
    values of k occur.
 1. Record how the eigenspace decomposition connects to the definition of regularity: the prime
@@ -435,59 +460,67 @@ not exist.
 
 - For a regular prime every eigenspace vanishes, which is the class-number condition of the
   definition.
-- For l = 37 exactly one eigenspace is non-zero, at index 37−32=5 attached to k=16, which the
-  source records.
+- For l = 37 exactly one eigenspace is non-zero, at index 37 − 32 = 5, attached to B_32 (the
+  source's k = 16), which the source records.
 - The projectors are not available over the integers, so an integral statement that used them
   would be wrong; the restriction is part of the statement.
 
 **Depends on.** **inside this packet** `regular-prime`, `kummer-criterion`; **libraries** `mathlib:ZMod`, `mathlib:IsCyclotomicExtension`, `mathlib:ClassGroup`.
 
-**Source.** Kbook.2013, VI.10.8.1 (PDF p. 533): “Remark 10.8.1. The Herbrand-Ribet theorem
-[states that] l divides B_k if and only if (Pic R/l)^{(l-2k)} is not zero. Among irregular
-primes below 4000, this happens for at most 3 values of k. For example, 37 divides c_16.” — The
-theorem and the numerical remark, verbatim.
+**Source.** Kbook.2013, VI.10.8.1 (Remark 10.8.1), printed p. 532 (PDF p. 540): “Remark 10.8.1.
+The Herbrand-Ribet theorem [216, 6.17–18] states that ℓ|Bk if and only if (Pic R/ℓ)^[ℓ−2k] ≠ 0.
+Among irregular primes < 4000, this happens for at most 3 values of k. For example, 37|c16 (see
+10.3), so (Pic R/ℓ)^[5] = Z/37 and (Pic R/ℓ)^[k] = 0 for k ≠ 5.” — The theorem and the
+numerical remark, verbatim, in the source's indexing. Prose verbatim from the text layer of the
+author-hosted PDF; formulas transcribed.
 
-**Source.** Kbook.2013, VI.10.4.1 and the surrounding discussion (PDF p. 529): “If i is even,
-Z/l occurs only when i is congruent to 0 modulo l-1, corresponding to the i-th twist of the
-roots of unity. If i is odd, exactly one term is Z/l; the invariants are Z/l on an explicit
-generator, where i is congruent to 1 + 2j modulo l-1.” — The shape of the eigenspace
-bookkeeping the source uses, verbatim; the indices are what the theorem is stated with.
+**Source.** Kbook.2013, VI.10.4.2 (Example 10.4.2), printed p. 530 (PDF p. 538): “If i is even,
+Z/ℓ occurs only when i ≡ 0 (mod ℓ − 1), corresponding to ζ^{⊗i}. If i is odd, exactly one term
+of M is Z/ℓ; M^G is Z/ℓ on the generator xj ⊗ ζℓ^{i−1}, where i ≡ 1 + 2j (mod ℓ − 1).” — The
+eigenspace bookkeeping, verbatim; the packet had cited it as 10.4.1. Prose verbatim from the
+text layer of the author-hosted PDF; formulas transcribed.
 
-### `residue-field-units-prime-to-l` — The actual residue field and its unit order
+### `residue-field-units-prime-to-l` — The residue field above a cyclotomic prime has prime-to-l unit order
 
-*lemma* · added by `FIX-RT-BP-ArithmeticKTheory--N.7`
+*lemma*
 
-For **any prime l**, let F = ℚ(μ_l), and let P be a maximal ideal of 𝓞_F lying over
-(l) in ℤ. The genuine quotient field k(P) = 𝓞_F/P has l elements. Therefore its
-unit group has l−1 elements, and l does not divide that order. Neither oddness
-nor regularity is required; this is the arithmetic input of the subsequent
-tame-kernel argument, not a consequence of K-theoretic vanishing.
+Let l be a prime, F = Q(mu_l), and P a maximal ideal of its ring of integers lying over (l) in
+Z. Then the actual quotient field k(P) = O_F/P has l elements, its multiplicative unit group
+has l−1 elements, and l does not divide that order. No regularity or oddness is assumed.
 
-The pinned uniqueness theorem identifies P with (ζ_l−1). The norm theorem
-`IsCyclotomicExtension.Rat.absNorm_span_zeta_sub_one` is stated for the
-p^(k+1)-th cyclotomic field; use k=0 and rewrite p¹=p. It gives norm l.
-`Ideal.absNorm_apply` and `Submodule.cardQuot_apply` identify the norm with the
-quotient cardinality. Install `Ideal.Quotient.field P` locally (it is an
-abbreviation, not an automatic instance) and apply `Nat.card_units`. Finally
-0<l−1<l excludes divisibility by l. The inertia-degree-one theorem agrees with
-this computation; no regular-prime theorem is used.
+**Hypotheses.**
 
-**Acceptance.** At l=2 the quotient has two elements and its unit group is
-trivial, of order one. At l=5 the unit order is four. The suggested file states
-this result and these examples on the actual ideal-quotient carrier, not on a
-postulated finite field.
+- l is prime (including l=2); F is the l-th cyclotomic field over Q.
+- P is maximal in O_F and lies over the ideal (l) of Z; the quotient is the genuine ideal
+  quotient, with its field structure.
+- The theorem is arithmetic and independent of tame-kernel or higher K-theory vanishing.
 
-**Depends on.** `mathlib:CyclotomicField`, `mathlib:NumberField.RingOfIntegers`,
-`mathlib:Nat.Prime`, the already cited cyclotomic prime-uniqueness and inertia
-degree declarations, `mathlib:IsCyclotomicExtension.Rat.absNorm_span_zeta_sub_one`,
-`mathlib:Ideal.absNorm_apply`, `mathlib:Submodule.cardQuot_apply`,
-`mathlib:Ideal.Quotient.field` and `mathlib:Nat.card_units`.
+**Construction and proof.**
 
-**Source.** Weibel VI.8.3.2, printed p. 514 (PDF p. 522), uses the single-prime
-localisation. The residue cardinality and unit order are derived from the
-pinned Mathlib arithmetic declarations, not claimed to be a separately stated
-theorem of the book. The same downloaded K-book hash was checked on 1 October
-2026; VI.8.3.2, VI.10.5–10.8 and the paragraph before Table 10.1.1 were reread.
+1. Use the pinned uniqueness theorem to identify P with (zeta−1), for a primitive l-th root.
+   The previously cited inertia degree is one.
+1. Use IsCyclotomicExtension.Rat.absNorm_span_zeta_sub_one at k=0, rewriting l^1=l, to obtain
+   absolute norm l. Ideal.absNorm_apply and Submodule.cardQuot_apply identify this norm with
+   the natural-number cardinality of O_F/P.
+1. Install Ideal.Quotient.field P locally and apply Nat.card_units to get unit order l−1.
+1. Since l≥2, 0<l−1<l; elementary divisibility implies l does not divide l−1. No K-theoretic
+   input is used.
+
+**Acceptance.**
+
+- For l=2, the quotient has two elements and the unit group has order one.
+- For l=5, the quotient has five elements and the unit group has order four.
+- Removing regularity does not change the result; a supposed proof importing regular-prime
+  K-theory is circular for its intended use.
+
+**Depends on.** **libraries** `mathlib:CyclotomicField`, `mathlib:NumberField.RingOfIntegers`, `mathlib:Nat.Prime`, `mathlib:IsCyclotomicExtension.Rat.eq_span_zeta_sub_one_of_liesOver'`, `mathlib:IsCyclotomicExtension.Rat.inertiaDeg_span_zeta_sub_one'`, `mathlib:IsCyclotomicExtension.Rat.absNorm_span_zeta_sub_one`, `mathlib:Ideal.absNorm_apply`, `mathlib:Submodule.cardQuot_apply`, `mathlib:Ideal.Quotient.field`, `mathlib:Nat.card_units`.
+
+**Source.** Kbook.2013, VI.8.3.2 (Example 8.3.2), printed p. 514 (PDF p. 522); cyclotomic prime
+arithmetic in the pinned Mathlib declarations listed as prerequisites: “Setting R = Z[ζℓ, 1/ℓ],
+we have |S| = 1” — The book supplies the single-prime localisation used by the tame-kernel
+application. The elementary residue-field/unit-order lemma is derived from the pinned
+cyclotomic norm and quotient-cardinality declarations, not attributed as a separately stated
+theorem of the book.
 
 ### `tame-kernel-vanishing-at-a-regular-prime` — For an odd regular prime the l-primary tame kernel of the cyclotomic field vanishes ★
 
@@ -524,11 +557,10 @@ to l.
 1. Use the local Brauer calculation of the source's Classical Data to control the remaining
    contribution from the finite places.
 1. Conclude the vanishing of the l-primary part.
-1. For the S-integer version, use the separate `residue-field-units-prime-to-l` lemma to compute the residue field at the unique prime above l: the prime
-   is totally ramified with inertia degree one, so the residue field is the field with l
-   elements and its unit group has order l-1, which is prime to l, so the residue term
-   contributes nothing l-primary; this is the question the layer's text asks to be explained
-   and it is answered by the ramification data, not by a K-theoretic argument.
+1. For the S-integer version, use residue-field-units-prime-to-l: the unique prime above l has
+   residue-unit order l−1, which is prime to l. Localisation therefore adds no l-primary
+   residue term. This named arithmetic input is proved without K-theory and no longer hidden
+   inside the vanishing application.
 
 **Acceptance.**
 
@@ -539,30 +571,38 @@ to l.
 - For an irregular prime the argument breaks at the class-group step, which is exactly where
   the eigenspace analysis of the previous node takes over.
 
-**Depends on.** **inside this packet** `regular-prime`, `eigenspaces-and-herbrand-ribet`, `residue-field-units-prime-to-l`; **other roadmaps** `K2SymbolsBrauer:T.5`, `K2SymbolsBrauer:T.7`, `MotivicEtaleKTheory:M.3`; **libraries** `mathlib:Ideal.ramificationIdx`, `mathlib:Ideal.inertiaDeg`, `mathlib:IsCyclotomicExtension`.
+**Depends on.** **inside this packet** `regular-prime`, `eigenspaces-and-herbrand-ribet`, `residue-field-units-prime-to-l`; **other roadmaps** `K2SymbolsBrauer:T.5`, `K2SymbolsBrauer:T.7`, `MotivicEtaleKTheory:M.3`; **libraries** `mathlib:IsCyclotomicExtension`, `mathlib:IsCyclotomicExtension.Rat.ramificationIdx_span_zeta_sub_one'`, `mathlib:IsCyclotomicExtension.Rat.inertiaDeg_span_zeta_sub_one'`, `mathlib:IsCyclotomicExtension.Rat.eq_span_zeta_sub_one_of_liesOver'`.
 
-**Source.** Kbook.2013, VI.8.1, Classical Data, the Brauer sequence (PDF p. 507): “The Brauer
-group of O_S is determined by the sequence 0 -> Br(O_S) -> (Z/2)^{r_1} + the sum over the
-finite v in S of Q/Z -> Q/Z -> 0.” — The local Brauer calculation the argument uses, verbatim.
+**Source.** Kbook.2013, VI.8.3.2 (Example 8.3.2), printed p. 514 (PDF p. 522): “Example 8.3.2.
+If ℓ ≠ 2 is a regular prime (see 2.4.1), we claim that K2i(Z[ζℓ]) has no ℓ-torsion. The case K0
+is tautological since Pic(OF)/ℓ = 0 by definition. Setting R = Z[ζℓ, 1/ℓ], we have |S| = 1 and
+Br(R) = 0 by (8.1.1).” — The statement itself, for all K_{2i}, with the three inputs (Pic, |S|
+= 1, Br = 0); the packet did not cite it. Prose verbatim from the text layer of the
+author-hosted PDF; formulas transcribed.
 
-**Source.** Kbook.2013, VI.10.5 (PDF p. 530): “Proposition 10.5. When l is an odd regular
-prime, the group K_{2i}(Z) has no l-torsion. Thus the only l-torsion subgroups of K_*(Z) are
-the Harris-Segal subgroups Z/w_i(Q) of K_{2i-1}(Z) when i is congruent to 0 modulo l-1.” — The
-analogous statement over the integers, which is the shape of the conclusion and is proved by
-the same three inputs.
+**Source.** Kbook.2013, VI.8.1 (Classical Data), (8.1.1), printed p. 513 (PDF p. 521): “The
+Brauer group of OS is determined by the sequence 0 → Br(OS) → (Z/2)^{r1} ⊕ ⊕_{v∈S finite} (Q/Z)
+→ Q/Z → 0. (8.1.1)” — The Brauer sequence the argument uses. Prose verbatim from the text layer
+of the author-hosted PDF; formulas transcribed.
+
+**Source.** Kbook.2013, VI.10.5 (Proposition 10.5), printed p. 530 (PDF p. 538): “Proposition
+10.5. When ℓ is an odd regular prime, the group K2i(Z) has no ℓ-torsion. Thus the only
+ℓ-torsion subgroups of K∗(Z) are the Harris-Segal subgroups Z/wi(Q)_(ℓ) of K2i−1(Z) when i ≡ 0
+(mod ℓ − 1).” — The analogous statement over the integers. Prose verbatim from the text layer
+of the author-hosted PDF; formulas transcribed.
 
 ### `regular-prime-torsion-consequences` — Torsion in the K-groups at an odd regular prime
 
 *theorem*
 
 Let l be an odd regular prime. Then the even K-groups of the integers have no l-torsion, and
-the only l-torsion in the K-groups of the integers is the Harris-Segal summand of order the
-invariant w_i, sitting in the odd group K_{2i-1} when i is divisible by l-1. With finite
-coefficients the statement is cleaner still: the mod-l K-theory of the integers with l inverted
-is a free graded module over the polynomial ring on the Bott element in degree 2l-2, with
-(l+3)/2 generators, namely the unit in degree zero, a class in degree 2l-3 and classes in the
-degrees 4k+1 for k from zero to (l-3)/2. The degrees and the character indices are part of the
-statement and may not be compressed.
+the only l-torsion in the K-groups of the integers is the l-primary part Z/w_i(Q)_(l) of the
+Harris-Segal summand of the odd group K_{2i-1}, present exactly when i is divisible by l-1.
+With finite coefficients the statement is cleaner still: the mod-l K-theory of the integers
+with l inverted is a free graded module over the polynomial ring on β^(l-1), the (l-1)-st power
+of the Bott element, in degree 2l-2, with (l+3)/2 generators, namely the unit in degree zero, a
+class in degree 2l-3 and classes in the degrees 4k+1 for k from zero to (l-3)/2. The degrees
+and the character indices are part of the statement and may not be compressed.
 
 **Hypotheses.**
 
@@ -594,41 +634,45 @@ statement and may not be compressed.
 
 **Depends on.** **inside this packet** `tame-kernel-vanishing-at-a-regular-prime`, `w-invariant`; **other roadmaps** `K3BlochGroups:V.5`.
 
-**Source.** Kbook.2013, VI.10.5 (PDF p. 530): “Proposition 10.5. When l is an odd regular
-prime, the group K_{2i}(Z) has no l-torsion. Thus the only l-torsion subgroups of K_*(Z) are
-the Harris-Segal subgroups Z/w_i(Q) of K_{2i-1}(Z) when i is congruent to 0 modulo l-1.” — The
-first two statements, verbatim.
+**Source.** Kbook.2013, VI.10.5 (Proposition 10.5), printed p. 530 (PDF p. 538): “Proposition
+10.5. When ℓ is an odd regular prime, the group K2i(Z) has no ℓ-torsion. Thus the only
+ℓ-torsion subgroups of K∗(Z) are the Harris-Segal subgroups Z/wi(Q)_(ℓ) of K2i−1(Z) when i ≡ 0
+(mod ℓ − 1).” — The first two statements, verbatim. Prose verbatim from the text layer of the
+author-hosted PDF; formulas transcribed.
 
-**Source.** Kbook.2013, VI.10.6 (PDF p. 530): “Theorem 10.6. If l is an odd regular prime then
-K_* = K_*(Z[1/l]; Z/l) is a free graded module over the polynomial ring Z/l[beta] on the Bott
-element in degree 2l-2. It has (l+3)/2 generators: 1 in K_0, v in K_{2l-3}, and the elements
-y_k in K_{4k+1} for k from 0 to (l-3)/2.” — The module statement with its generators and
-degrees, verbatim.
+**Source.** Kbook.2013, VI.10.6 (Theorem 10.6), printed p. 531 (PDF p. 539): “Theorem 10.6. If
+ℓ is an odd regular prime then K∗ = K∗(Z[1/ℓ]; Z/ℓ) is a free graded module over the polynomial
+ring Z/ℓ[β^{ℓ−1}]. It has (ℓ + 3)/2 generators: 1 ∈ K0, v ∈ K2ℓ−3, and the elements yk ∈ K4k+1
+(k = 0, ..., (ℓ−3)/2) described above.” — The module statement, verbatim: the polynomial ring
+is on β^{ℓ−1}. Prose verbatim from the text layer of the author-hosted PDF; formulas
+transcribed.
 
-**Source.** Kbook.2013, VI.10.6, the worked case l = 5 (PDF p. 531): “When l = 5, the groups
-K_n = K_n(Z[1/5]; Z/5) are 8-periodic, with respective ranks 1, 1, 0, 0, 0, 1, 0, 1 (n = 0,
-..., 7), generated by an appropriate power of beta in K_8 times one of {1, ..., y_1, v}. Here
-y_1 in K_5 (x_1 is the golden mean) and v in K_7.” — The example, verbatim.
+**Source.** Kbook.2013, VI.10.6, the case ℓ = 5, printed p. 532 (PDF p. 540): “When ℓ = 5, the
+groups Kn = Kn(Z[1/5]; Z/5) are 8-periodic, with respective ranks 1, 1, 0, 0, 0, 1, 0, 1 (n =
+0, ..., 7), generated by an appropriate power of β^4 ∈ K8 times one of {1, [5], y1, v}.” — The
+worked example, verbatim. Prose verbatim from the text layer of the author-hosted PDF; formulas
+transcribed.
 
 ### `vandiver-separation` — Vandiver's conjecture, and keeping the conditional results apart
 
 *comparison*
 
-The **single owner of the predicate Vandiver(l) is IntegralIwasawaTheory L3**. Import its defining condition l ∤ h(ℚ(μ_l)^+) and its transport to Mathlib's intrinsic maximal real subfield; do not define another predicate here. The exact pinned carrier is `NumberField.maximalRealSubfield (CyclotomicField l ℚ)`, and `NumberField.of_subfield` supplies its number-field instance, so its class number is well-defined. The L3 stage has no published Lean predicate/module yet: the suggested file records this exact import contract rather than inventing a module or a second definition. N.7 owns only the comparison to odd-character class-group components, the conditional K-theory consequences and the separation discipline.
-
-Vandiver's conjecture asserts that for an irregular prime l the Picard group of the ring of
-integers of the maximal real subfield of the l-th cyclotomic field has no l-torsion;
-equivalently, that the representation of the Galois group on the modulo-l Picard group of the
-full cyclotomic field is a sum of odd twists of the roots of unity, which says that complex
-conjugation acts as minus one on the l-torsion. It has been verified for all primes up to a
-hundred and sixty-three million and is open. Under it, the K-groups of the integers are given
-by an explicit table, and in particular K_{4i}(ℤ) vanishes for i≥2; K₄(ℤ)=0 is
-an unconditional imported theorem. Unconditionally those higher groups are known only
-to have order a product of irregular primes greater than ten to the eighth, a historical
-bound from this source. Their joint vanishing is equivalent to the GLOBAL conjecture
-at every odd prime, not to a hypothesis at a single irregular prime. Every
-statement of this roadmap that uses the conjecture says so in its hypotheses, and no definition
-of regularity contains it.
+Import Vandiver(l) from its single owner IntegralIwasawaTheory L3: for a prime l it is
+nondivisibility by l of the class number of Q(mu_l)^+, identified with the pinned maximal real
+subfield of CyclotomicField l Q. This node does not define a second predicate. Vandiver's
+conjecture asserts that for an irregular prime l the Picard group of the ring of integers of
+the maximal real subfield of the l-th cyclotomic field has no l-torsion; equivalently, that the
+representation of the Galois group on the modulo-l Picard group of the full cyclotomic field is
+a sum of odd twists of the roots of unity, which says that complex conjugation acts as minus
+one on the l-torsion. The 2013 source reports verification for all primes up to a hundred and
+sixty-three million and treats the global conjecture as open; this is historical source
+evidence, not a claim about the latest verification bound or current status. Under it, the
+K-groups of the integers are given by an explicit table, and in particular the groups K_{4i}(Z)
+with 4i ≥ 8 vanish (K_4(Z) = 0 is a theorem, of Rognes); the 2013 source states unconditionally
+that those higher groups have order a product of irregular primes greater than ten to the
+eighth, and their joint vanishing for all i ≥ 2 is equivalent to the global Vandiver conjecture
+at every odd prime. Every statement of this roadmap that uses the conjecture says so in its
+hypotheses, and no definition of regularity contains it.
 
 **Hypotheses.**
 
@@ -636,16 +680,24 @@ of regularity contains it.
 - The equivalence between the two forms of the conjecture uses that complex conjugation is the
   unique element of order two in the Galois group, which the source records.
 - The conditional table is the source's Theorem 10.2 and is quoted as conditional.
+- The predicate and its transport to the intrinsic maximal-real-subfield model are supplied by
+  IntegralIwasawaTheory L3; the equivalence and conditional K-theory consequences, not that
+  definition, are owned here.
 
 **Construction and proof.**
 
-1. Import L3's predicate and prove its comparison with the odd-character form; keep the definition in L3.
-1. Record the verification bound and the historical remark that the statement was discussed by
-   Kummer and Kronecker long before Vandiver.
+1. Import IntegralIwasawaTheory L3's predicate, whose exact contract is l not dividing the
+   class number of the maximal real subfield of Q(mu_l). Prove the comparison to the
+   odd-character condition on the full cyclotomic class group; do not introduce a second
+   definition.
+1. Record the verification bound as historical to the 2013 source, without claiming it is the
+   current bound, and the historical remark that the statement was discussed by Kummer and
+   Kronecker long before Vandiver.
 1. State the conditional theorem: under the conjecture the K-groups of the integers are given
    by the explicit table.
-1. State the unconditional order restriction for K_{4i}(ℤ), i≥2, and its joint-vanishing
-   equivalence with global Vandiver at every odd prime; distinguish the unconditional K₄ result.
+1. State the unconditional order restriction for K_{4i}(Z), i≥2, and the equivalence of their
+   joint vanishing with the global Vandiver conjecture at every odd prime. A hypothesis at one
+   irregular prime is not the global conjecture; K_4(Z)=0 is an unconditional imported result.
 1. State the discipline: a theorem conditional on the conjecture is labelled conditional, and
    the definition of a regular prime does not mention it.
 
@@ -658,24 +710,25 @@ of regularity contains it.
 - The unconditional statement about the groups in degrees divisible by four is weaker and is
   what may be used without the conjecture.
 
-**Depends on.** **inside this packet** `regular-prime`, `eigenspaces-and-herbrand-ribet`, `regular-prime-torsion-consequences`; **supplier** `IntegralIwasawaTheory:L3`; **libraries** `mathlib:NumberField.maximalRealSubfield`, `mathlib:NumberField.of_subfield`.
+**Depends on.** **inside this packet** `regular-prime`, `eigenspaces-and-herbrand-ribet`, `regular-prime-torsion-consequences`; **other roadmaps** `IntegralIwasawaTheory:L3`; **libraries** `mathlib:NumberField.maximalRealSubfield`, `mathlib:NumberField.of_subfield`.
 
-**Source.** Kbook.2013, VI.10.8 (PDF p. 533): “Vandiver's Conjecture 10.8. If l is an irregular
-prime then Pic(Z[zeta_l + zeta_l^{-1}]) has no l-torsion. Equivalently, the natural
-representation of G = Gal(Q(zeta_l)/Q) on Pic(Z[zeta_l])/l is a sum of G-modules with odd
-twists. This means that complex conjugation c acts as multiplication by -1 on the l-torsion
-subgroup of Pic(Z[zeta_l])/l, because c is the unique element of G of order ...” — The
-conjecture, the equivalence, the reason and the verification bound, verbatim.
+**Source.** Kbook.2013, VI.10.8 (Vandiver's Conjecture 10.8), printed p. 532 (PDF p. 540):
+“Vandiver's Conjecture 10.8. If ℓ is an irregular prime then Pic(Z[ζℓ + ζℓ^{−1}]) has no
+ℓ-torsion. Equivalently, the natural representation of G = Gal(Q(ζℓ)/Q) on Pic(Z[ζℓ])/ℓ is a
+sum of G-modules µℓ^{⊗i} with i odd.” — The conjecture and the equivalence, verbatim. Prose
+verbatim from the text layer of the author-hosted PDF; formulas transcribed.
 
-**Source.** Kbook.2013, VI.10.1.1, the table note (PDF p. 528): “For n = 4i at least 8, the
-orders of the groups K_{4i}(Z) are known to be products of irregular primes l, with l greater
-than 10^8, and are conjectured to be zero; this conjecture follows from, and implies,
-Vandiver's conjecture.” — The unconditional statement and the equivalence with the conjecture,
-verbatim.
+**Source.** Kbook.2013, VI.10.1, the paragraph before Table 10.1.1, printed p. 527 (PDF p.
+535): “If n = 4i ≥ 8, the orders of the groups K4i(Z) are known to be products of irregular
+primes ℓ, with ℓ > 10^8, and are conjectured to be zero; this conjecture follows from, and
+implies, Vandiver's conjecture” — The unconditional statement and the equivalence, verbatim.
+Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed.
 
-**Source.** Kbook.2013, VI.10.8.2 (PDF p. 533): “What we now call Vandiver's conjecture was
-actually discussed by Kummer and Kronecker in 1849-1853; Harry Vandiver was not born until 1882
-and only started using this assumption circa 1920.” — The historical remark, verbatim.
+**Source.** Kbook.2013, VI.10.8.2 (Historical Remark 10.8.2), printed p. 532 (PDF p. 540):
+“Historical Remark 10.8.2. What we now call “Vandiver's conjecture” was actually discussed by
+Kummer and Kronecker in 1849–1853; Harry Vandiver was not born until 1882 and only started
+using this assumption circa 1920” — The historical remark, verbatim. Prose verbatim from the
+text layer of the author-hosted PDF; formulas transcribed.
 
 ---
 

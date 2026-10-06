@@ -3200,3 +3200,13 @@ must have real factor 1. In the uniformiser-last Milnor convention
 (Q/Z)[m] ≃ ZMod m, sending [a/m] to a. Multiplication by m in Q/Z
 is zero on this subgroup and is not the exponent coordinate. Milne’s ordered
 cup/Artin calculation fixes the exponent sign at −1 for higher powers as well. -/
+
+/- Packet names with no Lean signature in this file yet (FIX-RT-AREA-ktheory-1~2,
+claude-HJaFqR, 2026-10-06). PROTOCOL section 13 asks for every definition, API item and
+unit test of the packet under the packet's name; these are listed with their packet
+statements so that the names agree, and a contributor gives each its signature (or an
+`example`) next to its node above.
+
+TauCeti.K2.relK2.toK2 (API, projection; K2SymbolsBrauer:T.6/relative-steinberg-group): The map K₂(R, I) → K₂(R).
+TauCeti.K2.relDennisSteinGroup.toRelK2 (API, compatibility; K2SymbolsBrauer:T.6/relative-presentation): For I ≤ Ideal.jacobson ⊥, the relative generator map descends through exactly the source-allowed D1–D3 relations. Bijectivity is relative_presentation; its cited completeness proof remains unobtained.
+-/
