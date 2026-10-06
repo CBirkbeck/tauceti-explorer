@@ -189,24 +189,24 @@ def qMinusOne (E : C ⥤ D) (X : J ⥤ C) (Y : J ⥤ D)
     [PreservesLimit X E] [IsIso sigma]
     (completeA : C ⥤ C) (completeB : D ⥤ D)
     (exchange : completeA ⋙ E ≅ E ⋙ completeB) :
-    E.obj (completeA.obj (limit X)) ≅ completeB.obj (limit Y) := by
-  sorry
+    E.obj (completeA.obj (limit X)) ≅ completeB.obj (limit Y) :=
+  partialDescent E X Y sigma completeA completeB exchange
 
 /-- Scalar extension of the ascending filtration DIAGRAM. The identification
 with the reduction of map, exhaustion and gr^i of animated stupid filtration
 are not yet expressible; they are NOT opaque Prop fields. In particular this
 signature contains no additional shift on an already shifted graded piece. -/
 def cyclotomicFiltration {I : Type u} [Category.{u} I] (E : C ⥤ D)
-    (ascending : I ⥤ C) : I ⥤ D := by
-  sorry
+    (ascending : I ⥤ C) : I ⥤ D :=
+  ascending ⋙ E
 
 /-- Bottom composite of the Künneth square. kB is the imported B-base Künneth
 isomorphism. The top scalar-extension/monoidal comparison and commutativity,
 including its unit and higher coherences, are omitted pending the HR.2/DD.1
 monoidal interfaces; no commutativity conclusion is supplied as a hypothesis. -/
 def kuenneth [MonoidalCategory D] {LP LQ RP RQ R : D}
-    (betaP : LP ⟶ RP) (betaQ : LQ ⟶ RQ) (kB : RP ⊗ RQ ≅ R) : LP ⊗ LQ ⟶ R := by
-  sorry
+    (betaP : LP ⟶ RP) (betaQ : LQ ⟶ RQ) (kB : RP ⊗ RQ ≅ R) : LP ⊗ LQ ⟶ R :=
+  (betaP ⊗ₘ betaQ) ≫ kB.hom
 end HabiroHodgeBaseChange
 
 namespace QHodgeBaseChangeTests
@@ -232,7 +232,11 @@ def step (A : Type u) [CommRing A] (i : ℕ) : Ideal (PowerSeries A) :=
 /-- Multiplication by t into the NEXT filtration step. -/
 def stepMul (A : Type u) [CommRing A] (i : ℕ) :
     step A i →ₗ[PowerSeries A] step A (i+1) := by
-  sorry
+  refine { toFun := fun s => ⟨PowerSeries.X * s.val, by sorry⟩
+           map_add' := ?_
+           map_smul' := ?_ }
+  · sorry
+  · sorry
 
 /-- Scalar extension of the base pair has the t-adic steps over B.
 The positive-degree cofibres are zero because these maps are bijective.
@@ -266,12 +270,24 @@ example (X : J ⥤ C) [HasLimit X] [HasLimit (X ⋙ Functor.diag C)] (j : J) :
       limit.π X j := by
   sorry
 
--- HabiroHodgeBaseChangeTests.coordinate: the coefficient of x in D(x²) is
--- q²−1, and coefficient extension preserves it. This is the differential's
--- coefficient calculation; the completed framed complex itself is imported.
-example {A B : Type u} [CommRing A] [CommRing B] (f : A →+* B) :
-    Polynomial.map f ((Polynomial.X : Polynomial A)^2 - 1) =
-      (Polynomial.X : Polynomial B)^2 - 1 := by
+/-- Test helper for the scaled Jackson differential. The inner polynomial
+variable is q and the outer variable is x; the output is the coefficient of dx.
+The constant term contributes zero since q^0−1=0. This finite polynomial
+calculation does not construct the completed framed complex. -/
+def scaledDifferential {A : Type u} [CommRing A]
+    (P : Polynomial (Polynomial A)) : Polynomial (Polynomial A) :=
+  P.sum fun n a => Polynomial.monomial (n-1) (a * ((Polynomial.X : Polynomial A)^n - 1))
+
+-- HabiroHodgeBaseChangeTests.coordinate: coefficient extension commutes with
+-- the actual polynomial differential, and D(x²) has coefficient q²−1.
+-- This distinguishes the scaled Jackson formula from t times the usual
+-- derivative; the comparison to the completed framed complex is omitted.
+example {A B : Type u} [CommRing A] [CommRing B] (f : A →+* B)
+    (P : Polynomial (Polynomial A)) :
+    Polynomial.map (Polynomial.mapRingHom f) (scaledDifferential P) =
+      scaledDifferential (Polynomial.map (Polynomial.mapRingHom f) P) ∧
+    scaledDifferential ((Polynomial.X : Polynomial (Polynomial B))^2) =
+      Polynomial.C ((Polynomial.X : Polynomial B)^2 - 1) * Polynomial.X := by
   sorry
 
 /-- The algebraic image condition for ℤ[[t]]⊗ℚ: one denominator for ALL terms.
