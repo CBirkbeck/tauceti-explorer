@@ -1,162 +1,164 @@
-# BP-PotentialModularityAndCompatibleSystems--R24.3: checkpoint 5 (Claude Code cc-39fac3)
+# BP-PotentialModularityAndCompatibleSystems--R24.3: completed target-level pass
 
-Claude Code, session `cc-39fac3`, 29 September 2026. Refs #977; the bot confirmed the claim (comment 5884920693). **Status: partial.**
-- R24.3, R24.4, R24.5 and R24.6 are `source_decomposed`.
-- R24.5:operations is `partial`.
+Codex, session `codex-Hpnayd`, 6 October 2026. Refs #977. The claim was
+confirmed against [comment 6021443706](https://github.com/CBirkbeck/tauceti-explorer/issues/977#issuecomment-6021443706).
+Branch: `codex-Hpnayd-977-compatible-systems`.
 
-## Checkpoint 5: BLGGT arXiv v4
+**Status: complete at target level, ready for independent review.** All five
+stages in the issue are `planned`; none is declared proof-closed. There is no
+formal implementation claim. The packet has 43 nodes, 85 API items, 61 tests,
+12 planets, 21 baseline declarations, 26 supplier requests and 6 explicit gaps.
+All 33 inherited node IDs are retained. Ten missing targets were added.
 
-**Source.** BLGGT arXiv v4 (sha c953df6…) is added as a source. Read on the text layer: §5.1 (pp. 62–65), §5.2 (pp. 65–70) and the §5.3 statements. These were compared with v1, which checkpoints 3–4 used.
+## What this pass completes
 
-**Correction.** `system-l-functions` now follows v4's archimedean Γ- and ε-factors. v1's separate Hodge factor is undefined for odd weight, and its real factor gives Γ_ℂ(s − 1/2) instead of Γ_ℂ(s) for an elliptic curve. This is recorded as E2 (an error, known: corrected in v4). The API and tests are updated; `hodgeFactor` becomes `archimedeanD`, and there is a new elliptic-curve test.
+- General rank-n carriers and operations precede eigenform and potential
+  modularity/automorphy existence, as accepted RS-12 requires. Predicates are
+  separate from the carrier. Members are representations, and recognition is
+  up to isomorphism after coefficient extension.
+- Weak, very weak, extremely weak, KW plain, KW almost-strict, KW strict and
+  BLGGT strict compatibility are distinguished. In particular the BLGGT
+  all-member de Rham requirement is not inferred from KW's sufficiently-large
+  crystalline condition, and BLGGT strictness adds no coefficient-prime WD
+  comparison.
+- Polarized systems carry actual perfect pairings, multipliers and signs.
+  CM tensor and positive symmetric/exterior powers include the quadratic
+  character correction. Dual, twist and common-sign/common-multiplier block
+  sum conditions are explicit. Total oddness is checked on the pairing sign.
+- Rank-one algebraic-character, induced-character, finite-image Artin and
+  Artin-twist purity are planned without potential automorphy. Canonical
+  Hodge metadata are part of the induction and Artin-twist contracts.
+- Brauer assembly gives a genuine irreducible family over one coefficient
+  field: Mackey/Frobenius reciprocity and overlap Hom lines give norm one;
+  positive dimension fixes the sign of the irreducible class. Degree two or
+  true restrictions alone are not a genuineness criterion.
+- A strict Brauer refinement uses Skinner's full 2009 coefficient-prime
+  theorem, including reducible residual members and residue characteristic
+  two. The source-faithful historical almost-strict variant remains visible.
+- The common monodromy-component field, multiplicity one and uniform
+  coefficient extension are separated from the Larsen good-prime theorem.
+  Coefficient descent uses BLGGT Lemma A.1.5 with its split distinct-eigenvalue
+  hypothesis. Residual irreducibility is a density-one conclusion, with no
+  unproved upgrade to cofinitely many primes.
+- Böckle's presentation, parameter-system complete-intersection argument,
+  auxiliary-to-minimal integral R=T, KW Annals minimal lifts, all four KW
+  prescribed types, their application table and Snowden's type lifts are
+  retained with exact supplier contracts. Imported statements that were too
+  narrow are requested in full.
 
-**New nodes (3), from v4 §5.2.**
-- `larsen-rational-system-groups` (construction, with API and tests).
-- `serre-theta-uniform-bounds` (v4 Lemma 5.2.1).
-- `larsen-good-primes` (v4 Proposition 5.2.2).
+The four confirmed findings in the issue are addressed: RT-AREA-langlands-2
+/10 (early carrier/operations ownership), /12 (R24.4 imports the full R22
+lifting theorem and does not depend mathematically on lift-existence
+finiteness), /21 (modern ramified-coefficient and residually reducible de Rham
+transfer stays with R32.6), and /30 (Skinner supplies full coefficient-prime
+compatibility). Only this job's files were changed; campaign edges and
+supplier packets were not edited.
 
-`residual-irreducibility-density-one` depends on `larsen-good-primes`. The Larsen gap now names exactly the results used: Larsen 3.17 and §§1.12–1.13, LP92 8.9, BT84 5.1.40 and 5.2.8, and CCO09 6.3.
+## Ownership and what remains
 
-**Findings.** E3 records three misprints in v4 §5.2.
+The packet's `requests`, `gaps` and per-stage `remaining` lists are the exact
+worklist for proof closure and future signature refinement. These are
+supplier/source leaves of this completed planning pass, not unplanned local
+targets.
 
-**Lean.** New checked examples: the elliptic-curve real factor Γ_ℝ(s − ½)Γ_ℝ(s + ½)Γ_ℂ(s)/Γ_ℂ(s − ½) = Γ_ℂ(s), and i² = −1. The suggested file elaborates with 0 errors and 0 warnings.
+- R03.3 supplies arbitrary parameter systems in regular/Cohen–Macaulay local
+  rings and power-series instances; R22.3 supplies the integral minimal R=T
+  isomorphism; R08.6 supplies all minimality cases and the automatic-minimality
+  recognition criterion. R15/R20 own residual Serre weights.
+- R22.5 must export full KW I Theorem 4.1(2), including the endpoint with
+  residual weight two and general potentially semistable weight two. R22.6
+  owns the dyadic theorem. R24.4 only consumes these and the weight reductions.
+- R19.3–R19.5 supply general Hilbert eigenform families, absolute
+  irreducibility, away-coefficient monodromy and full Skinner compatibility.
+  The currently narrower Carayol/Saito exports are insufficient. R17.6
+  supplies the overlap Hom-character comparison for Brauer pairing descent.
+  WeightsInEtaleCohomology R34.6 supplies eigenform purity.
+- R01/G7 and PadicHodgeTheory supply arithmetic continuity, integral
+  reductions, inertia/WD, labeled Hodge comparisons, representation-level
+  pairings and monodromy. R01.5 supplies Chebotarev recognition and the
+  split-eigenvalue descent criterion, consuming upstream SemisimpleAlgebras.
+- Upstream InductionRestriction supplies finite Brauer induction, Mackey and
+  Frobenius reciprocity. Upstream GlobalNumberFields Layers 9–10 already own
+  general Hecke characters and infinity-type purity. Upstream ClassFieldTheory
+  supplies global Artin reciprocity. A recorded restructuring proposal asks
+  for **Class field theory, Part II: algebraic ℓ-adic character realization
+  and classification**, starting from those existing interfaces and using
+  local Hodge/WD comparisons from their owner. No general character carrier
+  or reciprocity proof is reconstructed here.
+- EndoscopicTransferAndUnitaryTraceComparison ET.6 supplies local L/epsilon
+  factors with the fixed additive character and normalization.
 
-**Checks.** `check_blueprint.py`: 0 errors, 0 warnings (33 nodes). `intake.py check-files`: 0 problems. Unit tests pass.
+Unread original proof leaves remain explicit: Savitt's precise residual
+weights; Dieulefait 2004/Gee 2011 (the read KW/Snowden arguments supply the
+local targets); Larsen–Pink/Serre for component fields, Sen 1973 for the
+Hodge-weight torus, Larsen 1995, Bogomolov, Serre's abelian representation
+results, Conrad–Chai–Oort and Bruhat–Tits for integral good-prime models.
+BLGGT's potential-automorphy and analytic endpoints are outside this part's
+scope and are consumed at ModularityAndLanglandsExtensions ML.2.
 
-## Checkpoint 4: L-functions, residual irreducibility and the Grothendieck ring (R24.5:operations, 4 nodes)
+## Source record and corrections
 
-**Source.** BLGGT, arXiv:1010.2561v1 (sha 697e2d3…). I read §5.1 pp. 52–54, §5.2 pp. 54–59, §5.3 pp. 59–61 and §5.4
-pp. 61–66 on the text layer, and checked the §5.1 displays (the Γ- and ε-factor tables, L({H_τ}, s), Λ and ε,
-pp. 52–53) against the page images. BLGGT use geometric Frobenius
-and HT_τ(ε_l) = {−1} (p. 8), and the tests follow those conventions.
+URLs, file hashes, editions and actual reading scopes are in the packet.
+This pass rechecked the relevant KW I/II, KW Annals, Böckle, Snowden,
+Dieulefait–Pacetti and Taylor passages; BLGGT v4 §§2.1, 5.1–5.4 and Appendix
+A.1.5/A.2; Skinner 2009 Theorem 1 and its introduction/proof synopsis; and
+Khare's level-one §5 Brauer computation reference. This does not claim a
+full reading of Skinner's proof or the unread originals listed above.
 
-**Nodes:**
-- `system-l-functions` (definition; 8 API items, 4 tests): L^S, L, the archimedean Γ- and ε-factors, the Hodge factor,
-  Λ and ε.
-- `galois-grothendieck-ring` (construction; 8 API items, 4 tests): §5.4 (1)–(9).
-- `residual-irreducibility-density-one`: Proposition 5.2.2.
-- `constituents-essentially-self-dual`: Lemma 5.2.3.
+The ACC+ author-copy §7.1 definitions and purity paragraph were collated
+against the published journal-layout PDF on Frank Calegari's page,
+pp.1084–1086 and 1092. New source issue **E4** records the literal
+Artin-up-to-twist purity observation's missing Hodge-metadata condition for
+extremely weak systems. An irreducible S₃ Artin family over ℚ(i), with
+H_τ={−1,1} and H_cτ={0,0}, satisfies both determinant sums but fails
+weight-zero Hodge symmetry. The corrected nodes require canonical metadata
+or a very weak realization. The published text, author copy, arXiv history,
+journal landing page and correction searches are recorded; the finding
+awaits independent review. E1–E3 are retained with their version scopes,
+including the correction of BLGGT v1's odd-weight archimedean factors in v4.
+Every node excerpt was checked as a literal passage after whitespace/Unicode
+normalization and is at most 300 characters.
 
-The hypothesis in `compatible-system-predicates` that said the L-functions are not planned now points to
-`system-l-functions`.
+## Suggested Lean file and validation
 
-**Boundary.** Theorem 5.3.1 (potential automorphy of systems), Corollaries 5.3.2–5.3.3 (meromorphic continuation, the
-functional equation, strict purity), Proposition 5.3.4 and Theorems 5.4.1–5.4.3 all apply Theorem 4.5.1. The stage
-excludes potential-automorphy endpoints, so these are recorded as remaining, to be assembled at
-ModularityAndLanglandsExtensions ML.2. The `uses` entries of the two definitions point there.
+The file follows the signature/proof-target form, with all lemma and example
+proofs left as `sorry`. Every packet name and test is present. There are 49
+active declaration fragments and 64 omitted full signatures. There are 55
+baseline-expressible test fragments; six complete arithmetic test signatures
+are omitted: `newform_is_strict`, `brauer_trace_agreement`, `torus_case`,
+`gl2_case`, `finite_image`, and `not_uniform_without_regular`.
 
-**Requests (2 new, 11 in total).**
-- EndoscopicTransferAndUnitaryTraceComparison ET.6: L(WD, s) and ε(WD, ψ, s) with BLGGT's additive character.
-- Tau Ceti RepresentationTheory/InductionRestriction Layer 6: Brauer's induction theorem, also needed by the existing
-  `brauer-induction-system`.
-- `galois-grothendieck-ring` also joins the existing R01.5 request.
+The carrier, polynomial, perfect-pairing, additive representation-class,
+Gamma-factor and finite arithmetic fragments use actual baseline objects.
+Full local inertia/Frobenius/WD, Hodge, deformation-point, automorphic,
+density and reductive-model conditions that cannot yet be stated are
+explicitly omitted, with exact names in the final catalogue and
+`suggestedCoverage` metadata. No missing condition is replaced by an
+arbitrary proposition field or a dummy proposition. In particular the
+additive representation-class fragment does not inherit a false pointwise
+representation-ring multiplication. Compilation checks these fragments'
+signatures, not their omitted arithmetic assertions or proofs.
 
-**Gaps.** New: Larsen 1995 behind Proposition 5.2.2. The Larsen–Pink gap now also covers the new node.
+Validation completed:
 
-**Lean.** The suggested file now imports `Mathlib.NumberTheory.LSeries.RiemannZeta`. New checked tests:
-- Γ_ℂ(s) = Γ_ℝ(s)Γ_ℝ(s + 1) (`Complex.Gammaℝ_mul_Gammaℝ_add_one`);
-- for the trivial system, Λ(s) = Γ_ℝ(s)ζ(s) = `completedRiemannZeta s`, and Λ(1 − s) = Λ(s);
-- the Γ-shift and ε-exponent arithmetic for the trivial system and ε_l;
-- the Euler factor of ε_l.
+- `python3 scripts/check_blueprint.py research/blueprint/packets/PotentialModularityAndCompatibleSystems--R24.3.json`:
+  zero errors and zero warnings.
+- The `check_errata.check` schema/versions check on an `errata-v1` projection
+  of the packet's four findings: zero errors. The standalone errata CLI is
+  for errata-job files, so the blueprint packet was not relabelled as one.
+- `lean-check research/blueprint/suggested/PotentialModularityAndCompatibleSystems--R24.3.lean`:
+  exit zero, zero errors, 79 warnings, all `declaration uses sorry`.
+  Memory was checked before elaboration. Mathlib is the exact pinned
+  `082e2d37e8b0463410cdb532e111cd43d5a66174`. The shared Tau Ceti checkout is
+  `cf386627e9176a3827c1a5fe804989fd94a4d216`, newer than the requested pin;
+  the file imports no Tau Ceti modules and makes no claim of compilation
+  against the pinned Tau Ceti checkout.
+- Packet/reader/prototype names, preservation of inherited IDs, five-stage
+  scope, definition APIs/tests and planet limits were checked together.
+- `git diff --check` and the submission file checker passed.
 
-The file compiles against Mathlib 082e2d3 with 0 errors and 0 warnings.
-
-**Totals.** 30 nodes, 6 planets, 11 requests and 4 gaps. `check_blueprint.py`: 0 errors, 0 warnings.
-
-## Checkpoint 3: rank-n compatible systems (R24.5:operations, 4 nodes)
-
-RS-12 has been reviewed and revised (#948, #2327). It gives "early R24.5:operations" the common carrier and the generic
-operations. Its contracts: the carrier holds representations, the predicates stay separate, and Frobenius-polynomial
-recognition works only up to isomorphism.
-
-**Sources.**
-- BLGGT, arXiv:1010.2561v1 (sha 697e2d3…), §5.1 in full and §5.2 through Proposition 5.2.2, pp. 51–55;
-- Taylor, Documenta 2006, §6, pp. 771–775.
-
-Both were read on the page images.
-
-**Nodes:**
-- `weakly-compatible-system-rank-n` (definition; 6 API items, 4 tests);
-- `compatible-system-predicates` (definition; 6 API items, 4 tests);
-- `linear-algebra-operations-on-systems` (the preservation table);
-- `rank-two-reducibility-independent-of-lambda` (Taylor's Lemma 6.5 and BLGGT Lemma 5.2.1).
-
-**New gap:** Larsen–Pink Proposition 6.14 behind BLGGT Lemma 5.2.1.
-
-**Not planned (remaining):**
-- the L-functions and ε/Γ-factors of systems (BLGGT pp. 52–53);
-- BLGGT Proposition 5.2.2 and §§5.3–5.4 (residual irreducibility and image results), which may belong to the image
-  roadmaps.
-
-**Lean.** New checked tests:
-- the dual's Frobenius polynomial in rank 2;
-- regularity of Sym² in rank 2;
-- the (1 ⊕ ε) ⊗ (1 ⊕ ε^{−1}) non-example.
-
-**Totals.** 26 nodes, 6 planets, 9 requests and 3 gaps. `check_blueprint.py`: 0 errors, 0 warnings.
-
-## Checkpoint 2: a corrected attribution
-
-KW Annals' introduction says the minimal-lift method "has been suggested in Remark in §5.2 of [27]". [27] is
-Khare–Ramakrishna, *Finiteness of Selmer groups and deformation rings*, Invent. Math. 154 (2003) 179–198. It is not
-Khare's paper with Böckle's appendix, which is [26].
-
-Checkpoint 1 had written "Khare's Inventiones 154 (2003) paper" in `R24.3/kw-annals-minimal-lifts` and "Khare 2003" in
-the README; both are corrected. The node now also quotes KW Annals' reference [27] (printed p. 252). The error was found
-while carrying the draft EXT-12 in part R23.1 (#976, PR #3867). No other node is affected: Böckle's Theorem 1 correctly
-places the appendix in Khare's paper [26].
-
-`check_blueprint.py`: 0 errors, 0 warnings. The Lean file is unchanged.
-
-## Checkpoint 1
-
-1. **Started from the sources.** No integrated decomposition exists for this roadmap. The sources read are KW II (§§6, 8,
-   9.2, 10), KW I (§§4–5), KW Annals (§§1–3), Böckle's appendix, Dieulefait–Pacetti (§§1.3–1.4) and Snowden (§7).
-   - Hashes: KW I, KW Annals, DP and Böckle match the ClassicalSerreModularity records; KW II is 53f45f8…; Snowden is
-     b0c0008….
-2. **Planned 22 nodes.**
-   - **R24.3:** Böckle's Proposition 1, Lemma 2 and Theorem 1; KW Annals Theorem 3.3; the lift types of KW I Theorem 5.1
-     (definition with API and tests); the four constructions; the application table; Snowden's prescribed-type lifts.
-   - **R24.4:** (α)/(β) from residual modularity, and KW I Theorem 4.1.
-   - **R24.5:operations:** the compatible-system definition (API and tests), and twist/restriction/induction.
-   - **R24.5:** the Brauer system (construction with API and tests), almost strict compatibility, KW I Theorem 5.1 and
-     Dieulefait's families.
-   - **R24.6:** residual members, compatibility at the coefficient prime (planet), and linked systems.
-3. **Built on existing roadmaps.**
-   - Finiteness and points are R24.1 and R24.2, in part R23.1 of this roadmap.
-   - Theorem 9.7 is GL2ModularityLifting R22.5/R22.6; presentations are GlobalGaloisDeformations R04.3/R04.6; local
-     rings and nonemptiness are LocalGaloisDeformationRings R08.6.
-   - Nothing from those packets is re-planned.
-
-## Source issue
-
-- **E1 (misprint).** KW II's bibliography gives Khare's level-one paper as Duke 134, pp. 534–567; it is pp. 557–589.
-
-## Requests (9)
-
-- LocalGaloisDeformationRings R08.6 (Snowden's definite-type local rings);
-- SerreWeightAndLevelOptimisation R20.6 (the weight part of Serre for modular ρ̄);
-- AlgebraicModularFormsAndSerreWeights R15.4 (Savitt's residual weights) and R15.6;
-- GL2AutomorphicRepresentationsAndTransfer R17.4 (solvable base change);
-- ArithmeticGaloisRepresentations R01.2, R01.3, R01.4 and R01.5.
-
-## Lean
-
-`suggested/PotentialModularityAndCompatibleSystems--R24.3.lean` imports Mathlib only. It checks:
-- the lift-type arithmetic (parity, level-2 existence, p ∤ q − 1);
-- Diamond's (i, j) list at p = 3, q = 5;
-- the Brauer example and non-example on ℤ/2;
-- the degree of x² − 3;
-- φ(5) = 4 for Snowden's (A2);
-- the weight convention.
-
-It compiles with 0 errors, 0 warnings and no `sorry`.
-
-## What a continuation should do
-
-1. **R24.5:operations:** rank-n and polarised systems (tensor, dual, symmetric/exterior powers), once RS-12 is settled.
-2. **ClassicalSerreModularity part R26.1:** replace `R26.1/bockle-appendix-minimal-deformation-ring-presentation` by an
-   import of `R24.3/bockle-presentation` (RS-06 makes R24.3 the owner; importing in the other direction would create a
-   stage cycle).
-3. **Optional sources:** read Savitt (Duke 2005, Corollary 6.15) for the residual weights, and Dieulefait (Crelle 2004)
-   and Gee (Math. Ann. 2011).
+Resume at independent review of these four deliverables, especially the
+Brauer overlap contract, polarization correction, coefficient-prime descent,
+source E4 and the honest signature omissions. Scratch generators and downloaded
+papers are not needed: the deliverables contain the full statements, routes,
+reading records and worklist. No second job was claimed in this run.
