@@ -22800,9 +22800,9 @@
     "REV-RS-06"
    ],
    "prompt": "research/blueprint/prompts/BP-ClassicalSerreModularity--R26.1.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [],
-   "note": "released on GitHub issue #694"
+   "note": "claimed on GitHub issue #694"
   },
   {
    "id": "REV-ClassicalSerreModularity--R26.1",
@@ -33851,8 +33851,9 @@
    ],
    "followUpOf": "BP-EllipticRegulators",
    "prompt": "research/blueprint/prompts/BP-EllipticRegulators--ER.7.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6488"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6488",
+   "finishedAt": "2026-10-06T06:16:19Z"
   },
   {
    "id": "REV-EllipticRegulators--ER.7",
