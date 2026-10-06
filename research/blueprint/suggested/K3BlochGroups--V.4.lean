@@ -12,6 +12,7 @@ import Mathlib.Topology.Compactification.OnePoint.ProjectiveLine
 import Mathlib.FieldTheory.IsAlgClosed.Basic
 import Mathlib.Data.ZMod.Basic
 import Mathlib.Basic.Real.Basic
+import Mathlib.Algebra.Field.Subfield.Basic
 
 /-!
 This file is not the roadmap and is not exhaustive. The roadmap document is definitive.
@@ -48,6 +49,12 @@ def Frame.mapField {E : Type} [Field E] (f : F →+* E) {n m q : ℕ}
     (t : Frame F n m q) : Frame E n m q :=
   ⟨fun i => (fun j => f ((t.val i).1 j), fun j => f ((t.val i).2 j)), by sorry⟩
 
+/-- The lower-block action (g 0; u 1), including the affine shear when m > 0. -/
+def Frame.affine {n m q : ℕ} (g : Matrix.GeneralLinearGroup (Fin n) F)
+    (u : (Fin n → F) →ₗ[F] (Fin m → F)) (t : Frame F n m q) : Frame F n m q :=
+  ⟨fun i => ((Matrix.GeneralLinearGroup.toLin g).val ((t.val i).1),
+    u ((t.val i).1) + (t.val i).2), by sorry⟩
+
 -- K3BlochGroups:V.4/unimodular-vector-chains
 -- The empty frame has degree 0; ordinary simplex dimension is q-1.
 def unimodularChains (F : Type) [Field F] (n m : ℕ) : ChainComplex (ModuleCat ℤ) ℕ := by sorry
@@ -66,6 +73,23 @@ def basisEquiv (n m q : ℕ) :
 lemma basisEquiv_of (n m q : ℕ) (t : Frame F n m q) :
     basisEquiv F n m q (FreeAbelianGroup.of t) = frame F t := by sorry
 
+def affineMap {n m : ℕ} (g : Matrix.GeneralLinearGroup (Fin n) F)
+    (u : (Fin n → F) →ₗ[F] (Fin m → F)) :
+    unimodularChains F n m ⟶ unimodularChains F n m := by sorry
+
+lemma affineMap_frame {n m q : ℕ} (g : Matrix.GeneralLinearGroup (Fin n) F)
+    (u : (Fin n → F) →ₗ[F] (Fin m → F)) (t : Frame F n m q) :
+    (affineMap F g u).f q (frame F t) = frame F (t.affine F g u) := by sorry
+
+lemma affineMap_id (n m : ℕ) :
+    affineMap F (1 : Matrix.GeneralLinearGroup (Fin n) F)
+      (0 : (Fin n → F) →ₗ[F] (Fin m → F)) = 𝟙 _ := by sorry
+
+lemma affineMap_comp {n m : ℕ} (g h : Matrix.GeneralLinearGroup (Fin n) F)
+    (u v : (Fin n → F) →ₗ[F] (Fin m → F)) :
+    affineMap F (h * g) (v.comp (Matrix.GeneralLinearGroup.toLin g).val + u) =
+      affineMap F g u ≫ affineMap F h v := by sorry
+
 def glRepresentation (n : ℕ) :
     ChainComplex (Rep ℤ (Matrix.GeneralLinearGroup (Fin n) F)) ℕ := by sorry
 
@@ -73,6 +97,15 @@ lemma glRepresentation_forget (n : ℕ) :
     ∃ e : ∀ q, ((glRepresentation F n).X q) ≃ₗ[ℤ] (unimodularChains F n 0).X q,
       ∀ p q x, e q (((glRepresentation F n).d p q).hom x) =
         (unimodularChains F n 0).d p q (e p x) := by sorry
+
+-- The same equivalence identifies the action, so a trivial GL action cannot qualify.
+lemma glRepresentation_frame (n : ℕ) :
+    ∃ e : ∀ q, ((glRepresentation F n).X q) ≃ₗ[ℤ] (unimodularChains F n 0).X q,
+      (∀ p q x, e q (((glRepresentation F n).d p q).hom x) =
+        (unimodularChains F n 0).d p q (e p x)) ∧
+      ∀ q (g : Matrix.GeneralLinearGroup (Fin n) F) (t : Frame F n 0 q),
+        e q (((glRepresentation F n).X q).ρ g ((e q).symm (frame F t))) =
+          frame F (t.affine F g 0) := by sorry
 
 def mapField {E : Type} [Field E] (f : F →+* E) (n m : ℕ) :
     unimodularChains F n m ⟶ unimodularChains E n m := by sorry
@@ -122,6 +155,10 @@ example : ¬ LinearIndependent ℚ
     (![Pi.single (0 : Fin 2) (1 : ℚ), Pi.single (0 : Fin 2) (2 : ℚ)] :
       Fin 2 → Fin 2 → ℚ) := by sorry
 
+-- unimodularChains_affine_shear: (1 0; 1 1) sends the frame (1,0) to (1,1).
+example (t : Frame ℚ 1 1 1) (ht : t.val 0 = (fun _ => 1, fun _ => 0)) :
+    (t.affine ℚ 1 (LinearMap.id)).val 0 = (fun _ => 1, fun _ => 1) := by sorry
+
 -- K3BlochGroups:V.4/unimodular-acyclic-range
 lemma unimodular_acyclic_range [Infinite F] (n m q : ℕ) (hq : q ≠ n) :
     IsZero ((unimodularChains F n m).homology q) := by sorry
@@ -155,6 +192,19 @@ lemma relation [Infinite F] (n : ℕ) (a lam : Fin (n + 1) → Fˣ)
 def mul (n m : ℕ) :
     (stabilityCoinvariants F n ⊗[ℤ] stabilityCoinvariants F m) →ₗ[ℤ]
       stabilityCoinvariants F (n + m) := by sorry
+
+def unit : stabilityCoinvariants F 0 := by sorry
+
+lemma mul_unit (n : ℕ) (x : stabilityCoinvariants F n) :
+    (by simpa using mul F 0 n (TensorProduct.tmul ℤ (unit F) x)) = x ∧
+    (by simpa using mul F n 0 (TensorProduct.tmul ℤ x (unit F))) = x := by sorry
+
+/-- Multiplication by e=⟨1,1⟩, with the codomain index transported to n+2. -/
+def eMul (n : ℕ) : stabilityCoinvariants F n →+ stabilityCoinvariants F (n + 2) := by sorry
+
+lemma eMul_apply (n : ℕ) (x : stabilityCoinvariants F n) :
+    eMul F n x = (by simpa only [Nat.add_comm] using
+      (mul F 2 n (TensorProduct.tmul ℤ (gen F (fun _ => 1)) x))) := by sorry
 
 lemma mul_assoc (n m l : ℕ) (x : stabilityCoinvariants F n)
     (y : stabilityCoinvariants F m) (z : stabilityCoinvariants F l) :
@@ -198,7 +248,8 @@ variable (stabilization : ∀ n i, GLH F n i →+ GLH F (n + 1) i)
 
 -- K3BlochGroups:V.4/frame-connecting-map
 -- Index n+1 guarantees the positive degree required by the source.
-def frameConnecting (n : ℕ) : GLH F (n + 1) (n + 1) →+ stabilityCoinvariants F (n + 1) := by sorry
+def frameConnecting [Infinite F] (n : ℕ) :
+    GLH F (n + 1) (n + 1) →+ stabilityCoinvariants F (n + 1) := by sorry
 
 lemma frameConnecting_stabilization [Infinite F] (n : ℕ) :
     (frameConnecting F n).comp (stabilization n (n + 1)) = 0 := by sorry
@@ -247,7 +298,7 @@ abbrev StabilityQuotient (n : ℕ) :=
 
 -- K3BlochGroups:V.4/normalized-milnor-homology-map
 -- The source symbol universal property and unstable Steinberg input are supplier gaps.
-def milnorHomologyTheta (n : ℕ) :
+def milnorHomologyTheta [Infinite F] (n : ℕ) :
     MK (n + 1) →+ StabilityQuotient F stabilization n := by sorry
 
 lemma milnorHomologyTheta_symbol [Infinite F] (n : ℕ) (a : Fin (n + 1) → Fˣ) :
@@ -291,9 +342,32 @@ lemma milnor_frame_retraction [Infinite F] (n : ℕ) :
       AddMonoidHom.id (MK (n + 1)) := by sorry
 
 -- K3BlochGroups:V.4/frame-algebra-splitting
--- Full internal-sum embedding/product syntax is imported from the frame/Milnor API.
+-- The embedded Milnor summand is δ ∘ θ, already present in this file.
 lemma frame_algebra_splitting [Infinite F] :
-    Nonempty (stabilityCoinvariants F 2 ≃+ (MK 2 × ℤ)) := by sorry
+    (∃ e : stabilityCoinvariants F 2 ≃+ (MK 2 × ℤ),
+      ∀ a : Fin 2 → Fˣ, e (stabilityCoinvariants.gen F a) = (symbol 2 a, 1)) ∧
+    (∀ n, ∀ x : stabilityCoinvariants F (n + 2),
+      ∃ a : MK (n + 2), ∃ y : stabilityCoinvariants F n,
+        x = descendedDelta (n + 1) (milnorHomologyTheta F stabilization MK (n + 1) a) +
+          stabilityCoinvariants.eMul F n y) ∧
+    (∀ n (a : MK (n + 2)) (y : stabilityCoinvariants F n),
+      descendedDelta (n + 1) (milnorHomologyTheta F stabilization MK (n + 1) a) =
+        stabilityCoinvariants.eMul F n y →
+      a = 0) := by sorry
+
+-- The positive-degree products generate in every degree at least three.
+lemma frame_decomposable [Infinite F] (n : ℕ) (x : stabilityCoinvariants F (n + 3)) :
+    ∃ (k : ℕ) (i : Fin k → Fin (n + 2))
+      (a : ∀ j, stabilityCoinvariants F ((i j).val + 1))
+      (b : ∀ j, stabilityCoinvariants F (n + 2 - (i j).val)),
+      x = ∑ j : Fin k, (by
+        have hdeg : (i j).val + 1 + (n + 2 - (i j).val) = n + 3 := by omega
+        exact hdeg ▸ (stabilityCoinvariants.mul F ((i j).val + 1)
+          (n + 2 - (i j).val) (TensorProduct.tmul ℤ (a j) (b j)))) := by sorry
+
+-- This clause is proved by the simultaneous spectral-sequence induction, not by splitting.
+lemma frame_e_injective [Infinite F] (n : ℕ) :
+    Function.Injective (stabilityCoinvariants.eMul F n) := by sorry
 
 -- K3BlochGroups:V.4/degree-three-torus-quotient
 lemma degree_three_torus_quotient [Infinite F] :
@@ -316,8 +390,10 @@ lemma homological_stability [Infinite F] (n i : ℕ) (hi : i ≤ n) :
 
 -- K3BlochGroups:V.4/scalar-homology-vanishing
 -- The inner additive homology with its functorially induced scalar action is a supplied Rep.
--- k must be a prime field and j>0; syntax identifying this Rep awaits H.1 Part II.
+-- The prime-field condition is expressible at baseline. Identifying the induced Rep
+-- with H_j(V_add,k) still awaits H.1 Part II, and only that condition is omitted.
 lemma scalar_homology_vanishing [Infinite F] (k : Type) [Field k]
+    (hprime : Subfield.closure (∅ : Set k) = ⊤)
     (V : Type) [AddCommGroup V] [Module F V] (j i : ℕ) (hj : 0 < j)
     (scalarCoefficientHomology : Rep k Fˣ) :
     IsZero (groupHomology scalarCoefficientHomology i) := by sorry
@@ -381,13 +457,27 @@ example (ι : groupHomology (Rep.trivial ℤ (Multiplicative (ZMod 2)) ℤ) 3 �
     RootH3 (Mu := Mu)) (hι : Function.Injective ι)
     (x : groupHomology (Rep.trivial ℤ (Multiplicative (ZMod 2)) ℤ) 3) (hx : x ≠ 0) :
     closureTorsionDetector κ e (ι x) ≠ 0 := by sorry
--- closureTorsionDetector_weight_two: power2 on µ₇ acts by4 on H₃, with target equivariance.
-example (powerTwoH3 : RootH3 (Mu := Multiplicative (ZMod 7)) →+
-    RootH3 (Mu := Multiplicative (ZMod 7)))
-    (κ7 : RootH3 (Mu := Multiplicative (ZMod 7)) →+ AddCommGroup.torsion K)
-    (hpower : powerTwoH3 = (4 : ℤ) • AddMonoidHom.id _)
+-- Routine coefficient morphism: the underlying linear map is the identity.
+def rootTrivialCoeff {G H : Type} [Group G] [Group H] (f : G →* H) :
+    Rep.trivial ℤ G ℤ ⟶ Rep.res f (Rep.trivial ℤ H ℤ) :=
+  Rep.ofHom { toLinearMap := LinearMap.id, isIntertwining' := by sorry }
+
+def cyclicPowerTwo : Multiplicative (ZMod 7) →* Multiplicative (ZMod 7) where
+  toFun x := x ^ 2
+  map_one' := by sorry
+  map_mul' := by sorry
+
+-- closureTorsionDetector_weight_two: the actual power2 map, without assuming its answer.
+example (κ7 : RootH3 (Mu := Multiplicative (ZMod 7)) →+ AddCommGroup.torsion K)
     (x : RootH3 (Mu := Multiplicative (ZMod 7))) :
-    closureTorsionDetector κ7 e (powerTwoH3 x) = (4 : ℤ) • closureTorsionDetector κ7 e x := by sorry
+    closureTorsionDetector κ7 e
+      ((groupHomology.map cyclicPowerTwo (rootTrivialCoeff cyclicPowerTwo) 3).hom x) =
+      (4 : ℤ) • closureTorsionDetector κ7 e x := by sorry
+
+-- closureTorsionDetector_tensor_zero: divisibility kills the ordinary tensor target.
+example [DivisibleBy (Additive Mu) ℤ]
+    (hTorsion : ∀ x : Additive Mu, ∃ n : ℕ, 0 < n ∧ n • x = 0) :
+    ∀ x : Additive Mu ⊗[ℤ] Additive Mu, x = 0 := by sorry
 
 -- K3BlochGroups:V.4/closure-detector-injectivity, closure case after the supplied square.
 include hSquare in
@@ -406,14 +496,21 @@ lemma cyclic_chern_evaluation {A B : Type} [AddCommGroup A] [AddCommGroup B]
     c2rho = -cupSquare ∧ Function.Bijective c2rho := by sorry
 
 -- K3BlochGroups:V.4/chern-bockstein-square
--- K4coeff is K₄(Ω;Z/m), ∂ its Bockstein (isomorphism onto m-torsion); h the Hurewicz map.
--- These maps are fixed by the early Chern/H.6 supplier; the unavailable universal square
--- and Bott compatibility hypotheses are omitted. Its finite-level equality is retained.
-lemma chern_bockstein_square {H4 K4coeff : Type} [AddCommGroup H4] [AddCommGroup K4coeff]
-    (hurewicz : H4 →+ K4coeff) (c2 : K4coeff →+ Twist)
-    (homologyBockstein : H4 →+ RootH3 (Mu := Mu)) (m : ℕ)
-    (hm : 2 ≤ m) (hproduct : m % 4 ≠ 2) :
-    (e.comp κ).comp homologyBockstein = -(c2.comp hurewicz) := by sorry
+-- H4Roots and H4SL are finite-coefficient homology. Hurewicz goes FROM K₄coeff TO H₄SL.
+-- The supplier identifies rootsToSL with the monomial/SL composite, c2K with the
+-- normalized étale Chern class, and kBockstein with the K-theory Bockstein.
+-- Its universal construction and Bott conditions await the early Chern/H.6 syntax.
+-- KV11.3.2 supplies the product rule for odd m or 8|m; m=8 covers order-two torsion.
+lemma chern_bockstein_square {H4Roots H4SL K4coeff : Type}
+    [AddCommGroup H4Roots] [AddCommGroup H4SL] [AddCommGroup K4coeff]
+    (rootsToSL : H4Roots →+ H4SL) (hurewicz : K4coeff →+ H4SL)
+    (c2Homology : H4SL →+ Twist) (c2K : K4coeff →+ Twist)
+    (kBockstein : K4coeff →+ AddCommGroup.torsion K)
+    (homologyBockstein : H4Roots →+ RootH3 (Mu := Mu))
+    (m : ℕ) (hm : 2 ≤ m) (hproduct : Odd m ∨ 8 ∣ m) :
+    (e.comp κ).comp homologyBockstein = -(c2Homology.comp rootsToSL) ∧
+      c2K = c2Homology.comp hurewicz ∧
+      e.comp kBockstein = -c2K := by sorry
 
 end TorsionDetection
 end TauCeti.SuslinV4
