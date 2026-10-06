@@ -31977,8 +31977,9 @@
    ],
    "followUpOf": "BP-Polylogarithms",
    "prompt": "research/blueprint/prompts/BP-Polylogarithms--P.6.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6391"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6391",
+   "finishedAt": "2026-10-06T06:25:51Z"
   },
   {
    "id": "REV-Polylogarithms--P.6",
@@ -33873,7 +33874,8 @@
    ],
    "avoidAccountOf": "BP-EllipticRegulators--ER.7",
    "prompt": "research/blueprint/prompts/REV-EllipticRegulators--ER.7.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6440"
   },
   {
    "id": "BP-EllipticRegulators--ER.8",
