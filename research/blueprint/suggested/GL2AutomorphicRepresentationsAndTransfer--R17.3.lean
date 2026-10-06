@@ -28,6 +28,11 @@ import Mathlib.Algebra.Field.ZMod
 import Mathlib.RepresentationTheory.Irreducible
 import Mathlib.RingTheory.PowerSeries.Basic
 import Mathlib.Topology.Instances.AddCircle.Defs
+import Mathlib.FieldTheory.AbsoluteGaloisGroup
+import Mathlib.NumberTheory.NumberField.Basic
+import Mathlib.Topology.LocallyConstant.Basic
+import Mathlib.RepresentationTheory.Induced
+import Mathlib.NumberTheory.Zsqrtd.Basic
 
 namespace TauCeti.GL2Transfer
 
@@ -69,6 +74,14 @@ example (π : FClass) : globalJL FClass FClass π = π := by sorry
 example (π : FClass) (p : V) (localD : DClass → V → LD) (charNrd : LD) :
     localD ((globalJL DClass FClass).symm π) p = charNrd := by sorry
 
+-- TauCeti.GL2Transfer.jl_eisenstein_excluded_test
+-- Missing: D = M₂(Q); Eis is the supplier's set of Eisenstein constituents π(μ,ν)
+-- of GL₂(A_Q), and inclE, inclF the inclusions of Eisenstein and cuspidal classes
+-- into all automorphic classes. An Eisenstein constituent does not factor through
+-- det, yet it is not the image of any discrete-series class under global JL.
+example {Eis : Type*} (e : Eis) (inclE : Eis → LF) (inclF : FClass → LF) :
+    ∀ d : DClass, inclF (globalJL DClass FClass d) ≠ inclE e := by sorry
+
 -- TauCeti.GL2Transfer.jl_inverse_test
 example (π : FClass) :
     globalJL DClass FClass ((globalJL DClass FClass).symm π) = π := by sorry
@@ -77,10 +90,11 @@ end GlobalJL
 section Satake
 variable {K L : Type*} [CommRing K] [CommRing L]
 
-/-- The transfer-specific power rule on the existing GL, not a Satake carrier.
-f=0 is the formal matrix-power extension, not a field extension. -/
-noncomputable def unramifiedBaseChange (A : GeneralLinearGroup (Fin 2) K)
-    (f : ℕ) : GeneralLinearGroup (Fin 2) K := by sorry
+/-- The transfer-specific power rule on the existing GL, not a Satake carrier:
+the representative `A ^ f` of the base-changed Satake class at a place of residue
+degree `f`. f=0 is the formal matrix-power extension, not a field extension. -/
+def unramifiedBaseChange (A : GeneralLinearGroup (Fin 2) K)
+    (f : ℕ) : GeneralLinearGroup (Fin 2) K := A ^ f
 
 lemma unramifiedBaseChange_one (A : GeneralLinearGroup (Fin 2) K) :
     unramifiedBaseChange A 1 = A := by sorry
@@ -163,10 +177,14 @@ example (π : FClass) (v : V) (w : W)
     localE (cyclicBaseChange FClass EClass π) w = localF π v := by sorry
 
 -- TauCeti.GL2Transfer.cyclic_inert_test
--- This literal Satake calculation checks the localRep rule; no global form with
--- arbitrarily prescribed diagonal Satake eigenvalues is asserted.
-example (A : GeneralLinearGroup (Fin 2) ℚ) (hA : A.val = !![2, 0; 0, 3]) :
-    (unramifiedBaseChange A 2).val = !![4, 0; 0, 9] := by sorry
+-- Missing: v inert and unramified in the quadratic E/F, w the place above it, and
+-- satF/satE the suppliers' Satake projections. No global form with arbitrarily
+-- prescribed diagonal Satake eigenvalues is asserted.
+example (π : FClass) (v : V) (w : W)
+    (satF : FClass → V → GeneralLinearGroup (Fin 2) ℚ)
+    (satE : EClass → W → GeneralLinearGroup (Fin 2) ℚ)
+    (hA : (satF π v).val = !![2, 0; 0, 3]) :
+    (satE (cyclicBaseChange FClass EClass π) w).val = !![4, 0; 0, 9] := by sorry
 
 -- TauCeti.GL2Transfer.cyclic_induced_test
 -- Missing: θ≠θ^σ, quadratic E/F and the actual isobaric direct-sum operation.
@@ -175,10 +193,11 @@ example (θ : H) (σ : H → H) (hθ : θ ≠ σ θ)
     cyclicBaseChange FClass EClass (ai θ) = isobaricSum θ (σ θ) := by sorry
 
 -- TauCeti.GL2Transfer.cyclic_odd_degree_test
--- The algebraic obstruction to a nontrivial prime-odd self-twist. The
--- automorphic identification of this obstruction is in the packet.
-example {A : Type*} [Group A] (η : A) (ℓ : ℕ) (hprime : ℓ.Prime)
-    (hodd : ℓ ≠ 2) (horder : orderOf η = ℓ) : η ^ 2 ≠ 1 := by sorry
+-- Missing: E/F cyclic of the odd prime degree ℓ; CF/CE are the suppliers'
+-- cuspidal subtypes with their forget maps. A cuspidal input stays cuspidal.
+example {CF CE : Type*} (ℓ : ℕ) (hprime : ℓ.Prime) (hodd : ℓ ≠ 2)
+    (forgetF : CF → FClass) (forgetE : CE → EClass) (π : CF) :
+    ∃ Pi : CE, cyclicBaseChange FClass EClass (forgetF π) = forgetE Pi := by sorry
 end Cyclic
 
 section Solvable
@@ -250,22 +269,42 @@ lemma adjointLift_twist (π : FClass) (χ : H) (twist : H → FClass → FClass)
 lemma adjointLift_central {C : Type*} [Monoid C] (π : FClass) (ω : GL3Class → C) :
     ω (adjointLift FClass GL3Class π) = 1 := by sorry
 
--- The next four examples are literal diagonal formulas in the localRep rule
--- of adjointLift_unramified; they do not assert global existence for a chosen A.
+-- The next four examples evaluate adjointLift through the suppliers' unramified
+-- Satake projections sat2/sat3 (missing: v unramified for π); they do not
+-- assert global existence of a form with a chosen Satake class.
 -- TauCeti.GL2Transfer.adjoint_diagonal_test
-example : diagonal ![(2 : ℚ) / 3, 1, 3 / 2] = !![2/3, 0, 0; 0, 1, 0; 0, 0, 3/2] := by sorry
+example (π : FClass) (v : V)
+    (sat2 : FClass → V → Matrix (Fin 2) (Fin 2) ℚ)
+    (sat3 : GL3Class → V → Matrix (Fin 3) (Fin 3) ℚ)
+    (hsat : sat2 π v = diagonal ![2, 3]) :
+    sat3 (adjointLift FClass GL3Class π) v = !![2/3, 0, 0; 0, 1, 0; 0, 0, 3/2] := by sorry
 
 -- TauCeti.GL2Transfer.adjoint_scalar_test
-example {K : Type*} [Field K] (a : K) (ha : a ≠ 0) :
-    diagonal ![a / a, 1, a / a] = (1 : Matrix (Fin 3) (Fin 3) K) := by sorry
+example {K : Type*} [Field K] (π : FClass) (v : V) (a : K) (ha : a ≠ 0)
+    (sat2 : FClass → V → Matrix (Fin 2) (Fin 2) K)
+    (sat3 : GL3Class → V → Matrix (Fin 3) (Fin 3) K)
+    (hsat : sat2 π v = diagonal ![a, a]) :
+    sat3 (adjointLift FClass GL3Class π) v = 1 := by sorry
 
 -- TauCeti.GL2Transfer.adjoint_twist_test
-example {K : Type*} [Field K] (α β u : K) (hα : α ≠ 0) (hβ : β ≠ 0) (hu : u ≠ 0) :
-    diagonal ![(u * α) / (u * β), 1, (u * β) / (u * α)] =
-      diagonal ![α / β, 1, β / α] := by sorry
+-- Missing: twistBy u is the supplied twist by an unramified character with value
+-- u at v, so the Satake class of the twist is u times that of π.
+example {K : Type*} [Field K] (π : FClass) (v : V) (α β u : K)
+    (hα : α ≠ 0) (hβ : β ≠ 0) (hu : u ≠ 0) (twistBy : K → FClass → FClass)
+    (sat2 : FClass → V → Matrix (Fin 2) (Fin 2) K)
+    (sat3 : GL3Class → V → Matrix (Fin 3) (Fin 3) K)
+    (hsat : sat2 π v = diagonal ![α, β])
+    (htw : sat2 (twistBy u π) v = diagonal ![u * α, u * β]) :
+    sat3 (adjointLift FClass GL3Class (twistBy u π)) v =
+      sat3 (adjointLift FClass GL3Class π) v := by sorry
 
 -- TauCeti.GL2Transfer.adjoint_not_sym_square_test
-example : diagonal ![(2 : ℚ) / 3, 1, 3 / 2] ≠ diagonal ![(4 : ℚ), 6, 9] := by sorry
+-- The untwisted symmetric square diag(4,6,9) is not the adjoint lift.
+example (π : FClass) (v : V)
+    (sat2 : FClass → V → Matrix (Fin 2) (Fin 2) ℚ)
+    (sat3 : GL3Class → V → Matrix (Fin 3) (Fin 3) ℚ)
+    (hsat : sat2 π v = diagonal ![2, 3]) :
+    sat3 (adjointLift FClass GL3Class π) v ≠ diagonal ![4, 6, 9] := by sorry
 end Adjoint
 
 section Cubic
@@ -293,24 +332,43 @@ lemma cubicBaseChange_central (π : FClass) (ωF : FClass → HF) (ωE : EClass 
 lemma cubicBaseChange_unique (Pi Ψ : EClass) (S : Finset W)
     (sat : EClass → W → C) (h : ∀ w, w ∉ S → sat Pi w = sat Ψ w) : Pi = Ψ := by sorry
 
+-- In the four tests below satF/satE are the suppliers' unramified Satake
+-- projections and w, w₁, w₂ are places of K above an unramified v of F
+-- (missing: the cubic field K/F and the splitting type of v).
 -- TauCeti.GL2Transfer.cubic_split_test
-example (A : GeneralLinearGroup (Fin 2) K) :
-    (unramifiedBaseChange A 1, unramifiedBaseChange A 1, unramifiedBaseChange A 1) =
-      (A, A, A) := by sorry
+-- Missing: v splits completely in K as w₁, w₂, w₃.
+example (π : FClass) (v : V) (w₁ w₂ w₃ : W)
+    (satF : FClass → V → GeneralLinearGroup (Fin 2) K)
+    (satE : EClass → W → GeneralLinearGroup (Fin 2) K) :
+    (satE (cubicBaseChange FClass EClass π) w₁, satE (cubicBaseChange FClass EClass π) w₂,
+      satE (cubicBaseChange FClass EClass π) w₃) = (satF π v, satF π v, satF π v) := by sorry
 
 -- TauCeti.GL2Transfer.cubic_one_two_test
-example (A : GeneralLinearGroup (Fin 2) ℚ) (hA : A.val = !![2, 0; 0, 3]) :
-    ((unramifiedBaseChange A 1).val, (unramifiedBaseChange A 2).val) =
+-- Missing: v = w₁ w₂ in K with residue degrees 1 and 2.
+example (π : FClass) (v : V) (w₁ w₂ : W)
+    (satF : FClass → V → GeneralLinearGroup (Fin 2) ℚ)
+    (satE : EClass → W → GeneralLinearGroup (Fin 2) ℚ)
+    (hA : (satF π v).val = !![2, 0; 0, 3]) :
+    ((satE (cubicBaseChange FClass EClass π) w₁).val,
+      (satE (cubicBaseChange FClass EClass π) w₂).val) =
       (!![2, 0; 0, 3], !![4, 0; 0, 9]) := by sorry
 
 -- TauCeti.GL2Transfer.cubic_inert_test
-example (A : GeneralLinearGroup (Fin 2) ℚ) (hA : A.val = !![2, 0; 0, 3]) :
-    (unramifiedBaseChange A 3).val = !![8, 0; 0, 27] := by sorry
+-- Missing: v inert in K, w the place above it.
+example (π : FClass) (v : V) (w : W)
+    (satF : FClass → V → GeneralLinearGroup (Fin 2) ℚ)
+    (satE : EClass → W → GeneralLinearGroup (Fin 2) ℚ)
+    (hA : (satF π v).val = !![2, 0; 0, 3]) :
+    (satE (cubicBaseChange FClass EClass π) w).val = !![8, 0; 0, 27] := by sorry
 
 -- TauCeti.GL2Transfer.cubic_not_three_test
-example (A : GeneralLinearGroup (Fin 2) ℚ) (hA : A.val = !![2, 0; 0, 3]) :
-    (unramifiedBaseChange A 1, unramifiedBaseChange A 2) ≠
-      (unramifiedBaseChange A 3, unramifiedBaseChange A 3) := by sorry
+-- Missing: v = w₁ w₂ with residue degrees 1 and 2, as in cubic_one_two_test.
+example (π : FClass) (v : V) (w₁ w₂ : W)
+    (satF : FClass → V → GeneralLinearGroup (Fin 2) ℚ)
+    (satE : EClass → W → GeneralLinearGroup (Fin 2) ℚ)
+    (hA : (satF π v).val = !![2, 0; 0, 3]) :
+    (satE (cubicBaseChange FClass EClass π) w₁, satE (cubicBaseChange FClass EClass π) w₂) ≠
+      (unramifiedBaseChange (satF π v) 3, unramifiedBaseChange (satF π v) 3) := by sorry
 end Cubic
 
 section QuadraticInduction
@@ -357,8 +415,14 @@ example {K : Type*} [Field K] (θ : H) (v : V) (a b : K)
     localRep (quadraticInduction H FClass θ) v = diagonal ![a, b] := by sorry
 
 -- TauCeti.GL2Transfer.induction_determinant_test
-example {K : Type*} [CommRing K] (a b : K) :
-    ( (!![0, a; b, 0] : Matrix (Fin 2) (Fin 2) K)).det = -(a * b) := by sorry
+-- Missing: v inert in K/F, Wv its local Weil group and g ∈ Wv outside the
+-- index-two subgroup; localRep is the supplied local parameter of AI θ. In the
+-- basis {e, g e} the parameter of g is antidiagonal, and its determinant is
+-- -(a * b): the sign is η_{K/F}(g) = -1 of the central-character formula.
+example {K Wv : Type*} [CommRing K] [Group Wv] (θ : H) (v : V) (g : Wv) (a b : K)
+    (localRep : FClass → V → Wv →* GeneralLinearGroup (Fin 2) K)
+    (hg : (localRep (quadraticInduction H FClass θ) v g).val = !![0, a; b, 0]) :
+    ((localRep (quadraticInduction H FClass θ) v g).val).det = -(a * b) := by sorry
 
 -- TauCeti.GL2Transfer.induction_noninvariant_test
 -- Missing: rank-one isobaric classes do not lie in the supplied cuspidal subtype.
@@ -457,9 +521,14 @@ theorem isobaric_fibers (χ₁ χ₂ : H) (pullback : H → H)
     (sumF : H → H → FClass) (sumE : H → H → EClass) :
     cyclicBaseChange FClass EClass (sumF χ₁ χ₂) = sumE (pullback χ₁) (pullback χ₂) := by sorry
 
--- Missing: t₁/t₂ are the composites through two actual subnormal prime-cyclic
--- towers to the same solvable Galois field, not arbitrary class maps.
-theorem tower_independence (t₁ t₂ : FClass → EClass) : t₁ = t₂ := by sorry
+-- Missing: F ⊂ L ⊂ E and F ⊂ M ⊂ E are two prime-cyclic towers inside the same
+-- solvable Galois E/F, and LClass/MClass are the isobaric classes over L and M.
+-- Both composites equal the tower-free solvableBaseChange.
+theorem tower_independence {LClass MClass : Type*} (π : FClass) :
+    cyclicBaseChange LClass EClass (cyclicBaseChange FClass LClass π) =
+        solvableBaseChange FClass EClass π ∧
+      cyclicBaseChange MClass EClass (cyclicBaseChange FClass MClass π) =
+        solvableBaseChange FClass EClass π := by sorry
 
 -- Missing: at every prime-cyclic step a Galois-invariant automorphic descent
 -- has been chosen, with compatible character/localRep data. Global Galois descent
@@ -484,15 +553,9 @@ theorem cubic_character_induction {GL3Class : Type*} (θ : H)
 theorem gl3_recognition {GL3Class : Type*} (Pi Ψ : GL3Class) (S : Finset V)
     (localRep : GL3Class → V → C) (h : ∀ v, v ∉ S → localRep Pi v = localRep Ψ v) : Pi = Ψ := by sorry
 
--- The concrete determinant-plus-restriction recognition used by Carayol.
--- Missing: G=W_F, H the chosen degree-three Sylow-2 preimage, ρ primitive
--- tetrahedral/octahedral and σ irreducible; not an arbitrary subgroup criterion.
-theorem extraordinary_cubic_compatibility {G H : Type*} [Group G] [Group H]
-    (i : H →* G) (ρ σ : G →* GeneralLinearGroup (Fin 2) ℂ)
-    (hdet : GeneralLinearGroup.det.comp ρ = GeneralLinearGroup.det.comp σ)
-    (P : GeneralLinearGroup (Fin 2) ℂ)
-    (hres : ∀ h, ρ (i h) = P * σ (i h) * P⁻¹) :
-    ∃ Q : GeneralLinearGroup (Fin 2) ℂ, ∀ g, ρ g = Q * σ g * Q⁻¹ := by sorry
+-- Carayol's extraordinary dyadic comparison (his §12.2.2 Proposition) is planned in
+-- AutomorphicGaloisRepresentations R19.2 (R19.2/carayol-cubic-base-change-of-extraordinary),
+-- which imports the cubic transfer and Artin automorphy from here; it is not restated.
 end BCTheorems
 
 section ArithmeticLifting
@@ -504,20 +567,27 @@ variable {G I T : Type*} [Group G] [Group I] [Group T]
 theorem finite_hecke_extension (i : T →* I) (ω : T →* ℂˣ) :
     ∃ χ : I →* ℂˣ, Set.Finite (Set.range χ) ∧ χ.comp i = ω := by sorry
 
--- AddCircle 1 over Q is the existing additive Q/Z quotient. Missing: G=G_F,
--- discrete trivial coefficients and continuous cochains. The equation displays
--- exactly the trivial-action obstruction that must vanish, without a fake H² type.
-theorem tate_vanishing (α : G → G → AddCircle (1 : ℚ))
+-- AddCircle 1 over Q is the existing additive Q/Z quotient, with trivial action.
+-- Q/Z is discrete, so continuous cochains on the Krull-topologized G_F are the
+-- locally constant ones. The equation displays exactly the trivial-action
+-- 2-cocycle condition, without a fake H² type. Generic groups fail this.
+theorem tate_vanishing (F : Type*) [Field F] [NumberField F]
+    (α : Field.absoluteGaloisGroup F → Field.absoluteGaloisGroup F → AddCircle (1 : ℚ))
+    (hcont : IsLocallyConstant
+      (fun p : Field.absoluteGaloisGroup F × Field.absoluteGaloisGroup F => α p.1 p.2))
     (hα : ∀ g h k, α g h + α (g * h) k = α g (h * k) + α h k) :
-    ∃ b : G → AddCircle (1 : ℚ), ∀ g h, α g h = b g + b h - b (g * h) := by sorry
+    ∃ b : Field.absoluteGaloisGroup F → AddCircle (1 : ℚ),
+      IsLocallyConstant b ∧ ∀ g h, α g h = b g + b h - b (g * h) := by sorry
 
--- Missing: G is the canonical absolute Galois group of a number field and r
--- continuous; the output must be continuous too. Generic groups do not have
+-- r is continuous with discrete finite image, i.e. its kernel is open in the
+-- Krull topology; the lift has the same property. Generic groups do not have
 -- this lifting property. The matrix/projective carriers are already in Mathlib.
-theorem finite_projective_lift (r : G →* ProjGenLinGroup (Fin 2) ℂ)
-    (hr : Set.Finite (Set.range r)) :
-    ∃ ρ : G →* GeneralLinearGroup (Fin 2) ℂ,
-      Set.Finite (Set.range ρ) ∧ ProjGenLinGroup.mk.comp ρ = r := by sorry
+theorem finite_projective_lift (F : Type*) [Field F] [NumberField F]
+    (r : Field.absoluteGaloisGroup F →* ProjGenLinGroup (Fin 2) ℂ)
+    (hr : IsOpen (r.ker : Set (Field.absoluteGaloisGroup F))) :
+    ∃ ρ : Field.absoluteGaloisGroup F →* GeneralLinearGroup (Fin 2) ℂ,
+      IsOpen (ρ.ker : Set (Field.absoluteGaloisGroup F)) ∧ Set.Finite (Set.range ρ) ∧
+        ProjGenLinGroup.mk.comp ρ = r := by sorry
 
 -- Missing: F totally real, p>2, continuous absolutely irreducible solvable r̄;
 -- O is an adequate cyclotomic integral coefficient ring after finite extension,
@@ -587,6 +657,53 @@ theorem residual_lt_application {k Witness : Type*} [Field k]
     ∃ w : Witness, realize w = r := by sorry
 end WeightOne
 
+/-! Nodes added by the review (REV-GL2AutomorphicRepresentationsAndTransfer--R17.3):
+Tunnell's globalisation, Carayol's prescribed-local induction and the octahedral mod-3
+application. The local Weil groups, Hecke characters and weight-one forms are the
+suppliers' carriers, passed as parameters as elsewhere in this file. -/
+section AddedByReview
+
+-- Missing: K a p-adic field, W_K its Weil group, σ continuous; Glob indexes pairs
+-- (F, v) with F a number field and F_v ≅ K, W g the Weil group of F and emb g the
+-- decomposition embedding at v. Type preservation and the Q₂/S₄ oddness clause of
+-- Tunnell's Theorem 1.3 are in the packet.
+theorem tunnell_primitive_globalization {WK Glob : Type*} [Group WK]
+    (W : Glob → Type*) [∀ g, Group (W g)] (emb : ∀ g, WK →* W g)
+    (σ : WK →* GeneralLinearGroup (Fin 2) ℂ) :
+    ∃ g : Glob, ∃ ρ : W g →* GeneralLinearGroup (Fin 2) ℂ,
+      ∃ P : GeneralLinearGroup (Fin 2) ℂ, ∀ x, ρ (emb g x) = P * σ x * P⁻¹ := by sorry
+
+-- Missing: F totally real, L/F the CM quadratic extension with conditions (a)–(c) of
+-- Carayol 11.2, H the Hecke quasi-characters of L, component θ 𝔭 the 𝔭-component,
+-- weil the local Weil representation and localRep the supplier's local component.
+theorem prescribed_local_induction {H FClass V C Loc : Type*} (𝔭 : V) (ξ𝔭 : C)
+    (component : H → V → C) (localRep : FClass → V → Loc) (weil : C → Loc) :
+    ∃ θ : H, component θ 𝔭 = ξ𝔭 ∧
+      localRep (quadraticInduction H FClass θ) 𝔭 = weil ξ𝔭 := by sorry
+
+/-- Reduction modulo λ = (1 + √−2): ℤ[√−2] → F₃, sending √−2 to −1. -/
+def redSqrtNegTwo : ℤ√(-2) →+* ZMod 3 := Zsqrtd.lift ⟨-1, by decide⟩
+
+/-- The section used by the octahedral mod-3 application (Darmon–Diamond–Taylor,
+Theorem 3.14(a)): an injective homomorphism GL₂(F₃) → GL₂(ℤ[√−2]) reducing to the
+identity modulo (1 + √−2). The packet gives explicit generators; it is a true statement
+at the pinned Mathlib. -/
+theorem gl2F3_section :
+    ∃ s : GeneralLinearGroup (Fin 2) (ZMod 3) →* GeneralLinearGroup (Fin 2) (ℤ√(-2)),
+      Function.Injective s ∧
+        (GeneralLinearGroup.map redSqrtNegTwo).comp s = MonoidHom.id _ := by sorry
+
+-- Missing: G = G_Q, ρbar continuous and absolutely irreducible, c complex conjugation;
+-- Form is the normalized weight-one newform carrier and residual f its reduction at λ.
+-- The proof applies solvable_artin and q_weight_one to s ∘ ρbar, with s from gl2F3_section.
+theorem octahedral_mod_three_application {G Form : Type*} [Group G]
+    (ρbar : G →* GeneralLinearGroup (Fin 2) (ZMod 3)) (c : G)
+    (hodd : GeneralLinearGroup.det (ρbar c) = -1) (weight : Form → ℕ)
+    (residual : Form → G →* GeneralLinearGroup (Fin 2) (ZMod 3)) :
+    ∃ f : Form, weight f = 1 ∧ residual f = ρbar := by sorry
+
+end AddedByReview
+
 section CharacteristicTwo
 variable {G : Type*} [Group G] {k : Type*} [Field k] [CharP k 2]
 
@@ -606,10 +723,16 @@ theorem solvable_dihedral (r : G →* GeneralLinearGroup (Fin 2) k)
     (hfinite : Set.Finite (Set.range r)) :
     ∃ H : Subgroup G, H.index = 2 ∧ ∃ θ : H →* kˣ, Set.Finite (Set.range θ) := by sorry
 
--- Missing: the actual induced Teichmüller lift, its quadratic field K and the
--- conductor maps. The equality retains both the discriminant and norm factor.
-theorem teichmuller_conductor (D conductorNorm N ν : ℕ) :
-    D * conductorNorm = 2 ^ ν * N := by sorry
+-- Missing: r̄₀ = Ind φ, its Teichmüller lift φ̃, D = disc K, normF = N_{K/Q} f(φ̃) and
+-- N = N(r̄₀); hcond is the conductor formula |D|·N f(φ̃) = 2^ν N proved in the packet.
+-- hfund is the 2-adic shape of a fundamental discriminant. Given these, the four
+-- dyadic cases of Rohrlich–Tunnell §2 fix ν (case (ii) is printed "D ≡ ±5 (mod 8)",
+-- and ν = 3 belongs to case (iv), not (iii): sourceIssues E1).
+theorem teichmuller_conductor (D : ℤ) (normF N ν : ℕ) (hN : Odd N)
+    (hfund : D % 4 = 1 ∨ D % 16 = 8 ∨ D % 16 = 12)
+    (hcond : D.natAbs * normF = 2 ^ ν * N) :
+    (Odd D → Odd normF → ν = 0) ∧ (D % 8 = 5 → normF % 8 = 4 → ν = 2) ∧
+      (D % 8 = 4 → Odd normF → ν = 2) ∧ (D % 8 = 0 → Odd normF → ν = 3) := by sorry
 
 -- All arithmetic conditions in the source technical lemma are visible here.
 -- Missing: Form's actual primitive/classical carrier, q-expansion, character,
@@ -639,8 +762,8 @@ theorem serre_odd_trick {H : Type*} [Group H] (θ : H →* ℂˣ) (c : H)
 -- discriminant, N the prime-to-two Artin conductor and ν its actual dyadic case.
 -- The discriminant restriction cannot be dropped or extended to D≡4 mod8.
 theorem rohrlich_tunnell {Form C : Type*} [Monoid C]
-    (r : G →* GeneralLinearGroup (Fin 2) k) (D N ν : ℕ)
-    (hD : D % 2 = 1 ∨ 8 ∣ D) (hN : N % 2 = 1)
+    (r : G →* GeneralLinearGroup (Fin 2) k) (D : ℤ) (N ν : ℕ)
+    (hD : Odd D ∨ 8 ∣ D) (hN : Odd N)
     (weight level : Form → ℕ) (character : Form → C)
     (residual : Form → G →* GeneralLinearGroup (Fin 2) k) :
     ∃ f : Form, level f = N ∧ character f = 1 ∧
@@ -678,21 +801,28 @@ end CharacteristicTwo
 section TransferExports
 variable {G H V W FClass EClass Λ K : Type*} [Group G] [Group H] [Field K]
 
--- Missing G=G_F, H=G_E, i restriction and E linearly disjoint from the finite
--- projective-kernel field. Equality of projective ranges is the criterion that
--- gives residual absolute irreducibility, imported from R01.4.
+-- Missing the Galois specialization: G=G_F, H=G_E, i the restriction. Linear
+-- disjointness of E from the projective-kernel field M is exactly what gives
+-- hdisj (G_E surjects onto Gal(M/F)). Equality of projective ranges is the
+-- criterion that gives residual absolute irreducibility, imported from R01.4.
 theorem disjoint_irreducibility (i : H →* G)
-    (r : G →* GeneralLinearGroup (Fin 2) K) :
+    (r : G →* GeneralLinearGroup (Fin 2) K)
+    (hdisj : i.range ⊔ (ProjGenLinGroup.mk.comp r).ker = ⊤) :
     Set.range (ProjGenLinGroup.mk.comp (r.comp i)) = Set.range (ProjGenLinGroup.mk.comp r) := by sorry
 
--- Missing quadratic K/F, E/F and the supplied inducing character θ. H is G_EK;
--- E does not contain K. This is the character-distinctness half of the imported
--- Mackey criterion; the containing-K reducible branch remains in the packet.
-theorem quadratic_restriction {J : Type*} [Group J]
-    (i : H →* J) (θ θσ : J →* Kˣ)
-    (hinduced : H →* GeneralLinearGroup (Fin 2) K) :
-    θ.comp i ≠ θσ.comp i →
-      ∃ g : H, θ (i g) ≠ θσ (i g) := by sorry
+-- The index-two Mackey criterion on Mathlib's induced representation, over any
+-- field (characteristic two included). Missing only the Galois specialization:
+-- Γ = G_F, Kgp = G_K for the quadratic K/F and E = G_E for a finite E/F. σθ is the
+-- one-dimensional representation of θ. In characteristic zero and for finite Γ,
+-- TauCeti.simple_indFDRep_ofLinearCharacter_iff is the pinned unrestricted case.
+-- Restricted to E, Ind θ is irreducible exactly when E ⊄ Kgp and θ differs from
+-- its conjugate on E ∩ Kgp; when E ≤ Kgp it is the sum of two characters.
+theorem quadratic_restriction {Γ k : Type*} [Group Γ] [Field k] (Kgp E : Subgroup Γ)
+    [Kgp.Normal] (hK : Kgp.index = 2) (θ : Kgp →* kˣ) (σθ : Representation k Kgp k)
+    (hσθ : ∀ x, σθ x = (θ x : k) • LinearMap.id) :
+    Representation.IsIrreducible ((Representation.ind Kgp.subtype σθ).comp E.subtype) ↔
+      ∃ s ∈ E, s ∉ Kgp ∧ ∃ x : Kgp, (x : Γ) ∈ E ∧ θ x ≠ θ (MulAut.conjNormal s x) := by
+  sorry
 
 -- Missing the actual compatible-family polynomial projection and λ-independent
 -- coefficient field; this explicit formula compares each restricted Frobenius.
