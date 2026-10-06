@@ -17,6 +17,8 @@ these admitted signatures does not establish those geometric conditions.
 -/
 import Mathlib.Algebra.Homology.DerivedCategory.HomologySequence
 import Mathlib.Algebra.Homology.ShortComplex.ShortExact
+import Mathlib.Algebra.Homology.Linear
+import Mathlib.Algebra.Homology.ShortComplex.Linear
 import Mathlib.Algebra.Category.ModuleCat.Abelian
 import Mathlib.CategoryTheory.Sites.Sheaf
 import Mathlib.CategoryTheory.Limits.Shapes.Biproducts
@@ -56,6 +58,23 @@ def BCcomplex (K : CochainComplex C ℤ) : C := K.homology (0 : ℤ)
 namespace BC
 /-- The whole homology functor supplies both identity and composition. -/
 def map : C ⥤ C := RGamma ⋙ HomologicalComplex.homologyFunctor C (.up ℤ) 0
+/-- E-module structure: with the coefficient field acting linearly on the owner
+category (E-module v-sheaves) and on derived sections, `map` is additive and
+linear. The E-module v-sheaf structure itself is the owner category's. -/
+theorem module (K : Type w) [Field K] [Linear K C] [RGamma.Additive]
+    [RGamma.Linear K] : ∃ _ : (map RGamma).Additive, (map RGamma).Linear K := by sorry
+/-- Exact sequence: `s` is the short exact sequence of derived-section complexes
+of 0→E′→E→E″→0 (producing it from the bundle sequence is the omitted
+derived-section interface). Degree-zero and degree-one cohomology then form
+BC(E′)→BC(E)→BC(E″)→H¹(E′)→H¹(E), exact at the three middle places. -/
+theorem exactSequence (s : ShortComplex (CochainComplex C ℤ)) (hs : s.ShortExact) :
+    (ShortComplex.mk (HomologicalComplex.homologyMap s.f 0)
+      (HomologicalComplex.homologyMap s.g 0) (by
+        rw [← HomologicalComplex.homologyMap_comp, s.zero,
+          HomologicalComplex.homologyMap_zero])).Exact ∧
+    (ShortComplex.mk _ _ (hs.comp_δ 0 1 (by simp))).Exact ∧
+    (ShortComplex.mk _ _ (hs.δ_comp 0 1 (by simp))).Exact :=
+  ⟨hs.homology_exact₂ 0, hs.homology_exact₃ 0 1 (by simp), hs.homology_exact₁ 0 1 (by simp)⟩
 /-- Restriction comparison as a *natural isomorphism*, not an untyped predicate.
 Construction requires the missing relative derived-section base-change theorem. -/
 def baseChange {D : Type u} [Category.{v} D] [Abelian D]
@@ -256,6 +275,10 @@ end BCHNInvariantsTest
 def PointwiseAmple {X : Type u} (slopes : X → List ℚ) : Prop :=
   ∀ x, ∀ a ∈ slopes x, 0 < a
 namespace PointwiseAmple
+/-- Openness of the pointwise-ample locus (KL Theorem 7.4.5). `slopes` is the
+fibre slope profile of a bundle; the semicontinuity input is omitted. -/
+theorem isOpen {X : Type u} [TopologicalSpace X] (slopes : X → List ℚ) :
+    IsOpen {x | ∀ a ∈ slopes x, 0 < a} := by sorry
 theorem pullback {X Y : Type u} (slopes : X → List ℚ) (f : Y → X)
     (h : PointwiseAmple slopes) : PointwiseAmple (slopes ∘ f) := by sorry
 /-- Tensor slopes are the pairwise sums, with multiplicities. -/
@@ -945,8 +968,15 @@ API BC: The v-sheaf T↦H⁰(X_T,E_T).
 API BCneg: For universally negative slopes, T↦H¹(X_T,E_T).
 API BCcomplex: Degree-zero hypercohomology of [E₁→E₀] in degrees −1,0, with universal
 H⁰(E₁) vanishing.
+API BC.module: BC(E), BCneg(E) and BCcomplex are sheaves of E-modules on Perf_S, E
+acting through O_{X_T}, and BC.map is E-linear. This scalar action is the one
+BCProjectivization divides out.
 API BC.map: A bundle or complex map induces the corresponding E-linear map of v-sheaves;
 identity and composition are preserved.
+API BC.exactSequence: A short exact sequence 0→E′→E→E″→0 of bundles gives an exact
+sequence of E-module v-sheaves 0→BC(E′)→BC(E)→BC(E″)→H¹(E′)→H¹(E)→H¹(E″)→0 (Prop. II.2.1
+and the two-term complex); for [E₁→E₀] with E₁ universally negative it gives
+0→BC(E₀)→BCcomplex→BCneg(E₁)→H¹(E₀).
 API BC.baseChange: For U→S, restriction of BCcomplex on Perf_U is BCcomplex of the
 pulled-back complex.
 API BC.directSum: BCcomplex(K⊕L)≅BCcomplex(K)⊕BCcomplex(L) in the abelian category of
@@ -1014,13 +1044,16 @@ absolute spatiality nor perfectoid representability is asserted.
 
 VectorBundlesAndIsocrystals:VB3:general-BC/absolute-BC-spatiality
 Declaration: AbsoluteBcSpatiality
-Contract: Over the absolute base Perf_k, k=bar F_q, a nonzero pure NEGATIVE isocrystal D
-yields the punctured positive space BC(E(D))\{0}, which is spatial; a nonzero pure
-POSITIVE isocrystal yields the punctured negative space BCneg(E(D))\{0}, also spatial.
-Both are cohomologically smooth, and their E×-quotients are proper and representable in
-spatial diamonds. Bundle slopes reverse isocrystal slopes. Relative representability in
-spatial diamonds does not assert that every total quotient over the nonspatial absolute
-base is spatial.
+Contract: Work on Perf_k, k = algebraic closure of F_q (the absolute base). Let D be a
+nonzero isocrystal with only negative slopes (resp. only positive slopes); the bundle
+functor reverses slopes, so E(D) has only positive (resp. only negative) HN slopes. (i)
+The punctured Banach–Colmez space BC(D)∖{0} (resp. BC(D[1])∖{0}) is a spatial DIAMOND.
+(ii) The quotient (BC(D)∖{0})/E^× → ∗ (resp. (BC(D[1])∖{0})/E^× → ∗) is proper,
+representable in spatial diamonds and cohomologically smooth. The punctured spaces are
+open in the cohomologically smooth BC(D) (resp. BC(D[1])) and so are cohomologically
+smooth over ∗. Relative representability in spatial diamonds does not assert that every
+total quotient over the non-spatial absolute base is spatial: (BC(O(d))∖{0})/π^Z is not
+quasiseparated (FS Remark II.3.10).
 
 VectorBundlesAndIsocrystals:VB4/semicontinuity-of-HN-polygon
 Declaration: SemicontinuityOfHnPolygon
@@ -1049,11 +1082,16 @@ handled componentwise. Total degree zero alone does not suffice.
 
 VectorBundlesAndIsocrystals:VB3:general-BC/strict-positive-etale-presentations
 Declaration: StrictPositiveEtalePresentations
-Contract: If all slopes of E are >1/r, étale locally 0→G→O(1/r)^m→E→0 with G of slope
-zero. If slopes are ≥1/r, analytically locally 0→O(1/(2r))^m→F→E′→0 with F of slope 1/r
-and E a direct summand of E′. If slopes are >1/r, étale locally 0→G→O(1/r)^m→E′→0 with G
-of slope 1/(2r) and E a direct summand of E′. The last two claims retain E′. In the
-first exact sequence degree forces m=deg(E), since deg O(1/r)=1.
+Contract: Let S∈Perf_Fq, E a bundle on X_S and r≥1. (a) If all HN slopes of E at all
+geometric points are >1/r, then étale locally on S, for some m≥0, there is
+0→G→O(1/r)^m→E→0 with G fibrewise SEMISTABLE of slope 0 (FS II.3.2, II.3.3(iii)). (b) If
+all slopes are ≥1/r, then locally on S there is 0→O(1/(2r))^m→F→E′→0 with F fibrewise
+semistable of slope 1/r and E a direct summand of E′ (II.3.3(ii)). (c) If all slopes are
+>1/r, then étale locally on S there is 0→G→O(1/r)^m→E′→0 with G fibrewise semistable of
+slope 1/(2r) and E a direct summand of E′ (II.3.3(iv)). Claims (b) and (c) retain E′. On
+a component where E has constant degree d, the sequence in (a) forces m=d, since O(1/r)
+has rank r and degree 1 (FS print m=dr, E29). Fibrewise semistability, not merely degree
+zero, is what the subsequent separatedness and pro-étale trivialization arguments use.
 
 VectorBundlesAndIsocrystals:VB4/relative-cohomology-vanishing
 Declaration: RelativeCohomologyVanishing
@@ -1065,33 +1103,39 @@ assertion is local vanishing of cohomology, not vanishing on every original S.
 
 VectorBundlesAndIsocrystals:VB3:general-BC/divisor-section-comparison
 Declaration: DivisorSectionComparison
-Contract: For d≥1, the already owned absolute divisor v-sheaf Div^d is (BC(O(d)) minus
-zero)/E×. It is proper, representable in spatial diamonds and cohomologically smooth.
-The map (Div¹)^d→Div^d is a quasi-pro-étale Σ_d-cover, hence Div^d=(Div¹)^d/Σ_d in
-v-sheaves, with its spatial-diamond descent proved by the generic spatiality criteria.
+Contract: For d≥1, the already owned absolute divisor v-sheaf Div^d of degree-d relative
+Cartier divisors is (BC(O(d))∖{0})/E^×. It is proper over ∗, representable in spatial
+diamonds and cohomologically smooth. The sum map (Div¹)^d→Div^d is a quasi-pro-étale
+cover identifying Div^d=(Div¹)^d/Σ_d as v-sheaves; in particular Div^d is a diamond (ECD
+Propositions 11.4, 11.6).
 
 VectorBundlesAndIsocrystals:VB3:general-BC/punctured-absolute-quotients
 Declaration: PuncturedAbsoluteQuotients
-Contract: For d≥1, punctured BC(O(d)) is spatial. Its quotient by π^Z is not
-quasiseparated and therefore not spatial, although the punctured scalar quotient
-BC(O(d))/E×→Div^d is representable in spatial diamonds and proper. In equal
-characteristic positive punctured BC spaces from pure negative isocrystals are
-perfectoid; negative ones from pure positive isocrystals are generally diamonds. In
-mixed characteristic BC(O(−1)[1]) is not perfectoid.
+Contract: Over Perf_k, for d≥1 the punctured absolute BC(O(d))∖{0} is a spatial diamond.
+Its quotient (BC(O(d))∖{0})/π^Z is not quasiseparated and therefore not spatial; the
+good object is the morphism (BC(O(d))∖{0})/π^Z → ∗, which is representable in spatial
+diamonds, while (BC(O(d))∖{0})/E^× = Div^d → ∗ is proper and representable in spatial
+diamonds. In equal characteristic the punctured positive absolute BC spaces (from pure
+negative isocrystals) are perfectoid spaces, whereas the punctured negative ones (from
+pure positive isocrystals) are only spatial diamonds. If E is p-adic, BC(O_{X_C}(−1)[1])
+is not a perfectoid space (proof of FS Lemma II.2.15); in equal characteristic FS leave
+this open (footnote 5).
 
 VectorBundlesAndIsocrystals:VB3:general-BC/negative-quaternion-example
 Declaration: NegativeQuaternionExample
-Contract: For C/k algebraically closed and a chosen untilt C♯/E, punctured BC(O(−1)[1])
-identifies with punctured BC(O(1/2)) modulo the reduced-norm-one group SL₁(D), D the
-quaternion division algebra of invariant 1/2. Its base change to C♯ admits the
-description (Ω_{C♯})^diamond/E, where Ω=P¹_E minus P¹(E); the full sheaf is
-(A¹_{C♯})^diamond/E. The latter description uses the untilt and is not an identification
-with a perfectoid quotient space.
+Contract: Over Perf_k, the absolute punctured BC(O(−1)[1])∖{0} classifies extensions
+0→O(−1)→E→O→0 that are non-split fiberwise; geometrically E≅O(−1/2). It identifies with
+(BC(O(1/2))∖{0})/SL₁(D), where D is the quaternion division algebra over E (invariant
+1/2) and SL₁(D) its reduced-norm-one group. After base change to Spa C with a chosen
+untilt C♯/E, BC(O(−1)[1])×_k Spa C≅(A¹_{C♯})^♢/E and the punctured space becomes
+(Ω_{C♯})^♢/E with Ω = A¹_E∖E = P¹_E∖P¹(E). The latter description uses the untilt and is
+not an identification with a perfectoid quotient space.
 
 VectorBundlesAndIsocrystals:VB3:general-BC/negative-sl2-example
 Declaration: NegativeSl2Example
-Contract: Punctured BC(O(−2)[1])≅U/SL₂(E), where U⊂BC(O(1))² is the open locus of pairs
-of sections that are E-linearly independent. The corresponding extension
+Contract: Over Perf_k, the absolute punctured BC(O(−2)[1])∖{0}≅U/SL₂(E), where
+U⊂(BC(O(1))∖{0})² is the open locus of pairs of sections that are fiberwise nonzero and
+E-linearly independent, U=(BC(O(1))∖{0})²∖(E^××1).Δ. The corresponding extension
 0→O(−1)→O²→O(1)→0 is specified by a surjection and its determinant trivialization;
 changing the determinant-preserving basis gives SL₂(E), not GL₂(E).
 
@@ -1109,29 +1153,28 @@ p^{−h}.
 VectorBundlesAndIsocrystals:VB4/pure-models
 Declaration: PureModel
 Contract: Let c, d ∈ ℤ with d a positive multiple of a. A (c,d)-pure model of a
-φ^a-module M over ℰ̃_R (resp. ℛ̃^bd_R, ℛ̃_R) Let c, d ∈ ℤ with d a positive multiple of
-a. A (c,d)-pure model of a φ^a-module M over ℰ̃_R (resp. ℛ̃^bd_R, ℛ̃_R) is a
-W(R)-submodule (resp. ℛ̃^int_R-submodule) M_0 of M which is bounded (there is a finitely
-generated submodule N_0 over the same subring with p^n M_0 ⊆ N_0 and p^n N_0 ⊆ M_0 for
-some n ≥ 0) such that the natural map M_0 ⊗_{W(R)} ℰ̃_R → M (resp. M_0 ⊗_{ℛ̃^int_R}
-ℛ̃^bd_R → M, M_0 ⊗_{ℛ̃^int_R} ℛ̃_R → M) is an isomorphism and the φ^a-action on M
-induces an isomorphism (p^cφ^d)^*M_0 ≅ M_0 (only stability of M_0[p^{−1}] under φ^d, not
-φ^a, is assumed; Remark 7.3.2). Its existence makes M pointwise pure of constant slope
-c/d; a (0,d)-pure model is an étale model; a pure model is (locally) free if its
-underlying module is finite (locally) free, and a finitely presented pure model is
-locally free. A (locally free, free) local (c,d)-pure model at β ∈ ℳ(R) is a rational
-localization R → R′ encircling β together with a (locally free, free) (c,d)-pure model
-of the base extension of M to R′. M has a locally free local pure model at β iff it has
-a free one, and over ℛ̃^bd_R this can be tested over ℰ̃_R (Lemma 7.3.3). M is pure of
-slope s at β if it has a locally free local (c,d)-pure model at β with c/d = s (forcing
-s = μ(M, β) when rank(M, β) > 0; every slope when the rank is 0), pure if it is pure at
-every β (finitely many local models then cover ℳ(R)), étale = pure of slope 0, and
-globally pure if it has a locally free pure model. For the conditions (a) globally pure,
-(b) admits a pure model, (c) pure, (d) admits local pure models, (e) pointwise pure:
-over ℰ̃_R and ℛ̃^bd_R, (a) strictly implies (b) and (b)–(e) are equivalent; over ℛ̃_R,
-(a) strictly implies (b), (b) strictly implies (c), and (c)–(e) are equivalent (by
-Corollaries 7.3.9 and 8.5.14 and Examples 8.5.17 (Tate curve) and 8.5.18 (banana)).
-Purity of a φ^a-module over ℛ̃^bd_R cannot be read off from its base extension to ℛ̃_R.
+φ^a-module M over ℰ̃_R (resp. ℛ̃^bd_R, ℛ̃_R) is a W(R)-submodule (resp. ℛ̃^int_R-
+submodule) M_0 of M which is bounded (there is a finitely generated submodule N_0 over
+the same subring with p^n M_0 ⊆ N_0 and p^n N_0 ⊆ M_0 for some n ≥ 0) such that the
+natural map M_0 ⊗_{W(R)} ℰ̃_R → M (resp. M_0 ⊗_{ℛ̃^int_R} ℛ̃^bd_R → M, M_0 ⊗_{ℛ̃^int_R}
+ℛ̃_R → M) is an isomorphism and the φ^a-action on M induces an isomorphism (p^cφ^d)^*M_0
+≅ M_0 (only stability of M_0[p^{−1}] under φ^d, not φ^a, is assumed; Remark 7.3.2). Its
+existence makes M pointwise pure of constant slope c/d; a (0,d)-pure model is an étale
+model; a pure model is (locally) free if its underlying module is finite (locally) free,
+and a finitely presented pure model is locally free. A (locally free, free) local
+(c,d)-pure model at β ∈ ℳ(R) is a rational localization R → R′ encircling β together
+with a (locally free, free) (c,d)-pure model of the base extension of M to R′. M has a
+locally free local pure model at β iff it has a free one, and over ℛ̃^bd_R this can be
+tested over ℰ̃_R (Lemma 7.3.3). M is pure of slope s at β if it has a locally free local
+(c,d)-pure model at β with c/d = s (forcing s = μ(M, β) when rank(M, β) > 0; every slope
+when the rank is 0), pure if it is pure at every β (finitely many local models then
+cover ℳ(R)), étale = pure of slope 0, and globally pure if it has a locally free pure
+model. For the conditions (a) globally pure, (b) admits a pure model, (c) pure, (d)
+admits local pure models, (e) pointwise pure: over ℰ̃_R and ℛ̃^bd_R, (a) strictly
+implies (b) and (b)–(e) are equivalent; over ℛ̃_R, (a) strictly implies (b), (b)
+strictly implies (c), and (c)–(e) are equivalent (by Corollaries 7.3.9 and 8.5.14 and
+Examples 8.5.17 (Tate curve) and 8.5.18 (banana)). Purity of a φ^a-module over ℛ̃^bd_R
+cannot be read off from its base extension to ℛ̃_R.
 API PureModel: A bounded integral submodule generating the ambient Frobenius module,
 with p^cφ^d linearization invertible.
 API PureModel.lattice: The integral lattice is a Submodule of the restricted-scalars
@@ -1300,6 +1343,8 @@ are positive; by Theorem 7.4.5 this is an open condition on ℳ(R). F is pointwi
 if it is pointwise ample at every β.
 API PointwiseAmple: At β the predicate that all slopes of the fibre polygon are strictly
 positive.
+API PointwiseAmple.isOpen: The set of β∈ℳ(R) at which F is pointwise ample is open (KL
+Theorem 7.4.5), and so is its preimage in Spa(R,R⁺) under the retraction.
 API PointwiseAmple.pullback: The predicate is preserved under residue-field extension
 and perfectoid pullback.
 API PointwiseAmple.tensor: Tensor products of positive fibres are positive, with slopes
