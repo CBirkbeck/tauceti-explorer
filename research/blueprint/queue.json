@@ -21688,8 +21688,9 @@
    ],
    "avoidAccountOf": "BP-AlgebraicModularFormsAndSerreWeights",
    "prompt": "research/blueprint/prompts/REV-AlgebraicModularFormsAndSerreWeights.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #345"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #345",
+   "finishedAt": "2026-10-06T08:25:06Z"
   },
   {
    "id": "BP-AlgebraicModuliForArithmeticGeometry--A0-extension",
@@ -25517,11 +25518,11 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-GrossZagierAndArithmeticHeights--GZ.8.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "released on GitHub issue #745"
+   "note": "claimed on GitHub issue #745"
   },
   {
    "id": "REV-GrossZagierAndArithmeticHeights--GZ.8",
@@ -29428,12 +29429,12 @@
     "REV-RS-17"
    ],
    "prompt": "research/blueprint/prompts/BP-WeilConjectures--WC.0.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-FoundationsAndLibraryIntegration",
     "BP-SchemeAndStackFoundations"
    ],
-   "note": "released on GitHub issue #1005"
+   "note": "claimed on GitHub issue #1005"
   },
   {
    "id": "REV-WeilConjectures--WC.0",
@@ -36475,7 +36476,8 @@
     "REV-HabiroCyclotomicCompletions--HC.6"
    ],
    "prompt": "research/blueprint/prompts/ASM-HabiroCyclotomicCompletions.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6419"
   },
   {
    "id": "ASM-SchemeAndStackFoundations",
