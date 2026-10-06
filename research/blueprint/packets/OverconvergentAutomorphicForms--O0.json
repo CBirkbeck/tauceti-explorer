@@ -13,7 +13,7 @@
     "OverconvergentAutomorphicForms:O7"
   ],
   "status": "complete",
-  "summary": "Completed target-level planning pass for O0–O7: Hilbert weights and finite/induced vector coefficients; actual cocycle sheaves; admitted anticanonical domains and integral lattices; four distinct arithmetic presentations with pairing and polarisation comparisons; independently constructed AIP coefficients; boundary/cusp and normalized Hecke theory with a finite-level cusp Banach controlling operator; ordered ordinary Igusa completion and coefficient comparisons. Ding Proposition4.14 is a separate unitary application with an explicit Jacquet owner gap. Every stage is planned; supplier requests and prototype/type gaps remain open, so this packet is not closed and claims no formalisation.",
+  "summary": "Independent review of the completed target-level O0–O7 planning pass: all 73 nodes, all 38 pinned baseline declarations, exact supplier contracts, APIs, tests, planets and source issues were checked. Corrected the left/right cocycle conversion, radius acceptance, analytic induction conventions, source locators, formal-unit descent and integral proof circularity. The review needs changes: full finite-character integral AIP local freeness/comparison and exact formal-Igusa-to-analytic-O+ identification remain unverified. The pass is complete, stages remain planned with explicit gaps and requests, and nothing is claimed formalised.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -23,266 +23,266 @@
         "kind": "instance",
         "module": "Mathlib/RingTheory/TensorProduct/Basic.lean",
         "provides": "The A-algebra structure on A ⊗[R] B from the left factor.",
-        "checked": "Declaration statement and surrounding hypotheses read in its source at the pinned commit during the 2026-10-06 pass; the declaration index was used only to locate it."
+        "checked": "Independently confirmed by REV-OverconvergentAutomorphicForms--O0 (2026-10-06): declaration and surrounding hypotheses read at the exact baseline commit; its statement supplies the stated algebraic/topological input, not an analytic or adic enhancement."
       },
       {
         "ref": "mathlib:Algebra.norm",
         "kind": "def",
         "module": "Mathlib/RingTheory/Norm/Defs.lean",
         "provides": "The norm of a finite free algebra: determinant of left multiplication.",
-        "checked": "Declaration statement and surrounding hypotheses read in its source at the pinned commit during the 2026-10-06 pass; the declaration index was used only to locate it."
+        "checked": "Independently confirmed by REV-OverconvergentAutomorphicForms--O0 (2026-10-06): declaration and surrounding hypotheses read at the exact baseline commit; its statement supplies the stated algebraic/topological input, not an analytic or adic enhancement."
       },
       {
         "ref": "mathlib:Algebra.norm_apply",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/Norm/Defs.lean",
         "provides": "Algebra.norm R x = det of multiplication by x.",
-        "checked": "Declaration statement and surrounding hypotheses read in its source at the pinned commit during the 2026-10-06 pass; the declaration index was used only to locate it."
+        "checked": "Independently confirmed by REV-OverconvergentAutomorphicForms--O0 (2026-10-06): declaration and surrounding hypotheses read at the exact baseline commit; its statement supplies the stated algebraic/topological input, not an analytic or adic enhancement."
       },
       {
         "ref": "mathlib:Algebra.norm_eq_prod_embeddings",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/Norm/Transitivity.lean",
         "provides": "The norm is the product of the conjugates under all embeddings into an algebraically closed field.",
-        "checked": "Declaration statement and surrounding hypotheses read in its source at the pinned commit during the 2026-10-06 pass; the declaration index was used only to locate it."
+        "checked": "Independently confirmed by REV-OverconvergentAutomorphicForms--O0 (2026-10-06): declaration and surrounding hypotheses read at the exact baseline commit; its statement supplies the stated algebraic/topological input, not an analytic or adic enhancement."
       },
       {
         "ref": "mathlib:ContinuousMonoidHom",
         "kind": "structure",
         "module": "Mathlib/Topology/Algebra/ContinuousMonoidHom.lean",
         "provides": "Continuous monoid homomorphisms between topological monoids.",
-        "checked": "Declaration statement and surrounding hypotheses read in its source at the pinned commit during the 2026-10-06 pass; the declaration index was used only to locate it."
+        "checked": "Independently confirmed by REV-OverconvergentAutomorphicForms--O0 (2026-10-06): declaration and surrounding hypotheses read at the exact baseline commit; its statement supplies the stated algebraic/topological input, not an analytic or adic enhancement."
       },
       {
         "ref": "mathlib:ContinuousMonoidHom.comp",
         "kind": "def",
         "module": "Mathlib/Topology/Algebra/ContinuousMonoidHom.lean",
         "provides": "Composition of continuous monoid homs.",
-        "checked": "Declaration statement and surrounding hypotheses read in its source at the pinned commit during the 2026-10-06 pass; the declaration index was used only to locate it."
+        "checked": "Independently confirmed by REV-OverconvergentAutomorphicForms--O0 (2026-10-06): declaration and surrounding hypotheses read at the exact baseline commit; its statement supplies the stated algebraic/topological input, not an analytic or adic enhancement."
       },
       {
         "ref": "mathlib:ContinuousMonoidHom.fst",
         "kind": "def",
         "module": "Mathlib/Topology/Algebra/ContinuousMonoidHom.lean",
         "provides": "The first projection as a continuous monoid hom.",
-        "checked": "Declaration statement and surrounding hypotheses read in its source at the pinned commit during the 2026-10-06 pass; the declaration index was used only to locate it."
+        "checked": "Independently confirmed by REV-OverconvergentAutomorphicForms--O0 (2026-10-06): declaration and surrounding hypotheses read at the exact baseline commit; its statement supplies the stated algebraic/topological input, not an analytic or adic enhancement."
       },
       {
         "ref": "mathlib:ContinuousMonoidHom.snd",
         "kind": "def",
         "module": "Mathlib/Topology/Algebra/ContinuousMonoidHom.lean",
         "provides": "The second projection as a continuous monoid hom.",
-        "checked": "Declaration statement and surrounding hypotheses read in its source at the pinned commit during the 2026-10-06 pass; the declaration index was used only to locate it."
+        "checked": "Independently confirmed by REV-OverconvergentAutomorphicForms--O0 (2026-10-06): declaration and surrounding hypotheses read at the exact baseline commit; its statement supplies the stated algebraic/topological input, not an analytic or adic enhancement."
       },
       {
         "ref": "mathlib:Ideal.span",
         "kind": "abbrev",
         "module": "Mathlib/RingTheory/Ideal/Span.lean",
         "provides": "The ideal generated by a set.",
-        "checked": "Declaration statement and surrounding hypotheses read in its source at the pinned commit during the 2026-10-06 pass; the declaration index was used only to locate it."
+        "checked": "Independently confirmed by REV-OverconvergentAutomorphicForms--O0 (2026-10-06): declaration and surrounding hypotheses read at the exact baseline commit; its statement supplies the stated algebraic/topological input, not an analytic or adic enhancement."
       },
       {
         "ref": "mathlib:IsModuleTopology",
         "kind": "class",
         "module": "Mathlib/Topology/Algebra/Module/ModuleTopology.lean",
         "provides": "The class asserting a module carries its module topology.",
-        "checked": "Declaration statement and surrounding hypotheses read in its source at the pinned commit during the 2026-10-06 pass; the declaration index was used only to locate it."
+        "checked": "Independently confirmed by REV-OverconvergentAutomorphicForms--O0 (2026-10-06): declaration and surrounding hypotheses read at the exact baseline commit; its statement supplies the stated algebraic/topological input, not an analytic or adic enhancement."
       },
       {
         "ref": "mathlib:IsModuleTopology.continuous_of_linearMap",
         "kind": "theorem",
         "module": "Mathlib/Topology/Algebra/Module/ModuleTopology.lean",
         "provides": "Linear maps between modules with the module topology are continuous.",
-        "checked": "Declaration statement and surrounding hypotheses read in its source at the pinned commit during the 2026-10-06 pass; the declaration index was used only to locate it."
+        "checked": "Independently confirmed by REV-OverconvergentAutomorphicForms--O0 (2026-10-06): declaration and surrounding hypotheses read at the exact baseline commit; its statement supplies the stated algebraic/topological input, not an analytic or adic enhancement."
       },
       {
         "ref": "mathlib:IsModuleTopology.isTopologicalRing",
         "kind": "theorem",
         "module": "Mathlib/Topology/Algebra/Module/ModuleTopology.lean",
         "provides": "A finite algebra with the module topology over a topological ring is a topological ring.",
-        "checked": "Declaration statement and surrounding hypotheses read in its source at the pinned commit during the 2026-10-06 pass; the declaration index was used only to locate it."
+        "checked": "Independently confirmed by REV-OverconvergentAutomorphicForms--O0 (2026-10-06): declaration and surrounding hypotheses read at the exact baseline commit; its statement supplies the stated algebraic/topological input, not an analytic or adic enhancement."
       },
       {
         "ref": "mathlib:IsTopologicalRing",
         "kind": "class",
         "module": "Mathlib/Topology/Algebra/Ring/Basic.lean",
         "provides": "Topological rings.",
-        "checked": "Declaration statement and surrounding hypotheses read in its source at the pinned commit during the 2026-10-06 pass; the declaration index was used only to locate it."
+        "checked": "Independently confirmed by REV-OverconvergentAutomorphicForms--O0 (2026-10-06): declaration and surrounding hypotheses read at the exact baseline commit; its statement supplies the stated algebraic/topological input, not an analytic or adic enhancement."
       },
       {
         "ref": "mathlib:LinearMap.det",
         "kind": "irreducible_def",
         "module": "Mathlib/LinearAlgebra/Determinant.lean",
         "provides": "The determinant of an endomorphism of a finite free module.",
-        "checked": "Declaration statement and surrounding hypotheses read in its source at the pinned commit during the 2026-10-06 pass; the declaration index was used only to locate it."
+        "checked": "Independently confirmed by REV-OverconvergentAutomorphicForms--O0 (2026-10-06): declaration and surrounding hypotheses read at the exact baseline commit; its statement supplies the stated algebraic/topological input, not an analytic or adic enhancement."
       },
       {
         "ref": "mathlib:LinearMap.det_baseChange",
         "kind": "lemma",
         "module": "Mathlib/LinearAlgebra/Charpoly/BaseChange.lean",
         "provides": "The determinant commutes with base change.",
-        "checked": "Declaration statement and surrounding hypotheses read in its source at the pinned commit during the 2026-10-06 pass; the declaration index was used only to locate it."
+        "checked": "Independently confirmed by REV-OverconvergentAutomorphicForms--O0 (2026-10-06): declaration and surrounding hypotheses read at the exact baseline commit; its statement supplies the stated algebraic/topological input, not an analytic or adic enhancement."
       },
       {
         "ref": "mathlib:Module.Finite.base_change",
         "kind": "instance",
         "module": "Mathlib/RingTheory/TensorProduct/Finite.lean",
         "provides": "Base change of a finite module is finite.",
-        "checked": "Declaration statement and surrounding hypotheses read in its source at the pinned commit during the 2026-10-06 pass; the declaration index was used only to locate it."
+        "checked": "Independently confirmed by REV-OverconvergentAutomorphicForms--O0 (2026-10-06): declaration and surrounding hypotheses read at the exact baseline commit; its statement supplies the stated algebraic/topological input, not an analytic or adic enhancement."
       },
       {
         "ref": "mathlib:Module.Free.tensor",
         "kind": "instance",
         "module": "Mathlib/LinearAlgebra/TensorProduct/Basis.lean",
         "provides": "Tensor products of free modules are free.",
-        "checked": "Declaration statement and surrounding hypotheses read in its source at the pinned commit during the 2026-10-06 pass; the declaration index was used only to locate it."
+        "checked": "Independently confirmed by REV-OverconvergentAutomorphicForms--O0 (2026-10-06): declaration and surrounding hypotheses read at the exact baseline commit; its statement supplies the stated algebraic/topological input, not an analytic or adic enhancement."
       },
       {
         "ref": "mathlib:Module.finrank_baseChange",
         "kind": "theorem",
         "module": "Mathlib/LinearAlgebra/Dimension/Constructions.lean",
         "provides": "finrank of a base change equals the finrank of the original module.",
-        "checked": "Declaration statement and surrounding hypotheses read in its source at the pinned commit during the 2026-10-06 pass; the declaration index was used only to locate it."
+        "checked": "Independently confirmed by REV-OverconvergentAutomorphicForms--O0 (2026-10-06): declaration and surrounding hypotheses read at the exact baseline commit; its statement supplies the stated algebraic/topological input, not an analytic or adic enhancement."
       },
       {
         "ref": "mathlib:NumberField.IsTotallyReal",
         "kind": "class",
         "module": "Mathlib/NumberTheory/NumberField/InfinitePlace/TotallyRealComplex.lean",
         "provides": "A number field all of whose complex embeddings are real.",
-        "checked": "Declaration statement and surrounding hypotheses read in its source at the pinned commit during the 2026-10-06 pass; the declaration index was used only to locate it."
+        "checked": "Independently confirmed by REV-OverconvergentAutomorphicForms--O0 (2026-10-06): declaration and surrounding hypotheses read at the exact baseline commit; its statement supplies the stated algebraic/topological input, not an analytic or adic enhancement."
       },
       {
         "ref": "mathlib:NumberField.RingOfIntegers",
         "kind": "def",
         "module": "Mathlib/NumberTheory/NumberField/Basic.lean",
         "provides": "The ring of integers 𝓞 K of a number field.",
-        "checked": "Declaration statement and surrounding hypotheses read in its source at the pinned commit during the 2026-10-06 pass; the declaration index was used only to locate it."
+        "checked": "Independently confirmed by REV-OverconvergentAutomorphicForms--O0 (2026-10-06): declaration and surrounding hypotheses read at the exact baseline commit; its statement supplies the stated algebraic/topological input, not an analytic or adic enhancement."
       },
       {
         "ref": "mathlib:NumberField.RingOfIntegers.rank",
         "kind": "theorem",
         "module": "Mathlib/NumberTheory/NumberField/Basic.lean",
         "provides": "The ℤ-rank of 𝓞 K is [K : ℚ].",
-        "checked": "Declaration statement and surrounding hypotheses read in its source at the pinned commit during the 2026-10-06 pass; the declaration index was used only to locate it."
+        "checked": "Independently confirmed by REV-OverconvergentAutomorphicForms--O0 (2026-10-06): declaration and surrounding hypotheses read at the exact baseline commit; its statement supplies the stated algebraic/topological input, not an analytic or adic enhancement."
       },
       {
         "ref": "mathlib:NumberField.isUnit_iff_norm",
         "kind": "theorem",
         "module": "Mathlib/NumberTheory/NumberField/Units/Basic.lean",
         "provides": "For an algebraic integer, being a unit is equivalent to absolute value of its field norm being 1; the integer norm ±1 description follows from integrality.",
-        "checked": "Declaration statement and surrounding hypotheses read in its source at the pinned commit during the 2026-10-06 pass; the declaration index was used only to locate it."
+        "checked": "Independently confirmed by REV-OverconvergentAutomorphicForms--O0 (2026-10-06): declaration and surrounding hypotheses read at the exact baseline commit; its statement supplies the stated algebraic/topological input, not an analytic or adic enhancement."
       },
       {
         "ref": "mathlib:PadicInt",
         "kind": "def",
         "module": "Mathlib/NumberTheory/Padics/PadicIntegers.lean",
         "provides": "The p-adic integers ℤ_[p].",
-        "checked": "Declaration statement and surrounding hypotheses read in its source at the pinned commit during the 2026-10-06 pass; the declaration index was used only to locate it."
+        "checked": "Independently confirmed by REV-OverconvergentAutomorphicForms--O0 (2026-10-06): declaration and surrounding hypotheses read at the exact baseline commit; its statement supplies the stated algebraic/topological input, not an analytic or adic enhancement."
       },
       {
         "ref": "mathlib:PadicInt.compactSpace",
         "kind": "instance",
         "module": "Mathlib/NumberTheory/Padics/ProperSpace.lean",
         "provides": "ℤ_[p] is compact.",
-        "checked": "Declaration statement and surrounding hypotheses read in its source at the pinned commit during the 2026-10-06 pass; the declaration index was used only to locate it."
+        "checked": "Independently confirmed by REV-OverconvergentAutomorphicForms--O0 (2026-10-06): declaration and surrounding hypotheses read at the exact baseline commit; its statement supplies the stated algebraic/topological input, not an analytic or adic enhancement."
       },
       {
         "ref": "mathlib:Rat.ringOfIntegersEquiv",
         "kind": "def",
         "module": "Mathlib/NumberTheory/NumberField/Basic.lean",
         "provides": "The ring of integers of ℚ is ℤ.",
-        "checked": "Declaration statement and surrounding hypotheses read in its source at the pinned commit during the 2026-10-06 pass; the declaration index was used only to locate it."
+        "checked": "Independently confirmed by REV-OverconvergentAutomorphicForms--O0 (2026-10-06): declaration and surrounding hypotheses read at the exact baseline commit; its statement supplies the stated algebraic/topological input, not an analytic or adic enhancement."
       },
       {
         "ref": "mathlib:Subgroup",
         "kind": "structure",
         "module": "Mathlib/Algebra/Group/Subgroup/Defs.lean",
         "provides": "Subgroups of a group.",
-        "checked": "Declaration statement and surrounding hypotheses read in its source at the pinned commit during the 2026-10-06 pass; the declaration index was used only to locate it."
+        "checked": "Independently confirmed by REV-OverconvergentAutomorphicForms--O0 (2026-10-06): declaration and surrounding hypotheses read at the exact baseline commit; its statement supplies the stated algebraic/topological input, not an analytic or adic enhancement."
       },
       {
         "ref": "mathlib:Subgroup.FiniteIndex",
         "kind": "class",
         "module": "Mathlib/GroupTheory/Index.lean",
         "provides": "Finite-index subgroups.",
-        "checked": "Declaration statement and surrounding hypotheses read in its source at the pinned commit during the 2026-10-06 pass; the declaration index was used only to locate it."
+        "checked": "Independently confirmed by REV-OverconvergentAutomorphicForms--O0 (2026-10-06): declaration and surrounding hypotheses read at the exact baseline commit; its statement supplies the stated algebraic/topological input, not an analytic or adic enhancement."
       },
       {
         "ref": "mathlib:TensorProduct",
         "kind": "def",
         "module": "Mathlib/LinearAlgebra/TensorProduct/Defs.lean",
         "provides": "The tensor product of modules over a commutative semiring.",
-        "checked": "Declaration statement and surrounding hypotheses read in its source at the pinned commit during the 2026-10-06 pass; the declaration index was used only to locate it."
+        "checked": "Independently confirmed by REV-OverconvergentAutomorphicForms--O0 (2026-10-06): declaration and surrounding hypotheses read at the exact baseline commit; its statement supplies the stated algebraic/topological input, not an analytic or adic enhancement."
       },
       {
         "ref": "mathlib:Units.map",
         "kind": "def",
         "module": "Mathlib/Algebra/Group/Units/Hom.lean",
         "provides": "The map on units induced by a monoid hom.",
-        "checked": "Declaration statement and surrounding hypotheses read in its source at the pinned commit during the 2026-10-06 pass; the declaration index was used only to locate it."
+        "checked": "Independently confirmed by REV-OverconvergentAutomorphicForms--O0 (2026-10-06): declaration and surrounding hypotheses read at the exact baseline commit; its statement supplies the stated algebraic/topological input, not an analytic or adic enhancement."
       },
       {
         "ref": "mathlib:moduleTopology",
         "kind": "abbrev",
         "module": "Mathlib/Topology/Algebra/Module/ModuleTopology.lean",
         "provides": "The module topology: the finest topology making addition and scalar multiplication continuous.",
-        "checked": "Declaration statement and surrounding hypotheses read in its source at the pinned commit during the 2026-10-06 pass; the declaration index was used only to locate it."
+        "checked": "Independently confirmed by REV-OverconvergentAutomorphicForms--O0 (2026-10-06): declaration and surrounding hypotheses read at the exact baseline commit; its statement supplies the stated algebraic/topological input, not an analytic or adic enhancement."
       },
       {
         "ref": "mathlib:Representation",
         "kind": "abbrev",
         "module": "Mathlib/RepresentationTheory/Basic.lean",
         "provides": "For a semiring k, monoid G and k-module V, a monoid hom G→*Module.End k V; continuity is extra.",
-        "checked": "Statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 or Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 as appropriate; 2026-10-06."
+        "checked": "Independently confirmed by REV-OverconvergentAutomorphicForms--O0 (2026-10-06): declaration and surrounding hypotheses read at the exact baseline commit; its statement supplies the stated algebraic/topological input, not an analytic or adic enhancement."
       },
       {
         "ref": "mathlib:Representation.tprod",
         "kind": "def",
         "module": "Mathlib/RepresentationTheory/Basic.lean",
         "provides": "Tensor product action on V⊗[k]W over a commutative semiring, with the same monoid.",
-        "checked": "Statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 or Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 as appropriate; 2026-10-06."
+        "checked": "Independently confirmed by REV-OverconvergentAutomorphicForms--O0 (2026-10-06): declaration and surrounding hypotheses read at the exact baseline commit; its statement supplies the stated algebraic/topological input, not an analytic or adic enhancement."
       },
       {
         "ref": "mathlib:Representation.dual",
         "kind": "def",
         "module": "Mathlib/RepresentationTheory/Basic.lean",
         "provides": "For a group G over a commutative ring, contragredient action on Module.Dual k V by precomposition with ρ(g⁻¹).",
-        "checked": "Statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 or Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 as appropriate; 2026-10-06."
+        "checked": "Independently confirmed by REV-OverconvergentAutomorphicForms--O0 (2026-10-06): declaration and surrounding hypotheses read at the exact baseline commit; its statement supplies the stated algebraic/topological input, not an analytic or adic enhancement."
       },
       {
         "ref": "mathlib:Representation.invariants",
         "kind": "def",
         "module": "Mathlib/RepresentationTheory/Invariants.lean",
         "provides": "The submodule of vectors fixed by every group element.",
-        "checked": "Statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 or Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 as appropriate; 2026-10-06."
+        "checked": "Independently confirmed by REV-OverconvergentAutomorphicForms--O0 (2026-10-06): declaration and surrounding hypotheses read at the exact baseline commit; its statement supplies the stated algebraic/topological input, not an analytic or adic enhancement."
       },
       {
         "ref": "mathlib:ContinuousLinearMap",
         "kind": "structure",
         "module": "Mathlib/Topology/Algebra/Module/ContinuousLinearMap/Basic.lean",
         "provides": "Continuous semilinear map of topological modules; bounded Banach operators are a specialisation.",
-        "checked": "Statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 or Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 as appropriate; 2026-10-06."
+        "checked": "Independently confirmed by REV-OverconvergentAutomorphicForms--O0 (2026-10-06): declaration and surrounding hypotheses read at the exact baseline commit; its statement supplies the stated algebraic/topological input, not an analytic or adic enhancement."
       },
       {
         "ref": "mathlib:SheafOfModules",
         "kind": "structure",
         "module": "Mathlib/Algebra/Category/ModuleCat/Sheaf.lean",
         "provides": "A presheaf of modules on a site whose underlying additive presheaf is a sheaf; no adic ringed site is supplied.",
-        "checked": "Statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 or Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 as appropriate; 2026-10-06."
+        "checked": "Independently confirmed by REV-OverconvergentAutomorphicForms--O0 (2026-10-06): declaration and surrounding hypotheses read at the exact baseline commit; its statement supplies the stated algebraic/topological input, not an analytic or adic enhancement."
       },
       {
         "ref": "tauceti:NumberField.NarrowClassGroup",
         "kind": "def",
         "module": "TauCeti/NumberTheory/NumberField/NarrowClassGroup/Basic.lean",
         "provides": "Invertible fractional ideals modulo principal ideals generated by totally positive elements.",
-        "checked": "Statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 or Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 as appropriate; 2026-10-06."
+        "checked": "Independently confirmed by REV-OverconvergentAutomorphicForms--O0 (2026-10-06): declaration and surrounding hypotheses read at the exact baseline commit; its statement supplies the stated algebraic/topological input, not an analytic or adic enhancement."
       },
       {
         "ref": "tauceti:NumberField.NarrowClassGroup.instFinite",
         "kind": "instance",
         "module": "TauCeti/NumberTheory/NumberField/NarrowClassGroup/Finite.lean",
         "provides": "For a number field, its narrow ideal class group is finite.",
-        "checked": "Statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 or Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 as appropriate; 2026-10-06."
+        "checked": "Independently confirmed by REV-OverconvergentAutomorphicForms--O0 (2026-10-06): declaration and surrounding hypotheses read at the exact baseline commit; its statement supplies the stated algebraic/topological input, not an analytic or adic enhancement."
       }
     ]
   },
@@ -315,12 +315,12 @@
       "id": "AIP-ADIC-2016",
       "title": "The adic, cuspidal, Hilbert eigenvarieties",
       "authors": "Fabrizio Andreatta, Adrian Iovita, Vincent Pilloni",
-      "edition": "Research in the Mathematical Sciences 3 (2016), 34; author PDF, 36 pages",
+      "edition": "Research in the Mathematical Sciences 3 (2016), 34; author PDF, 40 pages (author pagination used)",
       "url": "https://www.imo.universite-paris-saclay.fr/~vincent.pilloni/Hilbert_adicfinal.pdf",
       "sha256": "34f517fd8d02d778f16f19745f4303b3955d48646d0ce6665b88a10f6fcdebbd",
       "accessed": "2026-10-06",
       "readSections": [
-        "§2.4.3 Proposition2.8; §§4.1–4.3, Propositions4.3,4.7; Theorem6.7; §8.4 Proposition8.4 and §8.5 Hecke actions"
+        "§2.4.3 Proposition2.8; §§4.1–4.3, Propositions4.3,4.7; §6.4 finite-character coherent factor and Theorem6.7 p29; §8.4 Proposition8.4 and §8.5 Hecke actions"
       ]
     },
     {
@@ -332,7 +332,7 @@
       "sha256": "1f42b2c19b9542e937b6d02c244f71c7a1ef1d15840b8fab209950227269c406",
       "accessed": "2026-10-06",
       "readSections": [
-        "§2 analytic characters; §§3.6–3.7 including Remark3.15, Theorems3.16–3.17, Cor3.20, Prop3.22 and its Hattori footnote, Lemma3.27; §4 arithmetic action, Thm4.4 and Lemma4.5. Appendix6.4 is an explicitly untranscribed owner-gap input."
+        "§2 analytic characters; §§3.6–3.7 including Remark 3.15, Theorems 3.16–3.17, Corollary 3.20, Proposition 3.22 and its Hattori footnote, Lemma 3.27; §4 arithmetic action, Theorem 4.4 and Lemma 4.5. Appendix §6.3–6.4 was read; the exact formal cusp-cohomology input remains an owner gap."
       ]
     },
     {
@@ -344,7 +344,7 @@
       "sha256": "d340c9a020cc5fdbca781a8630b6fae35e14607142bed700d6ab82334faa80ae",
       "accessed": "2026-10-06",
       "readSections": [
-        "§6.2 pp147–152, including genuine adic induction, finite twists and algebraic injection; §6.3 pp153–155 coefficient sheaves/dual comparison"
+        "§§6.2–6.3 pp147–155, including genuine adic induction, finite twists, algebraic injection, §6.2.20 open-polydisc distribution modules and Proposition6.3.6 dual comparison"
       ]
     },
     {
@@ -390,7 +390,7 @@
     {
       "kind": "published",
       "url": "https://www.imo.universite-paris-saclay.fr/~vincent.pilloni/Hilbert_adicfinal.pdf",
-      "citation": "Research in the Mathematical Sciences 3 (2016), 34; author PDF, 36 pages",
+      "citation": "Research in the Mathematical Sciences 3 (2016), 34; author PDF, 40 pages (author pagination used)",
       "read": "2026-10-06",
       "sha256": "34f517fd8d02d778f16f19745f4303b3955d48646d0ce6665b88a10f6fcdebbd"
     },
@@ -715,7 +715,7 @@
       "acceptance": [
         "F = ℚ: GeomWeight ℚ p R is the set of continuous characters ℤ_p^× → R^×, BHW's weight space for GL_2/ℚ (Definition 3.1).",
         "Algebraic weights x ↦ N(x)^k (k ∈ ℤ) and x ↦ ∏_σ σ(x)^{k_σ} (after extending scalars to split F) are weights; a finite-order character of 𝒪_p^× is a weight that is not algebraic.",
-        "Continuity matters: a discontinuous homomorphism 𝒪_p^× → ℚ_p^× (which exists by choice on a ℚ-basis of the torsion-free part) is not a weight."
+        "Let R be the same abstract p-adic integer algebra with discrete topology. The identity homomorphism on its unit group from the usual p-adic topology is not continuous (the inverse image of {1} is not open), hence is not an R-valued weight."
       ],
       "uses": [
         {
@@ -1387,7 +1387,7 @@
         },
         {
           "sourceId": "AIP-ADIC-2016",
-          "locator": "§2.4.3, Proposition 2.8",
+          "locator": "§2.4.3, Proposition 2.8, p.9",
           "excerpt": "Proposition 2.8.",
           "match": "The universal character extends on coordinate-dependent principal-unit neighbourhoods, uniformly on the given interval."
         }
@@ -1610,9 +1610,9 @@
       "sources": [
         {
           "sourceId": "BP-HIGHER",
-          "locator": "§6.2.2–6.2.3, pp.149–152",
-          "excerpt": "6.2.",
-          "match": "The analytic induction and dual carry their own topologies; finite-dimensional algebraic coefficients remain a separate subrepresentation."
+          "locator": "§6.2.2–6.2.4, p.148; §6.2.20, pp.152–153",
+          "excerpt": "6.2.20. Distributions.",
+          "match": "The source distinguishes finite algebraic coefficients from induced Banach coefficients and their topological duals; the finite-projective tensor/dual law is the routine idempotent argument from the listed baseline representations and R0."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1626,18 +1626,22 @@
       ],
       "title": "Analytic induced coefficients",
       "kind": "construction",
-      "statement": "For an n-analytic torus character κ_A and a chosen Iwahori M_1, define Vκ^{n-an} as analytic functions f on the actual adic neighbourhood M_1 M_n with f(mb)=(w0,M κ_A)(b⁻¹)f(m), for b in the upper Borel neighbourhood. Left action is (h·f)(m)=f(h⁻¹m). The locally analytic induction is colim_n Vκ^{n-an} with its LB topology; the continuous strong dual is the distribution coefficient module.",
+      "statement": "For an n-analytic torus character κ_A and a chosen closed subgroup M_1 with Iwahori decomposition, define Vκ^{n-an} as analytic functions f on the actual adic neighbourhood M_1 M_n with f(mb)=(w0,M κ_A)(b⁻¹)f(m), for b in the upper Borel neighbourhood. Left action is (h·f)(m)=f(h⁻¹m). The locally analytic induction is colim_n Vκ^{n-an} with its LB topology; the continuous strong dual is the distribution coefficient module. At fixed n the strong dual (Vκ^{n-an})∨ need not be projective over A: BP instead defines projective Dκ^{n-an} as the compact-open continuous dual of bounded analytic functions on the open polydisc M_1 M_n°; Dκ^{lan}=lim_n Dκ^{n-an} is the dual of the locally analytic induction.",
       "hypotheses": [
-        "Use BP §6.2’s split Levi, Borel, longest Weyl element and analytic subgroup conventions; n lies in the range in which κ_A extends.",
+        "Use BP §6.2’s Levi, Borel, longest Weyl element and actual analytic subgroup conventions. M_1 is closed with M_1=N̄_1 T_1 N_1, T_1=T(Z_p), and T^{M,−} normalizes N̄_1. M_1 is not required open or Zariski dense. κ_A is a character of w0,M⁻¹T(Z_p)w0,M, n-analytic after the Weyl conjugation.",
         "Functions are analytic on the adic thickening M_1 M_n, not merely set functions on M_1. A is uniform finite-type Tate over the coefficient field."
       ],
       "proofSteps": [
         "Import multivariable analytic function Banach modules from LAD L0; cut out right Borel equivariance as a closed submodule.",
         "Iwahori factorisation identifies it with analytic functions on the opposite-unipotent neighbourhood, producing its Banach norm.",
-        "Left inverse translation preserves the relation. The transition maps are restriction to smaller neighbourhoods; use their specified colimit and strong-dual topologies."
+        "Left inverse translation preserves the relation. The transition maps are restriction to smaller neighbourhoods; use their specified colimit and strong-dual topologies.",
+        "For distributions retain §6.2.20’s bounded open-polydisc function space and compact-open dual topology. Do not identify its projective Dκ^{n-an} with the ordinary strong Banach dual over a general affinoid A."
       ],
       "acceptance": [
-        "For an n-analytic torus character κ_A and a chosen Iwahori M_1, define Vκ^{n-an} as analytic functions f on the actual adic neighbourhood M_1 M_n with f(mb)=(w0,M κ_A)(b⁻¹)f(m), for b in the upper Borel neighbourhood. Left action is (h·f)(m)=f(h⁻¹m). The locally analytic induction is colim_n Vκ^{n-an} with its LB topology; the continuous strong dual is the distribution coefficient module."
+        "For a torus M=T there is no unipotent variable and induction is the rank-one coefficient with the Weyl/inverse convention.",
+        "For SL2 and k≥0 the polynomial subspace of degree≤k is proper: z^(k+1) is analytic but outside it.",
+        "If M_1 is not Zariski dense, functions on its adic neighbourhood cannot be replaced by functions on its rational points.",
+        "Fixed-radius projective distributions use the bounded open-polydisc dual, not an unsupported projectivity assertion for the ordinary Banach dual."
       ],
       "prerequisites": [
         "LocallyAnalyticDistributions:L0",
@@ -1651,9 +1655,9 @@
       "sources": [
         {
           "sourceId": "BP-HIGHER",
-          "locator": "§6.2.2, Definition 6.2.6 and Remark 6.2.8, pp.149–150",
-          "excerpt": "6.2.6.",
-          "match": "Analytic induction is defined on the genuine rigid neighbourhood; rational Iwahori points alone do not determine the object."
+          "locator": "§6.2.4, pp.148–149; Remark 6.2.8, pp.149–150; §6.2.20, pp.152–153",
+          "excerpt": "6.2.4. Analytic inductions.",
+          "match": "The defining space is the genuine adic neighbourhood of a closed subgroup with Iwahori decomposition. Ordinary Banach duals and the projective bounded-open-polydisc distribution modules are distinguished."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1689,6 +1693,11 @@
           "name": "TauCeti.Overconvergent.analytic_induced_coefficients.continuousDual",
           "role": "constructor",
           "statement": "Continuous A-linear dual with the strong topology; the induced action is contragredient."
+        },
+        {
+          "name": "TauCeti.Overconvergent.analytic_induced_coefficients.distributions",
+          "role": "constructor",
+          "statement": "Dκ^{n-an} is the compact-open continuous A-dual of bounded analytic functions on M_1 M_n°; Dκ^{lan}=lim_n Dκ^{n-an}, with the specified right (M_1,T^{M,+}) action and contragredient left (M_1,T^{M,−}) action."
         }
       ],
       "tests": [
@@ -1700,7 +1709,7 @@
         {
           "name": "TauCeti.Overconvergent.Test.O0_analytic_induced_coefficients_sl2",
           "kind": "non-example",
-          "statement": "For SL2 and algebraic dominant k≥0, polynomials of degree≤k embed in analytic functions on the unipotent ball but do not exhaust them."
+          "statement": "For SL2 and dominant k≥0, z^(k+1) is an analytic function on the opposite-unipotent ball and is not in the embedded algebraic polynomial subspace of degree≤k."
         },
         {
           "name": "TauCeti.Overconvergent.Test.O0_analytic_induced_coefficients_actionOrder",
@@ -1710,7 +1719,7 @@
         {
           "name": "TauCeti.Overconvergent.Test.O0_analytic_induced_coefficients_tensor",
           "kind": "non-example",
-          "statement": "Multiplication of two induced functions is a coefficient map, not automatically a tensor-product equivalence."
+          "statement": "For SL2 and κ=λ=1, multiplication of induced functions kills 1⊗z−z⊗1, a nonzero tensor detected by evaluation at two distinct points of the unipotent ball; it is not a tensor-product isomorphism."
         }
       ],
       "planet": {
@@ -1725,15 +1734,16 @@
       ],
       "title": "Algebraic specialisation of analytic induction",
       "kind": "comparison",
-      "statement": "For dominant algebraic κ, restriction of regular induced functions embeds the algebraic highest-weight representation Vκ into Vκ^{n-an}; it is M_1-equivariant. For the positive torus semigroup, ι(tv)=(w0,M κ)(t)·tι(v). For κ times a finite character χ, multiplication by χ⁻¹ identifies the suitably twisted analytic coefficient modules. These embeddings yield a quotient on continuous duals, with any surjectivity requiring the topology/hypotheses of the source.",
+      "statement": "For dominant algebraic κ, restriction of regular induced functions embeds Vκ into Vκ^{n-an} and is M_1-equivariant. For t∈T^{M,+}, ι(tv)=(w0,M κ)(t)·tι(v). A finite-order character w0,M χ:M_1→F× trivial on M_1∩M_n extends trivially across M_n and restricts to the Weyl-conjugate torus character χ. Multiplication by (w0,M χ)⁻¹ gives Vκ_A^{n-an}⊗_F F(w0,M χ)≅Vκ_Aχ^{n-an} as (M_1,T^{M,+}) modules, where the finite-character factor has trivial positive-monoid action. Algebraic restriction induces a map on continuous duals; no blanket surjectivity over A is asserted.",
       "hypotheses": [
         "BP algebraic induced model uses f(mb)=(w0,M κ)(b⁻¹)f(m).",
-        "Do not remove the positive-monoid scalar, or conclude that an algebraic weight makes analytic induction finite rank."
+        "Do not remove the positive-monoid scalar, or conclude that an algebraic weight makes analytic induction finite rank.",
+        "The finite-order character is defined on M_1, not only its torus, is trivial on M_1∩M_n, and has the explicitly trivial T^{M,+} action from BP §6.2.9."
       ],
       "proofSteps": [
         "Restrict regular functions to the analytic chart. Density of the unipotent chart and algebraic coordinates gives injectivity.",
-        "Compute left actions directly; the semigroup normalization produces the displayed scalar (BP Lemma 6.2.11).",
-        "Use BP Lemma 6.2.10’s finite-character twist and Proposition 6.3.6 for sheaf/dual passage, rather than a general Hahn–Banach assertion over A."
+        "Compute the actions as in BP §6.2.11 (a subsection, not a lemma); positive-monoid normalization gives ι(tv)=(w0,M κ)(t)tι(v).",
+        "Apply Lemma 6.2.10 with its M_1-character and conductor hypotheses, multiplying by (w0,M χ)⁻¹. Proposition 6.3.6 provides the sheaf maps with its 2ρ_nc dual twist; it does not supply a general Hahn–Banach or surjectivity theorem over A."
       ],
       "acceptance": [
         "In SL2 the finite-dimensional polynomial subspace is proper in the analytic functions.",
@@ -1751,9 +1761,9 @@
       "sources": [
         {
           "sourceId": "BP-HIGHER",
-          "locator": "§6.2, Lemmas 6.2.10–6.2.11; §6.3, Proposition 6.3.6, pp.151–155",
-          "excerpt": "6.2.11.",
-          "match": "The algebraic inclusion has an explicit monoid twist and is not an equality of coefficient modules."
+          "locator": "§6.2.9, Lemma 6.2.10 and §6.2.11, p.150; Proposition 6.3.6, p.154",
+          "excerpt": "Lemma 6.2.10.",
+          "match": "The finite twist extends to M1 and is trivial on M1∩Mn. Algebraic restriction carries the positive-monoid scalar; the sheaf comparison supplies maps, with no blanket dual surjectivity."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1825,17 +1835,17 @@
         {
           "name": "TauCeti.Overconvergent.Test.O0_unitary_completed_coefficients_order",
           "kind": "non-example",
-          "statement": "The definition is lim_k colim_U℘, and not an unsupported exchange with colim_U℘ lim_k."
+          "statement": "For the local translation model H=Z_p, lim_m colim_i Map(Z/p^i,Z/p^m)=C(Z_p,Z_p). The function x↦x belongs to this completion but is not in colim_i Map(Z/p^i,Z_p), since it is not locally constant; interchanging the limits loses it."
         },
         {
           "name": "TauCeti.Overconvergent.Test.O0_unitary_completed_coefficients_coefficients",
           "kind": "compatibility",
-          "statement": "At a finite level, f(gu)=u⁻¹f(g), retaining the action of the other p-adic coefficient factors."
+          "statement": "At a finite level with coefficient W=E² and u acting by diag(a,b), the two coordinates obey f(gu)=(a⁻¹ f1(g),b⁻¹ f2(g)); replacing u⁻¹ by u gives a different coefficient condition when a² or b² is not 1."
         },
         {
           "name": "TauCeti.Overconvergent.Test.O0_unitary_completed_coefficients_multiplicity",
           "kind": "non-example",
-          "statement": "s=0 is excluded from the positive-dimensional eigenvariety theorem."
+          "statement": "For Π=0 the Jacquet module is zero and its coherent support/eigenvariety is empty, so the nd_K-dimensional nonzero eigenvariety conclusion requires the local regular multiplicity s≥1."
         }
       ]
     },
@@ -1971,16 +1981,19 @@
       "kind": "definition",
       "statement": "Let X have a right Γ-action and C be a coefficient group. A right automorphy cocycle is J:Γ×X→C with J(1,x)=1 and J(γδ,x)=J(γ,x)J(δ,xγ). For a left representation ρ:C→Aut_A(V), equivariant functions satisfy f(xγ)=ρ(J(γ,x)⁻¹)f(x). In analytic geometry J is an analytic map on the actual cover and coefficient neighbourhood.",
       "hypotheses": [
-        "Γ acts on the right; for a left action use xγ=γ⁻¹x before applying this convention.",
+        "Γ acts on the right. For a left action and left cocycle K with K(γδ,x)=K(γ,δx)K(δ,x), use x·γ=γ⁻¹x and J(γ,x)=K(γ⁻¹,x)⁻¹. Then left equivariance f(γx)=ρ(K(γ,x))f(x) becomes the stated right inverse-equivariance. Both the inverse group element and inverse coefficient are required in the noncommutative conversion.",
         "C and ρ need not commute. Analyticity and stable-lattice preservation are genuine imported conditions, not implicit in a set-theoretic cocycle."
       ],
       "proofSteps": [
         "Bundle the algebraic cocycle laws; use Representation for ρ.",
         "Check consistency: successive inverse coefficient actions are ρ(Jδ(xγ)⁻¹)ρ(Jγ(x)⁻¹)=ρ((Jγ(x)Jδ(xγ))⁻¹).",
-        "Analytic versions import the site and coefficient neighbourhood, using AutomorphicBundles B0’s associated-bundle conventions after converting left/right actions."
+        "Analytic versions import the site and coefficient neighbourhood, using AutomorphicBundles B0’s associated-bundle conventions after converting left/right actions.",
+        "Convert the BHW left action explicitly: its scalar coefficient multiplier is Kγ(x)=κ(jγ(x))⁻¹, so the corresponding right scalar cocycle is Jγ(x)=κ(jγ⁻¹(x)). The cz+d function itself has the left cocycle law of O2."
       ],
       "acceptance": [
-        "Let X have a right Γ-action and C be a coefficient group. A right automorphy cocycle is J:Γ×X→C with J(1,x)=1 and J(γδ,x)=J(γ,x)J(δ,xγ). For a left representation ρ:C→Aut_A(V), equivariant functions satisfy f(xγ)=ρ(J(γ,x)⁻¹)f(x). In analytic geometry J is an analytic map on the actual cover and coefficient neighbourhood."
+        "Trivial J gives invariant functions.",
+        "For left K the conversion Jγ(x)=Kγ⁻¹(x)⁻¹ obeys the right law in the given order even when C is noncommutative.",
+        "For inverse unipotent matrices A⁻¹=[[1,−1],[0,1]], B⁻¹=[[1,0],[−1,1]], the successive coefficient action is B⁻¹A⁻¹≠A⁻¹B⁻¹."
       ],
       "prerequisites": [
         "mathlib:Representation",
@@ -1996,7 +2009,7 @@
           "sourceId": "BHW-2023",
           "locator": "Definitions 6.4–6.5, pp.1757–1758",
           "excerpt": "Definition 6.4.",
-          "match": "The inverse automorphy factor defines equivariant sections; the vector convention generalises it without commuting factors."
+          "match": "BHW uses a left level action and inverse scalar coefficient equivariance. The right noncommutative abstraction requires the explicit inversion conversion; the paper is not cited for a right cz+d law."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2004,7 +2017,7 @@
       "uses": [
         {
           "where": "O2 and O8",
-          "how": "Scalar cz+d and vector Levi automorphy factors obey this convention."
+          "how": "The BHW left scalar factor and the Levi left frame factor are converted explicitly before applying this right-action convention."
         }
       ],
       "api": [
@@ -2020,13 +2033,53 @@
         },
         {
           "name": "TauCeti.Overconvergent.right_automorphy_cocycle.equivariant",
-          "role": "characterisation",
-          "statement": "f(xγ)=ρ(Jγ(x)⁻¹)f(x)."
+          "role": "constructor",
+          "statement": "The algebraic equivariant functions form an A-submodule of X→V; analytic functions are used only with the supplied analytic carrier."
         },
         {
           "name": "TauCeti.Overconvergent.right_automorphy_cocycle.gauge",
+          "role": "constructor",
+          "statement": "For b:X→C construct J′γ(x)=b(x)⁻¹Jγ(x)b(xγ)."
+        },
+        {
+          "name": "TauCeti.Overconvergent.right_automorphy_cocycle.ext",
+          "role": "extensionality",
+          "statement": "Two right cocycles agree if their values agree for every γ and x."
+        },
+        {
+          "name": "TauCeti.Overconvergent.right_automorphy_cocycle.trivial",
+          "role": "constructor",
+          "statement": "The constant unit map is the trivial right cocycle."
+        },
+        {
+          "name": "TauCeti.Overconvergent.right_automorphy_cocycle.mem_equivariant",
+          "role": "characterisation",
+          "statement": "f belongs to the equivariant submodule iff ∀γ,x, f(xγ)=ρ(Jγ(x)⁻¹)f(x)."
+        },
+        {
+          "name": "TauCeti.Overconvergent.right_automorphy_cocycle.gauge_equivariant",
+          "role": "compatibility",
+          "statement": "The map f′(x)=ρ(b(x)⁻¹)f(x) sends J-equivariant functions to gauge(J,b)-equivariant functions."
+        },
+        {
+          "name": "TauCeti.Overconvergent.right_automorphy_cocycle.gaugeEquiv",
           "role": "equivalence",
-          "statement": "For b:X→C, J′γ(x)=b(x)⁻¹Jγ(x)b(xγ), and f′(x)=ρ(b(x)⁻¹)f(x) identifies the equivariant modules."
+          "statement": "Pointwise ρ(b(x)⁻¹) defines an A-linear equivalence between the J and gauge(J,b) equivariant submodules, with inverse pointwise ρ(b(x))."
+        },
+        {
+          "name": "TauCeti.Overconvergent.right_automorphy_cocycle.ofLeft",
+          "role": "constructor",
+          "statement": "Given compatible left/right actions x·γ=γ⁻¹x and a left cocycle K, construct the right cocycle Jγ(x)=Kγ⁻¹(x)⁻¹."
+        },
+        {
+          "name": "TauCeti.Overconvergent.right_automorphy_cocycle.gaugeEquiv_apply",
+          "role": "simp",
+          "statement": "The forward gauge equivalence evaluates at x as ρ(b(x)⁻¹)f(x)."
+        },
+        {
+          "name": "TauCeti.Overconvergent.right_automorphy_cocycle.gaugeEquiv_symm_apply",
+          "role": "simp",
+          "statement": "The inverse gauge equivalence evaluates at x as ρ(b(x))f(x)."
         }
       ],
       "tests": [
@@ -2043,7 +2096,12 @@
         {
           "name": "TauCeti.Overconvergent.Test.O1_right_automorphy_cocycle_matrixOrder",
           "kind": "non-example",
-          "statement": "For rank-two noncommuting matrices A,B the successive action is B⁻¹A⁻¹, not A⁻¹B⁻¹."
+          "statement": "For A⁻¹=[[1,−1],[0,1]] and B⁻¹=[[1,0],[−1,1]] over Q, B⁻¹A⁻¹=[[1,−1],[−1,2]] differs from A⁻¹B⁻¹=[[2,−1],[−1,1]]."
+        },
+        {
+          "name": "TauCeti.Overconvergent.Test.O1_right_automorphy_cocycle_gaugeIdentity",
+          "kind": "compatibility",
+          "statement": "Gauge by b(x)=1 gives the original right cocycle and the identity equivalence on equivariant functions."
         }
       ],
       "planet": {
@@ -2087,7 +2145,7 @@
       "sources": [
         {
           "sourceId": "BHW-2023",
-          "locator": "Definition 6.5 and Proposition 6.6, pp.1758–1759",
+          "locator": "Definition 6.5 and Proposition 6.6, p.1758",
           "excerpt": "Definition 6.5.",
           "match": "Invariant coefficient functions give the actual sheaf, with analytic local freeness proved separately."
         }
@@ -2182,7 +2240,7 @@
       "sources": [
         {
           "sourceId": "BHW-2023",
-          "locator": "§9.3–9.4, Lemmas 9.3–9.7, pp.1781–1785",
+          "locator": "§9, Lemmas 9.3–9.7, pp.1782–1786",
           "excerpt": "Lemma 9.3.",
           "match": "Comparison of the presentations retains coefficient actions and their descent data."
         }
@@ -2198,10 +2256,10 @@
       ],
       "title": "Analytic effectivity of line descent",
       "kind": "theorem",
-      "statement": "For smooth rigid X over a perfectoid field and a v-line L obtained by cocycle descent, analyticity on a Zariski-dense analytic open implies analyticity on X. In the formal Igusa case, a continuous O+-valued multiplicative cocycle on a pro-etale profinite torsor over a topologically finite-type formal scheme gives an analytic generic-fibre line through compatible finite-level formal descent.",
+      "statement": "For smooth rigid X over a perfectoid field extension of Q_p and a v-line L obtained by cocycle descent, analyticity on a Zariski-dense analytic open implies analyticity on X. For a topologically finite-type formal O_K-scheme 𝔛 and a pro-etale profinite formal torsor 𝔛∞→𝔛, a continuous multiplicative cocycle c:G→O(𝔛∞)× gives a v-line on the generic fibre that is the analytification of a Zariski line on 𝔛. An arbitrary analytic O+-unit cocycle is not substituted for this formal cocycle.",
       "hypotheses": [
         "The first assertion is for line bundles, not arbitrary Banach or rank-r v-bundles.",
-        "For the formal assertion the cocycle lands in integral units and reduces modulo p^m through a finite quotient; the compatible descended lines are effective."
+        "For the formal assertion the cocycle lies in units of the completed formal structural ring O(𝔛∞), reduces modulo p^m through a finite quotient, and the finite-level descended lines form a compatible effective system. The map O(𝔛∞)→O+(X∞) used by Heuer is a natural map, not an asserted general isomorphism."
       ],
       "proofSteps": [
         "Import Heuer Corollary 1.4 and Proposition 3.8 from PerfectoidSpaces:P9, as requested below.",
@@ -2223,7 +2281,7 @@
           "sourceId": "HEUER-2022",
           "locator": "Corollary 1.4, p.3; Proposition 3.8, p.16",
           "excerpt": "Proposition 3.8.",
-          "match": "The formal cocycle result produces an analytic line; the dense-open criterion applies only to lines."
+          "match": "Heuer’s formal cocycle lies in O(𝔛∞)× and its proof uses a natural map to analytic O+. The dense-open criterion is for v-lines on a smooth rigid space over a perfectoid extension of Q_p."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2253,7 +2311,9 @@
         "The corrected radius exists by O0; no ε is computed from the false printed |T| formula."
       ],
       "acceptance": [
-        "Choose the anticanonical Hilbert domain X_{Γ0*(p^n)}(ε)_a, n≥1 or ∞, and its infinite-level cover with T4’s Hodge–Tate coordinate z. The chosen bounded analytic weight extension and m,ε satisfy DOM; at finite level AL_n maps to X(p^n ε). At n=0 define by the AL_1 identification with X(pε). This domain is the input for coefficients, rather than a definition of the Hilbert tower itself."
+        "AL_n:X_{Γ0*(p^n)}(p^nε)_a≅X(ε) scales the source radius; at level zero AL_1 uses source pε and target ε.",
+        "At p=3,m=1 the sufficient bound is ε≤1/9; ε=1/3 is outside this admitted range.",
+        "ε=0 is the ordinary domain, whereas overconvergent forms use the positive admitted radii."
       ],
       "prerequisites": [
         "HodgeTateAndCanonicalSubgroups:T4",
@@ -2312,7 +2372,7 @@
         {
           "name": "TauCeti.Overconvergent.Test.O2_admitted_hilbert_domain_radius",
           "kind": "non-example",
-          "statement": "A radius exceeding 1/(c_p p^m) is not admitted merely because κ is continuous."
+          "statement": "For p=3 and m=1 the sufficient bound is ε≤1/9; ε=1/3 fails the selected admission inequality even for the trivial continuous character."
         }
       ],
       "planet": {
@@ -2327,7 +2387,7 @@
       ],
       "title": "Hilbert automorphy factors",
       "kind": "construction",
-      "statement": "For γ=(a b;c d)∈Γ0(p), set jγ(z)=cz+d in O_p⊗O(X∞×U); T4’s coordinate transformation makes jγ a unit in the chosen analytic neighbourhood. The scalar coefficient factor is κ(jγ(z))⁻¹. For finite/vector analytic Levi coefficients use the supplied Levi-valued torsor cocycle, not a determinant character in place of the representation.",
+      "statement": "For γ=(a b;c d)∈Γ0(p), set jγ(z)=cz+d in O_p⊗O(X∞×U); T4’s coordinate transformation makes jγ a unit in the chosen analytic neighbourhood. The scalar coefficient factor is κ(jγ(z))⁻¹. For finite/vector analytic Levi coefficients use the supplied Levi-valued torsor cocycle, not a determinant character in place of the representation. The source level action is left; write f(γx)=κ(jγ(x))⁻¹f(x). For a right-action interface use x·γ=γ⁻¹x and the factor jγ⁻¹(x) as in hilbert-cocycle-law.",
       "hypotheses": [
         "F is a totally real number field of degree g; p is any rational prime, including ramified primes.",
         "Tame level N is prime to p and sufficiently small for the Hilbert moduli schemes and finite-level torsors; work over a complete perfectoid extension L of Q_p containing the required embeddings and roots of unity.",
@@ -2338,7 +2398,7 @@
       "proofSteps": [
         "Use c∈pO_p and the anticanonical z-bound to place cz+d in B_r(O_p^×:1).",
         "Evaluate the selected analytic κ-extension; its inverse is defined since the extension is multiplicative into units.",
-        "For vector coefficients import the actual Levi torsor cocycle of T5/B4 and apply ρ to its inverse."
+        "For vectors retain the actual Levi-valued left frame cocycle and its coefficient representation. Convert to O1 with Kγ⁻¹(x)⁻¹; do not reuse the scalar commutation argument for noncommuting coefficients."
       ],
       "acceptance": [
         "For γ=(a b;c d)∈Γ0(p), set jγ(z)=cz+d in O_p⊗O(X∞×U); T4’s coordinate transformation makes jγ a unit in the chosen analytic neighbourhood. The scalar coefficient factor is κ(jγ(z))⁻¹. For finite/vector analytic Levi coefficients use the supplied Levi-valued torsor cocycle, not a determinant character in place of the representation."
@@ -2417,7 +2477,7 @@
       ],
       "title": "Hilbert cocycle identity",
       "kind": "theorem",
-      "statement": "The Hilbert factor satisfies j_{γδ}(x)=jγ(x)jδ(xγ) in the right-action convention; its analytic κ-extension satisfies the same multiplicative identity. Thus inverse coefficient multipliers define the descent datum of O1 on every admitted domain.",
+      "statement": "For BHW’s left level action γx, the Hilbert factor jγ(x)=cγ z(x)+dγ satisfies j_{γδ}(x)=jγ(δx)jδ(x). Its analytic character extension is multiplicative on these admitted factors, so f(γx)=κ(jγ(x))⁻¹f(x) is consistent. For x·γ=γ⁻¹x, the scalar cocycle Jγ(x)=jγ⁻¹(x) obeys O1’s right law (the scalar group is commutative). For noncommuting left frame factors K use Jγ(x)=Kγ⁻¹(x)⁻¹ and retain the representation convention of O1.",
       "hypotheses": [
         "F is a totally real number field of degree g; p is any rational prime, including ramified primes.",
         "Tame level N is prime to p and sufficiently small for the Hilbert moduli schemes and finite-level torsors; work over a complete perfectoid extension L of Q_p containing the required embeddings and roots of unity.",
@@ -2425,13 +2485,14 @@
         "Choose a common analytic extension of κ to a neighbourhood B_r(O_p^×:1), and m≥1 with p^(−m)≤r<1. Put c_p=2 for p≥5, 3 for p=3, 4 for p=2. The anticanonical domain has 0≤ε≤1/(c_p p^m). At every level the radius is pulled back along the stated Atkin–Lehner map, not silently held constant."
       ],
       "proofSteps": [
-        "Write the fractional-linear transformation supplied by T4, retaining its right-action convention.",
-        "Matrix multiplication and cancellation of the denominator give the displayed j identity.",
-        "Apply multiplicativity of the selected analytic weight extension; convert inverse factors in reverse order for vector coefficients."
+        "Use the source left fractional-linear transformation z(δx)=(aδ z(x)+bδ)/(cδ z(x)+dδ).",
+        "Matrix multiplication gives cγδ z+dγδ=(cγ z(δx)+dγ)(cδ z+dδ), establishing the left law.",
+        "Evaluate the multiplicative analytic scalar character and use inverse coefficient equivariance. For general vector factors apply the noncommutative ofLeft conversion in O1, with reversed inverse order."
       ],
       "acceptance": [
-        "An upper unipotent has trivial coefficient factor.",
-        "Noncommutative vector factors cannot be reordered."
+        "At p=3, γ=[[1,0],[3,1]], δ=diag(2,1), z=1, jγδ=7 and jγ(δz)jδ(z)=7; the erroneous right-action expression jγ(z)jδ(γz) is 4.",
+        "An upper unipotent has trivial scalar factor.",
+        "General noncommutative factors use Kγ⁻¹(x)⁻¹; coefficient factors cannot be reordered."
       ],
       "prerequisites": [
         "OverconvergentAutomorphicForms:O2/hilbert-automorphy-factor",
@@ -2448,6 +2509,12 @@
           "locator": "Definition 6.4 and the construction following it, pp.1757–1758",
           "excerpt": "κ(cz + d)",
           "match": "The matrix automorphy identity makes the displayed Γ-action a group action."
+        },
+        {
+          "sourceId": "BHW-2023",
+          "locator": "§5.2.1, Definition 5.14, pp.1749–1750; §5.5, Lemma 5.31, p.1755; §8.2, Definition 8.8, p.1768",
+          "excerpt": "Definition 5.14.",
+          "match": "The level action is left and the tautological frame transforms by cz+d. The displayed left cocycle law follows by matrix multiplication."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2469,7 +2536,7 @@
         "Choose a common analytic extension of κ to a neighbourhood B_r(O_p^×:1), and m≥1 with p^(−m)≤r<1. Put c_p=2 for p≥5, 3 for p=3, 4 for p=2. The anticanonical domain has 0≤ε≤1/(c_p p^m). At every level the radius is pulled back along the stated Atkin–Lehner map, not silently held constant."
       ],
       "proofSteps": [
-        "Apply O1’s equalizer construction to the actual tower and Hilbert cocycle.",
+        "Use the actual left tower action and multiplier f(γx)=κ(jγ(x))⁻¹f(x); convert to O1’s right equalizer with x·γ=γ⁻¹x and Jγ=jγ⁻¹. No unconverted right cz+d identity is used.",
         "On the ordinary locus use the supplied Igusa formal trivialization and analytic-line-effectivity.",
         "Use the dense-open analytic-line criterion from O1 to obtain an analytic invertible sheaf on the smooth domain; finite-level descent through the tower is supplied by P9."
       ],
@@ -2491,7 +2558,7 @@
       "sources": [
         {
           "sourceId": "BHW-2023",
-          "locator": "Definition 6.5 and Proposition 6.6, pp.1758–1759",
+          "locator": "Definition 6.5 and Proposition 6.6, p.1758",
           "excerpt": "Definition 6.5.",
           "match": "The perfectoid definition and analytic-line theorem are independent of the later AIP construction."
         }
@@ -2577,7 +2644,7 @@
       "sources": [
         {
           "sourceId": "BHW-2023",
-          "locator": "Definition 6.5 and Remark 6.7, pp.1758–1759",
+          "locator": "Definition 6.5 and Remark 6.7, p.1758; Definition 7.13, p.1764",
           "excerpt": "Remark 6.7.",
           "match": "The definitions at level zero are transported by Atkin–Lehner and the classical specialisations retain this transport."
         }
@@ -2622,7 +2689,7 @@
       "sources": [
         {
           "sourceId": "BHW-2023",
-          "locator": "Remark 6.7, p.1759",
+          "locator": "Remark 6.7, p.1758",
           "excerpt": "Remark 6.7.",
           "match": "Classical algebraic weights recover the corresponding Hodge powers, with determinant weight separated from the trivial character."
         }
@@ -2638,7 +2705,7 @@
       ],
       "title": "Integral Hilbert coefficient lattices",
       "kind": "construction",
-      "statement": "Define ω_n^{κ,+} by the same equivariance equalizer as ω_n^κ, replacing O by O+ on the actual infinite-level cover. The chosen analytic extension takes its automorphy factors in O+×. This is the specified coefficient lattice, and on the AIP-admitted intersection it is an invertible O+-module.",
+      "statement": "Define ω_n^{κ,+} as the O+ equivariance equalizer on the actual infinite-level cover, for the same left level action and multiplier κ(jγ(x))⁻¹ as ω_n^κ. The admitted factors have integral unit values. This defines the specified subsheaf of rational coefficients; invertibility on the AIP-admitted intersection is the separate comparison target geometric-aip-comparison, with its unresolved integral input recorded as a gap.",
       "hypotheses": [
         "F is a totally real number field of degree g; p is any rational prime, including ramified primes.",
         "Tame level N is prime to p and sufficiently small for the Hilbert moduli schemes and finite-level torsors; work over a complete perfectoid extension L of Q_p containing the required embeddings and roots of unity.",
@@ -2649,10 +2716,12 @@
       "proofSteps": [
         "Form the O+ equalizer using the same cocycle; inverse factors preserve O+.",
         "The inclusion into rational functions is tautological. At finite level transport along the same tower and AL maps.",
-        "Local integral freeness is obtained later from the integral AIP torsor comparison; it is not deduced from rational-line freeness."
+        "Do not assume integral local freeness here. It is an output of the O5 comparison target; the full finite-character integral generator/descent step is recorded as unresolved."
       ],
       "acceptance": [
-        "Define ω_n^{κ,+} by the same equivariance equalizer as ω_n^κ, replacing O by O+ on the actual infinite-level cover. The chosen analytic extension takes its automorphy factors in O+×. This is the specified coefficient lattice, and on the AIP-admitted intersection it is an invertible O+-module."
+        "The trivial coefficient character gives O+ by the actual invariant-function descent.",
+        "Inverting an O+ unit preserves integral functions.",
+        "The rational line does not determine the integral equalizer: on Spa(Q_p), Z_p and pZ_p are distinct integral lattices in Q_p with identical rationalisation."
       ],
       "prerequisites": [
         "OverconvergentAutomorphicForms:O2/geometric-hilbert-sheaf",
@@ -2710,7 +2779,7 @@
         {
           "name": "TauCeti.Overconvergent.Test.O3_integral_hilbert_sheaf_rationalLine",
           "kind": "non-example",
-          "statement": "Rational invertibility alone is not a proof that this integral equalizer is locally free."
+          "statement": "On Spa(Q_p), Z_p and pZ_p are distinct integral submodules of Q_p but both rationalize to Q_p; rational invertibility therefore does not identify the chosen lattice."
         }
       ],
       "planet": {
@@ -3791,7 +3860,7 @@
       "sources": [
         {
           "sourceId": "BHW-2023",
-          "locator": "Remark 10.6, p.1789",
+          "locator": "Remark 10.6, p.1791; Definition 9.10, pp.1786–1787",
           "excerpt": "Remark 10.6.",
           "match": "The arithmetic normalisation removes polarisation choices; G* retains a comparison choice."
         }
@@ -3807,7 +3876,7 @@
       ],
       "title": "Independent AIP coefficient sheaves",
       "kind": "construction",
-      "statement": "On each AIP chart define the modified differential frame torsor F_{n,r,I} over its finite Igusa cover and B_n=O_p^×·(1+p^n Hdg^(−p^n/(p−1))Res_{O_F/Z}G_a). Define the integral AIP coefficient sheaf as (g_n f_n)_*O_{F_{n,r,I}}[κ⁻¹] on the formal model, then pass to the adic integral and rational generic fibres. This uses the modified differential lattice and is independent of the perfectoid equivariant-function definition.",
+      "statement": "On each AIP chart construct the modified differential frame torsor F_{n,r,I} and its B_n=O_p×·(1+p^n Hdg^(−p^n/(p−1))Res_{O_F/Z}G_a) action independently of the perfectoid tower. Define the analytic rational and integral coefficient sheaves as the κ⁻¹-eigenfunctions in (g_n f_n)_*O and (g_n f_n)_*O+ on this actual analytic torsor. In the formal AIP construction, first construct w_{n,r,I} for the universal character on W_F^0, then retain §6.4’s finite-character factor wχ for a full weight. The full formal sheaf is coherent; Prop.4.3 is not cited to assert its integral formal invertibility for every χ.",
       "hypotheses": [
         "F is a totally real number field of degree g; p is any rational prime, including ramified primes.",
         "Tame level N is prime to p and sufficiently small for the Hilbert moduli schemes and finite-level torsors; work over a complete perfectoid extension L of Q_p containing the required embeddings and roots of unity.",
@@ -3817,8 +3886,8 @@
       ],
       "proofSteps": [
         "Import T5’s canonical subgroup, modified lattice, Hodge–Tate congruence and the frame torsor; retain its B_n-action.",
-        "Use AIP ADIC Proposition 2.8 to extend κ to this particular group on this particular chart.",
-        "Take the κ⁻¹ eigenfunctions, without defining them by transport from O2. Rationalise the resulting integral sheaf."
+        "Extend the universal-coordinate character via AIP Proposition 2.8 on W_F^0. For a full weight retain the finite torsion character χ and its independent eigencomponent on the normalized finite Igusa cover (§6.4, p.29).",
+        "Take actual κ⁻¹ analytic O and O+ eigenfunctions. The universal formal line and the full finite-character formal factor are separate; identification of the latter with the analytic O+ lattice remains part of the recorded integral comparison gap."
       ],
       "acceptance": [
         "On each AIP chart define the modified differential frame torsor F_{n,r,I} over its finite Igusa cover and B_n=O_p^×·(1+p^n Hdg^(−p^n/(p−1))Res_{O_F/Z}G_a). Define the integral AIP coefficient sheaf as (g_n f_n)_*O_{F_{n,r,I}}[κ⁻¹] on the formal model, then pass to the adic integral and rational generic fibres. This uses the modified differential lattice and is independent of the perfectoid equivariant-function definition."
@@ -3846,6 +3915,12 @@
           "locator": "Definition 7.9, p.1761",
           "excerpt": "Definition 7.9.",
           "match": "The generic-fibre AIP construction is recalled independently of the perfectoid one."
+        },
+        {
+          "sourceId": "AIP-ADIC-2016",
+          "locator": "§6.4, finite-character construction before Theorem 6.7, p.29",
+          "excerpt": "This is a coherent sheaf,",
+          "match": "The full finite-character factor is stated coherent and invertible over the ordinary locus and analytic fibre; this does not assert invertibility over the entire formal model."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3902,7 +3977,7 @@
       ],
       "title": "AIP integral line and gluing",
       "kind": "theorem",
-      "statement": "The independently constructed AIP integral coefficient sheaves are locally free of rank one and canonically identify on overlaps and under admissible changes I′⊂I, r′≥r, n′≥n. They glue to a single integral coefficient line for the bounded family; its rationalisation is an analytic line.",
+      "statement": "The independently constructed analytic AIP O+ coefficient sheaves are locally free of rank one and canonically identify under admissible chart changes, yielding the rational analytic line. For the universal formal character on W_F^0, formal invertibility and chart change follow from AIP Propositions 4.3 and 4.7. For full finite-character weights, the additional integral O+ identification/local-generator proof is the unresolved target recorded in the gap; no full-weight formal invertibility is inferred from Proposition 4.3.",
       "hypotheses": [
         "F is a totally real number field of degree g; p is any rational prime, including ramified primes.",
         "Tame level N is prime to p and sufficiently small for the Hilbert moduli schemes and finite-level torsors; work over a complete perfectoid extension L of Q_p containing the required embeddings and roots of unity.",
@@ -3911,9 +3986,9 @@
         "Choose a positive or ordinary radius in the intersection of the canonical-subgroup, analytic-character and AIP torsor admissibility ranges."
       ],
       "proofSteps": [
-        "Use AIP ADIC Proposition 4.3: after finite Igusa pullback the analytic eigenline has a local generator; normality and the explicit finite-character construction give the integral generator.",
-        "Do not use unrestricted integral averaging by 1/|Δ|. The proof’s normality/local-generator argument is essential.",
-        "Apply Proposition 4.7’s change-of-chart isomorphism. Triple-overlap equality follows because these maps identify the same torsor eigenfunction on the common refinement."
+        "For the W_F^0 universal formal line apply AIP Proposition 4.3, proved by Lemmas 4.4–4.6: the trace-compatible projector constructs a generator congruent to 1 modulo topologically nilpotent elements, and normality finishes the argument.",
+        "For full weights retain §6.4’s coherent wχ factor. Supply the missing passage from this formal finite-character factor to an invertible analytic O+ eigenline and its local generator. Rational or ordinary-locus invertibility alone does not supply that statement.",
+        "Use Proposition 4.7 for the universal formal chart transitions; verify the finite-character factor and its O+ lattice transitions as part of the same unresolved input. On a common refinement compare the actual eigenfunctions to obtain the triple-overlap identity."
       ],
       "acceptance": [
         "Overlaps identify generators up to integral units and satisfy the triple-overlap cocycle."
@@ -3965,9 +4040,9 @@
         "Choose a common analytic extension of κ to a neighbourhood B_r(O_p^×:1), and m≥1 with p^(−m)≤r<1. Put c_p=2 for p≥5, 3 for p=3, 4 for p=2. The anticanonical domain has 0≤ε≤1/(c_p p^m). At every level the radius is pulled back along the stated Atkin–Lehner map, not silently held constant."
       ],
       "proofSteps": [
-        "Import T5’s actual map s from the perfectoid cover to the modified frame torsor, with s(xγ)=jγ(x)·s(x) in the matching convention.",
+        "Use T5’s actual left-equivariant tautological map s(γx)=jγ(x)s(x), including the scaled map s∘u_n in the AL_n diagram.",
         "Pull an AIP eigenfunction along s. Its inverse-character relation is precisely the perfectoid κ⁻¹ automorphy relation.",
-        "On a torsor-trivializing cover send the local AIP generator to the perfectoid section. Both are integral lines; P9 identifies invariant O+ of the actual torsor with base O+, proving the map is an isomorphism.",
+        "To prove integral surjectivity, first supply an AIP generator whose pullback f is a unit in the cover O+, or a stronger coefficient-sensitive integral descent argument. Then any equivariant g has invariant integral ratio g/f, and P9 identifies that invariant ring with base O+. This proves local freeness and the isomorphism without assuming the perfectoid equalizer is already a line. The required full finite-character generator/descent statement is the recorded unresolved input.",
         "Glue using chosen tautological frames; handle ∞ with the corresponding limit torsor and 0 via the scaled AL_1 diagram."
       ],
       "acceptance": [
@@ -4232,7 +4307,7 @@
       "sources": [
         {
           "sourceId": "AIP-ADIC-2016",
-          "locator": "§8.4, Proposition 8.4, p.31",
+          "locator": "§8.4, Proposition 8.4, pp.36–37 (statement p.37)",
           "excerpt": "Proposition 8.4.",
           "match": "The pushforward comparison is Koecher extension, not cuspidality."
         },
@@ -4780,7 +4855,7 @@
         },
         {
           "sourceId": "AIP-CUSP-2016",
-          "locator": "Lemma 3.25(4) and Lemma 3.27, pp.23–24",
+          "locator": "Lemma 3.25(4) and Lemma 3.27, pp.22–24",
           "excerpt": "Lemma 3.27.",
           "match": "The product improves all partial radii before the compact restriction factor."
         }
@@ -4945,11 +5020,11 @@
         "F is a totally real number field of degree g; p is any rational prime, including ramified primes.",
         "Tame level N is prime to p and sufficiently small for the Hilbert moduli schemes and finite-level torsors; work over a complete perfectoid extension L of Q_p containing the required embeddings and roots of unity.",
         "A bounded smooth weight family has a smooth rigid base U over L and image in an affinoid of the appropriate weight space. Affinoid assertions additionally require U=Spa(A,A+) with A reduced and equipped with its compatible uniform spectral norm.",
-        "Use T5’s actual ordinary Igusa tower and formal finite-etale transition maps; P9 supplies the comparison of its completed structural sheaf on affinoid patches."
+        "Use T5’s actual ordinary formal Igusa tower with finite-etale transition maps. The inverse limit defines the formal completed structural ring; an identification with the actual analytic tower O+ is the separate O7 comparison target, with the exact hypotheses still recorded as a gap."
       ],
       "proofSteps": [
         "Reduce the finite Igusa tower modulo p^m and form its direct limit in level first.",
-        "Take the p-adic inverse limit with its inverse-limit topology; use P9’s formal affinoid completion/tilde-limit theorem to identify with the completed structural sheaf.",
+        "Take the p-adic inverse limit with its inverse-limit topology; this constructs formal completed tower functions. Do not identify it with analytic O+ merely from Heuer Proposition 3.8’s natural map.",
         "Glue and sheafify over the ordinary formal base. Any global-limit interchange on a nonaffine space requires separate acyclicity/Mittag–Leffler hypotheses."
       ],
       "acceptance": [
@@ -4969,7 +5044,7 @@
           "sourceId": "HEUER-2022",
           "locator": "Proposition 3.8 and proof, p.16",
           "excerpt": "Proposition 3.8.",
-          "match": "Formal finite-level reductions and their compatible completion supply analytic Igusa cocycle descent."
+          "match": "The proof supplies the ordered formal completion and a natural equivariant map to analytic O+(X∞). It does not prove that this map is generally an isomorphism."
         },
         {
           "sourceId": "BHW-2023",
@@ -5012,7 +5087,7 @@
         {
           "name": "TauCeti.Overconvergent.Test.O7_ordinary_completed_functions_order",
           "kind": "characterisation",
-          "statement": "The m-th coordinate belongs to a direct limit in finite Igusa level and is compatible under m+1→m."
+          "statement": "For the constant profinite translation tower with deck group Z_p, the m-th quotient is Map_lc(Z_p,Z/p^m); the compatible functions x↦x mod p^m define the completed continuous function x↦x, which factors through no single finite level over Z_p."
         },
         {
           "name": "TauCeti.Overconvergent.Test.O7_ordinary_completed_functions_trivialTower",
@@ -5022,7 +5097,7 @@
         {
           "name": "TauCeti.Overconvergent.Test.O7_ordinary_completed_functions_nonaffine",
           "kind": "non-example",
-          "statement": "On a nonaffine base, global H^0 does not automatically commute with this sheafified limit construction."
+          "statement": "On a disjoint union of points indexed by n≥1 with a Z_p-torsor on each, the section whose nth component is the nth p-adic digit is locally in the finite-level mod-p structural colimit but has no uniform finite level globally. Thus sheafifying the level colimit before global sections cannot be replaced by a single global level colimit on this non-quasicompact base."
         }
       ],
       "planet": {
@@ -5142,15 +5217,16 @@
         "F is a totally real number field of degree g; p is any rational prime, including ramified primes.",
         "Tame level N is prime to p and sufficiently small for the Hilbert moduli schemes and finite-level torsors; work over a complete perfectoid extension L of Q_p containing the required embeddings and roots of unity.",
         "A bounded smooth weight family has a smooth rigid base U over L and image in an affinoid of the appropriate weight space. Affinoid assertions additionally require U=Spa(A,A+) with A reduced and equipped with its compatible uniform spectral norm.",
-        "Use P9’s formal affinoid pro-etale completion theorem and T5’s actual tower. No unrestricted nonaffine global-section interchange."
+        "Use T5’s actual ordinary Igusa tower. P9 must establish the analytic O+ comparison for these specific formal affinoid models, including the precise normality/integral-closure and completion/topology hypotheses; those hypotheses have not been extracted from Heuer Proposition 3.8. No unrestricted nonaffine global-section interchange is used."
       ],
       "proofSteps": [
         "At each m use the finite-etale system and its structural colimit.",
-        "Use the supplied p-adic formal effectivity/completion theorem to take the inverse limit and identify its topology with completed tower functions.",
+        "Construct the natural equivariant map from the ordered formal completion to O+(X∞) as in Heuer. Prove it is an isomorphism for the actual Igusa tower using the additional integral-closure/completion theorem at P9; this precise source input remains unresolved.",
         "Restriction compatibility glues the comparison; equivariance is verified at each finite quotient before completion."
       ],
       "acceptance": [
-        "The constant affine tower reduces to the ordinary p-adic completion formula."
+        "The constant affine tower reduces to the ordinary p-adic completion formula.",
+        "For a constant nonnormal formal model Spf(O_K⟨pT,T²,T³⟩), the integral element T is power-bounded on the generic fibre but is not in the formal structural ring. Thus a completion-to-O+ isomorphism cannot be asserted for arbitrary topologically finite-type formal models without further hypotheses."
       ],
       "prerequisites": [
         "OverconvergentAutomorphicForms:O7/ordinary-completed-functions",
@@ -5167,7 +5243,7 @@
           "sourceId": "HEUER-2022",
           "locator": "Proof of Proposition 3.8, p.16",
           "excerpt": "Proposition 3.8.",
-          "match": "The proof works through compatible finite-level reductions before formal effectivity; the exact affinoid comparison is requested from P9."
+          "match": "Heuer constructs a natural map, not a general identification with O+. The exact isomorphism for the actual ordinary Igusa models is an additional unverified P9 target."
         }
       ],
       "implementationStatus": "unchecked",
@@ -5313,7 +5389,7 @@
         },
         {
           "sourceId": "AIP-ADIC-2016",
-          "locator": "After Proposition 8.4, §8.4–8.5, p.31",
+          "locator": "§8.4, discussion after Proposition 8.4, p.37",
           "excerpt": "ordinary",
           "match": "The ordinary restriction recovers the Katz/Hida coefficient model, with further Hida theorems separate."
         }
@@ -5464,7 +5540,7 @@
     },
     {
       "supplier": "PerfectoidSpaces:P9",
-      "need": "Actual O and O+ descent on the indicated profinite Hilbert/Igusa torsors, finite locally free effectivity, pullback on smooth weight products, integral flat/chart-change conditions and local O+[1/p]=O comparisons. Include Heuer (2022) Cor.1.4 for v-lines on smooth rigid X and Prop.3.8 for integral-unit formal Igusa cocycles; prove lim_m colim_i finite-level affine functions modulo p^m equals completed tower O+, with patchwise sheafification, compatible traces, and no unconditional nonaffine global interchange. For integral Hecke maps supply O+-trace preservation on the stated finite locally free formal correspondence models.",
+      "need": "Actual O and O+ descent on the indicated profinite Hilbert/Igusa torsors, finite locally free effectivity, pullback on smooth weight products, integral flat/chart-change conditions and local O+[1/p]=O comparisons. Include Heuer (2022) Cor.1.4 for v-lines on smooth rigid X and Prop.3.8 for cocycles in completed formal structural units O(𝔛∞)×; prove lim_m colim_i finite-level affine functions modulo p^m equals completed tower O+, with patchwise sheafification, compatible traces, and no unconditional nonaffine global interchange. For integral Hecke maps supply O+-trace preservation on the stated finite locally free formal correspondence models. Distinguish Heuer’s natural completion-to-O+ map from an isomorphism: establish the latter only for the actual normal/integrally closed Igusa formal models under verified completion/topology hypotheses. Also supply coefficient-sensitive integral descent for the full finite-character AIP factor, including the local O+ generator and its pullback unit criterion or an alternative integral comparison proof.",
       "neededBy": [
         "OverconvergentAutomorphicForms:O1/equivariant-coefficient-sheaf",
         "OverconvergentAutomorphicForms:O1/coefficient-descent-functoriality",
@@ -5485,7 +5561,7 @@
     },
     {
       "supplier": "HodgeTateAndCanonicalSubgroups:T4",
-      "need": "Hilbert canonical/anticanonical domains at arbitrary p including ramification; actual Hodge–Tate coordinate and right fractional-linear convention; bound ε≤1/(c_p p^m), c_p=2 (p≥5),3 (p=3),4 (p=2); AL_n:X_{Γ0*(p^n)}(p^nε)_a≅X(ε); partial-Hasse improvement under u_𝔭 and the all-direction v/p improvement for ∏U_𝔭^{e_𝔭}.",
+      "need": "Hilbert canonical/anticanonical domains at arbitrary p including ramification; actual Hodge–Tate coordinate and left fractional-linear convention z(γx)=(az(x)+b)/(cz(x)+d), with jγδ(x)=jγ(δx)jδ(x) and explicit inversion when converting to a right action; bound ε≤1/(c_p p^m), c_p=2 (p≥5),3 (p=3),4 (p=2); AL_n:X_{Γ0*(p^n)}(p^nε)_a≅X(ε); partial-Hasse improvement under u_𝔭 and the all-direction v/p improvement for ∏U_𝔭^{e_𝔭}.",
       "neededBy": [
         "OverconvergentAutomorphicForms:O2/admitted-hilbert-domain",
         "OverconvergentAutomorphicForms:O2/hilbert-automorphy-factor",
@@ -5499,7 +5575,7 @@
     },
     {
       "supplier": "HodgeTateAndCanonicalSubgroups:T5",
-      "need": "Modified differential lattice ω^int (O_F⊗O+ locally free rank one even at ramified non-Rapoport points), canonical-subgroup Hodge–Tate congruence, Igusa and B_n frame torsors with their tautological sections, actual map s from the perfectoid cover, cz+d equivariance, compatibility with level/radius/base/isogenies and ordinary formal Igusa frames. The O5 comparison needs these concrete maps, not an abstract torsor existence assertion.",
+      "need": "Modified differential lattice ω^int (O_F⊗O+ locally free rank one even at ramified non-Rapoport points), canonical-subgroup Hodge–Tate congruence, Igusa and B_n frame torsors with their tautological sections, actual map s from the perfectoid cover, cz+d equivariance, compatibility with level/radius/base/isogenies and ordinary formal Igusa frames. The O5 comparison needs these concrete maps, not an abstract torsor existence assertion. Retain AIP §6.4’s full finite-character eigencomponent on its normalized Igusa cover; provide the actual O+ local-generator/transition data needed by O5, and the normality/integral-closure hypotheses of the ordinary formal models for the completion comparison.",
       "neededBy": [
         "OverconvergentAutomorphicForms:O2/hilbert-automorphy-factor",
         "OverconvergentAutomorphicForms:O2/hilbert-algebraic-specialisation",
@@ -5612,7 +5688,8 @@
       "stageId": "OverconvergentAutomorphicForms:O2",
       "status": "planned",
       "remaining": [
-        "Supply T4/T5/S5’s actual Hilbert tower, coordinate and tautological-frame carriers; type the admitted-domain, automorphy and sheaf declarations."
+        "Supply T4/T5/S5’s actual Hilbert tower, coordinate and tautological-frame carriers; type the admitted-domain, automorphy and sheaf declarations.",
+        "Use the corrected source left cocycle law and the explicit right-action inversion conversion in the typed prototypes."
       ],
       "notes": "Admitted domain, cz+d factor/law, geometric line, level/radius maps and algebraic specialisation."
     },
@@ -5628,7 +5705,8 @@
       "stageId": "OverconvergentAutomorphicForms:O4",
       "status": "planned",
       "remaining": [
-        "Supply H3/H4/S5’s exact effective quotient groups, pairing and transport laws; type the four separate presentations and all explicit comparison maps."
+        "Supply H3/H4/S5’s exact effective quotient groups, pairing and transport laws; type the four separate presentations and all explicit comparison maps.",
+        "Retain the full finite-character factor when comparing integral arithmetic coefficients."
       ],
       "notes": "Four independent presentations, quotient relations, finite twisted descent, pairing comparison and polarisation-class independence."
     },
@@ -5636,7 +5714,8 @@
       "stageId": "OverconvergentAutomorphicForms:O5",
       "status": "planned",
       "remaining": [
-        "Supply modified frame torsors, AIP coordinate charts and their transition maps; type both independent sheaves and the integral tautological comparisons on the verified intersection."
+        "Supply modified frame torsors, AIP coordinate charts and their transition maps; type both independent sheaves and the integral tautological comparisons on the verified intersection.",
+        "Resolve the full finite-character O+ generator/descent input; universal-character formal invertibility cannot replace it."
       ],
       "notes": "Independent AIP torsor/eigenline, gluing, integral geometric/arithmetic comparisons and tautological naturality."
     },
@@ -5652,7 +5731,8 @@
       "stageId": "OverconvergentAutomorphicForms:O7",
       "status": "planned",
       "remaining": [
-        "Supply the actual ordinary Igusa tower and affine completion theorem in the prescribed limit order; type the weighted ordinary and restriction/comparison signatures. No full Hida control theorem is asserted."
+        "Supply the actual ordinary Igusa tower and affine completion theorem in the prescribed limit order; type the weighted ordinary and restriction/comparison signatures. No full Hida control theorem is asserted.",
+        "Establish exact hypotheses and a source/proof for formal completed Igusa functions = analytic tower O+; Heuer supplies only a natural map."
       ],
       "notes": "Ordered Igusa completion, weighted ordinary functions, structural/line comparisons and compatible restriction, expansions and operators."
     }
@@ -5711,7 +5791,7 @@
         "OverconvergentAutomorphicForms:O1/coefficient-descent-functoriality",
         "OverconvergentAutomorphicForms:O1/analytic-line-effectivity"
       ],
-      "detail": "The pinned libraries lack the actual rigid analytic chart/induction, Hilbert moduli tower, torsor, adic ringed coefficient site or completed ordinary carrier required by these statements. Their complete mathematical signatures, API and test contracts are recorded in the suggested-file omission register, with the named supplier prerequisites above. No Prop-valued substitute or fake geometric carrier is introduced. Replace register entries by typed signatures as the suppliers are formalised."
+      "detail": "The algebraic RightCocycle core, equivariant submodule, gauge equivalence and left-to-right conversion are typed in the suggested file. The actual analytic coefficient ringed site, torsor, analytic function and stable-lattice conditions are absent from the pinned libraries and remain precise supplier-dependent signature omissions; no Prop-valued replacement is introduced."
     },
     {
       "title": "O2 prototype carriers from suppliers",
@@ -5795,6 +5875,31 @@
         "OverconvergentAutomorphicForms:O7/ordinary-hecke-expansions"
       ],
       "detail": "The pinned libraries lack the actual rigid analytic chart/induction, Hilbert moduli tower, torsor, adic ringed coefficient site or completed ordinary carrier required by these statements. Their complete mathematical signatures, API and test contracts are recorded in the suggested-file omission register, with the named supplier prerequisites above. No Prop-valued substitute or fake geometric carrier is introduced. Replace register entries by typed signatures as the suppliers are formalised."
+    },
+    {
+      "title": "Full finite-character integral AIP comparison",
+      "neededBy": [
+        "OverconvergentAutomorphicForms:O3/integral-hilbert-sheaf",
+        "OverconvergentAutomorphicForms:O5/aip-independent-coefficients",
+        "OverconvergentAutomorphicForms:O5/aip-line-and-gluing",
+        "OverconvergentAutomorphicForms:O5/geometric-aip-comparison",
+        "OverconvergentAutomorphicForms:O5/arithmetic-aip-comparison",
+        "OverconvergentAutomorphicForms:O5/aip-comparison-naturality",
+        "OverconvergentAutomorphicForms:O6/hecke-lattice-renormalisation",
+        "OverconvergentAutomorphicForms:O7/ordinary-coefficient-comparison"
+      ],
+      "detail": "AIP ADIC §§4.1–4.3 constructs an invertible formal w_{n,r,I} for the universal character on W_F^0. §6.4 (p.29) adds a finite-character wχ stated coherent and invertible on the ordinary locus and analytic fibre, not on the whole formal model. BHW Proposition 7.10 and Theorem 7.14 assert full analytic O+ invertibility/comparison, but their reduction to Prop.4.3 suppresses this factor. Supply at T5/P9 the precise full-character analytic O+ local-generator/descent theorem on the common admitted domains and its chart transitions. For the proposed divide-by-generator proof of O5, prove its pullback is an O+ unit, or replace that proof by a coefficient-sensitive integral descent argument. Do not assume the perfectoid equalizer is already a line or infer integral freeness from rational freeness. This review does not establish that either published theorem is false."
+    },
+    {
+      "title": "Formal completion versus actual analytic Igusa O+",
+      "neededBy": [
+        "OverconvergentAutomorphicForms:O7/ordinary-completed-functions",
+        "OverconvergentAutomorphicForms:O7/igusa-completion-comparison",
+        "OverconvergentAutomorphicForms:O7/ordinary-restriction",
+        "OverconvergentAutomorphicForms:O7/ordinary-coefficient-comparison",
+        "OverconvergentAutomorphicForms:O7/ordinary-hecke-expansions"
+      ],
+      "detail": "Heuer Proposition 3.8, p.16, constructs O(𝔛∞)=lim_m colim_i O(𝔛_i)/p^m → O+(X∞); it does not assert this map is an isomorphism. A constant nonnormal model O_K⟨pT,T²,T³⟩ already misses the power-bounded integral element T. T5/P9 must supply the exact normal/integrally closed formal Igusa models and the theorem identifying their completed structural rings with the analytic O+ sheaf, with the requisite topology, base change and restriction hypotheses. Formal effectivity of the line cocycle alone does not settle this comparison."
     }
   ],
   "sourceIssues": [
@@ -5812,7 +5917,12 @@
         "Centre Mersenne DOI10.5802/aif.3560 article page and author publication pages, checked 2026-10-06: no erratum located.",
         "arXiv:1902.03985v4 compared with the published PDF: the relevant printed formulas agree.",
         "Web searches for Birkbeck–Heuer–Williams Hilbert forms erratum/correction, 2026-10-06: no correction found. No authors contacted."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed against Definition 6.1, the subsequent displayed formula, and (9.1) in the version of record and arXiv v4: the stated dual map needs N(x)⁻¹ to give w²(t⁻¹∘N).",
+        "by": "REV-OverconvergentAutomorphicForms--O0"
+      }
     },
     {
       "id": "OverconvergentAutomorphicForms/E2",
@@ -5828,7 +5938,12 @@
         "Centre Mersenne DOI10.5802/aif.3560 article page and author publication pages, checked 2026-10-06: no erratum located.",
         "arXiv:1902.03985v4 compared with the published PDF: the relevant printed formulas agree.",
         "Web searches for Birkbeck–Heuer–Williams Hilbert forms erratum/correction, 2026-10-06: no correction found. No authors contacted."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed: for p>2 the nontrivial Teichmuller character has affinoid-point image but supremum 1 on all units, whereas it is trivial on principal units. The positive-radius numerical conclusion therefore cannot use the printed all-unit diagnostic.",
+        "by": "REV-OverconvergentAutomorphicForms--O0"
+      }
     },
     {
       "id": "OverconvergentAutomorphicForms/E3",
@@ -5844,7 +5959,12 @@
         "Centre Mersenne DOI10.5802/aif.3560 article page and author publication pages, checked 2026-10-06: no erratum located.",
         "arXiv:1902.03985v4 compared with the published PDF: the relevant printed formulas agree.",
         "Web searches for Birkbeck–Heuer–Williams Hilbert forms erratum/correction, 2026-10-06: no correction found. No authors contacted."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed on the PDF page: the radius is the product |p|^r0|Tκ|, not an exponent involving Tκ. At p=3 the finite character κ(4)=ζ9 forces value ζ3 at64 while an accumulating sequence of kernel elements in the claimed ball forces any analytic extension to be constant there.",
+        "by": "REV-OverconvergentAutomorphicForms--O0"
+      }
     },
     {
       "id": "OverconvergentAutomorphicForms/E4",
@@ -5860,7 +5980,12 @@
         "Centre Mersenne DOI10.5802/aif.3560 article page and author publication pages, checked 2026-10-06: no erratum located.",
         "arXiv:1902.03985v4 compared with the published PDF: the relevant printed formulas agree.",
         "Web searches for Birkbeck–Heuer–Williams Hilbert forms erratum/correction, 2026-10-06: no correction found. No authors contacted."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed: the displayed local O_F/p^m module has p^(mg) elements, g=[F:Q], including ramified p. The printed p^m order omits g.",
+        "by": "REV-OverconvergentAutomorphicForms--O0"
+      }
     },
     {
       "id": "OverconvergentAutomorphicForms/E5",
@@ -5876,7 +6001,12 @@
         "Centre Mersenne DOI10.5802/aif.3560 article page and author publication pages, checked 2026-10-06: no erratum located.",
         "arXiv:1902.03985v4 compared with the published PDF: the relevant printed formulas agree.",
         "Web searches for Birkbeck–Heuer–Williams Hilbert forms erratum/correction, 2026-10-06: no correction found. No authors contacted."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed against the bibliography and both AIP author PDFs: Theorem 3.16 is in AIP CUSP, reference[3], not ADIC[2]. The arithmetic fixed-radius statement uses Theorem 4.4 and the cofinal affinoid refinement.",
+        "by": "REV-OverconvergentAutomorphicForms--O0"
+      }
     }
   ],
   "restructure": [
@@ -5913,6 +6043,386 @@
         "tauceti:TauCetiRoadmap/ModularForms"
       ],
       "note": "Both upstream reader documents were read in full. No edits or replanning are proposed: their topological/adic and classical modular-form infrastructure is consumed through the exact campaign suppliers. General complete continuity means finite-range approximation over an affinoid algebra, not Mathlib IsCompactOperator."
+    },
+    {
+      "roadmaps": [
+        "tauceti:TauCetiRoadmap/AdicSpaces",
+        "tauceti:TauCetiRoadmap/GlobalNumberFields"
+      ],
+      "note": "The independent reviewer read these two nearby upstream documents in full. Adic plus rings are integral-closure/power-bounded objects rather than arbitrary formal structural rings; GlobalNumberFields keeps narrow classes and positivity distinct. Their scope is consumed, without edits or replanning."
     }
-  ]
+  ],
+  "review": {
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-OverconvergentAutomorphicForms--O0",
+    "date": "2026-10-06",
+    "notes": "Finished independent review of all 73 nodes, all locators/excerpts, 38 baseline statements at exact pins, supplier statements, closure, target-level granularity, API, tests, suggested Lean file and planets. Corrected 26 nodes in place; no nodes added. Three targets remain unverifiable: full finite-character integral AIP line/gluing and unit-generator comparison, and exact formal Igusa completion versus actual analytic O+. All five sourceIssues confirmed. Packet is a complete planning pass with eight planned stages, not closed or formalised. See the review report for the exhaustive change log and source evidence.",
+    "checked": [
+      {
+        "nodeId": "OverconvergentAutomorphicForms:O0/units-at-p",
+        "verdict": "verified",
+        "note": "Finite-free tensor algebra, module topology and units use the pinned baseline; no split/unramified condition is imposed."
+      },
+      {
+        "nodeId": "OverconvergentAutomorphicForms:O0/norm-at-p",
+        "verdict": "verified",
+        "note": "Finite-free determinant norm and induced unit hom agree with the source, including base change and conjugate product."
+      },
+      {
+        "nodeId": "OverconvergentAutomorphicForms:O0/principal-units",
+        "verdict": "verified",
+        "note": "Principal units are defined by the ideal p^r; r=0, rational index and prime-to-p torsion tests distinguish the subgroup."
+      },
+      {
+        "nodeId": "OverconvergentAutomorphicForms:O0/geometric-weight-characters",
+        "verdict": "corrected",
+        "note": "Replaced an unsupported alleged discontinuous Q_p-valued hom with the same p-adic ring equipped with discrete topology; continuity is a real condition."
+      },
+      {
+        "nodeId": "OverconvergentAutomorphicForms:O0/arithmetic-weight-characters",
+        "verdict": "verified",
+        "note": "Two independent compact-torus characters and their product topology agree with Definition 6.1."
+      },
+      {
+        "nodeId": "OverconvergentAutomorphicForms:O0/weight-dual-group-map",
+        "verdict": "verified",
+        "note": "The inverted norm in the dual map agrees with the displayed weight formula and (9.1); E1 independently confirmed."
+      },
+      {
+        "nodeId": "OverconvergentAutomorphicForms:O0/weight-comparison",
+        "verdict": "verified",
+        "note": "Character-space pullback is conditional on the requested compact-torus representing object, not supplied by ContinuousMonoidHom alone."
+      },
+      {
+        "nodeId": "OverconvergentAutomorphicForms:O0/weight-comparison-formula",
+        "verdict": "verified",
+        "note": "The pointwise weight formula follows from the corrected dual map, with all inverse signs retained."
+      },
+      {
+        "nodeId": "OverconvergentAutomorphicForms:O0/weight-comparison-norm-factor",
+        "verdict": "verified",
+        "note": "The residual factor is t inverse composed with norm; norm-one and rational tests detect a missing inverse."
+      },
+      {
+        "nodeId": "OverconvergentAutomorphicForms:O0/weight-comparison-totally-positive-units",
+        "verdict": "verified",
+        "note": "Total positivity gives norm +1; narrow rather than ordinary class data are retained."
+      },
+      {
+        "nodeId": "OverconvergentAutomorphicForms:O0/weight-radius-parameter",
+        "verdict": "verified",
+        "note": "The principal-unit diagnostic is distinguished from affinoid boundedness and AIP coordinates; E2 confirmed."
+      },
+      {
+        "nodeId": "OverconvergentAutomorphicForms:O0/continuous-character-bounded",
+        "verdict": "verified",
+        "note": "Compact image in a uniform Banach algebra gives boundedness, and the compact-group power argument bounds character values."
+      },
+      {
+        "nodeId": "OverconvergentAutomorphicForms:O0/analytic-continuation-of-bounded-weights",
+        "verdict": "corrected",
+        "note": "Existential analytic extension is used on actual AIP charts; corrected BP locator and retained the unresolved quantitative coordinate comparison, not the disproved E3 formula."
+      },
+      {
+        "nodeId": "OverconvergentAutomorphicForms:O0/bounded-weight-families",
+        "verdict": "verified",
+        "note": "Bounded smooth families, specialization and chart extension use the same coefficient base; no scalar bound replaces affinoid-image boundedness."
+      },
+      {
+        "nodeId": "OverconvergentAutomorphicForms:O0/finite-analytic-coefficients",
+        "verdict": "verified",
+        "note": "Actual analytic group neighbourhoods and finite-projective coefficient modules are required; the baseline representation supplies only the algebraic action."
+      },
+      {
+        "nodeId": "OverconvergentAutomorphicForms:O0/coefficient-tensor-dual",
+        "verdict": "corrected",
+        "note": "Corrected BP locators; finite-projective dual and tensor laws follow by direct-summand arguments and the R0 completed-tensor contract."
+      },
+      {
+        "nodeId": "OverconvergentAutomorphicForms:O0/analytic-induced-coefficients",
+        "verdict": "corrected",
+        "note": "Restored BP closed M1/Iwahori and torus-normalizing hypotheses; separated ordinary Banach dual from projective open-polydisc distributions and added their API."
+      },
+      {
+        "nodeId": "OverconvergentAutomorphicForms:O0/algebraic-induced-comparison",
+        "verdict": "corrected",
+        "note": "Corrected §6.2.11 locator; finite twist is w0χ inverse, with its actual kernel/monoid conditions; the dual comparison is not claimed universally surjective."
+      },
+      {
+        "nodeId": "OverconvergentAutomorphicForms:O0/unitary-completed-coefficients",
+        "verdict": "corrected",
+        "note": "Completed coefficients retain lim_m colim_i, inverse algebraic action and s≥1 for the nonempty Ding application; strengthened tests with the continuous digit-tower example."
+      },
+      {
+        "nodeId": "OverconvergentAutomorphicForms:O0/unitary-jacquet-eigenvariety",
+        "verdict": "verified",
+        "note": "Jacquet support is a distinct Emerton construction, explicitly requested as a Part II rather than equated with the Buzzard engine."
+      },
+      {
+        "nodeId": "OverconvergentAutomorphicForms:O0/unitary-eigenvariety-geometry",
+        "verdict": "verified",
+        "note": "Ding Proposition 4.14 dimension/depth hypotheses include the definite-unitary regularity input; its missing owner theorem remains an explicit gap."
+      },
+      {
+        "nodeId": "OverconvergentAutomorphicForms:O0/unitary-eigenvariety-reduced",
+        "verdict": "verified",
+        "note": "Reducedness follows through locally algebraic density and the recorded Jacquet/regularity supplier, not from equidimensionality alone."
+      },
+      {
+        "nodeId": "OverconvergentAutomorphicForms:O1/right-automorphy-cocycle",
+        "verdict": "corrected",
+        "note": "Added reusable extensionality, trivial cocycle, membership, gauge equivalence and evaluation API; converted left K by inverse group and inverse coefficient, preserving noncommuting order."
+      },
+      {
+        "nodeId": "OverconvergentAutomorphicForms:O1/equivariant-coefficient-sheaf",
+        "verdict": "corrected",
+        "note": "Corrected BHW Definition 6.5/Proposition 6.6 page; actual equivariant analytic sections and coefficient-sensitive descent are retained."
+      },
+      {
+        "nodeId": "OverconvergentAutomorphicForms:O1/coefficient-descent-functoriality",
+        "verdict": "corrected",
+        "note": "Corrected §9 lemma locators; operations and base change retain the specified integral flatness/chart hypotheses rather than unconditional integral exactness."
+      },
+      {
+        "nodeId": "OverconvergentAutomorphicForms:O1/analytic-line-effectivity",
+        "verdict": "corrected",
+        "note": "Restored Heuer perfectoid extension of Q_p, line-specific dense-open criterion and formal-unit cocycle hypothesis; no arbitrary analytic O+ cocycle or completion isomorphism substituted."
+      },
+      {
+        "nodeId": "OverconvergentAutomorphicForms:O2/admitted-hilbert-domain",
+        "verdict": "corrected",
+        "note": "Corrected the reversed AL radius acceptance test: level n maps p^n ε to ε, and n=0 is defined via AL1."
+      },
+      {
+        "nodeId": "OverconvergentAutomorphicForms:O2/hilbert-automorphy-factor",
+        "verdict": "corrected",
+        "note": "Restored BHW left equivariance f(γx)=κ(cz+d) inverse f(x); vector frame conversion uses O1 explicitly."
+      },
+      {
+        "nodeId": "OverconvergentAutomorphicForms:O2/hilbert-cocycle-law",
+        "verdict": "corrected",
+        "note": "Corrected the left cz+d law; the p=3 lower-unipotent/diagonal example gives 7 versus the erroneous right-law value 4."
+      },
+      {
+        "nodeId": "OverconvergentAutomorphicForms:O2/geometric-hilbert-sheaf",
+        "verdict": "corrected",
+        "note": "Geometric line uses the left scalar source multiplier and its explicit right-cocycle adapter; integral freeness is deferred to O5."
+      },
+      {
+        "nodeId": "OverconvergentAutomorphicForms:O2/hilbert-level-radius-maps",
+        "verdict": "corrected",
+        "note": "Corrected Remark 6.7 page and retained level/radius transport rather than silently constant AL radii."
+      },
+      {
+        "nodeId": "OverconvergentAutomorphicForms:O2/hilbert-algebraic-specialisation",
+        "verdict": "corrected",
+        "note": "Corrected classical norm-weight/determinant test and Remark 6.7 locator; weight 1 is not the determinant bundle."
+      },
+      {
+        "nodeId": "OverconvergentAutomorphicForms:O3/integral-hilbert-sheaf",
+        "verdict": "corrected",
+        "note": "Removed circular local-freeness assumption: this node constructs an integral equalizer, with freeness a later comparison output."
+      },
+      {
+        "nodeId": "OverconvergentAutomorphicForms:O3/integral-rationalisation",
+        "verdict": "verified",
+        "note": "Rationalization uses the supplied integral/rational descent comparison; equality of rational lines alone does not identify arbitrary lattices."
+      },
+      {
+        "nodeId": "OverconvergentAutomorphicForms:O3/hilbert-weight-pullback",
+        "verdict": "verified",
+        "note": "Rational base change and integral flat/chart-change cases are separate; nonflat integral invariants are not declared exact."
+      },
+      {
+        "nodeId": "OverconvergentAutomorphicForms:O3/fixed-radius-hilbert-forms",
+        "verdict": "verified",
+        "note": "Fixed-radius forms are genuine sheaf sections, with domain and coefficient transition maps."
+      },
+      {
+        "nodeId": "OverconvergentAutomorphicForms:O3/overconvergent-hilbert-forms",
+        "verdict": "verified",
+        "note": "Overconvergent forms use the specified filtered system of radii and sections, rather than an unconditional completion."
+      },
+      {
+        "nodeId": "OverconvergentAutomorphicForms:O3/ramified-modified-lattice",
+        "verdict": "verified",
+        "note": "Ramified modified differential lattice remains owned by T5; no unramified simplification is inserted."
+      },
+      {
+        "nodeId": "OverconvergentAutomorphicForms:O4/presentation-geometric-small",
+        "verdict": "verified",
+        "note": "Small geometric presentation retains its actual cover and inverse-weight eigencondition."
+      },
+      {
+        "nodeId": "OverconvergentAutomorphicForms:O4/presentation-geometric-full",
+        "verdict": "verified",
+        "note": "Full geometric presentation retains its independent cover; its comparison is a separate map."
+      },
+      {
+        "nodeId": "OverconvergentAutomorphicForms:O4/presentation-arithmetic-intermediate",
+        "verdict": "verified",
+        "note": "Intermediate arithmetic presentation retains the full arithmetic weight and effective quotient action."
+      },
+      {
+        "nodeId": "OverconvergentAutomorphicForms:O4/presentation-arithmetic-full",
+        "verdict": "verified",
+        "note": "Full arithmetic presentation retains polarisation data and its actual level quotient."
+      },
+      {
+        "nodeId": "OverconvergentAutomorphicForms:O4/arithmetic-representatives",
+        "verdict": "verified",
+        "note": "Well-defined arithmetic action uses the totally positive unit identity and exact quotient relations."
+      },
+      {
+        "nodeId": "OverconvergentAutomorphicForms:O4/geometric-full-cover-comparison",
+        "verdict": "verified",
+        "note": "Geometric cover comparison is restriction/descent along the named cover, with explicit equivariance."
+      },
+      {
+        "nodeId": "OverconvergentAutomorphicForms:O4/twisted-polarisation-action",
+        "verdict": "verified",
+        "note": "Twisted polarisation action retains the arithmetic weight factor and commuting level action."
+      },
+      {
+        "nodeId": "OverconvergentAutomorphicForms:O4/finite-polarisation-descent",
+        "verdict": "verified",
+        "note": "Finite polarisation descent uses the exact effective quotient; no division by group order in arbitrary integral coefficients."
+      },
+      {
+        "nodeId": "OverconvergentAutomorphicForms:O4/weil-pairing-comparison",
+        "verdict": "verified",
+        "note": "Weil-pairing comparison retains the norm inverse and pairing transport from H4/S5."
+      },
+      {
+        "nodeId": "OverconvergentAutomorphicForms:O4/polarisation-class-forms",
+        "verdict": "verified",
+        "note": "Polarisation-class forms use finite narrow classes and transported coefficients, not arbitrary representatives without comparison."
+      },
+      {
+        "nodeId": "OverconvergentAutomorphicForms:O4/polarisation-choice-independence",
+        "verdict": "corrected",
+        "note": "Corrected Remark 10.6 to p1791; independence follows through the explicit polarisation transport and pairing laws."
+      },
+      {
+        "nodeId": "OverconvergentAutomorphicForms:O5/aip-independent-coefficients",
+        "verdict": "corrected",
+        "note": "Separated universal formal eigenfunctions from §6.4 full finite-character coherent factor; analytic O/O+ eigenfunctions are defined independently."
+      },
+      {
+        "nodeId": "OverconvergentAutomorphicForms:O5/aip-line-and-gluing",
+        "verdict": "unverifiable",
+        "note": "Universal formal invertibility is sourced by AIP 4.3/4.7, but full finite-character analytic O+ generator and integral chart gluing are not established by those citations. Recorded exact gap."
+      },
+      {
+        "nodeId": "OverconvergentAutomorphicForms:O5/geometric-aip-comparison",
+        "verdict": "unverifiable",
+        "note": "Replaced circular both-are-lines argument by the sufficient pulled-back-unit-generator criterion; its full finite-character integral proof remains unverified."
+      },
+      {
+        "nodeId": "OverconvergentAutomorphicForms:O5/arithmetic-aip-comparison",
+        "verdict": "verified",
+        "note": "Arithmetic comparison is conditional on the geometric integral comparison plus explicit finite polarisation descent; it does not independently settle O5 freeness."
+      },
+      {
+        "nodeId": "OverconvergentAutomorphicForms:O5/aip-comparison-naturality",
+        "verdict": "verified",
+        "note": "Naturality uses the actual torsor maps and common refinements, conditional on the recorded O5 comparison input."
+      },
+      {
+        "nodeId": "OverconvergentAutomorphicForms:O6/hilbert-cusp-forms",
+        "verdict": "verified",
+        "note": "Cusp forms use the subcanonical boundary ideal; Koecher extension does not replace vanishing of boundary constants."
+      },
+      {
+        "nodeId": "OverconvergentAutomorphicForms:O6/hilbert-koecher",
+        "verdict": "corrected",
+        "note": "Corrected AIP Proposition 8.4 locator to pp36–37 and retained degree-g>1 Koecher hypothesis and the F=Q exception."
+      },
+      {
+        "nodeId": "OverconvergentAutomorphicForms:O6/tame-hilbert-hecke",
+        "verdict": "verified",
+        "note": "Tame Hecke uses finite-free pull-identify-trace and specified scalar normalization, retaining compactification refinements."
+      },
+      {
+        "nodeId": "OverconvergentAutomorphicForms:O6/wild-hilbert-hecke",
+        "verdict": "verified",
+        "note": "Wild Hecke retains its actual isogeny transport, changing domain/radius and normalization rather than arbitrary correspondence trace."
+      },
+      {
+        "nodeId": "OverconvergentAutomorphicForms:O6/hilbert-diamond-operators",
+        "verdict": "verified",
+        "note": "Diamond action retains central/polarisation transport and the full weight factor."
+      },
+      {
+        "nodeId": "OverconvergentAutomorphicForms:O6/aip-hecke-equivariance",
+        "verdict": "verified",
+        "note": "Hecke equivariance compares actual torsor maps and pull-identify-trace; R3 accepts a linear coefficient map, not only an isomorphism."
+      },
+      {
+        "nodeId": "OverconvergentAutomorphicForms:O6/hilbert-q-expansion-comparison",
+        "verdict": "verified",
+        "note": "q-expansion comparison preserves cusp coefficient lines and records the p-level/family extension beyond B5 prime-to-p scope."
+      },
+      {
+        "nodeId": "OverconvergentAutomorphicForms:O6/fixed-cusp-banach-modules",
+        "verdict": "verified",
+        "note": "Cusp Banach (Pr) uses the global-Hasse affinoid refinement and exact formal vanishing input; it is not inferred on arbitrary full-radius domains."
+      },
+      {
+        "nodeId": "OverconvergentAutomorphicForms:O6/compact-radius-restriction",
+        "verdict": "verified",
+        "note": "Compact restriction uses finite-range approximation over the affinoid algebra, not Mathlib IsCompactOperator."
+      },
+      {
+        "nodeId": "OverconvergentAutomorphicForms:O6/controlling-hilbert-operator",
+        "verdict": "corrected",
+        "note": "Corrected Lemma 3.25 to p22 and retained Lemma 3.27 p24; controlling operator is the stated product with its normalization."
+      },
+      {
+        "nodeId": "OverconvergentAutomorphicForms:O6/controlling-complete-continuity",
+        "verdict": "verified",
+        "note": "Complete continuity uses contraction, strict restriction and finite-projective trace, with the cusp vanishing supplier explicitly unresolved."
+      },
+      {
+        "nodeId": "OverconvergentAutomorphicForms:O6/hecke-lattice-renormalisation",
+        "verdict": "verified",
+        "note": "Integral renormalization requires a sufficient lattice-preservation bound and compatible torsor maps; depends on the recorded O5 integral comparison."
+      },
+      {
+        "nodeId": "OverconvergentAutomorphicForms:O7/ordinary-completed-functions",
+        "verdict": "corrected",
+        "note": "Constructed ordered formal completion separately from analytic O+; strengthened limit-order and non-quasicompact sheaf/global-level tests."
+      },
+      {
+        "nodeId": "OverconvergentAutomorphicForms:O7/ordinary-weighted-forms",
+        "verdict": "verified",
+        "note": "Weighted ordinary forms use the actual completed deck action and inverse character, not a generic completed-cohomology invariant module."
+      },
+      {
+        "nodeId": "OverconvergentAutomorphicForms:O7/igusa-completion-comparison",
+        "verdict": "unverifiable",
+        "note": "Heuer 3.8 supplies a natural map only. Isomorphism for actual Igusa analytic O+ needs exact normality/integral-closure and completion hypotheses, which remain unverified."
+      },
+      {
+        "nodeId": "OverconvergentAutomorphicForms:O7/ordinary-restriction",
+        "verdict": "verified",
+        "note": "Ordinary restriction is compatible with the actual torsor and coefficient maps, conditional on the recorded O7 analytic structural comparison."
+      },
+      {
+        "nodeId": "OverconvergentAutomorphicForms:O7/ordinary-coefficient-comparison",
+        "verdict": "corrected",
+        "note": "Corrected AIP ordinary-discussion locator to p37; the comparison retains full finite-character and O7 structural inputs rather than claiming freeness from generic fibre alone."
+      },
+      {
+        "nodeId": "OverconvergentAutomorphicForms:O7/ordinary-hecke-expansions",
+        "verdict": "verified",
+        "note": "Ordinary operators/expansions retain finite-level structural and coefficient transport; this is not a full Hida control theorem."
+      },
+      {
+        "nodeId": "OverconvergentAutomorphicForms:O6/cuspidal-coefficient-vanishing",
+        "verdict": "verified",
+        "note": "Cusp coefficient vanishing separates the ShimuraCompactifications formal toric/fan theorem from its local-line/projection-formula analytic application; exact owner gap retained."
+      }
+    ]
+  }
 }
