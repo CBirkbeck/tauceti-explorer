@@ -215,6 +215,8 @@ example : fractional (2 • (1 : M4 ℝ)) baseMatrix = baseMatrix := by sorry
 
 -- MetaplecticAutomorphicForms:MP.8/siegel-action
 def siegelAction (g : positiveSimilitudes) (z : SiegelSpace) : SiegelSpace := by sorry
+lemma siegelAction_apply (g : positiveSimilitudes) (z : SiegelSpace) :
+    (siegelAction g z).val = fractional (g.val.1 : M4 ℝ) z.val := by sorry
 def siegelFactor (g : positiveSimilitudes) (z : SiegelSpace) : ℂ :=
   (blockC (g.val.1 : M4 ℝ) * z.val + blockD (g.val.1 : M4 ℝ)).det / (g.val.2 : ℝ)
 lemma siegelAction_one (z : SiegelSpace) : siegelAction 1 z = z := by sorry
@@ -673,7 +675,7 @@ theorem jacquet_r_reflection (k : ℕ) (hk : 2≤k) (he : Even k)
     (phi : KTwo → ℂ) (hp : IsBFHMatrixCoefficient k phi) (eps : ℤ) (heps : eps=1 ∨ eps=-1)
     (y1 y2 : ℝ) (h1 : 0<y1) (h2 : 0<y2) :
     ∃ Vc : (ℂ × ℂ) → ℂ, DifferentiableOn ℂ Vc {z | 5/2<(z.1+z.2).re ∧ 3/2<(z.1-z.2).re} ∧
-      (∀ z, 5/2<(z.1+z.2).re → 3/2<(z.1-z.2).re →
+      (∀ z, 1/2<z.2.re → 3/2<(z.1-z.2).re →
         Vc z = jacquetTwoParameter k phi eps y1 y2 z.1 z.2) ∧
       ∀ s r, 5/2<(s+r).re → 3/2<(s-r).re →
         5/2<(s+1-r).re → 3/2<(s-(1-r)).re →
@@ -687,30 +689,48 @@ theorem jacquet_r_reflection (k : ℕ) (hk : 2≤k) (he : Even k)
 
 
 def torusK (t : ℝ) : KTwo := ⟨Matrix.diagonal ![1,Complex.exp (Complex.I*t)], by sorry⟩
+-- Torus projections do not retain the original SO(2) weight-k vector condition.
+def IsFiniteKMatrixCoefficient (phi : KTwo → ℂ) : Prop :=
+  ∃ d : ℕ, ∃ sigma : KTwo →* (Matrix (Fin d) (Fin d) ℂ)ˣ,
+    Continuous (fun q => (sigma q : Matrix (Fin d) (Fin d) ℂ)) ∧
+    sigma ⟨(-1 : M2 ℂ), by sorry⟩ = 1 ∧
+    ∃ v : Fin d → ℂ, ∃ T : (Fin d → ℂ) →ₗ[ℂ] ℂ,
+      ∀ q, phi q = T (v ᵥ* (sigma q : Matrix (Fin d) (Fin d) ℂ))
+
+-- Corrected from the evaluated integrals (3.26)–(3.27), not the p.562 normalizer.
+def jacquetGammaArguments (eps n : ℤ) (s r : ℂ) : ℂ × ℂ :=
+  let e : ℂ := eps
+  let t : ℂ := n
+  ((s-r+e*t+(e-1)/2)/2, (s+r+e*t+(e+1)/2)/2)
 def normalizedJacquet (k : ℕ) (phi : KTwo → ℂ) (eps n : ℤ) (y1 y2 : ℝ) (s r : ℂ) : ℂ :=
-  (2 : ℂ)^(-s)*(Real.pi : ℂ)^(-s)*Complex.Gamma ((s-eps*r-eps*n+1)/2)*
-    Complex.Gamma ((s+eps*r-eps*n)/2)*jacquetTwoParameter k phi eps y1 y2 s r
+  (2 : ℂ)^(-s)*(Real.pi : ℂ)^(-s)*Complex.Gamma (jacquetGammaArguments eps n s r).1*
+    Complex.Gamma (jacquetGammaArguments eps n s r).2*jacquetTwoParameter k phi eps y1 y2 s r
+example (n : ℤ) (s r : ℂ) :
+    jacquetGammaArguments 1 n s r = ((s-r+n)/2,(s+r+n+1)/2) := by sorry
+example (n : ℤ) (s r : ℂ) :
+    jacquetGammaArguments (-1) n s r = ((s-r-n-1)/2,(s+r-n)/2) := by sorry
 
 -- Joint meromorphic topology is omitted; these native slice statements retain the
 -- reflection-stable continuation domain and do not posit an empty chamber overlap.
 theorem jacquet_weyl_reflection (k : ℕ) (hk : 2≤k) (he : Even k)
-    (phi : KTwo → ℂ) (hp : IsBFHMatrixCoefficient k phi) (eps n : ℤ) (heps : eps=1 ∨ eps=-1)
+    (phi : KTwo → ℂ) (hp : IsFiniteKMatrixCoefficient phi) (eps n : ℤ) (heps : eps=1 ∨ eps=-1)
     (hn : ∀ t q, phi (torusK t*q)=Complex.exp (-Complex.I*n*t)*phi q)
     (y1 y2 : ℝ) (h1 : 0<y1) (h2 : 0<y2) :
     ∃ Vc : (ℂ × ℂ) → ℂ,
       (∀ r, 1/2<r.re → MeromorphicOn (fun s => Vc (s,r)) {s | 2<s.re}) ∧
       (∀ s, 2<s.re → MeromorphicOn (fun r => Vc (s,r)) {r | 1/2<r.re}) ∧
-      (∀ s r, 2<s.re → 1/2<r.re → 5/2<(s+r).re → 3/2<(s-r).re →
+      (∀ s r, 2<s.re → 1/2<r.re → 3/2<(s-r).re →
         Vc (s,r)=jacquetTwoParameter k phi eps y1 y2 s r) ∧
       ∀ s r, 2<s.re → 1/2<r.re →
-        (∀ j : ℕ, (s-eps*r-eps*n+1)/2≠-(j : ℂ) ∧ (s+eps*r-eps*n)/2≠-(j : ℂ)) →
-        (∀ j : ℕ, (r+3/2-eps*(s-3/2)-eps*n+1)/2≠-(j : ℂ) ∧
-          (r+3/2+eps*(s-3/2)-eps*n)/2≠-(j : ℂ)) →
-        (2 : ℂ)^(-s)*(Real.pi : ℂ)^(-s)*Complex.Gamma ((s-eps*r-eps*n+1)/2)*
-          Complex.Gamma ((s+eps*r-eps*n)/2)*Vc (s,r)=
+        (∀ j : ℕ, (jacquetGammaArguments eps n s r).1≠-(j : ℂ) ∧
+          (jacquetGammaArguments eps n s r).2≠-(j : ℂ)) →
+        (∀ j : ℕ, (jacquetGammaArguments eps n (r+3/2) (s-3/2)).1≠-(j : ℂ) ∧
+          (jacquetGammaArguments eps n (r+3/2) (s-3/2)).2≠-(j : ℂ)) →
+        (2 : ℂ)^(-s)*(Real.pi : ℂ)^(-s)*Complex.Gamma (jacquetGammaArguments eps n s r).1*
+          Complex.Gamma (jacquetGammaArguments eps n s r).2*Vc (s,r)=
         (2 : ℂ)^(-(r+3/2))*(Real.pi : ℂ)^(-(r+3/2))*
-          Complex.Gamma ((r+3/2-eps*(s-3/2)-eps*n+1)/2)*
-          Complex.Gamma ((r+3/2+eps*(s-3/2)-eps*n)/2)*Vc (r+3/2,s-3/2) := by sorry
+          Complex.Gamma (jacquetGammaArguments eps n (r+3/2) (s-3/2)).1*
+          Complex.Gamma (jacquetGammaArguments eps n (r+3/2) (s-3/2)).2*Vc (r+3/2,s-3/2) := by sorry
 
 
 -- MetaplecticAutomorphicForms:MP.8/whittaker-continuation
@@ -762,6 +782,20 @@ example : testPhi2 ![1,0,0] = -1/4 := by sorry
 example : testPhi3 ![0,1,0] = 1/2 := by sorry
 
 
+-- The chart value is positive, but this global compact coefficient is signed.
+def globalTestPhi1 (q : KTwo) : ℂ := (((q : M2 ℂ).map Complex.im).det : ℝ)
+lemma globalTestPhi1_chart (x : Fin 3 → ℝ) :
+    globalTestPhi1 (kappaX x) = (testPhi1 x : ℂ) := by sorry
+def deltaZ (z : ℝ) : ℝ := Real.sqrt (1+z^2)
+def kappaZ (z : ℝ) : KTwo :=
+  ⟨Matrix.diagonal ![1,(1-Complex.I*z)/(deltaZ z : ℂ)], by sorry⟩
+lemma globalTestPhi1_rotated (x : Fin 3 → ℝ) (z : ℝ) :
+    globalTestPhi1 (kappaX x*kappaZ z) =
+      (((1+z*x 0)/deltaZ z*testPhi1 x : ℝ) : ℂ) := by sorry
+-- Test: testCoefficientAlgebra_negative_branch
+example : globalTestPhi1 (kappaX ![-2,0,0]*kappaZ 1) =
+    ((-1/(Real.sqrt 2*Real.sqrt 5) : ℝ) : ℂ) := by sorry
+
 def testCoefficientAlgebra (k : ℕ) : Submodule ℂ (KTwo → ℂ) := by sorry
 lemma testCoefficientAlgebra_mul (k : ℕ) (f g : KTwo → ℂ)
     (hf : f ∈ testCoefficientAlgebra 0) (hg : g ∈ testCoefficientAlgebra k) :
@@ -770,14 +804,15 @@ lemma testCoefficientAlgebra_dense (k : ℕ) (he : Even k) (f : KTwo → ℂ) (h
     (hw : ∀ t : ℝ, ∀ q : KTwo, f (rotationK t*q)=expTwoPi ((k : ℂ)*t/(2*Real.pi))*f q)
     (eps : ℝ) (heps : 0<eps) : ∃ g ∈ testCoefficientAlgebra k, ∀ q, ‖g q-f q‖<eps := by sorry
 lemma testCoefficientAlgebra_chart :
-    ∃ f1 ∈ testCoefficientAlgebra 0, ∃ f2 ∈ testCoefficientAlgebra 0, ∃ f3 ∈ testCoefficientAlgebra 0,
-      ∀ x, f1 (kappaX x)=(testPhi1 x : ℂ) ∧ f2 (kappaX x)=(testPhi2 x : ℂ) ∧ f3 (kappaX x)=(testPhi3 x : ℂ) := by sorry
+    globalTestPhi1 ∈ testCoefficientAlgebra 0 ∧
+    ∃ f2 ∈ testCoefficientAlgebra 0, ∃ f3 ∈ testCoefficientAlgebra 0,
+      ∀ x, globalTestPhi1 (kappaX x)=(testPhi1 x : ℂ) ∧
+        f2 (kappaX x)=(testPhi2 x : ℂ) ∧ f3 (kappaX x)=(testPhi3 x : ℂ) := by sorry
 
 
 -- φ₁ is weight zero. Divisibility is multiplication in the concrete coefficient ring.
 def HasBFHDivisor (k : ℕ) (phi : KTwo → ℂ) : Prop :=
-  ∃ psi ∈ testCoefficientAlgebra k, ∀ x : Fin 3 → ℝ,
-    phi (kappaX x) = (testPhi1 x : ℂ)*psi (kappaX x)
+  ∃ psi ∈ testCoefficientAlgebra k, ∀ q : KTwo, phi q = globalTestPhi1 q*psi q
 
 
 -- MetaplecticAutomorphicForms:MP.8/test-coefficient-strip
@@ -794,9 +829,13 @@ theorem test_coefficient_strip (k : ℕ) (phi : KTwo → ℂ) (hp : phi∈testCo
 -- MetaplecticAutomorphicForms:MP.8/rotated-whittaker-bound
 
 
--- The rotated kernel is the (3.31) expression, not an expanded Fubini product.
+-- Use the actual compact product (3.38), with the full scalar W prefactor.
+-- The published (3.31) chart equality is false on the negative branch.
+-- A compact-transition and uniform-majorant proof remains a packet gap.
 def rotatedWhittakerKernel (k : ℕ) (phi : KTwo → ℂ) (eps : ℤ)
-    (y1 y2 : ℝ) (s : ℂ) (z : ℝ) (x : Fin 3 → ℝ) : ℂ := by sorry
+    (y1 y2 : ℝ) (s : ℂ) (z : ℝ) (x : Fin 3 → ℝ) : ℂ :=
+  ((y1*y2 : ℝ) : ℂ)^(4-s)*(y2 : ℂ)^((k : ℂ)/2)*
+    whittakerKernel k (fun q => phi (q*kappaZ z)) eps y1 y2 s x
 theorem rotated_whittaker_bound (k : ℕ) (hk : 2≤k) (he : Even k)
     (phi : KTwo → ℂ) (hp : IsBFHMatrixCoefficient k phi) (hd : HasBFHDivisor k phi)
     (eps : ℤ) (heps : eps=1 ∨ eps=-1) (S : Set ℂ) (hS : IsCompact S) (hs : S⊆{s | 3/2<s.re}) :
@@ -806,8 +845,6 @@ theorem rotated_whittaker_bound (k : ℕ) (hk : 2≤k) (he : Even k)
 
 
 -- MetaplecticAutomorphicForms:MP.8/novodvorsky-transform
-def deltaZ (z : ℝ) : ℝ := Real.sqrt (1+z^2)
-def kappaZ (z : ℝ) : KTwo := by sorry
 def novodvorskyKernel (k : ℕ) (phi : KTwo → ℂ) (eps : ℤ) (u s : ℂ) (y1 y2 z : ℝ) : ℂ :=
   whittakerFunction k (fun q => phi (q*kappaZ z)) eps (y1/(1+z^2)) (deltaZ z*y2) s *
     expTwoPi (-eps*y1*z/(1+z^2)) * (y1 : ℂ)^(u-3/2) * Complex.sqrt (1+Complex.I*z)
@@ -1240,14 +1277,14 @@ example (k : ℕ) (r : ℤ) (q : ℕ) (aCusp : M2 ℤ → ℕ → ℂ) (s : ℂ)
 
 
 -- OMITTED HYPOTHESES: C is the actual first-cusp theta coefficient family of the
--- BFH elliptic-newform Eisenstein series, and a is that newform's transformed seed.
+-- BFH elliptic-newform Eisenstein series at s, and a is the original normalized f.
 theorem first_cusp_whittaker_expansion (N m k : ℕ) (hN : 0<N) (hm : 0<m) (hNm : N∣m)
-    (C : M4 ℝ → M2 ℚ → IVec → ℂ) (a : ℕ → ℂ) (phi : KTwo → ℂ)
+    (C : ℂ → M4 ℝ → M2 ℚ → IVec → ℂ) (a : ℕ → ℂ) (phi : KTwo → ℂ)
     (hp : IsBFHMatrixCoefficient k phi) (D r : ℤ) (hD : D≠0) (q : ℕ) (hq : 0<q)
     (hindex : (4*(m : ℤ))∣((N : ℤ)*(r^2-D)))
     (y1 y2 : ℝ) (h1 : 0<y1) (h2 : 0<y2) :
     ∃ S : ℝ, ∀ s : ℂ, S<s.re →
-      whittakerCoefficientExtraction 1 N m C D r q y1 y2=
+      whittakerCoefficientExtraction 1 N m (C s) D r q y1 y2=
       (((q : ℂ)/N)*(D.natAbs : ℂ)/(4*m))^(s-4)*((q : ℂ)/N)^(-(k : ℂ)/2)*
         expTwoPi (Complex.I*y1*D/(4*m))*
         bfhLDirichletSeries N k m r ((N : ℤ)*(r^2-D)/(4*m)) q a s*
@@ -1260,11 +1297,11 @@ theorem first_cusp_whittaker_expansion (N m k : ℕ) (hN : 0<N) (hm : 0<m) (hNm 
 -- OMITTED HYPOTHESES: C is the actual opposite-cusp coefficient family, aCusp its
 -- Fricke/cusp seed, and phiW(q)=T(vσ(qw)) with the specified w.
 theorem opposite_cusp_whittaker_expansion (N m k : ℕ) (hN : 0<N) (hm : 0<m) (hNm : N∣m)
-    (C : M4 ℝ → M2 ℚ → IVec → ℂ) (aCusp : M2 ℤ → ℕ → ℂ) (phiW : KTwo → ℂ)
+    (C : ℂ → M4 ℝ → M2 ℚ → IVec → ℂ) (aCusp : M2 ℤ → ℕ → ℂ) (phiW : KTwo → ℂ)
     (D r : ℤ) (hD : D≠0) (hindex : (4*(m : ℤ))∣D) (q : ℕ) (hq : 0<q)
     (y1 y2 : ℝ) (h1 : 0<y1) (h2 : 0<y2) :
     ∃ S : ℝ, ∀ s : ℂ, S<s.re →
-      whittakerCoefficientExtraction 0 N m C D r q y1 y2=
+      whittakerCoefficientExtraction 0 N m (C s) D r q y1 y2=
       (N : ℂ)^3*(((q : ℂ)/N)*(D.natAbs : ℂ)/(4*m))^(s-4)*((q : ℂ)/N)^(-(k : ℂ)/2)*
         expTwoPi (Complex.I*y1*D/(4*m))*bfhPDirichletSeries N k m D r q aCusp s*
         whittakerFunction k phiW D.sign ((D.natAbs : ℝ)*y1/(4*m)) ((q : ℝ)/N*y2) s := by sorry
@@ -1275,10 +1312,10 @@ theorem opposite_cusp_whittaker_expansion (N m k : ℕ) (hN : 0<N) (hm : 0<m) (h
 
 -- n0 is a chosen integer representative of n1/N in the required p-power ring.
 -- The CRT comparison proves representative independence before using these counts.
-def localPrimeRootCounts (p a b d : ℕ) (m r n0 : ℤ) : ℕ :=
+def localPrimeRootCounts (p a _b d : ℕ) (m r n0 : ℤ) : ℕ :=
   Nat.card {v : Fin (p^a) × Fin (p^d) //
     Int.ModEq (p^a) (m*(v.1.val : ℤ)^2) 0 ∧
-    Int.ModEq (p^(min a b)) (2*m*v.1.val*v.2.val-r*v.1.val) 0 ∧
+    Int.ModEq (p^(min a d)) (2*m*v.1.val*v.2.val-r*v.1.val) 0 ∧
     Int.ModEq (p^d) (m*(v.2.val : ℤ)^2-r*v.2.val+n0) 0}
 def thirdPrimeRootCounts (p a b d : ℕ) (m r n0 : ℤ) : ℕ :=
   Nat.card {v : Fin (p^b) × Fin (p^(a+d-b)) //
@@ -1296,6 +1333,9 @@ example : localPrimeRootCounts 3 0 0 1 1 0 (-1)=2 := by sorry
 -- Test: localPrimeRootCounts_nonsplit
 example : localPrimeRootCounts 3 0 0 1 1 0 1=0 := by sorry
 
+
+-- Test: localPrimeRootCounts_mixed_modulus
+example : localPrimeRootCounts 3 2 2 1 16 1 0=6 := by sorry
 
 -- MetaplecticAutomorphicForms:MP.8/local-root-count-table
 
@@ -1323,17 +1363,19 @@ theorem local_mobius_factors (p a b d : ℕ) (hp : p.Prime) (hd : 0<d) (S : ℕ 
 -- MetaplecticAutomorphicForms:MP.8/unramified-euler-factors
 
 
-def unramifiedLocalSeries (p k : ℕ) (a : ℕ → ℂ) (Sp : ℕ → ℕ → ℂ) (s : ℂ) : ℂ :=
+def unramifiedLocalSeries (p k : ℕ) (a : ℕ → ℂ) (Sp : ℕ → ℕ → ℕ → ℂ) (s : ℂ) : ℂ :=
   1 + ∑' d : ℕ, if 0<d then ∑ aa∈Finset.range (d+1),
-    (p : ℂ)^(d-aa)*(Sp aa d-(if aa=0 then 0 else Sp (aa-1) d))*
+    (p : ℂ)^(d-aa)*(Sp aa aa d-(if aa=0 then 0 else Sp aa (aa-1) d))*
       (p : ℂ)^(-((aa+d : ℕ) : ℂ)*s-((d-aa : ℕ) : ℂ)*k/2)*a (d-aa) else 0
--- OMITTED HYPOTHESES: Sp is the actual difference of primitive exponential sums
--- in (7.20), D is fundamental and chi=χ_D(p); p is away from 2mN.
+-- a(j) denotes the original newform coefficient at p^j.
+-- OMITTED HYPOTHESES: Sp(a,b,d) is the actual primitive exponential sum
+-- for [[p^a,p^b],[0,p^d]], D is fundamental and chi=χ_D(p); p is away from 2mN.
+-- The first exponent is fixed in the beta-difference; only b changes.
 theorem unramified_euler_factors (p k : ℕ) (hp : p.Prime)
     (sig sig' : ℂ) (hprod : sig*sig'=(p : ℂ)^(k-1)) (chi : ℤ)
     (a : ℕ → ℂ) (ha0 : a 0=1) (ha1 : a 1=sig+sig')
     (harec : ∀ j, a (j+2)=(sig+sig')*a (j+1)-(p : ℂ)^(k-1)*a j)
-    (Sp : ℕ → ℕ → ℂ) :
+    (Sp : ℕ → ℕ → ℕ → ℂ) :
     ∃ S : ℝ, ∀ s : ℂ, S<s.re →
       unramifiedLocalSeries p k a Sp s=
         ((1-sig^2*(p : ℂ)^(4-k-2*s))*(1-sig'^2*(p : ℂ)^(4-k-2*s))*(1-(p : ℂ)^(3-2*s)))/
