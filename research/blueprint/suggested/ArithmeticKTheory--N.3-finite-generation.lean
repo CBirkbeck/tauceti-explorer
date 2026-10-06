@@ -10,6 +10,10 @@ There are no opaque carrier stand-ins, arbitrary proposition fields or dummy K d
 The register is not elaborated. Its conditions must be supplied by the cited owners before
 turning it into declarations. Imported predecessor definitions/API/tests remain in that
 packet and its suggested file, rather than being introduced again here.
+
+Independent review REV-ArithmeticKTheory--N.3-finite-generation: the comment-only register
+does not meet PROTOCOL §13's requirement for named theorem declarations proved by sorry.
+The examples below check baseline inputs only. The packet therefore needs revision.
 -/
 
 import Mathlib.NumberTheory.NumberField.ClassNumber
@@ -65,7 +69,9 @@ example (i m : ℕ) (h : i < m) : (i : ℤ) - (m : ℤ) < 0 := by
 Signature register. The displayed homology/Q/Steinberg/K expressions refer to the
 mathematical carriers of the owning nodes, not locally declared variables. Names for
 those unavailable carriers cannot yet be fixed as elaborated Lean types. In particular
-conditions involving them are left unstated in executable Lean, as required by PROTOCOL §13.
+conditions involving them are left unstated in executable Lean. PROTOCOL §13 permits honest
+omission of unstateable conditions, but still requires actual named theorem declarations;
+this register does not satisfy that requirement.
 Each of the five named nodes below would have a proof ending in `by sorry` once its full
 supplier signature is available. The explanatory statements here supply the missing
 conditions without pretending they have been typechecked.
@@ -138,8 +144,12 @@ ArithmeticKTheory:N.3:finite-generation/s-localization-finite-defect
   Its consequence is ∀ n : ℕ, AddGroup.FG (K_n(B)), adding imported degree-one
   determinant/S-unit and degree-zero class-group results outside the finite-defect bound.
   Owners: preceding K finiteness node; N.1/S-integers-as-a-localisation;
-  N.2/localisation-sequence-for-a-dedekind-domain; L.1/quillen-k-groups;
+  N.1/S-integers-localisation-of-torsion-class-group; N.2/finite-support;
+  L.1/quillen-k-groups;
   LowDegrees Z.4/k0-s-integers; Tau Ceti's finite-S units and class-group instances.
+  Use the torsion-class-group presentation B=A[1/s], with primes containing s exactly S,
+  and the finite localization sequence. Dropping primes from the fraction-field sequence
+  does not itself give the sequence for A → B. For S=∅ choose s=1.
   Acceptance: S=∅ gives identity; K_1(ℤ)→K_1(ℤ[1/p]) has infinite cokernel ℤ;
   no finite-generation conclusion for K_1(ℚ) with all primes inverted.
   The original endpoint remains predecessor finite-generation-of-K-of-S-integers.
