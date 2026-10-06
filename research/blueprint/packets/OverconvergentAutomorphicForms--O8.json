@@ -6,7 +6,7 @@
     "OverconvergentAutomorphicForms:O8"
   ],
   "status": "complete",
-  "summary": "Complete target-level O8 planning pass: arbitrary-genus Siegel analytic coefficients, determinant-character subobjects and Hodge-line specializations, algebraic Levi bundle recovery, supplied non-Siegel analytic reductions, and general toroidal-diamond coefficients with their cyclotomic twist. Preserve all ten checkpoint IDs; import generic analysis/descent and geometric torsors from their owners. O8 is planned, not closed: genuine supplier signatures, the uniform Siegel canonical-domain proof and source verification remain explicit.",
+  "summary": "Complete target-level O8 planning pass: arbitrary-genus Siegel analytic coefficients, determinant-character subobjects and Hodge-line specializations, algebraic Levi bundle recovery, supplied non-Siegel analytic reductions, and general toroidal-diamond coefficients with their cyclotomic twist. Preserve all ten checkpoint IDs; import generic analysis/descent and geometric torsors from their owners. O8 is planned, not closed: genuine supplier signatures, the uniform Siegel canonical-domain proof and version-of-record collation remain explicit.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -898,9 +898,9 @@
       "sources": [
         {
           "sourceId": "drw-v3",
-          "locator": "§3.6, Atkin–Lehner display and canonical-chart coordinates, p.42",
-          "excerpt": "z′ = −p z",
-          "match": "The finite chart identity isolates the coordinate conversion from the imported canonical-subgroup theorem."
+          "locator": "Remark 3.6.2, Atkin–Lehner display, p.43; canonical-chart coordinates in §3.6, p.42",
+          "excerpt": "AL : Fℓ×_{w−1} → Fℓ×_{can,w}",
+          "match": "The displayed row-graph identity gives Z′=−pZ in the canonical chart. The finite identity is separate from canonical-subgroup geometry; the missing prime in the p.42 domain formula is recorded as E-O8-15."
         }
       ],
       "implementationStatus": "unchecked"
@@ -918,7 +918,7 @@
       "hypotheses": [
         "A Shimura datum (G,X), neat finite level K=K^pKp and a smooth admissible toroidal cone system Σ in characteristic zero; F/Qp finite contains the reflex field and splits G and μ as in BP §4.4.",
         "Use G^c and M^c_μ, the central quotient and Levi of the imported canonical coefficient construction; the Hodge and Hodge–Tate parabolics are opposite.",
-        "S6 supplies the inverse-limit toroidal diamond D, its G(Qp) action and period map; T6:comparison supplies the canonical torsor comparison including the μ-cyclotomic twist. The relevant completed structure sheaf and descent category are supplied by O1.",
+        "S6 supplies the inverse-limit toroidal diamond D and period map, with the compatible deck actions preserving the chosen cone system. General G(Qp) Hecke maps are correspondences between compatible levels and cone decompositions, using common refinements; a G(Qp) action on D at a fixed Σ is not assumed. T6:comparison supplies the canonical torsor comparison including the μ-cyclotomic twist. The relevant completed structure sheaf and descent category are supplied by O1.",
         "The chosen fibre object belongs to the supplied descent category; a torus character alone is not an action of the full Levi."
       ],
       "proofSteps": [
@@ -929,7 +929,8 @@
       "acceptance": [
         "The trivial finite fibre gives the completed structure sheaf on D.",
         "The Siegel open restriction with its chosen graph frame gives the same Jγ as hodge-frame-transformation.",
-        "A character given only on a compact torus cannot be used on the full Levi without an analytic extension or an actual reduced torsor."
+        "A character given only on a compact torus cannot be used on the full Levi without an analytic extension or an actual reduced torsor.",
+        "At fixed Σ only the supplied cone-compatible deck actions are used; a general Hecke element requires compatible cone changes and a common refinement."
       ],
       "prerequisites": [
         "PerfectoidShimuraVarieties:S6",
@@ -946,7 +947,7 @@
       "sources": [
         {
           "sourceId": "bp-author",
-          "locator": "§4.4.38–4.4.40, pp.79–80",
+          "locator": "§4.4.38–4.4.40, pp.79–80; Hecke compatibility: Remark 4.4.28, p.76 and §4.6.18, pp.96–97",
           "excerpt": "at the expense of working with diamonds",
           "match": "The geometry/torsor identification is imported from S6/T6; O8 applies the generic coefficient functor."
         }
@@ -969,7 +970,7 @@
       "hypotheses": [
         "A Shimura datum (G,X), neat finite level K=K^pKp and a smooth admissible toroidal cone system Σ in characteristic zero; F/Qp finite contains the reflex field and splits G and μ as in BP §4.4.",
         "Use G^c and M^c_μ, the central quotient and Levi of the imported canonical coefficient construction; the Hodge and Hodge–Tate parabolics are opposite.",
-        "S6 supplies the inverse-limit toroidal diamond D, its G(Qp) action and period map; T6:comparison supplies the canonical torsor comparison including the μ-cyclotomic twist. The relevant completed structure sheaf and descent category are supplied by O1.",
+        "S6 supplies the inverse-limit toroidal diamond D and period map, with the compatible deck actions preserving the chosen cone system. General G(Qp) Hecke maps are correspondences between compatible levels and cone decompositions, using common refinements; a G(Qp) action on D at a fixed Σ is not assumed. T6:comparison supplies the canonical torsor comparison including the μ-cyclotomic twist. The relevant completed structure sheaf and descent category are supplied by O1.",
         "ρ is algebraic and finite-dimensional; canonical toroidal extension is the normalized one supplied by B3.general. On an arithmetic base retain the Tate line; on C_p an untwisted formula requires a fixed trivialization."
       ],
       "proofSteps": [
@@ -980,7 +981,8 @@
       "acceptance": [
         "The trivial representation has j=0 and gives the structure sheaf comparison.",
         "For a μ-weight-one line the comparison retains Qp(1); dropping it changes arithmetic Galois descent.",
-        "After the specified Siegel twist trivialization, restriction to the graph domain agrees with determinant-hodge-specialisation and algebraic-levi-specialisation."
+        "After the specified Siegel twist trivialization, restriction to the graph domain agrees with determinant-hodge-specialisation and algebraic-levi-specialisation.",
+        "At fixed Σ only the supplied cone-compatible deck actions are used; a general Hecke element requires compatible cone changes and a common refinement."
       ],
       "prerequisites": [
         "OverconvergentAutomorphicForms:O8/toroidal-coefficient-instance",
@@ -996,7 +998,7 @@
       "sources": [
         {
           "sourceId": "bp-author",
-          "locator": "§4.4.38–4.4.40, pp.79–80",
+          "locator": "§4.4.38–4.4.40, pp.79–80; Hecke compatibility: Remark 4.4.28, p.76 and §4.6.18, pp.96–97",
           "excerpt": "up to a cyclotomic twist by µ",
           "match": "The torsor identity is transported through the finite associated-bundle functor; Tate weights are retained."
         }
@@ -1121,7 +1123,7 @@
     },
     {
       "supplier": "HodgeTateAndCanonicalSubgroups:T3",
-      "need": "Siegel extension of the quantitative canonical-subgroup domain interface: DRW §3.6 uses p>2g, Z′=−pZ, and Proposition 3.6.12 requires c_g+n−1<w≤n, c_g=(2g−1)p/(2g(p−1)). Export the cofinal Hasse/period-domain comparison with actual radius bounds and a uniform affinoid argument; do not use Corollary 3.6.13 under its weaker printed inequality or infer a uniform strict bound from pointwise bounds. This is additional Siegel input in the existing T3 direction, not an O8 construction.",
+      "need": "Siegel extension of the quantitative canonical-subgroup domain interface: DRW §3.6 uses p>2g, Z′=−pZ (use the primed coordinates in the canonical-domain definition; E-O8-15), and Proposition 3.6.12 requires c_g+n−1<w≤n, c_g=(2g−1)p/(2g(p−1)). Export the cofinal Hasse/period-domain comparison with actual radius bounds and a uniform affinoid argument; do not use Corollary 3.6.13 under its weaker printed inequality or infer a uniform strict bound from pointwise bounds. This is additional Siegel input in the existing T3 direction, not an O8 construction.",
       "neededBy": [
         "OverconvergentAutomorphicForms:O8/hodge-frame-transformation",
         "OverconvergentAutomorphicForms:O8/siegel-analytic-instance"
@@ -1129,7 +1131,7 @@
     },
     {
       "supplier": "OverconvergentAutomorphicForms:O0",
-      "need": "Export uniform analytic characters and full GL_g/Levi Iwahori induced coefficient modules, transpose-left actions, bounded family/radius maps, Gauss lattices, analytic restriction of finite algebraic representations, and injectivity of restriction of regular full-Borel-equivariant functions. For BP retain κ=−w0,M wν−(w0,M wρ+ρ). The current O0 packet treats Hilbert unit/norm characters and does not provide these higher-rank interfaces.",
+      "need": "Export uniform analytic characters and full GL_g/Levi Iwahori induced coefficient modules, transpose-left actions, bounded family/radius maps, Gauss lattices, the coefficient module structure (not a fixed-weight algebra: E-O8-16), analytic restriction of finite algebraic representations, and injectivity of restriction of regular full-Borel-equivariant functions. For BP retain κ=−w0,M wν−(w0,M wρ+ρ). The current O0 packet treats Hilbert unit/norm characters and does not provide these higher-rank interfaces.",
       "neededBy": [
         "OverconvergentAutomorphicForms:O8/scalar-coefficient-identification",
         "OverconvergentAutomorphicForms:O8/determinant-hodge-specialisation",
@@ -1166,7 +1168,7 @@
     },
     {
       "supplier": "PerfectoidShimuraVarieties:S6",
-      "need": "Export the actual toroidal inverse-limit diamond, its group action and canonical Levi-torsor pullback of BP Theorem 4.4.40. Also export the abelian-type quasi-split Bruhat-domain reduction of BP Proposition 4.6.12 with 0≤m−n≤m′−1, the cyclotomic containment after enlarging F, the m=n pushout on p.95 and the projected Kp,w,Mμ group. Its proof is geometry owned by S6, not a second O8 period-map construction.",
+      "need": "Export the actual toroidal inverse-limit diamond, its cone-compatible deck actions, Hecke correspondences with common cone refinements, and canonical Levi-torsor pullback of BP Theorem 4.4.40. Also export the abelian-type quasi-split Bruhat-domain reduction of BP Proposition 4.6.12 with 0≤m−n≤m′−1, the cyclotomic containment after enlarging F, the m=n pushout on p.95 and the projected Kp,w,Mμ group. Its proof is geometry owned by S6, not a second O8 period-map construction.",
       "neededBy": [
         "OverconvergentAutomorphicForms:O8/toroidal-coefficient-instance",
         "OverconvergentAutomorphicForms:O8/toroidal-algebraic-comparison",
@@ -1190,7 +1192,7 @@
       "status": "planned",
       "remaining": [
         "Implement/export the exact higher-rank O0/O1 and S1/S3/S6/T6 supplier interfaces; replace stage prerequisites by verified node IDs as those owners supply them.",
-        "Resolve the uniform quantitative Siegel canonical-domain gap and independently verify the fourteen version-scoped source findings.",
+        "Resolve the uniform quantitative Siegel canonical-domain gap; collate the confirmed preprint findings against the version of record when its full text is accessible.",
         "State the eleven genuine geometric suggested signatures once supplier types exist; the finite prototype is not a sheaf implementation.",
         "Validate the declared highest-weight, opposite-parabolic, central-character and cyclotomic conventions in the assembled owner interfaces."
       ]
@@ -1220,15 +1222,15 @@
         "OverconvergentAutomorphicForms:O8/hodge-frame-transformation",
         "OverconvergentAutomorphicForms:O8/siegel-analytic-instance"
       ],
-      "detail": "The period domains and supplied-domain applications are planned. Closure of the claimed canonical/Hasse-domain identification requires the T3 Siegel extension, including p>2g and repairs to E-O8-12/13. The BP Bruhat reduction does not substitute for this genus-specific canonical-subgroup theorem."
+      "detail": "The period domains and supplied-domain applications are planned. Closure of the claimed canonical/Hasse-domain identification requires the T3 Siegel extension, including p>2g and repairs to E-O8-12/13/15. The BP Bruhat reduction does not substitute for this genus-specific canonical-subgroup theorem."
     },
     {
-      "title": "Corrected analytic induction and source verification",
+      "title": "Corrected analytic induction and version-of-record collation",
       "neededBy": [
         "OverconvergentAutomorphicForms:O8/siegel-analytic-instance",
         "OverconvergentAutomorphicForms:O8/algebraic-induced-injection"
       ],
-      "detail": "O0/O1 must export the full analytic Iwahori module with the correct Gauss lattice and Borel action. The finite associated-bundle comparison is specified independently of DRW Proposition 3.3.10; its printed antidiagonal intertwiners and unipotent normalization are not treated as verified proofs. All fourteen source findings require independent review and version-of-record/correction verification. No AIP sheaf equivalence or classicality theorem is included in the O8 targets."
+      "detail": "O0/O1 must export the full analytic Iwahori module with the correct Gauss lattice and Borel action. The finite associated-bundle comparison is specified independently of DRW Proposition 3.3.10; its printed antidiagonal intertwiners and unipotent normalization are not treated as verified proofs. All sixteen source findings are independently confirmed in the hashed arXiv v3; their presence in the published version is unverified. O0 must retain a fixed-weight coefficient module, with multiplication landing in the product-weight module (E-O8-16). The corrected intertwiners and the uniform-domain argument still need supplier proofs. No AIP sheaf equivalence or classicality theorem is included in the O8 targets."
     }
   ],
   "sourceIssues": [
@@ -1245,9 +1247,15 @@
       "searched": [
         "arXiv version history for 2106.00094 checked 2026-10-06: v3 remains the latest listed version; earlier versions not compared.",
         "Author research page https://sites.google.com/view/jufengwu/research and public title/author erratum/correction searches checked 2026-10-06: no correction for this article located. The linked erratum is for another article.",
-        "No page-by-page version-of-record comparison; findings confined to the hashed public preprint. No claim of priority or exhaustive search."
+        "No page-by-page version-of-record comparison; findings confined to the hashed public preprint. No claim of priority or exhaustive search.",
+        "Independent review checked the Springer version-of-record metadata and attempted its PDF on 2026-10-06; only an access preview was served. No published-text verification or claim of priority."
       ],
-      "status": "unreviewed; new to this extraction, with no claim of priority or exhaustive correction search"
+      "status": "confirmed in arXiv v3 by independent review; version of record not collated",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at pp.10–11: in genus one a single line has a Borel stabilizer, including the displayed lower unipotent. The diagonal-torus quotient requires more level data. This concerns the v3 moduli/stabilizer assertion, not the existence of the group-theoretic quotient.",
+        "by": "REV-OverconvergentAutomorphicForms--O8"
+      }
     },
     {
       "id": "OverconvergentAutomorphicForms/E-O8-2",
@@ -1262,9 +1270,15 @@
       "searched": [
         "arXiv version history for 2106.00094 checked 2026-10-06: v3 remains the latest listed version; earlier versions not compared.",
         "Author research page https://sites.google.com/view/jufengwu/research and public title/author erratum/correction searches checked 2026-10-06: no correction for this article located. The linked erratum is for another article.",
-        "No page-by-page version-of-record comparison; findings confined to the hashed public preprint. No claim of priority or exhaustive search."
+        "No page-by-page version-of-record comparison; findings confined to the hashed public preprint. No claim of priority or exhaustive search.",
+        "Independent review checked the Springer version-of-record metadata and attempted its PDF on 2026-10-06; only an access preview was served. No published-text verification or claim of priority."
       ],
-      "status": "unreviewed; new to this extraction, with no claim of priority or exhaustive correction search"
+      "status": "confirmed in arXiv v3 by independent review; version of record not collated",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed from the pairing matrix on p.7 and the graph basis on p.14: at Z=0 the specified pairing is −δ_ij. Changing the normalization to −I preserves the subsequent [I,Z] chart.",
+        "by": "REV-OverconvergentAutomorphicForms--O8"
+      }
     },
     {
       "id": "OverconvergentAutomorphicForms/E-O8-3",
@@ -1279,9 +1293,15 @@
       "searched": [
         "arXiv version history for 2106.00094 checked 2026-10-06: v3 remains the latest listed version; earlier versions not compared.",
         "Author research page https://sites.google.com/view/jufengwu/research and public title/author erratum/correction searches checked 2026-10-06: no correction for this article located. The linked erratum is for another article.",
-        "No page-by-page version-of-record comparison; findings confined to the hashed public preprint. No claim of priority or exhaustive search."
+        "No page-by-page version-of-record comparison; findings confined to the hashed public preprint. No claim of priority or exhaustive search.",
+        "Independent review checked the Springer version-of-record metadata and attempted its PDF on 2026-10-06; only an access preview was served. No published-text verification or claim of priority."
       ],
-      "status": "unreviewed; new to this extraction, with no claim of priority or exhaustive correction search"
+      "status": "confirmed in arXiv v3 by independent review; version of record not collated",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed on p.13: the strict-Iwahori equality has target X_Iw+, while the printed pushforward h_Iw,* lands on X_Iw. The missing plus is a type mismatch.",
+        "by": "REV-OverconvergentAutomorphicForms--O8"
+      }
     },
     {
       "id": "OverconvergentAutomorphicForms/E-O8-4",
@@ -1296,9 +1316,15 @@
       "searched": [
         "arXiv version history for 2106.00094 checked 2026-10-06: v3 remains the latest listed version; earlier versions not compared.",
         "Author research page https://sites.google.com/view/jufengwu/research and public title/author erratum/correction searches checked 2026-10-06: no correction for this article located. The linked erratum is for another article.",
-        "No page-by-page version-of-record comparison; findings confined to the hashed public preprint. No claim of priority or exhaustive search."
+        "No page-by-page version-of-record comparison; findings confined to the hashed public preprint. No claim of priority or exhaustive search.",
+        "Independent review checked the Springer version-of-record metadata and attempted its PDF on 2026-10-06; only an access preview was served. No published-text verification or claim of priority."
       ],
-      "status": "unreviewed; new to this extraction, with no claim of priority or exhaustive correction search"
+      "status": "confirmed in arXiv v3 by independent review; version of record not collated",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in the rendered p.22 radius sentence. Cosets a+p^ceil(r)Z_p^n have radius p^(−ceil(r)) for |p|=p^−1; the printed positive exponent cannot give the claimed partition.",
+        "by": "REV-OverconvergentAutomorphicForms--O8"
+      }
     },
     {
       "id": "OverconvergentAutomorphicForms/E-O8-5",
@@ -1313,9 +1339,15 @@
       "searched": [
         "arXiv version history for 2106.00094 checked 2026-10-06: v3 remains the latest listed version; earlier versions not compared.",
         "Author research page https://sites.google.com/view/jufengwu/research and public title/author erratum/correction searches checked 2026-10-06: no correction for this article located. The linked erratum is for another article.",
-        "No page-by-page version-of-record comparison; findings confined to the hashed public preprint. No claim of priority or exhaustive search."
+        "No page-by-page version-of-record comparison; findings confined to the hashed public preprint. No claim of priority or exhaustive search.",
+        "Independent review checked the Springer version-of-record metadata and attempted its PDF on 2026-10-06; only an access preview was served. No published-text verification or claim of priority."
       ],
-      "status": "unreviewed; new to this extraction, with no claim of priority or exhaustive correction search"
+      "status": "confirmed in arXiv v3 by independent review; version of record not collated",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in Definition 3.1.6(iii) and the rendered Remark 3.1.7. The given r=1 polynomial has integral values at all Z_p points but scaled coefficients of norm p. It lies outside the analytic Gauss unit ball, so the two proposed lattices differ.",
+        "by": "REV-OverconvergentAutomorphicForms--O8"
+      }
     },
     {
       "id": "OverconvergentAutomorphicForms/E-O8-6",
@@ -1330,9 +1362,15 @@
       "searched": [
         "arXiv version history for 2106.00094 checked 2026-10-06: v3 remains the latest listed version; earlier versions not compared.",
         "Author research page https://sites.google.com/view/jufengwu/research and public title/author erratum/correction searches checked 2026-10-06: no correction for this article located. The linked erratum is for another article.",
-        "No page-by-page version-of-record comparison; findings confined to the hashed public preprint. No claim of priority or exhaustive search."
+        "No page-by-page version-of-record comparison; findings confined to the hashed public preprint. No claim of priority or exhaustive search.",
+        "Independent review checked the Springer version-of-record metadata and attempted its PDF on 2026-10-06; only an access preview was served. No published-text verification or claim of priority."
       ],
-      "status": "unreviewed; new to this extraction, with no claim of priority or exhaustive correction search"
+      "status": "confirmed in arXiv v3 by independent review; version of record not collated",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at p.23: the character takes values in units, Definition 3.1.10(ii) makes it 1 on the unipotent subgroup, and the printed restriction 0 violates the identity axiom.",
+        "by": "REV-OverconvergentAutomorphicForms--O8"
+      }
     },
     {
       "id": "OverconvergentAutomorphicForms/E-O8-7",
@@ -1347,9 +1385,15 @@
       "searched": [
         "arXiv version history for 2106.00094 checked 2026-10-06: v3 remains the latest listed version; earlier versions not compared.",
         "Author research page https://sites.google.com/view/jufengwu/research and public title/author erratum/correction searches checked 2026-10-06: no correction for this article located. The linked erratum is for another article.",
-        "No page-by-page version-of-record comparison; findings confined to the hashed public preprint. No claim of priority or exhaustive search."
+        "No page-by-page version-of-record comparison; findings confined to the hashed public preprint. No claim of priority or exhaustive search.",
+        "Independent review checked the Springer version-of-record metadata and attempted its PDF on 2026-10-06; only an access preview was served. No published-text verification or claim of priority."
       ],
-      "status": "unreviewed; new to this extraction, with no claim of priority or exhaustive correction search"
+      "status": "confirmed in arXiv v3 by independent review; version of record not collated",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at p.25: the defining strict-Iwahori colimit drops the plus on its right-hand module; adjacent cuspform and Iwahori-level formulas distinguish the levels.",
+        "by": "REV-OverconvergentAutomorphicForms--O8"
+      }
     },
     {
       "id": "OverconvergentAutomorphicForms/E-O8-8",
@@ -1364,9 +1408,15 @@
       "searched": [
         "arXiv version history for 2106.00094 checked 2026-10-06: v3 remains the latest listed version; earlier versions not compared.",
         "Author research page https://sites.google.com/view/jufengwu/research and public title/author erratum/correction searches checked 2026-10-06: no correction for this article located. The linked erratum is for another article.",
-        "No page-by-page version-of-record comparison; findings confined to the hashed public preprint. No claim of priority or exhaustive search."
+        "No page-by-page version-of-record comparison; findings confined to the hashed public preprint. No claim of priority or exhaustive search.",
+        "Independent review checked the Springer version-of-record metadata and attempted its PDF on 2026-10-06; only an access preview was served. No published-text verification or claim of priority."
       ],
-      "status": "unreviewed; new to this extraction, with no claim of priority or exhaustive correction search"
+      "status": "confirmed in arXiv v3 by independent review; version of record not collated",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at p.34: Γ(p^n) already acts trivially on the invariant sheaf. The quotient action requires representatives in Iw+_GSp, as the finding states.",
+        "by": "REV-OverconvergentAutomorphicForms--O8"
+      }
     },
     {
       "id": "OverconvergentAutomorphicForms/E-O8-9",
@@ -1381,9 +1431,15 @@
       "searched": [
         "arXiv version history for 2106.00094 checked 2026-10-06: v3 remains the latest listed version; earlier versions not compared.",
         "Author research page https://sites.google.com/view/jufengwu/research and public title/author erratum/correction searches checked 2026-10-06: no correction for this article located. The linked erratum is for another article.",
-        "No page-by-page version-of-record comparison; findings confined to the hashed public preprint. No claim of priority or exhaustive search."
+        "No page-by-page version-of-record comparison; findings confined to the hashed public preprint. No claim of priority or exhaustive search.",
+        "Independent review checked the Springer version-of-record metadata and attempted its PDF on 2026-10-06; only an access preview was served. No published-text verification or claim of priority."
       ],
-      "status": "unreviewed; new to this extraction, with no claim of priority or exhaustive correction search"
+      "status": "confirmed in arXiv v3 by independent review; version of record not collated",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in the rendered p.36 Φ target: its condition excludes zero, although the claimed isomorphism is linear. Right-unipotent invariance is the quotient condition; normalization to value 1 is not.",
+        "by": "REV-OverconvergentAutomorphicForms--O8"
+      }
     },
     {
       "id": "OverconvergentAutomorphicForms/E-O8-10",
@@ -1398,9 +1454,15 @@
       "searched": [
         "arXiv version history for 2106.00094 checked 2026-10-06: v3 remains the latest listed version; earlier versions not compared.",
         "Author research page https://sites.google.com/view/jufengwu/research and public title/author erratum/correction searches checked 2026-10-06: no correction for this article located. The linked erratum is for another article.",
-        "No page-by-page version-of-record comparison; findings confined to the hashed public preprint. No claim of priority or exhaustive search."
+        "No page-by-page version-of-record comparison; findings confined to the hashed public preprint. No claim of priority or exhaustive search.",
+        "Independent review checked the Springer version-of-record metadata and attempted its PDF on 2026-10-06; only an access preview was served. No published-text verification or claim of priority."
       ],
-      "status": "unreviewed; new to this extraction, with no claim of priority or exhaustive correction search"
+      "status": "confirmed in arXiv v3 by independent review; version of record not collated",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in both p.36 intertwiner computations. Antidiagonal transpose reverses products; with Z=E12, C=qE21, A=D=I the true dual factor is diag(1,1+q), while the printed expression is diag(1+q,1). This invalidates that displayed step and does not alone disprove the main comparison theorem.",
+        "by": "REV-OverconvergentAutomorphicForms--O8"
+      }
     },
     {
       "id": "OverconvergentAutomorphicForms/E-O8-11",
@@ -1415,9 +1477,15 @@
       "searched": [
         "arXiv version history for 2106.00094 checked 2026-10-06: v3 remains the latest listed version; earlier versions not compared.",
         "Author research page https://sites.google.com/view/jufengwu/research and public title/author erratum/correction searches checked 2026-10-06: no correction for this article located. The linked erratum is for another article.",
-        "No page-by-page version-of-record comparison; findings confined to the hashed public preprint. No claim of priority or exhaustive search."
+        "No page-by-page version-of-record comparison; findings confined to the hashed public preprint. No claim of priority or exhaustive search.",
+        "Independent review checked the Springer version-of-record metadata and attempted its PDF on 2026-10-06; only an access preview was served. No published-text verification or claim of priority."
       ],
-      "status": "unreviewed; new to this extraction, with no claim of priority or exhaustive correction search"
+      "status": "confirmed in arXiv v3 by independent review; version of record not collated",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed from pp.37–38: a torus eigenspace on the full GL_g frame torsor lacks the Borel unipotent condition of P_k. At weight zero x11*x22/det is regular and torus invariant but changes under upper-unipotent translation. The finite bundle route in the packet supplies the corrected convention.",
+        "by": "REV-OverconvergentAutomorphicForms--O8"
+      }
     },
     {
       "id": "OverconvergentAutomorphicForms/E-O8-12",
@@ -1432,9 +1500,15 @@
       "searched": [
         "arXiv version history for 2106.00094 checked 2026-10-06: v3 remains the latest listed version; earlier versions not compared.",
         "Author research page https://sites.google.com/view/jufengwu/research and public title/author erratum/correction searches checked 2026-10-06: no correction for this article located. The linked erratum is for another article.",
-        "No page-by-page version-of-record comparison; findings confined to the hashed public preprint. No claim of priority or exhaustive search."
+        "No page-by-page version-of-record comparison; findings confined to the hashed public preprint. No claim of priority or exhaustive search.",
+        "Independent review checked the Springer version-of-record metadata and attempted its PDF on 2026-10-06; only an access preview was served. No published-text verification or claim of priority."
       ],
-      "status": "unreviewed; local misprint finding, not a claim that the comparison theorem is false"
+      "status": "confirmed in arXiv v3 by independent review; version of record not collated",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed on rendered p.44: membership in p^wω implies membership in p^w′ω when w′≤w. The printed w′>w gives the opposite direction.",
+        "by": "REV-OverconvergentAutomorphicForms--O8"
+      }
     },
     {
       "id": "OverconvergentAutomorphicForms/E-O8-13",
@@ -1449,9 +1523,15 @@
       "searched": [
         "arXiv version history for 2106.00094 checked 2026-10-06: v3 remains the latest listed version; earlier versions not compared.",
         "Author research page https://sites.google.com/view/jufengwu/research and public title/author erratum/correction searches checked 2026-10-06: no correction for this article located. The linked erratum is for another article.",
-        "No page-by-page version-of-record comparison; findings confined to the hashed public preprint. No claim of priority or exhaustive search."
+        "No page-by-page version-of-record comparison; findings confined to the hashed public preprint. No claim of priority or exhaustive search.",
+        "Independent review checked the Springer version-of-record metadata and attempted its PDF on 2026-10-06; only an access preview was served. No published-text verification or claim of priority."
       ],
-      "status": "unreviewed; exact missing hypothesis and uniformity step recorded"
+      "status": "confirmed in arXiv v3 by independent review; version of record not collated",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed on rendered p.47 as a proof gap: the preceding proposition requires c_g+n−1<w, which the corollary omits for n>1. A point-dependent strict Hodge bound does not provide the asserted common v without a uniformity argument. No counterexample to cofinality is claimed.",
+        "by": "REV-OverconvergentAutomorphicForms--O8"
+      }
     },
     {
       "id": "OverconvergentAutomorphicForms/E-O8-14",
@@ -1466,9 +1546,63 @@
       "searched": [
         "arXiv version history for 2106.00094 checked 2026-10-06: v3 remains the latest listed version; earlier versions not compared.",
         "Author research page https://sites.google.com/view/jufengwu/research and public title/author erratum/correction searches checked 2026-10-06: no correction for this article located. The linked erratum is for another article.",
-        "No page-by-page version-of-record comparison; findings confined to the hashed public preprint. No claim of priority or exhaustive search."
+        "No page-by-page version-of-record comparison; findings confined to the hashed public preprint. No claim of priority or exhaustive search.",
+        "Independent review checked the Springer version-of-record metadata and attempted its PDF on 2026-10-06; only an access preview was served. No published-text verification or claim of priority."
       ],
-      "status": "unreviewed; version-scoped boundary notation finding"
+      "status": "confirmed in arXiv v3 by independent review; version of record not collated",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed on rendered p.104 against p.102: V′⊥/V′ has rank 2g−2r, whereas the chart lattice V/V′⊥ has rank r. For r=g the printed lattice is zero and cannot supply the needed Tate-module rank.",
+        "by": "REV-OverconvergentAutomorphicForms--O8"
+      }
+    },
+    {
+      "id": "OverconvergentAutomorphicForms/E-O8-15",
+      "source": "drw-v3",
+      "kind": "misprint",
+      "locator": "§3.6 definition of Fℓ×_can,w, p.42 (rendered), after the [Z′,I] coordinate display; arXiv v3 only",
+      "printed": "z_i,j(x)",
+      "correction": "Use the primed canonical-chart coordinates z′_i,j(x) in the radius condition defining Fℓ×_can,w. Keep its infimum over pZ_p and radius p^(−w).",
+      "reason": "The preceding display defines [Z′,I] coordinates on Fℓ×_can. The unprimed Z chart of §2.3 is [I,Z] and is not defined at the canonical origin [0,I], where Z′=0 is defined. Remark 3.6.2 on p.43 gives Z′=−pZ under Atkin–Lehner, so these coordinate functions cannot be identified on the same point.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "arXiv version history for 2106.00094 checked 2026-10-06: v3 remains the latest listed version; earlier versions not compared.",
+        "Author research page https://sites.google.com/view/jufengwu/research and public title/author erratum/correction searches checked 2026-10-06: no correction for this article located. The linked erratum is for another article.",
+        "No page-by-page version-of-record comparison; findings confined to the hashed public preprint. No claim of priority or exhaustive search.",
+        "Independent review checked the Springer version-of-record metadata and attempted its PDF on 2026-10-06; only an access preview was served. No published-text verification or claim of priority."
+      ],
+      "status": "confirmed in arXiv v3 by independent review; version of record not collated",
+      "addedBy": "REV-OverconvergentAutomorphicForms--O8",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently checked in the hashed v3 at the stated locator. The preceding display defines [Z′,I] coordinates on Fℓ×_can. The unprimed Z chart of §2.3 is [I,Z] and is not defined at the canonical origin [0,I], where Z′=0 is defined. Remark 3.6.2 on p.43 gives Z′=−pZ under Atkin–Lehner, so these coordinate functions cannot be identified on the same point.",
+        "by": "REV-OverconvergentAutomorphicForms--O8"
+      }
+    },
+    {
+      "id": "OverconvergentAutomorphicForms/E-O8-16",
+      "source": "drw-v3",
+      "kind": "error",
+      "locator": "Definition 3.1.14(ii), p.24, sentence after the analytic coefficient presheaf display; arXiv v3 only",
+      "printed": "This is also a sheaf of uniform Cp-Banach algebra.",
+      "correction": "Treat the fixed-weight analytic induced coefficient as a Banach module over the completed coefficient algebra. Pointwise multiplication maps weights κ and λ into weight κλ; it is not an algebra structure on a general fixed nontrivial weight.",
+      "reason": "The defining law on p.23 is f(ℓb)=κ(b)f(ℓ). Products transform by κ(b)^2. For g=1, odd p and κ(u)=u, the analytic function f(u)=u has weight κ, but f²(2)=4 differs from κ(2)f²(1)=2. Also the constant unit function is absent for nontrivial κ. Thus the printed fixed-weight algebra assertion fails.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "arXiv version history for 2106.00094 checked 2026-10-06: v3 remains the latest listed version; earlier versions not compared.",
+        "Author research page https://sites.google.com/view/jufengwu/research and public title/author erratum/correction searches checked 2026-10-06: no correction for this article located. The linked erratum is for another article.",
+        "No page-by-page version-of-record comparison; findings confined to the hashed public preprint. No claim of priority or exhaustive search.",
+        "Independent review checked the Springer version-of-record metadata and attempted its PDF on 2026-10-06; only an access preview was served. No published-text verification or claim of priority."
+      ],
+      "status": "confirmed in arXiv v3 by independent review; version of record not collated",
+      "addedBy": "REV-OverconvergentAutomorphicForms--O8",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently checked in the hashed v3 at the stated locator. The defining law on p.23 is f(ℓb)=κ(b)f(ℓ). Products transform by κ(b)^2. For g=1, odd p and κ(u)=u, the analytic function f(u)=u has weight κ, but f²(2)=4 differs from κ(2)f²(1)=2. Also the constant unit function is absent for nontrivial κ. Thus the printed fixed-weight algebra assertion fails.",
+        "by": "REV-OverconvergentAutomorphicForms--O8"
+      }
     }
   ],
   "restructure": [],
@@ -1527,5 +1661,128 @@
         "OverconvergentAutomorphicForms:O8/toroidal-algebraic-comparison"
       ]
     }
-  ]
+  ],
+  "sourceVersions": [
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/2106.00094v3",
+      "citation": "Diao–Rosso–Wu, arXiv:2106.00094v3, 9 April 2026, 108 pages",
+      "read": "2026-10-06",
+      "sha256": "41ced4964ca50027e9fb93813047820a2853b9632fed221cbd5690be4d3294a8",
+      "scope": "All source findings in this packet concern this public preprint only."
+    },
+    {
+      "kind": "author copy",
+      "url": "https://www.imo.universite-paris-saclay.fr/~pilloni/HigherColeman.pdf",
+      "citation": "Boxer–Pilloni, Higher Coleman Theory, 180-page author manuscript",
+      "read": "2026-10-06",
+      "sha256": "d340c9a020cc5fdbca781a8630b6fae35e14607142bed700d6ab82334faa80ae",
+      "scope": "Toroidal torsor comparison, reductions and coefficient constructions at the locators in the nodes."
+    },
+    {
+      "kind": "published",
+      "url": "https://link.springer.com/article/10.1007/s40687-026-00610-5",
+      "citation": "Diao–Rosso–Wu, Research in the Mathematical Sciences 13, article 31 (2026), published 31 March 2026",
+      "read": "2026-10-06",
+      "scope": "Publisher metadata and abstract preview only. The content/pdf endpoint returned an HTML access preview with access=No rather than the article PDF. Full published statements and proofs were not read or compared; no source finding is asserted against this version."
+    }
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-OverconvergentAutomorphicForms--O8",
+    "date": "2026-10-06",
+    "notes": "Independent target-level review of all 18 nodes, all 17 pinned Mathlib statements, exact B0/B2/B3.general/B4 supplier nodes, stage contracts, AUDIT-15, six planets, six construction API items and four tests. Corrected the Atkin–Lehner locator/excerpt and two fixed-cone action hypotheses plus their requests; added mandatory sourceVersions and two locally verified preprint findings. All 16 source findings are confirmed only in the hashed arXiv v3; the publisher served metadata/access preview rather than full text. The finite Lean prototype elaborates with 29 expected placeholder warnings and no errors. O8 remains planned with three explicit gaps and eight requests, not closed; eleven genuine geometric signatures await supplier types. Reader synchronization is recorded in the report because that reader is outside this issue’s editable paths.",
+    "checked": [
+      {
+        "nodeId": "OverconvergentAutomorphicForms:O8/graph-normalisation",
+        "verdict": "verified",
+        "note": "The p.15 row-graph display and pinned fromCols multiplication/cancellation prove the identity over a commutative ring with IsUnit(det J); no symplectic assumption is needed for this algebraic generalization."
+      },
+      {
+        "nodeId": "OverconvergentAutomorphicForms:O8/factor-composition",
+        "verdict": "verified",
+        "note": "Expanding the four block entries and cancelling JJ⁻¹ gives Jγδ(Z)=Jγ(Z)Jδ(Zγ) in the stated right-action order."
+      },
+      {
+        "nodeId": "OverconvergentAutomorphicForms:O8/coordinate-composition",
+        "verdict": "verified",
+        "note": "Both consecutive unit hypotheses make the product denominator invertible. Associativity and cancellation of the leading graph block give the coordinate law."
+      },
+      {
+        "nodeId": "OverconvergentAutomorphicForms:O8/antidiagonal-dual-factor",
+        "verdict": "verified",
+        "note": "Pinned transpose_mul reverses order. W²=I and WZᵀW=Z give A‡+C‡Z; the genus-two counterexample independently confirms E-O8-10."
+      },
+      {
+        "nodeId": "OverconvergentAutomorphicForms:O8/determinant-character-cocycle",
+        "verdict": "verified",
+        "note": "Underlying matrix units give l=jk; det and χ are homomorphisms. Commutativity of Sˣ justifies the displayed scalar inverse order and mul_zpow supplies integer weights."
+      },
+      {
+        "nodeId": "OverconvergentAutomorphicForms:O8/hodge-frame-transformation",
+        "verdict": "verified",
+        "note": "DRW Corollary 2.4.2 and Proposition 2.5.2 supply exactly the frame law through S1/S3. The group-theoretic quotient, chosen Tate trivialization and separate quantitative T3 request avoid the source moduli and radius gaps."
+      },
+      {
+        "nodeId": "OverconvergentAutomorphicForms:O8/determinant-frame-transformation",
+        "verdict": "verified",
+        "note": "Top exterior power of the verified frame law has factor det J. Both pinned basis-determinant statements have the required commutative-ring/module hypotheses; B4 owns the geometric determinant line."
+      },
+      {
+        "nodeId": "OverconvergentAutomorphicForms:O8/scalar-coefficient-identification",
+        "verdict": "verified",
+        "note": "This is the finite determinant-character equalizer supplied by O0/O1. The inverse factor, uniform analytic extension and effective descent are explicit; it does not identify the scalar line with higher-rank analytic induction."
+      },
+      {
+        "nodeId": "OverconvergentAutomorphicForms:O8/determinant-hodge-specialisation",
+        "verdict": "verified",
+        "note": "The inverse scalar coefficient law cancels η^m, including the dual frame for negative m. O1 descent and the exact B4 determinant-line node justify the finite sheaf isomorphism."
+      },
+      {
+        "nodeId": "OverconvergentAutomorphicForms:O8/algebraic-levi-specialisation",
+        "verdict": "verified",
+        "note": "The right-frame relation (qh,v)~(q,ρ(h)v) gives inverse coefficients. B0/B2/B4 statements fix the convention; finite algebraic restriction and descent are requested from O0/O1, with the extra similitude character specified."
+      },
+      {
+        "nodeId": "OverconvergentAutomorphicForms:O8/determinant-line-map",
+        "verdict": "verified",
+        "note": "The concrete linear map, all six API signatures and four tests agree with the prototype. Evaluation at 1 is a left inverse, and determinant multiplicativity gives translation. The local analytic version requires the actual character extension."
+      },
+      {
+        "nodeId": "OverconvergentAutomorphicForms:O8/siegel-analytic-instance",
+        "verdict": "verified",
+        "note": "Definitions 3.1.10/13/14 give full Borel equivariance and the transpose-left action with w>1+r. The packet correctly treats the fibre as a module, contrary to E-O8-16; Gauss lattices and Banach descent remain explicit supplier requirements."
+      },
+      {
+        "nodeId": "OverconvergentAutomorphicForms:O8/algebraic-induced-injection",
+        "verdict": "verified",
+        "note": "Full Borel regular functions restrict injectively to the actual analytic neighbourhood; O0/O1 carry restriction and monomorphism descent. The finite B2/B4 identification and polynomial dominance hypotheses are explicit; E-O8-11 prevents a torus-only realization."
+      },
+      {
+        "nodeId": "OverconvergentAutomorphicForms:O8/atkin-lehner-chart",
+        "verdict": "corrected",
+        "note": "Corrected the locator from p.42 to Remark 3.6.2 on p.43 and replaced the paraphrased excerpt with its AL display. The finite identity and unit-only inverse are correct; E-O8-15 records the missing prime in the canonical-domain formula."
+      },
+      {
+        "nodeId": "OverconvergentAutomorphicForms:O8/toroidal-coefficient-instance",
+        "verdict": "corrected",
+        "note": "Removed the unsupported full G(Qp) action at fixed Σ. The canonical diamond/torsor input is exactly BP Theorem 4.4.40; cone-compatible deck actions and general Hecke correspondences with refinements are now distinguished using BP pp.76,96–97 and DRW p.18."
+      },
+      {
+        "nodeId": "OverconvergentAutomorphicForms:O8/toroidal-algebraic-comparison",
+        "verdict": "corrected",
+        "note": "Applied the same fixed-cone action correction. The finite associated coefficient follows from M_HT=M_dR×^{μ,Zp×}Zp(1); central μ-weight j retains Qp(j), tensor/dual compatibility and the normalized B3.general extension."
+      },
+      {
+        "nodeId": "OverconvergentAutomorphicForms:O8/supplied-domain-instance",
+        "verdict": "verified",
+        "note": "An actual analytic reduction and effective descent are inputs. Extension to the full Levi and the canonical B4 bundle give the finite comparison; no general ordinary-neighbourhood existence is assumed."
+      },
+      {
+        "nodeId": "OverconvergentAutomorphicForms:O8/bruhat-reduced-family",
+        "verdict": "verified",
+        "note": "BP Proposition 4.6.12, its m=n pushout and §6.3.1 retain quasi-split abelian type, actual projected subgroup, 0≤m−n≤m′−1, cyclotomic containment and the exact Weyl/root shift. Proposition 6.3.6 plus §6.2.11 justify the finite injection."
+      }
+    ]
+  }
 }
