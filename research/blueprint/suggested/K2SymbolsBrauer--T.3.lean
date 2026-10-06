@@ -1,3 +1,6 @@
+import Mathlib.Algebra.BigOperators.Group.Finset.Basic
+import Mathlib.Algebra.BigOperators.Group.List.Basic
+import Mathlib.Algebra.Ring.Units
 import Mathlib.Algebra.DirectSum.Basic
 import Mathlib.Algebra.DualNumber
 import Mathlib.Algebra.Field.ZMod
@@ -71,6 +74,16 @@ interfaces no longer require finite-dimensionality and now pass positive ramific
 through the residue-field map. Trivial restrictions are treated by the units-residue-zero
 argument, not by an e = 0 residue-field map. This revision is **not compiled**: no matching
 pre-existing build at both pins was found. Historical elaboration does not certify these edits.
+
+Revision 2 for FIX-RT-BP-K2SymbolsBrauer--T.3~2 (6 October 2026), Codex — codex-DWTl3R:
+the earlier five corrections are retained. The reader now supplies arbitrary-field
+Quillen/Milnor base change and transfer comparison, the all-degree complete/residue reduction,
+the K.3 ring boundary and K.7 RIGHT module action, AlgebraicCurves Layer 2 mixed normalization,
+and Milnor's finite-rank integer upper-bound word proof. The local exponent is −1 and
+the imported étale Chern class is −h. Missing Quillen/cohomological carriers are still omitted
+honestly, with exact contract comments below. The new isolated integer-model prototype
+elaborates at pinned Mathlib with only `sorry` warnings; the complete file cannot be checked
+in the shared build because its first Tau Ceti import has no prebuilt Divisor/Eval.olean.
 
 ## Pinned conventions
 
@@ -1055,12 +1068,17 @@ theorem finite_support_tameSymbol {I : Type v} (v : I → Valuation F ℤᵐ⁰)
       {i | (v i).ord (f : F) ≠ 0} ∪ {i | (v i).ord (g : F) ≠ 0} := by
   sorry
 
-/- `K2SymbolsBrauer:T.3/localization-boundary`: not stated here; needs the boundary
-`∂ : K₂(F) → K₁(k)` of the localisation sequence of a DVR with its `K_*(R)`-module structure
-(supplier: GeneralAlgebraicKTheory:K.3 and GeneralAlgebraicKTheory:K.7). The comparison it
-records: with the K-book's right-linear normalisation `∂{f, g} = tameSymbol v g f`
-(the inverse of this roadmap's), with the left-linear one `∂{f, g} = tameSymbol v f g`. The other
-nodes of `T.3:localization-comparison` are in the section after `T.4`. -/
+/- `K2SymbolsBrauer:T.3/localization-boundary`: not stated here; the Quillen boundary
+carrier is absent. Exact upstream input: GeneralAlgebraicKTheory K.3 constructs the ring
+localization boundary on K₁ by the cone/cokernel of multiplication by a non-zero-divisor:
+∂[s]=[R/sR] in K₀ of the torsion exact category. For a DVR, dévissage gives ∂[π]=[k]
+and ∂[π^r u]=r[k]. This is not requested from downstream SchemeKTheoryOperations S.3.
+GeneralAlgebraicKTheory K.7 supplies the RIGHT action
+∂(x·j*y)=∂x·i*y and the ordered unit product a·b={a,b}. Hence ∂{π,u}=ū;
+skew-symmetry gives ∂{u,π}=ū⁻¹ and ∂{π,π}=−1. Expanding
+f=π^r u, g=π^s v gives ∂{f,g}=(−1)^(rs) v̄^r ū^(−s)=tameSymbol v g f,
+the inverse of the roadmap's symbol. This fixes the module-action side and owner without
+constructing a second localization sequence. At 5, ∂{2,5}=3, tameSymbol 2 5=2. -/
 
 /-! ### Unit tests for the higher residues -/
 
@@ -1616,8 +1634,51 @@ def residueDegree {E : Type v} [Field E] [Algebra F E] (v : Valuation F ℤᵐ�
   letI := (residueFieldMap v w e he hvw).toAlgebra
   Module.finrank (TameSymbol.ResidueField v) (TameSymbol.ResidueField w)
 
+
+/- `K2SymbolsBrauer:T.4/prime-degree-residue-on-generated-symbols`: GS Lemma 7.3.10,
+pp. 200–201. The four cases (unit/unit, uniformizer/unit, unit/uniformizer,
+uniformizer/uniformizer) use the valuation and unit-residue norm identities requested from
+LocalFieldsRamification Layer 3 for generic complete DVR fields, not just finite residue fields.
+The last case retains π=u′π′^e, Nπ′=uπ^f and compares
+{(−1)^(ef) N(ū′), tail} with {(−1)^f ū⁻¹, tail}; use π′=π when e=1,
+and the Eisenstein constant term when e=p. GS's uniformizer-FIRST computation is multiplied
+by (−1)^n on both sides here, yielding the packet's uniformizer-LAST residue. -/
+theorem prime_degree_residue_on_generated_symbols {E : Type v} [Field E] [Algebra F E] [FiniteDimensional F E]
+    [Normal F E] (hp : (Module.finrank F E).Prime) (v : Valuation F ℤᵐ⁰)
+    (hv : Function.Surjective v)
+    [IsAdicComplete (IsLocalRing.maximalIdeal v.valuationSubring) v.valuationSubring]
+    (w : Valuation E ℤᵐ⁰) (hw : Function.Surjective w) (e : ℕ) (he : 0 < e)
+    (hvw : ∀ r : F, w.ord (algebraMap F E r) = e * v.ord r)
+    (hunique : ∀ (w' : Valuation E ℤᵐ⁰) (e' : ℕ), Function.Surjective w' →
+      (∀ r : F, w'.ord (algebraMap F E r) = e' * v.ord r) → w' = w)
+    (n : ℕ) (y : Eˣ) (a : Fin n → Fˣ) :
+    milnorResidue v hv n (milnorNorm F E (n + 1) (milnorK.symbol (Fin.cons (α := fun _ => Eˣ) y
+        fun i => Units.map (algebraMap F E).toMonoidHom (a i)))) =
+      milnorNormOf (residueFieldMap v w e he hvw) n (milnorResidue w hw n (milnorK.symbol (Fin.cons (α := fun _ => Eˣ) y
+        fun i => Units.map (algebraMap F E).toMonoidHom (a i)))) := by
+  sorry
+
+/-- `K2SymbolsBrauer:T.4/complete-norm-residue`: GS Proposition 7.4.1, p. 204.
+Factor the inseparable tower; for the separable part use p-closed towers and finite descent.
+All valuation computations occur over finite complete discrete extensions, never over an
+infinite prime-to-p closure. Keep r·res δ=0, transfer back to get [F′:F]δ=0,
+then detect each primary part. The normal-prime-degree lemma supplies each tower step. -/
+theorem complete_norm_residue {E : Type v} [Field E] [Algebra F E] [FiniteDimensional F E]
+    (v : Valuation F ℤᵐ⁰)
+    (hv : Function.Surjective v)
+    [IsAdicComplete (IsLocalRing.maximalIdeal v.valuationSubring) v.valuationSubring]
+    (w : Valuation E ℤᵐ⁰) (hw : Function.Surjective w) (e : ℕ) (he : 0 < e)
+    (hvw : ∀ r : F, w.ord (algebraMap F E r) = e * v.ord r)
+    (hunique : ∀ (w' : Valuation E ℤᵐ⁰) (e' : ℕ), Function.Surjective w' →
+      (∀ r : F, w'.ord (algebraMap F E r) = e' * v.ord r) → w' = w)
+    (n : ℕ) (x : milnorK E (n + 1)) :
+    milnorResidue v hv n (milnorNorm F E (n + 1) x) =
+      milnorNormOf (residueFieldMap v w e he hvw) n (milnorResidue w hw n x) := by
+  sorry
+
 /-- `K2SymbolsBrauer:T.4/kato-complete-residue` (Corollary III.7.6.3): for `F` complete for `v` and
-`E/F` normal of prime degree with the unique extension `w`, `∂_v ∘ N_{E/F} = N_{k_w/k_v} ∘ ∂_w`. -/
+`E/F` normal of prime degree with the unique extension `w`, `∂_v ∘ N_{E/F} = N_{k_w/k_v} ∘ ∂_w`.
+The reader gives p/p² annihilation, finite descent and the retained ramification factor. -/
 theorem kato_complete_residue {E : Type v} [Field E] [Algebra F E] [FiniteDimensional F E]
     [Normal F E] (hp : (Module.finrank F E).Prime) (v : Valuation F ℤᵐ⁰)
     (hv : Function.Surjective v)
@@ -1634,7 +1695,12 @@ theorem kato_complete_residue {E : Type v} [Field E] [Algebra F E] [FiniteDimens
 /-- `K2SymbolsBrauer:T.3/transfer-and-norm-residue` (reparented to T.4): for a finite extension
 `E/F` and `v` on `F` whose valuation ring has a finite integral closure in `E`
 (`Σ_w e_w f_w = [E : F]`), `∂_v ∘ N_{E/F} = Σ_{w | v} N_{k_w/k_v} ∘ ∂_w`. Ramification indices do
-not enter; without the finiteness hypothesis the degree-one case fails. -/
+not enter; without the finiteness hypothesis the degree-one case fails.
+Proof: finite normalization gives the semilocal CRT completion and E⊗F F̂=∏ Ê_w
+(AlgebraicCurves Layer 2 contract, GS Appendix A.6.4). Arbitrary-field Milnor base change has
+all lengths 1 here. Completion has index 1 and the same residue field; apply
+complete_norm_residue to each factor and add. At degree one the norm on K₀ is the residue
+degree f_w, not an extra ramification factor. -/
 theorem transfer_and_norm_residue {E : Type v} [Field E] [Algebra F E] [FiniteDimensional F E]
     (v : Valuation F ℤᵐ⁰) (hv : Function.Surjective v) (W : Finset (Valuation E ℤᵐ⁰))
     (e : Valuation E ℤᵐ⁰ → ℕ) (he : ∀ w ∈ W, 0 < e w)
@@ -1715,6 +1781,14 @@ or not), a function field `K/F` of one variable and `x ∈ K^M_{n+1}(K)`, `∂_P
 place and `Σ_P N_{k(P)/F} ∂_P(x) = 0`. The places are the closed points of the regular proper model
 (the normalisation, not necessarily smooth), `k(P)/F` may be inseparable, and `milnorNorm` is
 Kato's norm. MotivicEtaleKTheory M.4 imports it. -/
+/- AlgebraicCurves Layer 2 finite-normalization input for arbitrary F and finite K/F(t):
+embed K in a finite normal hull M. Take its maximal purely inseparable intermediate P FIRST,
+so M/P is separable (Stacks 032N). The pinned pure-polynomial theorem makes the closure A′
+of F[t] in P finite. A′ is normal Noetherian; the separable trace argument makes its closure
+in M finite. The closure of F[t] in K is an F[t]-submodule of that finite module, hence finite.
+Repeat at t⁻¹ and localize. A separable-first tower inside K would not make the pure theorem's
+polynomial base available. Test: F=F₃(s), K=F(s^(1/3))(u), t=u², closure F(s^(1/3))[u], rank 6.
+This is the Layer 2 imported assembly, not a smoothness assumption. -/
 theorem weil_reciprocity {F : Type u} {K : Type v} [Field F] [Field K] [Algebra F K]
     (hK : IsFunctionField F K) (n : ℕ) (x : milnorK K (n + 1)) :
     {P : Place F K | placeResidue P n x ≠ 0}.Finite ∧
@@ -1778,10 +1852,19 @@ GeneralAlgebraicKTheory:K.3/transfer-maps-and-projection-formula). Suggested con
 of `N_{F'/F} x` at `𝔭` is `∑_{𝔭' | 𝔭} N_{k(𝔭')/k(𝔭)}` of the boundaries at the `𝔭'` (no
 ramification index), and restriction followed by transfer is multiplication by `[E : F]`.
 
-`K2SymbolsBrauer:T.3/milnor-quillen-transfer-comparison`: not stated here; needs Quillen's transfer
-on `K₂` (same supplier). Suggested content: `matsumotoEquiv F ∘ milnorNorm F E 2 =
-quillenTransfer ∘ matsumotoEquiv E`; proved for `[E : F] = 2` by Corollary III.6.1.5, a gap in
-general. -/
+`K2SymbolsBrauer:T.3/milnor-quillen-transfer-comparison`: not stated here; needs Quillen
+K₂ and its transfers (GeneralAlgebraicKTheory K.3). The equality holds for EVERY finite E/F.
+Exact arbitrary-field base-change contract, for any F′/F: decompose B=E⊗F F′ into local
+Artinian B_i with residue fields L_i and lengths r_i. The restriction-of-scalars functor
+base-changes to restriction from B; its radical filtration and additivity give
+res_F′/F Tr_E/F=Σ r_i Tr_L_i/F′ res_L_i/E. Use G(B) and dévissage, not K(B)=G(B):
+B can be nonregular. In E=F_p(s^(1/p)), F′=E, the length is p, so res Tr=p id.
+Transport Quillen transfer along Matsumoto/T.1. Over F^(p), each component has normal
+degree-p towers. p_closed_generation gives {y,x} with x in the base, and both transfers
+send it to {N₁(y),x} by projection. Transitivity and the shared base-change lengths give
+res δ=0 over F^(p). Descend finitely many symbol identities to a finite prime-to-p stage,
+then restriction-transfer kills δ by an integer prime to p. Detection for every p proves
+δ=0. The proof does not use norm/residue compatibility, so has no circular prerequisite. -/
 
 end TauCeti.TameSymbol
 
@@ -2045,9 +2128,127 @@ theorem k2_of_the_integers_lower_bound :
     signSymbolAt (Int.castRingHom ℝ) (steinbergSymbol (-1 : ℤˣ) (-1) (Commute.all _ _)) = -1 := by
   sorry
 
+/-- Finite generators for the integer models; indices are distinct. -/
+structure IntegerGen (n : ℕ) where
+  i : Fin n
+  j : Fin n
+  ne : i ≠ j
+  r : ℤ
+
+private def integerFreeX {n : ℕ} {i j : Fin n} (hij : i ≠ j) (r : ℤ) :
+    FreeGroup (IntegerGen n) := FreeGroup.of ⟨i, j, hij, r⟩
+
+private def integerFreeW {n : ℕ} {i j : Fin n} (hij : i ≠ j) (u : ℤˣ) :
+    FreeGroup (IntegerGen n) :=
+  integerFreeX hij (u : ℤ) * integerFreeX hij.symm (-((u⁻¹ : ℤˣ) : ℤ)) *
+    integerFreeX hij (u : ℤ)
+
+/-- The usual finite Steinberg relations, with Milnor Definition 10.4's additional
+rank-two conjugation relation. With n≤1 there are no generators, hence the group is trivial. -/
+def integerModelRels (n : ℕ) : Set (FreeGroup (IntegerGen n)) :=
+  {z | ∃ (i j : Fin n) (hij : i ≠ j) (r s : ℤ),
+    z = integerFreeX hij r * integerFreeX hij s * (integerFreeX hij (r + s))⁻¹} ∪
+  {z | ∃ (i j k l : Fin n) (hij : i ≠ j) (hkl : k ≠ l) (r s : ℤ),
+    j ≠ k ∧ i ≠ l ∧ z = ⁅integerFreeX hij r, integerFreeX hkl s⁆} ∪
+  {z | ∃ (i j l : Fin n) (hij : i ≠ j) (hjl : j ≠ l) (hil : i ≠ l) (r s : ℤ),
+    z = ⁅integerFreeX hij r, integerFreeX hjl s⁆ * (integerFreeX hil (r * s))⁻¹} ∪
+  {z | n = 2 ∧ ∃ (i j : Fin n) (hij : i ≠ j) (u : ℤˣ) (a : ℤ),
+    z = integerFreeW hij u * integerFreeX hij.symm a * integerFreeW hij (-u) *
+      (integerFreeX hij (-((u : ℤ) ^ 2 * a)))⁻¹}
+
+/-- `K2SymbolsBrauer:T.5/integer-steinberg-word-model`: the auxiliary S_n, including
+the strengthened rank-two presentation. For n≥3 it is T.1's finite St(n,ℤ). -/
+def IntegerSteinbergModel (n : ℕ) := PresentedGroup (integerModelRels n)
+
+instance (n : ℕ) : Group (IntegerSteinbergModel n) :=
+  inferInstanceAs (Group (PresentedGroup (integerModelRels n)))
+
+namespace IntegerSteinbergModel
+
+def x {n : ℕ} (g : IntegerGen n) : IntegerSteinbergModel n := PresentedGroup.of g
+
+def w {n : ℕ} {i j : Fin n} (hij : i ≠ j) (u : ℤˣ) : IntegerSteinbergModel n :=
+  x ⟨i, j, hij, u⟩ * x ⟨j, i, hij.symm, -((u⁻¹ : ℤˣ) : ℤ)⟩ * x ⟨i, j, hij, u⟩
+
+/-- The faithful column-vector realization of the elementary group E(n,ℤ).
+Its image is generated by e_ij(a); no matrix kernel injectivity is assumed. -/
+def toElementary (n : ℕ) : IntegerSteinbergModel n →* Equiv.Perm (Fin n → ℤ) := sorry
+
+theorem toElementary_x {n : ℕ} (g : IntegerGen n) (b : Fin n → ℤ) (k : Fin n) :
+    toElementary n (x g) b k = b k + if k = g.i then g.r * b g.j else 0 := by sorry
+
+/-- Row action has the opposite composition convention, so its target is a
+MulOpposite. Thus b·(zw)=(b·z)·w. This avoids reversing the order of the word. -/
+def rowAction (n : ℕ) : IntegerSteinbergModel n →* MulOpposite (Equiv.Perm (Fin n → ℤ)) := sorry
+
+def act {n : ℕ} (b : Fin n → ℤ) (z : IntegerSteinbergModel n) : Fin n → ℤ :=
+  MulOpposite.unop (rowAction n z) b
+
+theorem act_x {n : ℕ} (b : Fin n → ℤ) (g : IntegerGen n) (k : Fin n) :
+    act b (x g) k = b k + if k = g.j then g.r * b g.i else 0 := by sorry
+
+/-- The compatible map into T.1's stable Steinberg group; no rank-two injectivity is asserted. -/
+def toStable (n : ℕ) : IntegerSteinbergModel n →* TauCeti.Steinberg.StableSteinberg ℤ := sorry
+
+def stabilize (n : ℕ) : IntegerSteinbergModel n →* IntegerSteinbergModel (n + 1) := sorry
+
+def monomialSubgroup (n : ℕ) : Subgroup (IntegerSteinbergModel n) :=
+  Subgroup.closure {z | ∃ (i j : Fin n) (hij : i ≠ j), z = w hij 1}
+
+def rowNorm {n : ℕ} (b : Fin n → ℤ) : ℕ := ∑ i, (b i).natAbs
+
+theorem unitWord {n : ℕ} (z : IntegerSteinbergModel n) :
+    ∃ (gs : List (IntegerGen n)) (c : monomialSubgroup n),
+      (∀ g ∈ gs, g.r = 1 ∨ g.r = -1) ∧ z = (gs.map x).prod * c := by sorry
+
+-- test IntegerSteinbergModel.row_two (computation)
+example :
+    act ![2, -1] (x (⟨0, 1, by decide, 1⟩ : IntegerGen 2)) = ![2, 1] ∧
+    act ![2, -1] (x (⟨1, 0, by decide, 1⟩ : IntegerGen 2)) = ![1, -1] := by sorry
+
+-- test IntegerSteinbergModel.w_preserves_norm (computation)
+example : act ![2, -1] (w (i := (0 : Fin 2)) (j := 1) (by decide) 1) = ![1, 2] ∧
+    rowNorm (![2, -1] : Fin 2 → ℤ) = 3 ∧ rowNorm (![1, 2] : Fin 2 → ℤ) = 3 := by sorry
+
+-- test IntegerSteinbergModel.rank_two_guard (non-example)
+example (i j : Fin 2) (hij : i ≠ j) (u : ℤˣ) (a : ℤ) :
+    w hij u * x ⟨j, i, hij.symm, a⟩ * w hij (-u) =
+      x ⟨i, j, hij, -((u : ℤ) ^ 2 * a)⟩ := by sorry
+
+end IntegerSteinbergModel
+
+/-- `K2SymbolsBrauer:T.5/silvester-word-reduction`: Milnor Lemma 10.6,
+pp. 85–90. Induct on the maximum descent height and its last occurrence; the
+reader gives all seven cases and the Steinberg identities, including the non-strict
+Case 7 inequality. Word length need not decrease. -/
+theorem silvester_word_reduction {n : ℕ} (hn : 2 ≤ n) (i : Fin n) (ε : ℤ)
+    (hε : ε = 1 ∨ ε = -1) (z : IntegerSteinbergModel n) :
+    ∃ (gs : List (IntegerGen n)) (c : IntegerSteinbergModel.monomialSubgroup n),
+      (∀ g ∈ gs, g.r = 1 ∨ g.r = -1) ∧ z = (gs.map IntegerSteinbergModel.x).prod * c ∧
+      ∀ k < gs.length,
+        IntegerSteinbergModel.rowNorm (IntegerSteinbergModel.act (fun j => if j = i then ε else 0)
+          ((gs.take k).map IntegerSteinbergModel.x).prod) ≤
+        IntegerSteinbergModel.rowNorm (IntegerSteinbergModel.act (fun j => if j = i then ε else 0)
+          ((gs.take (k + 1)).map IntegerSteinbergModel.x).prod) := by sorry
+
+/-- `K2SymbolsBrauer:T.5/integer-kernel-in-monomial-subgroup`: Milnor Lemma 10.7,
+pp. 90–92. Norm-one prefixes fix e_n; last-column rearrangement reduces to rank n−1.
+The n=2 base uses the auxiliary presentation, without stabilization injectivity. -/
+theorem integer_kernel_in_monomial_subgroup (n : ℕ) (hn : 1 ≤ n) :
+    (IntegerSteinbergModel.toElementary n).ker ≤ IntegerSteinbergModel.monomialSubgroup n := by sorry
+
+/-- `K2SymbolsBrauer:T.5/integer-kernel-upper-generation`: Milnor §9/§10.
+Represent a stable kernel element at rank n≥3; the preceding lemma puts it in W_n.
+T.2 supplies the monomial-kernel theorem (Milnor Cor. 9.3, Thm. 9.11): its kernel
+is generated by unit symbols. Since ℤˣ={±1}, only c={−1,−1} remains, and c²=1.
+This upper bound uses neither the real sign nor the calculation of K₂(ℚ). -/
+theorem integer_kernel_upper_generation (z : K2 ℤ) :
+    z = 1 ∨ z = steinbergSymbol (-1 : ℤˣ) (-1) (Commute.all _ _) := by
+  sorry
+
 /-- `K2SymbolsBrauer:T.5/k2-of-the-integers`: `K₂(ℤ)` is cyclic of order two, generated by
 `{-1, -1}`, and `K₂(ℤ) → K₂(ℝ) → {±1}` is an isomorphism. The upper bound is Milnor's
-computation in `St(ℤ)` (cited, a gap). -/
+word proof in `integer_kernel_upper_generation`, independent of the real-sign lower bound. -/
 theorem k2_of_the_integers :
     Nat.card (K2 ℤ) = 2 ∧
       Subgroup.zpowers (steinbergSymbol (-1 : ℤˣ) (-1) (Commute.all _ _)) = ⊤ ∧
@@ -2055,7 +2256,7 @@ theorem k2_of_the_integers :
   sorry
 
 /- The certificate for `K₂(ℤ)` (one generator `{-1, -1}`, one relation `2g = 0`, span from
-Milnor's bound, lower bound the real sign symbol) is stated in ArithmeticKTheory N.6's format by
+integer_kernel_upper_generation, lower bound the real sign symbol) is stated in ArithmeticKTheory N.6's format by
 N.6/N.8, which import `k2_of_the_integers`. -/
 
 /-- `K2SymbolsBrauer:T.5/k2-of-the-rationals` (Application III.6.5.1): the residue sum gives the
@@ -2928,7 +3129,7 @@ theorem global_reciprocity (F : Type u) [Field F] [NumberField F] (m : ℕ) [NeZ
 
 -- test TauCeti.NormResidueSymbol.global_reciprocity_one (degenerate)
 -- This is the full m = 1 symbol-product assertion on ℚ at {-1,-1};
--- it needs neither the nontrivial reciprocity law nor the unresolved comparison.
+-- it needs neither the nontrivial reciprocity law nor any comparison theorem.
 open IsDedekindDomain NumberField in
 example :
     ∃ c : HeightOneSpectrum (𝓞 ℚ) → rootsOfUnity 1 ℚ,
@@ -2958,18 +3159,35 @@ MotivicEtaleKTheory:M.3, the single owner of `h_F`, its Steinberg relation and T
 MotivicEtaleKTheory:M.1 for the twist). With a primitive root
 `ζ ∈ F` its image in `Br(F)` is `brauerSymbol_symbol` above, computed with the pinned
 `TauCeti.kummerMap` and `TauCeti.ContCohomology.explicitCup11`.
-`K2SymbolsBrauer:T.7/local-comparison`: not stated here; needs the local invariant
-`inv_F : Br(F) → ℚ/ℤ` with its arithmetic-Frobenius normalisation and `kummerCupPairing ζ`
-(supplier: ClassFieldTheory Layer 5 and Layer 6), and for `m = 2` QuadraticFormInvariants 6E's
-`hilbertSymbol_eq_cohomological`.
+`K2SymbolsBrauer:T.7/local-comparison`: not stated here; needs inv_F and its m-torsion
+coordinate e_m:[r/m]↦r (ClassFieldTheory Layer 5), the ordered Kummer cup and twists (M.1/M.3).
+The precise equality is normResidueSymbol F m a b = ζ^(−e_m(inv_F β_ζ{a,b})).
+Milne CFT III.3.6(a) and III.4.4/Remark 4.5 identify the positive ordered cup with
+Artin(b) acting on an m-th root of a. The packet's classical symbol uses Artin(a) on a root
+of b. Skew symmetry therefore fixes the minus sign for arbitrary m; it disappears only at m=2.
+Root change ζ→ζ^u multiplies β by u⁻¹ and cancels with the new base.
+Q₇ regression: choose ζ reducing to 2 mod 7. X³−3 is irreducible mod 7, so its Kummer
+extension is unramified; on its residue field Frobenius sends ᾱ to ᾱ⁷. The residue
+of σ(α)/α is ᾱ⁶=3²=2 mod 7, and reduction is injective on μ₃.
+Thus Artin(7)(α)/α=ζ, inv β{3,7}=1/3, and (3,7)=ζ⁻¹, not ζ.
+The full invariant-valued regression is not stated here because inv_F has no pinned carrier.
 `TauCeti.NormResidueSymbol.brauerSymbol_algebraic` (API of `K2SymbolsBrauer:T.7/brauer-valued-symbol`):
 not stated here; needs QuadraticFormInvariants 7B's comparison of `BrauerGroup F` with
 `H2 (AbsoluteGaloisGroup F) (UnitsCoeff F)`; content: `β_ζ` lands in the `m`-torsion of
 `BrauerGroup F`, and `β_{-1}{a, b}` is the quaternion class `(a, b)`.
-`K2SymbolsBrauer:T.7/chern-class-agreement` (a compatibility of two imported maps): not stated
-here; needs the étale Chern class
-`c_{2,2}` on Quillen `K₂` and the comparison `K2SymbolsBrauer:T.1/k2-pi2` (supplier:
-MotivicEtaleKTheory:M.3 and K2SymbolsBrauer:T.1/k2-pi2). -/
+`K2SymbolsBrauer:T.7/chern-class-agreement`: not stated here; needs imported étale Chern
+maps (M.3) on Quillen K₂ and T.1/k2-pi2. Contract: c₂,₂=−h_F, with h_F the positive ordered cup.
+Soulé THESIS Proposition 2.2.2.3, pp. 42–44, gives coefficient
+−(i+j−1)!/((i−1)!(j−1)!)=−1 for i=j=k=k′=1. For this output, (M) has only that contributing
+positive-index pair. Pull the external F⊗ℤF product back along multiplication F⊗ℤF→F;
+K.7 identifies the ordered K₁ product with {a,b}. Equality on symbols gives equality on K₂.
+For composite m, M.3's coefficient naturality and CRT reduce to each prime power; m=1 is zero.
+The Q₇ root-trivialized Chern invariant is −1/3, whereas the Galois-symbol invariant is +1/3.
+No arithmetic Tate or S-integer theorem is proved in this compatibility node. -/
+
+-- The residue computation underlying the higher-power local/Chern regression.
+example : (3 : ZMod 7) ^ 2 = 2 ∧ ∀ x : ZMod 7, x ^ 3 ≠ 3 := by decide
+
 
 end TauCeti.NormResidueSymbol
 
@@ -2979,5 +3197,5 @@ must have real factor 1. In the uniformiser-last Milnor convention
 
 /- Local comparison: read the Brauer invariant through the coordinate map
 (Q/Z)[m] ≃ ZMod m, sending [a/m] to a. Multiplication by m in Q/Z
-is zero on this subgroup and is not the exponent coordinate. The higher-power
-sign remains a source-comparison gap. -/
+is zero on this subgroup and is not the exponent coordinate. Milne’s ordered
+cup/Artin calculation fixes the exponent sign at −1 for higher powers as well. -/
