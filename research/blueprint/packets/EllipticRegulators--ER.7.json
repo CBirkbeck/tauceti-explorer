@@ -1,0 +1,1606 @@
+{
+  "roadmapId": "EllipticRegulators",
+  "protocol": "blueprint-v1",
+  "part": "ER.7",
+  "scope": [
+    "EllipticRegulators:ER.7"
+  ],
+  "status": "complete",
+  "summary": "Target-level continuation of the accepted EllipticRegulators packet. The fixed-level modular-unit subspace Q_K and its finer-level transfer closure P_K are distinguished. Schappacher–Scholl Theorem 1.1.2 is planned in its three separate assertions, including the arithmetic-surface proof of integrality, and applied to general modular elliptic curves. Existing Brunault declarations are imported by id. Siegel units belong solely to KatoEulerSystems L0; the early K2 pair-symbol interface belongs to L1. Merel and Kronecker proof closures, proper regulator covariance and rational descent are audited explicitly. Source and supplier gaps remain visible; no implementation is claimed.",
+  "baseline": {
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "declarations": [
+      {
+        "ref": "mathlib:Function.Periodic.qParam",
+        "kind": "def",
+        "module": "Mathlib/Analysis/Complex/Periodic.lean",
+        "provides": "qParam h z = exp(2πiz/h); with h = 1 this is q = exp(2πiτ).",
+        "checked": "Actual source statement read at Mathlib 082e2d3 in this pass (2026-10-06)."
+      },
+      {
+        "ref": "mathlib:Function.Periodic.norm_qParam",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Complex/Periodic.lean",
+        "provides": "‖qParam h z‖ = exp(−2π Im z / h).",
+        "checked": "Actual source statement read at Mathlib 082e2d3 in this pass (2026-10-06)."
+      },
+      {
+        "ref": "mathlib:ModularForm.eta",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/ModularForms/DedekindEta.lean",
+        "provides": "The Dedekind eta function of Kronecker's first limit formula (3.10)-(3.11).",
+        "checked": "Actual source statement read at Mathlib 082e2d3 in this pass (2026-10-06)."
+      },
+      {
+        "ref": "mathlib:DirichletCharacter.IsPrimitive",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/DirichletCharacter/Basic.lean",
+        "provides": "Primitivity of a Dirichlet character (conductor = level), the hypothesis of Théorème 4.",
+        "checked": "Actual source statement read at Mathlib 082e2d3 in this pass (2026-10-06)."
+      },
+      {
+        "ref": "mathlib:DirichletCharacter.LFunction",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/LSeries/DirichletContinuation.lean",
+        "provides": "L(χ, s), equal to the Dirichlet series for Re s > 1 (LFunction_eq_LSeries); L(χ, 2) in Proposition 80 and Théorème 8.",
+        "checked": "Actual source statement read at Mathlib 082e2d3 in this pass (2026-10-06)."
+      },
+      {
+        "ref": "mathlib:Submodule.comap",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Module/Submodule/Map.lean",
+        "provides": "Line 172: inverse image of a submodule under a semilinear map; membership means its image lies in the submodule.",
+        "checked": "Actual declaration statement read at its recorded pinned commit on 2026-10-06; Tau Ceti read with git show f790474, Mathlib source HEAD verified 082e2d3."
+      },
+      {
+        "ref": "mathlib:Submodule.map",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Module/Submodule/Map.lean",
+        "provides": "Line 53: image submodule under a semilinear map with surjective scalar homomorphism; over Q the scalar map is the identity.",
+        "checked": "Actual declaration statement read at its recorded pinned commit on 2026-10-06; Tau Ceti read with git show f790474, Mathlib source HEAD verified 082e2d3."
+      },
+      {
+        "ref": "mathlib:Submodule.span_image",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Span/Basic.lean",
+        "provides": "Line 254: span of an image equals the image of the span, under the stated surjectivity hypothesis.",
+        "checked": "Actual declaration statement read at its recorded pinned commit on 2026-10-06; Tau Ceti read with git show f790474, Mathlib source HEAD verified 082e2d3."
+      },
+      {
+        "ref": "mathlib:Submodule.mem_iSup_of_directed",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Span/Defs.lean",
+        "provides": "Line 358: for a nonempty directed family S, x belongs to its supremum iff x belongs to some S_i. Directedness is indispensable.",
+        "checked": "Actual declaration statement read at its recorded pinned commit on 2026-10-06; Tau Ceti read with git show f790474, Mathlib source HEAD verified 082e2d3."
+      },
+      {
+        "ref": "mathlib:Real.tsum_eq_tsum_fourier",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Fourier/PoissonSummation.lean",
+        "provides": "One-dimensional Poisson formula for a continuous C-valued function with locally uniform norm summability of shifts and summable integer Fourier integrals. Gaussian verification and iteration are still required.",
+        "checked": "Actual declaration statement read at its recorded pinned commit on 2026-10-06; Tau Ceti read with git show f790474, Mathlib source HEAD verified 082e2d3."
+      },
+      {
+        "ref": "tauceti:HeckeRing.GL2.Newform",
+        "kind": "structure",
+        "module": "TauCeti/NumberTheory/ModularForms/Newforms/Newform.lean",
+        "provides": "Line 102: normalized new EigenformAwayFromLevel, including a character-space cusp form, newness and q coefficient 1. Bad-prime eigenvalues are not supplied by the away-from-level structure.",
+        "checked": "Actual declaration statement read at its recorded pinned commit on 2026-10-06; Tau Ceti read with git show f790474, Mathlib source HEAD verified 082e2d3."
+      },
+      {
+        "ref": "tauceti:UpperHalfPlane.peterssonInner",
+        "kind": "def",
+        "module": "TauCeti/NumberTheory/ModularForms/Petersson/Basic.lean",
+        "provides": "Line 107: integral over D of conj(f) times g times y^k against invariant hyperbolic volume. Conjugates the first variable; no division by the congruence index is built in.",
+        "checked": "Actual declaration statement read at its recorded pinned commit on 2026-10-06; Tau Ceti read with git show f790474, Mathlib source HEAD verified 082e2d3."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "SS.1988",
+      "title": "Beilinson’s theorem on modular curves",
+      "authors": "Norbert Schappacher and Anthony J. Scholl",
+      "edition": "1988, pp.273–304; author retypeset copy dated 2010, 21 pages. Published-pagination mirror separately compared; locators below use numbered sections.",
+      "url": "https://www.dpmms.cam.ac.uk/~ajs1005/preprints/RSS.pdf",
+      "sha256": "7c97475e330cd67c0de474e1d12096cec262f6ca1f045fe5d1e74b1dbfe8a10e",
+      "readSections": [
+        "Entire author copy §§1–7 and bibliography; especially 1.1.1–1.3.2, 3.4.0, 4.5, 5.1, 6.1 and 7.1–7.4.",
+        "Published-pagination copy https://ncatlab.org/nlab/files/SchappacherScholl.pdf, SHA256 604efee0cc32f3a06e7915a3bd3f00cb7d2d218274f2d835ca93d6aa6964663e: pp.275–280, 284–289, 294–302. Page image of 3.1.8 checked in both copies."
+      ],
+      "accessed": "2026-10-06"
+    },
+    {
+      "id": "DS.1991",
+      "title": "The Beilinson conjectures",
+      "authors": "Christopher Deninger and Anthony J. Scholl",
+      "edition": "1991 survey; author public preprint, section locators",
+      "url": "https://www.dpmms.cam.ac.uk/~ajs1005/preprints/d-s.pdf",
+      "sha256": "f4a31e86abb2e80a1b3a07a6158fa19ff4f8110a75c7db491890877b12dfcb27",
+      "readSections": [
+        "(1.3)(1),(6): proper functoriality and finite Galois descent.",
+        "(2.6)–(2.8): regulator functoriality and construction of cycle maps with supports; degrees and weights checked."
+      ],
+      "accessed": "2026-10-06"
+    },
+    {
+      "id": "Siegel.1965",
+      "title": "Lectures on advanced analytic number theory",
+      "authors": "Carl Ludwig Siegel; notes by S. Raghavan",
+      "edition": "Tata Institute lecture notes 23 (1965), reprint hosted by P. Garrett. Reprint pagination differs from the edition inherited by the original packet.",
+      "url": "https://www-users.cse.umn.edu/~garrett/m/mfms/notes_2013-14/Siegel_AdvAnNoTh.pdf",
+      "sha256": "97db8ec4f8477bea009f9264d17dfd4b76e9d6bd529c31316df4a07499f88643",
+      "readSections": [
+        "§1 Theorem 1 and proof, first Kronecker limit formula; §3 Theorem 2 and complete proof, second limit formula.",
+        "§5 Theorem 3 and its Mellin/Poisson proof. Use theorem/section locators rather than inherited pp.17,40,69."
+      ],
+      "accessed": "2026-10-06"
+    },
+    {
+      "id": "Brunault.2005",
+      "title": "Valeur en 2 de fonctions L de courbes elliptiques",
+      "authors": "François Brunault; appendix by Loïc Merel",
+      "edition": "arXiv:math/0602186v1, 155 pages; appendix printed and PDF pp.143–155",
+      "url": "https://arxiv.org/pdf/math/0602186v1",
+      "sha256": "8fd73faba5db08328c2884d9f35b79bc528145428766444f3eb8097f3b494fb7",
+      "readSections": [
+        "Merel appendix pp.143–155 in full: definitions, Theorem A, Corollary 2, formulaire §2, Proposition B, Mellin calculation §3, Petersson Theorem C and proof, Theorem D and proof.",
+        "Brunault chapter 3 is inherited from the accepted packet; the present pass uses that packet’s declaration statements rather than claiming a new complete reading of chapter 3."
+      ],
+      "accessed": "2026-10-06"
+    },
+    {
+      "id": "Brunault.2007",
+      "title": "Valeur en 2 de fonctions L de formes modulaires de poids 2 : théorème de Beilinson explicite",
+      "authors": "François Brunault",
+      "edition": "Bull. Soc. Math. France 135 (2007), 215–246; version of record",
+      "url": "https://www.numdam.org/item/10.24033/bsmf.2532.pdf",
+      "sha256": "58f538cb38704615de15dee95a688dd576cd44513c118a41e434bde7e3a21b73",
+      "readSections": [
+        "Introduction pp.215–218: regulator conventions, Theorem 1.1, Remark 1.2, Question 1.3, Theorem 1.4. Bars lost in extracted text are read using the inherited corrected statement."
+      ],
+      "accessed": "2026-10-06"
+    },
+    {
+      "id": "Shimura.1977",
+      "title": "On the periods of modular forms",
+      "authors": "Goro Shimura",
+      "edition": "Mathematische Annalen 229 (1977), 211–221, DOI 10.1007/BF01391466. Göttingen GDZ page scans, pp.211–214 read. SHA256 below identifies the volume IIIF manifest, not an article PDF.",
+      "url": "https://gdz.sub.uni-goettingen.de/dms/resolveppn/?PPN=GDZPPN002314584",
+      "sha256": "9527f45f13c9a0fd66ec49fd8b1b252bceaa3a129c6ddf19e07ab30fc978a132",
+      "readSections": [
+        "pp.211–214: Theorem 1 period algebraicity; Lemma 1 modular-symbol generators; Theorem 2, complete Fourier/period contradiction argument; the following two-prime even-character remark.",
+        "Manifest: https://manifests.sub.uni-goettingen.de/iiif/presentation/PPN235181684_0229/manifest?version=29486bf2; article scans are volume sequence positions 217–220. Theorem 1 and Lemma 1 invoke the earlier 1976 paper, whose proofs were not read here."
+      ],
+      "accessed": "2026-10-06"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "EllipticRegulators:ER.7/fixed-level-beilinson-subspace",
+      "parentStageId": "EllipticRegulators:ER.7",
+      "realises": [
+        "EllipticRegulators:ER.7"
+      ],
+      "title": "The fixed-level modular-unit subspace",
+      "kind": "definition",
+      "statement": "Let Y_K be the modular curve over Q for an open compact K⊂GL2(A_f), X_K its smooth projective compactification, and j the injective rational weight-two restriction H²_M(X_K,Q(2))→H²_M(Y_K,Q(2)). Define Q_K=j⁻¹(span_Q{{u,v}:u,v∈O(Y_K)×⊗Q}). The span is taken before the compactness condition; the condition is vanishing of the total horizontal tame boundary, not of each generator separately.",
+      "hypotheses": [
+        "Work componentwise if X_K is not geometrically connected.",
+        "Symbols and restriction use the common rational weight-two K-theory convention."
+      ],
+      "proofSteps": [
+        "Import algebraic modular units from Kato L0 and the early bilinear K2 symbol interface from L1; do not construct either here.",
+        "Use rational localization and the curve restriction kernel comparison from EllipticKTheory E.3 to identify the compact group with its image.",
+        "Take a Mathlib span and its comap; a linear combination of symbols can have cancelling cusp residues even when its summands do not."
+      ],
+      "acceptance": [
+        "For X0(p), two cusps give one modular unit modulo constants; its same-level regulator image is zero, even for genus one.",
+        "Residue cancellation is permitted in the span."
+      ],
+      "prerequisites": [
+        "KatoEulerSystems:L0/siegel-units-and-c-independent-rationalisation",
+        "KatoEulerSystems:L1/beilinson-element-in-K2-of-Y-M-N",
+        "EllipticKTheory:E.3/localisation-sequence-for-a-curve",
+        "EllipticKTheory:E.3/what-the-sequence-does-not-identify",
+        "mathlib:Submodule.comap",
+        "mathlib:Submodule.span_image"
+      ],
+      "sources": [
+        {
+          "sourceId": "SS.1988",
+          "locator": "1.1.1",
+          "excerpt": "Define",
+          "match": "Exact target statement, with convention and gap qualifications given in the proof outline."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/EllipticRegulators/Modular",
+        "namespace": "EllipticRegulators.Modular"
+      },
+      "declarationName": "EllipticRegulators.Modular.fixedLevelBeilinson",
+      "api": [
+        {
+          "name": "EllipticRegulators.Modular.fixedLevelBeilinson_mem",
+          "role": "characterisation",
+          "statement": "For Q-vector spaces A,B, j:A→B linear and S⊂B, x∈fixedLevelBeilinson(j,S) iff j(x)∈span_Q(S)."
+        },
+        {
+          "name": "EllipticRegulators.Modular.fixedLevelBeilinson_id",
+          "role": "compatibility",
+          "statement": "For j=id, fixedLevelBeilinson(id,S)=Submodule.span Q S."
+        },
+        {
+          "name": "EllipticRegulators.Modular.fixedLevelBeilinson_mono",
+          "role": "functoriality",
+          "statement": "If S⊂T then fixedLevelBeilinson(j,S)≤fixedLevelBeilinson(j,T)."
+        },
+        {
+          "name": "EllipticRegulators.Modular.fixedLevelBeilinson_empty",
+          "role": "simp",
+          "statement": "For injective j, fixedLevelBeilinson(j,∅)=0. Without injectivity it equals ker(j)."
+        },
+        {
+          "name": "EllipticRegulators.Modular.fixedLevelBeilinson_pullback",
+          "role": "compatibility",
+          "statement": "For linear a:A→A′, b:B→B′ with j′a=bj and b(S)⊂span(S′), a carries fixedLevelBeilinson(j,S) into fixedLevelBeilinson(j′,S′)."
+        },
+        {
+          "name": "EllipticRegulators.Modular.fixedLevelBeilinson_linearCombination",
+          "role": "constructor",
+          "statement": "Every finite Q-linear combination of vectors x_i with j(x_i) in span(S) belongs to fixedLevelBeilinson(j,S)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "EllipticRegulators.Modular.fixedLevelBeilinson_test_identity",
+          "kind": "compatibility",
+          "statement": "On Q, j=id and S={1} give the whole one-dimensional Q-space."
+        },
+        {
+          "name": "EllipticRegulators.Modular.fixedLevelBeilinson_test_empty",
+          "kind": "degenerate",
+          "statement": "For the injection Q→Q², x↦(x,0), an empty symbol set gives zero."
+        },
+        {
+          "name": "EllipticRegulators.Modular.fixedLevelBeilinson_test_cancellation",
+          "kind": "computation",
+          "statement": "For that injection and S={(1,1),(0,1)}, 1 belongs to Q_K because (1,0)=(1,1)−(0,1), although neither chosen symbol is itself in the compact image."
+        },
+        {
+          "name": "EllipticRegulators.Modular.fixedLevelBeilinson_test_vertical",
+          "kind": "non-example",
+          "statement": "For that injection and S={(0,1)}, 1 does not belong. This detects taking the whole compact group without the span condition."
+        }
+      ],
+      "uses": [
+        {
+          "where": "SS 1.1.1 and 7.3.0",
+          "how": "Forms the horizontally unramified subspace whose bad-fibre residues are studied."
+        },
+        {
+          "where": "SS 1.1.3",
+          "how": "Separates a fixed level from its transfer closure."
+        }
+      ]
+    },
+    {
+      "id": "EllipticRegulators:ER.7/beilinson-subspace",
+      "parentStageId": "EllipticRegulators:ER.7",
+      "realises": [
+        "EllipticRegulators:ER.7"
+      ],
+      "title": "The transfer Beilinson subspace",
+      "kind": "definition",
+      "statement": "Define P_K as the filtered union of θ_{K′/K,*}Q_{K′} over open compact subgroups K′⊂K. Equivalently it is the supremum of these image Q-submodules. Every element has a single finite-level witness after common refinement. Q_K⊂P_K; equality is not asserted.",
+      "hypotheses": [
+        "Finite level maps are proper, generically finite morphisms of equal-dimensional compact curves.",
+        "Transfers and pullbacks are rational and satisfy θ_*θ^*=[K:K′] componentwise with the actual degree when stabilizers intervene."
+      ],
+      "proofSteps": [
+        "Pull back finitely many modular-unit combinations to a common subgroup contained in all their levels.",
+        "Use transfer composition and norm–restriction equal to degree; divide by the nonzero rational degree to dominate each image by the common refinement image.",
+        "Apply Submodule.mem_iSup_of_directed; do not identify an arbitrary supremum with a set union."
+      ],
+      "acceptance": [
+        "Check the statement with all its level, coefficient and covariance hypotheses; compare the cited passage."
+      ],
+      "prerequisites": [
+        "EllipticRegulators:ER.7/fixed-level-beilinson-subspace",
+        "EllipticKTheory:E.5/pullback-and-pushforward",
+        "EllipticKTheory:E.3/naturality-for-finite-transfer",
+        "mathlib:Submodule.map",
+        "mathlib:Submodule.mem_iSup_of_directed"
+      ],
+      "sources": [
+        {
+          "sourceId": "SS.1988",
+          "locator": "1.1.1–1.1.3",
+          "excerpt": "the union being taken over all open subgroups",
+          "match": "Exact target statement, with convention and gap qualifications given in the proof outline."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/EllipticRegulators/Modular",
+        "namespace": "EllipticRegulators.Modular"
+      },
+      "planet": {
+        "name": "Beilinson subspace"
+      },
+      "declarationName": "EllipticRegulators.Modular.beilinsonSubspace",
+      "api": [
+        {
+          "name": "EllipticRegulators.Modular.beilinsonSubspace_transfer",
+          "role": "constructor",
+          "statement": "For a family of Q-submodules Q_i and linear transfers t_i to A, t_i(x)∈P when x∈Q_i."
+        },
+        {
+          "name": "EllipticRegulators.Modular.beilinsonSubspace_finiteWitness",
+          "role": "characterisation",
+          "statement": "If the image submodules are directed and the index type is nonempty, x∈P iff there exist i and y∈Q_i with t_i(y)=x."
+        },
+        {
+          "name": "EllipticRegulators.Modular.beilinsonSubspace_single",
+          "role": "compatibility",
+          "statement": "For one index, P=Q_i.map(t_i). This is precisely Mathlib Submodule.map."
+        },
+        {
+          "name": "EllipticRegulators.Modular.beilinsonSubspace_zero",
+          "role": "simp",
+          "statement": "If every Q_i=0 then P=0."
+        },
+        {
+          "name": "EllipticRegulators.Modular.beilinsonSubspace_mono",
+          "role": "functoriality",
+          "statement": "Increasing each Q_i while keeping the transfers fixed increases P."
+        },
+        {
+          "name": "EllipticRegulators.Modular.beilinsonSubspace_map",
+          "role": "functoriality",
+          "statement": "For a linear f:A→B, f(P) is the supremum of the images under f∘t_i."
+        },
+        {
+          "name": "EllipticRegulators.Modular.beilinsonSubspace_degree",
+          "role": "relation",
+          "statement": "Multiplying a transfer by a nonzero rational d leaves its image of a Q-submodule unchanged; this is why norm–restriction degrees do not change P."
+        }
+      ],
+      "tests": [
+        {
+          "name": "EllipticRegulators.Modular.beilinsonSubspace_test_single",
+          "kind": "compatibility",
+          "statement": "A singleton level with identity transfer gives its prescribed submodule."
+        },
+        {
+          "name": "EllipticRegulators.Modular.beilinsonSubspace_test_zero",
+          "kind": "degenerate",
+          "statement": "Every zero input submodule gives zero output, even when transfers are nonzero."
+        },
+        {
+          "name": "EllipticRegulators.Modular.beilinsonSubspace_test_newLevel",
+          "kind": "non-example",
+          "statement": "On Q², take levels n∈N with Q_0=span{(1,0)}, Q_n=Q² for n>0, and identity transfers. The family is directed and P=Q²≠Q_0."
+        },
+        {
+          "name": "EllipticRegulators.Modular.beilinsonSubspace_test_degree",
+          "kind": "computation",
+          "statement": "On Q, the transfer x↦2x from Q has full image. An integral span would incorrectly retain a degree-two index."
+        }
+      ],
+      "uses": [
+        {
+          "where": "SS 1.2.9",
+          "how": "Transfer at finer levels permits irreducibility to propagate nonvanishing to all vectors at the target level."
+        },
+        {
+          "where": "SS 7.3.2",
+          "how": "Transfers preserve the integral part."
+        },
+        {
+          "where": "General elliptic application",
+          "how": "Pushes P_K to the elliptic quotient, without a same-level twist assertion."
+        }
+      ]
+    },
+    {
+      "id": "EllipticRegulators:ER.7/cuspidal-hecke-separation",
+      "parentStageId": "EllipticRegulators:ER.7",
+      "realises": [
+        "EllipticRegulators:ER.7"
+      ],
+      "title": "The Hecke separation in Manin–Drinfeld",
+      "kind": "theorem",
+      "statement": "For a full modular level n≥3 and a good prime p∤n with p≥7, the eigenvalues of T_p on the rational degree-zero cuspidal divisor module have the form pχ₁(p)+χ₂(p), of modulus at least p−1. On the Jacobian differential module they have modulus at most 2√p. Their spectra are disjoint; consequently the subgroup of the Jacobian generated by cusp differences is finite. For general K use a finite full-level cover and norm.",
+      "hypotheses": [
+        "Use the same geometric Hecke correspondence on divisors, Pic⁰ and regular differentials.",
+        "The characters χ_i have finite order, and degrees are zero separately on each geometric connected component."
+      ],
+      "proofSteps": [
+        "SS 3.4.0 decomposes the finite cusp permutation module into Eisenstein characters.",
+        "The characteristic polynomial of T_p on the Jacobian has rational coefficients and an integral multiple annihilates Pic⁰ by its endomorphism relation.",
+        "The good-prime Weil bound separates this polynomial from the cuspidal spectrum since p−1>2√p for p≥7.",
+        "Thus the cusp subgroup tensored with Q is zero; it is finitely generated, hence torsion finite. Transfer to quotients."
+      ],
+      "acceptance": [
+        "p=7 satisfies 6>2√7; the argument is not licensed at p=2.",
+        "Matches the imported EllipticRegulators:ER.7/manin-drinfeld; it is a proof ingredient rather than a second statement of that declaration."
+      ],
+      "prerequisites": [
+        "ModularCurvesPartII:R12.5",
+        "ModularCurvesPartII:R14.6"
+      ],
+      "sources": [
+        {
+          "sourceId": "SS.1988",
+          "locator": "3.4.0",
+          "excerpt": "The subgroup of the Jacobian of M K generated by the divisors supported at the cusps is finite.",
+          "match": "Exact target statement, with convention and gap qualifications given in the proof outline."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/EllipticRegulators/Modular",
+        "namespace": "EllipticRegulators.Modular"
+      }
+    },
+    {
+      "id": "EllipticRegulators:ER.7/constant-symbol-regulator-correction",
+      "parentStageId": "EllipticRegulators:ER.7",
+      "realises": [
+        "EllipticRegulators:ER.7"
+      ],
+      "title": "Compact correction without changing the regulator",
+      "kind": "theorem",
+      "statement": "After refining K to a full level n≥3, let X(n) be one connected component over F=Q(μ_n), with all cusps F-rational, and let α be a rational linear combination of symbols of units on Y(n). There is a rational combination γ of constant-unit symbols {a,h}, a∈F×, h∈O(Y(n))×, such that ξ=α+γ has zero horizontal tame boundary and lifts to compact weight-two K2. It remains in the unit-symbol span on this full-level Q-scheme component and has the same compact-projected regulator as α. Transfers of ξ belong to P_K. This is the full-level specialization needed of SS 1.3.1, not a claim that arbitrary field norms of symbols are single pairs.",
+      "hypotheses": [
+        "Manin–Drinfeld for degree-zero cusp differences, componentwise; full-level cusps are rational over the component constant field.",
+        "Rational symbol/tame-boundary identification, curve localization, Weil reciprocity and the compact projection of the real Deligne regulator are supplied."
+      ],
+      "proofSteps": [
+        "Choose a base cusp P0. For each other cusp P, Manin–Drinfeld gives h_P with div(h_P)=m_P(P−P0), m_P>0. Realize this principal divisor over F by the L0 unit/divisor descent interface.",
+        "Write t_P=∂_P(α) in F×⊗Q, additively. Weil reciprocity on X(n)/F gives Σ_P t_P=0 because every cusp is F-rational and α has no other boundary.",
+        "With ∂_P{a,h}=ord_P(h)a, take γ=−Σ_{P≠P0}(1/m_P){t_P,h_P}; bilinearity extends symbols to F×⊗Q. The boundaries at P≠P0 cancel, and the remaining boundary at P0 is zero by reciprocity. Reverse both signs if using the inverse tame-symbol convention.",
+        "Both constants in F× and h_P are global units on Y(n), viewed as a component of the full-level Q-scheme. Thus compactness does not leave the unit-symbol span. Finer-level transfer gives P_K; no arbitrary norm-generation assertion is needed.",
+        "SS 3.5.3 compact Stokes/orthogonality makes constant-unit symbols have zero compact pairing with every holomorphic differential; combine with the canonical compact/open regulator comparison. The vanishing is a period statement, not a pointwise claim that conjugate(dlog(h))∧ω=0."
+      ],
+      "acceptance": [
+        "The correction has tame vector −(t_P) at every cusp, including P0 by reciprocity. For nonrational cusps the norm-weighted relation cannot be replaced by an unweighted sum.",
+        "Adding a constant symbol leaves the compact pairing with every holomorphic differential unchanged.",
+        "Constants of F are units on the actual full-level component; this cannot be replaced by assuming they are Q-rational constants."
+      ],
+      "prerequisites": [
+        "EllipticRegulators:ER.7/fixed-level-beilinson-subspace",
+        "EllipticRegulators:ER.7/beilinson-subspace",
+        "EllipticRegulators:ER.7/cuspidal-hecke-separation",
+        "EllipticRegulators:ER.7/manin-drinfeld",
+        "SchemeKTheoryOperations:S.3/weil-reciprocity-k-theory",
+        "EllipticKTheory:E.3/localisation-sequence-for-a-curve",
+        "EllipticKTheory:E.3/naturality-for-finite-transfer",
+        "EllipticRegulators:ER.2/the-normalisation-factor",
+        "KatoEulerSystems:L0",
+        "ModularCurvesPartII:R12.3"
+      ],
+      "sources": [
+        {
+          "sourceId": "SS.1988",
+          "locator": "1.3.0–1.3.1, 3.5.3; full-level specialization using Weil reciprocity",
+          "excerpt": "there is a finite extension F of Q",
+          "match": "Exact target statement, with convention and gap qualifications given in the proof outline."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/EllipticRegulators/Modular",
+        "namespace": "EllipticRegulators.Modular"
+      }
+    },
+    {
+      "id": "EllipticRegulators:ER.7/regulator-period-inclusion",
+      "parentStageId": "EllipticRegulators:ER.7",
+      "realises": [
+        "EllipticRegulators:ER.7"
+      ],
+      "title": "Algebraicity of the modular regulator period",
+      "kind": "theorem",
+      "statement": "For every weight-two cuspidal automorphic π occurring in Ω¹ of the modular tower, every level K, ω∈V_π^K and rational modular units u,v, the tuple over embeddings of ∫_{Y_K(C)}log|u| conjugate(dlog(v))∧ω lies in 2πi c⁺(π)L′(π̌,0)·Qbar inside Qbar⊗C. Period-line equality is understood modulo Qbar×; it is not an exact scalar identity for an arbitrarily chosen period representative.",
+      "hypotheses": [
+        "Arithmetic L-normalization has functional equation s↦2−s.",
+        "π̌ is the contragredient; all embeddings of a finite coefficient field are tracked.",
+        "The integral uses the indicated wedge order and the compact/open comparison."
+      ],
+      "proofSteps": [
+        "Expand log|u| in degree-zero real Eisenstein series and dlog(v) in weight-two Eisenstein representations, using the inherited Kronecker and unit-divisor declarations.",
+        "Unfold the cuspidal Rankin–Selberg integral with SS Haar measures; 5.1.0 gives πiΓ(s+1)/(4π)^(s−1) times [GL2(Zhat):±K] times the finite-adelic integral.",
+        "At s=1, 4.5.3 gives an algebraic local factor times L(π,2)L(π⊗χ,1)/L(ω_πχ,2); absolute convergence makes the denominator nonzero.",
+        "Use SS §2 functional equations, Gauss-sum transformation and Shimura–Blasius period algebraicity over all embeddings. Supplier requests state this exact quotient.",
+        "Divide by 2πi only after the ER.2 regulator normalization comparison; no Brunault/SS factor is silently exchanged."
+      ],
+      "acceptance": [
+        "At s=1 the analytic prefactor is πi times the congruence index.",
+        "Changing a period by a nonzero algebraic scalar leaves the line unchanged."
+      ],
+      "prerequisites": [
+        "EllipticRegulators:ER.7/real-analytic-eisenstein-series",
+        "EllipticRegulators:ER.7/kronecker-limit-formulas",
+        "EllipticRegulators:ER.7/rankin-selberg-integral",
+        "KatoEulerSystems:L0",
+        "GL2AutomorphicRepresentationsAndTransfer:R16.2",
+        "GL2AutomorphicRepresentationsAndTransfer:R16.5",
+        "PeriodsAndSpecialValues:PS.1",
+        "EllipticRegulators:ER.2/the-normalisation-factor",
+        "mathlib:DirichletCharacter.LFunction"
+      ],
+      "sources": [
+        {
+          "sourceId": "SS.1988",
+          "locator": "1.3.2(i), 2.3, 4.5.3, 5.1.0 and 5.2",
+          "excerpt": "This concludes the proof of part (i) of Theorem 1.3.2.",
+          "match": "Exact target statement, with convention and gap qualifications given in the proof outline."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/EllipticRegulators/Modular",
+        "namespace": "EllipticRegulators.Modular"
+      }
+    },
+    {
+      "id": "EllipticRegulators:ER.7/regulator-nonvanishing-after-level-change",
+      "parentStageId": "EllipticRegulators:ER.7",
+      "realises": [
+        "EllipticRegulators:ER.7"
+      ],
+      "title": "Nonvanishing with freely chosen auxiliary level",
+      "kind": "theorem",
+      "statement": "For each such π there exist a finite level K, ω∈V_π^K and rational modular units u,v for which ∫log|u|conjugate(dlog(v))∧ω≠0. K is chosen after the auxiliary character and local test vectors; it need not be the original newform level. After cusp correction this gives a nonzero compact regulator in the transfer Beilinson subspace, using the full-level constant-symbol correction and the early pair interface G1.",
+      "hypotheses": [
+        "An even auxiliary character χ of unrestricted conductor exists with χ≠1,ω_π⁻¹ and L(π^σ⊗χ^σ,1)≠0 for every coefficient embedding σ.",
+        "At bad primes one may choose vectors fixed by a smaller compact subgroup."
+      ],
+      "proofSteps": [
+        "Shimura Theorem 2 and its following remark give nonzero odd twists at a prime p away from a prescribed M, then another odd twist at q away from pM; their product is primitive even of conductor pq. Take M divisible by the original level and the central-character conductor, excluding both 1 and ω_π⁻¹. The proof uses finite Fourier inversion of modular-symbol periods and parity injectivity. Theorem 1 algebraicity transports the nonzero normalized value through every coefficient embedding; PS.1 supplies this exact adapter.",
+        "At each bad prime use compactly supported Kirillov vectors with local integral I(1)=1 (4.5.4); at good primes use normalized spherical vectors.",
+        "Choose φ supported on the product of these compact stabilizers; factorization gives a nonzero product of the two L-values and nonzero local factors.",
+        "Subtract φ’s (1,1)-Eisenstein component ψ. It has the same degree, but its integral is zero by the nontrivial central character χω_π. Thus φ−ψ has degree zero and preserves the nonzero integral.",
+        "Apply Manin–Drinfeld and the rational unit realization of degree-zero cusp data; then the full-level compact correction using G1’s early pair interface."
+      ],
+      "acceptance": [
+        "No primitivity at the fixed modulus N appears in the conclusion.",
+        "For χ=ω_π⁻¹ the central-character cancellation step fails; exclude it."
+      ],
+      "prerequisites": [
+        "EllipticRegulators:ER.7/regulator-period-inclusion",
+        "EllipticRegulators:ER.7/constant-symbol-regulator-correction",
+        "KatoEulerSystems:L0",
+        "GL2AutomorphicRepresentationsAndTransfer:R16.2",
+        "PeriodsAndSpecialValues:PS.1"
+      ],
+      "sources": [
+        {
+          "sourceId": "SS.1988",
+          "locator": "1.3.2(ii), 4.5.4 and 6.0–6.1.1",
+          "excerpt": "replacing φ by φ − ψ leaves (6.0.1) unchanged",
+          "match": "Exact target statement, with convention and gap qualifications given in the proof outline."
+        },
+        {
+          "sourceId": "Shimura.1977",
+          "locator": "Theorem 2 pp.212–213 and following remark pp.213–214; Theorem 1 p.212",
+          "excerpt": "two distinct primes",
+          "match": "Two odd prime-conductor twists produce a primitive even auxiliary character away from any prescribed finite set; period algebraicity gives simultaneous coefficient-conjugate nonvanishing."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/EllipticRegulators/Modular",
+        "namespace": "EllipticRegulators.Modular"
+      }
+    },
+    {
+      "id": "EllipticRegulators:ER.7/isotypic-regulator-image",
+      "parentStageId": "EllipticRegulators:ER.7",
+      "realises": [
+        "EllipticRegulators:ER.7"
+      ],
+      "title": "The isotypic Beilinson regulator image",
+      "kind": "theorem",
+      "statement": "For every K and every occurring π, e_{π̌}r_D(P_K⊗Qbar)=L′(π̌,0)c⁺(π) Hom_Qbar(V_π^K,Qbar), inside the corresponding real Betti component after extending coefficients. If dim V_π^K=m>1 this is a full m-dimensional period subspace, not a single newform line.",
+      "hypotheses": [
+        "The compact/open regulator normalization and G1 are supplied.",
+        "Hecke action, duality and the full finite-level automorphic decomposition are available with all bad Euler factors."
+      ],
+      "proofSteps": [
+        "Period inclusion at all levels and transfer/form-pullback adjointness give the displayed inclusion.",
+        "Choose the nonzero pairing at a finer level; Hecke stability makes the nonzero isotypic image an invariant submodule.",
+        "Apply irreducibility of the finite-level Hecke module and transfer adjointness as in 1.2.9 to get equality at the desired level.",
+        "Use the contragredient projector on cohomology when pairing against V_π; retain oldform multiplicities."
+      ],
+      "acceptance": [
+        "A level where π has two independent oldvectors gets two-dimensional regulator image.",
+        "The projector is π̌, not an untracked π-projector."
+      ],
+      "prerequisites": [
+        "EllipticRegulators:ER.7/beilinson-subspace",
+        "EllipticRegulators:ER.7/regulator-period-inclusion",
+        "EllipticRegulators:ER.7/regulator-nonvanishing-after-level-change",
+        "GL2AutomorphicRepresentationsAndTransfer:R16.4",
+        "ModularCurvesPartII:R12.5",
+        "EllipticRegulators:ER.2/the-normalisation-factor"
+      ],
+      "sources": [
+        {
+          "sourceId": "SS.1988",
+          "locator": "1.2.6–1.2.9",
+          "excerpt": "by the irreducibility",
+          "match": "Exact target statement, with convention and gap qualifications given in the proof outline."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/EllipticRegulators/Modular",
+        "namespace": "EllipticRegulators.Modular"
+      }
+    },
+    {
+      "id": "EllipticRegulators:ER.7/beilinson-rational-structure",
+      "parentStageId": "EllipticRegulators:ER.7",
+      "realises": [
+        "EllipticRegulators:ER.7"
+      ],
+      "title": "The Beilinson rational structure",
+      "kind": "theorem",
+      "statement": "For every X_K, r_D(P_K) is a Q-structure on H²_D(X_{K/R},R(2))=H¹_B(X_{K/R},R(1)); its scalar extension to R is the whole real vector space of dimension g, the sum of component genera. This assertion is about the regulator image, not finite generation or injectivity of the full rational K2 group.",
+      "hypotheses": [
+        "All hypotheses of the isotypic image theorem, including G1, are met.",
+        "The real structure and Tate twist use SS’s real Betti convention."
+      ],
+      "proofSteps": [
+        "Sum the isotypic equalities over a coefficient field splitting the Hecke algebra.",
+        "The real/conjugation and coefficient-Galois compatibilities identify the resulting subspace as a rational structure before scalar extension.",
+        "Descend the finite-dimensional regulator image, not each arbitrarily chosen complex symbol individually."
+      ],
+      "acceptance": [
+        "For genus zero the image is the zero-dimensional rational structure.",
+        "For X0(11), Q_K has zero regulator but P_K has a one-dimensional regulator image."
+      ],
+      "prerequisites": [
+        "EllipticRegulators:ER.7/isotypic-regulator-image",
+        "EllipticRegulators:ER.7/real-structure-of-the-regulator",
+        "GL2AutomorphicRepresentationsAndTransfer:R16.4"
+      ],
+      "sources": [
+        {
+          "sourceId": "SS.1988",
+          "locator": "1.1.2(i), 1.2.4–1.2.9",
+          "excerpt": "rD (PK ) is a Q-structure",
+          "match": "Exact target statement, with convention and gap qualifications given in the proof outline."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/EllipticRegulators/Modular",
+        "namespace": "EllipticRegulators.Modular"
+      }
+    },
+    {
+      "id": "EllipticRegulators:ER.7/beilinson-determinant-formula",
+      "parentStageId": "EllipticRegulators:ER.7",
+      "realises": [
+        "EllipticRegulators:ER.7"
+      ],
+      "title": "Beilinson’s modular determinant formula",
+      "kind": "theorem",
+      "statement": "In the determinant line of H¹_B(X_{K/R},R(1)), det_Q r_D(P_K)=L^{(g)}(H¹(X_K),0)·det_Q H¹_B(X_{K/R},Q(1)), with equality of rational lines (hence modulo Q×). L^{(g)} denotes the g-th derivative at 0; replacing it by the leading Taylor coefficient divides by g! and gives the same rational line. For disconnected X_K, g is the sum of genera.",
+      "hypotheses": [
+        "The rational-structure theorem and the motive/automorphic L-factor comparison with all finite Euler factors hold.",
+        "Use the arithmetic weight-two L-normalization, not unitary s↦1−s."
+      ],
+      "proofSteps": [
+        "Take determinants of the isotypic image theorem with multiplicities m(π,K).",
+        "Compare Betti and automorphic period determinants using 1.2.4 and the full product L(H¹(X_K),s)=∏πL(π,s)^m.",
+        "Each factor has its simple trivial zero at s=0; the total order is g. Multiply leading terms and restore g! if using derivatives.",
+        "Coefficient conjugation permutes π and π̌ with equal multiplicities, so the global product is rationally defined."
+      ],
+      "acceptance": [
+        "For g=1 the derivative and leading coefficient coincide.",
+        "For g=0 the empty determinant is Q and the L-value convention agrees."
+      ],
+      "prerequisites": [
+        "EllipticRegulators:ER.7/beilinson-rational-structure",
+        "EllipticRegulators:ER.7/isotypic-regulator-image",
+        "GL2AutomorphicRepresentationsAndTransfer:R16.4",
+        "ModularCurvesPartII:R14.6"
+      ],
+      "sources": [
+        {
+          "sourceId": "SS.1988",
+          "locator": "1.1.2(ii), 1.2.2–1.2.6",
+          "excerpt": "Let g be the genus",
+          "match": "Exact target statement, with convention and gap qualifications given in the proof outline."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/EllipticRegulators/Modular",
+        "namespace": "EllipticRegulators.Modular"
+      }
+    },
+    {
+      "id": "EllipticRegulators:ER.7/ordinary-unit-reduction",
+      "parentStageId": "EllipticRegulators:ER.7",
+      "realises": [
+        "EllipticRegulators:ER.7"
+      ],
+      "title": "Normalized reduction of a modular unit",
+      "kind": "construction",
+      "statement": "For a bad-fibre component C, put e_C=ord_C(p)>0. For u a modular unit define its normalized reduction u_C as the residue of u^{e_C}/p^{ord_C(u)}, which has valuation zero. In a DVR presentation with valuation v:F×→Z and angular component ac:F×→κ(C)× this is ac(u)^{v(p)}/ac(p)^{v(u)}. It is independent of the uniformizer used to present ac, and is a unit on the ordinary locus. The tame boundary ∂_C{u,p} agrees up to the conventional sign (torsion killed after rationalization).",
+      "hypotheses": [
+        "Use the regular full-level model with n=mp^k, m≥3 and p∤m.",
+        "For actual geometric reduction the angular component and valuation arise from the component DVR; arbitrary algebraic input does not establish that identification."
+      ],
+      "proofSteps": [
+        "The numerator and denominator have equal C-valuation e_C ord_C(u), so their quotient has a well-defined nonzero residue.",
+        "SS 7.2.3 supplies the component map to the prime-to-p modular curve, degree p^kφ(p^k), and ordinary-locus unit statement.",
+        "Multiplicativity, powers and change of uniformizer follow by the valuation homomorphism and angular-component law; the correction exponent is e_C, not 1."
+      ],
+      "acceptance": [
+        "Account for ramification e_C at p.",
+        "A tame-symbol sign convention change does not alter rational vanishing."
+      ],
+      "prerequisites": [
+        "KatoEulerSystems:L0",
+        "ModularCurvesPartII:R13.5",
+        "EllipticKTheory:E.3/naturality-for-finite-transfer"
+      ],
+      "sources": [
+        {
+          "sourceId": "SS.1988",
+          "locator": "7.2.3–7.2.4",
+          "excerpt": "uC = ∂C {u, p}",
+          "match": "Exact target statement, with convention and gap qualifications given in the proof outline."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/EllipticRegulators/Modular",
+        "namespace": "EllipticRegulators.Modular"
+      },
+      "declarationName": "EllipticRegulators.Modular.normalizedUnitReduction",
+      "api": [
+        {
+          "name": "EllipticRegulators.Modular.normalizedUnitReduction_formula",
+          "role": "data",
+          "statement": "For groups F×,κ×, homomorphisms v:F×→Multiplicative(Z) and ac:F×→κ×, the value is ac(u)^{v(p)}/ac(p)^{v(u)}, reading v additively."
+        },
+        {
+          "name": "EllipticRegulators.Modular.normalizedUnitReduction_mul",
+          "role": "structure",
+          "statement": "reduction(p,uv)=reduction(p,u)reduction(p,v)."
+        },
+        {
+          "name": "EllipticRegulators.Modular.normalizedUnitReduction_inv",
+          "role": "simp",
+          "statement": "reduction(p,u⁻¹)=reduction(p,u)⁻¹."
+        },
+        {
+          "name": "EllipticRegulators.Modular.normalizedUnitReduction_zpow",
+          "role": "simp",
+          "statement": "reduction(p,u^a)=reduction(p,u)^a for every integer a."
+        },
+        {
+          "name": "EllipticRegulators.Modular.normalizedUnitReduction_orderZero",
+          "role": "characterisation",
+          "statement": "If v(u)=0 then reduction(p,u)=ac(u)^{v(p)}."
+        },
+        {
+          "name": "EllipticRegulators.Modular.normalizedUnitReduction_multiplyBase",
+          "role": "relation",
+          "statement": "reduction(p,up^a)=reduction(p,u) for every integer a."
+        },
+        {
+          "name": "EllipticRegulators.Modular.normalizedUnitReduction_changeAngular",
+          "role": "compatibility",
+          "statement": "For t∈κ×, replacing ac(x) by ac(x)t^{−v(x)} leaves the reduction unchanged; this is change of DVR uniformizer."
+        }
+      ],
+      "tests": [
+        {
+          "name": "EllipticRegulators.Modular.normalizedUnitReduction_test_base",
+          "kind": "degenerate",
+          "statement": "reduction(p,p)=1; the integral tame symbol has a possible sign, which must not survive the rational comparison."
+        },
+        {
+          "name": "EllipticRegulators.Modular.normalizedUnitReduction_test_unramified",
+          "kind": "compatibility",
+          "statement": "If v(p)=1 and v(u)=0 then the reduction equals ac(u), the usual residue of a unit."
+        },
+        {
+          "name": "EllipticRegulators.Modular.normalizedUnitReduction_test_ramified",
+          "kind": "computation",
+          "statement": "If v(p)=2 and v(u)=0 then the reduction equals ac(u)². Taking κ=Q and ac(u)=2 gives 4, not 2."
+        },
+        {
+          "name": "EllipticRegulators.Modular.normalizedUnitReduction_test_baseMultiple",
+          "kind": "characterisation",
+          "statement": "Multiplying u by p³ does not change its normalized reduction, even when v(u)≠0."
+        }
+      ],
+      "uses": [
+        {
+          "where": "SS 7.2.4–7.2.5",
+          "how": "The ordinary unit has supersingular orders controlled by Hecke action."
+        },
+        {
+          "where": "SS 7.3.1",
+          "how": "Computes vertical tame boundaries for horizontally compact modular-unit combinations."
+        }
+      ]
+    },
+    {
+      "id": "EllipticRegulators:ER.7/supersingular-orders-of-modular-units",
+      "parentStageId": "EllipticRegulators:ER.7",
+      "realises": [
+        "EllipticRegulators:ER.7"
+      ],
+      "title": "Uniform supersingular orders",
+      "kind": "theorem",
+      "statement": "For the regular full-level model at p of level n=mp^k, m≥3, p∤m, the orders of the normalized reduction u_C at supersingular points of each component C are all equal. The statement refers to the divisor pulled through the finite component map of 7.2.3, with its ramification multiplicities.",
+      "hypotheses": [
+        "Use the ordinary reduction construction and the supersingular Hecke module Qbar[Σ]/Qbar[S] of 7.1.1.",
+        "The component geometry and compatible away-from-p Hecke action are supplied."
+      ],
+      "proofSteps": [
+        "The cusp divisor of u belongs to an Eisenstein Hecke module from Kato L0 and the inherited modular-unit divisor theorem.",
+        "The supersingular divisor modulo component constants is cuspidal by 7.1.1; its automorphic summands have local representation sp(1) at p.",
+        "Hecke separation forces the image of the unit-divisor module in this quotient to vanish.",
+        "Thus the supersingular content lies in the component-constant subspace Q[S], exactly the equal-order conclusion of 7.2.5."
+      ],
+      "acceptance": [
+        "Uniformity is on each component; equality between unrelated constant-field components is not asserted.",
+        "The quotient by Q[S] cannot be omitted."
+      ],
+      "prerequisites": [
+        "EllipticRegulators:ER.7/ordinary-unit-reduction",
+        "ModularCurvesPartII:R14.6",
+        "ModularCurvesPartII:R13.5",
+        "KatoEulerSystems:L0"
+      ],
+      "sources": [
+        {
+          "sourceId": "SS.1988",
+          "locator": "7.1.1 and 7.2.5",
+          "excerpt": "has the same order at each supersingular point",
+          "match": "Exact target statement, with convention and gap qualifications given in the proof outline."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/EllipticRegulators/Modular",
+        "namespace": "EllipticRegulators.Modular"
+      }
+    },
+    {
+      "id": "EllipticRegulators:ER.7/full-level-modular-symbol-integrality",
+      "parentStageId": "EllipticRegulators:ER.7",
+      "realises": [
+        "EllipticRegulators:ER.7"
+      ],
+      "title": "Integrality at full modular level",
+      "kind": "theorem",
+      "statement": "For a full level n chosen divisible by two coprime factors each at least 3, every class in Q_n lies in the integral rational weight-two part im(K2^(2)(X(n)/Z)→K2^(2)(X(n))). In particular, every vertical boundary of a horizontally compact linear combination of modular-unit symbols vanishes after tensoring with Q. Small levels are reached by refinement and transfer, not by applying the stated model argument outside its hypotheses.",
+      "hypotheses": [
+        "Use a regular proper arithmetic-surface model and its weight-two K/G localization comparison.",
+        "The horizontal boundary vanishes for the total class, not necessarily each pair-symbol summand."
+      ],
+      "proofSteps": [
+        "At primes not dividing n, the vertical boundary target vanishes by smooth-fibre localization in the indicated weight; do not assert that each modular unit extends as a unit across the cusps.",
+        "At p|n, write n=mp^k with p∤m and m≥3. The horizontal/vertical residue compatibility square (7.3.0) makes the vertical boundary have zero cusp orders.",
+        "The preceding theorem makes its supersingular orders uniform on each component; total divisor degree zero then forces all those orders to vanish.",
+        "The boundary therefore extends to a unit on each complete normalized component. Its finite constant field makes it torsion; rationalize to get zero.",
+        "Use arithmetic-surface localization including codimension-two terms and Adams weights to lift to the integral part. Killing only generic component orders without this comparison is insufficient."
+      ],
+      "acceptance": [
+        "The finite-field torsion argument is explicitly present; a zero divisor over a number field would not suffice.",
+        "No assertion says every modular unit is integral at every bad prime."
+      ],
+      "prerequisites": [
+        "EllipticRegulators:ER.7/fixed-level-beilinson-subspace",
+        "EllipticRegulators:ER.7/supersingular-orders-of-modular-units",
+        "SchemeKTheoryOperations:S.3/arithmetic-surface-localisation",
+        "EllipticKTheory:E.6/the-integral-part",
+        "ModularCurvesPartII:R13.5"
+      ],
+      "sources": [
+        {
+          "sourceId": "SS.1988",
+          "locator": "7.3.0–7.3.1",
+          "excerpt": "Qn ⊆ H²",
+          "match": "Exact target statement, with convention and gap qualifications given in the proof outline."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/EllipticRegulators/Modular",
+        "namespace": "EllipticRegulators.Modular"
+      }
+    },
+    {
+      "id": "EllipticRegulators:ER.7/integral-beilinson-subspace",
+      "parentStageId": "EllipticRegulators:ER.7",
+      "realises": [
+        "EllipticRegulators:ER.7"
+      ],
+      "title": "Integrality of the Beilinson subspace",
+      "kind": "theorem",
+      "statement": "For every open compact K, P_K⊂im(K2^(2)(X_K/Z)→K2^(2)(X_K))⊗Q, independently of the regular proper model. This is Schappacher–Scholl 1.1.2(iii); it is independent of the analytic determinant and nonvanishing proofs.",
+      "hypotheses": [
+        "Every finite-level correspondence admits a resolved graph on regular proper arithmetic-surface models.",
+        "Proper pushforward and pullback on the rational weight-two part are compatible with model localization."
+      ],
+      "proofSteps": [
+        "Refine a finite-level witness to a full level satisfying the coprime-factor hypothesis and apply full-level integrality.",
+        "Extend the level map using a resolved graph on the models; proper push/pull preserves integral weight-two classes (7.3.2).",
+        "Transfer and divide by the rational covering degree; model independence in EllipticKTheory E.6 identifies the resulting integral parts.",
+        "Use the actual vertical-residue proof. The false integral Manin–Drinfeld assertion, corrected in SS 7.4, is not a substitute."
+      ],
+      "acceptance": [
+        "A transfer of a full-level class remains integral after resolving the graph.",
+        "The function Δ(pz)/Δ(z) prevents an all-bad-primes integral-unit Manin–Drinfeld assertion."
+      ],
+      "prerequisites": [
+        "EllipticRegulators:ER.7/beilinson-subspace",
+        "EllipticRegulators:ER.7/full-level-modular-symbol-integrality",
+        "EllipticKTheory:E.6/model-independence",
+        "SchemeKTheoryOperations:S.2/k-theory-proper-pushforward",
+        "ModularCurvesPartII:R13.6"
+      ],
+      "sources": [
+        {
+          "sourceId": "SS.1988",
+          "locator": "1.1.2(iii), 7.3.2 and 7.4",
+          "excerpt": "This completes the proof of Theorem 1.1.2.",
+          "match": "Exact target statement, with convention and gap qualifications given in the proof outline."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/EllipticRegulators/Modular",
+        "namespace": "EllipticRegulators.Modular"
+      },
+      "planet": {
+        "name": "Integral Beilinson subspace"
+      }
+    },
+    {
+      "id": "EllipticRegulators:ER.7/elliptic-beilinson-subspace",
+      "parentStageId": "EllipticRegulators:ER.7",
+      "realises": [
+        "EllipticRegulators:ER.7"
+      ],
+      "title": "The elliptic image of Beilinson classes",
+      "kind": "definition",
+      "statement": "Given a nonconstant Q-morphism φ:X_K→E to a smooth elliptic curve E/Q, define P_E,φ=φ_*(P_K)⊂K2^(2)(E)⊗Q. This is an image Q-submodule. Its nonzero regulator is proved from the modular isotypic theorem and φ^*ω_E≠0; it does not follow from nonzero norm of every individual symbol.",
+      "hypotheses": [
+        "The compact class source and the finite proper transfer have been constructed.",
+        "No surjectivity or injectivity of φ_* on all K2 is assumed."
+      ],
+      "proofSteps": [
+        "A nonconstant map of smooth projective curves is finite. Use the imported proper K2 transfer.",
+        "Take Mathlib Submodule.map of P_K; retain the witness from P_K and its finite-level origin.",
+        "Use regulator adjointness for the nonvanishing assertion, separately from this definition."
+      ],
+      "acceptance": [
+        "Constant algebraic maps in the prototype have zero image; geometric nonconstancy is indispensable for the elliptic theorem."
+      ],
+      "prerequisites": [
+        "EllipticRegulators:ER.7/beilinson-subspace",
+        "EllipticKTheory:E.5/pullback-and-pushforward",
+        "mathlib:Submodule.map"
+      ],
+      "sources": [
+        {
+          "sourceId": "SS.1988",
+          "locator": "1.2.9 (adjointness), 1.1.2 applied to an elliptic quotient",
+          "excerpt": "adjointness property",
+          "match": "Exact target statement, with convention and gap qualifications given in the proof outline."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/EllipticRegulators/Modular",
+        "namespace": "EllipticRegulators.Modular"
+      },
+      "declarationName": "EllipticRegulators.Modular.ellipticBeilinsonSubspace",
+      "api": [
+        {
+          "name": "EllipticRegulators.Modular.ellipticBeilinsonSubspace_mem",
+          "role": "characterisation",
+          "statement": "For a linear push:A→B, β∈ellipticBeilinsonSubspace(push,P) iff β=push(ξ) for some ξ∈P."
+        },
+        {
+          "name": "EllipticRegulators.Modular.ellipticBeilinsonSubspace_id",
+          "role": "compatibility",
+          "statement": "With push=id the image is P, agreeing with Submodule.map_id."
+        },
+        {
+          "name": "EllipticRegulators.Modular.ellipticBeilinsonSubspace_comp",
+          "role": "functoriality",
+          "statement": "For f:A→B and g:B→C the image under g∘f equals the image under g of the image under f."
+        },
+        {
+          "name": "EllipticRegulators.Modular.ellipticBeilinsonSubspace_zero",
+          "role": "simp",
+          "statement": "The zero linear push gives the zero image submodule."
+        },
+        {
+          "name": "EllipticRegulators.Modular.ellipticBeilinsonSubspace_regulator",
+          "role": "compatibility",
+          "statement": "If r_B∘push=t∘r_A, then r_B(P_E,φ)=t(r_A(P_K)) as image submodules."
+        },
+        {
+          "name": "EllipticRegulators.Modular.ellipticBeilinsonSubspace_integral",
+          "role": "compatibility",
+          "statement": "If P≤I_A and push(I_A)≤I_B, the elliptic image lies in I_B. For geometry these are model-independent integral parts."
+        }
+      ],
+      "tests": [
+        {
+          "name": "EllipticRegulators.Modular.ellipticBeilinsonSubspace_test_identity",
+          "kind": "compatibility",
+          "statement": "For identity push on Q², a one-dimensional submodule stays the same submodule."
+        },
+        {
+          "name": "EllipticRegulators.Modular.ellipticBeilinsonSubspace_test_zero",
+          "kind": "degenerate",
+          "statement": "Zero push maps a nonzero source submodule to zero."
+        },
+        {
+          "name": "EllipticRegulators.Modular.ellipticBeilinsonSubspace_test_projection",
+          "kind": "non-example",
+          "statement": "The first-coordinate projection Q²→Q maps span{(0,1)} to zero, despite its nonzero source generator."
+        },
+        {
+          "name": "EllipticRegulators.Modular.ellipticBeilinsonSubspace_test_degree",
+          "kind": "computation",
+          "statement": "Multiplication by 3 on Q has full image; rational transfer degree does not shrink it."
+        }
+      ],
+      "uses": [
+        {
+          "where": "General elliptic application",
+          "how": "Names the precise integral subspace with the asserted regulator line."
+        },
+        {
+          "where": "Rational descent",
+          "how": "Performs Galois descent after pushforward on E, using the exact E.7 supplier."
+        }
+      ]
+    },
+    {
+      "id": "EllipticRegulators:ER.7/elliptic-regulator-adjointness",
+      "parentStageId": "EllipticRegulators:ER.7",
+      "realises": [
+        "EllipticRegulators:ER.7"
+      ],
+      "title": "Regulator adjointness and rational descent on E",
+      "kind": "comparison",
+      "statement": "For a finite Q-map φ:X_K→E and a compact rational weight-two class ξ, the properly normalized real Deligne regulator satisfies ⟨r_E(φ_*ξ),ω_E⟩=⟨r_{X_K}(ξ),φ^*ω_E⟩. For a finite Galois extension F/Q, an invariant pushed class β_F∈K2(E_F)⊗Q descends as β=(1/[F:Q])Norm(β_F), with res(β)=β_F. No nonzero-regulator conclusion is drawn from an unweighted trace of a single non-invariant character class.",
+      "hypotheses": [
+        "Same regulator, Tate twist, complex orientation and wedge order on both curves.",
+        "The proper cycle-map interface from the early real Deligne supplier is supplied.",
+        "Compact K2 classes are used, not arbitrary function-field symbols without boundary control."
+      ],
+      "proofSteps": [
+        "Deninger–Scholl (2.6)–(2.8) constructs the regulator with supports; proper covariance gives r_Eφ_*=φ_*r_X. A finite map of curves has relative codimension zero, hence no degree or Tate shift.",
+        "Poincaré duality pairs cohomological pushforward with form pullback; ER.2 converts this canonical normalization to Brunault’s explicit pairing.",
+        "Use EllipticKTheory E.7 rational Galois descent after pushing to E; Norm∘res=[F:Q] and res∘Norm=Σσ prove the formula for invariant β_F.",
+        "Before using a character class, project or combine the coefficient representation so that an invariant class with a proved nonzero real regulator exists. Trace can otherwise vanish.",
+        "For integral classes use resolved-graph pushforward, not an unjustified smooth morphism between models."
+      ],
+      "acceptance": [
+        "Identity map gives equality without a factor of two or a degree.",
+        "A non-invariant class with σβ=−β has trace zero; rational descent does not certify its nonvanishing."
+      ],
+      "prerequisites": [
+        "EllipticRegulators:ER.7/elliptic-beilinson-subspace",
+        "EllipticRegulators:ER.7/regulator-under-finite-pushforward",
+        "EllipticRegulators:ER.2/the-normalisation-factor",
+        "EllipticKTheory:E.5/pullback-and-pushforward",
+        "EllipticKTheory:E.7/rational-galois-descent",
+        "EllipticKTheory:E.7/transfer-of-certified-classes",
+        "SchemeKTheoryOperations:S.2/k-theory-proper-pushforward"
+      ],
+      "sources": [
+        {
+          "sourceId": "DS.1991",
+          "locator": "(1.3)(1),(6); (2.6)–(2.8)",
+          "excerpt": "covariant for proper morphisms",
+          "match": "Exact target statement, with convention and gap qualifications given in the proof outline."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/EllipticRegulators/Modular",
+        "namespace": "EllipticRegulators.Modular"
+      }
+    },
+    {
+      "id": "EllipticRegulators:ER.7/modular-elliptic-regulator-line",
+      "parentStageId": "EllipticRegulators:ER.7",
+      "realises": [
+        "EllipticRegulators:ER.7"
+      ],
+      "title": "Beilinson’s theorem for a modular elliptic curve",
+      "kind": "theorem",
+      "statement": "Let E/Q have conductor N and let φ:X0(N)→E be a nonconstant Q-parametrization with φ^*ω_E=c_φ·2πi f(z)dz, c_φ∈Q×, f the normalized weight-two newform having L(f,s)=L(E,s) including bad factors. Then P_E,φ is contained in the integral rational K2 part and r_D(P_E,φ)=L′(E,0)H¹_B(E/R,Q(1)) as rational lines in H¹_B(E/R,R(1)). For each nonzero rational Betti generator b there is an integral rational K2 class β with r_D(β)=L′(E,0)b. The modularity supplier makes this conclusion applicable to every elliptic curve over Q. No claim is made about the dimension of full K2(E)⊗Q.",
+      "hypotheses": [
+        "Use the exact-conductor modularity theorem and the nonconstant Q-parametrization; no optimality or c_φ=1 hypothesis.",
+        "G1, period comparisons and the early proper regulator interface are supplied.",
+        "The functional equation gives L′(E,0)≠0 from the absolutely convergent L(E,2)≠0."
+      ],
+      "proofSteps": [
+        "Apply the full isotypic regulator image to the rational newform component containing φ^*ω_E; this differential is nonzero.",
+        "Regulator adjointness identifies the pushforward image with the nonzero elliptic period line. Pullback followed by pushforward on Betti cohomology multiplies by deg φ, a nonzero rational scalar.",
+        "The elliptic motive factor and its rational Betti comparison identify the line as L′(E,0) times the Betti Q-line; an unspecified period representative cannot change a rational-line equality.",
+        "The integral Beilinson theorem and resolved-graph proper covariance give the integral inclusion. Choose a rational multiple of a nonzero image class to get the prescribed generator b.",
+        "Import EllipticCurveModularity R29.6 for the unconditional existence of f and R29.5 for φ. The primitive-even-same-level condition is never used."
+      ],
+      "acceptance": [
+        "For E=X0(11), same-level Q_K has zero regulator while P_E,φ gives the required nonzero line.",
+        "Replacing ω_E by a rational multiple changes c_φ consistently and leaves the rational line unchanged.",
+        "This is existence with transfers, not an explicit same-level formula for every conductor."
+      ],
+      "prerequisites": [
+        "EllipticRegulators:ER.7/elliptic-beilinson-subspace",
+        "EllipticRegulators:ER.7/elliptic-regulator-adjointness",
+        "EllipticRegulators:ER.7/integral-beilinson-subspace",
+        "EllipticRegulators:ER.7/isotypic-regulator-image",
+        "EllipticRegulators:ER.7/beilinson-determinant-formula",
+        "EllipticCurveModularity:R29.5/modular-parametrisation",
+        "EllipticCurveModularity:R29.6/modularity-theorem",
+        "tauceti:HeckeRing.GL2.Newform",
+        "EllipticRegulators:ER.6/the-beilinson-statement"
+      ],
+      "sources": [
+        {
+          "sourceId": "SS.1988",
+          "locator": "1.1.2, 1.2.6–1.2.9; elliptic quotient specialization",
+          "excerpt": "Beilinson’s theorem exhibits",
+          "match": "Exact target statement, with convention and gap qualifications given in the proof outline."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/EllipticRegulators/Modular",
+        "namespace": "EllipticRegulators.Modular"
+      }
+    }
+  ],
+  "requests": [
+    {
+      "supplier": "ModularCurvesPartII:R12.3",
+      "need": "Full-level n≥3 compactification component over F=Q(μ_n), with its reduced generic cusp locus consisting of F-rational points, and finite full-level covers refining any K. Supply component constant fields and analytic/algebraic cusp identification; no assertion that an arbitrary integral cusp fibre is reduced.",
+      "neededBy": [
+        "EllipticRegulators:ER.7/constant-symbol-regulator-correction"
+      ]
+    },
+    {
+      "supplier": "KatoEulerSystems:L0",
+      "need": "Single owner of Siegel/modular units, componentwise cusp-divisor realization after rationalization, q-product normalization, Galois action and descent to the algebraic modular curve. Supply units integral on the good open model over Z[1/n]. Do not assert every modular unit is an integral unit at all bad primes; SS §7 proves integrality of compact K2 combinations instead.",
+      "neededBy": [
+        "EllipticRegulators:ER.7/constant-symbol-regulator-correction",
+        "EllipticRegulators:ER.7/regulator-period-inclusion",
+        "EllipticRegulators:ER.7/regulator-nonvanishing-after-level-change",
+        "EllipticRegulators:ER.7/ordinary-unit-reduction",
+        "EllipticRegulators:ER.7/supersingular-orders-of-modular-units"
+      ]
+    },
+    {
+      "supplier": "ModularCurvesPartII:R12.5",
+      "need": "The same geometric good-prime T_p acts on cusp divisors, Pic⁰ and holomorphic differentials; its Jacobian characteristic polynomial annihilates Pic⁰ and its eigenvalues satisfy |a_p|≤2√p. Include the finite-level weight-two differential/form comparison and pullback/trace adjointness with ω=2πif(z)dz.",
+      "neededBy": [
+        "EllipticRegulators:ER.7/cuspidal-hecke-separation",
+        "EllipticRegulators:ER.7/isotypic-regulator-image"
+      ]
+    },
+    {
+      "supplier": "ModularCurvesPartII:R14.6",
+      "need": "Full Hecke-equivariant comparison of motive H¹(X_K) and weight-two automorphic factors, including bad Euler factors and oldvector multiplicities. At p, supply SS 7.1.1: Qbar[Σ]/Qbar[S] is the sum of cuspidal supersingular modules with local representation sp(1); Q[S] consists of component constants. This is a specific model/Hecke comparison beyond merely a graph Laplacian.",
+      "neededBy": [
+        "EllipticRegulators:ER.7/cuspidal-hecke-separation",
+        "EllipticRegulators:ER.7/beilinson-determinant-formula",
+        "EllipticRegulators:ER.7/supersingular-orders-of-modular-units"
+      ]
+    },
+    {
+      "supplier": "ModularCurvesPartII:R13.5",
+      "need": "The regular full-level model for n=mp^k, m≥3 and p∤m: reduced components indexed by constant-field components and P¹(Z/p^k), and their normalization maps to the prime-to-p special fibre with degree p^kφ(p^k), total supersingular ramification and the GZ/m action, as in SS 7.2.2–7.2.3. Include ordinary-locus unit reduction and the horizontal/vertical residue-content square of 7.3.0.",
+      "neededBy": [
+        "EllipticRegulators:ER.7/ordinary-unit-reduction",
+        "EllipticRegulators:ER.7/supersingular-orders-of-modular-units",
+        "EllipticRegulators:ER.7/full-level-modular-symbol-integrality"
+      ]
+    },
+    {
+      "supplier": "ModularCurvesPartII:R13.6",
+      "need": "Resolved graphs of finite modular level maps and of a finite Q-parametrization on regular proper arithmetic-surface models; proper pullback/pushforward must preserve the rational weight-two integral image even when no smooth map between chosen models exists.",
+      "neededBy": [
+        "EllipticRegulators:ER.7/integral-beilinson-subspace"
+      ]
+    },
+    {
+      "supplier": "GL2AutomorphicRepresentationsAndTransfer:R16.2",
+      "need": "Local Kirillov/Whittaker test-vector statements SS 4.5.2–4.5.4 with ψ_p(p^−r)=exp(−2πip^−r), vol(Z_p×)=1, and arithmetic s-normalization: spherical Euler quotient at good primes; at bad primes compactly supported vectors can be chosen with I(1)=1 after shrinking their stabilizers. A fixed-level newvector nonvanishing assertion is insufficient.",
+      "neededBy": [
+        "EllipticRegulators:ER.7/regulator-period-inclusion",
+        "EllipticRegulators:ER.7/regulator-nonvanishing-after-level-change"
+      ]
+    },
+    {
+      "supplier": "GL2AutomorphicRepresentationsAndTransfer:R16.4",
+      "need": "The global modular tower Ω¹⊗Qbar=⊕πV_π, irreducibility of V_π^K under the finite-level Hecke algebra, semisimplicity and coefficient-Galois descent, with full oldvector multiplicities and contragredient duality. Use actual small-level/stabilizer degrees rather than blindly substituting an abstract group index.",
+      "neededBy": [
+        "EllipticRegulators:ER.7/isotypic-regulator-image",
+        "EllipticRegulators:ER.7/beilinson-rational-structure",
+        "EllipticRegulators:ER.7/beilinson-determinant-formula"
+      ]
+    },
+    {
+      "supplier": "GL2AutomorphicRepresentationsAndTransfer:R16.5",
+      "need": "Import the RankinSelbergAndAutomorphicLFunctions owner for the global finite-adelic Rankin–Selberg factorization in SS 4.5.3 and unfolding 5.1.0: algebraic local factor A times L(π,2)L(π⊗χ,1)/L(ωπχ,2), Haar vol(GL2(Zhat))=1, analytic prefactor πiΓ(s+1)/(4π)^(s−1) times [GL2(Zhat):±K]. This request consumes the general theory, and adds only its classical arithmetic normalization adapter.",
+      "neededBy": [
+        "EllipticRegulators:ER.7/regulator-period-inclusion"
+      ]
+    },
+    {
+      "supplier": "PeriodsAndSpecialValues:PS.1",
+      "need": "SS 2.2.0–2.3 and Shimura 1977 pp.212–214 Theorems 1–2 plus the two-prime remark (read): even auxiliary χ of unrestricted conductor, excluding 1 and ωπ⁻¹, with all conjugate L(π⊗χ,1) nonzero; exact Shimura–Blasius algebraicity of L(π,2)L(π⊗χ,1)/L(ωπχ,2) in 2πic⁺(π)L′(π̌,0)·Qbar, tracking all embeddings, Gauss sums and arithmetic functional equations. Merel’s conductor-dividing-N corollary alone does not prove the finite-exception exclusion.",
+      "neededBy": [
+        "EllipticRegulators:ER.7/regulator-period-inclusion",
+        "EllipticRegulators:ER.7/regulator-nonvanishing-after-level-change"
+      ]
+    },
+    {
+      "supplier": "KatoEulerSystems:L1",
+      "supplierNode": "KatoEulerSystems:L1/beilinson-element-in-K2-of-Y-M-N",
+      "need": "Extend the concrete early pair-symbol declaration to the bilinear rational symbol interface on Y_K, arbitrary pairs of the L0 Siegel units and their rational span, compatible with field extension and transfer. Supply its tame-symbol convention and bilinearity for rational constants from the full-level component field. The ER.7 correction proof uses cusp-unit realization from L0 and Weil reciprocity from SchemeKTheoryOperations S.3; no generic Bloch correction is replanned in L1. L1 owns this before any modular-parametrization/Iwasawa machinery; no whole L1 edge is activated until an accepted early-prefix boundary exists.",
+      "neededBy": [
+        "EllipticRegulators:ER.7/fixed-level-beilinson-subspace",
+        "EllipticRegulators:ER.7/constant-symbol-regulator-correction"
+      ],
+      "dependencyPolicy": "Concrete early L1 nodes are imported; missing early interface is gap G1, not a whole-stage prerequisite."
+    },
+    {
+      "supplier": "MotivicEtaleKTheory:M.8",
+      "need": "Accepted early real Deligne cycle-map prefix only: compact/open projection, proper covariance with supports for rational weight-two K2 of curves, real structure and Poincaré duality. Fix the identification of the canonical r_D pairing (1/(2πi))∫log|u|conjugate(dlog(v))∧ω with the inherited Brunault r_N convention, including the factor-two comparison in ER.2. Do not activate the whole late M.8 stage, whose D.2/R.7 dependencies can close a cycle.",
+      "neededBy": [
+        "EllipticRegulators:ER.7/constant-symbol-regulator-correction",
+        "EllipticRegulators:ER.7/regulator-period-inclusion",
+        "EllipticRegulators:ER.7/elliptic-regulator-adjointness"
+      ],
+      "dependencyPolicy": "Consumes EllipticRegulators:ER.2/the-normalisation-factor; its early-prefix split remains inherited gap G2."
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/ModularForms#layer-8-modular-symbols-the-integral-hecke-algebra-and-coefficient-fields",
+      "need": "Use the existing modular-symbol period maps, parity injectivity and rational Hecke algebra. A ModularForms Part II adapter must supply Merel appendix Theorem A (§§1–3): its finite multiplicative Fourier expansion for ξ_f(u,v)=−i∫_{g0}^{g∞}f(z)dz, exact conductor N′, the conditions m_{χ,S},m_{ψχ,Sbar}|N′, Euler corrections P_p,Q_p, partial Atkin–Lehner pseudo-eigenvalues and completed Mellin values. Include the parity argument of Corollary 2 and the first-linear/index-normalized Petersson conversion of Theorem C. The prime-level specializations must use the corrected E15/E16/E17 statements and locate the sign and factor-four errors analytically before claiming proof closure.",
+      "neededBy": [
+        "EllipticRegulators:ER.7/nonvanishing-of-a-twisted-value",
+        "EllipticRegulators:ER.7/rational-combination-for-L-E-2",
+        "EllipticRegulators:ER.7/prime-level-L-value-formula"
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "EllipticRegulators:ER.7",
+      "status": "planned",
+      "remaining": [
+        "G1: Early pair-symbol interface and full-level cusp adapters",
+        "G2: Early regulator normalization and proper cycle-map prefix",
+        "G3: Merel composite-level Fourier adapter and analytic error location",
+        "G4: Certified sign in the X1(11) worked example",
+        "G5: Primitive even twist at exactly the original modulus",
+        "G6: Imported analytic and special-fibre supplier proofs"
+      ],
+      "detail": "Every stage target is realized by an imported node, a new node or the expressly recorded open primitive-twist claim. All new chains end in verified baseline, existing supplier nodes, precise stage requests or a named gap. Source retrieval, SS §7 extraction and Manin–Drinfeld/Siegel source proof reading are finished; no declaration is claimed implemented."
+    }
+  ],
+  "gaps": [
+    {
+      "id": "G1",
+      "title": "Early pair-symbol interface and full-level cusp adapters",
+      "detail": "The concrete early Kato L1 node supplies its distinguished pair on Y(M,N), not the arbitrary rational pair span with fixed tame-symbol convention needed here. The correction node now gives a full-level proof of span membership using F-rational cusps, L0 principal cusp units and SchemeKTheoryOperations Weil reciprocity. Their precise component-field and unit-realization adapters, together with the accepted early L1 boundary, remain supplier obligations. Bloch Chapter VIII Lemma 5.2 was not read, and no general version is claimed. No arbitrary norm-generation or noncancelling trace argument is used.",
+      "neededBy": [
+        "EllipticRegulators:ER.7/fixed-level-beilinson-subspace",
+        "EllipticRegulators:ER.7/constant-symbol-regulator-correction",
+        "EllipticRegulators:ER.7/regulator-nonvanishing-after-level-change",
+        "EllipticRegulators:ER.7/isotypic-regulator-image"
+      ]
+    },
+    {
+      "id": "G2",
+      "title": "Early regulator normalization and proper cycle-map prefix",
+      "detail": "Canonical proper covariance was read in Deninger–Scholl, but the original ER.2 normalization node still requires the accepted early M.8 prefix. Spell out the compact/open projection and the factor comparing SS’s (1/(2πi))∫log|u|conjugate(dlog(v))∧ω and Brunault’s ∫η(u,v)∧ω with real Tate twists and orientation. No whole late M.8 edge is activated.",
+      "neededBy": [
+        "EllipticRegulators:ER.7/constant-symbol-regulator-correction",
+        "EllipticRegulators:ER.7/regulator-period-inclusion",
+        "EllipticRegulators:ER.7/elliptic-regulator-adjointness",
+        "EllipticRegulators:ER.7/modular-elliptic-regulator-line"
+      ]
+    },
+    {
+      "id": "G3",
+      "title": "Merel composite-level Fourier adapter and analytic error location",
+      "detail": "The complete appendix was read. Theorem A’s conductor filters and P_p/Q_p Euler corrections require a normalized period adapter supplied by ModularForms Part II. The accepted E15 (factor four) and E16 (even-sign) corrections are imported without upgrading their numerical verification to a proof. Derive both analytically from oriented Mellin periods and the first-linear/index-normalized Petersson/Haberland formula; distinguish Σa_n²/n^s from the full tensor-product Euler L-function. E17 follows algebraically after the corrected convention.",
+      "neededBy": [
+        "EllipticRegulators:ER.7/prime-level-L-value-formula",
+        "EllipticRegulators:ER.7/rational-combination-for-L-E-2",
+        "EllipticRegulators:ER.7/nonvanishing-of-a-twisted-value"
+      ]
+    },
+    {
+      "id": "G4",
+      "title": "Certified sign in the X1(11) worked example",
+      "detail": "Inherited source issue E19 requires exact oriented modular-symbol evaluation or a rigorous tail-bound computation. No new uncertified numerical run is a proof; the general transfer theorem is independent of this example.",
+      "neededBy": [
+        "EllipticRegulators:ER.7/the-X1-11-example"
+      ]
+    },
+    {
+      "id": "G5",
+      "title": "Primitive even twist at exactly the original modulus",
+      "detail": "Brunault BSMF Remark 1.2 does not establish existence of a primitive even χ of conductor N avoiding 1 and ψbar with nonzero L(f,χ,1). Merel’s parity/conductor-dividing statement is weaker. Retain the explicit formula conditionally; use SS’s freely chosen auxiliary conductor and local level refinement for the general theorem. No assertion about the present research status of this question is made.",
+      "neededBy": [
+        "EllipticRegulators:ER.7/the-pushforward-and-its-hypotheses"
+      ]
+    },
+    {
+      "id": "G6",
+      "title": "Imported analytic and special-fibre supplier proofs",
+      "detail": "The exact R12.3, R12.5, R13.5, R13.6, R14.6, R16.2, R16.4, R16.5 and PS.1 contracts are requested stages rather than completed declaration-level suppliers. Shimura pp.212–214 were read: the two-prime argument resolves finite-exception avoidance at unrestricted auxiliary level. Its period algebraicity and modular-symbol generator results invoke earlier 1976 work, not read; the normalized all-conjugates PS.1 adapter is still requested. Siegel’s limit proofs were read, but the pinned Gaussian Poisson hypotheses and all interchanges/eta constants still need a Lean-level analytic adapter, building on Completed/ContourIntegration. These are recorded obligations, not missing target nodes.",
+      "neededBy": [
+        "EllipticRegulators:ER.7/cuspidal-hecke-separation",
+        "EllipticRegulators:ER.7/regulator-period-inclusion",
+        "EllipticRegulators:ER.7/regulator-nonvanishing-after-level-change",
+        "EllipticRegulators:ER.7/supersingular-orders-of-modular-units",
+        "EllipticRegulators:ER.7/full-level-modular-symbol-integrality",
+        "EllipticRegulators:ER.7/integral-beilinson-subspace",
+        "EllipticRegulators:ER.7/kronecker-limit-formulas"
+      ]
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "EllipticRegulators/E24",
+      "source": "SS.1988",
+      "kind": "misprint",
+      "locator": "SS 3.1.8, author retypeset p.8 and published-pagination mirror p.286; both checked from rendered page images.",
+      "printed": "The residue of ηφ at the cusp k is equal to φ(k)/w(k,K).",
+      "correction": "With 3.0.1 q_w=exp(2πiz/w), 3.1.7 Eφ=−2πyφ+O(1), and ηφ=2∂Eφ, the residue is w(k,K)φ(k), not φ(k)/w(k,K).",
+      "reason": "Since log|q_w|=−2πy/w, Eφ=wφ log|q_w|+O(1). Thus 2∂Eφ=wφ dq_w/q_w plus a regular term. SS 3.5.0 defines div(u)=ord_c(u)/w(c), and 3.5.1 η_div(u)=dlog(u) confirms this product convention. For width w=2 and φ=1, the residue is 2 rather than 1/2.",
+      "affects": "a stated result",
+      "known": "new; no published correction located in the sources searched",
+      "searched": [
+        "Author RSS.pdf retypeset copy dated 2010, checked 2026-10-06.",
+        "nLab-hosted published-pagination copy SchappacherScholl.pdf, checked 2026-10-06.",
+        "Scholl’s public preprint/publication page and web search for the paper title with 3.1.8 and errata, 2026-10-06."
+      ]
+    }
+  ],
+  "inheritedProofClosures": [
+    {
+      "nodeId": "EllipticRegulators:ER.7/kronecker-limit-formulas",
+      "status": "Source proof read; analytic adapter still requested",
+      "detail": "Siegel §1 Theorem 1: split the m=0 term, apply one-dimensional Gaussian Poisson summation to the m≠0 terms, use Mellin inversion, isolate the pole and identify the eta product. §3 Theorem 2: shift the lattice, use nonintegral (u,v) to remove the pole, sum the Fourier geometric series, and identify the Bernoulli/quasi-period terms and logarithmic product. §5 Theorem 3 supplies analytic continuation through the theta–Mellin transform. Translate Siegel’s Q=y⁻¹|u+vz|² and the sum over both signs to Brunault’s series before using a constant. The Mathlib Poisson declaration is one-dimensional and has explicit summability hypotheses; verify them for the Gaussian and its iterates, not an arbitrary kernel.",
+      "sources": [
+        "Siegel.1965"
+      ],
+      "prerequisites": [
+        "mathlib:Real.tsum_eq_tsum_fourier",
+        "mathlib:ModularForm.eta",
+        "mathlib:Function.Periodic.qParam",
+        "mathlib:Function.Periodic.norm_qParam"
+      ]
+    },
+    {
+      "nodeId": "EllipticRegulators:ER.7/manin-drinfeld",
+      "status": "Proof reduced to explicit supplier contracts",
+      "detail": "SS 3.4.0 supplies the complete spectral separation proof; the fresh cuspidal-hecke-separation node isolates its key ingredient. Componentwise degree-zero cusps become torsion over the generic curve. This says nothing about bad-fibre integral units.",
+      "sources": [
+        "SS.1988"
+      ],
+      "prerequisites": [
+        "EllipticRegulators:ER.7/cuspidal-hecke-separation"
+      ]
+    },
+    {
+      "nodeId": "EllipticRegulators:ER.7/nonvanishing-of-a-twisted-value",
+      "status": "Parity/conductor distinction audited",
+      "detail": "Merel Corollary 2 follows from Theorem A, finite Fourier inversion and injectivity of f↦ξ_f^±. For a generic primitive newform it supplies an even or odd primitive character of conductor dividing N, rather than a primitive even character of conductor exactly N avoiding the nebentypus exception. The inherited E/Q specialization remains the conditional finite-level input; SS 2.2.0 uses unrestricted conductor and separately excludes two characters.",
+      "sources": [
+        "Brunault.2005",
+        "Brunault.2007"
+      ],
+      "prerequisites": [
+        "tauceti:TauCetiRoadmap/ModularForms#layer-8-modular-symbols-the-integral-hecke-algebra-and-coefficient-fields"
+      ]
+    },
+    {
+      "nodeId": "EllipticRegulators:ER.7/prime-level-L-value-formula",
+      "status": "Proof normalization gap retained",
+      "detail": "Read all of Merel §§2–5, including Theorem A’s translation/Atkin–Lehner calculation, Theorem C’s Stokes/Haberland proof and Theorem D’s substitution. The accepted E15 factor-four, E16 even-sign and E17 pi correction remain authoritative imported findings, not new unproved global formulas. An analytic derivation locating E15/E16 is still required. Petersson is first-linear and divided by [SL2(Z):Γ] here, whereas Tau Ceti conjugates the first variable and has no index division.",
+      "sources": [
+        "Brunault.2005"
+      ],
+      "prerequisites": [
+        "tauceti:UpperHalfPlane.peterssonInner",
+        "tauceti:TauCetiRoadmap/ModularForms#layer-8-modular-symbols-the-integral-hecke-algebra-and-coefficient-fields"
+      ]
+    },
+    {
+      "nodeId": "EllipticRegulators:ER.7/regulator-under-finite-pushforward",
+      "status": "Proper-covariance proof supplied; convention interface open",
+      "detail": "Deninger–Scholl (2.6)–(2.8) gives proper functoriality of the real Deligne cycle map. For finite maps of curves, c=0 so no shift occurs. Pair against pullback forms using duality. This replaces the inherited proof’s invalid reduction of every norm to a projection-formula symbol, without changing its mathematical statement. The early M.8/ER.2 normalization interface is G2.",
+      "sources": [
+        "DS.1991"
+      ],
+      "prerequisites": [
+        "EllipticRegulators:ER.7/elliptic-regulator-adjointness"
+      ]
+    },
+    {
+      "nodeId": "EllipticRegulators:ER.7/the-pushforward-and-its-hypotheses",
+      "status": "General route supplied, conditional formula preserved",
+      "detail": "Retain the explicit same-level formula only with its original primitive-character and c_φ hypotheses. General E/Q uses P_K and modular-elliptic-regulator-line instead. Rational Galois descent occurs on E after pushforward; the trace of a non-invariant single character class may be zero. Nonzero rational image is obtained from the Hecke-equivariant period subspace, not from an unproved orbit-sum noncancellation.",
+      "sources": [
+        "SS.1988",
+        "DS.1991",
+        "Brunault.2007"
+      ],
+      "prerequisites": [
+        "EllipticRegulators:ER.7/modular-elliptic-regulator-line",
+        "EllipticRegulators:ER.7/elliptic-regulator-adjointness"
+      ]
+    },
+    {
+      "nodeId": "EllipticRegulators:ER.7/the-X1-11-example",
+      "status": "Inherited rigorous sign gap retained",
+      "detail": "E19 fixes the sign only by an uncertified computation in the source. The exact oriented modular-symbol computation or a certified error-bound evaluation is still necessary. The general existence theorem does not depend on this numerical example.",
+      "sources": [
+        "Brunault.2005"
+      ],
+      "prerequisites": []
+    }
+  ],
+  "inheritedNodes": [
+    "EllipticRegulators:ER.7/modular-units-and-their-divisors",
+    "EllipticRegulators:ER.7/the-regulator-integral-and-its-evaluation",
+    "EllipticRegulators:ER.7/the-explicit-theorem-for-an-elliptic-curve",
+    "EllipticRegulators:ER.7/the-pushforward-and-its-hypotheses",
+    "EllipticRegulators:ER.7/real-analytic-eisenstein-series",
+    "EllipticRegulators:ER.7/kronecker-limit-formulas",
+    "EllipticRegulators:ER.7/dirichlet-series-convolution",
+    "EllipticRegulators:ER.7/rankin-selberg-integral",
+    "EllipticRegulators:ER.7/manin-drinfeld",
+    "EllipticRegulators:ER.7/harmonicity-of-eisenstein-series",
+    "EllipticRegulators:ER.7/divisors-of-character-units",
+    "EllipticRegulators:ER.7/rationality-of-modular-units",
+    "EllipticRegulators:ER.7/symbols-of-modular-units-in-K2",
+    "EllipticRegulators:ER.7/explicit-beilinson-theorem-degeneracy",
+    "EllipticRegulators:ER.7/real-structure-of-the-regulator",
+    "EllipticRegulators:ER.7/spanning-for-prime-level",
+    "EllipticRegulators:ER.7/eta-form-of-divisors",
+    "EllipticRegulators:ER.7/manin-cycle-and-its-boundary",
+    "EllipticRegulators:ER.7/unfolding-over-the-fundamental-domain",
+    "EllipticRegulators:ER.7/cycle-formula",
+    "EllipticRegulators:ER.7/nonvanishing-of-a-twisted-value",
+    "EllipticRegulators:ER.7/rational-combination-for-L-E-2",
+    "EllipticRegulators:ER.7/prime-level-L-value-formula",
+    "EllipticRegulators:ER.7/the-X1-11-example",
+    "EllipticRegulators:ER.7/regulator-under-finite-pushforward"
+  ],
+  "targetCoverage": [
+    {
+      "target": "Modular units, cusp divisors, descent and early K2 pair symbols",
+      "providedBy": [
+        "KatoEulerSystems:L0/siegel-units-and-c-independent-rationalisation",
+        "KatoEulerSystems:L0/siegel-unit-galois-action-and-distribution",
+        "KatoEulerSystems:L1/beilinson-element-in-K2-of-Y-M-N"
+      ],
+      "extensionRequests": [
+        "KatoEulerSystems:L0",
+        "KatoEulerSystems:L1"
+      ],
+      "consumerNodes": [
+        "EllipticRegulators:ER.7/fixed-level-beilinson-subspace",
+        "EllipticRegulators:ER.7/ordinary-unit-reduction"
+      ],
+      "detail": "Ownership correction RT-AREA-ktheory-2/6: no new Siegel-unit or generic pair-symbol node in ER.7."
+    },
+    {
+      "target": "Manin–Drinfeld and Kronecker proofs",
+      "providedBy": [
+        "EllipticRegulators:ER.7/manin-drinfeld",
+        "EllipticRegulators:ER.7/kronecker-limit-formulas",
+        "EllipticRegulators:ER.7/cuspidal-hecke-separation"
+      ],
+      "detail": "Source passages read; exact supplier hypotheses and Gaussian summability adapter recorded."
+    },
+    {
+      "target": "Finite-level regulator integral and Rankin–Selberg evaluation",
+      "providedBy": [
+        "EllipticRegulators:ER.7/the-regulator-integral-and-its-evaluation",
+        "EllipticRegulators:ER.7/rankin-selberg-integral",
+        "EllipticRegulators:ER.7/regulator-period-inclusion",
+        "EllipticRegulators:ER.7/regulator-nonvanishing-after-level-change"
+      ],
+      "detail": "Imported Brunault exact conditional formula, plus general-level SS period/nonvanishing argument."
+    },
+    {
+      "target": "Schappacher–Scholl 1.1.2(i),(ii),(iii) and corrected §7 integrality",
+      "providedBy": [
+        "EllipticRegulators:ER.7/beilinson-rational-structure",
+        "EllipticRegulators:ER.7/beilinson-determinant-formula",
+        "EllipticRegulators:ER.7/integral-beilinson-subspace"
+      ],
+      "detail": "Three assertions separate; no rank/injectivity claim for all K2."
+    },
+    {
+      "target": "Genuine parametrization, pushforward, descent and nonvanishing on E",
+      "providedBy": [
+        "EllipticRegulators:ER.7/elliptic-beilinson-subspace",
+        "EllipticRegulators:ER.7/elliptic-regulator-adjointness",
+        "EllipticRegulators:ER.7/modular-elliptic-regulator-line"
+      ],
+      "detail": "Conditional modular statement first; unconditional E/Q after R29.5/R29.6. No unweighted trace noncancellation assumption."
+    },
+    {
+      "target": "Merel A, Corollary 2 and D",
+      "providedBy": [
+        "EllipticRegulators:ER.7/nonvanishing-of-a-twisted-value",
+        "EllipticRegulators:ER.7/prime-level-L-value-formula",
+        "EllipticRegulators:ER.7/rational-combination-for-L-E-2"
+      ],
+      "extensionRequests": [
+        "tauceti:TauCetiRoadmap/ModularForms#layer-8-modular-symbols-the-integral-hecke-algebra-and-coefficient-fields"
+      ],
+      "detail": "Generic period machinery stays in upstream ModularForms; exact composite-level adapter and E15/E16 analytic proof recorded as G3."
+    },
+    {
+      "target": "Primitive even same-modulus nonvanishing",
+      "providedBy": [],
+      "detail": "Recorded open claim G5; no theorem node asserts it and no general result depends on it."
+    }
+  ],
+  "upstreamNotes": [
+    {
+      "where": "Pinned Tau Ceti Petersson/Basic; Merel appendix §4",
+      "detail": "Tau Ceti peterssonInner conjugates the first variable. Merel’s pairing conjugates the second and divides by the congruence index. For weight two, Merel ⟨f₁,f₂⟩=peterssonInner(2,D,f₂,f₁)/index under the identical domain/measure conversion. Preserve upstream; implement only the consumer adapter."
+    },
+    {
+      "where": "Accepted EllipticRegulators packet ER.7/the-pushforward-and-its-hypotheses",
+      "detail": "A sum of Galois conjugates need not keep a nonzero regulator. This follow-up proves rational-image nonvanishing via the full Hecke period subspace and then descends invariant elliptic classes. Assembly must qualify the inherited orbit-sum argument rather than silently claiming every such sum is nonzero."
+    },
+    {
+      "where": "Baseline searches and reviewed ER.7 audit",
+      "detail": "ER.7 is unbuilt at the pins. Actual newform, Petersson, eta, primitive-character, q-parameter and algebraic submodule statements were read. A case-insensitive pinned Tau Ceti search for KTheory, Beilinson, SiegelUnit, ManinDrinfeld and KroneckerLimit found no pertinent declarations; this supports only those target-specific absence claims, not absence of all algebraic geometry."
+    },
+    {
+      "where": "Upstream documents read",
+      "detail": "ModularForms/README.md and Completed/ContourIntegration/README.md were read in full. Modular-symbol/Hecke/period machinery and improper-integral foundations are imported, never replanned. Existing stage links mentioning ER.7 and the reviewed coverage audit were inspected; no exact Kato supplier link existed before the ownership correction."
+    }
+  ],
+  "restructure": [
+    {
+      "action": "rescope",
+      "roadmaps": [
+        "EllipticRegulators",
+        "KatoEulerSystems"
+      ],
+      "detail": "RT-AREA-ktheory-2/6: modular units and generic pair-symbol theory were duplicated; whole L1 or late M.8 dependencies can introduce irrelevant or cyclic prerequisites.",
+      "proposal": "KatoEulerSystems:L0 is sole owner of Siegel units, cusp divisors, good-base integrality and algebraic descent; add L0→EllipticRegulators:ER.7. Keep generic pair-symbol construction in an accepted early L1 prefix and import its concrete nodes without Iwasawa prerequisites. ER.7 retains Manin–Drinfeld, character-specific compactness, regulator/Rankin–Selberg, vertical K2 integrality and pushforward/nonvanishing. Generic M.8 regulators require a separately accepted early prefix; no new stage id is fabricated. On assembly remove the inherited modular-unit and generic pair-symbol planets from ER.7, retaining Explicit Beilinson theorem, Rankin–Selberg integral, Manin–Drinfeld theorem and L(E,2) from geodesic periods, and add the two new planets Beilinson subspace and Integral Beilinson subspace. The combined layer has six planets."
+    }
+  ]
+}
