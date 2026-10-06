@@ -959,6 +959,17 @@
     "data/blueprints/HabiroRings--HR.4.md"
    ]
   },
+  "research/blueprint/packets/HabiroRings--HR.6.json": {
+   "promotedAt": "2026-10-06T05:42:55Z",
+   "review": "ac35a21886ade2b3",
+   "reviewDate": "2026-10-06",
+   "reviewer": "independent-review-REV-HabiroRings--HR.6",
+   "sha256": "dc4e1611a12d2e7970146224fb0d0d1e37a321d2fc3b52a39dc6a9d4d4397c4e",
+   "to": [
+    "data/blueprints/HabiroRings--HR.6.json",
+    "data/blueprints/HabiroRings--HR.6.md"
+   ]
+  },
   "research/blueprint/packets/HabiroRings.json": {
    "promotedAt": "2026-10-01T20:54:46Z",
    "review": "cc0182e9ff9e810f",
