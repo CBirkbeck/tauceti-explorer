@@ -242,9 +242,19 @@
           "statement": "Degree-zero hypercohomology of [E₁→E₀] in degrees −1,0, with universal H⁰(E₁) vanishing."
         },
         {
+          "name": "BC.module",
+          "role": "instance",
+          "statement": "BC(E), BCneg(E) and BCcomplex are sheaves of E-modules on Perf_S, E acting through O_{X_T}, and BC.map is E-linear. This scalar action is the one BCProjectivization divides out."
+        },
+        {
           "name": "BC.map",
           "role": "functoriality",
           "statement": "A bundle or complex map induces the corresponding E-linear map of v-sheaves; identity and composition are preserved."
+        },
+        {
+          "name": "BC.exactSequence",
+          "role": "relation",
+          "statement": "A short exact sequence 0→E′→E→E″→0 of bundles gives an exact sequence of E-module v-sheaves 0→BC(E′)→BC(E)→BC(E″)→H¹(E′)→H¹(E)→H¹(E″)→0 (Prop. II.2.1 and the two-term complex); for [E₁→E₀] with E₁ universally negative it gives 0→BC(E₀)→BCcomplex→BCneg(E₁)→H¹(E₀)."
         },
         {
           "name": "BC.baseChange",
@@ -269,6 +279,10 @@
         {
           "where": "VectorBundlesAndIsocrystals:VB3:positive-basic-examples/fundamental-exact-sequence",
           "how": "the identification (BC(O(1)) minus 0)/E^times = Div^1 is a statement about this object"
+        },
+        {
+          "where": "VectorBundlesAndIsocrystals:VB3:general-BC/strict-positive-etale-presentations",
+          "how": "presentations of bundles give exact sequences of BC spaces (FS II.3.5 proof, II.3.4)"
         }
       ],
       "tests": [
@@ -490,7 +504,8 @@
         "mathlib:SpectralSpace",
         "mathlib:Specializes",
         "DiamondsAndVStacks:D0/locally-spectral-space",
-        "tauceti:TauCeti.ValuationSpectrum.spectralSpace_spa_of_pairOfDefinition"
+        "tauceti:TauCeti.ValuationSpectrum.spectralSpace_spa_of_pairOfDefinition",
+        "DiamondEtaleCohomology:C4"
       ],
       "sources": [
         {
@@ -523,19 +538,21 @@
         "Reduce to constant rank n and degree d and affinoid S; set m = dr - n.",
         "Choose m pairwise disjoint untilts via m maps S -> BC(O(1)) minus {0}, using fractional powers of a pseudouniformizer to force disjointness.",
         "Build F as the corresponding modification, checking fibrewise semistability of slope 1/r.",
-        "For Cor. II.3.3(ii): apply II.3.1 to pi_{2r}^* E(-1) over X_{S,E_{2r}}, push forward, and use that E is a direct summand of E tensor_E E_{2r}."
+        "Disjointness makes the fibres of E and of the partial modification agree at the next untilt. Over a perfectoid field choose the rank-one quotient of the fibre so that the pulled-back extension of the maximal-slope piece E^{≥λ} (λ>1/r) is nonsplit; slope counting then keeps every HN slope ≥1/r. Over affinoid S do this at a point s and spread it to an open neighbourhood by upper semicontinuity (II.2.19(i)). The variant II.3.3(ii) belongs to the strict-positive presentations node."
       ],
       "acceptance": [
         "Verify disjointness of the chosen untilts explicitly",
         "Verify the degree/rank bookkeeping m = dr - n on an example",
-        "Verify that E is only a summand of the pushforward, so the conclusion is about a summand"
+        "Over a perfectoid field K, check that a nonsplit extension 0→O→G→E^{≥λ}→0 with λ>1/r has all HN slopes ≥1/r, as in the slope count of the proof."
       ],
       "prerequisites": [
         "VectorBundlesAndIsocrystals:VB4/relative-HN-filtration-and-proetale-splitting",
         "VectorBundlesAndIsocrystals:VB2:classification/hom-and-ext-calculus",
         "VectorBundlesAndIsocrystals:VB2:classification/dieudonne-manin-classification-of-bundles",
         "VectorBundlesAndIsocrystals:VB2:ampleness/quantitative-global-generation",
-        "VectorBundlesAndIsocrystals:VB1/cohomology-of-twists"
+        "VectorBundlesAndIsocrystals:VB1/cohomology-of-twists",
+        "VectorBundlesAndIsocrystals:VB3:positive-basic-examples/fundamental-exact-sequence",
+        "VectorBundlesAndIsocrystals:VB4/semicontinuity-of-HN-polygon"
       ],
       "sources": [
         {
@@ -611,19 +628,20 @@
       ],
       "title": "FS II.3.6-II.3.7: Div^d as a diamond and absolute Banach-Colmez spaces of pure-sign isocrystals",
       "kind": "theorem",
-      "statement": "Over the absolute base Perf_k, k=bar F_q, a nonzero pure NEGATIVE isocrystal D yields the punctured positive space BC(E(D))\\{0}, which is spatial; a nonzero pure POSITIVE isocrystal yields the punctured negative space BCneg(E(D))\\{0}, also spatial. Both are cohomologically smooth, and their E×-quotients are proper and representable in spatial diamonds. Bundle slopes reverse isocrystal slopes. Relative representability in spatial diamonds does not assert that every total quotient over the nonspatial absolute base is spatial.",
+      "statement": "Work on Perf_k, k = algebraic closure of F_q (the absolute base). Let D be a nonzero isocrystal with only negative slopes (resp. only positive slopes); the bundle functor reverses slopes, so E(D) has only positive (resp. only negative) HN slopes. (i) The punctured Banach–Colmez space BC(D)∖{0} (resp. BC(D[1])∖{0}) is a spatial DIAMOND. (ii) The quotient (BC(D)∖{0})/E^× → ∗ (resp. (BC(D[1])∖{0})/E^× → ∗) is proper, representable in spatial diamonds and cohomologically smooth. The punctured spaces are open in the cohomologically smooth BC(D) (resp. BC(D[1])) and so are cohomologically smooth over ∗. Relative representability in spatial diamonds does not assert that every total quotient over the non-spatial absolute base is spatial: (BC(O(d))∖{0})/π^Z is not quasiseparated (FS Remark II.3.10).",
       "hypotheses": [
         "D has slopes of a single sign; mixed-sign isocrystals are not covered by this statement",
         "One works on Perf_k with k algebraically closed",
         "The proof of (i) chooses, by Dieudonne-Manin, a basis in which phi is E-rational and U = phi^N is diagonal with entries powers of pi for some N > 0 - i.e. D is DECENT in the sense of Rapoport-Zink Definition 1.8",
-        "The identification of the U-action with Frob^N holds only after base change to Spa F_q((t^{1/p^infty})), and uses that the absolute Frobenius acts trivially on topological spaces",
+        "Since U = φ^N and BC(D) (resp. BC(D[1])) is already defined on Perf_Fq, the action of U agrees with that of Frob^N. The hypotheses of Lemma II.2.17 are checked for U^{-1} (resp. U) after base change to Spa F_q((t^{1/p^∞})), because that lemma needs a spatial base; the quotient statement is translated back using that the absolute Frobenius acts trivially on topological spaces.",
         "Surjectivity of the sum map is checked on geometric points using Prop. II.2.9 (every element of P_d is a product of elements of P_1)"
       ],
       "proofSteps": [
         "For II.3.6: all spaces are proper over * by Prop. II.2.16(ii), so the sum map is proper; surjectivity as v-sheaves is checked on geometric points via the factorisation in the proof of Prop. II.2.9; one gets bijectivity up to Sigma_d, hence Div^d = (Div^1)^d/Sigma_d; the projection is quasi-pro-etale, and Div^1 = Spd E/phi^Z is a diamond, so Div^d is a diamond.",
         "For II.3.7(ii): apply Prop. II.3.5 and, for cohomological smoothness after the E^times-quotient, ECD Proposition 24.2.",
-        "For II.3.7(i): use decency to make U = phi^N act as Frob^N; then U^{-1} (resp. U) on the base change to Spa F_q((t^{1/p^infty})) satisfies the hypotheses of Lemma II.2.17, so the quotient is a spatial diamond, and one translates back using triviality of the absolute Frobenius on topological spaces; then apply Lemma II.3.8.",
-        "For positive Banach-Colmez spaces one concludes from Prop. II.3.6, as BC(D) minus {0} is an E^times-torsor over a space built from Div^d."
+        "For II.3.7(i), spatiality: use decency so that U = φ^N acts as Frob^N; U^{-1} (resp. U) on the base change to Spa F_q((t^{1/p^∞})) satisfies the hypotheses of Lemma II.2.17, so (BC(D)∖{0})/φ^N × Spa F_q((t^{1/p^∞})) is a spatial diamond; translate back using triviality of the absolute Frobenius on topological spaces, and apply Lemma II.3.8(i) (Spa F_q((t^{1/p^∞}))/φ^N → ∗ is proper and cohomologically smooth) to see that BC(D)∖{0} is a spatial v-sheaf.",
+        "Diamond property, positive case: reduce to D simple and, after a finite unramified extension of E, of rank one; then BC(D)∖{0} is an E^×-torsor over Div^d, a diamond by II.3.6, so it is a diamond (ECD Proposition 11.7).",
+        "Diamond property, negative case D = (E, π^nφ), n>0: BC(D[1])∖{0} classifies extensions 0→O(−n)→E→O→0 that are geometrically fibrewise non-split. Stratify by the geometric isomorphism class of E (O(−n+i)⊕O(−i) with 0<i≤n/2, or O(−n/2)); these strata are locally closed and generalizing. On a stratum the global HN filtration exists (II.2.19); trivializing its lowest-slope graded piece is a pro-étale torsor, and composing O(−n)→E with the projection to that piece maps the torsor into a punctured positive absolute BC space, already a diamond. ECD Proposition 11.10 makes each stratum a diamond, and Lemma II.3.8(ii) concludes (compare SW20 Theorem 19.2.4, FS Remark II.3.9)."
       ],
       "acceptance": [
         "Verify decency explicitly for the simple isocrystal of slope 1/n",
@@ -638,7 +656,10 @@
         "DiamondSixOperations:S4",
         "DiamondSixOperations:S5",
         "VectorBundlesAndIsocrystals:VB3:general-BC/divisor-section-comparison",
-        "DiamondsAndVStacks:D5"
+        "DiamondsAndVStacks:D5",
+        "VectorBundlesAndIsocrystals:VB3:projectivized-properness/contracting-action-lemma",
+        "VectorBundlesAndIsocrystals:VB4/relative-HN-filtration-and-proetale-splitting",
+        "DiamondsAndVStacks:D3/locally-profinite-torsors"
       ],
       "sources": [
         {
@@ -671,13 +692,15 @@
       "acceptance": [
         "Verify the convex-hull description of the polygon on a rank-2 example with slopes 0 and 1",
         "Exhibit a family where the polygon jumps and check the direction of semicontinuity",
-        "Check that the argument does not use Thm. II.2.14"
+        "Check where Thm. II.2.14 enters: only at geometric points, to identify the HN polygon with the upper convex hull of the points (i,d_i), d_i maximal with H⁰((∧^iE)(−d_i))≠0; the properness input II.2.16 is itself classification-free."
       ],
       "prerequisites": [
         "VectorBundlesAndIsocrystals:VB3:projectivized-properness/properness-of-projectivized-BC",
         "VectorBundlesAndIsocrystals:VB1/harder-narasimhan-polygon",
         "VectorBundlesAndIsocrystals:VB1/degree-rank-slope-and-HN-formalism",
-        "VectorBundlesAndIsocrystals:VB1/cohomology-of-twists"
+        "VectorBundlesAndIsocrystals:VB1/cohomology-of-twists",
+        "VectorBundlesAndIsocrystals:VB2:classification/dieudonne-manin-classification-of-bundles",
+        "VectorBundlesAndIsocrystals:VB2:classification/HN-filtration-base-change"
       ],
       "sources": [
         {
@@ -706,8 +729,8 @@
         "Splitting is PRO-ÉTALE local; it is not asserted étale local or globally split."
       ],
       "proofSteps": [
-        "Twist the maximal slope to zero and use the proper nowhere-zero-section locus to obtain a v-cover with a trivial rank-one subbundle and locally free cokernel.",
-        "Induct on rank, descend the canonical HN subbundles by uniqueness, and use the geometric Hom/Ext calculations to split after extension.",
+        "Let λ be the maximal slope and F=Hom(O(λ),E). BC(F)∖{0}→(BC(F)∖{0})/E^×→S is a v-cover (an E^×-torsor, then a proper map surjective on geometric points, ECD Lemma 12.11); over it there is a map O(λ)→E nonzero in every fibre. Its dual E^∨→O(−λ) is surjective by stability of O(−λ), so the cokernel E′ is a bundle with constant HN polygon.",
+        "Induct on rank; by II.2.5(i)–(ii) the extension of ⊕O(λ′)^{n_λ′} (λ′≤λ) by O(λ) splits after a further pro-étale cover, and the global filtration exists v-locally and descends (v-descent of bundles). Splitting of the filtration uses II.2.5(iii).",
         "The graded isomorphism sheaf is a torsor for the relevant locally profinite automorphism groups; D3 makes it pro-étale."
       ],
       "acceptance": [
@@ -721,12 +744,14 @@
         "VectorBundlesAndIsocrystals:VB2:classification/dieudonne-manin-classification-of-bundles",
         "VectorBundlesAndIsocrystals:VB2:classification/hom-and-ext-calculus",
         "DiamondsAndVStacks:D3/locally-profinite-torsors",
-        "DiamondEtaleCohomology:C4"
+        "DiamondEtaleCohomology:C4",
+        "VectorBundlesAndIsocrystals:VB1/cohomology-of-twists",
+        "VectorBundlesAndIsocrystals:VB1/v-descent-for-bundles-and-cohomology"
       ],
       "sources": [
         {
           "sourceId": "FS-geometrization",
-          "locator": "Theorem II.2.19(ii), pp. 74–75",
+          "locator": "Theorem II.2.19(ii) and proof, pp. 74–75",
           "match": "Exact source contract, with the conventions and corrections stated in this node."
         }
       ],
@@ -747,7 +772,7 @@
       "statement": "There is an exact tensor equivalence between finite-rank pro-étale E-local systems on S and vector bundles on X_S whose EVERY geometric HN slope is zero, via L↦L⊗_E O_X. The quasi-inverse is T↦H⁰(X_T,E_T); it commutes with perfectoid base change and coefficient extension with its normalized Frobenius. Locally constant rank is handled componentwise. Total degree zero alone does not suffice.",
       "hypotheses": [
         "The condition is that the HN polygon is CONSTANT ZERO, i.e. everywhere semistable of slope 0, not merely fibrewise trivial",
-        "Full faithfulness is proved by pro-etale descent, reducing to L trivial, and then by Prop. II.2.5(ii): H^0(X_S,O) = E and H^1(X_S,O) = RGamma_proet(S,E) in degree 1",
+        "Full faithfulness is proved by pro-étale descent, reducing to L trivial, and then by Prop. II.2.5(ii): H⁰(X_S,O)=underline E(S), the locally constant E-valued functions on |S|, and RΓ(X_S,O)=RΓ_proét(S,E)",
         "Essential surjectivity is Thm. II.2.19(ii) applied with a single slope 0",
         "A local system is not the same as a globally trivial bundle: the descent datum is the content"
       ],
@@ -764,7 +789,8 @@
         "VectorBundlesAndIsocrystals:VB4/relative-HN-filtration-and-proetale-splitting",
         "VectorBundlesAndIsocrystals:VB1/frobenius-two-term-cohomology",
         "DiamondsAndVStacks:D3/locally-profinite-torsors",
-        "mathlib:CategoryTheory.Equivalence"
+        "mathlib:CategoryTheory.Equivalence",
+        "VectorBundlesAndIsocrystals:VB1/cohomology-of-twists"
       ],
       "sources": [
         {
@@ -788,7 +814,7 @@
       ],
       "title": "Étale positive-slope presentations",
       "kind": "theorem",
-      "statement": "If all slopes of E are >1/r, étale locally 0→G→O(1/r)^m→E→0 with G of slope zero. If slopes are ≥1/r, analytically locally 0→O(1/(2r))^m→F→E′→0 with F of slope 1/r and E a direct summand of E′. If slopes are >1/r, étale locally 0→G→O(1/r)^m→E′→0 with G of slope 1/(2r) and E a direct summand of E′. The last two claims retain E′. In the first exact sequence degree forces m=deg(E), since deg O(1/r)=1.",
+      "statement": "Let S∈Perf_Fq, E a bundle on X_S and r≥1. (a) If all HN slopes of E at all geometric points are >1/r, then étale locally on S, for some m≥0, there is 0→G→O(1/r)^m→E→0 with G fibrewise SEMISTABLE of slope 0 (FS II.3.2, II.3.3(iii)). (b) If all slopes are ≥1/r, then locally on S there is 0→O(1/(2r))^m→F→E′→0 with F fibrewise semistable of slope 1/r and E a direct summand of E′ (II.3.3(ii)). (c) If all slopes are >1/r, then étale locally on S there is 0→G→O(1/r)^m→E′→0 with G fibrewise semistable of slope 1/(2r) and E a direct summand of E′ (II.3.3(iv)). Claims (b) and (c) retain E′. On a component where E has constant degree d, the sequence in (a) forces m=d, since O(1/r) has rank r and degree 1 (FS print m=dr, E29). Fibrewise semistability, not merely degree zero, is what the subsequent separatedness and pro-étale trivialization arguments use.",
       "hypotheses": [
         "r≥1; finite constant ranks and degrees after passing to components.",
         "The analytic and étale topologies in the three assertions are distinct."
@@ -807,7 +833,10 @@
         "VectorBundlesAndIsocrystals:VB4/relative-HN-filtration-and-proetale-splitting",
         "VectorBundlesAndIsocrystals:VB1/annular-frobenius-descent",
         "VectorBundlesAndIsocrystals:VB2:classification/HN-filtration-base-change",
-        "VectorBundlesAndIsocrystals:VB1/cohomology-of-twists"
+        "VectorBundlesAndIsocrystals:VB1/cohomology-of-twists",
+        "VectorBundlesAndIsocrystals:VB3:projectivized-properness/properness-of-projectivized-BC",
+        "VectorBundlesAndIsocrystals:VB2:classification/dieudonne-manin-classification-of-bundles",
+        "VectorBundlesAndIsocrystals:VB4/semicontinuity-of-HN-polygon"
       ],
       "sources": [
         {
@@ -866,13 +895,14 @@
       ],
       "title": "Effective divisors and projective sections",
       "kind": "comparison",
-      "statement": "For d≥1, the already owned absolute divisor v-sheaf Div^d is (BC(O(d)) minus zero)/E×. It is proper, representable in spatial diamonds and cohomologically smooth. The map (Div¹)^d→Div^d is a quasi-pro-étale Σ_d-cover, hence Div^d=(Div¹)^d/Σ_d in v-sheaves, with its spatial-diamond descent proved by the generic spatiality criteria.",
+      "statement": "For d≥1, the already owned absolute divisor v-sheaf Div^d of degree-d relative Cartier divisors is (BC(O(d))∖{0})/E^×. It is proper over ∗, representable in spatial diamonds and cohomologically smooth. The sum map (Div¹)^d→Div^d is a quasi-pro-étale cover identifying Div^d=(Div¹)^d/Σ_d as v-sheaves; in particular Div^d is a diamond (ECD Propositions 11.4, 11.6).",
       "hypotheses": [
         "Absolute curve over k=bar F_q; coefficient field E as in FS; d positive integral."
       ],
       "proofSteps": [
         "Divisor of a nonzero section supplies the comparison with RF2’s divisor moduli; scalar multiples give the same divisor.",
-        "Geometrically factor a divisor into degree-one points; compare (Div¹)^d as a quotient by the finite permutation group.",
+        "Conversely, for a relative Cartier divisor I↪O_{X_S}, after an open and closed decomposition of S the line bundle I has constant degree −d, and by II.2.19 the isomorphisms I≅O(−d) form a pro-étale E^×-torsor; hence Div=⊔_d Div^d with Div^d=(BC(O(d))∖{0})/E^× (FS p. 81).",
+        "Properness of all spaces over ∗ (II.2.16) makes the sum map proper; surjectivity is checked on geometric points, where every element of P_d is a product of elements of P_1 (proof of II.2.9); bijectivity up to Σ_d gives the quotient, and the projection is quasi-pro-étale (ECD Lemma 7.19).",
         "Use the DD5 spatiality criteria to prove the spatial quotient statement, and six-operations smoothness descent."
       ],
       "acceptance": [
@@ -885,7 +915,11 @@
         "RelativeFarguesFontaine:RF2:integral-divisors/div-d-moduli-v-sheaf",
         "DiamondsAndVStacks:D5/spatial-v-sheaf-criterion",
         "DiamondsAndVStacks:D5",
-        "DiamondSixOperations:S5"
+        "DiamondSixOperations:S5",
+        "VectorBundlesAndIsocrystals:VB4/relative-HN-filtration-and-proetale-splitting",
+        "VectorBundlesAndIsocrystals:VB2:ampleness/schematic-curve-at-a-geometric-point",
+        "VectorBundlesAndIsocrystals:VB1/cohomology-of-twists",
+        "DiamondsAndVStacks:D3/locally-profinite-torsors"
       ],
       "sources": [
         {
@@ -906,7 +940,7 @@
       ],
       "title": "Punctured absolute spaces and scalar quotients",
       "kind": "application",
-      "statement": "For d≥1, punctured BC(O(d)) is spatial. Its quotient by π^Z is not quasiseparated and therefore not spatial, although the punctured scalar quotient BC(O(d))/E×→Div^d is representable in spatial diamonds and proper. In equal characteristic positive punctured BC spaces from pure negative isocrystals are perfectoid; negative ones from pure positive isocrystals are generally diamonds. In mixed characteristic BC(O(−1)[1]) is not perfectoid.",
+      "statement": "Over Perf_k, for d≥1 the punctured absolute BC(O(d))∖{0} is a spatial diamond. Its quotient (BC(O(d))∖{0})/π^Z is not quasiseparated and therefore not spatial; the good object is the morphism (BC(O(d))∖{0})/π^Z → ∗, which is representable in spatial diamonds, while (BC(O(d))∖{0})/E^× = Div^d → ∗ is proper and representable in spatial diamonds. In equal characteristic the punctured positive absolute BC spaces (from pure negative isocrystals) are perfectoid spaces, whereas the punctured negative ones (from pure positive isocrystals) are only spatial diamonds. If E is p-adic, BC(O_{X_C}(−1)[1]) is not a perfectoid space (proof of FS Lemma II.2.15); in equal characteristic FS leave this open (footnote 5).",
       "hypotheses": [
         "Use punctured spaces throughout; absolute spatiality and relative spatial representability are different assertions."
       ],
@@ -930,6 +964,11 @@
           "sourceId": "FS-geometrization",
           "locator": "Remarks II.3.10–II.3.11, pp. 83–84",
           "match": "Supplies both the nonspatial quotient and the equal-characteristic distinction."
+        },
+        {
+          "sourceId": "FS-geometrization",
+          "locator": "Proof of Lemma II.2.15 and footnote 5, p. 71",
+          "match": "The mixed-characteristic non-perfectoid clause; footnote 5 leaves the equal-characteristic case open."
         }
       ],
       "implementationStatus": "unchecked",
@@ -944,7 +983,7 @@
       ],
       "title": "Quaternion presentation of negative Banach–Colmez space",
       "kind": "comparison",
-      "statement": "For C/k algebraically closed and a chosen untilt C♯/E, punctured BC(O(−1)[1]) identifies with punctured BC(O(1/2)) modulo the reduced-norm-one group SL₁(D), D the quaternion division algebra of invariant 1/2. Its base change to C♯ admits the description (Ω_{C♯})^diamond/E, where Ω=P¹_E minus P¹(E); the full sheaf is (A¹_{C♯})^diamond/E. The latter description uses the untilt and is not an identification with a perfectoid quotient space.",
+      "statement": "Over Perf_k, the absolute punctured BC(O(−1)[1])∖{0} classifies extensions 0→O(−1)→E→O→0 that are non-split fiberwise; geometrically E≅O(−1/2). It identifies with (BC(O(1/2))∖{0})/SL₁(D), where D is the quaternion division algebra over E (invariant 1/2) and SL₁(D) its reduced-norm-one group. After base change to Spa C with a chosen untilt C♯/E, BC(O(−1)[1])×_k Spa C≅(A¹_{C♯})^♢/E and the punctured space becomes (Ω_{C♯})^♢/E with Ω = A¹_E∖E = P¹_E∖P¹(E). The latter description uses the untilt and is not an identification with a perfectoid quotient space.",
       "hypotheses": [
         "The nonzero extension has fixed determinant; the acting group is SL₁(D), not D×."
       ],
@@ -962,7 +1001,9 @@
         "VectorBundlesAndIsocrystals:VB2:classification/bundle-endomorphism-comparison",
         "VectorBundlesAndIsocrystals:VB0/brauer-invariant-sign",
         "VectorBundlesAndIsocrystals:VB3:positive-basic-examples/fundamental-exact-sequence",
-        "VectorBundlesAndIsocrystals:VB3:general-BC/absolute-BC-spatiality"
+        "VectorBundlesAndIsocrystals:VB3:general-BC/absolute-BC-spatiality",
+        "VectorBundlesAndIsocrystals:VB4/relative-HN-filtration-and-proetale-splitting",
+        "DiamondsAndVStacks:D3/locally-profinite-torsors"
       ],
       "sources": [
         {
@@ -983,7 +1024,7 @@
       ],
       "title": "SL₂ presentation of negative Banach–Colmez space",
       "kind": "comparison",
-      "statement": "Punctured BC(O(−2)[1])≅U/SL₂(E), where U⊂BC(O(1))² is the open locus of pairs of sections that are E-linearly independent. The corresponding extension 0→O(−1)→O²→O(1)→0 is specified by a surjection and its determinant trivialization; changing the determinant-preserving basis gives SL₂(E), not GL₂(E).",
+      "statement": "Over Perf_k, the absolute punctured BC(O(−2)[1])∖{0}≅U/SL₂(E), where U⊂(BC(O(1))∖{0})² is the open locus of pairs of sections that are fiberwise nonzero and E-linearly independent, U=(BC(O(1))∖{0})²∖(E^××1).Δ. The corresponding extension 0→O(−1)→O²→O(1)→0 is specified by a surjection and its determinant trivialization; changing the determinant-preserving basis gives SL₂(E), not GL₂(E).",
       "hypotheses": [
         "Nonzero extension class; determinant fixed."
       ],
@@ -1000,7 +1041,9 @@
         "VectorBundlesAndIsocrystals:VB3:positive-basic-examples/fundamental-exact-sequence",
         "VectorBundlesAndIsocrystals:VB2:classification/dieudonne-manin-classification-of-bundles",
         "VectorBundlesAndIsocrystals:VB2:classification/hom-and-ext-calculus",
-        "VectorBundlesAndIsocrystals:VB3:general-BC/absolute-BC-spatiality"
+        "VectorBundlesAndIsocrystals:VB3:general-BC/absolute-BC-spatiality",
+        "VectorBundlesAndIsocrystals:VB4/relative-HN-filtration-and-proetale-splitting",
+        "DiamondsAndVStacks:D3/locally-profinite-torsors"
       ],
       "sources": [
         {
@@ -1053,7 +1096,7 @@
       ],
       "title": "Pure models and purity loci",
       "kind": "definition",
-      "statement": "Let c, d ∈ ℤ with d a positive multiple of a. A (c,d)-pure model of a φ^a-module M over ℰ̃_R (resp. ℛ̃^bd_R, ℛ̃_R) Let c, d ∈ ℤ with d a positive multiple of a. A (c,d)-pure model of a φ^a-module M over ℰ̃_R (resp. ℛ̃^bd_R, ℛ̃_R) is a W(R)-submodule (resp. ℛ̃^int_R-submodule) M_0 of M which is bounded (there is a finitely generated submodule N_0 over the same subring with p^n M_0 ⊆ N_0 and p^n N_0 ⊆ M_0 for some n ≥ 0) such that the natural map M_0 ⊗_{W(R)} ℰ̃_R → M (resp. M_0 ⊗_{ℛ̃^int_R} ℛ̃^bd_R → M, M_0 ⊗_{ℛ̃^int_R} ℛ̃_R → M) is an isomorphism and the φ^a-action on M induces an isomorphism (p^cφ^d)^*M_0 ≅ M_0 (only stability of M_0[p^{−1}] under φ^d, not φ^a, is assumed; Remark 7.3.2). Its existence makes M pointwise pure of constant slope c/d; a (0,d)-pure model is an étale model; a pure model is (locally) free if its underlying module is finite (locally) free, and a finitely presented pure model is locally free. A (locally free, free) local (c,d)-pure model at β ∈ ℳ(R) is a rational localization R → R′ encircling β together with a (locally free, free) (c,d)-pure model of the base extension of M to R′. M has a locally free local pure model at β iff it has a free one, and over ℛ̃^bd_R this can be tested over ℰ̃_R (Lemma 7.3.3). M is pure of slope s at β if it has a locally free local (c,d)-pure model at β with c/d = s (forcing s = μ(M, β) when rank(M, β) > 0; every slope when the rank is 0), pure if it is pure at every β (finitely many local models then cover ℳ(R)), étale = pure of slope 0, and globally pure if it has a locally free pure model. For the conditions (a) globally pure, (b) admits a pure model, (c) pure, (d) admits local pure models, (e) pointwise pure: over ℰ̃_R and ℛ̃^bd_R, (a) strictly implies (b) and (b)–(e) are equivalent; over ℛ̃_R, (a) strictly implies (b), (b) strictly implies (c), and (c)–(e) are equivalent (by Corollaries 7.3.9 and 8.5.14 and Examples 8.5.17 (Tate curve) and 8.5.18 (banana)). Purity of a φ^a-module over ℛ̃^bd_R cannot be read off from its base extension to ℛ̃_R.",
+      "statement": "Let c, d ∈ ℤ with d a positive multiple of a. A (c,d)-pure model of a φ^a-module M over ℰ̃_R (resp. ℛ̃^bd_R, ℛ̃_R) is a W(R)-submodule (resp. ℛ̃^int_R-submodule) M_0 of M which is bounded (there is a finitely generated submodule N_0 over the same subring with p^n M_0 ⊆ N_0 and p^n N_0 ⊆ M_0 for some n ≥ 0) such that the natural map M_0 ⊗_{W(R)} ℰ̃_R → M (resp. M_0 ⊗_{ℛ̃^int_R} ℛ̃^bd_R → M, M_0 ⊗_{ℛ̃^int_R} ℛ̃_R → M) is an isomorphism and the φ^a-action on M induces an isomorphism (p^cφ^d)^*M_0 ≅ M_0 (only stability of M_0[p^{−1}] under φ^d, not φ^a, is assumed; Remark 7.3.2). Its existence makes M pointwise pure of constant slope c/d; a (0,d)-pure model is an étale model; a pure model is (locally) free if its underlying module is finite (locally) free, and a finitely presented pure model is locally free. A (locally free, free) local (c,d)-pure model at β ∈ ℳ(R) is a rational localization R → R′ encircling β together with a (locally free, free) (c,d)-pure model of the base extension of M to R′. M has a locally free local pure model at β iff it has a free one, and over ℛ̃^bd_R this can be tested over ℰ̃_R (Lemma 7.3.3). M is pure of slope s at β if it has a locally free local (c,d)-pure model at β with c/d = s (forcing s = μ(M, β) when rank(M, β) > 0; every slope when the rank is 0), pure if it is pure at every β (finitely many local models then cover ℳ(R)), étale = pure of slope 0, and globally pure if it has a locally free pure model. For the conditions (a) globally pure, (b) admits a pure model, (c) pure, (d) admits local pure models, (e) pointwise pure: over ℰ̃_R and ℛ̃^bd_R, (a) strictly implies (b) and (b)–(e) are equivalent; over ℛ̃_R, (a) strictly implies (b), (b) strictly implies (c), and (c)–(e) are equivalent (by Corollaries 7.3.9 and 8.5.14 and Examples 8.5.17 (Tate curve) and 8.5.18 (banana)). Purity of a φ^a-module over ℛ̃^bd_R cannot be read off from its base extension to ℛ̃_R.",
       "hypotheses": [
         "KL Hypotheses 5.0.1 and 6.0.1: R is a perfect uniform Banach F_p-algebra over an analytic field; a≥1 and q=p^a. Ring/sheaf, full/bounded Robba and integral coefficients are kept distinct."
       ],
@@ -1252,8 +1295,9 @@
         "KL Hypotheses 5.0.1 and 6.0.1: R is a perfect uniform Banach F_p-algebra over an analytic field; a≥1 and q=p^a. Ring/sheaf, full/bounded Robba and integral coefficients are kept distinct."
       ],
       "proofSteps": [
-        "Approximate a diagonalized fibre basis; the normal-form estimate controls the nearby polygons.",
-        "Apply exterior powers to all vertices; the degree of the determinant is locally constant."
+        "At β pass to a completed algebraic closure L of ℋ(β): by Proposition 4.2.16 (Dieudonné–Manin over ℛ̃_L) φ^d acts on a basis by a diagonal matrix D with entries in p^ℤ; slope polygons do not change under extension of analytic fields (Remark 7.4.2).",
+        "Approximate this basis and apply Lemma 7.1.2 as in Theorem 7.3.7: over a rational localization encircling β and a faithfully finite étale cover, φ^d acts by FD with F−1 ≡ 0 mod p over ℛ̃^int, spanning a bounded model N.",
+        "By Lemma 7.4.4 the generic polygon of N at every nearby point is the polygon at β; by Proposition 7.4.3(a) the special polygon, i.e. the polygon of M there, lies on or above it. The endpoint is locally constant (Lemma 7.2.2)."
       ],
       "acceptance": [
         "Check coefficient ring, base topology and normalization against the stated source; the zero-rank convention applies only to purity."
@@ -1261,7 +1305,11 @@
       "prerequisites": [
         "VectorBundlesAndIsocrystals:VB4/annular-basis-approximation",
         "VectorBundlesAndIsocrystals:VB4/diagonal-gauge-normal-form",
-        "VectorBundlesAndIsocrystals:VB4/pure-models"
+        "VectorBundlesAndIsocrystals:VB4/pure-models",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.2/special-polygon-above-generic",
+        "VectorBundlesAndIsocrystals:VB2:classification/dieudonne-manin-classification-of-bundles",
+        "VectorBundlesAndIsocrystals:VB1/robba-bundle-equivalence",
+        "VectorBundlesAndIsocrystals:VB2:classification/HN-filtration-base-change"
       ],
       "sources": [
         {
@@ -1328,7 +1376,9 @@
       ],
       "prerequisites": [
         "VectorBundlesAndIsocrystals:VB4/robba-polygon-semicontinuity",
-        "VectorBundlesAndIsocrystals:VB4/pure-models"
+        "VectorBundlesAndIsocrystals:VB4/pure-models",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.2/coincident-polygons-common-filtration",
+        "VectorBundlesAndIsocrystals:VB4/diagonal-gauge-normal-form"
       ],
       "sources": [
         {
@@ -1394,7 +1444,10 @@
       ],
       "prerequisites": [
         "VectorBundlesAndIsocrystals:VB1/frobenius-two-term-cohomology",
-        "VectorBundlesAndIsocrystals:VB4/robba-constant-polygon-filtration"
+        "VectorBundlesAndIsocrystals:VB4/robba-constant-polygon-filtration",
+        "VectorBundlesAndIsocrystals:VB4/constant-vertex-submodule",
+        "VectorBundlesAndIsocrystals:VB1/robba-bundle-equivalence",
+        "VectorBundlesAndIsocrystals:VB1/cohomology-of-twists"
       ],
       "sources": [
         {
@@ -1712,6 +1765,11 @@
           "statement": "At β the predicate that all slopes of the fibre polygon are strictly positive."
         },
         {
+          "name": "PointwiseAmple.isOpen",
+          "role": "structure",
+          "statement": "The set of β∈ℳ(R) at which F is pointwise ample is open (KL Theorem 7.4.5), and so is its preimage in Spa(R,R⁺) under the retraction."
+        },
+        {
           "name": "PointwiseAmple.pullback",
           "role": "functoriality",
           "statement": "The predicate is preserved under residue-field extension and perfectoid pullback."
@@ -1817,7 +1875,11 @@
       "prerequisites": [
         "VectorBundlesAndIsocrystals:VB1/cohomology-of-twists",
         "VectorBundlesAndIsocrystals:VB2:ampleness/gaga-equivalence",
-        "VectorBundlesAndIsocrystals:VB4/pointwise-ampleness"
+        "VectorBundlesAndIsocrystals:VB4/pointwise-ampleness",
+        "VectorBundlesAndIsocrystals:VB2:ampleness/tensor-global-ampleness",
+        "VectorBundlesAndIsocrystals:VB2:ampleness/globally-etale-positive-ampleness",
+        "VectorBundlesAndIsocrystals:VB2:ampleness/quantitative-global-generation",
+        "VectorBundlesAndIsocrystals:VB2:classification/dieudonne-manin-classification-of-bundles"
       ],
       "sources": [
         {
@@ -1920,7 +1982,10 @@
         "VectorBundlesAndIsocrystals:VB2:ampleness/tensor-global-ampleness",
         "VectorBundlesAndIsocrystals:VB4/positive-tensor-domination",
         "VectorBundlesAndIsocrystals:VB4/etale-at-point-resolution",
-        "VectorBundlesAndIsocrystals:VB4/pointwise-ampleness"
+        "VectorBundlesAndIsocrystals:VB4/pointwise-ampleness",
+        "VectorBundlesAndIsocrystals:VB2:ampleness/globally-etale-positive-ampleness",
+        "VectorBundlesAndIsocrystals:VB2:ampleness/ampleness-power-criterion",
+        "VectorBundlesAndIsocrystals:VB4/purity-openness"
       ],
       "sources": [
         {
@@ -2204,6 +2269,7 @@
       "kind": "comparison",
       "statement": "For S∈Perf, finite free Z_p local systems on S_proét are equivalent to φ^{-1}-modules on Y_[0,r](S), including the characteristic-p boundary. Restriction to Y_(0,r] realizes the rationalized local system L[1/p], which has all Newton slopes zero. This distinguishes integral lattices at the boundary from a slope-zero bundle on the open curve.",
       "hypotheses": [
+        "S = Spa(R,R⁺) is an affinoid perfectoid space of characteristic p with a fixed pseudouniformizer ϖ defining Y_[0,r](S) (SW20 §22.6: \"we assume that S = Spa(R,R+) is affinoid and we fix a pseudo-uniformizer\"); the statement globalizes by descent.",
         "r>0; the integral period space and φ^{-1} pullback conventions are those of SW Lecture 22.",
         "Finite rank is locally constant; no boundary deletion in the integral comparison."
       ],
@@ -2241,6 +2307,7 @@
       "kind": "comparison",
       "statement": "For a smooth affine group scheme G/Z_p with connected fibres, pro-étale G(Z_p)-torsors on S are equivalent to φ^{-1}-G-torsors on Y_[0,r](S). For G=GL_n this is the integral local-system equivalence. Connectedness of fibres and the integral boundary are retained; extensions requiring a parahoric model are not inferred from this theorem.",
       "hypotheses": [
+        "S = Spa(R,R⁺) is an affinoid perfectoid space of characteristic p with a fixed pseudouniformizer ϖ defining Y_[0,r](S) (SW20 §22.6: \"we assume that S = Spa(R,R+) is affinoid and we fix a pseudo-uniformizer\"); the statement globalizes by descent.",
         "S perfectoid; r>0; smooth affine integral model with connected fibres."
       ],
       "proofSteps": [
@@ -2277,7 +2344,7 @@
       "kind": "definition",
       "statement": "A Vector Space (VS) W is a functor Λ ↦ W(Λ) from sympathetic algebras to Q_p-vector spaces, and a sequence 0 → W_1 → W → W_2 → 0 is exact precisely when it is exact on W(Λ) for every Λ. Sympathetic algebras are, following Colmez, the spectral connected C-Banach algebras Λ on which x ↦ x^p is surjective on {x : ‖x−1‖_Λ < 1}, with O_Λ the unit ball; this paper imposes two further conditions, that Λ → C(Spm(Λ) → C) be injective — a property taken for granted in the earlier arguments but failing for instance for Λ = O_{C′} with C′ the spherical closure of C — and that Λ be separable, i.e. have a dense C-subspace of countable dimension, so that Hahn–Banach is available without assuming C spherically complete. Since O_C/p is countable, the sympathetic closure of a separable such algebra is again separable.",
       "hypotheses": [
-        "E=Q_p; C is a fixed complete algebraically closed nonarchimedean field with chosen untilt point ∞ on X_{C♭}. The sympathetic algebras have the two extra CN conditions (evaluation injective, separable); countability of O_C/p is used for sympathetic closure."
+        "E=Q_p. As in CN §1 and §1.3.3, C is the completion of an algebraic closure of a complete discretely valued field K of characteristic 0 whose perfect residue field is countable; hence O_C/p is countable, which CN use (footnote 6) to keep sympathetic closures separable and Hahn–Banach available. ∞ is the point of X_FF with residue field C, t=t_∞. Sympathetic algebras carry the two extra CN conditions (evaluation into C(Spm Λ,C) injective; separable). SW20 Definition 15.2.1 and Theorem 15.2.12 are stated for any algebraically closed nonarchimedean C/Q_p."
       ],
       "proofSteps": [
         "Import normed C-algebra topology; take connected spectral Banach algebras with p-root surjectivity near 1.",
@@ -2371,7 +2438,7 @@
       "kind": "construction",
       "statement": "Morally a BC is a finite dimensional C-vector space up to a finite dimensional Q_p-vector space, with Dimension Dim W = (a,b) where a = dim W is the C-dimension and b = ht W ∈ Z the Q_p-dimension. Precisely, a VS W is finite Dimensional — a BC — if it equals V_d up to finite dimensional Q_p-vector spaces: there are finite dimensional Q_p-vector spaces V_1, V_2 and exact sequences 0 → V_1 → Y → V_d → 0 and 0 → V_2 → Y → W → 0, so that W is obtained from V_d by adding V_1 and quotienting by V_2; then dim W = d and ht W = dim_{Q_p}V_1 − dim_{Q_p}V_2. These are the objects often called Banach–Colmez spaces.",
       "hypotheses": [
-        "E=Q_p; C is a fixed complete algebraically closed nonarchimedean field with chosen untilt point ∞ on X_{C♭}. The sympathetic algebras have the two extra CN conditions (evaluation injective, separable); countability of O_C/p is used for sympathetic closure."
+        "E=Q_p. As in CN §1 and §1.3.3, C is the completion of an algebraic closure of a complete discretely valued field K of characteristic 0 whose perfect residue field is countable; hence O_C/p is countable, which CN use (footnote 6) to keep sympathetic closures separable and Hahn–Banach available. ∞ is the point of X_FF with residue field C, t=t_∞. Sympathetic algebras carry the two extra CN conditions (evaluation into C(Spm Λ,C) injective; separable). SW20 Definition 15.2.1 and Theorem 15.2.12 are stated for any algebraically closed nonarchimedean C/Q_p."
       ],
       "proofSteps": [
         "Choose Y with two short exact sequences 0→V₁→Y→V_d→0 and 0→V₂→Y→W→0.",
@@ -2466,7 +2533,7 @@
       "kind": "theorem",
       "statement": "(i) One is in general only interested in W = W(C), but without the extra structure its Dimension could not be spoken of — for example C and C ⊕ Q_p are isomorphic as topological Q_p-vector spaces. (ii) The functor W ↦ W(C) is faithful on BC's; moreover W(Λ) is a Q_p-banach for every Λ, a morphism of BC's induces continuous strict maps W_1(Λ) → W_2(Λ), and an exact sequence of BC's induces a strictly exact sequence for every sympathetic Λ.",
       "hypotheses": [
-        "E=Q_p; C is a fixed complete algebraically closed nonarchimedean field with chosen untilt point ∞ on X_{C♭}. The sympathetic algebras have the two extra CN conditions (evaluation injective, separable); countability of O_C/p is used for sympathetic closure."
+        "E=Q_p. As in CN §1 and §1.3.3, C is the completion of an algebraic closure of a complete discretely valued field K of characteristic 0 whose perfect residue field is countable; hence O_C/p is countable, which CN use (footnote 6) to keep sympathetic closures separable and Hahn–Banach available. ∞ is the point of X_FF with residue field C, t=t_∞. Sympathetic algebras carry the two extra CN conditions (evaluation into C(Spm Λ,C) injective; separable). SW20 Definition 15.2.1 and Theorem 15.2.12 are stated for any algebraically closed nonarchimedean C/Q_p."
       ],
       "proofSteps": [
         "Evaluate the source VS functor on C or an arbitrary sympathetic algebra.",
@@ -2477,7 +2544,8 @@
         "Compare the Q_p, V₁, shifted O(−1), and other-untilt torsion cases; never infer curvature solely from height."
       ],
       "prerequisites": [
-        "VectorBundlesAndIsocrystals:VB3:general-BC/banach-colmez-presentations"
+        "VectorBundlesAndIsocrystals:VB3:general-BC/banach-colmez-presentations",
+        "VectorBundlesAndIsocrystals:VB3:general-BC/dimension-abelian"
       ],
       "sources": [
         {
@@ -2505,7 +2573,7 @@
       "kind": "theorem",
       "statement": "(i) The Dimension of a BC is independent of the choices in its definition. (ii) For f : W_1 → W_2 a morphism of BC's, ker f, coker f and im f are BC's, with Dim W_1 = Dim ker f + Dim im f and Dim W_2 = Dim coker f + Dim im f. (iii) If dim W = 0 then ht W ≥ 0. (iv) If W has an increasing filtration with successive quotients V_1, then every sub-BC W′ has ht W′ ≥ 0. The category BC of BC's is abelian.",
       "hypotheses": [
-        "E=Q_p; C is a fixed complete algebraically closed nonarchimedean field with chosen untilt point ∞ on X_{C♭}. The sympathetic algebras have the two extra CN conditions (evaluation injective, separable); countability of O_C/p is used for sympathetic closure."
+        "E=Q_p. As in CN §1 and §1.3.3, C is the completion of an algebraic closure of a complete discretely valued field K of characteristic 0 whose perfect residue field is countable; hence O_C/p is countable, which CN use (footnote 6) to keep sympathetic closures separable and Hahn–Banach available. ∞ is the point of X_FF with residue field C, t=t_∞. Sympathetic algebras carry the two extra CN conditions (evaluation into C(Spm Λ,C) injective; separable). SW20 Definition 15.2.1 and Theorem 15.2.12 are stated for any algebraically closed nonarchimedean C/Q_p."
       ],
       "proofSteps": [
         "Use the equivalence with the tilted coherent heart to obtain kernels, cokernels and images inside BC.",
@@ -2513,7 +2581,8 @@
         "Dimension zero gives a finite-dimensional Q_p space with nonnegative height; subobjects of successive V₁-extensions have nonnegative height."
       ],
       "acceptance": [
-        "Compare the Q_p, V₁, shifted O(−1), and other-untilt torsion cases; never infer curvature solely from height."
+        "Compare the Q_p, V₁, shifted O(−1), and other-untilt torsion cases; never infer curvature solely from height.",
+        "Concrete instance: for the inclusion f:Q_p→V₁, Dim coker f = (1,−1) = Dim V₁ − Dim Q_p, and ker f = 0."
       ],
       "prerequisites": [
         "VectorBundlesAndIsocrystals:VB3:general-BC/le-bras-equivalence",
@@ -2549,7 +2618,7 @@
       "kind": "theorem",
       "statement": "The Spaces B_m and U_{h,d} are BC's, with Dim B_m = (m,0) and Dim U_{h,d} = (d,h) if d ≥ 0, (−d,−h) if d < 0.",
       "hypotheses": [
-        "E=Q_p; C is a fixed complete algebraically closed nonarchimedean field with chosen untilt point ∞ on X_{C♭}. The sympathetic algebras have the two extra CN conditions (evaluation injective, separable); countability of O_C/p is used for sympathetic closure."
+        "E=Q_p. As in CN §1 and §1.3.3, C is the completion of an algebraic closure of a complete discretely valued field K of characteristic 0 whose perfect residue field is countable; hence O_C/p is countable, which CN use (footnote 6) to keep sympathetic closures separable and Hahn–Banach available. ∞ is the point of X_FF with residue field C, t=t_∞. Sympathetic algebras carry the two extra CN conditions (evaluation into C(Spm Λ,C) injective; separable). SW20 Definition 15.2.1 and Theorem 15.2.12 are stated for any algebraically closed nonarchimedean C/Q_p."
       ],
       "proofSteps": [
         "Combine the companion cohomology of standard O(d/h) with the chosen-untilt fundamental sequence.",
@@ -2557,7 +2626,8 @@
         "Dimension additivity gives (m,0), (d,h) for d≥0 and (−d,−h) for d<0; unreduced pairs give direct-sum multiplicities."
       ],
       "acceptance": [
-        "Compare the Q_p, V₁, shifted O(−1), and other-untilt torsion cases; never infer curvature solely from height."
+        "Compare the Q_p, V₁, shifted O(−1), and other-untilt torsion cases; never infer curvature solely from height.",
+        "Concrete instances: Dim B_2=(2,0), Dim U_{2,1}=(1,2), Dim U_{1,−1}=Dim(C/Q_p)=(1,−1)."
       ],
       "prerequisites": [
         "VectorBundlesAndIsocrystals:VB3:general-BC/dimension-abelian",
@@ -2586,7 +2656,7 @@
       "kind": "definition",
       "statement": "For W ∈ BC one says W has curvature > 0 if Hom(W,V_1) = 0; curvature ≥ 0 if Hom(W,B^+_dR) = 0; curvature = 0, or affine, if it is a successive extension of V_1's; curvature < 0 if it injects into B_dR^d, equivalently into (B^+_dR)^d; curvature ≤ 0 if it injects into a B^+_dR-Module, i.e. a VS with an action of B^+_dR.",
       "hypotheses": [
-        "E=Q_p; C is a fixed complete algebraically closed nonarchimedean field with chosen untilt point ∞ on X_{C♭}. The sympathetic algebras have the two extra CN conditions (evaluation injective, separable); countability of O_C/p is used for sympathetic closure."
+        "E=Q_p. As in CN §1 and §1.3.3, C is the completion of an algebraic closure of a complete discretely valued field K of characteristic 0 whose perfect residue field is countable; hence O_C/p is countable, which CN use (footnote 6) to keep sympathetic closures separable and Hahn–Banach available. ∞ is the point of X_FF with residue field C, t=t_∞. Sympathetic algebras carry the two extra CN conditions (evaluation into C(Spm Λ,C) injective; separable). SW20 Definition 15.2.1 and Theorem 15.2.12 are stated for any algebraically closed nonarchimedean C/Q_p."
       ],
       "proofSteps": [
         "Define the two positive predicates by VS Hom vanishing against V₁ and BdR⁺.",
@@ -2695,14 +2765,15 @@
       "kind": "theorem",
       "statement": "(i) If W has curvature > 0 (resp. ≥ 0) and W′ has curvature ≤ 0 (resp. < 0), then Hom_BC(W,W′) = 0. (ii) A sub-VS of one of curvature ≤ 0 (resp. < 0) has curvature ≤ 0 (resp. < 0). (iii) A quotient of one of curvature ≥ 0 (resp. > 0) has curvature ≥ 0 (resp. > 0).",
       "hypotheses": [
-        "E=Q_p; C is a fixed complete algebraically closed nonarchimedean field with chosen untilt point ∞ on X_{C♭}. The sympathetic algebras have the two extra CN conditions (evaluation injective, separable); countability of O_C/p is used for sympathetic closure."
+        "E=Q_p. As in CN §1 and §1.3.3, C is the completion of an algebraic closure of a complete discretely valued field K of characteristic 0 whose perfect residue field is countable; hence O_C/p is countable, which CN use (footnote 6) to keep sympathetic closures separable and Hahn–Banach available. ∞ is the point of X_FF with residue field C, t=t_∞. Sympathetic algebras carry the two extra CN conditions (evaluation into C(Spm Λ,C) injective; separable). SW20 Definition 15.2.1 and Theorem 15.2.12 are stated for any algebraically closed nonarchimedean C/Q_p."
       ],
       "proofSteps": [
         "Use the Hom definitions and filtrations of BdR⁺-modules to prove orthogonality.",
         "Sub-VS embeddings preserve the negative predicates; quotient maps preserve the positive Hom-vanishing predicates."
       ],
       "acceptance": [
-        "Compare the Q_p, V₁, shifted O(−1), and other-untilt torsion cases; never infer curvature solely from height."
+        "Compare the Q_p, V₁, shifted O(−1), and other-untilt torsion cases; never infer curvature solely from height.",
+        "Concrete instance: Hom_BC(C/Q_p, Q_p)=0 (curvature >0 against <0), while Hom_BC(V₁,V₁)=C is nonzero."
       ],
       "prerequisites": [
         "VectorBundlesAndIsocrystals:VB3:general-BC/curvature",
@@ -2729,7 +2800,7 @@
       "kind": "construction",
       "statement": "Every W ∈ BC has a unique filtration W_{>0} ⊂ W_{≥0} ⊂ W, the canonical filtration, with W_{>0} of curvature > 0, W_{≥0}/W_{>0} of curvature 0 and W/W_{≥0} of curvature < 0. One defines W_{>0} as the intersection of the kernels of all morphisms W → B_m, m ≥ 1, and W_{≥0} as the intersection of the kernels of all morphisms W → B_dR; the outer two properties are then clear, while the curvature-0 property of the middle piece comes from the description of the canonical filtration in terms of the Harder–Narasimhan filtration in §3.2.8. One writes W_{≤0} := W/W_{>0}, the largest quotient of curvature ≤ 0, and W_{=0} := W_{≥0}/W_{>0}, the largest affine sub-VS of W_{≤0}. The filtration and a number of results about it are due to Plût; most of them can be recovered from the relation of BC to vector bundles on the Fargues–Fontaine curve and Le Bras's Harder–Narasimhan theory. For W a BC the relation between (3.14) and the filtration of Proposition 3.7 is: W_{>0} ≅ (⊕_{λ_i>0}U_{−1/λ_i}) ⊕ (⊕_{x≠∞}H^0(X,F_x)); W_{≤0} ≅ (⊕_{λ_i<0}U_{−1/λ_i}) ⊕ H^0(X,F_∞) = H^0(X, F_∞ ⊕ (⊕_{λ_i<0}O(−1/λ_i))); W_{<0} ≅ ⊕_{λ_i<0}U_{−1/λ_i}; W_{=0} ≅ H^0(X,F_∞). In particular W is of curvature < 0 if and only if its Harder–Narasimhan slopes are < 0, and if its slopes are > 0 then it is of curvature > 0.",
       "hypotheses": [
-        "E=Q_p; C is a fixed complete algebraically closed nonarchimedean field with chosen untilt point ∞ on X_{C♭}. The sympathetic algebras have the two extra CN conditions (evaluation injective, separable); countability of O_C/p is used for sympathetic closure."
+        "E=Q_p. As in CN §1 and §1.3.3, C is the completion of an algebraic closure of a complete discretely valued field K of characteristic 0 whose perfect residue field is countable; hence O_C/p is countable, which CN use (footnote 6) to keep sympathetic closures separable and Hahn–Banach available. ∞ is the point of X_FF with residue field C, t=t_∞. Sympathetic algebras carry the two extra CN conditions (evaluation into C(Spm Λ,C) injective; separable). SW20 Definition 15.2.1 and Theorem 15.2.12 are stated for any algebraically closed nonarchimedean C/Q_p."
       ],
       "proofSteps": [
         "Intersect kernels of all W→B_m for W_{>0}, and W→BdR for W_{≥0}.",
@@ -2838,14 +2909,15 @@
       "kind": "theorem",
       "statement": "From the formulas (3.10), ht(H^0(X,O(λ))) − ht(H^1(X,O(λ))) = h for every λ; by additivity this gives ht(H^0(X,E)) − ht(H^1(X,E)) = rk E for every vector bundle E on X, and the formula extends to coherent sheaves.",
       "hypotheses": [
-        "E=Q_p; C is a fixed complete algebraically closed nonarchimedean field with chosen untilt point ∞ on X_{C♭}. The sympathetic algebras have the two extra CN conditions (evaluation injective, separable); countability of O_C/p is used for sympathetic closure."
+        "E=Q_p. As in CN §1 and §1.3.3, C is the completion of an algebraic closure of a complete discretely valued field K of characteristic 0 whose perfect residue field is countable; hence O_C/p is countable, which CN use (footnote 6) to keep sympathetic closures separable and Hahn–Banach available. ∞ is the point of X_FF with residue field C, t=t_∞. Sympathetic algebras carry the two extra CN conditions (evaluation into C(Spm Λ,C) injective; separable). SW20 Definition 15.2.1 and Theorem 15.2.12 are stated for any algebraically closed nonarchimedean C/Q_p."
       ],
       "proofSteps": [
         "Compute heights on every standard positive, zero and shifted negative block.",
         "Add over the geometric classification; torsion contributes height zero and rank zero."
       ],
       "acceptance": [
-        "Compare the Q_p, V₁, shifted O(−1), and other-untilt torsion cases; never infer curvature solely from height."
+        "Compare the Q_p, V₁, shifted O(−1), and other-untilt torsion cases; never infer curvature solely from height.",
+        "Concrete instance: for O(1/2), ht H⁰=2 and H¹=0; for O(−1), H⁰=0 and ht H¹=−1; both differences equal the rank."
       ],
       "prerequisites": [
         "VectorBundlesAndIsocrystals:VB3:general-BC/standard-dimension-examples",
@@ -2872,7 +2944,7 @@
       "kind": "definition",
       "statement": "Coh⁻_X is the full subcategory of Dᵇ(Coh_X) with cohomology only in degrees −1 and 0, H^{−1} of negative slopes and H⁰ of nonnegative slopes INCLUDING torsion sheaves. It is the torsion-pair tilt heart, hence abelian. Objects split noncanonically as H⁰⊕H^{−1}[1] because the curve has cohomological dimension one. For such a zero-differential representative BC(F)=H⁰(X,H⁰F)⊕H¹(X,H^{−1}F), noncanonically; general morphisms include Ext¹(H⁰F,H^{−1}G).",
       "hypotheses": [
-        "E=Q_p; C is a fixed complete algebraically closed nonarchimedean field with chosen untilt point ∞ on X_{C♭}. The sympathetic algebras have the two extra CN conditions (evaluation injective, separable); countability of O_C/p is used for sympathetic closure."
+        "E=Q_p. As in CN §1 and §1.3.3, C is the completion of an algebraic closure of a complete discretely valued field K of characteristic 0 whose perfect residue field is countable; hence O_C/p is countable, which CN use (footnote 6) to keep sympathetic closures separable and Hahn–Banach available. ∞ is the point of X_FF with residue field C, t=t_∞. Sympathetic algebras carry the two extra CN conditions (evaluation into C(Spm Λ,C) injective; separable). SW20 Definition 15.2.1 and Theorem 15.2.12 are stated for any algebraically closed nonarchimedean C/Q_p."
       ],
       "proofSteps": [
         "Import the derived category and the torsion-pair tilt construction from SF.0.",
@@ -2893,7 +2965,7 @@
         {
           "sourceId": "CN25",
           "locator": "§3.2.4, p. 15",
-          "match": "The routed statement, with corrections and ownership boundaries recorded explicitly."
+          "match": "The definition of the heart; the preceding sentences of §3.2.4 concern Le Bras’s sheaf realization."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2969,7 +3041,7 @@
       "kind": "theorem",
       "statement": "The functor BC realises an equivalence of categories Coh^-_X ≃ BC. In its pro-étale sheaf realization every BC object is a diamond (SW Theorem 15.2.12); no perfectoid representability is inferred.",
       "hypotheses": [
-        "E=Q_p; C is a fixed complete algebraically closed nonarchimedean field with chosen untilt point ∞ on X_{C♭}. The sympathetic algebras have the two extra CN conditions (evaluation injective, separable); countability of O_C/p is used for sympathetic closure."
+        "E=Q_p. As in CN §1 and §1.3.3, C is the completion of an algebraic closure of a complete discretely valued field K of characteristic 0 whose perfect residue field is countable; hence O_C/p is countable, which CN use (footnote 6) to keep sympathetic closures separable and Hahn–Banach available. ∞ is the point of X_FF with residue field C, t=t_∞. Sympathetic algebras carry the two extra CN conditions (evaluation into C(Spm Λ,C) injective; separable). SW20 Definition 15.2.1 and Theorem 15.2.12 are stated for any algebraically closed nonarchimedean C/Q_p."
       ],
       "proofSteps": [
         "Take degree-zero hypercohomology after base change, then sheafify; compare values on sympathetic algebras.",
@@ -3014,7 +3086,7 @@
       "kind": "definition",
       "statement": "One endows Coh^-_X with rk^-(E_{−1} → E_0) = deg(E_0) − deg(E_{−1}) and deg^-(E_{−1} → E_0) = rk(E_{−1}) − rk(E_0), making it a Harder–Narasimhan category, and transports this to BC, where rk^- = dim and deg^- = −ht; a torsion F_x gives µ^-(BC(0 → F_x)) = 0. One writes W_{≥λ}, W_{>λ} for the Harder–Narasimhan filtration and W_{>−∞} := ∪_λ W_{≥λ}. For λ = d/h in lowest terms, U_λ := U_{h,d}, with U_{eh,ed} = U_λ^e for e ≥ 1, and U_λ = H^0(X,O(λ)) = BC(0 → O(λ)) if λ ≥ 0, U_λ = H^1(X,O(λ)) = BC(O(λ) → 0) if λ < 0; then rk^-(U_λ) = sign(λ)d, deg^-(U_λ) = −sign(λ)h and µ^-(U_λ) = −1/λ.",
       "hypotheses": [
-        "E=Q_p; C is a fixed complete algebraically closed nonarchimedean field with chosen untilt point ∞ on X_{C♭}. The sympathetic algebras have the two extra CN conditions (evaluation injective, separable); countability of O_C/p is used for sympathetic closure."
+        "E=Q_p. As in CN §1 and §1.3.3, C is the completion of an algebraic closure of a complete discretely valued field K of characteristic 0 whose perfect residue field is countable; hence O_C/p is countable, which CN use (footnote 6) to keep sympathetic closures separable and Hahn–Banach available. ∞ is the point of X_FF with residue field C, t=t_∞. Sympathetic algebras carry the two extra CN conditions (evaluation into C(Spm Λ,C) injective; separable). SW20 Definition 15.2.1 and Theorem 15.2.12 are stated for any algebraically closed nonarchimedean C/Q_p."
       ],
       "proofSteps": [
         "Transport rank⁻=deg E₀−deg E₋₁ and degree⁻=rank E₋₁−rank E₀ through Le Bras.",
@@ -3114,7 +3186,7 @@
       "kind": "theorem",
       "statement": "(i) Since Q_p = U_0, µ^-(Q_p) = −∞. (ii) BC's are naturally diamonds — among the first non-trivial examples — and as such have connected components: W_{>−∞} is the connected component of 0 and the quotient W_{−∞} is the largest étale quotient, a finite dimensional Q_p-vector space. (iii) The Harder–Narasimhan filtration splits non-canonically and every BC decomposes as (3.14) W = U_{−1/λ_1} ⊕ ⋯ ⊕ U_{−1/λ_r} ⊕ (⊕_x H^0(X,F_x)), with λ_i nonzero in Q ∪ {−∞}, U_{−1/λ_i} of slope λ_i, and F_x torsion supported at x and zero for almost all x with H^0(X,F_x) of slope 0; the λ_i are the slopes of W, to which 0 is added if some F_x is nonzero. (iv) In the sequence of §3.2.4, H^1(X,E_{−1}) is the subspace of slopes > 0 of BC(E_{−1} → E_0).",
       "hypotheses": [
-        "E=Q_p; C is a fixed complete algebraically closed nonarchimedean field with chosen untilt point ∞ on X_{C♭}. The sympathetic algebras have the two extra CN conditions (evaluation injective, separable); countability of O_C/p is used for sympathetic closure."
+        "E=Q_p. As in CN §1 and §1.3.3, C is the completion of an algebraic closure of a complete discretely valued field K of characteristic 0 whose perfect residue field is countable; hence O_C/p is countable, which CN use (footnote 6) to keep sympathetic closures separable and Hahn–Banach available. ∞ is the point of X_FF with residue field C, t=t_∞. Sympathetic algebras carry the two extra CN conditions (evaluation into C(Spm Λ,C) injective; separable). SW20 Definition 15.2.1 and Theorem 15.2.12 are stated for any algebraically closed nonarchimedean C/Q_p."
       ],
       "proofSteps": [
         "Transport classification and HN filtration across Le Bras.",
@@ -3151,7 +3223,7 @@
       "kind": "theorem",
       "statement": "(i) The exact sequence 0 → W_{>−∞} → W → W_{−∞} → 0 makes it possible to show that a decreasing sequence (W_n) of BC's is stationary: dim(W_n) is decreasing and bounded below, hence constant for n ≥ N; then W_N/W_n has dimension 0 and is a quotient of W_N^{−∞}, and ht(W_N/W_n) is increasing and bounded by ht(W_N^{−∞}) < ∞, so W_N/W_n and hence W_n are eventually constant. (ii) Alternatively one uses a presentation to reduce to W = V_d and induces on d, using that a sub-BC of V_1 is either V_1 or a finite dimensional Q_p-vector space; this proof applies verbatim to almost C-representations.",
       "hypotheses": [
-        "E=Q_p; C is a fixed complete algebraically closed nonarchimedean field with chosen untilt point ∞ on X_{C♭}. The sympathetic algebras have the two extra CN conditions (evaluation injective, separable); countability of O_C/p is used for sympathetic closure."
+        "E=Q_p. As in CN §1 and §1.3.3, C is the completion of an algebraic closure of a complete discretely valued field K of characteristic 0 whose perfect residue field is countable; hence O_C/p is countable, which CN use (footnote 6) to keep sympathetic closures separable and Hahn–Banach available. ∞ is the point of X_FF with residue field C, t=t_∞. Sympathetic algebras carry the two extra CN conditions (evaluation into C(Spm Λ,C) injective; separable). SW20 Definition 15.2.1 and Theorem 15.2.12 are stated for any algebraically closed nonarchimedean C/Q_p."
       ],
       "proofSteps": [
         "In a descending chain, nonnegative integer dimension stabilizes.",
@@ -3185,7 +3257,7 @@
       "kind": "theorem",
       "statement": "For a NONZERO sub-BC W⊂V_N which contains no subobject isomorphic to V₁, dim(W)<ht(W); all its BC HN slopes are <−1. The zero object has no slopes but does not satisfy the strict numerical inequality. Include finite Q_p summands (slope −∞) in the proof.",
       "hypotheses": [
-        "E=Q_p; C is a fixed complete algebraically closed nonarchimedean field with chosen untilt point ∞ on X_{C♭}. The sympathetic algebras have the two extra CN conditions (evaluation injective, separable); countability of O_C/p is used for sympathetic closure."
+        "E=Q_p. As in CN §1 and §1.3.3, C is the completion of an algebraic closure of a complete discretely valued field K of characteristic 0 whose perfect residue field is countable; hence O_C/p is countable, which CN use (footnote 6) to keep sympathetic closures separable and Hahn–Banach available. ∞ is the point of X_FF with residue field C, t=t_∞. Sympathetic algebras carry the two extra CN conditions (evaluation into C(Spm Λ,C) injective; separable). SW20 Definition 15.2.1 and Theorem 15.2.12 are stated for any algebraically closed nonarchimedean C/Q_p."
       ],
       "proofSteps": [
         "Decompose a nonzero subobject of V_N containing no V₁ into stable blocks; include the finite-Q_p boundary λ=0.",
@@ -3193,7 +3265,8 @@
         "Cokernel Dimension is (h−d,−h); nonnegative height in dimension zero forces h>d. Do not reverse the printed inequality."
       ],
       "acceptance": [
-        "Compare the Q_p, V₁, shifted O(−1), and other-untilt torsion cases; never infer curvature solely from height."
+        "Compare the Q_p, V₁, shifted O(−1), and other-untilt torsion cases; never infer curvature solely from height.",
+        "Concrete instances: U_{2,1}⊂V² has dim 1 < ht 2; the zero subobject satisfies the slope clause vacuously but not dim<ht."
       ],
       "prerequisites": [
         "VectorBundlesAndIsocrystals:VB3:general-BC/bc-hn-decomposition",
@@ -3221,7 +3294,7 @@
       "kind": "comparison",
       "statement": "For zero-map tilted-heart representatives E₋₁[1]⊕E₀ and F₋₁[1]⊕F₀, BC morphisms are triangular matrices with diagonal Hom(E₋₁,F₋₁), Hom(E₀,F₀) and off-diagonal Ext¹(E₀,F₋₁). End_BC(U_λ)=End(O(λ))=D_λ. For λ=d/h≥0 in lowest terms Hom_BC(U_λ,V₁) has C-dimension h with basis θ∘φ^i, 0≤i<h. All tensor multiplicities and Brauer signs are imported from the companion, not the unqualified rank-one-looking formula in the review paper.",
       "hypotheses": [
-        "E=Q_p; C is a fixed complete algebraically closed nonarchimedean field with chosen untilt point ∞ on X_{C♭}. The sympathetic algebras have the two extra CN conditions (evaluation injective, separable); countability of O_C/p is used for sympathetic closure."
+        "E=Q_p. As in CN §1 and §1.3.3, C is the completion of an algebraic closure of a complete discretely valued field K of characteristic 0 whose perfect residue field is countable; hence O_C/p is countable, which CN use (footnote 6) to keep sympathetic closures separable and Hahn–Banach available. ∞ is the point of X_FF with residue field C, t=t_∞. Sympathetic algebras carry the two extra CN conditions (evaluation into C(Spm Λ,C) injective; separable). SW20 Definition 15.2.1 and Theorem 15.2.12 are stated for any algebraically closed nonarchimedean C/Q_p."
       ],
       "proofSteps": [
         "Under the tilted-heart equivalence compute diagonal Hom and the off-diagonal Ext¹(E₀,F₋₁); the other off-diagonal term vanishes.",
@@ -3259,7 +3332,7 @@
       "kind": "comparison",
       "statement": "For x a closed point, F ↦ H^0(X,F) is an equivalence from torsion coherent sheaves supported at x to finite length B^+_dR(C_x)-modules; such a module is a sum of B_m(C_x) = B^+_dR(C_x)/t_x^m, and the sequence 0 → O --t_x^m--> O(m) → i_{x,*}B_m → 0 together with H^1(X,O) = 0 gives H^0(X,i_{x,*}B_m) = U_m/Q_p t_x^m. Hence End_BC(U_m/Q_p t_x^m) ≅ B_m(C_x), so for m = 1 the endomorphisms are C_x; and for x ≠ ∞, Hom_BC(U_1/Q_p t_x, V_1) = 0 because the two sheaves are supported at distinct points. In the case x = ∞, crucial for the paper's results, t_x = t and U_m/Q_p t^m = B_m, and the object of BC attached to a finite length B^+_dR-module M is simply M ⊗_{B^+_dR} B^+_dR.",
       "hypotheses": [
-        "E=Q_p; C is a fixed complete algebraically closed nonarchimedean field with chosen untilt point ∞ on X_{C♭}. The sympathetic algebras have the two extra CN conditions (evaluation injective, separable); countability of O_C/p is used for sympathetic closure."
+        "E=Q_p. As in CN §1 and §1.3.3, C is the completion of an algebraic closure of a complete discretely valued field K of characteristic 0 whose perfect residue field is countable; hence O_C/p is countable, which CN use (footnote 6) to keep sympathetic closures separable and Hahn–Banach available. ∞ is the point of X_FF with residue field C, t=t_∞. Sympathetic algebras carry the two extra CN conditions (evaluation into C(Spm Λ,C) injective; separable). SW20 Definition 15.2.1 and Theorem 15.2.12 are stated for any algebraically closed nonarchimedean C/Q_p."
       ],
       "proofSteps": [
         "Use the completed local DVR at x and finite-support coherent sheaves.",
@@ -3296,7 +3369,7 @@
       "kind": "comparison",
       "statement": "The functor M ↦ M ⊗_{B^+_dR} B^+_dR is an equivalence between the category of B^+_dR-modules of finite length and the subcategory of BC of objects of curvature 0.",
       "hypotheses": [
-        "E=Q_p; C is a fixed complete algebraically closed nonarchimedean field with chosen untilt point ∞ on X_{C♭}. The sympathetic algebras have the two extra CN conditions (evaluation injective, separable); countability of O_C/p is used for sympathetic closure."
+        "E=Q_p. As in CN §1 and §1.3.3, C is the completion of an algebraic closure of a complete discretely valued field K of characteristic 0 whose perfect residue field is countable; hence O_C/p is countable, which CN use (footnote 6) to keep sympathetic closures separable and Hahn–Banach available. ∞ is the point of X_FF with residue field C, t=t_∞. Sympathetic algebras carry the two extra CN conditions (evaluation into C(Spm Λ,C) injective; separable). SW20 Definition 15.2.1 and Theorem 15.2.12 are stated for any algebraically closed nonarchimedean C/Q_p."
       ],
       "proofSteps": [
         "The completed local DVR realizes finite-length BdR⁺ modules as torsion sheaves at ∞.",
@@ -3331,7 +3404,7 @@
       "kind": "theorem",
       "statement": "(i) The kernel and cokernel of a morphism of objects of curvature 0 are of curvature 0. (ii) If W is a torsion B^+_dR-Module, i.e. annihilated by t^r for some r ≥ 1, then Hom_VS(W,B^+_dR) = 0 and Hom_VS(W,B_dR) = 0. For (ii) one writes W = W ⊗_{B^+_dR} B^+_dR by Proposition 3.17 and computes Hom_VS(W,B^+_dR) = lim_k Hom_{B^+_dR}(W,B^+_dR/t^k) = Hom_{B^+_dR}(W,B^+_dR) = 0; for B_dR one uses that a BC of dimension 1 is a quotient of Q_p^r ⊕ L_ℓ for L_ℓ the Graph of an additive element, hence one of dimension d a quotient of Q_p^r ⊕ L_{ℓ_1} ⊕ ⋯ ⊕ L_{ℓ_d}, so that the image of any α : W → B_dR factors through t^{−N}B^+_dR for some N.",
       "hypotheses": [
-        "E=Q_p; C is a fixed complete algebraically closed nonarchimedean field with chosen untilt point ∞ on X_{C♭}. The sympathetic algebras have the two extra CN conditions (evaluation injective, separable); countability of O_C/p is used for sympathetic closure."
+        "E=Q_p. As in CN §1 and §1.3.3, C is the completion of an algebraic closure of a complete discretely valued field K of characteristic 0 whose perfect residue field is countable; hence O_C/p is countable, which CN use (footnote 6) to keep sympathetic closures separable and Hahn–Banach available. ∞ is the point of X_FF with residue field C, t=t_∞. Sympathetic algebras carry the two extra CN conditions (evaluation into C(Spm Λ,C) injective; separable). SW20 Definition 15.2.1 and Theorem 15.2.12 are stated for any algebraically closed nonarchimedean C/Q_p."
       ],
       "proofSteps": [
         "Curvature-zero kernels and cokernels follow from the finite-length equivalence.",
@@ -3367,7 +3440,7 @@
       "kind": "theorem",
       "statement": "(i) W is of curvature < 0 (resp. ≤ 0) if and only if W ≅ H^0(X,E) with E a vector bundle of slopes ≥ 0 (resp. the sum of such a bundle and a torsion sheaf supported at ∞). (ii) An extension of two BC's of curvature < 0 (resp. ≤ 0) is again of curvature < 0 (resp. ≤ 0).",
       "hypotheses": [
-        "E=Q_p; C is a fixed complete algebraically closed nonarchimedean field with chosen untilt point ∞ on X_{C♭}. The sympathetic algebras have the two extra CN conditions (evaluation injective, separable); countability of O_C/p is used for sympathetic closure."
+        "E=Q_p. As in CN §1 and §1.3.3, C is the completion of an algebraic closure of a complete discretely valued field K of characteristic 0 whose perfect residue field is countable; hence O_C/p is countable, which CN use (footnote 6) to keep sympathetic closures separable and Hahn–Banach available. ∞ is the point of X_FF with residue field C, t=t_∞. Sympathetic algebras carry the two extra CN conditions (evaluation into C(Spm Λ,C) injective; separable). SW20 Definition 15.2.1 and Theorem 15.2.12 are stated for any algebraically closed nonarchimedean C/Q_p."
       ],
       "proofSteps": [
         "Use the HN decomposition: negative BC slopes are H⁰ of nonnegative bundles, positive slopes are shifted negative bundles.",
@@ -3404,14 +3477,15 @@
       "kind": "theorem",
       "statement": "Curvature zero implies height zero; NONZERO strictly negative-curvature BC objects have strictly positive height; positive-curvature objects have height ≤0. A nonzero torsion object at x≠∞ has height zero and strictly positive curvature, so ≤ cannot be strengthened to <.",
       "hypotheses": [
-        "E=Q_p; C is a fixed complete algebraically closed nonarchimedean field with chosen untilt point ∞ on X_{C♭}. The sympathetic algebras have the two extra CN conditions (evaluation injective, separable); countability of O_C/p is used for sympathetic closure."
+        "E=Q_p. As in CN §1 and §1.3.3, C is the completion of an algebraic closure of a complete discretely valued field K of characteristic 0 whose perfect residue field is countable; hence O_C/p is countable, which CN use (footnote 6) to keep sympathetic closures separable and Hahn–Banach available. ∞ is the point of X_FF with residue field C, t=t_∞. Sympathetic algebras carry the two extra CN conditions (evaluation into C(Spm Λ,C) injective; separable). SW20 Definition 15.2.1 and Theorem 15.2.12 are stated for any algebraically closed nonarchimedean C/Q_p."
       ],
       "proofSteps": [
         "Apply the explicit support decomposition and Dimension on standard blocks.",
         "Strict positivity of height for strictly negative curvature requires W≠0; positive curvature only forces ht≤0."
       ],
       "acceptance": [
-        "Compare the Q_p, V₁, shifted O(−1), and other-untilt torsion cases; never infer curvature solely from height."
+        "Compare the Q_p, V₁, shifted O(−1), and other-untilt torsion cases; never infer curvature solely from height.",
+        "Concrete instances: B_m has height 0; Q_p has height 1>0; C/Q_p has height −1; U₁/Q_p t_x (x≠∞) has height 0 and curvature >0."
       ],
       "prerequisites": [
         "VectorBundlesAndIsocrystals:VB3:general-BC/curvature-hn-characterisation",
@@ -3438,7 +3512,7 @@
       "kind": "theorem",
       "statement": "Negative/nonpositive curvature is preserved by sub-BCs; positive/nonnegative curvature is preserved by quotients. A height-zero subobject of a nonpositive-curvature object has curvature zero. The printed dual quotient assertion is false: a height-zero quotient of a nonnegative-curvature BC has HN slope zero (torsion support), and has curvature zero if and only if its support is at ∞.",
       "hypotheses": [
-        "E=Q_p; C is a fixed complete algebraically closed nonarchimedean field with chosen untilt point ∞ on X_{C♭}. The sympathetic algebras have the two extra CN conditions (evaluation injective, separable); countability of O_C/p is used for sympathetic closure."
+        "E=Q_p. As in CN §1 and §1.3.3, C is the completion of an algebraic closure of a complete discretely valued field K of characteristic 0 whose perfect residue field is countable; hence O_C/p is countable, which CN use (footnote 6) to keep sympathetic closures separable and Hahn–Banach available. ∞ is the point of X_FF with residue field C, t=t_∞. Sympathetic algebras carry the two extra CN conditions (evaluation into C(Spm Λ,C) injective; separable). SW20 Definition 15.2.1 and Theorem 15.2.12 are stated for any algebraically closed nonarchimedean C/Q_p."
       ],
       "proofSteps": [
         "Use negative-curvature embeddings for subobjects and positive Hom vanishing for quotients.",
@@ -3446,7 +3520,8 @@
         "Correct the false quotient assertion: height-zero nonnegative-curvature quotients have HN slope zero, and curvature zero exactly when supported at ∞."
       ],
       "acceptance": [
-        "Compare the Q_p, V₁, shifted O(−1), and other-untilt torsion cases; never infer curvature solely from height."
+        "Compare the Q_p, V₁, shifted O(−1), and other-untilt torsion cases; never infer curvature solely from height.",
+        "Counterexample to the printed (iv): the identity quotient of U₁/Q_p t_x (x≠∞) has height 0 and curvature >0."
       ],
       "prerequisites": [
         "VectorBundlesAndIsocrystals:VB3:general-BC/curvature-hn-characterisation",
@@ -3473,7 +3548,7 @@
       "kind": "theorem",
       "statement": "A sub-BC U of a torsion B^+_dR-Module W satisfies ht(U) ≥ 0, and is itself a torsion B^+_dR-Module if and only if ht(U) = 0. This can also be proved without the Harder–Narasimhan decomposition, by induction on the length of W, using that a sub-BC of V_1 is either V_1 or a finite dimensional Q_p-vector space and that an extension of B^+_dR-Modules is one; that proof extends verbatim to almost C-representations, thanks to Proposition 2.5.",
       "hypotheses": [
-        "E=Q_p; C is a fixed complete algebraically closed nonarchimedean field with chosen untilt point ∞ on X_{C♭}. The sympathetic algebras have the two extra CN conditions (evaluation injective, separable); countability of O_C/p is used for sympathetic closure."
+        "E=Q_p. As in CN §1 and §1.3.3, C is the completion of an algebraic closure of a complete discretely valued field K of characteristic 0 whose perfect residue field is countable; hence O_C/p is countable, which CN use (footnote 6) to keep sympathetic closures separable and Hahn–Banach available. ∞ is the point of X_FF with residue field C, t=t_∞. Sympathetic algebras carry the two extra CN conditions (evaluation into C(Spm Λ,C) injective; separable). SW20 Definition 15.2.1 and Theorem 15.2.12 are stated for any algebraically closed nonarchimedean C/Q_p."
       ],
       "proofSteps": [
         "Apply the preceding subobject theorem to an affine torsion BdR⁺ object.",
@@ -3507,7 +3582,7 @@
       "kind": "theorem",
       "statement": "Let f : W_1 → W_2 be a morphism of BC's with W_2 a B^+_dR-Module whose image generates it as a B^+_dR-Module. Then coker(f), if nonzero, is of curvature > 0 and height < 0. One may assume f injective and not surjective; then W_1 = H^0(X,F_1), W_2 = H^0(X,F_2) with F_1, F_2 of vanishing H^1 and F_2 supported at ∞, and f induced by f_X : F_1 → F_2, which the generation hypothesis makes surjective and the injectivity makes H^0(X,ker f_X) = 0; vanishing of H^1(X,F_1) gives coker(f) ≅ H^1(X,ker f_X). Since F_1 is not torsion — else it would be supported at ∞, making W_1 a B^+_dR-module and f surjective — neither is ker f_X, and its H^0 being zero its slopes are < 0, whence the conclusion.",
       "hypotheses": [
-        "E=Q_p; C is a fixed complete algebraically closed nonarchimedean field with chosen untilt point ∞ on X_{C♭}. The sympathetic algebras have the two extra CN conditions (evaluation injective, separable); countability of O_C/p is used for sympathetic closure."
+        "E=Q_p. As in CN §1 and §1.3.3, C is the completion of an algebraic closure of a complete discretely valued field K of characteristic 0 whose perfect residue field is countable; hence O_C/p is countable, which CN use (footnote 6) to keep sympathetic closures separable and Hahn–Banach available. ∞ is the point of X_FF with residue field C, t=t_∞. Sympathetic algebras carry the two extra CN conditions (evaluation into C(Spm Λ,C) injective; separable). SW20 Definition 15.2.1 and Theorem 15.2.12 are stated for any algebraically closed nonarchimedean C/Q_p."
       ],
       "proofSteps": [
         "Replace the map by its image; realize both objects through the curve with vanishing H¹.",
@@ -3515,7 +3590,8 @@
         "The nonzero cokernel is H¹ of a negative vector bundle, hence positive-curvature and strictly negative height."
       ],
       "acceptance": [
-        "Compare the Q_p, V₁, shifted O(−1), and other-untilt torsion cases; never infer curvature solely from height."
+        "Compare the Q_p, V₁, shifted O(−1), and other-untilt torsion cases; never infer curvature solely from height.",
+        "Concrete instance: Q_p→B₁=C has image generating C as a BdR⁺-module and cokernel C/Q_p, of curvature >0 and height −1."
       ],
       "prerequisites": [
         "VectorBundlesAndIsocrystals:VB3:general-BC/curvature-hn-characterisation",
@@ -3543,7 +3619,7 @@
       "kind": "comparison",
       "statement": "For W ∈ BC the following are equivalent: (i) W is of curvature ≤ 0; (ii) there is an exact sequence (3.25) 0 → V → W → M → 0 with M of curvature 0 and V finite dimensional over Q_p. For (i)⇒(ii) one writes W = H^0(X,F_∞) ⊕ (⊕_{d_i/h_i≥0}U_{d_i/h_i}) and uses the sequences 0 → Q_p^{h_i} → U_{d_i/h_i} → B_{d_i} → 0, taking V = ⊕ Q_p^{h_i}; the converse is Corollary 3.19(ii).",
       "hypotheses": [
-        "E=Q_p; C is a fixed complete algebraically closed nonarchimedean field with chosen untilt point ∞ on X_{C♭}. The sympathetic algebras have the two extra CN conditions (evaluation injective, separable); countability of O_C/p is used for sympathetic closure."
+        "E=Q_p. As in CN §1 and §1.3.3, C is the completion of an algebraic closure of a complete discretely valued field K of characteristic 0 whose perfect residue field is countable; hence O_C/p is countable, which CN use (footnote 6) to keep sympathetic closures separable and Hahn–Banach available. ∞ is the point of X_FF with residue field C, t=t_∞. Sympathetic algebras carry the two extra CN conditions (evaluation into C(Spm Λ,C) injective; separable). SW20 Definition 15.2.1 and Theorem 15.2.12 are stated for any algebraically closed nonarchimedean C/Q_p."
       ],
       "proofSteps": [
         "Use 0→Q_p^h→U_{h,d}→B_d→0 on each nonnegative bundle block.",
@@ -3551,7 +3627,8 @@
         "The converse follows from extension closure."
       ],
       "acceptance": [
-        "Compare the Q_p, V₁, shifted O(−1), and other-untilt torsion cases; never infer curvature solely from height."
+        "Compare the Q_p, V₁, shifted O(−1), and other-untilt torsion cases; never infer curvature solely from height.",
+        "Concrete instance: 0→Q_p→U_{1,1}→B₁→0 presents U_{1,1} (curvature <0) as an extension of an affine object by Q_p."
       ],
       "prerequisites": [
         "VectorBundlesAndIsocrystals:VB3:general-BC/curvature-hn-characterisation",
@@ -3988,7 +4065,7 @@
     {
       "id": "G-ORDER",
       "title": "Atomic stage-order integration",
-      "detail": "Binding RS15 review accepted 2026-09-30 withholds the reversal general-BC→VB4. The node order is acyclic and uses VB4→positive resolutions→general two-term geometry, while early basic calculations feed VB1 twists. Never mechanically lift these node dependencies into the current stage graph. Apply the parent-stage narrowing and edge replacement atomically in a separate integration change.",
+      "detail": "Binding RS15 review accepted 2026-09-30 withholds the reversal general-BC→VB4. The node order is acyclic and uses VB4→positive resolutions→general two-term geometry, while early basic calculations feed VB1 twists. Never mechanically lift these node dependencies into the current stage graph. Apply the parent-stage narrowing and edge replacement atomically in a separate integration change. Red-team finding RT-AREA-padic-1/21 (independent review): this part is consistent with its acyclic order. The positive/basic nodes use only II.2.1 descent, the RF2 untilt nodes and the Lubin–Tate inputs (no II.2.6, II.2.9 or classification); projectivized properness uses II.2.6 from VB2:ampleness; the divisor comparison uses the geometric-point stage (II.2.9) of the companion; the RF3 global-map blocker itself is owned by the companion VB0 packet.",
       "neededBy": [
         "VectorBundlesAndIsocrystals:VB3:general-BC/positive-slope-resolution",
         "VectorBundlesAndIsocrystals:VB3:general-BC/strict-positive-etale-presentations",
@@ -4107,7 +4184,8 @@
       "need": "Taut partial properness, properness descent and valuative criteria of ECD 11.19,11.24,18.10; a surjective proper map is a v-cover on perfectoid geometric points, used by the nowhere-zero-section locus.",
       "neededBy": [
         "VectorBundlesAndIsocrystals:VB3:projectivized-properness/properness-of-projectivized-BC",
-        "VectorBundlesAndIsocrystals:VB4/relative-HN-filtration-and-proetale-splitting"
+        "VectorBundlesAndIsocrystals:VB4/relative-HN-filtration-and-proetale-splitting",
+        "VectorBundlesAndIsocrystals:VB3:projectivized-properness/contracting-action-lemma"
       ]
     },
     {
@@ -4210,6 +4288,14 @@
       "neededBy": [
         "VectorBundlesAndIsocrystals:VB4/integral-group-torsors"
       ]
+    },
+    {
+      "supplier": "PadicDifferentialEquationsAndRigidCohomology:RD.2",
+      "need": "For a perfect analytic field L over F_p, i.e. Kedlaya’s analytic rings with ℓ=L perfect: (a) for a φ^a-module M over ℛ̃^bd_L the special slope polygon (over ℛ̃_L) lies on or above the generic one (over ℰ̃_L), with the same endpoints; (b) if they coincide, the slope filtration of M⊗ℛ̃_L descends to M (KL15 Proposition 7.4.3, citing Ked05 Proposition 5.5.1 and Theorem 5.5.2). The RD.2 nodes special-polygon-above-generic and coincident-polygons-common-filtration are cited by id; this request asks that their stated generality cover perfect ℓ and the KL sign and order conventions.",
+      "neededBy": [
+        "VectorBundlesAndIsocrystals:VB4/robba-polygon-semicontinuity",
+        "VectorBundlesAndIsocrystals:VB4/constant-vertex-submodule"
+      ]
     }
   ],
   "restructure": [
@@ -4272,7 +4358,12 @@
       ],
       "origin": "PAPER-COLMEZ-NIZIOL-25/E2",
       "source": "CN25",
-      "attribution": "Inherited from the independently reviewed paper extraction; passages independently reread in this pass. Original review: REV-PAPER-COLMEZ-NIZIOL-25"
+      "attribution": "Inherited from the independently reviewed paper extraction; passages independently reread in this pass. Original review: REV-PAPER-COLMEZ-NIZIOL-25",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read at CN5.pdf p. 17 (page image checked): the proof states its goal as h>d and ends \"implies h < d, as wanted\". The injection U_λ↪V^h gives Dim coker=(h−d,−h), and Proposition 3.2(iii) forces h>d. Misprint; nothing else affected.",
+        "by": "REV-VectorBundlesAndIsocrystals--VB3"
+      }
     },
     {
       "id": "VectorBundlesAndIsocrystals/E17",
@@ -4291,7 +4382,12 @@
       ],
       "origin": "PAPER-COLMEZ-NIZIOL-25/E3",
       "source": "CN25",
-      "attribution": "Inherited from the independently reviewed paper extraction; passages independently reread in this pass. Original review: REV-PAPER-COLMEZ-NIZIOL-25"
+      "attribution": "Inherited from the independently reviewed paper extraction; passages independently reread in this pass. Original review: REV-PAPER-COLMEZ-NIZIOL-25",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read at p. 18 with footnote 9. U₁/Q_p t_x (x≠∞) has curvature >0, hence ≥0, height 0, and is its own quotient, but it is not affine (Hom to V₁ is 0 by §3.2.7). The corrected statement follows from (3.14): a height-0 quotient of a curvature ≥0 object has only torsion summands.",
+        "by": "REV-VectorBundlesAndIsocrystals--VB3"
+      }
     },
     {
       "id": "VectorBundlesAndIsocrystals/E18",
@@ -4310,7 +4406,12 @@
       ],
       "origin": "PAPER-COLMEZ-NIZIOL-25/E25",
       "source": "CN25",
-      "attribution": "Inherited from the independently reviewed paper extraction; passages independently reread in this pass. Original review: REV-PAPER-COLMEZ-NIZIOL-25"
+      "attribution": "Inherited from the independently reviewed paper extraction; passages independently reread in this pass. Original review: REV-PAPER-COLMEZ-NIZIOL-25",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read at p. 17: the displayed Hom uses B_m on both sides for the m=1 object U₁/Q_p t_x. Index misprint; the vanishing holds for any indices.",
+        "by": "REV-VectorBundlesAndIsocrystals--VB3"
+      }
     },
     {
       "id": "VectorBundlesAndIsocrystals/E19",
@@ -4329,7 +4430,12 @@
       ],
       "origin": "PAPER-COLMEZ-NIZIOL-25/E31",
       "source": "CN25",
-      "attribution": "Inherited from the independently reviewed paper extraction; passages independently reread in this pass. Original review: REV-PAPER-COLMEZ-NIZIOL-25"
+      "attribution": "Inherited from the independently reviewed paper extraction; passages independently reread in this pass. Original review: REV-PAPER-COLMEZ-NIZIOL-25",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read at p. 18: W=0 has curvature <0 and height 0. Nonzero hypothesis needed; the node carries it.",
+        "by": "REV-VectorBundlesAndIsocrystals--VB3"
+      }
     },
     {
       "id": "VectorBundlesAndIsocrystals/E20",
@@ -4348,7 +4454,12 @@
       ],
       "origin": "PAPER-COLMEZ-NIZIOL-25/E32",
       "source": "CN25",
-      "attribution": "Inherited from the independently reviewed paper extraction; passages independently reread in this pass. Original review: REV-PAPER-COLMEZ-NIZIOL-25"
+      "attribution": "Inherited from the independently reviewed paper extraction; passages independently reread in this pass. Original review: REV-PAPER-COLMEZ-NIZIOL-25",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read at p. 17: Q_p=U₀ ⊂ V₁ ⊂ V_N contains no V₁ and is a possible summand of a sub-BC of V_N; the reduction to λ>0 omits it. The conclusion holds trivially for it, so only the proof is affected.",
+        "by": "REV-VectorBundlesAndIsocrystals--VB3"
+      }
     },
     {
       "id": "VectorBundlesAndIsocrystals/E21",
@@ -4365,7 +4476,12 @@
       ],
       "origin": "PAPER-KEDLAYA-LIU-15/E51",
       "source": "KL15",
-      "attribution": "Inherited from the independently reviewed paper extraction; passages independently reread in this pass. Original review: REV-PAPER-KEDLAYA-LIU-15"
+      "attribution": "Inherited from the independently reviewed paper extraction; passages independently reread in this pass. Original review: REV-PAPER-KEDLAYA-LIU-15",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read at KL p. 146: the printed definition of F_{l+1} uses φ^a(U_l); with U_{l+1}=U_l(1+Z_l) the displayed right-hand side equals U_{l+1}^{−1}Fφ^a(U_{l+1}). Index misprint.",
+        "by": "REV-VectorBundlesAndIsocrystals--VB3"
+      }
     },
     {
       "id": "VectorBundlesAndIsocrystals/E22",
@@ -4383,7 +4499,12 @@
       ],
       "origin": "PAPER-KEDLAYA-LIU-15/E64",
       "source": "KL15",
-      "attribution": "Inherited from the independently reviewed paper extraction; passages independently reread in this pass. Original review: REV-PAPER-KEDLAYA-LIU-15"
+      "attribution": "Inherited from the independently reviewed paper extraction; passages independently reread in this pass. Original review: REV-PAPER-KEDLAYA-LIU-15",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read at KL p. 173: the loci belong to M, and partial properness (Definition 8.2.11, p. 160) is set up for adic Banach rings over an analytic field. Misprint plus the needed scope.",
+        "by": "REV-VectorBundlesAndIsocrystals--VB3"
+      }
     },
     {
       "id": "VectorBundlesAndIsocrystals/E23",
@@ -4391,7 +4512,7 @@
       "locator": "Example 8.5.17, first paragraph, p. 174 (arXiv 1301.0792v5)",
       "printed": "It defines σq : B2 → B1 using the substitution T ↦ q²T.",
       "correction": "Let σ_q : B_1 → B_2 be the substitution T ↦ q²T (an isomorphism from the ring of the circle |T| = ω² onto that of |T| = 1); equivalently, B_2 → B_1 is T ↦ q^{−2}T.",
-      "reason": "In B_1 = K{ω²/T, T/ω²} one has |T| = ω², so a map B_2 → B_1 with T ↦ q²T would send the power-bounded unit T^{−1} of B_2 = K{1/T, T} to q^{−2}T^{−1}, of norm ω^{−4} > 1; it is not a bounded homomorphism. The example later uses σ_q in the direction B_1 → B_2: 'x2 = pσq(x1) ∈ ẼS2 = W(S2)[p−1]' with x_1 ∈ ℰ̃_{S_1}.",
+      "reason": "In B_1 = K{ω²/T, T/ω²} one has |T| = ω², so a map B_2 → B_1 with T ↦ q²T would send the power-bounded unit T^{−1} of B_2 = K{1/T, T} to q^{−2}T^{−1}, of norm ω^{−4} > 1; it is not a bounded homomorphism. The example subsequently uses σ_q in the direction B_1 → B_2: 'x2 = pσq(x1) ∈ ẼS2 = W(S2)[p−1]' with x_1 ∈ ℰ̃_{S_1}.",
       "affects": "nothing",
       "known": "new",
       "searched": [
@@ -4401,7 +4522,12 @@
       ],
       "origin": "PAPER-KEDLAYA-LIU-15/E65",
       "source": "KL15",
-      "attribution": "Inherited from the independently reviewed paper extraction; passages independently reread in this pass. Original review: REV-PAPER-KEDLAYA-LIU-15"
+      "attribution": "Inherited from the independently reviewed paper extraction; passages independently reread in this pass. Original review: REV-PAPER-KEDLAYA-LIU-15",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read at KL p. 174: T ↦ q²T sends the power-bounded unit T^{−1} of B₂ to q^{−2}T^{−1}, of norm ω^{−4}>1 in B₁, so it is not a bounded map B₂→B₁; the example itself applies σ_q from S₁ to S₂.",
+        "by": "REV-VectorBundlesAndIsocrystals--VB3"
+      }
     },
     {
       "id": "VectorBundlesAndIsocrystals/E24",
@@ -4419,7 +4545,12 @@
       ],
       "origin": "PAPER-KEDLAYA-LIU-15/E66",
       "source": "KL15",
-      "attribution": "Inherited from the independently reviewed paper extraction; passages independently reread in this pass. Original review: REV-PAPER-KEDLAYA-LIU-15"
+      "attribution": "Inherited from the independently reviewed paper extraction; passages independently reread in this pass. Original review: REV-PAPER-KEDLAYA-LIU-15",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read at KL p. 174: no space X is defined; the next sentence says the curve is over K.",
+        "by": "REV-VectorBundlesAndIsocrystals--VB3"
+      }
     },
     {
       "id": "VectorBundlesAndIsocrystals/E25",
@@ -4437,7 +4568,12 @@
       ],
       "origin": "PAPER-KEDLAYA-LIU-15/E67",
       "source": "KL15",
-      "attribution": "Inherited from the independently reviewed paper extraction; passages independently reread in this pass. Original review: REV-PAPER-KEDLAYA-LIU-15"
+      "attribution": "Inherited from the independently reviewed paper extraction; passages independently reread in this pass. Original review: REV-PAPER-KEDLAYA-LIU-15",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read at KL p. 175: the text prints Ẽ^bd_X; the rings of Theorems 8.5.8 and 8.5.12 are ℰ̃, ℛ̃^bd, ℛ̃.",
+        "by": "REV-VectorBundlesAndIsocrystals--VB3"
+      }
     },
     {
       "id": "VectorBundlesAndIsocrystals/E26",
@@ -4455,7 +4591,12 @@
       ],
       "origin": "PAPER-KEDLAYA-LIU-15/E68",
       "source": "KL15",
-      "attribution": "Inherited from the independently reviewed paper extraction; passages independently reread in this pass. Original review: REV-PAPER-KEDLAYA-LIU-15"
+      "attribution": "Inherited from the independently reviewed paper extraction; passages independently reread in this pass. Original review: REV-PAPER-KEDLAYA-LIU-15",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read at KL pp. 149, 172–175. Remark 7.3.5 claims (c)⇏(a) over the rings ℰ̃_R, ℛ̃^bd_R, but Example 8.5.18 only produces modules over the sheaves, and Remark 8.5.10 with Example 8.5.17 shows such modules need not descend. Gap in the proof of the ring-level claim; the packet keeps the sheaf-level statement and records G-PATCH.",
+        "by": "REV-VectorBundlesAndIsocrystals--VB3"
+      }
     },
     {
       "id": "VectorBundlesAndIsocrystals/E27",
@@ -4473,7 +4614,12 @@
       ],
       "origin": "PAPER-KEDLAYA-LIU-15/E78",
       "source": "KL15",
-      "attribution": "Inherited from the independently reviewed paper extraction; passages independently reread in this pass. Original review: REV-PAPER-KEDLAYA-LIU-15"
+      "attribution": "Inherited from the independently reviewed paper extraction; passages independently reread in this pass. Original review: REV-PAPER-KEDLAYA-LIU-15",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read at KL pp. 105–106, 147–149, 184–186. Convention 4.1.13 divides the degree of a φ^d-module by d, and Definition 7.3.4 defines slope as c/d for a (c,d)-pure model. M(1) has p·φ^a preserving an étale model, so it is (1,a)-pure of slope 1/a. The printed \"slope 1\" holds only for a=1; ampleness conclusions are unaffected.",
+        "by": "REV-VectorBundlesAndIsocrystals--VB3"
+      }
     },
     {
       "id": "VectorBundlesAndIsocrystals/E28",
@@ -4491,7 +4637,12 @@
         "Web search on 2026-10-06 for author errata and the exact proposition; no published correction located for the read author version."
       ],
       "origin": "RS-15 accepted restructuring correction",
-      "attribution": "Previously recorded in the binding RS-15 result; the source passage and rank/degree computation were reread here."
+      "attribution": "Previously recorded in the binding RS-15 result; the source passage and rank/degree computation were reread here.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read at FS p. 75 (author PDF; also arXiv 2102.13459v4, p. 75): \"semistable of degree 1/r\". F has rank dr and degree d, so slope 1/r is meant; II.3.3(i) prints \"slope\".",
+        "by": "REV-VectorBundlesAndIsocrystals--VB3"
+      }
     },
     {
       "id": "VectorBundlesAndIsocrystals/E29",
@@ -4507,7 +4658,12 @@
         "The exact author-hosted PDF listed in sourceVersions, read 2026-10-06.",
         "Existing atlas paper extraction sourceIssues and RS15 corrections.",
         "Web search on 2026-10-06 for author errata and the exact proposition; no published correction located for the read author version."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read at FS p. 77 (author PDF; also arXiv v4): O(1/r) has rank r and degree 1, so 0→G→O(1/r)^m→E→0 with G of slope 0 and deg E=d forces m=d. Misprint in the proof.",
+        "by": "REV-VectorBundlesAndIsocrystals--VB3"
+      }
     },
     {
       "id": "VectorBundlesAndIsocrystals/E30",
@@ -4523,7 +4679,75 @@
         "The exact author-hosted PDF listed in sourceVersions, read 2026-10-06.",
         "Existing atlas paper extraction sourceIssues and RS15 corrections.",
         "Web search on 2026-10-06 for author errata and the exact lemma/proposition; no correction located. Published CN text is paywalled and not read, so the finding is scoped to CN5.pdf."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read at CN5.pdf pp. 16–17: the zero sub-BC contains no V₁ and has dim=ht=0. The strict inequality needs W≠0; the slope clause holds vacuously.",
+        "by": "REV-VectorBundlesAndIsocrystals--VB3"
+      }
+    },
+    {
+      "id": "VectorBundlesAndIsocrystals/E31",
+      "source": "CN25",
+      "kind": "error",
+      "locator": "CN author copy CN5.pdf, §3.2.6(2), p. 17",
+      "printed": "The source gives O(λ1)⊗O(λ2) = O(λ1+λ2)^{n(λ1,λ2)}, with n(λ1,λ2) = (h1/h2)h. It also states Hom(O(λ1),O(λ2)) = Hom(O, O(λ2−λ1)).",
+      "correction": "n(λ1,λ2) = h1h2/h; and Hom(O(λ1),O(λ2)) = H⁰(O(λ1)^∨⊗O(λ2)) = H⁰(O(λ2−λ1))^{n(−λ1,λ2)}, which equals Hom(O,O(λ2−λ1)) only when h1h2 equals the denominator of λ2−λ1 (for instance when λ1 is an integer).",
+      "reason": "Ranks: O(λ1)⊗O(λ2) has rank h1h2 and each copy of O(λ1+λ2) has rank h, so n=h1h2/h. For λ1=λ2=1/2 one has O(1/2)⊗O(1/2)≅O(1)^4, while the printed formula gives n=(2/2)·1=1. For the Hom formula, Hom(O(1/2),O(1/2))=End(O(1/2)) is the quaternion algebra D_{1/2}, of Q_p-dimension 4, whereas Hom(O,O)=Q_p. The surrounding text (End_BC(U_λ)=D_λ in item (1)) is correct.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "arXiv:2108.12785: v4 (2024-11-25) is the latest version (arXiv API, 2026-10-06); CN5.pdf, the author copy read here, is textually identical to v4 per the inherited CN extraction searches",
+        "the sourceIssues of PAPER-COLMEZ-NIZIOL-25 and of this packet (E16–E20, E30): this passage is not recorded there",
+        "the published version, Duke Math. J. 174 (2025), is paywalled and was not read; the finding is scoped to the author copy"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Found by this review at the page image of CN5.pdf p. 17; the rank count and the O(1/2) example settle it. The packet already avoided the formula (bc-morphism-calculus imports multiplicities from the companion) without recording it.",
+        "by": "REV-VectorBundlesAndIsocrystals--VB3"
+      }
+    },
+    {
+      "id": "VectorBundlesAndIsocrystals/E32",
+      "source": "FS-geometrization",
+      "kind": "misprint",
+      "locator": "FS proof of Proposition II.3.5, p. 80 (author PDF; same text in arXiv 2102.13459v4)",
+      "printed": "The source asserts exactness of 0 → BC(E′1[1]) → BC(OXS(−1/r)^m[1]) → BC(G[1]), with G everywhere semistable of slope 1/(2r). It then claims separatedness of BC(G[1]) over S using pro-étale descent and Proposition II.2.5 (i).",
+      "correction": "The third term is BC(G^∨[1]), with G^∨ semistable of slope −1/(2r): Corollary II.3.3(iv) is applied to the dual of E′1, giving 0→G→O(1/r)^m→E′→0 with G of slope 1/(2r), and dualizing gives 0→E′^∨→O(−1/r)^m→G^∨→0.",
+      "reason": "BC(−[1]) is defined only for bundles with negative slopes, and the cited Proposition II.2.5(i) concerns λ<0. A positive-slope G would have no negative Banach–Colmez space and H¹ vanishing locally, so the displayed separatedness argument only makes sense for G^∨.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "arXiv 2102.13459: v4 (2024-11-27, \"accepted version\") read at this passage, SHA-256 1f8040751d3424f59ae56651d990d7b2d5030e6b7cae58bc2fc683358dfc2027; the author PDF listed in sourceVersions read at p. 80",
+        "the sourceIssues of this packet (E28, E29) and of the companion VB0 packet: not recorded",
+        "the published Astérisque version was not consulted"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Found by this review; the sign follows from dualizing the II.3.3(iv) sequence, as the use of II.2.5(i) requires.",
+        "by": "REV-VectorBundlesAndIsocrystals--VB3"
+      }
+    },
+    {
+      "id": "VectorBundlesAndIsocrystals/E33",
+      "source": "SW20",
+      "kind": "misprint",
+      "locator": "SW20, discussion after Definition 15.2.11, book p. 139 (PDF p. 149)",
+      "printed": "The source says that λ = −1 yields BC(OXFF(−1)) = Ga,C/Qp and describes this space as interesting.",
+      "correction": "BC(O_XFF(−1)[1]) = G_{a,C}/Q_p.",
+      "reason": "BC(O(−1)) is the H⁰ sheaf, which is zero since O(−1) has negative slope; the displayed sequence 0→BC(O(λ+1))→G_a^r→BC(O(λ)[1])→0 with λ=−1, r=1 gives G_a/Q_p as the shifted space BC(O(−1)[1]) of Definition 15.2.11.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "the author-hosted PDF dated 27 March 2020 listed in sourceVersions",
+        "Scholze's homepage (people.mpim-bonn.mpg.de/scholze/, fetched 2026-10-06): no errata list linked",
+        "the published Annals of Mathematics Studies 207 edition was not consulted"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Found by this review while checking AbstractBCTest.quotient, which uses the corrected identity.",
+        "by": "REV-VectorBundlesAndIsocrystals--VB3"
+      }
     }
   ],
   "sourceVersions": [
@@ -5036,5 +5260,393 @@
       "roadmap": "VectorBundlesAndIsocrystalsPartII",
       "detail": "CN §3.3 h(W)=Hom_VS(W,BdR), its Ext correction and rank=height theorem belong to accepted routed items331–333 in PartII. The parent supplies BC, Le Bras, curvature and Hom vanishing only. No duplicate h construction is planned here."
     }
-  ]
+  ],
+  "review": {
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-VectorBundlesAndIsocrystals--VB3",
+    "date": "2026-10-06",
+    "notes": "Independent review by Claude (session claude-u5DWGl) of the Codex blueprint (codex-tqenam, PR #6708). All 76 nodes checked against the seven hash-matching public sources (28 verified, 48 corrected, 0 added); all 13 baseline declarations confirmed at Mathlib 082e2d3 and Tau Ceti f790474. Corrections: statements of strict-positive-etale-presentations (fibrewise semistable kernels), absolute-BC-spatiality (spatial diamonds, smooth quotients, misread Frob^N hypothesis, missing negative-case argument), punctured-absolute-quotients (garbled representability clause), CN standing hypothesis on C (25 nodes); seven wrong excerpts (three FS II.2.19–20 excerpts quoted the introduction or another section, two KL excerpts quoted other results); missing direct prerequisites on 16 nodes, including Kedlaya’s special-above-generic polygon theorem (cited as RD.2 nodes, with a request); three API items added. Combined VB0+VB3 node graph acyclic. All 15 sourceIssues confirmed; E31–E33 added (CN §3.2.6 tensor multiplicity, FS II.3.5 slope sign, SW p. 139 shift). check_blueprint: 0 errors, 0 warnings; the suggested file was updated to match and elaborates with admitted-proof warnings only. Verdict needs_changes only because the reader document, which is not among this review’s deliverables, still states the uncorrected text at the places listed in the review report; a revision must synchronize it. The ten recorded gaps and five planned stages are honest and do not by themselves block acceptance. RT-AREA-padic-1/21 is handled correctly at node level.",
+    "checked": [
+      {
+        "nodeId": "VectorBundlesAndIsocrystals:VB3:positive-basic-examples/banach-colmez-space-definition",
+        "verdict": "corrected",
+        "note": "API: added BC.module (the E-module structure projectivization uses) and BC.exactSequence (the long exact sequences every proof in II.3 uses)."
+      },
+      {
+        "nodeId": "VectorBundlesAndIsocrystals:VB3:positive-basic-examples/lubin-tate-universal-cover",
+        "verdict": "verified",
+        "note": "Statement, normalization (F=σ/π, O(1) from (E,π^{-1})), equal-characteristic recurrence r_i=r_{i+1}^q and logarithm formula checked at FS pp. 58–60; SW13 Theorem A, Prop. 3.1.3(iii), Lemma 3.5.1 read at arXiv v2. The φ=π Hom identity remains G-LT as recorded."
+      },
+      {
+        "nodeId": "VectorBundlesAndIsocrystals:VB3:positive-basic-examples/fundamental-exact-sequence",
+        "verdict": "verified",
+        "note": "Checked at FS pp. 60–61: E_∞ hypothesis, simple zeros of the logarithm at the Spa E_n, Spd E_∞ → Spd E → Spd E/φ^Z, Artin map via Lubin–Tate. Uses only RF2 untilt nodes, no ampleness or classification."
+      },
+      {
+        "nodeId": "VectorBundlesAndIsocrystals:VB3:projectivized-properness/properness-of-projectivized-BC",
+        "verdict": "verified",
+        "note": "Checked at FS p. 72: presentation via II.2.6 with n,n′>0, closed embedding into BC(O(n))^m, reduction to π^Z by ECD 11.24, Lemma II.2.17. Classification-free as the stage requires; the quantitative contraction check is G-CONTRACT."
+      },
+      {
+        "nodeId": "VectorBundlesAndIsocrystals:VB3:projectivized-properness/contracting-action-lemma",
+        "verdict": "corrected",
+        "note": "added prerequisites DiamondEtaleCohomology:C4; added the C4 request (taut spaces, ECD 18.10) for the tautness notion the statement uses."
+      },
+      {
+        "nodeId": "VectorBundlesAndIsocrystals:VB3:general-BC/positive-slope-resolution",
+        "verdict": "corrected",
+        "note": "added prerequisites VB3:positive-basic-examples/fundamental-exact-sequence, VB4/semicontinuity-of-HN-polygon; moved the II.3.3(ii) proof step and acceptance item to the node that states (ii); recorded the field-case and semicontinuity steps of FS p. 76."
+      },
+      {
+        "nodeId": "VectorBundlesAndIsocrystals:VB3:general-BC/families-of-banach-colmez-spaces",
+        "verdict": "verified",
+        "note": "Checked at FS pp. 79–81 including the positivity needed for exactness of 0→BC(E₀)→BC→BC(E₁[1])→0. The printed slope sign of G in the proof is recorded as E32."
+      },
+      {
+        "nodeId": "VectorBundlesAndIsocrystals:VB3:general-BC/absolute-BC-spatiality",
+        "verdict": "corrected",
+        "note": "added prerequisites VB3:projectivized-properness/contracting-action-lemma, VB4/relative-HN-filtration-and-proetale-splitting, DiamondsAndVStacks:D3/locally-profinite-torsors; statement: punctured spaces are spatial DIAMONDS (FS II.3.7(i)) and the E^×-quotients are also cohomologically smooth (II.3.7(ii)); corrected the misread hypothesis that U = Frob^N holds only after base change; added the negative-case diamond argument of FS p. 83, which uses II.2.19."
+      },
+      {
+        "nodeId": "VectorBundlesAndIsocrystals:VB4/semicontinuity-of-HN-polygon",
+        "verdict": "corrected",
+        "note": "added prerequisites VB2:classification/dieudonne-manin-classification-of-bundles, VB2:classification/HN-filtration-base-change; excerpt was Theorem II.0.5 of the introduction, now II.2.19(i); the convex-hull description of the polygon uses the classification at geometric points, so that prerequisite is added and the acceptance item claiming independence from II.2.14 is corrected (the stage text requires classification-independence of the properness proof only)."
+      },
+      {
+        "nodeId": "VectorBundlesAndIsocrystals:VB4/relative-HN-filtration-and-proetale-splitting",
+        "verdict": "corrected",
+        "note": "added prerequisites VB1/cohomology-of-twists, VB1/v-descent-for-bundles-and-cohomology; excerpt was from the introduction (II.0.5), now II.2.19(ii); proof step no longer speaks of a \"trivial rank-one subbundle\" (O(λ) has rank the denominator of λ); added the II.2.5 and v-descent inputs the proof cites."
+      },
+      {
+        "nodeId": "VectorBundlesAndIsocrystals:VB4/slope-zero-local-systems",
+        "verdict": "corrected",
+        "note": "added prerequisites VB1/cohomology-of-twists; excerpt was another passage quoting II.2.20, now the corollary itself; H⁰(X_S,O)=E corrected to underline E(S) (as RS-15 requires); added II.2.5 (cohomology-of-twists)."
+      },
+      {
+        "nodeId": "VectorBundlesAndIsocrystals:VB3:general-BC/strict-positive-etale-presentations",
+        "verdict": "corrected",
+        "note": "added prerequisites VB3:projectivized-properness/properness-of-projectivized-BC, VB2:classification/dieudonne-manin-classification-of-bundles, VB4/semicontinuity-of-HN-polygon; statement: \"G of slope zero\" etc. corrected to fibrewise semistable of the stated slope, as FS II.3.2–II.3.3 state; the open locus BC(E′)⊃U uses II.2.16, the diagonal basis uses II.2.14."
+      },
+      {
+        "nodeId": "VectorBundlesAndIsocrystals:VB4/relative-cohomology-vanishing",
+        "verdict": "verified",
+        "note": "Matches FS II.3.4(i)–(iii), p. 79, including the pro-étale cover in (ii) and the étale cover valid for every affinoid T in (iii)."
+      },
+      {
+        "nodeId": "VectorBundlesAndIsocrystals:VB3:general-BC/divisor-section-comparison",
+        "verdict": "corrected",
+        "note": "added prerequisites VB4/relative-HN-filtration-and-proetale-splitting, VB2:ampleness/schematic-curve-at-a-geometric-point, VB1/cohomology-of-twists, DiamondsAndVStacks:D3/locally-profinite-torsors; added the converse (every relative Cartier divisor comes from a section, via II.2.19) and the II.2.9 factorisation as explicit steps with their prerequisites; restated the diamond conclusion as FS gives it."
+      },
+      {
+        "nodeId": "VectorBundlesAndIsocrystals:VB3:general-BC/punctured-absolute-quotients",
+        "verdict": "corrected",
+        "note": "statement: the garbled clause \"BC(O(d))/E×→Div^d is representable\" replaced by FS Remark II.3.10 (the morphism (BC(O(d))∖{0})/π^Z → ∗ is representable in spatial diamonds); the non-perfectoid clause is now sourced at FS p. 71 and scoped to p-adic E."
+      },
+      {
+        "nodeId": "VectorBundlesAndIsocrystals:VB3:general-BC/negative-quaternion-example",
+        "verdict": "corrected",
+        "note": "added prerequisites VB4/relative-HN-filtration-and-proetale-splitting, DiamondsAndVStacks:D3/locally-profinite-torsors; statement: the SL₁(D) quotient is absolute (no C needed); the base change to C is a separate clause. Added II.2.19 and torsor prerequisites (FS: \"here we use Theorem II.2.19\")."
+      },
+      {
+        "nodeId": "VectorBundlesAndIsocrystals:VB3:general-BC/negative-sl2-example",
+        "verdict": "corrected",
+        "note": "added prerequisites VB4/relative-HN-filtration-and-proetale-splitting, DiamondsAndVStacks:D3/locally-profinite-torsors; statement made absolute as in FS Example II.3.13; added the II.2.19/torsor prerequisites for the trivialization of the geometrically trivial middle term."
+      },
+      {
+        "nodeId": "VectorBundlesAndIsocrystals:VB4/annular-basis-approximation",
+        "verdict": "verified",
+        "note": "Matches KL Lemmas 7.1.1–7.1.2, pp. 145–146, with the bounds on U−1 and D^{-1}UD−1; misprint E21 confirmed."
+      },
+      {
+        "nodeId": "VectorBundlesAndIsocrystals:VB4/pure-models",
+        "verdict": "corrected",
+        "note": "removed a duplicated, truncated sentence at the start of the statement."
+      },
+      {
+        "nodeId": "VectorBundlesAndIsocrystals:VB4/pure-model-trivialization",
+        "verdict": "verified",
+        "note": "Matches KL Proposition 7.3.6, p. 149: completed direct limit of faithfully finite étale subalgebras, basis fixed by p^cφ^d over W(S) or ℛ̃^int_S."
+      },
+      {
+        "nodeId": "VectorBundlesAndIsocrystals:VB4/purity-openness",
+        "verdict": "verified",
+        "note": "Matches KL Theorem 7.3.7 and Corollaries 7.3.8–7.3.10, pp. 150–151."
+      },
+      {
+        "nodeId": "VectorBundlesAndIsocrystals:VB4/diagonal-gauge-normal-form",
+        "verdict": "verified",
+        "note": "Matches KL Lemma 7.4.4, pp. 152–153, including the union (not completed union) refinement."
+      },
+      {
+        "nodeId": "VectorBundlesAndIsocrystals:VB4/robba-polygon-semicontinuity",
+        "verdict": "corrected",
+        "note": "added prerequisites PadicDifferentialEquationsAndRigidCohomology:RD.2/special-polygon-above-generic, VB2:classification/dieudonne-manin-classification-of-bundles, VB1/robba-bundle-equivalence, VB2:classification/HN-filtration-base-change; proof steps rewritten to KL's actual route (4.2.16, 7.1.2, 7.4.4, 7.4.3(a)); the old exterior-power step is not in the source. Added the special-above-generic polygon theorem (Kedlaya's specialization, planned as RD.2/special-polygon-above-generic for Kedlaya's analytic rings, which include perfect ℓ) and the geometric-point classification."
+      },
+      {
+        "nodeId": "VectorBundlesAndIsocrystals:VB4/bounded-polygons-dense-locus",
+        "verdict": "verified",
+        "note": "Matches KL Proposition 7.4.6 and Corollary 7.4.7, pp. 153–154; the lower bound −N/a uses Proposition 6.2.4 (quantitative-global-generation)."
+      },
+      {
+        "nodeId": "VectorBundlesAndIsocrystals:VB4/constant-vertex-submodule",
+        "verdict": "corrected",
+        "note": "added prerequisites PadicDifferentialEquationsAndRigidCohomology:RD.2/coincident-polygons-common-filtration, VB4/diagonal-gauge-normal-form; added Lemma 7.4.4 and the field case of the descended slope splitting ([83, Theorem 5.5.2], planned as RD.2/coincident-polygons-common-filtration), both used in KL's proof of 7.4.9."
+      },
+      {
+        "nodeId": "VectorBundlesAndIsocrystals:VB4/robba-constant-polygon-filtration",
+        "verdict": "verified",
+        "note": "Matches KL Corollary 7.4.10, p. 155 (induction on rank via 7.4.9)."
+      },
+      {
+        "nodeId": "VectorBundlesAndIsocrystals:VB4/negative-frobenius-cohomology-detection",
+        "verdict": "corrected",
+        "note": "added prerequisites VB4/constant-vertex-submodule, VB1/robba-bundle-equivalence, VB1/cohomology-of-twists; added Theorem 7.4.9 (used directly) and the fibre vanishing H⁰=0 for negative slopes (KL Theorem 4.2.12, via the bundle comparison and II.2.5(i))."
+      },
+      {
+        "nodeId": "VectorBundlesAndIsocrystals:VB4/ring-sheaf-frobenius-comparison",
+        "verdict": "verified",
+        "note": "Matches KL Remark 8.5.10, p. 172: fully faithful for all three rings, an equivalence for ℛ̃ only."
+      },
+      {
+        "nodeId": "VectorBundlesAndIsocrystals:VB4/adic-purity-loci",
+        "verdict": "verified",
+        "note": "Matches KL Lemma 8.5.11, p. 173, with misprint E22 recorded in the statement."
+      },
+      {
+        "nodeId": "VectorBundlesAndIsocrystals:VB4/pure-modules-local-systems",
+        "verdict": "verified",
+        "note": "Matches KL Theorem 8.5.12, p. 173 (via 8.3.5 and 8.5.8)."
+      },
+      {
+        "nodeId": "VectorBundlesAndIsocrystals:VB4/purity-denominator-independence",
+        "verdict": "verified",
+        "note": "Matches KL Corollary 8.5.13, p. 173; the Hilbert 90 reindexing is Definition 8.5.7."
+      },
+      {
+        "nodeId": "VectorBundlesAndIsocrystals:VB4/all-rings-pointwise-purity",
+        "verdict": "verified",
+        "note": "Matches KL Corollary 8.5.14, p. 173, including the cyclic-vector argument over ℰ̃_R and ℛ̃^bd_R."
+      },
+      {
+        "nodeId": "VectorBundlesAndIsocrystals:VB4/surjective-purity-descent",
+        "verdict": "verified",
+        "note": "Matches KL Corollaries 8.5.15–8.5.16, p. 174."
+      },
+      {
+        "nodeId": "VectorBundlesAndIsocrystals:VB4/local-global-purity-counterexamples",
+        "verdict": "corrected",
+        "note": "excerpt was from Remark 5.3.7 (which only mentions the example); now the example itself."
+      },
+      {
+        "nodeId": "VectorBundlesAndIsocrystals:VB4/pure-two-out-of-three",
+        "verdict": "verified",
+        "note": "Matches KL Lemma 8.6.3, p. 176."
+      },
+      {
+        "nodeId": "VectorBundlesAndIsocrystals:VB4/pointwise-ampleness",
+        "verdict": "corrected",
+        "note": "API: added PointwiseAmple.isOpen, the openness that Definition 8.8.10 records and relative-ampleness uses."
+      },
+      {
+        "nodeId": "VectorBundlesAndIsocrystals:VB4/positive-tensor-domination",
+        "verdict": "verified",
+        "note": "Matches KL Lemma 8.8.11, p. 183."
+      },
+      {
+        "nodeId": "VectorBundlesAndIsocrystals:VB4/geometric-positive-generation",
+        "verdict": "corrected",
+        "note": "added prerequisites VB2:ampleness/tensor-global-ampleness, VB2:ampleness/globally-etale-positive-ampleness, VB2:ampleness/quantitative-global-generation, VB2:classification/dieudonne-manin-classification-of-bundles; added the inputs of KL's proof: the definition of ample (8.8.2), Theorem 4.2.13 (slope decomposition), Corollary 8.8.7 and Proposition 6.2.4."
+      },
+      {
+        "nodeId": "VectorBundlesAndIsocrystals:VB4/nonnegative-extension",
+        "verdict": "verified",
+        "note": "Matches KL Lemma 8.8.13, pp. 183–185; the degree normalization (−1/a) follows E27."
+      },
+      {
+        "nodeId": "VectorBundlesAndIsocrystals:VB4/etale-at-point-resolution",
+        "verdict": "verified",
+        "note": "Matches KL Corollary 8.8.14, p. 185."
+      },
+      {
+        "nodeId": "VectorBundlesAndIsocrystals:VB4/ample-iff-pointwise",
+        "verdict": "corrected",
+        "note": "added prerequisites VB2:ampleness/globally-etale-positive-ampleness, VB2:ampleness/ampleness-power-criterion, VB4/purity-openness; added Corollary 8.8.7, Lemma 8.8.3 and Theorem 7.3.7 (making G globally étale near β), all used in KL's proof of 8.8.15."
+      },
+      {
+        "nodeId": "VectorBundlesAndIsocrystals:VB4/relative-ampleness",
+        "verdict": "verified",
+        "note": "Matches KL Definition 8.8.17 and its consequences, pp. 185–186; API and three tests adequate."
+      },
+      {
+        "nodeId": "VectorBundlesAndIsocrystals:VB4/untilt-positive-line",
+        "verdict": "verified",
+        "note": "Matches KL Lemma 8.8.19, p. 186, with slope 1/a per E27 (verified from Convention 4.1.13 and Definition 7.3.4)."
+      },
+      {
+        "nodeId": "VectorBundlesAndIsocrystals:VB4/twisted-local-systems",
+        "verdict": "verified",
+        "note": "Matches KL Definition 8.5.7, p. 172; tests discriminate the τ equation and proportional pairs."
+      },
+      {
+        "nodeId": "VectorBundlesAndIsocrystals:VB4/integral-frobenius-local-systems",
+        "verdict": "corrected",
+        "note": "KL excerpt was Proposition 4.2.11 mislabelled as Theorem 8.5.3; now Theorem 8.5.3."
+      },
+      {
+        "nodeId": "VectorBundlesAndIsocrystals:VB4/integral-boundary-realization",
+        "verdict": "corrected",
+        "note": "recorded the affinoid/pseudouniformizer convention under which SW define Y_[0,r](S)."
+      },
+      {
+        "nodeId": "VectorBundlesAndIsocrystals:VB4/integral-group-torsors",
+        "verdict": "corrected",
+        "note": "recorded the affinoid/pseudouniformizer convention under which SW define Y_[0,r](S)."
+      },
+      {
+        "nodeId": "VectorBundlesAndIsocrystals:VB3:general-BC/sympathetic-vector-spaces",
+        "verdict": "corrected",
+        "note": "standing hypothesis now records CN's assumption that C is the completion of an algebraic closure of a discretely valued K with countable residue field (CN §1.3.3)."
+      },
+      {
+        "nodeId": "VectorBundlesAndIsocrystals:VB3:general-BC/banach-colmez-presentations",
+        "verdict": "corrected",
+        "note": "standing hypothesis now records CN's assumption that C is the completion of an algebraic closure of a discretely valued K with countable residue field (CN §1.3.3)."
+      },
+      {
+        "nodeId": "VectorBundlesAndIsocrystals:VB3:general-BC/exact-banach-points",
+        "verdict": "corrected",
+        "note": "standing hypothesis now records CN's assumption that C is the completion of an algebraic closure of a discretely valued K with countable residue field (CN §1.3.3); added prerequisites VB3:general-BC/dimension-abelian; added Proposition 3.2 (dimension-abelian): CN Remark 3.1(ii) derives faithfulness from it."
+      },
+      {
+        "nodeId": "VectorBundlesAndIsocrystals:VB3:general-BC/dimension-abelian",
+        "verdict": "corrected",
+        "note": "standing hypothesis now records CN's assumption that C is the completion of an algebraic closure of a discretely valued K with countable residue field (CN §1.3.3); acceptance: added a concrete instance."
+      },
+      {
+        "nodeId": "VectorBundlesAndIsocrystals:VB3:general-BC/standard-dimension-examples",
+        "verdict": "corrected",
+        "note": "standing hypothesis now records CN's assumption that C is the completion of an algebraic closure of a discretely valued K with countable residue field (CN §1.3.3); acceptance: added a concrete instance."
+      },
+      {
+        "nodeId": "VectorBundlesAndIsocrystals:VB3:general-BC/curvature",
+        "verdict": "corrected",
+        "note": "standing hypothesis now records CN's assumption that C is the completion of an algebraic closure of a discretely valued K with countable residue field (CN §1.3.3)."
+      },
+      {
+        "nodeId": "VectorBundlesAndIsocrystals:VB3:general-BC/curvature-hom-orthogonality",
+        "verdict": "corrected",
+        "note": "standing hypothesis now records CN's assumption that C is the completion of an algebraic closure of a discretely valued K with countable residue field (CN §1.3.3); acceptance: added a concrete instance."
+      },
+      {
+        "nodeId": "VectorBundlesAndIsocrystals:VB3:general-BC/canonical-curvature-filtration",
+        "verdict": "corrected",
+        "note": "standing hypothesis now records CN's assumption that C is the completion of an algebraic closure of a discretely valued K with countable residue field (CN §1.3.3)."
+      },
+      {
+        "nodeId": "VectorBundlesAndIsocrystals:VB3:general-BC/euler-poincare-height",
+        "verdict": "corrected",
+        "note": "standing hypothesis now records CN's assumption that C is the completion of an algebraic closure of a discretely valued K with countable residue field (CN §1.3.3); acceptance: added a concrete instance."
+      },
+      {
+        "nodeId": "VectorBundlesAndIsocrystals:VB3:general-BC/tilted-coherent-heart",
+        "verdict": "corrected",
+        "note": "standing hypothesis now records CN's assumption that C is the completion of an algebraic closure of a discretely valued K with countable residue field (CN §1.3.3); excerpt replaced by the defining sentence of Coh^-_X (the old excerpt quoted the preceding sentence)."
+      },
+      {
+        "nodeId": "VectorBundlesAndIsocrystals:VB3:general-BC/le-bras-equivalence",
+        "verdict": "corrected",
+        "note": "standing hypothesis now records CN's assumption that C is the completion of an algebraic closure of a discretely valued K with countable residue field (CN §1.3.3)."
+      },
+      {
+        "nodeId": "VectorBundlesAndIsocrystals:VB3:general-BC/bc-hn-invariants",
+        "verdict": "corrected",
+        "note": "standing hypothesis now records CN's assumption that C is the completion of an algebraic closure of a discretely valued K with countable residue field (CN §1.3.3)."
+      },
+      {
+        "nodeId": "VectorBundlesAndIsocrystals:VB3:general-BC/bc-hn-decomposition",
+        "verdict": "corrected",
+        "note": "standing hypothesis now records CN's assumption that C is the completion of an algebraic closure of a discretely valued K with countable residue field (CN §1.3.3)."
+      },
+      {
+        "nodeId": "VectorBundlesAndIsocrystals:VB3:general-BC/artinian-bc",
+        "verdict": "corrected",
+        "note": "standing hypothesis now records CN's assumption that C is the completion of an algebraic closure of a discretely valued K with countable residue field (CN §1.3.3)."
+      },
+      {
+        "nodeId": "VectorBundlesAndIsocrystals:VB3:general-BC/embedding-height-bound",
+        "verdict": "corrected",
+        "note": "standing hypothesis now records CN's assumption that C is the completion of an algebraic closure of a discretely valued K with countable residue field (CN §1.3.3); acceptance: added a concrete instance."
+      },
+      {
+        "nodeId": "VectorBundlesAndIsocrystals:VB3:general-BC/bc-morphism-calculus",
+        "verdict": "corrected",
+        "note": "standing hypothesis now records CN's assumption that C is the completion of an algebraic closure of a discretely valued K with countable residue field (CN §1.3.3)."
+      },
+      {
+        "nodeId": "VectorBundlesAndIsocrystals:VB3:general-BC/torsion-point-realization",
+        "verdict": "corrected",
+        "note": "standing hypothesis now records CN's assumption that C is the completion of an algebraic closure of a discretely valued K with countable residue field (CN §1.3.3)."
+      },
+      {
+        "nodeId": "VectorBundlesAndIsocrystals:VB3:general-BC/affine-finite-length-equivalence",
+        "verdict": "corrected",
+        "note": "standing hypothesis now records CN's assumption that C is the completion of an algebraic closure of a discretely valued K with countable residue field (CN §1.3.3); excerpt replaced by the literal statement (the old one was a layout-scrambled extraction)."
+      },
+      {
+        "nodeId": "VectorBundlesAndIsocrystals:VB3:general-BC/torsion-vs-hom-vanishing",
+        "verdict": "corrected",
+        "note": "standing hypothesis now records CN's assumption that C is the completion of an algebraic closure of a discretely valued K with countable residue field (CN §1.3.3)."
+      },
+      {
+        "nodeId": "VectorBundlesAndIsocrystals:VB3:general-BC/curvature-hn-characterisation",
+        "verdict": "corrected",
+        "note": "standing hypothesis now records CN's assumption that C is the completion of an algebraic closure of a discretely valued K with countable residue field (CN §1.3.3)."
+      },
+      {
+        "nodeId": "VectorBundlesAndIsocrystals:VB3:general-BC/curvature-height-signs",
+        "verdict": "corrected",
+        "note": "standing hypothesis now records CN's assumption that C is the completion of an algebraic closure of a discretely valued K with countable residue field (CN §1.3.3); acceptance: added a concrete instance."
+      },
+      {
+        "nodeId": "VectorBundlesAndIsocrystals:VB3:general-BC/curvature-subquotients",
+        "verdict": "corrected",
+        "note": "standing hypothesis now records CN's assumption that C is the completion of an algebraic closure of a discretely valued K with countable residue field (CN §1.3.3); acceptance: added a concrete instance."
+      },
+      {
+        "nodeId": "VectorBundlesAndIsocrystals:VB3:general-BC/torsion-subobjects-height",
+        "verdict": "corrected",
+        "note": "standing hypothesis now records CN's assumption that C is the completion of an algebraic closure of a discretely valued K with countable residue field (CN §1.3.3)."
+      },
+      {
+        "nodeId": "VectorBundlesAndIsocrystals:VB3:general-BC/generating-image-cokernel",
+        "verdict": "corrected",
+        "note": "standing hypothesis now records CN's assumption that C is the completion of an algebraic closure of a discretely valued K with countable residue field (CN §1.3.3); acceptance: added a concrete instance."
+      },
+      {
+        "nodeId": "VectorBundlesAndIsocrystals:VB3:general-BC/nonpositive-curvature-extensions",
+        "verdict": "corrected",
+        "note": "standing hypothesis now records CN's assumption that C is the completion of an algebraic closure of a discretely valued K with countable residue field (CN §1.3.3); acceptance: added a concrete instance."
+      },
+      {
+        "nodeId": "VectorBundlesAndIsocrystals:VB3:general-BC/abstract-banach-colmez-category",
+        "verdict": "verified",
+        "note": "Matches SW20 Definition 15.2.1 (p. 133) and Theorem 15.2.12 (p. 139); the test G_a/Q_p = BC(O(−1)[1]) uses the identity whose SW misprint is E33."
+      },
+      {
+        "nodeId": "VectorBundlesAndIsocrystals:VB3:general-BC/semistable-period-example",
+        "verdict": "verified",
+        "note": "Matches CDN20 §2.1.2 and Lemma 2.7 (author copy pp. 21–23): L-Dimension ([L:Q_p],2) for the supercuspidal slope-1/2 module; multiplicity one uses Proposition 2.5, not Dimension alone."
+      },
+      {
+        "nodeId": "VectorBundlesAndIsocrystals:VB3:projectivized-properness/scalar-projectivization",
+        "verdict": "verified",
+        "note": "Definition, torsor, lift and base change are what II.2.16, II.3.5(ii) and II.2.19 use; the absolute non-example is FS Remark II.3.10."
+      },
+      {
+        "nodeId": "VectorBundlesAndIsocrystals:VB3:general-BC/positive-range-dimension",
+        "verdict": "verified",
+        "note": "Dimension deg E₀−deg E₁ and height rk E₀−rk E₁ agree with FS I.3.5 (ball dimension = numerator) and CN (3.10)/§3.2.5; the proof via presentations and ECD dimension additivity is sound at target level."
+      }
+    ]
+  }
 }
