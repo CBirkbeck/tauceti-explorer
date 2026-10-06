@@ -1,0 +1,1103 @@
+{
+  "roadmapId": "Polylogarithms",
+  "protocol": "blueprint-v1",
+  "part": "P.2",
+  "scope": [
+    "Polylogarithms:P.2"
+  ],
+  "status": "complete",
+  "summary": "This follow-up refines the eight inherited weight-two targets without redeclaring them. Lobachevsky analysis and Kummer reduction give a finite rational Fourier algorithm with a uniform certified error, including inputs on the unit circle. Milnor supplies the ideal-tetrahedron angle formula using the metric and volume owned by GeometricTopology. A matrix-unit calculation detects an error in the published Dynkin normalization proof; the map-level comparison to the Burgos-normalized Borel regulator remains explicitly open. P.2 owns the analytic comparison and ideal-tetrahedron identity; K3BlochGroups and ArithmeticQuantumTopology consume them.",
+  "baseline": {
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "declarations": [
+      {
+        "ref": "mathlib:intervalIntegral",
+        "kind": "def",
+        "module": "Mathlib/MeasureTheory/Integral/IntervalIntegral/Basic.lean",
+        "provides": "The signed Bochner interval integral; reverses sign when endpoints are reversed.",
+        "checked": "Actual declaration statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; scope and hypotheses checked, 2026-10-05."
+      },
+      {
+        "ref": "mathlib:intervalIntegrable_log_sin",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/SpecialFunctions/Integrability/LogMeromorphic.lean",
+        "provides": "log(sin t) is interval integrable on every real interval; Real.log uses absolute value on negative inputs.",
+        "checked": "Actual declaration statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; scope and hypotheses checked, 2026-10-05."
+      },
+      {
+        "ref": "mathlib:integral_log_sin_zero_pi",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/SpecialFunctions/Integrals/LogTrigonometric.lean",
+        "provides": "Integral from 0 to pi of log(sin x) is -pi log 2.",
+        "checked": "Actual declaration statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; scope and hypotheses checked, 2026-10-05."
+      },
+      {
+        "ref": "mathlib:Complex",
+        "kind": "structure",
+        "module": "Mathlib/Basic/Complex/Basic.lean",
+        "provides": "Native complex numbers with real and imaginary coordinates.",
+        "checked": "Actual declaration statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; scope and hypotheses checked, 2026-10-05."
+      },
+      {
+        "ref": "mathlib:Complex.mul_re",
+        "kind": "theorem",
+        "module": "Mathlib/Basic/Complex/Basic.lean",
+        "provides": "Real coordinate of multiplication is ac-bd.",
+        "checked": "Actual declaration statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; scope and hypotheses checked, 2026-10-05."
+      },
+      {
+        "ref": "mathlib:Complex.mul_im",
+        "kind": "theorem",
+        "module": "Mathlib/Basic/Complex/Basic.lean",
+        "provides": "Imaginary coordinate of multiplication is ad+bc.",
+        "checked": "Actual declaration statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; scope and hypotheses checked, 2026-10-05."
+      },
+      {
+        "ref": "mathlib:Complex.norm_def",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Complex/Norm.lean",
+        "provides": "The norm is the square root of the sum of the squares of the two coordinates.",
+        "checked": "Actual declaration statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; scope and hypotheses checked, 2026-10-05."
+      },
+      {
+        "ref": "mathlib:Complex.arg",
+        "kind": "def",
+        "module": "Mathlib/Analysis/SpecialFunctions/Complex/Arg.lean",
+        "provides": "Principal argument in (-pi,pi], with arg 0 = 0.",
+        "checked": "Actual declaration statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; scope and hypotheses checked, 2026-10-05."
+      },
+      {
+        "ref": "mathlib:Real.summable_nat_pow_inv",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/PSeries.lean",
+        "provides": "The real natural p-series is summable exactly when p>1.",
+        "checked": "Actual declaration statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; scope and hypotheses checked, 2026-10-05."
+      },
+      {
+        "ref": "mathlib:sum_Ioc_inv_sq_le_sub",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/PSeries.lean",
+        "provides": "For nonzero natural k<=n in an ordered field, sum over k<i<=n of i^-2 is at most k^-1-n^-1.",
+        "checked": "Actual declaration statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; scope and hypotheses checked, 2026-10-05."
+      },
+      {
+        "ref": "mathlib:Matrix.trace",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/Matrix/Trace.lean",
+        "provides": "The sum of diagonal entries of a square matrix.",
+        "checked": "Actual declaration statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; scope and hypotheses checked, 2026-10-05."
+      },
+      {
+        "ref": "mathlib:Matrix.trace_mul_comm",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Matrix/Trace.lean",
+        "provides": "Trace AB equals trace BA, including compatible rectangular matrices.",
+        "checked": "Actual declaration statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; scope and hypotheses checked, 2026-10-05."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "milnor1982",
+      "title": "Hyperbolic geometry: The first 150 years",
+      "authors": "John Milnor",
+      "edition": "Bulletin of the AMS 6 (1982), 9–24, publisher PDF",
+      "url": "https://www.ams.org/journals/bull/1982-06-01/S0273-0979-1982-14958-8/S0273-0979-1982-14958-8.pdf",
+      "sha256": "d444d7a61af54c7c3be374149917560103b614bd2afa02c6d0cb54fb06c4063f",
+      "accessed": "2026-10-05",
+      "readSections": [
+        "Appendix, pp.17–20: definition, Lemma 1 and Fourier equation (2), Lemma 2 and its complete half-space integral proof."
+      ]
+    },
+    {
+      "id": "zagier-dilog",
+      "title": "The Dilogarithm Function",
+      "authors": "Don Zagier",
+      "edition": "Frontiers in Number Theory, Physics, and Geometry II (Springer, 2007), 3–65; author-hosted chapter",
+      "url": "https://people.mpim-bonn.mpg.de/zagier/files/doi/10.1007/978-3-540-30308-4_1/fulltext.pdf",
+      "sha256": "05079cf525c6ba0f0d00b5c0d948bad202d291bc4910149d5d4abbab0515e7a0",
+      "accessed": "2026-10-05",
+      "readSections": [
+        "I.3, pp.10–11: D, Kummer equation (2), unit-circle Fourier series, symmetries and five-term identity.",
+        "I.4, pp.13–14: ideal tetrahedra, cross-ratio convention, equations (5)–(8)."
+      ]
+    },
+    {
+      "id": "goncharov-jams",
+      "title": "Polylogarithms, regulators, and Arakelov motivic complexes",
+      "authors": "Alexander B. Goncharov",
+      "edition": "JAMS 18 (2005), 1–60, version of record; DOI 10.1090/S0894-0347-04-00472-2",
+      "url": "https://www.ams.org/journals/jams/2005-18-01/S0894-0347-04-00472-2/S0894-0347-04-00472-2.pdf",
+      "sha256": "36de73ac0fbc242e52f858e20c7e22839b050bc65cab54426505b662f36617be",
+      "accessed": "2026-10-05",
+      "readSections": [
+        "Introduction, weight-two formula (11); section 2 definition of unnormalized Alt.",
+        "Section 5.1–5.6, pp.32–42: boundary cohomology, beta_DR, trace class, equations (63)–(74), complete proof of Theorem 5.7.",
+        "Appendix 7.1–7.2, pp.55–57: Theorem 7.1, its proof and distributional volume calculation."
+      ]
+    },
+    {
+      "id": "goncharov-v3",
+      "title": "Polylogarithms, regulators, and Arakelov motivic complexes",
+      "authors": "Alexander B. Goncharov",
+      "edition": "arXiv math/0207036v3, 17 June 2004; pagination differs from publication",
+      "url": "https://arxiv.org/pdf/math/0207036v3",
+      "sha256": "ac729924bca286113e8aae593f6012bf72c77d935178606e7a2be677bd3440db",
+      "accessed": "2026-10-05",
+      "readSections": [
+        "Sections 5.4–5.6 and Appendix 7; compared with the published version at the elementary-matrix calibration."
+      ]
+    }
+  ],
+  "sourceVersions": [
+    {
+      "kind": "published",
+      "url": "https://www.ams.org/journals/bull/1982-06-01/S0273-0979-1982-14958-8/S0273-0979-1982-14958-8.pdf",
+      "read": "2026-10-05",
+      "sha256": "d444d7a61af54c7c3be374149917560103b614bd2afa02c6d0cb54fb06c4063f"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://people.mpim-bonn.mpg.de/zagier/files/doi/10.1007/978-3-540-30308-4_1/fulltext.pdf",
+      "read": "2026-10-05",
+      "sha256": "05079cf525c6ba0f0d00b5c0d948bad202d291bc4910149d5d4abbab0515e7a0"
+    },
+    {
+      "kind": "published",
+      "url": "https://www.ams.org/journals/jams/2005-18-01/S0894-0347-04-00472-2/S0894-0347-04-00472-2.pdf",
+      "read": "2026-10-05",
+      "sha256": "36de73ac0fbc242e52f858e20c7e22839b050bc65cab54426505b662f36617be"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/math/0207036v3",
+      "read": "2026-10-05",
+      "sha256": "ac729924bca286113e8aae593f6012bf72c77d935178606e7a2be677bd3440db"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "Polylogarithms:P.2/lobachevsky-function",
+      "parentStageId": "Polylogarithms:P.2",
+      "realises": [
+        "Polylogarithms:P.2"
+      ],
+      "title": "Lobachevsky function",
+      "kind": "definition",
+      "statement": "For every real theta define Lambda(theta)=-integral from 0 to theta of log|2 sin t| dt, using the signed native interval integral and Real.log. The integrand is locally integrable despite its logarithmic singularities. The normalization is Milnor’s Lambda; the Clausen function Cl_2(2theta) is 2 Lambda(theta), not Lambda(theta).",
+      "hypotheses": [],
+      "proofSteps": [
+        "Use intervalIntegrable_log_sin and log|2 sin t|=log 2+log(sin t) away from sin t=0; the exceptional multiples of pi have measure zero.",
+        "Define the signed interval integral. Its additivity and substitution t↦-t give oddness; pi-periodicity follows from sin(t+pi)=-sin t and integral_log_sin_zero_pi.",
+        "Local integrability gives continuity of the primitive; away from sin theta=0 the continuous-integrand fundamental theorem gives derivative -log|2 sin theta|."
+      ],
+      "prerequisites": [
+        "mathlib:intervalIntegral",
+        "mathlib:intervalIntegrable_log_sin",
+        "mathlib:integral_log_sin_zero_pi"
+      ],
+      "sources": [
+        {
+          "sourceId": "milnor1982",
+          "locator": "Appendix, p.17, definition and Lemma 1",
+          "excerpt": "Lobachevsky function",
+          "match": "The precise integral normalization and elementary symmetries."
+        }
+      ],
+      "acceptance": [
+        "The pi/4 test distinguishes Lambda from twice Lambda.",
+        "No positivity assertion is made for all angles: Lambda(2pi/3)=-Lambda(pi/3)."
+      ],
+      "implementationStatus": "unchecked",
+      "declarationName": "TauCeti.Polylog.lobachevsky",
+      "planet": {
+        "name": "Lobachevsky function"
+      },
+      "uses": [
+        {
+          "where": "Milnor, Appendix Lemma 2; P.2/hyperbolic-volume",
+          "how": "Its sum at the three dihedral angles is the tetrahedron volume."
+        },
+        {
+          "where": "Polylogarithms:P.2/lobachevsky-identity",
+          "how": "Its angle values identify the existing Bloch–Wigner function."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.Polylog.lobachevsky_integrand_intervalIntegrable",
+          "role": "compatibility",
+          "statement": "log|2 sin t| is interval integrable between any two real endpoints."
+        },
+        {
+          "name": "TauCeti.Polylog.lobachevsky_zero",
+          "role": "simp",
+          "statement": "Lambda(0)=0."
+        },
+        {
+          "name": "TauCeti.Polylog.lobachevsky_pi_div_two",
+          "role": "simp",
+          "statement": "Lambda(pi/2)=0."
+        },
+        {
+          "name": "TauCeti.Polylog.lobachevsky_neg",
+          "role": "relation",
+          "statement": "Lambda(-theta)=-Lambda(theta)."
+        },
+        {
+          "name": "TauCeti.Polylog.lobachevsky_add_pi",
+          "role": "relation",
+          "statement": "Lambda(theta+pi)=Lambda(theta)."
+        },
+        {
+          "name": "TauCeti.Polylog.lobachevsky_continuous",
+          "role": "structure",
+          "statement": "Lambda is continuous on R."
+        },
+        {
+          "name": "TauCeti.Polylog.lobachevsky_hasDerivAt",
+          "role": "characterisation",
+          "statement": "If sin theta != 0, Lambda has derivative -log|2 sin theta| at theta."
+        },
+        {
+          "name": "TauCeti.Polylog.lobachevsky_integral_compat",
+          "role": "compatibility",
+          "statement": "Lambda(pi)=-(integral_0^pi log(sin t)dt)-pi log 2=0, using the native log-sine integral."
+        }
+      ],
+      "tests": [
+        {
+          "name": "lobachevsky_zero",
+          "kind": "degenerate",
+          "statement": "Lambda(0)=0."
+        },
+        {
+          "name": "lobachevsky_half_period",
+          "kind": "value",
+          "statement": "Lambda(pi/2)=0."
+        },
+        {
+          "name": "lobachevsky_catalan_half",
+          "kind": "value",
+          "statement": "Lambda(pi/4)=(1/2) sum_{k>=0} (-1)^k/(2k+1)^2."
+        },
+        {
+          "name": "lobachevsky_native_integral",
+          "kind": "compatibility",
+          "statement": "Lambda(pi)=-(integral_0^pi log(sin t)dt)-pi log 2=0."
+        }
+      ]
+    },
+    {
+      "id": "Polylogarithms:P.2/lobachevsky-fourier",
+      "parentStageId": "Polylogarithms:P.2",
+      "realises": [
+        "Polylogarithms:P.2"
+      ],
+      "title": "Lobachevsky Fourier series",
+      "kind": "theorem",
+      "statement": "For every theta in R, the absolutely convergent series (1/2) sum_{n>=1} sin(2n theta)/n^2 has sum Lambda(theta); convergence is uniform in theta.",
+      "hypotheses": [],
+      "proofSteps": [
+        "For 0<r<1 expand -log(1-r exp(2it)) using P.1/classical-polylogarithm at weight one, and integrate its real part on a compact interval.",
+        "Let r increase to 1. For t away from pi Z use the log-sine identity; near each zero use an integrable logarithmic bound. Native intervalIntegrable_log_sin supplies the limiting integral.",
+        "The integrated coefficients are bounded by 1/(2n^2). Real.summable_nat_pow_inv with p=2 yields absolute and uniform convergence, permitting the endpoint passage. Both sides vanish at theta=0."
+      ],
+      "prerequisites": [
+        "Polylogarithms:P.2/lobachevsky-function",
+        "Polylogarithms:P.1/classical-polylogarithm",
+        "mathlib:intervalIntegrable_log_sin",
+        "mathlib:Real.summable_nat_pow_inv"
+      ],
+      "sources": [
+        {
+          "sourceId": "milnor1982",
+          "locator": "Appendix, p.18, Fourier equation (2)",
+          "excerpt": "Fourier series",
+          "match": "The series is twice Lambda; its uniformity follows from the p-series majorant."
+        }
+      ],
+      "acceptance": [
+        "The n=1 coefficient is sin(2theta)/2.",
+        "At theta=pi/4 this gives half the alternating odd reciprocal-square series."
+      ],
+      "implementationStatus": "unchecked",
+      "declarationName": "TauCeti.Polylog.lobachevsky_fourier"
+    },
+    {
+      "id": "Polylogarithms:P.2/lobachevsky-duplication",
+      "parentStageId": "Polylogarithms:P.2",
+      "realises": [
+        "Polylogarithms:P.2"
+      ],
+      "title": "Lobachevsky duplication identity",
+      "kind": "theorem",
+      "statement": "For every real theta, Lambda(2theta)=2 Lambda(theta)+2 Lambda(theta+pi/2).",
+      "hypotheses": [],
+      "proofSteps": [
+        "Use lobachevsky-fourier and absolute convergence to add the two series termwise.",
+        "sin(2n(theta+pi/2))=(-1)^n sin(2n theta); odd n cancel. Reindex the even terms n=2k to obtain the factor 2."
+      ],
+      "prerequisites": [
+        "Polylogarithms:P.2/lobachevsky-fourier"
+      ],
+      "sources": [
+        {
+          "sourceId": "milnor1982",
+          "locator": "Appendix, Lemma 1, distribution identity with n=2",
+          "excerpt": "odd",
+          "match": "The n=2 specialization used to evaluate the half-space sector integral."
+        }
+      ],
+      "acceptance": [
+        "Theta=pi/6 is consistent with Lambda(2pi/3)=-Lambda(pi/3)."
+      ],
+      "implementationStatus": "unchecked",
+      "declarationName": "TauCeti.Polylog.lobachevsky_duplication"
+    },
+    {
+      "id": "Polylogarithms:P.2/unit-circle-fourier",
+      "parentStageId": "Polylogarithms:P.2",
+      "realises": [
+        "Polylogarithms:P.2"
+      ],
+      "title": "Bloch–Wigner Fourier series on the circle",
+      "kind": "theorem",
+      "statement": "For w in C with norm w=1, sum_{n>=1} Im(w^n)/n^2 is absolutely convergent and has sum D(w), including w=1. Here D is exactly the P.1 Bloch–Wigner function, extended by D(0)=D(1)=0.",
+      "hypotheses": [],
+      "proofSteps": [
+        "For r<1 use the P.1 Li_2 power series at rw. Bound its coefficients by 1/n^2 independently of r.",
+        "Pass to r=1 using P.1 closed-disc continuity and the summable p-series majorant; take imaginary parts.",
+        "Since log norm w=0, the Bloch–Wigner correction vanishes. At w=1 every imaginary coefficient and D(1) are zero."
+      ],
+      "prerequisites": [
+        "Polylogarithms:P.1/classical-polylogarithm",
+        "Polylogarithms:P.1/bloch-wigner-dilogarithm",
+        "Polylogarithms:P.1/single-valued-continuity",
+        "mathlib:Real.summable_nat_pow_inv"
+      ],
+      "sources": [
+        {
+          "sourceId": "zagier-dilog",
+          "locator": "I.3, p.11, series immediately after equation (2)",
+          "excerpt": "unit circle",
+          "match": "The circle series, including endpoints by continuity."
+        }
+      ],
+      "acceptance": [
+        "w=i gives the alternating odd reciprocal-square series.",
+        "w=-1 gives zero; conjugating w negates the series."
+      ],
+      "implementationStatus": "unchecked",
+      "declarationName": "TauCeti.Polylog.blochWigner_unit_fourier"
+    },
+    {
+      "id": "Polylogarithms:P.2/unit-circle-fourier-tail",
+      "parentStageId": "Polylogarithms:P.2",
+      "realises": [
+        "Polylogarithms:P.2"
+      ],
+      "title": "Uniform unit-circle Fourier error",
+      "kind": "theorem",
+      "statement": "For w in C with norm w=1 and integer N>=1, |D(w)-sum_{n=1}^N Im(w^n)/n^2|<=1/N. The bound is uniform, including w=1 and points arbitrarily close to it.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Use unit-circle-fourier to express the difference as the absolutely convergent tail.",
+        "Bound |Im(w^n)| by norm(w^n)=1. Apply the native sum_Ioc_inv_sq_le_sub with k=N and let the upper endpoint tend to infinity.",
+        "This gives sum_{n>N} 1/n^2<=1/N; no separation from 1 or the real axis is needed."
+      ],
+      "prerequisites": [
+        "Polylogarithms:P.2/unit-circle-fourier",
+        "mathlib:sum_Ioc_inv_sq_le_sub"
+      ],
+      "sources": [
+        {
+          "sourceId": "zagier-dilog",
+          "locator": "I.3, p.11, unit-circle series",
+          "excerpt": "unit circle",
+          "match": "The stated explicit tail is a proved consequence using the pinned p-series bound, not a quoted source bound."
+        }
+      ],
+      "acceptance": [
+        "N starts at 1; no division-by-zero bound at N=0.",
+        "The bound applies to the exact rational unit shapes."
+      ],
+      "implementationStatus": "unchecked",
+      "declarationName": "TauCeti.Polylog.blochWigner_unit_fourier_tail"
+    },
+    {
+      "id": "Polylogarithms:P.2/kummer-unit-reduction",
+      "parentStageId": "Polylogarithms:P.2",
+      "realises": [
+        "Polylogarithms:P.2"
+      ],
+      "title": "Kummer unit-circle reduction",
+      "kind": "theorem",
+      "statement": "For z in C minus {0,1}, put u0=z, u1=1/(1-z), u2=1-1/z and wj=uj/conj(uj). Then each wj has norm 1 and D(z)=(D(w0)+D(w1)+D(w2))/2. The identity holds in both half-planes and on the real axis; no argument branch or cut exclusion is added.",
+      "hypotheses": [],
+      "proofSteps": [
+        "All uj are nonzero for the stated z. Multiplicativity of the native complex norm proves that every wj lies on the unit circle.",
+        "Prove Kummer’s identity using P.1/bloch-wigner-differential: differentiate the difference on the upper and lower half-planes, substituting the three rational functions and the logarithm identities for their absolute values.",
+        "The derivative of the difference is zero on each half-plane. Its limit at a real point z not equal to 0 or 1 is zero by P.1/single-valued-continuity and the real-axis vanishing of D. Extend to all remaining real points by those same facts.",
+        "With wj=exp(2i arg uj), the unit-circle and Lobachevsky Fourier formulas give the global angle expression. Its upper-half-plane specialization agrees with the inherited P.2/lobachevsky-identity."
+      ],
+      "prerequisites": [
+        "Polylogarithms:P.1/bloch-wigner-dilogarithm",
+        "Polylogarithms:P.1/bloch-wigner-differential",
+        "Polylogarithms:P.1/single-valued-continuity",
+        "Polylogarithms:P.2/unit-circle-fourier",
+        "Polylogarithms:P.2/lobachevsky-fourier",
+        "mathlib:Complex.norm_def",
+        "mathlib:Complex.arg"
+      ],
+      "sources": [
+        {
+          "sourceId": "zagier-dilog",
+          "locator": "I.3, pp.10–11, equation (2)",
+          "excerpt": "Kummer",
+          "match": "Precisely the three conjugate ratios; division by 2 is essential."
+        }
+      ],
+      "acceptance": [
+        "z=i has w0=-1 and w1=w2=i; the formula reads D(i)=(0+2D(i))/2.",
+        "A real z not equal to 0 or 1 gives wj=1 and both sides zero."
+      ],
+      "implementationStatus": "unchecked",
+      "declarationName": "TauCeti.Polylog.blochWigner_kummer",
+      "planet": {
+        "name": "Kummer’s formula"
+      }
+    },
+    {
+      "id": "Polylogarithms:P.2/rational-unit-shapes",
+      "parentStageId": "Polylogarithms:P.2",
+      "realises": [
+        "Polylogarithms:P.2"
+      ],
+      "title": "Rational unit-circle shapes",
+      "kind": "construction",
+      "statement": "For a rational pair z=(a,b), produce rational pairs W_j(z), j=0,1,2. For z=0 or 1 set all W_j=(1,0). Otherwise set rho(x,y)=((x^2-y^2)/(x^2+y^2),2xy/(x^2+y^2)), W0=rho(a,b), W1=rho(1-a,b), W2=rho(a-1,b) multiplied by the conjugate of W0, using (x,y)(s,t)=(xs-yt,xt+ys). This is a computable rational construction; its complex interpretation is established in rational-unit-shapes-correct.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Check the two exceptional rational pairs by decidable equality and use the stated total extension.",
+        "On valid input, a^2+b^2 and (a-1)^2+b^2 are nonzero. The displayed rational formulas are therefore the exact conjugate ratios, not approximations.",
+        "Use native Complex.mul_re and mul_im for compatibility; the rational-square calculation gives x_j^2+y_j^2=1."
+      ],
+      "prerequisites": [
+        "mathlib:Complex",
+        "mathlib:Complex.mul_re",
+        "mathlib:Complex.mul_im"
+      ],
+      "sources": [
+        {
+          "sourceId": "zagier-dilog",
+          "locator": "I.3, equation (2), specialized to Q(i)",
+          "excerpt": "Kummer",
+          "match": "The displayed rho arithmetic is the explicit rational specialization of the source ratios."
+        }
+      ],
+      "acceptance": [
+        "All divisions take place in Q; no real-to-rational approximation is invoked."
+      ],
+      "implementationStatus": "unchecked",
+      "declarationName": "TauCeti.Polylog.rationalUnitShapes",
+      "uses": [
+        {
+          "where": "P.2/kummer-unit-reduction",
+          "how": "Replaces the three complex ratios by exact rational coordinates."
+        },
+        {
+          "where": "P.2/rational-fourier-approximation",
+          "how": "Provides inputs of norm one with rational powers."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.Polylog.rationalUnitShapes_zero",
+          "role": "simp",
+          "statement": "W_j(0,0)=(1,0) for every j."
+        },
+        {
+          "name": "TauCeti.Polylog.rationalUnitShapes_one",
+          "role": "simp",
+          "statement": "W_j(1,0)=(1,0) for every j."
+        },
+        {
+          "name": "TauCeti.Polylog.rationalUnitShapes_conj",
+          "role": "functoriality",
+          "statement": "W_j(a,-b) is the rational conjugate of W_j(a,b)."
+        },
+        {
+          "name": "TauCeti.Polylog.rationalUnitShapes_real",
+          "role": "simp",
+          "statement": "For every rational a, W_j(a,0)=(1,0)."
+        },
+        {
+          "name": "TauCeti.Polylog.rationalUnitShapes_correct",
+          "role": "compatibility",
+          "statement": "For valid z, the embedded W_j are the Kummer ratios and have norm one.",
+          "promotedTo": "Polylogarithms:P.2/rational-unit-shapes-correct"
+        }
+      ],
+      "tests": [
+        {
+          "name": "unit_shapes_i",
+          "kind": "value",
+          "statement": "At (0,1), (W0,W1,W2)=((-1,0),(0,1),(0,1))."
+        },
+        {
+          "name": "unit_shapes_exceptional",
+          "kind": "degenerate",
+          "statement": "At both 0 and 1 every shape is (1,0)."
+        },
+        {
+          "name": "unit_shapes_real_two",
+          "kind": "value",
+          "statement": "At (2,0) every shape is (1,0)."
+        },
+        {
+          "name": "unit_shapes_native_norm",
+          "kind": "compatibility",
+          "statement": "For every valid rational input, norm of the native complex embedding of every W_j is one."
+        }
+      ]
+    },
+    {
+      "id": "Polylogarithms:P.2/rational-unit-shapes-correct",
+      "parentStageId": "Polylogarithms:P.2",
+      "realises": [
+        "Polylogarithms:P.2"
+      ],
+      "title": "Exact complex interpretation of rational shapes",
+      "kind": "lemma",
+      "statement": "If (a,b) is neither (0,0) nor (1,0), let z=a+bi in native C. Embedding W_j into C gives respectively z/conj z, (1/(1-z))/conj(1/(1-z)), and (1-1/z)/conj(1-1/z), and all three embedded pairs have norm one.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Establish nonzero denominators from the rational input hypotheses.",
+        "For W0 and W1 use complex coordinate division; for W2 multiply the ratio of z-1 by the conjugate of the ratio of z.",
+        "Apply native coordinate multiplication and norm_def; the identities are rational polynomial calculations after clearing the nonzero denominators."
+      ],
+      "prerequisites": [
+        "Polylogarithms:P.2/rational-unit-shapes",
+        "mathlib:Complex.mul_re",
+        "mathlib:Complex.mul_im",
+        "mathlib:Complex.norm_def"
+      ],
+      "sources": [
+        {
+          "sourceId": "zagier-dilog",
+          "locator": "I.3, equation (2), the three ratios",
+          "excerpt": "Kummer",
+          "match": "This comparison promotes the construction’s compatibility API used in the error theorem."
+        }
+      ],
+      "acceptance": [
+        "The second shape has plus 2(1-a)b in its imaginary coordinate; the opposite sign gives the wrong D(i) test."
+      ],
+      "implementationStatus": "unchecked",
+      "declarationName": "TauCeti.Polylog.rationalUnitShapes_correct"
+    },
+    {
+      "id": "Polylogarithms:P.2/rational-fourier-sum",
+      "parentStageId": "Polylogarithms:P.2",
+      "realises": [
+        "Polylogarithms:P.2"
+      ],
+      "title": "Finite rational Fourier sum",
+      "kind": "definition",
+      "statement": "For w=(x,y) in Q^2 and N in N define q0=(1,0), q_{n+1}=(q_n.re*x-q_n.im*y,q_n.re*y+q_n.im*x), and S_N(w)=sum_{n=1}^N q_n.im/n^2 in Q. The recurrence is finite and uses exact rational arithmetic. No unit-norm hypothesis is required to define S_N; it is required for the uniform analytical error.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Use a primitive recursion on n for the pair coordinates and a finite sum over indices 1 through N.",
+        "Induction using native Complex.mul_re and mul_im identifies q_n with the coordinates of (x+iy)^n.",
+        "Conjugation negates imaginary coordinates, so S_N(conj w)=-S_N(w); the zero-length sum is zero."
+      ],
+      "prerequisites": [
+        "mathlib:Complex.mul_re",
+        "mathlib:Complex.mul_im"
+      ],
+      "sources": [
+        {
+          "sourceId": "zagier-dilog",
+          "locator": "I.3, p.11, unit-circle Fourier series",
+          "excerpt": "unit circle",
+          "match": "Finite exact sums of the same coefficients, with a rational coordinate recurrence."
+        }
+      ],
+      "acceptance": [
+        "S_3(0,1)=8/9, S_0(w)=0.",
+        "The recurrence computes powers, rather than repeating the first imaginary coordinate."
+      ],
+      "implementationStatus": "unchecked",
+      "declarationName": "TauCeti.Polylog.rationalFourierSum",
+      "uses": [
+        {
+          "where": "P.2/rational-fourier-approximation",
+          "how": "Evaluates the three circle sums with a prescribed finite length."
+        },
+        {
+          "where": "P.2/unit-circle-fourier-tail",
+          "how": "The compatibility theorem converts the rational answer to a native real Fourier sum."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.Polylog.rationalFourierSum_zero",
+          "role": "simp",
+          "statement": "S_0(w)=0."
+        },
+        {
+          "name": "TauCeti.Polylog.rationalFourierSum_one",
+          "role": "simp",
+          "statement": "S_N(1,0)=0 for every N."
+        },
+        {
+          "name": "TauCeti.Polylog.rationalFourierSum_conj",
+          "role": "functoriality",
+          "statement": "S_N(x,-y)=-S_N(x,y)."
+        },
+        {
+          "name": "TauCeti.Polylog.rationalFourierSum_succ",
+          "role": "relation",
+          "statement": "S_{N+1}(w)=S_N(w)+Im((x+iy)^{N+1})/(N+1)^2 after coercion to R."
+        },
+        {
+          "name": "TauCeti.Polylog.rationalFourierSum_coe",
+          "role": "compatibility",
+          "statement": "Coercing S_N(w) to R equals the finite sum of native Im((x+iy)^n)/n^2.",
+          "promotedTo": "Polylogarithms:P.2/rational-fourier-compatibility"
+        }
+      ],
+      "tests": [
+        {
+          "name": "fourier_sum_i_three",
+          "kind": "value",
+          "statement": "S_3(0,1)=8/9."
+        },
+        {
+          "name": "fourier_sum_empty",
+          "kind": "degenerate",
+          "statement": "S_0(2,3)=0."
+        },
+        {
+          "name": "fourier_sum_one",
+          "kind": "value",
+          "statement": "S_7(1,0)=0."
+        },
+        {
+          "name": "fourier_sum_native_powers",
+          "kind": "compatibility",
+          "statement": "For every rational pair and N, the coerced rational sum equals the native complex-power sum."
+        }
+      ]
+    },
+    {
+      "id": "Polylogarithms:P.2/rational-fourier-compatibility",
+      "parentStageId": "Polylogarithms:P.2",
+      "realises": [
+        "Polylogarithms:P.2"
+      ],
+      "title": "Rational and native Fourier sums",
+      "kind": "comparison",
+      "statement": "For every rational pair w=(x,y) and N in N, the coercion of S_N(w) to R equals sum_{n=1}^N Im((x+iy)^n)/n^2, with powers and imaginary projection in Mathlib C.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Prove the coordinate-recursion identity by induction; multiplication uses exactly the pinned mul_re and mul_im formulas.",
+        "Coercion Q→R preserves finite sums and quotients. Every denominator n^2 for 1<=n<=N is nonzero.",
+        "No norm restriction is used; the lemma separates algebraic correctness from the unit-circle analytic tail bound."
+      ],
+      "prerequisites": [
+        "Polylogarithms:P.2/rational-fourier-sum",
+        "mathlib:Complex.mul_re",
+        "mathlib:Complex.mul_im"
+      ],
+      "sources": [
+        {
+          "sourceId": "zagier-dilog",
+          "locator": "I.3, p.11, Fourier coefficients",
+          "excerpt": "unit circle",
+          "match": "Promotes the rational finite-sum compatibility API needed by the error proof."
+        }
+      ],
+      "acceptance": [
+        "N=3 and w=i give 1-1/9, with the n=2 term zero."
+      ],
+      "implementationStatus": "unchecked",
+      "declarationName": "TauCeti.Polylog.rationalFourierSum_coe"
+    },
+    {
+      "id": "Polylogarithms:P.2/rational-fourier-approximation",
+      "parentStageId": "Polylogarithms:P.2",
+      "realises": [
+        "Polylogarithms:P.2"
+      ],
+      "title": "Certified rational Bloch–Wigner approximation",
+      "kind": "construction",
+      "statement": "For every rational pair z and precision p in N define A(z,p)=(1/2) sum_{j=0}^2 S_{3*2^p}(W_j(z)). This is a total computable function Q^2×N→Q; the exceptional pairs 0 and 1 give zero. It is the explicit implementation proposed for the inherited P.2/certified-numerics contract, whose generic function is not redeclared here.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Compute the three rational unit shapes, choose the positive integer N=3*2^p, and evaluate the three exact finite rational sums.",
+        "Combine them with coefficient 1/2. The construction has no choice of a rational close to an unknown real.",
+        "The error is supplied by rational-fourier-error. Runtime and bit sizes are not asserted polynomial in p: this deliberately simple uniform algorithm uses exponentially many terms."
+      ],
+      "prerequisites": [
+        "Polylogarithms:P.2/rational-unit-shapes",
+        "Polylogarithms:P.2/rational-fourier-sum"
+      ],
+      "sources": [
+        {
+          "sourceId": "zagier-dilog",
+          "locator": "I.3, equation (2) and following Fourier series",
+          "excerpt": "Kummer",
+          "match": "Combines the source formulas with the proven uniform tail to specify an effective algorithm."
+        }
+      ],
+      "acceptance": [
+        "The coefficient 1/2 and the length N=3*2^p are fixed, not parameters hidden in an existence assertion.",
+        "At p=1 and z=i the answer exceeds 2^-1, giving a valid positive certificate."
+      ],
+      "implementationStatus": "unchecked",
+      "declarationName": "TauCeti.Polylog.blochWignerFourierApprox",
+      "uses": [
+        {
+          "where": "Polylogarithms:P.2/certified-numerics and certified-numerics-error",
+          "how": "Instantiates the inherited rational approximation and error contract."
+        },
+        {
+          "where": "K3BlochGroups:V.6/bloch-element-constructor; P.2/weight-two-regulator",
+          "how": "Rational enclosures certify values of finite sums of admissible Gaussian-rational generators."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.Polylog.blochWignerFourierApprox_formula",
+          "role": "characterisation",
+          "statement": "A(z,p)=(1/2) sum_{j=0}^2 S_{3*2^p}(W_j(z))."
+        },
+        {
+          "name": "TauCeti.Polylog.blochWignerFourierApprox_zero",
+          "role": "simp",
+          "statement": "A(0,p)=0."
+        },
+        {
+          "name": "TauCeti.Polylog.blochWignerFourierApprox_one",
+          "role": "simp",
+          "statement": "A(1,p)=0."
+        },
+        {
+          "name": "TauCeti.Polylog.blochWignerFourierApprox_real",
+          "role": "simp",
+          "statement": "For rational a, A((a,0),p)=0."
+        },
+        {
+          "name": "TauCeti.Polylog.blochWignerFourierApprox_conj",
+          "role": "functoriality",
+          "statement": "A((a,-b),p)=-A((a,b),p)."
+        },
+        {
+          "name": "TauCeti.Polylog.blochWignerFourierApprox_error",
+          "role": "compatibility",
+          "statement": "For valid rational z, |A(z,p)-D(z)|<=2^-p, using the canonical native embedding.",
+          "promotedTo": "Polylogarithms:P.2/rational-fourier-error"
+        }
+      ],
+      "tests": [
+        {
+          "name": "approx_i_precision_zero",
+          "kind": "value",
+          "statement": "A((0,1),0)=8/9."
+        },
+        {
+          "name": "approx_i_precision_one",
+          "kind": "value",
+          "statement": "A((0,1),1)=209/225."
+        },
+        {
+          "name": "approx_exceptional",
+          "kind": "degenerate",
+          "statement": "A(0,p)=A(1,p)=0 for every p."
+        },
+        {
+          "name": "approx_real_two",
+          "kind": "value",
+          "statement": "A((2,0),p)=0 for every p."
+        },
+        {
+          "name": "approx_conjugate",
+          "kind": "non-example",
+          "statement": "A((0,-1),0)=-8/9, ruling out an unsigned volume approximator."
+        }
+      ]
+    },
+    {
+      "id": "Polylogarithms:P.2/rational-fourier-error",
+      "parentStageId": "Polylogarithms:P.2",
+      "realises": [
+        "Polylogarithms:P.2"
+      ],
+      "title": "Rational Fourier error certificate",
+      "kind": "theorem",
+      "statement": "For a valid Gaussian-rational input z=a+bi and p in N, |(A((a,b),p):R)-D(z)|<=1/(2*2^p)<=2^-p. Hence A(z,p)>2^-p certifies D(z)>0, A(z,p)<-2^-p certifies D(z)<0, and |A(z,p)|>2^-p certifies D(z)!=0. For any finite integer combination sum n_i[z_i], the rational sum sum n_i A(z_i,p_i) has error at most sum |n_i|2^-p_i. This does not assert that an arbitrary combination lies in B(F); the algebraic boundary certificate stays V.6’s.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Use rational-unit-shapes-correct to embed all three computed shapes as the Kummer ratios of norm one.",
+        "Apply Kummer reduction and rational-fourier-compatibility to rewrite D(z) and A(z,p) in the same three components.",
+        "Apply unit-circle-fourier-tail at N=3*2^p to each component. The triangle inequality gives 3/(2N)=1/(2*2^p), hence the inherited precision bound.",
+        "Derive the strict sign and nonvanishing implications by interval containment. For a finite integer combination, apply the triangle inequality with integer absolute values; never infer nonvanishing merely from a nonzero decimal."
+      ],
+      "prerequisites": [
+        "Polylogarithms:P.2/rational-fourier-approximation",
+        "Polylogarithms:P.2/rational-unit-shapes-correct",
+        "Polylogarithms:P.2/rational-fourier-compatibility",
+        "Polylogarithms:P.2/kummer-unit-reduction",
+        "Polylogarithms:P.2/unit-circle-fourier-tail"
+      ],
+      "sources": [
+        {
+          "sourceId": "zagier-dilog",
+          "locator": "I.3, equation (2) and p.11 series",
+          "excerpt": "Kummer",
+          "match": "Error certification is a mathematical consequence of these identities and the pinned tail estimate, not a source claim of a fast algorithm."
+        }
+      ],
+      "acceptance": [
+        "At z=i,p=1, 209/225-1/2>0 proves a strictly positive lower bound.",
+        "No |z|<1 assumption appears; the valid unit-circle input i is covered.",
+        "A comparison of two outputs is decisive only when their difference exceeds the sum of the error radii."
+      ],
+      "implementationStatus": "unchecked",
+      "declarationName": "TauCeti.Polylog.blochWignerFourierApprox_error"
+    },
+    {
+      "id": "Polylogarithms:P.2/milnor-angle-volume",
+      "parentStageId": "Polylogarithms:P.2",
+      "realises": [
+        "Polylogarithms:P.2"
+      ],
+      "title": "Milnor’s ideal-tetrahedron angle formula",
+      "kind": "theorem",
+      "statement": "Let T be a nondegenerate ideal geodesic tetrahedron in the explicit curvature -1 hyperbolic 3-space metric imported from GeometricTopology. For its three distinct dihedral angles alpha,beta,gamma (opposite edges have equal angles), alpha,beta,gamma>0 and alpha+beta+gamma=pi. Its unoriented Riemannian volume is finite and equals Lambda(alpha)+Lambda(beta)+Lambda(gamma). Ordered volume is its orientation sign times this value. Under r(infinity,0,1,z)=z, Im z>0 is positive and these angles are arg z, arg(1/(1-z)), arg(1-1/z). Combined with the inherited lobachevsky-identity, this proves the inherited hyperbolic-volume target.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Import the explicit hyperbolic metric, model isometries and Riemannian volume from GeometricTopology layers 7–8. The early Part II ideal-boundary, measurable region and orientation interface remains a precise supplier gap.",
+        "Move one ideal vertex to infinity and make the opposite face the unit hemisphere in the upper-half-space model. The metric is (dx^2+dy^2+dh^2)/h^2 and volume density h^-3 dx dy dh; apply the supplied change-of-model compatibility, rather than defining a new unrelated volume.",
+        "Project to the triangle inscribed in the unit circle and split an acute triangle into six right sectors. For a sector with angle a in (0,pi/2), integrate h from sqrt(1-x^2-y^2) to infinity, y from 0 to x tan a, x from 0 to cos a. The height integration supplies the essential factor 1/2.",
+        "After the elementary y integral and x=cos t substitution, the sector equals [-Lambda(pi/2+a)+Lambda(2a)+Lambda(pi/2-a)-Lambda(0)]/4. Oddness, periodicity and lobachevsky-duplication simplify it to Lambda(a)/2.",
+        "Sum the six sectors. For an obtuse inscribed triangle use the signed decomposition about its circumcentre: the difference of sector indicators equals the triangle indicator almost everywhere. Absolute integrability justifies subtraction; the same sector formula gives the sum for every positive alpha,beta,gamma summing to pi.",
+        "Transport back by the imported orientation-preserving model isometry. Reflecting complex coordinates reverses ordered volume. Invoke the inherited P.2/lobachevsky-identity for the Bloch–Wigner identification; QT.5 consumes this result and supplies manifold triangulations and Bloch invariants."
+      ],
+      "prerequisites": [
+        "Polylogarithms:P.2/lobachevsky-function",
+        "Polylogarithms:P.2/lobachevsky-duplication",
+        "Polylogarithms:P.2/lobachevsky-identity",
+        "Polylogarithms:P.1/bloch-wigner-positivity",
+        "mathlib:Complex.arg",
+        "tauceti:TauCetiRoadmap/GeometricTopology#layer-7-riemannian-geometric-structures-and-volume",
+        "tauceti:TauCetiRoadmap/GeometricTopology#layer-8-thurston-geometries-and-the-jsj--geometric-decomposition"
+      ],
+      "sources": [
+        {
+          "sourceId": "milnor1982",
+          "locator": "Appendix, Lemma 2 and complete proof, pp.18–20",
+          "excerpt": "ideal tetrahedron",
+          "match": "The independently calibrated half-space integral proves the volume normalization."
+        },
+        {
+          "sourceId": "zagier-dilog",
+          "locator": "I.4, pp.13–14, equations (5)–(8)",
+          "excerpt": "ideal tetrahedron",
+          "match": "The complex shape/angle interpretation and orientation convention."
+        },
+        {
+          "sourceId": "goncharov-jams",
+          "locator": "Appendix 7.2, p.57, equation (100)",
+          "excerpt": "dL2",
+          "match": "Provides a second distributional route; its c3 derivation is not imported as a proved calibration."
+        }
+      ],
+      "acceptance": [
+        "The regular ideal tetrahedron has volume 3 Lambda(pi/3)=D(exp(i pi/3))>0.",
+        "A reflected ordered tetrahedron has the negative volume.",
+        "A real shape other than 0 and 1 is flat and has ordered volume zero; it is outside the nondegenerate angle hypotheses."
+      ],
+      "implementationStatus": "unchecked",
+      "declarationName": "TauCeti.Polylog.idealTetrahedron_volume_eq_lobachevsky"
+    },
+    {
+      "id": "Polylogarithms:P.2/goncharov-elementary-calibration",
+      "parentStageId": "Polylogarithms:P.2",
+      "realises": [
+        "Polylogarithms:P.2"
+      ],
+      "title": "Corrected weight-two matrix-unit calibration",
+      "kind": "comparison",
+      "statement": "Use the unnormalized Alt_3 of the published Goncharov paper: for E2=e12 wedge e21 wedge e22 in gl_2(C), Alt_3 Tr(e12 e21 e22)=-3 and C2(E2)=-3/2 when C2=(1/2)Alt_3 Tr as in equation (66). The Burgos trace polynomial Phi3=-(1/6)Alt_3 Tr of BorelRegulators:R.4 therefore evaluates to +1/2 on the same ordered matrices. These are explicit cochain evaluations, not an asserted equality of continuous, measurable or K-theory regulator classes.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Read the source’s Alt definition, equation (66), equation (67) and the displayed evaluation on published p.39 together; see source issue Polylogarithms/E22.",
+        "Expand all six permutations using eij ekl=delta_jk eil. The three even terms have trace zero; the three odd terms have trace one. Thus the alternating trace is -3.",
+        "Multiply by 1/2 for the printed C2 convention and by -1/6 for the independently owned R.4 Phi3 convention.",
+        "The printed Theorem 5.7 yields a formal coefficient 1/12 at n=2 and Corollary 5.10 prints 1/24 against b2, but the proof calibration fails this test. Re-derive the class coefficient, beta_DR comparison, Tate division and the natural Suslin/Hurewicz map before concluding the inherited borel-comparison’s exact scalar. This is the recorded normalization gap, not a hidden prerequisite supplied by R.7."
+      ],
+      "prerequisites": [
+        "mathlib:Matrix.trace",
+        "mathlib:Matrix.trace_mul_comm",
+        "BorelRegulators:R.4/trace-cocycle"
+      ],
+      "sources": [
+        {
+          "sourceId": "goncharov-jams",
+          "locator": "Section 5.5, equations (66)–(67), pp.38–39; Theorem 5.7 proof",
+          "excerpt": "direct computation",
+          "match": "The literal elementary-matrix test is corrected by an exact six-permutation calculation; source issue E22."
+        }
+      ],
+      "acceptance": [
+        "Reversing e12 and e21 changes the sign to +3/2, which still does not give the printed 1.",
+        "Do not use this calculation alone to assign a Borel-to-D scalar."
+      ],
+      "implementationStatus": "unchecked",
+      "declarationName": "TauCeti.Polylog.goncharov_weightTwo_elementaryCalibration"
+    }
+  ],
+  "requests": [
+    {
+      "supplier": "tauceti:TauCetiRoadmap/GeometricTopology#layer-7-riemannian-geometric-structures-and-volume",
+      "need": "Import the explicit curvature -1 hyperbolic metric and its native Riemannian volume density, with upper-half-space chart density h^-3 and change-of-chart compatibility. Existing upstream work is not replanned.",
+      "neededBy": [
+        "Polylogarithms:P.2/milnor-angle-volume",
+        "Polylogarithms:P.2/hyperbolic-volume"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/GeometricTopology#layer-8-thurston-geometries-and-the-jsj--geometric-decomposition",
+      "need": "Import the three-dimensional hyperbolic model and its orientation-preserving model isometries. General JSJ, Mostow and manifold volume minimization are not proof prerequisites for an ideal tetrahedron.",
+      "neededBy": [
+        "Polylogarithms:P.2/milnor-angle-volume",
+        "Polylogarithms:P.2/hyperbolic-volume"
+      ]
+    },
+    {
+      "supplier": "AutomorphicFormsOnReductiveGroups:AF.1a",
+      "need": "Degree-three comparison for GL_2(C) and stabilized GL_N(C): differentiable/continuous cochains, invariant forms, relative Lie cohomology and van Est with explicit coefficient and orientation conventions. Add a compatible measurable-cocycle comparison for the P.2 D(cross-ratio) representative, including repeated configurations. The latter is an extension request rather than a claim that the current AF.1a text supplies it.",
+      "neededBy": [
+        "Polylogarithms:P.2/bloch-wigner-cocycle",
+        "Polylogarithms:P.2/borel-comparison",
+        "Polylogarithms:P.2/goncharov-elementary-calibration"
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "title": "Map-level Borel normalization, including the failed source calibration",
+      "neededBy": [
+        "Polylogarithms:P.2/borel-comparison",
+        "Polylogarithms:P.2/goncharov-elementary-calibration"
+      ],
+      "detail": "The inherited up-to-Q× comparison is retained, with P.2 as its analytic owner. Goncharov Theorem 5.7’s printed n=2 class coefficient 1/12 and Corollary 5.10’s 1/24 are not accepted as an audited exact endpoint because the displayed C2(E2)=1 conflicts with equations (66)–(67): it equals -3/2. Re-derive the coefficient from the boundary/symmetric-space integral; compare beta_DR and AF.1a van Est, the R(1) generator 2pi i and the real-coordinate division, the r(infinity,0,1,z)=z sign, and the natural V.4 Suslin map after rationalization. R.4/trace-cocycle supplies the independently normalized Burgos class. Export the exact scalar to the existing R.7/weight-two-bloch-wigner consumer; do not import that consumer as a premise."
+    },
+    {
+      "title": "Early ideal-boundary geometry beyond GeometricTopology layers 7–8",
+      "neededBy": [
+        "Polylogarithms:P.2/milnor-angle-volume",
+        "Polylogarithms:P.2/hyperbolic-volume"
+      ],
+      "detail": "Request GeometricTopology, Part II: a canonical boundary identification ∂H^3≃CP^1 compatible with PGL_2(C), geodesic convex hulls of finite boundary configurations, measurable ideal-tetrahedron regions, orientation from ordered vertices, finite volume and upper-half-space chart/change-of-model compatibility. Supply almost-everywhere signed sector decomposition and exhaustion/dominated convergence for ideal regions. The existing layers own the metric and Riemannian volume but do not state this region/boundary interface. P.2 then proves the Milnor and D volume identities. No arbitrary carrier or assumed volume field substitutes for it."
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "Polylogarithms:P.2",
+      "status": "planned",
+      "remaining": [
+        "Re-derive and export the exact Burgos/Suslin scalar after correcting the published matrix-unit calibration and fixing the measurable-to-continuous/Tate-coordinate map.",
+        "Obtain the early GeometricTopology Part II ideal-boundary/oriented measurable-region interface; then instantiate the stated Milnor theorem and inherited hyperbolic-volume theorem on that carrier."
+      ],
+      "inheritedNodes": [
+        "Polylogarithms:P.2/bloch-wigner-descent",
+        "Polylogarithms:P.2/weight-two-regulator",
+        "Polylogarithms:P.2/borel-comparison",
+        "Polylogarithms:P.2/bloch-wigner-cocycle",
+        "Polylogarithms:P.2/hyperbolic-volume",
+        "Polylogarithms:P.2/lobachevsky-identity",
+        "Polylogarithms:P.2/certified-numerics",
+        "Polylogarithms:P.2/certified-numerics-error"
+      ],
+      "completedRefinements": [
+        "Milnor Appendix proof route and analytic normalization.",
+        "Uniform rational Fourier evaluation and its error contract, including unit-circle inputs; no Li_2 near-circle expansion needed.",
+        "Ownership boundaries for all three confirmed red-team findings."
+      ]
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "Polylogarithms/E22",
+      "source": "goncharov-jams",
+      "kind": "error",
+      "locator": "JAMS 18 (2005), proof of Theorem 5.7, p.39, after (67); conventions in (66), p.38 and the unnormalized Alt definition in section 2. Same calculation in arXiv v3.",
+      "printed": "⟨C_n, E_n⟩ = 1.",
+      "correction": "For the displayed definitions at n=2, ⟨C_2,e12 wedge e21 wedge e22⟩=-3/2. Recompute the normalizing coefficient rather than substitute a conjectured corrected Theorem 5.7 scalar.",
+      "reason": "Of the six products in Alt_3 Tr(e12 e21 e22), the three even-permutation traces are 0 and all three odd-permutation traces are 1. Their signed sum is -3; equation (66) divides by 2. This directly contradicts the proof’s claimed value. It does not by itself prove a replacement class comparison coefficient.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Published AMS PDF, pp.38–40 and publisher article search, 2026-10-05.",
+        "arXiv math/0207036 revision history: v3 remains the latest; compared its Section 5.5 calculation, 2026-10-05.",
+        "Author website https://sasha-goncharov.github.io/ and targeted title/Theorem 5.7 erratum searches; no correction found, 2026-10-05."
+      ]
+    },
+    {
+      "id": "Polylogarithms/E23",
+      "source": "goncharov-jams",
+      "kind": "gap",
+      "locator": "JAMS Appendix 7.2, p.57, equation (100) and final parenthesis; compare 7.1, pp.55–56.",
+      "printed": "c3 = −1/(6π).",
+      "correction": "Give the derivation of c3 from the normalized hyperbolic volume form, boundary measure ratios and orientation used in 7.1. Use Milnor’s independent h^-3 integral to establish the P.2 endpoint until that derivation is checked.",
+      "reason": "The local section introduces 3c3 in the specialized boundary integral without deriving it from (99); the final integration then uses the parenthesized constant to conclude D(a). The exact conversion involves boundary-ratio powers and signs, so it cannot be inferred simply by taking the reciprocal of the coefficient in (99). This is a missing calibration derivation, not a claim that the volume identity is false.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Published Section 7.1–7.2 and arXiv v3 Appendix 7, read in full at the relevant passage.",
+        "Author website and publisher/title correction search, 2026-10-05; no supplied derivation found."
+      ]
+    }
+  ],
+  "restructure": [
+    {
+      "action": "rescope",
+      "roadmaps": [
+        "Polylogarithms",
+        "K3BlochGroups",
+        "BorelRegulators"
+      ],
+      "detail": "Confirmed RT-AREA-ktheory-2/23: the analytic real-regulator comparison has one owner. The current V.6/regulator-agreement already imports P.2 as transport, but its text still names R.7 as an exact-scalar supplier.",
+      "proposal": "Keep the natural rational/integral Suslin comparisons in V.6. P.2 owns the D-to-Burgos comparison and its exact normalization; R.7 is the factor-two/normalization-test consumer. V.6/regulator-agreement is only transport along V.6/comparison-rational, or is removed as a duplicate endpoint. Use P.2→V.6 transport and P.2→R.7; do not add R.7→P.2. This pass requires V.4’s natural maps and does not add a whole-V.6 dependency."
+    },
+    {
+      "action": "rescope",
+      "roadmaps": [
+        "Polylogarithms",
+        "ArithmeticQuantumTopology"
+      ],
+      "detail": "Confirmed RT-AREA-ktheory-2/25 and RT-AREA-topology/7: ideal-tetrahedron volume is a P.2 identity, while QT.5 is its manifold-level consumer.",
+      "proposal": "Add Polylogarithms:P.2→ArithmeticQuantumTopology:QT.5. P.2 owns Milnor/Lobachevsky and ordered ideal volume D(r), importing the GeometricTopology foundations. QT.5 keeps triangulations, gluing and completeness, flattenings, manifold volume sum and Bloch invariant, and Chern–Simons comparison; it imports the canonical ideal-tetrahedron carrier from the early geometry extension and the volume identity from P.2."
+    },
+    {
+      "action": "rescope",
+      "roadmaps": [
+        "Polylogarithms",
+        "tauceti:TauCetiRoadmap/GeometricTopology"
+      ],
+      "detail": "The existing upstream layers 7–8 do not state the ideal-boundary and finite-region interface required before the P.2 calculation.",
+      "proposal": "Create GeometricTopology, Part II: Ideal boundary and finite-volume geodesic regions, with layers 7–8 as its first suppliers; place the precise generic geometry described in the gap there. Leave upstream layers unchanged. Supply P.2 first and QT.5 next. The analytic Lambda and D identities remain in P.2."
+    }
+  ],
+  "baselineSearch": {
+    "date": "2026-10-05",
+    "method": "Read reviewed library-coverage Polylogarithms:P.2; case-insensitive full pinned Mathlib source search and git grep at the pinned Tau Ceti commit for dilogarithm, polylogarithm, Lobachevsky, Bloch–Wigner, ideal tetrahedron and Borel regulator. Read the listed declaration statements at their pinned source paths.",
+    "result": "The twelve cited foundations exist. No target dilogarithm, Lobachevsky function, Bloch–Wigner regulator or ideal-tetrahedron formula was found. LogTrigonometric mentions Li_2 only in documentation; it does supply the cited log-sine integral.",
+    "linkAudit": "Read all 28 examined records mentioning Polylogarithms in link packets: negative screens only, no stage-level positive link/overlap. Read the atlas stageEdges and P.2 supplier/consumer contracts."
+  }
+}
