@@ -24396,8 +24396,9 @@
    ],
    "avoidAccountOf": "BP-EtaleDualityAndPerverseSheaves--EDC.0",
    "prompt": "research/blueprint/prompts/REV-EtaleDualityAndPerverseSheaves--EDC.0.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #398"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #398",
+   "finishedAt": "2026-10-06T19:32:03Z"
   },
   {
    "id": "BP-EtaleDualityAndPerverseSheaves--EDC.4",
@@ -26653,7 +26654,8 @@
    ],
    "avoidAccountOf": "BP-KatoEulerSystems",
    "prompt": "research/blueprint/prompts/REV-KatoEulerSystems.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #443"
   },
   {
    "id": "BP-LanglandsParameterStacks",
