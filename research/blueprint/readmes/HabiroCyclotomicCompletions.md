@@ -1,660 +1,1627 @@
-# HabiroCyclotomicCompletions — HC.1 to HC.6
+# Cyclotomic completions and classical Habiro rings
 
-The blueprint for the whole roadmap: the cyclotomic completion of a polynomial
-ring, its expansions and algorithms, evaluation and Taylor maps, the rigidity
-theorems, modules and the exported interface. This document is definitive; the
-packet `research/blueprint/packets/HabiroCyclotomicCompletions.json` is its
-machine form and the suggested Lean file is a naming proposal, not an
-implementation.
+*Roadmap `HabiroCyclotomicCompletions`: the complete blueprint, assembled from its three reviewed parts.*
 
-Pins: Mathlib `082e2d3`, Tau Ceti `f790474`.
+This document is definitive. Its machine form is three part packets, and it is generated from them as their independent reviews left them, so that the two agree node for node:
 
-## The source
+- `research/blueprint/packets/HabiroCyclotomicCompletions.json`: stages HC.1–HC.6, 48 nodes. Written by BP-HabiroCyclotomicCompletions, corrected in place and accepted by REV-HabiroCyclotomicCompletions on 25 September 2026. It left HC.4 and HC.6 `partial`.
+- `research/blueprint/packets/HabiroCyclotomicCompletions--HC.4.json`: stage HC.4, 59 nodes. These are the integral Taylor comparison of Garoufalidis, Scholze, Wheeler and Zagier (GSWZ), §5.1, with their Examples 5.6 and 5.7, and the finite-domain input to Habiro's Theorem 5.2. Written by BP-HabiroCyclotomicCompletions--HC.4, corrected in place and accepted by REV-HabiroCyclotomicCompletions--HC.4 on 5 October 2026.
+- `research/blueprint/packets/HabiroCyclotomicCompletions--HC.6.json`: stage HC.6, with no nodes of its own. It closes the interface layer with the three HC.6 nodes of the first packet. Written by BP-HabiroCyclotomicCompletions--HC.6 and accepted by REV-HabiroCyclotomicCompletions--HC.6 on 5 October 2026, with no change to its mathematics.
 
-One paper — the one the stage texts cite by theorem number throughout:
+The document replaces the three part documents. The first part's document describes its packet as it stood before the review, which corrected 20 of its 21 nodes, added 28 and deleted one, so none of its node text is reused here. The HC.4 part's document predates the 23 nodes its review added. The suggested Lean file `research/blueprint/suggested/HabiroCyclotomicCompletions.lean` joins the three parts' files. It is a naming proposal, not an implementation, and `implementationStatus` is `unchecked` for every node. Pins: Mathlib `082e2d3`, Tau Ceti `f790474`.
 
-> Kazuo Habiro, *Cyclotomic Completions of Polynomial Rings*. Publications of the Research Institute for Mathematical Sciences 40 (2004), pp. 1127 to 1146; open access. Locators give the printed page, which the PDF carries in its headers.
-> <https://doi.org/10.2977/prims/1145475444>,
-> SHA-256 `f56094672ada5ba71bbce69785be8c9d1377807c937b1011b1004f51dbf3071f`, accessed 2026-09-25.
+## Purpose and scope
 
-- Obtained by resolving the article's DOI to the publisher's page and downloading the article file it names. The publisher's own DOI mapping for this volume is unreliable: the DOI printed in several secondary sources resolves to a different article, and the correct one was found through a bibliographic lookup by title. The hash recorded here is of the file actually read.
-- §1, the introduction, pp. 1127 to 1129: the two properties that justify calling the completion a ring of analytic functions on the roots of unity, the evaluation map and its injectivity, the expansion homomorphism and its injectivity, the non-injectivity over the rationals with the injectivity of the map from the integral completion, and the Kontsevich series with the isomorphism exhibiting it as an element.
-- §2, p. 1129: conventions, adic completion notation, separatedness and completeness, and the directed set of positive integers under divisibility.
-- §3.1, pp. 1130 to 1131: monic completions of polynomial rings, the directed multiplicative set, the linear topology, the completion as an inverse limit and the restriction homomorphisms.
-- Proposition 3.1 and Corollary 3.1, pp. 1131 to 1134: the one-step injectivity statement with its proof by reduction to a complete coefficient ring, and the connected-subset corollary.
-- §4 with Lemma 4.1 and Theorem 4.1, pp. 1134 to 1136: the identification of the cyclotomic completion with the monic one, the two cyclotomic lemmas, the adjacency relation and the injectivity theorem with its chain hypothesis and its two corollaries.
-- §5 with Lemma 5.1, Theorem 5.1, Lemma 5.2, Remark 5.1 and Theorem 5.2, pp. 1137 to 1138: the adjacency relation on roots with its three equivalent conditions, the connected-subset theorem for roots, the comparison of connectedness for roots and for orders, and the rootwise Taylor injectivity theorem with all its hypotheses.
-- §6, Theorem 6.1 with its proof and the consequence quoted in the introduction, pp. 1140 to 1141: evaluation uniqueness with the precise infinite-set condition.
-- §7.3 with Theorem 7.1, and §7.4 with Proposition 7.4, pp. 1143 to 1145: the module completion with the module form of the injectivity theorem, and the three non-surjectivity statements with the proof of the first.
-- NOT read in full: §3.2 and §3.3, the proofs in §5 beyond their statements and Lemma 5.1, §6.2, §7.1, §7.2 and §7.5. The statements quoted from §7.5 are the ones repeated in the introduction.
-- The PDF's text layer inserts spaces inside words and drops some subscripts; every excerpt quoted here was repaired character by character against the surrounding text, without changing a word, and mathematical symbols are written out in words where the layer lost them.
+This roadmap owns the classical theory of cyclotomic completions of polynomial rings, after Habiro (2004). For a commutative ring R and a set S of positive integers, the S-cyclotomic completion
 
-There is **no integrated decomposition** for this roadmap.
+R[q]^S = lim_{f ∈ Φ*_S} R[q]/(f)
 
-## What the pinned libraries already have
+is the limit over the multiplicative monoid Φ*_S generated by the cyclotomic polynomials Φ_n, n ∈ S, ordered by divisibility. For S = ℕ the factorial polynomials P_N = (q; q)_N are cofinal, and ℤ[q]^ℕ is Habiro's ring: the ring in which the Kontsevich series Σ_n (q; q)_n and the unified invariants of quantum topology live. The roadmap builds the ordinary, underived completion with its topology and functoriality, its factorial expansions and finite-precision arithmetic, and evaluation and Taylor expansion at roots of unity with the p-adic re-expansion between them. It then proves Habiro's rigidity theorems with their exact hypotheses, and the integral Taylor comparison by which GSWZ describe the image of the joint Taylor map. It ends with modules, components and inverted primes, and with the interface and its acceptance examples. It is the classical foundation of the standalone Habiro family, and it is independent of algebraic K-theory.
 
-`AUDIT-17` records every layer as *not built*, and what it finds is a striking
-amount of exactly the right infrastructure with nothing assembled. Every claim
-was re-checked against the declaration index. Cited, never re-planned:
+- **HC.1, the directed system and its topology.**
+  - The index monoid Φ*_S(R), which is a set of polynomials: over 𝔽_2, Φ_1 = Φ_2.
+  - The completion R[q]^S as the ring of compatible families, its finite quotients (ker π_f = f·R[q]^S), the inverse-limit topology, completeness and the universal property.
+  - The factorial polynomials, whose leading coefficient is (−1)^N, and their cofinality.
+  - The completion along a mutually cofinal family: for finite S it is an adic completion, and R[q]^{1} = R[[q − 1]].
+  - The theorem that the full completion is neither q-adic nor (q − 1)-adic.
+  - The two functorialities, and Habiro's Lemma 3.1 on coefficient change.
+- **HC.2, expansions and coefficient algorithms.**
+  - Factorial series with arbitrary coefficients.
+  - The unique normalised expansion x = Σ a_n P_n with deg a_n ≤ n, computed by division by the monic q^{n+1} − 1.
+  - Addition, and multiplication with renormalisation, each with a congruence correctness theorem and an executable version over Tau Ceti's coefficient lists.
+  - q is a unit of every R[q]^S, and q^{−1} = Σ q^n P_n.
+- **HC.3, root evaluation and Taylor maps.**
+  - Evaluation ev_ζ through R[q]/(Φ_n) = `AdjoinRoot` Φ_n.
+  - The Taylor map σ_ζ, whose coefficients are Hasse derivatives.
+  - Naturality in coefficients, roots, orders and q ↦ q^a.
+  - Which roots are p-adically close; the p-adic re-expansion, built from `PowerSeries.eval₂Hom`; and the identity relating Taylor maps at p-adically close roots.
+- **HC.4, arithmetic connectedness and rigidity,** in two proposed sub-layers.
+  - **HC.4a, classical arithmetic rigidity.** Adjacency of orders, cyclotomic congruences and resultants, and Habiro's §§3–7.4: Proposition 3.1, Theorem 3.1, Lemma 4.2 and Theorems 4.1, 5.1, 5.2, 6.1 and 6.2, with Corollary 5.1 corrected. Then the non-surjectivity of the restriction and Taylor maps, and the finite-domain separation transfer that Theorem 5.2 needs over non-Noetherian rings.
+  - **HC.4b, the integral Taylor comparison of GSWZ §5.1.** The untwisted universal Taylor product. The factorial and weighted Taylor filtrations, with their graded pieces and finite bases. The multiplicative Taylor comparison iota and the leading factor D_{m,l} = m^{2l−1}(l − 1)!. Joint injectivity and rational reconstruction. The integer matrix M_N and its determinant, with corrected indexing. The signed-adjugate image criterion, and its prime-by-prime form over ℤ[1/Δ]. GSWZ's Examples 5.6 and 5.7.
+- **HC.5, modules, inversion of primes and components.**
+  - The completion M[q]^S of a module, exact for every R, and Habiro's Theorem 7.1 for modules.
+  - The Chinese remainder decomposition under comaximality.
+  - The rings ℚ[q]^S and ℤ[1/Δ][q]^ℕ, the second a product of domains.
+  - Restriction versus localisation, and Habiro's Propositions 7.2 and 7.3.
+  - The comparison with the derived Habiro completion of HabiroRings HR.2.
+- **HC.6, interfaces and acceptance examples.** What the roadmap exports, node by node, and the acceptance examples over ℤ, with 2 inverted, over ℚ and modulo 2.
 
-- `mathlib:AdjoinRoot` (`Mathlib/RingTheory/AdjoinRoot.lean`) — The quotient of a polynomial ring by a polynomial, the pinned carrier of the target of HC.3's evaluation.
-- `mathlib:IsAdicComplete` (`Mathlib/RingTheory/AdicCompletion/Basic.lean`) — Adic completeness, the hypothesis under which the re-expansions of HC.3 are defined.
-- `mathlib:IsPrecomplete` (`Mathlib/RingTheory/AdicCompletion/Basic.lean`) — The precompleteness half of the same, used for the completion statements of HC.1.
-- `mathlib:IsPrimitiveRoot` (`Mathlib/RingTheory/RootsOfUnity/PrimitiveRoots.lean`) — Primitive roots of unity, the points at which HC.3 evaluates.
-- `mathlib:LaurentPolynomial` (`Mathlib/Algebra/Polynomial/Laurent.lean`) — Laurent polynomials as the localisation at the indeterminate, the comparison HC.2 makes when the indeterminate is invertible.
-- `mathlib:Polynomial.Monic` (`Mathlib/Algebra/Polynomial/Degree/Defs.lean`) — Monicity, which is what makes division with remainder and the whole index monoid work.
-- `mathlib:Polynomial.cyclotomic` (`Mathlib/RingTheory/Polynomial/Cyclotomic/Basic.lean`) — Cyclotomic polynomials over any ring, monic and defined by base change from the integers; the index set of the whole roadmap is built from them.
-- `mathlib:Polynomial.cyclotomic_prime_pow_eq_geom_sum` (`Mathlib/RingTheory/Polynomial/Cyclotomic/Basic.lean`) — The prime-power cyclotomic polynomial as a geometric sum, the pinned half of the congruence HC.4's adjacency lemma uses.
-- `mathlib:Polynomial.hasseDeriv` (`Mathlib/Algebra/Polynomial/HasseDeriv.lean`) — Hasse derivatives, which are the higher Taylor coefficients and are NOT the ordinary derivatives divided by factorials over a general ring.
-- `mathlib:Polynomial.modByMonic` (`Mathlib/Algebra/Polynomial/Div.lean`) — Division with remainder by a monic polynomial over any commutative ring, with its degree bound and uniqueness; this is exactly the normalisation of HC.2.
-- `mathlib:Polynomial.prod_cyclotomic_eq_X_pow_sub_one` (`Mathlib/RingTheory/Polynomial/Cyclotomic/Basic.lean`) — The factorisation of q to the n minus one into the cyclotomic polynomials of its divisors, which is the multiplicity count HC.1's cofinality proof needs.
-- `mathlib:Polynomial.taylor` (`Mathlib/Algebra/Polynomial/Taylor.lean`) — The polynomial Taylor shift, whose completed version is HC.3's Taylor map.
-- `mathlib:Polynomial.taylor_coeff` (`Mathlib/Algebra/Polynomial/Taylor.lean`) — The identification of its coefficients with Hasse derivatives, which HC.3 consumes rather than reproving.
-- `mathlib:PowerSeries` (`Mathlib/RingTheory/PowerSeries/Basic.lean`) — Formal power series, the target of the Taylor map.
-- `mathlib:PowerSeries.subst` (`Mathlib/RingTheory/PowerSeries/Substitution.lean`) — Substitution into a power series, which requires exactly the topological nilpotence hypothesis HC.3 insists on for a re-expansion.
-- `tauceti:TauCeti.TopCommRingCat.IsCompleteSeparated` (`TauCeti/Topology/Category/TopCommRingCat/CompleteSeparated/Basic.lean`) — Complete separated topological commutative rings as a category, the target of HC.1's universal property.
+The blueprint has 107 nodes: 48 in the first packet and 59 in the HC.4 packet; the HC.6 packet has none. Every layer is planned:
 
-Nothing named Habiro exists in either tree; `P_N(q)` has no carrier (Mathlib
-lists q-Pochhammer symbols as a TODO); and no cyclotomic completion, evaluation
-or Taylor map out of one is constructed anywhere.
+- HC.1, HC.2, HC.3 and HC.5 are `source_decomposed`.
+- HC.4 and HC.6 are `closed` by their follow-up packets.
+- Two gaps of the first packet stay recorded (see Gaps). A node of the HC.4 part supplies the first, but the first packet does not yet cite it. The second lies outside the scope the HC.4 part fixes.
+
+**What is not here.**
+
+- The derived Habiro completion and every derived-limit statement: HabiroRings HR.2.
+- The relative and Frobenius-twisted Habiro rings: HabiroRings.
+- The Habiro ring of a number field, its Frobenius gluing, and the comparison of ℤ[q]^ℕ with the ring of the rational field: HabiroNumberFields HB.6.
+- The integrality theorems for quantum invariants: ArithmeticQuantumTopology.
+- The elementary q-analogue toolkit beyond the polynomial P_N. Its owner is not settled; see the reconciliation note under Boundaries.
+
+## Boundaries
+
+The roadmap imports one node from another roadmap and plans nothing that another roadmap owns. Its ownership follows the restructuring proposal RS-10, which REV-RS-10~2 accepted on 29 September 2026.
+
+**Suppliers.**
+
+- **The pinned libraries.**
+  - Mathlib supplies polynomials and cyclotomic polynomials, monic division, `AdjoinRoot`, Hasse derivatives and the polynomial Taylor shift, power series with evaluation and substitution, adic completion and `PolynomialModule`.
+  - It also supplies resultants and Sylvester matrices, adjugates and block-triangular determinants, localisation and the p-adic integers.
+  - Tau Ceti supplies complete separated topological rings and executable synthetic division.
+  - The declarations are listed under "What the pinned libraries have".
+- **HabiroRings HR.2.** Its node `HabiroRings:HR.2/habiro-complete-modules` is the only prerequisite outside the libraries. It is cited by `HC.5/ordinary-versus-derived-completion`, which compares the ordinary module completion with the derived one. RS-10 records the link HR.2 → HC.5 for this comparison only, and forwards it to HC.6. The ordinary part of HC.5 does not depend on HR.2.
+- **The atlas** records for HC.1 the external requirement `UPSTREAM:Polynomial-cyclotomic-completion-algebra`, whose integration owner is FoundationsAndLibraryIntegration LI.1. The packets meet it with the pinned declarations, and no node cites it.
+
+**Consumers.** These come from the atlas stage links, the RS-10 links and the nodes of other packets that cite this roadmap's node ids.
+
+- **HabiroRings.**
+  - HR.2 imports the factorial polynomials, their cofinality, the completion and its topology (HC.1).
+  - HR.3 imports the cyclotomic congruences and comaximality (HC.4); HR.4 imports HC.1 and HC.4.
+  - HR.5 and HR.5-number-field-comparison import the cofinality, the Taylor maps and the p-adic re-expansion (HC.1, HC.3); HR.1 imports the re-expansion (HC.3).
+  - HR.6 and HR.7 import rootwise Taylor injectivity, the cofinality and the decomposition after inverting a prime (HC.1, HC.4, HC.5).
+- **HabiroNumberFields.**
+  - HB.6 imports the completion and its computation along cofinal families, the Taylor maps, p-adic closeness and re-expansion (HC.1, HC.3).
+  - It also imports the universal Taylor product, the multiplicative Taylor comparison, joint Taylor injectivity and prime-by-prime integrality detection (HC.4b), rootwise Taylor injectivity (HC.4a), and the decompositions after inverting primes (HC.5).
+  - HB.6, not this roadmap, compares ℤ[q]^ℕ with the Habiro ring of the rational field.
+  - HB.2, HB.7 and KU-habiroring import HC.1–HC.5 through RS-10's forwarding links.
+- **ArithmeticQuantumTopology.** QT.2 uses HC.1 and HC.2, and QT.3 uses HC.4. QT.4 uses HC.3, HC.4 and the HC.6 interface, and QT.6 uses HC.3 and HC.6.
+- **QSeriesPartitionsAndMockModularForms.** QM.5 uses the completion with the convergence criterion for factorial series (HC.1, HC.2), evaluation and Taylor maps (HC.3) and evaluation rigidity (HC.4).
+- **HabiroCohomologyFoundations.** HQ.1, HQ.2, HQ.3 and HQ.8 import the classical completion and its cofinal indexing (HC.1), the factorial expansions (HC.2) and the evaluation and Taylor maps that the coordinate model of HQ.3 uses (HC.3).
+- **QWittVectors** is a draft roadmap, not yet in the atlas. RS-10 links HC.4 to its layer QW.2.
+
+**Owners.** RS-10 gives each piece of mathematics that more than one roadmap planned exactly one owner:
+
+| Mathematics | Owner | Formerly also planned in |
+|---|---|---|
+| Ordinary cyclotomic completion and cofinal indexing comparisons | HC.1 | HabiroNumberFields HB.6, HabiroRings HR.2, HR.3, HR.5 |
+| Normalised factorial expansions and the ordinary invertibility of q | HC.2 | ArithmeticQuantumTopology QT.2, HabiroRings HR.2 |
+| Root evaluations, Taylor maps and convergent p-adic re-expansion | HC.3 | ArithmeticQuantumTopology QT.4, HabiroNumberFields HB.6, HabiroRings HR.5 |
+| Cyclotomic prime adjacency and the classical rigidity input | HC.4 | ArithmeticQuantumTopology QT.4, HabiroRings HR.3 |
+| Classical localised completions and root-component calculations | HC.5 | HabiroNumberFields HB.6 |
+| Derived Habiro completion and its correction to the ordinary module completion | HabiroRings HR.2 | HC.5 |
+| The comparison of the classical completion with the Habiro ring of ℚ, with its test | HabiroNumberFields HB.6 | HC.6 |
+
+**Reconciliation note: the elementary q-toolkit.** RS-10 was accepted after the first packet's review. It keeps HC.1 with the reason "Incorporate PLAN-HABIRO §6.1 elementary q-toolkit here". That toolkit is the q-integers, q-factorials, q-binomial and q-multinomial coefficients, the finite and infinite Pochhammer symbols, the q-binomial theorem and Euler's identities.
+
+- The first packet plans only the polynomial P_N that the HC.1 stage text names (`HC.1/the-factorial-polynomials`). It records the double ownership as a structural proposal below.
+- QSeriesPartitionsAndMockModularForms plans the toolkit in its own layer QM.0 (`QM.0/q-pochhammer`, `QM.0/q-integer`, `QM.0/q-factorial`, `QM.0/q-binomial-coefficient`, `QM.0/q-binomial-theorem` and Euler's identities).
+- The consumers already cite QM.0. The reviewed HabiroNahmSeries packets cite `QM.0/q-pochhammer`, `QM.0/q-factorial`, `QM.0/q-binomial-coefficient`, `QM.0/q-binomial-theorem` and Euler's identities by node id; their earlier request to HC.1 was withdrawn in review. ArithmeticQuantumTopology still asks HC.6 for the quantum binomial identities.
+
+No node of this roadmap plans the toolkit. HC.1's coverage is therefore complete for its atlas stage text, but not for the scope RS-10's reason gives it. The owner has to be settled once, by the orchestrator. Since every consumer already cites QM.0, the simplest settlement is to let QM.0 own the toolkit: HC.1 then keeps the polynomial P_N, which is QM.0's finite q-Pochhammer symbol (q; q)_N under the inclusion R[q] ⊂ R[[q]], and the ArithmeticQuantumTopology request is redirected to QM.0.
+
+## Conventions
+
+The three parts wrote the same objects in different notations: the first part follows Habiro, and the HC.4 part follows GSWZ; some nodes of both are in ASCII. The prose of every node below uses the forms listed here: Φ_n for `Phi_n`, ζ for `zeta`, σ_ζ, ρ, ε, ω and ψ for the spelled-out letters, ℤ, ℚ, ℕ and 𝔽_p for Z, Q, N and F_p where they denote number systems, and →, ⇒, ⇔, ≤, ≥ and ≠ for their ASCII spellings. Lean names, code spans and the literal source excerpts keep their own form. A letter is converted only where its meaning is unambiguous, so Z still names a set of roots of unity where Habiro uses it that way.
+
+- **Rings and order sets.** R is a commutative unital ring. S is a set of positive integers. In Lean S : Set ℕ, and 0 ∈ S is harmless because Mathlib's `cyclotomic 0 R` is 1.
+- **The index monoid** Φ*_S(R) is the submonoid of R[q] generated by the Φ_n, n ∈ S, a set of polynomials, not of exponent vectors. Its elements are monic.
+- **Completions.**
+  - R[q]^S is the S-cyclotomic completion. R[q]^ℕ, or R[q]^{ℕ>0}, is the full completion, written H_R in GSWZ and in HC.4b, and `HabiroRing R` in the suggested Lean file. In the ASCII nodes, Habiro's set of positive integers N is written ℕ.
+  - ι : R[q] → R[q]^S is the polynomial map and π_f the projection to R[q]/(f). ρ_{S,S'} is restriction for S' ⊆ S, and h^S is coefficient change along h : R → R'.
+  - GSWZ also call their Taylor comparison H_R → TaylorProduct R ι. To keep it apart from Habiro's polynomial map, this document writes it iota, as the HC.4 part and the Lean file (`HC4.iota`) do; Habiro's ι is `fromPoly` in Lean.
+  - For finite S the completion is adic, and R[q]^{1} = R[[q − 1]]. The full completion is neither q-adic nor (q − 1)-adic.
+- **Factorial polynomials.** P_N = (q; q)_N = ∏_{i=1}^{N} (1 − q^i), with P_0 = 1. Its leading coefficient is (−1)^N, so P_N is monic only for even N; (−1)^N P_N is the monic element of Φ*_ℕ. Division with remainder, Mathlib's `%ₘ`, is by monic polynomials only.
+- **Digits.** HC.2 writes x = Σ_{n≥0} a_n(q) P_n(q) with deg a_n ≤ n, the digit a_n being a remainder modulo q^{n+1} − 1.
+  - GSWZ, and so HC.4b, index from one: h = Σ_{n≥1} a_n(q) P_{n−1}(q) with a_n = Σ_{0≤k<n} a_{n,k} q^k.
+  - GSWZ's digit n is HC.2's digit n − 1. In the Lean file it is `factorialCoeff R h (n - 1)`.
+- **Precision.** In HC.2, precision N means modulo P_N. In HC.4b, precision N retains the digits 1 ≤ n < N, so the factorial quotient at precision N is R[q]/(P_{N−1}), of rank d_N = N(N − 1)/2.
+- **Roots and coefficient algebras.**
+  - HC.3 evaluates at any ζ in an R-algebra A with Φ_n(ζ) = 0, through the canonical quotient R[q]/(Φ_n) = `AdjoinRoot` Φ_n. Habiro's R[ζ] is the image of that quotient. The two agree when Φ_n is irreducible over the fraction field of R, for instance for R = ℤ.
+  - HC.4b uses the universal coefficient algebra A_m(R) = R[q]/(Φ_m) = R ⊗_ℤ ℤ[ζ_m], with universal root z_m, the class of q. It never uses a chosen embedded root.
+- **Taylor coordinates.**
+  - HC.3's Taylor map σ_ζ is additive: X stands for q − ζ, and its k-th coefficient is the k-th Hasse derivative at ζ, with no factorial division.
+  - HC.4b uses GSWZ's multiplicative coordinate q = z_m(1 − u), so q − z_m = −z_m u, and its k-th coefficient is (−z_m)^k times HC.3's.
+  - In HC.4b the coefficient C_{m,l} is the coefficient of u^{l−1}: the index l is the exponent plus one, and ml is its weight. γ_{m,l,j} is the j-th coordinate of C_{m,l} in the basis 1, z_m, …, z_m^{φ(m)−1}.
+- **Adjacency.** c_{m,n} is 0 if m = n, p if n/m = p^j with j ≠ 0, and 1 otherwise; m ⇔_R n means that R is c_{m,n}-adically separated. Adjacency is reflexive, and over ℚ it is equality.
+- **Separation.** "I-adically separated" is Mathlib's `IsHausdorff I R`: the intersection of the I^k R is zero.
+- **Torsion-free.** "ℤ-torsion-free" means that multiplication by every nonzero integer is injective on R.
+- **Numbering.** Habiro's statements carry the published numbering of Publ. RIMS 40 (2004). The arXiv preprint numbers by one counter per section: arXiv 4.2, 5.4, 6.2, 6.3, 7.6 and 7.7 are published Theorem 4.1, Theorem 5.2, Proposition 6.1, Theorem 6.2, Theorem 7.1 and Proposition 7.4. GSWZ is cited by its arXiv v2 equation numbers.
+- **Identifiers.** Node ids are `HabiroCyclotomicCompletions:<layer>/<slug>`; below they are written without the roadmap prefix. The HC.4 part's nodes keep the layer HC.4 in their ids; HC.4a and HC.4b are display sub-layers only.
+
+## Sources
+
+Every statement below is taken from these sources, at the versions recorded. The parts gave the same document different source ids, and each node keeps the id its packet uses; this list gives every alias. Excerpts are quoted literally. The page images were checked wherever the PDF text layer drops symbols.
+
+- **Kazuo Habiro, *Cyclotomic Completions of Polynomial Rings*.** Publications of the Research Institute for Mathematical Sciences 40 (2004), pp. 1127–1146; open access, the version of record.
+  - Source ids: `Habiro.CyclotomicCompletions.2004` (first part and HC.6 part) and `Habiro.2004` (HC.4 part).
+  - <https://doi.org/10.2977/prims/1145475444>; the publisher's file <https://ems.press/content/serial-article-files/40881>, SHA-256 `f56094672ada5ba71bbce69785be8c9d1377807c937b1011b1004f51dbf3071f`.
+  - The DOI 10.2977/prims/1145475493, printed in some secondary sources, belongs to a different article.
+  - Read in full, pp. 1127–1146. The paper has no §3.3 and no §6.2. Locators give the printed page.
+- **Kazuo Habiro, *Cyclotomic completions of polynomial rings*, arXiv:math/0209324v1.**
+  - Source id `Habiro.CyclotomicCompletions.arXiv-v1`. The only arXiv version, a preprint of the published paper.
+  - <https://arxiv.org/abs/math/0209324v1>, SHA-256 `ae2ea5024a0a45e8eaf16b1bcaaf1c139cd7437aaa5a6ea9ff596e98b47e69d0`; the TeX e-print has SHA-256 `5dfe884791499f25f8c3e36c50c6402e69167bfff15f27bd6fb36a4f69ffba07`.
+  - Read in full. It is cited for what the published version dropped: the unique degree-normalised expansion along a cofinal monic chain (proof of Lemma 3.1, p. 7), the cofinality of (−1)^n (q)_n and the statement R[q]^∅ = {0} (§1, pp. 2–3).
+- **Stavros Garoufalidis, Peter Scholze, Campbell Wheeler, Don Zagier, *The Habiro ring of a number field*, arXiv:2412.04241v2 (27 August 2025), a preprint.**
+  - Source ids: `GSWZ.HabiroNumberField.2024` (first part), `GSWZ.v2` (HC.4 part) and `GSWZ.HabiroNumberField.v2` (HC.6 part). It is the same file as the HabiroNumberFields packets' source.
+  - <https://arxiv.org/abs/2412.04241v2>, SHA-256 `308d1dd1c42bd979e5d5c31d9d95215a1808f604031b49c0ce2a1eb767273de9`.
+  - Read: §§1.3–1.4 (pp. 4–8), §5.1 in full (pp. 59–64, equations (296)–(323), Propositions 5.1 and 5.2), §5.2 for its consumer, and Examples 5.6 and 5.7 (pp. 65–66, equations (334)–(341)).
+  - The HC.4 part also compared the relevant formulas with Wheeler's author copy, <https://www.ihes.fr/~wheeler/files/text128.pdf>, SHA-256 `6eba668440fbf6f4087101bf1639983db624b1781a35d088129943f3bfed31dd`, whose equation numbering is earlier.
+- **Tom M. Apostol, *Resultants of cyclotomic polynomials*.**
+  - Source id `Apostol.CyclotomicResultants.1970`. Proceedings of the American Mathematical Society 24 (1970), 457–462.
+  - <https://www.ams.org/journals/proc/1970-024-03/S0002-9939-1970-0251010-X/S0002-9939-1970-0251010-X.pdf>, SHA-256 `0494b42126f3162a6c217d031ce62ff463fdf9b00d20b97b6cf24384bca0f949`.
+  - §§1–5 read: Theorems 1, 3 and 4.
+- **Ferdinand Wagner, *q-Witt vectors and q-Hodge complexes*, arXiv:2410.23078v5.**
+  - Source id `Wagner.qWitt.v5`.
+  - <https://arxiv.org/abs/2410.23078>, SHA-256 `c1c7426f374a9f56d5ad6fb743f6cfc95e74ba9c35a96babd7ae5101a9dded01`.
+  - §2.1, Lemmas 2.1 and 2.2, read.
+- **OEIS A022493, the Fishburn numbers.**
+  - Source id `OEIS.A022493`; <https://oeis.org/A022493>, as served on 25 September 2026.
+  - It cross-checks the Taylor coefficients of the Kontsevich series at q = 1.
+
+The files read, with the date of reading:
+
+- published, Habiro (EMS Press file): 25 September and 5 October 2026.
+- preprint, Habiro arXiv v1: 25 September 2026.
+- preprint, GSWZ arXiv v2: 25 September and 5 October 2026.
+- author copy, GSWZ (Wheeler's page): 5 October 2026.
+- preprint, Wagner arXiv v5: 25 September 2026.
+
+## What the pinned libraries have
+
+The reviewed library audit AUDIT-17 records HC.1–HC.5 as not built and HC.6 as a process layer. Neither library has anything named Habiro: no cyclotomic completion, no factorial expansion, and no evaluation or Taylor map out of a completion. What they have is the infrastructure the layers build on, and every node cites it rather than replanning it.
+
+- Cyclotomic polynomials over any ring, monic division with its uniqueness, `AdjoinRoot`, and Hasse derivatives with the polynomial Taylor shift.
+- Power-series evaluation under topological nilpotence (`PowerSeries.eval₂Hom`), and substitution under nilpotence of the constant coefficient (`PowerSeries.subst`). The second cannot build a p-adic re-expansion, which is why HC.3 uses the first.
+- Adic completion and `PolynomialModule`.
+- Resultants, Sylvester matrices, adjugates and block-triangular determinants.
+- Localisation and the p-adic integers.
+- In Tau Ceti, complete separated topological commutative rings and executable synthetic division on coefficient lists.
+
+Each declaration below was read at its module at the pinned commits by the part that cites it, and confirmed again by that part's review. The description is the citing packet's `provides` field; where several parts cite a declaration, the first part's description is given.
+
+**Mathlib** (110 declarations).
+
+- `mathlib:AdicCompletion` (Mathlib/RingTheory/AdicCompletion/Basic.lean): The I-adic completion; R[q]^S for finite S, and the q-adic and (q − 1)-adic completions of the non-example.
+- `mathlib:AdicCompletion.isAdicComplete` (Mathlib/RingTheory/AdicCompletion/Completeness.lean): The I-adic completion is I-adically complete when I is finitely generated (line 184); Proposition 3.1 needs this and the FG hypothesis is essential.
+- `mathlib:AdicCompletion.ofTensorProductEquivOfPiFintype` (Mathlib/RingTheory/AdicCompletion/AsTensorProduct.lean): Adic completion commutes with finite free base change (line 180); Proposition 7.4(2).
+- `mathlib:AdicCompletion.of_injective` (Mathlib/RingTheory/AdicCompletion/Basic.lean): R → AdicCompletion I R is injective when R is I-adically separated (line 632); used in Proposition 3.1.
+- `mathlib:AdjoinRoot` (Mathlib/RingTheory/AdjoinRoot.lean): R[X]/(f); AdjoinRoot Φ_n is the finite quotient R[q]/(Φ_n) through which evaluation at a root of Φ_n factors (it differs from R[ζ] when Φ_n splits over the fraction field of R). Cited by the first, HC.4 and HC.6 parts.
+- `mathlib:AdjoinRoot.liftAlgHom` (Mathlib/RingTheory/AdjoinRoot.lean): The algebra map AdjoinRoot p → T sending the root to x when p(x) = 0 (line 323): evaluation through the finite quotient. Cited by the first and HC.4 parts.
+- `mathlib:AdjoinRoot.mk` (Mathlib/RingTheory/AdjoinRoot.lean): The quotient ring homomorphism sending a polynomial to its class. Cited by the HC.6 part.
+- `mathlib:AdjoinRoot.mk_eq_mk` (Mathlib/RingTheory/AdjoinRoot.lean): Equality of polynomial classes is equivalent to divisibility of their difference by f. Cited by the HC.6 part.
+- `mathlib:AdjoinRoot.modByMonicHom` (Mathlib/RingTheory/AdjoinRoot.lean): The canonical reduced polynomial representative of a class modulo a monic f. Cited by the HC.4 part.
+- `mathlib:AdjoinRoot.powerBasisAux'` (Mathlib/RingTheory/AdjoinRoot.lean): For monic f, the basis 1,root f,... of the quotient, indexed by Fin f.natDegree. Cited by the HC.4 part.
+- `mathlib:AdjoinRoot.root` (Mathlib/RingTheory/AdjoinRoot.lean): The class of X in AdjoinRoot f. Cited by the HC.6 part.
+- `mathlib:Complex.isPrimitiveRoot_exp` (Mathlib/RingTheory/RootsOfUnity/Complex.lean): For n≠0, exp(2*pi*I/n) is a primitive n-th root in C; supplies the ambient characteristic-zero field and a concrete root. Cited by the HC.4 part.
+- `mathlib:FiniteDimensional.span_of_finite` (Mathlib/LinearAlgebra/FiniteDimensional/Defs.lean): The span of a finite set over a division ring is finite dimensional. Cited by the HC.4 part.
+- `mathlib:Ideal.Quotient.factor` (Mathlib/RingTheory/Ideal/Quotient/Defs.lean): The ring map R ⧸ I → R ⧸ J for I ≤ J; the transition maps of the limit.
+- `mathlib:Ideal.iInf_pow_eq_bot_of_isDomain` (Mathlib/RingTheory/Filtration.lean): Krull's intersection theorem for Noetherian domains (line 463): separatedness of R[ζ] for Noetherian R in Theorem 5.2's reduction.
+- `mathlib:Ideal.quotientInfRingEquivPiQuotient` (Mathlib/RingTheory/Ideal/Quotient/Operations.lean): Chinese remainder for pairwise coprime ideals (line 248): the non-example ρ_{{1,6},{1}}.
+- `mathlib:Ideal.quotientMulEquivQuotientProd` (Mathlib/RingTheory/Ideal/Quotient/Operations.lean): Chinese remainder theorem for two coprime ideals, R ⧸ I * J ≃+* (R ⧸ I) × R ⧸ J (HC.5/chinese-remainder-for-disconnected-collections). Cited by the first and HC.4 parts.
+- `mathlib:Ideal.span_singleton_le_span_singleton` (Mathlib/RingTheory/Ideal/Span.lean): span {x} ≤ span {y} ↔ y ∣ x.
+- `mathlib:IsAdic.isAdicComplete_iff` (Mathlib/RingTheory/AdicCompletion/Topology.lean): For the I-adic topology, IsAdicComplete I R iff CompleteSpace R and T2Space R (line 76): the bridge from algebraic to topological completeness used by re-expansion.
+- `mathlib:IsAdicComplete` (Mathlib/RingTheory/AdicCompletion/Basic.lean): Adic completeness, the hypothesis under which the re-expansions of HC.3 are defined.
+- `mathlib:IsFractionRing.injective` (Mathlib/RingTheory/Localization/FractionRing.lean): The fraction-field algebra map of a domain is injective. Cited by the HC.4 part.
+- `mathlib:IsFractionRing.lift` (Mathlib/RingTheory/Localization/FractionRing.lean): An injective map of a domain into a field extends to its fraction field; the field hom is injective. Used to make Frac(B) a Frac(R)-vector space. Cited by the HC.4 part.
+- `mathlib:IsHausdorff` (Mathlib/RingTheory/AdicCompletion/Basic.lean): Separatedness of a module for an ideal, the intersection of the I^n M being zero (line 46); Habiro's 'I-adically separated'. The instance IsHausdorff.bot (line 177) is the c = 0 case of adjacency. Cited by the first and HC.4 parts.
+- `mathlib:IsHausdorff.subsingleton` (Mathlib/RingTheory/AdicCompletion/Basic.lean): Separated for the unit ideal implies the zero ring (line 181): the c = 1 case of adjacency.
+- `mathlib:IsLinearTopology` (Mathlib/Topology/Algebra/LinearTopology.lean): Topologies with a basis of open ideals at 0.
+- `mathlib:IsLocalization.Away` (Mathlib/RingTheory/Localization/Away/Basic.lean): Localization at powers of a specified ring element, expressed by the existing localization typeclass. Cited by the HC.6 part.
+- `mathlib:IsLocalization.Away.exists_of_eq` (Mathlib/RingTheory/Localization/Away/Basic.lean): Equality of two images in an away localization implies equality in the base ring after multiplying by a power of the inverted element. Cited by the HC.4 part.
+- `mathlib:IsLocalization.Away.invSelf` (Mathlib/RingTheory/Localization/Away/Basic.lean): The inverse of the algebra-map image of the inverted element in any localization away from it. Cited by the HC.6 part.
+- `mathlib:IsLocalization.Away.lift` (Mathlib/RingTheory/Localization/Away/Basic.lean): Maps out of a localisation away from x, given that the image of x is a unit. Cited by the first and HC.4 parts.
+- `mathlib:IsLocalization.Away.mul_invSelf` (Mathlib/RingTheory/Localization/Away/Basic.lean): algebraMap R S x multiplied by invSelf x equals 1. Cited by the HC.6 part.
+- `mathlib:IsLocalization.Away.surj` (Mathlib/RingTheory/Localization/Away/Basic.lean): For z in an away localization, z times a power of the inverted element is an image of an element of the base ring. Cited by the HC.4 part.
+- `mathlib:IsLocalization.exist_integer_multiples` (Mathlib/RingTheory/Localization/Integer.lean): One localization denominator clears an entire finite family of fractions. Cited by the HC.4 part.
+- `mathlib:IsPrimitiveRoot` (Mathlib/RingTheory/RootsOfUnity/PrimitiveRoots.lean): Primitive roots of unity, the points at which HC.3 evaluates.
+- `mathlib:IsPrimitiveRoot.isRoot_cyclotomic` (Mathlib/RingTheory/Polynomial/Cyclotomic/Roots.lean): In a domain a primitive n-th root is a root of Φ_n (line 63).
+- `mathlib:IsPrimitiveRoot.prod_one_sub_pow_eq_order` (Mathlib/RingTheory/RootsOfUnity/Lemmas.lean): In a domain, the product of 1-μ^k for 1≤k<n equals n for a primitive n-th root. The new lemma transfers this identity to universal coefficient quotients over arbitrary rings. Cited by the HC.4 part.
+- `mathlib:LaurentPolynomial` (Mathlib/Algebra/Polynomial/Laurent.lean): R[T;T⁻¹] as AddMonoidAlgebra R ℤ; the localisation at T is the instance LaurentPolynomial.isLocalization.
+- `mathlib:LaurentPolynomial.isLocalization` (Mathlib/Algebra/Polynomial/Laurent.lean): R[T;T⁻¹] is the localisation of R[X] away from X; the declaration behind 'Laurent polynomials as the localisation'.
+- `mathlib:Matrix.BlockTriangular.det_fintype` (Mathlib/LinearAlgebra/Matrix/Block.lean): The determinant of a finite block triangular square matrix is the product of diagonal block determinants. Its convention zeros M(i,j) when b(j)<b(i); for the lower weight-triangular Taylor matrix use weights in OrderDual. Cited by the HC.4 part.
+- `mathlib:Matrix.adjugate_mul` (Mathlib/LinearAlgebra/Matrix/Adjugate.lean): adj(M) M = det(M) times the identity. Cited by the HC.4 part.
+- `mathlib:Matrix.mul_adjugate` (Mathlib/LinearAlgebra/Matrix/Adjugate.lean): M adj(M) = det(M) times the identity. Cited by the HC.4 part.
+- `mathlib:Module.Basis.exists_basis` (Mathlib/LinearAlgebra/Basis/VectorSpace.lean): A vector space has a basis; used on the finite span of integral-extension generators. Cited by the HC.4 part.
+- `mathlib:Module.Finite.exists_fin` (Mathlib/RingTheory/Finiteness/Defs.lean): A finite module has a finite family spanning the whole module. Cited by the HC.4 part.
+- `mathlib:Module.Finite.finite_basis` (Mathlib/RingTheory/Finiteness/Cardinality.lean): A basis of a finite module over a nontrivial ring has a finite index type. Cited by the HC.4 part.
+- `mathlib:Nat.factorization_le_iff_dvd` (Mathlib/Data/Nat/Factorization/Defs.lean): For nonzero naturals d,n, divisibility is coordinatewise comparison of prime exponents. Cited by the HC.4 part.
+- `mathlib:Nat.sum_totient` (Mathlib/Data/Nat/Totient.lean): Sum φ(d) over divisors d of N equals N. Cited by the HC.4 part.
+- `mathlib:NonarchimedeanGroup.multipliable_iff_tendsto_cofinite_one` (Mathlib/Topology/Algebra/InfiniteSum/Nonarchimedean.lean): In a complete nonarchimedean group, multipliable iff tending to 1; its to_additive form NonarchimedeanAddGroup.summable_iff_tendsto_cofinite_zero is the convergence criterion of factorial series.
+- `mathlib:Padic.valuation_ratCast` (Mathlib/NumberTheory/Padics/PadicNumbers.lean): The valuation of a rational in ℚ_p is its rational p-adic valuation, with the zero convention explicit. Cited by the HC.4 part.
+- `mathlib:PadicInt` (Mathlib/NumberTheory/Padics/PadicIntegers.lean): The p-adic integers (line 62), the ring ℤ_p of Proposition 7.4's square.
+- `mathlib:PadicInt.isUnit_iff` (Mathlib/NumberTheory/Padics/PadicIntegers.lean): A p-adic integer is a unit iff its norm is one, assuming Fact p.Prime. Cited by the HC.4 part.
+- `mathlib:PadicInt.norm_int_le_pow_iff_dvd` (Mathlib/NumberTheory/Padics/PadicIntegers.lean): Integer p-power divisibility agrees with the p-adic norm bound. Cited by the HC.4 part.
+- `mathlib:PadicInt.norm_int_lt_one_iff_dvd` (Mathlib/NumberTheory/Padics/PadicIntegers.lean): An integer has p-adic norm less than one exactly when p divides it. Cited by the HC.4 part.
+- `mathlib:PadicInt.pow_p_dvd_int_iff` (Mathlib/NumberTheory/Padics/PadicIntegers.lean): For Fact p.Prime, (p : ℤ_p)^n divides the cast integer a iff (p^n : ℤ) divides a; holds also for zero a. Cited by the HC.4 part.
+- `mathlib:PadicInt.unitCoeff_spec` (Mathlib/NumberTheory/Padics/PadicIntegers.lean): A nonzero p-adic integer is a unit times p raised to its valuation. Cited by the HC.4 part.
+- `mathlib:Polynomial.Monic` (Mathlib/Algebra/Polynomial/Degree/Defs.lean): Monicity, which is what makes division with remainder and the whole index monoid work.
+- `mathlib:Polynomial.Monic.not_dvd_of_degree_lt` (Mathlib/Algebra/Polynomial/Monic.lean): A monic polynomial does not divide a non-zero polynomial of smaller degree; used for injectivity of ι.
+- `mathlib:Polynomial.cyclotomic` (Mathlib/RingTheory/Polynomial/Cyclotomic/Basic.lean): The n-th cyclotomic polynomial over any ring, the image of the integral one (cyclotomic 0 R = 1); monicity and base change are cyclotomic.monic and map_cyclotomic. Cited by the first and HC.6 parts.
+- `mathlib:Polynomial.cyclotomic.irreducible_rat` (Mathlib/RingTheory/Polynomial/Cyclotomic/Roots.lean): Φ_n is irreducible over ℚ (line 190): injectivity of ℚ-linear evaluation ℤ[q]/(Φ_n) → ℤ[ζ] (Theorem 6.2 over ℤ).
+- `mathlib:Polynomial.cyclotomic.isCoprime_rat` (Mathlib/RingTheory/Polynomial/Cyclotomic/Roots.lean): For n ≠ m, cyclotomic n ℚ and cyclotomic m ℚ are coprime: the comaximality behind Habiro §7.5 (HC.5/the-rational-case). Cited by the first and HC.4 parts.
+- `mathlib:Polynomial.cyclotomic.monic` (Mathlib/RingTheory/Polynomial/Cyclotomic/Basic.lean): cyclotomic n R is monic over every ring. Cited by the first and HC.4 parts.
+- `mathlib:Polynomial.cyclotomic_coeff_zero` (Mathlib/RingTheory/Polynomial/Cyclotomic/Basic.lean): The constant term of cyclotomic n R is 1 for n ≥ 2; with cyclotomic_one this makes q invertible in every R[q]^S.
+- `mathlib:Polynomial.cyclotomic_eq_minpoly` (Mathlib/RingTheory/Polynomial/Cyclotomic/Roots.lean): Φ_n over ℤ is the minimal polynomial of a primitive n-th root in a field of characteristic zero (line 171).
+- `mathlib:Polynomial.cyclotomic_eq_minpoly_rat` (Mathlib/RingTheory/Polynomial/Cyclotomic/Roots.lean): The rational cyclotomic polynomial is the minimal polynomial of a primitive root in a characteristic-zero field. Cited by the HC.4 part.
+- `mathlib:Polynomial.cyclotomic_mul_prime_dvd_eq_pow` (Mathlib/RingTheory/Polynomial/Cyclotomic/Expand.lean): In characteristic p with p ∣ n: cyclotomic (n * p) R = cyclotomic n R ^ p; Habiro's (4.1) when p ∣ n.
+- `mathlib:Polynomial.cyclotomic_mul_prime_pow_eq` (Mathlib/RingTheory/Polynomial/Cyclotomic/Expand.lean): In characteristic p with p ∤ m: cyclotomic (p^k * m) R = cyclotomic m R ^ (p^k − p^(k−1)); Habiro's (4.1) for (n, p) = 1.
+- `mathlib:Polynomial.cyclotomic_one` (Mathlib/RingTheory/Polynomial/Cyclotomic/Basic.lean): cyclotomic 1 R = X − 1, so its constant term is −1. Cited by the first and HC.6 parts.
+- `mathlib:Polynomial.cyclotomic_prime_pow_eq_geom_sum` (Mathlib/RingTheory/Polynomial/Cyclotomic/Basic.lean): The prime-power cyclotomic polynomial as a geometric sum, the pinned half of the congruence HC.4's adjacency lemma uses.
+- `mathlib:Polynomial.cyclotomic_three` (Mathlib/RingTheory/Polynomial/Cyclotomic/Basic.lean): Φ_3 = X² + X + 1 over any ring. Cited by the HC.6 part.
+- `mathlib:Polynomial.cyclotomic_two` (Mathlib/RingTheory/Polynomial/Cyclotomic/Basic.lean): Φ_2 = X + 1 over any ring. Cited by the HC.6 part.
+- `mathlib:Polynomial.degree_modByMonic_lt` (Mathlib/Algebra/Polynomial/Div.lean): deg (p %ₘ q) < deg q for monic q over a nontrivial ring.
+- `mathlib:Polynomial.div_modByMonic_unique` (Mathlib/Algebra/Polynomial/Div.lean): Uniqueness of quotient and remainder for monic divisors.
+- `mathlib:Polynomial.eval` (Mathlib/Algebra/Polynomial/Eval/Defs.lean): Evaluation of a polynomial at an element of its coefficient ring. Cited by the HC.6 part.
+- `mathlib:Polynomial.eval_one_cyclotomic_not_prime_pow` (Mathlib/RingTheory/Polynomial/Cyclotomic/Eval.lean): Φ_n(1) = 1 when n is not a prime power; used to show Φ_6 is a unit of R[[q − 1]].
+- `mathlib:Polynomial.eval_one_cyclotomic_prime_pow` (Mathlib/RingTheory/Polynomial/Cyclotomic/Eval.lean): Φ_{p^(k+1)}(1) = p (line 42).
+- `mathlib:Polynomial.factorial_smul_hasseDeriv` (Mathlib/Algebra/Polynomial/HasseDeriv.lean): k! * D_k = derivative^[k] (line 133): the comparison with ordinary derivatives, factorials kept.
+- `mathlib:Polynomial.hasseDeriv` (Mathlib/Algebra/Polynomial/HasseDeriv.lean): Hasse derivatives, which are the higher Taylor coefficients and are NOT the ordinary derivatives divided by factorials over a general ring. Cited by the first and HC.4 parts.
+- `mathlib:Polynomial.hasseDeriv_coeff` (Mathlib/Algebra/Polynomial/HasseDeriv.lean): Coefficient formula binomial(n+k,k) times coefficient(n+k). Cited by the HC.4 part.
+- `mathlib:Polynomial.hasseDeriv_one` (Mathlib/Algebra/Polynomial/HasseDeriv.lean): D_1 = derivative (line 100).
+- `mathlib:Polynomial.isUnit_resultant_iff_isCoprime` (Mathlib/RingTheory/Polynomial/Resultant/Basic.lean): For monic f, the resultant is a unit iff f and g are coprime (line 885): comaximality from the resultant.
+- `mathlib:Polynomial.mapRingHom` (Mathlib/Algebra/Polynomial/Eval/Defs.lean): Polynomial.map as a ring map.
+- `mathlib:Polynomial.map_cyclotomic` (Mathlib/RingTheory/Polynomial/Cyclotomic/Basic.lean): map f (cyclotomic n R) = cyclotomic n S; coefficient functoriality of the index monoid.
+- `mathlib:Polynomial.map_modByMonic` (Mathlib/Algebra/Polynomial/Div.lean): Remainders by a monic polynomial commute with ring maps.
+- `mathlib:Polynomial.modByMonic` (Mathlib/Algebra/Polynomial/Div.lean): The remainder p %ₘ q; it returns p unchanged when q is not monic. The degree bound and uniqueness are degree_modByMonic_lt and div_modByMonic_unique. Cited by the first and HC.6 parts.
+- `mathlib:Polynomial.modByMonic_add_div` (Mathlib/Algebra/Polynomial/Div.lean): p %ₘ q + q * (p /ₘ q) = p.
+- `mathlib:Polynomial.monic_X_pow_sub_C` (Mathlib/Algebra/Polynomial/Monic.lean): X^n − C a is monic for n ≠ 0; used for q^{n+1} − 1.
+- `mathlib:Polynomial.natDegree_cyclotomic` (Mathlib/RingTheory/Polynomial/Cyclotomic/Basic.lean): Degree φ(m) over a nontrivial coefficient ring. Cited by the HC.4 part.
+- `mathlib:Polynomial.prod_cyclotomic_eq_X_pow_sub_one` (Mathlib/RingTheory/Polynomial/Cyclotomic/Basic.lean): The factorisation of q to the n minus one into the cyclotomic polynomials of its divisors, which is the multiplicity count HC.1's cofinality proof needs. Cited by the first and HC.4 parts.
+- `mathlib:Polynomial.resultant_eq_prod_eval` (Mathlib/RingTheory/Polynomial/Resultant/Basic.lean): For split f over a domain, Res(f,g) = lc(f)^n ∏ g(α) over the roots (line 478).
+- `mathlib:Polynomial.resultant_prod_left` (Mathlib/RingTheory/Polynomial/Resultant/Basic.lean): Multiplicativity of the resultant in products with explicit degree bounds and nonzero leading coefficients. Cited by the HC.4 part.
+- `mathlib:Polynomial.taylor` (Mathlib/Algebra/Polynomial/Taylor.lean): The Taylor shift f(X) ↦ f(X + r) as a linear map (taylorAlgHom is the algebra map); its coefficients are Hasse derivatives at r (taylor_coeff). Cited by the first and HC.6 parts.
+- `mathlib:Polynomial.taylorAlgHom` (Mathlib/Algebra/Polynomial/Taylor.lean): The Taylor shift as an algebra map (Polynomial.taylor, line 38, is only linear); HC.3's Taylor map is a ring map.
+- `mathlib:Polynomial.taylor_coeff` (Mathlib/Algebra/Polynomial/Taylor.lean): The identification of its coefficients with Hasse derivatives, which HC.3 consumes rather than reproving. Cited by the first and HC.6 parts.
+- `mathlib:Polynomial.taylor_coeff_zero` (Mathlib/Algebra/Polynomial/Taylor.lean): Constant Taylor coefficient equals polynomial evaluation. Cited by the HC.6 part.
+- `mathlib:Polynomial.taylor_taylor` (Mathlib/Algebra/Polynomial/Taylor.lean): taylor r (taylor s f) = taylor (r + s) f (line 157): the cocycle law at polynomial level.
+- `mathlib:Polynomial.toLaurent` (Mathlib/Algebra/Polynomial/Laurent.lean): R[X] →+* R[T;T⁻¹].
+- `mathlib:Polynomial.toMatrix_sylvesterMap` (Mathlib/RingTheory/Polynomial/Resultant/Basic.lean): The coefficient matrix of (a,b) mapped to g*a+f*b is the Sylvester matrix up to the specified reindexing. Cited by the HC.4 part.
+- `mathlib:PolynomialModule` (Mathlib/Algebra/Polynomial/Module/Basic.lean): M[X] as an R[X]-module (instance polynomialModule, line 173), the carrier of M[q] in HC.5/the-completed-module.
+- `mathlib:PowerSeries` (Mathlib/RingTheory/PowerSeries/Basic.lean): Formal power series, the target of the Taylor map.
+- `mathlib:PowerSeries.HasEval` (Mathlib/RingTheory/PowerSeries/Evaluation.lean): HasEval a := IsTopologicallyNilpotent a, the hypothesis for evaluating a power series in a complete separated linearly topologised ring.
+- `mathlib:PowerSeries.HasSubst.of_constantCoeff_zero` (Mathlib/RingTheory/PowerSeries/Substitution.lean): A series with constant coefficient zero can be substituted (line 61); used for q → q^a and the coordinate q = ζ e^{-t}. NOTE: PowerSeries.HasSubst (line 40) is IsNilpotent of the constant coefficient, not topological nilpotence.
+- `mathlib:PowerSeries.eval₂Hom` (Mathlib/RingTheory/PowerSeries/Evaluation.lean): Evaluation of power series at a topologically nilpotent element of a complete separated linearly topologised ring, as a ring homomorphism (line 158); the construction of the p-adic re-expansion.
+- `mathlib:PowerSeries.eval₂_unique` (Mathlib/RingTheory/PowerSeries/Evaluation.lean): A continuous map agreeing with polynomial evaluation is eval₂ (line 191); the cocycle law and the compatibility of re-expansion with Taylor maps.
+- `mathlib:PowerSeries.hasSum_eval₂` (Mathlib/RingTheory/PowerSeries/Evaluation.lean): eval₂ φ a f is the sum of φ(coeff d f) a^d (line 177): the p-adically convergent series for values at nearby roots.
+- `mathlib:PowerSeries.subst` (Mathlib/RingTheory/PowerSeries/Substitution.lean): Substitution of a power series whose constant coefficient is NILPOTENT (PowerSeries.HasSubst, line 40), with discrete coefficients; used for q ↦ q^a and the coordinate q = ζe^{−t}, whose substituted series have constant coefficient 0. It does not cover topologically nilpotent substitutions, so the p-adic re-expansions of HC.3 use PowerSeries.eval₂Hom with HasEval instead.
+- `mathlib:Submonoid.closure` (Mathlib/Algebra/Group/Submonoid/Basic.lean): The submonoid generated by a set; the index monoid Φ*_S.
+- `mathlib:UniformSpace.Completion.extensionHom` (Mathlib/Topology/Algebra/UniformRing.lean): Existence half of the universal property of the separated completion of a uniform ring, into complete T0 rings.
+- `mathlib:ZMod` (Mathlib/Data/ZMod/Defs.lean): The existing modular coefficient ring; ZMod 2 is used for the characteristic-two CRT test. Cited by the HC.6 part.
+- `mathlib:isHausdorff_iff` (Mathlib/RingTheory/AdicCompletion/Basic.lean): Intersection-of-powers characterization of adic separatedness. Cited by the HC.4 part.
+- `mathlib:minpoly.dvd_iff` (Mathlib/FieldTheory/Minpoly/Field.lean): Over a field, vanishing of evaluation is equivalent to divisibility by the minimal polynomial. Cited by the HC.4 part.
+- `mathlib:padicValRat.defn` (Mathlib/NumberTheory/Padics/PadicVal/Basic.lean): For a nonzero rational represented by numerator/denominator, the valuation is the difference of prime multiplicities. Cited by the HC.4 part.
+- `mathlib:sub_pow_char_pow` (Mathlib/Algebra/CharP/Lemmas.lean): (x - y)^(p^n) = x^(p^n) - y^(p^n) in characteristic p (line 263): (ω - 1)^(p^e) lies in pB.
+
+**Tau Ceti** (9 declarations).
+
+- `tauceti:SubmodulesBasis.topology_eq` (TauCeti/Topology/Algebra/Nonarchimedean/SubmodulesBasis.lean): Mutually cofinal submodule bases give the same topology.
+- `tauceti:TauCeti.Polynomial.divModByMonicList` (TauCeti/Algebra/Polynomial/CoeffList.lean): Executable synthetic division of a coefficient list by the monic X^{t.length} + ofCoeffList t.
+- `tauceti:TauCeti.Polynomial.ofCoeffList_divByMonicList` (TauCeti/Algebra/Polynomial/CoeffList.lean): The executable quotient equals Mathlib's /ₘ.
+- `tauceti:TauCeti.Polynomial.ofCoeffList_modByMonicList` (TauCeti/Algebra/Polynomial/CoeffList.lean): The executable remainder equals Mathlib's %ₘ, with no hypotheses.
+- `tauceti:TauCeti.Polynomial.ofCoeffList_mulCoeffList` (TauCeti/Algebra/Polynomial/CoeffList.lean): List multiplication computes the product polynomial.
+- `tauceti:TauCeti.TopCommRingCat.IsCompleteSeparated` (TauCeti/Topology/Category/TopCommRingCat/CompleteSeparated/Basic.lean): The predicate 'complete and T0 for the group uniformity' on a topological commutative ring (a predicate; the category is TauCeti.CompleteSeparatedTopCommRingCat).
+- `tauceti:TauCeti.TopCommRingCat.IsCompleteSeparated.of_isClosedEmbedding` (TauCeti/Topology/Category/TopCommRingCat/CompleteSeparated/Basic.lean): Closed subrings of complete separated rings are complete separated.
+- `tauceti:TauCeti.TopCommRingCat.IsCompleteSeparated.pi` (TauCeti/Topology/Category/TopCommRingCat/CompleteSeparated/Basic.lean): Products of complete separated rings are complete separated.
+- `tauceti:UniformSpace.Completion.ringHom_ext_of_continuous` (TauCeti/Topology/Algebra/UniformRing.lean): Uniqueness half: continuous ring maps out of a completion agreeing on the image are equal.
+
+## Layer overview
+
+Each layer section opens with the coverage records of the packets that cover it. It then states every node: its statement and hypotheses, the proof or construction, for definitions and constructions the API and the unit tests, the acceptance checks, the uses that justify the API, the dependencies and the sources.
+
+| Layer | Title | Nodes | Planets | Coverage | Packets |
+|---|---|---|---|---|---|
+| HC.1 | The directed system and its topology | 10 | 2 | source_decomposed | `HabiroCyclotomicCompletions.json` |
+| HC.2 | Expansions and coefficient algorithms | 4 | 1 | source_decomposed | `HabiroCyclotomicCompletions.json` |
+| HC.3 | Root evaluation and Taylor maps | 6 | 2 | source_decomposed | `HabiroCyclotomicCompletions.json` |
+| HC.4 | Arithmetic connectedness and rigidity | 74 | 11 | closed | `HabiroCyclotomicCompletions.json` (15 nodes), `HabiroCyclotomicCompletions--HC.4.json` (59 nodes) |
+| HC.5 | Modules, inversion of primes and components | 10 | 3 | source_decomposed | `HabiroCyclotomicCompletions.json` |
+| HC.6 | Interfaces and acceptance examples | 3 | 0 | closed | `HabiroCyclotomicCompletions.json` (3 nodes), `HabiroCyclotomicCompletions--HC.6.json` (closes the layer) |
+
+In all, 107 nodes. HC.4 is displayed as two proposed sub-layers, HC.4a with the first packet's 15 nodes and the HC.4 part's two finite-domain lemmas (17 nodes, 5 planets), and HC.4b with the remaining 57 nodes of the HC.4 part (6 planets). Together they carry 11 planets, more than the six a layer may show; this split is the HC.4 part's structural proposal, and the maintainer applies it.
 
 ## HC.1 — The directed system and its topology
 
-`R[q]^S = lim_{f} R[q]/(f)` over the monoid generated by `Φ_n(q)`, `n ∈ S`,
-directed by divisibility — with projections, extensionality by finite
-quotients, completeness, separatedness and a universal property.
+*Coverage in `HabiroCyclotomicCompletions.json`: source_decomposed.* Ten nodes: the index monoid; the completion with its projections, extensionality, degenerate cases and the exact injectivity criterion for ι (S ≠ ∅ or R = 0); the finite quotients (ker π_f = f·R[q]^S); the inverse-limit topology with completeness, separatedness and the universal property from Mathlib's and Tau Ceti's completion API; the factorial polynomials; the completion along a mutually cofinal family (finite S adic, (3.2)); cofinality of (P_N) and of ((q^m − 1)^k) with the multiplicity count; the non-adic theorem with Habiro's Proposition 6.1 and its finite-S boundary; coefficient change and restriction with the base-change counterexample; and Habiro's Lemma 3.1. Revised by REV-HabiroCyclotomicCompletions.
 
-**Two cautions from the stage text, both carried.** No injectivity of
-`R[q] → R[q]^S` is asserted for arbitrary `R` and `S`. And for `S = ℕ_{>0}`
-the products `P_N = ∏_{i≤N}(1−qⁱ)` are cofinal, so this completion is
-**neither the q-adic nor the (q−1)-adic** one.
+The layer builds the completion and everything needed to compute in it, from the index set onwards.
 
-Coverage: **source_decomposed**.
+- **The completion.**
+  - The index monoid comes first. It is a set of polynomials, so over 𝔽_2 the orders 1 and 2 give the same completion.
+  - R[q]^S is the subalgebra of compatible families in the product of the finite quotients. Its projections π_f are surjective with kernel f·R[q]^S, so each f ∈ Φ*_S is a non-zero-divisor and every element is ι(b) + f·c, the decomposition Habiro uses in the proof of Theorem 6.1.
+  - The map ι is injective exactly when S ≠ ∅ or R = 0. No other injectivity is asserted here: injectivity of restriction is HC.4.
+- **Topology and universal property.** The topology is induced from the product of the discrete quotients. Completeness and separatedness come from Tau Ceti's `IsCompleteSeparated.pi` and `IsCompleteSeparated.of_isClosedEmbedding`. The universal property is that of Mathlib's separated completion, for maps continuous for the Φ*_S-linear topology on R[q], with uniqueness from Tau Ceti.
+- **Factorial polynomials and cofinality.**
+  - (−1)^N P_N = ∏_{d≤N} Φ_d^{⌊N/d⌋} lies in Φ*_ℕ, which gives cofinality with a sharp multiplicity count over ℤ.
+  - The same argument handles the system of the (q^m − 1)^k.
+  - The completion along any mutually cofinal family identifies R[q]^S with an adic completion for finite S, and with the limit over finite subsets in general.
+  - The full completion is neither q-adic nor (q − 1)-adic. Habiro's Proposition 6.1 strengthens this to every ideal, for subrings of ℚ̄ and infinite S.
+- **Functoriality.** Coefficient change h^S and restriction ρ_{S,S'} satisfy the identity and composition laws, and they commute with each other. Completion does not commute with base change even for flat R': exp(q − 1) ∈ ℚ[[q − 1]] is not in ℚ ⊗ ℤ[[q − 1]]. Habiro's Lemma 3.1 makes h^S injective for injective h, and surjective for surjective h, since Φ_S is countable.
 
-Three nodes. The completion itself, built as the inverse limit over the directed monoid of products of cyclotomic polynomials, with the projections, the dense polynomial map, extensionality by the finite quotients, completeness, separatedness and the universal property, and with the stage text's caution honoured: NO injectivity of the polynomial map is asserted, and the degenerate empty-product case is recorded. The cofinality of the factorial products for the set of all orders, with the multiplicity count and the comparison with the system of ideals generated by a power of q minus one, and with the non-example the stage text names, that this is neither the q-adic nor the q-minus-one-adic completion. And the two functorialities, covariant in the ring and contravariant in the order set, with the identity and composition laws, the canonical isomorphism for cofinal systems, and the distinction between completed and uncompleted base change with the explicit statement that flatness does not license the interchange.
+### The cyclotomic index monoid
 
-### The cyclotomic completion of a polynomial ring
+`HC.1/the-cyclotomic-index-monoid` · definition · added by REV-HabiroCyclotomicCompletions
 
-`HabiroCyclotomicCompletions:HC.1/the-cyclotomic-completion` · *construction* · planet **The cyclotomic completion**
-
-For a ring R and a set S of positive integers, let the index set be the multiplicative monoid generated by the cyclotomic polynomials of order in S, directed by divisibility; the CYCLOTOMIC COMPLETION is the inverse limit of the quotients of the polynomial ring by the principal ideals those products generate. The construction comes with projections to the finite quotients, a dense map from the polynomial ring, extensionality by the finite quotients, completeness and separatedness for the resulting linear topology, and the universal property for continuous maps into complete separated rings. The source defines it in the greater generality of an arbitrary set of monic polynomials, and the cyclotomic case is the instance where the set is the one of cyclotomic polynomials of order in S.
+For a commutative ring R and a set S of positive integers, the cyclotomic index monoid Φ*_S(R) is the submonoid of the multiplicative monoid of R[q] generated by the cyclotomic polynomials Φ_n(q) ∈ R[q], n ∈ S (Mathlib's cyclotomic n R, the image of the integral cyclotomic polynomial). It is a set of polynomials, not of exponent vectors: over 𝔽_2, Φ_2 = q + 1 = q − 1 = Φ_1, so Φ*_{1}(𝔽_2) = Φ*_{2}(𝔽_2). Its elements are monic, hence non-zero-divisors of R[q]; it is directed by divisibility (f and g divide fg); it is monotone in S; a ring map h : R → R' maps Φ*_S(R) into Φ*_S(R'); for finite S the powers (∏_{n∈S} Φ_n)^j are cofinal in it; and it has a cofinal divisibility chain g_0 ∣ g_1 ∣ ⋯, for instance g_N = ∏_{n∈S, n≤N} Φ_n^N. Its least element is the empty product 1, and Φ*_∅(R) = {1}.
 
 **Hypotheses.**
 
-- R is commutative and unital; S is a set of positive integers, possibly empty or infinite.
-- The index monoid is directed by divisibility, which is what makes the inverse limit a limit over a directed set.
-- The map from the polynomial ring is NOT injective for every R and S, and no injectivity is asserted here; the hypotheses under which it is injective are the subject of HC.4.
+- R is commutative and unital; S ⊆ ℕ_{>0} is arbitrary, possibly empty or infinite. In Lean S : Set ℕ, and 0 ∈ S is harmless because Mathlib's cyclotomic 0 R is 1.
+- Divisibility is a preorder on Φ*_S(R); nothing here needs antisymmetry.
 
-**Proof outline.**
+**Construction.**
 
-1. Define the monoid generated by the cyclotomic polynomials of order in S and prove that it is directed by divisibility.
-2. Define the completion as the inverse limit of the quotients and construct the projections and the transition maps, checking compatibility.
-3. Prove independence of the representative of a product, so that the quotient depends only on the ideal.
-4. Prove extensionality: two elements are equal when their images in every finite quotient agree.
-5. Prove completeness and separatedness for the linear topology the ideals define.
-6. State and prove the universal property for continuous maps into complete separated rings.
-7. Record the degenerate cases: the empty product is one, its quotient is the zero ring and contributes only the initial stage of the system, and the source's own notational warning about the singleton case.
-
-**Acceptance.**
-
-- Two elements with the same image in every finite quotient are equal.
-- The completion is complete and separated for its linear topology.
-- The map from the polynomial ring need NOT be injective; no such statement is made here.
-- The empty product is one and its quotient is the zero ring.
-
-**Prerequisites.** `mathlib:Polynomial.cyclotomic`, `mathlib:Polynomial.Monic`, `mathlib:IsPrecomplete`, `tauceti:TauCeti.TopCommRingCat.IsCompleteSeparated`
+1. Define Φ*_S(R) as Submonoid.closure of {Φ_n : n ∈ S}.
+2. Monicity: induction on the closure, with Polynomial.cyclotomic.monic and Monic.mul.
+3. Directedness: f ∣ fg and g ∣ fg.
+4. Functoriality: Polynomial.map h is multiplicative and map_cyclotomic sends Φ_n over R to Φ_n over R'.
+5. Finite S: ∏Φ_n^{e_n} divides (∏_{n∈S} Φ_n)^{max e_n} (source, p. 1131).
+6. Cofinal chain: g_N ∣ g_{N+1}, and ∏Φ_n^{e_n} divides g_N as soon as N is at least every n and every e_n that occur.
 
 **API.**
 
-| name | role | statement |
-| --- | --- | --- |
-| `cycloIndex` | data | The directed monoid of products of cyclotomic polynomials of order in S. |
-| `cycloCompletion` | data | The completion itself. |
-| `cycloCompletion.proj` | projection | The projection to a finite quotient. |
-| `cycloCompletion.fromPoly` | data | The map from the polynomial ring, with dense image. |
-| `cycloCompletion.ext` | characterisation | Extensionality by the finite quotients. |
-| `cycloCompletion.universal` | characterisation | The universal property for continuous maps into complete separated rings. |
-| `cycloCompletion.complete` | characterisation | Completeness and separatedness. |
-
-**Used by.**
-
-- *HC.2* — The expansions are computed through the projections.
-- *HC.3* — Evaluation and the Taylor map are constructed from compatible quotient maps.
-- *HC.6* — The completion, its projections and its universal property are what this roadmap exports.
+- `cycloIndex` (data): Φ*_S(R) as a Submonoid of R[q].
+- `cycloIndex.cyclotomic_mem` (constructor): Φ_n ∈ Φ*_S(R) for n ∈ S.
+- `cycloIndex.monic_of_mem` (characterisation): Every element is monic.
+- `cycloIndex.mono` (functoriality): S' ⊆ S implies Φ*_{S'} ≤ Φ*_S.
+- `cycloIndex.map_mem` (functoriality): f ∈ Φ*_S(R) implies f.map h ∈ Φ*_S(R').
+- `cycloIndex.exists_cofinal_chain` (characterisation): There is a divisibility chain in Φ*_S(R) cofinal for divisibility.
+- `cycloIndex.dvd_pow_prod_of_finite` (characterisation): For finite S every element divides a power of ∏_{n∈S} Φ_n.
+- `cycloIndex_empty` (simp): cycloIndex R ∅ = ⊥.
 
 **Unit tests.**
 
-- `empty_product` — The empty product is one and its quotient is the zero ring.
-- `ext_by_quotients` — Two elements agreeing in every finite quotient are equal.
-- `no_injectivity` — No injectivity of the map from the polynomial ring is asserted; it fails for suitable R and S.
-- `universal_property` — A continuous map into a complete separated ring factors uniquely through the completion.
+- `cycloIndex_empty` (degenerate): cycloIndex R ∅ = ⊥, that is Φ*_∅(R) = {1}.
+- `cycloIndex_zmod_two` (non-example): cycloIndex (ZMod 2) {1} = cycloIndex (ZMod 2) {2}, since cyclotomic 2 (ZMod 2) = X + 1 = X − 1 = cyclotomic 1 (ZMod 2); an index of exponent vectors would wrongly separate them.
+- `cycloIndex_map` (compatibility): For f ∈ cycloIndex ℤ {1, 6}, f.map (Int.castRingHom ℚ) ∈ cycloIndex ℚ {1, 6}.
+- `monic_of_mem_cycloIndex` (characterisation): cyclotomic 1 ℤ ^ 2 * cyclotomic 6 ℤ ∈ cycloIndex ℤ {1, 6} and is monic, while −(cyclotomic 1 ℤ) is not in cycloIndex ℤ {1, 6}.
+
+**Acceptance.**
+
+- Every element of Φ*_S(R) is monic.
+- Φ*_∅(R) = {1}.
+- Φ*_{1}(𝔽_2) = Φ*_{2}(𝔽_2).
+- A ring map carries Φ*_S(R) into Φ*_S(R').
+
+**Used by.**
+
+- HC.1/the-cyclotomic-completion: The index set of the inverse limit.
+- HC.1/cofinality-of-the-factorial-products: The factorial products are shown cofinal in it.
+- HabiroRings HR.2, HR.3 (RS-10 owners): The ordinary cyclotomic indexing is imported rather than rebuilt.
+
+**Depends on.** libraries: `mathlib:Polynomial.cyclotomic`, `mathlib:Polynomial.cyclotomic.monic`, `mathlib:Polynomial.map_cyclotomic`, `mathlib:Polynomial.Monic`, `mathlib:Submonoid.closure`.
 
 **Sources.**
 
-- §3.1, p. 1130 of the PDF, The construction in the generality the source uses, verbatim; the cyclotomic completion is the instance where M is the set of cyclotomic polynomials of order in S.
+- `Habiro.CyclotomicCompletions.2004`, §3.1, (3.1), p. 1130: “For a subset M ⊂ M_R, let M* denote the multiplicative set in R[q] generated by M, which is a directed subset of M_R.” — The index monoid in the source's generality; here M = Φ_S.
+- `Habiro.CyclotomicCompletions.2004`, §3.1, p. 1131: “If M ⊂ M_R is finite, then the sequence (∏M)^j, j ≥ 0, is cofinal in the directed set M*.” — The cofinal powers for finite S.
 
-  > For a ring R, let M_R denote the set of the monic polynomials in R[q], which is a directed set with respect to the divisibility relation. For a subset M of M_R, let M* denote the multiplicative set in R[q] generated by M, which is a directed subset of M_R. The principal ideals (f), f in M*, define a linear topology of the ring R[q]. Let R[q]^M = lim_{f in M*} R[q]/(f) denote the completion.
+### The S-cyclotomic completion
 
-- §4, p. 1134 of the PDF, The identification of the cyclotomic case with the general construction, verbatim.
+`HC.1/the-cyclotomic-completion` · construction · planet “The S-cyclotomic completion”
 
-  > If R a ring, and S is a subset of N, then the completion R[q]^S defined in the introduction can be identified with R[q]^{Phi_S}.
+For a commutative ring R and S ⊆ ℕ_{>0}, the S-cyclotomic completion R[q]^S is the ring of compatible families (x_f)_{f∈Φ*_S(R)}, x_f ∈ R[q]/(f), such that x_g maps to x_f under the canonical surjection R[q]/(g) → R[q]/(f) whenever f ∣ g; that is, R[q]^S = lim_{f∈Φ*_S} R[q]/(f) (Habiro (1.1) and (3.1)). It is an R[q]-algebra and an R-algebra. It comes with surjective projections π_f : R[q]^S → R[q]/(f), with the map ι : R[q] → R[q]^S, p ↦ (p mod f)_f, satisfying π_f ∘ ι = the quotient map, and with extensionality: x = y as soon as π_f(x) = π_f(y) for every f. Degenerate cases: R[q]^∅ = 0, because the only index is 1 and R[q]/(1) = 0, and in general the least index 1 contributes the zero ring as initial stage. The map ι is injective if and only if S ≠ ∅ or R = 0; no other injectivity is asserted here, and the injectivity of the restriction maps between completions is HC.4. For n ∈ S and R ≠ 0, Φ_n is not a unit of R[q]^S, because π_{Φ_n} sends it to 0 in the non-zero ring R[q]/(Φ_n); in particular R[q]^S is not a field, and no formal division by Φ_n exists.
+
+**Hypotheses.**
+
+- R is commutative and unital; S ⊆ ℕ_{>0} is arbitrary, possibly empty or infinite.
+- The index set is Φ*_S(R) of HC.1/the-cyclotomic-index-monoid, a set of monic polynomials directed by divisibility.
+- The only hypothesis for injectivity of ι is S ≠ ∅ (or R = 0); it is unrelated to the adjacency conditions of HC.4.
+
+**Construction.**
+
+1. Define R[q]^S as the R[q]-subalgebra of ∏_{f∈Φ*_S} R[q]/(f) cut out by the equations x_f = (image of x_g) for f ∣ g, using Ideal.Quotient.factor and Ideal.span_singleton_le_span_singleton.
+2. The projections are the coordinate maps; ι is the algebra map; π_f ∘ ι is the quotient map, so π_f is surjective.
+3. Extensionality is equality of families.
+4. S = ∅: Φ*_∅ = {1} and R[q]/(1) = 0.
+5. Injectivity of ι for n ∈ S: if ι(p) = 0 then Φ_n^k ∣ p for every k; for R ≠ 0 a non-zero p cannot be divisible by a monic polynomial of larger degree (Monic.not_dvd_of_degree_lt), so p = 0.
+6. Non-units: π_{Φ_n}(Φ_n) = 0, and R[q]/(Φ_n) ≠ 0 because Φ_n is monic of positive degree and R ≠ 0.
+
+**API.**
+
+- `CycloCompletion` (data): R[q]^S, the subalgebra of compatible families.
+- `CycloCompletion.fromPoly` (data): ι : R[q] → R[q]^S, the algebra map.
+- `CycloCompletion.proj` (projection): π_f : R[q]^S → R[q]/(f) for f ∈ Φ*_S.
+- `CycloCompletion.proj_fromPoly` (simp): π_f(ι p) = p mod f.
+- `CycloCompletion.proj_surjective` (characterisation): Each π_f is surjective.
+- `CycloCompletion.ext` (extensionality): Elements with equal projections are equal.
+- `CycloCompletion.fromPoly_injective_iff` (characterisation): ι is injective if and only if S contains a positive integer or R = 0.
+- `CycloCompletion.subsingleton_empty` (simp): R[q]^∅ is the zero ring.
+- `CycloCompletion.not_isUnit_fromPoly_cyclotomic` (relation): For R ≠ 0, n ∈ S and n > 0, Φ_n is not a unit of R[q]^S.
+
+**Unit tests.**
+
+- `subsingleton_empty` (degenerate): Subsingleton (CycloCompletion R ∅).
+- `fromPoly_injective_iff` (characterisation): fromPoly ℤ {1} is injective and fromPoly ℤ ∅ is not.
+- `ext_by_quotients` (characterisation): x = y if and only if proj R S f x = proj R S f y for every f ∈ cycloIndex R S.
+- `proj_one_sub_q` (computation): In CycloCompletion ℤ {1, 2}, proj (Φ_1) (fromPoly (1 − X)) = 0 and proj (Φ_2) (fromPoly (1 − X)) = mk 2: the element 1 − q vanishes at q = 1 and equals 2 at q = −1.
+- `not_isUnit_cyclotomic` (non-example): fromPoly ℤ univ (cyclotomic 6 ℤ) is not a unit, although cyclotomic 6 ℤ becomes a unit in the (q − 1)-adic completion.
+
+**Acceptance.**
+
+- Two elements with the same image in every R[q]/(f) are equal.
+- R[q]^∅ = 0; ι is injective if and only if S ≠ ∅ or R = 0.
+- Φ_n (n ∈ S, n > 0) is not a unit of R[q]^S when R ≠ 0.
+- The finite-S identification with the adic completion is HC.1/completion-along-a-cofinal-family, and the topology is HC.1/topology-completeness-and-universal-property.
+
+**Used by.**
+
+- HC.2: Normalised expansions are read off the projections to R[q]/(P_N).
+- HC.3: Evaluation at a root of order d factors through π_{Φ_d}.
+- HC.4: The restriction maps whose injectivity is proved there are maps of these rings.
+- HabiroNumberFields HB.6, HabiroRings HR.2 and HR.5, ArithmeticQuantumTopology QT.2, QSeriesPartitions QM.5: The ordinary completion is imported (RS-10 owner: HC.1).
+
+**Depends on.** this roadmap: `HC.1/the-cyclotomic-index-monoid`; libraries: `mathlib:Ideal.Quotient.factor`, `mathlib:Ideal.span_singleton_le_span_singleton`, `mathlib:Polynomial.Monic`, `mathlib:Polynomial.Monic.not_dvd_of_degree_lt`.
+
+**Sources.**
+
+- `Habiro.CyclotomicCompletions.2004`, §1, (1.1), p. 1127: “Define a completion R[q]^S of R[q] by (1.1) R[q]^S = lim_{f(q)∈Φ*_S} R[q]/(f(q)), which we will call the S-cyclotomic completion of R[q].” — The definition, verbatim up to layout of the limit.
+- `Habiro.CyclotomicCompletions.2004`, §3.1, p. 1130: “(If M = {1}, then (3.1) implies R[q]^{1} = R[q]/(1) = 0, which notationally contradicts the previous definition R[q]^{1} = R[[q − 1]].” — The degenerate index 1 and the source's notational warning.
+- `Habiro.CyclotomicCompletions.2004`, §4, p. 1134: “If R a ring, and S ⊂ N is a subset, then the completion R[q]^S defined in the introduction can be identified with R[q]^{Φ_S}.” — The cyclotomic completion as the monic completion for M = Φ_S.
+- `Habiro.CyclotomicCompletions.2004`, §7.1, p. 1142: “If S ≠ ∅, then, since ∩_{f∈Φ*_S}(f) = (0) in Z[q, q^{−1}], the natural homomorphism Z[q, q^{−1}] → Z[q]^S is injective and regarded as inclusion.” — Injectivity of ι for S ≠ ∅, stated by the source over ℤ for the Laurent ring; the same degree argument works over every R.
+- `Habiro.CyclotomicCompletions.arXiv-v1`, arXiv v1, §1, p. 3: “The rings R[q]^S for S ⊂ N and the homomorphisms ρ^R_{S,S'} form a presheaf of rings over the set N with the discrete topology; i.e., we have R[q]^∅ = {0}” — R[q]^∅ = 0, stated in the preprint.
+
+### The finite quotients of the completion
+
+`HC.1/the-quotients-of-the-completion` · lemma · added by REV-HabiroCyclotomicCompletions
+
+For every f ∈ Φ*_S(R) the projection π_f : R[q]^S → R[q]/(f) is surjective with kernel f·R[q]^S. Hence R[q]^S/(f) ≅ R[q]/(f); multiplication by f is injective on R[q]^S, so f is a non-zero-divisor of R[q]^S; an element of R[q]^S is divisible by f in R[q]^S exactly when its f-component vanishes, and then the quotient is unique; and for every x ∈ R[q]^S there are b ∈ R[q] and c ∈ R[q]^S with x = ι(b) + f·c.
+
+**Hypotheses.**
+
+- R commutative; f ∈ Φ*_S(R), hence monic and a non-zero-divisor of R[q].
+
+**Proof.**
+
+1. Surjectivity: π_f ∘ ι is the quotient map.
+2. If π_f(x) = 0, then for each g ∈ Φ*_S the class x_{fg} ∈ R[q]/(fg) maps to 0 in R[q]/(f), so x_{fg} = f·y_g for a class y_g ∈ R[q]/(g), unique because f is a non-zero-divisor.
+3. The y_g are compatible along divisibility (cancel f again), so y = (y_g) ∈ R[q]^S, and (f·y)_h = x_h for every h.
+4. Conversely f·R[q]^S ⊆ ker π_f since π_f(f) = 0; the decomposition x = ι(b) + f·c takes b a lift of π_f(x).
+5. Multiplication by f is injective: if f·x = 0 then f·x_{fg} ∈ (fg), so x_{fg} ∈ (g) because f is a non-zero-divisor of R[q], and x_g = 0 for every g.
+
+**Acceptance.**
+
+- ker π_f = f·R[q]^S for every f ∈ Φ*_S.
+- R[q]^S/(Φ_n) ≅ R[q]/(Φ_n) for n ∈ S.
+- In ℤ[q]^ℕ an element vanishing at every primitive n-th root of unity is divisible by Φ_n, and ℤ[q]^ℕ/(Φ_n) ≅ ℤ[q]/(Φ_n) ≅ ℤ[ζ_n].
+- Multiplication by Φ_n is injective on R[q]^S for n ∈ S.
+
+**Depends on.** this roadmap: `HC.1/the-cyclotomic-completion`, `HC.1/the-cyclotomic-index-monoid`; libraries: `mathlib:Polynomial.Monic`.
+
+**Sources.**
+
+- `Habiro.CyclotomicCompletions.2004`, §6, proof of Theorem 6.1, (6.1), p. 1139: “Since m_k ∈ S, there are b(q) ∈ R[q] and c ∈ R[q]^S such that (6.1) a = Φ_{m_1}(q) · · · Φ_{m_{k−1}}(q)(b(q) + Φ_{m_k}(q)c).” — The source uses exactly this decomposition x = ι(b) + Φ_{m_k}·c, which is the lemma for f = Φ_{m_k}. The source uses without proof that the kernel of the projection is f·R[q]^S; this lemma supplies it (checkers A and B).
+
+### The topology of the completion, its completeness and its universal property
+
+`HC.1/topology-completeness-and-universal-property` · construction · added by REV-HabiroCyclotomicCompletions
+
+Give R[q]^S the inverse-limit topology, induced from the product of the discrete rings R[q]/(f), f ∈ Φ*_S. Its open ideals f·R[q]^S = ker π_f form a basis of neighbourhoods of 0, so the topology is linear and R[q]^S is a topological ring; R[q]^S is complete and separated for it (Tau Ceti's IsCompleteSeparated), ι has dense image, and R[q]^S ≅ lim_f R[q]^S/(f). Universal property: give R[q] the linear topology whose basic open ideals are (f), f ∈ Φ*_S. For every topological commutative ring T that is complete and separated for the group uniformity of its topology, and every ring map φ : R[q] → T continuous for that topology (for every neighbourhood U of 0 there is f ∈ Φ*_S with φ((f)) ⊆ U), there is exactly one continuous ring map ψ : R[q]^S → T with ψ ∘ ι = φ. Equivalently R[q]^S is the separated completion of R[q] for the Φ*_S-topology, and the universal property is that of Mathlib's UniformSpace.Completion.
+
+**Hypotheses.**
+
+- T complete and separated for the group uniformity of its topology.
+- φ continuous for the Φ*_S-linear topology on R[q], not for an adic topology.
+
+**Construction.**
+
+1. The compatibility equations are closed conditions in the product of discrete rings, so R[q]^S is a closed subring; products of complete separated rings are complete separated, and so are closed subrings (Tau Ceti IsCompleteSeparated.pi and IsCompleteSeparated.of_isClosedEmbedding).
+2. The basic open sets ker π_f are the ideals f·R[q]^S (HC.1/the-quotients-of-the-completion), so the topology is linear and the ring operations are continuous.
+3. Density: x + ker π_f meets ι(R[q]) because π_f ∘ ι is surjective.
+4. Existence of ψ: for x choose p_f ∈ R[q] with ι(p_f) − x ∈ ker π_f; the net φ(p_f) is Cauchy because p_g − p_f ∈ (f) for f ∣ g; its limit is ψ(x). Equivalently, identify R[q]^S with UniformSpace.Completion of R[q] and use UniformSpace.Completion.extensionHom.
+5. Uniqueness: continuous maps into a separated ring that agree on a dense subring agree (Tau Ceti UniformSpace.Completion.ringHom_ext_of_continuous).
+
+**API.**
+
+- `CycloCompletion.instTopologicalSpace` (instance): The inverse-limit topology.
+- `CycloCompletion.instIsTopologicalRing` (instance): R[q]^S is a topological ring.
+- `CycloCompletion.instIsLinearTopology` (instance): The open ideals f·R[q]^S form a basis at 0.
+- `CycloCompletion.isOpen_ker_proj` (characterisation): Each ker π_f is open.
+- `CycloCompletion.isCompleteSeparated` (compatibility): TauCeti.TopCommRingCat.IsCompleteSeparated (TopCommRingCat.of (CycloCompletion R S)).
+- `CycloCompletion.denseRange_fromPoly` (characterisation): ι has dense image.
+- `CycloCompletion.exists_unique_lift` (universal-property): Unique continuous extension of Φ*_S-continuous ring maps into complete separated rings.
+
+**Unit tests.**
+
+- `isCompleteSeparated_cycloCompletion` (compatibility): TauCeti.TopCommRingCat.IsCompleteSeparated (TopCommRingCat.of (CycloCompletion R S)) for all R and S.
+- `equivPowerSeriesOne` (characterisation): The lift of p ↦ taylor 1 p is a ring isomorphism CycloCompletion R {1} ≃ PowerSeries R sending ι(X) to 1 + T.
+- `lift_at_two_nonexample` (non-example): There is no ring map ψ : CycloCompletion ℤ {1} → ℤ with ψ ∘ ι = evaluation at 2, because q − 2 = (q − 1) − 1 is a unit of ℤ[[q − 1]] and maps to 0.
+- `kernel_is_open_ideal` (characterisation): For f ∈ cycloIndex R S the ideal span{ι f} = ker π_f is open and closed.
+
+**Acceptance.**
+
+- IsCompleteSeparated holds for R[q]^S for every R and S.
+- ι has dense image, and the ker π_f are open and closed.
+- Continuous maps into complete separated rings extend uniquely along ι.
+
+**Used by.**
+
+- HC.3: The Taylor map is the lift into complete power-series rings; the p-adic re-expansions land in complete rings.
+- HC.6 and HabiroNumberFields HB.6: Complete topological rings are what the layer exports.
+- QSeriesPartitions QM.5: Convergence of factorial series is convergence in this topology.
+
+**Depends on.** this roadmap: `HC.1/the-cyclotomic-completion`, `HC.1/the-quotients-of-the-completion`; libraries: `tauceti:TauCeti.TopCommRingCat.IsCompleteSeparated`, `tauceti:TauCeti.TopCommRingCat.IsCompleteSeparated.pi`, `tauceti:TauCeti.TopCommRingCat.IsCompleteSeparated.of_isClosedEmbedding`, `tauceti:UniformSpace.Completion.ringHom_ext_of_continuous`, `mathlib:UniformSpace.Completion.extensionHom`, `mathlib:IsLinearTopology`.
+
+**Sources.**
+
+- `Habiro.CyclotomicCompletions.2004`, §3.1, (3.1), p. 1130: “The principal ideals (f), f ∈ M*, define a linear topology of the ring R[q], and let (3.1) R[q]^M = lim_{f∈M*} R[q]/(f) denote the completion.” — The completion of R[q] for the linear topology of the (f); the source does not state the universal property, which is the standard property of separated completions supplied by the libraries.
+
+### The completion computed along a mutually cofinal family of ideals
+
+`HC.1/completion-along-a-cofinal-family` · lemma · added by REV-HabiroCyclotomicCompletions
+
+Let (g_i)_{i∈I} be a family of polynomials of R[q], directed by divisibility, such that every (g_i) contains some (f) with f ∈ Φ*_S and every (f), f ∈ Φ*_S, contains some (g_i). Then the map R[q]^S → lim_i R[q]/(g_i) induced by the identity of R[q] is an isomorphism of topological rings compatible with the maps from R[q]. Consequences: for finite S, R[q]^S ≅ AdicCompletion (span{∏_{n∈S} Φ_n}) R[q], so R[q]^{1} ≅ R[[q − 1]]; R[q]^S ≅ lim_{S'⊆S finite} R[q]^{S'} (the source's (3.2)); and, for S = ℕ_{>0}, the factorial system and the system of the (q^m − 1)^k (HC.1/cofinality-of-the-factorial-products).
+
+**Hypotheses.**
+
+- Mutual cofinality of the two systems of principal ideals is the whole hypothesis; the g_i need not lie in Φ*_S (for instance P_N for odd N).
+
+**Proof.**
+
+1. Mutual cofinality gives compatible maps between the two systems of finite quotients, and hence maps of limits in both directions; they are inverse because both composites are compatible with the maps from R[q] and the limits are separated with dense image of R[q].
+2. The topologies agree because the two families of ideals are mutually cofinal (Tau Ceti SubmodulesBasis.topology_eq on R[q], transported to the completions).
+3. Finite S: the powers of ∏_{n∈S} Φ_n are cofinal (HC.1/the-cyclotomic-index-monoid), and AdicCompletion is the limit over those powers.
+4. (3.2): the Φ*_{S'} for finite S' ⊆ S exhaust Φ*_S.
+
+**Acceptance.**
+
+- R[q]^{1} ≅ R[[q − 1]] and, for finite S, R[q]^S ≅ AdicCompletion (span{∏_{n∈S} Φ_n}) R[q].
+- R[q]^S ≅ lim_{S' finite} R[q]^{S'}.
+
+**Depends on.** this roadmap: `HC.1/the-cyclotomic-completion`, `HC.1/the-cyclotomic-index-monoid`, `HC.1/topology-completeness-and-universal-property`; libraries: `tauceti:SubmodulesBasis.topology_eq`, `mathlib:AdicCompletion`.
+
+**Sources.**
+
+- `Habiro.CyclotomicCompletions.2004`, §3.1, p. 1131: “If M ⊂ M_R is finite, then the sequence (∏M)^j, j ≥ 0, is cofinal in the directed set M*. Hence R[q]^M is naturally isomorphic to the (∏M)-adic completion R[q]^{(∏M)} of R[q].” — The finite case.
+- `Habiro.CyclotomicCompletions.2004`, §3.1, (3.2), p. 1131: “If M ⊂ M_R, then the rings R[q]^{M'} for finite subsets M' of M and the natural homomorphisms ρ^R_{M',M''} for finite M', M'' with M'' ⊂ M' ⊂ M form an inverse system of rings, of which the inverse limit is naturally isomorphic to R[q]^M” — The limit over finite subsets.
+
+### The factorial polynomials (q; q)_N
+
+`HC.1/the-factorial-polynomials` · definition · added by REV-HabiroCyclotomicCompletions
+
+For N ≥ 0 the factorial polynomial is P_N(q) = (q; q)_N = ∏_{i=1}^{N}(1 − q^i) ∈ R[q], with P_0 = 1 and P_{N+1} = P_N·(1 − q^{N+1}). Its constant term is 1 and its leading coefficient is (−1)^N. So P_N is not monic for odd N, while (−1)^N P_N = ∏_{i=1}^{N}(q^i − 1) is monic, of degree N(N+1)/2 when R ≠ 0. Grouping q^i − 1 = ∏_{d∣i} Φ_d gives (−1)^N P_N = ∏_{d=1}^{N} Φ_d^{⌊N/d⌋}, so (−1)^N P_N ∈ Φ*_{ℕ>0}(R) and P_N generates the same ideal. P_M ∣ P_N for M ≤ N, and P_N is compatible with every ring map.
+
+**Hypotheses.**
+
+- R commutative and unital; the degree formula needs R ≠ 0.
+- The polynomial P_N ∈ R[q] is named by the HC.1 stage text; the power-series q-Pochhammer symbols and q-factorials are planned in QSeriesPartitionsAndMockModularForms QM.0 (see restructure: PLAN-HABIRO decision D11).
+
+**Construction.**
+
+1. Define P_N as the product over Finset.Icc 1 N; the recursion is Finset.prod_Icc_succ_top.
+2. (−1)^N P_N = ∏(q^i − 1) is a product of monic polynomials (Polynomial.monic_X_pow_sub_C).
+3. Factorisation: substitute q^i − 1 = ∏_{d∣i} Φ_d (prod_cyclotomic_eq_X_pow_sub_one) and count, for each d ≤ N, the ⌊N/d⌋ integers i ≤ N divisible by d.
+4. Constant term: evaluate at 0; degree: add the degrees i of the monic factors.
+
+**API.**
+
+- `factorialPoly` (data): P_N = ∏_{i=1}^N (1 − q^i) ∈ R[q].
+- `factorialPoly_zero` (simp): P_0 = 1.
+- `factorialPoly_succ` (simp): P_{N+1} = P_N (1 − q^{N+1}).
+- `coeff_zero_factorialPoly` (simp): The constant term of P_N is 1.
+- `monic_neg_one_pow_mul_factorialPoly` (characterisation): (−1)^N P_N is monic.
+- `natDegree_factorialPoly` (characterisation): deg P_N = N(N+1)/2 for R ≠ 0.
+- `neg_one_pow_mul_factorialPoly_eq` (relation): (−1)^N P_N = ∏_{d=1}^N Φ_d^{⌊N/d⌋}.
+- `neg_one_pow_mul_factorialPoly_mem` (relation): (−1)^N P_N ∈ Φ*_{ℕ>0}(R).
+- `factorialPoly_dvd_factorialPoly` (relation): P_M ∣ P_N for M ≤ N.
+- `map_factorialPoly` (functoriality): (P_N over R).map h = P_N over R'.
+
+**Unit tests.**
+
+- `factorialPoly_three` (computation): factorialPoly ℤ 3 = 1 − X − X^2 + X^4 + X^5 − X^6 = −(cyclotomic 1 ℤ ^ 3 * cyclotomic 2 ℤ * cyclotomic 3 ℤ).
+- `factorialPoly_zero` (degenerate): factorialPoly R 0 = 1.
+- `factorialPoly_one_not_monic` (non-example): ¬ (factorialPoly ℤ 1).Monic while ((−1) ^ 1 * factorialPoly ℤ 1).Monic; a definition taking P_N monic, or Mathlib's %ₘ by P_N, is wrong for odd N.
+- `natDegree_factorialPoly` (characterisation): For nontrivial R, natDegree (factorialPoly R N) = N * (N + 1) / 2 and coeff 0 = 1.
+
+**Acceptance.**
+
+- P_3 = 1 − q − q^2 + q^4 + q^5 − q^6 = −Φ_1^3 Φ_2 Φ_3 over ℤ.
+- P_1 = 1 − q is not monic, and (−1)^N P_N is.
+- (−1)^N P_N ∈ Φ*_{ℕ>0}(R).
+
+**Used by.**
+
+- HC.1/cofinality-of-the-factorial-products: The cofinal system.
+- HC.2: The basis of factorial expansions and the explicit inverse of q.
+- QSeriesPartitions QM.5 and HabiroNahmSeries HB.4: The Kontsevich series and the quantum factorial are built from P_N; under the inclusion R[q] ⊂ R⟦q⟧, P_N is QM.0's finite q-Pochhammer symbol (q; q)_N.
+
+**Depends on.** this roadmap: `HC.1/the-cyclotomic-index-monoid`; libraries: `mathlib:Polynomial.prod_cyclotomic_eq_X_pow_sub_one`, `mathlib:Polynomial.monic_X_pow_sub_C`, `mathlib:Polynomial.Monic`.
+
+**Sources.**
+
+- `Habiro.CyclotomicCompletions.arXiv-v1`, arXiv v1, §1, p. 3: “Since the sequence (−1)^n(q)_n, n ≥ 0, is cofinal to the directed set Φ*_N, the definition (3) is consistent with (1).” — The sign normalisation: (−1)^n(q)_n, not (q)_n, is the monic element of Φ*_N.
+- `Habiro.CyclotomicCompletions.2004`, §7.1, Proposition 7.1, p. 1141: “For any ring R, the element q ∈ R[q]^N is invertible with the inverse q^{−1} = Σ_{n≥0} q^n (q)_n, where (q)_n = (1 − q)(1 − q^2) · · · (1 − q^n).” — The source's definition of (q)_n.
 
 ### Cofinality of the factorial products, and which completion this is not
 
-`HabiroCyclotomicCompletions:HC.1/cofinality-of-the-factorial-products` · *theorem* · planet **Cofinality of the factorial products**
+`HC.1/cofinality-of-the-factorial-products` · theorem · planet “Cofinality of the factorial products”
 
-For the set of ALL positive integers the products of the first N factors of the form one minus a power of q are cofinal in the index monoid, so the completion is the inverse limit of the quotients by those products; equivalently it is the limit of the completions at the ideals generated by a power of q minus one, using divisibility in the exponent. The comparison is by exhibiting each system's ideals as cofinal in the other's, and it requires counting the multiplicity with which each cyclotomic factor occurs. This completion is neither the q-adic nor the q-minus-one-adic completion, and the node records that as a non-example.
+Let S = ℕ_{>0}. Every f = ∏_d Φ_d^{e_d} ∈ Φ*(R) divides P_N as soon as N ≥ max_d d·e_d, because Φ_d occurs in (−1)^N P_N with multiplicity ⌊N/d⌋; and every (−1)^N P_N lies in Φ*. So the ideals (P_N) are cofinal in the system (f), f ∈ Φ*, and the map R[q]^{ℕ>0} → lim_N R[q]/(P_N) induced by the identity of R[q] is an isomorphism of topological rings (Habiro, introduction). Likewise the ideals ((q^m − 1)^k), m ≥ 1, k ≥ 0, are cofinal, since (q^m − 1)^k = ∏_{d∣m} Φ_d^k ∈ Φ* and ∏Φ_d^{e_d} divides (q^L − 1)^E with L the lcm of the d and E = max e_d. Hence R[q]^{ℕ>0} ≅ lim_m R[q]^∧_{(q^m − 1)}, the limit of the (q^m − 1)-adic completions over m ordered by divisibility (Habiro p. 1136 with (3.2)). Over ℤ the multiplicity count is sharp: Φ_d^e ∣ P_N if and only if d·e ≤ N.
 
 **Hypotheses.**
 
-- The set of orders is all of the positive integers; for a general S the factorial products are not available.
-- The counting uses that q to the n minus one is the product of the cyclotomic polynomials of the divisors of n, which is pinned.
-- Cofinality is mutual: each ideal of one system contains an ideal of the other.
+- S = ℕ_{>0}. For a general S the P_N do not lie in Φ*_S; the analogue is any cofinal chain of Φ*_S (HC.1/the-cyclotomic-index-monoid).
+- Over every R only the implication N ≥ max d·e_d ⇒ f ∣ P_N is used; the sharp form is over ℤ (over 𝔽_p distinct products of cyclotomic polynomials can coincide).
+- Sign: P_N ∉ Φ* for odd N; (−1)^N P_N ∈ Φ* generates the same ideal.
 
-**Proof outline.**
+**Proof.**
 
-1. Record the pinned factorisation of q to the n minus one into cyclotomic factors.
-2. Compute the multiplicity of each cyclotomic factor in the factorial product of the first N terms.
-3. Prove that the two systems of ideals are mutually cofinal and conclude that the completions agree.
-4. Record the source's own statement of this isomorphism in the introduction, which is where the Kontsevich series is exhibited as an element.
-5. State the non-example: neither the q-adic nor the q-minus-one-adic topology gives this completion, since each is the completion at a single ideal and this one is not.
+1. Multiplicities: (−1)^N P_N = ∏_{d≤N} Φ_d^{⌊N/d⌋} (HC.1/the-factorial-polynomials).
+2. Cofinality of (P_N): ⌊N/d⌋ ≥ e_d when N ≥ d·e_d.
+3. Cofinality of ((q^m − 1)^k): (q^m − 1)^k ∈ Φ*, ∏Φ_d^{e_d} ∣ (q^L − 1)^E, and (q^m − 1)^k ∣ P_{mk} since Φ_d occurs in P_{mk} with multiplicity ⌊mk/d⌋ ≥ k for d ∣ m.
+4. Apply HC.1/completion-along-a-cofinal-family to both systems; for the second, group the indices (m, k) by m to obtain the limit of the (q^m − 1)-adic completions.
+5. Sharpness over ℤ: the Φ_d are pairwise non-associate irreducibles of ℤ[q], so the multiplicity of Φ_d in P_N is exactly ⌊N/d⌋.
 
 **Acceptance.**
 
-- The factorial products are cofinal, so the completion is their inverse limit.
-- The same completion is obtained from the ideals generated by a power of q minus one.
-- It is not the q-adic completion and not the q-minus-one-adic completion.
-- The multiplicity count is part of the proof and not a formality.
+- f ∣ P_N for N ≥ max_d d·e_d; over ℤ, Φ_d^e ∣ P_N if and only if d·e ≤ N (checked for 300 random f: the least N equals max d·e_d).
+- R[q]^{ℕ>0} ≅ lim_N R[q]/(P_N), compatibly with ι.
+- R[q]^{ℕ>0} ≅ lim_m R[q]^∧_{(q^m−1)} over m ordered by divisibility.
+- (q^m − 1)^k ∣ P_{mk} and P_N ∣ (q^{lcm(1,…,N)} − 1)^N.
 
-**Prerequisites.** `HabiroCyclotomicCompletions:HC.1/the-cyclotomic-completion`, `mathlib:Polynomial.prod_cyclotomic_eq_X_pow_sub_one`
+**Depends on.** this roadmap: `HC.1/the-factorial-polynomials`, `HC.1/the-cyclotomic-index-monoid`, `HC.1/the-cyclotomic-completion`, `HC.1/completion-along-a-cofinal-family`; libraries: `mathlib:Polynomial.prod_cyclotomic_eq_X_pow_sub_one`, `mathlib:AdicCompletion`.
 
 **Sources.**
 
-- §1, the introduction, p. 1128 of the PDF, The cofinality statement in the form the source uses it, verbatim, together with the standing example it produces.
+- `Habiro.CyclotomicCompletions.2004`, §1, p. 1128: “Zagier [16] studied the series Σ_{n≥0}(1 − q)(1 − q^2) · · · (1 − q^n), which was introduced by Kontsevich, and which can be regarded as an element of Z[q]^N since we have an isomorphism Z[q]^N ≃ lim_n Z[q]/((1 − q)(1 − q^2) · · · (1 − q^n)) induced by id_{Z[q]}.” — The isomorphism with the factorial limit, over ℤ.
+- `Habiro.CyclotomicCompletions.arXiv-v1`, arXiv v1, §1, p. 3: “Since the sequence (−1)^n(q)_n, n ≥ 0, is cofinal to the directed set Φ*_N, the definition (3) is consistent with (1).” — The cofinality itself, with the sign.
+- `Habiro.CyclotomicCompletions.2004`, §4, p. 1136: “For each n ∈ N, set ⟨n⟩ = {m ∈ N | m|n}. Since ∏Φ_⟨n⟩ = ∏_{m|n} Φ_m(q) = q^n − 1, we have R[q]^⟨n⟩ = R[q]^{(q^n−1)} = lim_j R[q]/(q^n − 1)^j.” — The (q^m − 1)-adic completions.
+- `Habiro.CyclotomicCompletions.2004`, §4, p. 1136: “Note also that an R-admissible subset S ⊂ N satisfies S = ∪_{n∈S}⟨n⟩, and hence we have R[q]^S ≃ lim_{n∈S} R[q]^⟨n⟩.” — The limit over m ordered by divisibility; for S = ℕ the isomorphism holds for every R by (3.2) and cofinality, without the admissibility hypothesis.
 
-  > some specific elements of Z[q]^N [are given by] the series sum over n >= 0 of (1 - q)(1 - q^2) ... (1 - q^n), which was introduced by Kontsevich, and which can be regarded as an element of Z[q]^N since we have an isomorphism Z[q]^N = lim_n Z[q]/((1 - q) ... (1 - q^n)).
+### The full completion is neither q-adic nor (q − 1)-adic
+
+`HC.1/not-an-ideal-adic-completion` · theorem · added by REV-HabiroCyclotomicCompletions
+
+Let R ≠ 0. There is no ring isomorphism R[q]^{ℕ>0} ≅ R[[q]] and no ring isomorphism R[q]^{ℕ>0} ≅ R[[q − 1]] compatible with the maps from R[q]. Indeed Φ_1 = q − 1 is a unit of the q-adic completion (constant term −1) but not of R[q]^{ℕ>0}, and Φ_6 = q^2 − q + 1 is a unit of the (q − 1)-adic completion (Φ_6(1) = 1, as for every order that is not a prime power) but not of R[q]^{ℕ>0}. More strongly (Habiro, Proposition 6.1), for a subring R of ℚ̄ and an infinite S there is no ideal I of R[q] for which the identity of R[q] induces an isomorphism R[q]^S ≅ lim_j R[q]/I^j. For finite S, by contrast, R[q]^S is the (∏_{n∈S} Φ_n)-adic completion; in particular R[q]^{1} = R[[q − 1]].
+
+**Hypotheses.**
+
+- R ≠ 0 for the unit arguments; for R = 0 all these rings are zero.
+- Proposition 6.1 needs R ⊆ ℚ̄ and S infinite, as in the source.
+- The statements concern isomorphisms compatible with the maps from R[q] (the source's 'induced by id_{R[q]}').
+
+**Proof.**
+
+1. A ring map compatible with R[q] sends Φ_n to Φ_n and units to units; Φ_n is not a unit of R[q]^{ℕ>0} (HC.1/the-cyclotomic-completion).
+2. Φ_1 has constant term −1, a unit, so it is a unit of R[[q]]; Φ_6(1) = 1 (Polynomial.eval_one_cyclotomic_not_prime_pow), so Φ_6 = 1 + (q − 1)h is a unit of R[[q − 1]] (Φ_6(1 + t) = 1 + t + t^2).
+3. Proposition 6.1 (source proof, p. 1140): for a non-zero f ∈ I choose m ∈ S with Φ_m ∤ f; then Φ_m ∤ f^j for all j, so no power of I lies in (Φ_m). The case I = 0 is excluded because ι is not surjective for infinite S (source issue E3).
+4. The finite case is HC.1/completion-along-a-cofinal-family.
+
+**Acceptance.**
+
+- Φ_1 is a unit of R[[q]] and not of R[q]^{ℕ>0}; Φ_6 is a unit of R[[q − 1]] and not of R[q]^{ℕ>0}.
+- Proposition 6.1 is stated with R ⊆ ℚ̄ and S infinite.
+- R[q]^{1} = R[[q − 1]] is recorded, so the non-example is not over-generalised to finite S.
+
+**Depends on.** this roadmap: `HC.1/the-cyclotomic-completion`, `HC.1/completion-along-a-cofinal-family`; libraries: `mathlib:AdicCompletion`, `mathlib:Polynomial.eval_one_cyclotomic_not_prime_pow`.
+
+**Sources.**
+
+- `Habiro.CyclotomicCompletions.2004`, §3.1, p. 1131: “If M ⊂ M_R is infinite, then R[q]^M is not an ideal-adic completion in general, see for example Proposition 6.1.” — The source's warning.
+- `Habiro.CyclotomicCompletions.2004`, §6, Proposition 6.1, p. 1140: “Let R be a subring of Q̄, and S ⊂ N an infinite subset. Then the completion R[q]^S of R[q] is not an ideal-adic completion, i.e., there is no ideal I in R[q] such that id_{R[q]} induces an isomorphism R[q]^S ≃ lim_j R[q]/I^j.” — The general statement, with its hypotheses.
+- `Habiro.CyclotomicCompletions.2004`, §1, p. 1127: “If S is finite, then R[q]^S is just the (∏_{n∈S} Φ_n(q))-adic completion of R[q].” — The finite case, which bounds the non-example.
 
 ### Functoriality in the coefficient ring and restriction in the order set
 
-`HabiroCyclotomicCompletions:HC.1/functoriality-in-the-ring-and-in-the-order-set` · *construction*
+`HC.1/functoriality-in-the-ring-and-in-the-order-set` · construction
 
-The completion is covariant and continuous in the coefficient ring and contravariant in the set of orders: a ring map induces a continuous map of completions, and an inclusion of order sets induces a restriction map, with the identity and composition laws in both variables and with compatibility between them. Two completions attached to cofinal systems are canonically topologically isomorphic. The node also fixes the distinction the stage text insists on: base change followed by completion is not completion followed by base change, and flatness alone does not license interchanging a base change with an arbitrary infinite inverse limit.
+Coefficient change: a ring map h : R → R' sends Φ_n over R to Φ_n over R' (map_cyclotomic), hence Φ*_S(R) into Φ*_S(R'), and induces a continuous ring map h^S : R[q]^S → R'[q]^S with π_{h(f)} ∘ h^S = (R[q]/(f) → R'[q]/(h(f))) ∘ π_f and h^S ∘ ι = ι ∘ h_q, and with id^S = id and (h' ∘ h)^S = h'^S ∘ h^S. Restriction: for S' ⊆ S, Φ*_{S'} ⊆ Φ*_S and the identity of R[q] induces a continuous ρ_{S,S'} : R[q]^S → R[q]^{S'} with ρ_{S,S} = id, ρ_{S',S''} ∘ ρ_{S,S'} = ρ_{S,S''} and ρ_{S,S'} ∘ ι = ι, so S ↦ R[q]^S is a presheaf of rings on the discrete set ℕ_{>0} with R[q]^∅ = 0. The two functorialities commute: h^{S'} ∘ ρ_{S,S'} = ρ_{S,S'} ∘ h^S. Injectivity and surjectivity of h^S are HC.1/coefficient-change-injective-and-surjective; injectivity of ρ is HC.4. Base change: on each finite quotient R[q]/(f) ⊗_R R' = R'[q]/(h(f)), since R[q]/(f) is free of rank deg f; but R' ⊗_R R[q]^S → R'[q]^S need not be surjective even for flat R'. For R = ℤ, R' = ℚ and S = {1}, the element exp(q − 1) = Σ_k (q − 1)^k/k! of ℚ[q]^{1} = ℚ[[q − 1]] is not of the form x/m with x ∈ ℤ[[q − 1]] and m ≥ 1.
 
 **Hypotheses.**
 
-- The ring maps are unital; the restriction is along an inclusion of subsets of the positive integers.
-- Cofinal systems give a canonical topological isomorphism, which is the general fact about inverse limits over cofinal subsets.
-- The interchange statement is a NON-statement: it is recorded to prevent its use, and no flatness hypothesis is offered as a substitute.
+- Ring maps are unital; restriction is along an inclusion S' ⊆ S.
+- The base-change statement is a counterexample, not an assumption; no flatness hypothesis makes this completion commute with base change.
 
-**Proof outline.**
+**Construction.**
 
-1. Construct the induced map for a ring homomorphism and prove continuity.
-2. Construct the restriction map for an inclusion of order sets.
-3. Prove the identity and composition laws in both variables and their compatibility.
-4. Prove the canonical isomorphism for cofinal systems.
-5. State the distinction between completed base change and uncompleted base change, with the non-example that flatness does not license the interchange.
-6. Record the source's own use of the restriction maps, which are the maps whose injectivity HC.4 studies.
-
-**Acceptance.**
-
-- The two functorialities commute with each other.
-- Cofinal systems give canonically isomorphic completions.
-- Completed base change is not uncompleted base change, and flatness does not repair this.
-- The restriction maps are the ones whose injectivity is the subject of HC.4.
-
-**Prerequisites.** `HabiroCyclotomicCompletions:HC.1/the-cyclotomic-completion`
+1. Coefficient change on each finite quotient: Polynomial.map h induces R[q]/(f) → R'[q]/(h(f)), with h(f) ∈ Φ*_S(R') by map_cyclotomic; these are compatible along divisibility; pass to the limit; continuity is componentwise.
+2. Restriction: a compatible family over Φ*_S restricts to one over the subset Φ*_{S'}.
+3. Identity, composition and the commutation of the two functorialities are equalities of compatible families.
+4. Counterexample: ℤ[q]^{1} = ℤ[[q − 1]] and ℚ[q]^{1} = ℚ[[q − 1]] (HC.1/completion-along-a-cofinal-family); the coefficient m/k! of m·exp(q − 1) is not an integer for k > m.
 
 **API.**
 
-| name | role | statement |
-| --- | --- | --- |
-| `cycloCompletion.mapRing` | functoriality | The map induced by a ring homomorphism. |
-| `cycloCompletion.restrict` | functoriality | The restriction along an inclusion of order sets. |
-| `cycloCompletion.restrict_comp` | compatibility | The composition law for restrictions. |
-| `cycloCompletion.cofinal_iso` | characterisation | Cofinal systems give canonically isomorphic completions. |
-| `cycloCompletion.baseChange_ne` | relation | Completed base change is not uncompleted base change. |
-
-**Used by.**
-
-- *HC.4* — The injectivity theorems are statements about the restriction maps.
-- *HC.5* — The module version uses the same two functorialities.
-- *HC.6* — Both are part of the exported interface.
+- `CycloCompletion.mapRing` (functoriality): h^S : R[q]^S → R'[q]^S.
+- `CycloCompletion.mapRing_fromPoly` (simp): h^S(ι p) = ι(p.map h).
+- `CycloCompletion.mapRing_id` (functoriality): id^S = id.
+- `CycloCompletion.mapRing_comp` (functoriality): (h' ∘ h)^S = h'^S ∘ h^S.
+- `CycloCompletion.continuous_mapRing` (characterisation): h^S is continuous.
+- `CycloCompletion.restrict` (functoriality): ρ_{S,S'} for S' ⊆ S.
+- `CycloCompletion.restrict_fromPoly` (simp): ρ_{S,S'} ∘ ι = ι.
+- `CycloCompletion.restrict_refl` (functoriality): ρ_{S,S} = id.
+- `CycloCompletion.restrict_restrict` (functoriality): ρ_{S',S''} ∘ ρ_{S,S'} = ρ_{S,S''}.
+- `CycloCompletion.mapRing_comp_restrict` (compatibility): h^{S'} ∘ ρ_{S,S'} = ρ_{S,S'} ∘ h^S.
 
 **Unit tests.**
 
-- `identity` — The restriction along the identity inclusion is the identity.
-- `composition` — Restrictions compose.
-- `cofinal` — A cofinal subsystem gives the same completion.
-- `no_interchange` — Base change does not commute with the completion; flatness alone does not license it.
+- `restrict_refl` (degenerate): restrict R S (subset_refl S) = RingHom.id (CycloCompletion R S).
+- `restrict_restrict` (characterisation): For S'' ⊆ S' ⊆ S, (restrict R S' h').comp (restrict R S h) = restrict R S (h'.trans h).
+- `mapRing_restrict_comm` (compatibility): (mapRing R S' φ).comp (restrict R S h) = (restrict R' S h).comp (mapRing R S φ) for φ : R →+* R' and S' ⊆ S.
+- `no_interchange` (non-example): There is y ∈ CycloCompletion ℚ {1} (the image of exp(q − 1)) with (m : CycloCompletion ℚ {1}) * y ≠ mapRing ℤ {1} (Int.castRingHom ℚ) x for all m > 0 and all x ∈ CycloCompletion ℤ {1}.
+
+**Acceptance.**
+
+- id^S = id, (h' ∘ h)^S = h'^S ∘ h^S, ρ_{S,S} = id, ρ_{S',S''} ∘ ρ_{S,S'} = ρ_{S,S''}.
+- h^{S'} ∘ ρ_{S,S'} = ρ_{S,S'} ∘ h^S.
+- ℚ ⊗_ℤ ℤ[q]^{1} → ℚ[q]^{1} is not surjective.
+- The restriction maps are the maps whose injectivity HC.4 studies.
+
+**Used by.**
+
+- HC.4: The injectivity theorems are about ρ_{S,S'}.
+- HC.3: Naturality of evaluation and Taylor maps under coefficient change and order restriction.
+- HC.5, HC.6 and HabiroNumberFields HB.6: Change of coefficients ℤ → ℚ, ℤ → ℤ[1/p], and the exported interface.
+
+**Depends on.** this roadmap: `HC.1/the-cyclotomic-completion`, `HC.1/topology-completeness-and-universal-property`, `HC.1/completion-along-a-cofinal-family`; libraries: `mathlib:Polynomial.map_cyclotomic`, `mathlib:Polynomial.mapRingHom`.
 
 **Sources.**
 
-- §3.1, p. 1130 of the PDF, The restriction maps, verbatim.
+- `Habiro.CyclotomicCompletions.2004`, §3.1, p. 1130: “If M' ⊂ M ⊂ M_R, then (M')* is a directed subset of M*, and hence id_{R[q]} induces a homomorphism ρ^R_{M,M'} : R[q]^M → R[q]^{M'}.” — The restriction maps.
+- `Habiro.CyclotomicCompletions.arXiv-v1`, arXiv v1, §1, p. 3: “The rings R[q]^S for S ⊂ N and the homomorphisms ρ^R_{S,S'} form a presheaf of rings over the set N with the discrete topology; i.e., we have R[q]^∅ = {0} and ρ^R_{S,S''} = ρ^R_{S',S''}ρ^R_{S,S'} if S'' ⊂ S' ⊂ S ⊂ N.” — Identity and composition of restrictions.
+- `Habiro.CyclotomicCompletions.2004`, §3.1, proof of Lemma 3.1, p. 1131: “For each f ∈ M*, the R-module R[q]/(f) is free of rank deg f, since f is monic.” — Base change on each finite quotient.
 
-  > If M' is contained in M and both are subsets of M_R, then (M')* is a directed subset of M*, and hence the identity of R[q] induces a homomorphism rho^R_{M, M'} : R[q]^M -> R[q]^{M'}.
+### Injective and surjective coefficient changes (Habiro, Lemma 3.1)
+
+`HC.1/coefficient-change-injective-and-surjective` · lemma · added by REV-HabiroCyclotomicCompletions
+
+Let h : R → R' be a ring map and S ⊆ ℕ_{>0}. If h is injective, then h^S : R[q]^S → R'[q]^S is injective. If h is surjective, then h^S is surjective; the source requires M at most countable, which Φ_S always is. In particular ℤ[q]^S embeds into ℚ[q]^S, R[q]^S embeds into R[ζ][q]^S for R ⊆ R[ζ], and ℤ[q]^S → 𝔽_p[q]^S is surjective.
+
+**Hypotheses.**
+
+- h a unital ring map; S arbitrary (Φ_S is countable).
+
+**Proof.**
+
+1. Injective case: R[q]/(f) is a free R-module of rank deg f because f is monic, so R[q]/(f) → R[q]/(f) ⊗_R R' = R'[q]/(h(f)) is injective; an inverse limit of injective maps is injective.
+2. Surjective case: choose a cofinal chain g_0 ∣ g_1 ∣ ⋯ in Φ*_S (HC.1/the-cyclotomic-index-monoid). Lift a compatible family step by step: a lift x' ∈ R[q]/(g_{n+1}) of y_{n+1} differs from the chosen x_n modulo g_n by a class with coefficients in ker h, which lifts to R[q]/(g_{n+1}) inside the kernel. The source cites Matsumura, Theorem 8.1(ii), instead.
+3. Record the source's uses: Theorem 5.2 reduces to ζ ∈ R by this lemma; §7.5 embeds ℤ[q]^S into ℚ[q]^S by it; Remark 5.1 uses it.
+
+**Acceptance.**
+
+- ℤ[q]^S → ℚ[q]^S is injective for every S.
+- ℤ[q]^ℕ → ℤ[1/p][q]^ℕ is injective.
+- ℤ[q]^S → 𝔽_p[q]^S is surjective.
+- HC.4/rootwise-taylor-injectivity, HC.4/one-step-injectivity, HC.5/the-rational-case and HC.5/inverting-a-prime-and-the-rational-case list this node as a prerequisite.
+
+**Depends on.** this roadmap: `HC.1/functoriality-in-the-ring-and-in-the-order-set`, `HC.1/the-cyclotomic-index-monoid`; libraries: `mathlib:Polynomial.Monic`.
+
+**Sources.**
+
+- `Habiro.CyclotomicCompletions.2004`, §3.1, Lemma 3.1, p. 1131: “Let h : R → R' be a ring homomorphism and let M ⊂ M_R be a subset. If h is injective, then so is the homomorphism h^M : R[q]^M → R'[q]^{h(M)} induced by h_q. If h is surjective and M is at most countable, then h^M is surjective.” — The lemma, verbatim; the arXiv v1 version assumes M countable in both halves.
+- `Habiro.CyclotomicCompletions.2004`, §5, proof of Theorem 5.2, p. 1138: “Proof. By Lemma 3.1, the homomorphism R[q]^S → R[ζ][q]^S is injective. Hence we may assume ζ ∈ R without loss of generality.” — Its use in HC.4.
+- `Habiro.CyclotomicCompletions.2004`, §7.5, p. 1145: “Note that Z[q]^S embeds into Q[q]^S by Lemma 3.1.” — Its use in HC.5 and HC.6.
 
 ## HC.2 — Expansions and coefficient algorithms
 
-Every element is `∑ a_N(q) P_N(q)`. **Unrestricted expansions are not**
-**unique**; the normalised one — divide with remainder by the monic `P_N` —
-exists and is unique, and Mathlib's `modByMonic` gives it.
+*Coverage in `HabiroCyclotomicCompletions.json`: source_decomposed.* Four nodes: factorial series with arbitrary coefficients and the convergence criterion requested by QM.5; the degree-normalised expansion with existence and uniqueness (arXiv v1, proof of Lemma 3.1); digitwise addition and renormalising multiplication with finite dependence and executable versions on Tau Ceti's CoeffList; and invertibility of q in every R[q]^S with Proposition 7.1, the Laurent comparison, the non-units Φ_n and Conjecture 7.1 recorded as open. Revised by REV-HabiroCyclotomicCompletions.
 
-Algorithms with congruence correctness, and a finite-dependence statement: a
-computation to precision `N` uses finitely many coefficients. `q` is a unit;
-**a cyclotomic polynomial of an order in `S` is not**, and no formal division
-by it is admitted.
+The layer is arithmetic in the full completion R[q]^ℕ, and the invertibility of q in every R[q]^S.
 
-Coverage: **source_decomposed**.
+- **Factorial series.** Σ a_n P_n converges for arbitrary polynomial coefficients, and more generally Σ b_n converges whenever b_n ∈ (P_{m_n}) with m_n → ∞. This is the convergence criterion QSeriesPartitionsAndMockModularForms QM.5 requests. Such expansions are not unique.
+- **Normalised expansion.** Uniqueness holds under deg a_n ≤ n. The digits are remainders modulo the monic q^{n+1} − 1 = −P_{n+1}/P_n, and never remainders modulo P_N, which is not monic for odd N. The statement is in Habiro's preprint, in the proof of its Lemma 3.1, for every cofinal chain of monic polynomials; the published version dropped it.
+- **Algorithms.**
+  - Addition is digitwise. Multiplication renormalises, and its carries move only towards higher indices.
+  - Each operation has a congruence correctness theorem and an executable version on integer coefficient lists, built on Tau Ceti's proved synthetic division (`TauCeti.Polynomial.divModByMonicList`).
+  - The arithmetic algorithms are this roadmap's own: the source states only the normal form.
+- **The unit q.** q is a unit of R[q]^S for every S, because every element of Φ*_S has constant term ±1. For S = ℕ, q^{−1} = Σ q^n P_n (Habiro, Proposition 7.1). Laurent polynomials therefore map to every R[q]^S. The Φ_n with n ∈ S are not units, and the unit group of ℤ[q]^ℕ (Habiro's Conjecture 7.1) is recorded as open.
 
-Three nodes. The factorial expansion, obtained from successive representatives, with the stage text's distinction built in: unrestricted expansions are not unique, the normalised one obtained by division with remainder by the monic factorial product exists and is unique, and Mathlib's division with remainder is cited for it. The algorithms for addition, multiplication and coefficient extraction, each with a congruence correctness theorem and with the finite-dependence statement that makes a computation to precision N use only finitely many coefficients. And the invertibility of the indeterminate with the comparison of the polynomial and Laurent constructions, together with the prohibition the stage text states, that no formal division by a cyclotomic polynomial that is not a unit is admitted.
+### Factorial series with arbitrary coefficients
 
-### Factorial expansions of a compatible element
+`HC.2/factorial-series` · construction · added by REV-HabiroCyclotomicCompletions
 
-`HabiroCyclotomicCompletions:HC.2/factorial-expansions` · *construction* · planet **Factorial expansions**
-
-Building representatives successively modulo the factorial products shows that every compatible family is the limit of a series whose N-th term is a polynomial coefficient times the N-th factorial product. The expansion is convergent in the completion's topology because the products divide one another. Unrestricted coefficient expansions are NOT unique; a normalised expansion, obtained by dividing with remainder by the monic factorial product so that each coefficient has bounded degree, exists and IS unique, and that is the form the algorithms of the next node use. Division with remainder by a monic polynomial over any commutative ring, with its degree bound and uniqueness, is pinned in Mathlib and each factorial product is monic.
+For every sequence a_0, a_1, … ∈ R[q], with no degree condition, the series Σ_{n≥0} a_n(q) P_n(q) converges in R[q]^{ℕ>0}: its image in R[q]/(P_N) is the finite sum Σ_{n<N} a_n P_n, because P_N ∣ P_n for n ≥ N. More generally Σ_n b_n converges whenever b_n ∈ (P_{m_n}) with m_n → ∞. This defines an R[q]-linear map factorialSeries : R[q]^ℕ → R[q]^{ℕ>0}. It is surjective (HC.2/factorial-expansions) but not injective: (1 − q)·P_0 − 1·P_1 = 0. The Kontsevich series F = Σ_{n≥0} P_n (all a_n = 1) and Σ_n q^n P_n = q^{−1} (Habiro, Proposition 7.1) are elements; each is given by its compatible family of partial sums, never as a divergent formal expression.
 
 **Hypotheses.**
 
-- The order set is all the positive integers, so that the factorial products are available; for a general S the analogue uses whichever cofinal system that S provides.
-- Uniqueness holds only for the normalised expansion; without the degree bound the coefficients can be changed by multiples of the next factor.
-- Convergence is in the completion's own topology, not in any q-adic sense.
+- S = ℕ_{>0}.
+- Convergence is in the inverse-limit topology of HC.1; the Kontsevich series does not converge in ℤ[[q]].
+- No uniqueness is claimed for unrestricted coefficients.
 
-**Proof outline.**
+**Construction.**
 
-1. Construct representatives successively modulo the factorial products from a compatible family.
-2. Prove that the resulting series converges in the completion and represents the element.
-3. Define the normalised expansion by division with remainder, using the pinned statement for monic divisors.
-4. Prove existence and uniqueness of the normalised expansion.
-5. State the non-uniqueness of unrestricted expansions, with the explicit ambiguity that the next coefficient absorbs.
-6. Record the standing example: the Kontsevich series, whose normalised expansion has all coefficients one.
-
-**Acceptance.**
-
-- Every element has a normalised expansion and it is unique.
-- Unrestricted expansions are not unique.
-- The Kontsevich series is an element, with all normalised coefficients one.
-- Convergence is in the completion's topology and not in a q-adic one.
-
-**Prerequisites.** `HabiroCyclotomicCompletions:HC.1/cofinality-of-the-factorial-products`, `mathlib:Polynomial.modByMonic`, `mathlib:Polynomial.Monic`
+1. For each N the partial sums s_M = Σ_{n<M} a_n P_n are constant modulo P_N for M ≥ N; the classes (s_N mod P_N)_N are compatible and define the element through HC.1/cofinality-of-the-factorial-products.
+2. The element is the limit of the partial sums: s_M − x ∈ ker π_{P_N} for M ≥ N (the nonarchimedean summability criterion, Mathlib NonarchimedeanGroup.multipliable_iff_tendsto_cofinite_one in its additive form).
+3. The criterion for b_n ∈ (P_{m_n}), m_n → ∞, is the same argument.
+4. Linearity in a and the relation (1 − q)·P_0 − P_1 = 0 are direct computations.
 
 **API.**
 
-| name | role | statement |
-| --- | --- | --- |
-| `factorialExpansion` | data | The normalised expansion of an element. |
-| `factorialExpansion_unique` | characterisation | Its uniqueness. |
-| `factorialExpansion_sum` | characterisation | The expansion converges to the element. |
-| `factorialExpansion_degree_bound` | projection | The degree bound on each coefficient. |
-| `unrestricted_not_unique` | relation | Unrestricted expansions are not unique. |
-
-**Used by.**
-
-- *HC.2, the algorithms* — The algorithms operate on normalised expansions.
-- *HC.6* — The acceptance examples compute expansions to finite precision.
-- *HabiroNumberFields* — The exported elements are given by their expansions.
+- `HabiroRing.factorialSeries` (constructor): Σ a_n P_n for an arbitrary sequence a.
+- `HabiroRing.projFactorial_factorialSeries` (simp): Its image modulo P_N is Σ_{n<N} a_n P_n.
+- `HabiroRing.hasSum_factorialSeries` (characterisation): The partial sums converge to it.
+- `HabiroRing.summable_of_mem_span_factorialPoly` (characterisation): Σ b_n converges when b_n ∈ (P_{m_n}) and m_n → ∞.
+- `HabiroRing.factorialSeries_add` (simp): Additivity in the coefficient sequence.
+- `HabiroRing.kontsevichSeries` (example): F = factorialSeries 1.
 
 **Unit tests.**
 
-- `kontsevich` — The Kontsevich series has all normalised coefficients one.
-- `uniqueness` — The normalised expansion is unique.
-- `unrestricted` — Two different unrestricted expansions can represent the same element.
-- `truncation` — Truncating at N gives the image in the N-th finite quotient.
+- `kontsevich_mod_P2` (computation): projFactorial ℤ 2 (kontsevichSeries ℤ) = mk (2 − X); hence its value at q = 1 is 1 and at q = −1 is 3.
+- `factorialSeries_relation` (non-example): factorialSeries ℤ (fun n => if n = 0 then 1 − X else if n = 1 then −1 else 0) = 0.
+- `factorialSeries_X_pow` (characterisation): fromPoly R univ X * factorialSeries R (fun n => X ^ n) = 1 (Habiro, Proposition 7.1).
+- `factorialSeries_single` (degenerate): factorialSeries R (fun n => if n = 0 then p else 0) = fromPoly R univ p.
+
+**Acceptance.**
+
+- The image of Σ a_n P_n in R[q]/(P_N) is Σ_{n<N} a_n P_n.
+- Σ b_n converges when b_n ∈ (P_{m_n}) and m_n → ∞.
+- factorialSeries (1 − q, −1, 0, 0, …) = 0.
+- The Kontsevich series is an element, with F ≡ 2 − q modulo P_2.
+
+**Used by.**
+
+- QSeriesPartitions QM.5/kontsevich-strange-series: Its request for the convergence criterion with arbitrary coefficients.
+- HC.2/factorial-expansions and HC.2/invertibility-of-q: Normalised expansions and q^{−1} = Σ q^n P_n are factorial series.
+- HC.6 and ArithmeticQuantumTopology QT.2: Elements given by cyclotomic expansions.
+
+**Depends on.** this roadmap: `HC.1/cofinality-of-the-factorial-products`, `HC.1/topology-completeness-and-universal-property`, `HC.1/the-factorial-polynomials`; libraries: `mathlib:NonarchimedeanGroup.multipliable_iff_tendsto_cofinite_one`.
 
 **Sources.**
 
-- §1, the introduction, p. 1128 of the PDF, The standing example of an element given by a factorial expansion, verbatim.
+- `Habiro.CyclotomicCompletions.2004`, §1, p. 1128: “Zagier [16] studied the series Σ_{n≥0}(1 − q)(1 − q^2) · · · (1 − q^n), which was introduced by Kontsevich, and which can be regarded as an element of Z[q]^N” — The standing example.
+- `Habiro.CyclotomicCompletions.arXiv-v1`, arXiv v1, §1, (2), p. 2: “Each element a ∈ Z[q]^N is expressed as an infinite sum (2) a = Σ_{n≥0} a_n(q)_n, where a_n ∈ Z[q] for n ≥ 0.” — Factorial series with arbitrary polynomial coefficients.
 
-  > the series sum over n >= 0 of (1 - q)(1 - q^2) ... (1 - q^n), which was introduced by Kontsevich, and which can be regarded as an element of Z[q]^N
+### The degree-normalised factorial expansion
+
+`HC.2/factorial-expansions` · construction · planet “Normalised factorial expansion”
+
+Every x ∈ R[q]^{ℕ>0} has a unique expansion x = Σ_{n≥0} a_n(q) P_n(q) with a_n ∈ R[q] and deg a_n ≤ n. The digits are computed by successive division with remainder by the monic polynomials q^{n+1} − 1 = −P_{n+1}/P_n. Starting from any representative r_0 ∈ R[q] of the image of x in R[q]/(P_N), put a_n = r_n mod (q^{n+1} − 1), of degree ≤ n, and r_{n+1} = (r_n − a_n)/(1 − q^{n+1}). Then r_0 = Σ_{n<N} a_n P_n + P_N r_N, and a_0, …, a_{N−1} depend only on the image of x in R[q]/(P_N). Uniqueness: (a_n)_{n<N} ↦ Σ a_n P_n is an isomorphism of R-modules ⊕_{n<N} R[q]_{≤n} → R[q]/(P_N), both free of rank N(N+1)/2. This is the case g_n = (−1)^n P_n of the source's unique expansion a = Σ a_n g_n with deg a_n < deg g_{n+1} − deg g_n along any cofinal chain of monic polynomials; for a general S the same holds along a chosen cofinal chain of Φ*_S. The division is not by P_N: P_N is not monic for odd N, and remainders modulo P_N have degree < N(N+1)/2 rather than the digit bound. Digit extraction commutes with ring maps. Unrestricted expansions are not unique: a_n may be changed by (1 − q^{n+1})c if a_{n+1} is changed by −c.
+
+**Hypotheses.**
+
+- S = ℕ_{>0} for the factorial digits; for another S the digits are taken along a chosen cofinal chain of Φ*_S and depend on that choice.
+- Every commutative R: q^{n+1} − 1 is monic, so division with remainder and its uniqueness need no hypothesis on R.
+- Uniqueness holds only under deg a_n ≤ n.
+
+**Construction.**
+
+1. Digits of a polynomial by the recursion above, with Polynomial.modByMonic and divByMonic by q^{n+1} − 1 (monic_X_pow_sub_C) and modByMonic_add_div.
+2. Telescoping: r_0 = Σ_{n<N} a_n P_n + P_N r_N.
+3. Independence of the representative: if P_N ∣ r_0 − r_0' then the first N digits agree, by induction on n with div_modByMonic_unique and cancellation of the non-zero-divisor P_n.
+4. Digits of x ∈ R[q]^{ℕ>0} from any representative of its image in R[q]/(P_{n+1}); x = factorialSeries(a) by comparing images in every R[q]/(P_N) (HC.1/cofinality-of-the-factorial-products and HC.1/the-quotients-of-the-completion).
+5. Uniqueness: two normalised expansions of the same element agree modulo P_1, P_2, … digit by digit (div_modByMonic_unique).
+6. Compatibility with ring maps: Polynomial.map_modByMonic and map_divByMonic for the monic divisors.
+7. Examples: F = Σ P_n has digits (1, 1, 1, …); q^{−1} has digits (1, q, q^2, …); q has digits (1, −1, 0, …).
+
+**API.**
+
+- `factorialDigit` (data): The n-th normalised digit of a polynomial: the remainder of the n-th recursion step modulo q^{n+1} − 1.
+- `HabiroRing.factorialCoeff` (data): The normalised digits of an element.
+- `HabiroRing.degree_factorialCoeff_le` (characterisation): deg a_n ≤ n.
+- `HabiroRing.factorialSeries_factorialCoeff` (characterisation): Existence: x = Σ a_n P_n.
+- `HabiroRing.factorialCoeff_factorialSeries` (characterisation): Uniqueness: normalised coefficients are recovered.
+- `HabiroRing.factorialCoeff_eq_of_projFactorial_eq` (characterisation): The first N digits depend only on the image in R[q]/(P_N).
+- `HabiroRing.map_factorialCoeff` (compatibility): Digits commute with ring maps.
+- `unrestricted_not_unique` (relation): (1 − q)·P_0 − P_1 = 0: unrestricted coefficients are not unique.
+
+**Unit tests.**
+
+- `kontsevich_digits` (computation): factorialCoeff ℤ (kontsevichSeries ℤ) = 1.
+- `q_inv_digits` (computation): factorialCoeff ℤ (factorialSeries ℤ (fun n => X ^ n)) = fun n => X ^ n.
+- `digits_of_q` (computation): factorialDigit ℤ X 0 = 1, factorialDigit ℤ X 1 = −1 and factorialDigit ℤ X 2 = 0, since q = 1 − (1 − q).
+- `unrestricted_not_unique` (non-example): The non-normalised sequence (1 − X, −1, 0, …) has factorialSeries equal to 0, whose normalised digits are all 0.
+- `digits_map_zmod` (compatibility): (factorialCoeff ℤ x n).map (Int.castRingHom (ZMod p)) = factorialCoeff (ZMod p) (mapRing ℤ univ (Int.castRingHom (ZMod p)) x) n.
+
+**Acceptance.**
+
+- Every element has a unique normalised expansion; its first N digits depend only on its image in R[q]/(P_N).
+- The digits of the Kontsevich series are all 1, and those of q^{−1} are q^n.
+- Unrestricted expansions are not unique.
+- Digit extraction commutes with every ring map R → R'.
+
+**Used by.**
+
+- HC.2/algorithms-on-expansions: The algorithms act on digit sequences.
+- HC.3: Evaluation at a root of order d uses the digits of index < d, since P_n(ζ) = 0 for n ≥ d.
+- HabiroNahmSeries HB.8 and ArithmeticQuantumTopology QT.2: Expansions and coefficient algorithms requested from HC.2.
+
+**Depends on.** this roadmap: `HC.2/factorial-series`, `HC.1/cofinality-of-the-factorial-products`, `HC.1/the-factorial-polynomials`, `HC.1/the-quotients-of-the-completion`; libraries: `mathlib:Polynomial.modByMonic`, `mathlib:Polynomial.modByMonic_add_div`, `mathlib:Polynomial.div_modByMonic_unique`, `mathlib:Polynomial.degree_modByMonic_lt`, `mathlib:Polynomial.monic_X_pow_sub_C`, `mathlib:Polynomial.map_modByMonic`.
+
+**Sources.**
+
+- `Habiro.CyclotomicCompletions.arXiv-v1`, arXiv v1, proof of Lemma 3.1, p. 7: “Since each g_n is monic, each a ∈ R[q]^M is uniquely expressed as an infinite sum a = Σ_{n≥0} a_n g_n, where a_n ∈ R[q], deg a_n < deg g_{n+1} − deg g_n for n ≥ 0.” — Existence and uniqueness of the normalised expansion along a cofinal chain of monic polynomials; g_n = (−1)^n P_n gives deg a_n ≤ n. The published version (p. 1131) replaced this proof and dropped the statement.
+- `Habiro.CyclotomicCompletions.arXiv-v1`, arXiv v1, §1, p. 3: “Since the sequence (−1)^n(q)_n, n ≥ 0, is cofinal to the directed set Φ*_N, the definition (3) is consistent with (1).” — The monic chain g_n = (−1)^n(q)_n.
 
 ### Algorithms on normalised expansions, with congruence correctness
 
-`HabiroCyclotomicCompletions:HC.2/algorithms-on-expansions` · *construction*
+`HC.2/algorithms-on-expansions` · construction
 
-Addition, multiplication and coefficient extraction are computed on normalised expansions by finite algorithms: a computation to precision N depends on only finitely many input coefficients, and each algorithm carries a correctness theorem stated as a congruence modulo the N-th factorial product. Tau Ceti already has executable, proved-correct arithmetic modulo a monic polynomial by synthetic division on coefficient lists, which is the layer beneath these algorithms; what is new is the bookkeeping that turns a finite computation into a statement about the completion.
+Arithmetic on normalised expansions, each operation with a congruence correctness theorem modulo P_N. Addition and negation are digitwise, with no carries: the digits of x + y are a_n + b_n, since deg(a_n + b_n) ≤ n. Multiplication needs renormalisation: the n-th digit of xy is the n-th digit (HC.2/factorial-expansions) of the polynomial (Σ_{i≤n} a_i P_i)(Σ_{j≤n} b_j P_j). Carries propagate only towards higher indices, so digits 0, …, n of xy depend only on digits 0, …, n of x and y. Coefficient extraction computes digits 0, …, N − 1 of x from any polynomial representative of its image in R[q]/(P_N). Each operation has an executable version on integer coefficient lists, built on Tau Ceti's synthetic division (TauCeti.Polynomial.divModByMonicList, whose outputs are proved equal to Mathlib's /ₘ and %ₘ) and list multiplication, with a correctness theorem identifying it with the polynomial operation. Worked example, for the Kontsevich series F: F^2 ≡ 1 + (3 − q)P_1 + (6 − 3q − q^2)P_2 modulo P_3. The unrenormalised coefficient of P_2 is q^3 − q^2 − 3q + 5, of degree 3; it exceeds the digit by q^3 − 1 = −(1 − q^3), which is carried to index 3.
 
 **Hypotheses.**
 
-- The expansions are the normalised ones of the previous node.
-- Precision N means modulo the N-th factorial product; the correctness statements are congruences at that precision.
-- The finiteness statement is that the first N output coefficients depend only on the first N input coefficients, which is what makes the algorithms executable.
+- Inputs and outputs are normalised digit sequences.
+- Precision N means modulo P_N.
+- The executable versions work on descending coefficient lists, as in Tau Ceti's CoeffList.
 
-**Proof outline.**
+**Construction.**
 
-1. State the addition algorithm and prove its congruence correctness.
-2. State the multiplication algorithm, with the renormalisation step, and prove its congruence correctness.
-3. State coefficient extraction and prove that it depends on finitely many input coefficients.
-4. Prove the finiteness statement in the form the previous point needs.
-5. Record the pinned executable arithmetic modulo a monic polynomial that the algorithms call.
-6. Record the acceptance example: computing a product to precision three by hand and checking it against the definition.
-
-**Acceptance.**
-
-- Each algorithm is correct modulo the relevant factorial product.
-- A computation to precision N uses only finitely many coefficients.
-- The algorithms agree with the ring operations of the completion.
-- The renormalisation step in multiplication is necessary; without it the output is an unrestricted expansion.
-
-**Prerequisites.** `HabiroCyclotomicCompletions:HC.2/factorial-expansions`, `mathlib:Polynomial.modByMonic`
+1. Addition: Σ(a_n + b_n)P_n = Σ a_n P_n + Σ b_n P_n with deg(a_n + b_n) ≤ n; uniqueness of digits.
+2. Multiplication: P_i P_j ∈ (P_{max(i,j)}), so modulo P_{n+1} only i, j ≤ n contribute; take digits of the product polynomial; correctness from the representative-independence of digits.
+3. Finite dependence is read off the formula.
+4. Executable versions: the digit recursion with divByMonicList and modByMonicList against the list of q^{n+1} − 1 below its leading coefficient, and mulCoeffList for products; correctness from ofCoeffList_divByMonicList, ofCoeffList_modByMonicList and ofCoeffList_mulCoeffList.
+5. Worked examples: F^2 to precision 3, and q·q^{−1} = 1 to precision 3 (digits (1, 0, 0)).
 
 **API.**
 
-| name | role | statement |
-| --- | --- | --- |
-| `expansionAdd` | data | Addition of normalised expansions. |
-| `expansionMul` | data | Multiplication with renormalisation. |
-| `expansionCoeff` | data | Coefficient extraction. |
-| `expansionAdd_correct` | characterisation | Congruence correctness of addition. |
-| `expansionMul_correct` | characterisation | Congruence correctness of multiplication. |
-| `expansion_finite_dependence` | characterisation | Finite dependence at each precision. |
-
-**Used by.**
-
-- *HC.6* — The acceptance examples are runs of these algorithms.
-- *HC.3* — The evaluation and Taylor maps are computed from truncated expansions.
-- *ArithmeticQuantumTopology* — The quantum invariants are computed in this form.
+- `HabiroRing.factorialCoeff_add` (characterisation): Digits of a sum are sums of digits.
+- `HabiroRing.expansionMul` (data): Digit n of a product, with renormalisation.
+- `HabiroRing.factorialCoeff_mul` (characterisation): Correctness of expansionMul.
+- `HabiroRing.expansionMul_congr` (characterisation): Digit n of a product depends only on input digits ≤ n.
+- `factorialDigitList` (data): Executable digit extraction on integer coefficient lists.
+- `ofCoeffList_factorialDigitList` (compatibility): The executable digits are the polynomial digits.
 
 **Unit tests.**
 
-- `add_precision` — Addition to precision N uses only the first N coefficients.
-- `mul_renormalises` — Multiplication renormalises; without it the result is not normalised.
-- `agreement` — The algorithms agree with the ring operations.
-- `worked_product` — A product computed to precision three matches the definition.
-
-**Sources.**
-
-- §3.1, p. 1130 of the PDF, The topology in which the precision statements are made, verbatim; the algorithms are the computational form of working modulo those ideals.
-
-  > The principal ideals (f), f in M*, define a linear topology of the ring R[q].
-
-### The indeterminate is invertible, and what may not be inverted
-
-`HabiroCyclotomicCompletions:HC.2/invertibility-of-q` · *theorem*
-
-In the full completion, over the set of all positive integers, the indeterminate is a unit, and its inverse can be computed to any finite precision by the algorithms of the previous node. The polynomial and Laurent-polynomial constructions therefore give the same completion in that case. What may NOT be done is to divide formally by a cyclotomic polynomial that is not a unit: the completion is not a field, its finite quotients are not domains in general, and a formal division by a non-unit produces no element.
-
-**Hypotheses.**
-
-- The order set contains one, which is what makes the indeterminate invertible; for a set of orders not containing one the statement can fail.
-- The inverse is computed by the algorithms and its normalised expansion is exhibited to a small precision.
-- The comparison with the Laurent construction is an isomorphism of topological rings.
-
-**Proof outline.**
-
-1. Prove that the indeterminate is a unit, exhibiting the inverse as a limit of polynomial approximations.
-2. Compute the inverse to a small precision as a worked example.
-3. Prove that the Laurent-polynomial construction gives the same completion when the indeterminate is invertible.
-4. State the non-example: a cyclotomic polynomial of an order in the set is not a unit, and no formal division by it is available.
-5. Record what the pinned library supplies: the unit criteria and the Laurent polynomials as the localisation at the indeterminate.
+- `expansionAdd_digitwise` (characterisation): factorialCoeff R (x + y) = factorialCoeff R x + factorialCoeff R y.
+- `kontsevich_sq_precision_three` (computation): expansionMul ℤ 1 1 0 = 1, expansionMul ℤ 1 1 1 = 3 − X and expansionMul ℤ 1 1 2 = 6 − 3 * X − X ^ 2.
+- `mul_needs_carry` (non-example): 2 + 2 * factorialPoly ℤ 1 + factorialPoly ℤ 2 = X^3 − X^2 − 3X + 5, of degree 3 > 2, and it differs from the digit 6 − 3X − X^2 by X^3 − 1.
+- `expansionMul_congr` (characterisation): If a i = a' i and b i = b' i for all i ≤ n, then expansionMul R a b n = expansionMul R a' b' n.
+- `factorialDigitList_correct` (compatibility): ofCoeffList (factorialDigitList l n) = factorialDigit ℤ (ofCoeffList l) n for every list l of integers.
 
 **Acceptance.**
 
-- The indeterminate is a unit and its inverse is computable to any precision.
-- The polynomial and Laurent constructions agree in that case.
-- A cyclotomic polynomial of an order in the set is not a unit.
-- No formal division by a non-unit is admitted.
+- Addition is digitwise.
+- Digit n of xy depends only on digits ≤ n of x and y and is given by the renormalising formula.
+- F^2 ≡ 1 + (3 − q)P_1 + (6 − 3q − q^2)P_2 modulo P_3.
+- The executable list algorithms agree with the polynomial ones.
 
-**Prerequisites.** `HabiroCyclotomicCompletions:HC.2/algorithms-on-expansions`, `mathlib:LaurentPolynomial`
+**Used by.**
+
+- HC.6: The acceptance examples are runs of these algorithms.
+- HC.3: Values at roots of unity are computed from finitely many digits.
+- ArithmeticQuantumTopology QT.2 and HabiroNahmSeries HB.8: Finite-precision computations with cyclotomic expansions.
+
+**Depends on.** this roadmap: `HC.2/factorial-expansions`; libraries: `mathlib:Polynomial.modByMonic`, `tauceti:TauCeti.Polynomial.divModByMonicList`, `tauceti:TauCeti.Polynomial.ofCoeffList_modByMonicList`, `tauceti:TauCeti.Polynomial.ofCoeffList_divByMonicList`, `tauceti:TauCeti.Polynomial.ofCoeffList_mulCoeffList`.
 
 **Sources.**
 
-- §2, p. 1129 of the PDF, The standing convention, verbatim; the invertibility statement of this node is about units of the completion under it.
+- `Habiro.CyclotomicCompletions.arXiv-v1`, arXiv v1, proof of Lemma 3.1, p. 7: “Since each g_n is monic, each a ∈ R[q]^M is uniquely expressed as an infinite sum a = Σ_{n≥0} a_n g_n, where a_n ∈ R[q], deg a_n < deg g_{n+1} − deg g_n for n ≥ 0.” — The normal form the algorithms act on; the arithmetic algorithms themselves are this roadmap's own.
 
-  > Throughout the paper, rings are unital and commutative, and homomorphisms of rings are unital.
+### The indeterminate is invertible in every cyclotomic completion, and what may not be inverted
+
+`HC.2/invertibility-of-q` · theorem
+
+For every S ⊆ ℕ_{>0} and every R, q is a unit of R[q]^S. Every f ∈ Φ*_S has constant term ±1 (Φ_1(0) = −1 and Φ_n(0) = 1 for n ≥ 2), so f = ±1 + q·g and q·(∓g) ≡ 1 modulo f; the inverses in the finite quotients are compatible (Habiro §7.1). For S = ℕ_{>0} the inverse is explicit: q^{−1} = Σ_{n≥0} q^n P_n (Habiro, Proposition 7.1). Its partial sums satisfy q·Σ_{n<N} q^n P_n = 1 − P_N, its normalised digits are q^n, and modulo P_3 it is 1 + q − q^3 − q^4 + q^5. Consequently, for every S and every f ∈ Φ*_S, R[q]/(f) → R[q, q^{−1}]/(f) is an isomorphism, and R[q]^S ≅ lim_{f∈Φ*_S} R[q, q^{−1}]/(f) as topological rings (stated by the source over ℤ). ι extends to R[q, q^{−1}] → R[q]^S, injective when S ≠ ∅. What may not be done: for n ∈ S with n > 0 and R ≠ 0, Φ_n is not a unit of R[q]^S, so no formal division by it exists, and R[q]^S is not a field. The unit group is not determined here: Habiro's Conjecture 7.1, U(ℤ[q]^{ℕ>0}) = {±q^i}, is open and is not used; for other S the unit group can be larger (Remark 7.1: for odd m ≥ 3 the alternating sum Σ_{i<m} (−1)^i q^i is a unit of ℤ[q]^S for S = {n : gcd(n, 2m) = 1}).
+
+**Hypotheses.**
+
+- Any R and any S. The earlier hypothesis that S must contain 1 is false: for S = {2}, ℤ[q]^{2} = ℤ[[q + 1]] and q = −1 + (q + 1) is a unit.
+- The non-unit statement needs R ≠ 0 and n ∈ S with n > 0.
+- Conjecture 7.1 is open and is recorded only as such.
+
+**Proof.**
+
+1. Constant terms: Φ_1 = q − 1 (cyclotomic_one) and cyclotomic_coeff_zero for n ≥ 2; products have constant term ±1.
+2. q is a unit in every R[q]/(f), and inverses are unique, hence compatible; so q is a unit in the limit.
+3. Proposition 7.1: q·Σ_{n<N} q^n P_n = Σ_{n<N} (P_n − P_{n+1}) = 1 − P_N (the source's telescoping proof, p. 1142); take the factorial series of HC.2/factorial-series.
+4. Laurent comparison: since q is a unit in R[q]/(f), the localisation map R[q]/(f) → R[q, q^{−1}]/(f) is an isomorphism (LaurentPolynomial.isLocalization, IsLocalization.Away.lift); pass to the limit.
+5. Non-units: HC.1/the-cyclotomic-completion.
+6. Remark 7.1 as an example of a larger unit group, with the corrected argument of source issue E4.
+
+**Acceptance.**
+
+- q is a unit of R[q]^S for every S, including S = {2}.
+- q·Σ_{n<N} q^n P_n = 1 − P_N; q^{−1} ≡ 1 + q − q^3 − q^4 + q^5 modulo P_3.
+- R[q]^S ≅ lim_{f∈Φ*_S} R[q, q^{−1}]/(f) for every S.
+- Φ_n (n ∈ S, n > 0) is not a unit when R ≠ 0, and Conjecture 7.1 is not used.
+
+**Depends on.** this roadmap: `HC.1/the-cyclotomic-completion`, `HC.1/the-factorial-polynomials`, `HC.2/factorial-series`; libraries: `mathlib:Polynomial.cyclotomic_coeff_zero`, `mathlib:Polynomial.cyclotomic_one`, `mathlib:LaurentPolynomial`, `mathlib:LaurentPolynomial.isLocalization`, `mathlib:IsLocalization.Away.lift`, `mathlib:Polynomial.toLaurent`.
+
+**Sources.**
+
+- `Habiro.CyclotomicCompletions.2004`, §7.1, p. 1141: “If R is a ring and S ⊂ M_R is a subset consisting of monic polynomials whose constant terms are units in R, then the element q is invertible in R[q]^S.” — Invertibility of q for every S.
+- `Habiro.CyclotomicCompletions.2004`, §7.1, Proposition 7.1, p. 1141: “For any ring R, the element q ∈ R[q]^N is invertible with the inverse q^{−1} = Σ_{n≥0} q^n (q)_n, where (q)_n = (1 − q)(1 − q^2) · · · (1 − q^n).” — The explicit inverse.
+- `Habiro.CyclotomicCompletions.2004`, §7.1, p. 1142: “For each subset S ⊂ N, the inclusion Z[q] ⊂ Z[q, q^{−1}] induces an isomorphism Z[q]^S ≃ lim_{f∈Φ*_S} Z[q, q^{−1}]/(f), via which we will identify these two rings.” — The Laurent comparison for every S.
+- `Habiro.CyclotomicCompletions.2004`, §7.1, Conjecture 7.1, p. 1142: “Conjecture 7.1. We have U(Z[q]^N) = {±q^i | i ∈ Z}.” — The open question about units, recorded as open.
 
 ## HC.3 — Root evaluation and Taylor maps
 
-`ev_ζ` factors through one finite quotient because `q − ζ | Φ_{ord ζ}(q)`;
-`σ_ζ : R[q]^S → R[ζ][[q − ζ]]` because `(q−ζ)ⁱ | Φ_{ord ζ}(q)ⁱ`.
+*Coverage in `HabiroCyclotomicCompletions.json`: source_decomposed.* Six nodes. Evaluation through AdjoinRoot Φ_n with independence of truncation, the factorial-series formula and the continuous-points characterisation; the Taylor map with Hasse coefficients and the factorial comparison; naturality in coefficients, roots, orders and q → q^a; which roots are p-adically close; the p-adic re-expansion built from PowerSeries.eval2Hom with its cocycle law; and the compatibility of Taylor maps at p-adically close roots, which gives the square QT.4 uses. Sources: Habiro, GSWZ §1.3. Revised by REV-HabiroCyclotomicCompletions.
 
-**The higher coefficients are Hasse derivatives**, and Mathlib proves exactly
-that at polynomial level. Comparing with ordinary derivatives keeps the
-factorial denominators — which matters over ℤ.
+The layer makes the completion a ring of functions on roots of unity.
 
-**Re-expansion needs nilpotence.** Substituting a constant into a power series
-is not defined; Mathlib's `PowerSeries.subst` requires precisely the hypothesis
-the stage text insists on.
-
-Coverage: **source_decomposed**.
-
-Three nodes. Evaluation at a root whose order lies in the set, through a single finite quotient and independent of the truncation, with the source's own assembled map to functions on the roots of unity and with the record that no evaluation exists at an order outside the set. The Taylor map, with the divisibility that makes it well defined, its constant term identified with the evaluation and its higher coefficients identified with HASSE derivatives, citing Mathlib's polynomial-level statement and carrying the stage text's warning that the comparison with ordinary derivatives keeps the factorial denominators. And naturality in all four senses the stage text lists, together with the re-expansion maps, which are constructed only under topological nilpotence in a complete coefficient ring — exactly the hypothesis Mathlib's power-series substitution requires — and their cocycle law.
+- **Evaluation.**
+  - Evaluation at a root ζ of Φ_n, n ∈ S, in any R-algebra goes through the projection to R[q]/(Φ_n) = `AdjoinRoot` Φ_n. It is independent of the truncation.
+  - In a domain of characteristic zero the roots of Φ_n are exactly the primitive n-th roots of unity. In a general ring the hypothesis is Φ_n(ζ) = 0, not primitivity.
+- **The Taylor map.**
+  - σ_ζ takes values in A[[X]], with X standing for q − ζ. Its coefficients are Hasse derivatives of any representative modulo an element of Φ*_S divisible by Φ_n^{k+1}.
+  - k! times the k-th coefficient is the k-th derivative. This determines the coefficient only where k! is a non-zero-divisor, as over 𝔽_2 it is not.
+  - The values of the Kontsevich series and its expansions at q = ±1 are the computational tests.
+- **Naturality** holds in the coefficients, the roots (Galois equivariance), the order set and the substitution q ↦ q^a. The last is continuous when m/gcd(m, a) ∈ S for every m in the target set.
+- **p-adic re-expansion.**
+  - Two roots of unity are p-adically close exactly when their ratio has p-power order; orders differing by a power of p is not enough.
+  - The re-expansion f(X) ↦ f(X + c) is defined for c topologically nilpotent in a p-adically complete ring. It is built from `PowerSeries.eval₂Hom`, never from `PowerSeries.subst`, whose hypothesis is nilpotence of the constant coefficient. It satisfies the cocycle law.
+  - The Taylor expansions at p-adically close roots are re-expansions of each other. For ζ = 1 and ζ' of prime-power order this is the square that ArithmeticQuantumTopology QT.4 uses for the Ohtsuki series.
 
 ### Evaluation at a root of unity
 
-`HabiroCyclotomicCompletions:HC.3/evaluation-at-a-root-of-unity` · *construction* · planet **Evaluation at a root of unity**
+`HC.3/evaluation-at-a-root-of-unity` · construction · planet “Evaluation at a root of unity”
 
-For a root of unity whose order lies in the set of orders, evaluation of an element of the completion at that root is well defined: the linear factor divides the cyclotomic polynomial of that order, so evaluation factors through a single finite quotient, and the result is independent of which truncation is used. Over the integers with all orders this gives a map from the completion to the functions on the roots of unity, which is the sense in which the source says that its elements are functions on the roots of unity. Mathlib's quotient by a cyclotomic polynomial as an adjoined root is the pinned carrier of the target.
+Let R be a commutative ring, S a set of positive integers, n in S, and ζ an element of an R-algebra A with Φ_n(ζ) = 0 (in a domain of characteristic zero this holds exactly for the primitive n-th roots of unity). EVALUATION at ζ is the R-algebra map ev_ζ : R[q]^S → A obtained by composing the projection R[q]^S → R[q]/(Φ_n) = AdjoinRoot Φ_n with the map AdjoinRoot Φ_n → A sending the class of q to ζ. It is independent of the truncation: for every f in Φ_S^* divisible by Φ_n and every polynomial g representing the image of x in R[q]/(f), ev_ζ(x) = g(ζ); on the image of R[q] it is ordinary evaluation. For S = ℕ and ζ primitive of order m in a domain, ev_ζ(Σ_k a_k(q)(q;q)_k) = Σ_{k<m} a_k(ζ)(ζ;ζ)_k. For R = ℤ and S = ℕ the evaluations at all roots of unity in C assemble into Habiro's map ε : ℤ[q]^ℕ → Map(Z_N, ℤ[Z_N]). Only roots of the Φ_m, m in S, are points: a continuous ring map from R[q]^S to a discrete domain factors through some R[q]/(f), f in Φ_S^*, so it sends q to a root of some Φ_m with m in S; for instance no ring homomorphism ℤ[q]^{1} = ℤ[[q-1]] → ℤ sends q to -1, because 2 - q is a unit of ℤ[[q-1]] and would map to 3.
 
 **Hypotheses.**
 
-- The order of the root lies in the set of orders; for an order outside it there is no evaluation.
-- The target is the ring obtained by adjoining the root to the coefficient ring, which is the pinned quotient by the cyclotomic polynomial when the polynomial is irreducible there.
-- Independence of the truncation is part of the construction: any quotient whose defining product is divisible by the cyclotomic polynomial computes the same value.
+- n lies in S and ζ is an element of an R-algebra A with Φ_n(ζ) = 0. In a domain of characteristic zero this is equivalent to ζ being a primitive n-th root of unity (IsPrimitiveRoot.isRoot_cyclotomic, Polynomial.isRoot_cyclotomic_iff); in a general ring a primitive root need not be a root of Φ_n (in ℤ/8ℤ, 3 is a primitive square root of 1 but Φ_2(3) = 4), so the hypothesis is Φ_n(ζ) = 0.
+- The canonical target is AdjoinRoot Φ_n = R[q]/(Φ_n); Habiro's R[ζ] is its image under q → ζ. The map AdjoinRoot Φ_n → R[ζ] is an isomorphism when Φ_n is irreducible over the fraction field of R (R = ℤ: cyclotomic.irreducible_rat), not merely irreducible in R[q]: for R = ℤ[2i] and n = 4, q^2 + 1 is irreducible in R[q] but the nonzero class of 2 + 2i q maps to 0 in R[i] = ℤ[i].
+- Independence of the truncation is part of the construction; it uses only that the projections of HC.1 are compatible.
 
-**Proof outline.**
+**Construction.**
 
-1. Prove that the linear factor divides the cyclotomic polynomial of the order, so that evaluation is defined on the corresponding finite quotient.
-2. Define evaluation as the composite of a projection with that quotient map, and prove independence of the chosen projection.
-3. Assemble the evaluations into the map to functions on the roots of unity and record the source's own statement of it.
-4. Record the pinned carrier of the target and the identification of the cyclotomic polynomial as the minimal polynomial of a primitive root.
-5. Record that no evaluation exists at a root whose order is outside the set, which is what makes the set of orders meaningful.
-
-**Acceptance.**
-
-- Evaluation is independent of the truncation used.
-- Over the integers with all orders the evaluations assemble into a map to functions on the roots of unity.
-- There is no evaluation at a root whose order is outside the set of orders.
-
-**Prerequisites.** `HabiroCyclotomicCompletions:HC.1/the-cyclotomic-completion`, `mathlib:AdjoinRoot`, `mathlib:IsPrimitiveRoot`, `mathlib:Polynomial.cyclotomic`
+1. Φ_n lies in Φ_S^* because n is in S, so the projection R[q]^S → R[q]/(Φ_n) exists (HC.1/the-cyclotomic-completion).
+2. AdjoinRoot.liftAlgHom Φ_n ζ exists because Φ_n(ζ) = 0; define ev_ζ as its composite with the projection.
+3. If Φ_n divides f and g represents x modulo f, the projection of x to R[q]/(Φ_n) is the class of g by compatibility of the projections, so ev_ζ(x) = g(ζ).
+4. On polynomials ev_ζ(fromPoly g) = aeval ζ g, by construction.
+5. For S = ℕ and ζ primitive of order m in a domain, (ζ;ζ)_k = 0 for k ≥ m, and a factorial series converges in the completion (HC.2/factorial-expansions); continuity of ev_ζ for the discrete topology on A gives the finite sum.
+6. Continuous maps to discrete domains: the kernel is open, so it contains the kernel of some projection to R[q]/(f), f = ∏ Φ_m^{k_m}; f(φ(q)) = 0 in a domain forces Φ_m(φ(q)) = 0 for some m in S. For S = {1}, 2 - q = 1 - (q - 1) is a unit of ℤ[[q-1]].
+7. Assemble ε for R = ℤ, S = ℕ (Habiro, p. 1128).
 
 **API.**
 
-| name | role | statement |
-| --- | --- | --- |
-| `evalAt` | data | Evaluation at a root of unity of order in the set. |
-| `evalAt_indep` | characterisation | Independence of the truncation. |
-| `evalAt_ringHom` | compatibility | It is a ring homomorphism. |
-| `evalMap` | data | The assembled map to functions on the roots of unity. |
-| `no_evalAt_outside` | relation | No evaluation exists at an order outside the set. |
-
-**Used by.**
-
-- *HC.3, the Taylor map* — The constant term of the Taylor map is this evaluation.
-- *HC.4* — The evaluation uniqueness theorem is about the assembled map.
-- *ArithmeticQuantumTopology* — The quantum invariants at a root of unity are these evaluations.
+- `evalAt` (data): ev_ζ : R[q]^S →_R A for n in S and ζ in A with Φ_n(ζ) = 0.
+- `evalAt_fromPoly` (simp): ev_ζ(fromPoly g) = aeval ζ g.
+- `evalAt_eq_of_proj` (characterisation): Independence of the truncation: if Φ_n | f, f in Φ_S^*, and proj_f x is the class of g, then ev_ζ x = g(ζ).
+- `evalAt_eq_liftAlgHom_comp_proj` (compatibility): ev_ζ = AdjoinRoot.liftAlgHom Φ_n ζ composed with the projection to AdjoinRoot Φ_n.
+- `evalAt_factorialSeries` (relation): For S = ℕ and ζ primitive of order m in a domain: ev_ζ(Σ_k a_k (q;q)_k) = Σ_{k<m} a_k(ζ)(ζ;ζ)_k.
+- `exists_cyclotomic_root_of_continuous` (characterisation): A continuous R-algebra map from R[q]^S to a discrete domain sends q to a root of some Φ_m with m in S.
+- `evalFamily` (data): For R = ℤ, S = ℕ: ε : ℤ[q]^ℕ → (roots of unity in C → C), ε(x)(ζ) = ev_ζ x.
 
 **Unit tests.**
 
-- `at_one` — Evaluation at one sends the Kontsevich series to the expected value.
-- `indep` — Two truncations give the same value.
-- `ring_hom` — Evaluation is a ring homomorphism.
-- `outside_orders` — There is no evaluation at a root of unity whose order is not in the set.
+- `evalAt_kontsevich` (computation): For F = Σ_k (q;q)_k in ℤ[q]^ℕ: ev_1 F = 1, ev_{-1} F = 3, ev_{ζ_3} F = 5 - ζ_3 and ev_i F = 8 - 3i.
+- `evalAt_one_sub_q` (computation): ev_ζ(fromPoly (1 - q)) = 1 - ζ; in particular ev_1 = 0 and ev_{-1} = 2.
+- `evalAt_indep` (characterisation): For x in ℤ[q]^ℕ, N ≥ ord ζ and g representing x modulo (q;q)_N, ev_ζ x = g(ζ).
+- `evalAt_eq_liftAlgHom_comp_proj` (compatibility): ev_ζ equals AdjoinRoot.liftAlgHom (cyclotomic n R) ζ composed with the projection to AdjoinRoot (cyclotomic n R).
+- `no_eval_neg_one_on_Zq1` (non-example): There is no ring homomorphism ℤ[q]^{1} = ℤ[[q-1]] → ℤ sending q to -1.
+- `evalAt_empty` (degenerate): R[q]^emptyset is the zero ring (Φ_emptyset^* = {1}), so it has no evaluation into a nonzero ring.
+
+**Acceptance.**
+
+- ev_ζ(x) = g(ζ) for every representative g of x modulo any f in Φ_S^* divisible by Φ_n.
+- ev_ζ is an R-algebra homomorphism extending aeval ζ on R[q].
+- For the Kontsevich series F = Σ_k (q;q)_k over ℤ: ev_1 F = 1, ev_{-1} F = 3, ev_{ζ_3} F = 5 - ζ_3, ev_i F = 8 - 3i (PARI).
+- There is no ring homomorphism ℤ[[q-1]] → ℤ sending q to -1.
+- The completion at the empty set is the zero ring and has no evaluation into a nonzero ring.
+
+**Used by.**
+
+- HC.3, the Taylor map: The constant term of the Taylor map is this evaluation.
+- HC.4, evaluation uniqueness (Habiro Theorems 6.1, 6.2): The injectivity theorems are about the product of these evaluations.
+- QSeriesPartitionsAndMockModularForms:QM.5: Requests ev_ξ with ev_ξ(sum a_n (q;q)_n) = Σ_{n<ord ξ} a_n(ξ)(ξ;ξ)_n and Galois compatibility.
+- ArithmeticQuantumTopology:QT.4: The quantum invariants at a root of unity are these evaluations of the unified invariant.
+
+**Depends on.** this roadmap: `HC.1/the-cyclotomic-completion`, `HC.2/factorial-expansions`; libraries: `mathlib:AdjoinRoot`, `mathlib:AdjoinRoot.liftAlgHom`, `mathlib:IsPrimitiveRoot`, `mathlib:IsPrimitiveRoot.isRoot_cyclotomic`, `mathlib:Polynomial.cyclotomic`.
 
 **Sources.**
 
-- §1, the introduction, p. 1128 of the PDF, The construction with the divisibility that makes it work, verbatim.
-
-  > If f(q) is in Z[q]^N and zeta is a root of unity, then the evaluation f(zeta) of f(q) at zeta is well defined, since q - zeta divides Phi_n(q) with n = ord zeta. Hence there is a well defined map ev : Z[q]^N -> Map(Z_N, Z[Z_N]) such that ev(f(q)) = (f(zeta))_{zeta}.
+- `Habiro.CyclotomicCompletions.2004`, §1, printed p. 1128: “If f(q) ∈ Z[q]^N and ζ ∈ Z_N, then the evaluation f(ζ) of f(q) at ζ is well defined, since q − ζ divides Φ_n(q) with n = ord ζ. Hence there is a well defined map ε: Z[q]^N → Map(Z_N, Z[Z_N]) such that ε(f(q)) = (f(ζ))_{ζ∈Z_N}.” — The construction and the divisibility behind it, for R = ℤ and S = ℕ; the node states it for any R, S and any root of Φ_n in an R-algebra.
 
 ### The Taylor map at a root of unity
 
-`HabiroCyclotomicCompletions:HC.3/the-taylor-map` · *construction* · planet **The Taylor map**
+`HC.3/the-taylor-map` · construction · planet “Expansion homomorphism σ_ζ”
 
-For a root of unity of order in the set of orders there is an expansion homomorphism from the completion into the power series over the ring obtained by adjoining the root, in the variable q minus the root, induced by the inclusion of polynomial rings and by the fact that the i-th power of the linear factor divides the i-th power of the cyclotomic polynomial. Its constant term is the evaluation of the previous node, and its higher coefficients are the HASSE derivatives, not the ordinary ones: the comparison with ordinary derivatives keeps the factorial denominators, which matters over a ring where factorials are not invertible. At the polynomial level Mathlib has exactly this, that the n-th coefficient of the Taylor expansion is the n-th Hasse derivative evaluated at the point.
+For n in S and ζ in an R-algebra A with Φ_n(ζ) = 0, the TAYLOR MAP (Habiro's expansion homomorphism σ_ζ) is the R-algebra map σ_ζ : R[q]^S → A[[X]], X standing for q - ζ, whose k-th coefficient on x is (D_k g)(ζ) for any polynomial g representing x modulo any f in Φ_S^* divisible by Φ_n^{k+1}, where D_k is the k-th Hasse derivative (for x = fromPoly g this is Mathlib's Polynomial.taylor_coeff). It is well defined because (q - ζ)^{k+1} divides Φ_n(q)^{k+1} in A[q], and multiplicative because the polynomial Taylor shift is an algebra map. Its constant coefficient is ev_ζ. The comparison with ordinary derivatives is k! * (coefficient k) = (d/dq)^k g (ζ) (Polynomial.factorial_smul_hasseDeriv); D_1 is the derivative itself. Over a torsion-free ring such as ℤ[ζ] this determines the coefficient (the division by k! is exact); over a ring where k! is a zero-divisor it does not: over 𝔽_2 the second Taylor coefficient of q^2 at 1 is 1 while its second derivative is 0. For the Kontsevich series F over ℤ, σ_1(F) = 1 - X + 2X^2 - 5X^3 + 15X^4 - 53X^5 + 217X^6 - 1014X^7 + O(X^8) (signed Fishburn numbers) and σ_{-1}(F) = 3 + 11X + 72X^2 + 635X^3 + 7085X^4 + O(X^5).
 
 **Hypotheses.**
 
-- The order of the root lies in the set; the target is the power series ring over the ring with the root adjoined.
-- The divisibility that makes the map well defined is that the i-th power of the linear factor divides the i-th power of the cyclotomic polynomial, which is the source's observation.
-- The higher coefficients are Hasse derivatives; identifying them with ordinary derivatives divided by factorials is legitimate only where the factorials are invertible.
+- n lies in S and Φ_n(ζ) = 0 in the R-algebra A; the target is A[[X]] with X = q - ζ. Habiro's σ_ζ is the case A = R[ζ] inside an algebraic closure of the fraction field of a domain R.
+- The k-th coefficient is computed from any representative modulo an element of Φ_S^* divisible by Φ_n^{k+1}.
+- k! * D_k = (d/dq)^k; this determines D_k only where k! is a non-zero-divisor. D_1 is the ordinary derivative (hasseDeriv_one).
 
-**Proof outline.**
+**Construction.**
 
-1. Prove the divisibility of the powers and deduce that the expansion is compatible with the projections.
-2. Define the Taylor map and prove that it is a ring homomorphism.
-3. Prove that its constant term is the evaluation.
-4. Identify the higher coefficients with the Hasse derivatives, citing the pinned polynomial-level statement.
-5. Record the warning about factorial denominators with a concrete instance over the integers.
-6. Record the source's own description of the map as the power series expansion at the root.
-
-**Acceptance.**
-
-- The constant term is the evaluation.
-- The higher coefficients are Hasse derivatives.
-- Over a ring where factorials are not invertible the identification with ordinary derivatives fails.
-- The map is a ring homomorphism into the power series ring.
-
-**Prerequisites.** `HabiroCyclotomicCompletions:HC.3/evaluation-at-a-root-of-unity`, `mathlib:Polynomial.taylor`, `mathlib:Polynomial.taylor_coeff`, `mathlib:Polynomial.hasseDeriv`, `mathlib:PowerSeries`
+1. (q - ζ) divides Φ_n(q) in A[q] because Φ_n(ζ) = 0, hence (q - ζ)^{k+1} | Φ_n^{k+1} | f.
+2. If h in A[q] is divisible by (q - ζ)^{k+1}, then taylor ζ h is divisible by X^{k+1}, so (D_j h)(ζ) = 0 for j ≤ k; hence the k-th coefficient does not depend on the representative.
+3. Define σ_ζ(x) = PowerSeries.mk (k → (D_k g_k)(ζ)); additivity and multiplicativity hold coefficientwise because Polynomial.taylorAlgHom ζ is an algebra map.
+4. The constant coefficient is D_0 g (ζ) = g(ζ) = ev_ζ(x).
+5. On fromPoly g, σ_ζ is the coercion of taylor ζ g (Polynomial.taylor_coeff).
+6. k! * coeff_k = (d/dq)^k g (ζ) by Polynomial.factorial_smul_hasseDeriv; the 𝔽_2 example shows that the coefficient is not a function of the derivatives when 2 = 0.
+7. Record the Kontsevich expansions at 1 and -1 (PARI) and the source's description of σ_ζ as the power series expansion at ζ.
 
 **API.**
 
-| name | role | statement |
-| --- | --- | --- |
-| `taylorAt` | data | The Taylor map at a root of unity. |
-| `taylorAt_constantCoeff` | characterisation | Its constant term is the evaluation. |
-| `taylorAt_coeff` | characterisation | Its higher coefficients are Hasse derivatives. |
-| `taylorAt_ringHom` | compatibility | It is a ring homomorphism. |
-| `taylorAt_factorials` | relation | The comparison with ordinary derivatives keeps the factorial denominators. |
-
-**Used by.**
-
-- *HC.4* — The rootwise Taylor injectivity theorem is about this map.
-- *HC.6* — The difference between a value and a full Taylor series is one of the acceptance tests.
-- *HabiroNumberFields* — The exported expansions are these.
+- `taylorAt` (data): σ_ζ : R[q]^S →_R A[[X]] for n in S and Φ_n(ζ) = 0.
+- `constantCoeff_taylorAt` (characterisation): constantCoeff (σ_ζ x) = ev_ζ x.
+- `coeff_taylorAt` (characterisation): coeff_k (σ_ζ x) = (hasseDeriv k g)(ζ) for g representing x modulo f with Φ_n^{k+1} | f.
+- `taylorAt_fromPoly` (simp): σ_ζ (fromPoly g) = coe (taylor ζ (g.map (algebraMap R A))).
+- `factorial_mul_coeff_taylorAt` (relation): k! * coeff_k (σ_ζ x) = (derivative^[k] g)(ζ).
+- `taylorAt_expCoord` (other): For a ℚ-algebra A, the composite of σ_ζ with PowerSeries.subst (ζ * (exp(-t) - 1)) (constant coefficient 0) is the expansion in q = ζ e^{-t} requested by QM.5.
 
 **Unit tests.**
 
-- `constant_term` — The constant term is the evaluation.
-- `hasse` — The first higher coefficient is the first Hasse derivative, not the derivative divided by one.
-- `integer_factorials` — Over the integers the identification with derivatives divided by factorials fails in degree two.
-- `ring_hom` — The map is a ring homomorphism.
-
-**Sources.**
-
-- §1, the introduction, p. 1128 of the PDF, The construction with the divisibility it rests on, verbatim.
-
-  > For zeta each root of unity, there is an expansion homomorphism sigma_zeta : Z[q]^N -> Z[zeta][[q - zeta]], induced by Z[q] -> Z[zeta][q], since (q - zeta)^i divides Phi_{ord zeta}(q)^i for i >= 0. For f(q) in Z[q]^N, sigma_zeta(f(q)) can be regarded as the power series expansion of f(q) at zeta.
-
-### Naturality of the two maps, and the re-expansion that needs nilpotence
-
-`HabiroCyclotomicCompletions:HC.3/naturality-and-re-expansion` · *theorem*
-
-Evaluation and the Taylor map are natural under change of the coefficient ring, under conjugation of the root, under restriction of the set of orders, and under the substitution sending the indeterminate to a power of itself whenever that substitution preserves the completion topology. What is NOT available is substitution of an arbitrary constant into a power series: a re-expansion is defined only through topological nilpotence in a coefficient ring proved complete, and Mathlib's substitution for power series requires exactly that hypothesis. The p-adic re-expansion maps are constructed under that hypothesis and satisfy a cocycle law.
-
-**Hypotheses.**
-
-- The index map for the power substitution must preserve the chosen topology, which is a condition on the set of orders.
-- The re-expansion is between Taylor expansions at different roots and is defined only when the difference of the roots is topologically nilpotent in a complete coefficient ring.
-- The cocycle law is the compatibility of three re-expansions among three roots.
-
-**Proof outline.**
-
-1. State naturality in the coefficient ring and under conjugation of the root.
-2. State naturality under restriction of the set of orders.
-3. State the substitution sending the indeterminate to a power, with the condition on the index map.
-4. Construct the p-adic re-expansion maps under the nilpotence hypothesis, citing the pinned substitution statement.
-5. Prove the cocycle law.
-6. State the non-example: substituting a constant into a power series without the nilpotence hypothesis is not defined, and the layer forbids it.
+- `constantCoeff_taylorAt` (characterisation): constantCoeff (σ_ζ x) = ev_ζ x for all x.
+- `taylorAt_fromPoly` (compatibility): σ_ζ (fromPoly g) equals the power series of Mathlib's Polynomial.taylor ζ g.
+- `taylorAt_one_kontsevich` (computation): The coefficients 0..7 of σ_1(F) are 1, -1, 2, -5, 15, -53, 217, -1014.
+- `taylorAt_neg_one_kontsevich` (computation): The coefficients 0..4 of σ_{-1}(F) are 3, 11, 72, 635, 7085.
+- `hasse_not_deriv_over_F2` (non-example): Over 𝔽_2 with S = {1}: coeff_2 (σ_1 (fromPoly q^2)) = 1 while (d/dq)^2 q^2 = 0.
+- `factorial_mul_coeff_over_Z` (compatibility): Over ℤ with S = {1}: coeff_2 (σ_1 (fromPoly q^3)) = 3 and 2! * 3 = (q^3)''(1) = 6.
 
 **Acceptance.**
 
-- The two maps are natural in all four senses listed.
-- The power substitution needs its condition on the index map.
-- Re-expansion needs topological nilpotence in a complete coefficient ring.
-- The re-expansions satisfy the cocycle law.
+- constantCoeff (σ_ζ x) = ev_ζ x.
+- coeff_k (σ_ζ x) = (D_k g)(ζ) whenever g represents x modulo some f in Φ_S^* with Φ_n^{k+1} | f.
+- k! * coeff_k (σ_ζ x) = (d/dq)^k g (ζ); over 𝔽_2 the second Taylor coefficient of q^2 at 1 is 1 although the second derivative is 0.
+- σ_ζ is an R-algebra homomorphism R[q]^S → A[[X]].
+- For the Kontsevich series: σ_1(F) = 1 - X + 2X^2 - 5X^3 + 15X^4 - 53X^5 + 217X^6 - 1014X^7 + O(X^8), σ_{-1}(F) = 3 + 11X + 72X^2 + 635X^3 + 7085X^4 + O(X^5).
 
-**Prerequisites.** `HabiroCyclotomicCompletions:HC.3/the-taylor-map`, `mathlib:PowerSeries.subst`, `mathlib:IsAdicComplete`
+**Used by.**
+
+- HC.4, rootwise Taylor injectivity (Habiro Theorem 5.2): Injectivity of this map.
+- HC.3, re-expansion of Taylor expansions: p-adic comparison of σ_ζ and σ_ζ' for roots with ratio of p-power order.
+- ArithmeticQuantumTopology:QT.4: σ_1 of the unified invariant is the Ohtsuki series.
+- QSeriesPartitionsAndMockModularForms:QM.5: The Taylor map and its composite with q = ξ e^{-t}.
+- HabiroNumberFields: The exported expansions are these.
+
+**Depends on.** this roadmap: `HC.3/evaluation-at-a-root-of-unity`, `HC.1/the-cyclotomic-completion`; libraries: `mathlib:Polynomial.taylor`, `mathlib:Polynomial.taylor_coeff`, `mathlib:Polynomial.taylorAlgHom`, `mathlib:Polynomial.hasseDeriv`, `mathlib:Polynomial.hasseDeriv_one`, `mathlib:Polynomial.factorial_smul_hasseDeriv`, `mathlib:PowerSeries`.
 
 **Sources.**
 
-- §5, p. 1137 of the PDF, The three equivalent conditions under which two roots are adjacent, verbatim; they are exactly the separatedness hypotheses this node requires for a re-expansion.
+- `Habiro.CyclotomicCompletions.2004`, §1, the introduction, p. 1128 of the PDF: “For zeta each root of unity, there is an expansion homomorphism sigma_zeta : Z[q]^N -> Z[zeta][[q - zeta]], induced by Z[q] -> Z[zeta][q], since (q - zeta)^i divides Phi_{ord zeta}(q)^i for i >= 0. For f(q) in Z[q]^N, sigma_zeta(f(q)) can be regarded as the power series expansion of f(q) at zeta.” — The construction with the divisibility it rests on, verbatim.
 
-  > 1. (q - zeta) => R (q - zeta'), 2. R is (zeta - zeta')-adically separated, 3. ord(zeta^{-1} zeta') is a power of some prime p such that R is p-adically separated.
+### Naturality of evaluation and the Taylor map
+
+`HC.3/naturality-and-re-expansion` · theorem
+
+Evaluation and the Taylor map are natural in four ways. (1) Coefficients: for a ring map h : R → R' and compatible algebra maps A → A', ev_{h(ζ)} ∘ h^S = h_A ∘ ev_ζ and σ_{h(ζ)} ∘ h^S = PowerSeries.map h_A ∘ σ_ζ, where h^S is HC.1's coefficient map. (2) Roots: for an R-algebra automorphism τ of A, ev_{τ ζ} = τ ∘ ev_ζ and σ_{τ ζ} = PowerSeries.map τ ∘ σ_ζ; for R = ℤ this is σ(ev_ξ F) = ev_{σ(ξ)} F for Galois automorphisms σ, as QM.5 requests. (3) Orders: for T ⊂ S with n in T, ev^S_ζ = ev^T_ζ ∘ ρ_{S,T} and σ^S_ζ = σ^T_ζ ∘ ρ_{S,T}. (4) Powers: for a ≥ 1 and sets S, T such that m/gcd(m,a) lies in S for every m in T, q → q^a induces a continuous R-algebra map ψ_a : R[q]^S → R[q]^T, and for Φ_m(ζ) = 0 with m in T, ev_ζ ∘ ψ_a = ev_{ζ^a} and σ_ζ ∘ ψ_a = subst((ζ + X)^a - ζ^a) ∘ σ_{ζ^a}; the substituted series has constant coefficient 0, so this is an instance of Mathlib's PowerSeries.subst. The condition on the index map m → m/gcd(m,a) is what continuity needs: Φ_m(q) divides Φ_{m/gcd(m,a)}(q^a). The p-adic re-expansion between different roots is a separate construction (HC.3/p-adic-re-expansion).
+
+**Hypotheses.**
+
+- h^S is HC.1's continuous coefficient map; compatibility means that the square R → A, R' → A' commutes.
+- τ is an R-algebra automorphism of A; Galois conjugation of roots of unity is the case A = ℚ(ζ_N) or ℤ[ζ_N].
+- For (4): a ≥ 1 and m/gcd(m,a) in S for all m in T (always true for S = T = ℕ). Negative a requires q to be a unit (HC.2/invertibility-of-q).
+
+**Proof.**
+
+1. Each identity holds on the image of R[q]: aeval and the Taylor shift commute with ring maps and automorphisms, and the Taylor expansion of g(q^a) at ζ is the substitution of (ζ + X)^a - ζ^a into the expansion of g at ζ^a.
+2. Both sides are continuous and R[q] is dense in R[q]^S (HC.1), and the targets are Hausdorff, so the identities hold on R[q]^S.
+3. Continuity of ψ_a: every primitive m-th root ξ has ξ^a primitive of order m/gcd(m,a), so Φ_m(q) | Φ_{m/gcd(m,a)}(q^a) in ℤ[q] (monic polynomials over ℤ); hence f(q^a) lies in (g) for g = ∏_{m in T} Φ_m^{k_m} and f = ∏ Φ_{m/gcd(m,a)}^{k_m}.
+4. The Taylor formula for ψ_a uses PowerSeries.subst with a series of constant coefficient 0 (HasSubst.of_constantCoeff_zero).
+
+**Acceptance.**
+
+- ev_{-1}(ψ_2 F) = ev_1 F = 1 for the Kontsevich series F (S = T = ℕ).
+- Complex conjugation sends ev_{ζ_3} F = 5 - ζ_3 to ev_{ζ_3^2} F = 5 - ζ_3^2.
+- ψ_2 : ℤ[[q-1]] → ℤ[[q+1]] exists (S = {1}, T = {2}); no ring map ℤ[[q-1]] → ℤ[q]^{3} sends q to q^2 (T = {3}: 3/gcd(3,2) = 3 is not in S, and 2 - q^2 evaluated at ζ_3 has norm 7).
+
+**Depends on.** this roadmap: `HC.3/the-taylor-map`, `HC.1/functoriality-in-the-ring-and-in-the-order-set`; libraries: `mathlib:PowerSeries.subst`, `mathlib:PowerSeries.HasSubst.of_constantCoeff_zero`, `mathlib:Polynomial.cyclotomic`.
+
+**Sources.**
+
+- `Habiro.CyclotomicCompletions.2004`, §3.1, printed p. 1130: “If M′ ⊂ M ⊂ M_R, then (M′)* is a directed subset of M*, and hence id_{R[q]} induces a homomorphism ρ^R_{M,M′} : R[q]^M → R[q]^{M′}.” — The restriction maps along which (3) is stated; the naturality squares are routine density arguments that the source does not state.
+- `Habiro.CyclotomicCompletions.2004`, Lemma 3.1, printed p. 1131: “Let h : R → R′ be a ring homomorphism and let M ⊂ M_R be a subset. If h is injective, then so is the homomorphism h^M : R[q]^M → R′[q]^{h(M)} induced by h_q.” — The coefficient maps along which (1) is stated.
+
+### Which roots of unity are p-adically close
+
+`HC.3/p-adic-closeness-of-roots` · lemma · added by REV-HabiroCyclotomicCompletions
+
+Let B be a commutative ring and p a prime. (a) If ω in B satisfies ω^{p^e} = 1, then (ω - 1)^{p^e} lies in pB; hence for roots of unity ζ, ζ' in B with (ζ^{-1} ζ')^{p^e} = 1, (ζ' - ζ)^{p^e} lies in pB and ζ' - ζ is topologically nilpotent for the p-adic topology. (b) If ω is a root of Φ_m with m > 1 not a prime power, then 1 - ω is a unit of B; so two roots of unity whose ratio has order > 1 and not a prime power differ by a unit, which is topologically nilpotent in no nonzero separated ring. Hence in a domain of characteristic zero two roots of unity are p-adically close exactly when their ratio has p-power order; orders differing by a power of p is NOT enough: e^{2πi/6} - e^{2πi/3} = 1, whereas e^{2πi/6} = -e^{4πi/3} is 2-adically close to e^{4πi/3}. Every root of order m p^k is p-adically close to a root of order m (for p not dividing m, the one with the same prime-to-p part); this is why GSWZ fix a compatible collection (ζ_m) with ζ_{mm'} = ζ_m ζ_{m'} for coprime m, m' and ζ_{p^r}^p = ζ_{p^{r-1}}, for which v_p(ζ_{pm} - ζ_m) > 0.
+
+**Hypotheses.**
+
+- B is commutative; in (a) ω need only satisfy ω^{p^e} = 1, not be primitive.
+- In (b), m > 1 is not a prime power and Φ_m(ω) = 0 in B.
+
+**Proof.**
+
+1. (a) In B/pB, of characteristic p or zero, (ω - 1)^{p^e} = ω^{p^e} - 1 = 0 by sub_pow_char_pow.
+2. Apply (a) to ω = ζ^{-1} ζ' and multiply by ζ^{p^e}.
+3. (b) Write Φ_m(q) = (q - ω) h(q) in B[q] and evaluate at 1: 1 = Φ_m(1) = (1 - ω) h(1) by eval_one_cyclotomic_not_prime_pow.
+4. Record the numerical non-example and GSWZ's compatible collection.
+
+**Acceptance.**
+
+- (i - 1)^4 = -4 lies in 2ℤ[i]; (ζ_9 - 1)^9 lies in 3ℤ[ζ_9] (coordinates 84, -27, -27, 168, -162, 135 in the power basis).
+- 1 - ζ_6 and 1 - ζ_12 are units (norm 1); 1 - ζ_8 has norm 2 and 1 - ζ_9 norm 3.
+- e^{2πi/6} - e^{2πi/3} = 1, although the orders 6 and 3 differ by the prime 2.
+
+**Depends on.** libraries: `mathlib:sub_pow_char_pow`, `mathlib:Polynomial.eval_one_cyclotomic_not_prime_pow`, `mathlib:Polynomial.cyclotomic`.
+
+**Sources.**
+
+- `GSWZ.HabiroNumberField.2024`, §1.3, eq. (7), printed pp. 4-5: “We will always suppose that the collection (ζ_m) is a compatible collection of roots of unity of order m, that is a collection satisfying ζ_{mm′} = ζ_m ζ_{m′}, (m, m′) = 1, (ζ_{p^r})^p = ζ_{p^{r−1}}” — The root convention under which consecutive roots are p-adically close.
+- `GSWZ.HabiroNumberField.2024`, §1.3, printed p. 5: “However, our choice satisfies the important property that v_p(ζ_{pm} − ζ_m) > 0 for all positive integers m and all primes p, and this will be more convenient for us.” — Part (a) for the compatible collection; the traditional choice e^{2πi/m} does not have it.
+- `Habiro.CyclotomicCompletions.2004`, Lemma 5.1, printed pp. 1136-1137: “3. ord(ζ^{−1}ζ′) is a power of some prime p such that R is p-adically separated.” — The source's criterion is on the order of the ratio of the roots, not on the ratio of their orders.
+
+### The p-adic re-expansion of power series
+
+`HC.3/p-adic-re-expansion` · construction · added by REV-HabiroCyclotomicCompletions
+
+Let B be a commutative ring that is p-adically complete and separated, and c in B with c^N in pB for some N. RE-EXPANSION by c is the continuous ring homomorphism rex_c : B[[X]] → B[[X]], f(X) → f(X + c), defined as PowerSeries.eval2Hom of the constant embedding at the point X + C c, which is topologically nilpotent for the product topology on B[[X]] over the p-adic topology of B. Its j-th coefficient on f = sum a_k X^k is the p-adically convergent sum Σ_{k≥j} binom(k,j) c^{k-j} a_k. On polynomials rex_c is Polynomial.taylor c; rex_0 = id; and the COCYCLE LAW rex_{c'} ∘ rex_c = rex_{c+c'} holds, so rex_c is an automorphism with inverse rex_{-c}. Mathlib's PowerSeries.subst cannot be used here: its hypothesis is that the constant coefficient of the substituted series is NILPOTENT, and a nonzero constant c in a domain never is. In the source this is the isomorphism ρ_{(fg),(f)} for f = X - c', g = X - c over an adically complete ring (first half of the proof of Proposition 3.1); in GSWZ it is the re-expansion after shifting x to x + ζ_pm - ζ_m.
+
+**Hypotheses.**
+
+- B is p-adically complete and separated; B[[X]] carries the product topology of the p-adic topology on coefficients (complete and Hausdorff by IsAdic.isAdicComplete_iff and the Pi-topology instances).
+- c^N lies in pB for some N; by HC.3/p-adic-closeness-of-roots this holds for c = ζ' - ζ when ζ^{-1} ζ' has p-power order.
+- Without completeness of B the defining sums need not converge: for B = ℤ, c = -2 and f = sum X^k the constant term would be sum (-2)^k.
+
+**Construction.**
+
+1. HasEval (X + C c): X is topologically nilpotent in the product topology, C c is because c^N lies in pB, and HasEval is stable under addition in a linearly topologised ring (HasEval.add).
+2. Define rex_c := PowerSeries.eval2Hom (continuity of C) (HasEval (X + C c)); the coefficient formula follows from hasSum_eval2.
+3. On polynomials eval2 is Polynomial.eval2 (eval2_coe), i.e. Polynomial.taylor c.
+4. Cocycle: rex_{c'} ∘ rex_c and rex_{c+c'} are continuous and agree on polynomials by Polynomial.taylor_taylor, hence agree (eval2_unique).
+5. Record the non-example: re-expansion across a unit difference is undefined.
+
+**API.**
+
+- `reExpand` (data): rex_c : B[[X]] →+* B[[X]] for c with c^N in pB, B p-adically complete and separated.
+- `coeff_reExpand` (characterisation): coeff_j (rex_c f) = Σ_{k≥j} binom(k,j) c^{k-j} coeff_k f, a convergent sum in B.
+- `reExpand_coe` (simp): rex_c (coe g) = coe (taylor c g) for polynomials g.
+- `reExpand_zero` (simp): rex_0 = id.
+- `reExpand_comp` (relation): The cocycle law rex_{c'} ∘ rex_c = rex_{c+c'}.
+- `continuous_reExpand` (structure): rex_c is continuous for the product topology.
+- `reExpand_map` (functoriality): For a continuous ring map φ : B → B' between p-adically complete rings, PowerSeries.map φ ∘ rex_c = rex_{φ c} o PowerSeries.map φ.
+
+**Unit tests.**
+
+- `reExpand_coe` (compatibility): rex_c on polynomials agrees with Mathlib's Polynomial.taylor c.
+- `reExpand_zero` (degenerate): rex_0 is the identity of B[[X]].
+- `reExpand_comp` (characterisation): rex_{c'} ∘ rex_c = rex_{c+c'}, and rex_{-c} is inverse to rex_c.
+- `reExpand_geometric_Z2` (computation): In Z_2[[X]], the constant coefficient of rex_{-2}(Σ_k X^k) is 1/3.
+- `no_reExpand_across_unit` (non-example): HasEval (X + C 1) fails in B[[X]] for every nonzero Hausdorff B; e^{2πi/6} - e^{2πi/3} = 1.
+
+**Acceptance.**
+
+- rex_c(g) = taylor c g for polynomials g.
+- rex_0 = id and rex_{c'} ∘ rex_c = rex_{c+c'}.
+- In Z_2[[X]], rex_{-2}(Σ_k X^k) = 1/(3 - X) has constant coefficient 1/3.
+- X + C 1 is not topologically nilpotent in any nonzero Hausdorff B[[X]], so there is no re-expansion from e^{2πi/3} to e^{2πi/6}.
+
+**Used by.**
+
+- HabiroNumberFields:HB.6/the-substitution-exists: The gluing condition substitutes ζ_pm - ζ_m; its request asks for this lemma 'in the same form'.
+- HabiroRings:HR.5/roots-choices-and-substitutions: Convergence of the re-expansions in the Taylor presentation.
+- HabiroCohomologyFoundations:HQ.1: Scaling automorphisms in the coordinate model.
+- ArithmeticQuantumTopology:QT.4/ohtsuki-series: The square relating the expansion at 1 and values at prime-power roots.
+
+**Depends on.** this roadmap: `HC.3/p-adic-closeness-of-roots`; libraries: `mathlib:PowerSeries.eval₂Hom`, `mathlib:PowerSeries.HasEval`, `mathlib:PowerSeries.eval₂_unique`, `mathlib:PowerSeries.hasSum_eval₂`, `mathlib:IsAdic.isAdicComplete_iff`, `mathlib:IsAdicComplete`, `mathlib:Polynomial.taylor`, `mathlib:Polynomial.taylor_taylor`, `mathlib:PowerSeries`.
+
+**Sources.**
+
+- `Habiro.CyclotomicCompletions.2004`, Proof of Proposition 3.1, printed p. 1132: “We first show that if f ⇒^I g and R is I-adically complete, then ρ^R_{(fg),(f)} is an isomorphism.” — With f = q - ζ', g = q - ζ and I = (p), the composite of this isomorphism with the inverse of the one for (fg),(g) is the re-expansion R[[q - ζ]] → R[[q - ζ']], induced by the identity of R[q].
+- `GSWZ.HabiroNumberField.2024`, §1.3, eq. (9), printed p. 5: “The map (6) satisfies the formal substitution property f_m(x + ζ_{pm} − ζ_m) = f_{pm}(x) (9) for all positive integers m and all prime numbers p. The only issue is that this equation requires one to re-expand the left hand side, which is a power series in x, after shifting x to x + ζ_{pm} − ζ_m.” — The re-expansion the consumers HB.6 and HR.5 use.
+
+### Taylor expansions at p-adically close roots are re-expansions of each other
+
+`HC.3/re-expansion-of-taylor-expansions` · theorem · added by REV-HabiroCyclotomicCompletions
+
+Let B be an R-algebra that is p-adically complete and separated, and ζ, ζ' in B with Φ_n(ζ) = 0 = Φ_{n'}(ζ'), n, n' in S, and ζ' = ζ ω with ω^{p^e} = 1. Then for every x in R[q]^S, rex_{ζ'-ζ}(σ_ζ(x)) = σ_{ζ'}(x) in B[[X]]; taking constant coefficients, ev_{ζ'}(x) = Σ_{k≥0} coeff_k(σ_ζ x) (ζ' - ζ)^k, a p-adically convergent series. For R = ℤ, S = ℕ, ζ = 1 and ζ' of order p^k this is the commutative square between the expansion at q = 1 and the values at roots of prime-power order that QT.4 uses for the Ohtsuki series. No connectedness or separatedness of R is needed: this is an identity, not an injectivity statement. No such relation holds between roots whose ratio does not have prime-power order.
+
+**Hypotheses.**
+
+- B is a p-adically complete and separated R-algebra containing ζ and ζ'.
+- ζ' = ζ ω with ω^{p^e} = 1; then n'/n is 1 or a power of p, but the converse fails (e^{2πi/3} and e^{2πi/6}).
+- Both n and n' lie in S.
+
+**Proof.**
+
+1. Both sides are continuous R-algebra maps R[q]^S → B[[X]] for the product topology over the p-adic topology of B: if Φ_n^{k+1} | f then σ_ζ kills the kernel of proj_f modulo X^{k+1}, and rex is continuous.
+2. On g in R[q] they agree: taylor (ζ' - ζ) (taylor ζ g) = taylor ζ' g (Polynomial.taylor_taylor).
+3. R[q] is dense in R[q]^S (HC.1) and B[[X]] is Hausdorff, so they agree everywhere.
+4. Constant coefficients and hasSum_eval2 give the series for ev_{ζ'}.
+5. Record the numerical check on the Kontsevich series.
+
+**Acceptance.**
+
+- For the Kontsevich series F and ζ' = -1: Σ_{k<60} c_k (-2)^k = 3 modulo 2^67, where c_k = 1, -1, 2, -5, 15, ... are the coefficients of σ_1(F) (PARI).
+- For ζ' = ζ_3, i, ζ_5 the truncated series agree with F(ζ') = 5 - ζ_3, 8 - 3i, F(ζ_5) modulo 3^30, 2^33 and 5^15 respectively (PARI).
+- No relation of this kind is asserted between the expansions at e^{2πi/3} and e^{2πi/6}.
+
+**Depends on.** this roadmap: `HC.3/p-adic-re-expansion`, `HC.3/the-taylor-map`, `HC.1/the-cyclotomic-completion`; libraries: `mathlib:Polynomial.taylor_taylor`, `mathlib:PowerSeries.hasSum_eval₂`.
+
+**Sources.**
+
+- `GSWZ.HabiroNumberField.2024`, §1.3, printed p. 5: “This is possible using the binomial theorem on x and ζ_{pm} − ζ_m if the shift ζ_{pm} − ζ_m is small, and indeed it is in the completion Z[ζ_{pm}]^∧_p of Z[ζ_{pm}], since ζ_{pm} − ζ_m has positive p-valuation.” — The statement for the compatible collection of roots, over ℤ.
+- `Habiro.CyclotomicCompletions.2004`, §1, printed p. 1129: “Using the injectivity of σ_1 : Z[q]^N → Z[[q − 1]], we can show that the Ohtsuki series τ(M) ∈ Z[[q − 1]] [10], which was defined using only the τ_ζ(M) with ζ the prime order roots of unity, determine the τ_ζ(M) for ζ all the roots of unity.” — The source's use of the relation between σ_1 and values at prime-order roots.
 
 ## HC.4 — Arithmetic connectedness and rigidity
 
-Adjacency: `m ⇔_R n` when `n/m` is a prime power for a prime at which `R` is
-separated. Habiro's two cyclotomic lemmas make it work.
+*Coverage in `HabiroCyclotomicCompletions--HC.4.json`: closed.* All original HC.4 targets are imported from the accepted parent packet under the inheritedTargets table; this packet supplies the GSWZ §5.1 extension, Examples 5.6–5.7, finite local detection and the finite-domain separation-transfer input to rootwise rigidity. The broader individual-root Theorem 6.2 beyond the accepted irreducibility case is outside the chosen scope by the explicit restructure proposal, not asserted as proved.
 
-Three rigidity theorems, each with its **full** hypothesis:
+*Coverage in `HabiroCyclotomicCompletions.json`: partial.* Fifteen nodes after the corrections: adjacency (with the m = n clause), the two cyclotomic lemmas with Wagner Lemma 2.1 for α ≠ 0 and Apostol's resultants, the radical relation, Proposition 3.1, Theorem 3.1, Lemma 4.2, Theorem 4.1, the root-adjacency lemma with Theorem 5.1, Theorem 5.2, Corollary 5.1 with its 'in particular' corrected (integrality for connected S), Theorems 6.1 and 6.2, Proposition 7.4 and the non-surjectivity of the Taylor maps. V5A2 Corollaries 3.4-3.5 (PLAN-HABIRO §6.1(ii)) are Theorem 5.2 at ζ = 1 and Theorem 6.2, both covered. Revised by REV-HabiroCyclotomicCompletions.
 
-| | statement | hypothesis kept |
-| --- | --- | --- |
-| 4.1 | `ρ_{S,S'}` injective | the **chain** runs inside `S` |
-| 5.2 | one Taylor map injective | domain, char 0, separation at odd `p`, and at 2 if `4 ∣ n` |
-| 6.1 | evaluation determines | **infinitely many** `m ∈ T` adjacent to one `n` |
+- Remaining (as recorded there): GSWZ §5.1 (accepted PLAN-HABIRO §6.1(iii)): the naive ring H_R of a torsion-free ring R, the filtrations H_{R,N} and P_{R,N} with graded pieces R[q]/(1-q^N) and the direct sum of R[ζ_m] over m l = N, D_{m,l} = m^{2l-1}(l-1)!, injectivity of iota and its isomorphism after tensoring with ℚ, M_N and Propositions 5.1-5.2, Examples 5.6-5.7 as tests. Not in the atlas stage text yet; see the restructure note.
+- Remaining (as recorded there): Decide whether the general form of Habiro Theorem 6.2 (gap) is wanted.
 
-**And none of them is an isomorphism.** §7.4's three non-surjectivity
-statements are a node of their own.
+Two packets cover this layer. The first packet's fifteen nodes plan Habiro's rigidity theory. Its review left two items open: GSWZ §5.1, which the accepted PLAN-HABIRO assigns to HC.4 although the atlas stage text does not yet mention it, and a decision on the general form of Habiro's Theorem 6.2. The HC.4 part closes the layer.
 
-Coverage: **source_decomposed**.
+- **It imports the classical targets.** Its `inheritedTargets` table names the first packet's fifteen nodes as the suppliers of the classical targets, and it plans none of them again.
+- **It plans GSWZ §5.1 and Examples 5.6–5.7 in 57 nodes,** shown below as HC.4b.
+- **It adds two lemmas,** `HC.4/finite-domain-module-embedding` and `HC.4/finite-domain-separation-transfer`. They show that p-adic separatedness passes from a domain R to every domain finite over it, for instance R[ζ_m]. That is exactly the input the first packet's gap "Theorem 5.2 for non-Noetherian coefficient rings" asks for. The first packet's node `HC.4/rootwise-taylor-injectivity` does not yet list these lemmas among its prerequisites (see Gaps).
+- **It fixes the boundary of Theorem 6.2.** The layer keeps Theorem 6.1 and the special case of Theorem 6.2 in which each Φ_{ord ζ} stays irreducible over the fraction field of R. That case covers R = ℤ and every use in the atlas. It does not plan evaluation at arbitrary incomplete sets of conjugate roots over arbitrary subrings of ℚ̄, whose printed proof fails (source issue E11); its structural proposal asks the maintainer to record this scope in the stage text.
 
-Five nodes, one per target and one for the non-surjectivity the stage text demands. The adjacency relation, defined through prime-power ratios and separatedness, with Habiro's two cyclotomic lemmas, the congruence modulo the prime with the membership of the prime in the ideal, and the comaximality for a non-prime-power ratio. Theorem 4.1 with its FULL chain hypothesis, which the node states as a hypothesis and not as a simplification. Theorem 5.2, rootwise Taylor injectivity, with the coefficient-domain hypothesis and the separation conditions including their asymmetry between odd primes and the prime two. Theorem 6.1, evaluation uniqueness, with the precise infinite-set condition and with both non-examples the stage text names: a finite set of values never determines a general element, and infinitude alone is not a substitute for adjacency. And the three non-surjectivity statements of §7.4, so that an injective Taylor or restriction map is never treated as an isomorphism anywhere.
+The two proof chains share almost nothing. HC.4a is Habiro's: radical relations between monic polynomials, chain injectivity, and the reduction of rootwise injectivity to connectedness of the primitive roots. HC.4b is GSWZ's: filtrations, graded pieces, finite bases, integer matrices and their determinants. HC.4b imports from HC.4a only the cyclotomic resultant formula, used for the simultaneous-remainder determinant. Both use HC.1–HC.3, and HC.4b also uses the HC.5 decomposition after inverting a prime, in its odd-order examples. The split follows the HC.4 part's proposal: HC.4a keeps the five classical planets and HC.4b has six.
+
+## HC.4a — Classical arithmetic rigidity
+
+*Proposed display sub-layer of HC.4: Habiro's rigidity theory, with the two finite-domain lemmas of the HC.4 part.*
+
+- **Adjacency.** Adjacency of orders is defined through the separatedness of R at c_{m,n}. It is reflexive, by Habiro's clause c_{n,n} = 0.
+- **Cyclotomic lemmas.** Two cyclotomic lemmas give the arithmetic. Φ_{p^e n} ≡ Φ_n^d modulo p, with p ∈ (Φ_n, Φ_{p^e n}); this is Wagner's Lemma 2.1 for α ≠ 0. Distinct orders whose ratio is not a prime power give comaximal Φ's, and Apostol's resultants quantify this.
+- **Habiro's §3.** The radical relation f ⇒_R g gives one-step injectivity (Proposition 3.1) and chain injectivity (Theorem 3.1). Lemma 4.2 identifies adjacency with the radical relation, which yields Theorem 4.1: restriction is injective along chains of adjacent orders inside S.
+- **Habiro's §§5–6.**
+  - Lemma 5.1 and Theorem 5.1 do the same for linear factors q − ζ.
+  - Theorem 5.2 is the injectivity of one Taylor map, and Corollary 5.1, corrected to connected S, makes R[q]^S a domain.
+  - Theorem 6.1 is evaluation uniqueness under its exact infinite-set condition. Theorem 6.2 is the version for individual roots, under the irreducibility hypothesis.
+- **Non-surjectivity.** Proposition 7.4 and the non-surjectivity of the Taylor maps keep injective maps from being read as isomorphisms.
+- **The finite-domain lemmas** come last. They are proved without any Noetherian hypothesis.
 
 ### Adjacency of cyclotomic orders and connectedness
 
-`HabiroCyclotomicCompletions:HC.4/adjacency-of-orders` · *definition* · planet **Adjacency of cyclotomic orders**
+`HC.4/adjacency-of-orders` · definition · planet “Adjacency of cyclotomic orders”
 
-Two orders are ADJACENT over a coefficient ring when their ratio is an integer power of a prime for which the ring is separated in the adic topology of that prime; a set of orders is CONNECTED when any two of its elements are joined by a chain of adjacent ones inside it. The relation is the one the source defines, and its point is a pair of lemmas on cyclotomic polynomials: modulo the prime the cyclotomic polynomial of the multiplied order is a power of the original one, and the prime lies in the ideal generated by the two cyclotomic polynomials; while for a ratio that is not a prime power the two cyclotomic polynomials are comaximal.
+For positive integers m, n let c_{m,n} = 0 if m = n; c_{m,n} = p if n/m = p^j for a prime p and an integer j ≠ 0; c_{m,n} = 1 otherwise (Habiro, p. 1134). For a ring R, m and n are ADJACENT over R, written m ⇔_R n, when R is c_{m,n}-adically separated, i.e. the intersection of the ideals c_{m,n}^j R is zero (Mathlib: IsHausdorff (span {c_{m,n}}) R). Thus m ⇔_R m for every R; for m ≠ n and R ≠ 0, m ⇔_R n iff n/m = p^{+-k} with k ≥ 1 and R p-adically separated. The relation is reflexive and symmetric but not transitive (over ℤ: 1 ⇔ 2 ⇔ 6 but not 1 ⇔ 6). A set S of orders is CONNECTED over R when it is non-empty and any two of its elements are joined by a chain of adjacent elements lying in S (chains of length 0 allowed). The set of divisors of n is connected over R iff R is p-adically separated for every prime p dividing n.
 
 **Hypotheses.**
 
-- The ring is commutative; separatedness at a prime means that the intersection of the powers of that prime ideal is zero.
-- Adjacency is not symmetric-looking in the source's notation but is an equivalence-generating relation once chains are allowed; the packet uses chains, as the source does.
-- For the ring of integers every prime is separated, so any two orders with prime-power ratio are adjacent.
+- R is commutative and unital. Habiro assumes R ≠ 0; for R = 0 every ideal is separated, all orders are adjacent and every completion is zero, so allowing it changes nothing.
+- p-adic separatedness refers to the ideal pR generated by the integer p, which need not be a prime ideal of R.
+- Over ℚ, and over any ring in which every prime is a unit, m ⇔ n iff m = n. Over ℤ, and over every subring of the algebraic integers, m ⇔ n iff m = n or n/m is a non-trivial power of a prime.
 
-**Proof outline.**
+**Construction.**
 
-1. Record the two cyclotomic lemmas with their exact statements: the congruence modulo the prime and the membership of the prime in the ideal generated by the two polynomials.
-2. Record the comaximality lemma for a ratio that is not a prime power.
-3. Define adjacency and connectedness.
-4. Prove the standing instances: over the integers the set of divisors of a fixed integer is connected exactly when the ring is separated at each prime factor, which for the integers is automatic.
-5. Record the resultant computation that the comaximality lemma rests on.
-
-**Acceptance.**
-
-- Over the integers any two orders with prime-power ratio are adjacent.
-- For a ratio that is not a prime power the two cyclotomic polynomials are comaximal, so the two completions have nothing to say to each other.
-- The set of divisors of an integer is connected over a ring separated at each of its prime factors.
-- Over the rationals no prime is separated, so no two distinct orders are adjacent; this is what makes the rational case different.
-
-**Prerequisites.** `mathlib:Polynomial.cyclotomic`, `mathlib:Polynomial.cyclotomic_prime_pow_eq_geom_sum`
+1. Define c_{m,n} and adjacency through IsHausdorff; reflexivity is IsHausdorff for the zero ideal; symmetry because c_{m,n} = c_{n,m}.
+2. For m ≠ n with a ratio that is not a prime power, c = 1, and IsHausdorff for the unit ideal forces R = 0 (IsHausdorff.subsingleton).
+3. Over ℚ the ideal pℚ = ℚ is not separated; over ℤ every pℤ is; a subring of the algebraic integers is p-separated because x/p^j integral for all j forces the norm of x to vanish.
+4. Divisors of n: if R is p-separated for all p | n, join each divisor to 1 by removing one prime factor at a time; if R is not p-separated for some p | n, every edge preserves the p-adic valuation, so 1 and p lie in different components.
+5. Non-transitivity over ℤ: 1 ⇔ 2 and 2 ⇔ 6, but 6 is not a prime power.
 
 **API.**
 
-| name | role | statement |
-| --- | --- | --- |
-| `Adjacent` | data | The adjacency relation on orders over a ring. |
-| `IsConnectedSet` | data | Connectedness of a set of orders. |
-| `cyclotomic_congr_mod_p` | characterisation | The congruence modulo the prime. |
-| `prime_mem_ideal` | characterisation | The membership of the prime in the ideal generated by the two polynomials. |
-| `cyclotomic_comaximal` | characterisation | Comaximality for a non-prime-power ratio. |
-| `adjacent_over_Z` | example | Over the integers, prime-power ratios are adjacent. |
-
-**Used by.**
-
-- *HC.4, the injectivity theorems* — Connectedness is the hypothesis of both.
-- *HC.5* — Inversion of a prime changes which orders are adjacent, which is the point of the module and localisation nodes.
-- *HC.6* — The acceptance example with an inverted prime exercises this.
+- `adjacencyIndex` (data): Habiro's c_{m,n} as a natural number.
+- `Adjacent` (data): Adjacent R m n := IsHausdorff (span {(c_{m,n} : R)}) R.
+- `adjacent_refl` (simp): Adjacent R n n.
+- `Adjacent.symm` (structure): Adjacent R m n → Adjacent R n m.
+- `adjacent_iff_of_ne` (characterisation): For R nontrivial and m ≠ n: Adjacent R m n iff n/m = p^{+-k}, k ≥ 1, with IsHausdorff (span {p}) R.
+- `adjacent_rat_iff` (example): Adjacent ℚ m n iff m = n.
+- `adjacent_int_iff` (example): Adjacent ℤ m n iff m = n or n/m is a non-trivial prime power.
+- `IsAdjConnected` (data): S non-empty and any two elements joined by ReflTransGen of adjacency restricted to S.
+- `isAdjConnected_divisors_iff` (characterisation): The divisors of n are connected over R iff R is p-separated for every prime p | n.
 
 **Unit tests.**
 
-- `integers` — Over the integers any two orders with prime-power ratio are adjacent.
-- `rationals` — Over the rationals no two distinct orders are adjacent.
-- `comaximal` — For a ratio of six the two cyclotomic polynomials are comaximal.
-- `divisors_connected` — The set of divisors of an integer is connected over a ring separated at its prime factors.
+- `adjacent_self_rat` (degenerate): Adjacent ℚ 3 3 holds (the m = n clause), although ℚ is p-separated for no prime p.
+- `not_adjacent_rat` (non-example): not Adjacent ℚ 1 2.
+- `adjacent_int` (computation): Adjacent ℤ 3 12 and Adjacent ℤ 12 3 hold; Adjacent ℤ 4 6 fails (ratio 3/2).
+- `not_transitive` (non-example): Adjacent ℤ 1 2, Adjacent ℤ 2 6, and not Adjacent ℤ 1 6.
+- `divisors_12` (characterisation): The divisors of 12 are connected over ℤ and not connected over ℤ[1/3].
+
+**Acceptance.**
+
+- m ⇔_R m for every ring R, including R = ℚ.
+- Over ℤ, m ⇔ n iff m = n or n/m = p^{+-k} with k ≥ 1.
+- Over ℚ, m ⇔ n iff m = n, so the connected sets over ℚ are the singletons.
+- 1 ⇔_Z 2 and 2 ⇔_Z 6 but not 1 ⇔_Z 6.
+- The divisors of 12 form a connected set over ℤ but not over ℤ[1/3] (1 and 3 lie in different components).
+
+**Used by.**
+
+- HC.4, the injectivity theorems: Chains of adjacent orders are the hypothesis of Theorem 4.1 and connectedness that of Theorems 5.2 and 6.1.
+- HC.5: Inverting a prime removes the adjacencies across it; the module version replaces the ring by the module.
+- QWittVectors:QW.2, HabiroRings:HR.3, HabiroNumberFields:HB.6: Import the adjacency arithmetic and comaximality (RS-10 links).
+
+**Depends on.** libraries: `mathlib:IsHausdorff`, `mathlib:IsHausdorff.subsingleton`.
 
 **Sources.**
 
-- Lemma 4.1, p. 1134 of the PDF, The two lemmas on cyclotomic polynomials that make the adjacency relation work, verbatim.
+- `Habiro.CyclotomicCompletions.2004`, §4, printed p. 1134: “For m, n ∈ N, we define c_{m,n} ∈ {0, 1} ∪ {p | prime} by 1. c_{n,n} = 0, 2. c_{m,n} = p if p is a prime and n/m = p^j for some j ∈ Z \ {0}, and 3. c_{m,n} = 1 if n/m is not an integer power of a prime.” — The index whose separatedness defines adjacency; clause 1 makes the relation reflexive.
+- `Habiro.CyclotomicCompletions.2004`, §4, printed p. 1135: “For a ring R ≠ {0}, let ⇔_R denote the binary relation on N such that, for m, n ∈ N, we have m ⇔_R n if and only if R is (c_{m,n})-adically separated. [...] Note also that the binary relation ⇔_R is reflexive and symmetric, but not transitive in general.” — The definition verbatim, with the properties the node records.
+- `Habiro.CyclotomicCompletions.2004`, §4, printed p. 1136: “Note that the set ⟨n⟩ is ⇔_R-connected if and only if for each prime factor p of n the ring R is p-adically separated.” — The connectedness criterion for divisor sets.
 
-  > (1) Let n be in N, p a prime, and e >= 1. Then we have Phi_{p^e n}(q) = Phi_n(q)^d (mod (p)) in Z[q], where d = deg Phi_{p^e n}(q) / deg Phi_n(q). Also, we have p in (Phi_n(q), Phi_{p^e n}(q)) in Z[q]. (2) If m, n are in N, and n/m is not an integer power of a prime, then we have (Phi_n(q), Phi_m(q)) = (1) in Z[q].
+### Cyclotomic polynomials modulo a prime, and the prime in their ideal
+
+`HC.4/cyclotomic-congruence-and-prime-ideal` · lemma · added by REV-HabiroCyclotomicCompletions
+
+Let n ≥ 1, p a prime, e ≥ 1 and d = deg Φ_{p^e n} / deg Φ_n, which is (p-1)p^{e-1} if p does not divide n and p^e if p | n. Then (4.1) Φ_{p^e n}(q) = Φ_n(q)^d modulo p in ℤ[q]; and (4.2) p lies in the ideal (Φ_n(q), Φ_{p^e n}(q)) of ℤ[q]. Consequently (Φ_n, Φ_{p^e n}) = (p, Φ_n) and ℤ[q]/(Φ_n, Φ_{p^e n}) = 𝔽_p[q]/(Φ_n) (Wagner, Lemma 2.1, which must be read with α ≠ 0: for m = n the quotient is ℤ[q]/(Φ_n)); all of this holds in R[q] for every ring R by base change.
+
+**Hypotheses.**
+
+- e ≥ 1: the case e = 0 (m = n) is excluded from the quotient formula.
+- The congruence is in ℤ[q] modulo the ideal (p); in R[q] it holds modulo pR[q].
+
+**Proof.**
+
+1. (4.1): over ZMod p, iterate cyclotomic_mul_prime_dvd_eq_pow for the factors of p dividing n and apply cyclotomic_mul_prime_pow_eq for p not dividing the rest; pull back along ℤ[q] → 𝔽_p[q].
+2. (4.2): Φ_{p^e}(q^n) = Σ_{i<p} q^{i p^{e-1} n} (cyclotomic_prime_pow_eq_geom_sum composed with q → q^n) is divisible by Φ_{p^e n} (every primitive p^e n-th root is a root, cyclotomic polynomials are monic over ℤ) and is congruent to p modulo Φ_n because q^n = 1 modulo Φ_n (Φ_n | q^n - 1).
+3. The ideal equality: p lies in (Φ_n, Φ_{p^e n}) by (4.2), and Φ_{p^e n} lies in (p, Φ_n) by (4.1) since d ≥ 1.
+4. Numerical check (PARI): for 1 ≤ m ≠ n ≤ 40 with n/m = p^{+-k}, ℤ[q]/(Φ_m, Φ_n) has Smith invariants p, φ(min(m,n)) times; for other m ≠ n it is 0.
+
+**Acceptance.**
+
+- Φ_12 = Φ_3^2 modulo 2 and Φ_9 = Φ_3^3 modulo 3.
+- 2 lies in (Φ_3, Φ_12) and ℤ[q]/(Φ_3, Φ_12) = (ℤ/2)^2.
+- ℤ[q]/(Φ_3, Φ_3) = ℤ[q]/(Φ_3) is not 𝔽_3[q]/(Φ_3): the α = 0 case is excluded.
+
+**Depends on.** libraries: `mathlib:Polynomial.cyclotomic_mul_prime_pow_eq`, `mathlib:Polynomial.cyclotomic_mul_prime_dvd_eq_pow`, `mathlib:Polynomial.cyclotomic_prime_pow_eq_geom_sum`, `mathlib:Polynomial.prod_cyclotomic_eq_X_pow_sub_one`, `mathlib:Polynomial.cyclotomic`.
+
+**Sources.**
+
+- `Habiro.CyclotomicCompletions.2004`, Lemma 4.1(1), printed p. 1134: “(1) Let n ∈ N, p a prime, and e ≥ 1. Then we have (4.1) Φ_{p^e n}(q) ≡ Φ_n(q)^d (mod (p)), in Z[q], where d = deg Φ_{p^e n}(q)/ deg Φ_n(q). [...] Also, we have (4.2) p ∈ (Φ_n(q), Φ_{p^e n}(q)) in Z[q].” — Both statements, verbatim.
+- `Wagner.qWitt.v5`, Lemma 2.1, printed p. 8: “In particular, the ring R vanishes unless m/n = p^α for some prime p and some α ∈ Z. In the latter case, R ≅ F_p[q]/Φ_{min{m,n}}(q).” — The quotient statement QW.2 imports from HC.4 (PLAN-HABIRO §6.1(i)); correct for α ≠ 0 only.
+
+### Comaximality of cyclotomic polynomials, and their resultants
+
+`HC.4/cyclotomic-comaximality-and-resultant` · lemma · added by REV-HabiroCyclotomicCompletions
+
+If m ≠ n and n/m is not p^{+-k} for any prime p and k ≥ 1, then (Φ_m(q), Φ_n(q)) = (1) in ℤ[q], hence in R[q] for every ring R (Habiro, Lemma 4.1(2)). Quantitatively, for m > n: |Res(Φ_m, Φ_n)| = p^{φ(n)} if m/n = p^k with k ≥ 1, and 1 otherwise (Apostol, Theorems 1, 3, 4); by Mathlib's isUnit_resultant_iff_isCoprime the second case is comaximality. The resultant is in general a proper multiple of the generator p of (Φ_m, Φ_n) intersected with ℤ: |Res(Φ_12, Φ_3)| = 4 while 2 lies in (Φ_3, Φ_12).
+
+**Hypotheses.**
+
+- m ≠ n; the ratio is compared with p^j for j in ℤ, so both n/m and m/n are tested.
+- The resultant is taken with the default degrees; its sign depends on the order of the arguments.
+
+**Proof.**
+
+1. Over C, Res(Φ_m, Φ_n) is plus or minus the product of (ξ - η) over primitive m-th roots ξ and n-th roots η (resultant_eq_prod_eval).
+2. ξ - η = η (ξ/η - 1), and ξ/η has order > 1 and not a prime power when m ≠ n and n/m is not a prime power, so 1 - ξ/η is a unit (HC.3/p-adic-closeness-of-roots (b)); hence Res is a unit of ℤ.
+3. Conclude comaximality with isUnit_resultant_iff_isCoprime (Φ_m is monic).
+4. Prime-power case: cite Apostol Theorems 1 and 4; checked with PARI for all 1 ≤ n < m ≤ 60 (1770 pairs, no exception).
+
+**Acceptance.**
+
+- (Φ_4, Φ_6) = (1) in ℤ[q] (ratio 3/2).
+- (Φ_1, Φ_6) = (1): Φ_6 - q Φ_1 = 1.
+- |Res(Φ_12, Φ_3)| = 4, |Res(Φ_9, Φ_3)| = 9, while (Φ_3, Φ_12) contains 2 and (Φ_3, Φ_9) contains 3.
+
+**Depends on.** this roadmap: `HC.3/p-adic-closeness-of-roots`; libraries: `mathlib:Polynomial.isUnit_resultant_iff_isCoprime`, `mathlib:Polynomial.resultant_eq_prod_eval`, `mathlib:Polynomial.eval_one_cyclotomic_not_prime_pow`, `mathlib:Polynomial.cyclotomic`.
+
+**Sources.**
+
+- `Habiro.CyclotomicCompletions.2004`, Lemma 4.1(2), printed p. 1134: “(2) If m, n ∈ N, and n/m ∈ Q is not an integer power of a prime, then we have (Φ_n(q), Φ_m(q)) = (1) in Z[q].” — The comaximality statement; 'integer power' includes p^0, so m = n is excluded.
+- `Apostol.CyclotomicResultants.1970`, Theorems 3 and 4, printed pp. 459-460: “Theorem 4. If m > n > 1 and (m, n) > 1, then ρ(F_m, F_n) = p^{φ(n)} if m/n is a power of a prime p, = 1 otherwise.” — The resultant formula (with Theorem 1 for n = 1 and Theorem 3 for coprime orders).
+
+### The radical relation between monic polynomials
+
+`HC.4/radical-relation-on-monic-polynomials` · definition · added by REV-HabiroCyclotomicCompletions
+
+For a ring R, an ideal I and monic f, g in R[q], write f ⇒^I_R g if f lies in the radical of (g) + I[q], i.e. f^m lies in (g) + I[q] for some m; write f ⇒_R g if f ⇒^I_R g for some ideal I with R I-adically separated. For M' ⊂ M of monic polynomials write M' < M if every f in M is reached from an element of M' by a chain f_0 ⇒ f_1 ⇒ ... ⇒ f_r = f inside M. The ideal I can always be taken finitely generated: replace it by the ideal generated by the coefficients of f^m - g h, which lie in I; R remains separated for the smaller ideal.
+
+**Hypotheses.**
+
+- f and g are monic.
+- Separatedness is IsHausdorff I R.
+
+**Construction.**
+
+1. Define the relations.
+2. g | f implies f ⇒ g (take I = 0).
+3. f ⇒ g, f | f' and g' | g imply f' ⇒ g'.
+4. Finitely generated I: the coefficients of f^m - g h generate J ⊂ I, f^m lies in (g) + J[q], and the intersection of the J^j is inside that of the I^j.
+
+**API.**
+
+- `MonicImplies` (data): f ⇒_R g: exists I with IsHausdorff I R and f in the radical of span{g} + I.map C.
+- `monicImplies_of_dvd` (relation): g | f implies f ⇒_R g.
+- `MonicImplies.mono` (relation): f ⇒ g, f | f', g' | g imply f' ⇒ g'.
+- `monicImplies_iff_fg` (characterisation): The ideal may be taken finitely generated.
+- `MonicPrecedes` (data): M' < M: M' ⊂ M and every element of M is reached from M' by a chain of ⇒ inside M.
+
+**Unit tests.**
+
+- `monicImplies_self` (degenerate): f ⇒_R f for every monic f (I = 0).
+- `phi2_implies_phi1_int` (computation): Φ_2 ⇒_Z Φ_1 with I = (2).
+- `phi2_not_implies_phi1_rat` (non-example): Φ_2 does not ⇒_Q Φ_1.
+- `monicImplies_of_dvd` (characterisation): (q - 1)(q + 1) ⇒_Z (q - 1).
+
+**Acceptance.**
+
+- Φ_2 ⇒_Z Φ_1 with I = (2), since Φ_2 = Φ_1 + 2.
+- Φ_2 does not ⇒_Q Φ_1: evaluating Φ_2^m = Φ_1 h + i(q) at q = 1 gives 2^m in I, so I = ℚ, which is not separated.
+
+**Used by.**
+
+- Habiro Proposition 3.1 and Theorem 3.1: The hypothesis of one-step and chain injectivity.
+- Habiro Lemma 4.2: Adjacency of orders is this relation between cyclotomic polynomials.
+
+**Depends on.** libraries: `mathlib:IsHausdorff`, `mathlib:Polynomial.Monic`.
+
+**Sources.**
+
+- `Habiro.CyclotomicCompletions.2004`, §3.2, printed p. 1132: “We write f ⇒^I_R g, or simply f ⇒^I g, if f ∈ √((g) + I[q]), i.e., if f^m ∈ (g) + I[q] for some m ≥ 0. For f, g ∈ M_R, we write f ⇒_R g, or simply f ⇒ g, if we have f ⇒^I_R g for some ideal I ⊂ R with ∩_{j≥0} I^j = (0).” — The definition, verbatim.
+
+### One-step injectivity for monic completions
+
+`HC.4/one-step-injectivity` · theorem · added by REV-HabiroCyclotomicCompletions
+
+Let R be a ring and f, g monic with f ⇒_R g. Then the restriction ρ_{(fg),(f)} : R[q]^{(fg)} → R[q]^{(f)} from the (fg)-adic to the f-adic completion of R[q] is injective. If moreover R is I-adically complete for a finitely generated ideal I with f ⇒^I g, the map is an isomorphism (this isomorphism, for f = q - ζ', g = q - ζ, is the source form of re-expansion).
+
+**Hypotheses.**
+
+- f and g are monic.
+- The ideal I witnessing f ⇒_R g is taken finitely generated (HC.4/radical-relation-on-monic-polynomials); the source's proof needs this, see the source issues.
+
+**Proof.**
+
+1. Complete case: for R I-adically complete, R[q]^{(f)} = R[q]^{(f)+I[q]} and R[q]^{(fg)} = R[q]^{(fg)+I[q]}; since ((f) + I[q])^m is inside (fg) + I[q], which is inside (f) + I[q], the two topologies coincide and ρ is an isomorphism.
+2. General case: R → R^_I is injective (AdicCompletion.of_injective) and, I being finitely generated, R^_I is I-adically complete (AdicCompletion.isAdicComplete); the vertical maps of the square are injective by HC.1/coefficient-change-injective-and-surjective and the bottom map is an isomorphism, so the top map is injective.
+
+**Acceptance.**
+
+- Over ℤ, ℤ[q]^{(q^2-1)} → ℤ[[q-1]] is injective (f = Φ_1, g = Φ_2, I = (2)).
+- Over Z_2 the same map is an isomorphism.
+- Over ℚ it is not injective (it kills the idempotent of the (q+1)-factor), and indeed Φ_1 does not ⇒_Q Φ_2.
+
+**Depends on.** this roadmap: `HC.4/radical-relation-on-monic-polynomials`, `HC.1/coefficient-change-injective-and-surjective`; libraries: `mathlib:AdicCompletion.of_injective`, `mathlib:AdicCompletion.isAdicComplete`, `mathlib:IsAdicComplete`.
+
+**Sources.**
+
+- `Habiro.CyclotomicCompletions.2004`, Proposition 3.1, printed p. 1132: “Proposition 3.1. Let R be a ring, and f, g ∈ M_R with f ⇒_R g. Then the homomorphism ρ^R_{(fg),(f)} : R[q]^{(fg)} → R[q]^{(f)} is injective.” — The statement, verbatim.
+
+### Chain injectivity for monic completions
+
+`HC.4/chain-injectivity-for-monic-completions` · theorem · added by REV-HabiroCyclotomicCompletions
+
+Let R be a ring and M_0 < M sets of monic polynomials (HC.4/radical-relation-on-monic-polynomials). Then ρ_{M,M_0} : R[q]^M → R[q]^{M_0} is injective (Habiro, Theorem 3.1). In particular, if M is ⇒_R-connected (non-empty, any two elements joined by a chain of ⇒ inside M), then ρ_{M,M'} is injective for every non-empty M' ⊂ M (Corollary 3.1).
+
+**Hypotheses.**
+
+- M_0 < M as defined in HC.4/radical-relation-on-monic-polynomials.
+- The completions are the monic completions of HC.1 (limits over the multiplicative sets generated).
+
+**Proof.**
+
+1. (3.2): R[q]^M is the limit of the R[q]^{M'} over finite M' ⊂ M.
+2. Lemma 3.2: the finite extensions M' of M_0 with M_0 < M' are cofinal (add the finitely many chains).
+3. Reduce to M minus M_0 = {g}.
+4. M_0 finite: with f the product of M_0, some element of M_0 ⇒ g, so f ⇒ g, and one-step injectivity applies.
+5. M_0 infinite: write both completions as limits over finite U containing some g_0 ⇒ g, apply the finite case to U < U + {g}, and use that limits preserve injectivity.
+
+**Acceptance.**
+
+- Over ℤ, M = {Φ_1, Φ_2, Φ_4}, M' = {Φ_1}: ρ is injective.
+- Over ℤ, {Φ_1} is not < {Φ_1, Φ_6} (Φ_1 and Φ_6 are comaximal), and ρ is not injective.
+
+**Depends on.** this roadmap: `HC.4/one-step-injectivity`, `HC.4/radical-relation-on-monic-polynomials`, `HC.1/the-cyclotomic-completion`.
+
+**Sources.**
+
+- `Habiro.CyclotomicCompletions.2004`, Theorem 3.1, printed p. 1133: “Theorem 3.1. If R is a ring and M_0 ≺ M ⊂ M_R, then the homomorphism ρ^R_{M,M_0} : R[q]^M → R[q]^{M_0} is injective.” — The theorem, verbatim.
+- `Habiro.CyclotomicCompletions.2004`, Corollary 3.1, printed p. 1134: “Corollary 3.1. If R is a ring, and M ⊂ M_R is a ⇒_R-connected subset, then for any nonempty subset M′ ⊂ M the homomorphism ρ^R_{M,M′} : R[q]^M → R[q]^{M′} is injective.” — The corollary, verbatim.
+
+### Adjacency is the radical relation between cyclotomic polynomials
+
+`HC.4/adjacency-is-the-radical-relation` · lemma · added by REV-HabiroCyclotomicCompletions
+
+(1) For all m, n and every ring R, Φ_m(q) lies in the radical of (Φ_n(q), c_{m,n}) in R[q], i.e. Φ_m ⇒^{(c_{m,n})}_R Φ_n. (2) For R ≠ 0, m ⇔_R n iff Φ_m ⇒_R Φ_n. Hence S is connected over R iff Φ_S is ⇒_R-connected, and the chain hypothesis of Theorem 4.1 for S' ⊂ S is Φ_{S'} < Φ_S.
+
+**Hypotheses.**
+
+- R ≠ 0 in (2).
+- Adjacency is the corrected relation of HC.4/adjacency-of-orders, reflexive by the c_{n,n} = 0 clause; without that clause (2) fails for m = n over ℚ.
+
+**Proof.**
+
+1. c = 0: m = n, trivial. c = p and m = p^e n: Φ_m = Φ_n^d modulo p, so Φ_m lies in (Φ_n) + pR[q]. c = p and n = p^e m: Φ_n = Φ_m^d modulo p, so Φ_m^d lies in (Φ_n) + pR[q]; this is where the radical is needed. c = 1: (Φ_m, Φ_n) = (1).
+2. (2), only if: from (1) with I = (c_{m,n}).
+3. (2), if: if Φ_m^i lies in (Φ_n) + I[q] with R I-separated and c = p, then p^i lies in (Φ_n) + I[q] by (4.2), hence in I because Φ_n is monic and R[q]/(Φ_n) is R-free on a basis containing 1; so R is p-separated. If c = 1 then 1 lies in I and R = 0.
+
+**Acceptance.**
+
+- Φ_4 ⇒_Z Φ_2 and Φ_2 ⇒_Z Φ_4 (I = (2)).
+- Φ_2 does not ⇒_Q Φ_1, matching 1 and 2 not adjacent over ℚ.
+- Φ_3 ⇒_Q Φ_3, matching 3 ⇔_Q 3.
+
+**Depends on.** this roadmap: `HC.4/adjacency-of-orders`, `HC.4/radical-relation-on-monic-polynomials`, `HC.4/cyclotomic-congruence-and-prime-ideal`, `HC.4/cyclotomic-comaximality-and-resultant`.
+
+**Sources.**
+
+- `Habiro.CyclotomicCompletions.2004`, Lemma 4.2, printed p. 1135: “Lemma 4.2. (1) For each m, n ∈ N we have Φ_m(q) ∈ √((Φ_n(q), c_{m,n})) in R[q], i.e., Φ_m(q) ⇒^{(c_{m,n})}_R Φ_n(q). (2) We have m ⇔_R n if and only if we have Φ_m(q) ⇒_R Φ_n(q).” — The statement, verbatim; absent from arXiv v1, added in the published version.
 
 ### Injectivity of the restriction maps along a connected chain
 
-`HabiroCyclotomicCompletions:HC.4/injectivity-of-restriction` · *theorem* · planet **Injectivity of restriction**
+`HC.4/injectivity-of-restriction` · theorem · planet “Injectivity of restriction”
 
-If every order of a set is joined to the smaller set by a chain of adjacent orders inside it, then the restriction map from the larger completion to the smaller is INJECTIVE. In particular a connected set restricts injectively onto any non-empty subset, and over the integers the completion at all orders restricts injectively onto the completion at any non-empty set of orders. This is the source's Theorem 4.1 with its full chain hypothesis, which this node keeps: it is not enough that the two sets be connected separately, the chain must run inside the larger set and reach the smaller one.
+Let R be a ring and S' ⊂ S sets of orders such that every n in S is joined to some n' in S' by a chain n' ⇔_R ... ⇔_R n of adjacent orders lying in S. Then ρ_{S,S'} : R[q]^S → R[q]^{S'} is INJECTIVE (Habiro, Theorem 4.1). In particular, if S is connected over R then ρ_{S,S'} is injective for every non-empty S' ⊂ S; and ρ_{ℕ,S'} : ℤ[q]^ℕ → ℤ[q]^{S'} is injective for every non-empty S'; for m | n, ρ_{<n>,<m>} is injective over ℤ, so ℤ[q]^ℕ is the intersection of the ℤ[q]^{<n>} inside ℤ[[q-1]] (Corollary 4.1). The chains must lie in S: over ℤ the order 6 is joined to 1 through 2 in N, yet ρ_{{1,6},{1}} : ℤ[q]^{{1,6}} → ℤ[[q-1]] is not injective, since (Φ_1, Φ_6) = (1) makes ℤ[q]^{{1,6}} the product ℤ[[q-1]] x ℤ[q]^{6}. The conclusion is injectivity only; non-surjectivity is HC.4/non-surjectivity.
 
 **Hypotheses.**
 
@@ -662,504 +1629,2869 @@ If every order of a set is joined to the smaller set by a chain of adjacent orde
 - Adjacency is over the coefficient ring, so the hypothesis involves the separatedness of that ring at the relevant primes.
 - The conclusion is injectivity of the restriction, not surjectivity; non-surjectivity is a later node.
 
-**Proof outline.**
+**Proof.**
 
-1. State the theorem with its chain hypothesis.
-2. Record the reduction to the one-step case, which is the source's Proposition on monic completions.
-3. Record the one-step argument, which uses the congruence and the ideal membership of the previous node.
-4. Record the two corollaries the source states: a connected set restricts injectively onto any non-empty subset, and the integral case with all orders.
-5. State the non-example: without the chain hypothesis the restriction can fail to be injective, which is why the hypothesis is carried.
+1. Identify R[q]^S with the monic completion R[q]^{Φ_S} (HC.1).
+2. By HC.4/adjacency-is-the-radical-relation, the chain hypothesis for S' ⊂ S is exactly Φ_{S'} precedes Φ_S in the sense of HC.4/radical-relation-on-monic-polynomials.
+3. Apply HC.4/chain-injectivity-for-monic-completions (Habiro Theorem 3.1).
+4. Corollaries: a connected S satisfies the hypothesis for every non-empty S'; N and every divisor set <m> are connected over ℤ.
+5. Non-example: Φ_6 - q Φ_1 = 1, so Φ_1^k and Φ_6^k are comaximal and the Chinese remainder theorem (Ideal.quotientInfRingEquivPiQuotient) splits every finite level; the element (0, 1) of ℤ[[q-1]] x ℤ[q]^{6} is nonzero and killed by ρ_{{1,6},{1}}.
 
 **Acceptance.**
 
-- A connected set restricts injectively onto any non-empty subset.
-- Over the integers the completion at all orders restricts injectively onto any non-empty subset.
-- The chain must lie inside the larger set; connectedness of the two sets separately is not enough.
-- The theorem gives injectivity only; surjectivity is false in the cases of a later node.
+- If S is connected over R, ρ_{S,S'} is injective for every non-empty S' ⊂ S.
+- Over ℤ, ρ_{ℕ,S'} is injective for every non-empty S'.
+- ρ_{{1,6},{1}} is not injective over ℤ although 1 ⇔ 2 ⇔ 6 in N: the chain leaves S = {1, 6}.
+- For m | n, ρ_{<n>,<m>} is injective over ℤ (Corollary 4.1).
 
-**Prerequisites.** `HabiroCyclotomicCompletions:HC.4/adjacency-of-orders`, `HabiroCyclotomicCompletions:HC.1/functoriality-in-the-ring-and-in-the-order-set`
+**Depends on.** this roadmap: `HC.4/chain-injectivity-for-monic-completions`, `HC.4/adjacency-is-the-radical-relation`, `HC.4/adjacency-of-orders`, `HC.4/cyclotomic-comaximality-and-resultant`, `HC.1/functoriality-in-the-ring-and-in-the-order-set`; libraries: `mathlib:Ideal.quotientInfRingEquivPiQuotient`.
 
 **Sources.**
 
-- Theorem 4.1, p. 1135 of the PDF, The theorem with its chain hypothesis and its two corollaries, verbatim.
+- `Habiro.CyclotomicCompletions.2004`, Theorem 4.1, printed p. 1135: “Theorem 4.1. Let R be a ring and let S′ ⊂ S ⊂ N. Suppose that for each element n ∈ S, there is a sequence S′ ∋ n′ ⇔_R · · · ⇔_R n in S. Then the homomorphism ρ^R_{S,S′} is injective.” — The theorem with its full chain hypothesis, verbatim.
+- `Habiro.CyclotomicCompletions.2004`, Theorem 4.1 and Corollary 4.1, printed pp. 1135-1136: “In particular, if S ⊂ N is ⇔_R-connected, then for any nonempty subset S′ ⊂ S the homomorphism ρ^R_{S,S′} : R[q]^S → R[q]^{S′} is injective. More particularly, for any nonempty subset S′ ⊂ N the homomorphism ρ^Z_{N,S′} : Z[q]^N → Z[q]^{S′} is injective.” — The two corollaries.
 
-  > Let R be a ring and let S' be contained in S contained in N. Suppose that for each element n in S, there is a sequence in S' finishing at n of elements adjacent over R. Then the homomorphism rho^R_{S, S'} is injective. In particular, if S is connected over R, then for any non-empty subset S' of S the homomorphism rho^R_{S, S'} : R[q]^S -> R[q]^{S'} is injective. More particularly, for any ...
+### Adjacency of roots of unity and connectedness of the primitive roots
+
+`HC.4/connectedness-of-primitive-roots` · lemma · added by REV-HabiroCyclotomicCompletions
+
+Let R be an integral domain of characteristic 0 with roots of unity Z^R. For ζ, ζ' in Z^R put ζ ⇔_R ζ' when ζ = ζ', or ord(ζ^{-1} ζ') = p^k with k ≥ 1 and R p-adically separated; this is equivalent to (q - ζ) ⇒_R (q - ζ') and to R being (ζ - ζ')-adically separated (Habiro Lemma 5.1, with the ζ = ζ' case made explicit). Theorem 5.1: if Z ⊂ Z^R is ⇔_R-connected then ρ_{Z,Z'} : R[q]^Z → R[q]^{Z'} is injective for every non-empty Z' ⊂ Z, R[q]^Z being the monic completion at the q - ζ, ζ in Z. Step of Theorem 5.2: if all primitive n-th roots lie in R, R is p-separated for every odd p | n and 2-separated when 4 | n, then the set Z_n of primitive n-th roots is ⇔_R-connected.
+
+**Hypotheses.**
+
+- R is an integral domain of characteristic 0 containing the roots considered.
+- For Z_n: the separation hypotheses of Theorem 5.2.
+
+**Proof.**
+
+1. Lemma 5.1: (1) implies (2) by evaluating (q - ζ)^m in (q - ζ') + I[q] at ζ'; (2) implies (1) with I = (ζ - ζ'); (2) iff (3) by HC.3/p-adic-closeness-of-roots: for ratio of order p^k the ideals (ζ - ζ') and (p) define the same topology, otherwise ζ - ζ' is a unit and R ≠ 0.
+2. Theorem 5.1 is Corollary 3.1 (HC.4/chain-injectivity-for-monic-completions) for M = {q - ζ : ζ in Z}.
+3. Z_n is the product of the Z_{p_i^{e_i}} under multiplication; change one coordinate at a time; the ratio of two elements of Z_{p^e} has p-power order; Z_2 = {-1} is a singleton, so p = 2 with e = 1 needs no hypothesis.
+
+**Acceptance.**
+
+- Z_12 inside ℤ[ζ_12] is connected.
+- Z_3 inside ℤ[ζ_3, 1/3] is not connected: ζ_3 - ζ_3^2 is a unit.
+- Z_6 inside ℤ[ζ_3, 1/2] is connected: the Z_2 factor is {-1} and ℤ[ζ_3, 1/2] is 3-separated.
+
+**Depends on.** this roadmap: `HC.4/chain-injectivity-for-monic-completions`, `HC.4/radical-relation-on-monic-polynomials`, `HC.3/p-adic-closeness-of-roots`.
+
+**Sources.**
+
+- `Habiro.CyclotomicCompletions.2004`, Lemma 5.1, printed pp. 1136-1137: “1. (q − ζ) ⇒_R (q − ζ′), 2. R is (ζ − ζ′)-adically separated, 3. ord(ζ^{−1}ζ′) is a power of some prime p such that R is p-adically separated.” — The three conditions; condition 3 must also allow ζ = ζ' (source issue).
+- `Habiro.CyclotomicCompletions.2004`, Theorem 5.1, printed p. 1137: “Theorem 5.1. Let R be an integral domain of characteristic 0 and let Z ⊂ Z^R be a ⇔_R-connected subset. Then for any nonempty subset Z′ ⊂ Z the homomorphism ρ^R_{Z,Z′} : R[q]^Z → R[q]^{Z′} is injective.” — Theorem 5.1, verbatim.
 
 ### A single Taylor expansion determines the element
 
-`HabiroCyclotomicCompletions:HC.4/rootwise-taylor-injectivity` · *theorem* · planet **Rootwise Taylor injectivity**
+`HC.4/rootwise-taylor-injectivity` · theorem · planet “Rootwise Taylor injectivity”
 
 For an integral domain of characteristic zero, a connected set of orders and an order in it, if the ring is separated at each odd prime factor of that order and also at two when four divides it, then the Taylor map at a primitive root of that order is INJECTIVE. In particular over the integers, with all orders, the Taylor expansion at any single root of unity determines the element completely. The hypotheses are the source's and are carried here: a domain of characteristic zero, connectedness, and the separation conditions with their asymmetry between odd primes and the prime two.
 
 **Hypotheses.**
 
-- The coefficient ring is an integral domain of characteristic zero; the root need not lie in it, and the target is the power series over the ring with the root adjoined.
-- The separation hypotheses are at each odd prime factor of the order, and at two when four divides the order; the asymmetry is the source's and is not a simplification.
-- Connectedness of the set of orders over the ring is assumed.
+- R is an integral domain of characteristic 0; ζ is a primitive n-th root of unity in an algebraic closure of the fraction field of R, possibly outside R; the target is R[ζ][[q - ζ]].
+- R is p-adically separated for every odd prime p | n, and 2-adically separated if 4 | n. These are sufficient, not necessary (for R = ℤ[1/2], S = {4}, σ_i is still injective by Galois symmetry), but neither can be dropped in general: see the acceptance lines.
+- S is connected over R and contains n.
+- The reduction to ζ in R needs the hypotheses for R[ζ]; for Noetherian R they transfer (Krull's intersection theorem for the Noetherian domain R[ζ], and p stays a non-unit in an integral extension). The source does not check this (see the source issues); every ring the atlas uses (ℤ, ℤ[1/N], rings of integers) is Noetherian.
 
-**Proof outline.**
+**Proof.**
 
-1. State the theorem with all four hypotheses.
-2. Record the source's proof structure: reduce to the case where the root lies in the ring, then factor the Taylor map as a restriction followed by an adic map, and apply the previous node to the first factor.
-3. Record the integral corollary, that over the integers the expansion at any root determines the element.
-4. Record the source's remark that the case of the expansion at one was obtained independently by Vogel.
-5. State the non-example: injectivity fails over the rationals, where no two orders are adjacent, which the source records separately.
+1. R → R[ζ] is injective, so R[q]^S → R[ζ][q]^S is injective (HC.1/coefficient-change-injective-and-surjective, Habiro Lemma 3.1).
+2. With ζ in R: σ_ζ = ρ_{{n},(q-ζ)} ∘ ρ_{S,{n}}, and ρ_{S,{n}} is injective by Theorem 4.1 (HC.4/injectivity-of-restriction).
+3. Φ_n = ∏ over primitive n-th roots ξ of (q - ξ) in R[q], so R[q]^{n} = R[q]^{Z_n}; by HC.4/connectedness-of-primitive-roots the set Z_n is connected under the separation hypotheses, and Theorem 5.1 makes ρ_{Z_n,{ζ}} injective.
+4. Integral corollary: ℤ is p-separated for every p and ℕ is connected over ℤ, so σ_ζ is injective on ℤ[q]^ℕ for every root of unity ζ.
+5. Vogel obtained the case ζ = 1 independently (source, p. 1135).
 
 **Acceptance.**
 
-- Over the integers a single Taylor expansion determines the element.
-- The hypotheses on separation are asymmetric between odd primes and two.
-- Over the rationals the analogous map is not injective.
-- The theorem gives injectivity only, never surjectivity.
+- Over ℤ with S = ℕ, σ_ζ is injective for every root of unity ζ.
+- The 2-adic hypothesis matters only when 4 | n: for R = ℤ[1/2] and S = {2}, σ_{-1} is the identity of ℤ[1/2][[q+1]]; for R = ℤ[i, 1/2] and S = {4}, σ_i is not injective, since q - i and q + i are comaximal (2i is a unit) and R[q]^{4} = R[[q-i]] x R[[q+i]].
+- At an odd prime: for R = ℤ[ζ_3, 1/3] and S = {3}, σ_{ζ_3} is not injective (ζ_3 - ζ_3^2 is a unit).
+- Over ℚ with S = ℕ (or any S containing ord ζ with at least two elements) σ_ζ is not injective; this is proved in HC.5 (Habiro §7.5), not here. For S = {n} over ℚ it is injective.
+- Injectivity only: over ℤ, σ_ζ is never surjective (HC.4/taylor-maps-are-not-surjective).
 
-**Prerequisites.** `HabiroCyclotomicCompletions:HC.4/injectivity-of-restriction`, `HabiroCyclotomicCompletions:HC.3/the-taylor-map`
+**Depends on.** this roadmap: `HC.4/injectivity-of-restriction`, `HC.4/connectedness-of-primitive-roots`, `HC.1/coefficient-change-injective-and-surjective`, `HC.3/the-taylor-map`; libraries: `mathlib:Ideal.iInf_pow_eq_bot_of_isDomain`.
 
 **Sources.**
 
-- Theorem 5.2, p. 1138 of the PDF, The theorem with all its hypotheses and its integral corollary, verbatim.
+- `Habiro.CyclotomicCompletions.2004`, Theorem 5.2, printed p. 1138: “Let R be an integral domain of characteristic 0, S ⊂ N a ⇔_R-connected subset, and n ∈ S. Assume that R is p-adically separated for each odd prime factor p of n, and also that if 4|n, then R is 2-adically separated.” — The hypotheses, verbatim.
+- `Habiro.CyclotomicCompletions.2004`, Theorem 5.2, printed p. 1138: “Then the homomorphism σ^R_{S,ζ} : R[q]^S → R[ζ][[q − ζ]] induced by R[q] ⊂ R[ζ][q] is injective. [...] In particular, for any root ζ of unity the homomorphism σ^Z_{N,ζ} : Z[q]^N → Z[ζ][[q − ζ]] is injective.” — The conclusion and the integral corollary.
 
-  > Let R be an integral domain of characteristic 0, S a connected subset of N over R, and n in S. Assume that R is p-adically separated for each odd prime factor p of n, and also that if 4 divides n, then R is 2-adically separated. Let zeta be a primitive n-th root of unity in the algebraic closure of the quotient field of R, which may or may not be contained in R. Then the homomorphism ...
+### The completion at a connected set of orders is a domain (Habiro Corollary 5.1, corrected)
+
+`HC.4/the-completion-is-a-domain` · theorem · planet “Integrality of R[q]^S (Corollary 5.1)” · added by REV-HabiroCyclotomicCompletions
+
+Let R be an integral domain of characteristic 0 and S a nonempty set of positive integers connected for adjacency over R, and suppose some n in S is such that R is p-adically separated for every odd prime p dividing n, and 2-adically separated if 4 divides n. Then R[q]^S is an integral domain. In particular ℤ[q]^S is a domain for every nonempty set S connected for adjacency over ℤ, for example S = ℕ or the set of divisors of an integer; it is NOT a domain for every nonempty S, contrary to the printed corollary: ℤ[q]^{1,6} = ℤ[[q-1]] × ℤ[q]^{6}.
+
+**Hypotheses.**
+
+- The hypotheses of Theorem 5.2 at one element n of S, and connectedness of S.
+- The printed 'in particular' drops connectedness; see sourceIssues E15.
+
+**Proof.**
+
+1. By Theorem 5.2 (HC.4/rootwise-taylor-injectivity) the expansion map at a primitive n-th root is injective into a power series ring over a domain.
+2. A subring of a domain is a domain.
+3. The counterexample for disconnected S: Φ_6 − qΦ_1 = 1, so Φ_1^j and Φ_6^k are comaximal and the Chinese remainder theorem at every level gives ℤ[q]^{1,6} ≅ ℤ[[q − 1]] × ℤ[q]^{6} (HC.4/cyclotomic-comaximality-and-resultant and the non-example of HC.4/injectivity-of-restriction).
+
+**Acceptance.**
+
+- ℤ[q]^ℕ is a domain.
+- ℤ[q]^{1,6} and ℤ[q]^{2,3} are not domains (Res(Φ_1, Φ_6) = Res(Φ_2, Φ_3) = 1).
+
+**Depends on.** this roadmap: `HC.4/rootwise-taylor-injectivity`, `HC.4/cyclotomic-comaximality-and-resultant`, `HC.4/injectivity-of-restriction`.
+
+**Sources.**
+
+- `Habiro.CyclotomicCompletions.2004`, Corollary 5.1, p. 1138 (printed page): “Let R be an integral domain of characteristic 0, and S ⊂ N a ⇔R-connected subset. Suppose that there is n ∈ S such that R is p-adically separated for each odd prime factor p of n, and if 4|n, then R is also 2-adically separated. Then the ring R[q]^S is an integral domain.” — The corollary, literally; its printed 'in particular' sentence is corrected (sourceIssues E15).
 
 ### Evaluation uniqueness, with the precise infinite-set condition
 
-`HabiroCyclotomicCompletions:HC.4/evaluation-uniqueness-and-its-exact-hypothesis` · *theorem*
+`HC.4/evaluation-uniqueness-and-its-exact-hypothesis` · theorem · planet “Evaluation uniqueness (Theorem 6.1)”
 
-For a subring of the algebraic numbers, a connected set of orders and a subset of it, if for SOME order in the set there are infinitely many elements of the subset adjacent to it, then the map given by evaluating at the roots of the orders in the subset is injective. In particular for a subring of the algebraic integers, evaluation at the roots of any set containing infinitely many prime powers determines the element. The condition is the source's and it is a condition of infinitude TOGETHER with adjacency: a finite set of values never determines a general element, and infinitude alone is not a substitute for the adjacency requirement.
+Let R be a subring of the algebraic numbers, S a set of orders connected over R and T ⊂ S. Write P_T(R) = ∏_{n in T} R[q]/(Φ_n(q)) and ε_{S,T} : R[q]^S → P_T(R) for the map given by reduction modulo each Φ_n, n in T (equivalently, evaluation at all primitive n-th roots of unity, n in T). If for SOME n in S infinitely many m in T satisfy m ⇔_R n, then ε_{S,T} is injective (Habiro, Theorem 6.1). In particular, if R is contained in the algebraic integers and T contains infinitely many prime powers, ε_{ℕ,T} : R[q]^ℕ → P_T(R) is injective. A finite T never suffices: ∏_{n in T} Φ_n is a nonzero element of the kernel. The hypothesis couples infinitude with adjacency to one order: an infinite T without it, such as T = {6, 15, 35, 77, ...} (products of consecutive primes, each order n being adjacent to at most two of them), is simply not covered, and whether ε_{ℕ,T} is injective for such T is OPEN; Habiro conjectures (Conjecture 6.1) that over ℤ evaluation on ANY infinite set of roots of unity is injective. No non-injectivity statement for infinite sets is available. The version for individual roots is HC.4/evaluation-at-individual-roots.
 
 **Hypotheses.**
 
-- The coefficient ring is a subring of the algebraic numbers; for the corollary it is a subring of the algebraic integers.
-- The condition is the existence of one order with infinitely many adjacent elements in the subset, not that the subset be infinite.
-- Connectedness of the ambient set of orders is assumed.
+- R is a subring of the algebraic numbers (the last step of the proof uses that its elements are algebraic); for the corollary R lies in the algebraic integers, which makes R p-separated for every p and N connected over R.
+- The condition is on one order n in S with infinitely many adjacent m in T, not on the size of T.
+- S is connected over R.
 
-**Proof outline.**
+**Proof.**
 
-1. State the theorem with its condition and the corollary about prime powers.
-2. Record the source's proof: use the injectivity of the restriction to a single order, expand along the powers of its cyclotomic polynomial, and use that infinitely many adjacent orders force the leading coefficient to vanish.
-3. State the two non-examples: a finite set of evaluations never determines a general element, and an infinite subset with no order adjacent to a common one does not satisfy the hypothesis.
-4. Record the source's own statement in the introduction that an element vanishing at infinitely many roots of prime-power order vanishes.
-5. Record the resulting description of the completion over the integers as a ring of functions on the roots of unity.
+1. Suppose a ≠ 0 with ε_{S,T}(a) = 0; ρ_{S,{n}}(a) ≠ 0 by Theorem 4.1; write ρ_{S,{n}}(a) = Σ_{j≥l} a_j Φ_n^j with a_l not in (Φ_n).
+2. Choose infinitely many distinct m_i in T with m_i ⇔ n and n | m_i, so m_i/n = p_i^{e_i} with R p_i-separated.
+3. Φ_{m_i} divides a in R[q]^S (HC.1/the-quotients-of-the-completion). By induction Φ_{m_1}...Φ_{m_k} | a: from (6.1), b(ξ) = 0 for EVERY primitive m_k-th root ξ because Φ_{m_j}(ξ) ≠ 0 for j < k, hence Φ_{m_k} | b in R[q].
+4. By (4.1), Φ_{m_1}...Φ_{m_k} lies in (p_1...p_k, Φ_n); its reduction modulo Φ_n is a non-zero-divisor of R[q]/(Φ_n) (it vanishes at no primitive n-th root), so comparing lowest Φ_n-adic terms gives p_1...p_k | abar_l in R[q]/(Φ_n) = R^{φ(n)}.
+5. A nonzero x in R ⊂ ℚ̄ has x/p in R for only finitely many primes p with 1/p not in R (p must divide the constant term of an integral equation of x); so some prime p occurs infinitely often among the p_i, x lies in the intersection of the p^j R, which is 0; hence abar_l = 0, a contradiction.
+6. Corollary: over subrings of the algebraic integers every prime power is adjacent to 1 and ℕ is connected.
+7. Record Conjecture 6.1 and the non-example T = {6, 15, 35, 77, ...}.
 
 **Acceptance.**
 
-- Over the integers an element vanishing at infinitely many roots of prime-power order is zero.
-- A finite set of evaluations does not determine a general element.
-- Infinitude alone is not the hypothesis; adjacency to a common order is required.
-- The completion over the integers embeds in the functions on the roots of unity.
+- Over ℤ, ε_{ℕ,ℕ} is injective, and so is ε_{ℕ,T} for T = {2^k : k ≥ 1}.
+- For finite T, ∏_{n in T} Φ_n is a nonzero element of ker ε_{S,T}.
+- Theorem 6.1 says nothing about T = {6, 15, 35, 77, ...}; Habiro's Conjecture 6.1 predicts injectivity there, so no failure of injectivity for infinite sets may be asserted.
+- Over ℤ the completion embeds in P_N(ℤ) = ∏_n ℤ[q]/(Φ_n).
 
-**Prerequisites.** `HabiroCyclotomicCompletions:HC.4/injectivity-of-restriction`, `HabiroCyclotomicCompletions:HC.3/evaluation-at-a-root-of-unity`
+**Depends on.** this roadmap: `HC.4/injectivity-of-restriction`, `HC.4/cyclotomic-congruence-and-prime-ideal`, `HC.4/adjacency-of-orders`, `HC.1/the-quotients-of-the-completion`, `HC.3/evaluation-at-a-root-of-unity`.
 
 **Sources.**
 
-- Theorem 6.1, p. 1140 of the PDF, The theorem with its exact infinite-set condition and its corollary, verbatim.
+- `Habiro.CyclotomicCompletions.2004`, Theorem 6.1, printed p. 1139: “Let R be a subring of Q̄, S ⊂ N a ⇔_R-connected subset, and T ⊂ S a subset. Suppose that for some n ∈ S there are infinitely many elements m ∈ T with m ⇔_R n. Then the homomorphism ε^R_{S,T} : R[q]^S → P_T(R) is injective.” — The theorem with its exact condition, verbatim (the map is ε, with P_T(R) = ∏_{n in T} R[q]/(Φ_n) defined on the same page).
+- `Habiro.CyclotomicCompletions.2004`, Theorem 6.1, printed p. 1139: “In particular, if R is a subring of the ring of algebraic integers, then, for any subset T ⊂ N containing infinitely many prime powers, ε^R_{N,T} : R[q]^N → P_T(R) is injective.” — The corollary, with S = ℕ.
+- `Habiro.CyclotomicCompletions.2004`, Conjecture 6.1, printed p. 1141: “Conjecture 6.1. For any infinite subset Z ⊂ Z^{Q̄}, the homomorphism ε^Z_{N,Z} : Z[q]^N → P_Z(Z) is injective.” — Why no failure of injectivity for infinite sets may be claimed.
 
-  > Let R be a subring of the algebraic numbers, S a connected subset of N over R, and T a subset of S. Suppose that for some n in S there are infinitely many elements m in T with m adjacent to n over R. Then the homomorphism ev^R_{S, T} : R[q]^S -> P_T(R) is injective. In particular, if R is a subring of the ring of algebraic integers, then, for any subset T of N containing infinitely many ...
+### Evaluation at individual roots determines the element
 
-- §1, the introduction, p. 1128 of the PDF, The integral consequence, verbatim.
+`HC.4/evaluation-at-individual-roots` · theorem · added by REV-HabiroCyclotomicCompletions
 
-  > Theorem 6.2 implies for example that f(q) in Z[q]^N vanishes if f(q) vanishes at infinitely many roots of unity of prime power order.
+Let R be a subring of the algebraic numbers, S a set of orders connected over R, and Z a set of roots of unity with orders in S such that Φ_{ord ζ} is irreducible over the fraction field of R for every ζ in Z (for instance R = ℤ). If for some n in S infinitely many ζ in Z have ord ζ ⇔_R n, then ε_{S,Z} : R[q]^S → ∏_{ζ in Z} R[ζ], x → (ev_ζ x), is injective. In particular, over ℤ with S = ℕ, an element vanishing at infinitely many roots of unity of prime-power order is zero, and ε : ℤ[q]^ℕ → Map(Z_N, ℤ[Z_N]) is injective (Habiro, Theorem 6.2 and p. 1128). Habiro states Theorem 6.2 for every subring of the algebraic numbers, but the printed proof uses that R[q]/(Φ_n) → ∏_{ζ in Z, ord ζ = n} R[ζ] is injective, which fails when Φ_n splits over the fraction field of R and Z misses a factor (R = ℤ[i], n = 4, Z meeting the primitive 4th roots in {i}: the class of q - i is killed); the irreducibility hypothesis restores the proof, and covers every use in the atlas.
+
+**Hypotheses.**
+
+- R is a subring of the algebraic numbers and S is connected over R.
+- Φ_{ord ζ} is irreducible over Frac(R) for ζ in Z (true for R = ℤ).
+- Infinitely many ζ in Z have order adjacent to one n in S.
+
+**Proof.**
+
+1. γ : P_{N_Z}(R) → ∏_{ζ in Z} R[ζ], (f_m) → (f_{ord ζ}(ζ)), is injective: R[q]/(Φ_m) embeds in Frac(R)[q]/(Φ_m), a field under the irreducibility hypothesis, which embeds in ℚ̄ at any root.
+2. ε_{S,Z} = γ ∘ ε_{S,N_Z}; infinitely many ζ give infinitely many distinct orders adjacent to n, so ε_{S,N_Z} is injective by Theorem 6.1 (HC.4/evaluation-uniqueness-and-its-exact-hypothesis).
+3. For R = ℤ use cyclotomic.irreducible_rat, and that prime powers are adjacent to 1 over ℤ.
+
+**Acceptance.**
+
+- Over ℤ with S = ℕ: if ev_ζ x = 0 for infinitely many ζ of prime-power order then x = 0.
+- ε : ℤ[q]^ℕ → Map(Z_N, ℤ[Z_N]) is injective.
+- For R = ℤ[i] and Z meeting the primitive 4th roots in {i}, the component ℤ[i][q]/(q^2+1) → ℤ[i] kills q - i: the hypothesis is needed for the printed argument.
+
+**Depends on.** this roadmap: `HC.4/evaluation-uniqueness-and-its-exact-hypothesis`, `HC.3/evaluation-at-a-root-of-unity`; libraries: `mathlib:Polynomial.cyclotomic.irreducible_rat`, `mathlib:Polynomial.cyclotomic_eq_minpoly`.
+
+**Sources.**
+
+- `Habiro.CyclotomicCompletions.2004`, Theorem 6.2, printed pp. 1140-1141: “Theorem 6.2. Let R be a subring of Q̄, and let S ⊂ N and Z ⊂ Z^{Q̄}_S be subsets. Suppose that there is an element n ∈ S such that for infinitely many ζ ∈ Z we have ord ζ ⇔_R n. Then the homomorphism ε^R_{S,Z} : R[q]^S → P_Z(R) is injective.” — The statement; the node adds the irreducibility hypothesis under which the printed proof is valid.
+- `Habiro.CyclotomicCompletions.2004`, §1, printed p. 1128: “Theorem 6.2 implies for example that f(q) ∈ Z[q]^N vanishes if f(q) vanishes at infinitely many roots of unity of prime power order.” — The integral consequence, verbatim.
 
 ### The injective maps are not isomorphisms
 
-`HabiroCyclotomicCompletions:HC.4/non-surjectivity` · *comparison*
+`HC.4/non-surjectivity` · theorem
 
-Injectivity is never upgraded to an isomorphism in this roadmap, and the source proves three non-surjectivity statements that this node records: for two distinct adjacent orders the restriction between the corresponding completions is not surjective; for a proper divisor the restriction between the completions at the divisor sets is not surjective; and for every non-empty finite set of orders the restriction from the completion at all orders is not surjective. The proofs go through a commutative square in which one map is visibly not surjective, using the prime-adic quotient of the cyclotomic quotient ring.
+Over ℤ (Habiro, Proposition 7.4): (1) if m ⇔_Z n and m ≠ n, ρ_{{m,n},{m}} : ℤ[q]^{{m,n}} → ℤ[q]^{m} is not surjective; (2) if m | n and m ≠ n, ρ_{<n>,<m>} : ℤ[q]^{<n>} → ℤ[q]^{<m>} is not surjective; (3) for every non-empty finite S, ρ_{ℕ,S} : ℤ[q]^ℕ → ℤ[q]^S is not surjective. Since these maps are injective (Theorem 4.1), they are proper embeddings, never identifications. Over ℚ, by contrast, restriction maps are surjective (Habiro §7.5), so non-surjectivity is an integral phenomenon. The Taylor maps are treated in HC.4/taylor-maps-are-not-surjective, because §7.4 of the source says nothing about them.
 
 **Hypotheses.**
 
-- The coefficient ring is the integers in the source's statements.
-- The three statements are about the restriction maps of HC.1, not about the Taylor maps; the non-surjectivity of the Taylor maps is stated in the same section of the source.
-- The arguments use the two cyclotomic lemmas of the adjacency node.
+- The coefficient ring is ℤ throughout.
+- The three statements concern restriction maps only.
+- (1) uses (4.1)-(4.2) and the p-adic integers; (2) uses the finite free base change ℤ[q^m] → ℤ[q]; (3) uses (2) and Theorem 4.1.
 
-**Proof outline.**
+**Proof.**
 
-1. State the three non-surjectivity statements.
-2. Record the source's proof of the first through the commutative square with the prime-adic quotient.
-3. Record the consequence for the roadmap: the injective maps of the previous nodes give embeddings and never identifications.
-4. State the rule this layer exports: no statement anywhere in the atlas may treat an injective Taylor or restriction map as an isomorphism.
-5. Record the source's parallel statement that the Taylor maps are also not surjective.
+1. (1): m/n = p^e with e ≠ 0. The map b : ℤ[q]^{m} → ℤ_p[q]/(Φ_n) = lim_j ℤ[q]/(Φ_n, p^j) is well defined and surjective because Φ_m lies in (Φ_n, p) and p lies in (Φ_m, Φ_n) (HC.4/cyclotomic-congruence-and-prime-ideal); with c : ℤ[q]/(Φ_n) → ℤ_p[q]/(Φ_n) the square commutes, and c is not surjective because ℤ → ℤ_p is not and ℤ[q]/(Φ_n) is free; hence ρ is not surjective. Witness for {1, 2}: 1/(2 - q) = Σ_k (q-1)^k maps to 1/3 in Z_2.
+2. (2): for a prime p | n/m the image of ρ_{<n>,<m>} lies in the image of ρ_{<pm>,<m>}, so reduce to n = pm. ℤ[q] is free of rank m over ℤ[q^m] and adic completion commutes with finite free base change (AdicCompletion.ofTensorProductEquivOfPiFintype), so ρ_{<pm>,<m>} is m copies of ρ_{<p>,<1>} over ℤ[q^m], which is case (1) for {1, p}.
+3. (3): with m = lcm(S) and n = 2m, ρ_{ℕ,S} = ρ_{<m>,S} ∘ ρ_{<n>,<m>} ∘ ρ_{ℕ,<n>}; the middle map is not surjective by (2) and ρ_{<m>,S} is injective by Theorem 4.1 (<m> is connected over ℤ), so an element of ℤ[q]^{<m>} outside the middle image maps outside the image of ρ_{ℕ,S}.
+4. Rule exported to the atlas: none of the injective restriction maps of HC.4 is an isomorphism over ℤ.
 
 **Acceptance.**
 
-- The restriction between the completions at two distinct adjacent orders is not surjective.
-- The restriction from all orders to any non-empty finite set is not surjective.
-- An injective Taylor map is not an isomorphism.
-- No identification may be made anywhere on the strength of injectivity.
+- 1/(2 - q) is not in the image of ρ_{{1,2},{1}} : ℤ[q]^{{1,2}} → ℤ[[q-1]] (its image in Z_2[q]/(q+1) = Z_2 is 1/3, while images of ℤ[q]^{{1,2}} land in ℤ).
+- ρ_{<2>,<1>} and ρ_{ℕ,{1}} are not surjective.
+- Over ℚ, ρ_{{1,2},{1}} is surjective (contrast, HC.5).
 
-**Prerequisites.** `HabiroCyclotomicCompletions:HC.4/rootwise-taylor-injectivity`, `HabiroCyclotomicCompletions:HC.4/injectivity-of-restriction`
+**Depends on.** this roadmap: `HC.4/injectivity-of-restriction`, `HC.4/cyclotomic-congruence-and-prime-ideal`, `HC.1/functoriality-in-the-ring-and-in-the-order-set`; libraries: `mathlib:PadicInt`, `mathlib:AdicCompletion.ofTensorProductEquivOfPiFintype`.
 
 **Sources.**
 
-- Proposition 7.4, p. 1144 of the PDF, The three non-surjectivity statements, verbatim.
+- `Habiro.CyclotomicCompletions.2004`, Proposition 7.4, printed pp. 1144-1145: “1. If m, n ∈ N, m ⇔_Z n, and m ≠ n, then the homomorphism ρ^Z_{{m,n},{m}} is not surjective. 2. If m|n and m ≠ n, then the homomorphism ρ^Z_{⟨n⟩,⟨m⟩} is not surjective. 3. For each nonempty, finite subset S ⊂ N, the homomorphism ρ^Z_{N,S} is not surjective.” — The three statements, verbatim.
 
-  > We have the following. 1. If m, n are in N, m is adjacent to n over Z, and m is not n, then the homomorphism rho^Z_{{m,n}, {m}} is not surjective. 2. If m divides n and m is not n, then the homomorphism rho^Z_{div n, div m} is not surjective. 3. For each non-empty, finite subset S of N, the homomorphism rho^Z_{N, S} is not surjective.
+### The Taylor maps are not surjective
 
-## HC.5 — Modules, inversion of primes and components
+`HC.4/taylor-maps-are-not-surjective` · theorem · added by REV-HabiroCyclotomicCompletions
 
-The module completion, with **no exactness assumption**: the derived-limit
-correction is stated instead, which is why the derived construction belongs to
-`HabiroRings:HR.2`. The source's module theorem takes adjacency over the
-**module**, not the ring.
-
-Chinese remainder under comaximality; and **inverting a prime destroys**
-**adjacency across it** — over ℚ no two distinct orders are adjacent, so `ev`
-and `σ_ζ` are not injective there, while `ℤ[q]^ℕ → ℚ[q]^ℕ` is.
-
-Restricted root orders are **not** a localisation.
-
-Coverage: **source_decomposed**.
-
-Four nodes. The module completion, with functoriality, the finite-direct-sum comparison, the continuous scalar action and — as the stage text requires — exactness only under a hypothesis, with the derived-limit correction stated rather than an exactness assumption, together with the source's module form of the injectivity theorem, whose adjacency is taken over the MODULE. The Chinese remainder decomposition for a disconnected collection, with the comaximality hypothesis stated exactly and with the consequence that a completion at a disconnected set is not a domain whatever the coefficient ring. The effect of inverting a prime, with the two computed cases the stage text asks for, the rationals and the integers with a prime inverted, and with the rule that properties of the completion are not inherited from the coefficient ring. And the comparison of restricted root orders with localisation, which shows where the naive localisation fails to have the universal property.
-
-### The cyclotomic completion of a module
-
-`HabiroCyclotomicCompletions:HC.5/the-completed-module` · *construction* · planet **The completed module**
-
-For an abelian group, or a module over the coefficient ring, the same ideals define a completion of the polynomial module, and it is a complete topological module over the completed ring. The construction is functorial in the module, carries finite direct sums to direct sums, has a continuous scalar action, and is exact only under hypotheses; in general an inverse limit of exact sequences is exact only up to a derived-limit correction, and this node states that correction rather than assuming exactness. The source defines exactly this and states the module form of the injectivity theorem with the module's own separation conditions.
+For every root of unity ζ in C, σ_ζ : ℤ[q]^ℕ → ℤ[ζ][[q - ζ]] is injective (Theorem 5.2) but not surjective. If ord ζ = n ≥ 2, the unit 1/(1 + Φ_n(q)) of ℤ[ζ][[q - ζ]] (constant term 1) is not in the image; if ζ = 1, 1/(2 - q) is not. For ord ζ ≥ 3 the image already misses q - ζ modulo (q - ζ)^2, because Φ_n'(ζ) is not a unit (|disc Φ_n| > 1). The source asserts this non-surjectivity in its introduction but its §7.4 treats only restriction maps, which covers ord ζ in {1, 2}, where σ_ζ = ρ_{ℕ,{ord ζ}}. Over ℚ, by contrast, σ_ζ is surjective: ℚ[q]^ℕ is the product of the ℚ[q]^{n} (Habiro §7.5), and σ_ζ restricted to ℚ[q]^{n} is an isomorphism onto ℚ(ζ)[[q - ζ]] (a map of complete discrete valuation rings that is an isomorphism on residue fields and sends the uniformiser Φ_n to Φ_n'(ζ)(q - ζ) + ..., with Φ_n'(ζ) ≠ 0).
 
 **Hypotheses.**
 
-- The module is over the coefficient ring, or merely an abelian group in the source's generality.
-- The topology is the one defined by the same products of cyclotomic polynomials acting on the polynomial module.
-- Exactness of the completion functor is NOT assumed; the derived-limit term is part of the statement.
+- The coefficient ring is ℤ and S = ℕ.
+- ζ is a root of unity of order n.
 
-**Proof outline.**
+**Proof.**
 
-1. Define the completion of the polynomial module by the same system of submodules.
-2. Prove that it is a complete topological module over the completed ring, with continuous scalar action.
-3. Prove functoriality in the module and the comparison for finite direct sums.
-4. State the exactness question: the inverse limit of a system of short exact sequences is left exact, and the failure is measured by the first derived limit, which vanishes under the Mittag-Leffler condition.
-5. Record the source's module form of the injectivity theorem, with the adjacency relation defined by the module's own separation and with the degenerate case of the zero module.
-6. Record that no completion functor is assumed exact anywhere in this roadmap, which is the boundary the interface layer states.
+1. g = 1 + Φ_n (n ≥ 2) or g = 2 - q (n = 1) is a unit of ℤ[ζ][[q - ζ]] because ev_ζ(g) = 1.
+2. If σ_ζ(a) = 1/g, then σ_ζ(g a - 1) = 0, so g a = 1 by injectivity, and ev_ξ(g) would be a unit of ℤ[ξ] for every root ξ.
+3. But ev_1(1 + Φ_n) = 1 + Φ_n(1) is 2 if n is not a prime power and 1 + p if n = p^k (eval_one_cyclotomic_not_prime_pow, eval_one_cyclotomic_prime_pow), and ev_{-1}(2 - q) = 3.
+4. Record the discriminant remark (disc Φ_3 = -3, disc Φ_4 = -4, disc Φ_5 = 125) and the contrast over ℚ.
 
 **Acceptance.**
 
-- The completion of a finite direct sum is the direct sum of the completions.
-- Exactness holds under the Mittag-Leffler condition and not in general.
-- The module version of the injectivity theorem uses the module's own separation, not the ring's.
-- For the zero module every pair of orders is adjacent, which is the degenerate case the source records.
+- 1/(2 - q) is not in σ_1(ℤ[q]^ℕ).
+- 1/(1 + Φ_3) is not in σ_{ζ_3}(ℤ[q]^ℕ): ev_1(1 + Φ_3) = 4.
+- q - ζ_3 is not in σ_{ζ_3}(ℤ[q]^ℕ), even modulo (q - ζ_3)^2.
 
-**Prerequisites.** `HabiroCyclotomicCompletions:HC.1/the-cyclotomic-completion`, `HabiroCyclotomicCompletions:HC.4/adjacency-of-orders`
+**Depends on.** this roadmap: `HC.4/rootwise-taylor-injectivity`, `HC.3/evaluation-at-a-root-of-unity`, `HC.3/the-taylor-map`; libraries: `mathlib:Polynomial.eval_one_cyclotomic_prime_pow`, `mathlib:Polynomial.eval_one_cyclotomic_not_prime_pow`.
+
+**Sources.**
+
+- `Habiro.CyclotomicCompletions.2004`, §1, printed p. 1128: “By Theorem 5.2, the homomorphism σ_ζ is injective. In other words, the function ε(f(q)) is completely determined by its expansion at each root of unity. [...] The non-surjectivity of σ_ζ is proved in Section 7.4.” — The claim; §7.4 proves it only for ord ζ ≤ 2 (source issue), the node supplies the general argument.
+
+### A finite domain extension embeds in a finite free module
+
+`HC.4/finite-domain-module-embedding` · lemma
+
+Let R and B be domains, with an injective ring map R→B and B finite as an R-module. There exist r≥1 and an injective R-linear map B→R^r. No freeness, normality, or Noetherian hypothesis on B or R is imposed.
+
+**Hypotheses.**
+
+- R and B are domains; R→B is injective and B is a finite R-module.
+
+**Proof.**
+
+1. Choose finitely many R-module generators of B using Module.Finite.exists_fin. Embed Frac(R) into Frac(B) by injectivity and let V be their finite-dimensional Frac(R)-linear span.
+2. Choose a basis of V. Each generator has finitely many fraction-field coordinates; choose one common nonzero d in R clearing all their denominators.
+3. For b in B define its coordinates in that basis and multiply each coordinate by d. Since the generators have coordinates in R after this multiplication, every b does. This gives an R-linear map B→R^r.
+4. The map is injective because the fraction-field embedding, basis-coordinate map and multiplication by d are injective. Nontriviality of B makes the dimension positive.
+
+**Acceptance.**
+
+- Let R and B be domains, with an injective ring map R→B and B finite as an R-module. There exist r≥1 and an injective R-linear map B→R^r. No freeness, normality, or Noetherian hypothesis on B or R is imposed.
+
+**Depends on.** libraries: `mathlib:Module.Finite.exists_fin`, `mathlib:IsFractionRing.injective`, `mathlib:Module.Basis.exists_basis`, `mathlib:FiniteDimensional.span_of_finite`, `mathlib:Module.Finite.finite_basis`, `mathlib:IsLocalization.exist_integer_multiples`, `mathlib:IsFractionRing.lift`.
+
+**Library placement.** Module `TauCeti/RingTheory/Habiro/IntegralTaylor`, namespace `TauCeti.Habiro.HC4`.
+
+**Sources.**
+
+- `Habiro.2004`, Habiro, proof of Theorem 5.2, p. 1138, first reduction: “Hence we may assume ζ ∈ R” — Habiro passes to R[ζ] but does not prove this standalone general finite-domain embedding. The reviewer checked the denominator-clearing proof from the pinned fraction-field, finite-span and common-denominator statements; no Noetherian or free-extension assumption is added.
+
+### Adic separation transfers to a finite domain extension
+
+`HC.4/finite-domain-separation-transfer` · lemma
+
+Under the preceding hypotheses, for c in R, if intersection_{k≥0} c^k R=0 then intersection_{k≥0} c^k B=0. In particular p-adic separatedness of R transfers to the actual embedded ring R[ζ_m] for every prime p. This closes the non-Noetherian transfer boundary of the imported Theorem 5.2 proof.
+
+**Hypotheses.**
+
+- R→B is an injective finite extension of domains; c-adic separatedness is assumed for R.
+
+**Proof.**
+
+1. Apply the injective R-linear map B→R^r. If b belongs to c^k B for every k, each coordinate of its image belongs to c^k R for every k.
+2. R-separatedness kills each coordinate; injectivity kills b.
+3. R[ζ_m] is generated by 1,ζ_m,...,ζ_m^(φ(m)-1) because the cyclotomic polynomial is monic.
+
+**Acceptance.**
+
+- Under the preceding hypotheses, for c in R, if intersection_{k≥0} c^k R=0 then intersection_{k≥0} c^k B=0. In particular p-adic separatedness of R transfers to the actual embedded ring R[ζ_m] for every prime p. This closes the non-Noetherian transfer boundary of the imported Theorem 5.2 proof.
+
+**Depends on.** this roadmap: `HC.4/finite-domain-module-embedding`; libraries: `mathlib:IsHausdorff`, `mathlib:isHausdorff_iff`, `mathlib:Polynomial.cyclotomic.monic`.
+
+**Library placement.** Module `TauCeti/RingTheory/Habiro/IntegralTaylor`, namespace `TauCeti.Habiro.HC4`.
+
+**Sources.**
+
+- `Habiro.2004`, Habiro, proof of Theorem 5.2, p. 1138, first reduction: “Hence we may assume ζ ∈ R” — The source first uses injective coefficient change into R[ζ]. Its later p-adic separation argument also needs separation of that embedded finite domain; the coordinatewise transfer lemma supplies this implicit input without assuming Noetherianity.
+
+## HC.4b — Integral Taylor comparison
+
+*Proposed display sub-layer of HC.4: the integral Taylor comparison of GSWZ §5.1, from the HC.4 part.*
+
+- **The objects.**
+  - H_R = R[q]^ℕ is compared with the untwisted universal Taylor product ∏_{m≥1} A_m(R)[[u]], q = z_m(1 − u), by the multiplicative Taylor map iota. It is the HC.3 Taylor map after the change of variable q − z_m = −z_m u, and it is not GSWZ's Frobenius-twisted ring, which HabiroNumberFields HB.6 owns.
+  - Both sides carry decreasing filtrations with zero intersection, and iota respects them. On H_R the filtration is by the kernels of the projections to R[q]/(P_{N−1}); on the Taylor product it is by the vanishing of the coordinates of weight ml < N.
+  - The graded pieces are R[q]/(1 − q^N) and ∏_{m|N} A_m(R), and the finite quotients have free bases of rank N(N − 1)/2, the ordered digit basis and the ordered jet basis.
+- **The graded map.** It is multiplication by the leading factors D_{m,N/m} after simultaneous cyclotomic remainders. The leading factor comes from the root-product identity ∏_{r=1}^{m−1}(1 − z_m^r) = m, proved in the universal integral quotient.
+- **Injectivity.** For ℤ-torsion-free R the graded maps, the finite maps and the joint map iota are injective. For a ℚ-algebra they are bijective, and iota is an isomorphism; this concerns H_R itself, never H_ℤ ⊗ R.
+- **Matrices.**
+  - In the pinned bases the finite map is an integer matrix M_N, independent of R, and lower block-triangular by weight.
+  - The absolute value of its determinant is δ_N = ∏_{1≤n<N} D_1(n) D_2(n), with D_2 the simultaneous-remainder determinant computed by resultants. The upper bound N − 1 corrects the preprint's (313), source issue E19.
+  - For ℤ-torsion-free R, the signed adjugate gives the finite integral image criterion, and the compatible finite preimages give GSWZ Proposition 5.2: the image of iota consists of the collections whose jets satisfy the congruences M_N^* γ ≡ 0 modulo δ_N for every N.
+- **Detection prime by prime.** Over ℤ[1/Δ] the congruences can be checked at each prime p ∤ Δ.
+- **The examples.** The Kontsevich series and a failed perturbation of its jets (Example 5.6), and the odd-order idempotent after inverting 2 with its companion projector (Example 5.7).
+
+### The untwisted universal Taylor product
+
+`HC.4/universal-taylor-product` · definition
+
+Write A_m(R)=R[q]/(Φ_m(q))=R ⊗_ℤ ℤ[ζ_m], with universal root z_m. Define TaylorProduct R = product over m≥1 of A_m(R)[[u]], where q=z_m(1-u). Coefficients C_{m,l} have exponent l-1. This is the tensor-product coefficient algebra, even when a chosen root already lies in R: it retains every cyclotomic component. Its reduced representative gives γ_{m,l,j} in R for 0≤j<φ(m). For R=ℤ it is the usual product of ℤ[ζ_m][[u]]. No choice of an embedded compositum replaces A_m for arbitrary R.
+
+**Hypotheses.**
+
+- R is a commutative unital ring; any root order is positive and any finite precision is N≥1. Numerical rank assertions assume Nontrivial R. No torsion-freeness, domain or Noetherian hypothesis is required here.
+
+**Construction.**
+
+1. Use the baseline AdjoinRoot quotient and its monic power basis; its rank is φ(m) by natDegree_cyclotomic.
+2. Take the product of power-series R-algebras; define coordinates by coefficients followed by the canonical reduced representative.
+3. For a chosen embedded root, liftAlgHom specializes A_m(R) to R[ζ]; the specialization can have a kernel, and is not the product definition.
 
 **API.**
 
-| name | role | statement |
-| --- | --- | --- |
-| `cycloModuleCompletion` | data | The completion of a polynomial module. |
-| `cycloModuleCompletion.module` | structure | Its module structure over the completed ring, with continuous action. |
-| `cycloModuleCompletion.map` | functoriality | Functoriality in the module. |
-| `cycloModuleCompletion.prod` | compatibility | Compatibility with finite direct sums. |
-| `cycloModuleCompletion.exact_of_ML` | characterisation | Exactness under the Mittag-Leffler condition. |
-| `cycloModuleCompletion.derivedLimit` | relation | The derived-limit correction in general. |
-
-**Used by.**
-
-- *HC.5, the injectivity extension* — The module form of the theorem is stated for these.
-- *HC.6* — The completed modules are part of the exported interface.
-- *HabiroRings* — The derived Habiro completion is built on these, and no exactness is assumed here.
+- `TaylorProduct` (data): The product of the universal cyclotomic power-series algebras.
+- `taylorCoeff` (projection): C_{m,l}(f)=coefficient(l-1) of f_m.
+- `gamma` (projection): γ_{m,l,j} is coefficient j of the monic reduced representative of C_{m,l}.
+- `TaylorProduct.ext` (extensionality): Equality of every component coefficient implies equality of collections.
+- `TaylorProduct.map` (functoriality): A ring map R→R′ acts coefficientwise and preserves the universal root.
+- `TaylorProduct.map_gamma` (characterisation): The map induced by φ sends γ_{m,l,j}(f) to φ(γ_{m,l,j}(f)).
+- `TaylorProduct.map_id` (simp): The identity coefficient map induces the identity on TaylorProduct.
+- `TaylorProduct.map_comp` (functoriality): Coefficient maps compose in the same order as ring maps.
 
 **Unit tests.**
 
-- `finite_sum` — The completion of a finite direct sum is the direct sum of the completions.
-- `zero_module` — For the zero module every pair of orders is adjacent and the completion is zero.
-- `not_exact` — The functor is not exact in general; the derived-limit term is not always zero.
-- `module_separation` — The injectivity theorem uses the module’s separation, which can differ from the ring’s.
-
-**Sources.**
-
-- §7.3, p. 1143 of the PDF, The module completion, verbatim.
-
-  > We can define cyclotomic completions also for any Z-module, as follows. Let A be a Z-module, and let A[q] be the module of polynomials in q with coefficients in A. For each S contained in N, let A[q]^S denote the completion A[q]^S = lim_{f in Phi*_S} A[q]/f A[q]. If A is a ring, then this definition of A[q]^S is compatible with the previous one.
-
-- Theorem 7.1, p. 1143 of the PDF, The module form of the injectivity theorem, with adjacency taken over the MODULE, verbatim.
-
-  > Let A be a Z-module, and let S' be contained in S contained in N. Suppose that for each n in S there is a sequence in S' finishing at n of elements adjacent over A. Then the homomorphism rho^A_{S, S'} : A[q]^S -> A[q]^{S'} induced by the identity of A[q] is injective.
-
-### Chinese remainder for a disconnected collection of orders
-
-`HabiroCyclotomicCompletions:HC.5/chinese-remainder-for-disconnected-collections` · *theorem*
-
-When two sets of orders are mutually non-adjacent, so that the corresponding cyclotomic polynomials are comaximal, the completion at their union is the product of the two completions. This is the Chinese remainder theorem in this setting and it needs exactly the comaximality hypothesis of HC.4; without it the two factors interact and the product description fails. Consequently a completion at a disconnected set of orders decomposes into components, one for each connected piece, and properties such as being a domain are properties of the pieces and not of the whole.
-
-**Hypotheses.**
-
-- The two sets are mutually non-adjacent, which by the comaximality lemma means that the cyclotomic polynomials of an order in one and an order in the other generate the unit ideal.
-- The decomposition is as topological rings, with the product topology.
-- The hypothesis is about the coefficient ring as well, since adjacency is defined over it.
-
-**Proof outline.**
-
-1. State the comaximality hypothesis and deduce the product decomposition for the finite quotients.
-2. Pass to the limit and obtain the decomposition of the completions.
-3. Deduce the decomposition into connected components for a general set of orders.
-4. Record the consequence: a completion at a disconnected set is not a domain even when the coefficient ring is.
-5. State the non-example: without comaximality the product description fails, and the injectivity theorems of HC.4 are exactly the statements that replace it in the connected case.
+- `taylorCoeff_zero` (degenerate): All positive-index coefficients of the zero collection are zero.
+- `gamma_one` (computation): For the constant-one collection, γ_{m,1,0}=1 and every other allowed coordinate is zero.
+- `universal_split_nonexample` (non-example): A_4(ℚ(i))=ℚ(i)[q]/(q^2+1) has rank 2 over ℚ(i); evaluation q→i kills the nonzero class q-i. A single embedded copy of ℚ(i) is the wrong coefficient algebra.
 
 **Acceptance.**
 
-- A completion at a disconnected set is a product over the connected components.
-- It is not a domain when there is more than one component, whatever the coefficient ring.
-- The decomposition needs comaximality; connectedness of the pieces is not enough by itself.
-- In the connected case there is no such decomposition and the injectivity theorems apply instead.
+- Write A_m(R)=R[q]/(Φ_m(q))=R ⊗_ℤ ℤ[ζ_m], with universal root z_m. Define TaylorProduct R = product over m≥1 of A_m(R)[[u]], where q=z_m(1-u). Coefficients C_{m,l} have exponent l-1. This is the tensor-product coefficient algebra, even when a chosen root already lies in R: it retains every cyclotomic component. Its reduced representative gives γ_{m,l,j} in R for 0≤j<φ(m). For R=ℤ it is the usual product of ℤ[ζ_m][[u]]. No choice of an embedded compositum replaces A_m for arbitrary R.
 
-**Prerequisites.** `HabiroCyclotomicCompletions:HC.4/adjacency-of-orders`, `HabiroCyclotomicCompletions:HC.1/the-cyclotomic-completion`
+**Used by.**
+
+- GSWZ §5.1, (306)–(319); HabiroNumberFields:HB.6/ring-operations-and-the-classical-comparison: Finite integral Taylor coordinates and congruence detection supply the untwisted lattice input; HB.6 applies its own Frobenius twist.
+
+**Depends on.** libraries: `mathlib:AdjoinRoot`, `mathlib:AdjoinRoot.modByMonicHom`, `mathlib:AdjoinRoot.powerBasisAux'`, `mathlib:AdjoinRoot.liftAlgHom`, `mathlib:Polynomial.cyclotomic.monic`, `mathlib:Polynomial.natDegree_cyclotomic`.
+
+**Library placement.** Module `TauCeti/RingTheory/Habiro/IntegralTaylor`, namespace `TauCeti.Habiro.HC4`.
 
 **Sources.**
 
-- Lemma 4.1(2), p. 1134 of the PDF, The comaximality that makes the decomposition possible, verbatim.
+- `GSWZ.v2`, §5.1, p. 59, (298)–(300); §1.4, p. 7, naive coefficient extensions: “Here, for each m, we use the local variable u” — Equations (298)–(300) give the product, exponent shift and φ(m) coefficient coordinates. The packet makes explicit the universal coefficient extension that these ranks require for arbitrary R. The tensor-product quotient presentation is a formalisation convention justified by the listed AdjoinRoot basis, rather than a literal definition in the source. The naive coefficient extensions on p. 7 motivate this interpretation; an embedded compositum need not have rank φ(m).
 
-  > If m, n are in N, and n/m is not an integer power of a prime, then we have (Phi_n(q), Phi_m(q)) = (1) in Z[q].
+### The factorial kernel filtration
 
-### Inverting a prime changes which orders are adjacent
+`HC.4/factorial-kernel-filtration` · definition
 
-`HabiroCyclotomicCompletions:HC.5/inverting-a-prime-and-the-rational-case` · *comparison*
-
-Adjacency is defined through separatedness of the coefficient ring at a prime, so INVERTING a prime destroys adjacency across that prime: over the integers with a prime inverted, orders whose ratio is a power of that prime are no longer adjacent, and over the rationals no two distinct orders are adjacent at all. The consequences are immediate and are the two worked examples the stage text asks for: over the rationals the evaluation and Taylor maps are not injective, while the map from the integral completion to the rational one IS injective. This node records both and the rule they illustrate: properties of the completion are not inherited from properties of the coefficient ring.
+For H_R=R[q]^(positive orders), imported by factorial cofinality, define hFiltration R N=kernel(H_R→R[q]/(P_{N-1})), where P_n=product_{i=1}^n(1-q^i), N≥1. It equals P_{N-1}H_R and consists of normalized expansions with a_{n,k}=0 for n<N in the GSWZ indexing 1≤n,0≤k<n. Thus hFiltration R 1=H_R, the ideals decrease with N, and their intersection is zero.
 
 **Hypotheses.**
 
-- The coefficient rings are the rationals and the integers with a prime inverted.
-- Separatedness at a prime fails as soon as the prime is invertible, which is why adjacency is lost.
-- The injectivity of the map from the integral to the rational completion is a separate statement and is the source's.
+- R is a commutative unital ring; any root order is positive and any finite precision is N≥1. Numerical rank assertions assume Nontrivial R. No torsion-freeness, domain or Noetherian hypothesis is required here.
 
-**Proof outline.**
+**Construction.**
 
-1. Compute the adjacency relation over the rationals and over the integers with one prime inverted.
-2. Record the source's statement that the analogues of the evaluation and Taylor maps over the rationals are not injective.
-3. Record the source's statement that the natural map from the integral completion to the rational one is injective.
-4. State the rule: neither being a domain nor connectedness of the completion follows from the corresponding property of the coefficient ring.
-5. Record the worked example the stage text asks for, with a prime inverted, and what changes in the adjacency graph.
+1. Use HC.1 finite quotient kernels with the factorial cofinal system.
+2. Translate HC.2 digits a_{n-1} into GSWZ a_n; the first N-1 digits vanish exactly when the projection vanishes.
+3. Separatedness follows from extensionality on all factorial quotients.
+
+**API.**
+
+- `hFiltration` (data): The kernel ideal at precision N, N≥1.
+- `mem_hFiltration_iff` (characterisation): Membership iff projection modulo P_{N-1} is zero.
+- `hFiltration_eq_principal` (characterisation): hFiltration R N=P_{N-1}H_R.
+- `hFiltration_antitone` (structure): hFiltration R (N+1)≤hFiltration R N.
+- `hFiltration_inter` (characterisation): The intersection for N≥1 is zero.
+- `hFiltration_quotient_equiv` (equivalence): H_R/hFiltration R N is R-algebra isomorphic to R[q]/(P_{N-1}).
+- `mem_hFiltration_digits` (characterisation): Membership iff digit R h n=0 for every 1≤n<N.
+
+**Unit tests.**
+
+- `hFiltration_one` (degenerate): hFiltration R 1 is the whole ring and its quotient is zero.
+- `hFiltration_two` (compatibility): For every completed h, h lies in hFiltration R 2 iff the constant coefficient of its order-one Taylor expansion at q=1 is zero; for a polynomial this is g(1)=0.
+- `hFiltration_digit_boundary` (non-example): The element P_{N-1} lies in hFiltration ℤ N but not in hFiltration ℤ (N+1).
 
 **Acceptance.**
 
-- Over the rationals no two distinct orders are adjacent.
-- Over the rationals the evaluation and Taylor maps are not injective.
-- The map from the integral completion to the rational one is injective.
-- Properties of the completion are not inherited from the coefficient ring.
+- For H_R=R[q]^(positive orders), imported by factorial cofinality, define hFiltration R N=kernel(H_R→R[q]/(P_{N-1})), where P_n=product_{i=1}^n(1-q^i), N≥1. It equals P_{N-1}H_R and consists of normalized expansions with a_{n,k}=0 for n<N in the GSWZ indexing 1≤n,0≤k<n. Thus hFiltration R 1=H_R, the ideals decrease with N, and their intersection is zero.
 
-**Prerequisites.** `HabiroCyclotomicCompletions:HC.5/chinese-remainder-for-disconnected-collections`, `HabiroCyclotomicCompletions:HC.4/adjacency-of-orders`
+**Used by.**
+
+- GSWZ §5.1, (306)–(319); HabiroNumberFields:HB.6/ring-operations-and-the-classical-comparison: Finite integral Taylor coordinates and congruence detection supply the untwisted lattice input; HB.6 applies its own Frobenius twist.
+
+**Depends on.** this roadmap: `HC.1/the-quotients-of-the-completion`, `HC.1/cofinality-of-the-factorial-products`, `HC.2/factorial-expansions`.
+
+**Library placement.** Module `TauCeti/RingTheory/Habiro/IntegralTaylor`, namespace `TauCeti.Habiro.HC4`.
 
 **Sources.**
 
-- §1, the introduction, p. 1128 of the PDF, Both statements about the rational case, verbatim.
+- `GSWZ.v2`, §5.1, p. 60, (301)–(303): “an,k = 0 for n < N” — Equation (301) describes the factorial tail and (303) identifies its finite quotient. The packet defines the ideal by its projection kernel; the principal ideal, digit and separatedness API claims now have individual proof nodes. It uses the imported HC.1 completion and the shifted HC.2 digits.
 
-  > The above-mentioned properties do not hold for a general ring R. For example, the analogues of the homomorphisms ev and sigma_zeta over the rational numbers, are not injective; nevertheless, the natural homomorphism Z[q]^N -> Q[q]^N is injective. For more details, see Section 7.5.
+### The weighted Taylor filtration
 
-### Restricted root orders are not a localisation
+`HC.4/weighted-taylor-filtration` · definition
 
-`HabiroCyclotomicCompletions:HC.5/restricted-root-orders-versus-localisation` · *comparison*
-
-Restricting the set of orders is not the same operation as localising the completed ring, and the node makes the difference precise: the restriction map of HC.1 is injective under the connectedness hypothesis and is never surjective in the cases of HC.4, whereas a localisation is by construction surjective onto its image in a different sense and satisfies a universal property that the restriction does not. Naively localising the completed ring does not produce the completion at a smaller set of orders, and this node exhibits where the universal property fails.
+Define pFiltration R N as the ideal of f in TaylorProduct R with C_{m,l}(f)=0 whenever m*l<N. Equivalently f_m is divisible by u^floor((N-1)/m). The quotient retains exactly the coordinates with m*l<N. The filtration decreases, starts at the whole product for N=1, and has zero intersection. Multiplication preserves each ideal because vanishing below a fixed power of u is a componentwise ideal condition.
 
 **Hypotheses.**
 
-- The restriction is along an inclusion of order sets; the localisation is at a multiplicative set of the completed ring.
-- The comparison is of the two universal properties, which is where the difference is visible.
-- The failure is exhibited concretely by the non-surjectivity statements of HC.4.
+- R is a commutative unital ring; any root order is positive and any finite precision is N≥1. Numerical rank assertions assume Nontrivial R. No torsion-freeness, domain or Noetherian hypothesis is required here.
 
-**Proof outline.**
+**Construction.**
 
-1. State the universal property of the restriction, from HC.1.
-2. State the universal property of the localisation.
-3. Show that the completion at a smaller set of orders does not satisfy the localisation property, using the non-surjectivity statements.
-4. Record the correct statement: the completion at a smaller set receives the restriction, and that is all.
-5. Record the rule this exports to the consumer roadmaps, which is that an order-change map is not to be modelled as a localisation.
+1. Use the coefficientwise power-series ideal u^floor((N-1)/m).
+2. A coefficient with exponent k is retained precisely when m*(k+1)<N; show floor((N-1)/m)=ceil(N/m)-1 for m>0.
+3. Every fixed coordinate is eventually retained, giving separatedness.
+
+**API.**
+
+- `pFiltration` (data): The weighted coefficient-vanishing ideal.
+- `mem_pFiltration_iff` (characterisation): f lies in pFiltration R N iff every coefficient with weight m*l<N vanishes.
+- `pFiltration_antitone` (structure): pFiltration R (N+1)≤pFiltration R N.
+- `pFiltration_inter` (characterisation): The intersection for N≥1 is zero.
+- `jetCoordinates` (projection): The finite vector of γ coordinates with m*l<N, in the ordering fixed by taylorMatrix.
+- `jetCoordinates_kernel` (characterisation): jetCoordinates N f=0 iff f belongs to pFiltration R N.
+
+**Unit tests.**
+
+- `pFiltration_one` (degenerate): pFiltration R 1 is the whole product.
+- `pFiltration_three` (computation): pFiltration R 3 forces f_1 to have zero coefficients 0 and 1 and f_2 to have zero coefficient 0; orders ≥3 are unrestricted.
+- `pFiltration_shift_nonexample` (non-example): A collection supported at order 2 with f_2=u lies in pFiltration ℤ 4 but not pFiltration ℤ 5. The coefficient has weight 4, not 2.
 
 **Acceptance.**
 
-- The completion at a smaller order set is not a localisation of the larger one.
-- The restriction map has its own universal property, stated in HC.1.
-- The non-surjectivity statements of HC.4 are what exhibit the difference.
+- Define pFiltration R N as the ideal of f in TaylorProduct R with C_{m,l}(f)=0 whenever m*l<N. Equivalently f_m is divisible by u^floor((N-1)/m). The quotient retains exactly the coordinates with m*l<N. The filtration decreases, starts at the whole product for N=1, and has zero intersection. Multiplication preserves each ideal because vanishing below a fixed power of u is a componentwise ideal condition.
 
-**Prerequisites.** `HabiroCyclotomicCompletions:HC.4/non-surjectivity`, `HabiroCyclotomicCompletions:HC.1/functoriality-in-the-ring-and-in-the-order-set`
+**Used by.**
+
+- GSWZ §5.1, (306)–(319); HabiroNumberFields:HB.6/ring-operations-and-the-classical-comparison: Finite integral Taylor coordinates and congruence detection supply the untwisted lattice input; HB.6 applies its own Frobenius twist.
+
+**Depends on.** this roadmap: `HC.4/universal-taylor-product`.
+
+**Library placement.** Module `TauCeti/RingTheory/Habiro/IntegralTaylor`, namespace `TauCeti.Habiro.HC4`.
 
 **Sources.**
 
-- Proposition 7.4, p. 1144 of the PDF, The statement that makes the difference visible, verbatim.
+- `GSWZ.v2`, §5.1, p. 60, (304)–(305): “Cℓ(ζm) = 0 for mℓ < N” — Equation (304) uses vanishing below ceil(N/m)-1, equivalent to floor((N-1)/m), and its prose says C_l=0 at ml<N. The packet retains the strict inequality and supplies ideal structure by componentwise power-series multiplication. The decreasing direction corrects E23.
 
-  > 3. For each non-empty, finite subset S of N, the homomorphism rho^Z_{N, S} is not surjective.
+### The principal factorial projection kernel
+
+`HC.4/factorial-kernel-characterisation` · lemma
+
+For N≥1, hFiltration R N is the principal ideal generated by the image of P_(N-1) in H_R.
+
+**Hypotheses.**
+
+- R is a commutative unital ring; any root order is positive and any finite precision is N≥1. Numerical rank assertions assume Nontrivial R. No torsion-freeness, domain or Noetherian hypothesis is required here.
+
+**Proof.**
+
+1. Apply HC.1/the-quotients-of-the-completion to the monic associate (-1)^(N-1) P_(N-1), whose principal ideal equals that of P_(N-1).
+
+**Acceptance.**
+
+- For N≥1, hFiltration R N is the principal ideal generated by the image of P_(N-1) in H_R.
+
+**Depends on.** this roadmap: `HC.4/factorial-kernel-filtration`, `HC.1/the-quotients-of-the-completion`, `HC.1/the-factorial-polynomials`.
+
+**Library placement.** Module `TauCeti/RingTheory/Habiro/IntegralTaylor`, namespace `TauCeti.Habiro.HC4`.
+
+**Sources.**
+
+- `GSWZ.v2`, §5.1, p. 60, (301)–(303): “HR,N := (q; q)N−1 HR” — Equation (301) identifies the tail with the principal ideal; its kernel interpretation follows from (303) and the imported HC.1 quotient theorem.
+
+### The kernel of the finite jet coordinates
+
+`HC.4/weighted-jet-kernel` · lemma
+
+For N≥1, jetCoordinates N f=0 iff f belongs to pFiltration R N.
+
+**Hypotheses.**
+
+- R is a commutative unital ring; any root order is positive and any finite precision is N≥1. Numerical rank assertions assume Nontrivial R. No torsion-freeness, domain or Noetherian hypothesis is required here.
+
+**Proof.**
+
+1. The ordered jet indices enumerate exactly the retained coefficients and their cyclotomic power-basis coordinates. A coefficient vanishes iff all its reduced-representative coordinates vanish.
+
+**Acceptance.**
+
+- For N≥1, jetCoordinates N f=0 iff f belongs to pFiltration R N.
+
+**Depends on.** this roadmap: `HC.4/weighted-taylor-filtration`, `HC.4/universal-taylor-product`; libraries: `mathlib:AdjoinRoot.powerBasisAux'`.
+
+**Library placement.** Module `TauCeti/RingTheory/Habiro/IntegralTaylor`, namespace `TauCeti.Habiro.HC4`.
+
+**Sources.**
+
+- `GSWZ.v2`, §5.1, pp. 59–60, (299)–(300), (304)–(305): “Cℓ(ζm) = 0 for mℓ < N” — The power-basis coefficients in (299) vanish exactly when C_l does; (304) specifies the retained strict weights. This is the coordinate-kernel corollary, separate from filtration separation.
+
+### The factorial graded piece
+
+`HC.4/factorial-graded-piece` · comparison
+
+For N≥1, the R-linear map [g] → [P_{N-1}g] identifies R[q]/(1-q^N) with hFiltration R N / hFiltration R (N+1). Both sides are free of rank N. Quotients of nested ideals here are quotients of R-submodules. No claim that this is a unital ring isomorphism is made.
+
+**Hypotheses.**
+
+- R is a commutative unital ring and N≥1. The equivalence is R-linear; numerical rank N assumes Nontrivial R.
+
+**Proof.**
+
+1. Use the imported unique factorial expansion: its Nth digit has degree <N.
+2. Multiplication by the polynomial P_{N-1}, whose leading coefficient is a unit, identifies the leading digit modulo 1-q^N; cancellation proves the stated kernel.
+
+**Acceptance.**
+
+- For N≥1, the R-linear map [g] → [P_{N-1}g] identifies R[q]/(1-q^N) with hFiltration R N / hFiltration R (N+1). Both sides are free of rank N. Quotients of nested ideals here are quotients of R-submodules. No claim that this is a unital ring isomorphism is made.
+
+**Depends on.** this roadmap: `HC.4/factorial-kernel-characterisation`, `HC.4/factorial-filtration-antitone`, `HC.2/factorial-expansions`.
+
+**Library placement.** Module `TauCeti/RingTheory/Habiro/IntegralTaylor`, namespace `TauCeti.Habiro.HC4`.
+
+**Sources.**
+
+- `GSWZ.v2`, §5.1, p. 61, (308): “HR,N /HR,N+1” — The second equivalence in (308) is multiplication by P_(N-1) from the polynomial quotient. The packet treats it as a linear equivalence of nested-ideal module quotients; normalized digits prove the kernel and avoid incorrectly imposing a unital algebra structure.
+
+### The Taylor graded piece
+
+`HC.4/taylor-graded-piece` · comparison
+
+For N≥1, coefficient extraction at l-1 in components m dividing N, l=N/m, gives an R-linear equivalence pFiltration R N / pFiltration R (N+1) with the finite product of A_m(R) over m|N. Finite products and finite direct sums agree. The rank is Σ_{m|N}φ(m)=N.
+
+**Hypotheses.**
+
+- R is a commutative unital ring and N≥1. The equivalence is R-linear; numerical rank N assumes Nontrivial R.
+
+**Proof.**
+
+1. Exactly the coordinates of weight N survive the submodule quotient.
+2. Construct the inverse by putting each prescribed coefficient in u^(N/m-1) in its m component and zero elsewhere.
+3. Use the monic cyclotomic bases and Nat.sum_totient.
+
+**Acceptance.**
+
+- For N≥1, coefficient extraction at l-1 in components m dividing N, l=N/m, gives an R-linear equivalence pFiltration R N / pFiltration R (N+1) with the finite product of A_m(R) over m|N. Finite products and finite direct sums agree. The rank is Σ_{m|N}φ(m)=N.
+
+**Depends on.** this roadmap: `HC.4/weighted-taylor-filtration`, `HC.4/taylor-filtration-antitone`, `HC.4/universal-taylor-product`; libraries: `mathlib:Nat.sum_totient`, `mathlib:AdjoinRoot.powerBasisAux'`.
+
+**Library placement.** Module `TauCeti/RingTheory/Habiro/IntegralTaylor`, namespace `TauCeti.Habiro.HC4`.
+
+**Sources.**
+
+- `GSWZ.v2`, §5.1, p. 61, (308)–(309): “ϕ(m) = N” — The first equivalence in (308) extracts exactly the coefficients of weight N. Equation (309) gives the totient rank count. The inverse inserts one coefficient in each indicated component; positivity of the divisor and l=N/m is required.
+
+### The ordered finite digit basis
+
+`HC.4/finite-precision-bases` · lemma
+
+For N≥1, R[q]/(P_(N-1)) has the digit basis consisting of the classes of q^k P_(n-1), ordered by increasing n then k, for 1≤n<N and 0≤k<n. Its coordinate vector on the projection of h is digitCoordinates N h.
+
+**Hypotheses.**
+
+- R is a commutative unital ring; any root order is positive and any finite precision is N≥1. Numerical rank assertions assume Nontrivial R. No torsion-freeness, domain or Noetherian hypothesis is required here.
+
+**Proof.**
+
+1. Instantiate the finite digit isomorphism already supplied by HC.2/factorial-expansions at N-1, and reindex its ordered pairs by Fin d_N. The basis application and repr formulas are part of the specification, not a new expansion theorem.
+
+**Acceptance.**
+
+- For N≥1, R[q]/(P_(N-1)) has the digit basis consisting of the classes of q^k P_(n-1), ordered by increasing n then k, for 1≤n<N and 0≤k<n. Its coordinate vector on the projection of h is digitCoordinates N h.
+
+**Depends on.** this roadmap: `HC.2/factorial-expansions`, `HC.1/the-factorial-polynomials`.
+
+**Library placement.** Module `TauCeti/RingTheory/Habiro/IntegralTaylor`, namespace `TauCeti.Habiro.HC4`.
+
+**Sources.**
+
+- `GSWZ.v2`, §5.1, p. 60, (303); p. 61, paragraph before (312): “where the first isomorphism is induced” — The finite summands in (303) give the imported HC.2 digit basis in shifted indexing. The printed index typo before (312) is corrected to 0≤k<n. No infinite algebraic ⊗ product or Hamel basis is inferred.
+
+### The multiplicative Taylor comparison
+
+`HC.4/multiplicative-taylor-comparison` · construction · planet “Integral Taylor comparison”
+
+Define iota : H_R →_R TaylorProduct R by expanding q=z_m(1-u) in the universal algebra A_m(R) for every positive m. Its coefficient of u^k on a polynomial g is (-z_m)^k times the kth Hasse derivative of g at z_m. It is the HC.3 Taylor map followed by x=-z_m u, a zero-constant-term linear change of variable. This is ordinary untwisted completion, and does not define GSWZ Definition 1.1.
+
+**Hypotheses.**
+
+- R is a commutative unital ring; any root order is positive and any finite precision is N≥1. Numerical rank assertions assume Nontrivial R. No torsion-freeness, domain or Noetherian hypothesis is required here.
+
+**Construction.**
+
+1. Use HC.3/the-taylor-map with A_m(R), where Φ_m(z_m)=0 by the quotient relation.
+2. Apply the variable scaling x=-z_m u; on polynomials it is evaluation at z_m(1-u), and coefficientwise multiplication shows the ring laws.
+3. Take the product over m.
+
+**API.**
+
+- `iota` (constructor): The R-algebra Taylor collection map.
+- `iota_fromPoly` (simp): iota(g)_m=g(z_m(1-u)).
+- `coeff_iota_fromPoly` (simp): coeff_k iota(g)_m=(-z_m)^k D_k g(z_m).
+- `iota_map` (functoriality): iota commutes with arbitrary coefficient ring maps.
+- `iota_hProjection` (compatibility): finiteIota of the factorial projection equals the finite quotient of iota h, for arbitrary completed h.
+
+**Unit tests.**
+
+- `iota_one` (degenerate): iota(1) is the constant-one collection.
+- `iota_q` (computation): iota(q)_m=z_m-z_m*u; its coefficients at u^0,u^1,u^2 are z_m,-z_m,0.
+- `iota_additive_coordinate` (compatibility): The coefficient at exponent k is (-z_m)^k times the HC.3 additive Taylor coefficient at exponent k; for m=1 this changes the sign in odd degrees.
+
+**Acceptance.**
+
+- Define iota : H_R →_R TaylorProduct R by expanding q=z_m(1-u) in the universal algebra A_m(R) for every positive m. Its coefficient of u^k on a polynomial g is (-z_m)^k times the kth Hasse derivative of g at z_m. It is the HC.3 Taylor map followed by x=-z_m u, a zero-constant-term linear change of variable. This is ordinary untwisted completion, and does not define GSWZ Definition 1.1.
+
+**Used by.**
+
+- GSWZ §5.1, (306)–(319); HabiroNumberFields:HB.6/ring-operations-and-the-classical-comparison: Finite integral Taylor coordinates and congruence detection supply the untwisted lattice input; HB.6 applies its own Frobenius twist.
+
+**Depends on.** this roadmap: `HC.4/universal-taylor-product`, `HC.3/the-taylor-map`; libraries: `mathlib:Polynomial.hasseDeriv`.
+
+**Library placement.** Module `TauCeti/RingTheory/Habiro/IntegralTaylor`, namespace `TauCeti.Habiro.HC4`.
+
+**Sources.**
+
+- `GSWZ.v2`, §5.1, p. 59, (298): “q = ζm(1 − u)” — Equation (298) expands q=ζ_m(1-u); the next paragraph gives x=-ζ_m*u relative to the introduction. The HC.3 supplier explicitly permits an arbitrary coefficient algebra with Φ_m(ζ)=0, so it supplies the universal AdjoinRoot component. The Hasse coefficient formula uses integral derivatives.
+
+### Vanishing orders of factorial products
+
+`HC.4/factorial-vanishing-order` · lemma
+
+For n≥0 and m≥1, P_n(z_m(1-u)) in A_m(R)[u] is divisible by u^floor(n/m). No exact vanishing order is asserted over arbitrary R.
+
+**Hypotheses.**
+
+- R is a commutative unital ring; any root order is positive and any finite precision is N≥1. Numerical rank assertions assume Nontrivial R. No torsion-freeness, domain or Noetherian hypothesis is required here.
+
+**Proof.**
+
+1. For each index i divisible by m, z_m^i=1, so its factor 1-z_m^i(1-u)^i is divisible by u. There are floor(n/m) such indices; multiply their divisibilities.
+
+**Acceptance.**
+
+- For n≥0 and m≥1, P_n(z_m(1-u)) in A_m(R)[u] is divisible by u^floor(n/m). No exact vanishing order is asserted over arbitrary R.
+
+**Depends on.** this roadmap: `HC.4/multiplicative-taylor-comparison`, `HC.1/the-factorial-polynomials`; libraries: `mathlib:Polynomial.prod_cyclotomic_eq_X_pow_sub_one`.
+
+**Library placement.** Module `TauCeti/RingTheory/Habiro/IntegralTaylor`, namespace `TauCeti.Habiro.HC4`.
+
+**Sources.**
+
+- `GSWZ.v2`, §5.1, p. 60, before (304): “vanishes at a primitive m-th root” — The paragraph before (304) states the vanishing order for P_(N-1). This node isolates its elementary arbitrary-n form: indices divisible by m contribute the floor(n/m) factors of u. Exact order need not persist after coefficient reduction.
+
+### The integral leading factor
+
+`HC.4/leading-factor` · definition · planet “Cyclotomic leading factor”
+
+For m,l≥1 define leadingFactor m l=m^(2*l-1)*(l-1)!, a positive integer D_{m,l}. Its exponent includes the l complete collections of nonmultiples of m in P_{ml-1} as well as the l-1 multiples of m. It is independent of the chosen primitive root.
+
+**Hypotheses.**
+
+- m,l are positive natural numbers; leadingFactor is a natural integer scalar.
+
+**Construction.**
+
+1. Define the integer by the displayed formula; positivity follows from positive m and factorial positivity.
+
+**API.**
+
+- `leadingFactor` (data): m^(2*l-1)*(l-1)! as a natural number.
+- `leadingFactor_pos` (characterisation): 0<leadingFactor m l for m,l>0.
+- `leadingFactor_succ` (relation): D_{m,l+1}=m^2*l*D_{m,l} for m,l>0.
+
+**Unit tests.**
+
+- `leadingFactor_order_one` (computation): D_{1,4}=6.
+- `leadingFactor_ell_one` (degenerate): D_{m,1}=m for every positive m.
+- `leadingFactor_two_two` (non-example): D_{2,2}=8, not 2 or 4.
+
+**Acceptance.**
+
+- For m,l≥1 define leadingFactor m l=m^(2*l-1)*(l-1)!, a positive integer D_{m,l}. Its exponent includes the l complete collections of nonmultiples of m in P_{ml-1} as well as the l-1 multiples of m. It is independent of the chosen primitive root.
+
+**Used by.**
+
+- GSWZ §5.1, (306)–(319); HabiroNumberFields:HB.6/ring-operations-and-the-classical-comparison: Finite integral Taylor coordinates and congruence detection supply the untwisted lattice input; HB.6 applies its own Frobenius twist.
+
+**Depends on.** nothing beyond its statement.
+
+**Library placement.** Module `TauCeti/RingTheory/Habiro/IntegralTaylor`, namespace `TauCeti.Habiro.HC4`.
+
+**Sources.**
+
+- `GSWZ.v2`, §5.1, p. 61, (310): “Dm,ℓ := m2ℓ−1(ℓ − 1)!” — Equation (310) defines D_(m,l)=m^(2l-1)*(l-1)!. The exponent-plus-one convention explains the factorial l-1. The definition and recurrence are natural-integer arithmetic, independent of torsion properties of R.
+
+### The primitive-root product identity
+
+`HC.4/root-product-identity` · lemma
+
+In A_m(ℤ) for m≥1, product_{r=1}^{m-1}(1-z_m^r)=m. The same identity holds after any coefficient change. For m=1 both sides are 1. It is proved in the universal integral cyclotomic quotient, not by cancellation over an arbitrary R.
+
+**Hypotheses.**
+
+- R is a commutative unital ring; any root order is positive and any finite precision is N≥1. Numerical rank assertions assume Nontrivial R. No torsion-freeness, domain or Noetherian hypothesis is required here.
+
+**Proof.**
+
+1. Use the monic-remainder basis to embed A_m(ℤ) in A_m(ℚ). Choose the concrete primitive root Complex.exp(2*pi*I/m) by Complex.isPrimitiveRoot_exp; Polynomial.cyclotomic_eq_minpoly_rat and minpoly.dvd_iff make evaluation embed A_m(ℚ) into C.
+2. Apply the domain identity IsPrimitiveRoot.prod_one_sub_pow_eq_order in C, with n=m-1 in its successor indexing, and transfer back through the two injective maps.
+3. Use the quotient universal property for arbitrary R.
+
+**Acceptance.**
+
+- In A_m(ℤ) for m≥1, product_{r=1}^{m-1}(1-z_m^r)=m. The same identity holds after any coefficient change. For m=1 both sides are 1. It is proved in the universal integral cyclotomic quotient, not by cancellation over an arbitrary R.
+
+**Depends on.** this roadmap: `HC.4/universal-taylor-product`; libraries: `mathlib:IsPrimitiveRoot.prod_one_sub_pow_eq_order`, `mathlib:Polynomial.cyclotomic_eq_minpoly_rat`, `mathlib:minpoly.dvd_iff`, `mathlib:Complex.isPrimitiveRoot_exp`.
+
+**Library placement.** Module `TauCeti/RingTheory/Habiro/IntegralTaylor`, namespace `TauCeti.Habiro.HC4`.
+
+**Sources.**
+
+- `GSWZ.v2`, §5.1, p. 61, calculation following (310): “a simple calculation” — The source leaves the calculation after (310) to the reader; it does not separately state this primitive-root product identity. The node supplies that intermediate calculation in the universal integral quotient, extending the cited Mathlib domain statement by injective passage through ℚ and coefficient change. Its m=1 boundary is the empty product.
+
+### Leading Taylor coefficient of a factorial product
+
+`HC.4/factorial-leading-coefficient` · lemma
+
+For m,l≥1, the coefficients below exponent l-1 of P_{ml-1}(z_m(1-u)) vanish and its coefficient at l-1 equals D_{m,l}. Thus P_{ml-1}(z_m(1-u))=D_{m,l}u^(l-1) modulo u^l in A_m(R)[u].
+
+**Hypotheses.**
+
+- R is a commutative unital ring; any root order is positive and any finite precision is N≥1. Numerical rank assertions assume Nontrivial R. No torsion-freeness, domain or Noetherian hypothesis is required here.
+
+**Proof.**
+
+1. For each multiple i=m*j, j=1,...,l-1, the factor 1-(1-u)^i starts with m*j*u.
+2. For each nonzero residue r mod m there are l indices ≤m*l-1; the product of their constant terms is (product_{r=1}^{m-1}(1-z_m^r))^l=m^l.
+3. Multiply the two contributions: m^(l-1)*(l-1)! times m^l.
+
+**Acceptance.**
+
+- For m,l≥1, the coefficients below exponent l-1 of P_{ml-1}(z_m(1-u)) vanish and its coefficient at l-1 equals D_{m,l}. Thus P_{ml-1}(z_m(1-u))=D_{m,l}u^(l-1) modulo u^l in A_m(R)[u].
+
+**Depends on.** this roadmap: `HC.4/factorial-vanishing-order`, `HC.4/leading-factor`, `HC.4/root-product-identity`.
+
+**Library placement.** Module `TauCeti/RingTheory/Habiro/IntegralTaylor`, namespace `TauCeti.Habiro.HC4`.
+
+**Sources.**
+
+- `GSWZ.v2`, §5.1, p. 61, (310): “Dm,ℓ uℓ−1” — Equation (310) states both the vanishing of lower coefficients and the first coefficient D_(m,l) in one expansion modulo u^l. The proof separates multiples of m from nonzero residues and uses root-product-identity; this is one coefficient-expansion assertion.
+
+### The graded Taylor map
+
+`HC.4/graded-taylor-map` · lemma
+
+Under the two graded-piece equivalences, gr_N(iota) sends [g] in R[q]/(1-q^N) to (D_{m,N/m}*g(z_m))_{m|N}. The order is N in both filtrations. No derivative of g enters this first surviving coefficient.
+
+**Hypotheses.**
+
+- R is a commutative unital ring; any root order is positive and any finite precision is N≥1. Numerical rank assertions assume Nontrivial R. No torsion-freeness, domain or Noetherian hypothesis is required here.
+
+**Proof.**
+
+1. Multiply g(z_m(1-u)) by the leading coefficient of P_{N-1} at m|N.
+2. Only g(z_m) contributes to exponent N/m-1; use factorial-leading-coefficient.
+
+**Acceptance.**
+
+- Under the two graded-piece equivalences, gr_N(iota) sends [g] in R[q]/(1-q^N) to (D_{m,N/m}*g(z_m))_{m|N}. The order is N in both filtrations. No derivative of g enters this first surviving coefficient.
+
+**Depends on.** this roadmap: `HC.4/factorial-graded-piece`, `HC.4/taylor-graded-piece`, `HC.4/factorial-leading-coefficient`, `HC.4/taylor-comparison-filtered`.
+
+**Library placement.** Module `TauCeti/RingTheory/Habiro/IntegralTaylor`, namespace `TauCeti.Habiro.HC4`.
+
+**Sources.**
+
+- `GSWZ.v2`, §5.1, p. 61, (311): “P(ζm)” — Equation (311) applies the expansion (310) to P_(N-1)*g for m dividing N. Only g(z_m) enters the surviving coefficient. The packet supplies the two graded identifications and the filtered-map prerequisite directly.
+
+### Simultaneous cyclotomic remainders are injective
+
+`HC.4/simultaneous-cyclotomic-remainders` · lemma
+
+For ℤ-torsion-free R and N≥1, the simultaneous remainder map E_N:R[q]/(q^N-1)→product_(m|N) A_m(R) is injective. It is not generally surjective over ℤ.
+
+**Hypotheses.**
+
+- R is torsion-free as an abelian group; no domain or Noetherian hypothesis.
+
+**Proof.**
+
+1. The rational simultaneous remainder map is bijective by simultaneous-remainders-rational. In the monic quotient bases its integral matrix is square and therefore has nonzero integer determinant.
+2. Apply its integral adjugate to a kernel vector over R; cancel the nonzero integer determinant using ℤ-torsion-freeness coordinatewise.
+
+**Acceptance.**
+
+- For ℤ-torsion-free R and N≥1, the simultaneous remainder map E_N:R[q]/(q^N-1)→product_(m|N) A_m(R) is injective. It is not generally surjective over ℤ.
+
+**Depends on.** this roadmap: `HC.4/universal-taylor-product`, `HC.4/simultaneous-remainders-rational`; libraries: `mathlib:Nat.sum_totient`, `mathlib:Matrix.adjugate_mul`.
+
+**Library placement.** Module `TauCeti/RingTheory/Habiro/IntegralTaylor`, namespace `TauCeti.Habiro.HC4`.
+
+**Sources.**
+
+- `GSWZ.v2`, §5.1, p. 61, after (311): “P(ζm) = 0 for all m|N” — The parenthesis after (311) identifies simultaneous root vanishing with divisibility by 1-q^N over ℤ. The packet proves the stronger coefficient-ring version by the integral matrix and torsion-free cancellation, rather than relying on integral CRT. Its separate rational node supplies the finite rational isomorphism.
+
+### Injectivity on associated graded pieces
+
+`HC.4/graded-taylor-injective` · lemma
+
+For ℤ-torsion-free R and every N≥1, gr_N(iota) is injective.
+
+**Hypotheses.**
+
+- R is a commutative ring, ℤ-torsion-free as an abelian group, and N≥1; no domain or Noetherian hypothesis.
+
+**Proof.**
+
+1. The graded map is the simultaneous remainder map followed by multiplication by D_(m,N/m) in each component. The first map is injective, and every positive integer multiplier acts injectively in the cyclotomic R-basis.
+
+**Acceptance.**
+
+- For ℤ-torsion-free R and every N≥1, gr_N(iota) is injective.
+
+**Depends on.** this roadmap: `HC.4/graded-taylor-map`, `HC.4/simultaneous-cyclotomic-remainders`, `HC.4/leading-factor`.
+
+**Library placement.** Module `TauCeti/RingTheory/Habiro/IntegralTaylor`, namespace `TauCeti.Habiro.HC4`.
+
+**Sources.**
+
+- `GSWZ.v2`, §5.1, p. 61, after (311): “an injection on these quotients” — The paragraph after (311) says the map is injective on graded quotients because D_(m,l) is nonzero. The packet makes the missing simultaneous-remainder input explicit and uses torsion-freeness in the cyclotomic basis. The rational bijectivity claim has its own node.
+
+### The finite Taylor comparison map
+
+`HC.4/finite-taylor-map` · construction
+
+For N≥1 define finiteIota R N:R[q]/(P_{N-1})→_R TaylorProduct R/pFiltration R N by the polynomial Taylor maps at q=z_m(1-u), truncated to m*l<N. Equivalently this is iota on H_R/hFiltration R N under the canonical finite quotient equivalence. It is natural under coefficient maps and compatible with forgetting precision.
+
+**Hypotheses.**
+
+- R is a commutative unital ring; any root order is positive and any finite precision is N≥1. Numerical rank assertions assume Nontrivial R. No torsion-freeness, domain or Noetherian hypothesis is required here.
+
+**Construction.**
+
+1. The factorial vanishing-order lemma makes the polynomial substitution map kill P_{N-1} in every retained jet.
+2. Descend to the quotient, or use the factorial-kernel quotient equivalence.
+
+**API.**
+
+- `finiteIota` (constructor): The finite R-algebra map at precision N.
+- `finiteIota_polynomial` (simp): On a polynomial class it is the class of its Taylor collection.
+- `finiteIota_transition` (compatibility): Forgetting precision commutes with finiteIota.
+- `finiteIota_baseChange` (functoriality): Finite coefficient extension carries finiteIota R N to finiteIota R′ N.
+
+**Unit tests.**
+
+- `finiteIota_one` (degenerate): At precision 1 both source and target are zero.
+- `finiteIota_two` (computation): At precision 2 the map is evaluation at 1 and is the identity R→R.
+- `finiteIota_three_nonsurjective` (non-example): At precision 3 over ℤ the vector (1,0,0) in coordinates (γ_1,1,0,γ_2,1,0,γ_1,2,0) is not in the image.
+
+**Acceptance.**
+
+- For N≥1 define finiteIota R N:R[q]/(P_{N-1})→_R TaylorProduct R/pFiltration R N by the polynomial Taylor maps at q=z_m(1-u), truncated to m*l<N. Equivalently this is iota on H_R/hFiltration R N under the canonical finite quotient equivalence. It is natural under coefficient maps and compatible with forgetting precision.
+
+**Used by.**
+
+- GSWZ §5.1, (306)–(319); HabiroNumberFields:HB.6/ring-operations-and-the-classical-comparison: Finite integral Taylor coordinates and congruence detection supply the untwisted lattice input; HB.6 applies its own Frobenius twist.
+
+**Depends on.** this roadmap: `HC.4/factorial-vanishing-order`, `HC.4/taylor-comparison-filtered`, `HC.4/factorial-finite-quotient`, `HC.1/functoriality-in-the-ring-and-in-the-order-set`, `HC.4/multiplicative-taylor-comparison`, `HC.4/universal-taylor-product`.
+
+**Library placement.** Module `TauCeti/RingTheory/Habiro/IntegralTaylor`, namespace `TauCeti.Habiro.HC4`.
+
+**Sources.**
+
+- `GSWZ.v2`, §5.1, pp. 60–61, (306): “well-defined maps” — Equation (306) descends the filtered comparison to the finite quotients. The node specifies the polynomial formula, coefficient naturality, forgetting-precision compatibility and agreement with the global map on completed elements. It uses the filtered containment and factorial finite quotient explicitly.
+
+### Injectivity of the finite Taylor comparison
+
+`HC.4/finite-taylor-injective` · theorem
+
+For N≥1 and ℤ-torsion-free R, finiteIota R N is injective.
+
+**Hypotheses.**
+
+- R is a commutative ring, ℤ-torsion-free as an abelian group, and N≥1; no domain or Noetherian hypothesis.
+
+**Proof.**
+
+1. Induct on N, starting with the zero quotient at N=1. A kernel class has zero image at lower precision, hence lies in the top factorial graded piece. Its graded image is zero, so graded-taylor-injective kills it.
+
+**Acceptance.**
+
+- For N≥1 and ℤ-torsion-free R, finiteIota R N is injective.
+
+**Depends on.** this roadmap: `HC.4/finite-taylor-map`, `HC.4/graded-taylor-injective`, `HC.4/factorial-graded-piece`, `HC.4/taylor-graded-piece`.
+
+**Library placement.** Module `TauCeti/RingTheory/Habiro/IntegralTaylor`, namespace `TauCeti.Habiro.HC4`.
+
+**Sources.**
+
+- `GSWZ.v2`, §5.1, p. 61, after (306): “injective map between free R-modules” — The paragraph after (306) asserts finite injectivity and rational invertibility. This node now states only injectivity, proved by induction through the two graded pieces with precise torsion-free hypotheses; rational bijectivity is independently isolated.
+
+### Joint Taylor injectivity
+
+`HC.4/global-taylor-injective` · theorem · planet “Joint Taylor injectivity”
+
+For every ℤ-torsion-free R the joint map iota:H_R→TaylorProduct R is injective. Individual components need not be injective; for R=ℚ they are not when all root orders are used.
+
+**Hypotheses.**
+
+- R is ℤ-torsion-free.
+
+**Proof.**
+
+1. If iota(x)=0 then finite-taylor-injective implies every finite factorial projection of x is zero.
+2. Use the intersection-of-kernels property of hFiltration.
+
+**Acceptance.**
+
+- For every ℤ-torsion-free R the joint map iota:H_R→TaylorProduct R is injective. Individual components need not be injective; for R=ℚ they are not when all root orders are used.
+
+**Depends on.** this roadmap: `HC.4/finite-taylor-injective`, `HC.4/finite-taylor-map`, `HC.4/factorial-filtration-separated`.
+
+**Library placement.** Module `TauCeti/RingTheory/Habiro/IntegralTaylor`, namespace `TauCeti.Habiro.HC4`.
+
+**Sources.**
+
+- `GSWZ.v2`, §5.1, p. 61, immediately before (307): “ι is an injection over R” — The source derives joint injectivity from the filtered finite maps. This node uses finite injectivity and the separated factorial kernels; it does not assert injectivity of a chosen embedded component.
+
+### Taylor reconstruction over a rational coefficient algebra
+
+`HC.4/rational-taylor-isomorphism` · theorem
+
+If R is a ℚ-algebra, iota:H_R→TaylorProduct R is an R-algebra isomorphism. It is the inverse limit of finiteIota R N and is characterized by reconstructing every finite jet. The assertion concerns H_(R), not H_ℤ ⊗_ℤ R or H_R ⊗_ℤ ℚ.
+
+**Hypotheses.**
+
+- R is a ℚ-algebra.
+
+**Proof.**
+
+1. The finite maps are bijective and compatible with truncation.
+2. Their unique inverses also commute with truncation.
+3. Use the inverse-limit reconstructions of the two coefficient objects to obtain the global inverse.
+
+**Acceptance.**
+
+- If R is a ℚ-algebra, iota:H_R→TaylorProduct R is an R-algebra isomorphism. It is the inverse limit of finiteIota R N and is characterized by reconstructing every finite jet. The assertion concerns H_(R), not H_ℤ ⊗_ℤ R or H_R ⊗_ℤ ℚ.
+
+**Depends on.** this roadmap: `HC.4/finite-taylor-rational`, `HC.4/finite-taylor-map`, `HC.4/taylor-finite-reconstruction`, `HC.1/cofinality-of-the-factorial-products`, `HC.4/multiplicative-taylor-comparison`.
+
+**Library placement.** Module `TauCeti/RingTheory/Habiro/IntegralTaylor`, namespace `TauCeti.Habiro.HC4`.
+
+**Sources.**
+
+- `GSWZ.v2`, §5.1, p. 61, (307) and its preceding paragraph: “an isomorphism over R ⊗ Q” — Here the coefficient ring itself is a ℚ-algebra. Compatible finite inverses reconstruct H_R and P_R; the source explicitly warns on p. 59 that H_ℚ differs from H_ℤ ⊗ ℚ.
+
+### The integral finite Taylor matrix
+
+`HC.4/taylor-matrix` · construction · planet “Finite Taylor matrix”
+
+Define taylorMatrix N=M_N, a square integer matrix of size d_N=N(N-1)/2. Columns are (n,k) ordered by increasing n, then k, with 1≤n<N,0≤k<n. Rows are (m,l,j) ordered by increasing weight m*l, decreasing m within a weight, then increasing j, with m*l<N,0≤j<φ(m). Entry ((m,l,j),(n,k)) is coefficient j of the reduced cyclotomic representative of the coefficient u^(l-1) in z_m^k(1-u)^k P_{n-1}(z_m(1-u)). The matrix over R is entrywise integer casting. All row/column order choices are pinned.
+
+**Hypotheses.**
+
+- N≥1; matrices and determinants are integral and use the specified finite basis ordering.
+
+**Construction.**
+
+1. Enumerate the finite bases from finite-precision-bases using the displayed order.
+2. Compute each entry by integral Hasse coefficients and reduction modulo the monic Φ_m in ℤ[z_m].
+3. For arbitrary R monic reduction commutes with coefficient change; the universal algebra keeps the basis rank φ(m).
+
+**API.**
+
+- `taylorMatrix` (constructor): The integer matrix defined by finite Taylor coefficients.
+- `taylorMatrix_entry` (characterisation): The coefficient-extraction and monic-remainder formula stated above.
+- `taylorMatrix_mul_digits` (characterisation): M_N times the first N-1 normalized digit coordinate blocks equals jetCoordinates N of iota.
+- `taylorMatrix_baseChange` (compatibility): The finite Taylor map over R is represented by the cast of this same integer matrix.
+- `taylorMatrix_zero_above_weight` (simp): An entry is zero if the row weight is smaller than the column n.
+
+**Unit tests.**
+
+- `taylorMatrix_empty` (degenerate): M_1 is the empty 0 by 0 matrix, with determinant 1.
+- `taylorMatrix_three` (computation): M_3 has rows (1,0,0), (1,2,-2), (0,1,1).
+- `taylorMatrix_five_kontsevich` (computation): M_5 times (1,1,0,1,0,0,1,0,0,0) equals (1,3,1,5,-1,2,8,-3,11,5).
+- `taylorMatrix_sign_nonexample` (non-example): At precision 3 the coefficient of u in q*(1-q) expanded at 1-u is 1, giving the last entry 1 rather than -1.
+
+**Acceptance.**
+
+- Define taylorMatrix N=M_N, a square integer matrix of size d_N=N(N-1)/2. Columns are (n,k) ordered by increasing n, then k, with 1≤n<N,0≤k<n. Rows are (m,l,j) ordered by increasing weight m*l, decreasing m within a weight, then increasing j, with m*l<N,0≤j<φ(m). Entry ((m,l,j),(n,k)) is coefficient j of the reduced cyclotomic representative of the coefficient u^(l-1) in z_m^k(1-u)^k P_{n-1}(z_m(1-u)). The matrix over R is entrywise integer casting. All row/column order choices are pinned.
+
+**Used by.**
+
+- GSWZ §5.1, (306)–(319); HabiroNumberFields:HB.6/ring-operations-and-the-classical-comparison: Finite integral Taylor coordinates and congruence detection supply the untwisted lattice input; HB.6 applies its own Frobenius twist.
+
+**Depends on.** this roadmap: `HC.4/finite-taylor-map`, `HC.4/finite-precision-bases`, `HC.4/finite-jet-basis`, `HC.4/finite-precision-rank`; libraries: `mathlib:AdjoinRoot.modByMonicHom`, `mathlib:Polynomial.hasseDeriv_coeff`.
+
+**Library placement.** Module `TauCeti/RingTheory/Habiro/IntegralTaylor`, namespace `TauCeti.Habiro.HC4`.
+
+**Sources.**
+
+- `GSWZ.v2`, §5.1, pp. 61–62, before (312) and (312): “integers entries and is independent” — The paragraph before (312) specifies integral entries independent of R, and (312) pins the first ten rows. The packet explicitly orders every finite digit and jet basis and defines each integer entry by monic remainder. Its finite-level coefficient independence does not use the erroneous infinite tensor-product claim.
+
+### The coordinate matrix of the finite comparison
+
+`HC.4/finite-taylor-coordinate-matrix` · lemma
+
+For N≥1, the matrix of finiteIota R N in the specified ordered digit and jet bases is the entrywise integer cast of M_N.
+
+**Hypotheses.**
+
+- R is a commutative unital ring; any root order is positive and any finite precision is N≥1. Numerical rank assertions assume Nontrivial R. No torsion-freeness, domain or Noetherian hypothesis is required here.
+
+**Proof.**
+
+1. Compute the image of each digit basis class by polynomial substitution, then extract its reduced cyclotomic coefficients via finiteJetBasis.repr. Monic division and coefficient extraction commute with integer casting.
+
+**Acceptance.**
+
+- For N≥1, the matrix of finiteIota R N in the specified ordered digit and jet bases is the entrywise integer cast of M_N.
+
+**Depends on.** this roadmap: `HC.4/taylor-matrix`, `HC.4/finite-precision-bases`, `HC.4/finite-jet-basis`, `HC.4/multiplicative-taylor-comparison`.
+
+**Library placement.** Module `TauCeti/RingTheory/Habiro/IntegralTaylor`, namespace `TauCeti.Habiro.HC4`.
+
+**Sources.**
+
+- `GSWZ.v2`, §5.1, pp. 61–62, before (312) and (312): “matrix MN” — The paragraph before (312) says M_N represents iota_N in the displayed coordinates. The corrected node is the actual toMatrix equality in specified bases; the digit-action and triangular-zero corollaries have separate nodes. Finite monic remainder commutes with coefficient change.
+
+### Determinant of a two-factor remainder map
+
+`HC.4/two-factor-remainder-determinant` · lemma
+
+For monic f,g in ℤ[q], the square integral map ℤ[q]/(fg)→ℤ[q]/(f) direct-sum ℤ[q]/(g), in monomial quotient bases, has absolute determinant equal to |Res(f,g)|. This does not require integral comaximality.
+
+**Hypotheses.**
+
+- f and g are monic integral polynomials, including degree zero; no coprimality or separability hypothesis.
+
+**Proof.**
+
+1. Change the source basis to 1,q,...,q^(deg f-1), f,qf,...,q^(deg g-1) by a unit triangular matrix.
+2. The remainder matrix becomes block triangular: identity on the f quotient and multiplication by f on the g quotient.
+3. Apply monic division by g to the target coefficient space of the Sylvester map (a,b)→g*a+f*b. The new basis 1,q,...,q^(deg g-1),g,qg,...,q^(deg f-1) is unit triangular. The coefficient matrix has multiplication by f modulo g and an identity diagonal block. Polynomial.toMatrix_sylvesterMap and the definition of resultant identify its determinant up to permutation sign. This avoids a separability or integral CRT assumption.
+
+**Acceptance.**
+
+- For monic f,g in ℤ[q], the square integral map ℤ[q]/(fg)→ℤ[q]/(f) direct-sum ℤ[q]/(g), in monomial quotient bases, has absolute determinant equal to |Res(f,g)|. This does not require integral comaximality.
+
+**Depends on.** libraries: `mathlib:AdjoinRoot.modByMonicHom`, `mathlib:AdjoinRoot.powerBasisAux'`, `mathlib:Matrix.BlockTriangular.det_fintype`, `mathlib:Polynomial.toMatrix_sylvesterMap`.
+
+**Library placement.** Module `TauCeti/RingTheory/Habiro/IntegralTaylor`, namespace `TauCeti.Habiro.HC4`.
+
+**Sources.**
+
+- `GSWZ.v2`, §5.1, p. 62, Proposition 5.1, (315): “D2(n)” — The source supplies the cyclotomic determinant target (315), not a proof of this general auxiliary lemma. The lemma is independently derived using two unit-triangular changes of monomial bases and the pinned Sylvester-map statement; neither separability nor integral comaximality is required.
+
+### Determinant of simultaneous cyclotomic remainders
+
+`HC.4/cyclotomic-remainder-determinant` · lemma
+
+For E_N above, its absolute integral determinant D_2(N) is product over positive d<e dividing N of |Res(Φ_e,Φ_d)|. Equivalently, every pair e/d=p^a with a≥1 contributes p^φ(d), and all other pairs contribute 1. This is the positive integer form of GSWZ (315); it gives D_2(1..8)=1,2,3,8,5,72,7,128 without fractional exponents or square-root choices.
+
+**Hypotheses.**
+
+- N≥1; matrices and determinants are integral and use the specified finite basis ordering.
+
+**Proof.**
+
+1. Apply two-factor-remainder-determinant successively to the ordered monic factors of q^N-1.
+2. Use multiplicativity of resultants in products.
+3. Use the imported cyclotomic resultant formula from HC.4; unequal d,e are required.
+
+**Acceptance.**
+
+- For E_N above, its absolute integral determinant D_2(N) is product over positive d<e dividing N of |Res(Φ_e,Φ_d)|. Equivalently, every pair e/d=p^a with a≥1 contributes p^φ(d), and all other pairs contribute 1. This is the positive integer form of GSWZ (315); it gives D_2(1..8)=1,2,3,8,5,72,7,128 without fractional exponents or square-root choices.
+
+**Depends on.** this roadmap: `HC.4/two-factor-remainder-determinant`, `HC.4/cyclotomic-comaximality-and-resultant`; libraries: `mathlib:Polynomial.resultant_prod_left`, `mathlib:Polynomial.prod_cyclotomic_eq_X_pow_sub_one`.
+
+**Library placement.** Module `TauCeti/RingTheory/Habiro/IntegralTaylor`, namespace `TauCeti.Habiro.HC4`.
+
+**Sources.**
+
+- `GSWZ.v2`, §5.1, p. 62, Proposition 5.1, (315): “D2(n) is an integer” — Equation (315) gives the positive simultaneous-remainder determinant using discriminants. The packet gives its equivalent pairwise-resultant expression: successive two-factor remainder maps and resultant multiplicativity, then the inherited cyclotomic resultant formula, give the same integer without square-root choices.
+
+### Determinant of a graded Taylor block
+
+`HC.4/graded-taylor-determinant` · lemma
+
+The absolute determinant of gr_N(iota) over ℤ is D_1(N)D_2(N), where D_1(N)=product_{m|N} D_{m,N/m}^φ(m), and D_2 is the simultaneous remainder determinant. Both factors are strictly positive.
+
+**Hypotheses.**
+
+- N≥1; matrices and determinants are integral and use the specified finite basis ordering.
+
+**Proof.**
+
+1. Use graded-taylor-map: first simultaneous remainders, then scalar multiplication by D_{m,N/m} on φ(m) coordinates.
+2. The scalar multiplication contributes D_1(N); cyclotomic-remainder-determinant contributes D_2(N).
+
+**Acceptance.**
+
+- The absolute determinant of gr_N(iota) over ℤ is D_1(N)D_2(N), where D_1(N)=product_{m|N} D_{m,N/m}^φ(m), and D_2 is the simultaneous remainder determinant. Both factors are strictly positive.
+
+**Depends on.** this roadmap: `HC.4/graded-taylor-map`, `HC.4/cyclotomic-remainder-determinant`, `HC.4/leading-factor`.
+
+**Library placement.** Module `TauCeti/RingTheory/Habiro/IntegralTaylor`, namespace `TauCeti.Habiro.HC4`.
+
+**Sources.**
+
+- `GSWZ.v2`, §5.1, p. 62, (314)–(315): “Dm,ℓ” — Equations (314)–(315) are the two factors of the graded determinant. Equation (311) represents its map as simultaneous remainders followed by scalar multiplication, so each D_(m,N/m) contributes φ(m) powers. Positivity follows in the same product computation.
+
+### The finite Taylor determinant formula
+
+`HC.4/finite-taylor-determinant` · theorem · planet “Finite Taylor determinant”
+
+For N≥1, define δ_N=|det(M_N)|. With precision conventions (301)–(306), δ_N=product_{1≤n<N} D_1(n)D_2(n). Positivity is the separate finite-taylor-determinant-positive node. In particular δ_1=1, δ_2=1, δ_3=4, δ_4=216, δ_5=1327104, δ_6=99532800000. The upper bound is n<N, not n≤N as printed in (313); the preprint table is shifted by one relative to M_N.
+
+**Hypotheses.**
+
+- N≥1; matrices and determinants are integral and use the specified finite basis ordering.
+
+**Proof.**
+
+1. The weight filtration makes M_N block lower triangular; its n-th diagonal block is gr_n(iota).
+2. Use Matrix.BlockTriangular.det_fintype with the weight map valued in OrderDual: the pinned convention zeros entries when b(j)<b(i), whereas the Taylor matrix vanishes when the column weight exceeds the row weight. Apply graded-taylor-determinant and take absolute values.
+3. Check the base empty determinant 1 and recurrence δ_(N+1)=δ_N*D_1(N)D_2(N).
+
+**Acceptance.**
+
+- For N≥1, define δ_N=|det(M_N)|. With precision conventions (301)–(306), δ_N=product_{1≤n<N} D_1(n)D_2(n). Positivity is the separate finite-taylor-determinant-positive node. In particular δ_1=1, δ_2=1, δ_3=4, δ_4=216, δ_5=1327104, δ_6=99532800000. The upper bound is n<N, not n≤N as printed in (313); the preprint table is shifted by one relative to M_N.
+
+**Depends on.** this roadmap: `HC.4/finite-taylor-coordinate-matrix`, `HC.4/taylor-matrix-triangular`, `HC.4/graded-taylor-map`, `HC.4/graded-taylor-determinant`; libraries: `mathlib:Matrix.BlockTriangular.det_fintype`.
+
+**Library placement.** Module `TauCeti/RingTheory/Habiro/IntegralTaylor`, namespace `TauCeti.Habiro.HC4`.
+
+**Sources.**
+
+- `GSWZ.v2`, §5.1, p. 62, Proposition 5.1, (313) (corrected indexing): “D(N) := |det(MN)|” — Proposition 5.1 gives the block determinant argument, but (313) has the precision shift confirmed in E19. With the source definition of M_N and rows of weight below N, the product stops at N-1. The empty determinant and independently computed δ_3=4 pin the convention.
+
+### The signed adjugate congruence matrix
+
+`HC.4/signed-adjugate` · construction
+
+For N≥1 let δ_N=|det M_N| and starMatrix N=sign(det M_N)*adj(M_N), an integral square matrix. Thus M_N starMatrix N=starMatrix N M_N=δ_N I and over ℚ starMatrix N=δ_N M_N^(-1). The sign is necessary with the pinned row order (det M_3=4, but signs at higher precision need not be assumed). The empty matrix at N=1 is allowed.
+
+**Hypotheses.**
+
+- N≥1; matrices and determinants are integral and use the specified finite basis ordering.
+
+**Construction.**
+
+1. Use nonvanishing of the determinant and the two baseline adjugate identities.
+2. Multiply the adjugate by the integer sign of the determinant.
+
+**API.**
+
+- `starMatrix` (constructor): The signed integral adjugate of M_N.
+- `taylorMatrix_mul_starMatrix` (relation): M_N*starMatrix N=δ_N I.
+- `starMatrix_mul_taylorMatrix` (relation): starMatrix N*M_N=δ_N I.
+- `starMatrix_over_rat` (compatibility): After casting to ℚ, starMatrix N=δ_N*M_N inverse.
+
+**Unit tests.**
+
+- `starMatrix_empty` (degenerate): The empty signed-adjugate identities hold at N=1 with δ_1=1.
+- `starMatrix_three` (computation): starMatrix 3 has rows (4,0,0),(-1,1,2),(1,-1,2).
+- `starMatrix_three_nonexample` (non-example): starMatrix 3 applied to (1,0,0) equals (4,-1,1), which is not divisible by 4 coordinatewise.
+
+**Acceptance.**
+
+- For N≥1 let δ_N=|det M_N| and starMatrix N=sign(det M_N)*adj(M_N), an integral square matrix. Thus M_N starMatrix N=starMatrix N M_N=δ_N I and over ℚ starMatrix N=δ_N M_N^(-1). The sign is necessary with the pinned row order (det M_3=4, but signs at higher precision need not be assumed). The empty matrix at N=1 is allowed.
+
+**Used by.**
+
+- GSWZ §5.1, (306)–(319); HabiroNumberFields:HB.6/ring-operations-and-the-classical-comparison: Finite integral Taylor coordinates and congruence detection supply the untwisted lattice input; HB.6 applies its own Frobenius twist.
+
+**Depends on.** this roadmap: `HC.4/finite-taylor-determinant`; libraries: `mathlib:Matrix.mul_adjugate`, `mathlib:Matrix.adjugate_mul`.
+
+**Library placement.** Module `TauCeti/RingTheory/Habiro/IntegralTaylor`, namespace `TauCeti.Habiro.HC4`.
+
+**Sources.**
+
+- `GSWZ.v2`, §5.1, p. 63, Proposition 5.2, (319): “M∗N := D(N) M−1N” — Proposition 5.2 defines M_N^*=D(N) M_N^(-1). The packet uses sign(det M_N)*adj(M_N), giving that exact positive-determinant inverse scaling over ℚ and an integral constructor. The two product identities are proved by their separate pinned adjugate identities.
+
+### The right signed adjugate identity
+
+`HC.4/signed-adjugate-identities` · lemma
+
+For N≥1, M_N*starMatrix N=δ_N I over ℤ; this equality persists under coefficient maps.
+
+**Hypotheses.**
+
+- N≥1; matrices and determinants are integral and use the specified finite basis ordering.
+
+**Proof.**
+
+1. Multiply Matrix.mul_adjugate by sign(det M_N), and use sign(d)*d=|d|.
+
+**Acceptance.**
+
+- For N≥1, M_N*starMatrix N=δ_N I over ℤ; this equality persists under coefficient maps.
+
+**Depends on.** this roadmap: `HC.4/signed-adjugate`; libraries: `mathlib:Matrix.mul_adjugate`.
+
+**Library placement.** Module `TauCeti/RingTheory/Habiro/IntegralTaylor`, namespace `TauCeti.Habiro.HC4`.
+
+**Sources.**
+
+- `GSWZ.v2`, §5.1, p. 63, after (319): “D(N) M−1N” — The inverse scaling after (319) gives the right inverse identity after multiplying by M_N. The integral proof applies Matrix.mul_adjugate and the determinant sign; it is separated from the reversed product, which needs Matrix.adjugate_mul.
+
+### The finite integral image criterion
+
+`HC.4/finite-integral-image-criterion` · lemma
+
+For ℤ-torsion-free R and a jet vector γ in R^d_N, γ is in the image of the cast M_N iff every coordinate of cast(starMatrix N)*γ belongs to δ_N R. Divisibility means ideal membership, not congruence in a field. For a ℚ-algebra it is automatic.
+
+**Hypotheses.**
+
+- R is ℤ-torsion-free. Congruence modulo δ_N is membership in the ideal generated by that integer.
+
+**Proof.**
+
+1. Necessity follows from starMatrix N*M_N=δ_N I.
+2. For sufficiency choose b with starMatrix N*γ=δ_N b. Multiply by M_N, giving δ_N γ=δ_N M_N b.
+3. Cancel the nonzero integer δ_N using ℤ-torsion-freeness.
+
+**Acceptance.**
+
+- For ℤ-torsion-free R and a jet vector γ in R^d_N, γ is in the image of the cast M_N iff every coordinate of cast(starMatrix N)*γ belongs to δ_N R. Divisibility means ideal membership, not congruence in a field. For a ℚ-algebra it is automatic.
+
+**Depends on.** this roadmap: `HC.4/signed-adjugate-identities`, `HC.4/signed-adjugate-left`, `HC.4/finite-taylor-determinant-positive`.
+
+**Library placement.** Module `TauCeti/RingTheory/Habiro/IntegralTaylor`, namespace `TauCeti.Habiro.HC4`.
+
+**Sources.**
+
+- `GSWZ.v2`, §5.1, p. 63, (317)–(319): “≡ 0 (mod D(N))” — Equations (317)–(319) identify finite membership with integrality of the inverse image. The packet states it as coordinate divisibility in R, justified by both signed-adjugate products and cancellation of the explicitly positive integer δ_N. It does not use division inside R.
+
+### Integral Taylor image congruences
+
+`HC.4/global-integral-image-criterion` · theorem · planet “Integral Taylor image criterion”
+
+For ℤ-torsion-free R and f in TaylorProduct R, f belongs to iota(H_R) iff for every N≥1 each entry of starMatrix N*jetCoordinates N f lies in δ_N R. This is GSWZ Proposition 5.2 with corrected precision indexing. No Frobenius twist is applied here.
+
+**Hypotheses.**
+
+- R is ℤ-torsion-free.
+
+**Proof.**
+
+1. Necessity is the finite-integral-image-criterion at each precision.
+2. For sufficiency choose the unique preimage in R[q]/(P_{N-1}) at every N. Their compatibility follows from finite-taylor-injective, not from an arbitrary choice of lifts.
+3. The compatible family defines an element of H_R by factorial cofinality; all its Taylor coefficients equal those of f by separatedness.
+
+**Acceptance.**
+
+- For ℤ-torsion-free R and f in TaylorProduct R, f belongs to iota(H_R) iff for every N≥1 each entry of starMatrix N*jetCoordinates N f lies in δ_N R. This is GSWZ Proposition 5.2 with corrected precision indexing. No Frobenius twist is applied here.
+
+**Depends on.** this roadmap: `HC.4/finite-integral-image-criterion`, `HC.4/finite-taylor-coordinate-matrix`, `HC.4/finite-precision-bases`, `HC.4/finite-jet-basis`, `HC.4/compatible-finite-preimages`, `HC.4/taylor-filtration-separated`, `HC.1/cofinality-of-the-factorial-products`.
+
+**Library placement.** Module `TauCeti/RingTheory/Habiro/IntegralTaylor`, namespace `TauCeti.Habiro.HC4`.
+
+**Sources.**
+
+- `GSWZ.v2`, §5.1, p. 63, Proposition 5.2, (319): “H ∈ ι(HR) if and only if” — Proposition 5.2 states exactly these congruences at every finite precision. The packet adds the compatibility proof for unique finite preimages, factorial cofinal reconstruction, and separatedness of weighted Taylor coefficients to justify the global sufficiency step.
+
+### Scalar divisibility in an integer localization
+
+`HC.4/localized-scalar-divisibility` · lemma
+
+Let Δ be a nonzero integer, d a positive integer, and a in R=ℤ[1/Δ]. Then a belongs to dR iff, for every prime p not dividing Δ, its canonical image in ℤ_p belongs to dZ_p. The map R→ℤ_p is defined because Δ is a unit there. The zero scalar a is handled separately from finite valuation formulas.
+
+**Hypotheses.**
+
+- Δ is nonzero; d≥1; R=ℤ[1/Δ].
+
+**Proof.**
+
+1. Write a=b/Δ^k by IsLocalization.Away.surj. Δ^k is a unit both globally and at each p not dividing Δ, so divisibility reduces to the integer numerator b.
+2. At p, PadicInt.unitCoeff_spec writes the nonzero integer d as a unit times p^v_p(d). Its valuation is the integer exponent by Padic.valuation_ratCast and padicValRat.defn. PadicInt.pow_p_dvd_int_iff transfers divisibility of the integer numerator b by this power between ℤ_p and ℤ.
+3. Apply localized-integer-divisibility to these conditions at all p outside Δ. For b=0 both sides hold. The localization map is the existing Away.lift; the image of Δ is a unit by PadicInt.isUnit_iff and the integer norm criterion.
+
+**Acceptance.**
+
+- Let Δ be a nonzero integer, d a positive integer, and a in R=ℤ[1/Δ]. Then a belongs to dR iff, for every prime p not dividing Δ, its canonical image in ℤ_p belongs to dZ_p. The map R→ℤ_p is defined because Δ is a unit there. The zero scalar a is handled separately from finite valuation formulas.
+
+**Depends on.** this roadmap: `HC.4/localized-integer-divisibility`; libraries: `mathlib:IsLocalization.Away.surj`, `mathlib:IsLocalization.Away.lift`, `mathlib:PadicInt.isUnit_iff`, `mathlib:PadicInt.unitCoeff_spec`, `mathlib:PadicInt.norm_int_lt_one_iff_dvd`, `mathlib:PadicInt.norm_int_le_pow_iff_dvd`, `mathlib:Padic.valuation_ratCast`, `mathlib:padicValRat.defn`, `mathlib:PadicInt.pow_p_dvd_int_iff`.
+
+**Library placement.** Module `TauCeti/RingTheory/Habiro/IntegralTaylor`, namespace `TauCeti.Habiro.HC4`.
+
+**Sources.**
+
+- `GSWZ.v2`, §5.1, p. 63, (318)–(319); §5.2, p. 65, (332): “for all N ∈ Z>0” — The cited local/global image conditions motivate the scalar arithmetic input; they do not state this standalone lemma. Its proof is the explicit numerator and prime-exponent argument from the listed pinned localization and p-adic declarations, with zero handled separately.
+
+### Detection of the integral image prime by prime
+
+`HC.4/local-integrality-detection` · lemma
+
+For R=ℤ[1/Δ], Δ a nonzero integer, a collection f belongs to iota(H_R) iff, for each prime p not dividing Δ, its coefficientwise image in TaylorProduct ℤ_p belongs to iota(H_(ℤ_p)). The assertion is about the same finite Taylor coordinates; it does not assert an interchange of infinite ⊗ products and completion.
+
+**Hypotheses.**
+
+- Δ is nonzero; R=ℤ[1/Δ].
+
+**Proof.**
+
+1. Use the global image congruences over R=ℤ[1/Δ] and each ℤ_p, which are ℤ-torsion-free.
+2. TaylorProduct.map_gamma identifies the mapped finite jet vector with coefficientwise mapping of the original vector. Integer matrix entries and integer δ_N commute with these coefficient maps.
+3. Apply localized-scalar-divisibility to every coordinate of starMatrix N times that vector, for each positive N. All the finite divisibility conditions are equivalent, hence so are the global images.
+
+**Acceptance.**
+
+- For R=ℤ[1/Δ], Δ a nonzero integer, a collection f belongs to iota(H_R) iff, for each prime p not dividing Δ, its coefficientwise image in TaylorProduct ℤ_p belongs to iota(H_(ℤ_p)). The assertion is about the same finite Taylor coordinates; it does not assert an interchange of infinite ⊗ products and completion.
+
+**Depends on.** this roadmap: `HC.4/global-integral-image-criterion`, `HC.4/localized-scalar-divisibility`, `HC.4/universal-taylor-product`, `HC.4/finite-taylor-determinant-positive`.
+
+**Library placement.** Module `TauCeti/RingTheory/Habiro/IntegralTaylor`, namespace `TauCeti.Habiro.HC4`.
+
+**Sources.**
+
+- `GSWZ.v2`, §5.1, p. 63, (318)–(319); §5.2, p. 65, (332): “for all N ∈ Z>0” — This is the untwisted local/global consequence of the finite congruences: coordinatewise coefficient maps commute with γ and the integral matrices. Section 5.2 applies the related argument after its own Frobenius twist, owned by HB.6.
+
+### The Kontsevich finite Taylor vector
+
+`HC.4/kontsevich-matrix-example` · application
+
+For F=Σ_(n≥0) P_n in H_ℤ, its ten jets at precision 5 are (1,3,1,5,-1,2,8,-3,11,5), obtained from digit coordinates (1,1,0,1,0,0,1,0,0,0) by M_5.
+
+**Hypotheses.**
+
+- The Kontsevich element is over ℤ, at precision 5; matrix inversion is over ℚ.
+
+**Proof.**
+
+1. The imported factorial-series construction and normalized expansion give every digit polynomial equal to 1. Apply taylor-matrix-digits and calculate M_5 in the pinned row order.
+
+**Acceptance.**
+
+- For F=Σ_(n≥0) P_n in H_ℤ, its ten jets at precision 5 are (1,3,1,5,-1,2,8,-3,11,5), obtained from digit coordinates (1,1,0,1,0,0,1,0,0,0) by M_5.
+
+**Depends on.** this roadmap: `HC.4/taylor-matrix-digits`, `HC.2/factorial-series`, `HC.2/factorial-expansions`.
+
+**Library placement.** Module `TauCeti/RingTheory/Habiro/IntegralTaylor`, namespace `TauCeti.Habiro.HC4`.
+
+**Sources.**
+
+- `GSWZ.v2`, §5.3, p. 66, Example 5.6, (334)–(337): “changing the number γ1,1,0 from 1 to 2” — Example 5.6 gives the ten jet coordinates in (335) and normalized all-one digit vector in (336). The packet now isolates that computation; (337) and its failed perturbation have a separate application node.
+
+### The odd-order idempotent after inverting two
+
+`HC.4/odd-order-idempotent-example` · application
+
+Let e be the unique rational Habiro preimage of the constant Taylor collection which is 1 at odd orders and 0 at even orders. Then e is a nonzero idempotent different from 1. It lies in the image of H_(ℤ[1/2]) in H_ℚ but not in the image of H_ℤ.
+
+**Hypotheses.**
+
+- The projector preimages are in H_ℚ; their integral localization is H_(ℤ[1/2]). Digits are indexed starting at 1.
+
+**Proof.**
+
+1. The rational Taylor equivalence transports the evident nontrivial projector idempotent.
+2. The imported HC.5 prime-inversion decomposition over ℤ[1/2] splits the order components by their 2-adic exponent; the factor of exponent zero gives this same e under rational coefficient change.
+3. At precision 3 its jets are (1,0,0). The signed adjugate sends them to (4,-1,1), which fails divisibility by δ_3=4.
+
+**Acceptance.**
+
+- Let e be the unique rational Habiro preimage of the constant Taylor collection which is 1 at odd orders and 0 at even orders. Then e is a nonzero idempotent different from 1. It lies in the image of H_(ℤ[1/2]) in H_ℚ but not in the image of H_ℤ.
+
+**Depends on.** this roadmap: `HC.4/rational-taylor-isomorphism`, `HC.4/finite-integral-image-criterion`, `HC.4/taylor-matrix-digits`, `HC.5/inverting-a-prime-and-the-rational-case`, `HC.1/coefficient-change-injective-and-surjective`.
+
+**Library placement.** Module `TauCeti/RingTheory/Habiro/IntegralTaylor`, namespace `TauCeti.Habiro.HC4`.
+
+**Sources.**
+
+- `GSWZ.v2`, §5.3, p. 66, Example 5.7, (338)–(341): “if m is odd” — Example 5.7 gives the constant odd-order indicator in (338), its membership over ℤ[1/2] and failure over ℤ. Rational reconstruction transfers the component projector into an idempotent, and the HC.5 decomposition justifies the entire localization lift, not merely its first four denominators. The digit and companion calculations are separate nodes.
+
+### The digit description of a factorial kernel
+
+`HC.4/factorial-digit-kernel` · lemma · added by REV-HabiroCyclotomicCompletions--HC.4
+
+For N≥1, h belongs to hFiltration R N iff its normalized digits a_n vanish for every 1≤n<N.
+
+**Hypotheses.**
+
+- R is a commutative unital ring; any root order is positive and any finite precision is N≥1. Numerical rank assertions assume Nontrivial R. No torsion-freeness, domain or Noetherian hypothesis is required here.
+
+**Proof.**
+
+1. Use the finite normalized expansion isomorphism in HC.2/factorial-expansions at P_(N-1); zero in that quotient is exactly zero in all retained digit coordinates.
+
+**Acceptance.**
+
+- For N≥1, h belongs to hFiltration R N iff its normalized digits a_n vanish for every 1≤n<N.
+
+**Depends on.** this roadmap: `HC.4/factorial-kernel-filtration`, `HC.2/factorial-expansions`.
+
+**Library placement.** Module `TauCeti/RingTheory/Habiro/IntegralTaylor`, namespace `TauCeti.Habiro.HC4`.
+
+**Sources.**
+
+- `GSWZ.v2`, §5.1, p. 60, (301)–(303): “an,k = 0 for n < N” — This node isolates the the digit description of a factorial kernel from the cited passage. Its proof and direct prerequisites above specify the extracted finite-precision assertion; coordinate computations use the pinned row order and l-1 exponent.
+
+### Monotonicity of factorial kernels
+
+`HC.4/factorial-filtration-antitone` · lemma · added by REV-HabiroCyclotomicCompletions--HC.4
+
+For N≥1, hFiltration R (N+1) is contained in hFiltration R N.
+
+**Hypotheses.**
+
+- R is a commutative unital ring; any root order is positive and any finite precision is N≥1. Numerical rank assertions assume Nontrivial R. No torsion-freeness, domain or Noetherian hypothesis is required here.
+
+**Proof.**
+
+1. The projection modulo P_(N-1) factors through the projection modulo P_N, by factorial divisibility.
+
+**Acceptance.**
+
+- For N≥1, hFiltration R (N+1) is contained in hFiltration R N.
+
+**Depends on.** this roadmap: `HC.4/factorial-kernel-filtration`, `HC.1/the-factorial-polynomials`.
+
+**Library placement.** Module `TauCeti/RingTheory/Habiro/IntegralTaylor`, namespace `TauCeti.Habiro.HC4`.
+
+**Sources.**
+
+- `GSWZ.v2`, §5.1, p. 60, (301)–(303): “an,k = 0 for n < N” — This node isolates the monotonicity of factorial kernels from the cited passage. Its proof and direct prerequisites above specify the extracted finite-precision assertion; coordinate computations use the pinned row order and l-1 exponent.
+
+### Separation of factorial kernels
+
+`HC.4/factorial-filtration-separated` · lemma · added by REV-HabiroCyclotomicCompletions--HC.4
+
+The intersection of hFiltration R N over N≥1 is zero.
+
+**Hypotheses.**
+
+- R is a commutative unital ring; any root order is positive and any finite precision is N≥1. Numerical rank assertions assume Nontrivial R. No torsion-freeness, domain or Noetherian hypothesis is required here.
+
+**Proof.**
+
+1. An element of every kernel has zero projection on the cofinal factorial system. Apply the imported compatible-family extensionality.
+
+**Acceptance.**
+
+- The intersection of hFiltration R N over N≥1 is zero.
+
+**Depends on.** this roadmap: `HC.4/factorial-kernel-filtration`, `HC.1/the-cyclotomic-completion`, `HC.1/cofinality-of-the-factorial-products`.
+
+**Library placement.** Module `TauCeti/RingTheory/Habiro/IntegralTaylor`, namespace `TauCeti.Habiro.HC4`.
+
+**Sources.**
+
+- `GSWZ.v2`, §5.1, p. 60, (301)–(303): “or equivalently” — This node isolates the separation of factorial kernels from the cited passage. Its proof and direct prerequisites above specify the extracted finite-precision assertion; coordinate computations use the pinned row order and l-1 exponent.
+
+### The finite factorial quotient
+
+`HC.4/factorial-finite-quotient` · comparison · added by REV-HabiroCyclotomicCompletions--HC.4
+
+For N≥1 the factorial projection induces the R-algebra equivalence H_R/hFiltration R N ≅ R[q]/(P_(N-1)).
+
+**Hypotheses.**
+
+- R is a commutative unital ring; any root order is positive and any finite precision is N≥1. Numerical rank assertions assume Nontrivial R. No torsion-freeness, domain or Noetherian hypothesis is required here.
+
+**Proof.**
+
+1. Apply the surjective projection and its kernel in HC.1/the-quotients-of-the-completion, using the monic associate of P_(N-1). The first isomorphism theorem gives the specified equivalence.
+
+**Acceptance.**
+
+- For N≥1 the factorial projection induces the R-algebra equivalence H_R/hFiltration R N ≅ R[q]/(P_(N-1)).
+
+**Depends on.** this roadmap: `HC.4/factorial-kernel-characterisation`, `HC.1/the-quotients-of-the-completion`.
+
+**Library placement.** Module `TauCeti/RingTheory/Habiro/IntegralTaylor`, namespace `TauCeti.Habiro.HC4`.
+
+**Sources.**
+
+- `GSWZ.v2`, §5.1, p. 60, (301)–(303): “an,k = 0 for n < N” — This node isolates the the finite factorial quotient from the cited passage. Its proof and direct prerequisites above specify the extracted finite-precision assertion; coordinate computations use the pinned row order and l-1 exponent.
+
+### Monotonicity of weighted Taylor kernels
+
+`HC.4/taylor-filtration-antitone` · lemma · added by REV-HabiroCyclotomicCompletions--HC.4
+
+For every N, pFiltration R (N+1) is contained in pFiltration R N.
+
+**Hypotheses.**
+
+- R is a commutative unital ring; any root order is positive and any finite precision is N≥1. Numerical rank assertions assume Nontrivial R. No torsion-freeness, domain or Noetherian hypothesis is required here.
+
+**Proof.**
+
+1. Every weight less than N is less than N+1. Apply the coefficient membership description.
+
+**Acceptance.**
+
+- For every N, pFiltration R (N+1) is contained in pFiltration R N.
+
+**Depends on.** this roadmap: `HC.4/weighted-taylor-filtration`.
+
+**Library placement.** Module `TauCeti/RingTheory/Habiro/IntegralTaylor`, namespace `TauCeti.Habiro.HC4`.
+
+**Sources.**
+
+- `GSWZ.v2`, §5.1, p. 60, (304)–(305): “Cℓ(ζm) = 0 for mℓ < N” — This node isolates the monotonicity of weighted taylor kernels from the cited passage. Its proof and direct prerequisites above specify the extracted finite-precision assertion; coordinate computations use the pinned row order and l-1 exponent.
+
+### Separation of weighted Taylor kernels
+
+`HC.4/taylor-filtration-separated` · lemma · added by REV-HabiroCyclotomicCompletions--HC.4
+
+The intersection of pFiltration R N over N≥1 is zero.
+
+**Hypotheses.**
+
+- R is a commutative unital ring; any root order is positive and any finite precision is N≥1. Numerical rank assertions assume Nontrivial R. No torsion-freeness, domain or Noetherian hypothesis is required here.
+
+**Proof.**
+
+1. For any fixed coefficient at order m and exponent k, choose N=m*(k+1)+1. Membership in that ideal kills the coefficient. Use TaylorProduct.ext.
+
+**Acceptance.**
+
+- The intersection of pFiltration R N over N≥1 is zero.
+
+**Depends on.** this roadmap: `HC.4/weighted-taylor-filtration`, `HC.4/universal-taylor-product`.
+
+**Library placement.** Module `TauCeti/RingTheory/Habiro/IntegralTaylor`, namespace `TauCeti.Habiro.HC4`.
+
+**Sources.**
+
+- `GSWZ.v2`, §5.1, p. 60, (304)–(305): “or equivalently” — This node isolates the separation of weighted taylor kernels from the cited passage. Its proof and direct prerequisites above specify the extracted finite-precision assertion; coordinate computations use the pinned row order and l-1 exponent.
+
+### The ordered finite Taylor basis
+
+`HC.4/finite-jet-basis` · lemma · added by REV-HabiroCyclotomicCompletions--HC.4
+
+For N≥1, TaylorProduct R/pFiltration R N has the basis of classes z_m^j u^(l-1) supported at order m, with ml<N and j<φ(m), ordered by weight ml, decreasing m within a weight, then j. Its repr on the class of f is jetCoordinates N f.
+
+**Hypotheses.**
+
+- R is a commutative unital ring; any root order is positive and any finite precision is N≥1. Numerical rank assertions assume Nontrivial R. No torsion-freeness, domain or Noetherian hypothesis is required here.
+
+**Proof.**
+
+1. Truncate each component at exponent floor((N-1)/m); omitted components are zero quotients. The monic cyclotomic basis identifies each coefficient with R^φ(m). Insert one basis coefficient in one exponent of one component to construct the inverse of the finite coordinate map.
+
+**Acceptance.**
+
+- For N≥1, TaylorProduct R/pFiltration R N has the basis of classes z_m^j u^(l-1) supported at order m, with ml<N and j<φ(m), ordered by weight ml, decreasing m within a weight, then j. Its repr on the class of f is jetCoordinates N f.
+
+**Depends on.** this roadmap: `HC.4/weighted-jet-kernel`, `HC.4/universal-taylor-product`; libraries: `mathlib:AdjoinRoot.powerBasisAux'`, `mathlib:Nat.sum_totient`.
+
+**Library placement.** Module `TauCeti/RingTheory/Habiro/IntegralTaylor`, namespace `TauCeti.Habiro.HC4`.
+
+**Sources.**
+
+- `GSWZ.v2`, §5.1, pp. 59–60, (299)–(300), (305): “where the isomorphisms are of R-modules” — This node isolates the the ordered finite taylor basis from the cited passage. Its proof and direct prerequisites above specify the extracted finite-precision assertion; coordinate computations use the pinned row order and l-1 exponent.
+
+### The common finite precision rank
+
+`HC.4/finite-precision-rank` · lemma · added by REV-HabiroCyclotomicCompletions--HC.4
+
+For nontrivial R, the digit and jet quotients at N≥1 are free of rank d_N=N(N-1)/2. Their finite index lists have this cardinality even for the zero ring.
+
+**Hypotheses.**
+
+- R is a commutative unital ring; any root order is positive and any finite precision is N≥1. Numerical rank assertions assume Nontrivial R. No torsion-freeness, domain or Noetherian hypothesis is required here.
+
+**Proof.**
+
+1. There are n digit columns at weight n. There are Σ_(m|n) φ(m)=n jet rows at that weight. Sum n over 1≤n<N. Finite freeness follows from the two explicit bases; numerical rank uses nontrivial R.
+
+**Acceptance.**
+
+- For nontrivial R, the digit and jet quotients at N≥1 are free of rank d_N=N(N-1)/2. Their finite index lists have this cardinality even for the zero ring.
+
+**Depends on.** this roadmap: `HC.4/finite-precision-bases`, `HC.4/finite-jet-basis`; libraries: `mathlib:Nat.sum_totient`.
+
+**Library placement.** Module `TauCeti/RingTheory/Habiro/IntegralTaylor`, namespace `TauCeti.Habiro.HC4`.
+
+**Sources.**
+
+- `GSWZ.v2`, §5.1, p. 61, (309) and paragraph after (306): “equal N (N − 1)/2” — This node isolates the the common finite precision rank from the cited passage. Its proof and direct prerequisites above specify the extracted finite-precision assertion; coordinate computations use the pinned row order and l-1 exponent.
+
+### Reconstruction from compatible finite Taylor jets
+
+`HC.4/taylor-finite-reconstruction` · lemma · added by REV-HabiroCyclotomicCompletions--HC.4
+
+Every family f_N in TaylorProduct R/pFiltration R N (N≥1) compatible with forgetting precision is the truncation of a unique collection f in TaylorProduct R.
+
+**Hypotheses.**
+
+- R is a commutative unital ring; any root order is positive and any finite precision is N≥1. Numerical rank assertions assume Nontrivial R. No torsion-freeness, domain or Noetherian hypothesis is required here.
+
+**Proof.**
+
+1. For the coefficient at order m, exponent k, read the finite jet at any N>m*(k+1); compatibility makes it independent of N. Assemble these coefficients into each power series. The finite-jet basis proves agreement with every f_N; TaylorProduct.ext proves uniqueness.
+
+**Acceptance.**
+
+- Every family f_N in TaylorProduct R/pFiltration R N (N≥1) compatible with forgetting precision is the truncation of a unique collection f in TaylorProduct R.
+
+**Depends on.** this roadmap: `HC.4/finite-jet-basis`, `HC.4/taylor-filtration-separated`, `HC.4/universal-taylor-product`.
+
+**Library placement.** Module `TauCeti/RingTheory/Habiro/IntegralTaylor`, namespace `TauCeti.Habiro.HC4`.
+
+**Sources.**
+
+- `GSWZ.v2`, §5.1, p. 60, paragraph following (305): “canonical isomorphism” — The finite/infinite comparison in (305)–(307) and Proposition 5.2 uses this compatibility or reconstruction step. The node spells it out as a separate declaration, with the exact finite transition and separatedness inputs.
+
+### The Taylor comparison respects precision
+
+`HC.4/taylor-comparison-filtered` · lemma · added by REV-HabiroCyclotomicCompletions--HC.4
+
+For N≥1, iota maps hFiltration R N into pFiltration R N.
+
+**Hypotheses.**
+
+- R is a commutative unital ring; any root order is positive and any finite precision is N≥1. Numerical rank assertions assume Nontrivial R. No torsion-freeness, domain or Noetherian hypothesis is required here.
+
+**Proof.**
+
+1. Write h=P_(N-1)*h′ using the principal kernel. In component m the polynomial factor is divisible by u^floor((N-1)/m). The power-series ideal of those vanishing coefficients is closed under multiplication.
+
+**Acceptance.**
+
+- For N≥1, iota maps hFiltration R N into pFiltration R N.
+
+**Depends on.** this roadmap: `HC.4/factorial-vanishing-order`, `HC.4/factorial-kernel-characterisation`, `HC.4/multiplicative-taylor-comparison`, `HC.4/weighted-taylor-filtration`.
+
+**Library placement.** Module `TauCeti/RingTheory/Habiro/IntegralTaylor`, namespace `TauCeti.Habiro.HC4`.
+
+**Sources.**
+
+- `GSWZ.v2`, §5.1, p. 60, before (304): “vanishes at a primitive m-th root” — This node isolates the the taylor comparison respects precision from the cited passage. Its proof and direct prerequisites above specify the extracted finite-precision assertion; coordinate computations use the pinned row order and l-1 exponent.
+
+### Rational simultaneous cyclotomic remainders
+
+`HC.4/simultaneous-remainders-rational` · lemma · added by REV-HabiroCyclotomicCompletions--HC.4
+
+For a ℚ-algebra R and N≥1, E_N:R[q]/(q^N-1)→product_(m|N) A_m(R) is an R-algebra isomorphism.
+
+**Hypotheses.**
+
+- R is a commutative ℚ-algebra and N≥1; no domain or Noetherian hypothesis.
+
+**Proof.**
+
+1. Distinct cyclotomic polynomials are coprime over ℚ by Polynomial.cyclotomic.isCoprime_rat, and their product over divisors is q^N-1.
+2. Iterate Ideal.quotientMulEquivQuotientProd on their principal ideals. The Bezout identities give coprimality of each partial product with the next factor.
+3. The finite free quotient coefficient extension from ℚ to R is the already imported HC.1 finite base-change statement. The quotient maps agree with E_N on polynomial classes.
+
+**Acceptance.**
+
+- For a ℚ-algebra R and N≥1, E_N:R[q]/(q^N-1)→product_(m|N) A_m(R) is an R-algebra isomorphism.
+
+**Depends on.** this roadmap: `HC.4/universal-taylor-product`, `HC.1/functoriality-in-the-ring-and-in-the-order-set`; libraries: `mathlib:Polynomial.prod_cyclotomic_eq_X_pow_sub_one`, `mathlib:Polynomial.cyclotomic.isCoprime_rat`, `mathlib:Ideal.quotientMulEquivQuotientProd`.
+
+**Library placement.** Module `TauCeti/RingTheory/Habiro/IntegralTaylor`, namespace `TauCeti.Habiro.HC4`.
+
+**Sources.**
+
+- `GSWZ.v2`, §5.1, p. 61, paragraph after (311): “an isomorphism after tensoring with Q” — The source asserts rational graded bijectivity after (311). This node makes its rational simultaneous remainder input explicit using the pinned distinct-cyclotomic coprimality theorem and finite ideal CRT, then the imported finite quotient base change. It does not infer a finite theorem from the weaker conclusion of an infinite product decomposition.
+
+### Rational bijectivity on Taylor graded pieces
+
+`HC.4/graded-taylor-rational` · lemma · added by REV-HabiroCyclotomicCompletions--HC.4
+
+For a ℚ-algebra R and every N≥1, gr_N(iota) is bijective.
+
+**Hypotheses.**
+
+- R is a commutative ℚ-algebra and N≥1; no domain or Noetherian hypothesis.
+
+**Proof.**
+
+1. Use graded-taylor-map and simultaneous-remainders-rational. Each positive D_(m,N/m) is a rational unit, so multiplication by it is bijective.
+
+**Acceptance.**
+
+- For a ℚ-algebra R and every N≥1, gr_N(iota) is bijective.
+
+**Depends on.** this roadmap: `HC.4/graded-taylor-map`, `HC.4/simultaneous-remainders-rational`, `HC.4/leading-factor`.
+
+**Library placement.** Module `TauCeti/RingTheory/Habiro/IntegralTaylor`, namespace `TauCeti.Habiro.HC4`.
+
+**Sources.**
+
+- `GSWZ.v2`, §5.1, p. 61, paragraph after (311): “an isomorphism after tensoring with Q” — This node isolates the rational bijectivity on taylor graded pieces from the cited passage. Its proof and direct prerequisites above specify the extracted finite-precision assertion; coordinate computations use the pinned row order and l-1 exponent.
+
+### Rational bijectivity of the finite Taylor comparison
+
+`HC.4/finite-taylor-rational` · lemma · added by REV-HabiroCyclotomicCompletions--HC.4
+
+For a ℚ-algebra R and N≥1, finiteIota R N is bijective.
+
+**Hypotheses.**
+
+- R is a commutative ℚ-algebra and N≥1; no domain or Noetherian hypothesis.
+
+**Proof.**
+
+1. Injectivity follows by the same filtration induction with graded-taylor-rational.
+2. For surjectivity lift the lower-precision preimage (finite projections are surjective). The remaining error lies in the top Taylor graded piece; lift it by graded-taylor-rational and add the correction.
+
+**Acceptance.**
+
+- For a ℚ-algebra R and N≥1, finiteIota R N is bijective.
+
+**Depends on.** this roadmap: `HC.4/finite-taylor-map`, `HC.4/graded-taylor-rational`, `HC.4/factorial-graded-piece`, `HC.4/taylor-graded-piece`, `HC.1/the-quotients-of-the-completion`.
+
+**Library placement.** Module `TauCeti/RingTheory/Habiro/IntegralTaylor`, namespace `TauCeti.Habiro.HC4`.
+
+**Sources.**
+
+- `GSWZ.v2`, §5.1, p. 61, paragraph after (306): “invertible after tensoring with Q” — This node isolates the rational bijectivity of the finite taylor comparison from the cited passage. Its proof and direct prerequisites above specify the extracted finite-precision assertion; coordinate computations use the pinned row order and l-1 exponent.
+
+### The Taylor matrix acts on normalized digits
+
+`HC.4/taylor-matrix-digits` · lemma · added by REV-HabiroCyclotomicCompletions--HC.4
+
+For N≥1 and h in H_R, cast(M_N)*digitCoordinates N h=jetCoordinates N(iota h).
+
+**Hypotheses.**
+
+- R is a commutative unital ring; any root order is positive and any finite precision is N≥1. Numerical rank assertions assume Nontrivial R. No torsion-freeness, domain or Noetherian hypothesis is required here.
+
+**Proof.**
+
+1. Apply finite-taylor-coordinate-matrix to the projection of h. Substitute the repr specifications of the digit and jet bases and the finiteIota compatibility with iota.
+
+**Acceptance.**
+
+- For N≥1 and h in H_R, cast(M_N)*digitCoordinates N h=jetCoordinates N(iota h).
+
+**Depends on.** this roadmap: `HC.4/finite-taylor-coordinate-matrix`, `HC.4/finite-precision-bases`, `HC.4/finite-jet-basis`, `HC.4/finite-taylor-map`.
+
+**Library placement.** Module `TauCeti/RingTheory/Habiro/IntegralTaylor`, namespace `TauCeti.Habiro.HC4`.
+
+**Sources.**
+
+- `GSWZ.v2`, §5.1, pp. 61–62, before (312) and (312): “matrix MN” — This node isolates the the taylor matrix acts on normalized digits from the cited passage. Its proof and direct prerequisites above specify the extracted finite-precision assertion; coordinate computations use the pinned row order and l-1 exponent.
+
+### The Taylor matrix vanishes above weight
+
+`HC.4/taylor-matrix-triangular` · lemma · added by REV-HabiroCyclotomicCompletions--HC.4
+
+An entry of M_N is zero if its row weight ml is less than its column digit index n.
+
+**Hypotheses.**
+
+- N≥1; matrices and determinants are integral and use the specified finite basis ordering.
+
+**Proof.**
+
+1. The column q^k P_(n-1) has Taylor order at least floor((n-1)/m). If ml<n then l-1<floor((n-1)/m). Its coefficient at l-1, and therefore each reduced cyclotomic coordinate, is zero.
+
+**Acceptance.**
+
+- An entry of M_N is zero if its row weight ml is less than its column digit index n.
+
+**Depends on.** this roadmap: `HC.4/taylor-matrix`, `HC.4/factorial-vanishing-order`.
+
+**Library placement.** Module `TauCeti/RingTheory/Habiro/IntegralTaylor`, namespace `TauCeti.Habiro.HC4`.
+
+**Sources.**
+
+- `GSWZ.v2`, §5.1, p. 61, paragraph before (312): “block lower triangular form” — This node isolates the the taylor matrix vanishes above weight from the cited passage. Its proof and direct prerequisites above specify the extracted finite-precision assertion; coordinate computations use the pinned row order and l-1 exponent.
+
+### Nonvanishing of the finite Taylor determinant
+
+`HC.4/finite-taylor-determinant-positive` · lemma · added by REV-HabiroCyclotomicCompletions--HC.4
+
+For N≥1, δ_N=|det M_N| is strictly positive, including δ_1=1.
+
+**Hypotheses.**
+
+- N≥1; matrices and determinants are integral and use the specified finite basis ordering.
+
+**Proof.**
+
+1. In finite-taylor-determinant every factor is positive by graded-taylor-determinant, and the empty product is 1.
+
+**Acceptance.**
+
+- For N≥1, δ_N=|det M_N| is strictly positive, including δ_1=1.
+
+**Depends on.** this roadmap: `HC.4/finite-taylor-determinant`, `HC.4/graded-taylor-determinant`.
+
+**Library placement.** Module `TauCeti/RingTheory/Habiro/IntegralTaylor`, namespace `TauCeti.Habiro.HC4`.
+
+**Sources.**
+
+- `GSWZ.v2`, §5.1, p. 62, Proposition 5.1, (313) (corrected indexing): “D(N) := |det(MN)|” — This node isolates the nonvanishing of the finite taylor determinant from the cited passage. Its proof and direct prerequisites above specify the extracted finite-precision assertion; coordinate computations use the pinned row order and l-1 exponent.
+
+### The left signed adjugate identity
+
+`HC.4/signed-adjugate-left` · lemma · added by REV-HabiroCyclotomicCompletions--HC.4
+
+For N≥1, starMatrix N*M_N=δ_N I over ℤ; this equality persists under coefficient maps.
+
+**Hypotheses.**
+
+- N≥1; matrices and determinants are integral and use the specified finite basis ordering.
+
+**Proof.**
+
+1. Multiply Matrix.adjugate_mul by sign(det M_N), and use sign(d)*d=|d|.
+
+**Acceptance.**
+
+- For N≥1, starMatrix N*M_N=δ_N I over ℤ; this equality persists under coefficient maps.
+
+**Depends on.** this roadmap: `HC.4/signed-adjugate`; libraries: `mathlib:Matrix.adjugate_mul`.
+
+**Library placement.** Module `TauCeti/RingTheory/Habiro/IntegralTaylor`, namespace `TauCeti.Habiro.HC4`.
+
+**Sources.**
+
+- `GSWZ.v2`, §5.1, p. 63, after (319): “D(N) M−1N” — This node isolates the the left signed adjugate identity from the cited passage. Its proof and direct prerequisites above specify the extracted finite-precision assertion; coordinate computations use the pinned row order and l-1 exponent.
+
+### Compatibility of unique finite Taylor preimages
+
+`HC.4/compatible-finite-preimages` · lemma · added by REV-HabiroCyclotomicCompletions--HC.4
+
+For ℤ-torsion-free R, if f in TaylorProduct R has a preimage x_N under finiteIota R N at every N≥1, then these preimages are unique and compatible under factorial quotient transitions.
+
+**Hypotheses.**
+
+- R is ℤ-torsion-free.
+
+**Proof.**
+
+1. Finite injectivity gives uniqueness. The Taylor image of the transition of x_(N+1) is the truncation of f, by finiteIota_transition, which also equals the image of x_N. Apply finite injectivity again.
+
+**Acceptance.**
+
+- For ℤ-torsion-free R, if f in TaylorProduct R has a preimage x_N under finiteIota R N at every N≥1, then these preimages are unique and compatible under factorial quotient transitions.
+
+**Depends on.** this roadmap: `HC.4/finite-taylor-injective`, `HC.4/finite-taylor-map`.
+
+**Library placement.** Module `TauCeti/RingTheory/Habiro/IntegralTaylor`, namespace `TauCeti.Habiro.HC4`.
+
+**Sources.**
+
+- `GSWZ.v2`, §5.1, p. 63, Proposition 5.2, (319): “H ∈ ι(HR) if and only if” — The finite/infinite comparison in (305)–(307) and Proposition 5.2 uses this compatibility or reconstruction step. The node spells it out as a separate declaration, with the exact finite transition and separatedness inputs.
+
+### Integer divisibility after inverting one integer
+
+`HC.4/localized-integer-divisibility` · lemma · added by REV-HabiroCyclotomicCompletions--HC.4
+
+For Δ≠0, d>0 and b in ℤ, d divides b in ℤ[1/Δ] iff there exists k≥0 such that d divides Δ^k*b in ℤ. Equivalently b=0 or, for every prime p not dividing Δ, v_p(d)≤v_p(|b|), using ordinary finite integer prime exponents.
+
+**Hypotheses.**
+
+- Δ is nonzero; d≥1; R=ℤ[1/Δ].
+
+**Proof.**
+
+1. Represent a putative quotient in the localization by c/Δ^k and clear denominators. Injectivity of ℤ into this localization permits cancellation of a further nonzero power of Δ. Conversely use the inverse of Δ^k.
+2. For b≠0, Nat.factorization_le_iff_dvd reduces d | Δ^k*b to the prime exponent inequalities. Outside Δ the exponent is unchanged; on the finite set of prime factors of d dividing Δ choose k large enough. Handle b=0 directly.
+
+**Acceptance.**
+
+- For Δ≠0, d>0 and b in ℤ, d divides b in ℤ[1/Δ] iff there exists k≥0 such that d divides Δ^k*b in ℤ. Equivalently b=0 or, for every prime p not dividing Δ, v_p(d)≤v_p(|b|), using ordinary finite integer prime exponents.
+
+**Depends on.** libraries: `mathlib:IsLocalization.Away.surj`, `mathlib:IsLocalization.Away.exists_of_eq`, `mathlib:Nat.factorization_le_iff_dvd`.
+
+**Library placement.** Module `TauCeti/RingTheory/Habiro/IntegralTaylor`, namespace `TauCeti.Habiro.HC4`.
+
+**Sources.**
+
+- `GSWZ.v2`, §5.1, p. 63, local condition (318) used in Proposition 5.2; §5.2, p. 65, (332): “for all N ∈ Z>0” — Auxiliary integer arithmetic for the cited local image criterion, independently proved from away-localization denominator clearing and prime factorization. It is not claimed as a separately stated result in GSWZ.
+
+### A failed perturbation of the Kontsevich jets
+
+`HC.4/kontsevich-perturbation` · application · added by REV-HabiroCyclotomicCompletions--HC.4
+
+Changing only the first of those ten jets to 2 gives the rational inverse vector (2,3/4,1/4,65/72,-1/72,17/72,275/288,-7/144,1/32,17/72). No integral Habiro element can have these modified jets.
+
+**Hypotheses.**
+
+- The Kontsevich element is over ℤ, at precision 5; matrix inversion is over ℚ.
+
+**Proof.**
+
+1. Directly solve M_5*b=(2,3,1,5,-1,2,8,-3,11,5) over ℚ. Its second entry is 3/4, so no integral vector solves it. The matrix representation transfers this failure to every collection with the prescribed jets.
+
+**Acceptance.**
+
+- Changing only the first of those ten jets to 2 gives the rational inverse vector (2,3/4,1/4,65/72,-1/72,17/72,275/288,-7/144,1/32,17/72). No integral Habiro element can have these modified jets.
+
+**Depends on.** this roadmap: `HC.4/taylor-matrix-digits`, `HC.4/finite-taylor-determinant-positive`, `HC.4/kontsevich-matrix-example`.
+
+**Library placement.** Module `TauCeti/RingTheory/Habiro/IntegralTaylor`, namespace `TauCeti.Habiro.HC4`.
+
+**Sources.**
+
+- `GSWZ.v2`, §5.3, p. 66, Example 5.6, (336)–(337): “changing the number γ1,1,0 from 1 to 2” — This node isolates the a failed perturbation of the kontsevich jets from the cited passage. Its proof and direct prerequisites above specify the extracted finite-precision assertion; coordinate computations use the pinned row order and l-1 exponent.
+
+### The first odd-projector digits
+
+`HC.4/odd-projector-digits` · application · added by REV-HabiroCyclotomicCompletions--HC.4
+
+The first four normalized digit polynomials of e are 1,(-1+q)/4,(1-q+q^2)/8,(-5+2q+q^2+4q^3)/32.
+
+**Hypotheses.**
+
+- The projector preimages are in H_ℚ; their integral localization is H_(ℤ[1/2]). Digits are indexed starting at 1.
+
+**Proof.**
+
+1. At precision 5 the only nonzero Taylor coordinates of the odd indicator have l=1,j=0 and odd m. Apply taylor-matrix-digits and solve the invertible rational M_5; group the ten entries into digit polynomials.
+
+**Acceptance.**
+
+- The first four normalized digit polynomials of e are 1,(-1+q)/4,(1-q+q^2)/8,(-5+2q+q^2+4q^3)/32.
+
+**Depends on.** this roadmap: `HC.4/odd-order-idempotent-example`, `HC.4/taylor-matrix-digits`, `HC.4/finite-taylor-determinant-positive`.
+
+**Library placement.** Module `TauCeti/RingTheory/Habiro/IntegralTaylor`, namespace `TauCeti.Habiro.HC4`.
+
+**Sources.**
+
+- `GSWZ.v2`, §5.3, p. 66, Example 5.7, paragraph after (338) and (339): “does not belong to HZ” — This node isolates the the first odd-projector digits from the cited passage. Its proof and direct prerequisites above specify the extracted finite-precision assertion; coordinate computations use the pinned row order and l-1 exponent.
+
+### The companion order projector
+
+`HC.4/companion-projector` · application · added by REV-HabiroCyclotomicCompletions--HC.4
+
+For g(q)=e(q^2)-e(q), the Taylor component at order m is the constant 1 if m is 2 modulo 4, and 0 otherwise. Thus g is an idempotent in the rational Habiro ring and is the exponent-one component of the HC.5 decomposition over ℤ[1/2].
+
+**Hypotheses.**
+
+- The projector preimages are in H_ℚ; their integral localization is H_(ℤ[1/2]). Digits are indexed starting at 1.
+
+**Proof.**
+
+1. Under q→q^2 a root of order m becomes one of order m/gcd(m,2). The odd-order indicator therefore becomes the indicator v_2(m)≤1. Subtract the odd-order indicator to retain exactly v_2(m)=1. HC.3 supplies substitution naturality, including the change of local variable, which preserves constant components. HC.5 supplies the integral localization component.
+
+**Acceptance.**
+
+- For g(q)=e(q^2)-e(q), the Taylor component at order m is the constant 1 if m is 2 modulo 4, and 0 otherwise. Thus g is an idempotent in the rational Habiro ring and is the exponent-one component of the HC.5 decomposition over ℤ[1/2].
+
+**Depends on.** this roadmap: `HC.4/odd-order-idempotent-example`, `HC.3/naturality-and-re-expansion`, `HC.5/inverting-a-prime-and-the-rational-case`, `HC.4/rational-taylor-isomorphism`.
+
+**Library placement.** Module `TauCeti/RingTheory/Habiro/IntegralTaylor`, namespace `TauCeti.Habiro.HC4`.
+
+**Sources.**
+
+- `GSWZ.v2`, §5.3, p. 66, Example 5.7, (340): “Similarly, the element G(q)” — This node isolates the the companion order projector from the cited passage. Its proof and direct prerequisites above specify the extracted finite-precision assertion; coordinate computations use the pinned row order and l-1 exponent.
+
+### The first companion-projector digits
+
+`HC.4/companion-projector-digits` · application · added by REV-HabiroCyclotomicCompletions--HC.4
+
+The first four normalized digits of g are 0,(1-q)/4,(-1+q-q^2)/8,(1-2q+3q^2-4q^3)/32.
+
+**Hypotheses.**
+
+- The projector preimages are in H_ℚ; their integral localization is H_(ℤ[1/2]). Digits are indexed starting at 1.
+
+**Proof.**
+
+1. Use the constant Taylor collection specified by companion-projector, extract its jets at precision 5 and solve the rational M_5 by taylor-matrix-digits.
+
+**Acceptance.**
+
+- The first four normalized digits of g are 0,(1-q)/4,(-1+q-q^2)/8,(1-2q+3q^2-4q^3)/32.
+
+**Depends on.** this roadmap: `HC.4/companion-projector`, `HC.4/taylor-matrix-digits`, `HC.4/finite-taylor-determinant-positive`.
+
+**Library placement.** Module `TauCeti/RingTheory/Habiro/IntegralTaylor`, namespace `TauCeti.Habiro.HC4`.
+
+**Sources.**
+
+- `GSWZ.v2`, §5.3, p. 66, Example 5.7, (341): “is also an element” — This node isolates the the first companion-projector digits from the cited passage. Its proof and direct prerequisites above specify the extracted finite-precision assertion; coordinate computations use the pinned row order and l-1 exponent.
+
+## HC.5 — Modules, inversion of primes and components
+
+*Coverage in `HabiroCyclotomicCompletions.json`: source_decomposed.* Ten nodes: the exact module completion; Theorem 7.1; the Chinese remainder decomposition under comaximality (not mere non-adjacency); the ring ℚ[q]^S (§7.5); the rings ℤ[1/Δ][q]^ℕ with their factors and the lemma that each factor is a domain; restriction versus localisation; Habiro's Propositions 7.2 and 7.3; and the comparison with the derived Habiro completion of HabiroRings HR.2. §7.2, §7.3 and §7.5 were read in full. Status valid once these corrections are applied. Revised by REV-HabiroCyclotomicCompletions.
+
+The layer passes from rings to modules, and from ℤ to coefficient rings in which primes are inverted.
+
+- **Modules.**
+  - M[q]^S = lim M[q]/f M[q] is exact for every R and every S, with no hypothesis. Each finite level M[q]/f M[q] = M ⊗_R R[q]/(f) is a finite direct sum of copies of M, since f is monic, and a cofinal chain makes M[q]^S a countable product of copies of M, so no derived-limit term occurs.
+  - The stage text's "derived-limit correction" therefore concerns only R[q]-modules with torsion. Those belong to HabiroRings HR.2, and one node compares the two completions on Laurent-polynomial modules.
+  - Habiro's Theorem 7.1 extends Theorem 4.1 to modules, with the separatedness of the module in place of that of the ring.
+- **Components.**
+  - The Chinese remainder decomposition is stated under comaximality of the cyclotomic polynomials. Comaximality is strictly stronger than non-adjacency, and the two agree for Noetherian domains.
+  - Over ℚ every pair of orders splits, so ℚ[q]^S is the product of its single-order completions (Habiro §7.5).
+  - Over ℤ[1/Δ] the classes are the sets S_a of orders with prescribed valuations at the primes dividing Δ. ℤ[1/Δ][q]^ℕ is the product of infinitely many domains, on which evaluation at all roots of unity is still injective while each Taylor map is not.
+- **Localisation.** The layer compares restriction of the order set with localisation of the completed ring. When S' is a union of classes, restriction is localisation at an idempotent. Otherwise the naive localisation inverting the Φ_n with n ∉ S' admits no map to the restricted ring, and the restricted ring has the universal property of a completion, which no localisation has. Habiro's Propositions 7.2 and 7.3 describe the localisation of ℤ[q]^ℕ at all cyclotomic polynomials.
+
+### The cyclotomic completion of a module, and its exactness
+
+`HC.5/the-completed-module` · construction · planet “Cyclotomic completion of a module”
+
+For a commutative ring R, a set S of positive integers and an R-module M, the cyclotomic completion of M is M[q]^S = lim_{f in Φ*_S} M[q]/f M[q], where M[q] is the R[q]-module of polynomials with coefficients in M and Φ*_S is the multiplicative monoid generated by the cyclotomic polynomials Φ_n, n in S (Habiro §7.3, where M is any abelian group; the completion depends only on the underlying abelian group, and an R-module structure makes it an R[q]^S-module). With the inverse-limit topology it is a complete separated topological R[q]^S-module with continuous scalar action, the kernel of each projection to M[q]/f M[q] is the submodule f M[q]^S, and for M = R it is the ring R[q]^S. The functor M → M[q]^S from R-modules to R[q]^S-modules is EXACT for every R and every S, with no further hypothesis: M[q]/f M[q] is M tensored over R with R[q]/(f), which is a free R-module because f is monic, so every finite level is exact, and a cofinal chain in Φ*_S gives an R-linear isomorphism, natural in M, of M[q]^S with a countable product of copies of M, so no derived-limit term occurs. The functor commutes with arbitrary products, hence with finite direct sums; it does not commute with infinite direct sums, and the comparison map from M ⊗_R R[q]^S is bijective for finitely presented M but not in general. Non-exactness appears only for the completion of R[q]-modules that are not of the form M[q] (modules with f-torsion); that is the derived completion owned by HabiroRings HR.2 and is not constructed here.
+
+**Hypotheses.**
+
+- R is commutative and unital; S is any set of positive integers (for S empty, Φ*_S = {1} and the completion is zero).
+- M is any R-module; in Habiro's generality any abelian group, with the ℤ-module structure.
+- Φ*_S is countable and directed by divisibility, so it has a cofinal chain 1 = g_0 | g_1 | g_2 | ...; all limits may be computed along it.
+- Exactness is asserted for sequences of R-modules M, i.e. for the polynomial modules M[q]; completion of an arbitrary R[q]-module is not exact and is not treated here.
+
+**Construction.**
+
+1. Define M[q]^S as the compatible families (x_f), x_f in M[q]/f M[q], f in Φ*_S, with the action of R[q]^S = lim R[q]/(f) levelwise; for M = R this is R[q]^S (Habiro §7.3, compatibility sentence).
+2. Identify M[q]/f M[q] with M ⊗_R R[q]/(f); by division with remainder by the monic f (mathlib Polynomial.modByMonic), R[q]/(f) is R-free with basis 1, q, ..., q^(deg f - 1) (the fact Habiro uses in the proof of Lemma 3.1). Hence each level is an exact functor of M commuting with arbitrary products.
+3. For a cofinal chain 1 = g_0 | g_1 | ... the elements q^i g_j (j < k, 0 ≤ i < deg g_(j+1) - deg g_j) form compatible R-bases of the R[q]/(g_k); this gives an R-linear isomorphism M[q]^S = ∏_j M^(deg g_(j+1) - deg g_j), natural in M. For S = ℕ and g_k = P_k = (q;q)_k it is the normalised factorial expansion of HC.2 with coefficients in M.
+4. Exactness: by the previous step M → M[q]^S is a countable product of exact functors; equivalently, the kernel tower has surjective transition maps, so its lim^1 vanishes (Mittag-Leffler).
+5. Multiplication by a monic f is injective on M[q], so f M[q] / g M[q] is M[q] / (g/f) M[q] for f | g; passing to the limit, the kernel of the projection to M[q]/f M[q] is f M[q]^S. Completeness, separatedness and continuity of the scalar action follow levelwise.
+6. The comparison M ⊗_R R[q]^S → M[q]^S is the comparison M ⊗_R ∏ R → ∏ M under the isomorphism of step 3, bijective for finitely presented M.
+7. Non-examples: for R = ℤ, S = ℕ and M = ℚ the element Σ_N P_N / N! (normalised coefficients 1/N!) is not in the image of ℚ ⊗ ℤ[q]^ℕ; for M = the direct sum of countably many copies of ℤ with basis e_j, the element Σ_j e_j P_j is not in the image of the direct sum of the ℤ[q]^ℕ.
+
+**API.**
+
+- `cycloModuleCompletion` (data): M[q]^S = lim_{f in Φ*_S} M[q]/f M[q] for an R-module M.
+- `cycloModuleCompletion.instModule` (instance): The R[q]^S-module structure, the inverse-limit topology, completeness, separatedness and continuity of the scalar action.
+- `cycloModuleCompletion.of` (constructor): The canonical R[q]-linear map M[q] → M[q]^S, with dense range.
+- `cycloModuleCompletion.proj` (projection): The projection M[q]^S → M[q]/f M[q] for f in Φ*_S, compatible with divisibility.
+- `cycloModuleCompletion.ext` (extensionality): Two elements are equal when all their projections are equal.
+- `cycloModuleCompletion.proj_eq_zero_iff` (characterisation): proj_f x = 0 iff x = f y for some y in M[q]^S.
+- `cycloModuleCompletion.map` (functoriality): An R-linear map M → N induces an R[q]^S-linear continuous map M[q]^S → N[q]^S, with map_id and map_comp.
+- `cycloModuleCompletion.map_exact` (characterisation): If M → N → P is exact then so is M[q]^S → N[q]^S → P[q]^S; with map_injective and map_surjective. No hypothesis on R, S or the modules.
+- `cycloModuleCompletion.restrict` (functoriality): The order-change map ρ^M_(S,S') for S' contained in S, with restrict_comp.
+- `cycloModuleCompletion.piEquiv` (compatibility): The completion of a product of modules is the product of the completions (in particular prodEquiv for finite direct sums).
+- `cycloModuleCompletion.selfEquiv` (compatibility): For M = R the module completion is the ring R[q]^S as a module over itself.
+- `cycloModuleCompletion.ofTensor` (compatibility): The comparison map M ⊗_R R[q]^S → M[q]^S; ofTensor_bijective for finitely presented M.
+- `cycloModuleCompletion.equivPiOfChain` (equivalence): Given a cofinal chain 1 = g_0 | g_1 | ... in Φ*_S, an R-linear isomorphism M[q]^S = ∏_j M^(deg g_(j+1) - deg g_j), natural in M.
+
+**Unit tests.**
+
+- `cycloModuleCompletion.selfEquiv_test` (compatibility): For M = R, cycloModuleCompletion R S R is isomorphic to cycloCompletion R S as a cycloCompletion R S-module, compatibly with the projections.
+- `cycloModuleCompletion.subsingleton` (degenerate): If M = 0, or S is empty, then M[q]^S = 0; and for M = 0 every pair of orders is adjacent over M.
+- `cycloModuleCompletion.reduction_mod_two` (computation): The map ℤ[q]^ℕ → 𝔽_2[q]^ℕ is surjective with kernel 2 ℤ[q]^ℕ, and 𝔽_2[q]^ℕ is not a domain: the class of q^5 + q + 1 modulo (2, P_3) is the reduction of a nontrivial idempotent.
+- `cycloModuleCompletion.not_tensor` (non-example): For R = ℤ, S = ℕ, M = ℚ, the map ℚ ⊗ ℤ[q]^ℕ → ℚ[q]^ℕ is not surjective: Σ_N P_N / N! is not in its image. A definition of M[q]^S as M ⊗ R[q]^S fails here.
+- `cycloModuleCompletion.not_directSum` (non-example): For M = the direct sum of countably many copies of ℤ, M[q]^ℕ is not the direct sum of copies of ℤ[q]^ℕ: Σ_j e_j P_j is not in the image.
+- `cycloModuleCompletion.proj_eq_zero_iff_test` (characterisation): For M = ℤ and f = P_2 = (1-q)(1-q^2), an element of ℤ[q]^ℕ maps to 0 in ℤ[q]/(P_2) iff it is a multiple of P_2 in ℤ[q]^ℕ; for example q^-1 - 1 - q(1-q) = Σ_{n≥2} q^n (q;q)_n is such a multiple.
+
+**Acceptance.**
+
+- For M = R the module completion is the ring R[q]^S.
+- For every short exact sequence of R-modules the completed sequence is exact; for 0 → ℤ → ℤ → ℤ/p → 0 this gives ℤ[q]^ℕ / p ℤ[q]^ℕ = 𝔽_p[q]^ℕ.
+- 𝔽_2[q]^ℕ is not a domain: modulo (2, P_3), where P_3 = (1+q)^4 (1+q+q^2) mod 2, the idempotent separating the orders 2^k from the orders 3*2^k is q^5 + q + 1; so p ℤ[q]^ℕ is not a prime ideal although ℤ[q]^ℕ is a domain.
+- The kernel of the projection to M[q]/f M[q] is f M[q]^S.
+- M ⊗_ℤ ℤ[q]^ℕ → M[q]^ℕ is bijective for M = ℤ/p and not surjective for M = ℚ.
+- For the zero module, and for S empty, the completion is zero.
+
+**Used by.**
+
+- Habiro §7.3, Theorem 7.1: The module injectivity theorem (HC.5/module-injectivity-theorem) is stated for these modules and its proof uses the direct-sum compatibility for ℤ plus A.
+- HC.5/ordinary-versus-derived-completion: The exact ordinary completion is compared with the derived Habiro completion of HabiroRings HR.2.
+- HC.6/inverted-prime-and-rational-examples: Exactness gives ℤ[q]^ℕ / 2 = 𝔽_2[q]^ℕ, which is not a domain.
+- HC.5/habiro-localisation-proposition-7-2: The kernel description proj_eq_zero_iff for M = ℤ is the step ℤ[q]^ℕ = f ℤ[q]^ℕ + ℤ[q, q^-1].
+
+**Depends on.** this roadmap: `HC.1/the-cyclotomic-completion`, `HC.1/coefficient-change-injective-and-surjective`, `HC.2/factorial-expansions`; libraries: `mathlib:Polynomial.modByMonic`, `mathlib:Polynomial.Monic`, `mathlib:PolynomialModule`.
+
+**Sources.**
+
+- `Habiro.CyclotomicCompletions.2004`, §7.3, p. 1144 (printed page): “We can define cyclotomic completions also for any Z-module, as follows. Let A be a Z-module, and let A[q] denote the Z[q]-module of polynomials in q with coefficients in A. For each S ⊂ N, let A[q]^S denote the completion A[q]^S = lim_{f∈Φ*_S} A[q]/fA[q].” — The definition, literally (symbols transcribed).
+- `Habiro.CyclotomicCompletions.2004`, §7.3, p. 1144 (printed page): “If A is a ring, then this definition of A[q]^S is compatible with the previous one. Some results in the present paper can be generalized to A[q]^S.” — The compatibility with the ring completion (unit test selfEquiv).
+- `Habiro.CyclotomicCompletions.2004`, Proof of Lemma 3.1, p. 1131 (printed page): “For each f ∈ M*, the R-module R[q]/(f) is free of rank deg f, since f is a monic polynomial.” — The freeness from which levelwise exactness and the product description follow; exactness itself is this node's own consequence, not a statement of the source.
+
+### Injectivity of restriction for modules (Habiro Theorem 7.1)
+
+`HC.5/module-injectivity-theorem` · theorem · planet “Theorem 7.1: injectivity of rho^A_{S,S'}” · added by REV-HabiroCyclotomicCompletions
+
+Let A be an abelian group (or an R-module) and let S' be contained in S, both sets of positive integers. Write m ⇔_A n when A = 0, or m = n, or m/n is a nonzero integer power of a prime p such that A is p-adically separated (the intersection of the p^j A is 0). If for every n in S there is a chain n' = n_0 ⇔_A n_1 ⇔_A ... ⇔_A n_r = n (r ≥ 0) of elements of S starting at some n' in S', then the restriction ρ^A_(S,S'): A[q]^S → A[q]^(S') induced by the identity of A[q] is injective. The separation condition is that of A itself, not of any ring acting on A.
+
+**Hypotheses.**
+
+- A is an abelian group; the completions are those of HC.5/the-completed-module.
+- The chain runs inside S and starts in S'; connectedness of S and S' separately is not enough.
+- The relation is taken over A: p-adic separatedness of A, not of the coefficient ring. The case m = n is included (see sourceIssues: the printed relation omits it; chains may omit such steps).
+
+**Proof.**
+
+1. If A = 0 there is nothing to prove.
+2. Otherwise let A' = ℤ ⊕ A with (m,a)(n,b) = (mn, mb + na). The ring A' is p-adically separated exactly when A is, so m ⇔_A n iff m ⇔_(A') n in the ring sense of HC.4/adjacency-of-orders.
+3. Apply Theorem 4.1 (HC.4/injectivity-of-restriction) to A' to get injectivity of ρ^(A')_(S,S').
+4. By the direct-sum compatibility of HC.5/the-completed-module, A'[q]^S = ℤ[q]^S ⊕ A[q]^S compatibly with restriction, so ρ^(A') = ρ^Z ⊕ ρ^A and ρ^A is injective.
+
+**Acceptance.**
+
+- For A = ℤ the statement is Theorem 4.1 over ℤ.
+- For the ℤ-module A = ℤ[1/p], S = {1, p}, S' = {1}: the hypothesis fails (A is not p-adically separated) and so does the conclusion: A[q]^{1,p} = ℤ[1/p][[q-1]] × ℤ[1/p][q]^{p} (Φ_1, Φ_p are comaximal once p is inverted) and ρ^A kills the second factor.
+- For A = 0 every pair of orders is adjacent and all completions vanish.
+- For A = ℚ the relation is equality, so the hypothesis holds only when S' = S.
+
+**Depends on.** this roadmap: `HC.5/the-completed-module`, `HC.4/injectivity-of-restriction`, `HC.4/adjacency-of-orders`.
+
+**Sources.**
+
+- `Habiro.CyclotomicCompletions.2004`, §7.3, p. 1144 (printed page): “Let ⇔_A denote the relation on N such that m ⇔_A n if and only if either we have A = 0, or m/n is an integer power of a prime p such that A is p-adically separated.” — The relation over the module, literally; the node adds m = n (sourceIssues E8).
+- `Habiro.CyclotomicCompletions.2004`, Theorem 7.1, p. 1144 (printed page): “Let A be a Z-module, and let S′ ⊂ S ⊂ N be subsets. Suppose that for each n ∈ S there is a sequence S′ ∋ n′ ⇔_A · · · ⇔_A n in S. Then the homomorphism ρ^A_{S,S′}: A[q]^S → A[q]^{S′} induced by id_{A[q]} is injective.” — The theorem, literally: the chain lies in S and starts in S'.
+- `Habiro.CyclotomicCompletions.2004`, Proof of Theorem 7.1, p. 1144 (printed page): “Let A′ = Z ⊕ A be the ring with the multiplication (m, a)(n, b) = (mn, mb + na) and with the unit (1, 0). Then for m, n ∈ N we have m ⇔_A n if and only if m ⇔_{A′} n.” — The reduction to Theorem 4.1 used in the proof steps.
+
+### Chinese remainder decomposition under comaximality
+
+`HC.5/chinese-remainder-for-disconnected-collections` · theorem
+
+Let R be a ring and S = S_1 ⊔ S_2 a partition of a set of positive integers such that Φ_m and Φ_n generate the unit ideal of R[q] for every m in S_1 and n in S_2. Then the pair of restrictions R[q]^S → R[q]^(S_1) × R[q]^(S_2) is an isomorphism of topological rings. For m ≠ n, Φ_m and Φ_n are comaximal in R[q] exactly when n/m is not an integer power of a prime, or n/m = p^e with e ≠ 0 and p a unit of R. More generally R[q]^S is the product of the R[q]^C over the classes C of the equivalence relation on S generated by non-comaximality, and if R ≠ 0 and there are at least two classes then R[q]^S has nontrivial idempotents and is not a domain. Comaximality is strictly stronger than non-adjacency: m and n fail to be adjacent as soon as R is not p-adically separated, which does not make p a unit; the two notions agree when R is a Noetherian domain (Krull intersection theorem), for example ℤ, ℤ[1/Δ], ℚ and 𝔽_p.
+
+**Hypotheses.**
+
+- Cross pairs are comaximal in R[q]; non-adjacency alone is not sufficient (see the non-example).
+- R ≠ 0 for the idempotent and not-a-domain consequences.
+- Infinitely many classes are allowed; the product carries the product topology.
+
+**Proof.**
+
+1. Comaximality criterion: for n/m not a prime power use Lemma 4.1(2); for n = m p^e use p in (Φ_m, Φ_n) (4.2) and Φ_n ≡ Φ_m^d mod p (4.1), so modulo p the ideal is generated by the monic Φ_m, which is the unit ideal only if R/p = 0.
+2. Comaximality passes to powers and products, so f_1 and f_2 are comaximal for f_i in Φ*_(S_i), and R[q]/(f_1 f_2) = R[q]/(f_1) × R[q]/(f_2) (mathlib Ideal.quotientMulEquivQuotientProd).
+3. Every f in Φ*_S factors as f_1 f_2 with f_i in Φ*_(S_i); pass to the limit over Φ*_S to get the isomorphism, and to the limit over finite subsets of S (Habiro (3.2)) for infinitely many classes.
+4. Each class C gives a nonzero factor because R[q]^C maps onto R[q]/(Φ_n) ≠ 0 for n in C; the unit of that factor is a nontrivial idempotent.
+5. For a Noetherian domain R and p not a unit, the intersection of the p^j R is 0 by Krull's theorem, so non-comaximality and adjacency coincide and the classes are the connected components of HC.4.
+6. Non-example: R = ℤ × ℚ and S = {1, 2}. R is not 2-adically separated (the intersection of the 2^j R is 0 × ℚ), so 1 and 2 are not adjacent, but 2 is not a unit, Φ_1 and Φ_2 are not comaximal, and R[q]^{1,2} → R[[q-1]] × R[[q+1]] is not surjective because its ℤ-component is not: ((3 - 2q)^-1, 0) is not in the image (Proposition 7.4(1), see HC.6/the-acceptance-examples).
+
+**Acceptance.**
+
+- ℤ[q]^{1,6} = ℤ[[q-1]] × ℤ[q]^{6}, because Φ_6(1) = 1 so (q - 1, Φ_6) = (1) in ℤ[q]; hence ℤ[q]^{1,6} is not a domain.
+- ℚ[q]^{1,2} = ℚ[[q-1]] × ℚ[[q+1]], with idempotent e_1 ≡ (3 + 2q - q^2)/4 modulo (q-1)^2 (q+1); the same holds over ℤ[1/2] because Res(Φ_1, Φ_2) = 2.
+- ℤ[q]^{1,2} has no such decomposition: 1 and 2 are adjacent over ℤ and ℤ[q]^{1,2} is a domain.
+- Over R = ℤ × ℚ the set {1, 2} is not connected for adjacency, yet no product decomposition along it exists.
+
+**Depends on.** this roadmap: `HC.4/adjacency-of-orders`, `HC.1/the-cyclotomic-completion`, `HC.1/functoriality-in-the-ring-and-in-the-order-set`, `HC.4/non-surjectivity`; libraries: `mathlib:Ideal.quotientMulEquivQuotientProd`.
+
+**Sources.**
+
+- `Habiro.CyclotomicCompletions.2004`, Lemma 4.1(2), p. 1134 (printed page): “If m, n ∈ N, and n/m ∈ Q is not an integer power of a prime, then we have (Φn(q), Φm(q)) = (1) in Z[q].” — Comaximality for non-prime-power ratios, literally.
+- `Habiro.CyclotomicCompletions.2004`, §7.5, p. 1145 (printed page): “Consequently, for each f(q) = ∏_{n∈S} Φn(q)^{λ(n)} ∈ Φ*_S with λ(n) ≥ 0 we have by the Chinese Remainder Theorem Q[q]/(f(q)) ≃ ∏_{n∈S} Q[q]/(Φn(q)^{λ(n)}).” — The source's Chinese remainder step, in the case where every pair is comaximal; this node states the general comaximality version.
+
+### The ring ℚ[q]^S, and rings in which the orders are units
+
+`HC.5/the-rational-case` · theorem · planet “The ring Q[q]^S” · added by REV-HabiroCyclotomicCompletions
+
+Let R be a nonzero ring in which every element of S is a unit (for example R = ℚ). Then R[q]^S is isomorphic to the product over n in S of the Φ_n-adic completions R[q]^{n}. Consequently: R[q]^S is not a domain when S has at least two elements; for S' strictly contained in S the restriction R[q]^S → R[q]^(S') is surjective and not injective; for S nonempty the evaluation map R[q]^S → P_S(R) = ∏_{n in S} R[q]/(Φ_n) is surjective and not injective. For R = ℚ and a root of unity ζ of order n in S, the expansion map ℚ[q]^S → ℚ(ζ)[[q - ζ]] is the projection to ℚ[q]^{n} followed by an isomorphism ℚ[q]^{n} = ℚ(ζ)[[q - ζ]], so it is surjective, and not injective when S has another element. The map ℤ[q]^S → ℚ[q]^S is injective (Lemma 3.1).
+
+**Hypotheses.**
+
+- R ≠ 0 and every n in S is a unit of R (this is the source's parenthetical generalisation of §7.5).
+- S nonempty for the evaluation statement (for S empty both sides are the zero ring).
+- The identification ℚ[q]^{n} = ℚ(ζ)[[q - ζ]] is the standard fact that a local map of complete discrete valuation rings sending a uniformiser to a uniformiser and inducing an isomorphism of residue fields is an isomorphism; Φ_n is irreducible and separable over ℚ.
+
+**Proof.**
+
+1. For m ≠ n in S the polynomials Φ_m and Φ_n are comaximal in R[q] (by the criterion of HC.5/chinese-remainder-for-disconnected-collections; over ℚ this is mathlib Polynomial.cyclotomic.isCoprime_rat), so every pair is comaximal and the classes are singletons.
+2. Apply the Chinese remainder decomposition to get R[q]^S = ∏_{n in S} R[q]^{n}.
+3. Each factor is nonzero (it maps onto R[q]/(Φ_n) ≠ 0), which gives the idempotents, the failure of the domain property, and the surjective non-injective restrictions.
+4. Each R[q]^{n} → R[q]/(Φ_n) is surjective with the nonzero element Φ_n in its kernel, which gives the evaluation statement.
+5. For R = ℚ, the ring ℚ[q]^{n} is a complete discrete valuation ring with uniformiser Φ_n and residue field ℚ(ζ); the expansion map sends Φ_n to (q - ζ) times a unit and is the identity on residue fields, hence an isomorphism onto ℚ(ζ)[[q - ζ]].
+6. Injectivity of ℤ[q]^S → ℚ[q]^S is HC.1/coefficient-change-injective-and-surjective.
+
+**Acceptance.**
+
+- ℚ[q]^ℕ is not a domain; the idempotent e_1 of the factor n = 1 is represented modulo P_2 and P_3 by (3 + 2q - q^2)/4 and (47 + 42q + 7q^2 - 23q^3 - 18q^4 + 17q^5)/72 (compatible, and idempotent modulo P_3).
+- t = (q - 1) e_1 ≡ (-5 - 2q + 3q^2 + 5q^3 + 2q^4 - 3q^5)/12 modulo P_3 is nonzero (t ≡ q - 1 modulo (q-1)^2) and has value 0 at every root of unity, so evaluation over ℚ is not injective.
+- 1 - e_1 ≠ 0 (its value at q = -1 is 1) but its expansion at q = 1 is 0, so the expansion map at 1 is not injective over ℚ.
+- ℚ[q]^{1,2} → ℚ[q]^{1} = ℚ[[q-1]] is surjective.
+- ℤ[q]^ℕ → ℚ[q]^ℕ is injective, and ℚ ⊗ ℤ[q]^ℕ → ℚ[q]^ℕ is not surjective (HC.5/the-completed-module).
+
+**Depends on.** this roadmap: `HC.5/chinese-remainder-for-disconnected-collections`, `HC.1/coefficient-change-injective-and-surjective`, `HC.3/evaluation-at-a-root-of-unity`, `HC.3/the-taylor-map`; libraries: `mathlib:Polynomial.cyclotomic.isCoprime_rat`.
+
+**Sources.**
+
+- `Habiro.CyclotomicCompletions.2004`, §7.5, p. 1145 (printed page): “Note that Z[q]^S embeds into Q[q]^S by Lemma 3.1. (The following remarks holds if we replace Q with any ring R such that each element of S is a unit in R.)” — The injectivity from ℤ and the generality of the node, literally.
+- `Habiro.CyclotomicCompletions.2004`, §7.5, p. 1146 (printed page): “Taking the inverse limit, we obtain an isomorphism Q[q]^S → ∏_{n∈S} Q[q]^{n}. Since each Q[q]^{n} is not zero, it follows that Q[q]^S is not an integral domain if |S| > 1.” — The product decomposition and the failure of the domain property, literally.
+- `Habiro.CyclotomicCompletions.2004`, §7.5, p. 1146 (printed page): “It also follows that ρ^Q_{S,S′}: Q[q]^S → Q[q]^{S′} is not injective (but surjective) for each S′ ⊊ S. Since for each n ∈ S the (surjective) homomorphism Q[q]^{n} → Q[q]/(Φn(q)) is not injective, the homomorphism ε^Q_{S,S}: Q[q]^S → P_S(Q) is not injective.” — Restriction and evaluation over ℚ, literally (S nonempty; sourceIssues E18).
+- `Habiro.CyclotomicCompletions.2004`, §1, p. 1128 (printed page): “For example, the analogues of the homomorphisms ε and σζ over the rational numbers, are not injective; nevertheless, the natural homomorphism Z[q]^N → Q[q]^N is injective. For more details, see Section 7.5.” — The introduction's summary of the rational case.
+
+### Inverting primes: the completions of ℤ[1/Δ][q], compared with ℤ and ℚ
+
+`HC.5/inverting-a-prime-and-the-rational-case` · comparison
+
+Let Δ ≥ 1 and R = ℤ[1/Δ] (R = ℤ[1/p] when Δ = p). Over R two distinct orders m, n are adjacent exactly when n/m is a nonzero power of a prime not dividing Δ; since R is a Noetherian domain this is also non-comaximality, and the classes of the positive integers are the sets S_a = {n : v_p(n) = a_p for every prime p dividing Δ}, one for each family a = (a_p). Hence: (1) R[q]^ℕ is the product of the R[q]^(S_a), infinitely many nonzero factors when Δ > 1, so it is not a domain although R is; each S_a is connected, so restriction from R[q]^(S_a) to any nonempty subset is injective, and restriction from R[q]^ℕ to a set S' of orders is injective exactly when S' meets every S_a; in particular the expansion map at q = 1 and the restriction to {1} are injective over ℤ and not over R. (2) Evaluation at all roots of unity, R[q]^ℕ → P_N(R), is still injective (Theorem 6.1 on each factor, with n = ∏_p p^(a_p) and the infinitely many adjacent orders n ℓ, ℓ a prime not dividing Δ), whereas over ℚ it is not; evaluation on a set of orders missing some S_a is not injective. (3) For a root of unity ζ of order n prime to Δ the expansion map is injective on the factor R[q]^(S_0) of orders prime to Δ (Theorem 5.2: the odd primes dividing n, and 2 when 4 | n, are not inverted) and zero on every other factor. (4) ℤ[q]^ℕ → R[q]^ℕ is injective, but ℤ[q]^ℕ[1/Δ] → R[q]^ℕ is not surjective: its image is a domain and contains no nontrivial idempotent. So neither the domain property nor connectedness passes from the coefficient ring to the completion, and completion does not commute with inverting Δ.
+
+**Hypotheses.**
+
+- R = ℤ[1/Δ] with Δ ≥ 1; for Δ = 1 everything reduces to the integral case.
+- Adjacency and comaximality coincide over R because R is a Noetherian domain (HC.5/chinese-remainder-for-disconnected-collections).
+- Statement (3) is restricted to orders prime to Δ, where Theorem 5.2 applies; for the other factors see HC.5/components-over-a-localised-integer-ring-are-domains.
+
+**Proof.**
+
+1. Compute the relation: for n = m p^e with p | Δ the prime p is a unit, so Φ_m, Φ_n are comaximal; for p not dividing Δ, R is p-adically separated; non-prime-power ratios are comaximal already over ℤ.
+2. Identify the classes: multiplying by primes not dividing Δ connects all orders with the same p-adic valuations for p | Δ; different valuations are never adjacent.
+3. Apply HC.5/chinese-remainder-for-disconnected-collections to get the product decomposition and the idempotents.
+4. Injectivity on each connected factor is Theorem 4.1 (HC.4/injectivity-of-restriction); a restriction missing a factor kills that factor's idempotent.
+5. Apply Theorem 6.1 (HC.4/evaluation-uniqueness-and-its-exact-hypothesis) on each factor, R being a subring of the algebraic numbers in which every prime not dividing Δ is a non-unit.
+6. Apply Theorem 5.2 (HC.4/rootwise-taylor-injectivity) on the factor of orders prime to Δ.
+7. Injectivity from ℤ is HC.1/coefficient-change-injective-and-surjective; localisation of the domain ℤ[q]^ℕ (HC.4/the-completion-is-a-domain) is a domain, so the idempotent of S_0 is not in the image.
+
+**Acceptance.**
+
+- Over ℤ[1/2] the orders 1 and 2 are not adjacent (Res(Φ_1, Φ_2) = 2 is a unit); the classes are S_a = {n : v_2(n) = a}.
+- Over ℤ[1/2] the idempotent e_0 of the odd orders is represented modulo P_2 and P_3 by (3 + 2q - q^2)/4 and (7 + 2q - q^2 + q^3 - 2q^4 + q^5)/8; 1 - e_0 ≠ 0 lies in the kernel of the expansion map at 1.
+- Over ℤ[1/2] evaluation at all roots of unity is injective; over ℚ it is not.
+- ℤ[q]^ℕ → ℤ[1/2][q]^ℕ is injective and ℤ[q]^ℕ[1/2] → ℤ[1/2][q]^ℕ is not surjective.
+- Over ℚ (every prime inverted) no two distinct orders are adjacent, and the rational case HC.5/the-rational-case is the limit of this picture.
+
+**Depends on.** this roadmap: `HC.5/chinese-remainder-for-disconnected-collections`, `HC.5/the-rational-case`, `HC.4/adjacency-of-orders`, `HC.4/injectivity-of-restriction`, `HC.4/evaluation-uniqueness-and-its-exact-hypothesis`, `HC.4/rootwise-taylor-injectivity`, `HC.4/the-completion-is-a-domain`, `HC.1/coefficient-change-injective-and-surjective`.
+
+**Sources.**
+
+- `Habiro.CyclotomicCompletions.2004`, Theorem 6.1, p. 1139 (printed page): “Let R be a subring of Q̄, S ⊂ N a ⇔R-connected subset, and T ⊂ S a subset. Suppose that for some n ∈ S there are infinitely many elements m ∈ T with m ⇔R n. Then the homomorphism ε^R_{S,T}: R[q]^S → P_T(R) is injective.” — Applied on each factor for statement (2).
+- `GSWZ.HabiroNumberField.2024`, Remark 1.2, §1.4, p. 7 (arXiv v2): “Instead, HR is a product of (in general infinitely many) integral domains indexed by the equivalence classes of N under the equivalence relation generated by m ∼∆ pm for primes p not dividing ∆.” — The same decomposition for the number-field Habiro ring; for F = ℚ the identification of that ring with ℤ[1/Δ][q]^ℕ is HabiroNumberFields HB.6's, not this node's.
+
+### Each factor of ℤ[1/Δ][q]^ℕ is a domain
+
+`HC.5/components-over-a-localised-integer-ring-are-domains` · lemma · added by REV-HabiroCyclotomicCompletions
+
+Let R = ℤ[1/Δ] and let S_a be a class of HC.5/inverting-a-prime-and-the-rational-case. Then R[q]^(S_a) is an integral domain, and for every n in S_a and every primitive n-th root of unity ζ the expansion map R[q]^(S_a) → R[ζ][[q - ζ]] is injective. So R[q]^ℕ is a product of integral domains, as GSWZ Remark 1.2 states for the number-field Habiro ring. For factors whose orders are divisible by an odd prime dividing Δ this is not covered by Theorem 5.2, whose separation hypothesis fails there.
+
+**Hypotheses.**
+
+- R = ℤ[1/Δ], n in S_a; ζ lies in the algebraic closure of ℚ.
+- The argument is Galois descent and is this packet's own; Habiro proves only the case covered by Theorem 5.2.
+
+**Proof.**
+
+1. Restriction from R[q]^(S_a) to R[q]^{n} is injective by Theorem 4.1, because S_a is connected over R; so it suffices to treat R[q]^{n}.
+2. Let R'' = R[ζ_n]. By Lemma 3.1, R[q]^{n} → R''[q]^{n} is injective, and R''[q]^{n} is the completion at the linear factors q - ζ', ζ' primitive of order n (Habiro, p. 1136).
+3. Two primitive n-th roots either differ by a unit of R'' (their ratio has order not a prime power, or a power of a prime dividing Δ) or are adjacent over R'' (ratio of order ℓ^k with ℓ not dividing Δ, and R'' is ℓ-adically separated). So R''[q]^{n} is the product of the completions at the connected classes of roots (Chinese remainder), and each factor embeds into a power series ring R''[[q - ζ']] by Theorem 5.1, hence is a domain (HC.4/connectedness-of-primitive-roots).
+4. The Galois group of ℚ(ζ_n)/ℚ acts on R''[q]^{n}, fixes the image of R[q]^{n} and permutes the classes transitively. If f g = 0 in R[q]^{n}, then on one class the component of f or of g vanishes; by Galois invariance it vanishes on all classes, so f = 0 or g = 0.
+5. The same argument shows that the expansion at any ζ of order n is injective on R[q]^{n}, hence on R[q]^(S_a).
+
+**Acceptance.**
+
+- For R = ℤ[1/3] and n = 3: R''[q]^{3} = R''[[q - ω]] × R''[[q - ω^2]] with R'' = ℤ[1/3][ω], because (1 - ω)^2 = -3ω is a unit; complex conjugation swaps the factors and R[q]^{3} embeds into one of them, so it is a domain although ℤ[1/3] is not 3-adically separated.
+- For Δ = 1 the statement is Corollary 5.1 for ℤ (HC.4/the-completion-is-a-domain).
+
+**Depends on.** this roadmap: `HC.5/inverting-a-prime-and-the-rational-case`, `HC.5/chinese-remainder-for-disconnected-collections`, `HC.4/injectivity-of-restriction`, `HC.4/rootwise-taylor-injectivity`, `HC.1/coefficient-change-injective-and-surjective`, `HC.4/connectedness-of-primitive-roots`.
+
+**Sources.**
+
+- `Habiro.CyclotomicCompletions.2004`, Theorem 5.1, p. 1137 (printed page): “Let R be an integral domain of characteristic 0 and let Z ⊂ Z^R be a ⇔R-connected subset. Then for any nonempty subset Z′ ⊂ Z the homomorphism ρ^R_{Z,Z′}: R[q]^Z → R[q]^{Z′} is injective.” — The injectivity on each connected class of roots used in step 3 (exported by HC.4/connectedness-of-primitive-roots).
+- `GSWZ.HabiroNumberField.2024`, Remark 1.2, §1.4, p. 7 (arXiv v2): “Instead, HR is a product of (in general infinitely many) integral domains indexed by the equivalence classes of N under the equivalence relation generated by m ∼∆ pm for primes p not dividing ∆.” — The statement this lemma proves for F = ℚ on the classical side.
+
+### When restriction of the orders is a localisation, and when it is not
+
+`HC.5/restricted-root-orders-versus-localisation` · comparison
+
+Let S' be contained in S. (a) If S' is a union of classes of the non-comaximality relation on S over R, then the restriction R[q]^S → R[q]^(S') is surjective, its kernel is generated by the idempotent 1 - e_(S'), and it identifies R[q]^(S') with the localisation of R[q]^S at e_(S'), that is with e_(S') R[q]^S. This covers every S' over ℚ, and the orders prime to Δ over ℤ[1/Δ] (the restricted-order ring H_R|_Δ of GSWZ for the rational field). (b) If some n in S \ S' is not comaximal with some m in S' (and R ≠ 0), then Φ_n is not a unit of R[q]^(S'), so the naive localisation of R[q]^S inverting the Φ_n with n not in S' admits no R[q]^S-algebra map to R[q]^(S'); for R = ℤ, S = ℕ, S' = {1} the image 2 + (q - 1) of 1 + q is not a unit of ℤ[[q - 1]], and the restriction is injective but not surjective ((3 - 2q)^-1 is not in its image). The restricted ring has the universal property of a completion (HC.1), which no localisation of R[q]^S has in case (b). (c) Localising the completed ring is not completing the localised coefficient ring: ℤ[q]^ℕ[1/p] → ℤ[1/p][q]^ℕ is injective and not surjective, the source being a domain and the target having nontrivial idempotents. Habiro's own localisation of the completion, obtained by inverting all cyclotomic polynomials, is the subject of HC.5/habiro-localisation-proposition-7-2 and HC.5/habiro-localisation-proposition-7-3.
+
+**Hypotheses.**
+
+- Classes are those of HC.5/chinese-remainder-for-disconnected-collections; for Noetherian domains they are the connected components.
+- R ≠ 0 in (b).
+- In (c), p is a prime; the same holds for any Δ > 1.
+
+**Proof.**
+
+1. (a) By the Chinese remainder decomposition R[q]^S = R[q]^(S') × R[q]^(S \ S'), and the projection onto a factor of a product is the localisation at its idempotent.
+2. (b) If Φ_n were a unit in R[q]^(S') it would be a unit in R[q]/(Φ_m), which is impossible because (Φ_m, Φ_n) is contained in the proper ideal (Φ_m, p) when n/m = p^e with p not a unit.
+3. (b, example) Injectivity is Theorem 4.1 and non-surjectivity is Proposition 7.4; the witness (3 - 2q)^-1 is computed in HC.6/the-acceptance-examples.
+4. (c) Injectivity from Lemma 3.1 and exactness of localisation; the image of the domain ℤ[q]^ℕ[1/p] contains no nontrivial idempotent, while ℤ[1/p][q]^ℕ does (HC.5/inverting-a-prime-and-the-rational-case).
+
+**Acceptance.**
+
+- Over ℚ, restriction from ℚ[q]^{1,2} to ℚ[q]^{1} is the localisation at e_1 ≡ (3 + 2q - q^2)/4 mod P_2, and is surjective.
+- Over ℤ, 1 + q is not a unit of ℤ[q]^{1} = ℤ[[q - 1]], so ℤ[q]^ℕ[(1+q)^-1] does not map to ℤ[[q - 1]] over ℤ[q]^ℕ.
+- ℤ[q]^ℕ[1/2] → ℤ[1/2][q]^ℕ misses the idempotent of the odd orders.
+- The restriction ℤ[q]^ℕ → ℤ[[q-1]] is injective and not surjective.
+
+**Depends on.** this roadmap: `HC.5/chinese-remainder-for-disconnected-collections`, `HC.5/inverting-a-prime-and-the-rational-case`, `HC.1/functoriality-in-the-ring-and-in-the-order-set`, `HC.4/injectivity-of-restriction`, `HC.4/non-surjectivity`.
+
+**Sources.**
+
+- `Habiro.CyclotomicCompletions.2004`, §7.5, p. 1146 (printed page): “It also follows that ρ^Q_{S,S′}: Q[q]^S → Q[q]^{S′} is not injective (but surjective) for each S′ ⊊ S.” — Case (a) over ℚ.
+- `Habiro.CyclotomicCompletions.2004`, Proposition 7.4, pp. 1144-1145 (printed pages): “3. For each nonempty, finite subset S ⊂ N, the homomorphism ρ^Z_{N,S} is not surjective.” — Case (b) over ℤ (item 3 is on p. 1145).
+- `GSWZ.HabiroNumberField.2024`, Definition 1.1 and the paragraph after it, §1.4, p. 7 (arXiv v2): “We also define HR |∆ to be the same ring where we restrict to m prime to ∆, and more generally HR |γ to be the ring where we restrict to m prime to any positive integer γ.” — The restricted-order rings the stage text refers to; case (a) is their classical counterpart for F = ℚ.
+
+### Inverting the cyclotomic polynomials in ℤ[q]^ℕ (Habiro Proposition 7.2)
+
+`HC.5/habiro-localisation-proposition-7-2` · theorem · added by REV-HabiroCyclotomicCompletions
+
+Inside the field of fractions of the domain ℤ[q]^ℕ, let ℤ[q]^ℕ[Φ_N^-1] be the subring generated by ℤ[q]^ℕ and the Φ_n(q)^-1, n ≥ 1, and ℤ[q, q^-1][Φ_N^-1] the subring of ℚ(q) generated by the Laurent polynomials and the same inverses. Then ℤ[q]^ℕ[Φ_N^-1] = ℤ[q]^ℕ + ℤ[q, q^-1][Φ_N^-1]. The key step is ℤ[q]^ℕ = f ℤ[q]^ℕ + ℤ[q, q^-1] for every f in Φ*_N.
+
+**Hypotheses.**
+
+- ℤ[q]^ℕ is a domain (Corollary 5.1 with S = ℕ), so its field of fractions exists and contains ℚ(q).
+- ℤ[q]^ℕ is identified with the completion of ℤ[q, q^-1] (Habiro §7.1).
+
+**Proof.**
+
+1. The inclusion of the right side in the left is clear.
+2. ℤ[q]^ℕ[Φ_N^-1] is the union of the (1/f) ℤ[q]^ℕ over f in Φ*_N, so it suffices that ℤ[q]^ℕ ⊂ f ℤ[q]^ℕ + ℤ[q, q^-1].
+3. The projection ℤ[q]^ℕ → ℤ[q]/(f) = ℤ[q, q^-1]/(f) is surjective with kernel f ℤ[q]^ℕ (HC.5/the-completed-module, M = ℤ), which is exactly that statement.
+
+**Acceptance.**
+
+- q^-1 ∈ ℤ[q]^ℕ (HC.2/invertibility-of-q) is consistent with the statement: q^-1 = 1 + (q^-1 - 1) and q^-1 - 1 ∈ (1 - q) ℤ[q, q^-1].
+- 1/(1 - q) lies in ℤ[q]^ℕ[Φ_N^-1] but not in ℤ[q]^ℕ (its product with 1 - q is 1, and 1 - q is not a unit of ℤ[q]^ℕ).
+
+**Depends on.** this roadmap: `HC.5/the-completed-module`, `HC.4/the-completion-is-a-domain`, `HC.2/invertibility-of-q`; libraries: `mathlib:LaurentPolynomial`.
+
+**Sources.**
+
+- `Habiro.CyclotomicCompletions.2004`, §7.2, pp. 1142-1143 (printed pages): “We will consider the Z[q]^N-subalgebra Z[q]^N[Φ_N^{−1}] of Q(Z[q]^N) generated by the elements Φn(q)^{−1} for n ∈ N.” — The definition.
+- `Habiro.CyclotomicCompletions.2004`, Proposition 7.2, p. 1143 (printed page): “We have Z[q]^N[Φ_N^{−1}] = Z[q]^N + Z[q, q^{−1}][Φ_N^{−1}].” — The statement, literally.
+
+### Rational elements of ℤ[q]^ℕ are Laurent polynomials (Habiro Proposition 7.3)
+
+`HC.5/habiro-localisation-proposition-7-3` · theorem · added by REV-HabiroCyclotomicCompletions
+
+ℤ[q]^ℕ ∩ ℤ[q, q^-1][Φ_N^-1] = ℤ[q, q^-1] inside the field of fractions of ℤ[q]^ℕ: an element of the completion that is a quotient g/h of a Laurent polynomial g by a product h of cyclotomic polynomials is itself a Laurent polynomial. So localising ℤ[q]^ℕ at the cyclotomic polynomials adds no new element of the completion.
+
+**Hypotheses.**
+
+- As in HC.5/habiro-localisation-proposition-7-2.
+
+**Proof.**
+
+1. Write f = g/h with h in Φ*_N of minimal degree, so that g and h have no common factor Φ_n.
+2. If h ≠ 1 choose Φ_n dividing h; evaluating g = f h at a primitive n-th root ζ_n (HC.3/evaluation-at-a-root-of-unity) gives g(ζ_n) = f(ζ_n) h(ζ_n) = 0.
+3. Φ_n is the minimal polynomial of ζ_n and is primitive, so Φ_n divides g in ℤ[q, q^-1], a contradiction; hence h = 1.
+
+**Acceptance.**
+
+- The Kontsevich series Σ_n (q;q)_n is not in ℤ[q, q^-1][Φ_N^-1]: otherwise it would be a Laurent polynomial, but its values at q = 1, -1, ω are 1, 3, 5 - ω and its Taylor coefficients at q = 1 grow like the Fishburn numbers, which no Laurent polynomial has.
+- 1/(1 - q) is in ℤ[q, q^-1][Φ_N^-1] and not in ℤ[q]^ℕ, consistently.
+
+**Depends on.** this roadmap: `HC.5/habiro-localisation-proposition-7-2`, `HC.3/evaluation-at-a-root-of-unity`; libraries: `mathlib:Polynomial.cyclotomic.irreducible_rat`.
+
+**Sources.**
+
+- `Habiro.CyclotomicCompletions.2004`, Proposition 7.3, p. 1143 (printed page): “We have Z[q]^N ∩ Z[q, q^{−1}][Φ_N^{−1}] = Z[q, q^{−1}].” — The statement, literally; the proof applies the evaluation at ζn (printed with the letter σ, sourceIssues E17).
+
+### The ordinary module completion is the derived Habiro completion on polynomial modules
+
+`HC.5/ordinary-versus-derived-completion` · comparison · added by REV-HabiroCyclotomicCompletions
+
+For a ring R and an R-module M, the Laurent-polynomial module M[q, q^-1] has no (q^m - 1)-torsion; so its derived (q^m - 1)-completion is static and equals the classical one, and its derived Habiro completion in the sense of HabiroRings HR.2 (the limit over m, ordered by divisibility, of the (q^m - 1)-completions) is static and naturally isomorphic, as an R[q]^ℕ-module, to the ordinary completion M[q]^ℕ of HC.5/the-completed-module. On modules of this form no derived-limit correction occurs. The two completions differ on R[q, q^-1]-modules with torsion: for S = {1} and the exact sequence 0 → ⊕_k ℤ[q] → ⊕_k ℤ[q] → ⊕_k ℤ[q]/((q-1)^k) → 0 (the first map multiplying the k-th summand by (q-1)^k), the ordinary (q-1)-adic completions form a sequence that is not exact in the middle: the family ((q-1)^k)_k lies in the kernel but not in the image.
+
+**Hypotheses.**
+
+- The derived completion is the one of HabiroRings HR.2 (node HabiroRings:HR.2/habiro-complete-modules), not constructed here.
+- q^m - 1 is monic up to a unit in R[q, q^-1], so multiplication by it is injective on M[q, q^-1].
+
+**Proof.**
+
+1. For a monic f, M[q, q^-1]/(f^j) is M tensored with the free R-module R[q, q^-1]/(f^j), so M[q, q^-1] has no f-torsion.
+2. For an f-torsion-free module the derived f-completion is R lim_j of the quotients by f^j (Koszul model, as imported by HR.2 from DerivedDeRhamCohomology DD.1), and the lim^1 term vanishes because the transition maps are surjective.
+3. The limit over m ordered by divisibility is countable with surjective transition maps on the static terms, so the derived limit is the ordinary limit.
+4. Identify the result with M[q]^ℕ using the mutual cofinality of the ideals ((q^m - 1)^j) and Φ*_N (HC.1/cofinality-of-the-factorial-products) and Habiro's identification of the completions of ℤ[q] and ℤ[q, q^-1] (§7.1).
+5. The non-example is the classical failure of exactness of adic completion on modules with unbounded torsion.
+
+**Acceptance.**
+
+- For M = R the derived Habiro completion of R[q, q^-1] is R[q]^ℕ.
+- The non-example sequence is not exact after ordinary completion, so HR.2's derived construction is needed exactly for modules with torsion.
+
+**Depends on.** this roadmap: `HC.5/the-completed-module`, `HC.1/cofinality-of-the-factorial-products`, `HC.2/invertibility-of-q`; other roadmaps: `HabiroRings:HR.2/habiro-complete-modules`.
+
+**Sources.**
+
+- `Habiro.CyclotomicCompletions.2004`, §7.1, p. 1142 (printed page): “For each subset S ⊂ N, the inclusion Z[q] ⊂ Z[q, q^{−1}] induces an isomorphism Z[q]^S ≃ lim_{f∈Φ*_S} Z[q, q^{−1}]/(f), via which we will identify these two rings.” — The identification of the polynomial and Laurent completions used in step 4.
 
 ## HC.6 — Interfaces and acceptance examples
 
-What is exported, to whom, and the standard for a claimed element: **a**
-**compatible family of quotient classes, not a divergent formal expression**.
+*Coverage in `HabiroCyclotomicCompletions--HC.6.json`: closed.* The three imported HC.6 nodes in the accepted parent realise all retained classical targets (see imports and targetCoverage). Accepted RS-10, reviewed 2026-09-29, resolves the sole remaining parent coverage item by assigning the arithmetic comparison to HB.6. AUDIT-17 classifies this as a process/interface stage; no new mathematics or planets. Closure concerns HC.6 only, not unresolved HC.4 refinements elsewhere. The generic exports retain their suppliers' recorded boundaries: in particular the parent non-Noetherian Taylor-injectivity gap is not discharged here. The integral acceptance cases use R = ℤ and ℤ[ζ], which are Noetherian; the ordinary-versus-derived comparison is an imported HR.2 interface, not a new construction or a proof that HR.2 is closed.
 
-Six acceptance computations, chosen so that the finite-precision algorithms,
-the difference between a value and a full Taylor series, and the change of
-adjacency under inversion are each tested.
+*Coverage in `HabiroCyclotomicCompletions.json`: partial.* The exported interface and two acceptance-example nodes with explicit values. Revised by REV-HabiroCyclotomicCompletions.
 
-Coverage: **source_decomposed**.
+- Remaining (as recorded there): The stage text asks for 'the map from the classical ℤ-Habiro ring to GSWZ's rational-number-field case'. Its target is built in HabiroNumberFields HB.6, whose packet cites HC.6, so it cannot be a prerequisite here without a cycle; RS-10 (not accepted) moves the test to HB.6. It stays open here until that restructuring, or the proposal below, is accepted.
 
-Three nodes. The exported interface, listing each object with the node that supplies it and each consumer with what it takes, and stating that no completion functor is assumed exact here, which is why the derived construction belongs to the Habiro-rings roadmap; the acceptance examples, with the standard that an element is a compatible family of quotient classes and not a divergent formal expression; and the comparison with the rational-number-field case, which is the coefficient functoriality of HC.1 and which the source proves injective, with the explicit record that it is not surjective so that results do not transfer back along it.
+The layer exports the interface and checks it on explicit examples. Its three nodes are in the first packet. The HC.6 part plans no node: it imports those three and closes the layer, following RS-10, which moves the comparison with the Habiro ring of the rational field to HabiroNumberFields HB.6. The first packet's coverage note above was written before RS-10 was accepted, and that acceptance settles the item it leaves open. The library audit classes HC.6 as a process layer.
 
-### What this roadmap exports, and to whom
+Two uses of ℚ must be kept apart. The classical completion with coefficient ring ℚ, ℚ[q]^ℕ, is an HC.5 and HC.6 example: a product of power-series rings, with nontrivial idempotents. GSWZ's Habiro ring of the number field ℚ has integral coefficients, and for Δ = 1 it is ℤ[q]^ℕ itself. HB.6 constructs it and compares it with this roadmap's rings.
 
-`HabiroCyclotomicCompletions:HC.6/the-exported-interface` · *comparison*
+The HC.6 part also records, target by target, which nodes supply what the stage text asks for. Its table follows. The arithmetic of every example was recomputed independently by the HC.6 review, in 75 exact checks.
 
-The interface this roadmap exports consists of the complete topological rings with their projections, the evaluation and Taylor maps, the p-adic substitutions and the completed modules. The number-field roadmap consumes all of them; the Habiro-rings roadmap consumes the ordinary comparison objects and the order-change maps, and builds a derived completion on top using enhanced derived sheaves; the cohomology roadmap then consumes that derived interface. NO completion functor is assumed exact here, which is why the derived version is built elsewhere, and the links to the consumers do not make this roadmap depend on their theorems.
+| Retained target | Supplied by | Acceptance |
+|---|---|---|
+| Complete rings, finite quotients, projections and coefficient/restriction maps | `HC.6/the-exported-interface`, `HC.1/the-cyclotomic-completion`, `HC.1/the-quotients-of-the-completion`, `HC.1/topology-completeness-and-universal-property`, `HC.1/functoriality-in-the-ring-and-in-the-order-set` | Compatible classes modulo P_N; P_0=1 gives the zero precision quotient; projections are surjective with the recorded principal kernels. Completion topology and universal property retain the supplier hypotheses. |
+| Normalised factorial expansion and finite-precision ring arithmetic | `HC.1/the-factorial-polynomials`, `HC.1/cofinality-of-the-factorial-products`, `HC.2/factorial-expansions`, `HC.2/algorithms-on-expansions`, `HC.2/invertibility-of-q`, `HC.6/the-acceptance-examples` | F_N=Σ_{n<N}P_n; q U_N=1−P_N; multiplication of F by q inverse and F squared renormalizes as in the parent node. For Mathlib remainder use the monic associate (−1)^N P_N, not P_N at odd N. |
+| Evaluation, Taylor coefficients, coefficient naturality and p-adic re-expansion | `HC.3/evaluation-at-a-root-of-unity`, `HC.3/the-taylor-map`, `HC.3/naturality-and-re-expansion`, `HC.3/p-adic-re-expansion`, `HC.3/re-expansion-of-taylor-expansions`, `HC.6/the-acceptance-examples` | At order d>0, values use N≥d and Taylor coefficients through degree k use N≥d(k+1). F(1)=1, F(−1)=3, F(ω)=5−ω. Equal values at 1 do not force equal Taylor series. P-adic re-expansion requires a complete separated coefficient ring and a topologically nilpotent shift, not formal substitution with an arbitrary nonzero constant. |
+| Classical injectivity and non-surjectivity with exact hypotheses | `HC.4/rootwise-taylor-injectivity`, `HC.4/evaluation-uniqueness-and-its-exact-hypothesis`, `HC.4/non-surjectivity`, `HC.4/taylor-maps-are-not-surjective`, `HC.6/the-acceptance-examples` | The Taylor maps at 1 and −1 of the full integral Habiro ring are injective, not surjective. Evaluation uniqueness uses the parent adjacency hypothesis, never arbitrary infinitude. Inverting 2 and rational coefficients give the explicit failure cases below. |
+| Ordinary module completion and the interface to derived completion | `HC.5/the-completed-module`, `HC.5/ordinary-versus-derived-completion`, `HC.6/the-exported-interface` | M ↦ M[q]^S is exact for coefficient modules M. The derived identification is imported only for Laurent polynomial modules M[q,q^−1]; arbitrary torsion modules belong to HabiroRings HR.2. |
+| Localized, rational and characteristic-two examples | `HC.5/chinese-remainder-for-disconnected-collections`, `HC.5/the-rational-case`, `HC.5/inverting-a-prime-and-the-rational-case`, `HC.6/inverted-prime-and-rational-examples` | The odd-order idempotent over ℤ[1/2] has the parent representatives modulo P_2 and P_3. The rational element (q−1)e_1 is nonzero with every root value zero. Modulo 2, q^5+q+1 is idempotent modulo P_3 with the specified two CRT components. |
+| Source ledger and suggested Lean signatures | `HC.6/the-exported-interface`, `HC.6/the-acceptance-examples`, `HC.6/inverted-prime-and-rational-examples` | Two exact primary-source versions and four canonical errata are recorded. The suggested file contains 39 finite polynomial example specifications against the pinned Mathlib; it introduces no stand-in completion type. |
 
-**Hypotheses.**
+### What this roadmap exports, node by node, and what it does not supply
 
-- The exported objects are those of HC.1 through HC.5; nothing about derived completion is asserted here.
-- The consumers are named in the stage text and are recorded as requests, not as dependencies of this roadmap.
-- The exactness question is left open on purpose: HC.5 states the derived-limit correction and the derived construction belongs to the Habiro-rings roadmap.
+`HC.6/the-exported-interface` · comparison
 
-**Proof outline.**
-
-1. List the exported objects with the node that supplies each.
-2. Record each consumer and what it takes.
-3. State that no exactness is assumed and point at HC.5's correction term.
-4. State that the links to consumers are one-directional: this roadmap does not depend on their completed theorems.
-5. Record the boundary with the enhanced-derived-sheaves roadmap, which supplies the machinery the derived construction needs.
-
-**Acceptance.**
-
-- Every exported object has a node that supplies it.
-- No completion functor is assumed exact.
-- The dependency runs from this roadmap to its consumers and not back.
-
-**Prerequisites.** `HabiroCyclotomicCompletions:HC.1/the-cyclotomic-completion`, `HabiroCyclotomicCompletions:HC.3/the-taylor-map`, `HabiroCyclotomicCompletions:HC.5/the-completed-module`
-
-**Sources.**
-
-- §7.3, p. 1143 of the PDF, The compatibility of the module and ring constructions that makes a single interface possible, verbatim; the source is careful to say that SOME results generalise, which is the caution this node records as the absence of an exactness assumption.
-
-  > If A is a ring, then this definition of A[q]^S is compatible with the previous one. Some results in the present paper can be generalized to A[q]^S.
-
-### The acceptance examples
-
-`HabiroCyclotomicCompletions:HC.6/the-acceptance-examples` · *comparison*
-
-The layer is accepted when a specific list of computations has been carried out: the integers at the values one and minus one and at a primitive third root; the element given by the polynomial one minus q; the factorial series of Kontsevich; the inverse of the indeterminate; and a coefficient ring with a prime inverted. Each exercises a different part of the development, and the list is chosen so that the finite-precision algorithms, the difference between a value and a full Taylor series, and the change of adjacency under inversion are all tested. Every claimed element must carry a compatible family of quotient classes rather than a divergent formal expression.
+The roadmap exports, by node: the complete topological rings R[q]^S with projections, the polynomial map, restriction and coefficient change (HC.1/the-cyclotomic-completion, HC.1/cofinality-of-the-factorial-products, HC.1/functoriality-in-the-ring-and-in-the-order-set, HC.1/coefficient-change-injective-and-surjective); the factorial polynomials and the cofinal systems (HC.1/the-factorial-polynomials, HC.1/completion-along-a-cofinal-family); normalised factorial expansions, factorial series, finite-precision arithmetic and the unit q (HC.2 nodes); evaluation, Taylor maps and the p-adic re-expansions (HC.3 nodes); adjacency, comaximality, the three injectivity theorems with their exact hypotheses, integrality of R[q]^S for connected S, and non-surjectivity (HC.4 nodes); the exact ordinary module completion, the module injectivity theorem, the Chinese remainder decomposition, the rings ℚ[q]^S and ℤ[1/Δ][q]^ℕ with their factors, the comparison of restriction with localisation, Habiro's localisation by cyclotomic polynomials, and the comparison with the derived completion (HC.5 nodes). Consumers: HabiroRings HR.2 (HC.1, HC.2, HC.5/ordinary-versus-derived-completion), HR.3 (comaximality), HR.5 and HR.5-number-field-comparison (HC.1, HC.3, HC.4); HabiroNumberFields HB.6 (HC.1, HC.3, the HC.5 decomposition after inverting primes and HC.5/components-over-a-localised-integer-ring-are-domains) and KU-habiroring (HC.1 to HC.3); ArithmeticQuantumTopology QT.2 to QT.6 (HC.1 to HC.4 and the acceptance examples); QSeriesPartitionsAndMockModularForms QM.5 (HC.1, HC.3, HC.4); HabiroNahmSeries HB.4 and HB.8 (HC.1, HC.2); HabiroCohomologyFoundations HQ.1 (HC.1, HC.3); the draft roadmaps QWittVectors QW.2 (comaximality, HC.4/adjacency-of-orders) and AnalyticHabiroStack HS.0 to HS.2 (HC.1, HC.2). The ordinary module completion is exact (HC.5/the-completed-module); what needs derived methods is completion of R[q]-modules with torsion, which HabiroRings HR.2 owns. Not supplied here: the identification of the Garoufalidis-Scholze-Wheeler-Zagier ring for the rational field with ℤ[1/Δ][q]^ℕ, and the comparison test from the classical ring to it, which HabiroNumberFields HB.6 performs; the elementary q-analogue toolkit (q-integers, q-binomial coefficients and their divisibility, the q-binomial theorem, Pochhammer identities) requested by HabiroNahmSeries and ArithmeticQuantumTopology, which no node of this packet plans beyond the factorial polynomials P_N of HC.1/the-factorial-polynomials, and whose ownership between HC.1 and QSeriesPartitionsAndMockModularForms QM.0 is recorded under restructure; and injectivity of evaluation on an arbitrary infinite set of roots of unity, which is Habiro's open Conjecture 6.1 and not a theorem.
 
 **Hypotheses.**
 
-- The examples are over the integers except the last, which is over the integers with a prime inverted.
-- A claimed element is accepted only with its compatible family; a formal series that does not converge in the completion's topology is not an element.
-- The third-root example is the first where the coefficient ring of the target is larger than the base.
+- Every exported object is supplied by the node named for it; nothing derived is asserted.
+- Consumer links are one-directional: no node of this packet has a prerequisite in a consumer roadmap.
+- The evaluation-uniqueness theorems carry Habiro's adjacency condition; a consumer that states 'a set with a limit point' is asking for Conjecture 6.1.
 
-**Proof outline.**
+**Proof.**
 
-1. List the six examples and the node each exercises.
-2. Record the standard for an element: a compatible family of classes, not a formal expression.
-3. Record what the value-versus-expansion example tests, namely the difference between the constant term and the whole Taylor series.
-4. Record what the inverted-prime example tests, namely that the adjacency graph changes.
-5. Record the comparison the stage text asks for at the end: the map from the classical integral completion to the rational-number-field case of the neighbouring roadmap.
+1. List each exported object with its node.
+2. List each consumer with the nodes it uses (from the consumer packets' prerequisites and requests).
+3. Record the three needs addressed to this roadmap that no node supplies, with their owners or status.
 
 **Acceptance.**
 
-- Every example has a node that supplies what it tests.
-- A divergent formal expression is not an element.
-- The value at a root and the full Taylor expansion at it are different data.
-- Inverting a prime changes which restriction maps are injective.
+- Every exported object names its node, and every consumer need that cites this roadmap is either matched to a node or recorded as not supplied.
+- No node of this packet depends on HabiroNumberFields, HabiroRings (other than HC.5/ordinary-versus-derived-completion on HabiroRings:HR.2/habiro-complete-modules), HabiroCohomologyFoundations or ArithmeticQuantumTopology.
 
-**Prerequisites.** `HabiroCyclotomicCompletions:HC.2/algorithms-on-expansions`, `HabiroCyclotomicCompletions:HC.3/the-taylor-map`, `HabiroCyclotomicCompletions:HC.5/inverting-a-prime-and-the-rational-case`
+**Depends on.** this roadmap: `HC.1/the-cyclotomic-completion`, `HC.3/the-taylor-map`, `HC.3/naturality-and-re-expansion`, `HC.5/the-completed-module`, `HC.5/inverting-a-prime-and-the-rational-case`.
 
 **Sources.**
 
-- §1, the introduction, p. 1128 of the PDF, The standing example, verbatim, together with the reason it IS an element: it has a compatible family of quotient classes.
+- `Habiro.CyclotomicCompletions.2004`, §7.3, p. 1144 (printed page): “If A is a ring, then this definition of A[q]^S is compatible with the previous one. Some results in the present paper can be generalized to A[q]^S.” — The ring and module completions form one interface.
+- `Habiro.CyclotomicCompletions.2004`, Conjecture 6.1, p. 1141 (printed page): “For any infinite subset Z ⊂ Z^Q̄, the homomorphism ε^Z_{N,Z}: Z[q]^N → P_Z(Z) is injective.” — Why injectivity on an arbitrary infinite set of roots of unity is not exported.
 
-  > the series sum over n >= 0 of (1 - q)(1 - q^2) ... (1 - q^n), which was introduced by Kontsevich, and which can be regarded as an element of Z[q]^N since we have an isomorphism Z[q]^N = lim_n Z[q]/((1 - q) ... (1 - q^n))
+### Acceptance examples over ℤ: q = 1, q = -1, ω, 1 - q, the Kontsevich series and q^-1
 
-### The comparison with the rational-number-field Habiro ring
+`HC.6/the-acceptance-examples` · application
 
-`HabiroCyclotomicCompletions:HC.6/the-comparison-with-the-number-field-case` · *comparison*
-
-The stage text asks for the map from the classical integral completion to the rational-number-field case of the neighbouring roadmap, which is the Habiro ring of the rationals as it is used in the Nahm-series and number-field developments. This node states the map, records that it is the instance of the coefficient functoriality of HC.1 together with the identification of the two constructions, and records what it does NOT give: the target is a different ring and the map is not surjective, so results proved there do not transfer back without a separate argument.
+Over R = ℤ and S = ℕ, the following hold and are checked at finite precision. (1) q = 1 and q = -1: the evaluations and the expansion maps into ℤ[[q-1]] and ℤ[[q+1]] are ring maps; both expansion maps are injective (Theorem 5.2) and not surjective: 3 - 2q is a unit of ℤ[[q-1]], but (3 - 2q)^-1 is not in the image of ℤ[q]^{1,2}, since the map ℤ[[q-1]] → Z_2 substituting q - 1 = -2 sends it to 1/5, which is not in ℤ (the square in the proof of Proposition 7.4(1)). (2) A primitive cube root ω: evaluation lands in ℤ[ω], strictly larger than ℤ. (3) 1 - q = P_1 has normalised coefficients (0, 1, 0, ...) and values 1 - ζ; it is not a unit of ℤ[q]^ℕ (value 0 at q = 1) nor of ℤ[q]^{2} (value 2 at q = -1), but it is a unit of ℤ[q]^{6}, with inverse q times the sum of the Φ_6^k (because (1 - q) q = 1 - Φ_6); in general 1 - q is a unit of ℤ[q]^S exactly when S contains neither 1 nor a prime power, since Φ_n(1) = 1 for such n. (4) The Kontsevich series F = Σ_{n ≥ 0} (q;q)_n is the compatible family of the sums of (q;q)_n over n < N modulo P_N; its normalised coefficients are all 1; its values are F(1) = 1, F(-1) = 3, F(ω) = 5 - ω, F(i) = 8 - 3i, F(ζ_5) = 9 - 5ζ_5 - 3ζ_5^2, F(ζ_6) = 17 - 13ζ_6, each computed from the truncation at N = ord ζ and unchanged for larger N; its expansion at q = 1 is Σ_k (-1)^k ξ_k (q - 1)^k with ξ = 1, 1, 2, 5, 15, 53, 217, 1014, 5335, 31240, ... (the Fishburn numbers), the coefficient of (q-1)^k depending only on the terms n ≤ k; its expansion at q = -1 begins 3 + 11(q+1) + 72(q+1)^2 + 635(q+1)^3 + 7085(q+1)^4, the coefficient of (q+1)^k depending only on n ≤ 2k + 1; at ω it begins (5 - ω) + (49 + 40ω)(q - ω) + (128 + 693ω)(q - ω)^2. F and the constant 1 have the same value at q = 1 and different expansions there. (5) q^-1 = Σ_{n ≥ 0} q^n (q;q)_n (Proposition 7.1), with normalised coefficients q^n and the exact identity q times the sum over n < N equals 1 - (q;q)_N; its value at ζ is ζ^-1 and its expansion at 1 is Σ_k (-1)^k (q-1)^k. (6) Multiplication must renormalise: F q^-1 = Σ_n (n+1) q^n (q;q)_n (already normalised), while F^2 ≡ 1 + (3 - q) P_1 + (6 - 3q - q^2) P_2 + (7 - 4q - 4q^2 + 2q^3) P_3 modulo P_4. (7) The geometric series sum q^n is not an element: its partial sums take the value N at q = 1, so they are not Cauchy, and 1 - q is not a unit.
 
 **Hypotheses.**
 
-- The source of the map is the completion over the integers at all orders; the target is the neighbouring roadmap's ring for the rationals.
-- The map is the coefficient functoriality of HC.1 composed with the identification of the two definitions.
-- The source's own statement is that the map to the completion over the rationals is injective; surjectivity is not claimed and fails.
+- R = ℤ and S = ℕ unless another set is named.
+- An element is accepted only as a compatible family of classes modulo the P_N; a formal series whose partial sums are not Cauchy in the cyclotomic topology is not an element.
+- Values and Taylor coefficients are computed from finite truncations; the truncation needed at a root of order d for the coefficient of (q - ζ)^k is N = d(k+1).
 
-**Proof outline.**
+**Proof.**
 
-1. Construct the map from the coefficient functoriality.
-2. Record the identification of the neighbouring roadmap's construction with the one here.
-3. Record the source's injectivity statement for the map to the rational completion.
-4. State the non-example: the map is not surjective, and a theorem proved over the rationals does not transfer back.
-5. Record the two roadmaps that consume this comparison.
+1. Evaluate and expand the finite truncations (HC.3/evaluation-at-a-root-of-unity, HC.3/the-taylor-map), using that (q;q)_n vanishes to order floor(n/d) at a root of order d.
+2. Compute normalised expansions and products with the algorithms of HC.2/algorithms-on-expansions; the identities for q^-1 and F q^-1 are telescoping sums.
+3. Injectivity of the expansions at ±1 is HC.4/rootwise-taylor-injectivity; non-surjectivity uses the square of Proposition 7.4(1) (HC.4/non-surjectivity).
+4. The unit criterion for 1 - q: an element is a unit of ℤ[q]^S iff it is a unit modulo every Φ_n, n in S, and 1 - ζ_n is a unit of ℤ[ζ_n] iff Φ_n(1) = ±1.
 
 **Acceptance.**
 
-- The map exists and is the coefficient functoriality.
-- It is injective, by the source's statement.
-- It is not surjective, and results do not transfer back along it.
+- F(1) = 1, F(-1) = 3, F(ω) = 5 - ω, F(i) = 8 - 3i.
+- The first seven coefficients of F in powers of q - 1 are 1, -1, 2, -5, 15, -53, 217; in powers of q + 1 they are 3, 11, 72, 635, 7085, 95911, 1528541.
+- (1 - q) q (1 + Φ_6 + ... + Φ_6^K) ≡ 1 modulo Φ_6^(K+1) for every K.
+- q (Σ_{n<N} q^n (q;q)_n) = 1 - (q;q)_N in ℤ[q] for every N.
+- (3 - 2q)^-1 is in ℤ[[q-1]] and not in the image of ℤ[q]^ℕ.
+- The sum of q^n is not an element of ℤ[q]^ℕ.
 
-**Prerequisites.** `HabiroCyclotomicCompletions:HC.5/inverting-a-prime-and-the-rational-case`, `HabiroCyclotomicCompletions:HC.1/functoriality-in-the-ring-and-in-the-order-set`, `HabiroNumberFields:HB.1`
+**Depends on.** this roadmap: `HC.2/algorithms-on-expansions`, `HC.2/invertibility-of-q`, `HC.3/evaluation-at-a-root-of-unity`, `HC.3/the-taylor-map`, `HC.4/rootwise-taylor-injectivity`, `HC.4/non-surjectivity`.
 
 **Sources.**
 
-- §1, the introduction, p. 1128 of the PDF, The injectivity of exactly this comparison, verbatim.
+- `Habiro.CyclotomicCompletions.2004`, §1, p. 1128 (printed page): “Zagier [16] studied the series ∑_{n≥0}(1 − q)(1 − q^2) · · · (1 − q^n), which was introduced by Kontsevich, and which can be regarded as an element of Z[q]^N since we have an isomorphism Z[q]^N ≃ lim_n Z[q]/((1 − q)(1 − q^2) · · · (1 − q^n))” — The standing example, literally.
+- `Habiro.CyclotomicCompletions.2004`, Proposition 7.1, p. 1141 (printed page): “For any ring R, the element q ∈ R[q]^N is invertible with the inverse q^{−1} = ∑_{n≥0} q^n (q)_n, where (q)_n = (1 − q)(1 − q^2) · · · (1 − q^n).” — The q-inversion example, literally.
+- `Habiro.CyclotomicCompletions.2004`, Proof of Proposition 7.4(1), p. 1145 (printed page): “It follows from Zp[q]/(Φn(q)) ≃ lim_j Z[q]/(Φn(q), p^j), Φm(q) ∈ √(Φn(q), p), and p ∈ (Φm(q), Φn(q)) (which follows from (4.2)) that b is a well-defined, surjective homomorphism.” — The map b used for the witness (3 - 2q)^-1 (m = 1, n = 2, p = 2).
+- `OEIS.A022493`, Sequence A022493, data and formula lines: “Fishburn numbers: number of linearized chord diagrams of degree n; also number of nonisomorphic interval orders on n unlabeled points.” — The coefficients of F(1 - x); the OEIS entry records Zagier's generating function Σ_n ∏_{i ≤ n} (1 - (1 - x)^i) and the data 1, 1, 2, 5, 15, 53, 217, ..., which agree with the computation.
 
-  > nevertheless, the natural homomorphism Z[q]^N -> Q[q]^N is injective
+### Acceptance examples with an inverted prime, over ℚ and modulo 2
+
+`HC.6/inverted-prime-and-rational-examples` · application · added by REV-HabiroCyclotomicCompletions
+
+(1) R = ℤ[1/2]: Res(Φ_1, Φ_2) = 2 is a unit, so 1 and 2 are not adjacent, and ℤ[1/2][q]^ℕ is the product of the ℤ[1/2][q]^(S_a), S_a = {n : v_2(n) = a}. The idempotent e_0 of the odd orders is represented modulo P_2 by (3 + 2q - q^2)/4 and modulo P_3 by (7 + 2q - q^2 + q^3 - 2q^4 + q^5)/8, and the second reduces to the first. 1 - e_0 is nonzero (its value at q = -1 is 1) and lies in the kernel of the expansion map at q = 1 and of the restriction to {1}, both injective over ℤ; evaluation at all roots of unity remains injective over ℤ[1/2]; 1 - q is a unit of ℤ[1/2][q]^{2}, with inverse the sum of Φ_2^k / 2^(k+1), but not of ℤ[q]^{2}. (2) R = ℚ: the idempotent e_1 is represented modulo P_3 by (47 + 42q + 7q^2 - 23q^3 - 18q^4 + 17q^5)/72, and t = (q - 1) e_1, represented by (-5 - 2q + 3q^2 + 5q^3 + 2q^4 - 3q^5)/12 modulo P_3, is a nonzero element killed by every evaluation. (3) Modulo 2: ℤ[q]^ℕ / 2 = 𝔽_2[q]^ℕ, and q^5 + q + 1 is idempotent modulo (2, P_3), separating the orders 2^k from the orders 3 * 2^k; so 2 ℤ[q]^ℕ is not prime. (4) The map ℤ[q]^ℕ → ℤ[1/Δ][q]^ℕ and the factor decomposition in (1) are what HabiroNumberFields HB.6 compares with the Habiro ring of the rational field; that comparison is not made here.
+
+**Hypotheses.**
+
+- Each claimed element is given by its classes modulo P_2 and P_3 and is idempotent or zero-divisor at that precision; the full elements are the CRT limits of HC.5.
+- The prime inverted in (1) is 2; the same computations work for any prime.
+
+**Proof.**
+
+1. Solve the Chinese remainder congruences modulo P_2 = (1-q)^2 (1+q) and P_3 = (1-q)^3 (1+q) (1+q+q^2) over ℤ[1/2] and over ℚ.
+2. Read off the kernels using HC.5/inverting-a-prime-and-the-rational-case and HC.5/the-rational-case.
+3. The reduction modulo 2 uses exactness (HC.5/the-completed-module) and the factorisation of P_3 over 𝔽_2.
+
+**Acceptance.**
+
+- e_0^2 - e_0 ≡ 0 modulo P_3, e_0 ≡ 1 modulo (q-1)^3 Φ_3 and e_0 ≡ 0 modulo Φ_2 (all verified).
+- t ≡ 0 modulo Φ_2 Φ_3 and t ≡ q - 1 modulo (q-1)^2.
+- (1 - q) (Σ_{k ≤ K} Φ_2^k / 2^(k+1)) ≡ 1 modulo Φ_2^(K+1).
+- q^5 + q + 1 ≡ 1 modulo (2, (1+q)^4) and ≡ 0 modulo (2, 1+q+q^2).
+
+**Depends on.** this roadmap: `HC.5/inverting-a-prime-and-the-rational-case`, `HC.5/the-rational-case`, `HC.5/the-completed-module`, `HC.2/algorithms-on-expansions`.
+
+**Sources.**
+
+- `Habiro.CyclotomicCompletions.2004`, §7.5, p. 1145 (printed page): “Note that if m, n ∈ S, m ≠ n, then (Φm(q)^i, Φn(q)^j) = (1) in Q[q] for any i, j ≥ 0.” — The comaximality behind the idempotents over ℚ; over ℤ[1/2] it holds for m, n with ratio a power of 2.
+
+## Mistakes found in the sources
+
+These are recorded under PROTOCOL.md section 18, and every node above uses the corrected statement.
+
+- **The first part** lists eighteen, E1–E18: sixteen in Habiro's paper and two in Wagner's q-Witt vectors.
+- **The HC.4 part** lists five more against GSWZ arXiv v2, E19–E23.
+- **The HC.6 part** finds none of its own. It reuses four findings already recorded elsewhere, listed at the end.
+
+Each finding was checked at its locator by the independent review of the part that records it.
+
+### HabiroCyclotomicCompletions/E1 — misprint (affects nothing)
+
+- **Source:** `Habiro.CyclotomicCompletions.2004`, §7.1, p. 1142 (arXiv v1: §7.1, p. 14, same text).
+- **Printed:** If S ≠ ∅, then we have U(Z[q, q^{−1}]) ⊂ U(Z[q]^N).
+- **Correction:** If S ≠ ∅, then we have U(ℤ[q, q^{−1}]) ⊂ U(ℤ[q]^S).
+- **Reason:** The hypothesis is on S; the preceding sentence identifies ℤ[q, q^{−1}] with a subring of ℤ[q]^S exactly when S ≠ ∅, and for S = ∅ the inclusion into U(ℤ[q]^∅) = U(0) fails. With N in place of S the hypothesis would be idle.
+- **Known:** new. Searched: EMS Press article page (no erratum listed); arXiv math/0209324 (single version v1; same text).
+- **Review:** confirmed by REV-HabiroCyclotomicCompletions. Found by checker A: the hypothesis of the sentence is on S, and for S = ∅ the claimed inclusion into U(ℤ[q]^∅) = U(0) fails; with ℕ in place of S the hypothesis would be idle.
+
+### HabiroCyclotomicCompletions/E2 — misprint (affects nothing)
+
+- **Source:** `Habiro.CyclotomicCompletions.2004`, §7.2, p. 1142 (arXiv v1, p. 15: 'Proposition 5.5').
+- **Printed:** Recall from Proposition 5.1 that Z[q]^N is an integral domain.
+- **Correction:** Recall from Corollary 5.1 that ℤ[q]^ℕ is an integral domain.
+- **Reason:** There is no Proposition 5.1; §5 contains Lemma 5.1, Theorem 5.1, Lemma 5.2, Remark 5.1, Theorem 5.2 and Corollary 5.1, and Corollary 5.1 (p. 1138) is the statement meant ('In particular, ℤ[q]^S is an integral domain for any nonempty subset S ⊂ N'). The arXiv reference 'Proposition 5.5' likewise means its Corollary 5.5.
+- **Known:** new. Searched: EMS Press article page; arXiv v1.
+- **Review:** confirmed by REV-HabiroCyclotomicCompletions. Found independently by checkers A and C: §5 has Lemma 5.1, Theorem 5.1, Lemma 5.2, Remark 5.1, Theorem 5.2 and Corollary 5.1 and no Proposition 5.1; Corollary 5.1 is the statement meant.
+
+### HabiroCyclotomicCompletions/E3 — gap (affects the proof)
+
+- **Source:** `Habiro.CyclotomicCompletions.2004`, §6, proof of Proposition 6.1, p. 1140.
+- **Printed:** Suppose to the contrary that there is a nonzero ideal I in R[q] … Hence the ideals I^j ⊂ R, j ≥ 0, are not cofinal in the ideals (g(q)) ⊂ R[q], g(q) ∈ Φ*_S.
+- **Correction:** Read 'I^j ⊂ R[q]'. The case I = (0), which the statement also excludes, needs a line: lim_j R[q]/(0)^j = R[q], and R[q] → R[q]^S is not surjective for infinite S (for distinct m_1, m_2, … in S, the element Σ_k Φ_{m_1}⋯Φ_{m_k} is not a polynomial, since its remainders modulo Φ_{m_1}⋯Φ_{m_K} have unbounded degree).
+- **Reason:** The ideals I^j are ideals of R[q], not of R; and the proof opens by assuming I non-zero although the proposition quantifies over all ideals.
+- **Known:** new (the arXiv v1 proof, p. 12, differs and also assumes I nonzero, with its own misprints 'as j → 0' for 'as j → ∞' and 'n ∈ R' for 'n ∈ S'). Searched: EMS Press article page; arXiv v1.
+- **Review:** confirmed by REV-HabiroCyclotomicCompletions. Found independently by checkers A and C: I is an ideal of R[q]. The case I = (0) is excluded by the proof but not by the statement; for infinite S the map R[q] → R[q]^S is not surjective, which settles it.
+
+### HabiroCyclotomicCompletions/E4 — gap (affects the proof)
+
+- **Source:** `Habiro.CyclotomicCompletions.2004`, §7.1, Remark 7.1, p. 1142 (arXiv v1: Remark 7.3, pp. 14–15, same text).
+- **Printed:** For such n, it follows that there are u, v ∈ Z[q] such that γ_m u = 1 + vΦ_n(q). Since 1 + vΦ_n(q) is a unit in Z[q]^⟨n⟩, it follows that γ_m is a unit in Z[q]^⟨n⟩.
+- **Correction:** Since γ_m is a unit of ℤ[q]/(q^n − 1), there are u, v with γ_m u = 1 + v(q^n − 1), and 1 + v(q^n − 1) is a unit of ℤ[q]^⟨n⟩ = ℤ[q]^{(q^n−1)}, the (q^n − 1)-adic completion.
+- **Reason:** 1 + vΦ_n need not be a unit of the (q^n − 1)-adic completion: for n = 3, v = 1, 1 + Φ_3 = q^2 + q + 2 maps to 4 in ℤ[q]/(q − 1), and multiplication by it on ℤ[q]/(q^3 − 1) has determinant 4 (computed). The conclusion stands: γ_m is a unit of ℤ[q]/(q^n − 1) (determinant 1 checked for m = 3, 5, 7 and n ≤ 15 with gcd(n, 2m) = 1). (Checker C found the same gap with an instance from the remark itself: for m = 3, n = 5, (1 − q + q²)(1 + 2q + 2q² + q³) = 1 + qΦ_5(q), whose value at q = 1 is 6.)
+- **Known:** new. Searched: EMS Press article page; arXiv v1.
+- **Review:** confirmed by REV-HabiroCyclotomicCompletions. Found independently by checkers A and C. The reviewer re-checked C's instance with PARI: (1 − q + q²)(1 + 2q + 2q² + q³) = 1 + qΦ_5, and 1 + qΦ_5 has value 6 at q = 1, so it is not a unit of ℤ[q]^⟨5⟩; the corrected argument uses q^n − 1, which is topologically nilpotent there.
+
+### HabiroCyclotomicCompletions/E5 — gap (affects the proof)
+
+- **Source:** `Habiro.CyclotomicCompletions.2004`, §3.2, proof of Proposition 3.1, p. 1132 (arXiv v1: proof of Proposition 3.2, p. 8, same text).
+- **Printed:** Let Ī denote the closure of I in R^I. Since R^I is Ī-adically complete and clearly f ⇒^Ī_{R^I} g, the above-proved case implies that ρ^{R^I}_{(fg),(f)} is an isomorphism.
+- **Correction:** First replace I by the finitely generated ideal I_0 ⊆ I generated by the finitely many coefficients witnessing f^m ∈ (g) + I[q]; R is I_0-adically separated because ∩ I_0^j ⊆ ∩ I^j = 0, and R^{I_0} is I_0-adically complete because I_0 is finitely generated. The argument then goes through with I_0.
+- **Reason:** The I-adic completion of R need not be I-adically complete when I is not finitely generated (Mathlib's AdicCompletion docstring at the pinned commit: 'Hausdorff but not necessarily complete: a classical sufficient condition for completeness is that I be finitely generated [Stacks, 05GG]').
+- **Known:** new. Searched: EMS Press article page; arXiv v1.
+- **Review:** confirmed by REV-HabiroCyclotomicCompletions. Found independently by checkers A and B: the definition of ⇒_R allows any ideal I with ∩I^j = 0, and the I-adic completion need not be I-adically complete when I is not finitely generated (Mathlib's AdicCompletion.isAdicComplete assumes I finitely generated); the finitely generated sub-ideal repairs the step.
+
+### HabiroCyclotomicCompletions/E6 — misprint (affects nothing)
+
+- **Source:** `Habiro.CyclotomicCompletions.arXiv-v1`, arXiv v1, §1, p. 3.
+- **Printed:** Z[q]^S ≃ lim_{S' ⊂ S, |S'| < S} Z[q]^{S'}
+- **Correction:** |S'| < ∞
+- **Reason:** The limit runs over the finite subsets S' of S, as the next line of the preprint says.
+- **Known:** corrected in the published version, where the statement is (3.2) on p. 1131 with |M'| < ∞. Searched: published version (Publ. RIMS 40, 2004).
+- **Review:** confirmed by REV-HabiroCyclotomicCompletions. Found by checker A comparing the preprint with the published (3.2); corrected in the published version.
+
+### HabiroCyclotomicCompletions/E7 — error (affects nothing)
+
+- **Source:** `Habiro.CyclotomicCompletions.2004`, Lemma 5.1, printed pp. 1136-1137 (published version; the same text is Lemma 5.1 of arXiv v1).
+- **Printed:** Then the following conditions are equivalent. 1. (q − ζ) ⇒_R (q − ζ′), 2. R is (ζ − ζ′)-adically separated, 3. ord(ζ^{−1}ζ′) is a power of some prime p such that R is p-adically separated.
+- **Correction:** 3. ζ = ζ′, or ord(ζ^{−1}ζ′) = p^k with k ≥ 1 for a prime p such that R is p-adically separated.
+- **Reason:** For ζ = ζ′ conditions 1 and 2 always hold (0-adic separatedness), but 3 asks for a prime p at which R is separated because ord(1) = 1 = p^0; for R = ℚ there is none, so (2) ⇔ (3) fails for R = ℚ, ζ = ζ′ = 1. It is the same m = n slip that §4 avoids with c_{n,n} = 0.
+- **Known:** new. Searched: EMS Press article page https://ems.press/journals/prims/articles/2364 (no erratum or corrigendum listed); arXiv math/0209324 abstract page (a single version, v1 of 24 Sep 2002, predating the published revision); GSWZ arXiv:2412.04241v2 §§1.3 and 5.1, which cite [27] = this paper without corrections; research/blueprint/plans/HABIRO.md §8 and research/errata (no entry for this paper).
+- **Review:** confirmed by REV-HabiroCyclotomicCompletions. Found by checker B: for ζ = ζ′ conditions 1 and 2 hold for every R, while condition 3 as printed asks for a prime at which R is separated, which fails for R = ℚ; the same m = n slip that §4 avoids with c_{n,n} = 0.
+
+### HabiroCyclotomicCompletions/E8 — misprint (affects nothing)
+
+- **Source:** `Habiro.CyclotomicCompletions.2004`, §7.3, definition before Theorem 7.1, printed p. 1144.
+- **Printed:** Let ⇔_A denote the relation on N such that m ⇔_A n if and only if either we have A = 0, or m/n is an integer power of a prime p such that A is p-adically separated.
+- **Correction:** ... if and only if A = 0, or m = n, or m/n = p^j with j ≠ 0 for a prime p such that A is p-adically separated.
+- **Reason:** As printed, m ⇔_A m fails for A = ℚ (ℚ is p-separated for no p), and the claim in the second proof of Theorem 7.1 that 'm ⇔_A n if and only if m ⇔_{A′} n' for A′ = ℤ ⊕ A fails for m = n, since m ⇔_{A′} m always holds (c_{m,m} = 0). Theorem 7.1 is unaffected because chains may have length 0.
+- **Known:** new. Searched: EMS Press article page https://ems.press/journals/prims/articles/2364 (no erratum or corrigendum listed); arXiv math/0209324 abstract page (a single version, v1 of 24 Sep 2002, predating the published revision); GSWZ arXiv:2412.04241v2 §§1.3 and 5.1, which cite [27] = this paper without corrections; research/blueprint/plans/HABIRO.md §8 and research/errata (no entry for this paper).
+- **Review:** confirmed by REV-HabiroCyclotomicCompletions. Found independently by checkers B and C: as printed m ⇔_A m fails for A = ℚ, while the ring relation of §4 is reflexive, so the equivalence claimed in the proof of Theorem 7.1 fails for m = n; the theorem is unaffected because trivial steps can be dropped from a chain.
+
+### HabiroCyclotomicCompletions/E9 — gap (affects the proof)
+
+- **Source:** `Habiro.CyclotomicCompletions.2004`, Proof of Theorem 5.2, printed p. 1138 (arXiv v1: proof of Theorem 5.4).
+- **Printed:** By Lemma 3.1, the homomorphism R[q]^S → R[ζ][q]^S is injective. Hence we may assume ζ ∈ R without loss of generality.
+- **Correction:** Add: the hypotheses (S ⇔-connected; p-adic separatedness at the odd prime factors of n, and at 2 if 4 | n) hold for R[ζ]. This is true when R is Noetherian (R[ζ] is then a Noetherian domain in which p is a non-unit, and Krull's intersection theorem applies).
+- **Reason:** After the base change the rest of the proof applies Theorem 4.1 and the connectedness of Z_n over R[ζ], which need separatedness of R[ζ], not of R. For non-Noetherian R the transfer is not evident and the source gives no argument. Remark 5.1 makes the same unproved claim ('Since S is ⇔_R-connected, it is also ⇔_{R̃}-connected').
+- **Known:** new. Searched: EMS Press article page https://ems.press/journals/prims/articles/2364 (no erratum or corrigendum listed); arXiv math/0209324 abstract page (a single version, v1 of 24 Sep 2002, predating the published revision); GSWZ arXiv:2412.04241v2 §§1.3 and 5.1, which cite [27] = this paper without corrections; research/blueprint/plans/HABIRO.md §8 and research/errata (no entry for this paper).
+- **Review:** confirmed by REV-HabiroCyclotomicCompletions. Found by checker B: after the base change the proof applies Theorem 4.1 and the connectedness of the primitive roots over R[ζ], which need separatedness of R[ζ]; this transfers for Noetherian R (Krull) and is recorded as a gap otherwise.
+
+### HabiroCyclotomicCompletions/E10 — gap (affects nothing)
+
+- **Source:** `Habiro.CyclotomicCompletions.2004`, Proof of Theorem 6.1, printed p. 1140.
+- **Printed:** Φ_{m_1}(ζ_{m_k}) · · · Φ_{m_{k−1}}(ζ_{m_k})b(ζ_{m_k}) = 0 in R. Since Φ_{m_j}(ζ_{m_k}) ≠ 0 for j = 1, . . . , k − 1, it follows that b(ζ_{m_k}) = 0, and hence Φ_{m_k}(q)|b(q).
+- **Correction:** '= 0 in R[ζ_{m_k}] ⊂ ℚ̄', and apply the argument to every primitive m_k-th root of unity: b vanishes at all of them, hence Φ_{m_k} | b in R[q] (Φ_{m_k} is monic and separable). Likewise the final step 'Since R is a subring of ℚ̄ and each p_i is a non-unit in R' needs: a nonzero x ∈ R has x/p ∈ R for only finitely many primes p with 1/p ∉ R (p must divide the constant term of an integral equation of x), so one prime occurs infinitely often and p-separatedness applies.
+- **Reason:** b(ζ) = 0 at one primitive root gives Φ_{m_k} | b only if Φ_{m_k} is irreducible over Frac(R), which fails for R containing roots of unity; the divisibility Φ_{m_k} | Φ_{m_1}⋯Φ_{m_{k−1}} b holds in R[q]^S, so vanishing holds at every primitive root. The value lies in R[ζ_{m_k}], not in R.
+- **Known:** new. Searched: EMS Press article page https://ems.press/journals/prims/articles/2364 (no erratum or corrigendum listed); arXiv math/0209324 abstract page (a single version, v1 of 24 Sep 2002, predating the published revision); GSWZ arXiv:2412.04241v2 §§1.3 and 5.1, which cite [27] = this paper without corrections; research/blueprint/plans/HABIRO.md §8 and research/errata (no entry for this paper).
+- **Review:** confirmed by REV-HabiroCyclotomicCompletions. Found by checker B: b(ζ) = 0 at one primitive root gives Φ_{m_k} ∣ b only when Φ_{m_k} is irreducible over the fraction field of R; the divisibility holds in R[q]^S, so the vanishing holds at every primitive root.
+
+### HabiroCyclotomicCompletions/E11 — error (affects the proof)
+
+- **Source:** `Habiro.CyclotomicCompletions.2004`, Proof of Theorem 6.2, printed p. 1141 (arXiv v1: proof of Theorem 6.3).
+- **Printed:** Since γ is the direct product of the injective homomorphisms R[q]/(Φ_n(q)) → ∏_{ζ∈Z, ord ζ=n} R[ζ], f(q) ↦ (f(ζ))_ζ, it follows that γ is injective.
+- **Correction:** These maps are injective when Φ_n is irreducible over the fraction field of R (e.g. R = ℤ), or when Z contains all primitive n-th roots. In general Theorem 6.2 needs another argument, e.g. base change to R̃ = R[roots of unity of orders in S] and Theorem 6.3.
+- **Reason:** R = ℤ[i] ⊂ ℚ̄, S = ℕ (connected over ℤ[i]), Z = {ζ : ζ^{2^{k−2}} = i, ord ζ = 2^k, k ≥ 2}: infinitely many ζ ∈ Z have ord ζ ⇔ 4, so Theorem 6.2's hypothesis holds; but the component R[q]/(q² + 1) → ℤ[i] of γ (Z meets the primitive 4th roots in {i}) kills the nonzero class of q − i, and for each k the component kills q^{2^{k−2}} − i. So γ is not injective and the printed proof fails. The conclusion for R = ℤ, used in the introduction, is unaffected.
+- **Known:** new. Searched: EMS Press article page https://ems.press/journals/prims/articles/2364 (no erratum or corrigendum listed); arXiv math/0209324 abstract page (a single version, v1 of 24 Sep 2002, predating the published revision); GSWZ arXiv:2412.04241v2 §§1.3 and 5.1, which cite [27] = this paper without corrections; research/blueprint/plans/HABIRO.md §8 and research/errata (no entry for this paper).
+- **Review:** confirmed by REV-HabiroCyclotomicCompletions. Found by checker B; the reviewer checked the counterexample: for R = ℤ[i], the map ℤ[i][q]/(q² + 1) → ℤ[i], q ↦ i, kills the nonzero class of q − i, so γ is not injective when Z meets the primitive 4th roots in {i}. The conclusion for R = ℤ is unaffected (Φ_n is irreducible over ℚ).
+
+### HabiroCyclotomicCompletions/E12 — gap (affects nothing)
+
+- **Source:** `Habiro.CyclotomicCompletions.2004`, §1, printed p. 1128.
+- **Printed:** The non-surjectivity of σ_ζ is proved in Section 7.4.
+- **Correction:** Section 7.4 proves the non-surjectivity of restriction maps; it gives that of σ_ζ for ord ζ ∈ {1, 2}, where σ_ζ = ρ^Z_{ℕ,{ord ζ}}. For ord ζ = n ≥ 3 add: σ_ζ is injective and 1 + Φ_n is a unit of ℤ[ζ][[q − ζ]] whose evaluation at 1, namely 2 or 1 + p, is not a unit, so (1 + Φ_n)^{−1} is not in the image (alternatively Φ_n′(ζ) is not a unit, |disc Φ_n| > 1). Alternatively: σ_ζ is ρ^ℤ_{ℕ,{n}}, not surjective by Proposition 7.4(3), followed by the injective map ℤ[q]^{n} → ℤ[ζ][[q − ζ]] from the proof of Theorem 5.2.
+- **Reason:** Proposition 7.4 contains only statements about ρ^Z; ℤ[q]^{n} → ℤ[ζ][[q − ζ]] is a second, non-surjective factor for n ≥ 3 that §7.4 does not discuss.
+- **Known:** new. Searched: EMS Press article page https://ems.press/journals/prims/articles/2364 (no erratum or corrigendum listed); arXiv math/0209324 abstract page (a single version, v1 of 24 Sep 2002, predating the published revision); GSWZ arXiv:2412.04241v2 §§1.3 and 5.1, which cite [27] = this paper without corrections; research/blueprint/plans/HABIRO.md §8 and research/errata (no entry for this paper).
+- **Review:** confirmed by REV-HabiroCyclotomicCompletions. Found independently by checkers B and C. Either argument completes it: B's (1 + Φ_n is a unit of ℤ[ζ][[q − ζ]] whose value at 1 is not a unit) or C's (σ_ζ is ρ^ℤ_{ℕ,{n}}, not surjective by Proposition 7.4(3), followed by an injective map, and an injective map sends a proper subset to a proper subset).
+
+### HabiroCyclotomicCompletions/E13 — misprint (affects nothing)
+
+- **Source:** `Wagner.qWitt.v5`, Proof of Lemma 2.1, printed p. 8 (arXiv:2410.23078v5).
+- **Printed:** Φ_n(q) ≡ Φ_{mp^α}(q) ≡ Φ_m(q)^{p^α} if p | m, Φ_m(q)^{(p−1)p^α} if p ∤ m, mod p
+- **Correction:** Φ_m(q)^{(p−1)p^{α−1}} if p ∤ m (α ≥ 1).
+- **Reason:** Degree count: deg Φ_{mp^α} = φ(m)(p − 1)p^{α−1} for p ∤ m. For m = 1, p = 2, α = 1: Φ_2 = q + 1 ≡ q − 1 mod 2, not (q − 1)^2 = q^2 + 1 mod 2. Checked with PARI for n ≤ 30, p ≤ 7, e ≤ 3 in Habiro's form (4.1).
+- **Known:** new. Searched: arXiv:2410.23078 versions v1-v5 abstract page (only v5 read); research/blueprint/plans/HABIRO.md §8 item 25 (records only the α = 0 issue).
+- **Review:** confirmed by REV-HabiroCyclotomicCompletions. Found by checker B; the reviewer checked with PARI that Φ_2 ≡ Φ_1 and not Φ_1² modulo 2, as the corrected exponent (p − 1)p^{α−1} requires for m = 1, p = 2, α = 1.
+
+### HabiroCyclotomicCompletions/E14 — error (affects a stated result)
+
+- **Source:** `Wagner.qWitt.v5`, Lemma 2.1, printed p. 8 (arXiv:2410.23078v5).
+- **Printed:** In particular, the ring R vanishes unless m/n = p^α for some prime p and some α ∈ Z. In the latter case, R ≅ F_p[q]/Φ_{min{m,n}}(q).
+- **Correction:** In the latter case with α ≠ 0; for α = 0 (m = n) the ring is ℤ[q]/Φ_m(q).
+- **Reason:** For m = n, ℤ[q]/(Φ_m, Φ_m) = ℤ[q]/Φ_m is torsion-free (PARI: Smith invariants 0, 0 for m = 3).
+- **Known:** research/blueprint/plans/HABIRO.md §8 item 25 (PLAN-HABIRO, accepted); RS-10's 'exclude m=n from the nonzero prime-power ratio formula'. Searched: research/blueprint/plans/HABIRO.md §8; research/blueprint/restructure/RS-10.result.json.
+- **Review:** confirmed by REV-HabiroCyclotomicCompletions. Found by checker B; already recorded by the accepted PLAN-HABIRO (§8 item 25) and RS-10. For m = n the ring is ℤ[q]/Φ_m, which is torsion-free.
+
+### HabiroCyclotomicCompletions/E15 — error (affects a stated result)
+
+- **Source:** `Habiro.CyclotomicCompletions.2004`, Corollary 5.1, p. 1138 (published version read); the same sentence is in Corollary 5.5, p. 12 of arXiv math/0209324v1.
+- **Printed:** In particular, Z[q]^S is an integral domain for any nonempty subset S ⊂ N.
+- **Correction:** In particular, ℤ[q]^S is an integral domain for any nonempty ⇔_Z-connected subset S ⊂ N (for example S = ℕ, or the set of divisors of an integer).
+- **Reason:** S = {1, 6}: 6 is not a prime power, and Φ_6(1) = 1, so (q − 1, Φ_6(q)) = (1) in ℤ[q] (resultant 1). By the Chinese remainder theorem ℤ[q]^{1,6} ≅ ℤ[[q − 1]] × ℤ[q]^{6}, which has nontrivial idempotents. Likewise S = {2, 3} (Res(Φ_2, Φ_3) = 1). The corollary's main statement assumes connectedness; the 'in particular' drops it.
+- **Known:** new. Searched: EMS Press article page https://ems.press/journals/prims/articles/2364 (no erratum or corrigendum listed, checked 2026-09-25); arXiv math/0209324 (only version v1, 24 Sep 2002); Garoufalidis-Scholze-Wheeler-Zagier, arXiv 2412.04241v2, which cites the paper as [27].
+- **Review:** confirmed by REV-HabiroCyclotomicCompletions. Found by checker C; the reviewer checked with PARI that Φ_6 − qΦ_1 = 1, so Φ_1 and Φ_6 are comaximal and ℤ[q]^{1,6} ≅ ℤ[[q − 1]] × ℤ[q]^{6} has nontrivial idempotents.
+
+### HabiroCyclotomicCompletions/E16 — error (affects a stated result)
+
+- **Source:** `Habiro.CyclotomicCompletions.2004`, Theorem 6.2, pp. 1140-1141 (published version read); Theorem 6.3, p. 13 of arXiv v1.
+- **Printed:** Let R be a subring of Q̄, and let S ⊂ N and Z ⊂ Z_S^Q̄ be subsets. Suppose that there is an element n ∈ S such that for infinitely many ζ ∈ Z we have ord ζ ⇔_R n. Then the homomorphism ε^R_{S,Z}: R[q]^S → P_Z(R) is injective.
+- **Correction:** Add the hypothesis that S is ⇔_R-connected (the proof applies Theorem 6.1, which assumes it); in the 'in particular' sentence read S = ℕ (or S ⇔_R-connected).
+- **Reason:** R = ℤ, S = {2^k : k ≥ 0} ∪ {15}, Z = all roots of unity of 2-power order, n = 1. Every 2^k is adjacent to 1, but 15/2^k is never a prime power, so Φ_15 is comaximal with every Φ_{2^k} and ℤ[q]^S ≅ ℤ[q]^{S∖{15}} × ℤ[q]^{15}. ε_{S,Z} factors through the first factor and kills (0, x) for every nonzero x in ℤ[q]^{15}.
+- **Known:** new. Searched: EMS Press article page https://ems.press/journals/prims/articles/2364 (no erratum or corrigendum listed, checked 2026-09-25); arXiv math/0209324 (only version v1, 24 Sep 2002); Garoufalidis-Scholze-Wheeler-Zagier, arXiv 2412.04241v2, which cites the paper as [27].
+- **Review:** confirmed by REV-HabiroCyclotomicCompletions. Found by checker C: with S = {2^k} ∪ {15}, every Φ_{2^k} is comaximal with Φ_15 (15/2^k is never a prime power), so ℤ[q]^S splits off the factor ℤ[q]^{15}, which every evaluation at a root of 2-power order kills; the proof applies Theorem 6.1, which assumes connectedness.
+
+### HabiroCyclotomicCompletions/E17 — misprint (affects nothing)
+
+- **Source:** `Habiro.CyclotomicCompletions.2004`, Proof of Proposition 7.3, p. 1143 (published version only; the arXiv proof of its Proposition 7.5 is different).
+- **Printed:** By applying the homomorphism σ^Z_{N,{ζn}}: Z[q]^N → Z[ζn], a(q) ↦ a(ζn)
+- **Correction:** By applying the homomorphism ε^Z_{ℕ,{ζn}}: ℤ[q]^ℕ → ℤ[ζn], a(q) ↦ a(ζn)
+- **Reason:** σ denotes the expansion homomorphism into ℤ[ζ][[q − ζ]] throughout; the map used, with target ℤ[ζn], is the evaluation ε of §6.
+- **Known:** new. Searched: EMS Press article page https://ems.press/journals/prims/articles/2364 (no erratum or corrigendum listed, checked 2026-09-25); arXiv math/0209324 (only version v1, 24 Sep 2002); Garoufalidis-Scholze-Wheeler-Zagier, arXiv 2412.04241v2, which cites the paper as [27].
+- **Review:** confirmed by REV-HabiroCyclotomicCompletions. Found by checker C: σ denotes the expansion homomorphism into ℤ[ζ][[q − ζ]] throughout; the map used has target ℤ[ζ_n], which is the evaluation ε of §6.
+
+### HabiroCyclotomicCompletions/E18 — gap (affects nothing)
+
+- **Source:** `Habiro.CyclotomicCompletions.2004`, §7.5, last sentence, p. 1146 (published).
+- **Printed:** Since for each n ∈ S the (surjective) homomorphism Q[q]^{n} → Q[q]/(Φn(q)) is not injective, the homomorphism ε^Q_{S,S}: Q[q]^S → P_S(Q) is not injective.
+- **Correction:** … is not injective when S is nonempty.
+- **Reason:** For S = ∅ both ℚ[q]^∅ and P_∅(ℚ) are the zero ring and the map is injective. (The arXiv v1 sentence names the wrong target ℚ[q]/(Φn(q)); the published version corrects that.)
+- **Known:** new. Searched: EMS Press article page https://ems.press/journals/prims/articles/2364 (no erratum or corrigendum listed, checked 2026-09-25); arXiv math/0209324 (only version v1, 24 Sep 2002); Garoufalidis-Scholze-Wheeler-Zagier, arXiv 2412.04241v2, which cites the paper as [27].
+- **Review:** confirmed by REV-HabiroCyclotomicCompletions. Found by checker C: for S = ∅ both sides are the zero ring and the map is injective.
+
+### HabiroCyclotomicCompletions/E19 — error (affects a stated result)
+
+- **Source:** `GSWZ.v2`, arXiv v2, Proposition 5.1, p. 62, (313), and its table.
+- **Printed:** D(N) = product from n=1 to N of D1(n)D2(n).
+- **Correction:** With the precision N used in (301)–(306) and M_N, the upper bound is N-1. The table row labelled D(N) gives δ_(N+1).
+- **Reason:** M_3 in the first block of (312) is [[1,0,0],[1,2,-2],[0,1,1]] with determinant 4. The printed product through n=3 is 216. Direct coefficient calculations give det absolute values 1,4,216,1327104 at precisions 2,3,4,5.
+- **Known:** new. Searched: arXiv:2412.04241 version history (v2 remains latest on 2026-10-05); Scholze papers page https://people.mpim-bonn.mpg.de/scholze/papers.html (lists a preprint, no erratum); Wheeler author page https://www.ihes.fr/~wheeler/ and linked text128.pdf (same relevant formulas, earlier equation numbering); Independent review rechecked arXiv history and Scholze/Wheeler author pages on 2026-10-05; no relevant erratum located in the searched public listings..
+- **Review:** confirmed by REV-HabiroCyclotomicCompletions--HC.4. Confirmed against the arXiv v2 definition (303)/(306), printed product (313), and matrix (312). Independent coefficient extraction gives δ_3=4 and δ_4=216; the product through N computes δ_(N+1). Checked determinants through precision 8.
+
+### HabiroCyclotomicCompletions/E20 — error (affects the proof)
+
+- **Source:** `GSWZ.v2`, arXiv v2, p. 61, parenthesis before (312).
+- **Printed:** HR ≅ HZ tensor_Z R and PR ≅ PZ tensor_Z R
+- **Correction:** These are valid at finite precision, or with completed coefficient extension. They are not valid for general R as uncompleted infinite algebraic ⊗ products.
+- **Reason:** For R=ℚ the naive H_ℚ has the odd-order nontrivial idempotent of Example 5.7, whereas H_ℤ ⊗ ℚ is a localization of the domain H_ℤ. On P, coefficients 1/(k+1) have no common denominator, so the product collection does not lie in P_ℤ ⊗ ℚ.
+- **Known:** new. Searched: arXiv:2412.04241 version history (v2 remains latest on 2026-10-05); Scholze papers page https://people.mpim-bonn.mpg.de/scholze/papers.html (lists a preprint, no erratum); Wheeler author page https://www.ihes.fr/~wheeler/ and linked text128.pdf (same relevant formulas, earlier equation numbering); Independent review rechecked arXiv history and Scholze/Wheeler author pages on 2026-10-05; no relevant erratum located in the searched public listings..
+- **Review:** confirmed by REV-HabiroCyclotomicCompletions--HC.4. Confirmed in the parenthesis before (312), already contradicted by the explicit H_ℚ ≠ H_ℤ ⊗ ℚ warning on p. 59. The odd-order idempotent distinguishes H_ℚ from the localization of the domain H_ℤ; the single-component series with coefficients 1/(k+1) has no common denominator in P_ℤ ⊗ ℚ. Finite-level base change remains valid.
+
+### HabiroCyclotomicCompletions/E21 — misprint (affects the proof)
+
+- **Source:** `GSWZ.v2`, arXiv v2, p. 63, (317).
+- **Printed:** PR / PR^N
+- **Correction:** Replace the denominator by P_(R,N); P_R^N already denotes that quotient.
+- **Reason:** Only the quotient by the filtration ideal is the domain of the finite inverse in (306).
+- **Known:** new. Searched: arXiv:2412.04241 version history (v2 remains latest on 2026-10-05); Scholze papers page https://people.mpim-bonn.mpg.de/scholze/papers.html (lists a preprint, no erratum); Wheeler author page https://www.ihes.fr/~wheeler/ and linked text128.pdf (same relevant formulas, earlier equation numbering); Independent review rechecked arXiv history and Scholze/Wheeler author pages on 2026-10-05; no relevant erratum located in the searched public listings..
+- **Review:** confirmed by REV-HabiroCyclotomicCompletions--HC.4. Confirmed visually and textually: (305) defines P_R^N as a quotient by P_(R,N), whereas (317) uses that quotient as a denominator. The finite inverse needs P_R/P_(R,N).
+
+### HabiroCyclotomicCompletions/E22 — misprint (affects nothing)
+
+- **Source:** `GSWZ.v2`, arXiv v2, p. 64, (323).
+- **Printed:** sum from k=0 of gamma_(1,k,0) 2^k
+- **Correction:** Use γ_(1,k+1,0) with k≥0 in both expansions.
+- **Reason:** The convention (299) puts exponent k at l=k+1; γ_(1,0,0) is not among the defined coordinates. The shift is forced already by the constant term.
+- **Known:** new. Searched: arXiv:2412.04241 version history (v2 remains latest on 2026-10-05); Scholze papers page https://people.mpim-bonn.mpg.de/scholze/papers.html (lists a preprint, no erratum); Wheeler author page https://www.ihes.fr/~wheeler/ and linked text128.pdf (same relevant formulas, earlier equation numbering); Independent review rechecked arXiv history and Scholze/Wheeler author pages on 2026-10-05; no relevant erratum located in the searched public listings..
+- **Review:** confirmed by REV-HabiroCyclotomicCompletions--HC.4. Confirmed in (323) against (299): γ_(1,l,0) is the coefficient at exponent l-1 and only l≥1 is defined. The two sums starting at k=0 therefore require l=k+1, including the constant term.
+
+### HabiroCyclotomicCompletions/E23 — misprint (affects nothing)
+
+- **Source:** `GSWZ.v2`, arXiv v2, pp. 59–61, (299), prose after (301)/(304), and paragraph before (312).
+- **Printed:** C_l(zeta_m) in Z[zeta_m]; increasing sequence H_(R,N); k<=0, n>0
+- **Correction:** Use C_l in R[ζ_m]; the ideal filtrations decrease as N increases; the digit basis indices are 0≤k<n.
+- **Reason:** The definitions allow arbitrary R-coefficients. Vanishing more low coordinates gives smaller ideals. The basis has n coordinates in its nth block.
+- **Known:** new. Searched: arXiv:2412.04241 version history (v2 remains latest on 2026-10-05); Scholze papers page https://people.mpim-bonn.mpg.de/scholze/papers.html (lists a preprint, no erratum); Wheeler author page https://www.ihes.fr/~wheeler/ and linked text128.pdf (same relevant formulas, earlier equation numbering); Independent review rechecked arXiv history and Scholze/Wheeler author pages on 2026-10-05; no relevant erratum located in the searched public listings..
+- **Review:** confirmed by REV-HabiroCyclotomicCompletions--HC.4. Confirmed in (299), the prose following (301)/(304), and the basis paragraph before (312). Arbitrary R-coefficients require the R-coefficient algebra, vanishing constraints grow with N so the ideals decrease, and the nth digit block has precisely 0≤k<n. The coordinate products are topological coordinates, not Hamel bases.
+
+**Findings reused by the HC.6 part.** These were recorded and confirmed by other jobs, and the HC.6 part uses their corrections without recording them again:
+
+- `PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/E74` (§1.3, p.4, recorded in `research/blueprint/papers/PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24.result.json`): Use n≥m for vanishing of (q;q)_n at an order-m root; the printed inequality is reversed.
+- `PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/E77` (§1.3, p.5, recorded in `research/blueprint/papers/PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24.result.json`): Do not identify p-adic completion with tensoring by ℤ_p when p is inverted; the former is zero for ℤ[1/p].
+- `PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/E82` (§5.1, p.61, recorded in `research/blueprint/papers/PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24.result.json`): Base change of these coordinate modules is asserted at finite precision only; no ⊗/inverse-limit interchange is used.
+- `HabiroNumberFields/E22` (§1.3, p.5, recorded in `research/blueprint/packets/HabiroNumberFields.json`): Habiro supplies injectivity, not the stated gluing-image characterization. HB.6 owns the arithmetic comparison and its proof.
 
 ## Gaps
 
-### Three sections of the source were not read in full
+The first packet records two gaps, and the HC.4 and HC.6 parts record none. Both gaps concern Habiro's theorems for general coefficient rings. No consumer in the atlas needs either case: every ring the atlas uses is Noetherian, and the irreducibility hypothesis holds over ℤ.
 
-Needed by: `HabiroCyclotomicCompletions:HC.1`, `HabiroCyclotomicCompletions:HC.5`.
+### Theorem 5.2 for non-Noetherian coefficient rings
 
-§3.2 and §3.3, which develop the monic completions further, §7.1 and §7.2, and §7.5, which is where the rational case is treated in detail, were not read; the statements quoted from §7.5 are the ones the introduction repeats. The corresponding proof steps therefore record the strategy rather than the argument, and the rational-case node rests on the introduction's summary. NEXT SOURCE ACTION: read pp. 1131 to 1134 and pp. 1142 to 1146 in full, which is about nine pages, and decompose §7.5 in particular, since HC.5's rational case is currently quoted rather than proved.
+The reduction to ζ in R needs R[ζ] to satisfy the connectedness and separation hypotheses. This holds for Noetherian R (Krull's intersection theorem, Ideal.iInf_pow_eq_bot_of_isDomain, for the Noetherian domain R[ζ], in which p stays a non-unit). For a general domain of characteristic zero the transfer of p-adic separatedness to R[ζ] was neither found in the source nor proved here. Either add 'R Noetherian' to the node (every ring the atlas uses is Noetherian) or prove the transfer. Added by REV-HabiroCyclotomicCompletions.
 
-### The proofs of the three rigidity theorems were read only in outline
+Needed by: `HC.4/rootwise-taylor-injectivity`.
 
-Needed by: `HabiroCyclotomicCompletions:HC.4`.
+**Supplied, but not yet cited.** The HC.4 part supplies this input. `HC.4/finite-domain-module-embedding` embeds a domain B that is finite over a domain R into R^r. `HC.4/finite-domain-separation-transfer` deduces that ∩_k c^k B = 0 whenever ∩_k c^k R = 0, for every c ∈ R; neither needs a Noetherian hypothesis. Applied to B = R[ζ_m] and c = p, this is exactly the transfer of p-adic separation the reduction to ζ ∈ R needs. The first packet's node `HC.4/rootwise-taylor-injectivity` and its gap were written before the HC.4 part existed. That packet is not a deliverable of the assembly, so the node does not yet list the two lemmas among its prerequisites, and the gap stays recorded there. The repair is to add both node ids to the prerequisites of `HC.4/rootwise-taylor-injectivity`, to replace its last hypothesis by a reference to `HC.4/finite-domain-separation-transfer`, and to remove the gap. This changes no statement.
 
-Theorems 4.1, 5.2 and 6.1 were read as statements, with the opening of the proof of 6.1 and the sketch in Remark 5.1. Their full proofs, and the proof of Proposition 3.1 on which the first rests, were not read, so the proof steps of those nodes record the reductions and the inputs rather than the arguments. NEXT SOURCE ACTION: read the proofs on pp. 1131 to 1141, which is the technical core of the paper.
+### Theorem 6.2 when the fraction field of R meets the cyclotomic fields
 
-### The algorithms of HC.2 are the packet's own, not the source's
+The printed proof of Habiro's Theorem 6.2 fails for such R (source issue). A repair: base change to R~ = R[roots of the orders in S] and apply Theorem 6.3 (whose proof the source leaves to the reader), after a pigeonhole on the finitely many roots of order n and a check that R~ inherits separatedness. No consumer needs this case; the node is stated under the irreducibility hypothesis. Added by REV-HabiroCyclotomicCompletions.
 
-Needed by: `HabiroCyclotomicCompletions:HC.2`.
+Needed by: `HC.4/evaluation-at-individual-roots`.
 
-Habiro's paper constructs the completion and proves the rigidity theorems; it does not give algorithms for arithmetic on expansions, and the stage text asks for them. The node therefore states algorithms assembled from the normalised expansion and from division with remainder, with congruence correctness theorems that are this packet's own statements rather than quotations. NEXT SOURCE ACTION: none available in the source; the correctness statements should be proved directly, and Tau Ceti's executable arithmetic modulo a monic polynomial is the layer they should be built on.
-
-### The Deligne-style universal property of the completion is stated, not sourced
-
-Needed by: `HabiroCyclotomicCompletions:HC.1`.
-
-The source constructs the completion as an inverse limit and uses its projections; it does not state a universal property for continuous maps into complete separated rings, which the stage text asks for. The node states it as the standard property of a separated completion for a linear topology and cites Tau Ceti's complete separated topological rings as the target category. NEXT SOURCE ACTION: prove it directly from the limit description, or cite the general statement in the topological-algebra roadmap that owns it.
+**Outside the fixed scope.** The HC.4 part's rescope proposal keeps Theorem 6.2 in the form `HC.4/evaluation-at-individual-roots` states it, with Φ_{ord ζ} irreducible over the fraction field of R. It does not plan evaluation at arbitrary incomplete sets of conjugate roots over arbitrary subrings of ℚ̄. No atlas consumer asks for that case, and the printed proof fails for it (source issues E11 and E16). The gap remains as the record of what the general statement would need. Once the maintainer accepts the rescope, it becomes a non-goal.
 
 ## Requests
 
-- **`HabiroNumberFields:HB.1`** — The Habiro ring of a number field, which consumes the completion, the projections, the evaluation and Taylor maps, the p-adic substitutions and the completed modules exported here, and which HC.6 compares with the classical integral case.
+None of the three packets files a request: the one cross-roadmap input, HabiroRings HR.2's derived completion, is cited by node id. Other roadmaps have filed requests with this one. The nodes that answer them are listed here, so that each consumer can cite node ids rather than stages.
 
-- **`HabiroRings:HR.2`** — The derived Habiro completion, which consumes the ordinary comparison objects and the order-change maps of this roadmap. No completion functor is assumed exact here, which is exactly why the derived construction lives there.
-
-- **`HabiroCohomologyFoundations:HQ.1`** — The consumer of the derived interface; the link is one-directional and this roadmap does not depend on its theorems.
-
-- **`EnhancedDerivedSheaves:E3`** — The enhanced derived machinery that the derived completion of the Habiro-rings roadmap is built with; recorded here because HC.6's interface node names the chain.
-
-- **`ArithmeticQuantumTopology:QT.1`** — The quantum invariants whose values at roots of unity are the evaluations of HC.3 and whose unified invariant is an element of the completion; this is the original motivation the source records.
+| Requesting packet | Asked of | What is asked | Answered by |
+|---|---|---|---|
+| HabiroNumberFields (for HB.6/ring-operations-and-the-classical-comparison) | HC.4 | GSWZ §5.1 over ℤ[1/Δ] and ℤ_p: the integer matrices M_N, their non-zero determinants with the graded pieces D_{m,l}, and Proposition 5.2 | `HC.4/taylor-matrix`, `HC.4/finite-taylor-coordinate-matrix`, `HC.4/leading-factor`, `HC.4/graded-taylor-map`, `HC.4/finite-taylor-determinant`, `HC.4/finite-taylor-determinant-positive`, `HC.4/finite-taylor-injective`, `HC.4/global-integral-image-criterion`, `HC.4/local-integrality-detection`. The determinant is δ_N = ∏_{1≤n<N} D_1(n)D_2(n), not the printed product through N (E19). |
+| HabiroRings | HC.1 | The factorial polynomials, mutual cofinality with the ((q^m − 1)^k), and the ordinary completion ℤ[q]^ℕ | `HC.1/the-factorial-polynomials`, `HC.1/cofinality-of-the-factorial-products`, `HC.1/the-cyclotomic-completion` (already cited by id) |
+| HabiroRings (packet HR.2) | HC.1 | The same, with the quotient rank deg P_n = n(n + 1)/2, the normalisation by (−1)^n before monic division, and compatible integral quotient bases | `HC.1/the-factorial-polynomials` (`natDegree_factorialPoly`, `monic_neg_one_pow_mul_factorialPoly`), `HC.2/factorial-expansions`, `HC.4/finite-precision-bases` |
+| HabiroRings | HC.3 | p-adic closeness, the re-expansions with their cocycle law, the Taylor maps | `HC.3/p-adic-closeness-of-roots`, `HC.3/p-adic-re-expansion`, `HC.3/the-taylor-map` (already cited by id) |
+| HabiroRings | HC.4 | Comaximality, the congruence Φ_{p^e n} ≡ Φ_n^d modulo p, rootwise Taylor injectivity over ℤ | `HC.4/cyclotomic-comaximality-and-resultant`, `HC.4/cyclotomic-congruence-and-prime-ideal`, `HC.4/rootwise-taylor-injectivity` (already cited by id) |
+| HabiroRings | HC.5 | The decomposition of ℤ[1/Δ][q]^ℕ with the behaviour of the Taylor maps | `HC.5/inverting-a-prime-and-the-rational-case`, `HC.5/components-over-a-localised-integer-ring-are-domains` |
+| ArithmeticQuantumTopology | HC.1 | The Habiro ring, its evaluations and its Taylor map at q = 1 | `HC.1/the-cyclotomic-completion`, `HC.1/cofinality-of-the-factorial-products`, `HC.2/invertibility-of-q` (the Laurent comparison), `HC.3/evaluation-at-a-root-of-unity`, `HC.3/the-taylor-map` |
+| ArithmeticQuantumTopology | HC.2 | Normalised factorial expansions and the invertibility of q | `HC.2/factorial-expansions`, `HC.2/invertibility-of-q` |
+| ArithmeticQuantumTopology | HC.3 | The square between the Taylor map at 1 and the values at roots of prime-power order | `HC.3/re-expansion-of-taylor-expansions` |
+| ArithmeticQuantumTopology | HC.4 | Injectivity of evaluation on a set of roots with a limit point, and its failure without one | Not as asked. `HC.4/evaluation-uniqueness-and-its-exact-hypothesis` and `HC.4/evaluation-at-individual-roots` prove injectivity under Habiro's adjacency condition; finite sets never suffice. Every infinite set of roots of unity has a limit point on the circle, so "a limit point" asks for Habiro's open Conjecture 6.1 (structural proposal below). |
+| ArithmeticQuantumTopology | HC.6 | q-shifted factorial and quantum binomial identities in the completed ring | Not planned here: the elementary q-toolkit (see the reconciliation note under Boundaries). |
+| QSeriesPartitionsAndMockModularForms | HC.1 | ℤ[q]^ℕ as a complete topological ring, with the convergence criterion for factorial series | `HC.1/the-cyclotomic-completion`, `HC.1/topology-completeness-and-universal-property`, `HC.2/factorial-series` |
+| QSeriesPartitionsAndMockModularForms | HC.3 | ev_ξ with its factorial-series formula, the Taylor map and its composite with q = ξe^{−t}, Galois compatibility | `HC.3/evaluation-at-a-root-of-unity` (`evalAt_factorialSeries`), `HC.3/the-taylor-map` (`taylorAt_expCoord`), `HC.3/naturality-and-re-expansion` |
+| QSeriesPartitionsAndMockModularForms | HC.4 | An element vanishing at all roots of unity is zero | `HC.4/evaluation-uniqueness-and-its-exact-hypothesis` (with T = ℕ), `HC.4/evaluation-at-individual-roots` |
+| HabiroCohomologyFoundations (packet HQ.1) | HC.1, HC.3 | The classical completion with its factorial tower; evaluation, the Taylor map and re-expansion | `HC.1/the-cyclotomic-completion`, `HC.1/cofinality-of-the-factorial-products`, `HC.3/evaluation-at-a-root-of-unity`, `HC.3/the-taylor-map`, `HC.3/p-adic-re-expansion` |
 
 ## Structural proposals
 
-### HC.2's algorithms have no source and should be marked as the roadmap's own
+The parts record eight proposals: six in the first packet and two in the HC.4 part. Each is given as its packet records it, with a note on where it stands now. RS-10 was accepted after the first packet's review, so several of the first packet's proposals are settled by it.
 
-*note-source-boundary*
+### Move the F = ℚ comparison test from HC.6 to HB.6
 
-Every other target of this roadmap is a theorem of Habiro's paper, quoted by number in the stage texts. The coefficient algorithms of HC.2 are not: the paper constructs the completion and proves rigidity, and says nothing about computing with expansions. The stage text should say so, so that a worker does not search the paper for them, and should point at the pinned executable arithmetic modulo a monic polynomial as the layer they are to be built on.
+*ownership, rescope; from the first part; roadmaps: HabiroCyclotomicCompletions, HabiroNumberFields.* HC.6's stage text asks for the map from ℤ[q]^ℕ to the Garoufalidis-Scholze-Wheeler-Zagier Habiro ring of the rational field. That ring, H_{ℤ[1/Δ]}, is constructed in HabiroNumberFields HB.6, and the HB.6 packet (node HB.6/ring-operations-and-the-classical-comparison) already has HC.6 as a prerequisite, so an HC.6 node with an HB.6 prerequisite closes the cycle HC.6 → HB.6 → HC.6. The present node cites HB.1 (Bloch conventions and finite Chern classes), which does not contain the ring. RS-10's ownership analysis puts the comparison in HB.6. Added by REV-HabiroCyclotomicCompletions.
 
-### The separation hypotheses are hypotheses on the coefficient ring, and HC.5 makes them hypotheses on the module
+**Proposal.** HC.6 keeps the classical acceptance cases (HC.6/the-acceptance-examples, HC.6/inverted-prime-and-rational-examples) and exports the coefficient-change maps ℤ[q]^ℕ → ℤ[1/Δ][q]^ℕ → ℚ[q]^ℕ with their injectivity and the factor decomposition (HC.1/coefficient-change-injective-and-surjective, HC.5/inverting-a-prime-and-the-rational-case, HC.5/components-over-a-localised-integer-ring-are-domains). HB.6 proves that its glued ring for F = ℚ and Δ = 1 is ℤ[q]^ℕ, compares H_{ℤ[1/Δ]} with ℤ[1/Δ][q]^ℕ, and performs the stage test; its node HB.6/ring-operations-and-the-classical-comparison should cite those HC node ids instead of the stage HC.6. The HC.6 stage text drops the sentence on GSWZ.
 
-*note-hypothesis-boundary*
+**Status.** Settled by RS-10, whose HC.6 entry narrows HC.6 to the classical tests and gives the comparison to HB.6. The HC.6 part closes the layer accordingly. HB.6's node `HabiroNumberFields:HB.6/ring-operations-and-the-classical-comparison` no longer cites HC.6, but it still lists the stage `HabiroCyclotomicCompletions:HC.4` beside its node prerequisites. The HC.4b nodes it needs are named in the Requests table, and its packet should cite them. The HC.6 stage text still contains the moved sentence.
 
-Adjacency is defined through separatedness, so every rigidity theorem of HC.4 is a theorem about the coefficient ring as much as about the set of orders; and the source's module version replaces the ring's separation by the module's. The stage texts of HC.4 and HC.5 should say this in the same words, because a reader who carries the ring's hypothesis into the module statement will prove something weaker than the source does.
+### Derived-limit corrections belong to HR.2; the ordinary module completion is exact
 
-### HC.4 carries two kinds of theorem
+*ownership, rescope; from the first part; roadmaps: HabiroCyclotomicCompletions, HabiroRings.* HC.5's stage text asks for 'the hypotheses for exactness or a derived-limit correction'. For polynomial modules M[q] the ordinary completion is exact with no hypothesis (R[q]/(f) is R-free for monic f and the index set is countable), so no correction arises; the failure of exactness concerns R[q]-modules with torsion, which is HabiroRings HR.2's derived completion ('Supply all derived-limit corrections'). Added by REV-HabiroCyclotomicCompletions.
 
-*propose-split*
+**Proposal.** HC.5 states exactness of M → M[q]^S outright and adds one comparison node, HC.5/ordinary-versus-derived-completion, with prerequisite HabiroRings:HR.2/habiro-complete-modules (acyclic: that node requires only HC.1, DD.1 and E0). HR.2 owns every derived-limit statement. The HC.5 stage text is changed to 'prove exactness of the completion of polynomial modules, and compare it with the derived Habiro completion of HR.2'.
 
-HC.4 contains three positive rigidity theorems and the negative statements that stop them being read as isomorphisms. The positive ones share a proof strategy and a hypothesis; the negative ones are separate computations. Splitting would let the rigidity half be closed while the non-surjectivity half is still being written, and would make the stage text's warning — that injective Taylor maps are never isomorphisms — the subject of a layer rather than a sentence. The five nodes divide four to one.
+**Status.** Settled by RS-10, whose HC.5 entry narrows the layer to the ordinary completion and makes HR.2 the single owner of the derived completion and its corrections. The packet follows it: `HC.5/the-completed-module` states exactness outright, and `HC.5/ordinary-versus-derived-completion` is the one node that cites HR.2. The HC.5 stage text still has to be reworded.
+
+### The elementary q-toolkit has two planned owners
+
+*ownership, rescope; from the first part; roadmaps: HabiroCyclotomicCompletions, QSeriesPartitionsAndMockModularForms, HabiroNahmSeries, ArithmeticQuantumTopology.* PLAN-HABIRO §6.1 and decision D11 put the elementary q-analogue toolkit (q-integers, q-factorials, q-binomial and q-multinomial coefficients, finite and infinite Pochhammer symbols, the q-binomial theorem and Euler's identities) in HC.1, with QM.0 importing it; HabiroNahmSeries requests it from HC.1. The QSeriesPartitionsAndMockModularForms packet plans QM.0/q-pochhammer, QM.0/q-factorial and QM.0/q-binomial-coefficient itself, and the atlas stage text of HC.1 does not contain the toolkit. This packet defines only the polynomial P_N named in its stage text (HC.1/the-factorial-polynomials). ArithmeticQuantumTopology also requests from HC.6 'the q-shifted factorial and quantum binomial identities in the completed ring' (checker C). Added by REV-HabiroCyclotomicCompletions.
+
+**Proposal.** Settle D11 once: either apply PLAN-HABIRO §6.1 to the HC.1 stage text and have QM.0 import the toolkit from HC.1, or revise D11 so that QM.0 owns it and HC.1 imports QM.0's q-factorial for P_N. Redirect the HabiroNahmSeries request accordingly. Whichever owner is chosen, redirect the ArithmeticQuantumTopology request to the owning node ids as well.
+
+**Status.** Open. RS-10 names HC.1 as the toolkit's owner, but every consumer packet cites QM.0, and no node here plans it. See the reconciliation note under Boundaries, which recommends making QM.0 the owner and redirecting the ArithmeticQuantumTopology request there.
+
+### Bring the HC.4 stage text in line with the accepted PLAN-HABIRO
+
+*stage-text, rescope; from the first part; roadmaps: HabiroCyclotomicCompletions.* REV-PLAN-HABIRO accepted moving into HC.4 Wagner v5 Lemma 2.1 (α ≠ 0), V5A2 Corollaries 3.4-3.5 and GSWZ §5.1 (naive ring H_R, filtrations, D_{m,l}, iota injective and an isomorphism after tensoring with ℚ, M_N, Propositions 5.1-5.2, Examples 5.6-5.7). data/atlas.json's HC.4 description does not mention them, and the packet covers only the first two. Added by REV-HabiroCyclotomicCompletions.
+
+**Proposal.** Append to the HC.4 stage text: 'Also prove Wagner's Lemma 2.1 in the form ℤ[q]/(Φ_m, Φ_n) = 𝔽_p[q]/Φ_min(m,n) for m/n = p^α, α ≠ 0, and GSWZ §5.1 on the naive Habiro ring H_R of a torsion-free ring.' Then add nodes for GSWZ §5.1 with GSWZ as a source.
+
+**Status.** Partly done. The HC.4 part plans GSWZ §5.1 and Examples 5.6–5.7 (HC.4b) and Wagner's Lemma 2.1 for α ≠ 0 (`HC.4/cyclotomic-congruence-and-prime-ideal`). The atlas stage text of HC.4 still does not mention GSWZ §5.1. The HC.4 part's own rescope proposal, below, asks for the same addition, with the Theorem 6.2 boundary.
+
+### HC.2: the normal form is in the source, the arithmetic algorithms are not
+
+*note-source-boundary, rescope; from the first part; roadmaps: HabiroCyclotomicCompletions.* The degree-normalised expansion with its uniqueness along a cofinal chain of monic polynomials is in Habiro's preprint (arXiv v1, proof of Lemma 3.1, p. 7), with the chain (−1)^n(q)_n (p. 3), and q^{−1} = Σ q^n(q)_n is Proposition 7.1. Only the addition, multiplication and extraction algorithms with their executable versions are this roadmap's own; they build on Tau Ceti's synthetic division (TauCeti.Polynomial.divModByMonicList). Added by REV-HabiroCyclotomicCompletions.
+
+**Proposal.** Replace the packet's first restructure note by this one, and have the stage text of HC.2 cite arXiv v1 for the normal form and Tau Ceti's CoeffList for the executable layer.
+
+**Status.** A note for the stage text only. The packet already cites the preprint for the normal form (`HC.2/factorial-expansions`) and Tau Ceti's `CoeffList` for the executable layer (`HC.2/algorithms-on-expansions`).
+
+### Two consumer statements that HC cannot supply as written
+
+*consumer-boundary, rescope; from the first part; roadmaps: ArithmeticQuantumTopology, HabiroNumberFields.* ArithmeticQuantumTopology's request to HC.4 asks for 'the failure of injectivity without a limit point' and QT.4/determination-by-WRT records 'that a subset without a limit point does not suffice'. For finite sets this is true (HC.4/evaluation-uniqueness-and-its-exact-hypothesis); for infinite sets it is open, and Habiro's Conjecture 6.1 predicts injectivity for every infinite set of roots over ℤ. HabiroNumberFields:HB.6/the-substitution-exists cites mathlib:PowerSeries.subst for a substitution of a nonzero constant; PowerSeries.HasSubst is nilpotence of the constant coefficient, which fails; the tool is PowerSeries.eval2Hom with HasEval (HC.3/p-adic-re-expansion). Every infinite set of roots of unity has a limit point on the circle, so a 'limit point' hypothesis asks for Conjecture 6.1 (checker C). Added by REV-HabiroCyclotomicCompletions.
+
+**Proposal.** Restrict QT.4's complementary statement to finite sets and cite Conjecture 6.1 for infinite ones; replace mathlib:PowerSeries.subst by HC.3/p-adic-re-expansion in HB.6/the-substitution-exists.
+
+**Status.** The HabiroNumberFields half is done. `HabiroNumberFields:HB.6/the-substitution-exists` now cites `HC.3/p-adic-re-expansion` and records that `PowerSeries.subst` does not apply. The ArithmeticQuantumTopology half is open: its packet is still partial, and three of its QT.4 nodes state a "limit point" hypothesis, which asks for Habiro's open Conjecture 6.1 rather than Theorem 6.1 or 6.2.
+
+### Bring the HC.4 stage text in line with the integral comparison, and fix the Theorem 6.2 boundary
+
+*rescope; from the HC.4 part; roadmaps: HabiroCyclotomicCompletions.* The atlas HC.4 description omits the accepted PLAN-HABIRO/RS-10 assignment of the naive filtered Taylor comparison and still has an ambiguous general evaluation-at-individual-roots boundary.
+
+**Proposal.** Add GSWZ §5.1 to HC.4 with universal tensor-product cyclotomic coefficient algebras and corrected precision indexing. Keep Theorem 6.1 and the accepted irreducible-cyclotomic special case of Theorem 6.2. Do not enlarge the target to evaluation at arbitrary incomplete sets of conjugate roots over arbitrary subrings of ℚ̄: no atlas consumer requests it and the parent packet records an unresolved proof boundary. The finite-domain separation-transfer lemma supplies the non-Noetherian input to Theorem 5.2 without editing the parent packet.
+
+**Status.** Awaiting the maintainer. The packets already follow it: GSWZ §5.1 is planned, the HC.4 coverage is closed in the chosen scope, and the first packet's second gap is outside that scope. The HC.4 part's proposal says the transfer lemma supplies the non-Noetherian input "without editing the parent packet". For the citation the first packet still needs, see the first gap.
+
+### Separate classical rigidity from the finite integral comparison
+
+*structure, split; from the HC.4 part; roadmaps: HabiroCyclotomicCompletions.* The accepted parent HC.4 carries five classical-rigidity planets; the integral comparison adds six central objects and theorems. A combined stage would obscure the two proof chains and exceed six displayed planets.
+
+**Proposal.** On assembly split HC.4 into Classical arithmetic rigidity (HC.4a) and Integral Taylor comparison (HC.4b). HC.4a contains the fifteen imported parent HC.4 nodes plus the two finite-domain transfer lemmas and retains its five planets. HC.4b contains the 57 integral-comparison nodes of this part and its six planets. Both use HC.1–HC.3; HC.4b imports the resultant lemma from HC.4a and the existing HC.5 rational/prime-inversion decomposition. Maintain the current HC.4 identifiers as declaration aliases and redirect HB.6 finite-matrix consumption to HC.4b. The finite-domain embedding and separation-transfer nodes in this part belong in HC.4a and are used by rootwise-taylor-injectivity; they carry no additional planet.
+
+- HC.4a (Classical arithmetic rigidity): 17 nodes.
+- HC.4b (Integral Taylor comparison): 57 nodes.
+
+**Status.** Awaiting the maintainer; this document already displays HC.4 in the proposed sub-layers. Two points for whoever applies it. First, the two finite-domain lemmas live in the HC.4 part's packet but belong to HC.4a, so the sub-layer assignment crosses packets. Second, when the split is applied, HB.6's citation of the HC.4 stage should become citations of the HC.4b nodes listed in the Requests table.
+
+## Dependencies between the layers
+
+Within the roadmap, the nodes of each layer use the nodes of these other layers. The graph of nodes is acyclic, and it follows the layer order: no node uses a later layer, with the exception recorded after the lists.
+
+- **HC.1** uses no other layer.
+- **HC.2** uses HC.1.
+- **HC.3** uses HC.1, HC.2.
+- **HC.4** uses HC.1, HC.2, HC.3, HC.5.
+- **HC.5** uses HC.1, HC.2, HC.3, HC.4.
+- **HC.6** uses HC.1, HC.2, HC.3, HC.4, HC.5.
+
+The atlas requirements of each layer:
+
+- **HC.1** requires `UPSTREAM:Polynomial-cyclotomic-completion-algebra`.
+- **HC.2** requires `HabiroCyclotomicCompletions:HC.1`.
+- **HC.3** requires `HabiroCyclotomicCompletions:HC.2`.
+- **HC.4** requires `HabiroCyclotomicCompletions:HC.3`.
+- **HC.5** requires `HabiroCyclotomicCompletions:HC.4`.
+- **HC.6** requires `HabiroCyclotomicCompletions:HC.5`.
+
+HC.4 uses HC.5 through the HC.4 part's examples alone: `HC.4/odd-order-idempotent-example` and `HC.4/companion-projector` use `HC.5/inverting-a-prime-and-the-rational-case`, which the atlas places after HC.4. No HC.5 node uses those examples, so the node graph stays acyclic. The examples illustrate Proposition 5.2 with an element the HC.5 decomposition supplies. If the split is applied, HC.4b can simply be ordered after HC.5 in the display; if it is not, the examples could move to HC.6 without changing a statement.
+
+Across roadmaps, the only node prerequisite is `HabiroRings:HR.2/habiro-complete-modules`, used by HC.5. Its prerequisites, followed through every packet on main, never return to this roadmap: they end in the stages DerivedDeRhamCohomology DD.1 and EnhancedDerivedSheaves E0 and E1, and in Mathlib. At stage level HR.2 requires HC.1, which precedes HC.5, so there is no cycle through HabiroRings either.
 
 ## What this blueprint does not claim
 
-No Lean was compiled. The Mathlib build on this machine is a shared cache that
-must not be rebuilt, and this working tree has no elaborated dependency modules.
-Every `implementationStatus` is `unchecked`, the suggested Lean file is a naming
-proposal whose proofs are all `sorry`, and nothing here is claimed to be
-formalised.
-
-Three excerpts ran past four hundred characters and were elided at a word
-boundary; the locators name the printed pages so the full text can be read.
+- **Injectivity.** No injectivity of a restriction, Taylor or evaluation map is asserted beyond its stated hypotheses. Theorem 4.1 needs its chains inside S. Theorem 5.2 needs a domain of characteristic zero, connectedness, and separation at the odd primes dividing the order and at 2 when 4 divides it. Theorem 6.1 needs infinitely many orders adjacent to one order. Theorem 6.2 is stated under its irreducibility hypothesis. Injectivity of evaluation on an arbitrary infinite set of roots is Habiro's open Conjecture 6.1, and it is neither used nor exported.
+- **Surjectivity.** The injective restriction and Taylor maps over ℤ are not surjective, and no integral Taylor collection is assumed to come from H_ℤ. The image is cut out by the congruences of `HC.4/global-integral-image-criterion`.
+- **Base change.** Neither H_R nor the Taylor product is identified with an uncompleted tensor product of its integral version. Base change is asserted at finite precision only, and H_ℚ is the completion formed over ℚ.
+- **Derived and arithmetic structure.** No derived completion, Frobenius twist or number-field Habiro ring is constructed here. The comparison of ℤ[q]^ℕ with the Habiro ring of ℚ is HabiroNumberFields HB.6's.
+- **The unit group.** The unit group of ℤ[q]^ℕ is not determined: Habiro's Conjecture 7.1 is recorded as open.
+- **Formalisation.** Nothing here is formalised. The suggested Lean file names the objects and states signatures, API and unit tests with `sorry`. What the pinned Mathlib cannot express is recorded there as comments.

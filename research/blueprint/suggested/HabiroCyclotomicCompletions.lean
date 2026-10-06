@@ -2,15 +2,23 @@
 This file is not the roadmap and is not exhaustive. The roadmap document
 `research/blueprint/readmes/HabiroCyclotomicCompletions.md` is definitive. These statements
 suggest Lean forms so that contributors and reviewers can converge on names and
-signatures. They claim no implementation.
+signatures. They claim no implementation: implementationStatus = unchecked throughout.
 
-BP-HabiroCyclotomicCompletions, revised by the independent review
-REV-HabiroCyclotomicCompletions: partial prototype, implementationStatus = unchecked.
+ASM-HabiroCyclotomicCompletions: the suggested files of the three reviewed parts, joined.
+* HC.1–HC.6 from BP-HabiroCyclotomicCompletions, revised by REV-HabiroCyclotomicCompletions
+  (48 nodes), in the namespace `TauCeti.Habiro`.
+* HC.4 from BP-HabiroCyclotomicCompletions--HC.4, revised by
+  REV-HabiroCyclotomicCompletions--HC.4 (59 nodes), in `TauCeti.Habiro.HC4`, the namespace its
+  packet records. Its two finite-domain lemmas stand before Habiro's rigidity theorems (HC.4a),
+  the integral Taylor comparison after them (HC.4b). The part's own sketch of the completion
+  (`Naive`, its projections and digits) is replaced by the objects of HC.1–HC.3 below:
+  `HabiroRing R`, `fromPoly R Set.univ`, `projFactorial`, `factorialCoeff`, `mapRing`, `taylorAt`
+  and `powSubst`.
+* HC.6 from BP-HabiroCyclotomicCompletions--HC.6, accepted by REV-HabiroCyclotomicCompletions--HC.6:
+  finite acceptance specifications at the end, written with `factorialPoly`.
 Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174;
 Tau Ceti f790474821cf4256814db967cb154e7af3d0c369.
-Synced with the reviewed packet (48 nodes) and elaborated with the Lean toolchain of
-Mathlib 082e2d3 against its prebuilt library: `sorry` is the only warning. The file
-imports only Mathlib; the Tau Ceti declarations the packet cites (complete separated
+The file imports only Mathlib; the Tau Ceti declarations the packets cite (complete separated
 rings, `CoeffList` synthetic division) are named in comments, and completeness is stated
 through Mathlib's uniformity of a topological additive group.
 
@@ -21,9 +29,13 @@ Conventions fixed here.
   `∀ f : cycloIndex R S, R[X] ⧸ span {f}`; the index is a set of POLYNOMIALS (over
   `ZMod 2`, `Φ₂ = Φ₁`), not of exponent vectors. `MonicCompletion R T` is the same
   construction for any submonoid `T` of monic polynomials (Habiro §3).
+  `HabiroRing R = CycloCompletion R Set.univ` is GSWZ's `H_R`.
 * `factorialPoly R N = ∏_{i=1}^N (1 - X^i)` is NOT monic for odd `N`: its leading
   coefficient is `(-1)^N`. The normalised digits are remainders modulo the monic
   `X^(n+1) - 1`, never `%ₘ factorialPoly`.
+* Digits and precision. `factorialCoeff R x n` is Habiro's digit `n ≥ 0`. GSWZ, and so the
+  HC.4b declarations, index digits from one: GSWZ's digit `n` is `factorialCoeff R x (n - 1)`,
+  and precision `N` keeps the digits `1 ≤ n < N`, the quotient `R[X] ⧸ (P_{N-1})`.
 * For finite `S` the completion IS an adic completion (`adicEquivOfFinite`), e.g.
   `R[q]^{1} = R⟦q - 1⟧`; the full completion is neither `q`-adic nor `(q-1)`-adic.
 * `q` is a unit of `CycloCompletion R S` for EVERY `S` (Habiro §7.1).
@@ -31,6 +43,9 @@ Conventions fixed here.
   (`c_{n,n} = 0`), so over `ℚ` it is equality, not the empty relation.
 * The p-adic re-expansion is built from `PowerSeries.eval₂Hom` (topological nilpotence),
   never `PowerSeries.subst`, whose hypothesis is nilpotence of the constant coefficient.
+* HC.4b uses the universal coefficient algebras `AdjoinRoot (cyclotomic m R)`, never a chosen
+  embedded root, and GSWZ's multiplicative coordinate `q = z_m(1 - u)`; the coefficient of
+  `u^(l-1)` has index `l` and weight `m * l`.
 * The completion of a polynomial module is EXACT (`cycloModuleCompletion.map_exact`);
   derived completion of modules with torsion is HabiroRings HR.2's.
 
@@ -40,9 +55,9 @@ Nothing below encodes a missing theorem as an assumed structure field or as a pl
 `Prop`, and no statement is `True`. `sorry` occurs only as the body of a declaration or as
 a proof obligation inside one.
 
-Unit tests are `example`s whose docstring begins "Test `<name>`" with the name the packet
-gives, or comments `-- Test <name>: not stated; needs …`. An API item or node that cannot
-be stated honestly yet is a comment `-- <name>: not stated; needs <missing object>`.
+Unit tests are `example`s whose docstring begins "Test `<name>`" (or "Test <name>") with the
+name the packet gives, or comments `-- Test <name>: not stated; needs …`. An API item or node
+that cannot be stated honestly yet is a comment `-- <name>: not stated; needs <missing object>`.
 -/
 import Mathlib.RingTheory.Polynomial.Cyclotomic.Basic
 import Mathlib.RingTheory.Polynomial.Cyclotomic.Eval
@@ -71,6 +86,19 @@ import Mathlib.NumberTheory.Padics.PadicIntegers
 import Mathlib.NumberTheory.Padics.PadicVal.Basic
 import Mathlib.Analysis.SpecialFunctions.Trigonometric.Basic
 import Mathlib.LinearAlgebra.TensorProduct.Basic
+import Mathlib.RingTheory.RootsOfUnity.Lemmas
+import Mathlib.RingTheory.RootsOfUnity.Complex
+import Mathlib.RingTheory.PowerSeries.Basic
+import Mathlib.LinearAlgebra.Matrix.Adjugate
+import Mathlib.LinearAlgebra.Matrix.Block
+import Mathlib.LinearAlgebra.Matrix.NonsingularInverse
+import Mathlib.LinearAlgebra.Basis.VectorSpace
+import Mathlib.RingTheory.Finiteness.Defs
+import Mathlib.RingTheory.Localization.FractionRing
+import Mathlib.RingTheory.Localization.Integer
+import Mathlib.Data.Nat.Totient
+import Mathlib.Data.Nat.Factorization.Defs
+import Mathlib.Data.ZMod.Basic
 
 noncomputable section
 
@@ -1168,6 +1196,30 @@ example : ¬ MonicImplies (cyclotomic 2 ℚ) (cyclotomic 1 ℚ) := sorry
 example : MonicImplies ((X - 1) * (X + 1) : ℤ[X]) (X - 1) :=
   monicImplies_of_dvd (dvd_mul_right _ _)
 
+/-! ### HC.4a — separation under a finite extension of domains (from the HC.4 part)
+
+The packet places these two lemmas in `TauCeti.Habiro.HC4`. They supply the input to
+`taylorAt_injective` (Habiro, Theorem 5.2) over a domain that need not be Noetherian: for
+`B = R[ζ_m]` and `c = p` they transfer `p`-adic separation from `R` to `R[ζ_m]`. -/
+
+namespace HC4
+
+/-- HC.4/finite-domain-module-embedding. -/
+theorem finite_domain_module_embedding (R : Type*) [CommRing R] {B : Type*} [CommRing B]
+    [IsDomain R] [IsDomain B] [Algebra R B] [Module.Finite R B]
+    (hRB : Function.Injective (algebraMap R B)) :
+    ∃ r : ℕ, 0 < r ∧ ∃ L : B →ₗ[R] (Fin r → R), Function.Injective L := sorry
+
+/-- HC.4/finite-domain-separation-transfer. The condition is an intersection
+of scalar-power images, so it does not assume Noetherianity. -/
+theorem finite_domain_separation_transfer (R : Type*) [CommRing R] {B : Type*} [CommRing B]
+    [IsDomain R] [IsDomain B] [Algebra R B] [Module.Finite R B]
+    (hRB : Function.Injective (algebraMap R B)) (c : R)
+    (hsep : ∀ a : R, (∀ k : ℕ, ∃ b : R, a = c ^ k * b) → a = 0) :
+    ∀ a : B, (∀ k : ℕ, ∃ b : B, a = algebraMap R B (c ^ k) * b) → a = 0 := sorry
+
+end HC4
+
 section Rigidity
 
 variable (R : Type*) [CommRing R]
@@ -1203,7 +1255,9 @@ theorem primitiveRoots_rootConnected [IsDomain R] [CharZero R] {n : ℕ} (hn : 0
       Relation.ReflTransGen (fun a b => a ∈ primitiveRoots n R ∧ b ∈ primitiveRoots n R ∧
         RootAdjacent R a b) ζ ζ' := sorry
 
-/-- HC.4/rootwise-taylor-injectivity: Habiro Theorem 5.2. -/
+/-- HC.4/rootwise-taylor-injectivity: Habiro Theorem 5.2. The reduction to `ζ ∈ R` needs the
+hypotheses for `R[ζ]`, which `HC4.finite_domain_separation_transfer` supplies without a
+Noetherian hypothesis. -/
 theorem taylorAt_injective [IsDomain R] [CharZero R] {S : Set ℕ}
     (hS : IsAdjConnected R S) {n : ℕ} (hn : n ∈ S)
     (hodd : ∀ p : ℕ, p.Prime → p ≠ 2 → p ∣ n → IsHausdorff (Ideal.span {(p : R)}) R)
@@ -1267,6 +1321,622 @@ example : ¬ Function.Injective (restrict ℤ ({1, 6} : Set ℕ) (show ({1} : Se
 
 /-- HC.4/the-completion-is-a-domain: `ℤ[q]^{1,6}` is not a domain. -/
 example : ¬ IsDomain (CycloCompletion ℤ {1, 6}) := sorry
+
+/-! ## HC.4b — the integral Taylor comparison (GSWZ §5.1), from the HC.4 part
+
+The packet places these declarations in `TauCeti.Habiro.HC4`. They are stated against the
+objects above: the full completion `HabiroRing R` (GSWZ's `H_R`), its polynomial map
+`fromPoly R Set.univ`, its factorial projections `projFactorial` and its normalised digits
+`factorialCoeff`. GSWZ index digits from one, so GSWZ's digit `n` is `factorialCoeff R h (n - 1)`,
+and precision `N` keeps the digits `1 ≤ n < N`, that is the quotient `R[X] ⧸ (P_{N-1})`.
+The coefficient algebras are the universal quotients `AdjoinRoot (cyclotomic m R)`, never a
+chosen embedded root. -/
+
+namespace HC4
+
+open scoped Matrix
+
+variable (R : Type*) [CommRing R]
+
+/-- The finite factorial quotient `R[q]/(P_n)`, the target of `projFactorial R n`. -/
+abbrev FiniteH (n : ℕ) := R[X] ⧸ Ideal.span {factorialPoly R n}
+
+/-- Forgetting one step of factorial precision. -/
+def hTransition (n : ℕ) : FiniteH R (n + 1) →ₐ[R] FiniteH R n := sorry
+
+theorem hTransition_mk (n : ℕ) (g : R[X]) :
+    hTransition R n (Ideal.Quotient.mk _ g) = Ideal.Quotient.mk _ g := sorry
+
+abbrev CycloCoeff (m : ℕ) := AdjoinRoot (cyclotomic m R)
+
+def cycloRoot (m : ℕ) : CycloCoeff R m := AdjoinRoot.root (cyclotomic m R)
+
+/-- HC.4/universal-taylor-product. Universal quotient, including split factors. -/
+abbrev TaylorProduct := ∀ m : ℕ+, PowerSeries (CycloCoeff R m)
+
+def taylorCoeff (f : TaylorProduct R) (m : ℕ+) (l : ℕ) : CycloCoeff R m :=
+  PowerSeries.coeff (l - 1) (f m)
+
+def gamma (f : TaylorProduct R) (m : ℕ+) (l j : ℕ) : R :=
+  (AdjoinRoot.modByMonicHom (cyclotomic.monic m R) (taylorCoeff R f m l)).coeff j
+
+namespace TaylorProduct
+
+theorem ext {f g : TaylorProduct R}
+    (h : ∀ m k, PowerSeries.coeff k (f m) = PowerSeries.coeff k (g m)) : f = g := sorry
+
+def map {S : Type*} [CommRing S] (φ : R →+* S) : TaylorProduct R →+* TaylorProduct S := sorry
+
+theorem map_gamma {S : Type*} [CommRing S] (φ : R →+* S)
+    (f : TaylorProduct R) (m : ℕ+) (l j : ℕ) :
+    gamma S (map R φ f) m l j = φ (gamma R f m l j) := sorry
+
+theorem map_id : map R (RingHom.id R) = RingHom.id (TaylorProduct R) := sorry
+
+theorem map_comp {S T : Type*} [CommRing S] [CommRing T]
+    (φ : R →+* S) (ψ : S →+* T) :
+    map R (ψ.comp φ) = (map S ψ).comp (map R φ) := sorry
+end TaylorProduct
+
+/-- Test taylorCoeff_zero. -/
+example (m : ℕ+) (l : ℕ) (hl : 0 < l) : taylorCoeff R 0 m l = 0 := sorry
+
+/-- Test gamma_one. -/
+example [Nontrivial R] (m : ℕ+) (l j : ℕ) (hl : 0 < l) (hj : j < Nat.totient m) :
+    gamma R 1 m l j = if l = 1 ∧ j = 0 then 1 else 0 := sorry
+
+/-- Specialization to one chosen root, used only in the split-coefficient test. -/
+def atFourthRoot {K : Type*} [Field K] (i : K) (hi : i ^ 2 + 1 = 0) :
+    CycloCoeff K 4 →ₐ[K] K := sorry
+
+/-- Test universal_split_nonexample. Applies in particular to K=Q(i). -/
+example {K : Type*} [Field K] [CharZero K] (i : K) (hi : i ^ 2 + 1 = 0) :
+    Module.finrank K (CycloCoeff K 4) = 2 ∧
+    cycloRoot K 4 - algebraMap K (CycloCoeff K 4) i ≠ 0 ∧
+    atFourthRoot i hi (cycloRoot K 4 - algebraMap K (CycloCoeff K 4) i) = 0 := sorry
+
+/-- `HabiroRing R` is a commutative ring. Instance search through its subalgebra structure
+does not reach this here (compare `instIsTopologicalAddGroup` above), and the quotients by
+`hFiltration` need it, so it is stated once. -/
+instance instCommRingHabiroRing : CommRing (HabiroRing R) := Subalgebra.toCommRing _
+
+/-- HC.4/factorial-kernel-filtration. -/
+def hFiltration (N : ℕ) : Ideal (HabiroRing R) := RingHom.ker (projFactorial R (N - 1))
+
+theorem mem_hFiltration_iff (N : ℕ) (h : HabiroRing R) :
+    h ∈ hFiltration R N ↔ projFactorial R (N - 1) h = 0 := sorry
+
+/-- HC.4/factorial-digit-kernel. GSWZ's digit `n` is `factorialCoeff R h (n - 1)`. -/
+theorem mem_hFiltration_digits (N : ℕ) (hN : 0 < N) (h : HabiroRing R) :
+    h ∈ hFiltration R N ↔ ∀ n : ℕ, 0 < n → n < N → factorialCoeff R h (n - 1) = 0 := sorry
+
+/-- HC.4/factorial-kernel-characterisation. -/
+theorem hFiltration_eq_principal (N : ℕ) (hN : 0 < N) :
+    hFiltration R N = Ideal.span {fromPoly R Set.univ (factorialPoly R (N - 1))} := sorry
+
+/-- HC.4/factorial-filtration-antitone. -/
+theorem hFiltration_antitone (N : ℕ) (hN : 0 < N) :
+    hFiltration R (N + 1) ≤ hFiltration R N := sorry
+
+/-- HC.4/factorial-filtration-separated. -/
+theorem hFiltration_inter : (⨅ N : ℕ+, hFiltration R N) = ⊥ := sorry
+
+/-- HC.4/factorial-finite-quotient. -/
+def hFiltration_quotient_equiv (N : ℕ) (hN : 0 < N) :
+    (HabiroRing R ⧸ hFiltration R N) ≃ₐ[R] FiniteH R (N - 1) := sorry
+
+/-- Test hFiltration_one. -/
+example : hFiltration R 1 = ⊤ := sorry
+
+/-- Polynomial specialization of test hFiltration_two. -/
+example (g : R[X]) : fromPoly R Set.univ g ∈ hFiltration R 2 ↔ g.eval 1 = 0 := sorry
+
+/-- Test hFiltration_digit_boundary. -/
+example (N : ℕ) (hN : 0 < N) :
+    fromPoly ℤ Set.univ (factorialPoly ℤ (N - 1)) ∈ hFiltration ℤ N ∧
+    fromPoly ℤ Set.univ (factorialPoly ℤ (N - 1)) ∉ hFiltration ℤ (N + 1) := sorry
+
+/-- HC.4/weighted-taylor-filtration. -/
+def pFiltration (N : ℕ) : Ideal (TaylorProduct R) where
+  carrier := {f | ∀ (m : ℕ+) (l : ℕ), 0 < l → (m : ℕ) * l < N →
+    taylorCoeff R f m l = 0}
+  zero_mem' := by sorry
+  add_mem' := by sorry
+  smul_mem' := by sorry
+
+theorem mem_pFiltration_iff (N : ℕ) (f : TaylorProduct R) :
+    f ∈ pFiltration R N ↔ ∀ (m : ℕ+) (l : ℕ), 0 < l → (m : ℕ) * l < N →
+      taylorCoeff R f m l = 0 := sorry
+
+/-- HC.4/taylor-filtration-antitone. -/
+theorem pFiltration_antitone (N : ℕ) : pFiltration R (N + 1) ≤ pFiltration R N := sorry
+
+/-- HC.4/taylor-filtration-separated. -/
+theorem pFiltration_inter : (⨅ N : ℕ+, pFiltration R N) = ⊥ := sorry
+
+abbrev FiniteP (N : ℕ) := TaylorProduct R ⧸ pFiltration R N
+
+def dimension (N : ℕ) : ℕ := N * (N - 1) / 2
+
+/-- Source columns (n,k), 1≤n<N, k<n, lexicographically ordered. -/
+def digitRows (N : ℕ) : List (ℕ × ℕ) :=
+  ((List.range N).drop 1).flatMap fun n => (List.range n).map fun k => (n, k)
+
+/-- Target rows (m,l,j), weight first, decreasing m within weight, then j. -/
+def jetRows (N : ℕ) : List (ℕ × ℕ × ℕ) :=
+  ((List.range N).drop 1).flatMap fun w =>
+    (w.divisors.sort (· ≤ ·)).reverse.flatMap fun m =>
+      (List.range (Nat.totient m)).map fun j => (m, w / m, j)
+
+def digitAt (N : ℕ) (i : Fin (dimension N)) : ℕ × ℕ :=
+  (digitRows N).getD i.val (1, 0)
+
+def jetAt (N : ℕ) (i : Fin (dimension N)) : ℕ × ℕ × ℕ :=
+  (jetRows N).getD i.val (1, 1, 0)
+
+theorem jetAt_pos (N : ℕ) (i : Fin (dimension N)) : 0 < (jetAt N i).1 := sorry
+
+def jetCoordinates (N : ℕ) (f : TaylorProduct R) : Fin (dimension N) → R :=
+  fun i => gamma R f ⟨(jetAt N i).1, jetAt_pos N i⟩ (jetAt N i).2.1 (jetAt N i).2.2
+
+/-- The coefficient of `q^k` in GSWZ's digit `n`, for the column `(n, k)`. -/
+def digitCoordinates (N : ℕ) (h : HabiroRing R) : Fin (dimension N) → R :=
+  fun i => (factorialCoeff R h ((digitAt N i).1 - 1)).coeff (digitAt N i).2
+
+/-- HC.4/weighted-jet-kernel. -/
+theorem jetCoordinates_kernel (N : ℕ) (hN : 0 < N) (f : TaylorProduct R) :
+    jetCoordinates R N f = 0 ↔ f ∈ pFiltration R N := sorry
+
+/-- Test pFiltration_one. -/
+example : pFiltration R 1 = ⊤ := sorry
+
+/-- Test pFiltration_three. -/
+example (f : TaylorProduct R) : f ∈ pFiltration R 3 ↔
+    PowerSeries.coeff 0 (f 1) = 0 ∧ PowerSeries.coeff 1 (f 1) = 0 ∧
+    PowerSeries.coeff 0 (f 2) = 0 := sorry
+
+/-- Test pFiltration_shift_nonexample. -/
+example (f : TaylorProduct ℤ) (hf : ∀ m : ℕ+,
+    f m = if (m : ℕ) = 2 then PowerSeries.X else 0) :
+    f ∈ pFiltration ℤ 4 ∧ f ∉ pFiltration ℤ 5 := sorry
+
+/-- HC.4/multiplicative-taylor-comparison: the HC.3 Taylor map `taylorAt` at the universal
+root, scaled by `-z_m` in each degree. -/
+def iota : HabiroRing R →ₐ[R] TaylorProduct R := sorry
+
+/-- Polynomial expansion in u, used to define the integer matrix explicitly. -/
+def taylorPolynomial (m : ℕ) (g : R[X]) : (CycloCoeff R m)[X] :=
+  g.eval₂ ((Polynomial.C : CycloCoeff R m →+* (CycloCoeff R m)[X]).comp
+    (algebraMap R (CycloCoeff R m))) (C (cycloRoot R m) * (1 - X))
+
+theorem iota_fromPoly (g : R[X]) (m : ℕ+) :
+    iota R (fromPoly R Set.univ g) m =
+      (taylorPolynomial R m g : PowerSeries (CycloCoeff R m)) := sorry
+
+theorem coeff_iota_fromPoly (g : R[X]) (m : ℕ+) (k : ℕ) :
+    PowerSeries.coeff k (iota R (fromPoly R Set.univ g) m) =
+      (-cycloRoot R m) ^ k * (Polynomial.hasseDeriv k g).eval₂
+        (algebraMap R (CycloCoeff R m)) (cycloRoot R m) := sorry
+
+theorem iota_map {S : Type*} [CommRing S] (φ : R →+* S) (h : HabiroRing R) :
+    iota S (mapRing R Set.univ φ h) = TaylorProduct.map R φ (iota R h) := sorry
+
+/-- Test hFiltration_two, including arbitrary completed elements. -/
+example (h : HabiroRing R) : h ∈ hFiltration R 2 ↔
+    PowerSeries.coeff 0 (iota R h 1) = 0 := sorry
+
+/-- Test iota_one. -/
+example : iota R 1 = 1 := sorry
+
+/-- Test iota_q. -/
+example (m : ℕ+) :
+    PowerSeries.coeff 0 (iota R (fromPoly R Set.univ X) m) = cycloRoot R m ∧
+    PowerSeries.coeff 1 (iota R (fromPoly R Set.univ X) m) = -cycloRoot R m ∧
+    PowerSeries.coeff 2 (iota R (fromPoly R Set.univ X) m) = 0 := sorry
+
+/-- Test iota_additive_coordinate: the coefficient at exponent `k` is `(-z_m)^k` times the
+coefficient of the HC.3 Taylor map `taylorAt` at the universal root. -/
+example (h : HabiroRing R) (m : ℕ+) (k : ℕ) :
+    PowerSeries.coeff k (iota R h m) =
+      (-cycloRoot R m) ^ k * PowerSeries.coeff k
+        (taylorAt R Set.univ (Set.mem_univ (m : ℕ)) (cycloRoot R m)
+          (aeval_root_cyclotomic R m) h) := sorry
+
+/-- Nested ideals are quotiented as R-modules. -/
+def idealStep {A : Type*} [CommRing A] [Algebra R A] (I J : Ideal A) : Submodule R I :=
+  (J.restrictScalars R).comap (I.restrictScalars R).subtype
+
+abbrev HGr (N : ℕ) := (hFiltration R N) ⧸
+  idealStep R (hFiltration R N) (hFiltration R (N + 1))
+
+abbrev PGr (N : ℕ) := (pFiltration R N) ⧸
+  idealStep R (pFiltration R N) (pFiltration R (N + 1))
+
+abbrev DivisorCoeff (N : ℕ) := ∀ m : {m : ℕ // m ∈ N.divisors}, CycloCoeff R m.val
+
+/-- HC.4/factorial-graded-piece: [g] maps to [P_(N-1)g]. -/
+def factorialGradedEquiv (N : ℕ) (hN : 0 < N) :
+    AdjoinRoot (1 - X ^ N : R[X]) ≃ₗ[R] HGr R N := sorry
+
+/-- HC.4/taylor-graded-piece: extract exponent N/m−1. -/
+def taylorGradedEquiv (N : ℕ) (hN : 0 < N) : PGr R N ≃ₗ[R] DivisorCoeff R N := sorry
+
+/-- HC.4/finite-precision-bases: the imported digit basis in shifted indexing. -/
+def finiteDigitBasis (N : ℕ) (hN : 0 < N) :
+    Module.Basis (Fin (dimension N)) R (FiniteH R (N - 1)) := sorry
+
+/-- The basis is specified by its polynomial classes, not just its index type. -/
+theorem finiteDigitBasis_apply (N : ℕ) (hN : 0 < N) (i : Fin (dimension N)) :
+    finiteDigitBasis R N hN i = Ideal.Quotient.mk _
+      (X ^ (digitAt N i).2 * factorialPoly R ((digitAt N i).1 - 1)) := sorry
+
+theorem finiteDigitBasis_repr (N : ℕ) (hN : 0 < N) (h : HabiroRing R)
+    (i : Fin (dimension N)) :
+    (finiteDigitBasis R N hN).repr (projFactorial R (N - 1) h) i =
+      digitCoordinates R N h i := sorry
+
+/-- HC.4/finite-jet-basis. -/
+def finiteJetBasis (N : ℕ) (hN : 0 < N) :
+    Module.Basis (Fin (dimension N)) R (FiniteP R N) := sorry
+
+theorem finiteJetBasis_repr (N : ℕ) (hN : 0 < N) (f : TaylorProduct R)
+    (i : Fin (dimension N)) :
+    (finiteJetBasis R N hN).repr (Ideal.Quotient.mk _ f) i =
+      jetCoordinates R N f i := sorry
+
+/-- HC.4/finite-precision-rank: exact finite counts, also over the zero ring. -/
+theorem finite_precision_counts (N : ℕ) (hN : 0 < N) :
+    (digitRows N).length = dimension N ∧ (jetRows N).length = dimension N := sorry
+
+/-- HC.4/factorial-vanishing-order. -/
+theorem factorial_vanishing_order (n : ℕ) (m : ℕ+) :
+    (X : (CycloCoeff R m)[X]) ^ (n / m) ∣
+      taylorPolynomial R m (factorialPoly R n) := sorry
+
+/-- HC.4/taylor-comparison-filtered. -/
+theorem iota_filtered (N : ℕ) (hN : 0 < N) (h : HabiroRing R)
+    (hh : h ∈ hFiltration R N) : iota R h ∈ pFiltration R N := sorry
+
+/-- HC.4/leading-factor. -/
+def leadingFactor (m l : ℕ) : ℕ := m ^ (2 * l - 1) * (l - 1).factorial
+
+theorem leadingFactor_pos (m l : ℕ) (hm : 0 < m) (hl : 0 < l) :
+    0 < leadingFactor m l := sorry
+
+theorem leadingFactor_succ (m l : ℕ) (hl : 0 < l) :
+    leadingFactor m (l + 1) = m ^ 2 * l * leadingFactor m l := sorry
+
+/-- Test leadingFactor_order_one. -/
+example : leadingFactor 1 4 = 6 := sorry
+
+/-- Test leadingFactor_ell_one. -/
+example (m : ℕ) : leadingFactor m 1 = m := sorry
+
+/-- Test leadingFactor_two_two. -/
+example : leadingFactor 2 2 = 8 := sorry
+
+/-- HC.4/root-product-identity, in the universal cyclotomic algebra. -/
+theorem root_product_identity (m : ℕ+) :
+    (∏ r ∈ (Finset.range m).erase 0, (1 - cycloRoot R m ^ r)) = (m : CycloCoeff R m) := sorry
+
+/-- HC.4/factorial-leading-coefficient. -/
+theorem factorial_leading_coefficient (m : ℕ+) (l : ℕ) (hl : 0 < l) :
+    (∀ k < l - 1, (taylorPolynomial R m (factorialPoly R (m * l - 1))).coeff k = 0) ∧
+    (taylorPolynomial R m (factorialPoly R (m * l - 1))).coeff (l - 1) =
+      (leadingFactor m l : CycloCoeff R m) := sorry
+
+def gradedIota (N : ℕ) (hN : 0 < N) : HGr R N →ₗ[R] PGr R N := sorry
+
+/-- HC.4/graded-taylor-map. -/
+theorem graded_taylor_map (N : ℕ) (hN : 0 < N) (g : R[X])
+    (m : {m : ℕ // m ∈ N.divisors}) :
+    taylorGradedEquiv R N hN
+      (gradedIota R N hN (factorialGradedEquiv R N hN (AdjoinRoot.mk _ g))) m =
+    (leadingFactor m.val (N / m.val) : CycloCoeff R m.val) *
+      g.eval₂ (algebraMap R (CycloCoeff R m.val)) (cycloRoot R m.val) := sorry
+
+/-- HC.4/simultaneous-cyclotomic-remainders. -/
+def simultaneousRemainders (N : ℕ) (hN : 0 < N) :
+    AdjoinRoot (X ^ N - 1 : R[X]) →ₐ[R] DivisorCoeff R N := sorry
+
+/-- Explicit torsion-free condition used on the underlying abelian group. -/
+theorem simultaneous_remainders_injective
+    (hR : ∀ z : ℤ, z ≠ 0 → Function.Injective (fun r : R => z • r))
+    (N : ℕ) (hN : 0 < N) : Function.Injective (simultaneousRemainders R N hN) := sorry
+
+/-- HC.4/simultaneous-remainders-rational. -/
+theorem simultaneous_remainders_bijective [Algebra ℚ R] (N : ℕ) (hN : 0 < N) :
+    Function.Bijective (simultaneousRemainders R N hN) := sorry
+
+/-- HC.4/graded-taylor-injective. -/
+theorem graded_taylor_injective
+    (hR : ∀ z : ℤ, z ≠ 0 → Function.Injective (fun r : R => z • r))
+    (N : ℕ) (hN : 0 < N) : Function.Injective (gradedIota R N hN) := sorry
+
+/-- HC.4/graded-taylor-rational. -/
+theorem graded_taylor_bijective [Algebra ℚ R] (N : ℕ) (hN : 0 < N) :
+    Function.Bijective (gradedIota R N hN) := sorry
+
+/-- HC.4/finite-taylor-map. -/
+def finiteIota (N : ℕ) (hN : 0 < N) : FiniteH R (N - 1) →ₐ[R] FiniteP R N := sorry
+
+theorem finiteIota_polynomial (N : ℕ) (hN : 0 < N) (g : R[X]) :
+    finiteIota R N hN (Ideal.Quotient.mk _ g) =
+      Ideal.Quotient.mk _ (iota R (fromPoly R Set.univ g)) := sorry
+
+/-- The finite map agrees with the joint map on every completed element. -/
+theorem iota_hProjection (N : ℕ) (hN : 0 < N) (h : HabiroRing R) :
+    finiteIota R N hN (projFactorial R (N - 1) h) =
+      Ideal.Quotient.mk _ (iota R h) := sorry
+
+def pTransition (N : ℕ) : FiniteP R (N + 1) →ₐ[R] FiniteP R N := sorry
+
+/-- HC.4/taylor-finite-reconstruction. Positive precision is indexed by n+1. -/
+theorem taylor_finite_reconstruction (f : ∀ n : ℕ, FiniteP R (n + 1))
+    (hf : ∀ n, pTransition R (n + 1) (f (n + 1)) = f n) :
+    ∃! g : TaylorProduct R, ∀ n : ℕ,
+      Ideal.Quotient.mk (pFiltration R (n + 1)) g = f n := sorry
+
+theorem finiteIota_transition (N : ℕ) (hN : 0 < N) (g : FiniteH R N) :
+    pTransition R N (finiteIota R (N + 1) (by omega) g) =
+      finiteIota R N hN (hTransition R (N - 1) (by simpa [Nat.sub_add_cancel hN] using g)) := sorry
+
+def finiteHMap {S : Type*} [CommRing S] (φ : R →+* S) (n : ℕ) :
+    FiniteH R n →+* FiniteH S n := sorry
+
+def finitePMap {S : Type*} [CommRing S] (φ : R →+* S) (N : ℕ) :
+    FiniteP R N →+* FiniteP S N := sorry
+
+theorem finiteIota_baseChange {S : Type*} [CommRing S] (φ : R →+* S)
+    (N : ℕ) (hN : 0 < N) (g : FiniteH R (N - 1)) :
+    finiteIota S N hN (finiteHMap R φ (N - 1) g) =
+      finitePMap R φ N (finiteIota R N hN g) := sorry
+
+/-- Test finiteIota_one. -/
+example : Function.Bijective (finiteIota R 1 (by decide)) ∧ Subsingleton (FiniteP R 1) := sorry
+
+/-- Test finiteIota_two. Under the constant R-coordinate bases this is the identity. -/
+example (g : R[X]) : finiteIota R 2 (by decide) (Ideal.Quotient.mk _ g) =
+    algebraMap R (FiniteP R 2) (g.eval 1) := sorry
+
+/-- HC.4/finite-taylor-injective. -/
+theorem finite_taylor_injective
+    (hR : ∀ z : ℤ, z ≠ 0 → Function.Injective (fun r : R => z • r))
+    (N : ℕ) (hN : 0 < N) : Function.Injective (finiteIota R N hN) := sorry
+
+/-- HC.4/finite-taylor-rational. -/
+theorem finite_taylor_bijective [Algebra ℚ R] (N : ℕ) (hN : 0 < N) :
+    Function.Bijective (finiteIota R N hN) := sorry
+
+/-- HC.4/compatible-finite-preimages. -/
+theorem compatible_finite_preimages
+    (hR : ∀ z : ℤ, z ≠ 0 → Function.Injective (fun r : R => z • r))
+    (f : TaylorProduct R) (x : ∀ n : ℕ, FiniteH R n)
+    (hx : ∀ n, finiteIota R (n + 1) (Nat.succ_pos n) (x n) =
+      Ideal.Quotient.mk _ f) :
+    (∀ n, hTransition R n (x (n + 1)) = x n) ∧
+    (∀ y : ∀ n : ℕ, FiniteH R n,
+      (∀ n, finiteIota R (n + 1) (Nat.succ_pos n) (y n) = Ideal.Quotient.mk _ f) →
+      y = x) := sorry
+
+/-- HC.4/global-taylor-injective. Joint components, with no domain assumption. -/
+theorem global_taylor_injective
+    (hR : ∀ z : ℤ, z ≠ 0 → Function.Injective (fun r : R => z • r)) :
+    Function.Injective (iota R) := sorry
+
+/-- HC.4/rational-taylor-isomorphism. H_(R), not H_Z tensor R. -/
+theorem rational_taylor_isomorphism [Algebra ℚ R] : Function.Bijective (iota R) := sorry
+
+def rationalTaylorEquiv [Algebra ℚ R] : HabiroRing R ≃ₐ[R] TaylorProduct R :=
+  AlgEquiv.ofBijective (iota R) (rational_taylor_isomorphism R)
+
+/-- HC.4/taylor-matrix. Entries come from polynomial substitution and monic reduction. -/
+def taylorMatrix (N : ℕ) : Matrix (Fin (dimension N)) (Fin (dimension N)) ℤ :=
+  fun i k =>
+    let row := jetAt N i
+    let col := digitAt N k
+    let g := X ^ col.2 * factorialPoly ℤ (col.1 - 1)
+    (AdjoinRoot.modByMonicHom (cyclotomic.monic row.1 ℤ)
+      ((taylorPolynomial ℤ row.1 g).coeff (row.2.1 - 1))).coeff row.2.2
+
+theorem taylorMatrix_entry (N : ℕ) (i k : Fin (dimension N)) :
+    taylorMatrix N i k =
+    (AdjoinRoot.modByMonicHom (cyclotomic.monic (jetAt N i).1 ℤ)
+      ((taylorPolynomial ℤ (jetAt N i).1
+        (X ^ (digitAt N k).2 * factorialPoly ℤ ((digitAt N k).1 - 1))).coeff
+        ((jetAt N i).2.1 - 1))).coeff (jetAt N i).2.2 := sorry
+
+/-- HC.4/taylor-matrix-digits. -/
+theorem taylorMatrix_mul_digits (N : ℕ) (hN : 0 < N) (h : HabiroRing R) :
+    (taylorMatrix N).map (Int.castRingHom R) *ᵥ digitCoordinates R N h =
+      jetCoordinates R N (iota R h) := sorry
+
+/-- HC.4/finite-taylor-coordinate-matrix. -/
+theorem taylorMatrix_baseChange (N : ℕ) (hN : 0 < N) :
+    (finiteIota R N hN).toLinearMap.toMatrix (finiteDigitBasis R N hN)
+      (finiteJetBasis R N hN) = (taylorMatrix N).map (Int.castRingHom R) := sorry
+
+/-- HC.4/taylor-matrix-triangular. -/
+theorem taylorMatrix_zero_above_weight (N : ℕ) (i k : Fin (dimension N))
+    (h : (jetAt N i).1 * (jetAt N i).2.1 < (digitAt N k).1) :
+    taylorMatrix N i k = 0 := sorry
+
+/-- Test taylorMatrix_empty. -/
+example : (taylorMatrix 1).det = 1 := sorry
+
+/-- Test taylorMatrix_three. -/
+example : taylorMatrix 3 = !![1,0,0; 1,2,-2; 0,1,1] := sorry
+
+/-- Test taylorMatrix_five_kontsevich. -/
+example : taylorMatrix 5 *ᵥ ![1,1,0,1,0,0,1,0,0,0] =
+    ![1,3,1,5,-1,2,8,-3,11,5] := sorry
+
+/-- Test taylorMatrix_sign_nonexample. -/
+example : (taylorPolynomial ℤ 1 (X * (1 - X))).coeff 1 = 1 := sorry
+
+/-- HC.4/two-factor-remainder-determinant: the remainder map in monomial bases. -/
+def twoRemainderMatrix (f g : ℤ[X]) :
+    Matrix (Fin (f.natDegree + g.natDegree)) (Fin (f.natDegree + g.natDegree)) ℤ :=
+  fun i k => if i.val < f.natDegree then
+    ((X ^ k.val) %ₘ f).coeff i.val
+  else ((X ^ k.val) %ₘ g).coeff (i.val - f.natDegree)
+
+theorem two_factor_remainder_determinant (f g : ℤ[X]) (hf : f.Monic) (hg : g.Monic) :
+    (twoRemainderMatrix f g).det.natAbs = (f.resultant g).natAbs := sorry
+
+def remainderRows (N : ℕ) : List (ℕ × ℕ) :=
+  (N.divisors.sort (· ≤ ·)).flatMap fun m => (List.range (Nat.totient m)).map fun j => (m, j)
+
+def remainderAt (N : ℕ) (i : Fin N) : ℕ × ℕ := (remainderRows N).getD i.val (1, 0)
+
+def remainderMatrix (N : ℕ) : Matrix (Fin N) (Fin N) ℤ := fun i k =>
+  ((X ^ k.val : ℤ[X]) %ₘ cyclotomic (remainderAt N i).1 ℤ).coeff (remainderAt N i).2
+
+def D1 (N : ℕ) : ℕ := ∏ m ∈ N.divisors, (leadingFactor m (N / m)) ^ Nat.totient m
+
+def D2 (N : ℕ) : ℕ := ∏ d ∈ N.divisors, ∏ e ∈ N.divisors,
+  if d < e then ((cyclotomic e ℤ).resultant (cyclotomic d ℤ)).natAbs else 1
+
+/-- HC.4/cyclotomic-remainder-determinant. -/
+theorem cyclotomic_remainder_determinant (N : ℕ) (hN : 0 < N) :
+    (remainderMatrix N).det.natAbs = D2 N := sorry
+
+/-- Explicit matrix of the graded map, with row/column monomial bases. -/
+def gradedMatrix (N : ℕ) : Matrix (Fin N) (Fin N) ℤ := fun i k =>
+  (leadingFactor (remainderAt N i).1 (N / (remainderAt N i).1) : ℤ) * remainderMatrix N i k
+
+/-- HC.4/graded-taylor-determinant. -/
+theorem graded_taylor_determinant (N : ℕ) (hN : 0 < N) :
+    (gradedMatrix N).det.natAbs = D1 N * D2 N ∧ 0 < D1 N * D2 N := sorry
+
+def delta (N : ℕ) : ℕ := (taylorMatrix N).det.natAbs
+
+/-- HC.4/finite-taylor-determinant, corrected upper bound. -/
+theorem finite_taylor_determinant (N : ℕ) (hN : 0 < N) :
+    delta N = ∏ n ∈ (Finset.range N).erase 0, D1 n * D2 n := sorry
+
+/-- HC.4/finite-taylor-determinant-positive. -/
+theorem delta_pos (N : ℕ) (hN : 0 < N) : 0 < delta N := sorry
+
+/-- HC.4/signed-adjugate. -/
+def starMatrix (N : ℕ) : Matrix (Fin (dimension N)) (Fin (dimension N)) ℤ :=
+  (taylorMatrix N).det.sign • (taylorMatrix N).adjugate
+
+/-- HC.4/signed-adjugate-identities. -/
+theorem taylorMatrix_mul_starMatrix (N : ℕ) (hN : 0 < N) :
+    taylorMatrix N * starMatrix N = (delta N : ℤ) • 1 := sorry
+
+/-- HC.4/signed-adjugate-left. -/
+theorem starMatrix_mul_taylorMatrix (N : ℕ) (hN : 0 < N) :
+    starMatrix N * taylorMatrix N = (delta N : ℤ) • 1 := sorry
+
+theorem starMatrix_over_rat (N : ℕ) (hN : 0 < N) :
+    (starMatrix N).map (Int.castRingHom ℚ) =
+      (delta N : ℚ) • ((taylorMatrix N).map (Int.castRingHom ℚ))⁻¹ := sorry
+
+/-- Test starMatrix_empty. -/
+example : taylorMatrix 1 * starMatrix 1 = (1 : ℤ) • 1 ∧
+    starMatrix 1 * taylorMatrix 1 = (1 : ℤ) • 1 := sorry
+
+/-- Test starMatrix_three. -/
+example : starMatrix 3 = !![4,0,0; -1,1,2; 1,-1,2] := sorry
+
+/-- Test starMatrix_three_nonexample. -/
+example : starMatrix 3 *ᵥ ![1,0,0] = ![4,-1,1] ∧
+    ¬∀ i, (4 : ℤ) ∣ (starMatrix 3 *ᵥ ![1,0,0]) i := sorry
+
+/-- HC.4/finite-integral-image-criterion. -/
+theorem finite_integral_image_criterion
+    (hR : ∀ z : ℤ, z ≠ 0 → Function.Injective (fun r : R => z • r))
+    (N : ℕ) (hN : 0 < N) (v : Fin (dimension N) → R) :
+    (∃ b, (taylorMatrix N).map (Int.castRingHom R) *ᵥ b = v) ↔
+      ∀ i, (delta N : R) ∣ ((starMatrix N).map (Int.castRingHom R) *ᵥ v) i := sorry
+
+/-- HC.4/global-integral-image-criterion. -/
+theorem global_integral_image_criterion
+    (hR : ∀ z : ℤ, z ≠ 0 → Function.Injective (fun r : R => z • r))
+    (f : TaylorProduct R) : f ∈ Set.range (iota R) ↔
+    ∀ N : ℕ, 0 < N → ∀ i,
+      (delta N : R) ∣ ((starMatrix N).map (Int.castRingHom R) *ᵥ jetCoordinates R N f) i := sorry
+
+/-- Test finiteIota_three_nonsurjective, represented in the finite jet basis. -/
+example : ¬∃ g : FiniteH ℤ 2,
+    (fun i => (finiteJetBasis ℤ 3 (by decide)).repr (finiteIota ℤ 3 (by decide) g) i) = ![1,0,0] := sorry
+
+abbrev Invert (D : ℤ) := Localization.Away D
+
+/-- Coefficient localization map, p not dividing the inverted integer. -/
+def awayToPadic (D : ℤ) (p : ℕ) [Fact p.Prime] (hpD : ¬(p : ℤ) ∣ D) :
+    Invert D →+* ℤ_[p] := sorry
+
+/-- HC.4/localized-integer-divisibility; the zero numerator is explicit. -/
+theorem localized_integer_divisibility (D : ℤ) (hD : D ≠ 0) (d : ℕ) (hd : 0 < d)
+    (b : ℤ) :
+    ((d : Invert D) ∣ (b : Invert D) ↔ ∃ k : ℕ, (d : ℤ) ∣ D ^ k * b) ∧
+    ((d : Invert D) ∣ (b : Invert D) ↔ b = 0 ∨
+      ∀ p : ℕ, p.Prime → ¬(p : ℤ) ∣ D → d.factorization p ≤ b.natAbs.factorization p) := sorry
+
+/-- HC.4/localized-scalar-divisibility. -/
+theorem localized_scalar_divisibility (D : ℤ) (hD : D ≠ 0) (d : ℕ) (hd : 0 < d)
+    (a : Invert D) : (d : Invert D) ∣ a ↔
+      ∀ (p : ℕ) (hp : p.Prime) (hpD : ¬(p : ℤ) ∣ D),
+        letI : Fact p.Prime := ⟨hp⟩
+        (d : ℤ_[p]) ∣ awayToPadic D p hpD a := sorry
+
+/-- HC.4/local-integrality-detection. -/
+theorem local_integrality_detection (D : ℤ) (hD : D ≠ 0) (f : TaylorProduct (Invert D)) :
+    f ∈ Set.range (iota (Invert D)) ↔
+      ∀ (p : ℕ) (hp : p.Prime) (hpD : ¬(p : ℤ) ∣ D),
+        letI : Fact p.Prime := ⟨hp⟩
+        TaylorProduct.map (Invert D) (awayToPadic D p hpD) f ∈ Set.range (iota ℤ_[p]) := sorry
+
+/-- HC.4/kontsevich-matrix-example: first digit coordinates all constant one. -/
+theorem kontsevich_matrix_example :
+    taylorMatrix 5 *ᵥ ![1,1,0,1,0,0,1,0,0,0] = ![1,3,1,5,-1,2,8,-3,11,5] := sorry
+
+/-- HC.4/kontsevich-perturbation. -/
+theorem kontsevich_perturbation :
+    ((taylorMatrix 5).map (Int.castRingHom ℚ))⁻¹ *ᵥ ![2,3,1,5,-1,2,8,-3,11,5] =
+      ![2,3/4,1/4,65/72,-1/72,17/72,275/288,-7/144,1/32,17/72] := sorry
+
+/-- Constant odd-order indicator in the universal Taylor product. -/
+def oddProjector : TaylorProduct ℚ := fun m => if Odd (m : ℕ) then 1 else 0
+
+/-- HC.4/odd-order-idempotent-example. HC.5 supplies the localization lifting. -/
+theorem odd_order_idempotent_example :
+    let e := (rationalTaylorEquiv ℚ).symm oddProjector
+    e * e = e ∧ e ≠ 0 ∧ e ≠ 1 ∧
+    e ∈ Set.range (mapRing (Invert 2) Set.univ (by
+      exact IsLocalization.Away.lift 2 (by norm_num : IsUnit (Int.castRingHom ℚ 2)))) ∧
+    e ∉ Set.range (mapRing ℤ Set.univ (Int.castRingHom ℚ)) := sorry
+
+/-- The HC.3 substitution `q ↦ q²` on the full rational completion. -/
+abbrev substituteTwo : HabiroRing ℚ →+* HabiroRing ℚ :=
+  powSubst ℚ Set.univ (T := Set.univ) 2 (by norm_num) (fun _ _ => Set.mem_univ _)
+
+/-- HC.4/odd-projector-digits: GSWZ's digits `1, …, 4`, that is `factorialCoeff` at
+`0, …, 3`. -/
+theorem odd_projector_digits :
+    let e := (rationalTaylorEquiv ℚ).symm oddProjector
+    factorialCoeff ℚ e 0 = 1 ∧ factorialCoeff ℚ e 1 = (C (-1) + X) * C (1/4) ∧
+    factorialCoeff ℚ e 2 = (1 - X + X^2) * C (1/8) ∧
+    factorialCoeff ℚ e 3 = (C (-5) + C 2 * X + X^2 + C 4 * X^3) * C (1/32) := sorry
+
+/-- HC.4/companion-projector. -/
+theorem companion_projector :
+    let e := (rationalTaylorEquiv ℚ).symm oddProjector
+    let g := substituteTwo e - e
+    ∀ m : ℕ+, iota ℚ g m = if (m : ℕ) % 4 = 2 then 1 else 0 := sorry
+
+/-- HC.4/companion-projector-digits: GSWZ's digits `1, …, 4`. -/
+theorem companion_projector_digits :
+    let e := (rationalTaylorEquiv ℚ).symm oddProjector
+    let g := substituteTwo e - e
+    factorialCoeff ℚ g 0 = 0 ∧ factorialCoeff ℚ g 1 = (1 - X) * C (1/4) ∧
+    factorialCoeff ℚ g 2 = (C (-1) + X - X^2) * C (1/8) ∧
+    factorialCoeff ℚ g 3 = (1 - C 2 * X + C 3 * X^2 - C 4 * X^3) * C (1/32) := sorry
+
+end HC4
 
 /-! ## HC.5 — modules, components, inverted primes, localisation -/
 
@@ -1521,5 +2191,145 @@ example : factorialPoly ℚ 3 ∣
 `2^k` from the orders `3·2^k`. -/
 example : ((X ^ 5 + X + 1 : (ZMod 2)[X]) %ₘ (X + 1) ^ 4) = 1 ∧
     ((X ^ 5 + X + 1 : (ZMod 2)[X]) %ₘ (X ^ 2 + X + 1)) = 0 := sorry
+
+/-! ### HC.6 — finite acceptance specifications (from the HC.6 part)
+
+These examples test existing polynomial operations at finite precision, with the factorial
+polynomials `factorialPoly` of HC.1; they introduce no completion type. Infinite evaluation,
+injectivity and component decompositions remain the statements of their HC.1–HC.5 owners
+above. The local notation `F N` is the partial sum `Σ_{n<N} P_n` of the Kontsevich series and
+`U N` the partial sum `Σ_{n<N} q^n P_n` of `q⁻¹`. -/
+
+section Acceptance
+
+section Integer
+
+local notation "P" => factorialPoly ℤ
+local notation "F" => (fun N : ℕ => ∑ n ∈ Finset.range N, P n)
+local notation "U" => (fun N : ℕ => ∑ n ∈ Finset.range N, (X : ℤ[X]) ^ n * P n)
+
+-- Imported HC.1/the-factorial-polynomials; empty precision and sign convention.
+example : P 0 = 1 := by sorry
+example : F 0 = 0 := by sorry
+example : F 1 = 1 := by sorry
+example : (P 3).leadingCoeff = -1 := by sorry
+example : (P 4).Monic := by sorry
+
+-- Imported HC.2/algorithms-on-expansions: finite quotient compatibility.
+example (N M : ℕ) (h : N ≤ M) : P N ∣ F M - F N := by sorry
+example (N : ℕ) : (X : ℤ[X]) * U N = 1 - P N := by sorry
+example : P 4 ∣ F 4 * U 4 -
+    (∑ n ∈ Finset.range 4, C (Int.ofNat (n + 1)) * (X : ℤ[X]) ^ n * P n) := by
+  sorry
+example : (F 4 ^ 2) %ₘ P 4 =
+    (1 + (3 - X) * P 1 + (6 - 3 * X - X ^ 2) * P 2 +
+      (7 - 4 * X - 4 * X ^ 2 + 2 * X ^ 3) * P 3) %ₘ P 4 := by
+  sorry
+
+-- Imported HC.6/the-acceptance-examples: values in the integral cyclotomic rings.
+example : (F 1).eval 1 = 1 := by sorry
+example : (F 2).eval (-1) = 3 := by sorry
+example : AdjoinRoot.mk (cyclotomic 3 ℤ) (F 3) =
+    5 - AdjoinRoot.root (cyclotomic 3 ℤ) := by sorry
+example : AdjoinRoot.mk (cyclotomic 4 ℤ) (F 4) =
+    8 - 3 * AdjoinRoot.root (cyclotomic 4 ℤ) := by sorry
+example : AdjoinRoot.mk (cyclotomic 5 ℤ) (F 5) =
+    9 - 5 * AdjoinRoot.root (cyclotomic 5 ℤ) -
+      3 * AdjoinRoot.root (cyclotomic 5 ℤ) ^ 2 := by sorry
+example : AdjoinRoot.mk (cyclotomic 6 ℤ) (F 6) =
+    17 - 13 * AdjoinRoot.root (cyclotomic 6 ℤ) := by sorry
+
+-- Imported HC.3/the-taylor-map: Hasse coefficients, not divided derivatives.
+example : (taylor (1 : ℤ) (F 10)).coeff 9 = -31240 := by sorry
+example : (taylor (-1 : ℤ) (F 10)).coeff 4 = 7085 := by sorry
+example : (F 2).eval 1 = (1 : ℤ[X]).eval 1 ∧
+    (taylor (1 : ℤ) (F 2)).coeff 1 = -1 ∧
+    (taylor (1 : ℤ) (1 : ℤ[X])).coeff 1 = 0 := by sorry
+
+-- Imported HC.2/invertibility-of-q and HC.6/the-acceptance-examples.
+example : ((1 - X : ℤ[X]) * X) = 1 - cyclotomic 6 ℤ := by sorry
+example : ¬ IsUnit (1 - X : ℤ[X]) := by sorry
+example : (1 - X : ℤ[X]).eval (-1) = 2 := by sorry
+example (N : ℕ) : (∑ n ∈ Finset.range N, (X : ℤ[X]) ^ n).eval 1 = (N : ℤ) := by
+  sorry
+
+end Integer
+
+section Precision
+
+variable {R : Type*} [CommRing R]
+local notation "P" => factorialPoly R
+local notation "F" => (fun N : ℕ => ∑ n ∈ Finset.range N, P n)
+
+-- The precision condition only needs ζ^d = 1; primitivity gives the exact order
+-- in characteristic zero. The positive-order hypothesis excludes d = 0.
+example (ζ : R) (d k N : ℕ) (hd : 0 < d) (hζ : ζ ^ d = 1)
+    (hN : d * (k + 1) ≤ N) : (X - C ζ) ^ (k + 1) ∣ P N := by
+  sorry
+example (ζ : R) (d k N M : ℕ) (hd : 0 < d) (hζ : ζ ^ d = 1)
+    (hN : d * (k + 1) ≤ N) (hNM : N ≤ M) :
+    (taylor ζ (F M)).coeff k = (taylor ζ (F N)).coeff k := by
+  sorry
+
+end Precision
+
+section InvertTwo
+
+variable {S : Type*} [CommRing S] [Algebra ℤ S] [IsLocalization.Away (2 : ℤ) S]
+local notation "b" => IsLocalization.Away.invSelf (S := S) (2 : ℤ)
+local notation "P" => factorialPoly S
+local notation "e₂" => (C (b ^ 2) * (3 + 2 * X - X ^ 2) : S[X])
+local notation "e₃" =>
+  (C (b ^ 3) * (7 + 2 * X - X ^ 2 + X ^ 3 - 2 * X ^ 4 + X ^ 5) : S[X])
+
+-- Imported HC.6/inverted-prime-and-rational-examples, in the actual localization.
+example : (2 : S) * b = 1 := by sorry
+example : P 2 ∣ e₃ - e₂ := by sorry
+example : P 3 ∣ e₃ ^ 2 - e₃ := by sorry
+example : (X - 1) ^ 3 * cyclotomic 3 S ∣ e₃ - 1 := by sorry
+example : cyclotomic 2 S ∣ e₃ := by sorry
+example : (1 - e₃).eval (-1) = 1 ∧
+    (taylor (1 : S) (1 - e₃)).coeff 0 = 0 ∧
+    (taylor (1 : S) (1 - e₃)).coeff 1 = 0 ∧
+    (taylor (1 : S) (1 - e₃)).coeff 2 = 0 := by sorry
+
+end InvertTwo
+
+section Rational
+
+local notation "P" => factorialPoly ℚ
+local notation "e₁" =>
+  (C (1 / 72 : ℚ) * (47 + 42 * X + 7 * X ^ 2 - 23 * X ^ 3 -
+    18 * X ^ 4 + 17 * X ^ 5) : ℚ[X])
+local notation "t" =>
+  (C (1 / 12 : ℚ) * (-5 - 2 * X + 3 * X ^ 2 + 5 * X ^ 3 +
+    2 * X ^ 4 - 3 * X ^ 5) : ℚ[X])
+
+-- This is the classical completion with coefficients ℚ. HB.6 owns the
+-- arithmetic Habiro ring attached to the number field ℚ, with integral coefficients.
+example : P 3 ∣ e₁ ^ 2 - e₁ := by sorry
+example : P 3 ∣ (X - 1) * e₁ - t := by sorry
+example : (taylor (1 : ℚ) t).coeff 0 = 0 ∧
+    (taylor (1 : ℚ) t).coeff 1 = 1 ∧
+    (taylor (1 : ℚ) t).coeff 2 = 0 := by sorry
+example : cyclotomic 2 ℚ * cyclotomic 3 ℚ ∣ t := by sorry
+example : ¬ P 3 ∣ t := by sorry
+
+end Rational
+
+section ModTwo
+
+local notation "P" => factorialPoly (ZMod 2)
+local notation "e" => (X ^ 5 + X + 1 : (ZMod 2)[X])
+
+-- Imported HC.5/the-completed-module and HC.6/inverted-prime-and-rational-examples.
+example : P 3 = (X + 1) ^ 4 * cyclotomic 3 (ZMod 2) := by sorry
+example : P 3 ∣ e ^ 2 - e := by sorry
+example : (X + 1) ^ 4 ∣ e - 1 := by sorry
+example : cyclotomic 3 (ZMod 2) ∣ e := by sorry
+
+end ModTwo
+
+end Acceptance
 
 end TauCeti.Habiro
