@@ -16,42 +16,42 @@
         "kind": "structure",
         "module": "Mathlib/RingTheory/RootsOfUnity/PrimitiveRoots.lean",
         "provides": "Exact order n: ζ^n=1 and n divides every exponent giving one.",
-        "checked": "Statement read at the recorded pinned commit, lines 63–66, on 2026-10-06."
+        "checked": "Statement read at the recorded pinned commit, lines 63–66, on 2026-10-06. Independently confirmed by REV-HabiroNumberFields--HB.2 at the same pin; its stated hypotheses and convention supply the claimed use."
       },
       {
         "ref": "mathlib:IsPrimitiveRoot.geom_sum_eq_zero",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/RootsOfUnity/PrimitiveRoots.lean",
         "provides": "For a domain and primitive ζ of order n>1, ∑_{k<n}ζ^k=0.",
-        "checked": "Statement read at the recorded pinned commit, lines 444–447, on 2026-10-06."
+        "checked": "Statement read at the recorded pinned commit, lines 444–447, on 2026-10-06. Independently confirmed by REV-HabiroNumberFields--HB.2 at the same pin; its stated hypotheses and convention supply the claimed use."
       },
       {
         "ref": "tauceti:TauCeti.powerClassQuotient",
         "kind": "abbrev",
         "module": "TauCeti/Algebra/Group/PowerClassGroup.lean",
         "provides": "G/G^n for a commutative group; use G=K×, without confusing field units with integral units.",
-        "checked": "Statement read at the recorded pinned commit, lines 43–44, on 2026-10-06."
+        "checked": "Statement read at the recorded pinned commit, lines 43–44, on 2026-10-06. Independently confirmed by REV-HabiroNumberFields--HB.2 at the same pin; its stated hypotheses and convention supply the claimed use."
       },
       {
         "ref": "tauceti:TauCeti.powerClassHom",
         "kind": "def",
         "module": "TauCeti/Algebra/Group/PowerClassGroup.lean",
         "provides": "The quotient homomorphism G→G/G^n.",
-        "checked": "Statement read at the recorded pinned commit, lines 47–48, on 2026-10-06."
+        "checked": "Statement read at the recorded pinned commit, lines 47–48, on 2026-10-06. Independently confirmed by REV-HabiroNumberFields--HB.2 at the same pin; its stated hypotheses and convention supply the claimed use."
       },
       {
         "ref": "tauceti:TauCeti.kummerClassMap",
         "kind": "def",
         "module": "TauCeti/FieldTheory/GaloisCohomology/Kummer.lean",
         "provides": "For IsUnit(n:K), K×/(K×)^n→H¹(G_K,μ_n), using the cocycle σ(α)/α; only injectivity is baseline.",
-        "checked": "Statement read at the recorded pinned commit, lines 279–284, on 2026-10-06."
+        "checked": "Statement read at the recorded pinned commit, lines 279–284, on 2026-10-06. Independently confirmed by REV-HabiroNumberFields--HB.2 at the same pin; its stated hypotheses and convention supply the claimed use."
       },
       {
         "ref": "tauceti:TauCeti.kummerClassMap_injective",
         "kind": "theorem",
         "module": "TauCeti/FieldTheory/GaloisCohomology/Kummer.lean",
         "provides": "Injectivity of that quotient Kummer map; no surjectivity claim.",
-        "checked": "Statement read at the recorded pinned commit, lines 298–300, on 2026-10-06."
+        "checked": "Statement read at the recorded pinned commit, lines 298–300, on 2026-10-06. Independently confirmed by REV-HabiroNumberFields--HB.2 at the same pin; its stated hypotheses and convention supply the claimed use."
       }
     ]
   },
@@ -252,18 +252,19 @@
       ],
       "proofSteps": [
         "Import QM.0’s requested bilateral Ramanujan identity and common leading-product asymptotics; import the eta transformation law from QM.1. These common analytic results must be extracted before HB.2/HB.4; importing HB.4 here would create a cycle.",
-        "Over C choose a nonempty open neighborhood of 0<X<1<Y with Z=(1−X)/(1−Y), and analytic root choices. For q=ζ exp(−ε/n), the bilateral series Ψ=∑_{k∈Z}(qy;q)_k/(qx;q)_k z^k equals (q;q)_∞(qyz;q)_∞(1/(yz);q)_∞(x/y;q)_∞ divided by (qx;q)_∞(1/y;q)_∞(z;q)_∞(x/(yz);q)_∞.",
+        "Over C use a sufficiently small simply connected neighborhood of (X,Y)=(1/5,2), with Z=(1−X)/(1−Y), preserving |X/Y|<|Z|<1 and Re S>0. At its center Z=−4/5, |X/Y|=1/10 and S=4/9. Choose local analytic nth roots. Work first on its generic nonreal subopen with nonvanishing q-product factors. For q=ζ exp(−ε/n), the bilateral series Ψ=∑_{k∈Z}(qy;q)_k/(qx;q)_k z^k equals (q;q)_∞(qyz;q)_∞(1/(yz);q)_∞(x/y;q)_∞ divided by (qx;q)_∞(1/y;q)_∞(z;q)_∞(x/(yz);q)_∞. At removable singularities of the quotient defining negative-index summands, use its backward recurrence A_(k−1)=A_k(1−q^k x)/(z(1−q^k y)) and analytic continuation. The inequalities 0<X<1<Y alone do not imply bilateral convergence.",
         "QM.0’s requested uniform residue-class/tail estimate gives √ε Ψ→√(2π/n)√S f, S=(1−X)(1−Y)/(X−Y). The local exponent is (Y−X)j²nε/(2(1−X)(1−Y)), whose real part is negative. Use additive limits, which do not assume f≠0. Correct the sign and missing √n in GZ p.236 (EHB2.1–2).",
-        "Apply the common product limit to fixed arguments, using the exact identities (qx;q)_∞=(x;q)_∞/(1−x) and (qyz;q)_∞=(yz;q)_∞/(1−yz). The product side raised to n has prefactor (2π/ε)^(n/2) μ^n C^(n/2) times D(x)D(1/y)D(z)D(x/(yz)) divided by D(yz)D(1/(yz))D(x/y), times ((1−x)/(1−yz))^n. Its exponential is exp(−B/ε). P.1’s requested classical five-term identity gives B=0; C/S=((1−YZ)/(1−X))², with the positive branch at the real base points. Keep the parameter shifts; the fixed-ζ substitution printed on p.237 loses them (EHB2.3).",
+        "Apply the common product limit to fixed arguments, using the exact identities (qx;q)_∞=(x;q)_∞/(1−x) and (qyz;q)_∞=(yz;q)_∞/(1−yz). The product side raised to n has prefactor (2π/ε)^(n/2) μ^n C^(n/2) times D(x)D(1/y)D(z)D(x/(yz)) divided by D(yz)D(1/(yz))D(x/y), times ((1−x)/(1−yz))^n. Its exponential is exp(−B/ε). P.1’s requested classical five-term identity gives B=0; C/S=((1−YZ)/(1−X))², with the positive branch at this real base point. Keep the parameter shifts; the fixed-ζ substitution printed on p.237 loses them (EHB2.3).",
         "For ζ=exp(2πih/n), the QM.1 eta law gives μ=exp(−πi s(h,n)), s the Dedekind sum. Directly multiplying the arguments of 1−ζ^k gives D_ζ(1)=n^(n/2)exp(πin s(h,n)), hence μ^n=n^(n/2)/D_ζ(1). This fixes the phase rather than absorbing an unspecified root of unity (EHB2.4).",
         "Use the parent D shift and the directly verified inversion identity D(u)D(1/u)=a u^(−T)((1−u^n)/(1−u))^n, a=(−1)^T ζ^(∑_{k=1}^{n−1}k²), with D(1)²=a n^n. Since n is odd, ζ^T=1. Substitute C/S and cancel to obtain the stated identity on the open complex set.",
         "Clear all product denominators and the powers of x,y,z. Work over A=Z[t]/Φ_n(t), with t mapped to ζ. The surface relation is monic in x, x^n=1−z^n+y^n z^n, so its coordinate ring is torsion-free over A with basis 1,x,…,x^(n−1). The generic binomial is irreducible over C(y,z): its right side has a simple zero along a divisor in y and is not a dth power for any d|n. Thus equality on the open set is equality of the reduced polynomial coefficients; inject A into C and descend those zero coefficients integrally. Specialize A to K and cancel only the nonzero factors from the hypotheses.",
         "Apply this witness to the parent kummer-value-P and five-term-distribution-and-galois nodes. All root choices are covered by the same integral identity."
       ],
       "acceptance": [
-        "Exhaustive prime-field checks: (n,p)=(3,19),(5,31),(7,43),(9,73), with 108,500,1372,4374 admissible triples respectively, including every root choice present in each field.",
+        "Exhaustive prime-field checks for a fixed primitive ζ: (n,p)=(3,19),(5,31),(7,43),(9,73), with 108,500,1372,4374 admissible triples respectively. Each check ranges over every admissible x,y,z, including all nth-root choices in that field.",
         "The n=1 empty-product case is one.",
-        "The analytic route is independent of Nahm sums and imports no HB.4 result."
+        "The analytic route is independent of Nahm sums and imports no HB.4 result.",
+        "At the analytic base point (X,Y,Z)=(1/5,2,−4/5), |X/Y|=1/10<4/5=|Z|<1 and S=4/9>0. The point (9/10,2,−1/10) satisfies 0<X<1<Y but fails |X/Y|<|Z|; it must be rejected by the convergence-domain witness."
       ],
       "prerequisites": [
         "HabiroNumberFields:HB.2/cyclic-hypergeometric-sum",
@@ -306,6 +307,7 @@
       ],
       "proofSteps": [
         "Import the requested generic cyclic-to-refined-Bloch calculation in K3BlochGroups V.4. Hutchinson §6.4 constructs it by the contracting homotopy h(g₀,…,g_r)=(1,g₀,…,g_r); the homogeneous chain is ∑(1,t,t^(j+1),t^(j+2)), giving precisely the parent inhomogeneous chain.",
+        "Distinguish the 2013 left homogeneous resolution (d_odd=t−1) from the 2024 right bar resolution (d_odd=1−t) imported by cyclic-bar-chains. After trivial coinvariants their degree-three chains are the identical ∑[t|t^j|t]. In degree two the left chain is ∑[t^j|t] and the right chain is ∑[t|t^j]. Their integral boundaries are both N[t], so both have Bockstein [t]; since H₂(C,Z)=0, the coefficient Bockstein on H₂(C,Z/N) is injective and their classes agree. Therefore both conventions supply the positive Bott generator used here; no equality of the two chain resolutions is assumed.",
         "Forget the squareclass coefficients RP(F)→P(F), as Hutchinson 2024 §3 explains. The image is ∑_{j=1}^{N−3}[(t∞−t^(j+1)∞)/(t∞−t^(j+2)∞)]+[1−A]−[1/A]+[B]+[1/B], with A=(t∞−y)/(t⁻¹∞−y), B=(t∞−y)/(t∞−t(y)).",
         "The terms {u}=[u]+[1/u] are killed in the CGZ quotient by the V.3 convention map (and are two-torsion in the pre-Bloch group). Thus the correction is [1−A]+[A]=[0]. Retain this term: dropping it changes the n=3 case. Use V.3’s [∞]=−[0].",
         "Set u_k=(ζ^k−ζ^(−k))/(ζ−ζ⁻¹). The action of t gives t^k∞=u_(k−1)/u_k for 1≤k<N. The internal cross-ratio at j is u_j u_(j+2)/u_(j+1)²=1−1/u_(j+1)² by the second-order recurrence. Hence the internal sum is the eta sum at k=2,…,N−2. The remaining eta symbols [∞]+[0]+[0] give exactly [0].",
@@ -347,7 +349,7 @@
       ],
       "title": "The signed Chern evaluation on eta",
       "kind": "theorem",
-      "statement": "Let N=ℓ^m≥3 with ℓ odd, E=Q(ζ), F=E⁺ and ζ primitive of order N. Use the positive bar generator fixed above, the Bott class with Bockstein ∂β=ζ, the Kummer cocycle σ(α)/α, the untwisting t_ζ(ζ)=ζ⊗ζ, and the raw Soulé finite Chern class c̄_(2,1). On the restriction of η_ζ to K₃(E;Z/N), c̄_(2,1)(η̄_ζ)=−δ(ζ)∪ζ. Consequently the raw untwisted map c_raw,ζ sends η_ζ to the class of ζ⁻¹. Define the opposite normalization independently by c_+,ζ=t_ζ⁻¹∘(−c̄_(2,1)) after restriction and Kummer identification: c_+,ζ(η_ζ)=[ζ]. Both maps are specified before evaluating η. Identifying CGZ’s or GSWZ’s fixed c_ζ with either map is a separate comparison obligation, not a consequence of choosing the desired value.",
+      "statement": "Let N=ℓ^m≥3 with ℓ an odd prime and m≥1, E=Q(ζ), F=E⁺ and ζ primitive of order N. Use the positive bar generator fixed above, the Bott class with Bockstein ∂β=ζ, the Kummer cocycle σ(α)/α, the untwisting t_ζ(ζ)=ζ⊗ζ, and the raw Soulé finite Chern class c̄_(2,1). On the restriction of η_ζ to K₃(E;Z/N), c̄_(2,1)(η̄_ζ)=−δ(ζ)∪ζ. Consequently the raw untwisted map c_raw,ζ sends η_ζ to the class of ζ⁻¹. Define the opposite normalization independently by c_+,ζ=t_ζ⁻¹∘(−c̄_(2,1)) after restriction and Kummer identification: c_+,ζ(η_ζ)=[ζ]. Both maps are specified before evaluating η. Identifying CGZ’s or GSWZ’s fixed c_ζ with either map is a separate comparison obligation, not a consequence of choosing the desired value.",
       "hypotheses": [
         "The early Soulé interface, including its product formula and Bott normalization, must be supplied by the requested prefix of M.8 after M.7, before D.2/R.7. It is not an import of unsplit M.8.",
         "The Kummer inverse requires the profinite Hilbert-90/Kummer-isomorphism supplier: the pinned Tau Ceti map alone is only injective.",
@@ -384,8 +386,13 @@
         },
         {
           "sourceId": "Hutchinson.2024",
-          "locator": "§4, Proposition 4.6, p.8",
+          "locator": "§4, Proposition 4.6, p.7",
           "match": "The K-theoretic identity with the positive bar generator."
+        },
+        {
+          "sourceId": "Hutchinson.2024",
+          "locator": "§4, Bott-element paragraph before Lemma 4.1, p.6",
+          "match": "The explicit Bott Chern normalization used in the signed calculation; the thesis Kummer section is not itself a citation for this equality."
         },
         {
           "sourceId": "Soule.thesis",
@@ -456,7 +463,7 @@
     {
       "nodeId": "HabiroNumberFields:HB.2/cyclic-bar-chains",
       "packet": "research/blueprint/packets/HabiroNumberFields.json",
-      "use": "Existing target, API and tests retained by reference. The four new nodes refine its stated proof obligations; scalar-two is conditional and its unconditional assembly is assigned to HB.5."
+      "use": "Retain the actual right-bar API and tests, with d_odd=1−t. The new eta-bar-bloch-specialization compares its positive homology/Bockstein classes with the 2013 left-bar calculation; it does not identify the left and right chain resolutions."
     },
     {
       "nodeId": "HabiroNumberFields:HB.2/bott-element",
@@ -476,17 +483,17 @@
     {
       "nodeId": "HabiroNumberFields:HB.2/chern-sign-conventions",
       "packet": "research/blueprint/packets/HabiroNumberFields.json",
-      "use": "Existing target, API and tests retained by reference. The four new nodes refine its stated proof obligations; scalar-two is conditional and its unconditional assembly is assigned to HB.5."
+      "use": "Retain this comparison target subject to eta-chern-signed-evaluation: raw Soulé and the independently negated degree-(2,1) map are defined before eta is evaluated. The parent phrase selecting c_ζ by its value on eta is not a construction of the fixed CGZ/GSWZ map. The latter identification remains the recorded sign-comparison gap."
     },
     {
       "nodeId": "HabiroNumberFields:HB.2/soule-formula-in-degree-three",
       "packet": "research/blueprint/packets/HabiroNumberFields.json",
-      "use": "Existing target, API and tests retained by reference. The four new nodes refine its stated proof obligations; scalar-two is conditional and its unconditional assembly is assigned to HB.5."
+      "use": "Retain this comparison target subject to eta-chern-signed-evaluation: raw Soulé and the independently negated degree-(2,1) map are defined before eta is evaluated. The parent phrase selecting c_ζ by its value on eta is not a construction of the fixed CGZ/GSWZ map. The latter identification remains the recorded sign-comparison gap."
     },
     {
       "nodeId": "HabiroNumberFields:HB.2/chern-class-of-eta",
       "packet": "research/blueprint/packets/HabiroNumberFields.json",
-      "use": "Existing target, API and tests retained by reference. The four new nodes refine its stated proof obligations; scalar-two is conditional and its unconditional assembly is assigned to HB.5."
+      "use": "Retain this comparison target subject to eta-chern-signed-evaluation: raw Soulé and the independently negated degree-(2,1) map are defined before eta is evaluated. The parent phrase selecting c_ζ by its value on eta is not a construction of the fixed CGZ/GSWZ map. The latter identification remains the recorded sign-comparison gap."
     },
     {
       "nodeId": "HabiroNumberFields:HB.2/local-maps-at-primes-of-norm-minus-one",
@@ -536,13 +543,13 @@
     {
       "nodeId": "HabiroNumberFields:HB.2/the-exported-interface",
       "packet": "research/blueprint/packets/HabiroNumberFields.json",
-      "use": "Existing target, API and tests retained by reference. The four new nodes refine its stated proof obligations; scalar-two is conditional and its unconditional assembly is assigned to HB.5."
+      "use": "Retain the all-m K₃-indexed epsilon_m=c_m² and its torsor/coherence API. Keep the fixed HB.1/CGZ/GSWZ map explicit: inverting c inverts epsilon, so the normalization comparison is required and is not sign invariant. The sign-qualified R conclusion is assembled downstream at HB.5."
     }
   ],
   "requests": [
     {
       "supplier": "QSeriesPartitionsAndMockModularForms:QM.0",
-      "need": "Extend the finite q-Pochhammer API from formal power-series coefficients to an arbitrary commutative ring, with evaluation compatibility. Supply the analytic bilateral Ramanujan 1ψ1 identity in GZ (58) for |q|<1, |x/y|<|z|<1 and nonvanishing denominators. Extract the common leading-product limit (a;ζ exp(−ε/n))_∞^(−n) ~ [∏_{k=1}^{n−1}(1−ζ^k a)^k](1−a^n)^(−n/2) exp(Li₂(a^n)/ε) on the slit domain, before HB.2/HB.4. Supply the uniform residue-class/tail estimate √ε Ψ→√(2π/n)√((1−X)(1−Y)/(X−Y)) ∑_{k<n}(ζy;ζ)_k/(ζx;ζ)_k z^k on a nonempty complex neighborhood of 0<X<1<Y, with Z=(1−X)/(1−Y). Prove two-sided tail bounds, not just the fixed-residue Taylor formula. These are q-product/hypergeometric facts, with no regulator or Nahm-sum dependence.",
+      "need": "Extend the finite q-Pochhammer API from formal power-series coefficients to an arbitrary commutative ring, with evaluation compatibility. Supply the analytic bilateral Ramanujan 1ψ1 identity in GZ (58) for |q|<1, |x/y|<|z|<1 and nonvanishing denominators. Extract the common leading-product limit (a;ζ exp(−ε/n))_∞^(−n) ~ [∏_{k=1}^{n−1}(1−ζ^k a)^k](1−a^n)^(−n/2) exp(Li₂(a^n)/ε) on the slit domain, before HB.2/HB.4. Supply the uniform residue-class/tail estimate √ε Ψ→√(2π/n)√((1−X)(1−Y)/(X−Y)) ∑_{k<n}(ζy;ζ)_k/(ζx;ζ)_k z^k on a sufficiently small simply connected complex neighborhood of (X,Y)=(1/5,2), with Z=(1−X)/(1−Y), |X/Y|<|Z|<1, Re S>0 and compatible analytic nth roots. Work on the generic nonreal subopen and extend across removable summand singularities by the backward recurrence. State locally uniform estimates on compact subsets of that neighborhood. Prove two-sided tail bounds, not just the fixed-residue Taylor formula. These are q-product/hypergeometric facts, with no regulator or Nahm-sum dependence.",
       "neededBy": [
         "HabiroNumberFields:HB.2/kms-odd-order-proof"
       ],
@@ -550,7 +557,7 @@
     },
     {
       "supplier": "Polylogarithms:P.1",
-      "need": "Supply the classical dilogarithm five-term specialization B=−Li₂(X/(YZ))+Li₂(YZ)+Li₂(1/(YZ))+Li₂(X/Y)+Li₂(1)−Li₂(X)−Li₂(1/Y)−Li₂(Z)=0, with Z=(1−X)/(1−Y), on a simply connected open neighborhood of 0<X<1<Y and compatible principal branches. The Bloch–Wigner imaginary-part identity is insufficient. Derive the full complex identity using the differential and normalization of the existing classical-polylogarithm, and fix Li₂(1)=π²/6.",
+      "need": "Supply the classical dilogarithm five-term specialization B=−Li₂(X/(YZ))+Li₂(YZ)+Li₂(1/(YZ))+Li₂(X/Y)+Li₂(1)−Li₂(X)−Li₂(1/Y)−Li₂(Z)=0, with Z=(1−X)/(1−Y), on the same sufficiently small simply connected open neighborhood of (X,Y)=(1/5,2) and compatible principal branches; all variable Li₂ arguments at that point are real and less than one. The Bloch–Wigner imaginary-part identity is insufficient. Derive the full complex identity using the differential and normalization of the existing classical-polylogarithm, and fix Li₂(1)=π²/6.",
       "neededBy": [
         "HabiroNumberFields:HB.2/kms-odd-order-proof"
       ]
@@ -680,8 +687,14 @@
       "searched": [
         "2026-10-06: arXiv:1812.07690 PDF, Appendix A (same Gaussian and phase text).",
         "Author-hosted version of record, pp.236–237, rendered images.",
-        "Garoufalidis publication index and web searches for a correction/erratum; no correction located."
-      ]
+        "Garoufalidis publication index and web searches for a correction/erratum; no correction located.",
+        "Independent review, 2026-10-06: author publication index https://people.mpim-bonn.mpg.de/stavros/publications/, arXiv abstract https://arxiv.org/abs/1812.07690, and web searches for Asymptotics of Nahm sums erratum/correction; no correction located."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in the rendered published p.236. The coefficient Y/(1−Y)−X/(1−X) in the preceding line equals (Y−X)/((1−X)(1−Y)); summing the residue-class recurrence preserves that sign. The corrected coefficient has negative real part in the convergence neighborhood.",
+        "by": "REV-HabiroNumberFields--HB.2"
+      }
     },
     {
       "id": "HabiroNumberFields/EHB2.2",
@@ -696,13 +709,19 @@
       "searched": [
         "2026-10-06: arXiv:1812.07690 PDF, Appendix A (same Gaussian and phase text).",
         "Author-hosted version of record, pp.236–237, rendered images.",
-        "Garoufalidis publication index and web searches for a correction/erratum; no correction located."
-      ]
+        "Garoufalidis publication index and web searches for a correction/erratum; no correction located.",
+        "Independent review, 2026-10-06: author publication index https://people.mpim-bonn.mpg.de/stavros/publications/, arXiv abstract https://arxiv.org/abs/1812.07690, and web searches for Asymptotics of Nahm sums erratum/correction; no correction located."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in published (59)–(60). A residue-class Gaussian exp(−j²nε/(2S)) has mass sqrt(2πS/(nε)); the nth power of the eta factor is (2π/ε)^(n/2). Product numerator/denominator bookkeeping gives exp(−B/ε). Independent numerical product evaluations at n=3,5 and ε=.02,.01,.005 approach the corrected constant.",
+        "by": "REV-HabiroNumberFields--HB.2"
+      }
     },
     {
       "id": "HabiroNumberFields/EHB2.3",
       "source": "GZ.published",
-      "kind": "gap",
+      "kind": "error",
       "locator": "Appendix A, p.237, D in (60) and its use of (57) (published 2021 text; same in inspected arXiv PDF)",
       "printed": "D = μ24 Dζ(ζx)Dζ(1/y)Dζ(z)Dζ(x/yz) / (Dζ(ζyz)Dζ(1/yz)Dζ(x/y))",
       "correction": "Keep q-dependent parameter shifts. Use (qx;q)∞=(x;q)∞/(1−x) and its yz analogue before applying the fixed-argument limit. The corrected D is μ^m Dζ(x)Dζ(1/y)Dζ(z)Dζ(x/yz)/[Dζ(yz)Dζ(1/yz)Dζ(x/y)] times ((1−x)/(1−yz))^m.",
@@ -712,8 +731,14 @@
       "searched": [
         "2026-10-06: arXiv:1812.07690 PDF, Appendix A (same Gaussian and phase text).",
         "Author-hosted version of record, pp.236–237, rendered images.",
-        "Garoufalidis publication index and web searches for a correction/erratum; no correction located."
-      ]
+        "Garoufalidis publication index and web searches for a correction/erratum; no correction located.",
+        "Independent review, 2026-10-06: author publication index https://people.mpim-bonn.mpg.de/stavros/publications/, arXiv abstract https://arxiv.org/abs/1812.07690, and web searches for Asymptotics of Nahm sums erratum/correction; no correction located."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in rendered published p.237. Exact q-product shifts must be applied before the fixed-argument limit. Using D(ζu)/D(u)=(1−u)^n/(1−u^n), the corrected prefactor divided by the printed one (with its phase separately corrected) is (1−X)/(1−YZ), which is generally not one. This is an erroneous leading constant, so classify it as error rather than gap.",
+        "by": "REV-HabiroNumberFields--HB.2"
+      }
     },
     {
       "id": "HabiroNumberFields/EHB2.4",
@@ -728,8 +753,33 @@
       "searched": [
         "2026-10-06: arXiv:1812.07690 PDF, Appendix A (same Gaussian and phase text).",
         "Author-hosted version of record, pp.236–237, rendered images.",
-        "Garoufalidis publication index and web searches for a correction/erratum; no correction located."
-      ]
+        "Garoufalidis publication index and web searches for a correction/erratum; no correction located.",
+        "Independent review, 2026-10-06: author publication index https://people.mpim-bonn.mpg.de/stavros/publications/, arXiv abstract https://arxiv.org/abs/1812.07690, and web searches for Asymptotics of Nahm sums erratum/correction; no correction located."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in rendered published p.237. ζ^n=1 cannot be the eta multiplier: for n=3,h=1 the Dedekind sum is 1/18 and μ^n=exp(−πi/6). Independent finite-product checks of D_ζ(1)=n^(n/2)exp(πin s(h,n)) pass for every primitive root of orders 3,5,7,9.",
+        "by": "REV-HabiroNumberFields--HB.2"
+      }
+    },
+    {
+      "id": "HabiroNumberFields/EHB2.5",
+      "source": "GZ.published",
+      "kind": "misprint",
+      "locator": "Appendix A, p.236, second paragraph before (58), published 2021 text",
+      "printed": "The source describes each side of (56) as a rational function on the curve.",
+      "correction": "In this sentence the intended identity is (55), the KMS identity, rather than (56), the definition of f.",
+      "reason": "The proof is reducing the asserted KMS equality to an open set. Equation (56) only defines its finite sum; (55) is the equality of the two rational functions being proved.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Independent review, 2026-10-06: rendered version-of-record p.236, author publication index https://people.mpim-bonn.mpg.de/stavros/publications/, arXiv abstract https://arxiv.org/abs/1812.07690, and correction/erratum web searches; no correction located."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The rendered p.236 prints (56) twice in this paragraph. Its first use correctly discusses f; the second concerns equality on an open set and must refer to (55). This is a locator slip with no change to the intended theorem.",
+        "by": "REV-HabiroNumberFields--HB.2"
+      }
     }
   ],
   "upstreamNotes": [],
@@ -901,16 +951,55 @@
     {
       "id": "HabiroNumberFields/E14",
       "packet": "research/blueprint/packets/HabiroNumberFields.json",
-      "handling": "Retained sign gap; distinguish raw and explicitly negated Chern maps without claiming that either is the fixed CGZ/GSWZ map."
+      "handling": "Retained sign gap; distinguish raw and explicitly negated Chern maps without claiming that either is the fixed CGZ/GSWZ map. Independently re-read v4 §4 p.6: the displayed −x∪ζ=x⊗ζ step contradicts the specified standard Kummer/positive Bott conventions. No conclusion about the inaccessible J. Algebra version of record is made."
     }
   ],
   "verification": {
     "audit": "data/library-coverage.json, AUDIT-28, HabiroNumberFields:HB.2",
-    "prototype": "Not compiled: no existing build has both pinned commits. Individual statements were read at the pins; no library build or library checkout mutation was attempted.",
+    "prototype": "Full suggestion not elaborated: lean-check stops at the missing TauCeti.Algebra.Group.PowerClassGroup object file. The existing shared build has pinned Mathlib but a different Tau Ceti checkout; the cited Tau Ceti source statements were read from the pinned git objects. No library build or checkout mutation was performed. A Mathlib-only extraction through kms_oddOrder was checked separately; this does not validate the full file or the Tau Ceti power-class example.",
     "finiteChecks": "All admissible triples in F19,F31,F43,F73 at orders 3,5,7,9 (6354 total); corrected complex Gaussian limits at orders 3,5; Dedekind phase at all primitive roots of orders 3,5,7,9.",
     "styleInputs": [
       "content/tau-ceti/AdicSpaces/README.md",
       "content/tau-ceti/ProfiniteCohomology/README.md"
+    ],
+    "independentReview": {
+      "by": "REV-HabiroNumberFields--HB.2",
+      "date": "2026-10-06",
+      "sources": "All five PDFs independently downloaded with matching recorded hashes; nine original locator/excerpt pairs checked; one Bott-normalization citation added. Published GZ pp.236–237 rendered and inspected. Hutchinson results remain scoped to the cited arXiv versions.",
+      "math": "6354 fixed-primitive-root finite-field triples independently passed; Dedekind phase passed for all primitive roots of orders 3,5,7,9. Corrected Gaussian constants checked by Ramanujan product evaluations at n=3,5 and ε=.02,.01,.005, with errors decreasing linearly. All eight proposed stage-edge insertions have no reverse path in the extracted atlas graph.",
+      "styleInputs": [
+        "content/tau-ceti/AdicSpaces/README.md",
+        "content/tau-ceti/GrothendieckEulerForms/README.md",
+        "content/tau-ceti/ProfiniteCohomology/README.md (including the Layer 9 supplier)"
+      ]
+    }
+  },
+  "review": {
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-HabiroNumberFields--HB.2",
+    "date": "2026-10-06",
+    "notes": "Four new nodes reviewed; six baseline citations confirmed at the exact pins; 28 parent imports checked for ownership/scope and guarded at the convention-sensitive interfaces. Corrected the KMS convergence neighborhood and supplier requests, made left/right bar-class compatibility explicit, restored the odd-prime-power Chern hypothesis, corrected Proposition 4.6 to p.7, and confirmed all four supplied source issues (reclassifying EHB2.3 as error); added the equation-reference misprint EHB2.5. The packet is a complete target-level planning pass with honest supplier/sign gaps, not a closed proof. Acceptance is withheld because the definitive reader still asserts that 0<X<1<Y implies bilateral convergence and omits the prime hypothesis; this review issue does not authorize editing that reader. The report supplies exact reader corrections. The full Lean file did not elaborate because the existing build lacks its Tau Ceti object file; no build was attempted.",
+    "checked": [
+      {
+        "nodeId": "HabiroNumberFields:HB.2/cyclic-hypergeometric-sum",
+        "verdict": "verified",
+        "note": "Finite expression, all eight API signatures and four discriminating tests checked; periodic recurrence and geometric-sum compatibility have the stated sufficient hypotheses. No duplicated q-product definition."
+      },
+      {
+        "nodeId": "HabiroNumberFields:HB.2/kms-odd-order-proof",
+        "verdict": "corrected",
+        "note": "Finite KMS identity and integral specialization verified as a target with explicitly requested analytic inputs. Corrected the convergence witness to a small neighborhood of (1/5,2), with generic nonreal parameters, and aligned both supplier requests. Reader convergence claim still needs correction."
+      },
+      {
+        "nodeId": "HabiroNumberFields:HB.2/eta-bar-bloch-specialization",
+        "verdict": "corrected",
+        "note": "Checked the 2013 configuration formula and 2024 specialization, correction [0], N=3/5 tests, recurrence and determinant-one conjugation. Added explicit left/right bar and positive Bockstein compatibility."
+      },
+      {
+        "nodeId": "HabiroNumberFields:HB.2/eta-chern-signed-evaluation",
+        "verdict": "corrected",
+        "note": "Restored ℓ an odd prime, m≥1, corrected Proposition 4.6 to p.7, and cited p.6 for the Bott Chern value. The raw negative versus independently negated positive evaluation is sound under the stated conventions; identifying the published fixed map remains an honest gap."
+      }
     ]
   }
 }
