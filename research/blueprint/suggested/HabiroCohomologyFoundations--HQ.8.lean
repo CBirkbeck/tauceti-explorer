@@ -685,8 +685,9 @@ theorem deRhamSquare.torsionSequence {B : Type u} [CommRing B] (t : B)
     [AddCommGroup M₂] [Module B M₂] (f : M₁ →ₗ[B] N) (g : N →ₗ[B] M₂)
     (h₁ : Function.Exact (t • LinearMap.id : M₁ →ₗ[B] M₁) f) (h₂ : Function.Exact f g)
     (h₃ : Function.Exact g (t • LinearMap.id : M₂ →ₗ[B] M₂)) :
-    Function.Injective ((LinearMap.range (t • LinearMap.id : M₁ →ₗ[B] M₁)).liftQ f
-        (fun x hx => by obtain ⟨y, rfl⟩ := hx; exact (h₁ _).2 ⟨y, rfl⟩)) ∧
+    let fDesc := (LinearMap.range (t • LinearMap.id : M₁ →ₗ[B] M₁)).liftQ f
+      (fun x hx => by obtain ⟨y, rfl⟩ := hx; exact (h₁ _).2 ⟨y, rfl⟩)
+    Function.Injective fDesc ∧ Function.Exact fDesc g ∧
       LinearMap.range g = LinearMap.ker (t • LinearMap.id : M₂ →ₗ[B] M₂) := by
   sorry
 

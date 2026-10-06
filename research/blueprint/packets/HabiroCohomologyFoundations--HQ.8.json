@@ -1567,7 +1567,8 @@
    "supplier": "CrystallineCohomology:CR.4",
    "need": "Langer–Zink relative de Rham–Witt complexes W_rΩ_{R/A} of ℤ_(p)-algebras with R, F, V, their universal property without restriction maps (q-Witt paragraph 3.11), their base change along A → A/I (BMS1 Corollary 10.10), and for smooth algebras over a perfect field k the comparison with crystalline cohomology over W_r(k) (Illusie; BMS1 Theorem 1.10(i)).",
    "neededBy": [
-    "HabiroCohomologyFoundations:HQ.8/the-crystalline-and-de-rham-witt-square"
+    "HabiroCohomologyFoundations:HQ.8/the-crystalline-and-de-rham-witt-square",
+    "HabiroCohomologyFoundations:HQ.8/compatibility-with-the-witt-crystalline-row"
    ]
   },
   {
@@ -1627,7 +1628,7 @@
   },
   {
    "supplier": "DerivedDeRhamCohomology:DD.1",
-   "need": "Derived I-completion for a finitely generated ideal I and its independence of generators, so that derived completion depends only on the radical of I: used for (p, q−1) and (p, [p]_q) over ℤ_p⟦q−1⟧ and for (p, ξ), (p, [p]_q), (p, q−1) over A_inf.",
+   "need": "Derived I-completion for a finitely generated ideal I and its independence of generators, so that derived completion depends only on the radical of I: used for (p, q−1) and (p, [p]_q) over ℤ_p⟦q−1⟧ and for (p, ξ), (p, [p]_q), (p, q−1) over A_inf. Also supply transitivity of the derived completed tensor products used after θ : A_inf → O_C and w : A_inf → W(k), retaining (p, ξ)-completion before specialization and p-completion afterwards under the stated smooth and regular coefficient hypotheses.",
    "neededBy": [
     "HabiroCohomologyFoundations:HQ.8/the-q-de-rham-prism-and-its-perfectoid-base",
     "HabiroCohomologyFoundations:HQ.8/compatibility-with-the-theta-de-rham-row",
@@ -1684,8 +1685,8 @@
    ],
    "review": {
     "verdict": "confirmed",
-    "reason": "Checked in the v4 LaTeX and PDF and against v1–v3, which read (p, q−1).",
-    "by": "REV-HabiroCohomologyFoundations--HQ.8"
+    "reason": "Independently compared Notation 16.1 in the v4 LaTeX with v1–v3. The v4 display repeats (p, [p]_q); the earlier versions correctly compare it with (p, q−1). The two ideals have equal radicals, since [p]_q ≡ (q−1)^{p−1} modulo p.",
+    "by": "REV-HabiroCohomologyFoundations--HQ.8~2"
    }
   },
   {
@@ -1704,8 +1705,8 @@
    ],
    "review": {
     "verdict": "confirmed",
-    "reason": "Recomputed from the displayed differential T^n ↦ [n]_q T^{n−1}dT on ℤ[T]⟦q−1⟧.",
-    "by": "REV-HabiroCohomologyFoundations--HQ.8"
+    "reason": "Independently checked Scholze §3 and the §2 footnote. For ℤ[T], the q-derivative sends T^n to [n]_q T^{n−1}dT with n ≥ 0. Hence H¹ is the completed sum of the quotients by [n+1]_q and has no free T^{−1}dT summand. The printed expression instead describes the Laurent example.",
+    "by": "REV-HabiroCohomologyFoundations--HQ.8~2"
    }
   },
   {
@@ -1723,8 +1724,8 @@
    ],
    "review": {
     "verdict": "confirmed",
-    "reason": "Checked in the v4 LaTeX and against v1–v3.",
-    "by": "REV-HabiroCohomologyFoundations--HQ.8"
+    "reason": "Independently checked Construction 16.19 in all four arXiv LaTeX versions. S is the coordinate index set, whereas D is the coefficient base; the displayed continuous differential module must be relative to D.",
+    "by": "REV-HabiroCohomologyFoundations--HQ.8~2"
    }
   },
   {
@@ -1742,8 +1743,8 @@
    ],
    "review": {
     "verdict": "confirmed",
-    "reason": "Checked the label and the environment in the v4 LaTeX and against v1–v3.",
-    "by": "REV-HabiroCohomologyFoundations--HQ.8"
+    "reason": "Independently checked Construction 16.20 and the qPDEnvConstruct label in v1–v4. The referenced environment is Lemma 16.10, which constructs the q-PD envelope, rather than a Construction 16.10.",
+    "by": "REV-HabiroCohomologyFoundations--HQ.8~2"
    }
   },
   {
@@ -1762,8 +1763,8 @@
    ],
    "review": {
     "verdict": "confirmed",
-    "reason": "Checked the citation in the v2 LaTeX and v1 PDF text against the v4 numbering of Bhatt–Scholze.",
-    "by": "REV-HabiroCohomologyFoundations--HQ.8"
+    "reason": "Independently checked the first paragraph of Wagner Appendix A.1 in v1 and v2 against Bhatt–Scholze v4. Notation 16.1 fixes the coefficient ring; Definition 16.2 defines q-PD pairs.",
+    "by": "REV-HabiroCohomologyFoundations--HQ.8~2"
    }
   },
   {
@@ -1780,7 +1781,12 @@
     "arXiv:1905.08229v4 proof display compared with Remark 2.13 in the same source",
     "Scholze’s papers page https://people.mpim-bonn.mpg.de/scholze/papers.html: no separate erratum linked for this paper; linked prisms.pdf has the same display",
     "Annals landing page https://annals.math.princeton.edu/2022/196-3/p05: metadata inspected, no correction linked there; attempted publisher PDF endpoint returned 404; published text not read"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Independently checked the proof of Lemma 18.3 in arXiv v4 and the linked author PDF against Remark 2.13. Substituting r = n+1 in the Joyal formula gives exponents p^{n+1} and p^n in the first two terms; n = 0 recovers φ(x) = x^p + pδ(x). The induction still works because the earlier terms remain in the kernel and the last term is unchanged. Confirmation is scoped to those copies; the version of record was not read.",
+    "by": "REV-HabiroCohomologyFoundations--HQ.8~2"
+   }
   }
  ],
  "sourceVersions": [
@@ -1842,95 +1848,105 @@
   }
  ],
  "review": {
-  "status": "needs_changes",
-  "reviewer": "independent-review-REV-HabiroCohomologyFoundations--HQ.8",
-  "date": "2026-09-25",
-  "notes": "One independent reviewer checked all 15 nodes against the seven sources at their latest arXiv versions (every recorded SHA-256 matches the gzipped e-print), every baseline citation at the pins, closure, granularity, API, unit tests, planets and the companion packet HQ.1–HQ.7 as corrected by REV-HabiroCohomologyFoundations--HQ.1. All 15 nodes needed correction (excerpts were paraphrases; the A-inf square had the wrong route; the Nygaard square listed RT.6 against the staging rule and quotiented by the wrong element; several records misstated filtrations or what is inverted; the bases node defined objects PrismaticCohomology owns); 2 nodes are added by splitting the decalage node. Baseline: 4 confirmed, 1 fixed, 5 removed (no consumer), 6 added. Source issues E801-E805 added and confirmed. Coverage is now partial: the commutation with CP.1's maps has no node and is a gap. The suggested Lean file, which did not elaborate and used True in place of 19 statements, is rewritten and elaborates at Mathlib 082e2d3 with only placeholder-proof warnings. needs_changes only because the roadmap document research/blueprint/readmes/HabiroCohomologyFoundations--HQ.8.md is outside this review's files and must be regenerated from the corrected packet.",
+  "status": "accepted",
+  "reviewer": "independent-review-REV-HabiroCohomologyFoundations--HQ.8~2",
+  "date": "2026-10-06",
+  "notes": "Independent revision-round review by Codex (GPT-6), session codex-9zWvth, issue #6444; this session wrote neither blueprint round. Checked every prior review correction and the regenerated reader, all 19 nodes, 72 source passages in seven hash-matched arXiv source archives, all eleven Mathlib baseline declarations at the recorded pin, the reviewed audit, RS-10 ownership, companion imports and all fourteen supplier requests. Corrected the Lean torsion-sequence signature to include middle exactness, clarified DD.1 completed tensor transitivity, and recorded the missing CR.4 request consumer. Independently confirmed E801–E806. No nodes, baseline citations, API items, tests, planets or gaps were added or removed. The reader agrees mathematically with the packet. The packet is one complete planning pass with HQ.8 planned, not closed: five precise gaps, including the two CP.1 map-equality and descent obligations, remain. No unresolved contradiction was found. The packet checker reports zero errors and warnings; lean-check exits zero with only the three existing placeholder-proof warnings, using exactly pinned Mathlib and no Tau Ceti imports. Every implementation status remains unchecked.",
   "checked": [
    {
     "nodeId": "HabiroCohomologyFoundations:HQ.8/what-an-atlas-square-records",
-    "verdict": "corrected",
-    "note": "Checked against the stage text, Theorem A.1(b), Bhatt–Scholze Notation 16.1, Definition 3.2 and paragraph 1.17. Broadened the base and filtration vocabularies to the bases and filtrations the squares actually use, added the loss item, renamed the API to Lean names, replaced the four kind-less tests by six checkable ones, removed the planet (bookkeeping), made the excerpts literal."
+    "verdict": "verified",
+    "note": "Verified the seven record fields and the loss item against all eight squares. The 17 API items serve the recorded uses; six tests discriminate prism versus q-PD bases, A_inf coefficient reduction, q = 1 filtrations and completion/inversion order. The Lean structure is explicitly metadata, not a formalized comparison diagram."
    },
    {
     "nodeId": "HabiroCohomologyFoundations:HQ.8/the-q-de-rham-prism-and-its-perfectoid-base",
-    "verdict": "corrected",
-    "note": "Checked against Bhatt–Scholze Notation 16.1, Definition 16.2, Notation 17.1 and Scholze §4. The node defined PrismaticCohomology's objects; it is now a lemma importing them and owning the congruences. Found the v4 misprint in Notation 16.1 (E801), corrected p-complete to (p, q−1)-complete flatness, added the radical comparison in A_inf, cited the Mathlib declarations that prove (a), (b) and θ([ε])."
+    "verdict": "verified",
+    "note": "Verified the q-PD/prism ideal distinction, radical comparisons, root conventions and θ([ε]) = 1 against BS16.1–2 and 17.1 and the eleven pinned Mathlib declarations. Prism construction, flatness and kernel principality remain PR.0/PR.6 inputs; the baseline does not claim to supply them."
    },
    {
     "nodeId": "HabiroCohomologyFoundations:HQ.8/what-this-atlas-does-not-prove",
-    "verdict": "corrected",
-    "note": "Checked against paragraph 1.17, Proposition 3.47, Remark 3.48 and Theorem 17.2. Replaced the unsupported 'q-Hodge modification is not invertible' by the scope of Proposition 3.47(b) and Remark 3.48; the analytic exclusion is a clause; literal excerpts."
+    "verdict": "verified",
+    "note": "Verified the limited smooth-pair q-Hodge comparison and analytic boundary against Wagner 1.17 and 3.47–49 and BS17.2. No universal integral equivalence or general non-gluing theorem is asserted."
    },
    {
     "nodeId": "HabiroCohomologyFoundations:HQ.8/the-local-prismatic-square",
-    "verdict": "corrected",
-    "note": "Checked against Theorem A.1(b), Construction A.12, the proof of Theorem A.1 and Bhatt–Scholze Theorem 16.18. The record wrongly claimed a Nygaard filtration on both sides; corrected to none, and the Theorem 16.18 step made explicit. Literal excerpts; planet added."
+    "verdict": "verified",
+    "note": "Verified the p-torsion-free Λ-ring and smooth-algebra hypotheses, the S^(p)[ζ_p] input, completion and Frobenius pullback via Wagner A.1(b), A.12–14 and BS16.18. Its record asserts no filtered comparison."
    },
    {
     "nodeId": "HabiroCohomologyFoundations:HQ.8/the-q-crystalline-square",
-    "verdict": "corrected",
-    "note": "Checked against Bhatt–Scholze §16.3, Constructions 16.19–16.20, Lemma 16.21, Theorem 16.22 and Lemma A.10. Added the flatness hypothesis on D; corrected the record (rationalised then (q−1)-completed, base the q-PD pair, no filtration); attributed the commutativity to HQ.1/the-compatibility-square. Found E803 and E804."
+    "verdict": "verified",
+    "note": "Verified D-flatness over ℤ_p⟦q−1⟧, framed q-PD input and the route through BS16.19–22. Wagner A.10 and the imported HQ.1 compatibility square justify the rationalized, (q−1)-completed diagram; completion order is retained."
    },
    {
     "nodeId": "HabiroCohomologyFoundations:HQ.8/the-a-infinity-square",
-    "verdict": "corrected",
-    "note": "Checked against Bhatt–Scholze Notation 17.1, Theorem 17.2, Remark 17.3 and its proof, Theorem 1.8(5), and Scholze's Conjecture 4.3. The route through 'the base change property of the global complex' was wrong (that property is for Λ-ring maps); rewritten as Conjecture 4.3 via A.1(b), prismatic base change, 16.18 and 17.2. Removed the claimed Nygaard filtration and BKF twist from the record; added PR.6, PR.1, PR.0, AI.3."
+    "verdict": "verified",
+    "note": "Verified the route through A.1(b), bounded-prism base change, BS16.18 and 17.2–3, including the E∞ and Frobenius conventions. It does not apply Λ-ring base change to q ↦ [ε]. Classical θ and Witt map compatibilities are separate targets with a gap."
    },
    {
     "nodeId": "HabiroCohomologyFoundations:HQ.8/the-decalage-squares",
-    "verdict": "corrected",
-    "note": "Checked against Proposition 3.47, BMS1 Lemmas 6.4 and 6.20 and Remark 6.6, BMS2 Proposition 5.8, Remark 3.49. The node bundled two squares and an obstruction; narrowed to the square at q − 1 and split off two new nodes. Fixed the moved HQ.3 prerequisite id. Literal excerpts."
+    "verdict": "verified",
+    "note": "Verified the smooth-pair Lη_{q−1} comparison and the chosen q-Hodge filtration. BMS1 6.4 and 6.20 and BMS2 5.8 retain the same rank-one ideal, replete-topos and completion hypotheses; Lη is not treated as exact or as commuting with every completion."
    },
    {
     "nodeId": "HabiroCohomologyFoundations:HQ.8/the-nygaard-square",
-    "verdict": "corrected",
-    "note": "Checked against Bhatt–Scholze Theorems 15.2 and 15.3 and paragraphs 3.20–3.22. Corrected 'quotient by the cyclotomic element' to q^{p^α} − 1 with the quotient convention; removed RefinedTraceMethods:RT.6, which contradicted the node's own staging constraint; moved the Nygaard owner from PR.6 to PR.3; imported Proposition 3.22 from HQ.4/the-nygaard-comparison instead of re-planning it."
+    "verdict": "verified",
+    "note": "Verified BS15.2–3 and Wagner 3.20–22. PR.3 supplies Frobenius-divisibility/descent independently of RT.6; the filtered quotient is by q^{p^α}−1, not [p^α]_q. Degree conventions and the fixed degree-zero normalization agree with the reader."
    },
    {
     "nodeId": "HabiroCohomologyFoundations:HQ.8/the-crystalline-and-de-rham-witt-square",
-    "verdict": "corrected",
-    "note": "Checked against Theorem 3.11(b), Proposition 3.19, q-Witt Proposition 4.2 and Remark 3.18, BMS1 Theorem 1.10(i) and Corollary 10.10. Fixed prerequisite ids (Theorem 3.11(b) is HQ.3/habiro-descent-the-q-de-rham-witt-filtration; Remark 3.18 is HQ.4/the-comparison-map-from-ordinary-de-rham-witt); qualified the crystalline identification; corrected the record's base. The BMS1 excerpt was invented; replaced."
+    "verdict": "verified",
+    "note": "Verified the ordinary W_{α+1}Ω → qW_{p^α}Ω map, absence of restriction maps, p-completion and smooth perfectly-covered base hypotheses against Wagner q-Hodge 3.11(b) and 3.19, q-Witt 3.18 and 4.2, and the latter source’s no-restriction conventions. Relative factorization and the classical crystalline comparison remain named HQ.4/CR.4 obligations, not invented equivalences."
    },
    {
     "nodeId": "HabiroCohomologyFoundations:HQ.8/the-de-rham-square",
     "verdict": "corrected",
-    "note": "Checked against Theorem A.1(a), paragraph A.14, Definition 3.2(b), Lemma 3.9 and Scholze §3. Corrected the record's base to A⟦q−1⟧ with (q−1); derived the torsion sequence from A.1(a) since Scholze's is conditional; found E802 in the adjacent computation."
+    "note": "Verified the q = 1 specialization, Hodge and conjugate filtrations, and cofiber torsion sequence. Corrected the suggested deRhamSquare.torsionSequence signature to include exactness at the middle term as well as injectivity and the torsion image, matching the unchanged packet and reader."
    },
    {
     "nodeId": "HabiroCohomologyFoundations:HQ.8/the-commutation-theorem",
-    "verdict": "corrected",
-    "note": "Checked each square's argument against its node. Corrected the A_inf and crystalline arguments; added the décalage square at [p]_q; recorded the compatibility with CP.1's classical rows as a gap (the stage target that remains)."
+    "verdict": "verified",
+    "note": "Verified that the conjunction contains exactly the eight recorded squares on their common hypotheses. It imports the global/Habiro compatibility and smooth-pair q-Hodge comparisons; it does not prove the two new CP.1 target equalities."
    },
    {
     "nodeId": "HabiroCohomologyFoundations:HQ.8/what-each-square-loses",
-    "verdict": "corrected",
-    "note": "Checked against paragraph 1.17(a), Notation 17.1, Scholze's footnote to Conjecture 4.3 and BMS1 Remark 6.6. Added the missing étale entry that the gap says is there, corrected the non-conservativity reason, added the dependence on ε and the new squares."
+    "verdict": "verified",
+    "note": "Verified each loss entry and the order of rationalization, completion and coefficient reduction. The μ-inverted proper-smooth étale boundary is explicitly a gap; no conservativity, analytic Habiro comparison or unrecorded Frobenius erasure is asserted."
    },
    {
     "nodeId": "HabiroCohomologyFoundations:HQ.8/the-staging-rule",
-    "verdict": "corrected",
-    "note": "Checked against Bhatt–Scholze Theorems 15.2–15.3, paragraph 3.20, BMS2 Theorem 1.12 (the node cited Theorem 1.17, which is about HC^−/HP and derived de Rham, not the Nygaard filtration), ku Theorem 1.2, and the prerequisites of HQ.5-trace, RT.4:q-Hodge and RT.6. Made the check explicit; it passes after the Nygaard square's RT.6 prerequisite is removed."
+    "verdict": "verified",
+    "note": "Verified the PR.3-before-RT.6 dependency direction against BS15.2–3, BMS2 1.12 and ku Theorem 1.2. The ku enhancement is E₂ under quasi-syntomic and 2-invertibility hypotheses; the source-reading and syntomic export limits are recorded."
    },
    {
     "nodeId": "HabiroCohomologyFoundations:HQ.8/the-acceptance-tests",
-    "verdict": "corrected",
-    "note": "Checked each witness. The first test's source was cited as paragraph 1.10 but the formula is in Remark 1.13; the q = 1 test had no witness and now uses the ℤ[T] computation (with E802); the A_inf test follows the corrected square."
+    "verdict": "verified",
+    "note": "Verified the ℤ and ℤ[T] witnesses, ordinary-to-q-Witt scope checks and Nygaard-degree tests. The corrected polynomial H¹ has no Laurent free summand; (q−1)-torsion-freeness follows by constant terms and cancellation, not by comaximality."
    },
    {
     "nodeId": "HabiroCohomologyFoundations:HQ.8/the-executable-boundary",
-    "verdict": "corrected",
-    "note": "Rewritten to describe the new suggested file, which elaborates at the pinned commits with three unproved statements; the old file did not elaborate and stated True nineteen times."
+    "verdict": "verified",
+    "note": "Verified the suggested file’s actual declaration names, six tests and owner contracts. Arithmetic and metadata lemmas elaborate; advanced comparison objects are supplier structures or mathematical comments, and every packet node stays unchecked."
    },
    {
     "nodeId": "HabiroCohomologyFoundations:HQ.8/the-decalage-square-at-the-prism-ideal",
-    "verdict": "added",
-    "note": "Split from the décalage node (§2): the relative Frobenius equivalence (qΩ^{(p)})^∧_p ≃ Lη_{[p]_q}(qΩ)^∧_p (Bhatt–Scholze Theorem 15.3 via paragraphs 3.14 and 3.20), a separate square with its own record, used by the Nygaard square and the obstruction."
+    "verdict": "verified",
+    "note": "Verified BS15.3: the map factors as φ_A^*Δ ≃ Lη_{[p]_q}Δ. It is separate from the q−1 smooth-pair square and does not replace the Frobenius pullback by untwisted Δ."
    },
    {
     "nodeId": "HabiroCohomologyFoundations:HQ.8/the-decalage-filtrations-do-not-glue",
-    "verdict": "added",
-    "note": "Split from the décalage node (§2): Remarks 3.18 and 3.49, recorded as an obstruction and not as a no-go theorem, with the three local requirements of Remark 3.49."
+    "verdict": "verified",
+    "note": "Verified Wagner Remarks 3.18 and 3.49 and the m = p illustration. The obstruction concerns the canonical décalage filtrations; a chosen q-Hodge filtration is extra datum. No universal nonexistence assertion is made."
+   },
+   {
+    "nodeId": "HabiroCohomologyFoundations:HQ.8/compatibility-with-the-theta-de-rham-row",
+    "verdict": "corrected",
+    "note": "Verified the exact β_S and canonical BMS14.1(ii) composites, completion order, θ rather than θ̃, differential and full-functor/Hodge–Tate conditions of BS18.2. Clarified the DD.1 request to supply completed tensor transitivity already named in the proof. Equality and sheaf descent remain explicit CP.1 gap obligations."
+   },
+   {
+    "nodeId": "HabiroCohomologyFoundations:HQ.8/compatibility-with-the-witt-crystalline-row",
+    "verdict": "corrected",
+    "note": "Verified w(q) = 1, the BMS14.1(i) route, CR.2’s inverse PD Poincaré map and Frobenius normalization. Added this already-declared CR.4 consumer to its request and clarified DD.1 transitivity. Neither the ordinary-to-q-Witt map nor a restricted-domain uniqueness assertion supplies an inverse or a proof of the target equality."
    }
   ]
  }
