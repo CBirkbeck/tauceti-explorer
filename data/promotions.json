@@ -527,6 +527,17 @@
     "data/blueprints/DeligneWeightsAndPurity--DWP.7.md"
    ]
   },
+  "research/blueprint/packets/DiamondEtaleCohomology--C8.json": {
+   "promotedAt": "2026-10-06T22:50:48Z",
+   "review": "7490c30367e231b5",
+   "reviewDate": "2026-10-06",
+   "reviewer": "independent-review-REV-DiamondEtaleCohomology--C8",
+   "sha256": "d996232364ba0d0ace9760ea92ace0a9dff3cf7493a9c732d2df793ad1327ede",
+   "to": [
+    "data/blueprints/DiamondEtaleCohomology--C8.json",
+    "data/blueprints/DiamondEtaleCohomology--C8.md"
+   ]
+  },
   "research/blueprint/packets/DirichletPadicLFunctions--L0.json": {
    "promotedAt": "2026-10-05T01:11:10Z",
    "review": "847ec0dc0bb9a2b0",
