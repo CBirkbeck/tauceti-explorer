@@ -5,6 +5,7 @@ suggest Lean forms so contributors and reviewers converge on names and signature
 Every planned proof remains `sorry`; nothing is claimed to be implemented.
 
 BP-EllipticKTheory--E.5, issue 6480, Codex — codex-jHS6hw.
+Independently reviewed by Codex — codex-kILZ6Z, issue 6432.
 Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174;
 Tau Ceti f790474821cf4256814db967cb154e7af3d0c369.
 
@@ -23,6 +24,8 @@ use the displayed q+1−#E(k) expression and import only Mathlib. The resulting
 elaboration checks the point subgroup,
 all six API entries and all five discriminating tests, plus the point-kernel order
 statement; it does not typecheck the omitted supplier-dependent K statements.
+The field-map API includes a separate signature for its algebra-equivalence
+clause, with the underlying point map specified.
 -/
 
 import Mathlib.AlgebraicGeometry.EllipticCurve.Affine.Point
@@ -87,6 +90,14 @@ theorem map_twistedFrobeniusKernel (W : WeierstrassCurve k) (p i : ℕ)
     [CharP k p] (f : L →ₐ[k] M) (P : (W.baseChange L).toAffine.Point)
     (hP : P ∈ twistedFrobeniusKernel W L p i) :
     Affine.Point.map (W' := W) f P ∈ twistedFrobeniusKernel W M p i := by
+  sorry
+
+/-- The field-isomorphism clause of the map API. The equivalence uses the
+existing point map, rather than choosing an unspecified group isomorphism. -/
+theorem equiv_twistedFrobeniusKernel (W : WeierstrassCurve k) (p i : ℕ)
+    [CharP k p] (f : L ≃ₐ[k] M) :
+    ∃ e : twistedFrobeniusKernel W L p i ≃+ twistedFrobeniusKernel W M p i,
+      ∀ P, (e P).val = Affine.Point.map (W' := W) f.toAlgHom P.val := by
   sorry
 
 /-- API: coprime annihilators exclude characteristic-primary torsion. -/
@@ -186,11 +197,15 @@ EllipticK.harderFinite (E.5/harder-elliptic-input-closure):
   Bass–Tate higher Milnor vanishing/tame-kernel finiteness and Geisser–Levine.
   Contract: for n≥1, Finite K_n(E) and gcd(#K_n(E),p)=1. The five-term
   localization proof explicitly includes K_(n+1)(k(E)).
+  The all-degree parent E.4 coniveau interface and its K1/origin splitting are
+  direct inputs, in addition to the low-degree E.3 localization interface.
 
 EllipticK.geometricModules (E.5/geometric-elliptic-k-modules):
   not stated. Needs genuine K/coefficient spectra, Tate/Galois modules and twists.
   Contract: K_(2i−1)(Ebar)=D(i)² and K_(2i)(Ebar)=Ebar[prime-to-p torsion](i).
   The divisible-coefficient degree 2i−1 instead uses elliptic twist i−1.
+  H.6 supplies the scheme-spectrum universal-coefficient sequence and its
+  compatible filtered colimit to divisible coefficients.
 
 EllipticK.cohomologyDescent (E.5/elliptic-cohomology-frobenius-descent):
   not stated. Needs continuous cohomology, derived coefficient triangles and
@@ -201,6 +216,8 @@ EllipticK.cohomologyDescent (E.5/elliptic-cohomology-frobenius-descent):
 EllipticK.positiveKDescent (E.5/finite-elliptic-k-descent):
   not stated. Needs the actual base-change K map and equivariant filtration.
   Contract: for n>0, K_n(E)→K_n(Ebar)^G is an isomorphism. Handle n=1 separately.
+  The degree-(n+1) coefficient comparison is imported from H.6; the K1 case
+  directly imports the parent E.4 constant-unit/origin splitting.
 
 EllipticK.positiveOddGroups (E.5/positive-odd-elliptic-k-groups):
   not stated. Needs the actual K-functor. Contract: Nonempty of an additive
