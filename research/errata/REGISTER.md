@@ -4,7 +4,7 @@ The atlas's workers read papers and books line by line to extract and plan their
 
 Collected by `scripts/errata.py` from the paper extractions and blueprint packets (research/blueprint/PROTOCOL.md, section 18); the data is in `data/source-issues.json`.
 
-7204 new mistakes confirmed · 1513 awaiting review · 1492 already corrected in print · 113 rejected on review · 20 extractions and packets not yet checked.
+7204 new mistakes confirmed · 1514 awaiting review · 1492 already corrected in print · 113 rejected on review · 20 extractions and packets not yet checked.
 
 ## New mistakes, confirmed
 
@@ -12598,6 +12598,10 @@ Both feed Theorem 6.1 and Theorem 7.1, hence the main theorem for every odd b �
 ### Don Zagier, The Bloch-Wigner-Ramakrishnan polylogarithm function, Math. Ann. 286 (1990), 613–624; author-hosted typeset scan, DOI 10.1007/BF01453591 (`EllipticRegulators`)
 
 - **Error** at Theorem 1, p. 619, author-hosted typeset 1990 scan; restricted here to a+b=3 (it affects a stated result). The source says `D_{a,b}(q;x) = ((τ−τ̄)^r/(2πi)) Σ′ exp(2πi(nξ−mη))/((mτ+n)^a(mτ̄+n)^b), r=a+b−1.`; it should be `For weight two (a+b=3), with the same character, the right side is −((τ−τ̄)^2/(2πi)) Σ′ exp(2πi(nξ−mη))/((mτ+n)^b(mτ̄+n)^a). In particular D_{1,2}=2(J+iD) and D_{2,1}=2(J−iD), by the definitions on pp. 617–618. No claim about other weights is made.`. Average D_{1,2}(q;x) over η at fixed ξ. Proposition 2(iii) leaves (8π²y²/3)B₃(ξ). Its frequency-one coefficient is −2iy²/π by the exact Bernoulli Fourier formula. The printed theorem gives +2iy²/π from its (m,n)=(0,1) term. The nonzero horizontal coefficients calculated by unfolding the disc series also require the reversed denominator exponents. The p. 616 sine formula’s sign discrepancy is already parent issue EllipticRegulators/E6; it is not duplicated here. Recorded as `EllipticRegulators/E-ER3-1`; looked for an existing correction in: Zagier’s MPIM publication list and its linked author copy, accessed 2026-10-06; no attached erratum found.; Web searches for the exact title with erratum, correction, and Theorem 1, on 2026-10-06; no correction located.; The DOI-linked author-hosted typeset scan, visually inspected at pp. 616–619..
+
+### Spencer J. Bloch, Higher Regulators, Algebraic K-Theory, and Zeta Functions of Elliptic Curves, CRM Monograph Series 11, AMS, 2000. (`EllipticRegulators`)
+
+- **Error** at §10.3, p.80, parenthesis preceding (10.3.2) (it affects the proof). The source says `|xqⁿ| < 1 for n ≥ 0`; it should be `For canonical torsion lifts, |xqⁿ|≤1 for n≥0; equality occurs precisely when ℓ=n=0. Treat that logarithmic weighted term as zero, and retain the absolutely convergent unit-circle Li₂ series.`. Take k=1,ℓ=0,C=3,n=0. Then x=exp(2πi/3), so |x|=1. Log’s open-disc expansion cannot be applied to that term. The factor log|x| is zero; the Li₂ series is absolutely summable at |x|=1. The source’s M₂ calculation already retains that boundary. This correction changes a convergence justification, not the final identity. Recorded as `EllipticRegulators/ER4-E1`; looked for an existing correction in: Bloch author publications page https://math.uchicago.edu/~bloch/publications.html, opened 2026-10-06: no correction for this passage found.; Search on 2026-10-06 for Bloch Higher Regulators elliptic curves errata Lecture 10; no matching published correction found.; Parent accepted sourceIssues: E11 supplies the capital-C typo; none covers this strict-boundary assertion..
 
 ### Bhargav Bhatt and Peter Scholze, The pro-étale topology for schemes, Public author copy, 100 pages; printed page equals PDF page. Distinct hash from the inherited arXiv v2. Not identified as the version of record. (`EnhancedDerivedSheaves`)
 
