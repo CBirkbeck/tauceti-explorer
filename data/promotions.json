@@ -862,6 +862,17 @@
     "data/blueprints/NeronModelsAndSemistableAbelianVarieties.md"
    ]
   },
+  "research/blueprint/packets/Polylogarithms--P.2.json": {
+   "promotedAt": "2026-10-06T00:46:09Z",
+   "review": "c68815279fab6d90",
+   "reviewDate": "2026-10-06",
+   "reviewer": "independent-review-REV-Polylogarithms--P.2",
+   "sha256": "e5553f574b76c7e941f29e9cfa10f2f25eca3110a614cddb000ee9cf218cfade",
+   "to": [
+    "data/blueprints/Polylogarithms--P.2.json",
+    "data/blueprints/Polylogarithms--P.2.md"
+   ]
+  },
   "research/blueprint/packets/Polylogarithms.json": {
    "promotedAt": "2026-10-02T04:08:57Z",
    "review": "3d37ea7590f3a3d6",
