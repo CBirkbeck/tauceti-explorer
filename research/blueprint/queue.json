@@ -33305,7 +33305,8 @@
    ],
    "avoidAccountOf": "BP-ArithmeticKTheory--N.6",
    "prompt": "research/blueprint/prompts/REV-ArithmeticKTheory--N.6.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6429"
   },
   {
    "id": "BP-ColemanPowerSeries--L0",
@@ -33713,8 +33714,9 @@
    ],
    "avoidAccountOf": "BP-EllipticRegulators--ER.4",
    "prompt": "research/blueprint/prompts/REV-EllipticRegulators--ER.4.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6437"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6437",
+   "finishedAt": "2026-10-06T03:17:12Z"
   },
   {
    "id": "BP-EllipticRegulators--ER.5",
