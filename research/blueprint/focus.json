@@ -110,6 +110,15 @@
   "Lawrence–Venkatesh": [
    "MordellLawrenceVenkatesh",
    "HodgeStructuresPartII"
+  ],
+  "Caraiani–Newton": [
+   "EllipticCurveModularityPartII",
+   "PotentialAutomorphyInfrastructurePartII",
+   "PotentialAutomorphyInfrastructure",
+   "LocalGaloisDeformationRings",
+   "IntegralHeckeAndGaloisDeterminants",
+   "ArithmeticGaloisRepresentations",
+   "EffectiveDiophantineMethods"
   ]
  }
 }
