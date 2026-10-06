@@ -18,203 +18,203 @@
         "kind": "structure",
         "module": "Mathlib/AlgebraicGeometry/Scheme.lean",
         "provides": "Schemes as locally ringed spaces locally isomorphic to affine spectra, rather than unlabeled point sets.",
-        "checked": "Statement read at the pinned Mathlib commit; shared checkout HEAD equals the pin."
+        "checked": "Independently read the declaration and surrounding hypotheses at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; confirmed the stated carrier/API, without a geometric étale interpretation."
       },
       {
         "ref": "mathlib:AlgebraicGeometry.IsProper",
         "kind": "class",
         "module": "Mathlib/AlgebraicGeometry/Morphisms/Proper.lean",
         "provides": "Separated, universally closed, locally finite type scheme morphisms.",
-        "checked": "Statement read at the pinned Mathlib commit; shared checkout HEAD equals the pin."
+        "checked": "Independently read the declaration and surrounding hypotheses at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; confirmed the stated carrier/API, without a geometric étale interpretation."
       },
       {
         "ref": "mathlib:ModuleCat",
         "kind": "structure",
         "module": "Mathlib/Algebra/Category/ModuleCat/Basic.lean",
         "provides": "Bundled modules and their actual linear-map morphisms.",
-        "checked": "Statement read at the pinned Mathlib commit; shared checkout HEAD equals the pin."
+        "checked": "Independently read the declaration and surrounding hypotheses at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; confirmed the stated carrier/API, without a geometric étale interpretation."
       },
       {
         "ref": "mathlib:DerivedCategory",
         "kind": "def",
         "module": "Mathlib/Algebra/Homology/DerivedCategory/Basic.lean",
         "provides": "Localization of cochain complexes of an abelian category at quasi-isomorphisms; not a ready-made constructible étale category.",
-        "checked": "Statement read at the pinned Mathlib commit; shared checkout HEAD equals the pin."
+        "checked": "Independently read the declaration and surrounding hypotheses at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; confirmed the stated carrier/API, without a geometric étale interpretation."
       },
       {
         "ref": "mathlib:DerivedCategory.Q",
         "kind": "def",
         "module": "Mathlib/Algebra/Homology/DerivedCategory/Basic.lean",
         "provides": "Localization functor from cochain complexes to the chosen derived category.",
-        "checked": "Statement read at the pinned Mathlib commit; shared checkout HEAD equals the pin."
+        "checked": "Independently read the declaration and surrounding hypotheses at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; confirmed the stated carrier/API, without a geometric étale interpretation."
       },
       {
         "ref": "mathlib:CategoryTheory.CohomologicalSpectralSequence",
         "kind": "abbrev",
         "module": "Mathlib/Algebra/Homology/SpectralSequence/Basic.lean",
         "provides": "Spectral sequence with differential bidegree (r,1-r); no geometric convergence supplied by this carrier.",
-        "checked": "Statement read at the pinned Mathlib commit; shared checkout HEAD equals the pin."
+        "checked": "Independently read the declaration and surrounding hypotheses at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; confirmed the stated carrier/API, without a geometric étale interpretation."
       },
       {
         "ref": "mathlib:CategoryTheory.Abelian.SpectralObject.spectralSequence",
         "kind": "def",
         "module": "Mathlib/Algebra/Homology/SpectralObject/SpectralSequence.lean",
         "provides": "Spectral sequence attached to a spectral object satisfying HasSpectralSequence; use for the filtered nearby complex.",
-        "checked": "Statement read at the pinned Mathlib commit; shared checkout HEAD equals the pin."
+        "checked": "Independently read the declaration and surrounding hypotheses at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; confirmed the stated carrier/API, without a geometric étale interpretation."
       },
       {
         "ref": "mathlib:Representation.invariants",
         "kind": "def",
         "module": "Mathlib/RepresentationTheory/Invariants.lean",
         "provides": "Submodule of vectors fixed by every element of a group representation.",
-        "checked": "Statement read at the pinned Mathlib commit; shared checkout HEAD equals the pin."
+        "checked": "Independently read the declaration and surrounding hypotheses at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; confirmed the stated carrier/API, without a geometric étale interpretation."
       },
       {
         "ref": "mathlib:Representation.mem_invariants",
         "kind": "theorem",
         "module": "Mathlib/RepresentationTheory/Invariants.lean",
         "provides": "Membership is equivalent to fixing the vector for every group element; no topology built into this statement.",
-        "checked": "Statement read at the pinned Mathlib commit; shared checkout HEAD equals the pin."
+        "checked": "Independently read the declaration and surrounding hypotheses at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; confirmed the stated carrier/API, without a geometric étale interpretation."
       },
       {
         "ref": "mathlib:LinearMap.codRestrict",
         "kind": "def",
         "module": "Mathlib/Algebra/Module/Submodule/LinearMap.lean",
         "provides": "Corestriction of a linear map to a submodule containing every value.",
-        "checked": "Statement read at the pinned Mathlib commit; shared checkout HEAD equals the pin."
+        "checked": "Independently read the declaration and surrounding hypotheses at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; confirmed the stated carrier/API, without a geometric étale interpretation."
       },
       {
         "ref": "mathlib:LinearMap.ker",
         "kind": "def",
         "module": "Mathlib/Algebra/Module/Submodule/Ker.lean",
         "provides": "Kernel submodule, with membership given by vanishing.",
-        "checked": "Statement read at the pinned Mathlib commit; shared checkout HEAD equals the pin."
+        "checked": "Independently read the declaration and surrounding hypotheses at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; confirmed the stated carrier/API, without a geometric étale interpretation."
       },
       {
         "ref": "mathlib:LinearMap.range",
         "kind": "def",
         "module": "Mathlib/Algebra/Module/Submodule/Range.lean",
         "provides": "Image submodule, with membership given by existence of a preimage.",
-        "checked": "Statement read at the pinned Mathlib commit; shared checkout HEAD equals the pin."
+        "checked": "Independently read the declaration and surrounding hypotheses at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; confirmed the stated carrier/API, without a geometric étale interpretation."
       },
       {
         "ref": "mathlib:Submodule.mkQ",
         "kind": "def",
         "module": "Mathlib/LinearAlgebra/Quotient/Defs.lean",
         "provides": "Canonical surjective linear map to the quotient by a submodule.",
-        "checked": "Statement read at the pinned Mathlib commit; shared checkout HEAD equals the pin."
+        "checked": "Independently read the declaration and surrounding hypotheses at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; confirmed the stated carrier/API, without a geometric étale interpretation."
       },
       {
         "ref": "mathlib:AlgebraicGeometry.IsIntegral",
         "kind": "class",
         "module": "Mathlib/AlgebraicGeometry/Properties.lean",
         "provides": "Nonempty scheme with domain rings of sections on every nonempty open.",
-        "checked": "Statement read at the pinned Mathlib commit; shared checkout HEAD equals the pin."
+        "checked": "Independently read the declaration and surrounding hypotheses at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; confirmed the stated carrier/API, without a geometric étale interpretation."
       },
       {
         "ref": "mathlib:AlgebraicGeometry.SmoothOfRelativeDimension",
         "kind": "class",
         "module": "Mathlib/AlgebraicGeometry/Morphisms/Smooth.lean",
         "provides": "Smooth relative dimension n tested by standard-smooth affine neighbourhoods.",
-        "checked": "Statement read at the pinned Mathlib commit; shared checkout HEAD equals the pin."
+        "checked": "Independently read the declaration and surrounding hypotheses at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; confirmed the stated carrier/API, without a geometric étale interpretation."
       },
       {
         "ref": "mathlib:AlgebraicGeometry.LocallyOfFiniteType",
         "kind": "class",
         "module": "Mathlib/AlgebraicGeometry/Morphisms/FiniteType.lean",
         "provides": "Finite-type ring maps on affine opens for a scheme morphism.",
-        "checked": "Statement read at the pinned Mathlib commit; shared checkout HEAD equals the pin."
+        "checked": "Independently read the declaration and surrounding hypotheses at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; confirmed the stated carrier/API, without a geometric étale interpretation."
       },
       {
         "ref": "mathlib:AlgebraicGeometry.QuasiCompact",
         "kind": "class",
         "module": "Mathlib/AlgebraicGeometry/Morphisms/QuasiCompact.lean",
         "provides": "Inverse images of compact opens are compact; together with local finite type gives finite type.",
-        "checked": "Statement read at the pinned Mathlib commit; shared checkout HEAD equals the pin."
+        "checked": "Independently read the declaration and surrounding hypotheses at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; confirmed the stated carrier/API, without a geometric étale interpretation."
       },
       {
         "ref": "mathlib:AlgebraicGeometry.IsOpenImmersion",
         "kind": "abbrev",
         "module": "Mathlib/AlgebraicGeometry/OpenImmersion.lean",
         "provides": "The underlying locally ringed space morphism is an open immersion.",
-        "checked": "Statement read at the pinned Mathlib commit; shared checkout HEAD equals the pin."
+        "checked": "Independently read the declaration and surrounding hypotheses at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; confirmed the stated carrier/API, without a geometric étale interpretation."
       },
       {
         "ref": "mathlib:IsGenericPoint",
         "kind": "def",
         "module": "Mathlib/Topology/Sober.lean",
         "provides": "Closure of the specified singleton is the specified set, so a generic point of the whole base cannot lie in a proper closed subset.",
-        "checked": "Statement read at the pinned Mathlib commit; shared checkout HEAD equals the pin."
+        "checked": "Independently read the declaration and surrounding hypotheses at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; confirmed the stated carrier/API, without a geometric étale interpretation."
       },
       {
         "ref": "mathlib:HasDerivedCategory.standard",
         "kind": "def",
         "module": "Mathlib/Algebra/Homology/DerivedCategory/Basic.lean",
         "provides": "The constructed localization supplies a chosen derived-category instance.",
-        "checked": "Statement read at the pinned Mathlib commit; shared checkout HEAD equals the pin."
+        "checked": "Independently read the declaration and surrounding hypotheses at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; confirmed the stated carrier/API, without a geometric étale interpretation."
       },
       {
         "ref": "mathlib:CategoryTheory.Abelian.SpectralObject",
         "kind": "structure",
         "module": "Mathlib/Algebra/Homology/SpectralObject/Basic.lean",
         "provides": "Functorial relative cohomology with actual connecting maps and long exact sequences.",
-        "checked": "Statement read at the pinned Mathlib commit; shared checkout HEAD equals the pin."
+        "checked": "Independently read the declaration and surrounding hypotheses at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; confirmed the stated carrier/API, without a geometric étale interpretation."
       },
       {
         "ref": "mathlib:CategoryTheory.Abelian.SpectralObject.SpectralSequenceDataCore",
         "kind": "structure",
         "module": "Mathlib/Algebra/Homology/SpectralObject/HasSpectralSequence.lean",
         "provides": "Ordered indices and cohomological degrees relating spectral-object pages and differentials.",
-        "checked": "Statement read at the pinned Mathlib commit; shared checkout HEAD equals the pin."
+        "checked": "Independently read the declaration and surrounding hypotheses at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; confirmed the stated carrier/API, without a geometric étale interpretation."
       },
       {
         "ref": "mathlib:CategoryTheory.Abelian.SpectralObject.HasSpectralSequence",
         "kind": "class",
         "module": "Mathlib/Algebra/Homology/SpectralObject/HasSpectralSequence.lean",
         "provides": "Specific zero-object conditions required by the general page recipe.",
-        "checked": "Statement read at the pinned Mathlib commit; shared checkout HEAD equals the pin."
+        "checked": "Independently read the declaration and surrounding hypotheses at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; confirmed the stated carrier/API, without a geometric étale interpretation."
       },
       {
         "ref": "mathlib:CategoryTheory.Limits.IsZero",
         "kind": "structure",
         "module": "Mathlib/CategoryTheory/Limits/Shapes/ZeroObjects.lean",
         "provides": "Categorical zero object characterized by unique maps to and from every object.",
-        "checked": "Statement read at the pinned Mathlib commit; shared checkout HEAD equals the pin."
+        "checked": "Independently read the declaration and surrounding hypotheses at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; confirmed the stated carrier/API, without a geometric étale interpretation."
       },
       {
         "ref": "mathlib:CategoryTheory.shiftFunctor",
         "kind": "def",
         "module": "Mathlib/CategoryTheory/Shift/Basic.lean",
         "provides": "The existing shift autoequivalence, used for actual shifted complex test forms.",
-        "checked": "Statement read at the pinned Mathlib commit; shared checkout HEAD equals the pin."
+        "checked": "Independently read the declaration and surrounding hypotheses at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; confirmed the stated carrier/API, without a geometric étale interpretation."
       },
       {
         "ref": "mathlib:Representation.trivial",
         "kind": "def",
         "module": "Mathlib/RepresentationTheory/Basic.lean",
         "provides": "Actual trivial group representation with identity action.",
-        "checked": "Statement read at the pinned Mathlib commit; shared checkout HEAD equals the pin."
+        "checked": "Independently read the declaration and surrounding hypotheses at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; confirmed the stated carrier/API, without a geometric étale interpretation."
       },
       {
         "ref": "mathlib:LinearMap.BilinForm",
         "kind": "abbrev",
         "module": "Mathlib/LinearAlgebra/BilinearMap.lean",
         "provides": "Existing bilinear-map carrier M→linear M→linear F for the two pairing conventions.",
-        "checked": "Statement read at the pinned Mathlib commit; shared checkout HEAD equals the pin."
+        "checked": "Independently read the declaration and surrounding hypotheses at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; confirmed the stated carrier/API, without a geometric étale interpretation."
       },
       {
         "ref": "mathlib:Module.finrank",
         "kind": "def",
         "module": "Mathlib/LinearAlgebra/Dimension/Finrank.lean",
         "provides": "Finite natural rank as Cardinal.toNat of module rank, used only under finite-dimensional field hypotheses.",
-        "checked": "Statement read at the pinned Mathlib commit; shared checkout HEAD equals the pin."
+        "checked": "Independently read the declaration and surrounding hypotheses at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; confirmed the stated carrier/API, without a geometric étale interpretation."
       },
       {
         "ref": "mathlib:CategoryTheory.IsPullback",
         "kind": "structure",
         "module": "Mathlib/CategoryTheory/Limits/Shapes/Pullback/IsPullback/Defs.lean",
         "provides": "A commutative square whose pullback cone satisfies the categorical limit universal property.",
-        "checked": "Statement read at the pinned Mathlib commit; shared checkout HEAD equals the pin."
+        "checked": "Independently read the declaration and surrounding hypotheses at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; confirmed the stated carrier/API, without a geometric étale interpretation."
       }
     ]
   },
@@ -320,7 +320,7 @@
         {
           "sourceId": "Illusie91",
           "locator": "§§1.1, 2.1–2.3, formulas1.1.1–1.1.3, 2.1.2, 2.3.5",
-          "match": "The cited passage supplies the statement and the construction/proof described here, subject to the recorded supplier contracts and gaps."
+          "match": "Illusie91 2.1.2 and 2.3.5 give tail-minus-head after choosing branch order. Loops and parallel edges must survive the imported multigraph. The API now states the actual kernel and quotient-map properties prototyped in Lean; identifying two-term cohomology still uses the geometric realization."
         }
       ],
       "implementationStatus": "unchecked",
@@ -351,7 +351,7 @@
         {
           "name": "TauCeti.LPV7.normalizationDifferential_ker",
           "role": "compatibility",
-          "statement": "The degree-zero cohomology of this two-term complex is the Mathlib kernel of d; its degree-one cohomology is Λ^E/range d."
+          "statement": "Kernel membership is equality of vertex values on each edge; the quotient map Λ^E→Λ^E/range d is surjective and has kernel range d. Under the supplied two-term-complex realization these are its degree-zero kernel and degree-one cokernel."
         }
       ],
       "tests": [
@@ -412,7 +412,7 @@
         {
           "sourceId": "Illusie91",
           "locator": "§2.3, formulas2.3.1–2.3.5 and Lemma2.4",
-          "match": "The cited passage supplies the statement and the construction/proof described here, subject to the recorded supplier contracts and gaps."
+          "match": "Illusie91 2.3.1–2.3.5 and Lemma2.4 supply the constant étale normalization sequence with branch quotient, not the coherent conductor sequence. The stalk proof and signed differential agree."
         }
       ],
       "implementationStatus": "unchecked",
@@ -448,13 +448,14 @@
         "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs",
         "LefschetzPencilsAndVanishingCycles:LPV.0/derived-nearby-cycles-RPsi-and-vanishing-triangle",
         "LefschetzPencilsAndVanishingCycles:LPV.2/nearby-cycles-of-a-standard-quadratic-degeneration",
-        "LefschetzPencilsAndVanishingCycles:LPV.0"
+        "LefschetzPencilsAndVanishingCycles:LPV.0",
+        "EtaleDualityAndPerverseSheaves:EDC.2:pairings"
       ],
       "sources": [
         {
           "sourceId": "Illusie91",
           "locator": "§§1.2–1.5, formulas1.2.1–1.2.2, 1.3.3 and 1.5.1",
-          "match": "The cited passage supplies the statement and the construction/proof described here, subject to the recorded supplier contracts and gaps."
+          "match": "Illusie91 1.2–1.5 gives the node-supported degree-one sheaf, its trace-dual branch kernel and trivial sheaf-level inertia. Added EDC.2:pairings directly for the residue/trace identification; LPV.2 supplies the local quadratic computation and LPV.0 the triangle."
         }
       ],
       "implementationStatus": "unchecked",
@@ -498,7 +499,7 @@
         {
           "sourceId": "Illusie91",
           "locator": "Lemma1.5.4, §1.7 formulas1.7.1–1.7.4, Lemma2.4",
-          "match": "The cited passage supplies the statement and the construction/proof described here, subject to the recorded supplier contracts and gaps."
+          "match": "Illusie91 Lemma1.5.4, 1.7.4 and Lemma2.4 fix the minus sign and valuation factor. The two localization connecting maps are opposite; the packet keeps this convention instead of identifying the two maps."
         }
       ],
       "implementationStatus": "unchecked",
@@ -541,7 +542,7 @@
         {
           "sourceId": "Illusie91",
           "locator": "§1.6, formulas1.6.1–1.6.6, §2.2",
-          "match": "The cited passage supplies the statement and the construction/proof described here, subject to the recorded supplier contracts and gaps."
+          "match": "Illusie91 1.2.2 and 2.2.2 give the proper specialization exact sequence. The boundary is oriented incidence, and the rational H2 trace/sum yields the graph-cycle quotient."
         }
       ],
       "implementationStatus": "unchecked",
@@ -584,7 +585,7 @@
         {
           "sourceId": "Illusie91",
           "locator": "§§2.1–2.4, especially2.3.5 and Lemma2.4",
-          "match": "The cited passage supplies the statement and the construction/proof described here, subject to the recorded supplier contracts and gaps."
+          "match": "Illusie91 2.3.1–2.3.5 and 2.6.1–2.6.5 give the normalization H1 extension and dual graph lattices. Characters are H1 of the graph, while the toric cohomology is H^1; R11.4 owns the integral lattice objects."
         }
       ],
       "implementationStatus": "unchecked",
@@ -630,7 +631,7 @@
         {
           "sourceId": "Illusie91",
           "locator": "§§2.1–2.2, formulas2.1.3, 2.2.3;2.6.5–2.7",
-          "match": "The cited passage supplies the statement and the construction/proof described here, subject to the recorded supplier contracts and gaps."
+          "match": "Illusie91 2.2.3 and 2.6.5 factor N through the negative thickness-weighted form on the graph quotient. Positivity/nondegeneracy is used over rational coefficients, yielding N2=0 and rank equal to the graph Betti number, without claiming a torsion-level isomorphism."
         }
       ],
       "implementationStatus": "unchecked",
@@ -670,7 +671,7 @@
         {
           "sourceId": "Illusie91",
           "locator": "Remarques2.8–2.9, printed p.42",
-          "match": "The cited passage supplies the statement and the construction/proof described here, subject to the recorded supplier contracts and gaps."
+          "match": "Illusie91 2.2.3, 2.6.5 and 2.8 show ker N equals the specialized H1 and the inertia invariants in the rational unipotent setting. LPV.1 supplies the tame character; fixed cohomology sheaves alone would not prove this."
         }
       ],
       "implementationStatus": "unchecked",
@@ -714,7 +715,7 @@
         {
           "sourceId": "Illusie91",
           "locator": "Remarque2.9, printed p.42; formulas2.2.3,2.6.5",
-          "match": "The cited passage supplies the statement and the construction/proof described here, subject to the recorded supplier contracts and gaps."
+          "match": "Illusie91 Remarque2.9 gives the filtration centered at1. The graph cohomology, component H1 and twisted graph homology are its graded pieces; no Frobenius purity over an arbitrary residue field is asserted."
         }
       ],
       "implementationStatus": "unchecked",
@@ -762,7 +763,7 @@
         {
           "sourceId": "Illusie91",
           "locator": "§§2.3–2.6, formulas2.3.3–2.3.5 and2.6.1–2.6.5",
-          "match": "The cited passage supplies the statement and the construction/proof described here, subject to the recorded supplier contracts and gaps."
+          "match": "Illusie91 2.3–2.6 supplies the Picard/Tate specialization diagram. The principal polarization/Kummer realization accounts for H1(1), and the torus character lattice remains graph H1, as in accepted R11.4."
         }
       ],
       "implementationStatus": "unchecked",
@@ -804,7 +805,7 @@
         {
           "sourceId": "Illusie91",
           "locator": "Theorem2.7 and its sign comparison with SGA7 IX9.1.2, printed p.41",
-          "match": "The cited passage supplies the statement and the construction/proof described here, subject to the recorded supplier contracts and gaps."
+          "match": "Illusie91 Theorem2.7 explicitly compares opposite pairing conventions. The packet correctly keeps uMinus=-uPlus and imports the positive integral valuation pairing from R11.4 instead of re-planning it."
         }
       ],
       "implementationStatus": "unchecked",
@@ -822,18 +823,19 @@
       ],
       "title": "Choice and base-change compatibility",
       "kind": "theorem",
-      "statement": "The curve comparison diagrams descend from strict henselization, are equivariant for residue Galois permutations of components and branches, and commute with coefficient extension. Reorientation acts by signed edge permutations. Replacing a Tate-generator coordinate by a unit rescales log T and the coordinate of tℓ together, leaving the twisted N canonical. Under a finite trait extension of ramification index e, after compatible tame/Tate identification N_new=e N_old. A regular semistable resolution subdivides each old edge into e edges; its summed edge pairing gives the same scaling, with exceptional rational components contributing no H¹.",
+      "statement": "The curve comparison diagrams descend from strict henselization, are equivariant for residue Galois permutations of components and branches, and commute with coefficient extension. Reorientation acts by signed edge permutations. Replacing a Tate-generator coordinate by a unit rescales log T and the coordinate of tℓ together, leaving the twisted N canonical. Under a finite trait extension of ramification index e, after compatible tame/Tate identification N_new=e N_old. For an old edge of thickness n_e, a regular semistable resolution replaces it by e*n_e unit-thickness edges (e edges when n_e=1); its summed edge pairing gives the same scaling, with exceptional rational components contributing no H¹.",
       "hypotheses": [
         "Use actual proper base-change maps and chosen trait embeddings; allow regular semistable resolutions only through the StableReduction subdivision supplier."
       ],
       "proofSteps": [
         "Use LPV.0 trait base change, LPV.1 tame character compatibility, and signed branch transports.",
         "Compare the normalization maps and variation factors before passing to graph quotients.",
-        "For ramified base change use the nodal chart uv=π^e and the supplied blowup/subdivision geometry."
+        "For an original nodal chart uv=π^n_e, ramified base change gives uv=(π_new)^(e*n_e) up to a unit; use the supplied regular resolution and e*n_e-edge subdivision geometry."
       ],
       "acceptance": [
         "Unramified base change preserves N; ramification e scales it.",
-        "An orientation change conjugates matrices, preserving the underlying map and pairing."
+        "An orientation change conjugates matrices, preserving the underlying map and pairing.",
+        "An edge of original thickness2 under ramification3 resolves into6 unit edges; the summed pairing scales the original thickness2 form by3."
       ],
       "prerequisites": [
         "LefschetzPencilsAndVanishingCycles:LPV.7:semistable-curves/curve-monodromy-factorization",
@@ -848,7 +850,7 @@
         {
           "sourceId": "Illusie91",
           "locator": "§0 thicknesses and §§1.7,2.1–2.7; compare Illusie21 §4.4",
-          "match": "The cited passage supplies the statement and the construction/proof described here, subject to the recorded supplier contracts and gaps."
+          "match": "Illusie91 defines thickness as valuation and its local variation is linear in that valuation. Ramification sends n_e to e*n_e. Corrected the requested regular resolution to e*n_e unit edges; e edges applies only when n_e=1. Reorientation and coefficient/Galois transport preserve the intrinsic twisted map."
         }
       ],
       "implementationStatus": "unchecked",
@@ -891,7 +893,7 @@
         {
           "sourceId": "Illusie91",
           "locator": "§§2.1–2.2, especially2.1.1 and2.1.3; Remarques2.8–2.9",
-          "match": "The cited passage supplies the statement and the construction/proof described here, subject to the recorded supplier contracts and gaps."
+          "match": "Illusie91 graph formulas imply the smooth, bridge and split two-edge-cycle calculations; the two-edge negative form gives -2. These are derived examples, not examples explicitly constructed in the source. Existence of an actual proper I2 model remains G-geometric-tests."
         }
       ],
       "implementationStatus": "unchecked",
@@ -932,8 +934,13 @@
       "sources": [
         {
           "sourceId": "Saito03",
-          "locator": "§1.1, Propositions1.1.1–1.1.2 and Corollary1.1.3; Illusie21 (2.5), reduced multiplicity-one case",
-          "match": "The cited passage supplies the statement and the construction/proof described here, subject to the recorded supplier contracts and gaps."
+          "locator": "§1.1, Propositions1.1.1–1.1.2 and Corollary1.1.3",
+          "match": "Saito03 1.1 computes the Kummer-residue exterior stalks in strict multiplicity-one charts and proves trivial inertia on their cohomology sheaves. Illusie21 (2.5) independently gives the exterior formula; split its locator into its own source entry. Relative trait purity remains an explicit EDC extension/gap."
+        },
+        {
+          "sourceId": "Illusie21",
+          "locator": "§2.2, formula(2.5), reduced multiplicity-one case; §6.3",
+          "match": "Illusie21 gives an exterior stalk calculation and, in6.3, trivial inertia in the semistable case. Its formula uses the kernel lattice C=ker(sum:Z^a→Z); it corroborates rank and vanishing, not a canonical integral identification of that kernel with the diagonal quotient. The canonical Kummer quotient and residue resolution asserted by this node follow Saito03 Proposition1.1.2 and Corollary1.1.3."
         }
       ],
       "implementationStatus": "unchecked",
@@ -977,8 +984,13 @@
       "sources": [
         {
           "sourceId": "Saito03",
-          "locator": "Lemma2.2.1, Corollary2.2.2, Proposition2.2.3 (author numbering); Illusie21 (6.3)–(6.4)",
-          "match": "The cited passage supplies the statement and the construction/proof described here, subject to the recorded supplier contracts and gaps."
+          "locator": "Lemma2.2.1, Corollary2.2.2, Proposition2.2.3 (author numbering)",
+          "match": "Saito03 Lemma2.2.1 through Proposition2.2.3 gives the shifted-perverse monodromy grading and the identity maps between shared stratum summands. Illusie21 (6.3)–(6.4) confirms the shifts/twists; split its citation from Saito. LPV.1 owns the general filtration."
+        },
+        {
+          "sourceId": "Illusie21",
+          "locator": "§6.3, formulas(6.3)–(6.4)",
+          "match": "Saito03 Lemma2.2.1 through Proposition2.2.3 gives the shifted-perverse monodromy grading and the identity maps between shared stratum summands. Illusie21 (6.3)–(6.4) confirms the shifts/twists; split its citation from Saito. LPV.1 owns the general filtration."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1004,7 +1016,7 @@
       "proofSteps": [
         "Apply Mathlib’s spectral-object spectral-sequence machinery to the finite filtration in sg; request the étale hypercohomology bridge rather than redefine spectral sequences.",
         "Compute E₁ by sg and proper pushforward from strata.",
-        "Prove convergence from bounded filtration and proper base change, identifying its actual abutment and filtration maps."
+        "Prove convergence from bounded filtration and proper base change, identifying its actual abutment and filtration maps. Use the finite column bound [-d,d] to identify page 2*d+2 with the graded abutment without any E2-degeneration assumption."
       ],
       "acceptance": [
         "A smooth model has only p=0 terms.",
@@ -1028,7 +1040,7 @@
         {
           "sourceId": "Saito03",
           "locator": "Corollary2.2.4 and proof (author numbering; published Corollary2.8)",
-          "match": "The cited passage supplies the statement and the construction/proof described here, subject to the recorded supplier contracts and gaps."
+          "match": "Saito03 Corollary2.2.4 constructs the E1 page and distinguishes proper generic-fibre cohomology from nearby hypercohomology. LTXZZ22 5.9 actually uses its nonproper form. Corrected the suggested convergence page to 2*d+2 under the column bound [-d,d], with no assumed E2 degeneration."
         },
         {
           "sourceId": "LTXZZ22",
@@ -1059,7 +1071,7 @@
         {
           "name": "TauCeti.LPV7.weightSpectralSequence_abutment",
           "role": "characterisation",
-          "statement": "For proper X the finite filtration converges to generic-fibre cohomology with the induced filtration M′; retain the filtered comparison maps."
+          "statement": "For proper X the finite filtration converges to generic-fibre cohomology with induced filtration M′ and actual comparison maps. Relative dimension d bounds columns by [-d,d], so page 2*d+2 is stabilized and identifies with the graded abutment. Earlier stabilization requires a separate degeneration proof."
         },
         {
           "name": "TauCeti.LPV7.weightSpectralSequence_reindex",
@@ -1081,7 +1093,7 @@
         {
           "name": "TauCeti.LPV7.weight_ss_nonproper_test",
           "kind": "non-example",
-          "statement": "For the local model uv=π the construction abuts to H*(Ȳ,RΨ), and the signature contains no unsupported proper-base-change isomorphism to generic H*."
+          "statement": "For the local model uv=π the construction abuts to H*(Ȳ,RΨ), and the signature contains no unsupported proper-base-change isomorphism to generic H*. With relative-dimension column bound [-d,d], use the stabilized page 2*d+2."
         }
       ],
       "uses": [
@@ -1126,7 +1138,7 @@
         {
           "sourceId": "Saito03",
           "locator": "Lemma2.2.5 and Proposition2.2.6, author pp.21–26, including final sign comparison",
-          "match": "The cited passage supplies the statement and the construction/proof described here, subject to the recorded supplier contracts and gaps."
+          "match": "Saito03 Lemma2.2.5 and Proposition2.2.6 give alternating restriction plus Gysin, square-zero identities and the signed comparison with Rapoport–Zink. Keep the source convention rather than identifying matrices without conjugation."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1167,13 +1179,18 @@
       "sources": [
         {
           "sourceId": "Saito03",
-          "locator": "Corollary2.2.4(2), author pp.19–20; Illusie21 §§6.3–6.4",
-          "match": "The cited passage supplies the statement and the construction/proof described here, subject to the recorded supplier contracts and gaps."
+          "locator": "Corollary2.2.4(2), author pp.19–20",
+          "match": "Saito03 Corollary2.2.4(2) gives the page monodromy map and Illusie21 6.3–6.4 distinguishes degeneration from monodromy-filtration equality. Curves have no possible higher differentials by their page support; the negative residue coordinates are retained. Split the Illusie citation into its own entry."
         },
         {
           "sourceId": "LTXZZ22",
           "locator": "§5.9, monodromy-filtration discussion preceding Lemma5.9.3, printed p.233",
           "match": "This consumer tracks the filtration on nearby cohomology and its induced Galois-cohomology filtration; its localized degeneration and concentration arguments are not asserted as geometric generalities here."
+        },
+        {
+          "sourceId": "Illusie21",
+          "locator": "§§6.3–6.4, monodromy action and degeneration versus weight-monodromy",
+          "match": "Saito03 Corollary2.2.4(2) gives the page monodromy map and Illusie21 6.3–6.4 distinguishes degeneration from monodromy-filtration equality. Curves have no possible higher differentials by their page support; the negative residue coordinates are retained. Split the Illusie citation into its own entry."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1218,7 +1235,7 @@
         {
           "sourceId": "WeilII",
           "locator": "Introduction to §3.6, printed p.212; specialization in6.2.9",
-          "match": "The cited passage supplies the statement and the construction/proof described here, subject to the recorded supplier contracts and gaps."
+          "match": "WeilII 3.6 and 6.2.9 construct specialization into actual inertia invariants. The corestriction API and tests distinguish fixed image from surjectivity, which is reserved for later source-qualified theorems."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1308,7 +1325,7 @@
         {
           "sourceId": "WeilII",
           "locator": "Proof3.6.1, printed p.213, referring to1.11.3; read1.11.1–1.11.3",
-          "match": "The cited passage supplies the statement and the construction/proof described here, subject to the recorded supplier contracts and gaps."
+          "match": "WeilII proof3.6.1 invokes the tame-cover spreading result1.11.3 to preserve the inertia image after arithmetic descent. The packet requests the full representation-image statement, not just unchanged cohomology dimensions."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1326,9 +1343,9 @@
       ],
       "title": "Continuous Wang sequence over the trait",
       "kind": "theorem",
-      "statement": "In the strict henselian equicharacteristic setting of spread, continuous ℓ-adic Hochschild–Serre gives 0→H^{i−1}(Xη̄,ℚℓ)_I(−1)→H^i(Xη,ℚℓ)→H^i(Xη̄,ℚℓ)^I→0. Its finite-level derivation uses 1→I′→I→ℤℓ(1)→1, exact averaging for the pro-prime-to-ℓ kernel, and putting W=V^{I′}≅V_{I′}, H⁰(ℤℓ(1),W)=V^I, H¹(ℤℓ(1),W)=V_I(−1), H^j=0 for j≥2. Prove the inverse-limit/rationalization comparisons under the source’s finite constructibility hypotheses; Mathlib’s discrete group cohomology is not by itself this continuous theorem.",
+      "statement": "For f:X→S proper in the strict henselian equicharacteristic trait setting and K∈Dᵇ_c(X,ℚℓ) (or finite rational ℓ-adic coefficient extension), continuous Hochschild–Serre gives 0→H^{i−1}(Xη̄,K)_I(−1)→H^i(Xη,K)→H^i(Xη̄,K)^I→0. This is the row used for constant coefficients in3.6.1 and for general K in6.2.9; no total-space or generic-fibre smoothness is needed for this row. Its finite-level derivation uses 1→I′→I→ℤℓ(1)→1, exact averaging for the pro-prime-to-ℓ kernel, and putting W=V^{I′}≅V_{I′}, H⁰(ℤℓ(1),W)=V^I, H¹(ℤℓ(1),W)=V_I(−1), H^j=0 for j≥2. Prove the inverse-limit/rationalization comparisons under the source’s finite constructibility hypotheses; Mathlib’s discrete group cohomology is not by itself this continuous theorem.",
       "hypotheses": [
-        "ℓ-adic continuous representations arising from proper geometric cohomology; finite-level ℓ-power torsion systems."
+        "Bounded constructible rational ℓ-adic K, continuous finite-dimensional geometric hypercohomology, and compatible finite-level ℓ-power torsion systems over the strict henselian trait."
       ],
       "proofSteps": [
         "Import R02.2 continuous Hochschild–Serre and R02.1 inverse-limit exactness.",
@@ -1343,13 +1360,14 @@
         "ArithmeticGaloisDuality:R02.1",
         "ArithmeticGaloisDuality:R02.2",
         "LefschetzPencilsAndVanishingCycles:LPV.0/henselian-trait-conventions-and-galois-sheaves",
-        "LefschetzPencilsAndVanishingCycles:LPV.0"
+        "LefschetzPencilsAndVanishingCycles:LPV.0",
+        "EtaleDualityAndPerverseSheaves:EDC.0"
       ],
       "sources": [
         {
           "sourceId": "WeilII",
-          "locator": "Proof3.6.1, equations(1)–(5), printed p.213",
-          "match": "The cited passage supplies the statement and the construction/proof described here, subject to the recorded supplier contracts and gaps."
+          "locator": "Proof3.6.1, equations(1)–(5), printed p.213; proof6.2.9, generalized Wang row, printed p.249",
+          "match": "WeilII proof3.6.1 gives the continuous Wang row, and proof6.2.9 uses the same row for bounded constructible K. Expanded the node to this coefficient generality without total-space smoothness and added EDC.0. R02.1/2 must supply inverse-limit exactness and continuous Hochschild–Serre; discrete group cohomology is insufficient."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1390,7 +1408,7 @@
         {
           "sourceId": "WeilII",
           "locator": "Proof3.6.1, equations(6)–(8), printed p.214",
-          "match": "The cited passage supplies the statement and the construction/proof described here, subject to the recorded supplier contracts and gaps."
+          "match": "WeilII proof3.6.1 (6)–(8) gives the localization/Wang cross, proper base change and dual support group with dimension d and twist -d. The smooth-total-space hypothesis belongs to this constant-coefficient duality calculation."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1431,7 +1449,7 @@
         {
           "sourceId": "WeilII",
           "locator": "Lemmas3.6.2–3.6.3 and final exact W_i diagram, printed p.214",
-          "match": "The cited passage supplies the statement and the construction/proof described here, subject to the recorded supplier contracts and gaps."
+          "match": "WeilII Lemmas3.6.2–3.6.3 give invariant weights at most i and support weights at least i+1; exact W_i lifts classes through the cross. The requested DWP inputs precede hard Lefschetz and do not create a circular proof."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1472,7 +1490,7 @@
         {
           "sourceId": "WeilII",
           "locator": "Theorem3.6.1 and proof, printed pp.213–214",
-          "match": "The cited passage supplies the statement and the construction/proof described here, subject to the recorded supplier contracts and gaps."
+          "match": "WeilII Theorem3.6.1 proves the stated algebraizable equicharacteristic rational theorem. The packet retains essentially smooth total space and smooth generic fibre and does not promote it to arbitrary traits or integral coefficients."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1580,22 +1598,32 @@
         {
           "name": "TauCeti.LPV7.GeometricGenericPureModel.base",
           "role": "projection",
-          "statement": "Expose A₀ and its geometric generic point, together with the arithmetic structure map."
+          "statement": "Return the arithmetic base scheme A₀. The point, genericity proof and arithmetic structure map are separate structure projections."
         },
         {
           "name": "TauCeti.LPV7.GeometricGenericPureModel.family",
           "role": "projection",
-          "statement": "Expose the proper X₀→A₀ and pure model complex K₀ with weight w."
+          "statement": "Return the model scheme X₀; familyMap, proper, K0 and weight are separate projections."
         },
         {
           "name": "TauCeti.LPV7.GeometricGenericPureModel.realization",
           "role": "data",
-          "statement": "Expose the proper-family base-change square, geometric-fibre isomorphism and constructible-complex pullback isomorphism."
+          "statement": "Return the supplied complex pullback isomorphism pullback(K₀)≅K. The family base-change square is a separate structure projection; the geometric étale interpretation remains in G-suggested-premises."
         },
         {
           "name": "TauCeti.LPV7.GeometricGenericPureModel.transport",
           "role": "compatibility",
           "statement": "Transport a witness along compatible isomorphisms of the projective k-scheme and complex, preserving its arithmetic model and weight."
+        },
+        {
+          "name": "TauCeti.LPV7.GeometricGenericPureModel.mk",
+          "role": "constructor",
+          "statement": "Construct the witness from all its arithmetic scheme maps, actual generic-point/proper predicates, Cartesian family square and complex realization data. The suggested form omits arithmetic purity until the owner interfaces exist."
+        },
+        {
+          "name": "TauCeti.LPV7.GeometricGenericPureModel.ext",
+          "role": "extensionality",
+          "statement": "Two witnesses are equal when all their scheme, map, complex, weight, functor and realization data are equal (heterogeneous equality where needed). Proof fields are proof-irrelevant; model schemes and complex isomorphisms are data and are retained."
         }
       ],
       "tests": [
@@ -1667,7 +1695,7 @@
         {
           "sourceId": "WeilII",
           "locator": "Definition6.2.8(a)–(d), printed p.248",
-          "match": "The cited passage supplies the statement and the construction/proof described here, subject to the recorded supplier contracts and gaps."
+          "match": "WeilII 6.2.8(a)–(d) defines the curve-with-section, proper-family and pure-complex witness. The suggested structure uses real scheme predicates and pullback maps but omits the henselization/purity interface openly. Corrected the projection descriptions and added constructor/extensionality APIs without collapsing the witness to a proposition."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1683,17 +1711,17 @@
         {
           "name": "TauCeti.LPV7.PotentiallyPureModel.base",
           "role": "projection",
-          "statement": "Project the arithmetic base A₀ and the geometric generic-point map."
+          "statement": "Return the arithmetic base scheme A₀. The point, genericity proof and arithmetic structure map are separate structure projections."
         },
         {
           "name": "TauCeti.LPV7.PotentiallyPureModel.family",
           "role": "projection",
-          "statement": "Project the smooth relative curve with section, the proper X₀→S₀ and the pure model complex K₀."
+          "statement": "Return the pair (S₀,X₀); curve, curveSection, familyMap, proper, K0 and weight are separate projections."
         },
         {
           "name": "TauCeti.LPV7.PotentiallyPureModel.realization",
           "role": "data",
-          "statement": "Expose the henselized base-change and complex pullback isomorphisms with their commuting diagrams."
+          "statement": "Return the supplied complex pullback isomorphism pullback(K₀)≅K. The family base-change square is a separate structure projection; the geometric étale interpretation and henselization identification remains in G-suggested-premises."
         },
         {
           "name": "TauCeti.LPV7.PotentiallyPureModel.shrink",
@@ -1704,6 +1732,16 @@
           "name": "TauCeti.LPV7.PotentiallyPureModel.transport",
           "role": "compatibility",
           "statement": "Transport a witness along compatible isomorphisms of the trait family and complex; proof-irrelevance applies to properties, not to the model schemes."
+        },
+        {
+          "name": "TauCeti.LPV7.PotentiallyPureModel.mk",
+          "role": "constructor",
+          "statement": "Construct the witness from all its arithmetic scheme maps, actual generic-point/proper/smooth/section predicates, Cartesian family square and complex realization data. The suggested form omits arithmetic purity and the henselization identification until the owner interfaces exist."
+        },
+        {
+          "name": "TauCeti.LPV7.PotentiallyPureModel.ext",
+          "role": "extensionality",
+          "statement": "Two witnesses are equal when all their scheme, map, complex, weight, functor and realization data are equal (heterogeneous equality where needed). Proof fields are proof-irrelevant; model schemes and complex isomorphisms are data and are retained."
         }
       ],
       "tests": [
@@ -1768,7 +1806,7 @@
         {
           "sourceId": "WeilII",
           "locator": "Proof6.2.12, printed p.250; generic duality comparison in proof6.2.11",
-          "match": "The cited passage supplies the statement and the construction/proof described here, subject to the recorded supplier contracts and gaps."
+          "match": "WeilII proof6.2.12 applies arithmetic purity only to the sufficiently general incidence pullback. The smooth/noncharacteristic duality exchange and canceled shifts require LPV.3 and EDC; arbitrary pullback purity is not asserted."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1814,7 +1852,7 @@
         {
           "sourceId": "WeilII",
           "locator": "Theorem6.2.9 and its duality cross, printed pp.248–249",
-          "match": "The cited passage supplies the statement and the construction/proof described here, subject to the recorded supplier contracts and gaps."
+          "match": "WeilII 6.2.9 proves local invariant cycles for a potentially pure bounded complex with no added smoothness assumption. Its support dual is H^(-i-1)(Xs,DK)^dual. The corrected Wang node now supplies the coefficient generality actually consumed here."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1858,7 +1896,7 @@
         {
           "sourceId": "WeilII",
           "locator": "Proposition6.2.11 and proof, printed pp.249–250; compare4.1.6",
-          "match": "The cited passage supplies the statement and the construction/proof described here, subject to the recorded supplier contracts and gaps."
+          "match": "WeilII 6.2.11 proof and4.1.6 give affine support vanishing after Verdier duality. Reindexing q=j-2n-2 gives the unshifted bound -n-1-q; the shift and vanishing endpoint i<=n agree with the source."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1898,7 +1936,7 @@
         {
           "sourceId": "WeilII",
           "locator": "Proposition6.2.11(i) and first two paragraphs of its proof, printed pp.249–250",
-          "match": "The cited passage supplies the statement and the construction/proof described here, subject to the recorded supplier contracts and gaps."
+          "match": "WeilII 6.2.11(i) gives isomorphism below n and injection at n for every hyperplane, including singular ones. Only the inherited duality bound for a sufficiently general hyperplane uses generic local acyclicity and the (-1)[-2] exchange."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1943,7 +1981,7 @@
         {
           "sourceId": "WeilII",
           "locator": "Proposition4.3.6 and §§4.3.7–4.3.8, printed pp.224–226; proof6.2.11",
-          "match": "The cited passage supplies the statement and the construction/proof described here, subject to the recorded supplier contracts and gaps."
+          "match": "WeilII 4.3.6–4.3.8 and proof6.2.11 give the relative obstruction and finite-support argument on P1. The packet requests the constructible-complex cone/axis extension from LPV.4 and local inertia/torsor input from LPV.5, not the later orthogonal decomposition4.3.9."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1983,7 +2021,7 @@
         {
           "sourceId": "WeilII",
           "locator": "Proposition6.2.11(ii) and proof;4.3.7–4.3.8",
-          "match": "The cited passage supplies the statement and the construction/proof described here, subject to the recorded supplier contracts and gaps."
+          "match": "WeilII 6.2.11(ii), via4.3.7–4.3.8, identifies the two images for a sufficiently general pencil. It requires neither wholesale Leray degeneration nor hard Lefschetz."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2023,7 +2061,7 @@
         {
           "sourceId": "WeilII",
           "locator": "§6.2.10, formulas6.2.10.1–6.2.10.2, printed p.249",
-          "match": "The cited passage supplies the statement and the construction/proof described here, subject to the recorded supplier contracts and gaps."
+          "match": "WeilII 6.2.10.1–6.2.10.2 identifies general-line and full incidence monodromy images. The request correctly extends LPV.3/5 beyond constant-coefficient transvection formulas to the actual constructible K."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2068,7 +2106,7 @@
         {
           "sourceId": "WeilII",
           "locator": "Corollary6.2.12 and proof, printed p.250",
-          "match": "The cited passage supplies the statement and the construction/proof described here, subject to the recorded supplier contracts and gaps."
+          "match": "WeilII Corollary6.2.12 combines weak-Lefschetz injection, the potential-purity pullback, local6.2.9, image equality and general-line monodromy. All inputs are earlier/imported; DWP.9 is a consumer and never a prerequisite."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2110,7 +2148,7 @@
         {
           "sourceId": "Illusie21",
           "locator": "§§4.4,6.3–6.4 (separate curve calculation and weight-monodromy question); scope fixed by reviewed RS-17",
-          "match": "The cited passage supplies the statement and the construction/proof described here, subject to the recorded supplier contracts and gaps."
+          "match": "Illusie21 motivates separating the curve calculation from the general weight-monodromy question, but the navigation/export ownership is an atlas decision fixed by accepted RS-17. Clarified that citation match. The aggregate adds no mathematical construction and does not re-own Hyodo–Kato N."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2133,7 +2171,7 @@
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces",
-      "need": "For a ramified nodal chart uv=π^e, supply the regular semistable resolution, its exceptional rational chain, and the graph subdivision comparison replacing one thick edge by e unit-thickness edges. Include proper pullback on cohomology and invariance of the normalization component H¹ under the rational subdivision.",
+      "need": "For an original nodal chart uv=π^n and ramification index e, supply the regular semistable resolution of the resulting thickness e*n chart, its exceptional rational chain, and the graph subdivision replacing the thick edge by e*n unit-thickness edges. Include proper pullback on cohomology, preservation of graph H1, scaling of the weighted edge pairing by e, and invariance of component H1 under the rational subdivision. The e-edge formula is only the n=1 case.",
       "neededBy": [
         "LefschetzPencilsAndVanishingCycles:LPV.7:semistable-curves/curve-choice-basechange-compatibility"
       ]
@@ -2173,7 +2211,8 @@
         "LefschetzPencilsAndVanishingCycles:LPV.7:invariant-cycles/dual-support-affine-vanishing",
         "LefschetzPencilsAndVanishingCycles:LPV.7:invariant-cycles/support-bound-weak-lefschetz",
         "LefschetzPencilsAndVanishingCycles:LPV.7:invariant-cycles/pencil-relative-obstruction",
-        "LefschetzPencilsAndVanishingCycles:LPV.7:invariant-cycles/general-pencil-monodromy"
+        "LefschetzPencilsAndVanishingCycles:LPV.7:invariant-cycles/general-pencil-monodromy",
+        "LefschetzPencilsAndVanishingCycles:LPV.7:invariant-cycles/continuous-wang-sequence"
       ]
     },
     {
@@ -2199,7 +2238,8 @@
       "need": "Supply the perfect trace pairing for smooth proper component curves, H²(C,Λ)=Λ(−1), sum of component trace maps to connected generic H², and the compatibility of residue/cospecialization maps with cup products. Preserve the integral branch duality and distinguish H₁ from H¹.",
       "neededBy": [
         "LefschetzPencilsAndVanishingCycles:LPV.7:semistable-curves/curve-specialization-sequence",
-        "LefschetzPencilsAndVanishingCycles:LPV.7:semistable-curves/curve-normalization-cohomology"
+        "LefschetzPencilsAndVanishingCycles:LPV.7:semistable-curves/curve-normalization-cohomology",
+        "LefschetzPencilsAndVanishingCycles:LPV.7:semistable-curves/nodal-nearby-cycle-sheaves"
       ]
     },
     {
@@ -2376,7 +2416,7 @@
         "LefschetzPencilsAndVanishingCycles:LPV.7:semistable-curves/snc-weight-spectral-sequence",
         "LefschetzPencilsAndVanishingCycles:LPV.7:semistable-curves/snc-monodromy-and-curve-comparison"
       ],
-      "detail": "Mathlib at the pin has spectral sequences and spectral objects. Its general machinery has not been connected to the constructible étale nearby category: construct the bounded filtered hypercohomology spectral object, page-one comparison, convergence maps and abutment filtration. The suggested file checks the existing carriers and linear/page shapes, with geometric premises explicitly omitted; it is not a formal geometric spectral sequence."
+      "detail": "Mathlib at the pin has spectral sequences and spectral objects. Its general machinery has not been connected to the constructible étale nearby category: construct the bounded filtered hypercohomology spectral object, page-one comparison, convergence maps and abutment filtration. The suggested file checks the existing carriers and linear/page shapes, with geometric premises explicitly omitted; it is not a formal geometric spectral sequence. Certify the column bound [-d,d] and the stabilized page 2*d+2 maps; d+2 is not a general convergence bound."
     },
     {
       "id": "G-complex-pencil",
@@ -2441,7 +2481,50 @@
       "detail": "The pinned libraries do not expose the full constructible étale category, geometric nearby/purity realization, generic incidence contracts or arithmetic potential-purity predicate. The suggested signatures use existing Scheme, DerivedCategory, ModuleCat, Representation, linear maps and spectral-sequence carriers, and mark exactly which geometric premises or realizations are omitted. Complete these supplier interfaces and strengthen the signatures before treating them as the mathematical theorems. All nodes remain implementationStatus unchecked."
     }
   ],
-  "sourceIssues": [],
+  "sourceIssues": [
+    {
+      "id": "LefschetzPencilsAndVanishingCycles/E13",
+      "source": "Saito03",
+      "kind": "misprint",
+      "locator": "Lemma1.1.6, proof of part1, author manuscript p.11 (9 June 2003 author copy; no claim about the unread version of record)",
+      "printed": "The source cites Proposition numbered 1.1.1.2.",
+      "correction": "Proposition1.1.1(1), in this author manuscript.",
+      "reason": "The proof needs triviality of the prime-to-ℓ inertia action on nearby cohomology. Proposition1.1.1(1) states that triviality; (2) is the relative purity isomorphism and does not state it.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Author publication list https://www.ms.u-tokyo.ac.jp/~t-saito/publ.html (checked 2026-10-06; no correction linked for this paper; its other correction/errata links concern other works).",
+        "Cambridge journal article page https://doi.org/10.1017/S1474748003000173 (checked 2026-10-06; public metadata/abstract, no correction located; version-of-record full text not served).",
+        "Web search for Saito Weight spectral sequences and independence of l erratum/corrigendum (2026-10-06); no correction of these manuscript cross-references located."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked the manuscript page image and the two numbered statements; The proof needs triviality of the prime-to-ℓ inertia action on nearby cohomology. Proposition1.1.1(1) states that triviality; (2) is the relative purity isomorphism and does not state it.",
+        "by": "REV-LefschetzPencilsAndVanishingCycles--LPV.7"
+      }
+    },
+    {
+      "id": "LefschetzPencilsAndVanishingCycles/E14",
+      "source": "Saito03",
+      "kind": "misprint",
+      "locator": "Lemma2.2.1, proof of parts1–3, author manuscript p.19 (9 June 2003 author copy; no claim about the unread version of record)",
+      "printed": "The source cites Proposition numbered 1.1.2.2.",
+      "correction": "Proposition1.1.2(1), in this author manuscript.",
+      "reason": "The displayed isomorphism from the stratum pushforward to the restricted higher direct image is Proposition1.1.2(1). Part(2) is the residue exact sequence, not this isomorphism.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Author publication list https://www.ms.u-tokyo.ac.jp/~t-saito/publ.html (checked 2026-10-06; no correction linked for this paper; its other correction/errata links concern other works).",
+        "Cambridge journal article page https://doi.org/10.1017/S1474748003000173 (checked 2026-10-06; public metadata/abstract, no correction located; version-of-record full text not served).",
+        "Web search for Saito Weight spectral sequences and independence of l erratum/corrigendum (2026-10-06); no correction of these manuscript cross-references located."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked the manuscript page image and the two numbered statements; The displayed isomorphism from the stratum pushforward to the restricted higher direct image is Proposition1.1.2(1). Part(2) is the residue exact sequence, not this isomorphism.",
+        "by": "REV-LefschetzPencilsAndVanishingCycles--LPV.7"
+      }
+    }
+  ],
   "sourceVersions": [
     {
       "sourceId": "WeilII",
@@ -2449,7 +2532,8 @@
       "url": "https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf",
       "citation": "Publications Mathématiques de l’IHÉS 52 (1980), 137–252; published scan",
       "read": "2026-10-06",
-      "sha256": "b06eea61bf9cb2b596c162f5befcf85d1be69828910a6107c8aa3a99c4afcc71"
+      "sha256": "b06eea61bf9cb2b596c162f5befcf85d1be69828910a6107c8aa3a99c4afcc71",
+      "independentRead": "All node-cited sections and excerpts independently checked on2026-10-06; SHA-256 independently reproduced."
     },
     {
       "sourceId": "Illusie91",
@@ -2457,7 +2541,8 @@
       "url": "https://www.numdam.org/item/AST_1991__196-197__1_0.pdf",
       "citation": "Astérisque 196–197 (1991), 27–44; article in the published collection",
       "read": "2026-10-06",
-      "sha256": "2a9aa0b0a046cb37e4d6b6ccc06dfaa00f10d90223ac9d2cb94918d069295119"
+      "sha256": "2a9aa0b0a046cb37e4d6b6ccc06dfaa00f10d90223ac9d2cb94918d069295119",
+      "independentRead": "All node-cited sections and excerpts independently checked on2026-10-06; SHA-256 independently reproduced."
     },
     {
       "sourceId": "Illusie21",
@@ -2465,7 +2550,8 @@
       "url": "https://www.numdam.org/item/AFST_2021_6_30_1_83_0.pdf",
       "citation": "Annales de la Faculté des Sciences de Toulouse 30 (2021), 83–115; published version",
       "read": "2026-10-06",
-      "sha256": "e5669fedbc97b874fc7b2ec2230ad8722ff69c0e77dc9aee8bca5f0aaa19d219"
+      "sha256": "e5669fedbc97b874fc7b2ec2230ad8722ff69c0e77dc9aee8bca5f0aaa19d219",
+      "independentRead": "All node-cited sections and excerpts independently checked on2026-10-06; SHA-256 independently reproduced."
     },
     {
       "sourceId": "Saito03",
@@ -2473,7 +2559,8 @@
       "url": "https://www.ms.u-tokyo.ac.jp/~t-saito/pp/wmr2r.pdf",
       "citation": "Author manuscript dated 9 June 2003; published in J. Inst. Math. Jussieu 2 (2003), 583–634; manuscript numbering retained",
       "read": "2026-10-06",
-      "sha256": "a4d564c3e632458e7856ac0133430412e40abc9d26a8cdc39e88747473aa3109"
+      "sha256": "a4d564c3e632458e7856ac0133430412e40abc9d26a8cdc39e88747473aa3109",
+      "independentRead": "All node-cited sections and excerpts independently checked on2026-10-06; SHA-256 independently reproduced. The full published version was not served by the public journal page; E13/E14 concern author-copy proof references only, not a published theorem."
     },
     {
       "sourceId": "LTXZZ22",
@@ -2481,7 +2568,8 @@
       "url": "https://par.nsf.gov/servlets/purl/10323568",
       "citation": "Inventiones mathematicae 228 (2022), 107–375; published article served by NSF PAR",
       "read": "2026-10-06",
-      "sha256": "dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97"
+      "sha256": "dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97",
+      "independentRead": "All node-cited sections and excerpts independently checked on2026-10-06; SHA-256 independently reproduced."
     }
   ],
   "upstreamNotes": [
@@ -2504,5 +2592,193 @@
         "LefschetzPencilsAndVanishingCycles:LPV.7:invariant-cycles/complex-local-invariant-cycles"
       ]
     }
-  ]
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-LefschetzPencilsAndVanishingCycles--LPV.7",
+    "date": "2026-10-06",
+    "notes": "Independent source and pinned-baseline review of all36 nodes, all29 baseline declarations and all23 supplier requests. Corrected thickness-sensitive subdivision, convergence-page bound, constructible-complex Wang scope and direct prerequisites, model/kernel API contracts and source attribution. Added constructor/extensionality prototypes and confirmed two author-copy cross-reference misprints. All three stages remain planned; six explicit implementation/proof/interface gaps remain open and no node is formalised. See the independent report for checks and reader synchronization outside the permitted deliverables.",
+    "checked": [
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.7:semistable-curves/normalization-differential",
+        "verdict": "corrected",
+        "note": "Illusie91 2.1.2 and 2.3.5 give tail-minus-head after choosing branch order. Loops and parallel edges must survive the imported multigraph. The API now states the actual kernel and quotient-map properties prototyped in Lean; identifying two-term cohomology still uses the geometric realization."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.7:semistable-curves/normalization-etale-resolution",
+        "verdict": "verified",
+        "note": "Illusie91 2.3.1–2.3.5 and Lemma2.4 supply the constant étale normalization sequence with branch quotient, not the coherent conductor sequence. The stalk proof and signed differential agree."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.7:semistable-curves/nodal-nearby-cycle-sheaves",
+        "verdict": "corrected",
+        "note": "Illusie91 1.2–1.5 gives the node-supported degree-one sheaf, its trace-dual branch kernel and trivial sheaf-level inertia. Added EDC.2:pairings directly for the residue/trace identification; LPV.2 supplies the local quadratic computation and LPV.0 the triangle."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.7:semistable-curves/node-residue-variation-sign",
+        "verdict": "verified",
+        "note": "Illusie91 Lemma1.5.4, 1.7.4 and Lemma2.4 fix the minus sign and valuation factor. The two localization connecting maps are opposite; the packet keeps this convention instead of identifying the two maps."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.7:semistable-curves/curve-specialization-sequence",
+        "verdict": "verified",
+        "note": "Illusie91 1.2.2 and 2.2.2 give the proper specialization exact sequence. The boundary is oriented incidence, and the rational H2 trace/sum yields the graph-cycle quotient."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.7:semistable-curves/curve-normalization-cohomology",
+        "verdict": "verified",
+        "note": "Illusie91 2.3.1–2.3.5 and 2.6.1–2.6.5 give the normalization H1 extension and dual graph lattices. Characters are H1 of the graph, while the toric cohomology is H^1; R11.4 owns the integral lattice objects."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.7:semistable-curves/curve-monodromy-factorization",
+        "verdict": "verified",
+        "note": "Illusie91 2.2.3 and 2.6.5 factor N through the negative thickness-weighted form on the graph quotient. Positivity/nondegeneracy is used over rational coefficients, yielding N2=0 and rank equal to the graph Betti number, without claiming a torsion-level isomorphism."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.7:semistable-curves/curve-inertia-invariants",
+        "verdict": "verified",
+        "note": "Illusie91 2.2.3, 2.6.5 and 2.8 show ker N equals the specialized H1 and the inertia invariants in the rational unipotent setting. LPV.1 supplies the tame character; fixed cohomology sheaves alone would not prove this."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.7:semistable-curves/curve-monodromy-filtration",
+        "verdict": "verified",
+        "note": "Illusie91 Remarque2.9 gives the filtration centered at1. The graph cohomology, component H1 and twisted graph homology are its graded pieces; no Frobenius purity over an arbitrary residue field is asserted."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.7:semistable-curves/jacobian-tate-realization",
+        "verdict": "verified",
+        "note": "Illusie91 2.3–2.6 supplies the Picard/Tate specialization diagram. The principal polarization/Kummer realization accounts for H1(1), and the torus character lattice remains graph H1, as in accepted R11.4."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.7:semistable-curves/curve-jacobian-pairing",
+        "verdict": "verified",
+        "note": "Illusie91 Theorem2.7 explicitly compares opposite pairing conventions. The packet correctly keeps uMinus=-uPlus and imports the positive integral valuation pairing from R11.4 instead of re-planning it."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.7:semistable-curves/curve-choice-basechange-compatibility",
+        "verdict": "corrected",
+        "note": "Illusie91 defines thickness as valuation and its local variation is linear in that valuation. Ramification sends n_e to e*n_e. Corrected the requested regular resolution to e*n_e unit edges; e edges applies only when n_e=1. Reorientation and coefficient/Galois transport preserve the intrinsic twisted map."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.7:semistable-curves/smooth-and-split-cycle-examples",
+        "verdict": "verified",
+        "note": "Illusie91 graph formulas imply the smooth, bridge and split two-edge-cycle calculations; the two-edge negative form gives -2. These are derived examples, not examples explicitly constructed in the source. Existence of an actual proper I2 model remains G-geometric-tests."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.7:semistable-curves/snc-nearby-cycle-description",
+        "verdict": "corrected",
+        "note": "Saito03 1.1 computes the Kummer-residue exterior stalks in strict multiplicity-one charts and proves trivial inertia on their cohomology sheaves. Illusie21 (2.5) independently gives the exterior formula; split its locator into its own source entry. Relative trait purity remains an explicit EDC extension/gap. Illusie21 uses a kernel-lattice presentation; only rank/vanishing and semistable inertia are corroborated by that citation. The canonical diagonal quotient follows Saito, without identifying the two integral branch lattices."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.7:semistable-curves/snc-graded-nearby-complex",
+        "verdict": "corrected",
+        "note": "Saito03 Lemma2.2.1 through Proposition2.2.3 gives the shifted-perverse monodromy grading and the identity maps between shared stratum summands. Illusie21 (6.3)–(6.4) confirms the shifts/twists; split its citation from Saito. LPV.1 owns the general filtration."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.7:semistable-curves/snc-weight-spectral-sequence",
+        "verdict": "corrected",
+        "note": "Saito03 Corollary2.2.4 constructs the E1 page and distinguishes proper generic-fibre cohomology from nearby hypercohomology. LTXZZ22 5.9 actually uses its nonproper form. Corrected the suggested convergence page to 2*d+2 under the column bound [-d,d], with no assumed E2 degeneration."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.7:semistable-curves/snc-restriction-gysin-differential",
+        "verdict": "verified",
+        "note": "Saito03 Lemma2.2.5 and Proposition2.2.6 give alternating restriction plus Gysin, square-zero identities and the signed comparison with Rapoport–Zink. Keep the source convention rather than identifying matrices without conjugation."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.7:semistable-curves/snc-monodromy-and-curve-comparison",
+        "verdict": "corrected",
+        "note": "Saito03 Corollary2.2.4(2) gives the page monodromy map and Illusie21 6.3–6.4 distinguishes degeneration from monodromy-filtration equality. Curves have no possible higher differentials by their page support; the negative residue coordinates are retained. Split the Illusie citation into its own entry."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.7:invariant-cycles/invariant-specialization",
+        "verdict": "verified",
+        "note": "WeilII 3.6 and 6.2.9 construct specialization into actual inertia invariants. The corestriction API and tests distinguish fixed image from surjectivity, which is reserved for later source-qualified theorems."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.7:invariant-cycles/arithmetic-spreading",
+        "verdict": "verified",
+        "note": "WeilII proof3.6.1 invokes the tame-cover spreading result1.11.3 to preserve the inertia image after arithmetic descent. The packet requests the full representation-image statement, not just unchanged cohomology dimensions."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.7:invariant-cycles/continuous-wang-sequence",
+        "verdict": "corrected",
+        "note": "WeilII proof3.6.1 gives the continuous Wang row, and proof6.2.9 uses the same row for bounded constructible K. Expanded the node to this coefficient generality without total-space smoothness and added EDC.0. R02.1/2 must supply inverse-limit exactness and continuous Hochschild–Serre; discrete group cohomology is insufficient."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.7:invariant-cycles/localization-duality-cross",
+        "verdict": "verified",
+        "note": "WeilII proof3.6.1 (6)–(8) gives the localization/Wang cross, proper base change and dual support group with dimension d and twist -d. The smooth-total-space hypothesis belongs to this constant-coefficient duality calculation."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.7:invariant-cycles/invariant-and-support-weight-bounds",
+        "verdict": "verified",
+        "note": "WeilII Lemmas3.6.2–3.6.3 give invariant weights at most i and support weights at least i+1; exact W_i lifts classes through the cross. The requested DWP inputs precede hard Lefschetz and do not create a circular proof."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.7:invariant-cycles/local-invariant-cycles",
+        "verdict": "verified",
+        "note": "WeilII Theorem3.6.1 proves the stated algebraizable equicharacteristic rational theorem. The packet retains essentially smooth total space and smooth generic fibre and does not promote it to arbitrary traits or integral coefficients."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.7:invariant-cycles/complex-local-invariant-cycles",
+        "verdict": "verified",
+        "note": "WeilII 3.6.4 supplies the complex local theorem. The relative projective embedding is a sufficient explicit factorization hypothesis. HodgeStructures L2 supplies abstract strictness only; the geometric support/nearby MHS proof is honestly left in G-complex-mhs and routed to a Part II."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.7:invariant-cycles/geometric-generic-pure-model",
+        "verdict": "corrected",
+        "note": "WeilII 6.2.8(a),(c),(d) and proof6.2.12 motivate the absolute arithmetic pure witness before the incidence pullback. Its purity is imported from accepted DWP.8. Corrected the projection descriptions to their exact Lean return types and added constructor/extensionality APIs; the absent purity realization stays explicit."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.7:invariant-cycles/potentially-pure-model",
+        "verdict": "corrected",
+        "note": "WeilII 6.2.8(a)–(d) defines the curve-with-section, proper-family and pure-complex witness. The suggested structure uses real scheme predicates and pullback maps but omits the henselization/purity interface openly. Corrected the projection descriptions and added constructor/extensionality APIs without collapsing the witness to a proposition."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.7:invariant-cycles/potential-purity-incidence-pullback",
+        "verdict": "verified",
+        "note": "WeilII proof6.2.12 applies arithmetic purity only to the sufficiently general incidence pullback. The smooth/noncharacteristic duality exchange and canceled shifts require LPV.3 and EDC; arbitrary pullback purity is not asserted."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.7:invariant-cycles/pure-complex-local-invariant-cycles",
+        "verdict": "verified",
+        "note": "WeilII 6.2.9 proves local invariant cycles for a potentially pure bounded complex with no added smoothness assumption. Its support dual is H^(-i-1)(Xs,DK)^dual. The corrected Wang node now supplies the coefficient generality actually consumed here."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.7:invariant-cycles/dual-support-affine-vanishing",
+        "verdict": "verified",
+        "note": "WeilII 6.2.11 proof and4.1.6 give affine support vanishing after Verdier duality. Reindexing q=j-2n-2 gives the unshifted bound -n-1-q; the shift and vanishing endpoint i<=n agree with the source."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.7:invariant-cycles/support-bound-weak-lefschetz",
+        "verdict": "verified",
+        "note": "WeilII 6.2.11(i) gives isomorphism below n and injection at n for every hyperplane, including singular ones. Only the inherited duality bound for a sufficiently general hyperplane uses generic local acyclicity and the (-1)[-2] exchange."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.7:invariant-cycles/pencil-relative-obstruction",
+        "verdict": "verified",
+        "note": "WeilII 4.3.6–4.3.8 and proof6.2.11 give the relative obstruction and finite-support argument on P1. The packet requests the constructible-complex cone/axis extension from LPV.4 and local inertia/torsor input from LPV.5, not the later orthogonal decomposition4.3.9."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.7:invariant-cycles/pencil-image-equality",
+        "verdict": "verified",
+        "note": "WeilII 6.2.11(ii), via4.3.7–4.3.8, identifies the two images for a sufficiently general pencil. It requires neither wholesale Leray degeneration nor hard Lefschetz."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.7:invariant-cycles/general-pencil-monodromy",
+        "verdict": "verified",
+        "note": "WeilII 6.2.10.1–6.2.10.2 identifies general-line and full incidence monodromy images. The request correctly extends LPV.3/5 beyond constant-coefficient transvection formulas to the actual constructible K."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.7:invariant-cycles/global-invariant-cycles",
+        "verdict": "verified",
+        "note": "WeilII Corollary6.2.12 combines weak-Lefschetz injection, the potential-purity pullback, local6.2.9, image equality and general-line monodromy. All inputs are earlier/imported; DWP.9 is a consumer and never a prerequisite."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.7/export-index",
+        "verdict": "corrected",
+        "note": "Illusie21 motivates separating the curve calculation from the general weight-monodromy question, but the navigation/export ownership is an atlas decision fixed by accepted RS-17. Clarified that citation match. The aggregate adds no mathematical construction and does not re-own Hyodo–Kato N."
+      }
+    ]
+  }
 }
