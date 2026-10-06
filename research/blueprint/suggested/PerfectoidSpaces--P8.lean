@@ -36,9 +36,10 @@ suggest Lean forms so that contributors and reviewers converge on names and sign
 claim no implementation: every proof and every non-`Prop` definition body is `sorry`, and every
 node keeps `implementationStatus = "unchecked"`.
 
-Pinned commits: Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`, Tau Ceti
-`f790474821cf4256814db967cb154e7af3d0c369`. The file elaborates with `lake env lean` against a
-project at exactly these commits; its only warnings are `declaration uses 'sorry'`.
+Pinned source baseline: Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`, Tau Ceti
+`f790474821cf4256814db967cb154e7af3d0c369`. Elaboration is checked with the shared `lean-check`
+wrapper. The handoff records the build commits and distinguishes that check from reading the
+statements at the pinned source baseline.
 
 ## Library declarations imported and reused
 
@@ -60,7 +61,8 @@ Mathlib, used in statements:
 
 Mathlib, cited and not restated: `Algebra.IsInvariant.isIntegral` (integrality over `A^G`),
 `Representation.averageMap` with `Representation.isProj_averageMap` (the untwisted idempotent
-`e_G`), `Module.rankAtStalk_baseChange`, the Lucas congruence
+`e_G`), `Module.rankAtStalk_baseChange`, `comonadicExtendScalars` (ordinary faithfully flat
+module descent, with P9 supplying its finite-group dictionary), the Lucas congruence
 `Choose.choose_pow_mul_pow_mul_modEq_choose_nat`, `Sylow` (the reduction in the proof of the
 invariants theorem), and `continuousCohomology` with `ContinuousCohomology.zeroIso` (the target
 of the Čech comparison, whose source needs the pro-étale site, so it is not imported).
@@ -543,7 +545,8 @@ category `V` -/
 --   Its ring-level parts are `invariants_of_perfectoid_tate_ring` and the
 --   `invariant_spectrum_homeomorphism_*` theorems.
 -- quotient_scalar_extension: not stated here; needs completed tensor products A ⊗̂_K L
---   (supplier: AdicEtaleGeometry:A0). Node PerfectoidSpaces:P8/quotient-scalar-extension.
+--   (supplier: AdicSpacesPartII:R0) and P2's uniform perfectoid base change. Node
+--   PerfectoidSpaces:P8/quotient-scalar-extension. Topological orthonormalisability is explicit; any discrete-base extension is included.
 -- perfectoid_quotient_invariant_cover: not stated here; needs perfectoid spaces and V
 --   (supplier: AdicEtaleGeometry:A0, PerfectoidSpaces:P2). Node
 --   PerfectoidSpaces:P8/perfectoid-quotient-invariant-cover.
@@ -748,7 +751,7 @@ spaces -/
 --   PerfectoidSpaces:P8/perfectoid-from-perfectoid-components.
 -- integral_extension_of_perfectoid_pair: not stated here; needs Spd(S, S⁺) (supplier:
 --   DiamondsAndVStacks:D6) and the perfectoidization S⁺_perfd of an integral algebra over a
---   perfectoid ring (Bhatt–Scholze Theorem 1.17(1); gap, no owner). Node
+--   perfectoid ring (BS22 Theorem 10.11; routed PerfectoidQuotients Part II, recorded gap). Node
 --   PerfectoidSpaces:P8/integral-extension-of-perfectoid-pair.
 -- finite_tower_over_perfectoid_tower: not stated here; needs locally noetherian adic spaces and
 --   finite maps (supplier: AdicSpacesPartII:R0) and the integral-extension lemma (gap). Node
@@ -882,28 +885,46 @@ theorem invariants_of_eventually_injective_colimits_of_injective {k : Type u} [C
 
 /-! ### PerfectoidSpaces:P9/closed-invariant-subalgebra -/
 
-/-- PerfectoidSpaces:P9/closed-invariant-subalgebra: the invariants of a uniform `ℚ_p`-Banach
-algebra under a group acting by continuous ring automorphisms form a closed, hence complete,
-uniform subalgebra, and `A° = (A_∞°)^G`. -/
-theorem closed_invariant_subalgebra (p : ℕ) [Fact p.Prime] {Ainf : Type*} [NormedCommRing Ainf]
-    [NormedAlgebra ℚ_[p] Ainf] [CompleteSpace Ainf] (hunif : IsPowMul (norm : Ainf → ℝ))
-    (G : Type*) [Group G] [MulSemiringAction G Ainf] [SMulCommClass G ℚ_[p] Ainf]
+/-- PerfectoidSpaces:P9/closed-invariant-subalgebra, with a chosen power-multiplicative norm.
+Continuity and K-linearity give closedness and completeness. Restriction preserves the chosen
+power-multiplicative norm. Uniformity alone does not assert that an arbitrary norm is
+power-multiplicative; the general uniform statement uses boundedness of the power-bounded ring. -/
+theorem closed_invariant_subalgebra (K : Type*) [NormedField K]
+    {Ainf : Type*} [NormedCommRing Ainf]
+    [NormedAlgebra K Ainf] [CompleteSpace Ainf] (hunif : IsPowMul (norm : Ainf → ℝ))
+    (G : Type*) [Group G] [MulSemiringAction G Ainf] [SMulCommClass G K Ainf]
     [ContinuousConstSMul G Ainf] :
-    IsClosed (FixedPoints.subalgebra ℚ_[p] Ainf G : Set Ainf) ∧
-      CompleteSpace (FixedPoints.subalgebra ℚ_[p] Ainf G) ∧
-      IsPowMul (norm : FixedPoints.subalgebra ℚ_[p] Ainf G → ℝ) ∧
-      ∀ a : FixedPoints.subalgebra ℚ_[p] Ainf G, IsPowerBounded a ↔ IsPowerBounded (a : Ainf) :=
+    IsClosed (FixedPoints.subalgebra K Ainf G : Set Ainf) ∧
+      CompleteSpace (FixedPoints.subalgebra K Ainf G) ∧
+      IsPowMul (norm : FixedPoints.subalgebra K Ainf G → ℝ) ∧
+      ∀ a : FixedPoints.subalgebra K Ainf G, IsPowerBounded a ↔ IsPowerBounded (a : Ainf) :=
   sorry
 
 -- invariants_of_completed_tensor_with_profinite_module: not stated here; needs the mixed
 --   completed tensor product (A_∞° ⊗̂ M)[1/p] (supplier: AdicSpacesPartII:R5). Node
 --   PerfectoidSpaces:P9/invariants-of-completed-tensor-with-profinite-module.
--- invariants_of_completed_tensor_with_banach_space: not stated here; needs A_∞ ⊗̂_L V for Banach
---   spaces (supplier: AdicEtaleGeometry:A0) and t-orthogonal bases (gap). Node
+-- invariants_of_completed_tensor_with_banach_space: not stated here; needs E ⊗̂_K V for Banach
+--   spaces (supplier: AdicSpacesPartII:R0/completed-tensor-banach-module and
+--   AdicSpacesPartII:R0/banach-countable-type-orthogonal-basis). Node
 --   PerfectoidSpaces:P9/invariants-of-completed-tensor-with-banach-space.
+--   The canonical inclusion-induced comparison is proved with weighted t-orthogonal coordinates
+--   for countable type over K; arbitrary Banach dimension is allowed over a discrete K.
+-- invariants_of_completed_lattice_tensor: not stated here; needs the topological completed
+--   lattice tensor and its canonical generic fibre (supplier: AdicSpacesPartII:R0). Node
+--   PerfectoidSpaces:P9/invariants-of-completed-lattice-tensor. Saturation of the quotient over
+--   K° gives the integral transfer, without identifying the tensor lattice with a rational unit
+--   ball. Ordinary AdicCompletion exists; its general injectivity/exactness interface is requested.
 -- weight_extension_of_function_descent: not stated here; needs sousperfectoid fibre products
 --   X ×_L 𝒰 (supplier: AdicSpacesPartII:R5). Node
 --   PerfectoidSpaces:P9/weight-extension-of-function-descent.
+-- weight_extension_sheaf_equalizer: not stated here; needs sheaves on arbitrary rational opens
+--   in sousperfectoid products (supplier: AdicSpacesPartII:R5). Node
+--   PerfectoidSpaces:P9/weight-extension-sheaf-equalizer. The infinite-torsor rational equalizer
+--   is a recorded gap; product charts alone do not form a basis.
+-- function_descent_seminormal_base: not stated here; needs the seminormal rigid structural
+--   comparison (proposed Part II of PadicHodgeTheory, recorded gap). Node
+--   PerfectoidSpaces:P9/function-descent-seminormal-base. KL II 8.2.3 has a wider field range
+--   than the current smooth discrete-base supplier.
 
 /-! ### PerfectoidSpaces:P9/descent-of-finite-locally-free-modules, on sections -/
 
@@ -936,9 +957,25 @@ theorem descent_of_finite_locally_free_modules_hom (E F : Type*) [AddCommGroup E
         (MulSemiringAction.toAlgHom A B g).toLinearMap.rTensor F (φ x)) :
     ∃! f : E →ₗ[A] F, φ = f.baseChange B := sorry
 
+/-- PerfectoidSpaces:P9/integral-matrix-coboundary-effectivity, algebraic core on a chart.
+An invariant integral basis makes the counit an isomorphism in any finite rank, with no
+invertibility assumption on the group order and no faithful flatness assumption. In a matrix
+frame the hypothesis is exactly `C(g) g(P) = P` with `P` and its inverse integral. Sheaf gluing
+uses the actual integral function equalizer; it is not an integral Kiehl assertion. -/
+theorem integral_matrix_coboundary_effectivity_sections (r : ℕ) (N : Type*)
+    [AddCommGroup N] [Module A N] [Module B N] [IsScalarTower A B N]
+    (ρ : Representation A G N)
+    (hsemi : ∀ (g : G) (b : B) (n : N), ρ g (b • n) = (g • b) • ρ g n)
+    (e : Module.Basis (Fin r) B N) (he : ∀ (g : G) (i : Fin r), ρ g (e i) = e i) :
+    Function.Bijective (LinearMap.liftBaseChange B ρ.invariants.subtype) := sorry
+
 end ModuleDescent
 
 /-! ### PerfectoidSpaces:P9/finite-galois-descent-of-modules -/
+
+-- General faithfully flat module descent is already `comonadicExtendScalars` in Mathlib.
+-- The suggested forms below are its finite-group comparison, via B ⊗_A B ≅ ∏_H B.
+-- R3/finite-projective-etale-descent supplies the finite-projectivity consequence.
 
 section GaloisDescent
 
@@ -1112,6 +1149,8 @@ theorem approximation_of_units_at_finite_level {R : Type*} [CommRing R] (p : ℕ
 --   `twistedInvariantsCongr` (with F = u), `twistedAverage_idempotent`,
 --   `range_twistedAverage`, and `finite_galois_descent_of_modules_effective` for the rank-one
 --   descent.
+--   For mixed small coefficients with an infinite pseudobasis, R5's globalization input is
+--   explicitly open; the global statement is conditional on Loc and coefficient flatness.
 -- integral_coboundary_trivialises_integral_sheaf: not stated here; needs ω_c⁺ and integral
 --   weight-space descent (supplier: AdicSpacesPartII:R5). Node
 --   PerfectoidSpaces:P9/integral-coboundary-trivialises-integral-sheaf. On sections it is
@@ -1119,6 +1158,8 @@ theorem approximation_of_units_at_finite_level {R : Type*} [CommRing R] (p : ℕ
 -- coefficient_change_by_regular_element: not stated here; needs character sheaves and their
 --   cohomology (supplier: AdicSpacesPartII:R5, AdicSpacesPartII:R3). Node
 --   PerfectoidSpaces:P9/coefficient-change-by-regular-element.
+--   Finite-level flatness, quotient compatibility and the Loc hypothesis are explicit inputs.
+--   The broad infinite-pseudobasis range remains the R5 gap, rather than rational c₀ flatness.
 -- derived_coefficient_change: not stated here; needs Čech complexes of character sheaves on
 --   finite affinoid covers (supplier: AdicSpacesPartII:R3, AdicSpacesPartII:R5). Node
 --   PerfectoidSpaces:P9/derived-coefficient-change.
