@@ -2340,7 +2340,7 @@
       "kind": "misprint",
       "affects": "nothing",
       "locator": "§7 and §8.2, preprint pp.12–15",
-      "printed": "Choose a prime divisor ℓ^r ||(P − 1) that satisfies one of the estimates (1) or (2) of Section 7.",
+      "printed": "Choose a prime divisior ℓ^r ||(P − 1) that satisfies one of the estimates (1) or (2) of Section 7.",
       "correction": "Write ℓ^e∥P−1 and 2^e∥P−1, keeping r for the fixed number of conductor prime divisors.",
       "reason": "Theorem3.2 fixes r independently of the auxiliary prime P−1. Its prime-power exponent is not that conductor-count bound.",
       "known": "Known: PAPER-KHARE-WINTENBERGER-09-I/E4 and its independent review record the collision.",
@@ -2371,8 +2371,8 @@
       "source": "savitt-cdt",
       "kind": "error",
       "affects": "nothing",
-      "locator": "Author correction in v3 Remark1.7 to Theorem6.12(4), i=1, m=1+(p+1)j",
-      "printed": "The two purported niveau-two characters in the exceptional i=1 case are ω₂^(m+p) and ω₂^(pm+1).",
+      "locator": "Author correction quoted from v3 Remark1.7, p.4, describing the published Theorem6.12(4), i=1; the old published text was not obtained",
+      "printed": "The mistake is in the statement and proof of Theorem 6.12(4) of the published version.",
       "correction": "They coincide and are niveau one; the reduction is split. Use the corrected v3 lattice statement.",
       "reason": "Savitt’s author correction explicitly repairs the exceptional lattice classification without changing the principal results. Our tame ordinary/weight contract uses Theorem6.11 and Corollary6.15 with Remark6.17; it does not invoke the erroneous old corner.",
       "known": "Known author correction, arXiv v3 Remark1.7 (2010).",
@@ -2388,6 +2388,62 @@
       "citation": "Khare, On Serre's modularity conjecture for 2-dimensional mod p representations of Gal(Q̄/Q) unramified outside p, arXiv:math/0504080v1 (Duke Math. J. 134 (2006))",
       "read": "2026-09-29",
       "sha256": "3012a51759ad10695792bc8a2d1af75890f38d6ebacd37fb61e01bfdb89c9c2f"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://www.math.ucla.edu/~shekhar/papers/results.pdf",
+      "citation": "Serre's modularity conjecture (I); Author's preprint (results.pdf) of the paper published as Invent. Math. 178 (2009), 485-504. Locators give the preprint's own running page numbers (2-21), which are NOT the Invent. Math. pages",
+      "read": "2026-10-06",
+      "sha256": "3c389dc33e09fe847f5d8189ffd8915b5c1a73424e64e4fed6769829883bad82"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://arith-geom.github.io/ag-comp-arith-geom/assets/img/fileadmin/groups/arithgeo/templates/data/Gebhard_Boeckle/KhareAppboeckleNew2.pdf",
+      "citation": "Appendix 1: On the isomorphism R_empty -> T_empty; Appendix to Chandrashekhar Khare, 'On isomorphisms between deformation rings and Hecke rings', Invent. Math. 154 (2003). Locators give that file's own page numbers 1-6",
+      "read": "2026-10-06",
+      "sha256": "67de08f6a1958d6c350d6de0ad70839cc737cc14c9c3636ab68fb1bd638202de"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/math/0404327v3",
+      "citation": "On a conjecture of Conrad, Diamond, and Taylor; arXiv:math/0404327v3, 15 September 2010; corrected author version of Duke Math. J. 128 (2005)",
+      "read": "2026-10-06",
+      "sha256": "e161ac6498c1a75fc8f981c25edd5e9390b19ceb40f174a25a1f6491390c115c"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/2108.07577v2",
+      "citation": "A simplified proof of Serre’s conjecture; arXiv:2108.07577v2, 3 May 2022",
+      "read": "2026-10-06",
+      "sha256": "0c6850dafda032f7a4008947c519b5aef8cc13762207bb67c36810170a8eebe6"
+    },
+    {
+      "kind": "published",
+      "url": "https://msp.org/pjm/1997/181-3/pjm-v181-n3-p15-p.pdf",
+      "citation": "Images of semistable Galois representations; Pacific J. Math. 1997, special issue, 277–297",
+      "read": "2026-10-06",
+      "sha256": "6d37cace879b9abdff0817709db114c93a186db0f2165aaeba443c48bb102443"
+    },
+    {
+      "kind": "published",
+      "url": "https://denisevellachemla.eu/Rosser-Schoenfeld-1962.pdf",
+      "citation": "Approximate formulas for some functions of prime numbers; Illinois J. Math. 6 (1962), 64–94; scan of published article",
+      "read": "2026-10-06",
+      "sha256": "8e37b06f82e09421bceb2502578c47b61469141f0287e6acedb70e01765ab556"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://www.imo.universite-paris-saclay.fr/~breuil/PUBLICATIONS/STW.pdf",
+      "citation": "On the modularity of elliptic curves over Q: wild 3-adic exercises; Breuil author copy, 80 PDF pages; Introduction printed pp.1–2 corresponds to published pp.843–845",
+      "read": "2026-10-06",
+      "sha256": "cbbdc24c26cdfcbd77f0e084194643e8804a724f004eb02e431ead9d932c498d"
+    },
+    {
+      "kind": "published",
+      "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v169-n1-p05.pdf",
+      "citation": "On Serre’s conjecture for 2-dimensional mod p representations of Gal(Qbar/Q); Annals of Mathematics 169 (2009), 229–253",
+      "read": "2026-10-06",
+      "sha256": "154c0c2a2245e50cb2be3c82705f9176fe0e9b597424236ddca11299d38cdb22"
     }
   ],
   "baselineAudit": {

@@ -1130,7 +1130,7 @@ Status: New discrepancy in v1; the inaccessible Duke version was not checked for
 
 ### ClassicalSerreModularity/E12
 
-savitt-cdt, Author correction in v3 Remark1.7 to Theorem6.12(4), i=1, m=1+(p+1)j. Error; affects nothing.
+savitt-cdt, Author correction quoted from v3 Remark1.7, p.4, describing the published Theorem6.12(4), i=1; the old published text was not obtained. Error; affects nothing.
 
 They coincide and are niveau one; the reduction is split. Use the corrected v3 lattice statement.
 
