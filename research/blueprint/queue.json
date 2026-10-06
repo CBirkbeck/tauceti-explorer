@@ -31778,8 +31778,9 @@
    ],
    "followUpOf": "BP-Polylogarithms",
    "prompt": "research/blueprint/prompts/BP-Polylogarithms--P.2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6387"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6387",
+   "finishedAt": "2026-10-06T00:23:26Z"
   },
   {
    "id": "REV-Polylogarithms--P.2",
@@ -33169,8 +33170,9 @@
    ],
    "followUpOf": "BP-ArithmeticKTheory--N.1",
    "prompt": "research/blueprint/prompts/BP-ArithmeticKTheory--N.3-finite-generation.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6475"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6475",
+   "finishedAt": "2026-10-06T00:23:28Z"
   },
   {
    "id": "REV-ArithmeticKTheory--N.3-finite-generation",
@@ -33950,7 +33952,8 @@
    ],
    "followUpOf": "BP-HabiroNumberFields",
    "prompt": "research/blueprint/prompts/BP-HabiroNumberFields--HB.1.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6493"
   },
   {
    "id": "REV-HabiroNumberFields--HB.1",
@@ -34122,7 +34125,8 @@
    ],
    "followUpOf": "BP-HabiroRings",
    "prompt": "research/blueprint/prompts/BP-HabiroRings--HR.1.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6497"
   },
   {
    "id": "REV-HabiroRings--HR.1",
@@ -35842,8 +35846,9 @@
     "BP-KTheoryLowDegrees--Z.3~2"
    ],
    "prompt": "research/blueprint/prompts/REV-KTheoryLowDegrees--Z.3~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6456"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6456",
+   "finishedAt": "2026-10-06T00:23:29Z"
   },
   {
    "kind": "blueprint",
