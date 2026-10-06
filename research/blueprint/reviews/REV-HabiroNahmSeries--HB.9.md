@@ -14,7 +14,7 @@ The reviewed files are [the packet](../packets/HabiroNahmSeries--HB.9.json) and 
 | Definition/construction APIs | 13 items across three objects |
 | Definition/construction tests | 13: five Gaussian, five powered, three unpowered |
 | Planets | 2 local, 3 inherited, total 5 |
-| Source issues | E64 and E65 independently confirmed; no additional issue added |
+| Source issues | E64 and E65 independently confirmed; confirmed E66 added |
 | Coverage | One planned stage, zero closed stages; packet status complete |
 | Open obligations | Five gaps, six precise supplier requests |
 
@@ -50,6 +50,8 @@ Direct dependencies were added where proof steps consumed named inputs: the unpo
 
 The import description now preserves the seventeen owner IDs without importing a full-ring single-branch embedding, powered universal integrality, or unrestricted-root corollaries as established proofs. G-all-order-gluing now explicitly includes the extra Corollary 1.11 argument needed for all root orders, and names the symmetrization and torsion-power consumers. Restricted membership alone cannot prove those targets. The suggested file's omission note records the same limitation. No Lean declarations or proof obligations were changed.
 
+The universal product localization also needed correction: HB.7 requires R[1/γ], not integrality at primes dividing γ. The contract now uses S^(m)[1/(Δγ)] and p∤Δγ. New source finding E66 records the false local assertion in the third paragraph of the Theorem 5 proof, distinct from E63’s omitted Δ in the global conclusion. At A=0,m=1,γ=5 and zero shifts the exact t coefficient is 5/(1−q⁵)+q/(q−1), whose expansion at q=1+x is 3−2x+x²+x³/5+O(x⁴). For A=(3), which has nondegenerate t=1 solutions, the corresponding coefficient is 5q¹⁵/(q⁵−1)−q⁻²/(q−1)=15+74x+278x²+(3224/5)x³+O(x⁴). The cubic field and Nahm-unit discriminants introduce only 23 here; the normalized branch of the universal coefficient algebra is integral at 5. When 5∤Δ, the coefficient 3224/5 therefore also disproves the asserted local integrality in a nondegenerate example. For any good prime p∤Δ the same obstruction appears by taking γ=p: H(x)=((1+x)^p−1)/(px) has p-integral coefficients below degree p−1 and coefficient 1/p in degree p−1. Hence the t coefficient (−1)^A((1+x)^(1−A)−(1+x)^(pA)/H(x))/x has x^(p−2) coefficient (−1)^A/p plus a p-integral element. This handles any finite excluded-prime set, including extra K₃ primes. Inverting γ is exactly the correction already anticipated by Definition 1.4.
+
 The individual local-node checks are recorded in the packet's `review.checked` array. Their mathematical content is as follows; names below have the common prefix `HabiroNahmSeries:HB.9/`.
 
 | Node | Independent check |
@@ -62,7 +64,7 @@ The individual local-node checks are recorded in the packet's `review.checked` a
 | `followup-auxiliary-product` | The finite product and all APIs/tests are correct; its application description was corrected as explained above. |
 | `followup-product-system` | Applying (33) to each factor gives the displayed parameter powers, tⱼ^γ positive recurrence and negative recurrence. Exact rank-two checks corroborate the formulas. |
 | `followup-product-uniqueness` | At each positive total degree, the first differences remove parameter dependence; covariance multiplies the coefficient by q^αⱼ−1. Infinite order gives uniqueness. |
-| `followup-integral-gluing-contract` | The unpowered volumes cancel and its system identifies a constructed family. Integral existence, faithful coefficient transfer and Frobenius descent remain explicitly conditional. |
+| `followup-integral-gluing-contract` | The unpowered volumes cancel and its system identifies a constructed family. Corrected localization to Δγ and local primes p∤Δγ (E66). Integral existence, faithful coefficient transfer and Frobenius descent remain explicitly conditional. |
 | `followup-coleman-potential-sign` | Reflection and the Nahm logarithm relation give the positive sum of Dₚ(zⱼ). The Lean signature asserts this algebraic implication honestly. |
 | `followup-modified-potential-formula` | Expanding φ(z)=zᵖexp(pη) gives the positive pβℓ₁ term, negative quadratic term and displayed higher Taylor terms. Legendre's bound makes their valuations at least one and tend to infinity for p>3. |
 | `followup-regulator-specialisation` | Unit conditions place the points in the good Coleman discs. The actual Frobenius and analyticity suppliers justify reversing the Taylor calculation, without evaluating V(t) at t=1. |
