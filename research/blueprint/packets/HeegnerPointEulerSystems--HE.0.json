@@ -71,6 +71,43 @@
       "readSections": [
         "Printed pp.191–249 (PDF1–59) in full: introduction, §§2–11 and acknowledgements; every level-raising, geometric/cohomological congruence, rank-lowering, special-value, triangulation and nonvanishing proof. Bibliography beyond its opening was not read."
       ]
+    },
+    {
+      "id": "nekovar",
+      "title": "The Euler system method for CM points on Shimura curves",
+      "authors": "Jan Nekovář",
+      "edition": "Author preprint, 23 May 2007, 53 PDF pages; published in L-functions and Galois representations, LMS Lecture Note Series 320 (2007), pp.471–547, DOI10.1017/CBO9780511721267.014",
+      "url": "https://web.archive.org/web/20221115094729id_/https://webusers.imj-prg.fr/~jan.nekovar/pu/euler.pdf",
+      "originalUrl": "https://webusers.imj-prg.fr/~jan.nekovar/pu/euler.pdf",
+      "sha256": "05c8debf4783f4604afe71a0b4367554ac62d52a6a462daa5e2e8c2ed6bfd26a",
+      "accessed": "2026-10-06",
+      "readSections": [
+        "Introduction pp.1–2; §1.19 pp.14–15; §§3–7 pp.18–51, including the explicit cocycles, component errors, integral image/evaluation bounds, both prime selections and the complete quadratic-character proof §7.5. Section7.6 was also read, but its nonquadratic-character extension is outside this part. Geometry in §§1–2 is imported; no whole-paper read claim."
+      ]
+    },
+    {
+      "id": "pollack-weston",
+      "title": "On anticyclotomic μ-invariants of modular forms",
+      "authors": "Robert Pollack; Tom Weston",
+      "edition": "arXiv:math/0610694v1, 23 October 2006; locators use preprint pagination",
+      "url": "https://arxiv.org/pdf/math/0610694v1",
+      "sha256": "42962ab1de00924170e7cc02f95a0ebb967ec979a76823298014eb8511243d04",
+      "accessed": "2026-10-06",
+      "readSections": [
+        "Introduction pp.1–3, conditionCR and §6.2–6.8 pp.18–23: localized character groups, monodromy/component presentation, degrees, definite pairing and squarefree congruence-period identity. No claim that this preprint proves Zhang’s nonsquarefree extension."
+      ]
+    },
+    {
+      "id": "kolyvagin-structure",
+      "title": "On the structure of Shafarevich–Tate groups",
+      "authors": "V. A. Kolyvagin",
+      "edition": "Algebraic Geometry, Lecture Notes in Mathematics1479 (1991), pp.94–121; scanned published article",
+      "url": "https://www.wstein.org/papers/bib/kolyvagin-structure_of_sha.pdf",
+      "sha256": "ab9126cb2e0147753ca3f1a354f591b516b84f48c5b0882b9a55e87a60edefc9",
+      "accessed": "2026-10-06",
+      "readSections": [
+        "Introduction pp.94–97, especially TheoremA on p.95, which quotes the uniform classical square-index theorem from Euler Systems. The quoted result is distinguished from the proof in that earlier paper; no whole-paper read claim."
+      ]
     }
   ],
   "gaps": [
@@ -130,7 +167,7 @@
     },
     {
       "title": "Zhang auxiliary rank-zero and degree supplier scope",
-      "detail": "The quoted extension from elliptic to GL₂-type ordinary control and the nonsquarefree degree comparison are source-verified proof dependencies, not proofs supplied by this packet. ModularIwasawaL1/KatoL4/SelmerL4 and BSD5 must certify their exact coefficient/base/ramification scope. BSD6 cannot be imported: it consumes HE.6 and would give a cycle/wrong E/Q statement.",
+      "detail": "The extension from elliptic to GL₂-type ordinary control and the nonsquarefree degree comparison are source-verified proof dependencies, not proofs supplied by this packet. ModularIwasawaL1/KatoL4/SelmerL4 must certify their exact coefficient/base/ramification scope. The BSD owner is requested to add the independent early BSD.3a definite period export; neither BSD.5 nor BSD.6 supplies a prerequisite, since both consume HE.6. The full proposed early contract is recorded separately.",
       "neededBy": [
         "HeegnerPointEulerSystems:HE.6/zhang-rank-zero-over-K",
         "HeegnerPointEulerSystems:HE.6/ribet-takahashi-tamagawa-comparison",
@@ -139,24 +176,14 @@
     },
     {
       "title": "Missing general Serre/Ribet open-image layer",
-      "detail": "Confirmed RT-AREA-iwasawa-1/9: the current R28.4 Tate-isogeny and R01.4 representation layers do not supply Serre’s non-CM open-image or Ribet’s GL₂-type theorem. Propose R28.7 after R28.6 and retain this open request rather than re-proving the generic theorem in HE.7.",
+      "detail": "Confirmed RT-AREA-iwasawa-1/9: the current R28.4 Tate-isogeny and R01.4 representation layers do not supply Serre’s non-CM open-image or Ribet’s GL₂-type theorem. Propose R28.7 after R28.6 and retain this open request rather than re-proving the generic theorem in HE.7. The integral route also requests Bogomolov/Serre homotheties and the precise GL₂-type endomorphism/residual-irreducibility exports of Nekovář6.1–6.2; full non-CM GL₂ image is not used in the CM branch.",
       "neededBy": [
         "HeegnerPointEulerSystems:HE.7/non-cm-open-image-application",
         "HeegnerPointEulerSystems:HE.7/almost-all-primary-sha-vanishing",
         "HeegnerPointEulerSystems:HE.7/bounded-arithmetic-derivative-denominators",
-        "HeegnerPointEulerSystems:HE.7/admissible-rm-kolyvagin-logachev"
-      ]
-    },
-    {
-      "title": "HE.7 all-prime, dyadic and CM source/proof acquisition",
-      "detail": "Gross Theorem1.3 and §12 quote the full Kolyvagin/Kolyvagin–Logachev conclusions but prove only the subsequent non-CM clean odd-prime case. The actual exceptional-prime/dyadic/CM uniform-denominator proof and explicit t_E/K are not established by the sources read. Acquire original Kolyvagin and Kolyvagin–Logachev papers, Rubin’s CM theorem passages and the precise quaternionic/RM extension. Their mathematical targets are recorded, with acceptance boundaries, rather than claimed sourced proofs.",
-      "neededBy": [
-        "HeegnerPointEulerSystems:HE.7/bounded-arithmetic-derivative-denominators",
-        "HeegnerPointEulerSystems:HE.7/dyadic-integral-conjugation-descent",
-        "HeegnerPointEulerSystems:HE.7/cm-character-error-descent",
-        "HeegnerPointEulerSystems:HE.7/exceptional-primary-sha-bound",
-        "HeegnerPointEulerSystems:HE.7/classical-full-sha-finiteness",
-        "HeegnerPointEulerSystems:HE.7/admissible-rm-kolyvagin-logachev"
+        "HeegnerPointEulerSystems:HE.7/admissible-rm-kolyvagin-logachev",
+        "HeegnerPointEulerSystems:HE.7/integral-tate-image-errors",
+        "HeegnerPointEulerSystems:HE.7/integral-cm-prime-detection"
       ]
     },
     {
@@ -258,7 +285,11 @@
         "HeegnerPointEulerSystems:HE.6/zhang-triangular-selmer-basis",
         "HeegnerPointEulerSystems:HE.6/zhang-indivisibility",
         "HeegnerPointEulerSystems:HE.6/heegner-vanishing-order",
-        "HeegnerPointEulerSystems:HE.6/heegner-base-locus"
+        "HeegnerPointEulerSystems:HE.6/heegner-base-locus",
+        "HeegnerPointEulerSystems:HE.6/zhang-residual-local-pairing",
+        "HeegnerPointEulerSystems:HE.6/zhang-residual-heegner-relations",
+        "HeegnerPointEulerSystems:HE.6/zhang-two-class-prime-detection",
+        "HeegnerPointEulerSystems:HE.6/zhang-prescribed-ramification-class"
       ],
       "detail": "The suggested file names every declaration and prints its full mathematical statement beside a signature. For this stage, the exact supplier-object/field/local-condition identifications and hypotheses in those statements are omitted from the Lean parameters; existing algebraic groups/modules, elliptic Point, Subring/Pic and ideals are used as unbundled data. A successful admission-only elaboration checks these shapes, not the source hypotheses or a completed arithmetic interface. The definitive statements and prerequisite/gap contracts are the packet and reader."
     },
@@ -273,44 +304,25 @@
         "HeegnerPointEulerSystems:HE.7/cm-character-error-descent",
         "HeegnerPointEulerSystems:HE.7/exceptional-primary-sha-bound",
         "HeegnerPointEulerSystems:HE.7/classical-full-sha-finiteness",
-        "HeegnerPointEulerSystems:HE.7/admissible-rm-kolyvagin-logachev"
+        "HeegnerPointEulerSystems:HE.7/admissible-rm-kolyvagin-logachev",
+        "HeegnerPointEulerSystems:HE.7/integral-tate-image-errors",
+        "HeegnerPointEulerSystems:HE.7/integral-cm-prime-detection",
+        "HeegnerPointEulerSystems:HE.7/cm-heegner-field-disjointness",
+        "HeegnerPointEulerSystems:HE.7/classical-square-index-error-bound"
       ],
       "detail": "The suggested file names every declaration and prints its full mathematical statement beside a signature. For this stage, the exact supplier-object/field/local-condition identifications and hypotheses in those statements are omitted from the Lean parameters; existing algebraic groups/modules, elliptic Point, Subring/Pic and ideals are used as unbundled data. A successful admission-only elaboration checks these shapes, not the source hypotheses or a completed arithmetic interface. The definitive statements and prerequisite/gap contracts are the packet and reader."
     },
     {
       "title": "Independent review: definite period supplier must precede HE.6",
-      "detail": "BSD.5’s current statement depends on HE.6. Its independent modular-degree/congruence-period portion needs a separate early export under the same owner, in the exact GL₂-type and nonsquarefree Hypothesis♥ scope. The direct BSD.5 edge is removed. R11 and GZ.3 give geometry, not the missing equality. The definite odd-ν(N−) theorem also cannot import the even-ν(N−) Jochnowitz theorem on the same g.",
+      "detail": "A concrete early export BSD.3a/definite-congruence-period is proposed with the complete odd-definite, full-♥, GL₂-type and nonsquarefree contract. The source route is Zhang6.4/Pollack–Weston6.2–6.8 plus the specified Ribet–Takahashi/Khare/Helm variant. It is not an existing export: BSD.5 is only the owner routing identifier and has no prerequisite edge into HE.6. Its integration is an open supplier action.",
       "neededBy": [
         "HeegnerPointEulerSystems:HE.6/ribet-takahashi-tamagawa-comparison"
       ],
       "addedBy": "REV-HeegnerPointEulerSystems--HE.0"
     },
     {
-      "title": "Independent review: Zhang residual arithmetic interfaces",
-      "detail": "Zhang §8.1 relation(8.1), parity(3.24), and the hypotheses of Lemmas8.1–8.2 must be instantiated for the actual residual GL₂-type V/k₀. Existing HE.5 local χ and class-detection nodes concern Howard’s full Tate image or Gross’s E[p]/F_p and are not this specialization. Generic ES.1 supplies the local carriers and prime-supply theorem, but not the arithmetic relation. Record this target-level application or an exact supplier export before marking the triangular argument planned.",
-      "neededBy": [
-        "HeegnerPointEulerSystems:HE.6/zhang-cohomological-congruence",
-        "HeegnerPointEulerSystems:HE.6/zhang-triangular-selmer-basis",
-        "HeegnerPointEulerSystems:HE.6/zhang-indivisibility"
-      ],
-      "addedBy": "REV-HeegnerPointEulerSystems--HE.0"
-    },
-    {
-      "title": "Independent review: CM rank and almost-all vanishing branch",
-      "detail": "The non-CM bounded-denominator and dyadic nodes are now explicitly non-CM, and their invalid edge into CM descent is removed. HE.7 still lacks a sourced CM rank-one and almost-all-primary-vanishing argument needed by the full classical theorem. CM.4 supplies characters, not those descent estimates. The RM/quaternionic extension also needs exact theorem hypotheses rather than “admissible” or an unspecified analytic-rank base. Acquire the actual proofs and separate the branches before acceptance.",
-      "neededBy": [
-        "HeegnerPointEulerSystems:HE.7/bounded-arithmetic-derivative-denominators",
-        "HeegnerPointEulerSystems:HE.7/dyadic-integral-conjugation-descent",
-        "HeegnerPointEulerSystems:HE.7/cm-character-error-descent",
-        "HeegnerPointEulerSystems:HE.7/exceptional-primary-sha-bound",
-        "HeegnerPointEulerSystems:HE.7/classical-full-sha-finiteness",
-        "HeegnerPointEulerSystems:HE.7/admissible-rm-kolyvagin-logachev"
-      ],
-      "addedBy": "REV-HeegnerPointEulerSystems--HE.0"
-    },
-    {
       "title": "Independent review: Lean signatures are conditional sketches",
-      "detail": "Section13 permits explicit omission of unavailable arithmetic conditions. Those comments do not make the remaining signatures universally valid algebraic theorems: dihedral_conjugation fails for an infinite cyclic group with τ=1; zhang_indivisibility fails for the zero family. Every arithmetic carrier/map must be linked to its actual object before these admissions can be used. Expressible finite-generation/non-torsion hypotheses and the conditional rank-zero valuation clause are corrected in the file; the remaining arithmetic identifications are unverified, not proved by elaboration.",
+      "detail": "Section13 permits explicit omission of unavailable arithmetic conditions. The independent review found that the former arbitrary-group dihedral and zero-family indivisibility signatures could fail. This revision replaces those shapes with cyclic-dihedral homomorphism transport and transport of a supplied nonzero auxiliary localization. These corrections remove the stated algebraic counterexamples. Every remaining arithmetic carrier/map must still be linked to its actual supplier object before the admissions can be used. Expressible finite-generation/non-torsion hypotheses and the conditional rank-zero valuation clause are retained; elaboration does not verify omitted arithmetic identifications.",
       "neededBy": [
         "HeegnerPointEulerSystems:HE.0/local-toral-order",
         "HeegnerPointEulerSystems:HE.0/transported-global-order",
@@ -382,6 +394,29 @@
         "HeegnerPointEulerSystems:HE.7/admissible-rm-kolyvagin-logachev"
       ],
       "addedBy": "REV-HeegnerPointEulerSystems--HE.0"
+    },
+    {
+      "title": "CM conductor and integral image supplier contracts",
+      "detail": "The classical CM application derives M≠K from |D_M| dividing the elliptic conductor. CM.4/R01.3 must provide that exact induced-character conductor and endomorphism-field dictionary. R28.7 must provide the general homothety and absolute-irreducibility consequences stated in the request. The Heegner application and its bounds are sourced; these general theorems are imported, not rebuilt here.",
+      "neededBy": [
+        "HeegnerPointEulerSystems:HE.7/cm-heegner-field-disjointness",
+        "HeegnerPointEulerSystems:HE.7/integral-tate-image-errors"
+      ]
+    },
+    {
+      "title": "Classical square-index size theorem source/export",
+      "detail": "Gross1.3 and Kolyvagin1991 TheoremA verify the exact classical order theorem, but quote its earlier Euler Systems proof. The Springer public endpoint returned a purchase page, not the proof. ES.4 needs that generic cardinality export, including CM image conventions. Nekovář7.5 establishes the uniform exponent and full finiteness, not this sharp size assertion. Keep the separate source-acquisition and export gap.",
+      "neededBy": [
+        "HeegnerPointEulerSystems:HE.7/classical-square-index-error-bound"
+      ]
+    },
+    {
+      "title": "GL₂-type abelian finite Selmer supplier",
+      "detail": "The new RM specialization needs finite generation, finite finite-level Selmer/Kummer sequences and torsion-primary decomposition for the exact abelian variety and coefficient prime. SelmerIwasawaL0 is requested to export the abelian variant; an elliptic-only upstream declaration is insufficient.",
+      "neededBy": [
+        "HeegnerPointEulerSystems:HE.7/admissible-rm-kolyvagin-logachev",
+        "HeegnerPointEulerSystems:HE.7/exceptional-primary-sha-bound"
+      ]
     }
   ],
   "roadmapId": "HeegnerPointEulerSystems",
@@ -397,8 +432,8 @@
     "HeegnerPointEulerSystems:HE.6",
     "HeegnerPointEulerSystems:HE.7"
   ],
-  "status": "partial",
-  "summary": "Target-first pass through HE.0–HE.7: 70 arithmetic declarations, actual conductor and CM-point contracts, corrected derivative/descent interfaces, separate Howard/Gross clean bounds, Zhang’s exact level-raising chain, and all-prime proof targets. Open source, supplier and prototype conditions are explicit; this is not a closed or formalised plan.",
+  "status": "complete",
+  "summary": "Target-level plan for HE.0–HE.7, preserving all 70 prior node IDs and adding the actual Zhang V/k₀ specializations and source-backed integral CM-point descent. All stages are planned, with precise supplier/prototype and quantitative-size gaps; no closed or implemented claim. The independent review object is preserved for the next reviewer.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -467,6 +502,30 @@
         "provides": "For x≠0, x∈span{p^n} iff n≤x.valuation; the zero case must be handled separately. Lines460–461 read at the exact pin.",
         "checked": "statement read at the pinned commit",
         "addedBy": "REV-HeegnerPointEulerSystems--HE.0"
+      },
+      {
+        "ref": "mathlib:DihedralGroup.sr_mul_r",
+        "module": "Mathlib/GroupTheory/SpecificGroups/Dihedral.lean",
+        "provides": "Existing dihedral rotation/reflection algebra, statement and Group/ZMod context read at the exact Mathlib pin, lines100–101. Used only to transport a cyclic quotient of the arithmetic conjugation action.",
+        "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/GroupTheory/SpecificGroups/Dihedral.lean"
+      },
+      {
+        "ref": "mathlib:DihedralGroup.sr_mul_sr",
+        "module": "Mathlib/GroupTheory/SpecificGroups/Dihedral.lean",
+        "provides": "Existing dihedral rotation/reflection algebra, statement and Group/ZMod context read at the exact Mathlib pin, lines104–105. Used only to transport a cyclic quotient of the arithmetic conjugation action.",
+        "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/GroupTheory/SpecificGroups/Dihedral.lean"
+      },
+      {
+        "ref": "mathlib:DihedralGroup.inv_r",
+        "module": "Mathlib/GroupTheory/SpecificGroups/Dihedral.lean",
+        "provides": "Existing dihedral rotation/reflection algebra, statement and Group/ZMod context read at the exact Mathlib pin, lines108–109. Used only to transport a cyclic quotient of the arithmetic conjugation action.",
+        "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/GroupTheory/SpecificGroups/Dihedral.lean"
+      },
+      {
+        "ref": "mathlib:DihedralGroup.inv_sr",
+        "module": "Mathlib/GroupTheory/SpecificGroups/Dihedral.lean",
+        "provides": "Existing dihedral rotation/reflection algebra, statement and Group/ZMod context read at the exact Mathlib pin, lines112–113. Used only to transport a cyclic quotient of the arithmetic conjugation action.",
+        "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/GroupTheory/SpecificGroups/Dihedral.lean"
       }
     ]
   },
@@ -718,7 +777,11 @@
       ],
       "prerequisites": [
         "HeegnerPointEulerSystems:HE.0/ring-class-tower-quotients",
-        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-13-norm-theorems-and-class-fields"
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-13-norm-theorems-and-class-fields",
+        "mathlib:DihedralGroup.sr_mul_r",
+        "mathlib:DihedralGroup.sr_mul_sr",
+        "mathlib:DihedralGroup.inv_r",
+        "mathlib:DihedralGroup.inv_sr"
       ],
       "sources": [
         {
@@ -738,7 +801,7 @@
       "leanName": "TauCeti.Heegner.dihedral_conjugation",
       "prototype": {
         "status": "conditions_omitted",
-        "detail": "The Lean signature supplies existing algebraic carriers and the indicated conclusion. The exact arithmetic identification, field, geometry, coefficient topology and source hypotheses in this node’s full statement cannot yet be expressed through the supplier interfaces. Those conditions are omitted explicitly, not replaced by invented Prop fields or opaque types. Where the signature presents one component of a geometric comparison (localization, degree, norm, or reduction), the remaining geometric construction and compatibility are still the mathematical target in the statement."
+        "detail": "The suggested signature transports the existing DihedralGroup rotation/reflection identity through a supplied homomorphism into the arithmetic group. It is the cyclic-quotient component of the tower action. The class-field identification and general abelian-class-group inversion remain omitted supplier conditions; no arbitrary group elements are asserted to satisfy the identity."
       }
     },
     {
@@ -2450,7 +2513,7 @@
         },
         {
           "where": "HE.8 (outside this part)",
-          "how": "The unchanged conductor-one class is used in the later anticyclotomic specialization."
+          "how": "The unchanged conductor-one class is used in the anticyclotomic specialization."
         }
       ],
       "api": [
@@ -3249,18 +3312,20 @@
       ],
       "title": "Ribet–Takahashi period and Tamagawa comparison",
       "kind": "theorem",
-      "statement": "For definite g with N− squarefree of odd length and full Hypothesis♥, v_𝔭(η_g,N+,N−)=Σ_{ℓ|N−}length_O𝔭 Φ(A_g/K_ℓ)_𝔭. In the nonsquarefree case retain a nonempty residually ramified ℓ||N set and either a ramified ℓ||N− or at least two factors ℓ||N+. These are the precise period/Tamagawa conditions used to cancel the auxiliary form’s local terms. For additive split ℓ²|N+, use V^GKℓ=0 and the finite-residue cohomology argument to prove the component-group invariant vanishes; do not infer inertia invariants vanish from decomposition invariants.",
+      "statement": "For g of weight2 and trivial nebentypus, p≥5 with p∤ND_K and surjective ρ_g,𝔭:G_Q→GL₂(k₀), K as in Zhang’s Notations, N⁻ squarefree of odd prime count, and all three clauses of Hypothesis♥, let η_g(N) be the full-level Hecke congruence ideal generator and ξ_g(N⁺,N⁻) the pairing norm of a primitive integral definite quaternionic eigenfunction. The period ratio is η_g,N⁺,N⁻=η_g(N)/ξ_g(N⁺,N⁻), not the raw congruence ideal. Then v_𝔭(η_g,N⁺,N⁻)=Σ_{ℓ|N⁻}t_g(ℓ), where t_g(ℓ)=length_O𝔭 Φ(A_g/K_ℓ)_𝔭. For nonsquarefree N require Ram(ρ)≠∅ and either a ramified ℓ||N⁻ or at least two primes ℓ||N⁺, as in ♥(2). The last clause does not itself assert residual ramification of both primes. At split additive ℓ²|N⁺, ♥(3) and finite-residue cohomology eliminate the rational component factor; decomposition-invariant vanishing is not inertia-invariant vanishing.",
       "hypotheses": [
         "The hypotheses in the statement are part of the declaration; the conventions in the reader apply."
       ],
       "proofSteps": [
-        "Import the GL₂-type modular-degree and congruence-module comparison (Ribet–Takahashi, Khare, Helm/Pollack–Weston). Request an independent early degree/congruence-period export from BSD.5’s owner. Importing the entire BSD.5 stage is circular because it consumes HE.6; neither the indefinite Jochnowitz result nor the rank-zero application is a prerequisite of this definite period identity.",
-        "Use the Néron monodromy description of local Tamagawa lengths.",
-        "In the rank-zero formula cancel only the stated N− factors and verify the other Tamagawa factors are units."
+        "Request independent export BSD.3a/definite-congruence-period from the BSD owner, between geometric degree theory and HE.6. Its contract is exactly this identity for the stated coefficient ring and odd definite discriminant. It must not require HE.6, BSD.5’s final index formula, Jochnowitz or rank-zero BSD.",
+        "The export uses R11.4/R11.6 monodromy/component and degeneracy-map presentations, R17.3 integral definite/indefinite transfer and residual multiplicity one, and full-level Hecke congruence ideals. In the squarefree case follow Pollack–Weston6.2–6.8: character lattices, the monodromy degree formula, definite pairing and degree/congruence comparison.",
+        "For nonsquarefree N import the exact Ribet–Takahashi/Khare modular-degree comparison and Helm multiplicity-one variant identified in Zhang6.4, retaining Ram≠∅ and the two alternative level conditions. The squarefree preprint cannot be used as the sole supplier for this variant.",
+        "Normalize Ω_can=〈g,g〉_Pet/η_g(N), and the definite special value with ξ_g; only then cancel the N⁻ local lengths in the separate rank-zero application. Prove the other rational component factors are units using the corrected additive-prime finite-residue argument."
       ],
       "acceptance": [
-        "Odd N− is required for the definite period formula; even N− belongs to the rank-one curve branch.",
-        "The p-part over split primes and inert primes is not interchanged."
+        "The independent early export must have its own declaration and no path through HE.6.",
+        "η_g,N⁺,N⁻ is the ratio η_g(N)/ξ_g, with a primitive definite pairing and odd N⁻.",
+        "Do not extend Pollack–Weston’s squarefree Theorem6.8 by dropping its hypotheses; retain the stated nonsquarefree comparison."
       ],
       "prerequisites": [
         "NeronModelsAndSemistableAbelianVarieties:R11.4",
@@ -3273,6 +3338,11 @@
           "sourceId": "zhang",
           "locator": "Theorem6.4 and proof, pp.229–230; §7.2 p.233",
           "match": "The passage gives the stated construction or result; the proof outline separates imported general theory from its arithmetic application."
+        },
+        {
+          "sourceId": "pollack-weston",
+          "locator": "§§6.2–6.8, preprint pp.18–23, especially Theorem6.8",
+          "match": "The squarefree identity is derived from the character group and modular-degree comparison; Zhang6.4 supplies the precise nonsquarefree variant through its additional cited degree/multiplicity-one results."
         }
       ],
       "library": {
@@ -3299,19 +3369,26 @@
         "The hypotheses in the statement are part of the declaration; the conventions in the reader apply."
       ],
       "proofSteps": [
-        "Use Zhang §8.1’s GL₂-type residual Heegner local relation (8.1), parity (3.24), and ES.1’s simultaneous prime detection and prescribed singular-class theorem. Verify the actual V/k₀ arithmetic inputs; the Gross F_p detector and Howard full-Tate-image χ theorem cannot simply be substituted.",
-        "Inductively choose the primes using the finite/singular relation and same-eigenspace local pairing.",
-        "Use global reciprocity twice to prove spanning and the relaxed opposite bound; handle ν=0 with empty conductor products."
+        "Use the actual V/k₀ pairing, relation(8.1), parity(3.24), two-class detector and ramification-selection specialization, not the Gross or Howard detector.",
+        "Choose distinct ℓ₁,…,ℓ₂ν₊₁ inductively; put n_i=ℓ_i⋯ℓ_i₊ν₋₁ for 1≤i≤ν+1. Minimality makes each support localization zero, since c(n_i/ℓ)=0. Thus the c(n_i) satisfy the ordinary finite Selmer conditions.",
+        "For the next diagonal choose an opposite-sign class by Lemma8.2 and detect it with c(n_{j+1}) by Lemma8.1. Reciprocity against c(n_{j+1}ℓ) leaves one term, forcing singular nonvanishing at the distinguished old prime; (8.1) turns that into the next nonzero diagonal. The detector matrix at ℓ_ν₊j is zero for i>j and has nonzero diagonal.",
+        "Subtract the triangular basis from any remaining same-sign class so its detector localizations vanish. Simultaneous detection and a new derivative give a one-term reciprocity contradiction. At B(κ), all Heegner localizations vanish, so this argument also applies to the relaxed group.",
+        "For the opposite sign, a space of dimension>ν has a nonzero vector in the kernel of the ν detector maps. The same simultaneous-detection reciprocity contradiction gives the bound. When ν=0 all conductor products are empty and equal1."
       ],
       "acceptance": [
-        "Check every displayed hypothesis against the cited source and retain integral coefficients and normalization constants."
+        "Check the actual k₀ rational structures and all three new arithmetic specializations.",
+        "The family must be nonzero; the zero family has ν=∞ and does not admit a finite triangular basis.",
+        "Keep 2ν+1 distinct selected primes, ν+1 basis classes, and good-prime rather than conductor-only base locus."
       ],
       "prerequisites": [
         "HeegnerPointEulerSystems:HE.6/zhang-cohomological-congruence",
         "EulerSystemsAndKolyvaginSystems:ES.1",
         "HeegnerPointEulerSystems:HE.6/heegner-vanishing-order",
         "HeegnerPointEulerSystems:HE.6/heegner-base-locus",
-        "SelmerIwasawaCohomology:L1"
+        "SelmerIwasawaCohomology:L1",
+        "HeegnerPointEulerSystems:HE.6/zhang-residual-heegner-relations",
+        "HeegnerPointEulerSystems:HE.6/zhang-two-class-prime-detection",
+        "HeegnerPointEulerSystems:HE.6/zhang-prescribed-ramification-class"
       ],
       "sources": [
         {
@@ -3377,7 +3454,7 @@
       "leanName": "TauCeti.Heegner.zhang_indivisibility",
       "prototype": {
         "status": "conditions_omitted",
-        "detail": "The Lean signature supplies existing algebraic carriers and the indicated conclusion. The exact arithmetic identification, field, geometry, coefficient topology and source hypotheses in this node’s full statement cannot yet be expressed through the supplier interfaces. Those conditions are omitted explicitly, not replaced by invented Prop fields or opaque types. Where the signature presents one component of a geometric comparison (localization, degree, norm, or reduction), the remaining geometric construction and compatibility are still the mathematical target in the statement."
+        "detail": "The suggested signature states the final transport of a nonzero auxiliary localization to the original class family through a supplied localization homomorphism and congruence. Source hypotheses, the level-raised arithmetic carriers and the preceding rank-lowering/nonvanishing induction are omitted. A zero arbitrary class family cannot satisfy those expressible transport hypotheses. The full theorem remains the mathematical target in this statement."
       }
     },
     {
@@ -3479,14 +3556,15 @@
       ],
       "title": "Almost-all primary Sha vanishing",
       "kind": "theorem",
-      "statement": "For the classical non-CM non-torsion Heegner setting, outside a finite set of primes the Gross clean theorem gives Sha(E/K)[p]=0. Since Sha is torsion, this implies Sha(E/K)[p∞]=0: any nonzero p-primary element would yield nonzero p-torsion after taking a suitable p-power multiple. This does not require proving finite p-primary groups first.",
+      "statement": "For the classical non-CM non-torsion Heegner setting, outside a finite set of primes the Gross clean theorem gives Sha(E/K)[p]=0. Since Sha is torsion, this implies Sha(E/K)[p∞]=0: any nonzero p-primary element would yield nonzero p-torsion after taking a suitable p-power multiple. This does not require proving finite p-primary groups first. For CM E use the separate CM-character branch: the uniform integral constants vanish outside a finite set and the finite-level Kummer quotient then forces Sha[p∞]=0. For the specified RM quotients the same reasoning applies at coefficient primes 𝔭; there are finitely many exceptional coefficient primes, not a tacit residual-surjectivity assumption.",
       "hypotheses": [
         "The hypotheses in the statement are part of the declaration; the conventions in the reader apply."
       ],
       "proofSteps": [
         "Combine non-CM almost-all image and point indivisibility with Gross’s clean mod-p theorem.",
         "Apply the elementary p-primary torsion argument to the actual Sha carrier.",
-        "Retain the finite exceptional set containing p=2 and all failures of the clean hypotheses."
+        "Retain the finite exceptional set containing p=2 and all failures of the clean hypotheses.",
+        "In the CM/RM branch use the actual zero C_i and the integral Selmer bound, before the finite-primary sum; retain every exceptional coefficient prime."
       ],
       "acceptance": [
         "Check every displayed hypothesis against the cited source and retain integral coefficients and normalization constants."
@@ -3494,13 +3572,20 @@
       "prerequisites": [
         "HeegnerPointEulerSystems:HE.7/non-cm-open-image-application",
         "HeegnerPointEulerSystems:HE.6/gross-clean-mod-p-descent",
-        "tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4"
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4",
+        "HeegnerPointEulerSystems:HE.7/cm-character-error-descent",
+        "HeegnerPointEulerSystems:HE.7/exceptional-primary-sha-bound"
       ],
       "sources": [
         {
           "sourceId": "gross",
           "locator": "§2 pp.237–238 and Proposition2.1",
           "match": "The passage gives the stated construction or result; the proof outline separates imported general theory from its arithmetic application."
+        },
+        {
+          "sourceId": "nekovar",
+          "locator": "§3.5.2 p.19; §§6.1–6.2 pp.35–37; §7.4 p.45; locators use the 53-page author preprint, not published pagination.",
+          "match": "The cited proof supplies the integral arithmetic construction and uniform estimates; reusable representation, linear algebra and descent results are imported through their owners."
         }
       ],
       "library": {
@@ -3525,34 +3610,38 @@
       ],
       "title": "Arithmetic derivative denominators at exceptional primes",
       "kind": "theorem",
-      "statement": "For non-CM E/Q and its actual classical ring-class tower, prove the bounded-denominator derivative construction at each exceptional p, retaining nonzero restriction/inflation kernels, torsion invariants, unit factors, local component and parametrization/Hodge denominators. Its annihilator constants must be uniform in the finite torsion exponent m. Bound the bad-reduction and fixed parametrization contributions by a fixed nonzero integer, rather than increasing an unexplained denominator with m. ES3/4 supplies the general error-tolerant construction; HE.7 must supply these arithmetic bounds.",
+      "statement": "Fix F totally real of degree d, B/F ramified at all real places except a chosen τ₁ and at a finite set S_B with #S_B≡d−1 mod2, and an open compact level U⊂B̂×. Let A/F be an F-simple Hecke-linear quotient of J(N_U*) with End_F(A)=O_L, L totally real and [L:Q]=dim A, and fix its nonzero integral quotient map. Let K/F be totally imaginary quadratic, every v∈S_B inert or ramified in K, fix t:K↪B and a CM point x of the specified level over K(x). Use the central quotient N_U*, modular compactification when B=M₂(Q), and the integral cusp/Hodge map ι(P)=m[P]−mδ of Nekovář1.19, with fixed m. Put y=Tr_K(x)/K ι_A(x). Assume y non-torsion and A does not acquire CM over K (Nekovář’s condition(?) for α=1). For each 𝔭 and each M≫0 with 𝔭^M principal, the actual CM tower supplies integral c(n)∈H¹(K(x),A[𝔭^M]) without requiring vanishing of torsion invariants. At v∤n its image in H¹(K(x)_v,A)[𝔭^M] is an unramified component-group class, killed by 𝔭^C₁,v where C₁,v kills the geometric 𝔭-primary Néron component group. With C₁=max_v C₁,v, κ_n=𝔭^C₁ cor_K(x)/K c(n) satisfies the actual finite Kummer conditions outside n, κ₁=𝔭^C₁δ(y), and its singular localization at ℓ is −Φ_ℓ Fr(ℓ)κ_n/ℓ. C₁ is independent of M,n and zero for almost all 𝔭; cusp/Hodge and quotient denominators are fixed in ι_A. For classical E use its given modular quotient, absorbing the fixed cusp annihilator and isogeny degree. C₂,C₃ bound evaluation errors, not an inverse of restriction.",
       "hypotheses": [
         "The hypotheses in the statement are part of the declaration; the conventions in the reader apply."
       ],
       "proofSteps": [
-        "Instantiate the imported error-tolerant derivative/descent interface on the actual tower.",
-        "Use the fixed Tate-image index and actual local torsion/component bounds.",
-        "Clear the fixed CM-unit and parametrization/Hodge denominators and prove the resulting bound is independent of m."
+        "Choose the conductor-chain points x(n) with local uniformizers. For r>0 use y(n)=u₀Tr_K(x(n))/K(x(n))₀ ι_A(x(n)); the source’s u(r)=1, while u(0)=u₀. Import ES.3’s positive cyclic derivatives with (σ−1)D=(Nℓ+1)/u₀−Norm.",
+        "The strongly admissible S₁(M) conditions ensure integral a_ℓ/𝔭^M and (Nℓ+1)/(u₀𝔭^M). On each cyclic generator define the finite cocycle value D_n/ℓ[(a_ℓ/𝔭^M)y(n/ℓ)−((Nℓ+1)/(u₀𝔭^M))y(n)]. Norm zero and the commuting generator identities prove it is a cocycle (Lemma5.8).",
+        "Choose z with 𝔭^Mz=D_ny(n), inflate the finite cocycle and add (g−1)z as in §§5.9–5.10. The result is torsion-valued and restricts to the actual Kummer class; changing z is a coboundary. No restriction equivalence or torsion-invariant vanishing is assumed.",
+        "Apply §5.12’s geometric component-group obstruction at every v∤n, including coefficient and bad primes. Multiply once by 𝔭^C₁ and corestrict; good components vanish and the finitely many bad geometric groups give C₁=0 for almost all 𝔭.",
+        "Use the trace-compatible finite/singular calculation §§5.15–5.18, retaining its minus sign and ΦFr=−FrΦ. The fixed integral ι_A map absorbs the Hodge/cusp degree at the start."
       ],
       "acceptance": [
-        "This is a required proof target, not a theorem proved by the read clean-case exposition.",
-        "Every arithmetic constant must be explicit enough to verify uniformity in m."
+        "Check integral cocycle values at p=2 and nonzero torsion invariants.",
+        "C₁ uses geometric component groups; their rational points alone do not bound all local obstructions.",
+        "All constants are independent of torsion level; principal powers form a cofinal sequence."
       ],
       "prerequisites": [
         "HeegnerPointEulerSystems:HE.4/differentiated-point-invariance",
-        "HeegnerPointEulerSystems:HE.4/kolyvagin-derivative-classes-and-descent-to-K",
         "HeegnerPointEulerSystems:HE.1/jacobian-basepoint-denominators",
         "HeegnerPointEulerSystems:HE.1/parameter-choice-and-degree",
-        "HeegnerPointEulerSystems:HE.5/arithmetic-local-error-comparison",
-        "HeegnerPointEulerSystems:HE.7/non-cm-open-image-application",
+        "HeegnerPointEulerSystems:HE.0/relative-cm-conductor-tower",
+        "HeegnerPointEulerSystems:HE.2/quaternionic-reduction-specialization",
+        "HeegnerPointEulerSystems:HE.7/integral-cm-prime-detection",
         "EulerSystemsAndKolyvaginSystems:ES.3",
-        "EulerSystemsAndKolyvaginSystems:ES.4"
+        "NeronModelsAndSemistableAbelianVarieties:R11.2",
+        "ArithmeticGaloisDuality:R02.2"
       ],
       "sources": [
         {
-          "sourceId": "gross",
-          "locator": "Theorem1.3 pp.236–237 (quoted Kolyvagin theorem; proof not supplied)",
-          "match": "Gross states the endpoint or records the excluded branch; he does not supply this exceptional/dyadic/CM/RM proof. This citation verifies the acquisition boundary only, not the proposed uniform error estimates or extended theorem."
+          "sourceId": "nekovar",
+          "locator": "§1.19 pp.14–15; §§4.8–4.13 pp.25–27; §§5.8–5.12 pp.29–30; §§5.15–5.18 pp.31–33; §7.2.1 p.43; locators use the 53-page author preprint, not published pagination.",
+          "match": "The cited proof supplies the integral arithmetic construction and uniform estimates; reusable representation, linear algebra and descent results are imported through their owners."
         }
       ],
       "library": {
@@ -3577,30 +3666,33 @@
       ],
       "title": "Dyadic integral conjugation descent",
       "kind": "theorem",
-      "statement": "At p=2 in the non-CM classical Heegner branch, use restriction/corestriction, integral 1±τ maps and real-place Tate cohomology to bound the invariant and local-condition errors uniformly in m. Keep the kernels/cokernels of the integral maps; do not split the Z₂ module by (1±τ)/2. Combine these bounds with the actual bounded-denominator derivative classes and the general ES4 descent engine.",
+      "statement": "Fix F totally real of degree d, B/F ramified at all real places except a chosen τ₁ and at a finite set S_B with #S_B≡d−1 mod2, and an open compact level U⊂B̂×. Let A/F be an F-simple Hecke-linear quotient of J(N_U*) with End_F(A)=O_L, L totally real and [L:Q]=dim A, and fix its nonzero integral quotient map. Let K/F be totally imaginary quadratic, every v∈S_B inert or ramified in K, fix t:K↪B and a CM point x of the specified level over K(x). Use the central quotient N_U*, modular compactification when B=M₂(Q), and the integral cusp/Hodge map ι(P)=m[P]−mδ of Nekovář1.19, with fixed m. Put y=Tr_K(x)/K ι_A(x). Assume y non-torsion and A does not acquire CM over K (Nekovář’s condition(?) for α=1). The integral two-prime descent applies at every coefficient prime, including 𝔭|2. Write C₀=max{c:y∈A(K)_tors+𝔭^cA(K)}, C₆=v_𝔭(degφ) for a fixed F-polarization, and C₁,C₂,C₃ as above; C₅=v_𝔭[K:K]=0 in this trivial-character part. For M≫0, 2²¹𝔭^(2C₀+2C₁+4C₂+4C₃+C₅+C₆) annihilates Sel(A/K,𝔭^M)/O_𝔭κ₁. Thus B=2C₀+2C₁+4C₂+4C₃+C₆+21v_𝔭(2) is independent of M. Integral (1±ρ) is retained; no decomposition using (1±ρ)/2 is made. All archimedean places of K are complex, so their local H¹ is zero. Any comparison back to a real place of F uses the fixed Tate correction killed by2, as specified in HE.3, rather than an odd-prime invariant argument.",
       "hypotheses": [
         "The hypotheses in the statement are part of the declaration; the conventions in the reader apply."
       ],
       "proofSteps": [
-        "Import the real/Tate comparison and the exact integral transfer maps.",
-        "Use 1±τ without division and quantify their 2-primary kernel/cokernel.",
-        "Apply ES4 only after the uniform arithmetic constants have been proved."
+        "Choose a sign ε with exp((1+ερ)κ₁)≥M−C₀−C₁−v_𝔭2 using 2κ₁=(1+ρ)κ₁+(1−ρ)κ₁.",
+        "Apply actual integral prime detection to the leading component and an opposite-sign class. Reciprocity and the polarization pairing bound the opposite space by exponent C₀+C₁+2C₂+2C₃+C₅+C₆+11v_𝔭2.",
+        "Choose a second prime detecting the new opposite-sign derivative and a same-sign class in the first localization kernel. Reciprocity with n=ℓℓ′ gives the kernel bound 2¹⁵𝔭^(C₀+C₁+3C₂+3C₃+C₅+C₆).",
+        "Combine the cyclic finite local image, this kernel and the opposite-space bound, keeping all integral intersection factors2. Apply ES.4’s reusable arithmetic bound with the now verified constants to obtain the displayed factor2²¹."
       ],
       "acceptance": [
-        "The read sources do not establish this dyadic argument; the acquisition gap is binding.",
-        "Odd-prime eigenspace proofs cannot be transferred by changing a parameter to 2."
+        "Preserve the actual exponents21,11,15 and the polarization defect; they are annihilator bounds, not Sha orders.",
+        "The proof works for geometric CM provided no CM is defined over K."
       ],
       "prerequisites": [
-        "HeegnerPointEulerSystems:HE.3/archimedean-tate-correction",
         "HeegnerPointEulerSystems:HE.7/bounded-arithmetic-derivative-denominators",
+        "HeegnerPointEulerSystems:HE.7/integral-cm-prime-detection",
         "EulerSystemsAndKolyvaginSystems:ES.4",
+        "SelmerIwasawaCohomology:L1",
+        "HeegnerPointEulerSystems:HE.3/archimedean-tate-correction",
         "ArithmeticGaloisDuality:R02.4"
       ],
       "sources": [
         {
-          "sourceId": "gross",
-          "locator": "Theorem1.3 pp.236–237; its proof not given here",
-          "match": "Gross states the endpoint or records the excluded branch; he does not supply this exceptional/dyadic/CM/RM proof. This citation verifies the acquisition boundary only, not the proposed uniform error estimates or extended theorem."
+          "sourceId": "nekovar",
+          "locator": "§5.19 pp.33–34; Proposition7.2.3 pp.44–45; §§7.4–7.5 pp.45–47; locators use the 53-page author preprint, not published pagination.",
+          "match": "The cited proof supplies the integral arithmetic construction and uniform estimates; reusable representation, linear algebra and descent results are imported through their owners."
         }
       ],
       "library": {
@@ -3625,31 +3717,33 @@
       ],
       "title": "CM character descent and error bounds",
       "kind": "theorem",
-      "statement": "For CM E in the exact classical modular Heegner setting, pass to a base containing the CM field and use the imported CM character/Tate decomposition to prove the actual restriction, local and derivative error bounds uniformly in m. Descend back with the explicit base-extension degree and real/dyadic corrections. The non-CM GL₂-image theorem cannot be applied to this branch.",
+      "statement": "For a classical CM E/Q, K as in the CM/Heegner-field node, and non-torsion bottom Heegner point, the two conjugate CM Tate characters over KM verify the integral matrix-algebra and homothety bounds over K. The explicit cocycle classes and the integral two-prime descent give the same uniform exponent B at all rational primes, including 2. C₀,C₁,C₂,C₃,C₆ and v_p2 are zero outside a finite set, so Sha(E/K)[p∞]=0 there. This branch uses the semilinear CM character representation, not Serre’s non-CM GL₂ surjectivity.",
       "hypotheses": [
         "The hypotheses in the statement are part of the declaration; the conventions in the reader apply."
       ],
       "proofSteps": [
-        "Import CM character realizations and their local decomposition from CM4.",
-        "Construct Heegner arithmetic finite-level classes with the retained errors, using ES4’s engine.",
-        "Prove the actual uniform constants and then use restriction/corestriction for the descent back."
+        "Verify M≠K and the two-character recombination over K from the preceding CM-field comparison.",
+        "Apply the rational endomorphism/Burnside and almost-all residual irreducibility estimates, as in Nekovář6.2. These remain valid even though the residual group is contained in a Cartan normalizer.",
+        "Apply the actual explicit cocycle and integral two-prime construction over K; the degree-two CM-character restriction comparison has fixed 2-primary loss, not a level-dependent denominator.",
+        "Use C_i=0 almost everywhere and the finite Kummer exact sequences to obtain rank1 and almost-all primary vanishing, then combine the exceptional-primary bounds."
       ],
       "acceptance": [
-        "No CM all-prime proof is claimed from Gross’s non-CM clean-case argument.",
-        "Acquiring Rubin/Kolyvagin CM passages is required before these constants are verified."
+        "Do not move the global descent to KM, where condition(?) fails.",
+        "Almost-all primary vanishing needs the vanishing of the actual C_i, not full GL₂ image."
       ],
       "prerequisites": [
-        "EulerSystemsAndKolyvaginSystems:ES.4",
+        "HeegnerPointEulerSystems:HE.7/cm-heegner-field-disjointness",
+        "HeegnerPointEulerSystems:HE.7/integral-tate-image-errors",
+        "HeegnerPointEulerSystems:HE.7/bounded-arithmetic-derivative-denominators",
+        "HeegnerPointEulerSystems:HE.7/dyadic-integral-conjugation-descent",
         "ComplexMultiplicationAndExplicitReciprocity:CM.4",
-        "EulerSystemsAndKolyvaginSystems:ES.3",
-        "HeegnerPointEulerSystems:HE.1/jacobian-basepoint-denominators",
-        "HeegnerPointEulerSystems:HE.1/parameter-choice-and-degree"
+        "EulerSystemsAndKolyvaginSystems:ES.4"
       ],
       "sources": [
         {
-          "sourceId": "gross",
-          "locator": "Theorem1.3 pp.236–237 (full statement quoted); §2 p.237 restricts subsequent proof to non-CM",
-          "match": "Gross states the endpoint or records the excluded branch; he does not supply this exceptional/dyadic/CM/RM proof. This citation verifies the acquisition boundary only, not the proposed uniform error estimates or extended theorem."
+          "sourceId": "nekovar",
+          "locator": "Theorem3.2 pp.18–19; §§6.1–6.2 pp.35–37; Theorem7.3 and §7.5 pp.45–47; locators use the 53-page author preprint, not published pagination.",
+          "match": "The cited proof supplies the integral arithmetic construction and uniform estimates; reusable representation, linear algebra and descent results are imported through their owners."
         }
       ],
       "library": {
@@ -3671,30 +3765,30 @@
       ],
       "title": "Exceptional primary Sha exponent bound",
       "kind": "theorem",
-      "statement": "For each remaining exceptional p, after proving its uniform arithmetic error constants, apply ES4 to obtain a fixed bound p^b annihilating Sha(E/K)[p∞], with b depending on the finite Heegner index and proved arithmetic constants. The finite p^b-Selmer group then contains the p-primary Sha quotient and proves it finite. Uniformity in m is required before passing to p∞; separate finiteness of each Sha[p^m] is insufficient.",
+      "statement": "Fix F totally real of degree d, B/F ramified at all real places except a chosen τ₁ and at a finite set S_B with #S_B≡d−1 mod2, and an open compact level U⊂B̂×. Let A/F be an F-simple Hecke-linear quotient of J(N_U*) with End_F(A)=O_L, L totally real and [L:Q]=dim A, and fix its nonzero integral quotient map. Let K/F be totally imaginary quadratic, every v∈S_B inert or ramified in K, fix t:K↪B and a CM point x of the specified level over K(x). Use the central quotient N_U*, modular compactification when B=M₂(Q), and the integral cusp/Hodge map ι(P)=m[P]−mδ of Nekovář1.19, with fixed m. Put y=Tr_K(x)/K ι_A(x). Assume y non-torsion and A does not acquire CM over K (Nekovář’s condition(?) for α=1). For each 𝔭 the finite-level Selmer quotient by κ₁ is killed uniformly by 𝔭^B, with B=2C₀+2C₁+4C₂+4C₃+C₆+21v_𝔭2. Since κ₁ lies in the Kummer image, Sha(A/K)[𝔭^M] is killed by 𝔭^B for every sufficiently large principal M, hence the entire 𝔭-primary group is killed by 𝔭^B. Finite-level Selmer finiteness at this fixed bound makes the primary group finite. The cofinal principal exponents are sufficient; separate finiteness at each M without a uniform B is insufficient.",
       "hypotheses": [
         "The hypotheses in the statement are part of the declaration; the conventions in the reader apply."
       ],
       "proofSteps": [
-        "Use the actual nonzero bounded-denominator Heegner class in the generic error-tolerant descent inequality.",
-        "Choose a bound independent of m and pass through the exact finite/p∞ Kummer sequences.",
-        "Apply finiteness of the fixed finite-level Selmer group at the resulting exponent."
+        "Apply the verified integral two-prime bound through the finite Kummer exact sequence.",
+        "Every 𝔭-primary Sha element belongs to one cofinal principal-exponent torsion group; the fixed B kills it.",
+        "Use finiteness of Sha[𝔭^B], supplied by finite Selmer theory for this abelian variety, to obtain a single finite carrier containing the entire primary part."
       ],
       "acceptance": [
-        "The bound is conditional on the unverified arithmetic error targets, never an assumption silently inserted into the final theorem."
+        "Use a fixed-exponent finite Selmer group, not a limit of unrelated finite carriers.",
+        "The Selmer quotient bound implies an annihilator of Sha, not a square-index order formula."
       ],
       "prerequisites": [
-        "HeegnerPointEulerSystems:HE.7/bounded-arithmetic-derivative-denominators",
         "HeegnerPointEulerSystems:HE.7/dyadic-integral-conjugation-descent",
-        "HeegnerPointEulerSystems:HE.7/cm-character-error-descent",
         "EulerSystemsAndKolyvaginSystems:ES.4",
-        "tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4"
+        "SelmerIwasawaCohomology:L0",
+        "ArithmeticGaloisDuality:R02.2"
       ],
       "sources": [
         {
-          "sourceId": "gross",
-          "locator": "Theorem1.3 pp.236–237 (quoted theorem; exceptional-prime proof unavailable)",
-          "match": "Gross states the endpoint or records the excluded branch; he does not supply this exceptional/dyadic/CM/RM proof. This citation verifies the acquisition boundary only, not the proposed uniform error estimates or extended theorem."
+          "sourceId": "nekovar",
+          "locator": "§3.5 p.19; §7.1.2 pp.43–44; Theorem7.3 and proof pp.45–47; locators use the 53-page author preprint, not published pagination.",
+          "match": "The cited proof supplies the integral arithmetic construction and uniform estimates; reusable representation, linear algebra and descent results are imported through their owners."
         }
       ],
       "library": {
@@ -3716,30 +3810,37 @@
       ],
       "title": "Classical full Sha finiteness",
       "kind": "theorem",
-      "statement": "In Gross’s stated classical modular Heegner setting, if y_K has infinite order, rank E(K)=1 and the entire Sha(E/K) is finite. In the formulation Gross quotes, its order divides t_E/K·I_K², where the positive integer t_E/K has prime factors only 2 and odd exceptional residual-image primes. Do not assign an explicit value to t from the clean theorem. To prove full finiteness combine almost-all p-primary vanishing with finite exceptional p-primary groups and the torsion-primary decomposition; finiteness at one or every separately considered prime is not enough.",
+      "statement": "Let E/Q have a fixed modular quotient X₀(N)→E, K imaginary quadratic with D_K≠−3,−4 and all N-primes split, and y_K=Tr_K[1]/K P₁ of infinite order. Then rank E(K)=1 and the entire Sha(E/K) is finite, including CM E and p=2. The uniform integral Selmer bound gives rank1: the non-torsion Kummer line has finite-index quotient at any coefficient prime; it also gives finite exceptional primary groups and almost-all primary vanishing. The quantitative square-index order theorem is stated separately and is not inferred from this exponent argument.",
       "hypotheses": [
         "The hypotheses in the statement are part of the declaration; the conventions in the reader apply."
       ],
       "proofSteps": [
-        "Prove rank one from one available clean prime using Mordell–Weil finite generation and non-CM image, or the separately verified CM branch.",
-        "Combine the almost-all vanishing and each uniform exceptional exponent/finite Selmer bound.",
-        "Use the torsion-primary decomposition to identify Sha with a finite sum of finite groups.",
-        "The square-index constant bound remains a source/proof acquisition target beyond the scanned exposition."
+        "Specialize the integral CM-point setup to F=Q, B=M₂(Q), N_U*=X₀(N) and the given quotient. The fixed cusp annihilator multiplies y_K by a nonzero integer and cannot destroy non-torsion.",
+        "For non-CM E condition(?) holds; for CM E verify it using the CM/Heegner-field comparison. Apply the uniform quotient bound at one prime and Mordell–Weil finite generation to get rank1 without a prior index assumption.",
+        "Apply almost-all primary vanishing and the fixed exceptional-primary bounds. The torsion-primary decomposition identifies Sha with a finite direct sum of finite primary groups."
       ],
       "acceptance": [
-        "Check every displayed hypothesis against the cited source and retain integral coefficients and normalization constants."
+        "Retain the given modular parametrization and bottom trace, not a point over K[1] without trace.",
+        "Rank must be established before assigning a finite Mordell–Weil index.",
+        "No primary component may be omitted."
       ],
       "prerequisites": [
         "HeegnerPointEulerSystems:HE.7/almost-all-primary-sha-vanishing",
         "HeegnerPointEulerSystems:HE.7/exceptional-primary-sha-bound",
-        "HeegnerPointEulerSystems:HE.6/gross-clean-mod-p-descent",
-        "tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4"
+        "HeegnerPointEulerSystems:HE.7/cm-heegner-field-disjointness",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-6-the-mordellweil-theorem-aec-viii"
       ],
       "sources": [
         {
+          "sourceId": "nekovar",
+          "locator": "Theorem3.2 pp.18–19; §7.4 p.45; §7.5 pp.45–47; locators use the 53-page author preprint, not published pagination.",
+          "match": "The cited proof supplies the integral arithmetic construction and uniform estimates; reusable representation, linear algebra and descent results are imported through their owners."
+        },
+        {
           "sourceId": "gross",
-          "locator": "Theorem1.3 pp.236–237",
-          "match": "Gross states the endpoint or records the excluded branch; he does not supply this exceptional/dyadic/CM/RM proof. This citation verifies the acquisition boundary only, not the proposed uniform error estimates or extended theorem."
+          "locator": "Theorem1.3 pp.236–237 (quoted classical endpoint)",
+          "match": "Gross states the classical endpoint; the integral proof route used here is Nekovář’s specialization, including exceptional and dyadic primes."
         }
       ],
       "library": {
@@ -3764,29 +3865,37 @@
       ],
       "title": "Admissible RM Kolyvagin–Logachev application",
       "kind": "theorem",
-      "statement": "Let A/Q be a simple admissible RM quotient of J₀(N), End_Q(A)⊗Q totally real of degree dim A=d, with a chosen surjective J₀(N)→A, a classical Heegner field K, and analytic rank d for L(A/K,s). The appropriate higher Gross–Zagier height nonvanishing and Kolyvagin–Logachev descent give rank A(K)=d and finite entire Sha(A/K), under the exact arithmetic/local hypotheses of that theorem. Quaternionic/RM variants require the named field, level, integral quotient and Hecke compatibility and a source that establishes that extension; no unrestricted statement for all abelian varieties over all totally real fields is intended.",
+      "statement": "Fix F totally real of degree d, B/F ramified at all real places except a chosen τ₁ and at a finite set S_B with #S_B≡d−1 mod2, and an open compact level U⊂B̂×. Let A/F be an F-simple Hecke-linear quotient of J(N_U*) with End_F(A)=O_L, L totally real and [L:Q]=dim A, and fix its nonzero integral quotient map. Let K/F be totally imaginary quadratic, every v∈S_B inert or ramified in K, fix t:K↪B and a CM point x of the specified level over K(x). Use the central quotient N_U*, modular compactification when B=M₂(Q), and the integral cusp/Hodge map ι(P)=m[P]−mδ of Nekovář1.19, with fixed m. Put y=Tr_K(x)/K ι_A(x). Assume y non-torsion and A does not acquire CM over K (Nekovář’s condition(?) for α=1). Then A(K)/O_Ly is finite, rank_Z A(K)=[L:Q]=dim A, and the entire Sha(A/K) is finite. This is the trivial-character specialization of Nekovář3.2 and includes the specified quaternionic/RM quotients, with field, ramification, central quotient, maximal endomorphism order, Hecke map and integral Hodge normalization stated above. An analytic rank-d conclusion additionally requires a supplier height formula proving this particular y is non-torsion from ord_s=1 L(A/K,s)=d; analytic rank alone is not an input to descent.",
       "hypotheses": [
         "The hypotheses in the statement are part of the declaration; the conventions in the reader apply."
       ],
       "proofSteps": [
-        "Import the general GL₂-type residual/open-image supplier and the height nonvanishing from GZ8.",
-        "Apply the actual RM Heegner derivative/error construction over the specified coefficient order.",
-        "Read the original Kolyvagin–Logachev proof and validate the quaternionic extension before specializing it."
+        "Use the specified quaternionic Jacobian quotient and integral CM-point trace, importing their carriers from R18 and the abelian-variety roadmap.",
+        "Verify the no-CM-over-K condition and rank-two coefficient Tate realization. Apply the explicit cocycle, actual prime detection and uniform Selmer quotient bound at every coefficient prime.",
+        "Use finite generation to deduce rank1 over O_L and hence rank dim A over Z. The bounded primary groups and almost-all vanishing imply full Sha finiteness by torsion decomposition.",
+        "For a modular analytic-rank application request the exact GZ.8 height/nonvanishing export for this quotient and CM field, and verify it before invoking the geometric theorem."
       ],
       "acceptance": [
-        "Only Gross’s quoted admissible J₀(N)/Q result was verified; its proof and a broader quaternionic extension were not."
+        "No unspecified admissibility: check F,B,U,K,t,x, End_F(A)=O_L and the nontrivial Hecke-linear map.",
+        "Use the integral m(P−δ) map, even when the curve is geometrically disconnected.",
+        "For nonmaximal endomorphism orders supply a fixed isogeny comparison and its local degree errors before using this maximal-order statement."
       ],
       "prerequisites": [
-        "HeegnerPointEulerSystems:HE.7/non-cm-open-image-application",
+        "HeegnerPointEulerSystems:HE.7/integral-tate-image-errors",
         "HeegnerPointEulerSystems:HE.7/bounded-arithmetic-derivative-denominators",
+        "HeegnerPointEulerSystems:HE.7/exceptional-primary-sha-bound",
+        "HeegnerPointEulerSystems:HE.7/almost-all-primary-sha-vanishing",
         "EulerSystemsAndKolyvaginSystems:ES.4",
-        "GrossZagierAndArithmeticHeights:GZ.8"
+        "HilbertModularVarietiesAndShimuraCurves:R18.1",
+        "HilbertModularVarietiesAndShimuraCurves:R18.4",
+        "GrossZagierAndArithmeticHeights:GZ.8",
+        "SelmerIwasawaCohomology:L0"
       ],
       "sources": [
         {
-          "sourceId": "gross",
-          "locator": "§12 pp.254–255 (quoted modular RM result; proof not supplied).",
-          "match": "Gross states the endpoint or records the excluded branch; he does not supply this exceptional/dyadic/CM/RM proof. This citation verifies the acquisition boundary only, not the proposed uniform error estimates or extended theorem."
+          "sourceId": "nekovar",
+          "locator": "§§3.1–3.2 pp.18–19; §7.1 pp.43–44; §§7.3–7.5 pp.45–47; locators use the 53-page author preprint, not published pagination.",
+          "match": "The cited proof supplies the integral arithmetic construction and uniform estimates; reusable representation, linear algebra and descent results are imported through their owners."
         }
       ],
       "library": {
@@ -3979,6 +4088,376 @@
       "prototype": {
         "status": "conditions_omitted",
         "detail": "The supplied Λ, residual class family and actual local cohomology localization maps are unbundled data. Their arithmetic/continuous-cohomology identification is omitted; the support definition and its exact algebraic formula are stated."
+      }
+    },
+    {
+      "id": "HeegnerPointEulerSystems:HE.6/zhang-residual-local-pairing",
+      "parentStageId": "HeegnerPointEulerSystems:HE.6",
+      "realises": [
+        "HeegnerPointEulerSystems:HE.6"
+      ],
+      "title": "Residual Heegner local pairing",
+      "kind": "theorem",
+      "statement": "Let g be a weight-two newform of trivial nebentypus, K imaginary quadratic with (D_K,N)=1, N=N⁺N⁻ with N⁻ squarefree of even prime count, and p≥5, p∤ND_K, good ordinary for g. Let k₀ be the finite field generated by the residual Hecke eigenvalues, V its two-dimensional representation, with ρ:G_Q→GL₂(k₀) surjective and A_g[𝔭]≃V⊗k₀k; impose all three clauses of Hypothesis♥. For each inert Kolyvagin prime ℓ∤ND_Kp with a_ℓ≡ℓ+1≡0 mod𝔭, H¹(K_ℓ,V) has dimension4 over k₀, with finite and transverse two-dimensional maximal isotropic subspaces. Each ± conjugation component of either subspace has dimension1, and local Tate duality pairs the same signs perfectly. The pairing V×V→k₀(1) is alternating, G_Q-equivariant; conjugation acts by −1 on its values.",
+      "hypotheses": [
+        "All hypotheses in the statement and the reader conventions are part of the declaration."
+      ],
+      "proofSteps": [
+        "Descend the polarized residual representation and the local conditions to k₀ using Zhang’s rational structure.",
+        "At ℓ, Frobenius over Q has eigenvalues ±1 while Frobenius over K is its square; compute finite and tame/transverse cohomology.",
+        "Use the cyclotomic multiplier −1 and the local invariant map to obtain the same-sign perfect pairings."
+      ],
+      "prerequisites": [
+        "SelmerIwasawaCohomology:L1",
+        "EulerSystemsAndKolyvaginSystems:ES.1",
+        "HeegnerPointEulerSystems:HE.6/zhang-local-conditions-rank-lowering"
+      ],
+      "sources": [
+        {
+          "sourceId": "zhang",
+          "locator": "§8.1 pp.234–235; Notations §1.4 pp.199–203; §5 pp.222–225",
+          "match": "These are the actual V/k₀ local carriers and pairings used in Lemma8.4, rather than the classical E[p]/F_p hypotheses."
+        }
+      ],
+      "acceptance": [
+        "Check dimensions over k₀ before extension to k; keep finite and transverse subspaces distinct.",
+        "At ℓ=p this calculation is inapplicable."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Heegner/Layer6",
+        "namespace": "TauCeti.Heegner"
+      },
+      "leanName": "TauCeti.Heegner.zhang_residual_local_pairing",
+      "implementationStatus": "unchecked",
+      "prototype": {
+        "status": "conditions_omitted",
+        "detail": "The Lean signature supplies existing algebraic carriers and the indicated conclusion. The exact arithmetic identification, field, geometry, coefficient topology and source hypotheses in this node’s full statement cannot yet be expressed through the supplier interfaces. Those conditions are omitted explicitly, not replaced by invented Prop fields or opaque types. Where the signature presents one component of a geometric comparison (localization, degree, norm, or reduction), the remaining geometric construction and compatibility are still the mathematical target in the statement."
+      }
+    },
+    {
+      "id": "HeegnerPointEulerSystems:HE.6/zhang-residual-heegner-relations",
+      "parentStageId": "HeegnerPointEulerSystems:HE.6",
+      "realises": [
+        "HeegnerPointEulerSystems:HE.6"
+      ],
+      "title": "Residual Heegner reciprocity",
+      "kind": "theorem",
+      "statement": "Let g be a weight-two newform of trivial nebentypus, K imaginary quadratic with (D_K,N)=1, N=N⁺N⁻ with N⁻ squarefree of even prime count, and p≥5, p∤ND_K, good ordinary for g. Let k₀ be the finite field generated by the residual Hecke eigenvalues, V its two-dimensional representation, with ρ:G_Q→GL₂(k₀) surjective and A_g[𝔭]≃V⊗k₀k; impose all three clauses of Hypothesis♥. The actual k₀-rational derivative classes c(n) satisfy c(n)_v∈H¹_fin(K_v,V) for v∤n, c(n)_ℓ∈H¹_tr(K_ℓ,V) for ℓ|n, and c(nℓ)_ℓ=ψ_ℓ(c(n)_ℓ) when ℓ∤n, where ψ_ℓ:H¹_fin≃H¹_tr is the normalized finite/transverse comparison. Conjugation acts on c(n) by ε_n=w_g(−1)^(ν(n)+1), where w_g is Zhang’s root number convention. All bad places and v|p use the actual Kummer condition; the relation is not inferred from Howard’s elliptic full-Tate-image correction.",
+      "hypotheses": [
+        "All hypotheses in the statement and the reader conventions are part of the declaration."
+      ],
+      "proofSteps": [
+        "Use the actual quaternionic Heegner tower, compatible generators and V/k₀ rational descent in §§3–5.",
+        "Normalize the local comparison using the reduction/norm identities to obtain (8.1).",
+        "Apply (3.24), including the extra bottom-class minus sign, and verify all non-support local conditions."
+      ],
+      "prerequisites": [
+        "HeegnerPointEulerSystems:HE.6/zhang-residual-local-pairing",
+        "HeegnerPointEulerSystems:HE.6/zhang-cohomological-congruence",
+        "HeegnerPointEulerSystems:HE.2/quaternionic-reduction-specialization",
+        "HeegnerPointEulerSystems:HE.4/kolyvagin-derivative-classes-and-descent-to-K",
+        "EulerSystemsAndKolyvaginSystems:ES.3"
+      ],
+      "sources": [
+        {
+          "sourceId": "zhang",
+          "locator": "§8.1, equation(8.1), p.234; equation(3.24), p.212",
+          "match": "The finite/transverse relation and parity are explicitly imposed on the actual rational Heegner family."
+        }
+      ],
+      "acceptance": [
+        "Check the bottom sign ε_1=−w_g; use the transverse condition only at conductor primes.",
+        "Changing derivative generators changes the normalized comparison compatibly."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Heegner/Layer6",
+        "namespace": "TauCeti.Heegner"
+      },
+      "leanName": "TauCeti.Heegner.zhang_residual_heegner_relations",
+      "implementationStatus": "unchecked",
+      "prototype": {
+        "status": "conditions_omitted",
+        "detail": "The Lean signature supplies existing algebraic carriers and the indicated conclusion. The exact arithmetic identification, field, geometry, coefficient topology and source hypotheses in this node’s full statement cannot yet be expressed through the supplier interfaces. Those conditions are omitted explicitly, not replaced by invented Prop fields or opaque types. Where the signature presents one component of a geometric comparison (localization, degree, norm, or reduction), the remaining geometric construction and compatibility are still the mathematical target in the statement."
+      }
+    },
+    {
+      "id": "HeegnerPointEulerSystems:HE.6/zhang-two-class-prime-detection",
+      "parentStageId": "HeegnerPointEulerSystems:HE.6",
+      "realises": [
+        "HeegnerPointEulerSystems:HE.6"
+      ],
+      "title": "Simultaneous residual prime detection",
+      "kind": "theorem",
+      "statement": "Let g be a weight-two newform of trivial nebentypus, K imaginary quadratic with (D_K,N)=1, N=N⁺N⁻ with N⁻ squarefree of even prime count, and p≥5, p∤ND_K, good ordinary for g. Let k₀ be the finite field generated by the residual Hecke eigenvalues, V its two-dimensional representation, with ρ:G_Q→GL₂(k₀) surjective and A_g[𝔭]≃V⊗k₀k; impose all three clauses of Hypothesis♥. For two k₀-linearly independent classes c₁,c₂∈H¹(K,V) and any finite excluded set, there is a positive-density set of inert Kolyvagin primes ℓ outside it with loc_ℓ(c₁)≠0 and loc_ℓ(c₂)≠0. In particular nonzero classes in opposite conjugation eigenspaces can be detected simultaneously.",
+      "hypotheses": [
+        "All hypotheses in the statement and the reader conventions are part of the declaration."
+      ],
+      "proofSteps": [
+        "Restrict to the finite torsion field and form the joint finite Kummer extension of the two actual residual classes.",
+        "Use full GL₂(k₀) image and the k₀ evaluation pairing to select a conjugation-compatible element avoiding both annihilator hyperplanes; the independent classes must be checked before this choice.",
+        "Apply Chebotarev to its conjugacy class, excluding ramification, level, discriminant, p and the prescribed finite set."
+      ],
+      "prerequisites": [
+        "HeegnerPointEulerSystems:HE.6/zhang-residual-local-pairing",
+        "EulerSystemsAndKolyvaginSystems:ES.1",
+        "ArithmeticGaloisDuality:R02.2",
+        "tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev"
+      ],
+      "sources": [
+        {
+          "sourceId": "zhang",
+          "locator": "Lemma8.1, p.235; proof refers to McCallum Proposition3.1",
+          "match": "The arithmetic hypotheses are Zhang’s surjective residual V/k₀ representation; the general evaluation/selection argument is requested from ES.1."
+        }
+      ],
+      "acceptance": [
+        "Do not assert simultaneous detection for arbitrary dependent classes or replace k₀ by F_p.",
+        "Finite avoidance must allow previously selected conductor primes."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Heegner/Layer6",
+        "namespace": "TauCeti.Heegner"
+      },
+      "leanName": "TauCeti.Heegner.zhang_two_class_prime_detection",
+      "implementationStatus": "unchecked",
+      "prototype": {
+        "status": "conditions_omitted",
+        "detail": "The Lean signature supplies existing algebraic carriers and the indicated conclusion. The exact arithmetic identification, field, geometry, coefficient topology and source hypotheses in this node’s full statement cannot yet be expressed through the supplier interfaces. Those conditions are omitted explicitly, not replaced by invented Prop fields or opaque types. Where the signature presents one component of a geometric comparison (localization, degree, norm, or reduction), the remaining geometric construction and compatibility are still the mathematical target in the statement."
+      }
+    },
+    {
+      "id": "HeegnerPointEulerSystems:HE.6/zhang-prescribed-ramification-class",
+      "parentStageId": "HeegnerPointEulerSystems:HE.6",
+      "realises": [
+        "HeegnerPointEulerSystems:HE.6"
+      ],
+      "title": "Residual ramification selection",
+      "kind": "theorem",
+      "statement": "Let g be a weight-two newform of trivial nebentypus, K imaginary quadratic with (D_K,N)=1, N=N⁺N⁻ with N⁻ squarefree of even prime count, and p≥5, p∤ND_K, good ordinary for g. Let k₀ be the finite field generated by the residual Hecke eigenvalues, V its two-dimensional representation, with ρ:G_Q→GL₂(k₀) surjective and A_g[𝔭]≃V⊗k₀k; impose all three clauses of Hypothesis♥. For a Kolyvagin prime ℓ and a finite set S of other Kolyvagin primes, each conjugation eigenspace contains a nonzero global class with finite local condition outside S∪{ℓ}, transverse condition at S, and no condition at ℓ. This existence statement does not assert that its singular localization at ℓ is nonzero.",
+      "hypotheses": [
+        "All hypotheses in the statement and the reader conventions are part of the declaration."
+      ],
+      "proofSteps": [
+        "Apply the imported strict/relaxed Poitou–Tate comparison to the actual self-dual V/k₀ local conditions.",
+        "Use the one-dimensional same-sign local quotient at ℓ and finite/transverse duality to get a nonzero class in each sign.",
+        "In the triangular induction prove singular nonvanishing separately, by reciprocity against a simultaneously detected Heegner class."
+      ],
+      "prerequisites": [
+        "HeegnerPointEulerSystems:HE.6/zhang-residual-local-pairing",
+        "EulerSystemsAndKolyvaginSystems:ES.1",
+        "SelmerIwasawaCohomology:L1"
+      ],
+      "sources": [
+        {
+          "sourceId": "zhang",
+          "locator": "Lemma8.2 and proof, p.235; Lemma8.4 pp.236–239",
+          "match": "The conclusion permits an unrestricted local condition at the distinguished prime; the one-term reciprocity argument supplies nonzero singular localization."
+        }
+      ],
+      "acceptance": [
+        "The omitted local condition at ℓ is not a prescribed nonzero singular value.",
+        "Use the actual p/bad-prime finite Kummer conditions in duality."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Heegner/Layer6",
+        "namespace": "TauCeti.Heegner"
+      },
+      "leanName": "TauCeti.Heegner.zhang_prescribed_ramification_class",
+      "implementationStatus": "unchecked",
+      "prototype": {
+        "status": "conditions_omitted",
+        "detail": "The Lean signature supplies existing algebraic carriers and the indicated conclusion. The exact arithmetic identification, field, geometry, coefficient topology and source hypotheses in this node’s full statement cannot yet be expressed through the supplier interfaces. Those conditions are omitted explicitly, not replaced by invented Prop fields or opaque types. Where the signature presents one component of a geometric comparison (localization, degree, norm, or reduction), the remaining geometric construction and compatibility are still the mathematical target in the statement."
+      }
+    },
+    {
+      "id": "HeegnerPointEulerSystems:HE.7/integral-tate-image-errors",
+      "parentStageId": "HeegnerPointEulerSystems:HE.7",
+      "realises": [
+        "HeegnerPointEulerSystems:HE.7"
+      ],
+      "title": "Integral Tate image errors",
+      "kind": "theorem",
+      "statement": "Fix F totally real of degree d, B/F ramified at all real places except a chosen τ₁ and at a finite set S_B with #S_B≡d−1 mod2, and an open compact level U⊂B̂×. Let A/F be an F-simple Hecke-linear quotient of J(N_U*) with End_F(A)=O_L, L totally real and [L:Q]=dim A, and fix its nonzero integral quotient map. Let K/F be totally imaginary quadratic, every v∈S_B inert or ramified in K, fix t:K↪B and a CM point x of the specified level over K(x). Use the central quotient N_U*, modular compactification when B=M₂(Q), and the integral cusp/Hodge map ι(P)=m[P]−mδ of Nekovář1.19, with fixed m. Put y=Tr_K(x)/K ι_A(x). Assume y non-torsion and A does not acquire CM over K (Nekovář’s condition(?) for α=1). For each coefficient prime 𝔭 of O_L, T=T_𝔭A is free rank2 over O_𝔭. For H_M=K(A[𝔭^M]), there are C₂(𝔭),C₃(𝔭)≥0 independent of M such that restriction H¹(K,A[𝔭^M])→H¹(H_M,A[𝔭^M]) has kernel killed by 𝔭^C₂ and the image of O_𝔭[G_K] in End_O𝔭(T) contains 𝔭^C₃ End_O𝔭(T). Both constants vanish for all but finitely many 𝔭. The image assertion uses absence of CM over K, not absence of geometric CM.",
+      "hypotheses": [
+        "All hypotheses in the statement and the reader conventions are part of the declaration."
+      ],
+      "proofSteps": [
+        "Import Bogomolov/Serre homothety openness and its index uniformity over coefficient primes. A central scalar u acts trivially by conjugation on cohomology, so u−1 kills H¹ of the finite image; take C₂=v_𝔭(u−1).",
+        "Import the condition(?)/absolute-irreducibility equivalence of the actual GL₂-type representation, via Faltings and the CM character/self-twist dictionary. Burnside gives a full rational matrix algebra; the integral image has finite lattice index, giving C₃ independent of M.",
+        "For almost all coefficient primes import residual absolute irreducibility over F, restrict to G_K using Clifford theory, and exclude the one quadratic self-twist. If the twist occurred at infinitely many primes, trace congruences would imply a rational self-twist, contrary to condition(?). Nakayama/Burnside give C₃=0."
+      ],
+      "prerequisites": [
+        "FaltingsFinitenessAndIsogenyTheorems:R28.4",
+        "ArithmeticGaloisRepresentations:R01.4",
+        "ComplexMultiplicationAndExplicitReciprocity:CM.4",
+        "ArithmeticGaloisDuality:R02.2",
+        "HeegnerPointEulerSystems:HE.1/parameter-choice-and-degree"
+      ],
+      "sources": [
+        {
+          "sourceId": "nekovar",
+          "locator": "§§6.1–6.2, pp.35–37, Propositions6.1.2,6.2.1–6.2.2; locators use the 53-page author preprint, not published pagination.",
+          "match": "The cited proof supplies the integral arithmetic construction and uniform estimates; reusable representation, linear algebra and descent results are imported through their owners."
+        }
+      ],
+      "acceptance": [
+        "Do not request full GL₂ surjectivity for a CM curve.",
+        "C₂,C₃ are fixed before increasing M; distinguish restriction kernel from the derivative-class construction."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Heegner/Layer7",
+        "namespace": "TauCeti.Heegner"
+      },
+      "leanName": "TauCeti.Heegner.integral_tate_image_errors",
+      "implementationStatus": "unchecked",
+      "prototype": {
+        "status": "conditions_omitted",
+        "detail": "The Lean signature supplies existing algebraic carriers and the indicated conclusion. The exact arithmetic identification, field, geometry, coefficient topology and source hypotheses in this node’s full statement cannot yet be expressed through the supplier interfaces. Those conditions are omitted explicitly, not replaced by invented Prop fields or opaque types. Where the signature presents one component of a geometric comparison (localization, degree, norm, or reduction), the remaining geometric construction and compatibility are still the mathematical target in the statement."
+      }
+    },
+    {
+      "id": "HeegnerPointEulerSystems:HE.7/integral-cm-prime-detection",
+      "parentStageId": "HeegnerPointEulerSystems:HE.7",
+      "realises": [
+        "HeegnerPointEulerSystems:HE.7"
+      ],
+      "title": "Integral CM prime detection",
+      "kind": "theorem",
+      "statement": "Fix F totally real of degree d, B/F ramified at all real places except a chosen τ₁ and at a finite set S_B with #S_B≡d−1 mod2, and an open compact level U⊂B̂×. Let A/F be an F-simple Hecke-linear quotient of J(N_U*) with End_F(A)=O_L, L totally real and [L:Q]=dim A, and fix its nonzero integral quotient map. Let K/F be totally imaginary quadratic, every v∈S_B inert or ramified in K, fix t:K↪B and a CM point x of the specified level over K(x). Use the central quotient N_U*, modular compactification when B=M₂(Q), and the integral cusp/Hodge map ι(P)=m[P]−mδ of Nekovář1.19, with fixed m. Put y=Tr_K(x)/K ι_A(x). Assume y non-torsion and A does not acquire CM over K (Nekovář’s condition(?) for α=1). For M≫0 with 𝔭^M principal, and a finite O_𝔭/𝔭^M-submodule W₀ of H¹(K,A[𝔭^M]), the actual finite Kummer extension over H_M has an evaluation map whose kernel loss is bounded by C₂ and whose evaluation cokernel is killed by 𝔭^C₃. For ρ-stable W₀, conjugation-compatible detection uses integral 1±ρ and factors2,4,16, with loss C₂+C₃+4v_𝔭(2). It supplies inert good primes in S₁(M), excluding any fixed finite set, with the prescribed detections. S₁(M) requires Frobenius conjugate to ρ in K(x)(A[𝔭^(M+M₀)])/F, M₀=v_𝔭(u₀), hence a_ℓ≡0 and Nℓ+1≡0 mod𝔭^(M+M₀).",
+      "hypotheses": [
+        "All hypotheses in the statement and the reader conventions are part of the declaration."
+      ],
+      "proofSteps": [
+        "Form the finite field cut out by the restricted actual classes; its evaluation injection is the arithmetic Kummer pairing.",
+        "Import ES.4’s Nekovář6.4.3 maximal-order pairing theorem to bound the evaluation cokernel, then compose with restriction and retain C₂+C₃.",
+        "Use 2X⁺⊂O_𝔭G⁺ and (ρg)²=g² in 2G⁺ rather than integral half-projectors. The finite-union avoidance argument gives simultaneous detection with the four dyadic valuation losses.",
+        "Apply Chebotarev to ρg in the joint torsion/Kummer field: its inert prime satisfies the stronger torsion congruence, unit-stabilizer condition and finite exclusions; evaluate localization at (ρg)²."
+      ],
+      "prerequisites": [
+        "HeegnerPointEulerSystems:HE.7/integral-tate-image-errors",
+        "EulerSystemsAndKolyvaginSystems:ES.4",
+        "tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev",
+        "HeegnerPointEulerSystems:HE.0/relative-cm-conductor-tower"
+      ],
+      "sources": [
+        {
+          "sourceId": "nekovar",
+          "locator": "§§5.1–5.2 pp.27–28; §§6.3–6.5 pp.37–41; locators use the 53-page author preprint, not published pagination.",
+          "match": "The cited proof supplies the integral arithmetic construction and uniform estimates; reusable representation, linear algebra and descent results are imported through their owners."
+        }
+      ],
+      "acceptance": [
+        "Evaluation must come from the actual finite Kummer field.",
+        "Nℓ+1 must be divisible by u₀𝔭^M; omit primes whose conductor kills the unit-stabilizer comparison.",
+        "Never divide by2 in the integral conjugation module."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Heegner/Layer7",
+        "namespace": "TauCeti.Heegner"
+      },
+      "leanName": "TauCeti.Heegner.integral_cm_prime_detection",
+      "implementationStatus": "unchecked",
+      "prototype": {
+        "status": "conditions_omitted",
+        "detail": "The Lean signature supplies existing algebraic carriers and the indicated conclusion. The exact arithmetic identification, field, geometry, coefficient topology and source hypotheses in this node’s full statement cannot yet be expressed through the supplier interfaces. Those conditions are omitted explicitly, not replaced by invented Prop fields or opaque types. Where the signature presents one component of a geometric comparison (localization, degree, norm, or reduction), the remaining geometric construction and compatibility are still the mathematical target in the statement."
+      }
+    },
+    {
+      "id": "HeegnerPointEulerSystems:HE.7/cm-heegner-field-disjointness",
+      "parentStageId": "HeegnerPointEulerSystems:HE.7",
+      "realises": [
+        "HeegnerPointEulerSystems:HE.7"
+      ],
+      "title": "CM and Heegner fields",
+      "kind": "theorem",
+      "statement": "Let E/Q have CM by an imaginary quadratic field M, conductor N, and let K be a classical Heegner field in which every prime dividing N splits. Then M≠K, M∩K=Q, and E does not acquire its CM endomorphisms over K. Over KM the coefficient-extension Tate representation splits into the two conjugate CM characters; G_K exchanges them through Gal(KM/K), so the rational representation over K is absolutely irreducible. This verifies the α=1 condition(?) and matrix-algebra hypothesis of the integral descent, although its residual image need not be full GL₂.",
+      "hypotheses": [
+        "All hypotheses in the statement and the reader conventions are part of the declaration."
+      ],
+      "proofSteps": [
+        "Import CM.4’s induced CM-character Tate realization and R01.3’s induction conductor formula: N=|D_M|Norm_M/Q(f_ψ) for the associated algebraic Hecke character of infinity type(1,0), with the usual elliptic modular weight-two realization. Only |D_M| dividing N is needed.",
+        "An imaginary quadratic discriminant has a ramified rational prime. That prime divides N and cannot split if K=M; conclude M≠K and [KM:K]=2.",
+        "Import the endomorphism-field and two distinct conjugate-character dictionary. Recombine the two lines under the degree-two action; do not apply the rank-one-CM-field representation to the G_K descent.",
+        "Integral restriction/corestriction over KM/K has composite2 and hence fixed dyadic loss; the actual derived classes and global duality remain over K, where condition(?) holds."
+      ],
+      "prerequisites": [
+        "ComplexMultiplicationAndExplicitReciprocity:CM.4",
+        "ArithmeticGaloisRepresentations:R01.3",
+        "HeegnerPointEulerSystems:HE.7/integral-tate-image-errors"
+      ],
+      "sources": [
+        {
+          "sourceId": "nekovar",
+          "locator": "§3.2 pp.18–19; Proposition6.2.1 pp.35–36 (CM/self-twist/irreducibility dictionary); locators use the 53-page author preprint, not published pagination.",
+          "match": "The cited proof supplies the integral arithmetic construction and uniform estimates; reusable representation, linear algebra and descent results are imported through their owners."
+        }
+      ],
+      "acceptance": [
+        "The conductor formula is a requested CM/R01 export, not a theorem proved in Nekovář.",
+        "Do not apply Nekovář’s condition(?) over KM itself, where CM is defined.",
+        "A geometric CM curve is allowed over K; K equal to its CM field is excluded by the Heegner condition."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Heegner/Layer7",
+        "namespace": "TauCeti.Heegner"
+      },
+      "leanName": "TauCeti.Heegner.cm_heegner_field_disjointness",
+      "implementationStatus": "unchecked",
+      "prototype": {
+        "status": "conditions_omitted",
+        "detail": "The Lean signature supplies existing algebraic carriers and the indicated conclusion. The exact arithmetic identification, field, geometry, coefficient topology and source hypotheses in this node’s full statement cannot yet be expressed through the supplier interfaces. Those conditions are omitted explicitly, not replaced by invented Prop fields or opaque types. Where the signature presents one component of a geometric comparison (localization, degree, norm, or reduction), the remaining geometric construction and compatibility are still the mathematical target in the statement."
+      }
+    },
+    {
+      "id": "HeegnerPointEulerSystems:HE.7/classical-square-index-error-bound",
+      "parentStageId": "HeegnerPointEulerSystems:HE.7",
+      "realises": [
+        "HeegnerPointEulerSystems:HE.7"
+      ],
+      "title": "Classical square-index bound",
+      "kind": "theorem",
+      "statement": "In the classical setting of the full-finiteness node, put O=End_overlineQ(E), Q_O=O⊗Q, embedded in overlineQ through the chosen CM type when O≠Z. Let B(E) consist of odd primes ℓ∤disc(O) such that the O_ℓ-linear representation G_Q_O→Aut_Oℓ(T_ℓE) is surjective. There is a positive integer d_E independent of K with v_ℓ(d_E)=0 for ℓ∈B(E) and #Sha(E/K) dividing d_E I_K², where I_K=[E(K):Zy_K] includes rational torsion and is defined after rank1 is proved. For non-CM E, Q_O=Q and Aut_Oℓ=GL₂(Z_ℓ); for CM E use the linear Cartan action over Q_O, not full GL₂ over Q. B(E) is a full Tate-image criterion and is not silently replaced by a residual-image criterion at the small primes. Gross writes the related error bound as t_E/K I_K²; no explicit value or optimality of either constant is asserted.",
+      "hypotheses": [
+        "All hypotheses in the statement and the reader conventions are part of the declaration."
+      ],
+      "proofSteps": [
+        "Import ES.4’s classical size bound with the actual Heegner derivative and error data. This is a stronger theorem than the two-prime annihilator estimate; its requested contract must control the cardinality, not just the exponent.",
+        "Verify the modular point, coefficient-prime and integral error hypotheses from HE.4–HE.7, retaining the source’s full Mordell–Weil index.",
+        "Combine the size bounds prime by prime, using the clean odd-prime square-index bound where applicable and finite exceptional support. The original Euler Systems proof is a precise source-acquisition gap for the requested generic size theorem, not a claimed proof in the read exposition."
+      ],
+      "prerequisites": [
+        "HeegnerPointEulerSystems:HE.7/classical-full-sha-finiteness",
+        "HeegnerPointEulerSystems:HE.7/bounded-arithmetic-derivative-denominators",
+        "HeegnerPointEulerSystems:HE.7/cm-character-error-descent",
+        "EulerSystemsAndKolyvaginSystems:ES.4"
+      ],
+      "sources": [
+        {
+          "sourceId": "gross",
+          "locator": "Theorem1.3, p.236",
+          "match": "This source quotes the classical square-index bound and describes its exceptional support; its clean proof does not establish the exceptional size theorem."
+        },
+        {
+          "sourceId": "kolyvagin-structure",
+          "locator": "TheoremA, p.95; introduction pp.94–97",
+          "match": "The author quotes the stronger d C_K² order theorem from his Euler Systems paper, with d depending on E and C_K including torsion. It is not derived from Nekovář’s annihilator theorem."
+        }
+      ],
+      "acceptance": [
+        "Separate exponent from cardinality and full Mordell–Weil index from free-lattice index.",
+        "The denominator of the Galois group in Kolyvagin’s B(E) is Q_O=O⊗Q, not always Q. The group is O_ℓ-linear over the CM field.",
+        "Keep the full Tate-image good-prime condition, especially at3; do not change it to mod-ℓ surjectivity without a separate lifting theorem.",
+        "The ES.4 size export must retain the source-specific hypotheses and explicit original-proof acquisition boundary."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Heegner/Layer7",
+        "namespace": "TauCeti.Heegner"
+      },
+      "leanName": "TauCeti.Heegner.classical_square_index_error_bound",
+      "implementationStatus": "unchecked",
+      "prototype": {
+        "status": "conditions_omitted",
+        "detail": "The Lean signature supplies existing algebraic carriers and the indicated conclusion. The exact arithmetic identification, field, geometry, coefficient topology and source hypotheses in this node’s full statement cannot yet be expressed through the supplier interfaces. Those conditions are omitted explicitly, not replaced by invented Prop fields or opaque types. Where the signature presents one component of a geometric comparison (localization, degree, norm, or reduction), the remaining geometric construction and compatibility are still the mathematical target in the statement."
       }
     }
   ],
@@ -4335,9 +4814,15 @@
     },
     {
       "supplier": "RankZeroOneBSD:BSD.5",
-      "need": "Ribet–Takahashi/Khare/Helm/Pollack–Weston congruence-period and GL₂-type modular-degree comparison under full Hypothesis♥, as in Zhang6.4. Confirm the exact nonsquarefree scope before use. Export only the independent degree/congruence-period theorem before HE.6, with a separate identifier. Current BSD.5 consumes HE.6 and cannot be imported wholesale; the export is missing, not discharged by this request.",
+      "need": "Proposed early export BSD.3a/definite-congruence-period: exactly the HE.6 period node’s GL₂-type valuation identity for η_g(N)/ξ_g, p≥5, surjective V/k₀, odd squarefree N⁻ and full ♥ (including the nonsquarefree alternatives). Prerequisites only R11.4/R11.6 monodromy and degeneracy maps, R17.3 integral transfer/multiplicity one and the exact Ribet–Takahashi/Khare degree/congruence module theory; no HE.6, rank-zero BSD, Jochnowitz or final Heegner-index result. BSD.3a is a proposal, not an existing stage or an import from BSD.5. The present request uses BSD.5 solely as the owner routing identifier and is not a graph prerequisite.",
       "neededBy": [
         "HeegnerPointEulerSystems:HE.6/ribet-takahashi-tamagawa-comparison"
+      ],
+      "proposedExport": "RankZeroOneBSD:BSD.3a/definite-congruence-period",
+      "forbiddenPrerequisites": [
+        "HeegnerPointEulerSystems:HE.6",
+        "RankZeroOneBSD:BSD.5",
+        "RankZeroOneBSD:BSD.6"
       ]
     },
     {
@@ -4370,7 +4855,7 @@
     },
     {
       "supplier": "EulerSystemsAndKolyvaginSystems:ES.4",
-      "need": "General classical all-prime/CM/dyadic error-tolerant bound from proved uniform arithmetic constants and a nonzero class; no universal arithmetic boundedness assumption.",
+      "need": "Reusable integral error-tolerant two-prime descent of Nekovář7.5, with fixed C₀,C₁,C₂,C₃,C₅,C₆ and factor2²¹; HE supplies the actual CM-point classes, geometric component errors, image/evaluation estimates and reciprocity input. Also export Nekovář6.4.3’s general maximal-order pairing bound cd·Coker(j)=0. These generic arguments are not replanned as Heegner lemmas.",
       "neededBy": [
         "HeegnerPointEulerSystems:HE.7/bounded-arithmetic-derivative-denominators",
         "HeegnerPointEulerSystems:HE.7/dyadic-integral-conjugation-descent",
@@ -4388,9 +4873,11 @@
     },
     {
       "supplier": "ComplexMultiplicationAndExplicitReciprocity:CM.4",
-      "need": "CM elliptic Tate characters and local decomposition over the CM base, with exact finite base extension/descent constants.",
+      "need": "CM elliptic induced Tate-character realization, two distinct conjugate components over the CM field, exact endomorphism field, and the conductor comparison |D_M| divides N. Provide integral finite-extension comparison with degree2; the HE application recombines the characters over the disjoint Heegner field and does not demand full GL₂ image.",
       "neededBy": [
-        "HeegnerPointEulerSystems:HE.7/cm-character-error-descent"
+        "HeegnerPointEulerSystems:HE.7/cm-character-error-descent",
+        "HeegnerPointEulerSystems:HE.7/cm-heegner-field-disjointness",
+        "HeegnerPointEulerSystems:HE.7/integral-tate-image-errors"
       ]
     },
     {
@@ -4404,7 +4891,7 @@
     },
     {
       "supplier": "GrossZagierAndArithmeticHeights:GZ.8",
-      "need": "Only the actual admissible RM height/nonvanishing theorem in Gross§12’s specified modular setting.",
+      "need": "Exact height/nonvanishing formula for the specified simple RM quaternionic Jacobian quotient over F, CM field K and trace of m(P−δ). When using analytic rank dim A for L(A/K,s), certify non-torsion of this particular y; it is additional to the geometric descent theorem, not a generic unrestricted BSD assertion.",
       "neededBy": [
         "HeegnerPointEulerSystems:HE.7/admissible-rm-kolyvagin-logachev"
       ]
@@ -4435,6 +4922,45 @@
       "need": "For Zhang’s definite quaternionic newform and the adjacent indefinite Shimura curve, expose the regular semistable Jacobian character lattice, graph monodromy pairing and component-group presentation with the exact level and localization hypotheses. This is geometric input only; the independent period/congruence identity is a separate requested export.",
       "neededBy": [
         "HeegnerPointEulerSystems:HE.6/ribet-takahashi-tamagawa-comparison"
+      ]
+    },
+    {
+      "supplier": "EulerSystemsAndKolyvaginSystems:ES.1",
+      "need": "Zhang8.1–8.2 exact generic evaluation/prime selection and strict/relaxed duality over a finite field k₀ with two-dimensional surjective GL₂(k₀) residual representation: two independent global classes simultaneously detected, and nonzero classes in both signs with condition omitted at one prime. HE.6 verifies the actual V/k₀ local conditions and Heegner relation, so the Gross E[p]/F_p theorem is not this export.",
+      "neededBy": [
+        "HeegnerPointEulerSystems:HE.6/zhang-residual-local-pairing",
+        "HeegnerPointEulerSystems:HE.6/zhang-two-class-prime-detection",
+        "HeegnerPointEulerSystems:HE.6/zhang-prescribed-ramification-class"
+      ]
+    },
+    {
+      "supplier": "ArithmeticGaloisRepresentations:R01.3",
+      "need": "Artin conductor induction formula for the CM-character realization: conductor of Ind_GM^GQ ψ equals |D_M|Norm(f_ψ), at all primes including ramified/dyadic ones. Together with CM.4 identify it with the elliptic conductor N; HE needs only the divisibility |D_M| divides N.",
+      "neededBy": [
+        "HeegnerPointEulerSystems:HE.7/cm-heegner-field-disjointness"
+      ]
+    },
+    {
+      "supplier": "FaltingsFinitenessAndIsogenyTheorems:R28.4",
+      "need": "Proposed R28.7 integral GL₂-type image exports: Bogomolov/Serre homothety openness with bounded indices across coefficient primes; condition(?) absolute-irreducibility/self-twist dictionary via Faltings and CM; residual absolute irreducibility almost everywhere (Dimitrov in the Hilbert case), Clifford and trace comparison over the specified quadratic K. Exact consequences are C₂,C₃ of Nekovář6.1–6.2. Full GL₂ residual surjectivity is neither required nor asserted for CM.",
+      "neededBy": [
+        "HeegnerPointEulerSystems:HE.7/integral-tate-image-errors",
+        "HeegnerPointEulerSystems:HE.7/integral-cm-prime-detection"
+      ]
+    },
+    {
+      "supplier": "SelmerIwasawaCohomology:L0",
+      "need": "Finite/p∞ Kummer exact sequences, finite finite-level Selmer groups, finite generation of Mordell–Weil and torsion-primary decomposition for the specified GL₂-type abelian variety A/F over K, not just an elliptic E/Q. The cofinal principal powers of a coefficient prime must suffice for the uniform-bound limit and Sha finiteness.",
+      "neededBy": [
+        "HeegnerPointEulerSystems:HE.7/exceptional-primary-sha-bound",
+        "HeegnerPointEulerSystems:HE.7/admissible-rm-kolyvagin-logachev"
+      ]
+    },
+    {
+      "supplier": "EulerSystemsAndKolyvaginSystems:ES.4",
+      "need": "Classical cardinality/square-index theorem of Kolyvagin Euler Systems, TheoremA quoted in Kolyvagin1991 p.95: #Sha divides d_E·[E(K):Zy_K]², d_E independent of K and supported outside the precisely defined full O_ℓ-linear Tate-image B(E) over Q_O=End_overlineQ(E)⊗Q. Distinguish the CM field from Q and full Tate from residual image, especially at3. The original proof, not obtained from the public Springer endpoint, must be read for this generic size export; Nekovář’s uniform exponent bound alone is insufficient.",
+      "neededBy": [
+        "HeegnerPointEulerSystems:HE.7/classical-square-index-error-bound"
       ]
     }
   ],
@@ -4558,7 +5084,7 @@
         "ArithmeticGaloisRepresentations"
       ],
       "detail": "RT-AREA-iwasawa-1/9: neither the Tate isogeny theorem nor Heegner-specific error verification owns the general Serre/Ribet image theorem.",
-      "proposal": "Add Faltings R28.7 after R28.6 for Serre open image over number fields and the precise Ribet GL₂-type variant, extending R28.4/R01.4. HE.7 owns only application to uniform Heegner error constants; requests use existing owner stages until the new stage is accepted."
+      "proposal": "Add Faltings R28.7 after R28.6 for Serre open image over number fields and the precise Ribet GL₂-type variant, extending R28.4/R01.4. HE.7 owns only application to uniform Heegner error constants; requests use existing owner stages until the new stage is accepted. Include the general Bogomolov/Serre scalar-image and GL₂-type residual-irreducibility/endomorphism exports needed for the integral argument; distinguish the valid CM semilinear branch from full GL₂ surjectivity."
     },
     {
       "action": "rescope",
@@ -4567,7 +5093,7 @@
         "HeegnerPointEulerSystems"
       ],
       "detail": "RT-AREA-iwasawa-1/10: the generic Howard H0–H5 self-dual DVR argument is not a Heegner arithmetic theorem.",
-      "proposal": "Expand ES.5 to own Howard Proposition1.5.9/Theorem1.6.1 and the generic paired-summand bound. HE.5–HE.6 verify H0–H5 for the actual Tate module and apply it. Put the generic Λ statement Theorem2.2.10 in ES.8; propose ES.5→GrossZagierAndArithmeticHeights:GZ.5, ES.8→GrossZagierAndArithmeticHeights:GZ.5 and HE.6→HE.8 links for maintainer review. No Λ or HE.8 target is planned in this part."
+      "proposal": "Expand ES.5 to own Howard Proposition1.5.9/Theorem1.6.1 and the generic paired-summand bound. HE.5–HE.6 verify H0–H5 for the actual Tate module and apply it. Put the generic Λ statement Theorem2.2.10 in ES.8; propose ES.5→GeneralizedHeegnerCycles:GH.5, ES.8→GeneralizedHeegnerCycles:GH.5 and HE.6→HE.8 links for maintainer review. No Λ or HE.8 target is planned in this part."
     },
     {
       "action": "rescope",
@@ -4584,7 +5110,16 @@
         "RankZeroOneBSD"
       ],
       "detail": "Independent review found that BSD.5, as well as BSD.6, consumes HE.6.",
-      "proposal": "Split out the independent Ribet–Takahashi/Khare/Helm/Pollack–Weston degree and congruence-period supplier before HE.6, retaining the final BSD.5 index formula downstream. Do not edit that roadmap in this review."
+      "proposal": "Add independent early BSD.3a/definite-congruence-period with the exact HE.6 odd-definite η(N)/ξ valuation contract and geometric/transfer/modular-degree prerequisites stated in the request. It precedes HE.6; retain the final Heegner-index formula in BSD.5 downstream. The proposed identifier is not currently importable. No supplier file is edited."
+    },
+    {
+      "action": "rescope",
+      "roadmaps": [
+        "HeegnerPointEulerSystems",
+        "ComplexMultiplicationAndExplicitReciprocity"
+      ],
+      "detail": "The classical CM integral proof must run over the disjoint Heegner field, not a field over which CM is defined.",
+      "proposal": "Clarify HE.7’s CM-character sentence: compare the characters over KM, retain the degree-two integral errors, and recombine over K to verify condition(?) before the actual explicit-cocycle descent. Replace the unsourced plan to apply non-CM descent over the CM field with this Nekovář3.2/6.2/7.5 specialization."
     }
   ],
   "coverage": [
@@ -4632,27 +5167,28 @@
     },
     {
       "stageId": "HeegnerPointEulerSystems:HE.6",
-      "status": "partial",
+      "status": "planned",
       "remaining": [
-        "ES5 Howard theorem, HE5 χ comparison, generic level raising and GL₂-type rank-zero/degree supplier checks remain open.",
-        "Independent review: source-correct Zhang statements are recorded, but the independent period supplier and actual GL₂-type residual local/parity interfaces are missing. Resolve the named review gaps before this stage is planned."
+        "Independent early BSD.3a definite period/congruence export, exact local-type level raising, GL₂-type ordinary rank-zero control and generic ES.1/ES.5 interfaces are requested with complete contracts.",
+        "Typed V/k₀ continuous cohomology/local comparison and the global Howard χ localization remain prototype/supplier gaps; arithmetic specializations and triangular proof route are now explicit."
       ]
     },
     {
       "stageId": "HeegnerPointEulerSystems:HE.7",
-      "status": "partial",
+      "status": "planned",
       "remaining": [
-        "General Serre/Ribet supplier and exceptional/dyadic/CM/RM source acquisition remain open; all-prime target and finite-primary combination are explicitly planned.",
-        "Independent review: the CM branch cannot use non-CM image estimates. Source the separate CM rank-one/almost-all-vanishing route and exact RM/quaternionic hypotheses, in addition to the recorded uniform exceptional/dyadic errors."
+        "R28.7 homothety/endomorphism/residual-irreducibility, CM.4/R01.3 conductor dictionary, GL₂-type finite Selmer and generic ES.4 pairing/two-prime exports remain requested.",
+        "The classical square-index cardinality export requires the original Kolyvagin Euler Systems proof; the read primary author quotes are distinguished from Nekovář’s fully read integral annihilator proof.",
+        "Production arithmetic carriers, nonmaximal-order isogeny extensions and the separately specified analytic RM height certificate remain precise prototype/supplier refinements."
       ]
     }
   ],
   "targetPass": {
     "stages": 8,
-    "targetNodes": 70,
+    "targetNodes": 78,
     "nodeBudget": 300,
-    "finished": false,
-    "boundary": "The independent review is finished. The blueprint pass is partial: all HE.0–HE.7 targets have candidate nodes, but HE.6/HE.7 lack the precise independent period export, GL₂-type arithmetic interface and exceptional/CM/RM proof routes listed in their remaining entries. No HE.8/HE.8b/HE.8c/HE.7s targets are planned in this part."
+    "finished": true,
+    "boundary": "All eight scoped stages are planned at target level. The arithmetic proof route is now supported by Nekovář’s integral CM-point theorem and the actual Zhang residual specializations. Requested supplier exports and precise gaps remain; HE.8/HE.8b/HE.8c/HE.7s and nonquadratic-character descent are outside this part."
   },
   "sourceVersions": [
     {
@@ -4703,6 +5239,27 @@
       "read": "2026-10-05",
       "sha256": "f740c4200434b0989bb6f728e4a385769b669320eec94ee8ace0e34279a53eb9",
       "detail": "Independent review read Lemma5.8 and Remark5.9 on PDF p.36 for E5; no whole-paper read claim."
+    },
+    {
+      "kind": "preprint",
+      "url": "https://web.archive.org/web/20221115094729id_/https://webusers.imj-prg.fr/~jan.nekovar/pu/euler.pdf",
+      "citation": "Author preprint, 23 May 2007, 53 PDF pages; published in L-functions and Galois representations, LMS Lecture Note Series 320 (2007), pp.471–547, DOI10.1017/CBO9780511721267.014",
+      "read": "2026-10-06",
+      "sha256": "05c8debf4783f4604afe71a0b4367554ac62d52a6a462daa5e2e8c2ed6bfd26a"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/math/0610694v1",
+      "citation": "arXiv:math/0610694v1, 23 October 2006; locators use preprint pagination",
+      "read": "2026-10-06",
+      "sha256": "42962ab1de00924170e7cc02f95a0ebb967ec979a76823298014eb8511243d04"
+    },
+    {
+      "kind": "published",
+      "url": "https://www.wstein.org/papers/bib/kolyvagin-structure_of_sha.pdf",
+      "citation": "Algebraic Geometry, Lecture Notes in Mathematics1479 (1991), pp.94–121; scanned published article",
+      "read": "2026-10-06",
+      "sha256": "ab9126cb2e0147753ca3f1a354f591b516b84f48c5b0882b9a55e87a60edefc9"
     }
   ],
   "supplierAudit": {
@@ -4731,6 +5288,10 @@
       "by": "REV-HeegnerPointEulerSystems--HE.0",
       "date": "2026-10-05",
       "detail": "Read the17 named imported-node statements plus the actual supplier stage contracts and GN11/CFT12/CFT13, EC2/4/6/7 and Chebotarev10 anchors. Corrected H4/H5 versus R18 references, the Gross/Howard hypothesis mismatch, and the BSD.5→HE.6 return dependency. Requests remain requests where an exact export is absent."
+    },
+    "revision": {
+      "date": "2026-10-06",
+      "detail": "Re-read the existing fine-node imports, prior review and relevant owner contracts. General Nekovář image, maximal-order pairing and finite-Selmer arguments are requested from R28/R01/CM, ES.4 and SelmerL0; only their actual CM-point arithmetic specialization is planned here. BSD.3a is proposed independently rather than imported from circular BSD.5."
     }
   },
   "verification": {
@@ -4845,6 +5406,117 @@
     "intakeFiles": {
       "files": 4,
       "problems": 0
+    },
+    "revision": {
+      "date": "2026-10-06",
+      "agent": "Codex — codex-X0Qf6a",
+      "issue": 6502,
+      "preservedNodeIds": [
+        "HeegnerPointEulerSystems:HE.0/local-toral-order",
+        "HeegnerPointEulerSystems:HE.0/transported-global-order",
+        "HeegnerPointEulerSystems:HE.0/idele-ideal-class-comparison",
+        "HeegnerPointEulerSystems:HE.0/conductor-change-kernel",
+        "HeegnerPointEulerSystems:HE.0/ring-class-tower-quotients",
+        "HeegnerPointEulerSystems:HE.0/dihedral-conjugation",
+        "HeegnerPointEulerSystems:HE.0/relative-cm-conductor-tower",
+        "HeegnerPointEulerSystems:HE.0/norm-reciprocity-level-compatibility",
+        "HeegnerPointEulerSystems:HE.0/local-different-discriminant",
+        "HeegnerPointEulerSystems:HE.1/cm-cyclic-isogeny-pair",
+        "HeegnerPointEulerSystems:HE.1/optimal-embedding-cm-points",
+        "HeegnerPointEulerSystems:HE.1/canonical-model-cm-descent",
+        "HeegnerPointEulerSystems:HE.1/jacobian-basepoint-denominators",
+        "HeegnerPointEulerSystems:HE.1/heegner-points-of-conductor-m-and-the-modular-parametrisation",
+        "HeegnerPointEulerSystems:HE.1/parameter-choice-and-degree",
+        "HeegnerPointEulerSystems:HE.2/cm-hecke-conductor-classification",
+        "HeegnerPointEulerSystems:HE.2/norm-relation-and-reduction-congruence",
+        "HeegnerPointEulerSystems:HE.2/split-ramified-first-step-recurrence",
+        "HeegnerPointEulerSystems:HE.2/repeated-conductor-predecessor-recurrence",
+        "HeegnerPointEulerSystems:HE.2/nonmaximal-level-distribution",
+        "HeegnerPointEulerSystems:HE.2/inert-reduction-frobenius-congruence",
+        "HeegnerPointEulerSystems:HE.2/quaternionic-reduction-specialization",
+        "HeegnerPointEulerSystems:HE.3/kummer-classes-and-the-modified-selmer-conditions",
+        "HeegnerPointEulerSystems:HE.3/good-place-kummer-unramified",
+        "HeegnerPointEulerSystems:HE.3/bad-place-component-obstruction",
+        "HeegnerPointEulerSystems:HE.3/coefficient-prime-local-condition",
+        "HeegnerPointEulerSystems:HE.3/saturated-integral-kummer-lattice",
+        "HeegnerPointEulerSystems:HE.3/archimedean-tate-correction",
+        "HeegnerPointEulerSystems:HE.4/heegner-coefficient-ideal",
+        "HeegnerPointEulerSystems:HE.4/differentiated-point-invariance",
+        "HeegnerPointEulerSystems:HE.4/ring-class-torsion-invariants",
+        "HeegnerPointEulerSystems:HE.4/kolyvagin-derivative-classes-and-descent-to-K",
+        "HeegnerPointEulerSystems:HE.4/explicit-cocycle-divisibility",
+        "HeegnerPointEulerSystems:HE.4/bottom-trace-class",
+        "HeegnerPointEulerSystems:HE.4/generator-tensor-choice-independence",
+        "HeegnerPointEulerSystems:HE.4/coefficient-and-prime-set-compatibility",
+        "HeegnerPointEulerSystems:HE.4/complex-conjugation-parity",
+        "HeegnerPointEulerSystems:HE.5/heegner-transverse-local-condition",
+        "HeegnerPointEulerSystems:HE.5/local-heegner-chi-automorphism",
+        "HeegnerPointEulerSystems:HE.5/finite-singular-comparison-and-the-corrected-kolyvagin-system",
+        "HeegnerPointEulerSystems:HE.5/actual-tate-hypotheses-h0-h2",
+        "HeegnerPointEulerSystems:HE.5/actual-local-hypotheses-h3-h5",
+        "HeegnerPointEulerSystems:HE.5/residual-kummer-field-pairing",
+        "HeegnerPointEulerSystems:HE.5/chebotarev-heegner-class-detection",
+        "HeegnerPointEulerSystems:HE.5/arithmetic-local-error-comparison",
+        "HeegnerPointEulerSystems:HE.5/tamagawa-and-local-torsion-tests",
+        "HeegnerPointEulerSystems:HE.6/clean-rank-one-descent-theorem-A",
+        "HeegnerPointEulerSystems:HE.6/gross-clean-mod-p-descent",
+        "HeegnerPointEulerSystems:HE.6/gross-opposite-eigenspace-vanishing",
+        "HeegnerPointEulerSystems:HE.6/gross-same-eigenspace-generation",
+        "HeegnerPointEulerSystems:HE.6/sha-square-index-bound",
+        "HeegnerPointEulerSystems:HE.6/primitivity-versus-nonzero",
+        "HeegnerPointEulerSystems:HE.6/zhang-cohomological-congruence",
+        "HeegnerPointEulerSystems:HE.6/zhang-local-conditions-rank-lowering",
+        "HeegnerPointEulerSystems:HE.6/zhang-rank-zero-over-K",
+        "HeegnerPointEulerSystems:HE.6/zhang-jochnowitz-special-value",
+        "HeegnerPointEulerSystems:HE.6/ribet-takahashi-tamagawa-comparison",
+        "HeegnerPointEulerSystems:HE.6/zhang-triangular-selmer-basis",
+        "HeegnerPointEulerSystems:HE.6/zhang-indivisibility",
+        "HeegnerPointEulerSystems:HE.7/non-torsion-point-prime-divisibility",
+        "HeegnerPointEulerSystems:HE.7/non-cm-open-image-application",
+        "HeegnerPointEulerSystems:HE.7/almost-all-primary-sha-vanishing",
+        "HeegnerPointEulerSystems:HE.7/bounded-arithmetic-derivative-denominators",
+        "HeegnerPointEulerSystems:HE.7/dyadic-integral-conjugation-descent",
+        "HeegnerPointEulerSystems:HE.7/cm-character-error-descent",
+        "HeegnerPointEulerSystems:HE.7/exceptional-primary-sha-bound",
+        "HeegnerPointEulerSystems:HE.7/classical-full-sha-finiteness",
+        "HeegnerPointEulerSystems:HE.7/admissible-rm-kolyvagin-logachev",
+        "HeegnerPointEulerSystems:HE.6/heegner-vanishing-order",
+        "HeegnerPointEulerSystems:HE.6/heegner-base-locus"
+      ],
+      "sourceProof": "Nekovář §§3–7 author preprint: explicit cocycles and complete α=1 integral two-prime proof; Zhang §§6–8 actual residual arithmetic/period chain.",
+      "reviewBoundary": "The existing independent-review verdict and checked records are retained unchanged; this revision supplies evidence for a new independent review, not an acceptance verdict.",
+      "packetChecker": {
+        "errors": 0,
+        "warnings": 0,
+        "command": "python3 scripts/check_blueprint.py research/blueprint/packets/HeegnerPointEulerSystems--HE.0.json"
+      },
+      "lean": {
+        "result": "elaborated",
+        "command": "lean-check research/blueprint/suggested/HeegnerPointEulerSystems--HE.0.lean",
+        "exitCode": 0,
+        "errors": 0,
+        "warnings": 114,
+        "warningKind": "admission only",
+        "version": "4.34.0-rc2",
+        "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+        "availableMemoryGB": 111,
+        "sha256": "d09688c0a257aa68caa1f0e7c7dd1e175b6187d37926863a768239a6ff6ad996",
+        "limitations": "Mathlib-only prototype elaboration at the exact pin; Tau Ceti source inspected at its pin, with no Tau Ceti olean compilation. Arithmetic hypotheses/carrier identifications are explicitly omitted under section13."
+      },
+      "nameCoverage": {
+        "nodes": 78,
+        "apiItems": 24,
+        "unitTests": 18,
+        "missing": []
+      },
+      "sourceIssueChecker": {
+        "result": "ok",
+        "method": "check_errata.py on an errata-v1 scratch projection of the five preserved findings and sourceVersions"
+      },
+      "intakeFiles": {
+        "files": 4,
+        "problems": 0
+      }
     }
   },
   "review": {
