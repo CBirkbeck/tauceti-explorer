@@ -27,6 +27,11 @@ The statements suggest Lean forms so that contributors and reviewers converge on
 and signatures. Every proof is `sorry`; nothing here is implemented, and the packet's
 `implementationStatus` stays `unchecked`. Pinned baseline: Mathlib 082e2d3, Tau Ceti f790474.
 
+Independent review REV-GrossZagierAndArithmeticHeights--GZ.8: `needs_changes`.
+This file is a partial collection of algebraic prototypes. Successful elaboration does not
+verify the arithmetic assertions in the packet. Unsupported theorem signatures were removed;
+their missing hypotheses cannot safely be left out of universally quantified claims.
+
 The file imports only Mathlib: the Tau Ceti modules this plan cites (`CanonicalHeight`,
 `Petersson.Basic`) are named in docstrings, and the Mathlib objects they are built from are used
 directly (`QuadraticMap.polar` for the BSD pairing of a canonical height, the set integral of
@@ -35,10 +40,10 @@ directly (`QuadraticMap.polar` for the BSD pairing of a canonical height, the se
 Shimura curves, automorphic representations, toric functionals, L-functions of modular forms over
 K, CM periods and p-adic avatars are not in the libraries. Where a declaration needs them, the
 file prototypes the part that can be stated with existing carriers — the finite-group, linear and
-power-series algebra — and records the remaining conditions in the docstring as omitted. Data
-that the plan constructs but that cannot be built from existing carriers (the BDP power series,
-the coefficient pairing, the interpolated value) are definitions with body `sorry`, each named
-after its node; no `Prop` is ever replaced by `sorry`.
+power-series algebra. Arithmetic statements whose hypotheses cannot be expressed are recorded
+as pending signatures in comments, rather than asserting their conclusions for arbitrary data.
+The coefficient pairing below still models GZ.1's M-valued input; the L-base-change constructor
+and the Tau Ceti compatibility imports are pending. No `Prop` is replaced by `sorry`.
 -/
 
 noncomputable section
@@ -95,6 +100,14 @@ theorem chiIsotypic_disjoint {χ χ' : G →* Lˣ} (h : χ ≠ χ') :
     chiIsotypic (V := V) χ ⊓ chiIsotypic χ' = ⊥ := by
   sorry
 
+/-- An equivariant linear map preserves the specified character eigenspace. -/
+theorem chiIsotypic_map {W : Type*} [AddCommGroup W] [Module L W]
+    [DistribMulAction G W] [SMulCommClass G L W] (φ : V →ₗ[L] W)
+    (hφ : ∀ (g : G) (x : V), φ (g • x) = g • φ x)
+    (χ : G →* Lˣ) {x : V} (hx : x ∈ chiIsotypic χ) :
+    φ x ∈ chiIsotypic χ := by
+  sorry
+
 /-- `Σ_χ e_χ = 1` when `L` contains the values of all `|G|` characters. -/
 theorem sum_chiProjector [Fintype G] (hG : (Fintype.card G : L) ≠ 0) (S : Finset (G →* Lˣ))
     (hS : ∀ χ, χ ∈ S) (hcard : S.card = Fintype.card G) :
@@ -145,6 +158,11 @@ theorem heegnerFinite_one (x : V) :
 
 theorem heegnerFinite_add (χ : G →* Lˣ) (x y : V) :
     heegnerFinite χ (x + y) = heegnerFinite χ x + heegnerFinite χ y := by
+  sorry
+
+/-- Scalar linearity, distinct from the group-action formula `heegnerFinite_smul`. -/
+theorem heegnerFinite_coeff_smul (χ : G →* Lˣ) (a : L) (x : V) :
+    heegnerFinite χ (a • x) = a • heegnerFinite χ x := by
   sorry
 
 theorem heegnerFinite_map {W : Type*} [AddCommGroup W] [Module L W] [DistribMulAction G W]
@@ -232,6 +250,8 @@ theorem coeffPairing_chi_orthogonal {Γ : Type*} [Group Γ] [DistribMulAction Γ
     [DistribMulAction Γ W] [FiniteDimensional ℚ M] (B : V →+ W →+ ℝ)
     (hB : ∀ (m : M) (x : V) (y : W), B (m • x) y = B x (m • y))
     (hBΓ : ∀ (g : Γ) (x : V) (y : W), B (g • x) (g • y) = B x y)
+    (hV : ∀ (g : Γ) (m : M) (x : V), g • m • x = m • g • x)
+    (hW : ∀ (g : Γ) (m : M) (y : W), g • m • y = m • g • y)
     (g : Γ) (a b : M) (x : V) (y : W) (hx : g • x = a • x) (hy : g • y = b • y) (hab : a * b ≠ 1) :
     coeffPairing (M := M) B x y = 0 := by
   sorry
@@ -330,7 +350,7 @@ variable {Bx : Type*} [Group Bx] {L : Type*} [Field L]
 `(π, χ)`, prototyped by the condition `R̂^× ∩ K̂^× = Ô_{c₁}^×` on unit groups (`U ⊓ T = Uc`).
 Omitted, because orders of `B_f` and their discriminants are not in the libraries: the
 discriminant `N` and the local conditions at `v | (c₁, N)` of Cai–Shu–Tian Definition 1.3. -/
-structure IsAdmissibleOrder (U T Uc : Subgroup Bx) : Prop where
+structure TorusUnitIntersection (U T Uc : Subgroup Bx) : Prop where
   inf_torus : U ⊓ T = Uc
 
 /-- `V(π, χ)`: the vectors that are `ω`-eigen under `U` and `χ⁻¹`-eigen under `T₁`
@@ -343,26 +363,25 @@ def testVectorLine (U : Subgroup Bx) (ω : U →* Lˣ) (T₁ : Subgroup Bx) (χ 
   zero_mem' := by sorry
   smul_mem' := by sorry
 
-/-- Cai–Shu–Tian Proposition 3.7: `dim V(π, χ) = 1`. Conditions omitted: `π` irreducible
-admissible with conductor `N`, `R` admissible for `(π, χ)` and the local root-number condition;
-as stated, for an arbitrary representation, the signature is not provable. -/
-theorem finrank_testVectorLine (U : Subgroup Bx) (ω : U →* Lˣ) (T₁ : Subgroup Bx)
-    (χ : T₁ →* Lˣ) : Module.finrank L (testVectorLine (Vπ := Vπ) U ω T₁ χ) = 1 := by
+/-- Membership API for the two eigenconditions; users need not unfold the submodule. -/
+theorem mem_testVectorLine_iff (U : Subgroup Bx) (ω : U →* Lˣ)
+    (T₁ : Subgroup Bx) (χ : T₁ →* Lˣ) (f : Vπ) :
+    f ∈ testVectorLine U ω T₁ χ ↔
+      (∀ u : U, (u : Bx) • f = ((ω u : Lˣ) : L) • f) ∧
+      ∀ t : T₁, (t : Bx) • f = (((χ t)⁻¹ : Lˣ) : L) • f := by
   sorry
 
-/-- Test vectors: `α(f, f') ≠ 0` for nonzero `f ∈ V(π_A, χ)`, `f' ∈ V(π_{A^∨}, χ⁻¹)`.
-Conditions omitted as for `finrank_testVectorLine`; `α` is the local toric form of GZ.4. -/
-theorem localToric_ne_zero_of_mem_testVectorLine {Vπ' : Type*} [AddCommGroup Vπ'] [Module L Vπ']
-    [DistribMulAction Bx Vπ'] [SMulCommClass Bx L Vπ'] (α : Vπ →ₗ[L] Vπ' →ₗ[L] L)
-    (U : Subgroup Bx) (ω ω' : U →* Lˣ) (T₁ : Subgroup Bx) (χ χ' : T₁ →* Lˣ) {f : Vπ} {f' : Vπ'}
-    (hf : f ∈ testVectorLine U ω T₁ χ) (hf' : f' ∈ testVectorLine U ω' T₁ χ')
-    (h0 : f ≠ 0) (h0' : f' ≠ 0) : α f f' ≠ 0 := by
-  sorry
+/- Pending arithmetic API: `finrank_testVectorLine` and
+`localToric_ne_zero_of_mem_testVectorLine` need an irreducible admissible local representation,
+its conductor, a genuinely admissible order and the specified nonzero toric functional with its
+root-number condition (CST Proposition 3.7). Arbitrary representations can have a zero or
+larger invariant space; an arbitrary bilinear map can be zero. `TorusUnitIntersection` is only
+one necessary condition on an admissible order, not that full predicate. -/
 
-/-- For `F = ℚ` and the Heegner conditions the Eichler order of level `N` is admissible; in the
-prototype the content is the intersection with the torus. -/
-theorem isAdmissibleOrder_eichler (U T Uc : Subgroup Bx) (h : U ⊓ T = Uc) :
-    IsAdmissibleOrder U T Uc :=
+/-- The unit-intersection fragment follows from the stated equality. This does not establish
+the discriminant and other local conditions for an admissible Eichler order. -/
+theorem torusUnitIntersection_of_eq (U T Uc : Subgroup Bx) (h : U ⊓ T = Uc) :
+    TorusUnitIntersection U T Uc :=
   ⟨h⟩
 
 /-- Unit test: CST's embedding for `K = ℚ(√−7)`, `N = 11`, `c = 1` sends `(−7 + √−7)/2` to
@@ -446,7 +465,7 @@ theorem peterssonRatio_not_dxdy_over_ysq (g : ℍ → ℂ) (τ τ' : ℍ) (c : �
 
 end Petersson
 
-/-! ## GZ.9 — the BDP anticyclotomic p-adic L-function -/
+/-! ## GZ.9 — evaluation fragments; arithmetic BDP signatures pending -/
 
 section BDP
 
@@ -454,91 +473,41 @@ open PowerSeries
 
 variable (R : Type*) [CommRing R] [UniformSpace R]
 
-/-- GZ.9/bdp-p-adic-l-function: `L_p(f) ∈ R⟦T⟧ ≅ R⟦Gal(K_∞/K)⟧` for the weight-two newform `f`,
-the imaginary quadratic field `K` and the split prime `p` (`γ − 1 ↦ T`). The interpolation
-property that characterises it needs L-functions of `f` over `K`, CM periods and p-adic avatars,
-which the libraries lack; the body is `sorry` and the property is stated against the
-placeholder `bdpInterpolatedValue`. -/
-def bdpLFunction {Γ : Subgroup (GL (Fin 2) ℝ)} (f : CuspForm Γ 2) (K : Type*) [Field K] (p : ℕ) : PowerSeries R :=
-  sorry
+/- Pending packet APIs: bdpLFunction, bdpLFunction_eval, bdpLFunction_interpolation,
+bdpLFunction_eq_of_interpolation, bdpLFunction_eval_one, bdpLFunction_incomplete,
+bdpLFunction_period_change and bdpLFunction_eq_sq. These need the specific coefficient DVR
+with its complete separated adic topology, the constructed measure, the character branch,
+periods and Hecke/newform data. `bdpInterpolatedValue` with body sorry was not a specification
+of those values and has been removed. Likewise `hsiehSquareRoot` must be an imported L3h
+object, not a private replacement. Density/Weierstrass uniqueness is not valid for an
+arbitrary UniformSpace on an abstract DVR. The pending test `bdpLFunction_unique` must use
+that actual adic topology and convergence hypotheses. -/
 
-/-- Placeholder for the right side of JSW (5.1.a) at a character of weight `(−n, n)` with value
-`ψγ` at `γ` and p-adic period `Ωp`: `E_v̄² t_K C/(α W) · Ωp^{4n} · L(f, ψ^alg, 1)/Ω_∞^{4n}`. Named
-after the plan; its carriers belong to AutomorphicLFunctionsAndLocalFactors AL.3 and
-AutomorphicPadicLFunctions L0/L3. -/
-def bdpInterpolatedValue {Γ : Subgroup (GL (Fin 2) ℝ)} (f : CuspForm Γ 2) (K : Type*) [Field K] (p : ℕ) (Ωp : R) (n : ℕ) (ψγ : R) : R :=
-  sorry
-
-/-- Evaluation at a character `ψ`: `ψ(L_p(f)) = L_p(f)(ψ(γ) − 1)`. -/
-def bdpLFunction_eval {Γ : Subgroup (GL (Fin 2) ℝ)} (f : CuspForm Γ 2) (K : Type*) [Field K] (p : ℕ) (ψγ : R) : R :=
-  PowerSeries.eval₂ (RingHom.id R) (ψγ - 1) (bdpLFunction R f K p)
-
-/-- The interpolation property (JSW (5.1.a)) for `ψ ∈ Σ_cc`, `n > 0`, `n ≡ 0 mod (p − 1)`. -/
-theorem bdpLFunction_interpolation {Γ : Subgroup (GL (Fin 2) ℝ)} (f : CuspForm Γ 2) (K : Type*) [Field K] (p : ℕ) (Ωp : R) (n : ℕ) (hn : 0 < n) (hpn : (p - 1) ∣ n) (ψγ : R)
-    (hψ : IsTopologicallyNilpotent (ψγ - 1)) :
-    bdpLFunction_eval R f K p ψγ = bdpInterpolatedValue R f K p Ωp n ψγ := by
-  sorry
-
-/-- Uniqueness: power series over a complete discrete valuation ring (with its adic uniform
-structure) that agree at infinitely many topologically nilpotent points are equal. -/
-theorem bdpLFunction_eq_of_interpolation [IsDomain R] [IsDiscreteValuationRing R]
-    (F G : PowerSeries R) (S : Set R) (hS : S.Infinite)
-    (hnil : ∀ x ∈ S, IsTopologicallyNilpotent x)
-    (h : ∀ x ∈ S, PowerSeries.eval₂ (RingHom.id R) x F = PowerSeries.eval₂ (RingHom.id R) x G) :
-    F = G := by
-  sorry
-
-/-- The value at the trivial character (the BDP point) is the constant coefficient. -/
-theorem bdpLFunction_eval_one [T2Space R] {Γ : Subgroup (GL (Fin 2) ℝ)} (f : CuspForm Γ 2) (K : Type*) [Field K] (p : ℕ) :
-    bdpLFunction_eval R f K p 1 = PowerSeries.constantCoeff (bdpLFunction R f K p) := by
-  sorry
-
-/-- The imprimitive function `L_p^Σ(f) = L_p(f) · ∏_{w ∈ Σ} P_w`. -/
-def bdpLFunction_incomplete {Γ : Subgroup (GL (Fin 2) ℝ)} (f : CuspForm Γ 2) (K : Type*) [Field K] (p : ℕ) {ι : Type*} (S : Finset ι) (Pw : ι → PowerSeries R) :
-    PowerSeries R :=
-  bdpLFunction R f K p * ∏ w ∈ S, Pw w
-
-/-- Changing the p-adic period by `u` multiplies the interpolated value by `u^{4n}`. -/
-theorem bdpLFunction_period_change {Γ : Subgroup (GL (Fin 2) ℝ)} (f : CuspForm Γ 2) (K : Type*) [Field K] (p : ℕ) (u Ωp : R) (n : ℕ) (ψγ : R) :
-    bdpInterpolatedValue R f K p (u * Ωp) n ψγ = u ^ (4 * n) * bdpInterpolatedValue R f K p Ωp n ψγ := by
-  sorry
-
-/-- Placeholder for AutomorphicPadicLFunctions L3h's square-root distribution, specialised to
-`F = ℚ`, `n⁻ = 1` and transported to `Γ`. -/
-def hsiehSquareRoot {Γ : Subgroup (GL (Fin 2) ℝ)} (f : CuspForm Γ 2) (K : Type*) [Field K] (p : ℕ) : PowerSeries R :=
-  sorry
-
-/-- GZ.9/bdp-square-root-comparison: `L_p(f)` is a unit times the square of the square-root
-distribution (`N⁻ = 1`). -/
-theorem bdpLFunction_eq_sq {Γ : Subgroup (GL (Fin 2) ℝ)} (f : CuspForm Γ 2) (K : Type*) [Field K] (p : ℕ) : ∃ u : (PowerSeries R)ˣ,
-    bdpLFunction R f K p = (u : PowerSeries R) * hsiehSquareRoot R f K p ^ 2 := by
-  sorry
-
-/-- Unit test: evaluation at `T = 0` is the constant coefficient. -/
+/-- Evaluation at the trivial character reduces to the constant coefficient. This is an
+algebraic evaluation test, not a construction of the BDP measure. -/
 theorem bdpLFunction_eval_zero [T2Space R] (F : PowerSeries R) :
     PowerSeries.eval₂ (RingHom.id R) 0 F = PowerSeries.constantCoeff F := by
   sorry
 
-/-- Unit test: a power series vanishing at infinitely many topologically nilpotent points of a
-complete discrete valuation ring is zero. -/
-theorem bdpLFunction_unique [IsDomain R] [IsDiscreteValuationRing R] (F : PowerSeries R)
-    (S : Set R) (hS : S.Infinite) (hnil : ∀ x ∈ S, IsTopologicallyNilpotent x)
-    (h : ∀ x ∈ S, PowerSeries.eval₂ (RingHom.id R) x F = 0) : F = 0 := by
-  sorry
-
-/-- Unit test: for 11a1 at `p = 5` (split in `ℚ(√−19)`), `a₅ = 1` and the BDP-point Euler factor
-`(1 + p − a_p)/p` is `1`; at `p = 23`, `a₂₃ = −1` and it is `25/23`. -/
+/-- Proposed arithmetic test values for 11a1: the independent point counts are still needed
+when this is used as a test of a modular-form/elliptic-curve object. -/
 theorem bdpLFunction_euler_11a1 :
     (1 + (5 : ℚ) - 1) / 5 = 1 ∧ (1 + (23 : ℚ) - (-1)) / 23 = 25 / 23 := by
   sorry
 
-/-- The interpolation set `Σ_cc`: Hodge–Tate weight `n > 0` with `n ≡ 0 mod (p − 1)`. -/
-def InSigmaCC (p n : ℕ) : Prop :=
+/-- Only the positive weight/congruence condition. The full interpolation set also needs the
+anticyclotomic character, its avatar and the crystalline/conductor conditions. -/
+def interpolationWeightCondition (p n : ℕ) : Prop :=
   0 < n ∧ (p - 1) ∣ n
 
-/-- Unit test (non-example): the trivial character, of weight `0`, is not in `Σ_cc`, so
-`L_p(f, 1)` is not an interpolated value. -/
-theorem bdpLFunction_trivial_not_interpolated (p : ℕ) : ¬ InSigmaCC p 0 := by
+/-- The trivial character has weight zero, so fails this necessary interpolation condition. -/
+theorem bdpLFunction_trivial_not_interpolated (p : ℕ) :
+    ¬ interpolationWeightCondition p 0 := by
+  sorry
+
+-- Example: the trivial-character evaluation of a constant series recovers its value.
+example [T2Space R] (a : R) :
+    PowerSeries.eval₂ (RingHom.id R) 0 (PowerSeries.C a) = a := by
   sorry
 
 end BDP
@@ -559,6 +528,12 @@ theorem quaternionicBDP_eq_sq_sum (χinv cmValue : C → R) :
     quaternionicBDP χinv cmValue = (∑ a, χinv a * cmValue a) ^ 2 :=
   rfl
 
+/-- Extensionality for the finite-sum fragment, not for a geometric measure. -/
+theorem quaternionicBDP_congr (χ₁ χ₂ c₁ c₂ : C → R)
+    (hχ : ∀ a, χ₁ a = χ₂ a) (hc : ∀ a, c₁ a = c₂ a) :
+    quaternionicBDP χ₁ c₁ = quaternionicBDP χ₂ c₂ := by
+  sorry
+
 /-- Brooks Proposition 8.10: congruent CM data give congruent values (continuity). -/
 theorem quaternionicBDP_continuous (I : Ideal R) (M : ℕ) (χ₁ χ₂ c₁ c₂ : C → R)
     (hχ : ∀ a, χ₁ a - χ₂ a ∈ I ^ M) (hc : ∀ a, c₁ a - c₂ a ∈ I ^ M) :
@@ -571,13 +546,11 @@ theorem quaternionicBDP_period (a : R) (w : ℕ) (χinv cmValue : C → R) :
     quaternionicBDP χinv (fun c ↦ a ^ w * cmValue c) = a ^ (2 * w) * quaternionicBDP χinv cmValue := by
   sorry
 
-/-- The function is the evaluation of the BDP measure at `ψ`. Conditions omitted: `χinv` and
-`cmValue` must be the character values and Serre–Tate CM values attached to `ψ`, which cannot be
-expressed with library carriers. -/
-theorem quaternionicBDP_measure [UniformSpace R] {Γ : Subgroup (GL (Fin 2) ℝ)} (f : CuspForm Γ 2)
-    (K : Type*) [Field K] (p : ℕ) (ψγ : R) (χinv cmValue : C → R) :
-    bdpLFunction_eval R f K p ψγ = quaternionicBDP χinv cmValue := by
-  sorry
+/- Pending `quaternionicBDP_measure`: the CM values must be the Serre–Tate values of
+this specific form at the points attached to the evaluating character. With arbitrary CM data,
+the omitted original equality would assert that a fixed measure value is both zero and one.
+The squared finite sum below tests algebra only; it does not supply the geometric construction,
+its continuity across different character weights or its boundedness as a measure. -/
 
 /-- Unit test: class number one leaves one term. -/
 theorem quaternionicBDP_sq_sum_one_class [Unique C] (χinv cmValue : C → R) :
@@ -617,14 +590,22 @@ theorem log_pullback {A A' F : Type*} [AddCommGroup A] [AddCommGroup A'] [AddCom
     logφω' x = logω' (φ x) :=
   hlog x
 
-/-- GZ.9/bdp-weight-two-heegner-formula, its shape: the value at the BDP point is the squared
-Euler factor times the square of the `χ⁻¹`-weighted sum of the logarithms of the Heegner points.
-Conditions omitted: `E = 1 − χ⁻¹(p̄) a_p p⁻¹ + χ⁻²(p̄) p⁻¹` and `logs a = log_{ω_f}([P_a − ∞])`
-must be the arithmetic data of `f`, `K` and `χ`, which cannot be expressed with library carriers. -/
-theorem bdp_weight_two_formula (R : Type*) [CommRing R] [UniformSpace R]
-    {Γ : Subgroup (GL (Fin 2) ℝ)} (f : CuspForm Γ 2) (K : Type*) [Field K] (p : ℕ)
-    {C : Type*} [Fintype C] (E : R) (χinv logs : C → R) :
-    bdpLFunction_eval R f K p 1 = E ^ 2 * (∑ a, χinv a * logs a) ^ 2 := by
+/- Pending `bdp_weight_two_formula`: the measure, Euler factor, character values and
+logarithms of the Heegner divisors must be attached to the same arithmetic data. Quantifying over
+arbitrary E and logs while fixing the measure value would imply 0 = 1. GZ.9 imports GH.1's
+Theorem 5.13 and specializes it; it does not reassert that theorem without its hypotheses. -/
+
+/-- The endpoint omitted by the original p ≥ 5 valuation argument: a₅ = −4 gives E₅ = 2. -/
+example : (1 + (5 : ℚ) - (-4)) / 5 = 2 := by
+  sorry
+
+-- A single CM class with character value 1 and CM value 3 gives the square 9, not 3.
+example : quaternionicBDP (fun _ : Unit ↦ (1 : ℚ)) (fun _ ↦ (3 : ℚ)) = 9 := by
+  sorry
+
+-- Zero CM data give zero independently of the class-character coefficients.
+example {C : Type*} [Fintype C] (χinv : C → ℚ) :
+    quaternionicBDP χinv (fun _ ↦ (0 : ℚ)) = 0 := by
   sorry
 
 end WeightTwo
