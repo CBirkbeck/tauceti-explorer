@@ -1,16 +1,25 @@
 /-
 This file is not the roadmap and is not exhaustive. The companion roadmap document is
- definitive. These signatures suggest Lean forms so contributors and reviewers can
+definitive. These signatures suggest Lean forms so contributors and reviewers can
 converge on names and interfaces.
 
 Weight-two comparisons: algebraic compatibility signatures and regression examples.
 Baseline: mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174.
-The inherited algebraic signatures were compiled at the pin on 2026-09-26.
-The enlarged file below has not been compiled in the 2026-09-27 continuation.
-The seven geometric targets still require the actual
-curve/Jacobian, cycle-class, continuous Tate-module Kummer and Iwasawa interfaces named
-in the packet. They are not replaced here by opaque carriers or conclusion-bearing
-assumptions. The algebra below isolates the comparison steps after those inputs.
+The file imports only Mathlib, at the exact pin above. All arithmetic targets are
+specified in the packet and definitive reader. Their suggested signatures are omitted
+where the actual suppliers do not yet provide the types or maps. In particular:
+* weight-zero-cycle and modular-quotient-kummer need the actual Chow group, curve,
+  Jacobian, Picard/Gysin comparison and continuous Tate-module Kummer map;
+* character-sum-comparison, positive-conductor-stabilization and positive-tail-corestriction
+  need the actual coefficient cohomology maps, restriction and corestriction;
+* differential-evaluation needs crystalline/de Rham realization and elliptic logarithms;
+* ordinary-p-old-family needs Hida moments, local regulator descent and global control;
+* weight-two-reciprocity, automorphic-reciprocity-export and corrected-bsd-input-export
+  need the source-qualified regulators, completed unramified rings and period/twist maps.
+No opaque arithmetic types or conclusion-bearing fields replace these missing interfaces.
+The namespace below records only algebraic components and diagnostic examples. Named
+components are labelled by the packet targets they support; they are not assertions of
+arithmetic realization. Every proof is deliberately a placeholder.
 -/
 import Mathlib.LinearAlgebra.Dual.Defs
 import Mathlib.Data.Int.Basic
@@ -199,7 +208,7 @@ nonzero scalar in M; M is allowed to have torsion.
 
 For the arithmetic application c=alpha^(-n), beta=alpha^(-1), n>=1.
 The actual cohomological specialization and conductor-kernel map are separate
-GH.3/HE.0 suppliers, not fields assumed to satisfy this conclusion. -/
+GH.3 obligations using the finer HE.0 plans, not fields assumed to satisfy this conclusion. -/
 lemma primitive_character_stabilization
     (H : Subgroup G) (chi : G →* R)
     (hchi : ∃ h : H, chi (h : G) ≠ 1)
@@ -261,5 +270,88 @@ end BottomFromTail
 
 #check Equiv.sum_comp
 #check MulChar.sum_eq_zero_of_ne_one
+
+/-! Algebraic components of the retained arithmetic targets. -/
+section FiniteTransport
+variable {G R M N : Type*} [Fintype G] [CommRing R]
+  [AddCommGroup M] [Module R M] [AddCommGroup N] [Module R N]
+
+/-- Component of character-sum-comparison: existing linear-map and finite-sum API.
+The arithmetic quotient action and the chi-inverse descent are not represented here. -/
+lemma finite_weighted_sum_map (q : M →ₗ[R] N) (chi : G → R) (z : G → M) :
+    q (∑ g : G, chi g • z g) = ∑ g : G, chi g • q (z g) := by
+  sorry
+
+/-- Component of positive-conductor-stabilization; no conductor-zero normalization. -/
+lemma positive_stabilization_map (q : M →ₗ[R] N) (z lower : M) (beta c : R) :
+    q (c • (z - beta • lower)) = c • (q z - beta • q lower) := by
+  sorry
+end FiniteTransport
+
+section PositiveTrace
+variable {F M₀ M₁ M₂ : Type*} [Field F]
+  [AddCommGroup M₀] [Module F M₀] [AddCommGroup M₁] [Module F M₁]
+  [AddCommGroup M₂] [Module F M₂]
+
+/-- Component of positive-tail-corestriction. The actual arithmetic application
+must prove both trace inputs at repeated positive conductor, of degree p.
+The exponent here represents the transition from levels n+2 to n+1. -/
+lemma positive_trace_normalization
+    (cor : M₂ →ₗ[F] M₁) (res₁ : M₀ →ₗ[F] M₁) (res₂ : M₁ →ₗ[F] M₂)
+    (x₀ : M₀) (x₁ : M₁) (x₂ : M₂) (alpha a p : F) (n : ℕ)
+    (halpha : alpha ≠ 0) (hroot : alpha ^ 2 - a * alpha + p = 0)
+    (htrace : cor x₂ = a • x₁ - res₁ x₀)
+    (hdegree : cor (res₂ x₁) = p • x₁) :
+    cor ((alpha ^ (n + 2))⁻¹ • (x₂ - alpha⁻¹ • res₂ x₁)) =
+      (alpha ^ (n + 1))⁻¹ • (x₁ - alpha⁻¹ • res₁ x₀) := by
+  sorry
+end PositiveTrace
+
+section ReciprocityTransport
+variable {R S M N : Type*} [CommRing R] [CommRing S]
+  [AddCommGroup M] [Module R M] [AddCommGroup N] [Module R N]
+
+/-- Algebraic component of weight-two-reciprocity. The arithmetic target must
+construct q and the functional relation from the modular quotient, crystalline
+duality and the CM/Tate-period maps; this component does not construct them. -/
+lemma differential_reciprocity_transport
+    (q : M →ₗ[R] N) (ellE : Module.Dual R N) (ellf : Module.Dual R M)
+    (c L sigma : R) (x : M) (hdiff : q.dualMap ellE = c • ellf)
+    (hrec : ellf x = -L * sigma) : ellE (q x) = -c * L * sigma := by
+  sorry
+
+/-- Component of both consumer exports: exact scalar identities transfer along
+an existing coefficient homomorphism. No characteristic-ideal base change follows. -/
+lemma coefficient_reciprocity_transport (rho : R →+* S)
+    (A c L sigma : R) (hrec : A = -c * L * sigma) :
+    rho A = -rho c * rho L * rho sigma := by
+  sorry
+
+/-- Diagnostic for automorphic-reciprocity-export: a homomorphism from a ring
+where lambda has a specified inverse cannot send lambda to zero. -/
+lemma specialization_of_inverse_ne_zero [Nontrivial S] (rho : R →+* S)
+    (lambda invlambda : R) (hinv : lambda * invlambda = 1) : rho lambda ≠ 0 := by
+  sorry
+
+-- Dropping the group-like factor changes a character evaluation.
+example (L : ℚ) (hL : L ≠ 0) : -L * (-1) ≠ -L * 1 := by
+  sorry
+
+-- Elliptic differential scaling must multiply the scalar reciprocity value.
+example : -(3 : ℚ) * 5 * (-1) = 15 := by
+  sorry
+
+-- c0^{r-1} is one at weight two; the explicit minus sign remains.
+example (c₀ : ℚ) : -(c₀ ^ (1 - 1 : ℕ)) = -1 := by
+  sorry
+
+-- A zero image of a nonunit coefficient loses all nonvanishing information.
+example : ((-(2 : ℤ) * 3 * 1 : ℤ) : ZMod 2) = 0 := by
+  sorry
+
+-- A nonzero multiplier is insufficient for the integral leading-class comparison.
+example : ¬ IsUnit (5 : ℤ) := by
+  sorry
+end ReciprocityTransport
 
 end TauCeti.GeneralizedHeegnerCycles.WeightTwoChecks
