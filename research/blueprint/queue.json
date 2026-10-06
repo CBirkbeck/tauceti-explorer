@@ -22140,8 +22140,9 @@
    ],
    "avoidAccountOf": "BP-AutomorphicBundles--B0",
    "prompt": "research/blueprint/prompts/REV-AutomorphicBundles--B0.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #355"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #355",
+   "finishedAt": "2026-10-06T11:46:11Z"
   },
   {
    "id": "BP-AutomorphicBundles--B5",
@@ -22759,9 +22760,9 @@
     "REV-RS-05"
    ],
    "prompt": "research/blueprint/prompts/BP-ClassicalAdicEtaleCohomology--H4.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [],
-   "note": "released on GitHub issue #693"
+   "note": "claimed on GitHub issue #693"
   },
   {
    "id": "REV-ClassicalAdicEtaleCohomology--H4",
@@ -29326,7 +29327,8 @@
    ],
    "avoidAccountOf": "BP-VectorBundlesAndIsocrystals--VB0",
    "prompt": "research/blueprint/prompts/REV-VectorBundlesAndIsocrystals--VB0.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #500"
   },
   {
    "id": "BP-VectorBundlesAndIsocrystals--VB3",
