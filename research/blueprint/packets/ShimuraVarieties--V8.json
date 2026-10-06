@@ -1,0 +1,1908 @@
+{
+  "roadmapId": "ShimuraVarieties",
+  "protocol": "blueprint-v1",
+  "part": "V8",
+  "scope": [
+    "ShimuraVarieties:V8",
+    "ShimuraVarieties:V8.general"
+  ],
+  "status": "complete",
+  "summary": "Complete target-level plan for canonical finite-level functoriality, arithmetic GL2 modular comparisons, and reflex-field minimal descent, with four explicit supplier/carrier gaps; both stages are planned, neither closed.",
+  "nodes": [
+    {
+      "id": "ShimuraVarieties:V8/disjoint-special-reflex-fields",
+      "parentStageId": "ShimuraVarieties:V8",
+      "realises": [
+        "ShimuraVarieties:V8"
+      ],
+      "kind": "theorem",
+      "title": "Disjoint special reflex fields",
+      "statement": "For every pure datum D and finite extension L/E(D) in C, there is a special torus subdatum (T,h) of D such that E(T,h)/E(D) is linearly disjoint from L/E(D). The torus-reflex field is used, not the residue field of an arbitrarily chosen level point.",
+      "hypotheses": [
+        "G is connected reductive over Q; actual special pairs and cocharacter reflex fields are those of D3/D4.",
+        "L/E(D) is finite.",
+        "The schematic Lean field form uses an index of actual special-torus reflex fields; the missing datum/special-pair predicate must be restored, so it cannot select an arbitrary disjoint intermediate field."
+      ],
+      "proofSteps": [
+        "Use Deligne 5.1: over the regular-semisimple open V in Lie(G), the incidence variety W of maximal tori, cocharacters in the datum class, and regular Lie elements maps finite étale surjectively to V and to Spec E(D).",
+        "Connected centralizers and conjugacy of maximal tori give geometrically irreducible fibres over E(D). The nonempty real open U of tori compact modulo the centre supplies special homomorphisms in X.",
+        "Apply Hilbert irreducibility with a real-open condition and linear-disjointness avoidance to W after base change to L. Its specialized cocharacter field contains the reflex field of the resulting torus datum; subextensions retain linear disjointness."
+      ],
+      "prerequisites": [
+        "ShimuraData:D4/shimura-datum",
+        "ShimuraData:D3/reflex-field",
+        "ShimuraData:D4/special-pair",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory",
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.2",
+        "AlgebraicModuliForArithmeticGeometry:R09.2",
+        "mathlib:IntermediateField.LinearDisjoint"
+      ],
+      "sources": [
+        {
+          "sourceId": "milne-svi",
+          "locator": "13.4, p.118",
+          "excerpt": "For every finite extension L",
+          "match": "States the special-reflex-field lemma."
+        },
+        {
+          "sourceId": "deligne-1971",
+          "locator": "5.1, 5.1.2, 5.1.3, pp.153–155 (page images checked)",
+          "excerpt": "soit linéairement disjointe de F",
+          "match": "Incidence cover, connected-fibre argument and real-open Hilbert specialization."
+        }
+      ],
+      "acceptance": [
+        "For GL2, take an imaginary quadratic field Q(sqrt(-p)) with p an odd prime unramified in L; ramification at p excludes its inclusion in L.",
+        "Do not infer the field-disjointness theorem from mere density of special points."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Geometry/Shimura/CanonicalTower",
+        "namespace": "TauCeti.Shimura"
+      },
+      "leanName": "CanonicalModel.disjoint_special_reflex_fields"
+    },
+    {
+      "id": "ShimuraVarieties:V8/translation-descent",
+      "parentStageId": "ShimuraVarieties:V8",
+      "realises": [
+        "ShimuraVarieties:V8"
+      ],
+      "kind": "theorem",
+      "title": "Hecke translation over the reflex field",
+      "statement": "If g in G(A_f) and g^{-1}Kg is contained in L, the complex morphism T_g:[x,a]_K -> [x,ag]_L descends uniquely to an E-morphism M_K -> M_L. This is a conditional functoriality theorem for actual canonical models, with no general existence assumption.",
+      "hypotheses": [
+        "D=(G,X) is a pure Shimura datum; E=E(D) is embedded in C.",
+        "Each model M_K is an actual finite-type normal separated E-scheme with a specified complex comparison to V3, satisfying the special-pair reciprocity condition of V4. Existence is supplied by V5 or V6 in the abelian-type lane, or V7 in the general lane.",
+        "K,L are compact open and g^{-1}Kg is contained in L."
+      ],
+      "proofSteps": [
+        "V1 gives the analytic map and V3 its algebraicity over C. For a special pair (T,h), V4 gives sigma[h,a]=[h,r_h(s)a] for sigma fixing E(T,h). Left multiplication r_h(s) commutes with right multiplication g.",
+        "V4 density of all Hecke translates of h identifies T_g with its sigma-conjugate as algebraic maps (source reduced, target separated).",
+        "First descend through Aut(C/E(T,h)) for one special pair: this gives a finite algebraic field of definition of T_g, rather than assuming every complex morphism has one. Apply disjoint-special-reflex-fields to its finite normal closure over E. Descent through the second fixing subgroup and linear disjointness force the map to be defined over E; faithful base change gives uniqueness."
+      ],
+      "prerequisites": [
+        "ShimuraVarieties:V1",
+        "ShimuraVarieties:V3",
+        "ShimuraVarieties:V4",
+        "ShimuraVarieties:V8/disjoint-special-reflex-fields",
+        "AlgebraicModuliForArithmeticGeometry:R09.3"
+      ],
+      "sources": [
+        {
+          "sourceId": "milne-svi",
+          "locator": "13.6, pp.118–119",
+          "excerpt": "have canonical models",
+          "match": "Reciprocity, dense translates and disjoint reflex fields prove descent."
+        }
+      ],
+      "acceptance": [
+        "For g=1 and K contained in L this is the forgetful level map.",
+        "For L=g^{-1}Kg this is an isomorphism, with inverse T_{g^{-1}}.",
+        "The inclusion direction must be tested on a changed representative ak: k g=g(g^{-1}kg)."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Geometry/Shimura/CanonicalTower",
+        "namespace": "TauCeti.Shimura"
+      },
+      "planet": {
+        "name": "Hecke translations over the reflex field"
+      },
+      "leanName": "CanonicalModel.translation_defined_over_reflex"
+    },
+    {
+      "id": "ShimuraVarieties:V8/model-uniqueness",
+      "parentStageId": "ShimuraVarieties:V8",
+      "realises": [
+        "ShimuraVarieties:V8"
+      ],
+      "kind": "theorem",
+      "title": "Uniqueness of canonical models",
+      "statement": "Two canonical E-models of the same finite-level Shimura variety have a unique E-isomorphism inducing their specified comparison over C. These isomorphisms commute with all descended level and translation maps.",
+      "hypotheses": [
+        "D=(G,X) is a pure Shimura datum; E=E(D) is embedded in C.",
+        "Each model M_K is an actual finite-type normal separated E-scheme with a specified complex comparison to V3, satisfying the special-pair reciprocity condition of V4. Existence is supplied by V5 or V6 in the abelian-type lane, or V7 in the general lane."
+      ],
+      "proofSteps": [
+        "Repeat translation-descent with g=1, K=L and the two distinct specified model comparisons; the same special-pair action makes the complex identity descend.",
+        "Descend its inverse and verify the inverse identities by faithful base change. Naturality follows by comparing after C-base change."
+      ],
+      "prerequisites": [
+        "ShimuraVarieties:V8/translation-descent",
+        "AlgebraicModuliForArithmeticGeometry:R09.3"
+      ],
+      "sources": [
+        {
+          "sourceId": "milne-svi",
+          "locator": "13.7(a), p.119",
+          "excerpt": "unique up to a unique isomorphism",
+          "match": "Uniqueness includes the fixed complex model identification."
+        }
+      ],
+      "acceptance": [
+        "An arbitrary automorphism of an E-scheme is not the specified unique comparison."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Geometry/Shimura/CanonicalTower",
+        "namespace": "TauCeti.Shimura"
+      },
+      "leanName": "CanonicalModel.unique_iso"
+    },
+    {
+      "id": "ShimuraVarieties:V8/level-tower",
+      "parentStageId": "ShimuraVarieties:V8",
+      "realises": [
+        "ShimuraVarieties:V8"
+      ],
+      "kind": "construction",
+      "title": "Canonical algebraic level tower",
+      "statement": "For actual canonical models M_K, assemble the unique descended forgetful maps pi_{K,L} for K contained in L into the functor CanonicalTower.ofLevelMaps: Level(D) -> Over(Spec E). Level(D) and its inclusion arrows are supplied by V1/D5. Its values are the supplied models, not newly chosen arbitrary schemes. In the suggested file the index category and model family are parameters; the constructor is only the categorical assembly slice of this construction.",
+      "hypotheses": [
+        "D=(G,X) is a pure Shimura datum; E=E(D) is embedded in C.",
+        "Each model M_K is an actual finite-type normal separated E-scheme with a specified complex comparison to V3, satisfying the special-pair reciprocity condition of V4. Existence is supplied by V5 or V6 in the abelian-type lane, or V7 in the general lane.",
+        "The categorical assembly signature takes the already proved identity and composition laws for the descended transitions. These laws are obtained here by uniqueness, rather than assumed in the mathematical descent theorem."
+      ],
+      "proofSteps": [
+        "Apply translation-descent at g=1 to every inclusion.",
+        "The identity and composition equations hold over C by V1 and descend by uniqueness. Package these maps with the existing Functor constructor; retain the actual structure morphism in Over(Spec E).",
+        "After any extension E -> F, use Over.pullback to base change the entire functor; identity and successive base changes use the native natural isomorphisms."
+      ],
+      "prerequisites": [
+        "ShimuraVarieties:V8/translation-descent",
+        "ShimuraVarieties:V1",
+        "mathlib:CategoryTheory.Functor",
+        "mathlib:CategoryTheory.Over",
+        "mathlib:CategoryTheory.Over.pullback",
+        "mathlib:CategoryTheory.Over.pullbackId",
+        "mathlib:CategoryTheory.Over.pullbackComp",
+        "mathlib:AlgebraicGeometry.Scheme"
+      ],
+      "sources": [
+        {
+          "sourceId": "milne-svi",
+          "locator": "5.29(a), p.65; 12.10, p.116; 13.7(b), p.119",
+          "excerpt": "form an inverse system",
+          "match": "Assemble the algebraic models with their actual maps. Neither an infinite-level scheme nor its point formula is required."
+        }
+      ],
+      "acceptance": [
+        "All levels retain their given structure morphisms to Spec E.",
+        "A composite of three inclusions gives the same map for either parenthesization."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Geometry/Shimura/CanonicalTower",
+        "namespace": "TauCeti.Shimura"
+      },
+      "planet": {
+        "name": "Canonical algebraic tower"
+      },
+      "leanName": "CanonicalTower.ofLevelMaps",
+      "uses": [
+        {
+          "where": "PerfectoidShimuraVarieties:S0, S2, S4",
+          "how": "Supplies finite-level schemes and compatible maps before any inverse-limit or perfectoid construction."
+        },
+        {
+          "where": "Milne 12.10 and ShimuraVarieties:V8.general",
+          "how": "The canonical-model tower is a single functor; general existence supplies its values."
+        },
+        {
+          "where": "ShimuraCompactifications:C2 and AutomorphicBundles:B1",
+          "how": "Supplies arithmetic transition morphisms and common-base diagrams."
+        }
+      ],
+      "api": [
+        {
+          "name": "CanonicalTower.ofLevelMaps_obj",
+          "role": "projection",
+          "statement": "At i the constructor has value M(i), with its given map to the base."
+        },
+        {
+          "name": "CanonicalTower.ofLevelMaps_map",
+          "role": "projection",
+          "statement": "On an arrow f:i -> j the constructor evaluates to the supplied descended transition t(f). In the suggested file this is heterogeneous equality because the constructed object projections are propositional equalities."
+        },
+        {
+          "name": "CanonicalTower.ofLevelMaps_id",
+          "role": "simp",
+          "statement": "The map of the identity arrow at i is the identity of M(i)."
+        },
+        {
+          "name": "CanonicalTower.ofLevelMaps_comp",
+          "role": "functoriality",
+          "statement": "The map of f followed by g is t(f) followed by t(g)."
+        },
+        {
+          "name": "CanonicalTower.ofLevelMaps_baseChange",
+          "role": "compatibility",
+          "statement": "Postcomposing with Over.pullback(b) sends a transition f to the pullback of t(f), on the pulled-back models. This uses native base change rather than a second scheme carrier."
+        }
+      ],
+      "tests": [
+        {
+          "name": "CanonicalTower.test_identity_level",
+          "kind": "degenerate",
+          "statement": "At any level K, t(id_K) is the identity of M_K."
+        },
+        {
+          "name": "CanonicalTower.test_nested_levels",
+          "kind": "compatibility",
+          "statement": "For K1 contained in K2 contained in K3, the constructor map of the composite inclusion equals pi_{K1,K2} followed by pi_{K2,K3}."
+        },
+        {
+          "name": "CanonicalTower.test_preserves_supplied_arrow",
+          "kind": "characterisation",
+          "statement": "For a supplied arrow f and a morphism u distinct from t(f), the constructor map of f is not u; replacing transitions by zero or arbitrary maps fails this test."
+        },
+        {
+          "name": "CanonicalTower.test_base_change",
+          "kind": "compatibility",
+          "statement": "The base-changed constructor map on f is exactly Over.pullback(b).map(t(f))."
+        }
+      ]
+    },
+    {
+      "id": "ShimuraVarieties:V8/translation-laws",
+      "parentStageId": "ShimuraVarieties:V8",
+      "realises": [
+        "ShimuraVarieties:V8"
+      ],
+      "kind": "theorem",
+      "title": "Right translation laws on the algebraic tower",
+      "statement": "The descended T_g obey T_1=id at equal levels and T_h composed after T_g equals T_{gh}, whenever g^{-1}Kg is contained in L and h^{-1}Lh is contained in P. For k in K the equal-level T_k is the identity. For a fixed g the conjugate-level isomorphisms form a natural transformation from the tower to the conjugated-index tower.",
+      "hypotheses": [
+        "D=(G,X) is a pure Shimura datum; E=E(D) is embedded in C.",
+        "Each model M_K is an actual finite-type normal separated E-scheme with a specified complex comparison to V3, satisfying the special-pair reciprocity condition of V4. Existence is supplied by V5 or V6 in the abelian-type lane, or V7 in the general lane."
+      ],
+      "proofSteps": [
+        "V1 proves these identities on the double quotient.",
+        "Compare the descended E-morphisms after faithful C-base change; use uniqueness. The product is gh in this right-action convention."
+      ],
+      "prerequisites": [
+        "ShimuraVarieties:V8/translation-descent",
+        "ShimuraVarieties:V8/level-tower",
+        "ShimuraVarieties:V1",
+        "AlgebraicModuliForArithmeticGeometry:R09.3"
+      ],
+      "sources": [
+        {
+          "sourceId": "milne-svi",
+          "locator": "5.29(b), pp.65–66",
+          "excerpt": "the identity map",
+          "match": "Source/target levels and coherent right translations."
+        }
+      ],
+      "acceptance": [
+        "For g,h represented by noncommuting GL2 matrices, check gh rather than hg.",
+        "No action of all G(A_f) on one finite-level scheme is asserted."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Geometry/Shimura/CanonicalTower",
+        "namespace": "TauCeti.Shimura"
+      },
+      "leanName": "CanonicalTower.translation_comp"
+    },
+    {
+      "id": "ShimuraVarieties:V8/finite-level-maps",
+      "parentStageId": "ShimuraVarieties:V8",
+      "realises": [
+        "ShimuraVarieties:V8"
+      ],
+      "kind": "theorem",
+      "title": "Finite level maps and effective deck groups",
+      "statement": "For K1 contained in K2, pi_{K1,K2} is finite and surjective over E; at neat effective levels it is finite étale. If K1 is normal in K2, the finite quotient is by the effective image of K2/K1 in automorphisms of M_{K1}; its kernel consists of elements acting trivially on the actual quotient. Deck groups and degree use this effective quotient, not K2/K1 without a kernel calculation.",
+      "hypotheses": [
+        "D=(G,X) is a pure Shimura datum; E=E(D) is embedded in C.",
+        "Each model M_K is an actual finite-type normal separated E-scheme with a specified complex comparison to V3, satisfying the special-pair reciprocity condition of V4. Existence is supplied by V5 or V6 in the abelian-type lane, or V7 in the general lane."
+      ],
+      "proofSteps": [
+        "V1 supplies finite analytic coverings and the effective stabilizer calculation. V3 supplies finite algebraic maps and finite quotients at non-neat levels.",
+        "Finiteness, surjectivity and étaleness in the certified neat range descend along C/E. Apply the finite quotient universal property to the descended effective action."
+      ],
+      "prerequisites": [
+        "ShimuraVarieties:V8/translation-descent",
+        "ShimuraVarieties:V8/translation-laws",
+        "ShimuraVarieties:V1",
+        "ShimuraVarieties:V3",
+        "AlgebraicModuliForArithmeticGeometry:R09.5",
+        "AlgebraicModuliForArithmeticGeometry:R09.3",
+        "ShimuraData:D5/neat-level",
+        "mathlib:AlgebraicGeometry.IsFinite"
+      ],
+      "sources": [
+        {
+          "sourceId": "milne-svi",
+          "locator": "5.29(a), p.65",
+          "excerpt": "of the finite group",
+          "match": "Finite quotient statement, with the effective-kernel qualification inherited from V1."
+        }
+      ],
+      "acceptance": [
+        "For torus data the dimension is zero; level morphisms are finite étale.",
+        "Non-neat levels retain elliptic stabilizer ramification, so étaleness is not exported there."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Geometry/Shimura/CanonicalTower",
+        "namespace": "TauCeti.Shimura"
+      },
+      "leanName": "CanonicalTower.level_map_finite"
+    },
+    {
+      "id": "ShimuraVarieties:V8/hecke-span",
+      "parentStageId": "ShimuraVarieties:V8",
+      "realises": [
+        "ShimuraVarieties:V8"
+      ],
+      "kind": "construction",
+      "title": "Algebraic Hecke correspondence",
+      "statement": "For D, actual canonical models and g in G(A_f), put J=K intersect gKg^{-1}. Construct CanonicalHecke.span as the native WalkingSpan diagram in Over(Spec E), with apex M_J, first leg pi_{J,K}, and second leg T_g:M_J -> M_{g^{-1}Jg} followed by pi_{g^{-1}Jg,K}. Both legs are finite. The suggested constructor receives these already descended legs and uses native span; supplying these arrows alone does not prove canonical descent.",
+      "hypotheses": [
+        "D=(G,X) is a pure Shimura datum; E=E(D) is embedded in C.",
+        "Each model M_K is an actual finite-type normal separated E-scheme with a specified complex comparison to V3, satisfying the special-pair reciprocity condition of V4. Existence is supplied by V5 or V6 in the abelian-type lane, or V7 in the general lane.",
+        "g is a finite-adelic element and K is compact open."
+      ],
+      "proofSteps": [
+        "D5/V1 supply J, conjugate levels and both inclusion witnesses.",
+        "Apply translation-descent and finite-level-maps to obtain the two E-morphisms.",
+        "Use CategoryTheory.Limits.span, preserving the order of the two legs. The complex comparison is the V1 correspondence; applying native spanCompIso to Over.pullback supplies its base-change isomorphism."
+      ],
+      "prerequisites": [
+        "ShimuraVarieties:V8/translation-descent",
+        "ShimuraVarieties:V8/finite-level-maps",
+        "ShimuraVarieties:V1",
+        "mathlib:CategoryTheory.Limits.span",
+        "mathlib:CategoryTheory.Limits.spanCompIso",
+        "mathlib:CategoryTheory.Over.pullback"
+      ],
+      "sources": [
+        {
+          "sourceId": "milne-svi",
+          "locator": "5.29, pp.65–66; 13.6, p.118",
+          "excerpt": "right action",
+          "match": "Arithmetic descent of the two legs of the V1 Hecke correspondence."
+        }
+      ],
+      "acceptance": [
+        "J is K intersect gKg^{-1}, not K intersect g^{-1}Kg.",
+        "For g=1, J=K and both legs are the identity."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Geometry/Shimura/CanonicalTower",
+        "namespace": "TauCeti.Shimura"
+      },
+      "planet": {
+        "name": "Algebraic Hecke correspondences"
+      },
+      "leanName": "CanonicalHecke.span",
+      "uses": [
+        {
+          "where": "Milne 13.6 and ShimuraCompactifications:C3",
+          "how": "Uses the two separately descended finite morphisms; compactification extends the same ordered span."
+        },
+        {
+          "where": "ModularCurvesPartII:R12.5 and HeegnerPointEulerSystems",
+          "how": "Compares finite correspondences with moduli isogenies before applying pull-push to coefficients."
+        }
+      ],
+      "api": [
+        {
+          "name": "CanonicalHecke.span_apex",
+          "role": "projection",
+          "statement": "The value at WalkingSpan.zero is the supplied apex M_J."
+        },
+        {
+          "name": "CanonicalHecke.span_first",
+          "role": "projection",
+          "statement": "The image of WalkingSpan.Hom.fst is exactly pi_{J,K}. The suggested signature uses heterogeneous equality across the object projection equalities."
+        },
+        {
+          "name": "CanonicalHecke.span_second",
+          "role": "projection",
+          "statement": "The image of WalkingSpan.Hom.snd is exactly T_g followed by pi_{g^{-1}Jg,K}. The suggested signature uses heterogeneous equality across the object projection equalities."
+        },
+        {
+          "name": "CanonicalHecke.span_baseChange",
+          "role": "compatibility",
+          "statement": "Postcomposing the span with Over.pullback(b) is naturally isomorphic to native span on the two pulled-back legs, by spanCompIso."
+        }
+      ],
+      "tests": [
+        {
+          "name": "CanonicalHecke.test_identity",
+          "kind": "degenerate",
+          "statement": "For equal apex and endpoints and both supplied legs the identity (the g=1 case), both WalkingSpan arrows evaluate to the identity."
+        },
+        {
+          "name": "CanonicalHecke.test_native_span",
+          "kind": "compatibility",
+          "statement": "The constructed ordered diagram equals CategoryTheory.Limits.span(p1,p2) on the supplied legs."
+        },
+        {
+          "name": "CanonicalHecke.test_distinct_legs",
+          "kind": "non-example",
+          "statement": "For two endomorphisms p1,p2 of a supplied apex with p1 distinct from p2, the first-leg evaluation is not p2. A construction that swaps the two legs fails this test."
+        },
+        {
+          "name": "CanonicalHecke.test_base_change",
+          "kind": "compatibility",
+          "statement": "After Over.pullback(b), evaluation at the first WalkingSpan arrow is Over.pullback(b).map(p1)."
+        }
+      ]
+    },
+    {
+      "id": "ShimuraVarieties:V8/datum-functoriality",
+      "parentStageId": "ShimuraVarieties:V8",
+      "realises": [
+        "ShimuraVarieties:V8"
+      ],
+      "kind": "theorem",
+      "title": "Functoriality of canonical models in the datum",
+      "statement": "For a datum morphism f:D -> Dprime, compact open K,Kprime with f(K) contained in Kprime, and actual canonical models on both sides, the complex map [x,a] -> [f(x),f(a)] descends uniquely over the compositum E(D)E(Dprime) in C. It commutes with admissible level maps and right translations, identity datum maps and compositions after the necessary common-base changes.",
+      "hypotheses": [
+        "D=(G,X) is a pure Shimura datum; E=E(D) is embedded in C.",
+        "Each model M_K is an actual finite-type normal separated E-scheme with a specified complex comparison to V3, satisfying the special-pair reciprocity condition of V4. Existence is supplied by V5 or V6 in the abelian-type lane, or V7 in the general lane.",
+        "Both data and their reflex fields are specified; the target also has actual canonical models."
+      ],
+      "proofSteps": [
+        "V3 gives the complex algebraic map; D4 sends special pairs to special pairs.",
+        "Functoriality of V4 reflex norms makes the map Galois equivariant on the dense Hecke orbit of each source special pair. Apply the disjoint-field argument after forming the common compositum.",
+        "Descend by A; identities, compositions and Hecke compatibility follow from their complex formulas and faithful base change."
+      ],
+      "prerequisites": [
+        "ShimuraData:D4/datum-morphism",
+        "ShimuraData:D4/special-image",
+        "ShimuraVarieties:V8/disjoint-special-reflex-fields",
+        "ShimuraVarieties:V8/translation-descent",
+        "ShimuraVarieties:V3",
+        "ShimuraVarieties:V4",
+        "AlgebraicModuliForArithmeticGeometry:R09.3"
+      ],
+      "sources": [
+        {
+          "sourceId": "milne-svi",
+          "locator": "13.8, p.119",
+          "excerpt": "In fact, one can prove more.",
+          "match": "Base field is the compositum, not an unjustified smaller field."
+        },
+        {
+          "sourceId": "deligne-1971",
+          "locator": "5.4, pp.155–156",
+          "excerpt": "est défini sur E",
+          "match": "Special-pair proof of datum functoriality."
+        }
+      ],
+      "acceptance": [
+        "The identity datum map gives the identity scheme morphism.",
+        "The determinant GL2 -> Gm is defined over Q, and must agree with the separately constructed torus canonical model."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Geometry/Shimura/CanonicalTower",
+        "namespace": "TauCeti.Shimura"
+      },
+      "planet": {
+        "name": "Functoriality of canonical models"
+      },
+      "leanName": "CanonicalModel.datum_map_defined_over_compositum"
+    },
+    {
+      "id": "ShimuraVarieties:V8/abelian-instance",
+      "parentStageId": "ShimuraVarieties:V8",
+      "realises": [
+        "ShimuraVarieties:V8"
+      ],
+      "kind": "application",
+      "title": "Abelian-type tower from V6",
+      "statement": "Applying the preceding canonical-model functoriality theorems to the models constructed by V6 produces the finite-level abelian-type tower, translations, finite maps, Hecke spans and datum functoriality. No premise imports V7 or V8.general.",
+      "hypotheses": [
+        "D is of abelian type in D4; V6 supplies actual models satisfying V4."
+      ],
+      "proofSteps": [
+        "Supply the V6 construction to translation-descent and level-tower.",
+        "Use model-uniqueness to identify choices of Hodge-type covers and component descent.",
+        "Use the same finite-level and datum-morphism statements; do not identify entire varieties merely because derived groups are isogenous."
+      ],
+      "prerequisites": [
+        "ShimuraVarieties:V6",
+        "ShimuraVarieties:V8/level-tower",
+        "ShimuraVarieties:V8/model-uniqueness",
+        "ShimuraVarieties:V8/hecke-span",
+        "ShimuraVarieties:V8/datum-functoriality"
+      ],
+      "sources": [
+        {
+          "sourceId": "milne-svi",
+          "locator": "14.15–14.16, pp.127–128; 13.7, p.119",
+          "excerpt": "canonical models for all connected Shimura varieties of abelian type",
+          "match": "Specialize the conditional V8 results to V6, rather than replaying the V6 existence proof."
+        }
+      ],
+      "acceptance": [
+        "GL2 is the genus-one GSp case, supplied through V5/V6.",
+        "There is no dependency path from this node to V7."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Geometry/Shimura/CanonicalTower",
+        "namespace": "TauCeti.Shimura"
+      },
+      "leanName": "CanonicalTower.abelian_type"
+    },
+    {
+      "id": "ShimuraVarieties:V8/gl2-moduli-reciprocity",
+      "parentStageId": "ShimuraVarieties:V8",
+      "realises": [
+        "ShimuraVarieties:V8"
+      ],
+      "kind": "theorem",
+      "title": "Canonical reciprocity for full elliptic level",
+      "statement": "For N>=3, the Q-scheme Y_full(N)_Q representing elliptic curves with an ordered full N-basis, with the complex identification supplied by R12.1/R12.2 and M3, satisfies the actual GL2 special-pair canonical-model condition of V4. The Galois action includes the Weil pairing and acts on the entire full-level model, not only a chosen cyclotomic fibre.",
+      "hypotheses": [
+        "N>=3; GL2 datum is the standard homology-weight minus one datum of D5.",
+        "The fine generic-fibre full-level moduli scheme and analytic comparison are the suppliers' actual constructions."
+      ],
+      "proofSteps": [
+        "Identify GL2=GSp2 and an elliptic curve with its canonical principal polarization. M3/R12.1 compare homology, Tate modules and the ordered level basis with the V3 complex variety.",
+        "V5 supplies normalized CM reciprocity on the elliptic special pairs and their Tate levels; M4 verifies that the constructed genus-one moduli model has that Galois action.",
+        "Apply V4 Artin-convention conversion, including the field of definition of each special point. A geometric-point bijection alone is insufficient to identify the Q-scheme."
+      ],
+      "prerequisites": [
+        "ShimuraData:D5/gl2-datum",
+        "ShimuraData:D3/reflex-field",
+        "ShimuraVarieties:V4",
+        "ShimuraVarieties:V5",
+        "PELModuli:M3",
+        "PELModuli:M4",
+        "ModularCurvesPartII:R12.1",
+        "ModularCurvesPartII:R12.2",
+        "tauceti:TauCetiRoadmap/ModularCurves#5b-full-ordered-bases-and-fixed-pairing"
+      ],
+      "sources": [
+        {
+          "sourceId": "milne-svi",
+          "locator": "6.3, pp.70–71; 6.11, p.73; 14.12, pp.125–126",
+          "excerpt": "a canonical model",
+          "match": "The symplectic/abelian moduli description and normalized CM action certify the genus-one canonical condition."
+        }
+      ],
+      "acceptance": [
+        "Use the actual special torus for an elliptic CM curve and compare its normalized Artin action on the ordered basis.",
+        "Full level two is excluded: the residual minus-one automorphism preserves all two-torsion."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Geometry/Shimura/ModularComparison",
+        "namespace": "TauCeti.Shimura"
+      },
+      "leanName": "GL2Modular.full_level_is_canonical"
+    },
+    {
+      "id": "ShimuraVarieties:V8/gl2-full-level",
+      "parentStageId": "ShimuraVarieties:V8",
+      "realises": [
+        "ShimuraVarieties:V8"
+      ],
+      "kind": "theorem",
+      "title": "Full-level modular curve comparison over Q",
+      "statement": "For N>=3, there is a unique Q-isomorphism Sh_{K(N)}(GL2,H±) -> Y_full(N)_Q inducing the supplied complex uniformization. Here K(N)=ker(GL2(Zhat)->GL2(Z/N)). The source is the actual V5/V6 canonical model and the target is the PR81 fine full ordered-basis scheme.",
+      "hypotheses": [
+        "N>=3; full H± datum and principal adelic level; no chosen primitive root is incorporated into the Q-scheme."
+      ],
+      "proofSteps": [
+        "Use gl2-moduli-reciprocity and model-uniqueness to descend the complex moduli identification to a Q-isomorphism.",
+        "Use the existing AA.5 principal-level component calculation and R12.2 comparison to identify its complex effect with the double-quotient formula.",
+        "Verify compatibility with the universal elliptic family/level interpretation through M3."
+      ],
+      "prerequisites": [
+        "ShimuraVarieties:V8/gl2-moduli-reciprocity",
+        "ShimuraVarieties:V8/model-uniqueness",
+        "ShimuraVarieties:V8/abelian-instance",
+        "AdelicAlgebraicGroups:AA.5/gl2-principal-level",
+        "ModularCurvesPartII:R12.2",
+        "tauceti:TauCetiRoadmap/ModularCurves#5b-full-ordered-bases-and-fixed-pairing"
+      ],
+      "sources": [
+        {
+          "sourceId": "milne-svi",
+          "locator": "6.3, pp.70–71; 6.11, p.73; 13.7(a), p.119",
+          "excerpt": "modulo isomorphism",
+          "match": "The moduli description followed by canonical-model uniqueness gives a scheme isomorphism over Q."
+        },
+        {
+          "sourceId": "pink",
+          "locator": "10.9, p.175; 12.9, p.200 (author-typeset version)",
+          "excerpt": "compatible isomorphisms",
+          "match": "Genus-one full-level model is the arithmetic base case."
+        }
+      ],
+      "acceptance": [
+        "At N=3 the full curve has two geometric pairing components; it is not identified with a single Gamma(3) quotient.",
+        "At N=4 there are phi(4)=2 pairing components; composite levels are covered without Layer 10."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Geometry/Shimura/ModularComparison",
+        "namespace": "TauCeti.Shimura"
+      },
+      "planet": {
+        "name": "Full-level modular curve comparison"
+      },
+      "leanName": "GL2Modular.full_level_iso"
+    },
+    {
+      "id": "ShimuraVarieties:V8/gl2-determinant-pairing",
+      "parentStageId": "ShimuraVarieties:V8",
+      "realises": [
+        "ShimuraVarieties:V8"
+      ],
+      "kind": "comparison",
+      "title": "Determinant is the Weil-pairing morphism",
+      "statement": "Under full_level_iso, the canonical morphism induced by det:GL2->Gm and the induced zero-dimensional torus datum is identified over Q with (E,P,Q)->e_N(P,Q) in mu_N^prim. The torus level is det K(N)=ker(Zhat^×->(Z/N)^×); its canonical Q-model is identified with Spec Q[z]/Phi_N(z), not the constant disjoint union of phi(N) Q-points.",
+      "hypotheses": [
+        "N>=3; choose the analytic reference basis so its pairing is a specified reference primitive root; use the V4 normalization."
+      ],
+      "proofSteps": [
+        "V4 supplies the torus model and its cyclotomic reciprocity action. AA.5 supplies the determinant-indexed GL2 components.",
+        "For level map eta, Milne 6.3 sends the moduli object to [ah,a eta]; the determinant component records the multiplier of the alternating pairing. R12.1/R12.2 prove that multiplier is the exponent in e_N(P,Q).",
+        "Use datum-functoriality and the CM/Galois pairing compatibility of gl2-moduli-reciprocity; equality after complex comparison descends."
+      ],
+      "prerequisites": [
+        "ShimuraVarieties:V8/gl2-full-level",
+        "ShimuraVarieties:V8/datum-functoriality",
+        "ShimuraVarieties:V4",
+        "AdelicAlgebraicGroups:AA.5/gl2-principal-level",
+        "ModularCurvesPartII:R12.1",
+        "ModularCurvesPartII:R12.2",
+        "PELModuli:M5",
+        "tauceti:TauCetiRoadmap/ModularCurves#5b-full-ordered-bases-and-fixed-pairing",
+        "AlgebraicModuliForArithmeticGeometry:R09.3"
+      ],
+      "sources": [
+        {
+          "sourceId": "milne-svi",
+          "locator": "13, connected-component formula (64), p.119; 14, Siegel proof, p.125",
+          "excerpt": "through the cyclotomic character",
+          "match": "Determinant-component Galois action."
+        },
+        {
+          "sourceId": "milne-mf",
+          "locator": "8.7, p.100 (root normalization corrected)",
+          "excerpt": "A level-N structure",
+          "match": "The fixed-pairing condition; the chosen analytic reference root must be calibrated."
+        }
+      ],
+      "acceptance": [
+        "For N=3 the primitive-root model is Spec Q[z]/(z^2+z+1), geometrically two points with nontrivial conjugation.",
+        "A determinant-one basis change preserves the pairing; a determinant-u change raises it to the u-th power."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Geometry/Shimura/ModularComparison",
+        "namespace": "TauCeti.Shimura"
+      },
+      "leanName": "GL2Modular.det_eq_weil_pairing"
+    },
+    {
+      "id": "ShimuraVarieties:V8/gl2-fixed-pairing-fibre",
+      "parentStageId": "ShimuraVarieties:V8",
+      "realises": [
+        "ShimuraVarieties:V8"
+      ],
+      "kind": "comparison",
+      "title": "Fixed-pairing fibre over a primitive root",
+      "statement": "For N>=3 and a primitive Nth root zeta in C, base change full_level_iso to Q(zeta) and take the scheme-theoretic fibre of its determinant/Weil-pairing map at zeta. This is an isomorphism to Y(N,zeta) over Q(zeta). Its complex analytification is Gamma(N)\\H, and the fibre is geometrically connected and geometrically irreducible using the open comparison R12.4.",
+      "hypotheses": [
+        "The fibre is formed after cyclotomic base change; its scalar extension to C uses the chosen embedding Q(zeta)->C."
+      ],
+      "proofSteps": [
+        "Use gl2-determinant-pairing and the functoriality of fibre products to restrict full_level_iso.",
+        "Apply R12.1/R12.2 fixed-pairing uniformization with the calibrated basis: if zeta=zeta_ref^u, replace the first standard torsion generator by u times it.",
+        "Import R12.4 open connectedness and smooth-curve irreducibility. This has no compactification prerequisite."
+      ],
+      "prerequisites": [
+        "ShimuraVarieties:V8/gl2-full-level",
+        "ShimuraVarieties:V8/gl2-determinant-pairing",
+        "ModularCurvesPartII:R12.1",
+        "ModularCurvesPartII:R12.2",
+        "ModularCurvesPartII:R12.4",
+        "ComplexComparisonPartII:C0/repair-analytification",
+        "tauceti:TauCetiRoadmap/ModularCurves#5b-full-ordered-bases-and-fixed-pairing",
+        "mathlib:CategoryTheory.Over.pullback"
+      ],
+      "sources": [
+        {
+          "sourceId": "milne-mf",
+          "locator": "8.7–8.8, p.100",
+          "excerpt": "induces a bijection",
+          "match": "Fixed-pairing complex uniformization and cyclotomic model, with the normalization issue recorded."
+        },
+        {
+          "sourceId": "milne-svi",
+          "locator": "5.17, pp.59–61; connected components in section 13, p.119",
+          "excerpt": "the connected components",
+          "match": "The determinant separates full-level components."
+        }
+      ],
+      "acceptance": [
+        "Y_full(3)_C has two components whereas Y(3,zeta)_C has one.",
+        "Taking a fibre over Q without adjoining zeta is not a fibre at a Q-rational primitive root for N>2."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Geometry/Shimura/ModularComparison",
+        "namespace": "TauCeti.Shimura"
+      },
+      "leanName": "GL2Modular.fixed_pairing_fibre_iso"
+    },
+    {
+      "id": "ShimuraVarieties:V8/gl2-row-basis-dictionary",
+      "parentStageId": "ShimuraVarieties:V8",
+      "realises": [
+        "ShimuraVarieties:V8"
+      ],
+      "kind": "comparison",
+      "title": "Row-basis and adelic right actions",
+      "statement": "For N>=3 and u in GL2(Zhat) with reduction [[a,b],[c,d]], right translation [x,A]->[x,A u] corresponds under full_level_iso to (P,Q)->(aP+cQ,bP+dQ). The Weil pairing changes by exponent det(u mod N), so this map sends Y(N,zeta) to Y(N,zeta^{det u}). General finite-adelic g is compared through the two isogeny legs at the intersection level, not by pretending g has an integral reduction.",
+      "hypotheses": [
+        "The source K(N) is normalized by GL2(Zhat); full-level bases use the PR81 row convention."
+      ],
+      "proofSteps": [
+        "Write the level as eta:V(A_f)->V_f(E). Milne 6.3 identifies it with [ah,a eta]. Replacing eta by eta composed with u changes a eta to (a eta)u.",
+        "Evaluate precomposition on the two standard column generators: columns of u give aP+cQ and bP+dQ. Thus the ordered basis is a row with right multiplication.",
+        "Use PR81 Weil-pairing bilinearity for the determinant exponent. For nonintegral g use R12.5 isogeny/Hecke comparison and the actual intersection-level span."
+      ],
+      "prerequisites": [
+        "ShimuraVarieties:V8/gl2-full-level",
+        "ShimuraVarieties:V8/gl2-determinant-pairing",
+        "ShimuraVarieties:V8/translation-laws",
+        "ShimuraVarieties:V8/hecke-span",
+        "ModularCurvesPartII:R12.5",
+        "tauceti:TauCetiRoadmap/ModularCurves#5b-full-ordered-bases-and-fixed-pairing"
+      ],
+      "sources": [
+        {
+          "sourceId": "milne-svi",
+          "locator": "6.3, pp.70–71",
+          "excerpt": "We first check",
+          "match": "The literal level-map orientation fixes the right-action convention; use the corrected arrow directions in the proof."
+        },
+        {
+          "sourceId": "pr81",
+          "locator": "Conventions, item 5: Full level and actions",
+          "excerpt": "Full level and actions",
+          "match": "The native row-basis convention to which the canonical model is compared."
+        }
+      ],
+      "acceptance": [
+        "For u=[[1,1],[0,1]] the basis goes to (P,P+Q), not (P+Q,Q).",
+        "For u=[[0,1],[-1,0]] the basis goes to (-Q,P); determinant is one and pairing stays fixed.",
+        "For diag(v,1), pairing is raised to v and the component changes unless v=1 mod N."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Geometry/Shimura/ModularComparison",
+        "namespace": "TauCeti.Shimura"
+      },
+      "leanName": "GL2Modular.row_basis_right_translation"
+    },
+    {
+      "id": "ShimuraVarieties:V8/gl2-gamma1",
+      "parentStageId": "ShimuraVarieties:V8",
+      "realises": [
+        "ShimuraVarieties:V8"
+      ],
+      "kind": "comparison",
+      "title": "Gamma-one modular curve comparison",
+      "statement": "For N>=4, the canonical Q-scheme at K1(N)={u in GL2(Zhat):u e1=e1 mod N} is Q-isomorphic to the fine curve Y1(N)_Q representing (E,P) with P of exact order N. The comparison is induced by the full-level forgetful map and preserves its specified point and its complex Gamma1(N) uniformization.",
+      "hypotheses": [
+        "N>=4; K1 fixes e1 (first column), so the row convention retains P."
+      ],
+      "proofSteps": [
+        "Choose a full principal level M divisible by N with M>=3 and pass to the finite quotient of its level problem by the stabilizer of the chosen N-point.",
+        "Use finite-level-maps and the PR81/R12.2 fine quotient comparison to descend full_level_iso. Exact moduli representability at N>=4 eliminates automorphisms.",
+        "Use R12.5/R12.6 to match forgetful and diamond morphisms over Q."
+      ],
+      "prerequisites": [
+        "ShimuraVarieties:V8/gl2-full-level",
+        "ShimuraVarieties:V8/finite-level-maps",
+        "ShimuraVarieties:V8/gl2-row-basis-dictionary",
+        "ModularCurvesPartII:R12.2",
+        "ModularCurvesPartII:R12.5",
+        "ModularCurvesPartII:R12.6",
+        "tauceti:TauCetiRoadmap/ModularCurves#5a-tate-normal-form-and-y₁n-for-n4",
+        "AlgebraicModuliForArithmeticGeometry:R09.5"
+      ],
+      "sources": [
+        {
+          "sourceId": "pr81",
+          "locator": "Layer 5A: Tate normal form and Y1(N) for N>=4",
+          "excerpt": "N ≥ 4",
+          "match": "Imports the actual fine-moduli qualification rather than extending it to levels two or three."
+        },
+        {
+          "sourceId": "milne-svi",
+          "locator": "5.29 and 13.7, pp.65,119",
+          "excerpt": "quotient",
+          "match": "Canonical finite-level quotient and uniqueness."
+        }
+      ],
+      "acceptance": [
+        "At N=4 a point of exact order four excludes the residual minus-one automorphism.",
+        "At N=1,2 the comparison cannot be labelled a fine universal elliptic scheme."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Geometry/Shimura/ModularComparison",
+        "namespace": "TauCeti.Shimura"
+      },
+      "leanName": "GL2Modular.gamma1_iso"
+    },
+    {
+      "id": "ShimuraVarieties:V8/gl2-gamma0",
+      "parentStageId": "ShimuraVarieties:V8",
+      "realises": [
+        "ShimuraVarieties:V8"
+      ],
+      "kind": "comparison",
+      "title": "Gamma-zero coarse modular curve comparison",
+      "statement": "For N>0, the canonical Q-scheme at K0(N)={u in GL2(Zhat):u preserves the line (Z/N)e1} is Q-isomorphic to the coarse curve Y0(N)_Q for elliptic curves with a cyclic order-N subgroup. At N=1 this is the j-line. The assertion is an isomorphism of coarse schemes, not fine representability or a bijection with rational isomorphism classes over every field.",
+      "hypotheses": [
+        "Characteristic zero generic fibre; N positive. The cyclic-subgroup problem and its coarse space are the actual PR81 constructions."
+      ],
+      "proofSteps": [
+        "Choose full M-level with N dividing M and M>=3; use the subgroup stabilizer and its finite coarse quotient.",
+        "Compare this quotient with the canonical finite-level quotient from finite-level-maps, via gl2-full-level and the first-column convention.",
+        "Use PR81 9E and R12.2/R12.6 to identify the coarse scheme and its analytic quotient."
+      ],
+      "prerequisites": [
+        "ShimuraVarieties:V8/gl2-full-level",
+        "ShimuraVarieties:V8/finite-level-maps",
+        "ShimuraVarieties:V8/gl2-row-basis-dictionary",
+        "ModularCurvesPartII:R12.2",
+        "ModularCurvesPartII:R12.6",
+        "tauceti:TauCetiRoadmap/ModularCurves#9e-the-coarse-j-line-and-y₀n",
+        "AlgebraicModuliForArithmeticGeometry:R09.5"
+      ],
+      "sources": [
+        {
+          "sourceId": "milne-mf",
+          "locator": "8.6, p.100",
+          "excerpt": "a solution to the moduli problem",
+          "match": "Coarse characteristic-zero comparison; universal-family claims are deliberately excluded."
+        },
+        {
+          "sourceId": "pr81",
+          "locator": "Layer 9E: the coarse j-line and Y0(N)",
+          "excerpt": "coarse",
+          "match": "The supplier of the coarse scheme, retaining elliptic stabilizers."
+        }
+      ],
+      "acceptance": [
+        "For N=1 the j-line has elliptic objects with automorphisms; it is not a fine scheme with a universal elliptic curve.",
+        "For N=6 use the general coarse construction, not the prime diamond-quotient theorem of Layer 10."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Geometry/Shimura/ModularComparison",
+        "namespace": "TauCeti.Shimura"
+      },
+      "leanName": "GL2Modular.gamma0_coarse_iso"
+    },
+    {
+      "id": "ShimuraVarieties:V8/gl2-compact-model",
+      "parentStageId": "ShimuraVarieties:V8",
+      "realises": [
+        "ShimuraVarieties:V8"
+      ],
+      "kind": "comparison",
+      "title": "Minimal compactification of the full modular curve",
+      "statement": "For N>=3 the independently constructed proper normal coarse compact curve X_full(N)_Q from R13.4a, with its specified open Y_full(N)_Q, is the E=Q-model of the complex Baily–Borel minimal compactification for the GL2 principal-level datum, via the open isomorphism full_level_iso. This is the genus-one arithmetic compactification base case, constructed without assuming the general minimal-descent theorem.",
+      "hypotheses": [
+        "N>=3; use R13.4a construction for full/composite levels; for prime N>=5 and H <= (Z/N)^×/{±1}, the Layer-10 coarse X_H has its separate certified comparison."
+      ],
+      "proofSteps": [
+        "R13.4a constructs the proper normal coarse compactification from generalized elliptic curves; R12.3 identifies its C-model with the independently constructed analytic modular compactification.",
+        "Use the full-level open comparison to specify the complex Baily–Borel identification and hence an actual Q-model containing the canonical open.",
+        "Normal proper-curve extension gives uniqueness. R13.4b certifies the generic-fibre component and cusp bookkeeping; it is not the source of R12.4 open connectedness."
+      ],
+      "prerequisites": [
+        "ShimuraVarieties:V8/gl2-full-level",
+        "ShimuraVarieties:V2",
+        "ModularCurvesPartII:R12.3",
+        "ModularCurvesPartII:R13.4a",
+        "ModularCurvesPartII:R13.4b",
+        "ComplexComparisonPartII:C4/repair-proper-morphism-algebraicity"
+      ],
+      "sources": [
+        {
+          "sourceId": "pink",
+          "locator": "12.9, p.200",
+          "excerpt": "we just set",
+          "match": "Uses the independent generalized-elliptic compact model to descend GL2 before the general compactification proof."
+        },
+        {
+          "sourceId": "pink",
+          "locator": "10.20–10.21, pp.183–184",
+          "excerpt": "generalized elliptic curve",
+          "match": "The complex compact comparison and cusp formal model."
+        }
+      ],
+      "acceptance": [
+        "The level N=6 full compact model is supplied by R13.4a; prime-only Layer 10 cannot provide it.",
+        "Boundary is the scheme-theoretic complement, not a hand-selected set of complex cusp points."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Geometry/Shimura/ModularComparison",
+        "namespace": "TauCeti.Shimura"
+      },
+      "leanName": "GL2Modular.minimal_compact_iso"
+    },
+    {
+      "id": "ShimuraVarieties:V8/minimal-descent",
+      "parentStageId": "ShimuraVarieties:V8",
+      "realises": [
+        "ShimuraVarieties:V8"
+      ],
+      "kind": "theorem",
+      "title": "Reflex-field descent of the minimal compactification",
+      "statement": "For a pure datum D with actual canonical open models, its normal projective complex Baily–Borel compactification M_K,C^min has a unique projective normal E(D)-model containing M_K and inducing the specified complex compactification. The theorem is for the same datum class as the supplied open models. Its construction must exhibit effective descent, not infer it solely from uniqueness of an open model.",
+      "hypotheses": [
+        "D=(G,X) is a pure Shimura datum; E=E(D) is embedded in C.",
+        "Each model M_K is an actual finite-type normal separated E-scheme with a specified complex comparison to V3, satisfying the special-pair reciprocity condition of V4. Existence is supplied by V5 or V6 in the abelian-type lane, or V7 in the general lane.",
+        "The arithmetic codimension-one partial compactification and intrinsic logarithmic-line inputs specified in the recorded gap are supplied; preserving the abelian-type class for auxiliary data is required in that lane."
+      ],
+      "proofSteps": [
+        "At neat level, V2 supplies S_C^+: the open plus codimension-one boundary strata, smooth with smooth boundary divisor and complement of codimension at least two in S_C^min.",
+        "Use Pink 12.10: codimension-one rational boundary components come from surjections to PGL2. A lift to GL2 reduces to an auxiliary pure factor times the independently descended GL2 compact model; otherwise pass to Gtilde=G ×_{PGL2} GL2 and take the Gm-kernel finite quotient. The arithmetic extension S^+ is the recorded supplier gap, not the full C2 toroidal theorem.",
+        "On S^+ the top log-differential line omega[dlog] is intrinsic and defined over E. V2/Pink 8.2 gives sufficiently large n with global generation and a closed embedding of the complex minimal model. Descend sections and use closure of S^+ in the associated projective space, as Pink 12.12.",
+        "Apply effective descent, base change for sections, schematic closure and normality descent. Remove neatness by the V3 finite quotient machinery and finite-level-maps. Use projective dense-open extension uniqueness to identify choices."
+      ],
+      "prerequisites": [
+        "ShimuraVarieties:V2",
+        "ShimuraVarieties:V3",
+        "ShimuraVarieties:V8/model-uniqueness",
+        "ShimuraVarieties:V8/gl2-compact-model",
+        "ShimuraVarieties:V8/finite-level-maps",
+        "AlgebraicModuliForArithmeticGeometry:R09.3",
+        "AlgebraicModuliForArithmeticGeometry:R09.5",
+        "ShimuraCompactifications:C1",
+        "ShimuraCompactifications:C0/relative-torus-embedding",
+        "mathlib:AlgebraicGeometry.IsProper",
+        "mathlib:AlgebraicGeometry.IsOpenImmersion"
+      ],
+      "sources": [
+        {
+          "sourceId": "pink",
+          "locator": "12.3(a), p.197; 12.7, p.199; 12.10, pp.200–201; 12.12, p.202",
+          "excerpt": "extends uniquely to a scheme",
+          "match": "The codimension-one extension and intrinsic logarithmic line make arithmetic descent effective."
+        },
+        {
+          "sourceId": "pink",
+          "locator": "8.2, pp.132–133",
+          "excerpt": "is generated by global sections",
+          "match": "The relevant ample line is the top logarithmic differential, built from complex BB geometry, not B1 canonical automorphic bundles."
+        }
+      ],
+      "acceptance": [
+        "When no codimension-one boundary occurs, S^+=S; the proof must still establish the log/canonical-line BB embedding and base-change of sections.",
+        "For GL2 the construction agrees with gl2-compact-model.",
+        "No prerequisite on AutomorphicBundles:B1 or full ShimuraCompactifications:C2 is allowed."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Geometry/Shimura/CanonicalTower",
+        "namespace": "TauCeti.Shimura"
+      },
+      "planet": {
+        "name": "Canonical minimal compactification"
+      },
+      "leanName": "CanonicalModel.minimal_defined_over_reflex"
+    },
+    {
+      "id": "ShimuraVarieties:V8/minimal-map-extension",
+      "parentStageId": "ShimuraVarieties:V8",
+      "realises": [
+        "ShimuraVarieties:V8"
+      ],
+      "kind": "theorem",
+      "title": "Functoriality on minimal compactifications",
+      "statement": "Every descended translation T_g and every admissible datum morphism has a unique extension between the corresponding minimal models over the same reflex field or specified compositum. The extensions preserve identity and composition and agree with complex Baily–Borel functoriality. In particular level maps and both Hecke legs extend. Extended level maps are finite where the complex finite-quotient theorem proves finiteness; no general étaleness across the boundary is asserted.",
+      "hypotheses": [
+        "D=(G,X) is a pure Shimura datum; E=E(D) is embedded in C.",
+        "Each model M_K is an actual finite-type normal separated E-scheme with a specified complex comparison to V3, satisfying the special-pair reciprocity condition of V4. Existence is supplied by V5 or V6 in the abelian-type lane, or V7 in the general lane.",
+        "The complex extension theorem is supplied by V2/V3 with its applicable level/datum hypotheses."
+      ],
+      "proofSteps": [
+        "Use minimal-descent for the source and target and V2/V3 for the complex extension.",
+        "On the schematically dense open, descent agrees with the known arithmetic map. Separatedness and reducedness give equality of conjugates on the whole source.",
+        "Apply descent of morphisms and faithful base change; finite level extensions inherit finiteness by descent. The same argument proves coherence of compositions."
+      ],
+      "prerequisites": [
+        "ShimuraVarieties:V8/minimal-descent",
+        "ShimuraVarieties:V8/translation-descent",
+        "ShimuraVarieties:V8/datum-functoriality",
+        "ShimuraVarieties:V8/translation-laws",
+        "ShimuraVarieties:V8/hecke-span",
+        "ShimuraVarieties:V2",
+        "ShimuraVarieties:V3",
+        "AlgebraicModuliForArithmeticGeometry:R09.3"
+      ],
+      "sources": [
+        {
+          "sourceId": "pink",
+          "locator": "12.3(b), p.197; 12.6, p.198",
+          "excerpt": "the morphism descends on some open dense subscheme",
+          "match": "Functoriality follows only after the arithmetic compactification objects have been constructed."
+        }
+      ],
+      "acceptance": [
+        "A level map may ramify at cusps even when its restriction to neat opens is étale.",
+        "Restricting an extended correspondence to the open recovers the same ordered Hecke span."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Geometry/Shimura/CanonicalTower",
+        "namespace": "TauCeti.Shimura"
+      },
+      "leanName": "CanonicalModel.minimal_map_extension"
+    },
+    {
+      "id": "ShimuraVarieties:V8/gl2-cusps-tate",
+      "parentStageId": "ShimuraVarieties:V8",
+      "realises": [
+        "ShimuraVarieties:V8"
+      ],
+      "kind": "comparison",
+      "title": "Modular cusp loci and Tate parameters",
+      "statement": "The GL2 minimal/modular compact comparison identifies the cusp subschemes, their residue fields and their formal neighborhoods with the generalized-elliptic/Tate charts of R12.3/R12.6/R13.4b. At a chosen complex cusp of width w, the local analytic coordinate is q_c=exp(2 pi i z/w), with q=exp(2 pi i z)=q_c^w after a chosen cusp representative. Over the supplier's cusp residue field, the completed local ring of the normal curve is k(c)[[q_c]], using its chosen Tate parameter; changes of cusp representative introduce the specified roots of unity.",
+      "hypotheses": [
+        "N>=3 for full fine open level; other levels use their stated coarse curve and cusp stabilizers. Choose a cusp label, uniformizer and field embedding; no universal Q-rationality assertion."
+      ],
+      "proofSteps": [
+        "Compare the scheme boundary by extension of the open isomorphism and R13.4b boundary identification.",
+        "Import R12.3 width/parameter computation and R12.6 cusp Galois fields, then match them with R13.4b formal Tate charts.",
+        "Use R12.1 normalization to identify the analytic exponential with the chosen Tate parameter, including roots of unity under changed representatives."
+      ],
+      "prerequisites": [
+        "ShimuraVarieties:V8/gl2-compact-model",
+        "ShimuraVarieties:V8/gl2-gamma1",
+        "ShimuraVarieties:V8/gl2-gamma0",
+        "ModularCurvesPartII:R12.1",
+        "ModularCurvesPartII:R12.3",
+        "ModularCurvesPartII:R12.6",
+        "ModularCurvesPartII:R13.4b",
+        "ComplexComparisonPartII:C0/repair-analytification"
+      ],
+      "sources": [
+        {
+          "sourceId": "pink",
+          "locator": "10.21–10.22, pp.184–185; 12.9, p.200",
+          "excerpt": "completion",
+          "match": "The formal cusp comparison is an arithmetic deformation/Tate statement, not just an equality of complex points."
+        }
+      ],
+      "acceptance": [
+        "At the infinity cusp of full principal level N, width is N and q=q_c^N.",
+        "A different cusp label can have a nontrivial residue-field action; replacing the cusp scheme by a constant Q-set loses this information."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Geometry/Shimura/ModularComparison",
+        "namespace": "TauCeti.Shimura"
+      },
+      "leanName": "GL2Modular.cusp_tate_comparison"
+    },
+    {
+      "id": "ShimuraVarieties:V8/gl2-tower-compatibility",
+      "parentStageId": "ShimuraVarieties:V8",
+      "realises": [
+        "ShimuraVarieties:V8"
+      ],
+      "kind": "comparison",
+      "title": "Compatibility of modular and canonical correspondences",
+      "statement": "The Q-isomorphisms for full, Gamma1 and Gamma0 levels commute with all admissible level maps and the ordered Hecke isogeny correspondences, with the Weil-pairing component transport dictated by row_basis_right_translation. Their compact extensions commute with the extended finite legs and the cusp/Tate charts. On coefficient sheaves, differential pullback and pull-push normalizations are precisely those of R12.5.",
+      "hypotheses": [
+        "Only the stated fine/coarse ranges and supplier's actual Hecke isogeny moduli are used; integral bad-prime models are not inferred."
+      ],
+      "proofSteps": [
+        "R12.5/R12.6 supply the analytic/level/isogeny identities; compare each leg using gl2-full-level, row-basis-dictionary and canonical functoriality.",
+        "Faithful C-base change gives equality over Q. Apply minimal-map-extension and uniqueness of dense-open extension for the compact diagram.",
+        "Identify cusp formal maps using gl2-cusps-tate and R13.4b. Import the supplier normalization for differentials rather than redefining the Hecke operator."
+      ],
+      "prerequisites": [
+        "ShimuraVarieties:V8/gl2-full-level",
+        "ShimuraVarieties:V8/gl2-determinant-pairing",
+        "ShimuraVarieties:V8/gl2-fixed-pairing-fibre",
+        "ShimuraVarieties:V8/gl2-row-basis-dictionary",
+        "ShimuraVarieties:V8/gl2-gamma1",
+        "ShimuraVarieties:V8/gl2-gamma0",
+        "ShimuraVarieties:V8/hecke-span",
+        "ShimuraVarieties:V8/minimal-map-extension",
+        "ShimuraVarieties:V8/gl2-cusps-tate",
+        "ModularCurvesPartII:R12.5",
+        "ModularCurvesPartII:R12.6",
+        "ModularCurvesPartII:R13.4b",
+        "AlgebraicModuliForArithmeticGeometry:R09.3"
+      ],
+      "sources": [
+        {
+          "sourceId": "milne-svi",
+          "locator": "5.29, pp.65–66; 6.3, pp.70–71; 13.6–13.8, pp.118–119",
+          "excerpt": "inverse system",
+          "match": "Arithmetic comparisons intertwine the actual finite-level maps."
+        },
+        {
+          "sourceId": "pink",
+          "locator": "12.3(b), p.197",
+          "excerpt": "functoriality",
+          "match": "The same compatibility persists on minimal compact models."
+        }
+      ],
+      "acceptance": [
+        "For an integral unipotent at principal level the first generator stays P and the second becomes P+Q.",
+        "For a nonintegral adelic prime isogeny, compare both legs rather than a putative automorphism of Y_full(N).",
+        "For prime N>=5 diamonds with H <= (Z/N)^×/{±1}, verify the Layer-10 quotient range; use R13.4a for full/composite compact levels."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Geometry/Shimura/ModularComparison",
+        "namespace": "TauCeti.Shimura"
+      },
+      "leanName": "GL2Modular.tower_compatibility"
+    },
+    {
+      "id": "ShimuraVarieties:V8.general/general-tower",
+      "parentStageId": "ShimuraVarieties:V8.general",
+      "realises": [
+        "ShimuraVarieties:V8.general"
+      ],
+      "kind": "theorem",
+      "title": "General-data canonical tower",
+      "statement": "For every pure Shimura datum D and every compact open K, supply the actual canonical models constructed by V7 to V8's conditional functoriality theorems. Obtain the same canonical E(D)-tower, right translations, finite level maps, effective quotients and ordered Hecke correspondences, independent up to the unique comparison of V8 of V7's auxiliary extension and special point. Datum maps are over the specified reflex-field composita.",
+      "hypotheses": [
+        "V7 has proved conjugation, cocycle, continuity and effective descent and has verified V4 on the resulting models. No placeholder existence witness is substituted."
+      ],
+      "proofSteps": [
+        "Apply the V8 translation, tower and datum-map declarations to V7's actual schemes and comparisons.",
+        "Apply model-uniqueness to compare auxiliary choices; use its compatibility with maps to obtain the tower identification.",
+        "Use finite-level-maps and hecke-span with the effective stabilizers from V1. No second proof of canonical functoriality is introduced."
+      ],
+      "prerequisites": [
+        "ShimuraVarieties:V7",
+        "ShimuraVarieties:V8/translation-descent",
+        "ShimuraVarieties:V8/level-tower",
+        "ShimuraVarieties:V8/model-uniqueness",
+        "ShimuraVarieties:V8/finite-level-maps",
+        "ShimuraVarieties:V8/hecke-span",
+        "ShimuraVarieties:V8/datum-functoriality"
+      ],
+      "sources": [
+        {
+          "sourceId": "milne-svi",
+          "locator": "12.10, p.116; 13.6–13.8, pp.118–119",
+          "excerpt": "have canonical models",
+          "match": "V8 applies to actual models independently of the argument establishing existence."
+        }
+      ],
+      "acceptance": [
+        "The abelian-instance node has no dependency on this node.",
+        "Choosing a non-abelian-type datum cannot be justified by relabelling a V6 model."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Geometry/Shimura/CanonicalTower",
+        "namespace": "TauCeti.Shimura"
+      },
+      "planet": {
+        "name": "General-data canonical tower"
+      },
+      "leanName": "CanonicalTower.general_data"
+    },
+    {
+      "id": "ShimuraVarieties:V8.general/general-minimal",
+      "parentStageId": "ShimuraVarieties:V8.general",
+      "realises": [
+        "ShimuraVarieties:V8.general"
+      ],
+      "kind": "application",
+      "title": "General-data minimal compactification interface",
+      "statement": "Apply minimal_defined_over_reflex and minimal_map_extension to the V7 models and the corresponding actual auxiliary pure models needed in the codimension-one proof. This gives normal projective minimal compactifications and their functorial maps over reflex fields for all pure data; their open restriction is the general-data tower. Export these objects to C2.general and S0.general with the same unresolved codimension-one supplier leaf exposed.",
+      "hypotheses": [
+        "V7 supplies all pure auxiliary models in Pink 12.10 as well as the original datum; the codimension-one extension/section-base-change gaps recorded in V8 must be discharged."
+      ],
+      "proofSteps": [
+        "Instantiate minimal-descent with the V7 schemes and all auxiliary pure data; apply the existing argument, with no separate general compactification proof.",
+        "Instantiate minimal-map-extension and identify restrictions by general-tower and model-uniqueness.",
+        "Supply only this arithmetic minimal/open interface to downstream C2.general and S0.general; toroidal existence and perfectoid limits remain their own targets."
+      ],
+      "prerequisites": [
+        "ShimuraVarieties:V7",
+        "ShimuraVarieties:V8.general/general-tower",
+        "ShimuraVarieties:V8/minimal-descent",
+        "ShimuraVarieties:V8/minimal-map-extension"
+      ],
+      "sources": [
+        {
+          "sourceId": "pink",
+          "locator": "12.3(a)–(b), p.197; 12.10–12.12, pp.200–202",
+          "excerpt": "Consider pure Shimura data",
+          "match": "Same compactification construction specialized to the class supplied by general existence."
+        }
+      ],
+      "acceptance": [
+        "The same construction agrees with the abelian lane via model-uniqueness.",
+        "No dependency imports the consuming C2.general toroidal model."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Geometry/Shimura/CanonicalTower",
+        "namespace": "TauCeti.Shimura"
+      },
+      "leanName": "CanonicalModel.general_minimal"
+    }
+  ],
+  "requests": [
+    {
+      "supplier": "AlgebraicModuliForArithmeticGeometry:R09.2",
+      "need": "Representability of the regular-Lie incidence cover and relative Hom/Isom; finitely generated fields of definition for general finite-type complex morphisms. In translation-descent a finite algebraic field of definition follows separately from invariance under one special-torus fixing subgroup.",
+      "neededBy": [
+        "ShimuraVarieties:V8/disjoint-special-reflex-fields"
+      ]
+    },
+    {
+      "supplier": "AlgebraicModuliForArithmeticGeometry:R09.3",
+      "need": "Faithful field base change on morphisms, Galois fixed-morphism descent along C/E, effective polarized projective descent, intrinsic invertible-sheaf/section base change and dense-open equality for reduced source and separated target.",
+      "neededBy": [
+        "ShimuraVarieties:V8/translation-descent",
+        "ShimuraVarieties:V8/model-uniqueness",
+        "ShimuraVarieties:V8/translation-laws",
+        "ShimuraVarieties:V8/finite-level-maps",
+        "ShimuraVarieties:V8/datum-functoriality",
+        "ShimuraVarieties:V8/gl2-determinant-pairing",
+        "ShimuraVarieties:V8/minimal-descent",
+        "ShimuraVarieties:V8/minimal-map-extension",
+        "ShimuraVarieties:V8/gl2-tower-compatibility"
+      ]
+    },
+    {
+      "supplier": "AlgebraicModuliForArithmeticGeometry:R09.5",
+      "need": "Actual finite coarse quotients by effective group actions, descent of finite/surjective/étale properties, normal projective curve compactifications and finite correspondences, and scheme-theoretic closure compatible with extension of fields.",
+      "neededBy": [
+        "ShimuraVarieties:V8/finite-level-maps",
+        "ShimuraVarieties:V8/gl2-gamma1",
+        "ShimuraVarieties:V8/gl2-gamma0",
+        "ShimuraVarieties:V8/minimal-descent"
+      ]
+    },
+    {
+      "supplier": "InverseGaloisAndArithmeticFundamentalGroups:IG.2",
+      "need": "Hilbert irreducibility for a finite étale cover over a number field with geometrically irreducible total incidence variety, prescribed nonempty real open, and linear disjointness from a fixed finite extension. Existing elementary-polynomial nodes do not state this.",
+      "neededBy": [
+        "ShimuraVarieties:V8/disjoint-special-reflex-fields"
+      ]
+    },
+    {
+      "supplier": "ModularCurvesPartII:R12.1",
+      "need": "Actual open elliptic modular analytification from lattices/homology and Tate level; full H± versus chosen upper component, calibrated Weil-pairing primitive root and q convention.",
+      "neededBy": [
+        "ShimuraVarieties:V8/gl2-moduli-reciprocity",
+        "ShimuraVarieties:V8/gl2-determinant-pairing",
+        "ShimuraVarieties:V8/gl2-fixed-pairing-fibre",
+        "ShimuraVarieties:V8/gl2-cusps-tate"
+      ]
+    },
+    {
+      "supplier": "ModularCurvesPartII:R12.2",
+      "need": "Scheme analytification and moduli uniformization for full ordered level N >= 3, fixed pairing, Gamma1 N >= 4 and coarse Gamma0 every N > 0, agreeing with AA.5 and the integral representative component calculation.",
+      "neededBy": [
+        "ShimuraVarieties:V8/gl2-moduli-reciprocity",
+        "ShimuraVarieties:V8/gl2-full-level",
+        "ShimuraVarieties:V8/gl2-determinant-pairing",
+        "ShimuraVarieties:V8/gl2-fixed-pairing-fibre",
+        "ShimuraVarieties:V8/gl2-gamma1",
+        "ShimuraVarieties:V8/gl2-gamma0"
+      ]
+    },
+    {
+      "supplier": "ModularCurvesPartII:R12.3",
+      "need": "Cusp labels, effective stabilizers and widths, analytic parameter exp(2 pi i z/w) and its transformation under level maps.",
+      "neededBy": [
+        "ShimuraVarieties:V8/gl2-compact-model",
+        "ShimuraVarieties:V8/gl2-cusps-tate"
+      ]
+    },
+    {
+      "supplier": "ModularCurvesPartII:R12.4",
+      "need": "Open fixed-pairing fibre geometrically connected and irreducible, deduced from Gamma(N) quotient without importing arithmetic compactification.",
+      "neededBy": [
+        "ShimuraVarieties:V8/gl2-fixed-pairing-fibre"
+      ]
+    },
+    {
+      "supplier": "ModularCurvesPartII:R12.5",
+      "need": "Hecke isogeny moduli and both finite correspondence legs, integral row action and nonintegral adelic/isogeny dictionary, differential pullback and pull-push normalization.",
+      "neededBy": [
+        "ShimuraVarieties:V8/gl2-row-basis-dictionary",
+        "ShimuraVarieties:V8/gl2-gamma1",
+        "ShimuraVarieties:V8/gl2-tower-compatibility"
+      ]
+    },
+    {
+      "supplier": "ModularCurvesPartII:R12.6",
+      "need": "Cusp residue fields and Galois action, level/Hecke maps on cusp labels and Tate parameters.",
+      "neededBy": [
+        "ShimuraVarieties:V8/gl2-gamma1",
+        "ShimuraVarieties:V8/gl2-gamma0",
+        "ShimuraVarieties:V8/gl2-cusps-tate",
+        "ShimuraVarieties:V8/gl2-tower-compatibility"
+      ]
+    },
+    {
+      "supplier": "ModularCurvesPartII:R13.4a",
+      "need": "Characteristic-zero coarse compactifications for full/composite levels and finite quotients; do not substitute Layer-10 prime diamond quotients.",
+      "neededBy": [
+        "ShimuraVarieties:V8/gl2-compact-model"
+      ]
+    },
+    {
+      "supplier": "ModularCurvesPartII:R13.4b",
+      "need": "Normal proper generalized-elliptic compactification, boundary subscheme and formal Tate charts over actual cusp residue fields, compatible with the full/coarse open and all finite legs.",
+      "neededBy": [
+        "ShimuraVarieties:V8/gl2-compact-model",
+        "ShimuraVarieties:V8/gl2-cusps-tate",
+        "ShimuraVarieties:V8/gl2-tower-compatibility"
+      ]
+    },
+    {
+      "supplier": "PELModuli:M3",
+      "need": "Genus-one fine full ordered-basis generic-fibre moduli scheme with N >= 3, homology/Tate comparison to the GL2/GSp2 complex double quotient.",
+      "neededBy": [
+        "ShimuraVarieties:V8/gl2-moduli-reciprocity"
+      ]
+    },
+    {
+      "supplier": "PELModuli:M4",
+      "need": "Actual normalized CM action on genus-one full-level moduli and its agreement with the V4 special-pair reciprocity condition, including all determinant components.",
+      "neededBy": [
+        "ShimuraVarieties:V8/gl2-moduli-reciprocity"
+      ]
+    },
+    {
+      "supplier": "PELModuli:M5",
+      "need": "Weil pairing and multiplier on full level, basis-change determinant exponent and cyclotomic target, compatible with the selected homology convention.",
+      "neededBy": [
+        "ShimuraVarieties:V8/gl2-determinant-pairing"
+      ]
+    },
+    {
+      "supplier": "ShimuraCompactifications:C1",
+      "need": "Complex rational boundary components, codimension-one PGL2 factors and auxiliary lifted/product pure data in Pink 12.10, intrinsic top logarithmic differential line on the codimension-one partial extension. Arithmetic descent is a separate recorded gap.",
+      "neededBy": [
+        "ShimuraVarieties:V8/minimal-descent"
+      ]
+    },
+    {
+      "supplier": "ShimuraVarieties:V1",
+      "need": "Actual level category and quotient maps, finite/effective covering group calculation, analytic right translation and composition.",
+      "neededBy": [
+        "ShimuraVarieties:V8/translation-descent",
+        "ShimuraVarieties:V8/level-tower",
+        "ShimuraVarieties:V8/translation-laws",
+        "ShimuraVarieties:V8/finite-level-maps",
+        "ShimuraVarieties:V8/hecke-span"
+      ]
+    },
+    {
+      "supplier": "ShimuraVarieties:V2",
+      "need": "Normal projective complex Baily–Borel compactification with the intrinsic logarithmic-line embedding and extensions of the applicable datum and level maps.",
+      "neededBy": [
+        "ShimuraVarieties:V8/gl2-compact-model",
+        "ShimuraVarieties:V8/minimal-descent",
+        "ShimuraVarieties:V8/minimal-map-extension"
+      ]
+    },
+    {
+      "supplier": "ShimuraVarieties:V3",
+      "need": "Algebraic complex finite-level quotient, finite maps/quotients and algebraicity of datum/translation maps; the BKT definability proof may be used only after its own certified comparison.",
+      "neededBy": [
+        "ShimuraVarieties:V8/translation-descent",
+        "ShimuraVarieties:V8/finite-level-maps",
+        "ShimuraVarieties:V8/datum-functoriality",
+        "ShimuraVarieties:V8/minimal-descent",
+        "ShimuraVarieties:V8/minimal-map-extension"
+      ]
+    },
+    {
+      "supplier": "ShimuraVarieties:V4",
+      "need": "Actual canonical-model predicate with fixed complex comparison, special-pair reciprocity using corrected multiplicative reflex norm and Artin convention, density of Hecke translates and zero-dimensional cyclotomic torus models. AGHMP integral CM lattices are not required here.",
+      "neededBy": [
+        "ShimuraVarieties:V8/translation-descent",
+        "ShimuraVarieties:V8/datum-functoriality",
+        "ShimuraVarieties:V8/gl2-moduli-reciprocity",
+        "ShimuraVarieties:V8/gl2-determinant-pairing"
+      ]
+    },
+    {
+      "supplier": "ShimuraVarieties:V5",
+      "need": "Actual Hodge-type canonical models and normalized CM reciprocity, specializing to genus-one GSp2.",
+      "neededBy": [
+        "ShimuraVarieties:V8/gl2-moduli-reciprocity"
+      ]
+    },
+    {
+      "supplier": "ShimuraVarieties:V6",
+      "need": "Actual abelian-type canonical models satisfying V4, with choice comparisons and auxiliary-class preservation required by the recorded compactification gap.",
+      "neededBy": [
+        "ShimuraVarieties:V8/abelian-instance"
+      ]
+    },
+    {
+      "supplier": "ShimuraVarieties:V7",
+      "need": "Actual canonical models for every pure datum and all Pink auxiliary pure data after proven conjugation/cocycle/continuity/effective descent; used only by the general suffix.",
+      "neededBy": [
+        "ShimuraVarieties:V8.general/general-tower",
+        "ShimuraVarieties:V8.general/general-minimal"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory",
+      "need": "Connected centralizers of cocharacters, conjugacy and geometry of maximal tori, regular semisimple Lie open and compact-mod-centre real tori. Import this structure theory; the incidence specialization belongs to the requested IG.2/R09.2 contracts.",
+      "neededBy": [
+        "ShimuraVarieties:V8/disjoint-special-reflex-fields"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/ModularCurves#5b-full-ordered-bases-and-fixed-pairing",
+      "need": "Existing full ordered-basis scheme for N >= 3 and its row-action/Weil-pairing convention; fixed-pairing model after cyclotomic base change. R12.1/R12.2 supply the analytic comparison.",
+      "neededBy": [
+        "ShimuraVarieties:V8/gl2-moduli-reciprocity",
+        "ShimuraVarieties:V8/gl2-full-level",
+        "ShimuraVarieties:V8/gl2-determinant-pairing",
+        "ShimuraVarieties:V8/gl2-fixed-pairing-fibre",
+        "ShimuraVarieties:V8/gl2-row-basis-dictionary"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/ModularCurves#5a-tate-normal-form-and-y₁n-for-n4",
+      "need": "Existing fine Gamma1 moduli scheme for N >= 4 with a point of exact order; the K1 stabilizer dictionary uses the first row-basis generator.",
+      "neededBy": [
+        "ShimuraVarieties:V8/gl2-gamma1"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/ModularCurves#9e-the-coarse-j-line-and-y₀n",
+      "need": "Existing characteristic-zero coarse Gamma0 cyclic-subgroup moduli for every N > 0. No universal elliptic family is claimed.",
+      "neededBy": [
+        "ShimuraVarieties:V8/gl2-gamma0"
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "ShimuraVarieties:V8",
+      "status": "planned",
+      "remaining": [
+        "Resolve the codimension-one arithmetic extension and intrinsic log-line/base-change gap in minimal-descent.",
+        "Bind the concrete canonical-model, analytic comparison and modular-curve carriers in the suggested file to supplier declarations.",
+        "Discharge exact requested supplier interfaces."
+      ]
+    },
+    {
+      "stageId": "ShimuraVarieties:V8.general",
+      "status": "planned",
+      "remaining": [
+        "Supply the actual V7 canonical models and auxiliary pure models, then specialize V8.",
+        "Inherit and discharge V8 minimal-descent and Lean-carrier gaps; do not duplicate the conditional functoriality proof."
+      ]
+    }
+  ],
+  "baseline": {
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "declarations": [
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme",
+        "kind": "structure",
+        "module": "Mathlib/AlgebraicGeometry/Scheme.lean",
+        "provides": "Schemes with native category and structure morphisms",
+        "checked": "Statement and source read at the pinned commit on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Over",
+        "kind": "def",
+        "module": "Mathlib/CategoryTheory/Comma/Over/Basic.lean",
+        "provides": "Slice category over the actual base scheme",
+        "checked": "Statement and source read at the pinned commit on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Functor",
+        "kind": "structure",
+        "module": "Mathlib/CategoryTheory/Functor/Basic.lean",
+        "provides": "Objects, maps, identity and composition laws",
+        "checked": "Statement and source read at the pinned commit on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Over.pullback",
+        "kind": "def",
+        "module": "Mathlib/CategoryTheory/Comma/Over/Pullback.lean",
+        "provides": "Base-change functor on slice categories",
+        "checked": "Statement and source read at the pinned commit on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Over.pullbackId",
+        "kind": "def",
+        "module": "Mathlib/CategoryTheory/Comma/Over/Pullback.lean",
+        "provides": "Natural isomorphism for identity base change",
+        "checked": "Statement and source read at the pinned commit on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Over.pullbackComp",
+        "kind": "def",
+        "module": "Mathlib/CategoryTheory/Comma/Over/Pullback.lean",
+        "provides": "Natural isomorphism for successive base changes",
+        "checked": "Statement and source read at the pinned commit on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Limits.span",
+        "kind": "def",
+        "module": "Mathlib/CategoryTheory/Limits/Shapes/Pullback/Cospan.lean",
+        "provides": "Native ordered WalkingSpan functor",
+        "checked": "Statement and source read at the pinned commit on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Limits.spanCompIso",
+        "kind": "def",
+        "module": "Mathlib/CategoryTheory/Limits/Shapes/Pullback/Cospan.lean",
+        "provides": "Applying a functor to a span agrees naturally with the span of its images",
+        "checked": "Statement and source read at the pinned commit on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.IsFinite",
+        "kind": "class",
+        "module": "Mathlib/AlgebraicGeometry/Morphisms/Finite.lean",
+        "provides": "Native finite scheme morphism",
+        "checked": "Statement and source read at pinned commit on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.IsProper",
+        "kind": "class",
+        "module": "Mathlib/AlgebraicGeometry/Morphisms/Proper.lean",
+        "provides": "Native proper scheme morphism",
+        "checked": "Statement and source read at pinned commit on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.IsOpenImmersion",
+        "kind": "abbrev",
+        "module": "Mathlib/AlgebraicGeometry/OpenImmersion.lean",
+        "provides": "Native open immersion of schemes",
+        "checked": "Statement and source read at pinned commit on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:IntermediateField.LinearDisjoint",
+        "kind": "abbrev",
+        "module": "Mathlib/FieldTheory/LinearDisjoint.lean",
+        "provides": "Linear disjointness of actual intermediate fields via subalgebras",
+        "checked": "Statement and source read at pinned commit on 2026-10-06."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "milne-svi",
+      "title": "Introduction to Shimura Varieties",
+      "authors": "J. S. Milne",
+      "edition": "Author revision, 2017",
+      "url": "https://www.jmilne.org/math/xnotes/svi.pdf",
+      "sha256": "f637e61735ff9cf9730c43d978d8f05185685a37d5e1920fc3347061c83d7c7e",
+      "read": "2026-10-06",
+      "readSections": [
+        "5.4, 5.17 and proof through 5.21, 5.29–5.30",
+        "6.3, 6.11",
+        "12.8, 12.10–12.11",
+        "13.1–13.8",
+        "14.12, 14.15–14.16"
+      ]
+    },
+    {
+      "id": "milne-mf",
+      "title": "Modular Functions and Modular Forms",
+      "authors": "J. S. Milne",
+      "edition": "Version 1.31, 22 March 2017",
+      "url": "https://www.jmilne.org/math/CourseNotes/MF.pdf",
+      "sha256": "977f06a4e838c43c77a7c9398c090789e60d67f64e013e1dcd9bcce0e0c27b8d",
+      "read": "2026-10-06",
+      "readSections": [
+        "8.3(b) coarse/fine convention, p.98",
+        "8.6–8.9, pp.100–101"
+      ]
+    },
+    {
+      "id": "pink",
+      "title": "Arithmetical Compactification of Mixed Shimura Varieties",
+      "authors": "Richard Pink",
+      "edition": "Author-typeset dissertation; numbering/pages of this copy",
+      "url": "https://people.math.ethz.ch/~pink/ftp/phd/PinkDissertation.pdf",
+      "sha256": "6f8aa447ccf54368d465a9d45f44bc91f0d35440cba04e20061c576145ca8669",
+      "read": "2026-10-06",
+      "readSections": [
+        "8.2–8.3, pp.132–133",
+        "10.9, p.175",
+        "10.20–10.22, pp.183–185",
+        "11.16, p.194",
+        "12.3, 12.6–12.12, pp.197–202",
+        "12.13 statement, pp.202–203"
+      ]
+    },
+    {
+      "id": "deligne-1971",
+      "title": "Travaux de Shimura, Séminaire Bourbaki, exposé 389",
+      "authors": "Pierre Deligne",
+      "edition": "Version of record, 1970–1971, pp.123–165",
+      "url": "https://www.numdam.org/item/SB_1970-1971__13__123_0.pdf",
+      "sha256": "054847cecac9c396e2a6f568443db180786a0c5528ec08530fd464d5474bd534",
+      "read": "2026-10-06",
+      "readSections": [
+        "5.1–5.1.3, pp.153–155, checked against page images",
+        "5.2–5.4, pp.155–156"
+      ]
+    },
+    {
+      "id": "pr81",
+      "title": "Tau Ceti roadmap: Modular curves",
+      "authors": "Tau Ceti contributors",
+      "edition": "PR81 roadmap as present in the atlas clone on 2026-10-06",
+      "url": "https://github.com/CBirkbeck/tauceti-explorer/blob/main/content/tau-ceti/ModularCurves/README.md",
+      "read": "2026-10-06",
+      "readSections": [
+        "Conventions, especially full-level row action",
+        "Layers 5A–5B, 9E, 10"
+      ]
+    }
+  ],
+  "sourceVersions": [
+    {
+      "kind": "author copy",
+      "url": "https://www.jmilne.org/math/xnotes/svi.pdf",
+      "read": "2026-10-06",
+      "sha256": "f637e61735ff9cf9730c43d978d8f05185685a37d5e1920fc3347061c83d7c7e"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://www.jmilne.org/math/CourseNotes/MF.pdf",
+      "read": "2026-10-06",
+      "sha256": "977f06a4e838c43c77a7c9398c090789e60d67f64e013e1dcd9bcce0e0c27b8d"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://people.math.ethz.ch/~pink/ftp/phd/PinkDissertation.pdf",
+      "read": "2026-10-06",
+      "sha256": "6f8aa447ccf54368d465a9d45f44bc91f0d35440cba04e20061c576145ca8669"
+    },
+    {
+      "kind": "published",
+      "url": "https://www.numdam.org/item/SB_1970-1971__13__123_0.pdf",
+      "read": "2026-10-06",
+      "sha256": "054847cecac9c396e2a6f568443db180786a0c5528ec08530fd464d5474bd534"
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "ShimuraVarieties/E1",
+      "source": "milne-mf",
+      "kind": "error",
+      "locator": "Example 8.9, p.100, MF v1.31 (2017)",
+      "printed": "For N = 2, the solution to the moduli problem is A¹.",
+      "correction": "The characteristic-zero coarse ordered level-two curve is the punctured lambda-line A¹ minus {0,1}. It is not a fine moduli scheme of all such families. The Legendre family is smooth only on the punctured line. Restrict the fine comparison in this packet to N >= 3.",
+      "reason": "The discriminant is 16 lambda²(1-lambda)². The automorphism [-1] fixes E[2]; nontrivial quadratic twists have the same geometric lambda invariant and obstruct the claimed universal property over arbitrary fields.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Milne official CourseNotes errata page, https://www.jmilne.org/math/CourseNotes/errata.html, checked 2026-10-06; no correction to 8.7–8.9 listed.",
+        "Bounded web search for Milne MF Lemma 8.7 and Example 8.9 errata on 2026-10-06; no applicable correction found."
+      ]
+    },
+    {
+      "id": "ShimuraVarieties/E2",
+      "source": "milne-mf",
+      "kind": "error",
+      "locator": "Lemma 8.7, p.100, with its preceding arbitrary primitive-root convention, MF v1.31 (2017)",
+      "printed": "(z/N, 1/N)",
+      "correction": "This reference basis has one fixed Weil-pairing root zeta_ref. For zeta = zeta_ref^u replace the first generator by u z/N (u a unit modulo N), or fix zeta=zeta_ref in the statement.",
+      "reason": "The ordered lattice/reference orientation fixes the pairing; the displayed generators do not vary with the arbitrary root in the preceding definition. Bilinearity gives the corrected exponent.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Milne official CourseNotes errata page, https://www.jmilne.org/math/CourseNotes/errata.html, checked 2026-10-06; no correction to 8.7–8.9 listed.",
+        "Bounded web search for Milne MF Lemma 8.7 and Example 8.9 errata on 2026-10-06; no applicable correction found."
+      ]
+    },
+    {
+      "id": "ShimuraVarieties/E3",
+      "source": "milne-svi",
+      "kind": "misprint",
+      "locator": "Proposition 6.3 proof, second paragraph, p.71, 2017 author copy",
+      "printed": "Choose isomorphisms a: V → W and a′: V → W′",
+      "correction": "Use a: W → V and a′: W′ → V, consistent with the setup on p.70; with q absorbed into a′, the comparison isomorphism W → W′ is (a′)⁻¹ a. Also use the corrected primed h′ and eta′ where specified in Lee’s errata. In the first paragraph use s′ in place of t′, the correction on p.70 line -3 in Lee’s list.",
+      "reason": "The printed directions make a h and a composed with eta ill-typed. The initial setup uses a: W → V, and the inverse expression for the comparison must have domain W.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Milne official xnotes errata page, https://www.jmilne.org/math/xnotes/errata.html, checked 2026-10-06.",
+        "The linked Jungyun Lee list, https://www.jmilne.org/math/xnotes/SV_errata.pdf, checked 2026-10-06; corrections near 6.3 include missing primes, not the direction of a."
+      ]
+    },
+    {
+      "id": "ShimuraVarieties/E4",
+      "source": "milne-svi",
+      "kind": "misprint",
+      "locator": "Remark 5.29(a), p.65, 2017 author copy",
+      "printed": "there is an obvious quotient map S_K′ → S_K",
+      "correction": "For K contained in K′ the forgetful quotient map is S_K → S_K′.",
+      "reason": "Forgetting a finer level maps the smaller subgroup quotient to the larger subgroup quotient.",
+      "affects": "nothing",
+      "known": "Jungyun Lee, SV_errata.pdf, p.1: page 65 line -6.",
+      "searched": [
+        "Milne official xnotes errata page, https://www.jmilne.org/math/xnotes/errata.html, checked 2026-10-06.",
+        "The linked Jungyun Lee list, https://www.jmilne.org/math/xnotes/SV_errata.pdf, checked 2026-10-06; corrections near 6.3 include missing primes, not the direction of a."
+      ]
+    },
+    {
+      "id": "ShimuraVarieties/E5",
+      "source": "milne-svi",
+      "kind": "misprint",
+      "locator": "The homomorphism r_x, displayed formula (60) and the final formula before Definition 12.8, p.114, 2017 author copy",
+      "printed": "r(T, μ)(P) = Σ_{σ:E→Q̄} σ(μ(P)); r_x(a) = Σ_{σ:E→Q̄} σ(μ_x(a_f))",
+      "correction": "Replace the aggregation signs by products in these multiplicative torus formulas. In the r_x formula the embeddings are of E(x), the field of definition of μ_x, as specified in Lee’s errata. V8 uses the corrected V4 multiplicative reciprocity norm.",
+      "reason": "The target is the multiplicative torus; an additive sum does not define the asserted torus homomorphism. V8 imports the corrected V4 reciprocity norm.",
+      "affects": "nothing",
+      "known": "Milne official xnotes errata, sums-to-products correction credited to Ruida Di, p.114; Jungyun Lee SV_errata.pdf, embeddings indexed by E(x) in the r_x formula.",
+      "searched": [
+        "Milne official xnotes errata page, https://www.jmilne.org/math/xnotes/errata.html, checked 2026-10-06.",
+        "The linked Jungyun Lee list, https://www.jmilne.org/math/xnotes/SV_errata.pdf, checked 2026-10-06; corrections near 6.3 include missing primes, not the direction of a."
+      ]
+    },
+    {
+      "id": "ShimuraVarieties/E6",
+      "source": "deligne-1971",
+      "kind": "error",
+      "locator": "5.1.3, printed p.155, published Numdam copy (page image checked)",
+      "printed": "pour tout ouvert U ⊂ V(R) ... et toute extension F de E",
+      "correction": "Require U to be nonempty and F/E to be finite in the disjoint Hilbert-specialization assertion. These are precisely the hypotheses of its application in Theorem 5.1.",
+      "reason": "An empty real open has no specialization. Without finiteness of F the result is false: over E=Q, take the degree-two cover s²=t of V=A¹ minus {0}, U=(1,2), and F=Qbar. A rational specialization either splits or is a nontrivial quadratic field, which cannot be linearly disjoint from Qbar over Q.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Numdam version of record and publication metadata checked 2026-10-06.",
+        "Bounded search for Travaux de Shimura exposé 389, 5.1.3 erratum on 2026-10-06; no correction found."
+      ]
+    },
+    {
+      "id": "ShimuraVarieties/E7",
+      "source": "deligne-1971",
+      "kind": "misprint",
+      "locator": "Lemma 5.1.2(b), printed p.154, published Numdam copy (page image checked)",
+      "printed": "tores maximaux de G_mC",
+      "correction": "The maximal tori containing i(G_mC) are maximal tori of G_C, not of G_mC.",
+      "reason": "The centralizer and the surrounding incidence construction are in G_C; G_mC is the domain of i.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Numdam version of record and publication metadata checked 2026-10-06.",
+        "Bounded search for Travaux de Shimura exposé 389, 5.1.3 erratum on 2026-10-06; no correction found."
+      ]
+    },
+    {
+      "id": "ShimuraVarieties/E8",
+      "source": "deligne-1971",
+      "kind": "misprint",
+      "locator": "Hilbert specialization lemma (heading printed Lemme 5.13), p.154, and its proof p.155, published Numdam copy (page images checked)",
+      "printed": "Lemme 5.13; Les hypothèses de 4.12",
+      "correction": "Read the inserted lemma as 5.1.3 (following 5.1.2), and refer in its proof to its own hypotheses, not to 4.12.",
+      "reason": "The proof base changes the immediately preceding incidence-cover hypotheses; 4.12 is not that lemma.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Numdam version of record and publication metadata checked 2026-10-06.",
+        "Bounded search for Travaux de Shimura exposé 389, 5.1.3 erratum on 2026-10-06; no correction found."
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "title": "Arithmetic codimension-one extension before full toroidal descent",
+      "neededBy": [
+        "ShimuraVarieties:V8/minimal-descent",
+        "ShimuraVarieties:V8.general/general-minimal"
+      ],
+      "detail": "Pink 12.8–12.10 needs actual canonical torus torsors/central quotients and arithmetic partial extensions S+ along codimension-one boundary. C0/relative-torus-embedding supplies a torus embedding only after an arithmetic torsor is supplied; C1 supplies the complex boundary data. Full C2 consumes V8 and cannot be imported here. A separately owned pre-V8 arithmetic codimension-one statement, plus its auxiliary pure-model inputs, is missing; the rescope proposal identifies its boundary. No claim of compactification closure is made."
+    },
+    {
+      "title": "Abelian auxiliary class and logarithmic-section descent",
+      "neededBy": [
+        "ShimuraVarieties:V8/minimal-descent",
+        "ShimuraVarieties:V8.general/general-minimal"
+      ],
+      "detail": "Verify that quotients by the lifted SL2 factor and the Gm-kernel fibre product in Pink 12.10 stay in the existence class of V5/V6, or state precisely the stronger actual auxiliary-model hypothesis. This prevents a hidden V7 dependency in the abelian lane. On S+ construct the intrinsic top logarithmic line and prove finite-dimensional global sections commute with C/E; V2 must identify its large tensor-power map with the complex Baily–Borel closed embedding. Neither B1 nor generic open-model uniqueness supplies these statements."
+    },
+    {
+      "title": "Concrete canonical-model and comparison carriers at the pinned Lean baseline",
+      "neededBy": [
+        "ShimuraVarieties:V8/disjoint-special-reflex-fields",
+        "ShimuraVarieties:V8/translation-descent",
+        "ShimuraVarieties:V8/model-uniqueness",
+        "ShimuraVarieties:V8/level-tower",
+        "ShimuraVarieties:V8/translation-laws",
+        "ShimuraVarieties:V8/finite-level-maps",
+        "ShimuraVarieties:V8/hecke-span",
+        "ShimuraVarieties:V8/datum-functoriality",
+        "ShimuraVarieties:V8/abelian-instance",
+        "ShimuraVarieties:V8/gl2-moduli-reciprocity",
+        "ShimuraVarieties:V8/gl2-full-level",
+        "ShimuraVarieties:V8/gl2-determinant-pairing",
+        "ShimuraVarieties:V8/gl2-fixed-pairing-fibre",
+        "ShimuraVarieties:V8/gl2-row-basis-dictionary",
+        "ShimuraVarieties:V8/gl2-gamma1",
+        "ShimuraVarieties:V8/gl2-gamma0",
+        "ShimuraVarieties:V8/gl2-compact-model",
+        "ShimuraVarieties:V8/minimal-descent",
+        "ShimuraVarieties:V8/minimal-map-extension",
+        "ShimuraVarieties:V8/gl2-cusps-tate",
+        "ShimuraVarieties:V8/gl2-tower-compatibility",
+        "ShimuraVarieties:V8.general/general-tower",
+        "ShimuraVarieties:V8.general/general-minimal"
+      ],
+      "detail": "Pinned Mathlib and Tau Ceti provide schemes/slice categories/functors/pullbacks/spans but no concrete pure datum, canonical reciprocity predicate, finite-adelic level tower or actual full modular-curve carrier under the audited names. Suggested theorem forms explicitly omit those not-yet-expressible conditions rather than use proposition fields or assume their conclusions. Their elaboration checks types only and is not a valid universal theorem about arbitrary schemes. Bind them to the named suppliers, restore every hypothesis and strengthen the schematic finite/proper forms to the full packet statements."
+    },
+    {
+      "title": "AA.5 exact principal-level representative contract",
+      "neededBy": [
+        "ShimuraVarieties:V8/gl2-full-level",
+        "ShimuraVarieties:V8/gl2-determinant-pairing"
+      ],
+      "detail": "The AA packet is reviewed needs_changes, not an accepted implementation. Its GL2 principal-level calculation supplies the right target, but the literal stabilizer Gamma(N) requires determinant representatives g_c in GL2(Zhat), which normalize K(N); arbitrary finite-adelic representatives give conjugate stabilizers. Require this restriction or explicit conjugating isomorphisms in the supplying node. Do not reproduce the underlying adelic quotient in V8."
+    }
+  ],
+  "restructure": [
+    {
+      "action": "rescope",
+      "roadmaps": [
+        "ShimuraCompactifications",
+        "ShimuraVarieties"
+      ],
+      "detail": "Arithmetic minimal descent uses a codimension-one partial extension, while full C2 depends on V8; taking all of C2 as a V8 prerequisite creates a cycle.",
+      "proposal": "Within ShimuraCompactifications split the pre-V8 arithmetic codimension-one extension/torus-torsor and intrinsic log-line interface of Pink 12.8–12.10 from the full C2 toroidal descent consuming V8. Keep complex Baily–Borel and its log-line embedding in V2, canonical minimal descent in V8, full arithmetic toroidal compactification in C2, and mixed boundary geometry in C1. No new stage id is asserted as already existing."
+    }
+  ],
+  "upstreamNotes": [
+    "MF 8.6 and 8.9 coarse/fine distinctions must not weaken the PR81 fine-level ranges: full N >= 3, Gamma1 N >= 4, Gamma0 coarse N > 0. Layer 10 covers only prime N >= 5 diamond subgroups modulo signs; R13.4a/b supply the other compact levels.",
+    "RS-04 accepted by REV-RS-04; AA.5 owns the underlying GL2 adelic quotient. This packet adds arithmetic scheme comparisons only."
+  ]
+}
