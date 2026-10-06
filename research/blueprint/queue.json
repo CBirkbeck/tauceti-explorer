@@ -21540,8 +21540,9 @@
    ],
    "avoidAccountOf": "BP-AdicCoefficientsAndComparisons",
    "prompt": "research/blueprint/prompts/REV-AdicCoefficientsAndComparisons.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #342"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #342",
+   "finishedAt": "2026-10-06T23:20:08Z"
   },
   {
    "id": "BP-AdicEtaleGeometry",
@@ -23711,8 +23712,9 @@
    ],
    "avoidAccountOf": "BP-DiamondSixOperations",
    "prompt": "research/blueprint/prompts/REV-DiamondSixOperations.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #388"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #388",
+   "finishedAt": "2026-10-06T23:20:12Z"
   },
   {
    "id": "BP-DiamondsAndVStacks",
@@ -27910,7 +27912,8 @@
    ],
    "avoidAccountOf": "BP-PerfectoidQuotients",
    "prompt": "research/blueprint/prompts/REV-PerfectoidQuotients.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #468"
   },
   {
    "id": "BP-PerfectoidShimuraVarieties",
@@ -28847,9 +28850,10 @@
     "REV-RS-32"
    ],
    "prompt": "research/blueprint/prompts/BP-ShimuraCompactifications--C0.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #990"
+   "note": "deliverables arrived from an external worker on issue #990",
+   "finishedAt": "2026-10-06T23:20:16Z"
   },
   {
    "id": "REV-ShimuraCompactifications--C0",
@@ -36618,7 +36622,8 @@
     "REV-Polylogarithms--P.6"
    ],
    "prompt": "research/blueprint/prompts/ASM-Polylogarithms.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6424"
   },
   {
    "id": "ASM-DeformationAndDerivedPatchingAlgebra",
@@ -36788,8 +36793,9 @@
     "REV-AutomorphicBundles--B5"
    ],
    "prompt": "research/blueprint/prompts/ASM-AutomorphicBundles.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #215"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #215",
+   "finishedAt": "2026-10-06T23:20:18Z"
   },
   {
    "id": "ASM-AutomorphicCongruences",
@@ -37044,7 +37050,8 @@
     "REV-EllipticRegulators--ER.8"
    ],
    "prompt": "research/blueprint/prompts/ASM-EllipticRegulators.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6418"
   },
   {
    "id": "ASM-EndoscopicTransferAndUnitaryTraceComparison",
@@ -37312,7 +37319,8 @@
     "REV-HabiroNumberFields--HB.7"
    ],
    "prompt": "research/blueprint/prompts/ASM-HabiroNumberFields.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6421"
   },
   {
    "id": "ASM-HabiroRings",
@@ -37847,7 +37855,8 @@
     "REV-HabiroNahmSeries--HB.9"
    ],
    "prompt": "research/blueprint/prompts/ASM-HabiroNahmSeries.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6420"
   },
   {
    "id": "ASM-OverconvergentAutomorphicForms",
