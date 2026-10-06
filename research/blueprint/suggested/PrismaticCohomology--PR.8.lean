@@ -85,6 +85,11 @@ namespace DeltaLogRing
 
 variable {p : ℕ} [Fact p.Prime] {A : Type u} {M : Type v} [CommRing A] [CommMonoid M]
 
+/-- API `DeltaLogRing.ext`: equality of the three data fields determines the structure. -/
+theorem ext (D E : DeltaLogRing p A M) (hδ : D.delta = E.delta)
+    (hα : D.α = E.α) (hlog : D.deltaLog = E.deltaLog) : D = E := by
+  sorry
+
 /-- API `DeltaLogRing.frobenius_alpha`: `φ(α(m)) = α(m)^p (1 + p δ_log(m))`. -/
 theorem frobenius_alpha (D : DeltaLogRing p A M) (m : M) :
     D.delta.frob (D.α m) = D.α m ^ p * (1 + (p : A) * D.deltaLog m) := by
@@ -143,6 +148,12 @@ def Hom.comp {B C : Type*} {N P : Type*} [CommRing B] [CommRing C] [CommMonoid N
   comm_alpha _ := by sorry
   comm_delta _ := by sorry
   comm_deltaLog _ := by sorry
+
+/-- API `DeltaLogRing.Hom.ext`: morphisms are determined by their ring and monoid maps. -/
+theorem Hom.ext {B N : Type*} [CommRing B] [CommMonoid N]
+    {D : DeltaLogRing p A M} {E : DeltaLogRing p B N} (f g : Hom D E)
+    (hr : f.ring = g.ring) (hm : f.monoid = g.monoid) : f = g := by
+  sorry
 
 /-- API `DeltaLogRing.IsRankOne`: `δ_log = 0`. -/
 def IsRankOne (D : DeltaLogRing p A M) : Prop :=
@@ -290,10 +301,13 @@ noncomputable def exactificationMonoid {M N : Type*} [CommMonoid M] [CommMonoid 
   (MonoidHom.mrange (Algebra.GrothendieckGroup.of (M := N))).comap
     (Algebra.GrothendieckGroup.lift ((Algebra.GrothendieckGroup.of (M := N)).comp h))
 
-/-- Unit test `DeltaLogTriple.exactification_compat_monoid` (compatibility): `M` lies in its
-exactification. -/
-example {M N : Type*} [CommMonoid M] [CommMonoid N] (h : M →* N) (m : M) :
-    Algebra.GrothendieckGroup.of m ∈ exactificationMonoid h := by
+/-- Unit test `DeltaLogTriple.exactification_compat_monoid` (compatibility): the monoid is
+exactly the inverse image of `N` under `h^gp`, not merely a monoid containing `M`. -/
+example {M N : Type*} [CommMonoid M] [CommMonoid N] (h : M →* N)
+    (x : Algebra.GrothendieckGroup M) :
+    x ∈ exactificationMonoid h ↔
+      Algebra.GrothendieckGroup.lift ((Algebra.GrothendieckGroup.of (M := N)).comp h) x ∈
+        MonoidHom.mrange (Algebra.GrothendieckGroup.of (M := N)) := by
   sorry
 
 /-! ## B. Prelog prisms: the carrier (node `PR.8/prelog-prism`) -/
@@ -462,7 +476,7 @@ Not typed: rests on carriers outside the pinned libraries (CrystallineCohomology
 
 /-! ### Node `PR.8/delta-log-groupification` (theorem): Extension of δ_log along M ⊂ N ⊂ M^gp
 
-Statement: Let (A, M, α) be a δ_log-ring with M integral and p ∈ rad(A). (1) There is a unique map δ_log: M^gp → A satisfying δ_log(mm′) = δ_log(m) + δ_log(m′) + pδ_log(m)δ_log(m′) on M^gp, namely δ_log(m′/m) = (δ_log(m′) − δ_log(m))/(1 + pδ_log(m)). (2) For every submonoid N ⊂ M^gp containing M there is a unique δ-structure on A ⊗_{Z_(p)[M]} Z_(p)[N] making (A ⊗_{Z_(p)[M]} Z_(p)[N], N) a δ_log-ring over (A, M) with this δ_log. (3) The map (A, M) → (A ⊗_{Z_(p)[M]} Z_(p)[N], N) is universal among maps of δ_log-rings (A, M) → (B, N) compatible with M ⊂ N, and its formation commutes with base change A → A′.
+Statement: Let (A, M, α) be a δ_log-ring with M integral and p ∈ rad(A). (1) There is a unique map δ_log: M^gp → A extending the given δ_log on M and satisfying δ_log(mm′) = δ_log(m) + δ_log(m′) + pδ_log(m)δ_log(m′) on M^gp, namely δ_log(m′/m) = (δ_log(m′) − δ_log(m))/(1 + pδ_log(m)). (2) For every submonoid N ⊂ M^gp containing M there is a unique δ-structure on A ⊗_{Z_(p)[M]} Z_(p)[N] making (A ⊗_{Z_(p)[M]} Z_(p)[N], N) a δ_log-ring over (A, M) with this δ_log. (3) The map (A, M) → (A ⊗_{Z_(p)[M]} Z_(p)[N], N) is universal among maps of δ_log-rings (A, M) → (B, N) compatible with M ⊂ N, and its formation commutes with base change A → A′.
 
 Not typed: rests on carriers outside the pinned libraries (PrismaticCohomology:PR.0/delta-localization-phi-stable, CrystallineCohomology:CR.5:log-algebra).
 -/
@@ -481,11 +495,11 @@ Typed above: `DeltaLogTriple.exactification_compat_monoid`.
 
 * API `DeltaLogTriple.exactification.baseChange` (functoriality): For A → A″ the exactification of the base change is the base change of (A′, M′).
 
-* API `DeltaLogTriple.exactification.integral` (other): If M_B → N is integral for a base (B, M_B), then N → M′ is integral.
+* API `DeltaLogTriple.exactification.integral` (other): If M_B → N is integral for a base (B, M_B), then the induced M_B → M′ is integral.
 
 * Unit test `DeltaLogTriple.exactification_of_exact` (degenerate): If (A, M) → (A/I, N) is already exact surjective then (A′, I′, M′) = (A, I, M).
 
-* Unit test `DeltaLogTriple.exactification_diagonal` (computation): For (Z_p⟨X_0, X_1⟩, X_0^N X_1^N) → (Z_p⟨X_0⟩, X_0^N) sending both generators to X_0, M′ = X_0^N·(X_1/X_0)^Z and A′ = Z_p⟨X_0, X_1⟩[(X_1/X_0)^{±1}]^ completed.
+* Unit test `DeltaLogTriple.exactification_diagonal` (computation): For (Z_p⟨X_0, X_1⟩, X_0^N X_1^N) → (Z_p⟨X_0⟩, X_0^N) sending both generators to X_0, M′ = X_0^N·(X_1/X_0)^Z and A′ = Z_p⟨X_0, X_1⟩[T,T^{-1}]/(X_0T − X_1). This exactification is algebraic; completion is a separate step in the envelope construction.
 
 * Unit test `DeltaLogTriple.exactification_not_ring_quotient` (non-example): The exactification is not the kernel-ideal construction on A alone: for the diagonal example the ring changes (X_1/X_0 is adjoined), so the prismatic envelope of A → A/I without exactification is the wrong object.
 -/
@@ -682,7 +696,7 @@ Not typed: rests on carriers outside the pinned libraries (PrismaticCohomology:P
 
 * Unit test `LogPrismaticSite.base_point` (degenerate): For X = Spf(A/I) with the log structure from M_A, (A, I, M_A)^a is a final object.
 
-* Unit test `LogPrismaticSite.not_strict_open_immersion` (non-example): The log affine line object (A⟨X⟩, I, M_A ⊕ N)^a is not an object of the non-log site of the underlying scheme with trivial log structure: the closed immersion must be exact for the given log structures, and forgetting logs changes the cohomology (Ω^1 versus log Ω^1).
+* Unit test `LogPrismaticSite.not_strict_open_immersion` (non-example): For the log affine line with trivial base log structure, forgetting logs sends (A⟨X⟩, I, N)^a to a valid object of the underlying non-log prismatic site. It does not preserve the Hodge–Tate differential module: the canonical map R·dX → R·dlog X sends dX to X·dlog X and is not an isomorphism when X is not a unit.
 -/
 
 /-! ### Node `PR.8/log-prismatic-cohomology` (construction): Log prismatic cohomology complexes
@@ -741,7 +755,7 @@ Not typed: rests on carriers outside the pinned libraries (PrismaticCohomology:P
 
 * API `LogPrismaticSite.cechAlexander_computes` (characterisation): Tot(C^•) ≅ Δ_{(R,P)/(A,M_A)} compatibly with Frobenius.
 
-* API `LogPrismaticSite.cechAlexander_baseChange` (functoriality): C^• commutes with base change along maps of bounded prelog prisms (A, I, M_A) → (A′, IA′, M_{A′}).
+* API `LogPrismaticSite.cechAlexander_baseChange` (functoriality): For a chosen free presentation, C^• commutes with completed base change along maps of bounded prelog prisms when the same presentation is base changed. This does not assert base change of the strictly functorial presentation indexed by all elements of R and P (K1 Remark 4.8).
 
 * API `LogPrismaticSite.cechAlexanderFunctorial` (constructor): The strictly functorial complex for P = Γ(X, M_X) and B_0 = A⟨N^R ⊕ N^P⟩.
 
@@ -765,7 +779,7 @@ Not typed: rests on carriers outside the pinned libraries (PrismaticCohomology:P
 
 /-! ### Node `PR.8/log-prismatic-etale-localization` (lemma): Strict étale localisation
 
-Statement: Let R → S be a p-completely étale map of A/I-algebras (so (S, P) is p-completely smooth over (A, M_A)). Then Δ_{(R,P)/(A,M_A)} ⊗̂^L_R S → Δ_{(S,P)/(A,M_A)} is an isomorphism; consequently Δ_{(X,M_X)/(A,M_A)} is a quasi-coherent (p, I)-complete sheaf on affine strict-étale localisations.
+Statement: Let (A, I, M_A) be a bounded prelog prism with M_A integral, (R, P) a p-completely smooth prelog ring over (A/I, M_A), and R → S a p-completely étale map with the pulled-back chart P. Then Δ̄_{(R,P)/(A,M_A)} ⊗̂^L_R S → Δ̄_{(S,P)/(A,M_A)} is an isomorphism. Consequently the reduced log prismatic complex Δ̄ is a quasi-coherent derived p-complete complex on strict-étale localisations. This R-linear statement concerns Δ̄, not the unreduced Δ, which is naturally an A-complex.
 
 Not typed: rests on carriers outside the pinned libraries (PrismaticCohomology:PR.1).
 -/
@@ -787,7 +801,7 @@ Not typed: rests on carriers outside the pinned libraries (DerivedDeRhamCohomolo
 
 * API `LogPrismaticSite.hodgeTateMap_bockstein_dlog` (simp): β_I(η^1(dlog m)) = 0.
 
-* API `LogPrismaticSite.hodgeTateMap_restrict_nonlog` (compatibility): On Ω^1_{X/(A/I)} ⊂ Ω^1_log, η^1 agrees with the non-log Hodge–Tate map of PR.1.
+* API `LogPrismaticSite.hodgeTateMap_restrict_nonlog` (compatibility): The square comparing the non-log and log Hodge–Tate maps commutes along the canonical map Ω^1_{X/(A/I)} → Ω^1_log and the map induced by forgetting logs. The differential map is not asserted to be injective.
 
 * API `LogPrismaticSite.hodgeTateMap_cotangent` (characterisation): Locally, η^1 is H^0 of the map RΓ(L_{(R,P)/(A,M_A)}) → Δ̄{1}[1] built from Gabber's log cotangent complex.
 
@@ -848,7 +862,7 @@ Not typed: rests on carriers outside the pinned libraries (CrystallineCohomology
 
 * Unit test `DeltaLogCrystallineSite.not_all_pd_thickenings` (non-example): A PD thickening (B, J) with B having p-torsion is not an object: objects are bounded prelog prisms with I = (p), so B is p-torsion free.
 
-* Unit test `DeltaLogCrystallineSite.affineLine` (computation): For (A/p⟨X⟩, M_A ⊕ N) the object (A⟨X⟩, (p), M_A ⊕ N) with δ_log(N) = 0 and J = (p) is weakly final.
+* Unit test `DeltaLogCrystallineSite.affineLine` (computation): For (A/p⟨X⟩, M_A ⊕ N), the rank-one triple (A⟨X⟩, (p), M_A ⊕ N)^a is an object, but it is not asserted weakly final: an arbitrary target log generator can have nonzero δ_log. A weakly final object for the Čech computation is obtained from the free δ_log ring and its log PD envelope (K1 Construction 6.6).
 -/
 
 /-! ### Node `PR.8/delta-log-crystalline-vs-log-crystalline` (theorem): δ_log-crystalline cohomology is log crystalline cohomology
@@ -947,7 +961,7 @@ Not typed: rests on carriers outside the pinned libraries (PrismaticCohomology:P
 
 * Unit test `LogQCrystallineSite.affineLine_complex` (computation): For (D/I⟨X⟩, M_D ⊕ N) with D flat over A, qΩ is computed by the two-term complex D⟨X⟩ → D⟨X⟩·dlog X, f ↦ (γ(f) − f)/(q − 1)·dlog X with γ(X) = qX (Construction 7.15 with S a point).
 
-* Unit test `LogQCrystallineSite.not_prismatic` (non-example): The log q-crystalline site is not the log prismatic site over (D, ([p]_q)): its objects carry the additional q-PD ideal J ⊃ ([p]_q)-structure, and the comparison of Theorem 7.13 needs a Frobenius twist.
+* Unit test `LogQCrystallineSite.not_prismatic` (non-example): The log q-crystalline site is not the log prismatic site over (D, ([p]_q)): its objects carry a q-PD ideal J containing the image of the base q-PD ideal I, with γ(J) ⊂ J and φ(J) ⊂ [p]_qE. J need not contain [p]_q (for example J = (ξ) in A_inf). The comparison of Theorem 7.13 uses a Frobenius twist.
 -/
 
 /-! ### Node `PR.8/log-q-crystalline-vs-crystalline` (theorem): Log q-crystalline cohomology modulo q − 1
@@ -998,7 +1012,7 @@ Not typed: rests on carriers outside the pinned libraries (AInfCohomology:AI.6, 
 
 /-! ### Node `PR.8/semistable-crys-bdr-diagram` (theorem): The semistable C_st comparison diagram
 
-Statement: Let X be as in the semistable AΩ comparison and proper over O_C. There is a commutative diagram whose left column identifies RΓ_crys((X, M_X)/(A_crys, O_C♭∖{0})) with RΓ_qCRYS((X, M_X)/(A_crys, O_C♭∖{0})) ⊗^L_{A_inf} A_crys and with RΓ(X_ét, AΩ_X) ⊗^L_{A_inf} A_crys (by Theorem 8.1 and Remark 8.4), whose right column identifies RΓ_crys(X^ad/B_dR^+) with RΓ_ét(X^ad_C, Z_p) ⊗^L B_dR^+ and RΓ_ét(X^ad_C, A_inf,X^ad) ⊗^L_{A_inf} B_dR^+, and whose horizontal maps are those of ČK19 6.8.
+Statement: Let X be as in the semistable AΩ comparison and proper over O_C. The intended commutative comparison diagram has left column RΓ_logcrys((X,M_X)/(A_crys,O_C♭∖{0})) ≅ RΓ_qCRYS((X,M_X)/(A_inf,O_C♭∖{0})) ⊗^L_{A_inf} A_crys ≅ RΓ(X_ét,AΩ_X) ⊗^L_{A_inf} A_crys. The right column starts with RΓ_crys(X_C^ad/B_dR^+) → RΓ_ét(X_C^ad,Z_p) ⊗^L_{Z_p} B_dR^+, the period comparison map of ČK19 Proposition 6.8, followed by the usual isomorphism with RΓ_ét(X_C^ad,A_inf,X_C^ad) ⊗^L_{A_inf} B_dR^+. The first right-column map is not asserted an isomorphism over B_dR^+; it becomes one over B_dR. Horizontals are the ČK19 §6.8 maps transported via Theorem 8.1 and Remark 8.4. K1 Theorem 8.5 contains diagram misprints; this node specifies the corrected intended diagram, not the erroneous isomorphism as printed.
 
 Not typed: rests on carriers outside the pinned libraries (AInfCohomology:AI.6, AInfCohomology:AI.0, CrystallineCohomology:CR.5).
 -/
@@ -1067,7 +1081,7 @@ Not typed: rests on carriers outside the pinned libraries (DerivedDeRhamCohomolo
 
 * API `LogQRSP.cotangent_flat` (other): For S ∈ QRSPerfd^prelog, L̂_{(S,M)/Z_p}[−1] is p-completely flat.
 
-* API `LogQRSP.iff_cotangent` (characterisation): Lemma 3.16: with S/p log-semiperfect, S is quasiregular semiperfectoid iff L_{S/R} ⊗^L S/p has Tor amplitude in degree −1 for some/any perfectoid R → S.
+* API `LogQRSP.iff_cotangent` (characterisation): Lemma 3.16: with S/p log-semiperfect and S p-complete with bounded p^∞-torsion, S is quasiregular semiperfectoid iff the log cotangent complex L_{(S,M)/R} ⊗^L S/p has Tor amplitude in degree −1 for some/any perfectoid R → S (R with trivial prelog structure).
 
 * API `LogQRSP.perfectoidCover` (constructor): The map (R ⊗̂ W(S♭) ⊗̂ Z_p⟨M♭⟩, M♭) → (S, M) of Remark 3.13.
 
@@ -1139,7 +1153,7 @@ Not typed: rests on carriers outside the pinned libraries (DerivedDeRhamCohomolo
 
 /-! ### Node `PR.8/log-quasisyntomic-descent` (theorem): Log quasisyntomic descent
 
-Statement: Let (A, I, M_A) be a bounded prelog prism. On the small log quasisyntomic site qSyn_{(A/I,M_A)} the presheaf (R, P) ↦ Δ^L_{(R,P)/(A,M_A)} is a sheaf (with values in (p, I)-complete objects of D(A)); if (A/I, M_A) is a perfectoid pre-log ring, the same holds on QSyn_{(A/I,M_A)}. The same holds for each step of the conjugate filtration of Δ̄^L.
+Statement: Let (A, I, M_A) be a bounded prelog prism with M_A integral. On the small log quasisyntomic site qSyn_{(A/I,M_A)} the presheaf (R, P) ↦ Δ^L_{(R,P)/(A,M_A)} is a sheaf (with values in (p, I)-complete objects of D(A)); if (A/I, M_A) is a perfectoid pre-log ring, the same holds on QSyn_{(A/I,M_A)}. The same holds for each step of the conjugate filtration of Δ̄^L.
 
 Not typed: rests on carriers outside the pinned libraries (DerivedDeRhamCohomology:DD.6).
 -/
@@ -1191,7 +1205,7 @@ Not typed: rests on carriers outside the pinned libraries (PrismaticCohomology:P
 
 /-! ### Node `PR.8/nygaard-hodge-fiber-sequence` (theorem): The Nygaard–Hodge fibre sequence and Nygaard completeness
 
-Statement: For a simplicial pre-log ring (R, P) over (A/I, M_A) there is a functorial fibre sequence I ⊗^L_A Fil^{•−1}_N Δ^{L,(1)} → Fil^•_N Δ^{L,(1)} → Fil^•_H LΩ̂_{(R,P)/(A/I,M_A)} of filtered objects, the second map being the derived de Rham specialisation γ^• (Construction 5.21, Lemma 5.22). Globally on X_ét it holds with the p-complete étale sheafified Hodge-filtered derived log de Rham complex. If (X, M_X) is smooth over (A/I, M_A) with mod p fibre of Cartier type, the right term becomes Ω^{≥•}_{(X,M_X)/(A/I,M_A)}; if moreover X is qcqs and Ω^1_log has finite rank D, then for j ≥ D the maps RΓ(Fil^j_N Δ^(1)) ⊗^L I^i → RΓ(Fil^{i+j}_N Δ^(1)) are isomorphisms and RΓ(X_ét, Δ^(1)) is complete for the Nygaard filtration.
+Statement: For a simplicial pre-log ring (R, P) over (A/I, M_A) there is a functorial fibre sequence I ⊗^L_A Fil^{•−1}_N Δ^{L,(1)} → Fil^•_N Δ^{L,(1)} → Fil^•_H LΩ̂_{(R,P)/(A/I,M_A)} of filtered objects, the second map being the derived de Rham specialisation γ^• (Construction 5.21, Lemma 5.22). Globally on X_ét it holds with the p-complete étale sheafified Hodge-filtered derived log de Rham complex. If (X, M_X) is smooth over (A/I, M_A) with mod p fibre of Cartier type, the right term becomes Ω^{≥•}_{(X,M_X)/(A/I,M_A)}; if moreover X is qcqs and Ω^1_log has finite rank D, then for i ≥ 0 and j ≥ D the maps RΓ(Fil^j_N Δ^(1)) ⊗^L I^i → RΓ(Fil^{i+j}_N Δ^(1)) are isomorphisms and RΓ(X_ét, Δ^(1)) is complete for the Nygaard filtration.
 
 Not typed: rests on carriers outside the pinned libraries (DerivedDeRhamCohomology:DD.6, PrismaticCohomology:PR.5).
 -/
@@ -1239,7 +1253,7 @@ Typed above: `KummerEtale.IsKummerType`, `KummerEtale.kummerType_nat`.
 
 * Unit test `KummerEtale.empty` (degenerate): The empty family covers the empty log scheme.
 
-* Unit test `KummerEtale.not_etale` (non-example): For K algebraically closed of characteristic 0 and the log point X = Spec(K, N → 0)^a, H^1_két(X, Z/n) ≅ Z/n(−1) ≠ 0 = H^1_ét(Spec K, Z/n): Kummer étale cohomology is not étale cohomology of the underlying scheme.
+* Unit test `KummerEtale.not_etale` (non-example): For n > 1 and K algebraically closed of characteristic 0 and the log point X = Spec(K, N → 0)^a, H^1_két(X, Z/n) ≅ Z/n(−1) ≠ 0 = H^1_ét(Spec K, Z/n): Kummer étale cohomology is not étale cohomology of the underlying scheme.
 -/
 
 /-! ### Node `PR.8/log-scheme-vs-log-adic-kummer` (lemma): Kummer étale cohomology of log schemes and of log adic spaces
@@ -1266,7 +1280,7 @@ Not typed: rests on carriers outside the pinned libraries (DiamondsAndVStacks:D4
 
 * API `LogDiamond.IsQuasiCoherent` (other): Existence of charts quasi-pro-étale locally (with integral, saturated, fine, fs variants).
 
-* API `LogDiamond.saturation` (universal-property): The saturation (Y^sat, M^sat_Y) of a quasi-coherent log diamond, universal among maps to saturated log diamonds.
+* API `LogDiamond.saturation` (universal-property): A quasi-coherent log diamond admits a saturation map (Y^sat, M_Y^sat) → (Y, M_Y), terminal among maps from saturated quasi-coherent log diamonds to (Y, M_Y).
 
 * API `LogDiamond.satFiberProduct` (structure): Saturated fibre products exist among saturated quasi-coherent (resp. fs) log diamonds.
 
@@ -1278,7 +1292,7 @@ Not typed: rests on carriers outside the pinned libraries (DiamondsAndVStacks:D4
 
 * Unit test `LogDiamond.compat_logAdic` (compatibility): For an fs log adic space from T6:log-sites, the associated log diamond has the log structure induced by ν^{-1} of the étale log structure (KY Example 7.6).
 
-* Unit test `LogDiamond.not_naive_product` (non-example): The diamond fibre product of (Spd Q_p⟨T^{1/n}⟩, T^{N/n}) with itself over (Spd Q_p⟨T⟩, T^N) is not its saturated fibre product: saturation splits it into n copies (KY Lemma 7.21 proof).
+* Unit test `LogDiamond.not_naive_product` (non-example): For n > 1, take the log n-th-root cover of the disc over an algebraically closed complete C. Its ordinary diamond self-product has branches meeting over T = 0; its saturated log self-product is the disjoint union of n copies of the root disc after choosing μ_n(C). Over Q_p this splitting is asserted only after this geometric base change.
 -/
 
 /-! ### Node `PR.8/log-diamond-generic-fibre` (construction): The log diamond generic fibre
@@ -1320,9 +1334,9 @@ Not typed: rests on carriers outside the pinned libraries (DiamondsAndVStacks:D1
 
 * Unit test `LogPerfectoid.trivial` (degenerate): Any strictly totally disconnected perfectoid space with trivial log structure is a strictly totally disconnected log perfectoid space.
 
-* Unit test `LogPerfectoid.rational_monoid` (computation): For C algebraically closed, (Spa(C, O_C), Q_{≥0} → O_C, a ↦ p^a)^a is strictly totally disconnected log perfectoid.
+* Unit test `LogPerfectoid.rational_monoid` (computation): For C algebraically closed, the chart Q_{≥0} → O_C sending 0 ↦ 1 and every a > 0 to 0 on Spa(C,O_C) gives a strictly totally disconnected log perfectoid space: its characteristic monoid is Q_{≥0}, which is uniquely divisible.
 
-* Unit test `LogPerfectoid.not_fs` (non-example): (Spa(C, O_C), N → O_C, 1 ↦ p)^a is not one: N is not divisible.
+* Unit test `LogPerfectoid.not_fs` (non-example): On Spa(C,O_C), the chart N → O_C with 0 ↦ 1 and every n > 0 mapping to 0 gives characteristic monoid N, so the log perfectoid space is not strictly totally disconnected as a log space. In contrast, 1 ↦ p gives trivial associated log structure on Ô = C, hence is not this non-example.
 
 * Unit test `LogPerfectoid.compat_D1` (compatibility): The underlying perfectoid space is strictly totally disconnected in the sense of DiamondsAndVStacks D1.
 -/
@@ -1337,7 +1351,7 @@ Not typed: rests on carriers outside the pinned libraries (DiamondEtaleCohomolog
 
 * API `QProKummerEtale.strict_iff` (characterisation): A strict map is quasi-pro-Kummer-étale iff its underlying map of diamonds is pro-étale in the quasi sense.
 
-* API `QProKummerEtale.comp` (structure): Stability under composition and pullback; two-out-of-three.
+* API `QProKummerEtale.comp` (structure): Stability under composition and saturated pullback. Cancellation in KY Proposition 7.16(4): if g and g∘f are quasi-pro-Kummer-étale (respectively Kummer-étale or finite Kummer-étale), then f is too.
 
 * API `QProKummerEtale.pullbackSite` (functoriality): A map of saturated quasi-coherent log diamonds induces a morphism of sites.
 
@@ -1351,12 +1365,12 @@ Not typed: rests on carriers outside the pinned libraries (DiamondEtaleCohomolog
 
 * Unit test `QProKummerEtale.id` (degenerate): Identity maps are quasi-pro-Kummer-étale coverings.
 
-* Unit test `QProKummerEtale.not_strict_etale` (non-example): The Kummer map T ↦ T^n of log discs is Kummer-étale but its underlying map of diamonds is not étale at T = 0.
+* Unit test `QProKummerEtale.not_strict_etale` (non-example): For n > 1, the Kummer map T ↦ T^n of log discs is Kummer-étale but its underlying map of diamonds is not étale at T = 0.
 -/
 
 /-! ### Node `PR.8/kummer-tower-covers` (theorem): Kummer towers and the comparison of sites
 
-Statement: Let P be an fs monoid, P^{1/n} the monoid P with structure map a ↦ a^n, and P_{Q≥0} := colim_n P^{1/n}. (1) For n ≥ 1 and a saturated Q with P ⊂ Q ⊂ P^{1/n}, (Spd(Q_p⟨Q⟩, Z_p⟨Q⟩), Q) → (Spd(Q_p⟨P⟩, Z_p⟨P⟩), P) is surjective finite Kummer-étale. (2) (Spd(Q_p⟨P_{Q≥0}⟩, Z_p⟨P_{Q≥0}⟩), P_{Q≥0}) → (Spd(Q_p⟨P⟩, Z_p⟨P⟩), P) is surjective quasi-pro-Kummer-étale. (3) For a Huber pair (R, R^+) over (Q_p, Z_p) with P → R^+, the associated log diamond gives a morphism of sites (Spd(R, R^+), P)^a_qpkét → (Spec R, P)^a_két; if P is divisible saturated, (Spd(R, R^+), P)^a_qpkét ≅ Spd(R, R^+)_qproét and there is a morphism of sites to (Spec R)_ét. (4) For P fs and P_∞ divisible saturated over P, base change gives (Spec S)_ét → (Spec R, P)_két for the saturated base change (S, P_∞).
+Statement: For the power-tower assertions (1)–(2), let P be an fs monoid with torsion-free group completion (in particular, a sharp fs monoid), P^{1/n} the monoid P with structure map a ↦ a^n, and P_{Q≥0} := colim_n P^{1/n}. (1) For n ≥ 1 and a saturated Q with P ⊂ Q ⊂ P^{1/n}, (Spd(Q_p⟨Q⟩, Z_p⟨Q⟩), Q) → (Spd(Q_p⟨P⟩, Z_p⟨P⟩), P) is surjective finite Kummer-étale. (2) (Spd(Q_p⟨P_{Q≥0}⟩, Z_p⟨P_{Q≥0}⟩), P_{Q≥0}) → (Spd(Q_p⟨P⟩, Z_p⟨P⟩), P) is surjective quasi-pro-Kummer-étale. (3) For any fs chart P and a Huber pair (R, R^+) over (Q_p, Z_p) with P → R^+, the associated log diamond gives a morphism of sites (Spd(R, R^+), P)^a_qpkét → (Spec R, P)^a_két; separately, for any divisible saturated chart P, (Spd(R, R^+), P)^a_qpkét ≅ Spd(R, R^+)_qproét and there is a morphism of sites to (Spec R)_ét. (4) For P fs and P_∞ divisible saturated over P, base change gives (Spec S)_ét → (Spec R, P)_két for the saturated base change (S, P_∞).
 -/
 
 /-! ### Node `PR.8/kummer-etale-vs-qpket` (theorem): Kummer-étale cohomology of log schemes via log diamonds
@@ -1391,7 +1405,7 @@ Not typed: rests on carriers outside the pinned libraries (DiamondEtaleCohomolog
 
 * Unit test `KummerLocalSystem.zero` (degenerate): The zero sheaf is the local system of rank 0.
 
-* Unit test `KummerLocalSystem.kummer_torsor` (non-example): On the log disc the Kummer torsor of p-power roots of T is a Z_p(1)-local system that does not come from any local system on the underlying diamond of the disc (it is ramified along T = 0).
+* Unit test `KummerLocalSystem.kummer_torsor` (non-example): Over an algebraically closed complete C and for n > 1, let π be the finite Kummer-étale n-th-root cover of the log disc. The linear local system π_*Z_p has rank n and nontrivial permutation inertia at T = 0, so it does not descend to a local system on the underlying diamond near T = 0. The root torsor itself is a torsor under Z_p(1) in the inverse p-power tower, not a rank-one Z_p-module local system.
 
 * Unit test `KummerLocalSystem.trivialLog_eq` (compatibility): With trivial log structure these are the quasi-pro-étale Z_p-local systems of Mann–Werner.
 -/
