@@ -5,14 +5,13 @@ suggest Lean forms so contributors and reviewers converge on names and signature
 They claim no implementation. Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174;
 Tau Ceti f790474821cf4256814db967cb154e7af3d0c369.
 
-B₂, B₃, their symbols and maps, Γ, the single-valued trilogarithm, and Milnor
-K-groups are imported objects from the parent/supplier roadmaps. They occur as
-module variables below. Statements involving those variables are signatures for
-those actual objects, not assertions about arbitrary modules and arbitrary maps.
-In particular no absent comparison theorem is an assumed structure field.
-A name marked "not stated" needs the specific missing supplier interface named
-there; it is not replaced by a placeholder proposition. All declarations remain
-unchecked plans. Test names appear in docstrings on `example`s.
+Independent review REV-Polylogarithms--P.3: needs_changes. Native configuration
+and finite-sum prototypes below are meaningful; generic module parameters are
+not the parent's B₂/B₃ merely because comments call them so. False universal
+claims have been removed. Names marked "not stated" require genuine supplier
+objects and laws; they do not count as supplied API or tests. No desired theorem
+is replaced by a Prop field. All remaining proofs are unchecked placeholders.
+The review report lists the omitted signatures and the required revisions.
 -/
 import Mathlib.LinearAlgebra.Finsupp.LinearCombination
 import Mathlib.LinearAlgebra.Finsupp.Defs
@@ -27,7 +26,7 @@ import Mathlib.RepresentationTheory.Homological.GroupHomology.Basic
 import Mathlib.GroupTheory.Perm.Sign
 import Mathlib.NumberTheory.NumberField.DedekindZeta
 import Mathlib.NumberTheory.NumberField.Discriminant.Defs
-import Mathlib.NumberTheory.LSeries.RiemannZeta
+import Mathlib.NumberTheory.Padics.PadicVal.Basic
 
 -- The shared production build treats warnings as errors; this planning file
 -- deliberately contains signature placeholders, permitted by the blueprint protocol.
@@ -66,18 +65,17 @@ theorem relation22_eval {M : Type} [AddCommGroup M] [Module ℚ M]
       Finsupp.linearCombination ℚ v (relationBlock c a b) +
       Finsupp.linearCombination ℚ v (relationBlock b c a) + v (-a*b*c) := by sorry
 
-variable {B3 : Type} [AddCommGroup B3] [Module ℚ B3] (gen3 : F → B3)
-/-- `gen3` is the actual symbol of the parent's explicit B₃ quotient. -/
-theorem relation22_quotient (a b c : F) (h : admissible a b c) :
-    Finsupp.linearCombination ℚ gen3 (relation22 a b c) = 0 := by sorry
+-- TauCeti.Polylog.WeightThree.relation22_quotient: not stated; needs the
+-- actual parent B₃ quotient symbol and its relation-kernel law. An arbitrary
+-- F → B₃ cannot satisfy this statement (R(1,1,1)=3[1]+4[−1]).
 
 /-- Test `TauCeti.Polylog.WeightThree.relation222`. -/
 example : relation22 (2 : ℚ) 2 2 =
     3 • bracket 3 + 3 • bracket (3/4) + 3 • bracket 2 + 3 • bracket (1/2) +
-    3 • bracket (-2) - 3 • bracket (3/2) - 3 • bracket (1/4) -
-    3 • bracket 1 + bracket (-8) := by sorry
+    3 • bracket (-2 : ℚ) - 3 • bracket (3/2) - 3 • bracket (1/4) -
+    3 • bracket 1 + bracket (-8 : ℚ) := by sorry
 /-- Test `TauCeti.Polylog.WeightThree.relation111`. -/
-example : relation22 (1 : ℚ) 1 1 = 3 • bracket 1 + 4 • bracket (-1) := by sorry
+example : relation22 (1 : ℚ) 1 1 = 3 • bracket 1 + 4 • bracket (-1 : ℚ) := by sorry
 
 /-- Native quotient used only to test equality modulo inversion, not to define B₃. -/
 private def inversionSpan : Submodule ℚ (F →₀ ℚ) :=
@@ -236,8 +234,9 @@ section ConfigurationMaps
 variable {F : Type} [Field F]
 /-- The rational unit module is owned by K2SymbolsBrauer, instantiated natively. -/
 abbrev UnitsQ (F : Type) [Field F] := ℚ ⊗[ℤ] Additive Fˣ
-private def unitClass (x : F) : UnitsQ F :=
-  if h : x = 0 then 0 else TensorProduct.tmul ℤ 1 (Additive.ofMul (Units.mk0 x h))
+private def unitClass (x : F) : UnitsQ F := by
+  classical
+  exact if h : x = 0 then 0 else TensorProduct.tmul ℤ 1 (Additive.ofMul (Units.mk0 x h))
 private def wedge (x y z : UnitsQ F) : ⋀[ℚ]^3 (UnitsQ F) :=
   exteriorPower.ιMulti ℚ 3 ![x,y,z]
 private def signQ {m : ℕ} (σ : Equiv.Perm (Fin m)) : ℚ :=
@@ -284,42 +283,27 @@ private def middleFormula (vol : Fˣ) (l : GenericTuple F 3 5) : B2 ⊗[ℚ] Uni
   alternate (fun v => gen2 (projectedRatio v) ⊗ₜ[ℚ]
     unitClass ((vol : F)*minor v.val 2 3 4)) l
 
-def configMiddle (vol : Fˣ) : Config F 3 5 →ₗ[ℚ] B2 ⊗[ℚ] UnitsQ F :=
-  configLift F (middleFormula gen2 vol) (by sorry)
-
-theorem configMiddle_mk (vol : Fˣ) (l : GenericTuple F 3 5) :
-    configMiddle gen2 vol (configMk F l) = middleFormula gen2 vol l := by sorry
-
-theorem configMiddle_volume (vol w : Fˣ) :
-    configMiddle gen2 vol = configMiddle gen2 w := by sorry
-
-theorem configMiddle_alt (vol : Fˣ) (l : GenericTuple F 3 5) (σ : Equiv.Perm (Fin 5)) :
-    configMiddle gen2 vol (configMk F (permute l σ)) =
-      signQ σ • configMiddle gen2 vol (configMk F l) := by sorry
+-- TauCeti.Polylog.WeightThree.configMiddle: not stated; middleFormula is
+-- the raw finite sum, but GL descent and volume independence require the actual
+-- B₂ symbol and five-term law. They fail for arbitrary gen2.
+-- TauCeti.Polylog.WeightThree.configMiddle_mk: not stated; needs that descent.
+-- TauCeti.Polylog.WeightThree.configMiddle_volume: not stated; needs five-term.
+-- TauCeti.Polylog.WeightThree.configMiddle_alt: not stated; needs that descent.
 -- TauCeti.Polylog.WeightThree.configMiddle_fieldMap: not stated; needs the
--- canonical supplier B₂ field map together with config and unit field maps.
-
-/- `d2` is the parent differential, using (1−x)∧x, not V.3's opposite sign. -/
-variable (d2 : B2 ⊗[ℚ] UnitsQ F →ₗ[ℚ] ⋀[ℚ]^3 (UnitsQ F))
-/-- Test `TauCeti.Polylog.WeightThree.configMiddle_moment`. -/
-example (gen2Q : ℚ → B2) (d2Q : B2 ⊗[ℚ] UnitsQ ℚ →ₗ[ℚ] ⋀[ℚ]^3 (UnitsQ ℚ)) :
-    d2Q (configMiddle gen2Q (1 : ℚˣ) (configMk ℚ moment5)) =
-      (36 : ℚ) • wedge (unitClass (2 : ℚ)) (unitClass (3 : ℚ)) (unitClass (5 : ℚ)) := by sorry
-/-- Test `TauCeti.Polylog.WeightThree.configMiddle_scaleVolume`. -/
-example (gen2Q : ℚ → B2) : configMiddle gen2Q (Units.mk0 (2 : ℚ) (by norm_num)) =
-    configMiddle gen2Q (1 : ℚˣ) := by sorry
-/-- Test `TauCeti.Polylog.WeightThree.configMiddle_notProjective`. -/
-example (gen2Q : ℚ → B2) (d2Q : B2 ⊗[ℚ] UnitsQ ℚ →ₗ[ℚ] ⋀[ℚ]^3 (UnitsQ ℚ)) :
-    d2Q (configMiddle gen2Q (1 : ℚˣ) (configMk ℚ
-      (scaled (fun i => if i = 0 then Units.mk0 (2 : ℚ) (by norm_num) else 1) moment5))) =
-      (18 : ℚ) • wedge (unitClass (2 : ℚ)) (unitClass (3 : ℚ)) (unitClass (5 : ℚ)) := by sorry
+-- actual B₂/configuration/unit field maps.
+-- Test TauCeti.Polylog.WeightThree.configMiddle_moment: not stated; needs the
+-- parent d₂ formula on symbols. Taking an arbitrary d₂=0 refutes the old test.
+-- Test TauCeti.Polylog.WeightThree.configMiddle_scaleVolume: not stated;
+-- requires the actual B₂ quotient symbol.
+-- Test TauCeti.Polylog.WeightThree.configMiddle_notProjective: not stated;
+-- requires the actual d₂; the rational computations are recorded in the review.
 
 def configTrilog : Config F 3 6 →ₗ[ℚ] B3 :=
-  configLift F (fun l => (1/5 : ℚ) • alternate (fun v => gen3 (tripleRatio v)) l) (by sorry)
+  configLift F (fun l => (-1/5 : ℚ) • alternate (fun v => gen3 (tripleRatio v)) l) (by sorry)
 
 theorem configTrilog_mk (l : GenericTuple F 3 6) :
     configTrilog gen3 (configMk F l) =
-      (1/5 : ℚ) • alternate (fun v => gen3 (tripleRatio v)) l := by sorry
+      (-1/5 : ℚ) • alternate (fun v => gen3 (tripleRatio v)) l := by sorry
 
 theorem configTrilog_alt (l : GenericTuple F 3 6) (σ : Equiv.Perm (Fin 6)) :
     configTrilog gen3 (configMk F (permute l σ)) =
@@ -329,21 +313,37 @@ theorem configTrilog_alt (l : GenericTuple F 3 6) (σ : Equiv.Perm (Fin 6)) :
 /-- Test `TauCeti.Polylog.WeightThree.configTrilog_normalization`. -/
 example (l : GenericTuple F 3 6) :
     (5 : ℚ) • configTrilog gen3 (configMk F l) =
-      alternate (fun v => gen3 (tripleRatio v)) l := by sorry
+      -alternate (fun v => gen3 (tripleRatio v)) l := by sorry
 
-theorem seven_term_configuration_relation (x : Config F 3 7) :
-    configTrilog gen3 (deleteD F 3 6 x) = 0 := by sorry
+-- TauCeti.Polylog.WeightThree.seven_term_configuration_relation: not stated;
+-- requires the actual B₃ relation quotient; an arbitrary gen3 has no such law.
+-- TauCeti.Polylog.WeightThree.configuration_chain_comparison: not stated;
+-- requires actual B₂/B₃ symbols, their differentials and explicit Γ. Correct
+-- coefficients are −3 Alt₄ and −(1/5) Alt₆ under the packet's conventions.
+-- TauCeti.Polylog.WeightThree.relation_cobracket: not stated; requires the
+-- parent δ₃ law on the actual quotient, not an arbitrary delta3.
 
-variable (delta3 : B3 →ₗ[ℚ] B2 ⊗[ℚ] UnitsQ F)
-theorem configuration_chain_comparison :
-    d2.comp (configMiddle gen2 (1 : Fˣ)) = (configExterior (1 : Fˣ)).comp (deleteD F 3 4) ∧
-    delta3.comp (configTrilog gen3) = (configMiddle gen2 (1 : Fˣ)).comp (deleteD F 3 5) ∧
-    (configExterior (1 : Fˣ)).comp (projectD F 3 4) = 0 ∧
-    (configMiddle gen2 (1 : Fˣ)).comp (projectD F 3 5) = 0 ∧
-    (configTrilog gen3).comp (projectD F 3 6) = 0 := by sorry
-
-theorem relation_cobracket (a b c : F) (h : admissible a b c) :
-    delta3 (Finsupp.linearCombination ℚ gen3 (relation22 a b c)) = 0 := by sorry
+/-- Coordinate (v_p∧v_q)⊗v_r of (δ₂⊗1)δ₃[z]₃ over ℚ.
+The native valuation is zero at z=0; z=1 gives a zero coordinate as required. -/
+private def cobracketCoordinate (p q r : ℕ) (z : ℚ) : ℚ :=
+  ((padicValRat p (1-z) : ℚ) * (padicValRat q z : ℚ) -
+    (padicValRat q (1-z) : ℚ) * (padicValRat p z : ℚ)) * (padicValRat r z : ℚ)
+private def topCoordinate (l : GenericTuple ℚ 3 6) : ℚ :=
+  (-1/5 : ℚ) * ∑ σ : Equiv.Perm (Fin 6),
+    signQ σ * cobracketCoordinate 2 3 2 (tripleRatio (permute l σ))
+private def middleCoordinate (l : GenericTuple ℚ 3 5) : ℚ :=
+  ∑ σ : Equiv.Perm (Fin 5), signQ σ *
+    (((padicValRat 2 (1-projectedRatio (permute l σ)) : ℚ) *
+      (padicValRat 3 (projectedRatio (permute l σ)) : ℚ) -
+      (padicValRat 3 (1-projectedRatio (permute l σ)) : ℚ) *
+      (padicValRat 2 (projectedRatio (permute l σ)) : ℚ)) *
+      (padicValRat 2 (minor (permute l σ).val 2 3 4) : ℚ))
+private def deleteTuple (l : GenericTuple ℚ 3 6) (i : Fin 6) : GenericTuple ℚ 3 5 :=
+  ⟨fun j => l.val (i.succAbove j), by sorry⟩
+/-- Test `TauCeti.Polylog.WeightThree.configTrilog_cobracketCoordinate`.
+This checks the corrected raw formula without assuming a B₃ interface. -/
+example : topCoordinate ratioOne = -60 ∧
+    (∑ i : Fin 6, (-1 : ℚ)^i.val * middleCoordinate (deleteTuple ratioOne i)) = -60 := by sorry
 end ConfigurationMaps
 
 
@@ -381,17 +381,14 @@ example (l : SixPoints F) (W : Submodule F (Fin 3 → F))
     (hW : Module.finrank F W = 2)
     (h : ∀ i : Fin 4, (l (i.castSucc.castSucc)).rep ∈ W) :
     geometricMk F l = 0 := by sorry
--- Test TauCeti.Polylog.WeightThree.geometric_triangle_nonzero appears below
--- beside the descended complex regulator, so its expected value is explicit.
+-- Test TauCeti.Polylog.WeightThree.geometric_triangle_nonzero: not stated;
+-- needs the actual B₃ comparison and descended L₃; the expected value is ζ(3).
 
-variable {B3 : Type} [AddCommGroup B3] [Module ℚ B3] (gen3 : F → B3)
-theorem geometric_trilogarithm_comparison :
-    ∃ M3 : GeometricTrilog F ≃ₗ[ℚ] B3, ∀ z : F, M3 (geometricTriangle F z) = gen3 z := by sorry
-private def geometricM3 : GeometricTrilog F ≃ₗ[ℚ] B3 :=
-  Classical.choose (geometric_trilogarithm_comparison F gen3)
-
--- The full M₃ generic/intersection formula and Alt M₃=(3/2) Alt[T] are specified
--- in the packet. They need the projective intersection/projection carrier API.
+-- TauCeti.Polylog.WeightThree.geometric_trilogarithm_comparison: not stated;
+-- needs the actual parent B₃ quotient and a native intersection/projection API.
+-- Existence of an isomorphism to every arbitrary rational module was false.
+-- The packet records the printed Alt M₃=(3/2) Alt[T] and the separate corrected
+-- r₆=−(1/5) Alt[T]. Their full explicit-quotient adapter is still required.
 
 /-- Native vector-configuration duality, not a second Grassmannian definition. -/
 def configurationDual (q m : ℕ) (hq : 0 < q) (hqm : q < m) :
@@ -432,6 +429,9 @@ section Homology
 variable (F : Type) [Field F] [Infinite F]
 private abbrev HGL (n k : ℕ) :=
   groupHomology (Rep.trivial ℚ (Matrix.GeneralLinearGroup (Fin n) F) ℚ) k
+-- This type prototype must be specialized to the parent Γ and constrained by
+-- the actual configuration edge construction. Its type and zero test alone
+-- also admit a zero map, and do not validate the planned comparison.
 variable (Gamma : CochainComplex (ModuleCat ℚ) ℕ)
 
 def configurationComparison (n i : ℕ) (hn : 3 ≤ n) (hi : 1 ≤ i ∧ i ≤ 3) :
@@ -451,7 +451,7 @@ example (n i : ℕ) (hn : 3 ≤ n) (hi : 1 ≤ i ∧ i ≤ 3) :
     configurationComparison F Gamma n i hn hi 0 = 0 := by sorry
 /-- Test `TauCeti.Polylog.WeightThree.configurationComparison_degree2`. -/
 example (n : ℕ) (hn : 3 ≤ n) : HGL F n 4 →ₗ[ℚ] Gamma.homology 2 :=
-  by sorry
+  configurationComparison F Gamma n 2 hn ⟨by omega, by omega⟩
 -- Test `TauCeti.Polylog.WeightThree.configurationComparison_stableFixture`:
 -- not stated; needs the same block-stabilization and cycle-to-homology interface.
 -- TauCeti.Polylog.WeightThree.rank_two_vanishing: not stated; needs the
@@ -470,7 +470,9 @@ private def steinbergSpan : Submodule ℚ (⋀[ℚ]^3 (UnitsQ F)) :=
   Submodule.span ℚ {v | ∃ x y : F, x ≠ 0 ∧ x ≠ 1 ∧ y ≠ 0 ∧
     v = wedge (unitClass (1-x)) (unitClass x) (unitClass y)}
 
-theorem steinberg_boundary_image : LinearMap.range d2 = steinbergSpan (F := F) := by sorry
+-- TauCeti.Polylog.WeightThree.steinberg_boundary_image: not stated; requires
+-- the generating parent B₂ symbol and d₂([x]⊗u(y))=(1−x)∧x∧y law.
+-- An arbitrary linear map d₂, in particular zero, has no such range equality.
 -- The kernel equality with Milnor symbols is the imported T.2 presentation;
 -- no new Milnor K-group or new H³Γ equivalence is defined here.
 
@@ -512,74 +514,31 @@ example (d : ℚ) (v : ⋀[ℚ]^3 (UnitsQ F)) :
 -- category and its residue-at-infinity map. The condition is not a fake Prop field.
 end Milnor
 
-section RealRegulator
-variable {B3C : Type} [AddCommGroup B3C] [Module ℚ B3C]
-variable (gen3C : ℂ → B3C) (L3 : ℂ → ℝ)
-
-def trilogDescent (L3 : ℂ → ℝ) : B3C →ₗ[ℚ] ℝ := by sorry
-
-theorem trilogDescent_mk (z : ℂ) : trilogDescent (B3C := B3C) L3 (gen3C z) = L3 z := by sorry
-
-theorem trilogDescent_sum (s : ℂ →₀ ℚ) :
-    trilogDescent (B3C := B3C) L3 (Finsupp.linearCombination ℚ gen3C s) =
-      Finsupp.linearCombination ℚ L3 s := by sorry
-
-variable (conjugateB3 : B3C →ₗ[ℚ] B3C)
-theorem trilogDescent_conj (z : B3C) :
-    trilogDescent L3 (conjugateB3 z) = trilogDescent (B3C := B3C) L3 z := by sorry
-
-variable {F : Type} [Field F]
-variable {B3F M : Type} [AddCommGroup B3F] [Module ℚ B3F] [AddCommGroup M] [Module ℚ M]
-variable (delta3 : B3F →ₗ[ℚ] M)
-/-- `B3sigma` is the parent B₃ map attached to the embedding, not an arbitrary map. -/
-def trilogRegulatorAt (B3sigma : B3F →ₗ[ℚ] B3C) : LinearMap.ker delta3 →ₗ[ℚ] ℝ :=
-  (trilogDescent (B3C := B3C) L3).comp (B3sigma.comp (LinearMap.ker delta3).subtype)
-
--- TauCeti.Polylog.WeightThree.trilogRegulatorAt_conj: not stated; needs the
--- canonical B₃ maps for sigma and starRingEnd C composed with sigma.
-
-/-- Test `TauCeti.Polylog.WeightThree.trilogDescent_zero`. -/
-example : trilogDescent (B3C := B3C) L3 (gen3C 0) = 0 := by sorry
-/-- Test `TauCeti.Polylog.WeightThree.trilogDescent_one`. -/
-example : trilogDescent (B3C := B3C) L3 (gen3C 1) = (riemannZeta (3 : ℂ)).re ∧
-    0 < (riemannZeta (3 : ℂ)).re := by sorry
-/-- Test `TauCeti.Polylog.WeightThree.geometric_triangle_nonzero`. -/
-example : trilogDescent (B3C := B3C) L3
-    (geometricM3 ℂ gen3C (geometricTriangle ℂ 1)) = (riemannZeta (3 : ℂ)).re := by sorry
-/-- Test `TauCeti.Polylog.WeightThree.trilogDescent_minusOne`. -/
-example : trilogDescent (B3C := B3C) L3 (gen3C (-1)) = -(3/4 : ℝ) * (riemannZeta (3 : ℂ)).re := by sorry
-
-theorem trilogarithm_functional_relations (a b c : ℂ) (h : admissible a b c)
-    (x : ℂ) (hx : x ≠ 0) :
-    Finsupp.linearCombination ℚ L3 (relation22 a b c) = 0 ∧
-    L3 x = L3 x⁻¹ ∧ L3 x + L3 (1-x) + L3 (1-x⁻¹) = L3 1 := by sorry
-
+-- The following actual-parent signatures cannot yet be stated faithfully.
+-- TauCeti.Polylog.WeightThree.trilogDescent: not stated; requires the parent
+-- explicit B₃(C) quotient, the actual single-valued L₃, and kernel inclusion
+-- for its linearCombination map. Arbitrary L₃ and gen3C cannot descend.
+-- TauCeti.Polylog.WeightThree.trilogDescent_mk: not stated; same interfaces.
+-- TauCeti.Polylog.WeightThree.trilogDescent_sum: not stated; same interfaces.
+-- TauCeti.Polylog.WeightThree.trilogDescent_conj: not stated; actual conjugation.
+-- TauCeti.Polylog.WeightThree.trilogRegulatorAt: not stated; needs the actual
+-- B₃ embedding map, δ₃ and descended functional, not an arbitrary linear map.
+-- TauCeti.Polylog.WeightThree.trilogRegulatorAt_conj: not stated; same maps.
+-- Test TauCeti.Polylog.WeightThree.trilogDescent_zero: not stated; L₃(0)=0.
+-- Test TauCeti.Polylog.WeightThree.trilogDescent_one: not stated; L₃(1)=ζ(3)>0.
+-- Test TauCeti.Polylog.WeightThree.trilogDescent_minusOne: not stated;
+-- L₃(−1)=−3ζ(3)/4 for the actual function.
+-- TauCeti.Polylog.WeightThree.trilogarithm_functional_relations: not stated;
+-- requires that actual function and the source's continuity hypotheses.
 -- TauCeti.Polylog.WeightThree.configuration_borel_class: not stated;
--- needs the measurable configuration-cohomology carrier and its continuous
--- comparison, with the conjugation-even primitive Borel line singled out.
+-- needs measurable configuration cohomology and its continuous comparison.
 -- TauCeti.Polylog.WeightThree.rational_regulator_calibration: not stated;
--- needs R.7's exact comparison between the original Borel class and R.4's
--- Tate-generator coordinates. The scaling is pi^2 times a nonzero rational.
+-- needs R.7's original-class/Tate-coordinate adapter, π² times a nonzero rational.
 -- TauCeti.Polylog.WeightThree.regulator_image_containment: not stated;
--- needs the supplier rational K₅ module and its R.4 regulator map.
-end RealRegulator
-
-section NumberField
-variable (F : Type) [Field F] [NumberField F]
-variable {B3 M : Type} [AddCommGroup B3] [Module ℚ B3] [AddCommGroup M] [Module ℚ M]
-variable (delta3 : B3 →ₗ[ℚ] M)
-/- Rows select all real embeddings and one from each complex pair. `regAt` is
-exactly the preceding L₃ pullback on the actual parent cycles. -/
-variable (regAt : (F →+* ℂ) → LinearMap.ker delta3 →ₗ[ℚ] ℝ)
-variable (places : Fin (NumberField.InfinitePlace.nrRealPlaces F + NumberField.InfinitePlace.nrComplexPlaces F) ≃ NumberField.InfinitePlace F)
-
-/-- An enumeration of native infinite places selects exactly one embedding per
-place; equal conjugate L₃ coordinates make the representative choice immaterial. -/
-theorem every_family_special_value
-    (z : Fin (NumberField.InfinitePlace.nrRealPlaces F + NumberField.InfinitePlace.nrComplexPlaces F) → LinearMap.ker delta3) :
-    ∃ q : ℚ, Matrix.det (fun i j => regAt ((places i).embedding) (z j)) =
-      (q : ℝ) * Real.sqrt |(NumberField.discr F : ℝ)| *
-      Real.pi ^ (-(3 * (NumberField.InfinitePlace.nrComplexPlaces F : ℤ))) *
-      (NumberField.dedekindZeta F (3 : ℂ)).re := by sorry
-end NumberField
+-- needs actual K₅ and the R.4 regulator, and the cycle-lifting construction.
+-- TauCeti.Polylog.WeightThree.every_family_special_value: not stated; requires
+-- the actual L₃ regulator on parent cycles and the lifting/calibration suppliers.
+-- For arbitrary regAt the removed determinant statement was false. The intended
+-- equality is det=q sqrt|D_F| π^(−3r₂) ζ_F(3), allowing q=0, with native infinite
+-- places and native NumberField.discr/dedekindZeta as specified in the packet.
 end TauCeti.Polylog.WeightThree
