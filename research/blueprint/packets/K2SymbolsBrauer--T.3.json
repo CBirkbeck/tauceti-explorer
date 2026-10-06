@@ -1455,7 +1455,7 @@
     "∂{π, π} = −1 in both normalisations.",
     "Degree one: ∂[f] = ord_v(f)·[k], the valuation; this normalisation is the upstream K.3 ring boundary contract.",
     "No second localisation sequence is built.",
-    "The degree-one input is the K.3 ring cone/cokernel contract; K.7 supplies the RIGHT module action. Neither input is requested from downstream S.3."
+    "The degree-one input is the K.3 ring cone/cokernel boundary (K.3/localization-degree-one-index and K.3/dvr-degree-one-boundary); the RIGHT module action is K.3/localization-product-boundary on K.7's products. Neither input is requested from downstream S.3."
    ],
    "prerequisites": [
     "K2SymbolsBrauer:T.3/tame-symbol-hom",

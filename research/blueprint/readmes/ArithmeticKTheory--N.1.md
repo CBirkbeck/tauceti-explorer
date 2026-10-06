@@ -1339,7 +1339,7 @@ Let F be a number field and S a finite set of finite primes of 𝓞_F. Then K_n(
 
 `ArithmeticKTheory:N.3:finite-generation/rank-filtration` — construction
 
-Let A be a Dedekind domain with fraction field F, P(A) the exact category of finitely generated projective A-modules and Q = Q(P(A)) its Q-construction (GeneralAlgebraicKTheory K.1: a morphism M → N is an admissible subobject N₂ ↣ N with an admissible epimorphism N₂ ↠ M, i.e. an isomorphism of M with an admissible subquotient N₂/N₁ of N). For P ∈ P(A) put rank P = dim_F(P ⊗_A F). For m ≥ 0 let Q_m ⊂ Q be the full subcategory on the modules of rank ≤ m. Then: (a) a morphism M → N of Q has rank M ≤ rank N, with equality only when it is an isomorphism; hence Q_{m−1} ⊂ Q_m is fully faithful and Q_m has no morphism from an object of rank m to an object of Q_{m−1} (the inclusion is cellular in the sense of Kahn, Definition 2.3.2); (b) the full subcategory Q_m − Q_{m−1} of the objects of rank exactly m is a groupoid, equivalent to the disjoint union over the isomorphism classes [P] of rank-m projectives of the one-object groupoids Aut_A(P); (c) Q is the union of the Q_m, so the nerve of Q is the union of the nerves of the Q_m and H_*(BQ) = colim_m H_*(BQ_m); (d) Q_0 has one object, 0, and only its identity, so BQ_0 is a point; (e) if Pic(A) is finite, each rank m ≥ 1 has exactly #Pic(A) isomorphism classes of projectives (Steinitz: P ≅ A^{m−1} ⊕ I, determined by rank and det P ∈ Pic(A)).
+Let A be a Dedekind domain with fraction field F, P(A) the exact category of finitely generated projective A-modules and Q = Q(P(A)) its Q-construction (GeneralAlgebraicKTheory K.1: a morphism M → N is an admissible subobject N₂ ↣ N with an admissible epimorphism N₂ ↠ M, i.e. an isomorphism of M with an admissible subquotient N₂/N₁ of N). For P ∈ P(A) put rank P = dim_F(P ⊗_A F). For m ≥ 0 let Q_m ⊂ Q be the full subcategory on the modules of rank ≤ m. Then: (a) a morphism M → N of Q has rank M ≤ rank N, with equality only when it is an isomorphism; hence, for m ≥ 1, Q_{m−1} ⊂ Q_m is fully faithful and Q_m has no morphism from an object of rank m to an object of Q_{m−1} (the inclusion is cellular in the sense of Kahn, Definition 2.3.2); (b) for m ≥ 1 the full subcategory Q_m − Q_{m−1} of the objects of rank exactly m is a groupoid, equivalent to the disjoint union over the isomorphism classes [P] of rank-m projectives of the one-object groupoids Aut_A(P); (c) Q is the union of the Q_m, so the nerve of Q is the union of the nerves of the Q_m and H_*(BQ) = colim_m H_*(BQ_m); (d) every object of Q_0 is a zero module and there is exactly one morphism between any two, so Q_0 is equivalent to the terminal category and BQ_0 is contractible; (e) if Pic(A) is finite, each rank m ≥ 1 has exactly #Pic(A) isomorphism classes of projectives (Steinitz: P ≅ A^{m−1} ⊕ I, determined by rank and det P ∈ Pic(A)).
 
 **realises**
 
@@ -1350,6 +1350,7 @@ Let A be a Dedekind domain with fraction field F, P(A) the exact category of fin
 - A is a Dedekind domain with fraction field F; P(A) carries its split exact structure (all short exact sequences of projectives), imported as GeneralAlgebraicKTheory K.2's P(R) = finiteProjectiveModules.
 - Rank is additive on short exact sequences of projectives and a finitely generated projective module of rank zero over a domain is zero; these two facts give (a).
 - The filtration is taken on P(A), not on all finitely generated modules: in Q(M(A)) the rank-zero objects are the torsion modules and Q_0 is not a point (see the non-example test).
+- Rank strata Q_m − Q_{m−1} and their cellular inclusions use m ≥ 1. Q_0 is equivalent to the terminal category; it is literally the one-object category only after choosing a skeleton with one zero object. Natural-number subtraction must not turn the m = 0 stratum into Q_0 − Q_0.
 
 **proofSteps**
 
@@ -1357,7 +1358,7 @@ Let A be a Dedekind domain with fraction field F, P(A) the exact category of fin
 - (a) If M ≅ N₂/N₁ with N₁ ↣ N₂ ↣ N admissible, rank M = rank N₂ − rank N₁ ≤ rank N₂ ≤ rank N. Equality forces rank N₁ = 0 and rank N/N₂ = 0, so N₁ = 0 and N₂ = N (projectives of rank zero vanish), and the morphism is the image of an isomorphism M ≅ N of P(A), an isomorphism of Q (K.1: the isomorphisms of Q(A) are those of A).
 - Cellularity: Q_{m−1} ⊂ Q_m is full by definition, and a morphism from an object of rank m to one of rank < m would contradict (a).
 - (b) By (a) every morphism between objects of rank m is an isomorphism; choosing one object in each isomorphism class gives the equivalence with ⊔_{[P]} Aut_A(P).
-- (c) Every simplex of the nerve of Q involves finitely many objects, hence lies in the nerve of some Q_m; homology of simplicial sets commutes with this filtered union (StableHomotopyKTheory H.1).
+- (d) Every rank-zero projective over the domain A is a zero module; each admissible layer of a zero module is zero, giving a unique Q-morphism between any two such objects. Inclusion of a chosen zero object is therefore an equivalence from the terminal category to Q_0.
 - (d) A morphism 0 → 0 is an admissible subquotient of 0, so it is the identity.
 - (e) Steinitz's classification (KTheoryLowDegrees Z.4/steinitz and Z.4/projective-classification).
 
@@ -1380,17 +1381,17 @@ Let A be a Dedekind domain with fraction field F, P(A) the exact category of fin
 - **name:** QCat.rankFiltration; **role:** data; **statement:** For a Dedekind domain A and m : ℕ, the full subcategory Q_m of QCat (P(A)) on the modules of rank ≤ m.
 - **name:** QCat.rankFiltration_mono; **role:** structure; **statement:** m ≤ m' → Q_m ⊆ Q_{m'}.
 - **name:** QCat.rank_le_of_hom; **role:** characterisation; **statement:** For a morphism M ⟶ N of QCat (P(A)), rank M ≤ rank N, and if rank M = rank N the morphism is an isomorphism.
-- **name:** QCat.rankFiltration_cellular; **role:** other; **statement:** The inclusion Q_{m−1} ⥤ Q_m is fully faithful and there is no morphism from an object of rank m to an object of Q_{m−1}.
-- **name:** QCat.rankStratum; **role:** data; **statement:** Q_m − Q_{m−1}, the full subcategory on the objects of rank exactly m, as a groupoid.
-- **name:** QCat.rankStratumEquiv; **role:** equivalence; **statement:** Q_m − Q_{m−1} is equivalent to the disjoint union, over the isomorphism classes [P] of rank-m projectives, of the one-object groupoids of Aut_A(P).
+- **name:** QCat.rankFiltration_cellular; **role:** other; **statement:** For m ≥ 1: The inclusion Q_{m−1} ⥤ Q_m is fully faithful and there is no morphism from an object of rank m to an object of Q_{m−1}.
+- **name:** QCat.rankStratum; **role:** data; **statement:** For m ≥ 1: Q_m − Q_{m−1}, the full subcategory on the objects of rank exactly m, as a groupoid.
+- **name:** QCat.rankStratumEquiv; **role:** equivalence; **statement:** For m ≥ 1: Q_m − Q_{m−1} is equivalent to the disjoint union, over the isomorphism classes [P] of rank-m projectives, of the one-object groupoids of Aut_A(P).
 - **name:** QCat.iSup_rankFiltration; **role:** characterisation; **statement:** Q = ⋃_m Q_m; the nerve of Q is the union of the nerves of the Q_m.
-- **name:** QCat.rankFiltration_zero; **role:** simp; **statement:** Q_0 is the category with the single object 0 and its identity.
+- **name:** QCat.rankFiltration_zero; **role:** simp; **statement:** Q_0 is equivalent to the terminal category (and its classifying space is contractible); no equality of all rank-zero objects is required.
 - **name:** QCat.finite_rankStratum_classes; **role:** other; **statement:** If Pic(A) is finite, for m ≥ 1 the rank-m stratum has exactly Nat.card (ClassGroup A) isomorphism classes.
 
 **tests**
 
-- **name:** rankFiltration_zero_isPoint; **kind:** degenerate; **statement:** Q_0 (P(A)) is the one-object one-morphism category, for every Dedekind domain A.
-- **name:** rankStratum_int; **kind:** computation; **statement:** For A = ℤ the stratum Q_m − Q_{m−1} is equivalent to the one-object groupoid of GL_m(ℤ): one isomorphism class, ℤ^m.
+- **name:** rankFiltration_zero_isPoint; **kind:** degenerate; **statement:** Q_0(P(A)) is equivalent to the terminal category for every Dedekind domain A, even when the chosen exact-category model contains distinct isomorphic zero objects.
+- **name:** rankStratum_int; **kind:** computation; **statement:** For A = ℤ and m ≥ 1 the stratum Q_m − Q_{m−1} is equivalent to the one-object groupoid of GL_m(ℤ): one isomorphism class, ℤ^m.
 - **name:** rankStratum_one_sqrt_neg_five; **kind:** computation; **statement:** For A = 𝓞 of ℚ(√−5) the rank-one stratum has two isomorphism classes (Pic(A) ≅ ℤ/2), each with automorphism group {±1}.
 - **name:** rankFiltration_allModules_not_cellular; **kind:** non-example; **statement:** On Q(M(A)) for all finitely generated A-modules the rank-zero part contains every torsion module, e.g. A/𝔭, so it is not a point; the construction must be made on P(A) (equivalently on torsion-free modules, Kahn 4.2.7).
 - **name:** rank_le_of_hom_zero; **kind:** characterisation; **statement:** For every P, the morphisms 0 → P of Q(P(A)) are the admissible subobjects of P (K.1's QCat.hom_zero), and rank 0 ≤ rank P.
