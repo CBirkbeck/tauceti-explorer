@@ -58,6 +58,19 @@ lemma rescale (e : (R ⊗[H] M) →ₗ[R] R) (hunit : ∃ x, e x = 1)
     trivialization ((u : R) • e) hu x = (u : R) * trivialization e hunit x := by
   sorry
 
+/-- Evaluation-compatible semilinear maps preserve the normalized fibre coordinates.
+For field pullback, HB.7 must supply the actual map u and the equality heval. -/
+lemma naturality
+    {H' S N : Type*} [CommRing H'] [CommRing S] [Algebra H' S]
+    [AddCommGroup N] [Module H' N] [Module.Invertible H' N]
+    (f : R →+* S)
+    (e : (R ⊗[H] M) →ₗ[R] R) (hunit : ∃ x, e x = 1)
+    (e' : (S ⊗[H'] N) →ₗ[S] S) (hunit' : ∃ x, e' x = 1)
+    (u : (R ⊗[H] M) →ₛₗ[f] (S ⊗[H'] N))
+    (heval : ∀ x, e' (u x) = f (e x)) (x : R ⊗[H] M) :
+    trivialization e' hunit' (u x) = f (trivialization e hunit x) := by
+  sorry
+
 end OrderOneFibre
 
 namespace OrderOneFibreTests
