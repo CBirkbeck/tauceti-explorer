@@ -37446,7 +37446,8 @@
     "REV-KTheoryLowDegrees--Z.3~2"
    ],
    "prompt": "research/blueprint/prompts/ASM-KTheoryLowDegrees.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #243"
   },
   {
    "id": "ASM-LefschetzPencilsAndVanishingCycles",
@@ -37787,7 +37788,8 @@
     "REV-WeilConjectures--WC.6"
    ],
    "prompt": "research/blueprint/prompts/ASM-WeilConjectures.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #262"
   },
   {
    "id": "ASM-DrinfeldModulesAndTModules",
