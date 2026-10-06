@@ -23629,9 +23629,10 @@
     "REV-RS-05"
    ],
    "prompt": "research/blueprint/prompts/BP-DiamondEtaleCohomology--C8.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #710"
+   "note": "deliverables arrived from an external worker on issue #710",
+   "finishedAt": "2026-10-06T22:18:32Z"
   },
   {
    "id": "REV-DiamondEtaleCohomology--C8",
@@ -26054,8 +26055,9 @@
     "REV-RS-23"
    ],
    "prompt": "research/blueprint/prompts/BP-HilbertModularVarietiesAndShimuraCurves--R18.2.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "external",
+   "suppliers": [],
+   "note": "claimed on GitHub issue #754"
   },
   {
    "id": "REV-HilbertModularVarietiesAndShimuraCurves--R18.2",
