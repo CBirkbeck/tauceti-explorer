@@ -37497,7 +37497,8 @@
     "REV-LefschetzPencilsAndVanishingCycles--LPV.7"
    ],
    "prompt": "research/blueprint/prompts/ASM-LefschetzPencilsAndVanishingCycles.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #244"
   },
   {
    "id": "ASM-MetaplecticAutomorphicForms",
@@ -60807,7 +60808,8 @@
     "FIX-RT-AREA-iwasawa-2"
    ],
    "prompt": "research/blueprint/prompts/FIX-RT-AREA-iwasawa-2~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6218"
   },
   {
    "id": "REV-FIX-RT-AREA-iwasawa-2~2",
