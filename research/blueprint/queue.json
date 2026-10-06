@@ -29505,7 +29505,8 @@
    ],
    "avoidAccountOf": "BP-WeilConjectures--WC.6",
    "prompt": "research/blueprint/prompts/REV-WeilConjectures--WC.6.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #504"
   },
   {
    "id": "BP-ComplexMultiplicationAndExplicitReciprocity",
@@ -29533,7 +29534,7 @@
     "REV-RS-04"
    ],
    "prompt": "research/blueprint/prompts/BP-ComplexMultiplicationAndExplicitReciprocity.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [
     "BP-AbelianSchemesAndArithmeticModuli",
     "BP-ArithmeticGaloisRepresentations",
@@ -29547,7 +29548,8 @@
     "BP-ShimuraVarieties--V0",
     "BP-ShimuraVarieties--V8"
    ],
-   "note": "claimed on GitHub issue #1007"
+   "note": "deliverables arrived from an external worker on issue #1007",
+   "finishedAt": "2026-10-06T09:17:28Z"
   },
   {
    "id": "REV-ComplexMultiplicationAndExplicitReciprocity",
@@ -30503,14 +30505,14 @@
     "REV-RS-10~2"
    ],
    "prompt": "research/blueprint/prompts/BP-ArithmeticQuantumTopology.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-FoundationsAndLibraryIntegration",
     "BP-HabiroCyclotomicCompletions",
     "BP-HabiroNahmSeries",
     "BP-K3BlochGroups"
    ],
-   "note": "released on GitHub issue #1024"
+   "note": "claimed on GitHub issue #1024"
   },
   {
    "id": "REV-ArithmeticQuantumTopology",
@@ -37147,7 +37149,8 @@
     "REV-HabiroRings--HR.6"
    ],
    "prompt": "research/blueprint/prompts/ASM-HabiroRings.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6422"
   },
   {
    "id": "ASM-HeegnerPointEulerSystems",
