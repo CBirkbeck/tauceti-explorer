@@ -28798,9 +28798,10 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-ShimuraData.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #992"
+   "note": "deliverables arrived from an external worker on issue #992",
+   "finishedAt": "2026-10-06T09:34:49Z"
   },
   {
    "id": "REV-ShimuraData",
@@ -29507,8 +29508,9 @@
    ],
    "avoidAccountOf": "BP-WeilConjectures--WC.6",
    "prompt": "research/blueprint/prompts/REV-WeilConjectures--WC.6.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #504"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #504",
+   "finishedAt": "2026-10-06T09:34:51Z"
   },
   {
    "id": "BP-ComplexMultiplicationAndExplicitReciprocity",
@@ -29571,7 +29573,8 @@
    ],
    "avoidAccountOf": "BP-ComplexMultiplicationAndExplicitReciprocity",
    "prompt": "research/blueprint/prompts/REV-ComplexMultiplicationAndExplicitReciprocity.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #512"
   },
   {
    "id": "BP-DrinfeldModulesAndTModules--DM.0",
