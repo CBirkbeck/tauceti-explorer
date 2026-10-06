@@ -11,6 +11,8 @@ not yet implemented at the baseline. It does not assign new ownership to them.
 The completion is a compatible family of actual monic/factorial quotients;
 the gluing predicates are explicit equations of actual ring homomorphisms.
 No missing result is replaced by a Prop field or an assumed comparison.
+Independently reviewed by REV-HabiroNumberFields--HB.6 on 2026-10-06.
+Acceptance examples remain proposed statements, not proved unit tests.
 -/
 import Mathlib.RingTheory.AdjoinRoot
 import Mathlib.RingTheory.Polynomial.Cyclotomic.Expand
@@ -147,9 +149,6 @@ def mixedIdeal (m : ℕ+) : Ideal ℤ_[p][X] :=
 
 abbrev Mixed (m : ℕ+) := AdicCompletion (mixedIdeal p m) ℤ_[p][X]
 
-/-- HC.4's same Taylor map in multiplicative coordinates q=zeta_m(1-u). -/
-def multiplicativeTaylor : Naive R →+* TaylorProduct R := sorry
-
 /-- Concrete coordinate change, reusing Mathlib rescaling. -/
 def coordinateChange : TaylorProduct R ≃+* TaylorProduct R where
   toFun f m := PowerSeries.rescale (-(rootUnit R m : CycloCoeff R m)) (f m)
@@ -158,6 +157,11 @@ def coordinateChange : TaylorProduct R ≃+* TaylorProduct R where
   right_inv := by sorry
   map_add' := by sorry
   map_mul' := by sorry
+
+/-- HC.4/multiplicative-taylor-comparison is defined by this rescaling of HC.3,
+in coordinates q=zeta_m(1-u). No separate Taylor construction is assumed. -/
+def multiplicativeTaylor : Naive R →+* TaylorProduct R :=
+  (coordinateChange R).toRingHom.comp (taylorAll R)
 
 abbrev RationalRing (Δ : ℕ) := Localization.Away (Δ : ℤ)
 
@@ -250,6 +254,11 @@ example : (fun m : ℕ+ => if m = 1 then (1 : PowerSeries (CycloCoeff ℤ_[2] m)
 /-- Acceptance: ordinary ideal cofinality fails, even at the constant 2. -/
 example (n : ℕ) (hn : 0 < n) : ¬chainPoly ℤ_[2] 2 1 n ∣ C (2 : ℤ_[2]) := sorry
 
+/-- Acceptance: modulo (4,Phi_2), Phi_1^2 vanishes. The exponent a*E,
+rather than E alone, is needed when reducing modulo p^a. -/
+example : (X - 1 : ℤ_[2][X]) ^ 2 ∈
+    Ideal.span {C (4 : ℤ_[2]), cyclotomic 2 ℤ_[2]} := sorry
+
 section Coordinates
 variable (R : Type*) [CommRing R]
 
@@ -275,6 +284,17 @@ theorem additiveToMultiplicative_precision (f : TaylorProduct R) (N : ℕ) :
 
 /-- Acceptance: order 1 changes 1+x into 1-u, including its constant term. -/
 example : PowerSeries.rescale (-1 : R) (1 + PowerSeries.X) = 1 - PowerSeries.X := sorry
+
+/-- Acceptance: order 2 has zeta_2=-1, so additive x becomes multiplicative u. -/
+example : coordinateChange R (fun m => if m = 2 then PowerSeries.X else 0) 2 =
+    (PowerSeries.X : PowerSeries (CycloCoeff R 2)) := sorry
+
+/-- Acceptance: N=4 retains order-one coefficients 0,1,2 and discards 3.
+The full tuple is zero at every other order. -/
+example : ∀ (m : ℕ+) (k : ℕ), (m : ℕ) * (k + 1) < 4 →
+    PowerSeries.coeff k
+      ((fun n : ℕ+ => if n = 1 then
+        (PowerSeries.X ^ 3 : PowerSeries (CycloCoeff R n)) else 0) m) = 0 := sorry
 end Coordinates
 
 /-- HB.6/rational-gluing-image-criterion. Actual range and gluing predicates,
