@@ -21688,7 +21688,8 @@
    ],
    "avoidAccountOf": "BP-AlgebraicModularFormsAndSerreWeights",
    "prompt": "research/blueprint/prompts/REV-AlgebraicModularFormsAndSerreWeights.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #345"
   },
   {
    "id": "BP-AlgebraicModuliForArithmeticGeometry--A0-extension",
@@ -22824,8 +22825,9 @@
    ],
    "avoidAccountOf": "BP-ClassicalSerreModularity--R26.1",
    "prompt": "research/blueprint/prompts/REV-ClassicalSerreModularity--R26.1.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #369"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #369",
+   "finishedAt": "2026-10-06T07:52:00Z"
   },
   {
    "id": "BP-ClassicalSerreModularity--R27.3",
