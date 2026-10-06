@@ -24793,7 +24793,8 @@
    ],
    "avoidAccountOf": "BP-FarguesFontaineDiamonds",
    "prompt": "research/blueprint/prompts/REV-FarguesFontaineDiamonds.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #407"
   },
   {
    "id": "BP-FiniteFlatGroupsAndIntegralPadicHodgeTheory",
@@ -29524,7 +29525,7 @@
     "REV-RS-04"
    ],
    "prompt": "research/blueprint/prompts/BP-ComplexMultiplicationAndExplicitReciprocity.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-AbelianSchemesAndArithmeticModuli",
     "BP-ArithmeticGaloisRepresentations",
@@ -29537,7 +29538,8 @@
     "BP-ShimuraData",
     "BP-ShimuraVarieties--V0",
     "BP-ShimuraVarieties--V8"
-   ]
+   ],
+   "note": "claimed on GitHub issue #1007"
   },
   {
    "id": "REV-ComplexMultiplicationAndExplicitReciprocity",
@@ -35541,8 +35543,9 @@
    ],
    "revisionOf": "DESIGN-LV",
    "prompt": "research/blueprint/prompts/DESIGN-LV~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6377"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6377",
+   "finishedAt": "2026-10-06T07:34:32Z"
   },
   {
    "priority": 2,
