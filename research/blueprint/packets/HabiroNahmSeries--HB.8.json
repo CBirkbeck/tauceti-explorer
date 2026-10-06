@@ -57,7 +57,7 @@
         "ref": "mathlib:PowerSeries.log",
         "kind": "def",
         "module": "Mathlib/RingTheory/PowerSeries/Log.lean",
-        "provides": "The fixed power series log(1 + X) over a Q-algebra (line 50). The formal logarithm of a one-variable series f with constant term 1 is PowerSeries.logOf f (line 96, added separately); there is no multivariable formal logarithm.",
+        "provides": "The fixed power series log(1 + X) over a Q-algebra (line 50). Compose it with F-1 using PowerSeries.subst for the multivariable formal logarithm; this citation does not itself supply a multivariable log API.",
         "checked": "Declaration statement read in the source tree at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; not inferred from its name."
       },
       {
@@ -202,7 +202,7 @@
       "sources": [
         {
           "sourceId": "gswz",
-          "locator": "Proof of Theorem 6, equations (89)–(90), pp. 24–25",
+          "locator": "Proof of Theorem 6, equation (89), p. 25; compare (83)–(84), p. 24",
           "excerpt": "we claim that $G_j(t,q) \\in \\BZ[q^{\\pm 1}][\\![t]\\!]$",
           "match": "The source motivates the integral recursion; the signed-coordinate path repairs the omitted off-diagonal factor and covers negative entries."
         }
@@ -246,7 +246,7 @@
       "sources": [
         {
           "sourceId": "gswz",
-          "locator": "Proof of Theorem 6, equation (84), p. 24; compare (33), (89), (98) and (165)",
+          "locator": "Proof of Theorem 6, equation (83), p. 24; compare (33), (89), (98) and (165)",
           "excerpt": "G(t,q) \\= \\frac{F(qt,q)}{F(t,q)}",
           "match": "The finite orbit product is a proof refinement assembled from the source’s ratio and higher q-difference operators, not a separately stated source theorem."
         }
@@ -535,8 +535,8 @@
       ],
       "proofSteps": [
         "The coefficient at a nonzero n has leading term -L_n/(1-q^m); all other terms have ell>1 and therefore smaller total degree |n/ell|. Solve recursively, giving existence and uniqueness over Q((q)) and preserving Q(q) where applicable.",
-        "For integrality, use the restricted elementary factor E_{n,i}=exp(-sum_{gcd(ell,m)=1} q^{i ell}t^{ell n}/(ell(1-q^{m ell}))). Inclusion-exclusion expresses it as product_{d|m}(q^{di}t^{dn};q^{dm})_infinity^{mu(d)/d}. The rational powers have denominators supported on primes dividing m, and hence coefficients in Z[1/m]((q)).",
-        "Eliminate the coefficients of F in increasing total degree by products of these factors. For each fixed n, its leading coefficient is -q^i/(1-q^m); multiplying by 1-q^m reduces the choice to the unique Laurent expansion in q. Lower q-bounds and the q-adic completion justify each fixed-degree infinite product.",
+        "For integrality, use E_{n,i}=exp(-sum_{gcd(ell,m)=1} q^{i ell}t^{ell n}/(ell(1-q^{m ell}))). Inclusion-exclusion expresses it as product_{d|m}(q^{di}t^{dn};q^{dm})_infinity^{mu(d)/d}. More generally E_{n,i}^c has exponents c mu(d)/d for c in Z[1/m]. For any alpha in Z[1/m], every binomial coefficient binom(alpha,r) lies in Z[1/m]: at each prime p not dividing m, approximate alpha by an integer modulo a sufficiently high power of p and use the integer-valued binomial polynomial. Thus these powers have coefficients in Z[1/m]((q)).",
+        "Eliminate coefficients of F in increasing total degree. At nonzero n, let a_n(q) be the residual coefficient and expand -(1-q^m)a_n(q)=sum_i c_i q^i with c_i in Z[1/m] and i bounded below. The product over i of E_{n,i}^{c_i} has leading coefficient a_n(q); divide the residual F by this product. The q-adic limit exists at each fixed t-degree because i tends to infinity; negative i occur only finitely. The outer product is t-adic. The degree-|n| correction uniquely fixes L_n=sum_i c_i q^i. This uses arbitrary Z[1/m] powers, not only integer powers.",
         "The argument never chooses a distinguished nonzero coordinate of n, so it applies to mixed monomials and the axes alike. Generic product existence is imported from the parent and Mathlib, not replanned."
       ],
       "acceptance": [
@@ -592,6 +592,11 @@
           "name": "HabiroNahmSeries.HB8Refinement.restrictedCoeffs_one",
           "role": "compatibility",
           "statement": "At m=1 it is the ordinary rational plethystic coefficient family of the imported admissible-series definition."
+        },
+        {
+          "name": "HabiroNahmSeries.HB8Refinement.restrictedCoeffs_mul",
+          "role": "relation",
+          "statement": "For constant-one F and G and m>=1, restrictedCoeffs(m,F G)=restrictedCoeffs(m,F)+restrictedCoeffs(m,G), pointwise. This follows from log(F G)=log F+log G and uniqueness, and makes the normalized transform a group homomorphism."
         }
       ],
       "tests": [
@@ -637,8 +642,9 @@
       "kind": "comparison",
       "statement": "Let q=zeta_m exp(h), u a formal variable, k an integer, and P=(q^{k+1}u exp(w);q)_infinity interpreted by the Bernoulli expansion (59). A local remainder which removes h^{-1}w^0, h^{-1}w^1, h^{-1}w^2 and h^0w^0 must have log psi=log P-Li_2(u^m)/(m^2 h)-Li_1(u^m)w/(m h)-Li_0(u^m)w^2/(2h)+sum_{s=0}^{m-1}((k+s+1)/m-1/2)log(1-zeta_m^{k+s+1}u). Its remaining terms belong to the augmentation ideal in the completion generated by w, h and w^3/h. This repairs the local normalization of (114); propagating it through the global prefactor (118) is recorded as gap G1.",
       "hypotheses": [
-        "The number of variables N is finite; A is symmetric with entries in Z. No positivity or nonnegative-entry assumption is used.",
-        "All expansions are coefficientwise in t, in the augmentation topology."
+        "m>=1, zeta_m is primitive of order m, k is an integer representative, and q=zeta_m exp(h).",
+        "u and w are formal variables; use the Pochhammer Bernoulli expansion, not an analytic infinite product at a root of unity. After the four subtractions the coefficients lie in Q(u,zeta_m).",
+        "The remainder is in the positive-weight augmentation completion generated by w,h,w^3/h, with weight(h)=1 and weight(w)=1/2. This is a local normalization independent of the symmetric matrix A."
       ],
       "proofSteps": [
         "Apply (59) after splitting P into m Pochhammer factors with base q^m. The h^{-1} term is Li_2(u^m exp(mw))/(m^2 h), by the imported polylogarithm distribution identity.",
@@ -706,13 +712,13 @@
       "sources": [
         {
           "sourceId": "gswz",
-          "locator": "Lemma 2.15, equations (137)–(139), p. 33",
+          "locator": "Lemma 2.15, equations (137)–(139), p. 32",
           "excerpt": "a simple change of coordinates",
           "match": "The source-specific affine calculation, now traced to the two original sources."
         },
         {
           "sourceId": "gsw",
-          "locator": "Lemma 3.1(b), equation (23); Lemma 3.2, equation (25), pp. 10–11",
+          "locator": "Lemma 3.1(b), equation (23); Lemma 3.2, equation (25), p. 10",
           "excerpt": "Part (b) follows from the fact the integration is unchanged under an affine change of",
           "match": "The exact affine Gaussian rule, read directly in the cited original."
         },
@@ -1048,7 +1054,7 @@
       "sources": [
         {
           "sourceId": "gswz",
-          "locator": "Theorem 6 and equations (87)–(92), pp. 24–25",
+          "locator": "Theorem 6 and equations (81)–(89), pp. 24–25",
           "excerpt": "have finite support, i.e. for fixed $n$ all but finitely many $i$ satisfy $c_{n,i}=0$.",
           "match": "The exact theorem, with the simultaneous coordinate induction and complete proper-divisor residue sum supplied."
         },
@@ -1119,7 +1125,7 @@
       "source": "gswz",
       "kind": "error",
       "locator": "Equation (114) and the sentence after it, p. 29, arXiv:2412.04241v2 (PDF and TeX both inspected)",
-      "printed": "The subtractions have coefficients Li_1(z^m)/(m^2 h) and Li_0(z^m)/(m^2 h); the added constant is sum_s(1/2-(k+s+1)/m) log(1-zeta_m^{k+s+1}z), and the remainder is asserted to lie in 1+x Q(z,zeta_m)[[w,w^3 x^{-1},x]].",
+      "printed": "Literal fragments of (114): \"-\\frac{\\Li_{1}(z^{m})}{m^2\\log(1+x/\\z_m)} w\"; \"-\\frac{\\Li_{0}(z^{m})}{m^2\\log(1+x/\\z_m)}w^2\"; \"\\big(\\frac{1}{2}-\\frac{k+\\ell+1}{m}\\big)\\log(1-\\z_m^{k+\\ell+1}z)\". The following sentence states \"\\psi_{k,z,\\z_m}(w,x)\\in1+x\\BQ(z,\\z_m)[\\![w,w^3x^{-1},x]\\!]\".",
       "correction": "For the printed argument z exp(w), the linear and quadratic subtractions are Li_1(z^m)w/(m h) and Li_0(z^m)w^2/(2h); the constant added to remove the h^0w^0 term has the opposite sign. The normalized remainder lies in the unit group of the augmentation completion generated by w,h,w^3/h, rather than in 1+x times the full completion. Global prefactors must be reconciled before asserting Theorem 8 for this repaired factor.",
       "reason": "The leading term of log P is Li_2(z^m exp(mw))/(m^2 h), from (59) and polylogarithm distribution. Its Taylor coefficients give the stated linear/quadratic factors. At m=1,k=0 the printed log remainder has h^{-1}w^2 coefficient -Li_0(z)/2 and h^0w^0 coefficient -log(1-z), contrary to the stated four-term removal; the cubic h^{-1}w^3 term also disproves the claimed x-divisibility.",
       "affects": "a stated result",
@@ -1127,8 +1133,14 @@
       "searched": [
         "arXiv abstract/version history: v2 remains latest on 2026-10-06; no journal reference or corrigendum listed",
         "Don Zagier author publication page and MPIM preprint record; searched the title with errata/corrigendum",
-        "GSW arXiv:2305.14884v2, equation (28), has the one-half quadratic normalization; the accepted HabiroNahmSeries packet has no correction of (114)"
-      ]
+        "GSW arXiv:2305.14884v2, equation (28), has the one-half quadratic normalization; the accepted HabiroNahmSeries packet has no correction of (114)",
+        "Independent review on 2026-10-06: https://arxiv.org/abs/2412.04241, https://people.mpim-bonn.mpg.de/scholze/papers.html and https://archive.mpim-bonn.mpg.de/id/eprint/5146/; no later arXiv version or separate correction listed."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently read the v2 PDF p. 29 and the matching TeX. Splitting the Pochhammer product modulo m and applying (59) yields leading log term Li_2(u^m exp(mw))/(m^2 h), whose linear and quadratic Taylor coefficients are Li_1(u^m)/(m h) and Li_0(u^m)/(2h). The Bernoulli B_1 term fixes the opposite constant sign. At m=1,k=0 the printed quadratic remainder is -Li_0(u)/(2h) times w^2 and the constant remainder is -log(1-u). After repairing them, the nonzero w^3/h term still refutes membership in 1+x times the stated ring: that ring has no element w^3/x^2. These establish only the local normalization/completion error, not a counterexample to the global Gaussian theorem. No public correction was found in the recorded version and author searches.",
+        "by": "REV-HabiroNahmSeries--HB.8"
+      }
     }
   ],
   "sourceVersions": [
@@ -1248,5 +1260,88 @@
       "gap": "Multivariable level-m decomposition",
       "result": "Supplied by refinement-restricted-adams, including total-degree induction, q-adic product justification, API and mixed-monomial tests."
     }
-  ]
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-HabiroNahmSeries--HB.8",
+    "date": "2026-10-06",
+    "notes": "Independent target-level review of all 15 nodes, all 13 pinned baseline declarations, source locators/excerpts and hashes, 21 imported prerequisite suppliers, stage targets, audit/ownership, construction APIs/tests and prototype signatures. Corrected four node source locators, the local Gaussian hypotheses, stale baseline prose and the restricted integrality argument; added restrictedCoeffs_mul and confirmed EHB8-1 with literal source evidence. Complete means a finished planning pass; HB.8 remains planned with G1-G3, not closed. Every implementation remains unchecked. No node or baseline citation was removed, and no new node was needed.",
+    "checked": [
+      {
+        "nodeId": "HabiroNahmSeries:HB.8/refinement-signed-shifts",
+        "verdict": "corrected",
+        "note": "Verified simultaneous total-degree induction and signed inverse telescoping, including negative entries. Corrected the source locator: the matrix equation is (89) on p. 25; (90) belongs to Lemma 2.7."
+      },
+      {
+        "nodeId": "HabiroNahmSeries:HB.8/refinement-orbit-ratio",
+        "verdict": "corrected",
+        "note": "Verified finite-product telescoping, evaluation only after Laurent integrality, all five API items and four tests. Corrected the quotient source locator from (84) to (83)."
+      },
+      {
+        "nodeId": "HabiroNahmSeries:HB.8/refinement-orbit-nahm",
+        "verdict": "verified",
+        "note": "Verified pole restriction from all coordinate ratios, orbit support at primitive roots, order-m recurrence and its even/odd phase. Identification uses Nahm uniqueness and no Gaussian assumption."
+      },
+      {
+        "nodeId": "HabiroNahmSeries:HB.8/refinement-residue-potential",
+        "verdict": "verified",
+        "note": "Verified the q=1 residue, Euler characterization and zero-constant uniqueness. Independently checked the A=3 and A=-1 coefficients through degree four; all API/test signatures match."
+      },
+      {
+        "nodeId": "HabiroNahmSeries:HB.8/refinement-congruence-uniqueness",
+        "verdict": "verified",
+        "note": "Verified the diagonal eigenvalue D_j(k+mb), vanishing for b_j=0, and multi-index induction. Nonzero eigenvalues are inverted in Q(q) or K((x)), never by evaluating their vanishing constants."
+      },
+      {
+        "nodeId": "HabiroNahmSeries:HB.8/refinement-restricted-adams",
+        "verdict": "corrected",
+        "note": "Verified triangular recursion for mixed monomials. Completed the integrality sketch with arbitrary Z[1/m] binomial powers and both product topologies; added the multiplicative API and matching Lean signature. Its completed integral signature remains an explicit parent-interface omission."
+      },
+      {
+        "nodeId": "HabiroNahmSeries:HB.8/refinement-gaussian-normalization",
+        "verdict": "corrected",
+        "note": "Independently confirmed the four local corrections and augmentation completion in EHB8-1. Replaced irrelevant common matrix hypotheses by the actual local formal-variable and primitive-root hypotheses."
+      },
+      {
+        "nodeId": "HabiroNahmSeries:HB.8/refinement-gaussian-shifts",
+        "verdict": "corrected",
+        "note": "Verified the affine Wick identity against GSW Lemma 3.1(b), recentering against Lemma 3.2 and block Fubini against Aarhus Proposition 2.13. Corrected page locators. Specialized global prefactors remain explicitly G1."
+      },
+      {
+        "nodeId": "HabiroNahmSeries:HB.8/refinement-gaussian-regularity",
+        "verdict": "verified",
+        "note": "Verified entrywise covariance and the no-leg pole countercheck. Uniform separate-coordinate t bounds and completion change are conditional proof obligations G2, not conclusions supplied by a determinant estimate."
+      },
+      {
+        "nodeId": "HabiroNahmSeries:HB.8/refinement-gaussian-identification",
+        "verdict": "verified",
+        "note": "Verified the uniqueness-based comparison conditional on G1 and G2. Both coefficient spaces and constant-one normalization must be supplied before uniqueness is applied; no circular use in the elementary chain."
+      },
+      {
+        "nodeId": "HabiroNahmSeries:HB.8/refinement-level-residues",
+        "verdict": "verified",
+        "note": "Verified the conditional potential extraction and retained c=ma with gcd(a,m)=1. Orders such as c=4,m=2 remain outside the comparison; the node inherits G1 and G2."
+      },
+      {
+        "nodeId": "HabiroNahmSeries:HB.8/refinement-corrected-level-admissibility",
+        "verdict": "verified",
+        "note": "Verified the corrected denominator scope and k-dependent linearization target, with G1-G3 propagated. Independently reproduced the A=0,m=2 Phi_4 counterexample. The conjectured/proposed proof closure and value assertion remain recorded G3."
+      },
+      {
+        "nodeId": "HabiroNahmSeries:HB.8/refinement-all-root-residue",
+        "verdict": "verified",
+        "note": "Verified Euler reconstruction from orbit ratios, scaling zeta/m^2 and the full simple-pole bound, including zero coordinates and rank zero. This node has no Gaussian dependency."
+      },
+      {
+        "nodeId": "HabiroNahmSeries:HB.8/refinement-critical-value",
+        "verdict": "verified",
+        "note": "Verified the formal derivative using the Nahm equation and matrix symmetry, with zero constant fixing the integration constant. Polylogarithm construction/distribution are imported from their owner."
+      },
+      {
+        "nodeId": "HabiroNahmSeries:HB.8/refinement-finite-support",
+        "verdict": "corrected",
+        "note": "Verified the full proper-divisor residue sum, q-integer pole-location input and final monic integral division, independent of Gaussian gaps. Corrected the source range to (81)-(89), excluding the subsequent restricted-decomposition lemma."
+      }
+    ]
+  }
 }

@@ -242,6 +242,11 @@ theorem restrictedCoeffs_one (F : Series N Qq) (hF : MvPowerSeries.constantCoeff
     (L : Idx N → Qq) (h0 : L 0 = 0) (hL : mvLog F = restrictedLog 1 L) :
     restrictedCoeffs 1 F = L := sorry
 
+theorem restrictedCoeffs_mul (m : ℕ) (hm : m ≠ 0) (F G : Series N Qq)
+    (hF : MvPowerSeries.constantCoeff F = 1)
+    (hG : MvPowerSeries.constantCoeff G = 1) :
+    restrictedCoeffs m (F * G) = restrictedCoeffs m F + restrictedCoeffs m G := sorry
+
 -- restrictedCoeffs_unit (degenerate)
 example (m : ℕ) (hm : m ≠ 0) : restrictedCoeffs (N := N) m 1 = 0 := sorry
 
