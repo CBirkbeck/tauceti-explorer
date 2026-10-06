@@ -306,6 +306,17 @@
     "data/blueprints/AdicSpacesPartII.md"
    ]
   },
+  "research/blueprint/packets/AlgebraicModularFormsAndSerreWeights.json": {
+   "promotedAt": "2026-10-06T08:25:20Z",
+   "review": "12ae890e6ef9b24c",
+   "reviewDate": "2026-10-06",
+   "reviewer": "independent-review-REV-AlgebraicModularFormsAndSerreWeights",
+   "sha256": "05aacbad70b7694696338b31d6d8cd66a0aaed979cc9993e76735091dd44f5d6",
+   "to": [
+    "data/blueprints/AlgebraicModularFormsAndSerreWeights.json",
+    "data/blueprints/AlgebraicModularFormsAndSerreWeights.md"
+   ]
+  },
   "research/blueprint/packets/AlgebraicModuliForArithmeticGeometry--A0-extension.json": {
    "promotedAt": "2026-10-05T16:36:51Z",
    "review": "7747f42b3dec9e52",
