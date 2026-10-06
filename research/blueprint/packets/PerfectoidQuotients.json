@@ -1921,9 +1921,9 @@
           "statement": "For QRSP S use PR.2/qrsp-prism to identify Δ_init(S) with derived prismatic cohomology."
         },
         {
-          "name": "TauCeti.PerfectoidQuotients.initialPrismNotBounded",
-          "kind": "non-example",
-          "statement": "The definition does not impose bounded p-primary torsion on Δ_init(S)/I_S; BS22 explicitly warns that boundedness need not hold."
+          "name": "TauCeti.PerfectoidQuotients.initialPrismFp",
+          "kind": "computation",
+          "statement": "For S=F_p, the initial prism is (W(F_p),(p)), canonically identified with (ℤ_p,(p)); its reduction map is the identity of F_p."
         }
       ],
       "uses": [
@@ -1940,7 +1940,7 @@
         "For integral perfectoid S, recover (A_inf(S),ker θ_S) via PR.1 Lemma 4.8.",
         "For S=0 the initial prism is the trivial prism.",
         "For QRSP S use PR.2/qrsp-prism to identify Δ_init(S) with derived prismatic cohomology.",
-        "The definition does not impose bounded p-primary torsion on Δ_init(S)/I_S; BS22 explicitly warns that boundedness need not hold."
+        "For S=F_p, the initial prism is (W(F_p),(p)), canonically identified with (ℤ_p,(p)); its reduction map is the identity of F_p."
       ]
     },
     {
@@ -2164,15 +2164,15 @@
       ],
       "title": "André’s flatness lemma",
       "kind": "theorem",
-      "statement": "Every integral perfectoid ring R has a p-completely faithfully flat map R → S to an integral perfectoid ring S in which every monic polynomial has a root. Thus S is absolutely integrally closed (in this sense, not required to be a domain). Every element of S admits a compatible system of p-power roots. The map can be chosen ind-syntomic modulo p by Remark 7.15.",
+      "statement": "Every integral perfectoid ring R has a p-completely faithfully flat map R → S to an integral perfectoid ring S in which every positive-degree monic polynomial has a root. Thus S is absolutely integrally closed (in this sense, not required to be a domain). Every element of S admits a compatible system of p-power roots. The map can be chosen ind-syntomic modulo p by Remark 7.15.",
       "hypotheses": [
         "R is any integral perfectoid ring, including rings with p-torsion and zero rings."
       ],
       "proofSteps": [
-        "For a monic polynomial, adjoining one root gives a finite free algebra; adjoining roots of all monic polynomials gives a filtered ind-syntomic cover. Derive p-complete it.",
-        "Use the perfect prism attached to R and Q3 lifting of quasisyntomic covers. Perfect the lift to obtain a new perfectoid R₁ with a p-completely faithfully flat map from R and roots of all polynomials over R.",
+        "For a positive-degree monic polynomial, adjoining one root gives a finite free algebra; adjoining roots of all positive-degree monic polynomials gives a filtered ind-syntomic cover. Derive p-complete it.",
+        "Use the perfect prism attached to R and Q3 lifting of quasisyntomic covers. Perfect the lift to obtain a new perfectoid R₁ with a p-completely faithfully flat map from R and roots of all positive-degree monic polynomials over R.",
         "Repeat at successor ordinals. At limit ordinals take the properly p-completed filtered colimit; use G4 for the fixed-size universe, monic-polynomial descent and preservation of faithful flatness and perfectoidness.",
-        "Every monic polynomial over the final ring has finitely many coefficients and therefore comes from a prior stage. To choose compatible p-power roots of x, choose x₀=x, then a root xₙ₊₁ of X^p−xₙ; do not choose unrelated roots of X^(p^n)−x.",
+        "Every positive-degree monic polynomial over the final ring has finitely many coefficients and therefore comes from a prior stage. To choose compatible p-power roots of x, choose x₀=x, then a root xₙ₊₁ of X^p−xₙ; do not choose unrelated roots of X^(p^n)−x.",
         "The modulo-p ind-syntomic refinement is the separate named target below. No v-descent or Q4 result is used."
       ],
       "prerequisites": [
@@ -2186,7 +2186,7 @@
       "sources": [
         {
           "sourceId": "bs-prisms-2022",
-          "locator": "Theorem 7.14 with proof, p.61",
+          "locator": "Theorem 7.14 with proof and Remark 7.15, pp.61–62",
           "match": "Exact statement and proof read; notation is normalized in this node."
         }
       ],
@@ -2421,7 +2421,7 @@
         },
         {
           "sourceId": "ecd-2026",
-          "locator": "Theorem 5.8, p.24",
+          "locator": "Theorem 5.8, p.25",
           "match": "Exact statement and proof read; notation is normalized in this node."
         }
       ],
@@ -2654,7 +2654,7 @@
       "sources": [
         {
           "sourceId": "bms2-thh-2019",
-          "locator": "Proposition 4.19(3), elementary proof, p.23",
+          "locator": "Proposition 4.19(3), statement and elementary proof, pp.22–23",
           "match": "Exact statement and proof read; notation is normalized in this node."
         }
       ],
@@ -3356,8 +3356,8 @@
         },
         {
           "sourceId": "bms1-integral-2018",
-          "locator": "Lemma 3.21 and proof, p.27",
-          "match": "Exact statement and proof read; notation is normalized in this node."
+          "locator": "Lemmas 3.20–3.21 and proofs, pp.26–27",
+          "match": "Lemma 3.20 supplies the quoted Fontaine comparison; Lemma 3.21 supplies the torsion-free localization and powerbounded containment. Both statements and proofs were read."
         }
       ],
       "library": {
@@ -3621,7 +3621,7 @@
         "R integral perfectoid; use the monic-polynomial construction in the André theorem."
       ],
       "proofSteps": [
-        "For one monic f, apply PR.2 regular-envelope computation to R⟨Y^(1/p^∞)⟩/(f(Y)). After the stated base change reduce to p-torsion-free R.",
+        "For one positive-degree monic f, apply PR.2 regular-envelope computation to R⟨Y^(1/p^∞)⟩/(f(Y)). After the stated base change reduce to p-torsion-free R.",
         "Use PR.0 Frobenius twist of the prismatic envelope as the divided-power envelope; import CR.0 for the characteristic-p formula D(f)≅A/f^p[g₁,g₂,…]/(g_i^p).",
         "Lift the truncated polynomial presentation across a nilpotent ideal; the finite-stage presentations are syntomic and their filtered colimit is the envelope.",
         "Pass through the successive and limit monic-root stages; the required completion and size comparison is part of G4, and the precise CR.0 formula is requested."
@@ -3822,9 +3822,9 @@
           "statement": "After localization the extension is the P4 universal perfectoid closed subspace V(T−g); its integral ring is the saturated powerbounded model."
         },
         {
-          "name": "TauCeti.PerfectoidQuotients.bhattRootExtensionRawFails",
-          "kind": "non-example",
-          "statement": "The definition applies C_*; it never certifies an arbitrary unsaturated raw completed colimit as Bhatt-integral-perfectoid."
+          "name": "TauCeti.PerfectoidQuotients.bhattRootExtensionZeroElement",
+          "kind": "computation",
+          "statement": "For g=0 in any Bhatt integral perfectoid K°-model A, the canonical map A → A∞ is an isomorphism and every distinguished root is zero."
         }
       ],
       "uses": [
@@ -3841,7 +3841,7 @@
         "For the zero K°-algebra the root extension is zero and every root is zero.",
         "For every n, the distinguished root satisfies g_n^(p^n)=image(g), and the adjacent roots satisfy the stronger compatibility equality.",
         "After localization the extension is the P4 universal perfectoid closed subspace V(T−g); its integral ring is the saturated powerbounded model.",
-        "The definition applies C_*; it never certifies an arbitrary unsaturated raw completed colimit as Bhatt-integral-perfectoid."
+        "For g=0 in any Bhatt integral perfectoid K°-model A, the canonical map A → A∞ is an isomorphism and every distinguished root is zero."
       ]
     },
     {
@@ -3908,14 +3908,14 @@
       ],
       "title": "Functorial almost absolutely integrally closed extension",
       "kind": "theorem",
-      "statement": "On the category of Bhatt integral perfectoid K°-models there is a functor B and a natural map A → B(A), almost faithfully flat modulo t, such that B(A) is again an integral model and every monic polynomial over B(A) has a root. This is the functorial almost variant of Remark 2.7, distinct from the arbitrary integral p-complete-cover theorem.",
+      "statement": "On the category of Bhatt integral perfectoid K°-models there is a functor B and a natural map A → B(A), almost faithfully flat modulo t, such that B(A) is again an integral model and every positive-degree monic polynomial over B(A) has a root. This is the functorial almost variant of Remark 2.7, distinct from the arbitrary integral p-complete-cover theorem.",
       "hypotheses": [
         "K,t fixed; A carries the flatness, t-completeness and saturation of the Bhatt model."
       ],
       "proofSteps": [
         "At a successor step index by the set of all positive-degree monic polynomials over A⁺. For each polynomial apply the monic-root version of the Bhatt almost-flat theorem, using P4’s universal closed construction. Take their coproduct in perfectoid affinoid A-pairs; its plus ring is almost isomorphic to the completed tensor product of the integral models. P0 tensor/flatness imports and finite-subset colimits preserve almost faithful flatness modulo π.",
         "Maps of pairs send monic polynomials to monic polynomials, so their universal root covers induce a natural map of these polynomial-indexed coproducts. Define the same successor operation at each ordinal, and at limits use the P5 completed filtered-colimit pair, with the fixed image of π and its roots.",
-        "At ω₁ the underlying diagram is countably filtered. A Cauchy sequence and all compatibility witnesses come from countably many stages, hence one stage below ω₁. Thus the raw plus-ring colimit is already π-complete by the DD.1 countably-filtered completion criterion; the P5 completion adds no elements. Each monic polynomial has finitely many coefficients from an earlier stage and a root at its successor. This gives absolute integral closedness and preserves the natural maps.",
+        "At ω₁ the underlying diagram is countably filtered. A Cauchy sequence and all compatibility witnesses come from countably many stages, hence one stage below ω₁. Thus the raw plus-ring colimit is already π-complete by the DD.1 countably-filtered completion criterion; the P5 completion adds no elements. Each positive-degree monic polynomial has finitely many coefficients from an earlier stage and a root at its successor. This gives absolute integral closedness and preserves the natural maps.",
         "Corollary 9.4.7 with its full proof was acquired and read in the dated author notes. It supplies the formerly missing source argument G8. Its completed pair, tensor and almost interfaces are existing suppliers; their unavailable implemented carriers remain G2."
       ],
       "prerequisites": [
@@ -4293,7 +4293,12 @@
         "Fresh public arXiv PDFs identified by the full hashes in sources; relevant rendered pages inspected during 2026-09-26–27.",
         "arXiv version histories for 1602.03148, 1802.03261 and 1905.08229 checked 2026-09-26; no subsequent version is listed.",
         "The atlas source-issue register was screened by source title and owner, including confirmed, rejected and awaiting-review records. Publisher full-text collation and an exhaustive erratum search are not claimed."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Fresh arXiv v4 p.56 retains R where the category is of rings under S; factorization through the presentation quotient is necessary. Existing correction confirmed; no novelty or exhaustive errata search claimed.",
+        "by": "REV-PerfectoidQuotients"
+      }
     },
     {
       "id": "PerfectoidQuotients/E2",
@@ -4309,7 +4314,12 @@
         "Fresh public arXiv PDFs identified by the full hashes in sources; relevant rendered pages inspected during 2026-09-26–27.",
         "arXiv version histories for 1602.03148, 1802.03261 and 1905.08229 checked 2026-09-26; no subsequent version is listed.",
         "The atlas source-issue register was screened by source title and owner, including confirmed, rejected and awaiting-review records. Publisher full-text collation and an exhaustive erratum search are not claimed."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Fresh arXiv v3 p.24 contains the unresolved question-mark citation exactly as recorded. DD.0 owns the missing proof/reference; no replacement bibliography is guessed.",
+        "by": "REV-PerfectoidQuotients"
+      }
     },
     {
       "id": "PerfectoidQuotients/E3",
@@ -4329,7 +4339,12 @@
         "The Numdam journal article listing for DOI 10.1007/s10240-019-00106-9 and its published PDF, p.227, read on 2026-09-27; no correction link located on that listing.",
         "Peter Scholze's Bonn publications page and its linked bms2.pdf, p.23, read on 2026-09-27; the linked author copy retains the same wording.",
         "Searches for the paper title with errata and the authors with the exact phrase; no correction located. The atlas source-issues records were also searched for the exact phrase; no existing entry found."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Both fresh arXiv v2 p.23 and the journal PDF p.227 retain the grammatical connective typo. The elementary torsion proof and mathematical statement are unaffected; bibliographic novelty is not certified.",
+        "by": "REV-PerfectoidQuotients"
+      }
     },
     {
       "id": "PerfectoidQuotients/E4",
@@ -4345,7 +4360,12 @@
         "Fresh public arXiv PDFs identified by the full hashes in sources; relevant rendered pages inspected during 2026-09-26–27.",
         "arXiv version histories for 1602.03148, 1802.03261 and 1905.08229 checked 2026-09-26; no subsequent version is listed.",
         "The atlas source-issue register was screened by source title and owner, including confirmed, rejected and awaiting-review records. Publisher full-text collation and an exhaustive erratum search are not claimed."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Fresh arXiv v4 p.56 omits the infinitive marker in the introductory sentence. Editorial correction confirmed for this version only.",
+        "by": "REV-PerfectoidQuotients"
+      }
     },
     {
       "id": "PerfectoidQuotients/E5",
@@ -4361,7 +4381,12 @@
         "Fresh public arXiv PDFs identified by the full hashes in sources; relevant rendered pages inspected during 2026-09-26–27.",
         "arXiv version histories for 1602.03148, 1802.03261 and 1905.08229 checked 2026-09-26; no subsequent version is listed.",
         "The atlas source-issue register was screened by source title and owner, including confirmed, rejected and awaiting-review records. Publisher full-text collation and an exhaustive erratum search are not claimed."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Fresh arXiv v3 p.27 omits the pronoun in the proof of Lemma 3.20. Editorial correction confirmed for this version only.",
+        "by": "REV-PerfectoidQuotients"
+      }
     }
   ],
   "inheritedWork": {
@@ -5252,7 +5277,9 @@
   "sourceIssueReferences": [
     {
       "id": "PerfectoidSpaces/E29",
-      "use": "ECD Definition 5.7 integral map reads R⁺→S⁺; historical aggregate already corrected it. Fresh reading confirms the printed reverse direction. Do not create a duplicate source-issue id."
+      "use": "ECD Definition 5.7 and its following discussion have the correct R⁺→S⁺ direction; the remark after Theorem 5.8 reverses it. The accepted PerfectoidSpaces--P0 record supplies the correction. Qualify this reference by file because PerfectoidSpaces--P8 uses the same E29 id for a different paper; do not create a duplicate issue.",
+      "file": "research/blueprint/packets/PerfectoidSpaces--P0.json",
+      "locator": "Remark after Theorem 5.8, printed p.25 of ECD v4"
     },
     {
       "id": "PerfectoidSpaces/E33",
@@ -5261,6 +5288,21 @@
     {
       "id": "PerfectoidSpaces/E53",
       "use": "Theorem 9.4.3 proof p.113 of the 23 April 2017 Bhatt notes prints K° as coefficient ring of the free A-root-polynomial algebra; use A⁺. Fresh rendered reading confirms the existing accepted correction; no duplicate issue created."
+    },
+    {
+      "id": "PAPER-BHATT-SCHOLZE-22/E7",
+      "file": "research/blueprint/papers/PAPER-BHATT-SCHOLZE-22.result.json",
+      "use": "Existing accepted record for manually typed environment labels. Fresh v4 reading confirms that 3.9 is a lemma and 6.2 is a proposition despite contrary words in later proof references. The current supplier contracts use the actual result labels; no duplicate issue created."
+    },
+    {
+      "id": "PAPER-BHATT-SCHOLZE-22/E11",
+      "file": "research/blueprint/papers/PAPER-BHATT-SCHOLZE-22.result.json",
+      "use": "Fresh Lemma 3.9 proof p.31 prints A/d where the paragraph is about A_perf/d; the accepted paper record already supplies this notation correction. Historical extraction text remains provenance, not a new mathematical assertion."
+    },
+    {
+      "id": "PrismaticCohomology/E82",
+      "file": "research/blueprint/packets/PrismaticCohomology--PR.0.json",
+      "use": "The accepted PR.0 source correction distinguishes d-regularity after p-completion from the false unrestricted raw-colimit assertion in Lemma 3.9. The exact prism-perfection supplier statement was reread; Q0/Q2 use the completed perfect prism, not raw d-regularity. This review does not independently certify the foreign counterexample."
     }
   ],
   "closureNotes": {
@@ -5369,8 +5411,8 @@
   "checks": {
     "blueprint": "Pinned-index blueprint checker: zero errors and zero warnings.",
     "closure": "Complete planning pass; all seven stages planned, seven closure gaps, nine supplier requests. No closed stage and no implementation claim. The original G8 source lead is resolved in closureNotes.",
-    "intake": "All four authorized deliverables: zero problems.",
-    "sourceAndSignatureAudit": "Source-issue checks, 80 short source excerpts (76 acquired-PDF matches and four checked Stacks passages), proposed-name/API/test parity and preservation of 20 predecessor node identifiers and 12 historical aggregates: zero problems.",
+    "intake": "Independent review: the packet, suggested file, review report and handoff pass the authorized-file intake check.",
+    "sourceAndSignatureAudit": "Independent review: 80 source excerpts (76 freshly acquired PDF matches and four Stacks passages), source-issue checks, planned-name/API/test parity and seven-stage target coverage checked. Two non-statement tests replaced; no predecessor node removed.",
     "compiled": {
       "tool": "lean-check",
       "errors": 0,
@@ -5378,7 +5420,7 @@
       "warningKind": "proof-placeholder declarations only",
       "mathlibImports": 13,
       "taucetiImports": 0,
-      "suggestedFileSha256": "a5f01372b62d59329f3ebf3dbbd501f44cd36ae55a104c6248bb4fa45d5f877e",
+      "suggestedFileSha256": "0e6a66d81a8689dfcf4d133842a4ed404bed75f0ec6fabfadb3a4fc599d0fd90",
       "typedTargets": 36,
       "fullTargets": 26,
       "restrictedTargets": 10,
@@ -5395,6 +5437,22 @@
       "opaqueStageOrReservedImports": 22,
       "cycles": 0,
       "qualification": "Recursive exact-node audit under the three recorded narrowed Q0 binding proposals. It does not expand every opaque stage or certify the whole supplier-stage graph."
+    },
+    "independentReview": {
+      "job": "REV-PerfectoidQuotients",
+      "session": "codex-LAuN0A",
+      "date": "2026-10-06",
+      "nodes": 61,
+      "correctedNodes": 9,
+      "baselineConfirmed": 65,
+      "baselineRemovedOrReplaced": 0,
+      "nodesAdded": 0,
+      "sourceIssuesConfirmed": 5,
+      "freshPdfHashesMatched": 11,
+      "sourceExcerptsChecked": 80,
+      "directExactSupplierNodesRead": 83,
+      "readerSyncRequired": true,
+      "readerSyncDetails": "research/blueprint/reviews/REV-PerfectoidQuotients.md"
     }
   },
   "provenance": {
@@ -5603,11 +5661,11 @@
       "targets": [
         "BS22 Proposition 8.5: perfect-prism site computes general integral perfectoidization, after Q3 and Q4.",
         "Corollary 8.11: arc sheaf property of perfectoidization; Corollary 8.12: excision along perfectoid quotients.",
-        "Definition 10.1, Lemmas 10.2–10.5: J-almost category, local-sheaf comparison, completed exterior powers and connectivity.",
-        "Lemma 10.6 and Proposition 10.7: Galois root cover and connective mapping comparison.",
+        "Definition 10.1, Propositions 10.2 and 10.4, Lemmas 10.3 and 10.5: J-almost modules and complexes, completed tensor idempotence, and the connectivity criterion.",
+        "Definition 10.6 and Remark 10.7: J-almost G-Galois extensions and reduction modulo pⁿ; no new Galois root-cover theorem is asserted here.",
         "Theorem 10.9: finite finitely presented algebras étale outside V(J) have J-almost purity after perfectoidization.",
         "Theorem 10.11 and Lemma 10.12: perfectoidization for integral extensions and the algebraic-closure stratification.",
-        "Corollary 10.13: Heitmann–Ma application."
+        "Remark 10.13: Heitmann–Ma application."
       ],
       "suppliedBy": [
         "ArcTopologyAndDescent: BS22 8.7–8.10 (precise proposed roadmap, not an existing stage id).",
@@ -5998,7 +6056,7 @@
       {
         "nodeId": "PerfectoidQuotients:Q0:integral-algebra/torsion-free-perfectoid-quotient",
         "mode": "restricted",
-        "detail": "The perfectoidness and ϖ-torsion-freeness of R/ker(R→R[1/ϖ]) are typed. The tilt quotient R♭/R♭[ϖ♭] and canonical fibre-product decomposition R≅R_tf×_(R_tf/ϖ)R/ϖ require quotient/completion transport and the missing supplier interfaces (G1/G2).",
+        "detail": "The perfectoidness and ϖ-torsion-freeness of R/ker(R→R[1/ϖ]) are typed. The tilt quotient R♭/R♭[ϖ♭] and canonical fibre-product decomposition R≅R_tf×_((R_tf/ϖ)_red)(R/ϖ)_red require quotient/completion transport and the missing supplier interfaces (G1/G2).",
         "name": "TauCeti.PerfectoidQuotients.perfectoid_torsion_free_quotient",
         "gaps": [
           "G1",
@@ -6195,6 +6253,319 @@
         "gaps": [
           "G2"
         ]
+      }
+    ]
+  },
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-PerfectoidQuotients",
+    "date": "2026-10-06",
+    "notes": "Independent target-level review by Codex, session codex-LAuN0A: all 61 nodes, 65 pinned baseline statements, 83 direct exact supplier nodes, seven-stage target coverage, API/tests, suggested signatures, five source issues and RT-AREA-padic-1/1,/6,/7 checked. Nine nodes corrected; no baseline citation removed/replaced and no node added. Eleven fresh public PDFs match recorded hashes; 76 PDF excerpts and four Stacks passages checked. Late-extension result labels and ECD erratum reference corrected. Seven recorded closure gaps and nine requests persist; the exact-node DAG result is conditional on three narrow supplier bindings, with 22 opaque stage imports, and is not whole-atlas certification. Reader synchronization is listed in the report because that file is not authorized for this issue. No formalization or closed stage is claimed.",
+    "checked": [
+      {
+        "nodeId": "PerfectoidQuotients:Q0:integral-algebra/semiperfectoid-quasisyntomic-and-qrsp-rings",
+        "verdict": "verified",
+        "note": "BMS2 Definition 4.18 matches the p-adic predicate including the zero ring; semiperfectoid and QRSP predicates are imported or recorded separately, not substituted into this definition."
+      },
+      {
+        "nodeId": "PerfectoidQuotients:Q0:integral-algebra/integral-perfectoid-nontrivial-criterion",
+        "verdict": "verified",
+        "note": "The explicit nontrivial branch introduces exactly the nonunit and completeness instances required by the pinned Fontaine map."
+      },
+      {
+        "nodeId": "PerfectoidQuotients:Q0:integral-algebra/inverse-perfection-unit-criterion",
+        "verdict": "verified",
+        "note": "Inverse-limit perfection units are detected by coordinate zero because Frobenius determines all later coordinates; the pinned inverse-limit operations suffice."
+      },
+      {
+        "nodeId": "PerfectoidQuotients:Q0:integral-algebra/perfect-witt-unit-criterion",
+        "verdict": "verified",
+        "note": "The perfect characteristic-p coefficient hypothesis makes the first-coordinate unit criterion valid for infinite Witt vectors; no arbitrary-base-ring claim is made."
+      },
+      {
+        "nodeId": "PerfectoidQuotients:Q0:integral-algebra/witt-product-first-coordinate",
+        "verdict": "verified",
+        "note": "The first-coordinate product formula follows from the pinned Witt mul_coeff_zero statement."
+      },
+      {
+        "nodeId": "PerfectoidQuotients:Q0:integral-algebra/theta-kernel-characteristic-p",
+        "verdict": "verified",
+        "note": "In the perfect characteristic-p case θ is reduction modulo p under the inverse perfection comparison; the principal kernel and degenerate case agree with BMS1."
+      },
+      {
+        "nodeId": "PerfectoidQuotients:Q0:integral-algebra/tilt-projection-injective-characteristic-p",
+        "verdict": "verified",
+        "note": "A perfect characteristic-p ring has bijective Frobenius, so inverse perfection projection is injective; the nonunit instance restrictions are explicit."
+      },
+      {
+        "nodeId": "PerfectoidQuotients:Q0:integral-algebra/untilt-naturality",
+        "verdict": "verified",
+        "note": "The perfection map carries the adjacent-root coordinates compatibly; the pinned map, val and untilt signatures provide naturality."
+      },
+      {
+        "nodeId": "PerfectoidQuotients:Q0:integral-algebra/theta-naturality",
+        "verdict": "verified",
+        "note": "The Fontaine map naturality theorem is instantiated with the actual pinned Witt and PreTilt maps, under their enclosing completion and nonunit hypotheses."
+      },
+      {
+        "nodeId": "PerfectoidQuotients:Q0:integral-algebra/integral-perfectoid-ring-equivalence",
+        "verdict": "verified",
+        "note": "Ring-equivalence transport includes the instances and principal-kernel assertion, using the earlier naturality nodes rather than introducing a second predicate."
+      },
+      {
+        "nodeId": "PerfectoidQuotients:Q0:integral-algebra/characteristic-p-perfectoid-criterion",
+        "verdict": "verified",
+        "note": "BMS1 Definition 3.5 and characteristic-p kernel calculation justify the perfect/complete criterion; the nonperfect semiperfect example discriminates."
+      },
+      {
+        "nodeId": "PerfectoidQuotients:Q4/quotient-frobenius-surjective",
+        "verdict": "verified",
+        "note": "Surjectivity descends through the quotient representative map with no radical hypothesis."
+      },
+      {
+        "nodeId": "PerfectoidQuotients:Q4/perfect-quotient-radical-criterion",
+        "verdict": "verified",
+        "note": "Frobenius injectivity on the quotient is equivalent to radicality only with the stated perfect-base hypothesis; the pinned reduced quotient criterion matches."
+      },
+      {
+        "nodeId": "PerfectoidQuotients:Q4/radical-quotient-integral-perfectoid",
+        "verdict": "verified",
+        "note": "Radical quotient perfectness plus automatic p-completeness in characteristic p gives the integral predicate; nonradical quotients are excluded."
+      },
+      {
+        "nodeId": "PerfectoidQuotients:Q4/characteristic-p-perfectoidization-universal",
+        "verdict": "verified",
+        "note": "For a semiperfect characteristic-p ring, reduction is perfect and initial among maps to reduced perfect targets; the typed universal property has the right target class."
+      },
+      {
+        "nodeId": "PerfectoidQuotients:Q4/compatible-root-ideal-radical",
+        "verdict": "verified",
+        "note": "Adjacent compatible roots and reducedness force every root into the kernel of every perfectoid quotient; the completion transport remains explicitly restricted."
+      },
+      {
+        "nodeId": "PerfectoidQuotients:Q4/integral-perfectoid-quotient-radical-criterion",
+        "verdict": "verified",
+        "note": "Perfectoid quotients are reduced; sufficiency of radicality uses the separately recorded completed/characteristic-p hypotheses, not arbitrary quotient perfectoidness."
+      },
+      {
+        "nodeId": "PerfectoidQuotients:Q0:integral-algebra/witt-product-p-square-detection",
+        "verdict": "verified",
+        "note": "The Witt product coefficients modulo p² detect the stated divisibility; the unit-coordinate and perfect characteristic-p premises exclude the advertised counterexample."
+      },
+      {
+        "nodeId": "PerfectoidQuotients:Q0:integral-algebra/witt-principal-p-saturation",
+        "verdict": "verified",
+        "note": "Cancellation in a principal Witt ideal uses its regular generator and unit coordinate; the proof does not invoke valuation covers or later descent."
+      },
+      {
+        "nodeId": "PerfectoidQuotients:Q0:integral-algebra/witt-principal-quotient-p-torsion",
+        "verdict": "verified",
+        "note": "The elementary second proof of BMS2 Proposition 4.19(3) yields p-primary torsion killed by p under the explicit unit-coordinate premise."
+      },
+      {
+        "nodeId": "PerfectoidQuotients:Q0:animated-application/prism-and-animation-import-contract",
+        "verdict": "verified",
+        "note": "PR.0/PR.1 and animation/cotangent supplier statements supply exactly the listed applications. In Lemma 4.8 the target prism need not be bounded. The accepted PR.0 perfection contract retains d-regularity after p-completion; raw-colimit regularity from the printed Lemma 3.9 is not used (existing E82)."
+      },
+      {
+        "nodeId": "PerfectoidQuotients:Q1/smooth-prismatic-hodge-tate-reexport",
+        "verdict": "verified",
+        "note": "All fifteen PR.1 contracts were read. Bounded prism, p-complete smoothness, twists and Bockstein differential are retained; generic theory is reexported once."
+      },
+      {
+        "nodeId": "PerfectoidQuotients:Q2/semiperfectoid-rings",
+        "verdict": "verified",
+        "note": "BS22 Notation 7.1 requires derived p-completeness and a surjection, not classical completeness alone. Product orthogonality remains a precise DD.1 request."
+      },
+      {
+        "nodeId": "PerfectoidQuotients:Q2/initial-prism-of-a-semiperfectoid-ring",
+        "verdict": "corrected",
+        "note": "BS22 Proposition 7.2 includes all prisms, principal ideal and a genuinely stationary transfinite construction. G3 records the cardinal/completion argument. Replaced the non-test boundedness instruction by the explicit F_p/W(F_p) computation."
+      },
+      {
+        "nodeId": "PerfectoidQuotients:Q2/universal-perfectoidization",
+        "verdict": "verified",
+        "note": "Corollary 7.3 and its universal property match. The typed ring/map universal property is restricted only by the absent initial-prism formula; surjectivity is deferred to Q4 as it must be."
+      },
+      {
+        "nodeId": "PerfectoidQuotients:Q2/derived-prismatic-initiality-import-contract",
+        "verdict": "verified",
+        "note": "PR.2 comparison, retract, envelope and QRSP contracts were read. Discreteness of the Hodge–Tate reduction is the actual hypothesis; derived discreteness alone is not substituted."
+      },
+      {
+        "nodeId": "PerfectoidQuotients:Q3/lifting-quasisyntomic-covers-to-prisms",
+        "verdict": "verified",
+        "note": "The existing PR.2 Proposition 7.11 node supplies the theorem. Q3 is an application and the single-owner relocation proposal preserves its identifier."
+      },
+      {
+        "nodeId": "PerfectoidQuotients:Q3/andre-flatness-lemma",
+        "verdict": "corrected",
+        "note": "Theorem 7.14 and Remark 7.15 match with no torsion-free/domain hypothesis. Added positive degree to monic-root statements/proof steps and widened the proof locator to pp.61–62; G4 retains limit and size work."
+      },
+      {
+        "nodeId": "PerfectoidQuotients:Q4/surjectivity-of-perfectoidization",
+        "verdict": "verified",
+        "note": "Theorem 7.4 uses Q2 base-change/descent, Q3 compatible roots and completed finite-generator passage. The proof avoids Proposition 8.5, whose comparison would be circular here; G5/G6 are honest."
+      },
+      {
+        "nodeId": "PerfectoidQuotients:Q4/completed-integral-closed-quotient",
+        "verdict": "verified",
+        "note": "Remark 7.5 completed plus-ring quotient uses baseline completion surjectivity and Stacks orthogonality for derived completeness. Analytic topology/localization/minimal plus-ring transport remains G7."
+      },
+      {
+        "nodeId": "PerfectoidQuotients:Q4/zariski-closed-subsets-are-strongly-zariski-closed",
+        "verdict": "corrected",
+        "note": "ECD Theorem 5.8 is on printed p.25; locator corrected. Surjective algebra map and almost-surjective plus map are on the P4 carriers, independent of v-descent."
+      },
+      {
+        "nodeId": "PerfectoidQuotients:Q0:integral-algebra/frobenius-surjectivity-equivalences",
+        "verdict": "verified",
+        "note": "BMS1 Lemma 3.9 and Davis–Kedlaya conditions agree. Finite length-reducing Witt Frobenius and θ_r are requested, not replaced by the infinite Witt endomorphism."
+      },
+      {
+        "nodeId": "PerfectoidQuotients:Q0:integral-algebra/bms-perfectoid-normalization",
+        "verdict": "verified",
+        "note": "BMS1/BMS2/Česnavičius conventions are distinguished. The torsion-free definition is a specialization; normalization between ordinary completion topologies remains G1."
+      },
+      {
+        "nodeId": "PerfectoidQuotients:Q0:integral-algebra/principal-theta-kernel-criterion",
+        "verdict": "verified",
+        "note": "BMS1 Lemma 3.10 gives both directions with the extra nonzerodivisor assumption only in the converse. The typed target openly retains only its regular-generator consequence."
+      },
+      {
+        "nodeId": "PerfectoidQuotients:Q0:integral-algebra/theta-generator-unit-coordinate",
+        "verdict": "verified",
+        "note": "BMS1 Lemmas 3.10–3.14 supply the unit-coordinate/generator criterion and regularity. Compatible-root normal form and finite θ_r refinements are explicit omissions."
+      },
+      {
+        "nodeId": "PerfectoidQuotients:Q0:integral-algebra/perfectoid-bounded-p-torsion",
+        "verdict": "corrected",
+        "note": "BMS2 Proposition 4.19(3) has its statement on p.22 and elementary proof on p.23; locator corrected. The elementary Witt route permits mixed p-torsion and the zero ring."
+      },
+      {
+        "nodeId": "PerfectoidQuotients:Q0:integral-algebra/perfectoid-cotangent-vanishing",
+        "verdict": "verified",
+        "note": "BMS1 Lemma 3.14 and BMS2 Proposition 4.19 distinguish relative vanishing from the absolute shifted rank-one cotangent complex. Orientation is a choice; full cotangent carriers are imported."
+      },
+      {
+        "nodeId": "PerfectoidQuotients:Q0:integral-algebra/perfectoid-rings-reduced",
+        "verdict": "verified",
+        "note": "Reducedness follows from the quotient power-map injectivity and separation; it uses no Q4 or v-descent theorem, avoiding the principal-quotient cycle."
+      },
+      {
+        "nodeId": "PerfectoidQuotients:Q0:integral-algebra/torsion-free-perfectoid-quotient",
+        "verdict": "corrected",
+        "note": "ČS §§2.1.2–2.1.3 give the torsion-free quotient and reduced-special-fibre pullback. Corrected the omission summary in packet/Lean to retain both reductions; typed perfectoidness/torsion-freeness is a restricted signature."
+      },
+      {
+        "nodeId": "PerfectoidQuotients:Q0:integral-algebra/compatible-roots-and-iterated-frobenius",
+        "verdict": "verified",
+        "note": "BMS1 Lemma 3.9 unit adjustment and inverse perfection give adjacent compatible roots; all iterated Frobenius maps are distinguished from independent choices."
+      },
+      {
+        "nodeId": "PerfectoidQuotients:Q0:integral-algebra/p-integral-closure",
+        "verdict": "verified",
+        "note": "ČS §2.1.7 defines p-integral closure using all iterates, not ordinary integral closure. The pinned subring/integrality operations support the typed definition, API and tests."
+      },
+      {
+        "nodeId": "PerfectoidQuotients:Q0:integral-algebra/p-integral-closedness-criterion",
+        "verdict": "verified",
+        "note": "ČS Proposition 2.1.8 requires the specified regular pseudouniformizer; its localization criterion is typed and completeness consequences remain G1."
+      },
+      {
+        "nodeId": "PerfectoidQuotients:Q0:integral-algebra/completed-p-integral-closure-perfectoid",
+        "verdict": "verified",
+        "note": "ČS Proposition 2.1.8 completion of p-integral closure has regularity, root and Frobenius surjectivity premises; the suggested completion uses the actual localization carrier."
+      },
+      {
+        "nodeId": "PerfectoidQuotients:Q0:integral-algebra/completely-etale-and-henselian-perfectoid",
+        "verdict": "verified",
+        "note": "Anschütz–Le Bras Proposition 2.1.8 and Lemma 2.1.9 supply completed étale/Henselian stability at the exact stated generality; no undeclared ind-syntomic theorem is imported."
+      },
+      {
+        "nodeId": "PerfectoidQuotients:Q0:integral-algebra/completed-root-polynomial-algebras",
+        "verdict": "verified",
+        "note": "ČS Proposition 2.1.11(a) allows arbitrary variables. Pinned root-adjunction carriers are unavailable and the omission/request is explicit."
+      },
+      {
+        "nodeId": "PerfectoidQuotients:Q0:integral-algebra/completed-perfectoid-tensor-products",
+        "verdict": "verified",
+        "note": "ČS Proposition 2.1.11(b) is a completed perfectoid tensor statement on genuine derived carriers; the requested ordinary/derived comparison is not asserted for arbitrary rings."
+      },
+      {
+        "nodeId": "PerfectoidQuotients:Q0:integral-algebra/completed-root-stable-quotients",
+        "verdict": "verified",
+        "note": "ČS Proposition 2.1.11(c) retains the full ideal-power hypothesis. The typed adjacent-root sufficient special case is accurately classified restricted."
+      },
+      {
+        "nodeId": "PerfectoidQuotients:Q0:integral-algebra/products-of-perfectoid-rings",
+        "verdict": "verified",
+        "note": "ČS Proposition 2.1.11(d) permits arbitrary products with the specified completion/pseudouniformizer hypotheses. The actual dependent product perfectoid criterion, including the empty product, is typed; the product-tilt comparison is an explicit omission."
+      },
+      {
+        "nodeId": "PerfectoidQuotients:Q0:integral-algebra/completion-along-sharp-ideal",
+        "verdict": "verified",
+        "note": "ČS Proposition 2.1.11(e), with Stacks 0G3I, gives completion along the finitely generated sharp ideal. The reducedness step justifies ordinary separation, not a noetherian shortcut."
+      },
+      {
+        "nodeId": "PerfectoidQuotients:Q0:integral-algebra/tate-powerbounded-model-import-contract",
+        "verdict": "corrected",
+        "note": "P1 supplies the actual Tate/powerbounded comparison. Expanded the BMS1 locator to Lemmas 3.20–3.21 pp.26–27 so it includes the quoted Lemma 3.20 text as well as localization Lemma 3.21."
+      },
+      {
+        "nodeId": "PerfectoidQuotients:Q2/completed-perfectoidization-base-change",
+        "verdict": "verified",
+        "note": "The unit cofiber argument is plausible target-level closure, with derived prismatic base change and QRSP inputs. G5 records the missing comparison rather than citing the later, circular Proposition 8.5."
+      },
+      {
+        "nodeId": "PerfectoidQuotients:Q2/perfectoidization-completed-colimits",
+        "verdict": "verified",
+        "note": "The universal adjunction supplies categorical completed colimits, but the concrete quotient/completion calculation is additional. G6 and the DD.1 request retain precisely that distinction."
+      },
+      {
+        "nodeId": "PerfectoidQuotients:Q4/principal-root-quotient-perfectoidization",
+        "verdict": "verified",
+        "note": "Reducedness kills all adjacent roots; the completed root-stable quotient is perfectoid and has the required unit. Pinned completion map_surjective/map_of supports surjectivity, independently of derived flat descent."
+      },
+      {
+        "nodeId": "PerfectoidQuotients:Q3/relative-perfectoid-cover-of-smooth-site",
+        "verdict": "verified",
+        "note": "BS22 Corollary 7.12 follows by applying the lifting theorem to an actual quasisyntomic cover of the smooth site; no absolute ordinary faithfully flat conclusion is added."
+      },
+      {
+        "nodeId": "PerfectoidQuotients:Q3/frobenius-flat-prism-perfection-cover",
+        "verdict": "verified",
+        "note": "BS22 Corollary 7.13 uses Frobenius flatness of the regular reduction and completed perfection; the missing generic criterion is requested from PR.0 and G4 remains explicit."
+      },
+      {
+        "nodeId": "PerfectoidQuotients:Q3/andre-ind-syntomic-mod-p",
+        "verdict": "corrected",
+        "note": "Remark 7.15 proves ind-syntomicity modulo p, not the stronger ordinary ČS theorem. Clarified positive degree in the finite-free root step; the PD and finite-stage supplier requests remain explicit."
+      },
+      {
+        "nodeId": "PerfectoidQuotients:Q0:integral-algebra/bhatt-field-integral-model-comparison",
+        "verdict": "verified",
+        "note": "Bhatt Definition 1.4 fixes K, roots, flatness, completeness and saturation. The zero case and comparison do not extend this predicate to arbitrary integral perfectoid rings."
+      },
+      {
+        "nodeId": "PerfectoidQuotients:Q3/bhatt-rational-root-neighborhoods",
+        "verdict": "verified",
+        "note": "Bhatt Definition 2.2 and rational-localization suppliers define neighborhoods of T−g; their transition maps, root coordinates and almost tensor context are retained."
+      },
+      {
+        "nodeId": "PerfectoidQuotients:Q3/bhatt-perfectoid-root-extension",
+        "verdict": "corrected",
+        "note": "Bhatt Definition 2.2 footnote 6 requires almost-elements saturation. Replaced the raw-colimit design instruction by the g=0 computation, forced by reducedness and the universal closed-space property."
+      },
+      {
+        "nodeId": "PerfectoidQuotients:Q3/bhatt-root-extension-almost-flat",
+        "verdict": "verified",
+        "note": "Bhatt Theorem 2.3 and notes Theorem 9.4.3 give almost flatness modulo the specified root ideal, including the positive-degree monic generalization; ordinary flatness is never inferred."
+      },
+      {
+        "nodeId": "PerfectoidQuotients:Q3/functorial-almost-absolutely-integrally-closed-extension",
+        "verdict": "corrected",
+        "note": "Bhatt Remark 2.7 and acquired notes Corollary 9.4.7 justify the functorial polynomial-indexed ω₁ iteration. Clarified positive degree in statement and coefficient descent; countably-filtered completeness remains an exact supplier request."
       }
     ]
   }
