@@ -1,6 +1,7 @@
 /-
-This file is not the roadmap and is not exhaustive. The roadmap document
-`research/blueprint/readmes/ArithmeticQuantumTopology.md` is definitive. These
+This file is not the roadmap and is not exhaustive. The packet specifies the corrected plan. Its reader document
+`research/blueprint/readmes/ArithmeticQuantumTopology.md` still requires the
+synchronization listed in REV-ArithmeticQuantumTopology’s review report. These
 statements suggest Lean forms so that contributors and reviewers can converge on
 names and signatures. They claim no implementation.
 
@@ -12,7 +13,10 @@ Mathlib-only interfaces below expose concrete algebra and analysis. A matrix
 cokernel is not a 3-manifold, a shape chart is not the cut-cover quotient, and
 linear NZ data is not a triangulation. The missing geometric, quantum, Habiro,
 Bloch and dilogarithm carriers are listed by name in the final inventory, with
-the packet's supplier/gap boundaries. No unspecified relation subgroup, dummy
+the packet's supplier/gap boundaries. General-type universal bottom-tangle
+invariants and finite highest-weight quantum colors are missing G2 inputs,
+rather than consequences of the rank-one signatures. HB.8’s imported
+Gaussian comparison also retains its own G1/G2 and auxiliary-order conditions. No unspecified relation subgroup, dummy
 invariant or Prop-valued substitute for a missing mathematical condition occurs.
 The theorems and examples use sorry; no roadmap result is formalized here.
 -/
@@ -509,6 +513,9 @@ structure LedgerEntry where
 
 abbrev Ledger := List (String × List LedgerEntry)
 
+/-- Selected ledger entries only; the six-column ledger specification and its
+complete-row tests remain in the inventory below. `proved` records source status,
+not a Lean proof. -/
 def ledgerRows : Ledger := [
   ("4₁", [
     ⟨.kashaevValues, "orders 1–6", "1,5,13,27,46+2√5,89",
@@ -889,10 +896,11 @@ Test shape_excludes_degenerate [required example; omitted if its carrier/conditi
 ArithmeticQuantumTopology:QT.5/gluing-and-completeness-equations
 Name: gluing_and_completeness_equations
 Carrier/condition boundary: ArithmeticQuantumTopology/G4; tauceti:TauCetiRoadmap/GeometricTopology#layer-5-dehn-surgery; tauceti:TauCetiRoadmap/GeometricTopology#layer-7-riemannian-geometric-structures-and-volume
-Specification: For an actual ideal face-pairing triangulation of the interior of a compact oriented 3-manifold with torus boundary, shapes give edge products and peripheral products from the incidence data. A positive geometric solution has every z_j in the upper half-plane, each edge product 1 with total dihedral angle 2π, and trivial holonomy for both generators of each cusp (equivalently the appropriate unipotent complete cusp condition in the developing representation). Edge products alone are insufficient. Geometric realization, ideal triangulation existence and finite-volume cusped rigidity are requested from GeometricTopology, Part II. A matrix equation alone is called linear gluing data, not an ideal triangulation.
+Specification: For an actual ideal face-pairing triangulation of the interior of a compact oriented 3-manifold with torus boundary, shapes give edge products and peripheral products from the incidence data. A positive geometric solution has every z_j in the upper half-plane, each edge product 1 with total dihedral angle 2π, and peripheral similarity multiplier 1 for both generators of each cusp (parabolic/unipotent cusp holonomy in the developing representation, whose translational part is generally nontrivial). Edge products alone are insufficient. Geometric realization, ideal triangulation existence and finite-volume cusped rigidity are requested from GeometricTopology, Part II. A matrix equation alone is called linear gluing data, not an ideal triangulation.
 API IdealTriangulation [signature omitted pending the boundary above]: Import an actual oriented cusped-manifold ideal face-pairing triangulation, with peripheral curves and nondegenerate shapes satisfying all edge and completeness equations; an arbitrary matrix equation is not this carrier.
 API edgeEquation [signature omitted pending the boundary above]: At each edge, the product of the incident edge parameters is 1 and the sum of their logarithms is two pi i.
-API cuspEquation [signature omitted pending the boundary above]: At each cusp, the derived holonomy of each generator is trivial.
+API cuspEquation [signature omitted pending the boundary above]: At each cusp, each generator has similarity multiplier 1; its parabolic translation need not vanish.
+Test complete_cusp_nonidentity_translation [required example; omitted pending the geometric carrier]: w↦w+1 has multiplier 1 but is not the identity, and may be complete cusp holonomy.
 API isGeometricSolution [signature omitted pending the boundary above]: The conjunction includes positive shapes, edge angle equations and both peripheral completeness equations.
 API volume_eq_sum [signature omitted pending the boundary above]: The volume of the structure is the sum of the volumes of its tetrahedra.
 Test figure_eight_solution [required example; omitted if its carrier/condition is absent]: The two-tetrahedron triangulation of the figure-eight knot complement has the solution with both shapes the primitive sixth root of unity; this is the running example.
@@ -936,8 +944,8 @@ Specification: Neumann’s λ:H₃(PSL₂(ℂ)^δ;ℤ)≅B̂(ℂ) is an isomorph
 ArithmeticQuantumTopology:QT.1/topological-ribbon-hopf-algebras
 Name: topological_ribbon_hopf_algebras
 Carrier/condition boundary: mathlib:HopfAlgebra; mathlib:AdicCompletion; mathlib:UniformSpace.Completion
-Specification: A topological ribbon Hopf algebra over ℂ[[h]] is topologically free, with continuous Hopf structure maps into h-adic completed tensor products, a quasitriangular R and a central invertible ribbon r. A sequence is zero-convergent when each fixed h-adic quotient has only finitely many nonzero terms. The completed tensor product, dual maps and ribbon/pivotal identities are part of the structure. This is the ambient object in Habiro–Le, not an assumption that arbitrary integral subalgebras inherit its completion.
-API TopologicalRibbonHopfAlgebra [signature omitted pending the boundary above]: A complete Hopf algebra over the power series ring with an R-matrix and a ribbon element satisfying the listed axioms.
+Specification: A topological ribbon Hopf algebra over ℂ[[h]] is topologically free of countable topological rank, with invertible antipode and continuous Hopf structure maps into h-adic completed tensor products, a quasitriangular R and a central invertible ribbon r. A sequence is zero-convergent when each fixed h-adic quotient has only finitely many nonzero terms. The completed tensor product, dual maps and ribbon/pivotal identities are part of the structure. This is the ambient object in Habiro–Le, not an assumption that arbitrary integral subalgebras inherit its completion. Explicitly, Δ^op(a)=RΔ(a)R⁻¹, (Δ⊗id)R=R₁₃R₂₃, (id⊗Δ)R=R₁₃R₁₂, and the normalized counit identities hold. If u=μ(S⊗id)(R₂₁), then r²=uS(u), S(r)=r, ε(r)=1 and Δ(r)=(R₂₁R)⁻¹(r⊗r). All products and maps here use the specified completed tensor topology.
+API TopologicalRibbonHopfAlgebra [signature omitted pending the boundary above]: A countable-rank topologically free Hopf algebra over ℂ[[h]] with continuous completed-tensor maps, R and r satisfying the displayed ribbon identities.
 API TopologicalRibbonHopfAlgebra.R [signature omitted pending the boundary above]: The invertible element of the completed tensor square, with the quasi-triangularity identities.
 API TopologicalRibbonHopfAlgebra.ribbon [signature omitted pending the boundary above]: The central invertible element with its coproduct and antipode axioms.
 API TopologicalRibbonHopfAlgebra.moduleCategory [signature omitted pending the boundary above]: Finite-rank topologically free continuous modules form a ribbon category, with braiding from R and positive twist from r⁻¹.
@@ -1075,6 +1083,7 @@ Test ribbonTwist_sl2_V1 [required example; omitted if its carrier/condition is a
 ArithmeticQuantumTopology:QT.1/reshetikhin-turaev-functor
 Name: reshetikhin_turaev_functor
 Carrier/condition boundary: tauceti:TauCetiRoadmap/GeometricTopology#layer-4-knot-theory-done-properly-owned-here; mathlib:HopfAlgebra
+Additional direct input: topological-ribbon-hopf-algebras supplies the full ribbon Hopf identities; ordinary HopfAlgebra alone does not.
 Specification: For a ribbon Hopf algebra (A,R,r) over a field, the finite-dimensional module category admits the unique tensor functor from homogeneous colored directed ribbon graphs that sends signed colors to V or V*, coupons to their A-linear maps, crossings to flip∘R and turns to the evaluation/coevaluation with pivotal u r⁻¹. Its value on a closed colored framed link is a scalar invariant under framed isotopy. For U_h use finite free modules over the complete base and continuous structure maps. The geometric ribbon-graph presentation is imported, not a new link carrier.
 API RTFunctor [signature omitted pending the boundary above]: Tensor functor with the specified generators and color duality.
 API RTFunctor_coupon [signature omitted pending the boundary above]: The image of an A-linear coupon is its label.
@@ -1087,6 +1096,7 @@ Test RTFunctor_crossing_inverse [required example; omitted if its carrier/condit
 ArithmeticQuantumTopology:QT.1/tilting-negligible-quotient
 Name: tilting_negligible_quotient
 Carrier/condition boundary: tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-3-enveloping-algebra-verma-modules-and-lλ
+Additional direct input: general-drinfeld-jimbo-algebra; the specialization is not supplied by the rank-one algebra alone.
 Specification: Specialize the Lusztig divided-power quantum group at the source root: q=s^L, s of order lL, l′=l for odd l and l/2 for even l. For types with d_max|l′ require l′≥d_max h∨; otherwise l′>h. The tilting category consists of modules with Weyl and dual Weyl filtrations. Quotient Hom(V,W) by maps f with qtr(hf)=0 for every h:W→V. Sawin’s full ribbon functor yields a semisimple ribbon category with simples in the open affine alcove ⟨λ+ρ,θ₀⟩<l′. For sl₂ in Habiro variables v of order 2r, r≥2, the admissible colors are V₀,…,V_(r−2); the source root-lattice scaling must be compared before using this specialization. General-type modularity is not asserted.
 API TiltingModule [signature omitted pending the boundary above]: Module with both Weyl and dual Weyl filtrations.
 API IsNegligibleMorphism [signature omitted pending the boundary above]: f:V→W is negligible iff qtr(hf)=0 for all h:W→V.
@@ -1167,6 +1177,7 @@ Specification: The homomorphism ℤ[[q−1]]→∏_(p odd prime)ℤ_p[ζ_p] obta
 ArithmeticQuantumTopology:QT.4/general-core-filtration
 Name: general_core_filtration
 Carrier/condition boundary: ArithmeticQuantumTopology/G2; HabiroCyclotomicCompletions:HC.1/the-cyclotomic-completion
+Generic input G2: Habiro–Le §2.7 universal J_T for arbitrary topological ribbon H and its finite-color trace compatibility. universal-sl2-invariant does not supply this.
 Specification: Let G be the Habiro–Le central parity extension of Y×Y/2Y, retaining its central element v̇ of order two and tensor products over that element. On U_q, deg_G(v)=v̇, deg_G(K_α)=K̇_α, deg_G(E_α)=v̇^d_α ė_α and deg_G(F_α)=ė_α⁻¹K̇_α; use the exact §6 relations rather than an abelian root grading. Set K_n=(X_ℤ^ev)^⊗n∩[(U_A^ev)^⊗n]_1, F_kK_n=(q;q)_k K_n and K̃_n its image completion inside U_h completed⊗n. Then K₀=ℤ[q±1], K̃₀=Habiro; J_T∈K̃_n for zero-linking-matrix bottom tangles and tensor twist forms map K̃_n to K̃₀.
 API generalIntegralKn [signature omitted pending the boundary above]: The displayed graded intersection K_n.
 API generalKnFiltration [signature omitted pending the boundary above]: F_k=(q;q)_kK_n.
@@ -1190,6 +1201,7 @@ Test parity_tensor_zero [required example; omitted if its carrier/condition is a
 ArithmeticQuantumTopology:QT.4/strong-kirby-colors
 Name: strong_kirby_colors
 Carrier/condition boundary: mathlib:IsPrimitiveRoot
+Generic input G2: finite highest-weight quantum colors V_λ and traces from Habiro–Le §3/§8.2, using the full RT/topological-ribbon interface. Rank-one coloured-jones does not supply them.
 Specification: For g, let D=|X/Y|, d=d_max, r=ord ξ, and choose ζ with ζ^(2D)=ξ (ζ evaluates v^(1/D)). The half-open weight box P_ζ consists of λ=Σ k_iω_i, 0≤k_i<2rD. Ω^g_ζ=Σ_(λ∈Pζ)qdim(V_λ)V_λ; Ω^(Pg)_ζ restricts λ to Y. A strong Kirby color satisfies the source strong handle-slide condition, nonzero ±1 Gauss values, and r>d(h∨−1). Define Z′_g,Z′_Pg as admissible lifts, and Z_g,Z_Pg as their images ξ. Odd r supplies projective admissibility and even r supplies full admissibility under that bound; individual lifts with the same ξ can differ. No semisimplicity at all these roots is asserted.
 API StrongKirbyColor [signature omitted pending the boundary above]: The finite color with root bound, sliding condition and nonzero Gauss factors.
 API admissibleRootLifts [signature omitted pending the boundary above]: Z′_g and Z′_Pg retain the root lift ζ.
@@ -1291,7 +1303,7 @@ Specification: If B is unimodular over ℤ, N=I−B⁻¹A is symmetric integral.
 ArithmeticQuantumTopology:QT.6/topological-habiro-module-comparison
 Name: topological_habiro_module_comparison
 Carrier/condition boundary: ArithmeticQuantumTopology/G6; HabiroNahmSeries:HB.8/refinement-gaussian-identification; HabiroNahmSeries:HB.9/module-membership; HabiroNumberFields:HB.6; HabiroNumberFields:HB.7; K3BlochGroups:V.3/cgz-published-bloch-group
-Specification: For a nondegenerate isolated solution of the symmetric integral N Nahm equations obtained by the preceding qualified bridge, import the HB.8 refined Gaussian collection and HB.9 theorem giving Φ_(N,z)∈H_(R[δ^(−1/2)],ξ) at root orders prime to Δ, where ξ=Σ_j[z_j] in the checked CGZ convention. The coefficient ring R is the arithmetic ring of the chosen number field with the required units and bad-prime localization; HNF HB.6/HB.7 supply the Frobenius ring and K₃-indexed module. Identifying this collection with the normalized geometric NZ series requires the explicit phase/one-loop and classical-exponential comparison. It is a separate obligation, not an automatic assertion that every formal NZ series is in that module. At primitive order k the geometric input is the root-refined DG2 series, with the finite cyclic average and one-loop factor above. Its matching with HB.8’s refined Gaussian collection is a normalization obligation under the integral/parity hypotheses, not mere evaluation of the k=1 series.
+Specification: For a nondegenerate isolated solution of the symmetric integral N Nahm equations obtained by the preceding qualified bridge, import the HB.8 refined Gaussian collection only after its G1 global-prefactor and G2 regularity conditions are discharged (and retaining its coprime auxiliary root-order condition) and HB.9 theorem giving Φ_(N,z)∈H_(R[δ^(−1/2)],ξ) at root orders prime to Δ, where ξ=Σ_j[z_j] in the checked CGZ convention. The coefficient ring R is the arithmetic ring of the chosen number field with the required units and bad-prime localization; HNF HB.6/HB.7 supply the Frobenius ring and K₃-indexed module. Identifying this collection with the normalized geometric NZ series requires the explicit phase/one-loop and classical-exponential comparison. It is a separate obligation, not an automatic assertion that every formal NZ series is in that module. At primitive order k the geometric input is the root-refined DG2 series, with the finite cyclic average and one-loop factor above. Its matching with HB.8’s refined Gaussian collection is a normalization obligation under the integral/parity hypotheses, not mere evaluation of the k=1 series.
 
 ArithmeticQuantumTopology:QT.6/faddeev-quantum-dilogarithm
 Name: faddeev_quantum_dilogarithm
