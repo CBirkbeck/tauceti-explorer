@@ -4,7 +4,7 @@ The atlas's workers read papers and books line by line to extract and plan their
 
 Collected by `scripts/errata.py` from the paper extractions and blueprint packets (research/blueprint/PROTOCOL.md, section 18); the data is in `data/source-issues.json`.
 
-7264 new mistakes confirmed · 1478 awaiting review · 1530 already corrected in print · 116 rejected on review · 20 extractions and packets not yet checked.
+7264 new mistakes confirmed · 1478 awaiting review · 1531 already corrected in print · 116 rejected on review · 20 extractions and packets not yet checked.
 
 ## New mistakes, confirmed
 
@@ -19204,6 +19204,7 @@ The cause is a leftover from HAL v3, where w and w' played swapped roles (𝔏^{
 - Raymond Cheng; Carl Lian; Takumi Murayama; in collaboration with Yordanka Kovacheva and Monica Marinescu, Projectivity of the moduli of curves, Author manuscript, 1 July 2021 (`StableReductionPartII`), Introduction,p.1,1July2021 author manuscript: corrected in Corrected in the later NSF-deposited author copy,PDF1,https://par.nsf.gov/servlets/purl/10585475.
 - Raymond Cheng; Carl Lian; Takumi Murayama; in collaboration with Yordanka Kovacheva and Monica Marinescu, Projectivity of the moduli of curves, Author manuscript, 1 July 2021 (`StableReductionPartII`), Lemma1.5 proof,p.4,1July2021 author manuscript: corrected in Corrected in the later NSF-deposited author copy,Lemma1.5 proof,PDF4–6.
 - Raymond Cheng; Carl Lian; Takumi Murayama; in collaboration with Yordanka Kovacheva and Monica Marinescu, Projectivity of the moduli of curves, Author manuscript, 1 July 2021 (`StableReductionPartII`), Lemma7.1 proof,p.30 (lemma begins p.29),1July2021 author manuscript; NSF Lemma1.44 proof,PDF39: corrected in Corrected in the later NSF-deposited author copy,Lemma1.44 proof,PDF39.
+- Takeshi Saito, Hilbert modular forms and p-adic Hodge theory, arXiv:math/0612077v2 (2009); manuscript page = PDF page. (`WeightsInEtaleCohomology`), arXiv:math/0612077v2, §2, p. 12; checked on the page image; journal version not compared: corrected in Already recorded as PadicHodgeTheory/E50 and used by AutomorphicGaloisRepresentations R19.3. This pass independently checks p. 12, and makes no claim that the misprint persists in the journal text..
 - Pierre Deligne, La conjecture de Weil. II, Publications Mathematiques de l'IHES 52 (1980), 137-252 (`WeilConjectures`), Proof of 3.3.5, printed 206, published 1980 scan: corrected in Already recorded in the integrated WeightsInEtaleCohomology source-gap discussion; no published correction located in the searches below..
 - Kiran S. Kedlaya, Fourier transforms and p-adic Weil II, Compositio Mathematica 142 (2006), 1426-1450, DOI 10.1112/S0010437X06002338 (`WeilConjectures`), Section 5.3 consequence (b), printed 1446; also preprint v3 6.6(b), p.52: corrected in Preprint finding already recorded as PadicDifferentialEquationsAndRigidCohomology/E63; this checkpoint collates it against the version of record, not a new discovery claim..
 - Kiran S. Kedlaya, Fourier transforms and p-adic Weil II, Compositio Mathematica 142 (2006), 1426-1450, DOI 10.1112/S0010437X06002338 (`WeilConjectures`), Section 5.3 proof of consequence (a), printed 1446; preprint v3 p.52: corrected in Already recorded against the preprint as PadicDifferentialEquationsAndRigidCohomology/E64; the same proof shortcut is present in the published version..
