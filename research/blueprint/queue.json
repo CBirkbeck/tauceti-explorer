@@ -21540,7 +21540,8 @@
    ],
    "avoidAccountOf": "BP-AdicCoefficientsAndComparisons",
    "prompt": "research/blueprint/prompts/REV-AdicCoefficientsAndComparisons.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #342"
   },
   {
    "id": "BP-AdicEtaleGeometry",
@@ -23684,9 +23685,10 @@
     "REV-RS-05"
    ],
    "prompt": "research/blueprint/prompts/BP-DiamondSixOperations.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #711"
+   "note": "deliverables arrived from an external worker on issue #711",
+   "finishedAt": "2026-10-06T22:37:12Z"
   },
   {
    "id": "REV-DiamondSixOperations",
