@@ -761,6 +761,28 @@
     "data/blueprints/HabiroNumberFields.md"
    ]
   },
+  "research/blueprint/packets/HabiroRings--HR.1.json": {
+   "promotedAt": "2026-10-06T01:26:10Z",
+   "review": "4814cc743ae948c3",
+   "reviewDate": "2026-10-06",
+   "reviewer": "independent-review-REV-HabiroRings--HR.1",
+   "sha256": "fe55060cdfbeefaf242b4df2c59e8601b429d92737af7bc2c2ee580d51b14d9e",
+   "to": [
+    "data/blueprints/HabiroRings--HR.1.json",
+    "data/blueprints/HabiroRings--HR.1.md"
+   ]
+  },
+  "research/blueprint/packets/HabiroRings--HR.2.json": {
+   "promotedAt": "2026-10-06T01:26:10Z",
+   "review": "154b3e7c41ecd80a",
+   "reviewDate": "2026-10-06",
+   "reviewer": "independent-review-REV-HabiroRings--HR.2",
+   "sha256": "e167d87ab1c99f77f179e2378508b76677e139be1520e0d7d88326602fd495f6",
+   "to": [
+    "data/blueprints/HabiroRings--HR.2.json",
+    "data/blueprints/HabiroRings--HR.2.md"
+   ]
+  },
   "research/blueprint/packets/HabiroRings--HR.3.json": {
    "promotedAt": "2026-10-06T00:13:44Z",
    "review": "86c3a26d1ba651a1",
