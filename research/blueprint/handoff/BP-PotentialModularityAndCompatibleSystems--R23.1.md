@@ -1,165 +1,67 @@
-# BP-PotentialModularityAndCompatibleSystems--R23.1: checkpoint 3 (Claude Code cc-39fac3)
+# BP-PotentialModularityAndCompatibleSystems--R23.1
 
-Claude Code, session `cc-39fac3`, 29 September 2026. Refs #976; the bot confirmed the claim. **Status: partial.**
-- R23.1, R23.4, R23.5, R23.6, R24.1 and R24.2 are `source_decomposed`.
-- R23.2 and R23.3 are `partial`.
+Codex, session `codex-o6iGoa`, 6 October 2026. Refs #976. The bot confirmed the claim in [its reply](https://github.com/CBirkbeck/tauceti-explorer/issues/976#issuecomment-6023184837). This is a **complete target-level planning pass**, continuing the inherited packet. It is ready for independent review, rather than another checkpoint.
 
-## Checkpoint 3: Taylor 2006 §5 (6 nodes) and a correction
+## Coverage and deliverables
 
-**Read** on the page images of the Documenta paper (sha 6ec26bf…): §1 Lemmas 1.3–1.4 and Corollary 1.5 with the Hecke
-algebras (pp. 740–743), and §5 in full (pp. 763–771). This closes most of the gap "Taylor 2006 Lemmas 1.3, 5.3, 5.6 are
-unread".
+All eight scoped stages—R23.1, R23.2, R23.3, R23.4, R23.5, R23.6, R24.1 and R24.2—have coverage `planned`. **None is closed or source-decomposed.** The pass ends at the exact supplier requests and source gaps it records; mathematical implementation and source closure are not claimed. All implementation statuses are `unchecked`.
 
-**R23.3 (6 nodes, module `…/TaylorWeights`):**
-- Lemma 1.3 (Jacquet–Langlands and ρ_𝔪);
-- Lemma 1.4 with Corollary 1.5 (Fontaine–Laffaille shape at split x | l);
-- Lemma 5.1 with Corollary 5.2 (a variant of Buzzard's argument via 𝐕_{ϖ_x});
-- Lemma 5.3 (weight shift by l + 1);
-- Lemmas 5.4–5.6 with Corollary 5.5;
-- Theorem 5.7, split out of the Proposition 4.1 node (planet).
+The packet contains 49 nodes: 1 definition, 3 constructions, 14 lemmas, 26 theorems and 5 applications; 22 API items; 16 unit tests; 17 planets; 9 pinned baseline declarations; 30 supplier requests; 15 explicit gaps; and 7 source issues (E2–E8). The reader gives the same statements, conventions, proof routes, dependencies, API, tests and acceptance criteria. The suggested file supplies the API/test names and named theorem shapes with explicit omissions.
 
-KW II Theorem 6.1 and KW Annals Theorem 2.1 cite Theorem 5.7.
+Thirty-one correct inherited node ids are preserved. Four inherited nodes were removed: the Taylor 2002 local-HBAV-at-l and local-points-at-p/infinity nodes, the Taylor 2006 twisted-moduli/descent/CM-point node, and the R23.6 application-table/noncircularity node. The first three duplicate H6's geometry/local constructions, which are imported; the last is process bookkeeping. Their surviving mathematical uses have imports or requests. Eighteen nodes were added. R23.6 is realized by the residual and given-lift mathematical exports; the packet proposes folding that process panel into the introduction at assembly.
 
-**Correction.** In Taylor 2006, [SW1] is Skinner–Wiles, *Base change and a problem of Serre* (Duke 2001), and [SW2] is
-their 2001 Toulouse paper. Checkpoint 2 read the alternative route "the main theorem of [SW1], theorem 3.3 of this paper
-and a standard descent argument" as going through SW 1999. The gap and the readme are fixed. The E11 gap now notes
-Skinner's unpublished correction (Khare–Wintenberger I [41]).
+Important corrected definitions and arguments:
 
-**New gaps:**
-- Skinner–Wiles' Duke paper, used by Corollary 5.5;
-- the Taylor 2006 gap is reduced to Khare's Lemma 2.2 and Conrad–Diamond–Taylor 3.1.1 and 4.2.4.
+- Splitting for an integral Skolem point is `K′ ⊗_K L_v` a product of copies of `L_v`, rather than every completion of `K′` equaling `L_v`. The trivial extension detects the difference.
+- The extra place omitted in the deduction of Theorem G **divides** the inverted denominator. A place outside the inverted primes remains a closed point and does not establish incompleteness.
+- The rigidified Picard object carries an actual invertible sheaf and boundary trivialization, with boundary-compatible isomorphisms. Forgetting targets Tau Ceti's existing line-bundle class. Its affine-fibration theorem retains the degree bound and boundary contribution.
+- Disjointness obtained using split Frobenius places requires a Galois output and local points at the added large places. Avoiding a point field and avoiding its normal closure are distinct assertions.
+- Finiteness concerns the unframed global ring. Its positive-dimensional hypothesis is essential for characteristic-zero extraction: a finite nonzero algebra alone can be torsion.
 
-**New requests:**
-- GL2AutomorphicRepresentationsAndTransfer R17.3 (Jacquet–Langlands);
-- AutomorphicGaloisRepresentations R19.2 (Hilbert Galois representations and Wiles' ordinary shape).
+## The eight confirmed findings
 
-**Lean.** New checked tests: a⁵ = a in F₅, which the X^lY − XY^l identity uses, and the weight bookkeeping of Theorem 5.7.
+1. **RT-AREA-langlands-2/3:** R23.3 explicitly imports Hilbert Galois representations (R19.2), independent auxiliary-prime lifting (R22.5/R22.6, R21.5/R21.6 as applicable), Hida control (L5), and residual weight inputs (R20.3). KW II Theorem 8.2 has an exact R22.4 request. The export table places auxiliary lifting before residual modularity; the given-lift theorem is a separate branch. No R24.2 premise supplies the KW residual-modularity proof.
+2. **/23:** H6 owns the simultaneous twists, pairing/determinant compatibility, components and real/finite local constructions. R23.2 chooses the arithmetic data and applies the exported moduli problem. No obsolete R10 reference remains. Restriction of scalars is requested from A6.
+3. **/24:** R23.5 controls fields and transports data; it imports R17.4/R17.6 base change/descent. Descent requires invariance, cuspidality and the supplier's actual hypotheses. Arbitrary intermediate-field descent was removed.
+4. **/25:** The three-local-condition theorem treats split opens over `K_v`, unramified invariant opens over `K_v^nr`, and invariant opens over `Kbar_v`. Total reality comes from real places in the split class. Preliminary-field and function-field versions are separately stated.
+5. **/26:** CHT 4.1.1 character extension and 4.1.2 soluble prescribed completions are nodes. They import Tau Ceti's ClassFieldTheory layer 12 global existence, allow extra ramification, and feed R23.5. They are not asserted as an unrestricted cyclic Grunwald theorem.
+6. **/27:** The exact Chebotarev layer 10 is imported; a Frobenius-generation node and split-prime avoidance argument use it. The pinned Frobenius-prime-set definition is not mistaken for density. Scheme and function-field Chebotarev have separate requests/gaps.
+7. **/28:** Snowden's general totally-real residual theorem and BCGP's controlled export are nodes, with A6 restriction of scalars and H6 geometry. KW over Q is an overlap specialization with additional weight/dyadic conclusions. Snowden's auxiliary representation, lifting theorem and independent global-lift/soluble-descent dependencies remain explicit, including a cycle check required before using the latter.
+8. **/29:** R24.1 includes the GL2 totally-real ordinary specialization of Thorne 10.2 and the CG ring application. R21.4 supplies ordinary big R=T; R04.6 must supply the finite restriction/polarized CM adapter. The ordinary-local-ring comparison, adequacy and small-image applicability are open, not inferred from absolute irreducibility or ring names.
 
-**Totals.** 35 nodes, 9 planets, 10 requests and 8 gaps. `check_blueprint.py`: 0 errors, 0 warnings.
+## Sources and source corrections
 
-## Checkpoint 2: Taylor's moduli problem and potential modularity (10 nodes)
+The packet's 19 source records retain downloadable URLs, SHA256 hashes, editions, passages read and inherited reading attribution. Copies are not committed. Re-download by those URLs rather than relying on deleted worker scratch files.
 
-**Carried from EXT-12.** Ten draft nodes, each re-verified on the page images:
-- Taylor 2002 (fm.pdf, sha e00ebd5…), §1, printed pp. 6–16;
-- Taylor 2006 (Documenta, sha 6ec26bf…), pp. 755–763, 770–771 and 776–777.
+The inherited Moret–Bailly I/II, Taylor 2002/2006, KW II and KW Annals routes are retained with corrected ownership and interfaces. Additional passages read cover Qian Proposition 4.2 and disjointness; published CHT 4.1.1–4.1.2; BLGHT 6.2; Bianchi 4.5.1; BHKT §9; published BCGP 9.1.11–9.1.12 and the actual 9.2.7 consumer; Snowden §§3, 5 and 8.1–8.2; Calegari 3.1–3.2; Thorne 10.2; CG Theorem 4.8 and its finiteness paragraph; and Newton–Thorne §3's selected-component/dimension/extraction argument. These are the in-scope passages, not assertions of reading the entire papers. The NT arXiv edition is recorded separately from the 2026 journal publication; the journal version was not collated. Thorne's available author copy is recorded as such.
 
-Every excerpt was found on its stated page by a letters-only match, because the 2002 text layer drops digits and Greek.
+BHKT's published Acta §9 (pp. 76–79) was collated against the arXiv copy. Its finite-étale Isom scheme in Lemma 9.1 is over the base curve `Y_K`, not over the function field `K`. E8 records this known misprint and Beuzart-Plessis–Harris–Thorne, arXiv:2502.20611v1, p. 28, which explicitly gives the correction. With trivial group the Isom scheme is the curve itself, detecting the incorrect base.
 
-**R23.2 (6 nodes):**
-- `taylor-auxiliary-data-p-L-psi-N-M` (construction, 5 API items, 4 tests);
-- Lemma 1.1;
-- Lemma 1.2;
-- Lemmas 1.3–1.4;
-- the local points and the Moret-Bailly point over E;
-- `taylor-2006-lemmas-4-4-4-5-descent-and-the-cm-point`, the draft's twisted-moduli node recast as a lemma.
+Published BCGP Proposition 9.1.12 (pp. 458–459) contains the impossible disjointness assertion for `L′/E` while `E′ ⊆ L′`, and does not justify descent of its cover to `L/K`. E7 uses the corrected output: `K/E` disjoint from `E′Favoid/E`, `K′=KE′`, and the prescribed Galois cover `L′/K′`, with its local groups taken over `K′`. Lemma 9.2.7 (pp. 462–463) uses these outputs. No descent assertion is reintroduced.
 
-**R23.3 (4 nodes):**
-- Lemma 1.5;
-- the modularity of the auxiliary abelian variety and its transfer to ρ̄;
-- Theorem 1.6 with Corollary 1.7 (planet);
-- Taylor 2006 Proposition 4.1, Corollary 4.6 and Theorem 5.7 (planet).
+E2–E6 retain their exact editions, excerpts and reasons. The Taylor 2002 determinant correction is already in Taylor 2006 and is used throughout. Skinner–Wiles E11 is an unresolved mathematical dependency, not treated as a harmless source typo.
 
-KW II Theorem 6.1 and KW Annals Theorem 2.1 now cite them.
+## Precise follow-up work
 
-**Not carried (RS-23).** The draft's M-HBAV definition and the moduli spaces X and X_{R,ψ} belong to
-HilbertModularVarietiesAndShimuraCurves H6, which "retains the twisted moduli/local-point input" for R23.2. A request
-to H6 lists what is needed, including quasi-projectivity, which Taylor does not state.
+The packet's 30 requests are the definitive interface list. They cover R09.3; R19.2/R19.6; R03.4; R17.3–R17.6; R21.4–R21.6; H6/R18.3; A6; R22.4/R22.6; L5; R20.3; R04.6; local L8/R08.2/R08.6; scheme SF.1–SF.4; and the two exact Tau Ceti Chebotarev/global class-field-theory stages. Reuse supplier node ids once their **statements**, rather than only titles, meet these interfaces. Do not reconstruct their objects here.
 
-**Taylor and Skinner–Wiles 2001.**
-- Taylor 2002 (p. 15) applies SW 2001 Theorem 5.1 to a residual representation induced from the CM field LE, split
-  above p.
-- Taylor 2006 (pp. 762–763) does the same with FM, split at p₁.
-- Both are exactly the case where SW 2001's Lemma 2.2 fails (OrdinaryAutomorphicFormsAndModularityLifting/E11, PR
-  #3873), so this is recorded as a gap.
-- Taylor 2006 names an alternative route: [SW1], his Theorem 3.3 and descent. [SW1] is Skinner–Wiles' Duke base-change
-  paper, not SW 1999; checkpoint 3 corrects this.
+The 15 gaps specify the following outstanding work:
 
-**Source issues (Taylor's 2000 preprint):**
-- **E4:** Lemma 1.5's proof ends "χ₁|_{I_x} = ω" for ω^{−1}. The excluded case is n = 1, checked in Lean.
-- **E5:** ψ_x for ψ_y in Lemma 1.1's proof.
-- **E6:** λ for λ₀ (p. 7), and End(A/k(v)) and ℚ(α) for End(A₀/k(v)) and ℚ(β_v) (p. 11).
+- Check the relative curve/Picard/Chow/Bertini/Riemann–Roch imports and allocate strong approximation off an omitted place plus the S-unit compact quotient exactly.
+- Obtain the Duke Khare Lemmas 2.2 and 4.2 and the two Conrad–Diamond–Taylor inputs; settle the Skinner–Wiles Duke allowable-base-change use and the E11 residual-dihedral obstruction.
+- Verify the requested KW II 8.2, Gross/Coleman–Voloch, and R=T-over-F interfaces. Check the proof details omitted in Taylor's local-point lemma/corollary through the H6 and residual suppliers.
+- Supply local points at almost all places, arithmetic function-field Chebotarev, finite-group Jordan, and BLGGT 3.1.1's stronger exact-completion/Q-Galois/CM refinement.
+- Obtain Moret–Bailly 1990 Theorem 1.2. BHKT 9.3 quotes it; the function-field potential inverse-Galois assertion currently ends in this exact source gap.
+- Verify Snowden's independent global-lift/soluble-descent route without introducing a residual-modularity/existence cycle.
+- Prove the Thorne polarized-CM/ordinary GL2 and CG ordinary-ring adapters under exact image/local hypotheses, and check the NT selected-component application.
+- Supply the integral-closure-to-continuous-local-p-adic-point adapter, residue embedding, localness and formal-smooth framing specialization. The algebraic R03.4 statement alone does not include them.
 
-**New requests:**
-- HilbertModularVarietiesAndShimuraCurves H6 (the moduli);
-- OrdinaryAutomorphicFormsAndModularityLifting R21.5 (SW 2001 Theorem 5.1).
+Compatible-system construction/operations, ACC+23 purity and KW I lifts belong to the next part R24.3–R24.6. Qian Lemma 2.1 belongs to the Dwork Part II. The abelian-surface and BHKT automorphy results remain downstream consumers.
 
-The R17.5 request now also covers automorphic induction and the soluble branch.
+## Validation and Lean limits
 
-**Gaps:**
-- the SW 2001/E11 dependency;
-- Lemma 1.3 and Corollary 1.7 have no printed proof;
-- the "not yet carried" gap is removed.
+`python3 scripts/check_blueprint.py research/blueprint/packets/PotentialModularityAndCompatibleSystems--R23.1.json` reports **0 errors and 0 warnings**. Consistency checks found all 22 API and 16 test names in the suggested file, all implementation statuses unchecked, the planet limit satisfied, and no cycle in the reachable declaration graph of this packet and the available blueprint/integrated suppliers. `git diff --check` passes.
 
-Checkpoint 1's source editions carried the draft's private catalogue ids. They are removed here.
+Mathlib's shared build matches `082e2d37e8b0463410cdb532e111cd43d5a66174`. Baseline declarations were read at the pinned commits; Tau Ceti's relevant source blobs match `f790474821cf4256814db967cb154e7af3d0c369`. The shared Tau Ceti checkout is at another commit, and its line-bundle compiled objects are absent. **The complete suggested file was not elaborated:** `lean-check` stops at the missing compiled `TauCeti.AlgebraicGeometry.LineBundle.Class` import.
 
-**Totals.** 29 nodes, 8 planets, 8 requests, 7 gaps and source issues E2–E6. `check_blueprint.py`: 0 errors,
-0 warnings.
-
-## What a continuation should do (after checkpoint 2)
-
-1. Revisit the SW 2001 gap once OrdinaryAutomorphicFormsAndModularityLifting/E11 is settled; Skinner's correction is
-   unpublished. The two nodes already cite `R21.5/nearly-ordinary-irreducible-lifting`, merged in #3873. Alternatively,
-   plan Taylor 2006's route through [SW1] (Skinner–Wiles' Duke base change) and his Theorem 3.3.
-2. Read Taylor 2006 Lemmas 5.1–5.6 and Khare's Lemma 2.2 (the p = 3 extension used by KW II).
-3. Compare the published JIMJ numbering with the preprint, if a readable copy exists.
-
-## Checkpoint 1
-
-## What this checkpoint did
-
-1. **Used the unreviewed draft EXT-12 as a lead.** Its 34 nodes cover R23.1–R24.3. This checkpoint carries 15 of them
-   (R23.1: 10; R23.3: the two KW nodes; R24.1: 2; R24.2: 1).
-   - **Excerpts:** every one was re-verified against copies whose sha256 matches the draft's records (Moret-Bailly I, II;
-     KW II; KW Annals). A NFKC skeleton match regenerated those whose text layers differ. Taylor 2002's damaged text
-     layer contains the same words as the transcribed quotations.
-   - **Statements:** spot-checked against Moret-Bailly §1 (1.1–1.5, and Σ ≠ ∅) and KW II §§6 and 10.
-   - **Format:** the nodes were converted to blueprint form, with prerequisites from the draft's links and API and tests
-     for the definition and the two constructions.
-2. **Did not duplicate.** Two draft nodes are dropped: the global rings of §10.1 (GlobalGaloisDeformations R04.6) and
-   the local rings with nonemptiness (LocalGaloisDeformationRings R08.6). The draft's R24.3 nodes are superseded by part
-   R24.3 (#3864).
-3. **Added four nodes:**
-   - the deduction of Taylor's Theorem G from Moret-Bailly, which closes the draft's gap;
-   - potential modularity of a given lift (R23.4);
-   - control of the extension (R23.5);
-   - exports and noncircularity (R23.6).
-
-   None of R23.4–R23.6 cites R24, so the stage order holds.
-4. **Deferred** Taylor's moduli problem (R23.2) and his potential-modularity theorems (4 R23.3 nodes). The 2000
-   preprint's text layer loses ligatures and Greek letters, so these must be checked on the page images.
-
-## Source issues
-
-- **E2:** KW II p. 91 cites "part (c) of Theorem 6.1" for part (iii) b).
-- **E3:** Moret-Bailly II p. 192 prints "LEMME 3.30.2" for 3.10.2.
-
-Both were verified here (the draft had noted them).
-
-**A correction to part R24.3 (#3864) found here.** KW Annals' "[27]" is Khare–Ramakrishna, *Finiteness of Selmer groups
-and deformation rings*, Invent. Math. 154 (2003) 179–198, not Khare's paper with Böckle's appendix ([26]). Part R24.3's
-`kw-annals-minimal-lifts` says "Khare's Inventiones 154 (2003) paper" for the §5.2 Remark. A checkpoint of #977 should
-correct it.
-
-## Requests (6)
-
-- AlgebraicModuliForArithmeticGeometry R09.3;
-- AutomorphicGaloisRepresentations R19.6;
-- DeformationAndDerivedPatchingAlgebra R03.4;
-- GL2AutomorphicRepresentationsAndTransfer R17.4 and R17.5;
-- OrdinaryAutomorphicFormsAndModularityLifting R21.6.
-
-## Lean
-
-`suggested/PotentialModularityAndCompatibleSystems--R23.1.lean` imports Mathlib only. It checks:
-- the fibre dimensions d + 1 − g − z in the curve case;
-- the bound 2g + z − 1;
-- tame killing at 7;
-- the 4|S| − 1 framing variables;
-- Proposition 4.5's dimension count.
-
-It compiles with 0 errors, 0 warnings and no `sorry`.
-
-## What checkpoint 1 left (done in checkpoint 2 and #977 checkpoint 2)
-
-1. Carry the draft's Taylor nodes (done above).
-2. Fix part R24.3's attribution of the §5.2 Remark (done in #3869).
+The complete non-Picard arithmetic portion was separately checked with `lean-check` after removing that import and its Picard block; it elaborated with only proof-hole warnings. This is a limited signature check, not a successful check of the complete file or of mathematical proofs. The file lists omitted completion, geometry, relative Picard, automorphic, deformation and p-adic-topology conditions explicitly. Once the proper pinned compiled dependencies are available, elaborate the full file and resolve its remaining signature omissions against the definitive packet. No library build, cache download, new Lake project or Lean server was started.
