@@ -23,7 +23,9 @@ normalization/field description; the comparison with an irreducible closed subsc
 and finiteness of normalization over the arithmetic base, are omitted.
 
 The Picard prototype is the objectwise rigidified quotient, using the existing invertible
-sheaves and line-bundle classes. Relative functoriality, sheafification, degree components,
+sheaves and line-bundle classes. Its group signature and quotient descent are included,
+but their relation to tensor/dual operations and relative pullback still needs suppliers.
+Relative functoriality, sheafification, degree components,
 Cartier divisors and scheme representability are omitted. The divisor arguments expose the
 supplier's line bundle and boundary trivialization; they do not define Cartier divisors.
 
@@ -35,9 +37,11 @@ The packet and reader give their complete mathematical statements. In particular
 on such a reduced signature must not be interpreted as an unconditional theorem about
 an arbitrary ring or representation.
 
-The complete file could not be elaborated: the shared build lacks the compiled object for
-TauCeti.AlgebraicGeometry.LineBundle.Class. A Mathlib-only arithmetic fragment was checked
-with lean-check; that does not validate this complete file or its Picard prototypes.
+Independent review REV-PotentialModularityAndCompatibleSystems--R23.1 attempted the
+complete file with lean-check on 2026-10-06. Elaboration stopped at the first import:
+the shared build lacks TauCeti.AlgebraicGeometry.LineBundle.Class.olean. The earlier
+author reported checking a Mathlib-only arithmetic fragment; this review did not
+reproduce that check and does not certify this file or any fragment as elaborated.
 -/
 
 open CategoryTheory AlgebraicGeometry
@@ -102,6 +106,32 @@ structure SkolemDatum.IntegralPoint (S : SkolemDatum R K V L) where
 
 attribute [instance] SkolemDatum.IntegralPoint.algebraR SkolemDatum.IntegralPoint.tower
 
+lemma SkolemDatum.fieldPoint_split (S : SkolemDatum R K V L) (E : FiniteExtension K)
+    [Algebra R E.carrier] [IsScalarTower R K E.carrier]
+    (x : Point (integralClosure R E.carrier) S.X) (hx : S.FieldPoint E x)
+    (v : V) (hv : v ∈ S.sigma) : SplitOver K E.carrier (L v) := by
+  sorry
+
+lemma SkolemDatum.fieldPoint_local (S : SkolemDatum R K V L) (E : FiniteExtension K)
+    [Algebra R E.carrier] [IsScalarTower R K E.carrier]
+    (x : Point (integralClosure R E.carrier) S.X) (hx : S.FieldPoint E x)
+    (v : V) (hv : v ∈ S.sigma) (e : E.carrier →ₐ[K] L v) :
+    Spec.map (CommRingCat.ofHom
+      (e.toRingHom.comp (algebraMap (integralClosure R E.carrier) E.carrier))) ≫ x ∈ S.Ω v := by
+  sorry
+
+lemma SkolemDatum.isComplete_congr (S T : SkolemDatum R K V L)
+    (hs : S.sigma = T.sigma) (hc : S.closedPlaces = T.closedPlaces) :
+    S.IsComplete ↔ T.IsComplete := by
+  sorry
+
+/-- Map normalized field points. The geometric closed-image comparison remains omitted. -/
+def SkolemDatum.mapPoint (S T : SkolemDatum R K V L) (f : S.X ⟶ T.X)
+    (hf : f ≫ T.f = S.f) (hs : S.sigma = T.sigma)
+    (hΩ : ∀ v ∈ S.sigma, ∀ y ∈ S.Ω v, y ≫ f ∈ T.Ω v)
+    (x : S.IntegralPoint) : T.IntegralPoint := by
+  sorry
+
 /-- Generic criterion; its equivalence to the geometric closed-subscheme definition is omitted. -/
 lemma SkolemDatum.integralPoint_iff (S : SkolemDatum R K V L) (E : FiniteExtension K)
     [Algebra R E.carrier] [IsScalarTower R K E.carrier]
@@ -133,15 +163,20 @@ def SkolemDatum.enlargeSigma [DecidableEq V] (S : SkolemDatum R K V L) (T : Fins
 
 /- Unit tests: full geometric interpretations are specified in the reader. -/
 /-- skolem_complete_Z: completeness on Q's places, and the conjugate-norm obstruction. -/
-example :
-    (∀ v : Option Nat.Primes, v = none ∨ ∃ p, v = some p) ∧
+example (L : Option Nat.Primes → Type) [∀ v, Field (L v)] [∀ v, Algebra ℚ (L v)]
+    (S : SkolemDatum ℤ ℚ (Option Nat.Primes) L)
+    (hs : S.sigma = {none}) (hc : S.closedPlaces = {v | v ≠ none}) :
+    S.IsComplete ∧
     (∀ (n : ℕ) (hn : 0 < n) (z : Fin n → ℂ),
       (∏ i, ‖z i‖) = 1 → ¬ (∀ i, ‖z i‖ < 1)) := by
   sorry
 
 /-- skolem_incomplete_Z_half: remove 2 from the closed places, keep infinity in sigma. -/
-example : ∃ v : Option Nat.Primes,
-    v ≠ none ∧ ¬ (∃ p : Nat.Primes, p.val ≠ 2 ∧ v = some p) := by
+example (L : Option Nat.Primes → Type) [∀ v, Field (L v)] [∀ v, Algebra ℚ (L v)]
+    (S : SkolemDatum ℤ ℚ (Option Nat.Primes) L)
+    (hs : S.sigma = {none})
+    (hc : S.closedPlaces = {v | ∃ p : Nat.Primes, p.val ≠ 2 ∧ v = some p}) :
+    ¬ S.IsComplete := by
   sorry
 
 /-- skolem_trivial_X: the generic extension K works even for nontrivial L/K. -/
@@ -151,6 +186,13 @@ example (F : Type u) [Field F] [Algebra K F] : SplitOver K K F := by
 /-- skolem_open_required: a singleton in a nondiscrete local analytic curve is inadmissible.
 This is the local analytic test, after choosing a coordinate in Q_p or R. -/
 example (x : ℝ) : ¬ IsOpen ({x} : Set ℝ) := by
+  sorry
+
+/-- skolem_fieldPoint_local: the object imposes the condition at every embedding. -/
+example (S : SkolemDatum R K V L) (x : S.IntegralPoint)
+    (v : V) (hv : v ∈ S.sigma) (e : x.E.carrier →ₐ[K] L v) :
+    Spec.map (CommRingCat.ofHom
+      (e.toRingHom.comp (algebraMap (integralClosure R x.E.carrier) x.E.carrier))) ≫ x.x ∈ S.Ω v := by
   sorry
 
 /-- R23.1/generalized-picard-functor-and-effective-divisor-fibration. -/
@@ -165,6 +207,39 @@ def rigidifiedSetoid (X Z : Scheme.{u}) (i : Z ⟶ X) : Setoid (Rigidified X Z i
 
 def generalizedPicard (X Z : Scheme.{u}) (i : Z ⟶ X) : Type _ :=
   Quotient (rigidifiedSetoid X Z i)
+
+lemma generalizedPicard_mk_eq_iff (X Z : Scheme.{u}) (i : Z ⟶ X)
+    (A B : Rigidified X Z i) :
+    (Quotient.mk _ A : generalizedPicard X Z i) = Quotient.mk _ B ↔
+      Nonempty {e : A.line.obj ≅ B.line.obj //
+        (Scheme.Modules.pullback i).map e.hom ≫ B.trivialization.hom = A.trivialization.hom} := by
+  sorry
+
+def generalizedPicard_lift (X Z : Scheme.{u}) (i : Z ⟶ X) (T : Type*)
+    (f : Rigidified X Z i → T)
+    (hf : ∀ A B, (rigidifiedSetoid X Z i).r A B → f A = f B) :
+    generalizedPicard X Z i → T := Quotient.lift f hf
+
+lemma generalizedPicard_lift_mk (X Z : Scheme.{u}) (i : Z ⟶ X) (T : Type*)
+    (f : Rigidified X Z i → T)
+    (hf : ∀ A B, (rigidifiedSetoid X Z i).r A B → f A = f B)
+    (A : Rigidified X Z i) :
+    generalizedPicard_lift X Z i T f hf (Quotient.mk _ A) = f A := by
+  sorry
+
+/-- Objectwise group signature. Tensor/dual compatibility and the relative group sheaf
+are not supplied by this signature; the packet requests their precise construction. -/
+noncomputable instance generalizedPicard_group (X Z : Scheme.{u}) (i : Z ⟶ X) :
+    CommGroup (generalizedPicard X Z i) := by
+  sorry
+
+/-- Quotient descent of the supplier's actual rigidified pullback. Its construction
+from a Cartesian square and the identity/composition laws remain omitted. -/
+def generalizedPicard_pullback (X Z Y W : Scheme.{u}) (i : Z ⟶ X) (j : W ⟶ Y)
+    (pull : Rigidified X Z i → Rigidified Y W j)
+    (hp : ∀ A B, (rigidifiedSetoid X Z i).r A B →
+      (rigidifiedSetoid Y W j).r (pull A) (pull B)) :
+    generalizedPicard X Z i → generalizedPicard Y W j := Quotient.map pull hp
 
 /-- Forgetting is well-defined on rigidified isomorphism classes, into the pinned class type. -/
 def generalizedPicard_forget (X Z : Scheme.{u}) (i : Z ⟶ X) :
@@ -228,43 +303,83 @@ example (X Z : Scheme.{u}) [IsEmpty Z] (i : Z ⟶ X) :
     Function.Bijective (generalizedPicard_forget X Z i) := by
   sorry
 
+/-- pg_rigidified_iso: compatible isomorphisms, rather than literal representatives. -/
+example (X Z : Scheme.{u}) (i : Z ⟶ X) (A B : Rigidified X Z i)
+    (h : (rigidifiedSetoid X Z i).r A B) :
+    (Quotient.mk _ A : generalizedPicard X Z i) = Quotient.mk _ B := by
+  sorry
+
+/-- pg_boundary_matters: an unrigidified isomorphism alone does not equate the classes. -/
+example (X Z : Scheme.{u}) (i : Z ⟶ X) (A B : Rigidified X Z i)
+    (h : ∀ e : A.line.obj ≅ B.line.obj,
+      (Scheme.Modules.pullback i).map e.hom ≫ B.trivialization.hom ≠ A.trivialization.hom) :
+    (Quotient.mk _ A : generalizedPicard X Z i) ≠ Quotient.mk _ B := by
+  sorry
+
+/-- pg_forget_representative: use the existing line-bundle class, preserving its universe. -/
+example (X Z : Scheme.{u}) (i : Z ⟶ X) (A : Rigidified X Z i) :
+    generalizedPicard_forget X Z i (Quotient.mk _ A) = LineBundleClass.mk A.line := by
+  sorry
+
 abbrev GL2 (k : Type u) [CommRing k] := Matrix.GeneralLinearGroup (Fin 2) k
 abbrev GaloisGroup (F : Type u) [Field F] := AlgebraicClosure F ≃ₐ[F] AlgebraicClosure F
 
 /-- R23.2/taylor-auxiliary-data-p-L-psi-N-M: typed character/field portion.
 The relation of H to L, local completions, CM structure, places of N and the automorphic
-induction construction are omitted. The induced representation is exposed as data. -/
-structure TaylorAuxiliaryData (F Ω G I k : Type u)
-    [Field F] [Field Ω] [Algebra F Ω] [Group G] [Group I] [Field k]
+induction construction are omitted. N and M are coefficient number fields over Q;
+they are not intermediate extensions of the totally real base F. Their relation to N_0,
+and the maximal-real-subfield assertion for M, remain omitted.
+The induced representation is exposed as data. -/
+structure TaylorAuxiliaryData (F Ω G D k : Type u)
+    [Field F] [Field Ω] [Algebra F Ω] [Group G] [Group D] [Field k]
     (cyclotomic : G →* kˣ) where
+  l : ℕ
+  residual_prime : l.Prime
   p : ℕ
   prime : p.Prime
+  ne_l : p ≠ l
   L : IntermediateField F Ω
-  N : IntermediateField F Ω
-  M : IntermediateField F Ω
+  cyclotomicField : IntermediateField F Ω
+  notCyclotomic : ¬ L ≤ cyclotomicField
+  N : FiniteExtension ℚ
+  M : FiniteExtension ℚ
+  realCoefficientEmbedding : M.carrier →+* N.carrier
   H : Subgroup G
   index_two : H.index = 2
   psi : H →* kˣ
   psiConjugate : H →* kˣ
-  inertia : I →* H
-  distinguished : psi.comp inertia ≠ psiConjugate.comp inertia
+  conjugation : H ≃* H
+  conjugation_involutive : Function.Involutive conjugation
+  conjugate_eq : psiConjugate = psi.comp conjugation.toMonoidHom
+  /-- The full selected local decomposition group. Distinction on inertia is stronger
+  and is false when the two distinct local characters are both unramified. -/
+  decomposition : D →* H
+  distinguished : psi.comp decomposition ≠ psiConjugate.comp decomposition
   induced : G →* GL2 k
   determinant : Matrix.GeneralLinearGroup.det.comp induced = cyclotomic
 
 namespace TaylorAuxiliaryData
-variable {F Ω G I k : Type u} [Field F] [Field Ω] [Algebra F Ω]
-    [Group G] [Group I] [Field k] {cyclotomic : G →* kˣ}
+variable {F Ω G D k : Type u} [Field F] [Field Ω] [Algebra F Ω]
+    [Group G] [Group D] [Field k] {cyclotomic : G →* kˣ}
 /-- Existence omits Taylor's standing hypotheses and local-character construction. -/
-theorem «exists» : Nonempty (TaylorAuxiliaryData F Ω G I k cyclotomic) := by
+theorem «exists» : Nonempty (TaylorAuxiliaryData F Ω G D k cyclotomic) := by
   sorry
-lemma det_ind (A : TaylorAuxiliaryData F Ω G I k cyclotomic) :
+lemma det_ind (A : TaylorAuxiliaryData F Ω G D k cyclotomic) :
     Matrix.GeneralLinearGroup.det.comp A.induced = cyclotomic := by
   sorry
-lemma psi_ne_conj (A : TaylorAuxiliaryData F Ω G I k cyclotomic) :
-    A.psi.comp A.inertia ≠ A.psiConjugate.comp A.inertia := by
+lemma psi_ne_conj (A : TaylorAuxiliaryData F Ω G D k cyclotomic) :
+    A.psi.comp A.decomposition ≠ A.psiConjugate.comp A.decomposition := by
+  sorry
+lemma prime_ne_l (A : TaylorAuxiliaryData F Ω G D k cyclotomic) : A.p ≠ A.l := by
+  sorry
+lemma conj_conj (A : TaylorAuxiliaryData F Ω G D k cyclotomic) :
+    A.psiConjugate.comp A.conjugation.toMonoidHom = A.psi := by
+  sorry
+lemma det_ind_apply (A : TaylorAuxiliaryData F Ω G D k cyclotomic) (g : G) :
+    Matrix.GeneralLinearGroup.det (A.induced g) = cyclotomic g := by
   sorry
 /-- Generic algebra form of splitting; completion and CM hypotheses are omitted. -/
-lemma split (A : TaylorAuxiliaryData F Ω G I k cyclotomic)
+lemma split (A : TaylorAuxiliaryData F Ω G D k cyclotomic)
     (Fv : Type u) [Field Fv] [Algebra F Fv] : SplitOver F A.L Fv := by
   sorry
 end TaylorAuxiliaryData
@@ -272,18 +387,36 @@ end TaylorAuxiliaryData
 /-- taylorAux_N0_l5: discriminant/local unramifiedness arithmetic. -/
 example : (1 : ℤ) - 4 * 5 = -19 ∧ ¬ (5 : ℤ) ∣ (1 - 4 * 5) := by
   sorry
-/-- taylorAux_det_needed: incompatible determinant rules out the fixed pairing condition. -/
-example (G k : Type u) [Group G] [Field k] (rho : G →* GL2 k)
-    (epsilon omega : G →* kˣ) (h : Matrix.GeneralLinearGroup.det.comp rho ≠ epsilon) :
-    ¬ (Matrix.GeneralLinearGroup.det.comp rho = epsilon) := by
+/-- taylorAux_det_needed: the auxiliary object cannot have an incompatible determinant. -/
+example (F Ω G D k : Type u) [Field F] [Field Ω] [Algebra F Ω]
+    [Group G] [Group D] [Field k] (epsilon : G →* kˣ)
+    (A : TaylorAuxiliaryData F Ω G D k epsilon)
+    (h : Matrix.GeneralLinearGroup.det.comp A.induced ≠ epsilon) : False := by
   sorry
-/-- taylorAux_alpha_norm: the Frobenius determinant of diag(alpha,alpha^c). -/
+/-- taylorAux_alpha_norm: the algebraic determinant of diag(alpha,alpha^c).
+At w|p this is not the p-adic cyclotomic value on a Frobenius lift. -/
 example (alpha : ℂ) (p : ℕ) (h : alpha * star alpha = p) :
     Matrix.det !![alpha, 0; 0, star alpha] = p := by
   sorry
-/-- taylorAux_not_in_cyclotomic: cyclotomic containment violates the auxiliary choice. -/
-example (F Ω : Type u) [Field F] [Field Ω] [Algebra F Ω]
-    (L C : IntermediateField F Ω) (h : L ≤ C) : ¬ (¬ L ≤ C) := by
+/-- taylorAux_not_in_cyclotomic: the auxiliary object excludes cyclotomic containment.
+The relation of cyclotomicField to F(zeta_p) remains an omitted arithmetic condition. -/
+example (F Ω G D k : Type u) [Field F] [Field Ω] [Algebra F Ω]
+    [Group G] [Group D] [Field k] (epsilon : G →* kˣ)
+    (A : TaylorAuxiliaryData F Ω G D k epsilon)
+    (h : A.L ≤ A.cyclotomicField) : False := by
+  sorry
+
+/-- taylorAux_local_decomposition: a distinguishing element of the full local group. -/
+example (F Ω G D k : Type u) [Field F] [Field Ω] [Algebra F Ω]
+    [Group G] [Group D] [Field k] (epsilon : G →* kˣ)
+    (A : TaylorAuxiliaryData F Ω G D k epsilon) :
+    ∃ g : D, A.psi (A.decomposition g) ≠ A.psiConjugate (A.decomposition g) := by
+  sorry
+
+/-- taylorAux_beta_norm: for l=5, f=1 the norm is 5, not auxiliary p≠5 (E9). -/
+example (a : ℂ) (ha : a ^ 2 - a + 5 = 0)
+    (hc : star a = 1 - a) (p : ℕ) (hp : p ≠ 5) :
+    a * star a = 5 ∧ a * star a ≠ p := by
   sorry
 
 /-! Reduced signatures for the named R23 theorems. All missing conditions/witnesses are
@@ -481,10 +614,10 @@ open PotentialModularity
 /-- R24.1 auxiliary field. The missing automorphic witnesses are omitted; piA and piBC
 expose only their Galois realizations, not automorphic representations. Local conditions,
 residual-image preservation and the relation of the absolute restriction map to F are omitted. -/
-structure AuxiliaryField (k O : Type u) [Field k] [CommRing O] where
+structure AuxiliaryField (k O : Type u) [Field k] [CommRing O] (p weight : ℕ) where
   F : FiniteExtension ℚ
   totallyReal : NumberField.IsTotallyReal F.carrier
-  characteristicA : GaloisGroup F.carrier →* GL2 O
+  characteristicA : (p ≠ 2 ∨ weight = 2) → GaloisGroup F.carrier →* GL2 O
   characteristicBC : GaloisGroup F.carrier →* GL2 O
   tau : GaloisGroup F.carrier →* GL2 k
   unramifiedGroups : Type u
@@ -495,29 +628,44 @@ structure AuxiliaryField (k O : Type u) [Field k] [CommRing O] where
 attribute [instance] AuxiliaryField.groups
 
 namespace AuxiliaryField
-variable {k O : Type u} [Field k] [CommRing O]
-def piA (A : AuxiliaryField k O) : GaloisGroup A.F.carrier →* GL2 O := A.characteristicA
-def piBC (A : AuxiliaryField k O) : GaloisGroup A.F.carrier →* GL2 O := A.characteristicBC
-lemma tau_unramified (A : AuxiliaryField k O) : A.tau.comp A.inertia = 1 := by
+variable {k O : Type u} [Field k] [CommRing O] {p weight : ℕ}
+
+/-- Arithmetic guard for the type-(A) accessor; automorphic/local-type data are omitted. -/
+def HasTypeA (_A : AuxiliaryField k O p weight) : Prop := p ≠ 2 ∨ weight = 2
+
+def piA (A : AuxiliaryField k O p weight) (h : A.HasTypeA) :
+    GaloisGroup A.F.carrier →* GL2 O := A.characteristicA h
+def piBC (A : AuxiliaryField k O p weight) : GaloisGroup A.F.carrier →* GL2 O :=
+  A.characteristicBC
+lemma piA_iff (A : AuxiliaryField k O p weight) : A.HasTypeA ↔ p ≠ 2 ∨ weight = 2 := by
+  sorry
+lemma piBC_eq (A : AuxiliaryField k O p weight) : A.piBC = A.characteristicBC := by
+  sorry
+lemma tau_unramified (A : AuxiliaryField k O p weight) : A.tau.comp A.inertia = 1 := by
   sorry
 /-- KW hypotheses and construction of the automorphic witnesses are omitted. -/
-theorem «exists» : Nonempty (AuxiliaryField k O) := by
+theorem «exists» : Nonempty (AuxiliaryField k O p weight) := by
   sorry
 end AuxiliaryField
 
 /-- aux_dyadic_weight_four: the k=4 dyadic case uses beta/type C, not alpha. -/
-example : (2 : ℕ) = 2 ∧ (4 : ℕ) ≠ 2 := by
+example (k O : Type u) [Field k] [CommRing O] (A : AuxiliaryField k O 2 4) :
+    ¬ A.HasTypeA ∧ A.piBC = A.characteristicBC := by
   sorry
 /-- aux_unramified_at_p: over an unramified extension of degree divisible by the finite
 Frobenius order the unramified residual representation becomes trivial. -/
-example (k : Type u) [Field k] (g : GL2 k) (n : ℕ) (h : orderOf g ∣ n) : g ^ n = 1 := by
+example (k O : Type u) [Field k] [CommRing O] (p weight : ℕ)
+    (A : AuxiliaryField k O p weight) (frob : GaloisGroup A.F.carrier)
+    (n : ℕ) (h : orderOf (A.tau frob) ∣ n) : A.tau (frob ^ n) = 1 := by
   sorry
 /-- aux_not_cm: Q(i) cannot be totally real. -/
-example (F : Type u) [Field F] [NumberField F] [NumberField.IsTotallyReal F]
-    (i : F) (h : i * i = -1) : False := by
+example (k O : Type u) [Field k] [CommRing O] (p weight : ℕ)
+    (A : AuxiliaryField k O p weight) (i : A.F.carrier) (h : i * i = -1) : False := by
   sorry
 /-- aux_tame_killing: the local cubic tame extension at 7 has roots of unity in Q_7. -/
-example : (3 : ℕ) ∣ 7 - 1 := by
+example (k O : Type u) [Field k] [CommRing O] (p weight : ℕ)
+    (A : AuxiliaryField k O p weight) (z : A.unramifiedGroups) :
+    A.tau (A.inertia z) = 1 ∧ (3 : ℕ) ∣ 7 - 1 := by
   sorry
 
 /-- KW II 10.1: R must be the unframed fixed-determinant ring with the exact KW local
