@@ -1,153 +1,167 @@
 # Handoff: BP-WeilConjectures--WC.0
 
-Issue #1005. Continuing agent **Codex — codex-a71f92**, 26 September 2026.
-Claim comment **5849052090**, winning bot confirmation **5849053184**; the whole issue
-was reread after confirmation. This continues ChatGPT Pro session cp-20260926-6f2c's
-merged checkpoint PR #2943; all twelve inherited node IDs and statements are preserved.
-Input snapshot: bb5169e6ac6ef3639aeb180798ae86cd46837577.
+Issue #1005. Worker **Codex — codex-JaHWMR**, 6 October 2026. Winning claim
+comment 6012354198, bot confirmation 6012356395. Branch
+`codex-JaHWMR-weil-conjectures-wc0`. This run continues the merged checkpoints
+#2943 and #2961 and preserves all fourteen inherited numerical node identifiers
+and statements. It submits one completed planning job and claims no second job.
 
-## Status and deliverables
+## Status and counts
 
-The independent child **WC.5:power-sum-converse is blueprint-closed**. The whole
-eight-stage part remains **partial**: WC.0–WC.5 and WC.5:surface-alternative still
-need geometric source decomposition. No implementation is claimed.
+The packet is **complete** at declaration-level target granularity. This is a
+blueprint, with every implementation status unchecked. Coverage is:
 
-Only these four authorized deliverables change:
+| Stage | Status |
+| --- | --- |
+| WeilConjectures:WC.0 | planned |
+| WeilConjectures:WC.1 | planned |
+| WeilConjectures:WC.2 | planned |
+| WeilConjectures:WC.3 | planned |
+| WeilConjectures:WC.4 | planned |
+| WeilConjectures:WC.5 | planned |
+| WeilConjectures:WC.5:power-sum-converse | closed |
+| WeilConjectures:WC.5:surface-alternative | planned |
 
-- research/blueprint/packets/WeilConjectures--WC.0.json
-- research/blueprint/readmes/WeilConjectures--WC.0.md
-- research/blueprint/suggested/WeilConjectures--WC.0.lean
-- research/blueprint/handoff/BP-WeilConjectures--WC.0.md
+There are **54 nodes: 3 definitions, 47 theorems and 4 lemmas; 15 definition
+API items, 13 definition unit-test statements, 30 planets, 57 checked baseline
+declarations, 7 explicit gaps, 12 supplier requests and 10 source issues**.
+Every scoped target has a plan; closure of the seven geometric stages awaits
+exact external contracts. No stage is left partial or unread.
 
-Totals: **14 nodes (4 lemmas, 10 theorems), 6 planets, 24 checked baseline
-declarations, 1 gap covering the seven untouched stages, 0 requests, 1 source
-issue**. There are **0 new definitions, 0 definition API items and 0 definition
-unit tests**. The suggested file has **14 signatures and 20 acceptance examples**,
-all with admitted proofs.
+The suggested file gives **29 node declarations**, all fifteen API signatures
+and **33 examples** (twenty preserved numerical examples plus thirteen new
+unit-test statements). Three definitions have their actual bodies; theorem,
+API and example proofs are admitted. **25 geometric declarations are omitted**
+because their actual supplier carriers/maps cannot be stated at the pins. Each
+omission is recorded in the packet and reader. Restricted algebraic cores are
+identified explicitly and do not claim to implement their geometric endpoint.
 
-## What this continuation adds
+## Mathematics and ownership
 
-Two declaration-sized nodes close the formal-carrier gap:
+Accepted RS-17 governs the plan. PR196 owns finite-extension points, Frobenius,
+rational cohomology, trace and general zeta construction. WC compares these
+objects and exports Möbius inversion, rational/Fatou descent and normalized
+integral zeta. Deligne I(1.1.1)'s finite-type-over-Z norm-Euler zeta is also
+covered: the needed arithmetic extension is explicitly requested from the same
+zeta owner, whose read Layer13 currently treats finite fields.
 
-1. **formal-power-sum-product:** over every commutative ring, including rings with
-   zero divisors, the positive-moment series G satisfies DG=N for the existing
-   common polynomial numerator and denominator. The proof rescales Mathlib's
-   existing formal geometric series, shifts coefficients and clears the finite
-   product denominator. No logarithm or division by an index is used.
-2. **formal-rational-comparison:** over a field, the existing PowerSeries and
-   RatFunc images agree in the existing LaurentSeries field. D(0)=1 proves its
-   image nonzero; the checked embeddings and quotient map give G=N/D there.
-   The negative coefficients and constant coefficient vanish, and every positive
-   coefficient is the corresponding weighted moment.
+EDC.2:pairings and EDC.8 supply actual graded perfect duality. WC.2 assembles
+Z(1/(qᵈT))=(−1)^χΔT^χZ(T), Δ²=q^(dχ), integer half-exponent/parity and sign
+transport under extensions. WC.3 exports generic all-conjugates degreewise
+factor extraction and then applies projective purity; its integrated geometric
+identifier is retained. WC.4 uses a supplied family and path, without a universal
+lifting assertion. WC.5 covers every extension, components and dimension zero,
+curve/elliptic compatibility, recurrence/Newton identities and the complete-
+intersection application. Existing elliptic and representation-ring carriers
+are reused.
 
-Five new acceptance examples cover coefficients and indexing, the actual one-root
-Laurent comparison, the empty family, characteristic-two cancellation and a zero
-root at exponent zero. No replacement series, rational-function, norm or geometric
-carrier is introduced. The earlier converse, grouping, pole and pairing arguments
-remain independent of geometric purity.
+General BFP tools include finite groupoid mass, effective twists, signed stable
+configurations, inverse-zeta termination, the sieve for both reduced and
+nonreduced curves, polynomial-count consequences and equivariant duality/counts.
+Special moduli enumerations stay with their owner. Generic twisted counts need
+integer irreducible-character coordinates to lift to the integral complex
+representation ring; the cubic finite étale C₃ counterexample is recorded.
+Polynomial counts obtain this integrality from actual Betti representations.
+Open-U approximate counts give Tate semisimplifications and a palindromic exact
+completion; all-Spec-Z full Tate cohomology additionally uses local potential
+semistability and globally unramified representation triviality.
 
-The inherited file's leading module-doc comment before imports failed Lean's
-import ordering; it is now an ordinary block comment. The new rational algebra
-map also required opening the existing RatFunc scope (its liftAlgebra instance
-is scoped). These were elaboration repairs, not changes in mathematical claims.
+The numerical child adds two independent little-o/graded-moment statements.
+The surface child imports the whole graph/adjunction/Hodge-index theorem from
+SF.5, including genus zero, all extensions and the fixed fibre orientation.
+Its route uses the root-bound-free curve numerator, WC.2 and the numerical
+child. DWP.1/DWP.4, WC.3 and RH-dependent parent WC.5 estimates are absent from
+its ancestors. WC.6 and WC.7 are outside this job and remain unchanged.
 
-The timeless document now gives the two full proof plans, the exact baseline
-interfaces and all twenty acceptance examples. The earlier repeated references
-to Milne now distinguish his logarithmic identity from the workers' separate
-weighted geometric-series derivation.
+## Sources and baseline
 
-## Sources and mathematical qualification
+WORKERS, both protocols, UPSTREAM_GUIDE, the whole issue, accepted RS-17,
+reviewed coverage, incident links, integrated decompositions and relevant
+supplier statements were read. Nearby upstream AlgebraicCurves and
+JacobianChallenge documents were read in full.
 
-The reviewed library coverage, all eight stage descriptions and their incident
-edges, accepted RS-17 keeps/suppliers, relevant upstream link entries and the
-existing integrated decomposition were inspected. Existing WC.1/WC.2/WC.3/WC.6
-IDs and source work are not discarded or newly certified. The binding protocols,
-upstream guide and complete upstream JacobianChallenge and HodgeStructures
-documents were read during this worker's immediately preceding job on unchanged
-inputs.
-
-Every one of the 24 baseline declarations was read in its actual pinned source,
-with surrounding hypotheses. The pins remain Mathlib
+The actual source statements and surrounding hypotheses of all 57 cited
+baseline declarations were checked at Mathlib
 082e2d37e8b0463410cdb532e111cd43d5a66174 and Tau Ceti
-f790474821cf4256814db967cb154e7af3d0c369. Searches in the existing power-series,
-rational-function and Tau Ceti sources preceded the added nodes.
+f790474821cf4256814db967cb154e7af3d0c369. The declaration index located sources;
+it was not treated as evidence of theorem hypotheses.
 
-**Yu:** arXiv:1807.04659v5, Appendix C, pp. 79–81 context and complete negative-power
-lemma proof read. Page 81 successfully rendered and inspected in this continuation:
-the overbars on the p-adic integer ring are visible. The source's integral-weight
-case is in the integral closure of Z_p in an algebraic closure of Q_p; the inherited
-normed-field proof still gives the claimed stronger result without completeness.
-The journal version was not collated and no Yu source error is asserted.
-PDF SHA-256: 9383bcdee14777ec647ba2658da3319d7d43864f9481b07c7d9550f1a454de1c.
+Read relevant full proofs in Deligne I §§1–2 and8.1, Milne LEC v2.21
+§27.5–27.15, vdBE arXivv3 §§1–4, BFP arXivv2 §§1,3,7,9, Mustață §3.3 and
+Yu v5 Appendix C. Milne pp.158–159 and Mustață p.21 were inspected as images.
+The relevant BFP version-of-record passages were collated: Proposition3.1
+p.1330, full §7 pp.1336–1339 and §9.1–9.2 pp.1351–1352. Both the d-for-s
+proof typo and generic integral representation-ring qualification persist.
+The published author-copy SHA-256 is
+9843c296d6f775472ca718be1520c2152d13f5a37dd6928e8e454c2b2d134bd3.
+Other URLs, versions, hashes, read sections and correction searches are in the
+packet/reader. Published vdBE and full Kisin–Lehrer text were unavailable for
+collation; their precise limits are retained. Kedlaya Lecture5 was read as a
+cross-check and its encountered mistakes recorded; its separate elementary
+curve proof is outside this plan. The private WC snapshot was unavailable.
 
-**Milne:** author's LEC v2.21 dated 22 March 2013, Lemma 27.5 and full proof,
-pp. 155–156, freshly read as text and images. The surrounding trace and application
-passages were read for context, not newly decomposed.
-PDF SHA-256: ac4f122f371d38a44c58c296b7dbf88081d89d2de2334070bff3606771c01077.
+Ten source findings are recorded for independent review. The BFP cutoff typo
+is an already confirmed imported finding; the inherited Milne characteristic-
+zero issue is retained. The other eight findings await review. No independent
+review verdict has been added by this worker and no author has been contacted.
 
-**Source issue WeilConjectures/E-WC0-1:** the standalone logarithmic identity in
-Lemma 27.5 needs characteristic zero, missing from its stated field hypothesis.
-The identity endomorphism over F_p already requires division by p. The preceding
-power-trace identity and the geometric Q_ℓ application are unaffected. The author's
-current course-note listing and complete LEC section of the course-note errata
-were checked; no matching correction was listed. The finding is scoped to these
-course notes, not the different published 1980 book, and awaits independent review.
-The formal series nodes use the corrected characteristic-independent,
-division-free route.
+## Checks
 
-## Checks actually run in this continuation
+* Indexed official blueprint checker: **0 errors, 0 warnings**.
+* Source-issue and source-version schema checks: **pass**.
+* Four-deliverable swarm check-files and whitespace check: **pass**.
+* Cross-file audit: **pass**. Exact scope, preserved inherited statements,
+  names, APIs/tests, 29 signatures/25 explicit omissions, unchecked statuses
+  and at-most-six planets per stage agree.
+* Declaration graph audit: 20,980 available identifiers, 656 traversed
+  declaration ancestors; no cycle reachable from a current node and no
+  unresolved declaration reference. Requested stages are precise terminal
+  contracts, not automatically expanded to every item in their roadmap.
+  All sixteen numerical nodes terminate in their own child/baseline; the
+  surface route has 52 ancestors and passes the forbidden-dependency check.
+* **2,163 freshly executed exact arithmetic regressions:** 24 functional-
+  equation checks, 30 extension-sign checks, 12 determinant/parity checks,
+  72 Möbius/count checks, 72 recurrence checks, 900 formal-product and 900
+  formal-division coefficient checks over Q, F₂, F₃, Z/4Z and Z/6Z, 4 stable-
+  configuration checks, 3 nonreduced-sieve checks, groupoid and C₃ character
+  checks, and 144 centered-surface/matrix calculations. These checks are
+  regression evidence, not mathematical proofs.
+* **Suggested file compiled through lean-check: exit0, 74 warnings, all
+  exclusively declarations using admitted proofs**, Lean v4.34.0-rc2. Memory
+  was checked before compilation and exceeded20GB available. This file imports
+  only Mathlib and elaborates against the exact Mathlib pin. The shared Tau Ceti
+  checkout differs from the requested Tau Ceti pin; no Tau Ceti import was
+  compiled and no such elaboration is claimed. No language server, project
+  build, dependency update or cache download was started.
 
-- Official scripts/check_blueprint.py with the exact pinned declaration index:
-  **0 errors, 0 warnings**.
-- Source-issue schema and source-version checks: **pass**.
-- Swarm intake check-files on exactly the four deliverables: **pass**.
-- Exact eight-stage scope, unique/current IDs, unchecked statuses, correspondence
-  between all 14 nodes and signatures, and 20 acceptance markers: **pass**.
-- Combined graph built from atlas stage edges, integrated nodes and all available
-  packet nodes, including node-to-realised-stage exports: **6,760 declaration IDs,
-  41,609 edges**. No cycle touches any of the 14 current nodes; every ancestor of
-  those nodes is an internal node or checked baseline reference. This does **not**
-  certify unrelated atlas components, and no false parent-stage dependency was
-  added to the independent child.
-- **1,025 exact coefficient checks** for DG=N and another 1,025 matching coefficients
-  of formal division by D, across Q, F₂, F₃, Z/4Z and Z/6Z, 25 coefficients per case.
-  These include empty and zero-root families, unequal/repeated roots, cancellation
-  and rational coefficients. This is regression evidence, not a proof.
-- The entire suggested file elaborates using Lean **v4.34.0-rc2** and the exact
-  Mathlib pin's prebuilt dependency cache: **exit 0, 34 warnings, all exclusively
-  declarations using admitted proofs**. Fourteen signatures plus twenty examples
-  are typechecked; no theorem or example has been proved by this check.
+Previous checkpoints' reported regressions are not presented as fresh checks.
+Scratch scripts/texts/logs are temporary and are removed after the PR opens;
+this note and the deliverables preserve the results and contracts.
 
-The original checkpoint reported 1,260 inverse-Vandermonde identities, 1,260
-moment-window inequalities, 9 quotient identities, 72 coefficients, 7 pole tests,
-24 characteristic-p cancellation checks and 16 p-adic escape checks. Those remain
-**the previous worker's reported checks**, not fresh executions by this worker.
-The current source, official validator, formal regression and elaboration checks
-supersede the original handoff's uncompiled/failed-rendering caveats.
+## Follow-up inputs for closure
 
-## Where to resume
+The seven gaps specify private WC snapshot reconciliation; PR196 point/orbit/
+twist and arithmetic-zeta registration; PR196 rational realization/trace
+registration; its supplied-family rational Artin comparison; actual DM-stack
+Part II point/trace/purity/duality/p-adic comparison; full Kisin–Lehrer source
+collation and compatible realization; and the elliptic scheme-to-Point bijection.
+Do not replace any of these by unnamed propositions or invented atlas IDs.
 
-1. Continue WC.0's actual finite-type rational-point finiteness, field-isomorphism
-   and extension-tower interfaces and private-snapshot reconciliation. Existing
-   integral étale carriers are not a finite-dimensional rational realization.
-2. Refine the integrated WC.1 and WC.2 nodes using the exact PR196 trace/Euler
-   suppliers and EDC duality interfaces. Do not define zeta a second time.
-3. For WC.3 preserve the stable node
-   WeilConjectures:WC.3/integral-factors-and-ell-independence-from-purity as the
-   projective geometric application, and separate out the generic weight-separated
-   factor-extraction lemma required by RS-17 and the WC.6 checkpoint (PR #2956).
-   It must accept any constructed degreewise-pure realization, retain
-   multiplicities and all algebraic conjugates, and establish rational descent,
-   integral normalization and realization independence. This continuation inspected
-   the mismatch but did not add or certify the generic extraction proof.
-4. Continue WC.4's supplied-family comparison and WC.5's higher-dimensional
-   estimates/recurrences within RS-17. A coherent genus formula alone does not
-   identify étale b₁ with 2g; request the actual curve/Jacobian supplier.
-5. Decompose the SF.5 diagonal/Frobenius-graph intersection calculations for every
-   extension in the surface route, then use this closed numerical child and
-   purity-independent WC.2 pairing. Never shortcut through DWP.1/DWP.4 or the
-   RH-derived parent estimate.
+The twelve requests specify: SF.1 point/quotient-stack/residue-norm interfaces;
+RG2.3 Lang's theorem in smooth connected, possibly nonreductive generality;
+EDC.2:pairings and EDC.8 graded geometric duality;
+LocalFieldsRamification Layer0 splitting fields with the extended norm;
+DWP.4 projective all-conjugates purity; EDC.4 complete-intersection cohomology;
+ArithmeticGaloisRepresentations R01.5 density-one recognition; PadicHodgeTheory
+R06.2 the local trivial-constituent extension lemma; NumberFieldArithmetic
+Layer6 unramified/discriminant comparison; EllipticCurves Layer3 the existing
+Hasse bound; and SF.5 the complete surface theorem. Exact consumer lists and
+hypotheses are in the packet. Existing suitable nodes are imported separately.
 
-The finite-spectrum child is complete as a blueprint; the seven geometric stages
-are not. Keep the one explicit remaining gap and partial packet status until
-their genuine source and supplier obligations are met.
+Next comes this completed plan's independent review, particularly source
+findings, global/local Tate hypotheses and the noncircular surface route.
+Closure follow-ups must obtain/register the recorded owners' actual contracts,
+resolve the private/source audit gaps and replace those terminal inputs with
+verified interfaces. No additional target-level node refinement is needed
+before review. Implementation requires the missing geometric carriers and
+proofs; this planning submission claims none.
