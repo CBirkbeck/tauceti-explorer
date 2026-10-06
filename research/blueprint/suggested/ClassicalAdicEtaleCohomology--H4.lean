@@ -3,11 +3,15 @@ Suggested Lean forms for BP-ClassicalAdicEtaleCohomology--H4, layers H4–H5 of
 “The classical analytic cohomology inputs to diamonds”. This file is not the
 roadmap and is not exhaustive: the roadmap document is definitive. Its forms
 help contributors and reviewers converge on names and signatures.
+
+Reviewed by REV-ClassicalAdicEtaleCohomology--H4: the declarations marked
+"added in review" below are API items the review added to the packet.
 -/
 import TauCeti.AlgebraicGeometry.AdicSpace.Spa.Comap
 import TauCeti.AlgebraicGeometry.AdicSpace.Spa.RationalSubset.Basic
 import Mathlib.Algebra.Group.TypeTags.Basic
 import Mathlib.CategoryTheory.Sites.SheafCohomology.Basic
+import Mathlib.Topology.Algebra.TopologicallyNilpotent
 
 /-!
 The pinned libraries provide valuation spectra, Spa as a set, rational subsets,
@@ -74,9 +78,11 @@ lemma closedDisc_eq_rational (Aplus : Subring A) (T : A) (b : Aˣ) :
     closedDisc Aplus T b = rationalSubset Aplus {T} b := by
   sorry
 
-lemma closedAnnulus_eq_inter (Aplus : Subring A) (T : A) (a b : Aˣ) :
+/-- No unit hypothesis is needed: `T ≤ᵥ b` and `T` outside the support put `b` outside
+the support, which is the denominator condition of `rationalSubset Aplus {T} b`. -/
+lemma closedAnnulus_eq_inter (Aplus : Subring A) (T a b : A) :
     closedAnnulus Aplus T a b =
-      rationalSubset Aplus {T} b ∩ rationalSubset Aplus {(a : A)} T := by
+      rationalSubset Aplus {T} b ∩ rationalSubset Aplus {a} T := by
   sorry
 
 lemma closedAnnulus_subset_puncturedDisc (Aplus : Subring A) (T a b : A) :
@@ -89,6 +95,43 @@ lemma baseChange {B : Type*} [CommRing B] [TopologicalSpace B]
     (hφ : Continuous φ) (hplus : ∀ a ∈ Aplus, φ a ∈ Bplus) (T b : A) :
     comap φ ⁻¹' closedDisc Aplus T b ∩ spa Bplus =
       closedDisc Bplus (φ T) (φ b) := by
+  sorry
+
+/-- Added in review. The closed-disc locus lies in the pinned Spa set. -/
+lemma closedDisc_subset_spa (Aplus : Subring A) (T b : A) :
+    closedDisc Aplus T b ⊆ spa Aplus := by
+  sorry
+
+/-- Added in review. Monotonicity in the radius, tested on the points of Spa. -/
+lemma closedDisc_mono (Aplus : Subring A) (T b b' : A)
+    (h : ∀ v ∈ spa Aplus, v.toValuativeRel.vle b b') :
+    closedDisc Aplus T b ⊆ closedDisc Aplus T b' := by
+  sorry
+
+/-- Added in review. Rescaling coordinate and radius by the same unit changes nothing;
+for a unit radius this is the pinned `rationalSubset_image_mul_right`. -/
+lemma closedDisc_mul_unit (Aplus : Subring A) (T b u : A) (hu : IsUnit u) :
+    closedDisc Aplus (T * u) (b * u) = closedDisc Aplus T b := by
+  sorry
+
+/-- Added in review. For a unit radius the locus is open in the adic spectrum: weak
+radial inequalities cut out adic-open sets, strict ones in general do not. -/
+lemma isOpen_closedDisc (Aplus : Subring A) (T : A) (b : Aˣ) :
+    IsOpen (Subtype.val ⁻¹' closedDisc Aplus T b : Set (spa Aplus)) := by
+  sorry
+
+/-- Added in review. Monotonicity of the closed annulus in both radii. -/
+lemma closedAnnulus_mono (Aplus : Subring A) (T a a' b b' : A)
+    (ha : ∀ v ∈ spa Aplus, v.toValuativeRel.vle a' a)
+    (hb : ∀ v ∈ spa Aplus, v.toValuativeRel.vle b b') :
+    closedAnnulus Aplus T a b ⊆ closedAnnulus Aplus T a' b' := by
+  sorry
+
+/-- Added in review. Annular exhaustion of the punctured disc: a continuous valuation with
+`T` outside its support dominates a power of a topologically nilpotent element. -/
+lemma puncturedDisc_eq_iUnion_closedAnnulus (Aplus : Subring A) (T b ϖ : A)
+    (hϖ : IsTopologicallyNilpotent ϖ) :
+    puncturedDisc Aplus T b = ⋃ n : ℕ, closedAnnulus Aplus T (ϖ ^ n) b := by
   sorry
 
 -- Radial.zero_coordinate: the origin lies on a disc and is absent from its puncture.
@@ -110,18 +153,21 @@ example (Aplus : Subring A) (T a : A) (v : Spv A) (hv : v ∈ spa Aplus)
     (hT : ¬ v.toValuativeRel.vle T 0) : v ∈ closedAnnulus Aplus T a a := by
   sorry
 
-/- -- Radial.classical_point: use the actual evaluation-valued classical point.
+/- -- Radial.classical_point: use the actual evaluation-valued classical point, with a
+-- constant radius `b` (for `b = 1` both sides always hold, which tests nothing).
 example {k : ℕ} {K : Type*} [CommRing K] [UniformSpace K] [IsUniformAddGroup K]
     [NonarchimedeanRing K] [CompleteSpace K] [T3Space K]
     (x : spa (Huber.powerBoundedSubring K)) (c : Fin k → K)
-    (hc : ∀ i, IsPowerBounded (c i)) (i : Fin k) :
+    (hc : ∀ i, IsPowerBounded (c i)) (i : Fin k) (b : K) :
     (classicalPoint x c hc).1 ∈ closedDisc (Huber.powerBoundedSubring _)
-      (Huber.weightedX _ Huber.isWeightFamily_one_weight i) 1 ↔
-        x.1.toValuativeRel.vle (c i) 1 := by
+      (Huber.weightedX _ Huber.isWeightFamily_one_weight i)
+      (Huber.weightedC _ Huber.isWeightFamily_one_weight b) ↔
+        x.1.toValuativeRel.vle (c i) b := by
   sorry
 
 The signature above uses the exact pinned Polydisc module. It is omitted from
-elaboration because that module has no object in the shared build. -/
+elaboration because that module has no object in the shared build; the review
+elaborated it against the pinned source of that module (see the review report). -/
 
 lemma puncturedDisc_subset_closedDisc (Aplus : Subring A) (T b : A) :
     puncturedDisc Aplus T b ⊆ closedDisc Aplus T b := by
@@ -174,6 +220,24 @@ lemma openDisc_constant (Aplus : Subring A) (T b : A) :
     openDisc Aplus T (fun _ ↦ b) = closedDisc Aplus T b := by
   sorry
 
+/-- Added in review. The union depends only on the radius family up to mutual
+cofinality, so the analytic open disc does not depend on the chosen exhaustion. -/
+lemma openDisc_eq_of_cofinal (Aplus : Subring A) (T : A) (b b' : ℕ → A)
+    (h : ∀ j, ∃ k, ∀ v ∈ spa Aplus, v.toValuativeRel.vle (b j) (b' k))
+    (h' : ∀ k, ∃ j, ∀ v ∈ spa Aplus, v.toValuativeRel.vle (b' k) (b j)) :
+    openDisc Aplus T b = openDisc Aplus T b' := by
+  sorry
+
+/-- Added in review. The same for open annuli: inner radii are compared downwards and
+outer radii upwards. -/
+lemma openAnnulus_eq_of_cofinal (Aplus : Subring A) (T : A) (a b a' b' : ℕ → A)
+    (h : ∀ j, ∃ k, ∀ v ∈ spa Aplus,
+      v.toValuativeRel.vle (a' k) (a j) ∧ v.toValuativeRel.vle (b j) (b' k))
+    (h' : ∀ k, ∃ j, ∀ v ∈ spa Aplus,
+      v.toValuativeRel.vle (a j) (a' k) ∧ v.toValuativeRel.vle (b' k) (b j)) :
+    openAnnulus Aplus T a b = openAnnulus Aplus T a' b' := by
+  sorry
+
 -- Radial.puncture_zero: origin exclusion is not a convention about rank-one points.
 example (Aplus : Subring A) (b : A) : puncturedDisc Aplus 0 b = ∅ := by
   sorry
@@ -196,9 +260,9 @@ example (Aplus : Subring A) : closedAnnulus Aplus 1 1 1 = spa Aplus := by
   sorry
 
 -- Radial.annulus_rational: exact agreement with the pinned geometric set.
-example (Aplus : Subring A) (T : A) (a b : Aˣ) :
+example (Aplus : Subring A) (T a b : A) :
     closedAnnulus Aplus T a b =
-      rationalSubset Aplus {T} b ∩ rationalSubset Aplus {(a : A)} T := by
+      rationalSubset Aplus {T} b ∩ rationalSubset Aplus {a} T := by
   sorry
 
 -- Radial.strict_annulus_zero: strict bounds do not license a coordinate in the support.
@@ -329,6 +393,13 @@ lemma radiusBall_dimensionZero (X : Set (Spv A)) (t : A) (n : ℕ) :
     radiusBall X t (Fin.elim0 : Fin 0 → A) n = X := by
   sorry
 
+/-- Added in review. Exponents multiply: with `s ^ j = t` the ball of fractional exponent
+`a / j` in `t` is `radiusBall X s T a`. This is how the `ℤ[1/p]`-indexed system of ECD 27.2
+is expressed with chosen `p`-power roots of `t`, without formal real powers. -/
+lemma radiusBall_pow {m : ℕ} (X : Set (Spv A)) (s : A) (T : Fin m → A) (j n : ℕ) :
+    radiusBall X (s ^ j) T n = radiusBall X s T (j * n) := by
+  sorry
+
 /- lemma radiusBall_polydisc (m : ℕ) (K : Type*) [CommRing K] [TopologicalSpace K]
     [NonarchimedeanRing K]
     (t : Huber.weightedRestrictedSubring (fun _ : Fin m ↦ ({1} : Set K))
@@ -374,8 +445,9 @@ example (X : Set (Spv A)) (t T : A) (v : Spv A) :
   sorry
 
 /- radiusBall_exhaustive is omitted: topological nilpotence in an inherited analytic
-coordinate chart is essential at higher-rank points. R1 supplies the analytic
-ambient space and P5 supplies compatible p-power roots for rational exponents.
+coordinate chart is essential at higher-rank points. R1 and A2 supply the
+exhaustion of analytic affine space by closed polydiscs; fractional exponents
+are expressed through chosen roots by `radiusBall_pow`.
 The set core alone does not imply exhaustion for arbitrary X. -/
 
 end Balls
@@ -393,14 +465,16 @@ H4:
 * puncturedDisc_cohomology and puncturedDisc_localization: puncture and the
   canonical support-triangle connecting map, supplied geometrically by A2.
 * tameRootTower_annulus_acyclic: H0's colimit-presented site continuity and the
-  actual ℓ-root field tower, with the additional higher-rank comparison gap.
+  actual ℓ-root field tower, over a geometric point with an arbitrary plus ring.
 * smooth_pushforwardShriek_constructible: H0 constructibility, H3 Rf_!, and
   R0's smooth separated qc analytic morphism; Ito's verified base is geometric.
 * perfectoidBase_pullback_constructible and perfectoidBase_image_comparison:
-  P6 finite-type approximation, H0 coefficient descent, and the requested
-  nonnoetherian support comparison for the second assertion.
+  H2's finite-type approximation over an algebraically closed field, H0
+  coefficient descent, and the requested proper-support base change over a
+  perfectoid base for the second assertion.
 * radial_surjectiveFieldPair_invariance and annulus_geometricPlusRing: H2's
-  exact surjective-pair condition and H1's missing specialization comparison.
+  exact surjective-pair condition, and H3's comparison of a quasi-compact smooth
+  curve over Spa(C, C⁺) with its fibre over Spa(C, O_C).
 
 H5:
 * proper_analyticComparison: R1's scheme/adic fibre product, H0's site morphisms,
@@ -417,8 +491,10 @@ H5:
 * formalCurve_infinitesimalCompactification, formalCurve_extendCompactification,
   and smoothRigidCurve_localCompactification: R2 formal schemes/rig-étale maps,
   projective relative curves, and the complete-DVR/locality scope of Lut95.
-* geometricCurve_properCompactification: the missing bridge from a discrete
-  local theorem to a global qc geometric curve, explicitly a source gap.
+* geometricCurve_properCompactification: Lütkebohmert's local compactification
+  over an algebraically closed, hence nondiscretely valued, field. The source
+  proves it over discretely valued fields only; the packet records the gap.
+  The biduality reduction needs only the local form at frontier points.
 * curveFrontier_finite, curveBoundary_directSummand, and
   curveCompactification_dualityReduction: A2's adic frontier topology and
   H3/E1's genuine analytic duality maps and cones; diamond Verdier duality is S6.
@@ -436,6 +512,8 @@ projective formal curve with smooth rigid fibres, over the actual open image U.
 FormalCurve.compactification_data: extract that U, the completion and immersion.
 FormalCurve.compactifiable_baseChange: compatible admissible formal base change.
 FormalCurve.compactifiable_genericFibre: the genuine open/proper factorization.
+FormalCurve.IsSCompactifiableOver (added in review): for an open U′ of S, the
+base change to U′ is U′-compactifiable; the third clause of Definition 5.6.
 Omitted examples FormalCurve.projective_curve, FormalCurve.affine_chart and
 FormalCurve.generic_factorization: identity completion, formal projective-line
 chart, and agreement with H3's generic-fibre compactifiable morphism.
