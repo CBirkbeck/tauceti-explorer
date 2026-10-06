@@ -341,6 +341,9 @@ open Polynomial
 open scoped Polynomial.Bivariate
 
 /-- The statable division-polynomial computation in ER.8/cm36-full-torsion-certificate. -/
+-- The packet uses the existing `Affine.CoordinateRing.mk_ψ` to transport this Ψ
+-- computation to ψ, and Tau Ceti's `zsmul_fromAffine_eq_zero_iff` to transport
+-- Jacobian annihilation to the affine torsion input of the principal-divisor theorem.
 theorem cm36_division_polynomial (x y : K) (_hE : y^2=x^3+1) :
     ((curve36 K).Ψ 6).evalEval x y =
       6*x*y*(x^3+4)*(x^3-8)*(x^9+228*x^6+48*x^3+64) := by sorry
@@ -398,7 +401,9 @@ Prop fields. The packet's third gap records this prototype limitation.
   rational-class comparison is it -18i(D(T)+D(Tbar)-D(A)).
 * `integral_example_padic_eligibility` needs the actual E.6 model, integral part,
   vertical residues and E.8 integral certificate of the parent 11a3 class. It
-  cannot be stated merely by assuming a field called “integral”.
+  cannot be stated merely by assuming a field called “integral”. Its complex
+  scalar is evaluated on the period-one differential (dx/(2y+1))/Omega_plus;
+  evaluation on the Néron differential itself multiplies it by Omega_plus.
 -/
 
 end TauCeti.EllipticRegulator.ER8
