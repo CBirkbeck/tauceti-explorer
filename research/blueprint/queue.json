@@ -21665,9 +21665,9 @@
     "REV-RS-06"
    ],
    "prompt": "research/blueprint/prompts/BP-AlgebraicModularFormsAndSerreWeights.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [],
-   "note": "released on GitHub issue #671"
+   "note": "claimed on GitHub issue #671"
   },
   {
    "id": "REV-AlgebraicModularFormsAndSerreWeights",
@@ -29098,7 +29098,8 @@
    ],
    "avoidAccountOf": "BP-SpecialValuesBirchTate",
    "prompt": "research/blueprint/prompts/REV-SpecialValuesBirchTate.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #496"
   },
   {
    "id": "BP-StableHomotopyKTheory",
@@ -33876,8 +33877,9 @@
    ],
    "avoidAccountOf": "BP-EllipticRegulators--ER.7",
    "prompt": "research/blueprint/prompts/REV-EllipticRegulators--ER.7.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6440"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6440",
+   "finishedAt": "2026-10-06T06:43:38Z"
   },
   {
    "id": "BP-EllipticRegulators--ER.8",
