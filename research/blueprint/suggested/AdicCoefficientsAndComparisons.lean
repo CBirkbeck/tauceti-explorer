@@ -5,6 +5,8 @@ import Mathlib.AlgebraicGeometry.Morphisms.OpenImmersion
 import Mathlib.AlgebraicGeometry.Morphisms.SchemeTheoreticallyDominant
 import Mathlib.AlgebraicGeometry.IdealSheaf.Subscheme
 import Mathlib.AlgebraicGeometry.AffineTransitionLimit
+import Mathlib.AlgebraicGeometry.Morphisms.ClosedImmersion
+import Mathlib.CategoryTheory.Limits.Final
 import Mathlib.CategoryTheory.ObjectProperty.FullSubcategory
 import Mathlib.CategoryTheory.Filtered.Basic
 import Mathlib.CategoryTheory.Adjunction.Mates
@@ -282,6 +284,91 @@ example {Y X : Scheme.{u}} {f : Y ⟶ X} [CompactSpace X] [QuasiSeparatedSpace X
       Compactification.Hom.strict (FPCompactification.inclusion.map g) ∧
       g ≫ a = g ≫ b := by sorry
 
+/-! ### Native limit, descent and factorisation signatures for L2
+
+The existing API proves, for a given limit cone of a cofiltered diagram with affine transition
+maps, that the projections are affine (`AlgebraicGeometry.isAffineHom_π_app`), that
+quasi-compactness passes to the limit (`AlgebraicGeometry.Scheme.compactSpace_of_isLimit`), that
+the limit commutes with restriction to an open of a stage (`AlgebraicGeometry.isLimitOpensCone`)
+and that an equality of quasi-compact opens at the limit holds at a stage
+(`AlgebraicGeometry.exists_map_preimage_eq_map_preimage`). The signatures below state only what
+it lacks. -/
+
+section Limits
+
+variable {I : Type u} [Category.{u} I] [IsCofiltered I] (D : I ⥤ Scheme.{u})
+  [∀ {i j : I} (g : i ⟶ j), IsAffineHom (D.map g)] [∀ i, CompactSpace (D.obj i)]
+  [∀ i, QuasiSeparatedSpace (D.obj i)] (c : Cone D) (hc : IsLimit c)
+
+include hc in
+/-- L2/affine-transition-limit-existence: the quasi-separatedness clause. -/
+theorem quasiSeparatedSpace_of_isLimit : QuasiSeparatedSpace c.pt := by sorry
+
+include hc in
+/-- L2/fp-relative-diagram-descent, object clause (Stacks 01ZM): a finitely presented scheme
+over the limit is the base change of a finitely presented scheme over some stage. The
+morphism clauses are `Scheme.exists_π_app_comp_eq_of_locallyOfFinitePresentation` and
+`Scheme.exists_hom_hom_comp_eq_comp_of_locallyOfFiniteType`, applied to the cofiltered
+diagram of base changes. -/
+theorem fpObjectDescent {X : Scheme.{u}} (f : X ⟶ c.pt) [LocallyOfFinitePresentation f]
+    [QuasiCompact f] [QuasiSeparated f] :
+    ∃ (i : I) (Xi : Scheme.{u}) (fi : Xi ⟶ D.obj i), LocallyOfFinitePresentation fi ∧
+      QuasiCompact fi ∧ QuasiSeparated fi ∧
+      ∃ e : X ≅ pullback fi (c.π.app i), e.hom ≫ pullback.snd fi (c.π.app i) = f := by sorry
+
+/-- The base change to the stage `j` of a morphism `φ` of schemes over the stage `i`. -/
+def stageMap {i : I} {X Y : Scheme.{u}} (p : X ⟶ D.obj i) (q : Y ⟶ D.obj i) (φ : X ⟶ Y)
+    (h : φ ≫ q = p) {j : I} (g : j ⟶ i) : pullback p (D.map g) ⟶ pullback q (D.map g) :=
+  pullback.map p (D.map g) q (D.map g) φ (𝟙 _) (𝟙 _) (by simp [h]) (by simp)
+
+/-- The base change to the limit of a morphism `φ` of schemes over the stage `i`. -/
+def limitMap {i : I} {X Y : Scheme.{u}} (p : X ⟶ D.obj i) (q : Y ⟶ D.obj i) (φ : X ⟶ Y)
+    (h : φ ≫ q = p) : pullback p (c.π.app i) ⟶ pullback q (c.π.app i) :=
+  pullback.map p (c.π.app i) q (c.π.app i) φ (𝟙 _) (𝟙 _) (by simp [h]) (by simp)
+
+include hc in
+/-- L2/compactification-property-descent, open-immersion clause (Stacks 0EUU). -/
+theorem openImmersion_descends {i : I} {X Y : Scheme.{u}} (p : X ⟶ D.obj i)
+    (q : Y ⟶ D.obj i) [LocallyOfFinitePresentation p] [QuasiCompact p] [QuasiSeparated p]
+    [LocallyOfFinitePresentation q] [QuasiCompact q] [QuasiSeparated q]
+    (φ : X ⟶ Y) (h : φ ≫ q = p) (hφ : IsOpenImmersion (limitMap D c p q φ h)) :
+    ∃ (j : I) (g : j ⟶ i), IsOpenImmersion (stageMap D p q φ h g) := by sorry
+
+include hc in
+/-- L2/compactification-property-descent, properness clause (Stacks 081F). -/
+theorem proper_descends {i : I} {X Y : Scheme.{u}} (p : X ⟶ D.obj i) (q : Y ⟶ D.obj i)
+    [LocallyOfFinitePresentation p] [QuasiCompact p] [QuasiSeparated p]
+    [LocallyOfFinitePresentation q] [QuasiCompact q] [QuasiSeparated q]
+    (φ : X ⟶ Y) (h : φ ≫ q = p) (hφ : IsProper (limitMap D c p q φ h)) :
+    ∃ (j : I) (g : j ⟶ i), IsProper (stageMap D p q φ h g) := by sorry
+
+end Limits
+
+/-- L2/noetherian-approximation (Stacks 01ZA): a qcqs scheme is the limit of a cofiltered
+diagram of schemes of finite type over `Spec ℤ` with affine transition maps. -/
+theorem noetherianApproximation (S : Scheme.{u}) [CompactSpace S] [QuasiSeparatedSpace S] :
+    ∃ (I : Type u) (_ : SmallCategory I) (_ : IsCofiltered I) (D : I ⥤ Scheme.{u})
+      (_ : ∀ {i j : I} (g : i ⟶ j), IsAffineHom (D.map g))
+      (_ : ∀ i, CompactSpace (D.obj i) ∧ LocallyOfFiniteType (terminal.from (D.obj i)))
+      (c : Cone D) (_ : IsLimit c), Nonempty (c.pt ≅ S) := by sorry
+
+/-- L2/finite-type-fp-factorisation (Stacks 01ZJ): a separated finite-type morphism to a
+qcqs scheme is a closed immersion followed by a separated finitely presented morphism. -/
+theorem finiteTypeFPFactorisation {Y X : Scheme.{u}} (f : Y ⟶ X) [CompactSpace X]
+    [QuasiSeparatedSpace X] [IsSeparated f] [LocallyOfFiniteType f] [QuasiCompact f] :
+    ∃ (Y' : Scheme.{u}) (i : Y ⟶ Y') (g : Y' ⟶ X), IsClosedImmersion i ∧ IsSeparated g ∧
+      LocallyOfFinitePresentation g ∧ QuasiCompact g ∧ QuasiSeparated g ∧ i ≫ g = f := by
+  sorry
+
+/-- The dense and scheme-theoretically dense compactifications. -/
+def denseProperty {Y X : Scheme.{u}} (f : Y ⟶ X) : ObjectProperty (Compactification f) :=
+  fun C => DenseRange C.«open» ∧ IsSchemeTheoreticallyDominant C.«open»
+
+/-- L2/compactification-cofiltered, initiality clause (Stacks 0ATU (b)). -/
+theorem dense_initial {Y X : Scheme.{u}} (f : Y ⟶ X) [CompactSpace X]
+    [QuasiSeparatedSpace X] (h : Nonempty (Compactification f)) :
+    (denseProperty f).ι.Initial := by sorry
+
 /-- Ordinary categorical prototype of the 27.3(ii) adjoint identity.
 It does not pretend that these abstract categories are enhanced sheaf categories. -/
 def rightAdjointIdentity {CX CY DX DY : Type*}
@@ -306,11 +393,12 @@ genuine supplier type can state its hypotheses. A commented name is not an
 implementation or a compiled signature.
 
 NODE AdicCoefficientsAndComparisons:L0/derived-I-complete-etale-category [definition]
-Dét,adic(Y,Λ) is the full enhanced subcategory of D(Yv,Λ) on derived I-complete A whose derived
-reduction A⊗ΛΛ/I is in the discrete étale subcategory. Derived completeness uses the imported
-completion functor, not completeness of individual cohomology modules alone. The coefficient
-unit is the completed constant coefficient object, not an unverified identification with the
-discrete constant Λ-sheaf.
+Dét,adic(Y,Λ) is the full enhanced subcategory of D(Yv,Λ) on the objects A that are derived
+I-complete (EnhancedDerivedSheaves:E4/derived-complete-sheaves, on the replete v-topos of Y) and
+whose derived reduction A⊗ᴸΛΛ/I lies in the discrete étale subcategory Dét(Y,Λ/I). Derived
+completeness is a property of the complex, not completeness of its individual cohomology
+sheaves. The coefficient unit is the completed constant object Λ̂ = Rlimₙ Λ/Iⁿ, not the discrete
+constant Λ-sheaf.
 API AdicEtale.ofComplete [constructor]
 From A, a derived-completeness witness and an étale-reduction witness, construct the
 corresponding object.
@@ -326,8 +414,9 @@ API AdicEtale.discrete_zeroIdeal [compatibility]
 For I=0 and Λ killed by an integer prime to p, identify with the supplied discrete category
 through the same inclusion.
 EXAMPLE AdicEtale.point
-At a geometric point with Λ=Zℓ, I=(ℓ), the constant lattice Λ[0] is admitted and reduces to
-Z/ℓⁿ.
+At a geometric point Y = Spd C with Λ = Zℓ, I = (ℓ), the completed constant object Λ̂ = Rlimₙ
+Z/ℓⁿ (the unit of L0/completed-tensor-and-colimits) is admitted, and its derived reduction
+modulo ℓⁿ is the constant sheaf Z/ℓⁿ.
 EXAMPLE AdicEtale.torsion
 The constant Z/ℓ complex is admitted: derived ℓ-completeness does not mean torsion freeness.
 EXAMPLE AdicEtale.reject_inverted
@@ -403,6 +492,21 @@ is an equivalence. For exact enhanced Λ-linear operations with the coherent sca
 of the E4 supplier, perfect reduction and the filtration of Iⁿ identify all finite-level
 operations, including right adjoints.
 
+NODE AdicCoefficientsAndComparisons:L0/adic-forms-of-introduction-theorems [theorem]
+Let Λ, I be as in L0 and use the completed tensor product and the operations of L0/six-
+operations-for-adic-coefficients. For a map f : Y → X of small v-stacks: (1.8) f*A⊗̂f*B ≅
+f*(A⊗̂B); Rf_*RHom(f*A,B) ≅ RHom(A,Rf_*B); and, for f compactifiable, representable in locally
+spatial diamonds with locally dim.trg f < ∞, Rf_!(A⊗̂f*B) ≅ Rf_!A⊗̂B for A on Y and B on X,
+RHom(Rf_!A,B) ≅ Rf_*RHom(A,Rf^!B), and Rf^!RHom(A,B) ≅ RHom(f*A,Rf^!B). (1.9) For a cartesian
+square with g : X′ → X: g*Rf_*A ≅ Rf′_*g̃*A for qcqs f and A whose reduction modulo I is bounded
+below; g*Rf_!A ≅ Rf′_!g̃*A and Rg^!Rf_*A ≅ Rf′_*Rg̃^!A under the eligibility hypotheses of ECD
+1.9(ii),(iii). (1.13) Pullback along the changes of algebraically closed base field of ECD
+Theorem 19.5 is fully faithful on Dét(−,Λ). (1.10) If moreover Λ/I is ℓ-power torsion for a
+prime ℓ ≠ p and f is ℓ-cohomologically smooth, then Rf^!A ≅ f*A⊗̂Rf^!Λ̂ with Rf^!Λ̂ v-locally
+isomorphic to Λ̂[n], f*RHom(A,B) ≅ RHom(f*A,f*B), and the smooth base-change identities of ECD
+1.10(iii) hold. The maps are the canonical ones, and the geometric hypotheses on f and g are
+those of the discrete theorems.
+
 NODE AdicCoefficientsAndComparisons:L0/rational-constructible-coefficients [construction]
 For ℓ≠p, define the rational lattice category as the scalar localisation Dcons(X,Zℓ)[1/ℓ]:
 objects are integral constructible complexes, with Hom tensored with Qℓ, and coherent
@@ -430,10 +534,12 @@ EXAMPLE RationalLattice.isogeny
 Multiplication by ℓ on the rank-one lattice becomes an isomorphism.
 
 NODE AdicCoefficientsAndComparisons:L1/char-p-scheme-diamond-and-comparison-functor [construction]
-For a characteristic-p scheme X, construct X◇ as the v-sheaf of maps from perfectoid S to the
-adic avatar of X. On Spec R use the discrete pair (R,R⁺), R⁺ the integral closure of Fp in R;
-glue along scheme opens. It factors through perfection. This construction makes no local finite-
-type hypothesis.
+For a characteristic-p scheme X, construct X◇ as the small v-sheaf on Perf sending S to the maps
+S → Xad of adic spaces, where Spec R has adic avatar Spa(R,R⁺) for the discrete ring R with R⁺
+the integral closure of Fp in R, glued along scheme opens. For affinoid S and X = Spec R, X◇(S)
+= Hom(R, O(S)): the image of R⁺ lies in O⁺(S) automatically, since O⁺(S) is integrally closed in
+O(S) and contains Fp. The functor factors through perfection. No finite-type hypothesis is
+imposed.
 API SchemeDiamond.charP [constructor]
 Functor from characteristic-p schemes to small v-sheaves.
 API SchemeDiamond.charP_points [characterisation]
@@ -446,6 +552,10 @@ API SchemeDiamond.charP_functor [functoriality]
 Identity and composition with coherent gluing.
 API SchemeDiamond.charP_spa [compatibility]
 Affine chart uses native TauCeti.ValuationSpectrum.spa for the discrete pair (R,R⁺).
+API SchemeDiamond.charP_baseChangeField [compatibility]
+For X locally of finite type over Fp and a perfectoid field K of characteristic p, X◇ ×_{Spd Fp}
+Spd K ≅ (X_K^ad)◇, naturally in X; this is the identification used in the proofs of ECD 27.2 and
+27.4.
 EXAMPLE SchemeDiamond.Fp
 Spec Fp maps to Spd(Fp,Fp).
 EXAMPLE SchemeDiamond.plusRing
@@ -513,11 +623,15 @@ The pulled-back Zℓ lattice has reductions Z/ℓⁿ; the operation uses derived
 
 NODE AdicCoefficientsAndComparisons:L1/mixed-characteristic-scheme-diamond [construction]
 Fix a complete DVR O with perfect residue field k of characteristic p. For X locally of finite
-type over O, X◇(S) consists of an untilt S♯ over Spa(O,O) and an O-linear locally ringed-space
-map S♯→X. This gives a diamond over Spd O, naturally in X. For Spec k it gives Spd(k,k), which
-differs from the characteristic-p convention when k⁺≠k.
+type over O, X◇(S) is the set of pairs of an untilt S♯ over Spa(O,O) and a map S♯ → X of locally
+ringed spaces over Spec O. This is a small v-sheaf over Spd O, functorial in X, and X◇ → Spd O
+is representable in locally spatial diamonds: its base change along a perfectoid S → Spd O is
+the diamond of the relative analytification X ×_{Spec O} S♯. X◇ itself need not be a diamond:
+(Spec O)◇ = Spd O. For Spec k it gives Spd(k,k), which differs from the characteristic-p
+convention when k⁺ ≠ k.
 API SchemeDiamond.overDVR [constructor]
-Functor from locally finite-type O-schemes to diamonds over Spd O.
+Functor from locally finite-type O-schemes to small v-sheaves over Spd O whose structure maps
+are representable in locally spatial diamonds.
 API SchemeDiamond.overDVR_points [characterisation]
 Sections are the untilt/mapping pairs in the statement.
 API SchemeDiamond.overDVR_functor [functoriality]
@@ -528,6 +642,9 @@ API SchemeDiamond.overDVR_generic [compatibility]
 Generic fibre agrees with the analytic generic-fibre diamond where that avatar exists.
 API SchemeDiamond.overDVR_empty [simp]
 Empty scheme maps to empty diamond.
+API SchemeDiamond.overDVR_representable [characterisation]
+For a perfectoid S → Spd O with untilt S♯, X◇ ×_{Spd O} S ≅ (X ×_{Spec O} S♯)◇, naturally in X
+and S.
 EXAMPLE SchemeDiamond.residue
 Spec k gives Spd(k,k), retaining k as the plus ring.
 EXAMPLE SchemeDiamond.base
@@ -537,6 +654,10 @@ Empty O-scheme gives empty diamond.
 EXAMPLE SchemeDiamond.nonagreement
 For perfect k with elements transcendental over Fp, k⁺ is a proper subring: the two residue-
 point conventions cannot be asserted equal.
+EXAMPLE SchemeDiamond.notDiamond
+For O = Zp, (Spec O)◇ = Spd Zp is not a diamond: it contains the sub-v-sheaf Spd(Fp,Fp) = * (the
+locus p = 0), sub-v-sheaves of diamonds are diamonds (ECD Proposition 11.10), and * is not a
+diamond. A definition with values in diamonds would reject Spec O.
 
 NODE AdicCoefficientsAndComparisons:L3/full-faithfulness-27-2 [theorem]
 For any characteristic-p scheme X and regular adic coefficients as in L0 (or discrete Λ killed
@@ -556,12 +677,15 @@ f!RcX*≃RcY*(f◇)!. No full faithfulness on arbitrary nonconstructible mixed-c
 complexes is asserted.
 
 NODE AdicCoefficientsAndComparisons:L5/normal-crossing-local-comparison [theorem]
-Let X be smooth over a perfect field of residue characteristic p, or a characteristic-zero
-generic field, D a strict normal-crossing divisor with smooth strata and j:X\D↪X. For finite
-prime-to-p coefficients Λ, the canonical comparison for Rj* is an equivalence after passage to
-the L4 analytic test space. In a strict henselian chart with r boundary parameters, the tame
-constant-coefficient calculation is the exterior algebra on r Kummer generators Λ(−1) in degree
-1; compare generators and residues, not just ranks.
+Let F be a field which is a finite extension of the perfect residue field k of O or of its
+fraction field K, X smooth over F, D ⊂ X a strict normal-crossing divisor with smooth strata,
+and j : X∖D ↪ X. For finite Λ killed by an integer prime to p, the canonical comparison for Rj_*
+is an equivalence after pullback to the L4 analytic test space. In a strictly henselian chart
+with r boundary parameters, R^q j_*Λ is the q-th exterior power of the r Kummer classes Λ(−1),
+on both sides; the comparison matches generators, cup products and residues, not only ranks. In
+equal characteristic K = k((t)) is imperfect: de Jong's alteration over K is smooth only over a
+finite extension K₁ of K (dJ96 Remark 4.2), and purely inseparable extensions change neither
+étale sites nor diamonds.
 
 NODE AdicCoefficientsAndComparisons:L6/constructible-direct-image-comparison-27-6 [theorem]
 For separated f:Y→X between schemes finite type over O, and a finite ring Λ killed by an integer
@@ -574,28 +698,6 @@ For X locally of finite type over O and finite Λ killed by an integer prime to 
 unit A→RcX*cX*A is an equivalence for A∈Dᵇc(Xét,Λ). Thus cX* is fully faithful on this
 subcategory. The prime-to-p restriction is explicit even though 27.7 abbreviates its coefficient
 hypothesis to finite Λ.
-
-NODE AdicCoefficientsAndComparisons:L2/noetherian-approximation [theorem]
-Every qcqs scheme S is a directed inverse limit of schemes Si finite type over Z with affine
-transitions, with affine projections S→Si. The presentation can be chosen with affine S→Si0;
-finitely many finite-presentation objects and morphisms descend after increasing the index.
-
-NODE AdicCoefficientsAndComparisons:L2/fp-relative-diagram-descent [theorem]
-For a directed affine-transition inverse system of qcqs Si with limit S, the category of
-finitely presented S-schemes is the filtered categorical colimit of the categories of finitely
-presented Si-schemes. Objects descend, maps descend, and equality of descended maps holds at a
-sufficiently large index. Finite diagrams and fp modules descend in the same sense.
-
-NODE AdicCoefficientsAndComparisons:L2/compactification-property-descent [theorem]
-In the relative fp descent situation, a descended open immersion becomes an open immersion at
-some index; a descended finite-type morphism that is proper at the limit becomes proper at some
-index. Applied to a compactification diagram, both properties and its commuting triangle hold at
-a common stage.
-
-NODE AdicCoefficientsAndComparisons:L2/finite-type-fp-factorisation [theorem]
-If f:Y→X is finite type, X qcqs, there is a closed immersion Y→Y′ and a finitely presented Y′→X.
-If f is separated, Y′→X can be chosen separated. This is the missing bridge from finite type to
-the fp limit machinery.
 
 NODE AdicCoefficientsAndComparisons:L2/fp-compactification-limit [theorem]
 For a directed inverse system of qcqs Yi with affine transitions and a least base index 0, and
@@ -694,7 +796,8 @@ NODE AdicCoefficientsAndComparisons:L4/analytic-test-space [construction]
 For O as in L1, give O[[x]] the (π,x)-adic topology, set T=D(x)⊂Spa(O[[x]],O[[x]]), and use the
 structural T→Spa(O,O). T is analytic. Its diamond is surjective and ℓ-cohomologically smooth
 over Spd O for ℓ≠p; hence pullback along T◇ is conservative and remains so after base change.
-For X locally finite type over O, (X×Spec O T)◇≃X◇×Spd O T◇.
+For X locally finite type over O, (X×Spec O T)◇≃X◇×Spd O T◇. Spd O is not analytic, so ECD 24.4
+is applied only after base change to perfectoid test objects (sourceIssue E4).
 API DVRTestSpace.mk [constructor]
 Construct T with its (π,x)-adic charts and map to Spa(O,O).
 API DVRTestSpace.analytic [characterisation]
@@ -724,7 +827,7 @@ enhanced cohomological descent equivalence to cartesian complexes on that proper
 same descent is compatible with scheme/diamond comparison and detects the comparison on the
 augmentation. An alteration degree divisible by ℓ is allowed.
 
-NODE AdicCoefficientsAndComparisons:L5/semistable-boundary-induction [theorem]
+NODE AdicCoefficientsAndComparisons:L6/semistable-boundary-induction [theorem]
 For a proper strictly semistable O-model after a permitted finite trait extension, the
 comparison for j:Xη↪X with constant finite prime-to-p coefficients is an equivalence. Use smooth
 local charts and dimension induction to reduce its cone to finitely many closed-fibre points,
@@ -744,7 +847,14 @@ uniform finite relative cohomological bound for proper models and coherent perfe
 change; it does not assume every module over the coefficient ring is finite.
 
 Native signature refinements, not checked Lean declarations:
-The native theorem signatures are fragments: affineTransitionLimit states existence but not its affine projections/open restriction/qcqs consequences; compactificationCofiltered and fpStrictCofiltered omit initiality/dense-subcategory and binary strict-refinement signatures. Compactification.baseChange is typed, while its identity/composition coherence and the cartesian reformulation of strictness remain named mathematical obligations in the packet.
+The native theorem signatures cover existence and quasi-separatedness of affine-transition
+limits, noetherian approximation, the object clause of finitely presented descent, open-immersion
+and properness descent, the separated finite-type factorisation, Nagata, strictness from density,
+cofilteredness with its dense initial subcategory, and strict fp cofilteredness. The fp
+categorical limit equivalence and the Cartier and vector-bundle refinements remain inventory text:
+Mathlib has no effective Cartier divisors or locally free modules on schemes to state them with.
+Compactification.baseChange is typed, while its identity/composition coherence and the cartesian
+reformulation of strictness remain named mathematical obligations in the packet.
 
 FPCompactification.basePoint: the included generic base-change example verifies
 properness and finite presentation only. The concrete P¹/A¹ chart over an
