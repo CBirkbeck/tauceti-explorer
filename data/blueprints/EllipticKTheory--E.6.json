@@ -1,0 +1,683 @@
+{
+  "roadmapId": "EllipticKTheory",
+  "protocol": "blueprint-v1",
+  "part": "E.6",
+  "scope": [
+    "EllipticKTheory:E.6"
+  ],
+  "status": "complete",
+  "summary": "Continuation of the arithmetic-surfaces layer: the seven accepted parent nodes supply regular models and all K-theoretic targets. This packet supplies minimality over O_{F,S}, existence by finitely many projective contractions, the local-to-global terminal property, uniqueness with fixed generic marking, and coherent restriction on inverting primes. Local surface and DVR model theory remain imports from StableReduction. All declarations are plans, not implementation claims.",
+  "baseline": {
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "declarations": [
+      {
+        "ref": "mathlib:AlgebraicGeometry.ext_of_isDominant_of_isSeparated",
+        "kind": "lemma",
+        "module": "Mathlib/AlgebraicGeometry/Morphisms/Separated.lean",
+        "provides": "Equality of maps from a reduced scheme into a separated target over a common base, if they agree after a dominant map.",
+        "checked": "Statement read using git show at the recorded pinned commit, line 290."
+      },
+      {
+        "ref": "mathlib:IsRegularLocalRing",
+        "kind": "class",
+        "module": "Mathlib/RingTheory/RegularLocalRing/Defs.lean",
+        "provides": "Noetherian local ring with maximal-ideal generator count equal to its Krull dimension; applies to every stalk of the parent model.",
+        "checked": "Statement read using git show at the recorded pinned commit, line 51."
+      },
+      {
+        "ref": "tauceti:TauCeti.Model",
+        "kind": "structure",
+        "module": "TauCeti/AlgebraicGeometry/Curves/StableReduction/Model/Basic.lean",
+        "provides": "Flat finitely presented DVR models with fixed generic-fibre marking; it does not assert properness, regularity or surface minimality.",
+        "checked": "Statement read at Tau Ceti f790474821cf4256814db967cb154e7af3d0c369, line 44."
+      },
+      {
+        "ref": "tauceti:TauCeti.genericFiber",
+        "kind": "abbrev",
+        "module": "TauCeti/AlgebraicGeometry/Fibers.lean",
+        "provides": "Scalar extension of a scheme as an object of the over-category, for arbitrary commutative rings R,K and an R-algebra structure on K.",
+        "checked": "Statement read using git show at the recorded pinned commit, line 42."
+      },
+      {
+        "ref": "tauceti:TauCeti.genericFiberι",
+        "kind": "abbrev",
+        "module": "TauCeti/AlgebraicGeometry/Fibers.lean",
+        "provides": "The scalar-extension pullback projection to the total scheme, for arbitrary commutative rings.",
+        "checked": "Statement read at Tau Ceti f790474821cf4256814db967cb154e7af3d0c369, line 48."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.IsProper",
+        "kind": "class",
+        "module": "Mathlib/AlgebraicGeometry/Morphisms/Proper.lean",
+        "provides": "Proper structure morphisms of the parent model and their separatedness.",
+        "checked": "Statement read using git show at the recorded pinned commit."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Flat",
+        "kind": "class",
+        "module": "Mathlib/AlgebraicGeometry/Morphisms/Flat.lean",
+        "provides": "Flat structure morphisms of the parent model.",
+        "checked": "Statement read using git show at the recorded pinned commit."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.SmoothOfRelativeDimension",
+        "kind": "class",
+        "module": "Mathlib/AlgebraicGeometry/Morphisms/Smooth.lean",
+        "provides": "Smooth structure morphism of specified relative dimension, used by the smooth-model unit-test signature.",
+        "checked": "Statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 130."
+      },
+      {
+        "ref": "mathlib:IsDedekindDomain.flat_iff_torsion_eq_bot",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Flat/TorsionFree.lean",
+        "provides": "An arbitrary module over a Dedekind domain is flat exactly when its torsion submodule is zero; used to preserve arithmetic flatness after contracting an exceptional curve.",
+        "checked": "Statement and surrounding instance read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, lines 138–145."
+      },
+      {
+        "ref": "tauceti:TauCeti.genericFiberTowerIso",
+        "kind": "def",
+        "module": "TauCeti/AlgebraicGeometry/Fibers.lean",
+        "provides": "Canonical isomorphism from iterated scalar extension R → A → F to direct scalar extension R → F, with projection compatibilities; supplies the local model’s generic marking.",
+        "checked": "Statement and projection identities read at Tau Ceti f790474821cf4256814db967cb154e7af3d0c369, lines 331–351."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "Conrad.MinimalModels",
+      "title": "Minimal models for elliptic curves",
+      "authors": "Brian Conrad",
+      "edition": "Lecture notes dated November 21, 2015",
+      "url": "https://math.stanford.edu/~conrad/papers/minimalmodel.pdf",
+      "sha256": "1093586aee9844c3c37f518d7b241175d4a64c3912839ecdd485c4c185a8b87a",
+      "accessed": "2026-10-06",
+      "readSections": [
+        "Section 3, pp. 6–9: marked models, domination, minimality, genus-zero nonuniqueness and the minimal-model theorem with its discussion.",
+        "Corollary 4.7 and its proof, p. 12, for the existing parent Weierstrass comparison."
+      ]
+    },
+    {
+      "id": "Stacks.ResolutionOfSurfaces",
+      "title": "The Stacks Project, Chapter 54: Resolution of Surfaces",
+      "authors": "The Stacks Project Authors",
+      "edition": "PDF version ed88ff78, compiled 14 July 2026",
+      "url": "https://stacks.math.columbia.edu/download/resolve.pdf",
+      "sha256": "6c6efffce73e982fa6c090792042a1842e7f53816a18c24ea172749571fa3db7",
+      "accessed": "2026-10-06",
+      "readSections": [
+        "Section 54.16, pp. 45–51: exceptional-curve definition, contraction universal property, existence in the ample/projective case, local gluing and regularity of the contracted point.",
+        "Section 54.17, pp. 52–54: factorization and common resolution (parent import)."
+      ]
+    },
+    {
+      "id": "Stacks.SemistableReduction",
+      "title": "The Stacks Project, Chapter 55: Semistable Reduction",
+      "authors": "The Stacks Project Authors",
+      "edition": "PDF version ed88ff78, compiled 14 July 2026; current HTML tags checked 6 October 2026",
+      "url": "https://stacks.math.columbia.edu/download/models.pdf",
+      "sha256": "4e0302b02650015a5dae9fb1abb49656feb41326a66294098daecc736ea87b0c",
+      "accessed": "2026-10-06",
+      "readSections": [
+        "Section 55.8, pp. 33–35: regular models, absence-of-exceptional-curves definition, finite contractions and existence.",
+        "Section 55.9, pp. 35–39: component geometry and the positive-genus restriction on intersecting exceptional curves, used by the local uniqueness proof.",
+        "Section 55.10, pp. 39–40: uniqueness, terminal mapping property, genus-zero example."
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "EllipticKTheory:E.6/minimal-arithmetic-model",
+      "parentStageId": "EllipticKTheory:E.6",
+      "realises": [
+        "EllipticKTheory:E.6"
+      ],
+      "title": "Minimal regular arithmetic models",
+      "kind": "definition",
+      "statement": "Let F be a number field, S a finite set of finite places and O = O_{F,S}. Fix the smooth proper geometrically integral genus-one curve E/F of E.1 and its generic-fibre identification in each regular proper O-model. A model morphism f : X → Y is an O-scheme morphism inducing the identity of this fixed E. Write i_X : E → X for the generic-fibre projection; equivalently f respects the structure maps and i_X followed by f is i_Y. A regular proper model M is minimal if every model morphism M → N to another regular proper model is an isomorphism. The category retains the generic-fibre marking; it does not identify models just because their underlying schemes are isomorphic. Local relative minimality means that, for every closed point v of Spec O, M ×_O O_(v) has no exceptional curve of the first kind, in the sense imported from StableReduction layer 5.",
+      "hypotheses": [
+        "All models are the parent E.6 regular proper models, with regularity of the total scheme, not smoothness of every fibre.",
+        "The minimality predicate uses outgoing morphisms; its equivalence with incoming terminality and with local relative minimality is proved in separate nodes."
+      ],
+      "proofSteps": [
+        "Use the parent regular proper model and its generic-fibre projection, and form morphisms by the two compatibility equalities.",
+        "Define the isomorphism condition using the scheme category. Identity, composition and transport along marked isomorphisms use these equalities.",
+        "For morphism uniqueness, regularity implies reducedness and flatness makes the generic fibre dense. Apply Mathlib ext_of_isDominant_of_isSeparated to the proper, hence separated, target.",
+        "After localization at v, forget regularity and properness to the pinned TauCeti.Model over the DVR O_(v); retain them as separately verified properties. The marked-morphism condition agrees with TauCeti.Model.Hom."
+      ],
+      "acceptance": [
+        "A blowdown of a point blowup of a minimal model violates the outgoing-isomorphism condition.",
+        "A minimal model can have a singular special fibre.",
+        "The local forgetful comparison uses the existing TauCeti.Model and does not introduce a second local model carrier."
+      ],
+      "prerequisites": [
+        "EllipticKTheory:E.6/the-regular-proper-model",
+        "EllipticKTheory:E.1/geometric-properties-of-the-curve",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-5-regular-and-minimal-models",
+        "mathlib:AlgebraicGeometry.ext_of_isDominant_of_isSeparated",
+        "tauceti:TauCeti.Model",
+        "tauceti:TauCeti.genericFiberTowerIso"
+      ],
+      "sources": [
+        {
+          "sourceId": "Conrad.MinimalModels",
+          "locator": "Definition 3.8 and Example 3.9, p. 8",
+          "match": "Definition of outgoing minimality over a DVR; the present definition extends the same marked-model condition to O_{F,S}. Example 3.9 explains why the marking is part of the object."
+        },
+        {
+          "sourceId": "Stacks.SemistableReduction",
+          "locator": "Section 55.8, opening conventions and Definition 55.8.4 (0C2V), pp. 33–34",
+          "match": "The local no-exceptional definition is imported, not reconstructed here. The global equivalence is the minimality-local-criterion node."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Curves/EllipticKTheory/ArithmeticMinimalModel",
+        "namespace": "TauCeti.EllipticK.RegularProperModel"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Minimal regular arithmetic model"
+      },
+      "uses": [
+        {
+          "where": "Conrad, Theorem 3.10 and Remark 3.11; E.6/unique-minimal-arithmetic-model",
+          "how": "Distinguishes relative minimality from the positive-genus terminal property, then identifies the canonical marked model."
+        },
+        {
+          "where": "EllipticKTheory:E.6/the-integral-part and E.6/model-independence (parent packet)",
+          "how": "Selects a canonical regular proper model on which to evaluate the already defined K-theoretic image."
+        },
+        {
+          "where": "EllipticKTheory:E.6/minimal-model-localisation; EllipticRegulators:ER.6–ER.7",
+          "how": "Fixes compatible models when primes are inverted and integral parts are compared."
+        }
+      ],
+      "api": [
+        {
+          "name": "RegularProperModel.Hom",
+          "role": "constructor",
+          "statement": "For parent regular proper models X,Y, package a scheme map f with f followed by Y.toBase = X.toBase and i_X followed by f = i_Y. These equalities are the complete constructor conditions."
+        },
+        {
+          "name": "RegularProperModel.Hom.hom",
+          "role": "projection",
+          "statement": "The underlying scheme morphism of a model morphism, with the over-base and generic-fibre compatibility equalities."
+        },
+        {
+          "name": "RegularProperModel.Hom.id",
+          "role": "functoriality",
+          "statement": "The identity scheme morphism is a model morphism X → X."
+        },
+        {
+          "name": "RegularProperModel.Hom.comp",
+          "role": "functoriality",
+          "statement": "The composite of model morphisms X → Y → Z has the composite scheme morphism; identity and associativity follow from the scheme category."
+        },
+        {
+          "name": "RegularProperModel.Hom.id_hom",
+          "role": "simp",
+          "statement": "The underlying scheme map of Hom.id M is the identity on M.X."
+        },
+        {
+          "name": "RegularProperModel.Hom.comp_hom",
+          "role": "simp",
+          "statement": "For marked model maps f : Hom M N and g : Hom N P, (Hom.comp f g).hom = f.hom followed by g.hom."
+        },
+        {
+          "name": "RegularProperModel.category",
+          "role": "instance",
+          "statement": "Regular proper models of the fixed marked E form a category with Hom, Hom.id and Hom.comp; identity and associativity laws follow from the scheme category and Hom.ext."
+        },
+        {
+          "name": "RegularProperModel.Hom.ext",
+          "role": "extensionality",
+          "statement": "Two model morphisms with equal underlying scheme morphisms are equal."
+        },
+        {
+          "name": "RegularProperModel.Hom.subsingleton",
+          "role": "extensionality",
+          "statement": "For any two regular proper models of the same marked generic curve, there is at most one model morphism between them. This is an application of the existing Mathlib reduced-source, dominant-map, separated-target equality theorem."
+        },
+        {
+          "name": "RegularProperModel.isMinimal_iff",
+          "role": "characterisation",
+          "statement": "M.IsMinimal holds exactly when every marked model morphism M → N is an isomorphism on total schemes."
+        },
+        {
+          "name": "RegularProperModel.IsMinimal.of_iso",
+          "role": "compatibility",
+          "statement": "If f : M → N is a marked model morphism whose underlying scheme morphism is an isomorphism, then M.IsMinimal implies N.IsMinimal."
+        },
+        {
+          "name": "RegularProperModel.toLocalModel",
+          "role": "compatibility",
+          "statement": "For a closed point v, localize a parent model to O_(v) and forget regularity and properness to TauCeti.Model O_(v) F E; the generic-fibre marking is unchanged. Its morphisms are TauCeti.Model.Hom after this forgetful comparison."
+        },
+        {
+          "name": "RegularProperModel.toLocalModelHom",
+          "role": "functoriality",
+          "statement": "A marked model morphism f : Hom M N induces a TauCeti.Model.Hom (toLocalModel M v) (toLocalModel N v) by scalar extension to the same local DVR. Its underlying map is the base change of f.hom under toLocalModel_totalIso; its generic-fibre equality uses genericFiberTowerIso."
+        },
+        {
+          "name": "RegularProperModel.toLocalModel_totalIso",
+          "role": "compatibility",
+          "statement": "The total scheme of toLocalModel M v is canonically isomorphic to M ×_O O_(v), over O_(v) and with the fixed generic-fibre identification."
+        }
+      ],
+      "tests": [
+        {
+          "name": "smooth_37a1_minimal",
+          "kind": "computation",
+          "statement": "The projective Weierstrass model y²z + yz² = x³ − xz² over Z[1/37] is smooth proper and minimal: Δ = 37 is a unit, and its localized fibres are smooth genus-one curves, with no exceptional rational component."
+        },
+        {
+          "name": "nodal_37a1_minimal",
+          "kind": "computation",
+          "statement": "The same projective model over Z is regular and minimal although its fibre at 37 is nodal. At the nodal point (5,18), f = 222 ∉ (37²); the minimal equation has v_37(Δ)=1 and irreducible type I₁ fibre. The fibre is not smooth, but has no exceptional curve of the first kind."
+        },
+        {
+          "name": "point_blowup_not_minimal",
+          "kind": "non-example",
+          "statement": "Blow up the rational closed point (x,y) = (0,0) in the fibre at 2 of the preceding smooth model over Z[1/37]. The new total surface is still regular proper and flat, with the same marked generic fibre, but is not minimal: its blowdown to the original model has exceptional fibre P¹_{F₂}, hence is not an isomorphism."
+        }
+      ]
+    },
+    {
+      "id": "EllipticKTheory:E.6/exists-locally-minimal-arithmetic-model",
+      "parentStageId": "EllipticKTheory:E.6",
+      "realises": [
+        "EllipticKTheory:E.6"
+      ],
+      "title": "Existence of a locally minimal arithmetic model",
+      "kind": "theorem",
+      "statement": "For every number field F, finite S and elliptic curve E/F, there is a projective regular proper flat O_{F,S}-model M of E such that M ×_O O_(v) is relatively minimal for every closed point v. It is obtained from a projective regular proper model by a finite sequence of contractions of vertical exceptional curves of the first kind. Each contraction fixes the marked generic fibre.",
+      "hypotheses": [
+        "O_{F,S} is an excellent Noetherian Dedekind domain; E is smooth proper geometrically integral of genus one.",
+        "Exceptional curves are effective Cartier divisors isomorphic to P¹ over their field of constants, with normal sheaf O(−1), not just rational components with a guessed self-intersection."
+      ],
+      "proofSteps": [
+        "Use the parent existence-of-a-regular-proper-model construction: take projective closure, finite normalization and projective blowups resolving the arithmetic surface. It supplies a projective model, not only an unspecified proper one.",
+        "The nonsmooth locus has closed image under the proper structure map and does not meet the generic point. Thus only finitely many base primes have nonsmooth fibres, and the union of their finitely many irreducible components is finite. In a smooth fibre the components are disjoint; locally each component is the uniformizer divisor, so its normal sheaf is trivial and it cannot be exceptional.",
+        "A local exceptional fibre component is the same closed Cartier curve on the global surface: localization at its base prime preserves the local rings along it and its normal sheaf. Import the projective curve-on-surface contraction (Stacks 54.16.9(1)) from StableReduction layer 4. The contracted point has regular local ring of dimension two; elsewhere the map is an isomorphism.",
+        "The target is projective, regular and integral, still has generic fibre E, and is flat over O because its local rings are torsion-free O-modules (flatness over a Dedekind domain). Each contraction removes exactly one component over the fixed finite set of primes and does not change the other fibres.",
+        "Induct on this finite component count. With no exceptional component left, every localization satisfies StableReduction layer 5’s relative-minimality criterion."
+      ],
+      "acceptance": [
+        "A smooth proper elliptic model is already an output, with zero contractions.",
+        "An initial point blowup of such a model requires a contraction; mere regularity of the initial model does not terminate the algorithm.",
+        "The argument uses finitely many bad primes and never an infinite gluing of independently chosen DVR models."
+      ],
+      "prerequisites": [
+        "EllipticKTheory:E.6/minimal-arithmetic-model",
+        "EllipticKTheory:E.6/existence-of-a-regular-proper-model",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-5-regular-and-minimal-models",
+        "mathlib:IsDedekindDomain.flat_iff_torsion_eq_bot"
+      ],
+      "sources": [
+        {
+          "sourceId": "Stacks.ResolutionOfSurfaces",
+          "locator": "Lemma 54.16.9(1), tag 0C2N, pp. 50–51",
+          "match": "Supplies global contraction over a Noetherian base, with projectivity preserved. It is an imported surface theorem; applying it successively to the finite arithmetic fibres is the new passage."
+        },
+        {
+          "sourceId": "Stacks.SemistableReduction",
+          "locator": "Lemma 55.8.5 (0CD9) and Proposition 55.8.6 (0C2W), pp. 34–35",
+          "match": "The local contraction-and-component-count proof is extended over the finite set of nonsmooth arithmetic fibres; all global hypotheses are checked explicitly."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Curves/EllipticKTheory/ArithmeticMinimalModel",
+        "namespace": "TauCeti.EllipticK.RegularProperModel"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "EllipticKTheory:E.6/locally-minimal-terminal-model",
+      "parentStageId": "EllipticKTheory:E.6",
+      "realises": [
+        "EllipticKTheory:E.6"
+      ],
+      "title": "The arithmetic terminal mapping property",
+      "kind": "theorem",
+      "statement": "Let M be a regular proper O_{F,S}-model of E/F whose localization at every closed point v is relatively minimal. For every regular proper model X of this fixed E there exists exactly one marked O-model morphism X → M. Thus M is terminal among regular proper models, and M is minimal in the outgoing sense.",
+      "hypotheses": [
+        "F is a number field, S finite, and E/F elliptic (positive genus is essential).",
+        "The source X need not be smooth over O and need not have minimal Weierstrass equations."
+      ],
+      "proofSteps": [
+        "Use the parent regular-models-linked-by-blowups node to obtain a common regular model Z, with Z → X a finite sequence of closed-point blowups and Z → M a marked model morphism.",
+        "For the last blowup Z = X_n → X_{n−1}, its exceptional curve lies over one base prime v. StableReduction layer 5 makes M_(v) terminal in the local regular-model category. There is a map X_{n−1,(v)} → M_(v), and uniqueness shows that its composite with the local blowup is the localization of Z → M. Hence Z → M maps the exceptional curve to a point.",
+        "Import the universal property of this blowdown from StableReduction layer 4 (Stacks 54.16.1): Z → M factors uniquely through X_{n−1}. The factorization is over O and respects the generic marking, because the blowup is surjective and is an isomorphism on E.",
+        "Repeat until the map X → M exists. For uniqueness apply Mathlib ext_of_isDominant_of_isSeparated: X is reduced, its generic fibre is dense by flatness, and M is separated over O.",
+        "For f : M → N, terminality supplies g : N → M. Morphism uniqueness gives both composites equal to the identities, so f is an isomorphism."
+      ],
+      "acceptance": [
+        "The terminal morphism from a point blowup of M is the blowdown, with its fixed generic marking.",
+        "For X = M the unique endomorphism is the identity.",
+        "In the genus-zero example of Stacks 55.10.3 the corresponding assertion fails; the local positive-genus hypothesis is not silently dropped."
+      ],
+      "prerequisites": [
+        "EllipticKTheory:E.6/minimal-arithmetic-model",
+        "EllipticKTheory:E.6/regular-models-linked-by-blowups",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-5-regular-and-minimal-models",
+        "mathlib:AlgebraicGeometry.ext_of_isDominant_of_isSeparated"
+      ],
+      "sources": [
+        {
+          "sourceId": "Stacks.SemistableReduction",
+          "locator": "Lemma 55.10.2, tag 0C9Z, p. 40",
+          "match": "Supplies the local terminal map; the printed first proof sentence reverses the arrow (source issue E6-mapping-direction). This node proves the arithmetic extension via common resolution."
+        },
+        {
+          "sourceId": "Stacks.ResolutionOfSurfaces",
+          "locator": "Lemma 54.16.1, tag 0C5J, p. 46",
+          "match": "Factors the global map through each last point blowup once its exceptional curve is mapped to a point. No inverse-limit descent is asserted."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Curves/EllipticKTheory/ArithmeticMinimalModel",
+        "namespace": "TauCeti.EllipticK.RegularProperModel"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Arithmetic minimal-model theorem"
+      }
+    },
+    {
+      "id": "EllipticKTheory:E.6/minimality-local-criterion",
+      "parentStageId": "EllipticKTheory:E.6",
+      "realises": [
+        "EllipticKTheory:E.6"
+      ],
+      "title": "Local criterion for arithmetic minimality",
+      "kind": "theorem",
+      "statement": "For a regular proper O_{F,S}-model M of an elliptic E/F, the following are equivalent: (i) M.IsMinimal; (ii) every localization M ×_O O_(v) is relatively minimal; (iii) for every regular proper model X of this fixed marked E there is exactly one model morphism X → M. In particular a minimal regular proper arithmetic model exists.",
+      "hypotheses": [
+        "F is a number field, S finite, and E is the elliptic generic curve of E.1.",
+        "The local condition uses actual exceptional curves, with their normal sheaves; it is not the minimality of a numerical dual graph."
+      ],
+      "proofSteps": [
+        "Condition (ii) implies (iii) and (i) by locally-minimal-terminal-model.",
+        "Given (i), choose a locally minimal model L by exists-locally-minimal-arithmetic-model. Its terminal property gives M → L. By (i) that morphism is an isomorphism, so localization identifies M_(v) with the relatively minimal L_(v); this gives (ii).",
+        "For (iii) implies (i), use the reverse map N → M for any M → N and uniqueness of model morphisms to identify both composites with identities.",
+        "The same locally minimal L establishes existence in the outgoing-minimality formulation. No general-base gluing theorem is needed."
+      ],
+      "acceptance": [
+        "Both the smooth and nodal 37a1 models in the definition’s tests satisfy all three conditions.",
+        "The point blowup fails (i) and (ii), and its blowdown shows why it cannot be terminal."
+      ],
+      "prerequisites": [
+        "EllipticKTheory:E.6/minimal-arithmetic-model",
+        "EllipticKTheory:E.6/exists-locally-minimal-arithmetic-model",
+        "EllipticKTheory:E.6/locally-minimal-terminal-model"
+      ],
+      "sources": [
+        {
+          "sourceId": "Conrad.MinimalModels",
+          "locator": "Definition 3.8, Theorem 3.10 and Remark 3.11, p. 8",
+          "match": "Conrad relates outgoing minimality to the universal property over a DVR. The present proof derives the arithmetic equivalence from the previously established local-to-global mapping property."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Curves/EllipticKTheory/ArithmeticMinimalModel",
+        "namespace": "TauCeti.EllipticK.RegularProperModel"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "EllipticKTheory:E.6/unique-minimal-arithmetic-model",
+      "parentStageId": "EllipticKTheory:E.6",
+      "realises": [
+        "EllipticKTheory:E.6"
+      ],
+      "title": "Uniqueness of the minimal regular arithmetic model",
+      "kind": "theorem",
+      "statement": "For minimal regular proper O_{F,S}-models M and N of the same fixed elliptic E/F, there is a unique O-scheme isomorphism M ≅ N inducing the identity on E. Every model morphism M → N is this isomorphism. The localized isomorphism agrees with the unique marked minimal-model isomorphism over each O_(v).",
+      "hypotheses": [
+        "The generic-fibre markings are fixed and part of the objects.",
+        "Uniqueness is among isomorphisms inducing the identity on E; unmarked schemes can have automorphisms."
+      ],
+      "proofSteps": [
+        "Use minimality-local-criterion to obtain the terminal morphisms M → N and N → M.",
+        "Their composites are the identity because model morphisms between any fixed pair are unique (apply the cited Mathlib separated-target equality theorem).",
+        "These maps define inverse scheme isomorphisms, over O and with the fixed marking. Any second marked isomorphism has the same underlying model morphism.",
+        "Localize and use the local uniqueness supplied by StableReduction layer 5."
+      ],
+      "acceptance": [
+        "Changing the chosen starting resolution gives canonically isomorphic minimal models.",
+        "The 37a1 projective model has the elliptic involution, but it is not a second identity-marked isomorphism: on its generic curve it sends (x,y) to (x,−y−1)."
+      ],
+      "prerequisites": [
+        "EllipticKTheory:E.6/minimal-arithmetic-model",
+        "EllipticKTheory:E.6/minimality-local-criterion",
+        "mathlib:AlgebraicGeometry.ext_of_isDominant_of_isSeparated",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-5-regular-and-minimal-models"
+      ],
+      "sources": [
+        {
+          "sourceId": "Stacks.SemistableReduction",
+          "locator": "Lemma 55.10.1, tag 0C6B, pp. 39–40",
+          "match": "The local uniqueness is an input and the arithmetic result follows from the terminal mapping property. The proof’s positive-genus condition is retained."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Curves/EllipticKTheory/ArithmeticMinimalModel",
+        "namespace": "TauCeti.EllipticK.RegularProperModel"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Uniqueness of the arithmetic minimal model"
+      }
+    },
+    {
+      "id": "EllipticKTheory:E.6/minimal-model-localisation",
+      "parentStageId": "EllipticKTheory:E.6",
+      "realises": [
+        "EllipticKTheory:E.6"
+      ],
+      "title": "Minimal arithmetic models and inversion of primes",
+      "kind": "theorem",
+      "statement": "Let S ⊆ S′ be finite sets of finite places of a number field F. If M is the minimal regular proper model of E/F over O_{F,S}, then M ×_{O_{F,S}} O_{F,S′} is a minimal regular proper model over O_{F,S′}. It is canonically isomorphic, with identity generic marking, to every independently constructed minimal model there. For S ⊆ S′ ⊆ S″ these comparison isomorphisms compose to the direct comparison under the canonical iterated-base-change identification.",
+      "hypotheses": [
+        "Only inversion of primes within the same number field is asserted.",
+        "Spec O_{F,S′} is an open subscheme of Spec O_{F,S}; at every retained prime the local DVR and generic curve are unchanged."
+      ],
+      "proofSteps": [
+        "Import S-integers-localisation-of-torsion-class-group, using the finite class group of O_F. For each v in S′ but not in S choose h_v ≥ 1 and a_v with v^{h_v} = (a_v), and set a = ∏ a_v (a = 1 for the empty set). Then O_{F,S′} = O_{F,S}[1/a], so the base change is the principal open restriction D(a). Base change preserves properness and flatness; open restriction preserves regularity. Its generic-fibre marking is the original E.",
+        "At every retained closed point the localized model is the same M_(v). Apply minimality-local-criterion over O_{F,S′}.",
+        "Apply unique-minimal-arithmetic-model to obtain the canonical comparison. Composites and the direct comparison induce the identity on E, hence are equal by model-morphism uniqueness.",
+        "The parent model-independence node can therefore be evaluated on this canonical model. The already defined integralPart_le_integralPartS supplies the inclusion of rational K₂-images; no new K-theory formula is needed here."
+      ],
+      "acceptance": [
+        "For S = S′ the comparison is the identity.",
+        "Inverting 37 in the nodal 37a1 model yields the smooth minimal model of the first definition test.",
+        "Inverting 2 deletes both the fibre containing the chosen point and its exceptional blowup component; it illustrates why minimality may improve on restricting a nonminimal model.",
+        "No assertion is made for arbitrary ramified DVR extensions, which can change regularity and minimality."
+      ],
+      "prerequisites": [
+        "EllipticKTheory:E.6/minimal-arithmetic-model",
+        "EllipticKTheory:E.6/minimality-local-criterion",
+        "EllipticKTheory:E.6/unique-minimal-arithmetic-model",
+        "ArithmeticKTheory:N.1/S-integers-as-a-localisation",
+        "ArithmeticKTheory:N.1/S-integers-localisation-of-torsion-class-group",
+        "EllipticKTheory:E.6/the-integral-part",
+        "EllipticKTheory:E.6/model-independence"
+      ],
+      "sources": [
+        {
+          "sourceId": "Stacks.SemistableReduction",
+          "locator": "Definition 55.8.4, tag 0C2V, p. 34",
+          "match": "The definition is local on the retained base primes; its use here is the elementary open-restriction consequence, not a theorem about arbitrary extension of DVRs."
+        },
+        {
+          "sourceId": "Conrad.MinimalModels",
+          "locator": "Remark 3.11, p. 8",
+          "match": "Uniqueness of identity-marked comparison maps gives the coherence after open restriction."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Curves/EllipticKTheory/ArithmeticMinimalModel",
+        "namespace": "TauCeti.EllipticK.RegularProperModel"
+      },
+      "implementationStatus": "unchecked"
+    }
+  ],
+  "requests": [
+    {
+      "supplier": "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces",
+      "need": "Exceptional curves of the first kind on regular surfaces; projective curve-on-surface contraction in a vertical fibre over a Noetherian base, preserving projectivity and having a regular two-dimensional contracted point (Stacks 54.16.9(1), 0C2N); universal factorization of any map taking that curve to a point through its blowdown (54.16.1, 0C5J). These are the existing layer’s surface contraction theorem, requested in its projective Noetherian-base form, not a new minimal-model theorem.",
+      "neededBy": [
+        "EllipticKTheory:E.6/minimal-arithmetic-model",
+        "EllipticKTheory:E.6/exists-locally-minimal-arithmetic-model",
+        "EllipticKTheory:E.6/locally-minimal-terminal-model"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/StableReduction#layer-5-regular-and-minimal-models",
+      "need": "For a smooth projective geometrically integral positive-genus curve over the fraction field of a DVR: no exceptional curve of the first kind characterizes relative minimality; a relatively minimal regular proper model is terminal among marked regular proper models, and is unique up to unique identity-marked isomorphism (Stacks 55.8.4–55.8.6, 55.10.1–55.10.2). Provide the regularity/reducedness and dense-generic-fibre interface needed when restricting the parent arithmetic model.",
+      "neededBy": [
+        "EllipticKTheory:E.6/minimal-arithmetic-model",
+        "EllipticKTheory:E.6/exists-locally-minimal-arithmetic-model",
+        "EllipticKTheory:E.6/locally-minimal-terminal-model",
+        "EllipticKTheory:E.6/unique-minimal-arithmetic-model"
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "EllipticKTheory:E.6",
+      "status": "planned",
+      "remaining": [],
+      "note": "Every original E.6 target is supplied by the seven explicitly imported parent nodes; the recorded global minimal-model uniqueness gap is supplied by this packet’s six nodes. No mathematical refinement remains in this scope. Coverage remains planned, not closed, because the StableReduction supplier stages and the parent nodes’ K-theoretic imports are planned interfaces."
+    }
+  ],
+  "gaps": [],
+  "continuation": {
+    "packet": "research/blueprint/packets/EllipticKTheory.json",
+    "imports": [
+      "EllipticKTheory:E.6/the-regular-proper-model",
+      "EllipticKTheory:E.6/existence-of-a-regular-proper-model",
+      "EllipticKTheory:E.6/the-integral-part",
+      "EllipticKTheory:E.6/regular-models-linked-by-blowups",
+      "EllipticKTheory:E.6/model-independence",
+      "EllipticKTheory:E.6/good-reduction-primes-impose-no-condition",
+      "EllipticKTheory:E.6/vertical-residues"
+    ],
+    "resolves": [
+      {
+        "title": "Uniqueness of the minimal regular model over O_{F,S}",
+        "providedBy": [
+          "EllipticKTheory:E.6/exists-locally-minimal-arithmetic-model",
+          "EllipticKTheory:E.6/locally-minimal-terminal-model",
+          "EllipticKTheory:E.6/minimality-local-criterion",
+          "EllipticKTheory:E.6/unique-minimal-arithmetic-model",
+          "EllipticKTheory:E.6/minimal-model-localisation"
+        ]
+      }
+    ]
+  },
+  "sourceIssues": [
+    {
+      "id": "EllipticKTheory/E6-mapping-direction",
+      "source": "Stacks.SemistableReduction",
+      "kind": "misprint",
+      "locator": "Lemma 55.10.2, tag 0C9Z, first proof sentence; ed88ff78 models.pdf p. 40 and HTML accessed 2026-10-06",
+      "printed": "The source claims that the morphism X → Y exists and has the required properties as an immediate consequence.",
+      "correction": "The morphism in this sentence must be Y → X, from the arbitrary regular proper model to the minimal model.",
+      "reason": "The statement, the next proof sentence, and Lemma 55.8.5 all produce contractions from Y to the minimal X. A nontrivial point blowup Y of X has no reverse marked morphism X → Y.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Current official tag 0C9Z: the reversed arrow remains in the proof and its comments section has no entries (2026-10-06).",
+        "Searches of the Stacks website and stacks-project repository for tag 0C9Z and an arrow-direction correction found no published correction."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently checked the ed88ff78 PDF p. 40 and official tag 0C9Z. The lemma statement and the second proof sentence have Y → X; finite contractions of Y end at the unique minimal X. The first proof arrow must have that same direction.",
+        "by": "REV-EllipticKTheory--E.6"
+      }
+    },
+    {
+      "id": "EllipticKTheory/E6-contraction-ambient",
+      "source": "Stacks.ResolutionOfSurfaces",
+      "kind": "misprint",
+      "locator": "Lemma 54.16.9(2), tag 0C2N, penultimate proof sentence; ed88ff78 resolve.pdf p. 51 and HTML accessed 2026-10-06",
+      "printed": "The source defines X′ ⊂ X̄ as the image under X → X̄′.",
+      "correction": "The image open subscheme X′ lies in X̄′, the target of the contraction, not in X̄.",
+      "reason": "The preceding morphism b has target X̄′, and the following assertion uses the image of the open X in that target to restrict b. Replacing the ambient scheme by X̄′ leaves the contraction argument unchanged.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Current official tag 0C2N retains this ambient-scheme slip (2026-10-06).",
+        "Tag 0C2N comments record the separate case-numbering correction in 2023, not this ambient scheme."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently checked the ed88ff78 PDF p. 51 and official tag 0C2N. The constructed contraction has target X̄′, so the image of the open X is an open subscheme of X̄′. This is an ambient-name slip and does not alter the contraction theorem.",
+        "by": "REV-EllipticKTheory--E.6"
+      }
+    },
+    {
+      "id": "EllipticKTheory/E6-factorisation-open",
+      "source": "Stacks.ResolutionOfSurfaces",
+      "kind": "misprint",
+      "locator": "Lemma 54.17.1, tag 0C5R, second proof sentence; ed88ff78 resolve.pdf p. 52 and official HTML accessed 2026-10-06",
+      "printed": "The source refers to points in V having codimension 1.",
+      "correction": "The maximal isomorphism open V contains every codimension-one point of the target Y.",
+      "reason": "The cited Varieties Lemma 33.17.3, tag 0BFP, places all codimension-one regular target points in the maximal isomorphism open. This is what ensures that points outside V in the two-dimensional regular Y are closed. The printed V makes the assertion tautological.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Official tag 0C5R still contains the slip and has no comments (2026-10-06).",
+        "Searches restricted to the Stacks website and GitHub for tag 0C5R together with codimension/correction found no published correction."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Compared the PDF and current HTML with the cited tag 0BFP statement; its codimension-one clause concerns the target. Replacing the final V by Y supplies exactly the intended assertion.",
+        "by": "REV-EllipticKTheory--E.6"
+      }
+    }
+  ],
+  "upstreamNotes": [],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-EllipticKTheory--E.6",
+    "date": "2026-10-06",
+    "notes": "Independently checked all six nodes, ten source citations, ten baseline declarations at both recorded pins, seven parent imports, two StableReduction contracts, the API, three tests, target coverage, ownership and planet limits. Corrected the localization prerequisite/proof and two test kinds; added three API signatures and confirmed two source misprints plus one additional notation slip. No new nodes or gaps. Full Lean file could not compile because a prebuilt Tau Ceti import is absent; the Mathlib-only signature subset is checked separately, with its exact limitations in the review report and handoff. All implementation statuses remain unchecked.",
+    "checked": [
+      {
+        "nodeId": "EllipticKTheory:E.6/minimal-arithmetic-model",
+        "verdict": "corrected",
+        "note": "Confirmed the marked outgoing-minimality definition, all constructor/category/local comparison hypotheses and three geometric tests; changed two test kinds to computation and added Hom.id_hom, Hom.comp_hom and toLocalModelHom to make the promised API explicit."
+      },
+      {
+        "nodeId": "EllipticKTheory:E.6/exists-locally-minimal-arithmetic-model",
+        "verdict": "verified",
+        "note": "Projective starting model, exceptional-curve globalization, regular projective contraction, Dedekind flatness and finite component-count termination give arithmetic existence with the stated supplier contracts."
+      },
+      {
+        "nodeId": "EllipticKTheory:E.6/locally-minimal-terminal-model",
+        "verdict": "verified",
+        "note": "The parent common resolution and local positive-genus terminality show each last exceptional curve maps to a point; the global blowdown universal property supplies the factorization and separated-target equality supplies uniqueness."
+      },
+      {
+        "nodeId": "EllipticKTheory:E.6/minimality-local-criterion",
+        "verdict": "verified",
+        "note": "The three directions follow from arithmetic existence and terminality; outgoing minimality is not silently replaced by terminality in the definition."
+      },
+      {
+        "nodeId": "EllipticKTheory:E.6/unique-minimal-arithmetic-model",
+        "verdict": "verified",
+        "note": "Terminal maps in both directions and marked-map uniqueness give the unique identity-marked isomorphism; genus one and the fixed generic curve are retained."
+      },
+      {
+        "nodeId": "EllipticKTheory:E.6/minimal-model-localisation",
+        "verdict": "corrected",
+        "note": "Added the accepted torsion-class-group localization supplier and the finite-prime principal-open argument; retained-prime local minimality and unique marked comparisons then give restriction and composition coherence."
+      }
+    ]
+  }
+}
