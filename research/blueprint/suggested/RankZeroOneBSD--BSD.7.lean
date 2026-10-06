@@ -435,6 +435,8 @@ RankZeroOneBSD:BSD.7a/cgs-heegner-index-square-equality — CGS Heegner index-sq
 RankZeroOneBSD:BSD.7a/ky-local-character-corrections — Keller–Yin local character cohomology
 RankZeroOneBSD:BSD.7a/ky-ribet-lattice — Keller–Yin nonsplit residual lattice
 RankZeroOneBSD:BSD.7a/ky-trivial-character-main-conjecture — Keller–Yin trivial-character augmentation correction
+RankZeroOneBSD:BSD.7a/ky-imprimitive-residual-comparison — Keller–Yin imprimitive residual Selmer comparison
+RankZeroOneBSD:BSD.7a/ky-finite-euler-factor-comparison — Keller–Yin finite Euler comparison
 RankZeroOneBSD:BSD.7a/ky-residual-extension-lambda — Keller–Yin residual extension and corrected lambda formula
 RankZeroOneBSD:BSD.7a/ky-equal-iwasawa-invariants — Keller–Yin equality of analytic and algebraic invariants
 RankZeroOneBSD:BSD.7a/ky-integral-kolyvagin-bound — Keller–Yin integral Kolyvagin divisibility and lattice transfer
