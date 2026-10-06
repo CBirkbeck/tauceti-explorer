@@ -24477,7 +24477,8 @@
    ],
    "avoidAccountOf": "BP-EulerSystemsAndKolyvaginSystems--ES.0",
    "prompt": "research/blueprint/prompts/REV-EulerSystemsAndKolyvaginSystems--ES.0.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #400"
   },
   {
    "id": "BP-EulerSystemsAndKolyvaginSystems--ES.8",
@@ -24524,8 +24525,9 @@
    ],
    "avoidAccountOf": "BP-EulerSystemsAndKolyvaginSystems--ES.8",
    "prompt": "research/blueprint/prompts/REV-EulerSystemsAndKolyvaginSystems--ES.8.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #401"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #401",
+   "finishedAt": "2026-10-06T12:56:30Z"
   },
   {
    "id": "BP-EulerSystemsCyclotomicMainConjecture",
@@ -28927,9 +28929,10 @@
     "REV-RS-04"
    ],
    "prompt": "research/blueprint/prompts/BP-ShimuraVarieties--V8.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #994"
+   "note": "deliverables arrived from an external worker on issue #994",
+   "finishedAt": "2026-10-06T12:56:34Z"
   },
   {
    "id": "REV-ShimuraVarieties--V8",
@@ -55018,7 +55021,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-BP-ClassicalSerreModularity--R27.3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5715"
   },
   {
    "id": "REV-FIX-RT-BP-ClassicalSerreModularity--R27.3",
