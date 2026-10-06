@@ -1049,6 +1049,17 @@
     "data/blueprints/Polylogarithms--P.2.md"
    ]
   },
+  "research/blueprint/packets/Polylogarithms--P.4.json": {
+   "promotedAt": "2026-10-06T04:38:51Z",
+   "review": "9f9c848b5d2191d6",
+   "reviewDate": "2026-10-06",
+   "reviewer": "independent-review-REV-Polylogarithms--P.4",
+   "sha256": "9157c4358934c442d904599c9ff52fb29ccb7747e7b783547c61b29e07680fad",
+   "to": [
+    "data/blueprints/Polylogarithms--P.4.json",
+    "data/blueprints/Polylogarithms--P.4.md"
+   ]
+  },
   "research/blueprint/packets/Polylogarithms--P.5.json": {
    "promotedAt": "2026-10-06T03:50:36Z",
    "review": "ca7a79f844fa0e93",

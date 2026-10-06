@@ -1,0 +1,1853 @@
+{
+  "roadmapId": "Polylogarithms",
+  "protocol": "blueprint-v1",
+  "part": "P.4",
+  "scope": [
+    "Polylogarithms:P.4"
+  ],
+  "status": "complete",
+  "summary": "Target-level follow-up to the accepted parent. Imports the parent inductive groups, boundaries, complex, determinant and assertions by id; supplies the analytic descent proof, audits the original general-weight period, refines rational existence and regulator compatibility, and specifies the explicit-to-inductive cycle obstruction at weight four. Corrected specialization and finite-place residues have precise proof gaps; the correlator proof has a named Part II owner. No conjecture or prototype is claimed implemented.",
+  "baseline": {
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "declarations": [
+      {
+        "ref": "mathlib:Finsupp.linearCombination",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/Finsupp/LinearCombination.lean",
+        "provides": "Q-linear evaluation of raw finite symbol sums in a function space.",
+        "checked": "Independently read the declaration statement at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06 for REV-Polylogarithms--P.4; its actual hypotheses and conventions supply the cited infrastructure."
+      },
+      {
+        "ref": "mathlib:Submodule.liftQ",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/Quotient/Basic.lean",
+        "provides": "Native quotient lift of a linear map vanishing on a submodule.",
+        "checked": "Independently read the declaration statement at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06 for REV-Polylogarithms--P.4; its actual hypotheses and conventions supply the cited infrastructure."
+      },
+      {
+        "ref": "mathlib:LinearMap.ker",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Module/Submodule/Ker.lean",
+        "provides": "Native kernel submodule, not a substitute for cohomology.",
+        "checked": "Independently read the declaration statement at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06 for REV-Polylogarithms--P.4; its actual hypotheses and conventions supply the cited infrastructure."
+      },
+      {
+        "ref": "mathlib:LinearMap.range",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Module/Submodule/Range.lean",
+        "provides": "Native image submodule for the cycle-lifting obstruction.",
+        "checked": "Independently read the declaration statement at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06 for REV-Polylogarithms--P.4; its actual hypotheses and conventions supply the cited infrastructure."
+      },
+      {
+        "ref": "mathlib:TensorProduct.map",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/TensorProduct/Map.lean",
+        "provides": "Tensor products of linear maps, evaluated on pure tensors.",
+        "checked": "Independently read the declaration statement at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06 for REV-Polylogarithms--P.4; its actual hypotheses and conventions supply the cited infrastructure."
+      },
+      {
+        "ref": "mathlib:TensorProduct.lift",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/TensorProduct/Basic.lean",
+        "provides": "Bilinear-to-linear map used by the tensor residue.",
+        "checked": "Independently read the declaration statement at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06 for REV-Polylogarithms--P.4; its actual hypotheses and conventions supply the cited infrastructure."
+      },
+      {
+        "ref": "mathlib:exteriorPower.map",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/ExteriorPower/Basic.lean",
+        "provides": "Functorial native exterior powers.",
+        "checked": "Independently read the declaration statement at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06 for REV-Polylogarithms--P.4; its actual hypotheses and conventions supply the cited infrastructure."
+      },
+      {
+        "ref": "mathlib:exteriorPower.ιMulti",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/ExteriorPower/Basic.lean",
+        "provides": "Native alternating insertion used to express uniformizer-first wedges; the residue map itself is imported from P.3.",
+        "checked": "Independently read the declaration statement at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06 for REV-Polylogarithms--P.4; its actual hypotheses and conventions supply the cited infrastructure."
+      },
+      {
+        "ref": "mathlib:CochainComplex.of",
+        "kind": "abbrev",
+        "module": "Mathlib/Algebra/Homology/HomologicalComplex.lean",
+        "provides": "Native complex from specified objects, differentials and square-zero proofs.",
+        "checked": "Independently read the declaration statement at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06 for REV-Polylogarithms--P.4; its actual hypotheses and conventions supply the cited infrastructure."
+      },
+      {
+        "ref": "mathlib:CochainComplex.ofHom",
+        "kind": "abbrev",
+        "module": "Mathlib/Algebra/Homology/HomologicalComplex.lean",
+        "provides": "Native map of cochain complexes from the adjacent commuting squares.",
+        "checked": "Independently read the declaration statement at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06 for REV-Polylogarithms--P.4; its actual hypotheses and conventions supply the cited infrastructure."
+      },
+      {
+        "ref": "mathlib:quasiIso_iff",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/Homology/QuasiIso.lean",
+        "provides": "Characterizes the existing global QuasiIso predicate, left conjectural for the weight-four residue map.",
+        "checked": "Independently read the declaration statement at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06 for REV-Polylogarithms--P.4; its actual hypotheses and conventions supply the cited infrastructure."
+      },
+      {
+        "ref": "mathlib:Matrix.det",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/Matrix/Determinant/Basic.lean",
+        "provides": "Native determinant including the empty matrix.",
+        "checked": "Independently read the declaration statement at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06 for REV-Polylogarithms--P.4; its actual hypotheses and conventions supply the cited infrastructure."
+      },
+      {
+        "ref": "mathlib:Matrix.det_mul",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Matrix/Determinant/Basic.lean",
+        "provides": "Determinant multiplicativity for rational basis changes.",
+        "checked": "Independently read the declaration statement at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06 for REV-Polylogarithms--P.4; its actual hypotheses and conventions supply the cited infrastructure."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "G94",
+      "title": "Polylogarithms and motivic Galois groups",
+      "authors": "A. B. Goncharov",
+      "edition": "Author-hosted 50-page typeset manuscript of the 1994 Proceedings of Symposia in Pure Mathematics 55, Part 2, contribution; locators use manuscript pagination and numbering.",
+      "url": "https://sasha-goncharov.github.io/SeattleMotives.pdf",
+      "sha256": "e664e340573fcadd339e46c8d4a105a00f4cae0700622884455c4c9c60c55225",
+      "accessed": "2026-10-06",
+      "readSections": [
+        "§1.4 Definitions and inversion pp. 6–7",
+        "§1.5 Theorem-motivation 1.15 and complete scalar descent proof pp. 7–9",
+        "Example 1.18 p. 10",
+        "§2.3 Remark 2.4 and Conjecture 2.5 pp. 13–14"
+      ]
+    },
+    {
+      "id": "G95",
+      "title": "Geometry of configurations, polylogarithms, and motivic cohomology",
+      "authors": "A. B. Goncharov",
+      "edition": "Published Advances in Mathematics 114 (1995), 197–318, author-hosted scanned version of record; PDF page k is printed page 196+k.",
+      "url": "https://sasha-goncharov.github.io/Advances1995.pdf",
+      "sha256": "434fd9093d2e27e96fae240f8f591ca532baa2f9cc7cdfeb8bc087f5235f5344",
+      "accessed": "2026-10-06",
+      "readSections": [
+        "§1.9 published pp. 220–225, especially Lemma 1.16, Proposition 1.18, Corollary 1.19 and quotient model",
+        "§1.14–1.15 residues and Conjecture 1.39, published pp. 236–241"
+      ]
+    },
+    {
+      "id": "Z90",
+      "title": "Polylogarithms, Dedekind zeta functions and the algebraic K-theory of fields",
+      "authors": "Don Zagier",
+      "edition": "Arithmetic Algebraic Geometry (Texel, 1989), Progress in Mathematics 89 (1990), pp. 391–430; author-hosted published scan.",
+      "url": "https://people.mpim-bonn.mpg.de/zagier/files/scanned/PolylogsDedekindZetaAndKTheory/fulltext.pdf",
+      "sha256": "96bbb5f616dfac26e28c1da4657b2c5ae9cefa462213279797ccd44b71e1bb19",
+      "accessed": "2026-10-06",
+      "readSections": [
+        "Introduction pp. 391–394: completed-zeta equation (1) and polylogarithm series (2), p. 392; Borel rank equation (3) and subsequent unnumbered regulator/period formula, p. 393",
+        "§7 pp. 410–415: polynomial/Bernoulli normalization, Proposition 3, endpoint convention",
+        "§8 pp. 415–417: two relation models and final regulator-compatible conjecture"
+      ]
+    },
+    {
+      "id": "GR5",
+      "title": "Motivic correlators, cluster varieties, and Zagier’s conjecture on ζ_F(4)",
+      "authors": "A. B. Goncharov and D. Rudenko",
+      "edition": "arXiv:1803.08585v5, 15 July 2026; accepted Annals version noted in the parent review. Locators are this preprint, not publisher pagination.",
+      "url": "https://arxiv.org/pdf/1803.08585v5",
+      "sha256": "d7694f411ff344af087768a951a871aef6ebd4bbed571af6d6c045560d6ed8df",
+      "accessed": "2026-10-06",
+      "readSections": [
+        "§1.1 pp. 3–8: inductive groups, determinant, theorem and conjectural comparison",
+        "§1.2 pp. 9–18: explicit presentations, Theorems 1.13–1.14 and complex (44)",
+        "§8.1–8.2 pp. 72–78: complex and real period conventions; L₄* differs pointwise from L₄",
+        "§9.3 pp. 91–94: proof completion and regulator interfaces; full §§2–7 and §10 proof remains with the Part II owner"
+      ]
+    },
+    {
+      "id": "S91",
+      "title": "K₃ of a field and the Bloch group",
+      "authors": "A. A. Suslin",
+      "edition": "English translation, Proceedings of the Steklov Institute of Mathematics (1991), issue 4, pp. 217–239; scan hosted by Herbert Gangl. Original Russian article is volume 183 (1990), pp. 180–199.",
+      "url": "https://www.maths.dur.ac.uk/users/herbert.gangl/Suslin_K3_Bloch_group.pdf",
+      "sha256": "ef16d5d93f6f9f6509f93e9b748f5cf06bda2a2a2da852404375638bab12994c",
+      "accessed": "2026-10-06",
+      "readSections": [
+        "§5 pp. 233–238, particularly Theorem 5.2, Corollary 5.6 and Remarks 5.1–5.2 p. 237–238"
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "Polylogarithms:P.4/relation-specialization-induction",
+      "parentStageId": "Polylogarithms:P.4",
+      "realises": [
+        "Polylogarithms:P.4"
+      ],
+      "kind": "theorem",
+      "title": "Specialization preserves rational-curve relations",
+      "statement": "For an infinite field F, use exactly the simultaneous rational-curve recursion of the parent higher-bloch-group, not the all-smooth-curve quotient of Gon95. At a rational point a of P¹_F, projective specialization sp_a sends a rational function with a pole to the zero infinity symbol. For every n≥2, sp_a(R_n(F(t)))⊆R_n(F). Choose π=t−a for a∈F and π=1/t at infinity. With u_π(g)=the residue of gπ^(−ord_a g), (sp_a⊗u_π)δ_n=δ_n sp_a for n≥3, and Λ²u_π δ₂=δ₂ sp_a. Hence sp_a(ker δ_n)⊆ker δ_n and δ_n(R_n(F))=0. The assertion is a joint induction over weights and fields; the unresolved degeneration step is recorded in the specialization gap.",
+      "hypotheses": [
+        "F is infinite; n≥2; a∈P¹(F); the relation spaces are the simultaneous rational-curve recursion of the accepted parent."
+      ],
+      "prerequisites": [
+        "Polylogarithms:P.4/higher-bloch-group",
+        "mathlib:Submodule.liftQ"
+      ],
+      "proofSteps": [
+        "At weight two compare each generator in the cases ord f>0, ord f<0, ord f=0 with residue f=1, and ordinary unit residue. In the pole case u(1−f)=−u(f), so their rational unit classes have equal image and the wedge vanishes.",
+        "For higher weights use the lower-weight relation-preserving specialization and the multiplicative angular component, not a map that kills nonunit tensor factors. The same four cases make the boundary square commute.",
+        "A relation over F(t) has a witness α(s) in ker δ_n over F(t)(s). Specializing t must produce a relation over F, including collisions, poles and bad fibres. Prove this by a two-variable degeneration/moving argument in the rational-curve model. Gon95 Lemma 1.16 instead uses smooth curves and a non-bilinear printed tensor rule; neither automatically supplies this step.",
+        "After that step, specialize a kernel witness at 0 and 1, subtract, and use the square to show the defining relation is killed by δ_n. This proves the descended parent δ_n without assuming its conclusion in the induction."
+      ],
+      "acceptance": [
+        "At f=t−a and f=(t−a)⁻¹ the specialized higher symbol is zero, while the unit angular component is generally nonzero.",
+        "For f=1+(t−a), specialization of the symbol is {1}_n, not automatically zero at odd weight; its boundary still vanishes.",
+        "No assertion identifies the rational-curve quotient with the all-smooth-curve quotient for every field."
+      ],
+      "sources": [
+        {
+          "sourceId": "G94",
+          "locator": "§1.4, Definition 1.10 and Lemma 1.11, manuscript p. 6",
+          "match": "Rational-curve model and the boundary-vanishing target; proof referred to G95."
+        },
+        {
+          "sourceId": "G95",
+          "locator": "§1.9, Lemma 1.16 and its proof, published pp. 221–222",
+          "match": "The specialization proof being refined, with its model difference and printed tensor defect retained explicitly."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Polylog/WeightFour",
+        "namespace": "TauCeti.Polylog.WeightFour"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "Polylogarithms:P.4/complex-specialization",
+      "parentStageId": "Polylogarithms:P.4",
+      "realises": [
+        "Polylogarithms:P.4"
+      ],
+      "kind": "construction",
+      "title": "Specialization of polylogarithmic complexes",
+      "statement": "Given the relation-preserving symbol maps of relation-specialization-induction, the parent Γ(F,n) has a degree-preserving specialization S_(a,n):Γ(F(t),n)→Γ(F,n). Choose π=t−a at a finite point and π=1/t at infinity. In degree i<n it is sp_a on B_(n−i+1) tensored with Λ^(i−1)u_π; in degree n it is Λ^n u_π. This is a chain map, restricts to the identity on constant classes, and is natural under field embeddings preserving a and the chosen parameter. Its unit/exterior components depend on the uniformizer; the assertion does not claim a canonical uniformizer-free map on every degree.",
+      "hypotheses": [
+        "The preceding relation-preserving specialization is available; the chosen rational point and uniformizer are fixed."
+      ],
+      "prerequisites": [
+        "Polylogarithms:P.4/general-polylog-complex",
+        "Polylogarithms:P.4/relation-specialization-induction",
+        "mathlib:TensorProduct.map",
+        "mathlib:exteriorPower.map",
+        "mathlib:CochainComplex.ofHom"
+      ],
+      "proofSteps": [
+        "Use TensorProduct.map and exteriorPower.map degreewise, and the preceding boundary square on symbol generators.",
+        "For the remaining differentials use naturality of exterior insertion; both sides send {f}_k⊗Y to sp{f}_(k−1)⊗(u(f)∧Λu(Y)).",
+        "The maps on constants are identities; extend by linearity and quotient extensionality."
+      ],
+      "acceptance": [
+        "The tensor component uses a group homomorphism on all nonzero rational functions.",
+        "At degree one the map agrees with the parent symbol specialization."
+      ],
+      "sources": [
+        {
+          "sourceId": "G94",
+          "locator": "§1.4 and §2.1, pp. 6, 10–11",
+          "match": "Combines the specified specialization with the explicit differentials of the general complex."
+        },
+        {
+          "sourceId": "G95",
+          "locator": "Lemma 1.16 proof, p. 222",
+          "match": "The tensor correction is necessary for this construction."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Polylog/WeightFour",
+        "namespace": "TauCeti.Polylog.WeightFour"
+      },
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.Polylog.WeightFour.specializeTerm",
+          "role": "constructor",
+          "statement": "For sp:B→ₗ B′ and u:U→ₗ U′, specializeTerm_j=sp⊗Λ^j u."
+        },
+        {
+          "name": "TauCeti.Polylog.WeightFour.specializeTerm_tmul",
+          "role": "simp",
+          "statement": "specializeTerm_j(b⊗Y)=sp(b)⊗Λ^j u(Y)."
+        },
+        {
+          "name": "TauCeti.Polylog.WeightFour.specializeLast",
+          "role": "constructor",
+          "statement": "The terminal specialization is Λ^n u."
+        },
+        {
+          "name": "TauCeti.Polylog.WeightFour.specializeTerm_comp",
+          "role": "functoriality",
+          "statement": "Composing two specialization pairs agrees with specialization for their composite maps."
+        },
+        {
+          "name": "TauCeti.Polylog.WeightFour.specializeTerm_id",
+          "role": "functoriality",
+          "statement": "Identity symbol and unit maps give the identity on B⊗Λ^j U."
+        },
+        {
+          "name": "TauCeti.Polylog.WeightFour.specializeLast_wedge",
+          "role": "simp",
+          "statement": "specializeLast_n(u₁∧…∧u_n)=u(u₁)∧…∧u(u_n)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.Polylog.WeightFour.specialize_unit_product",
+          "kind": "compatibility",
+          "statement": "At t=0, specializing {1}_3⊗(t·(2/t)) gives {1}_3⊗u(2), equal to the sum of the correctly specialized tensor factors {1}_3⊗t and {1}_3⊗(2/t)."
+        },
+        {
+          "name": "TauCeti.Polylog.WeightFour.specialize_uniformizer",
+          "kind": "computation",
+          "statement": "For parameter t, u_t(t)=0 in the additive rational unit space, hence specializeTerm_1(b⊗u(t))=0 for every b."
+        },
+        {
+          "name": "TauCeti.Polylog.WeightFour.specialize_constant_tensor",
+          "kind": "compatibility",
+          "statement": "Identity maps on constant classes send b⊗(u₁∧u₂) to the same native pure tensor."
+        },
+        {
+          "name": "TauCeti.Polylog.WeightFour.specialize_pole_symbol",
+          "kind": "degenerate",
+          "statement": "If sp(b)=0, specializeTerm_j(b⊗Y)=0, even when Λ^j u(Y) is nonzero."
+        }
+      ],
+      "uses": [
+        {
+          "where": "G94 Lemma 1.11; parent P.4/delta-map",
+          "how": "Descends boundaries and specializes kernel witnesses."
+        },
+        {
+          "where": "P.4/weight-four-residue-map and P.3 conditional-complex-transfer",
+          "how": "Specializes the Bloch factor separately from the exterior residue."
+        }
+      ]
+    },
+    {
+      "id": "Polylogarithms:P.4/higher-symbol-inversion",
+      "parentStageId": "Polylogarithms:P.4",
+      "realises": [
+        "Polylogarithms:P.4"
+      ],
+      "kind": "theorem",
+      "title": "Higher Bloch inversion and endpoint classes",
+      "statement": "For n≥2, an infinite field F and x∈F×, {x}_n+(−1)^n{x⁻¹}_n=0 in the parent inductive B_n(F). Thus {1}_(2m)=0 rationally. For odd n≥3, {1}_n is a cycle and its image in B_n(C) is nonzero because L_n(1)=ζ(n)≠0. Endpoint conventions do not set {1}_n to zero in every weight.",
+      "hypotheses": [
+        "F is infinite; n≥2; x∈F×; odd endpoint nonvanishing is over C and uses analytic descent."
+      ],
+      "prerequisites": [
+        "Polylogarithms:P.4/higher-bloch-group",
+        "Polylogarithms:P.1/single-valued-continuity",
+        "Polylogarithms:P.4/cycle-constancy"
+      ],
+      "proofSteps": [
+        "Induct on n. At weight two compute δ₂({t}+{t⁻¹})=0 after rationalization because the class of −1 is torsion.",
+        "At the induction step the two lower symbols become equal up to the parity sign and u(t⁻¹)=−u(t), so the raw relation has zero boundary. Its specialization at infinity is zero, and reparametrize to compare with x.",
+        "Put x=1 in even weight; rational coefficients cancel 2. For odd weight use the analytically descended map once cycle-constancy is established."
+      ],
+      "acceptance": [
+        "At weight three inversion is {x}_3={x⁻¹}_3; at weight four it is {x}_4=−{x⁻¹}_4.",
+        "The nonvanishing conclusion over C is contingent on the descended analytic map, rather than used to construct that map."
+      ],
+      "sources": [
+        {
+          "sourceId": "G94",
+          "locator": "Example 1.13, p. 7; Example 1.18, p. 10",
+          "match": "Inductive inversion argument and odd endpoint detected by ζ."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Polylog/WeightFour",
+        "namespace": "TauCeti.Polylog.WeightFour"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "Polylogarithms:P.4/cycle-evaluation",
+      "parentStageId": "Polylogarithms:P.4",
+      "realises": [
+        "Polylogarithms:P.4"
+      ],
+      "kind": "construction",
+      "title": "Polylogarithmic evaluation of rational families",
+      "statement": "For n≥2 and α=Σ_f q_f[f]∈Q[C(t)], define E_n(α,a)=Σ_f q_f L_n(f(a)), with f(a) evaluated on P¹(C) and L_n(∞)=0. This is a Q-linear map from raw finite sums to functions C→R. It agrees with ordinary rational evaluation where there are no poles, extends continuously across the finite union of poles by projective evaluation, and is a constant function when α is a boundary cycle (cycle-constancy). It is not a new definition of L_n or B_n.",
+      "hypotheses": [
+        "n≥2; L_n is the imported single-valued scalar with its continuous projective endpoint extension; α is a finite rational symbol sum."
+      ],
+      "prerequisites": [
+        "Polylogarithms:P.1/single-valued-polylogarithm",
+        "Polylogarithms:P.1/single-valued-continuity",
+        "mathlib:Finsupp.linearCombination"
+      ],
+      "proofSteps": [
+        "Extend f↦(a↦L_n(f(a))) by Finsupp.linearCombination.",
+        "For a pole, the rational map tends to infinity on the projective line, where the imported L_n has value zero. Constant rational functions equal to 0 or 1 are evaluated using the imported endpoint values.",
+        "Take a finite sum of the continuous composite functions; differentiate only off the finite bad set."
+      ],
+      "acceptance": [
+        "A rational-function pole contributes zero rather than an arbitrary residue.",
+        "The construction is linear over Q, not claimed R-linear on the symbol group."
+      ],
+      "sources": [
+        {
+          "sourceId": "G94",
+          "locator": "Theorem-motivation 1.15 and proof, pp. 7–9",
+          "match": "The varying-point sum that the analytic descent proof makes constant."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Polylog/WeightFour",
+        "namespace": "TauCeti.Polylog.WeightFour"
+      },
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.Polylog.WeightFour.cycleEvaluation",
+          "role": "constructor",
+          "statement": "E_n(α) is the Q-linear finite-sum evaluation function."
+        },
+        {
+          "name": "TauCeti.Polylog.WeightFour.cycleEvaluation_single",
+          "role": "simp",
+          "statement": "E_n(q[f],a)=q L_n(f(a)), with projective evaluation."
+        },
+        {
+          "name": "TauCeti.Polylog.WeightFour.cycleEvaluation_add",
+          "role": "simp",
+          "statement": "E_n(α+β,a)=E_n(α,a)+E_n(β,a)."
+        },
+        {
+          "name": "TauCeti.Polylog.WeightFour.cycleEvaluation_smul",
+          "role": "simp",
+          "statement": "E_n(qα,a)=q E_n(α,a)."
+        },
+        {
+          "name": "TauCeti.Polylog.WeightFour.cycleEvaluation_specialize",
+          "role": "compatibility",
+          "statement": "E_n(α,a)=the finite-sum L_n evaluation of sp_a α."
+        },
+        {
+          "name": "TauCeti.Polylog.WeightFour.cycleEvaluation_constant",
+          "role": "simp",
+          "statement": "A constant rational symbol c gives the constant function L_n(c)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.Polylog.WeightFour.evaluation_pole",
+          "kind": "computation",
+          "statement": "At t=0 the family [1/t] evaluates to L_n(∞)=0."
+        },
+        {
+          "name": "TauCeti.Polylog.WeightFour.evaluation_odd_one",
+          "kind": "computation",
+          "statement": "At weight three the constant family [1] evaluates to ζ(3), which is nonzero."
+        },
+        {
+          "name": "TauCeti.Polylog.WeightFour.evaluation_even_one",
+          "kind": "degenerate",
+          "statement": "At weight four the constant family [1] evaluates to zero."
+        },
+        {
+          "name": "TauCeti.Polylog.WeightFour.evaluation_cancellation",
+          "kind": "compatibility",
+          "statement": "The family [f]+[g]−[f] evaluates to L_n(g(a)), including at a common pole."
+        }
+      ],
+      "uses": [
+        {
+          "where": "G94 Theorem-motivation 1.15; G95 Corollary 1.19",
+          "how": "Turns an algebraic kernel witness into a constant analytic function and kills its endpoint difference."
+        },
+        {
+          "where": "P.4/zagier-determinant",
+          "how": "Ensures that evaluating a representative of a Bloch class is independent of its relation witness."
+        }
+      ]
+    },
+    {
+      "id": "Polylogarithms:P.4/cycle-constancy",
+      "parentStageId": "Polylogarithms:P.4",
+      "realises": [
+        "Polylogarithms:P.4"
+      ],
+      "kind": "theorem",
+      "title": "Constancy of higher polylogarithmic cycles",
+      "statement": "For n≥2, α∈ker δ_n⊂Q[C(t)] and all a,b∈P¹(C), E_n(α,a)=E_n(α,b), using the same projective endpoint convention as cycle-evaluation. Consequently L_n kills each generator sp_1α−sp_0α of R_n(C) and the zero symbol; the unique quotient lift is exactly parent polylog-on-higher-bloch. This establishes analytic descent, not a converse classification of all functional identities.",
+      "hypotheses": [
+        "n≥2; α is a raw δ_n-cycle over C(t); use the imported analytic L_n and the lower-weight relation/quotient maps."
+      ],
+      "prerequisites": [
+        "Polylogarithms:P.4/cycle-evaluation",
+        "Polylogarithms:P.4/relation-specialization-induction",
+        "Polylogarithms:P.1/classical-polylogarithm",
+        "Polylogarithms:P.1/bloch-wigner-differential",
+        "Polylogarithms:P.1/single-valued-continuity",
+        "mathlib:Submodule.liftQ"
+      ],
+      "proofSteps": [
+        "For n=2 use dL₂(f)=−log|1−f|darg f+log|f|darg(1−f). This factors through δ₂ by r₂(f∧g)=−log|f|darg g+log|g|darg f.",
+        "For n≥3 put L̂_n=L_n for odd n and iL_n for even n and β_k=2^k B_k/k!. Off 0,1,∞, dL̂_n(z)=L̂_(n−1)(z)i darg z−Σ_(k=2)^(n−2)β_k log^(k−1)|z| L̂_(n−k)(z)dlog|z|−β_(n−1)log^(n−2)|z|[log|z|dlog|1−z|−log|1−z|dlog|z|]. Derive this from the imported Li derivative and Bernoulli coefficient identities. The final coefficient is β_(n−1) and its exponent is n−2, correcting both the coefficient index and exponent in G95 (1.28c).",
+        "Factor the first term through B_(n−1) using induction. Factor each log-power term through repeated lower δ maps and the symmetric multilinear product of log|·|; the last term factors through δ₂, r₂ and the remaining logarithms. These factors give the well-defined r_n of G94 p. 9 with dÊ_n=r_n δ_n.",
+        "Since δ_nα=0, the derivative vanishes off a finite bad set. The punctured complex sphere is connected; the finite-sum evaluation is therefore constant there. Imported projective continuity extends that same constant to every missing point, including 0,1,∞.",
+        "Kill the span of defining relations and use the native quotient universal property. Higher real Deligne complexes and current maps stay with P.5/M.8; no such complex is required for this scalar constancy proof."
+      ],
+      "acceptance": [
+        "The derivative assertion excludes the bad points; only the final equality is global.",
+        "At n=3 and real x=1/2 the derivative is 4(log 2)²/3. The literal printed (1.28c) instead gives zero because β₃=0; correcting only its coefficient index would still give −4(log 2)³/3, detecting the independent exponent error.",
+        "The quotient lift composes with the quotient map to the original finite-sum L_n evaluation and is unique."
+      ],
+      "sources": [
+        {
+          "sourceId": "G94",
+          "locator": "Theorem-motivation 1.15, (14), and r_n factorization, pp. 7–9",
+          "match": "Full differential/factorization/continuity descent proof."
+        },
+        {
+          "sourceId": "G95",
+          "locator": "Proposition 1.18 and Corollary 1.19, pp. 223–224",
+          "match": "Published descent statement; its unified derivative display has the recorded coefficient-index and exponent misprints."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Polylog/WeightFour",
+        "namespace": "TauCeti.Polylog.WeightFour"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Higher polylogarithmic functional relations"
+      }
+    },
+    {
+      "id": "Polylogarithms:P.4/suslin-rigidity-adapter",
+      "parentStageId": "Polylogarithms:P.4",
+      "realises": [
+        "Polylogarithms:P.4"
+      ],
+      "kind": "comparison",
+      "title": "Suslin rigidity in the weight-two presentation",
+      "statement": "For an infinite field F, import the natural isomorphism B_Sus(F)→B_Sus(F(t)) of Suslin Corollary 5.6 and its specialization retractions. After tensoring with Q, every raw δ₂-cycle over F(t) gives a class in B_Sus(F(t))_Q whose specializations at 0 and 1 agree. Thus its difference is zero in the rational five-term pre-Bloch group. Conversely a five-term relation is obtained by varying a generic P¹ configuration through a rational parameter and specializing a zero-boundary witness, with degenerations justified by the rational inversion and endpoint relations. These are the two kernel containments needed by parent explicit-to-inductive-comparison at weight two, with δ₂ the negative of V.3’s boundary after the antisymmetric-to-exterior adapter.",
+      "hypotheses": [
+        "F is infinite; use the rational five-term presentation and the requested V.4 rigidity and compatible specialization retractions."
+      ],
+      "prerequisites": [
+        "Polylogarithms:P.4/higher-bloch-group",
+        "Polylogarithms:P.4/higher-symbol-inversion",
+        "Polylogarithms:P.4/relation-specialization-induction",
+        "K3BlochGroups:V.3/pre-bloch-group",
+        "K3BlochGroups:V.3/bloch-boundary",
+        "K3BlochGroups:V.3/antisym-exterior-comparison",
+        "K3BlochGroups:V.4"
+      ],
+      "proofSteps": [
+        "Use the requested V.4 rational-function invariance, not the unrelated general constant-field rigidity conjecture of Gon95 Proposition 1.22.",
+        "Convert δ₂=0 into membership of the Suslin Bloch kernel using the rational sign/exterior adapter. Constants map isomorphically to that kernel over F(t), so both specialization retractions give the same constant class.",
+        "For the reverse containment, take the five-term expression in one variable with the other fixed: its boundary is zero by expansion, and specialize at a point where the expression degenerates to inversion/zero-symbol terms. A field embedding or generic auxiliary parameter handles exceptional choices over an infinite F.",
+        "Conclude equality of rational relation spaces, hence the parent isomorphism; the proof does not extend the all-smooth-curve quotient comparison to arbitrary fields."
+      ],
+      "acceptance": [
+        "The supplier statement is B(F(t))≃B(F); the word rationally in Suslin means rational-function invariance, not simply rational coefficients.",
+        "Finite fields are outside this comparison’s hypotheses.",
+        "The parent δ₂ sign relative to V.3 is retained."
+      ],
+      "sources": [
+        {
+          "sourceId": "S91",
+          "locator": "Corollary 5.6 and Remark 5.1, English translation p. 237; discussion p. 238",
+          "match": "Original rigidity statement and specialization discussion read."
+        },
+        {
+          "sourceId": "GR5",
+          "locator": "§1.2 p. 9, footnote 2",
+          "match": "Explicit identification of this precise input in the B₂ comparison."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Polylog/WeightFour",
+        "namespace": "TauCeti.Polylog.WeightFour"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "Polylogarithms:P.4/rational-existence",
+      "parentStageId": "Polylogarithms:P.4",
+      "realises": [
+        "Polylogarithms:P.4"
+      ],
+      "kind": "definition",
+      "title": "Rational existence in Zagier’s conjecture",
+      "statement": "Refine the parent rank-only assertion without redefining its determinant: for F a number field and n≥2, RationalZagierExistence(F,n) means there exist d_n parent δ_n-cycles y and q∈Q× such that Z_n(y)=q ζ_F(n). Its field-free signature uses a Q-vector space M of actual cycles, a Q-linear period map p:M→R^d, a nonzero real normalization c and ζ≠0, with Z(y)=c det(p(y_j)). It includes the rational nonzero factor. If d>0 this is equivalent to the existence of y with Z(y)=ζ, by rationally scaling one column; at d=0 it means c/ζ∈Q× and does not force c=ζ.",
+      "hypotheses": [
+        "F is a number field; n≥2; the field-free prototype takes a Q-vector space of actual cycles, a specified linear period map and the actual real normalization and zeta value."
+      ],
+      "prerequisites": [
+        "Polylogarithms:P.4/zagier-determinant",
+        "Polylogarithms:P.4/condition-o-n",
+        "mathlib:Matrix.det",
+        "mathlib:Matrix.det_mul"
+      ],
+      "proofSteps": [
+        "Use the imported actual kernel and determinant, and quantify q∈Q with q≠0.",
+        "For positive d select a column and multiply it by q⁻¹; determinant multilinearity changes Z by q⁻¹.",
+        "At d=0 use the native empty determinant 1 and preserve c."
+      ],
+      "acceptance": [
+        "A nonzero determinant alone is not the definition.",
+        "The zero rational factor is excluded here and allowed in the parent every-family identity."
+      ],
+      "sources": [
+        {
+          "sourceId": "Z90",
+          "locator": "Introduction, regulator/period paragraph following (3), p. 393; §8 final Main Conjecture, p. 417",
+          "match": "The numerical rational proportionality and its distinction from K-theoretic comparison."
+        },
+        {
+          "sourceId": "G94",
+          "locator": "§2.3 Remark 2.4 and Conjecture 2.5, pp. 13–14",
+          "match": "Equivalent general-weight period form subject to positive determinant size."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Polylog/WeightFour",
+        "namespace": "TauCeti.Polylog.WeightFour"
+      },
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.Polylog.WeightFour.rationalExistence",
+          "role": "constructor",
+          "statement": "The concrete predicate ∃y,q∈Q, q≠0 and c det(p(y_j))=qζ."
+        },
+        {
+          "name": "TauCeti.Polylog.WeightFour.rationalExistence_of_witness",
+          "role": "constructor",
+          "statement": "A displayed family and nonzero rational factor establish the predicate."
+        },
+        {
+          "name": "TauCeti.Polylog.WeightFour.rationalExistence_nonzero",
+          "role": "projection",
+          "statement": "When ζ≠0, obtain a family with c det(p(y_j))≠0."
+        },
+        {
+          "name": "TauCeti.Polylog.WeightFour.rationalExistence_normalize",
+          "role": "equivalence",
+          "statement": "When d>0, rationalExistence iff ∃y,c det(p(y_j))=ζ."
+        },
+        {
+          "name": "TauCeti.Polylog.WeightFour.rationalExistence_empty",
+          "role": "characterisation",
+          "statement": "At d=0, rationalExistence iff ∃q∈Q×,c=qζ."
+        },
+        {
+          "name": "TauCeti.Polylog.WeightFour.rationalExistence_transport",
+          "role": "functoriality",
+          "statement": "A Q-linear equivalence M≃M′ transporting p preserves the predicate."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.Polylog.WeightFour.existence_empty_rational",
+          "kind": "computation",
+          "statement": "For d=0,c=90,ζ=1, rationalExistence is true although the empty normalized determinant is 90, not 1."
+        },
+        {
+          "name": "TauCeti.Polylog.WeightFour.existence_zero_factor",
+          "kind": "non-example",
+          "statement": "For d=1,p=0,c=1,ζ=1 the predicate is false, although the every-family identity holds with q=0."
+        },
+        {
+          "name": "TauCeti.Polylog.WeightFour.existence_rank_one",
+          "kind": "computation",
+          "statement": "For M=Q,d=1,p(x)=x,c=2,ζ=1, the family y=1/2 establishes exact normalized equality."
+        },
+        {
+          "name": "TauCeti.Polylog.WeightFour.existence_transport_test",
+          "kind": "compatibility",
+          "statement": "Replacing p by p∘e⁻¹ along a Q-linear equivalence leaves rationalExistence unchanged."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Z90 main numerical assertion and GR5 Theorem 1.2(a)",
+          "how": "Captures the required nonzero rational proportionality and licenses rational rescaling."
+        },
+        {
+          "where": "SpecialValuesBirchTate B.8 and parent P.4/zagier-statement",
+          "how": "Separates determinant rank from a special-value identity."
+        }
+      ]
+    },
+    {
+      "id": "Polylogarithms:P.4/regulator-comparison",
+      "parentStageId": "Polylogarithms:P.4",
+      "realises": [
+        "Polylogarithms:P.4"
+      ],
+      "kind": "definition",
+      "title": "Regulator-compatible Zagier comparison",
+      "statement": "For F a number field and n≥2, let M=ker δ_n and K=gr^n_γ K_(2n−1)(F)_Q with the canonical regulator restricted from K-theory and R.4’s selected real Tate coordinates. RegulatorCompatibleComparison(F,n) means there exist a Q-linear equivalence φ:M≃K and λ∈Q× with p_L(y)=λ π^(n−1) r_Bo(φ y) for every y, where p_L is the embedding-wise L_n map. The π^(n−1) factor is explicit because R.4 uses Tate-divided Burgos coordinates. This strengthens the parent vector-space comparison by compatibility; its existence is a conjecture, and no arbitrary equivalence is declared canonical. A generic signature permits any specified nonzero real scale A in place of π^(n−1).",
+      "hypotheses": [
+        "F is a number field; n≥2; use the specified R.4 Tate-divided real regulator coordinates; the generic scale A is nonzero in the intended comparison."
+      ],
+      "prerequisites": [
+        "Polylogarithms:P.4/condition-o-n",
+        "Polylogarithms:P.4/polylog-on-higher-bloch",
+        "Polylogarithms:P.4/goncharov-comparison-conjecture",
+        "BorelRegulators:R.4/borel-regulator",
+        "BorelRegulators:R.4/target-coordinates",
+        "BorelRegulators:R.7"
+      ],
+      "proofSteps": [
+        "Quantify the actual equivalence and its nonzero rational calibration factor; use equality of Q-linear maps as the compatibility condition.",
+        "Functoriality transports both maps along an equivalence; changing the regulator by a nonzero rational factor changes λ inversely.",
+        "Do not supply the conjectural witness or replace it with expected rank. R.7 must audit the general-weight class normalization."
+      ],
+      "acceptance": [
+        "Forgetting compatibility gives the parent comparison assertion; the converse is not claimed.",
+        "The scale is required nonzero for consequences about period-image rank.",
+        "An isomorphism of vector spaces with incompatible irrationally rescaled period maps does not satisfy this predicate."
+      ],
+      "sources": [
+        {
+          "sourceId": "Z90",
+          "locator": "§8 final Main Conjecture, p. 417",
+          "match": "The final conjecture includes agreement of the polylogarithm and K-theory regulator."
+        },
+        {
+          "sourceId": "G94",
+          "locator": "§2.3 Remark 2.4, p. 13",
+          "match": "Original normalization used for the positive-value formula."
+        },
+        {
+          "sourceId": "GR5",
+          "locator": "Theorem 1.3(iv), pp. 6–7",
+          "match": "Weight-four comparison is a calibrated map, not a proved isomorphism."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Polylog/WeightFour",
+        "namespace": "TauCeti.Polylog.WeightFour"
+      },
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.Polylog.WeightFour.regulatorComparison",
+          "role": "constructor",
+          "statement": "∃φ:M≃ₗ[Q]K,λ∈Q×, p(y)=λ A r(φ y) for all y."
+        },
+        {
+          "name": "TauCeti.Polylog.WeightFour.regulatorComparison_witness",
+          "role": "projection",
+          "statement": "Recover an equivalence and its calibration equation from the predicate."
+        },
+        {
+          "name": "TauCeti.Polylog.WeightFour.regulatorComparison_forget",
+          "role": "projection",
+          "statement": "The predicate implies Nonempty(M≃ₗ[Q]K)."
+        },
+        {
+          "name": "TauCeti.Polylog.WeightFour.regulatorComparison_rescale",
+          "role": "compatibility",
+          "statement": "For b∈Q×, replacing r by b r replaces λ by λ/b and preserves the predicate."
+        },
+        {
+          "name": "TauCeti.Polylog.WeightFour.regulatorComparison_injective",
+          "role": "compatibility",
+          "statement": "If A≠0 and r is injective, a compatible p is injective."
+        },
+        {
+          "name": "TauCeti.Polylog.WeightFour.regulatorComparison_transport",
+          "role": "functoriality",
+          "statement": "Transporting the source along a Q-linear equivalence preserves the predicate."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.Polylog.WeightFour.comparison_identity",
+          "kind": "computation",
+          "statement": "For M=K=Q,d=1,p=r the usual inclusion in R and A=1, the identity with λ=1 is a witness."
+        },
+        {
+          "name": "TauCeti.Polylog.WeightFour.comparison_zero_period",
+          "kind": "non-example",
+          "statement": "For the same nonzero r and A=1, p=0 gives no compatible comparison."
+        },
+        {
+          "name": "TauCeti.Polylog.WeightFour.comparison_rational_scale",
+          "kind": "compatibility",
+          "statement": "With p=3r and A=1, the identity and λ=3 give a witness."
+        },
+        {
+          "name": "TauCeti.Polylog.WeightFour.comparison_zero_spaces",
+          "kind": "degenerate",
+          "statement": "For M=K the zero Q-vector space, p=r=0 and A≠0, the unique equivalence and λ=1 give a witness."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Z90 §8 final Main Conjecture",
+          "how": "Supplies more than generation: it identifies the period with the K-theoretic regulator."
+        },
+        {
+          "where": "BorelRegulators R.5; P.4/period-calibration",
+          "how": "Converts the regulator covolume formula into the concrete Zagier determinant formula."
+        }
+      ]
+    },
+    {
+      "id": "Polylogarithms:P.4/assertion-logic",
+      "parentStageId": "Polylogarithms:P.4",
+      "realises": [
+        "Polylogarithms:P.4"
+      ],
+      "kind": "theorem",
+      "title": "Logical implications between Zagier assertions",
+      "statement": "For the actual period map p on a Q-vector space M, c≠0 and ζ≠0: rational-existence implies rank existence; rank existence together with the parent every-family rational identity implies rational-existence. With d>0, rational-existence is equivalent to an exact normalized ζ family. If additionally dim_Q M=d, rational-existence implies the every-family identity: express each family in the rational basis furnished by its nonzero determinant. Without the dimension or rational image-span condition that converse is not claimed. At d=0 rank existence is automatic, whereas rational-existence still requires c/ζ∈Q×. These implications correct the parent’s unqualified rank-to-rescaling equivalence.",
+      "hypotheses": [
+        "The rank implication uses every-family rationality; the reverse implication uses dim_Q M=d and ζ≠0; exact normalization requires d>0."
+      ],
+      "prerequisites": [
+        "Polylogarithms:P.4/rational-existence",
+        "Polylogarithms:P.4/zagier-statement",
+        "mathlib:Matrix.det_mul"
+      ],
+      "proofSteps": [
+        "Apply the nonzero rational witness for the forward rank implication.",
+        "Apply the every-family assertion to the family furnished by rank existence; its factor cannot be zero.",
+        "Use the rational column rescaling API only at positive d.",
+        "Under dim M=d, the witness family is a Q-basis since its real period matrix has nonzero determinant. Every other matrix is right multiplication by a rational coefficient matrix; determinant multiplicativity gives q=det A times the witness factor, allowing det A=0."
+      ],
+      "acceptance": [
+        "A repeated-column or zero family has q=0; it is not a counterexample to the every-family statement.",
+        "For d=0 the Q test gives c=π⁴ and ζ(4)=π⁴/90, so the necessary factor is 90.",
+        "The vector-space comparison is logically separate from both numerical assertions."
+      ],
+      "sources": [
+        {
+          "sourceId": "Z90",
+          "locator": "§8, pp. 416–417",
+          "match": "Separates regulator lattice and motivic comparison."
+        },
+        {
+          "sourceId": "GR5",
+          "locator": "Theorem 1.2, its two assertions, p. 5",
+          "match": "Existence and all-family numerical forms."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Polylog/WeightFour",
+        "namespace": "TauCeti.Polylog.WeightFour"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "Polylogarithms:P.4/period-calibration",
+      "parentStageId": "Polylogarithms:P.4",
+      "realises": [
+        "Polylogarithms:P.4"
+      ],
+      "kind": "comparison",
+      "title": "Borel-to-polylogarithm period normalization",
+      "statement": "Let F have r₁ real places, r₂ complex pairs, N=[F:Q] and n≥2. Put d=d_n and e=n(N−d), equal to n r₂ for odd n and n(r₁+r₂) for even n. Import R.5’s Burgos covolume R_Bo,n∼_(Q×)|D_F|^(1/2)π^(d−Nn)ζ_F(n). If the actual cycle period is calibrated by p_L=λπ^(n−1)r_Bo∘φ with λ∈Q× and φ:M≃gr^n_γK_(2n−1)(F)_Q, and this eigenspace is all rational K_(2n−1)(F), then every rational basis has det p_L∈Q×|D_F|^(1/2)π^(−e)ζ_F(n). Therefore parent Z_n=c_n det p_L has nonzero rational ratio to ζ_F(n), and every family has a rational ratio, possibly zero. This is a conditional implication, not a proof of the comparison conjecture.",
+      "hypotheses": [
+        "F is a number field; n≥2; regulator-compatible comparison, the R.5 covolume formula and number-field weight-n Adams purity are assumed."
+      ],
+      "prerequisites": [
+        "Polylogarithms:P.4/regulator-comparison",
+        "Polylogarithms:P.4/zagier-determinant",
+        "BorelRegulators:R.5/leading-term-functional-equation",
+        "BorelRegulators:R.5/borel-zeta-proportionality",
+        "BorelRegulators:R.4/regulator-lattice",
+        "BorelRegulators:R.4/regulator-real-isomorphism",
+        "SchemeKTheoryOperations:S.6",
+        "mathlib:Matrix.det_mul"
+      ],
+      "proofSteps": [
+        "Use the number-field Adams purity supplier and localization to identify the actual rational K-group appearing in the regulator lattice.",
+        "Choose an integral free K-basis modulo torsion. A rational basis changes its covolume by a nonzero rational determinant; orientations change only a rational sign.",
+        "Multiply the R.5 formula by (λπ^(n−1))^d. The exponent is (n−1)d+d−Nn=−n(N−d)=−e, exactly Zagier p. 393 and G94 Remark 2.4.",
+        "Multiplying by π^e/√|D_F| gives the parent normalized determinant. Rational matrix changes give all-family proportionality. Empty products use 1."
+      ],
+      "acceptance": [
+        "For Q and odd n, e=0 and d=1; for Q and even n, e=n and d=0.",
+        "For Q(i), N=2 and d=1 in either parity, so e=n in both odd and even weight.",
+        "Using R.4 coordinates without the π^(n−1) conversion produces the wrong determinant exponent; a universal factor 2 cannot repair it."
+      ],
+      "sources": [
+        {
+          "sourceId": "Z90",
+          "locator": "Introduction, regulator/period paragraph following (3), p. 393",
+          "match": "Original parity, period and discriminant factor checked in the scan."
+        },
+        {
+          "sourceId": "G94",
+          "locator": "§2.3 Remark 2.4, p. 13",
+          "match": "The positive-value period relation in the original regulator convention."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Polylog/WeightFour",
+        "namespace": "TauCeti.Polylog.WeightFour"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "Polylogarithms:P.4/explicit-weight-four-complex",
+      "parentStageId": "Polylogarithms:P.4",
+      "realises": [
+        "Polylogarithms:P.4"
+      ],
+      "kind": "construction",
+      "title": "The explicit weight-four polylogarithmic complex",
+      "statement": "For an infinite field F, form Γ_exp(F,4) using the parent freeness-extension’s actual combinatorial symbol span B₄^comb⊂L₄, P.3’s explicit 22-term B₃ and V.3/P.3’s rational five-term B₂. Its terms in degrees 1,2,3,4 are B₄^comb, B₃^exp⊗U, B₂^exp⊗Λ²U, Λ⁴U, where U=F×_Q. The differentials are {x}₄↦{x}₃⊗u(x), {x}₃⊗Y↦{x}₂⊗(u(x)∧Y), and {x}₂⊗Y↦(u(1−x)∧u(x))∧Y, with the parent endpoint conventions. The symbol span and cobracket relation descent come from GR’s combinatorial theorem, whose full proof is assigned to the named Part II extension. This definition does not replace B₃^exp by B₃^ind.",
+      "hypotheses": [
+        "F is infinite; import the parent combinatorial B4 symbol span, the explicit B3 and B2, and the descended boundary maps from the named GR proof owner."
+      ],
+      "prerequisites": [
+        "Polylogarithms:P.4/freeness-extension",
+        "Polylogarithms:P.3/trilogarithm-group",
+        "Polylogarithms:P.3/polylogarithmic-complex",
+        "mathlib:CochainComplex.of",
+        "mathlib:TensorProduct.map",
+        "mathlib:TensorProduct.lift",
+        "mathlib:exteriorPower.ιMulti"
+      ],
+      "proofSteps": [
+        "Import the combinatorial B₄ span and the descended cobracket from GR Theorem 1.14(a),(c); its proof boundary is the explicit-weight-four input gap.",
+        "Use the existing P.3 differential and tensor/exterior insertion in the remaining degrees.",
+        "Check d²=0 on generators by u(x)∧u(x)=0 and extend by linearity. Package the four terms in the native CochainComplex, with zero terms outside degrees 1–4."
+      ],
+      "acceptance": [
+        "There is no incoming differential at degree one, so H¹ is literally the first-boundary kernel.",
+        "GR Corollary 1.15 identifies this complex with the weight-four Chevalley–Eilenberg complex; it does not identify its B₃ term with the inductive presentation."
+      ],
+      "sources": [
+        {
+          "sourceId": "GR5",
+          "locator": "§1.2, Theorem 1.14, (44), Corollary 1.15, pp. 15–16",
+          "match": "The exact explicit complex used in the proof."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Polylog/WeightFour",
+        "namespace": "TauCeti.Polylog.WeightFour"
+      },
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.Polylog.WeightFour.explicitComplex",
+          "role": "constructor",
+          "statement": "Package the four specified terms and boundary maps into a native cochain complex."
+        },
+        {
+          "name": "TauCeti.Polylog.WeightFour.explicitComplex_X",
+          "role": "data",
+          "statement": "The object in degree i is the displayed term for i=1,2,3,4, and zero otherwise."
+        },
+        {
+          "name": "TauCeti.Polylog.WeightFour.explicitComplex_d",
+          "role": "simp",
+          "statement": "The maps in degrees 1→2,2→3,3→4 are the three specified native linear maps."
+        },
+        {
+          "name": "TauCeti.Polylog.WeightFour.explicitComplex_first_kernel",
+          "role": "characterisation",
+          "statement": "Since degree zero is zero, the cycle space in degree one is ker δ₄^exp."
+        },
+        {
+          "name": "TauCeti.Polylog.WeightFour.explicitComplex_map",
+          "role": "functoriality",
+          "statement": "Field embeddings act termwise on symbols and unit exterior powers, commuting with the differentials."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.Polylog.WeightFour.explicit_degree_one",
+          "kind": "compatibility",
+          "statement": "The degree-one object is the supplied B₄^comb, not the whole L₄."
+        },
+        {
+          "name": "TauCeti.Polylog.WeightFour.explicit_zero_outside",
+          "kind": "degenerate",
+          "statement": "The degree-zero and degree-five objects are zero modules."
+        },
+        {
+          "name": "TauCeti.Polylog.WeightFour.explicit_first_boundary",
+          "kind": "compatibility",
+          "statement": "The native degree-one differential equals δ₄^exp."
+        },
+        {
+          "name": "TauCeti.Polylog.WeightFour.explicit_no_extra_summand",
+          "kind": "non-example",
+          "statement": "The degree-two term is B₃^exp⊗U; Λ²B₂ is a summand of the comparison CE complex, not of Γ_exp itself."
+        }
+      ],
+      "uses": [
+        {
+          "where": "GR5 (44) and Corollary 1.15",
+          "how": "Specifies the complex whose comparison with the combinatorial Lie coalgebra is proved."
+        },
+        {
+          "where": "P.4/presentation-chain-map and weight-four-regulator-input",
+          "how": "Carries explicit cycles and the regulator maps without silently changing the lower relation model."
+        }
+      ],
+      "planet": {
+        "name": "Explicit weight-four polylogarithmic complex"
+      }
+    },
+    {
+      "id": "Polylogarithms:P.4/presentation-chain-map",
+      "parentStageId": "Polylogarithms:P.4",
+      "realises": [
+        "Polylogarithms:P.4"
+      ],
+      "kind": "construction",
+      "title": "Explicit-to-inductive weight-four chain map",
+      "statement": "The parent comparison maps p₄:B₄^comb→B₄^ind, p₃:B₃^exp→B₃^ind and p₂:B₂^exp≃B₂^ind induce P:Γ_exp(F,4)→Γ_ind(F,4). Its components are p₄, p₃⊗id_U, p₂⊗id_(Λ²U), and id_(Λ⁴U). They commute with all differentials and send each symbol to the identically named inductive symbol. In particular p₄ is surjective because B₄^comb and B₄^ind are generated by single symbols; no injectivity of p₃ or p₄, no quasi-isomorphism, and no surjectivity on first-boundary kernels is asserted. Scalar L₄ evaluations agree under p₄.",
+      "hypotheses": [
+        "The parent natural comparison maps and their relation descent are available; lower groups use the fixed explicit/inductive presentations."
+      ],
+      "prerequisites": [
+        "Polylogarithms:P.4/explicit-weight-four-complex",
+        "Polylogarithms:P.4/general-polylog-complex",
+        "Polylogarithms:P.4/explicit-to-inductive-comparison",
+        "Polylogarithms:P.4/polylog-on-higher-bloch",
+        "Polylogarithms:P.4/suslin-rigidity-adapter",
+        "mathlib:TensorProduct.map",
+        "mathlib:CochainComplex.ofHom"
+      ],
+      "proofSteps": [
+        "Build the degreewise maps with TensorProduct.map and identity on exterior powers.",
+        "Check the chain squares on single symbols, using the parent comparison’s relation descent and sign adapter in weight two.",
+        "Lift a finite linear combination of inductive generators to the identical explicit combination to prove p₄ surjective on groups.",
+        "Evaluate a lifted representative by the same L₄ sum; inherited analytic descent ensures equality. Do not infer kernel surjectivity from surjectivity on groups."
+      ],
+      "acceptance": [
+        "The degree-two square is (p₃⊗id)δ₄^exp=δ₄^ind p₄.",
+        "Replacing the generator lift by another lift changes its explicit boundary by δ₄^exp(ker p₄)."
+      ],
+      "sources": [
+        {
+          "sourceId": "GR5",
+          "locator": "§1.2, pp. 9, 12 and (44) p. 16",
+          "match": "Natural maps to the inductive presentations are stated; their higher bijectivity remains conjectural."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Polylog/WeightFour",
+        "namespace": "TauCeti.Polylog.WeightFour"
+      },
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.Polylog.WeightFour.presentationMap",
+          "role": "constructor",
+          "statement": "The cochain map with the four displayed components."
+        },
+        {
+          "name": "TauCeti.Polylog.WeightFour.presentationMap_first",
+          "role": "projection",
+          "statement": "Its degree-one component is p₄."
+        },
+        {
+          "name": "TauCeti.Polylog.WeightFour.presentationMap_second",
+          "role": "projection",
+          "statement": "Its degree-two component is p₃⊗id_U."
+        },
+        {
+          "name": "TauCeti.Polylog.WeightFour.presentationMap_square",
+          "role": "compatibility",
+          "statement": "(p₃⊗id)δ₄^exp=δ₄^ind p₄."
+        },
+        {
+          "name": "TauCeti.Polylog.WeightFour.presentationMap_cycles",
+          "role": "functoriality",
+          "statement": "Restrict p₄ to a Q-linear map ker δ₄^exp→ker δ₄^ind."
+        },
+        {
+          "name": "TauCeti.Polylog.WeightFour.presentationMap_period",
+          "role": "compatibility",
+          "statement": "Embedding-wise L₄ of p₄(x) equals embedding-wise L₄ of x."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.Polylog.WeightFour.presentation_zero_cycle",
+          "kind": "degenerate",
+          "statement": "The restricted cycle map sends zero to zero."
+        },
+        {
+          "name": "TauCeti.Polylog.WeightFour.presentation_pure_tensor",
+          "kind": "compatibility",
+          "statement": "The degree-two component sends b⊗u to p₃(b)⊗u."
+        },
+        {
+          "name": "TauCeti.Polylog.WeightFour.presentation_cycle_boundary",
+          "kind": "compatibility",
+          "statement": "For an explicit δ₄-cycle x, δ₄^ind(p₄x)=0."
+        },
+        {
+          "name": "TauCeti.Polylog.WeightFour.presentation_top_identity",
+          "kind": "compatibility",
+          "statement": "The degree-four component is exactly the identity on Λ⁴U."
+        }
+      ],
+      "uses": [
+        {
+          "where": "GR5 comparison of presentations, pp. 9,12; parent weight-four-theorem",
+          "how": "Transfers explicit-cycle existence to the inductive presentation."
+        },
+        {
+          "where": "P.4/cycle-obstruction",
+          "how": "Its first square defines the obstruction to lifting an arbitrary inductive cycle."
+        }
+      ]
+    },
+    {
+      "id": "Polylogarithms:P.4/cycle-obstruction",
+      "parentStageId": "Polylogarithms:P.4",
+      "realises": [
+        "Polylogarithms:P.4"
+      ],
+      "kind": "construction",
+      "title": "Obstruction to lifting an inductive cycle",
+      "statement": "Write C=B₄^comb, D=B₄^ind, E=B₃^exp⊗U, J=B₃^ind⊗U, a=δ₄^exp, b=δ₄^ind, p=p₄ and q=p₃⊗id, so qa=bp and p is surjective. Let T=ker q and H be the image of ker p under a, regarded as a submodule of T by the square. Define the Q-linear obstruction ω:ker b→T/H by ω(y)=[a(x)] for any lift p(x)=y. It is independent of the lift. Then ω(y)=0 iff y has an explicit cycle lift; its kernel equals the image of ker a→ker b. The kernel of the latter cycle map is ker p∩ker a. This is a polylogarithmic application of native kernels, submodule image and quotient, not a new abstract homology theory.",
+      "hypotheses": [
+        "The displayed linear square commutes and p is surjective; no injectivity of q is assumed."
+      ],
+      "prerequisites": [
+        "Polylogarithms:P.4/presentation-chain-map",
+        "mathlib:LinearMap.ker",
+        "mathlib:LinearMap.range",
+        "mathlib:Submodule.liftQ"
+      ],
+      "proofSteps": [
+        "The commuting square puts a(x) in T for y∈ker b and puts a(ker p) in T.",
+        "Choose a lift using surjectivity; two lifts differ by k∈ker p and their boundaries differ by a(k)∈H. Quotient extensionality gives independence and linearity.",
+        "If [a(x)]=0 choose k∈ker p with a(k)=a(x); then x−k is a cycle lifting y. The reverse follows by selecting a cycle lift.",
+        "Restrict p to ker a and compute its kernel by unfolding membership. No presentation-isomorphism conjecture is used."
+      ],
+      "acceptance": [
+        "The obstruction vanishes on images of explicit cycles.",
+        "If q is injective then every ω is zero, which is a sufficient hypothesis; it is not asserted for p₃.",
+        "Nonzero ω is not itself proof of an incorrect scalar period identity; excess cycles could still have appropriate periods."
+      ],
+      "sources": [
+        {
+          "sourceId": "GR5",
+          "locator": "§1.2 comparison discussion, pp. 9,12; complex (44), p. 16",
+          "match": "The square to which the elementary quotient obstruction is applied; this exact obstruction is a planning refinement, not named in the source."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Polylog/WeightFour",
+        "namespace": "TauCeti.Polylog.WeightFour"
+      },
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.Polylog.WeightFour.obstructionSubmodule",
+          "role": "constructor",
+          "statement": "H=range of a restricted from ker p to ker q."
+        },
+        {
+          "name": "TauCeti.Polylog.WeightFour.cycleObstruction",
+          "role": "constructor",
+          "statement": "ω:ker b→ₗ[Q](ker q)/H, using the surjective p and its square."
+        },
+        {
+          "name": "TauCeti.Polylog.WeightFour.cycleObstruction_lift",
+          "role": "characterisation",
+          "statement": "If p x=y and b y=0, ω(y) is the quotient class of a x."
+        },
+        {
+          "name": "TauCeti.Polylog.WeightFour.cycleObstruction_zero_iff",
+          "role": "characterisation",
+          "statement": "ω(y)=0 iff ∃x,px=y and ax=0."
+        },
+        {
+          "name": "TauCeti.Polylog.WeightFour.cycleObstruction_image",
+          "role": "characterisation",
+          "statement": "ker ω equals the image of the restricted explicit-cycle map."
+        },
+        {
+          "name": "TauCeti.Polylog.WeightFour.cycleObstruction_injective_target",
+          "role": "compatibility",
+          "statement": "If q is injective, ω=0."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.Polylog.WeightFour.obstruction_explicit_cycle",
+          "kind": "compatibility",
+          "statement": "If ax=0, ω(px)=0."
+        },
+        {
+          "name": "TauCeti.Polylog.WeightFour.obstruction_change_lift",
+          "kind": "characterisation",
+          "statement": "For k∈ker p, the quotient classes of ax and a(x+k) in T/H agree."
+        },
+        {
+          "name": "TauCeti.Polylog.WeightFour.obstruction_missing_cycle",
+          "kind": "non-example",
+          "statement": "For C=D=E=Q, J=0, p=id,a=id,b=0,q=0, the only explicit cycle is 0 but every y is an inductive cycle; ω(1) is nonzero."
+        },
+        {
+          "name": "TauCeti.Polylog.WeightFour.obstruction_injective_square",
+          "kind": "degenerate",
+          "statement": "If q is injective, every inductive cycle has an explicit cycle lift."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Parent P.4/weight-four-theorem part (b) gap",
+          "how": "Gives an exact liftability criterion instead of assuming B₃^exp≃B₃^ind."
+        },
+        {
+          "where": "P.3 conditional-complex-transfer and P.4/homotopy-conjecture",
+          "how": "Distinguishes a group presentation comparison from the cohomological input needed by transfers."
+        }
+      ]
+    },
+    {
+      "id": "Polylogarithms:P.4/weight-four-regulator-input",
+      "parentStageId": "Polylogarithms:P.4",
+      "realises": [
+        "Polylogarithms:P.4"
+      ],
+      "kind": "comparison",
+      "title": "Weight-four regulator interface of Goncharov–Rudenko",
+      "statement": "For a number field F the explicit-complex proof input has two distinct pieces: (i) a natural Q-linear map κ:K₇(F)_Q→ker δ₄^exp whose L₄ period, in selected embeddings, is a nonzero rational multiple of the correctly converted Borel regulator; (ii) containment of the periods of all explicit δ₄-cycles in that same rational regulator image. Together these imply rational-existence and the every-family determinant identity for Γ_exp. Piece (i) does not imply piece (ii), nor does either assert κ is an isomorphism. The target P.4 theorem is published; the full motivic-correlator, cluster and period proof is the named Part II extension, recorded as a precise input gap here.",
+      "hypotheses": [
+        "F is a number field; the target is the explicit complex (44); both stated regulator-interface pieces are assigned to the named Part II proof owner."
+      ],
+      "prerequisites": [
+        "Polylogarithms:P.4/explicit-weight-four-complex",
+        "Polylogarithms:P.4/zagier-determinant",
+        "BorelRegulators:R.5/leading-term-functional-equation",
+        "BorelRegulators:R.5/borel-zeta-proportionality",
+        "BorelRegulators:R.7",
+        "mathlib:Matrix.det_mul",
+        "Polylogarithms:P.4/cycle-constancy",
+        "BorelRegulators:R.4/regulator-real-isomorphism",
+        "BorelRegulators:R.4/regulator-lattice"
+      ],
+      "proofSteps": [
+        "The Part II owner supplies GR Theorem 1.14, Corollary 1.15, Theorem 1.13’s motivic-correlator realization, and the flag/configuration cocycle of Theorems 7.6 and 9.1, with §9.3’s regulator comparison.",
+        "For all explicit cycles, use the motivic realization and its Hodge periods to place their scalar periods in the rational K₇ regulator image. This is an image-containment requirement and must be verified separately from κ’s construction.",
+        "Compare the source’s single-valued period L₄*=(5L₄+(1/3)L₂ log²|z|)/16 with L₄ on cycles. Do not assert they are scalar multiples pointwise: the lower-weight/log correction is killed using the cycle boundary and period-map factorization.",
+        "Apply Borel’s real isomorphism for existence and its R.5 lattice/positive-value formula for every-family rationality, using the R.7 cycle-level scalar conversion. Multiplying the covolume by π^(3r₂) gives exponent (3r₂)+r₂−4N=−4(r₁+r₂). This arithmetic uses the regulator formula directly and does not assume the equivalence premise of period-calibration; no H¹Γ≃K₇ conjecture is assumed."
+      ],
+      "acceptance": [
+        "The source’s Conjecture 1.4 remains a conjecture even at weight four.",
+        "The statement that κ gives a nonzero Borel class is insufficient on its own to prove the every-family assertion.",
+        "The promised input is stated for the explicit complex (44); no identification with the inductive B₃ is smuggled in."
+      ],
+      "sources": [
+        {
+          "sourceId": "GR5",
+          "locator": "Theorems 1.13–1.14; (44); Theorem 1.3(iv); §8.2 (189)–(193); §9.3, pp. 15–16,6–7,76–78,94",
+          "match": "Specified proof interfaces, including the lower-weight correction in the Hodge period."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Polylog/WeightFour",
+        "namespace": "TauCeti.Polylog.WeightFour"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "Polylogarithms:P.4/weight-four-determinant-lifting",
+      "parentStageId": "Polylogarithms:P.4",
+      "realises": [
+        "Polylogarithms:P.4"
+      ],
+      "kind": "theorem",
+      "title": "Transfer of the weight-four numerical theorem",
+      "statement": "For a number field F, P:Γ_exp(F,4)→Γ_ind(F,4) preserves L₄ periods and maps explicit cycles to inductive cycles. Therefore any explicit nonzero rational ζ_F(4) determinant witness gives an inductive witness, and when r₂>0 can be rationally normalized to equality. For an arbitrary inductive family y with every ω(y_j)=0, lift each column to an explicit cycle; the explicit every-family theorem then gives Z₄(y)=qζ_F(4), q∈Q. Thus part (b) for all inductive cycles follows if ω=0. More weakly it suffices that every inductive cycle period lies in the same calibrated rational K₇ regulator image, even if ω≠0. Neither sufficient input is proved merely by the existence theorem; the general inductive part (b) remains a recorded gap.",
+      "hypotheses": [
+        "F is a number field; P preserves periods; the explicit numerical theorem is supplied. The every-family transfer requires cycle lifts or the weaker period-image containment."
+      ],
+      "prerequisites": [
+        "Polylogarithms:P.4/cycle-obstruction",
+        "Polylogarithms:P.4/presentation-chain-map",
+        "Polylogarithms:P.4/weight-four-regulator-input",
+        "Polylogarithms:P.4/rational-existence",
+        "Polylogarithms:P.4/assertion-logic"
+      ],
+      "proofSteps": [
+        "For existence push the explicit witness family forward and compare every matrix entry, hence determinant; use the explicit nonzero rational coefficient.",
+        "For a liftable family use cycleObstruction_zero_iff on each column and the period compatibility of the chain map.",
+        "For the weaker sufficient condition express each inductive period column in a rational basis of the calibrated regulator image and take its rational coefficient determinant.",
+        "Record the exact open input: vanishing of the obstruction for all cycles, or the weaker image containment. A conjectural full p₃ isomorphism would imply the former, but is not taken as a theorem."
+      ],
+      "acceptance": [
+        "At r₂=0 no column may be scaled; use weight-four-totally-real instead.",
+        "At a dependent or zero family the coefficient may be zero.",
+        "This conditional lifting theorem does not mislabel Zagier’s published theorem as a conjecture."
+      ],
+      "sources": [
+        {
+          "sourceId": "GR5",
+          "locator": "Theorem 1.2, its two assertions, p. 5; (44), p. 16; §9.3, p. 94",
+          "match": "Refines the published statement’s presentation boundary without claiming the missing lift proof."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Polylog/WeightFour",
+        "namespace": "TauCeti.Polylog.WeightFour"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "Polylogarithms:P.4/weight-four-totally-real",
+      "parentStageId": "Polylogarithms:P.4",
+      "realises": [
+        "Polylogarithms:P.4"
+      ],
+      "kind": "theorem",
+      "title": "The empty weight-four determinant",
+      "statement": "For a totally real number field F, r₂=0 and d₄=0. The parent normalized empty determinant is Z₄=π^(4r₁)/√|D_F|. The functional equation and Borel’s rank-zero covolume give ζ_F(4)∈Q×Z₄; equivalently Z₄=qζ_F(4) for a nonzero rational q. An exact equality Z₄=ζ_F(4) is not asserted. For F=Q, q=90. No Bloch cycle or first-column normalization exists in this case.",
+      "hypotheses": [
+        "F is a totally real number field; import the rank-zero Borel and zeta functional-equation statements."
+      ],
+      "prerequisites": [
+        "Polylogarithms:P.4/zagier-determinant",
+        "BorelRegulators:R.5/leading-term-functional-equation",
+        "BorelRegulators:R.5/borel-zeta-proportionality",
+        "BorelRegulators:R.7/number-field-small-cases"
+      ],
+      "proofSteps": [
+        "The rank-zero lattice has empty covolume 1. Specialize the R.5 period formula at n=4 and d=0.",
+        "Solve its nonzero rational proportionality for ζ_F(4).",
+        "Use ζ_Q(4)=π⁴/90 for the concrete empty-matrix check. This is the correction already recorded as parent source issue E2."
+      ],
+      "acceptance": [
+        "The Q example falsifies the uncorrected exact empty-determinant formula.",
+        "The nonzero rational factor is retained both in rational-existence and every-family statements."
+      ],
+      "sources": [
+        {
+          "sourceId": "Z90",
+          "locator": "Introduction, regulator/period paragraph following (3), p. 393",
+          "match": "Original rational factor survives empty determinant size."
+        },
+        {
+          "sourceId": "GR5",
+          "locator": "Theorem 1.2, first assertion, p. 5, inherited parent E2",
+          "match": "Parent’s already recorded empty-case correction is reused, not reported as a new finding."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Polylog/WeightFour",
+        "namespace": "TauCeti.Polylog.WeightFour"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "Polylogarithms:P.4/weight-four-residue-map",
+      "parentStageId": "Polylogarithms:P.4",
+      "realises": [
+        "Polylogarithms:P.4"
+      ],
+      "kind": "construction",
+      "title": "Weight-four residues at finite polynomial places",
+      "statement": "For a field F of characteristic zero and a monic irreducible p∈F[t], let v_p be the associated valuation on F(t), k_p=F[t]/(p), and U=F(t)×_Q. On the inductive Γ(F(t),4), define ∂_p:Γ(F(t),4)→Γ(k_p,3)[−1]: its degree-one component is zero, its degree-two component sends {f}₃⊗u(g) to v_p(g){f̄}₃ for valuation-unit f (zero otherwise), its degree-three component is sp_p⊗Res_p on B₂⊗Λ²U, and its degree-four component is the native exterior residue Λ⁴U→Λ³ k_p×_Q. Res_p puts the uniformizer first. Every finite family has finite residue support. Quotient by the image of constants gives ρ₄:Γ(F(t),4)/Γ(F,4)→⊕_p Γ(k_p,3)[−1]. Relation descent at non-rational places and the signed cochain-map assertion are explicit missing inputs, not assumed consequences of a rational-point specializer.",
+      "hypotheses": [
+        "F has characteristic zero; p is monic irreducible; use the finite-place symbol descent and signed residue maps whose proofs are recorded as a gap."
+      ],
+      "prerequisites": [
+        "Polylogarithms:P.4/general-polylog-complex",
+        "Polylogarithms:P.4/relation-specialization-induction",
+        "Polylogarithms:P.3/exterior-residue",
+        "mathlib:TensorProduct.map",
+        "mathlib:TensorProduct.lift",
+        "mathlib:exteriorPower.ιMulti",
+        "mathlib:CochainComplex.ofHom"
+      ],
+      "proofSteps": [
+        "Use the imported exterior residue and the polylogarithmic symbol specialization at the finite-place residue field. Such residue fields need not equal F, so the rational-point induction must be extended; this is recorded in the finite-place residue gap.",
+        "Use TensorProduct’s bilinear universal property in degree two and tensor/exterior residue in degree three. Sum only finitely many nonzero polynomial valuations in the support.",
+        "Check the sign by the native cochain shift: the displayed generator residue maps satisfy ∂d=−d∂ when Res places the uniformizer first. Hence they define a map to the shift [−1].",
+        "Constant symbols and constant unit wedges have zero residues, so the map factors through the quotient complex once the field inclusion and quotient are supplied by the parent specialization retraction."
+      ],
+      "acceptance": [
+        "Infinity is omitted from the direct sum in Gon95 Conjecture 1.39.",
+        "At degree two {c}₃⊗u(p) maps to {c}₃; swapping a uniformizer across a unit in an exterior wedge changes the sign.",
+        "Neither finite residue support nor the chain-map property proves that ρ₄ is a quasi-isomorphism."
+      ],
+      "sources": [
+        {
+          "sourceId": "G95",
+          "locator": "§1.14 (1.45)–(1.47), pp. 236–238; §1.15 (1.48) and Conjecture 1.39, pp. 239–240",
+          "match": "Residue formulas and finite-place quotient map in the all-smooth-curve model. The rational-curve analogue here needs its own relation descent; no equivalence of the models is asserted."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Polylog/WeightFour",
+        "namespace": "TauCeti.Polylog.WeightFour"
+      },
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.Polylog.WeightFour.residueTensor",
+          "role": "constructor",
+          "statement": "For sp:B→ₗB′ and v:U→ₗQ, residueTensor:B⊗U→ₗB′ sends b⊗u to v(u)·sp(b)."
+        },
+        {
+          "name": "TauCeti.Polylog.WeightFour.residueTensor_tmul",
+          "role": "simp",
+          "statement": "residueTensor(sp,v)(b⊗u)=v(u)·sp(b)."
+        },
+        {
+          "name": "TauCeti.Polylog.WeightFour.residueTensor_add",
+          "role": "simp",
+          "statement": "The residue is additive in the full native tensor product."
+        },
+        {
+          "name": "TauCeti.Polylog.WeightFour.residueTensor_zero_unit",
+          "role": "simp",
+          "statement": "If v(u)=0, the residue of b⊗u is zero."
+        },
+        {
+          "name": "TauCeti.Polylog.WeightFour.residueTensor_comp",
+          "role": "functoriality",
+          "statement": "Applying a linear map h to the residue equals residueTensor(h∘sp,v)."
+        },
+        {
+          "name": "TauCeti.Polylog.WeightFour.residueTensor_uniformizer",
+          "role": "compatibility",
+          "statement": "If v(uπ)=1, the residue of b⊗uπ equals sp(b)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.Polylog.WeightFour.residue_uniformizer",
+          "kind": "computation",
+          "statement": "With v(uπ)=1, the residue of b⊗uπ is sp(b), fixing the degree-two sign."
+        },
+        {
+          "name": "TauCeti.Polylog.WeightFour.residue_unit",
+          "kind": "degenerate",
+          "statement": "With v(u)=0, the residue of b⊗u is zero even if sp(b)≠0."
+        },
+        {
+          "name": "TauCeti.Polylog.WeightFour.residue_inverse_uniformizer",
+          "kind": "computation",
+          "statement": "With v(uπ)=1, the residue of b⊗(−uπ) is −sp(b)."
+        },
+        {
+          "name": "TauCeti.Polylog.WeightFour.residue_symbol_pole",
+          "kind": "degenerate",
+          "statement": "If sp(b)=0, the tensor residue vanishes regardless of the unit-factor valuation."
+        }
+      ],
+      "uses": [
+        {
+          "where": "G95 Conjecture 1.39 and following transfer discussion",
+          "how": "Supplies the rational-curve analogue of the finite-place residue map needed for conditional derived transfers; direct identification with Gon95’s model requires a compatible comparison."
+        },
+        {
+          "where": "Polylogarithms:P.3/conditional-complex-transfer",
+          "how": "Makes its weight-four homotopy hypothesis precise without claiming unconditional tower independence."
+        }
+      ]
+    },
+    {
+      "id": "Polylogarithms:P.4/homotopy-conjecture",
+      "parentStageId": "Polylogarithms:P.4",
+      "realises": [
+        "Polylogarithms:P.4"
+      ],
+      "kind": "comparison",
+      "title": "Weight-four polylogarithmic homotopy conjecture",
+      "statement": "For every characteristic-zero field F, with the finite-place residue map ρ₄ of weight-four-residue-map, PolylogHomotopy₄(F) is the concrete proposition QuasiIso(ρ₄): Γ_ind(F(t),4)/Γ_ind(F,4)→⊕_(monic irreducible p)Γ_ind(k_p,3)[−1]. It is a conjecture, not an instance supplied to typeclass inference. The codomain has Γ(k_p,3) in degrees 2–4 and no degree-one term. This is the rational-curve analogue of Gon95 Conjecture 1.39 at n=4. Gon95 uses the all-smooth-curve quotient; identifying the two homotopy assertions requires a chain-compatible comparison, which is not supplied or assumed here. Even under this hypothesis, independence of the primitive-element choice, compatibility with towers and agreement with top-degree Milnor transfer must be established for P.3’s derived-transfer construction.",
+      "hypotheses": [
+        "F has characteristic zero; ρ4 is the specified descended finite-place quotient map. QuasiIso(ρ4) is conjectural, not asserted as an instance."
+      ],
+      "prerequisites": [
+        "Polylogarithms:P.4/weight-four-residue-map",
+        "mathlib:quasiIso_iff"
+      ],
+      "proofSteps": [
+        "Use the native QuasiIso property on the specified map; equivalently require every induced cohomology map to be an isomorphism.",
+        "Retain the conjectural status and the exact finite-place, shift and quotient conventions.",
+        "Under the hypothesis one may invert ρ₄ in the derived category and use the infinity residue to define a candidate finite-extension transfer. The source says independence appears possible; its proof is not supplied by merely inverting the map."
+      ],
+      "acceptance": [
+        "The higher homotopy assertion is not a consequence of the scalar L₄ determinant theorem.",
+        "The P.3 consumer may use this only as an explicit hypothesis, and cannot infer tower independence automatically.",
+        "No equivalence with Gon95 Conjecture 1.39 is claimed without a comparison of curve models commuting with differentials, field maps and finite-place residues."
+      ],
+      "sources": [
+        {
+          "sourceId": "G95",
+          "locator": "Conjecture 1.39, p. 240; subsequent paragraph p. 241",
+          "match": "Conjecture and conditional transfer application in Gon95’s all-smooth-curve model; the displayed rational-curve assertion is its analogue, not an established equivalent formulation."
+        },
+        {
+          "sourceId": "G94",
+          "locator": "Definition 1.19 and following comparison discussion, manuscript p. 10",
+          "match": "Distinguishes the rational-curve groups from the all-smooth-curve groups and describes their comparison as conjectural."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Polylog/WeightFour",
+        "namespace": "TauCeti.Polylog.WeightFour"
+      },
+      "implementationStatus": "unchecked"
+    }
+  ],
+  "requests": [
+    {
+      "supplier": "K3BlochGroups:V.4",
+      "need": "Part II export of Suslin Corollary 5.6 (English translation p. 237): for every infinite F the constant-field map B_Sus(F)→B_Sus(F(t)) is an isomorphism, with compatible rational-point specialization retractions, including the proof via Theorem 5.2 and K₃^ind rational-function invariance. Existing suslin-exact-sequence does not itself provide this export. P.4 owns only the relation-presentation adapter.",
+      "neededBy": [
+        "Polylogarithms:P.4/suslin-rigidity-adapter"
+      ]
+    },
+    {
+      "supplier": "BorelRegulators:R.7",
+      "need": "Audit the scalar L_n versus R.4 Burgos/Tate-divided real coordinates: the regulator-compatible comparison must have an explicit π^(n−1)·Q× conversion, with its rational scalar and orientation checked at cycle level. In weight four compare the source L₄* with L₄ on δ₄-cycles; a pointwise scalar identity is false. Existing universal-factor-two concerns two classes in the same Tate coordinates and does not supply this analytic normalization adapter.",
+      "neededBy": [
+        "Polylogarithms:P.4/regulator-comparison",
+        "Polylogarithms:P.4/period-calibration",
+        "Polylogarithms:P.4/weight-four-regulator-input"
+      ]
+    },
+    {
+      "supplier": "SchemeKTheoryOperations:S.6",
+      "need": "Number-field rational Adams purity needed by the normalization implication: for n≥2, the canonical weight-n eigenspace inclusion K_(2n−1)(F)_Q^(n)→K_(2n−1)(F)_Q is an isomorphism, compatible with localization and the R.4 regulator. Import the general rational Adams/gamma interface; coordinate the arithmetic input with R.7 rather than equating a gamma graded piece and the full K-group by notation.",
+      "neededBy": [
+        "Polylogarithms:P.4/period-calibration"
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "title": "Degenerating rational-curve relation specialization",
+      "neededBy": [
+        "Polylogarithms:P.4/relation-specialization-induction",
+        "Polylogarithms:P.4/complex-specialization",
+        "Polylogarithms:P.4/cycle-constancy",
+        "Polylogarithms:P.4/suslin-rigidity-adapter"
+      ],
+      "detail": "Supply a joint induction proving sp_a(R_n(F(t)))⊆R_n(F) in the exact GR/G94 rational-curve model, including degenerating two-variable kernel witnesses. G95 Lemma 1.16 is a smooth-curve model and its printed tensor specialization fails bilinearity. Angular components repair the generator boundary square but do not, without this family argument, prove preservation of the relation subspace. The scalar constancy proof has been read and is planned; its algebraic lower-weight specialization dependency inherits this gap."
+    },
+    {
+      "title": "Explicit weight-four correlator and regulator proof owner",
+      "neededBy": [
+        "Polylogarithms:P.4/explicit-weight-four-complex",
+        "Polylogarithms:P.4/weight-four-regulator-input",
+        "Polylogarithms:P.4/weight-four-determinant-lifting"
+      ],
+      "detail": "The named Polylogarithms Part II must supply GR Theorem 1.14(a),(c), Corollary 1.15, motivic-correlator realization (Theorem 1.13), the configuration/flag cocycles (Theorems 7.6,9.1), the cycle-level L₄* to L₄ period adapter and §9.3 regulator comparison. For part (b) include the explicit-cycle period-image containment, not only the map κ from K₇. This P.4 job owns the exact objects/statements and interface; it does not claim to have decomposed the full §§2–10 proof or invented an already-live extension id."
+    },
+    {
+      "title": "Inductive weight-four every-family determinant",
+      "neededBy": [
+        "Polylogarithms:P.4/weight-four-determinant-lifting"
+      ],
+      "detail": "Prove all ω:ker δ₄^ind→ker(p₃⊗id)/δ₄^exp(ker p₄) vanish, or prove directly that embedding-wise periods of all inductive cycles lie in the calibrated rational K₇ regulator image. The explicit-to-inductive group surjections and GR complex (44) do not supply either assertion. Full p₃ bijectivity is a stronger conjectural sufficient condition, not a premise silently granted here."
+    },
+    {
+      "title": "Finite-place symbol descent and signed residues",
+      "neededBy": [
+        "Polylogarithms:P.4/weight-four-residue-map",
+        "Polylogarithms:P.4/homotopy-conjecture"
+      ],
+      "detail": "Extend the rational-point relation-preservation proof to polynomial-place residue fields k_p and prove the displayed residue maps descend through inductive relations and satisfy the signed native-shift chain squares. Parent P.3 exterior residue supplies only the unit wedge map. A proof must retain uniformizer-first orientation and finite support; neither follows merely from the scalar period theorem."
+    },
+    {
+      "title": "Weight-four homotopy and derived transfer independence",
+      "neededBy": [
+        "Polylogarithms:P.4/homotopy-conjecture",
+        "Polylogarithms:P.3/conditional-complex-transfer"
+      ],
+      "detail": "The rational-curve analogue of Gon95 Conjecture 1.39 at n=4 remains conjectural. Once ρ₄ exists, prove its quasi-isomorphism or keep it as an explicit hypothesis. To deduce it from Gon95’s all-smooth-curve assertion, also supply a comparison of the two curve models compatible with the complexes, field inclusions and finite-place residue maps; G94 Definition 1.19 does not establish that comparison. A separate proof of primitive-element and tower independence, plus agreement with top Milnor cohomology, is still required for derived transfers. GR Corollary 1.15 is a different comparison and does not prove this homotopy statement."
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "Polylogarithms:P.4",
+      "status": "planned",
+      "remaining": [
+        "Degenerating rational-curve relation specialization: Supply a joint induction proving sp_a(R_n(F(t)))⊆R_n(F) in the exact GR/G94 rational-curve model, including degenerating two-variable kernel witnesses. G95 Lemma 1.16 is a smooth-curve model and its printed tensor specialization fails bilinearity. Angular components repair the generator boundary square but do not, without this family argument, prove preservation of the relation subspace. The scalar constancy proof has been read and is planned; its algebraic lower-weight specialization dependency inherits this gap.",
+        "Explicit weight-four correlator and regulator proof owner: The named Polylogarithms Part II must supply GR Theorem 1.14(a),(c), Corollary 1.15, motivic-correlator realization (Theorem 1.13), the configuration/flag cocycles (Theorems 7.6,9.1), the cycle-level L₄* to L₄ period adapter and §9.3 regulator comparison. For part (b) include the explicit-cycle period-image containment, not only the map κ from K₇. This P.4 job owns the exact objects/statements and interface; it does not claim to have decomposed the full §§2–10 proof or invented an already-live extension id.",
+        "Inductive weight-four every-family determinant: Prove all ω:ker δ₄^ind→ker(p₃⊗id)/δ₄^exp(ker p₄) vanish, or prove directly that embedding-wise periods of all inductive cycles lie in the calibrated rational K₇ regulator image. The explicit-to-inductive group surjections and GR complex (44) do not supply either assertion. Full p₃ bijectivity is a stronger conjectural sufficient condition, not a premise silently granted here.",
+        "Finite-place symbol descent and signed residues: Extend the rational-point relation-preservation proof to polynomial-place residue fields k_p and prove the displayed residue maps descend through inductive relations and satisfy the signed native-shift chain squares. Parent P.3 exterior residue supplies only the unit wedge map. A proof must retain uniformizer-first orientation and finite support; neither follows merely from the scalar period theorem.",
+        "Weight-four homotopy and derived transfer independence: The rational-curve analogue of Gon95 Conjecture 1.39 at n=4 remains conjectural. Once ρ₄ exists, prove its quasi-isomorphism or keep it as an explicit hypothesis. To deduce it from Gon95’s all-smooth-curve assertion, also supply a comparison of the two curve models compatible with the complexes, field inclusions and finite-place residue maps; G94 Definition 1.19 does not establish that comparison. A separate proof of primitive-element and tower independence, plus agreement with top Milnor cohomology, is still required for derived transfers. GR Corollary 1.15 is a different comparison and does not prove this homotopy statement.",
+        "Resolve the three exact supplier exports (V.4 rigidity, R.7 scalar coordinate calibration, S.6 number-field Adams purity). General-weight motivic comparison and homotopy remain conjectures, not unfinished formal proofs claimed by this packet."
+      ]
+    }
+  ],
+  "targetCoverage": [
+    {
+      "target": "Admissible configurations and rational relation complex",
+      "nodes": [
+        "Polylogarithms:P.4/higher-bloch-group",
+        "Polylogarithms:P.4/general-polylog-complex",
+        "Polylogarithms:P.4/relation-specialization-induction",
+        "Polylogarithms:P.4/complex-specialization"
+      ]
+    },
+    {
+      "target": "Embedding-wise determinant and period/discriminant factors",
+      "nodes": [
+        "Polylogarithms:P.4/zagier-determinant",
+        "Polylogarithms:P.4/cycle-constancy",
+        "Polylogarithms:P.4/period-calibration"
+      ]
+    },
+    {
+      "target": "Separate existence, comparison and every-family numerical assertions",
+      "nodes": [
+        "Polylogarithms:P.4/zagier-statement",
+        "Polylogarithms:P.4/rational-existence",
+        "Polylogarithms:P.4/regulator-comparison",
+        "Polylogarithms:P.4/assertion-logic"
+      ]
+    },
+    {
+      "target": "Explicit weight-four theorem and separately owned full proof",
+      "nodes": [
+        "Polylogarithms:P.4/weight-four-theorem",
+        "Polylogarithms:P.4/explicit-weight-four-complex",
+        "Polylogarithms:P.4/presentation-chain-map",
+        "Polylogarithms:P.4/cycle-obstruction",
+        "Polylogarithms:P.4/weight-four-regulator-input",
+        "Polylogarithms:P.4/weight-four-determinant-lifting",
+        "Polylogarithms:P.4/weight-four-totally-real"
+      ]
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "Polylogarithms/E-P4-01",
+      "source": "G95",
+      "kind": "error",
+      "locator": "Published Advances in Mathematics 114 (1995), proof of Lemma 1.16, p. 222, definition of s₀ on the tensor product",
+      "printed": "The source specifies the alternative case.",
+      "correction": "Use the multiplicative angular-component homomorphism on the tensor unit factor, not zero on every nonunit; then prove the needed relation descent separately.",
+      "reason": "At t=0 over C(t), {1}_3⊗t and {1}_3⊗(2/t) are both sent to zero by the printed rule, while their sum is {1}_3⊗2 and is sent to {1}_3⊗2≠0. The first factor is nonzero since L₃(1)=ζ(3)≠0; the rational unit class of 2 is nonzero since 2 is not a root of unity. A nonzero pure tensor over Q is nonzero. Thus the proposed homomorphism is not bilinear. This diagnoses that proof step, not the truth of Lemma 1.16.",
+      "affects": "the proof",
+      "known": "No correction located in the inspected author-hosted version of record; proposed tensor repair recorded in the accepted parent specialization-and-delta statement, whose relation-preservation proof remains open.",
+      "searched": [
+        "G95 author-hosted published pp. 221–224",
+        "G94 author-hosted Lemma 1.11 and analytic descent proof",
+        "GR arXiv v5 inductive relation definition",
+        "Author publications page and web search for Geometry of configurations errata"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently inspected published pp. 221–222. The printed zero-on-nonunits rule on the tensor unit factor fails the t·(2/t)=2 bilinearity test over C(t), with the nonzero {1}₃ factor detected by ζ(3). Angular components fix this tensor defect but do not establish relation descent or identify the two curve models.",
+        "by": "REV-Polylogarithms--P.4"
+      }
+    },
+    {
+      "id": "Polylogarithms/E-P4-02",
+      "source": "G95",
+      "kind": "misprint",
+      "locator": "Published Advances in Mathematics 114 (1995), Proposition 1.18, p. 223, final term of unified equation (1.28c)",
+      "printed": "−β_n log^(n−1)|z| [log|z| dlog|1−z|−log|1−z| dlog|z|]",
+      "correction": "Replace β_n log^(n−1)|z| by β_(n−1) log^(n−2)|z|, retaining the minus sign and bracketed logarithmic differential.",
+      "reason": "The adjacent odd formula (1.28b) at weight n=2m+1 uses β_(2m) log^(2m−1), namely coefficient β_(n−1) and exponent n−2. G94 (14), p. 8, agrees. At weight three on the real interval, the literal printed (1.28c) has β₃=0 and predicts zero derivative, whereas differentiating L₃=Li₃−log x Li₂−(log²x/3)log(1−x) at x=1/2 gives 4(log 2)²/3. Fixing the coefficient index alone would give −4(log 2)³/3, so both printed indices need correction.",
+      "affects": "nothing",
+      "known": "Both correct indices are already in the adjacent published formula (1.28b) and G94 author manuscript (14); no separate publisher erratum located in the inspected author copies and targeted correction search.",
+      "searched": [
+        "G95 published p. 223 (1.28a)–(1.28c)",
+        "G94 manuscript p. 8 (14)",
+        "Author-hosted publications page and search for Proposition 1.18 errata"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently inspected published p. 223: the final term actually prints β_n as well as exponent n−1. Expanded the finding to both misprints and corrected its literal weight-three diagnostic. The adjacent odd formula and G94 (14) give the intended term.",
+        "by": "REV-Polylogarithms--P.4"
+      }
+    }
+  ],
+  "sourceVersions": [
+    {
+      "kind": "author copy",
+      "url": "https://sasha-goncharov.github.io/SeattleMotives.pdf",
+      "citation": "Author-hosted 50-page typeset manuscript of the 1994 Proceedings of Symposia in Pure Mathematics 55, Part 2, contribution; locators use manuscript pagination and numbering.",
+      "read": "2026-10-06",
+      "sha256": "e664e340573fcadd339e46c8d4a105a00f4cae0700622884455c4c9c60c55225"
+    },
+    {
+      "kind": "published",
+      "url": "https://sasha-goncharov.github.io/Advances1995.pdf",
+      "citation": "Published Advances in Mathematics 114 (1995), 197–318, author-hosted scanned version of record; PDF page k is printed page 196+k.",
+      "read": "2026-10-06",
+      "sha256": "434fd9093d2e27e96fae240f8f591ca532baa2f9cc7cdfeb8bc087f5235f5344"
+    },
+    {
+      "kind": "published",
+      "url": "https://people.mpim-bonn.mpg.de/zagier/files/scanned/PolylogsDedekindZetaAndKTheory/fulltext.pdf",
+      "citation": "Arithmetic Algebraic Geometry (Texel, 1989), Progress in Mathematics 89 (1990), pp. 391–430; author-hosted published scan.",
+      "read": "2026-10-06",
+      "sha256": "96bbb5f616dfac26e28c1da4657b2c5ae9cefa462213279797ccd44b71e1bb19"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1803.08585v5",
+      "citation": "arXiv:1803.08585v5, 15 July 2026; accepted Annals version noted in the parent review. Locators are this preprint, not publisher pagination.",
+      "read": "2026-10-06",
+      "sha256": "d7694f411ff344af087768a951a871aef6ebd4bbed571af6d6c045560d6ed8df"
+    },
+    {
+      "kind": "published",
+      "url": "https://www.maths.dur.ac.uk/users/herbert.gangl/Suslin_K3_Bloch_group.pdf",
+      "citation": "English translation, Proceedings of the Steklov Institute of Mathematics (1991), issue 4, pp. 217–239; scan hosted by Herbert Gangl. Original Russian article is volume 183 (1990), pp. 180–199.",
+      "read": "2026-10-06",
+      "sha256": "ef16d5d93f6f9f6509f93e9b748f5cf06bda2a2a2da852404375638bab12994c"
+    }
+  ],
+  "assemblyNotes": [
+    {
+      "where": "Polylogarithms:P.4/zagier-statement",
+      "correction": "Rank-only Z1 does not by itself imply exact ζ equality after rational rescaling. Apply assertion-logic with the every-family rationality assertion, or use rational-existence with a nonzero Q coefficient. Keep the empty determinant case separate."
+    },
+    {
+      "where": "Polylogarithms:P.4/weight-four-theorem",
+      "correction": "Retain the published theorem status. Attach the explicit Γ_exp proof interface, the inductive-cycle obstruction gap for the part-(b) wording, and the totally real rational-factor correction. Do not assert B₃^exp≃B₃^ind."
+    },
+    {
+      "where": "Polylogarithms:P.4/higher-bloch-group",
+      "correction": "The fixed GR/G94 rational-curve recursion is not the all-smooth-curve quotient of Gon95 §1.9. Do not use Gon95 constant-field rigidity to identify the models without an adapter."
+    },
+    {
+      "where": "research/blueprint/readmes/Polylogarithms--P.4.md",
+      "correction": "Apply this review’s scoped reader corrections during assembly: Q(i) has e=n in both parities; G95 (1.28c) misprints both β_n and log exponent n−1; the literal weight-three printed term gives zero; Zagier’s period formula is the unnumbered paragraph after (3), p. 393, not equation (2); the inductive homotopy assertion is the rational-curve analogue of Gon95’s all-smooth-curve Conjecture 1.39, without an assumed compatible model equivalence. See REV-Polylogarithms--P.4 report. The reader file is outside this review issue’s deliverables."
+    }
+  ],
+  "restructure": [
+    {
+      "action": "split",
+      "roadmaps": [
+        "Polylogarithms"
+      ],
+      "title": "Proof owner for the published weight-four theorem",
+      "detail": "Refines the accepted parent Part II proposal and confirmed RT-AREA-ktheory-2/51. This packet owns statement infrastructure, exact Γ_exp/Γ_ind comparison and numerical implications; it imports rather than duplicates B₃ and general motivic/Deligne/K-theory foundations.",
+      "proposal": "Polylogarithms, explicit regulators and Zagier statements, Part II: weight four via motivic correlators and cluster polylogarithms. First prerequisite is P.4. Its assigned targets are GR Theorems 1.13–1.14, Corollary 1.15, Theorems 7.6,9.1 and §9.3, the cycle-level Hodge-period adapter and all-explicit-cycle period-image containment. Coordinate supplier extensions with MotivicEtaleKTheory M.8 and BorelRegulators R.7. No new stage id is invented."
+    },
+    {
+      "action": "rescope",
+      "roadmaps": [
+        "K3BlochGroups",
+        "BorelRegulators",
+        "SchemeKTheoryOperations"
+      ],
+      "title": "Precise supplier additions without duplicated foundations",
+      "detail": "The three requests retain their original owners: V.4 rational-function rigidity, R.7 real scalar coordinate calibration, and S.6 rational Adams/gamma operations with a number-field purity adapter. Existing exact-sequence, factor-two and weight-decomposition nodes are imported.",
+      "proposal": "Use named Part II exports in those directions where the existing layers lack the exact interface; the maintainer assigns ids. No general valuation, motivic category, Deligne complex or abstract regulator lattice is defined in P.4."
+    }
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-Polylogarithms--P.4",
+    "date": "2026-10-06",
+    "notes": "Independent Codex session codex-2vYPtb checked all 18 nodes, 47 API items, 32 tests, five public source hashes/passages, 13 pinned Mathlib declaration statements, inherited and supplier statements, reviewed library audit, four target chains and six total P.4 planets. Corrected source locators/excerpts, G95 derivative erratum diagnosis, Q(i) exponent, two Lean API signatures, the weaker regulator-interface prerequisites and homotopy model attribution. Both source issues confirmed. No nodes added or baseline references removed. Complete target-level pass accepted with five honest gaps and three precise supplier requests; P.4 is planned, not closed. Reader corrections are recorded for assembly because its path is outside this issue. See the review report for validation and orchestrator actions.",
+    "checked": [
+      {
+        "nodeId": "Polylogarithms:P.4/relation-specialization-induction",
+        "verdict": "verified",
+        "note": "Exact infinite-field rational-curve specialization target; the non-routine two-variable degeneration and relation-descent induction is expressly a gap. Angular components alone are not treated as a proof."
+      },
+      {
+        "nodeId": "Polylogarithms:P.4/complex-specialization",
+        "verdict": "corrected",
+        "note": "Tensor/exterior components and native chain-map square checked. Replaced the unattested G95 excerpt by a word on p. 222; uniformizer dependence and relation-descent gap remain explicit."
+      },
+      {
+        "nodeId": "Polylogarithms:P.4/higher-symbol-inversion",
+        "verdict": "verified",
+        "note": "Matches G94 Example 1.13, with rational even-endpoint vanishing and the odd complex endpoint detected by Example 1.18. Its algebraic descent dependency is listed."
+      },
+      {
+        "nodeId": "Polylogarithms:P.4/cycle-evaluation",
+        "verdict": "verified",
+        "note": "Finite Q-linear evaluation, projective pole convention and four endpoint/cancellation tests checked. Native Finsupp evaluation and conditional analytic prototypes have the stated scope."
+      },
+      {
+        "nodeId": "Polylogarithms:P.4/cycle-constancy",
+        "verdict": "corrected",
+        "note": "Read G94 differential/factorization/continuity proof. G95 (1.28c) misprints both coefficient index and exponent; corrected the diagnosis and literal weight-three test. Lower relation-specialization input remains a named gap."
+      },
+      {
+        "nodeId": "Polylogarithms:P.4/suslin-rigidity-adapter",
+        "verdict": "verified",
+        "note": "Suslin Corollary 5.6 and GR footnote checked. Exact infinite-field Bloch-kernel invariance and compatible specializers are requested from V.4; V.3 antisymmetric/exterior rationalization and the negative boundary sign are retained."
+      },
+      {
+        "nodeId": "Polylogarithms:P.4/rational-existence",
+        "verdict": "corrected",
+        "note": "Nonzero rational coefficient, positive-size column normalization and separate empty determinant checked against all API/test signatures. Corrected the Zagier introduction locator; equation (2) is the Li series."
+      },
+      {
+        "nodeId": "Polylogarithms:P.4/regulator-comparison",
+        "verdict": "corrected",
+        "note": "Equivalence plus nonzero rational calibration checked as a stronger, concrete predicate. Corrected Lean regulatorComparison_rescale to scale r, with inverse calibration, as the API requires. R.7 conversion remains a requested input."
+      },
+      {
+        "nodeId": "Polylogarithms:P.4/assertion-logic",
+        "verdict": "corrected",
+        "note": "Rank plus every-family rationality and the converse under finite rational dimension are sound; zero ratios are allowed only in every-family. Corrected the GR v5 locator/excerpt to its actual two unlettered assertions."
+      },
+      {
+        "nodeId": "Polylogarithms:P.4/period-calibration",
+        "verdict": "corrected",
+        "note": "R.4/R.5 supplier formulas checked. Determinant exponent arithmetic is correct; fixed Q(i) acceptance from even 2n to n and corrected the Zagier locator. Full comparison and S.6 purity remain explicit hypotheses."
+      },
+      {
+        "nodeId": "Polylogarithms:P.4/explicit-weight-four-complex",
+        "verdict": "corrected",
+        "note": "GR (44) has the four stated terms and explicit B3, without a Λ²B2 summand. Extended Lean explicitComplex_d to all three adjacent maps. Square-zero source proof remains assigned to the named Part II."
+      },
+      {
+        "nodeId": "Polylogarithms:P.4/presentation-chain-map",
+        "verdict": "verified",
+        "note": "Termwise maps, generator surjectivity and period compatibility checked against parent presentation statements. No cycle surjectivity, p3 injectivity or quasi-isomorphism is inferred."
+      },
+      {
+        "nodeId": "Polylogarithms:P.4/cycle-obstruction",
+        "verdict": "verified",
+        "note": "The square gives a(ker p) inside ker q; quotient class is independent of lift, vanishes exactly for cycle lifts and has the claimed kernel/image. Native module quotient API and the Q-to-zero counterexample discriminate group from cycle surjectivity."
+      },
+      {
+        "nodeId": "Polylogarithms:P.4/weight-four-regulator-input",
+        "verdict": "corrected",
+        "note": "κ and all-explicit-cycle period-image containment are separate sufficient inputs. Replaced the full-comparison conditional prerequisite by direct R.5 formulas, R.7 calibration and determinant infrastructure. GR (191) lower-weight correction and the Part II proof gap are retained."
+      },
+      {
+        "nodeId": "Polylogarithms:P.4/weight-four-determinant-lifting",
+        "verdict": "corrected",
+        "note": "Existence pushes forward by period preservation; arbitrary columns need zero obstruction or independent period-image containment. Positive-size rational rescaling and empty-size exception are retained. Corrected the GR two-assertion locator."
+      },
+      {
+        "nodeId": "Polylogarithms:P.4/weight-four-totally-real",
+        "verdict": "corrected",
+        "note": "R.5 and R.7 rank-zero supplier statements give the rational factor with empty determinant 1; Q factor 90 is preserved. Corrected Zagier and GR locators/excerpts; no new parent erratum is asserted."
+      },
+      {
+        "nodeId": "Polylogarithms:P.4/weight-four-residue-map",
+        "verdict": "corrected",
+        "note": "Read G95 residue formulas: uniformizer-first orientation gives the native shifted anticommuting square. Corrected section/page locator and clarified that applying these formulas to the rational-curve quotient requires its own descended maps."
+      },
+      {
+        "nodeId": "Polylogarithms:P.4/homotopy-conjecture",
+        "verdict": "corrected",
+        "note": "Corrected exact attribution to the rational-curve analogue of G95 Conjecture 1.39. G94 Definition 1.19 makes model comparison conjectural. Strengthened the existing gap with chain/residue-compatible model comparison; no QuasiIso instance or transfer independence is supplied."
+      }
+    ]
+  }
+}
