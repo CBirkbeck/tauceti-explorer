@@ -284,6 +284,17 @@
     "data/blueprints/roadmaps/AbelianVarietiesIsogenousToNoJacobian.json"
    ]
   },
+  "research/blueprint/packets/AdicCoefficientsAndComparisons.json": {
+   "promotedAt": "2026-10-06T23:20:34Z",
+   "review": "fdb4d5b140920e29",
+   "reviewDate": "2026-10-06",
+   "reviewer": "independent-review-REV-AdicCoefficientsAndComparisons",
+   "sha256": "ddde2f1c6b16d120043a81c50afeb9f3433d45a04a2e24d549b5ffb9ab7c956c",
+   "to": [
+    "data/blueprints/AdicCoefficientsAndComparisons.json",
+    "data/blueprints/AdicCoefficientsAndComparisons.md"
+   ]
+  },
   "research/blueprint/packets/AdicEtaleGeometry.json": {
    "promotedAt": "2026-10-02T04:47:29Z",
    "review": "3799ea1e23ceff17",
