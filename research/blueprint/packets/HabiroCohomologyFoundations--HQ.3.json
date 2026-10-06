@@ -1,0 +1,666 @@
+{
+  "roadmapId": "HabiroCohomologyFoundations",
+  "protocol": "blueprint-v1",
+  "part": "HQ.3",
+  "scope": [
+    "HabiroCohomologyFoundations:HQ.3"
+  ],
+  "status": "complete",
+  "summary": "Follow-up of the accepted HQ.1 packet: import its 24 HQ.3 nodes without replacement; plan scalar extension of chosen q-Hodge pairs and Habiro–Hodge descent along finite-projective morphisms of perfectly covered Λ-rings. This range is an additional argument, not a base-change theorem stated by Wagner. Specify relative-Frobenius/Nygaard naturality as a supplier request, and leave unrestricted Λ-base change open. Carry RT-AREA-etale/31: the cyclotomic ascending filtration lives on the Habiro–Hodge complex, not its q−1-completion.",
+  "baseline": {
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "declarations": [
+      {
+        "ref": "mathlib:Module.Finite",
+        "kind": "class",
+        "module": "Mathlib/RingTheory/Finiteness/Defs.lean",
+        "provides": "Finite generation: the top submodule is finitely generated; only the ordinary algebraic hypothesis, not enhanced scalar extension.",
+        "checked": "Actual declaration statement read in the local Mathlib source at 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:Module.Projective",
+        "kind": "class",
+        "module": "Mathlib/Algebra/Module/Projective.lean",
+        "provides": "Splitting of the free-module surjection; only the ordinary algebraic hypothesis.",
+        "checked": "Actual declaration statement read in the local Mathlib source at 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Limits.limit.post",
+        "kind": "def",
+        "module": "Mathlib/CategoryTheory/Limits/HasLimits.lean",
+        "provides": "For a diagram X and a functor E, canonical comparison E(lim X) → lim(X ⋙ E), without assuming preservation of limits.",
+        "checked": "Actual declaration statement read in the local Mathlib source at 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Limits.limMap",
+        "kind": "def",
+        "module": "Mathlib/CategoryTheory/Limits/HasLimits.lean",
+        "provides": "Map between chosen limits induced by a natural transformation of diagrams.",
+        "checked": "Actual declaration statement read in the local Mathlib source at 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Limits.limMap_π",
+        "kind": "theorem",
+        "module": "Mathlib/CategoryTheory/Limits/HasLimits.lean",
+        "provides": "Projection formula for the induced limit map.",
+        "checked": "Actual declaration statement read in the local Mathlib source at 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Limits.limit.post_π",
+        "kind": "theorem",
+        "module": "Mathlib/CategoryTheory/Limits/HasLimits.lean",
+        "provides": "Projection formula for the functor–limit comparison.",
+        "checked": "Actual declaration statement read in the local Mathlib source at 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Limits.isIso_limMap",
+        "kind": "instance",
+        "module": "Mathlib/CategoryTheory/Limits/HasLimits.lean",
+        "provides": "The map on limits of a natural isomorphism is an isomorphism.",
+        "checked": "Actual declaration statement read in the local Mathlib source at 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.preservesLimitIso",
+        "kind": "def",
+        "module": "Mathlib/CategoryTheory/Limits/Preserves/Limits.lean",
+        "provides": "If E preserves the limit of X, its canonical limit comparison is an isomorphism. This ordinary categorical declaration supplies only the suggested-file shadow, not an enhanced theorem.",
+        "checked": "Actual declaration statement read in the local Mathlib source at 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.preservesColimitIso",
+        "kind": "def",
+        "module": "Mathlib/CategoryTheory/Limits/Preserves/Limits.lean",
+        "provides": "A colimit-preserving functor carries a chosen colimit isomorphically to the colimit of its image diagram; used for the modification prototype, not an enhanced q-Hodge theorem.",
+        "checked": "Read the actual declaration at the pinned Mathlib commit."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "wagner-pdf-v2",
+      "title": "q-Hodge complexes over the Habiro ring",
+      "authors": "Ferdinand Wagner",
+      "edition": "arXiv:2510.04782v2, 8 October 2025, 82 pages",
+      "url": "https://arxiv.org/pdf/2510.04782v2",
+      "sha256": "591d0bdf2c48d12f91d6c9a4beec32978bc1e9a9448b04ef0efdc4a84315373b",
+      "read": "2026-10-06",
+      "readSections": [
+        "Notation and conventions; Definition 3.2 and Lemma 3.3; Theorem 3.11 and Example 3.12",
+        "Sections 3.5–3.6: Constructions 3.32, 3.38, 3.42, 3.45 and proofs 3.43–3.46",
+        "Appendix A: Theorem A.1, constructions A.12–A.14 and the additional base-change proof",
+        "Appendix B: B.1–B.4 and B.6–B.8 (HR.2 owns this infrastructure)"
+      ]
+    },
+    {
+      "id": "wagner-tex-v2",
+      "title": "q-Hodge complexes over the Habiro ring: v2 source archive",
+      "authors": "Ferdinand Wagner",
+      "edition": "q-Habiro_arXiv.tex from arXiv v2; same statement locators as the PDF",
+      "url": "https://arxiv.org/src/2510.04782v2",
+      "sha256": "9c338455871808eb2265681199279607b4b179b3973752d48eca3f711bc25b47",
+      "read": "2026-10-06",
+      "readSections": [
+        "Source text at the cited PDF locators; used for literal excerpts and notation"
+      ]
+    },
+    {
+      "id": "stacks-00NV",
+      "title": "Finite projective modules",
+      "authors": "The Stacks Project Authors",
+      "edition": "Section 10.78, Lemma 10.78.2, accessed 6 October 2026",
+      "url": "https://stacks.math.columbia.edu/tag/00NV",
+      "read": "2026-10-06",
+      "readSections": [
+        "Lemma 10.78.2, equivalent conditions (2) and (3), including the splitting proof"
+      ]
+    }
+  ],
+  "sourceVersions": [
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/2510.04782v2",
+      "read": "2026-10-06",
+      "sha256": "591d0bdf2c48d12f91d6c9a4beec32978bc1e9a9448b04ef0efdc4a84315373b"
+    }
+  ],
+  "sourceIssues": [],
+  "sourceIssueReferences": [
+    {
+      "packet": "research/blueprint/packets/HabiroCohomologyFoundations--HQ.1.json",
+      "ids": [
+        "HabiroCohomologyFoundations/E3",
+        "HabiroCohomologyFoundations/E102",
+        "HabiroCohomologyFoundations/E401"
+      ],
+      "application": "Use the twisted q-Hodge notation in 3.32–3.35, the degree-one filtered quotient convention, and the convention-free associated graded of the animated stupid filtration. These are inherited accepted findings, not new findings."
+    }
+  ],
+  "nodes": [
+    {
+      "id": "HabiroCohomologyFoundations:HQ.3/finite-projective-base-change-of-chosen-filtrations",
+      "parentStageId": "HabiroCohomologyFoundations:HQ.3",
+      "realises": [
+        "HabiroCohomologyFoundations:HQ.3"
+      ],
+      "title": "Finite-projective scalar extension of chosen q-Hodge filtrations",
+      "kind": "construction",
+      "statement": "For f : A → B as above, put R_B = R ⊗^L_A B and (E_f F)^i = F^i ⊗^L_A B, retaining the filtered (q−1)^⋆B[q]-module structure. Transport the equivalences (a), (b), (c), (c_p), their comparison squares and compatibility between squares through scalar extension to obtain a pair P_B. This defines a functor BC_f : AniAlg_A^{qHodge} → AniAlg_B^{qHodge}, with coherent identity and composition equivalences. It depends on P, and is not a choice of filtration on a bare algebra. The complete enhanced finite-projective exchange and filtered de Rham base-change interfaces are requested from DD.1 and DD.2. In this range E_f qHdg_A(P) ≃ qHdg_B(P_B), since E_f commutes both the modification colimit and q−1-completion.",
+      "hypotheses": [
+        "f : A → B is a morphism of perfectly covered Λ-rings.",
+        "B is finite projective as an A-module.",
+        "P = (R,F) is a chosen q-Hodge pair of Definition 3.2; all tensors, limits, colimits and quotients are derived."
+      ],
+      "proofSteps": [
+        "Use the Stacks splitting B ⊕ K ≃ A^r. On underlying enhanced A-modules E_f is a retract of a finite power functor; it is exact, t-exact and commutes all small limits and colimits. Request the coherent enhanced statement from DD.1, including its B-linear form; do not infer it merely from the two ordinary Mathlib classes.",
+        "The HQ.2 derived q-de Rham base-change equivalence is initially q−1-completed. DD.1 shows E_f of a q−1-complete object is complete here, removing that extra completion and giving clause (a).",
+        "For (b), tensor the cofiber F^{i−1} → F^i given by multiplication by q−1, using DD.1 exactness, and apply DD.2 filtered derived de Rham base change. Do not replace this filtered quotient by F^i/(q−1).",
+        "For (c) and each (c_p), use DD.1 to commute E_f with q−1- and p-completions, localisations and the limits in the combined filtration, and DD.2 for the Hodge steps. Apply the functor to the entire defining diagram, including the chosen homotopies and their higher compatibility data. Clause (c_p) is transported independently, never deduced from (c).",
+        "Construct BC_f by the iterated-pullback description of the category of pairs. Unit and associativity of derived tensor yield coherent identity/composition; the underlying algebra is animated base change. Transport the filtered module structure via (q−1)^⋆A[q] → (q−1)^⋆B[q].",
+        "Use the imported definition of qHdg as the q−1-completed colimit along multiplication by q−1. DD.1 exchanges E_f with these two operations; identify the resulting map with qHdg_B of P_B."
+      ],
+      "prerequisites": [
+        "mathlib:Module.Finite",
+        "mathlib:Module.Projective",
+        "HabiroCohomologyFoundations:HQ.3/q-hodge-filtrations",
+        "HabiroCohomologyFoundations:HQ.2/derived-base-change-and-its-completion-hypotheses",
+        "HabiroCohomologyFoundations:HQ.2/the-quotient-convention-for-filtered-modules",
+        "HabiroCohomologyFoundations:HQ.2/the-combined-hodge-and-q-minus-one-adic-filtration",
+        "HabiroCohomologyFoundations:HQ.3/the-q-hodge-complex",
+        "DerivedDeRhamCohomology:DD.1",
+        "DerivedDeRhamCohomology:DD.2",
+        "DerivedDeRhamCohomology:DD.2/derived-base-change-kunneth",
+        "mathlib:CategoryTheory.preservesColimitIso"
+      ],
+      "acceptance": [
+        "All four clauses, with their supplied coherences, survive scalar extension.",
+        "No section of the forgetful functor on bare algebras is asserted.",
+        "Identity and successive finite-projective extensions give the tensor unit and associator, not unrelated chosen equivalences."
+      ],
+      "sources": [
+        {
+          "sourceId": "wagner-tex-v2",
+          "locator": "Definition 3.2, pp. 20–21, final compatibility datum",
+          "match": "Specifies the entire diagram to transport. The finite-projective extension is an argument proposed here, not a statement of Definition 3.2."
+        },
+        {
+          "sourceId": "wagner-tex-v2",
+          "locator": "Theorem A.1, p. 69, additional assertion",
+          "match": "Supplies completed smooth q-de Rham base change; the imported HQ.2 animation extends it. Neither A.1 nor Definition 3.2 states the new pair base-change theorem."
+        },
+        {
+          "sourceId": "stacks-00NV",
+          "locator": "Lemma 10.78.2, conditions (2)–(3) and first proof paragraph",
+          "match": "Algebraic reason for the finite-projective range; the enhanced exchange statement belongs to DD.1."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Habiro/QHodgeBaseChange",
+        "namespace": "TauCeti.HabiroCohomology"
+      },
+      "uses": [
+        {
+          "where": "HabiroCohomologyFoundations:HQ.3/finite-projective-base-change-of-twisted-filtrations",
+          "how": "Provides the chosen input filtration over B for recursive twisted filtration base change."
+        },
+        {
+          "where": "HabiroCohomologyFoundations:HQ.3/finite-projective-habiro-hodge-base-change",
+          "how": "Defines the target pair of the Habiro base-change map; the q−1-comparison is its completion."
+        },
+        {
+          "where": "HabiroCohomologyFoundations:HQ.5; HQ.8; HabiroRings:HR.6; RefinedTraceMethods:RT.4:q-Hodge",
+          "how": "Provides coefficient-change input for consumers of HQ.3, without claiming their chosen filtrations or geometric base-change theorems lie in this range."
+        }
+      ],
+      "api": [
+        {
+          "name": "QHodgeBaseChange.pair",
+          "role": "constructor",
+          "statement": "The scalar-extension functor BC_f on chosen pairs, retaining Definition 3.2 equivalences and higher compatibility data."
+        },
+        {
+          "name": "QHodgeBaseChange.filtration",
+          "role": "data",
+          "statement": "Natural equivalence fil(P_B) ≃ E_f fil(P) as modules over (q−1)^⋆B[q]; evaluation at every step is F^i ⊗^L_A B."
+        },
+        {
+          "name": "QHodgeBaseChange.underlying",
+          "role": "compatibility",
+          "statement": "For forgetful functors U_A,U_B, BC_f ⋙ U_B ≃ U_A ⋙ (−⊗^L_A B)."
+        },
+        {
+          "name": "QHodgeBaseChange.clauseData",
+          "role": "compatibility",
+          "statement": "Transport the full defining diagram: degree-one q−1 quotient, rational completion, and p-completion then p-inversion then q−1-completion. Comparisons with the filtered de Rham diagrams commute with all supplied squares and homotopies."
+        },
+        {
+          "name": "QHodgeBaseChange.identity",
+          "role": "simp",
+          "statement": "BC_id ≃ id on the category of chosen pairs, with the identity on algebra and every filtration step."
+        },
+        {
+          "name": "QHodgeBaseChange.composition",
+          "role": "functoriality",
+          "statement": "For finite-projective A → B → C, BC_g ∘ BC_f ≃ BC_{gf}, compatible with the tensor associator and the unit and associativity coherences."
+        },
+        {
+          "name": "QHodgeBaseChange.modification",
+          "role": "equivalence",
+          "statement": "E_f qHdg_A(P) ≃ qHdg_B(P_B), induced by the maps of modification colimits and q−1-completion; no additional completion on the left in this finite-projective range."
+        }
+      ],
+      "tests": [
+        {
+          "name": "QHodgeBaseChangeTests.identity",
+          "kind": "degenerate",
+          "statement": "For f=id_A the extended pair is P, and the map on F^i is the tensor-unit equivalence for every i."
+        },
+        {
+          "name": "QHodgeBaseChangeTests.split",
+          "kind": "computation",
+          "statement": "For the diagonal Λ-map A → A×A with componentwise Adams operations, B is free of rank two; R_B ≃ R×R and every filtration step and each clause datum splits into two copies. After the two projections to A both recovered pairs are P."
+        },
+        {
+          "name": "QHodgeBaseChangeTests.filteredQuotient",
+          "kind": "characterisation",
+          "statement": "For the base pair R=A with F^i=(q−1)^i A[[q−1]] (constant for i≤0), its degree-one filtered quotient is B in step 0 and zero in positive steps. The degreewise quotient instead has B in every positive step and fails (b). This tests the cofiber F^{i−1} → F^i, not its unshifted substitute."
+        }
+      ],
+      "declarationName": "TauCeti.HabiroCohomology.QHodgeBaseChange.pair"
+    },
+    {
+      "id": "HabiroCohomologyFoundations:HQ.3/finite-projective-base-change-of-twisted-filtrations",
+      "parentStageId": "HabiroCohomologyFoundations:HQ.3",
+      "realises": [
+        "HabiroCohomologyFoundations:HQ.3"
+      ],
+      "title": "Finite-projective base change of the twisted q-Hodge filtrations",
+      "kind": "comparison",
+      "statement": "For P_B constructed above, scalar extension identifies E_f fil^⋆_{qHodge,m} qdR^{(m)}_{R/A} with fil^⋆_{qHodge,m} qdR^{(m)}_{R_B/B} for every positive m. The equivalence is over (q^m−1)^⋆B[q], is natural in P and f, and respects every divisor transition n | m and the lax symmetric monoidal structures. This conclusion requires the precise finite-projective relative-Frobenius/Nygaard base-change compatibility requested from PR.3 and the finite-projective filtered décalage compatibility requested from AI.1. These interfaces remain open; the packet does not report this theorem as established or formalised.",
+      "hypotheses": [
+        "f : A → B is a morphism of perfectly covered Λ-rings.",
+        "B is finite projective as an A-module.",
+        "P = (R,F) is a chosen q-Hodge pair of Definition 3.2; all tensors, limits, colimits and quotients are derived."
+      ],
+      "proofSteps": [
+        "Use the Λ-morphism relation fψ_A^d=ψ_B^df and derived tensor associativity to identify the coefficient-twisted algebra R_B⊗_{B,ψ_B^d}B with R⊗_{A,ψ_A^d}B. This does not require that an Adams-operation square be cartesian.",
+        "For m=p^a use Construction 3.32 inductively: a=0 is E_f of F, p-completed, by the first node. For a>0, compare the rescaled previous filtration and the cyclotomic-adic filtration by DD.1, and the Nygaard/Frobenius leg by the PR.3 and AI.1 requested compatibilities. Exact scalar extension preserves the defining pullback.",
+        "For arbitrary m use the imported animated fracture square and Construction 3.38. DD.1 exchanges E_f with each finite product, pullback, p-completion, localisation and cyclotomic completion; the Λ relation handles every ψ^d twist. The diagrams of gluing maps match by relative-Frobenius naturality, not just objectwise equivalence.",
+        "Track the comparison for N | N′ through the same diagrams; the choice-independent construction can use the factorial N-tower and E_f preserves its limit by DD.1. This also avoids asserting arbitrary tensor commutes with products over primes.",
+        "Follow Construction 3.41 on divisor projections and recursive prime-power transition maps. The same comparisons supply a natural transformation of the factorial descent diagrams; record identity, composition, and multiplicative coherences on the level of diagrams, not only maps in a homotopy category."
+      ],
+      "prerequisites": [
+        "HabiroCohomologyFoundations:HQ.3/finite-projective-base-change-of-chosen-filtrations",
+        "HabiroCohomologyFoundations:HQ.3/the-twisted-q-hodge-filtration-p-adically",
+        "HabiroCohomologyFoundations:HQ.3/the-twisted-q-hodge-filtration-globally",
+        "HabiroCohomologyFoundations:HQ.4/the-nygaard-filtration-on-twisted-q-de-rham-complexes",
+        "HabiroCohomologyFoundations:HQ.4/the-arithmetic-fracture-squares-and-cyclotomic-descent",
+        "HabiroCohomologyFoundations:HQ.3/the-twisted-q-hodge-filtration-deforms-the-stupid-filtration",
+        "DerivedDeRhamCohomology:DD.1",
+        "PrismaticCohomology:PR.3",
+        "AInfCohomology:AI.1"
+      ],
+      "acceptance": [
+        "At m=1 this is precisely the extended input filtration.",
+        "At m=p the relative-Frobenius pullback square commutes, rather than only the q−1-specialisation.",
+        "The divisor transitions commute before passage to limits, including m=6,n=2 and m=p²,n=p."
+      ],
+      "sources": [
+        {
+          "sourceId": "wagner-tex-v2",
+          "locator": "Construction 3.38, pp. 43–44, final paragraph",
+          "match": "Functoriality there is in the pair over a fixed base. This packet supplies a conditional argument for changing the base, by the displayed pullback, not a claimed quotation of a source theorem."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Habiro/QHodgeBaseChange",
+        "namespace": "TauCeti.HabiroCohomology"
+      },
+      "suggestedName": "TwistedQHodgeBaseChange.equivalence",
+      "declarationName": "TauCeti.HabiroCohomology.TwistedQHodgeBaseChange.equivalence"
+    },
+    {
+      "id": "HabiroCohomologyFoundations:HQ.3/finite-projective-habiro-hodge-base-change",
+      "parentStageId": "HabiroCohomologyFoundations:HQ.3",
+      "realises": [
+        "HabiroCohomologyFoundations:HQ.3"
+      ],
+      "title": "Finite-projective base change of the Habiro–Hodge complex",
+      "kind": "construction",
+      "statement": "Write T_A(P)_k = q-𝓗dg_{R/A,k!} for k≥1 and H_A(P)=lim_k T_A(P)_k, as in Construction 3.45. The twisted-filtration comparison induces equivalences σ_k : E_f T_A(P)_k ≃ T_B(P_B)_k, coherent with all transition maps. Define β_f(P): E_f H_A(P) → H_B(P_B) as E_f(lim T_A) → lim E_f(T_A) → lim T_B. In the finite-projective range this is an equivalence and E_f H_A is already Habiro-complete, so it equals Habiro-completed scalar extension. For every m the map commutes with partial descent, reduction by q^m−1, and the exhaustive ascending filtration on H_A/(q^m−1); its i-th graded comparison is E_f G^i_{A,m}(R) ≃ G^i_{B,m}(R_B), where G^i is the associated graded of the animated stupid filtration, with its intrinsic cohomological shift. Identity, composition and Künneth compatibility use tensor associativity and the imported strict monoidality. The source does not state β_f; this is the construction planned here, conditional on the second node’s supplier interfaces.",
+      "hypotheses": [
+        "f : A → B is a morphism of perfectly covered Λ-rings.",
+        "B is finite projective as an A-module.",
+        "P = (R,F) is a chosen q-Hodge pair of Definition 3.2; all tensors, limits, colimits and quotients are derived."
+      ],
+      "proofSteps": [
+        "Use the second node to map the colimits in Construction 3.42, whose forward maps multiply by q^m−1, and use DD.1 to exchange E_f with their cyclotomic completions. Obtain σ_m with divisor-transition compatibility from Proposition 3.43; restrict to the factorial tower.",
+        "Form the limit comparison and then the limit of σ_k. The ordinary categorical shadow uses limit.post followed by limMap, with their projection formulas. DD.1 supplies the actual enhanced limit comparison; preserve all natural-transformation coherences.",
+        "Finite projectivity makes the first comparison invertible, and the second is a limit of equivalences. Thus β is an equivalence. Using the factorial formula from HR.2, E_f commutes with Habiro completion, so E_f of a Habiro-complete object is Habiro-complete; do not replace this by a smashing localisation.",
+        "Complete β at q^m−1 and invoke the imported partial-descent equivalences; at m=1 recover QHodgeBaseChange.modification. Reduction is a derived cofiber and is preserved by E_f.",
+        "The ascending filtration in Theorem 3.11(b) is the colimit filtration on the REDUCTION OF H_A, obtained from the twisted filtration and the abstract colimit-filtration lemma. E_f commutes with its colimits and cofibers. The second node and the imported deformation-to-stupid-filtration comparison identify its graded pieces after scalar extension, so no separate unrestricted q-Witt base-change theorem is assumed.",
+        "The tensor unit and associator identify the identity and composite maps by projections to every partial descent. Tensor multiplication and the imported strict monoidality give the Künneth square for P⊗Q (the product of affine inputs); distinguish this from a categorical product of rings. Scalar extension transports E_n structures when P has compatible such data."
+      ],
+      "prerequisites": [
+        "HabiroCohomologyFoundations:HQ.3/finite-projective-base-change-of-chosen-filtrations",
+        "HabiroCohomologyFoundations:HQ.3/finite-projective-base-change-of-twisted-filtrations",
+        "HabiroCohomologyFoundations:HQ.3/the-m-truncated-descent",
+        "HabiroCohomologyFoundations:HQ.3/the-partial-descents-are-compatible",
+        "HabiroCohomologyFoundations:HQ.3/the-habiro-hodge-complex",
+        "HabiroCohomologyFoundations:HQ.3/the-habiro-hodge-complex-is-symmetric-monoidal",
+        "HabiroCohomologyFoundations:HQ.3/habiro-descent-the-q-de-rham-witt-filtration",
+        "HabiroCohomologyFoundations:HQ.3/the-abstract-colimit-filtration-lemma",
+        "HabiroCohomologyFoundations:HQ.4/the-derived-q-de-rham-witt-complex-and-its-stupid-filtration",
+        "HabiroRings:HR.2/habiro-complete-modules",
+        "HabiroRings:HR.2/the-monoidal-structure",
+        "DerivedDeRhamCohomology:DD.1",
+        "mathlib:CategoryTheory.Limits.limit.post",
+        "mathlib:CategoryTheory.Limits.limMap",
+        "mathlib:CategoryTheory.Limits.limMap_π",
+        "mathlib:CategoryTheory.Limits.limit.post_π",
+        "mathlib:CategoryTheory.Limits.isIso_limMap",
+        "mathlib:CategoryTheory.preservesLimitIso"
+      ],
+      "acceptance": [
+        "The defining projection identity is π_{B,k}β = σ_k E_f(π_{A,k}).",
+        "For A → A×A, E_f H_A ≃ H_A×H_A and β identifies both component maps with the identity on H_A; the coefficient-change map H_A → H_B obtained by the tensor unit followed by β is diagonal.",
+        "At q−1 the polynomial one-coordinate model sends x^r to (q^r−1)x^{r−1}dx after base change; it does not introduce division by r or by q−1.",
+        "For m>1 the ascending filtration and uncompleted q-Witt graded pieces are stated on H/(q^m−1); on qHdg/(q^m−1) take q−1-completion of the filtration and graded pieces."
+      ],
+      "sources": [
+        {
+          "sourceId": "wagner-tex-v2",
+          "locator": "Construction 3.45, p. 48, definition of the limit",
+          "match": "Supplies the inverse-limit object; β is derived here by functoriality of the construction and the finite-projective comparison, not directly stated by 3.45."
+        },
+        {
+          "sourceId": "wagner-tex-v2",
+          "locator": "Theorem 3.11(b), p. 25, and proof following Lemma 3.46, pp. 48–49",
+          "match": "Pins the cyclotomic filtration to q-𝓗dg/(q^m−1). Respect the inherited shift erratum E401 by using gr of the animated stupid filtration, rather than applying a second shift."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Habiro/QHodgeBaseChange",
+        "namespace": "TauCeti.HabiroCohomology"
+      },
+      "uses": [
+        {
+          "where": "HabiroCohomologyFoundations:HQ.3 stage target and prior HQ.3 coverage",
+          "how": "Fills the unplanned coefficient-change maps in a stated bounded range."
+        },
+        {
+          "where": "HabiroCohomologyFoundations:HQ.5 and HQ.8",
+          "how": "Supplies completion and cyclotomic comparison squares for their geometric/cohomological consumers, subject to those stages’ own descent and filtration hypotheses."
+        },
+        {
+          "where": "HabiroRings:HR.6 and RefinedTraceMethods:RT.4:q-Hodge",
+          "how": "Lets comparison maps change coefficients without discarding Frobenius twisting, the filtration or its multiplicative structure; no new trace comparison is asserted."
+        }
+      ],
+      "api": [
+        {
+          "name": "HabiroHodgeBaseChange.map",
+          "role": "constructor",
+          "statement": "β_f(P)=lim(σ) ∘ [E_f(lim T_A)→lim E_f(T_A)], a B[q]-linear map, natural in chosen pairs."
+        },
+        {
+          "name": "HabiroHodgeBaseChange.projection",
+          "role": "characterisation",
+          "statement": "For every factorial stage k, β_f(P) followed by π_{B,k} equals E_f(π_{A,k}) followed by σ_k; this determines β."
+        },
+        {
+          "name": "HabiroHodgeBaseChange.isIso",
+          "role": "equivalence",
+          "statement": "For finite-projective f and the requested enhanced and Frobenius/Nygaard compatibilities, β is an equivalence; E_f H_A is already Habiro-complete."
+        },
+        {
+          "name": "HabiroHodgeBaseChange.identity",
+          "role": "simp",
+          "statement": "β_id is the identity under the tensor-unit identifications."
+        },
+        {
+          "name": "HabiroHodgeBaseChange.composition",
+          "role": "functoriality",
+          "statement": "For A → B → C in the range, β_{gf}=β_g ∘ E_g(β_f), with the canonical tensor-associativity and target-pair identifications and their coherences."
+        },
+        {
+          "name": "HabiroHodgeBaseChange.partialDescent",
+          "role": "compatibility",
+          "statement": "The q^m−1-completion of β identifies with σ_m under H_A^∧_{q^m−1}≃T_{A,m}, for every m, not only factorial m."
+        },
+        {
+          "name": "HabiroHodgeBaseChange.qMinusOne",
+          "role": "compatibility",
+          "statement": "At m=1 the completed β is QHodgeBaseChange.modification: E_f qHdg_A(P)≃qHdg_B(P_B)."
+        },
+        {
+          "name": "HabiroHodgeBaseChange.cyclotomicFiltration",
+          "role": "compatibility",
+          "statement": "The reduced β lifts to an equivalence of exhaustive ascending filtered modules on H/(q^m−1). Its graded map is E_f G^i_{A,m}≃G^i_{B,m}, where G^i=gr^i of the animated stupid filtration, with no additional shift."
+        },
+        {
+          "name": "HabiroHodgeBaseChange.kuenneth",
+          "role": "compatibility",
+          "statement": "For chosen pairs P,Q, scalar extension of H_A(P)⊗̂_{H,A[q]}H_A(Q)≃H_A(P⊗Q) followed by β_{P⊗Q} agrees with β_P⊗̂β_Q followed by the B-base Künneth equivalence; the unit square also commutes."
+        }
+      ],
+      "tests": [
+        {
+          "name": "HabiroHodgeBaseChangeTests.identity",
+          "kind": "degenerate",
+          "statement": "For f=id_A and the identity stagewise comparison, β is id on the limit, with identity projections at all factorial stages."
+        },
+        {
+          "name": "HabiroHodgeBaseChangeTests.split",
+          "kind": "computation",
+          "statement": "For f:A→A×A diagonal, E_f H_A≃H_A×H_A; σ_m is the corresponding two-copy comparison at every m, and β has the two expected component maps. This distinguishes tensoring before the limit from forgetting one component."
+        },
+        {
+          "name": "HabiroHodgeBaseChangeTests.coordinate",
+          "kind": "computation",
+          "statement": "For the coordinate q-Hodge filtration on A[x] and finite-projective A→B, the q−1-completion of β is coefficient extension of the complex with differential D(x^r)=(q^r−1)x^{r−1}dx (r≥1). In particular D(x²)=(q²−1)x dx. The differential has not been replaced by (q−1)r x^{r−1}dx."
+        },
+        {
+          "name": "HabiroHodgeBaseChangeTests.unboundedDenominators",
+          "kind": "non-example",
+          "statement": "Do not infer the needed limit/completion exchange from flatness: for the Λ-map ℤ→ℚ, ℤ[[t]]⊗ℚ→ℚ[[t]] is not surjective. Its image has a common nonzero integer denominator for all coefficients, whereas the series with coefficients 1/(n+1)! has no such denominator. This lies outside the finite-projective hypothesis and prevents silently upgrading this range to all Λ-maps."
+        }
+      ],
+      "declarationName": "TauCeti.HabiroCohomology.HabiroHodgeBaseChange.map"
+    }
+  ],
+  "requests": [
+    {
+      "supplier": "DerivedDeRhamCohomology:DD.1",
+      "need": "Enhanced coherent finite-projective scalar extension: if B is finite projective over A, −⊗^L_A B is exact and t-exact, preserves all small limits and colimits, and commutes with derived principal and finite-generated-ideal completion (via derived Koszul quotients), filtered cofibers, Rees degree-one quotients, Day convolution and completed colimits. Require identity/composition/naturality of these comparisons, also after p- and cyclotomic completion and on factorial towers. No unqualified Rlim of ordinary quotients over nonnoetherian rings.",
+      "neededBy": [
+        "HabiroCohomologyFoundations:HQ.3/finite-projective-base-change-of-chosen-filtrations",
+        "HabiroCohomologyFoundations:HQ.3/finite-projective-base-change-of-twisted-filtrations",
+        "HabiroCohomologyFoundations:HQ.3/finite-projective-habiro-hodge-base-change"
+      ]
+    },
+    {
+      "supplier": "DerivedDeRhamCohomology:DD.2",
+      "need": "Filtered enhancement of the imported DerivedDeRhamCohomology:DD.2/derived-base-change-kunneth: for animated R and finite-projective A→B, fil_H dR_{R/A}⊗^L_A B ≃ fil_H dR_{R⊗^L_A B/B}, with comparison squares, multiplicativity and identity/composition coherence. The existing node gives unfiltered base change, so reuse it; request only the filtered enhancement it does not explicitly state.",
+      "neededBy": [
+        "HabiroCohomologyFoundations:HQ.3/finite-projective-base-change-of-chosen-filtrations"
+      ]
+    },
+    {
+      "supplier": "PrismaticCohomology:PR.3",
+      "need": "For perfectly covered Λ A→B with B finite projective over A, identify the p-completed relative q-de Rham/prismatic complexes over the q-de Rham prisms (Â_p[[q−1]],([p]_q)) and (B̂_p[[q−1]],([p]_q)) after completed coefficient extension. Prove compatibility with relative Frobenius, its iterates and the Frobenius-twisted relative Nygaard filtration, including filtered E∞ structures, divisor transitions and identity/composition coherences. Extend the polynomial calculation by animation. This is the input used in Wagner 3.32/3.38, not unrestricted prismatic base change or equality with Nygaard completion.",
+      "neededBy": [
+        "HabiroCohomologyFoundations:HQ.3/finite-projective-base-change-of-twisted-filtrations"
+      ]
+    },
+    {
+      "supplier": "AInfCohomology:AI.1",
+      "need": "Finite-projective flat base-change compatibility for Lη_f and its filtered décalage construction, for f=Φ_{p^a}(q) and [m/d]_q in the torsion-free complexes of HQ.4, with naturality under relative Frobenius and coefficient twists. Prove on f-torsionfree representatives by kernels and tensor exactness, then descend; do not assume Lη is exact or commutes with arbitrary completion.",
+      "neededBy": [
+        "HabiroCohomologyFoundations:HQ.3/finite-projective-base-change-of-twisted-filtrations"
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "HabiroCohomologyFoundations:HQ.3",
+      "status": "planned",
+      "remaining": [
+        "Supply the exact enhanced DD.1/DD.2 and PR.3/AI.1 exports recorded in requests; the new finite-projective comparison remains conditional on them.",
+        "Resolve unrestricted Λ-base change, or confirm finite-projective maps as the intended proven range; no general pair-transport or equivalence is claimed.",
+        "Inherited proof/implementation gaps in the accepted HQ.1 packet are retained by reference, especially twisted-filtration and HR.2 enhanced infrastructure."
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "title": "Unrestricted Λ-base change does not transport Definition 3.2 by the argument here",
+      "neededBy": [
+        "HabiroCohomologyFoundations:HQ.3/finite-projective-base-change-of-chosen-filtrations",
+        "HabiroCohomologyFoundations:HQ.3/finite-projective-habiro-hodge-base-change"
+      ],
+      "detail": "No source theorem transports an arbitrary chosen filtration or its clause (c_p) under an arbitrary map of perfectly covered Λ-rings. Flatness alone does not commute with completions or the Habiro inverse limit. The stage’s requested maps are planned here only for finite-projective f. To extend the range, specify a target pair and a coherent map of twisted descent diagrams, then state exactly which completed tensor functor preserves the necessary operations; β as a map would use its canonical limit comparison, and equivalence would require an additional theorem. There is no claim of general base-change equivalence."
+    },
+    {
+      "title": "The prismatic and décalage compatibility exports are requested, not verified theorems of this pass",
+      "neededBy": [
+        "HabiroCohomologyFoundations:HQ.3/finite-projective-base-change-of-twisted-filtrations",
+        "HabiroCohomologyFoundations:HQ.3/finite-projective-habiro-hodge-base-change"
+      ],
+      "detail": "The paper gives fixed-base functoriality of twisted filtrations, not the coefficient-change compatibility of relative Frobenius/Nygaard used in the new argument. PR.3 and AI.1 own the missing statements. Until those exact exports are supplied, the finite-projective twisted and Habiro comparison arguments remain conditional. The ordinary categorical Lean shadow does not verify these enhanced inputs."
+    }
+  ],
+  "imports": [
+    {
+      "packet": "research/blueprint/packets/HabiroCohomologyFoundations--HQ.1.json",
+      "nodeIds": [
+        "HabiroCohomologyFoundations:HQ.3/the-smooth-comparison-of-q-omega-with-the-q-hodge-completion",
+        "HabiroCohomologyFoundations:HQ.3/q-hodge-filtrations",
+        "HabiroCohomologyFoundations:HQ.3/no-functorial-choice-of-q-hodge-filtration",
+        "HabiroCohomologyFoundations:HQ.3/the-q-hodge-complex",
+        "HabiroCohomologyFoundations:HQ.3/the-symmetric-monoidal-structure-on-pairs",
+        "HabiroCohomologyFoundations:HQ.3/the-conjugate-filtration",
+        "HabiroCohomologyFoundations:HQ.3/the-abstract-colimit-filtration-lemma",
+        "HabiroCohomologyFoundations:HQ.3/the-twisted-q-hodge-filtration-p-adically",
+        "HabiroCohomologyFoundations:HQ.3/the-twisted-q-hodge-filtration-globally",
+        "HabiroCohomologyFoundations:HQ.3/the-m-truncated-descent",
+        "HabiroCohomologyFoundations:HQ.3/the-habiro-hodge-complex",
+        "HabiroCohomologyFoundations:HQ.3/habiro-descent",
+        "HabiroCohomologyFoundations:HQ.3/the-coordinate-model-and-the-etale-case",
+        "HabiroCohomologyFoundations:HQ.3/multiplicative-upgrades",
+        "HabiroCohomologyFoundations:HQ.3/the-witness-admits-no-q-hodge-filtration",
+        "HabiroCohomologyFoundations:HQ.3/the-p-adic-twisted-filtration-after-inverting-p",
+        "HabiroCohomologyFoundations:HQ.3/the-p-adic-twisted-filtration-at-lower-cyclotomic-points",
+        "HabiroCohomologyFoundations:HQ.3/the-twisted-q-hodge-filtration-deforms-the-stupid-filtration",
+        "HabiroCohomologyFoundations:HQ.3/nygaard-denominators",
+        "HabiroCohomologyFoundations:HQ.3/the-partial-descents-are-compatible",
+        "HabiroCohomologyFoundations:HQ.3/the-habiro-hodge-complex-is-symmetric-monoidal",
+        "HabiroCohomologyFoundations:HQ.3/habiro-descent-the-q-de-rham-witt-filtration",
+        "HabiroCohomologyFoundations:HQ.3/the-etale-case",
+        "HabiroCohomologyFoundations:HQ.3/the-cohomology-of-the-reduction-for-smooth-algebras"
+      ],
+      "reason": "All 24 previously accepted HQ.3 declarations are reused by id; neither their definitions, APIs, tests nor planets are replaced."
+    }
+  ],
+  "targetCoverage": [
+    {
+      "target": "Definition 3.2 and higher compatibility data",
+      "providedBy": [
+        "HabiroCohomologyFoundations:HQ.3/q-hodge-filtrations"
+      ]
+    },
+    {
+      "target": "Completed modification colimit and smooth comparison",
+      "providedBy": [
+        "HabiroCohomologyFoundations:HQ.3/the-q-hodge-complex",
+        "HabiroCohomologyFoundations:HQ.3/the-smooth-comparison-of-q-omega-with-the-q-hodge-completion"
+      ]
+    },
+    {
+      "target": "Symmetric monoidal Habiro factorisation (Theorem 3.11(a)) and finite affine products/Künneth",
+      "providedBy": [
+        "HabiroCohomologyFoundations:HQ.3/the-habiro-hodge-complex",
+        "HabiroCohomologyFoundations:HQ.3/habiro-descent",
+        "HabiroCohomologyFoundations:HQ.3/the-habiro-hodge-complex-is-symmetric-monoidal"
+      ]
+    },
+    {
+      "target": "Base-change maps in a stated proven range",
+      "providedBy": [
+        "HabiroCohomologyFoundations:HQ.3/finite-projective-base-change-of-chosen-filtrations",
+        "HabiroCohomologyFoundations:HQ.3/finite-projective-base-change-of-twisted-filtrations",
+        "HabiroCohomologyFoundations:HQ.3/finite-projective-habiro-hodge-base-change"
+      ],
+      "qualification": "Finite-projective maps only, conditional on exact requested enhanced compatibility exports; unrestricted range is an explicit gap."
+    },
+    {
+      "target": "Exhaustive ascending cyclotomic filtration (Theorem 3.11(b))",
+      "providedBy": [
+        "HabiroCohomologyFoundations:HQ.3/habiro-descent-the-q-de-rham-witt-filtration"
+      ],
+      "qualification": "Correct object H/(q^m−1); qHdg gets only the q−1-completed version. Interpret gr through the animated stupid filtration to avoid inherited E401 double shift."
+    },
+    {
+      "target": "No universal functorial choice (Lemma 3.3)",
+      "providedBy": [
+        "HabiroCohomologyFoundations:HQ.3/no-functorial-choice-of-q-hodge-filtration",
+        "HabiroCohomologyFoundations:HQ.3/the-witness-admits-no-q-hodge-filtration"
+      ]
+    }
+  ],
+  "planetPolicy": {
+    "newPlanets": 0,
+    "reused": [
+      {
+        "nodeId": "HabiroCohomologyFoundations:HQ.3/q-hodge-filtrations",
+        "name": "q-Hodge filtration"
+      },
+      {
+        "nodeId": "HabiroCohomologyFoundations:HQ.3/no-functorial-choice-of-q-hodge-filtration",
+        "name": "No functorial q-Hodge filtration"
+      },
+      {
+        "nodeId": "HabiroCohomologyFoundations:HQ.3/the-q-hodge-complex",
+        "name": "q-Hodge complex"
+      },
+      {
+        "nodeId": "HabiroCohomologyFoundations:HQ.3/the-twisted-q-hodge-filtration-globally",
+        "name": "Twisted q-Hodge filtration"
+      },
+      {
+        "nodeId": "HabiroCohomologyFoundations:HQ.3/the-habiro-hodge-complex",
+        "name": "Habiro-Hodge complex"
+      },
+      {
+        "nodeId": "HabiroCohomologyFoundations:HQ.3/habiro-descent",
+        "name": "Habiro descent"
+      }
+    ],
+    "reason": "The imported stage already has six planets; no duplicate seventh planet is proposed."
+  },
+  "screening": {
+    "audit": "data/library-coverage.json, accepted AUDIT-19: HQ.3 not built; read HQ.2 and HQ.4 supplier boundaries too.",
+    "libraries": "Searched pinned Mathlib and Tau Ceti for Habiro, q-Hodge, q-de Rham and q-Witt; no HQ.3 target declaration found. Read all nine ordinary declarations listed above. The shared Tau Ceti working tree differs from the pin, so its search used git grep at the pinned object; suggested file imports no Tau Ceti modules.",
+    "links": "Inspected all HQ.3 stageEdges in the atlas extract and screened 28 link files mentioning the roadmap: no entries add a different HQ.3 supplier. DD.1/DD.2, PR.3 and AI.1 stage descriptions and existing packets inspected; imported the existing DD.2 unfiltered base-change node; no exact finer filtered finite-projective or Frobenius/Nygaard compatibility node found.",
+    "reservedIds": "Checked new ids against all packets, integrated decompositions and reserved ids via check_blueprint; no supplier is redefined here.",
+    "upstream": "Read AdicSpaces and HodgeStructures upstream documents in full; use their convention/API/example density at target-level granularity."
+  },
+  "importQualifications": [
+    {
+      "nodeId": "HabiroCohomologyFoundations:HQ.3/habiro-descent",
+      "qualification": "Import the symmetric monoidal factorisation clause only. The final non-triviality gloss of the older packet calls Habiro-complete objects a proper subcategory of q−1-complete objects; that inclusion is not used here and is incompatible with the distinction required by RT-AREA-etale/31. The reader states the factorisation by q−1-completion without that gloss. The older packet remains unedited, as instructed."
+    },
+    {
+      "nodeId": "HabiroCohomologyFoundations:HQ.3/the-twisted-q-hodge-filtration-globally",
+      "qualification": "Read its twistedQHodgeFil_mod API through inherited E401: the graded piece is G^i=gr^i of the animated stupid filtration, not a second shift on the same piece. The reader pins this interpretation; the older packet remains unedited."
+    }
+  ],
+  "validation": {
+    "blueprint": "0 errors and 0 warnings with the provided pinned declaration index.",
+    "suggestedLean": "Elaborated via lean-check, exit 0, only 22 declaration-uses-placeholder warnings; only pinned Mathlib imports. The file is a partial ordinary categorical signature prototype; detailed enhanced omissions are listed in its opening note and the handoff.",
+    "date": "2026-10-06"
+  }
+}
