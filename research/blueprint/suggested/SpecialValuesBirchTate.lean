@@ -44,6 +44,9 @@ Classical K₂ and tame sequences: K2SymbolsBrauer T.1/T.5.
 W_n and positivity: ArithmeticKTheory N.4; even K finiteness: N.3:ranks.
 Integral H¹/H² and regulator lattice: MotivicEtaleKTheory M.8 and PS.3.
 Old/new comparison and finite κ² descent: IntegralIwasawaTheory I.10 (RS-16).
+The B.5 arbitrary-ramification comparison remains subject to the exact
+second-kind involution, minus-module and exceptional-character supplier gates.
+Greither's meromorphic G₂ must be distinguished from its pole-cleared numerator P₂.
 The B.6 all-prime declarations inside the comment are proof targets subject
 to the exact I.10 gap, not unconditional results checked by this file.
 -/
@@ -346,9 +349,12 @@ theorem padicValNat_card_K2_localization [Fact ℓ.Prime] :
     padicValNat ℓ (Nat.card (K2 (Localization.Away (ℓ : 𝓞 F)))) =
       padicValNat ℓ (Nat.card (K2 (𝓞 F))) := by sorry
 
-/-- B.4/k2-ell-part-as-etale-cohomology (Tate), in valuation form. -/
-theorem K2_tensor_padic_equiv_etale [Fact ℓ.Prime] (hℓ : ℓ ≠ 2) :
-    padicValNat ℓ (Nat.card (K2 (𝓞 F))) = padicValNat ℓ (Nat.card (etaleH2 F ℓ)) := by sorry
+/-- B.4/k2-ell-part-as-etale-cohomology (Tate): the actual group isomorphism.
+Use T.5's relative S-integer injection, whose residue cokernel has prime-to-ℓ
+order, before tensoring and composing with the natural Tate comparison.
+Equality of valuations alone does not construct this map. -/
+noncomputable def K2_tensor_padic_equiv_etale [Fact ℓ.Prime] (hℓ : ℓ ≠ 2) :
+    (Additive (K2 (𝓞 F)) ⊗[ℤ] ℤ_[ℓ]) ≃+ etaleH2 F ℓ := by sorry
 
 /-- B.4/w2-ell-part-as-etale-cohomology: for totally real `F`, `H¹_ét(𝓞_F[1/ℓ], ℤ_ℓ(2)) ≅ W₂(F)_ℓ`. -/
 theorem card_etaleH1_torsion_eq_wInvariant [Fact ℓ.Prime] (hℓ : ℓ ≠ 2) [IsTotallyReal F] :
@@ -573,15 +579,19 @@ example (x u : ℚ) : (x - u) * (-x - u) = -(x ^ 2 - u ^ 2) := by ring
 section AllTotallyReal
 variable (F : Type*) [Field F] [NumberField F]
 
-/-- B.6/kurihara-kolster-series-dictionary: `(G_F) = ι_u((γ − 1)g)`. -/
+/-- B.6/kurihara-kolster-series-dictionary, with the exact unit factor:
+`G_F(T) = (1+T-u) g(u/(1+T)-1) = -(1+T) ι_u((γ-1)g)`.
+The ideal equality follows because `-(1+T)` is a unit. -/
 theorem twoAdicZetaSeries_eq_kurihara [IsTotallyReal F] :
-    Ideal.span {twoAdicZetaSeries F} = Ideal.span {twistInverse F (kuriharaSeriesTimesAugmentation F)} := by
+    twoAdicZetaSeries F = -(1 + PowerSeries.X) *
+      twistInverse F (kuriharaSeriesTimesAugmentation F) := by
   sorry
 
-/-- B.6/kurihara-main-conjecture-over-f: `char(ι_u·X_{F_∞,S}) = ι_u((γ − 1)g)`. -/
+/-- B.6/kurihara-main-conjecture-over-f: the untwisted I.9 output
+`char(X_{F_∞,S}) = ((γ − 1)g)`. Applying `ι_u` gives the twisted equality. -/
 theorem char_X_eq_kurihara [IsTotallyReal F] :
-    Ideal.span {twistedSRamifiedCharSeries F} =
-      Ideal.span {twistInverse F (kuriharaSeriesTimesAugmentation F)} := by sorry
+    Ideal.span {sRamifiedCharSeries F} =
+      Ideal.span {kuriharaSeriesTimesAugmentation F} := by sorry
 
 /-- B.6/kolster-kurihara-comparison-table, entry (a): `char(ι_u·X_{F_∞,S}) = (2^{[F:ℚ]}·f_F)` (I.10). -/
 theorem kurihara_kolster_comparison [IsTotallyReal F] :
@@ -705,15 +715,16 @@ theorem tateMotive_etnc_statement_iff_local (E L : Type*)
       ∀ p : ℕ, p.Prime → PeriodsAndSpecialValues.localTateOmega D p = 0 := by sorry
 
 -- D and D' refer to the same fixed Tate motive and rational comparisons;
--- they may have different projective structures. Burns–Flach Lemmas 5–6
+-- they may have different projective structures. Burns–Flach §3.4, Lemmas 5–6
 -- supply the finite-quotient trivialization and gluing. Each record includes
 -- Coherence; no arbitrary integral section is declared lattice invariant.
 theorem tateMotive_etnc_statement_lattice_invariant (E L : Type*)
     [Field E] [NumberField E] [Field L] [NumberField L] [Algebra E L] [IsGalois E L]
     (n : ℕ) (D D' : PeriodsAndSpecialValues.TateETNCData E L n)
     (hcomp : PeriodsAndSpecialValues.SameTateRationalData D D') :
-    tateMotive_etnc_statement E L n D ↔
-      tateMotive_etnc_statement E L n D' := by sorry
+    PeriodsAndSpecialValues.tateOmega D = PeriodsAndSpecialValues.tateOmega D' ∧
+      (tateMotive_etnc_statement E L n D ↔
+        tateMotive_etnc_statement E L n D') := by sorry
 
 -- TauCeti.BirchTate.tateMotive_etnc_trivial_group_weight_two
 -- The scalar image is a necessary check; it is not a converse to the integral statement.
