@@ -1,7 +1,7 @@
 /-
 This file is not the roadmap and is not exhaustive. The roadmap document is definitive.
 These statements suggest Lean forms so contributors and reviewers converge on names and
-signatures. This is a partial, uncompiled prototype at the recorded library pins.
+signatures. These are planning signatures; their proof bodies are placeholders.
 
 Mathlib: 082e2d37e8b0463410cdb532e111cd43d5a66174
 Tau Ceti: f790474821cf4256814db967cb154e7af3d0c369
@@ -10,10 +10,11 @@ The topology, dense-intermediate-field, finite-generator, tower/base-change,
 wild-automorphism and specialization-chain signatures use the actual pinned carriers.
 The remaining signatures require supplier types or unclosed mathematical interfaces.
 They are listed at the end, not represented by arbitrary Prop fields or assumed theorem
-packages. No implementation or successful elaboration is claimed.
+packages. Elaboration checks signatures and does not establish these results.
 
-Source locators: Scholze, ECD v4, Definition 21.2, Lemma 21.3, Proposition 21.16 and
-Lemma 21.17; Kelly--Saito--Tamme, Lemma 6.6. The chain-space construction below does
+Source locators: Scholze, ECD v4, Definition 21.2, Lemma 21.3, the finite-degree
+paragraph after Question 21.4, Proposition 21.16 and Lemma 21.17; Temkin, Lemma 2.2.2
+and Theorem 3.2.3; Conrad, Section 2; Kelly--Saito--Tamme, Lemma 6.6. The chain-space construction below does
 not establish the quasi-augmented cohomological descent theorem used in that lemma.
 -/
 import Mathlib.Topology.KrullDimension
@@ -29,7 +30,7 @@ import Mathlib.Topology.Spectral.ConstructibleTopology
 import Mathlib.Topology.Category.TopCat.Basic
 import Mathlib.AlgebraicTopology.SimplicialObject.Basic
 import Mathlib.Topology.Order
-import TauCeti.Topology.Algebra.Group.Profinite.ProP.Basic
+import Mathlib.GroupTheory.PGroup
 
 noncomputable section
 open TopologicalSpace
@@ -153,6 +154,14 @@ lemma topological_trdeg_tower [Algebra K L] [Algebra L M] [Algebra K M]
     (hKL : Isometry (algebraMap K L)) (hLM : Isometry (algebraMap L M)) :
     topologicalTrdeg K M ≤ topologicalTrdeg L M + topologicalTrdeg K L := by sorry
 
+/-- ECD's paragraph after Question 21.4, using Temkin 3.2.3 and 2.2.2.
+The finiteness assumption is on the intermediate extension, not only the ambient one. -/
+lemma topologicalTrdeg_mono_of_lt_top [Algebra K L] [Algebra L M] [Algebra K M]
+    [IsScalarTower K L M]
+    (hKL : Isometry (algebraMap K L)) (hLM : Isometry (algebraMap L M))
+    (hfinite : topologicalTrdeg K L < ⊤) :
+    topologicalTrdeg K L ≤ topologicalTrdeg K M := by sorry
+
 /-- `DiamondEtaleCohomology:C8/topological-trdeg-base-change`.
 The density hypothesis concerns the relative algebraic closure of the compositum in L'.
 It is neither an arbitrary square nor a requirement that the bare compositum be dense. -/
@@ -169,7 +178,101 @@ lemma topological_trdeg_base_change
     topologicalTrdeg L L' ≤ topologicalTrdeg K K' := by sorry
 end CompleteFields
 
-/-! ## The characteristic-p wild subgroup, on Tau Ceti's actual pro-p carrier -/
+/-!
+## Modified topological transcendence degree
+
+The helper bundles actual extension data. It does not assume any of the dimension
+theorems. Its universe is a cutoff: every finite witness in a larger universe has a
+small model, by algebraic finite generation followed by metric completion. Establish
+that size comparison before identifying this infimum with ECD's unrestricted minimum.
+-/
+structure CompleteACExtension (K L : Type u)
+    [NontriviallyNormedField K] [NontriviallyNormedField L] [Algebra K L] where
+  Field : Type u
+  normedField : NontriviallyNormedField Field
+  complete : @CompleteSpace Field normedField.toUniformSpace
+  ultrametric : @IsUltrametricDist Field normedField.toDist
+  algebraicallyClosed : @IsAlgClosed Field normedField.toField
+  algebraK : Algebra K Field
+  algebraL : Algebra L Field
+  tower : @IsScalarTower K L Field _ _ algebraK.toSMul
+  isometry : Isometry (@algebraMap L Field _ _ algebraL)
+
+attribute [instance] CompleteACExtension.normedField CompleteACExtension.complete
+  CompleteACExtension.ultrametric CompleteACExtension.algebraicallyClosed
+  CompleteACExtension.algebraK CompleteACExtension.algebraL CompleteACExtension.tower
+
+section ModifiedFields
+variable (K L : Type u) [NontriviallyNormedField K] [NontriviallyNormedField L]
+variable [CompleteSpace K] [CompleteSpace L] [IsUltrametricDist K] [IsUltrametricDist L]
+variable [IsAlgClosed K] [IsAlgClosed L] [Algebra K L]
+
+def modifiedTopologicalTrdeg (K L : Type u)
+    [NontriviallyNormedField K] [NontriviallyNormedField L] [Algebra K L] : ℕ∞ := by sorry
+
+lemma modifiedTopologicalTrdeg_le_iff (n : ℕ) :
+    modifiedTopologicalTrdeg K L ≤ n ↔
+      ∃ E : CompleteACExtension K L, topologicalTrdeg K E.Field ≤ n := by sorry
+
+lemma modifiedTopologicalTrdeg_le (hKL : Isometry (algebraMap K L)) :
+    modifiedTopologicalTrdeg K L ≤ topologicalTrdeg K L := by sorry
+
+lemma modifiedTopologicalTrdeg_mono
+    (M : Type u) [NontriviallyNormedField M] [CompleteSpace M]
+    [IsUltrametricDist M] [IsAlgClosed M] [Algebra L M] [Algebra K M]
+    [IsScalarTower K L M] (hLM : Isometry (algebraMap L M)) :
+    modifiedTopologicalTrdeg K L ≤ modifiedTopologicalTrdeg K M := by sorry
+
+lemma modifiedTopologicalTrdeg_equiv
+    (M : Type u) [NontriviallyNormedField M] [CompleteSpace M]
+    [IsUltrametricDist M] [IsAlgClosed M] [Algebra K M]
+    (e : L ≃ₐ[K] M) (he : Isometry e) :
+    modifiedTopologicalTrdeg K L = modifiedTopologicalTrdeg K M := by sorry
+
+/-- The finite-degree case does not assert an answer to Question 21.4. -/
+lemma modifiedTopologicalTrdeg_eq_of_lt_top (hKL : Isometry (algebraMap K L))
+    (hfinite : topologicalTrdeg K L < ⊤) :
+    modifiedTopologicalTrdeg K L = topologicalTrdeg K L := by sorry
+
+lemma modified_topological_trdeg_tower
+    (M : Type u) [NontriviallyNormedField M] [CompleteSpace M]
+    [IsUltrametricDist M] [IsAlgClosed M] [Algebra L M] [Algebra K M]
+    [IsScalarTower K L M]
+    (hKL : Isometry (algebraMap K L)) (hLM : Isometry (algebraMap L M)) :
+    modifiedTopologicalTrdeg K M ≤
+      modifiedTopologicalTrdeg L M + modifiedTopologicalTrdeg K L := by sorry
+
+lemma modified_topological_trdeg_base_change
+    (K' L' : Type u) [NontriviallyNormedField K'] [NontriviallyNormedField L']
+    [CompleteSpace K'] [CompleteSpace L'] [IsUltrametricDist K'] [IsUltrametricDist L']
+    [IsAlgClosed K'] [IsAlgClosed L']
+    [Algebra K K'] [Algebra K L'] [Algebra K' L'] [Algebra L L']
+    [IsScalarTower K K' L'] [IsScalarTower K L L']
+    (hKK' : Isometry (algebraMap K K')) (hKL : Isometry (algebraMap K L))
+    (hK'L' : Isometry (algebraMap K' L')) (hLL' : Isometry (algebraMap L L'))
+    (hd : Dense {x : L' |
+      IsAlgebraic (IntermediateField.adjoin L (Set.range (algebraMap K' L'))) x}) :
+    modifiedTopologicalTrdeg L L' ≤ modifiedTopologicalTrdeg K K' := by sorry
+
+-- modifiedTopologicalTrdeg_identity
+example : modifiedTopologicalTrdeg K K = 0 := by sorry
+
+-- modifiedTopologicalTrdeg_zeroWitness
+example (E : CompleteACExtension K L) (hE : topologicalTrdeg K E.Field = 0) :
+    modifiedTopologicalTrdeg K L = 0 := by sorry
+
+-- modifiedTopologicalTrdeg_noFiniteWitness
+example (h : ∀ n : ℕ, ¬ ∃ E : CompleteACExtension K L,
+    topologicalTrdeg K E.Field ≤ n) : modifiedTopologicalTrdeg K L = ⊤ := by sorry
+
+-- modifiedTopologicalTrdeg_vsOriginal
+example (hKL : Isometry (algebraMap K L))
+    (hmono : ∀ E : CompleteACExtension K L,
+      topologicalTrdeg K L ≤ topologicalTrdeg K E.Field) :
+    modifiedTopologicalTrdeg K L = topologicalTrdeg K L := by sorry
+end ModifiedFields
+
+/-! ## The characteristic-p wild subgroup, via the finite continuous quotient criterion -/
 section WildAutomorphisms
 open Filter
 open scoped Topology
@@ -196,7 +299,8 @@ lemma wild_kernel_pro_p (hp : p.Prime)
     (hact : Continuous (fun gx : G × C => ρ gx.1 gx.2))
     (P : Subgroup G) (hclosed : IsClosed (P : Set G))
     (hP : ∀ g : G, g ∈ P ↔ ∀ x : C, x ≠ 0 → ‖ρ g x / x - 1‖ < 1) :
-    TauCeti.IsProP p P := by sorry
+    ∀ (H : Type v) [Group H] [Finite H] [TopologicalSpace H] [DiscreteTopology H]
+      (q : P →* H), Continuous q → Function.Surjective q → IsPGroup p H := by sorry
 
 -- Supplemental regression: identity automorphism satisfies both convergence conclusions.
 example (x : C) :
@@ -301,56 +405,39 @@ end Specialization
 end TauCeti.DiamondEtale
 
 /-
-Unwritten signatures (precise statements, dependencies, API and tests are in the packet).
-The following 50 node signatures remain omitted; none is discharged by a comment.
-
-DiamondEtaleCohomology:C8/modified-topological-trdeg — Modified topological transcendence degree
-  API awaiting supplier types: modifiedTopologicalTrdeg_le_iff
-  API awaiting supplier types: modifiedTopologicalTrdeg_le
-  API awaiting supplier types: modifiedTopologicalTrdeg_mono
-  API awaiting supplier types: modifiedTopologicalTrdeg_equiv
-  Test awaiting supplier types: modifiedTopologicalTrdeg_identity
-  Test awaiting supplier types: modifiedTopologicalTrdeg_zeroWitness
-  Test awaiting supplier types: modifiedTopologicalTrdeg_noFiniteWitness
-  Test awaiting supplier types: modifiedTopologicalTrdeg_vsOriginal
-
-DiamondEtaleCohomology:C8/modified-trdeg-tower — Modified transcendence degree in a tower
-DiamondEtaleCohomology:C8/modified-trdeg-base-change — Modified transcendence degree after base change
+Omitted signatures under PROTOCOL §13. The actual analytic/diamond/site/enhanced and
+cohomological-dimension carriers are supplied by the named owners in the packet.
+These 49 nodes are not represented by arbitrary proposition fields.
 
 DiamondEtaleCohomology:C8/analytic-dim-trg — Geometric transcendence dimension of an analytic map
-  API awaiting supplier types: analyticDimTrg_le_iff
-  API awaiting supplier types: analyticDimTrg_equiv
-  API awaiting supplier types: analyticDimTrg_empty
-  API awaiting supplier types: analyticDimTrg_field
-  Test awaiting supplier types: analyticDimTrg_empty_test
-  Test awaiting supplier types: analyticDimTrg_identity_point
-  Test awaiting supplier types: analyticDimTrg_field_test
-
+  Omitted API: analyticDimTrg_le_iff
+  Omitted API: analyticDimTrg_equiv
+  Omitted API: analyticDimTrg_empty
+  Omitted API: analyticDimTrg_field
+  Omitted example: analyticDimTrg_empty_test
+  Omitted example: analyticDimTrg_identity_point
+  Omitted example: analyticDimTrg_field_test
 DiamondEtaleCohomology:C8/analytic-dimension-bound — Topological dimension bounded by geometric transcendence dimension
-
 DiamondEtaleCohomology:C8/diamond-dim-trg — Geometric transcendence dimension of a diamond map
-  API awaiting supplier types: diamondDimTrg_le_iff
-  API awaiting supplier types: diamondDimTrg_vstack
-  API awaiting supplier types: diamondDimTrg_empty
-  API awaiting supplier types: diamondDimTrg_point
-  API awaiting supplier types: diamondDimTrg_representative
-  Test awaiting supplier types: diamondDimTrg_empty_test
-  Test awaiting supplier types: diamondDimTrg_identity_point
-  Test awaiting supplier types: diamondDimTrg_field_test
-  Test awaiting supplier types: diamondDimTrg_bottom
-
+  Omitted API: diamondDimTrg_le_iff
+  Omitted API: diamondDimTrg_vstack
+  Omitted API: diamondDimTrg_empty
+  Omitted API: diamondDimTrg_point
+  Omitted API: diamondDimTrg_representative
+  Omitted example: diamondDimTrg_empty_test
+  Omitted example: diamondDimTrg_identity_point
+  Omitted example: diamondDimTrg_field_test
+  Omitted example: diamondDimTrg_bottom
 DiamondEtaleCohomology:C8/diamond-dim-base-change — Geometric transcendence dimension under pullback
 DiamondEtaleCohomology:C8/diamond-dim-composition — Geometric transcendence dimension of a composite
-
 DiamondEtaleCohomology:C8/locally-finite-dim-trg — Local finiteness of geometric transcendence dimension
-  API awaiting supplier types: locallyFiniteDimTrg_of_bound
-  API awaiting supplier types: locallyFiniteDimTrg_openCover
-  API awaiting supplier types: locallyFiniteDimTrg_baseChange
-  API awaiting supplier types: locallyFiniteDimTrg_identity
-  Test awaiting supplier types: locallyFiniteDimTrg_empty
-  Test awaiting supplier types: locallyFiniteDimTrg_identity_test
-  Test awaiting supplier types: locallyFiniteDimTrg_localNotUniform
-
+  Omitted API: locallyFiniteDimTrg_of_bound
+  Omitted API: locallyFiniteDimTrg_openCover
+  Omitted API: locallyFiniteDimTrg_baseChange
+  Omitted API: locallyFiniteDimTrg_identity
+  Omitted example: locallyFiniteDimTrg_empty
+  Omitted example: locallyFiniteDimTrg_identity_test
+  Omitted example: locallyFiniteDimTrg_localNotUniform
 DiamondEtaleCohomology:C8/strictly-disconnected-acyclic — Étale acyclicity of strictly totally disconnected spaces
 DiamondEtaleCohomology:C8/qpetale-direct-image — Degree-zero direct image for quasi-pro-étale maps
 DiamondEtaleCohomology:C8/injection-direct-image — Degree-zero direct image for a quasicompact injection
@@ -358,15 +445,13 @@ DiamondEtaleCohomology:C8/point-quotient — A one-point diamond as a profinite 
 DiamondEtaleCohomology:C8/point-quotient-unique — Uniqueness of the profinite point presentation
 DiamondEtaleCohomology:C8/point-sheaf-equivalence — Sheaves at a diamond point as discrete modules
 DiamondEtaleCohomology:C8/point-cohomology — Point cohomology is canonical continuous cohomology
-
 DiamondEtaleCohomology:C8/point-cd — Cohomological dimension at a maximal point
-  API awaiting supplier types: pointCd_presentation
-  API awaiting supplier types: pointCd_le_iff
-  API awaiting supplier types: pointCd_equiv
-  Test awaiting supplier types: pointCd_closedField
-  Test awaiting supplier types: pointCd_presentation_test
-  Test awaiting supplier types: pointCd_unbounded
-
+  Omitted API: pointCd_presentation
+  Omitted API: pointCd_le_iff
+  Omitted API: pointCd_equiv
+  Omitted example: pointCd_closedField
+  Omitted example: pointCd_presentation_test
+  Omitted example: pointCd_unbounded
 DiamondEtaleCohomology:C8/specialization-stabilizers — Closed inclusion of specialization stabilizers
 DiamondEtaleCohomology:C8/closed-point-cohomology — Cohomology with support at the closed point
 DiamondEtaleCohomology:C8/closed-point-bound — Closed-point support and generic-point cohomological dimension
@@ -387,7 +472,6 @@ DiamondEtaleCohomology:C8/spatial-cohomological-bound — Cohomological dimensio
 DiamondEtaleCohomology:C8/partially-proper-closure-dimension — Dimension of a rank-one closure in a partially proper adic space
 DiamondEtaleCohomology:C8/partially-proper-dimension — Dimension of a partially proper adic space
 DiamondEtaleCohomology:C8/partially-proper-fibre-dimension — Closure dimension along a partially proper analytic map
-
 DiamondEtaleCohomology:C9/bounded-filtered-compactness — Constructible sheaves and bounded filtered colimits
 DiamondEtaleCohomology:C9/uniform-test-bound — The same cohomological bound on étale test objects
 DiamondEtaleCohomology:C9/left-completeness — Left completeness under the uniform bound
@@ -401,6 +485,6 @@ DiamondEtaleCohomology:C9/perfect-local-system-compact — Compactness of extens
 DiamondEtaleCohomology:C9/perfect-constructible-implies-compact — Perfect-constructible objects are compact
 DiamondEtaleCohomology:C9/compact-iff-perfect-constructible — Characterization of compact étale complexes
 DiamondEtaleCohomology:C9/finite-field-compact-objects — Compact complexes with finite-field coefficients
-
-These are omissions in this checkpoint, not elaborated declarations.
+DiamondEtaleCohomology:C8/topological-dimension-field-tests — Topological fibre dimension can be tested on field points
+DiamondEtaleCohomology:C9/compact-generation-from-dimension-bounds — Compact generation from finite dimension bounds
 -/
