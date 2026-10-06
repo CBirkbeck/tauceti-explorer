@@ -19,6 +19,12 @@ import Mathlib.RingTheory.Ideal.Maps
 import Mathlib.RingTheory.Ideal.Quotient.Defs
 import Mathlib.Data.ZMod.Basic
 import Mathlib.Basic.Complex.Basic
+import Mathlib.RingTheory.MvPolynomial.Homogeneous
+import Mathlib.LinearAlgebra.PiTensorProduct.Basic
+import Mathlib.LinearAlgebra.Projectivization.Cardinality
+import Mathlib.Algebra.Quaternion
+import Mathlib.LinearAlgebra.TensorProduct.Basic
+import Mathlib.LinearAlgebra.Dimension.Finrank
 
 noncomputable section
 namespace TauCeti.Blueprint.Quaternionic
@@ -166,12 +172,109 @@ example : ¬ (RingHom.ker (Int.castRingHom ℚ)).IsMaximal := by
   sorry
 end ResidualKernel
 
+section CoefficientsAndCounts
+/-! Prototypes added by the independent review: the parts of the packet's weight,
+point-set and counting statements that the pinned Mathlib can already express. The
+group actions, analytic structure and moduli interpretations stay in the ledger. -/
+
+open scoped TensorProduct LinearAlgebra.Projectivization
+
+/-- Sym^{k−2}(O²) as the homogeneous polynomials of degree k−2 in two variables, the model
+of the coefficient factor in QuaternionWeight. The U_p-action through the chosen
+splittings is the AF.4 coefficient-lattice input and is not restated here. -/
+abbrev SymWeight (O : Type*) [CommRing O] (k : ℕ) : Submodule O (MvPolynomial (Fin 2) O) :=
+  MvPolynomial.homogeneousSubmodule (Fin 2) O (k - 2)
+
+/-- QuaternionWeight, underlying module only: parallel weight k over d embeddings,
+⊗_{σ} Sym^{k−2}(O²). -/
+abbrev QuaternionWeight (O : Type*) [CommRing O] (d k : ℕ) : Type _ :=
+  ⨂[O] (_ : Fin d), SymWeight O k
+
+lemma QuaternionWeight.rank (O : Type*) [CommRing O] [Nontrivial O] (d k : ℕ) (hk : 2 ≤ k) :
+    Module.finrank O (QuaternionWeight O d k) = (k - 1) ^ d := by
+  sorry
+
+-- QuaternionWeight.weightTwoRank
+example (O : Type*) [CommRing O] [Nontrivial O] (d : ℕ) :
+    Module.finrank O (QuaternionWeight O d 2) = 1 := by
+  sorry
+-- QuaternionWeight.quadraticWeightFour
+example (O : Type*) [CommRing O] [Nontrivial O] :
+    Module.finrank O (QuaternionWeight O 2 4) = 9 := by
+  sorry
+
+/-- DrinfeldHalfPlane.points: the C-points P¹(C) ∖ P¹(K) of Ω_K. Only the point set is
+typed; the rigid-analytic open and its affinoid exhaustion need an analytic carrier that
+the pinned libraries lack. -/
+def DrinfeldHalfPlane.points (K C : Type*) [Field K] [Field C] [Algebra K C] :
+    Set (ℙ C (Fin 2 → C)) :=
+  {x | ∀ (v : Fin 2 → K) (hv : (fun i => algebraMap K C (v i)) ≠ 0),
+    x ≠ Projectivization.mk C (fun i => algebraMap K C (v i)) hv}
+
+lemma DrinfeldHalfPlane.affineChart (K C : Type*) [Field K] [Field C] [Algebra K C] (z : C)
+    (h : (![z, 1] : Fin 2 → C) ≠ 0) :
+    Projectivization.mk C ![z, 1] h ∈ DrinfeldHalfPlane.points K C ↔
+      z ∉ Set.range (algebraMap K C) := by
+  sorry
+
+-- DrinfeldHalfPlane.infinity
+example (K C : Type*) [Field K] [Field C] [Algebra K C] (h : (![1, 0] : Fin 2 → C) ≠ 0) :
+    Projectivization.mk C ![1, 0] h ∉ DrinfeldHalfPlane.points K C := by
+  sorry
+-- DrinfeldHalfPlane.quadraticPoint: a point of a quadratic extension outside K.
+example (K C : Type*) [Field K] [Field C] [Algebra K C] (z : C)
+    (hz : z ∉ Set.range (algebraMap K C)) (h : (![z, 1] : Fin 2 → C) ≠ 0) :
+    Projectivization.mk C ![z, 1] h ∈ DrinfeldHalfPlane.points K C := by
+  sorry
+
+-- DrinfeldExhaustion.residueTwo, DrinfeldFormalModel.qTwo and QuaternionDegeneracy.qTwo:
+-- the edges at a vertex, the branches through a component and the index
+-- [GL₂(O_w) : U₀(w)] are all counted by P¹(k); for k = F₂ there are three.
+example (k : Type*) [Field k] [Fintype k] (hk : Fintype.card k = 2) :
+    Nat.card (ℙ k (Fin 2 → k)) = 3 := by
+  sorry
+-- DrinfeldExhaustion.firstSphere: the central vertex and its q+1 neighbours.
+example (k : Type*) [Field k] [Fintype k] :
+    Nat.card (ℙ k (Fin 2 → k)) + 1 = Fintype.card k + 2 := by
+  sorry
+
+-- QuaternionTWLevel.cyclicOrder: C₈ modulo its 2-torsion is C₄.
+example : Nat.card (QuaternionTWLevel.diamondFactor (Multiplicative (ZMod 8)) 2) = 4 := by
+  sorry
+-- QuaternionTWLevel.torsionNotPowers: C₈ modulo its squares has order 2.
+example : Nat.card (Multiplicative (ZMod 8) ⧸
+    (powMonoidHom 2 : Multiplicative (ZMod 8) →* Multiplicative (ZMod 8)).range) = 2 := by
+  sorry
+
+-- QuaternionPDiv.splitRank: for B_v = M₂(Q_p), H_v[p] ≅ M₂(F_p) and e₁₁H_v[p] ≅ F_p².
+example (p : ℕ) [Fact p.Prime] :
+    Fintype.card (Fin 2 → Fin 2 → ZMod p) = p ^ 4 ∧ Fintype.card (Fin 2 → ZMod p) = p ^ 2 := by
+  sorry
+
+-- QuaternionPELInstance.regularDimension: for F = Q, dim_Q (B ⊗ E) = 8, so the abelian
+-- variety with H₁ ≅ B′ has dimension 4, not 2.
+open Quaternion in
+example (E : Type*) [Field E] [Algebra ℚ E] (hE : Module.finrank ℚ E = 2) (a b : ℚ) :
+    Module.finrank ℚ (ℍ[ℚ,a,b] ⊗[ℚ] E) / 2 = 4 := by
+  sorry
+
+/-- QuaternionHodgeLine.metric: the archimedean norm of dz at z in the upper half-plane,
+‖dz‖ = 2 Im z (YZ Theorem 4.7(3)). -/
+def QuaternionHodgeLine.metric (z : ℂ) : ℝ := 2 * z.im
+
+-- QuaternionHodgeLine.imaginaryUnit
+example : QuaternionHodgeLine.metric Complex.I = 2 := by
+  sorry
+end CoefficientsAndCounts
+
 end TauCeti.Blueprint.Quaternionic
 
 /-!
 # Declaration ledger: full targets and omitted signatures
 
-Only the elementary prototypes above are typed declarations. Each entry below gives
+Only the elementary prototypes above are typed declarations. The section
+`CoefficientsAndCounts` types the underlying weight module, the point set of Ω_K and the
+counting tests; the full entries below remain the definitive statements. Each entry below gives
 the exact packet target, hypotheses, API and tests; none is a hidden Lean declaration.
 The geometry requires supplied formal objects; the adelic specializations require
 AF.5 and AA carriers. Replace the corresponding entries with actual signatures when
@@ -204,7 +307,7 @@ QuaternionPDiv.splitRank [example, computation]: For F_v=Q_p and B_v=M₂(Q_p), 
 QuaternionPDiv.rightAction [example, characterisation]: A local unit u sends a fibre element x to xu; replacing it by ux generally gives a different action.
 
 HilbertModularVarietiesAndShimuraCurves:R18.2/connected-pel-comparison
-ConnectedPelComparison [comparison]: Over K identify the identity pro-components X⁰ and X′⁰ equivariantly for the norm-positive effective groups Δ̄≅Δ̄′. After quotient by O_B,p^1, identify H|X₁⁰ with H′|X′₁⁰ with the transported effective group action. The comparison is of connected components with specified descent, not an isomorphism of the full unrelated global towers.
+ConnectedPelComparison [comparison]: Over F̄ identify the identity pro-components X⁰ and X′⁰ equivariantly for the norm-positive effective groups Δ̄≅Δ̄′. After quotient by O_B,p^1, whose identity components X₁⁰ and X′₁⁰ are defined over K, identify H|X₁⁰ with H′|X′₁⁰ with the transported effective group action. The comparison is of connected components with specified descent, not an isomorphism of the full unrelated global towers.
 Hypotheses: F totally real; B/F a division quaternion algebra split at exactly one real place τ; canonical compact curve X_U/F supplied by R18.1. A maximal finite-adelic order O_B and its local split identifications are fixed; v|p and K=completion of F_v^ur. The auxiliary split CM choice and effective central kernels are fixed.
 
 HilbertModularVarietiesAndShimuraCurves:R18.2/finite-pel-comparison
@@ -238,6 +341,7 @@ QuaternionHodgeLine.pullback [functoriality]: Every admissible level map pulls L
 QuaternionHodgeLine.fineDualizing [compatibility]: At fine maximal local level L_U|O_v is the relative dualizing line.
 QuaternionHodgeLine.coarseCorrection [characterisation]: At branch point Q the correction coefficient is 1−1/e_Q.
 QuaternionHodgeLine.metric [data]: Under uniformisation the differential dz has norm 2 Im z.
+QuaternionHodgeLine.unique [characterisation]: Any system of hermitian Q-line bundles on the models X_U (U maximal at d_B) that is compatible with level pullback, equals the relative dualizing line at fine level and maximal U_v, and has archimedean metric |dz|=2 Im z, is canonically isomorphic to L_U (YZ Theorem 4.7, uniqueness).
 QuaternionHodgeLine.unramified [example, degenerate]: When every e_Q=1, the generic L_U equals ω.
 QuaternionHodgeLine.indexTwo [example, computation]: At an effective ramification point of index 2, the correction is [Q]/2.
 QuaternionHodgeLine.imaginaryUnit [example, computation]: At z=i, |dz|=2.
@@ -290,7 +394,7 @@ QuaternionWeight.baseChange [functoriality]: Scalar extension commutes with the 
 QuaternionWeight.weightTwo [compatibility]: At k=2 the lattice is the trivial rank-one O-representation.
 QuaternionWeight.weightTwoRank [example, degenerate]: For any d, weight 2 has rank 1.
 QuaternionWeight.quadraticWeightFour [example, computation]: For d=2 and k=4 the rank is 9.
-QuaternionWeight.factorialObstruction [example, non-example]: At p=2 and k=4 the natural pairing has diagonal value 2 and is not perfect over Z₂.
+QuaternionWeight.factorialObstruction [example, non-example]: At p=2 and k=4 the natural pairing on Sym²(Z₂²) pairs X² with Y² to ±2 and XY with itself to ±1, so its Gram matrix has determinant ±4 and it is not perfect over Z₂.
 
 HilbertModularVarietiesAndShimuraCurves:R18.3/definite-specialisation
 DefiniteSpecialisation [comparison]: Use the extended AF.5 carrier, not a new generic definition, for functions f:D_f×→W_A satisfying f(dgu)=τ(u)⁻¹f(g), f(gz)=ψ(z)f(g). Evaluation at class representatives identifies S_{τ,ψ}(U,A) with ⊕_{t∈C_U} W_A^{Γ_t}. This requires AF.5 to admit the adelic central quotient: its current discrete-centre hypothesis does not cover O_F× of positive rank.
@@ -309,11 +413,11 @@ SplitHeckeNormalisation [comparison]: At v∉S with D_v=M₂(F_v), U_v=GL₂(O_v
 Hypotheses: F totally real of even degree; D/F ramified at every real place, split at the finite places under discussion; O the integers of a sufficiently large finite extension of Q_p, with residue field k. U is compact open unless the dyadic division-place variant is explicitly invoked; τ is a finite free coefficient representation and ψ a continuous central character with τ(z)=ψ(z)⁻¹ on U∩A_F,f×.
 
 HilbertModularVarietiesAndShimuraCurves:R18.3/norm-branch
-NormBranch [theorem]: For parallel weight 2 and compatible finite character, the forms factoring through Nrd are exactly the SL₂-invariant local branch under the strong-approximation hypotheses of KW §7.1. Their good-place Hecke eigenvalues give sums of characters, so their localization at a non-Eisenstein maximal ideal vanishes. Non-Eisenstein means excluding the specified reducible/norm character systems; no Galois representation is constructed here.
+NormBranch [theorem]: For parallel weight 2 and compatible finite character, the forms factoring through Nrd are exactly the SL₂-invariant local branch under the strong-approximation hypotheses of KW §7.1. Their good-place Hecke eigenvalues give sums of characters, so their localization at a non-Eisenstein maximal ideal vanishes. Following KW §7, a maximal ideal m of T_ψ(U) is Eisenstein if T_v−2 and S_v−1 lie in m for all but finitely many places v split in a fixed finite abelian extension of F; non-Eisenstein means not Eisenstein. No Galois representation is constructed here.
 Hypotheses: F totally real of even degree; D/F ramified at every real place, split at the finite places under discussion; O the integers of a sufficiently large finite extension of Q_p, with residue field k. U is compact open unless the dyadic division-place variant is explicitly invoked; τ is a finite free coefficient representation and ψ a continuous central character with τ(z)=ψ(z)⁻¹ on U∩A_F,f×. Weight 2; strong approximation for D¹ at a chosen split finite place.
 
 HilbertModularVarietiesAndShimuraCurves:R18.3/definite-degeneracy
-DefiniteDegeneracy [theorem]: At w∉S, compact U with hyperspecial U_w and trivial local coefficient action, the degeneracy map S(U,A)²→S(U₀(w),A), (f₁,f₂)↦f₁+diag(1,π_w)f₂, has kernel supported on the norm-factor Eisenstein branch. Hence it is injective after non-Eisenstein localization, for the coefficient rings and coefficient extensions in KW Lemma 7.1. This is the definite version; an integral indefinite Ihara theorem is a separate supplier request.
+DefiniteDegeneracy [theorem]: At a finite place w∉Σ (so D is split at w), with w added to S for the Hecke algebra, compact U with hyperspecial U_w and trivial local coefficient action, the degeneracy map S(U,A)²→S(U₀(w),A), (f₁,f₂)↦f₁+diag(1,π_w)f₂, has kernel supported on the norm-factor Eisenstein branch. Hence it is injective after non-Eisenstein localization, for the coefficient rings and coefficient extensions in KW Lemma 7.1. This is the definite version; an integral indefinite Ihara theorem is a separate supplier request.
 Hypotheses: F totally real of even degree; D/F ramified at every real place, split at the finite places under discussion; O the integers of a sufficiently large finite extension of Q_p, with residue field k. U is compact open unless the dyadic division-place variant is explicitly invoked; τ is a finite free coefficient representation and ψ a continuous central character with τ(z)=ψ(z)⁻¹ on U∩A_F,f×. D split at w, U_w=GL₂(O_w); the action by diag(1,π_w) is defined on coefficients.
 
 HilbertModularVarietiesAndShimuraCurves:R18.3/definite-jl
