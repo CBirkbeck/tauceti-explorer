@@ -1,8 +1,8 @@
 {
   "roadmaps": 229,
-  "stages": 3631,
+  "stages": 3635,
   "originalStages": 2098,
-  "sourceRefinements": 1533,
+  "sourceRefinements": 1537,
   "reviewedDecompositions": [
     {
       "roadmap": "AInfCohomology",
@@ -334,14 +334,14 @@
   "editedRoadmapSummaries": 181,
   "curatedStagePresentations": 339,
   "administrativeStages": 101,
-  "mathematicalStars": 3530,
+  "mathematicalStars": 3534,
   "plainTextPlanetLabels": 398,
   "hiddenPlanets": 600,
   "mappedStageStatuses": 350,
   "libraryAuditStatuses": 19,
   "bibliographicSources": 46,
   "roadmapEdges": 1862,
-  "stageEdges": 9638,
+  "stageEdges": 9643,
   "reviewedLinkPackets": 25,
   "promotedBlueprints": [
     {
@@ -547,6 +547,12 @@
       "roadmap": "EllipticRegulators",
       "nodes": 11,
       "reviewer": "independent-review-REV-EllipticRegulators--ER.4"
+    },
+    {
+      "file": "EllipticRegulators--ER.6",
+      "roadmap": "EllipticRegulators",
+      "nodes": 11,
+      "reviewer": "independent-review-REV-EllipticRegulators--ER.6"
     },
     {
       "file": "EllipticRegulators--ER.8",
@@ -832,8 +838,8 @@
     }
   ],
   "sourceDocuments": 296,
-  "htmlBytes": 32512688,
-  "htmlSha256": "b95dbfd637b726d3718dae3092fe5758220f311640afa78ebbb1823cb40dab24",
+  "htmlBytes": 32525813,
+  "htmlSha256": "f821ad2c9e646fa053ecdfe256789516eb03500dc9d93e23e56c2768d4cbd1e2",
   "networkDependencies": 0,
   "localProgressOverridesIncluded": false,
   "assets": {
@@ -864,7 +870,7 @@
     "data/roadmap-summaries.json": "c8bdd0a9105f5d3c4a858c8b635990729f8e94497dee784a71fae659b8c05b9f",
     "data/roadmap-classification.json": "2641dbc97eb2566c715162d011b46890d1635629181ef8126ac7aed9e24a3b13",
     "data/classification-estimates.json": "625d35fe6121bf099dc5de9e6a9111793596f9b664e3fbd439841434bb4a57d6",
-    "data/roadmap-distances.json": "b4bbc211845e2bdc8ef88565d2f2cad36178b142ade70efb370f7f2c99e1bb4a",
+    "data/roadmap-distances.json": "d9a7d4eb3807c9cd212277789ea33e0e801cf40a12a725b3fb27721f4fff006b",
     "data/galaxy-layout.json": "92f736cdbedc11ea25886ab1b3da97c6e1364c28c6170267d456a29ecb7f702a",
     "data/bibliography.json": "bef230a41fad22d6b790c7564061c4d05c2ae5b78cab53d005eb404afab2b122",
     "NOTICE": "a285b95d5adbf5c2bcc82db36e2a77b797f84a2c5cbb30292efd0bae17cc4f34",
@@ -990,6 +996,8 @@
     "data/blueprints/EllipticRegulators--ER.3.md": "64117112999770b314848add895f4d1db0e858c07ccbcc1f212180afbb90e75f",
     "data/blueprints/EllipticRegulators--ER.4.json": "10335a1e567336d7bfa3d80ad9092e5821a9425a41d9a3d2a4edb615874c134b",
     "data/blueprints/EllipticRegulators--ER.4.md": "1edf33a60b17ef4f9f812225cfa08454226f69e919b98370a318afb2de8f9903",
+    "data/blueprints/EllipticRegulators--ER.6.json": "af69e08f210b6013c71751b1e00281516e27f6e1a903070722df8b385ebfa4b8",
+    "data/blueprints/EllipticRegulators--ER.6.md": "62bb68a227973532eab675422426a4e7ddf432b244a634570ac6446b83ac9224",
     "data/blueprints/EllipticRegulators--ER.8.json": "26c7d883135f36641a50521b31382249a7235356991e43f7834299172b318a82",
     "data/blueprints/EllipticRegulators--ER.8.md": "fae79fd708ba53a1299110a7de78502e8f0d5b33b6265acd76e7e28c597698ab",
     "data/blueprints/EllipticRegulators.json": "ea78b6592ec7aedf3d14e30e3a6437070ba764ba9ae7d49b352826efea48864f",
