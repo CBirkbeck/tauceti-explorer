@@ -22760,9 +22760,10 @@
     "REV-RS-05"
    ],
    "prompt": "research/blueprint/prompts/BP-ClassicalAdicEtaleCohomology--H4.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #693"
+   "note": "deliverables arrived from an external worker on issue #693",
+   "finishedAt": "2026-10-06T12:43:30Z"
   },
   {
    "id": "REV-ClassicalAdicEtaleCohomology--H4",
@@ -23479,7 +23480,8 @@
    ],
    "avoidAccountOf": "BP-DeligneWeightsAndPurity--DWP.7",
    "prompt": "research/blueprint/prompts/REV-DeligneWeightsAndPurity--DWP.7.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #383"
   },
   {
    "id": "BP-DerivedDeRhamCohomology",
@@ -28151,9 +28153,10 @@
     "REV-RS-01"
    ],
    "prompt": "research/blueprint/prompts/BP-PrismaticCohomology--PR.0.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #978"
+   "note": "deliverables arrived from an external worker on issue #978",
+   "finishedAt": "2026-10-06T12:43:32Z"
   },
   {
    "id": "REV-PrismaticCohomology--PR.0",
