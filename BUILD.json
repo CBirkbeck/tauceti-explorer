@@ -1,8 +1,8 @@
 {
   "roadmaps": 231,
-  "stages": 3874,
+  "stages": 3885,
   "originalStages": 2116,
-  "sourceRefinements": 1758,
+  "sourceRefinements": 1769,
   "reviewedDecompositions": [
     {
       "roadmap": "AInfCohomology",
@@ -313,14 +313,14 @@
   "editedRoadmapSummaries": 181,
   "curatedStagePresentations": 339,
   "administrativeStages": 101,
-  "mathematicalStars": 3773,
+  "mathematicalStars": 3784,
   "plainTextPlanetLabels": 398,
   "hiddenPlanets": 600,
   "mappedStageStatuses": 350,
   "libraryAuditStatuses": 19,
   "bibliographicSources": 46,
-  "roadmapEdges": 1940,
-  "stageEdges": 10258,
+  "roadmapEdges": 1941,
+  "stageEdges": 10283,
   "reviewedLinkPackets": 25,
   "promotedBlueprints": [
     {
@@ -858,6 +858,12 @@
       "reviewer": "independent-review-REV-PadicHodgeRegulators--L3"
     },
     {
+      "file": "PerfectoidSpaces--P8",
+      "roadmap": "PerfectoidSpaces",
+      "nodes": 66,
+      "reviewer": "independent-review-REV-PerfectoidSpaces--P8"
+    },
+    {
       "file": "Polylogarithms--P.2",
       "roadmap": "Polylogarithms",
       "nodes": 14,
@@ -931,8 +937,8 @@
     }
   ],
   "sourceDocuments": 296,
-  "htmlBytes": 33579413,
-  "htmlSha256": "b136db4ec7c885fd486a69bc20c08d951a5876d6ee3ea244992ac4008a9b86cc",
+  "htmlBytes": 33620829,
+  "htmlSha256": "11ace467fe3df4f2644471816396bb1f2d9bb98da5c3847705b24d0b5e1a22b0",
   "networkDependencies": 0,
   "localProgressOverridesIncluded": false,
   "assets": {
@@ -964,7 +970,7 @@
     "data/roadmap-summaries.json": "c8bdd0a9105f5d3c4a858c8b635990729f8e94497dee784a71fae659b8c05b9f",
     "data/roadmap-classification.json": "2641dbc97eb2566c715162d011b46890d1635629181ef8126ac7aed9e24a3b13",
     "data/classification-estimates.json": "625d35fe6121bf099dc5de9e6a9111793596f9b664e3fbd439841434bb4a57d6",
-    "data/roadmap-distances.json": "8b13b6924ed3f8c9dbc91154746304386bb181f79dc7fc4c763db9bb17dfe362",
+    "data/roadmap-distances.json": "8387167a2065ee94cd080f5ec2712bb1bbedd5e5aad8501be4b0ecb5b5395d07",
     "data/galaxy-layout.json": "4bc55de9850ed0e34908dac04de78359a83a28b54f179dc4acfb942f5a8683d2",
     "data/bibliography.json": "bef230a41fad22d6b790c7564061c4d05c2ae5b78cab53d005eb404afab2b122",
     "NOTICE": "a285b95d5adbf5c2bcc82db36e2a77b797f84a2c5cbb30292efd0bae17cc4f34",
@@ -1200,6 +1206,8 @@
     "data/blueprints/NeronModelsAndSemistableAbelianVarieties.md": "7e174f3a26bad9ab37af9b71d1e741eb3fabd739d6d22a7d6903ea9f22e378d9",
     "data/blueprints/PadicHodgeRegulators--L3.json": "505bfd2c0cbc830506f8d5b89c0094bf45d6f29a7c154584ed6b137e824ea621",
     "data/blueprints/PadicHodgeRegulators--L3.md": "8dd3fc2f5600687e571a3d03889bc9118e77d2f48a033d17456898cacce5ea61",
+    "data/blueprints/PerfectoidSpaces--P8.json": "0dd66671f24d7eb8736b68ac49e379af83e80008b3093e4474048417c7be67df",
+    "data/blueprints/PerfectoidSpaces--P8.md": "0c0001c59783b0a5e593cedc530eecda7d1ee55db43cb70af851d21d95d53cc2",
     "data/blueprints/Polylogarithms--P.2.json": "e5553f574b76c7e941f29e9cfa10f2f25eca3110a614cddb000ee9cf218cfade",
     "data/blueprints/Polylogarithms--P.2.md": "1fdb9ee0959d937faf4831258d01184512b14bdfab11519644a8f8837c626c59",
     "data/blueprints/Polylogarithms--P.4.json": "9157c4358934c442d904599c9ff52fb29ccb7747e7b783547c61b29e07680fad",
