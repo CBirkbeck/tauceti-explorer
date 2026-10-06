@@ -22748,8 +22748,9 @@
    ],
    "avoidAccountOf": "BP-ClassicalAdicEtaleCohomology--H0",
    "prompt": "research/blueprint/prompts/REV-ClassicalAdicEtaleCohomology--H0.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #367"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #367",
+   "finishedAt": "2026-10-06T19:17:50Z"
   },
   {
    "id": "BP-ClassicalAdicEtaleCohomology--H4",
@@ -25040,7 +25041,8 @@
    ],
    "avoidAccountOf": "BP-GL2AutomorphicRepresentationsAndTransfer--R17.3",
    "prompt": "research/blueprint/prompts/REV-GL2AutomorphicRepresentationsAndTransfer--R17.3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #411"
   },
   {
    "id": "BP-GL2ModularityLifting--R22.1",
@@ -25337,8 +25339,9 @@
    ],
    "avoidAccountOf": "BP-GeneralizedHeegnerCycles--GH.8",
    "prompt": "research/blueprint/prompts/REV-GeneralizedHeegnerCycles--GH.8.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #417"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #417",
+   "finishedAt": "2026-10-06T19:17:53Z"
   },
   {
    "id": "BP-GeometricSatakeAndFusion--GS0",
@@ -26627,9 +26630,10 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-KatoEulerSystems.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #766"
+   "note": "deliverables arrived from an external worker on issue #766",
+   "finishedAt": "2026-10-06T19:17:58Z"
   },
   {
    "id": "REV-KatoEulerSystems",
@@ -28174,8 +28178,9 @@
    ],
    "avoidAccountOf": "BP-PotentialModularityAndCompatibleSystems--R24.3",
    "prompt": "research/blueprint/prompts/REV-PotentialModularityAndCompatibleSystems--R24.3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #474"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #474",
+   "finishedAt": "2026-10-06T19:17:59Z"
   },
   {
    "id": "BP-PrismaticCohomology--PR.0",
@@ -30162,7 +30167,7 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-OverconvergentAutomorphicForms--O0.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-AdicSpacesPartII",
     "BP-AutomorphicBundles--B0",
@@ -30179,7 +30184,8 @@
     "BP-PerfectoidSpaces--P8",
     "BP-ShimuraCompactifications--C0",
     "BP-ShimuraCompactifications--C6"
-   ]
+   ],
+   "note": "claimed on GitHub issue #1016"
   },
   {
    "id": "REV-OverconvergentAutomorphicForms--O0",
@@ -30258,7 +30264,8 @@
    ],
    "avoidAccountOf": "BP-OverconvergentAutomorphicForms--O8",
    "prompt": "research/blueprint/prompts/REV-OverconvergentAutomorphicForms--O8.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #523"
   },
   {
    "id": "BP-PotentialAutomorphyInfrastructure",
