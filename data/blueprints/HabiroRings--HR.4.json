@@ -1,0 +1,1046 @@
+{
+  "roadmapId": "HabiroRings",
+  "protocol": "blueprint-v1",
+  "part": "HR.4",
+  "scope": [
+    "HabiroRings:HR.4"
+  ],
+  "status": "complete",
+  "summary": "Target-level completion of the HR.4 follow-up: marked étale object deformations, map rigidity and their complete lifts supply the missing input to the accepted finite Habiro construction and Theorem 2.9. All twelve parent HR.4 targets and the accepted HR.1/HR.3 foundations remain imports. Degree-zero q-Witt and big-Witt theory follow accepted RS-10 ownership: the parent is the interim supplier and QW.0–QW.4 the permanent supplier. Neither q-Witt theory nor derived-completion foundations are reconstructed here.",
+  "baseline": {
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "declarations": [
+      {
+        "ref": "mathlib:Algebra.Etale",
+        "module": "Mathlib/RingTheory/Etale/Basic.lean",
+        "provides": "Formally étale plus finite presentation. This does not impose module-finiteness.",
+        "checked": "Declaration and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:Algebra.Etale.baseChange",
+        "module": "Mathlib/RingTheory/Etale/Basic.lean",
+        "provides": "Étaleness of B′⊗_B E over B′; reduction and every nilpotent level of the lift.",
+        "checked": "Declaration and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:Algebra.Etale.of_isLocalizationAway",
+        "module": "Mathlib/RingTheory/Etale/Basic.lean",
+        "provides": "Localization at one element is étale, including the non-module-finite test.",
+        "checked": "Declaration and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:Algebra.Etale.iff_isStandardSmoothOfRelativeDimension_zero",
+        "module": "Mathlib/RingTheory/Smooth/StandardSmoothOfFree.lean",
+        "provides": "Every étale algebra admits a submersive finite presentation of relative dimension zero; the presentation needed for object lifting already exists.",
+        "checked": "Declaration and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:Algebra.SubmersivePresentation.isStandardSmoothOfRelativeDimension",
+        "module": "Mathlib/RingTheory/Smooth/StandardSmooth.lean",
+        "provides": "A finite submersive presentation of dimension n supplies standard smoothness of that dimension; use n=0 after adjoining an inverse of the lifted Jacobian.",
+        "checked": "Declaration and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:Algebra.FormallySmooth.exists_lift",
+        "module": "Mathlib/RingTheory/Smooth/Basic.lean",
+        "provides": "Existence of a map from a formally smooth algebra through an arbitrary nilpotent ideal, not merely a square-zero ideal.",
+        "checked": "Declaration and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:Algebra.FormallyUnramified.lift_unique",
+        "module": "Mathlib/RingTheory/Unramified/Basic.lean",
+        "provides": "Two algebra maps from a formally unramified source agreeing modulo a nilpotent target ideal are equal.",
+        "checked": "Declaration and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:Algebra.FormallySmooth.exists_mkₐ_comp_eq_of_isAdicComplete",
+        "module": "Mathlib/RingTheory/Smooth/AdicCompletion.lean",
+        "provides": "An algebra map from a formally smooth source to C/J lifts to C when C is J-adically complete. This lifts maps; it does not construct an étale algebra object.",
+        "checked": "Declaration and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:Algebra.FormallyUnramified.ext_of_iInf",
+        "module": "Mathlib/RingTheory/Unramified/Basic.lean",
+        "provides": "Maps from a formally unramified algebra to a separated ring agreeing modulo I agree when the intersection of I-powers is zero. Together with the existing complete-target formally smooth existence theorem this already gives unique adic map lifting.",
+        "checked": "Declaration and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:AdicCompletion",
+        "module": "Mathlib/RingTheory/AdicCompletion/Basic.lean",
+        "provides": "Actual compatible quotient-family carrier for ordinary completion, used directly rather than duplicated.",
+        "checked": "Declaration and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:AdicCompletion.eval_surjective",
+        "module": "Mathlib/RingTheory/AdicCompletion/Basic.lean",
+        "provides": "Evaluation from ordinary completion onto each quotient is surjective.",
+        "checked": "Declaration and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:AdicCompletion.isAdicComplete",
+        "module": "Mathlib/RingTheory/AdicCompletion/Completeness.lean",
+        "provides": "Ordinary completion is complete for finitely generated ideals, without a noetherian or finite-module assumption.",
+        "checked": "Declaration and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:AdicCompletion.ker_evalOneₐ_eq_map",
+        "module": "Mathlib/RingTheory/AdicCompletion/Completeness.lean",
+        "provides": "For a finitely generated ideal, the kernel of evaluation at level one is its extension to the completed ring; gives the marked reduction equivalence.",
+        "checked": "Declaration and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:AdicCompletion.pow_smul_top_eq_ker_eval",
+        "module": "Mathlib/RingTheory/AdicCompletion/Completeness.lean",
+        "provides": "For I finitely generated and every n, I^n acting on the completion has image equal to the kernel of evaluation at n. With eval_surjective, this identifies the completed ring modulo the extended I^n with the original quotient. No change of completion ideal or noetherian hypothesis is needed.",
+        "checked": "Declaration and hypotheses independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06 by REV-HabiroRings--HR.4."
+      },
+      {
+        "ref": "mathlib:AdicCompletion.liftAlgHom",
+        "module": "Mathlib/RingTheory/AdicCompletion/Algebra.lean",
+        "provides": "A compatible family of algebra maps into ideal-power quotients gives an algebra map into their completion.",
+        "checked": "Declaration and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:AdicCompletion.ofAlgEquiv",
+        "module": "Mathlib/RingTheory/AdicCompletion/Algebra.lean",
+        "provides": "A complete ring is algebra-isomorphic to its ordinary completion; assembles maps and their inverses.",
+        "checked": "Declaration and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:Algebra.TensorProduct.map",
+        "module": "Mathlib/RingTheory/TensorProduct/Maps.lean",
+        "provides": "Scalar extension of algebra maps, including the actual reduction map on marked deformations.",
+        "checked": "Declaration and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:Algebra.TensorProduct.quotientTensorEquiv",
+        "module": "Mathlib/RingTheory/TensorProduct/Quotient.lean",
+        "provides": "Quotient/base-change compatibility, followed by B⊗_B E≅E, identifies (B/I)⊗_B E with E/IE. The quoted declaration itself is over the specified original scalar ring; descend scalars to B/I through the quotient.",
+        "checked": "Declaration and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:MvPowerSeries.toAdicCompletionAlgEquiv",
+        "module": "Mathlib/RingTheory/MvPowerSeries/Equiv.lean",
+        "provides": "Power series are the completion of a polynomial ring at the variable ideal, for finite variable sets. Apply the one-variable equivalence for the localization-series test.",
+        "checked": "Declaration and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:Algebra.Smooth.flat",
+        "module": "Mathlib/RingTheory/Smooth/Flat.lean",
+        "provides": "Every smooth algebra is flat, with no noetherian hypothesis; étale algebras are smooth by the existing instance. Supplies preservation of regularity under étale object lifting.",
+        "checked": "Declaration and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "Wagner.qHodgeHabiro.2025",
+      "title": "q-Hodge complexes over the Habiro ring",
+      "authors": "Ferdinand Wagner",
+      "edition": "arXiv:2510.04782v2, 8 October 2025, 82-page PDF; numbered printed pages",
+      "url": "https://arxiv.org/pdf/2510.04782v2",
+      "sha256": "591d0bdf2c48d12f91d6c9a4beec32978bc1e9a9448b04ef0efdc4a84315373b",
+      "read": "2026-10-06",
+      "readSections": [
+        "§2.1, pp.13–15: Lemma 2.2 and Corollary 2.4 proof, finite completed descent",
+        "§2.2, pp.15–17: construction 2.7, Theorem 2.9 and its full proof, Remark 2.10"
+      ]
+    },
+    {
+      "id": "Wagner.qWitt.2024",
+      "title": "q-Witt vectors and q-Hodge complexes",
+      "authors": "Ferdinand Wagner",
+      "edition": "arXiv:2410.23078v5, submitted 6 October 2025; PDF dated 7 October 2025; numbered printed pages",
+      "url": "https://arxiv.org/pdf/2410.23078v5",
+      "sha256": "c1c7426f374a9f56d5ad6fb743f6cfc95e74ba9c35a96babd7ae5101a9dded01",
+      "read": "2026-10-06",
+      "readSections": [
+        "§2.6, pp.33–35: Proposition 2.48, Remark 2.49, Lemma 2.50, Corollaries 2.51–2.52 and their proofs",
+        "Parent HR.4 extraction and accepted RS-10/QW.0–QW.4 stage contracts for the imported §§1.3 and 2.2–2.5 theory; those sections are not newly re-extracted here"
+      ]
+    },
+    {
+      "id": "Stacks.04D1",
+      "title": "Étale ring maps lift along surjections of rings",
+      "authors": "The Stacks Project Authors",
+      "edition": "Tag 04D1, Lemma 10.143.10, live HTML accessed 6 October 2026",
+      "url": "https://stacks.math.columbia.edu/tag/04D1",
+      "sha256": "11a0a6e46f55de460fce17a06dc9202700ba0c0cf36583839f4cc0993f37a85a",
+      "read": "2026-10-06",
+      "readSections": [
+        "Entire lemma and proof: lift the equations of a zero-dimensional Jacobian presentation and invert the determinant"
+      ]
+    },
+    {
+      "id": "Stacks.0ALI",
+      "title": "Nilpotent invariance of étale algebras",
+      "authors": "The Stacks Project Authors",
+      "edition": "Tag 0ALI, Lemma 15.11.2, live HTML accessed 6 October 2026; use its nilpotent specialization",
+      "url": "https://stacks.math.columbia.edu/tag/0ALI",
+      "sha256": "77f4af37f94371d067830836f2d56c59f8c87104c013130ed8ecb0b4e484f588",
+      "read": "2026-10-06",
+      "readSections": [
+        "Entire lemma and proof of the equivalence of étale algebra categories; the additional henselian-pair conclusion is not a target"
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "HabiroRings:HR.4/marked-etale-deformation",
+      "parentStageId": "HabiroRings:HR.4",
+      "realises": [
+        "HabiroRings:HR.4"
+      ],
+      "title": "Marked étale algebra deformations",
+      "kind": "definition",
+      "statement": "For a commutative ring B, ideal I and étale B/I-algebra D, a marked étale deformation is an étale B-algebra E together with a B/I-algebra equivalence ε:(B/I)⊗_B E≅D. The carrier, its commutative-ring and B-algebra structures, its actual Algebra.Etale predicate and ε are data. A map E→E′ reduces to ε′∘((B/I)⊗g)∘ε⁻¹. A marked isomorphism has identity reduction when the target D is fixed. No module-finiteness, noetherianity or nilpotence is part of the definition.",
+      "hypotheses": [
+        "All rings and maps are unital; the zero ring is allowed.",
+        "The source D has its given B/I-algebra structure. A proposed deformation can be typed without separately assuming D étale, but its marking and base-change theorem imply that property.",
+        "Markings are remembered. For I not nilpotent, object lifts before completion need not be unique."
+      ],
+      "proofSteps": [
+        "Use the existing commutative-ring, algebra, étale and tensor-product types; package an algebra object and its reduction equivalence.",
+        "Define reduction of morphisms by scalar extension and conjugation by the markings. Tensor-product identity and composition give the functor laws.",
+        "The unit deformation has E=B; localization uses the existing étale localization theorem. For the split deformation use B[x]/(x²−x)≅B×B via evaluation at 0 and 1, with inverse (a,b)↦a+(b−a)x. Its one-variable Jacobian 2x−1 has square 1 in the quotient, so the existing dimension-zero submersive-presentation criterion gives étaleness, including the zero ring. Base change supplies its canonical product marking."
+      ],
+      "acceptance": [
+        "The identity marking on B/I gives the unit deformation with carrier B.",
+        "The transposition of the split deformation reduces to the transposition of (B/I)×(B/I), not the identity when B/I is nonzero.",
+        "The deformation for ℤ[1/2] at I=0 is admitted although its carrier is not a finite ℤ-module."
+      ],
+      "prerequisites": [
+        "mathlib:Algebra.Etale",
+        "mathlib:Algebra.Etale.baseChange",
+        "mathlib:Algebra.Etale.of_isLocalizationAway",
+        "mathlib:Algebra.TensorProduct.map",
+        "mathlib:Algebra.TensorProduct.quotientTensorEquiv",
+        "mathlib:Algebra.Etale.iff_isStandardSmoothOfRelativeDimension_zero",
+        "mathlib:Algebra.SubmersivePresentation.isStandardSmoothOfRelativeDimension"
+      ],
+      "sources": [
+        {
+          "sourceId": "Stacks.0ALI",
+          "locator": "Lemma 15.11.2, equivalence functor in the statement",
+          "excerpt": "B ↦ B/IB",
+          "match": "Packages the fibre of reduction with its specified identification; the marking makes uniqueness a precise statement."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "Wagner q-Habiro Theorem 2.9, first sentence of proof",
+          "how": "Records the chosen étale object lift of qW_m(R/A), so comparisons must induce its prescribed reduction identification."
+        },
+        {
+          "where": "HR.4 comparison naturality; HR.5 finite-stage Taylor identifications and HR.6 coefficient comparisons",
+          "how": "Keeps track of which lift and marking are transported along a presentation isomorphism or coefficient map."
+        }
+      ],
+      "api": [
+        {
+          "name": "EtaleDeformation.ofAlgebra",
+          "role": "constructor",
+          "statement": "Package an étale B-algebra E and ε:(B/I)⊗_B E≅D."
+        },
+        {
+          "name": "EtaleDeformation.carrier_etale",
+          "role": "instance",
+          "statement": "Every packaged carrier is Algebra.Etale over B, using the existing class."
+        },
+        {
+          "name": "EtaleDeformation.reduction_etale",
+          "role": "compatibility",
+          "statement": "D is étale over B/I by base change and the marking."
+        },
+        {
+          "name": "EtaleDeformation.transportMarking",
+          "role": "functoriality",
+          "statement": "For e:D≅D′, retain E and replace ε by e∘ε."
+        },
+        {
+          "name": "EtaleDeformation.reduceMap",
+          "role": "functoriality",
+          "statement": "A B-algebra map of carriers gives the specified conjugated B/I-algebra map between the marked targets."
+        },
+        {
+          "name": "EtaleDeformation.reduceMap_id",
+          "role": "simp",
+          "statement": "Reduction sends the identity to the identity."
+        },
+        {
+          "name": "EtaleDeformation.reduceMap_comp",
+          "role": "functoriality",
+          "statement": "Reduction sends h∘g to the composite of their reductions."
+        },
+        {
+          "name": "EtaleDeformation.unit",
+          "role": "constructor",
+          "statement": "The canonical deformation of B/I has carrier B and the tensor-unit marking."
+        },
+        {
+          "name": "EtaleDeformation.split",
+          "role": "constructor",
+          "statement": "The canonical deformation of (B/I)×(B/I) has carrier B×B and the product marking."
+        },
+        {
+          "name": "EtaleDeformation.localisation",
+          "role": "constructor",
+          "statement": "For a∈B, use E=B[1/a] and the identity marking of (B/I)⊗_B E; its reduced algebra is (B/I)[1/ā]."
+        }
+      ],
+      "tests": [
+        {
+          "name": "EtaleDeformation.test_unit",
+          "kind": "degenerate",
+          "statement": "The carrier of unit(I) is B as a B-algebra, including the zero-ring case."
+        },
+        {
+          "name": "EtaleDeformation.test_split_swap",
+          "kind": "computation",
+          "statement": "The swap automorphism of the split lift reduces, through the canonical marking, to (x,y)↦(y,x). For a nonzero B/I this changes (1,0)."
+        },
+        {
+          "name": "EtaleDeformation.test_localisation",
+          "kind": "non-example",
+          "statement": "At B=ℤ,I=0,a=2 the localization deformation has carrier ℤ[1/2] as a ℤ-algebra and is not a finite ℤ-module. Requiring module-finiteness would reject this valid étale deformation."
+        }
+      ],
+      "planet": {
+        "name": "Marked étale deformations"
+      },
+      "library": {
+        "module": "TauCeti/RingTheory/Habiro/EtaleDeformation",
+        "namespace": "TauCeti.Habiro.EtaleDeformation"
+      }
+    },
+    {
+      "id": "HabiroRings:HR.4/etale-quotient-lift",
+      "parentStageId": "HabiroRings:HR.4",
+      "realises": [
+        "HabiroRings:HR.4"
+      ],
+      "title": "Étale object lifting across a quotient",
+      "kind": "theorem",
+      "statement": "For every commutative B, ideal I and étale B/I-algebra D, there exists a marked étale deformation (E,ε) of D over B. This is existence of an algebra object, not merely a lift of a map out of an already given formally étale source. No nilpotence assumption on I is required.",
+      "hypotheses": [
+        "Étale means the existing formal étaleness plus finite presentation.",
+        "The lift E is an ordinary finitely presented B-algebra; it need not be finite as a B-module or uniquely determined away from the reduction locus."
+      ],
+      "proofSteps": [
+        "By the pinned relative-dimension-zero standard-smooth theorem, choose a finite presentation of D with equally many variables and equations and invertible Jacobian determinant.",
+        "Lift its polynomial equations to B and call their Jacobian determinant Δ. Adjoin an extra variable y and relation yΔ−1. The enlarged square Jacobian determinant is Δ² modulo the equations, hence is a unit. This supplies a dimension-zero submersive presentation and therefore an étale B-algebra E.",
+        "Reduction of E gives the original presentation with an inverse of the already invertible determinant; the inverse is unique, providing ε."
+      ],
+      "acceptance": [
+        "For I=0 choose E=D with its tensor-unit marking.",
+        "For B=ℤ,I=(2),D=𝔽₂[x]/(x²+x+1), one lift is ℤ[x]/(x²+x+1)[1/3]; its discriminant −3 is invertible.",
+        "For D=(B/I)[1/ā], lift a and take E=B[1/a]; no finite-module hypothesis is introduced."
+      ],
+      "prerequisites": [
+        "HabiroRings:HR.4/marked-etale-deformation",
+        "mathlib:Algebra.Etale.iff_isStandardSmoothOfRelativeDimension_zero",
+        "mathlib:Algebra.SubmersivePresentation.isStandardSmoothOfRelativeDimension"
+      ],
+      "sources": [
+        {
+          "sourceId": "Stacks.04D1",
+          "locator": "Lemma 10.143.10, whole proof",
+          "excerpt": "Just take some lifts",
+          "match": "The proof supplies algebra objects for arbitrary quotient ideals; the pinned Jacobian presentation theorem supplies its input."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "leanName": "TauCeti.Habiro.etale_quotient_lift"
+    },
+    {
+      "id": "HabiroRings:HR.4/nilpotent-deformation-rigidity",
+      "parentStageId": "HabiroRings:HR.4",
+      "realises": [
+        "HabiroRings:HR.4"
+      ],
+      "title": "Nilpotent invariance with reduction markings",
+      "kind": "theorem",
+      "statement": "If I⊂B is nilpotent and L=(E,ε), M=(E′,ε′) are marked étale deformations of D,D′, then reduction Hom_B(E,E′)→Hom_{B/I}(D,D′) is bijective. Together with étale object lifting, reduction gives an equivalence of categories of étale algebras. For a fixed D there is a unique marked isomorphism between any two lifts; its composites and identities agree with the marked comparisons. The nilpotent specialization suffices for all B/(f^n) and overlap thickening levels here.",
+      "hypotheses": [
+        "I has a finite nilpotence exponent. The statement does not assert rigidity for arbitrary quotient ideals.",
+        "All morphisms preserve the specified algebra structures; mark-preserving isomorphisms, rather than unmarked carrier equalities, express uniqueness."
+      ],
+      "proofSteps": [
+        "Translate a morphism D→D′ through the markings to E→E′/IE′. Apply the existing formally smooth nilpotent map-lifting theorem for existence. The ideal IE′ is nilpotent.",
+        "Apply the existing formally unramified uniqueness theorem to two lifts. Transport this bijection through quotient/tensor equivalences.",
+        "Lift an isomorphism and its inverse. Their composites reduce to identities and so equal identities by uniqueness. The object-lifting theorem supplies essential surjectivity."
+      ],
+      "acceptance": [
+        "At B=ℤ/4,I=(2), the unit deformation of 𝔽₂ has a unique marked self-map.",
+        "For D=(B/I)², the swap of D lifts to a swap of E; it is not a second map with identity marking.",
+        "Removing nilpotence breaks object rigidity: over B=ℤ[t], I=(t), E=B and E′=B[1/(1−t)] have the same reduced unit algebra but are not isomorphic before completion."
+      ],
+      "prerequisites": [
+        "HabiroRings:HR.4/marked-etale-deformation",
+        "HabiroRings:HR.4/etale-quotient-lift",
+        "mathlib:Algebra.FormallySmooth.exists_lift",
+        "mathlib:Algebra.FormallyUnramified.lift_unique",
+        "mathlib:Algebra.TensorProduct.quotientTensorEquiv"
+      ],
+      "sources": [
+        {
+          "sourceId": "Stacks.0ALI",
+          "locator": "Lemma 15.11.2, equivalence proof",
+          "excerpt": "an equivalence",
+          "match": "Uses the nilpotent specialization, with pinned formal smoothness and formal unramifiedness replacing the source’s map-lifting and diagonal arguments."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "leanName": "TauCeti.Habiro.nilpotent_deformation_rigidity"
+    },
+    {
+      "id": "HabiroRings:HR.4/completed-etale-deformation",
+      "parentStageId": "HabiroRings:HR.4",
+      "realises": [
+        "HabiroRings:HR.4"
+      ],
+      "title": "Completion of a marked étale deformation",
+      "kind": "construction",
+      "statement": "Let B be commutative, I⊂B finitely generated, D an étale B/I-algebra and L=(E,ε) a marked étale deformation. Set W=CompletedEtaleLift(I,L):=lim_n E/I^nE, using the existing ordinary AdicCompletion carrier. It is a commutative B-algebra, complete for IW, with its canonical map E→W and marking (B/I)⊗_B W≅D. For each n≥1, W/I^nW≅E/I^nE is étale over B/I^n. The morphism/comparison API is furnished by the following completed-deformation-map-equivalence lemma. No assertion that W is étale or flat over the completed base is included.",
+      "hypotheses": [
+        "I is finitely generated for ordinary completeness and the quotient-identification API; the compatible-family carrier itself is defined for any I.",
+        "The completed ring is not a new completion theory. Derived compatibility requires the separate principal regular theorem and DD.1.",
+        "Finite presentation of E as an algebra does not imply module-finiteness."
+      ],
+      "proofSteps": [
+        "Reuse AdicCompletion for IE⊂E and its compatible quotient families. The image of a finitely generated ideal is finitely generated.",
+        "Apply AdicCompletion.isAdicComplete. The kernel-of-evaluation-at-one theorem and eval_surjective identify W/IW with E/IE, followed by the given marking. For every n, apply AdicCompletion.pow_smul_top_eq_ker_eval to IE and eval_surjective at n: the extended (IE)^n equals the evaluation kernel, so W/I^nW≅E/I^nE. This uses the original completion directly, rather than changing its defining ideal to I^n.",
+        "Compose the tensor/quotient comparison with ε; the canonical completion map reduces to ε. Base change of the existing étale E gives étaleness at each nilpotent level.",
+        "Use the separate map-equivalence lemma to assemble functorial maps and unique marked comparisons; do not treat a selected quotient-object lift as canonical before completion."
+      ],
+      "acceptance": [
+        "At I=0 the completed algebra is D through ε.",
+        "If I is nilpotent, E→W is an algebra equivalence, even without finite generation for this particular test.",
+        "The split deformation has W≅B̂_I×B̂_I; when B/I is nonzero, the map lifting the reduced transposition is not the identity.",
+        "For B=ℤ[t], I=(t), E=B[1/2], the completion is ℤ[1/2][[t]]. Its coefficients need no common denominator bound: ∑_n t^n/2^n is an element."
+      ],
+      "prerequisites": [
+        "HabiroRings:HR.4/marked-etale-deformation",
+        "mathlib:AdicCompletion",
+        "mathlib:AdicCompletion.isAdicComplete",
+        "mathlib:AdicCompletion.eval_surjective",
+        "mathlib:AdicCompletion.ker_evalOneₐ_eq_map",
+        "mathlib:AdicCompletion.pow_smul_top_eq_ker_eval",
+        "mathlib:Algebra.TensorProduct.quotientTensorEquiv",
+        "mathlib:Algebra.Etale.baseChange",
+        "mathlib:MvPowerSeries.toAdicCompletionAlgEquiv"
+      ],
+      "sources": [
+        {
+          "sourceId": "Wagner.qHodgeHabiro.2025",
+          "locator": "Theorem 2.9, pp.16–17, first proof paragraph",
+          "excerpt": "Let, temporarily, W denote the unique lift",
+          "match": "Makes the ordinary completed lift in the proof explicit; its enhanced universal property is a separate target, not assumed by the definition."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "Theorem 2.9, deformation W and its cyclotomic reductions",
+          "how": "Supplies the actual ordinary algebra and its fixed marking before comparing with E_d and H_{R/A,m}."
+        },
+        {
+          "where": "HR.4 transition and naturality statements; HR.5 Taylor comparisons",
+          "how": "Supplies canonical maps on completed lifts and independence from the selected étale presentation."
+        }
+      ],
+      "api": [
+        {
+          "name": "CompletedEtaleLift.instCommRing",
+          "role": "instance",
+          "statement": "The existing completion ring structure."
+        },
+        {
+          "name": "CompletedEtaleLift.instAlgebra",
+          "role": "instance",
+          "statement": "The B-algebra structure induced from E."
+        },
+        {
+          "name": "CompletedEtaleLift.of",
+          "role": "constructor",
+          "statement": "The B-algebra map E→W of the existing completion unit."
+        },
+        {
+          "name": "CompletedEtaleLift.complete",
+          "role": "characterisation",
+          "statement": "W is complete for the extended ideal IW, for I finitely generated."
+        },
+        {
+          "name": "CompletedEtaleLift.reductionEquiv",
+          "role": "equivalence",
+          "statement": "The marked B/I-algebra equivalence (B/I)⊗_B W≅D."
+        },
+        {
+          "name": "CompletedEtaleLift.reduction_of",
+          "role": "compatibility",
+          "statement": "Reducing E→W and then applying the completed marking equals ε."
+        },
+        {
+          "name": "CompletedEtaleLift.homEquiv",
+          "role": "universal-property",
+          "statement": "For every ordinary IW-complete B-algebra C, reduction identifies Hom_B(W,C) with Hom_{B/I}(D,(B/I)⊗_B C). This API item is promoted to completed-deformation-map-equivalence."
+        },
+        {
+          "name": "CompletedEtaleLift.map",
+          "role": "functoriality",
+          "statement": "Lift a B/I-algebra map g:D→D′ uniquely to W_L→W_M for any two selected object lifts."
+        },
+        {
+          "name": "CompletedEtaleLift.map_reduction",
+          "role": "simp",
+          "statement": "The completed map reduces to g under the two markings."
+        },
+        {
+          "name": "CompletedEtaleLift.map_id",
+          "role": "simp",
+          "statement": "The lift of the identity is the identity."
+        },
+        {
+          "name": "CompletedEtaleLift.map_comp",
+          "role": "functoriality",
+          "statement": "The lift of h∘g equals the composite of the lifted maps."
+        },
+        {
+          "name": "CompletedEtaleLift.equivOfMarking",
+          "role": "equivalence",
+          "statement": "For two object lifts of D, the unique map inducing identity on D is an algebra equivalence of their completions."
+        },
+        {
+          "name": "CompletedEtaleLift.equivOfMarking_reduction",
+          "role": "compatibility",
+          "statement": "The comparison intertwines the two markings."
+        },
+        {
+          "name": "CompletedEtaleLift.equivOfMarking_trans",
+          "role": "functoriality",
+          "statement": "The marked comparisons satisfy the transitivity law; inverse and identity follow from map_comp and map_id."
+        }
+      ],
+      "tests": [
+        {
+          "name": "CompletedEtaleLift.test_zero_ideal",
+          "kind": "degenerate",
+          "statement": "At I=0, W≅D as a B-algebra, with the B-algebra structure on D obtained by restricting scalars from B/I."
+        },
+        {
+          "name": "CompletedEtaleLift.test_nilpotent",
+          "kind": "characterisation",
+          "statement": "If I is nilpotent, the canonical completion map E→W is bijective, hence an algebra equivalence. Each quotient family is eventually constant; finite generation is not needed for this test."
+        },
+        {
+          "name": "CompletedEtaleLift.test_split_swap",
+          "kind": "non-example",
+          "statement": "For B/I nonzero, the unique completed map lifting the reduced transposition of D=(B/I)² is not the identity, since its reduction moves (1,0)."
+        },
+        {
+          "name": "CompletedEtaleLift.test_localisation_series",
+          "kind": "computation",
+          "statement": "For B=ℤ[t], I=(t), L the étale localization at 2, W≅ℤ[1/2][[t]], intertwining the B-structure with polynomial evaluation at the power-series variable. Completion admits ∑_n t^n/2^n; replacing W by ℤ[[t]][1/2] would wrongly exclude it."
+        }
+      ],
+      "planet": {
+        "name": "Completed étale deformations"
+      },
+      "library": {
+        "module": "TauCeti/RingTheory/Habiro/EtaleDeformation",
+        "namespace": "TauCeti.Habiro.CompletedEtaleLift"
+      }
+    },
+    {
+      "id": "HabiroRings:HR.4/completed-deformation-map-equivalence",
+      "parentStageId": "HabiroRings:HR.4",
+      "realises": [
+        "HabiroRings:HR.4"
+      ],
+      "title": "Maps from completed étale deformations",
+      "kind": "lemma",
+      "statement": "For the finitely generated ideal I and W_L above, and every ordinary commutative B-algebra C complete for IC, reduction through the marking is a natural bijection Hom_B(W_L,C)≅Hom_{B/I}(D,(B/I)⊗_B C). In particular, a map D→D′ lifts uniquely between completed deformations; a reduced isomorphism lifts to an isomorphism, and the marked comparisons are independent of presentations and satisfy identity/composition/transitivity.",
+      "hypotheses": [
+        "Completeness is ordinary IsAdicComplete for the extended ideal IC. This theorem concerns ordinary algebra maps, not enhanced mapping spaces.",
+        "No continuity assumption is added to the hom-set: every B-algebra map sends I^n to I^n and hence is I-adically continuous."
+      ],
+      "proofSteps": [
+        "Precompose a reduced map with E→D and identify the target quotient by the existing quotient/tensor comparison. Algebra.FormallySmooth.exists_mkₐ_comp_eq_of_isAdicComplete supplies an E→C lift.",
+        "The complete target is separated. Algebra.FormallyUnramified.ext_of_iInf makes that lift unique. Thus this step uses the existing adic map-lifting and rigidity declarations rather than planning a duplicate theorem.",
+        "At each power of I reduce the E→C map and extend over W/I^nW≅E/I^nE. These maps are compatible; AdicCompletion.liftAlgHom and ofAlgEquiv assemble a W→C map.",
+        "Every W→C map is determined by its quotient-level maps; uniqueness at each nilpotent level, or separatedness plus the dense completion unit, proves the claimed bijection. Reduced identities and composites lift uniquely; lift an inverse to obtain marked equivalences."
+      ],
+      "acceptance": [
+        "The hom-set for W=B̂_I and C complete is the singleton containing the structure map, matching Hom_{B/I}(B/I,C/IC).",
+        "For split D=(B/I)², reduction distinguishes identity from transposition.",
+        "For two lifts B and B[1/(1−t)] over B=ℤ[t], I=(t), the completed comparison is an isomorphism although the original lifts are not isomorphic."
+      ],
+      "prerequisites": [
+        "HabiroRings:HR.4/completed-etale-deformation",
+        "mathlib:Algebra.FormallySmooth.exists_mkₐ_comp_eq_of_isAdicComplete",
+        "mathlib:Algebra.FormallyUnramified.ext_of_iInf",
+        "mathlib:AdicCompletion.liftAlgHom",
+        "mathlib:AdicCompletion.ofAlgEquiv",
+        "HabiroRings:HR.4/nilpotent-deformation-rigidity",
+        "mathlib:Algebra.TensorProduct.quotientTensorEquiv"
+      ],
+      "sources": [
+        {
+          "sourceId": "Stacks.0ALI",
+          "locator": "Lemma 15.11.2, full-faithfulness argument applied at each finite power",
+          "excerpt": "an equivalence",
+          "match": "The nilpotent-level bijections, together with pinned complete-target existence and separated-target rigidity, prove the completed morphism statement."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "leanName": "TauCeti.Habiro.CompletedEtaleLift.homEquiv"
+    },
+    {
+      "id": "HabiroRings:HR.4/complete-principal-deformation-universality",
+      "parentStageId": "HabiroRings:HR.4",
+      "realises": [
+        "HabiroRings:HR.4"
+      ],
+      "title": "Unique complete principal étale deformation",
+      "kind": "theorem",
+      "statement": "Let B be a commutative ring, f∈B a nonzerodivisor, D an étale B/(f)-algebra, L an étale object lift and W=CompletedEtaleLift((f),L). Viewed as an E∞-B-algebra, W is derived f-complete and static, f is a nonzerodivisor on W, and its derived cofibre quotient W/^L f is D with the prescribed marking. For every derived f-complete E∞-B-algebra C and equivalence ε_C:C/^L f≃D, the space of equivalences W≃C whose reduction intertwines ε_C and ε_W is contractible. Consequently C is static and f-regular too. The B̂_(f)-algebra version follows by the complete-base action; it is the uniqueness needed in Theorem 2.9.",
+      "hypotheses": [
+        "The quotient C/^L f is the underlying-module derived cofibre, equipped with its derived algebra structure, not the ordinary quotient of π₀C.",
+        "The comparison space is a homotopy fibre over the fixed reduced equivalence. Existence of some unmarked isomorphism does not express this statement.",
+        "No noetherianity, no module-finiteness of D, and no flatness or étaleness of W over B̂_(f) are asserted."
+      ],
+      "proofSteps": [
+        "The chosen E is étale and hence flat over B, so f is regular on E. DD.1 identifies its derived completion with the ordinary quotient tower E/f^nE. That tower is static with surjective transition maps, so its homotopy limit W is static. Elementary compatible-quotient calculations show f is regular on W; W/fW≅D is then also a derived quotient.",
+        "For a proposed C, the successive-power cofibre triangles express C/^L f^n as extensions of n copies of C/^L f. Thus each is static; the maps on degree zero of this f-power tower are surjective. Derived completeness identifies C with their homotopy limit. The Milnor sequence, with vanishing lim¹, implies C is static. Its quotient long exact sequence then implies f is regular on π₀C.",
+        "DD.1 supplies ordinary/derived completion comparison for this regular principal situation, so the actual ring π₀C is ordinarily f-complete. Apply completed-deformation-map-equivalence to the prescribed reduced map and obtain W→π₀C. Its reduction is an equivalence, so principal derived Nakayama makes it an equivalence.",
+        "Use the fully faithful enhanced embedding of static commutative B-algebras: their mapping spaces are discrete. The reduced hom-set bijection leaves exactly one point in the marked comparison fibre, including all its higher homotopies. Extend the base action to B̂_(f) by its universal property."
+      ],
+      "acceptance": [
+        "For B=ℤ[t], f=t, D=ℤ[1/2], the universal deformation is ℤ[1/2][[t]], including unbounded coefficient denominators.",
+        "For D=(B/(f))², the identity marking has a contractible comparison fibre; the reduced swap belongs to a different fibre.",
+        "C=B/(f) with f acting by zero is generally excluded: although its ordinary quotient by f is itself, its derived quotient has π₁=B/(f), so it is not D concentrated in degree zero.",
+        "Changing E to another étale object lift changes W by its unique marked equivalence, coherently under three choices."
+      ],
+      "prerequisites": [
+        "HabiroRings:HR.4/etale-quotient-lift",
+        "HabiroRings:HR.4/completed-etale-deformation",
+        "HabiroRings:HR.4/completed-deformation-map-equivalence",
+        "mathlib:Algebra.Smooth.flat",
+        "DerivedDeRhamCohomology:DD.1",
+        "EnhancedDerivedSheaves:E1",
+        "EnhancedDerivedSheaves:E5:abstract"
+      ],
+      "sources": [
+        {
+          "sourceId": "Wagner.qHodgeHabiro.2025",
+          "locator": "Theorem 2.9, pp.16–17, unique completed deformation and staticity",
+          "excerpt": "the unique lift",
+          "match": "Supplies the proof obligation suppressed by the word unique: object existence, staticity, derived reduction and contractible marked equivalences. The corrected theorem assumes R étale and staticity is detected modulo q^m−1."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "leanName": "TauCeti.Habiro.complete_principal_deformation_universality"
+    },
+    {
+      "id": "HabiroRings:HR.4/cyclotomic-ghost-lift-coherence",
+      "parentStageId": "HabiroRings:HR.4",
+      "realises": [
+        "HabiroRings:HR.4"
+      ],
+      "title": "Coherent lifting of the relative ghost diagram",
+      "kind": "lemma",
+      "statement": "Let A be a perfectly covered torsion-free Λ-ring, R an étale A-algebra, m≥1, B=A[q], f=q^m−1 and D=qW_m(R/A). Choose its marked complete étale deformation W. Put T_d=R⊗_{A,ψ^d}A and E_d=(T_d[q])^∧_{Φ_d(q)} for every d|m. The relative ghosts canonically identify W^∧_{Φ_d(q)}≃E_d with reductions gh_{m/d}. For every prime edge pd|m these comparisons carry the overlap identifications for W to the linearized relative Frobenius overlap isomorphism (E_pd)^∧_p≃(E_d)^∧_p used by HR.3. The comparison includes a specified path for each edge and all coherences supplied by unique marked lifting. It yields a coherent HR.3 section, an equivalence W≃H_{R/A,m}, and natural comparisons on mapping spaces, not merely commuting squares of π₀ rings.",
+      "hypotheses": [
+        "Perfect covering is the HR.1 faithfully flat map A→A_∞; étaleness of R is essential. The q-Witt coefficient theory is imported from the parent, with QW.3/QW.4 permanent ownership.",
+        "All completions and reductions here are derived. Their ordinary identifications are used only after the stated regularity/staticity comparisons.",
+        "The Frobenius input is the HR.1 linearized map over ψ^p on p-completions, reducing to relative Frobenius on R/p. No global Frobenius lift on R is assumed."
+      ],
+      "proofSteps": [
+        "By QW.4, D is étale over B/(f), and its derived base change along the cyclotomic quotient is T_d[q]/Φ_d. Since f and Φ_d are monic, and T_d is flat over A, the principal regular deformation theorem identifies the Φ_d-completed W with E_d, respecting the relative ghost marking. Here T_d is étale over A by base change of R and is flat by Algebra.Smooth.flat; polynomial base change gives the étale B-algebras used at the finite overlap levels.",
+        "For pd|m, use the relative ghost/Frobenius square reduced modulo p, whose bottom map is relative Frobenius. Étaleness makes that relative Frobenius an isomorphism. The radicals of (p,Φ_d) and (p,Φ_pd) coincide by the imported cyclotomic arithmetic. HR.1 supplies its linearized p-complete lift.",
+        "Reduce the two maps on the overlap through powers of J=(p,Φ_d) (or its radical-equivalent presentation). Nilpotent étale rigidity makes the prescribed lifts unique at every finite level; DD.1 identifies the overlap completion with this tower in the regular two-generator situation. The static-algebra embedding makes the marked map fibre contractible, giving the canonical edge path and its higher coherence.",
+        "Apply the actual HR.3 coherent diagram and reconstruction, using its prime-edge mapping-space theorem. The local comparisons induce W→H and are equivalences at every cyclotomic vertex, hence the comparison is an equivalence by the finite localization contract. Naturality follows from equality in the marked fibres, retained as paths in the section mapping space."
+      ],
+      "acceptance": [
+        "For R=A, D=A[q]/(f) and W=B̂_(f); all local markings are the tensor-unit identifications.",
+        "For m=1 the only vertex is d=1 and no edge path is needed: H_{R/A,1}≅R[[q−1]].",
+        "For m=6 the four prime edges 1→2,1→3,2→6,3→6 each have a specified comparison path. The height-one HR.3 incidence diagram imposes no extra cycle equation.",
+        "For d|m, the comparison satisfies gh_{m/c}=gh_{d/c}∘F_{m/d} for c|d, which is the imported transition theorem’s quotient test."
+      ],
+      "prerequisites": [
+        "HabiroRings:HR.4/complete-principal-deformation-universality",
+        "HabiroRings:HR.4/completed-deformation-map-equivalence",
+        "HabiroRings:HR.4/relative-q-witt-rings",
+        "HabiroRings:HR.4/ghost-maps-and-etale-base-change",
+        "HabiroRings:HR.1/perfectly-covered",
+        "HabiroRings:HR.1/the-etale-frobenius-lift",
+        "HabiroRings:HR.1/relative-frobenius-of-an-etale-algebra",
+        "HabiroRings:HR.3/the-divisor-poset-and-its-intersections",
+        "HabiroRings:HR.3/coherent-completion-diagram",
+        "HabiroRings:HR.3/finite-localisation-contract",
+        "HabiroRings:HR.3/reconstruction-functor",
+        "HabiroRings:HR.3/prime-edge-mapping-spaces",
+        "HabiroRings:HR.4/q-witt-vectors-of-etale-maps",
+        "DerivedDeRhamCohomology:DD.1",
+        "EnhancedDerivedSheaves:E1",
+        "EnhancedDerivedSheaves:E5:abstract",
+        "HabiroRings:HR.4/nilpotent-deformation-rigidity",
+        "mathlib:Algebra.Etale.baseChange",
+        "mathlib:Algebra.Smooth.flat"
+      ],
+      "sources": [
+        {
+          "sourceId": "Wagner.qHodgeHabiro.2025",
+          "locator": "Theorem 2.9 full proof, pp.16–17, the two ghost diagrams",
+          "excerpt": "After passing to unique deformations",
+          "match": "Expands the coherent-map step and verifies that the induced local maps are the relative ghosts, using the accepted HR.3 reconstruction rather than a new finite-limit construction."
+        },
+        {
+          "sourceId": "Wagner.qWitt.2024",
+          "locator": "Corollary 2.51, p.34, statement and proof",
+          "excerpt": "pushout diagram",
+          "match": "Its pushout identifies W/Φ_d. Use the corrected proper-divisor cokernel in the proof (source issue E17)."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "leanName": "TauCeti.Habiro.cyclotomic_ghost_lift_coherence"
+    }
+  ],
+  "requests": [
+    {
+      "supplier": "QWittVectors:QW.0",
+      "need": "Permanent owner on atomic RS-10 installation: big Witt vectors on divisor truncation sets; étaleness of W_m(R)→W_m(R′) for every étale map, and the Frobenius pushout W_m(R′)⊗_{W_m(R),F_{m/d}}W_d(R)≅W_d(R′), without F-finiteness hypotheses. Include the filtered finite-type descent and truncation-set decomposition in Remark 2.49. Existing HR.4/truncated-big-witt-vectors is the interim definition, not a proof of these étale theorems. The theorem’s unexpanded literature inputs remain an honest supplier gap.",
+      "neededBy": [
+        "HabiroRings:HR.4/q-witt-vectors-of-etale-maps",
+        "HabiroRings:HR.4/ghost-maps-and-etale-base-change"
+      ]
+    },
+    {
+      "supplier": "DerivedDeRhamCohomology:DD.1",
+      "need": "Supply the generic exact derived completion, completeness closed under limits, reduction invariance and derived Nakayama already requested by HR.2/3. Refine the principal regular specialization: for f a nonzerodivisor and E flat over B, derived completion is lim_n E/f^nE; it is the ordinary completion, static and f-regular. If derived f-complete C has static derived C/f, successive-power cofibre triangles and the Milnor sequence imply C is static and f-regular and π₀C ordinarily f-complete. For overlaps in flat twisted A[q]-algebras, (p,Φ_d) is a regular two-generator ideal: give the ordinary quotient-tower comparison and radical-independence coherences for its completion. No unconditional t-exactness, no noetherian hypothesis and no surjectivity of the m-divisor transition maps are asserted.",
+      "neededBy": [
+        "HabiroRings:HR.4/complete-principal-deformation-universality",
+        "HabiroRings:HR.4/cyclotomic-ghost-lift-coherence",
+        "HabiroRings:HR.4/the-etale-lift",
+        "HabiroRings:HR.4/the-limit-of-the-finite-stages-is-static"
+      ]
+    },
+    {
+      "supplier": "EnhancedDerivedSheaves:E1",
+      "need": "Supply the fully faithful embedding of ordinary static commutative B-algebras into actual enhanced commutative B-algebras (compatible with the completed monoidal setting), identifying mapping spaces between static algebras with the discrete algebra-hom sets. Supply fibre/limit and Milnor-sequence interfaces for the regular quotient towers used here, in the required universe. Staticity and contractible marked comparison fibres must be expressed using real enhanced carriers.",
+      "neededBy": [
+        "HabiroRings:HR.4/complete-principal-deformation-universality",
+        "HabiroRings:HR.4/cyclotomic-ghost-lift-coherence"
+      ]
+    },
+    {
+      "supplier": "EnhancedDerivedSheaves:E5:abstract",
+      "need": "Supply actual E∞-B-algebra objects, their equivalences and mapping spaces, the complete-base action, and compatibility of forgetful functors with the finite completion/section limits already requested by HR.3. Identify the static complete algebra subcategory with ordinary complete algebras and retain the path data in HR.3 prime-edge section mapping spaces. Do not replace enhanced objects by ordinary rings plus an arbitrary proposition.",
+      "neededBy": [
+        "HabiroRings:HR.4/complete-principal-deformation-universality",
+        "HabiroRings:HR.4/cyclotomic-ghost-lift-coherence"
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "HabiroRings:HR.4",
+      "status": "planned",
+      "remaining": [
+        "Discharge the QW.0 ordinary big-Witt étale/Frobenius-pushout input and the DD.1/E1/E5 enhanced refinements, including the generic supplier gaps inherited from HR.3.",
+        "Install the actual coefficient/enhanced carriers and type the two named enhanced signatures.",
+        "On accepted RS-10 atomic installation, move existing degree-zero q-Witt nodes and consumers to QW.2–QW.4 and big-Witt/Λ interfaces to QW.0/QW.1; do not keep parallel implementations."
+      ],
+      "note": "All twelve parent HR.4 targets remain imports: absolute/relative q-Witt, F/V/ghost/no restriction, c_m, q-Witt étale/ghost pushouts and obstruction, finite H_{R/A,m}, Theorem 2.9, Frobenius transitions and global static inverse limit. Seven new support nodes make the missing object deformation and coherent comparison obligations explicit, with API and tests. The three parent HR.4 gaps are accounted for: Λ gap supplied by accepted HR.1; deformation gap planned here conditional on exact generic suppliers; big-Witt étale gap retained explicitly. This completed target-level pass is not closed."
+    }
+  ],
+  "gaps": [
+    {
+      "title": "Supplier refinements and inherited big-Witt étale theorem are not yet decomposed",
+      "neededBy": [
+        "HabiroRings:HR.4/complete-principal-deformation-universality",
+        "HabiroRings:HR.4/cyclotomic-ghost-lift-coherence",
+        "HabiroRings:HR.4/q-witt-vectors-of-etale-maps",
+        "HabiroRings:HR.4/ghost-maps-and-etale-base-change"
+      ],
+      "detail": "The completed étale-object deformation gap is supplied at target level by this seven-node graph. The parent Λ/Wilkerson gap is imported from accepted HR.1. The parent big-Witt étale/Frobenius-pushout gap remains a QW.0 obligation, not proved by quoting Remark 2.49 or the still-draft QW roadmap. Exact DD.1 regular-tower, E1 static algebra and E5:abstract compatibility refinements, and HR.3’s own generic supplier gaps, are also open. The requests identify their sole owners and consumers; they are not implementation claims."
+    },
+    {
+      "title": "Enhanced and coefficient signatures lack supplied Lean carriers",
+      "neededBy": [
+        "HabiroRings:HR.4/complete-principal-deformation-universality",
+        "HabiroRings:HR.4/cyclotomic-ghost-lift-coherence"
+      ],
+      "detail": "The pinned libraries have ordinary étale algebras and completion but no installed big/relative q-Witt, Λ/Adams, derived complete E∞ algebra, or enhanced coherent-section API. The suggested file elaborates genuine ordinary marked algebra/completion signatures, all 24 API items and seven discriminating definition/construction tests. Its two enhanced targets are explicitly named mathematical omissions with exact supplier contracts. They must be instantiated using supplied carriers; no opaque stand-in or proposition-valued placeholder counts as a signature."
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "HabiroRings/E15",
+      "source": "Wagner.qWitt.2024",
+      "kind": "misprint",
+      "locator": "Lemma 2.50 proof, printed p.34, arXiv:2410.23078v5; author copy 14 January 2026 p.33",
+      "printed": "W_m(R′) ≅ coker(M′ ⊕ N′ → W_m(R′)[q]); equip W_{m/d}(R)[q]",
+      "correction": "The left side of the first expression is qW_m(R′). The module carrying the F_{m/d}-action is W_d(R)[q].",
+      "reason": "Definition 2.10 gives the q-Witt quotient, not W_m. For m=3 and R′=ℤ, the cokernel qW_3(ℤ)≅ℤ[q]/(q³−1) has additive rank three, while W_3(ℤ), a ghost lattice in ℤ², has additive rank two. The displayed summands and the explicitly displayed codomain of F_{m/d} are W_d, not W_{m/d}.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "https://arxiv.org/abs/2410.23078: history through v5 (6 October 2025), no later version or erratum listed, checked 2026-10-06.",
+        "https://ferdinand-wagner.github.io/: paper entry and author copy q-Witt.pdf dated 14 January 2026; no correction linked. The same local expressions remain on pp.33–34.",
+        "Public searches for the title plus erratum/corrigendum/correction on 2026-10-06 found no correction.",
+        "All existing packet sourceIssues were searched: parent E12 concerns Proposition 2.48, while HR.1 E13/E14 concern Hesselholt; these three findings are distinct."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in arXiv v5 p.34 and the author copy p.33: the displayed cokernel is the q-Witt quotient, not the ordinary Witt ring, and the F_{m/d} target is W_d. The m=3, R′=ℤ rank comparison distinguishes the first expressions; the module summands distinguish the second. Corrected the author-copy page locator.",
+        "by": "REV-HabiroRings--HR.4"
+      }
+    },
+    {
+      "id": "HabiroRings/E16",
+      "source": "Wagner.qWitt.2024",
+      "kind": "misprint",
+      "locator": "Remark 2.49, printed p.33, arXiv:2410.23078v5; author copy 14 January 2026 p.33",
+      "printed": "qW_m(R) → qW_m(R′); W_{p^α}(R) → W_{p^α}(R′)",
+      "correction": "In this remark about ordinary Witt vectors the introductory map is W_m(R)→W_m(R′). The two bottom objects of the F_p pushout square are W_{p^(α−1)}(R) and W_{p^(α−1)}(R′).",
+      "reason": "The remark supplies the ordinary-Witt analogue needed to prove q-Witt étaleness; using q-Witt étaleness as its starting point would be circular. The upper objects have truncation set divisors of p^α; F_p lowers that set to divisors of p^(α−1). At α=1 the lower objects are W_1=R,R′, not W_p.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "https://arxiv.org/abs/2410.23078: history through v5 (6 October 2025), no later version or erratum listed, checked 2026-10-06.",
+        "https://ferdinand-wagner.github.io/: paper entry and author copy q-Witt.pdf dated 14 January 2026; no correction linked. The same local expressions remain on pp.33–34.",
+        "Public searches for the title plus erratum/corrigendum/correction on 2026-10-06 found no correction.",
+        "All existing packet sourceIssues were searched: parent E12 concerns Proposition 2.48, while HR.1 E13/E14 concern Hesselholt; these three findings are distinct."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in Remark 2.49 p.33 of both copies. The introductory étaleness input must be ordinary Witt étaleness. F_p lowers divisors of p^α to divisors of p^(α−1), so both lower labels must have exponent α−1; the α=1 case has lower rings R and R′.",
+        "by": "REV-HabiroRings--HR.4"
+      }
+    },
+    {
+      "id": "HabiroRings/E17",
+      "source": "Wagner.qWitt.2024",
+      "kind": "misprint",
+      "locator": "Corollary 2.51 proof, printed p.34, arXiv:2410.23078v5; author copy 14 January 2026 p.34",
+      "printed": "M := ⊕_{d|m} qW_d(R/A)",
+      "correction": "Sum over proper divisors d|m, d<m, and use that same proper-divisor indexing for the Verschiebung map.",
+      "reason": "The printed indexing includes d=m and V_1=id, so the purported ghost cokernel is zero. At m=1 and R=A=ℤ the actual ghost is the identity of ℤ; the corrected proper-divisor sum is empty, while the printed sum has cokernel zero.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "https://arxiv.org/abs/2410.23078: history through v5 (6 October 2025), no later version or erratum listed, checked 2026-10-06.",
+        "https://ferdinand-wagner.github.io/: paper entry and author copy q-Witt.pdf dated 14 January 2026; no correction linked. The same local expressions remain on pp.33–34.",
+        "Public searches for the title plus erratum/corrigendum/correction on 2026-10-06 found no correction.",
+        "All existing packet sourceIssues were searched: parent E12 concerns Proposition 2.48, while HR.1 E13/E14 concern Hesselholt; these three findings are distinct."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in Corollary 2.51 p.34 of both copies. Including d=m introduces the identity Verschiebung V_1, making the displayed cokernel zero. At m=1, A=R=ℤ the ghost is the identity of ℤ; only the proper-divisor indexing gives the correct cokernel.",
+        "by": "REV-HabiroRings--HR.4"
+      }
+    }
+  ],
+  "imports": [
+    {
+      "packet": "research/blueprint/packets/HabiroRings.json",
+      "nodes": [
+        "HabiroRings:HR.4/relative-q-witt-rings",
+        "HabiroRings:HR.4/there-is-no-restriction-map",
+        "HabiroRings:HR.4/the-etale-lift",
+        "HabiroRings:HR.4/the-transitions-are-frobenius",
+        "HabiroRings:HR.4/truncated-big-witt-vectors",
+        "HabiroRings:HR.4/q-witt-vectors",
+        "HabiroRings:HR.4/the-lambda-ring-comparison-maps",
+        "HabiroRings:HR.4/q-witt-vectors-of-etale-maps",
+        "HabiroRings:HR.4/ghost-maps-and-etale-base-change",
+        "HabiroRings:HR.4/an-isomorphism-with-the-naive-quotient-forces-a-frobenius-lift",
+        "HabiroRings:HR.4/the-finite-relative-habiro-rings",
+        "HabiroRings:HR.4/the-limit-of-the-finite-stages-is-static"
+      ],
+      "provides": "All twelve accepted HR.4 targets, with corrected statements and existing API/tests; none is copied or replanned. This supplement refines the object-deformation and coherent-comparison gaps supporting their proofs."
+    },
+    {
+      "packet": "research/blueprint/packets/HabiroRings--HR.1.json",
+      "nodes": [
+        "HabiroRings:HR.1/big-witt-comonad",
+        "HabiroRings:HR.1/big-witt-comonad-laws",
+        "HabiroRings:HR.1/lambda-coalgebra",
+        "HabiroRings:HR.1/coalgebra-adams-laws",
+        "HabiroRings:HR.1/adams-to-witt-section",
+        "HabiroRings:HR.1/adams-witt-section-laws",
+        "HabiroRings:HR.1/wilkerson-comparison",
+        "HabiroRings:HR.1/big-witt-cofree-adjunction",
+        "HabiroRings:HR.1/free-lambda-perfect-cover"
+      ],
+      "provides": "Accepted target-level resolution of the parent Λ/big-Witt-coalgebra/Wilkerson gap. The full follow-up’s supporting nodes remain dependencies of these imports, not new HR.4 targets."
+    },
+    {
+      "packet": "research/blueprint/packets/HabiroRings.json",
+      "nodes": [
+        "HabiroRings:HR.1/lambda-rings-with-commuting-adams-operations",
+        "HabiroRings:HR.1/perfectly-covered",
+        "HabiroRings:HR.1/the-etale-frobenius-lift",
+        "HabiroRings:HR.1/morphisms-of-pairs",
+        "HabiroRings:HR.1/relative-frobenius-of-an-etale-algebra",
+        "HabiroRings:HR.2/habiro-complete-modules",
+        "HabiroRings:HR.2/the-detection-results",
+        "HabiroRings:HR.2/completeness-on-homotopy-groups",
+        "HabiroRings:HR.2/the-derived-nakayama-lemma"
+      ],
+      "provides": "The exact Λ/perfect-cover/Frobenius, coefficient-map and Habiro-completion/staticity interfaces used by the imported HR.4 targets."
+    },
+    {
+      "packet": "research/blueprint/packets/HabiroRings--HR.3.json",
+      "nodes": [
+        "HabiroRings:HR.3/coherent-completion-diagram",
+        "HabiroRings:HR.3/finite-localisation-contract",
+        "HabiroRings:HR.3/reconstruction-functor",
+        "HabiroRings:HR.3/prime-edge-mapping-spaces"
+      ],
+      "provides": "Accepted refined coherent finite descent, actual reconstruction and mapping spaces. Its recorded generic supplier gaps remain inherited, not silently closed."
+    }
+  ],
+  "restructure": [
+    {
+      "action": "rescope",
+      "roadmaps": [
+        "HabiroRings",
+        "DerivedDeRhamCohomology",
+        "EnhancedDerivedSheaves"
+      ],
+      "detail": "Refine the existing generic supplier contracts without moving Wagner’s arithmetic comparison or rebuilding a completion/enhanced algebra theory.",
+      "proposal": "DD.1 owns regular principal and regular two-generator quotient-tower comparison, staticity and detection. E1 owns static embedding/mapping discreteness; E5:abstract owns enhanced commutative and complete-base algebra compatibility. HR.4 owns marked ordinary étale deformation, its completion wrapper, and the cyclotomic application. QW ownership follows accepted RS-10 atomically; no new QW ids or generic completion planets are introduced."
+    }
+  ],
+  "ownership": {
+    "decision": "Accepted RS-10.result.json and independent-review-REV-RS-10~2; parent FIX-RT-AREA-etale~2 review accepted",
+    "current": "HR.1/HR.4 are interim suppliers until QWittVectors is installed; the draft QW roadmap has stages but no packet and is not an implementation. Current HR.4→HQ.4 and HQ.4→HQ.3/CR.4→HQ.4 directions are retained. Stale red-team proposed reversals are not applied.",
+    "permanent": "QW.0 big Witt; QW.1 Λ/cofree comparison; QW.2 absolute degree-zero q-Witt; QW.3 relative degree-zero q-Witt; QW.4 étale and ghost pushouts. Habiro HR.4 keeps E_d,H_m, staticity/unique lift, cyclotomic reduction, Frobenius transitions and naturality. DD.1 owns generic derived completion; E1/E5 own enhanced foundations.",
+    "assembly": "Import the twelve parent HR.4 nodes and four planets; add the two planets of this packet, for six in the combined layer. Preserve unrelated parent gaps and source-issue verdicts. This supplement does not edit the parent or supplier packets.",
+    "supplierContracts": [
+      {
+        "supplier": "QWittVectors:QW.2",
+        "need": "Permanent owner on installation: the existing absolute degree-zero q-FV initial system and quotient W_m(R)[q]/I_m, F/V identities, ghost maps, torsion-qualified injectivity and no-restriction theorem. Retain the parent nodes as interim suppliers. Positive-degree q-de Rham–Witt theory remains HQ.4.",
+        "neededBy": [
+          "HabiroRings:HR.4/q-witt-vectors",
+          "HabiroRings:HR.4/there-is-no-restriction-map"
+        ]
+      },
+      {
+        "supplier": "QWittVectors:QW.3",
+        "need": "Permanent owner on installation: c_m from the Λ/Wilkerson interface, the quotient presentation of qW_m(R/A) by U_m, functoriality in (A,R), Λ-base change and perfectly-covered transfer, and relative ghosts to (R⊗_{A,ψ^d}A)[q]/Φ_d with gh_{m/c}=gh_{d/c}F_{m/d}. Supply the actual carriers and twist/scalar conventions. Parent HR.4 remains the interim supplier.",
+        "neededBy": [
+          "HabiroRings:HR.4/the-lambda-ring-comparison-maps",
+          "HabiroRings:HR.4/relative-q-witt-rings",
+          "HabiroRings:HR.4/cyclotomic-ghost-lift-coherence"
+        ]
+      },
+      {
+        "supplier": "QWittVectors:QW.4",
+        "need": "Permanent owner on installation: q-Witt étaleness and Frobenius pushout (2.48), W_m(R′)⊗_{W_m(R)}qW_m(R/A)≅qW_m(R′/A) (2.50), and ordinary plus derived relative ghost pushouts (2.51), for every étale R→R′ and m≥1. For A→R these identify qW_m(R/A) as an étale B/(q^m−1)-algebra and its Φ_d-derived quotient as (R⊗_{A,ψ^d}A)[q]/Φ_d. Include the ghost/relative-Frobenius mod-p square of the Habiro Theorem 2.9 proof and retain Corollary 2.52 with its injectivity hypothesis. Use the corrected indices recorded here and in parent E12; do not request HQ.4 positive-degree theory.",
+        "neededBy": [
+          "HabiroRings:HR.4/q-witt-vectors-of-etale-maps",
+          "HabiroRings:HR.4/ghost-maps-and-etale-base-change",
+          "HabiroRings:HR.4/an-isomorphism-with-the-naive-quotient-forces-a-frobenius-lift",
+          "HabiroRings:HR.4/cyclotomic-ghost-lift-coherence"
+        ]
+      }
+    ]
+  },
+  "sourceIssueImports": [
+    {
+      "id": "HabiroRings/E2",
+      "packet": "research/blueprint/packets/HabiroRings.json",
+      "provides": "Theorem 2.9 assumes R étale."
+    },
+    {
+      "id": "HabiroRings/E3",
+      "packet": "research/blueprint/packets/HabiroRings.json",
+      "provides": "Staticity is detected modulo q^m−1, not modulo p."
+    },
+    {
+      "id": "HabiroRings/E12",
+      "packet": "research/blueprint/packets/HabiroRings.json",
+      "provides": "F_{m/d} in Proposition 2.48 has target qW_d, not qW_{m/d}."
+    }
+  ],
+  "sourceVersions": [
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/2510.04782v2",
+      "citation": "arXiv:2510.04782v2, 8 October 2025, 82-page PDF; numbered printed pages",
+      "read": "2026-10-06",
+      "sha256": "591d0bdf2c48d12f91d6c9a4beec32978bc1e9a9448b04ef0efdc4a84315373b"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/2410.23078v5",
+      "citation": "arXiv:2410.23078v5, submitted 6 October 2025; PDF dated 7 October 2025; numbered printed pages",
+      "read": "2026-10-06",
+      "sha256": "c1c7426f374a9f56d5ad6fb743f6cfc95e74ba9c35a96babd7ae5101a9dded01"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://ferdinand-wagner.github.io/papers/q-Witt.pdf",
+      "citation": "Author copy dated 14 January 2026, collation of §2.6 only; findings scoped to the read preprint and this copy. No version of record identified.",
+      "read": "2026-10-06",
+      "sha256": "6b8cb470137f83bb65e94c0e001e7bd9a458eb31af58a12da097e4f5fde10049"
+    }
+  ],
+  "checks": {
+    "librarySearch": "Reviewed AUDIT-17 HR.4 before planning; read the twenty named Mathlib declarations at 082e2d3; searched pinned Tau Ceti f790474 for étale lifting and Witt-related declarations, finding no object-deformation or big/q-Witt supplier. Shared Mathlib is at the exact pin. Shared Tau Ceti HEAD differs; only Mathlib modules are used for elaboration, and pinned Tau Ceti source was inspected with git show.",
+    "upstreamModels": [
+      "content/tau-ceti/AdicSpaces/README.md (whole document)",
+      "content/tau-ceti/Multiquadratic/README.md (whole document)"
+    ],
+    "currentWorkSearch": "Mathlib PR #41086, head a010cae47a32f30dafa2e9d241e4befab9e512a5, gives HenselianLocalRing/residue-field étale lifting; it is not a pinned or generic nilpotent/complete object-lifting supplier. Public Zulip getting-started view exposed only the login/shell; the repository mirror of upstream guidance was read. No claim of inspecting restricted messages.",
+    "lean": "Independent review: lean-check of the revised suggested file, exit 0, 32 expected proof-placeholder warnings, no errors or other warnings. Uses only Mathlib modules at the exact pin; checks actual reduction formulas, 24 API items, object/rigidity signatures and seven strengthened test signatures. The two enhanced targets remain explicit mathematical omissions pending actual supplier carriers."
+  },
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-HabiroRings--HR.4",
+    "date": "2026-10-06",
+    "notes": "Independent target-level review of all seven support nodes, twelve parent HR.4 imports, reader, supplier contracts, AUDIT-17 and accepted RS-10/RT-AREA-etale/27. Confirmed all nineteen original pinned baseline citations and added the all-power completion kernel theorem. Clarified the split Jacobian proof and direct quotient/nilpotent/flat/base-change dependencies. Suggested reduction maps now use the actual marking formulas; the nilpotent test checks the canonical unit, and the series equivalence respects the polynomial base. Confirmed E15–E17 and corrected E15’s author-copy page. Checker: zero errors and warnings. Revised Lean: exit 0, 32 expected proof-placeholder warnings only. Complete pass, HR.4 planned, not closed; two gaps and four exact supplier requests remain honest.",
+    "checked": [
+      {
+        "nodeId": "HabiroRings:HR.4/marked-etale-deformation",
+        "verdict": "corrected",
+        "note": "Stacks 0ALI motivates the marked fibre of reduction. Actual carrier/Algebra.Etale and reduction marking are used, without module-finiteness. Made reduceMap the conjugated base-change map and exposed the routine split Jacobian presentation with direct existing prerequisites. Ten API items and three discriminating tests match."
+      },
+      {
+        "nodeId": "HabiroRings:HR.4/etale-quotient-lift",
+        "verdict": "verified",
+        "note": "Stacks 04D1 proves object existence for arbitrary quotient ideals. The pinned dimension-zero presentation theorem supplies a square Jacobian; adjoining its inverse gives determinant Δ². Reduction recovers the chosen marking. No nilpotence or uniqueness is asserted."
+      },
+      {
+        "nodeId": "HabiroRings:HR.4/nilpotent-deformation-rigidity",
+        "verdict": "verified",
+        "note": "Uses the nilpotent specialization of Stacks 0ALI. Pinned formally smooth existence and formally unramified uniqueness apply to IE′, with quotient/tensor transport. Lifting inverse maps gives the unique marked isomorphism. The nonnilpotent counterexample is sound."
+      },
+      {
+        "nodeId": "HabiroRings:HR.4/completed-etale-deformation",
+        "verdict": "corrected",
+        "note": "Reuses actual AdicCompletion. Added the existing all-power kernel theorem, avoiding an implicit change of completion ideal. Finite generation is exactly the ordinary completeness/quotient hypothesis. Fourteen API items and four tests match; strengthened canonical nilpotent-unit and polynomial-compatible series tests. No flatness over the completed base is claimed."
+      },
+      {
+        "nodeId": "HabiroRings:HR.4/completed-deformation-map-equivalence",
+        "verdict": "corrected",
+        "note": "Pinned complete-target existence and separated-target uniqueness lift E→C; all-power quotients, liftAlgHom and ofAlgEquiv extend to W→C. Every B-algebra map preserves ideal powers, so quotient uniqueness applies. Added the direct quotient/tensor prerequisite and fixed homEquiv.toFun to the actual marked reduction."
+      },
+      {
+        "nodeId": "HabiroRings:HR.4/complete-principal-deformation-universality",
+        "verdict": "verified",
+        "note": "The stated nonzerodivisor and actual derived quotient are essential. Regular principal quotient towers and surjective transitions make W and any marked derived-complete C static and regular; ordinary map rigidity and derived Nakayama give the comparison. Discrete static algebra mapping spaces give a contractible marked fibre. Exact DD.1/E1/E5 refinements and the untyped enhanced signature are explicit gaps."
+      },
+      {
+        "nodeId": "HabiroRings:HR.4/cyclotomic-ghost-lift-coherence",
+        "verdict": "corrected",
+        "note": "Checked Wagner Theorem 2.9, q-Witt Corollary 2.51, and accepted HR.1/HR.3 imports. Monic cyclotomic factors and étale flatness justify principal and regular two-generator comparisons. Added direct nilpotent-rigidity, base-change and flatness prerequisites. Unique marked overlap lifts supply actual edge paths; HR.3 reconstruction supplies equivalence and naturality. The m=6 case has four edges, with no extra cycle equation; enhanced and QW inputs remain recorded obligations."
+      }
+    ]
+  }
+}
