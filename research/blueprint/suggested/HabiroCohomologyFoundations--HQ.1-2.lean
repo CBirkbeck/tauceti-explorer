@@ -5,7 +5,8 @@ import Mathlib.Data.Fin.VecNotation
 
 /-!
 This file is not the roadmap and is not exhaustive. The roadmap document is
-definitive. These statements suggest Lean forms so that contributors and
+definitive once synchronized with the independent review's corrections.
+These statements suggest Lean forms so that contributors and
 reviewers converge on names and signatures. All proofs are placeholders and
 claim no implementation.
 
@@ -102,6 +103,12 @@ DerivedCategory is not a type for their coherent E∞-valued totalizations.
   sections by the Čech limit, compatibly with refinements.
   API qOmegaEtale.modH: reduction is the de Rham sheaf complex and
   sections/h≃RΓ(X,Ω*(X/A)).
+  API qOmegaEtale.restrict: for U→V in X_et the restriction is a complete
+  B-algebra map; on affine objects it is the existing qΩ ring-map action.
+  Identity and composition hold with the sheaf's coherent functor laws.
+  API qOmegaEtale.ext: restriction to the affine étale basis identifies
+  mapping spaces of sheaves; a comparison of basis functors extends with
+  contractible choice, giving the construction's universal property.
 
 The three qOmegaEtale examples cannot yet be stated for that sheaf type:
 * qOmegaEtale.identityCover: Spec S with its identity cover returns qΩ(S/A).
@@ -118,27 +125,49 @@ would change these statements and is not a substitute.
 
 * derivedModifiedQConnections: the enhanced homotopy fixed points of D(C)
   under the discrete Z^d action, with C=B[Z^d], F_a(M)=C⊗^L_(C,σ_a)M.
-  A linearization M→F_a(M) has positive σ_a-semilinearity; F_a twists the
-  underlying C-action by σ_a⁻¹. All higher group-law data are included.
+  A linearization θ_a:F_a(M)→M has positive σ_a-semilinearity via
+  Γ_a(m)=θ_a(1⊗m) and θ_a(c⊗m)=cΓ_a(m). F_a twists the underlying C-action
+  by σ_a⁻¹; θ_{a+b}=θ_a∘F_a(θ_b) under the action comparison, with all
+  higher group-law data. A map M→F_a(M) instead gives inverse semilinearity.
   API derivedModifiedQConnections.forget: conservative exact evaluation.
   API derivedModifiedQConnections.unit: underlying C with Γ_a=σ_a.
   API derivedModifiedQConnections.tensor: derived C-tensor with diagonal
   coherent action, agreeing with Γ_i(m⊗n)=Γ_i(m)⊗Γ_i(n) on flat models.
+  API derivedModifiedQConnections.linearization: extract θ_a:F_a(M)≃M,
+  its identity, composition and higher coherences, with the formula above
+  on strict complexes and θ_a⊗θ_a on derived tensors via monoidal pullback.
+  API derivedModifiedQConnections.fromStrict: a C-complex with commuting
+  invertible σ_i-semilinear chain maps gives an enhanced object; horizontal
+  chain maps give morphisms, coherently respecting identities/composition.
+  No equivalence with a localization of strict models is asserted.
+  API derivedModifiedQConnections.mappingSpectrum: Map(M,N) is the
+  homotopy fixed point spectrum of Map_D(C)(M,N), with action
+  f↦θ_a^N∘F_a(f)∘(θ_a^M)⁻¹ and its induced higher coherences.
+  API derivedModifiedQConnections.isLimit: for any enhanced category K,
+  Fun(K,derivedModifiedQConnections)≃lim_BZ^d Fun(K,D(C)), naturally,
+  compatibly with evaluation; coherent cones lift with contractible choice.
 * modifiedQConnection.torusQuotientEquivalence: QCoh∞([Spec C/Z^d]) is
   equivalent to the preceding category as a stable B-linear symmetric
   monoidal category; pullback corresponds to forget. Its Čech expression
-  is Tot of the products of D(C) over all lattice n-tuples.
+  is Tot of the products of D(C) over all lattice n-tuples. Affine Spec C
+  means the functor corepresented by the Eilenberg–Mac Lane ring HC;
+  Mod_HC≃D(C) is an enhanced equivalence. Nerve degeneracies insert the
+  zero group label and pull back by the identity on that component.
 * modifiedQConnection.torusHeartAndPerfect: the t-structures match; the
   heart is the accepted ordinary modified connection category; vector
   bundles correspond to underlying finite projectives and perfect complexes
   to underlying perfect objects. No compactness identification is stated.
 
-The three derivedModifiedQConnections examples require its enhanced type:
+The four derivedModifiedQConnections examples require its enhanced type:
 * derivedModifiedQConnections.rankZero: at d=0 it is D(B).
 * derivedModifiedQConnections.unitGenerators: Γ_i(x^m)=q^(m_i)x^m on the unit.
 * derivedModifiedQConnections.higherCohomology: for B=Q,q=1,d=1, maps from
   the unit to its cohomological shift by 1 form Q[x^{±1}], while the
   corresponding group in D(Q[x^{±1}]) is zero.
+* derivedModifiedQConnections.positiveScalarTwist: for B=Q,q=2,d=1 and
+  C=Q[x^{±1}], the unit θ_1:F_1(C)→C sends 1⊗x to 2x. Under
+  η(c⊗m)=σ_1⁻¹(c)m, its inverse C→F_1(C) sends x to x/2. This detects
+  reversing the linearization while keeping positive semilinearity.
 
 These are honest signature omissions, not formalized assertions. The packet
 and reader give their exact hypotheses, proofs and supplier requests. The
