@@ -381,7 +381,7 @@
       "sha256": "1703f5b1fce363cd2f2fead9f3c888d5c50c46d6e6d52f99941df7f957777c8c",
       "accessed": "2026-09-26",
       "readSections": [
-        "The complete 432-line proposed DeRham.lean reconstructed from the fetched patch, including tautological algebra presentation, scalar restriction, d, d_d and deRhamComplex.",
+        "The complete 432-line proposed Mathlib/RingTheory/DeRham/Basic.lean reconstructed from the fetched patch, including tautological algebra presentation, scalar restriction, d, d_d and deRhamComplex.",
         "This hash is of the reconstructed added source file. The PR is a design reference, not a pinned declaration, not a module imported by the suggested file, and not a mergeability certification."
       ]
     },
@@ -604,7 +604,7 @@
     },
     {
       "id": "stacks-proper-cohomology",
-      "title": "Cohomology and base change, III",
+      "title": "Cohomology and base change, VI (Section 36.30)",
       "authors": "The Stacks Project Authors",
       "edition": "Live primary text, read 6 October 2026",
       "url": "https://stacks.math.columbia.edu/tag/0A1G",
@@ -710,7 +710,7 @@
         },
         {
           "sourceId": "riou-pr18551",
-          "locator": "DeRham.lean, presentationDifferentialsDown through deRhamComplex, head 5888c0081ba867ede5c60d3060f2d674d932b53c",
+          "locator": "Mathlib/RingTheory/DeRham/Basic.lean, presentationDifferentialsDown through deRhamComplex, head 5888c0081ba867ede5c60d3060f2d674d932b53c",
           "excerpt": "presentationDifferentialsDown",
           "match": "An unmerged design lead supplies an independent direct-presentation proof of the same differential. Its proposed APIs are not baseline declarations."
         }
@@ -801,7 +801,7 @@
         },
         {
           "sourceId": "riou-pr18551",
-          "locator": "DeRham.lean, presentationDifferentialsDown through deRhamComplex, head 5888c0081ba867ede5c60d3060f2d674d932b53c",
+          "locator": "Mathlib/RingTheory/DeRham/Basic.lean, presentationDifferentialsDown through deRhamComplex, head 5888c0081ba867ede5c60d3060f2d674d932b53c",
           "excerpt": "presentationDifferentialsDown",
           "match": "An unmerged design lead supplies an independent direct-presentation proof of the same differential. Its proposed APIs are not baseline declarations."
         }
@@ -861,7 +861,7 @@
         },
         {
           "sourceId": "riou-pr18551",
-          "locator": "DeRham.lean, presentationDifferentialsDown through deRhamComplex, head 5888c0081ba867ede5c60d3060f2d674d932b53c",
+          "locator": "Mathlib/RingTheory/DeRham/Basic.lean, presentationDifferentialsDown through deRhamComplex, head 5888c0081ba867ede5c60d3060f2d674d932b53c",
           "excerpt": "presentationDifferentialsDown",
           "match": "An unmerged design lead supplies an independent direct-presentation proof of the same differential. Its proposed APIs are not baseline declarations."
         }
@@ -926,7 +926,7 @@
         },
         {
           "sourceId": "riou-pr18551",
-          "locator": "DeRham.lean, presentationDifferentialsDown through deRhamComplex, head 5888c0081ba867ede5c60d3060f2d674d932b53c",
+          "locator": "Mathlib/RingTheory/DeRham/Basic.lean, presentationDifferentialsDown through deRhamComplex, head 5888c0081ba867ede5c60d3060f2d674d932b53c",
           "excerpt": "presentationDifferentialsDown",
           "match": "An unmerged design lead supplies an independent direct-presentation proof of the same differential. Its proposed APIs are not baseline declarations."
         }
@@ -1016,7 +1016,7 @@
         },
         {
           "sourceId": "riou-pr18551",
-          "locator": "DeRham.lean, presentationDifferentialsDown through deRhamComplex, head 5888c0081ba867ede5c60d3060f2d674d932b53c",
+          "locator": "Mathlib/RingTheory/DeRham/Basic.lean, presentationDifferentialsDown through deRhamComplex, head 5888c0081ba867ede5c60d3060f2d674d932b53c",
           "excerpt": "presentationDifferentialsDown",
           "match": "An unmerged design lead supplies an independent direct-presentation proof of the same differential. Its proposed APIs are not baseline declarations."
         }
@@ -1079,7 +1079,7 @@
         },
         {
           "sourceId": "riou-pr18551",
-          "locator": "DeRham.lean, presentationDifferentialsDown through deRhamComplex, head 5888c0081ba867ede5c60d3060f2d674d932b53c",
+          "locator": "Mathlib/RingTheory/DeRham/Basic.lean, presentationDifferentialsDown through deRhamComplex, head 5888c0081ba867ede5c60d3060f2d674d932b53c",
           "excerpt": "presentationDifferentialsDown",
           "match": "An unmerged design lead supplies an independent direct-presentation proof of the same differential. Its proposed APIs are not baseline declarations."
         }
@@ -1180,7 +1180,7 @@
         },
         {
           "sourceId": "riou-pr18551",
-          "locator": "DeRham.lean, presentationDifferentialsDown through deRhamComplex, head 5888c0081ba867ede5c60d3060f2d674d932b53c",
+          "locator": "Mathlib/RingTheory/DeRham/Basic.lean, presentationDifferentialsDown through deRhamComplex, head 5888c0081ba867ede5c60d3060f2d674d932b53c",
           "excerpt": "presentationDifferentialsDown",
           "match": "An unmerged design lead supplies an independent direct-presentation proof of the same differential. Its proposed APIs are not baseline declarations."
         }
@@ -1241,7 +1241,7 @@
         },
         {
           "sourceId": "riou-pr18551",
-          "locator": "DeRham.lean, presentationDifferentialsDown through deRhamComplex, head 5888c0081ba867ede5c60d3060f2d674d932b53c",
+          "locator": "Mathlib/RingTheory/DeRham/Basic.lean, presentationDifferentialsDown through deRhamComplex, head 5888c0081ba867ede5c60d3060f2d674d932b53c",
           "excerpt": "presentationDifferentialsDown",
           "match": "An unmerged design lead supplies an independent direct-presentation proof of the same differential. Its proposed APIs are not baseline declarations."
         }
@@ -1298,7 +1298,7 @@
         },
         {
           "sourceId": "riou-pr18551",
-          "locator": "DeRham.lean, presentationDifferentialsDown through deRhamComplex, head 5888c0081ba867ede5c60d3060f2d674d932b53c",
+          "locator": "Mathlib/RingTheory/DeRham/Basic.lean, presentationDifferentialsDown through deRhamComplex, head 5888c0081ba867ede5c60d3060f2d674d932b53c",
           "excerpt": "presentationDifferentialsDown",
           "match": "An unmerged design lead supplies an independent direct-presentation proof of the same differential. Its proposed APIs are not baseline declarations."
         }
@@ -1357,7 +1357,7 @@
         },
         {
           "sourceId": "riou-pr18551",
-          "locator": "DeRham.lean, presentationDifferentialsDown through deRhamComplex, head 5888c0081ba867ede5c60d3060f2d674d932b53c",
+          "locator": "Mathlib/RingTheory/DeRham/Basic.lean, presentationDifferentialsDown through deRhamComplex, head 5888c0081ba867ede5c60d3060f2d674d932b53c",
           "excerpt": "presentationDifferentialsDown",
           "match": "An unmerged design lead supplies an independent direct-presentation proof of the same differential. Its proposed APIs are not baseline declarations."
         }
@@ -1418,7 +1418,7 @@
         },
         {
           "sourceId": "riou-pr18551",
-          "locator": "DeRham.lean, presentationDifferentialsDown through deRhamComplex, head 5888c0081ba867ede5c60d3060f2d674d932b53c",
+          "locator": "Mathlib/RingTheory/DeRham/Basic.lean, presentationDifferentialsDown through deRhamComplex, head 5888c0081ba867ede5c60d3060f2d674d932b53c",
           "excerpt": "presentationDifferentialsDown",
           "match": "An unmerged design lead supplies an independent direct-presentation proof of the same differential. Its proposed APIs are not baseline declarations."
         }
@@ -1510,7 +1510,7 @@
         },
         {
           "sourceId": "riou-pr18551",
-          "locator": "DeRham.lean, presentationDifferentialsDown through deRhamComplex, head 5888c0081ba867ede5c60d3060f2d674d932b53c",
+          "locator": "Mathlib/RingTheory/DeRham/Basic.lean, presentationDifferentialsDown through deRhamComplex, head 5888c0081ba867ede5c60d3060f2d674d932b53c",
           "excerpt": "presentationDifferentialsDown",
           "match": "An unmerged design lead supplies an independent direct-presentation proof of the same differential. Its proposed APIs are not baseline declarations."
         }
@@ -1604,7 +1604,7 @@
         },
         {
           "sourceId": "riou-pr18551",
-          "locator": "DeRham.lean, presentationDifferentialsDown through deRhamComplex, head 5888c0081ba867ede5c60d3060f2d674d932b53c",
+          "locator": "Mathlib/RingTheory/DeRham/Basic.lean, presentationDifferentialsDown through deRhamComplex, head 5888c0081ba867ede5c60d3060f2d674d932b53c",
           "excerpt": "presentationDifferentialsDown",
           "match": "An unmerged design lead supplies an independent direct-presentation proof of the same differential. Its proposed APIs are not baseline declarations."
         }
@@ -1663,7 +1663,7 @@
         },
         {
           "sourceId": "riou-pr18551",
-          "locator": "DeRham.lean, presentationDifferentialsDown through deRhamComplex, head 5888c0081ba867ede5c60d3060f2d674d932b53c",
+          "locator": "Mathlib/RingTheory/DeRham/Basic.lean, presentationDifferentialsDown through deRhamComplex, head 5888c0081ba867ede5c60d3060f2d674d932b53c",
           "excerpt": "presentationDifferentialsDown",
           "match": "An unmerged design lead supplies an independent direct-presentation proof of the same differential. Its proposed APIs are not baseline declarations."
         }
@@ -1721,7 +1721,7 @@
         },
         {
           "sourceId": "riou-pr18551",
-          "locator": "DeRham.lean, presentationDifferentialsDown through deRhamComplex, head 5888c0081ba867ede5c60d3060f2d674d932b53c",
+          "locator": "Mathlib/RingTheory/DeRham/Basic.lean, presentationDifferentialsDown through deRhamComplex, head 5888c0081ba867ede5c60d3060f2d674d932b53c",
           "excerpt": "presentationDifferentialsDown",
           "match": "An unmerged design lead supplies an independent direct-presentation proof of the same differential. Its proposed APIs are not baseline declarations."
         }
@@ -1778,7 +1778,7 @@
         },
         {
           "sourceId": "riou-pr18551",
-          "locator": "DeRham.lean, presentationDifferentialsDown through deRhamComplex, head 5888c0081ba867ede5c60d3060f2d674d932b53c",
+          "locator": "Mathlib/RingTheory/DeRham/Basic.lean, presentationDifferentialsDown through deRhamComplex, head 5888c0081ba867ede5c60d3060f2d674d932b53c",
           "excerpt": "presentationDifferentialsDown",
           "match": "An unmerged design lead supplies an independent direct-presentation proof of the same differential. Its proposed APIs are not baseline declarations."
         }
@@ -1835,7 +1835,7 @@
         },
         {
           "sourceId": "riou-pr18551",
-          "locator": "DeRham.lean, presentationDifferentialsDown through deRhamComplex, head 5888c0081ba867ede5c60d3060f2d674d932b53c",
+          "locator": "Mathlib/RingTheory/DeRham/Basic.lean, presentationDifferentialsDown through deRhamComplex, head 5888c0081ba867ede5c60d3060f2d674d932b53c",
           "excerpt": "presentationDifferentialsDown",
           "match": "An unmerged design lead supplies an independent direct-presentation proof of the same differential. Its proposed APIs are not baseline declarations."
         }
@@ -1927,7 +1927,7 @@
         },
         {
           "sourceId": "riou-pr18551",
-          "locator": "DeRham.lean, presentationDifferentialsDown through deRhamComplex, head 5888c0081ba867ede5c60d3060f2d674d932b53c",
+          "locator": "Mathlib/RingTheory/DeRham/Basic.lean, presentationDifferentialsDown through deRhamComplex, head 5888c0081ba867ede5c60d3060f2d674d932b53c",
           "excerpt": "presentationDifferentialsDown",
           "match": "An unmerged design lead supplies an independent direct-presentation proof of the same differential. Its proposed APIs are not baseline declarations."
         }
@@ -1983,7 +1983,7 @@
         },
         {
           "sourceId": "riou-pr18551",
-          "locator": "DeRham.lean, presentationDifferentialsDown through deRhamComplex, head 5888c0081ba867ede5c60d3060f2d674d932b53c",
+          "locator": "Mathlib/RingTheory/DeRham/Basic.lean, presentationDifferentialsDown through deRhamComplex, head 5888c0081ba867ede5c60d3060f2d674d932b53c",
           "excerpt": "presentationDifferentialsDown",
           "match": "An unmerged design lead supplies an independent direct-presentation proof of the same differential. Its proposed APIs are not baseline declarations."
         }
@@ -2686,16 +2686,10 @@
       ],
       "sources": [
         {
-          "sourceId": "bhatt-lurie",
-          "locator": "Appendix B, Construction B.1; cotangent universal property",
-          "excerpt": "cotangent complex",
-          "match": "The polynomial differential module extends to the derived derivation universal property."
-        },
-        {
-          "sourceId": "log-ky",
-          "locator": "Remark 2.8, trivial monoids",
-          "excerpt": "co-represents",
-          "match": "The displayed mapping-space universal property specializes to ordinary animated rings."
+          "sourceId": "bhatt-ddr-2012",
+          "locator": "Remark 6.6 and equivalence (6), printed p.25, specialized to identical trivial monoids; preceding paragraph for ordinary cotangent interpretation",
+          "excerpt": "space of sections",
+          "match": "The independently defined square-zero section space represents cotangent maps, including higher homotopy. BL B.1 and KY Remark 2.8 construct/animate the cotangent object but do not by themselves state this section-space universal property."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2782,10 +2776,10 @@
       ],
       "sources": [
         {
-          "sourceId": "log-ky",
-          "locator": "Remark 2.8, trivial monoids",
-          "excerpt": "co-represents",
-          "match": "The independent mapping-space property is explicit; ordinary lifts agree with the pinned equivalence."
+          "sourceId": "bhatt-ddr-2012",
+          "locator": "Remark 6.6 and equivalence (6), printed p.25, specialized to identical trivial monoids; preceding paragraph for ordinary cotangent interpretation",
+          "excerpt": "space of sections",
+          "match": "The independently defined square-zero section space represents cotangent maps, including higher homotopy. BL B.1 and KY Remark 2.8 construct/animate the cotangent object but do not by themselves state this section-space universal property."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2826,7 +2820,7 @@
       "sources": [
         {
           "sourceId": "cotangent-stacks",
-          "locator": "Lemmas 4.5 and 11.3, Proposition 14.4; tags 08QF,08RA,08RB",
+          "locator": "Lemmas 4.5, 11.2 and 11.3; tags 08QF,08RA,08RB",
           "excerpt": "naive cotangent complex",
           "match": "The truncation comparison preserves the baseline boundary and its kernel."
         }
@@ -2947,7 +2941,7 @@
       "sources": [
         {
           "sourceId": "cotangent-stacks",
-          "locator": "§8, Lemma 8.6, and §9 localization; tags 08QZ,08SF",
+          "locator": "§8, Lemmas 8.1 and 8.6 (tags 08QZ,08SF); §3 standard-resolution functoriality and its filtered-colimit construction",
           "excerpt": "localization",
           "match": "Étale/localization vanishing and the polynomial-colimit model."
         }
@@ -2987,7 +2981,7 @@
       "sources": [
         {
           "sourceId": "cotangent-stacks",
-          "locator": "§9, Lemma 9.1; tags 08R2,08R5",
+          "locator": "§9, Lemma 9.1 (tag 08R5), using §8, Lemma 8.4 (tag 08R2) for étale maps",
           "excerpt": "smooth",
           "match": "The smooth/étale computation is a cotangent statement, independent of characteristic-zero de Rham completion."
         }
@@ -3075,7 +3069,7 @@
           "sourceId": "bhatt-lurie",
           "locator": "Appendix B, Construction B.1, Remark B.5",
           "excerpt": "left Kan extension",
-          "match": "Left-derived polynomial operations on connective modules; the symmetric/divided variants use the same animation construction."
+          "match": "Construction B.1 and Remark B.5 animate exterior powers of the cotangent complex. They motivate this construction but do not establish the general module-pair exterior, symmetric or divided-power functors; that source and proof obligation is recorded in the integral derived powers gap."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3141,7 +3135,7 @@
       ],
       "title": "Derived symmetric powers",
       "kind": "construction",
-      "statement": "For an animated ring B and a connective B-module M define LSym^n_B(M), n≥0, by the sifted-colimit extension of the ordinary symmetric power on finite free modules, computed using a simplicial projective module resolution. It is a connective B-module, with coherent base change and graded multiplication. Use derived operations; for a flat discrete M this agrees with the ordinary symmetric power. The exterior operation imposes x∧x=0 even at 2.",
+      "statement": "For an animated ring B and a connective B-module M define LSym^n_B(M), n≥0, by the sifted-colimit extension of the ordinary symmetric power on finite free modules, computed using a simplicial projective module resolution. It is a connective B-module, with coherent base change and graded multiplication. Use derived operations; for a flat discrete M this agrees with the ordinary symmetric power.",
       "hypotheses": [
         "For an animated ring B and a connective B-module M define LSym^n_B(M), n≥0, by the sifted-colimit extension of the ordinary symmetric power on finite free modules, computed using a simplicial projective module resolution."
       ],
@@ -3163,7 +3157,7 @@
           "sourceId": "bhatt-lurie",
           "locator": "Appendix B, Construction B.1, Remark B.5",
           "excerpt": "left Kan extension",
-          "match": "Left-derived polynomial operations on connective modules; the symmetric/divided variants use the same animation construction."
+          "match": "Construction B.1 and Remark B.5 animate exterior powers of the cotangent complex. They motivate this construction but do not establish the general module-pair exterior, symmetric or divided-power functors; that source and proof obligation is recorded in the integral derived powers gap."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3226,7 +3220,7 @@
       ],
       "title": "Derived divided powers",
       "kind": "construction",
-      "statement": "For an animated ring B and a connective B-module M define LΓ^n_B(M), n≥0, by the sifted-colimit extension of the ordinary divided power on finite free modules, computed using a simplicial projective module resolution. It is a connective B-module, with coherent base change and graded multiplication. Use derived operations; for a flat discrete M this agrees with the ordinary divided power. The exterior operation imposes x∧x=0 even at 2.",
+      "statement": "For an animated ring B and a connective B-module M define LΓ^n_B(M), n≥0, by the sifted-colimit extension of the ordinary divided power on finite free modules, computed using a simplicial projective module resolution. It is a connective B-module, with coherent base change and graded multiplication. Use derived operations; for a flat discrete M this agrees with the ordinary divided power.",
       "hypotheses": [
         "For an animated ring B and a connective B-module M define LΓ^n_B(M), n≥0, by the sifted-colimit extension of the ordinary divided power on finite free modules, computed using a simplicial projective module resolution."
       ],
@@ -3249,7 +3243,7 @@
           "sourceId": "bhatt-lurie",
           "locator": "Appendix B, Construction B.1, Remark B.5",
           "excerpt": "left Kan extension",
-          "match": "Left-derived polynomial operations on connective modules; the symmetric/divided variants use the same animation construction."
+          "match": "Construction B.1 and Remark B.5 animate exterior powers of the cotangent complex. They motivate this construction but do not establish the general module-pair exterior, symmetric or divided-power functors; that source and proof obligation is recorded in the integral derived powers gap."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3339,7 +3333,7 @@
         },
         {
           "sourceId": "bhatt-ddr-2012",
-          "locator": "Lemma 3.22, Corollary 3.43 and proof",
+          "locator": "Proposition 3.22 and Remark 3.43; cotangent-specialized power filtration and décalage (general module version remains in the integral powers gap)",
           "excerpt": "divided powers",
           "match": "The triangle filtration and regular quotient décalage are used in de Rham comparisons."
         }
@@ -3650,7 +3644,7 @@
       "sources": [
         {
           "sourceId": "cmm",
-          "locator": "§5.2, Footnote 10 and the paragraph before Lemma 5.8, PDF pp.39–40",
+          "locator": "§5.1, Theorem 5.7, Footnote 10 and the paragraph before Lemma 5.8, PDF pp.39–40",
           "excerpt": "p-basis",
           "match": "The differentials of a finite p-basis give the stated dimension."
         }
@@ -3670,14 +3664,15 @@
       ],
       "title": "Cotangent obstruction theory for square-zero lifts",
       "kind": "theorem",
-      "statement": "Let A′→A be a square-zero extension with ideal J and let B be an ordinary A-algebra. The obstruction to a flat lift B′ over A′ with B′⊗_(A′)A≃B is a natural class in Ext²_B(L_(B/A),J⊗_A B). When it vanishes, isomorphism classes of lifts form a torsor under Ext¹ and automorphisms under Ext⁰. For smooth B/A, finite projectivity of L in degree zero gives existence and uniqueness up to the stated automorphisms. Derived lift spaces use the full module-valued square-zero extension, not just the Ext set.",
+      "statement": "Let A′→A be a square-zero extension with ideal J and let B be a flat ordinary A-algebra. The obstruction to a flat lift B′ over A′ with B′⊗_(A′)A≃B is a natural class in Ext²_B(L_(B/A),J⊗_A B). When it vanishes, isomorphism classes of lifts form a torsor under Ext¹ and automorphisms under Ext⁰. For smooth B/A, finite projectivity of L in degree zero gives existence and uniqueness up to the stated automorphisms. Derived lift spaces use the full module-valued square-zero extension, not just the Ext set.",
       "hypotheses": [
-        "Let A′→A be a square-zero extension with ideal J and let B be an ordinary A-algebra."
+        "Let A′→A be a square-zero extension with ideal J and let B be a flat ordinary A-algebra."
       ],
       "proofSteps": [
         "Express a square-zero extension by the corresponding cotangent extension class.",
         "Lift polynomial generators and compare their equations; the resulting degree-two class is independent of choices.",
-        "Identify differences of lifts and their automorphisms using the derived derivation mapping space and its first two homotopy groups."
+        "Identify differences of lifts and their automorphisms using the derived derivation mapping space and its first two homotopy groups.",
+        "Apply the nilpotent flatness criterion to an extension with specified ideal J⊗_A B and the induced identity map on that ideal; the exact general flatness criterion is recorded as a supplier/proof gap."
       ],
       "acceptance": [
         "For A[t], arbitrary coordinate lifts exist; their differences are J⊗_A A[t].",
@@ -3692,9 +3687,9 @@
       "sources": [
         {
           "sourceId": "cotangent-stacks",
-          "locator": "§21, Lemma 21.1; tag 08SP",
+          "locator": "§16, Lemma 16.1 (tag 08SP), and its ringed-space version §21, Lemma 21.1 (tag 08UZ)",
           "excerpt": "Ext",
-          "match": "The obstruction/torsor/automorphism degrees supply the deformation input to Elkik’s lifting argument."
+          "match": "These lemmas classify square-zero extensions with a specified target module and map from the base ideal. The flat-lift specialization also requires B flat over A and a nilpotent flatness criterion; neither lemma asserts a flat lift for arbitrary B."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3804,7 +3799,7 @@
       ],
       "proofSteps": [
         "Localize at (x,y); the ideal (x,y)² has height two and three minimal generators, hence is not generated by a regular sequence.",
-        "Apply the Noetherian absolute complete-intersection cotangent criterion to get unbounded full cotangent homology.",
+        "Use the stronger eventual-vanishing criterion for André–Quillen homology needed by Bhatt Example 3.21 to obtain unbounded full cotangent homology. The amplitude [−1,0] criterion alone only rules out that amplitude; it does not prove unboundedness. The stronger criterion is recorded in the Cohen-factorization/AQ proof gap.",
         "The evident flat Z/p² quotient and p-power maps give the split derived Cartier object; its weight-one summand already has unbounded negative homology.",
         "Compare with the lower bound of ordinary crystalline sheaf cohomology to reject the unrestricted comparison."
       ],
@@ -3862,7 +3857,7 @@
       "sources": [
         {
           "sourceId": "derived-completion-stacks",
-          "locator": "§29, Definition 29.1, Lemmas 29.3–29.12; tags 0621–062D",
+          "locator": "§29, Definitions 29.1–29.2, Lemmas 29.3–29.12; tags 0622–062C,0663,0664 (0621 is the section introduction)",
           "excerpt": "Koszul complex",
           "match": "The exterior contraction construction, differential identity and tensor-factor model."
         }
@@ -4044,7 +4039,7 @@
       "sources": [
         {
           "sourceId": "derived-completion-stacks",
-          "locator": "§93, Proposition 93.6, Lemmas 93.7–93.9; tags 091V,0920,0G1U",
+          "locator": "§93, Lemmas 93.10, 93.18 and 93.20; tags 091V,0920,0G1U",
           "excerpt": "derived completion",
           "match": "The Čech RHom reflector and derived Nakayama."
         }
@@ -4138,7 +4133,7 @@
       "sources": [
         {
           "sourceId": "derived-completion-stacks",
-          "locator": "Lemma 93.7; tag 0920",
+          "locator": "Lemma 93.18; tag 0920",
           "excerpt": "Koszul",
           "match": "Dual finite Koszul complexes present C_I as a filtered colimit."
         }
@@ -4178,7 +4173,7 @@
       "sources": [
         {
           "sourceId": "derived-completion-stacks",
-          "locator": "§95, Lemmas 95.1–95.4; tags 091X,0923",
+          "locator": "§95, Lemmas 95.1–95.2 and Examples 95.3–95.4; tags 091X,0923,09AT,0G3F",
           "excerpt": "bounded",
           "match": "The principal bounded-torsion comparison identifies the pro-Koszul and quotient systems."
         },
@@ -4383,13 +4378,13 @@
       ],
       "title": "Bounded torsion and complete Tor-amplitude",
       "kind": "theorem",
-      "statement": "Assume A has bounded p-power torsion. If M is derived p-complete and has p-complete Tor-amplitude [a,b], then M has ordinary cohomological amplitude [a,b] and bounded p-power torsion in its cohomology. In particular derived p-complete, p-completely flat M is an ordinary p-adically complete bounded-torsion module with M/p^n flat over A/p^n and M[p^n]≃M⊗_A A[p^n]. Conversely an ordinary p-complete bounded-torsion module satisfying these flatness/torsion conditions is p-completely flat.",
+      "statement": "Assume A has bounded p-power torsion. If M is derived p-complete and has p-complete Tor-amplitude [a,b], then M has ordinary cohomological amplitude [a,b]. Bounded p-power torsion in every cohomology group does not follow from this finite amplitude assumption. The bounded-torsion conclusion below is restricted to the p-completely flat case [a,b]=[0,0]. In particular derived p-complete, p-completely flat M is an ordinary p-adically complete bounded-torsion module with M/p^n flat over A/p^n and M[p^n]≃M⊗_A A[p^n]. Conversely an ordinary p-complete bounded-torsion module satisfying these flatness/torsion conditions is p-completely flat.",
       "hypotheses": [
         "Assume A has bounded p-power torsion."
       ],
       "proofSteps": [
         "Compare the Koszul reduction with ordinary p^n reduction using the bounded torsion pro-zero system.",
-        "Apply derived completeness and the Milnor sequence to transfer the mod-p amplitude to M.",
+        "Apply derived completeness and the Milnor sequence to transfer the mod-p amplitude to M (BMS2 Lemma 4.6); this step proves cohomological amplitude, not bounded torsion of general cohomology.",
         "For amplitude [0,0], compute the torsion kernel and flat reductions; use BMS2 Lemma 4.7 for the converse."
       ],
       "acceptance": [
@@ -4406,7 +4401,7 @@
           "sourceId": "bms2",
           "locator": "Lemmas 4.6–4.8, pp.219–221",
           "excerpt": "Lemma 4.6",
-          "match": "Bounded torsion kills the pro-torsion and derived-limit terms in these amplitude estimates."
+          "match": "Lemma 4.6 transfers finite p-complete Tor amplitude to cohomological amplitude. Lemma 4.7 gives the bounded-torsion and ordinary completeness conclusions for p-completely flat modules; these assertions have distinct scopes."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4939,7 +4934,7 @@
         },
         {
           "sourceId": "bhatt-lurie",
-          "locator": "Appendix D, Theorem D.1 and Proposition D.6",
+          "locator": "Appendix D, Definition D.3, Proposition D.4 and Remark D.6",
           "excerpt": "Beilinson",
           "match": "The proof uses finite truncations and the completed limit with these shifts."
         }
@@ -4979,13 +4974,13 @@
       "sources": [
         {
           "sourceId": "bms2",
-          "locator": "Theorem 5.4 and Remark 5.5",
+          "locator": "Theorem 5.4(3) and proof, pp.234–237 (Remark 5.5 concerns décalage)",
           "excerpt": "heart",
           "match": "The equivalence retains actual complexes, not their derived isomorphism classes."
         },
         {
           "sourceId": "bhatt-lurie",
-          "locator": "Appendix D, Remark D.4",
+          "locator": "Appendix D, Example D.8",
           "excerpt": "cochain complexes",
           "match": "The differential is a connecting map between graded pieces."
         }
@@ -5025,7 +5020,7 @@
       "sources": [
         {
           "sourceId": "bms2",
-          "locator": "Proposition 5.6 and proof, p.236",
+          "locator": "Proposition 5.6 and proof, pp.237–238, with the Ext-index correction E6",
           "excerpt": "Proposition 5.6",
           "match": "The graded dual-number resolution gives the shift-dependent Ext formula."
         }
@@ -5296,7 +5291,7 @@
       "sources": [
         {
           "sourceId": "bhatt-lurie",
-          "locator": "Appendix E, Variant E.14 and Remark E.15",
+          "locator": "Appendix E, Construction E.14 and Remark E.15",
           "excerpt": "Hodge-completed",
           "match": "The inverse limit of Hodge quotients is a separate object from the uncompleted realization."
         }
@@ -5391,7 +5386,7 @@
         },
         {
           "sourceId": "bhatt-lurie",
-          "locator": "Appendix E, Variant E.3 and Remark E.4",
+          "locator": "Appendix E, Construction E.3 and Remark E.4",
           "excerpt": "p-completed",
           "match": "The construction is insensitive to completing the rings."
         }
@@ -5576,7 +5571,7 @@
         },
         {
           "sourceId": "bhatt-lurie",
-          "locator": "Appendix E, Proposition E.12, Variant E.14",
+          "locator": "Appendix E, Proposition E.12, Construction E.14",
           "excerpt": "Cartier smooth",
           "match": "The completed comparison requires the specified completely flat and Cartier-smooth reductions."
         }
@@ -5674,7 +5669,7 @@
       "sources": [
         {
           "sourceId": "bhatt-lurie",
-          "locator": "Appendix B, Remark B.7–B.8; Appendix E, Proposition E.16",
+          "locator": "Appendix B, Construction B.7 and Remark B.8; Appendix E, Proposition E.16",
           "excerpt": "descent",
           "match": "The affine enhanced construction extends by descent and coherent graded modules."
         }
@@ -5762,7 +5757,7 @@
       "sources": [
         {
           "sourceId": "bhatt-ddr-2012",
-          "locator": "Corollary 3.4 and proof, p.7",
+          "locator": "Theorem 3.2 and Remark 3.4 with proof, p.7",
           "excerpt": "Corollary 3.4",
           "match": "Étale localization of the polynomial coordinate calculation supplies smooth Cartier."
         }
@@ -7326,7 +7321,7 @@
         },
         {
           "sourceId": "bhatt-lurie",
-          "locator": "Proposition E.16 with proof, p.231",
+          "locator": "Proposition E.16 with proof, pp.235–236 of the downloaded revision",
           "excerpt": "Proposition E.16",
           "match": "Flat descent is first proved for the bounded Hodge quotients and then their limit."
         }
@@ -7380,7 +7375,7 @@
         },
         {
           "sourceId": "bhatt-lurie",
-          "locator": "Variant E.17 with proof, pp.231–232",
+          "locator": "Variant E.17 with proof, p.236 of the downloaded revision",
           "excerpt": "Variant E.17",
           "match": "The completed conjugate stages lie uniformly in D≥−1, allowing the totalization exchange."
         }
@@ -7400,7 +7395,7 @@
       ],
       "title": "Relative Tor-amplitude estimates",
       "kind": "theorem",
-      "statement": "For a quasisyntomic R-algebra A, Λ_p L_(A/R) has p-complete Tor amplitude [−1,0]; thus Λ_p L∧^i L_(A/R) has amplitude [−i,0], its Hodge/conjugate shift [−i] has [0,i] before the additional derived Z/p tensor bound, and each finite quotient has a specified finite amplitude bound. For a quasismooth map the completed L is a flat module in degree zero. For relative QRSP algebras the shifted cotangent and divided-power terms are complete-flat in degree zero. These are Tor-amplitude assertions, not finite-projectivity assertions without finiteness.",
+      "statement": "For a quasisyntomic R-algebra A, Λ_p L_(A/R) has p-complete Tor amplitude [−1,0]; thus Λ_p L∧^i L_(A/R) has amplitude [−i,0], its Hodge/conjugate shift [−i] has [0,i] before the additional derived Z/p tensor bound, and each finite quotient has a specified finite amplitude bound. For a quasismooth map the completed L is a p-completely flat module in degree zero; ordinary flatness requires an additional criterion, such as the Noetherian complete-flatness theorem in DD.1. For relative QRSP algebras the shifted cotangent and divided-power terms are complete-flat in degree zero. These are Tor-amplitude assertions, not finite-projectivity assertions without finiteness.",
       "hypotheses": [
         "For a quasisyntomic R-algebra A, Λ_p L_(A/R) has p-complete Tor amplitude [−1,0]; thus Λ_p L∧^i L_(A/R) has amplitude [−i,0], its Hodge/conjugate shift [−i] has [0,i] before the additional derived Z/p tensor bound, and each finite quotient has a specified finite amplitude bound."
       ],
@@ -7640,7 +7635,7 @@
       ],
       "title": "From quasisyntomic sheaves to formal étale sites",
       "kind": "construction",
-      "statement": "For a p-complete formal scheme X with QSyn affine charts, a C-valued sheaf F on QSyn defines a sheaf F_X on X_ét by F_X(U)=lim_(Spf A⊆U)F(A), the limit over affine formal opens. Smooth/étale maps of such charts are quasisyntomic covers, so the local values glue. The construction is natural in X and retains the coefficient category and any complete filtration carried by F; a small site is used only after chart hypotheses are checked.",
+      "statement": "For a p-complete formal scheme X with QSyn affine charts, a C-valued sheaf F on QSyn defines a sheaf F_X on X_ét by F_X(U)=lim_(Spf A⊆U)F(A), the limit over affine formal opens. Smooth/étale maps of such charts are quasisyntomic maps. A completely faithfully flat map, or a jointly covering family with that faithful cover property, supplies quasisyntomic descent, so the local values glue; an arbitrary individual open immersion is not a cover. The construction is natural in X and retains the coefficient category and any complete filtration carried by F; a small site is used only after chart hypotheses are checked.",
       "hypotheses": [
         "For a p-complete formal scheme X with QSyn affine charts, a C-valued sheaf F on QSyn defines a sheaf F_X on X_ét by F_X(U)=lim_(Spf A⊆U)F(A), the limit over affine formal opens."
       ],
@@ -7729,13 +7724,13 @@
       ],
       "title": "Free prelog resolutions and animation",
       "kind": "construction",
-      "statement": "For a prelog base (A,M), import its ring/monoid carrier from the early CR.5 prefix and use free objects (A[T₀,N^(T₁)],M⊕N^(T₁)) with finite generator sets. The free/forgetful cotriple gives a canonical surjective simplicial resolution of (B,N), free termwise as both ring and monoid algebra. Its realization recovers the prelog object, and comparison maps between projective resolutions are coherent homotopy equivalences. Apply the EDS nonabelian animation universal property to this prelog-specific compact-projective subcategory.",
+      "statement": "For a prelog base (A,M), import its ring/monoid carrier from the early CR.5 prefix and use free objects (A[T₀,N^(T₁)],M⊕N^(T₁)) with finite generator sets. Finite free objects are the compact projective generators for animation. The free/forgetful cotriple on the underlying generator sets gives a canonical surjective simplicial resolution of (B,N), whose termwise free ring and monoid generator sets may be infinite. Its realization recovers the prelog object, and comparison maps between projective resolutions are coherent homotopy equivalences. Apply the EDS nonabelian animation universal property to this prelog-specific compact-projective subcategory.",
       "hypotheses": [
         "For a prelog base (A,M), import its ring/monoid carrier from the early CR.5 prefix and use free objects (A[T₀,N^(T₁)],M⊕N^(T₁)) with finite generator sets."
       ],
       "proofSteps": [
         "Import integral/fine/saturated prelog algebra and strict/exact predicates from CR.5.",
-        "Construct the free prelog adjunction and its simplicial cotriple with both generator types.",
+        "Construct the free prelog adjunction on arbitrary generator sets and its simplicial cotriple with both generator types; finite free objects separately form the compact-projective subcategory.",
         "Use the underlying ring/monoid resolution comparisons to establish augmentation equivalence and homotopy independence.",
         "Use EDS’s generic animation theorem once, applied to these compact projectives; the generic theorem is not re-planned."
       ],
@@ -8792,7 +8787,7 @@
       "sources": [
         {
           "sourceId": "log-ky",
-          "locator": "Proposition 2.47 and Corollaries 2.48–2.49, pp.24–26",
+          "locator": "Proposition 2.47, Remark 2.48 and Corollary 2.49, pp.24–26",
           "excerpt": "Proposition 2.47",
           "match": "The length-i+1 power filtration proves hlf descent; the completed versions use the specified reductions."
         }
@@ -9275,11 +9270,12 @@
       "stageId": "DerivedDeRhamCohomology:DD.0",
       "status": "planned",
       "remaining": [
-        "Cohen factorization and cotangent lci converses: The statement and local proof route of Avramov Theorem 1.2 and Iyengar 8.12 were read. The complete Cohen-factorization interior and the finite-presentation converse in Stacks’ cited commutative algebra are not yet checked against a supplier or reconstructed. These are proof gaps, not changes to the theorem hypotheses.",
-        "Integral derived powers and décalage proof: Animation gives the definition and polynomial API. The complete Illusie proof of the integral triangle/décalage comparison was not available; both author errata are binding. Dundas–Morrow and Bhatt use these formulas. Verify the corrected simplicial argument before claiming the shifted-flat divided-power equivalence proved.",
+        "Supplier CrystallineCohomology:CR.0: Ordinary divided power algebra Γ_B(M), with its flat-module base change and γ_n(ax)=a^nγ_n(x). This is the polynomial operation animated by DD.0, not a new PD-envelope owner.",
+        "Cohen factorization and cotangent lci converses: The statement and local proof route of Avramov Theorem 1.2 and Iyengar 8.12 were read. The complete Cohen-factorization interior and the finite-presentation converse in Stacks’ cited commutative algebra are not yet checked against a supplier or reconstructed. These are proof gaps, not changes to the theorem hypotheses. Independent review: add the stronger eventual-AQ-vanishing criterion needed for Bhatt Example 3.21; failure of amplitude [−1,0] alone is insufficient to conclude unboundedness.",
+        "Integral derived powers and décalage proof: Animation gives the definition and polynomial API. The complete Illusie proof of the integral triangle/décalage comparison was not available; both author errata are binding. Dundas–Morrow and Bhatt use these formulas. Verify the corrected simplicial argument before claiming the shifted-flat divided-power equivalence proved. Independent review: BL Appendix B only establishes cotangent-specialized exterior powers. Supply a public primary construction and precise source locator for the general animated module-pair exterior, symmetric and divided-power functors, including their flat-module and base-change assertions; the cited B.1/B.5 cannot alone certify these nodes.",
         "The converse F-finiteness theorem: Bhatt–Mathew cites Lurie SAG Theorem 3.5.1 for almost perfect L_(S/F_p)⇒F-finite S. Its proof was not read in this pass. The Noetherian hypothesis and forward Dundas–Morrow proof are explicit; the converse needs a primary-source proof decomposition.",
-        "Enhanced signatures beyond the ordinary derived prototype: The suggested file types ordinary ring inputs and the underlying objects/maps in the pinned DerivedCategory of modules. It omits genuinely unavailable enhanced mapping spaces, animated ring pushouts, coherent E∞ algebra structures, derived-power functor coherences, and infinity-categorical limit/colimit universal properties. These omissions are listed per declaration family in the reader and handoff; they require the exact EDS suppliers before full-scope signatures can be elaborated. The typed underlying forms do not implement or certify these targets.",
-        "Supplier CrystallineCohomology:CR.0: Ordinary divided power algebra Γ_B(M), with its flat-module base change and γ_n(ax)=a^nγ_n(x). This is the polynomial operation animated by DD.0, not a new PD-envelope owner."
+        "Enhanced signatures beyond the ordinary derived prototype: The suggested file types ordinary ring inputs and the underlying objects/maps in the pinned DerivedCategory of modules. It omits genuinely unavailable enhanced mapping spaces, animated ring pushouts, coherent E∞ algebra structures, derived-power functor coherences, and infinity-categorical limit/colimit universal properties. These omissions are listed per declaration family in the reader and handoff; they require the exact EDS suppliers before full-scope signatures can be elaborated. The typed underlying forms do not implement or certify these targets. Independent review found false universal assertions, not just omitted enhanced coherence: arbitrary model parameters are asserted isomorphic, missing flatness/lci/finiteness assumptions force blanket conclusions, and crystalline, hlf and corrected G-lci examples directly contradict APIs. Rebuild each affected signature and each discriminating test from the stated contract; comments and successful elaboration do not discharge this defect. See REV-DerivedDeRhamCohomology.",
+        "Flat square-zero lifting criterion: The obstruction lemma classifies extensions with a specified ideal. For the flat-lift specialization require B flat over A and prove that the induced identification J⊗_A B with the lifted ideal implies A′-flatness by an exact nilpotent flatness criterion. The independently read cited cotangent lemmas do not supply this additional general flatness proof."
       ],
       "targetNodes": [
         "DerivedDeRhamCohomology:DD.0/cotangent-complex",
@@ -9311,7 +9307,7 @@
       "status": "planned",
       "remaining": [
         "Noetherian and weak-proregular completion proof: The principal bounded-torsion proof and regular-sequence Koszul model are checked. BS Footnote 5 cites Artin–Rees for arbitrary finite ideals in Noetherian rings. Its complete pro-zero proof, and a general weak-proregular variant outside these ranges, are not yet decomposed; no such variant is used without that hypothesis.",
-        "Enhanced signatures beyond the ordinary derived prototype: The suggested file types ordinary ring inputs and the underlying objects/maps in the pinned DerivedCategory of modules. It omits genuinely unavailable enhanced mapping spaces, animated ring pushouts, coherent E∞ algebra structures, derived-power functor coherences, and infinity-categorical limit/colimit universal properties. These omissions are listed per declaration family in the reader and handoff; they require the exact EDS suppliers before full-scope signatures can be elaborated. The typed underlying forms do not implement or certify these targets."
+        "Enhanced signatures beyond the ordinary derived prototype: The suggested file types ordinary ring inputs and the underlying objects/maps in the pinned DerivedCategory of modules. It omits genuinely unavailable enhanced mapping spaces, animated ring pushouts, coherent E∞ algebra structures, derived-power functor coherences, and infinity-categorical limit/colimit universal properties. These omissions are listed per declaration family in the reader and handoff; they require the exact EDS suppliers before full-scope signatures can be elaborated. The typed underlying forms do not implement or certify these targets. Independent review found false universal assertions, not just omitted enhanced coherence: arbitrary model parameters are asserted isomorphic, missing flatness/lci/finiteness assumptions force blanket conclusions, and crystalline, hlf and corrected G-lci examples directly contradict APIs. Rebuild each affected signature and each discriminating test from the stated contract; comments and successful elaboration do not discharge this defect. See REV-DerivedDeRhamCohomology."
       ],
       "targetNodes": [
         "DerivedDeRhamCohomology:DD.1/koszul-complex",
@@ -9341,10 +9337,10 @@
       "stageId": "DerivedDeRhamCohomology:DD.2",
       "status": "planned",
       "remaining": [
-        "Resolution independence and complete rational comparison interiors: Bhatt states arbitrary-resolution independence with an Illusie reference and the rational Hodge-completed comparison in Remark 2.6. BL Appendix E supplies the animation/graded proof route. The complete corrected Illusie construction and filtered algebra coherence are not yet independently established from a checked supplier proof.",
-        "Enhanced signatures beyond the ordinary derived prototype: The suggested file types ordinary ring inputs and the underlying objects/maps in the pinned DerivedCategory of modules. It omits genuinely unavailable enhanced mapping spaces, animated ring pushouts, coherent E∞ algebra structures, derived-power functor coherences, and infinity-categorical limit/colimit universal properties. These omissions are listed per declaration family in the reader and handoff; they require the exact EDS suppliers before full-scope signatures can be elaborated. The typed underlying forms do not implement or certify these targets.",
         "Supplier SchemeAndStackFoundations:SF.0: Schemes, affine charts, proper/smooth finite-presentation morphism predicates and p-adic formal schemes; formal chart groundwork may need the early SF.4 extension, without later arithmetic comparisons.",
-        "Supplier SchemeAndStackFoundations:SF.4: The early formal-scheme and affine-chart prefix: p-adic formal spectra, compatible finite reductions, proper smooth finite-presentation formal schemes and their étale sites. No algebraization, alterations or late model-comparison theorem is an input to this prefix."
+        "Supplier SchemeAndStackFoundations:SF.4: The early formal-scheme and affine-chart prefix: p-adic formal spectra, compatible finite reductions, proper smooth finite-presentation formal schemes and their étale sites. No algebraization, alterations or late model-comparison theorem is an input to this prefix.",
+        "Resolution independence and complete rational comparison interiors: Bhatt states arbitrary-resolution independence with an Illusie reference and the rational Hodge-completed comparison in Remark 2.6. BL Appendix E supplies the animation/graded proof route. The complete corrected Illusie construction and filtered algebra coherence are not yet independently established from a checked supplier proof.",
+        "Enhanced signatures beyond the ordinary derived prototype: The suggested file types ordinary ring inputs and the underlying objects/maps in the pinned DerivedCategory of modules. It omits genuinely unavailable enhanced mapping spaces, animated ring pushouts, coherent E∞ algebra structures, derived-power functor coherences, and infinity-categorical limit/colimit universal properties. These omissions are listed per declaration family in the reader and handoff; they require the exact EDS suppliers before full-scope signatures can be elaborated. The typed underlying forms do not implement or certify these targets. Independent review found false universal assertions, not just omitted enhanced coherence: arbitrary model parameters are asserted isomorphic, missing flatness/lci/finiteness assumptions force blanket conclusions, and crystalline, hlf and corrected G-lci examples directly contradict APIs. Rebuild each affected signature and each discriminating test from the stated contract; comments and successful elaboration do not discharge this defect. See REV-DerivedDeRhamCohomology."
       ],
       "targetNodes": [
         "DerivedDeRhamCohomology:DD.2/symbol-relations",
@@ -9385,7 +9381,7 @@
       "stageId": "DerivedDeRhamCohomology:DD.3",
       "status": "planned",
       "remaining": [
-        "Enhanced signatures beyond the ordinary derived prototype: The suggested file types ordinary ring inputs and the underlying objects/maps in the pinned DerivedCategory of modules. It omits genuinely unavailable enhanced mapping spaces, animated ring pushouts, coherent E∞ algebra structures, derived-power functor coherences, and infinity-categorical limit/colimit universal properties. These omissions are listed per declaration family in the reader and handoff; they require the exact EDS suppliers before full-scope signatures can be elaborated. The typed underlying forms do not implement or certify these targets."
+        "Enhanced signatures beyond the ordinary derived prototype: The suggested file types ordinary ring inputs and the underlying objects/maps in the pinned DerivedCategory of modules. It omits genuinely unavailable enhanced mapping spaces, animated ring pushouts, coherent E∞ algebra structures, derived-power functor coherences, and infinity-categorical limit/colimit universal properties. These omissions are listed per declaration family in the reader and handoff; they require the exact EDS suppliers before full-scope signatures can be elaborated. The typed underlying forms do not implement or certify these targets. Independent review found false universal assertions, not just omitted enhanced coherence: arbitrary model parameters are asserted isomorphic, missing flatness/lci/finiteness assumptions force blanket conclusions, and crystalline, hlf and corrected G-lci examples directly contradict APIs. Rebuild each affected signature and each discriminating test from the stated contract; comments and successful elaboration do not discharge this defect. See REV-DerivedDeRhamCohomology."
       ],
       "targetNodes": [
         "DerivedDeRhamCohomology:DD.3/frobenius-linear-differential",
@@ -9404,14 +9400,14 @@
       "stageId": "DerivedDeRhamCohomology:DD.4",
       "status": "planned",
       "remaining": [
-        "PD root-quotient p-torsion-freeness proof: BMS2 Proposition 8.12 uses Scholze–Weinstein 2013 Proposition 4.1.11 for the p-torsion-free PD root quotient. That precise proof was not read in this pass. CR.0 must supply it or a complete direct PD-basis proof before the general A_crys structure theorem closes.",
-        "Regular perfection and smooth approximation: The canonical crystalline Čech calculation invokes Kunz’s regular-ring Frobenius flatness direction and Popescu’s theorem Stacks 07GB. No atlas supplier with these exact proofs was verified; the DD.4 target records this proof gap instead of asserting them from generic cotangent amplitude.",
-        "Enhanced signatures beyond the ordinary derived prototype: The suggested file types ordinary ring inputs and the underlying objects/maps in the pinned DerivedCategory of modules. It omits genuinely unavailable enhanced mapping spaces, animated ring pushouts, coherent E∞ algebra structures, derived-power functor coherences, and infinity-categorical limit/colimit universal properties. These omissions are listed per declaration family in the reader and handoff; they require the exact EDS suppliers before full-scope signatures can be elaborated. The typed underlying forms do not implement or certify these targets.",
         "Supplier CrystallineCohomology:CR.0: Ordinary PD envelopes and filtered universal maps; Bhatt Lemmas 3.37–3.38 explicit regular envelopes, derived tensor discreteness, Z/p^n flatness and reduction. Export PD-side facts only; DD.4 alone owns Corollary 3.40 and Theorem 3.27.",
         "Supplier CrystallineCohomology:CR.2: The PD Poincaré de Rham model, scheme descent and crystalline transitivity/base-change maps with their nilpotent base and PD hypotheses; no duplicate derived de Rham comparison.",
         "Supplier CrystallineCohomology:CR.4: Early classical smooth F_p WΩ with Nygaard filtration, divided Frobenius and BMS2 Lemmas 8.2–8.3, plus classical smooth crystalline comparison. This prefix does not depend on DD.4’s derived Witt/QRSP comparison.",
         "Supplier AInfCohomology:AI.0:integral: Shared A_inf, θ with regular principal kernel, relatively perfect mod-p input, p-completed PD period ring and its actual unit/Frobenius/Galois maps; this is the early integral prefix.",
-        "Supplier PadicHodgeTheory:R06.1: The shared B_dR⁺, B_dR and B_cris objects and maps with G_K actions and filtration; use them after DD.4 identifies the integral derived period object."
+        "Supplier PadicHodgeTheory:R06.1: The shared B_dR⁺, B_dR and B_cris objects and maps with G_K actions and filtration; use them after DD.4 identifies the integral derived period object.",
+        "PD root-quotient p-torsion-freeness proof: BMS2 Proposition 8.12 uses Scholze–Weinstein 2013 Proposition 4.1.11 for the p-torsion-free PD root quotient. That precise proof was not read in this pass. CR.0 must supply it or a complete direct PD-basis proof before the general A_crys structure theorem closes.",
+        "Regular perfection and smooth approximation: The canonical crystalline Čech calculation invokes Kunz’s regular-ring Frobenius flatness direction and Popescu’s theorem Stacks 07GB. No atlas supplier with these exact proofs was verified; the DD.4 target records this proof gap instead of asserting them from generic cotangent amplitude.",
+        "Enhanced signatures beyond the ordinary derived prototype: The suggested file types ordinary ring inputs and the underlying objects/maps in the pinned DerivedCategory of modules. It omits genuinely unavailable enhanced mapping spaces, animated ring pushouts, coherent E∞ algebra structures, derived-power functor coherences, and infinity-categorical limit/colimit universal properties. These omissions are listed per declaration family in the reader and handoff; they require the exact EDS suppliers before full-scope signatures can be elaborated. The typed underlying forms do not implement or certify these targets. Independent review found false universal assertions, not just omitted enhanced coherence: arbitrary model parameters are asserted isomorphic, missing flatness/lci/finiteness assumptions force blanket conclusions, and crystalline, hlf and corrected G-lci examples directly contradict APIs. Rebuild each affected signature and each discriminating test from the stated contract; comments and successful elaboration do not discharge this defect. See REV-DerivedDeRhamCohomology."
       ],
       "targetNodes": [
         "DerivedDeRhamCohomology:DD.4/crystalline-comparison-map",
@@ -9434,12 +9430,12 @@
       "stageId": "DerivedDeRhamCohomology:DD.5",
       "status": "planned",
       "remaining": [
-        "Perfect lifting over a p-complete base: DD.5 proper smooth control needs the theorem that a compatible system of perfect A/p^n complexes with uniform bounds lifts to a perfect derived-complete A-complex. The supplier for this derived perfect-complex effectivity, beyond the checked coherent finite-level theorem, remains to be established.",
-        "Enhanced signatures beyond the ordinary derived prototype: The suggested file types ordinary ring inputs and the underlying objects/maps in the pinned DerivedCategory of modules. It omits genuinely unavailable enhanced mapping spaces, animated ring pushouts, coherent E∞ algebra structures, derived-power functor coherences, and infinity-categorical limit/colimit universal properties. These omissions are listed per declaration family in the reader and handoff; they require the exact EDS suppliers before full-scope signatures can be elaborated. The typed underlying forms do not implement or certify these targets.",
         "Supplier PerfectoidQuotients:Q0:integral-algebra: Early integral perfectoid carrier and examples; F_∞ obtained by adjoining roots of p and coordinates; bounded torsion and completed cotangent criterion. This is Q0:integral-algebra only, never Q0:animated-application or Q3.",
         "Supplier AlgebraicModuliForArithmeticGeometry:A0-extension: Proper flat finite-presentation coherent-cohomology perfectness and arbitrary derived base change, including the nonnoetherian approximation theorem Stacks 0A1G. DD.5 applies it to differential bundles; it does not plan coherent cohomology again.",
         "Supplier SchemeAndStackFoundations:SF.0: Schemes, affine charts, proper/smooth finite-presentation morphism predicates and p-adic formal schemes; formal chart groundwork may need the early SF.4 extension, without later arithmetic comparisons.",
-        "Supplier SchemeAndStackFoundations:SF.4: The early formal-scheme and affine-chart prefix: p-adic formal spectra, compatible finite reductions, proper smooth finite-presentation formal schemes and their étale sites. No algebraization, alterations or late model-comparison theorem is an input to this prefix."
+        "Supplier SchemeAndStackFoundations:SF.4: The early formal-scheme and affine-chart prefix: p-adic formal spectra, compatible finite reductions, proper smooth finite-presentation formal schemes and their étale sites. No algebraization, alterations or late model-comparison theorem is an input to this prefix.",
+        "Perfect lifting over a p-complete base: DD.5 proper smooth control needs the theorem that a compatible system of perfect A/p^n complexes with uniform bounds lifts to a perfect derived-complete A-complex. The supplier for this derived perfect-complex effectivity, beyond the checked coherent finite-level theorem, remains to be established.",
+        "Enhanced signatures beyond the ordinary derived prototype: The suggested file types ordinary ring inputs and the underlying objects/maps in the pinned DerivedCategory of modules. It omits genuinely unavailable enhanced mapping spaces, animated ring pushouts, coherent E∞ algebra structures, derived-power functor coherences, and infinity-categorical limit/colimit universal properties. These omissions are listed per declaration family in the reader and handoff; they require the exact EDS suppliers before full-scope signatures can be elaborated. The typed underlying forms do not implement or certify these targets. Independent review found false universal assertions, not just omitted enhanced coherence: arbitrary model parameters are asserted isomorphic, missing flatness/lci/finiteness assumptions force blanket conclusions, and crystalline, hlf and corrected G-lci examples directly contradict APIs. Rebuild each affected signature and each discriminating test from the stated contract; comments and successful elaboration do not discharge this defect. See REV-DerivedDeRhamCohomology."
       ],
       "targetNodes": [
         "DerivedDeRhamCohomology:DD.5/quasisyntomic-site",
@@ -9461,12 +9457,12 @@
       "stageId": "DerivedDeRhamCohomology:DD.6",
       "status": "planned",
       "remaining": [
+        "Supplier CrystallineCohomology:CR.5:log-algebra: Early prelog/log algebra with integral, fine, saturated, strict/exact and Cartier-type predicates; ordinary log differential universal property; exactification followed by strict PD envelopes; log PD Poincaré comparison. This is an algebraic prefix independent of DD.6’s later derived/crystalline comparison.",
+        "Supplier ArithmeticGaloisRepresentations:R01.1: The G_K action, Tate module Z_p(1) of compatible p-power roots of unity, and coherent equivariant morphisms; period invariant/vanishing statements stay in PadicHodgeTheory.",
         "Gabber–Olsson and exactification proof interiors: Bhatt and KY cite Olsson’s full logification/transitivity/integral log-smooth results and Kato exactification/PD Poincaré. Those original papers were not fully read here. The exact theorem hypotheses are retained and CR.5 is requested to supply the original proofs, with no equality of cotangent conventions outside the integral range.",
         "Filtered corrected G-lci applications: The corrected finite regular-quotient theorem is explicit, but the filtered-colimit log crystalline comparison and all three Example 7.21 factorizations require a checked construction of compatible regular presentations. The complete Fontaine ind-lci proof and exact filtered PD/site exchange are not yet discharged; no claim follows merely from strict epimorphism.",
         "Two-sort log-quasisyntomic completion and root descent: KY §§2–3 state the completed hlf pushouts, general prelog QRSP root covers and descent; the full proof decomposition still needs the monoid derived-reduction and boundedness lemmas supplied by CR.5/EDS. The exact tilt-surjectivity clause, completed hlf condition and relative/big site conventions are stated, and the full monoid proof interiors remain to be decomposed.",
-        "Enhanced signatures beyond the ordinary derived prototype: The suggested file types ordinary ring inputs and the underlying objects/maps in the pinned DerivedCategory of modules. It omits genuinely unavailable enhanced mapping spaces, animated ring pushouts, coherent E∞ algebra structures, derived-power functor coherences, and infinity-categorical limit/colimit universal properties. These omissions are listed per declaration family in the reader and handoff; they require the exact EDS suppliers before full-scope signatures can be elaborated. The typed underlying forms do not implement or certify these targets.",
-        "Supplier CrystallineCohomology:CR.5:log-algebra: Early prelog/log algebra with integral, fine, saturated, strict/exact and Cartier-type predicates; ordinary log differential universal property; exactification followed by strict PD envelopes; log PD Poincaré comparison. This is an algebraic prefix independent of DD.6’s later derived/crystalline comparison.",
-        "Supplier ArithmeticGaloisRepresentations:R01.1: The G_K action, Tate module Z_p(1) of compatible p-power roots of unity, and coherent equivariant morphisms; period invariant/vanishing statements stay in PadicHodgeTheory."
+        "Enhanced signatures beyond the ordinary derived prototype: The suggested file types ordinary ring inputs and the underlying objects/maps in the pinned DerivedCategory of modules. It omits genuinely unavailable enhanced mapping spaces, animated ring pushouts, coherent E∞ algebra structures, derived-power functor coherences, and infinity-categorical limit/colimit universal properties. These omissions are listed per declaration family in the reader and handoff; they require the exact EDS suppliers before full-scope signatures can be elaborated. The typed underlying forms do not implement or certify these targets. Independent review found false universal assertions, not just omitted enhanced coherence: arbitrary model parameters are asserted isomorphic, missing flatness/lci/finiteness assumptions force blanket conclusions, and crystalline, hlf and corrected G-lci examples directly contradict APIs. Rebuild each affected signature and each discriminating test from the stated contract; comments and successful elaboration do not discharge this defect. See REV-DerivedDeRhamCohomology."
       ],
       "targetNodes": [
         "DerivedDeRhamCohomology:DD.6/free-prelog-resolutions",
@@ -9495,16 +9491,17 @@
   "gaps": [
     {
       "title": "Cohen factorization and cotangent lci converses",
-      "detail": "The statement and local proof route of Avramov Theorem 1.2 and Iyengar 8.12 were read. The complete Cohen-factorization interior and the finite-presentation converse in Stacks’ cited commutative algebra are not yet checked against a supplier or reconstructed. These are proof gaps, not changes to the theorem hypotheses.",
+      "detail": "The statement and local proof route of Avramov Theorem 1.2 and Iyengar 8.12 were read. The complete Cohen-factorization interior and the finite-presentation converse in Stacks’ cited commutative algebra are not yet checked against a supplier or reconstructed. These are proof gaps, not changes to the theorem hypotheses. Independent review: add the stronger eventual-AQ-vanishing criterion needed for Bhatt Example 3.21; failure of amplitude [−1,0] alone is insufficient to conclude unboundedness.",
       "neededBy": [
         "DerivedDeRhamCohomology:DD.0/absolute-complete-intersection",
         "DerivedDeRhamCohomology:DD.0/andre-regularity",
-        "DerivedDeRhamCohomology:DD.0/lci-amplitude"
+        "DerivedDeRhamCohomology:DD.0/lci-amplitude",
+        "DerivedDeRhamCohomology:DD.0/nonregular-quotient-homology"
       ]
     },
     {
       "title": "Integral derived powers and décalage proof",
-      "detail": "Animation gives the definition and polynomial API. The complete Illusie proof of the integral triangle/décalage comparison was not available; both author errata are binding. Dundas–Morrow and Bhatt use these formulas. Verify the corrected simplicial argument before claiming the shifted-flat divided-power equivalence proved.",
+      "detail": "Animation gives the definition and polynomial API. The complete Illusie proof of the integral triangle/décalage comparison was not available; both author errata are binding. Dundas–Morrow and Bhatt use these formulas. Verify the corrected simplicial argument before claiming the shifted-flat divided-power equivalence proved. Independent review: BL Appendix B only establishes cotangent-specialized exterior powers. Supply a public primary construction and precise source locator for the general animated module-pair exterior, symmetric and divided-power functors, including their flat-module and base-change assertions; the cited B.1/B.5 cannot alone certify these nodes.",
       "neededBy": [
         "DerivedDeRhamCohomology:DD.0/derived-exterior-powers",
         "DerivedDeRhamCohomology:DD.0/derived-symmetric-powers",
@@ -9586,7 +9583,7 @@
     },
     {
       "title": "Enhanced signatures beyond the ordinary derived prototype",
-      "detail": "The suggested file types ordinary ring inputs and the underlying objects/maps in the pinned DerivedCategory of modules. It omits genuinely unavailable enhanced mapping spaces, animated ring pushouts, coherent E∞ algebra structures, derived-power functor coherences, and infinity-categorical limit/colimit universal properties. These omissions are listed per declaration family in the reader and handoff; they require the exact EDS suppliers before full-scope signatures can be elaborated. The typed underlying forms do not implement or certify these targets.",
+      "detail": "The suggested file types ordinary ring inputs and the underlying objects/maps in the pinned DerivedCategory of modules. It omits genuinely unavailable enhanced mapping spaces, animated ring pushouts, coherent E∞ algebra structures, derived-power functor coherences, and infinity-categorical limit/colimit universal properties. These omissions are listed per declaration family in the reader and handoff; they require the exact EDS suppliers before full-scope signatures can be elaborated. The typed underlying forms do not implement or certify these targets. Independent review found false universal assertions, not just omitted enhanced coherence: arbitrary model parameters are asserted isomorphic, missing flatness/lci/finiteness assumptions force blanket conclusions, and crystalline, hlf and corrected G-lci examples directly contradict APIs. Rebuild each affected signature and each discriminating test from the stated contract; comments and successful elaboration do not discharge this defect. See REV-DerivedDeRhamCohomology.",
       "neededBy": [
         "DerivedDeRhamCohomology:DD.2/polynomial-resolution-derham",
         "DerivedDeRhamCohomology:DD.3/conjugate-filtration",
@@ -9701,6 +9698,13 @@
         "DerivedDeRhamCohomology:DD.6/log-quasiregular-semiperfectoid",
         "DerivedDeRhamCohomology:DD.6/log-compatible-root-covers"
       ]
+    },
+    {
+      "title": "Flat square-zero lifting criterion",
+      "detail": "The obstruction lemma classifies extensions with a specified ideal. For the flat-lift specialization require B flat over A and prove that the induced identification J⊗_A B with the lifted ideal implies A′-flatness by an exact nilpotent flatness criterion. The independently read cited cotangent lemmas do not supply this additional general flatness proof.",
+      "neededBy": [
+        "DerivedDeRhamCohomology:DD.0/square-zero-deformations"
+      ]
     }
   ],
   "sourceIssues": [
@@ -9718,8 +9722,14 @@
         "https://arxiv.org/abs/1204.6560: submission history lists only v1, read 2026-09-26",
         "https://www.math.ias.edu/~bhatt/: author homepage and link to arXiv papers, read 2026-09-26",
         "Targeted search for this title with errata/correction; no correction identified.",
-        "Fresh atlas source-issues/register screen found no match to these pp.5–7 findings; two confirmed corrections on pp.32–33 are imported separately in the correction ledger."
-      ]
+        "Fresh atlas source-issues/register screen found no match to these pp.5–7 findings; two confirmed corrections on pp.32–33 are imported separately in the correction ledger.",
+        "Independent review 6 October 2026: affected downloaded source text checked; rendered pages checked for E1–E10 and the p.16 continuation read for E11. Fresh targeted errata/correction searches did not identify a matching correction; KY corrigendum metadata concerns 7.35/7.36, not these §2 findings. No novelty claim."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Visually checked arXiv v1 p.5: the statement augments to A, whereas Definition 2.1 and the immediately following proof resolve B. The proposed B correction is exact.",
+        "by": "REV-DerivedDeRhamCohomology"
+      }
     },
     {
       "id": "DerivedDeRhamCohomology/E2",
@@ -9735,8 +9745,14 @@
         "https://arxiv.org/abs/1204.6560: submission history lists only v1, read 2026-09-26",
         "https://www.math.ias.edu/~bhatt/: author homepage and link to arXiv papers, read 2026-09-26",
         "Targeted search for this title with errata/correction; no correction identified.",
-        "Fresh atlas source-issues/register screen found no match to these pp.5–7 findings; two confirmed corrections on pp.32–33 are imported separately in the correction ledger."
-      ]
+        "Fresh atlas source-issues/register screen found no match to these pp.5–7 findings; two confirmed corrections on pp.32–33 are imported separately in the correction ledger.",
+        "Independent review 6 October 2026: affected downloaded source text checked; rendered pages checked for E1–E10 and the p.16 continuation read for E11. Fresh targeted errata/correction searches did not identify a matching correction; KY corrigendum metadata concerns 7.35/7.36, not these §2 findings. No novelty claim."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Visually checked arXiv v1 p.6: the prose says A but the displayed twist is B⊗^L_(A,Frob)A with relative Frobenius to B. Correct the prose only.",
+        "by": "REV-DerivedDeRhamCohomology"
+      }
     },
     {
       "id": "DerivedDeRhamCohomology/E3",
@@ -9752,8 +9768,14 @@
         "https://arxiv.org/abs/1204.6560: submission history lists only v1, read 2026-09-26",
         "https://www.math.ias.edu/~bhatt/: author homepage and link to arXiv papers, read 2026-09-26",
         "Targeted search for this title with errata/correction; no correction identified.",
-        "Fresh atlas source-issues/register screen found no match to these pp.5–7 findings; two confirmed corrections on pp.32–33 are imported separately in the correction ledger."
-      ]
+        "Fresh atlas source-issues/register screen found no match to these pp.5–7 findings; two confirmed corrections on pp.32–33 are imported separately in the correction ledger.",
+        "Independent review 6 October 2026: affected downloaded source text checked; rendered pages checked for E1–E10 and the p.16 continuation read for E11. Fresh targeted errata/correction searches did not identify a matching correction; KY corrigendum metadata concerns 7.35/7.36, not these §2 findings. No novelty claim."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Visually checked arXiv v1 p.7: the intermediate Cartier display shifts only its left module. The final graded-piece equivalence has the correct shift; shift both intermediate sides or neither.",
+        "by": "REV-DerivedDeRhamCohomology"
+      }
     },
     {
       "id": "DerivedDeRhamCohomology/E4",
@@ -9769,8 +9791,14 @@
         "https://arxiv.org/abs/1204.6560, v1 only, checked 6 October 2026",
         "https://websites.umich.edu/~bhattb/math/padicddr.pdf, affected author-copy passages read 6 October 2026",
         "Author homepage and targeted title/errata/correction search; no correction of this passage identified",
-        "Atlas source-issue register and RT-AREA-padic-2 result: distinguish existing confirmed omissions from new sign finding"
-      ]
+        "Atlas source-issue register and RT-AREA-padic-2 result: distinguish existing confirmed omissions from new sign finding",
+        "Independent review 6 October 2026: affected downloaded source text checked; rendered pages checked for E1–E10 and the p.16 continuation read for E11. Fresh targeted errata/correction searches did not identify a matching correction; KY corrigendum metadata concerns 7.35/7.36, not these §2 findings. No novelty claim."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Visually checked arXiv v1 p.31 and Bhatt Example 3.21: an arbitrary strict effective epimorphism includes the trivial-log non-lci square-zero quotient. The cited ordinary lci theorem requires regularity. The finite regular-quotient repair is supported; the filtered repair remains a recorded proof obligation.",
+        "by": "REV-DerivedDeRhamCohomology"
+      }
     },
     {
       "id": "DerivedDeRhamCohomology/E5",
@@ -9781,30 +9809,42 @@
       "correction": "Use gr^i(F)=cofib(F(i+1)→F(i)) for the displayed decreasing Z^op-indexed filtration.",
       "reason": "There is a structure map F(i+1)→F(i), not F(i−1)→F(i). A filtration with F(0)=R,F(1)=0 has gr^0=R. All subsequent Hodge/conjugate reindexing uses this correction.",
       "affects": "a stated result",
-      "known": "new",
+      "known": "No matching correction identified in the recorded search; novelty is not established.",
       "searched": [
         "Published numdam/Springer article 10.1007/s10240-019-00106-9, affected pages read visually and as text",
         "https://arxiv.org/abs/1802.03261, v1/v2 history; affected v2 passages collated",
         "https://www.imo.universite-paris-saclay.fr/~matthew.morrow/, paper link and author PDF; no separate erratum listed",
-        "Targeted title with errata/correction, exact Ext/Nygaard clauses, and atlas source register; no matching correction found"
-      ]
+        "Targeted title with errata/correction, exact Ext/Nygaard clauses, and atlas source register; no matching correction found",
+        "Independent review 6 October 2026: affected downloaded source text checked; rendered pages checked for E1–E10 and the p.16 continuation read for E11. Fresh targeted errata/correction searches did not identify a matching correction; KY corrigendum metadata concerns 7.35/7.36, not these §2 findings. No novelty claim."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Visually checked published BMS2 p.233: Z^op gives maps F(i+1)→F(i). The printed F(i)/F(i−1) cannot be the associated cofiber; the proposed i+1 correction follows directly.",
+        "by": "REV-DerivedDeRhamCohomology"
+      }
     },
     {
       "id": "DerivedDeRhamCohomology/E6",
       "source": "bms2",
       "kind": "misprint",
-      "locator": "Proposition 5.6, published p.237 and proof p.238; arXiv v2 pp.31–32; companion display in Theorem 5.5 proof p.236",
+      "locator": "Proposition 5.6, published p.237 and proof p.238; arXiv v2 pp.31–32; companion display in Theorem 5.4 proof p.236",
       "printed": "Ext^(i−c)_R(M,N) if c≤0",
       "correction": "Replace i−c by i+c, with negative Ext groups zero. In the companion display replace a−i+j by a+i−j. Keep vanishing for c>0.",
       "reason": "The proof gives RHom_R(M,N)[c], whose i-th cohomology is Ext_R^(i+c). For R=k, i=1,c=−1, the nonsplit exact sequence 0→k[−1]→[k --id→ k]→k→0 gives Ext_Ch^1=k, while the printed Ext_k^2 is zero.",
       "affects": "a stated result",
-      "known": "new",
+      "known": "No matching correction identified in the recorded search; novelty is not established.",
       "searched": [
         "Published numdam/Springer article 10.1007/s10240-019-00106-9, affected pages read visually and as text",
         "https://arxiv.org/abs/1802.03261, v1/v2 history; affected v2 passages collated",
         "https://www.imo.universite-paris-saclay.fr/~matthew.morrow/, paper link and author PDF; no separate erratum listed",
-        "Targeted title with errata/correction, exact Ext/Nygaard clauses, and atlas source register; no matching correction found"
-      ]
+        "Targeted title with errata/correction, exact Ext/Nygaard clauses, and atlas source register; no matching correction found",
+        "Independent review 6 October 2026: affected downloaded source text checked; rendered pages checked for E1–E10 and the p.16 continuation read for E11. Fresh targeted errata/correction searches did not identify a matching correction; KY corrigendum metadata concerns 7.35/7.36, not these §2 findings. No novelty claim."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Visually checked published BMS2 pp.236–237 and read the proof: RHom(M,N)[c] has H^i=Ext^(i+c). For a field, i=1,c=−1 yields a nonzero extension of complexes while the printed Ext^2 is zero. The companion display belongs to Theorem 5.4 proof, not Theorem 5.5.",
+        "by": "REV-DerivedDeRhamCohomology"
+      }
     },
     {
       "id": "DerivedDeRhamCohomology/E7",
@@ -9815,13 +9855,19 @@
       "correction": "Replace the domain by gr_N^i LWΩ_S=N^≥i/N^≥(i+1); the graded divided-Frobenius map identifies it with Fil_i^conj dR_(S/F_p). The whole-level map has the fiber N^≥(i+1).",
       "reason": "For S=F_p,i=0 the whole-level map is Z_p→F_p and is not injective. Equation (4) gives its fiber, and Theorem 8.14(2) uses the correct graded domain.",
       "affects": "a stated result",
-      "known": "new",
+      "known": "No matching correction identified in the recorded search; novelty is not established.",
       "searched": [
         "Published numdam/Springer article 10.1007/s10240-019-00106-9, affected pages read visually and as text",
         "https://arxiv.org/abs/1802.03261, v1/v2 history; affected v2 passages collated",
         "https://www.imo.universite-paris-saclay.fr/~matthew.morrow/, paper link and author PDF; no separate erratum listed",
-        "Targeted title with errata/correction, exact Ext/Nygaard clauses, and atlas source register; no matching correction found"
-      ]
+        "Targeted title with errata/correction, exact Ext/Nygaard clauses, and atlas source register; no matching correction found",
+        "Independent review 6 October 2026: affected downloaded source text checked; rendered pages checked for E1–E10 and the p.16 continuation read for E11. Fresh targeted errata/correction searches did not identify a matching correction; KY corrigendum metadata concerns 7.35/7.36, not these §2 findings. No novelty claim."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Visually checked published BMS2 p.274: the whole N^≥0 level for S=F_p maps Z_p→F_p, so is not injective. Equation (4) has fiber N^≥(i+1); the graded-domain correction agrees with Theorem 8.14(2).",
+        "by": "REV-DerivedDeRhamCohomology"
+      }
     },
     {
       "id": "DerivedDeRhamCohomology/E8",
@@ -9832,13 +9878,19 @@
       "correction": "For odd p use (p−1)!=−1 mod p, so this equality has a minus sign. Normalize the horizontal/vertical totalization signs before asserting an exact signed generator image; the unit-based comparison remains the proof route.",
       "reason": "Wilson’s theorem contradicts the last equality for odd p. The preceding formula d_v((p−1)!γ_p(t))=t^(p−1)dt is valid. This finding addresses the displayed proof equality, not a claim that the comparison isomorphism fails.",
       "affects": "the proof",
-      "known": "new",
+      "known": "No matching correction identified in the recorded search; novelty is not established.",
       "searched": [
         "https://arxiv.org/abs/1204.6560, v1 only, checked 6 October 2026",
         "https://websites.umich.edu/~bhattb/math/padicddr.pdf, affected author-copy passages read 6 October 2026",
         "Author homepage and targeted title/errata/correction search; no correction of this passage identified",
-        "Atlas source-issue register and RT-AREA-padic-2 result: distinguish existing confirmed omissions from new sign finding"
-      ]
+        "Atlas source-issue register and RT-AREA-padic-2 result: distinguish existing confirmed omissions from new sign finding",
+        "Independent review 6 October 2026: affected downloaded source text checked; rendered pages checked for E1–E10 and the p.16 continuation read for E11. Fresh targeted errata/correction searches did not identify a matching correction; KY corrigendum metadata concerns 7.35/7.36, not these §2 findings. No novelty claim."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Visually checked arXiv v1 p.14: for odd p Wilson gives (p−1)!=−1. The last displayed equality loses this sign. It is a unit error in the proof normalization, not failure of the comparison isomorphism.",
+        "by": "REV-DerivedDeRhamCohomology"
+      }
     },
     {
       "id": "DerivedDeRhamCohomology/E9",
@@ -9854,8 +9906,14 @@
         "https://arxiv.org/abs/2306.00364, v1-only history checked 6 October 2026",
         "ScienceDirect version of record, DOI 10.1016/j.aim.2025.110446: metadata read, text declined",
         "Inoue–Koshikawa–Yao corrigendum DOI 10.1016/j.aim.2026.111223: abstract names 7.35/7.36; text declined",
-        "Author institutional pages and targeted title/correction search; no §2 correction identified. Novelty against the inaccessible published text is not established."
-      ]
+        "Author institutional pages and targeted title/correction search; no §2 correction identified. Novelty against the inaccessible published text is not established.",
+        "Independent review 6 October 2026: affected downloaded source text checked; rendered pages checked for E1–E10 and the p.16 continuation read for E11. Fresh targeted errata/correction searches did not identify a matching correction; KY corrigendum metadata concerns 7.35/7.36, not these §2 findings. No novelty claim."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Visually checked KY arXiv v1 p.13: LΩ^i is explicitly unshifted L∧^iL. A free log differential has degree zero and weight-one de Rham has degree one, forcing [−i] in both graded formulas.",
+        "by": "REV-DerivedDeRhamCohomology"
+      }
     },
     {
       "id": "DerivedDeRhamCohomology/E10",
@@ -9871,14 +9929,20 @@
         "https://arxiv.org/abs/2306.00364, v1-only history checked 6 October 2026",
         "ScienceDirect version of record, DOI 10.1016/j.aim.2025.110446: metadata read, text declined",
         "Inoue–Koshikawa–Yao corrigendum DOI 10.1016/j.aim.2026.111223: abstract names 7.35/7.36; text declined",
-        "Author institutional pages and targeted title/correction search; no §2 correction identified. Novelty against the inaccessible published text is not established."
-      ]
+        "Author institutional pages and targeted title/correction search; no §2 correction identified. Novelty against the inaccessible published text is not established.",
+        "Independent review 6 October 2026: affected downloaded source text checked; rendered pages checked for E1–E10 and the p.16 continuation read for E11. Fresh targeted errata/correction searches did not identify a matching correction; KY corrigendum metadata concerns 7.35/7.36, not these §2 findings. No novelty claim."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Visually checked KY arXiv v1 p.15: the parenthesized de Rham expression tensors over S1, although its differential is only R-linear. On a polynomial coordinate d(t)=dt and t·d(1)=0. Retain the R-linear base-change expression of Bhatt Proposition 6.12.",
+        "by": "REV-DerivedDeRhamCohomology"
+      }
     },
     {
       "id": "DerivedDeRhamCohomology/E11",
       "source": "log-ky",
       "kind": "misprint",
-      "locator": "Lemma 2.14 proof, arXiv:2306.00364v1 printed p.15",
+      "locator": "Lemma 2.14 proof, arXiv:2306.00364v1 printed p.16",
       "printed": "Y = (Spec S,M_S)^a and X = (Spec R,M_R)^a",
       "correction": "Use X=(Spec S,M_S)^a and Y=(Spec R,M_R)^a for the subsequent morphism X→Y and complex L_(X/Y).",
       "reason": "A ring map R→S induces Spec S→Spec R; the next application of Olsson’s comparison uses that direction. The theorem statement is unchanged.",
@@ -9888,8 +9952,54 @@
         "https://arxiv.org/abs/2306.00364, v1-only history checked 6 October 2026",
         "ScienceDirect version of record, DOI 10.1016/j.aim.2025.110446: metadata read, text declined",
         "Inoue–Koshikawa–Yao corrigendum DOI 10.1016/j.aim.2026.111223: abstract names 7.35/7.36; text declined",
-        "Author institutional pages and targeted title/correction search; no §2 correction identified. Novelty against the inaccessible published text is not established."
-      ]
+        "Author institutional pages and targeted title/correction search; no §2 correction identified. Novelty against the inaccessible published text is not established.",
+        "Independent review 6 October 2026: affected downloaded source text checked; rendered pages checked for E1–E10 and the p.16 continuation read for E11. Fresh targeted errata/correction searches did not identify a matching correction; KY corrigendum metadata concerns 7.35/7.36, not these §2 findings. No novelty claim."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read KY arXiv v1 p.16, the continuation of Lemma 2.14: its proof swaps X and Y relative to the statement and Remark 2.12. A ring map R→S induces Spec S→Spec R. Correct both names; the original issue locator p.15 was also off by one.",
+        "by": "REV-DerivedDeRhamCohomology"
+      }
+    },
+    {
+      "id": "DerivedDeRhamCohomology/E12",
+      "source": "bhatt-ddr-2012",
+      "kind": "misprint",
+      "locator": "Proposition 6.12, arXiv:1204.6560v1 printed/PDF p.26, second factor of the homotopy coproduct",
+      "printed": "(N₁→B₂)",
+      "correction": "Replace the second prelog factor by (N₂→B₂).",
+      "reason": "The two input maps have targets (N_i→B_i), i=1,2. Reusing N₁ with B₂ need not even specify a prelog structure, and contradicts the subsequent base-change map from (N₂→B₂).",
+      "affects": "a stated result",
+      "known": "No matching correction identified; novelty is not established. Scoped to arXiv v1.",
+      "searched": [
+        "Affected passages of https://arxiv.org/pdf/1204.6560v1 independently checked on 6 October 2026.",
+        "Targeted Bhatt derived-de-Rham title/6.6/6.12 errata/correction search and atlas errata register screen: no matching correction identified. No claim about unavailable published or newer author texts."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Visually checked the p.26 homotopy-coproduct display and the immediately following induced map. The target of f₂ must retain N₂.",
+        "by": "REV-DerivedDeRhamCohomology"
+      }
+    },
+    {
+      "id": "DerivedDeRhamCohomology/E13",
+      "source": "bhatt-ddr-2012",
+      "kind": "misprint",
+      "locator": "Remark 6.6, arXiv:1204.6560v1 printed/PDF p.25, sentence describing the B-module structure on Sect",
+      "printed": "Sect(..., N→P)",
+      "correction": "Replace the target (N→P) by (N→B), the prelog object whose square-zero projection sections were defined in equivalence (6).",
+      "reason": "P is a simplicial B-module, while the target prelog ring is (N→B). The immediately preceding projection and the defining displayed equivalence both have (N→B). This is a target-name typo in the explanation.",
+      "affects": "the proof",
+      "known": "No matching correction identified; novelty is not established. Scoped to arXiv v1.",
+      "searched": [
+        "Affected passages of https://arxiv.org/pdf/1204.6560v1 independently checked on 6 October 2026.",
+        "Targeted Bhatt derived-de-Rham title/6.6/6.12 errata/correction search and atlas errata register screen: no matching correction identified. No claim about unavailable published or newer author texts."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Visually checked arXiv v1 p.25 and read the entire Remark 6.6: the target of the projection and equation (6) is N→B. The explanatory N→P target is inconsistent with those definitions; P is only a B-module.",
+        "by": "REV-DerivedDeRhamCohomology"
+      }
     }
   ],
   "sourceVersions": [
@@ -9994,14 +10104,14 @@
   },
   "checks": {
     "libraryAudit": "Reviewed data/library-coverage.json read; no reviewed DD entry. Unreviewed audit leads independently screened, no authority inferred.",
-    "sourceExcerpts": "Every new excerpt checked literally against the downloaded primary text; source-version correction findings visually checked where noted.",
+    "sourceExcerpts": "Independent review normalized every node excerpt and matched it literally in the downloaded primary source (Riou against the exact PR-head Lean file). Locator and source-scope corrections are listed in the review. Literal excerpt presence alone does not certify the stated theorem or its suggested signature.",
     "nodeIds": "All 27 inherited IDs retained; all new IDs local to their accepted owner stages.",
     "implementation": "All nodes unchecked; signatures and proof outlines only.",
-    "lean": "Final lean-check passed at the existing pinned Mathlib build using the pre-existing pinned Tau Ceti MapSemilinear artifact; 0 errors, 463 admitted-declaration warnings and no other warnings. All names present; full enhanced contracts are not certified.",
-    "packetChecker": "check_blueprint.py with the supplied pinned declaration index: 0 errors and 0 warnings; repeated after final metadata and reader updates.",
+    "lean": "Independent review: direct lean-check of the delivered file stops at the unavailable TauCeti Kaehler MapSemilinear import artifact. A validation-only copy at exact pinned Mathlib, with the exact pinned Tau Ceti source inlined after the imports, elaborated with admitted-declaration warnings only. This does not certify the delivered import environment or the mathematical truth of its signatures.",
+    "packetChecker": "Independent review: check_blueprint.py with its default pinned declaration index reports 0 errors and 0 warnings after the packet corrections. The reader is outside this review’s editable deliverables; required propagation is listed in the report.",
     "targetPass": "All seven stages planned at target/key-definition/key-theorem level; no proof-lemma tranche or node-budget stop.",
     "dependencyClosure": "Recursive fine-node audit: 162 reachable nodes, 779 edges, 78 baseline leaves; no unresolved references and no fine-node cycles. Stage requests remain scoped leaves, including explicitly identified early CR/Q0 prefixes.",
-    "testInventory": "190 API items and 151 tests have suggested forms; representative dual-number, non-lci square-zero, Laurent and p-adic tests use existing concrete carriers. The negative F_p relative complete-flatness test is retained."
+    "testInventory": "Independent review counted 190 APIs and 151 tests, all names present. At least three packet tests exist for each definition/construction, but numerous suggested examples are universal contradictions, arbitrary-model claims or zero-map/identity tautologies; revisions are required to make them discriminating."
   },
   "upstreamNotes": [
     {
@@ -10044,13 +10154,13 @@
     "targetBudget": 300
   },
   "prototypeScope": {
-    "status": "compiled ordinary underlying views; no full enhanced formalisation",
+    "status": "independent review needs_changes: ordinary signatures checked; derived prototype contains unresolved false assertions",
     "ordinary": "Twenty retained differential-algebra nodes, 21 APIs and 22 examples keep their original precise Kähler/exterior-power signatures.",
-    "derived": "All remaining declaration/API/test names occur with signatures on existing small ordinary derived-category, complex, ring, monoid or scheme carriers. Full mathematical contracts are included in comments, with omitted conditions explicitly identified.",
+    "derived": "All remaining names occur, but numerous signatures assert false conclusions for arbitrary parameters or omit discriminating hypotheses. Their comments do not make those assertions valid. The per-node review and report identify the required revisions.",
     "limitations": [
       "Ordinary Hom sets represent only pi_0 of derivation mapping spaces, not their higher homotopy.",
       "FilteredModel and IncreasingModel are augmented ordinary derived-category diagrams. Their coherence, enhanced limits, algebra multiplication and genuine realizations are omitted.",
-      "Scalar extension, tensor, graded, totalization, resolution and external PD/period operators are actual-data parameters; their unavailable coherent construction and identifying hypotheses are omitted, not postulated as isomorphism conclusions.",
+      "Scalar extension, tensor, graded, totalization, resolution and external PD/period parameters lack identifying hypotheses. Several signatures consequently assert universal isomorphisms for arbitrary objects; these are unresolved mathematical errors, not certified underlying views.",
       "The prototype quasisyntomic predicate displays only the cotangent amplitude test. Complete flatness, bounded torsion and completeness remain requirements of the packet, including the negative Z_p-to-F_p map test.",
       "The QRSP prototype displays only cotangent amplitude and mod-p surjectivity; an integral perfectoid source is omitted. Its Z_p exclusion test instead displays the genuine absence of a p-th root of p in the existing p-adic-integer ring, not a false exclusion from the weaker amplitude predicate.",
       "Corrected G-lci displays the existing regular-sequence kernel condition only. The log-smooth Cartier factor, strictness, endpoint flatness, localization and compatible filtered presentations are omitted.",
@@ -10364,5 +10474,673 @@
         "DerivedDeRhamCohomology:DD.6/log-period-dlog"
       ]
     }
-  ]
+  ],
+  "review": {
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-DerivedDeRhamCohomology",
+    "date": "2026-10-06",
+    "notes": "Completed independent target-level review of all 132 nodes, 45 exact-pin baseline statements, all node excerpts/locators, 190 APIs, 151 tests, 39 planets, closure/supplier boundaries and source issues. Clear packet errors corrected in place; all 11 inherited source issues confirmed and two additional source misprints recorded with independent verdicts. Unresolved false universal Lean assertions, contradictory examples and non-discriminating signatures prevent acceptance. Honest planning gaps alone are not grounds for this verdict. No implementation or promotion claimed.",
+    "checked": [
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.2/symbol-relations",
+        "verdict": "corrected",
+        "note": "Explicit free A-module relation presentation, including coefficient linearity, Leibniz slots, constants and strict diagonal alternation. Corrected the Riou module locator; exact head source hash matches."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.2/symbol-map",
+        "verdict": "corrected",
+        "note": "Free symbol evaluation is A-linear, rather than B-linear; pinned Finsupp/exterior carriers match. Corrected the Riou module locator; exact head source hash matches."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.2/symbol-map-surjective",
+        "verdict": "corrected",
+        "note": "Exact differential generators span Ω1 over B; scalar restriction plus wedge spanning yields A-linear symbol surjectivity. Corrected the Riou module locator; exact head source hash matches."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.2/symbol-relations-kernel",
+        "verdict": "corrected",
+        "note": "Kähler and exterior presentations yield the exact symbol kernel; no characteristic-two antisymmetry shortcut. Corrected the Riou module locator; exact head source hash matches."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.2/free-symbol-differential",
+        "verdict": "corrected",
+        "note": "The coefficient differential formula is A-linear and raises degree; pinned Kaehler D supplies its generator. Corrected the Riou module locator; exact head source hash matches."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.2/free-differential-relations",
+        "verdict": "corrected",
+        "note": "The six relation families map to the next relation submodule by Leibniz and strict alternation. Corrected the Riou module locator; exact head source hash matches."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.2/ordinary-differential",
+        "verdict": "corrected",
+        "note": "Submodule.liftQ descends the free differential through the exact kernel; coefficient scalar convention is correct. Corrected the Riou module locator; exact head source hash matches."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.2/differential-generator-formula",
+        "verdict": "corrected",
+        "note": "The elementary formula differentiates the coefficient, leaving the exact differential slots unchanged. Corrected the Riou module locator; exact head source hash matches."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.2/differential-uniqueness",
+        "verdict": "corrected",
+        "note": "Elementary forms span over A after including their B coefficient, giving uniqueness of the A-linear differential. Corrected the Riou module locator; exact head source hash matches."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.2/differential-square-zero",
+        "verdict": "corrected",
+        "note": "The free second differential differentiates a coefficient 1; descent gives square zero. Corrected the Riou module locator; exact head source hash matches."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.2/differential-graded-leibniz",
+        "verdict": "corrected",
+        "note": "Signed graded Leibniz follows by the coefficient derivation and wedge permutation sign, including characteristic two. Corrected the Riou module locator; exact head source hash matches."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.2/ordinary-de-rham-complex",
+        "verdict": "corrected",
+        "note": "Pinned CochainComplex.of packages the adjacent differentials and square-zero proof in nonnegative degrees. Corrected the Riou module locator; exact head source hash matches."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.2/forms-pullback",
+        "verdict": "corrected",
+        "note": "Pinned Tau Ceti mapSemilinear and exterior universal property give the semilinear forms pullback. Corrected the Riou module locator; exact head source hash matches."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.2/pullback-differential",
+        "verdict": "corrected",
+        "note": "Generator formula and pinned mapSemilinear_D prove chain compatibility over the fixed base. Corrected the Riou module locator; exact head source hash matches."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.2/pullback-wedge",
+        "verdict": "corrected",
+        "note": "Exterior graded multiplication gives wedge preservation by the induced map. Corrected the Riou module locator; exact head source hash matches."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.2/pullback-identity",
+        "verdict": "corrected",
+        "note": "Identity holds on exact differential generators and hence on their coefficient-bearing spanning forms. Corrected the Riou module locator; exact head source hash matches."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.2/pullback-composition",
+        "verdict": "corrected",
+        "note": "Composition holds on the same generators, with scalar maps composed in the stated order. Corrected the Riou module locator; exact head source hash matches."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.2/ordinary-complex-map",
+        "verdict": "corrected",
+        "note": "The fixed-base semilinear forms map restricts to an A-linear chain map using pullback_d. Corrected the Riou module locator; exact head source hash matches."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.2/pullback-elementary",
+        "verdict": "corrected",
+        "note": "The elementary coefficient and differential slots have the exact pinned mapSemilinear_D image. Corrected the Riou module locator; exact head source hash matches."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.3/frobenius-linear-differential",
+        "verdict": "verified",
+        "note": "Bhatt Notation 3.1 final paragraph: d(b^p)=0 by pinned leibniz_pow in characteristic p, so the coefficient action is Frobenius-linear."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.2/polynomial-resolution-derham",
+        "verdict": "unverifiable",
+        "note": "Bhatt Definition 2.1 supports direct-sum realization. resolutionEquiv and hodgeFiltration assert equivalences to arbitrary unrelated model parameters; neither witnesses a free resolution or the realized tail."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.3/conjugate-filtration",
+        "verdict": "unverifiable",
+        "note": "Bhatt Proposition 2.3 supports the exhaustive increasing filtration, with corrected augmentation E1. conjugateAt identifies each level with arbitrary realizedTruncation; the suggested carrier does not certify the stated filtration."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.2/derived-base-change-kunneth",
+        "verdict": "unverifiable",
+        "note": "Bhatt Proposition 2.7 is a derived pushout/tensor theorem. baseChangeKunneth quantifies an unrelated E and arbitrary tensor operation, with no pushout identification."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.3/derived-frobenius-twist",
+        "verdict": "unverifiable",
+        "note": "Bhatt Notation 3.1 supports the derived Frobenius pushout after E2. APIs asserting equivalence to arbitrary actualDerivedPushout and universal Frobenius behavior lack its identifying data."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.3/polynomial-cartier-map",
+        "verdict": "unverifiable",
+        "note": "Bhatt Theorem 3.2 gives polynomial Cartier. Suggested arbitrary comparison/model parameters do not specify the Cartier map; tests lose the polynomial coordinate hypotheses and the graded model identification."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.3/derived-cartier-graded-pieces",
+        "verdict": "unverifiable",
+        "note": "Bhatt Proposition 3.5 gives L∧^i L[−i], with E3 fixing only its intermediate proof display. Suggested gr and scalar-change parameters are unrestricted, so the equivalence is stronger than the source."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.2/characteristic-zero-completion-boundary",
+        "verdict": "unverifiable",
+        "note": "Bhatt Corollary 2.5 and Remark 2.6 separate rational collapse and Hodge completion. The positive collapse has the rational hypothesis, but companion completed/ordinary comparison signatures accept arbitrary models and do not certify the boundary."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.0/cotangent-complex",
+        "verdict": "unverifiable",
+        "note": "Stacks polynomial-resolution construction and BL B.1 support the full complex. cotangentResolutionEquiv asserts equivalence to every normalizedDifferentials object; together with the identity test it forces 0≅B for B nonzero."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.0/derived-derivations",
+        "verdict": "unverifiable",
+        "note": "Bhatt Remark 6.6 with identical trivial monoids supports independent sections into square-zero extensions. The prototype defines this as Hom from the cotangent complex, so its comparison is circular; ordinary Hom does not encode the independent section construction."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.0/derivations-cotangent-comparison",
+        "verdict": "unverifiable",
+        "note": "Bhatt Remark 6.6 supplies the mapping-space comparison. Suggested derivedDerivations is already defined as cotangent Hom, making this identity a tautology rather than a comparison of the two constructions."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.0/cotangent-naive-comparison",
+        "verdict": "unverifiable",
+        "note": "Stacks 11.2/11.3 and pinned Algebra.H1Cotangent justify H0/H−1 agreement only. The suggested comparison uses an arbitrary naiveModel and does not enforce the truncation/presentation differential."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.0/cotangent-transitivity",
+        "verdict": "unverifiable",
+        "note": "Stacks Proposition 7.4 gives a distinguished triangle with actual derived scalar extension. The prototype substitutes an arbitrary bc function; choosing a nonzero constant at an identity map defeats the triangle."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.0/cotangent-base-change",
+        "verdict": "unverifiable",
+        "note": "Stacks 6.2–6.4 require a homotopy pushout/Tor independence. Suggested B′ and scalar extension are unrelated parameters; an arbitrary base square does not give an equivalence."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.0/cotangent-localization-colimits",
+        "verdict": "unverifiable",
+        "note": "Corrected locator: localization is Stacks 8.6, with the standard resolution giving filtered colimits. Suggested target/model parameters omit the localization and colimit identification, making the asserted equivalence unrestricted."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.0/smooth-cotangent",
+        "verdict": "unverifiable",
+        "note": "Stacks Lemma 9.1 supports smooth cotangent in degree zero; the precise smooth/étale locator is corrected. Companion examples with unrelated model parameters do not state the smooth polynomial/étale computations described by the packet."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.0/regular-quotient-cotangent",
+        "verdict": "unverifiable",
+        "note": "Stacks Lemma 14.2 supports the Koszul-regular quotient formula and 14.4 the two-term lci model. The Lean statement accepts an arbitrary ideal and conormal object without tying either to the quotient or requiring regularity."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.0/derived-exterior-powers",
+        "verdict": "unverifiable",
+        "note": "BL B.1/B.5 cover cotangent exterior powers, not the whole module-pair functor. The general construction is now an explicit source gap. Arbitrary bc/ordinary-model parameters and missing identifying data leave the suggested API unverified."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.0/derived-symmetric-powers",
+        "verdict": "unverifiable",
+        "note": "Removed the copied exterior-diagonal sentence and narrowed BL attribution. General module-pair animation needs its own primary source. symmetricPowerFlat identifies a fixed derived power with every ordinaryWeight, which is false even for weight zero."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.0/derived-divided-powers",
+        "verdict": "unverifiable",
+        "note": "Removed the copied exterior-diagonal sentence and narrowed BL attribution. CR.0 supplies the ordinary PD operation only. dividedPowerFlat universally identifies its value with arbitrary ordinaryWeight; integral tests need the actual multiplication and chosen weight."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.0/power-triangle-filtration",
+        "verdict": "unverifiable",
+        "note": "Corrected Bhatt result labels. Dundas–Morrow gives the filtration and the general integral version remains a source/proof gap. The Lean theorem asserts only existence of a filtration on an object, without the source's graded pieces or triangle."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.0/lci-amplitude",
+        "verdict": "unverifiable",
+        "note": "Stacks 14.4 proves lci implies perfect amplitude [−1,0]; the converse retains flat finite presentation and a recorded proof gap. Suggested lciAmplitude asserts lower vanishing for every map with none of those hypotheses."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.0/andre-quillen-homology",
+        "verdict": "unverifiable",
+        "note": "Iyengar §5 defines cotangent homology with coefficients. Suggested arbitrary tensor operations and coefficient models are not constrained to that derived tensor; tests can hold for unrelated or zero operations."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.0/absolute-complete-intersection",
+        "verdict": "unverifiable",
+        "note": "BMS2 Theorem 4.13 gives the Noetherian absolute criterion; Cohen-factorization proof is an honest gap. Suggested theorem asserts amplitude for all Noetherian rings without the complete-intersection assumption or equivalence."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.0/andre-regularity",
+        "verdict": "unverifiable",
+        "note": "Iyengar 8.12 and Bhatt–Mathew 4.18 retain their local/lci and field hypotheses. Suggested andreRegularity gives blanket lower cotangent vanishing without those hypotheses and does not express the criterion."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.0/f-finite-cotangent",
+        "verdict": "unverifiable",
+        "note": "Dundas–Morrow proves forward finiteness under Noetherian F-finiteness; the SAG converse is recorded. Suggested theorem assumes Noetherian only. A characteristic-p field with infinite p-basis has non-finite Ω1 despite being Noetherian."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.0/p-bases-differentials",
+        "verdict": "unverifiable",
+        "note": "Corrected CMM locator to §5.1, Theorem 5.7 footnote 10 and the paragraph before 5.8. Suggested theorem accepts arbitrary rings and coordinate maps, without p-independence/spanning or a field hypothesis, so cannot certify the basis/dimension result."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.0/square-zero-deformations",
+        "verdict": "unverifiable",
+        "note": "Corrected flat B/A hypothesis and the §16/§21 locator; added the exact flatness-criterion gap. Suggested Nonempty Hom is always inhabited by zero and contains neither the obstruction nor the torsor/automorphism classification."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.0/quasisyntomic-condition",
+        "verdict": "unverifiable",
+        "note": "BMS2 Definitions 4.1/4.10 distinguish objects, maps and covers. The prototype is only amplitude under arbitrary reduce; quasisyntomicCover deduces ordinary faithful flatness from that condition, which is false. Tests do not enforce the packet's full predicates."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.0/nonregular-quotient-homology",
+        "verdict": "unverifiable",
+        "note": "Bhatt Example 3.21 supports the example. Corrected the proof route: excluding amplitude [−1,0] alone does not give unboundedness; the stronger AQ criterion is a recorded gap. Suggested cohomology of arbitrary model parameters does not encode this quotient computation."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.1/koszul-complex",
+        "verdict": "unverifiable",
+        "note": "Stacks §29 supports the signed exterior contraction, homotopies and tensor formula; tags/result kinds corrected. Companion regular and coordinate examples omit hypotheses or model identifications, so the full suggested API/tests are not certified."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.1/derived-completeness",
+        "verdict": "unverifiable",
+        "note": "Stacks 93.1–93.4 support the RHom/localization criterion, which the ordinary DerivedCategory prototype states using actual Localization.Away. The listed limits API is reduced to shift stability (isDerivedCompleteLimits), without a diagram or limit; the full planned universal/limit API is therefore not verified by these signatures. No claim that this localization criterion itself is false."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.1/derived-completion",
+        "verdict": "unverifiable",
+        "note": "Corrected source numbers to 93.10/93.18/93.20. The adjunction/idempotence plan is sound, but completeNakayama allows reduce≡0, forcing every complete nonzero M to vanish. Its reduction must be the actual derived quotient."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.1/koszul-completion-tower",
+        "verdict": "unverifiable",
+        "note": "Corrected tag 0920 to Lemma 93.18. The theorem identifies completion with an arbitrary homotopyLimitOfKoszulTower object, without a tower or limit witness; choose the unit versus zero to disprove the universal version."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.1/ordinary-quotient-completion",
+        "verdict": "unverifiable",
+        "note": "Corrected §95 labels. Bounded-torsion/regular/Noetherian or weak-proregular hypotheses are essential. Lean supplies an arbitrary quotient-tower object and none of the permitted-range hypotheses."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.1/animated-ring-completion",
+        "verdict": "unverifiable",
+        "note": "Bhatt–Scholze footnote 6 supports animated completion while retaining algebra structure. The suggested underlying-module carrier is permitted as a limited view, but its polynomial test identifies completion with arbitrary completedPolynomial, a false universal assertion."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.1/complete-flatness",
+        "verdict": "unverifiable",
+        "note": "BMS2 4.1 and 4.3–4.8 support the reduction criterion, without requiring the input complete. The unrestricted reduce/tensor/bc parameters make even positive tests false for suitable chosen reductions; a reflexive characterization alone is not the API."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.1/bounded-torsion-criterion",
+        "verdict": "unverifiable",
+        "note": "Corrected false general bounded-cohomology-torsion conclusion to amplitude only; bounded torsion belongs to complete-flat amplitude [0,0]. Lean still asserts vanishing for arbitrary M and arbitrary bounds, with no amplitude or completeness assumptions."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.1/complete-flat-descent",
+        "verdict": "unverifiable",
+        "note": "BMS2 §3 and Remark 4.9 justify descent under complete faithful flatness. The suggested arbitrary cechTotalization and missing covering assumption cannot give M≅Tot; zero and nonzero choices contradict it."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.1/ordinary-flatness-from-complete-flatness",
+        "verdict": "unverifiable",
+        "note": "Bhatt Proposition 5.1 needs the precise complete-flatness/base hypotheses. Lean assumes only IsNoetherianRing A and deduces Flat A B for every algebra, contradicted by Z→Z/p."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.1/quotient-completeness",
+        "verdict": "unverifiable",
+        "note": "Bhatt–Ma et al. Lemmas 2.7–2.8 have specified quotient/completion hypotheses. The prototype quotients by the span of g•0, always zero, so it does not express or test the nontrivial quotient theorem."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.1/completely-smooth-algebraization",
+        "verdict": "unverifiable",
+        "note": "Bhatt–Scholze conventions and Stacks 07M8 supply smooth lifting. Suggested existence of any smooth A-algebra has no relation to B or its completion and is always witnessed by A itself; the algebraization output must realize the given algebra."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.1/filtered-modules",
+        "verdict": "unverifiable",
+        "note": "BMS2 5.1 and GP §2 support decreasing filtrations with E5 correction. associatedGraded accepts arbitrary gr; step tests accept arbitrary step and gr. Those assertions fail for unrelated choices and do not encode cofibers."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.1/filtered-completion",
+        "verdict": "unverifiable",
+        "note": "GP 2.8–2.15 give completion and graded equivalence. The suggested constant-filtration zero test quantifies arbitrary F and asserts its completion is zero, contradicting nonzero complete step filtrations. gradedDetectsComplete tests components, not graded pieces."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.1/rees-description",
+        "verdict": "unverifiable",
+        "note": "Bhatt lectures Proposition 2.2.6 and Remark 2.2.7 support graded A[t]/equivariant Rees data. Suggested reindexing of an arbitrary family contains no t-action, equivariance or Rees equivalence."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.1/completed-filtered-tensor",
+        "verdict": "unverifiable",
+        "note": "GP 2.25/2.26 give completed Day convolution. Arbitrary tensor/dayConvolution/gr/weightSum parameters are asserted isomorphic without their definitions; step and nonflat tests do not fix them."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.1/beilinson-t-structure",
+        "verdict": "unverifiable",
+        "note": "Corrected BL references to D.3/D.4/D.6. BMS2 5.4 gives the two halves. The suggested theorem is implication P→P, with no t-structure, truncations or second half, so cannot express this target."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.1/beilinson-heart",
+        "verdict": "unverifiable",
+        "note": "Corrected BL to Example D.8 and BMS2 to Theorem 5.4(3). The prototype merely constructs a zero-differential complex with arbitrarily chosen terms; it omits the heart condition and connecting differential and proves no equivalence."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.1/complex-heart-ext",
+        "verdict": "unverifiable",
+        "note": "BMS2 Proposition 5.6 with E6 fixes i+c. Lean extCh/extA/single are arbitrary functions; the numerical correction does not make the claimed equivalence true for arbitrary unrelated types."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.1/weak-postnikov-towers",
+        "verdict": "unverifiable",
+        "note": "BMS2 Lemma 3.3 requires uniform boundedness and a compatible weak Postnikov tower. Suggested F and towerLimit have no such data or assumptions; arbitrary objects cannot be isomorphic."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.1/completion-exchanges",
+        "verdict": "unverifiable",
+        "note": "Stacks completion and BMS2 bounded-tower arguments retain perfectness/uniform bounds. Suggested tensor is arbitrary and P is unrestricted; completion is not generally interchangeable with arbitrary tensor/colimit operations."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.2/ordinary-base-change-kunneth",
+        "verdict": "unverifiable",
+        "note": "Bhatt 2.7 polynomial proof supports forms base change on an actual base-change algebra. The signature has unrelated B′, so setting A′=A, B=A and B′=A[t] already breaks degree-one equivalence."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.2/ordinary-de-rham-universal-property",
+        "verdict": "unverifiable",
+        "note": "Bhatt–Scholze after Lemma 4.10 uses a strictly alternating dg-algebra target. Suggested theorem is only uniqueness of two linear chain maps agreeing on generators. It omits existence, multiplication and the dg-algebra universal property."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.2/hodge-graded-pieces",
+        "verdict": "unverifiable",
+        "note": "BL Construction E.2 gives unshifted power followed by [−i]. Suggested grB is arbitrary, so it cannot supply the actual Hodge cofiber or prove the claimed equivalence."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.2/hodge-completed-derham",
+        "verdict": "unverifiable",
+        "note": "Corrected source kind to Construction E.14. Its universal property requires a complete target. Suggested hodgeCompletionUniversal quantifies every FilteredModel F with no completeness, and graded tests use arbitrary grB."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.2/p-completed-derham",
+        "verdict": "unverifiable",
+        "note": "Corrected source kind to Construction E.3; Bhatt 8.1–8.3 distinguish p-completion. Suggested input/Künneth signatures lack actual base-change/pushout identification and accept arbitrary tensor/bc; reductions do not state the finite quotient."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.2/formal-ordinary-derham",
+        "verdict": "unverifiable",
+        "note": "Bhatt–Scholze formal differential construction supports completed forms. The positive example asserts degree-one forms are B for every algebra A→B, including B=A where its degree-one forms vanish. finiteReduction is arbitrary."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.2/smooth-de-rham-comparison",
+        "verdict": "unverifiable",
+        "note": "Bhatt 3.10/2.6/3.12 distinguish nilpotent-p smooth and rational Hodge-completed comparisons. Suggested p-completed comparison to arbitrary ordinaryUnderlying has neither that identification nor the nilpotent-p range."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.2/de-rham-transitivity",
+        "verdict": "unverifiable",
+        "note": "Bhatt Proposition 3.22 and Remark 3.23 give a filtration with specified powers/relative pieces. The Lean theorem only asserts a filtered model exists with the same underlying object; it does not encode the transitivity filtration."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.2/de-rham-sheaves",
+        "verdict": "unverifiable",
+        "note": "Corrected BL B.7/B.8 source kinds; E.16 supports descent. Suggested scheme objects lack a map to the base, and the non-example universally denies finite H0 even for the identity affine scheme, whose H0=A."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.3/smooth-cartier",
+        "verdict": "unverifiable",
+        "note": "Corrected Bhatt reference to Remark 3.4 with Theorem 3.2. Suggested arbitrary Cartier/ordinary cohomology models and omitted smooth characteristic-p hypotheses do not encode the stated isomorphism."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.3/conjugate-spectral-sequence",
+        "verdict": "unverifiable",
+        "note": "Bhatt 2.3/3.5 and GP 2.18 support the affine spectral sequence with convergence qualifications. Suggested signature gives only an arbitrary E1-term comparison without a spectral-sequence or convergence witness."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.3/regular-quotient-divided-powers",
+        "verdict": "unverifiable",
+        "note": "Bhatt 3.42/3.43 support the shifted conormal divided-power computation under regularity. Suggested graded/model parameters lack the regular quotient and its conormal identification."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.3/cartier-extension-obstruction",
+        "verdict": "unverifiable",
+        "note": "Bhatt 3.15/3.16 identify the extension/lifting obstruction. The suggested statement cannot distinguish obstruction vanishing and lift choice from arbitrary Ext/model parameters."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.3/frobenius-lift-splitting",
+        "verdict": "unverifiable",
+        "note": "Bhatt Proposition 3.17 requires a flat Z/p² lift and compatible Frobenius lifts. Suggested arbitrary splitModel has no relation to those data; the lifting hypotheses are not enough to identify every chosen object."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.2/singular-hypersurface-hodge",
+        "verdict": "unverifiable",
+        "note": "Bhatt regular-quotient computation supports the singular two-term cotangent. Suggested arbitrary grB prevents the weight-one identification; the exact dual-number cotangent/differential must control the singular test."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.4/crystalline-comparison-map",
+        "verdict": "unverifiable",
+        "note": "Bhatt 3.25/3.26 construct the canonical PD comparison. cr is arbitrary in Lean, and crystallineComparisonSmooth plus the universal failure example give IsIso and ¬IsIso for the same map at A=B."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.4/regular-pd-comparison",
+        "verdict": "unverifiable",
+        "note": "Bhatt 3.29/3.37–3.40 retain flat Z/p^n endpoints and regular kernel. Suggested PD model is arbitrary and regularity/flatness is absent. Wilson-sign E8 changes proof normalization only."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.4/lci-crystalline-comparison",
+        "verdict": "unverifiable",
+        "note": "Bhatt Theorem 3.27 supports the flat lci range. Lean asserts IsIso for every algebra and arbitrary cr, with no lci/flat/nilpotent-p hypotheses, directly contradicting the comparison failure example."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.4/p-adic-crystalline-comparison",
+        "verdict": "unverifiable",
+        "note": "Bhatt Theorem 8.4 is a compatible inverse-limit application of finite-level comparisons. The suggested completed crystalline model is arbitrary and compatible finite-level flat/lci data are absent."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.4/de-rham-frobenius",
+        "verdict": "unverifiable",
+        "note": "Bhatt Proposition 3.47 provides a semilinear derived Frobenius, not an isomorphism everywhere. Suggested non-example is a reflexive equality and does not exhibit failure of invertibility or the intended singular boundary."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.4/acris-derived-description",
+        "verdict": "unverifiable",
+        "note": "Bhatt 9.3/9.7/9.9–9.10 give the period setup and actual A_cris maps. Suggested arbitrary period object and functions do not carry theta, completion or the shared period identifications."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.4/fp-over-zp-torsion",
+        "verdict": "unverifiable",
+        "note": "Bhatt 8.5–8.7 support the torsion example and completion distinction. The suggested arbitrary graded/PD model parameters do not specify the stated p-torsion class or its image under completion."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.4/rational-hodge-period-comparison",
+        "verdict": "unverifiable",
+        "note": "Bhatt Remark 9.17 requires the period construction and rational Hodge completion. Suggested comparison to arbitrary rationalPeriod gives no period-ring identification or filtration."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.4/pd-conjugate-filtration",
+        "verdict": "unverifiable",
+        "note": "BMS2 8.10/8.11 give the explicit PD conjugate generators. Suggested pdConjugateMembership quantifies arbitrary generatorSet and claims its span is fixed, impossible for empty and nonempty choices in a nonzero module."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.4/qrsp-pd-derham",
+        "verdict": "unverifiable",
+        "note": "BMS2 8.12 supports QRSP characteristic-p PD identification; the root-quotient torsion-free proof is recorded. Lean lacks the actual QRSP/PD-model identification, so the asserted isomorphism is unrestricted."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.4/derived-de-rham-witt",
+        "verdict": "unverifiable",
+        "note": "BMS2 §8.2 animates the classical smooth de Rham–Witt functor. Suggested smooth comparison uses an arbitrary classical target, and the perfect-ring example claims degree-zero behavior for every S without perfectness."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.4/qrsp-witt-control",
+        "verdict": "unverifiable",
+        "note": "BMS2 8.13 supports QRSP concentration and the graded Nygaard correction E7. Lean omits QRSP, forcing concentration for every S while the non-example asserts higher cohomology; it is not a valid boundary test."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.4/acrys-structure",
+        "verdict": "unverifiable",
+        "note": "BMS2 8.14 supports p-torsion-freeness and Nygaard/PD structure for actual QRSP A_crys. Suggested arbitrary ring/PD/Nygaard operators do not identify A_crys or its filtrations, so tests cannot distinguish them."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.4/regular-fp-crystalline-cech",
+        "verdict": "unverifiable",
+        "note": "BMS2 8.15 retains regularity and its perfection Čech argument; Kunz/Popescu proofs remain gaps. Suggested arbitrary Čech totalization has neither the perfection nerve nor the regularity criterion."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.5/quasisyntomic-site",
+        "verdict": "unverifiable",
+        "note": "BMS2 4.10/4.15–4.17/4.33/4.35 support object/map distinction and relative sites. Suggested topology on all CommRingCat and relative-inclusion assertion drop the site restrictions; a QSyn object is not a QSyn map over every base."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.5/quasiregular-semiperfectoid-rings",
+        "verdict": "unverifiable",
+        "note": "BMS2 4.20–4.25 retain an integral perfectoid source, bounded torsion and QSyn. The prototype omits the source, so Z_p is accepted by its weaker condition. qrspPerfectoidQuotient asserts surjectivity from every R rather than the chosen perfectoid R."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.5/elementary-semiperfectoid-covers",
+        "verdict": "unverifiable",
+        "note": "BMS2 4.28/4.29 give root covers from an integral perfectoid free source. rootCoverPerfectoidSource asserts a surjection from arbitrary R (including Z), with no perfectoid assumption or choice of source."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.5/qrsp-refinement",
+        "verdict": "unverifiable",
+        "note": "BMS2 4.27/4.30 refine actual covers and their Čech nerve. The suggested refinement/limit parameters lack covering data and QRSP hypotheses, so they do not state that construction."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.5/qrsp-unfolding",
+        "verdict": "unverifiable",
+        "note": "BMS2 4.31/4.32 prove an equivalence of enhanced sheaf categories. Suggested totalization of an arbitrary ring presheaf provides no basis inclusion, sheaf condition or inverse equivalence; examples are inhabited Hom sets."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.5/completed-cotangent-descent",
+        "verdict": "unverifiable",
+        "note": "BMS2 3.1 and 5.11 support actual faithfully-flat Čech descent. Suggested arbitrary cechTotalization lacks the nerve, augmentation and cover condition, so the comparison cannot be universally an equivalence."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.5/filtered-de-rham-descent",
+        "verdict": "unverifiable",
+        "note": "Corrected BL E.16 page locator. BMS2 5.11 proves finite Hodge descent and quotient limits; arbitrary totalization/filtration parameters omit the comparison data and completeness conditions."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.5/uncompleted-p-de-rham-descent",
+        "verdict": "unverifiable",
+        "note": "Corrected BL E.17 page locator. BMS2 5.12/4.34 need uniform lower bounds before commuting conjugate colimits with Tot. The suggested statement omits those bounds and the actual nerve/totalization identification."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.5/relative-tor-amplitude",
+        "verdict": "unverifiable",
+        "note": "Corrected quasismooth conclusion to p-completely flat, without ordinary flatness. BMS2 4.34/5.14 support relative QRSP bounds. Lean asserts bounds without the QSyn/QRSP hypotheses and actual power/reduction identification."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.5/proper-smooth-cohomological-control",
+        "verdict": "unverifiable",
+        "note": "Stacks 0A1G supports proper flat finite-presentation perfect pushforward; p-complete perfect lifting remains a gap. Lean accepts an arbitrary scheme and base with no morphism/proper/smooth data, so blanket control is false."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.5/completed-base-change-cup-products",
+        "verdict": "unverifiable",
+        "note": "Stacks 36.30.1/36.30.2 give finite-level derived base change in the stated proper range. Lean's arbitrary change-of-base/tensor/global objects do not encode that square or compatible cup products; perfect effectivity remains a gap."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.5/proj-quasisyntomic-site",
+        "verdict": "unverifiable",
+        "note": "BMS2 Variant 4.36 requires projective reductions and the appropriate covers. Suggested projQSynCover makes every algebra projective and ordinarily faithfully flat, without those hypotheses."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.5/formal-etale-realization",
+        "verdict": "unverifiable",
+        "note": "Corrected arbitrary étale maps-as-covers to completely faithful/joint covering families. BMS2 Remark 10.4 supports restriction on QSyn charts. Lean uses arbitrary ordinary schemes/presheaves and no formal/chart cover data."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.6/free-prelog-resolutions",
+        "verdict": "unverifiable",
+        "note": "Corrected distinction between finite compact generators and potentially infinite cotriple terms. Bhatt §5/KY 2.4/2.8 support the two-sort construction. Lean's product of separate simplicial categories omits the prelog structure map; prelogAnimationExtend asserts F=G for arbitrary F,G."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.6/log-derived-derivations",
+        "verdict": "unverifiable",
+        "note": "Bhatt Remark 6.6 supports compatible sections and the ring/log derivative relation. The prototype is cotangent Hom by definition and its examples accept arbitrary derivation/log functions without compatibility or base vanishing."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.6/gabber-log-cotangent",
+        "verdict": "unverifiable",
+        "note": "Bhatt 6.3–6.6 and KY 2.5 support Gabber's construction. Suggested inputs lack the commuting chart square; resolution/model parameters and derivative functions are unrestricted, preventing the universal comparison."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.6/log-cotangent-functoriality",
+        "verdict": "unverifiable",
+        "note": "KY 2.10/2.11/2.14 retain homotopy pushout, logification and integral log-smooth ranges; E11 fixes proof names. Suggested arbitrary scalar-change/target parameters lack those data and equate unrelated models."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.6/homological-log-flatness",
+        "verdict": "unverifiable",
+        "note": "KY 2.44–2.46 and Bhatt 4.8/4.9 separate hlf from Kato log flatness. hlfCompositionBaseChange universally asserts the predicate while a non-example universally negates it for the same parameters, a direct contradiction."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.6/log-derived-de-rham",
+        "verdict": "unverifiable",
+        "note": "Bhatt 6.8–6.11 and KY 2.6 support A-linear log de Rham with E9 shifts. Suggested derivative functions, graded models and tests lack chart compatibility; they assert equalities for arbitrary inputs rather than the universal log differential."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.6/log-de-rham-base-change",
+        "verdict": "unverifiable",
+        "note": "Bhatt 6.12 supports tensor over the base; KY middle S1 tensor is removed by E10. Lean still has arbitrary two-sort/base-change/tensor models and no pushout identification, so its equivalence is not the corrected source statement."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.6/log-cartier",
+        "verdict": "unverifiable",
+        "note": "Bhatt 7.1–7.4 and KY 2.15/2.6 support the derived Frobenius twist and shifted powers. Suggested twist/gr parameters omit the homotopy prelog pushout and Cartier map, preventing certification of the formula."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.6/logification-boundaries",
+        "verdict": "unverifiable",
+        "note": "Bhatt 7.5 and Example 6.15 delimit characteristic-p logification behavior. Suggested arbitrary associated-log targets/functions and unqualified examples do not encode that map or its rational failure boundary."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.6/log-smooth-cartier-comparison",
+        "verdict": "unverifiable",
+        "note": "Bhatt 7.6/7.7 and KY 2.14 require integral log-smooth Cartier hypotheses in their respective ranges. Lean lacks those predicates and identifies the derived object with arbitrary ordinaryLogComplex."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.6/log-crystalline-comparison-map",
+        "verdict": "unverifiable",
+        "note": "Bhatt 7.18 constructs exactification then strict PD envelope. Lean quantifies arbitrary cr, and its positive and negative IsIso examples overlap; logCrystallineComparisonStrict lacks the lci comparison range."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.6/corrected-log-lci-condition",
+        "verdict": "unverifiable",
+        "note": "Packet preserves the finite regular-quotient repair RT7; filtered compatibility is a gap. Prototype checks an unrelated ideal in B with weak regularity but no factorization/kernel identification; universal correctedGLciLocalFiltered contradicts its universal negative example."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.6/log-lci-crystalline-comparison",
+        "verdict": "unverifiable",
+        "note": "Bhatt 7.22 after E4 is supported only by the stated finite regular-quotient proof route, with compatible filtered presentations still open. Suggested comparison omits that predicate, endpoint flatness and actual crystalline target."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.6/log-quasisyntomic-sites",
+        "verdict": "unverifiable",
+        "note": "KY 3.1–3.9 distinguish general prelog objects, relative maps and completed hlf covers. Suggested topology uses independent rings and monoids without a structure map or commuting chart square; predicates/tests do not encode the full site."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.6/log-power-de-rham-descent",
+        "verdict": "unverifiable",
+        "note": "Corrected KY 2.48 to Remark, 2.49 to Corollary. hlf power descent and completed variants retain actual homotopy nerves and boundedness. Suggested arbitrary totals lack them; the non-example universally negates hlf regardless of map."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.6/log-point-example",
+        "verdict": "unverifiable",
+        "note": "Bhatt Example 6.2 and regular quotient computations support the specific standard log point. Lean asserts H−1≅B and H0≅B for every chart/map, including identity charts whose log cotangent vanishes."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.6/semistable-chart-example",
+        "verdict": "unverifiable",
+        "note": "Bhatt Example 7.21 supports the semistable chart with its equation and base log structure; compatible factorization proof is recorded. Suggested arbitrary map/dimension data do not impose x1⋯xr=π or the resulting differential relation."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.6/log-period-dlog",
+        "verdict": "unverifiable",
+        "note": "Bhatt 9.11/9.13/9.15/9.16 support the canonical period map and PD logarithm. Suggested pdLogTeich is arbitrary and the negative example only tests theta membership; neither verifies dlog, convergence or the chosen root-of-unity system."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.6/log-quasiregular-semiperfectoid",
+        "verdict": "unverifiable",
+        "note": "KY 3.11–3.16 require a perfectoid source and tilt surjectivity to the unit quotient, separately from integrality. The prototype lacks the source/actual tilt identification and tests arbitrary model functions; its shifted-flat criterion is not established at that scope."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.6/log-compatible-root-covers",
+        "verdict": "unverifiable",
+        "note": "KY 3.17–3.20 construct simultaneous compatible roots and a completed hlf cover. Separate underlying ring/monoid functions lack their prelog compatibility, actual perfectoid source and completed Čech data; tests do not discriminate this cover."
+      }
+    ]
+  }
 }

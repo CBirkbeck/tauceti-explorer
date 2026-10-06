@@ -3,6 +3,13 @@ This file is not the roadmap and is not exhaustive. The roadmap document is
 definitive. These statements suggest Lean forms so contributors and reviewers
 can converge on names and signatures. All proposed results remain unchecked.
 
+Independent review REV-DerivedDeRhamCohomology (2026-10-06): needs_changes.
+Several derived APIs and examples below make false universal assertions, including
+mutually contradictory crystalline, hlf and G-lci claims. Their names and sorry
+proofs are retained as the revision input, not endorsed suggested signatures.
+See the per-node packet review and research/blueprint/reviews/REV-DerivedDeRhamCohomology.md.
+Elaboration of a source-inlined validation copy does not certify these contracts.
+
 The ordinary algebraic tranche uses the pinned Kähler and exterior-power types.
 The following derived signatures use the underlying pinned derived category.
 Animated inputs, coherent algebra and mapping-space conditions require the
@@ -281,14 +288,14 @@ from the mathematical statement are omitted; this is not its full signature.
 -/
 def derivedExteriorPowers (B : Type) [CommRing B] (n : ℕ) (M : D B) : D B := by sorry
 /- TauCeti.DerivedDeRham.derivedSymmetricPowers
-For an animated ring B and a connective B-module M define LSym^n_B(M), n≥0, by the sifted-colimit extension of the ordinary symmetric power on finite free modules, computed using a simplicial projective module resolution. It is a connective B-module, with coherent base change and graded multiplication. Use derived operations; for a flat discrete M this agrees with the ordinary symmetric power. The exterior operation imposes x∧x=0 even at 2.
+For an animated ring B and a connective B-module M define LSym^n_B(M), n≥0, by the sifted-colimit extension of the ordinary symmetric power on finite free modules, computed using a simplicial projective module resolution. It is a connective B-module, with coherent base change and graded multiplication. Use derived operations; for a flat discrete M this agrees with the ordinary symmetric power.
 Prototype: only the carriers displayed below are encoded. Enhanced conditions,
 animated algebra structure, resolution witnesses and missing chart hypotheses
 from the mathematical statement are omitted; this is not its full signature.
 -/
 def derivedSymmetricPowers (B : Type) [CommRing B] (n : ℕ) (M : D B) : D B := by sorry
 /- TauCeti.DerivedDeRham.derivedDividedPowers
-For an animated ring B and a connective B-module M define LΓ^n_B(M), n≥0, by the sifted-colimit extension of the ordinary divided power on finite free modules, computed using a simplicial projective module resolution. It is a connective B-module, with coherent base change and graded multiplication. Use derived operations; for a flat discrete M this agrees with the ordinary divided power. The exterior operation imposes x∧x=0 even at 2.
+For an animated ring B and a connective B-module M define LΓ^n_B(M), n≥0, by the sifted-colimit extension of the ordinary divided power on finite free modules, computed using a simplicial projective module resolution. It is a connective B-module, with coherent base change and graded multiplication. Use derived operations; for a flat discrete M this agrees with the ordinary divided power.
 Prototype: only the carriers displayed below are encoded. Enhanced conditions,
 animated algebra structure, resolution witnesses and missing chart hypotheses
 from the mathematical statement are omitted; this is not its full signature.
@@ -477,14 +484,14 @@ from the mathematical statement are omitted; this is not its full signature.
 -/
 def projQuasisyntomicSite (p : ℕ) : GrothendieckTopology (CommRingCat.{0}ᵒᵖ) := by sorry
 /- TauCeti.DerivedDeRham.formalEtaleRealization
-For a p-complete formal scheme X with QSyn affine charts, a C-valued sheaf F on QSyn defines a sheaf F_X on X_ét by F_X(U)=lim_(Spf A⊆U)F(A), the limit over affine formal opens. Smooth/étale maps of such charts are quasisyntomic covers, so the local values glue. The construction is natural in X and retains the coefficient category and any complete filtration carried by F; a small site is used only after chart hypotheses are checked.
+For a p-complete formal scheme X with QSyn affine charts, a C-valued sheaf F on QSyn defines a sheaf F_X on X_ét by F_X(U)=lim_(Spf A⊆U)F(A), the limit over affine formal opens. Smooth/étale maps of such charts are quasisyntomic maps. A completely faithfully flat map, or a jointly covering family with that faithful cover property, supplies quasisyntomic descent, so the local values glue; an arbitrary individual open immersion is not a cover. The construction is natural in X and retains the coefficient category and any complete filtration carried by F; a small site is used only after chart hypotheses are checked.
 Prototype: only the carriers displayed below are encoded. Enhanced conditions,
 animated algebra structure, resolution witnesses and missing chart hypotheses
 from the mathematical statement are omitted; this is not its full signature.
 -/
 def formalEtaleRealization (A : Type) [CommRing A] (X : AlgebraicGeometry.Scheme.{0}) (affineValues : CommRingCat.{0}ᵒᵖ ⥤ D A) : D A := by sorry
 /- TauCeti.DerivedDeRham.freePrelogResolutions
-For a prelog base (A,M), import its ring/monoid carrier from the early CR.5 prefix and use free objects (A[T₀,N^(T₁)],M⊕N^(T₁)) with finite generator sets. The free/forgetful cotriple gives a canonical surjective simplicial resolution of (B,N), free termwise as both ring and monoid algebra. Its realization recovers the prelog object, and comparison maps between projective resolutions are coherent homotopy equivalences. Apply the EDS nonabelian animation universal property to this prelog-specific compact-projective subcategory.
+For a prelog base (A,M), import its ring/monoid carrier from the early CR.5 prefix and use free objects (A[T₀,N^(T₁)],M⊕N^(T₁)) with finite generator sets. Finite free objects are the compact projective generators for animation. The free/forgetful cotriple on the underlying generator sets gives a canonical surjective simplicial resolution of (B,N), whose termwise free ring and monoid generator sets may be infinite. Its realization recovers the prelog object, and comparison maps between projective resolutions are coherent homotopy equivalences. Apply the EDS nonabelian animation universal property to this prelog-specific compact-projective subcategory.
 Prototype: only the carriers displayed below are encoded. Enhanced conditions,
 animated algebra structure, resolution witnesses and missing chart hypotheses
 from the mathematical statement are omitted; this is not its full signature.
@@ -680,7 +687,7 @@ For flat M=B and n≥0, L∧ⁿ(M[1])≃Γⁿ(M)[n], so positive powers of a shi
 -/
 example (B : Type) [CommRing B] (n : ℕ) : Nonempty (derivedExteriorPowers B n ((unit B)⟦(1 : ℤ)⟧) ≅ (derivedDividedPowers B n (unit B))⟦(n : ℤ)⟧) := by sorry
 /- TauCeti.DerivedDeRham.derivedSymmetricPowers
-For an animated ring B and a connective B-module M define LSym^n_B(M), n≥0, by the sifted-colimit extension of the ordinary symmetric power on finite free modules, computed using a simplicial projective module resolution. It is a connective B-module, with coherent base change and graded multiplication. Use derived operations; for a flat discrete M this agrees with the ordinary symmetric power. The exterior operation imposes x∧x=0 even at 2.
+For an animated ring B and a connective B-module M define LSym^n_B(M), n≥0, by the sifted-colimit extension of the ordinary symmetric power on finite free modules, computed using a simplicial projective module resolution. It is a connective B-module, with coherent base change and graded multiplication. Use derived operations; for a flat discrete M this agrees with the ordinary symmetric power.
 -/
 /- TauCeti.DerivedDeRham.symmetricPowerZero
 LSym⁰_B(M)≃B naturally.
@@ -711,7 +718,7 @@ Over F₂, Sym²(F₂e) is generated by e², whereas the square of e in the divi
 -/
 example : ¬ IsZero (derivedSymmetricPowers (ZMod 2) 2 (unit (ZMod 2))) := by sorry
 /- TauCeti.DerivedDeRham.derivedDividedPowers
-For an animated ring B and a connective B-module M define LΓ^n_B(M), n≥0, by the sifted-colimit extension of the ordinary divided power on finite free modules, computed using a simplicial projective module resolution. It is a connective B-module, with coherent base change and graded multiplication. Use derived operations; for a flat discrete M this agrees with the ordinary divided power. The exterior operation imposes x∧x=0 even at 2.
+For an animated ring B and a connective B-module M define LΓ^n_B(M), n≥0, by the sifted-colimit extension of the ordinary divided power on finite free modules, computed using a simplicial projective module resolution. It is a connective B-module, with coherent base change and graded multiplication. Use derived operations; for a flat discrete M this agrees with the ordinary divided power.
 -/
 /- TauCeti.DerivedDeRham.dividedPowerZero
 LΓ⁰_B(M)≃B naturally.
@@ -793,7 +800,7 @@ For a field k of characteristic p with finite degree [k:k^p]=p^r, a p-basis b₁
 -/
 lemma pBasesDifferentials (p : ℕ) [Fact p.Prime] (A : Type) [CommRing A] [Algebra (ZMod p) A] (ι : Type) : Nonempty (KaehlerDifferential (ZMod p) A ≃ₗ[A] (ι →₀ A)) := by sorry
 /- TauCeti.DerivedDeRham.squareZeroDeformations
-Let A′→A be a square-zero extension with ideal J and let B be an ordinary A-algebra. The obstruction to a flat lift B′ over A′ with B′⊗_(A′)A≃B is a natural class in Ext²_B(L_(B/A),J⊗_A B). When it vanishes, isomorphism classes of lifts form a torsor under Ext¹ and automorphisms under Ext⁰. For smooth B/A, finite projectivity of L in degree zero gives existence and uniqueness up to the stated automorphisms. Derived lift spaces use the full module-valued square-zero extension, not just the Ext set.
+Let A′→A be a square-zero extension with ideal J and let B be a flat ordinary A-algebra. The obstruction to a flat lift B′ over A′ with B′⊗_(A′)A≃B is a natural class in Ext²_B(L_(B/A),J⊗_A B). When it vanishes, isomorphism classes of lifts form a torsor under Ext¹ and automorphisms under Ext⁰. For smooth B/A, finite projectivity of L in degree zero gives existence and uniqueness up to the stated automorphisms. Derived lift spaces use the full module-valued square-zero extension, not just the Ext set.
 -/
 lemma squareZeroDeformations (A B : Type) [CommRing A] [CommRing B] [Algebra A B] (M : D B) : Nonempty (cotangentComplex A B ⟶ M⟦(1 : ℤ)⟧) := by sorry
 /- TauCeti.DerivedDeRham.quasisyntomicCondition
@@ -1005,7 +1012,7 @@ F_p is not p-completely flat over Z_p: F_p⊗^L_Zp F_p has a nonzero degree −1
 -/
 example (p : ℕ) [Fact p.Prime] (reduce : D ℤ → D (ℤ ⧸ Ideal.span {(p : ℤ)})) : ¬ completeFlatness ℤ (Ideal.span {(p : ℤ)}) reduce (mod0 ℤ (ModuleCat.of ℤ (ZMod p))) := by sorry
 /- TauCeti.DerivedDeRham.boundedTorsionCriterion
-Assume A has bounded p-power torsion. If M is derived p-complete and has p-complete Tor-amplitude [a,b], then M has ordinary cohomological amplitude [a,b] and bounded p-power torsion in its cohomology. In particular derived p-complete, p-completely flat M is an ordinary p-adically complete bounded-torsion module with M/p^n flat over A/p^n and M[p^n]≃M⊗_A A[p^n]. Conversely an ordinary p-complete bounded-torsion module satisfying these flatness/torsion conditions is p-completely flat.
+Assume A has bounded p-power torsion. If M is derived p-complete and has p-complete Tor-amplitude [a,b], then M has ordinary cohomological amplitude [a,b]. Bounded p-power torsion in every cohomology group does not follow from this finite amplitude assumption. The bounded-torsion conclusion below is restricted to the p-completely flat case [a,b]=[0,0]. In particular derived p-complete, p-completely flat M is an ordinary p-adically complete bounded-torsion module with M/p^n flat over A/p^n and M[p^n]≃M⊗_A A[p^n]. Conversely an ordinary p-complete bounded-torsion module satisfying these flatness/torsion conditions is p-completely flat.
 -/
 lemma boundedTorsionCriterion (A : Type) [CommRing A] (I : Ideal A) (M : D A) (a b : ℤ) : ∀ n : ℤ, n < a ∨ b < n → IsZero (H A n M) := by sorry
 /- TauCeti.DerivedDeRham.completeFlatDescent
@@ -1719,7 +1726,7 @@ For a fixed R∈QSyn, Λ_p dR_(−/R) is a sheaf on the relative site qSyn_R. If
 -/
 lemma uncompletedPDeRhamDescent (A B : Type) [CommRing A] [CommRing B] [Algebra A B] (p : ℕ) (cechTotalization : D A) : Nonempty ((pCompletedDerham A B p).underlying ≅ cechTotalization) := by sorry
 /- TauCeti.DerivedDeRham.relativeTorAmplitude
-For a quasisyntomic R-algebra A, Λ_p L_(A/R) has p-complete Tor amplitude [−1,0]; thus Λ_p L∧^i L_(A/R) has amplitude [−i,0], its Hodge/conjugate shift [−i] has [0,i] before the additional derived Z/p tensor bound, and each finite quotient has a specified finite amplitude bound. For a quasismooth map the completed L is a flat module in degree zero. For relative QRSP algebras the shifted cotangent and divided-power terms are complete-flat in degree zero. These are Tor-amplitude assertions, not finite-projectivity assertions without finiteness.
+For a quasisyntomic R-algebra A, Λ_p L_(A/R) has p-complete Tor amplitude [−1,0]; thus Λ_p L∧^i L_(A/R) has amplitude [−i,0], its Hodge/conjugate shift [−i] has [0,i] before the additional derived Z/p tensor bound, and each finite quotient has a specified finite amplitude bound. For a quasismooth map the completed L is a p-completely flat module in degree zero; ordinary flatness requires an additional criterion, such as the Noetherian complete-flatness theorem in DD.1. For relative QRSP algebras the shifted cotangent and divided-power terms are complete-flat in degree zero. These are Tor-amplitude assertions, not finite-projectivity assertions without finiteness.
 -/
 lemma relativeTorAmplitude (A B : Type) [CommRing A] [CommRing B] [Algebra A B] (p i : ℕ) : ∀ n : ℤ, n < -(i : ℤ) ∨ 0 < n → IsZero (H B n (derivedCompletion B (Ideal.span {(p : B)}) (derivedExteriorPowers B i (cotangentComplex A B)))) := by sorry
 /- TauCeti.DerivedDeRham.properSmoothCohomologicalControl
@@ -1762,7 +1769,7 @@ An O_C-algebra with nonzero p-torsion is excluded even if its reduction happens 
 -/
 example (A : Type) [CommRing A] (p : A) (B : ModuleCat A) (x : B) (hx : x ≠ 0) (hp : p • x = 0) : ¬ Function.Injective (fun b : B => p • b) := by sorry
 /- TauCeti.DerivedDeRham.formalEtaleRealization
-For a p-complete formal scheme X with QSyn affine charts, a C-valued sheaf F on QSyn defines a sheaf F_X on X_ét by F_X(U)=lim_(Spf A⊆U)F(A), the limit over affine formal opens. Smooth/étale maps of such charts are quasisyntomic covers, so the local values glue. The construction is natural in X and retains the coefficient category and any complete filtration carried by F; a small site is used only after chart hypotheses are checked.
+For a p-complete formal scheme X with QSyn affine charts, a C-valued sheaf F on QSyn defines a sheaf F_X on X_ét by F_X(U)=lim_(Spf A⊆U)F(A), the limit over affine formal opens. Smooth/étale maps of such charts are quasisyntomic maps. A completely faithfully flat map, or a jointly covering family with that faithful cover property, supplies quasisyntomic descent, so the local values glue; an arbitrary individual open immersion is not a cover. The construction is natural in X and retains the coefficient category and any complete filtration carried by F; a small site is used only after chart hypotheses are checked.
 -/
 /- TauCeti.DerivedDeRham.formalEtaleAffine
 On Spf A the restricted sheaf recovers F(A).
@@ -1795,7 +1802,7 @@ example (A B : Type) [CommRing A] [CommRing B] [Algebra A B] (p : ℕ) (r : D B 
 
 /- DD.6. Full mathematical statements and omitted conditions follow. -/
 /- TauCeti.DerivedDeRham.freePrelogResolutions
-For a prelog base (A,M), import its ring/monoid carrier from the early CR.5 prefix and use free objects (A[T₀,N^(T₁)],M⊕N^(T₁)) with finite generator sets. The free/forgetful cotriple gives a canonical surjective simplicial resolution of (B,N), free termwise as both ring and monoid algebra. Its realization recovers the prelog object, and comparison maps between projective resolutions are coherent homotopy equivalences. Apply the EDS nonabelian animation universal property to this prelog-specific compact-projective subcategory.
+For a prelog base (A,M), import its ring/monoid carrier from the early CR.5 prefix and use free objects (A[T₀,N^(T₁)],M⊕N^(T₁)) with finite generator sets. Finite free objects are the compact projective generators for animation. The free/forgetful cotriple on the underlying generator sets gives a canonical surjective simplicial resolution of (B,N), whose termwise free ring and monoid generator sets may be infinite. Its realization recovers the prelog object, and comparison maps between projective resolutions are coherent homotopy equivalences. Apply the EDS nonabelian animation universal property to this prelog-specific compact-projective subcategory.
 -/
 /- TauCeti.DerivedDeRham.freePrelogUniversal
 A base prelog map from the free object is uniquely determined by its ordinary ring generators and compatible monoid generators.
