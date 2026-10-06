@@ -794,6 +794,17 @@
     "data/blueprints/FiniteFieldsAndCharacterSums.md"
    ]
   },
+  "research/blueprint/packets/GL2AutomorphicRepresentationsAndTransfer--R17.3.json": {
+   "promotedAt": "2026-10-06T20:21:28Z",
+   "review": "cf62d739baa6f6ad",
+   "reviewDate": "2026-10-06",
+   "reviewer": "independent-review-REV-GL2AutomorphicRepresentationsAndTransfer--R17.3",
+   "sha256": "709249a3f59fff67bbca04dce74a947a6aa9f7c15c327c884ba043de873026e3",
+   "to": [
+    "data/blueprints/GL2AutomorphicRepresentationsAndTransfer--R17.3.json",
+    "data/blueprints/GL2AutomorphicRepresentationsAndTransfer--R17.3.md"
+   ]
+  },
   "research/blueprint/packets/GeneralAlgebraicKTheory--K.1.json": {
    "promotedAt": "2026-09-28T15:17:43Z",
    "review": "da4dbd15147b37dc",
