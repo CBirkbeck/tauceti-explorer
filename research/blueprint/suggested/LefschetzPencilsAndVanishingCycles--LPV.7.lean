@@ -1,10 +1,12 @@
 /-
 Suggested Lean forms for LPV.7.
 
-This file is not the roadmap and is not exhaustive. The mathematical document
-research/blueprint/readmes/LefschetzPencilsAndVanishingCycles--LPV.7.md is
-definitive. These forms let contributors and reviewers converge on names and
-signatures. All nodes have implementationStatus unchecked.
+This file is not the roadmap and is not exhaustive. The reviewed mathematical
+plan research/blueprint/packets/LefschetzPencilsAndVanishingCycles--LPV.7.json
+is definitive; its independent report is
+research/blueprint/reviews/REV-LefschetzPencilsAndVanishingCycles--LPV.7.md.
+The reader document awaits synchronization with this reviewed packet. These
+forms let contributors and reviewers converge on names and signatures. All nodes have implementationStatus unchecked.
 
 Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174;
 Tau Ceti f790474821cf4256814db967cb154e7af3d0c369.
@@ -69,7 +71,9 @@ lemma normalizationDifferential_reverse (tail head : E → V) :
 lemma normalizationDifferential_ker (tail head : E → V) :
     (∀ a, a ∈ LinearMap.ker (normalizationDifferential (Λ := Λ) tail head) ↔
       ∀ e, a (tail e) = a (head e)) ∧
-    Function.Surjective (LinearMap.range (normalizationDifferential (Λ := Λ) tail head)).mkQ :=
+    Function.Surjective (LinearMap.range (normalizationDifferential (Λ := Λ) tail head)).mkQ ∧
+    LinearMap.ker (LinearMap.range (normalizationDifferential (Λ := Λ) tail head)).mkQ =
+      LinearMap.range (normalizationDifferential (Λ := Λ) tail head) :=
   by sorry
 
 /-- Test `TauCeti.LPV7.normalization_tree_test`: one edge, including the quotient. -/
@@ -219,6 +223,21 @@ def transport (M : GeometricGenericPureModel B P X p structuralMap K)
     (k : K ≅ K') : GeometricGenericPureModel B P X' p (x.hom ≫ structuralMap) K' :=
   by sorry
 
+/-- Constructor `GeometricGenericPureModel.mk` uses all displayed fields; geometric premises
+remain omitted exactly as documented above. Extensionality retains every data field. -/
+lemma ext (M N : GeometricGenericPureModel B P X p structuralMap K)
+    (h_A0 : M.A0 = N.A0)
+    (h_arithmeticMap : HEq M.arithmeticMap N.arithmeticMap)
+    (h_point : HEq M.point N.point)
+    (h_X0 : M.X0 = N.X0)
+    (h_familyMap : HEq M.familyMap N.familyMap)
+    (h_familyRealization : HEq M.familyRealization N.familyRealization)
+    (h_K0 : M.K0 = N.K0)
+    (h_weight : M.weight = N.weight)
+    (h_pullback : M.pullback = N.pullback)
+    (h_complexRealization : HEq M.complexRealization N.complexRealization) :
+    M = N := by sorry
+
 end GeometricGenericPureModel
 
 /-- Test `TauCeti.LPV7.generic_model_constant_test`: the realization of an
@@ -295,6 +314,25 @@ def transport (M : PotentiallyPureModel B P X S p f K)
     (hcomm : f' ≫ s.hom = x.hom ≫ f) {K' : DerivedCategory (ModuleCat.{0} ℚ)}
     (k : K ≅ K') : PotentiallyPureModel B P X' S' p f' K' := by sorry
 
+/-- Constructor `PotentiallyPureModel.mk` uses all displayed fields; geometric premises
+remain omitted exactly as documented above. Extensionality retains every data field. -/
+lemma ext (M N : PotentiallyPureModel B P X S p f K)
+    (h_A0 : M.A0 = N.A0)
+    (h_arithmeticMap : HEq M.arithmeticMap N.arithmeticMap)
+    (h_point : HEq M.point N.point)
+    (h_S0 : M.S0 = N.S0)
+    (h_curve : HEq M.curve N.curve)
+    (h_curveSection : HEq M.curveSection N.curveSection)
+    (h_X0 : M.X0 = N.X0)
+    (h_familyMap : HEq M.familyMap N.familyMap)
+    (h_traitRealization : HEq M.traitRealization N.traitRealization)
+    (h_familyRealization : HEq M.familyRealization N.familyRealization)
+    (h_K0 : M.K0 = N.K0)
+    (h_weight : M.weight = N.weight)
+    (h_pullback : M.pullback = N.pullback)
+    (h_complexRealization : HEq M.complexRealization N.complexRealization) :
+    M = N := by sorry
+
 end PotentiallyPureModel
 
 /-- Test `TauCeti.LPV7.potential_model_constant_test`: underlying realization
@@ -355,12 +393,14 @@ def weightSpectralSequence_e2 (p q : ℤ) :
 
 /-- Omitted: the actual proper geometric abutment and its induced filtration;
 boundedness/convergence and proper base change are EDC.0/LPV.0 inputs.
+Omitted: the relative-dimension column bound -d ≤ p ≤ d. It ensures
+page 2*d+2 is stabilized, without an E2-degeneration assumption.
 The filtration index is -p (not p); m=p+q. -/
 def weightSpectralSequence_abutment
     (Hgeneric : ℤ → ModuleCat.{0} ℚ)
     (M : ∀ m : ℤ, ℤ → Submodule ℚ (Hgeneric m))
     (d : ℕ) (p q : ℤ) :
-    ((weightSpectralSequence G data).page (d+2)).X (p,q) ≅
+    ((weightSpectralSequence G data).page (2*d+2)).X (p,q) ≅
       ModuleCat.of ℚ ((M (p+q) (-p)) ⧸
         ((M (p+q) (-p-1)).comap (M (p+q) (-p)).subtype)) := by sorry
 
@@ -383,10 +423,11 @@ example (H : ℤ → ℤ → ℤ → ModuleCat.{0} ℚ) :
     Nonempty (((weightSpectralSequence G data).page 1).X (1,0) ≅ H 1 0 0) := by sorry
 
 /-- Test `TauCeti.LPV7.weight_ss_nonproper_test`: the target is nearby
-hypercohomology, not generic cohomology. The uv=π realization is omitted. -/
+hypercohomology, not generic cohomology. The uv=π realization and column
+bound [-d,d] are omitted; the bound ensures stabilization by page 2*d+2. -/
 example (Hnearby : ℤ → ModuleCat.{0} ℚ)
     (M : ∀ m : ℤ, ℤ → Submodule ℚ (Hnearby m)) (d : ℕ) (p q : ℤ) :
-    Nonempty (((weightSpectralSequence G data).page (d+2)).X (p,q) ≅
+    Nonempty (((weightSpectralSequence G data).page (2*d+2)).X (p,q) ≅
       ModuleCat.of ℚ ((M (p+q) (-p)) ⧸
         ((M (p+q) (-p-1)).comap (M (p+q) (-p)).subtype))) := by sorry
 
@@ -471,7 +512,8 @@ theorem curveJacobianPairing (uMinus uPlus : LinearMap.BilinForm F M) :
     uMinus = -uPlus := by sorry
 
 /-- Omitted: a ramified trait extension and compatible tame/Tate coordinates.
-The e-subdivision comparison is supplied by StableReduction. -/
+For an original thickness n, the e*n unit-edge subdivision comparison
+is supplied by StableReduction (e edges only when n=1). -/
 theorem curveChoiceBaseChange (e : ℕ) (Nold Nnew : V →ₗ[F] V) :
     Nnew = (e : F) • Nold := by sorry
 
@@ -524,7 +566,8 @@ theorem arithmeticSpreading {J : Type*} [Group J] (ρ : Representation F I V)
     (ρ' : Representation F J V) : Set.range ρ = Set.range ρ' := by sorry
 
 /-- Omitted: continuous inertia cohomology and the trait's generic fibre.
-The maps stand for coinvariants(-1)→generic trait H^i→fibre invariants. -/
+The maps stand for coinvariants(-1)→generic trait H^i→fibre invariants
+for bounded constructible rational K, with no total-space smoothness premise. -/
 theorem continuousWangSequence (left : W →ₗ[F] V) (right : V →ₗ[F] U) :
     Function.Injective left ∧ LinearMap.range left = LinearMap.ker right ∧
       Function.Surjective right := by sorry
