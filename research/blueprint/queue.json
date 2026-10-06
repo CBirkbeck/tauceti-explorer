@@ -23331,9 +23331,10 @@
     "REV-RS-01"
    ],
    "prompt": "research/blueprint/prompts/BP-CrystallineCohomology--CR.0.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #704"
+   "note": "deliverables arrived from an external worker on issue #704",
+   "finishedAt": "2026-10-06T22:23:57Z"
   },
   {
    "id": "REV-CrystallineCohomology--CR.0",
@@ -23652,7 +23653,8 @@
    ],
    "avoidAccountOf": "BP-DiamondEtaleCohomology--C8",
    "prompt": "research/blueprint/prompts/REV-DiamondEtaleCohomology--C8.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #387"
   },
   {
    "id": "BP-DiamondSixOperations",
@@ -28834,9 +28836,9 @@
     "REV-RS-32"
    ],
    "prompt": "research/blueprint/prompts/BP-ShimuraCompactifications--C0.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [],
-   "note": "released on GitHub issue #990"
+   "note": "claimed on GitHub issue #990"
   },
   {
    "id": "REV-ShimuraCompactifications--C0",
