@@ -35,6 +35,8 @@ No arbitrary proposition substitutes for a missing mathematical carrier.
 The later sections give the M.5d–M.8 named-theorem, construction, API and
 test signatures. Their genuine spectrum, cohomology, Witt and realization
 carriers are supplier parameters until those roadmaps are implemented.
+Independent review records remaining coefficient/filtered/weight/test signature
+defects in the packet; elaboration alone does not validate those claims.
 Conditions not currently expressible are omitted, as PROTOCOL §13 requires;
 all mathematical hypotheses in the packet/reader remain binding. These
 parametric prototypes prove neither the theorems nor supplier existence.
@@ -128,6 +130,8 @@ example (a : Fˣ) :
 /-- M.5d/logarithmic-one-form-natural. -/
 theorem logOne_natural {E : Type v} [Field E] (f : F →ₐ[ℤ] E)
     (differentialPullback : KaehlerDifferential ℤ F →ₛₗ[f.toRingHom] KaehlerDifferential ℤ E)
+    (hD : ∀ x : F, differentialPullback (KaehlerDifferential.D ℤ F x) =
+      KaehlerDifferential.D ℤ E (f x))
     (a : Fˣ) :
     differentialPullback (logOne (Additive.ofMul a)) =
       logOne (Additive.ofMul (Units.map f.toMonoidHom a)) := by sorry
@@ -372,13 +376,22 @@ abbrev coefficientGroup (A : Type u) [AddCommGroup A] (m : ℕ) :=
   A ⧸ (nsmulAddMonoidHom (α := A) m).range
 
 /-- Canonical i([a])=[p^(r-1)a], ρ reduction and its Tor lift come from H.6.
-Their coefficient-resolution identity is omitted from the supplier parameters. -/
+The displayed evaluation identities bind the supplier maps to these canonical
+coefficient maps; they are expressible at the pinned additive-group baseline. -/
 theorem milnor_coefficient_row {A : Type u} [AddCommGroup A]
     (p r : ℕ) [Fact p.Prime] (hr : 2 ≤ r)
     (i : coefficientGroup A p →+ coefficientGroup A (p ^ r))
     (ρ : coefficientGroup A (p ^ r) →+ coefficientGroup A (p ^ (r-1)))
     (torReduction : (nsmulAddMonoidHom (α := A) (p ^ r)).ker →+
-      (nsmulAddMonoidHom (α := A) (p ^ (r-1))).ker) :
+      (nsmulAddMonoidHom (α := A) (p ^ (r-1))).ker)
+    (hi : ∀ a : A,
+      i (QuotientAddGroup.mk' ((nsmulAddMonoidHom (α := A) p).range) a) =
+        QuotientAddGroup.mk' ((nsmulAddMonoidHom (α := A) (p ^ r)).range)
+          ((p ^ (r-1)) • a))
+    (hρ : ∀ a : A,
+      ρ (QuotientAddGroup.mk' ((nsmulAddMonoidHom (α := A) (p ^ r)).range) a) =
+        QuotientAddGroup.mk' ((nsmulAddMonoidHom (α := A) (p ^ (r-1))).range) a)
+    (hTor : ∀ x, (torReduction x : A) = p • (x : A)) :
     i.range = ρ.ker ∧ Function.Surjective ρ ∧
     i.ker = ((nsmulAddMonoidHom (α := A) (p ^ (r-1))).ker).map
       (QuotientAddGroup.mk' ((nsmulAddMonoidHom (α := A) p).range)) ∧
@@ -428,7 +441,10 @@ theorem admissibleSupports_iff (closed : Set (Set Point))
       W ∈ closed ∧ ∀ f, (p : WithTop ℕ) ≤ codim W f := by sorry
 
 theorem admissibleSupports_union (closed : Set (Set Point))
-    (codim : Set Point → Face → WithTop ℕ) (p : ℕ) (W V : Set Point)
+    (codim : Set Point → Face → WithTop ℕ)
+    (hclosed : ∀ W V, W ∈ closed → V ∈ closed → W ∪ V ∈ closed)
+    (hcodim : ∀ W V f, codim (W ∪ V) f = min (codim W f) (codim V f))
+    (p : ℕ) (W V : Set Point)
     (hW : W ∈ admissibleSupports closed codim p)
     (hV : V ∈ admissibleSupports closed codim p) :
     W ∪ V ∈ admissibleSupports closed codim p := by sorry
@@ -500,7 +516,8 @@ theorem k_theory_well_connected (semilocalSupport : Spectrum) (m : ℤ) (hm : m 
 theorem coniveau_cycle_layer (layer : ℕ → Spectrum) (cycleEM : ℕ → Spectrum) (p : ℕ) :
     Nonempty (Iso (layer p) (cycleEM p)) := by sorry
 
-/-- Filtered equivalence, not equality of spectral-sequence pages. -/
+/-- Review gap: this levelwise prototype still needs transitions and
+augmentation to state the filtered equivalence requested by the packet. -/
 theorem global_model_comparison (HC FS : ℕ → Spectrum) :
     Nonempty (∀ p, Iso (HC p) (FS p)) := by sorry
 end Coniveau
@@ -729,37 +746,37 @@ section ChernMaps
 variable (K : ℕ → Type u) [∀ n, AddCommGroup (K n)]
     (H : ℤ → ℕ → Type v) [∀ a j, AddCommGroup (H a j)]
 /-- Positive higher Chern class, defined by universal equivariant Chern classes. -/
-def finiteChern (i n : ℕ) : K n →+ H (2*(i : ℤ)-n) i := sorry
+def finiteChern (i n : ℕ) (_hi : 1 ≤ i) (_hn : 1 ≤ n) : K n →+ H (2*(i : ℤ)-n) i := sorry
 
-theorem finiteChern_natural (i n : ℕ)
+theorem finiteChern_natural (i n : ℕ) (hi : 1 ≤ i) (hn : 1 ≤ n)
     (KY : ℕ → Type u) [∀ m, AddCommGroup (KY m)]
     (HY : ℤ → ℕ → Type v) [∀ a j, AddCommGroup (HY a j)]
     (pullK : K n →+ KY n) (pullH : H (2*(i : ℤ)-n) i →+ HY (2*(i : ℤ)-n) i) :
-    (finiteChern KY HY i n).comp pullK = pullH.comp (finiteChern K H i n) := by sorry
+    (finiteChern KY HY i n hi hn).comp pullK = pullH.comp (finiteChern K H i n hi hn) := by sorry
 
 theorem finiteChern_bockstein {Det : Type w} [AddCommGroup Det]
     (detBoundary : K 2 →+ Det) (kummer : Det →+ H 0 1) :
-    finiteChern K H 1 2 = kummer.comp detBoundary := by sorry
+    finiteChern K H 1 2 (by decide) (by decide) = kummer.comp detBoundary := by sorry
 
 theorem finiteChern_milnor (i : ℕ) (hi : 1 ≤ i) {F : Type w} [Field F]
     (milnorToK : Milnor F i →+ K i)
     (cupKummer : (Fin i → Fˣ) → H (2*(i : ℤ)-i) i) (a : Fin i → Fˣ) :
-    finiteChern K H i i (milnorToK (symbol F a)) =
+    finiteChern K H i i hi hi (milnorToK (symbol F a)) =
       (((-1 : ℤ)^(i-1)) * (Nat.factorial (i-1) : ℤ)) • cupKummer a := by sorry
 
 -- finiteChern_test_unit
 example {Units : Type w} [AddCommGroup Units] (det : K 1 →+ Units)
     (kummer : Units →+ H 1 1) (x : K 1) :
-    finiteChern K H 1 1 x = kummer (det x) := by sorry
+    finiteChern K H 1 1 (by decide) (by decide) x = kummer (det x) := by sorry
 -- finiteChern_test_bott
 example {IntegralK₂ : Type w} [AddCommGroup IntegralK₂]
     (integralReduction : IntegralK₂ →+ K 2) (β : K 2) (ζ : H 0 1) :
-    finiteChern K H 1 2 β = ζ ∧
-      ∀ x, finiteChern K H 1 2 (integralReduction x) = 0 := by sorry
+    finiteChern K H 1 2 (by decide) (by decide) β = ζ ∧
+      ∀ x, finiteChern K H 1 2 (by decide) (by decide) (integralReduction x) = 0 := by sorry
 -- finiteChern_test_factorial
 example {F : Type w} [Field F] (milnorToK : Milnor F 2 →+ K 2)
     (cupKummer : (Fin 2 → Fˣ) → H 2 2) (a : Fin 2 → Fˣ) :
-    finiteChern K H 2 2 (milnorToK (symbol F a)) = -cupKummer a := by sorry
+    finiteChern K H 2 2 (by decide) (by decide) (milnorToK (symbol F a)) = -cupKummer a := by sorry
 end ChernMaps
 
 section MotivicCharacter
@@ -877,7 +894,9 @@ theorem integralStructures_torsion (restriction : Model →+ Generic) :
       AddCommGroup.torsion (integralStructures restriction) := by sorry
 
 theorem integralStructures_lattice (restriction : Model →+ Generic)
-    (r : ℕ) : Nonempty (integralLattice restriction ≃+ (Fin r → ℤ)) := by sorry
+    (hfg : ∃ s : Finset (integralStructures restriction),
+      AddSubgroup.closure (s : Set (integralStructures restriction)) = ⊤) :
+    ∃ r : ℕ, Nonempty (integralLattice restriction ≃+ (Fin r → ℤ)) := by sorry
 
 -- integralStructures_test_torsion
 example (m : ℕ) (hm : 1 < m) :
@@ -894,10 +913,10 @@ end IntegralStructures
 
 section RealizationDictionary
 /-- Cohomological geometric-Frobenius convention; q is nonzero and unramified. -/
-theorem tate_elliptic_realization_dictionary (q : ℚ) (hq : q ≠ 0) (a : ℚ) (j : ℕ)
+theorem tate_elliptic_realization_dictionary (q : ℚ) (hq : q ≠ 0) (a : ℚ) (j : ℤ)
     (tateEuler ellipticEuler : ℚ → ℚ) :
-    (∀ T, tateEuler T = 1-q^(-(j : ℤ))*T) ∧
-    (∀ T, ellipticEuler T = 1-a*q^(-(j : ℤ))*T+q^(1-2*(j : ℤ))*T^2) := by sorry
+    (∀ T, tateEuler T = 1-q^(-j)*T) ∧
+    (∀ T, ellipticEuler T = 1-a*q^(-j)*T+q^(1-2*j)*T^2) := by sorry
 end RealizationDictionary
 
 section NormFamilies
@@ -915,12 +934,24 @@ theorem normFamilies_projection (x : normFamilies K transition) (n : ℕ) :
 
 theorem normFamilies_regulator (H : ℕ → Type v) [∀ n, AddCommGroup (H n)]
     (corestriction : ∀ n, H (n+1) →+ H n) (reg : ∀ n, K n →+ H n)
+    (htransfer : ∀ n, (reg n).comp (transition n) =
+      (corestriction n).comp (reg (n+1)))
     (x : normFamilies K transition) (n : ℕ) :
     corestriction n (reg (n+1) (x.1 (n+1))) = reg n (x.1 n) := by sorry
 
-theorem normFamilies_soule (i n : ℕ) (hi : 1 ≤ i)
-    (unitBottPower : K n) (norm : K n →+ K n)
-    (soule : normFamilies K transition) : soule.1 n = norm unitBottPower := by sorry
+/-- The particular unit/Bott norm family, with compatibility supplied by the
+projection formula. K n here is the coefficient-level group in K-degree 2i−1. -/
+def souleFamily (unitBottPower : ∀ n, K n) (norm : ∀ n, K n →+ K n)
+    (hcompat : ∀ n, transition n (norm (n+1) (unitBottPower (n+1))) =
+      norm n (unitBottPower n)) : normFamilies K transition :=
+  ⟨fun n ↦ norm n (unitBottPower n), hcompat⟩
+
+theorem normFamilies_soule (i n : ℕ) (_hi : 1 ≤ i)
+    (unitBottPower : ∀ n, K n) (norm : ∀ n, K n →+ K n)
+    (hcompat : ∀ n, transition n (norm (n+1) (unitBottPower (n+1))) =
+      norm n (unitBottPower n)) :
+    (souleFamily K transition unitBottPower norm hcompat).1 n =
+      norm n (unitBottPower n) := by rfl
 
 -- normFamilies_test_constant
 example {A : Type v} [AddCommGroup A] :
@@ -972,7 +1003,9 @@ example (p : ℕ) [Fact p.Prime] :
 
 theorem selmer_regulator_factorization {K Global Selmer : Type u}
     [AddCommGroup K] [AddCommGroup Global] [AddCommGroup Selmer]
-    (reg : K →+ Global) (selmerInclusion : Selmer →+ Global) :
+    (reg : K →+ Global) (selmerInclusion : Selmer →+ Global)
+    (hinj : Function.Injective selmerInclusion)
+    (hlocal : reg.range ≤ selmerInclusion.range) :
     ∃ selmerReg : K →+ Selmer, selmerInclusion.comp selmerReg = reg := by sorry
 
 theorem regulator_determinant_comparison (C : Cpx)
