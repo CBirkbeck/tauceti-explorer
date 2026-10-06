@@ -26873,9 +26873,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-MetaplecticAutomorphicForms--MP.8.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [],
-   "note": "released on GitHub issue #772"
+   "note": "claimed on GitHub issue #772"
   },
   {
    "id": "REV-MetaplecticAutomorphicForms--MP.8",
@@ -27610,8 +27610,9 @@
    ],
    "avoidAccountOf": "BP-PadicHodgeRegulators--L3",
    "prompt": "research/blueprint/prompts/REV-PadicHodgeRegulators--L3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #464"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #464",
+   "finishedAt": "2026-10-06T11:26:43Z"
   },
   {
    "id": "BP-PadicHodgeTheory--P7",
@@ -28760,9 +28761,10 @@
     "REV-RS-32"
    ],
    "prompt": "research/blueprint/prompts/BP-ShimuraCompactifications--C6.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #991"
+   "note": "deliverables arrived from an external worker on issue #991",
+   "finishedAt": "2026-10-06T11:26:48Z"
   },
   {
    "id": "REV-ShimuraCompactifications--C6",
@@ -30556,7 +30558,8 @@
    ],
    "avoidAccountOf": "BP-ArithmeticQuantumTopology",
    "prompt": "research/blueprint/prompts/REV-ArithmeticQuantumTopology.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #531"
   },
   {
    "id": "BP-ClassicalArithmeticCompletion",
