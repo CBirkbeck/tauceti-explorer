@@ -1,0 +1,847 @@
+{
+  "roadmapId": "HabiroRings",
+  "protocol": "blueprint-v1",
+  "part": "HR.3",
+  "scope": [
+    "HabiroRings:HR.3"
+  ],
+  "status": "complete",
+  "summary": "Finite cyclotomic descent with an explicit coherent completion diagram, reconstruction inverse and prime-edge mapping spaces. This follow-up imports the five accepted HR.3 nodes of HabiroRings.json. It resolves their categorical boundary into precise requests to EnhancedDerivedSheaves and DerivedDeRhamCohomology; it does not construct a second general infinity-category, derived completion or cyclotomic arithmetic library.",
+  "baseline": {
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "declarations": [
+      {
+        "ref": "mathlib:Nat.divisors",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/Divisors.lean",
+        "provides": "The finite set of positive divisors; divisors 0 is empty.",
+        "checked": "Statement and body read at Mathlib 082e2d3, line 52."
+      },
+      {
+        "ref": "mathlib:Nat.primeFactors",
+        "kind": "def",
+        "module": "Mathlib/Data/Nat/PrimeFin.lean",
+        "provides": "The finite set of prime factors, with membership Prime p and p dividing a nonzero integer.",
+        "checked": "Definition at line 37 and mem_primeFactors at line 42 read at Mathlib 082e2d3."
+      },
+      {
+        "ref": "mathlib:Nat.factorization",
+        "kind": "def",
+        "module": "Mathlib/Data/Nat/Factorization/Defs.lean",
+        "provides": "Prime multiplicities v_p(m) as a finitely supported function; zero at primes not dividing m.",
+        "checked": "Definition and factorization_def read at Mathlib 082e2d3, lines 50–60."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Nerve.quasicategory",
+        "kind": "instance",
+        "module": "Mathlib/AlgebraicTopology/Quasicategory/Nerve.lean",
+        "provides": "The nerve of an ordinary category is a quasicategory; used only for the finite indexing poset, not for derived categories.",
+        "checked": "Instance statement read at Mathlib 082e2d3, line 32."
+      },
+      {
+        "ref": "mathlib:Polynomial.cyclotomic",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/Polynomial/Cyclotomic/Basic.lean",
+        "provides": "Cyclotomic polynomials over a ring, reusing the existing coefficient convention.",
+        "checked": "Definition read at Mathlib 082e2d3, line 230."
+      },
+      {
+        "ref": "mathlib:Polynomial.prod_cyclotomic_eq_X_pow_sub_one",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Polynomial/Cyclotomic/Basic.lean",
+        "provides": "The product over positive divisors of m is q^m minus one, for m positive and arbitrary commutative coefficient ring.",
+        "checked": "Full statement and proof read at Mathlib 082e2d3, lines 338–346."
+      },
+      {
+        "ref": "mathlib:Nat.exists_eq_pow_mul_and_not_dvd",
+        "kind": "theorem",
+        "module": "Mathlib/Data/Nat/Factorization/Basic.lean",
+        "provides": "For nonzero n and p≠1, n=p^e n₀ with p not dividing n₀. This supplies existence of the prime-free chain representative.",
+        "checked": "Full statement and proof read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 275, by REV-HabiroRings--HR.3 on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:Nat.factorization_mul",
+        "kind": "theorem",
+        "module": "Mathlib/Data/Nat/Factorization/Defs.lean",
+        "provides": "For a,b nonzero, (ab).factorization=a.factorization+b.factorization.",
+        "checked": "Full statement and proof read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 155, by REV-HabiroRings--HR.3 on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:Nat.Prime.factorization_pow",
+        "kind": "theorem",
+        "module": "Mathlib/Data/Nat/Factorization/Defs.lean",
+        "provides": "For p prime, (p^k).factorization=Finsupp.single p k.",
+        "checked": "Full statement and proof read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 241, by REV-HabiroRings--HR.3 on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:Nat.factorization_eq_zero_of_not_dvd",
+        "kind": "theorem",
+        "module": "Mathlib/Data/Nat/Factorization/Defs.lean",
+        "provides": "If p does not divide n, its multiplicity in n.factorization is zero.",
+        "checked": "Full statement and proof read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 143, by REV-HabiroRings--HR.3 on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:Nat.factorization_le_iff_dvd",
+        "kind": "theorem",
+        "module": "Mathlib/Data/Nat/Factorization/Defs.lean",
+        "provides": "For nonzero d,n, d.factorization≤n.factorization iff d divides n; supplies both chain containment and the strict prime-edge exponent bound.",
+        "checked": "Full statement and proof read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 161, by REV-HabiroRings--HR.3 on 2026-10-06."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "Wagner.qHodgeHabiro.2025",
+      "title": "q-Hodge complexes over the Habiro ring",
+      "authors": "Ferdinand Wagner",
+      "edition": "arXiv:2510.04782v2, 8 October 2025, 82-page PDF",
+      "url": "https://arxiv.org/pdf/2510.04782v2",
+      "sha256": "591d0bdf2c48d12f91d6c9a4beec32978bc1e9a9448b04ef0efdc4a84315373b",
+      "accessed": "2026-10-05",
+      "readSections": [
+        "1.22(c)–(d), pp. 11–12: derived quotients, completion and fracture conventions.",
+        "2.1–2.6, pp. 13–15: setup, proof sketch of Lemma 2.2, complete proof of Corollary 2.4, fracture description and derived-commutative variant."
+      ]
+    },
+    {
+      "id": "Lurie.HA.2017",
+      "title": "Higher Algebra",
+      "authors": "Jacob Lurie",
+      "edition": "18 September 2017 author PDF",
+      "url": "https://www.math.ias.edu/~lurie/papers/HA.pdf",
+      "sha256": "112b145a95a62daefb8275851cac9ab6430004cfc8f751a33a8d981fd7ad68c3",
+      "accessed": "2026-10-05",
+      "readSections": [
+        "Lemma 1.2.4.15 with proof, p. 74, and its use in the proof of Proposition 1.2.4.13.",
+        "Definition 2.1.3.1, p. 184: algebras as operadic sections.",
+        "Proposition 2.2.1.9 with proof, pp. 197–200: compatible monoidal localization.",
+        "Proposition 3.2.2.1, Warning 3.2.2.2 and Corollary 3.2.2.3, pp. 357–358: limits of algebra objects; only statements and the short corollary proof, not the entire proof of 3.2.2.1.",
+        "Corollary 3.2.2.4, pp. 358–359: fixed-category limit criterion, obtained by specializing 3.2.2.3 to D^⊗=O^⊗; read in REV-HabiroRings--HR.3."
+      ]
+    },
+    {
+      "id": "Lurie.HTT.2017",
+      "title": "Higher Topos Theory",
+      "authors": "Jacob Lurie",
+      "edition": "9 April 2017 author PDF",
+      "url": "https://www.math.ias.edu/~lurie/papers/HTT.pdf",
+      "sha256": "58855f3a0ad6d9c470ded74a38938b9468927592e9ae1209bab6a068e67ede6e",
+      "accessed": "2026-10-05",
+      "readSections": [
+        "Theorem 3.2.0.1, pp. 169–170: marked straightening/unstraightening statement, not its entire proof.",
+        "Corollary 3.3.3.2 with proof, p. 216: limits as coherent sections.",
+        "Definition 5.5.3.2, Proposition 5.5.3.3, Corollary 5.5.3.4 with proof, p. 467: presentable fibrations and adjoint reversal.",
+        "Propositions 5.5.3.5 and 5.5.3.12–13 with proofs, pp. 467, 469–470: products, pullbacks and limits in Pr^L."
+      ],
+      "pagination": "All page locators use printed pagination; add 18 for the 1-based PDF page number (e.g. printed p. 216 is PDF p. 234)."
+    }
+  ],
+  "nodes": [
+    {
+      "id": "HabiroRings:HR.3/finite-descent-index",
+      "parentStageId": "HabiroRings:HR.3",
+      "realises": [
+        "HabiroRings:HR.3"
+      ],
+      "title": "The finite cyclotomic descent index",
+      "kind": "definition",
+      "statement": "For m > 0 put T(m) = Nat.divisors(m), Q(m) = the nonempty subsets of T(m), ordered by inclusion. For p prime dividing m and d dividing m with p not dividing d define C(m,d,p) = {d p^i : 0 ≤ i ≤ v_p(m)}. Let P(m) be the full subposet of Q(m) whose elements are the singletons {d} and these maximal chains. The chain construction for any other p is not used to enumerate P; the source’s singleton chains for primes outside m are represented directly by the singletons. The interface consists of P, its nerve, its inclusions into Q, its prime edges (p,d) with pd dividing m, with consecutive-chain factorization supplied by the separate prime-edge-factorisation lemma.",
+      "hypotheses": [
+        "m is positive; all vertices are nonempty finite subsets of positive divisors.",
+        "An index vertex is an actual subset, so different presentations of the same chain do not produce extra vertices.",
+        "The order is inclusion of subsets, not divisibility of their members."
+      ],
+      "proofSteps": [
+        "Enumerate T, the primes dividing m and the chains using the existing divisor, prime-factor and factorization APIs.",
+        "For each p-free divisor d, factorization of d p^i and the divisibility criterion show that all terms with i≤v_p(m) divide m. Positivity gives nonempty vertices. Use the inherited inclusion order and the existing ordinary-category nerve instance. The height-one and prime-edge factorization results are separate lemma nodes because the mapping-space theorem uses them as prerequisites."
+      ],
+      "acceptance": [
+        "P(1) has one vertex; P(4) has {1},{2},{4},{1,2,4}, not all seven nonempty subsets.",
+        "P(6) has eight vertices and its incidence graph has a cycle; its nerve has no nondegenerate 2-simplices.",
+        "The singleton vertices {1} and {2} of P(2) are incomparable; divisibility of their members is not an index morphism."
+      ],
+      "prerequisites": [
+        "mathlib:Nat.divisors",
+        "mathlib:Nat.primeFactors",
+        "mathlib:Nat.factorization",
+        "mathlib:CategoryTheory.Nerve.quasicategory",
+        "HabiroRings:HR.3/the-divisor-poset-and-its-intersections",
+        "mathlib:Nat.exists_eq_pow_mul_and_not_dvd",
+        "mathlib:Nat.factorization_mul",
+        "mathlib:Nat.Prime.factorization_pow",
+        "mathlib:Nat.factorization_eq_zero_of_not_dvd",
+        "mathlib:Nat.factorization_le_iff_dvd"
+      ],
+      "sources": [
+        {
+          "sourceId": "Wagner.qHodgeHabiro.2025",
+          "locator": "Proof of Corollary 2.4, p. 15, definition of P",
+          "match": "Defines the full subposet of maximal prime chains, including the singleton chains."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/RingTheory/Habiro/CyclotomicDescent/Index",
+        "namespace": "TauCeti.Habiro.CyclotomicIndex"
+      },
+      "uses": [
+        {
+          "where": "Wagner Corollary 2.4 and HR.4 finite relative Habiro rings",
+          "how": "Indexes the coherent gluing limit without replacing it by an unstructured collection of local objects."
+        },
+        {
+          "where": "HabiroRings:HR.3/prime-edge-mapping-spaces",
+          "how": "Provides the singleton and chain vertices and their inclusion arrows; the separate height-one lemma supplies the morphism coherence reduction."
+        }
+      ],
+      "api": [
+        {
+          "name": "CyclotomicIndex.primeChain",
+          "role": "constructor",
+          "statement": "For m,d,p define the finset {d p^i : i ≤ v_p(m)}; for p prime dividing m and p-free d dividing m it is a vertex."
+        },
+        {
+          "name": "CyclotomicIndex.vertices",
+          "role": "data",
+          "statement": "The finset of vertices is the union of singleton divisors and maximal chains at prime factors of m."
+        },
+        {
+          "name": "CyclotomicIndex.mem_vertices",
+          "role": "characterisation",
+          "statement": "S is a vertex iff S is a singleton divisor or S=C(m,d,p) for p dividing m and p-free d dividing m."
+        },
+        {
+          "name": "CyclotomicIndex.vertex_subset",
+          "role": "projection",
+          "statement": "Every vertex is a subset of Nat.divisors(m)."
+        },
+        {
+          "name": "CyclotomicIndex.vertex_nonempty",
+          "role": "projection",
+          "statement": "Every vertex is nonempty."
+        },
+        {
+          "name": "CyclotomicIndex.le_iff_subset",
+          "role": "characterisation",
+          "statement": "For S,U∈P(m), S≤U if and only if their underlying finite subsets satisfy S⊆U. Use the inherited subtype order on finite sets."
+        },
+        {
+          "name": "CyclotomicIndex.nerve_quasicategory",
+          "role": "compatibility",
+          "statement": "The nerve of P(m), using Mathlib’s preorder category, is a quasicategory."
+        }
+      ],
+      "tests": [
+        {
+          "name": "CyclotomicIndex.test_one",
+          "kind": "degenerate",
+          "statement": "vertices(1) = {{1}}."
+        },
+        {
+          "name": "CyclotomicIndex.test_four",
+          "kind": "computation",
+          "statement": "vertices(4) = {{1},{2},{4},{1,2,4}}."
+        },
+        {
+          "name": "CyclotomicIndex.test_six",
+          "kind": "computation",
+          "statement": "vertices(6) = {{1},{2},{3},{6},{1,2},{3,6},{1,3},{2,6}}."
+        },
+        {
+          "name": "CyclotomicIndex.test_not_pair_four",
+          "kind": "non-example",
+          "statement": "{1,4} is not a vertex of P(4), although it is a surviving intersection in Q(4)."
+        },
+        {
+          "name": "CyclotomicIndex.test_incomparable_singletons",
+          "kind": "non-example",
+          "statement": "For the vertices S={1} and U={2} of P(2), neither S≤U nor U≤S holds, although 1 divides 2. This distinguishes the required subset order from divisibility of singleton members."
+        }
+      ],
+      "planet": {
+        "name": "Cyclotomic descent diagram"
+      }
+    },
+    {
+      "parentStageId": "HabiroRings:HR.3",
+      "realises": [
+        "HabiroRings:HR.3"
+      ],
+      "kind": "lemma",
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/RingTheory/Habiro/CyclotomicDescent/Index",
+        "namespace": "TauCeti.Habiro.CyclotomicIndex"
+      },
+      "id": "HabiroRings:HR.3/finite-index-height-one",
+      "title": "The finite cyclotomic index has height one",
+      "statement": "CyclotomicIndex.height_one: for m>0 and vertices S,U,V of P(m), if S⊆U⊆V, then S=U or U=V. Every strict comparison is from a singleton to a nontrivial maximal prime-power chain. Thus the nerve has no nondegenerate simplices of dimension at least two.",
+      "hypotheses": [
+        "Vertices are actual finite subsets, ordered by inclusion; prime chains are maximal and their p-free base divides m."
+      ],
+      "proofSteps": [
+        "The parent intersection node, part (d), shows that distinct nontrivial maximal prime-power chains are incomparable.",
+        "Distinct singletons are incomparable. A nontrivial chain cannot be a subset of a singleton. Therefore every strict arrow has singleton source and nontrivial-chain target, so two strict arrows cannot compose."
+      ],
+      "acceptance": [
+        "P(4) has one nontrivial chain and no composable strict arrows.",
+        "P(6) has an incidence cycle but still no nondegenerate 2-simplex."
+      ],
+      "prerequisites": [
+        "HabiroRings:HR.3/finite-descent-index",
+        "HabiroRings:HR.3/the-divisor-poset-and-its-intersections"
+      ],
+      "sources": [
+        {
+          "sourceId": "Wagner.qHodgeHabiro.2025",
+          "locator": "Proof of Corollary 2.4, p. 15, definition of P and maximal prime-power subsets",
+          "match": "A finite combinatorial consequence of the source index and the imported intersection classification, promoted from the index API because the mapping-space proof uses it."
+        }
+      ],
+      "addedBy": "REV-HabiroRings--HR.3"
+    },
+    {
+      "parentStageId": "HabiroRings:HR.3",
+      "realises": [
+        "HabiroRings:HR.3"
+      ],
+      "kind": "lemma",
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/RingTheory/Habiro/CyclotomicDescent/Index",
+        "namespace": "TauCeti.Habiro.CyclotomicIndex"
+      },
+      "id": "HabiroRings:HR.3/prime-edge-factorisation",
+      "title": "Unique consecutive-chain factorization of a prime edge",
+      "statement": "CyclotomicIndex.primeEdge_factorisation: if m>0, p is prime and pd divides m, there are unique d₀,i with p not dividing d₀, d₀ dividing m, i<v_p(m), and d=d₀p^i. Thus (p,d) is the unique consecutive pair d₀p^i,d₀p^(i+1) on its maximal p-power chain in P(m).",
+      "hypotheses": [
+        "p is prime and pd divides the positive m; hence d and d₀ are positive."
+      ],
+      "proofSteps": [
+        "For a prime edge (p,d), positivity of m and pd dividing m imply d≠0. Use Nat.exists_eq_pow_mul_and_not_dvd to write d=d₀p^i with p not dividing d₀. Nat.factorization_eq_zero_of_not_dvd, Nat.factorization_mul and Nat.Prime.factorization_pow show i=v_p(d), proving uniqueness of i and then d₀ by cancellation. Nat.factorization_le_iff_dvd applied to pd dividing m gives i<v_p(m), and applied to d₀p^j for j≤v_p(m) proves containment of the whole chain.",
+        "The consecutive pair determines its prime by the ratio of its positive terms. Combined with the unique p-free base and exponent, this identifies the prime-edge data with consecutive comparisons on the maximal chains."
+      ],
+      "acceptance": [
+        "At m=4, the 2-edges at d=1,2 give exponents 0,1 on the same chain.",
+        "At m=6, the four prime edges lie respectively in the four two-element chains."
+      ],
+      "prerequisites": [
+        "HabiroRings:HR.3/finite-descent-index",
+        "mathlib:Nat.exists_eq_pow_mul_and_not_dvd",
+        "mathlib:Nat.factorization_mul",
+        "mathlib:Nat.Prime.factorization_pow",
+        "mathlib:Nat.factorization_eq_zero_of_not_dvd",
+        "mathlib:Nat.factorization_le_iff_dvd"
+      ],
+      "sources": [
+        {
+          "sourceId": "Wagner.qHodgeHabiro.2025",
+          "locator": "Corollary 2.4 and its proof, pp. 14–15, comparisons h_(p,d) and the prime-power index",
+          "match": "Arithmetic justification of the source passage from maximal-chain sections to consecutive prime-edge comparisons, using the pinned factorization API; not a separately named theorem in the paper."
+        }
+      ],
+      "addedBy": "REV-HabiroRings--HR.3"
+    },
+    {
+      "id": "HabiroRings:HR.3/coherent-completion-diagram",
+      "parentStageId": "HabiroRings:HR.3",
+      "realises": [
+        "HabiroRings:HR.3"
+      ],
+      "title": "The coherent diagram of cyclotomic completion categories",
+      "kind": "construction",
+      "statement": "For a commutative ring A and m > 0, let B=A[q], I_S=(Φ_d(q):d∈S) and D_S=D̂_{I_S}(B), with tensor (M⊗_B^L N)^∧_{I_S} and unit B^∧_{I_S}. Construct the coherent functor F_{A,m}: N(Q(m)) → CAlg(Pr^L_st) whose value is D_S and whose arrow S⊆U is L_{I_U}|D_S. Its restriction to P(m) is the cyclotomic diagram. For singleton {d} it is D̂_{Φ_d}(B); for C(m,d,p) it is D̂_{(p,Φ_d)}(B). The category of compatible commutative algebras is lim_{S∈P(m)} CAlg(D_S), with algebra objects and all transformations formed in the supplied enhanced model.",
+      "hypotheses": [
+        "A is any commutative ring; neither torsion-freeness nor a Λ-structure is used.",
+        "Every I_S is finitely generated; completion is the Koszul-model reflective localization of DD.1.",
+        "The diagram records adjunction units and composition coherence, not just equality on equivalence classes."
+      ],
+      "proofSteps": [
+        "Use DD.1 to give each D_S an accessible reflective localization, exactness, invariance under radical and the equivalence L_I(M⊗N)≃L_I(L_I(M)⊗N).",
+        "For S⊆U, inclusions of complete subcategories are right adjoints; apply requested poset straightening and the Pr^R/Pr^L adjoint reversal to obtain the covariant completion diagram.",
+        "Apply requested compatible monoidal localization (HA 2.2.1.9) and its coherent restriction to the nested subcategories; this makes the transition functors symmetric monoidal for the completed tensors.",
+        "Use the parent ideal-intersection calculation to identify chain values; algebra sections are supplied by the requested operadic-limit statement."
+      ],
+      "acceptance": [
+        "The tensor unit is the completed B, not B unless B already is I_S-complete.",
+        "For S⊆U⊆V, transition composition is coherently equivalent to L_{I_V}|D_S; units induce the comparison."
+      ],
+      "prerequisites": [
+        "HabiroRings:HR.3/finite-descent-index",
+        "mathlib:Polynomial.cyclotomic",
+        "HabiroRings:HR.3/the-divisor-poset-and-its-intersections",
+        "DerivedDeRhamCohomology:DD.1",
+        "EnhancedDerivedSheaves:E0",
+        "EnhancedDerivedSheaves:E3",
+        "EnhancedDerivedSheaves:E5:abstract",
+        "EnhancedDerivedSheaves:E5:presentability"
+      ],
+      "sources": [
+        {
+          "sourceId": "Wagner.qHodgeHabiro.2025",
+          "locator": "Setup 2.1, p. 13, and Remark 2.3, p. 14",
+          "match": "The poset of closed sets is ordered oppositely to Q(m); completion gives a covariant functor on Q(m)."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/RingTheory/Habiro/CyclotomicDescent/Diagram",
+        "namespace": "TauCeti.Habiro.CyclotomicCompletionDiagram"
+      },
+      "uses": [
+        {
+          "where": "HR.3 and HR.4; Wagner proof of Corollary 2.4",
+          "how": "Carries the actual localization functors and all natural coherence needed by the finite descent theorem."
+        }
+      ],
+      "api": [
+        {
+          "name": "CyclotomicCompletionDiagram.obj",
+          "role": "data",
+          "statement": "F(S)=D̂_{I_S}(A[q]) with its completed monoidal structure."
+        },
+        {
+          "name": "CyclotomicCompletionDiagram.map",
+          "role": "functoriality",
+          "statement": "For S⊆U, F(S)→F(U) is derived I_U-completion restricted to D_S."
+        },
+        {
+          "name": "CyclotomicCompletionDiagram.map_id",
+          "role": "simp",
+          "statement": "The transition S⊆S is canonically equivalent to identity, using the localization counit."
+        },
+        {
+          "name": "CyclotomicCompletionDiagram.map_comp",
+          "role": "functoriality",
+          "statement": "For S⊆U⊆V the transition is coherently the composite, with unit, associativity and higher coherence supplied by the straightened fibration."
+        },
+        {
+          "name": "CyclotomicCompletionDiagram.unit",
+          "role": "data",
+          "statement": "The unit of D_S is (A[q])^∧_{I_S}."
+        },
+        {
+          "name": "CyclotomicCompletionDiagram.chain",
+          "role": "compatibility",
+          "statement": "At C(m,d,p) the category is D̂_{(p,Φ_d)}(A[q]); the map from {p^i d} is p-completion on Φ_{p^i d}-complete objects."
+        },
+        {
+          "name": "CyclotomicCompletionDiagram.algebraSections",
+          "role": "projection",
+          "statement": "Apply CAlg and take the coherent limit to obtain the infinity-category of compatible local algebras, including its mapping spaces."
+        }
+      ],
+      "tests": [
+        {
+          "name": "CyclotomicCompletionDiagram.test_one",
+          "kind": "degenerate",
+          "statement": "At m=1 the diagram is the single category D̂_{q−1}(A[q])."
+        },
+        {
+          "name": "CyclotomicCompletionDiagram.test_four",
+          "kind": "compatibility",
+          "statement": "At m=4 all subsets of size at least two in Q(4) give D̂_{(2,q−1)}; in P(4) this is the single chain vertex."
+        },
+        {
+          "name": "CyclotomicCompletionDiagram.test_six_empty",
+          "kind": "non-example",
+          "statement": "At m=6 the full-cube value at {1,6} is the zero stable category; its CAlg category is terminal, whereas {1,2} has the (2,q−1)-complete value."
+        }
+      ]
+    },
+    {
+      "id": "HabiroRings:HR.3/finite-localisation-contract",
+      "parentStageId": "HabiroRings:HR.3",
+      "realises": [
+        "HabiroRings:HR.3"
+      ],
+      "title": "Verification of the finite cyclotomic localization contract",
+      "kind": "lemma",
+      "statement": "For A commutative, m>0, B=A[q] and f=q^m−1, the comparison D̂_f(B) → lim_{S∈Q(m)} D_S satisfies the hypotheses of the parent finite-localization descent principle. More precisely: (i) the Φ_d-completions are jointly conservative on D̂_f(B); (ii) for M∈D̂_f(B), the augmentation M→lim_{S∈Q(m)} L_{I_S}M is an equivalence; (iii) for a coherent local section (M_S), put M=lim_Q M_S in D̂_f(B); each canonical comparison L_{I_S}M→M_S is an equivalence. These comparisons are natural on the enhanced diagram category, not just on individual objects.",
+      "hypotheses": [
+        "Limits are enhanced finite homotopy limits; derived quotients mean cofibre quotients.",
+        "The algebra version uses the monoidal diagram and operadic-section limit request; the stable finite-limit argument is applied to underlying modules."
+      ],
+      "proofSteps": [
+        "The DD.1 completion-unit comparison on derived Koszul reductions gives N/Φ_d ≃ (L_{Φ_d}N)/Φ_d, so vanishing of all L_{Φ_d}N forces all N/Φ_d to vanish. Thus every multiplication-by-Φ_d map is an equivalence; their product f=∏ Φ_d is an equivalence, hence N/f=0. Derived Nakayama for the f-complete N then gives N=0. Apply this argument to fibres to detect equivalences. Nakayama alone on L_{Φ_d}N is not the reduction comparison.",
+        "For a fixed divisor a, DD.1 identifies L_{Φ_a}L_{I_S} with L_{I_{S∪{a}}}. The latter cube has equivalences along the a-direction, so the requested punctured-cube contraction identifies its limit with L_{Φ_a}M. Exactness lets L_{Φ_a} pass through the finite limit.",
+        "This proves (ii) after every jointly conservative completion. For (iii), all M_S are f-complete and this subcategory is closed under limits; apply the same finite cube argument to the section’s underlying coherent diagram and use its transition equivalences.",
+        "Apply the parent descent principle for the full category equivalence; the parent two right-Kan-extension reductions replace Q by P. For a discarded subset its slice is empty; for a surviving nonsingleton its slice in P is the unique maximal chain; for S already in P its slice has initial object S. These give the required pointwise limits."
+      ],
+      "acceptance": [
+        "The finite exactness exchange is used before invoking joint conservativity; no infinite-limit preservation by a left adjoint is assumed.",
+        "The test m=4 keeps the overlap {1,4} until the right-Kan reduction identifies it with the same chain value as {1,2}."
+      ],
+      "prerequisites": [
+        "HabiroRings:HR.3/coherent-completion-diagram",
+        "mathlib:Polynomial.prod_cyclotomic_eq_X_pow_sub_one",
+        "HabiroRings:HR.3/the-general-descent-principle",
+        "HabiroRings:HR.3/the-divisor-poset-and-its-intersections",
+        "DerivedDeRhamCohomology:DD.1",
+        "EnhancedDerivedSheaves:E0",
+        "EnhancedDerivedSheaves:E3"
+      ],
+      "sources": [
+        {
+          "sourceId": "Wagner.qHodgeHabiro.2025",
+          "locator": "Proof sketch of Lemma 2.2, p. 14; proof of Corollary 2.4, pp. 14–15",
+          "match": "Uses the finite cubical argument after exact localization; the parent node supplies the general theorem."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "HabiroRings:HR.3/reconstruction-functor",
+      "parentStageId": "HabiroRings:HR.3",
+      "realises": [
+        "HabiroRings:HR.3"
+      ],
+      "title": "The finite cyclotomic reconstruction functor",
+      "kind": "construction",
+      "statement": "For A commutative and m>0 construct R_{A,m}: lim_{S∈P(m)} CAlg(D_S) → CAlg(D̂_{q^m−1}(A[q])). Extend a local section to Q(m) using the parent right-Kan-extension equivalences; regard its components as E∞-A[q]-algebras via the lax monoidal inclusions into D(A[q]); then take their finite homotopy limit. On morphisms take the coherent limit of the local algebra morphisms. The completion functor C_{A,m}(E)=(E^∧_{I_S})_S and R_{A,m} are inverse equivalences, with natural unit and counit. Every solution space with specified local identifications and prime-edge comparisons is contractible.",
+      "hypotheses": [
+        "A local input is an object of the coherent limit, not an unglued tuple of algebras.",
+        "The inclusion of a completed module category is a right adjoint with its canonical lax monoidal structure; its induced inclusion on algebras is used in forming the ambient limit.",
+        "No replacement of finite homotopy limits by underived equalizers is made, and the result need not be static."
+      ],
+      "proofSteps": [
+        "Use the parent morphism-level statement and requested right-Kan-extension formula to extend from P to Q; empty intersections contribute the unique zero-algebra component, and nontrivial chain intersections use their chain component.",
+        "Use the requested algebra-limit theorem to form the finite ambient E∞ algebra limit; its underlying module is the module limit. All components are f-complete, so their limit is f-complete by DD.1.",
+        "The finite-localization contract identifies every completed reconstructed component with the input component. It also identifies E with R(C(E)). Units, counits and their triangle homotopies come from coherent cone universality.",
+        "Take limits of morphisms, giving the inverse on the full infinity-category. The parent Corollary 2.4 identifies a prime-edge family with a section and yields its contractible solution space."
+      ],
+      "acceptance": [
+        "m=1: reconstruction is naturally equivalent to evaluation at {1}.",
+        "m=p prime: reconstruction is the homotopy pullback E_1 ×_{(E_1)^∧_p} E_p, with E_p→(E_p)^∧_p→(E_1)^∧_p determined by the supplied equivalence.",
+        "m=4: the comparison between E_4 and E_1 after 2-completion is the composite of the two successive comparisons."
+      ],
+      "prerequisites": [
+        "HabiroRings:HR.3/coherent-completion-diagram",
+        "HabiroRings:HR.3/finite-localisation-contract",
+        "HabiroRings:HR.3/the-morphism-level-statement",
+        "HabiroRings:HR.3/the-complete-descent-corollary",
+        "EnhancedDerivedSheaves:E0",
+        "EnhancedDerivedSheaves:E3",
+        "EnhancedDerivedSheaves:E5:abstract",
+        "DerivedDeRhamCohomology:DD.1"
+      ],
+      "sources": [
+        {
+          "sourceId": "Wagner.qHodgeHabiro.2025",
+          "locator": "Proof sketch of Lemma 2.2, p. 14, essential-surjectivity step; proof of Corollary 2.4, p. 15",
+          "match": "Makes the inverse in the proof explicit as a coherent finite limit, with the Q-to-P reduction and the contractible-choice conclusion."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/RingTheory/Habiro/CyclotomicDescent/Reconstruction",
+        "namespace": "TauCeti.Habiro.CyclotomicReconstruction"
+      },
+      "uses": [
+        {
+          "where": "HR.4 finite relative Habiro rings, Wagner 2.7–2.9",
+          "how": "Instantiate with Frobenius-twisted étale local algebras and their actual p-completed Frobenius equivalences."
+        },
+        {
+          "where": "HR.4 transitions and Wagner Remark 2.10",
+          "how": "Reconstruct coherent local maps, and derive identity/composition of transition maps from functoriality."
+        }
+      ],
+      "api": [
+        {
+          "name": "CyclotomicReconstruction.ofSection",
+          "role": "constructor",
+          "statement": "A coherent P(m)-section maps to its Q(m)-extended finite limit algebra, which is (q^m−1)-complete."
+        },
+        {
+          "name": "CyclotomicReconstruction.complete",
+          "role": "projection",
+          "statement": "Completion of the reconstruction at Φ_d is naturally equivalent to the singleton component E_d, respecting every prime edge."
+        },
+        {
+          "name": "CyclotomicReconstruction.map",
+          "role": "functoriality",
+          "statement": "A coherent map of local sections induces a map of reconstructed algebras."
+        },
+        {
+          "name": "CyclotomicReconstruction.map_id",
+          "role": "simp",
+          "statement": "Reconstruction carries the identity section map to the identity map."
+        },
+        {
+          "name": "CyclotomicReconstruction.map_comp",
+          "role": "functoriality",
+          "statement": "Reconstruction carries composition to composition, with coherent functor laws."
+        },
+        {
+          "name": "CyclotomicReconstruction.unit",
+          "role": "equivalence",
+          "statement": "E→R(C(E)) is the natural equivalence defined by completion units and the limiting cone."
+        },
+        {
+          "name": "CyclotomicReconstruction.counit",
+          "role": "equivalence",
+          "statement": "C(R(s))→s is the natural equivalence on local sections; together with the unit it satisfies the triangle homotopies."
+        },
+        {
+          "name": "CyclotomicReconstruction.solutionSpace",
+          "role": "universal-property",
+          "statement": "For each fixed prime-edge input s, the space of pairs (E,C(E)≃s) is contractible."
+        }
+      ],
+      "tests": [
+        {
+          "name": "CyclotomicReconstruction.test_one",
+          "kind": "degenerate",
+          "statement": "At m=1, R(E_1)≃E_1 with the indicated completion counit."
+        },
+        {
+          "name": "CyclotomicReconstruction.test_prime",
+          "kind": "characterisation",
+          "statement": "At m=p, prime, R is the specified homotopy pullback over the common p-completion, naturally on objects and morphisms."
+        },
+        {
+          "name": "CyclotomicReconstruction.test_unit",
+          "kind": "compatibility",
+          "statement": "For E_d=(A[q])^∧_{Φ_d} with canonical common-completion identifications, R(E_d)≃(A[q])^∧_{q^m−1}, as complete E∞-A[q]-algebras."
+        },
+        {
+          "name": "CyclotomicReconstruction.test_four",
+          "kind": "computation",
+          "statement": "At m=4 the comparison on the surviving {1,4} overlap is h_(2,1) composed with h_(2,2); it is not an independently supplied third comparison."
+        }
+      ],
+      "planet": {
+        "name": "Cyclotomic reconstruction"
+      }
+    },
+    {
+      "id": "HabiroRings:HR.3/prime-edge-mapping-spaces",
+      "parentStageId": "HabiroRings:HR.3",
+      "realises": [
+        "HabiroRings:HR.3"
+      ],
+      "title": "Mapping spaces of finite cyclotomic prime-edge data",
+      "kind": "theorem",
+      "statement": "Let A be commutative, m>0, and E,F be (q^m−1)-complete E∞-A[q]-algebras with singleton components E_d,F_d and comparison equivalences h^E_{p,d}:E_{pd}^∧_p→E_d^∧_p and h^F_{p,d}:F_{pd}^∧_p→F_d^∧_p. Put V=∏_{d|m} Map(E_d,F_d) and W=∏_{p prime, pd|m} Map(E_{pd}^∧_p,F_d^∧_p), all mapping spaces over A[q]. Define u(f)_(p,d)=f_d^∧_p∘h^E_{p,d} and v(f)_(p,d)=h^F_{p,d}∘f_{pd}^∧_p. Then Map(E,F) is naturally equivalent to the homotopy equalizer V ×_{W×W} W^{Δ¹}, where V→W×W is (u,v) and W^{Δ¹}→W×W is endpoint evaluation. This is an equivalence of spaces, so it also describes higher homotopies between maps. A glued map is an equivalence precisely when all its singleton components are equivalences.",
+      "hypotheses": [
+        "E,F are specified through coherent completion identifications; comparisons are actual E∞-A[q]-algebra equivalences.",
+        "The paths in W are part of the morphism datum. Replacing them by equality on π_0, or asking only that the local maps commute up to an unspecified homotopy, loses information.",
+        "There is no additional relation around the m=6 graph cycle, since the indexing nerve has no nondegenerate 2-simplices; the morphism space nevertheless contains its edge homotopies."
+      ],
+      "proofSteps": [
+        "Use the parent morphism-level equivalence to compute Map(E,F) in the limit of CAlg(D_S). Requested coherent-section limits and mapping-space universality compute this as the space of local maps and paths making each incidence square commute.",
+        "For each chain C(m,d0,p), choose its common component at d0. The space of eliminating this component and its incidence maps is contractible; successive comparison equivalences identify the remaining conditions with the prime edges on that chain. The prime-edge-factorisation lemma gives the unique consecutive-chain identification.",
+        "By the finite-index-height-one lemma, there are no nonidentity composites imposing extra triangle constraints. The resulting map space is exactly the displayed homotopy equalizer, including all simplices, not just points.",
+        "Joint conservativity from the finite-localization contract detects equivalences on singleton components."
+      ],
+      "acceptance": [
+        "m=1 has W terminal and gives Map(E_1,F_1).",
+        "m=p prime yields one path comparing the two completed local maps.",
+        "m=6 has four local mapping spaces and four independent edge paths; requiring a fifth condition around its incidence cycle would contradict the section description."
+      ],
+      "prerequisites": [
+        "HabiroRings:HR.3/finite-descent-index",
+        "HabiroRings:HR.3/finite-index-height-one",
+        "HabiroRings:HR.3/prime-edge-factorisation",
+        "HabiroRings:HR.3/reconstruction-functor",
+        "HabiroRings:HR.3/the-morphism-level-statement",
+        "EnhancedDerivedSheaves:E0",
+        "EnhancedDerivedSheaves:E5:abstract"
+      ],
+      "sources": [
+        {
+          "sourceId": "Wagner.qHodgeHabiro.2025",
+          "locator": "Proof of Corollary 2.4, p. 15, final limit and unravelling; Lemma 2.2, p. 14",
+          "match": "The source identifies objects of this categorical limit with prime-edge input; the mapping-space statement follows by applying the same coherent-section description to transformations."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Cyclotomic descent mapping spaces"
+      }
+    }
+  ],
+  "requests": [
+    {
+      "supplier": "EnhancedDerivedSheaves:E0",
+      "need": "For the nerves of the finite posets Q(m), its surviving subposet, P(m), their slice categories and products with Δ¹, supply coCartesian straightening/unstraightening with fibrewise evaluation and naturality, and the coherent-section model for limits in Cat_∞ (HTT 3.2.0.1, dualized, and 3.3.3.2). Supply the mapping-space universal property on sections, including Map_{lim C_S}(x,y)≃lim_S Map_{C_S}(x_S,y_S) for coCartesian sections. For a height-one finite poset, identify this limit of spaces with the homotopy equalizer of the product of vertex mapping spaces and the product of target mapping spaces over incidences, retaining one specified path per incidence and all higher simplices. Verify that elimination of the common chain component turns a chain of length r+1 into r successive prime-edge paths. Supply the finite stable cubical contraction: if an augmented r-cube has equivalences along one coordinate, it is Cartesian, so its initial value is the limit over nonempty subsets; prove by fibres, using the dual of HA 1.2.4.15. This needs only finite diagrams for HR.3; do not assume an unrestricted arbitrary-site straightening theorem.",
+      "neededBy": [
+        "HabiroRings:HR.3/coherent-completion-diagram",
+        "HabiroRings:HR.3/finite-localisation-contract",
+        "HabiroRings:HR.3/reconstruction-functor",
+        "HabiroRings:HR.3/prime-edge-mapping-spaces"
+      ],
+      "sources": [
+        {
+          "sourceId": "Lurie.HTT.2017",
+          "locator": "Theorem 3.2.0.1; Corollary 3.3.3.2"
+        },
+        {
+          "sourceId": "Lurie.HA.2017",
+          "locator": "Lemma 1.2.4.15 with proof"
+        }
+      ]
+    },
+    {
+      "supplier": "EnhancedDerivedSheaves:E3",
+      "need": "For the accessible reflective completion subcategories, supply coherent adjunction units, counits, mates and their identity/composition/pasting laws. Supply the dual of the pointwise full-inclusion Kan-extension theorem (HTT 4.3.2 as planned in EnhancedDerivedSheaves:E3/left-kan-extension-along-a-full-inclusion): right Kan extensions are computed by limits over (S↓j). For the inclusions P(m) ↪ surviving subsets ↪ Q(m), handle empty slices (terminal value), the initial object S when S already belongs to the included subposet, and the singleton slice at the unique maximal chain for a surviving nonsingleton S not in P. Supply invariance of the total limit under such a right Kan extension, with the induced equivalences on sections and transformations.",
+      "neededBy": [
+        "HabiroRings:HR.3/coherent-completion-diagram",
+        "HabiroRings:HR.3/finite-localisation-contract",
+        "HabiroRings:HR.3/reconstruction-functor"
+      ],
+      "sources": [
+        {
+          "sourceId": "Wagner.qHodgeHabiro.2025",
+          "locator": "Proof of Corollary 2.4, p. 15"
+        }
+      ]
+    },
+    {
+      "supplier": "EnhancedDerivedSheaves:E5:abstract",
+      "need": "For an accessible localization L of a presentable stable symmetric monoidal category whose tensor preserves colimits separately, if L(x⊗y)→L(L(x)⊗y) is an equivalence, construct the monoidal localization on the full sub-operad, with unit L(1) and tensor L(x⊗y); give its unit map and coherent functorial restriction to nested local subcategories (HA 2.2.1.9). The right-adjoint inclusions are canonically lax monoidal. For finite diagrams of these completed monoidal categories with strong monoidal transition functors, supply CAlg(lim C_S)≃lim CAlg(C_S) with mapping-space compatibility, by operadic sections (HA 2.1.3.1). Also supply finite limits of E∞ algebras in a fixed monoidal category, created by the underlying-object functor (HA 3.2.2.1 and 3.2.2.3, specialized by 3.2.2.4, with their operadic hypotheses). These are distinct limit statements; the fixed-category result alone does not prove the varying-category result.",
+      "neededBy": [
+        "HabiroRings:HR.3/coherent-completion-diagram",
+        "HabiroRings:HR.3/reconstruction-functor",
+        "HabiroRings:HR.3/prime-edge-mapping-spaces"
+      ],
+      "sources": [
+        {
+          "sourceId": "Lurie.HA.2017",
+          "locator": "Definition 2.1.3.1; Proposition 2.2.1.9; Proposition 3.2.2.1 and Corollary 3.2.2.3; Corollary 3.2.2.4"
+        }
+      ]
+    },
+    {
+      "supplier": "EnhancedDerivedSheaves:E5:presentability",
+      "need": "For the size range of D(A[q]) and its accessible complete subcategories, construct Pr^L_st and Pr^R_st and their adjoint-reversal equivalence, natural on diagrams (HTT 5.5.3.4). Prove that limits of finite diagrams of presentable stable categories and colimit-preserving exact functors are their Cat_∞ limits, with colimits componentwise (HTT 5.5.3.5, 5.5.3.12–13); stability follows pointwise. This concerns limits of categories, not a claim that each localization functor preserves arbitrary limits of objects.",
+      "neededBy": [
+        "HabiroRings:HR.3/coherent-completion-diagram"
+      ],
+      "sources": [
+        {
+          "sourceId": "Lurie.HTT.2017",
+          "locator": "Corollary 5.5.3.4; Propositions 5.5.3.5, 5.5.3.12–13"
+        }
+      ]
+    },
+    {
+      "supplier": "DerivedDeRhamCohomology:DD.1",
+      "need": "For B=A[q] and finitely generated I_S=(Φ_d:d∈S), supply accessible exact Koszul-model derived completion, the reflective adjunction, radical and generator independence, L_I L_J≃L_(I+J) coherently, tensor compatibility L_I(M⊗^L N)≃L_I(L_I M⊗^L N), completeness closed under limits and derived Nakayama. Explicitly, for I=(g₁,…,gᵣ) the completion unit induces N/(g₁,…,gᵣ)≃(L_I N)/(g₁,…,gᵣ), with derived cofibre quotients; this reduction invariance is the input that turns L_{Φ_d}N=0 into N/Φ_d=0. For a unit ideal the complete category is zero. Supply the underlying-module comparison for E∞-B-algebra completion in the completed tensor category. These are the finite-ideal specializations of the generic DD.1 completion package; no unconditional ordinary quotient-tower formula or staticity is needed.",
+      "neededBy": [
+        "HabiroRings:HR.3/coherent-completion-diagram",
+        "HabiroRings:HR.3/finite-localisation-contract",
+        "HabiroRings:HR.3/reconstruction-functor"
+      ],
+      "sources": [
+        {
+          "sourceId": "Wagner.qHodgeHabiro.2025",
+          "locator": "1.22(c)–(d), pp. 11–12; Remark 2.3, p. 14"
+        }
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "HabiroRings:HR.3",
+      "status": "planned",
+      "remaining": [
+        "Discharge the exact categorical and derived-completion requests by supplier nodes in E0/E3/E5 and DD.1, including the proposed ownership refinements.",
+        "State the derived diagram, reconstruction and mapping-space signatures against those supplied enhanced carriers; no placeholder carriers are permitted."
+      ],
+      "note": "All four stage targets are represented: finite index and intersections by the new index and the imported intersection node; actual coefficient-category contract by the new coherent diagram and finite-localization verification; right-Kan reduction and comparison equivalence by the imported morphism-level node; Corollary 2.4 and fracture pieces by the imported corollary/fracture nodes; explicit inverse and map-level universal property by reconstruction and prime-edge mapping spaces. The pass is complete at target level, with open supplier requests and recorded gaps, so this stage is planned, not closed. The parent packet’s five nodes are retained by reference and are not edited or copied. The two promoted finite-index lemmas now explicitly supply the mapping-space theorem’s combinatorial prerequisites."
+    }
+  ],
+  "gaps": [
+    {
+      "title": "Unwritten supplier refinements for the four categorical inputs",
+      "neededBy": [
+        "HabiroRings:HR.3/coherent-completion-diagram",
+        "HabiroRings:HR.3/finite-localisation-contract",
+        "HabiroRings:HR.3/reconstruction-functor",
+        "HabiroRings:HR.3/prime-edge-mapping-spaces"
+      ],
+      "detail": "The parent gap is now decomposed into the exact E0 finite-poset/section/cube, E5:abstract monoidal-localization/operadic-limit, and E5:presentability adjoint-reversal/categorical-limit requests above, together with the supporting E3 and DD.1 contracts. Existing E0/E5 packet nodes define straightening, algebra objects and presentable categories but do not state all these results. Requests are plans, not evidence that those statements have been proved or that the parent arbitrary-poset-site theorem is closed. The rescope proposal gives these generic statements one foundational owner. Acceptance of that scope and supplier nodes meeting these requests remain to be checked."
+    },
+    {
+      "title": "Derived and operadic Lean signatures require the supplied enhanced carriers",
+      "neededBy": [
+        "HabiroRings:HR.3/coherent-completion-diagram",
+        "HabiroRings:HR.3/finite-localisation-contract",
+        "HabiroRings:HR.3/reconstruction-functor",
+        "HabiroRings:HR.3/prime-edge-mapping-spaces"
+      ],
+      "detail": "The pinned libraries have the quasicategory predicate and the ordinary nerve, but no API for Pr^L_st, E∞-algebra sections, their mapping spaces, or derived monoidal localization. The suggested file gives actual signatures, API and examples for the finite index. It records every other proposed declaration and test by name in mathematical comments with its exact missing carrier and supplier. No opaque carrier, arbitrary proposition field or vacuous theorem substitutes for them. Instantiate these comments as signatures after E0/E3/E5 and DD.1 expose the requested carriers; the Lean compilation checks only the finite index signatures."
+    }
+  ],
+  "sourceIssues": [],
+  "imports": [
+    {
+      "packet": "research/blueprint/packets/HabiroRings.json",
+      "nodes": [
+        "HabiroRings:HR.3/the-divisor-poset-and-its-intersections",
+        "HabiroRings:HR.3/the-complete-descent-corollary",
+        "HabiroRings:HR.3/the-morphism-level-statement",
+        "HabiroRings:HR.3/the-general-descent-principle",
+        "HabiroRings:HR.3/the-fracture-square-pieces"
+      ],
+      "provides": "The general descent principle, cyclotomic ideal intersections, completed-category equivalence, Corollary 2.4 and the fracture pieces. These nodes are imported by id, never redefined."
+    }
+  ],
+  "restructure": [
+    {
+      "action": "rescope",
+      "roadmaps": [
+        "EnhancedDerivedSheaves",
+        "HabiroRings"
+      ],
+      "detail": "The parent HR.3 review records four generic categorical inputs with no exact owning target. E0/E3/E5 are the foundational suppliers already used by the general descent principle, but their existing packets do not explicitly supply all these statements.",
+      "proposal": "Make EnhancedDerivedSheaves:E0 own finite-poset straightening, section limits and stable cubical contraction for the refinement diagrams Q(m), P(m) and their slices; E3 owns coherent adjoints and dual full-inclusion Kan extensions; E5:abstract owns compatible monoidal localization and both fixed- and varying-category algebra limit theorems; E5:presentability owns Pr^L/Pr^R reversal and finite categorical limits. HabiroRings:HR.3 keeps the arithmetic completion diagram and its descent/reconstruction specializations. Do not move Wagner’s general descent principle into E5 or construct a second copy of these categorical foundations in HR.3. An arbitrary-site extension of the parent principle still requires straightening in that site’s size range and accessible presentability hypotheses; this finite job does not claim that extension."
+    }
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-HabiroRings--HR.3",
+    "date": "2026-10-06",
+    "notes": "Independent review by Codex session codex-wEmpzl (issue #6451), distinct from author codex-1W5Jdw. All seven node statements, excerpts and source locators checked against the hashed public versions; all original six and five added baseline declarations read at the pinned Mathlib commit. Corrected direct prime-factorization prerequisites, added an inherited-order API and a discriminating singleton-order test, and made Koszul reduction invariance, section mapping spaces and the fixed-category algebra-limit specialization explicit in supplier contracts. Promoted the height-one and prime-edge factorization API results to two lemma nodes, as required for the mapping-space prerequisites. No source issue was added. Accepts a completed target-level pass with HR.3 planned, five open requests and two honest gaps; this does not close those gaps or certify formalization. The enhanced declarations remain named mathematical omissions in the suggested file, as they lack real supplied carriers. Full report: research/blueprint/reviews/REV-HabiroRings--HR.3.md.",
+    "checked": [
+      {
+        "nodeId": "HabiroRings:HR.3/finite-descent-index",
+        "verdict": "corrected",
+        "note": "Verified source P, singleton representation, maximal-chain incomparability and the prime-edge factorization. Added five existing baseline facts supporting the chain/exponent proof; explicit inherited-order API and P(2) singleton incomparability test catch a wrong divisibility order. Promoted the two cross-node API dependencies to separate lemma nodes."
+      },
+      {
+        "nodeId": "HabiroRings:HR.3/finite-index-height-one",
+        "verdict": "added",
+        "note": "Review-added lemma, promoted from the API. Incomparability of distinct maximal chains and singletons implies no two composable strict arrows; the incidence cycle at m=6 does not add a 2-simplex."
+      },
+      {
+        "nodeId": "HabiroRings:HR.3/prime-edge-factorisation",
+        "verdict": "added",
+        "note": "Review-added lemma, promoted from the API. The p-free decomposition, multiplicity and divisibility lemmas establish uniqueness and the strict exponent bound; existing suggested theorem signature retained."
+      },
+      {
+        "nodeId": "HabiroRings:HR.3/coherent-completion-diagram",
+        "verdict": "verified",
+        "note": "Verified inclusion/adjoint directions, completed tensor and completed unit, chain radical identification, coherence and arbitrary commutative coefficient generality. Precise accessible monoidal localization, categorical limits and completion inputs remain five supplier requests, not claimed implementations."
+      },
+      {
+        "nodeId": "HabiroRings:HR.3/finite-localisation-contract",
+        "verdict": "corrected",
+        "note": "Made completion-unit invariance of Koszul reduction explicit in DD.1 and the proof. Verified the f-product conservativity argument, finite exact localization/cube contraction, section reconstruction and the pointwise right-Kan slices S↓j. No infinite-limit preservation or underived-quotient claim is used."
+      },
+      {
+        "nodeId": "HabiroRings:HR.3/reconstruction-functor",
+        "verdict": "verified",
+        "note": "Verified ambient algebra limit through lax monoidal inclusions, the completion comparisons and unit/counit, plus contractibility of the marked solution fibre. HA 3.2.2.4 specializes the fixed-category limit contract; this is distinct from CAlg of a varying-category limit."
+      },
+      {
+        "nodeId": "HabiroRings:HR.3/prime-edge-mapping-spaces",
+        "verdict": "verified",
+        "note": "Verified the types and directions of both maps V→W, the path-space homotopy equalizer, elimination of chain components and equivalence detection. Strengthened E0 request with the exact section and height-one incidence mapping-space formulas. The m=6 cycle requires edge paths but no additional object-level cocycle equation."
+      }
+    ]
+  }
+}
