@@ -6,8 +6,8 @@
     "DiamondEtaleCohomology:C8",
     "DiamondEtaleCohomology:C9"
   ],
-  "status": "partial",
-  "summary": "Declaration-level plan for the dimension and compactness arguments of ECD §§20–21, with the analytic dimension source routed from Caraiani–Scholze. The canonical library dimension and continuous-cohomology carrier are reused. Unread external proof inputs and missing supplier interfaces remain explicit; this is not a closed blueprint.",
+  "status": "complete",
+  "summary": "Target-level planning pass for dimensions and compact generation: dense and modified field degrees, analytic and diamond dimensions, exact quasi-pro-étale direct image, point cohomology, spatial and geometric bounds, partially proper analytic dimension, and uniformly bounded compact-object theorems. All stage targets have explicit chains to baseline declarations, owning suppliers or recorded gaps. Neither stage is mathematically closed; no implementation is claimed.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -17,77 +17,98 @@
         "kind": "def",
         "module": "Mathlib/Topology/KrullDimension.lean",
         "provides": "WithBot ENat dimension of the ordered set of irreducible closed subsets, including the empty-space value.",
-        "checked": "Statement read in the pinned source tree; no compilation claim."
+        "checked": "Statement read in the source tree at the recorded pinned commit on 2026-10-06; existence is separate from any planning signature."
       },
       {
         "ref": "mathlib:irreducibleSetEquivPoints",
         "kind": "def",
         "module": "Mathlib/Topology/Sober.lean",
         "provides": "Order isomorphism from irreducible closed subsets to points with the specialization order, for quasi-sober T0 spaces.",
-        "checked": "Statement read in the pinned source tree; no compilation claim."
+        "checked": "Statement read in the source tree at the recorded pinned commit on 2026-10-06; existence is separate from any planning signature."
       },
       {
         "ref": "mathlib:Order.krullDim_eq_of_orderIso",
         "kind": "theorem",
         "module": "Mathlib/Order/KrullDimension.lean",
         "provides": "Krull dimension is preserved by an order isomorphism.",
-        "checked": "Statement read in the pinned source tree; no compilation claim."
+        "checked": "Statement read in the source tree at the recorded pinned commit on 2026-10-06; existence is separate from any planning signature."
       },
       {
         "ref": "mathlib:IsHomeomorph.topologicalKrullDim_eq",
         "kind": "theorem",
         "module": "Mathlib/Topology/KrullDimension.lean",
         "provides": "Invariance of topological Krull dimension under a homeomorphism.",
-        "checked": "Statement read in the pinned source tree; no compilation claim."
+        "checked": "Statement read in the source tree at the recorded pinned commit on 2026-10-06; existence is separate from any planning signature."
       },
       {
         "ref": "mathlib:topologicalKrullDim_subspace_le",
         "kind": "theorem",
         "module": "Mathlib/Topology/KrullDimension.lean",
         "provides": "The dimension of any subspace is bounded by the ambient dimension.",
-        "checked": "Statement read in the pinned source tree; no compilation claim."
+        "checked": "Statement read in the source tree at the recorded pinned commit on 2026-10-06; existence is separate from any planning signature."
       },
       {
         "ref": "mathlib:topologicalKrullDim_zero_of_discreteTopology",
         "kind": "theorem",
         "module": "Mathlib/Topology/KrullDimension.lean",
         "provides": "A discrete space has dimension at most zero; equality requires nonemptiness.",
-        "checked": "Statement read in the pinned source tree; no compilation claim."
+        "checked": "Statement read in the source tree at the recorded pinned commit on 2026-10-06; existence is separate from any planning signature."
       },
       {
         "ref": "mathlib:Algebra.trdeg",
         "kind": "def",
         "module": "Mathlib/RingTheory/AlgebraicIndependent/Basic.lean",
         "provides": "Cardinal-valued algebraic transcendence degree; it is not the topological invariant.",
-        "checked": "Statement read in the pinned source tree; no compilation claim."
+        "checked": "Statement read in the source tree at the recorded pinned commit on 2026-10-06; existence is separate from any planning signature."
       },
       {
         "ref": "mathlib:continuousCohomology",
         "kind": "def",
         "module": "Mathlib/RepresentationTheory/Homological/ContCohomology/Basic.lean",
         "provides": "Canonical all-degree carrier on TopRep, valued in TopModuleCat. Does not supply dimension, comparison or Hochschild–Serre by itself.",
-        "checked": "Statement read in the pinned source tree; no compilation claim."
+        "checked": "Statement read in the source tree at the recorded pinned commit on 2026-10-06; existence is separate from any planning signature."
       },
       {
         "ref": "mathlib:IntermediateField",
         "kind": "structure",
         "module": "Mathlib/FieldTheory/IntermediateField/Basic.lean",
         "provides": "Intermediate fields extending a Subalgebra and closed under inverse; existing carrier for dense intermediate fields.",
-        "checked": "Statement read in the pinned source tree; no compilation claim."
+        "checked": "Statement read in the source tree at the recorded pinned commit on 2026-10-06; existence is separate from any planning signature."
       },
       {
         "ref": "mathlib:Dense",
         "kind": "def",
         "module": "Mathlib/Topology/Defs/Basic.lean",
         "provides": "Every point belongs to the closure of the subset; used with the actual intermediate-field carrier.",
-        "checked": "Statement read in the pinned source tree; no compilation claim."
+        "checked": "Statement read in the source tree at the recorded pinned commit on 2026-10-06; existence is separate from any planning signature."
       },
       {
         "ref": "mathlib:trdeg_add_eq",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/AlgebraicIndependent/TranscendenceBasis.lean",
         "provides": "Cardinal transcendence-degree additivity in a scalar tower with the stated commutative-domain and faithful scalar-action hypotheses; applies to fields.",
-        "checked": "Statement read in the pinned source tree; no compilation claim."
+        "checked": "Statement read in the source tree at the recorded pinned commit on 2026-10-06; existence is separate from any planning signature."
+      },
+      {
+        "ref": "tauceti:TauCeti.IsProP",
+        "kind": "def",
+        "module": "TauCeti/Topology/Algebra/Group/Profinite/ProP/Basic.lean",
+        "provides": "The actual pro-p predicate: every quotient by an open normal subgroup is a p-group. On a profinite group this equals the finite continuous quotient criterion used in the suggested signature.",
+        "checked": "Statement read in the source tree at the recorded pinned commit on 2026-10-06; existence is separate from any planning signature."
+      },
+      {
+        "ref": "mathlib:WithConstructibleTopology",
+        "kind": "def",
+        "module": "Mathlib/Topology/Spectral/ConstructibleTopology.lean",
+        "provides": "The existing type synonym carrying the constructible topology.",
+        "checked": "Declaration read at the pinned commit on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.SimplicialObject",
+        "kind": "def",
+        "module": "Mathlib/AlgebraicTopology/SimplicialObject/Basic.lean",
+        "provides": "The existing functor carrier for simplicial objects, with face and degeneracy API.",
+        "checked": "Declaration read at the pinned commit on 2026-10-06."
       }
     ],
     "fileEvidence": [
@@ -141,9 +162,9 @@
       "edition": "arXiv:1709.07343v4, 14 April 2026",
       "url": "https://arxiv.org/pdf/1709.07343v4",
       "readSections": [
-        "§21, printed pp.122–127, complete; §20, Propositions20.9–20.10 and20.17, statements and proofs; 20.16 proof ending; §22.1–22.6 as consumer context."
+        "§21, printed pp.122–127, complete; §20 Propositions 20.9, 20.10 and 20.17 statements and proofs; 20.16 proof ending; Convention 22.1 and 22.2–22.3 as consumer context."
       ],
-      "accessDate": "2026-09-26",
+      "accessDate": "2026-10-06",
       "sha256": "78ca42bba46f1d43c894b0dbfdfb41105efab4959ba5ba6e32e1e5cf7ef33efc"
     },
     {
@@ -155,31 +176,67 @@
       "readSections": [
         "§4.2, Propositions4.2.19 and4.2.21, Remark4.2.20, printed pp.711–712."
       ],
-      "accessDate": "2026-09-26",
+      "accessDate": "2026-10-06",
       "sha256": "4f9449e5ecfd8fb8b43a04acef73060f531be995babaa9f744f3db36aaa5e61a"
     },
     {
       "id": "KST",
       "title": "On pro-cdh descent on derived schemes",
       "authors": "Shane Kelly, Shuji Saito and Georg Tamme",
-      "edition": "Author-hosted manuscript, accessed 26 September2026",
+      "edition": "Author-hosted manuscript, downloaded 6 October 2026",
       "url": "https://www.lcv.ne.jp/~smaki/articles/Derived-pro-cdh.pdf",
       "readSections": [
         "Lemma6.6 and proof, p.24. This describes the specialization-chain argument but imports Scheiderer Remark2.5 and Theorem4.1; those imported proofs have not been read."
       ],
-      "accessDate": "2026-09-26",
+      "accessDate": "2026-10-06",
       "sha256": "3557f642cdee65e4942230dd5781dc7e8c45aeaca804d1843af3594647ed9273"
     },
     {
       "id": "STACKS",
       "title": "The Stacks Project",
       "authors": "The Stacks Project Authors",
-      "edition": "Online version accessed26 September2026",
+      "edition": "Online version accessed 6 October 2026",
       "url": "https://stacks.math.columbia.edu/",
       "readSections": [
         "Tags0A3G and0719, full statements and proofs. Tag0A3G uses a different argument from the required quasi-augmented route; Tag0719 is stated for ringed spaces, so a site-level supplier is still required."
       ],
-      "accessDate": "2026-09-26"
+      "accessDate": "2026-10-06"
+    },
+    {
+      "id": "TEMKIN",
+      "title": "Topological transcendence degree",
+      "authors": "Michael Temkin",
+      "edition": "arXiv:1610.09162v2; published J. Algebra 568 (2021), 35–60",
+      "url": "https://arxiv.org/pdf/1610.09162v2",
+      "accessDate": "2026-10-06",
+      "sha256": "df32be2841a71677ded61b9957fe50e650b2e41ba9874daf96b15330bc4c75af",
+      "readSections": [
+        "§2.1–2.2: independent versus generating degrees; §3.1–3.2: perturbations, Theorems 3.2.1 and 3.2.3 and their proofs. Lemma 3.1.6 imports Temkin 2010 Lemma 6.3.2; that earlier proof is an explicit source boundary."
+      ]
+    },
+    {
+      "id": "CONRAD",
+      "title": "Completion of algebraic closure",
+      "authors": "Brian Conrad",
+      "edition": "Stanford Math 248A handout, author-hosted text",
+      "url": "https://math.stanford.edu/~conrad/248APage/handouts/algclosurecomp.pdf",
+      "accessDate": "2026-10-06",
+      "sha256": "07052ff7a8c1a25ce876ca984f28d62e513998259906bd994d3dc1622cda3f5b",
+      "readSections": [
+        "Entire handout: Theorem 1.1 and §2 coefficient/root approximation proof; the argument works in arbitrary characteristic."
+      ]
+    },
+    {
+      "id": "FS",
+      "title": "Geometrization of the local Langlands correspondence",
+      "authors": "Laurent Fargues and Peter Scholze",
+      "edition": "arXiv:2102.13459v4",
+      "url": "https://arxiv.org/pdf/2102.13459v4",
+      "accessDate": "2026-10-06",
+      "sha256": "1f8040751d3424f59ae56651d990d7b2d5030e6b7cae58bc2fc683358dfc2027",
+      "readSections": [
+        "§I.11, introductory dimension discussion and Problem I.11.1, printed pp.41–42. This is a problem, not an equality theorem."
+      ]
     }
   ],
   "nodes": [
@@ -208,7 +265,7 @@
         {
           "sourceId": "ECD",
           "locator": "Definition21.1(i), p.122",
-          "match": "The stated assertion and indicated proof step, with the hypotheses retained."
+          "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
       "implementationStatus": "unchecked",
@@ -241,7 +298,7 @@
         {
           "sourceId": "ECD",
           "locator": "Definition21.1(ii), p.122",
-          "match": "The stated assertion and indicated proof step, with the hypotheses retained."
+          "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
       "implementationStatus": "unchecked",
@@ -279,12 +336,12 @@
         },
         {
           "name": "fibreDimension_identity",
-          "kind": "computed",
+          "kind": "computation",
           "statement": "The identity on any nonempty topological space has fibreDimension zero."
         },
         {
           "name": "fibreDimension_toPoint",
-          "kind": "agreement",
+          "kind": "compatibility",
           "statement": "For f:X→PUnit, fibreDimension(f)=topologicalKrullDim X."
         },
         {
@@ -329,7 +386,7 @@
         {
           "sourceId": "ECD",
           "locator": "Definition21.2, p.122",
-          "match": "The stated assertion and indicated proof step, with the hypotheses retained."
+          "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
       "implementationStatus": "unchecked",
@@ -370,7 +427,7 @@
       "tests": [
         {
           "name": "topologicalTrdeg_self_test",
-          "kind": "computed",
+          "kind": "computation",
           "statement": "For any field K with any topology, the identity extension has value zero."
         },
         {
@@ -380,7 +437,7 @@
         },
         {
           "name": "topologicalTrdeg_discrete_one",
-          "kind": "agreement",
+          "kind": "compatibility",
           "statement": "If L has the discrete topology and Algebra.trdeg K L=1, then topologicalTrdeg(K,L)=1."
         },
         {
@@ -411,8 +468,9 @@
       "statement": "For complete algebraically closed nonarchimedean fields K⊆L and n natural, topologicalTrdeg(K,L)≤n iff there exist n elements of L such that L is the smallest complete algebraically closed subfield of L containing K and those elements.",
       "hypotheses": [],
       "proofSteps": [
-        "From a dense intermediate field choose a transcendence basis of size at most n and pad it; use algebraicity and density.",
-        "The converse is the Krasner comparison referenced after21.2. Its full valued-field approximation argument is a recorded proof gap; the equivalence is not treated as a baseline fact."
+        "For a dense intermediate A/K of transcendence degree at most n, choose a finite transcendence basis and pad its tuple. Any closed algebraically closed intermediate field containing the tuple contains every element algebraic over it, hence A, hence L.",
+        "Conversely let the tuple have the stated minimality property. The relative algebraic closure of K(tuple) in L is algebraically closed. Its closure is a complete algebraically closed subfield by the characteristic-independent coefficient/root approximation in Conrad §2. Minimality makes that closure L, so the relative algebraic closure is a dense intermediate field of degree at most n.",
+        "For the approximation step, approximate a monic polynomial by same-degree monic polynomials over the dense algebraically closed subfield. Their roots are uniformly bounded. In a finite splitting extension of the complete field, select a subsequence approaching one of the finitely many roots; completeness returns its limit to the original field. The valued finite-extension norm input is retained in the completion gap."
       ],
       "prerequisites": [
         "DiamondEtaleCohomology:C8/topological-trdeg"
@@ -424,7 +482,12 @@
         {
           "sourceId": "ECD",
           "locator": "After Definition21.2 and proof of Lemma21.3, p.122",
-          "match": "The stated assertion and indicated proof step, with the hypotheses retained."
+          "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
+        },
+        {
+          "sourceId": "CONRAD",
+          "locator": "Theorem 1.1 and §2, pp.1–3",
+          "match": "The root-approximation proof adapts to the closure of a dense algebraically closed subfield, without a characteristic-zero assumption."
         }
       ],
       "implementationStatus": "unchecked",
@@ -457,7 +520,7 @@
         {
           "sourceId": "ECD",
           "locator": "Lemma21.3(i) and proof, p.122",
-          "match": "The stated assertion and indicated proof step, with the hypotheses retained."
+          "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
       "implementationStatus": "unchecked",
@@ -490,7 +553,7 @@
         {
           "sourceId": "ECD",
           "locator": "Lemma21.3(ii) and proof, p.122",
-          "match": "The stated assertion and indicated proof step, with the hypotheses retained."
+          "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
       "implementationStatus": "unchecked",
@@ -524,7 +587,7 @@
         {
           "sourceId": "ECD",
           "locator": "Paragraph before Definition21.5, p.123",
-          "match": "The stated assertion and indicated proof step, with the hypotheses retained."
+          "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
       "implementationStatus": "unchecked",
@@ -560,7 +623,7 @@
       "tests": [
         {
           "name": "modifiedTopologicalTrdeg_identity",
-          "kind": "computed",
+          "kind": "computation",
           "statement": "The identity extension has value zero."
         },
         {
@@ -575,7 +638,7 @@
         },
         {
           "name": "modifiedTopologicalTrdeg_vsOriginal",
-          "kind": "agreement",
+          "kind": "compatibility",
           "statement": "When every further extension E satisfies topologicalTrdeg(K,L)≤topologicalTrdeg(K,E), the modified and original invariants agree; this monotonicity is an explicit hypothesis, not an unconditional theorem."
         }
       ],
@@ -616,7 +679,7 @@
         {
           "sourceId": "ECD",
           "locator": "Paragraph before Definition21.5, p.123",
-          "match": "The stated assertion and indicated proof step, with the hypotheses retained."
+          "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
       "implementationStatus": "unchecked",
@@ -650,7 +713,7 @@
         {
           "sourceId": "ECD",
           "locator": "Paragraph before Definition21.5 and Remark21.8, p.123",
-          "match": "The stated assertion and indicated proof step, with the hypotheses retained."
+          "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
       "implementationStatus": "unchecked",
@@ -675,7 +738,8 @@
       ],
       "prerequisites": [
         "DiamondEtaleCohomology:C8/modified-topological-trdeg",
-        "DiamondEtaleCohomology:C8/modified-trdeg-base-change"
+        "DiamondEtaleCohomology:C8/modified-trdeg-base-change",
+        "tauceti:TauCetiRoadmap/AdicSpaces#layer-3-rational-localisation-and-the-structure-presheaf"
       ],
       "acceptance": [
         "Retain every stated hypothesis; verify each proof step against its named input."
@@ -684,7 +748,7 @@
         {
           "sourceId": "ECD",
           "locator": "Definition21.5, p.123",
-          "match": "The stated assertion and indicated proof step, with the hypotheses retained."
+          "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
       "implementationStatus": "unchecked",
@@ -722,12 +786,12 @@
         },
         {
           "name": "analyticDimTrg_identity_point",
-          "kind": "computed",
+          "kind": "computation",
           "statement": "The identity of a nonempty algebraically closed field spectrum has dimension zero."
         },
         {
           "name": "analyticDimTrg_field_test",
-          "kind": "agreement",
+          "kind": "compatibility",
           "statement": "A compatible extension C⊆D of complete algebraically closed fields gives the field invariant on Spa(D,O_D)→Spa(C,O_C)."
         }
       ],
@@ -740,9 +804,6 @@
           "where": "PAPER-CARAIANI-SCHOLZE-17/69",
           "how": "Keep geometric transcendence dimension distinct from the topological Krull dimension of a partially proper analytic space."
         }
-      ],
-      "unresolvedUpstreamPrerequisites": [
-        "tauceti:TauCetiRoadmap/AdicSpaces#layer-3-rational-localisation-and-the-structure-presheaf"
       ]
     },
     {
@@ -770,7 +831,7 @@
         {
           "sourceId": "ECD",
           "locator": "Lemma21.6 and proof, p.123",
-          "match": "The stated assertion and indicated proof step, with the hypotheses retained."
+          "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
       "implementationStatus": "unchecked",
@@ -796,7 +857,8 @@
       "prerequisites": [
         "DiamondEtaleCohomology:C8/modified-topological-trdeg",
         "DiamondEtaleCohomology:C8/modified-trdeg-base-change",
-        "DiamondsAndVStacks:D5/relative-representability"
+        "DiamondsAndVStacks:D5/relative-representability",
+        "DiamondsAndVStacks:D5"
       ],
       "acceptance": [
         "Retain every stated hypothesis; verify each proof step against its named input."
@@ -805,7 +867,7 @@
         {
           "sourceId": "ECD",
           "locator": "Definition21.7 and Remark21.8, p.123",
-          "match": "The stated assertion and indicated proof step, with the hypotheses retained."
+          "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
       "implementationStatus": "unchecked",
@@ -851,12 +913,12 @@
         },
         {
           "name": "diamondDimTrg_identity_point",
-          "kind": "computed",
+          "kind": "computation",
           "statement": "The identity of Spa(C,O_C) has value zero."
         },
         {
           "name": "diamondDimTrg_field_test",
-          "kind": "agreement",
+          "kind": "compatibility",
           "statement": "Spa(D,O_D)→Spa(C,O_C) gives modifiedTopologicalTrdeg(C,D)."
         },
         {
@@ -905,7 +967,7 @@
         {
           "sourceId": "ECD",
           "locator": "Remark21.8, p.123",
-          "match": "The stated assertion and indicated proof step, with the hypotheses retained."
+          "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
       "implementationStatus": "unchecked",
@@ -938,7 +1000,7 @@
         {
           "sourceId": "ECD",
           "locator": "Lemma21.3, modified paragraph and Definitions21.5–21.7, pp.122–123",
-          "match": "Consequence of the tower inequality and definitions, not a separately numbered assertion."
+          "match": "A derived consequence of the cited definitions and inequalities, with the extra hypotheses stated in the node and the derivation given in its proof sketch; not a verbatim named theorem in the source."
         }
       ],
       "implementationStatus": "unchecked",
@@ -973,7 +1035,7 @@
         {
           "sourceId": "ECD",
           "locator": "Convention22.1, p.127; Definitions21.7–21.8, p.123",
-          "match": "The stated assertion and indicated proof step, with the hypotheses retained."
+          "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1011,7 +1073,7 @@
         },
         {
           "name": "locallyFiniteDimTrg_identity_test",
-          "kind": "computed",
+          "kind": "computation",
           "statement": "The identity has bound zero."
         },
         {
@@ -1057,7 +1119,7 @@
         {
           "sourceId": "ECD",
           "locator": "Remark21.14, p.125",
-          "match": "The stated assertion and indicated proof step, with the hypotheses retained."
+          "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1093,7 +1155,7 @@
         {
           "sourceId": "ECD",
           "locator": "Remark21.14, p.125",
-          "match": "The stated assertion and indicated proof step, with the hypotheses retained."
+          "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1127,7 +1189,7 @@
         {
           "sourceId": "ECD",
           "locator": "Lemma21.13 and proof, p.125",
-          "match": "The stated assertion and indicated proof step, with the hypotheses retained."
+          "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1153,7 +1215,8 @@
       "prerequisites": [
         "DiamondsAndVStacks:D5/universally-open-presentation",
         "DiamondsAndVStacks:D1/pro-etale-maps-over-std-base",
-        "DiamondsAndVStacks:D0/groupoid-quotients-and-two-fibre-products"
+        "DiamondsAndVStacks:D0/groupoid-quotients-and-two-fibre-products",
+        "DiamondsAndVStacks:D5"
       ],
       "acceptance": [
         "Use the sheaf quotient of an equivalence relation; an arbitrary stack quotient is not a substitute."
@@ -1162,7 +1225,7 @@
         {
           "sourceId": "ECD",
           "locator": "Proposition21.9 and proof, pp.123–124",
-          "match": "The stated assertion and indicated proof step, with the hypotheses retained."
+          "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1196,7 +1259,7 @@
         {
           "sourceId": "ECD",
           "locator": "Proposition21.9, uniqueness paragraph, p.124",
-          "match": "The stated assertion and indicated proof step, with the hypotheses retained."
+          "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1221,7 +1284,8 @@
       ],
       "prerequisites": [
         "DiamondEtaleCohomology:C8/point-quotient",
-        "DiamondEtaleCohomology:C0"
+        "DiamondEtaleCohomology:C0",
+        "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-0-discrete-modules-and-continuous-sections"
       ],
       "acceptance": [
         "Retain every stated hypothesis; verify each proof step against its named input."
@@ -1230,17 +1294,14 @@
         {
           "sourceId": "ECD",
           "locator": "Paragraph after Proposition21.9, p.124",
-          "match": "The stated assertion and indicated proof step, with the hypotheses retained."
+          "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
       "implementationStatus": "unchecked",
       "library": {
         "module": "TauCeti/Geometry/Diamonds/Dimension",
         "namespace": "TauCeti.DiamondEtale"
-      },
-      "unresolvedUpstreamPrerequisites": [
-        "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-0-discrete-modules-and-continuous-sections"
-      ]
+      }
     },
     {
       "id": "DiamondEtaleCohomology:C8/point-cohomology",
@@ -1260,7 +1321,8 @@
         "DiamondEtaleCohomology:C8/point-sheaf-equivalence",
         "DiamondEtaleCohomology:C8/strictly-disconnected-acyclic",
         "DiamondsAndVStacks:D0/cech-to-derived-comparison",
-        "mathlib:continuousCohomology"
+        "mathlib:continuousCohomology",
+        "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees"
       ],
       "acceptance": [
         "Retain every stated hypothesis; verify each proof step against its named input."
@@ -1269,17 +1331,14 @@
         {
           "sourceId": "ECD",
           "locator": "After Proposition21.9, p.124; proof of21.15, p.126",
-          "match": "The stated assertion and indicated proof step, with the hypotheses retained."
+          "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
       "implementationStatus": "unchecked",
       "library": {
         "module": "TauCeti/Geometry/Diamonds/Dimension",
         "namespace": "TauCeti.DiamondEtale"
-      },
-      "unresolvedUpstreamPrerequisites": [
-        "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees"
-      ]
+      }
     },
     {
       "id": "DiamondEtaleCohomology:C8/point-cd",
@@ -1299,7 +1358,8 @@
         "DiamondEtaleCohomology:C8/point-quotient",
         "DiamondEtaleCohomology:C8/point-quotient-unique",
         "DiamondEtaleCohomology:C8/point-cohomology",
-        "DiamondsAndVStacks:D5/injection-and-finite-etale-permanence"
+        "DiamondsAndVStacks:D5/injection-and-finite-etale-permanence",
+        "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-11-cohomological-dimension"
       ],
       "acceptance": [
         "Retain every stated hypothesis; verify each proof step against its named input."
@@ -1308,7 +1368,7 @@
         {
           "sourceId": "ECD",
           "locator": "Definition21.10, p.124",
-          "match": "The stated assertion and indicated proof step, with the hypotheses retained."
+          "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1336,12 +1396,12 @@
       "tests": [
         {
           "name": "pointCd_closedField",
-          "kind": "computed",
+          "kind": "computation",
           "statement": "The algebraically closed field point Spa(C,O_C) has value zero."
         },
         {
           "name": "pointCd_presentation_test",
-          "kind": "agreement",
+          "kind": "compatibility",
           "statement": "For every faithful quotient presentation the value is the upstream cd_ℓ of its profinite group."
         },
         {
@@ -1359,9 +1419,6 @@
           "where": "ECD21.15",
           "how": "The generic-point value bounds closed-point-supported sheaves."
         }
-      ],
-      "unresolvedUpstreamPrerequisites": [
-        "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-11-cohomological-dimension"
       ]
     },
     {
@@ -1381,7 +1438,8 @@
       "prerequisites": [
         "DiamondEtaleCohomology:C8/point-quotient",
         "DiamondsAndVStacks:D1/pro-etale-maps-over-std-base",
-        "DiamondsAndVStacks:D5/universally-open-presentation"
+        "DiamondsAndVStacks:D5/universally-open-presentation",
+        "DiamondsAndVStacks:D5"
       ],
       "acceptance": [
         "Retain every stated hypothesis; verify each proof step against its named input."
@@ -1390,7 +1448,7 @@
         {
           "sourceId": "ECD",
           "locator": "Proposition21.15, proof first two paragraphs, p.126",
-          "match": "The stated assertion and indicated proof step, with the hypotheses retained."
+          "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1416,7 +1474,8 @@
       "prerequisites": [
         "DiamondEtaleCohomology:C8/specialization-stabilizers",
         "DiamondEtaleCohomology:C8/point-cohomology",
-        "DiamondsAndVStacks:D0/cech-to-derived-comparison"
+        "DiamondsAndVStacks:D0/cech-to-derived-comparison",
+        "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees"
       ],
       "acceptance": [
         "Retain every stated hypothesis; verify each proof step against its named input."
@@ -1425,17 +1484,14 @@
         {
           "sourceId": "ECD",
           "locator": "Proposition21.15, last proof paragraph, p.126",
-          "match": "The stated assertion and indicated proof step, with the hypotheses retained."
+          "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
       "implementationStatus": "unchecked",
       "library": {
         "module": "TauCeti/Geometry/Diamonds/Dimension",
         "namespace": "TauCeti.DiamondEtale"
-      },
-      "unresolvedUpstreamPrerequisites": [
-        "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees"
-      ]
+      }
     },
     {
       "id": "DiamondEtaleCohomology:C8/closed-point-bound",
@@ -1454,7 +1510,8 @@
       "prerequisites": [
         "DiamondEtaleCohomology:C8/closed-point-cohomology",
         "DiamondEtaleCohomology:C8/specialization-stabilizers",
-        "DiamondEtaleCohomology:C8/point-cd"
+        "DiamondEtaleCohomology:C8/point-cd",
+        "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-11-cohomological-dimension"
       ],
       "acceptance": [
         "The statement assumes spatiality and the local underlying space; no arbitrary point-support assertion is substituted."
@@ -1463,17 +1520,14 @@
         {
           "sourceId": "ECD",
           "locator": "Proposition21.15, p.126",
-          "match": "The stated assertion and indicated proof step, with the hypotheses retained."
+          "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
       "implementationStatus": "unchecked",
       "library": {
         "module": "TauCeti/Geometry/Diamonds/Dimension",
         "namespace": "TauCeti.DiamondEtale"
-      },
-      "unresolvedUpstreamPrerequisites": [
-        "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-11-cohomological-dimension"
-      ]
+      }
     },
     {
       "id": "DiamondEtaleCohomology:C8/extension-cd-bound",
@@ -1491,7 +1545,9 @@
       ],
       "prerequisites": [
         "ArithmeticGaloisDuality:R02.1",
-        "ArithmeticGaloisDuality:R02.2"
+        "ArithmeticGaloisDuality:R02.2",
+        "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees",
+        "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-11-cohomological-dimension"
       ],
       "acceptance": [
         "Identify the edge maps with canonical restriction/inflation, rather than invoking only a five-term sequence."
@@ -1500,18 +1556,14 @@
         {
           "sourceId": "ECD",
           "locator": "Proposition21.16, final inequality, p.127",
-          "match": "The stated assertion and indicated proof step, with the hypotheses retained."
+          "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
       "implementationStatus": "unchecked",
       "library": {
         "module": "TauCeti/Geometry/Diamonds/Dimension",
         "namespace": "TauCeti.DiamondEtale"
-      },
-      "unresolvedUpstreamPrerequisites": [
-        "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees",
-        "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-11-cohomological-dimension"
-      ]
+      }
     },
     {
       "id": "DiamondEtaleCohomology:C8/wild-automorphism",
@@ -1528,7 +1580,10 @@
         "Using profinite Sylow, reduce a non-pro-p factor to a pro-ℓ cyclic group for ℓ≠p.",
         "If γ(x)≠x, choose y with the size of γ(x)/x−1. The residue of (g(x)/x−1)/y is a nonzero continuous homomorphism to the additive residue field. Triviality on leading terms proves its additivity. A pro-ℓ group has no nontrivial continuous map to this discrete p-torsion group, a contradiction."
       ],
-      "prerequisites": [],
+      "prerequisites": [
+        "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-2-profinite-sylow-theory",
+        "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-3-pro-p-groups-the-maximal-pro-p-quotient-frattini-theory-generation"
+      ],
       "acceptance": [
         "Both pointwise factorial-power convergence and the leading-term action hypothesis are retained."
       ],
@@ -1536,18 +1591,14 @@
         {
           "sourceId": "ECD",
           "locator": "Lemma21.17 and proof, p.127",
-          "match": "The stated assertion and indicated proof step, with the hypotheses retained."
+          "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
       "implementationStatus": "unchecked",
       "library": {
         "module": "TauCeti/Geometry/Diamonds/Dimension",
         "namespace": "TauCeti.DiamondEtale"
-      },
-      "unresolvedUpstreamPrerequisites": [
-        "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-2-profinite-sylow-theory",
-        "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-3-pro-p-groups-the-maximal-pro-p-quotient-frattini-theory-generation"
-      ]
+      }
     },
     {
       "id": "DiamondEtaleCohomology:C8/wild-kernel-pro-p",
@@ -1564,7 +1615,9 @@
         "Apply wild-automorphism to its procyclic closure. Every finite quotient of P has only p-power-order elements, hence is a p-group; use the upstream finite-quotient criterion."
       ],
       "prerequisites": [
-        "DiamondEtaleCohomology:C8/wild-automorphism"
+        "DiamondEtaleCohomology:C8/wild-automorphism",
+        "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-3-pro-p-groups-the-maximal-pro-p-quotient-frattini-theory-generation",
+        "tauceti:TauCeti.IsProP"
       ],
       "acceptance": [
         "Retain every stated hypothesis; verify each proof step against its named input."
@@ -1573,17 +1626,14 @@
         {
           "sourceId": "ECD",
           "locator": "Proposition21.16, first proof paragraph, p.126",
-          "match": "The stated assertion and indicated proof step, with the hypotheses retained."
+          "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
       "implementationStatus": "unchecked",
       "library": {
         "module": "TauCeti/Geometry/Diamonds/Dimension",
         "namespace": "TauCeti.DiamondEtale"
-      },
-      "unresolvedUpstreamPrerequisites": [
-        "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-3-pro-p-groups-the-maximal-pro-p-quotient-frattini-theory-generation"
-      ]
+      }
     },
     {
       "id": "DiamondEtaleCohomology:C8/prime-to-p-wild-removal",
@@ -1601,7 +1651,10 @@
       ],
       "prerequisites": [
         "DiamondEtaleCohomology:C8/extension-cd-bound",
-        "ArithmeticGaloisDuality:R02.1"
+        "ArithmeticGaloisDuality:R02.1",
+        "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees",
+        "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-11-cohomological-dimension",
+        "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-3-pro-p-groups-the-maximal-pro-p-quotient-frattini-theory-generation"
       ],
       "acceptance": [
         "Retain every stated hypothesis; verify each proof step against its named input."
@@ -1610,19 +1663,14 @@
         {
           "sourceId": "ECD",
           "locator": "Proposition21.16, first proof paragraph, p.126",
-          "match": "The stated assertion and indicated proof step, with the hypotheses retained."
+          "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
       "implementationStatus": "unchecked",
       "library": {
         "module": "TauCeti/Geometry/Diamonds/Dimension",
         "namespace": "TauCeti.DiamondEtale"
-      },
-      "unresolvedUpstreamPrerequisites": [
-        "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees",
-        "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-11-cohomological-dimension",
-        "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-3-pro-p-groups-the-maximal-pro-p-quotient-frattini-theory-generation"
-      ]
+      }
     },
     {
       "id": "DiamondEtaleCohomology:C8/residue-galois-identification",
@@ -1649,7 +1697,7 @@
         {
           "sourceId": "ECD",
           "locator": "Proposition21.16, residue-action paragraph, p.126",
-          "match": "The stated assertion and indicated proof step, with the hypotheses retained."
+          "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1672,7 +1720,10 @@
         "For finite transcendence degree this requires the geometric field cohomological-dimension theorem, its finite-generation reduction and continuity over subfields. ECD invokes the result without supplying these proofs.",
         "The exact field-theoretic proof is an explicit gap owned by C8; no local-field cd=2 theorem or fixed finite coefficient case is substituted."
       ],
-      "prerequisites": [],
+      "prerequisites": [
+        "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees",
+        "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-11-cohomological-dimension"
+      ],
       "acceptance": [
         "Algebraic extensions of the algebraically closed base give zero; retain ℓ≠p and the all-discrete-torsion scope."
       ],
@@ -1680,18 +1731,14 @@
         {
           "sourceId": "ECD",
           "locator": "Proposition21.16, residue-field bound, p.126",
-          "match": "The stated assertion and indicated proof step, with the hypotheses retained."
+          "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
       "implementationStatus": "unchecked",
       "library": {
         "module": "TauCeti/Geometry/Diamonds/Dimension",
         "namespace": "TauCeti.DiamondEtale"
-      },
-      "unresolvedUpstreamPrerequisites": [
-        "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees",
-        "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-11-cohomological-dimension"
-      ]
+      }
     },
     {
       "id": "DiamondEtaleCohomology:C8/tame-character-embedding",
@@ -1719,7 +1766,7 @@
         {
           "sourceId": "ECD",
           "locator": "Proposition21.16, tame-inertia paragraph, p.127",
-          "match": "The stated assertion and indicated proof step, with the hypotheses retained."
+          "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1744,7 +1791,8 @@
       ],
       "prerequisites": [
         "DiamondEtaleCohomology:C8/tame-character-embedding",
-        "DiamondEtaleCohomology:C8/extension-cd-bound"
+        "DiamondEtaleCohomology:C8/extension-cd-bound",
+        "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-11-cohomological-dimension"
       ],
       "acceptance": [
         "Retain every stated hypothesis; verify each proof step against its named input."
@@ -1753,17 +1801,14 @@
         {
           "sourceId": "ECD",
           "locator": "Proposition21.16, p.127",
-          "match": "The stated assertion and indicated proof step, with the hypotheses retained."
+          "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
       "implementationStatus": "unchecked",
       "library": {
         "module": "TauCeti/Geometry/Diamonds/Dimension",
         "namespace": "TauCeti.DiamondEtale"
-      },
-      "unresolvedUpstreamPrerequisites": [
-        "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-11-cohomological-dimension"
-      ]
+      }
     },
     {
       "id": "DiamondEtaleCohomology:C8/valuation-transcendence-bound",
@@ -1776,9 +1821,9 @@
       "statement": "For complete algebraically closed nonarchimedean C⊆C′, with residue fields k⊆k′ and value groups Γ⊆Γ′, trdeg(k′/k)+dim_Q(Γ′/Γ)≤modifiedTopologicalTrdeg(C,C′), with finite-cardinal ranks interpreted in ENat and infinite ranks as infinity.",
       "hypotheses": [],
       "proofSteps": [
-        "For a finite dense intermediate field apply the valuation transcendence inequality cited as Bourbaki VI.10.3 Corollary1.",
-        "Prove residue transcendence degree and rationalized value group are unchanged by completion and monotone under further valued extensions.",
-        "Apply the inequality to every further complete algebraically closed extension and take the modified infimum. The Bourbaki proof and comparison lemmas have not been independently read or decomposed."
+        "For a finite set of algebraically independent residue classes and rationally independent value classes modulo the base value group, choose lifts a_i and b_j. A nonzero polynomial in their combined lifts groups by b-monomials. Each nonzero coefficient polynomial in the a_i has value in the base group: scale its coefficients to maximal norm one and use residue independence to prevent cancellation. Distinct b-monomials have distinct values modulo the base group, so the resulting sum cannot cancel. The lifts are algebraically independent.",
+        "Take suprema of finite residue and rational-rank witnesses to obtain the valuation transcendence inequality for each dense intermediate field. Density preserves residue field and value group, since approximating x with error smaller than |x| preserves its value and its leading residue.",
+        "Algebraic extensions change residue fields algebraically and value groups only by torsion; completion is immediate in rank one. Thus pass through completed algebraic closures and then further valued extensions, where the two ranks only increase. Apply the finite bound to every witness and take the modified infimum. The detailed rank and topology comparisons are recorded for refinement; the cited Bourbaki proof was not accessible."
       ],
       "prerequisites": [
         "DiamondEtaleCohomology:C8/modified-topological-trdeg",
@@ -1791,7 +1836,7 @@
         {
           "sourceId": "ECD",
           "locator": "Proposition21.16, final proof paragraph, p.127",
-          "match": "The stated assertion and indicated proof step, with the hypotheses retained."
+          "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1835,7 +1880,7 @@
         {
           "sourceId": "ECD",
           "locator": "Proposition21.16, pp.126–127",
-          "match": "The stated assertion and indicated proof step, with the hypotheses retained."
+          "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1855,15 +1900,17 @@
       ],
       "title": "The simplicial space of specialization chains",
       "kind": "construction",
-      "statement": "For spectral X, form sp_n(X) consisting of tuples (x0,…,xn) with x0 specializing to x1 through xn, allowing repetitions, with topology induced from the product constructible topology. Deleting and repeating entries give a simplicial topological space. The projection γ_n to x0 has values in X with its original topology; γ_0 is the quasi-augmentation, not an ordinary simplicial augmentation commuting with every face.",
+      "statement": "For spectral X, form sp_n(X) from tuples (x0,…,xn) for which xi generalizes xj when i≤j, allowing repetitions, with the subspace topology from the product constructible topology. Deleting and repeating coordinates gives a simplicial topological space. The projection γ_n to x0 takes values in the original topology; γ_0 is the quasi-augmentation and the projections are not an ordinary simplicial augmentation. This chain orientation matches KST; reversing chains preserves the dimension convention of ECD21.1.",
       "hypotheses": [],
       "proofSteps": [
-        "Use the constructible-topology supplier and the specialization relation to form each subspace.",
-        "Restriction of coordinate deletions and repetitions defines continuous structure maps; the simplicial identities follow from the coordinate identities. The generic simplicial-space infrastructure is imported from E2."
+        "Use Mathlib’s constructible-topology synonym and simplicial-object carrier. Form the specialization-chain subtype of the finite product. Specialization is measured in the original topology, not the Hausdorff patch topology.",
+        "Coordinate restriction along a monotone ordinal map preserves chains and is continuous; coordinate identities prove the functor laws. For spectral X, the specialization relation is patch-closed, so each chain space is profinite using the D0 patch-space theorem.",
+        "The first-vertex projection is continuous to the original topology. It changes under the face deleting x0, which is why a quasi-augmentation rather than a Cartesian hypercover is required."
       ],
       "prerequisites": [
-        "DiamondsAndVStacks:D0/constructible-topology-profinite",
-        "EnhancedDerivedSheaves:E2/hypercovers-and-cohomological-descent"
+        "mathlib:WithConstructibleTopology",
+        "mathlib:CategoryTheory.SimplicialObject",
+        "DiamondsAndVStacks:D0/constructible-topology-profinite"
       ],
       "acceptance": [
         "Retain every stated hypothesis; verify each proof step against its named input."
@@ -1871,8 +1918,8 @@
       "sources": [
         {
           "sourceId": "KST",
-          "locator": "Lemma6.6, first proof paragraph, p.24",
-          "match": "The stated assertion and indicated proof step, with the hypotheses retained."
+          "locator": "Lemma 6.6 and proof, p.24, citing Scheiderer §2, Remark 2.5, Theorem 4.1 and Proposition 4.7",
+          "match": "The inspected proof supplies the chain construction and normalization route. Scheiderer’s imported descent proof is explicitly unread and recorded as a gap."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1899,7 +1946,7 @@
         {
           "name": "specializationChainSpace_nondegenerate",
           "role": "characterisation",
-          "statement": "A chain is nondegenerate iff its entries are pairwise distinct."
+          "statement": "For a T0 space and a positive-degree chain, absence of an elementary degeneracy preimage is equivalent to pairwise distinct vertices; degree-zero chains are all nondegenerate."
         }
       ],
       "tests": [
@@ -1910,7 +1957,7 @@
         },
         {
           "name": "specializationChainSpace_point",
-          "kind": "computed",
+          "kind": "computation",
           "statement": "For a one-point space there is exactly one simplex in every degree and no nondegenerate positive-dimensional simplex."
         },
         {
@@ -1920,7 +1967,7 @@
         },
         {
           "name": "specializationChainSpace_twoPointChain",
-          "kind": "computed",
+          "kind": "computation",
           "statement": "For a two-point spectral chain there is exactly one nondegenerate edge, whereas no nondegenerate simplex exists in degree2."
         }
       ],
@@ -1952,7 +1999,7 @@
       ],
       "prerequisites": [
         "DiamondEtaleCohomology:C8/specialization-chain-space",
-        "EnhancedDerivedSheaves:E2/hypercovers-and-cohomological-descent"
+        "EnhancedDerivedSheaves:E2"
       ],
       "acceptance": [
         "Do not replace the quasi-augmentation by an ordinary augmentation; the first-vertex coefficient map must be constructed."
@@ -1960,8 +2007,8 @@
       "sources": [
         {
           "sourceId": "KST",
-          "locator": "Lemma6.6, proof citing Scheiderer Remark2.5, Theorem4.1 and Proposition4.7, p.24",
-          "match": "The stated assertion and indicated proof step, with the hypotheses retained."
+          "locator": "Lemma 6.6 and proof, p.24, citing Scheiderer §2, Remark 2.5, Theorem 4.1 and Proposition 4.7",
+          "match": "The inspected proof supplies the chain construction and normalization route. Scheiderer’s imported descent proof is explicitly unread and recorded as a gap."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1993,14 +2040,9 @@
       ],
       "sources": [
         {
-          "sourceId": "ECD",
-          "locator": "Proposition21.11, proof citing Scheiderer Corollary4.6, p.125",
-          "match": "The stated assertion and indicated proof step, with the hypotheses retained."
-        },
-        {
           "sourceId": "KST",
-          "locator": "Lemma6.6 and its normalization argument, p.24",
-          "match": "The stated assertion and indicated proof step, with the hypotheses retained."
+          "locator": "Lemma 6.6 and proof, p.24, citing Scheiderer §2, Remark 2.5, Theorem 4.1 and Proposition 4.7",
+          "match": "The inspected proof supplies the chain construction and normalization route. Scheiderer’s imported descent proof is explicitly unread and recorded as a gap."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2037,7 +2079,7 @@
         {
           "sourceId": "ECD",
           "locator": "Proposition21.11, first proof paragraph on p.125",
-          "match": "The stated assertion and indicated proof step, with the hypotheses retained."
+          "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2062,8 +2104,8 @@
       ],
       "prerequisites": [
         "DiamondEtaleCohomology:C7",
-        "DiamondEtaleCohomology:C3",
-        "DiamondsAndVStacks:D0/filtered-colimits-and-cohomology-on-coherent-sites"
+        "DiamondsAndVStacks:D0/filtered-colimits-and-cohomology-on-coherent-sites",
+        "DiamondEtaleCohomology:C5"
       ],
       "acceptance": [
         "The stratification is spectral-constructible. An arbitrary point/complement decomposition of a closed disc does not qualify."
@@ -2072,7 +2114,7 @@
         {
           "sourceId": "ECD",
           "locator": "Proposition21.11, proof p.124",
-          "match": "The stated assertion and indicated proof step, with the hypotheses retained."
+          "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2110,7 +2152,7 @@
         {
           "sourceId": "ECD",
           "locator": "Proposition21.11, final proof paragraph, p.125",
-          "match": "The stated assertion and indicated proof step, with the hypotheses retained."
+          "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2149,7 +2191,7 @@
         {
           "sourceId": "ECD",
           "locator": "Proposition21.11 and Remark21.12, pp.124–125",
-          "match": "The stated assertion and indicated proof step, with the hypotheses retained."
+          "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2187,7 +2229,7 @@
         {
           "sourceId": "CS17",
           "locator": "Proposition4.2.19 and proof, pp.711–712",
-          "match": "The stated assertion and indicated proof step, with the hypotheses retained."
+          "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2221,7 +2263,7 @@
         {
           "sourceId": "CS17",
           "locator": "Proposition4.2.19 and proof, pp.711–712",
-          "match": "The stated assertion and indicated proof step, with the hypotheses retained."
+          "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2257,7 +2299,7 @@
         {
           "sourceId": "CS17",
           "locator": "Proposition4.2.21 and proof, p.712",
-          "match": "The stated assertion and indicated proof step, with the hypotheses retained."
+          "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2294,7 +2336,7 @@
         {
           "sourceId": "ECD",
           "locator": "Proposition20.9 and proof, pp.116–117",
-          "match": "The stated assertion and indicated proof step, with the hypotheses retained."
+          "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2328,7 +2370,7 @@
         {
           "sourceId": "ECD",
           "locator": "First proof paragraphs of20.10 and20.17, pp.117,121",
-          "match": "The stated assertion and indicated proof step, with the hypotheses retained."
+          "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2363,7 +2405,7 @@
         {
           "sourceId": "ECD",
           "locator": "Propositions20.10 and20.17, pp.117,121",
-          "match": "The stated assertion and indicated proof step, with the hypotheses retained."
+          "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2398,7 +2440,7 @@
         {
           "sourceId": "ECD",
           "locator": "Propositions20.10 and20.17, pp.117,121",
-          "match": "The stated assertion and indicated proof step, with the hypotheses retained."
+          "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2435,7 +2477,7 @@
         {
           "sourceId": "ECD",
           "locator": "Propositions20.10 and20.17, pp.117,121",
-          "match": "The stated assertion and indicated proof step, with the hypotheses retained."
+          "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2455,13 +2497,13 @@
       "statement": "Under the same hypotheses, j!Λ is compact for every quasicompact separated étale j:U→Y.",
       "hypotheses": [],
       "proofSteps": [
-        "C3 adjunction identifies derived Hom(j!Λ,−) with RΓ(U,−).",
+        "C5 étale adjunction identifies derived Hom(j!Λ,−) with RΓ(U,−).",
         "Apply global-sections-coproducts. Exactness identifies the triangulated coproduct criterion with the enhanced compactness criterion supplied by E3."
       ],
       "prerequisites": [
         "DiamondEtaleCohomology:C9/global-sections-coproducts",
-        "DiamondEtaleCohomology:C3",
-        "EnhancedDerivedSheaves:E3"
+        "EnhancedDerivedSheaves:E3",
+        "DiamondEtaleCohomology:C5"
       ],
       "acceptance": [
         "Retain every stated hypothesis; verify each proof step against its named input."
@@ -2470,7 +2512,7 @@
         {
           "sourceId": "ECD",
           "locator": "Proposition20.17, p.121",
-          "match": "The stated assertion and indicated proof step, with the hypotheses retained."
+          "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2506,7 +2548,7 @@
         {
           "sourceId": "ECD",
           "locator": "Proposition20.17, second proof paragraph, p.121",
-          "match": "The stated assertion and indicated proof step, with the hypotheses retained."
+          "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2542,7 +2584,7 @@
         {
           "sourceId": "ECD",
           "locator": "Proposition20.17, p.121",
-          "match": "The stated assertion and indicated proof step, with the hypotheses retained."
+          "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2581,7 +2623,7 @@
         {
           "sourceId": "ECD",
           "locator": "Proposition20.17, p.121",
-          "match": "The stated assertion and indicated proof step, with the hypotheses retained."
+          "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2601,15 +2643,16 @@
       "statement": "Under the same bounded-cohomological-dimension hypotheses, j!L is compact when j:U→Y is quasicompact separated étale and L∈D_et(U,Λ) is locally constant with perfect values.",
       "hypotheses": [],
       "proofSteps": [
-        "C3 identifies derived Hom(j!L,−) with RΓ(U,L^∨⊗^L_Λ j*−).",
+        "C5 adjunction and C3 tensor/Hom identify derived Hom(j!L,−) with RΓ(U,L^∨⊗^L_Λ j*−).",
         "Perfect local systems are dualizable and tensoring with L^∨ preserves coproducts by E1/C7.",
         "Apply global-sections-coproducts."
       ],
       "prerequisites": [
         "DiamondEtaleCohomology:C9/global-sections-coproducts",
-        "DiamondEtaleCohomology:C3",
         "DiamondEtaleCohomology:C7",
-        "EnhancedDerivedSheaves:E1/presentability-and-derived-tensor"
+        "EnhancedDerivedSheaves:E1/presentability-and-derived-tensor",
+        "DiamondEtaleCohomology:C5",
+        "DiamondEtaleCohomology:C3"
       ],
       "acceptance": [
         "Retain every stated hypothesis; verify each proof step against its named input."
@@ -2618,7 +2661,7 @@
         {
           "sourceId": "ECD",
           "locator": "Proposition20.17, end of proof, pp.121–122",
-          "match": "The stated assertion and indicated proof step, with the hypotheses retained."
+          "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2645,7 +2688,7 @@
       "prerequisites": [
         "DiamondEtaleCohomology:C9/perfect-local-system-compact",
         "DiamondEtaleCohomology:C7",
-        "DiamondEtaleCohomology:C3"
+        "DiamondEtaleCohomology:C5"
       ],
       "acceptance": [
         "An arbitrary closed Z without constructibility does not justify the quasicompact complement step."
@@ -2654,7 +2697,7 @@
         {
           "sourceId": "ECD",
           "locator": "Proposition20.17, last proof paragraph, pp.121–122",
-          "match": "The stated assertion and indicated proof step, with the hypotheses retained."
+          "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2687,7 +2730,7 @@
         {
           "sourceId": "ECD",
           "locator": "Proposition20.17, p.121",
-          "match": "The stated assertion and indicated proof step, with the hypotheses retained."
+          "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2724,7 +2767,7 @@
         {
           "sourceId": "ECD",
           "locator": "Proposition20.10, p.117",
-          "match": "The stated assertion and indicated proof step, with the hypotheses retained."
+          "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2732,6 +2775,153 @@
         "module": "TauCeti/Geometry/Diamonds/CompactObjects",
         "namespace": "TauCeti.DiamondEtale"
       }
+    },
+    {
+      "id": "DiamondEtaleCohomology:C8/topological-trdeg-finite-monotonicity",
+      "parentStageId": "DiamondEtaleCohomology:C8",
+      "realises": [
+        "DiamondEtaleCohomology:C8"
+      ],
+      "title": "Finite topological transcendence degree is monotone",
+      "kind": "theorem",
+      "statement": "For complete algebraically closed nonarchimedean fields K⊆L⊆M, if topologicalTrdeg(K,L) is finite then topologicalTrdeg(K,L)≤topologicalTrdeg(K,M).",
+      "hypotheses": [
+        "All field inclusions preserve the given nonarchimedean valuations."
+      ],
+      "proofSteps": [
+        "If the ambient degree is infinite there is nothing to prove. For finite degrees, identify ECD’s dense-field invariant with Temkin’s generating degree using finite-topological-generators.",
+        "Temkin Theorem 3.2.3 identifies the finite generating degree with the independent degree, whose monotonicity is Lemma 2.2.2. The perturbation argument of Theorem 3.2.1 prevents the generating degree from falling below that independent degree."
+      ],
+      "acceptance": [
+        "Retain the stated finite bound and check the degenerate identity case."
+      ],
+      "prerequisites": [
+        "DiamondEtaleCohomology:C8/finite-topological-generators"
+      ],
+      "sources": [
+        {
+          "sourceId": "ECD",
+          "locator": "Paragraph immediately after Question 21.4, p.123",
+          "match": "Explicit finite-intermediate-degree theorem; no general answer to the question."
+        },
+        {
+          "sourceId": "TEMKIN",
+          "locator": "Lemma 2.2.2; Theorems 3.2.1 and 3.2.3, pp.6–8",
+          "match": "Lemma 2.2.2 is monotonicity of the independent degree. Theorem 3.2.3 identifies it with the generating degree when that degree is finite; the ECD paragraph uses exactly this finite case."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/DiamondEtale/Dimension",
+        "namespace": "TauCeti.DiamondEtale"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DiamondEtaleCohomology:C8/modified-trdeg-finite-equality",
+      "parentStageId": "DiamondEtaleCohomology:C8",
+      "realises": [
+        "DiamondEtaleCohomology:C8"
+      ],
+      "title": "The modified and original finite degrees agree",
+      "kind": "theorem",
+      "statement": "For a complete algebraically closed nonarchimedean extension K⊆L with finite topologicalTrdeg(K,L), modifiedTopologicalTrdeg(K,L)=topologicalTrdeg(K,L).",
+      "hypotheses": [
+        "All field inclusions preserve the given nonarchimedean valuations."
+      ],
+      "proofSteps": [
+        "The identity further extension gives the upper bound. Every further extension E has degree at least the finite degree of L by topological-trdeg-finite-monotonicity.",
+        "Take the infimum over those extensions for the lower bound. This does not assert equality when the original degree is infinite."
+      ],
+      "acceptance": [
+        "Retain the stated finite bound and check the degenerate identity case."
+      ],
+      "prerequisites": [
+        "DiamondEtaleCohomology:C8/modified-topological-trdeg",
+        "DiamondEtaleCohomology:C8/topological-trdeg-finite-monotonicity"
+      ],
+      "sources": [
+        {
+          "sourceId": "ECD",
+          "locator": "Finite-degree paragraph and modified invariant before Definition 21.5, p.123",
+          "match": "A derived consequence of the cited definitions and inequalities, with the extra hypotheses stated in the node and the derivation given in its proof sketch; not a verbatim named theorem in the source."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/DiamondEtale/Dimension",
+        "namespace": "TauCeti.DiamondEtale"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DiamondEtaleCohomology:C8/topological-dimension-field-tests",
+      "parentStageId": "DiamondEtaleCohomology:C8",
+      "realises": [
+        "DiamondEtaleCohomology:C8"
+      ],
+      "title": "Topological fibre dimension can be tested on field points",
+      "kind": "theorem",
+      "statement": "For f:Y′→Y representable in locally spatial diamonds, define its topological fibre dimension as the supremum of fibreDimension(f×Y X) over locally spatial diamond tests X→Y. The same supremum is obtained by restricting to X=Spa(C,C+) for complete algebraically closed perfectoid fields C and open bounded valuation subrings C+.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Use the geometric field-point/localization presentations of D5 to represent each fibre of a locally spatial diamond test.",
+        "The fibre topology and its specialization chains are preserved by this point presentation; take the two suprema. The presentation and universe comparisons are imported through an exact D5 request."
+      ],
+      "acceptance": [
+        "For a diamond target the identity test recovers its ordinary fibre dimension. Empty source has bottom; every plus ring allowed by the statement is retained."
+      ],
+      "prerequisites": [
+        "DiamondEtaleCohomology:C8/fibre-dimension",
+        "DiamondsAndVStacks:D5"
+      ],
+      "sources": [
+        {
+          "sourceId": "ECD",
+          "locator": "Remark 21.8, second paragraph, p.123",
+          "match": "The field-point test statement is about topological dim, not a replacement of the point/presentation definition of dim.trg."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/DiamondEtale/Dimension",
+        "namespace": "TauCeti.DiamondEtale"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DiamondEtaleCohomology:C9/compact-generation-from-dimension-bounds",
+      "parentStageId": "DiamondEtaleCohomology:C9",
+      "realises": [
+        "DiamondEtaleCohomology:C9"
+      ],
+      "title": "Compact generation from finite dimension bounds",
+      "kind": "application",
+      "statement": "Let Y be a spatial diamond over Spa(C,C+), C complete algebraically closed perfectoid of characteristic p. Let ℓ≠p be prime and d,e natural with dim |Y|≤d and diamondDimTrg(Y→Spa(C,C+))≤e. Then one bound d+e works for all ℓ-torsion étale sheaves on Y and every qc separated étale test U→Y. Consequently D_et(Y,F_ℓ) is left-complete and compactly generated, with compact objects precisely the bounded constructible complexes.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Apply point-cd-geometric-bound at every maximal point, then spatial-cohomological-bound with empty U to get d+e.",
+        "Apply uniform-test-bound to retain that same N on every qc separated étale object, then the C9 comparison, generation and compact-object characterization."
+      ],
+      "acceptance": [
+        "Spa(C,O_C) has d=e=0 and recovers perfect complexes over F_ℓ. A union of components with unbounded dimensions fails the uniform-bound hypotheses."
+      ],
+      "prerequisites": [
+        "DiamondEtaleCohomology:C8/point-cd-geometric-bound",
+        "DiamondEtaleCohomology:C8/spatial-cohomological-bound",
+        "DiamondEtaleCohomology:C9/uniform-test-bound",
+        "DiamondEtaleCohomology:C9/compact-generators",
+        "DiamondEtaleCohomology:C9/finite-field-compact-objects"
+      ],
+      "sources": [
+        {
+          "sourceId": "ECD",
+          "locator": "Propositions 21.11 and 21.16 combined with 20.10, pp.117,124,126",
+          "match": "A derived consequence of the cited definitions and inequalities, with the extra hypotheses stated in the node and the derivation given in its proof sketch; not a verbatim named theorem in the source."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/DiamondEtale/CompactObjects",
+        "namespace": "TauCeti.DiamondEtale"
+      },
+      "implementationStatus": "unchecked"
     }
   ],
   "requests": [
@@ -2821,11 +3011,12 @@
     },
     {
       "supplier": "EnhancedDerivedSheaves:E2",
-      "need": "For a coherent site whose generating basis has one finite bound N for cohomology of all module sheaves, prove Postnikov left completeness and the uniform truncation estimate used to show derived global sections commutes with arbitrary coproducts. Supply the site-level form of Stacks0719; the ringed-space statement alone is insufficient.",
+      "need": "For a coherent site whose generating basis has one finite bound N for cohomology of all module sheaves, prove Postnikov left completeness and the uniform truncation estimate used to show derived global sections commutes with arbitrary coproducts. Supply the site-level form of Stacks0719; the ringed-space statement alone is insufficient. Supply generic cosimplicial section complexes, normalization and comparison with sheaf cohomology once C8 proves its quasi-augmented descent theorem. An ordinary Cartesian hypercover theorem does not establish that theorem.",
       "neededBy": [
         "DiamondEtaleCohomology:C9/left-completeness",
         "DiamondEtaleCohomology:C9/global-sections-coproducts",
-        "DiamondEtaleCohomology:C9/etale-generators-detect-zero"
+        "DiamondEtaleCohomology:C9/etale-generators-detect-zero",
+        "DiamondEtaleCohomology:C8/chain-cohomology-comparison"
       ]
     },
     {
@@ -2866,12 +3057,9 @@
     },
     {
       "supplier": "DiamondEtaleCohomology:C3",
-      "need": "Exact étale extension by zero, its adjunction and support triangles, derived tensor/internal Hom and the precise étale comparison maps.",
+      "need": "Derived tensor/internal Hom and their comparison maps, used with the separate C5 étale extension-by-zero adjunction.",
       "neededBy": [
-        "DiamondEtaleCohomology:C8/constructible-support-reduction",
-        "DiamondEtaleCohomology:C9/etale-constant-compact",
-        "DiamondEtaleCohomology:C9/perfect-local-system-compact",
-        "DiamondEtaleCohomology:C9/perfect-constructible-implies-compact"
+        "DiamondEtaleCohomology:C9/perfect-local-system-compact"
       ]
     },
     {
@@ -2885,37 +3073,58 @@
         "DiamondEtaleCohomology:C9/perfect-constructible-implies-compact",
         "DiamondEtaleCohomology:C9/finite-field-compact-objects"
       ]
+    },
+    {
+      "supplier": "DiamondEtaleCohomology:C5",
+      "need": "Exact étale extension by zero of 19.1, its pullback adjunction, open-support triangle and base-change comparison. This is available before general proper pushforward or Rf!.",
+      "neededBy": [
+        "DiamondEtaleCohomology:C8/constructible-support-reduction",
+        "DiamondEtaleCohomology:C9/etale-constant-compact",
+        "DiamondEtaleCohomology:C9/perfect-local-system-compact",
+        "DiamondEtaleCohomology:C9/perfect-constructible-implies-compact"
+      ]
+    },
+    {
+      "supplier": "DiamondsAndVStacks:D5",
+      "need": "Quasi-pro-étale algebraically closed field-point presentations through a given diamond point; localization and preservation of fibre specialization chains. Supply the field-point evaluation in Remark 21.8 and the one-point/local presentation used in 21.9/21.15. The general universally-open presentation node does not alone specify this exact contract.",
+      "neededBy": [
+        "DiamondEtaleCohomology:C8/diamond-dim-trg",
+        "DiamondEtaleCohomology:C8/point-quotient",
+        "DiamondEtaleCohomology:C8/specialization-stabilizers",
+        "DiamondEtaleCohomology:C8/topological-dimension-field-tests"
+      ]
     }
   ],
   "coverage": [
     {
       "stageId": "DiamondEtaleCohomology:C8",
-      "status": "partial",
+      "status": "planned",
       "remaining": [
-        "Krasner comparison and finite topological generators",
+        "Characteristic-independent completion and finite extension norms",
         "Universe bounds, valued amalgamation and point choices",
         "Huber valuative dimension and completion lemmas",
-        "Temkin finite-degree paragraph and remaining dimension API",
+        "Temkin primitive perturbation source boundary",
         "Wild, residue and tame proof interiors",
-        "Bourbaki valuation inequality",
+        "Valuation rank and completion comparisons",
         "Scheiderer quasi-augmented descent proof",
         "CS17 valuation-space comparison in general analytic scope",
-        "Discharge all supplier requests, split each nonroutine proof obligation into a declaration, and complete the omitted suggested signatures."
+        "Suggested signatures remain incomplete",
+        "Resolve the D5 field-point contract and the general analytic partial-properness extension; state omitted signatures against the supplied carriers."
       ]
     },
     {
       "stageId": "DiamondEtaleCohomology:C9",
-      "status": "partial",
+      "status": "planned",
       "remaining": [
-        "Discharge the C0–C3/C7 and E2/E3 interfaces, including the finite-window proof and enhanced compactness comparison.",
-        "Write actual suggested signatures against the suppliers’ types and compile at the pinned baseline."
+        "Resolve the E2 finite-window/left-completion and E3 compact-generator interfaces, and the C0/C2/C3/C5/C7 contracts; preserve one common finite bound.",
+        "State the omitted enhanced/site signatures against their owning carriers and validate the dimension-bound application."
       ]
     }
   ],
   "gaps": [
     {
-      "title": "Krasner comparison and finite topological generators",
-      "detail": "Read and split the complete proof behind ECD21.2’s comparison with Huber1.8.2. Establish the equivalence between a dense finite-transcendence subfield and finite generation as a complete algebraically closed field, including approximation of algebraic elements; a source assertion is not a closed proof.",
+      "title": "Characteristic-independent completion and finite extension norms",
+      "detail": "Conrad’s complete coefficient/root approximation proof has been read and supplies a characteristic-independent route for the closure of an algebraically closed subfield. The pinned IsAlgClosed.of_denseRange requires CharZero and cannot be cited in characteristic p. Spell out the norm on a finite splitting extension and its compatibility with the original complete rank-one valuation before formalizing the adapted argument.",
       "neededBy": [
         "DiamondEtaleCohomology:C8/finite-topological-generators"
       ]
@@ -2940,12 +3149,11 @@
       ]
     },
     {
-      "title": "Temkin finite-degree paragraph and remaining dimension API",
-      "detail": "ECD v4 adds the finite-degree answer to Question21.4 using Temkin2021 Theorem3.2.3 and Lemma2.2.2. The public author copy was located but not read in full. Extract that restricted theorem and recursively check its proof; do not claim the general question resolved. Add named open-locality/supremum lemmas and the precise analytic-to-diamond comparison in the domain where the source proves it.",
+      "title": "Temkin primitive perturbation source boundary",
+      "detail": "Temkin §§2–3 and ECD’s finite-degree paragraph were read. Finite intermediate-degree monotonicity and finite modified/original equality are explicit nodes. The proof of Temkin Lemma 3.1.6 imports Temkin 2010 Lemma 6.3.2; its primitive-field perturbation proof has not been read. Refine that precise input before claiming source closure; retain the distinction between independent and generating degree for infinite extensions.",
       "neededBy": [
-        "DiamondEtaleCohomology:C8/topological-trdeg",
-        "DiamondEtaleCohomology:C8/diamond-dim-trg",
-        "DiamondEtaleCohomology:C8/locally-finite-dim-trg"
+        "DiamondEtaleCohomology:C8/topological-trdeg-finite-monotonicity",
+        "DiamondEtaleCohomology:C8/modified-trdeg-finite-equality"
       ]
     },
     {
@@ -2960,8 +3168,8 @@
       ]
     },
     {
-      "title": "Bourbaki valuation inequality",
-      "detail": "Read and decompose Bourbaki Commutative Algebra VI.10.3 Corollary1 or an exact public replacement; prove the residue/value-group inequality and invariance of residue transcendence and rational value groups under completion, with monotonicity under further extensions. ECD’s invocation has been read; the cited proof has not.",
+      "title": "Valuation rank and completion comparisons",
+      "detail": "The polynomial leading-term proof is now explicit in valuation-transcendence-bound. Refine residue independence, rational value-group independence, cardinal-to-ENat conversion, algebraic-extension torsion and completion immediacy. Bourbaki VI.10.3 Corollary 1 has not been read; no claim of an independently closed library proof is made.",
       "neededBy": [
         "DiamondEtaleCohomology:C8/valuation-transcendence-bound"
       ]
@@ -2996,33 +3204,9 @@
       ]
     },
     {
-      "title": "Upstream-stage prerequisite serialization",
-      "detail": "The unmodified checker matches every tauceti: string as a compiled baseline declaration before checking atlas stage IDs. It therefore rejects the actual upstream TauCetiRoadmap stage references. This partial checkpoint preserves all 17 affected edges in unresolvedUpstreamEdges, in each node’s unresolvedUpstreamPrerequisites, and in exact requests with neededBy; they are explicit unresolved graph leaves, not baseline declarations. Restore these to prerequisites when the checker distinguishes upstream stage IDs. No graph closure or fully conforming prerequisite serialization is claimed.",
-      "neededBy": [
-        "DiamondEtaleCohomology:C8/analytic-dim-trg",
-        "DiamondEtaleCohomology:C8/closed-point-bound",
-        "DiamondEtaleCohomology:C8/closed-point-cohomology",
-        "DiamondEtaleCohomology:C8/extension-cd-bound",
-        "DiamondEtaleCohomology:C8/point-cd",
-        "DiamondEtaleCohomology:C8/point-cohomology",
-        "DiamondEtaleCohomology:C8/point-sheaf-equivalence",
-        "DiamondEtaleCohomology:C8/prime-to-p-wild-removal",
-        "DiamondEtaleCohomology:C8/residue-cd-bound",
-        "DiamondEtaleCohomology:C8/tame-cd-bound",
-        "DiamondEtaleCohomology:C8/wild-automorphism",
-        "DiamondEtaleCohomology:C8/wild-kernel-pro-p"
-      ]
-    },
-    {
       "title": "Suggested signatures remain incomplete",
-      "detail": "The suggested file contains complete proposed signatures only for the specialization-dimension comparison, fibreDimension and topologicalTrdeg with their API and tests. The other declarations need unconstructed diamond/enhanced/cohomological-dimension types or the unclosed valued-field interfaces. Their conditions are not replaced by arbitrary predicates or assumed theorem records. Complete these signatures after the mathematical and supplier gaps are resolved, then compile at the recorded pins.",
+      "detail": "The suggested file states all signatures/API/tests representable with the pinned topology and normed-field carriers, including the modified invariant with genuine extension data. Analytic, diamond, site and enhanced-category declarations need the absent owning supplier types; these conditions are omitted under PROTOCOL §13, with a per-node inventory. Group cohomological dimension and the tame character/value-group topology likewise need their imported interfaces. No arbitrary proposition field or assumed theorem package fills these omissions.",
       "neededBy": [
-        "DiamondEtaleCohomology:C8/finite-topological-generators",
-        "DiamondEtaleCohomology:C8/topological-trdeg-tower",
-        "DiamondEtaleCohomology:C8/topological-trdeg-base-change",
-        "DiamondEtaleCohomology:C8/modified-topological-trdeg",
-        "DiamondEtaleCohomology:C8/modified-trdeg-tower",
-        "DiamondEtaleCohomology:C8/modified-trdeg-base-change",
         "DiamondEtaleCohomology:C8/analytic-dim-trg",
         "DiamondEtaleCohomology:C8/analytic-dimension-bound",
         "DiamondEtaleCohomology:C8/diamond-dim-trg",
@@ -3041,8 +3225,6 @@
         "DiamondEtaleCohomology:C8/closed-point-cohomology",
         "DiamondEtaleCohomology:C8/closed-point-bound",
         "DiamondEtaleCohomology:C8/extension-cd-bound",
-        "DiamondEtaleCohomology:C8/wild-automorphism",
-        "DiamondEtaleCohomology:C8/wild-kernel-pro-p",
         "DiamondEtaleCohomology:C8/prime-to-p-wild-removal",
         "DiamondEtaleCohomology:C8/residue-galois-identification",
         "DiamondEtaleCohomology:C8/residue-cd-bound",
@@ -3050,7 +3232,6 @@
         "DiamondEtaleCohomology:C8/tame-cd-bound",
         "DiamondEtaleCohomology:C8/valuation-transcendence-bound",
         "DiamondEtaleCohomology:C8/point-cd-geometric-bound",
-        "DiamondEtaleCohomology:C8/specialization-chain-space",
         "DiamondEtaleCohomology:C8/chain-cohomology-comparison",
         "DiamondEtaleCohomology:C8/spectral-cohomological-bound",
         "DiamondEtaleCohomology:C8/boundary-dimension-drop",
@@ -3072,7 +3253,9 @@
         "DiamondEtaleCohomology:C9/perfect-local-system-compact",
         "DiamondEtaleCohomology:C9/perfect-constructible-implies-compact",
         "DiamondEtaleCohomology:C9/compact-iff-perfect-constructible",
-        "DiamondEtaleCohomology:C9/finite-field-compact-objects"
+        "DiamondEtaleCohomology:C9/finite-field-compact-objects",
+        "DiamondEtaleCohomology:C8/topological-dimension-field-tests",
+        "DiamondEtaleCohomology:C9/compact-generation-from-dimension-bounds"
       ]
     }
   ],
@@ -3121,107 +3304,61 @@
     {
       "kind": "preprint",
       "url": "https://arxiv.org/pdf/1709.07343v4",
-      "read": "2026-09-26",
+      "read": "2026-10-06",
       "sha256": "78ca42bba46f1d43c894b0dbfdfb41105efab4959ba5ba6e32e1e5cf7ef33efc"
     },
     {
       "kind": "published",
       "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v186-n3-p01-p.pdf",
-      "read": "2026-09-26",
+      "read": "2026-10-06",
       "sha256": "4f9449e5ecfd8fb8b43a04acef73060f531be995babaa9f744f3db36aaa5e61a"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1610.09162v2",
+      "read": "2026-10-06",
+      "sha256": "df32be2841a71677ded61b9957fe50e650b2e41ba9874daf96b15330bc4c75af"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://math.stanford.edu/~conrad/248APage/handouts/algclosurecomp.pdf",
+      "read": "2026-10-06",
+      "sha256": "07052ff7a8c1a25ce876ca984f28d62e513998259906bd994d3dc1622cda3f5b"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/2102.13459v4",
+      "read": "2026-10-06",
+      "sha256": "1f8040751d3424f59ae56651d990d7b2d5030e6b7cae58bc2fc683358dfc2027"
     }
   ],
   "ownershipNotes": [
     "Accepted RS-05 assigns all-degree Hochschild–Serre to R02.1 and discrete/compact convergence to R02.2. The current stage headings describe those in the opposite order. Requests follow the binding RS-05 assignment and explicitly name the required statements; no private C8 spectral sequence is constructed.",
-    "Only PAPER-CARAIANI-SCHOLZE-17/69 has a source route to these stages in the snapshot. The Binda–Kato–Vezzani and Liu–Wang occurrences are library-search hits, not additional source routes.",
+    "PAPER-CARAIANI-SCHOLZE-17/69 and PAPER-FARGUES-SCHOLZE-21/c1-problem-I.11.1-dimension are the additional routes into C8. The other newly routed ECD §§17–20 statements belong to C2–C4/C7 and are imported through their owning contracts. The Binda–Kato–Vezzani and Liu–Wang occurrences are library-search hits, not additional source routes.",
     "Generated library-coverage has no C8/C9 entries. The scoped AUDIT-36 records and the separate accepted REV-AUDIT-36 report were read, followed by direct pinned-source searches. The older audit’s absent inline review is not treated as an absence of independent review.",
-    "C7 filtration20.8/20.16 uses the point-quotient and specialization-stabilizer constructions described in21.9/21.15. Those named C8 nodes have no C7 dependency and are exported early; C7 must import them at declaration granularity, rather than depend on the complete C8 cohomological-bound stage."
-  ],
-  "unresolvedUpstreamEdges": [
-    {
-      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-3-rational-localisation-and-the-structure-presheaf",
-      "target": "DiamondEtaleCohomology:C8/analytic-dim-trg"
-    },
-    {
-      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-0-discrete-modules-and-continuous-sections",
-      "target": "DiamondEtaleCohomology:C8/point-sheaf-equivalence"
-    },
-    {
-      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees",
-      "target": "DiamondEtaleCohomology:C8/point-cohomology"
-    },
-    {
-      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-11-cohomological-dimension",
-      "target": "DiamondEtaleCohomology:C8/point-cd"
-    },
-    {
-      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees",
-      "target": "DiamondEtaleCohomology:C8/closed-point-cohomology"
-    },
-    {
-      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-11-cohomological-dimension",
-      "target": "DiamondEtaleCohomology:C8/closed-point-bound"
-    },
-    {
-      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees",
-      "target": "DiamondEtaleCohomology:C8/extension-cd-bound"
-    },
-    {
-      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-11-cohomological-dimension",
-      "target": "DiamondEtaleCohomology:C8/extension-cd-bound"
-    },
-    {
-      "source": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-2-profinite-sylow-theory",
-      "target": "DiamondEtaleCohomology:C8/wild-automorphism"
-    },
-    {
-      "source": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-3-pro-p-groups-the-maximal-pro-p-quotient-frattini-theory-generation",
-      "target": "DiamondEtaleCohomology:C8/wild-automorphism"
-    },
-    {
-      "source": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-3-pro-p-groups-the-maximal-pro-p-quotient-frattini-theory-generation",
-      "target": "DiamondEtaleCohomology:C8/wild-kernel-pro-p"
-    },
-    {
-      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees",
-      "target": "DiamondEtaleCohomology:C8/prime-to-p-wild-removal"
-    },
-    {
-      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-11-cohomological-dimension",
-      "target": "DiamondEtaleCohomology:C8/prime-to-p-wild-removal"
-    },
-    {
-      "source": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-3-pro-p-groups-the-maximal-pro-p-quotient-frattini-theory-generation",
-      "target": "DiamondEtaleCohomology:C8/prime-to-p-wild-removal"
-    },
-    {
-      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees",
-      "target": "DiamondEtaleCohomology:C8/residue-cd-bound"
-    },
-    {
-      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-11-cohomological-dimension",
-      "target": "DiamondEtaleCohomology:C8/residue-cd-bound"
-    },
-    {
-      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-11-cohomological-dimension",
-      "target": "DiamondEtaleCohomology:C8/tame-cd-bound"
-    }
+    "C7 filtration20.8/20.16 uses the point-quotient and specialization-stabilizer constructions described in21.9/21.15. Those named C8 nodes have no C7 dependency and are exported early; C7 must import them at declaration granularity, rather than depend on the complete C8 cohomological-bound stage.",
+    "C5 owns exact étale extension by zero and its adjunction; C3 supplies tensor/internal Hom. C9 is conditional over the commutative rings of C7/E1, though ECD20.17 is stated more generally. The FS dimension problem and ECD21.4 are questions, not assumed equalities or monotonicity inputs."
   ],
   "validation": {
-    "leanCompiled": false,
-    "leanReason": "Lean executables exist, but the pinned source snapshots have no compiled Mathlib/TauCeti dependency environment. No elaboration or kernel check is claimed.",
+    "leanCompiled": true,
+    "leanReason": "lean-check completed at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 with only intended proof-placeholder warnings. The file imports only individual Mathlib modules. Tau Ceti f790474 statements were source-checked; the shared build lacks the compiled ProP module, so its exact finite continuous quotient criterion is stated using Mathlib IsPGroup. No full pinned Tau Ceti build or proof verification is claimed.",
     "suggestedSignatureNodes": [
       "DiamondEtaleCohomology:C8/specialization-dimension",
       "DiamondEtaleCohomology:C8/fibre-dimension",
-      "DiamondEtaleCohomology:C8/topological-trdeg"
-    ],
-    "suggestedOmittedNodes": [
+      "DiamondEtaleCohomology:C8/topological-trdeg",
       "DiamondEtaleCohomology:C8/finite-topological-generators",
       "DiamondEtaleCohomology:C8/topological-trdeg-tower",
       "DiamondEtaleCohomology:C8/topological-trdeg-base-change",
+      "DiamondEtaleCohomology:C8/topological-trdeg-finite-monotonicity",
       "DiamondEtaleCohomology:C8/modified-topological-trdeg",
       "DiamondEtaleCohomology:C8/modified-trdeg-tower",
       "DiamondEtaleCohomology:C8/modified-trdeg-base-change",
+      "DiamondEtaleCohomology:C8/modified-trdeg-finite-equality",
+      "DiamondEtaleCohomology:C8/wild-automorphism",
+      "DiamondEtaleCohomology:C8/wild-kernel-pro-p",
+      "DiamondEtaleCohomology:C8/specialization-chain-space"
+    ],
+    "suggestedOmittedNodes": [
       "DiamondEtaleCohomology:C8/analytic-dim-trg",
       "DiamondEtaleCohomology:C8/analytic-dimension-bound",
       "DiamondEtaleCohomology:C8/diamond-dim-trg",
@@ -3240,8 +3377,6 @@
       "DiamondEtaleCohomology:C8/closed-point-cohomology",
       "DiamondEtaleCohomology:C8/closed-point-bound",
       "DiamondEtaleCohomology:C8/extension-cd-bound",
-      "DiamondEtaleCohomology:C8/wild-automorphism",
-      "DiamondEtaleCohomology:C8/wild-kernel-pro-p",
       "DiamondEtaleCohomology:C8/prime-to-p-wild-removal",
       "DiamondEtaleCohomology:C8/residue-galois-identification",
       "DiamondEtaleCohomology:C8/residue-cd-bound",
@@ -3249,7 +3384,6 @@
       "DiamondEtaleCohomology:C8/tame-cd-bound",
       "DiamondEtaleCohomology:C8/valuation-transcendence-bound",
       "DiamondEtaleCohomology:C8/point-cd-geometric-bound",
-      "DiamondEtaleCohomology:C8/specialization-chain-space",
       "DiamondEtaleCohomology:C8/chain-cohomology-comparison",
       "DiamondEtaleCohomology:C8/spectral-cohomological-bound",
       "DiamondEtaleCohomology:C8/boundary-dimension-drop",
@@ -3271,29 +3405,41 @@
       "DiamondEtaleCohomology:C9/perfect-local-system-compact",
       "DiamondEtaleCohomology:C9/perfect-constructible-implies-compact",
       "DiamondEtaleCohomology:C9/compact-iff-perfect-constructible",
-      "DiamondEtaleCohomology:C9/finite-field-compact-objects"
+      "DiamondEtaleCohomology:C9/finite-field-compact-objects",
+      "DiamondEtaleCohomology:C8/topological-dimension-field-tests",
+      "DiamondEtaleCohomology:C9/compact-generation-from-dimension-bounds"
     ],
-    "publicationStatus": "Structural checks passed; mathematical closure and suggested-file completion remain open.",
-    "blueprintChecker": "0 errors, 0 warnings with the pinned declaration index",
-    "exactFileIntake": "4 files, 0 problems",
-    "sourceIssues": "Embedded source-issue rules and the scratch errata-v1 projection passed.",
-    "baselineModuleVerification": "8 cited modules matched raw source bytes at the pinned commit.",
-    "publicationBase": "00990077b27e5372af922549326f5cbe6a6c837e",
-    "unchangedInputBlobs": 42,
-    "claimConfirmed": 5848878280
+    "publicationStatus": "Complete target-level planning pass with explicit refinements; no stage closure or implementation claim."
   },
   "researchProvenance": {
     "agent": "Codex",
-    "session": "codex-7e92bd",
+    "session": "codex-jwdV9s",
     "issue": 710,
-    "claimComment": 5848877344,
-    "claimConfirmation": 5848878280,
-    "inputCommit": "9806e83f5711fd3002258b51cb21b85a8b6233ff",
+    "claimComment": 6026175842,
+    "claimConfirmation": "IC_kwDOUb38Ys8AAAABZzAtUg",
+    "inputCommit": "c125e442708cbb99a17380de31d728b92847b6c6",
     "upstreamRead": [
       "AdicSpaces complete document",
       "GrothendieckEulerForms complete document",
-      "Scoped ProfiniteCohomology Layers0,10,11 and ProfiniteProPGroups Layers2,3 supplier contracts"
+      "ProfiniteCohomology and ProfiniteProPGroups supplier contracts"
     ],
-    "sourceCoverage": "ECD§21 read completely;20.9,20.10,20.17 statements and proofs read;CS17§4.2.19–21 read;KST6.6 read;Stacks0A3G/0719 read. External proof gaps are listed individually."
-  }
+    "sourceCoverage": "ECD §21 and 20.9/20.10/20.17 statements and proofs; CS17 4.2.19–21 and Remark 4.2.20; Temkin §§2–3; Conrad entire handout; FS I.11.1; KST 6.6 proof. Imported unread sources have exact gaps."
+  },
+  "questions": [
+    {
+      "id": "DiamondEtaleCohomology:C8/question-21-4",
+      "sourceId": "ECD",
+      "locator": "Question 21.4 and following finite-degree paragraph, pp.122–123",
+      "statement": "For complete algebraically closed nonarchimedean K⊆L⊆M, must the unmodified topologicalTrdeg(K,L) be at most topologicalTrdeg(K,M) without a finiteness assumption on the intermediate degree?",
+      "treatment": "Recorded as a question. The finite intermediate-degree case is a theorem below; no unconditional monotonicity is used."
+    },
+    {
+      "id": "DiamondEtaleCohomology:C8/problem-I-11-1",
+      "sourceId": "FS",
+      "locator": "Problem I.11.1 and preceding paragraph, pp.41–42",
+      "statement": "For a Zariski closed subset X of a finite-dimensional perfectoid ball over C, establish a well-behaved dimension; the text asks whether Krull dimension, dim.trg and cohomological dimension agree.",
+      "supplier": "PerfectoidSpaces:P4",
+      "treatment": "Record the open problem and import the meaning of Zariski closed perfectoid subspaces from P4. No dimension equality is asserted and no theorem with an assumed equality is introduced."
+    }
+  ]
 }
