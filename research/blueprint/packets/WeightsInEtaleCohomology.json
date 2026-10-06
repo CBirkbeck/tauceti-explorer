@@ -21,63 +21,63 @@
         "kind": "definition",
         "module": "Mathlib/RingTheory/Frobenius.lean",
         "provides": "For a monoid acting on an R-algebra S and fixing R, σ is arithmetic Frobenius at Q if σ•x≡x^q mod Q for every x, where q=#(R/(Q∩R)). The definition does not itself require a finite group.",
-        "checked": "Statement re-read in Mathlib/RingTheory/Frobenius.lean at 082e2d3, lines 180–212, 2026-10-06; Lean #check included in the suggested file."
+        "checked": "Independent review REV-WeightsInEtaleCohomology, 2026-10-06: exact declaration and hypotheses re-read in Mathlib/RingTheory/Frobenius.lean at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; resolved by #check in the suggested file. No Tau Ceti declaration is cited."
       },
       {
         "ref": "mathlib:IsArithFrobAt.mul_inv_mem_inertia",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/Frobenius.lean",
         "provides": "Two arithmetic Frobenius elements at Q differ by an element of the inertia subgroup of Q.",
-        "checked": "Statement re-read in Mathlib/RingTheory/Frobenius.lean at 082e2d3, lines 180–212, 2026-10-06; Lean #check included in the suggested file."
+        "checked": "Independent review REV-WeightsInEtaleCohomology, 2026-10-06: exact declaration and hypotheses re-read in Mathlib/RingTheory/Frobenius.lean at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; resolved by #check in the suggested file. No Tau Ceti declaration is cited."
       },
       {
         "ref": "mathlib:IsArithFrobAt.conj",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/Frobenius.lean",
         "provides": "If σ is a Frobenius at Q, then τστ⁻¹ is a Frobenius at τ • Q: conjugacy across the primes above v.",
-        "checked": "Statement re-read in Mathlib/RingTheory/Frobenius.lean at 082e2d3, lines 180–212, 2026-10-06; Lean #check included in the suggested file."
+        "checked": "Independent review REV-WeightsInEtaleCohomology, 2026-10-06: exact declaration and hypotheses re-read in Mathlib/RingTheory/Frobenius.lean at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; resolved by #check in the suggested file. No Tau Ceti declaration is cited."
       },
       {
         "ref": "mathlib:IsArithFrobAt.exists_of_isInvariant",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/Frobenius.lean",
         "provides": "For a finite group G acting on S with invariant algebra R, a prime Q with finite S/Q has an arithmetic Frobenius element; integrality follows from invariant-ring finiteness rather than being a separate hypothesis.",
-        "checked": "Statement read at Mathlib 082e2d3, lines 213–235, 2026-10-06; the finite-group and invariant-ring hypotheses are retained."
+        "checked": "Independent review REV-WeightsInEtaleCohomology, 2026-10-06: exact declaration and hypotheses re-read in Mathlib/RingTheory/Frobenius.lean at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; resolved by #check in the suggested file. No Tau Ceti declaration is cited."
       },
       {
         "ref": "mathlib:Representation",
         "kind": "definition",
         "module": "Mathlib/RepresentationTheory/Basic.lean",
         "provides": "A representation is a monoid homomorphism G→*Module.End E V, with no unrequested continuity assumption.",
-        "checked": "Definition read in the pinned Mathlib 082e2d3 source on 2026-10-06; resolved in the suggested Lean file."
+        "checked": "Independent review REV-WeightsInEtaleCohomology, 2026-10-06: exact declaration and hypotheses re-read in Mathlib/RepresentationTheory/Basic.lean at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; resolved by #check in the suggested file. No Tau Ceti declaration is cited."
       },
       {
         "ref": "mathlib:Representation.dual",
         "kind": "definition",
         "module": "Mathlib/RepresentationTheory/Basic.lean",
         "provides": "The contragredient sends g to the transpose of ρ(g⁻¹).",
-        "checked": "Definition read in the pinned Mathlib 082e2d3 source on 2026-10-06; resolved in the suggested Lean file."
+        "checked": "Independent review REV-WeightsInEtaleCohomology, 2026-10-06: exact declaration and hypotheses re-read in Mathlib/RepresentationTheory/Basic.lean at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; resolved by #check in the suggested file. No Tau Ceti declaration is cited."
       },
       {
         "ref": "mathlib:Representation.ofDistribMulAction",
         "kind": "definition",
         "module": "Mathlib/RepresentationTheory/Basic.lean",
         "provides": "A compatible distributive group action produces a linear representation; the scalar units action gives the rank-one test instance.",
-        "checked": "Definition read in the pinned Mathlib 082e2d3 source on 2026-10-06; resolved in the suggested Lean file."
+        "checked": "Independent review REV-WeightsInEtaleCohomology, 2026-10-06: exact declaration and hypotheses re-read in Mathlib/RepresentationTheory/Basic.lean at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; resolved by #check in the suggested file. No Tau Ceti declaration is cited."
       },
       {
         "ref": "mathlib:LinearMap.charpoly",
         "kind": "definition",
         "module": "Mathlib/LinearAlgebra/Charpoly/Basic.lean",
         "provides": "Characteristic polynomial on finite free finite modules, using the chosen basis; applied to the Frobenius action.",
-        "checked": "Definition read in the pinned Mathlib 082e2d3 source on 2026-10-06; resolved in the suggested Lean file."
+        "checked": "Independent review REV-WeightsInEtaleCohomology, 2026-10-06: exact declaration and hypotheses re-read in Mathlib/LinearAlgebra/Charpoly/Basic.lean at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; resolved by #check in the suggested file. No Tau Ceti declaration is cited."
       },
       {
         "ref": "mathlib:Matrix.charpoly",
         "kind": "definition",
         "module": "Mathlib/LinearAlgebra/Matrix/Charpoly/Basic.lean",
         "provides": "For a square matrix over a commutative ring with a finite decidable index, det(XI−M). Used in inverse-companion and induced-representation prototypes.",
-        "checked": "Definition read at Mathlib 082e2d3 in Matrix/Charpoly/Basic.lean, 2026-10-06; individual import and #check in the suggested file."
+        "checked": "Independent review REV-WeightsInEtaleCohomology, 2026-10-06: exact declaration and hypotheses re-read in Mathlib/LinearAlgebra/Matrix/Charpoly/Basic.lean at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; resolved by #check in the suggested file. No Tau Ceti declaration is cited."
       }
     ]
   },
@@ -91,7 +91,8 @@
       "sha256": "8392b345d4854e6dc55fb42cfc0b616d941935983723627237239a87348f42e5",
       "readSections": [
         "cc-fb70e5, 2026-09-29: §1 (1.13)–(1.15), pp. 278–279",
-        "codex-8vDn9u, 2026-10-06: §1 (1.13)–(1.15), §3 (3.2), §4 (4.2)–(4.3), §5 (5.6)–(5.10), §6 (6.1)–(6.3), pp. 278–279, 283, 287–289, 291–297; (1.5.1), p. 275."
+        "codex-8vDn9u, 2026-10-06: §1 (1.13)–(1.15), §3 (3.2), §4 (4.2)–(4.3), §5 (5.6)–(5.10), §6 (6.1)–(6.3), pp. 278–279, 283, 287–289, 291–297; (1.5.1), p. 275.",
+        "codex-1NhrNh independent review, 2026-10-06: §1 (1.5.1), (1.13)–(1.15); §3 (3.2); §4 (4.1)–(4.3); §5 (5.6)–(5.10); §6 (6.1); printed pp. 275, 278–279, 283, 287–289, 291–295."
       ],
       "accessed": "2026-10-06"
     },
@@ -104,7 +105,8 @@
       "sha256": "b06eea61bf9cb2b596c162f5befcf85d1be69828910a6107c8aa3a99c4afcc71",
       "readSections": [
         "cc-fb70e5, 2026-09-29: (1.1.10)–(1.1.15), pp. 151–153; §1.2 (1.2.1)–(1.2.8), pp. 153–155",
-        "codex-8vDn9u, 2026-10-06: §1.2 (1.2.1)–(1.2.8); §3.3 (3.3.1)–(3.3.11); (3.7.1); §4.1 (4.1.1)–(4.1.2); §6.2 (6.2.1)–(6.2.5), pp. 153–155, 204–207, 215, 217–218, 247–248."
+        "codex-8vDn9u, 2026-10-06: §1.2 (1.2.1)–(1.2.8); §3.3 (3.3.1)–(3.3.11); (3.7.1); §4.1 (4.1.1)–(4.1.2); §6.2 (6.2.1)–(6.2.5), pp. 153–155, 204–207, 215, 217–218, 247–248.",
+        "codex-1NhrNh independent review, 2026-10-06: §1.1 (1.1.13), §1.2 (1.2.2)–(1.2.6), §3.3 (3.3.6), §3.7 (3.7.1), §4.1 (4.1.1), §6.2 (6.2.1)–(6.2.5); pp. 152–154, 206, 215, 217, 247."
       ],
       "accessed": "2026-10-06"
     },
@@ -118,7 +120,8 @@
       "readSections": [
         "cc-fb70e5, 2026-09-29: §2.3–§2.5, pp. 9–14 (Lemmas 2.3–2.10)",
         "cc-fb70e5, 2026-09-29 (checkpoint 2): §3.1–§3.2, pp. 15–16",
-        "codex-8vDn9u, 2026-10-06: §2.1–§2.5 and §3.1–§3.2; Frobenius convention translated explicitly, pp. 9–16."
+        "codex-8vDn9u, 2026-10-06: §2.1–§2.5 and §3.1–§3.2; Frobenius convention translated explicitly, pp. 9–16.",
+        "codex-1NhrNh independent review, 2026-10-06: §2.3 Lemma 2.3, §2.5 Lemma 2.10, §3.1 (3.2); pp. 9–10, 13–14, 16. Corrected the p. 13 section number from 2.4 to 2.5."
       ],
       "accessed": "2026-10-06"
     },
@@ -132,7 +135,8 @@
       "readSections": [
         "cc-fb70e5, 2026-09-29: Chapter I §12, pp. 54–56; Chapter II §1, pp. 75–78",
         "cc-fb70e5, 2026-09-29 (checkpoint 2): Chapter I §17, pp. 69–71",
-        "codex-8vDn9u, 2026-10-06: Chapter I §12 pp. 54–56, §17 pp. 69–71; Chapter II §1 pp. 75–78; Chapter III §11 pp. 117–118. Fresh public PDF hash matches the inherited SHA256."
+        "codex-8vDn9u, 2026-10-06: Chapter I §12 pp. 54–56, §17 pp. 69–71; Chapter II §1 pp. 75–78; Chapter III §11 pp. 117–118. Fresh public PDF hash matches the inherited SHA256.",
+        "codex-1NhrNh independent review, 2026-10-06: I Theorem 12.1 and Remark 12.5, pp. 55–56; I Remark 17.2, p. 70; II Theorem 1.1 and proof, Corollary 1.5 and Remark 1.6(a), pp. 75–78. Replaced two mismatched source passages."
       ],
       "accessed": "2026-10-06"
     },
@@ -145,7 +149,8 @@
       "sha256": "19509c19b0cb056f4a5eba83a48a99f54bb6df0c7a96ab7f4018b0765e1ed98c",
       "accessed": "2026-10-06",
       "readSections": [
-        "§3.19–§3.20 and §5 (5.1)–(5.6), pp. 158–159, 168–171."
+        "§3.19–§3.20 and §5 (5.1)–(5.6), pp. 158–159, 168–171.",
+        "codex-1NhrNh independent review, 2026-10-06: §5 (5.1)–(5.6), pp. 168–171; checked the degree-r+1 parabolic realization and the conditional 1969 formulation."
       ]
     },
     {
@@ -157,7 +162,8 @@
       "sha256": "fb5b69b76d2257ce20f47366c4bd165ccdb571333e7f25a4ed6e92dbb4b55df7",
       "accessed": "2026-10-06",
       "readSections": [
-        "§1 Theorems 0–2 and Claim 1, pp. 10–13; §6.3 Lemma 3 and Claim 3, pp. 29–31; §7 Lemma 4, pp. 32–34; §8 Claim 4, weight spectral sequence and Claim 5, pp. 35–38; §9 Proposition 1′ and its l-adic proof, pp. 38–39. The crystalline vanishing proof on pp. 40–43 is not claimed read. The §2 p. 12 sign was additionally verified on the page image; E1 imports the recorded E50 correction."
+        "§1 Theorems 0–2 and Claim 1, pp. 10–13; §6.3 Lemma 3 and Claim 3, pp. 29–31; §7 Lemma 4, pp. 32–34; §8 Claim 4, weight spectral sequence and Claim 5, pp. 35–38; §9 Proposition 1′ and its l-adic proof, pp. 38–39. The crystalline vanishing proof on pp. 40–43 is not claimed read. The §2 p. 12 sign was additionally verified on the page image; E1 imports the recorded E50 correction.",
+        "codex-1NhrNh independent review, 2026-10-06: §2 pp. 12–13 (p. 12 image); §6 Lemma 3 pp. 30–31; §7 Lemma 4 pp. 32–34; §8 Claims 4–5 and §9 Proposition 1′ pp. 35–39. The completed-unramified base is retained; crystalline proof pp. 40–43 and journal version remain unverified."
       ]
     },
     {
@@ -169,7 +175,8 @@
       "sha256": "0f4984acdabd2efd542aae932850da83c36ec023185a47f40c8ef5813bd21898",
       "accessed": "2026-10-06",
       "readSections": [
-        "§4.5, pp. 50–51; §5.1–§5.4, pp. 52–59; §5.5, pp. 59–60."
+        "§4.5, pp. 50–51; §5.1–§5.4, pp. 52–59; §5.5, pp. 59–60.",
+        "codex-1NhrNh independent review, 2026-10-06: §5.4 Lemma 5.7 and §5.5 pp. 58–60; retained the inherited all-λ comparison request instead of assuming the integral premotive covers primes dividing Nk!."
       ]
     },
     {
@@ -181,7 +188,8 @@
       "sha256": "d4a5fb6b1cd76f944f8948e06df1c7ad5656ae5ee14b9189178ee1e8f2b0dab8",
       "accessed": "2026-10-06",
       "readSections": [
-        "Conventions, pp. 409–410; §4.1–§4.7, pp. 423–425; §5.6, p. 429."
+        "Conventions, pp. 409–410; §4.1–§4.7, pp. 423–425; §5.6, p. 429.",
+        "codex-1NhrNh independent review, 2026-10-06: §4.1–§4.5 pp. 423–425, finite-level extensions, Weil-equivariant sequence, residual cuspidal exclusion and normalization filtration."
       ]
     }
   ],
@@ -204,22 +212,32 @@
         {
           "name": "TauCeti.Weights.GaloisRep.frobCharpoly",
           "role": "constructor",
-          "statement": "frobCharpoly ρ v (hv : ρ.IsUnramifiedAt v) : E[X] := charpoly (ρ (Frob_v^geom)), independent of the choices."
+          "statement": "For a finite-dimensional representation ρ and a supplied group element g, frobCharpoly(ρ,g) is the characteristic polynomial of ρ(g). The arithmetic place adapter evaluates it at a geometric Frobenius lift; inertia invariance and conjugacy prove independence of that lift and of the place above v."
         },
         {
           "name": "TauCeti.Weights.GaloisRep.frobCharpoly_arith",
           "role": "compatibility",
-          "statement": "charpoly (ρ (Frob_v^arith)) = frobCharpoly ρ^∨ v."
+          "statement": "For g in the group, frobCharpoly(ρ,g⁻¹) equals frobCharpoly(ρ∨,g). Taking g to be geometric Frobenius gives the arithmetic polynomial."
         },
         {
           "name": "TauCeti.Weights.GaloisRep.frobCharpoly_roots_inv",
           "role": "characterisation",
-          "statement": "The roots of charpoly (ρ (Frob_v^arith)) are the inverses of those of frobCharpoly ρ v."
+          "statement": "Over an algebraically closed coefficient field, the root multiset of frobCharpoly(ρ,g⁻¹) is the inverse of the root multiset of frobCharpoly(ρ,g), with multiplicities."
         },
         {
           "name": "TauCeti.Weights.GaloisRep.frobCharpoly_conj",
           "role": "simp",
-          "statement": "frobCharpoly (g • ρ) v = frobCharpoly ρ v for conjugate representations."
+          "statement": "For group elements g,h, frobCharpoly(ρ,hgh⁻¹) equals frobCharpoly(ρ,g); this handles conjugate decomposition groups."
+        },
+        {
+          "name": "TauCeti.Weights.GaloisRep.frobCharpoly_inertia",
+          "role": "simp",
+          "statement": "If inertia I(v) acts trivially under ρ and t belongs to I(v), then frobCharpoly(ρ,tg) equals frobCharpoly(ρ,g). This is the lift-independence interface."
+        },
+        {
+          "name": "TauCeti.Weights.GaloisRep.frobCharpoly_equiv",
+          "role": "functoriality",
+          "statement": "If an E-linear equivalence e intertwines ρ and σ at every group element, then frobCharpoly(ρ,g) equals frobCharpoly(σ,g) for every g."
         }
       ],
       "uses": [
@@ -318,27 +336,57 @@
         {
           "name": "TauCeti.Weights.GaloisRep.IsPureOutside",
           "role": "data",
-          "statement": "IsPureOutside ρ T w : Prop := ∀ v ∉ T, ρ.IsUnramifiedAt v ∧ IsPure (q_v : ℝ) w (ρ (Frob_v^geom))."
+          "statement": "With supplied inertia groups I(v), geometric lifts F(v) and residue cardinalities q(v), IsPureOutside(ρ,I,F,q,T,w) means: at each v outside T, inertia acts trivially and every Frobenius root is algebraic over ℚ and has absolute value q(v)^(w/2) under every complex coefficient embedding. Here w is an integer. The continuous local-place carrier is a requested arithmetic adapter."
         },
         {
           "name": "TauCeti.Weights.GaloisRep.HasIntegralFrobOutside",
           "role": "data",
-          "statement": "HasIntegralFrobOutside ρ T : Prop := ∀ v ∉ T, ∃ P : ℤ[X], (P.map (Int.castRingHom E)) = frobCharpoly ρ v."
+          "statement": "HasIntegralFrobOutside(ρ,I,F,T) means: at every v outside T inertia acts trivially and the characteristic polynomial of ρ(F(v)) is the image of a polynomial in ℤ[X]. Algebraic-integral roots alone do not give rational integer coefficients."
         },
         {
           "name": "TauCeti.Weights.GaloisRep.IsIotaPureOutside",
           "role": "data",
-          "statement": "IsIotaPureOutside ρ T ι w : Prop, the ι-weight version with w : ℝ."
+          "statement": "IsIotaPureOutside(ρ,I,F,q,T,ι,w) means: at every v outside T inertia acts trivially and each Frobenius root has absolute value q(v)^(w/2) under the chosen field embedding ι. Here w is real and no algebraicity is asserted."
         },
         {
           "name": "TauCeti.Weights.GaloisRep.IsPureOutside.mono",
           "role": "compatibility",
-          "statement": "T ⊆ T′ → IsPureOutside ρ T w → IsPureOutside ρ T′ w."
+          "statement": "For fixed I,F,q,w, enlarging T to T′ preserves IsPureOutside whenever T is contained in T′."
         },
         {
           "name": "TauCeti.Weights.GaloisRep.IsPureOutside.weight_unique",
           "role": "characterisation",
-          "statement": "If V is nonzero and there is a place v outside T (automatic for a number field and finite T), IsPureOutside ρ T w and IsPureOutside ρ T w′ imply w=w′. Zero representations are pure of every weight."
+          "statement": "For nonzero V, a place v outside T with q(v)>1, and a complex coefficient embedding, two integer weights witnessing IsPureOutside are equal. Genuine finite residue fields satisfy q(v)>1; the prototype retains it as a hypothesis. The zero representation is pure of every weight."
+        },
+        {
+          "name": "TauCeti.Weights.GaloisRep.isPureOutside_iff",
+          "role": "characterisation",
+          "statement": "IsPureOutside is equivalent to the displayed pointwise inertia-triviality and algebraic/all-embeddings root condition; the reverse implication constructs the predicate without unfolding it."
+        },
+        {
+          "name": "TauCeti.Weights.GaloisRep.hasIntegralFrobOutside_iff",
+          "role": "characterisation",
+          "statement": "HasIntegralFrobOutside is equivalent to pointwise inertia-triviality and existence of an integer polynomial mapping to the Frobenius characteristic polynomial."
+        },
+        {
+          "name": "TauCeti.Weights.GaloisRep.isIotaPureOutside_iff",
+          "role": "characterisation",
+          "statement": "IsIotaPureOutside is equivalent to pointwise inertia-triviality and the chosen-embedding root norm condition."
+        },
+        {
+          "name": "TauCeti.Weights.GaloisRep.HasIntegralFrobOutside.mono",
+          "role": "functoriality",
+          "statement": "For fixed I,F, enlarging T to T′ preserves HasIntegralFrobOutside whenever T is contained in T′."
+        },
+        {
+          "name": "TauCeti.Weights.GaloisRep.IsIotaPureOutside.mono",
+          "role": "functoriality",
+          "statement": "For fixed I,F,q,ι,w, enlarging T to T′ preserves IsIotaPureOutside whenever T is contained in T′."
+        },
+        {
+          "name": "TauCeti.Weights.GaloisRep.IsPureOutside.iota",
+          "role": "compatibility",
+          "statement": "Integer-weight IsPureOutside implies IsIotaPureOutside for each chosen complex coefficient embedding, with the same weight regarded as real."
         }
       ],
       "uses": [
@@ -387,7 +435,7 @@
         {
           "name": "TauCeti.Weights.isPureOutside_zero",
           "kind": "degenerate",
-          "statement": "The rank-zero representation is pure of every integer weight and its Frobenius polynomial is 1."
+          "statement": "The rank-zero representation is pure of every integer weight, its Frobenius polynomial is 1, and it has integral Frobenius polynomials."
         }
       ],
       "proofSteps": [
@@ -467,7 +515,7 @@
         },
         {
           "sourceId": "lawrence-venkatesh",
-          "locator": "§2.4, p. 13",
+          "locator": "§2.5, p. 13",
           "match": "Purity passes to subrepresentations."
         }
       ],
@@ -528,7 +576,7 @@
         "u must be an ℓ-adic unit for continuity on the compact group Gal(k̄/k). A Weil-group representation (Weil II (1.1.10)) allows any u ∈ ℚ̄_ℓ^×."
       ],
       "proofSteps": [
-        "Gal(k̄/k) ≅ Ẑ, topologically generated by F. n ↦ u^n extends continuously to Ẑ because ℤ_ℓ^× is profinite: u^{(ℓ−1)ℓ^m} → 1 as m → ∞, and ℤ_ℓ^× ≅ μ_{ℓ−1} × (1 + ℓℤ_ℓ) for ℓ odd.",
+        "Gal(k̄/k) ≅ Ẑ, topologically generated by F. For each finite quotient of the profinite group ℤ_ℓ×, the image of u has finite order, so n ↦ u^n factors through a finite cyclic quotient of ℤ. These compatible maps extend uniquely to Ẑ and their inverse limit is a continuous character. This covers ℓ=2 as well as odd ℓ; it does not assume ℤ_ℓ× is procyclic.",
         "ℤ_ℓ^× is uncountable and the algebraic numbers are countable, so transcendental units exist; for instance 1 + ℓt with t ∈ ℤ_ℓ transcendental.",
         "A Weil q-number is algebraic (DWP.0/weil-q-number), so χ_u is pure of no weight. Its ι-weight is defined for every ι (DWP.0/iota-weight).",
         "u = 2: if |2| = q^{w/2} with q an odd prime, then 4 = q^w, impossible for integer w."
@@ -538,7 +586,8 @@
       ],
       "prerequisites": [
         "WeightsInEtaleCohomology:R34.1/pure-and-integral-galois-representations",
-        "DeligneWeightsAndPurity:DWP.0/iota-weight"
+        "DeligneWeightsAndPurity:DWP.0/iota-weight",
+        "ArithmeticGaloisRepresentations:R01.1"
       ],
       "sources": [
         {
@@ -562,7 +611,7 @@
       ],
       "title": "Purity against a chosen embedding versus all embeddings",
       "kind": "theorem",
-      "statement": "Let ρ be as in pure-and-integral-galois-representations, with coefficients in ℚ̄_p. (i) ρ is pure of weight w outside T iff it is ι-pure of weight w outside T for every field isomorphism ι : ℚ̄_p ≅ ℂ. (ii) If every P_v(ρ, T), v ∉ T, has coefficients in a number field E ⊂ ℚ̄_p, then ρ is pure of weight w outside T iff, for every embedding σ : E → ℂ, all roots of σ(P_v(ρ, T)) have absolute value q_v^{w/2}. (iii) ι-purity for one ι implies neither: it constrains only the embedding ι|_E.",
+      "statement": "Let ρ be as in pure-and-integral-galois-representations, with coefficients in ℚ̄_p. (i) ρ is pure of weight w outside T iff it is ι-pure of weight w outside T for every field isomorphism ι : ℚ̄_p ≅ ℂ. (ii) If every P_v(ρ, T), v ∉ T, has coefficients in a number field E ⊂ ℚ̄_p, then ρ is pure of weight w outside T iff, for every embedding σ : E → ℂ, all roots of σ(P_v(ρ, T)) have absolute value q_v^{w/2}. (iii) At a given Frobenius polynomial with coefficients in E, the condition for one chosen ι checks only ι|_E and need not imply either all-embeddings criterion, even at integer weight zero. If the polynomial has rational coefficients, its full root multiset at one embedding already contains every algebraic conjugate. The counterexample below is over a finite field, not a construction of a globally ι-pure number-field representation.",
       "hypotheses": [
         "(i) needs #ℚ̄_p = 𝔠, which DWP.0/embeddings-into-the-complex-numbers proves.",
         "(ii) is the form in which purity is checked for compatible systems with coefficients in a number field."
@@ -570,15 +619,17 @@
       "proofSteps": [
         "(i): apply DWP.0/weil-number-iff-iota-pure-for-every-iota to each eigenvalue at each v ∉ T.",
         "(ii): the roots of P_v lie in a finite extension of E. Their complex conjugates are the roots of σ(P_v) for the embeddings σ, so this is the definition of a Weil q_v-number (DWP.0/weil-q-number).",
-        "(iii): take P_v = T − (1 + √2) with E = ℚ(√2). An ι with ι(√2) = √2 gives ι-weight 2 log_{q_v}(1 + √2); one with ι(√2) = −√2 gives the negative. 1 + √2 is not a Weil number, so no single ι decides purity. When P_v has rational coefficients, a single ι already sees every conjugate."
+        "(iii): use the irreducible reciprocal polynomial f(X)=X⁴−X³−X²−X+1 over ℚ. Its reduction mod 2 is irreducible (no linear factor and no factor X²+X+1). Setting t=X+X⁻¹ gives t²−t−3=0. The root t=(1−√13)/2 lies in (−2,2), giving two roots of absolute value 1, while t=(1+√13)/2>2 gives a positive real reciprocal pair, one root larger than 1. A root α is an algebraic unit. In a finite extension of ℚ_ℓ containing α, the profinite-unit construction of the preceding node gives a continuous rank-one representation of Gal(F_qbar/F_q) with geometric Frobenius α. Choose a complex embedding taking α to a unit-circle root: it is ι-pure of integer weight 0, but is not pure for all embeddings. This is a pointwise finite-field counterexample; the proof asserts no global number-field example."
       ],
       "acceptance": [
-        "For H¹ of an elliptic curve with CM by E = ℚ(i), P_v has coefficients in ℚ ⊂ E, and the check over the two embeddings of E reduces to one."
+        "For H¹ of an elliptic curve with CM by E = ℚ(i), P_v has coefficients in ℚ ⊂ E, and the check over the two embeddings of E reduces to one.",
+        "The irreducible polynomial X⁴−X³−X²−X+1 has both a unit-circle root and a root of norm greater than 1. A single chosen embedding can therefore give weight zero while all-embeddings purity fails."
       ],
       "prerequisites": [
         "WeightsInEtaleCohomology:R34.1/pure-and-integral-galois-representations",
         "DeligneWeightsAndPurity:DWP.0/weil-number-iff-iota-pure-for-every-iota",
-        "DeligneWeightsAndPurity:DWP.0/weil-q-number"
+        "DeligneWeightsAndPurity:DWP.0/weil-q-number",
+        "WeightsInEtaleCohomology:R34.1/frobenius-eigenvalues-need-not-be-algebraic"
       ],
       "sources": [
         {
@@ -625,8 +676,8 @@
       "sources": [
         {
           "sourceId": "milne-abelian-varieties",
-          "locator": "Chapter II, §1, proof of Theorem 1.1, p. 76",
-          "match": "The Frobenius map of a variety over 𝔽_q is the identity on the space and f ↦ f^q on functions."
+          "locator": "Chapter II, §1, p. 75",
+          "match": "The source defines the q-power Frobenius morphism: identity on the space and q-th power on functions; on geometric points it is arithmetic Frobenius."
         },
         {
           "sourceId": "milne-abelian-varieties",
@@ -690,8 +741,8 @@
         },
         {
           "sourceId": "milne-abelian-varieties",
-          "locator": "Chapter I, Remark 17.2, p. 70",
-          "match": "The characteristic polynomials of π on ∧^r T_ℓA."
+          "locator": "Chapter I, Theorem 12.1(b), p. 55; Remark 12.5, p. 56; Chapter II, Corollary 1.5 and Remark 1.6(a), p. 78",
+          "match": "The Galois-equivariant exterior-power description of H^i and the product eigenvalues of Frobenius supply the higher-degree weight calculation. The polynomial P_r(t) on p. 78 uses the reciprocal Euler-factor variable; distinguish it from det(X−F)."
         },
         {
           "sourceId": "milne-abelian-varieties",
@@ -880,7 +931,7 @@
       "prerequisites": [
         "LefschetzPencilsAndVanishingCycles:LPV.0/derived-nearby-cycles-RPsi-and-vanishing-triangle",
         "LefschetzPencilsAndVanishingCycles:LPV.0/derived-functorialities-and-specialization-sequence",
-        "LefschetzPencilsAndVanishingCycles:LPV.1",
+        "LefschetzPencilsAndVanishingCycles:LPV.0",
         "SchemeAndStackFoundations:SF.2"
       ],
       "sources": [
@@ -907,10 +958,11 @@
       ],
       "title": "Normalization and nodes on modular and Shimura models",
       "kind": "theorem",
-      "statement": "For a proper semistable curve C/O_L with geometrically reduced nodal special fibre Y, normalization ν:Ỹ→Y, dual graph Γ, and l≠char k, the imported node calculation yields 0→H¹(Γ,Q_l)→H¹(Y,Q_l)→H¹(Ỹ,Q_l)→0 and 0→H¹(Y,Q_l)→H¹(C_Lbar,Q_l)→H₁(Γ,Q_l)(−1)→0. Frobenius permutes the components and branches; the sequences are equivariant. Apply these formulas to a ModularCurves R13.6 or R18.2 model only after its semistability is proved over a named finite extension. For Carayol’s general level models, use his actual specialization sequence and normalization filtration, not an assertion that all Drinfeld-level models are nodal.",
+      "statement": "For a proper semistable curve C/O_L with geometrically reduced nodal special fibre Y, normalization ν:Ỹ→Y, dual graph Γ, and l≠char k, the imported node calculation yields 0→H¹(Γ,Q_l)→H¹(Y,Q_l)→H¹(Ỹ,Q_l)→0 and 0→H¹(Y,Q_l)→H¹(C_Lbar,Q_l)→H₁(Γ,Q_l)(−1)→0. Frobenius permutes the components and branches; the sequences are equivariant. Apply these formulas to a ModularCurvesPartII R13.5 or R18.2 model only after its semistability is proved over a named finite extension. For Carayol’s general level models, use his actual specialization sequence and normalization filtration, not an assertion that all Drinfeld-level models are nodal.",
       "hypotheses": [
         "Λ_n torsion calculations, lisse coefficient extensions and inverse-limit comparison come from the preceding node.",
-        "The displayed graph formulas are for constant coefficients on an actual semistable curve. Carayol’s coefficient sheaves use his §4.5 normalization sequence and residual term A; A is removed only on the cuspidal eigensummand by §4.4."
+        "The displayed graph formulas are for constant coefficients on an actual semistable curve. Carayol’s coefficient sheaves use his §4.5 normalization sequence and residual term A; A is removed only on the cuspidal eigensummand by §4.4.",
+        "Use the geometry-only R13.5 bad-fibre/regular-model supplier. R13.6 is a downstream boundary/degeneration export requiring R34.3, so it cannot be imported as this node’s model-construction prerequisite."
       ],
       "proofSteps": [
         "Request the semistable model and branch data from the modular/Shimura geometry owner.",
@@ -920,7 +972,7 @@
       "prerequisites": [
         "WeightsInEtaleCohomology:R34.3/proper-trait-specialization-comparison",
         "LefschetzPencilsAndVanishingCycles:LPV.7:semistable-curves",
-        "ModularCurvesPartII:R13.6",
+        "ModularCurvesPartII:R13.5",
         "HilbertModularVarietiesAndShimuraCurves:R18.2",
         "AutomorphicGaloisRepresentations:R19.2/carayol-vanishing-cycle-filtration"
       ],
@@ -993,22 +1045,23 @@
       ],
       "title": "Saito’s semistable comparison model",
       "kind": "theorem",
-      "statement": "For the Hilbert modular realization in Saito §6 Lemma 3, take a finite extension V/E_q over which the Shimura curve has its minimal semistable model. Under the prime-to-p level/isogeny conditions of §7 Lemma 4, its universal abelian scheme extends over that model and the algebraic projector e extends as a combination of permutations and prime-to-p endomorphisms. The resulting proper X/O_V is smooth over a semistable curve and has smooth projective strata Y^(0),Y^(1), with higher intersections empty. Its l-adic and log-crystalline weight spectral sequences carry the corresponding projector and Hecke action; the comparison is made on this X, not on a hypothetical semistable model of every arithmetic variety.",
+      "statement": "In Saito §6 Lemma 3’s Hilbert modular realization, choose sufficiently small K,H with every geometric component of M_K of genus greater than 1, and the auxiliary imaginary quadratic field E₀ split at p, so E_q≅F_p. As in §7, take a sufficiently large finite extension V of the completed maximal unramified extension of E_q, and the minimal semistable model over O_V. V is not asserted finite over E_q itself. Under Lemma 4’s unchanged p-components of levels and lattices (the H-level has unchanged q-component), the curve covers extend uniquely as finite étale maps, the universal abelian scheme extends, and the prime-to-p isogenies extend as étale isogenies. Lemma 3’s correspondence e, a linear combination of permutations and prime-to-p endomorphisms, acts on this model. The resulting proper X/O_V is an abelian scheme over the semistable curve, with smooth projective strata Y^(0),Y^(1) over the algebraically closed residue field and no higher intersections. Its l-adic and log-crystalline weight spectral sequences carry the extended projector and Hecke actions. Section 8 takes V as the completion of a Galois extension so that the descent Galois/Weil action extends to the model. Finite-field models of the strata and their Frobenius action, or descent to a finite local extension when required by a comparison carrier, are separate requested inputs.",
       "hypotheses": [
-        "The existence of V and the minimal semistable curve, the good integral universal abelian scheme, and the prime-to-p correspondence conditions are separate model inputs.",
-        "The p-adic semistable/log-crystalline geometric comparison theorem is CohomologyComparisons CP.4’s. R34.3 verifies its model inputs and exports them to PadicHodgeTheory R06.5; importing that application back here would create a cycle."
+        "K,H and their comparison levels satisfy the sufficiently-small hypotheses of Lemmas 3–4; every geometric component of M_K has genus greater than 1. The auxiliary E₀ splits at p, identifying E_q with F_p.",
+        "Lemma 4(1) keeps K_p=(g⁻¹K₁g)_p and H_q=H₁,q; Lemma 4(3) keeps the p-components of both lattice pairs. Merely saying prime-to-p level is insufficient without these equalities.",
+        "The extension in §7 is finite over the completed maximal unramified base, whose residue field is algebraically closed. Section 8 specifies the Galois descent action. Do not use #k(V) or a finite-local-field comparison theorem directly on this base.",
+        "The semistable/log-crystalline geometric comparison belongs to CP.4. Its finite-local-extension and finite-residue-field descent hypotheses are requested explicitly below; R34.3 exports the actual model verification to R06.5, avoiding the reverse dependency."
       ],
       "proofSteps": [
-        "Use Saito Lemma 4 to extend the curve-level covers and abelian schemes over the specified finite extension.",
-        "Use §6 Lemma 3’s correspondence formula to extend e and preserve its cohomological projector action.",
-        "Apply the requested semistable comparison and the two weight spectral sequences to the same strata; compare correspondence traces via intersection numbers as in Claim 4(1)."
+        "Apply §7 Lemma 4 over its actual completed-unramified base, retaining the genus, splitting and unchanged-component hypotheses to extend the curve covers, abelian schemes and isogenies.",
+        "Use §6 Lemma 3’s actual correspondence and §8 functoriality to extend e and the Hecke action; the unique minimal model carries the Galois descent action specified on p. 34.",
+        "Apply the requested semistable comparison and the l-adic/log-crystalline spectral sequences to the same strata, comparing correspondence traces as in Claim 4(1). For finite-field weights or a finite-local-field carrier, first supply the additional descent/comparison input recorded as a gap, preserving Frobenius, N and the correspondence action."
       ],
       "prerequisites": [
         "WeightsInEtaleCohomology:R34.3/proper-trait-specialization-comparison",
         "LefschetzPencilsAndVanishingCycles:LPV.7:semistable-curves",
         "HilbertModularVarietiesAndShimuraCurves:R18.2",
-        "CohomologyComparisons:CP.4",
-        "GeneralizedHeegnerCycles:GH.0"
+        "CohomologyComparisons:CP.4"
       ],
       "sources": [
         {
@@ -1019,7 +1072,8 @@
       ],
       "acceptance": [
         "A change of level with altered p-component does not satisfy the finite étale extension claim.",
-        "Agreement of alternating traces is separated from equality of N and the local purity conclusion of R34.6."
+        "Agreement of alternating traces is separated from equality of N and the local purity conclusion of R34.6.",
+        "V in the cited construction is finite over the completed maximal unramified extension, not finite over E_q. Its algebraically closed residue field cannot be assigned a finite cardinality for a weight calculation."
       ],
       "implementationStatus": "unchecked",
       "planet": {
@@ -1206,9 +1260,9 @@
       ],
       "title": "Kuga–Sato degree and projector comparison",
       "kind": "theorem",
-      "statement": "For a fine modular curve Y(M) with M≥3 and universal elliptic curve A→Y(M), r=k−2, let A^r/Y(M) have a smooth projective compactification X over the chosen good-prime base. Import from GH.0 the algebraic symmetric/degree-one projector identifying the parabolic Sym^r R¹ summand with a subquotient of H^{r+1}(X,Q_l) (equivalently its designated interior projector image), equivariantly for Hecke and Galois actions. At a prime p of smooth projective reduction with p∤Ml, that image has geometric weight r+1. With a Tate twist (b) its weight is r+1−2b. For the Hilbert analogue use Saito’s degree q₀=(2g−1)(w−2): eH^q(X)≅H^{q−q₀}(M,F(k))⊗H⁰(N,F(χ₀^{(g−1)(w−2)})), retaining the auxiliary character and its weight.",
+      "statement": "For a fine modular curve Y(M) with M≥3 and universal elliptic curve A→Y(M), r=k−2, let A^r/Y(M) have a smooth projective compactification X over the chosen good-prime base. Import from GH.0 the algebraic symmetric/degree-one projector identifying the parabolic Sym^r R¹ summand with a subquotient of H^{r+1}(X,Q_l) (equivalently its designated interior projector image), equivariantly for Hecke and Galois actions. At a prime p of smooth projective reduction with p∤Ml, that image has geometric weight r+1. With a Tate twist (b) its weight is r+1−2b. For the Hilbert analogue import the actual model and projector from R18.2, and use Saito’s degree q₀=(2g−1)(w−2): eH^q(X)≅H^{q−q₀}(M,F(k))⊗H⁰(N,F(χ₀^{(g−1)(w−2)})), retaining the auxiliary character and its weight.",
       "hypotheses": [
-        "The compactification, correspondence and comparison isomorphism are supplied by GH.0; existence of a vector-space idempotent is not a geometric correspondence.",
+        "For the classical comparison, compactification, algebraic correspondence and étale realization are requested from GH.0/R14.3. For the Hilbert analogue they are requested from R18.2. A vector-space idempotent alone is not a geometric correspondence.",
         "Good primes require the actual model and correspondence to extend and commute with Frobenius; no integral statement follows merely from a rational projector.",
         "The Hilbert degree and character formula is not replaced by the classical r+1 formula.",
         "GH.0’s inspected nodes concern W_r×A^r with a CM factor and import the classical W_r from R14.3; they do not by themselves supply the missing classical projector comparison or the Hilbert model. These exact extensions are requested from their owners."
@@ -1216,14 +1270,15 @@
       "proofSteps": [
         "Use Deligne Lemmas 5.2–5.4: Leray for the abelian scheme splits its R^j terms by multiplication-by-m eigenvalues, identifying the degree r+1 subquotient.",
         "Import GH.0’s actual compactification and symmetric projector, then DWP.4 smooth-projective RH for H^{r+1}.",
-        "Apply purity under subquotients and the Tate normalization; in the Hilbert case use Saito Lemma 3 with its exact q−q₀ degree and auxiliary character."
+        "Apply purity under subquotients and the Tate normalization; in the Hilbert case use Saito Lemma 3 with its exact q−q₀ degree and auxiliary character. R18.2 supplies the Hilbert geometric construction; this is not an extension of GH.0’s CM-product projector."
       ],
       "prerequisites": [
         "GeneralizedHeegnerCycles:GH.0",
         "DeligneWeightsAndPurity:DWP.4",
         "WeightsInEtaleCohomology:R34.1/purity-under-linear-algebra-operations",
         "WeightsInEtaleCohomology:R34.5/parabolic-cohomology-weight-comparison",
-        "ModularCurvesPartII:R14.3"
+        "ModularCurvesPartII:R14.3",
+        "HilbertModularVarietiesAndShimuraCurves:R18.2"
       ],
       "sources": [
         {
@@ -1254,7 +1309,7 @@
       ],
       "title": "Weight two and modular Jacobians",
       "kind": "theorem",
-      "statement": "For a modular Jacobian J and the abelian quotient A_f attached to a weight-two newform f, import the Hecke action and K_f⊗Q_l idempotents from ModularCurvesPartII R14.5. At p of good reduction, p∤Nl, H¹(A_f) is pure of weight 1 and has the integer Frobenius polynomial of the abelian variety. Its K_{f,λ} summand M_{f,λ} is geometrically pure of weight 1; the dual Tate-module representation has geometric weight −1, hence arithmetic weight +1. Its characteristic polynomial has coefficients in K_f, generally not in Q or Z.",
+      "statement": "For a modular Jacobian J and the abelian quotient A_f attached to a weight-two newform f, import the Hecke action and K_f⊗Q_l idempotents from ModularCurvesPartII R14.5. At p of good reduction, p∤Nl, H¹(A_f) is pure of weight 1 and has the integer Frobenius polynomial of the abelian variety. Its K_{f,λ} summand M_{f,λ} is geometrically pure of weight 1; the Tate-module eigensummand ρ_{f,λ}=M_{f,λ}∨ has geometric weight −1, hence arithmetic weight +1. Its characteristic polynomial has coefficients in K_f, generally not in Q or Z.",
       "hypotheses": [
         "Only weight two has this abelian-variety realization; higher weights use Kuga–Sato/parabolic cohomology.",
         "The summand’s eigenvalues remain algebraic integers, but its K_f-polynomial need not be in Z[X].",
@@ -1401,7 +1456,8 @@
         "The common coefficient field and polynomial are proved by the same Hecke eigenvalues and nebentypus, before invoking a generic compatible-system contract.",
         "Exclude λ|p and bad primes dividing N from this good-prime claim; bad-place monodromy data require a separate theorem.",
         "The global exceptional set can be enlarged by source model denominators; integral structure at primes dividing Nk! is not asserted by DFG’s integral premotive.",
-        "The DFG integral premotive supplies λ∉S_N only. For λ|Nk!, use the requested characteristic-zero parabolic eigensummand/comparison from R19.1; do not extend its integral-lattice statement by changing coefficients."
+        "The DFG integral premotive supplies λ∉S_N only. For λ|Nk!, use the requested characteristic-zero parabolic eigensummand/comparison from R19.1; do not extend its integral-lattice statement by changing coefficients.",
+        "The R24.5 fine carrier also requires de Rham/crystalline and Hodge–Tate data. This good-prime polynomial theorem alone does not construct that full carrier or establish its local predicates; those obligations remain with R19/R06 and the R24.5 owner."
       ],
       "proofSteps": [
         "Use the imported Eichler congruence polynomial for each λ and the same coefficient embedding K_f→K_{f,λ}.",
@@ -1411,8 +1467,9 @@
       "prerequisites": [
         "WeightsInEtaleCohomology:R34.6/eigenform-purity-and-ramanujan-bound",
         "AutomorphicGaloisRepresentations:R19.1/newform-rank-two-realisation",
-        "PotentialModularityAndCompatibleSystems:R24.5:operations",
-        "AutomorphicGaloisRepresentations:R19.1"
+        "AutomorphicGaloisRepresentations:R19.1",
+        "PotentialModularityAndCompatibleSystems:R24.5/weakly-compatible-system-rank-n",
+        "PotentialModularityAndCompatibleSystems:R24.5/compatible-system-predicates"
       ],
       "sources": [
         {
@@ -1509,14 +1566,16 @@
         "WeightsInEtaleCohomology:R34.3/saito-semistable-comparison-model",
         "WeightsInEtaleCohomology:R34.3/nodal-modular-curve-comparison",
         "AutomorphicGaloisRepresentations:R19.2/carayol-sigma-lambda-construction",
-        "PotentialModularityAndCompatibleSystems:R24.5:operations",
         "DeligneWeightsAndPurity:DWP.1/weights-of-the-cohomology-of-curves",
-        "PadicHodgeTheory:R06.6/hilbert-modular-form-compatibility-at-p"
+        "PadicHodgeTheory:R06.6/hilbert-modular-form-compatibility-at-p",
+        "PotentialModularityAndCompatibleSystems:R24.5/weakly-compatible-system-rank-n",
+        "PotentialModularityAndCompatibleSystems:R24.5/compatible-system-predicates",
+        "WeightsInEtaleCohomology:R34.5/kuga-sato-projector-weight-comparison"
       ],
       "sources": [
         {
           "sourceId": "saito",
-          "locator": "§1 Theorem 1, Claim 1 and Theorem 2, pp. 12–13",
+          "locator": "§2 Theorem 1, Claim 1 and Theorem 2, pp. 12–13",
           "match": "The rank-two l-adic and p-adic WD graded pieces have weights w−1+i; the proof needs trace comparison and N agreement separately."
         },
         {
@@ -1551,7 +1610,8 @@
       "supplier": "ArithmeticGaloisRepresentations:R01.1",
       "need": "Continuous finite-dimensional E-adic representations, lattices and contragredients; finite quotients and representations of Gal(F_qbar/F_q) through its procyclic completion. The χ_u construction uses compactness of Z_l×, not finite image of every continuous representation.",
       "neededBy": [
-        "WeightsInEtaleCohomology:R34.1/arithmetic-and-geometric-frobenius"
+        "WeightsInEtaleCohomology:R34.1/arithmetic-and-geometric-frobenius",
+        "WeightsInEtaleCohomology:R34.1/frobenius-eigenvalues-need-not-be-algebraic"
       ]
     },
     {
@@ -1655,8 +1715,8 @@
       ]
     },
     {
-      "supplier": "LefschetzPencilsAndVanishingCycles:LPV.1",
-      "need": "Integral finite-level nearby cycles/vanishing triangle for l-invertible coefficients; compatible transition maps and a derived inverse-limit comparison with the adic realization, including finiteness/Mittag–Leffler hypotheses.",
+      "supplier": "LefschetzPencilsAndVanishingCycles:LPV.0",
+      "need": "Extend LPV.0’s actual finite-level nearby/vanishing-cycle functorialities to compatible integral systems and their derived inverse-limit comparison with the adic realization, including finiteness/Mittag–Leffler and applicable constructibility hypotheses. Its existing fine nodes supply torsion comparisons, not this adic passage. LPV.1 owns inertia/variation/N rather than the nearby-cycle site/completion construction.",
       "neededBy": [
         "WeightsInEtaleCohomology:R34.3/proper-trait-specialization-comparison"
       ]
@@ -1670,25 +1730,25 @@
       ]
     },
     {
-      "supplier": "ModularCurvesPartII:R13.6",
-      "need": "Name the actual bad-prime modular curve model, its semistable extension, node thicknesses and coefficient extension; provide the hypotheses needed for the LPV node formulas instead of asserting every level model semistable.",
+      "supplier": "ModularCurvesPartII:R13.5",
+      "need": "Construct the actual bad-prime modular curve model and its regular/semistable extension, node thicknesses, level-cover maps and geometric coefficient-extension inputs needed by the LPV formulas. Restrict to R13.5 geometry before applying R34.3; R13.6’s downstream degeneration outputs already depend on R34.3 and must not supply this model. Do not assert that every level model is semistable.",
       "neededBy": [
         "WeightsInEtaleCohomology:R34.3/nodal-modular-curve-comparison"
       ]
     },
     {
       "supplier": "HilbertModularVarietiesAndShimuraCurves:R18.2",
-      "need": "Carayol’s named M_{n,H} integral model with its extended coefficient sheaf and special-fibre normalization; Saito Lemma 4’s finite-extension minimal semistable model, universal abelian scheme and prime-to-p level/isogeny extensions. Distinguish these two models.",
+      "need": "Carayol’s named M_{n,H} integral model with its coefficient extension and special-fibre normalization; separately, Saito §7 Lemma 4’s model over a finite extension of the completed maximal unramified base, with genus>1 components, sufficiently small levels, E₀ split at p, unchanged p/q-components, abelian scheme and prime-to-p isogeny extensions. Supply §6 Lemma 3’s actual Hilbert algebraic projector e, its degree q₀=(2g−1)(w−2), auxiliary character and equivariant comparison. Specify descent of strata and correspondence data to finite residue fields with the original Weil action, and descent to a finite local extension when the chosen comparison carrier requires it.",
       "neededBy": [
         "WeightsInEtaleCohomology:R34.3/nodal-modular-curve-comparison",
-        "WeightsInEtaleCohomology:R34.3/saito-semistable-comparison-model"
+        "WeightsInEtaleCohomology:R34.3/saito-semistable-comparison-model",
+        "WeightsInEtaleCohomology:R34.5/kuga-sato-projector-weight-comparison"
       ]
     },
     {
       "supplier": "GeneralizedHeegnerCycles:GH.0",
-      "need": "Classical W_r and the symmetric degree-one algebraic projector with Hecke/Galois-compatible étale parabolic comparison; denominator ledger and good-prime extension. For Saito’s Hilbert analogue supply Lemma 3’s algebraic projector e, q₀=(2g−1)(w−2), auxiliary character and compatible realization. Existing W_r×A^r CM nodes have different degree and do not supply this alone.",
+      "need": "Classical W_r and the symmetric degree-one algebraic projector with Hecke/Galois-compatible étale parabolic comparison; denominator ledger and good-prime extension, retaining R14.3 ownership of classical modular geometry. Existing W_r×A^r CM nodes have total degree 2r+1 and do not supply the classical degree-r+1 comparison. Saito’s separate Hilbert model and projector are requested from R18.2; GH.0 is not asked to own Hilbert geometry.",
       "neededBy": [
-        "WeightsInEtaleCohomology:R34.3/saito-semistable-comparison-model",
         "WeightsInEtaleCohomology:R34.5/kuga-sato-projector-weight-comparison"
       ]
     },
@@ -1701,17 +1761,9 @@
     },
     {
       "supplier": "CohomologyComparisons:CP.4",
-      "need": "Geometric semistable/log-crystalline-to-p-adic étale comparison on the actual proper Saito model over O_V, with Galois, Frobenius, N, twists and algebraic-correspondence compatibility. This is the independent geometric input to R34.3, which exports to R06.5.",
+      "need": "Geometric semistable/log-crystalline-to-p-adic étale comparison on the actual proper Saito model over O_V, with Galois, Frobenius, N, twists and algebraic-correspondence compatibility. This is the independent geometric input to R34.3, which exports to R06.5. State the actual base of the comparison: Saito’s model is over a finite extension of the completed maximal unramified local field, not a finite extension of E_q. Provide descent to a finite local extension where required and the resulting compatibility with the original Weil action.",
       "neededBy": [
         "WeightsInEtaleCohomology:R34.3/saito-semistable-comparison-model"
-      ]
-    },
-    {
-      "supplier": "PotentialModularityAndCompatibleSystems:R24.5:operations",
-      "need": "Own generic weak/strict compatible systems, common coefficient embeddings, good-prime polynomials and bad-place WD conditions, with restriction/dual/tensor operations. R34.6 supplies the fixed eigenform’s proof of common P_{f,p}; R19.3 consumes the fixed-source local interface. This is the RT-AREA-langlands-2/10 boundary.",
-      "neededBy": [
-        "WeightsInEtaleCohomology:R34.6/fixed-eigenform-good-prime-compatibility",
-        "WeightsInEtaleCohomology:R34.6/hilbert-local-monodromy-weight-export"
       ]
     },
     {
@@ -1742,7 +1794,8 @@
       "stageId": "WeightsInEtaleCohomology:R34.3",
       "status": "planned",
       "remaining": [
-        "Prove compatible integral-to-adic specialization, mixed-characteristic Picard–Lefschetz interior and the named modular/Shimura model inputs."
+        "Prove compatible integral-to-adic specialization, mixed-characteristic Picard–Lefschetz interior and the named modular/Shimura model inputs.",
+        "Supply model/stratum descent from Saito’s actual completed-unramified base, with the original Weil action and comparison compatibility."
       ]
     },
     {
@@ -1763,7 +1816,7 @@
       "stageId": "WeightsInEtaleCohomology:R34.6",
       "status": "planned",
       "remaining": [
-        "Resolve actual all-λ/newform and Hilbert projector comparisons, including degree q₀ and the auxiliary twist; the imported R06.6 theorem still needs Saito §9 crystalline vanishing. Confirm R24.5:operations and R19.3 fixed-source consumer boundaries."
+        "Resolve actual all-λ/newform and Hilbert projector comparisons, including degree q₀ and the auxiliary twist; the imported R06.6 theorem still needs Saito §9 crystalline vanishing. Resolve Saito model descent and retain the R24.5 fine carrier/predicate and R19.3 fixed-source consumer boundaries."
       ]
     }
   ],
@@ -1774,7 +1827,7 @@
         "WeightsInEtaleCohomology:R34.3/proper-trait-specialization-comparison",
         "WeightsInEtaleCohomology:R34.3/nodal-modular-curve-comparison"
       ],
-      "detail": "Carayol §4.1 constructs a compatible finite-level extension, but a proof of the R lim comparison with nearby cycles and its torsion/finiteness hypotheses was not established here. LPV.1 and SF.2 requests name the missing input. The public SGA7 II scan at the IAS URL returned HTTP 403 in this session; no read of its proof is claimed."
+      "detail": "Carayol §4.1 constructs a compatible finite-level extension, but a proof of the R lim comparison with nearby cycles and its torsion/finiteness hypotheses was not established here. LPV.0 and SF.2 requests name the missing input. The public SGA7 II scan at the IAS URL returned HTTP 403 in this session; no read of its proof is claimed."
     },
     {
       "title": "Mixed-characteristic Picard–Lefschetz proof interior",
@@ -1791,7 +1844,7 @@
         "WeightsInEtaleCohomology:R34.6/eigenform-purity-and-ramanujan-bound",
         "WeightsInEtaleCohomology:R34.6/fixed-eigenform-good-prime-compatibility"
       ],
-      "detail": "GH.0’s available CM-product projector has total degree 2r+1 and imports W_r; it does not supply the classical degree-r+1 étale projector or Saito’s different q₀-shifted Hilbert projector. GH.0/R14.3/R18.2 requests require those actual comparison morphisms, denominators and good-prime models. Deligne Lemma 5.4’s toric compactification argument is not a replacement for the owner’s verified global algebraic construction. In addition, R19.1’s DFG integral premotive restricts λ outside Nk!; the requested characteristic-zero all-λ parabolic comparison, including λ|k!, was not established by that fine node. This is a precise extra comparison obligation for the stated all-λ eigenform export."
+      "detail": "GH.0’s available CM-product projector has total degree 2r+1 and imports W_r; it does not supply the classical degree-r+1 étale projector or Saito’s different q₀-shifted Hilbert projector. Classical GH.0/R14.3 and Hilbert R18.2 requests require those actual comparison morphisms, denominators and good-prime models. Deligne Lemma 5.4’s toric compactification argument is not a replacement for the owner’s verified global algebraic construction. In addition, R19.1’s DFG integral premotive restricts λ outside Nk!; the requested characteristic-zero all-λ parabolic comparison, including λ|k!, was not established by that fine node. This is a precise extra comparison obligation for the stated all-λ eigenform export."
     },
     {
       "title": "Saito crystalline coefficient vanishing proof",
@@ -1825,9 +1878,19 @@
         "WeightsInEtaleCohomology:R34.2/frobenius-on-tate-modules-and-first-cohomology",
         "WeightsInEtaleCohomology:R34.2/purity-of-tate-modules-with-good-reduction",
         "WeightsInEtaleCohomology:R34.2/good-reduction-point-counts-and-traces",
-        "WeightsInEtaleCohomology:R34.2/curve-traces-over-all-residue-extensions"
+        "WeightsInEtaleCohomology:R34.2/curve-traces-over-all-residue-extensions",
+        "WeightsInEtaleCohomology:R34.1/purity-under-linear-algebra-operations"
       ],
       "detail": "The suggested file gives actual Mathlib representation/root-level definitions, all nine definition tests, and numerical/algebraic theorem signatures. Its supplied group, inertia, lift and residue-cardinality data are prototypes, not the full continuous Galois/local-place carrier. Actual Tate modules, schemes, adic nearby cycles, parabolic cohomology, geometric projectors and mixed complexes are absent from the pinned imports, so full geometric and continuous-arithmetic signatures are omitted with their node names and exact supplier inputs. No opaque Prop conditions or mock cohomology objects replace them; numerical cores do not claim to state the full comparison theorems."
+    },
+    {
+      "title": "Descent from Saito’s completed-unramified comparison base",
+      "neededBy": [
+        "WeightsInEtaleCohomology:R34.3/saito-semistable-comparison-model",
+        "WeightsInEtaleCohomology:R34.5/kuga-sato-projector-weight-comparison",
+        "WeightsInEtaleCohomology:R34.6/hilbert-local-monodromy-weight-export"
+      ],
+      "detail": "Saito §7 p. 32 constructs the minimal semistable model over V finite over the completed maximal unramified extension of E_q. Section 8 p. 34 extends the Galois action. This pass does not establish an effective descent of all model/correspondence data to a finite extension of E_q or of strata with the specified Weil action to a common finite residue field. R18.2 and CP.4 requests name exactly those descent/compatibility inputs. Finite-field weights and any comparison carrier restricted to finite local fields require them; one cannot treat the algebraically closed residue field as finite."
     }
   ],
   "sourceIssues": [
@@ -1845,7 +1908,12 @@
         "arXiv:math/0612077v2, pp. 12–13 (actual PDF and p. 12 image)",
         "research/blueprint/packets/PadicHodgeTheory--R06.5.json, sourceIssue PadicHodgeTheory/E50",
         "research/blueprint/packets/AutomorphicGaloisRepresentations.json, R19.3 normalization hypothesis; a published corrigendum was not established"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently re-fetched arXiv math/0612077v2 and inspected the p. 12 page image: it assigns n=1 to geometric Frobenius and prints the positive q exponent and φN=pNφ. The source’s p. 13 equivariant N:Gr₁(1)≅Gr₋₁ forces FNF⁻¹=q⁻¹N and Nφ=pφN. Confirmed only for this preprint version; no journal or corrigendum claim. The 2×2 suggested matrix has F diagonal(1,q), N with its upper-right entry 1 and satisfies the inverse relation.",
+        "by": "REV-WeightsInEtaleCohomology"
+      }
     }
   ],
   "sourceVersions": [
@@ -1925,5 +1993,148 @@
       "detail": "RT-AREA-langlands-2/10 assigns generic compatibility operations to R24.5:operations. R19.1’s aggregate construction already depends on R34.5, so importing it into R34.5 would be circular.",
       "proposal": "R34.5 imports only R19.1/parabolic-realisation-premotive’s geometry; R34.6 applies the rank-two construction after its purity prerequisite. Generic systems and operations remain at R24.5:operations; R19.3 owns only the fixed-source strict/local conclusion using R34.6 good-prime and restricted local exports. R34.3 imports CP.4 geometry and exports to R06.5, never imports that application in reverse. Import PadicHodgeTheory:R06.6/hilbert-modular-form-compatibility-at-p as the owner of Saito’s theorem; R34.6 verifies the actual Hilbert eigensummand degree/twist comparison and exports its normalized weights, without a second local-theorem proof."
     }
-  ]
+  ],
+  "review": {
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-WeightsInEtaleCohomology",
+    "date": "2026-10-06",
+    "notes": "Finished independent target-level review of all 27 nodes, nine exact-pin baseline declarations, eight public source versions, reviewed R34 library audit, RS-17 and RT-AREA-langlands-2/10. Corrected 15 nodes, API/Lean mismatches, erroneous source locators/passages, original-coefficient excerpt, Saito base/hypotheses/ownership, LPV.0 adic and R13.5 model routing, direct degree comparison and fine compatible-system imports; confirmed E1 on the preprint image. Packet checker passes and the suggested file elaborates against the exact Mathlib pin with only admitted-proof warnings. The packet remains a complete planning pass, with six planned stages, six explicit gaps and 22 requests, and makes no formalisation claim. Needs changes because the authoritative reader document is outside this review issue’s allowed deliverables and still repeats the corrected finite-V/E_q assertion, old API, counterexample, source passages and supplier boundaries. The report gives precise required reader edits. These are revision obligations, not reasons to reject honest open supplier gaps.",
+    "checked": [
+      {
+        "nodeId": "WeightsInEtaleCohomology:R34.1/arithmetic-and-geometric-frobenius",
+        "verdict": "corrected",
+        "note": "Corrected the API to describe the supplied-element prototype; added inertia lift-independence and linear-equivalence invariance. Arithmetic decomposition/inertia and finite-quotient Frobenius hypotheses are retained."
+      },
+      {
+        "nodeId": "WeightsInEtaleCohomology:R34.1/pure-and-integral-galois-representations",
+        "verdict": "corrected",
+        "note": "Added reusable predicate characterisations, integrality/chosen-embedding monotonicity and the all-embeddings-to-chosen implication; restored inertia triviality to the integral API and expanded the zero-rank test. Full local-place/continuous carriers remain an explicit signature gap."
+      },
+      {
+        "nodeId": "WeightsInEtaleCohomology:R34.1/purity-under-linear-algebra-operations",
+        "verdict": "corrected",
+        "note": "Corrected the Lawrence–Venkatesh p. 13 locator to §2.5. The rationality hypothesis for integer subquotient polynomials and unramified-middle hypothesis for extensions are necessary and present."
+      },
+      {
+        "nodeId": "WeightsInEtaleCohomology:R34.1/purity-under-restriction-and-induction",
+        "verdict": "verified",
+        "note": "Restriction uses residue-degree powers; induction excludes ramified places and uses the cyclic-block product P_u(X^f). Purity and rational integrality are preserved under these operations."
+      },
+      {
+        "nodeId": "WeightsInEtaleCohomology:R34.1/frobenius-eigenvalues-need-not-be-algebraic",
+        "verdict": "corrected",
+        "note": "Replaced the odd-prime-only continuity argument by compatible finite cyclic quotients of the profinite unit group, covering ℓ=2; added the direct continuous-character supplier request."
+      },
+      {
+        "nodeId": "WeightsInEtaleCohomology:R34.1/purity-at-every-embedding-versus-a-chosen-embedding",
+        "verdict": "corrected",
+        "note": "Replaced the noninteger 1+√2 example by an irreducible reciprocal quartic with unit-circle and real conjugates, giving a chosen integer-weight-zero finite-field character. Scoped the counterexample pointwise and recorded the rational-polynomial exception."
+      },
+      {
+        "nodeId": "WeightsInEtaleCohomology:R34.2/frobenius-on-tate-modules-and-first-cohomology",
+        "verdict": "corrected",
+        "note": "Replaced the first Milne p. 76 citation by the actual q-power Frobenius definition on p. 75. The contragredient H¹ comparison on I p. 56 fixes the inverse variance."
+      },
+      {
+        "nodeId": "WeightsInEtaleCohomology:R34.2/purity-of-tate-modules-with-good-reduction",
+        "verdict": "corrected",
+        "note": "Replaced the unrelated Néron-model citation for exterior powers with Milne I Theorem 12.1(b)/Remark 12.5 and II Corollary 1.5/Remark 1.6(a); distinguished reciprocal Euler factors. The positive-dimension Tate polynomial has constant term q^(−g); zero rank is integral."
+      },
+      {
+        "nodeId": "WeightsInEtaleCohomology:R34.2/good-reduction-point-counts-and-traces",
+        "verdict": "verified",
+        "note": "The reduction, all-m abelian count and Hasse specialization use the inspected DWP.1 supplier, without replanning the upstream elliptic theorem. The F₅ curve count is consistent."
+      },
+      {
+        "nodeId": "WeightsInEtaleCohomology:R34.1/representation-sheaf-weight-comparison",
+        "verdict": "verified",
+        "note": "Normal arithmetic model and actual π₁ factorisation are retained; Frobenius stalks translate DWP.5 weights, not a claimed lisse extension over every model."
+      },
+      {
+        "nodeId": "WeightsInEtaleCohomology:R34.1/arithmetic-complex-weight-normalization",
+        "verdict": "verified",
+        "note": "Weil II 6.2.5(b) requires smooth support and lisse cohomology. The shift/twist formula r+a−2b and dualizing Q_l(d)[2d] agree; this late comparison is absent from the early Tate path."
+      },
+      {
+        "nodeId": "WeightsInEtaleCohomology:R34.2/curve-traces-over-all-residue-extensions",
+        "verdict": "verified",
+        "note": "Proper smooth geometrically connected reduction, curve–Jacobian H¹ and the fixed-point trace suppliers yield the all-extension count and genus-one recurrence; the F₂₅ example gives 32 points."
+      },
+      {
+        "nodeId": "WeightsInEtaleCohomology:R34.3/proper-trait-specialization-comparison",
+        "verdict": "corrected",
+        "note": "Routed the missing adic completion/derived-limit comparison to LPV.0, whose site/nearby-cycle scope contains it; LPV.1 is the inertia/variation stage. Existing torsion proper-base-change fine nodes remain. Transition maps, derived limits and finiteness stay an explicit LPV.0/SF.2 gap."
+      },
+      {
+        "nodeId": "WeightsInEtaleCohomology:R34.3/nodal-modular-curve-comparison",
+        "verdict": "corrected",
+        "note": "Moved the geometry prerequisite/request from downstream R13.6, which requires R34.3, to R13.5 bad fibres and regular/semistable models. The graph sequences remain limited to a proved semistable constant-coefficient model; Carayol’s general coefficient filtration and cuspidal residual-term exclusion are separate."
+      },
+      {
+        "nodeId": "WeightsInEtaleCohomology:R34.3/arithmetic-picard-lefschetz-normalization",
+        "verdict": "verified",
+        "note": "The regular proper-flat isolated quadratic model, odd sign, Kummer root of b and even/characteristic-2 branch agree with the inspected LPV.2 statements. The mixed-characteristic proof interior remains an honest inherited gap."
+      },
+      {
+        "nodeId": "WeightsInEtaleCohomology:R34.3/saito-semistable-comparison-model",
+        "verdict": "corrected",
+        "note": "Corrected V to a finite extension of the completed maximal unramified base; restored genus>1, sufficiently-small, splitting and unchanged-component hypotheses. Recorded the Galois action and a precise finite-local/residue descent gap; routed Hilbert model/projector geometry to R18.2."
+      },
+      {
+        "nodeId": "WeightsInEtaleCohomology:R34.4/finite-field-pencil-descent",
+        "verdict": "verified",
+        "note": "The nonempty pencil-parameter open has a finite-extension point; incidence blowup and F^d/q^d comparisons are requested explicitly. No F_q-rational pencil is assumed."
+      },
+      {
+        "nodeId": "WeightsInEtaleCohomology:R34.4/vanishing-quotient-parity-comparison",
+        "verdict": "verified",
+        "note": "The radical quotient, arithmetic stability and alternating/symmetric parity agree with LPV.4. The zero-cycle branch retains its skyscraper term; perfect ambient pairing is not mistaken for a nondegenerate restriction."
+      },
+      {
+        "nodeId": "WeightsInEtaleCohomology:R34.4/original-coefficient-monodromy-hypotheses",
+        "verdict": "corrected",
+        "note": "Replaced the nonmatching source excerpt by the actual open-image wording. The original Q_l group, rational local factors, odd parity and zero-rank branch are exactly the hypotheses required by the inspected DWP.2/DWP.3 and LPV.5 nodes."
+      },
+      {
+        "nodeId": "WeightsInEtaleCohomology:R34.5/parabolic-cohomology-weight-comparison",
+        "verdict": "verified",
+        "note": "Sym^r R¹ has weight r; the upper/lower bounds on the parabolic image give weight r+1. The geometry-only R19.1 premotive import avoids the purity-dependent aggregate cycle."
+      },
+      {
+        "nodeId": "WeightsInEtaleCohomology:R34.5/kuga-sato-projector-weight-comparison",
+        "verdict": "corrected",
+        "note": "Added the direct R18.2 prerequisite and routed Saito’s Hilbert model/projector to that owner, while GH.0/R14.3 supply the classical comparison. Actual correspondence, total degree q₀ and auxiliary character are retained; the available CM-product nodes are insufficient."
+      },
+      {
+        "nodeId": "WeightsInEtaleCohomology:R34.5/weight-two-jacobian-weight-comparison",
+        "verdict": "corrected",
+        "note": "Clarified that the Tate-module eigensummand is ρ=M∨ of geometric weight −1; H¹=M has weight +1. Rational integer coefficients belong to the full abelian-variety polynomial, not automatically to a K_f summand."
+      },
+      {
+        "nodeId": "WeightsInEtaleCohomology:R34.5/arithmetic-hard-lefschetz-comparison",
+        "verdict": "verified",
+        "note": "The arithmetic ample class restores cup η^a into H^(d+a)(a), with both sides of weight d−a. A projector restricts the isomorphism only if it commutes with η^a; absolute DWP.9 suffices."
+      },
+      {
+        "nodeId": "WeightsInEtaleCohomology:R34.6/eigenform-purity-and-ramanujan-bound",
+        "verdict": "verified",
+        "note": "The cuspidal k≥2 good-prime and all-embeddings claim has the correct cohomological/geometric versus dual/arithmetic convention. The DFG all-λ extension remains an exact owner request; the Ramanujan bound is the triangle inequality, not new compatibility."
+      },
+      {
+        "nodeId": "WeightsInEtaleCohomology:R34.6/fixed-eigenform-good-prime-compatibility",
+        "verdict": "corrected",
+        "note": "Replaced the broad R24.5:operations stage import by its available fine weak-carrier and predicate nodes. Common Hecke polynomials are proved independently of root norms; de Rham/Hodge–Tate/bad-place obligations are not inferred from this good-prime theorem."
+      },
+      {
+        "nodeId": "WeightsInEtaleCohomology:R34.6/arithmetic-realization-transport",
+        "verdict": "verified",
+        "note": "Equivariant arithmetic Frobenius comparisons preserve inverse geometric spectra too; commuting idempotents inherit purity, with rationality required for integer coefficients. Semisimplicity remains independent."
+      },
+      {
+        "nodeId": "WeightsInEtaleCohomology:R34.6/hilbert-local-monodromy-weight-export",
+        "verdict": "corrected",
+        "note": "Added the direct Hilbert degree/projector node and fine R24.5 carrier/predicate prerequisites; corrected Theorems 1–2 to §2. Saito’s g>1, w≥k_i≥2, parity and even-degree discrete-series conditions, degree/twist identity and inverse geometric WD relation agree. The R06.6 crystalline proof and actual model-descent inputs remain recorded gaps."
+      }
+    ]
+  }
 }
