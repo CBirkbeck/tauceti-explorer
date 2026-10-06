@@ -11,7 +11,7 @@
     "K2SymbolsBrauer:T.2:graded-map",
     "K2SymbolsBrauer:T.2:symbols"
   ],
-  "summary": "Independent review of the stable Steinberg, classical K2, symbol and Milnor K-theory plan. Statements and interfaces have been corrected, bundled results separated, and missing proof inputs recorded explicitly. The universal-central-extension package (existence for perfect groups, Hopf's formula, the kernel as H_2, the Recognition Theorem and naturality) is decomposed in T.1:classical and is imported by K3BlochGroups V.1 and StableHomotopyKTheory H.3; Hopf's formula rests on the Hochschild-Serre low-degree sequence, a recorded gap. All six scoped stages remain partial; Matsumoto normal forms, noncommutative matrix bridges and arithmetic computations are not source-decomposed. Nothing is formalised.",
+  "summary": "Independent review of the stable Steinberg, classical K2, symbol and Milnor K-theory plan. Statements and interfaces have been corrected, bundled results separated, and missing proof inputs recorded explicitly. The universal-central-extension package (existence for perfect groups, Hopf's formula, the kernel as H_2, the Recognition Theorem and naturality) is decomposed in T.1:classical and is imported by K3BlochGroups V.1 and StableHomotopyKTheory H.3; The trivial-integral quotient five-term sequence is constructed from the actual pinned bar-chain kernel and its first homology; its map-level naturality supplies Hopf's formula and its naturality without importing later spectra. All six scoped stages remain partial; Matsumoto normal forms, noncommutative matrix bridges and arithmetic computations are not source-decomposed. Nothing is formalised. Round2 FIX-RT-AREA-ktheory-1~2 expands the proof inputs described in the fix report, updates source-reading boundaries and retains precisely named supplier gaps. The revised plan awaits independent review; it is not a formalization.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -369,6 +369,97 @@
         "module": "TauCeti/GroupTheory/GroupExtension/Of/FactorSet.lean",
         "provides": "The group extension 1 → M → E_α → G → 1 determined by a factor set.",
         "checked": "statement read at the pinned commit (TauCeti/GroupTheory/GroupExtension/Of/FactorSet.lean:257) by FIX-RT-AREA-ktheory-1"
+      },
+      {
+        "ref": "mathlib:groupHomology.chainsMap",
+        "kind": "def",
+        "module": "Mathlib/RepresentationTheory/Homological/GroupHomology/Functoriality.lean",
+        "provides": "The chain map on the actual inhomogeneous complex, sending a tuple to its f-image and coefficients through φ; read lines58–66.",
+        "checked": "Actual statement read at Mathlib082e2d3 on2026-10-02 by FIX-RT-AREA-ktheory-1~2, Codex codex-5ebb6f."
+      },
+      {
+        "ref": "mathlib:groupHomology.chainsMap_f_single",
+        "kind": "lemma",
+        "module": "Mathlib/RepresentationTheory/Homological/GroupHomology/Functoriality.lean",
+        "provides": "Its basis-tuple evaluation; read79–82.",
+        "checked": "Actual statement read at Mathlib082e2d3 on2026-10-02 by FIX-RT-AREA-ktheory-1~2, Codex codex-5ebb6f."
+      },
+      {
+        "ref": "mathlib:groupHomology.chainsMap_comp",
+        "kind": "lemma",
+        "module": "Mathlib/RepresentationTheory/Homological/GroupHomology/Functoriality.lean",
+        "provides": "Composition with the restriction-compatible coefficient maps; read95–101.",
+        "checked": "Actual statement read at Mathlib082e2d3 on2026-10-02 by FIX-RT-AREA-ktheory-1~2, Codex codex-5ebb6f."
+      },
+      {
+        "ref": "mathlib:groupHomology.chainsMap_f_map_epi",
+        "kind": "lemma",
+        "module": "Mathlib/RepresentationTheory/Homological/GroupHomology/Functoriality.lean",
+        "provides": "Degreewise epimorphism when f is surjective and the coefficient morphism epi; read121–125.",
+        "checked": "Actual statement read at Mathlib082e2d3 on2026-10-02 by FIX-RT-AREA-ktheory-1~2, Codex codex-5ebb6f."
+      },
+      {
+        "ref": "mathlib:groupHomology.d₁₀_eq_zero_of_isTrivial",
+        "kind": "theorem",
+        "module": "Mathlib/RepresentationTheory/Homological/GroupHomology/LowDegree.lean",
+        "provides": "The degree-one differential vanishes for a trivial representation; read138–141.",
+        "checked": "Actual statement read at Mathlib082e2d3 on2026-10-02 by FIX-RT-AREA-ktheory-1~2, Codex codex-5ebb6f."
+      },
+      {
+        "ref": "mathlib:groupHomology.d₂₁_single",
+        "kind": "lemma",
+        "module": "Mathlib/RepresentationTheory/Homological/GroupHomology/LowDegree.lean",
+        "provides": "Boundary of(a,b) with trivial coefficients is[b]−[ab]+[a]; read145–153.",
+        "checked": "Actual statement read at Mathlib082e2d3 on2026-10-02 by FIX-RT-AREA-ktheory-1~2, Codex codex-5ebb6f."
+      },
+      {
+        "ref": "mathlib:HomologicalComplex.eval_preservesLimit_of_hasKernel_f",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/Homology/HomologicalComplexKernels.lean",
+        "provides": "Evaluation preserves the kernel of a complex map whose components have kernels; read36–42.",
+        "checked": "Actual statement read at Mathlib082e2d3 on2026-10-02 by FIX-RT-AREA-ktheory-1~2, Codex codex-5ebb6f."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.ShortComplex.ShortExact.δ",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Homology/HomologySequence.lean",
+        "provides": "Connecting homomorphism for a short exact complex of complexes at adjacent degrees; read284–290.",
+        "checked": "Actual statement read at Mathlib082e2d3 on2026-10-02 by FIX-RT-AREA-ktheory-1~2, Codex codex-5ebb6f."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.ShortComplex.ShortExact.δ_apply",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/Homology/ConcreteCategory.lean",
+        "provides": "A cycle lifted to the middle complex maps to the positive boundary class in the kernel complex; read103–125.",
+        "checked": "Actual statement read at Mathlib082e2d3 on2026-10-02 by FIX-RT-AREA-ktheory-1~2, Codex codex-5ebb6f."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.ShortComplex.ShortExact.homology_exact₁",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/Homology/HomologySequence.lean",
+        "provides": "Exactness at kernel-complex homology after δ; read300–302.",
+        "checked": "Actual statement read at Mathlib082e2d3 on2026-10-02 by FIX-RT-AREA-ktheory-1~2, Codex codex-5ebb6f."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.ShortComplex.ShortExact.homology_exact₂",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/Homology/HomologySequence.lean",
+        "provides": "Exactness at middle-complex homology; read306–318.",
+        "checked": "Actual statement read at Mathlib082e2d3 on2026-10-02 by FIX-RT-AREA-ktheory-1~2, Codex codex-5ebb6f."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.ShortComplex.ShortExact.homology_exact₃",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/Homology/HomologySequence.lean",
+        "provides": "Exactness at quotient-complex homology before δ; read321–322.",
+        "checked": "Actual statement read at Mathlib082e2d3 on2026-10-02 by FIX-RT-AREA-ktheory-1~2, Codex codex-5ebb6f."
+      },
+      {
+        "ref": "mathlib:HomologicalComplex.HomologySequence.δ_naturality",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/Homology/HomologySequenceLemmas.lean",
+        "provides": "Naturality of δ for a morphism of short exact complexes; read35–60.",
+        "checked": "Actual statement read at Mathlib082e2d3 on2026-10-02 by FIX-RT-AREA-ktheory-1~2, Codex codex-5ebb6f."
       }
     ]
   },
@@ -419,6 +510,19 @@
       ],
       "authors": "Charles A. Weibel",
       "edition": "Separately hosted author chapter downloaded 2026-09-30; checksum and chapter-PDF pagination distinguish it from the earlier combined draft."
+    },
+    {
+      "id": "Weibel.HA.Groups",
+      "title": "An introduction to homological algebra, Chapter6: Group Homology and Cohomology",
+      "authors": "Charles A.Weibel",
+      "edition": "Cambridge published chapter scan; DOI10.1017/CBO9781139644136.007; 56PDFpages, printed pp.160–215.",
+      "url": "https://math.mit.edu/~hrm/palestine/weibel/06-group_homology_and_cohomology.pdf",
+      "sha256": "7e44c5cb4dc6201cacca2c0fd117eaaf5e7afaa51fdef177314b4cdbe15dcf95",
+      "accessed": "2026-10-02",
+      "readSections": [
+        "FIX-RT-AREA-ktheory-1~2, Codex codex-5ebb6f: §6.8.1–6.8.3 printed195–196/PDF36–37 text; p.196 independently rendered as image. Printed198/PDF39 Hopf computation and printed200/PDF41 perfect Hopf-extension lemma and opening of UCE existence read as text. This revision proves only the trivial-integral-coefficient five-term sequence directly from the pinned bar complex and generic exact homology sequence; it does not claim to have decomposed the full Grothendieck spectral sequence.",
+        "Example6.8.4 printed196, read text/image: its first sentence lacks a coefficient-triviality qualification; recorded as E-central-subgroup-coefficients. Its integral-coefficient application is unaffected."
+      ]
     }
   ],
   "nodes": [
@@ -2072,7 +2176,7 @@
       "prerequisites": [
         "K2SymbolsBrauer:T.2/milnor-k-theory",
         "K2SymbolsBrauer:T.2/matsumoto",
-        "GeneralAlgebraicKTheory:K.7",
+        "GeneralAlgebraicKTheory:K.7/products-from-biexact-functors",
         "GeneralAlgebraicKTheory:K.2:plus",
         "KTheoryLowDegrees:U.3"
       ],
@@ -2457,14 +2561,14 @@
       ],
       "title": "The central extension from relators",
       "kind": "construction",
-      "statement": "For F free and S normal, the projection F/[S,F] -> F/S is a central extension with kernel S/[S,F].",
+      "statement": "For any group E and normal subgroup N, the projection E/[N,E]→E/N is a central extension with kernel N/[N,E]. The earlier free-presentation case is a specialization; freeness is not used in this construction.",
       "hypotheses": [
-        "G is a group presented as a quotient of a free group F by a normal subgroup S."
+        "E is an arbitrary discrete group and N normal in E; no freeness hypothesis."
       ],
       "proofSteps": [
-        "Since S is normal, [S,F] <= S.",
-        "Every class of S commutes with every class of F after quotienting by [S,F].",
-        "The quotient projection is onto and its kernel consists exactly of classes of S."
+        "Since N is normal, [N,E] <= N.",
+        "Every class of S commutes with every class of F after quotienting by [N,E].",
+        "The quotient projection is onto and its kernel consists exactly of classes of N."
       ],
       "acceptance": [
         "For F free and S normal, the projection F/[S,F] -> F/S is a central extension with kernel S/[S,F]."
@@ -2485,12 +2589,12 @@
         {
           "name": "relatorProjection",
           "role": "constructor",
-          "statement": "The induced quotient projection F/[S,F] -> F/S."
+          "statement": "The induced quotient projection E/[N,E]→E/N for any normal N in E."
         },
         {
           "name": "relatorProjection_kernel",
           "role": "characterisation",
-          "statement": "Its kernel is canonically S/[S,F] and is central."
+          "statement": "Its kernel is canonically N/[N,E] and lies in the centre."
         },
         {
           "name": "relatorProjection_map",
@@ -2502,6 +2606,10 @@
         {
           "where": "K2SymbolsBrauer:T.1/hopf-formula",
           "how": "Restrict to the commutator subgroup to identify the Hopf kernel."
+        },
+        {
+          "where": "T.1:classical/quotient-bar-kernel-h1",
+          "how": "Provides the central abelian kernel N/[E,N] for any quotient map, before specializing to free presentations."
         }
       ],
       "tests": [
@@ -3130,11 +3238,9 @@
         "F is a free group in Type; N is normal in F; G = F/N; homology has trivial integral coefficients."
       ],
       "proofSteps": [
-        "N is free (Nielsen-Schreier, subgroupIsFreeOfIsFree), so H_k(F, Z) = H_k(N, Z) = 0 for k ≥ 2 (free-group-higher-homology).",
-        "Exactness at F/[F, F] and surjectivity onto G_ab: this is the Mathlib corestriction-coinflation sequence H_1(N, Z) → H_1(F, Z) → H_1(G, Z) (groupHomology.H1CoresCoinfOfTrivial_exact, with groupHomology.H1CoresCoinfOfTrivial_g_epi), read through h1-trivial-perfect, since H_1(N, Z) = N_ab maps onto N/[F, N].",
-        "Identify the coinvariants H_1(N; Z)_G with N/[F, N]: H_1(N, Z) = N_ab (h1-trivial-perfect), and the coinvariants of the conjugation action of G on N_ab kill exactly the classes of f n f⁻¹ n⁻¹.",
-        "The injection H_2(G, Z) → N/[F, N] with image the kernel of N/[F, N] → F/[F, F]: in the Hochschild-Serre spectral sequence E²_pq = H_p(G; H_q(N; Z)) ⇒ H_p+q(F; Z) the rows q ≥ 2 vanish, H_2(F) = 0 forces d²: E²_20 = H_2(G) → E²_01 = H_1(N)_G to be injective, and convergence gives 0 → E²_01/im d² → H_1(F) → H_1(G) → 0 (Löh, proof of Theorem 3.2.18); the maps on H_1 are identified, up to sign, with those induced by inclusion and projection through naturality of the spectral sequence (Löh, Remark 3.2.14).",
-        "Gap G-Hopf: the Hochschild-Serre spectral sequence of a group extension, or its low-degree exact sequence, is not in Mathlib at the pin, and no atlas stage plans it for discrete groups."
+        "Apply T.1:classical/hochschild-serre-integral-five-term to F→G=F/N. Since F is free, free-group-higher-homology gives H₂(F,Z)=0, making the canonical transgression injective.",
+        "The resulting exact sequence is 0→H₂(G,Z)→N/[F,N]→F_ab→G_ab→0. The preceding explicit bar-kernel isomorphism identifies the middle map with inclusion, and the pinned homologyMap definition identifies the final map with quotient.",
+        "The low-degree corestriction/coinflation exact sequence already in Mathlib is compatible with these two degree-one maps. It supplies that tail but is not used alone to assert the missing injection. Freeness of N is not required to get this five-term specialization."
       ],
       "acceptance": [
         "For N = 1 the sequence reads 0 → H_2(F, Z) → 0 → F_ab → F_ab → 0, consistent with H_2(F, Z) = 0.",
@@ -3144,11 +3250,11 @@
       "prerequisites": [
         "K2SymbolsBrauer:T.1:classical/free-group-higher-homology",
         "K2SymbolsBrauer:T.1:classical/h1-trivial-perfect",
-        "mathlib:subgroupIsFreeOfIsFree",
         "mathlib:groupHomology.H1CoresCoinfOfTrivial_exact",
         "mathlib:groupHomology.H1CoresCoinfOfTrivial_g_epi",
         "mathlib:groupHomology.H2",
-        "mathlib:Rep.trivial"
+        "mathlib:Rep.trivial",
+        "K2SymbolsBrauer:T.1:classical/hochschild-serre-integral-five-term"
       ],
       "sources": [
         {
@@ -3159,7 +3265,7 @@
         {
           "sourceId": "Loeh.GroupCohomology.2019",
           "locator": "Proof of Theorem 3.2.18 (printed pp. 130-131; PDF pp. 138-139)",
-          "match": "The vanishing input of the first step; the spectral-sequence argument of the fourth step follows the same proof."
+          "match": "Löh gives a spectral-sequence proof using free-group vanishing. This packet instead specializes its explicitly constructed bar-kernel five-term sequence, for which only the vanishing of H₂(F,Z) is needed; no spectral sequence construction is attributed to this passage."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3458,9 +3564,9 @@
       ],
       "proofSteps": [
         "From π' ∘ φ = f ∘ π, φ(R) ⊆ R'; then φ([R, F]) ⊆ [R', F'] and φ([F, F]) ⊆ [F', F'], so the map of Hopf quotients is defined.",
-        "The morphism (φ restricted to R, φ, f) from 1 → R → F → G → 1 to 1 → R' → F' → G' → 1 induces a morphism of Hochschild-Serre spectral sequences (Löh, Remark 3.2.14), hence a morphism of the four-term sequences of hopf-four-term-sequence whose H_2 component is H_2(f; Z) and whose middle component is induced by φ.",
-        "Restricting to the kernels of R/[F, R] → F_ab and R'/[F', R'] → F'_ab gives the statement; independence of φ follows because H_2(f; Z) does not involve φ.",
-        "Gap G-natural-Hopf: this rests on the naturality of the same missing Hochschild-Serre input as hopf-four-term-sequence."
+        "Apply hochschild-serre-five-term-natural to the morphism of free-presentation quotients (φ,f). Its middle map sends class(r) to class(φ(r)) and its H₂ component is literally the pinned groupHomology.map f (id)2.",
+        "Restrict the commuting transgression square to the kernels of N/[F,N]→F_ab. The Hopf isomorphism is this injection followed by its image identification, so its naturality follows with the same fixed sign.",
+        "For a fixed f, the left H₂ map does not depend on φ. The transgression injections therefore force independence of the induced map on Hopf kernels."
       ],
       "acceptance": [
         "For G' = G, F' = F and φ = id the induced map is the identity.",
@@ -3473,7 +3579,8 @@
         "K2SymbolsBrauer:T.1:classical/relation-central-extension",
         "K2SymbolsBrauer:T.1:classical/commutator-central-extension",
         "mathlib:groupHomology.map",
-        "mathlib:Rep.trivial"
+        "mathlib:Rep.trivial",
+        "K2SymbolsBrauer:T.1:classical/hochschild-serre-five-term-natural"
       ],
       "sources": [
         {
@@ -3484,7 +3591,7 @@
         {
           "sourceId": "Loeh.GroupCohomology.2019",
           "locator": "Proof of Theorem 3.2.18 (printed p. 131; PDF p. 139)",
-          "match": "Löh uses this naturality to identify the maps on H_1; the same morphism of spectral sequences for a morphism of presentations gives the H_2 statement of this node."
+          "match": "Löh identifies degree-one maps by spectral-sequence naturality. This packet supplies the required degree-two compatibility by the pinned connecting-map naturality and the explicit bar-kernel isomorphism; it does not claim that Löh constructs the spectral sequence here."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3689,14 +3796,14 @@
         "Using filtered-colimit compatibility, reduce a vanishing element to a finitely generated subextension.",
         "Choose a finite transcendence basis; rational restriction is injective by successive leading-coefficient splittings.",
         "The remaining algebraic extension L/F is finite, so L is a finite free F-module and restriction of scalars gives the Quillen transfer K2(L) -> K2(F) (GeneralAlgebraicKTheory:K.3/transfer-maps-and-projection-formula, separable or not); by its projection formula, transfer after restriction is multiplication by the class of L in K0(F) = Z, that is by [L:F], which kills the original element.",
-        "Gap G-restriction-transfer: the filtered-colimit continuity is an imported K.7 interface, not proved by the rational splitting."
+        "Continuity is imported from the early connective ring model K.2/functorial-K-theory-of-a-ring; no negative or nonunital continuity is needed."
       ],
       "acceptance": [
         "For every field extension F <= L, the kernel of K2(F) -> K2(L) is torsion."
       ],
       "prerequisites": [
         "K2SymbolsBrauer:T.2/rational-function-field",
-        "GeneralAlgebraicKTheory:K.7",
+        "GeneralAlgebraicKTheory:K.2/functorial-K-theory-of-a-ring",
         "GeneralAlgebraicKTheory:K.3/transfer-maps-and-projection-formula"
       ],
       "sources": [
@@ -3707,7 +3814,8 @@
         }
       ],
       "implementationStatus": "unchecked",
-      "addedBy": "REV-K2SymbolsBrauer--T.1"
+      "addedBy": "REV-K2SymbolsBrauer--T.1",
+      "proposedParentStageId": "K2SymbolsBrauer:T.2:symbols:transfer-torsion"
     },
     {
       "id": "K2SymbolsBrauer:T.2:symbols/milnor-algebraically-closed",
@@ -3957,44 +4065,357 @@
       ],
       "implementationStatus": "unchecked",
       "addedBy": "REV-K2SymbolsBrauer--T.1"
+    },
+    {
+      "id": "K2SymbolsBrauer:T.1:classical/quotient-bar-kernel",
+      "parentStageId": "K2SymbolsBrauer:T.1:classical",
+      "realises": [
+        "K2SymbolsBrauer:T.1:classical"
+      ],
+      "title": "The kernel complex of a surjective group map",
+      "kind": "construction",
+      "statement": "For a surjection q:E→Q of discrete groups, let C_*(E) and C_*(Q) be the pinned inhomogeneous bar complexes with trivial integral coefficients, and L(q)=ker(chainsMap(q,id)). It sits in a short exact sequence 0→L(q)→C_*(E)→C_*(Q)→0. In degree n, L(q) is the kernel of the free-abelian pushforward on E^n→Q^n, generated by [a]−[b] with q^n(a)=q^n(b). In degree0 the map is identity on Z, so L(q)_0=0.",
+      "hypotheses": [
+        "Groups are in Type at the same universe as Z, as required by the pinned groupHomology interface.",
+        "Surjectivity of q is required for the degreewise short exactness. Coefficients are specifically trivial Z; this node does not claim arbitrary-coefficient Hochschild–Serre."
+      ],
+      "proofSteps": [
+        "Use groupHomology.chainsMap with the identity coefficient map. Its degree-n pushforward is surjective by chainsMap_f_map_epi: coordinatewise preimages lift every bar basis element.",
+        "Take the categorical kernel in chain complexes. Evaluation preserves this kernel by HomologicalComplex.eval_preservesLimit_of_hasKernel_f, giving the explicit degreewise description and the short exact sequence.",
+        "Choose one preimage in each tuple fibre. For a finitely supported integer chain in the kernel, group coefficients fibrewise: their sum in each fibre is zero. Subtract the chosen basis representative in each term to write it as a finite sum of pair differences. The only linear relations between those differences are [a]−[b]+[b]−[c]=[a]−[c] within a fibre and their additive consequences.",
+        "For n=0 there is a unique tuple and the coefficient map is identity, hence the degree-zero kernel vanishes. Morphisms of quotient maps induce kernel chain maps by the commuting square and chainsMap_comp."
+      ],
+      "acceptance": [
+        "A nonsurjective group map does not give the displayed short exact sequence by this proof.",
+        "The kernel in degree0 is zero, not an extra augmentation copy of Z."
+      ],
+      "prerequisites": [
+        "mathlib:groupHomology.inhomogeneousChains",
+        "mathlib:groupHomology.chainsMap",
+        "mathlib:groupHomology.chainsMap_f_map_epi",
+        "mathlib:groupHomology.chainsMap_f_single",
+        "mathlib:groupHomology.chainsMap_comp",
+        "mathlib:HomologicalComplex.eval_preservesLimit_of_hasKernel_f",
+        "mathlib:Rep.trivial"
+      ],
+      "sources": [
+        {
+          "sourceId": "Weibel.HA.Groups",
+          "locator": "§6.8, Low Degree Terms6.8.3, printed p.196/PDF37; read text and image 2026-10-02",
+          "match": "The integral trivial-coefficient five-term result. The packet gives a direct kernel-of-bar-chains proof rather than claiming that this argument is printed in the source; differential and connecting-map conventions are checked against the pinned Lean statements."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "GroupQuotient.barKernel",
+          "role": "data",
+          "statement": "The kernel chain complex L(q), using trivial integral bar chains."
+        },
+        {
+          "name": "GroupQuotient.barKernelShortComplex",
+          "role": "data",
+          "statement": "The kernel/inclusion/pushforward short complex of chain complexes."
+        },
+        {
+          "name": "GroupQuotient.barKernelShortExact",
+          "role": "characterisation",
+          "statement": "It is short exact when q is surjective."
+        },
+        {
+          "name": "GroupQuotient.barKernel_zero",
+          "role": "simp",
+          "statement": "The degree-zero object is zero."
+        },
+        {
+          "name": "GroupQuotient.barKernel_pairGenerators",
+          "role": "characterisation",
+          "statement": "Degree-n kernels are generated by differences of tuples with equal quotient images."
+        },
+        {
+          "name": "GroupQuotient.barKernel_map",
+          "role": "functoriality",
+          "statement": "A commuting square of quotient maps induces the canonical kernel chain map."
+        }
+      ],
+      "uses": [
+        {
+          "where": "T.1:classical/hopf-four-term-sequence and hopf-formula-natural",
+          "how": "For a surjection q:E→Q of discrete groups, let C_*(E) and C_*(Q) be the pinned inhomogeneous bar complexes with trivial integral coefficients, and L(q)=ker(chainsMap(q,id)). It sits in a short exact sequence 0→L(q)→C_*(E)→C_*(Q)→0. In degree n, L(q) is the kernel of the free-abelian pushforward on E^n→Q^n, generated by [a]−[b] with q^n(a)=q^n(b). In degree0 the map is identity on Z, so L(q)_0=0."
+        }
+      ],
+      "tests": [
+        {
+          "name": "bar_kernel_identity",
+          "kind": "degenerate",
+          "statement": "For q=id_E the kernel complex is zero in every degree."
+        },
+        {
+          "name": "bar_kernel_zero_degree",
+          "kind": "degenerate",
+          "statement": "For every surjective q, L(q)_0=0."
+        },
+        {
+          "name": "bar_kernel_tuple_difference",
+          "kind": "computation",
+          "statement": "[a]−[b] belongs to L(q)_n exactly when the two tuple images agree."
+        },
+        {
+          "name": "bar_kernel_nonsurjective",
+          "kind": "non-example",
+          "statement": "For 1→C₂ the degree-one bar pushforward misses the nonidentity basis element."
+        }
+      ]
+    },
+    {
+      "id": "K2SymbolsBrauer:T.1:classical/quotient-bar-kernel-h1",
+      "parentStageId": "K2SymbolsBrauer:T.1:classical",
+      "realises": [
+        "K2SymbolsBrauer:T.1:classical"
+      ],
+      "title": "First homology of the quotient bar kernel",
+      "kind": "comparison",
+      "statement": "With N=ker(q), there is a canonical isomorphism H₁(L(q))≅N/[E,N], written additively. It sends the cycle [a]−[b] with q(a)=q(b) to the class of ab⁻¹. The inverse sends n to the homology class of [n]−[1]. Under this isomorphism the map H₁(L(q))→H₁(E,Z)=E_ab is the inclusion-induced map N/[E,N]→E_ab.",
+      "hypotheses": [
+        "Use the unnormalised pinned bar differential ∂[a|b]=[b]−[ab]+[a]; no silent normalized-bar replacement.",
+        "The quotient N/[E,N] is the central abelian kernel of relation-central-extension; trivial coefficients make ∂₁ zero."
+      ],
+      "proofSteps": [
+        "Since L₀=0, H₁(L)=L₁/im(∂₂:L₂→L₁). On fibre differences define [a]−[b]↦class(ab⁻¹). The fibre triangle relation holds because (ab⁻¹)(bc⁻¹)=ac⁻¹, so this gives a canonical homomorphism, independent of the representatives chosen to express a chain.",
+        "Generators of L₂ are [a|b]−[a′|b′] with q(a)=q(a′), q(b)=q(b′). Their boundaries map to class(bb′⁻¹)−class(ab(a′b′)⁻¹)+class(aa′⁻¹)=0, since ab(a′b′)⁻¹ is the product of the conjugate a(bb′⁻¹)a⁻¹ and aa′⁻¹. Thus the homomorphism descends.",
+        "Set v(n)=class([n]−[1]) in H₁(L). The boundary of [n|m]−[1|1] proves v(nm)=v(n)+v(m). The boundaries of [a|n]−[a|1] and [n|a]−[1|a] prove v(n)=class([an]−[a])=class([na]−[a]), giving v(ana⁻¹)=v(n). Therefore v kills [E,N] and descends to its quotient.",
+        "The forward composite sends v(n) to n. For q(a)=q(b), put n=ab⁻¹; the boundary of [n|b]−[1|b] identifies v(n) with class([a]−[b]). Pair generators prove the other composite identity.",
+        "The inclusion L₁→C₁(E) sends the inverse generator [n]−[1] to the abelianisation class n because [1] is a bar boundary. Use the pinned H1AddEquivOfIsTrivial generator formula to identify this with the actual inclusion map."
+      ],
+      "acceptance": [
+        "The quotient is by mixed commutators [E,N], not only [N,N].",
+        "The sign is fixed by [a]−[b]↦ab⁻¹ and the pinned positive boundary ∂[a|b].",
+        "For S₃→C₂, conjugation inverts N=C₃ and its mixed-commutator quotient is zero; abelianising N alone would incorrectly give C₃."
+      ],
+      "prerequisites": [
+        "K2SymbolsBrauer:T.1:classical/quotient-bar-kernel",
+        "K2SymbolsBrauer:T.1:classical/relation-central-extension",
+        "K2SymbolsBrauer:T.1:classical/h1-trivial-perfect",
+        "mathlib:groupHomology.d₂₁_single",
+        "mathlib:groupHomology.d₁₀_eq_zero_of_isTrivial",
+        "mathlib:groupHomology.H1AddEquivOfIsTrivial",
+        "mathlib:groupHomology.H1π_comp_map"
+      ],
+      "sources": [
+        {
+          "sourceId": "Weibel.HA.Groups",
+          "locator": "§6.8, Low Degree Terms6.8.3, printed p.196/PDF37; read text and image 2026-10-02",
+          "match": "The integral trivial-coefficient five-term result. The packet gives a direct kernel-of-bar-chains proof rather than claiming that this argument is printed in the source; differential and connecting-map conventions are checked against the pinned Lean statements."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "K2SymbolsBrauer:T.1:classical/hochschild-serre-integral-five-term",
+      "parentStageId": "K2SymbolsBrauer:T.1:classical",
+      "realises": [
+        "K2SymbolsBrauer:T.1:classical"
+      ],
+      "title": "The integral five-term sequence of a group quotient",
+      "kind": "construction",
+      "statement": "For surjective q:E→Q with N=ker(q), construct the exact sequence H₂(E,Z)→H₂(Q,Z)→ N/[E,N]→E_ab→Q_ab→0. The outside homology maps are the pinned groupHomology.map with identity integral coefficients; the middle map is the connecting map of the quotient-bar kernel short exact sequence followed by quotient-bar-kernel-h1. This owns the required discrete trivial-integral-coefficient Hochschild–Serre low-degree input in T.1:classical, before plus constructions or spectra.",
+      "hypotheses": [
+        "Use the specified actual bar kernel and its fixed H₁ isomorphism; no arbitrary carrier isomorphism is substituted.",
+        "No claim is made here to construct the full Hochschild–Serre spectral sequence or its arbitrary-coefficient version."
+      ],
+      "proofSteps": [
+        "Apply the pinned ShortExact.δ and homology_exact₁–₃ to 0→L(q)→C(E)→C(Q)→0 in degrees2 and1. Because H₀(L(q))=0, its long exact sequence ends with a surjection H₁(E)→H₁(Q).",
+        "Replace H₁(L(q)) by N/[E,N] using the explicit isomorphism. Replace H₁(E),H₁(Q) by abelianisations using the pinned generator formulas. The inclusion and quotient maps agree on all bar1-generators.",
+        "For a 2-cycle z of C(Q), choose a 2-chain z̃ of C(E) mapping to z. Then ∂z̃ lies in L₁ and δ[z] is its class under the specified isomorphism. The pinned ShortExact.δ_apply has this positive sign. Two lifts differ by an element of L₂, so their boundaries differ by an L-boundary. If z changes by ∂w for w in C₃(Q), lift w to C₃(E) and change z̃ by its boundary; its next boundary is unchanged because ∂²=0. Any other lift again differs by L₂. Thus the map is well defined.",
+        "The result is the five-term sequence stated in Weibel6.8.3, proved here directly at chain level. It does not infer injectivity from freeness until the following free-presentation specialization."
+      ],
+      "acceptance": [
+        "The transgression is the canonical positive connecting map, and exactness includes the H₂(Q) term.",
+        "For q=id_E the sequence has identity H₂ map, zero middle quotient and identity abelianisation map."
+      ],
+      "prerequisites": [
+        "K2SymbolsBrauer:T.1:classical/quotient-bar-kernel",
+        "K2SymbolsBrauer:T.1:classical/quotient-bar-kernel-h1",
+        "K2SymbolsBrauer:T.1:classical/h1-trivial-perfect",
+        "mathlib:CategoryTheory.ShortComplex.ShortExact.δ",
+        "mathlib:CategoryTheory.ShortComplex.ShortExact.δ_apply",
+        "mathlib:CategoryTheory.ShortComplex.ShortExact.homology_exact₁",
+        "mathlib:CategoryTheory.ShortComplex.ShortExact.homology_exact₂",
+        "mathlib:CategoryTheory.ShortComplex.ShortExact.homology_exact₃",
+        "mathlib:groupHomology.map"
+      ],
+      "sources": [
+        {
+          "sourceId": "Weibel.HA.Groups",
+          "locator": "§6.8, Low Degree Terms6.8.3, printed p.196/PDF37; read text and image 2026-10-02",
+          "match": "The integral trivial-coefficient five-term result. The packet gives a direct kernel-of-bar-chains proof rather than claiming that this argument is printed in the source; differential and connecting-map conventions are checked against the pinned Lean statements."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "GroupQuotient.transgression",
+          "role": "data",
+          "statement": "The specified map H₂(Q,Z)→N/[E,N] from the bar-kernel connecting map."
+        },
+        {
+          "name": "GroupQuotient.transgression_lift",
+          "role": "characterisation",
+          "statement": "On a 2-cycle it is the relative class of the positive boundary of any lift."
+        },
+        {
+          "name": "GroupQuotient.fiveTerm_exact",
+          "role": "relation",
+          "statement": "Exactness at H₂(Q,Z), N/[E,N] and E_ab, and surjectivity onto Q_ab. No exactness at the first term H₂(E,Z) is asserted without a preceding term."
+        },
+        {
+          "name": "GroupQuotient.fiveTerm_maps",
+          "role": "compatibility",
+          "statement": "The H₂ maps and abelianisation maps are the pinned homology maps of q and inclusion."
+        }
+      ],
+      "uses": [
+        {
+          "where": "T.1:classical/hopf-four-term-sequence and hopf-formula-natural",
+          "how": "For surjective q:E→Q with N=ker(q), construct the exact sequence H₂(E,Z)→H₂(Q,Z)→δ N/[E,N]→E_ab→Q_ab→0. The outside homology maps are the pinned groupHomology.map with identity integral coefficients; the middle map is the connecting map of the quotient-bar kernel short exact sequence followed by quotient-bar-kernel-h1. This owns the required discrete trivial-integral-coefficient Hochschild–Serre low-degree input in T.1:classical, before plus constructions or spectra."
+        }
+      ],
+      "tests": [
+        {
+          "name": "five_term_identity",
+          "kind": "degenerate",
+          "statement": "For q=id the outside maps are identity and the middle quotient is zero."
+        },
+        {
+          "name": "five_term_abelian_extension",
+          "kind": "computation",
+          "statement": "For C₄→C₂ the middle quotient C₂ maps to C₄ by the element2, and the final map is reductionmod2."
+        },
+        {
+          "name": "five_term_noncentral",
+          "kind": "non-example",
+          "statement": "For S₃→C₂, N/[E,N]=0 although N_ab=C₃."
+        },
+        {
+          "name": "five_term_positive_sign",
+          "kind": "computation",
+          "statement": "For a chosen2-cycle lift the transgression uses +∂z̃, matching ShortExact.δ_apply."
+        }
+      ]
+    },
+    {
+      "id": "K2SymbolsBrauer:T.1:classical/hochschild-serre-five-term-natural",
+      "parentStageId": "K2SymbolsBrauer:T.1:classical",
+      "realises": [
+        "K2SymbolsBrauer:T.1:classical"
+      ],
+      "title": "Naturality of the integral quotient five-term sequence",
+      "kind": "lemma",
+      "statement": "A commuting square of surjections q:E→Q and q′:E′→Q′ with maps a:E→E′, b:Q→Q′ induces a commuting diagram of the integral five-term sequences. On H₂ it is groupHomology.map(a,id,2) and groupHomology.map(b,id,2); on N/[E,N] it sends class(n) to class(a(n)); every connecting square commutes with the fixed positive sign.",
+      "hypotheses": [
+        "The kernel inclusion a(N)⊂N′ follows from q′a=bq.",
+        "Use actual chain maps and the canonical quotient isomorphism; no choice of free lift enters b’s H₂ map."
+      ],
+      "proofSteps": [
+        "chainsMap_comp turns the group square into a commuting bar-chain square. Its restriction gives the kernel chain map and a morphism of the short exact complexes.",
+        "On pair generators of L₁, the kernel-H₁ comparison sends the mapped difference [a(x)]−[a(y)] to class(a(xy⁻¹)). Thus the H₁ comparison is natural.",
+        "Apply the pinned HomologicalComplex.HomologySequence.δ_naturality to the short-exact-complex morphism. Together with the preceding generator calculation this gives the transgression square.",
+        "The H₂ components are literally HomologicalComplex.homologyMap of chainsMap, which is the definition of groupHomology.map. The H₁ components agree with abelianisation on generators by H1π_comp_map. This proves map-level compatibility and sign, not only abstract isomorphism of the terms."
+      ],
+      "acceptance": [
+        "For identity and composite quotient-square maps the induced sequence maps are identity and composite.",
+        "Different middle lifts inducing the same b have the same H₂(Q) map and hence the same induced map of Hopf kernels."
+      ],
+      "prerequisites": [
+        "K2SymbolsBrauer:T.1:classical/hochschild-serre-integral-five-term",
+        "K2SymbolsBrauer:T.1:classical/quotient-bar-kernel-h1",
+        "mathlib:groupHomology.chainsMap_comp",
+        "mathlib:groupHomology.map",
+        "mathlib:groupHomology.H1π_comp_map",
+        "mathlib:HomologicalComplex.HomologySequence.δ_naturality"
+      ],
+      "sources": [
+        {
+          "sourceId": "Weibel.HA.Groups",
+          "locator": "§6.8, Low Degree Terms6.8.3, printed p.196/PDF37; read text and image 2026-10-02",
+          "match": "The integral trivial-coefficient five-term result. The packet gives a direct kernel-of-bar-chains proof rather than claiming that this argument is printed in the source; differential and connecting-map conventions are checked against the pinned Lean statements."
+        }
+      ],
+      "implementationStatus": "unchecked"
     }
   ],
   "coverage": [
     {
       "stageId": "K2SymbolsBrauer:T.1",
       "status": "partial",
-      "note": "Review checked the intended target of this stage. Its declarations are planned, with unresolved proof and interface work recorded; the umbrella stages aggregate their sub-stages.",
-      "remaining": "See node-indexed gaps and the independent review report; a cited theorem is not a decomposed proof."
+      "note": "0 nodes with current parent K2SymbolsBrauer:T.1; aggregate children and proposed parent changes are recorded individually. All source proof and implementation boundaries are listed below.",
+      "remaining": [
+        "Independent review of this revision.",
+        "Two statements are used exactly as the K-book gives them",
+        "G-matrix: associative-ring elementary calculus",
+        "G-colimit: group colimit and finite representatives",
+        "G-centre: stable elementary centre and column injectivity",
+        "G-lifted-relations: finite splitting details",
+        "G-cover-Hurewicz: chosen plus-cover and Hurewicz maps"
+      ]
     },
     {
       "stageId": "K2SymbolsBrauer:T.1:classical",
       "status": "partial",
-      "note": "Review checked the intended target of this stage. Its declarations are planned, with unresolved proof and interface work recorded; the umbrella stages aggregate their sub-stages. FIX-RT-AREA-ktheory-1 (findings RT-AREA-ktheory-1/29 and /30) decomposed the universal-central-extension package into declaration-sized nodes: pullback and composite of central extensions, splitting over a universal extension, H_1 as abelianisation, superperfect groups, existence for perfect groups, Hopf's formula through the four-term sequence, the kernel as H_2, the four implications of the Recognition Theorem, and the lift of homomorphisms with its kernel naturality. Three of these (central-extension-comp, split-extensions-kill-h2, uce-source-superperfect) were first planned in K3BlochGroups V.1 and moved here; V.1, T.1:plus and StableHomotopyKTheory H.3 import them.",
-      "remaining": "See node-indexed gaps and the independent review report; a cited theorem is not a decomposed proof. For the recognition package the one open input is G-Hopf (the Hochschild-Serre low-degree sequence behind hopf-four-term-sequence and hopf-formula-natural)."
+      "note": "43 nodes with current parent K2SymbolsBrauer:T.1:classical; aggregate children and proposed parent changes are recorded individually. All source proof and implementation boundaries are listed below.",
+      "remaining": [
+        "Independent review of this revision.",
+        "G-matrix: associative-ring elementary calculus",
+        "G-classification: trivial-action comparison"
+      ]
     },
     {
       "stageId": "K2SymbolsBrauer:T.1:plus",
       "status": "partial",
-      "note": "Review checked the intended target of this stage. Its declarations are planned, with unresolved proof and interface work recorded; the umbrella stages aggregate their sub-stages.",
-      "remaining": "See node-indexed gaps and the independent review report; a cited theorem is not a decomposed proof."
+      "note": "2 nodes with current parent K2SymbolsBrauer:T.1:plus; aggregate children and proposed parent changes are recorded individually. All source proof and implementation boundaries are listed below.",
+      "remaining": [
+        "Independent review of this revision."
+      ]
     },
     {
       "stageId": "K2SymbolsBrauer:T.2",
       "status": "partial",
-      "note": "Review checked the intended target of this stage. Its declarations are planned, with unresolved proof and interface work recorded; the umbrella stages aggregate their sub-stages.",
-      "remaining": "See node-indexed gaps and the independent review report; a cited theorem is not a decomposed proof."
+      "note": "0 nodes with current parent K2SymbolsBrauer:T.2; aggregate children and proposed parent changes are recorded individually. All source proof and implementation boundaries are listed below.",
+      "remaining": [
+        "Independent review of this revision.",
+        "G-Matsumoto: theorem stated without normal-form decomposition",
+        "Two statements are used exactly as the K-book gives them",
+        "The general form of the symbol of a unit with its negative rests on a later chapter",
+        "G-matrix: associative-ring elementary calculus",
+        "G-Whitehead: block elementary factorization",
+        "G-finite-units: cyclicity and finite counting",
+        "G-graded-quotient: homogeneous ideal and grading",
+        "G-product-symbol: equality with the chosen classical map"
+      ]
     },
     {
       "stageId": "K2SymbolsBrauer:T.2:symbols",
       "status": "partial",
-      "note": "Review checked the intended target of this stage. Its declarations are planned, with unresolved proof and interface work recorded; the umbrella stages aggregate their sub-stages.",
-      "remaining": "See node-indexed gaps and the independent review report; a cited theorem is not a decomposed proof."
+      "note": "19 nodes with current parent K2SymbolsBrauer:T.2:symbols; aggregate children and proposed parent changes are recorded individually. All source proof and implementation boundaries are listed below.",
+      "remaining": [
+        "Independent review of this revision.",
+        "The general form of the symbol of a unit with its negative rests on a later chapter",
+        "Bass and Tate are cited for two Milnor K-theory computations",
+        "G-matrix: associative-ring elementary calculus",
+        "G-universal-negative: Laurent-ring localization injection",
+        "G-restriction-transfer: continuity and degree",
+        "G-algclosed: unique divisibility in degrees at least two",
+        "G-real: complementary divisibility",
+        "G-Bass-Tate: arithmetic Milnor computations"
+      ]
     },
     {
       "stageId": "K2SymbolsBrauer:T.2:graded-map",
       "status": "partial",
-      "note": "Review checked the intended target of this stage. Its declarations are planned, with unresolved proof and interface work recorded; the umbrella stages aggregate their sub-stages.",
-      "remaining": "See node-indexed gaps and the independent review report; a cited theorem is not a decomposed proof."
+      "note": "2 nodes with current parent K2SymbolsBrauer:T.2:graded-map; aggregate children and proposed parent changes are recorded individually. All source proof and implementation boundaries are listed below.",
+      "remaining": [
+        "Independent review of this revision."
+      ]
     }
   ],
   "gaps": [
@@ -4063,31 +4484,10 @@
       ]
     },
     {
-      "title": "G-Hopf: the Hochschild-Serre input of Hopf's formula",
-      "detail": "Hopf's formula is decomposed as in Löh, Theorem 3.2.18: free groups and, by Nielsen-Schreier, their subgroups have vanishing integral homology in degrees at least two (free-group-higher-homology), and the four-term exact sequence 0 → H_2(G) → N/[F, N] → F_ab → G_ab → 0 (hopf-four-term-sequence) gives the formula. Its exactness at F_ab and surjectivity onto G_ab are Mathlib's groupHomology.H1CoresCoinfOfTrivial_exact and groupHomology.H1CoresCoinfOfTrivial_g_epi. The missing input is the injection H_2(G) → H_1(N)_G with image the kernel of H_1(N)_G → H_1(F): the Hochschild-Serre spectral sequence of a group extension, or its low-degree exact sequence, with integral coefficients (Löh, Theorem 3.2.12, stated there without construction). Mathlib has at the pin only the long exact sequence of a short exact sequence of representations of one group (groupHomology.δ) and the degree-one corestriction-coinflation sequence, and no atlas stage plans the discrete-group Hochschild-Serre sequence. Löh cites Hilton-Stammbach VI.9 for a proof by basic homological algebra; that book was not obtained.",
-      "neededBy": [
-        "K2SymbolsBrauer:T.1:classical/hopf-four-term-sequence",
-        "K2SymbolsBrauer:T.1/hopf-formula",
-        "K2SymbolsBrauer:T.1:classical/uce-kernel-h2",
-        "K2SymbolsBrauer:T.1:classical/superperfect-extensions-split",
-        "K2SymbolsBrauer:T.1/recognition-theorem",
-        "K2SymbolsBrauer:T.1/k2-h2-elementary"
-      ]
-    },
-    {
       "title": "G-lifted-relations: finite splitting details",
       "detail": "For III.5.5.1, expand the Hall-Witt special case, intermediate-index independence and the omitted additive relation. Splitting over St_n alone does not prove centrality of St_n->E_n.",
       "neededBy": [
         "K2SymbolsBrauer:T.1/finite-rank-splitting"
-      ]
-    },
-    {
-      "title": "G-natural-Hopf: naturality of kernel/H2 comparison",
-      "detail": "The lift of a homomorphism to universal central extensions and its kernel map are planned (uce-lift, uce-kernel-h2-natural); comparing the kernel map with Mathlib's groupHomology.map on H_2 rests on hopf-formula-natural, whose proof needs the naturality of the Hochschild-Serre spectral sequence (Löh, Remark 3.2.14), the same missing input as G-Hopf. Isomorphism of abstract carriers is insufficient: the comparison is of maps.",
-      "neededBy": [
-        "K2SymbolsBrauer:T.1:classical/hopf-formula-natural",
-        "K2SymbolsBrauer:T.1:classical/uce-kernel-h2-natural",
-        "K2SymbolsBrauer:T.1/k2-h2-elementary"
       ]
     },
     {
@@ -4116,13 +4516,6 @@
       "detail": "The finite-field K2 proof needs a pinned cyclicity declaration for Fq× and a finite-cardinality implementation. ZMod is only a carrier.",
       "neededBy": [
         "K2SymbolsBrauer:T.2/k2-finite-field"
-      ]
-    },
-    {
-      "title": "G-restriction-transfer: continuity and degree",
-      "detail": "Use K.7 filtered-colimit compatibility, and the Quillen transfer of GeneralAlgebraicKTheory:K.3/transfer-maps-and-projection-formula with its projection formula for the degree, including inseparable finite extensions. The transfer was earlier requested from T.3:localization-comparison, which after RT-AREA-ktheory-1/28 imports it from K.3 instead; citing K.3 directly also removes the stage cycle T.2:symbols -> T.3:localization-comparison -> T.2:symbols. The K.7 continuity interface remains imported.",
-      "neededBy": [
-        "K2SymbolsBrauer:T.2:symbols/extension-kernel-torsion"
       ]
     },
     {
@@ -4162,11 +4555,6 @@
         "K2SymbolsBrauer:T.2/graded-map",
         "K2SymbolsBrauer:T.2/graded-map-degree-three"
       ]
-    },
-    {
-      "title": "Original README needs regeneration by its owner",
-      "detail": "The companion README is outside review deliverables. It still reports 28 nodes and source_decomposed coverage and repeats overly broad baseline claims and wrong plus locators. Regenerate from the reviewed packet during the requested revision; the suggested file identifies the packet and review report as current.",
-      "neededBy": []
     }
   ],
   "requests": [
@@ -4195,7 +4583,13 @@
       "need": "Acyclic plus construction with the relative comparison identifying BE(R)+ as the simply connected cover of BGL(R)+. The covering and Hurewicz naturality bridge is explicitly missing; the H.3 document does not assert an existing implementation."
     }
   ],
-  "restructure": [],
+  "restructure": [
+    {
+      "kind": "propose-split",
+      "title": "Separate the transfer corollary from elementary field symbols",
+      "proposal": "Create T.2:symbols:transfer-torsion after T.2:symbols, GeneralAlgebraicKTheory K.3 and K.2:plus, and move extension-kernel-torsion there with its id unchanged. The elementary Matsumoto stage does not need Quillen transfer. The graded-map stage imports K.7:products rather than the late K.7 umbrella. Connective filtered continuity comes from the early ring model, not negative/nonunital K.7."
+    }
+  ],
   "sourceIssues": [
     {
       "id": "K2SymbolsBrauer/E1",
@@ -4238,6 +4632,23 @@
         "reason": "Confirmed as a missing hypothesis/input in the displayed deduction, not as a proved counterexample to the general finite-rank statement.",
         "by": "REV-K2SymbolsBrauer--T.1"
       }
+    },
+    {
+      "id": "K2SymbolsBrauer/E-central-subgroup-coefficients",
+      "source": "Weibel.HA.Groups",
+      "kind": "error",
+      "locator": "Example6.8.4, printed p.196/PDF37 of the inspected Cambridge chapter scan; hash in sourceVersions; text and image read2026-10-02.",
+      "printed": "The source claims that centrality of H in G makes the G/H action trivial on both H_*(H;A) and H^*(H;A).",
+      "correction": "For the asserted trivial quotient action, take A with trivial G-action (in particular A=Z, the following example’s coefficients). Centrality of H alone does not imply the statement for an arbitrary G-module A.",
+      "reason": "Take H=1, G=C₂ and A=Z with the nonidentity element acting by−1. Then H lies in the centre, but H₀(1;A)=A and its induced G/H action is multiplication by−1, which is nontrivial. The integral trivial-coefficient five-term construction in this packet meets the corrected qualification.",
+      "affects": "a stated result",
+      "known": "Novelty not established; scoped only to the inspected published chapter scan. The author’s1994-to1995 corrections were inspected at their group-homology entries and no matching correction established; the current1995 errata link could not be fetched.",
+      "searched": [
+        "https://sites.math.rutgers.edu/~weibel/Hbook-corrections.html opened2026-10-02.",
+        "https://www.math.rutgers.edu/~weibel/Books/Hbook.errors.edition1.pdf group-homology entries inspected2026-10-02.",
+        "https://sites.math.rutgers.edu/~weibel/Books/Hbook.errors.edition2.pdf opened2026-10-02: retrieval failed.",
+        "Author-site searches for6.8.4 and p.196 on2026-10-02; no matching correction established."
+      ]
     }
   ],
   "consumerContracts": [
@@ -4279,6 +4690,14 @@
       "read": "2026-09-30",
       "sha256": "ba1bc2d25680ab25c4baadc5ab28e39d1077dc66bb12ca4e2174b6cb55f81307",
       "note": "FIX-RT-AREA-ktheory-2~2: only PDF pp.61–62: III.7.2–7.3, global Milnor groups inspected. Earlier version records remain historical."
+    },
+    {
+      "source": "Weibel.HA.Groups",
+      "kind": "published",
+      "url": "https://math.mit.edu/~hrm/palestine/weibel/06-group_homology_and_cohomology.pdf",
+      "read": "2026-10-02",
+      "sha256": "7e44c5cb4dc6201cacca2c0fd117eaaf5e7afaa51fdef177314b4cdbe15dcf95",
+      "scope": "Public institutional mirror of Cambridge chapter scan; printed195–196 and the indicated Hopf/UCE text. No claim about other editions."
     }
   ],
   "review": {

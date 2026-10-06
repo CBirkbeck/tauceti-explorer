@@ -1071,10 +1071,11 @@ theorem finite_support_tameSymbol {I : Type v} (v : I → Valuation F ℤᵐ⁰)
 /- `K2SymbolsBrauer:T.3/localization-boundary`: not stated here; the Quillen boundary
 carrier is absent. Exact upstream input: GeneralAlgebraicKTheory K.3 constructs the ring
 localization boundary on K₁ by the cone/cokernel of multiplication by a non-zero-divisor:
-∂[s]=[R/sR] in K₀ of the torsion exact category. For a DVR, dévissage gives ∂[π]=[k]
-and ∂[π^r u]=r[k]. This is not requested from downstream SchemeKTheoryOperations S.3.
-GeneralAlgebraicKTheory K.7 supplies the RIGHT action
-∂(x·j*y)=∂x·i*y and the ordered unit product a·b={a,b}. Hence ∂{π,u}=ū;
+∂[s]=[R/sR] in K₀ of the torsion exact category (K.3/localization-degree-one-index).
+For a DVR, dévissage gives ∂[π]=[k] and ∂[π^r u]=r[k] (K.3/dvr-degree-one-boundary).
+This is not requested from downstream SchemeKTheoryOperations S.3.
+K.3/localization-product-boundary, on K.7's products, supplies the RIGHT action
+∂(x·j*y)=∂x·i*y, and K.7 the ordered unit product a·b={a,b}. Hence ∂{π,u}=ū;
 skew-symmetry gives ∂{u,π}=ū⁻¹ and ∂{π,π}=−1. Expanding
 f=π^r u, g=π^s v gives ∂{f,g}=(−1)^(rs) v̄^r ū^(−s)=tameSymbol v g f,
 the inverse of the roadmap's symbol. This fixes the module-action side and owner without
@@ -3199,3 +3200,13 @@ must have real factor 1. In the uniformiser-last Milnor convention
 (Q/Z)[m] ≃ ZMod m, sending [a/m] to a. Multiplication by m in Q/Z
 is zero on this subgroup and is not the exponent coordinate. Milne’s ordered
 cup/Artin calculation fixes the exponent sign at −1 for higher powers as well. -/
+
+/- Packet names with no Lean signature in this file yet (FIX-RT-AREA-ktheory-1~2,
+claude-HJaFqR, 2026-10-06). PROTOCOL section 13 asks for every definition, API item and
+unit test of the packet under the packet's name; these are listed with their packet
+statements so that the names agree, and a contributor gives each its signature (or an
+`example`) next to its node above.
+
+TauCeti.K2.relK2.toK2 (API, projection; K2SymbolsBrauer:T.6/relative-steinberg-group): The map K₂(R, I) → K₂(R).
+TauCeti.K2.relDennisSteinGroup.toRelK2 (API, compatibility; K2SymbolsBrauer:T.6/relative-presentation): For I ≤ Ideal.jacobson ⊥, the relative generator map descends through exactly the source-allowed D1–D3 relations. Bijectivity is relative_presentation; its cited completeness proof remains unobtained.
+-/

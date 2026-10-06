@@ -749,7 +749,12 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.2.4.1, printed p. 472 (PDF p. 480)",
-     "match": "The criterion and its consequence, verbatim, in the source's indexing, with its reference for the proof. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
+     "match": "The criterion, verbatim, in the source's indexing, with its reference for the proof. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
+    },
+    {
+     "sourceId": "Kbook.2013",
+     "locator": "VI.2.4.1, the sentence after the criterion, printed p. 472 (PDF p. 480)",
+     "match": "Its consequence through Kummer's congruences, verbatim, with the source's reference. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
     },
     {
      "sourceId": "Kbook.2013",
@@ -1439,6 +1444,11 @@
      "sourceId": "Kbook.2013",
      "locator": "III.5.2.2 (Example 5.2.2), printed p. 218 (PDF p. 226)",
      "match": "The statement and its attribution to Tate, verbatim."
+    },
+    {
+     "sourceId": "Browkin.2000",
+     "locator": "§1, Introduction (p. 1667)",
+     "match": "The attribution of the Gaussian case to Tate, verbatim: ℤ[i] is a Euclidean imaginary quadratic ring."
     },
     {
      "sourceId": "Browkin.2000",
