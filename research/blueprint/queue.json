@@ -29378,9 +29378,9 @@
     "REV-RS-17"
    ],
    "prompt": "research/blueprint/prompts/BP-WeightsInEtaleCohomology.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [],
-   "note": "released on GitHub issue #1004"
+   "note": "claimed on GitHub issue #1004"
   },
   {
    "id": "REV-WeightsInEtaleCohomology",
@@ -29477,12 +29477,12 @@
     "REV-RS-17"
    ],
    "prompt": "research/blueprint/prompts/BP-WeilConjectures--WC.6.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-FoundationsAndLibraryIntegration",
     "BP-SchemeAndStackFoundations"
    ],
-   "note": "released on GitHub issue #1006"
+   "note": "claimed on GitHub issue #1006"
   },
   {
    "id": "REV-WeilConjectures--WC.6",
@@ -35576,8 +35576,9 @@
     "DESIGN-LV~2"
    ],
    "prompt": "research/blueprint/prompts/REV-DESIGN-LV~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6393"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6393",
+   "finishedAt": "2026-10-06T08:39:50Z"
   },
   {
    "kind": "design",
@@ -66662,8 +66663,9 @@
    "avoidAccountOf": "DESIGN-EllipticModularityEffectiveComparisons",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-EllipticModularityEffectiveComparisons.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1722"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1722",
+   "finishedAt": "2026-10-06T08:39:54Z"
   },
   {
    "id": "DESIGN-EllipticLegendreCharacterInterfaces",
