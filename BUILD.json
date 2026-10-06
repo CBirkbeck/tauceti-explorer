@@ -1,7 +1,7 @@
 {
-  "roadmaps": 231,
-  "stages": 3913,
-  "originalStages": 2116,
+  "roadmaps": 232,
+  "stages": 3926,
+  "originalStages": 2129,
   "sourceRefinements": 1797,
   "reviewedDecompositions": [
     {
@@ -292,7 +292,7 @@
       "deferredLinks": 1
     }
   ],
-  "terminalTargets": 2044,
+  "terminalTargets": 2057,
   "groups": 27,
   "retiredRoadmaps": [
     "FoundationsAndLibraryIntegration"
@@ -309,18 +309,18 @@
   "unmappedAreas": 0,
   "areasWithRoadmaps": 27,
   "additionalRegions": 0,
-  "mathematicalSummaries": 231,
+  "mathematicalSummaries": 232,
   "editedRoadmapSummaries": 181,
   "curatedStagePresentations": 339,
   "administrativeStages": 101,
-  "mathematicalStars": 3812,
+  "mathematicalStars": 3825,
   "plainTextPlanetLabels": 398,
   "hiddenPlanets": 600,
   "mappedStageStatuses": 350,
   "libraryAuditStatuses": 19,
   "bibliographicSources": 46,
   "roadmapEdges": 1949,
-  "stageEdges": 10351,
+  "stageEdges": 10363,
   "reviewedLinkPackets": 25,
   "promotedBlueprints": [
     {
@@ -949,8 +949,8 @@
     }
   ],
   "sourceDocuments": 296,
-  "htmlBytes": 33717155,
-  "htmlSha256": "21a6ce820db65ead9995d76b6dbe84d6b94c8baeb674ad489ee61b05624c2044",
+  "htmlBytes": 33818553,
+  "htmlSha256": "d36906e27d65c1e28139a125f539ec6990641e48cfe0ef2586c7ac918b749421",
   "networkDependencies": 0,
   "localProgressOverridesIncluded": false,
   "assets": {
@@ -970,8 +970,8 @@
     "src/app.js": "d7c71df704e82afbfa6cddb2bf3eff67dd0a98ba68138895f0a5952af92566a8",
     "data/atlas.json": "62ab6c2ccb94ee9c4d99813da02b69656941721d30fc29384e2b7e6e86361c56",
     "data/status.json": "7b9fe0072201b427ed600ee7066bd729d34b2632450823e1f877a8d5d3f7ad2e",
-    "data/tauceti-progress.json": "c9bdf0fca83386a9e626b2267bf60981e044e94d425d4b0da9de479f961c3059",
-    "data/tauceti-new-roadmaps.json": "20bf2d1a7a7951e255497cdc5f8a55df7c651b29e9008a0d8e3cdaf2f1f97f55",
+    "data/tauceti-progress.json": "d14f1689f9af266de7daba3f41553d0592a112bc9801e94872f9aaa5801d54a5",
+    "data/tauceti-new-roadmaps.json": "c7f3f1944428628aaa2330ea78f3e6441b750599f57d107e4ccfdffaf048d1b2",
     "data/galaxies.json": "90d5131f4073e762260faa5614e53cbe41f194012b424f81db67afac16610599",
     "data/roadmap-retirements.json": "d572bc6f66332331ea507db17f12bdad008f73228b2dc9b5197f7e4c86334c9f",
     "data/library-coverage.json": "6fe73095d574e7f98497e0dcc0eeec3a9ab0a2c04b4eed98ded8e678a3adea7a",
@@ -1352,18 +1352,19 @@
     "data/restructure/RS-33.result.json": "f9e95d0edcb3f28b9821335eb9d879a57466bed358835b428b338deb97b4369f"
   },
   "taucetiProgress": {
-    "exportedAt": "2026-10-06T06:42:15Z",
-    "roadmaps": 69,
+    "exportedAt": "2026-10-06T16:16:51Z",
+    "roadmaps": 70,
     "unplaced": 0,
     "layers": {
-      "done": 292,
-      "partial": 218,
+      "done": 296,
+      "partial": 214,
       "untouched": 69,
-      "unassessed": 0,
-      "total": 579
+      "unassessed": 13,
+      "total": 592
     },
     "added": [
       "tauceti:TauCetiRoadmap/AlgebraicVectorBundles",
+      "tauceti:TauCetiRoadmap/DifferentialGeometry",
       "tauceti:TauCetiRoadmap/IntegralLattices",
       "tauceti:TauCetiRoadmap/LocalGaloisGroups",
       "tauceti:TauCetiRoadmap/OrthogonalSpinGroups",
