@@ -1,0 +1,880 @@
+{
+  "roadmapId": "EllipticRegulators",
+  "protocol": "blueprint-v1",
+  "part": "ER.4",
+  "scope": [
+    "EllipticRegulators:ER.4"
+  ],
+  "status": "complete",
+  "summary": "Follow-up of the accepted parent: direct analytic proof of Bloch's finite Fourier identity, with its Bernoulli horizontal term, logarithmic sum, dilogarithmic boundary cancellation and absolute convergence. The seven existing ER.4 declarations are imported by id. AC.0 alone owns general finite-abelian Fourier theory; ER.4 uses its already planned torsion coordinates. Constant-field trace is imported; geometric trace remains the explicitly identified ER.7 supplier gap.",
+  "baseline": {
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "declarations": [
+      {
+        "ref": "mathlib:Complex.hasSum_taylorSeries_neg_log",
+        "kind": "lemma",
+        "module": "Mathlib/Analysis/SpecialFunctions/Complex/LogBounds.lean",
+        "provides": "For ‖z‖<1, HasSum (z^n/n) (−log(1−z)); n=0 term is zero. Principal branch; not a unit-circle assertion.",
+        "checked": "Actual declaration and hypotheses read in source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; shared source tree HEAD checked against pin."
+      },
+      {
+        "ref": "mathlib:hasSum_coe_mul_geometric_of_norm_lt_one",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/SpecificLimits/Normed.lean",
+        "provides": "For ‖r‖<1, Σ n r^n = r/(1−r)^2. This already supplies Bloch Lemma 10.3.2.",
+        "checked": "Actual declaration and hypotheses read in source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; shared source tree HEAD checked against pin."
+      },
+      {
+        "ref": "mathlib:cot_series_rep",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/SpecialFunctions/Trigonometric/Cotangent.lean",
+        "provides": "For x outside the integers, π cot(πx)=1/x+Σ_{n:ℕ+}(1/(x−n)+1/(x+n)); paired summation, never an absolutely convergent unprojected bilateral sum.",
+        "checked": "Actual declaration and hypotheses read in source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; shared source tree HEAD checked against pin."
+      },
+      {
+        "ref": "mathlib:iteratedDerivWithin_cot_pi_mul_eq_mul_tsum_div_pow",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/SpecialFunctions/Trigonometric/Cotangent.lean",
+        "provides": "For k≥1 and Im z>0, kth derivative within the upper half-plane of π cot(πz) is (−1)^k k! Σ_{n:ℤ}1/(z+n)^(k+1). k=1 yields the csc-squared identity by differentiation.",
+        "checked": "Actual declaration and hypotheses read in source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; shared source tree HEAD checked against pin."
+      },
+      {
+        "ref": "mathlib:Complex.cot_pi_eq_exp_ratio",
+        "kind": "lemma",
+        "module": "Mathlib/Analysis/SpecialFunctions/Trigonometric/Cotangent.lean",
+        "provides": "cot(πz)=(exp(2πiz)+1)/(i(1−exp(2πiz))); rearrange for Im z>0 to 1/(1−exp(2πiz))=(1+i cot(πz))/2.",
+        "checked": "Actual declaration and hypotheses read in source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; shared source tree HEAD checked against pin."
+      },
+      {
+        "ref": "mathlib:hasSum_one_div_nat_pow_mul_sin",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/ZetaValues.lean",
+        "provides": "For k≠0 and x∈[0,1], Σ n^(−2k−1) sin(2πnx)= (−1)^(k+1)(2π)^(2k+1)/(2(2k+1)!) B_{2k+1}(x); k=1 supplies B3 Fourier series.",
+        "checked": "Actual declaration and hypotheses read in source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; shared source tree HEAD checked against pin."
+      },
+      {
+        "ref": "mathlib:Real.summable_one_div_nat_pow",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/PSeries.lean",
+        "provides": "Summable (n↦1/(n:ℝ)^p) iff 1<p; p=2 bounds boundary Li2 series and row sums.",
+        "checked": "Actual declaration and hypotheses read in source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; shared source tree HEAD checked against pin."
+      },
+      {
+        "ref": "mathlib:Real.summable_one_div_int_pow",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/PSeries.lean",
+        "provides": "Summable (n:ℤ↦1/(n:ℝ)^p) iff 1<p; zero term interpreted as zero, p=3 for horizontal term.",
+        "checked": "Actual declaration and hypotheses read in source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; shared source tree HEAD checked against pin."
+      },
+      {
+        "ref": "mathlib:EisensteinSeries.summable_one_div_norm_rpow",
+        "kind": "lemma",
+        "module": "Mathlib/NumberTheory/ModularForms/EisensteinSeries/Summable.lean",
+        "provides": "For real k>2, Σ_{v:Fin 2→ℤ}‖v‖^(−k) summable; k=3 and an invertible real coordinate map bound the full Kronecker kernel.",
+        "checked": "Actual declaration and hypotheses read in source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; shared source tree HEAD checked against pin."
+      },
+      {
+        "ref": "mathlib:Function.Periodic.qParam",
+        "kind": "def",
+        "module": "Mathlib/Analysis/Complex/Periodic.lean",
+        "provides": "qParam h z=exp(2πiz/h); q=qParam 1 τ and torsion lift x=qParam 1 ((k+ℓτ)/C).",
+        "checked": "Actual declaration and hypotheses read in source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; shared source tree HEAD checked against pin."
+      },
+      {
+        "ref": "mathlib:Function.Periodic.norm_qParam",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Complex/Periodic.lean",
+        "provides": "‖qParam h z‖=exp(−2π Im z/h); h=1 gives geometric decay and the unit boundary ℓ=0.",
+        "checked": "Actual declaration and hypotheses read in source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; shared source tree HEAD checked against pin."
+      },
+      {
+        "ref": "mathlib:ZMod.stdAddChar",
+        "kind": "def",
+        "module": "Mathlib/Analysis/SpecialFunctions/Complex/CircleAddChar.lean",
+        "provides": "The additive character ZMod C→ℂ, exp(2πij/C); its conjugate in the AC.0 convention gives kernel exp(2πi(−ak+bℓ)/C).",
+        "checked": "Actual declaration and hypotheses read in source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; shared source tree HEAD checked against pin."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "Bloch.CRM11",
+      "title": "Higher Regulators, Algebraic K-Theory, and Zeta Functions of Elliptic Curves",
+      "authors": "Spencer J. Bloch",
+      "edition": "CRM Monograph Series 11, AMS, 2000.",
+      "url": "https://bookstore.ams.org/crmm-11",
+      "accessed": "2026-10-06",
+      "readSections": [
+        "Lecture 10 §§10.2–10.3, printed pp.77–85: Lemmas 10.2.2–10.2.3, Propositions 10.3.1 and 10.3.3, Lemmas 10.3.2, 10.3.4–10.3.5.",
+        "Text layer loses overlines. The barred denominator and signs are independently reconstructed by the pointwise algebra and numerical checks in the reader."
+      ]
+    },
+    {
+      "id": "Brunault.These.2005.public",
+      "title": "Valeur en 2 de fonctions L de courbes elliptiques",
+      "authors": "François Brunault",
+      "edition": "Thesis, Paris 7, 2005; arXiv math/0602186v1, French, 155 pages.",
+      "url": "https://arxiv.org/pdf/math/0602186v1",
+      "sha256": "8fd73faba5db08328c2884d9f35b79bc528145428766444f3eb8097f3b494fb7",
+      "accessed": "2026-10-06",
+      "readSections": [
+        "§1.2, pp.20–28: Definitions 19, Remark 20, Theorem 21, Propositions 22,24,26 and their proofs. In particular Theorem 21 obtains its torsion expansion from Bloch 10.2.1, so it is not an input to the new direct proof."
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "EllipticRegulators:ER.4/direct-series-convergence",
+      "parentStageId": "EllipticRegulators:ER.4",
+      "realises": [
+        "EllipticRegulators:ER.4"
+      ],
+      "kind": "theorem",
+      "title": "Convergence for Bloch’s direct torsion calculation",
+      "statement": "For every u∈T_C, the forward and backward raw logarithmic orbit series are absolutely summable after defining W(z)=log|z| log(1−z) with W(1)=0; the corresponding Li₂ imaginary orbit series and the double power series Σ_{n≥0,j≥1}(x_u q^n)^j/j² are absolutely summable. For bounded periodic f, each of Σ_{m≠0,n} f(m,n)/(m(mτ+n)²), Σ_{m≠0,n} f(m,n) Im(1/(m²(mτ+n))), Σ'_{m,n} f(m,n)/((mτ+n)²(mτ̄+n)), and Σ_{n≠0}f(0,n)/n³ is absolutely summable. Here Σ' omits (0,0); Im is taken before multiplication by f.",
+      "hypotheses": [
+        "C is a positive integer; τ∈ℍ, y=Im τ>0, q=exp(2πiτ).",
+        "T_C=(ℤ/C)²; u=(k,ℓ) uses canonical representatives 0≤k,ℓ<C; x_u=exp(2πi(k+ℓτ)/C).",
+        "f:T_C→ℂ, extended periodically to ℤ². f̂(k,ℓ)=C^(−2)Σ_{a,b}f(a,b)exp(2πi(−ak+bℓ)/C). No reality assumption."
+      ],
+      "proofSteps": [
+        "Use norm_qParam: |q|<1, |x_u|≤1 and |x_u^(−1)q|<1. The only forward boundary is n=ℓ=0. There W vanishes because log|x_u|=0, including x_u=1. For the tail, |log(1−z)|≤A|z| from the principal logarithm Taylor series; |log|x_u q^n|| grows linearly, so n|q|^n dominates the log orbit series.",
+        "On the closed unit disc, Li₂ equals Σ_{j≥1} z^j/j²: import P.1 continuity and its open-disc series, extend by uniform 1/j² domination. For n≥1 the sum of absolute values is bounded by A|q|^n; for n=0 use the convergent p=2 series. This proves the absolute double-series bounds needed to exchange n,j and finite character sums.",
+        "For a=|m|y>0, divide integers n into shells j≤|n+m Re τ|<j+1, at most four per shell. Comparison with the integral of (a²+t²)^(−1) gives Σ_n|mτ+n|^(−2)≤K_y/|m|. Hence the log-kernel norm sum is ≤K_yΣ_{m≠0}|m|^(−2). The projected imaginary kernel has absolute value y/(|m||mτ+n|²), so the same bound applies. Do not claim the unprojected reciprocal series is absolutely summable.",
+        "For the full cubic kernel, the real-linear map (m,n)↦mτ+n is invertible because y>0. Its lower norm bound and EisensteinSeries.summable_one_div_norm_rpow at k=3 give the result. The horizontal series uses p=3. Boundedness of f follows from finiteness of T_C."
+      ],
+      "prerequisites": [
+        "Polylogarithms:P.1/classical-polylogarithm",
+        "mathlib:hasSum_coe_mul_geometric_of_norm_lt_one",
+        "mathlib:Function.Periodic.norm_qParam",
+        "mathlib:Complex.hasSum_taylorSeries_neg_log",
+        "mathlib:Real.summable_one_div_nat_pow",
+        "mathlib:Real.summable_one_div_int_pow",
+        "mathlib:EisensteinSeries.summable_one_div_norm_rpow"
+      ],
+      "sources": [
+        {
+          "sourceId": "Bloch.CRM11",
+          "locator": "§10.3, pp.80–85, sum rearrangements underlying (10.3.2) and Propositions 10.3.1,10.3.3",
+          "match": "The locator identifies the source calculation. The statement and proof steps use independently derived, explicit coordinate formulas; the source text is not copied."
+        }
+      ],
+      "acceptance": [
+        "At ℓ=0 the logarithmic n=0 contribution is zero; the Li₂ n=0 contribution is retained.",
+        "All lattice identities use product-index absolute sums, not a silently chosen order of summation.",
+        "The row bound is uniform in the translate m Re τ; no irrationality condition on Re τ."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/EllipticRegulator/BlochFourier",
+        "namespace": "TauCeti.EllipticRegulator"
+      }
+    },
+    {
+      "id": "EllipticRegulators:ER.4/weighted-logarithmic-term",
+      "parentStageId": "EllipticRegulators:ER.4",
+      "realises": [
+        "EllipticRegulators:ER.4"
+      ],
+      "kind": "definition",
+      "title": "Bloch’s logarithmic term L",
+      "statement": "Define blochLogTerm(C,τ,f)=L=Σ_{u∈T_C}f̂(u)A_τ(x_u), where W(z)=log|z| log(1−z), W(1)=0, and A_τ(x)=Σ_{n≥0}W(xq^n)−Σ_{n≥1}W(x^(−1)q^n). Complex.log is the principal logarithm; canonical torsion lifts make both tails lie in the closed unit disc. This construction is the weighted specialization of the raw regulator’s logarithmic part, not a new elliptic companion.",
+      "hypotheses": [
+        "C is a positive integer; τ∈ℍ, y=Im τ>0, q=exp(2πiτ).",
+        "T_C=(ℤ/C)²; u=(k,ℓ) uses canonical representatives 0≤k,ℓ<C; x_u=exp(2πi(k+ℓτ)/C).",
+        "f:T_C→ℂ, extended periodically to ℤ². f̂(k,ℓ)=C^(−2)Σ_{a,b}f(a,b)exp(2πi(−ak+bℓ)/C). No reality assumption."
+      ],
+      "proofSteps": [
+        "Use the imported torsion transform and q-parameter; define A only at canonical torsion lifts.",
+        "The convergence theorem gives both orbit sums; multiply by the finite Fourier coefficients and sum.",
+        "Complex linearity is in f, not in x. The raw part depends on its lift; it is not asserted q-invariant."
+      ],
+      "prerequisites": [
+        "EllipticRegulators:ER.4/finite-fourier-transform",
+        "EllipticRegulators:ER.4/direct-series-convergence",
+        "EllipticRegulators:ER.3/the-companion-and-Bloch-convention",
+        "mathlib:Function.Periodic.qParam",
+        "mathlib:ZMod.stdAddChar"
+      ],
+      "sources": [
+        {
+          "sourceId": "Bloch.CRM11",
+          "locator": "(10.3.2), p.80",
+          "match": "The locator identifies the source calculation. The statement and proof steps use independently derived, explicit coordinate formulas; the source text is not copied."
+        }
+      ],
+      "acceptance": [
+        "Zero input gives zero on both sides.",
+        "C=1 or C=2 forces an odd complex-valued input to vanish.",
+        "Complex scalar multiplication preserves the identity; no coefficient passes through Im."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/EllipticRegulator/BlochFourier",
+        "namespace": "TauCeti.EllipticRegulator"
+      },
+      "api": [
+        {
+          "name": "blochLogTerm_apply",
+          "role": "characterisation",
+          "statement": "L(C,τ,f)=Σ_u f̂(u)A_τ(x_u)."
+        },
+        {
+          "name": "blochLogTerm_zero",
+          "role": "simp",
+          "statement": "L(C,τ,0)=0."
+        },
+        {
+          "name": "blochLogTerm_add",
+          "role": "structure",
+          "statement": "L(C,τ,f+g)=L(C,τ,f)+L(C,τ,g)."
+        },
+        {
+          "name": "blochLogTerm_smul",
+          "role": "structure",
+          "statement": "L(C,τ,c f)=c L(C,τ,f) for c∈ℂ."
+        },
+        {
+          "name": "blochLogTerm_character",
+          "role": "compatibility",
+          "statement": "For χ_u(a,b)=ZMod.stdAddChar(ak−bℓ), L(C,τ,χ_u)=A_τ(x_u), by AC.0 character orthogonality and the imported torsion identification."
+        },
+        {
+          "name": "blochLogTerm_boundary",
+          "role": "compatibility",
+          "statement": "For |z|=1, W(z)=0, including z=1. This is an equality for the weighted summand, not a Taylor series assertion for log(1−z)."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Bloch Proposition 10.3.1",
+          "how": "Rewriting L with weighted geometric series isolates the logarithmic lattice kernel."
+        },
+        {
+          "where": "Direct raw Fourier identity in this packet",
+          "how": "Adds to the independently computed dilogarithmic contribution."
+        }
+      ],
+      "tests": [
+        {
+          "name": "log_test_trivial_level",
+          "kind": "degenerate",
+          "statement": "At C=1, L(1,τ,f)=0 for every f (A_τ(1)=0 by tail cancellation)."
+        },
+        {
+          "name": "log_test_character_level_three",
+          "kind": "computation",
+          "statement": "For C=3 and u=(0,1), L(3,τ,χ_u)=A_τ(exp(2πiτ/3)); no factor 3 or 9."
+        },
+        {
+          "name": "log_test_unit_boundary",
+          "kind": "compatibility",
+          "statement": "W(i)=W(1)=0, although log(1−i) is nonzero; only the weighted summand is erased."
+        },
+        {
+          "name": "log_test_complex_scalar",
+          "kind": "non-example",
+          "statement": "L(C,τ,i f)=i L(C,τ,f); replacing the complex log by its real part loses the original complex regulator decomposition."
+        }
+      ]
+    },
+    {
+      "id": "EllipticRegulators:ER.4/weighted-dilogarithmic-term",
+      "parentStageId": "EllipticRegulators:ER.4",
+      "realises": [
+        "EllipticRegulators:ER.4"
+      ],
+      "kind": "definition",
+      "title": "Bloch’s dilogarithmic term M",
+      "statement": "Define blochDilogTerm(C,τ,f)=M=i Σ_{u∈T_C}f̂(u)V_τ(x_u), where V_τ(x)=Σ_{n≥0}Im Li₂(xq^n)−Σ_{n≥1}Im Li₂(x^(−1)q^n). On |z|≤1 use P.1’s principal Li₂, equal to the absolutely convergent Σ_{j≥1}z^j/j². Im is applied to each Li₂ value before the complex Fourier coefficient. Together A_τ(x)+iV_τ(x)=R_q^{Bl}(x)=J_q^{Bl}(x)+iD_q(x); the log|z| arg(1−z) part of D is in A, so V alone is not D_q.",
+      "hypotheses": [
+        "C is a positive integer; τ∈ℍ, y=Im τ>0, q=exp(2πiτ).",
+        "T_C=(ℤ/C)²; u=(k,ℓ) uses canonical representatives 0≤k,ℓ<C; x_u=exp(2πi(k+ℓτ)/C).",
+        "f:T_C→ℂ, extended periodically to ℤ². f̂(k,ℓ)=C^(−2)Σ_{a,b}f(a,b)exp(2πi(−ak+bℓ)/C). No reality assumption."
+      ],
+      "proofSteps": [
+        "Use imported P.1 Li₂ with its closed-disc continuity; the series coordinate form follows by uniform p=2 domination.",
+        "Form the two absolutely summable imaginary orbit sums, then the finite complex-linear weighted sum.",
+        "Expand the definition of D(z)=Im Li₂(z)+log|z|arg(1−z) and of J; principal log identifies A+iV with the imported raw Bloch regulator."
+      ],
+      "prerequisites": [
+        "EllipticRegulators:ER.4/finite-fourier-transform",
+        "EllipticRegulators:ER.4/direct-series-convergence",
+        "Polylogarithms:P.1/classical-polylogarithm",
+        "Polylogarithms:P.1/bloch-wigner-dilogarithm",
+        "EllipticRegulators:ER.3/the-companion-and-Bloch-convention"
+      ],
+      "sources": [
+        {
+          "sourceId": "Bloch.CRM11",
+          "locator": "(10.3.2), p.80; proof of Proposition 10.3.3, pp.82–83",
+          "match": "The locator identifies the source calculation. The statement and proof steps use independently derived, explicit coordinate formulas; the source text is not copied."
+        }
+      ],
+      "acceptance": [
+        "Zero input gives zero on both sides.",
+        "C=1 or C=2 forces an odd complex-valued input to vanish.",
+        "Complex scalar multiplication preserves the identity; no coefficient passes through Im."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/EllipticRegulator/BlochFourier",
+        "namespace": "TauCeti.EllipticRegulator"
+      },
+      "api": [
+        {
+          "name": "blochDilogTerm_apply",
+          "role": "characterisation",
+          "statement": "M(C,τ,f)=iΣ_u f̂(u)V_τ(x_u)."
+        },
+        {
+          "name": "blochDilogTerm_zero",
+          "role": "simp",
+          "statement": "M(C,τ,0)=0."
+        },
+        {
+          "name": "blochDilogTerm_add",
+          "role": "structure",
+          "statement": "M(C,τ,f+g)=M(C,τ,f)+M(C,τ,g)."
+        },
+        {
+          "name": "blochDilogTerm_smul",
+          "role": "structure",
+          "statement": "M(C,τ,c f)=c M(C,τ,f) for all complex c."
+        },
+        {
+          "name": "blochDilogTerm_character",
+          "role": "compatibility",
+          "statement": "M(C,τ,χ_u)=i V_τ(x_u), using the same torsion character as L."
+        },
+        {
+          "name": "blochDilogTerm_split",
+          "role": "relation",
+          "statement": "For odd f, M=M₁+M₂, where M₁=2iΣ_u f̂(u)Im Σ_{n≥0}Li₂(x_u q^n), M₂=−iΣ_k f̂(k,0)Im Li₂(exp(2πik/C)); both sums converge absolutely. The ℓ=0 boundary survives the orbit reindexing."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Bloch Propositions 10.3.3 and Lemmas 10.3.4–10.3.5",
+          "how": "M₁ carries a cotangent sum and an extra H term; M₂ removes H."
+        },
+        {
+          "where": "Raw Fourier identity; ER.3 companion comparison",
+          "how": "The imaginary Li₂ piece combines with the principal-log piece to give R^{Bl}, rather than the dilogarithm alone."
+        }
+      ],
+      "tests": [
+        {
+          "name": "dilog_test_trivial_level",
+          "kind": "degenerate",
+          "statement": "M(1,τ,f)=0 for every f; V_τ(1)=0."
+        },
+        {
+          "name": "dilog_test_character_level_three",
+          "kind": "computation",
+          "statement": "M(3,τ,χ_(0,1))=i V_τ(exp(2πiτ/3)); the character test catches the Fourier sign and C^(−2) factor."
+        },
+        {
+          "name": "dilog_test_complex_scalar",
+          "kind": "non-example",
+          "statement": "M(C,τ,i f)=i M(C,τ,f); Im must not be moved outside a complex-weighted sum."
+        },
+        {
+          "name": "dilog_test_unit_circle",
+          "kind": "compatibility",
+          "statement": "For C=4, τ=i and χ_(1,0), M=i Im Li₂(i)+2iΣ_{n≥1}Im Li₂(i exp(−2πn)); the nonzero unit-circle Li₂ value is retained."
+        }
+      ]
+    },
+    {
+      "id": "EllipticRegulators:ER.4/dilogarithmic-orbit-splitting",
+      "parentStageId": "EllipticRegulators:ER.4",
+      "realises": [
+        "EllipticRegulators:ER.4"
+      ],
+      "kind": "lemma",
+      "title": "Splitting the dilogarithmic orbit sum",
+      "statement": "blochDilogTerm_split: for odd f, M=M₁+M₂, where M₁=2iΣ_u f̂(u)Im Σ_{n≥0}Li₂(x_u q^n) and M₂=−iΣ_k f̂(k,0)Im Li₂(exp(2πik/C)). This promotes the definition’s relation API to the explicit prerequisite used by the lattice evaluation.",
+      "hypotheses": [
+        "C is a positive integer; τ∈ℍ, y=Im τ>0, q=exp(2πiτ).",
+        "T_C=(ℤ/C)²; u=(k,ℓ) uses canonical representatives 0≤k,ℓ<C; x_u=exp(2πi(k+ℓτ)/C).",
+        "f:T_C→ℂ, extended periodically to ℤ². f̂(k,ℓ)=C^(−2)Σ_{a,b}f(a,b)exp(2πi(−ak+bℓ)/C). No reality assumption.",
+        "f(−u)=−f(u) for all u∈T_C; consequently f(0)=0 and f̂ is odd."
+      ],
+      "proofSteps": [
+        "Change u to −u in the backward sum and use f̂(−u)=−f̂(u). For ℓ>0, the canonical negative lift is q/x_u, so n≥1 becomes n−1≥0.",
+        "For ℓ=0 the canonical negative lift is 1/x_u; the backward series becomes the forward one with its n=0 term omitted.",
+        "The finite weighted sum is thus twice the forward sum minus exactly the ℓ=0 endpoint. Absolute convergence justifies the reindexing and taking Im termwise."
+      ],
+      "prerequisites": [
+        "EllipticRegulators:ER.4/weighted-dilogarithmic-term",
+        "EllipticRegulators:ER.4/direct-series-convergence",
+        "EllipticRegulators:ER.4/finite-fourier-transform"
+      ],
+      "sources": [
+        {
+          "sourceId": "Bloch.CRM11",
+          "locator": "(10.3.2) and decomposition in proof of Proposition 10.3.3, pp.80,82–83",
+          "match": "The locator identifies the source calculation. The statement and proof steps use independently derived, explicit coordinate formulas; the source text is not copied."
+        }
+      ],
+      "acceptance": [
+        "The ℓ=0 boundary is retained with coefficient −i, not −2i.",
+        "Complex f is permitted; only the real Li₂ values are projected."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/EllipticRegulator/BlochFourier",
+        "namespace": "TauCeti.EllipticRegulator"
+      }
+    },
+    {
+      "id": "EllipticRegulators:ER.4/torsion-bernoulli-horizontal-term",
+      "parentStageId": "EllipticRegulators:ER.4",
+      "realises": [
+        "EllipticRegulators:ER.4"
+      ],
+      "kind": "theorem",
+      "title": "The Bernoulli horizontal term",
+      "statement": "Let b_τ(u)=4π²y²(t³/3−t²/2+t/6), t=ℓ/C. Then B=Σ_u f̂(u)b_τ(u)=(iy²/π)Σ_{n≠0}f(0,n)/n³. This is the unscaled correction for the analytic R_q, before multiplying by C³ for the K₂ classes.",
+      "hypotheses": [
+        "C is a positive integer; τ∈ℍ, y=Im τ>0, q=exp(2πiτ).",
+        "T_C=(ℤ/C)²; u=(k,ℓ) uses canonical representatives 0≤k,ℓ<C; x_u=exp(2πi(k+ℓτ)/C).",
+        "f:T_C→ℂ, extended periodically to ℤ². f̂(k,ℓ)=C^(−2)Σ_{a,b}f(a,b)exp(2πi(−ak+bℓ)/C). No reality assumption.",
+        "f(−u)=−f(u) for all u∈T_C; consequently f(0)=0 and f̂ is odd."
+      ],
+      "proofSteps": [
+        "Specialize Mathlib’s sine/Bernoulli formula at k=1. Pair ±n to obtain Σ_{n≠0}exp(2πint)/n³=(4π³i/3)B₃(t), including endpoints 0,1.",
+        "Multiply by −iy²/π and exchange the absolutely convergent n sum with the finite u sum.",
+        "AC.0 inversion in the imported ER.4 coordinates gives Σ_u f̂(u)exp(2πinℓ/C)=f(0,−n). Oddness changes the minus sign to plus."
+      ],
+      "prerequisites": [
+        "EllipticRegulators:ER.4/finite-fourier-transform",
+        "EllipticRegulators:ER.4/direct-series-convergence",
+        "EllipticRegulators:ER.3/the-companion-and-Bloch-convention",
+        "AdditiveCombinatorics:AC.0/fourier-transform",
+        "mathlib:hasSum_one_div_nat_pow_mul_sin"
+      ],
+      "sources": [
+        {
+          "sourceId": "Bloch.CRM11",
+          "locator": "Lemma 10.2.3, pp.79–80",
+          "match": "The locator identifies the source calculation. The statement and proof steps use independently derived, explicit coordinate formulas; the source text is not copied."
+        }
+      ],
+      "acceptance": [
+        "For C=3 and f=δ_(0,1)−δ_(0,2), B=8π²i y²/(81√3); the horizontal row has that value after multiplying by iy²/π.",
+        "The inherited capital-C correction is source issue EllipticRegulators/E11; no new spelling of it is introduced.",
+        "For an input supported off the row a=0 the correction vanishes."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/EllipticRegulator/BlochFourier",
+        "namespace": "TauCeti.EllipticRegulator"
+      },
+      "planet": {
+        "name": "The Bernoulli correction"
+      }
+    },
+    {
+      "id": "EllipticRegulators:ER.4/logarithmic-lattice-evaluation",
+      "parentStageId": "EllipticRegulators:ER.4",
+      "realises": [
+        "EllipticRegulators:ER.4"
+      ],
+      "kind": "theorem",
+      "title": "Evaluation of Bloch’s logarithmic term",
+      "statement": "L=−y/(2π) Σ_{m≠0,n∈ℤ} f(m,n)/(m(mτ+n)²). All indices are signed integers; the m=0 row is absent.",
+      "hypotheses": [
+        "C is a positive integer; τ∈ℍ, y=Im τ>0, q=exp(2πiτ).",
+        "T_C=(ℤ/C)²; u=(k,ℓ) uses canonical representatives 0≤k,ℓ<C; x_u=exp(2πi(k+ℓτ)/C).",
+        "f:T_C→ℂ, extended periodically to ℤ². f̂(k,ℓ)=C^(−2)Σ_{a,b}f(a,b)exp(2πi(−ak+bℓ)/C). No reality assumption.",
+        "f(−u)=−f(u) for all u∈T_C; consequently f(0)=0 and f̂ is odd."
+      ],
+      "proofSteps": [
+        "Use oddness of f̂ to combine the forward/backward log orbit sums. The ℓ=0 endpoint has multiplier n+ℓ/C=0 at n=0; it contributes zero.",
+        "Expand the principal log only on the open unit-disc terms, using Complex.hasSum_taylorSeries_neg_log. Character orthogonality imposes j≡a (mod C); reindex nC+ℓ. The resulting expression is (4πy/C²)Σ_{a,b,j>0,j≡a} f(a,b)j^(−1)Σ_{r≥0}r exp(2πir(jτ+b)/C).",
+        "The weighted geometric baseline gives −1/(4sin²(πz)). The k=1 cotangent derivative gives π²/sin²(πz)=Σ_n(z+n)^(−2). Scale z=(jτ+b)/C and reindex b+Cn.",
+        "The positive j expression is −y/π times its positive-m lattice sum. Pair (m,n) with (−m,−n); both f and m change sign, so bilateralization introduces the factor 1/2. Convergence permits all rearrangements."
+      ],
+      "prerequisites": [
+        "EllipticRegulators:ER.4/weighted-logarithmic-term",
+        "EllipticRegulators:ER.4/direct-series-convergence",
+        "EllipticRegulators:ER.4/finite-fourier-transform",
+        "AdditiveCombinatorics:AC.0/fourier-transform",
+        "mathlib:Complex.hasSum_taylorSeries_neg_log",
+        "mathlib:hasSum_coe_mul_geometric_of_norm_lt_one",
+        "mathlib:iteratedDerivWithin_cot_pi_mul_eq_mul_tsum_div_pow"
+      ],
+      "sources": [
+        {
+          "sourceId": "Bloch.CRM11",
+          "locator": "Proposition 10.3.1 and Lemma 10.3.2, pp.80–82",
+          "match": "The locator identifies the source calculation. The statement and proof steps use independently derived, explicit coordinate formulas; the source text is not copied."
+        }
+      ],
+      "acceptance": [
+        "Zero input gives zero on both sides.",
+        "C=1 or C=2 forces an odd complex-valued input to vanish.",
+        "Complex scalar multiplication preserves the identity; no coefficient passes through Im."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/EllipticRegulator/BlochFourier",
+        "namespace": "TauCeti.EllipticRegulator"
+      },
+      "planet": {
+        "name": "Bloch’s logarithmic sum"
+      }
+    },
+    {
+      "id": "EllipticRegulators:ER.4/dilogarithmic-forward-evaluation",
+      "parentStageId": "EllipticRegulators:ER.4",
+      "realises": [
+        "EllipticRegulators:ER.4"
+      ],
+      "kind": "theorem",
+      "title": "Evaluation of the forward dilogarithmic sum",
+      "statement": "For odd f define H=(1/C)Σ_{m≥1}Σ_{b mod C}f(m,b)/m² and M₁=2iΣ_u f̂(u)Im Σ_{n≥0}Li₂(x_u q^n). Then M₁=H−(1/(2π))Σ_{m≠0,n} f(m,n)Im(1/(m²(mτ+n))). These expressions are absolutely convergent.",
+      "hypotheses": [
+        "C is a positive integer; τ∈ℍ, y=Im τ>0, q=exp(2πiτ).",
+        "T_C=(ℤ/C)²; u=(k,ℓ) uses canonical representatives 0≤k,ℓ<C; x_u=exp(2πi(k+ℓτ)/C).",
+        "f:T_C→ℂ, extended periodically to ℤ². f̂(k,ℓ)=C^(−2)Σ_{a,b}f(a,b)exp(2πi(−ak+bℓ)/C). No reality assumption.",
+        "f(−u)=−f(u) for all u∈T_C; consequently f(0)=0 and f̂ is odd."
+      ],
+      "proofSteps": [
+        "Expand Li₂ on the closed disc and exchange the absolutely convergent sums. To handle complex f, pair (a,b) with (−a,−b): Σ f(a,b)Re(exp(2πi(−ak+bℓ)/C))=0. This identity, not moving complex scalars through Im, changes the remaining phase expression into f(a,b) times Im(i times the power series).",
+        "Sum over k to impose m≡a mod C and combine ℓ,n into a nonnegative integer r. Sum the geometric series with z=(mτ+b)/C (Im z>0).",
+        "Use 1/(1−exp(2πiz))=(1+i cotπz)/2. The constant 1/2 gives H. For the cotangent part use the paired baseline; its imaginary projection is absolutely summable, since Im 1/(mτ+n)=−my/|mτ+n|².",
+        "Reindex residue b+Cn and use simultaneous negation to convert the positive-m sum to half the bilateral sum."
+      ],
+      "prerequisites": [
+        "EllipticRegulators:ER.4/weighted-dilogarithmic-term",
+        "EllipticRegulators:ER.4/direct-series-convergence",
+        "EllipticRegulators:ER.4/finite-fourier-transform",
+        "AdditiveCombinatorics:AC.0/fourier-transform",
+        "mathlib:Complex.cot_pi_eq_exp_ratio",
+        "mathlib:cot_series_rep"
+      ],
+      "sources": [
+        {
+          "sourceId": "Bloch.CRM11",
+          "locator": "Lemma 10.3.4, pp.83–84",
+          "match": "The locator identifies the source calculation. The statement and proof steps use independently derived, explicit coordinate formulas; the source text is not copied."
+        }
+      ],
+      "acceptance": [
+        "Zero input gives zero on both sides.",
+        "C=1 or C=2 forces an odd complex-valued input to vanish.",
+        "Complex scalar multiplication preserves the identity; no coefficient passes through Im."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/EllipticRegulator/BlochFourier",
+        "namespace": "TauCeti.EllipticRegulator"
+      }
+    },
+    {
+      "id": "EllipticRegulators:ER.4/dilogarithmic-boundary-evaluation",
+      "parentStageId": "EllipticRegulators:ER.4",
+      "realises": [
+        "EllipticRegulators:ER.4"
+      ],
+      "kind": "theorem",
+      "title": "Cancellation of the unit-circle boundary",
+      "statement": "For odd f, M₂=−iΣ_{k mod C}f̂(k,0)Im Li₂(exp(2πik/C))=−H, with H=(1/C)Σ_{m≥1,b mod C}f(m,b)/m². This cancels precisely the H in the forward evaluation.",
+      "hypotheses": [
+        "C is a positive integer; τ∈ℍ, y=Im τ>0, q=exp(2πiτ).",
+        "T_C=(ℤ/C)²; u=(k,ℓ) uses canonical representatives 0≤k,ℓ<C; x_u=exp(2πi(k+ℓτ)/C).",
+        "f:T_C→ℂ, extended periodically to ℤ². f̂(k,ℓ)=C^(−2)Σ_{a,b}f(a,b)exp(2πi(−ak+bℓ)/C). No reality assumption.",
+        "f(−u)=−f(u) for all u∈T_C; consequently f(0)=0 and f̂ is odd."
+      ],
+      "proofSteps": [
+        "Use the absolutely convergent Li₂ series on the unit circle, including the value 1.",
+        "Pair the original Fourier input with its negative, cancel its cosine part and use finite orthogonality in k. The condition m≡a mod C leaves a factor C; the original transform contributed C^(−2).",
+        "The remaining expression is −(1/C)Σ_{m≥1,b}f(m,b)/m². Keeping this endpoint prevents an erroneous extra constant in Proposition 10.3.3."
+      ],
+      "prerequisites": [
+        "EllipticRegulators:ER.4/weighted-dilogarithmic-term",
+        "EllipticRegulators:ER.4/direct-series-convergence",
+        "EllipticRegulators:ER.4/finite-fourier-transform",
+        "AdditiveCombinatorics:AC.0/fourier-transform",
+        "Polylogarithms:P.1/classical-polylogarithm"
+      ],
+      "sources": [
+        {
+          "sourceId": "Bloch.CRM11",
+          "locator": "Lemma 10.3.5, p.84",
+          "match": "The locator identifies the source calculation. The statement and proof steps use independently derived, explicit coordinate formulas; the source text is not copied."
+        }
+      ],
+      "acceptance": [
+        "For C=3, f=δ_(1,0)−δ_(2,0), H=(1/3)Σ_{r≥0}((3r+1)^(−2)−(3r+2)^(−2))>0, and M₂=−H is not zero.",
+        "For f=δ_(0,1)−δ_(0,2), every residue row sum vanishes, hence H=M₂=0.",
+        "The complex multiple (1+2i) of the first test scales H and M₂ by (1+2i)."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/EllipticRegulator/BlochFourier",
+        "namespace": "TauCeti.EllipticRegulator"
+      }
+    },
+    {
+      "id": "EllipticRegulators:ER.4/dilogarithmic-lattice-evaluation",
+      "parentStageId": "EllipticRegulators:ER.4",
+      "realises": [
+        "EllipticRegulators:ER.4"
+      ],
+      "kind": "theorem",
+      "title": "Evaluation of Bloch’s dilogarithmic term",
+      "statement": "M=−(1/(2π))Σ_{m≠0,n∈ℤ} f(m,n)Im(1/(m²(mτ+n))). The real imaginary-part value is cast into ℂ before multiplying by f; there is no Im on the entire weighted sum.",
+      "hypotheses": [
+        "C is a positive integer; τ∈ℍ, y=Im τ>0, q=exp(2πiτ).",
+        "T_C=(ℤ/C)²; u=(k,ℓ) uses canonical representatives 0≤k,ℓ<C; x_u=exp(2πi(k+ℓτ)/C).",
+        "f:T_C→ℂ, extended periodically to ℤ². f̂(k,ℓ)=C^(−2)Σ_{a,b}f(a,b)exp(2πi(−ak+bℓ)/C). No reality assumption.",
+        "f(−u)=−f(u) for all u∈T_C; consequently f(0)=0 and f̂ is odd."
+      ],
+      "proofSteps": [
+        "Use blochDilogTerm_split, which explicitly retains M₂ from ℓ=0.",
+        "Substitute the independently evaluated M₁=H+projected kernel and M₂=−H.",
+        "Cancel H in ℂ. The convergence theorem proves that the remaining product-index sum is independent of summation order."
+      ],
+      "prerequisites": [
+        "EllipticRegulators:ER.4/dilogarithmic-orbit-splitting",
+        "EllipticRegulators:ER.4/dilogarithmic-forward-evaluation",
+        "EllipticRegulators:ER.4/dilogarithmic-boundary-evaluation",
+        "EllipticRegulators:ER.4/direct-series-convergence"
+      ],
+      "sources": [
+        {
+          "sourceId": "Bloch.CRM11",
+          "locator": "Proposition 10.3.3, pp.82–85",
+          "match": "The locator identifies the source calculation. The statement and proof steps use independently derived, explicit coordinate formulas; the source text is not copied."
+        }
+      ],
+      "acceptance": [
+        "Zero input gives zero on both sides.",
+        "C=1 or C=2 forces an odd complex-valued input to vanish.",
+        "Complex scalar multiplication preserves the identity; no coefficient passes through Im."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/EllipticRegulator/BlochFourier",
+        "namespace": "TauCeti.EllipticRegulator"
+      },
+      "planet": {
+        "name": "Bloch’s dilogarithmic sum"
+      }
+    },
+    {
+      "id": "EllipticRegulators:ER.4/direct-raw-fourier-identity",
+      "parentStageId": "EllipticRegulators:ER.4",
+      "realises": [
+        "EllipticRegulators:ER.4"
+      ],
+      "kind": "theorem",
+      "title": "The direct raw Fourier identity",
+      "statement": "Σ_{u∈T_C}f̂(u)R_q^{Bl}(x_u)=L+M=(iy²/π)Σ_{m≠0,n}f(m,n)/((mτ+n)²(mτ̄+n)). This identity concerns canonical lifts and the raw function; it omits the entire horizontal row.",
+      "hypotheses": [
+        "C is a positive integer; τ∈ℍ, y=Im τ>0, q=exp(2πiτ).",
+        "T_C=(ℤ/C)²; u=(k,ℓ) uses canonical representatives 0≤k,ℓ<C; x_u=exp(2πi(k+ℓτ)/C).",
+        "f:T_C→ℂ, extended periodically to ℤ². f̂(k,ℓ)=C^(−2)Σ_{a,b}f(a,b)exp(2πi(−ak+bℓ)/C). No reality assumption.",
+        "f(−u)=−f(u) for all u∈T_C; consequently f(0)=0 and f̂ is odd."
+      ],
+      "proofSteps": [
+        "The imported P.1 Bloch–Wigner formula and raw companion definition give A+iV=R^{Bl}, so its finite weighted sum is L+M.",
+        "Insert the logarithmic and projected dilogarithmic lattice evaluations. For m≠0 and w=mτ+n, verify 1/(m w²)+y^(−1)Im(1/(m²w))=−2iy/(w² conj w), using w−conj w=2imy.",
+        "Multiply by −y/(2π) and sum using absolute convergence. This proof never invokes the ER.3 Fourier expansion, Green function, divisor formula or class regulator."
+      ],
+      "prerequisites": [
+        "EllipticRegulators:ER.4/weighted-logarithmic-term",
+        "EllipticRegulators:ER.4/weighted-dilogarithmic-term",
+        "EllipticRegulators:ER.4/logarithmic-lattice-evaluation",
+        "EllipticRegulators:ER.4/dilogarithmic-lattice-evaluation",
+        "EllipticRegulators:ER.4/direct-series-convergence",
+        "EllipticRegulators:ER.3/the-companion-and-Bloch-convention",
+        "Polylogarithms:P.1/bloch-wigner-dilogarithm"
+      ],
+      "sources": [
+        {
+          "sourceId": "Bloch.CRM11",
+          "locator": "(10.3.1) and concluding algebra, pp.80,85",
+          "match": "The locator identifies the source calculation. The statement and proof steps use independently derived, explicit coordinate formulas; the source text is not copied."
+        }
+      ],
+      "acceptance": [
+        "Zero input gives zero on both sides.",
+        "C=1 or C=2 forces an odd complex-valued input to vanish.",
+        "Complex scalar multiplication preserves the identity; no coefficient passes through Im."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/EllipticRegulator/BlochFourier",
+        "namespace": "TauCeti.EllipticRegulator"
+      }
+    },
+    {
+      "id": "EllipticRegulators:ER.4/direct-regularized-fourier-identity",
+      "parentStageId": "EllipticRegulators:ER.4",
+      "realises": [
+        "EllipticRegulators:ER.4"
+      ],
+      "kind": "theorem",
+      "title": "The direct regularized torsion Fourier identity",
+      "statement": "Σ_u f̂(u)R_q(x_u)=L+M+B=(iy²/π)Σ'_{m,n} f(m,n)/((mτ+n)²(mτ̄+n)), where R_q=R_q^{Bl}+b_τ on canonical torsion lifts and Σ' omits only (0,0). Multiplying both sides by C³ and using the imported class-regulator formula supplies the accepted ER.4/bloch-theorem-10-2-1. This is the analytic input also needed by ER.3’s Fourier/Kronecker–Eisenstein node.",
+      "hypotheses": [
+        "C is a positive integer; τ∈ℍ, y=Im τ>0, q=exp(2πiτ).",
+        "T_C=(ℤ/C)²; u=(k,ℓ) uses canonical representatives 0≤k,ℓ<C; x_u=exp(2πi(k+ℓτ)/C).",
+        "f:T_C→ℂ, extended periodically to ℤ². f̂(k,ℓ)=C^(−2)Σ_{a,b}f(a,b)exp(2πi(−ak+bℓ)/C). No reality assumption.",
+        "f(−u)=−f(u) for all u∈T_C; consequently f(0)=0 and f̂ is odd."
+      ],
+      "proofSteps": [
+        "Import the regularization from ER.3: R_q(x_u)=R_q^{Bl}(x_u)+b_τ(u); here b is the unscaled correction, not C³ times the correction.",
+        "Add the Bernoulli horizontal identity to the raw m≠0 identity. For m=0,n≠0 the cubic kernel is exactly n^(−3).",
+        "Use absolute convergence to partition the punctured lattice into these disjoint parts. Attach the already planned K₂ class formula only after this analytic theorem; no new construction of S_a is needed.",
+        "For assembly, use this analytic theorem as the proof supplier for the parent ER.3 torsion expansion and parent ER.4 10.2.1. That fixes the earlier textual proof gap without editing their ids or introducing a back-edge from analysis to K₂ classes."
+      ],
+      "prerequisites": [
+        "EllipticRegulators:ER.4/direct-raw-fourier-identity",
+        "EllipticRegulators:ER.4/torsion-bernoulli-horizontal-term",
+        "EllipticRegulators:ER.4/direct-series-convergence",
+        "EllipticRegulators:ER.3/the-companion-and-Bloch-convention"
+      ],
+      "sources": [
+        {
+          "sourceId": "Bloch.CRM11",
+          "locator": "Lemma 10.2.3 and end of §10.3, pp.79–80,85",
+          "match": "The locator identifies the source calculation. The statement and proof steps use independently derived, explicit coordinate formulas; the source text is not copied."
+        }
+      ],
+      "acceptance": [
+        "The full series includes horizontal n≠0 terms; erasing them loses the Bernoulli correction.",
+        "The accepted class identity has prefactor iy²C³/π with Lecture 10’s C^(−2) transform. The analytic identity has iy²/π.",
+        "Under f=i g with odd g, every side scales by i; taking Im after weighting fails this check.",
+        "It supplies the analytic expansion before the divisor and class regulator results, breaking the earlier circular proof route."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/EllipticRegulator/BlochFourier",
+        "namespace": "TauCeti.EllipticRegulator"
+      }
+    }
+  ],
+  "requests": [],
+  "gaps": [
+    {
+      "title": "Inherited geometric regulator/transfer compatibility remains ER.7’s",
+      "neededBy": [
+        "EllipticRegulators:ER.4/transfer-and-the-trace-formula"
+      ],
+      "detail": "The ER.4 transfer target is supplied for constant-field extensions by its accepted parent node. The stronger statement r_Y(N_φ ξ)(ω)=r_X(ξ)(φ*ω) for every ξ in K₂(C(X)) is EllipticRegulators:ER.7/regulator-under-finite-pushforward, whose parent node itself records a gap. Projection on symbols {f,φ*g} alone does not establish a generating family for all ξ. This follow-up neither asserts that reduction nor replans ER.7. Assembly must retain the supplier’s gap."
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "EllipticRegulators:ER.4",
+      "status": "planned",
+      "note": "Every ER.4 target is accounted for: seven accepted parent imports plus eleven direct analytic declarations here. Lemma 10.2.3 and Propositions 10.3.1,10.3.3 have an independent proof route to pinned analytic inputs and the imported Fourier/regularization APIs. The new analytic path supplies the parent proof gap, with C³ attached only after analysis.",
+      "remaining": [
+        "ER.7/regulator-under-finite-pushforward must prove geometric compatibility for arbitrary K₂ classes; ER.4 constant-field trace needs no such input.",
+        "Assembly must connect the parent ER.3 Fourier expansion and ER.4 final theorem to direct-regularized-fourier-identity, preserving the existing declaration ids and the no-cycle proof order."
+      ]
+    }
+  ],
+  "restructure": [
+    {
+      "action": "rescope",
+      "roadmaps": [
+        "EllipticRegulators",
+        "AdditiveCombinatorics"
+      ],
+      "detail": "Apply RT-AREA-combinatorics/14 to ER.4: arbitrary finite-abelian Fourier theory has exactly one owner, AC.0. The accepted parent already narrows its Fourier node; this follow-up preserves that decision.",
+      "proposal": "AC.0 → EllipticRegulators:ER.4. Import AC.0/fourier-transform, /fourier-parseval and /fourier-nconv. The existing AlgebraicCodingTheory Layer 3, ModularForms Layer 0, ZMod.dft and haarProb comparisons belong to AC.0, not a second ER.4 theory."
+    }
+  ],
+  "sourceVersions": [
+    {
+      "kind": "published",
+      "url": "https://bookstore.ams.org/crmm-11",
+      "citation": "Spencer J. Bloch, Higher Regulators, Algebraic K-Theory, and Zeta Functions of Elliptic Curves, CRM Monograph Series 11, AMS, 2000",
+      "read": "2026-10-06"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/math/0602186v1",
+      "read": "2026-10-06",
+      "sha256": "8fd73faba5db08328c2884d9f35b79bc528145428766444f3eb8097f3b494fb7"
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "EllipticRegulators/ER4-E1",
+      "source": "Bloch.CRM11",
+      "kind": "error",
+      "locator": "§10.3, p.80, parenthesis preceding (10.3.2)",
+      "printed": "|xqⁿ| < 1 for n ≥ 0",
+      "correction": "For canonical torsion lifts, |xqⁿ|≤1 for n≥0; equality occurs precisely when ℓ=n=0. Treat that logarithmic weighted term as zero, and retain the absolutely convergent unit-circle Li₂ series.",
+      "reason": "Take k=1,ℓ=0,C=3,n=0. Then x=exp(2πi/3), so |x|=1. Log’s open-disc expansion cannot be applied to that term. The factor log|x| is zero; the Li₂ series is absolutely summable at |x|=1. The source’s M₂ calculation already retains that boundary. This correction changes a convergence justification, not the final identity.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Bloch author publications page https://math.uchicago.edu/~bloch/publications.html, opened 2026-10-06: no correction for this passage found.",
+        "Search on 2026-10-06 for Bloch Higher Regulators elliptic curves errata Lecture 10; no matching published correction found.",
+        "Parent accepted sourceIssues: E11 supplies the capital-C typo; none covers this strict-boundary assertion.",
+        ""
+      ]
+    }
+  ],
+  "imports": [
+    {
+      "id": "EllipticRegulators:ER.4/the-diamond-convolution",
+      "from": "research/blueprint/packets/EllipticRegulators.json",
+      "purpose": "Q−P divisor diamond; all API and tests inherited."
+    },
+    {
+      "id": "EllipticRegulators:ER.4/the-divisor-formula",
+      "from": "research/blueprint/packets/EllipticRegulators.json",
+      "purpose": "r_E({f,g})(dz)=½ conjugate R_q((f)⋄(g)); no second regulator normalization."
+    },
+    {
+      "id": "EllipticRegulators:ER.4/bloch-lift-formula",
+      "from": "research/blueprint/packets/EllipticRegulators.json",
+      "purpose": "Permitted raw divisor lifts have degree zero and product one; no repeat planning."
+    },
+    {
+      "id": "EllipticRegulators:ER.4/the-regulator-of-the-corrected-classes",
+      "from": "research/blueprint/packets/EllipticRegulators.json",
+      "purpose": "R_q(S_a)=C³R_q(a), with constant corrections killed."
+    },
+    {
+      "id": "EllipticRegulators:ER.4/finite-fourier-transform",
+      "from": "research/blueprint/packets/EllipticRegulators.json",
+      "purpose": "AC.0 torsion specialization, orientation and oddness."
+    },
+    {
+      "id": "EllipticRegulators:ER.4/bloch-theorem-10-2-1",
+      "from": "research/blueprint/packets/EllipticRegulators.json",
+      "purpose": "Final K₂-class statement; use the direct analytic theorem here for its proof."
+    },
+    {
+      "id": "EllipticRegulators:ER.4/transfer-and-the-trace-formula",
+      "from": "research/blueprint/packets/EllipticRegulators.json",
+      "purpose": "Constant-field trace from split base change and regulator additivity."
+    }
+  ],
+  "links": [
+    {
+      "source": "AdditiveCombinatorics:AC.0",
+      "target": "EllipticRegulators:ER.4",
+      "reason": "RT-AREA-combinatorics/14: import the unique generic normalized transform, inversion, Parseval and convolution interface. ER.4 retains only the parent’s C-torsion coordinate adapter and odd identities."
+    }
+  ],
+  "upstreamNotes": [
+    {
+      "roadmap": "AdditiveCombinatorics:AC.0",
+      "finding": "RT-AREA-combinatorics/14",
+      "detail": "The unique owner already supplies the averaged transform, inversion, Parseval, normalized convolution, ZMod.dft and haarProb comparisons. Its packet does not cite CommGroup.sum_monoidHom_apply_eq_ite. Read at Tau Ceti f790474821cf4256814db967cb154e7af3d0c369, TauCeti/GroupTheory/FiniteAbelian/CharacterOrthogonality.lean:104: for a finite commutative group G, a domain M with enough roots of unity for exponent G, and decidable equality, the sum over characters G→Mˣ of their values at g equals card G if g=1 and zero otherwise. The AC.0 audit owner must add this existing evidence, and keep its compatibility with AlgebraicCodingTheory Layer 3 and ModularForms Layer 0 explicit. This job may edit neither that audit nor the AC.0 packet; no new orthogonality or upstream Fourier node is introduced."
+    }
+  ]
+}
