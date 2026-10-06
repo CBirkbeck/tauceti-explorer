@@ -33283,8 +33283,9 @@
    ],
    "followUpOf": "BP-ArithmeticKTheory--N.1",
    "prompt": "research/blueprint/prompts/BP-ArithmeticKTheory--N.6.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6477"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6477",
+   "finishedAt": "2026-10-06T03:01:50Z"
   },
   {
    "id": "REV-ArithmeticKTheory--N.6",
@@ -33458,7 +33459,8 @@
    ],
    "followUpOf": "BP-EllipticKTheory",
    "prompt": "research/blueprint/prompts/BP-EllipticKTheory--E.5.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6480"
   },
   {
    "id": "REV-EllipticKTheory--E.5",
@@ -33710,7 +33712,8 @@
    ],
    "avoidAccountOf": "BP-EllipticRegulators--ER.4",
    "prompt": "research/blueprint/prompts/REV-EllipticRegulators--ER.4.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6437"
   },
   {
    "id": "BP-EllipticRegulators--ER.5",
@@ -33862,8 +33865,9 @@
    ],
    "followUpOf": "BP-EllipticRegulators",
    "prompt": "research/blueprint/prompts/BP-EllipticRegulators--ER.8.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6489"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6489",
+   "finishedAt": "2026-10-06T03:01:51Z"
   },
   {
    "id": "REV-EllipticRegulators--ER.8",
