@@ -816,6 +816,17 @@
     "data/blueprints/GeneralAlgebraicKTheory--K.6.md"
    ]
   },
+  "research/blueprint/packets/GeneralizedHeegnerCycles--GH.8.json": {
+   "promotedAt": "2026-10-06T19:18:19Z",
+   "review": "bdc776cfd210459e",
+   "reviewDate": "2026-10-06",
+   "reviewer": "independent-review-REV-GeneralizedHeegnerCycles--GH.8",
+   "sha256": "6d3427fcbc206780362639c9b720de2c7c6a31e27b584cc8a7764d49267e8a4c",
+   "to": [
+    "data/blueprints/GeneralizedHeegnerCycles--GH.8.json",
+    "data/blueprints/GeneralizedHeegnerCycles--GH.8.md"
+   ]
+  },
   "research/blueprint/packets/GenericDoublePointInterpolation.json": {
    "promotedAt": "2026-10-05T00:15:57Z",
    "review": "8c809a4b798c858b",
@@ -1781,6 +1792,13 @@
  },
  "purpose": "Work promoted into the atlas by scripts/promote.py: each source file, the data files it became, and the review that accepted it; and work refused, with the reason. A file goes live again only after a new accepted review.",
  "refused": {
+  "research/blueprint/packets/ClassicalAdicEtaleCohomology--H0.json": {
+   "at": "2026-10-06T19:18:19Z",
+   "reason": "Invalid dependency: ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/vanishing-cycles-comparison-3-5-17 -> LefschetzPencilsAndVanishingCycles:LPV.0/derived-nearby-cycles-RPsi-and-vanishing-triangle",
+   "review": "8c892f8227ce4313",
+   "reviewDate": "2026-10-06",
+   "reviewer": "independent-review-REV-ClassicalAdicEtaleCohomology--H0"
+  },
   "research/blueprint/packets/ClassicalAdicEtaleCohomology--H4.json": {
    "at": "2026-10-06T16:28:26Z",
    "reason": "Invalid dependency: ClassicalAdicEtaleCohomology:H5/comparison-over-nonarchimedean-fields-3-8-1 -> AdicCoefficientsAndComparisons:L3/full-faithfulness-27-2",

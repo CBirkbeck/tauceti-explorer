@@ -1,8 +1,8 @@
 {
   "roadmaps": 232,
-  "stages": 3926,
+  "stages": 3930,
   "originalStages": 2129,
-  "sourceRefinements": 1797,
+  "sourceRefinements": 1801,
   "reviewedDecompositions": [
     {
       "roadmap": "AInfCohomology",
@@ -313,14 +313,14 @@
   "editedRoadmapSummaries": 181,
   "curatedStagePresentations": 339,
   "administrativeStages": 101,
-  "mathematicalStars": 3825,
+  "mathematicalStars": 3829,
   "plainTextPlanetLabels": 398,
   "hiddenPlanets": 600,
   "mappedStageStatuses": 350,
   "libraryAuditStatuses": 19,
   "bibliographicSources": 46,
   "roadmapEdges": 1949,
-  "stageEdges": 10363,
+  "stageEdges": 10372,
   "reviewedLinkPackets": 25,
   "promotedBlueprints": [
     {
@@ -622,6 +622,12 @@
       "roadmap": "GeneralAlgebraicKTheory",
       "nodes": 22,
       "reviewer": "independent-review-REV-GeneralAlgebraicKTheory--K.6"
+    },
+    {
+      "file": "GeneralizedHeegnerCycles--GH.8",
+      "roadmap": "GeneralizedHeegnerCycles",
+      "nodes": 16,
+      "reviewer": "independent-review-REV-GeneralizedHeegnerCycles--GH.8"
     },
     {
       "file": "GenericDoublePointInterpolation",
@@ -949,8 +955,8 @@
     }
   ],
   "sourceDocuments": 296,
-  "htmlBytes": 33818553,
-  "htmlSha256": "d36906e27d65c1e28139a125f539ec6990641e48cfe0ef2586c7ac918b749421",
+  "htmlBytes": 33834801,
+  "htmlSha256": "0ba17a179c47760945f7f8dd752283349af5dd006007c01197fe1bf2f1f082f8",
   "networkDependencies": 0,
   "localProgressOverridesIncluded": false,
   "assets": {
@@ -982,7 +988,7 @@
     "data/roadmap-summaries.json": "c8bdd0a9105f5d3c4a858c8b635990729f8e94497dee784a71fae659b8c05b9f",
     "data/roadmap-classification.json": "2641dbc97eb2566c715162d011b46890d1635629181ef8126ac7aed9e24a3b13",
     "data/classification-estimates.json": "625d35fe6121bf099dc5de9e6a9111793596f9b664e3fbd439841434bb4a57d6",
-    "data/roadmap-distances.json": "34d06e2aa9348f95d8dad3e78f43e8d106427a9651f9f7e6d2f0e4140a8e1ca5",
+    "data/roadmap-distances.json": "514eb9a1c7b94cb63fd44aa2fbaf3c6d1505903229a8ddea3703c59a85e84f5a",
     "data/galaxy-layout.json": "4bc55de9850ed0e34908dac04de78359a83a28b54f179dc4acfb942f5a8683d2",
     "data/bibliography.json": "bef230a41fad22d6b790c7564061c4d05c2ae5b78cab53d005eb404afab2b122",
     "NOTICE": "a285b95d5adbf5c2bcc82db36e2a77b797f84a2c5cbb30292efd0bae17cc4f34",
@@ -1140,6 +1146,8 @@
     "data/blueprints/GeneralAlgebraicKTheory--K.1.md": "0897b3b7abb9bdfd592bc3324b70acc5cc9905d85d84c923d90a8d3c033d29f0",
     "data/blueprints/GeneralAlgebraicKTheory--K.6.json": "14d13811cf26d920957a5b5791e6eec18d834bf2a991c96e4b781bdcf8a64370",
     "data/blueprints/GeneralAlgebraicKTheory--K.6.md": "acccd72a10a82d52e7b0981a1975476cefb9578c8a2b876a1491e53c808a8f8f",
+    "data/blueprints/GeneralizedHeegnerCycles--GH.8.json": "6d3427fcbc206780362639c9b720de2c7c6a31e27b584cc8a7764d49267e8a4c",
+    "data/blueprints/GeneralizedHeegnerCycles--GH.8.md": "86378323be2194b15d677548c2c9c031d79422f226c27a3f06d2782661f65ea3",
     "data/blueprints/GenericDoublePointInterpolation.json": "6b2d11b9013fe9fc19322c11361357ca7210f074ab175b2aa701702ee7ee09c8",
     "data/blueprints/GenericDoublePointInterpolation.md": "6f2fe26ae4640d325cf3d0fb4606ac6a34fd9181552699655c4c22dc0009d454",
     "data/blueprints/GlobalGaloisDeformations.json": "31cbc73148a71345a8573de74fde1a1e01cc909b37ad94469327c9b23546846a",
