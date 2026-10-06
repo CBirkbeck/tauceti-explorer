@@ -35775,7 +35775,8 @@
    ],
    "revisionOf": "BP-HabiroCohomologyFoundations--HQ.8",
    "prompt": "research/blueprint/prompts/BP-HabiroCohomologyFoundations--HQ.8~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6492"
   },
   {
    "priority": 2,
@@ -35830,7 +35831,8 @@
    ],
    "revisionOf": "BP-HeegnerPointEulerSystems--HE.0",
    "prompt": "research/blueprint/prompts/BP-HeegnerPointEulerSystems--HE.0~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6502"
   },
   {
    "priority": 2,
