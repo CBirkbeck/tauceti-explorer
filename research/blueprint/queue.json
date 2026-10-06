@@ -27409,7 +27409,8 @@
    ],
    "avoidAccountOf": "BP-PELModuli",
    "prompt": "research/blueprint/prompts/REV-PELModuli.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #459"
   },
   {
    "id": "BP-PadicDifferentialEquationsAndRigidCohomology",
@@ -28191,8 +28192,9 @@
     "REV-RS-01"
    ],
    "prompt": "research/blueprint/prompts/BP-PrismaticCohomology--PR.8.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "external",
+   "suppliers": [],
+   "note": "claimed on GitHub issue #979"
   },
   {
    "id": "REV-PrismaticCohomology--PR.8",
@@ -29166,9 +29168,10 @@
     "REV-RS-33"
    ],
    "prompt": "research/blueprint/prompts/BP-StableHomotopyKTheory.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #999"
+   "note": "deliverables arrived from an external worker on issue #999",
+   "finishedAt": "2026-10-06T12:20:15Z"
   },
   {
    "id": "REV-StableHomotopyKTheory",
