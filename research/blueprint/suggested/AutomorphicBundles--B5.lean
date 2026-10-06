@@ -8,8 +8,11 @@ This file does not supply the missing actual Shimura/formal/logarithmic types.
 The omission ledger below names those signatures rather than fabricating them.
 The inherited algebraic layer and new actual-scheme/local weight interfaces
 are partial prototypes, never claims of implemented geometric nodes.
-Full Tau Ceti-pin compilation is unavailable in this run; the Mathlib-only
-fragment is checked separately with lean-check, as recorded in the handoff.
+Independent review REV-AutomorphicBundles--B5 checked the Mathlib-only portion
+with lean-check at Mathlib 082e2d3, temporarily disabling the three Tau Ceti
+imports and their three #checks, then restoring them. It elaborated with only
+sorry warnings. The full file at both pins was not compiled; no matching
+prebuilt Tau Ceti f790474 environment was available. See the review and handoff.
 -/
 
 import Mathlib.Algebra.Module.Submodule.Range
@@ -419,6 +422,7 @@ chart, identifies the Hodge line, and extracts graded coefficients. Its image sa
 stabilizer equivariance. The coefficient product is a target, not an assertion that every family is
 the expansion of a section or of a completed graded-algebra element.
 API names (full geometric scope still requires the supplied carriers):
+  FourierJacobi.localExpansion: Given the actual formal restriction, Mumford chart and Hodge comparison from the suppliers, return the R-linear local expansion with its degree-indexed coefficient target and stabilizer equivariance.
   FourierJacobi.local_coeff: Evaluation in degree ell equals the coefficient obtained from the actual completed section on
     the Mumford chart.
   FourierJacobi.local_add: The local expansion sends f+g to the sum of the two coefficient families.
@@ -441,7 +445,7 @@ sigma1-dual minus sigma2-dual. Thus the sigma1 family is the extension by zero o
 Incidence chains of positive cones and the support theorem then put the global expansion in the dual
 of the fan support. This compares the common-image sections, not arbitrary elements of the two
 separately completed rings.
-Owner/carrier inputs: AutomorphicBundles:B5/local-fj-expansion, ShimuraCompactifications:C0, ShimuraCompactifications:C4, ShimuraCompactifications:C5, AdicSpacesPartII:F0, AdicSpacesPartII:F0/completion-of-morphism
+Owner/carrier inputs: AutomorphicBundles:B5/local-fj-expansion, ShimuraCompactifications:C0, ShimuraCompactifications:C4, ShimuraCompactifications:C5, AdicSpacesPartII:F0, AdicSpacesPartII:F0/completion-of-morphism, ShimuraCompactifications:C0/relative-face-open
 
 AutomorphicBundles:B5/global-fj-expansion [construction]
 Restrict the compatible cone expansions to P_Phi-dual to obtain an R-linear cusp-label expansion
@@ -450,6 +454,7 @@ the full cusp stabilizer, including its action on degrees and coefficient sheave
 cone inclusion recovers the local expansion. Neither finite support nor division by the order of a
 stabilizer enters the definition.
 API names (full geometric scope still requires the supplied carriers):
+  FourierJacobi.expansion: Given compatible local expansions and the support theorem, return the R-linear map to the actual full-stabilizer invariant coefficient family, characterized by its local coefficient evaluations.
   FourierJacobi.coeff: The ell-th coefficient is evaluation of the family in C_Phi(ell;k,M).
   FourierJacobi.constantTerm: The constant term is evaluation at degree zero, with its coefficient sheaf and stabilizer
     invariance retained.
@@ -507,7 +512,7 @@ actual completed-chart coefficient comparisons are compatible with this base cha
 Fourier-Jacobi map on AF(k,S) is injective. For p=0 this uses the reduced total model; for p nonzero
 it uses the reduced residue-field model. Fiberwise detection is supplied by the precise geometric
 request below; the neat-level route is not silently asserted at non-neat level.
-Owner/carrier inputs: AutomorphicBundles:B5/local-fj-expansion, AutomorphicBundles:B5/global-fj-expansion, ShimuraCompactifications:C5, AdicSpacesPartII:F0, SchemeAndStackFoundations:SF.0, SchemeAndStackFoundations:SF.1, AdicSpacesPartII:F0/completion-detects-near-closed
+Owner/carrier inputs: AutomorphicBundles:B5/local-fj-expansion, AutomorphicBundles:B5/global-fj-expansion, ShimuraCompactifications:C5, AdicSpacesPartII:F0, SchemeAndStackFoundations:SF.0, SchemeAndStackFoundations:SF.1, AdicSpacesPartII:F0/completion-detects-near-closed, ShimuraCompactifications:C5/neat-strata-detect-geometric-components
 
 AutomorphicBundles:B5/fj-injectivity-extension [lemma]
 For a short exact coefficient sequence 0 to N to M to Q to 0 on the fixed actual PEL model,
@@ -616,6 +621,7 @@ general characteristic-zero Shimura data use this construction only after C3.gen
 actual mixed-boundary formal isomorphism and coefficient-bundle comparison; Milne VII.4.1 is a
 conjectural description in the inspected notes, not that supplier’s proof.
 API names (full geometric scope still requires the supplied carriers):
+  VectorFourierJacobi.expansion: Given the actual finite-projective representation bundle and its completed boundary identification, return the R-linear vector expansion into the full-stabilizer invariant family of sections of Ψ(ell) tensor E0(W) tensor_R M.
   VectorFourierJacobi.coefficient: Extract the degree-ell section of Ψ(ell)⊗E0(W)⊗M from the completed boundary restriction.
   VectorFourierJacobi.coefficient_map: An equivariant R-linear representation map W→W′ and a coefficient map M→M′ induce commuting
     degreewise maps, respecting identities and composition.
