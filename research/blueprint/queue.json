@@ -23377,9 +23377,9 @@
     "REV-RS-01"
    ],
    "prompt": "research/blueprint/prompts/BP-CrystallineCohomology--CR.5.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [],
-   "note": "released on GitHub issue #705"
+   "note": "claimed on GitHub issue #705"
   },
   {
    "id": "REV-CrystallineCohomology--CR.5",
@@ -23677,8 +23677,9 @@
     "REV-RS-05"
    ],
    "prompt": "research/blueprint/prompts/BP-DiamondSixOperations.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "external",
+   "suppliers": [],
+   "note": "claimed on GitHub issue #711"
   },
   {
    "id": "REV-DiamondSixOperations",
@@ -24451,7 +24452,8 @@
    ],
    "avoidAccountOf": "BP-EtaleDualityAndPerverseSheaves--EDC.4",
    "prompt": "research/blueprint/prompts/REV-EtaleDualityAndPerverseSheaves--EDC.4.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #399"
   },
   {
    "id": "BP-EulerSystemsAndKolyvaginSystems--ES.0",
@@ -25158,8 +25160,9 @@
    ],
    "avoidAccountOf": "BP-GL2ModularityLifting--R32.3",
    "prompt": "research/blueprint/prompts/REV-GL2ModularityLifting--R32.3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #413"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #413",
+   "finishedAt": "2026-10-06T21:39:51Z"
   },
   {
    "id": "BP-GeneralAlgebraicKTheory--K.1",
