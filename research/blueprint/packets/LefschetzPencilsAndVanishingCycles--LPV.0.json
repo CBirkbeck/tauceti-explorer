@@ -11,7 +11,7 @@
     "LefschetzPencilsAndVanishingCycles:LPV.5",
     "LefschetzPencilsAndVanishingCycles:LPV.6"
   ],
-  "status": "complete",
+  "status": "partial",
   "summary": "Target-level plan of LPV.0–6: actual trait nearby cycles, inertia/logarithm/filtration, an early two-component semistable algebraic Picard–Lefschetz prefix, ordinary and nonordinary quadratic applications, all-characteristic Veronese pencils and finite-field descent, global vanishing quotient and middle reduction, tame open symplectic monodromy with separate conditional orthogonal branches, and early perverse/filtered-colimit comparisons. Existing consumed identifiers are retained. All seven stages are planned; none is marked closed while supplier requests and seven precise source/proof gaps remain. All implementation statuses are unchecked.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -22,133 +22,133 @@
         "kind": "definition",
         "module": "Mathlib/LinearAlgebra/Transvection/Basic.lean",
         "provides": "For f : Dual R V and v : V with f v = 0, the linear equivalence x ↦ x + f x • v.",
-        "checked": "declaration read in the Lean source at the pinned commit (Mathlib 082e2d3), 2026-10-06"
+        "checked": "Independently read at the stated pinned commit by REV-LefschetzPencilsAndVanishingCycles--LPV.0, 2026-10-06; declaration exists. See review report for hypotheses and convention limits."
       },
       {
         "ref": "mathlib:LinearEquiv.mem_fixedSubmodule_transvection_iff",
         "kind": "theorem",
         "module": "Mathlib/LinearAlgebra/Transvection/Basic.lean",
         "provides": "x is fixed by the transvection x ↦ x + f x • v if and only if f x • v = 0.",
-        "checked": "declaration read in the Lean source at the pinned commit (Mathlib 082e2d3), 2026-10-06"
+        "checked": "Independently read at the stated pinned commit by REV-LefschetzPencilsAndVanishingCycles--LPV.0, 2026-10-06; declaration exists. See review report for hypotheses and convention limits."
       },
       {
         "ref": "mathlib:LinearMap.BilinForm.orthogonal",
         "kind": "definition",
         "module": "Mathlib/LinearAlgebra/BilinearForm/Orthogonal.lean",
         "provides": "The orthogonal B.orthogonal N of a submodule N for a bilinear form B.",
-        "checked": "declaration read in the Lean source at the pinned commit (Mathlib 082e2d3), 2026-10-06"
+        "checked": "Independently read at the stated pinned commit by REV-LefschetzPencilsAndVanishingCycles--LPV.0, 2026-10-06; declaration exists. See review report for hypotheses and convention limits."
       },
       {
         "ref": "mathlib:LinearMap.BilinForm.IsAlt",
         "kind": "definition",
         "module": "Mathlib/LinearAlgebra/BilinearForm/Properties.lean",
         "provides": "A bilinear form is alternating: B x x = 0 for all x.",
-        "checked": "declaration read in the Lean source at the pinned commit (Mathlib 082e2d3), 2026-10-06"
+        "checked": "Independently read at the stated pinned commit by REV-LefschetzPencilsAndVanishingCycles--LPV.0, 2026-10-06; declaration exists. See review report for hypotheses and convention limits."
       },
       {
         "ref": "mathlib:skewAdjointLieSubalgebra",
         "kind": "definition",
         "module": "Mathlib/Algebra/Lie/SkewAdjoint.lean",
         "provides": "The Lie subalgebra of Module.End R M of endomorphisms skew-adjoint for a bilinear form B; for B alternating and nondegenerate this is sp(M, B).",
-        "checked": "declaration read in the Lean source at the pinned commit (Mathlib 082e2d3), 2026-10-06"
+        "checked": "Independently read at the stated pinned commit by REV-LefschetzPencilsAndVanishingCycles--LPV.0, 2026-10-06; declaration exists. See review report for hypotheses and convention limits."
       },
       {
         "ref": "mathlib:LieModule.IsIrreducible",
         "kind": "definition",
         "module": "Mathlib/Algebra/Lie/Semisimple/Defs.lean",
         "provides": "A nontrivial Lie module whose only Lie submodules are ⊥ and ⊤.",
-        "checked": "declaration read in the Lean source at the pinned commit (Mathlib 082e2d3), 2026-10-06"
+        "checked": "Independently read at the stated pinned commit by REV-LefschetzPencilsAndVanishingCycles--LPV.0, 2026-10-06; declaration exists. See review report for hypotheses and convention limits."
       },
       {
         "ref": "mathlib:IsNilpotent.exp",
         "kind": "definition",
         "module": "Mathlib/RingTheory/Nilpotent/Exp.lean",
         "provides": "The finite exponential ∑ aⁱ/i! of a nilpotent element of a ℚ-algebra; for N² = 0 it is 1 + N.",
-        "checked": "declaration read in the Lean source at the pinned commit (Mathlib 082e2d3), 2026-10-06"
+        "checked": "Independently read at the stated pinned commit by REV-LefschetzPencilsAndVanishingCycles--LPV.0, 2026-10-06; declaration exists. See review report for hypotheses and convention limits."
       },
       {
         "ref": "mathlib:ValuationSubring.inertiaSubgroup",
         "kind": "definition",
         "module": "Mathlib/RingTheory/Valuation/RamificationGroup.lean",
         "provides": "The inertia subgroup of the decomposition group of a valuation subring: the kernel of the action on its residue field.",
-        "checked": "declaration read in the Lean source at the pinned commit (Mathlib 082e2d3), 2026-10-06"
+        "checked": "Independently read at the stated pinned commit by REV-LefschetzPencilsAndVanishingCycles--LPV.0, 2026-10-06; declaration exists. See review report for hypotheses and convention limits."
       },
       {
         "ref": "mathlib:QuadraticMap.Nondegenerate",
         "kind": "definition",
         "module": "Mathlib/LinearAlgebra/QuadraticForm/Radical.lean",
         "provides": "A quadratic map is nondegenerate if its radical is 0 and the kernel of its polar form has rank ≤ 1 (Elman–Karpenko–Merkurjev II §7).",
-        "checked": "declaration read in the Lean source at the pinned commit (Mathlib 082e2d3), 2026-10-06"
+        "checked": "Independently read at the stated pinned commit by REV-LefschetzPencilsAndVanishingCycles--LPV.0, 2026-10-06; declaration exists. See review report for hypotheses and convention limits."
       },
       {
         "ref": "mathlib:QuadraticMap.polarBilin",
         "kind": "definition",
         "module": "Mathlib/LinearAlgebra/QuadraticForm/Basic.lean",
         "provides": "The polar bilinear map (x, y) ↦ Q(x + y) − Q(x) − Q(y).",
-        "checked": "declaration read in the Lean source at the pinned commit (Mathlib 082e2d3), 2026-10-06"
+        "checked": "Independently read at the stated pinned commit by REV-LefschetzPencilsAndVanishingCycles--LPV.0, 2026-10-06; declaration exists. See review report for hypotheses and convention limits."
       },
       {
         "ref": "mathlib:CliffordAlgebra.even",
         "kind": "definition",
         "module": "Mathlib/LinearAlgebra/CliffordAlgebra/Even.lean",
         "provides": "The even subalgebra C⁺(Q) of the Clifford algebra of a quadratic form.",
-        "checked": "declaration read in the Lean source at the pinned commit (Mathlib 082e2d3), 2026-10-06"
+        "checked": "Independently read at the stated pinned commit by REV-LefschetzPencilsAndVanishingCycles--LPV.0, 2026-10-06; declaration exists. See review report for hypotheses and convention limits."
       },
       {
         "ref": "mathlib:HenselianLocalRing",
         "kind": "definition",
         "module": "Mathlib/RingTheory/Henselian.lean",
         "provides": "A local ring in which simple roots of monic polynomials modulo the maximal ideal lift.",
-        "checked": "declaration read in the Lean source at the pinned commit (Mathlib 082e2d3), 2026-10-06"
+        "checked": "Independently read at the stated pinned commit by REV-LefschetzPencilsAndVanishingCycles--LPV.0, 2026-10-06; declaration exists. See review report for hypotheses and convention limits."
       },
       {
         "ref": "tauceti:TauCeti.genericFiber",
         "module": "TauCeti/AlgebraicGeometry/Fibers.lean",
         "kind": "definition",
         "provides": "For a scheme over Spec R and a fraction field K, the actual pullback generic fibre as an object over Spec K.",
-        "checked": "Actual declaration read at the pinned commit, 2026-10-06; cited Tau Ceti modules are unchanged in the shared elaboration checkout."
+        "checked": "Independently read at the stated pinned commit by REV-LefschetzPencilsAndVanishingCycles--LPV.0, 2026-10-06; declaration exists. See review report for hypotheses and convention limits."
       },
       {
         "ref": "tauceti:TauCeti.specialFiber",
         "module": "TauCeti/AlgebraicGeometry/Fibers.lean",
         "kind": "definition",
         "provides": "For a scheme over Spec R, the actual residue-field pullback special fibre.",
-        "checked": "Actual declaration read at the pinned commit, 2026-10-06; cited Tau Ceti modules are unchanged in the shared elaboration checkout."
+        "checked": "Independently read at the stated pinned commit by REV-LefschetzPencilsAndVanishingCycles--LPV.0, 2026-10-06; declaration exists. See review report for hypotheses and convention limits."
       },
       {
         "ref": "mathlib:AlgebraicGeometry.Scheme.smallEtaleTopology",
         "module": "Mathlib/AlgebraicGeometry/Sites/Etale.lean",
         "kind": "definition",
         "provides": "The Grothendieck topology on X.Etale induced from the big étale topology.",
-        "checked": "Actual declaration read at the pinned commit, 2026-10-06; cited Tau Ceti modules are unchanged in the shared elaboration checkout."
+        "checked": "Independently read at the stated pinned commit by REV-LefschetzPencilsAndVanishingCycles--LPV.0, 2026-10-06; declaration exists. See review report for hypotheses and convention limits."
       },
       {
         "ref": "mathlib:DerivedCategory",
         "module": "Mathlib/Algebra/Homology/DerivedCategory/Basic.lean",
         "kind": "definition",
         "provides": "The localization of cochain complexes at quasi-isomorphisms, for an abelian category with HasDerivedCategory.",
-        "checked": "Actual declaration read at the pinned commit, 2026-10-06; cited Tau Ceti modules are unchanged in the shared elaboration checkout."
+        "checked": "Independently read at the stated pinned commit by REV-LefschetzPencilsAndVanishingCycles--LPV.0, 2026-10-06; declaration exists. See review report for hypotheses and convention limits."
       },
       {
         "ref": "mathlib:Submodule.span",
         "module": "Mathlib/LinearAlgebra/Span/Defs.lean",
         "kind": "definition",
         "provides": "The smallest submodule containing a set, defined by the infimum of all containing submodules.",
-        "checked": "Actual declaration read at the pinned commit, 2026-10-06; cited Tau Ceti modules are unchanged in the shared elaboration checkout."
+        "checked": "Independently read at the stated pinned commit by REV-LefschetzPencilsAndVanishingCycles--LPV.0, 2026-10-06; declaration exists. See review report for hypotheses and convention limits."
       },
       {
         "ref": "tauceti:LinearMap.GeneralLinearGroup.IsUnipotent",
         "module": "TauCeti/LinearAlgebra/GeneralLinearGroup/Unipotent.lean",
         "kind": "definition",
         "provides": "A general linear automorphism g is unipotent exactly when its underlying endomorphism minus 1 is nilpotent.",
-        "checked": "Actual declaration read at the pinned commit, 2026-10-06; cited Tau Ceti modules are unchanged in the shared elaboration checkout."
+        "checked": "Independently read at the stated pinned commit by REV-LefschetzPencilsAndVanishingCycles--LPV.0, 2026-10-06; declaration exists. See review report for hypotheses and convention limits."
       },
       {
         "ref": "tauceti:TauCeti.exp_smul_eq_sum_smul_dividedPower",
         "module": "TauCeti/RingTheory/Nilpotent/Exp.lean",
         "kind": "theorem",
-        "provides": "For x^k=0 in a Q-algebra, exp(r x)=Σ_(i<k)r^i x^i/i!. The scalar exponential is existing work, not a new LPV construction.",
-        "checked": "Actual declaration read at the pinned commit, 2026-10-06; cited Tau Ceti modules are unchanged in the shared elaboration checkout."
+        "provides": "For x^k=0 in a Q-algebra and r : ℚ, exp(r • x)=Σ_(i<k)r^i • dividedPower(i,x), with divided powers x^i/i!. Extension to arbitrary characteristic-zero scalar parameters is a routine algebra calculation, not the literal Tau Ceti statement.",
+        "checked": "Independently read at the stated pinned commit by REV-LefschetzPencilsAndVanishingCycles--LPV.0, 2026-10-06; declaration exists. See review report for hypotheses and convention limits."
       }
     ]
   },
@@ -214,7 +214,7 @@
       "id": "illusie-1994-errata",
       "title": "Errata to Autour du théorème de monodromie locale",
       "authors": "Luc Illusie",
-      "edition": "Author errata sheet, 2 pages",
+      "edition": "Author errata sheet, 1 page",
       "url": "https://www.imo.universite-paris-saclay.fr/~luc.illusie/ErrTML.pdf",
       "sha256": "78fdd24a8f926ad02e3e9e16589fc2607f5f6dbbbf8a02ec48ba331703c4af9f",
       "readSections": [
@@ -274,7 +274,7 @@
       "id": "fsy-2022",
       "title": "Hodge theory of Kloosterman connections",
       "authors": "Javier Fresán, Claude Sabbah and Jeng-Daw Yu",
-      "edition": "arXiv:1810.06454 public text of Duke Math. J. article",
+      "edition": "arXiv:1810.06454 downloaded public manuscript, 74 PDF pages; cited locators refer to this SHA-256 text, not independently to the published Duke Math. J. pagination",
       "url": "https://arxiv.org/pdf/1810.06454",
       "sha256": "835580aa6314798e2866c248d6f7179379698d61a7baae0136806d4755b1f20a",
       "readSections": [
@@ -707,7 +707,7 @@
         {
           "name": "TauCeti.AlgebraicGeometry.VanishingCycles.variation_picardLefschetz",
           "kind": "value",
-          "statement": "At an ordinary quadratic point in odd relative dimension n = 2m + 1, Var(σ)(a) = (−1)^{m+1} t_ℓ(σ)(a, δ)δ, which is nonzero when t_ℓ(σ) ≠ 0 and δ ≠ 0 (XV 3.3)."
+          "statement": "At an ordinary quadratic point in odd relative dimension n = 2m + 1, Var(σ)(a) = (−1)^{m+1} t_ℓ(σ)(a, δ)δ, which over rational coefficients is nonzero when t_ℓ(σ) ≠ 0, (a, δ) ≠ 0 and δ ≠ 0 (XV 3.3)."
         },
         {
           "name": "TauCeti.AlgebraicGeometry.VanishingCycles.variation_ne_sub_one",
@@ -717,7 +717,8 @@
       ],
       "prerequisites": [
         "LefschetzPencilsAndVanishingCycles:LPV.0/fibre-product-topos-Y-times-S",
-        "LefschetzPencilsAndVanishingCycles:LPV.0/henselian-trait-conventions-and-galois-sheaves"
+        "LefschetzPencilsAndVanishingCycles:LPV.0/henselian-trait-conventions-and-galois-sheaves",
+        "EnhancedDerivedSheaves:E0"
       ],
       "name": "TauCeti.AlgebraicGeometry.VanishingCycles.variation"
     },
@@ -837,7 +838,9 @@
         "LefschetzPencilsAndVanishingCycles:LPV.0/functor-psi-and-functorialities",
         "LefschetzPencilsAndVanishingCycles:LPV.0/fibre-product-topos-Y-times-S",
         "EtaleDualityAndPerverseSheaves:EDC.0/etale-derived-category",
-        "SchemeAndStackFoundations:SF.2"
+        "SchemeAndStackFoundations:SF.2",
+        "EnhancedDerivedSheaves:E0",
+        "LefschetzPencilsAndVanishingCycles:LPV.0/variation-morphism"
       ],
       "name": "TauCeti.AlgebraicGeometry.VanishingCycles.RPsi"
     },
@@ -984,7 +987,8 @@
         "EtaleDualityAndPerverseSheaves:EDC.0/etale-derived-category",
         "SchemeAndStackFoundations:SF.2",
         "SchemeAndStackFoundations:SF.0",
-        "SchemeAndStackFoundations:key/henselization"
+        "SchemeAndStackFoundations:key/henselization",
+        "SchemeAndStackFoundations:key/excellent-schemes"
       ],
       "sources": [
         {
@@ -1143,9 +1147,14 @@
       ],
       "sources": [
         {
+          "sourceId": "SGA7II-1973",
+          "locator": "Exposé XIII, (1.4.3.2)–(1.4.3.4), p. 17",
+          "match": "The two unnormalized composition identities; normalized var is obtained by the explicitly stated finite-polynomial argument, not asserted in this passage."
+        },
+        {
           "sourceId": "illusie-1994",
-          "locator": "§§1.2 and 3.5–3.6, normalized monodromy and variation",
-          "match": "The cited passage supplies the stated object or result; hypotheses and ownership are made explicit here."
+          "locator": "§1.5, pp. 12–13, (1.5.1)–(1.5.4)",
+          "match": "The nilpotent logarithm and twisted monodromy; combined with XIII 1.4.3 and the finite polynomial log(T)/(T−1)."
         }
       ],
       "acceptance": [
@@ -1183,8 +1192,8 @@
       "sources": [
         {
           "sourceId": "illusie-1994",
-          "locator": "§1.2, pp. 11–13, formula (1.2.1)",
-          "match": "The cited passage supplies the stated object or result; hypotheses and ownership are made explicit here."
+          "locator": "§1.5, pp. 12–13, (1.5.1)–(1.5.2)",
+          "match": "Definition of the logarithm on an open unipotent inertia subgroup and its canonical twisted form."
         }
       ],
       "acceptance": [
@@ -1225,6 +1234,11 @@
           "name": "TauCeti.AlgebraicGeometry.VanishingCycles.finiteLog_twisted",
           "role": "compatibility",
           "statement": "log ρ(σ)=t_l(σ)N; changing the Tate generator changes the scalar matrix but not N:V→V(−1)."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.VanishingCycles.finiteLog_conj",
+          "role": "functoriality",
+          "statement": "Conjugating U by a linear equivalence conjugates finiteLog(U,d), for every d."
         }
       ],
       "tests": [
@@ -1279,7 +1293,8 @@
       "prerequisites": [
         "LefschetzPencilsAndVanishingCycles:LPV.0/constructibility-and-finite-amplitude",
         "LefschetzPencilsAndVanishingCycles:LPV.0/adic-nearby-cycle-realization",
-        "ArithmeticGaloisRepresentations:R01.2"
+        "ArithmeticGaloisRepresentations:R01.2",
+        "SchemeAndStackFoundations:key/excellent-schemes"
       ],
       "sources": [
         {
@@ -1413,6 +1428,11 @@
           "name": "TauCeti.AlgebraicGeometry.VanishingCycles.primitivePart",
           "role": "projection",
           "statement": "P_i is the kernel of the induced graded N, using the lower-weight convention."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.VanishingCycles.monodromyFiltration_conj",
+          "role": "functoriality",
+          "statement": "Conjugation by a linear equivalence maps each filtration submodule to the corresponding submodule of the conjugate operator."
         }
       ],
       "tests": [
@@ -1457,7 +1477,7 @@
       "parentStageId": "LefschetzPencilsAndVanishingCycles:LPV.1",
       "title": "Primitive decomposition and strictness of N",
       "kind": "theorem",
-      "statement": "For the center-zero monodromy filtration, N:(V,M)→(V,M shifted by two) is strict: N(M_(i+2))=im N∩M_i. Consequently Gr_i(ker N)≅P_i. Every Gr_i V is the direct sum of the lower primitive pieces P_−j with j≥|i| and j≡i mod 2, via the appropriate powers of N; on a length-(d+1) Jordan block the successive weights are d,d−2,…,−d. In characteristic zero the associated graded has the canonical SL₂ action whose lowering operator is N.",
+      "statement": "For the center-zero monodromy filtration, N:(V,M)→(V,M shifted by two) is strict: N(M_(i+2))=im N∩M_i. Consequently Gr_i(ker N)≅P_i. Every Gr_i V is the direct sum of the lower primitive pieces P_−j with j≥|i| and j≡i mod 2, using the inverses of the opposite-graded isomorphisms N^j followed by powers of N (equivalently, in characteristic zero, the canonical SL₂ raising operator); on a length-(d+1) Jordan block the successive weights are d,d−2,…,−d. In characteristic zero the associated graded has the canonical SL₂ action whose lowering operator is N.",
       "hypotheses": [
         "Nilpotent N and finite-dimensional vector space; characteristic zero only for SL₂",
         "Strictness here is for N and for isomorphisms commuting with N; arbitrary commuting morphisms are not asserted strict"
@@ -1466,7 +1486,7 @@
         "Apply the opposite-graded isomorphisms to split a graded piece into its primitive kernel and the next N image.",
         "Iterate to obtain the decomposition and deduce strictness by graded surjectivity/injectivity.",
         "Use Jordan blocks for the explicit weights.",
-        "Import Jacobson–Morozov and characteristic-zero SL₂ semisimplicity for the SL₂ interpretation, rather than re-plan them."
+        "Construct the characteristic-zero SL₂ realization on each nilpotent Jordan block, using the specifically requested LieHighestWeight, Part II extension and the existing SL₂ classification. No general Jacobson–Morozov theorem is asserted to be supplied by Layer 0."
       ],
       "prerequisites": [
         "LefschetzPencilsAndVanishingCycles:LPV.1/monodromy-filtration",
@@ -1573,7 +1593,8 @@
       "statement": "For a regular scheme with strict normal-crossings divisor D=∪D_a and a lisse rational ℓ-adic sheaf on its complement, tame unipotent local inertia gives commuting twisted residues N_a on the tame restriction to each stratum. The restriction is constructed using compatible Kummer covers and is independent of their cofinal choice. Relative filtrations along a stratum are unique when they exist. Existence and purity under mixedness are requested from DeligneWeightsAndPurity; they are not consequences of the linear algebra alone.",
       "hypotheses": [
         "Strict normal crossings; ℓ invertible; tame and unipotent local monodromy after the specified cover",
-        "The relative-filtration existence result needs the weight hypotheses of Weil II 1.9.1"
+        "The relative-filtration existence result needs the weight hypotheses of Weil II 1.9.1",
+        "Local Kummer coordinates are fixed for the restriction on E; independence of the cofinal tower does not assert independence of defining equations. The intrinsic version uses the normal-bundle torsor (1.7.10)."
       ],
       "proofSteps": [
         "Import Kummer tame covers/Abhyankar and take the compatible restriction system.",
@@ -1585,14 +1606,18 @@
         "LefschetzPencilsAndVanishingCycles:LPV.1/finite-monodromy-logarithm",
         "LefschetzPencilsAndVanishingCycles:LPV.1/relative-monodromy-uniqueness",
         "ArithmeticGaloisRepresentations:R01.2",
-        "InverseGaloisAndArithmeticFundamentalGroups:IG.1",
-        "DeligneWeightsAndPurity:DWP.1"
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.1"
       ],
       "sources": [
         {
           "sourceId": "deligne-weil-ii",
-          "locator": "1.9.1–6, pp. 176–178",
-          "match": "The cited passage supplies the stated object or result; hypotheses and ownership are made explicit here."
+          "locator": "1.7.8–10, pp. 172–174",
+          "match": "Kummer tame restriction, its dependence on local defining equations, and the intrinsic normal-bundle formulation; commuting logarithms follow from commuting tame factors."
+        },
+        {
+          "sourceId": "deligne-weil-ii",
+          "locator": "1.9.1–6, pp. 179–181",
+          "match": "Weight-dependent relative-filtration existence; an outgoing weight application, not an input to LPV’s linear uniqueness."
         }
       ],
       "acceptance": [
@@ -1663,6 +1688,11 @@
           "name": "TauCeti.AlgebraicGeometry.VanishingCycles.maximalNilpotent_kernel_rank",
           "role": "relation",
           "statement": "dim ker N^j=min(j,n)."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.VanishingCycles.maximalNilpotent_conj",
+          "role": "compatibility",
+          "statement": "Maximal nilpotence is invariant under conjugation by a linear equivalence."
         }
       ],
       "tests": [
@@ -1799,9 +1829,9 @@
       "parentStageId": "LefschetzPencilsAndVanishingCycles:LPV.1",
       "title": "Two-component semistable nearby-cycle complex",
       "kind": "construction",
-      "statement": "Let a regular strictly semistable scheme over a strictly henselian trait have special fibre D₁∪D₂, with smooth transverse components and intersection C. The early filtered Rapoport–Zink nearby-cycle complex has graded objects gr₁=Λ_C[−1](−1), gr₀=Λ_D₁⊕Λ_D₂, gr_−1=Λ_C[−1], and other grades zero; the boundary maps are alternating restrictions and Gysin maps. N:gr₁→gr_−1(−1) is the identity on Λ_C[−1](−1), and N²=0 in the filtered derived calculation. The corrected simple complex resolves K=RΨΛ, not the inertia-cohomology cone L. Its inertia action can be trivial on cohomology sheaves while N on the derived object is nonzero.",
+      "statement": "Let a regular strictly semistable scheme over an excellent strictly henselian trait have special fibre D₁∪D₂, with smooth transverse components and intersection C. The early filtered Rapoport–Zink nearby-cycle complex has graded objects gr₁=Λ_C[−1](−1), gr₀=Λ_D₁⊕Λ_D₂, gr_−1=Λ_C[−1], and other grades zero; the boundary maps are alternating restrictions and Gysin maps. N:gr₁→gr_−1(−1) is the identity on Λ_C[−1](−1), and N²=0 in the filtered derived calculation. The corrected simple complex resolves K=RΨΛ, not the inertia-cohomology cone L. Its inertia action can be trivial on cohomology sheaves while N on the derived object is nonzero.",
       "hypotheses": [
-        "Strictly semistable regular total space over a strictly henselian trait; precisely two transverse components",
+        "Strictly semistable regular total space over a excellent strictly henselian trait; precisely two transverse components",
         "Λ finite with ℓ invertible, or rational ℓ-adic after realization",
         "Only this filtered two-component calculation is claimed here; the general weight spectral sequence belongs to LPV.7"
       ],
@@ -1819,7 +1849,8 @@
         "EtaleDualityAndPerverseSheaves:EDC.3/cycle-class-map",
         "EtaleDualityAndPerverseSheaves:EDC.0/tate-twist",
         "ArithmeticGaloisRepresentations:R01.2",
-        "EtaleDualityAndPerverseSheaves:EDC.3"
+        "EtaleDualityAndPerverseSheaves:EDC.3",
+        "SchemeAndStackFoundations:key/excellent-schemes"
       ],
       "sources": [
         {
@@ -1920,8 +1951,8 @@
       "sources": [
         {
           "sourceId": "illusie-1994",
-          "locator": "§1.2, formula (1.2.1) and Frobenius relation",
-          "match": "The cited passage supplies the stated object or result; hypotheses and ownership are made explicit here."
+          "locator": "§1.5, p. 13, (1.5.3)–(1.5.4)",
+          "match": "Canonical twisted N and the displayed geometric-Frobenius relation NF=qFN."
         }
       ],
       "acceptance": [
@@ -2054,8 +2085,8 @@
         "For a regular proper degeneration b is a parameter, so ε_b=t_l."
       ],
       "acceptance": [
-        "The formula has the sign (−1)^{m+1} and the twist A(m); the quadratic character is replaced by the Kummer character c_b of −b.",
-        "The 'δ = 0' case of the stage (exceptional skyscraper in degree n+1) is not in the read part; 3.1.2(ii) shows R^nΦ vanishes outside E."
+        "The formula has the sign (−1)^{m+1} and the twist A(m); the quadratic character is replaced by the Kummer character c_b of b.",
+        "The global formula requires properness; the δ=0 branch is supplied separately by the specialization sequence and direct-image node."
       ],
       "sources": [
         {
@@ -2225,7 +2256,7 @@
       "proofSteps": [
         "A sheaf on S is a triple (G_s̄, G_η̄, φ : G_s̄ → G_η̄^I) (XIII 1.2.2); for R^i f_*ℚ_ℓ it is (H^i(X_s), H^i(X_η̄), sp) by proper base change. It is constant if and only if I acts trivially and sp is an isomorphism, and it equals j_*j^* of itself if and only if sp is an isomorphism onto the invariants.",
         "For i ∉ {n, n + 1} both hold by the specialisation sequence and the Picard–Lefschetz formula.",
-        "δ ≠ 0: by Poincaré duality on X_η̄ some x has (x, δ) ≠ 0, so the middle map of (4.3.3) is onto; hence H^{n+1}(X_s) ≅ H^{n+1}(X_η̄), and I acts trivially there. In degree n, sp is injective with image δ^⊥, and δ^⊥ = H^n(X_η̄)^I because the fixed space of x ↦ x + c(x, δ)δ with c ≠ 0 is δ^⊥ (Mathlib's LinearEquiv.mem_fixedSubmodule_transvection_iff, with t_ℓ onto ℤ_ℓ(1), or ε nontrivial).",
+        "δ ≠ 0: by Poincaré duality on X_η̄ some x has (x, δ) ≠ 0, so the middle map of (4.3.3) is onto; hence H^{n+1}(X_s) ≅ H^{n+1}(X_η̄), and I acts trivially there. In degree n, sp is injective with image δ^⊥, and δ^⊥ = H^n(X_η̄)^I because the fixed space of x ↦ x + c(x, δ)δ with c ≠ 0 is δ^⊥ (use LinearEquiv.mem_fixedSubmodule_transvection_iff only in the odd alternating branch, where the functional vanishes on δ; for the even reflection compute c(x,δ)δ=0 directly, with ε nontrivial).",
         "δ = 0: I acts trivially in every degree, sp is an isomorphism in degree n, and (4.3.3) becomes 0 → ℚ_ℓ(m − n) → H^{n+1}(X_s) → H^{n+1}(X_η̄) → 0, which is the stalk at s̄ of the stated sequence of sheaves.",
         "(δ, δ) = (−1)^m·2 ≠ 0 for n even, so δ ≠ 0 there."
       ],
@@ -2538,9 +2569,9 @@
       "planet": {
         "name": "Smooth quadric"
       },
-      "statement": "Over an algebraically closed field k, a smooth quadric of dimension n is a k-scheme isomorphic to the subscheme Q = 0 of P(V*), dim V = n + 2, for Q an ordinary quadratic form. Over a scheme S, a smooth quadric of dimension n is a proper smooth S-scheme whose geometric fibres are smooth quadrics. For n = 0 it is an étale double cover of S, for n = 1 a Severi–Brauer scheme of relative dimension 1, and for n = 2 its geometric fibres are P¹ × P¹. Étale locally on S it is the quadric of an ordinary form in a projective space P(X) that depends only on X/S; Ω^n_{X/S} ≅ O(−n) has ample inverse.",
+      "statement": "Over an algebraically closed field k, a smooth quadric of dimension n is a k-scheme isomorphic to the subscheme Q = 0 of P(V*), dim V = n + 2, for Q an ordinary quadratic form. Over a scheme S, a smooth quadric of dimension n is a proper smooth S-scheme whose geometric fibres are smooth quadrics. For n = 0 it is an étale double cover of S, for n = 1 a Severi–Brauer scheme of relative dimension 1, and for n = 2 its geometric fibres are P¹ × P¹. Étale locally on S it is the quadric of an ordinary form in a projective space; for n>0 its ambient Severi–Brauer scheme P(X) depends only on X/S; Ω^n_{X/S} ≅ O(−n) has ample inverse.",
       "hypotheses": [
-        "The ambient Severi–Brauer scheme P(X) is canonical (XII 2.6), so no embedding is part of the data."
+        "For n>0 the ambient Severi–Brauer scheme P(X) is canonical (XII 2.6). The n=0 case is the étale double-cover statement, with no canonical ambient asserted by that proposition."
       ],
       "api": [
         {
@@ -2556,7 +2587,7 @@
         {
           "name": "TauCeti.AlgebraicGeometry.Quadric.ambientProjective",
           "role": "constructor",
-          "statement": "P(X), a Severi–Brauer S-scheme with X ⊂ P(X) a relative divisor of degree 2."
+          "statement": "For a smooth quadric X/S of relative dimension n>0, the canonical ambient Severi–Brauer S-scheme P(X) with X a relative divisor of degree 2."
         },
         {
           "name": "TauCeti.AlgebraicGeometry.Quadric.isSmoothQuadric_zero_iff",
@@ -2607,8 +2638,8 @@
       ],
       "proofSteps": [
         "Over k algebraically closed, Remark 2.2 identifies n = 0, 1, 2 and Lemma 2.3 computes Ω^n ≅ O(−n), Pic and the vanishing of H^i(O) and H^1(O(1)).",
-        "Over S, Pic_{X/S} is étale locally constant (H¹(O) = H²(O) = 0), so étale locally there is L with L^{⊗n} matching Ω^n; p_*L is locally free of rank n + 2 and X ⊂ P(p_*L) is the quadric of an ordinary form, unique up to a unit (XII 2.5).",
-        "P(p_*L) does not depend on L (XII 2.6), and descends to the Severi–Brauer scheme P(X)."
+        "Over S, Pic_{X/S} is étale locally constant (H¹(O) = H²(O) = 0), so étale locally for n>0 there is the positive hyperplane bundle L with L^{⊗(−n)} matching Ω^n; p_*L is locally free of rank n + 2 and X ⊂ P(p_*L) is the quadric of an ordinary form, unique up to a unit (XII 2.5).",
+        "For n>0, P(p_*L) does not depend on the local positive hyperplane bundle L (XII 2.6), and descends to P(X). For n=0 use the étale double-cover description separately."
       ],
       "acceptance": [
         "The three low-dimensional cases of Remark 2.2 and the real conic."
@@ -2926,7 +2957,8 @@
       "prerequisites": [
         "SchemeAndStackFoundations:key/henselization",
         "SchemeAndStackFoundations:SF.0",
-        "LefschetzPencilsAndVanishingCycles:LPV.2/ordinary-quadratic-form"
+        "LefschetzPencilsAndVanishingCycles:LPV.2/ordinary-quadratic-form",
+        "SchemeAndStackFoundations:key/excellent-schemes"
       ],
       "sources": [
         {
@@ -3352,7 +3384,7 @@
       "id": "LefschetzPencilsAndVanishingCycles:LPV.2/nearby-cycles-of-a-standard-quadratic-degeneration",
       "kind": "theorem",
       "title": "Nearby cycles of a standard quadratic degeneration",
-      "statement": "Let S be a henselian trait (s, η, s̄, η̄ as in SGA 7 XIII 0.2.5), Λ = ℤ/k with k invertible on S, and X ⊂ 𝔸^{n+1}_S a standard quadratic degeneration: Q = Σ_{i≤j} a_ij x_i x_j + Σ b_i x_i + c, with Y smooth over S and X_s̄ a quadratic cone with vertex x₀. (Proposition 2.2.3) H^i(X_η̄, Λ) ≅ H^i(X_s̄, RΨ_η̄Λ) ≅ R^iΨ_η̄(Λ)_{x₀} and H^i_c(X_η̄, Λ) ≅ H^i_c(X_s̄, RΨ_η̄Λ) ≅ H^i_{x₀}(X_s̄, RΨ_η̄Λ). (Corollary 2.2.4) If X_η̄ is singular, a quadratic cone again, all R^iΦ(Λ) vanish. (2.2.5) If X_η is smooth and S is strictly henselian: (A) R^iΨ_η̄(Λ) = 0 for i ≠ 0, n; for n ≠ 0, Ψ_η̄(Λ) = Λ and R^nΨ_η̄(Λ) is (non-canonically) Λ at x₀ extended by 0; for all n, R^iΦ(Λ) = 0 for i ≠ n and R^nΦ(Λ) is Λ at x₀ extended by 0. (B) H^i_{x₀}(X_s, RΨ_η̄Λ) = 0 for i ≠ n, 2n; the trace H^{2n}_{x₀}(X_s, RΨ_η̄Λ(n)) → Λ is an isomorphism for n ≠ 0, and H^n_{x₀}(X_s, RΨ_η̄Λ(n)) ≅ Λ. (C) (a, b) = Tr(a ∧ b) puts the free Λ-modules R^nΨ_η̄(Λ)_{x₀} and H^n_{x₀}(X_s, RΨ_η̄Λ(n)) in perfect duality.",
+      "statement": "Let S be a henselian trait (s, η, s̄, η̄ as in SGA 7 XIII 0.2.5), Λ = ℤ/k with k invertible on S, and X ⊂ 𝔸^{n+1}_S a standard quadratic degeneration: Q = Σ_{i≤j} a_ij x_i x_j + Σ b_i x_i + c, with Y smooth over S and X_s̄ a quadratic cone with vertex x₀. (Proposition 2.2.3) H^i(X_η̄, Λ) ≅ H^i(X_s̄, RΨ_η̄Λ) ≅ R^iΨ_η̄(Λ)_{x₀} and H^i_c(X_η̄, Λ) ≅ H^i_c(X_s̄, RΨ_η̄Λ) ≅ H^i_{x₀}(X_s̄, RΨ_η̄Λ). (Corollary 2.2.4) If X_η̄ is singular, a quadratic cone again, all R^iΦ(Λ) vanish. (2.2.5) If X_η is smooth and S is strictly henselian: (A) R^iΨ_η̄(Λ) = 0 for i ≠ 0, n; for n ≠ 0, Ψ_η̄(Λ) = Λ and R^nΨ_η̄(Λ) is (non-canonically) Λ at x₀ extended by 0; for all n, R^iΦ(Λ) = 0 for i ≠ n and R^nΦ(Λ) is Λ at x₀ extended by 0. (B) H^i_{x₀}(X_s, RΨ_η̄Λ) = 0 for i ≠ n, 2n; the trace H^{2n}_{x₀}(X_s, RΨ_η̄Λ(n)) → Λ is an isomorphism for n ≠ 0, and for n>0, H^n_{x₀}(X_s, RΨ_η̄Λ(n)) ≅ Λ. For n=0, R⁰Ψ_η̄(Λ)_{x₀} and H⁰_{x₀}(X_s,RΨ_η̄Λ) are both Λ²; R⁰Φ is the rank-one cokernel of the diagonal specialization Λ→Λ². (C) (a, b) = Tr(a ∧ b) puts the free Λ-modules R^nΨ_η̄(Λ)_{x₀} and H^n_{x₀}(X_s, RΨ_η̄Λ(n)) in perfect duality.",
       "hypotheses": [
         "(*) X_η smooth for (A)–(C); S strictly henselian for simplicity."
       ],
@@ -3365,7 +3397,7 @@
       ],
       "acceptance": [
         "n = 1, xy = π: R¹Φ(Λ) is Λ at the origin, and H¹_c(X_η̄) ≅ Λ with X_η̄ ≅ 𝔾_m.",
-        "n = 0, x² = π: R⁰Φ(Λ) has rank 1 at x₀, the kernel of Λ² → Λ from the two points to the special point."
+        "n=0, x²=π with residue characteristic ≠2: R⁰Ψ and degree-zero nearby costalk have rank 2, while R⁰Φ=coker(Λ→Λ²) for the diagonal specialization has rank 1. The trace-zero kernel of Λ²→Λ belongs to the dual support description, not the definition of R⁰Φ."
       ],
       "prerequisites": [
         "LefschetzPencilsAndVanishingCycles:LPV.2/standard-quadratic-degeneration",
@@ -3451,18 +3483,19 @@
       "id": "LefschetzPencilsAndVanishingCycles:LPV.2/local-description-of-the-vanishing-cycle",
       "kind": "theorem",
       "title": "Local description of the vanishing cycle",
-      "statement": "Let S be a henselian trait (s, η, s̄, η̄ as in SGA 7 XIII 0.2.5), Λ = ℤ/k with k invertible on S, and X ⊂ 𝔸^{n+1}_S a standard quadratic degeneration: Q = Σ_{i≤j} a_ij x_i x_j + Σ b_i x_i + c, with Y smooth over S and X_s̄ a quadratic cone with vertex x₀. Assume X_η smooth and S strictly henselian. (n even) ±δ is determined by (2.2.5.3)–(2.2.5.4), which for k a power of an odd prime amounts to (δ, δ) = (−1)^m·2; in general ±δ is the image of any class δ̃ with coefficients in ℤ/2^a k (a large) satisfying (δ̃, δ̃) = (−1)^m·2 and compatible with the reductions to the prime-power factors. (n = 2m + 1 odd, so x₀ is rational) Let X_{s(0)} be the henselisation of X_s at x₀, X̃_{s(0)} its blow-up at x₀, Y₀ the exceptional divisor (a smooth quadric of dimension 2m) and X*_{s(0)} = X_{s(0)} − {x₀}. The composite (2.2.6.2) H^{n−1}(Y₀, Λ(m)) ≅ H^{n−1}(X̃_{s(0)}, Λ(m)) → H^{n−1}(X*_{s(0)}, Λ(m)) → H^n_{x₀}(X_s, Λ(m)) → H^n_{x₀}(X_s, RΨ_η̄Λ(m)) identifies the last group with the primitive quotient of H^{2m}(Y₀, Λ(m)), and ±δ is the image of the natural generators of that primitive quotient.",
+      "statement": "Let S be a henselian trait (s, η, s̄, η̄ as in SGA 7 XIII 0.2.5), Λ = ℤ/k with k invertible on S, and X ⊂ 𝔸^{n+1}_S a standard quadratic degeneration: Q = Σ_{i≤j} a_ij x_i x_j + Σ b_i x_i + c, with Y smooth over S and X_s̄ a quadratic cone with vertex x₀. Assume X_η smooth and S strictly henselian. (n even) ±δ is determined by (2.2.5.3)–(2.2.5.4), which for k a power of an odd prime amounts to (δ, δ) = (−1)^m·2; in general the unordered pair ±δ is obtained from the distinguished geometric classes of XII 3.7 by coefficient reduction with one common geometric sign. Choosing norm-normalized generators independently at each prime factor, even after a ℤ/2^a k lift, does not characterize this pair. (n = 2m + 1 odd, so x₀ is rational) Let X_{s(0)} be the henselisation of X_s at x₀, X̃_{s(0)} its blow-up at x₀, Y₀ the exceptional divisor (a smooth quadric of dimension 2m) and X*_{s(0)} = X_{s(0)} − {x₀}. The composite (2.2.6.2) H^{n−1}(Y₀, Λ(m)) ≅ H^{n−1}(X̃_{s(0)}, Λ(m)) → H^{n−1}(X*_{s(0)}, Λ(m)) → H^n_{x₀}(X_s, Λ(m)) → H^n_{x₀}(X_s, RΨ_η̄Λ(m)) identifies the last group with the primitive quotient of H^{2m}(Y₀, Λ(m)), and ±δ is the image of the natural generators of that primitive quotient.",
       "hypotheses": [
         "The source asserts the characterisation by (δ, δ) = (−1)^m·2 whenever 2 ∤ k; for k with two distinct odd prime factors it fails (source issue E11)."
       ],
       "proofSteps": [
-        "n even: if δ₁ is another generator with (δ₁, δ₁) = (δ, δ), then δ₁ = uδ with u² = 1 in ℤ/k; u = ±1 exactly when ℤ/k has no other square roots of 1, that is, when k is a power of one odd prime. In general one fixes δ through the ℓ-adic or ℤ/2^a k classes of XII 3.7.",
+        "n even: if δ₁ is another generator with (δ₁, δ₁) = (δ, δ), then δ₁ = uδ with u² = 1 in ℤ/k; u = ±1 exactly when ℤ/k has no other square roots of 1, that is, when k is a power of one odd prime. In general reduce the distinguished geometric classes of XII 3.7 with a single common sign. Mere norm equality, primary-factor reductions or a larger modulus cannot synchronize independent primary signs.",
         "n odd: ±δ is determined by its image in H^n_c(X_η̄, Λ(m)); by (2.1.7.1) it suffices that H^{n−1}(Y₀) ≅ H^{n−1}(X̃_s) → H^{n−1}(X*_s) → H^n_{x₀}(X_s) → H^n_c(X_s) → H^n_c(X_η̄) (the last map sp) sends the distinguished generators of the primitive quotient to those of the target.",
         "By the anticommutativity lemma, this composite is, up to sign, the boundary ∂ : H^{n−1}(Y_s) → H^n_c(X_s) followed by specialisation, that is, the boundary H^{n−1}(Y_η̄) → H^n_c(X_η̄) of XII 3.6, which maps the generators of the primitive quotient to ±δ (XII 3.7)."
       ],
       "acceptance": [
         "n = 1, xy = π: Y₀ is the two tangent directions at the node, H⁰(Y₀) = Λ², its primitive quotient is Λ, and δ generates H¹_c(X_η̄) = H¹_c(𝔾_m).",
-        "k = 15, m even: u = 4 satisfies u² ≡ 1, so 4δ also has (4δ, 4δ) = 2, and the characterisation by (δ, δ) alone does not single out ±δ."
+        "k = 15, m even: u = 4 satisfies u² ≡ 1, so 4δ also has (4δ, 4δ) = 2, and the characterisation by (δ, δ) alone does not single out ±δ.",
+        "The ambiguity persists after a 2-primary lift: 19²=1 in ℤ/60 and 19 reduces to 4 in ℤ/15; this is not the reduction of either globally signed geometric generator."
       ],
       "prerequisites": [
         "LefschetzPencilsAndVanishingCycles:LPV.2/variation-in-a-standard-quadratic-degeneration",
@@ -3592,7 +3625,7 @@
       "sources": [
         {
           "sourceId": "fsy-2022",
-          "locator": "§5.1.3, pp. 43–44; citation [25, Corollary 2.10]",
+          "locator": "§5.1.3, pp. 43–44; citation [30, Corollary 2.10] in the downloaded arXiv text",
           "match": "The cited passage supplies the stated object or result; hypotheses and ownership are made explicit here."
         }
       ],
@@ -3630,7 +3663,7 @@
       "sources": [
         {
           "sourceId": "fsy-2022",
-          "locator": "§5.1.3, pp. 41–43, determinant and vanishing-line character",
+          "locator": "§5.1.3, pp. 41–44, including determinant calculation on p. 44",
           "match": "The cited passage supplies the stated object or result; hypotheses and ownership are made explicit here."
         }
       ],
@@ -3773,7 +3806,7 @@
       ],
       "kind": "definition",
       "title": "The dual variety and the incidence family",
-      "statement": "Let k be algebraically closed of characteristic p, P a projective space of dimension N ≥ 1 over k, P̌ its dual, H_t the hyperplane of t ∈ P̌, and X ⊂ P a smooth connected projective variety of dimension n + 1. Let Y = {(x, t) ∈ X × P̌ : x ∈ H_t} with g : Y → P̌, whose fibre over t is X_t = X ∩ H_t. The dual variety X̌ ⊂ P̌ is the set of t such that H_t is tangent to X, that is, X_t is singular or X ⊂ H_t. It is closed and irreducible, and g is smooth outside g^{-1}(X̌). For a Lefschetz pencil with parameter line D, S = D ∩ X̌.",
+      "statement": "Let k be algebraically closed of characteristic p, P a projective space of dimension N ≥ 1 over k, P̌ its dual, H_t the hyperplane of t ∈ P̌, and X ⊂ P a smooth connected projective variety of dimension n + 1. Let Y = {(x, t) ∈ X × P̌ : x ∈ H_t} with g : Y → P̌, whose fibre over t is X_t = X ∩ H_t. The dual variety X̌ ⊂ P̌ is the set of t such that H_t is tangent to X, that is, X_t is singular or X ⊂ H_t. It is closed and, when nonempty, irreducible, and g is smooth outside g^{-1}(X̌). For a Lefschetz pencil with parameter line D, S = D ∩ X̌.",
       "hypotheses": [
         "X smooth, connected and projective; irreducibility of X̌ comes from its description as the image of the conormal variety, a projective bundle over X."
       ],
@@ -3841,7 +3874,7 @@
         }
       ],
       "proofSteps": [
-        "The conormal variety C = {(x, t) : x ∈ X, T_xX ⊂ H_t}, T_xX the projective tangent space, is a projective bundle over X with fibres P^{N−n−2} (empty when N = n + 1), hence irreducible; X̌ is its image in P̌, closed and irreducible.",
+        "The conormal variety C = {(x, t) : x ∈ X, T_xX ⊂ H_t}, T_xX the projective tangent space, is a projective bundle over X with fibres P^{N−n−2} (empty when N = n + 1), hence irreducible when nonempty; X̌ is its closed image and is irreducible when nonempty. When X=P the conormal incidence and dual are empty.",
         "t ∉ X̌ exactly when X ∩ H_t is smooth of dimension n (the Jacobian criterion at each x ∈ X ∩ H_t), which is the smoothness of g at the points of g^{-1}(t).",
         "For a pencil, t ∈ D lies in S exactly when X_t is singular, that is, t ∈ X̌ (X ⊂ H_t cannot happen for t ∈ D: A ∩ X has codimension 2 in X)."
       ],
@@ -3940,7 +3973,7 @@
       "sources": [
         {
           "sourceId": "SGA7II-1973",
-          "locator": "XVII 2.5, 3.2–7 and 4.1–2",
+          "locator": "Exposé XVII, 2.5, 3.2–7 and 4.1–3; Proposition 4.3 for the degree-two two-point jet bound",
           "match": "The cited passage supplies the stated object or result; hypotheses and ownership are made explicit here."
         }
       ],
@@ -3974,7 +4007,7 @@
         "LefschetzPencilsAndVanishingCycles:LPV.3/lefschetz-pencil",
         "SchemeAndStackFoundations:SF.0",
         "SchemeAndStackFoundations:key/henselization",
-        "SchemeAndStackFoundations:SF.1"
+        "SchemeAndStackFoundations:SF.4"
       ],
       "sources": [
         {
@@ -4015,7 +4048,8 @@
         "EtaleDualityAndPerverseSheaves:EDC.0/etale-derived-category",
         "SchemeAndStackFoundations:SF.2",
         "ArithmeticGaloisRepresentations:R01.2",
-        "FiniteFieldsAndCharacterSums:FF.0"
+        "FiniteFieldsAndCharacterSums:FF.0",
+        "SchemeAndStackFoundations:SF.0"
       ],
       "sources": [
         {
@@ -4062,7 +4096,7 @@
       "sources": [
         {
           "sourceId": "deligne-weil-ii",
-          "locator": "4.2.1–3 and 4.2.7, pp. 220–222",
+          "locator": "4.2.1–3 and 4.2.7, pp. 219–221",
           "match": "The cited passage supplies the stated object or result; hypotheses and ownership are made explicit here."
         }
       ],
@@ -4917,7 +4951,7 @@
       "sources": [
         {
           "sourceId": "deligne-weil-ii",
-          "locator": "4.2.3–8, pp. 221–222",
+          "locator": "4.2.3–8, pp. 220–221",
           "match": "The cited passage supplies the stated object or result; hypotheses and ownership are made explicit here."
         }
       ],
@@ -4956,7 +4990,7 @@
       "sources": [
         {
           "sourceId": "deligne-weil-ii",
-          "locator": "4.4.1–4, pp. 225–227",
+          "locator": "4.4.1–4, pp. 227–229",
           "match": "The cited passage supplies the stated object or result; hypotheses and ownership are made explicit here."
         }
       ],
@@ -4998,7 +5032,7 @@
       "sources": [
         {
           "sourceId": "deligne-weil-ii",
-          "locator": "4.4.8–9, pp. 229–230",
+          "locator": "4.4.8–9, pp. 230–231",
           "match": "The cited passage supplies the stated object or result; hypotheses and ownership are made explicit here."
         }
       ],
@@ -5037,7 +5071,7 @@
       "sources": [
         {
           "sourceId": "deligne-weil-ii",
-          "locator": "4.3.10 and 4.5.1–2, pp. 224–225, 231–234",
+          "locator": "4.3.10, p. 226, and 4.5.1–2 with proof, pp. 231–233",
           "match": "The cited passage supplies the stated object or result; hypotheses and ownership are made explicit here."
         }
       ],
@@ -5365,13 +5399,6 @@
       ]
     },
     {
-      "supplier": "DeligneWeightsAndPurity:DWP.1",
-      "need": "The weight-dependent existence of the relative monodromy filtrations in Weil II 1.9.1 and its mixedness/purity hypotheses, beyond LPV’s uniqueness and tame commuting-residue calculation. This is a downstream existence consequence, not an input to the finite logarithm or algebraic Picard–Lefschetz prefix.",
-      "neededBy": [
-        "LefschetzPencilsAndVanishingCycles:LPV.1/normal-crossings-tame-restriction"
-      ]
-    },
-    {
       "supplier": "DeligneWeightsAndPurity:DWP.4",
       "need": "Weil-I finite-field descent and dimension/tensor-power induction; the rational-character and cross-ℓ comparison inputs to Weil II 4.4.5–9 and the character/gcd applications 4.5.1–2. The odd geometric open-Sp theorem does not import a weight theorem.",
       "neededBy": [
@@ -5383,7 +5410,9 @@
       "supplier": "EnhancedDerivedSheaves:E0",
       "need": "A coherent filtered derived category of actual étale module sheaves, functorial cones, total complexes and filtered quasi-isomorphisms; enough coherence to compare the can/var triangle and the two-component Rapoport–Zink double complex without choosing nonfunctorial cones.",
       "neededBy": [
-        "LefschetzPencilsAndVanishingCycles:LPV.1/two-component-semistable-nearby-complex"
+        "LefschetzPencilsAndVanishingCycles:LPV.1/two-component-semistable-nearby-complex",
+        "LefschetzPencilsAndVanishingCycles:LPV.0/variation-morphism",
+        "LefschetzPencilsAndVanishingCycles:LPV.0/derived-nearby-cycles-RPsi-and-vanishing-triangle"
       ]
     },
     {
@@ -5431,7 +5460,7 @@
     },
     {
       "supplier": "EtaleDualityAndPerverseSheaves:EDC.5",
-      "need": "Early perverse t-structures on finite-type schemes over fields and the rectified trait dimension function, the p/p+ integral conventions, support/cosupport criteria, gluing and intermediate extension as the image of !→*. Supply their enlarged nonconstructible extension and the precise finite-cohomological-dimension hypotheses under which geometric stalks/costalks commute with filtered colimits. No purity or decomposition theorem is required.",
+      "need": "EtaleDualityAndPerverseSheaves, Part II: Early perverse t-structures on finite-type schemes over fields and the rectified trait dimension function, the p/p+ integral conventions, support/cosupport criteria, gluing and intermediate extension as the image of !→*. Supply their enlarged nonconstructible extension and the precise finite-cohomological-dimension hypotheses under which geometric stalks/costalks commute with filtered colimits. No purity or decomposition theorem is required. These trait/integral/enlarged extensions are requested; the existing finite-field constructible scope does not already provide them.",
       "neededBy": [
         "LefschetzPencilsAndVanishingCycles:LPV.6/nearby-perverse-exactness",
         "LefschetzPencilsAndVanishingCycles:LPV.6/vanishing-perverse-exactness",
@@ -5453,7 +5482,7 @@
     },
     {
       "supplier": "FiniteFieldsAndCharacterSums:FF.0",
-      "need": "Closed points of a nonempty finite-type F_q-scheme have finite residue extensions, and arithmetic Frob_(q^r) is Frob_q^r; combine with finite-presentation descent to obtain a good pencil axis after a finite extension.",
+      "need": "Finite-field extension arithmetic and Frob_(q^r)=Frob_q^r. The scheme-theoretic finite residue field of a closed point of the good-axis open comes from SchemeAndStackFoundations:SF.0, not from this field-arithmetic stage.",
       "neededBy": [
         "LefschetzPencilsAndVanishingCycles:LPV.3/finite-field-pencil-descent"
       ]
@@ -5480,7 +5509,7 @@
     },
     {
       "supplier": "SchemeAndStackFoundations:SF.0",
-      "need": "Import existing projective spaces, dual projective spaces, Grassmannians, projective tangent spaces and Veronese morphisms from the upstream ProjectiveSchemesAndSmoothMorphisms roadmap. Supply excellent local-ring and completion interfaces and Severi–Brauer ambient quadrics. General Artin Jacobian-square approximation and Elkik henselian/formal versality/algebraization, beyond the existing carrier, are SchemeAndStackFoundations, Part II; LPV plans only their quadratic applications.",
+      "need": "Import existing projective spaces, dual projective spaces, Grassmannians, projective tangent spaces and Veronese morphisms from the upstream ProjectiveSchemesAndSmoothMorphisms roadmap. Supply excellent local-ring and completion interfaces and Severi–Brauer ambient quadrics. General Artin Jacobian-square approximation and Elkik henselian/formal versality/algebraization, beyond the existing carrier, are SchemeAndStackFoundations, Part II; LPV plans only their quadratic applications. Also supply the finite-type closed-point residue-field theorem (Zariski lemma) for finite-field good-axis descent.",
       "neededBy": [
         "LefschetzPencilsAndVanishingCycles:LPV.0/constructibility-and-finite-amplitude",
         "LefschetzPencilsAndVanishingCycles:LPV.2/ordinary-quadratic-form",
@@ -5494,19 +5523,20 @@
         "LefschetzPencilsAndVanishingCycles:LPV.3/existence-of-lefschetz-pencils",
         "LefschetzPencilsAndVanishingCycles:LPV.3/ordinary-axis-open-and-jet-separation",
         "LefschetzPencilsAndVanishingCycles:LPV.3/incidence-pencil-blowup",
-        "LefschetzPencilsAndVanishingCycles:LPV.5/bertini-surjectivity-on-fundamental-groups"
+        "LefschetzPencilsAndVanishingCycles:LPV.5/bertini-surjectivity-on-fundamental-groups",
+        "LefschetzPencilsAndVanishingCycles:LPV.3/finite-field-pencil-descent"
       ]
     },
     {
-      "supplier": "SchemeAndStackFoundations:SF.1",
-      "need": "The Rees-algebra blowup universal property and affine charts for a regular two-generated ideal, with the empty-center identity case. The incidence equation is specialized to a pencil inside LPV.3; general blowup geometry remains with its owner.",
+      "supplier": "SchemeAndStackFoundations:SF.4",
+      "need": "SchemeAndStackFoundations, Part II, in the birational-geometry direction: The Rees-algebra blowup universal property and affine charts for a regular two-generated ideal, with the empty-center identity case. The incidence equation is specialized to a pencil inside LPV.3; general blowup geometry remains with its owner. SF.1 is the descent/stacks stage, not an existing Rees-algebra blowup theorem; this precise extension is requested from SF.4.",
       "neededBy": [
         "LefschetzPencilsAndVanishingCycles:LPV.3/incidence-pencil-blowup"
       ]
     },
     {
       "supplier": "SchemeAndStackFoundations:SF.2",
-      "need": "Integration contract, not a second plan: re-export the existing PR196 ConstructibleEtale layers 0–3 (small-étale morphisms, stalks, Galois descent, lisse representations and paths), 7–9 (derived complexes), EtaleBaseChange layers 2–8 (Rf*, Leray, coherent exchange maps, smooth/proper base change with their distinct hypotheses, excellent finite-type constructibility, local acyclicity and lissity), EllAdicRealization derived compatible systems and TraceFormula finite-dimensional trace/additivity. Read PR196 head 4bd72379658126cbe9be935656396f0c9dac4de0. ComplexComparison layers 8–12 must supply Riemann existence, relative comparison and cup/trace orientation compatibility for the algebraic ordinary degeneration. General carriers remain owned upstream; SF.2 is the atlas external entry’s integration_owner.",
+      "need": "Integration contract, not a second plan: re-export the existing PR196 ConstructibleEtale layers 0–3 (small-étale morphisms, stalks, Galois descent, lisse representations and paths), 7–9 (derived complexes), EtaleBaseChange layers 2–8 (Rf*, Leray, coherent exchange maps, smooth/proper base change with their distinct hypotheses, proper-direct-image constructibility and finite-type cohomological-dimension bounds; the nonproper excellent-trait nearby-cycle finiteness theorem is still G-finiteness-source, local acyclicity and lissity), EllAdicRealization derived compatible systems and TraceFormula finite-dimensional trace/additivity. Read PR196 head 4bd72379658126cbe9be935656396f0c9dac4de0. ComplexComparison layers 8–12 must supply Riemann existence, relative comparison and cup/trace orientation compatibility for the algebraic ordinary degeneration. General carriers remain owned upstream; SF.2 is the atlas external entry’s integration_owner.",
       "neededBy": [
         "LefschetzPencilsAndVanishingCycles:LPV.0/henselian-trait-conventions-and-galois-sheaves",
         "LefschetzPencilsAndVanishingCycles:LPV.0/functor-psi-and-functorialities",
@@ -5540,7 +5570,7 @@
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups#layer-0-the-classical-groups-and-the-standard-representation",
-      "need": "The algebraic symplectic/orthogonal groups, their Lie algebras and the source’s orthogonal irreducibility alternatives for the even-dimensional conditional branch. Use the existing classical-group carriers.",
+      "need": "Consume the existing complex classical-group carriers. Request ClassicalGroups, Part II for their fixed Q_l form-preserving group/Lie-algebra and topology interfaces. The merged Layer 0 is over C and does not prove Weil II 4.4’s orthogonal alternatives: LPV owns those source-specific alternatives and must state their reflection-generation and irreducibility hypotheses.",
       "neededBy": [
         "LefschetzPencilsAndVanishingCycles:LPV.5/conditional-orthogonal-open-or-finite"
       ]
@@ -5559,64 +5589,81 @@
       "neededBy": [
         "LefschetzPencilsAndVanishingCycles:LPV.5/finite-orthogonal-ade"
       ]
+    },
+    {
+      "supplier": "SchemeAndStackFoundations:key/excellent-schemes",
+      "need": "Import the reserved excellent-schemes predicate and its excellent affine/local-ring interfaces (G-ring, J-2, universal catenarity) from SchemeAndStackFoundations. Reuse this carrier for finite-type nearby-cycle finiteness and the excellent regular-trait purity/approximation applications; no excellence definition is planned in LPV.",
+      "neededBy": [
+        "LefschetzPencilsAndVanishingCycles:LPV.0/constructibility-and-finite-amplitude",
+        "LefschetzPencilsAndVanishingCycles:LPV.1/geometric-quasi-unipotence",
+        "LefschetzPencilsAndVanishingCycles:LPV.1/two-component-semistable-nearby-complex",
+        "LefschetzPencilsAndVanishingCycles:LPV.2/tougeron-artin-implicit-function-theorem"
+      ]
     }
   ],
   "coverage": [
     {
       "stageId": "LefschetzPencilsAndVanishingCycles:LPV.0",
-      "status": "planned",
+      "status": "partial",
       "remaining": [
-        "Resolve G-finiteness-source and G-adic-comparison through the specified upstream/EDC contracts."
+        "Resolve G-finiteness-source and G-adic-comparison through the specified upstream/EDC contracts.",
+        "G-review-signature-fidelity: restore continuity and residue-Galois descent, bounded invertible coefficients, actual site/strict-local stalk maps, and qualified exchange/realization statements; complete geometric API/tests."
       ],
-      "note": "Every stated target and its key definitions/theorems has a node; chains end at checked baseline, exact supplier node, precise requested stage, or an explicitly named proof/source gap."
+      "note": "The target inventory is present, but the independent review found unresolved mathematical/signature/API contracts. The precise remaining entries and review gaps replace the prior claim that every target is realized."
     },
     {
       "stageId": "LefschetzPencilsAndVanishingCycles:LPV.1",
-      "status": "planned",
+      "status": "partial",
       "remaining": [
-        "Supply arithmetic geometric local monodromy, coherent filtered-derived totalization and regular-trait purity; verify the cited author errata in the early two-component construction."
+        "Supply arithmetic geometric local monodromy, coherent filtered-derived totalization and regular-trait purity; verify the cited author errata in the early two-component construction.",
+        "G-review-semisimple-trace-source and G-review-definition-api-tests: construct admissible trace gradings and refinements, identify the two-component total complex with RΨ, and represent its N and Tate line; replace arbitrary-representation quasi-unipotence and arbitrary-residue commutation."
       ],
-      "note": "Every stated target and its key definitions/theorems has a node; chains end at checked baseline, exact supplier node, precise requested stage, or an explicitly named proof/source gap."
+      "note": "The target inventory is present, but the independent review found unresolved mathematical/signature/API contracts. The precise remaining entries and review gaps replace the prior claim that every target is realized."
     },
     {
       "stageId": "LefschetzPencilsAndVanishingCycles:LPV.2",
-      "status": "planned",
+      "status": "partial",
       "remaining": [
-        "Read the original Illusie 2002 odd algebraic proof and 2003 nonordinary concentration hypotheses; resolve Artin/Elkik supplier proof gaps."
+        "Read the original Illusie 2002 odd algebraic proof and 2003 nonordinary concentration hypotheses; resolve Artin/Elkik supplier proof gaps.",
+        "G-review-signature-fidelity: bind every quadratic cohomology/variation theorem to its actual model and coefficient ring; restore general characteristic-two/base-change and canonical-ambient scope; represent dimension-zero nearby/costalk ranks and globally signed coefficient reductions."
       ],
-      "note": "Every stated target and its key definitions/theorems has a node; chains end at checked baseline, exact supplier node, precise requested stage, or an explicitly named proof/source gap."
+      "note": "The target inventory is present, but the independent review found unresolved mathematical/signature/API contracts. The precise remaining entries and review gaps replace the prior claim that every target is realized."
     },
     {
       "stageId": "LefschetzPencilsAndVanishingCycles:LPV.3",
-      "status": "planned",
+      "status": "partial",
       "remaining": [
-        "Complete the imported projective/jet and finite-presentation geometry contracts; independently verify the degree-two exceptional jet estimate and characteristic-two parity."
+        "Complete the imported projective/jet and finite-presentation geometry contracts; independently verify the degree-two exceptional jet estimate and characteristic-two parity.",
+        "G-review-definition-api-tests and G-review-supplier-order: add ordinary singularity/total-space/axis conditions to IsLefschetzPencil; instantiate the line, quadric, cubic and Hermitian test models; provide the requested SF.4 Rees/blowup and SF.0 closed-point contracts."
       ],
-      "note": "Every stated target and its key definitions/theorems has a node; chains end at checked baseline, exact supplier node, precise requested stage, or an explicitly named proof/source gap."
+      "note": "The target inventory is present, but the independent review found unresolved mathematical/signature/API contracts. The precise remaining entries and review gaps replace the prior claim that every target is realized."
     },
     {
       "stageId": "LefschetzPencilsAndVanishingCycles:LPV.4",
-      "status": "planned",
+      "status": "partial",
       "remaining": [
-        "Supply general blowup/weak Lefschetz and actual Leray edge maps; retain the stated middle subquotient until any splitting hypotheses are proved."
+        "Supply general blowup/weak Lefschetz and actual Leray edge maps; retain the stated middle subquotient until any splitting hypotheses are proved.",
+        "G-review-middle-filtration: specify the actual middle maps, constant/radical/skyscraper subquotients and Leray differentials; complete geometric realization and quotient universal-property tests."
       ],
-      "note": "Every stated target and its key definitions/theorems has a node; chains end at checked baseline, exact supplier node, precise requested stage, or an explicitly named proof/source gap."
+      "note": "The target inventory is present, but the independent review found unresolved mathematical/signature/API contracts. The precise remaining entries and review gaps replace the prior claim that every target is realized."
     },
     {
       "stageId": "LefschetzPencilsAndVanishingCycles:LPV.5",
-      "status": "planned",
+      "status": "partial",
       "remaining": [
-        "Resolve p-adic Lie charts/closed-subgroup proof; read the conditional orthogonal lattice proof interior and supply its rationality inputs."
+        "Resolve p-adic Lie charts/closed-subgroup proof; read the conditional orthogonal lattice proof interior and supply its rationality inputs.",
+        "G-review-signature-fidelity and G-review-supplier-order: restore transvection-generation/irreducibility, Q_l topology/chart and rational positive-definite lattice hypotheses; separate geometric open-Sp from the later weight-dependent applications."
       ],
-      "note": "Every stated target and its key definitions/theorems has a node; chains end at checked baseline, exact supplier node, precise requested stage, or an explicitly named proof/source gap."
+      "note": "The target inventory is present, but the independent review found unresolved mathematical/signature/API contracts. The precise remaining entries and review gaps replace the prior claim that every target is realized."
     },
     {
       "stageId": "LefschetzPencilsAndVanishingCycles:LPV.6",
-      "status": "planned",
+      "status": "partial",
       "remaining": [
-        "Supply early and enlarged perverse categories, qualified costalk-colimit commutation and inertia-equivariant admissible adic comparison."
+        "Supply early and enlarged perverse categories, qualified costalk-colimit commutation and inertia-equivariant admissible adic comparison.",
+        "G-review-signature-fidelity and G-review-supplier-order: identify actual rectified/integral perverse t-structures, qualified duality/j!* and colimit maps, and import an Igusa geometry prefix independent of the LPV.6 conclusion."
       ],
-      "note": "Every stated target and its key definitions/theorems has a node; chains end at checked baseline, exact supplier node, precise requested stage, or an explicitly named proof/source gap."
+      "note": "The target inventory is present, but the independent review found unresolved mathematical/signature/API contracts. The precise remaining entries and review gaps replace the prior claim that every target is realized."
     }
   ],
   "gaps": [
@@ -5678,6 +5725,146 @@
         "LefschetzPencilsAndVanishingCycles:LPV.0/constructibility-and-finite-amplitude"
       ],
       "detail": "Illusie’s classical-trait finiteness statement and PR196 EtaleBaseChange’s precise finite-type constructibility contract were read. The original SGA 4½ finiteness proof is not freshly read here; it belongs to that upstream supplier. The LPV hypotheses retain excellence and finite-type/finite-Tor restrictions."
+    },
+    {
+      "id": "G-review-signature-fidelity",
+      "title": "Geometric and coefficient hypotheses missing from suggested signatures",
+      "neededBy": [
+        "LefschetzPencilsAndVanishingCycles:LPV.0/henselian-trait-conventions-and-galois-sheaves",
+        "LefschetzPencilsAndVanishingCycles:LPV.0/fibre-product-topos-Y-times-S",
+        "LefschetzPencilsAndVanishingCycles:LPV.0/functor-psi-and-functorialities",
+        "LefschetzPencilsAndVanishingCycles:LPV.0/variation-morphism",
+        "LefschetzPencilsAndVanishingCycles:LPV.0/derived-nearby-cycles-RPsi-and-vanishing-triangle",
+        "LefschetzPencilsAndVanishingCycles:LPV.0/derived-functorialities-and-specialization-sequence",
+        "LefschetzPencilsAndVanishingCycles:LPV.0/geometric-fibre-site-morphisms",
+        "LefschetzPencilsAndVanishingCycles:LPV.0/oriented-product-comparison",
+        "LefschetzPencilsAndVanishingCycles:LPV.0/constructibility-and-finite-amplitude",
+        "LefschetzPencilsAndVanishingCycles:LPV.0/coefficient-and-trait-change",
+        "LefschetzPencilsAndVanishingCycles:LPV.0/adic-nearby-cycle-realization",
+        "LefschetzPencilsAndVanishingCycles:LPV.0/scheme-adic-trait-comparison",
+        "LefschetzPencilsAndVanishingCycles:LPV.1/normalized-can-var",
+        "LefschetzPencilsAndVanishingCycles:LPV.1/finite-monodromy-logarithm",
+        "LefschetzPencilsAndVanishingCycles:LPV.1/geometric-quasi-unipotence",
+        "LefschetzPencilsAndVanishingCycles:LPV.1/finite-extension-and-logarithm-rescaling",
+        "LefschetzPencilsAndVanishingCycles:LPV.1/semisimple-nearby-trace",
+        "LefschetzPencilsAndVanishingCycles:LPV.1/two-component-semistable-nearby-complex",
+        "LefschetzPencilsAndVanishingCycles:LPV.1/twisted-monodromy-equivariance",
+        "LefschetzPencilsAndVanishingCycles:LPV.2/ordinary-quadratic-point-nearby-cycles-3-1-2",
+        "LefschetzPencilsAndVanishingCycles:LPV.2/even-relative-dimension-variation-3-2",
+        "LefschetzPencilsAndVanishingCycles:LPV.2/odd-relative-dimension-picard-lefschetz-3-3",
+        "LefschetzPencilsAndVanishingCycles:LPV.2/lefschetz-degeneration-specialization-sequence",
+        "LefschetzPencilsAndVanishingCycles:LPV.2/local-picard-lefschetz-formula",
+        "LefschetzPencilsAndVanishingCycles:LPV.2/direct-images-at-a-lefschetz-degeneration",
+        "LefschetzPencilsAndVanishingCycles:LPV.2/ordinary-quadratic-form",
+        "LefschetzPencilsAndVanishingCycles:LPV.2/normal-form-of-ordinary-quadratic-forms",
+        "LefschetzPencilsAndVanishingCycles:LPV.2/discriminant-double-cover-of-an-even-quadric",
+        "LefschetzPencilsAndVanishingCycles:LPV.2/smooth-quadric",
+        "LefschetzPencilsAndVanishingCycles:LPV.2/cohomology-of-smooth-quadrics",
+        "LefschetzPencilsAndVanishingCycles:LPV.2/cohomology-of-affine-quadrics",
+        "LefschetzPencilsAndVanishingCycles:LPV.2/ordinary-quadratic-point",
+        "LefschetzPencilsAndVanishingCycles:LPV.2/tjurina-module-of-an-ordinary-quadratic-point",
+        "LefschetzPencilsAndVanishingCycles:LPV.2/tougeron-artin-implicit-function-theorem",
+        "LefschetzPencilsAndVanishingCycles:LPV.2/elkik-versal-henselian-deformations",
+        "LefschetzPencilsAndVanishingCycles:LPV.2/canonical-form-of-an-ordinary-quadratic-point",
+        "LefschetzPencilsAndVanishingCycles:LPV.2/local-equation-of-a-family-at-an-ordinary-quadratic-point",
+        "LefschetzPencilsAndVanishingCycles:LPV.2/non-smooth-points-near-an-ordinary-quadratic-point",
+        "LefschetzPencilsAndVanishingCycles:LPV.2/homotopy-invariance-of-etale-cohomology",
+        "LefschetzPencilsAndVanishingCycles:LPV.2/cohomology-of-a-cone",
+        "LefschetzPencilsAndVanishingCycles:LPV.2/cohomology-of-a-punctured-cone",
+        "LefschetzPencilsAndVanishingCycles:LPV.2/boundary-anticommutativity-for-a-cone",
+        "LefschetzPencilsAndVanishingCycles:LPV.2/standard-quadratic-degeneration",
+        "LefschetzPencilsAndVanishingCycles:LPV.2/nearby-cycles-of-a-standard-quadratic-degeneration",
+        "LefschetzPencilsAndVanishingCycles:LPV.2/variation-in-a-standard-quadratic-degeneration",
+        "LefschetzPencilsAndVanishingCycles:LPV.2/local-description-of-the-vanishing-cycle",
+        "LefschetzPencilsAndVanishingCycles:LPV.2/complex-picard-lefschetz-comparison",
+        "LefschetzPencilsAndVanishingCycles:LPV.2/quadratic-character-in-characteristic-two",
+        "LefschetzPencilsAndVanishingCycles:LPV.2/isolated-nonordinary-quadratic-concentration",
+        "LefschetzPencilsAndVanishingCycles:LPV.2/fsy-discriminant-example",
+        "LefschetzPencilsAndVanishingCycles:LPV.3/lefschetz-pencil",
+        "LefschetzPencilsAndVanishingCycles:LPV.3/dual-variety",
+        "LefschetzPencilsAndVanishingCycles:LPV.3/existence-of-lefschetz-pencils",
+        "LefschetzPencilsAndVanishingCycles:LPV.3/ordinary-axis-open-and-jet-separation",
+        "LefschetzPencilsAndVanishingCycles:LPV.3/incidence-pencil-blowup",
+        "LefschetzPencilsAndVanishingCycles:LPV.3/finite-field-pencil-descent",
+        "LefschetzPencilsAndVanishingCycles:LPV.3/inseparable-gauss-and-low-dimension",
+        "LefschetzPencilsAndVanishingCycles:LPV.4/cohomology-sheaves-of-a-lefschetz-pencil",
+        "LefschetzPencilsAndVanishingCycles:LPV.4/pencil-restriction-and-gysin",
+        "LefschetzPencilsAndVanishingCycles:LPV.4/pencil-leray-and-middle-reduction",
+        "LefschetzPencilsAndVanishingCycles:LPV.4/global-fixed-and-local-fixed-interface",
+        "LefschetzPencilsAndVanishingCycles:LPV.4/hypersurface-outside-middle",
+        "LefschetzPencilsAndVanishingCycles:LPV.5/bertini-surjectivity-on-fundamental-groups",
+        "LefschetzPencilsAndVanishingCycles:LPV.5/vanishing-cycles-are-conjugate",
+        "LefschetzPencilsAndVanishingCycles:LPV.5/monodromy-generated-by-local-transvections",
+        "LefschetzPencilsAndVanishingCycles:LPV.5/absolute-irreducibility-of-the-vanishing-quotient",
+        "LefschetzPencilsAndVanishingCycles:LPV.5/lie-algebra-of-a-compact-l-adic-subgroup",
+        "LefschetzPencilsAndVanishingCycles:LPV.5/kazhdan-margulis-open-image",
+        "LefschetzPencilsAndVanishingCycles:LPV.5/characteristic-two-transverse-monodromy",
+        "LefschetzPencilsAndVanishingCycles:LPV.5/conditional-orthogonal-open-or-finite",
+        "LefschetzPencilsAndVanishingCycles:LPV.5/finite-orthogonal-ade",
+        "LefschetzPencilsAndVanishingCycles:LPV.5/integral-failure-and-arithmetic-routing",
+        "LefschetzPencilsAndVanishingCycles:LPV.6/nearby-perverse-exactness",
+        "LefschetzPencilsAndVanishingCycles:LPV.6/vanishing-perverse-exactness",
+        "LefschetzPencilsAndVanishingCycles:LPV.6/nearby-verdier-duality",
+        "LefschetzPencilsAndVanishingCycles:LPV.6/intermediate-extension-exchange",
+        "LefschetzPencilsAndVanishingCycles:LPV.6/perverse-coefficients-and-comparison",
+        "LefschetzPencilsAndVanishingCycles:LPV.6/filtered-colimit-support-criterion",
+        "LefschetzPencilsAndVanishingCycles:LPV.6/igusa-semiperversity-interface"
+      ],
+      "detail": "Re-state the flagged signatures using genuine supplied geometric data and coefficient categories. Arbitrary functors, maps, t-structures, representations and models do not satisfy the advertised geometric theorems. The review report gives counterexamples and a per-node list. If an unavailable hypothesis cannot be stated, omit the affected theorem prototype and record its missing form; do not universally assert its conclusion."
+    },
+    {
+      "id": "G-review-definition-api-tests",
+      "title": "Usable geometric API and faithful unit-test realization",
+      "neededBy": [
+        "LefschetzPencilsAndVanishingCycles:LPV.0/henselian-trait-conventions-and-galois-sheaves",
+        "LefschetzPencilsAndVanishingCycles:LPV.0/fibre-product-topos-Y-times-S",
+        "LefschetzPencilsAndVanishingCycles:LPV.0/functor-psi-and-functorialities",
+        "LefschetzPencilsAndVanishingCycles:LPV.0/variation-morphism",
+        "LefschetzPencilsAndVanishingCycles:LPV.0/derived-nearby-cycles-RPsi-and-vanishing-triangle",
+        "LefschetzPencilsAndVanishingCycles:LPV.1/finite-monodromy-logarithm",
+        "LefschetzPencilsAndVanishingCycles:LPV.1/semisimple-nearby-trace",
+        "LefschetzPencilsAndVanishingCycles:LPV.1/two-component-semistable-nearby-complex",
+        "LefschetzPencilsAndVanishingCycles:LPV.2/ordinary-quadratic-form",
+        "LefschetzPencilsAndVanishingCycles:LPV.2/discriminant-double-cover-of-an-even-quadric",
+        "LefschetzPencilsAndVanishingCycles:LPV.2/smooth-quadric",
+        "LefschetzPencilsAndVanishingCycles:LPV.2/ordinary-quadratic-point",
+        "LefschetzPencilsAndVanishingCycles:LPV.2/standard-quadratic-degeneration",
+        "LefschetzPencilsAndVanishingCycles:LPV.3/lefschetz-pencil",
+        "LefschetzPencilsAndVanishingCycles:LPV.3/dual-variety",
+        "LefschetzPencilsAndVanishingCycles:LPV.4/vanishing-subspace",
+        "LefschetzPencilsAndVanishingCycles:LPV.4/vanishing-quotient-and-its-pairing"
+      ],
+      "detail": "Complete definition/construction extensionality, transport/functoriality, coefficient-change and universal-property interfaces on actual geometric carriers; implement the packet’s tests with the named models. Counts of comments or API names do not establish these contracts. See the nineteen-row definition/construction audit in the review."
+    },
+    {
+      "id": "G-review-semisimple-trace-source",
+      "title": "Primary source for admissible semisimple trace gradings",
+      "neededBy": [
+        "LefschetzPencilsAndVanishingCycles:LPV.1/semisimple-nearby-trace"
+      ],
+      "detail": "Kisin–Pappas 4.7.1 uses semisimple trace and refers elsewhere for its construction; it does not prove the packet’s admissible-grading/refinement theorem. Read the primary construction and specify actual common exact refinements, finite inertia and Frobenius normalization. TraceFormula Layers 2–3 provide ordinary enhanced trace additivity, not the entire semisimple-nearby-trace theorem."
+    },
+    {
+      "id": "G-review-middle-filtration",
+      "title": "Explicit middle Leray filtration and its two radical cases",
+      "neededBy": [
+        "LefschetzPencilsAndVanishingCycles:LPV.4/pencil-leray-and-middle-reduction"
+      ],
+      "detail": "Specify the maps and subquotients in Weil I 7.1, p. 300: in the nonradical case H¹(D,j*E) surjects onto H¹(D,Rⁿf*), while H¹(D,j*E) injects into H¹(D,j*(E/(E∩E⊥))); in the radical case use the intervening sheaf F and the skyscraper exact sequence (7.1.4)–(7.1.5). Include the zero-cycle case and retain Leray differentials; do not leave the target as an unspecified relevant kernel/quotient."
+    },
+    {
+      "id": "G-review-supplier-order",
+      "title": "Supplier scope and cross-roadmap stage ordering",
+      "neededBy": [
+        "LefschetzPencilsAndVanishingCycles:LPV.1/primitive-decomposition-and-strictness",
+        "LefschetzPencilsAndVanishingCycles:LPV.1/normal-crossings-tame-restriction",
+        "LefschetzPencilsAndVanishingCycles:LPV.3/incidence-pencil-blowup",
+        "LefschetzPencilsAndVanishingCycles:LPV.5/conditional-orthogonal-open-or-finite",
+        "LefschetzPencilsAndVanishingCycles:LPV.5/finite-orthogonal-ade",
+        "LefschetzPencilsAndVanishingCycles:LPV.5/integral-failure-and-arithmetic-routing",
+        "LefschetzPencilsAndVanishingCycles:LPV.6/igusa-semiperversity-interface"
+      ],
+      "detail": "Split the DWP.4↔LPV.5 and IG.4↔LPV.6 whole-stage dependencies into actual independent prefixes and later applications. Reuse SL₂ classification with its requested nilpotent-Jordan extension; request Q_l classical-group interfaces as Part II; use SF.4 for the requested blowup extension. The removed DWP.1 relative-filtration dependency was an incorrect supplier, and DWP.5 is a downstream consumer."
     }
   ],
   "sourceIssues": [
@@ -5694,7 +5881,12 @@
       "searched": [
         "web search 'SGA 7 Groupes de monodromie errata Exposé XII quadriques Deligne misprint', 2026-09-29: no errata list for LNM 340 found (only the Springer and IAS bibliographic pages)",
         "the IAS scan itself (LNM 340), which contains no errata sheet"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Original printed SGA 7 II page image checked at Exposé XII, 1.1 b), p. 2; the printed text has the recorded error, rather than merely an OCR artefact.",
+        "by": "REV-LefschetzPencilsAndVanishingCycles--LPV.0"
+      }
     },
     {
       "id": "LefschetzPencilsAndVanishingCycles/E2",
@@ -5709,7 +5901,12 @@
       "searched": [
         "web search 'SGA 7 Groupes de monodromie errata Exposé XII quadriques Deligne misprint', 2026-09-29: no errata list for LNM 340 found (only the Springer and IAS bibliographic pages)",
         "the IAS scan itself (LNM 340), which contains no errata sheet"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Original printed SGA 7 II page image checked at Exposé XII, Proposition 1.2, p. 3; the printed text has the recorded error, rather than merely an OCR artefact.",
+        "by": "REV-LefschetzPencilsAndVanishingCycles--LPV.0"
+      }
     },
     {
       "id": "LefschetzPencilsAndVanishingCycles/E3",
@@ -5724,7 +5921,12 @@
       "searched": [
         "web search 'SGA 7 Groupes de monodromie errata Exposé XII quadriques Deligne misprint', 2026-09-29: no errata list for LNM 340 found (only the Springer and IAS bibliographic pages)",
         "the IAS scan itself (LNM 340), which contains no errata sheet"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Original printed SGA 7 II page image checked at Exposé XII, 3.1, p. 14; the printed text has the recorded error, rather than merely an OCR artefact.",
+        "by": "REV-LefschetzPencilsAndVanishingCycles--LPV.0"
+      }
     },
     {
       "id": "LefschetzPencilsAndVanishingCycles/E4",
@@ -5739,7 +5941,12 @@
       "searched": [
         "web search 'SGA 7 Groupes de monodromie errata Exposé XII quadriques Deligne misprint', 2026-09-29: no errata list for LNM 340 found (only the Springer and IAS bibliographic pages)",
         "the IAS scan itself (LNM 340), which contains no errata sheet"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Original printed SGA 7 II page image checked at Exposé XII, proof of 3.3, formula (a), p. 15; the printed text has the recorded error, rather than merely an OCR artefact.",
+        "by": "REV-LefschetzPencilsAndVanishingCycles--LPV.0"
+      }
     },
     {
       "id": "LefschetzPencilsAndVanishingCycles/E5",
@@ -5754,7 +5961,12 @@
       "searched": [
         "web search 'SGA 7 Groupes de monodromie errata Exposé XII quadriques Deligne misprint', 2026-09-29: no errata list for LNM 340 found (only the Springer and IAS bibliographic pages)",
         "the IAS scan itself (LNM 340), which contains no errata sheet"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Original printed SGA 7 II page image checked at Exposé XII, 3.6, p. 18; the printed text has the recorded error, rather than merely an OCR artefact.",
+        "by": "REV-LefschetzPencilsAndVanishingCycles--LPV.0"
+      }
     },
     {
       "id": "LefschetzPencilsAndVanishingCycles/E6",
@@ -5769,7 +5981,12 @@
       "searched": [
         "web search 'SGA 7 Groupes de monodromie errata Exposé XII quadriques Deligne misprint', 2026-09-29: no errata list for LNM 340 found (only the Springer and IAS bibliographic pages)",
         "the IAS scan itself (LNM 340), which contains no errata sheet"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Original printed SGA 7 II page image checked at Exposé XII, 3.6, p. 18; the printed text has the recorded error, rather than merely an OCR artefact.",
+        "by": "REV-LefschetzPencilsAndVanishingCycles--LPV.0"
+      }
     },
     {
       "id": "LefschetzPencilsAndVanishingCycles/E7",
@@ -5784,7 +6001,12 @@
       "searched": [
         "web search 'SGA 7 Groupes de monodromie errata Exposé XII quadriques Deligne misprint', 2026-09-29: no errata list for LNM 340 found (only the Springer and IAS bibliographic pages)",
         "the IAS scan itself (LNM 340), which contains no errata sheet"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Original printed SGA 7 II page image checked at Exposé XV, Corollaire 1.3.2 (ii), display (4.14.2), p. 11; the printed text has the recorded error, rather than merely an OCR artefact.",
+        "by": "REV-LefschetzPencilsAndVanishingCycles--LPV.0"
+      }
     },
     {
       "id": "LefschetzPencilsAndVanishingCycles/E8",
@@ -5799,7 +6021,12 @@
       "searched": [
         "web search 'SGA 7 Groupes de monodromie errata Exposé XII quadriques Deligne misprint', 2026-09-29: no errata list for LNM 340 found (only the Springer and IAS bibliographic pages)",
         "the IAS scan itself (LNM 340), which contains no errata sheet"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Original printed SGA 7 II page image checked at Exposé XV, 1.2.1 and proof of 1.2.6, pp. 4 and 6; the printed text has the recorded error, rather than merely an OCR artefact.",
+        "by": "REV-LefschetzPencilsAndVanishingCycles--LPV.0"
+      }
     },
     {
       "id": "LefschetzPencilsAndVanishingCycles/E9",
@@ -5814,7 +6041,12 @@
       "searched": [
         "web search 'SGA 7 Groupes de monodromie errata Exposé XII quadriques Deligne misprint', 2026-09-29: no errata list for LNM 340 found (only the Springer and IAS bibliographic pages)",
         "the IAS scan itself (LNM 340), which contains no errata sheet"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Original printed SGA 7 II page image checked at Exposé XV, 2.1.3 and Lemme 2.7.8, pp. 14–17; the printed text has the recorded error, rather than merely an OCR artefact.",
+        "by": "REV-LefschetzPencilsAndVanishingCycles--LPV.0"
+      }
     },
     {
       "id": "LefschetzPencilsAndVanishingCycles/E10",
@@ -5829,7 +6061,12 @@
       "searched": [
         "web search 'SGA 7 Groupes de monodromie errata Exposé XII quadriques Deligne misprint', 2026-09-29: no errata list for LNM 340 found (only the Springer and IAS bibliographic pages)",
         "the IAS scan itself (LNM 340), which contains no errata sheet"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Original printed SGA 7 II page image checked at Exposé XV, (2.2.5.9), p. 21; the printed text has the recorded error, rather than merely an OCR artefact.",
+        "by": "REV-LefschetzPencilsAndVanishingCycles--LPV.0"
+      }
     },
     {
       "id": "LefschetzPencilsAndVanishingCycles/E11",
@@ -5837,14 +6074,19 @@
       "kind": "error",
       "locator": "Exposé XV, 2.2.6, p. 22",
       "printed": "For 2∤k (Λ = ℤ/k), the source claims that (2.2.5.3) and (2.2.5.4) characterize ±δ, equivalently through (2.2.6.1) (δ,δ) = (−1)^m.2.",
-      "correction": "±δ is characterised by (δ, δ) = (−1)^m·2 when k is a power of a single odd prime; for general odd k one must also use naturality in Λ prime by prime, or the classes of XII 3.7",
+      "correction": "Norm characterizes the pair ±δ over a single odd prime-power coefficient ring. Over composite odd k, reduce the distinguished geometric classes of XII 3.7 with one common sign; independent prime-by-prime choices or a ℤ/2^a k norm lift do not suffice.",
       "reason": "(uδ, uδ) = u²(δ, δ), and ℤ/k has square roots of 1 other than ±1 when k has two distinct odd prime factors: for k = 15, u = 4 gives u² = 16 ≡ 1, so 4δ ≠ ±δ also satisfies (2.2.6.1).",
       "affects": "nothing",
       "known": "new",
       "searched": [
         "web search 'SGA 7 Groupes de monodromie errata Exposé XII quadriques Deligne misprint', 2026-09-29: no errata list for LNM 340 found (only the Springer and IAS bibliographic pages)",
         "the IAS scan itself (LNM 340), which contains no errata sheet"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Original printed SGA 7 II page image checked at Exposé XV, 2.2.6, p. 22; the printed text has the recorded error, rather than merely an OCR artefact. Independently checked 4²=1 modulo 15 with 4≠±1; 19 modulo 60 shows why a 2-primary norm lift also fails to synchronize the signs. The packet correction is strengthened accordingly.",
+        "by": "REV-LefschetzPencilsAndVanishingCycles--LPV.0"
+      }
     },
     {
       "id": "LefschetzPencilsAndVanishingCycles/E12",
@@ -5859,13 +6101,18 @@
       "searched": [
         "web search 'SGA 7 Groupes de monodromie errata Exposé XII quadriques Deligne misprint', 2026-09-29: no errata list for LNM 340 found (only the Springer and IAS bibliographic pages)",
         "the IAS scan itself (LNM 340), which contains no errata sheet"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Original printed SGA 7 II page image checked at Exposé XV, 2.2.2, p. 18; the printed text has the recorded error, rather than merely an OCR artefact.",
+        "by": "REV-LefschetzPencilsAndVanishingCycles--LPV.0"
+      }
     },
     {
       "id": "LefschetzPencilsAndVanishingCycles/E13",
       "source": "illusie-1994",
       "kind": "misprint",
-      "locator": "p. 22 line −4, p. 24 lines 6–7, p. 38 line −11",
+      "locator": "p. 22 lines −4 and −2, p. 24 lines 6–7, p. 38 line −11",
       "printed": "t_|",
       "correction": "Use the vertical tame parameter t_vert and σ_vert consistently.",
       "reason": "The author’s ErrTML sheet identifies the vertical parameter used in the double-complex construction.",
@@ -5873,7 +6120,12 @@
       "known": "Author ErrTML.pdf",
       "searched": [
         "Author-hosted errata sheet read in full, 2026-10-06; exact public URL and document hash in sources."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed against the author’s one-page ErrTML.pdf and the corresponding original 1994 passage at p. 22 lines −4 and −2, p. 24 lines 6–7, p. 38 line −11.",
+        "by": "REV-LefschetzPencilsAndVanishingCycles--LPV.0"
+      }
     },
     {
       "id": "LefschetzPencilsAndVanishingCycles/E14",
@@ -5887,7 +6139,12 @@
       "known": "Author ErrTML.pdf",
       "searched": [
         "Author-hosted errata sheet read in full, 2026-10-06; exact public URL and document hash in sources."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed against the author’s one-page ErrTML.pdf and the corresponding original 1994 passage at p. 35 line 7.",
+        "by": "REV-LefschetzPencilsAndVanishingCycles--LPV.0"
+      }
     },
     {
       "id": "LefschetzPencilsAndVanishingCycles/E15",
@@ -5901,7 +6158,12 @@
       "known": "Author ErrTML.pdf",
       "searched": [
         "Author-hosted errata sheet read in full, 2026-10-06; exact public URL and document hash in sources."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed against the author’s one-page ErrTML.pdf and the corresponding original 1994 passage at p. 37 line −5.",
+        "by": "REV-LefschetzPencilsAndVanishingCycles--LPV.0"
+      }
     },
     {
       "id": "LefschetzPencilsAndVanishingCycles/E16",
@@ -5915,7 +6177,12 @@
       "known": "Author ErrTML.pdf",
       "searched": [
         "Author-hosted errata sheet read in full, 2026-10-06; exact public URL and document hash in sources."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed against the author’s one-page ErrTML.pdf and the corresponding original 1994 passage at p. 38 line −5, (3.6.8).",
+        "by": "REV-LefschetzPencilsAndVanishingCycles--LPV.0"
+      }
     },
     {
       "id": "LefschetzPencilsAndVanishingCycles/E17",
@@ -5929,7 +6196,12 @@
       "known": "Author ErrTML.pdf",
       "searched": [
         "Author-hosted errata sheet read in full, 2026-10-06; exact public URL and document hash in sources."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed against the author’s one-page ErrTML.pdf and the corresponding original 1994 passage at p. 39 line 7, second row.",
+        "by": "REV-LefschetzPencilsAndVanishingCycles--LPV.0"
+      }
     },
     {
       "id": "LefschetzPencilsAndVanishingCycles/E18",
@@ -5943,7 +6215,12 @@
       "known": "Author ErrTML.pdf",
       "searched": [
         "Author-hosted errata sheet read in full, 2026-10-06; exact public URL and document hash in sources."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed against the author’s one-page ErrTML.pdf and the corresponding original 1994 passage at p. 41 line −3.",
+        "by": "REV-LefschetzPencilsAndVanishingCycles--LPV.0"
+      }
     },
     {
       "id": "LefschetzPencilsAndVanishingCycles/E19",
@@ -5957,7 +6234,12 @@
       "known": "Author ErrTML.pdf",
       "searched": [
         "Author-hosted errata sheet read in full, 2026-10-06; exact public URL and document hash in sources."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed against the author’s one-page ErrTML.pdf and the corresponding original 1994 passage at p. 41 line −2.",
+        "by": "REV-LefschetzPencilsAndVanishingCycles--LPV.0"
+      }
     },
     {
       "id": "LefschetzPencilsAndVanishingCycles/E20",
@@ -5971,7 +6253,12 @@
       "known": "Author ErrTML.pdf",
       "searched": [
         "Author-hosted errata sheet read in full, 2026-10-06; exact public URL and document hash in sources."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed against the author’s one-page ErrTML.pdf and the corresponding original 1994 passage at p. 43 line −1 and p. 44 lines 1–2.",
+        "by": "REV-LefschetzPencilsAndVanishingCycles--LPV.0"
+      }
     },
     {
       "id": "LefschetzPencilsAndVanishingCycles/E21",
@@ -5985,7 +6272,12 @@
       "known": "Author ErrTML.pdf",
       "searched": [
         "Author-hosted errata sheet read in full, 2026-10-06; exact public URL and document hash in sources."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed against the author’s one-page ErrTML.pdf and the corresponding original 1994 passage at p. 44 line −12.",
+        "by": "REV-LefschetzPencilsAndVanishingCycles--LPV.0"
+      }
     },
     {
       "id": "LefschetzPencilsAndVanishingCycles/E22",
@@ -5999,7 +6291,12 @@
       "known": "Author ErrTML.pdf",
       "searched": [
         "Author-hosted errata sheet read in full, 2026-10-06; exact public URL and document hash in sources."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed against the author’s one-page ErrTML.pdf and the corresponding original 1994 passage at p. 48 line 3.",
+        "by": "REV-LefschetzPencilsAndVanishingCycles--LPV.0"
+      }
     },
     {
       "id": "LefschetzPencilsAndVanishingCycles/E23",
@@ -6013,7 +6310,12 @@
       "known": "Author ErrPL.pdf",
       "searched": [
         "Author-hosted errata sheet read in full, 2026-10-06; exact public URL and document hash in sources."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as the author’s explicit correction in ErrPL.pdf: |i|>1. The original 2002 page was not obtained; its proof interior remains G-algebraic-PL, and no independent original-page verification is claimed.",
+        "by": "REV-LefschetzPencilsAndVanishingCycles--LPV.0"
+      }
     }
   ],
   "sourceVersions": [
@@ -6048,7 +6350,7 @@
     {
       "kind": "published",
       "url": "https://www.imo.universite-paris-saclay.fr/~luc.illusie/ErrTML.pdf",
-      "citation": "Luc Illusie, Errata to Autour du théorème de monodromie locale, Author errata sheet, 2 pages",
+      "citation": "Luc Illusie, Errata to Autour du théorème de monodromie locale, Author errata sheet, 1 page",
       "read": "2026-10-06",
       "sha256": "78fdd24a8f926ad02e3e9e16589fc2607f5f6dbbbf8a02ec48ba331703c4af9f"
     },
@@ -6067,7 +6369,7 @@
       "sha256": "3aa532eb93b8acf3d8c2e49d7d68144fb274042d2a5310780bedc1b03dd34120"
     },
     {
-      "kind": "author-manuscript",
+      "kind": "author copy",
       "url": "https://www.imo.universite-paris-saclay.fr/~luc.illusie/vanishing1b.pdf",
       "citation": "Luc Illusie, Vanishing cycles over general bases, Author lecture text, December 2006",
       "read": "2026-10-06",
@@ -6081,9 +6383,9 @@
       "sha256": "77969caa063c52027dc7274ccef679ce11a2382b8e0b5a8565847922a8d7c0d8"
     },
     {
-      "kind": "published",
+      "kind": "preprint",
       "url": "https://arxiv.org/pdf/1810.06454",
-      "citation": "Javier Fresán, Claude Sabbah and Jeng-Daw Yu, Hodge theory of Kloosterman connections, arXiv:1810.06454 public text of Duke Math. J. article",
+      "citation": "Fresán–Sabbah–Yu, Hodge theory of Kloosterman connections, downloaded arXiv:1810.06454 manuscript; published-version identity not independently established",
       "read": "2026-10-06",
       "sha256": "835580aa6314798e2866c248d6f7179379698d61a7baae0136806d4755b1f20a"
     },
@@ -6095,20 +6397,20 @@
       "sha256": "e2b4a0763f216be82da950f4c0dd2800adea8a0d911b12bfacf2b7e493b4618b"
     },
     {
-      "kind": "author-manuscript",
+      "kind": "author copy",
       "url": "https://people.mpim-bonn.mpg.de/scholze/Noncompact.pdf",
       "citation": "Ana Caraiani and Peter Scholze, On the generic part of the cohomology of non-compact unitary Shimura varieties, Author public manuscript, Noncompact.pdf",
       "read": "2026-10-06",
       "sha256": "b0e813515e0ab6f5348e8bd2b32e6010a90295eb77e71f333b7870ccb735f535"
     },
     {
-      "kind": "published-unread",
+      "kind": "published",
       "url": "https://doi.org/10.2969/aspm/03610249",
       "citation": "Luc Illusie, Sur la formule de Picard–Lefschetz, Adv. Stud. Pure Math. 36 (2002), 249–268",
       "read": "Original PDF not obtained: publisher bot protection. Author 2021 survey and ErrPL.pdf read 2026-10-06; original proof interior is G-algebraic-PL."
     },
     {
-      "kind": "published-unread",
+      "kind": "published",
       "url": "https://doi.org/10.1007/s00229-003-0407-z",
       "citation": "Luc Illusie, Perversité et variation (2003), Corollary 2.10",
       "read": "Original not obtained. FSY §5.1.3 primary application read 2026-10-06; precise general hypotheses remain G-nonordinary."
@@ -6133,6 +6435,18 @@
     {
       "supplier": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups",
       "note": "Its real/complex Cartan and analytic Lie theory cannot supply a Q_l closed-subgroup theorem. Add LieGroups, Part II for p-adic matrix exp/log charts, compact closed subgroups and openness from full Lie algebra; until integrated, LPV’s compact-subgroup node ends at G-padic-Lie."
+    },
+    {
+      "supplier": "DeligneWeightsAndPurity:DWP.5",
+      "note": "Weil II 1.9’s weight-dependent relative-filtration existence is a downstream use of LPV.1 and belongs to DWP.5/local-weight-corollaries, not DWP.1 (curve and abelian-variety Weil estimates). Do not add a reverse DWP.5→LPV.1 dependency for the tame commuting-residue and uniqueness targets."
+    },
+    {
+      "supplier": "IgusaVarietiesAndTorsionConcentration:IG.4",
+      "note": "IG.4 consumes LPV.6 scheme nearby-cycle perversity. LPV.6/igusa-semiperversity-interface must import an independently available geometry/formal-model prefix, not all of IG.4; split the specific geometry contract before installing that edge. See G-review-supplier-order."
+    },
+    {
+      "supplier": "DeligneWeightsAndPurity:DWP.4",
+      "note": "DWP.4 explicitly consumes LPV.0–5. Separate the LPV.5 geometric open-image prefix from its later rational-character/ADE/arithmetic applications and name the exact rationality output before adding a reverse whole-stage dependency. See G-review-supplier-order."
     }
   ],
   "restructure": [
@@ -6156,5 +6470,458 @@
       "reason": "The existing SL₂ engine provides representation theory; the required nilpotent Jordan-block realization should build on it.",
       "proposal": "LieHighestWeight, Part II: nilpotent-endomorphism SL₂ realization/Jacobson–Morozov interface needed by Deligne 1.6.8, without a second SL₂ carrier."
     }
-  ]
+  ],
+  "review": {
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-LefschetzPencilsAndVanishingCycles--LPV.0",
+    "date": "2026-10-06",
+    "notes": "Complete independent review of all 89 nodes, 19 pinned declarations, 21 supplier requests, all 19 definition/construction APIs and 76 packet tests, 29 planets and 23 sourceIssues. Clear mathematical, locator, ownership and composition corrections applied; seven stage coverages changed to partial. Numerous prototypes are false under their omitted hypotheses, and tests fail to realize their named models. Direct lean-check stopped before elaboration because TauCeti.AlgebraicGeometry.Fibers has no compiled module in the available pinned-Mathlib build. See review report for full evidence and revision requirements. This is a completed needs_changes review, not a checkpoint.",
+    "checked": [
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.0/henselian-trait-conventions-and-galois-sheaves",
+        "verdict": "unverifiable",
+        "note": "XIII 0.2 supports the trait/valuation convention. The exact-sequence API supplies only the kernel tautology; no residue-Galois surjectivity or continuous descent is represented."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.0/fibre-product-topos-Y-times-S",
+        "verdict": "unverifiable",
+        "note": "XIII 1.1–1.2 supports the fibre-product description. equivSheavesOnTrait is stated for any henselian trait but discards residue-Galois descent and continuity; a strictly henselian comment does not restrict its argument."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.0/functor-psi-and-functorialities",
+        "verdict": "unverifiable",
+        "note": "XIII 1.3 supplies Ψ. psi_pushforward compares arbitrary supplied glue functors without a geometric square/properness condition; tests do not instantiate the claimed geometric functor."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.0/variation-morphism",
+        "verdict": "unverifiable",
+        "note": "XIII 1.4.3 checked. Corrected left/right Lean names, the noncommutative composition order, the nonzero-pairing test condition, and E0 dependency. Representative independence still has only a factorization prototype, and degree-zero cokernel is not the derived construction."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.0/derived-nearby-cycles-RPsi-and-vanishing-triangle",
+        "verdict": "unverifiable",
+        "note": "XIII 2.1.1–5 checked. Added the variation and E0 prerequisites. RPsi_stalk identifies arbitrary MilnorCohomology with the stalk; boundedness, invertible coefficients and genuine strict localization are absent from the signature."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.0/derived-functorialities-and-specialization-sequence",
+        "verdict": "unverifiable",
+        "note": "XIII derived exchange/specialization supports the mathematical outline. A distinguished-triangle statement alone does not realize the asserted geometric exchange maps and specialization long exact sequence."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.0/geometric-fibre-site-morphisms",
+        "verdict": "unverifiable",
+        "note": "Actual site maps belong to PR196. The single geometricFibreSiteMaps functor does not specify the localization/normalization diagram or its exchange maps and identities."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.0/oriented-product-comparison",
+        "verdict": "unverifiable",
+        "note": "Illusie 2006 distinguishes oriented products and their comparison. The Lean equivalence takes an arbitrary site C,J; no relation to the trait or fibre product forces this equivalence."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.0/constructibility-and-finite-amplitude",
+        "verdict": "unverifiable",
+        "note": "Excellent finite-type and bounded constructible hypotheses are essential. Added the reserved excellence key. nearbyCyclesConstructible instead asserts boundedness for every unbounded derived K; PR196 Layer 6 covers proper direct images, not all nearby-cycle finiteness."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.0/coefficient-and-trait-change",
+        "verdict": "unverifiable",
+        "note": "XIII coefficient/trait change is qualified. The Lean isomorphism holds between arbitrary scalar-change functors with no coefficient map or compatible cartesian trait diagram."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.0/adic-nearby-cycle-realization",
+        "verdict": "unverifiable",
+        "note": "Derived compatible systems and uniform bounds are correctly requested. The arbitrary realizing functor/analytic object isomorphism does not encode that compatible system or its derived limit comparison."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.0/scheme-adic-trait-comparison",
+        "verdict": "unverifiable",
+        "note": "Admissible scheme/formal/adic comparison remains G-adic-comparison. The proposed analytic nearby object is arbitrary; its relation to the formal completion is not stated."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.1/normalized-can-var",
+        "verdict": "unverifiable",
+        "note": "Replaced the wrong Illusie 1.2 citation by XIII 1.4.3 plus Illusie 1.5 and the explicit polynomial argument. normalizedCanVar still asserts can≫var=N for three unrelated morphisms."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.1/finite-monodromy-logarithm",
+        "verdict": "unverifiable",
+        "note": "Corrected logarithm locator to Illusie 1.5 and added conjugation API. Finite polynomial/log-exp signatures are sound; finiteLog_twisted currently expresses a scalar log-exp inverse, not the packet’s twisted inertia/generator-independence interface."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.1/geometric-quasi-unipotence",
+        "verdict": "unverifiable",
+        "note": "Illusie 1.4 is a geometric cohomology theorem, not a theorem about arbitrary representations. Added excellence ownership. The Lean assertion for every characteristic-zero representation is false (integer group acting by powers of 2)."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.1/finite-extension-and-logarithm-rescaling",
+        "verdict": "verified",
+        "note": "Illusie 1.5 and tame-character restriction give N′=eN. The scalar-invariance prototype correctly requires this equality and nonzero e; it does not claim geometric rescaling for unrelated operators."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.1/monodromy-filtration",
+        "verdict": "verified",
+        "note": "Weil II 1.6.1–7/14 supports the kernel-image formula, opposite graded isomorphisms, lower primitive convention and bounds. Nilpotence is present in the relevant signatures; added conjugation transport API."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.1/primitive-decomposition-and-strictness",
+        "verdict": "corrected",
+        "note": "Corrected the lower-primitive decomposition to use inverse opposite-graded maps before powers of N, and replaced the unjustified generic Jacobson–Morozov import by the requested Jordan-block SL₂ extension. The strictness prototype is sound; the new SL₂ realization remains an explicit supplier extension."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.1/tensor-dual-and-symmetric-monodromy",
+        "verdict": "verified",
+        "note": "Weil II 1.6.8–12 gives characteristic-zero tensor convolution, dual annihilators and symmetric powers. The dual prototype has the correct minus-transpose and index −i−1; the other operations are specified mathematically with the SL₂ supplier."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.1/relative-monodromy-uniqueness",
+        "verdict": "verified",
+        "note": "Weil II 1.6.13–14 supports uniqueness, not existence. The Lean data include finite increasing W,M,M′, lowering, preserved W and the induced graded conditions, without assuming the desired equality."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.1/normal-crossings-tame-restriction",
+        "verdict": "unverifiable",
+        "note": "Corrected Kummer/normal-bundle locators and coordinate dependence, removed the wrong DWP.1 input, and routed weight existence downstream to DWP.5. The prototype still says any endomorphism family commutes."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.1/maximal-unipotence",
+        "verdict": "verified",
+        "note": "Published Qian Definition 3.6 checked. Nonzero dimension, nilpotence index and kernel dimensions characterize a single block; zero dimension is excluded. Added conjugation invariance. Source minimal-polynomial wording and the equivalent nilpotence-index predicate agree."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.1/semisimple-nearby-trace",
+        "verdict": "unverifiable",
+        "note": "Kisin–Pappas 4.7.1 establishes the use of semisimple trace, not its full construction. Missing primary refinement source recorded. Arbitrary lists in the Lean refinement/additivity statements need actual common grading data."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.1/two-component-semistable-nearby-complex",
+        "verdict": "unverifiable",
+        "note": "Illusie 2021 6.3 supports the three grades and derived N, using the corrected 1994 K and differential. Added excellent-trait ownership. Arbitrary filtered, graded and realization functors in Lean do not identify a Rapoport–Zink total complex with RΨ."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.1/twisted-monodromy-equivariance",
+        "verdict": "unverifiable",
+        "note": "Corrected Illusie locator to 1.5.3–4. Geometric Frobenius gives NF=qFN. The prototype asserts this for arbitrary N,F,q, which is false for N=F=id and q=2."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.2/ordinary-quadratic-point-nearby-cycles-3-1-2",
+        "verdict": "unverifiable",
+        "note": "XV 3.1.2 and the 2021 survey support the ordinary quadratic result with its actual local model. The Lean Phi is an arbitrary complex, so rank-one concentration is false for Phi=0."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.2/even-relative-dimension-variation-3-2",
+        "verdict": "unverifiable",
+        "note": "XV 3.2 coefficient, parity and discriminant character checked. The arbitrary Var parameter is not connected to an ordinary degeneration; an unrelated endomorphism need not equal the source formula."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.2/odd-relative-dimension-picard-lefschetz-3-3",
+        "verdict": "unverifiable",
+        "note": "XV 3.3/Illusie 2021 support root of b and the odd sign; corrected acceptance’s root of −b and stale zero-cycle deferral. G-algebraic-PL remains honest. The arbitrary Var prototype has no geometric hypotheses and only rational coefficients."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.2/lefschetz-degeneration-specialization-sequence",
+        "verdict": "unverifiable",
+        "note": "Weil I 4.3–4 and XIII support the local specialization sequence. Its realization must bind all cohomology objects/maps to the proper family and its vanishing line, rather than unrelated supplied objects."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.2/local-picard-lefschetz-formula",
+        "verdict": "unverifiable",
+        "note": "Weil I 4.1 sign and tame quadratic geometry checked. An arbitrary representation ρ is not a Picard–Lefschetz action; δ=0 would incorrectly force every such action trivial."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.2/direct-images-at-a-lefschetz-degeneration",
+        "verdict": "unverifiable",
+        "note": "Weil I 4.4 checked. Corrected misuse of the transvection fixed-space lemma in the reflection branch. The direct-image claim still needs the proper regular ordinary family and actual direct-image sheaves in its suggested form."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.2/ordinary-quadratic-form",
+        "verdict": "unverifiable",
+        "note": "XII 1.1 and Mathlib quadratic nondegeneracy conventions checked, including characteristic-two odd rank. The scheme/fibrewise definition and arbitrary characteristic-two base change are not represented by the field-only prototype restricted to invertible 2."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.2/normal-form-of-ordinary-quadratic-forms",
+        "verdict": "unverifiable",
+        "note": "XII 1.2 checked with E2 correction. The field normal forms are legitimate after separable closure; the general scheme/base-change contract and precise basis/isometry data remain to be represented."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.2/discriminant-double-cover-of-an-even-quadric",
+        "verdict": "unverifiable",
+        "note": "XII 1.3–1.7 supports Clifford-centre discriminant and parity of Lagrangian intersections. The named isEtale prototype proves only vector-space dimension two; tests omit the actual discriminant square class and complementary ruling data."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.2/smooth-quadric",
+        "verdict": "unverifiable",
+        "note": "XII 2.1–2.6 checked. Corrected n>0 canonical ambient and the negative canonical-bundle power. ambientProjective is merely a form-parameterized scheme, while canonical_iso compares arbitrary sheaves; geometric Segre/real-conic tests are missing."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.2/cohomology-of-smooth-quadrics",
+        "verdict": "unverifiable",
+        "note": "XII 3.1–3.5 checked against corrected powers, degree-two class and reference E3–E6. Odd-degree vanishing for an arbitrary nearby object does not provide the cohomology module/ruling/Frobenius table."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.2/cohomology-of-affine-quadrics",
+        "verdict": "unverifiable",
+        "note": "XII 3.6–3.7 trace and primitive generator signs checked. The arbitrary nearby object prototype does not identify the affine quadric or supply its compact supports, generator and trace."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.2/ordinary-quadratic-point",
+        "verdict": "unverifiable",
+        "note": "XV 1.1 ordinary/nondegenerate distinction checked. Ring-equivalence definition needs the actual completed local k-algebra, and baseChange currently equates ordinarity for unrelated k,A,k′,A′."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.2/tjurina-module-of-an-ordinary-quadratic-point",
+        "verdict": "unverifiable",
+        "note": "XV Tjurina computation is for the quadratic Jacobian ideal. The prototype’s arbitrary ideal J cannot have the asserted one/two-dimensional quotient without that relationship."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.2/tougeron-artin-implicit-function-theorem",
+        "verdict": "unverifiable",
+        "note": "XV 1.1.2 supports the Artin application. Added excellence key. General approximation is properly requested as Part II; its Jacobian-square/formal-versus-henselian conditions must constrain the suggested coordinate-change objects."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.2/elkik-versal-henselian-deformations",
+        "verdict": "unverifiable",
+        "note": "XV 1.3 and Elkik route support one/two parameter models. General henselian/formal versality is requested, but arbitrary supplied rings cannot have the claimed universal deformation isomorphism."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.2/canonical-form-of-an-ordinary-quadratic-point",
+        "verdict": "unverifiable",
+        "note": "XV 1.2 canonical-form statement checked with E8–E9. The actual local germ and prescribed quadratic part must be tied to the ring-isomorphism prototype; arbitrary rings do not satisfy it."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.2/local-equation-of-a-family-at-an-ordinary-quadratic-point",
+        "verdict": "unverifiable",
+        "note": "XV 1.3.2–3 checked with missing x₀² correction. Coefficient lifts, complete local family and residue characteristic must be present in the model identification."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.2/non-smooth-points-near-an-ordinary-quadratic-point",
+        "verdict": "unverifiable",
+        "note": "XV 1.3 Jacobian gives the critical-point classification. A supplied coefficient tuple alone does not assert that the tested critical locus is the family’s nonsmooth locus."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.2/homotopy-invariance-of-etale-cohomology",
+        "verdict": "unverifiable",
+        "note": "XV 2.1.1 homotopy requires maps joined by a family over a connected parameter scheme. The prototype equates cohomology maps of arbitrary f₀,f₁."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.2/cohomology-of-a-cone",
+        "verdict": "unverifiable",
+        "note": "XV 2.1.3 cone contraction supports constant-coefficient cohomology. The arbitrary complex cone need not have cohomology concentrated in degree zero."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.2/cohomology-of-a-punctured-cone",
+        "verdict": "unverifiable",
+        "note": "XV 2.1.4–8 supports the punctured-cone triangle. The suggested arbitrary boundary/hyperplane objects do not represent the open/closed immersion and localization maps."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.2/boundary-anticommutativity-for-a-cone",
+        "verdict": "unverifiable",
+        "note": "XV 2.1.8 sign checked. Two unrelated morphisms a,b do not satisfy a=−b; the square, orientation and connecting morphisms must be specified."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.2/standard-quadratic-degeneration",
+        "verdict": "unverifiable",
+        "note": "XV 2.2.1–2 checked with parity E12. StandardQuadraticDegeneration stores unrelated Q/linear/total/f fields without the equations or fibre conditions; node/trivial tests merely inspect rank or constants."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.2/nearby-cycles-of-a-standard-quadratic-degeneration",
+        "verdict": "unverifiable",
+        "note": "XV 2.2.3–5/XII 3.7 checked. Corrected n=0 nearby/costalk rank two and R⁰Φ as diagonal cokernel. The arbitrary-complex prototype states only a vanishing range and misses these identifications."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.2/variation-in-a-standard-quadratic-degeneration",
+        "verdict": "unverifiable",
+        "note": "XV 2.2.5.6–9 checked with Var versus D(σ) E10. Geometric Var, character and pairing must constrain the suggested arbitrary endomorphism family."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.2/local-description-of-the-vanishing-cycle",
+        "verdict": "unverifiable",
+        "note": "XV 2.2.6 and XII 3.7 checked. Replaced the insufficient larger-modulus/primewise norm normalization by globally signed geometric classes; added the modulo-60 acceptance check. Arbitrary B,δ cannot satisfy its Lean norm assertion."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.2/complex-picard-lefschetz-comparison",
+        "verdict": "unverifiable",
+        "note": "The source explicitly uses transcendental comparison in XV 3.3; PR196 supplies Artin/Riemann-existence orientation compatibility, not the topological Picard–Lefschetz theorem itself. A sign identity alone is not this comparison."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.2/quadratic-character-in-characteristic-two",
+        "verdict": "unverifiable",
+        "note": "Weil II 4.2.1 and XV 3.2 support the character-two quadratic-character case. A wild geometric action/vanishing cycle is required; the arbitrary representation signature omits them."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.2/isolated-nonordinary-quadratic-concentration",
+        "verdict": "unverifiable",
+        "note": "Corrected downloaded FSY reference to [30, Cor. 2.10] and literal singularity excerpt. Source application verified; original general 2003 hypotheses remain G-nonordinary. The arbitrary Phi prototype does not enforce the model."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.2/fsy-discriminant-example",
+        "verdict": "unverifiable",
+        "note": "FSY 5.1.3 determinant is on p. 44; extended locator. The prototype repeats a generic norm equation and does not specify the example’s determinant, coefficient ring or inertia character."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.3/lefschetz-pencil",
+        "verdict": "unverifiable",
+        "note": "XVII pencil conditions and the quadric/cubic/Hermitian examples checked. IsLefschetzPencil omits ordinary singularities, total-space smoothness and axis transversality; its quadric/cubic tests assert different counts for the very same unrestricted f."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.3/dual-variety",
+        "verdict": "unverifiable",
+        "note": "XVII conormal geometry checked. Corrected empty-dual irreducibility exception. The closed-image abstraction is sound, but unrelated incidence maps are asserted smooth off the dual and tests omit actual conormal models."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.3/existence-of-lefschetz-pencils",
+        "verdict": "unverifiable",
+        "note": "XVII 3–4 existence requires the specified embedding/Veronese and good-axis locus. A subtype constructor for arbitrary admissible subsets also produces a point when the subset is empty."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.3/ordinary-axis-open-and-jet-separation",
+        "verdict": "unverifiable",
+        "note": "Added XVII 4.3’s two-point degree-two jet estimate to the locator. The Lean theorem declares any subset of any axis scheme open and nonempty; it has no jet or tangency conditions."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.3/incidence-pencil-blowup",
+        "verdict": "unverifiable",
+        "note": "XVII/XVIII incidence and blowup geometry checked. Moved the requested general Rees/blowup contract from SF.1 descent to SF.4 Part II. The prototype still identifies unrelated incidence and blowup schemes."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.3/finite-field-pencil-descent",
+        "verdict": "unverifiable",
+        "note": "Weil I 7.1 finite-field descent checked. Added SF.0 closed-point residue-field ownership and narrowed FF.0 to field/Frobenius arithmetic; the finite-type finite-field scheme and good-axis model still need to constrain the Lean signature."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.3/inseparable-gauss-and-low-dimension",
+        "verdict": "unverifiable",
+        "note": "Weil II 4.2 locators corrected to pp. 219–221. The explicit characteristic-two tangent calculation is sound, but it alone does not represent the whole inseparable-Gauss and low-dimension comparison."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.4/cohomology-sheaves-of-a-lefschetz-pencil",
+        "verdict": "unverifiable",
+        "note": "XVIII 6.3 and Weil I 5.8 give the two direct-image branches. Arbitrary R,J,eta,exceptional,E in the prototype cannot force those lissity and exactness conclusions."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.4/vanishing-subspace",
+        "verdict": "unverifiable",
+        "note": "Weil I 5.3 and XVIII support path-dependent cycles and stable span. The algebraic span/path API is useful; its geometric quadric and path non-example tests do not instantiate the stated models or nonzero tame coefficient."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.4/fixed-space-of-the-local-transvections",
+        "verdict": "verified",
+        "note": "Weil I 5.3 fixed-space calculation checked, including δ=0 and reflection branch. B.flip makes the source pairing order correct; symmetry/alternation identifies it with the pinned right-orthogonal submodule."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.4/vanishing-quotient-and-its-pairing",
+        "verdict": "unverifiable",
+        "note": "Weil I 5.8 and the radical quotient math are sound. The quotient API still needs the projection/universal property and explicit finite-dimensional radical/conic pairing models; current tests assume away the claimed radical computations."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.4/pencil-restriction-and-gysin",
+        "verdict": "unverifiable",
+        "note": "XVIII 5.1 restriction/Gysin diagrams and exceptional minus sign checked. Actual blowup maps and cup/Gysin realization must constrain the proposed algebraic/derived morphisms."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.4/pencil-leray-and-middle-reduction",
+        "verdict": "unverifiable",
+        "note": "Weil I 7.1 p. 300 was read: two different radical/nonradical exact-sequence reductions are essential. Recorded a gap with the actual map directions; unspecified relevant kernel/quotient is not a realized middle target."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.4/global-fixed-and-local-fixed-interface",
+        "verdict": "unverifiable",
+        "note": "Local fixed-space and global invariant-cycle outputs must remain distinct. The interface needs the genuine specialization/restriction maps and qualified supplier invariant-cycle hypotheses; arbitrary linear identifications do not imply it."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.4/hypersurface-outside-middle",
+        "verdict": "unverifiable",
+        "note": "Weil I hypersurface/weak-Lefschetz reduction supports outside-middle assertions. Specify the smooth hypersurface and hyperplane class objects; arithmetic scalar/count identities alone do not realize cohomology isomorphisms."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.5/bertini-surjectivity-on-fundamental-groups",
+        "verdict": "unverifiable",
+        "note": "Weil I 5.4 uses Bertini plus the stated tame algebraic fundamental-group supplier. Every subgroup H does not have the same represented image as G; the geometric π₁ surjection is missing."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.5/vanishing-cycles-are-conjugate",
+        "verdict": "unverifiable",
+        "note": "Weil I 5.4–5.8 gives conjugacy of geometric vanishing cycles. Arbitrary vector families need not lie in a common ±orbit of an arbitrary representation."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.5/monodromy-generated-by-local-transvections",
+        "verdict": "unverifiable",
+        "note": "Weil I tame local-generation argument checked. The arbitrary span equality ignores conjugates of an arbitrary δ-family; actual tame generators and geometric path transport must be stated."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.5/absolute-irreducibility-of-the-vanishing-quotient",
+        "verdict": "unverifiable",
+        "note": "Weil I 5.8 gives absolute irreducibility for the nonzero vanishing quotient. An arbitrary positive-dimensional representation can be reducible, including a trivial two-dimensional one."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.5/symplectic-lie-algebra-generated-by-transvections",
+        "verdict": "verified",
+        "note": "Weil I 5.11 proof read through p. 294. The nonzero simple Lie-module, rank-one generators, alternating nondegenerate form and Lie-span hypotheses are all retained; no general irreducibility theorem is silently substituted."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.5/lie-algebra-of-a-compact-l-adic-subgroup",
+        "verdict": "unverifiable",
+        "note": "Weil I/Weil II require a sufficiently small p-adic logarithm chart and compact closed subgroup. Arbitrary topology/subgroup data without that chart cannot provide the claimed Lie algebra or exponential membership."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.5/kazhdan-margulis-open-image",
+        "verdict": "unverifiable",
+        "note": "Weil I 5.9–5.11 open image follows from the geometric transvection-generated Lie algebra. An arbitrary representation has no open-image conclusion."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.5/characteristic-two-transverse-monodromy",
+        "verdict": "unverifiable",
+        "note": "Weil II 4.2.3–8 locators corrected to pp. 220–221. Source distinguishes tame/transverse characteristic-two branches and connected components; the representation prototype omits their geometric assumptions."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.5/conditional-orthogonal-open-or-finite",
+        "verdict": "unverifiable",
+        "note": "Weil II 4.4.1–4 locator corrected. Reflection generation, conjugacy and irreducibility are essential; generic compact orthogonal subgroups need not be open or finite. Existing ClassicalGroups is over C; Q_l extension requested explicitly."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.5/finite-orthogonal-ade",
+        "verdict": "unverifiable",
+        "note": "Weil II 4.4.8–9 locator corrected. Rational character and a positive-definite integral root lattice are not consequences of arbitrary finite orthogonal image. The prototype infers positivity for any bilinear form (zero form disproves it)."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.5/integral-failure-and-arithmetic-routing",
+        "verdict": "unverifiable",
+        "note": "Weil II 4.3.10/4.5 locators corrected. Arbitrary polarization/vanishing/fixed subgroups do not satisfy the asserted kernel identity; DWP.4’s reverse whole-stage dependency also requires prefix separation."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.6/nearby-perverse-exactness",
+        "verdict": "unverifiable",
+        "note": "Illusie 1994 4.5/2021 supplies nearby perversity with coefficients and rectified dimension function. Arbitrary t-structures and functors do not have shifted t-exactness; EDC trait/integral extension is now explicitly Part II."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.6/vanishing-perverse-exactness",
+        "verdict": "unverifiable",
+        "note": "Illusie 1994 4.6 and its erratum give vanishing perversity under the same geometric conventions. An arbitrary vanishing functor between arbitrary hearts need not have this property."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.6/nearby-verdier-duality",
+        "verdict": "unverifiable",
+        "note": "Illusie 1994 4.2–4 gives constructible finite-Tor duality for the actual nearby functor. An isomorphism for unrelated dualX,dualY,nearby functors is not implied."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.6/intermediate-extension-exchange",
+        "verdict": "unverifiable",
+        "note": "Qualified ! and * exchange maps are necessary for j!* exchange. The prototype supplies arbitrary intermediate-extension functors without an open-immersion square or invertible exchange maps."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.6/perverse-coefficients-and-comparison",
+        "verdict": "unverifiable",
+        "note": "Finite/adically realized/rational and integral p/p+ coefficient conventions must constrain the comparison. Arbitrary extX,extY,nearby′ functors do not commute."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.6/filtered-colimit-support-criterion",
+        "verdict": "unverifiable",
+        "note": "Caraiani–Scholze 4.6 supports the qualified stalk/costalk colimit criterion and uniform bounds. A general t-structure need not have a lower half closed under arbitrary existing filtered colimits."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCycles:LPV.6/igusa-semiperversity-interface",
+        "verdict": "unverifiable",
+        "note": "Caraiani–Scholze 4.6 and IG.4 geometry checked. Recorded the LPV.6↔IG.4 stage-order problem. An arbitrary filtered diagram in an arbitrary heart is not the specified formal-model/Igusa interface."
+      }
+    ]
+  }
 }
