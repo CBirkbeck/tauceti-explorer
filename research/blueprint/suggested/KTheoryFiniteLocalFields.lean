@@ -86,7 +86,7 @@ A preceding version has a historical successful compilation record. This version
 `lean-check` stopped before elaboration because the shared pinned build lacks
 `TauCeti/CategoryTheory/GrothendieckGroup/Abelian.olean`. This version was not compiled;
 that older result does not certify this file.
-No build, cache download, update or Lean language server was used in this checkpoint.
+No build, cache download, update or Lean language server was used in this pass.
 
 ## Pinned conventions
 
@@ -5394,4 +5394,244 @@ Acceptance checks:
 * R=ℤ₂ is an integral full-spectrum example even though 2 is not a unit.
 * Replacing R by a number ring with a real embedding does not preserve the L-completeness input.
 Sources: CalmesEtAl.2026.v4, Remark 3.1.10, p.53, with the fundamental-square argument of Remark 3.1.9; CalmesEtAl.II.20261005, Corollary 4.4.13 and proof, p.107.
+-/
+
+/-!
+## Finite-rank Sp/SL homology and étale Chern comparison
+
+These are exact specifications for proposed names, not executable signatures: the
+classifying-space, plus, homotopy and étale/Chern carriers needed here are supplier
+imports. Sp itself is already Matrix.symplecticGroup; its determinant theorem is
+SymplecticGroup.det_eq_one. The Tau Ceti symplectic group scheme and its points
+already exist; their API alone does not establish the Lang or étale comparisons.
+All seven stages are planned at target level; no source or implementation closure
+is claimed.
+-/
+
+/- KTheoryFiniteLocalFields:L.1/classical-degree-three-pullback
+Proposed comparison name: TauCeti.KTheoryFiniteLocal.FiniteRank.classical_degree_three_pullback
+For r≥1 the inclusion Sp(r)→SU(2r) induces an isomorphism H³(SU(2r),𝔽₂)→H³(Sp(r),𝔽₂); both groups are one-dimensional. Standard rank stabilization is an isomorphism in degree 3. Under the étale comparison for split Sp₂r and SL₂r over an algebraically closed field of odd characteristic, the same assertions hold for their geometric H³ and pullbacks.
+
+Hypotheses:
+* q is an odd prime power and r≥1; all group homology has trivial coefficients. Integral homology modulo 2 means tensoring with ℤ/2, not homology with ℤ/2 coefficients until the indicated comparison is proved.
+
+Proof outline:
+1. At r=1, Sp(1)=SU(2)=S³ and the inclusion is the identity on its generator.
+2. Use SU(n)→SU(n+1)→S^(2n+1) for n≥2 and Sp(r)→Sp(r+1)→S^(4r+3) for r≥1. The bases have no positive homology in degrees ≤4, so the Serre sequences identify H³ under stabilization.
+3. The symplectic standard representation on ℂ^(2r) adds two trivial coordinates under stabilization. Compare the two rank squares and reduce their map on H³ to r=1.
+4. Transport through the smooth/proper flag-variety étale comparison, with naturality for the standard representation. That comparison, group smoothness and classifying-stack cohomology are explicit unproved foundation inputs, not consequences of the existing points carrier.
+
+Required imports: RefinedTraceMethods:RT.4:topological, tauceti:TauCeti.Symplectic.groupScheme.
+Acceptance checks:
+* At r=1 the pullback is the identity.
+* Cohomology pulls back from SL to Sp; the displayed forward cohomology arrow in the author/preprint text is reversed (E41).
+Sources: AbdurrahmanVenkatesh.2025.v1, Lemma 2.7.1 proof, pp.16–17; final classical comparison.
+-/
+
+/- KTheoryFiniteLocalFields:L.1/lang-degree-three-edge
+Proposed lemma name: TauCeti.KTheoryFiniteLocal.FiniteRank.lang_degree_three_edge
+Let G=Sp₂r or SL₂r over 𝔽_q. The Lang-covering classifying map G_𝔽qbar→B(G(𝔽_q)) induces an isomorphism H³(G(𝔽_q),𝔽₂)→H³_et(G_𝔽qbar,𝔽₂). Both sides are one-dimensional; the isomorphisms commute with Sp₂r→SL₂r and rank stabilization.
+
+Hypotheses:
+* q is an odd prime power and r≥1; all group homology has trivial coefficients. Integral homology modulo 2 means tensoring with ℤ/2, not homology with ℤ/2 coefficients until the indicated comparison is proved.
+
+Proof outline:
+1. Import the Lang fibration and its natural multiplicative spectral sequence E₂^(a,b)=Hᵃ_et(BG,𝔽₂)⊗Hᵇ_et(G,𝔽₂)⇒H^(a+b)(G(𝔽_q),𝔽₂). The printed H³(BG) in place of H*(BG) is corrected (E41).
+2. Use vanishing H¹,H²,H³ of BG and H¹,H² of G; H³(G) and H⁴(BG) are one-dimensional. The only possible outgoing differential from E^(0,3) is d₄.
+3. The Lang transgression is the difference of Frobenius and identity on the degree-4 universal class. Frobenius acts by q²; q²−1 is even, so d₄=0 modulo 2. The precise transgression formula is a named source/foundation gap.
+4. The degree-3 edge is therefore an isomorphism, compatible with maps by naturality of the Lang squares.
+
+Required imports: KTheoryFiniteLocalFields:L.1/classical-degree-three-pullback, StableHomotopyKTheory:H.1.
+Acceptance checks:
+* q=3 and q=9 both give q²−1=0 in 𝔽₂.
+* r=0 is excluded: its trivial group has H³=0.
+* This low-degree calculation supplies no complete mod-2 cohomology-ring comparison for Quillen’s theorem.
+Sources: AbdurrahmanVenkatesh.2025.v1, Lemma 2.7.1 proof and (2.10), pp.16–17.
+-/
+
+/- KTheoryFiniteLocalFields:L.1/finite-classical-h2-no-two-torsion
+Proposed lemma name: TauCeti.KTheoryFiniteLocal.FiniteRank.finite_classical_h2_no_two_torsion
+For odd q and r≥1, H₂(Sp₂r(𝔽_q),ℤ) and H₂(SL₂r(𝔽_q),ℤ) are finite groups of odd order. In particular their 2-torsion is zero. This does not assert that their integral H₂ vanishes.
+
+Hypotheses:
+* q is an odd prime power and r≥1; all group homology has trivial coefficients. Integral homology modulo 2 means tensoring with ℤ/2, not homology with ℤ/2 coefficients until the indicated comparison is proved.
+
+Proof outline:
+1. Use the finite Chevalley-group Schur-multiplier calculation cited to Steinberg in the source. The original computation has not been read and remains a named proof gap, including the small-rank exceptions.
+2. At r=1, Sp₂=SL₂. In particular SL₂(𝔽₉) has H₂=ℤ/3 by the reviewed paper correction E3; this exception is retained.
+3. Odd order makes multiplication by 2 invertible, hence Tor₁(H₂,ℤ/2)=H₂[2]=0.
+
+Required imports: mathlib:Matrix.symplecticGroup.
+Acceptance checks:
+* q=9,r=1 must retain H₂=ℤ/3.
+* No perfection of SL₂(𝔽₃) is assumed. Only stable SL is used in the later plus argument.
+Sources: AbdurrahmanVenkatesh.2025.v1, Lemma 2.7.1 first proof paragraph, p.16; corrected by PAPER-ABDURRAHMAN-VENKATESH-25/E3.
+-/
+
+/- KTheoryFiniteLocalFields:L.1/finite-classical-h3-coefficient-comparison
+Proposed comparison name: TauCeti.KTheoryFiniteLocal.FiniteRank.finite_classical_h3_coefficient_comparison
+For G=Sp₂r(𝔽_q) or SL₂r(𝔽_q), reduction induces a natural isomorphism H₃(G,ℤ)/2≅H₃(G,𝔽₂), compatible with the inclusion and with stabilization.
+
+Hypotheses:
+* q is an odd prime power and r≥1; all group homology has trivial coefficients. Integral homology modulo 2 means tensoring with ℤ/2, not homology with ℤ/2 coefficients until the indicated comparison is proved.
+
+Proof outline:
+1. Apply the natural universal-coefficient exact sequence 0→H₃(G,ℤ)⊗𝔽₂→H₃(G,𝔽₂)→Tor₁(H₂(G,ℤ),𝔽₂)→0 to the free integral bar complex.
+2. The right term vanishes by finite-classical-h2-no-two-torsion. Identify the left tensor product with the quotient by 2.
+3. The comparison is the coefficient-reduction map; its naturality follows at the bar-chain level, without choosing a splitting of a general UCT sequence.
+
+Required imports: KTheoryFiniteLocalFields:L.1/finite-classical-h2-no-two-torsion, StableHomotopyKTheory:H.1.
+Acceptance checks:
+* H₂=ℤ/3 at q=9 has zero Tor with 𝔽₂.
+* If H₂ had a ℤ/2 summand, this proof would fail; do not replace the UCT hypothesis by mere finiteness.
+Sources: AbdurrahmanVenkatesh.2025.v1, Lemma 2.7.1 proof, p.16.
+-/
+
+/- KTheoryFiniteLocalFields:L.1/finite-rank-symplectic-h3-mod-two
+Proposed theorem name: TauCeti.KTheoryFiniteLocal.FiniteRank.finite_rank_symplectic_h3_mod_two
+For odd q and r≥1, the standard inclusion induces H₃(Sp₂r(𝔽_q),ℤ)/2≅H₃(SL₂r(𝔽_q),ℤ)/2; each has order 2. Both rank-stabilization maps are isomorphisms on these quotients. Consequently H₃(SL₂r(𝔽_q),ℤ)/2→H₃(SL(𝔽_q),ℤ)/2 is an isomorphism.
+
+Hypotheses:
+* q is an odd prime power and r≥1; all group homology has trivial coefficients. Integral homology modulo 2 means tensoring with ℤ/2, not homology with ℤ/2 coefficients until the indicated comparison is proved.
+
+Proof outline:
+1. Use Matrix.symplecticGroup and SymplecticGroup.det_eq_one to view the inclusion in SL; its map is the identity on the underlying matrix.
+2. Combine the Lang edge isomorphisms and classical-degree-three-pullback. Their commutative square gives a pullback isomorphism H³(SL₂r(𝔽_q),𝔽₂)→H³(Sp₂r(𝔽_q),𝔽₂).
+3. Over a field, bar cohomology in degree 3 is the dual of bar homology in degree 3. The one-dimensional cohomology and the nonzero pullback give the stated homology isomorphism.
+4. Apply finite-classical-h3-coefficient-comparison to recover integral H₃/2. Use naturality with rank stabilization and the same classical/Lang comparison to get an isomorphism at every r.
+5. For stable SL, even ranks are cofinal. Integral bar homology and tensoring with 𝔽₂ commute with this filtered union: every chain and its finite bounding chain occur at a finite rank. Thus the rank comparison persists in the colimit.
+
+Required imports: KTheoryFiniteLocalFields:L.1/classical-degree-three-pullback, KTheoryFiniteLocalFields:L.1/lang-degree-three-edge, KTheoryFiniteLocalFields:L.1/finite-classical-h3-coefficient-comparison, mathlib:Matrix.symplecticGroup, mathlib:SymplecticGroup.det_eq_one, StableHomotopyKTheory:H.1.
+Acceptance checks:
+* q=3,r=1 and q=9,r=1 are included.
+* Stabilization to stable SL is proved here; abstract equality of the finite-group orders would not justify it.
+Sources: AbdurrahmanVenkatesh.2025.v1, Lemma 2.7.1 and the finite-rank step used in Lemma 2.7.2, pp.16–17.
+-/
+
+/- KTheoryFiniteLocalFields:L.1/stable-sl-plus-universal-cover
+Proposed comparison name: TauCeti.KTheoryFiniteLocal.FiniteRank.stable_sl_plus_universal_cover
+For a finite field 𝔽_q the determinant map on BGL(𝔽_q)⁺ has homotopy fibre BSL(𝔽_q)⁺, which is its universal cover. The inclusion induces π_n(BSL⁺)≅K_n(𝔽_q) for n≥2 and an isomorphism on integral homology from BSL to BSL⁺.
+
+Hypotheses:
+* q is an odd prime power and r≥1; all group homology has trivial coefficients. Integral homology modulo 2 means tensoring with ℤ/2, not homology with ℤ/2 coefficients until the indicated comparison is proved.
+
+Proof outline:
+1. Stable SL over a field equals the stable elementary group and is perfect, even though individual small-rank SL groups need not be perfect.
+2. Import the relative plus-construction covering comparison for 1→SL→GL→𝔽_q×→1 and the determinant identification of π₁(BGL⁺). The acyclic plus map uses local coefficients pulled back from the determinant quotient.
+3. The resulting BSL⁺ is simply connected and covers BGL⁺; covering invariance identifies its higher homotopy groups with those of BGL⁺.
+4. Use GeneralAlgebraicKTheory’s plus/Q comparison to identify the latter with K_n; use acyclicity to identify integral bar homology with H_*(BSL⁺).
+
+Required imports: StableHomotopyKTheory:H.3, GeneralAlgebraicKTheory:K.2:plus/plus-equals-Q, KTheoryLowDegrees:U.6.
+Acceptance checks:
+* The assertion is for stable SL, and includes q=3.
+* The cover is a homotopy/CW comparison, not literal equality of chosen spaces.
+Sources: AbdurrahmanVenkatesh.2025.v1, Lemma 2.7.2 proof, p.17; plus-cover argument.
+-/
+
+/- KTheoryFiniteLocalFields:L.1/stable-sl-degree-three-hurewicz
+Proposed comparison name: TauCeti.KTheoryFiniteLocal.FiniteRank.stable_sl_degree_three_hurewicz
+The Hurewicz and plus maps identify K₃(𝔽_q)≅H₃(SL(𝔽_q),ℤ), naturally in finite-field embeddings. The plus space BSL(𝔽_q)⁺ is 2-connected because K₂(𝔽_q)=0.
+
+Hypotheses:
+* q is an odd prime power and r≥1; all group homology has trivial coefficients. Integral homology modulo 2 means tensoring with ℤ/2, not homology with ℤ/2 coefficients until the indicated comparison is proved.
+
+Proof outline:
+1. Use stable-sl-plus-universal-cover: π₁(BSL⁺)=0 and π₂(BSL⁺)=K₂(𝔽_q).
+2. Quillen’s calculation gives K₂=0, so BSL⁺ is 2-connected.
+3. Apply the integral degree-3 Hurewicz isomorphism π₃→H₃. The acyclic map BSL→BSL⁺ identifies the target with integral group homology.
+4. All maps are natural under finite-field embeddings; after quotienting by 2 their square with the imported étale Chern class commutes by M.8’s class/homology factorization.
+
+Required imports: KTheoryFiniteLocalFields:L.1/stable-sl-plus-universal-cover, KTheoryFiniteLocalFields:L.1/quillen-k-groups, StableHomotopyKTheory:H.3.
+Acceptance checks:
+* For q=9 this concerns stable H₂=0; it does not erase finite-rank H₂(SL₂(𝔽₉))=ℤ/3.
+* K₃(𝔽₃)=ℤ/8 and K₃(𝔽₅)=ℤ/24 each have quotient of order 2.
+Sources: AbdurrahmanVenkatesh.2025.v1, Lemma 2.7.2 proof, p.17; Hurewicz factorization made explicit.
+-/
+
+/- KTheoryFiniteLocalFields:L.1/finite-field-k3-coefficient-two
+Proposed lemma name: TauCeti.KTheoryFiniteLocal.FiniteRank.finite_field_k3_coefficient_two
+Reduction gives K₃(𝔽_q)/2≅K₃(𝔽_q;ℤ/2), a group of order 2 for odd q. The Bockstein K₂(𝔽_q;ℤ/2)→K₁(𝔽_q)[2] is also an isomorphism; the Bott element β_(−1) maps to the nonidentity unit −1.
+
+Hypotheses:
+* q is an odd prime power and r≥1; all group homology has trivial coefficients. Integral homology modulo 2 means tensoring with ℤ/2, not homology with ℤ/2 coefficients until the indicated comparison is proved.
+
+Proof outline:
+1. Use the Bockstein exact sequence 0→K₃/2→K₃(;ℤ/2)→K₂[2]→0.
+2. Quillen gives K₂=0 and K₃=ℤ/(q²−1); q odd makes its quotient by 2 have order 2.
+3. In degree 2 the same sequence gives K₂(;ℤ/2)≅K₁[2]. By the determinant K₁=𝔽_q×, whose unique order-two element is −1. Apply the already defined Bott normalization.
+
+Required imports: KTheoryFiniteLocalFields:L.1/quillen-k-groups, KTheoryFiniteLocalFields:L.1/k-theory-mod-m, KTheoryFiniteLocalFields:L.1/bott-element, StableHomotopyKTheory:H.6, KTheoryLowDegrees:U.6.
+Acceptance checks:
+* For q=5, −1 is nonzero in K₁[2] but zero in K₁/2. These different occurrences must not be identified.
+* For q=2 the order-two assertions do not apply.
+Sources: Weibel.Chern2.1993.author, Proposition 5.1, p.24, and its coefficient convention.
+-/
+
+/- KTheoryFiniteLocalFields:L.1/finite-field-chern-bott-product
+Proposed lemma name: TauCeti.KTheoryFiniteLocal.FiniteRank.finite_field_chern_bott_product
+Let a∈𝔽_q× and let β=β_(−1)∈K₂(𝔽_q;ℤ/2). The imported coefficient Chern class satisfies c₂,₁([a]β)=−κ(a)⊗(−1) in H¹_et(𝔽_q,μ₂^⊗2), where κ(a) is its Kummer class and −1 in the tensor factor denotes the generator of μ₂, not its square class. Under μ₂^⊗2≅μ₂ this is κ(a), since signs agree modulo 2.
+
+Hypotheses:
+* q is an odd prime power and r≥1; all group homology has trivial coefficients. Integral homology modulo 2 means tensoring with ℤ/2, not homology with ℤ/2 coefficients until the indicated comparison is proved.
+
+Proof outline:
+1. Use the mod-2 pairing from the existing finite-field mod-m-products contract. Positive even integral K-groups vanish, so the partial-product obstruction from general mod-2 K-theory is absent here.
+2. M.8 exports c₁,₁([a])=κ(a), c₁,₀(β)=−1 in H⁰(μ₂), and the i=2 product formula c₂,₁([a]β)=−c₁,₁([a])∪c₁,₀(β). The prime-2 correction in Weibel Theorem3.3 applies to i≥3, not this i=2 case.
+3. Triviality of the Galois action on μ₂ and its specified generator identify the target tensor twist with μ₂. Retain a as an arbitrary unit; nonvanishing requires a nonsquare.
+
+Required imports: KTheoryFiniteLocalFields:L.1/finite-field-k3-coefficient-two, KTheoryFiniteLocalFields:L.1/mod-m-products, MotivicEtaleKTheory:M.1.
+Acceptance checks:
+* q=3,a=−1 gives a nonzero value.
+* q=5,a=2 gives a nonzero value, whereas a=−1=4 gives zero.
+* For q=9, choose a generator of 𝔽₉×; do not use the square −1 as a degree-one generator.
+Sources: Weibel.Chern2.1993.author, Introduction pp.1–2; §§1.6, 2.2.1, 2.6–2.7; Theorem3.2(ii) and Remark3.2.1 p.13 with proof p.15; Theorem3.3 p.14; Proposition5.1 p.24.
+Unresolved supplier: MotivicEtaleKTheory:M.8 early Chern export. The whole regulator stage is downstream through M.7/L.2 and is not a prerequisite edge; the named gap and structural proposal record the required split.
+
+Upstream Kummer contract: tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-9-the-galois-interface-hilbert-90-and-kummer-theory. The existing injective Kummer map alone does not give the required isomorphism.
+
+-/
+
+/- KTheoryFiniteLocalFields:L.1/finite-field-k3-etale-isomorphism
+Proposed theorem name: TauCeti.KTheoryFiniteLocal.FiniteRank.finite_field_k3_etale_isomorphism
+For odd q, c₂,₁:K₃(𝔽_q)/2≅K₃(𝔽_q;ℤ/2)→H¹_et(𝔽_q,μ₂^⊗2)≅𝔽_q×/(𝔽_q×)² is an isomorphism, with the last identification using the distinguished generator −1 of μ₂ and the Kummer map.
+
+Hypotheses:
+* q is an odd prime power and r≥1; all group homology has trivial coefficients. Integral homology modulo 2 means tensoring with ℤ/2, not homology with ℤ/2 coefficients until the indicated comparison is proved.
+
+Proof outline:
+1. The source has order 2 by finite-field-k3-coefficient-two. The target has order 2 because the cyclic group 𝔽_q× has even order and Kummer identifies H¹(μ₂) with square classes.
+2. Choose a nonsquare a and form [a]β_(−1). By finite-field-chern-bott-product its Chern class is the nonzero Kummer class of a.
+3. A nonzero homomorphism between groups of order 2 is an isomorphism. This proves the i=2, coefficient2 case of Weibel Proposition5.1 without treating −1 as a nonsquare for every q.
+
+Required imports: KTheoryFiniteLocalFields:L.1/finite-field-k3-coefficient-two, KTheoryFiniteLocalFields:L.1/finite-field-chern-bott-product, MotivicEtaleKTheory:M.1.
+Acceptance checks:
+* For q=5, the class of 2 witnesses nonvanishing.
+* The claim is about the canonical Chern map with its twist identification, rather than a chosen abstract cyclic-group isomorphism.
+Sources: Weibel.Chern2.1993.author, Proposition5.1, p.24, specialized to i=2 and coefficient modulus2.
+Unresolved supplier: MotivicEtaleKTheory:M.8 early Chern export. The whole regulator stage is downstream through M.7/L.2 and is not a prerequisite edge; the named gap and structural proposal record the required split.
+
+Upstream Kummer contract: tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-9-the-galois-interface-hilbert-90-and-kummer-theory. The existing injective Kummer map alone does not give the required isomorphism.
+
+-/
+
+/- KTheoryFiniteLocalFields:L.1/finite-rank-symplectic-etale-isomorphism
+Proposed theorem name: TauCeti.KTheoryFiniteLocal.FiniteRank.finite_rank_symplectic_etale_isomorphism
+For every odd q and r≥1, the étale class of the standard representation induces c_et:H₃(Sp₂r(𝔽_q),ℤ)/2→𝔽_q×/(𝔽_q×)², an isomorphism of groups of order 2. It agrees with the stable K₃ Chern class under inclusion, stabilization and Hurewicz.
+
+Hypotheses:
+* q is an odd prime power and r≥1; all group homology has trivial coefficients. Integral homology modulo 2 means tensoring with ℤ/2, not homology with ℤ/2 coefficients until the indicated comparison is proved.
+
+Proof outline:
+1. Import M.8’s homology class associated to the standard representation and its compatibility with the finite-coefficient K₃ Chern class. This comparison is a supplier contract, not a second local definition of c_et.
+2. By finite-rank-symplectic-h3-mod-two, inclusion and stabilization identify the source with H₃(SL(𝔽_q),ℤ)/2.
+3. Use stable-sl-degree-three-hurewicz and finite-field-k3-coefficient-two to identify this group with K₃(𝔽_q;ℤ/2).
+4. The natural comparison square identifies the map with finite-field-k3-etale-isomorphism. Thus the given representation’s class is an isomorphism. The proof includes the finite-rank stabilization step suppressed in the source.
+
+Required imports: KTheoryFiniteLocalFields:L.1/finite-rank-symplectic-h3-mod-two, KTheoryFiniteLocalFields:L.1/stable-sl-degree-three-hurewicz, KTheoryFiniteLocalFields:L.1/finite-field-k3-etale-isomorphism.
+Acceptance checks:
+* q=3,5,9 and r=1 are included; the q=9 Schur-multiplier exception causes no mod-2 obstruction.
+* The target is square classes; the conclusion does not assert Reidemeister torsion equals c_et, which belongs to the paper’s other routed owner.
+Sources: AbdurrahmanVenkatesh.2025.v1, Lemma2.7.2 and footnote6, p.17.
+Unresolved supplier: MotivicEtaleKTheory:M.8 early Chern export. The whole regulator stage is downstream through M.7/L.2 and is not a prerequisite edge; the named gap and structural proposal record the required split.
+
 -/
