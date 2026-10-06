@@ -33778,8 +33778,9 @@
    ],
    "avoidAccountOf": "BP-EllipticRegulators--ER.5",
    "prompt": "research/blueprint/prompts/REV-EllipticRegulators--ER.5.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6438"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6438",
+   "finishedAt": "2026-10-06T05:56:38Z"
   },
   {
    "id": "BP-EllipticRegulators--ER.6",
@@ -34714,7 +34715,8 @@
    ],
    "avoidAccountOf": "BP-HabiroNahmSeries--HB.9",
    "prompt": "research/blueprint/prompts/REV-HabiroNahmSeries--HB.9.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6462"
   },
   {
    "id": "BP-AnabelianGeometryAndNonabelianChabauty--NC.0",
