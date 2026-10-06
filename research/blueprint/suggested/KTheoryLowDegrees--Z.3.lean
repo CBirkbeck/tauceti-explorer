@@ -79,15 +79,19 @@ import TauCeti.RingTheory.MvPolynomial.Symmetric.Substitution
 
 This file is not the roadmap and is not exhaustive. The roadmap document
 `research/blueprint/readmes/KTheoryLowDegrees--Z.3.md` carries all 260 reviewed nodes and the
-corrections recorded in `research/blueprint/reviews/REV-KTheoryLowDegrees--Z.3.md`. The statements below suggest
+corrections recorded in `research/blueprint/reviews/REV-KTheoryLowDegrees--Z.3.md` and
+`research/blueprint/reviews/REV-KTheoryLowDegrees--Z.3~2.md`. The statements below suggest
 Lean forms so that contributors and reviewers converge on names and signatures; they claim no
 implementation, and `implementationStatus` stays `"unchecked"` for every node.
 
 Pinned commits: Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti
 `f790474821cf4256814db967cb154e7af3d0c369`.
 
-Elaboration was not run: no existing build matches both pinned commits. The independent review
-and round-2 handoff record the source checks and remaining integration work. The 31 explicit
+The round-2 independent review attempted `lean-check`: it stopped at the missing prebuilt
+`TauCeti.Algebra.AlgebraicGroup.GeneralLinear.DiagonalTorus.Basic` import before checking the
+file. No available existing build matches both pinned commits, and elaboration remains
+unverified. The independent review and handoff record the source checks and remaining
+integration work. The 31 explicit
 node-level omission contracts remain: one partial and 30 omitted.
 The signatures and proof placeholders are planning material, not completed formalization.
 
@@ -162,8 +166,8 @@ The signatures and proof placeholders are planning material, not completed forma
 
 ## Real definitions, data sorries, helpers and omissions
 
-Real definitions: the λ-ring classes and the universal polynomials (the Newton polynomial with a
-complete proof), `lambdaTotal`, `gammaTotal`/`gamma` (by `PowerSeries.subst`), `adams`, the
+Real definitions: the λ-ring classes and the universal polynomials (the Newton polynomial uses
+the pinned existence and symmetry lemmas), `lambdaTotal`, `gammaTotal`/`gamma` (by `PowerSeries.subst`), `adams`, the
 augmentation ideals and the γ-filtration (as `Ideal.span`), the binomial and monoid λ-structures,
 the rank, scalar extension and `K₀`-operations of `K₀(R)` through `SplitK0.lift`, the componentwise
 determinant `detProjective` (the Picard class of `∏_n e_n ⋀ⁿP` along the rank fibres) and
@@ -241,7 +245,7 @@ noncomputable def compPoly (k l : ℕ) : MvPolynomial (Fin (k * l)) ℤ :=
 
 /-- **The Newton polynomial** `N_k` with `p_k = N_k(e₁, …, e_k)` (`MvPolynomial.psum`), from
 `MvPolynomial.IsSymmetric.exists_aeval_esymm` and `MvPolynomial.psum_isSymmetric` (a real
-definition with a complete proof). -/
+definition using the pinned existence and symmetry lemmas; elaboration is unverified). -/
 /-- `KTheoryLowDegrees:Z.3/lambda-newton-polynomial`, separated by the independent review. -/
 noncomputable def newtonPoly (k : ℕ) : MvPolynomial (Fin k) ℤ :=
   Classical.choose (MvPolynomial.IsSymmetric.exists_aeval_esymm (psum_isSymmetric (Fin k) ℤ k))
