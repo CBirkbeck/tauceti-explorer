@@ -84,7 +84,9 @@ way to close that gap if Skalba's paper stays unobtainable, and is recorded here
    - `T.3/milnor-quillen-transfer-comparison` cites `K.3/finite-field-transfer-base-change`, which proves the
      base-change formula with local lengths on finite vector spaces, never as K(B) of the nonreduced algebra.
    - The K.3 request is narrowed to what K.1 still lacks: the identification of the torsion Serre quotient for a
-     Dedekind domain. It is now needed only by `T.3/dedekind-localization-boundary`, which lists the K.3 stage.
+     Dedekind domain. It is now needed only by `T.3/dedekind-localization-boundary`, which now lists the K.3 stage as a
+     prerequisite. The coverage `remaining` item of T.3:localization-comparison that asked for these contracts says
+     the same.
    - The K.7 request is narrowed to the unit-product contract a·b = {a, b}. It now also names
      `T.7/chern-class-agreement`, which cited the K.7 stage without any request.
 2. **The V.5–N.8 stage cycle is removed.** `K3BlochGroups:V.5/k3-Z-and-Q` and `V.5/k3-gaussian` imported the stage
@@ -205,7 +207,56 @@ ancestry.
 
 ## The hand-off destinations on 6 October
 
-HANDOFF-STATUS-PLACEHOLDER
+All nine destination packets now exist on main. Each was read on 6 October 2026 (a subagent's read, spot-checked
+here) to see whether it carries what its finding requires. Of the 37 (finding, packet) pairs:
+
+- 26 are carried;
+- 7 are carried in part;
+- 4 are not carried.
+
+The misses are for those jobs' revision rounds and reviews, which the hand-off issues already bind; none is a
+deliverable here.
+
+- **Not carried: /5 and /33 (H.6 as single owner of rational Hurewicz / Cartan–Serre).**
+  - `StableHomotopyKTheory:H.3/rational-hurewicz-hspace` owns it, for path-connected H-spaces of finite type without the
+    homotopy-associativity hypothesis the verifier required, and no H.6 node covers it.
+  - `BorelRegulators:R.3/cartan-serre-application`, `R.3/gl-sl-primitive-comparison` and
+    `R.1/finite-type-plus-consequences` import the H.3 stage.
+  - Both packets are `complete` with `needs_changes` reviews.
+- **Not carried: /23 in SchemeKTheoryOperations.** `S.4/k-coniveau-spectral-sequence` and
+  `S.4/g-coniveau-spectral-sequence` build their own exact couples and do not import H.6's `H.6/exact-couple` and
+  `H.6/filtered-spectrum-spectral-sequence`. The packet (`partial`, unreviewed) predates the hand-off; #987 is still
+  available.
+- **Partly carried:**
+  - **/17, SchemeKTheoryOperations.** S.5 cites the K.6 stage, but never `K.6/projective-line-splitting`,
+    `K.6/nil-groups-are-NK` or `K.6/fundamental-theorem-with-nil-terms`, and `S.5/projective-line-k-theory` re-derives
+    P¹.
+  - **/2, M.1 and M.5d.** Naturality is missing. The Dedekind form states only the a ≤ j isomorphism, with no truncation
+    form.
+  - **/31, Z.3.** Perfect K₀ = G₀ = ℤ² for the doubled affine plane is only in `upstreamNotes`.
+  - **/37, KTheoryFiniteLocalFields.** `L.1/quillen-fibration` imports `H.3/plus-construction-universal-property`
+    rather than the H-space Whitehead nodes, and does not prove BGL(𝔽_q)⁺ simple.
+  - **/1, /7 and /35, BorelRegulators.** Carried with narrower forms:
+    - /1: Aut_O(P) only, with the orientation twist handled by passing to a torsion-free subgroup;
+    - /7: degree one is only said to be a distinct statement;
+    - /35: it cites the ALS.5 stage through a request.
+- **Carried**, among others:
+  - /3, /13: M.5d (`M.7/suslin-real-comparison`, `M.5d/bloch-gabber-kato`);
+  - /4, /15, /16, /22, /30: StableHomotopyKTheory H.1–H.5;
+  - /6, /34, /36: BorelRegulators R.4–R.7;
+  - /8, /12, /14: M.1, including `M.4/nesterenko-suslin-totaro`, which imports T.4;
+  - /10 and /11: SpecialValuesBirchTate, whose `B.3/sqrt-five-birch-tate-check` imports
+    `ArithmeticKTheory:N.8/real-quadratic-example-and-birch-tate`;
+  - /24, /25: KTheoryLowDegrees U.4;
+  - /39: KTheoryFiniteLocalFields L.5.
+
+B.3 still calls N.8's upper bound a supplier gap; since #6707 it is a decomposed node of N.8 (with the Skalba source
+gap), and B.3's next round should say so.
+
+These packets' readiness also bears on this round's stage prerequisites. Many nodes of the seven packets still cite
+supplier stages (H.2, H.5:spectra, M.3, S.3, …) that now have exact nodes in those packets. Replacing them is an
+integration pass beyond this fix's findings, and the supplier packets are themselves unaccepted. It is left to the
+packets' next rounds.
 
 ## Proof repairs that go beyond a renamed gap
 
@@ -354,4 +405,5 @@ the proposed early K.7:products and K.3 parents.
   N.1 and K.1 `TauCeti.Algebra.Category.ModuleCat.CartanMap` and `TauCeti.CategoryTheory.GrothendieckGroup.*`; T.3
   `TauCeti.FieldTheory.FunctionField.*`. `lean-check` stops at the first import. No Lake project, build, cache download
   or language server was used.
-- Intake file-scope check: only this issue's deliverables are changed.
+- `python3 research/blueprint/intake.py check-files` on the 21 changed files: 0 problems; only this issue's
+  deliverables change. `git diff --check` is clean.

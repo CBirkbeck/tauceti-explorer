@@ -1385,7 +1385,7 @@ After RT-AREA-ktheory-1/28 this sub-stage **follows T.4** (edge T.4 → T.3:loca
 *Remaining:*
 
 - Apply the stage change of RT-AREA-ktheory-1/28: the edge T.4 → T.3:localization-comparison (the earlier proposal T.3:localization-comparison → T.4 is withdrawn, since together they form a cycle), and move the sentence 'Develop higher Milnor residues, specialisation with a uniformiser, and their product signs' with 'Prove finite support' to T.3:symbols' text, whose nodes realise them.
-- Implement the explicit K.3 ring-boundary and arbitrary-field base-change contracts and the K.7 right module action; supplies are planned requests, not pinned declarations.
+- The K.3 ring boundary, the arbitrary-field base change of transfers and the right module action are planned nodes of the GeneralAlgebraicKTheory K.1 packet (K.3/localization-degree-one-index, K.3/dvr-degree-one-boundary, K.3/finite-field-transfer-base-change, K.3/localization-product-boundary), not pinned declarations; the torsion Serre quotient (K.3) and the unit product (K.7) remain requests.
 
 ### `localization-boundary` — Identification with the boundary of the localisation sequence
 
